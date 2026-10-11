@@ -14,7 +14,7 @@ export const SORTS: { key: SortKey; label: string }[] = [{ key: "year", label: "
 
 /** The text each scholar is searched by: name, place, field, faith, one-line summary and work titles, lower-cased. */
 export function buildHaystack(data: ScholarsData): Map<string, string> {
-  return new Map(data.scholars.map((s) => [s.id, [s.name, s.short, s.place[0], data.fields[s.field], data.faiths[s.faith], s.line, ...s.works.map((w) => w[0])].join(" ").toLowerCase()]));
+  return new Map(data.scholars.map((s) => [s.id, [s.name, s.short, s.place[0], data.fields[s.field], data.faiths[s.faith], s.line, ...(s.tags ?? []), ...s.works.map((w) => w[0])].join(" ").toLowerCase()]));
 }
 
 const chosen = (filters: CatalogueFilters, key: FacetKey): readonly string[] => filters[key];

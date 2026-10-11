@@ -96,6 +96,13 @@
       "scope": "Build-unblock review for theme transition: compared current publication with last built reformed-reading.json and generated reading-library.ts. Selected records, manifest, authors, sources and rendered library match exactly apart from fingerprint. Restoring vocabulary before commit 99895b3 reproduces the prior published hash. Only shared vocabulary additions changed the fingerprint; no new reading works, links, rights claims or body texts are published by this review.",
       "date": "2026-10-05",
       "contentHash": "6b2e1059ca262e5dd34efc0c94d203a8a99b01ed96ed855184303e18f9394044"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "RF01: reviewed addition of the evangelical vocabulary value and context-only William Lane Craig author record for Scholars and Apologetics. Existing selected reading works, editions, links, rights evidence and text remain unchanged. No Craig full text added to public reading selection.",
+      "date": "2026-10-11",
+      "contentHash": "c1a79edb6bb89ef53cbee4dd2dd2de02c05fcb05c1619ce9033f403afd709cd8"
     }
   ],
   "editionIds": [

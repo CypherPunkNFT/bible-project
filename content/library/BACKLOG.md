@@ -1,5 +1,16 @@
 # Acquisition backlog
 
+## RF01: William Lane Craig writings acquired — 11 October 2026
+
+- [x] Extract all 177 PDFs into TXT and page-level JSONL: 2,597 pages, 1,092,719 word tokens, no failures, no OCR required. [Extraction report](../../../Research/Apologetics/ReasonableFaith/EXTRACTION.md).
+- [x] Register Craig under Scholars and label Apologetics; add one searchable 177-PDF catalogue linked from both sections. Local preview tested at desktop and phone widths; no public deployment or database intake performed.
+
+- [x] Catalogue all 13 Popular/Scholarly Reasonable Faith categories: 183 article listings and 177 distinct offered PDF links; five articles have no PDF offer.
+- [x] Download every PDF one at a time: 177 files, 28,255,742 bytes, 2,597 pages, no remaining failures. Checksums and all PDF pages independently verified; three rendered samples visually checked.
+- [Catalogue](../../../Research/Apologetics/ReasonableFaith/CATALOGUE.md) · [CSV](../../../Research/Apologetics/ReasonableFaith/catalogue.csv) · [Manifest](../../../Research/Apologetics/ReasonableFaith/catalogue.json) · [Verification](../../../Research/Apologetics/ReasonableFaith/verification.json).
+
+Originals are under `sources/reasonable-faith-writings/pdfs/`; extracted derivatives under `Research/Apologetics/ReasonableFaith/extracted/`. Source and rights metadata recorded in SOURCES.md. Acquisition, extraction and website source-catalogue integration complete; no public site release or knowledge-database intake was run.
+
 <!-- LC01 backlog -->
 ## LC01: Letters-cited works acquired
 

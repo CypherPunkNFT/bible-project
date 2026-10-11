@@ -4,7 +4,7 @@ Generated from [authors.json](authors.json). Edit the JSON, then run `node scrip
 
 Established 2026-10-05. All decisions are AI-assisted initial screening, not independent human theological approval. Eligible authors still require work-level and edition/rights checks. Provisional status identifies incomplete evidence, not a finding against an author.
 
-**76 people: 47 initially eligible; 2 provisional.**
+**82 people: 52 initially eligible; 2 provisional.**
 
 | Author | Placement | Decision | Evidence | Next check |
 |---|---|---|---|---|
@@ -53,6 +53,12 @@ Established 2026-10-05. All decisions are AI-assisted initial screening, not ind
 | Yusuf Bux |  | context-only | [Basis](https://www.aomin.org/aoblog/debate/debate-trinity-and-tawid-yusuf-bux-university-of-johannesburg-south-africa-10-4-2013/) | Scope of attribution must remain attached to each source. |
 | Zakir Hussain |  | context-only | [Basis](https://www.aomin.org/aoblog/debate/debate-is-muhammad-prophesied-in-the-bible-zakir-hussain-london-9-17-2012/) | Scope of attribution must remain attached to each source. |
 | Adnan Rashid |  | context-only | [Basis](https://www.aomin.org/aoblog/islam/a-wonderful-evening-at-university-college-dublin/) | Scope of attribution must remain attached to each source. |
+| John Wesley | anglican | eligible | [Basis](https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/) |  |
+| D. L. Moody | congregational | eligible | [Basis](https://www.gutenberg.org/ebooks/author/2296) |  |
+| Billy Graham | baptist | eligible | [Basis](https://billygraham.org/about/biographies/billy-graham/) |  |
+| John MacArthur | baptist, calvinist-evangelical | eligible | [Basis](https://www.gty.org/) |  |
+| G. Campbell Morgan | congregational | eligible | [Basis](https://www.gutenberg.org/ebooks/author/1785) |  |
+| William Lane Craig | evangelical | context-only | [Basis](https://www.reasonablefaith.org/william-lane-craig/) | Review individual arguments and doctrinal claims in context; local acquisition does not establish republication rights. |
 | Westminster Assembly | presbyterian, reformed | eligible | [Basis](https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/westminster_confession_of_faith.json) | No blanket eligibility judgment concerning later members, revisions or affiliated institutions. |
 | Particular Baptist churches and messengers | baptist, reformed | eligible | [Basis](https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/london_baptist_1689.json) | No blanket eligibility judgment concerning later members, revisions or affiliated institutions. |
 | Reformed church of the Electoral Palatinate | continental-reformed | eligible | [Basis](https://ccel.org/ccel/schaff/creeds3/creeds3.iv.vi.html) | No blanket eligibility judgment concerning later members, revisions or affiliated institutions. |

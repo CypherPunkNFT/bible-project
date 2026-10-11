@@ -3,9 +3,9 @@ import type { Era, ScholarsData, Scholar } from "@/data/teachers/pages-types";
 
 export const NOW = 2026;
 /** "c. 37–c. 100" or "1822–1890". */
-export const years = (s: Scholar) => (s.circa ? `c. ${s.born}–c. ${s.died}` : `${s.born}–${s.died}`);
+export const years = (s: Scholar) => s.died === null ? `b. ${s.born}` : (s.circa ? `c. ${s.born}–c. ${s.died}` : `${s.born}–${s.died}`);
 /** "about 63 years" or "68 years". */
-export const lived = (s: Scholar) => `${s.circa ? "about " : ""}${s.died - s.born} years`;
+export const lived = (s: Scholar) => s.died === null ? "Living" : `${s.circa ? "about " : ""}${s.died - s.born} years`;
 export const isUsed = (s: Scholar) => s.site?.status === "in-use";
 export const surname = (s: Scholar) => s.short.split(" ").slice(-1)[0];
 /** How often the site names them, all areas together (a relative weight). */

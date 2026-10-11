@@ -30,6 +30,7 @@ export function linkChecker(valid) {
   const research = new Set(valid.research ?? []);
   const teacherWorks = new Set(valid.teacherWorks ?? []);
   const readingSources = new Set(valid.readingSources ?? []);
+  const scholarWritings = new Set(valid.scholarWritings ?? []);
 
   return function check(address) {
     const url = new URL(address, "http://site");
@@ -37,6 +38,7 @@ export function linkChecker(valid) {
     const query = url.searchParams;
     if (path === "/study/atlas/map" && query.get("place") && !places.has(query.get("place"))) return `no atlas place "${query.get("place")}"`;
     if (STATIC.has(path)) return null;
+    if (scholarWritings.has(path)) return null;
     if (path === "/review/research" || path.startsWith("/review/research/")) return research.has(path) ? null : "no selected research page at this address";
     let m;
     if (path === "/teachers/works") return null;

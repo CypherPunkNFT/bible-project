@@ -2,7 +2,7 @@
   "$schema": "./schema.json",
   "schemaVersion": 1,
   "kind": "author-registry",
-  "updated": "2026-10-08",
+  "updated": "2026-10-11",
   "authors": [
     {
       "id": "author-john-calvin",
@@ -1652,6 +1652,39 @@
         "reviewer": "Claude",
         "kind": "ai-assisted",
         "scope": "Sermons campaign: identity and owner-scope eligibility; work review remains required."
+      }
+    },
+    {
+      "id": "author-william-lane-craig",
+      "entityType": "person",
+      "name": "William Lane Craig",
+      "aliases": [
+        "W. L. Craig"
+      ],
+      "cohort": "modern-apologetics",
+      "traditions": [
+        "evangelical"
+      ],
+      "eligibility": "context-only",
+      "rationale": "Included by owner request in Scholars and Apologetics materials. This author record does not classify Craig as a Reformed preacher or admit all his doctrinal positions to the core Reformed collection.",
+      "receptionBasis": "Christian philosopher and apologist; Reasonable Faith provides the scholarly and popular writings catalogued as RF01.",
+      "evidence": [
+        {
+          "url": "https://www.reasonablefaith.org/william-lane-craig/",
+          "locator": "Biographical Sketch and Curriculum Vitae",
+          "note": "Author identity, birth year, philosophy and theology training, Talbot affiliation, and bibliography.",
+          "checkedOn": "2026-10-11"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Review individual arguments and doctrinal claims in context; local acquisition does not establish republication rights."
+      ],
+      "review": {
+        "date": "2026-10-11",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic placement in Scholars and Apologetics, following owner instruction; no blanket doctrinal endorsement."
       }
     }
   ]

@@ -60,7 +60,7 @@ export function buildScholars(site: string): ScholarsData {
     scholars: input.scholars.map(({ match, site: use, ...s }) => {
       const latest = acquired.get(s.id);
       return { ...s, era: eraOf(s.works[0]?.[1] ?? s.born + 30), site: use?.[0] === "in-use" ? { status: "in-use" as const, note: use[1] } : latest ? { status: "held" as const, note: `${latest.records.toLocaleString()} held text representations; ${latest.readable.toLocaleString()} available to read on this site. Holdings do not establish use in a live feature.` } : use ? { status: use[0], note: use[1] } : null,
-        mentions: mentions(match), heldTexts: latest?.records ?? 0, readableTexts: latest?.readable ?? 0, acquiredId: latest?.id ?? null };
+        mentions: mentions(match), heldTexts: latest?.records ?? s.writings?.count ?? 0, readableTexts: latest?.readable ?? 0, acquiredId: latest?.id ?? null };
     })
       .sort((a, b) => a.born - b.born),
     finds: input.finds, chain: input.chain, views,

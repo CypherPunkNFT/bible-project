@@ -1,4 +1,6 @@
 import {DEBATES, PATHS, PRACTICE, STUDIES, TOPICS, WORLDVIEWS} from '@/data/apologetics-library';
+import writings from '../../content/teachers/writings/index.json';
+const materials = writings.map(w => ({label: w.name + ' writings', to: w.path, detail: `Apologetics materials · ${w.documents} PDFs`}));
 const base = '/apologetics';
 const islam = base + '/worldviews/islam';
 const guide = islam + '/guide';
@@ -21,10 +23,10 @@ const browseGroups = [
   {label:'Explore the faith',links:main.slice(0,4)},
   {label:'Across beliefs',links:worlds},
   {label:'Put it into practice',links:main.slice(4).filter(x=>x.label!=='Worldviews'&&x.label!=='My study')},
-  {label:'Keep studying',links:[main[8],{label:'The source room',to:base+'/sources'},...islamPages.slice(1,3)]},
+  {label:'Keep studying',links:[...materials,main[8],{label:'The source room',to:base+'/sources'},...islamPages.slice(1,3)]},
 ];
 const destinations: Destination[] = [
-  ...main,...worlds,...islamPages,
+  ...main,...worlds,...islamPages,...materials,
   {label:'The source room',to:base+'/sources',detail:'Primary texts and study sources'},
   ...TOPICS.map(t=>({label:t.title,to:base+'/topics/'+t.id,detail:'Question topic'})),
   ...PATHS.map(p=>({label:p.title,to:base+'/paths/'+p.id,detail:'Learning path'})),
@@ -43,7 +45,7 @@ function secondary(group:string): Destination[] {
   if(group==='Practice') return PRACTICE.map(p=>({label:p.label,to:base+'/practice?scenario='+p.id}));
   if(group==='Reformed theology'||group==='Historic texts') return [{label:'Reformed questions',to:base+'/topics/reformed'},{label:'Confessions & historic texts',to:base+'/texts'},{label:'The source room',to:base+'/sources'}];
   if(group==='Debates') return [{label:'All exchanges',to:base+'/debates'},{label:'The source room',to:base+'/sources'},{label:'Conversation practice',to:base+'/practice'}];
-  if(group==='My study'||group==='Sources') return [{label:'My study',to:base+'/saved'},{label:'The source room',to:base+'/sources'},{label:'Find a question',to:base+'/questions'}];
+  if(group==='My study'||group==='Sources') return [...materials,{label:'My study',to:base+'/saved'},{label:'The source room',to:base+'/sources'},{label:'Find a question',to:base+'/questions'}];
   return [{label:'Start here',to:base+'/paths/begin'},{label:'Explore the questions',to:base+'/questions'},{label:'Across beliefs',to:base+'/worldviews'},{label:'The source room',to:base+'/sources'}];
 }
 

@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-11",
+  "scope": "RF01 author registry, Scholars profile and Apologetics source catalogue",
+  "preview": "http://127.0.0.1:8941/teachers/scholars/william-lane-craig/writings",
+  "sourceBiography": "https://www.reasonablefaith.org/william-lane-craig/",
+  "pdfs": 177,
+  "pages": 2597,
+  "words": 1092719,
+  "localExtractionSeconds": 33.425,
+  "appTypecheck": "passed",
+  "nodeTypecheck": "passed",
+  "libraryValidation": "passed",
+  "generatedTeacherData": "current",
+  "build": "passed in isolated checkout; esbuild JSX compiler used because installed SWC native binding fails to load",
+  "browserJourneys": [
+    {
+      "width": 1440,
+      "status": "passed",
+      "categories": 13,
+      "documents": 177
+    },
+    {
+      "width": 400,
+      "status": "passed",
+      "categories": 13,
+      "documents": 177
+    }
+  ],
+  "designChecks": [
+    {
+      "template": "scholars",
+      "variant": "directory",
+      "instances": 1,
+      "checked": 1,
+      "coverage": "All pages",
+      "failed": {},
+      "failures": []
+    },
+    {
+      "template": "scholar-writings",
+      "variant": "catalogue",
+      "instances": 1,
+      "checked": 1,
+      "coverage": "All pages",
+      "failed": {},
+      "failures": []
+    }
+  ],
+  "screenshots": {
+    "scholars/directory/page": {
+      "desktop-dark": {
+        "full": "scholars/directory/page-1440-dark.png",
+        "crop": "scholars/directory/page-1440-dark-crop.png",
+        "cropKind": "signature",
+        "thumb": "scholars/directory/page-1440-dark-thumb.jpg",
+        "hash": "6521252d71013171",
+        "height": 9000,
+        "clipped": true
+      },
+      "desktop-light": {
+        "full": "scholars/directory/page-1440-light.png",
+        "crop": "scholars/directory/page-1440-light-crop.png",
+        "cropKind": "signature",
+        "thumb": "scholars/directory/page-1440-light-thumb.jpg",
+        "hash": "1a46595201073107",
+        "height": 9000,
+        "clipped": true
+      },
+      "phone-light": {
+        "full": "scholars/directory/page-400-light.png",
+        "crop": "scholars/directory/page-400-light-crop.png",
+        "cropKind": "signature",
+        "thumb": "scholars/directory/page-400-light-thumb.jpg",
+        "hash": "b700800088acf410",
+        "height": 9000,
+        "clipped": true
+      },
+      "phone-dark": {
+        "full": "scholars/directory/page-400-dark.png",
+        "crop": "scholars/directory/page-400-dark-crop.png",
+        "cropKind": "signature",
+        "thumb": "scholars/directory/page-400-dark-thumb.jpg",
+        "hash": "4900400048740812",
+        "height": 9000,
+        "clipped": true
+      }
+    },
+    "scholar-writings/catalogue/first": {
+      "desktop-light": {
+        "full": "scholar-writings/catalogue/first-1440-light.png",
+        "crop": "scholar-writings/catalogue/first-1440-light-crop.png",
+        "cropKind": "signature",
+        "thumb": "scholar-writings/catalogue/first-1440-light-thumb.jpg",
+        "hash": "0000889010001000",
+        "height": 9000,
+        "clipped": true
+      },
+      "desktop-dark": {
+        "full": "scholar-writings/catalogue/first-1440-dark.png",
+        "crop": "scholar-writings/catalogue/first-1440-dark-crop.png",
+        "cropKind": "signature",
+        "thumb": "scholar-writings/catalogue/first-1440-dark-thumb.jpg",
+        "hash": "0000644c0c000c00",
+        "height": 9000,
+        "clipped": true
+      },
+      "phone-light": {
+        "full": "scholar-writings/catalogue/first-400-light.png",
+        "crop": "scholar-writings/catalogue/first-400-light-crop.png",
+        "cropKind": "signature",
+        "thumb": "scholar-writings/catalogue/first-400-light-thumb.jpg",
+        "hash": "00b090b000800080",
+        "height": 9000,
+        "clipped": true
+      },
+      "phone-dark": {
+        "full": "scholar-writings/catalogue/first-400-dark.png",
+        "crop": "scholar-writings/catalogue/first-400-dark-crop.png",
+        "cropKind": "signature",
+        "thumb": "scholar-writings/catalogue/first-400-dark-thumb.jpg",
+        "hash": "0048684800400040",
+        "height": 9000,
+        "clipped": true
+      }
+    }
+  },
+  "reviewNotes": "8 desktop/phone light/dark screenshots generated in isolated worktree. Scoped inventory rebuilt from registered site-map definitions because Bun is unavailable. Existing shared review-board files belong to concurrent work and were not overwritten. Owner acceptance remains unrecorded.",
+  "publicDeployment": false,
+  "databaseIntake": false,
+  "storage": "Original PDFs and extracted full text remain outside public website files. Public catalogue contains source metadata and publisher links."
+}

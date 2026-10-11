@@ -9,6 +9,7 @@ import { sourcesPage } from "./site-sources";
 import { testimoniesPage } from "./site-testimonies";
 import { looseConstant, readableText } from "./site-source";
 import type { Extractor, PageContent } from "./types";
+import writings from "../../content/teachers/writings/william-lane-craig.json";
 
 const LAYOUT = "src/components/Layout.tsx";
 const FOOTER = "src/components/SiteFooter.tsx";
@@ -47,5 +48,12 @@ async function area(): Promise<PageContent> {
 
 export const extract: Extractor = async () => {
   const [shared, [home, library], reader, search, sources, testimonies] = await Promise.all([area(), homePages(), readerPage(), searchPage(), sourcesPage(), testimoniesPage()]);
-  return [shared, home, reader, search, sources, testimonies, library];
+  return [shared, home, reader, search, sources, testimonies, library, {
+    dir: "Site/scholar-writings", title: `${writings.name}: writings`, markdown: blocks(
+      link(writings.path),
+      `Listed in Scholars and linked from Apologetics materials. Subjects: ${writings.tags.join(", ")}.`,
+      `${writings.documents} original PDFs, ${writings.pages} pages, ${writings.categories.length} source categories. Search titles and subjects, filter by category, or open the original PDF and source article.`,
+      table(["Title", "Categories", "Pages", "PDF"], writings.writings.map(w => [w.title, w.categories.join(", "), String(w.pages), `[Original PDF](${w.pdfUrl})`])),
+    ),
+  }];
 };
