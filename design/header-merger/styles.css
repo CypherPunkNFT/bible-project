@@ -29,3 +29,10 @@
 
 /* Match the original header content width, so Apologetics sits beneath its brand. */
 .local-navigation{max-width:1280px;margin-inline:auto}
+
+/* Dividers belong to the full navigation band, not the inner content measure. */
+.local-navigation{max-width:none}
+.variant-a .section-row{max-width:1280px;margin-inline:auto}
+.original-worldviews-viewport{position:relative;overflow:hidden;height:56px;border-top:1px solid var(--line);background:var(--page)}
+.original-worldviews-frame{position:absolute;left:0;top:-190px;width:100%;height:1600px;border:0;background:var(--page)}
+.site-preview [hidden]{display:none!important}

@@ -7,3 +7,5 @@ Each preview embeds the actual `/apologetics` page header in an isolated 61px fr
 A: Apologetics identity under Bible Project, plain tabs and right-aligned local search. B: local identity/search row above tabs. C: search beside the worldview context row. D: local identity rail beside tabs and context. These layouts vary only below the website header. No proposal to modify the website header exists.
 
 Run `node design/header-merger/verify.mjs` for responsive/theme and interaction checks.
+
+Owner correction: A must preserve the existing third-row Worldviews layout and behavior. It now displays the actual live Worldviews row in a cropped frame, with its original icons, spacing, left alignment, selections and subpage links. The full-width navigation wrapper owns divider lines, so they meet the outer frame instead of ending at the inner content measure.

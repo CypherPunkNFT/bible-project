@@ -11,12 +11,19 @@ const b=await launch();try{
   assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
   for(const id of ['a','b','c','d']){
    const card=p.locator(`#option-${id}`);
-   const frame=card.locator('iframe').contentFrame();await frame.locator('header nav[aria-label=Main]').waitFor();
+   const frame=card.locator('.original-site-header').contentFrame();await frame.locator('header nav[aria-label=Main]').waitFor();
    assert.equal(await frame.locator('.site-header-row').count(),1);
    assert.equal(await card.locator('.global-row,.global-nav,.paired-brand').count(),0);
    await card.getByRole('tab',{name:'Questions',exact:true}).click();assert.equal(await card.getByRole('tab',{name:'Questions',exact:true}).getAttribute('aria-selected'),'true');
    assert.equal(await card.locator('.world-row .context-chip').count(),4);
-   await card.getByRole('tab',{name:'Worldviews',exact:true}).click();assert.equal(await card.locator('[data-world]').count(),4);
+   await card.getByRole('tab',{name:'Worldviews',exact:true}).click();
+   if(id==='a'){
+    await card.locator('.original-worldviews-frame[data-ready=true]').waitFor();
+    const original=card.locator('.original-worldviews-frame').contentFrame();
+    assert.equal(await original.locator('.sm-world-choices a').count(),4);
+    const geometry=await card.evaluate(el=>({outer:el.querySelector('.site-preview').getBoundingClientRect().width,band:el.querySelector('.local-navigation').getBoundingClientRect().width,row:el.querySelector('.original-worldviews-viewport').getBoundingClientRect().width}));
+    assert.ok(Math.abs(geometry.outer-geometry.band)<=2);assert.equal(geometry.row,geometry.band);
+   }else assert.equal(await card.locator('[data-world]').count(),4);
    await card.locator('.search-button').click();await p.locator('#search-input').fill('Islam');assert.equal(await p.locator('#search-results a').count(),1);await p.keyboard.press('Escape');await p.waitForFunction(()=>!document.getElementById('search-dialog').open);
   }
   assert.deepEqual(errors,[]);await p.evaluate(()=>window.scrollTo(0,0));
