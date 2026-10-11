@@ -23,3 +23,9 @@ No public deployment or Git push was performed. The collection remains nine guid
 Removed the persistent gold background and border from the first featured card. All three now rest neutrally. Pointer hover or keyboard focus strengthens the illustration stroke from 1 to 1.45, adds a subtle drawing glow and lights the card border over 280ms. Topic illustrations receive the same line treatment. Touch devices avoid sticky hover states, and the existing reduced-motion setting disables transitions.
 
 Production build passed. Browser inspection verified equal resting cards, hover/reset on all three cards, focus, reduced motion and navigation in light and dark themes. Four landing screenshots were refreshed; the dark hover treatment was visually inspected.
+
+## Topic navigation correction
+
+The shared anchor effect watched pathname and hash, so choosing another topic while the URL already ended in `#collection` updated the filter without returning the collection to view. The debate room now handles collection navigation by React Router location key, including repeat visits to the same URL, and moves keyboard focus to the collection heading after rendering the results.
+
+Application TypeScript and production build passed. Nine browser cases passed across desktop, tablet and phone: all five topics, repeated selection of the same topic, speaker navigation, browser back, reload, existing filters and all nine individual guides. Regression assertions check that the collection heading is in the viewport and focused, rather than checking only the URL and record count.

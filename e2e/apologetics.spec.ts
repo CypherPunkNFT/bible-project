@@ -97,6 +97,31 @@ test("apologetics: worldview comparison and sources lead to actual studies", asy
   await expect(page.locator('.ap-source-backlinks a[href="/apologetics/study/manuscripts"]')).toBeVisible();
 });
 
+test("apologetics: every debate topic brings its results into view on repeated navigation", async ({ page }) => {
+  await page.goto('/apologetics/debates');
+  const topics = [
+    ['god', 3], ['science', 2], ['resurrection', 2], ['suffering', 2], ['islam', 2],
+  ] as const;
+  const heading = page.locator('#dr-collection-title');
+  for (const [id, count] of [...topics, topics[4]]) {
+    // Clicking scrolls back up to a waypoint, while #collection stays in the URL.
+    await page.locator(`.dr-topics > a[href*="topic=${id}#"]`).click();
+    await expect(page).toHaveURL(new RegExp(`topic=${id}#collection$`));
+    await expect(page.locator('.ap-debate-list > a')).toHaveCount(count);
+    await expect(heading).toBeInViewport();
+    await expect(heading).toBeFocused();
+  }
+  await page.locator('.dr-debaters article').filter({ hasText: 'John Lennox' }).getByRole('link').click();
+  await expect(page.locator('.ap-debate-list > a')).toHaveCount(2);
+  await expect(heading).toBeInViewport();
+  await expect(heading).toBeFocused();
+  await page.goBack();
+  await expect(page.getByLabel('Topic', { exact: true })).toHaveValue('islam');
+  await expect(heading).toBeInViewport();
+  await page.reload();
+  await expect(heading).toBeInViewport();
+});
+
 test("apologetics: debate room waypoints, combined filters and return navigation", async ({ page }) => {
   await page.goto('/apologetics/debates');
   await expect(page).toHaveTitle('Debates · Apologetics · Bible Project');
