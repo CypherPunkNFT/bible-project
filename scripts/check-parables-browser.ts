@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { chromium } from 'playwright';
 import { PARABLES, PARABLE_GUIDE_URL, passageUrl } from '../src/data/parables';
-const base = process.env.BASE ?? 'http://127.0.0.1:8977';
+const base = process.env.BASE ?? 'http://127.0.0.1:8931';
 const browser = await chromium.launch({channel:'msedge'});
 mkdirSync('.output/parables',{recursive:true});
 const results:string[]=[];
