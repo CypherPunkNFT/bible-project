@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Icon, StudyLink } from "./shared";
 import { HubSearch } from "./HubSearch";
+import { JesusCard } from "./JesusCard";
 import { PeopleCards } from "./PeopleCards";
 import "./hub.css";
 const AtlasWindow = lazy(() => import("./AtlasWindow"));
@@ -77,6 +78,6 @@ export default function StudyHub() {
       </StudyLink>
     </section>
 
-    <PeopleCards /><Suspense fallback={<p className="atlas-loading">Loading the Atlas…</p>}><AtlasWindow /></Suspense><section className="hub-closing"><p className="eyebrow">One collection. Many connections.</p><h2>Begin with a question.<br /><em>See where it leads.</em></h2><div><StudyLink to="/study/theology/?area=jesus">Read the Gospels together <Icon name="arrowUp"/></StudyLink><StudyLink to="/study/academic/?area=texts">Explore the surviving texts <Icon name="arrowUp"/></StudyLink></div></section>
+    <JesusCard /><PeopleCards /><Suspense fallback={<p className="atlas-loading">Loading the Atlas…</p>}><AtlasWindow /></Suspense><section className="hub-closing"><p className="eyebrow">One collection. Many connections.</p><h2>Begin with a question.<br /><em>See where it leads.</em></h2><div><StudyLink to="/study/theology/?area=jesus">Read the Gospels together <Icon name="arrowUp"/></StudyLink><StudyLink to="/study/academic/?area=texts">Explore the surviving texts <Icon name="arrowUp"/></StudyLink></div></section>
     </div></div>;
 }
