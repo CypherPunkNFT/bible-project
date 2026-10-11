@@ -19,22 +19,17 @@ document.getElementById('options').insertAdjacentHTML('beforeend',`<section clas
 document.querySelector('.variant-e .original-e-page').dataset.version='e';
 document.querySelectorAll('.original-e-page').forEach(eFrame=>eFrame.addEventListener('load',()=>{
  const doc=eFrame.contentDocument;
- const style=doc.createElement('style');
- style.textContent='.am-masthead{display:none!important}.sm-container{margin-top:24px}.sm-e-bar{display:flex;align-items:stretch;background:var(--surface);border-radius:5px 5px 0 0;min-width:0}.sm-e-bar .sm-main{flex:1;min-width:0;padding-left:0;background:transparent;border-radius:0}.sm-e-bar .sm-main>div:first-child{padding-left:0}.sm-e-bar .sm-main>div:first-child>a{padding-left:12px}.sm-e-bar .e-logo{display:flex;align-items:center;justify-content:center;gap:9px;min-width:55px;padding:0 16px;border-right:1px solid var(--line);color:var(--accent)}.sm-e-bar .e-logo strong{color:var(--ink);font-size:12px}.sm-e-bar .e-logo svg{width:19px;height:19px}.sm-e-bar .e-search{align-self:center;flex:none;margin:0 12px 0 5px;cursor:pointer}.sm-e-bar[data-version=f] .e-search{align-self:stretch;margin:0;padding:0 18px;border:0;border-left:1px solid var(--line);border-radius:0;background:transparent;min-width:188px;justify-content:center}.sm-e-bar[data-version=f] .e-search:hover{background:color-mix(in srgb,var(--accent) 7%,var(--surface))}.sm-main>div:has(>a[href="/apologetics/practice"]),.sm-main>div:has(>a[href="/apologetics/saved"]){display:none!important}@media(max-width:900px){.sm-e-bar .e-search span,.sm-e-bar .e-search kbd{display:none}.sm-e-bar .e-search{padding:9px;min-width:34px}.sm-e-bar[data-version=f] .e-search{min-width:45px;padding:0 12px}.sm-e-bar .e-logo{min-width:42px}}';
- doc.head.append(style);
+ if(eFrame.dataset.version==='e'){
+  const style=doc.createElement('style');
+  style.textContent='.sm-leading-brand{min-width:55px;padding:0 16px}.sm-leading-brand strong{display:none!important}.sm-trailing-search{align-self:center;min-width:auto;height:35px;margin:0 12px;padding:0 12px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}';
+  doc.head.append(style);
+ }
  let pending=false;
  const update=()=>{
   pending=false;
-  const menu=doc.querySelector('.sm-container>.sm-main');
-  if(menu&&!doc.querySelector('.sm-e-bar')){
-   const bar=doc.createElement('div');bar.className='sm-e-bar';bar.dataset.version=eFrame.dataset.version;
-   const logo=doc.querySelector('.am-brand').cloneNode(true);logo.className='e-logo';logo.setAttribute('aria-label','Apologetics home');logo.querySelector('span')?.remove();if(eFrame.dataset.version==='e')logo.querySelector('strong')?.remove();
-   const search=doc.querySelector('.am-browse').cloneNode(true);search.className='am-browse e-search';search.addEventListener('click',()=>doc.querySelector('.am-masthead .am-browse').click());
-   menu.before(bar);bar.append(logo,menu,search);
-  }
   doc.querySelectorAll('.ap-orbit-node>span').forEach(label=>{if(label.textContent.trim()==='Doubt')label.textContent='Reason';if(label.textContent.trim()==='Reformed')label.textContent='Faith'});
   const end=doc.querySelector('.ap-universe-hero')||doc.querySelector('.wv-index-head')||doc.querySelector('.sm-container');
-  if(end){const height=Math.ceil(end.getBoundingClientRect().bottom+eFrame.contentWindow.scrollY);if(eFrame.style.height!==height+'px')eFrame.style.height=height+'px';eFrame.dataset.ready='true'}
+  if(end&&doc.querySelector('.sm-topbar')){const height=Math.ceil(end.getBoundingClientRect().bottom+eFrame.contentWindow.scrollY);if(eFrame.style.height!==height+'px')eFrame.style.height=height+'px';eFrame.dataset.ready='true'}
  };
  const schedule=()=>{if(!pending){pending=true;requestAnimationFrame(update)}};
  new MutationObserver(schedule).observe(doc.body,{subtree:true,childList:true,characterData:true});

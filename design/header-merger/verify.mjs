@@ -32,16 +32,16 @@ const b=await launch();try{
   const ef=e.contentFrame();
   assert.equal(await ef.locator('.site-header-row').count(),1);
   assert.equal(await ef.locator('.am-masthead').isVisible(),false);
-  assert.equal(await ef.locator('.sm-e-bar .e-logo').count(),1);
-  assert.equal(await ef.locator('.sm-e-bar .e-search').count(),1);
-  assert.equal(await ef.locator('.e-logo strong').count(),id==='f'?1:0);
-  if(id==='f'){const rail=await ef.locator('html').evaluate(()=>({bar:document.querySelector('.sm-e-bar').getBoundingClientRect(),search:document.querySelector('.e-search').getBoundingClientRect(),border:getComputedStyle(document.querySelector('.e-search')).borderLeftWidth}));assert.ok(Math.abs(rail.bar.right-rail.search.right)<1);assert.ok(Math.abs(rail.bar.top-rail.search.top)<1);assert.ok(Math.abs(rail.bar.bottom-rail.search.bottom)<1);assert.equal(rail.border,'1px')}
-  const seam=await ef.locator('html').evaluate(()=>({logo:document.querySelector('.e-logo').getBoundingClientRect().right,explore:document.querySelector('.sm-main>div:first-child').getBoundingClientRect().left}));
+  assert.equal(await ef.locator('.sm-topbar .sm-leading-brand').count(),1);
+  assert.equal(await ef.locator('.sm-topbar .sm-trailing-search').count(),1);
+  assert.equal(await ef.locator('.sm-leading-brand strong:visible').count(),id==='f'&&width>650?1:0);
+  if(id==='f'){const rail=await ef.locator('html').evaluate(()=>({bar:document.querySelector('.sm-topbar').getBoundingClientRect(),search:document.querySelector('.sm-trailing-search').getBoundingClientRect(),border:getComputedStyle(document.querySelector('.sm-trailing-search')).borderLeftWidth}));assert.ok(Math.abs(rail.bar.right-rail.search.right)<1);assert.ok(Math.abs(rail.bar.top-rail.search.top)<1);assert.ok(Math.abs(rail.bar.bottom-rail.search.bottom)<1);assert.equal(rail.border,'1px')}
+  const seam=await ef.locator('html').evaluate(()=>({logo:document.querySelector('.sm-leading-brand').getBoundingClientRect().right,explore:document.querySelector('.sm-main>div:first-child').getBoundingClientRect().left}));
   assert.ok(Math.abs(seam.logo-seam.explore)<1);
   assert.equal(await ef.locator('.sm-main>div:visible').count(),7);
   assert.equal(await ef.locator('.ap-orbit-node>span').getByText('Doubt',{exact:true}).count(),0);
   const labels=await ef.locator('.ap-orbit-node>span').allTextContents();assert.ok(labels.includes('Reason'));assert.ok(labels.includes('Faith'));assert.ok(!labels.includes('Reformed'));
-  await ef.locator('.e-search').click();await ef.locator('.am-search input').fill('Islam');assert.ok(await ef.locator('.am-results a').count()>0);await ef.locator('.am-close').click();
+  await ef.locator('.sm-trailing-search').click();await ef.locator('.am-search input').fill('Islam');assert.ok(await ef.locator('.am-results a').count()>0);await ef.locator('.am-close').click();
   assert.equal(await ef.locator('html').evaluate(el=>el.scrollWidth>el.clientWidth+1),false);
   }
   assert.deepEqual(errors,[]);await p.evaluate(()=>window.scrollTo(0,0));

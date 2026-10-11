@@ -61,3 +61,18 @@
 .sm-main button svg{transition:transform .24s ease}
 @media(max-width:600px){.sm-world-detail-slot,.sm-study-slot{flex:none;overflow:visible}.sm-world-detail{gap:8px}.sm-world-detail .sm-current{padding:0 14px}}
 @media(prefers-reduced-motion:reduce){.sm-world-choices,.sm-world-choices>a,.sm-world-label,.sm-world-choices .sm-glyph,.sm-study-links>a,.sm-main button svg{transition:none!important}}
+
+/* Apologetics F: one local bar beneath the unchanged site header. */
+.ap-live-shell > .sm-container{margin-top:24px}
+.sm-topbar{display:flex;align-items:stretch;min-width:0;background:var(--surface);border-radius:5px 5px 0 0}
+.sm-leading-brand{display:flex;align-items:center;justify-content:center;gap:9px;flex:none;min-width:130px;padding:0 16px;border-right:1px solid var(--line);color:var(--accent)}
+.sm-leading-brand strong{font-size:12px;color:var(--ink)}
+.sm-topbar .sm-main{flex:1;min-width:0;padding-left:0;background:transparent;border-radius:0}
+.sm-topbar .sm-main>div:first-child{padding-left:0}
+.sm-topbar .sm-main>div:first-child>a{padding-left:12px}
+.sm-trailing-search{display:flex;align-items:center;justify-content:center;gap:9px;flex:none;min-width:188px;padding:0 18px;border:0;border-left:1px solid var(--line);background:transparent;color:var(--ink);font-size:11px;cursor:pointer}
+.sm-trailing-search svg{color:var(--accent)}
+.sm-trailing-search kbd{font:9px var(--font-sans);color:var(--muted);margin-left:8px}
+.sm-trailing-search:hover{background:color-mix(in srgb,var(--accent) 7%,var(--surface))}
+@media(max-width:1100px){.sm-trailing-search{min-width:48px;padding:0 13px}.sm-trailing-search span,.sm-trailing-search kbd{display:none}}
+@media(max-width:650px){.sm-leading-brand{min-width:46px;padding:0 12px}.sm-leading-brand strong{display:none}}

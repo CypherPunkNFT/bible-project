@@ -1,4 +1,5 @@
 ﻿import {useEffect, useRef, useState} from 'react';
+import type {ReactNode} from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import {ChevronDown} from 'lucide-react';
 import {AnimatePresence,motion,useReducedMotion} from 'framer-motion';
@@ -43,14 +44,14 @@ function WorldviewSubmenu(){
   </motion.div>}</AnimatePresence></div>
  </div>;
 }
-export function WorldviewNavigation({savedCount=0}:{savedCount?:number}){
+export function WorldviewNavigation({savedCount=0,leading,trailing}:{savedCount?:number;leading:ReactNode;trailing:ReactNode}){
  const location=useLocation(),group=groupFor(location.pathname);
  const reduced=useReducedMotion();
  const [opened,setOpened]=useState<string|null>(group==='Worldviews'?'Worldviews':null);
  const trigger=useRef<HTMLButtonElement|null>(null),previous=useRef(location.pathname);
  useEffect(()=>{if(previous.current!==location.pathname)setOpened(group==='Worldviews'?'Worldviews':null);previous.current=location.pathname;},[location.pathname,group]);
  useEffect(()=>{const key=(e:KeyboardEvent)=>{if(e.key==='Escape'&&opened&&!document.querySelector('dialog[open]')){setOpened(null);trigger.current?.focus();}};document.addEventListener('keydown',key);return()=>document.removeEventListener('keydown',key);},[opened]);
- return <div className="sm-container"><nav className="sm-main" aria-label="Apologetics sections">{main.map(d=><div key={d.to} data-current={group===d.label}><Link to={d.to} onFocus={reveal} aria-current={group===d.label?'page':undefined}>{d.label}{d.label==="My study"&&savedCount>0&&<span className="sm-saved-count">{savedCount}</span>}</Link><button ref={d.label===group?el=>{if(!trigger.current)trigger.current=el;}:undefined} aria-label={(opened===d.label?'Collapse ':'Browse ')+d.label} aria-expanded={opened===d.label} aria-controls="sm-panel" onClick={e=>{trigger.current=e.currentTarget;setOpened(opened===d.label?null:d.label);}}><ChevronDown size={12}/></button></div>)}</nav>
+ return <div className="sm-container"><div className="sm-topbar">{leading}<nav className="sm-main" aria-label="Apologetics sections">{main.filter(d=>d.label!=='Practice'&&d.label!=='My study').map(d=><div key={d.to} data-current={group===d.label}><Link to={d.to} onFocus={reveal} aria-current={group===d.label?'page':undefined}>{d.label}{d.label==="My study"&&savedCount>0&&<span className="sm-saved-count">{savedCount}</span>}</Link><button ref={d.label===group?el=>{if(!trigger.current)trigger.current=el;}:undefined} aria-label={(opened===d.label?'Collapse ':'Browse ')+d.label} aria-expanded={opened===d.label} aria-controls="sm-panel" onClick={e=>{trigger.current=e.currentTarget;setOpened(opened===d.label?null:d.label);}}><ChevronDown size={12}/></button></div>)}</nav>{trailing}</div>
  <AnimatePresence initial={false}>{opened&&<motion.div id="sm-panel" className="sm-panel" key="submenu" initial={{height:0,opacity:0}} animate={{height:'auto',opacity:1,transitionEnd:{overflow:'visible'}}} exit={{height:0,opacity:0,overflow:'hidden'}} style={{overflow:'hidden'}} transition={{duration:reduced?0:.26,ease:[.22,1,.36,1]}}><motion.div initial={{y:reduced?0:-10}} animate={{y:0}} transition={{duration:reduced?0:.26,ease:[.22,1,.36,1]}}>{opened==='Worldviews'?<WorldviewSubmenu/>:<nav className="sm-other-sections" aria-label={opened+' destinations'}>{secondary(opened).map(d=><Link key={d.to} to={d.to} onFocus={reveal} onClick={()=>setOpened(null)}>{d.label}</Link>)}</nav>}</motion.div></motion.div>}</AnimatePresence>
  </div>;
 }

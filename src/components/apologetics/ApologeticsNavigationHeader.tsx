@@ -1,6 +1,6 @@
 import {useEffect,useRef,useState} from 'react';
 import {Link,useLocation} from 'react-router-dom';
-import {ArrowRight,ArrowUpRight,BookOpen,Search,ShieldCheck,X} from 'lucide-react';
+import {ArrowRight,BookOpen,Search,ShieldCheck,X} from 'lucide-react';
 import {browseGroups,destinations} from '@/lib/apologetics-navigation';
 import {WorldviewNavigation} from './WorldviewNavigation';
 const base='/apologetics';
@@ -15,8 +15,9 @@ export function ApologeticsNavigationHeader({savedCount=0}:{savedCount?:number})
   const seen=new Set<string>();
   const results=destinations.filter(d=>{const matches=(d.label+' '+(d.detail??'')).toLowerCase().includes(query.trim().toLowerCase());if(!matches||seen.has(d.to))return false;seen.add(d.to);return true;});
   return <>
-    <div className="am-masthead"><Link to={base} className="am-brand"><ShieldCheck size={18}/><strong>Apologetics</strong><span>Reason · Faith · Witness</span></Link><div><Link to={base+'/sources'} className="am-source">The source room <ArrowUpRight size={13}/></Link><button ref={trigger} onClick={open} className="am-browse"><Search size={15}/><span>Search Apologetics</span><kbd>Ctrl K</kbd></button></div></div>
-    <WorldviewNavigation savedCount={savedCount}/>
+    <WorldviewNavigation savedCount={savedCount}
+      leading={<Link to={base} className="sm-leading-brand" aria-label="Apologetics home"><ShieldCheck size={18}/><strong>Apologetics</strong></Link>}
+      trailing={<button ref={trigger} onClick={open} className="sm-trailing-search" type="button" aria-label="Search Apologetics"><Search size={16}/><span>Search Apologetics</span><kbd>Ctrl K</kbd></button>}/>
     <dialog onKeyDown={e=>{if(e.key==="Escape"){e.preventDefault();e.stopPropagation();close();}}} className="am-dialog" ref={dialog} onClose={()=>trigger.current?.focus()} onClick={e=>{if(e.target===dialog.current)close();}} aria-labelledby="am-dialog-title">
       <div className="am-dialog-inner"><header><div><span className="ap-eyebrow">The Apologetics library</span><h2 id="am-dialog-title">Follow a <em>question.</em></h2></div><button className="am-close" onClick={close} aria-label="Close library menu"><X size={21}/></button></header>
         <label className="am-search"><Search size={20}/><input ref={input} type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Find a worldview, study, text or learning path" aria-label="Search library navigation"/><kbd>Esc</kbd></label>

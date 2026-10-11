@@ -17,3 +17,5 @@ E refinement: shield logo, seven substantive menu items, and search share one vi
 F: same original-page treatment as E, with Apologetics beside the shield. In both E and F, Explore's selected background begins directly at the logo divider.
 
 F search refinement: the search action is the full-height right end of the bar, separated by one vertical rule; it has no inset button container. E is unchanged.
+
+F was placed in the real Apologetics page on 2026-10-11. The site header is unchanged. Search text disappears below 1100px while the search icon stays; the Apologetics name disappears below 650px while the shield stays. E remains a mockup-only alternative.
