@@ -10,7 +10,7 @@ export interface ApTopic { id: string; title: string; short: string; color: stri
 export interface ApPath { id: string; title: string; label: string; description: string; studies: string[] }
 export interface ApReadingPlan { introduction: string; stages: { title: string; aim: string; readings: { source: string; title: string; context: CitedText; purpose: CitedText; examine: CitedText; connection: CitedText; christian: CitedText }[] }[] }
 export interface ApWorldview { readingPlan?: ApReadingPlan; otherLabel: string; id: string; title: string; subtitle: string; description: string; studies: string[]; sources: string[]; rows: { id: string; question: string; christian: string; other: string; study: string; christianBasis: ApCitation[]; otherBasis: ApCitation[] }[] }
-export interface ApDebate { id: string; title: string; speakers: string; setting: string; source: string; lens: string; description: string; claim: string; basis: ApCitation[]; hinge: string; prompts: string[]; studies: string[] }
+export interface ApDebate { recording?: { url: string; label: string; credit: string; duration: string; note: string }; transcriptCoverage?: string; id: string; title: string; speakers: string; setting: string; source: string; lens: string; description: string; claim: string; basis: ApCitation[]; hinge: string; prompts: string[]; studies: string[] }
 export interface ApPractice { label: string; id: string; title: string; context: string; question: string; options: string[]; best: number; explanation: string; basis: ApCitation[]; study: string; prompt: string }
 export interface ApConversationStep { title: string; line: string; detail: string; prompt: string; span: Span }
 export interface ApEditorial {

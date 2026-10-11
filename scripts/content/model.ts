@@ -18,7 +18,7 @@ export interface WorldviewContent {
   title: string; otherLabel: string; subtitle: string; description: string; studies: string[]; sources: string[];
   rows: { id: string; question: string; christian: Block; other: Block; study: string }[];
 }
-export interface DebateContent { title: string; speakers: string; setting: string; source: string; lens: string; description: string; claim: Block; hinge: string; prompts: string[]; studies: string[] }
+export interface DebateContent { recording?: { url: string; label: string; credit: string; duration: string; note: string }; transcriptCoverage?: string; title: string; speakers: string; setting: string; source: string; lens: string; description: string; claim: Block; hinge: string; prompts: string[]; studies: string[] }
 export interface PracticeContent { label: string; title: string; context: string; question: string; options: string[]; best: number; explanation: Block; study: string; prompt: string }
 export interface EditorialContent {
   title: string; anchor: string; foundations: string[]; islamStudyQuestions: string[];

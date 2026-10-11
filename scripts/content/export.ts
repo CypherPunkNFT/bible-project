@@ -26,6 +26,8 @@ export function renderDocument(doc: ContentDocument, documents: ContentDocument[
     for (const row of doc.content.rows) lines.push(`## ${row.question}`, "", blockMarkdown(row.christian, "Christian account", documents), blockMarkdown(row.other, "Other account · primary record", documents), `Study: ${row.study}`, "");
   } else if (doc.kind === "debate") {
     const c = doc.content;
+    if (c.recording) lines.push(`[${c.recording.label}](${c.recording.url}) · ${c.recording.credit} · ${c.recording.duration}`, c.recording.note, "");
+    if (c.transcriptCoverage) lines.push(`Transcript coverage: ${c.transcriptCoverage}`, "");
     lines.push(`${c.speakers} · ${c.setting}`, "", c.description, "", `Reading focus: ${c.lens}`, "", "A record of the speakers’ positions, not a doctrinal authority.", "", blockMarkdown(c.claim, "The exchange", documents), "## Questions for reading · editorial", "", c.hinge, "", ...c.prompts.map((p) => "- " + p), "");
   } else if (doc.kind === "practice") {
     const c = doc.content;

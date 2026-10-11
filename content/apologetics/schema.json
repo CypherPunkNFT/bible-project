@@ -869,6 +869,43 @@
           },
           "minItems": 1,
           "uniqueItems": true
+        },
+        "transcriptCoverage": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recording": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "url",
+            "label",
+            "credit",
+            "duration",
+            "note"
+          ],
+          "properties": {
+            "url": {
+              "type": "string",
+              "pattern": "^https://www\\.youtube\\.com/watch\\?v=[A-Za-z0-9_-]{11}$"
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "credit": {
+              "type": "string",
+              "minLength": 1
+            },
+            "duration": {
+              "type": "string",
+              "minLength": 1
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
         }
       }
     },

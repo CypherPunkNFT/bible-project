@@ -1,0 +1,57 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "debate",
+  "id": "bahnsen-stein",
+  "order": 4,
+  "publication": "published",
+  "content": {
+    "title": "The great debate: Does God exist?",
+    "speakers": "Greg Bahnsen · Gordon Stein",
+    "setting": "University of California, Irvine · 11 February 1985",
+    "source": "bahnsen-stein",
+    "lens": "Reason & presuppositions",
+    "description": "Examine the dispute over God, evidence and the foundations of logic, science and morality.",
+    "claim": {
+      "id": "exchange",
+      "text": "Bahnsen argues that reasoning presupposes the Christian God. Stein challenges the evidence for God and disputes Bahnsen’s account of the basis of logic and inquiry.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "bahnsen-stein",
+          "locator": "Opening statements and subsequent exchange"
+        }
+      ]
+    },
+    "hinge": "Does an argument establish the conditions needed for reasoning, or assume the conclusion it aims to prove?",
+    "prompts": [
+      "Write out the premises behind each claim about logic.",
+      "Distinguish using reason from explaining why reasoning is reliable.",
+      "Follow both cross-examinations before assessing the argument."
+    ],
+    "studies": [
+      "god",
+      "morality",
+      "secular"
+    ],
+    "recording": {
+      "url": "https://www.youtube.com/watch?v=jzIgzRWPVAw",
+      "label": "Listen on YouTube",
+      "credit": "What Your Pastor Didn’t Tell You",
+      "duration": "2:13:17",
+      "note": "Audio recording on YouTube."
+    },
+    "transcriptCoverage": "42-page transcript with speeches, questioning, closing statements and audience questions. Third-party-hosted copy; the remastered recording and its subtitles have not been checked word for word."
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Transcript source, event identity, editorial summary, coverage notes and YouTube metadata review",
+      "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
+      "date": "2026-10-11",
+      "contentHash": "97c3ca9eb730f4170a5e54ed99440d87ade0716322f30b6b33324e051ec0cf9c",
+      "basisHash": "7fd2ed5cb7d0479df34afd3222924ac4ccc3bf2f6bd564b4f294470b970c350b"
+    }
+  ]
+}

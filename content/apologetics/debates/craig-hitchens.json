@@ -34,7 +34,15 @@
       "morality",
       "church-harm",
       "resurrection"
-    ]
+    ],
+    "recording": {
+      "url": "https://www.youtube.com/watch?v=0tYm41hb48o",
+      "label": "Watch on YouTube",
+      "credit": "Biola University",
+      "duration": "2:27:43",
+      "note": "Debate recording on YouTube."
+    },
+    "transcriptCoverage": "Both speakers and audience questions."
   },
   "reviews": [
     {
@@ -44,6 +52,15 @@
       "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
       "date": "2026-10-05",
       "contentHash": "7f46a1abb0f2c2830f1dd7acf6ba77799cf782b25979fed828413503443a1b21",
+      "basisHash": "fd6397c2f4e0bb8bff87e039682a89805080bdb0822f0f73f3f84dd1a1b461ee"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Transcript source, event identity, editorial summary, coverage notes and YouTube metadata review",
+      "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
+      "date": "2026-10-11",
+      "contentHash": "67ab57324c208bb21983eed3470ebdf709341b7b7bcd7eef8ee0a502e1861bd2",
       "basisHash": "fd6397c2f4e0bb8bff87e039682a89805080bdb0822f0f73f3f84dd1a1b461ee"
     }
   ]

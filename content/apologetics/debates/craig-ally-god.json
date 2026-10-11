@@ -34,7 +34,15 @@
       "islam-trinity",
       "islam-jesus",
       "conversation"
-    ]
+    ],
+    "recording": {
+      "url": "https://www.youtube.com/watch?v=n52BzWKLn9g",
+      "label": "Watch on YouTube",
+      "credit": "ReasonableFaithOrg",
+      "duration": "1:31:47",
+      "note": "Debate recording on YouTube."
+    },
+    "transcriptCoverage": "Formal speeches through the final statements; the announced audience Q&A is absent from the transcript."
   },
   "reviews": [
     {
@@ -44,6 +52,15 @@
       "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
       "date": "2026-10-05",
       "contentHash": "5dd8c5ed1795d27493db1ba14a7bdf3cd24f1b426f5e2141b93fcc145693d71f",
+      "basisHash": "bf13034733b2d73e39055e9dac066247b77fab46245fe5ea68c7d6bcf184b3cd"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Transcript source, event identity, editorial summary, coverage notes and YouTube metadata review",
+      "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
+      "date": "2026-10-11",
+      "contentHash": "885ed72b64ced0f7ed66800f928ca97d138446f27d803a20202df5e558bc530b",
       "basisHash": "bf13034733b2d73e39055e9dac066247b77fab46245fe5ea68c7d6bcf184b3cd"
     }
   ]

@@ -1,0 +1,130 @@
+{
+  "checkedOn": "2026-10-11",
+  "scope": "Metadata and transcript-source review; no listening or word-for-word comparison.",
+  "transcriptStorage": "External links only; no full transcript bodies or video files copied into site assets.",
+  "verification": "YouTube public oEmbed titles/uploaders and watch-page lengthSeconds checked over HTTP. Concept of God replacement title/runtime checked on watch page and uploader from indexed YouTube description.",
+  "rejectedRecording": {
+    "url": "https://www.youtube.com/watch?v=hsvg8UvUccA",
+    "duration": "0:09:12",
+    "reason": "Short excerpt, not the complete debate"
+  },
+  "records": [
+    {
+      "id": "craig-hitchens",
+      "route": "/apologetics/debates/craig-hitchens",
+      "transcript": "https://www.reasonablefaith.org/media/debates/does-god-exist/",
+      "coverage": "Both speakers and audience questions.",
+      "recording": {
+        "url": "https://www.youtube.com/watch?v=0tYm41hb48o",
+        "label": "Watch on YouTube",
+        "credit": "Biola University",
+        "duration": "2:27:43",
+        "note": "Debate recording on YouTube."
+      }
+    },
+    {
+      "id": "craig-ally-resurrection",
+      "route": "/apologetics/debates/craig-ally-resurrection",
+      "transcript": "https://www.reasonablefaith.org/media/debates/hoax-or-history-did-jesus-rise-from-the-dead1/",
+      "coverage": "Speeches and Q&A; the transcript marks the unrecorded beginning of one question.",
+      "recording": {
+        "url": "https://www.youtube.com/watch?v=IQeh3tT9cY8",
+        "label": "Watch on YouTube",
+        "credit": "Nazam44",
+        "duration": "2:19:01",
+        "note": "Debate recording on YouTube."
+      }
+    },
+    {
+      "id": "craig-ally-god",
+      "route": "/apologetics/debates/craig-ally-god",
+      "transcript": "https://www.reasonablefaith.org/media/debates/the-concept-of-god-in-islam-and-christianity/",
+      "coverage": "Formal speeches through the final statements; the announced audience Q&A is absent from the transcript.",
+      "recording": {
+        "url": "https://www.youtube.com/watch?v=n52BzWKLn9g",
+        "label": "Watch on YouTube",
+        "credit": "ReasonableFaithOrg",
+        "duration": "1:31:47",
+        "note": "Debate recording on YouTube."
+      }
+    },
+    {
+      "id": "lennox-dawkins",
+      "route": "/apologetics/debates/lennox-dawkins",
+      "transcript": "https://singjupost.com/full-transcript-the-god-delusion-debate-richard-dawkins-vs-john-lennox/",
+      "coverage": "Speaker-attributed transcript arranged around six theses and concluding statements. Published as a full transcript; not independently aligned word for word with the recording.",
+      "recording": {
+        "url": "https://www.youtube.com/watch?v=zF5bPI92-5o",
+        "label": "Watch on YouTube",
+        "credit": "Larry Alex Taunton",
+        "duration": "1:46:40",
+        "note": "Debate recording on YouTube."
+      }
+    },
+    {
+      "id": "bahnsen-stein",
+      "route": "/apologetics/debates/bahnsen-stein",
+      "transcript": "https://justinholcomb.com/wp-content/uploads/2015/02/Bahnsen-Stein_Transcript.pdf",
+      "coverage": "42-page transcript with speeches, questioning, closing statements and audience questions. Third-party-hosted copy; the remastered recording and its subtitles have not been checked word for word.",
+      "recording": {
+        "url": "https://www.youtube.com/watch?v=jzIgzRWPVAw",
+        "label": "Listen on YouTube",
+        "credit": "What Your Pastor Didn’t Tell You",
+        "duration": "2:13:17",
+        "note": "Audio recording on YouTube."
+      }
+    },
+    {
+      "id": "craig-ehrman",
+      "route": "/apologetics/debates/craig-ehrman",
+      "transcript": "https://www.reasonablefaith.org/media/debates/is-there-historical-evidence-for-the-resurrection-of-jesus-the-craig-ehrman/",
+      "coverage": "Both speakers’ openings, replies, conclusions and audience questions. Recording alignment has not been independently checked.",
+      "recording": {
+        "url": "https://www.youtube.com/watch?v=vRTUrvTTRAQ",
+        "label": "Watch on YouTube",
+        "credit": "drcraigvideos",
+        "duration": "1:54:52",
+        "note": "Debate recording on YouTube."
+      }
+    },
+    {
+      "id": "craig-krauss",
+      "route": "/apologetics/debates/craig-krauss",
+      "transcript": "https://www.reasonablefaith.org/media/debates/the-craig-krauss-debate-at-north-carolina-state-university/",
+      "coverage": "Openings, rebuttals, closings and Q&A. The host also appends post-debate reflections; these are separate from the spoken exchange.",
+      "recording": {
+        "url": "https://www.youtube.com/watch?v=wascB0xunig",
+        "label": "Listen on YouTube",
+        "credit": "drcraigvideos",
+        "duration": "2:18:17",
+        "note": "Audio recording on YouTube."
+      }
+    },
+    {
+      "id": "craig-grayling",
+      "route": "/apologetics/debates/craig-grayling",
+      "transcript": "https://www.bethinking.org/does-god-exist/bill-craig-vs-ac-grayling-debate-transcript",
+      "coverage": "Speeches, discussion and closings. The editor notes a recording break, shortened or omitted moderator remarks, inaudible passages and some guessed words.",
+      "recording": {
+        "url": "https://www.youtube.com/watch?v=Vs7ArUMuQyg",
+        "label": "Listen on YouTube",
+        "credit": "drcraigvideos",
+        "duration": "1:48:11",
+        "note": "Audio recording on YouTube."
+      }
+    },
+    {
+      "id": "lennox-shermer",
+      "route": "/apologetics/debates/lennox-shermer",
+      "transcript": "https://singjupost.com/transcript-the-nature-of-evil-and-suffering-john-lennox-and-michael-shermer/",
+      "coverage": "Both openings, moderated exchange, closing statements and audience questions. The 2025 transcript publication date is distinct from the 2013 event.",
+      "recording": {
+        "url": "https://www.youtube.com/watch?v=A3TAiZRKr50",
+        "label": "Watch on YouTube",
+        "credit": "The Veritas Forum",
+        "duration": "1:23:50",
+        "note": "Debate recording on YouTube."
+      }
+    }
+  ]
+}

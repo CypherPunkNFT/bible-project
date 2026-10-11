@@ -34,7 +34,15 @@
       "islam-cross",
       "miracles",
       "contradictions"
-    ]
+    ],
+    "recording": {
+      "url": "https://www.youtube.com/watch?v=IQeh3tT9cY8",
+      "label": "Watch on YouTube",
+      "credit": "Nazam44",
+      "duration": "2:19:01",
+      "note": "Debate recording on YouTube."
+    },
+    "transcriptCoverage": "Speeches and Q&A; the transcript marks the unrecorded beginning of one question."
   },
   "reviews": [
     {
@@ -44,6 +52,15 @@
       "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
       "date": "2026-10-05",
       "contentHash": "2aaf79ad1ab2d38fb75f786b51635a60ffe21c75581afe1d4fd21d0809ccc7d1",
+      "basisHash": "a6d6975c6ae1a7c6ecc58659de234acce935a4494621e6274e304be375c17dc0"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Transcript source, event identity, editorial summary, coverage notes and YouTube metadata review",
+      "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
+      "date": "2026-10-11",
+      "contentHash": "55c3af0a43000a5451b90fc7c145a1aab4b1d8662c416bf2b0521d9bfaad8ec0",
       "basisHash": "a6d6975c6ae1a7c6ecc58659de234acce935a4494621e6274e304be375c17dc0"
     }
   ]

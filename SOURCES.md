@@ -960,3 +960,9 @@ Owner-provided PDF export, Moses: Three forties, an eight-session Bible Project 
 ## Quran JSON by Risan: Pickthall comparison text
 
 [Official dataset](https://quran-json.risanb.com/) and [held English edition channel](https://quran-json.risanb.com/translations/en-pickthall/quran.json). Marmaduke Pickthall, The Meaning of the Glorious Koran (1930); the held translation index identifies this translation as public domain. Dataset packaging is CC BY-SA 4.0; upstream licence is retained in public/basis/QURAN-DATA-LICENSE.txt. The website indexes the held text by chapter and verse without rewriting it, credits Risan, and labels it as a comparison source, not a Christian teaching authority. [Reading-asset manifest](content/teachers/reading-assets-manifest.json) records the derivative hash, format, language and attribution. No other translations are implied to have the same rights.
+
+## Debate transcripts and YouTube recordings — 2026-10-11
+
+Nine debate pages link to external transcripts and matching YouTube recordings. Six new source documents cover Lennox–Dawkins, Bahnsen–Stein, Craig–Ehrman, Craig–Krauss, Craig–Grayling and Lennox–Shermer. Transcript publishers: The Singju Post, Justin Holcomb's hosted PDF, Reasonable Faith and bethinking.org. Uploader names, runtimes, source URLs and coverage notes are in [the media manifest](docs/debate-media-2026-10-11.json).
+
+Rights: no redistribution licence assumed; external linking and site-authored summaries only. No complete external transcript body, audio or video is copied into public assets. Checksum of the authored metadata manifest: SHA-256 `07b3a349d38bccd832a9ab9571ed6717a104e1b8e3213329e93d9cedc41b27e9`; no source-body checksum is claimed. A nine-minute Concept of God excerpt was rejected in favour of the 91-minute recording. Metadata verification does not certify recording completeness or transcript accuracy.

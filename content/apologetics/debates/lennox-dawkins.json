@@ -1,0 +1,58 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "debate",
+  "id": "lennox-dawkins",
+  "order": 3,
+  "publication": "published",
+  "content": {
+    "title": "The God Delusion debate",
+    "speakers": "John Lennox · Richard Dawkins",
+    "setting": "University of Alabama at Birmingham · 3 October 2007",
+    "source": "lennox-dawkins",
+    "lens": "Science & Christian belief",
+    "description": "Read and watch two Oxford colleagues examine science, faith, morality and the claims of Christianity.",
+    "claim": {
+      "id": "exchange",
+      "text": "Dawkins and Lennox dispute whether scientific explanation supports atheism, whether faith can be evidence-based, and how morality and the claims about Jesus bear on Christian belief.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "lennox-dawkins",
+          "locator": "Opening statements and subsequent exchange"
+        }
+      ]
+    },
+    "hinge": "Does explaining a natural process settle whether that process has an ultimate purpose or source?",
+    "prompts": [
+      "Distinguish a scientific explanation from a philosophical conclusion.",
+      "State each speaker’s definition of faith before comparing them.",
+      "Separate arguments for God from specifically Christian claims."
+    ],
+    "studies": [
+      "science",
+      "why-anything",
+      "morality",
+      "resurrection"
+    ],
+    "recording": {
+      "url": "https://www.youtube.com/watch?v=zF5bPI92-5o",
+      "label": "Watch on YouTube",
+      "credit": "Larry Alex Taunton",
+      "duration": "1:46:40",
+      "note": "Debate recording on YouTube."
+    },
+    "transcriptCoverage": "Speaker-attributed transcript arranged around six theses and concluding statements. Published as a full transcript; not independently aligned word for word with the recording."
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Transcript source, event identity, editorial summary, coverage notes and YouTube metadata review",
+      "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
+      "date": "2026-10-11",
+      "contentHash": "99d8572d5993f0b5304479b569c829d359d8abd8c2008341685f40b0bee6285a",
+      "basisHash": "098a255363d41ceb1192676829caa45c70b1127fd3b56821bad6e45a7e599c7e"
+    }
+  ]
+}

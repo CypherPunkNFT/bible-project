@@ -1,0 +1,57 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "debate",
+  "id": "craig-krauss",
+  "order": 6,
+  "publication": "published",
+  "content": {
+    "title": "Is there evidence for God?",
+    "speakers": "William Lane Craig · Lawrence Krauss",
+    "setting": "North Carolina State University · 30 March 2011",
+    "source": "craig-krauss",
+    "lens": "Cosmology & evidence",
+    "description": "Explore what counts as evidence when cosmology, philosophy and Christian claims meet.",
+    "claim": {
+      "id": "exchange",
+      "text": "Craig presents arguments from contingency, the universe, morality and the resurrection. Krauss contests their evidential force and challenges the use of physics within them.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "craig-krauss",
+          "locator": "Opening statements and subsequent exchange"
+        }
+      ]
+    },
+    "hinge": "Are the speakers using the same standards for evidence and the same meaning of nothing?",
+    "prompts": [
+      "Define the scientific and philosophical terms being used.",
+      "Separate a mathematical model from an observation.",
+      "Keep the later written reflections distinct from the live debate."
+    ],
+    "studies": [
+      "science",
+      "why-anything",
+      "morality"
+    ],
+    "recording": {
+      "url": "https://www.youtube.com/watch?v=wascB0xunig",
+      "label": "Listen on YouTube",
+      "credit": "drcraigvideos",
+      "duration": "2:18:17",
+      "note": "Audio recording on YouTube."
+    },
+    "transcriptCoverage": "Openings, rebuttals, closings and Q&A. The host also appends post-debate reflections; these are separate from the spoken exchange."
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Transcript source, event identity, editorial summary, coverage notes and YouTube metadata review",
+      "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
+      "date": "2026-10-11",
+      "contentHash": "43c142ccec6029385b7fd89e666909493c0527d893f7059ab586d92993e184fd",
+      "basisHash": "90b5f33d6e92b81fb453899757f091b5a20b9fd570098a0d53011753cfb1ce3c"
+    }
+  ]
+}

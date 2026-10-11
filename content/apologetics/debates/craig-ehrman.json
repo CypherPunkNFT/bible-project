@@ -1,0 +1,57 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "debate",
+  "id": "craig-ehrman",
+  "order": 5,
+  "publication": "published",
+  "content": {
+    "title": "Historical evidence for the resurrection",
+    "speakers": "William Lane Craig · Bart Ehrman",
+    "setting": "College of the Holy Cross · 28 March 2006",
+    "source": "craig-ehrman",
+    "lens": "Resurrection & historical method",
+    "description": "Compare arguments about the resurrection with objections about what historical methods can establish.",
+    "claim": {
+      "id": "exchange",
+      "text": "Craig argues that the resurrection best explains evidence about Jesus’ death and its aftermath. Ehrman challenges parts of that evidence and whether historical inquiry can establish a miracle.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "craig-ehrman",
+          "locator": "Opening statements and subsequent exchange"
+        }
+      ]
+    },
+    "hinge": "Is the disagreement about what happened, how probable an explanation is, or what historians can conclude?",
+    "prompts": [
+      "List the historical claims each speaker accepts and disputes.",
+      "Separate the probability of a miracle from the probability of the reported evidence.",
+      "Check whether an alternative is defended as true or offered as a possibility."
+    ],
+    "studies": [
+      "resurrection",
+      "miracles",
+      "scripture"
+    ],
+    "recording": {
+      "url": "https://www.youtube.com/watch?v=vRTUrvTTRAQ",
+      "label": "Watch on YouTube",
+      "credit": "drcraigvideos",
+      "duration": "1:54:52",
+      "note": "Debate recording on YouTube."
+    },
+    "transcriptCoverage": "Both speakers’ openings, replies, conclusions and audience questions. Recording alignment has not been independently checked."
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Transcript source, event identity, editorial summary, coverage notes and YouTube metadata review",
+      "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
+      "date": "2026-10-11",
+      "contentHash": "ffc29fdc9192af3e07b3b51c91c64a95701d6437858a58c1569a6628cbeb0979",
+      "basisHash": "554b5ed61c8900080109d6f188cb59f4d9515dc636b4b15b5c7172a19e7f8375"
+    }
+  ]
+}

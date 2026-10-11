@@ -13,11 +13,11 @@ guide, all guides on a topic, or every guide using a particular source without o
 | Folder | Documents | Purpose |
 | --- | ---: | --- |
 | `studies/` | 25 | Questions, answers, reasoning, objections, replies, limitations and Scripture passages |
-| `sources/` | 29 | Authors, URLs, roles and explicit limits on how each source may be used |
+| `sources/` | 35 | Authors, URLs, roles and explicit limits on how each source may be used |
 | `topics/` | 7 | Topic descriptions and questions |
 | `paths/` | 5 | Learning paths and their ordered study IDs |
 | `worldviews/` | 2 | Comparisons with citations for both positions |
-| `debates/` | 3 | Documentary summaries, transcript sources and reading questions |
+| `debates/` | 9 | Documentary summaries, transcript sources and reading questions |
 | `practice/` | 3 | Imagined conversations, responses and supported feedback |
 | `editorial/` | 1 | Doctrinal policy, conversation steps and shared editorial notices |
 
@@ -160,3 +160,7 @@ a stale build. Its release manifest records the published collection's fingerpri
 The 2026-10-05 migration preserved all 11 previous runtime collections, including every study paragraph
 and citation. Its initial records identify an AI-assisted migration and preservation check, not human
 theological approval. The preceding doctrinal source pass remains recorded in those review notes.
+
+## Debate media links
+
+Debate documents may include `transcriptCoverage` and `recording` (`url`, `label`, `credit`, `duration`, `note`). Use the transcript source document for the reading link; recording URLs must be canonical YouTube watch URLs. The page and Markdown exports show both links and known coverage limits. Match the event, participants and setting; check runtime so an excerpt is not labelled as the debate. See `docs/debate-media-2026-10-11.json` for the initial nine recordings.

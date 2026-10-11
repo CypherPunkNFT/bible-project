@@ -1,0 +1,57 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "debate",
+  "id": "craig-grayling",
+  "order": 7,
+  "publication": "published",
+  "content": {
+    "title": "Belief in God in light of tsunamis",
+    "speakers": "William Lane Craig · A. C. Grayling",
+    "setting": "Oxford Union · 2005",
+    "source": "craig-grayling",
+    "lens": "Evil & suffering",
+    "description": "Study how natural suffering challenges belief in a good and powerful God.",
+    "claim": {
+      "id": "exchange",
+      "text": "Craig distinguishes logical and probabilistic versions of the problem of evil and defends belief in God. Grayling challenges that defense and presents a secular response to suffering.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "craig-grayling",
+          "locator": "Opening statements and subsequent exchange"
+        }
+      ]
+    },
+    "hinge": "Does an objection claim that God and suffering are logically incompatible, or that suffering makes God’s existence unlikely?",
+    "prompts": [
+      "Identify which version of the problem of evil is being discussed.",
+      "Distinguish possible reasons for suffering from known reasons.",
+      "Evaluate the practical response to suffering separately from the existence argument."
+    ],
+    "studies": [
+      "suffering",
+      "hiddenness",
+      "morality"
+    ],
+    "recording": {
+      "url": "https://www.youtube.com/watch?v=Vs7ArUMuQyg",
+      "label": "Listen on YouTube",
+      "credit": "drcraigvideos",
+      "duration": "1:48:11",
+      "note": "Audio recording on YouTube."
+    },
+    "transcriptCoverage": "Speeches, discussion and closings. The editor notes a recording break, shortened or omitted moderator remarks, inaudible passages and some guessed words."
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Transcript source, event identity, editorial summary, coverage notes and YouTube metadata review",
+      "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
+      "date": "2026-10-11",
+      "contentHash": "2525bdc3ce22f723dc91d50883490ef689125c0df48e75a2fd4a23960b6f1bbb",
+      "basisHash": "8218594ee2dee5e7563dd6384c582898a80ccf35a9753f5afd8bf894cfece04c"
+    }
+  ]
+}

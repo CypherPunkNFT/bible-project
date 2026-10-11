@@ -424,3 +424,8 @@
 .ap-meaning-prompt { margin: -.25rem 0 1.25rem; }
 .ap-meaning-prompt .ap-text-button { padding: 0; font-size: inherit; }
 .ap-search-door + .ap-meaning-prompt { margin-top: .9rem; }
+
+.ap-debate-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+.ap-debate-availability { max-width: 48rem; color: var(--muted); font-size: .75rem; line-height: 1.8; margin-top: 1rem; }
+.ap-debate-availability p { margin: .4rem 0; }
+.ap-debate-availability a { display: inline-flex; align-items: center; gap: .4rem; color: var(--accent); }

@@ -1,0 +1,57 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "debate",
+  "id": "lennox-shermer",
+  "order": 8,
+  "publication": "published",
+  "content": {
+    "title": "The nature of evil and suffering",
+    "speakers": "John Lennox · Michael Shermer",
+    "setting": "Veritas Forum, Pepperdine University · 11 November 2013",
+    "source": "lennox-shermer",
+    "lens": "Suffering & moral explanation",
+    "description": "Follow a moderated exchange on evil, moral judgment and Christian hope amid suffering.",
+    "claim": {
+      "id": "exchange",
+      "text": "Lennox distinguishes moral and natural evil and connects Christian hope with the resurrection. Shermer challenges religious explanations and advocates scientific and rational inquiry into suffering.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "lennox-shermer",
+          "locator": "Opening statements and subsequent exchange"
+        }
+      ]
+    },
+    "hinge": "Are explanations of why harm occurs being used to answer the separate question of why it is morally wrong?",
+    "prompts": [
+      "Distinguish moral evil from natural suffering.",
+      "Check how each speaker moves from explanation to moral judgment.",
+      "Separate a claim about hope from evidence for the belief behind it."
+    ],
+    "studies": [
+      "suffering",
+      "morality",
+      "resurrection"
+    ],
+    "recording": {
+      "url": "https://www.youtube.com/watch?v=A3TAiZRKr50",
+      "label": "Watch on YouTube",
+      "credit": "The Veritas Forum",
+      "duration": "1:23:50",
+      "note": "Debate recording on YouTube."
+    },
+    "transcriptCoverage": "Both openings, moderated exchange, closing statements and audience questions. The 2025 transcript publication date is distinct from the 2013 event."
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Transcript source, event identity, editorial summary, coverage notes and YouTube metadata review",
+      "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
+      "date": "2026-10-11",
+      "contentHash": "8f7630549136f9a84c90480e4c51c4269d2165b90673af5ff9757096902ecca5",
+      "basisHash": "02fdebdc78f8c1d469efac7dd42ed982a92687af1b5df93edcb7341dc78a3e78"
+    }
+  ]
+}

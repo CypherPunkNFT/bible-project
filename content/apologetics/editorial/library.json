@@ -138,7 +138,7 @@
     "copy": {
       "guideNote": "Original study notes · Reformed perspective. Citations identify the basis of each explanation; they do not imply review or endorsement by the cited authors.",
       "debateNote": "The speakers are not doctrinal authorities for this library. Use the connected Reformed guides to evaluate the claims, and the speaker sections in the full transcript to follow the exchange. These are editorial reading prompts, not attributed quotations or a timestamped recording analysis.",
-      "debateIndexNote": "Transcripts are records of the speakers’ arguments, hosted by Craig’s organisation. They are not Reformed teaching authorities. The connected guides state our scriptural and confessional position.",
+      "debateIndexNote": "Transcripts and recordings preserve the speakers’ arguments. Sources include participant organizations and independent transcript publishers; each page names its host and notes known coverage limits. These records are not Reformed teaching authorities. The connected guides state our scriptural and confessional position.",
       "sourceRoomIntro": "Inspect the documents behind the discussion. A source may establish what someone believes without establishing that the belief is true.",
       "sourceRoomNote": "Bible passages open in this site’s reader. Other sources open at their publishers. Scope notes distinguish teaching sources from documentary evidence.",
       "footerTitle": "Conviction with an open Bible.",
@@ -154,6 +154,15 @@
       "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
       "date": "2026-10-05",
       "contentHash": "fb803ff69106854d319702de73ef610bef9dc7de543e1c6edbca03b79a195b14",
+      "basisHash": "4666cbd6e51d5498611c9d251a5c7ddce5fe5f02015703051006274a122e8663"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Transcript source, event identity, editorial summary, coverage notes and YouTube metadata review",
+      "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
+      "date": "2026-10-11",
+      "contentHash": "2393baf1e5e475a40be7856a1b8828919e6bfb7840ba6e722ff994f3c983f341",
       "basisHash": "4666cbd6e51d5498611c9d251a5c7ddce5fe5f02015703051006274a122e8663"
     }
   ]

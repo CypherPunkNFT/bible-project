@@ -99,11 +99,13 @@ test("apologetics: worldview comparison and sources lead to actual studies", asy
 
 test("apologetics: each debate has a real transcript, a reading guide and connected studies", async ({ page }) => {
   await page.goto("/apologetics/debates");
-  await expect(page.locator(".ap-debate-list > a")).toHaveCount(3);
+  await expect(page.locator(".ap-debate-list > a")).toHaveCount(DEBATES.length);
   for (const debate of DEBATES) {
     await page.goto("/apologetics/debates/" + debate.id);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(debate.title);
-    await expect(page.getByRole("link", { name: "Open the full transcript" })).toHaveAttribute("href", /^https:\/\/www.reasonablefaith.org\/media\/debates\//);
+    await expect(page.getByRole("link", { name: "Read the transcript", exact: true })).toHaveAttribute("href", /^https:\/\//);
+    if (debate.recording) await expect(page.getByRole("link", { name: debate.recording.label, exact: true })).toHaveAttribute("href", debate.recording.url);
+    if (debate.transcriptCoverage) await expect(page.locator(".ap-debate-availability")).toContainText(debate.transcriptCoverage);
     await expect(page.locator(".ap-debate-study ol li")).toHaveCount(3);
     await expect(page.locator(".ap-study-card")).toHaveCount(debate.studies.length);
   }
