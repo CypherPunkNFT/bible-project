@@ -8,11 +8,27 @@ test.beforeEach(async ({ page }) => {
 });
 test('all contributors are reachable with bounded cards, unclassified names and preserved profiles', async ({ page }) => {
   await expect(page.locator('.cat-grid .cat-card')).toHaveCount(48);
-  const pages = page.getByRole('combobox', { name: 'Catalogue page', exact: true });
-  await pages.selectOption(String(Math.ceil(total / 48) - 1));
-  await expect(page.locator('.cat-grid .cat-card')).toHaveCount(total % 48 || 48);
+  await expect(page.getByRole('navigation', { name: 'Catalogue pages' })).toHaveCount(0);
+  const scroller = page.locator('.cat-scroll');
+  await scroller.scrollIntoViewIfNeeded();
+  const first = await page.locator('.cat-grid .cat-card').first().elementHandle();
+  const windowY = await page.evaluate(() => scrollY);
+  await scroller.evaluate(async e => {
+    e.scrollTop = (e.scrollHeight - e.clientHeight) * .2;
+    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  });
+  await expect(page.locator('.cat-grid .cat-card')).toHaveCount(48);
+  const position = await scroller.evaluate(e => { e.scrollTop = (e.scrollHeight - e.clientHeight) * .41; return e.scrollTop; });
+  await expect(page.locator('.cat-grid .cat-card')).toHaveCount(96);
+  expect(await scroller.evaluate(e => e.scrollTop)).toBe(position);
+  expect(await page.evaluate(() => scrollY)).toBe(windowY);
+  expect(await first!.evaluate(e => e.isConnected)).toBe(true);
+  await scroller.evaluate(e => { e.scrollTop = (e.scrollHeight - e.clientHeight) * .41; });
+  await expect(page.locator('.cat-grid .cat-card')).toHaveCount(144);
   await page.getByLabel('No assigned field', { exact: true }).check();
   await expect(page.locator('.cat-count')).toContainText(index.coverage.withoutSubjectMatch.toLocaleString());
+  await expect(page.locator('.cat-grid .cat-card')).toHaveCount(48);
+  expect(await scroller.evaluate(e => e.scrollTop)).toBe(0);
   const unknown = page.locator('.cat-library-card').first();
   await expect(unknown).toContainText('Field unassigned');
   await unknown.getByRole('button').click();
@@ -29,13 +45,11 @@ test('all contributors are reachable with bounded cards, unclassified names and 
 test('every Latin Fathers contributor and CCEL contributor is present in the unified catalogue', async ({ page }) => {
   await page.getByRole('combobox', { name: 'Collection', exact: true }).selectOption('latin-fathers');
   await expect(page.locator('.cat-count')).toContainText(`${index.coverage.collections['latin-fathers']} of`);
-  const seen = new Set<string>();
-  const pagination = page.getByRole('navigation', { name: 'Catalogue pages' });
-  for (;;) {
-    for (const id of await page.locator('.cat-grid [data-id]').evaluateAll(es => es.map(e => e.getAttribute('data-id')!))) seen.add(id);
-    if (await pagination.getByRole('button', { name: 'Next', exact: true }).isDisabled()) break;
-    await pagination.getByRole('button', { name: 'Next', exact: true }).click();
+  for (let loaded = 48; loaded < index.coverage.collections['latin-fathers']; loaded += 48) {
+    await page.locator('.cat-scroll').evaluate(e => { e.scrollTop = (e.scrollHeight - e.clientHeight) * .41; });
+    await expect(page.locator('.cat-grid [data-id]')).toHaveCount(Math.min(loaded + 48, index.coverage.collections['latin-fathers']));
   }
+  const seen = new Set(await page.locator('.cat-grid [data-id]').evaluateAll(es => es.map(e => e.getAttribute('data-id')!)));
   expect(seen.size).toBe(index.coverage.collections['latin-fathers']);
   await page.getByRole('combobox', { name: 'Collection', exact: true }).selectOption('ccel');
   await expect(page.locator('.cat-count')).toContainText(`${index.coverage.collections.ccel} of`);

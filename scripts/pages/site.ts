@@ -59,7 +59,7 @@ export const extract: Extractor = async () => {
   return [shared, home, reader, search, sources, testimonies, library, {
     dir: "Site/scholar-catalogue", title: "Scholars: full contributor catalogue", markdown: blocks(
       link("/teachers/scholars#catalogue"),
-      `${complete.length.toLocaleString()} catalogue entries cover every acquired contributor credit, including unclassified names, verified aliases, documented profiles and constituent authors in collected volumes. One catalogue replaces the separate Fields and acquired-contributor browsers. Search, collection/role/profile/field/era/faith filters, five sort orders and 48 cards per page keep the full list accessible inside its own scroll area. Unknown biographical information is not inferred.`,
+      `${complete.length.toLocaleString()} catalogue entries cover every acquired contributor credit, including unclassified names, verified aliases, documented profiles and constituent authors in collected volumes. One catalogue replaces the separate Fields and acquired-contributor browsers. Search, collection/role/profile/field/era/faith filters, five sort orders and 48-card batches appended automatically at 40% of the loaded scroll range keep the full list accessible inside its own scroll area. Unknown biographical information is not inferred.`,
       table(["Contributor", "Profile", "Recorded roles", "Held records", "Collections"], complete.map(p => [p.name, p.scholar ? "Documented scholar profile" : "Library entry", p.roles.join(", "), String(p.records), p.collections.join(", ")])),
     ),
   }, {
