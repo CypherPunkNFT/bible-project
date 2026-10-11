@@ -59,7 +59,11 @@ export interface Scholar {
   name: string;
   short: string;
   born: number;
-  died: number;
+  died: number | null;
+  authorId?: string;
+  tags?: string[];
+  biographyUrl?: string;
+  writings?: { to: string; label: string; count: number };
   circa?: boolean;
   faith: Faith;
   field: Field;

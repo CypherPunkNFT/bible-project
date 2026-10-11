@@ -10,12 +10,14 @@ import { SIDE_PATHS } from "./teachers/shared/sides";
 import "./teachers/station.css";
 
 const PreachersPage = lazy(() => import("./teachers/preachers/PreachersPage"));
+const ScholarWritingsPage = lazy(() => import("./teachers/ScholarWritingsPage"));
 const ScholarsPage = lazy(() => import("./teachers/scholars/ScholarsPage"));
 
 export default function TeachersPage() {
   return <Routes>
     <Route index element={<Station />} />
     <Route path="preachers-and-authors" element={<Suspense fallback={null}><PreachersPage /></Suspense>} />
+    <Route path="scholars/:id/writings" element={<Suspense fallback={null}><ScholarWritingsPage /></Suspense>} />
     <Route path="scholars" element={<Suspense fallback={null}><ScholarsPage /></Suspense>} />
     <Route path="preachers" element={<Navigate replace to={SIDE_PATHS.preachers} />} />
     <Route path="authors" element={<Navigate replace to={SIDE_PATHS.preachers} />} />

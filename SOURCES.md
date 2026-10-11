@@ -1,5 +1,17 @@
 # Sources
 
+## Reasonable Faith writings PDFs — RF01, 11 October 2026
+
+Extraction completed: **177 PDFs, 2,597 pages, 1,092,719 word tokens**, using local CPU embedded-text extraction (33.4 seconds; no OCR/GPU/API). Per-document TXT and page-level JSONL retain source URLs, page boundaries and original checksums. All output files passed readback verification; 13 sparse/blank final pages were visually reviewed with no OCR needed. [Extraction report and text index](../Research/Apologetics/ReasonableFaith/EXTRACTION.md).
+
+William Lane Craig is registered as `author-william-lane-craig`, placed in Scholars with an Apologetics tag, and linked from the Apologetics navigation to `/teachers/scholars/william-lane-craig/writings`. The website catalogue contains 177 source records with original PDF/article links; local PDF/text holdings remain outside public website assets. Biography and life dates: [Reasonable Faith biography/CV](https://www.reasonablefaith.org/william-lane-craig/), checked 11 October 2026. Registry `context-only` means inclusion as a scholar/apologist, not classification as a core Reformed preacher.
+
+At the owner's request, catalogued the six Popular and seven Scholarly writings categories and downloaded every offered PDF sequentially: **183 article listings, 177 distinct PDF files, 28,255,742 bytes, 2,597 pages**. Five listings have no PDF offer; one PDF is shared by two article listings. All 177 files have distinct SHA-256 hashes. No retrieval failures remain.
+
+Publisher/source: [Reasonable Faith](https://www.reasonablefaith.org/writings/popular-writings/apologetics/) and its linked ministry CDN hosts. The [catalogue](../Research/Apologetics/ReasonableFaith/CATALOGUE.md), [per-file acquisition manifest](../Research/Apologetics/ReasonableFaith/catalogue.json) and [verification](../Research/Apologetics/ReasonableFaith/verification.json) record every title, category, article/PDF URL, resolved URL, retrieval time, byte count, SHA-256, page count and local path. Originals: `sources/reasonable-faith-writings/pdfs/`, outside this Website repository.
+
+Rights: author/ministry-offered downloads; copyright and edition-specific publisher notices retained. No blanket public redistribution licence inferred. Intended use: the owner's Bible Project source library. This acquisition did not publish full text or run database intake/embedding. Integrity checks: all checksums matched, every page opened in a second PDF engine, first/last-page text was sampled, three first pages were visually inspected, and every PDF link in all 13 category snapshots was accounted for.
+
 Reconciled **7 October 2026** from the held-file stocktake and retained acquisition/policy records. Each acquisition provider has one canonical profile below. Source aliases, mirrors and ministry CDN hosts are consolidated; edition and translator notices remain in the original manifests. Counts refer to the stocktake snapshot, not later downloads.
 
 **Private local indexing:** the owner authorizes importing and embedding all lawfully held text. Credit and licence fields remain metadata; no new evidenceOnly holds are created. This documentation grants no public hosting, redistribution or AI-training permission and does not override source terms. Missing policy evidence is recorded as a documentation task, not an automatic import hold.

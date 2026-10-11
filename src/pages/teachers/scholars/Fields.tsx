@@ -15,7 +15,7 @@ interface Group { key: Field; label: string; people: Scholar[] }
 
 const spanOf = (people: Scholar[]) => {
   const a = people[0], b = people[people.length - 1];
-  return people.length === 1 ? a.short : `From ${a.short} to ${b.short}, ${a.circa ? "c. " : ""}${a.born}–${b.died}`;
+  return people.length === 1 ? a.short : `From ${a.short} to ${b.short}, ${a.circa ? "c. " : ""}${a.born}–${b.died ?? "present"}`;
 };
 
 export function Fields() {

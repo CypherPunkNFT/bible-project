@@ -16,10 +16,10 @@ export const Card = memo(function Card({ data, s, order, onOpen, cardRef }: Card
       {s.site && (s.site.status === "in-use" ? <span className="cat-badge cat-badge-used"><i />Used on this site</span> : <span className="cat-badge cat-badge-held">In the library</span>)}</div>
     <h3 className="cat-card-name">{s.name}</h3>
     <p className="cat-card-meta"><span>{years(s)}</span><span>{s.place[0]}</span></p>
-    <p className="cat-card-tags"><span className="cat-field">{data.fields[s.field]}</span><span className="cat-faith">{data.faiths[s.faith]}</span></p>
+    <p className="cat-card-tags"><span className="cat-field">{data.fields[s.field]}</span><span className="cat-faith">{data.faiths[s.faith]}</span>{s.tags?.map(tag => <span key={tag} className="cat-field">{tag}</span>)}</p>
     {title && <div className="cat-card-work"><span>Key work</span><b>{title}</b><em>{year}</em></div>}
-    <div className="cat-lb" role="img" aria-label={`Lived ${years(s)}, shown on a line from year 0 to ${NOW}`}>
-      <div className="cat-lb-track"><b style={{ left: yearPct(s.born), width: `max(4px, calc(${yearPct(s.died)} - ${yearPct(s.born)}))` }} /></div></div>
+    <div className="cat-lb" role="img" aria-label={`Life: ${years(s)}, shown on a line from year 0 to ${NOW}`}>
+      <div className="cat-lb-track"><b style={{ left: yearPct(s.born), width: `max(4px, calc(${yearPct(s.died ?? NOW)} - ${yearPct(s.born)}))` }} /></div></div>
     <button type="button" className="cat-card-hit" aria-label={`Open the profile of ${s.name}`} onClick={(e) => onOpen(s.id, e.currentTarget.parentElement)} />
   </article>;
 });

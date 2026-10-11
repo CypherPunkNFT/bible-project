@@ -18,6 +18,10 @@ export function teacherReadingTemplates() {
       coverage: "Representative page states; package generation verifies all record, shelf and reading-page references." });
   };
   const templates: TemplateDef[] = [
+    { ...common, id: "scholars", name: "Scholars directory", what: "Scholars, living and historical, with subject labels and source collections.", address: "/teachers/scholars", entries: ["src/pages/teachers/scholars/ScholarsPage.tsx"], scopes: ["src/pages/teachers/scholars/", "src/data/teachers/"], signature: { selector: "#catalogue", label: "Scholars catalogue" }, variants: [single("directory", "Directory", "Browse and open a scholar profile.", "/teachers/scholars")] },
+    { ...common, id: "scholar-writings", name: "Scholar writings", what: "An author’s source catalogue, shared with Apologetics materials.", address: "/teachers/scholars/<id>/writings", entries: ["src/pages/teachers/ScholarWritingsPage.tsx"], scopes: ["src/pages/teachers/scholar-writings.css", "content/teachers/writings/"], signature: { selector: ".sw-filters", label: "Search and category filters" }, variants: [
+      variant({ id: "catalogue", name: "Writings catalogue", what: "Original article and PDF links with subject filters.", records: readJson<{ name: string; path: string }[]>("content/teachers/writings/index.json"), url: r => r.path, samples: [firstOf(r => r.name, "example")] }),
+    ] },
     { ...common, id: "teacher-holdings", name: "Teachers acquired shelves", what: "Acquired contributors below the existing biographies.", address: "/teachers/<side>#acquired", signature: { selector: ".acq-catalogue", label: "Acquired contributors" }, variants: [
       single("preachers", "Preachers", "Acquired Baptist and evangelical author shelves.", "/teachers/preachers-and-authors#acquired"),
       single("scholars", "Scholars", "Recorded authors, editors and translators; unknown biographies stay unknown.", "/teachers/scholars#acquired"),
@@ -34,5 +38,5 @@ export function teacherReadingTemplates() {
       single("pending", "Public copy pending", "Doctrinal warning and provenance remain visible.", "/sources/reading/ap-aquinas"),
     ] },
   ];
-  return { templates, valid: { teacherWorks: works.map(w => w.id), readingSources: sources.map(s => s.id) } };
+  return { templates, valid: { teacherWorks: works.map(w => w.id), readingSources: sources.map(s => s.id), scholarWritings: readJson<{ path: string }[]>("content/teachers/writings/index.json").map(c => c.path) } };
 }
