@@ -78,8 +78,8 @@ export function Landing() {
         <div><dt>Era unknown</dt><dd>{libraryFacts?.summary.eras.unknown.toLocaleString() ?? "…"}</dd><p>retained in the catalogue</p></div>
       </dl>
     </div>
-    </div>
       <nav className="lnd-jump" aria-label="On this page"><span className="lnd-jump-l">On this page</span>
         {JUMPS.map(({id, title}) => <a key={id} href={`#${id}`} onClick={jump}><b>{sectionNumber(id)}</b>{title}</a>)}</nav>
+    </div>
   </div>;
 }

@@ -172,7 +172,7 @@
   .tp-scholars .lnd-jump-l { flex-basis: 100%; }
 }
 
-/* Fill the desktop opening through the statistics; section links follow below.
+/* Fill the desktop opening through the section links, leaving a small bottom inset.
    The expanded credit list scrolls without stretching the constellation. */
 @media (min-width: 1081px) {
   .tp-scholars .lnd { padding-top: clamp(.75rem, 1.8vh, 1.25rem); }
@@ -205,7 +205,7 @@
 @media (min-width: 1081px) {
   .tp-scholars .lnd-screen { min-height: calc(100svh - var(--landing-start, 140px)); padding-bottom: var(--landing-bottom-gap, 24px); display: flex; flex-direction: column; }
   .tp-scholars .lnd-hero { flex: 1; }
-  .tp-scholars .lnd-foot { flex: none; }
+  .tp-scholars .lnd-foot, .tp-scholars .lnd-jump { flex: none; }
 }
 
 /* Give spare hero height to the author panel instead of an automatic top gap. */
