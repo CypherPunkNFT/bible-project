@@ -40,8 +40,7 @@ export function Landing() {
       const el = screen.current;
       if (el) {
         el.style.setProperty("--landing-start", `${el.getBoundingClientRect().top + window.scrollY}px`);
-        const statsHeight = el.querySelector(".lnd-figs")?.getBoundingClientRect().height ?? 96;
-        el.style.setProperty("--landing-bottom-gap", `${statsHeight / 4}px`);
+
       }
     };
     measure();
@@ -70,6 +69,7 @@ export function Landing() {
       </div>
       <Constellation data={data} matches={matchIds} searching={query.trim().length > 0} onOpen={openProfile} />
     </div>
+    </div>
     <div className="lnd-foot">
       <dl className="lnd-figs">
         <div><dt>Contributors</dt><dd>{library ? library.length.toLocaleString() : '…'}</dd><p>{data.scholars.length} documented scholar profiles</p></div>
@@ -80,6 +80,5 @@ export function Landing() {
     </div>
       <nav className="lnd-jump" aria-label="On this page"><span className="lnd-jump-l">On this page</span>
         {JUMPS.map(({id, title}) => <a key={id} href={`#${id}`} onClick={jump}><b>{sectionNumber(id)}</b>{title}</a>)}</nav>
-    </div>
   </div>;
 }

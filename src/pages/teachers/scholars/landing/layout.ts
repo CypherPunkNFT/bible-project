@@ -3,20 +3,22 @@
 // birth (so the line through them reads as a gentle curl), then a few hundred rounds of gentle pushing keep marks from
 // touching (deterministic, done once per layout). Finally the picture is cropped to its own bounds so it fills the stage.
 import type { Field, Scholar, ScholarsData } from "@/data/teachers/pages-types";
-import { byBirth } from "../marks/facts";
+export type SkyPerson = Pick<Scholar, "id" | "name" | "field" | "site"> & { born?: number; work?: string; records?: number };
+export interface SkyData { fields: ScholarsData["fields"]; scholars: SkyPerson[] }
+const byBirth = (people: SkyPerson[]) => [...people].sort((a,b)=>(a.born ?? Infinity)-(b.born ?? Infinity));
 
 export type LayoutName = "wide" | "tall";
 interface LayoutSpec { size: number; gap: number; centres: Record<Field, [number, number]> }
 const LAYOUTS: Record<LayoutName, LayoutSpec> = {
-  wide: { size: 58, gap: 76, centres: { texts: [190, 250], history: [470, 150], theology: [680, 160], reference: [600, 420], places: [340, 510] } },
+  wide: { size: 58, gap: 76, centres: { texts: [190, 250], history: [470, 150], theology: [720, 170], reference: [630, 450], places: [325, 540] } },
   tall: { size: 50, gap: 58, centres: { texts: [118, 215], history: [300, 140], theology: [318, 352], reference: [268, 560], places: [100, 560] } },
 };
 
-export interface SkyNode { s: Scholar; x: number; y: number; hx: number; hy: number }
+export interface SkyNode { s: SkyPerson; x: number; y: number; hx: number; hy: number }
 export interface SkyField { field: Field; own: SkyNode[]; mx: number; my: number; bottom: number; r: number }
 export interface Sky { name: LayoutName; w: number; h: number; size: number; nodes: SkyNode[]; fields: SkyField[] }
 
-function seed(data: ScholarsData, spec: LayoutSpec): SkyNode[] {
+function seed(data: SkyData, spec: LayoutSpec): SkyNode[] {
   const nodes: SkyNode[] = [], born = byBirth(data.scholars);
   for (const field of Object.keys(data.fields) as Field[]) {
     const [cx, cy] = spec.centres[field], b = spec.gap / (2 * Math.PI);
@@ -45,7 +47,7 @@ function relax(nodes: SkyNode[], gap: number) {
   }
 }
 
-function groups(data: ScholarsData, nodes: SkyNode[], size: number): SkyField[] {
+function groups(data: SkyData, nodes: SkyNode[], size: number): SkyField[] {
   return (Object.keys(data.fields) as Field[]).map((field) => {
     const own = nodes.filter((n) => n.s.field === field);
     const mx = own.reduce((a, n) => a + n.x, 0) / own.length, my = own.reduce((a, n) => a + n.y, 0) / own.length;
@@ -53,10 +55,10 @@ function groups(data: ScholarsData, nodes: SkyNode[], size: number): SkyField[] 
   }).filter((f) => f.own.length > 0);
 }
 
-export function buildSky(data: ScholarsData, name: LayoutName): Sky {
+export function buildSky(data: SkyData, name: LayoutName): Sky {
   const spec = LAYOUTS[name], nodes = seed(data, spec);
   relax(nodes, spec.gap);
-  const pad = 14, half = spec.size / 2 + 6, labelRoom = 40;
+  const pad = 26, half = spec.size / 2 + 6, labelRoom = 40;
   const minX = Math.min(...nodes.map((n) => n.x)) - half - pad, maxX = Math.max(...nodes.map((n) => n.x)) + half + pad;
   const minY = Math.min(...nodes.map((n) => n.y)) - half - pad, maxY = Math.max(...nodes.map((n) => n.y)) + half + labelRoom;
   for (const n of nodes) { n.x -= minX; n.y -= minY; }

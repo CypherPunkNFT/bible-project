@@ -5,17 +5,28 @@
 // Hover and match highlights are classes set through refs, so the 35 marks never re-render on hover.
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import type { ScholarsData } from "@/data/teachers/pages-types";
-import { byBirth, years } from "../marks/facts";
+import { years } from "../marks/facts";
 import { cssVars, reducedMotion, useMediaQuery } from "../marks/dom";
 import { FieldIcon, MarkInner } from "../marks/Mark";
 import { toneStyle, toneVar } from "../marks/shapes";
+import { useScholars } from "../context";
 import { buildSky, driftStyle, type Sky } from "./layout";
 
 interface SkyProps { data: ScholarsData; matches: ReadonlySet<string>; searching: boolean; onOpen: (id: string, origin: Element | null) => void }
 
 export function Constellation(props: SkyProps) {
+  const { library, filterCatalogue } = useScholars();
+  const extras = useMemo(() => {
+    const ids = ["field-5904385354bfce0cf96a", "field-20c4bf2eb957d5ad0c6b", "field-d3b4db3da2e5b0c107c2", "field-3911a076637923d533bf", "field-65dc74ebf80d23232d90", "field-f47918059287d0be5da0", "field-976ca3a901922198bda8"];
+    return ids.flatMap((id, i) => {
+      const p = library?.find(p => p.id === id);
+      if (!p) return [];
+      const field = i < 3 ? "theology" as const : i < 5 ? "history" as const : "places" as const;
+      return [{ id:p.id, name:p.name, field, born:p.facts?.dates.born, site:null, records:p.records, work:p.fields[field]?.example?.title }];
+    });
+  }, [library]);
   const narrow = useMediaQuery("(max-width: 640px)");
-  const sky = useMemo(() => buildSky(props.data, narrow ? "tall" : "wide"), [props.data, narrow]);
+  const sky = useMemo(() => buildSky({...props.data, scholars:[...props.data.scholars,...extras]}, narrow ? "tall" : "wide"), [props.data, narrow, extras]);
   const stage = useRef<HTMLElement>(null);
   useEffect(() => {
     const el = stage.current;
@@ -25,9 +36,7 @@ export function Constellation(props: SkyProps) {
     return () => watch.disconnect();
   }, []);
   return <figure className="lnd-stage" ref={stage}>
-    <figcaption className="lnd-cap"><span>The documented profiles, shaped by field. Lines follow birth order; the full contributor catalogue also includes entries without biographies.</span>
-      <span className="lnd-cap-key"><i />Used on this site</span></figcaption>
-    <div className="lnd-skyhold"><SkyView key={sky.name} sky={sky} {...props} /></div>
+    <div className="lnd-skyhold"><SkyView key={sky.name} sky={sky} {...props} onOpen={(id, origin) => { const entry = extras.find(p => p.id === id); if(entry)filterCatalogue({q:entry.name.toLocaleLowerCase()}); else props.onOpen(id, origin); }} /></div>
   </figure>;
 }
 
@@ -65,7 +74,7 @@ function SkyView({ data, sky, matches, searching, onOpen }: SkyProps & { sky: Sk
 
   const art = useMemo(() => <SkyArt data={data} sky={sky} />, [data, sky]);
   const open = (node: SVGGElement) => { setHover(null); onOpen(node.dataset.id ?? "", node.querySelector(".lnd-hov")); };
-  const hovered = hover ? data.scholars.find((s) => s.id === hover) : undefined;
+  const hovered = hover ? sky.nodes.find(n=>n.s.id===hover)?.s : undefined;
   return <div ref={skyRef} className={`lnd-sky${entered ? " lnd-in" : ""}${searching ? " lnd-searching" : ""}`} data-layout={sky.name}
     data-hover={hovered?.field} style={cssVars({ aspectRatio: `${sky.w} / ${sky.h}`, "--sky-ratio": String(sky.w / sky.h) })}
     onPointerOver={(e: PointerEvent) => { const id = nodeOf(e.target)?.dataset.id; if (id && id !== hover) setHover(id); }}
@@ -79,26 +88,26 @@ function SkyView({ data, sky, matches, searching, onOpen }: SkyProps & { sky: Sk
     <div className="lnd-flabels">{sky.fields.map((f) => <span key={f.field} className="lnd-flabel"
       style={{ ...toneStyle(f.field), left: `${(f.mx / sky.w * 100).toFixed(3)}%`, top: `${(Math.min(sky.h - 12, f.bottom + sky.size / 2 + 18) / sky.h * 100).toFixed(3)}%` }}>
       <FieldIcon field={f.field} size={12} /><span>{data.fields[f.field]}</span></span>)}</div>
-    <div ref={tipRef} className="lnd-tip" hidden={!hovered}>{hovered && <TipCard data={data} id={hovered.id} />}</div>
+    <div ref={tipRef} className="lnd-tip" hidden={!hovered}>{hovered && <TipCard data={data} sky={sky} id={hovered.id} />}</div>
   </div>;
 }
 
 /** The drawing itself: glows, lines and marks. Built once per layout. */
 function SkyArt({ data, sky }: { data: ScholarsData; sky: Sky }) {
-  const order = new Map(byBirth(data.scholars).map((s, i) => [s.id, i]));
+  const order = new Map(sky.nodes.map((n, i) => [n.s.id, i]));
   const k = sky.size / 48, half = sky.size / 2;
-  return <svg viewBox={`0 0 ${sky.w} ${sky.h}`} aria-label={`${data.scholars.length} documented profiles, grouped by field`}>
+  return <svg viewBox={`0 0 ${sky.w} ${sky.h}`} aria-label={`${sky.nodes.length} scholars and catalogue contributors, grouped by field`}>
     <defs>{sky.fields.map((f) => <radialGradient key={f.field} id={`sc-lnd-glow-${f.field}-${sky.name}`}>
       <stop offset="0" style={{ stopColor: toneVar(f.field), stopOpacity: 0.13 }} /><stop offset="1" style={{ stopColor: toneVar(f.field), stopOpacity: 0 }} />
     </radialGradient>)}</defs>
     <g className="lnd-glows">{sky.fields.map((f) => <circle key={f.field} cx={f.mx.toFixed(1)} cy={f.my.toFixed(1)} r={(f.r * 1.15).toFixed(1)} fill={`url(#sc-lnd-glow-${f.field}-${sky.name})`} />)}</g>
     <g className="lnd-lines">{sky.fields.filter((f) => f.own.length > 1).map((f) => <polyline key={f.field} className="lnd-line" data-field={f.field} pathLength={1}
-      style={{ stroke: toneVar(f.field), ...cssVars({ "--d": `${f.own[0].s.born / 2026 * 900 + 350}ms` }) }}
+      style={{ stroke: toneVar(f.field), ...cssVars({ "--d": `${(f.own[0].s.born ?? 2026) / 2026 * 900 + 350}ms` }) }}
       points={f.own.map((n) => `${n.x.toFixed(1)},${n.y.toFixed(1)}`).join(" ")} />)}</g>
     <g className="lnd-nodes">{sky.nodes.map((n, i) => {
       const s = n.s;
       return <g key={s.id} className="lnd-node" data-id={s.id} data-field={s.field} transform={`translate(${n.x.toFixed(1)} ${n.y.toFixed(1)})`}
-        tabIndex={0} role="button" aria-label={`${s.name}, ${years(s)}, ${data.faiths[s.faith]}. Open the profile`}>
+        tabIndex={0} role="button" aria-label={`${s.name}. ${data.scholars.some(p=>p.id===s.id) ? "Open the profile" : "Explore catalogue works"}`}>
         <g className="lnd-pop" style={cssVars({ "--d": `${(order.get(s.id) ?? 0) * 34}ms` })}><g className="lnd-float" style={cssVars(driftStyle(i))}><g className="lnd-hov">
           <circle className="lnd-hit" r={half + 4} />
           <g transform={`translate(${-half} ${-half}) scale(${k})`}><MarkInner scholar={s} /></g>
@@ -109,9 +118,13 @@ function SkyArt({ data, sky }: { data: ScholarsData; sky: Sky }) {
   </svg>;
 }
 
-function TipCard({ data, id }: { data: ScholarsData; id: string }) {
+function TipCard({ data, sky, id }: { data: ScholarsData; sky: Sky; id: string }) {
   const s = data.scholars.find((x) => x.id === id);
-  if (!s) return null;
+  if (!s) {
+    const entry = sky.nodes.find(n=>n.s.id===id)?.s;
+    if (!entry) return null;
+    return <><p className="lnd-tip-k">{data.fields[entry.field]}</p><p className="lnd-tip-n">{entry.name}</p><p className="lnd-tip-y">{entry.records?.toLocaleString()} held records</p>{entry.work && <p className="lnd-tip-w"><span>In the library</span><b>{entry.work}</b></p>}<p className="lnd-tip-y">Open catalogue works</p></>;
+  }
   const [title, year] = s.works[0] ?? ["", 0], tone = toneVar(s.field);
   return <>
     <p className="lnd-tip-k" style={{ color: tone }}>{data.fields[s.field]}</p>

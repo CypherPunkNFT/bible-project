@@ -6,7 +6,7 @@ const count=(n:number)=>n.toLocaleString('en-US');
 test('all sections keep their established visual forms with current data',async({page})=>{
  await page.goto('/teachers/scholars');
  await expect(page.locator('.cat-count')).toContainText(count(facts.summary.catalogueEntries));
- await expect(page.locator('.lnd-node')).toHaveCount(facts.summary.documentedProfiles);
+ await expect(page.locator('.lnd-node')).toHaveCount(facts.summary.documentedProfiles + 7);
  await expect(page.locator('.lnd-figs')).toContainText(count(facts.summary.eras.unknown));
  const built=page.locator('#built'); await built.scrollIntoViewIfNeeded();
  await expect(built.locator('.blt-feat')).toHaveCount(usage.features.length);

@@ -203,7 +203,7 @@
 }
 
 @media (min-width: 1081px) {
-  .tp-scholars .lnd-screen { min-height: calc(100svh - var(--landing-start, 140px)); padding-bottom: var(--landing-bottom-gap, 24px); display: flex; flex-direction: column; }
+  .tp-scholars .lnd-screen { min-height: calc(100svh - var(--landing-start, 140px)); padding-bottom: 24px; display: flex; flex-direction: column; }
   .tp-scholars .lnd-hero { flex: 1; }
   .tp-scholars .lnd-foot, .tp-scholars .lnd-jump { flex: none; }
 }
@@ -213,4 +213,10 @@
   .tp-scholars .lnd-built { margin-top: 0; flex: 1; min-height: 0; display: flex; flex-direction: column; }
   .tp-scholars .lnd-used { flex: 1 0 4.5rem; min-height: 0; max-height: none; align-content: flex-start; }
   .tp-scholars .lnd-more { flex: none; }
+}
+
+@media (min-width: 1081px) {
+  .tp-scholars .lnd-foot { margin-top: 0; }
+  .tp-scholars .lnd-sky { width: min(92cqw, calc(92cqh * var(--sky-ratio))); }
+  .tp-scholars .lnd-built { padding: 1.1rem 1.25rem; }
 }
