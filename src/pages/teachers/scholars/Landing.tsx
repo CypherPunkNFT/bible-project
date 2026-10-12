@@ -41,7 +41,7 @@ export function Landing() {
       </div>
     </div>
     <Constellation data={data} matches={matchIds} searching={!!query.trim()} onOpen={openProfile}/>
-    <div className="lnd-under"><a className="lnd-more" href="#built" onClick={jump}>See how these works are used on the site <ArrowRight size={14}/></a><span>Explore selected scholars by subject; search the full catalogue above.</span></div>
+    <div className="lnd-under"><a className="lnd-more" href="#built" onClick={jump}>See how these works are used on the site <ArrowRight size={14}/></a><span>Follow how works develop across generations; search the full catalogue above.</span></div>
     <nav className="lnd-jump" aria-label="On this page">{SCHOLAR_SECTIONS.map(({id,title})=><a key={id} href={`#${id}`} onClick={jump}><b>{sectionNumber(id)}</b>{title}</a>)}</nav>
   </div>;
 }

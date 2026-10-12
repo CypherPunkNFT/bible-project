@@ -1,6 +1,6 @@
 import {expect,test} from '@playwright/test';
-test('shared Scholars landing supports subject focus, pan, zoom and expansion',async({page})=>{
- await page.goto('/teachers/scholars');
+test('saved Scholars explorer supports subject focus, pan, zoom and expansion',async({page})=>{
+ await page.goto('/teachers/scholars?scholars-view=spirals');
  const graph=page.locator('.cg'), svg=graph.locator('.cg-canvas>svg');
  await expect(graph.locator('.lnd-node')).toHaveCount(71);
  await expect(page.locator('.lnd-built')).toHaveCount(0);
@@ -30,7 +30,7 @@ test('shared Scholars landing supports subject focus, pan, zoom and expansion',a
  expect(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)).toBeLessThanOrEqual(1);
 });
 test('vertical drag and wheel zoom stay inside the graph',async({page})=>{
- await page.goto('/teachers/scholars');await page.locator('.cg .lnd-node').nth(70).waitFor();
+ await page.goto('/teachers/scholars?scholars-view=spirals');await page.locator('.cg .lnd-node').nth(70).waitFor();
  const svg=page.locator('.cg-canvas>svg');await svg.scrollIntoViewIfNeeded();const view=await svg.getAttribute('viewBox'),before=await page.evaluate(()=>scrollY);await svg.hover();await page.mouse.wheel(0,-160);await expect(svg).not.toHaveAttribute('viewBox',view!);expect(await page.evaluate(()=>scrollY)).toBe(before);
  const box=await svg.boundingBox();if(!box)throw Error('missing canvas');const zoomed=await svg.getAttribute('viewBox');
  await page.mouse.move(box.x+box.width/2,box.y+30);await page.mouse.down();await page.mouse.move(box.x+box.width/2,box.y+120,{steps:6});await page.mouse.up();await expect(svg).not.toHaveAttribute('viewBox',zoomed!);expect(await page.evaluate(()=>scrollY)).toBe(before);

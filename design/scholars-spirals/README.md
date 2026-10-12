@@ -1,0 +1,1 @@
+Saved 71-contributor spiral explorer before the idea-lineage experiment. The graph implementation is preserved as LegacyConstellation.tsx; the complete pre-experiment page source is in commit 68532b691. This live comparison uses the current surrounding Scholars page.

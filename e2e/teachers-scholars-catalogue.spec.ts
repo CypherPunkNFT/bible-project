@@ -34,13 +34,11 @@ async function openPage(page: Page) {
   await page.getByRole("combobox", { name: "Entry type", exact: true }).selectOption("profiles");
 }
 
-test("the landing shows the headline, the figures, every scholar's mark and the scholars the site is built on", async ({ page }) => {
+test("the landing shows the headline, current figures and five fields of thought", async ({ page }) => {
   await openPage(page);
   const landing = page.locator("#landing");
   await expect(landing.getByRole("heading", { level: 1 })).toHaveText("The greats, catalogued.");
-  await expect(landing.locator(".lnd-node")).toHaveCount(TOTAL + 35);
-  await expect(landing.locator(".lnd-used-dot")).toHaveCount(USED.length);
-  await expect(landing.locator(".cg-fields button")).toHaveCount(Object.keys(DATA.fields).length);
+  await expect(landing.locator(".idea-lineage [role=tab]")).toHaveCount(Object.keys(DATA.fields).length);
   await expect(landing.locator(".lnd-built")).toHaveCount(0);
   await expect(landing.locator(".lnd-figs")).toContainText(`${TOTAL} documented profiles`);
   // Jump links scroll to their section and keep the address in step.
@@ -49,11 +47,10 @@ test("the landing shows the headline, the figures, every scholar's mark and the 
   await expect(page.locator("#catalogue")).toBeInViewport();
 });
 
-test("landing search lights matching profiles and searches the full contributor catalogue", async ({ page }) => {
+test("landing search searches the full contributor catalogue", async ({ page }) => {
   await openPage(page);
   const input = page.getByRole("searchbox", { name: "Search the full catalogue", exact: true });
   await input.fill("vulgate");
-  await expect(page.locator("#landing .lnd-node.lnd-match")).toHaveCount(1);
   await input.press("Enter");
   await expect(page.getByRole("button", { name: "Open the profile of Jerome", exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Open the profile of Jerome", exact: true }).click();
@@ -63,18 +60,12 @@ test("landing search lights matching profiles and searches the full contributor 
   await expect(page.locator(".cat-empty")).toBeVisible();
 });
 
-test("hovering a mark shows its card; clicking it opens the profile", async ({ page }) => {
-  test.skip(isPhone(page), "the hover card is a pointer feature");
+test("selecting a lineage milestone explains its connection and offers its source", async ({ page }) => {
   await openPage(page);
-  const node = page.locator(`#landing .lnd-node[data-id="${byBirth[0].id}"]`);
-  await node.hover();
-  const tip = page.locator("#landing .cg-tip");
-  await expect(tip).toBeVisible();
-  await expect(tip).toContainText(byBirth[0].name);
-  await node.click();
-  await expect(profile(page).getByRole("heading", { level: 2 })).toHaveText(byBirth[0].name);
-  await page.keyboard.press("Escape");
-  await expect(profile(page)).toBeHidden();
+  const panel=page.locator('.idea-lineage');
+  await panel.getByRole('button',{name:/c. 380: Jerome/}).click();
+  await expect(panel.locator('#lineage-detail')).toContainText('translates Eusebius into Latin');
+  await expect(panel.getByRole('link',{name:'Read the source'})).toHaveAttribute('href',/^https:/);
 });
 
 test("the catalogue filters by field, era, faith, search and the used switch, with live counts", async ({ page }) => {
