@@ -7,9 +7,10 @@ export type SkyPerson = Pick<Scholar, "id" | "name" | "field" | "site"> & { born
 export interface SkyData { fields: ScholarsData["fields"]; scholars: SkyPerson[] }
 const byBirth = (people: SkyPerson[]) => [...people].sort((a,b)=>(a.born ?? Infinity)-(b.born ?? Infinity));
 
-export type LayoutName = "wide" | "tall";
+export type LayoutName = "wide" | "tall" | "band";
 interface LayoutSpec { size: number; gap: number; centres: Record<Field, [number, number]> }
 const LAYOUTS: Record<LayoutName, LayoutSpec> = {
+  band: { size: 44, gap: 57, centres: { history:[150,170], texts:[460,170], places:[770,170], reference:[1080,170], theology:[1390,170] } },
   wide: { size: 58, gap: 76, centres: { texts: [190, 250], history: [470, 150], theology: [720, 170], reference: [630, 450], places: [325, 540] } },
   tall: { size: 50, gap: 58, centres: { texts: [118, 215], history: [300, 140], theology: [318, 352], reference: [268, 560], places: [100, 560] } },
 };

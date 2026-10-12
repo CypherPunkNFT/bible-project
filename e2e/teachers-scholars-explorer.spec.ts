@@ -1,0 +1,34 @@
+﻿import {expect,test} from '@playwright/test';
+test('shared Scholars landing supports subject focus, pan, zoom and expansion',async({page})=>{
+ await page.goto('/teachers/scholars');
+ const graph=page.locator('.cg'), svg=graph.locator('.cg-canvas>svg');
+ await expect(graph.locator('.lnd-node')).toHaveCount(43);
+ await expect(page.locator('.lnd-built')).toHaveCount(0);
+ await expect(page.locator('.lnd-bible')).toBeVisible();
+ const initial=await svg.getAttribute('viewBox');
+ await graph.getByRole('button',{name:/Theology & philosophy/}).click();
+ await expect(svg).not.toHaveAttribute('viewBox',initial!);
+ const focused=await svg.getAttribute('viewBox');
+ await graph.getByRole('button',{name:'Zoom in',exact:true}).click();
+ await expect(svg).not.toHaveAttribute('viewBox',focused!);
+ const zoomed=await svg.getAttribute('viewBox');
+ const r=await svg.boundingBox();if(!r)throw Error('missing graph');
+ await page.mouse.move(r.x+r.width/2,r.y+15);await page.mouse.down();await page.mouse.move(r.x+r.width/2+55,r.y+35,{steps:5});await page.mouse.up();
+ await expect(svg).not.toHaveAttribute('viewBox',zoomed!);
+ await graph.getByRole('button',{name:'Reset graph',exact:true}).click();
+ await expect(svg).toHaveAttribute('viewBox',initial!);
+ await graph.getByRole('button',{name:'Expand explorer',exact:true}).click();
+ await expect(graph).toHaveAttribute('role','dialog');
+ await expect(graph.getByRole('button',{name:'Close explorer',exact:true})).toBeFocused();
+ await page.keyboard.press('Escape');
+ await expect(graph).toHaveAttribute('role','region');
+ await graph.getByRole('button',{name:/Theology & philosophy/}).click();
+ await graph.locator('[data-id="field-5904385354bfce0cf96a"]').click();
+ await expect(page.getByRole('searchbox',{name:'Search the scholars',exact:true})).toHaveValue('ambrose of milan');
+ await expect(page.locator('.cat-count')).toHaveText('1 of 8,482 contributors');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)).toBeLessThanOrEqual(1);
+});
+test('ordinary wheel scroll passes through the subject graph',async({page})=>{
+ await page.goto('/teachers/scholars');await page.locator('.cg .lnd-node').nth(42).waitFor();
+ const svg=page.locator('.cg-canvas>svg');await svg.scrollIntoViewIfNeeded();const view=await svg.getAttribute('viewBox'),before=await page.evaluate(()=>scrollY);await svg.hover();await page.mouse.wheel(0,300);await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(before);await expect(svg).toHaveAttribute('viewBox',view!);
+});

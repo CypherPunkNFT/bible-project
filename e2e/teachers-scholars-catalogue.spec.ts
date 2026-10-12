@@ -40,17 +40,9 @@ test("the landing shows the headline, the figures, every scholar's mark and the 
   await expect(landing.getByRole("heading", { level: 1 })).toHaveText("The greats, catalogued.");
   await expect(landing.locator(".lnd-node")).toHaveCount(TOTAL + 7);
   await expect(landing.locator(".lnd-used-dot")).toHaveCount(USED.length);
-  await expect(landing.locator(".lnd-flabel")).toHaveCount(Object.keys(DATA.fields).length);
-  const chips = landing.locator(".lnd-used button");
-  await expect(chips).toHaveCount(USED.length);
-  await expect(landing.locator(".lnd-figs")).toContainText(`${TOTAL}`);
-  await expect(landing.locator(".lnd-figs")).toContainText(`${TOTAL} documented scholar profiles`);
-  // A chip opens that scholar's profile; Esc closes it.
-  await chips.first().click();
-  await expect(profile(page)).toBeVisible();
-  await expect(profile(page).getByRole("heading", { level: 2 })).toHaveText(byBirth.filter((s) => USED.includes(s))[0].name);
-  await page.keyboard.press("Escape");
-  await expect(profile(page)).toBeHidden();
+  await expect(landing.locator(".cg-fields button")).toHaveCount(Object.keys(DATA.fields).length);
+  await expect(landing.locator(".lnd-built")).toHaveCount(0);
+  await expect(landing.locator(".lnd-figs")).toContainText(`${TOTAL} documented profiles`);
   // Jump links scroll to their section and keep the address in step.
   await landing.locator(".lnd-jump a", { hasText: "The full catalogue" }).click();
   await expect(page).toHaveURL(/#catalogue$/);
@@ -76,7 +68,7 @@ test("hovering a mark shows its card; clicking it opens the profile", async ({ p
   await openPage(page);
   const node = page.locator(`#landing .lnd-node[data-id="${byBirth[0].id}"]`);
   await node.hover();
-  const tip = page.locator("#landing .lnd-tip");
+  const tip = page.locator("#landing .cg-tip");
   await expect(tip).toBeVisible();
   await expect(tip).toContainText(byBirth[0].name);
   await node.click();

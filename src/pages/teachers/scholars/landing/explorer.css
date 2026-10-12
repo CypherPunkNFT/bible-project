@@ -1,0 +1,23 @@
+﻿.tp-scholars .cg{margin-top:2rem;border:1px solid var(--line);border-radius:1.5rem;background:linear-gradient(140deg,color-mix(in srgb,var(--accent) 6%,var(--surface)),var(--surface));overflow:hidden;position:relative}
+.tp-scholars .cg-toolbar{display:flex;align-items:center;justify-content:space-between;padding:.7rem 1rem;border-bottom:1px solid var(--line);color:var(--muted);font-size:.75rem}
+.tp-scholars .cg-toolbar>div{display:flex;gap:.3rem}
+.tp-scholars .cg-toolbar button{display:grid;place-items:center;width:30px;height:30px;padding:0;border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--ink);cursor:pointer}
+.tp-scholars .cg-toolbar button:hover{color:var(--accent);border-color:var(--accent)}
+.tp-scholars .cg-fields{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:.6rem .75rem;gap:.4rem}
+.tp-scholars .cg-fields button{font-size:.7rem;display:flex;justify-content:center;align-items:center;gap:.4rem;background:none;border:1px solid transparent;border-radius:8px;padding:.45rem .2rem;cursor:pointer}
+.tp-scholars .cg-fields button[aria-pressed=true]{border-color:currentColor;background:var(--surface)}
+.tp-scholars .cg-fields small{font-size:.65rem;opacity:.65}
+.tp-scholars .cg-canvas{position:relative;height:250px;min-height:0}
+.tp-scholars .cg-canvas>svg{width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+.tp-scholars .cg-canvas>svg:active{cursor:grabbing}
+.tp-scholars .cg .lnd-node{cursor:pointer;outline:none}
+.tp-scholars .cg .lnd-node:hover text,.tp-scholars .cg .lnd-node:focus text{fill:var(--ink)!important}
+.tp-scholars .cg .lnd-node:focus>g{filter:drop-shadow(0 0 4px var(--accent))}
+.tp-scholars .cg-tip{position:absolute;bottom:.3rem;left:1rem;max-width:min(30rem,calc(100% - 2rem));padding:.65rem .9rem;border:1px solid var(--line);border-radius:10px;background:var(--surface);pointer-events:none;box-shadow:0 8px 30px #0003}
+.tp-scholars .cg-tip b{display:block;font:500 1rem var(--serif)}
+.tp-scholars .cg-tip span{display:block;color:var(--muted);font-size:.7rem;margin-top:.25rem}
+.tp-scholars .cg-footer{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 1rem;color:var(--muted);font-size:.65rem;border-top:1px solid var(--line)}
+.tp-scholars .cg-expanded{position:fixed;inset:18px;z-index:1100;margin:0;background:var(--page);display:flex;flex-direction:column;box-shadow:0 0 0 30px #000b}
+.tp-scholars .cg-expanded .cg-canvas{flex:1;touch-action:none}
+.tp-scholars .cg-expanded svg{touch-action:none}
+@media(max-width:760px){.tp-scholars .cg-fields{display:flex;overflow-x:auto;justify-content:flex-start}.tp-scholars .cg-fields button{white-space:nowrap;flex:none;padding:.5rem}.tp-scholars .cg-canvas{height:300px}.tp-scholars .cg-footer{flex-wrap:wrap;gap:.4rem}.tp-scholars .cg-expanded{inset:8px}.tp-scholars .cg-expanded .cg-canvas{height:auto}}
