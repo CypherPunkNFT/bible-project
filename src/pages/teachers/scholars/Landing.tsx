@@ -38,7 +38,11 @@ export function Landing() {
   useLayoutEffect(() => {
     const measure = () => {
       const el = screen.current;
-      if (el) el.style.setProperty("--landing-start", `${el.getBoundingClientRect().top + window.scrollY}px`);
+      if (el) {
+        el.style.setProperty("--landing-start", `${el.getBoundingClientRect().top + window.scrollY}px`);
+        const statsHeight = el.querySelector(".lnd-figs")?.getBoundingClientRect().height ?? 96;
+        el.style.setProperty("--landing-bottom-gap", `${statsHeight / 4}px`);
+      }
     };
     measure();
     window.addEventListener("resize", measure);

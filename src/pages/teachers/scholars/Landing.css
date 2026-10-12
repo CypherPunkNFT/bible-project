@@ -203,7 +203,14 @@
 }
 
 @media (min-width: 1081px) {
-  .tp-scholars .lnd-screen { min-height: calc(100svh - var(--landing-start, 140px)); display: flex; flex-direction: column; }
+  .tp-scholars .lnd-screen { min-height: calc(100svh - var(--landing-start, 140px)); padding-bottom: var(--landing-bottom-gap, 24px); display: flex; flex-direction: column; }
   .tp-scholars .lnd-hero { flex: 1; }
   .tp-scholars .lnd-foot { flex: none; }
+}
+
+/* Give spare hero height to the author panel instead of an automatic top gap. */
+@media (min-width: 1081px) {
+  .tp-scholars .lnd-built { margin-top: 0; flex: 1; min-height: 0; display: flex; flex-direction: column; }
+  .tp-scholars .lnd-used { flex: 1 0 4.5rem; min-height: 0; max-height: none; align-content: flex-start; }
+  .tp-scholars .lnd-more { flex: none; }
 }
