@@ -10,7 +10,6 @@ export interface ContributorFact {
     died?: number | null;
     floruit?: number;
     basis?: string;
-    approximate?: boolean;
     evidence: { label: string; workId: string; field: string; sourceUrl?: string; parsed: unknown }[];
     legacyLabels?: string[];
   };

@@ -1,4 +1,4 @@
-import { startTransition, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAcquired, recordUrl, workUrl, type AcquiredWork } from '../shared/acquired';
 import type { FieldEntry, FieldWork } from './field-library';
@@ -7,8 +7,7 @@ import type { FieldEntry, FieldWork } from './field-library';
 export function FieldWorks({ entry }: { entry: FieldEntry }) {
   const [works, setWorks] = useState<FieldWork[]>(entry.supplements);
   const [loading, setLoading] = useState(true), [error, setError] = useState('');
-  const [query, setQuery] = useState(''), [loaded, setLoaded] = useState(20);
-  const scroll = useRef<HTMLUListElement>(null);
+  const [query, setQuery] = useState(''), [page, setPage] = useState(0);
   useEffect(() => {
     const abort = new AbortController();
     async function load() {
@@ -25,29 +24,13 @@ export function FieldWorks({ entry }: { entry: FieldEntry }) {
     return () => abort.abort();
   }, [entry]);
   const found = useMemo(() => works.filter(w => `${w.title} ${w.source}`.toLocaleLowerCase().includes(query.toLocaleLowerCase())), [works, query]);
-  useEffect(() => {
-    const root = scroll.current;
-    if (!root || loaded >= found.length) return;
-    let frame = 0, queued = false;
-    const check = () => {
-      frame = 0;
-      const travel = root.scrollHeight - root.clientHeight;
-      if (!queued && (travel <= 1 || root.scrollTop >= travel * .4)) {
-        queued = true;
-        startTransition(() => setLoaded(n => Math.min(n + 20, found.length)));
-      }
-    };
-    const schedule = () => { if (!frame) frame = requestAnimationFrame(check); };
-    root.addEventListener('scroll', schedule, { passive: true });
-    const resize = new ResizeObserver(schedule); resize.observe(root);
-    return () => { root.removeEventListener('scroll', schedule); resize.disconnect(); cancelAnimationFrame(frame); };
-  }, [found, loaded]);
   return <div className="fld-works">
-    <label>Find a held work<input type="search" value={query} onChange={e => { setQuery(e.target.value); setLoaded(20); scroll.current?.scrollTo({ top: 0 }); }} /></label>
+    <label>Find a held work<input type="search" value={query} onChange={e => { setQuery(e.target.value); setPage(0); }} /></label>
     {loading && <p role="status">Loading works…</p>}
     {error && <p role="alert">{error}</p>}
     {!loading && <p>{found.length.toLocaleString()} recorded editions and text copies</p>}
-    <ul ref={scroll} className="fld-works-scroll" aria-label={`${entry.name} held works`} tabIndex={0}>{found.slice(0, loaded).map(w => <li key={w.id}><Link to={workUrl(w.id)}>{w.title}<small>{w.availability === 'on-site-text' ? 'Read on this site' : 'Held in the library'} · {w.source}</small></Link></li>)}</ul>
+    <ul>{found.slice(page * 10, (page + 1) * 10).map(w => <li key={w.id}><Link to={workUrl(w.id)}>{w.title}<small>{w.availability === 'on-site-text' ? 'Read on this site' : 'Held in the library'} · {w.source}</small></Link></li>)}</ul>
     {!loading && !found.length && <p>No works match this search.</p>}
+    {found.length > 10 && <nav aria-label={`${entry.name} work pages`}><button type="button" disabled={page === 0} onClick={() => setPage(p => p - 1)}>Previous</button><span>{page + 1} / {Math.ceil(found.length / 10)}</span><button type="button" disabled={(page + 1) * 10 >= found.length} onClick={() => setPage(p => p + 1)}>Next</button></nav>}
   </div>;
 }

@@ -6,7 +6,6 @@ import { Facets } from "./catalogue/Facets";
 import { normaliseQuery, toggled, type FacetKey } from "./catalogue/filtering";
 import { ALL_LIBRARY, matchesLibrary, orderLibrary, type LibrarySort } from "./catalogue/library";
 import { LibraryCard } from "./catalogue/LibraryCard";
-import { Evidence } from "./catalogue/Evidence";
 import { FieldWorks } from "./FieldWorks";
 import "./Catalogue.css";
 import "./Fields.css";
@@ -16,12 +15,11 @@ const SORTS: [LibrarySort, string][] = [['featured', 'Featured'], ['az', 'A–Z'
 const EMPTY: never[] = [];
 const noop = () => {};
 export function Catalogue() {
-  const { data, library, libraryError, catalogueResetToken, filters, filterCatalogue, setShownIds, openProfile } = useScholars();
+  const { data, library, libraryError, filters, filterCatalogue, setShownIds, openProfile } = useScholars();
   const people = library ?? EMPTY;
   const [sort, setSort] = useState<LibrarySort>('featured'), [options, setOptions] = useState(ALL_LIBRARY);
   const [loaded, setLoaded] = useState(BATCH_SIZE), [shelf, setShelf] = useState<string | null>(null);
   const scroll = useRef<HTMLDivElement>(null);
-  useEffect(() => { setOptions(ALL_LIBRARY); }, [catalogueResetToken]);
   const visible = useMemo(() => orderLibrary(people.filter(p => matchesLibrary(p, filters, options)), sort), [people, filters, options, sort]);
   const slice = visible.slice(0, loaded);
   useEffect(() => setShownIds(visible.flatMap(p => p.scholar ? [p.scholar.id] : [])), [visible, setShownIds]);
@@ -63,8 +61,8 @@ export function Catalogue() {
   return <>
     <span id="acquired" /><span id="fields" />
     <SectionHead section="catalogue" kicker="The catalogue" title={<>Every contributor, <em>one place</em></>}
-      line={<>The currently catalogued contributors, including CCEL and the Latin Fathers. Open a documented profile or browse a contributor’s held works. Work subjects can overlap; unclassified names and unknown dates are included. Acquired holdings are still being reconciled.</>} />
-    <p className="cat-coverage">{data.scholars.length} documented scholar profiles{library && <> · {library.length.toLocaleString()} catalogue entries · {library.filter(p => !Object.keys(p.fields).length).length.toLocaleString()} without an assigned field</>}. Authors, editors, translators and named collections retain their source credits. Year sorts by known birth or activity dates, with unknowns last.</p>
+      line={<>The full acquired contributor list, including CCEL and the Latin Fathers. Open a documented profile or browse a contributor’s held works. Fields can overlap; unclassified names are included.</>} />
+    <p className="cat-coverage">{data.scholars.length} documented scholar profiles{library && <> · {library.length.toLocaleString()} catalogue entries · {library.filter(p => !Object.keys(p.fields).length).length.toLocaleString()} without an assigned field</>}. Authors, editors, translators and named collections retain their source credits.</p>
     {libraryError && <p role="alert">The full library could not load: {libraryError}. Reload to try again.</p>}
     <div className="cat-layout">
       <Facets data={data} filters={filters} people={people} options={options} onOptions={setOptions} text={text} onText={search}
@@ -78,7 +76,7 @@ export function Catalogue() {
             <div className="cat-shelf-heading"><h3>{p.name}</h3><button type="button" onClick={() => setShelf(null)}>Close works</button></div>
             <p>{p.roles.join(' · ')} · {p.records.toLocaleString()} held records. Editions and formats may overlap.</p>
             <p>{p.traditions.length ? `Recorded tradition: ${p.traditions.join(', ')}.` : 'Faith and tradition not recorded.'}</p>
-            <Evidence person={p} />
+            {p.sourceLifeDates.length > 0 && <p>Source date labels: {p.sourceLifeDates.join('; ')}.</p>}
             <FieldWorks key={p.id} entry={p} />
           </article> : p.scholar ? <div key={p.id} className="cat-profile-wrap">
             <Card data={data} s={p.scholar} order={0} onOpen={openProfile} cardRef={noop} />

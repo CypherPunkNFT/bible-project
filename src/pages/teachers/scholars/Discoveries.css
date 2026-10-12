@@ -176,11 +176,3 @@
   .tp-scholars .dsc-pulse .dsc-mk-pulse { animation: none; }
   .tp-scholars .dsc-stage, .tp-scholars .dsc-rail-now { transition: none; }
 }
-
-/* Evidence links remain interactive above the map-selection hit target. */
-.tp-scholars .dsc-evidence-links { list-style: none; padding: 0; margin: .4rem 0; }
-.tp-scholars .dsc-evidence-links li + li { margin-top: .45rem; }
-.tp-scholars .dsc-evidence-links a, .tp-scholars .dsc-evidence-source { pointer-events: auto; color: var(--poetry); font-size: .78rem; line-height: 1.5; text-underline-offset: 3px; }
-.tp-scholars .dsc-evidence-links svg { display: inline; margin-left: .3rem; }
-.tp-scholars .dsc-chain li + li::before { content: none; }
-.tp-scholars .dsc-list:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }

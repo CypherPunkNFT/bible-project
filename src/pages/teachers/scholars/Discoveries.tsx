@@ -1,5 +1,8 @@
-// 03: Selected discovery case studies, with explicit historical evidence and checked study links.
-// Preserve the map and internal list; researcher profiles are not treated as a chain of source transmission.
+// 03 · The discoveries: the seven finds in date order beside a map of the Holy Land and Sinai that flies to the chosen
+// one (approved mock-up: design/scholars-directions/scholars/discoveries.js). Each find's card traces it on: who found or
+// studied it, what came of it, and where it reaches this site, or plainly that it does not yet. Ramsay's find lies
+// beyond that map, so an edge marker points to it and choosing it crossfades to the wider map. A quiet chain of names
+// closes the section, lighting the names the chosen find's thread passes through. From 901px the map sits on the left.
 import { useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Find } from "@/data/teachers/pages-types";
 import { ScholarSectionHead as SectionHead } from "./SectionHead";
@@ -39,11 +42,11 @@ export function Discoveries() {
   useLayoutEffect(() => { show(find); }, [find, show]);
 
   return <>
-    <SectionHead section="discoveries" kicker="The discoveries" title={<>{word(model.finds.length)} discoveries, <em>with the evidence in view.</em></>}
-      line="Seven selected case studies from a much larger collection. Explore the places, distinguish finders from later researchers, and follow historical sources and verified study links." />
+    <SectionHead section="discoveries" kicker="The discoveries" title={<>{word(model.finds.length)} discoveries, <em>from the dig to your screen.</em></>}
+      line="Choose a discovery, or scroll the list: the map flies to the place, and its card follows the find through the scholar who found or studied it to where it reaches this site." />
     <div className="dsc-grid">
       <div className="dsc-list-wrap">
-        <div ref={listRef} className="dsc-list" tabIndex={0} role="region" aria-label="Discovery case studies">
+        <div ref={listRef} className="dsc-list">
           <OverviewCard model={model} on={active === 0} onChoose={() => choose(0)} />
           {model.finds.map((f, i) => <FindCard key={f.id} model={model} find={f} on={active === i + 1} onChoose={() => choose(i + 1)} />)}
           <div ref={endRef} className="dsc-list-end" />
@@ -51,18 +54,18 @@ export function Discoveries() {
       </div>
       <MapCard model={model} markers={markers} mode={mode} find={find} stagesEl={stagesEl} edgeRef={edgeRef} onSwitch={switchMap} onFind={chooseFind} />
     </div>
-    <Chain model={model} people={find ? new Set(find.by) : null} />
+    <Chain model={model} people={find ? model.threads[find.id].people : null} />
   </>;
 }
 
-/** Profile shortcuts for the researchers actually named by these case studies. */
+/** How the Bible's text reached English readers, as a quiet closing line; the names the chosen find passes through are lit. */
 function Chain({ model, people }: { model: DiscoveryModel; people: Set<string> | null }) {
   const { openProfile } = useScholars();
   return <div className="dsc-chain">
-    <span className="dsc-chain-k">Researchers in these case studies</span>
-    <ol>{[...new Set(model.finds.flatMap(f => f.by))].map((id) => {
+    <span className="dsc-chain-k">{model.data.chain.about.replace(/\.$/, "")}</span>
+    <ol>{model.data.chain.steps.map(([id, what]) => {
       const scholar = scholarById(model.byId, id);
-      return <li key={id}><button type="button" className={people?.has(id) ? "dsc-hl" : undefined} style={cssVars({ "--tone": toneOf(scholar) })} title="Open researcher profile"
+      return <li key={id}><button type="button" className={people?.has(id) ? "dsc-hl" : undefined} style={cssVars({ "--tone": toneOf(scholar) })} title={what}
         onClick={(e) => openProfile(id, e.currentTarget)}>{scholar.short}</button></li>;
     })}</ol>
   </div>;
