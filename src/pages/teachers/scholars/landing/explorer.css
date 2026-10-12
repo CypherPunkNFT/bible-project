@@ -1,4 +1,4 @@
-﻿.tp-scholars .cg{margin-top:2rem;border:1px solid var(--line);border-radius:1.5rem;background:linear-gradient(140deg,color-mix(in srgb,var(--accent) 6%,var(--surface)),var(--surface));overflow:hidden;position:relative}
+.tp-scholars .cg{margin-top:2rem;border:1px solid var(--line);border-radius:1.5rem;background:linear-gradient(140deg,color-mix(in srgb,var(--accent) 6%,var(--surface)),var(--surface));overflow:hidden;position:relative}
 .tp-scholars .cg-toolbar{display:flex;align-items:center;justify-content:space-between;padding:.7rem 1rem;border-bottom:1px solid var(--line);color:var(--muted);font-size:.75rem}
 .tp-scholars .cg-toolbar>div{display:flex;gap:.3rem}
 .tp-scholars .cg-toolbar button{display:grid;place-items:center;width:30px;height:30px;padding:0;border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--ink);cursor:pointer}
@@ -8,7 +8,7 @@
 .tp-scholars .cg-fields button[aria-pressed=true]{border-color:currentColor;background:var(--surface)}
 .tp-scholars .cg-fields small{font-size:.65rem;opacity:.65}
 .tp-scholars .cg-canvas{position:relative;height:250px;min-height:0}
-.tp-scholars .cg-canvas>svg{width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+.tp-scholars .cg-canvas>svg{width:100%;height:100%;display:block;cursor:grab;touch-action:none;user-select:none;overscroll-behavior:contain}
 .tp-scholars .cg-canvas>svg:active{cursor:grabbing}
 .tp-scholars .cg .lnd-node{cursor:pointer;outline:none}
 .tp-scholars .cg .lnd-node:hover text,.tp-scholars .cg .lnd-node:focus text{fill:var(--ink)!important}
@@ -21,3 +21,6 @@
 .tp-scholars .cg-expanded .cg-canvas{flex:1;touch-action:none}
 .tp-scholars .cg-expanded svg{touch-action:none}
 @media(max-width:760px){.tp-scholars .cg-fields{display:flex;overflow-x:auto;justify-content:flex-start}.tp-scholars .cg-fields button{white-space:nowrap;flex:none;padding:.5rem}.tp-scholars .cg-canvas{height:300px}.tp-scholars .cg-footer{flex-wrap:wrap;gap:.4rem}.tp-scholars .cg-expanded{inset:8px}.tp-scholars .cg-expanded .cg-canvas{height:auto}}
+
+.tp-scholars .cg-timeline .cg-canvas { height: 360px; }
+.tp-scholars .cg-timeline.cg-expanded .cg-canvas { height: auto; }

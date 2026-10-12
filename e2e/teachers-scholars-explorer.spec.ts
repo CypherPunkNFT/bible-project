@@ -1,15 +1,16 @@
-﻿import {expect,test} from '@playwright/test';
+import {expect,test} from '@playwright/test';
 test('shared Scholars landing supports subject focus, pan, zoom and expansion',async({page})=>{
  await page.goto('/teachers/scholars');
  const graph=page.locator('.cg'), svg=graph.locator('.cg-canvas>svg');
- await expect(graph.locator('.lnd-node')).toHaveCount(43);
+ await expect(graph.locator('.lnd-node')).toHaveCount(71);
  await expect(page.locator('.lnd-built')).toHaveCount(0);
  await expect(page.locator('.lnd-bible')).toBeVisible();
  const initial=await svg.getAttribute('viewBox');
  await graph.getByRole('button',{name:/Theology & philosophy/}).click();
  await expect(svg).not.toHaveAttribute('viewBox',initial!);
  const focused=await svg.getAttribute('viewBox');
- await graph.getByRole('button',{name:'Zoom in',exact:true}).click();
+ await expect(graph.getByRole('button',{name:/Zoom in|Zoom out/})).toHaveCount(0);
+ await svg.hover();await page.mouse.wheel(0,-160);
  await expect(svg).not.toHaveAttribute('viewBox',focused!);
  const zoomed=await svg.getAttribute('viewBox');
  const r=await svg.boundingBox();if(!r)throw Error('missing graph');
@@ -28,7 +29,18 @@ test('shared Scholars landing supports subject focus, pan, zoom and expansion',a
  await expect(page.locator('.cat-count')).toHaveText('1 of 8,482 contributors');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)).toBeLessThanOrEqual(1);
 });
-test('ordinary wheel scroll passes through the subject graph',async({page})=>{
- await page.goto('/teachers/scholars');await page.locator('.cg .lnd-node').nth(42).waitFor();
- const svg=page.locator('.cg-canvas>svg');await svg.scrollIntoViewIfNeeded();const view=await svg.getAttribute('viewBox'),before=await page.evaluate(()=>scrollY);await svg.hover();await page.mouse.wheel(0,300);await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(before);await expect(svg).toHaveAttribute('viewBox',view!);
+test('vertical drag and wheel zoom stay inside the graph',async({page})=>{
+ await page.goto('/teachers/scholars');await page.locator('.cg .lnd-node').nth(70).waitFor();
+ const svg=page.locator('.cg-canvas>svg');await svg.scrollIntoViewIfNeeded();const view=await svg.getAttribute('viewBox'),before=await page.evaluate(()=>scrollY);await svg.hover();await page.mouse.wheel(0,-160);await expect(svg).not.toHaveAttribute('viewBox',view!);expect(await page.evaluate(()=>scrollY)).toBe(before);
+ const box=await svg.boundingBox();if(!box)throw Error('missing canvas');const zoomed=await svg.getAttribute('viewBox');
+ await page.mouse.move(box.x+box.width/2,box.y+30);await page.mouse.down();await page.mouse.move(box.x+box.width/2,box.y+120,{steps:6});await page.mouse.up();await expect(svg).not.toHaveAttribute('viewBox',zoomed!);expect(await page.evaluate(()=>scrollY)).toBe(before);
+ expect(await svg.evaluate(el=>getComputedStyle(el).touchAction)).toBe('none');
+ const cdp=await page.context().newCDPSession(page);const point=(x:number,y:number,id:number)=>({x,y,id});
+ const start=await svg.getAttribute('viewBox');
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[point(box.x+box.width*.4,box.y+110,1),point(box.x+box.width*.6,box.y+110,2)]});
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[point(box.x+box.width*.3,box.y+110,1),point(box.x+box.width*.7,box.y+110,2)]});
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await expect(svg).not.toHaveAttribute('viewBox',start!);expect(await page.evaluate(()=>scrollY)).toBe(before);
+});
+test('Scholars 2 shows a separate coloured circle timeline',async({page})=>{
+ await page.goto('/mockups/scholars-2/');const mock=page.frameLocator('iframe');await expect(mock.locator('.cg-timeline .lnd-node')).toHaveCount(71);await expect(mock.locator('.cg-time-axis')).toContainText('Dates unrecorded');await expect(mock.locator('.lnd-node>g>circle')).toHaveCount(71);await expect(mock.locator('.lnd-node>g>path')).toHaveCount(0);
 });

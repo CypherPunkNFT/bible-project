@@ -1,6 +1,6 @@
 // The field-shaped mark every Scholars section draws for a person: one shape per field in a 48 × 48 box (circle =
-// history, rounded square = languages & texts, hexagon = archaeology & places, tall card = reference works,
-// arch = theology), filled faintly in the field's colour, with the person's initials inside.
+// history, rounded square = languages & texts, hexagon = archaeology & places, diamond = reference works,
+// circle = theology), filled faintly in the field's colour, with the person's initials inside.
 import type { CSSProperties } from "react";
 import type { Field, Scholar } from "@/data/teachers/pages-types";
 
@@ -28,11 +28,8 @@ export function fieldShape(field: Field, k: number): ShapeGeometry {
     case "history": return { kind: "circle", cx: 24, cy: 24, r: 22 * k };
     case "texts": { const r = 21 * k; return { kind: "rect", x: 24 - r, y: 24 - r, width: 2 * r, height: 2 * r, rx: 11 * k }; }
     case "places": return { kind: "path", d: hexagon(k), round: true };
-    case "reference": return { kind: "rect", x: 24 - 16 * k, y: 24 - 22 * k, width: 32 * k, height: 44 * k, rx: 7 * k };
-    case "theology": {
-      const w = 19 * k, top = 24 - 21 * k, bot = 24 + 21 * k;
-      return { kind: "path", d: `M${24 - w} ${bot}V${top + w}A${w} ${w} 0 0 1 ${24 + w} ${top + w}V${bot}Z`, round: false };
-    }
+    case "reference": return { kind:"path", d:`M24 ${24-23*k}L${24+23*k} 24L24 ${24+23*k}L${24-23*k} 24Z`, round:false };
+    case "theology": return { kind:"circle", cx:24, cy:24, r:22*k };
   }
 }
 

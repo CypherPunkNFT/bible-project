@@ -38,7 +38,7 @@ test("the landing shows the headline, the figures, every scholar's mark and the 
   await openPage(page);
   const landing = page.locator("#landing");
   await expect(landing.getByRole("heading", { level: 1 })).toHaveText("The greats, catalogued.");
-  await expect(landing.locator(".lnd-node")).toHaveCount(TOTAL + 7);
+  await expect(landing.locator(".lnd-node")).toHaveCount(TOTAL + 35);
   await expect(landing.locator(".lnd-used-dot")).toHaveCount(USED.length);
   await expect(landing.locator(".cg-fields button")).toHaveCount(Object.keys(DATA.fields).length);
   await expect(landing.locator(".lnd-built")).toHaveCount(0);
