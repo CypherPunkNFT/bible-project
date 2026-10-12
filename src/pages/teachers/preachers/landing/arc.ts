@@ -23,7 +23,7 @@ export const arcStart = (people: Person[]) => Math.floor(Math.min(...people.map(
 function sizesFor(width: number) {
   const narrow = width < 560;
   const r = narrow ? 11 : width < 960 ? 15 : 18, gap = narrow ? 2 : 4;
-  return { narrow, r, d: 2 * r + gap, pad: r + (narrow ? 12 : 26), amp: narrow ? 10 : 22, top: narrow ? 52 : 58, bottom: narrow ? 40 : 44 };
+  return { narrow, r, d: 2 * r + gap, pad: r + (narrow ? 12 : 26), amp: narrow ? 10 : 22, top: narrow ? 115 : 85, bottom: narrow ? 40 : 44 };
 }
 
 /** Offsets from the arc: each mark takes the free slot nearest the arc, above first on a tie. */
@@ -39,13 +39,15 @@ function stack(people: Person[], sx: (year: number) => number, d: number) {
   return placed;
 }
 
-export function layoutArc(people: Person[], width: number): ArcLayout {
+export function layoutArc(people: Person[], width: number, minimumHeight = 560): ArcLayout {
   const s = sizesFor(width), start = arcStart(people), end = THIS_YEAR;
   const sx = (year: number) => s.pad + ((year - start) / (end - start)) * (width - 2 * s.pad);
   const lift = (x: number) => -s.amp * Math.sin(Math.PI * (x / width));
   const placed = stack(people, sx, s.d);
   const minOff = Math.min(...placed.map((q) => q.off + lift(q.x))) - s.r, maxOff = Math.max(...placed.map((q) => q.off + lift(q.x))) + s.r;
-  const base = s.top - minOff, height = Math.ceil(base + maxOff + s.bottom);
+  const naturalHeight = Math.ceil(s.top - minOff + maxOff + s.bottom);
+  const height = Math.max(naturalHeight, minimumHeight);
+  const base = s.top - minOff + (height - naturalHeight) / 2;
   let arcPath = "";
   for (let i = 0; i <= 48; i++) { const x = (width * i) / 48; arcPath += `${i ? "L" : "M"}${x.toFixed(1)} ${(base + lift(x)).toFixed(1)}`; }
   const centuries = [];

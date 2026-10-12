@@ -4,7 +4,7 @@ import { useScholars } from "./context";
 import { reducedMotion } from "./marks/dom";
 import { Constellation } from "./landing/Constellation";
 import { findScholars } from "./landing/search";
-import { RadiatingBible } from "../preachers/landing/RadiatingBible";
+import { LandingHeader } from "../shared/LandingHeader";
 import { SCHOLAR_SECTIONS, sectionNumber } from "./sections";
 import "./Landing.css";
 function jump(event: MouseEvent<HTMLAnchorElement>) {
@@ -21,13 +21,7 @@ export function Landing() {
   const found = useMemo(() => findScholars(data, query), [data, query]);
   const matchIds = useMemo(() => new Set([...found.map(m=>m.s.id), ...(query.trim() ? library?.filter(p=>p.search.includes(query.trim().toLocaleLowerCase())).map(p=>p.id) ?? [] : [])]), [found,library,query]);
   return <div className="lnd">
-    <div className="lnd-top">
-      <div className="lnd-copy"><p className="kicker lnd-kicker">Scholars in the library</p>
-        <h1 className="lnd-title">The greats, <br/><em>catalogued.</em></h1>
-        <p className="lnd-lead">Explore {library?.length.toLocaleString() ?? "the full library of"} catalogue entries across five fields, including {data.scholars.length} documented scholar profiles. Search authors, translators and their held works.</p>
-      </div>
-      <RadiatingBible />
-      <div className="lnd-tools">
+    <LandingHeader title={<>The greats,<br/><em>catalogued.</em></>} lead={<>Explore {library?.length.toLocaleString() ?? "the full library of"} catalogue entries across five fields, including {data.scholars.length} documented scholar profiles. Search authors, translators and their held works.</>}>
         <form className="lnd-full-search" onSubmit={e=>{e.preventDefault();filterCatalogue({q:query.trim().toLocaleLowerCase()});}}>
           <label className="sr-only" htmlFor="full-contributor-search">Search the full catalogue</label>
           <div><Search size={17} aria-hidden="true"/><input id="full-contributor-search" type="search" placeholder="Author, translator or work" value={query} onChange={e=>setQuery(e.target.value)}/><button type="submit" aria-label="Search catalogue"><ArrowRight size={17}/></button></div>
@@ -38,8 +32,7 @@ export function Landing() {
           <div><dt>Era established</dt><dd>{libraryFacts ? (libraryFacts.summary.catalogueEntries-libraryFacts.summary.eras.unknown).toLocaleString() : "…"}</dd><p>entries with reviewed dates</p></div>
           <div><dt>Era unknown</dt><dd>{libraryFacts?.summary.eras.unknown.toLocaleString() ?? "…"}</dd><p>retained in the catalogue</p></div>
         </dl>
-      </div>
-    </div>
+    </LandingHeader>
     <Constellation data={data} matches={matchIds} searching={!!query.trim()} onOpen={openProfile}/>
     <div className="lnd-under"><a className="lnd-more" href="#built" onClick={jump}>See how these works are used on the site <ArrowRight size={14}/></a><span>Follow how works develop across generations; search the full catalogue above.</span></div>
     <nav className="lnd-jump" aria-label="On this page">{SCHOLAR_SECTIONS.map(({id,title})=><a key={id} href={`#${id}`} onClick={jump}><b>{sectionNumber(id)}</b>{title}</a>)}</nav>

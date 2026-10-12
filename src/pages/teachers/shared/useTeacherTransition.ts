@@ -42,7 +42,7 @@ export function useTeacherTransition() {
     };
     const doc=document as TransitionDocument;
     if(!doc.startViewTransition||window.matchMedia('(prefers-reduced-motion: reduce)').matches){await update();if(run===generation.current){active.current=null;clear();}return;}
-    document.documentElement.dataset.teacherSlide='rise';
+    document.documentElement.dataset.teacherSlide='fade';
     pending.transition=doc.startViewTransition(update);
     void pending.transition.finished.catch(()=>undefined).then(()=>{if(run===generation.current){active.current=null;clear();}});
   };

@@ -1,6 +1,6 @@
 // Selected from design/teachers-radiating-bible: the shallow open Bible,
 // expanding arcs and tightened ring of stars, hearts and crosses.
-import { useEffect, useRef, type CSSProperties } from "react";
+import { useEffect, useLayoutEffect, useRef, type CSSProperties } from "react";
 import "./radiating-bible.css";
 
 const timing = (delay = 0, i = 0) => ({ "--delay": delay, "--i": i } as CSSProperties);
@@ -55,6 +55,13 @@ function Drawing() {
 
 export function RadiatingBible() {
   const ref = useRef<SVGSVGElement>(null);
+  useLayoutEffect(() => {
+    if (!document.documentElement.dataset.teacherSlide) return;
+    // Switching pages should only fade, not redraw the shared illustration.
+    ref.current?.getAnimations({ subtree: true }).forEach(animation => {
+      if (animation instanceof CSSAnimation && animation.animationName === "rb-draw") animation.finish();
+    });
+  }, []);
   useEffect(() => {
     const svg = ref.current;
     if (!svg) return;

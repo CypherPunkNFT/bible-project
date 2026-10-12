@@ -1,26 +1,11 @@
 .tp-scholars .lnd{padding-top:1.4rem}
-.tp-scholars .lnd-top{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"copy art" "tools tools";gap:1.6rem 2rem;align-items:center}
-.tp-scholars .lnd-copy{grid-area:copy;align-self:start}
-.tp-scholars .lnd-bible{grid-area:art;display:block;width:100%;max-width:28rem;justify-self:center;align-self:center;color:var(--accent);overflow:visible}
-.tp-scholars .lnd-kicker{display:flex;gap:.9rem;align-items:center}
-.tp-scholars .lnd-kicker:before{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
-.tp-scholars .lnd-title{margin-top:1.1rem;font:500 clamp(2.35rem,5vw,4.15rem)/1.03 var(--serif);letter-spacing:-.045em;text-wrap:balance}
-.tp-scholars .lnd-title em{color:var(--accent);font-weight:400}
-.tp-scholars .lnd-lead{max-width:54ch;margin-top:1.2rem;color:var(--muted);font-size:.98rem;line-height:1.75}
-.tp-scholars .lnd-tools{grid-area:tools;display:grid;grid-template-columns:minmax(16rem,28rem) minmax(0,1fr);gap:2rem;align-items:center}
 .tp-scholars .lnd-full-search{margin:0}
 .tp-scholars .lnd-full-search>div{display:flex;gap:.65rem;align-items:center;height:3.1rem;padding:0 1.15rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted)}
 .tp-scholars .lnd-full-search input{flex:1;min-width:0;border:0;background:none;font:inherit;color:var(--ink);outline:none}
 .tp-scholars .lnd-full-search>div:focus-within{border-color:var(--accent)}
 .tp-scholars .lnd-full-search button{padding:4px;border:0;background:none;color:var(--accent);cursor:pointer}
-.tp-scholars .lnd-figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:0;padding-left:2rem;border-left:1px solid var(--line)}
-.tp-scholars .lnd-figs dt{font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.tp-scholars .lnd-figs dd{margin:.3rem 0 0;font:500 1.8rem/1.05 var(--serif);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.tp-scholars .lnd-figs p{margin-top:.25rem;font-size:.72rem;color:var(--muted)}
 .tp-scholars .lnd-under{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:1rem;font-size:.74rem;color:var(--muted)}
 .tp-scholars .lnd-more{display:inline-flex;gap:.4rem;align-items:center;color:var(--accent);font-size:.8rem}
 .tp-scholars .lnd-jump{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.2rem}
 .tp-scholars .lnd-jump a{display:inline-flex;gap:.5rem;padding:.4rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.78rem}
 .tp-scholars .lnd-jump b{font:italic 500 .8rem var(--serif);color:var(--accent)}
-@media(max-width:1000px){.tp-scholars .lnd-tools{grid-template-columns:minmax(14rem,.85fr) minmax(0,1.4fr);gap:1.25rem}.tp-scholars .lnd-figs{padding-left:1.25rem;gap:.75rem}}
-@media(max-width:760px){.tp-scholars .lnd-top{grid-template-columns:1fr;grid-template-areas:"copy" "art" "tools"}.tp-scholars .lnd-bible{max-width:18rem}.tp-scholars .lnd-tools{grid-template-columns:1fr}.tp-scholars .lnd-figs{padding:1.1rem 0 0;border-left:0;border-top:1px solid var(--line);gap:.5rem}.tp-scholars .lnd-figs dt{font-size:.55rem;letter-spacing:.1em}.tp-scholars .lnd-figs dd{font-size:1.45rem}.tp-scholars .lnd-figs p{font-size:.65rem}}
