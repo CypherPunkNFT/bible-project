@@ -1,9 +1,10 @@
+import { usedEntry } from "../site-evidence";
 import type { Scholar, ScholarsData } from '@/data/teachers/pages-types';
 import type { AcquiredCatalogue } from '../../shared/acquired';
 import type { FieldEntry, FieldLibrary } from '../field-library';
 import type { ContributorFact, ContributorFacts } from '../facts';
 import type { CatalogueFilters } from '../context';
-import { isUsed, weight } from '../marks/facts';
+import { weight } from '../marks/facts';
 import featured from '../../../../../content/teachers/field-featured.json';
 
 export interface LibraryPerson extends FieldEntry { scholar?: Scholar; facts?: ContributorFact; search: string; sourceLifeDates: string[] }
@@ -34,14 +35,14 @@ export function mergeLibrary(index: FieldLibrary, acquired: AcquiredCatalogue, d
 
 export function matchesLibrary(p: LibraryPerson, f: CatalogueFilters, o: LibraryOptions, ignore = ''): boolean {
   if (ignore !== 'field' && f.field.length && !f.field.some(key => p.fields[key])) return false;
-  if (ignore !== 'era' && f.era.length && (!p.scholar || !f.era.includes(p.scholar.era))) return false;
-  if (ignore !== 'faith' && f.faith.length && !f.faith.includes(p.scholar?.faith ?? 'unrecorded')) return false;
-  if (ignore !== 'used' && f.used && (!p.scholar || !isUsed(p.scholar))) return false;
+  if (ignore !== 'era' && f.era.length && !f.era.includes((p.facts?.dates.era ?? p.scholar?.era ?? "unknown") as typeof f.era[number])) return false;
+  if (ignore !== 'faith' && f.faith.length && !f.faith.includes(p.facts?.faith ?? p.scholar?.faith ?? 'unrecorded')) return false;
+  if (ignore !== 'used' && f.used && !usedEntry(p)) return false;
   if (o.collection && !p.collections.includes(o.collection)) return false;
   if (o.role && !p.roles.includes(o.role)) return false;
   if (o.scope === 'profiles' && !p.scholar || o.scope === 'library' && p.scholar) return false;
   if (o.unclassified && Object.keys(p.fields).length) return false;
-  if (o.unknownEra && p.scholar) return false;
+  if (o.unknownEra && (p.facts?.dates.era ?? p.scholar?.era)) return false;
   return f.q.split(/\s+/).filter(Boolean).every(word => p.search.includes(word));
 }
 
@@ -51,7 +52,7 @@ export function orderLibrary(people: LibraryPerson[], sort: LibrarySort): Librar
   return [...people].sort((a, b) => {
     if (sort === 'az') return a.name.localeCompare(b.name) || a.id.localeCompare(b.id);
     if (sort === 'featured') return rank(a) - rank(b) || (a.scholar && b.scholar ? a.scholar.born - b.scholar.born : 0) || b.records - a.records || a.name.localeCompare(b.name);
-    if (sort === 'year') return (a.scholar?.born ?? Infinity) - (b.scholar?.born ?? Infinity) || a.name.localeCompare(b.name);
+    if (sort === 'year') return (a.facts?.dates.born ?? a.facts?.dates.floruit ?? a.scholar?.born ?? Infinity) - (b.facts?.dates.born ?? b.facts?.dates.floruit ?? b.scholar?.born ?? Infinity) || a.name.localeCompare(b.name);
     if (sort === 'named') return (b.scholar ? weight(b.scholar) : 0) - (a.scholar ? weight(a.scholar) : 0) || a.name.localeCompare(b.name);
     return b.records - a.records || a.name.localeCompare(b.name);
   });

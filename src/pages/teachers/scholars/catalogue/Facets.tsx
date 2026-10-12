@@ -1,9 +1,10 @@
+import { usedEntry } from "../site-evidence";
 // The catalogue's filter panel: search, the "used on this site" switch, and the field / era / faith options, each with
 // how many would show if it were added, given every other filter. On narrow screens it becomes rows of chips (CSS).
 import { Search } from "lucide-react";
 import type { Era, Field, ScholarsData } from "@/data/teachers/pages-types";
 import type { CatalogueFilters } from "../context";
-import { eraParts, isUsed } from "../marks/facts";
+import { eraParts } from "../marks/facts";
 import { FieldIcon } from "../marks/Mark";
 import { toneStyle } from "../marks/shapes";
 import { FACETS, facetLabels, hasFilters, type FacetKey } from "./filtering";
@@ -22,13 +23,13 @@ function OptionIcon({ facet, value }: { facet: FacetKey; value: string }) {
 }
 
 function OptionLabel({ data, facet, value, label }: { data: ScholarsData; facet: FacetKey; value: string; label: string }) {
-  if (facet !== "era") return <>{label}</>;
+  if (facet !== "era" || value === "unknown") return <>{label}</>;
   const [name, span] = eraParts(data, value as Era);
   return <>{name} <small>{span}</small></>;
 }
 
 export function Facets({ data, filters, people, options, onOptions, text, onText, onToggle, onUsed, onClear }: FacetsProps) {
-  const usedCount = people.filter(p => p.scholar && isUsed(p.scholar) && matchesLibrary(p, filters, options, "used")).length;
+  const usedCount = people.filter(p => usedEntry(p) && matchesLibrary(p, filters, options, "used")).length;
   return <aside className="cat-side" aria-label="Filter the scholars">
     <div className="cat-side-head"><span className="kicker">Filter</span>
       <button type="button" className="cat-clear" hidden={!hasFilters(filters) && !Object.values(options).some(Boolean)} onClick={onClear}>Clear all</button></div>
@@ -46,13 +47,13 @@ export function Facets({ data, filters, people, options, onOptions, text, onText
     {FACETS.map(({ key, title }) => <div key={key} className="cat-facet" data-facet={key}><h3>{title}</h3><div className="cat-opts">
       {Object.entries(facetLabels(data, key)).map(([value, label]) => {
         const on = (filters[key] as readonly string[]).includes(value);
-        const n = people.filter(p => (key === 'field' ? Boolean(p.fields[value as Field]) : (key === 'faith' ? p.scholar?.faith ?? 'unrecorded' : p.scholar?.era) === value) && matchesLibrary(p, filters, options, key)).length;
+        const n = people.filter(p => (key === 'field' ? Boolean(p.fields[value as Field]) : (key === 'faith' ? p.facts?.faith ?? p.scholar?.faith ?? 'unrecorded' : p.facts?.dates.era ?? p.scholar?.era ?? "unknown") === value) && matchesLibrary(p, filters, options, key)).length;
         return <button key={value} type="button" className={`cat-opt${!n && !on ? " cat-opt-zero" : ""}`} data-facet={key} data-value={value} aria-pressed={on}
           style={key === "field" ? toneStyle(value as Field) : undefined} onClick={() => onToggle(key, value)}>
           <span className="cat-opt-ic"><OptionIcon facet={key} value={value} /></span>
           <span className="cat-opt-l"><OptionLabel data={data} facet={key} value={value} label={label} /></span><em>{n}</em></button>;
       })}
     </div></div>)}
-    <p className="cat-coverage">Era and faith use documented profile information. Library-only entries have no assumed era or faith.</p>
+    <p className="cat-coverage">Eras use reviewed life-date evidence; unknown dates remain unassigned. Faith is recorded only where documented. Field counts describe work subjects, which may overlap; they are not counts of professional archaeologists.</p>
   </aside>;
 }

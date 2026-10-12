@@ -26,8 +26,8 @@ test("the seven finds are listed in date order after the All 7 card, which is ch
   await expect(cards.first()).toContainText("1838–1963");
   await expect(cards.first()).toContainText("All 7");
   await expect(cards.first()).toContainText("Six lie in the Holy Land and Sinai; Ramsay's lies beyond this map, at Pisidian Antioch.");
-  await expect(cards.first()).toContainText("Two reach this site's Letters study: Codex Sinaiticus, through Westcott; Paul's roads in Asia Minor, through Ramsay.");
-  const years = (await section.locator(".dsc-find:not(.dsc-find-all) .dsc-year").allTextContents()).map(Number);
+  await expect(cards.first()).toContainText("Two reach this site's Letters study and Paul's letters: Codex Sinaiticus, through Westcott; Paul's roads in Asia Minor, through Ramsay.");
+  const years = (await section.locator(".dsc-find:not(.dsc-find-all) .dsc-year").allTextContents()).map(text => Number(text.match(/\d{4}/)?.[0]));
   expect(years).toEqual([...years].sort((a, b) => a - b));
   expect(years[0]).toBe(1838);
   expect(years.at(-1)).toBe(1963);
@@ -39,15 +39,15 @@ test("the seven finds are listed in date order after the All 7 card, which is ch
 test("each card follows its find from the dig to this site, or says plainly it is not used yet", async ({ page }) => {
   const section = await openDiscoveries(page);
   const sinaiticus = section.locator(".dsc-find").filter({ hasText: "Codex Sinaiticus" }).filter({ hasText: "1859" });
-  await expect(sinaiticus.locator(".dsc-step-k")).toHaveText(["Found or studied by", "What came of it", "Next in the chain of the text", "Where it reaches this site"]);
+  await expect(sinaiticus.locator(".dsc-step-k")).toHaveText(["Studied and published the manuscript", "Documented source", "Scholar cited on the site", "Documented source", "Where it reaches this site"]);
   await expect(sinaiticus.locator(".dsc-chip")).toHaveCount(2);
-  await expect(sinaiticus.getByRole("link", { name: "Letters study" })).toHaveAttribute("href", "/study/letters");
+  await expect(sinaiticus.getByRole("link", { name: "Letters study" })).toHaveAttribute("href", /\/study\/letters/);
   const ramsay = section.locator(".dsc-find:not(.dsc-find-all)").filter({ hasText: "Paul's roads in Asia Minor" });
   await expect(ramsay.locator(".dsc-where")).toContainText("beyond this map");
-  await expect(ramsay.getByRole("link", { name: "Letters study" })).toBeVisible();
+  await expect(ramsay.getByRole("link", { name: "Paul's letters" })).toBeVisible();
   // The other five are not used on this site yet.
   await expect(section.locator(".dsc-step-none")).toHaveCount(5);
-  await expect(section.locator(".dsc-step-none").first()).toContainText("Not used on this site yet.");
+  await expect(section.locator(".dsc-step-none").first()).toContainText("No feature connection verified in this review.");
 });
 
 test("the map is on the left from 901px, and above the finds below that", async ({ page }) => {

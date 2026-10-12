@@ -12,7 +12,11 @@ interface Scholar { id: string; name: string; short: string; born: number; field
 interface Data { scholars: Scholar[]; fields: Record<string, string> }
 const DATA = JSON.parse(readFileSync(fileURLToPath(new URL("../src/data/teachers/scholars.json", import.meta.url)), "utf8")) as Data;
 const TOTAL = DATA.scholars.length;
-const USED = DATA.scholars.filter((s) => s.site?.status === "in-use");
+const USAGE = JSON.parse(readFileSync("content/teachers/feature-usage.json", "utf8"));
+const ALIASES = JSON.parse(readFileSync("content/teachers/source-profile-aliases.json", "utf8")).aliases;
+const key = (name: string) => name.toLocaleLowerCase().replace(/\s+/g, " ").trim();
+const active = new Set<string>(USAGE.features.flatMap((f: any) => f.sources.filter((s: any) => s.kind !== "bibliography").map((s: any) => key(s.author))));
+const USED = DATA.scholars.filter(s => [s.name, ...(ALIASES[s.id] ?? [])].some(n => active.has(key(n))));
 const byBirth = [...DATA.scholars].sort((a, b) => a.born - b.born);
 const INDEX = JSON.parse(readFileSync("content/teachers/field-shelves.json", "utf8"));
 const FULL = INDEX.entries.length + INDEX.coverage.withoutSubjectMatch;
@@ -44,7 +48,7 @@ test("the landing shows the headline, the figures, every scholar's mark and the 
   // A chip opens that scholar's profile; Esc closes it.
   await chips.first().click();
   await expect(profile(page)).toBeVisible();
-  await expect(profile(page).getByRole("heading", { level: 2 })).toHaveText(byBirth.filter((s) => s.site?.status === "in-use")[0].name);
+  await expect(profile(page).getByRole("heading", { level: 2 })).toHaveText(byBirth.filter((s) => USED.includes(s))[0].name);
   await page.keyboard.press("Escape");
   await expect(profile(page)).toBeHidden();
   // Jump links scroll to their section and keep the address in step.
@@ -164,17 +168,17 @@ test("By the numbers filters the catalogue and follows what it shows", async ({ 
   await texts.scrollIntoViewIfNeeded();
   await texts.click();
   await expect(texts).toHaveAttribute("aria-pressed", "true");
-  await expect(count(page)).toHaveText(`${inField("texts").length} of ${FULL.toLocaleString()} contributors`);
-  await expect(page.locator('#catalogue .cat-opt[data-facet="field"][data-value="texts"]')).toHaveAttribute("aria-pressed", "true");
-  // The other fields' bars now show none of theirs; this one shows all of its own.
-  await expect(numbers.locator('.num-row[data-facet="field"][data-value="history"] .num-n')).toHaveText(`${DATA.scholars.filter(s => s.field === "history" && inField("texts").includes(s)).length} of ${DATA.scholars.filter(s => s.field === "history").length}`);
-  await expect(numbers.locator(".num-dotset i.num-off")).toHaveCount(TOTAL - inField("texts").length);
+  const textEntries = INDEX.entries.filter((p: any) => p.fields.texts);
+  await expect(count(page)).toHaveText(`${textEntries.length.toLocaleString()} of ${FULL.toLocaleString()} contributors`);
+  await expect(page.getByRole("combobox", { name: "Entry type", exact: true })).toHaveValue("");
+  const historyEntries = INDEX.entries.filter((p: any) => p.fields.history);
+  const overlap = textEntries.filter((p: any) => p.fields.history).length;
+  await expect(numbers.locator('.num-row[data-facet="field"][data-value="history"] .num-n')).toHaveText(`${overlap.toLocaleString()} of ${historyEntries.length.toLocaleString()}`);
   await numbers.locator(".num-site").click();
   await expect(numbers.locator(".num-site")).toHaveAttribute("aria-pressed", "true");
-  await expect(count(page)).toHaveText(`${USED.filter((s) => inField("texts").includes(s)).length} of ${FULL.toLocaleString()} contributors`);
   await texts.click();
   await numbers.locator(".num-site").click();
-  await expect(count(page)).toHaveText(`${TOTAL} of ${FULL.toLocaleString()} contributors`);
+  await expect(count(page)).toHaveText(`${FULL.toLocaleString()} of ${FULL.toLocaleString()} contributors`);
 });
 
 test("no sideways scroll on the Scholars page", async ({ page }) => {

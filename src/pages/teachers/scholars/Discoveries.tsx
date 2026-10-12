@@ -43,7 +43,7 @@ export function Discoveries() {
 
   return <>
     <SectionHead section="discoveries" kicker="The discoveries" title={<>{word(model.finds.length)} discoveries, <em>from the dig to your screen.</em></>}
-      line="Choose a discovery, or scroll the list: the map flies to the place, and its card follows the find through the scholar who found or studied it to where it reaches this site." />
+      line="These are selected case studies, not the full archaeology collection. Choose a discovery, or scroll the list: the map flies to the place, and its card follows the find through the scholar who found or studied it to where it reaches this site." />
     <div className="dsc-grid">
       <div className="dsc-list-wrap">
         <div ref={listRef} className="dsc-list">

@@ -1,37 +1,30 @@
 // "Built on their work": who feeds which part of the site, and where every node and ribbon sits for a stage width.
 // Live features are read from each in-use scholar's own site note (no hand-made mapping); books held in the library
 // gather under one dashed "In the library" group.
-import type { Scholar } from "@/data/teachers/pages-types";
+import { featureEvidence, profileFor } from "../site-evidence";
+import type { Scholar, Field } from "@/data/teachers/pages-types";
 
 export interface Feature { id: string; name: string; tone: string; sub: string; planned: boolean; test: RegExp | null }
-export interface Row { s: Scholar; fs: Feature[] }
-export interface Link { f: Feature; s: Scholar }
+export interface RibbonPerson {
+ id:string; name:string; short:string; field:Field; works:[string,string|number][];
+ born?:number; died?:number|null; circa?:boolean; faith?:Scholar['faith'];
+ site?:Scholar['site']; profileId?:string; sourceUrl:string;
+}
+export interface Row { s: RibbonPerson; fs: Feature[] }
+export interface Link { f: Feature; s: RibbonPerson }
 export interface Model { features: Feature[]; rows: Row[]; usedCount: number; links: Link[] }
 
-const LIVE: Feature[] = [
-  { id: "topics", name: "Topics", tone: "--poetry", sub: "Live today", planned: false, test: /Topics/ },
-  { id: "miracles", name: "Miracles", tone: "--acts", sub: "Live today", planned: false, test: /miracles/i },
-  { id: "harmony", name: "Gospel harmony", tone: "--gospels", sub: "Live today", planned: false, test: /Gospel harmony/ },
-  { id: "letters", name: "Letters study", tone: "--epistles", sub: "Live today", planned: false, test: /Letters study/ },
-];
-const LIBRARY: Feature = { id: "library", name: "In the library", tone: "--muted", sub: "Planned", planned: true, test: null };
-
-const featuresOf = (s: Scholar) => (s.site?.status === "in-use" ? LIVE.filter((f) => f.test?.test(s.site?.note ?? "")) : []);
-
 export function buildModel(scholars: Scholar[]): Model {
-  const features = [...LIVE, LIBRARY];
-  const at = (f: Feature) => features.indexOf(f);
-  for (const s of scholars) {
-    if (s.site?.status === "in-use" && featuresOf(s).length === 0) {
-      console.error(`Built on their work: ${s.id} is in use but its note names no known feature: "${s.site.note}"`);
-    }
-  }
-  const used = scholars.filter((s) => s.site?.status === "in-use" && featuresOf(s).length)
-    .map((s) => ({ s, fs: featuresOf(s) }))
-    .sort((a, b) => at(a.fs[0]) - at(b.fs[0]) || at(a.fs[a.fs.length - 1]) - at(b.fs[b.fs.length - 1]) || a.s.born - b.s.born);
-  const held = scholars.filter((s) => s.site?.status === "held").map((s) => ({ s, fs: [LIBRARY] }));
-  const rows = [...used, ...held];
-  return { features, rows, usedCount: used.length, links: rows.flatMap(({ s, fs }) => fs.map((f) => ({ f, s }))) };
+ const tones=['--poetry','--gospels','--acts','--epistles','--prophets','--history','--history','--revelation'];
+ const features:Feature[]=featureEvidence.map((f,i)=>({id:f.id,name:f.label,tone:tones[i],sub:'Verified source records',planned:false,test:null}));
+ const rows:Row[]=featureEvidence.flatMap((f,i)=>f.sources.map(r=>{
+  const profile=r.author.includes(" & ") ? undefined : profileFor(r.author,scholars);
+  const s:RibbonPerson={id:`${f.id}:${r.id}`,name:r.author,short:r.author,field:profile?.field??'reference',
+   works:[[r.title,r.year]],born:profile?.born,died:profile?.died,faith:profile?.faith,profileId:profile?.id,sourceUrl:r.url,
+   site:{status:r.kind==='bibliography'?'held':'in-use',note:`${r.kind==='data'?'Feature input':r.kind==='citation'?'Page citation':'Bibliography only'}: ${r.uses.map(u=>u.page).filter((v,i,a)=>a.indexOf(v)===i).join('; ')}`}};
+  return {s,fs:[features[i]]};
+ }));
+ return {features,rows,usedCount:rows.length,links:rows.flatMap(({s,fs})=>fs.map(f=>({f,s})))};
 }
 
 const ROW = 34, GAP = 4, GROUP_GAP = 30, TOP = 34, RIB = 11;
@@ -57,7 +50,7 @@ export function layoutFor(model: Model, width: number): Layout {
   const rowY = (i: number) => TOP + i * (ROW + GAP) + (i >= usedCount ? GROUP_GAP : 0);
   const height = rowY(rows.length - 1) + ROW + 8;
   const center = new Map(rows.map(({ s }, i) => [s.id, rowY(i) + ROW / 2]));
-  const mid = (s: Scholar) => center.get(s.id) ?? 0;
+  const mid = (s: RibbonPerson) => center.get(s.id) ?? 0;
 
   // Feature nodes: centred on their books, then pushed apart so none overlap.
   const feat = features.map((f) => {
@@ -93,7 +86,7 @@ export function layoutFor(model: Model, width: number): Layout {
 }
 
 /** What the caption and the highlight follow: a feature, a scholar, or one ribbon (both). */
-export interface Focus { f: Feature | null; s: Scholar | null }
+export interface Focus { f: Feature | null; s: RibbonPerson | null }
 
 export interface Lit { links: Set<Link>; features: Set<string>; scholars: Set<string> }
 

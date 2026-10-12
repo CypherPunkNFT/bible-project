@@ -25,7 +25,7 @@ export function Constellation(props: SkyProps) {
     return () => watch.disconnect();
   }, []);
   return <figure className="lnd-stage" ref={stage}>
-    <figcaption className="lnd-cap"><span>Each mark is one scholar, shaped by field. A thin line joins each field's scholars in the order they were born.</span>
+    <figcaption className="lnd-cap"><span>The documented profiles, shaped by field. Lines follow birth order; the full contributor catalogue also includes entries without biographies.</span>
       <span className="lnd-cap-key"><i />Used on this site</span></figcaption>
     <div className="lnd-skyhold"><SkyView key={sky.name} sky={sky} {...props} /></div>
   </figure>;
@@ -87,7 +87,7 @@ function SkyView({ data, sky, matches, searching, onOpen }: SkyProps & { sky: Sk
 function SkyArt({ data, sky }: { data: ScholarsData; sky: Sky }) {
   const order = new Map(byBirth(data.scholars).map((s, i) => [s.id, i]));
   const k = sky.size / 48, half = sky.size / 2;
-  return <svg viewBox={`0 0 ${sky.w} ${sky.h}`} aria-label={`All ${data.scholars.length} scholars, grouped by field`}>
+  return <svg viewBox={`0 0 ${sky.w} ${sky.h}`} aria-label={`${data.scholars.length} documented profiles, grouped by field`}>
     <defs>{sky.fields.map((f) => <radialGradient key={f.field} id={`sc-lnd-glow-${f.field}-${sky.name}`}>
       <stop offset="0" style={{ stopColor: toneVar(f.field), stopOpacity: 0.13 }} /><stop offset="1" style={{ stopColor: toneVar(f.field), stopOpacity: 0 }} />
     </radialGradient>)}</defs>

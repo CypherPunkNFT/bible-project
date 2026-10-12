@@ -105,3 +105,9 @@
 @media (prefers-reduced-motion: reduce) {
   .tp-scholars .blt-art { clip-path: none; }
 }
+
+/* The same ribbon stage, bounded so the complete source index can be explored. */
+.tp-scholars .blt-scroll { max-height: 70vh; overflow: auto; }
+.tp-scholars .blt-stack { max-height: 70vh; overflow-y: auto; }
+.tp-scholars .blt-work { color: var(--ink); text-decoration: none; }
+.tp-scholars .blt-st-group a { display: block; width: 100%; color: inherit; text-decoration: none; }

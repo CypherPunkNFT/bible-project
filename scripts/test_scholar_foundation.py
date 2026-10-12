@@ -27,7 +27,7 @@ class SourceDates(unittest.TestCase):
         self.assertIsNone(audit.parse_date('Example, d. 1640-1642'))
 
     def test_ambiguous_and_impossible_dates_require_review(self):
-        for label in ['Example, 15th cent.', 'Example, 1500', 'Example, 1600-1500', 'Example, 1000-1800', 'Example, 0-70', 'Example, 1900-2090', 'Example, 1500 or 1501']:
+        for label in ['Example, 15th cent.', 'Example, 1500', 'Example, 1600-1500', 'Example, 1000-1800', 'Example, 0-70', 'Example, 1900-2090', 'Example, 1500 or 1501', 'England and Wales. Parliament. House of Commons. Proceedings. 1642-08-31.']:
             with self.subTest(label=label):
                 self.assertIsNone(audit.parse_date(label))
 

@@ -156,3 +156,5 @@
   .tp-scholars .cat-card-work, .tp-scholars .cat-card .cat-lb { grid-column: 1 / -1; }
   .tp-scholars .cat-collections, .tp-scholars .cat-held-count, .tp-scholars .cat-library-action { grid-column: 1 / -1; }
 }
+
+.tp-scholars .fld-works-scroll { max-height: 60vh; overflow-y: auto; }

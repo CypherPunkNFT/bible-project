@@ -15,14 +15,15 @@ const SORTS: [LibrarySort, string][] = [['featured', 'Featured'], ['az', 'A–Z'
 const EMPTY: never[] = [];
 const noop = () => {};
 export function Catalogue() {
-  const { data, library, libraryError, filters, filterCatalogue, setShownIds, openProfile } = useScholars();
+  const { data, library, libraryError, catalogueResetToken, filters, filterCatalogue, setShownIds, openProfile } = useScholars();
   const people = library ?? EMPTY;
   const [sort, setSort] = useState<LibrarySort>('featured'), [options, setOptions] = useState(ALL_LIBRARY);
+  useEffect(()=>setOptions(ALL_LIBRARY),[catalogueResetToken]);
   const [loaded, setLoaded] = useState(BATCH_SIZE), [shelf, setShelf] = useState<string | null>(null);
   const scroll = useRef<HTMLDivElement>(null);
   const visible = useMemo(() => orderLibrary(people.filter(p => matchesLibrary(p, filters, options)), sort), [people, filters, options, sort]);
   const slice = visible.slice(0, loaded);
-  useEffect(() => setShownIds(visible.flatMap(p => p.scholar ? [p.scholar.id] : [])), [visible, setShownIds]);
+  useEffect(() => setShownIds(visible.map(p => p.id)), [visible, setShownIds]);
   useEffect(() => { setLoaded(BATCH_SIZE); setShelf(null); scroll.current?.scrollTo({ top: 0 }); }, [filters, options, sort]);
   useEffect(() => {
     const root = scroll.current;
@@ -61,7 +62,7 @@ export function Catalogue() {
   return <>
     <span id="acquired" /><span id="fields" />
     <SectionHead section="catalogue" kicker="The catalogue" title={<>Every contributor, <em>one place</em></>}
-      line={<>The full acquired contributor list, including CCEL and the Latin Fathers. Open a documented profile or browse a contributor’s held works. Fields can overlap; unclassified names are included.</>} />
+      line={<>Every packaged contributor credit, including CCEL and the Latin Fathers. Open a documented profile or browse a contributor’s held works. Fields can overlap; unclassified names are included. Acquired holdings are still being reconciled.</>} />
     <p className="cat-coverage">{data.scholars.length} documented scholar profiles{library && <> · {library.length.toLocaleString()} catalogue entries · {library.filter(p => !Object.keys(p.fields).length).length.toLocaleString()} without an assigned field</>}. Authors, editors, translators and named collections retain their source credits.</p>
     {libraryError && <p role="alert">The full library could not load: {libraryError}. Reload to try again.</p>}
     <div className="cat-layout">

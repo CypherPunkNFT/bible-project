@@ -1,24 +1,15 @@
-// The directory's two groupings of the same people: by era (birth order inside each, as the data lists them), and by
-// the first letter of the surname (A to Z).
-import type { Scholar, ScholarsData } from "@/data/teachers/pages-types";
-
-export type Mode = "era" | "az";
-export interface Group { key: string; label: string; people: Scholar[] }
-
-const surname = (s: Scholar) => s.short.split(" ").at(-1) ?? s.short;
-
-export function buildGroups(data: ScholarsData): Record<Mode, Group[]> {
-  const era = Object.entries(data.eras)
-    .map(([key, label]) => ({ key, label, people: data.scholars.filter((s) => s.era === key) }))
-    .filter((g) => g.people.length);
-  const az: Group[] = [];
-  const byName = [...data.scholars].sort((a, b) => surname(a).localeCompare(surname(b)) || a.name.localeCompare(b.name));
-  for (const s of byName) {
-    const key = surname(s)[0].toUpperCase();
-    if (az[az.length - 1]?.key !== key) az.push({ key, label: key, people: [] });
-    az[az.length - 1].people.push(s);
-  }
-  return { era, az };
+import type { ScholarsData } from '@/data/teachers/pages-types';
+import type { LibraryPerson } from '../catalogue/library';
+export type Mode = 'era' | 'az';
+export interface Group { key:string; label:string; people:LibraryPerson[] }
+export function buildGroups(data:ScholarsData, people:LibraryPerson[]):Record<Mode,Group[]> {
+ const date=(p:LibraryPerson)=>p.facts?.dates.born??p.facts?.dates.floruit??p.scholar?.born??Infinity;
+ const era=Object.entries({...data.eras,unknown:'Era not documented'}).map(([key,label])=>({key,label,people:people.filter(p=>(p.facts?.dates.era??p.scholar?.era??'unknown')===key).sort((a,b)=>date(a)-date(b)||a.name.localeCompare(b.name))})).filter(g=>g.people.length);
+ const az:Group[]=[];
+ for(const p of [...people].sort((a,b)=>a.name.localeCompare(b.name))) {
+  const key=p.name[0].toLocaleUpperCase();let group=az.find(g=>g.key===key);
+  if(!group){group={key,label:key,people:[]};az.push(group);}group.people.push(p);
+ }
+ return {era,az};
 }
-
-export const USE_LABEL = { "in-use": "Used by a live feature", held: "In the library, planned" } as const;
+export const USE_LABEL = { 'in-use':'Verified feature use', held:'Held in the library; use unverified' } as const;

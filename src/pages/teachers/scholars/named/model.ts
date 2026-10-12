@@ -1,31 +1,14 @@
-// "Where the site names them": the site areas, each scholar's relative weight in each, and the two sort orders.
-import type { Scholar } from "@/data/teachers/pages-types";
-
-/** Site areas in `mentions`, each with the tone used wherever that area is drawn. */
-export const AREAS: [string, string][] = [["Letters study", "--epistles"], ["Apologetics", "--revelation"], ["Topics", "--poetry"], ["People pages", "--history"], ["Rulers", "--prophets"]];
-export type SortKey = "era" | "wide";
-
-export interface Heat {
-  named: Scholar[];
-  unnamed: Scholar[];
-  /** The scholar's count in an area against the most-named scholar there (0–1). */
-  weight: (s: Scholar, area: string) => number;
-  sorted: (key: SortKey) => Scholar[];
+import type { Scholar } from '@/data/teachers/pages-types';
+import { authorCredits } from '../site-evidence';
+export const AREAS: [string,string][] = [['Letters study','--epistles'],['Apologetics','--revelation'],['Topics','--poetry'],['People pages','--history'],['Rulers','--prophets']];
+export type SortKey = 'era'|'wide';
+export type NamedPerson = ReturnType<typeof authorCredits>[number];
+export function buildHeat(scholars:Scholar[]) {
+ const named=authorCredits(scholars);
+ const max=new Map(AREAS.map(([area])=>[area,Math.max(1,...named.map(s=>s.mentions[area]??0))]));
+ const weight=(s:NamedPerson,area:string)=>(s.mentions[area]??0)/(max.get(area)??1);
+ const width=(s:NamedPerson)=>AREAS.filter(([a])=>s.mentions[a]).length;
+ return {named,unnamed:scholars.filter(s=>!named.some(n=>n.profile?.id===s.id)),weight,
+ sorted:(key:SortKey)=>[...named].sort((a,b)=>key==='era' ? (a.profile?.born??Infinity)-(b.profile?.born??Infinity)||a.name.localeCompare(b.name) : width(b)-width(a)||Object.values(b.mentions).reduce((x,y)=>x+y,0)-Object.values(a.mentions).reduce((x,y)=>x+y,0)||a.name.localeCompare(b.name))};
 }
-
-export function buildHeat(scholars: Scholar[]): Heat {
-  const areaMax = new Map(AREAS.map(([a]) => [a, Math.max(...scholars.map((s) => s.mentions[a] ?? 0))]));
-  const weight = (s: Scholar, area: string) => (s.mentions[area] ? s.mentions[area] / (areaMax.get(area) ?? 1) : 0);
-  const namedIn = (s: Scholar) => AREAS.filter(([a]) => s.mentions[a]).length;
-  const total = (s: Scholar) => AREAS.reduce((t, [a]) => t + weight(s, a), 0);
-  const named = scholars.filter((s) => namedIn(s));
-  const byEra = [...named].sort((a, b) => a.born - b.born);
-  const byWidth = [...named].sort((a, b) => namedIn(b) - namedIn(a) || total(b) - total(a) || a.born - b.born);
-  return { named, unnamed: scholars.filter((s) => !namedIn(s)), weight, sorted: (key) => (key === "era" ? byEra : byWidth) };
-}
-
-/** "the Topics pages", "the Letters study": how the tooltip names an area. */
-export function areaPhrase(area: string) {
-  if (area === "Topics" || area === "Rulers") return `the ${area} pages`;
-  return `the ${area}`;
-}
+export const areaPhrase=(area:string)=>area==='Topics'?'the Topics, harmony and miracles pages':`the ${area}`;

@@ -48,7 +48,7 @@ def parse_date(label):
     text = label.strip().rstrip('. ,;')
     text = re.sub(r'\s+(aut|edt|trl)\.?$', '', text, flags=re.I).strip(' .,')
     # Mixed BC/AD, centuries and uncertainty intervals need individual review.
-    if re.search(r'cent\b|century|\bor\b', text, re.I):
+    if re.search(r'cent\b|century|\bor\b|\d{4}-\d{2}-\d{2}', text, re.I):
         return None
     m = re.search(r'(?P<start>\d{1,4})\s*[?]?\s*[-\u2013\u2014]\s*(?:ca\.?\s*)?(?P<end>\d{1,4})\s*[?]?\s*(?P<bc>B\.?\s*C\.?(?:E\.?)?)?$', text, re.I)
     if m:
@@ -127,7 +127,7 @@ def manifest_rows(value, inherited=None):
         for v in value: yield from manifest_rows(v, inherited)
 
 
-ORG = re.compile(r'\b(?:university|society|ministries|ministry|school union|seminary|committee|association|church|synod|convention|board|institute|press|corporation|library|commission|bible project)\b', re.I)
+ORG = re.compile(r'\b(?:university|society|ministries|ministry|school union|seminary|committee|association|church|synod|convention|board|institute|press|corporation|library|commission|bible project|parliament|house of commons|house of lords)\b', re.I)
 
 
 def main():

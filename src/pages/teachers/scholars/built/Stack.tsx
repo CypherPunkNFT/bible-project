@@ -11,13 +11,13 @@ export function Stack({ data, model }: { data: ScholarsData; model: Model }) {
       <h3><i />{f.name}<small>{f.sub}</small></h3>
       <ul>
         {model.links.filter((l) => l.f === f).map(({ s }) => <li key={s.id}>
-          <button type="button" data-scholar={s.id}>
+          <a href={s.sourceUrl} target="_blank" rel="noreferrer">
             <span className="blt-st-work">{s.works[0][0]} <em>{s.works[0][1]}</em></span>
             <span className="blt-st-who" style={{ "--tone": `var(${toneOf(s.field)})` } as CSSProperties}>
-              <Mark scholar={s} size={24} />
+              {s.profileId && <Mark scholar={s} size={24} />}
               <span><b>{s.name}</b><small>{yearsOf(s)} · {faithOf(data, s)}</small></span>
             </span>
-          </button>
+          </a>
         </li>)}
       </ul>
     </div>)}

@@ -6,7 +6,7 @@
 import { useMemo, useState, type MouseEvent } from "react";
 import { ArrowRight } from "lucide-react";
 import { useScholars } from "./context";
-import { byBirth, isUsed, NOW } from "./marks/facts";
+import { byBirth, isUsed } from "./marks/facts";
 import { reducedMotion } from "./marks/dom";
 import { Mark } from "./marks/Mark";
 import { toneStyle } from "./marks/shapes";
@@ -28,28 +28,25 @@ function jump(event: MouseEvent<HTMLAnchorElement>) {
 }
 
 export function Landing() {
-  const { data, library, openProfile, filterCatalogue } = useScholars();
+  const { data, library, libraryFacts, openProfile, filterCatalogue } = useScholars();
   const [query, setQuery] = useState("");
   const found = useMemo(() => findScholars(data, query), [data, query]);
   const matchIds = useMemo(() => new Set(found.map((m) => m.s.id)), [found]);
   const born = useMemo(() => byBirth(data.scholars), [data]);
   const live = born.filter(isUsed);
-  const first = born[0];
-  const works = born.reduce((total, scholar) => total + scholar.works.length, 0);
-  const centuries = Math.ceil((Math.max(...born.map((s) => s.died ?? NOW)) - first.born) / 100);
   return <div className="lnd">
     <div className="lnd-hero">
       <div className="lnd-copy">
         <p className="kicker lnd-kicker">Scholars in the library</p>
         <h1 className="lnd-title">The greats, <em>catalogued.</em></h1>
-        <p className="lnd-lead">Historians, translators, archaeologists, theologians and the makers of reference books: {library ? library.length.toLocaleString() : 'the full library of'} contributors in one catalogue, including {data.scholars.length} documented scholar profiles. Explore the profiles below or search every contributor and their held works in the full catalogue.</p>
+        <p className="lnd-lead">Historians, translators, archaeologists, theologians and the makers of reference books: {library ? library.length.toLocaleString() : 'the full library of'} catalogue entries in one catalogue, including {data.scholars.length} documented scholar profiles. Explore the profiles below or search every contributor and their held works in the full catalogue.</p>
         <form className="lnd-full-search" onSubmit={e => { e.preventDefault(); filterCatalogue({ q: query.trim().toLocaleLowerCase() }); }}>
           <label htmlFor="full-contributor-search">Search the full catalogue</label>
           <div><input id="full-contributor-search" type="search" placeholder="Author, editor, translator or work" value={query} onChange={e => setQuery(e.target.value)} /><button type="submit">Search <ArrowRight size={14} aria-hidden="true" /></button></div>
         </form>
         <aside className="lnd-built" aria-label="Built on their work">
           <h2>You have been reading <em>their work</em> all&nbsp;along.</h2>
-          <p>This site stands on books by {live.length} of them. Their dictionaries, concordance and harmony power the Topics pages, the Gospel harmony, the miracles and the Letters study.</p>
+          <p>Among the documented profiles, {live.length} have verified source connections. Their work supplies feature inputs or is cited on study pages. The ribbons below show the recorded source connections.</p>
           <ul className="lnd-used">{live.map((s) => <li key={s.id}>
             <button type="button" style={toneStyle(s.field)} onClick={(e) => openProfile(s.id, e.currentTarget)}>
               <Mark scholar={s} size={26} className="lnd-mark" /><span>{s.short}</span></button></li>)}</ul>
@@ -62,8 +59,8 @@ export function Landing() {
       <dl className="lnd-figs">
         <div><dt>Contributors</dt><dd>{library ? library.length.toLocaleString() : '…'}</dd><p>{data.scholars.length} documented scholar profiles</p></div>
         <div><dt>Fields</dt><dd>{Object.keys(data.fields).length}</dd><p>history to reference books</p></div>
-        <div><dt>Key works</dt><dd>{works}</dd><p>landmark books and studies</p></div>
-        <div><dt>Centuries</dt><dd>{centuries}</dd><p>ancient world to today</p></div>
+        <div><dt>Era established</dt><dd>{libraryFacts ? (libraryFacts.summary.catalogueEntries - libraryFacts.summary.eras.unknown).toLocaleString() : "…"}</dd><p>entries with reviewed dates</p></div>
+        <div><dt>Era unknown</dt><dd>{libraryFacts?.summary.eras.unknown.toLocaleString() ?? "…"}</dd><p>retained in the catalogue</p></div>
       </dl>
       <nav className="lnd-jump" aria-label="On this page"><span className="lnd-jump-l">On this page</span>
         {JUMPS.map(({id, title}) => <a key={id} href={`#${id}`} onClick={jump}><b>{sectionNumber(id)}</b>{title}</a>)}</nav>

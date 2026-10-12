@@ -66,10 +66,10 @@ export function Built() {
     const cache = new Map<string, Focus>();
     return (f: string | undefined, s: string | undefined) => {
       const key = keyOf(f, s);
-      if (!cache.has(key)) cache.set(key, { f: model.features.find((x) => x.id === f) ?? null, s: s ? data.scholars.find((x) => x.id === s) ?? null : null });
+      if (!cache.has(key)) cache.set(key, { f: model.features.find((x) => x.id === f) ?? null, s: s ? model.rows.find((x) => x.s.id === s)?.s ?? null : null });
       return cache.get(key) as Focus;
     };
-  }, [model, data]);
+  }, [model]);
   const pinnedFocus = pinned ? focusFor(pinned, undefined) : null;
   const nodeFocus = useCallback((target: EventTarget) => {
     const node = (target as Element).closest<HTMLElement>("[data-f], [data-s]");
@@ -89,26 +89,28 @@ export function Built() {
     const id = hit?.dataset.scholar;
     if (!hit || !id) return;
     const origin = hit.matches(".blt-rib") ? stageRef.current?.querySelector(`.blt-work[data-s="${id}"]`) ?? hit : hit;
-    openProfile(id, origin);
+    const row=model.rows.find(r=>r.s.id===id);
+    if(row?.s.profileId)openProfile(row.s.profileId,origin);
+    else if(row)window.open(row.s.sourceUrl,"_blank","noopener,noreferrer");
   };
   const capTone = focus?.f?.tone ?? (focus?.s ? model.rows.find((r) => r.s === focus.s)?.fs[0].tone : undefined) ?? "--accent";
 
   return <>
     <SectionHead section="built" kicker="Behind the features" title={<>Built on <em>their work</em></>}
-      line="Each ribbon joins a part of this site to the book it draws on, and that book to the scholar who wrote it. Solid ribbons are live today; dashed ones are books in the library, planned for features." />
+      line="Each ribbon joins a site area to its recorded source and author credit. The full verified source index is included; editions and repeated works across features remain separate. Scroll the diagram to follow more connections." />
     <div ref={cardRef} className={`blt-card${sweep !== "hidden" ? " blt-in" : ""}${sweep === "settled" ? " blt-settled" : ""}`}
       style={{ "--cap-tone": `var(${capTone})` } as CSSProperties} onClick={onCardClick}>
       <div className="blt-cap" aria-live="polite"><span className="blt-cap-dot" aria-hidden="true" /><p className="blt-cap-text"><Caption data={data} model={model} focus={focus} /></p></div>
-      <div ref={stageRef} className={`blt-stage${focus ? " blt-dim" : ""}`} style={layout ? { height: layout.height } : undefined}
+      <div className="blt-scroll"><div ref={stageRef} className={`blt-stage${focus ? " blt-dim" : ""}`} style={layout ? { height: layout.height } : undefined}
         onPointerOver={(e) => setFocus(nodeFocus(e.target) ?? pinnedFocus)} onPointerLeave={() => setFocus(pinnedFocus)}
         onFocus={(e) => { const f = nodeFocus(e.target); if (f) setFocus(f); }} onBlur={() => setFocus(pinnedFocus)} onClick={onStageClick}>
         <Stage data={data} model={model} layout={layout} lit={lit} pinned={pinned} />
       </div>
-      <Stack data={data} model={model} />
+      </div><Stack data={data} model={model} />
       <ul className="blt-legend">
-        <li><i className="blt-key-live" />Live on the site today</li>
-        <li><i className="blt-key-planned" />In the library, planned</li>
-        <li>Click a book or a name to open the scholar's profile</li>
+        <li><i className="blt-key-live" />Feature inputs and page citations</li>
+        <li><i className="blt-key-planned" />Bibliography-only records</li>
+        <li>Click a book to read its source; names open profiles where documented</li>
       </ul>
     </div>
   </>;

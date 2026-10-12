@@ -2,7 +2,7 @@
 // columns, grouped by era. A small two-way switch re-groups the SAME rows by era or by the first letter of the surname:
 // rows glide to their new places (transforms only), new headings fade in and the frame eases to its new height, so
 // nothing on the page jumps. Every row opens the shared profile.
-import { useLayoutEffect, useMemo, useRef, useState, type SyntheticEvent } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type SyntheticEvent } from "react";
 import { ScholarSectionHead as SectionHead } from "./SectionHead";
 import { reducedMotion } from "./marks/dom";
 import { useScholars } from "./context";
@@ -14,10 +14,12 @@ const EASE = "cubic-bezier(.16, 1, .3, 1)", MOVE_MS = 600;
 interface Before { rects: Map<string, DOMRect>; height: number }
 
 export function Directory() {
-  const { data, openProfile } = useScholars();
-  const groups = useMemo(() => buildGroups(data), [data]);
+  const { data, library, openProfile, filterCatalogue } = useScholars();
+  const groups = useMemo(() => buildGroups(data, library ?? []), [data, library]);
+  const [limit, setLimit] = useState(96);
   const [mode, setMode] = useState<Mode>("era");
   const frameRef = useRef<HTMLDivElement>(null), listRef = useRef<HTMLDivElement>(null);
+  useEffect(() => { setLimit(96); frameRef.current?.scrollTo({top:0}); }, [mode]);
   const before = useRef<Before | null>(null);
   const rowsNow = () => [...(listRef.current?.querySelectorAll<HTMLLIElement>("li[data-id]") ?? [])];
 
@@ -51,16 +53,16 @@ export function Directory() {
 
   const onListClick = (event: SyntheticEvent) => {
     const hit = (event.target as Element).closest<HTMLElement>("[data-scholar]");
-    if (hit?.dataset.scholar) openProfile(hit.dataset.scholar, hit);
+    if (hit?.dataset.scholar) { const person=library?.find(p=>p.id===hit.dataset.scholar); if(person?.scholar) openProfile(person.scholar.id,hit); else if(person) filterCatalogue({q:person.name.toLocaleLowerCase()}); }
   };
 
   return <>
-    <SectionHead section="directory" kicker="Profile directory" title={<>{data.scholars.length} documented <em>scholar profiles</em></>}
-      line="The biographical profiles, by era or from A to Z. The full contributor list and held works are in catalogue 01." />
+    <SectionHead section="directory" kicker="Contributor directory" title={<>{library?.length.toLocaleString() ?? "?"} recorded <em>contributors</em></>}
+      line="Every catalogue entry, grouped by reviewed era or recorded name. Unknown dates have their own group. Open a biography where available, or find held works in catalogue 01." />
     <div className="dir-tools">
       <ul className="dir-key">
         <li><span className="dir-use dir-use-in-use" />A live feature on this site uses their work</li>
-        <li><span className="dir-use dir-use-held" />Their book is in the library, planned</li>
+        <li><span className="dir-use dir-use-held" />Held in the library; feature use unverified</li>
       </ul>
       <div className="dir-mode" role="group" aria-label="Group the list" data-mode={mode}>
         <i className="dir-thumb" aria-hidden="true" />
@@ -68,8 +70,8 @@ export function Directory() {
         <button type="button" aria-pressed={mode === "az"} onClick={() => choose("az")}>A to Z</button>
       </div>
     </div>
-    <div ref={frameRef} className="dir-frame">
-      <div ref={listRef} className="dir-list" onClick={onListClick}><Groups data={data} groups={groups[mode]} mode={mode} /></div>
+    <div ref={frameRef} className="dir-frame" role="region" aria-label="Contributor directory" tabIndex={0} onScroll={e=>{const el=e.currentTarget;if(el.scrollTop>=(el.scrollHeight-el.clientHeight)*.4)setLimit(n=>Math.min(n+96,library?.length??0));}}>
+      <div ref={listRef} className="dir-list" onClick={onListClick}><Groups data={data} groups={groups[mode]} mode={mode} limit={limit} /></div>
     </div>
   </>;
 }

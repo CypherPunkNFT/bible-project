@@ -44,3 +44,5 @@
   .tp-scholars .nmd-hrow span { font-size: .56rem; letter-spacing: 0; }
   .tp-scholars .nmd-cell { height: 20px; border-radius: 5px; }
 }
+
+.tp-scholars .nmd-grid { max-height: 70vh; overflow-y: auto; }

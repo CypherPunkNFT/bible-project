@@ -1,3 +1,4 @@
+import evidenceData from "../../../../../content/teachers/discovery-evidence.json";
 // 03 · The discoveries: everything the section shows, derived from the Scholars data only (approved mock-up:
 // design/scholars-directions/scholars/discoveries.js). The finds in date order, which lie on the Holy Land & Sinai map,
 // and each find's "from the dig to your screen" thread: who found or studied it, what came of it, and where it reaches
@@ -23,10 +24,10 @@ export const cssVars = (vars: Record<string, string>) => vars as CSSProperties;
 export const areaOf = (scholar: Scholar) => (scholar.site ? Object.keys(AREA_ROUTE).find((area) => scholar.site?.note.includes(area)) : undefined);
 
 export type Step =
-  | { kind: "who"; scholar: Scholar }
-  | { kind: "came"; work: [string, number] }
+  | { kind: "who"; scholar: Scholar; role?:string }
+  | { kind: "came"; work: [string, string|number]; url?:string }
   | { kind: "next"; scholar: Scholar; what: string }
-  | { kind: "site"; scholar: Scholar; site: NonNullable<Scholar["site"]> }
+  | { kind: "site"; scholar: Scholar; site: NonNullable<Scholar["site"]>; url?:string; label?:string }
   | { kind: "none" };
 export interface Thread { steps: Step[]; reached: Scholar[]; people: Set<string> }
 
@@ -42,32 +43,19 @@ export interface DiscoveryModel {
   threads: Record<string, Thread>;
 }
 
-/** A scholar's listed work counts as "what came of" a find when it is their only find, or when its title names the find. */
-function workFor(model: Pick<DiscoveryModel, "data">, scholar: Scholar, find: Find): [string, number] | null {
-  const theirs = model.data.finds.filter((f) => f.by.includes(scholar.id));
-  if (theirs.length === 1) return scholar.works[0] ?? null;
-  return scholar.works.find(([title]) => title.toLowerCase().includes(find.name.toLowerCase())) ?? null;
-}
-
-/** The site is reached through the scholar's own work, or else through the next scholar in the chain of the text whose
- *  work the site uses (Codex Sinaiticus → Tischendorf → Westcott → the Letters study). */
+type Evidence = {year?:number;date:string;context:string;role:string;sources:{label:string;url:string}[];site?:{label:string;url:string;note:string;sourceTitle:string;sourceUrl:string}};
+export const discoveryEvidence:Record<string,Evidence> = evidenceData.cases;
 function threadOf(model: Pick<DiscoveryModel, "data" | "byId">, find: Find): Thread {
-  const steps: Step[] = [], reached: Scholar[] = [];
-  const chain = model.data.chain.steps;
-  for (const id of find.by) {
-    const scholar = scholarById(model.byId, id);
-    steps.push({ kind: "who", scholar });
-    const work = workFor(model, scholar, find);
-    if (work) steps.push({ kind: "came", work });
-    if (scholar.site) { reached.push(scholar); continue; }
-    const at = chain.findIndex(([cid]) => cid === id);
-    const later = at >= 0 ? chain.slice(at + 1).find(([cid]) => model.byId[cid]?.site) : undefined;
-    if (later) { const next = scholarById(model.byId, later[0]); steps.push({ kind: "next", scholar: next, what: later[1] }); reached.push(next); }
-  }
-  for (const scholar of reached) if (scholar.site) steps.push({ kind: "site", scholar, site: scholar.site });
-  if (!reached.length) steps.push({ kind: "none" });
-  const people = new Set(steps.flatMap((st) => ("scholar" in st ? [st.scholar.id] : [])));
-  return { steps, reached, people };
+ const record=discoveryEvidence[find.id], steps:Step[]=[], reached:Scholar[]=[];
+ for(const id of find.by)steps.push({kind:'who',scholar:scholarById(model.byId,id),role:record.role});
+ steps.push({kind:'came',work:[record.sources[0].label,record.date],url:record.sources[0].url});
+ if(record.site){
+  const scholar=scholarById(model.byId,find.id==='sinaiticus'?'westcott':find.by[0]);
+  if(find.id==='sinaiticus')steps.push({kind:'next',scholar,what:'Cited discussion of the manuscript; not a claim that this edition supplies the site text.'});
+  steps.push({kind:'came',work:[record.site.sourceTitle,''],url:record.site.sourceUrl});
+  reached.push(scholar);steps.push({kind:'site',scholar,site:{status:'in-use',note:record.site.note},url:record.site.url,label:record.site.label});
+ }else steps.push({kind:'none'});
+ return {steps,reached,people:new Set(steps.flatMap(st=>'scholar' in st?[st.scholar.id]:[]))};
 }
 
 export function scholarById(byId: Record<string, Scholar>, id: string): Scholar {
@@ -78,7 +66,7 @@ export function scholarById(byId: Record<string, Scholar>, id: string): Scholar 
 
 export function buildModel(data: ScholarsData): DiscoveryModel {
   const byId = Object.fromEntries(data.scholars.map((s) => [s.id, s]));
-  const finds = [...data.finds].sort((a, b) => a.year - b.year);
+  const finds = data.finds.map(f=>({...f,year:discoveryEvidence[f.id].year??f.year,line:discoveryEvidence[f.id].context})).sort((a,b)=>a.year-b.year);
   if (!finds.length) throw new Error("Discoveries: the Scholars data lists no finds");
   const inHoly = new Set(finds.filter((f) => data.views.holyland.points[`find:${f.id}`]).map((f) => f.id));
   const threads = Object.fromEntries(finds.map((f) => [f.id, threadOf({ data, byId }, f)]));
@@ -94,7 +82,7 @@ export function overviewOf(model: DiscoveryModel): Overview {
   const outside = finds.filter((f) => !inHoly.has(f.id));
   const reach = finds.filter((f) => threads[f.id].reached.length);
   const through = reach.map((f) => `${f.name}, through ${threads[f.id].reached.map((s) => s.short).join(" and ")}`).join("; ");
-  const areas = [...new Set(reach.flatMap((f) => threads[f.id].reached.map((s) => areaOf(s) ?? "this site")))];
+  const areas = [...new Set(reach.map((f) => discoveryEvidence[f.id].site?.label ?? "this site"))];
   const beyond = outside.map((f) => `${scholarById(byId, f.by[0]).short}'s lies beyond this map, at ${f.where[0]}`).join("; ");
   return {
     span: `${first.year}–${last.year}`,
@@ -102,8 +90,8 @@ export function overviewOf(model: DiscoveryModel): Overview {
     from: `From ${scholarById(byId, first.by[0]).name} at ${first.where[0]} in ${first.year} to ${scholarById(byId, last.by[0]).name} at ${last.where[0]} in ${last.year}.`,
     lie: `${word(finds.length - outside.length)} lie in the Holy Land and Sinai${beyond ? `; ${beyond}` : ""}.`,
     reach: reach.length
-      ? `${word(reach.length)} reach this site's ${areas.join(" and ")}: ${through}. The other ${word(finds.length - reach.length).toLowerCase()} are not used on this site yet.`
-      : "None of them is used on this site yet.",
+      ? `${word(reach.length)} reach this site's ${areas.join(" and ")}: ${through}. The other ${word(finds.length - reach.length).toLowerCase()} have no verified feature connection in this review.`
+      : "No feature connections verified in this review.",
   };
 }
 

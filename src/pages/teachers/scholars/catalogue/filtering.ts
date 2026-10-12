@@ -7,7 +7,7 @@ import { isUsed, surname, weight } from "../marks/facts";
 export type FacetKey = "field" | "era" | "faith";
 export type FacetValue = Field | Era | Faith;
 export const FACETS: { key: FacetKey; title: string }[] = [{ key: "field", title: "Field" }, { key: "era", title: "Era" }, { key: "faith", title: "Faith" }];
-export const facetLabels = (data: ScholarsData, key: FacetKey): Record<string, string> => data[`${key}s`];
+export const facetLabels = (data: ScholarsData, key: FacetKey): Record<string, string> => key === "era" ? { ...data.eras, unknown: "Era not documented" } : data[`${key}s`];
 
 export type SortKey = "year" | "az" | "named";
 export const SORTS: { key: SortKey; label: string }[] = [{ key: "year", label: "Year" }, { key: "az", label: "A–Z" }, { key: "named", label: "Most named" }];

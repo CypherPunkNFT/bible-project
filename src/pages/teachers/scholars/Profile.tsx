@@ -23,7 +23,7 @@ export function Profile() {
   const origin = useRef<Element | null>(null), stepped = useRef(0), cancelShrink = useRef<(() => void) | null>(null);
   const phaseNow = useRef(phase), shown = useRef(shownIds), viewNow = useRef(view);
   phaseNow.current = phase;
-  shown.current = shownIds;
+  shown.current = shownIds.filter(id => data.scholars.some(s => s.id === id));
   viewNow.current = view;
 
   // Follow the page's request: open (or show someone else), or close.

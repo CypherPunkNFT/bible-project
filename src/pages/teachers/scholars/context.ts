@@ -7,10 +7,11 @@ import type { LibraryPerson } from "./catalogue/library";
 import type { ContributorFacts } from "./facts";
 
 export interface ProfileTarget { id: string; origin: Element | null }
-export interface CatalogueFilters { field: Field[]; era: Era[]; faith: Faith[]; used: boolean; q: string }
+export interface CatalogueFilters { field: Field[]; era: (Era | "unknown")[]; faith: Faith[]; used: boolean; q: string }
 export const NO_FILTERS: CatalogueFilters = { field: [], era: [], faith: [], used: false, q: "" };
 export interface ScholarsContextValue {
   data: ScholarsData;
+  catalogueResetToken: number;
   library: LibraryPerson[] | null;
   libraryError: string;
   libraryFacts: ContributorFacts | null;

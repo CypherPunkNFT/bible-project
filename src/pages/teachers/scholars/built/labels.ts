@@ -5,7 +5,7 @@ import { FIELD_TONE } from "../marks/shapes";
 
 /** A field's colour token ("--history"), the same pairing as the shared marks. */
 export const toneOf = (field: Field) => FIELD_TONE[field] ?? "--accent";
-export const yearsOf = (s: Scholar) => s.died === null ? `b. ${s.born}` : `${s.circa ? "c. " : ""}${s.born}–${s.died}`;
-export const faithOf = (data: ScholarsData, s: Scholar) => data.faiths[s.faith] ?? data.faiths.unrecorded;
+export const yearsOf = (s: Partial<Pick<Scholar,"born"|"died"|"circa">>) => s.born === undefined ? "Dates unrecorded" : s.died === null ? `b. ${s.born}` : `${s.circa ? "c. " : ""}${s.born}–${s.died}`;
+export const faithOf = (data: ScholarsData, s: Partial<Pick<Scholar,"faith">>) => data.faiths[s.faith ?? "unrecorded"] ?? data.faiths.unrecorded;
 /** "a", "a and b", "a, b and c". */
 export const listWords = (items: string[]) => (items.length < 2 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`);

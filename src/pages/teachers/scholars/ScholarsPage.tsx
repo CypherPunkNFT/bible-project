@@ -1,3 +1,4 @@
+import { evidencedProfiles } from "./site-evidence";
 // /teachers/scholars: historians, translators, archaeologists, theologians before the Reformation and the makers of the
 // reference books this site is built on, in the owner's order of sections (approved mock-up:
 // design/scholars-directions/scholars/). Every section reads the data, the shared profile and the catalogue's filters
@@ -27,19 +28,22 @@ export default function ScholarsPage() {
   return data ? <Loaded data={data} /> : <PageStatus error={error} />;
 }
 
-function Loaded({ data }: { data: ScholarsData }) {
+function Loaded({ data: original }: { data: ScholarsData }) {
+  const data = useMemo(() => evidencedProfiles(original), [original]);
   const { library, libraryError, libraryFacts } = useLibrary(data);
   const [profile, setProfile] = useState<ProfileTarget | null>(null);
+  const [catalogueResetToken, resetCatalogue] = useState(0);
   const [filters, setFilters] = useState<CatalogueFilters>(NO_FILTERS);
   const [shownIds, setShownIds] = useState<string[]>(() => data.scholars.map((s) => s.id));
   const openProfile = useCallback((id: string, origin: Element | null = null) => setProfile({ id, origin }), []);
   const closeProfile = useCallback(() => setProfile(null), []);
   const filterCatalogue = useCallback((next: Partial<CatalogueFilters>, options: { scroll?: boolean } = {}) => {
     setFilters({ ...NO_FILTERS, ...next });
+    if(options.scroll !== false) resetCatalogue(n=>n+1);
     if (options.scroll !== false) document.getElementById("catalogue")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
-  const value = useMemo(() => ({ data, library, libraryError, libraryFacts, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds, setShownIds }),
-    [data, library, libraryError, libraryFacts, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds]);
+  const value = useMemo(() => ({ data, catalogueResetToken, library, libraryError, libraryFacts, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds, setShownIds }),
+    [data, catalogueResetToken, library, libraryError, libraryFacts, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds]);
   return <ScholarsContext.Provider value={value}>
     <div className="tp-page tp-scholars">
       <SidesSwitch current="scholars" />
