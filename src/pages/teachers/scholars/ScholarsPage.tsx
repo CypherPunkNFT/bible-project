@@ -5,7 +5,7 @@ import { evidencedProfiles } from "./site-evidence";
 // from ScholarsContext; each draws inside its own TeacherSection so one failing never blanks the rest.
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { ScholarsData } from "@/data/teachers/pages-types";
-import { PageStatus, SidesSwitch, TeacherSection } from "../shared/Frame";
+import { PageStatus, TeacherSection } from "../shared/Frame";
 import { useScholarsData } from "../shared/data";
 import { Built } from "./Built";
 import { Catalogue } from "./Catalogue";
@@ -46,7 +46,6 @@ function Loaded({ data: original }: { data: ScholarsData }) {
     [data, catalogueResetToken, library, libraryError, libraryFacts, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds]);
   return <ScholarsContext.Provider value={value}>
     <div className="tp-page tp-scholars">
-      <SidesSwitch current="scholars" />
       <TeacherSection id="landing" title="Scholars"><Landing /></TeacherSection>
       {SCHOLAR_SECTIONS.map(({ id, title }) => { const Section = COMPONENTS[id]; return <TeacherSection key={id} id={id} title={title}><Section /></TeacherSection>; })}
       <Profile />

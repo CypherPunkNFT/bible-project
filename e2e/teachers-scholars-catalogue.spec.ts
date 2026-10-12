@@ -30,6 +30,7 @@ const isPhone = (page: Page) => (page.viewportSize()?.width ?? 1440) <= 760;
 
 async function openPage(page: Page) {
   await page.goto(ADDRESS);
+  await page.locator("#catalogue").scrollIntoViewIfNeeded();
   await expect(page.locator("#catalogue .cat-card").first()).toBeVisible();
   await page.getByRole("combobox", { name: "Entry type", exact: true }).selectOption("profiles");
 }

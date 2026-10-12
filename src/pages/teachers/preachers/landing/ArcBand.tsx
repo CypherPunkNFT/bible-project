@@ -58,7 +58,7 @@ export function ArcBand({ people, hotId, onHot, matchIds, filtering, onOpen }: A
   const tipRef = useRef<HTMLDivElement>(null);
   const width = useBandWidth(bandRef);
   const layout = useMemo(() => (width ? layoutArc(people, width) : null), [people, width]);
-  const [ready, setReady] = useState(prefersReducedMotion);
+  const [ready, setReady] = useState(() => prefersReducedMotion() || !!document.documentElement.dataset.teacherSlide);
   // The tip keeps its last person while it fades out.
   const [tipId, setTipId] = useState<string | null>(null);
   if (hotId && hotId !== tipId) setTipId(hotId);

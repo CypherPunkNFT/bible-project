@@ -10,13 +10,16 @@ export function profileFor(author:string, scholars:Scholar[]) {
   return scholars.find(s => [s.name,...(aliases[s.id] ?? [])].some(n=>nameKey(n)===nameKey(author)));
 }
 export function sourcesFor(s:Scholar) { return featureEvidence.flatMap(f=>f.sources.filter(r=>profileFor(r.author,[s])).map(r=>({...r,feature:f.id,area:areaFor[f.id]}))); }
+const evidenceCache=new WeakMap<ScholarsData,ScholarsData>();
 export function evidencedProfiles(data:ScholarsData):ScholarsData {
-  return {...data,scholars:data.scholars.map(s=>{
+  const cached=evidenceCache.get(data);if(cached)return cached;
+  const result:ScholarsData= {...data,scholars:data.scholars.map(s=>{
     const records=sourcesFor(s), used=records.filter(r=>r.kind!=='bibliography');
     const mentions=Object.fromEntries(Object.values(areaFor).map(area=>[area,new Set(records.filter(r=>r.area===area).flatMap(r=>r.uses.map(u=>u.evidence))).size]));
     const areas=[...new Set(used.map(r=>featureEvidence.find(f=>f.id===r.feature)!.label))];
     return {...s,mentions,site:used.length ? {status:'in-use' as const,note:`Verified sources: ${areas.join(', ')}.`} : s.site ? {status:'held' as const,note:'Recorded in the library; no feature use verified in the current source index.'} : null};
   })};
+  evidenceCache.set(data,result);return result;
 }
 export function authorCredits(scholars:Scholar[]) {
   const names=[...new Set(featureEvidence.flatMap(f=>f.sources.map(s=>s.author)))];

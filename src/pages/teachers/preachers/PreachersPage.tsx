@@ -3,7 +3,7 @@
 // failing never blanks the rest; every section reads the data and the profile drawer from PreachersContext.
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { PeopleData } from "@/data/teachers/pages-types";
-import { PageStatus, SidesSwitch, TeacherSection } from "../shared/Frame";
+import { PageStatus, TeacherSection } from "../shared/Frame";
 import { usePeopleData } from "../shared/data";
 import { PreachersContext, type ProfileTarget } from "./context";
 import { Cities } from "./Cities";
@@ -43,7 +43,6 @@ function Loaded({ data }: { data: PeopleData }) {
   const value = useMemo(() => ({ data, openProfile, closeProfile, profile }), [data, openProfile, closeProfile, profile]);
   return <PreachersContext.Provider value={value}>
     <div className="tp-page tp-preachers">
-      <SidesSwitch current="preachers" />
       {SECTIONS.map(([id, title, Section]) => <TeacherSection key={id} id={id} title={title}><Section /></TeacherSection>)}
       <TeacherSection id="acquired" title="Acquired authors and texts"><AcquiredCatalogue side="preachers" /></TeacherSection>
       <Drawer />

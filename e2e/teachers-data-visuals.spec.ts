@@ -5,6 +5,7 @@ const usage=JSON.parse(readFileSync('content/teachers/feature-usage.json','utf8'
 const count=(n:number)=>n.toLocaleString('en-US');
 test('all sections keep their established visual forms with current data',async({page})=>{
  await page.goto('/teachers/scholars');
+ await page.locator('#catalogue').scrollIntoViewIfNeeded();
  await expect(page.locator('.cat-count')).toContainText(count(facts.summary.catalogueEntries));
  await expect(page.locator('.idea-lineage [role=tab]')).toHaveCount(5);
  await expect(page.locator('.lnd-figs')).toContainText(count(facts.summary.eras.unknown));
@@ -12,6 +13,7 @@ test('all sections keep their established visual forms with current data',async(
  await expect(built.locator('.blt-feat')).toHaveCount(usage.features.length);
  await expect(built.locator('.blt-rib')).toHaveCount(usage.features.reduce((n,f)=>n+f.sources.length,0));
  await expect(built.locator('.blt-work').first()).toHaveAttribute('href',/^https:/);
+ await page.locator('#discoveries').scrollIntoViewIfNeeded();
  await expect(page.locator('.dsc-mapcard')).toHaveCount(1);
  await expect(page.locator('.dsc-find')).toHaveCount(8);
  const named=page.locator('#named');await named.scrollIntoViewIfNeeded();

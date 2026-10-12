@@ -7,15 +7,27 @@ import factsUrl from '../../../../../content/teachers/contributor-facts.json?url
 import type { ContributorFacts } from '../facts';
 import { mergeLibrary } from './library';
 
+type Sources=[FieldLibrary,AcquiredCatalogue,ContributorFacts];
+let cached:Sources|null=null,pending:Promise<Sources>|null=null;
+const merged=new WeakMap<ScholarsData,ReturnType<typeof mergeLibrary>>();
+export function preloadScholarLibrary():Promise<Sources> {
+  return pending??(pending=Promise.all([getAcquired<FieldLibrary>(indexUrl),getAcquired<AcquiredCatalogue>(`${ACQUIRED_BASE}/catalogue.json`),getAcquired<ContributorFacts>(factsUrl)])
+    .then(value=>cached=value).catch(error=>{pending=null;throw error;}));
+}
+
 export function useLibrary(data: ScholarsData) {
-  const [source, setSource] = useState<[FieldLibrary, AcquiredCatalogue, ContributorFacts] | null>(null);
+  const [source, setSource] = useState<Sources | null>(()=>cached);
   const [libraryError, setError] = useState('');
   useEffect(() => {
-    const abort = new AbortController();
-    Promise.all([getAcquired<FieldLibrary>(indexUrl, abort.signal), getAcquired<AcquiredCatalogue>(`${ACQUIRED_BASE}/catalogue.json`, abort.signal), getAcquired<ContributorFacts>(factsUrl, abort.signal)])
-      .then(setSource).catch(e => { if (!abort.signal.aborted) setError(e.message); });
-    return () => abort.abort();
+    let live=true;
+    preloadScholarLibrary().then(value=>{if(live)setSource(value);}).catch(e=>{if(live)setError(e.message);});
+    return () => {live=false;};
   }, []);
-  const library = useMemo(() => source ? mergeLibrary(source[0], source[1], data, source[2]) : null, [source, data]);
+  const library = useMemo(() => {
+    if(!source)return null;
+    let result=merged.get(data);
+    if(!result){result=mergeLibrary(source[0],source[1],data,source[2]);merged.set(data,result);}
+    return result;
+  }, [source, data]);
   return { library, libraryError, libraryFacts: source?.[2] ?? null };
 }

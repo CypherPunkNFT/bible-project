@@ -3,18 +3,32 @@
 // is built on, Christian or not, each labelled). Each subpage is the owner-approved mock-up, ported to React, and loads
 // its own data only when opened. The earlier three lists (/teachers/preachers, /authors) now lead to the merged page.
 import { lazy, Suspense, useEffect } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { StationDoor, StationStats } from "@/components/stations/Station";
 import summary from "@/data/teachers/summary.json";
 import { SIDE_PATHS } from "./teachers/shared/sides";
 import "./teachers/station.css";
+import {SidesSwitch} from "./teachers/shared/Frame";
+import {loadPreachersPage,loadScholarsPage,preloadTeacherSide} from "./teachers/shared/page-loaders";
+import {useTeacherTransition} from "./teachers/shared/useTeacherTransition";
+import "./teachers/shared/transitions.css";
 
-const PreachersPage = lazy(() => import("./teachers/preachers/PreachersPage"));
+const PreachersPage = lazy(loadPreachersPage);
 const ScholarWritingsPage = lazy(() => import("./teachers/ScholarWritingsPage"));
-const ScholarsPage = lazy(() => import("./teachers/scholars/ScholarsPage"));
+const ScholarsPage = lazy(loadScholarsPage);
 
 export default function TeachersPage() {
-  return <Routes>
+  const {pathname}=useLocation(),transition=useTeacherTransition();
+  const side=pathname===SIDE_PATHS.preachers?"preachers":pathname===SIDE_PATHS.scholars?"scholars":null;
+  useEffect(()=>{
+    if(!side)return;
+    const task=()=>{void preloadTeacherSide(side==="preachers"?"scholars":"preachers").catch(()=>undefined);};
+    if("requestIdleCallback" in window){const id=window.requestIdleCallback(task,{timeout:1500});return()=>window.cancelIdleCallback(id);}
+    const timer=setTimeout(task,250);return()=>clearTimeout(timer);
+  },[side]);
+  return <div onClickCapture={transition}>
+    {side&&<div className="tp-page tp-switch-frame"><SidesSwitch current={side}/></div>}
+    <div className="tp-route-content"><Routes>
     <Route index element={<Station />} />
     <Route path="preachers-and-authors" element={<Suspense fallback={null}><PreachersPage /></Suspense>} />
     <Route path="scholars/:id/writings" element={<Suspense fallback={null}><ScholarWritingsPage /></Suspense>} />
@@ -22,7 +36,7 @@ export default function TeachersPage() {
     <Route path="preachers" element={<Navigate replace to={SIDE_PATHS.preachers} />} />
     <Route path="authors" element={<Navigate replace to={SIDE_PATHS.preachers} />} />
     <Route path="*" element={<Navigate replace to="/teachers" />} />
-  </Routes>;
+  </Routes></div></div>;
 }
 
 function Station() {
