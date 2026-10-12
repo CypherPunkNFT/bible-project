@@ -39,15 +39,15 @@ export function Landing() {
       <div className="lnd-copy">
         <p className="kicker lnd-kicker">Scholars in the library</p>
         <h1 className="lnd-title">The greats, <em>catalogued.</em></h1>
-        <p className="lnd-lead">Historians, translators, archaeologists, theologians and the makers of reference books: {library ? library.length.toLocaleString() : 'the full library of'} catalogue entries in one catalogue, including {data.scholars.length} documented scholar profiles. Explore the profiles below or search every contributor and their held works in the full catalogue.</p>
+        <p className="lnd-lead">Explore {library ? library.length.toLocaleString() : 'the full library of'} catalogue entries across five fields, including {data.scholars.length} documented scholar profiles. Search authors, translators and their held works.</p>
         <form className="lnd-full-search" onSubmit={e => { e.preventDefault(); filterCatalogue({ q: query.trim().toLocaleLowerCase() }); }}>
           <label htmlFor="full-contributor-search">Search the full catalogue</label>
           <div><input id="full-contributor-search" type="search" placeholder="Author, editor, translator or work" value={query} onChange={e => setQuery(e.target.value)} /><button type="submit">Search <ArrowRight size={14} aria-hidden="true" /></button></div>
         </form>
         <aside className="lnd-built" aria-label="Built on their work">
           <h2>You have been reading <em>their work</em> all&nbsp;along.</h2>
-          <p>Among the documented profiles, {live.length} have verified source connections. Their work supplies feature inputs or is cited on study pages. The ribbons below show the recorded source connections.</p>
-          <ul className="lnd-used">{live.map((s) => <li key={s.id}>
+          <p>{live.length} documented scholars supply sources used by the site. Follow their connections in the ribbons below.</p>
+          <ul className="lnd-used" tabIndex={0} aria-label="Scholars with verified source connections">{live.map((s) => <li key={s.id}>
             <button type="button" style={toneStyle(s.field)} onClick={(e) => openProfile(s.id, e.currentTarget)}>
               <Mark scholar={s} size={26} className="lnd-mark" /><span>{s.short}</span></button></li>)}</ul>
           <a className="lnd-more" href="#built" onClick={jump}>Follow each feature back to its book<ArrowRight size={14} aria-hidden="true" /></a>

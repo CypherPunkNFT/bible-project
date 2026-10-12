@@ -67,7 +67,7 @@ function SkyView({ data, sky, matches, searching, onOpen }: SkyProps & { sky: Sk
   const open = (node: SVGGElement) => { setHover(null); onOpen(node.dataset.id ?? "", node.querySelector(".lnd-hov")); };
   const hovered = hover ? data.scholars.find((s) => s.id === hover) : undefined;
   return <div ref={skyRef} className={`lnd-sky${entered ? " lnd-in" : ""}${searching ? " lnd-searching" : ""}`} data-layout={sky.name}
-    data-hover={hovered?.field} style={{ aspectRatio: `${sky.w} / ${sky.h}` }}
+    data-hover={hovered?.field} style={cssVars({ aspectRatio: `${sky.w} / ${sky.h}`, "--sky-ratio": String(sky.w / sky.h) })}
     onPointerOver={(e: PointerEvent) => { const id = nodeOf(e.target)?.dataset.id; if (id && id !== hover) setHover(id); }}
     onPointerOut={(e: PointerEvent) => { const node = nodeOf(e.target); if (node && !(e.relatedTarget instanceof Node && node.contains(e.relatedTarget))) setHover(null); }}
     onPointerLeave={() => setHover(null)}

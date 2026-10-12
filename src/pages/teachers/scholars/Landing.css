@@ -171,3 +171,33 @@
   .tp-scholars .lnd-figs dd { font-size: 1.9rem; }
   .tp-scholars .lnd-jump-l { flex-basis: 100%; }
 }
+
+/* Fit the desktop opening, including figures and section links, in one viewport.
+   The expanded credit list scrolls without stretching the constellation. */
+@media (min-width: 1081px) {
+  .tp-scholars .lnd { padding-top: clamp(.75rem, 1.8vh, 1.25rem); }
+  .tp-scholars .lnd-title { margin-top: .65rem; font-size: clamp(2.8rem, 6.5vh, 4rem); }
+  .tp-scholars .lnd-lead { margin-top: .75rem; font-size: .94rem; line-height: 1.5; }
+  .tp-scholars .lnd-full-search { margin: .85rem 0; }
+  .tp-scholars .lnd-full-search > div { padding: .6rem .75rem; }
+  .tp-scholars .lnd-built { margin-top: auto; padding: .8rem 1rem; }
+  .tp-scholars .lnd-built h2 { font-size: 1.2rem; }
+  .tp-scholars .lnd-built > p { line-height: 1.45; }
+  .tp-scholars .lnd-used { max-height: clamp(4.5rem, 9vh, 6rem); overflow-y: auto; scrollbar-width: thin; margin-top: .6rem; padding: 1px 4px 2px 0; }
+  .tp-scholars .lnd-more { margin-top: .5rem; }
+  .tp-scholars .lnd-stage, .tp-scholars .lnd-skyhold { min-height: 0; }
+  .tp-scholars .lnd-skyhold { position: relative; container-type: size; }
+  .tp-scholars .lnd-sky { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(100cqw, calc(100cqh * var(--sky-ratio))); }
+  .tp-scholars .lnd-foot { margin-top: 1rem; }
+  .tp-scholars .lnd-figs > div { padding-block: .65rem; }
+  .tp-scholars .lnd-figs dd { font-size: 1.85rem; margin-top: .2rem; }
+  .tp-scholars .lnd-jump { padding-top: .65rem; gap: .35rem; }
+  .tp-scholars .lnd-jump a { padding: .35rem .65rem; font-size: .76rem; }
+}
+
+@media (min-width: 1081px) and (max-height: 800px) {
+  .tp-scholars .lnd-title { font-size: 2.65rem; }
+  .tp-scholars .lnd-full-search { margin-block: .5rem; }
+  .tp-scholars .lnd-foot { margin-top: .5rem; }
+  .tp-scholars .lnd-figs > div { padding-block: .4rem; }
+}
