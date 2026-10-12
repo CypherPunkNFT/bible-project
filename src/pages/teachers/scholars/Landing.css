@@ -172,7 +172,7 @@
   .tp-scholars .lnd-jump-l { flex-basis: 100%; }
 }
 
-/* Fit the desktop opening, including figures and section links, in one viewport.
+/* Fill the desktop opening through the statistics; section links follow below.
    The expanded credit list scrolls without stretching the constellation. */
 @media (min-width: 1081px) {
   .tp-scholars .lnd { padding-top: clamp(.75rem, 1.8vh, 1.25rem); }
@@ -200,4 +200,10 @@
   .tp-scholars .lnd-full-search { margin-block: .5rem; }
   .tp-scholars .lnd-foot { margin-top: .5rem; }
   .tp-scholars .lnd-figs > div { padding-block: .4rem; }
+}
+
+@media (min-width: 1081px) {
+  .tp-scholars .lnd-screen { min-height: calc(100svh - var(--landing-start, 140px)); display: flex; flex-direction: column; }
+  .tp-scholars .lnd-hero { flex: 1; }
+  .tp-scholars .lnd-foot { flex: none; }
 }

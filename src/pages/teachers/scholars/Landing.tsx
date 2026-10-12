@@ -3,7 +3,7 @@
 // scholars' books (one chip per scholar it uses), the four figures, jump links to the sections below, and the large
 // constellation of every scholar's field-shaped mark (landing/Constellation.tsx). Approved mock-up:
 // design/scholars-directions/scholars/landing.js.
-import { useMemo, useState, type MouseEvent } from "react";
+import { useLayoutEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { ArrowRight } from "lucide-react";
 import { useScholars } from "./context";
 import { byBirth, isUsed } from "./marks/facts";
@@ -34,7 +34,18 @@ export function Landing() {
   const matchIds = useMemo(() => new Set(found.map((m) => m.s.id)), [found]);
   const born = useMemo(() => byBirth(data.scholars), [data]);
   const live = born.filter(isUsed);
+  const screen = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const measure = () => {
+      const el = screen.current;
+      if (el) el.style.setProperty("--landing-start", `${el.getBoundingClientRect().top + window.scrollY}px`);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
   return <div className="lnd">
+    <div className="lnd-screen" ref={screen}>
     <div className="lnd-hero">
       <div className="lnd-copy">
         <p className="kicker lnd-kicker">Scholars in the library</p>
@@ -62,8 +73,9 @@ export function Landing() {
         <div><dt>Era established</dt><dd>{libraryFacts ? (libraryFacts.summary.catalogueEntries - libraryFacts.summary.eras.unknown).toLocaleString() : "…"}</dd><p>entries with reviewed dates</p></div>
         <div><dt>Era unknown</dt><dd>{libraryFacts?.summary.eras.unknown.toLocaleString() ?? "…"}</dd><p>retained in the catalogue</p></div>
       </dl>
+    </div>
+    </div>
       <nav className="lnd-jump" aria-label="On this page"><span className="lnd-jump-l">On this page</span>
         {JUMPS.map(({id, title}) => <a key={id} href={`#${id}`} onClick={jump}><b>{sectionNumber(id)}</b>{title}</a>)}</nav>
-    </div>
   </div>;
 }
