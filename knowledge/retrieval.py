@@ -174,6 +174,14 @@ def status(config):
         db.close()
 
 
+def library_ledger_paths(config):
+    from .library_identity import IDENTITY_FILE
+    paths={str(path):path for folder in ('catalog','reports') for path in (config['site_dir']/'content/library'/folder).rglob('*.json')}
+    identity=config['site_dir']/IDENTITY_FILE
+    if identity.exists():paths[str(identity)]=identity
+    return paths
+
+
 def verify(config):
     from .source_audit import source_drift
     from .settings import write_json
@@ -204,7 +212,7 @@ def verify(config):
             current = {str(path) for path in (config["sources_dir"] / "library").rglob("*") if path.is_file() and path.suffix.lower() not in ('.part', '.tmp')}
             new_files, missing_files = sorted(current-imported), sorted(imported-current)
             recorded = dict(db.execute("SELECT path,sha256 FROM files WHERE status='library_metadata'"))
-            ledger_paths = {str(path): path for folder in ("catalog", "reports") for path in (config["site_dir"] / "content/library" / folder).rglob("*.json")}
+            ledger_paths = library_ledger_paths(config)
             changed_ledgers = sorted(set(recorded) ^ set(ledger_paths))
             for name in set(recorded) & set(ledger_paths):
                 with ledger_paths[name].open("rb") as stream:

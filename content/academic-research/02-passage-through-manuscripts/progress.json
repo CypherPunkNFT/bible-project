@@ -1,0 +1,13 @@
+{
+  "study": "A passage through the manuscripts",
+  "programme": "academic-research",
+  "order": 2,
+  "updated": "2026-10-14",
+  "status": "design-and-isolated-prototype-complete",
+  "design": "design.md",
+  "artifact": "prototype/index.html",
+  "verification": "prototype/verification.json",
+  "completed": ["Reference page openings inspected in Edge", "Scholars field selections and Preachers arc focus/profile inspected in browser", "Current study and research inspected", "Three alternatives considered", "Complete content-to-design map saved", "Romans comparison, P46 restoration and three-witness Mark coverage prototype built", "21 browser checks passed", "Desktop and mobile screenshots inspected; 320px overflow corrected"],
+  "notCompleted": ["Application integration", "Integrated passage selector and complete Mark/Galatians experiences", "Screen-reader testing", "Production route transitions"],
+  "scope": "Design-only follow-up. Existing local implementation status retained. No build, release mirror, server launch or deployment. Separate Scripture/Theology queue unchanged."
+}

@@ -1,0 +1,31 @@
+{
+  "checks": [
+    "City selection does not scroll the viewport.",
+    "Find selection survives reload.",
+    "Invalid URL state falls back to a valid city, horizon and find.",
+    "Expanded comparison stacks at phone width without overflow.",
+    "Source href syntax and all rendered local navigation/fragment targets checked. External availability not re-audited."
+  ],
+  "links": [
+    {
+      "href": "/study/academic?area=history",
+      "text": " History & archaeology",
+      "status": 200
+    },
+    {
+      "href": "/read/kjv/2KI/18",
+      "text": "2 Kings 18:13–17Sennacherib, Lachish and the campaign against Judah.",
+      "status": 200
+    },
+    {
+      "href": "/study/discoveries-biblical-record",
+      "text": "Continue with objects and inscriptions in Discoveries & the biblical record →",
+      "status": 200
+    },
+    {
+      "href": "/study/world-of-jesus-and-apostles",
+      "text": " The world of Jesus & the apostles ",
+      "status": 200
+    }
+  ]
+}

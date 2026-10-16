@@ -1,16 +1,18 @@
 // One teacher's profile inside the drawer: who they were, where they lived, what they are known for, what the library
 // holds, the Bible books it covers, and the people they are documented as knowing (ported from the mock-up's drawer.js).
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useState, type PointerEvent } from "react";
 import type { PeopleData, Person } from "@/data/teachers/pages-types";
 import { familyOf, formatNumber, lifeLabel } from "../../shared/people";
 import { cssVars, initials, linksOf, toneOf } from "./helpers";
 import { LifeRing, LifeStrip, PlaceMap } from "./Places";
-import { BookStrip, FromLibrary, GenreBar, KnownWorks } from "./Works";
+import { BookStrip, GenreBar, KnownWorks } from "./Works";
+import { ProfileWorks, type OpenWork } from "./ProfileWorks";
 
-interface ProfileBodyProps { data: PeopleData; person: Person; onOpen: (id: string) => void }
+interface ProfileBodyProps { data: PeopleData; person: Person; onOpen: (id: string) => void; onOpenWork: OpenWork }
 
-export function ProfileBody({ data, person, onOpen }: ProfileBodyProps) {
+export function ProfileBody({ data, person, onOpen, onOpenWork }: ProfileBodyProps) {
   const [lit, setLit] = useState<number | null>(null);
   const links = linksOf(data, person.id), sermons = person.genres.sermon ?? 0;
   // The life strip and the map point at each other.
@@ -25,6 +27,7 @@ export function ProfileBody({ data, person, onOpen }: ProfileBodyProps) {
       <div><p className="kicker">{familyOf(person).label}</p><h2>{person.name}</h2><p className="drw-years">{lifeLabel(person)}{person.died ? "" : " · living"}</p></div>
     </header>
     <p className="drw-line">{person.line}</p>
+    <p><Link to={`/teachers/collections/${encodeURIComponent(person.id)}`}>Explore their works through the years →</Link></p>
     <p className="drw-ring-note">The ring runs from 1500 to today; the coloured arc is {person.short}&apos;s lifetime.</p>
     <dl className="drw-figs">
       <div><dt>Catalogue work records</dt><dd>{formatNumber(person.works)}</dd></div>
@@ -33,14 +36,13 @@ export function ProfileBody({ data, person, onOpen }: ProfileBodyProps) {
       <div><dt>Links</dt><dd>{links.length}</dd></div>
     </dl>
     <section><h3>Where {person.short} lived</h3><PlaceMap data={data} person={person} lit={lit} /><LifeStrip person={person} lit={lit} /></section>
-    <section><h3>Best known for</h3><KnownWorks person={person} /></section>
+    <section><h3>Best known for</h3><KnownWorks person={person} onOpenWork={onOpenWork} /></section>
     <section><h3>Genres in the work catalogue</h3><GenreBar person={person} /></section>
     <section>
       <h3>Their works, Bible book by book</h3>
       <p className="drw-note drw-lead">Works in the library whose main text is in each of the 66 books.</p>
       <BookStrip data={data} person={person} />
     </section>
-    <FromLibrary person={person} />
     <section>
       <h3>Who they knew</h3>
       {links.length ? <ul className="drw-links">
@@ -53,5 +55,6 @@ export function ProfileBody({ data, person, onOpen }: ProfileBodyProps) {
         </li>)}
       </ul> : <p className="drw-empty">No documented links to the other {data.people.length - 1} yet.</p>}
     </section>
+    <ProfileWorks key={person.id} person={person} onOpen={onOpenWork} />
   </div>;
 }

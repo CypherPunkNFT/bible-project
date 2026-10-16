@@ -2,6 +2,72 @@
   "about": "Every design mock-up, by section, for the gallery at /mockups/ (design/index.html). Add a card here whenever a new mock-up folder lands in design/; `node scripts/mockup-gallery.mjs` refreshes the thumbnails and fails if a folder is missing from this list. Optional `shot`: the address the gallery picture is taken from, when the mock-up's difference is not on its first page.",
   "sections": [
     {
+      "id": "dead-sea-scrolls-review",
+      "title": "The Dead Sea Scrolls",
+      "line": "A manuscript-led redesign: three openings and eight working section studies.",
+      "page": "/study/dead-sea-scrolls",
+      "cards": [
+        {
+          "id": "dead-sea-scrolls",
+          "title": "Dead Sea Scrolls · complete design review",
+          "url": "/mockups/dead-sea-scrolls/",
+          "date": "2026-10-14",
+          "status": "option",
+          "line": "Section index, three landings, interactive teaching proposals and an assembled reading sequence.",
+          "shot": "/mockups/dead-sea-scrolls/?section=landing"
+        },
+        {
+          "id": "dead-sea-scrolls-lens",
+          "title": "Dead Sea Scrolls · looking glass and left curl",
+          "url": "/mockups/dead-sea-scrolls-lens/",
+          "date": "2026-10-14",
+          "status": "option",
+          "line": "Current/proposed comparison: a floating line-art looking glass and a cleaner left end. Every other original illustration path preserved."
+        },
+        {
+          "id": "dead-sea-scrolls-body",
+          "title": "Dead Sea Scrolls · main-study redesign",
+          "url": "/mockups/dead-sea-scrolls/body-redesign.html",
+          "date": "2026-10-14",
+          "status": "option",
+          "line": "Captured local implementation: six-object collection, three histories and independent fragment evidence layers."
+        }
+      ]
+    },
+    {
+      "id": "parables-art",
+      "title": "Parables - Hidden treasure",
+      "line": "Eight original SVG drawings: four Hidden Treasure variations and four more parables.",
+      "page": "/study/gospels?guide=parables",
+      "cards": [
+        {
+          "id": "hidden-treasure-drawings",
+          "title": "Parables - Eight drawings",
+          "url": "/mockups/hidden-treasure-drawings/",
+          "date": "2026-10-11",
+          "status": "option",
+          "line": "Two 2 x 2 sets: Hidden Treasure, then the Sower, Mustard Seed, Lost Sheep, and Pearl of Great Price."
+        }
+      ]
+    },
+    {
+      "id": "resources-cards",
+      "title": "Resources · landing cards",
+      "line": "All Resources card studies on one page, with dedicated rows of bookcase and desk, mature vine, and five-loaves-and-two-fish variations.",
+      "page": "/resources",
+      "cards": [
+        {
+          "id": "resources-card-directions",
+          "title": "Resources - 39 card studies and variations",
+          "url": "/mockups/resources-card-directions/",
+          "date": "2026-10-11",
+          "status": "option",
+          "line": "Three AG03 lake variations with animated water ripples, flying birds, thicker rotating rays and more trees. Prayer figures use two simple touching circles for each person’s own hands.",
+          "shot": "/mockups/resources-card-directions/#ag03-variations"
+        }
+      ]
+    },
+    {
       "id": "authors",
       "title": "Teachers",
       "line": "The new top-menu page for the preachers and writers in the library (named Teachers by the owner, 2026-10-08; replaces Topics in the menu bar). Four directions, then the owner's combination of the parts they liked. Life years and places are hand-entered for now.",
@@ -38,6 +104,14 @@
           "date": "2026-10-11",
           "status": "option",
           "line": "Full-page visual snapshot and restorable source before the Preachers-style landing and interactive subject explorer."
+        },
+        {
+          "id": "scholars-built-directions",
+          "title": "Scholars - four source connection directions",
+          "url": "/mockups/scholars-built-directions/",
+          "date": "2026-10-11",
+          "status": "option",
+          "line": "Four stacked interactive studies: feature shelves, focused connections, author exploration and a grouped works index. Same complete source evidence; live page unchanged."
         },
         {
           "id": "scholars-fields-archive",
@@ -174,6 +248,14 @@
           "date": "2026-10-08",
           "status": "option",
           "line": "One set of 47 people that rearranges itself: by century, by tradition, by how much they left, preacher or writer, and who knew whom."
+        },
+        {
+          "id": "scholars-study-rings",
+          "title": "Circles of study - subjects, works & teachers",
+          "url": "/mockups/scholars-built-directions/rings.html",
+          "date": "2026-10-12",
+          "status": "option",
+          "line": "Six category cards and a searchable browse menu; up to 24 works across priority rings, connected studies, contributor cards and individual chronology pages."
         }
       ]
     },
@@ -792,6 +874,14 @@
       "page": "/apologetics",
       "cards": [
         {
+          "id": "debate-viewer",
+          "title": "Debate viewer - transcript desk and exchange room",
+          "url": "/mockups/debate-viewer/",
+          "date": "2026-10-11",
+          "status": "option",
+          "line": "Two local viewers reproduce the complete supplied Dawkins-Lennox transcript: 14,824 words, 95 speaker turns and twelve sections. Read beside the recording, search every turn or download the original text. Invented Q&A remains separate."
+        },
+        {
           "id": "debate-cards",
           "title": "Debate cards - six directions",
           "url": "/mockups/debate-cards/",
@@ -801,11 +891,11 @@
         },
         {
           "id": "apologetics-ia",
-          "title": "Apologetics · original and proposed pages",
+          "title": "Apologetics · current pages",
           "url": "/mockups/apologetics-ia/",
           "date": "2026-10-11",
           "status": "option",
-          "line": "Two real Apologetics page sets linked by a floating A/B pill. A preserves the original pages and seven-tab navigation. B has five sections, a revised Explore entrance, field-led Questions, and a Sources overview built from actual cited records and historic works."
+          "line": "Five local sections in the approved order, with field-led Questions and larger illustrations. Explore, Worldviews, Debates, and Sources retain their original page designs."
         },
         {
           "id": "header-merger",

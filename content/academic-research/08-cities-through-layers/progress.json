@@ -1,0 +1,22 @@
+{
+  "study": "Cities through their layers",
+  "academicStudyNumber": 8,
+  "phase": "implementation",
+  "designStatus": "implemented-and-verified-local",
+  "designPath": "design.md",
+  "prototypePath": "prototype.html",
+  "date": "2026-10-14",
+  "scope": "Approved design integrated into the existing Cities study and port 8931 preview only; unrelated queues unchanged.",
+  "implementationAuthorized": true,
+  "publicationAuthorized": false,
+  "referenceInspection": "Prior five references plus fresh rendered/source inspection of Preachers, Scholars, Atlas map, Gospel studies, Letters and Miracles. See implementation.md.",
+  "validation": "Full app TypeScript and editorial policy checks passed. Existing Vite workflow refreshed dist. Edge checks passed for twelve horizons, four records, comparison, URL state, reader Back, keyboard, focus return, normal/reduced motion, and widths 320/390/768/1024/1440 in both themes. Final screenshots visually inspected; local links checked.",
+  "verificationLimits": [
+    "No screen-reader session",
+    "External source availability not re-audited",
+    "Existing research access gaps retained; no new calendar recalibration"
+  ],
+  "approval": "Latest user instruction explicitly authorizes local implementation.",
+  "implementationPath": "implementation.md",
+  "localURL": "http://127.0.0.1:8931/study/cities-through-their-layers"
+}

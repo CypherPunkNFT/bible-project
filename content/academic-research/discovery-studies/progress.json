@@ -1,0 +1,39 @@
+{
+  "updated": "2026-10-14",
+  "scope": "Three historical-study landings authorized: title and artwork only.",
+  "studies": [
+    {
+      "id": "mesha",
+      "title": true,
+      "route": "/study/mesha-and-the-world-of-moab",
+      "phase": "landing-only",
+      "artwork": true,
+      "bodySections": false,
+      "researchComplete": false,
+      "publicDeployment": false
+    },
+    {
+      "id": "lachish",
+      "title": true,
+      "route": "/study/lachish-under-siege",
+      "phase": "landing-only",
+      "artwork": true,
+      "bodySections": false,
+      "researchComplete": false,
+      "publicDeployment": false
+    },
+    {
+      "id": "cyrus",
+      "title": true,
+      "route": "/study/cyrus-restoration-and-return",
+      "phase": "landing-only",
+      "artwork": true,
+      "bodySections": false,
+      "researchComplete": false,
+      "publicDeployment": false
+    }
+  ],
+  "methodsStudy": "/study/from-discovery-to-history",
+  "verification": "../../../.local/discovery-landings/verification.json",
+  "validation": "local-browser-verified"
+}

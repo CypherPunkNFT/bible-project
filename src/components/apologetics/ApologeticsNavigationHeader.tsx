@@ -4,7 +4,7 @@ import {ArrowRight,BookOpen,Search,ShieldCheck,X} from 'lucide-react';
 import {browseGroups,destinations} from '@/lib/apologetics-navigation';
 import {WorldviewNavigation} from './WorldviewNavigation';
 const base='/apologetics';
-export function ApologeticsNavigationHeader({savedCount=0,variant='original'}:{savedCount?:number;variant?:'original'|'proposed'}) {
+export function ApologeticsNavigationHeader() {
   const location=useLocation();
   const [query,setQuery]=useState('');
   const dialog=useRef<HTMLDialogElement>(null), trigger=useRef<HTMLButtonElement>(null), input=useRef<HTMLInputElement>(null);
@@ -15,7 +15,7 @@ export function ApologeticsNavigationHeader({savedCount=0,variant='original'}:{s
   const seen=new Set<string>();
   const results=destinations.filter(d=>{const matches=(d.label+' '+(d.detail??'')).toLowerCase().includes(query.trim().toLowerCase());if(!matches||seen.has(d.to))return false;seen.add(d.to);return true;});
   return <>
-    <WorldviewNavigation savedCount={savedCount} variant={variant}
+    <WorldviewNavigation
       leading={<Link to={base} className="sm-leading-brand" aria-label="Apologetics home"><ShieldCheck size={18}/><strong>Apologetics</strong></Link>}
       trailing={<button ref={trigger} onClick={open} className="sm-trailing-search" type="button" aria-label="Search Apologetics"><Search size={16}/><span>Search Apologetics</span><kbd>Ctrl K</kbd></button>}/>
     <dialog onKeyDown={e=>{if(e.key==="Escape"){e.preventDefault();e.stopPropagation();close();}}} className="am-dialog" ref={dialog} onClose={()=>trigger.current?.focus()} onClick={e=>{if(e.target===dialog.current)close();}} aria-labelledby="am-dialog-title">

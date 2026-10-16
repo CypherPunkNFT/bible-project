@@ -35,13 +35,13 @@
       "morality"
     ],
     "recording": {
-      "url": "https://www.youtube.com/watch?v=wascB0xunig",
+      "url": "https://www.youtube.com/watch?v=TqANWuXQ3Z0",
       "label": "Listen on YouTube",
-      "credit": "drcraigvideos",
-      "duration": "2:18:17",
-      "note": "Audio recording on YouTube."
+      "credit": "YouTube recording",
+      "duration": "Not verified",
+      "note": "Recording URL supplied by the site owner on 2026-10-11. Uploader, runtime and full-event coverage have not been independently checked for this replacement."
     },
-    "transcriptCoverage": "Openings, rebuttals, closings and Q&A. The host also appends post-debate reflections; these are separate from the spoken exchange."
+    "transcriptCoverage": "Supplied text includes the debate and audience questions, followed by separately labelled written post-debate reflections and 25 footnotes. These appendices are not recorded speech. Read the supplied text on this page; it has not been independently aligned word for word with the recording."
   },
   "reviews": [
     {
@@ -51,6 +51,24 @@
       "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
       "date": "2026-10-11",
       "contentHash": "43c142ccec6029385b7fd89e666909493c0527d893f7059ab586d92993e184fd",
+      "basisHash": "90b5f33d6e92b81fb453899757f091b5a20b9fd570098a0d53011753cfb1ce3c"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-supplied recording URL replacement and page scaffold",
+      "note": "Updated the recording URL to the exact link supplied by the owner on 2026-10-11. Removed runtime and uploader metadata belonging to the replaced recording. Embedded video ID matches the supplied URL. No independent playback, runtime or full-event coverage verification is claimed. Existing documentary summary and doctrinal policy remain unchanged. On-site transcript awaits the owner's supplied text.",
+      "date": "2026-10-11",
+      "contentHash": "9adb962373e4640ab07fcd73c7b33b5b41ee152eb253f2640fb3181946352654",
+      "basisHash": "90b5f33d6e92b81fb453899757f091b5a20b9fd570098a0d53011753cfb1ce3c"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-supplied transcript preservation, attribution and coverage",
+      "note": "Saved the supplied text byte for byte with SHA-256 provenance. Explicit source labels and headings determine reader passages and sections. Hitchens text contains only his own statements. Krauss text also includes written post-debate reflections and footnotes, labelled separately from speech. Speaker attribution follows the supplied text and is not independently audio-verified. Full text and downloads are checked against the original source; previous documentary summary and doctrine unchanged.",
+      "date": "2026-10-11",
+      "contentHash": "e5c68f9afeb91190f9d7b722e2685cbfc977f742dc73b1136c92819bcf477b00",
       "basisHash": "90b5f33d6e92b81fb453899757f091b5a20b9fd570098a0d53011753cfb1ce3c"
     }
   ]

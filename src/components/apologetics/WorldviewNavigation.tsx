@@ -1,14 +1,19 @@
-﻿import {useEffect, useRef, useState} from 'react';
-import type {ReactNode} from 'react';
-import {Link, useLocation} from 'react-router-dom';
-import {ChevronDown} from 'lucide-react';
+import {useEffect, useRef} from 'react';
+import type {MouseEvent, ReactNode} from 'react';
+import {flushSync} from 'react-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
+import {Compass, Globe2, CircleHelp, MessagesSquare, LibraryBig} from 'lucide-react';
 import {AnimatePresence,motion,useReducedMotion} from 'framer-motion';
 import {MosqueIcon} from './MosqueIcon';
-import {main, worlds, islamPages, groupFor, secondary, currentIslam} from '@/lib/apologetics-navigation';
+import {worlds, islamPages, secondary, currentIslam} from '@/lib/apologetics-navigation';
 
 const base='/apologetics', root=base+'/worldviews';
-const forVariant=(to:string,variant:'original'|'proposed')=>variant==='proposed'&&to.startsWith(base)?base+'2'+to.slice(base.length):to;
-const originalPath=(path:string)=>path.replace(/^\/apologetics2(?=\/|$)/,base);
+type SectionTransition={finished:Promise<void>;skipTransition:()=>void};
+type TransitionDocument=Document&{startViewTransition?:(update:()=>void)=>SectionTransition};
+function clearSectionTransition(){
+ delete document.documentElement.dataset.apSectionSlide;
+ document.documentElement.style.removeProperty('--ap-old-shift');
+}
 type World=(typeof worlds)[number];
 function reveal(e:React.FocusEvent<HTMLElement>){e.currentTarget.scrollIntoView({block:'nearest',inline:'nearest'});}
 function Glyph({world}:{world:World}){
@@ -26,36 +31,73 @@ function pagesFor(world:World){
  if(world.to===root+'/islam')return islamPages;
  return [{label:'Overview',to:world.to},{label:'Examine the claims',to:world.to+'#comparison'},{label:'Read the source texts',to:world.to+'#wv-context-heading'},{label:'Connected studies',to:world.to+'#conversation-studies'}];
 }
-function StudyLinks({world,variant}:{world:World;variant:'original'|'proposed'}){
+function StudyLinks({world}:{world:World}){
  const location=useLocation();
- const path=originalPath(location.pathname),active=world.to===root+'/islam'?currentIslam(path,location.search).to:path+location.hash;
- return <nav className="sm-study-links" aria-label={world.label+' subpages'}>{pagesFor(world).map(p=><Link key={p.label} to={forVariant(p.to,variant)} onFocus={reveal} aria-current={path.startsWith(world.to)&&p.to===active?'page':undefined}>{p.label}</Link>)}</nav>;
+ const path=location.pathname,active=world.to===root+'/islam'?currentIslam(path,location.search).to:path+location.hash;
+ return <nav className="sm-study-links" aria-label={world.label+' subpages'}>{pagesFor(world).map(p=><Link key={p.label} to={p.to} onFocus={reveal} aria-current={path.startsWith(world.to)&&p.to===active?'page':undefined}>{p.label}</Link>)}</nav>;
 }
-function WorldChoices({variant}:{variant:'original'|'proposed'}){
+function WorldChoices(){
  const location=useLocation();
- return <nav className="sm-world-choices" aria-label="Worldview collections">{worlds.map(w=><Link key={w.to} to={forVariant(w.to,variant)} onFocus={reveal} title={w.label} aria-label={w.label} aria-current={originalPath(location.pathname).startsWith(w.to)?'page':undefined} style={{'--wv-accent':w.accent} as React.CSSProperties}><Glyph world={w}/><span className="sm-world-label" aria-hidden="true"><span className="sm-world-name">{w.label}</span></span><span className="sm-tooltip" aria-hidden="true">{w.label}</span></Link>)}</nav>;
+ return <nav className="sm-world-choices" aria-label="Worldview collections">{worlds.map(w=><Link key={w.to} to={w.to} onFocus={reveal} title={w.label} aria-label={w.label} aria-current={location.pathname.startsWith(w.to)?'page':undefined} style={{'--wv-accent':w.accent} as React.CSSProperties}><Glyph world={w}/><span className="sm-world-label" aria-hidden="true"><span className="sm-world-name">{w.label}</span></span><span className="sm-tooltip" aria-hidden="true">{w.label}</span></Link>)}</nav>;
 }
-function WorldviewSubmenu({variant}:{variant:'original'|'proposed'}){
+function WorldviewSubmenu(){
  const location=useLocation();
  const reduced=useReducedMotion();
- const world=worlds.find(w=>originalPath(location.pathname).startsWith(w.to));
+ const world=worlds.find(w=>location.pathname.startsWith(w.to));
  return <div className={'sm-dock-row'+(!world?' sm-world-index':'')} style={{'--sm-tone':world?.accent??'var(--poetry)'} as React.CSSProperties}>
-  <WorldChoices variant={variant}/><div className="sm-world-detail-slot"><AnimatePresence initial={false}>{world&&<motion.div key="details" className="sm-world-detail" initial={{opacity:0}} animate={{opacity:1,transition:{duration:reduced?0:.18,delay:reduced?0:.4}}} exit={{opacity:0,transition:{duration:reduced?0:.12}}}>
+  <WorldChoices/><div className="sm-world-detail-slot"><AnimatePresence initial={false}>{world&&<motion.div key="details" className="sm-world-detail" initial={{opacity:0}} animate={{opacity:1,transition:{duration:reduced?0:.18,delay:reduced?0:.4}}} exit={{opacity:0,transition:{duration:reduced?0:.12}}}>
    <span className="sm-current"><span className="sm-current-sizing" aria-hidden="true">{worlds.map(w=><span key={w.to}>{w.label}</span>)}</span><AnimatePresence mode="wait" initial={false}><motion.span key={world.to} className="sm-current-label" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:reduced?0:.13}} style={{color:world.accent}}>{world.label}</motion.span></AnimatePresence></span>
-   <div className="sm-study-slot"><StudyLinks world={world} variant={variant}/></div>
+   <div className="sm-study-slot"><StudyLinks world={world}/></div>
   </motion.div>}</AnimatePresence></div>
  </div>;
 }
-export function WorldviewNavigation({savedCount=0,leading,trailing,variant='original'}:{savedCount?:number;leading:ReactNode;trailing:ReactNode;variant?:'original'|'proposed'}){
- const location=useLocation(),path=originalPath(location.pathname);
- const group=variant==='original'?groupFor(path):path.startsWith(base+'/worldviews')?'Worldviews':path.startsWith(base+'/debates')?'Debates':path.startsWith(base+'/topics/')||path.startsWith(base+'/questions')||path.startsWith(base+'/study/')?'Questions':path.startsWith(base+'/sources')||path.startsWith(base+'/source-records')||path.startsWith(base+'/texts')?'Sources':'Explore';
- const sections=variant==='original'?main.filter(d=>d.label!=='Practice'&&d.label!=='My study'):[{label:'Explore',to:base},{label:'Questions',to:base+'/questions'},{label:'Worldviews',to:root},{label:'Debates',to:base+'/debates'},{label:'Sources',to:base+'/sources'}];
- const reduced=useReducedMotion();
- const [opened,setOpened]=useState<string|null>(variant==='original'&&group==='Worldviews'?'Worldviews':null);
- const trigger=useRef<HTMLButtonElement|null>(null),previous=useRef(location.pathname);
- useEffect(()=>{if(previous.current!==location.pathname)setOpened(variant==='original'&&group==='Worldviews'?'Worldviews':null);previous.current=location.pathname;},[location.pathname,group,variant]);
- useEffect(()=>{const key=(e:KeyboardEvent)=>{if(e.key==='Escape'&&opened&&!document.querySelector('dialog[open]')){setOpened(null);trigger.current?.focus();}};document.addEventListener('keydown',key);return()=>document.removeEventListener('keydown',key);},[opened]);
- return <div className="sm-container"><div className="sm-topbar">{leading}<nav className="sm-main" aria-label="Apologetics sections">{sections.map(d=><div key={d.to} data-current={group===d.label}><Link to={forVariant(d.to,variant)} onFocus={reveal} aria-current={group===d.label?'page':undefined}>{d.label}{d.label==="My study"&&savedCount>0&&<span className="sm-saved-count">{savedCount}</span>}</Link><button ref={d.label===group?el=>{if(!trigger.current)trigger.current=el;}:undefined} aria-label={(opened===d.label?'Collapse ':'Browse ')+d.label} aria-expanded={opened===d.label} aria-controls="sm-panel" onClick={e=>{trigger.current=e.currentTarget;setOpened(opened===d.label?null:d.label);}}><ChevronDown size={12}/></button></div>)}</nav>{trailing}</div>
- <AnimatePresence initial={false}>{opened&&<motion.div id="sm-panel" className="sm-panel" key="submenu" initial={{height:0,opacity:0}} animate={{height:'auto',opacity:1,transitionEnd:{overflow:'visible'}}} exit={{height:0,opacity:0,overflow:'hidden'}} style={{overflow:'hidden'}} transition={{duration:reduced?0:.26,ease:[.22,1,.36,1]}}><motion.div initial={{y:reduced?0:-10}} animate={{y:0}} transition={{duration:reduced?0:.26,ease:[.22,1,.36,1]}}>{opened==='Worldviews'?<WorldviewSubmenu variant={variant}/>:<nav className="sm-other-sections" aria-label={opened+' destinations'}>{(variant==='proposed'&&opened==='Sources'?[{label:'Sources overview',to:base+'/sources'},{label:'Cited records',to:base+'/source-records'},{label:'Historic Christian works',to:base+'/texts'}]:secondary(opened)).map(d=><Link key={d.to} to={forVariant(d.to,variant)} onFocus={reveal} onClick={()=>setOpened(null)}>{d.label}</Link>)}</nav>}</motion.div></motion.div>}</AnimatePresence>
+export function WorldviewNavigation({leading,trailing}:{leading:ReactNode;trailing:ReactNode}){
+ const location=useLocation(),path=location.pathname;
+ const navigate=useNavigate();
+ const group=path.startsWith(root)?'Worldviews':path.startsWith(base+'/debates')?'Debates':path.startsWith(base+'/topics/')||path.startsWith(base+'/questions')||path.startsWith(base+'/study/')||path.startsWith(base+'/practice')?'Questions':path.startsWith(base+'/sources')||path.startsWith(base+'/source-records')||path.startsWith(base+'/texts')?'Sources':'Explore';
+ const singleRow=group==='Explore'||group==='Debates';
+ const sections=[{label:'Explore',to:base,icon:Compass},{label:'Worldviews',to:root,icon:Globe2},{label:'Questions',to:base+'/questions',icon:CircleHelp},{label:'Debates',to:base+'/debates',icon:MessagesSquare},{label:'Sources',to:base+'/sources',icon:LibraryBig}];
+ const mainRef=useRef<HTMLElement|null>(null);
+ const run=useRef(0),active=useRef<{transition:SectionTransition;pathname:string;run:number}|null>(null);
+ useEffect(()=>{
+  const main=mainRef.current,selected=main?.querySelector<HTMLElement>('[data-current="true"]');
+  if(!main||!selected||main.scrollWidth<=main.clientWidth)return;
+  const row=main.getBoundingClientRect(),tab=selected.getBoundingClientRect();
+  main.scrollLeft+=tab.left-row.left-(main.clientWidth-tab.width)/2;
+ },[path]);
+ useEffect(()=>{
+  if(active.current&&active.current.pathname!==path){run.current++;active.current.transition.skipTransition();active.current=null;clearSectionTransition();}
+ },[path]);
+ useEffect(()=>()=>{run.current++;active.current?.transition.skipTransition();clearSectionTransition();},[]);
+ function openSection(event:MouseEvent<HTMLDivElement>){
+  if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+  const target=event.target;
+  if(!(target instanceof Element))return;
+  const anchor=target.closest('a[href]');
+  if(!anchor||!event.currentTarget.contains(anchor)||anchor.hasAttribute('download')||anchor.getAttribute('target'))return;
+  const destination=new URL(anchor.getAttribute('href')!,window.location.href);
+  if(destination.origin!==window.location.origin||!destination.pathname.startsWith(base))return;
+  const to=destination.pathname+destination.search+destination.hash;
+  if(to===location.pathname+location.search+location.hash)return;
+  if(destination.pathname===path&&destination.search===location.search&&destination.hash)return;
+  event.preventDefault();
+  const update=()=>flushSync(()=>navigate(to));
+  const doc=document as TransitionDocument;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!doc.startViewTransition){update();return;}
+  const generation=++run.current;
+  active.current?.transition.skipTransition();
+  const oldTop=document.querySelector('.ap-route-content')?.getBoundingClientRect().top;
+  document.documentElement.dataset.apSectionSlide='3';
+  const transition=doc.startViewTransition(()=>{
+   if(generation!==run.current)return;
+   update();
+   const newTop=document.querySelector('.ap-route-content')?.getBoundingClientRect().top;
+   if(oldTop!==undefined&&newTop!==undefined)document.documentElement.style.setProperty('--ap-old-shift',`${oldTop-newTop}px`);
+  });
+  active.current={transition,pathname:destination.pathname,run:generation};
+  void transition.finished.catch(()=>undefined).then(()=>{if(generation!==run.current)return;active.current=null;clearSectionTransition();});
+ }
+ return <div className="sm-container" data-single-row={singleRow} onClickCapture={openSection}><div className="sm-topbar">{leading}<nav ref={mainRef} className="sm-main" aria-label="Apologetics sections">{sections.map(d=>{const Icon=d.icon;return <div key={d.to} data-current={group===d.label}><Link to={d.to} onFocus={reveal} aria-current={group===d.label?'page':undefined}><Icon size={17} strokeWidth={1.7} aria-hidden="true"/><span>{d.label}</span></Link></div>;})}</nav>{trailing}</div>
+ {!singleRow&&<div id="sm-panel" className="sm-panel">{group==='Worldviews'?<WorldviewSubmenu/>:<nav className="sm-other-sections" aria-label={group+' destinations'}>{(group==='Sources'?[{label:'The source room',to:base+'/sources'},{label:'Historic Christian works',to:base+'/texts'}]:secondary(group)).map(d=><Link key={d.to} to={d.to} onFocus={reveal} aria-current={path===d.to?'page':undefined}>{d.label}</Link>)}</nav>}</div>}
  </div>;
 }

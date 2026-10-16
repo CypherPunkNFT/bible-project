@@ -56,4 +56,18 @@ class FeatureUsageTests(unittest.TestCase):
                 self.assertTrue(source['uses'])
                 self.assertTrue(all(u['address'].startswith('/') and u['evidence'] in self.data['inputs'] for u in source['uses']))
 
+    def test_live_site_sweep_is_complete_and_keeps_access_limits(self):
+        sweep = read('content/teachers/site-source-sweep.json')
+        self.assertGreaterEqual(len(sweep['features']), 14)
+        for feature in sweep['features']:
+            self.assertIn(feature['id'], self.features)
+            for row in feature['rows']:
+                matches = [source for source in self.features[feature['id']]['sources'] if source['author'] == row['author'] and source['title'] == row['title'] and source['url'] == row['url']]
+                self.assertTrue(matches, row)
+                if row.get('consultation'):
+                    self.assertTrue(any(use.get('consultation') == row['consultation'] for source in matches for use in source['uses']))
+        self.assertEqual(next(f for f in sweep['features'] if f['id'] == 'parables')['address'], '/study/gospels?guide=parables')
+        for feature in ['debates','worldviews','apologetics-practice']:
+            self.assertTrue(self.features[feature]['sources'])
+
 if __name__ == '__main__': unittest.main()

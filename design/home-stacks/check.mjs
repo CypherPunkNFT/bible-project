@@ -1,0 +1,22 @@
+import { chromium } from 'playwright';
+const browser=await chromium.launch({headless:true,channel:'msedge'});
+const page=await browser.newPage({viewport:{width:1440,height:1000}});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));
+await page.goto('http://127.0.0.1:8931/mockups/home-stacks/');
+await page.locator('.hero-card-deck').waitFor();
+const theme=page.getByRole('switch',{name:'Dark mode'});
+if(await theme.getAttribute('aria-checked')==='false')await theme.click();
+await page.waitForTimeout(700);await page.screenshot({path:'design/home-stacks/desktop.png',fullPage:true});
+console.log('Original collection cards:',await page.locator('.home-doorways > a').count());
+await page.getByRole('button',{name:'Next hero card'}).click();
+console.log('Next:',await page.locator('.hero-stack-card[data-depth="0"]').getAttribute('href'));
+await page.locator('.hero-card-deck').hover();await page.mouse.wheel(0,100);await page.waitForTimeout(600);
+console.log('Scroll:',await page.locator('.hero-stack-card[data-depth="0"]').getAttribute('href'));
+await page.locator('.hero-card-deck').focus();await page.keyboard.press('ArrowLeft');
+console.log('Keyboard:',await page.locator('.hero-stack-card[data-depth="0"]').getAttribute('href'));
+await page.setViewportSize({width:390,height:844});
+await page.waitForTimeout(700);await page.screenshot({path:'design/home-stacks/mobile.png',fullPage:true});
+console.log('Overflow:',await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth));
+console.log('Errors:',errors);
+await browser.close();
+

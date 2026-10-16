@@ -1,0 +1,24 @@
+.teacher-start-reading{margin-top:2.6rem;container-type:inline-size;min-width:0}
+.teacher-reading-head{display:flex;align-items:baseline;gap:1.2rem;margin-bottom:1rem;flex-wrap:wrap}
+.teacher-reading-head>p:not(.kicker){color:var(--muted);font-size:.85rem}
+.teacher-reading-window{width:var(--reading-viewport,100%);margin-block:-4px;margin-left:var(--reading-offset,0px);overflow-x:auto;scrollbar-width:none;padding:4px 0;overscroll-behavior-x:contain;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.teacher-reading-window:focus-within{mask-image:none}
+.teacher-reading-window::-webkit-scrollbar{display:none}
+.teacher-reading-track{display:flex;width:max-content;animation:teacher-reading-drift 320s linear infinite}
+.teacher-reading-group{display:flex;gap:1rem;padding-right:1rem}
+.teacher-reading-card{position:relative;display:flex;flex:none;flex-direction:column;align-items:flex-start;padding:1.2rem;width:clamp(250px,calc((100cqw - 4rem)/5),340px);min-width:0;border:1px solid color-mix(in srgb,var(--tone) 35%,var(--line));border-radius:18px;background:linear-gradient(150deg,color-mix(in srgb,var(--tone) 14%,var(--surface)),var(--surface))}
+.teacher-reading-era{color:var(--tone);font-size:.69rem;letter-spacing:.04em;line-height:1.6}
+.teacher-reading-card h3{font-family:var(--serif);font-size:1.15rem;line-height:1.45;margin:.65rem 0}
+.teacher-reading-card h3 a{color:var(--ink);text-decoration:none}
+.teacher-reading-card h3 a::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.teacher-reading-card:has(h3 a:hover){border-color:var(--tone)}
+.teacher-reading-card:has(h3 a:focus-visible){outline:2px solid var(--tone);outline-offset:3px}
+.teacher-reading-card h3 a:hover{text-decoration:underline;text-underline-offset:4px}
+.teacher-reading-card>p{color:var(--muted);font-size:.8rem;line-height:1.7;margin:0 0 1rem}
+.teacher-reading-card>button{position:relative;z-index:1;margin-top:auto;padding:0;border:0;background:none;color:var(--muted);text-align:left;font-size:.75rem;line-height:1.5;cursor:pointer}
+.teacher-reading-card>button:hover{color:var(--tone);text-decoration:underline}
+.tp-page .lnd .teacher-reading-pause{display:inline-flex;align-items:center;gap:.35rem;margin-left:auto;padding:.35rem .6rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);font-size:.7rem;cursor:pointer}
+.teacher-reading-window:is(:hover,:focus-within) .teacher-reading-track,.teacher-reading-track[data-paused=true]{animation-play-state:paused}
+@keyframes teacher-reading-drift{to{transform:translateX(-50%)}}
+@media(max-width:480px){.teacher-reading-card{padding:1.1rem;width:280px}.teacher-reading-head{gap:.3rem .75rem}.teacher-reading-head>p:last-of-type{font-size:.75rem}}
+@media(prefers-reduced-motion:reduce){.teacher-reading-track{animation:none}.teacher-reading-group[aria-hidden=true]{display:none}.teacher-reading-pause{display:none!important}}

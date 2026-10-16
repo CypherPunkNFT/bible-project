@@ -46,15 +46,16 @@ def decide(progress, completion, processes, now, paused=False):
     return "restart_stopped"
 
 
-def powershell(script):
-    return subprocess.check_output(
-        ["powershell.exe", "-NoProfile", "-NonInteractive", "-Command", script],
-        text=True, encoding="utf-8-sig", timeout=60, creationflags=subprocess.CREATE_NO_WINDOW,
-    )
-
-
 def inventory(config):
-    rows = json.loads(powershell("[Console]::OutputEncoding = [Text.UTF8Encoding]::new(); ConvertTo-Json -InputObject @(Get-CimInstance Win32_Process | Select-Object ProcessId,CommandLine) -Compress"))
+    import psutil
+    rows = []
+    for process in psutil.process_iter(['pid', 'name']):
+        if (process.info['name'] or '').lower() not in ('python.exe', 'pythonw.exe', 'powershell.exe', 'pwsh.exe'):
+            continue
+        try:
+            rows.append({'ProcessId': process.pid, 'CommandLine': subprocess.list2cmdline(process.cmdline())})
+        except (psutil.AccessDenied, psutil.NoSuchProcess):
+            continue
     python = re.escape(str(config["state_dir"] / ".venv/Scripts/python.exe"))
     pattern = re.compile(r'^"?' + python + r'"?\s+(?:-u\s+)?-m\s+knowledge\s+(encoder|embed|build|verify)\s*$', re.I)
     result = {key: [] for key in ("encoder", "embed", "build", "verify", "refresh", "startup", "monitor", "report_monitor", "awake")}
@@ -66,8 +67,12 @@ def inventory(config):
         match = pattern.match(command)
         if match:
             result[match[1].lower()].append(row["ProcessId"])
+        if re.match(r'^"?'+python+r'"?\s+(?:-u\s+)?-m\s+knowledge\.finish_intake\s+--(?:refresh|resume)\s*$',command,re.I):
+            result['monitor'].append(row['ProcessId'])
         if re.match(r'^"?'+python+r'"?\s+(?:-u\s+)?-m\s+knowledge\.watchdog_awake\s*$',command,re.I):
             result['awake'].append(row['ProcessId'])
+        if str(config['site_dir'] / 'knowledge/campaign-report-monitor.py').lower() in command.lower():
+            result['report_monitor'].append(row['ProcessId'])
         for key, filename in scripts:
             path = config["site_dir"] / "knowledge" / filename
             if re.search(r'-File\s+"?(?:' + re.escape(str(path)) + r'|knowledge[/\\]' + re.escape(filename) + r')"?(?:\s|$)', command, re.I):
@@ -77,70 +82,9 @@ def inventory(config):
 
 
 def recover(config, action, baseline=None):
-    # Re-read process identities immediately before stopping anything; never use stale PIDs.
-    current = inventory(config)
-    if current["build"] or current["refresh"]:
-        return "build_started_during_check"
-    if current.get("verify"):
-        return "verification_started_during_check"
-    if baseline and action.startswith('restart_'):
-        latest=read_report(config['state_dir']/'embedding-progress.json')
-        if latest.get('corpus_build')!=baseline.get('corpus_build'):
-            return 'corpus_changed_before_recovery'
-        if latest.get('indexed',0)>baseline.get('indexed',0):
-            return 'progress_resumed_before_restart'
-    keys = ("monitor", "embed", "startup", "encoder") if action in ('restart_hard','restart_stopped','restart_stalled') else ("monitor", "embed", "startup") if action=='restart_soft' else ("monitor",)
-    if action == "attach_monitor" and current["monitor"]:
-        return "monitor_already_running"
-    stop_ids = [pid for key in keys for pid in current[key]]
-    if stop_ids:
-        powershell("Stop-Process -Id " + ",".join(map(str, stop_ids)) + " -ErrorAction SilentlyContinue")
-        # Confirm termination and lock release before launching any replacement.
-        stop_deadline=time.monotonic()+25
-        for attempt in range(20):
-            if time.monotonic()>=stop_deadline:
-                raise RuntimeError('Timed out waiting for owned processes to exit; hard retry remains queued')
-            remaining=inventory(config)
-            if remaining['build'] or remaining['refresh'] or remaining.get('verify'):
-                raise RuntimeError('Build/verification started during recovery; replacement deferred')
-            survivors=[pid for key in keys for pid in remaining[key]]
-            if not survivors: break
-            if action=='restart_hard':
-                for pid in survivors:
-                    # Fresh inventory identities above are restricted to this KB.
-                    # No /T: never kill unrelated descendant/download jobs.
-                    subprocess.run(['taskkill.exe','/PID',str(pid),'/F'],capture_output=True,timeout=max(.1,min(3,stop_deadline-time.monotonic())),
-                                   creationflags=subprocess.CREATE_NO_WINDOW)
-            time.sleep(1)
-        else:
-            raise RuntimeError('Owned processes did not exit; timed hard escalation remains queued')
-    state = config["state_dir"]
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
-    archive = state / "watchdog-history" / stamp
-    archive.mkdir(parents=True)
-    for name in ("embedding-progress.json", "intake-completion.json", "embedding.log", "embedding-error.log", "encoder-error.log", "intake-completion.log", "intake-completion-error.log"):
-        source = state / name
-        if source.exists():
-            shutil.copy2(source, archive / name)
-    # Launch through Windows' process service: Task Scheduler may clean up all
-    # descendants of its short-lived action, even with detached creation flags.
-    command = subprocess.list2cmdline(["powershell.exe", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-File", str(config["site_dir"] / "knowledge/watchdog-resume.ps1")])
-    quote = lambda value: "'" + str(value).replace("'", "''") + "'"
-    launched = json.loads(powershell(
-        "$startup = New-CimInstance -ClassName Win32_ProcessStartup -ClientOnly -Property @{ShowWindow=[uint16]0}; "
-        "$result = Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{CommandLine=" + quote(command) +
-        "; CurrentDirectory=" + quote(config["site_dir"]) + "; ProcessStartupInformation=$startup}; "
-        "$result | Select-Object ReturnValue,ProcessId | ConvertTo-Json -Compress"
-    ))
-    if launched["ReturnValue"] != 0:
-        raise RuntimeError(f"Windows recovery launch failed: {launched}")
-    pid = launched["ProcessId"]
-    # A successful Create result alone does not establish that the script started.
-    for _ in range(15):
-        time.sleep(1)
-        if read_report(state / "intake-completion.json").get("pid") == pid and pid in inventory(config)["monitor"]:
-            return {"monitor_pid": pid, "archived_logs": str(archive), "output_log": str(state / f"intake-recovery-{pid}.log"), "error_log": str(state / f"intake-recovery-{pid}-error.log")}
-    raise RuntimeError(f"Recovery monitor {pid} did not confirm startup; inspect intake-recovery-{pid}-error.log")
+    # ATD blocked the old completion chain. Preserve the collected vectors and
+    # workers; do not restart that chain while its native replacement is pending.
+    raise RuntimeError('Automatic completion recovery needs a native launcher; the blocked PowerShell recovery is not retried.')
 
 
 def read_report(path):
@@ -149,15 +93,10 @@ def read_report(path):
 
 def ensure_awake(config,processes):
     if processes.get('awake'):return {'already_running':processes['awake']}
-    command=subprocess.list2cmdline([str(config['state_dir']/'.venv/Scripts/python.exe'),'-m','knowledge.watchdog_awake'])
-    quote=lambda value:"'"+str(value).replace("'","''")+"'"
-    launched=json.loads(powershell(
-        "$startup=New-CimInstance -ClassName Win32_ProcessStartup -ClientOnly -Property @{ShowWindow=[uint16]0}; "
-        "$result=Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{CommandLine="+quote(command)+
-        "; CurrentDirectory="+quote(config['site_dir'])+"; ProcessStartupInformation=$startup}; "
-        "$result | Select-Object ReturnValue,ProcessId | ConvertTo-Json -Compress"))
-    if launched['ReturnValue']:raise RuntimeError('Could not launch temporary sleep blocker: '+str(launched))
-    return {'launched_pid':launched['ProcessId']}
+    launched=subprocess.Popen([str(config['state_dir']/'.venv/Scripts/python.exe'),'-m','knowledge.watchdog_awake'],
+        cwd=config['site_dir'],stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,
+        creationflags=subprocess.CREATE_NO_WINDOW|subprocess.DETACHED_PROCESS|subprocess.CREATE_NEW_PROCESS_GROUP)
+    return {'launched_pid':launched.pid}
 
 
 def ensure_campaign_report_monitor(config, processes):
@@ -170,18 +109,12 @@ def ensure_campaign_report_monitor(config, processes):
         return {'already_running': processes['report_monitor']}
     completion_pid = read_report(config['state_dir'] / 'intake-completion.json').get('pid', 0)
     prior = completion_pid if completion_pid in processes['monitor'] else next(iter(processes['monitor']), 0)
-    command = subprocess.list2cmdline(['powershell.exe', '-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass',
-                                      '-File', str(config['site_dir'] / 'knowledge/campaign-completion-monitor.ps1'),
-                                      '-PriorCompletionPid', str(prior)])
-    quote = lambda value: "'" + str(value).replace("'", "''") + "'"
-    launched = json.loads(powershell(
-        "$startup = New-CimInstance -ClassName Win32_ProcessStartup -ClientOnly -Property @{ShowWindow=[uint16]0}; "
-        "$result = Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{CommandLine=" + quote(command) +
-        "; CurrentDirectory=" + quote(config['site_dir']) + "; ProcessStartupInformation=$startup}; "
-        "$result | Select-Object ReturnValue,ProcessId | ConvertTo-Json -Compress"))
-    if launched['ReturnValue']:
-        raise RuntimeError(f'Campaign report monitor launch failed: {launched}')
-    return {'launched_pid': launched['ProcessId']}
+    with (runtime/'native-monitor.log').open('ab') as output:
+        launched=subprocess.Popen([str(config['state_dir']/'.venv/Scripts/python.exe'),
+            str(config['site_dir']/'knowledge/campaign-report-monitor.py')],cwd=config['site_dir'],
+            stdin=subprocess.DEVNULL,stdout=output,stderr=output,
+            creationflags=subprocess.CREATE_NO_WINDOW|subprocess.DETACHED_PROCESS|subprocess.CREATE_NEW_PROCESS_GROUP)
+    return {'launched_pid': launched.pid}
 
 
 def main():

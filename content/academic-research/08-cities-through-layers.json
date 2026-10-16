@@ -1,0 +1,352 @@
+{
+  "title": "Cities through their layers",
+  "programmeOrder": 8,
+  "reviewed": "2026-10-14",
+  "status": "local expansion; not authorized for publication",
+  "route": "/study/cities-through-their-layers",
+  "scope": "Four cities as methodological case studies, not complete occupation histories or a survey of all biblical archaeology.",
+  "implementation": [
+    "src/pages/study/history/evidence.ts",
+    "src/pages/study/history/cities-research.ts",
+    "src/pages/study/history/CitiesEvidenceLab.tsx"
+  ],
+  "researchQuestions": [
+    "How do objects, deposits and buildings acquire different dates?",
+    "What makes an association with a named event stronger than a chronological resemblance?",
+    "How do excavation location, preservation and later disturbance constrain city-scale conclusions?",
+    "What survives of daily life between the destruction horizons?"
+  ],
+  "claims": [
+    {
+      "id": "JER-01",
+      "claim": "1995 Jericho study reports 18 determinations from 16 original samples, including six cereals and ten charcoal samples; one charcoal sample was split into three fractions.",
+      "source": "grain",
+      "locator": "pp. 213–215; Table 1",
+      "status": "directly reported",
+      "correction": "Earlier source annotation said 18 samples without distinguishing analytical determinations."
+    },
+    {
+      "id": "JER-02",
+      "claim": "Six grain measurements plotted from Table 1, with stated laboratory uncertainty.",
+      "source": "grain",
+      "locator": "p. 214 Table 1",
+      "status": "directly reported",
+      "data": [
+        [
+          "GrN-18539",
+          3312,
+          14
+        ],
+        [
+          "GrN-18542",
+          3288,
+          20
+        ],
+        [
+          "GrN-18543",
+          3331,
+          18
+        ],
+        [
+          "GrN-18544",
+          3312,
+          15
+        ],
+        [
+          "GrN-19063",
+          3240,
+          18
+        ],
+        [
+          "GrN-19064",
+          3375,
+          25
+        ]
+      ],
+      "units": "radiocarbon years BP; ±1 sigma; not calendar BCE"
+    },
+    {
+      "id": "JER-03",
+      "claim": "The grain mean of 3306 ±7 BP has two equal-probability intervals in the paper's 1993 decadal-curve OxCal option: 1601–1566 and 1561–1524 cal BCE at 1 sigma.",
+      "source": "grain",
+      "locator": "pp. 218–219",
+      "status": "published calibration option",
+      "uncertainty": "Not a modern recalibration or the only option presented in the original paper; relative interval probabilities are within the stated 1-sigma area."
+    },
+    {
+      "id": "LAC-01",
+      "claim": "Area CC Floor C308 abuts a Level V wall and is sealed beneath later mudbrick fortifications.",
+      "source": "lachish2019",
+      "locator": "pp. 3, 5–7, Figures 3–4",
+      "status": "excavators' stratigraphic report",
+      "uncertainty": "Wall construction is not directly measured by radiocarbon; dated organic material must be related through its context."
+    },
+    {
+      "id": "LAC-02",
+      "claim": "The authors favor later tenth-century BCE fortification and draw a state-formation inference.",
+      "source": "lachish2019",
+      "locator": "abstract and results",
+      "status": "authors' chronological and historical reconstruction",
+      "uncertainty": "Do not present a named royal builder as an excavated fact. The entire Iron Age chronological debate was not independently adjudicated."
+    },
+    {
+      "id": "LAC-03",
+      "claim": "Figure 4 excludes Lachish 7 as an older displaced olive pit.",
+      "source": "lachish2019",
+      "locator": "Figure 4 caption; results discussion",
+      "status": "reported sample treatment",
+      "uncertainty": "The methodological statement that samples were included must be read with the paper's actual outlier discussion; do not imply a model with no interpretive decisions."
+    },
+    {
+      "id": "JLM-01",
+      "claim": "2024 article reports 103 radiocarbon determinations from five excavation areas.",
+      "source": "jerusalem2024",
+      "locator": "abstract and significance statement",
+      "status": "author-reported scope",
+      "uncertainty": "Full supplementary model not inspected. No precision intervals or royal-building assignments reproduced."
+    },
+    {
+      "id": "COR-01",
+      "claim": "Romano's deposit provides evidence of interim-period activity between 146 and 44 BCE.",
+      "source": "romano",
+      "locator": "catalogue title and indexed p. 62",
+      "status": "published interpretation at limited access depth",
+      "uncertainty": "Full object catalogue unavailable in this session. No total population, continuity of prosperity or proportion of city occupied inferred."
+    },
+    {
+      "id": "MET-01",
+      "claim": "Relative depositional sequence is distinct from calendar chronology.",
+      "source": "harris",
+      "locator": "author's methodological overview",
+      "status": "methodological principle; teaching model is original",
+      "uncertainty": "The invented trench is not a reconstruction of any of the four archaeological sites."
+    }
+  ],
+  "sourceAccess": {
+    "grain": "Full publisher PDF at University of Groningen inspected, Tables 1 and Figures 1–4; no images copied.",
+    "lachish2019": "PDF from Southern Adventist University inspected, methods, Area CC and results. Page extraction available; no figure copied.",
+    "jerusalem2024": "Search-indexed abstract, opening text and significance statement. PMC challenge and publisher cookie redirect blocked full text.",
+    "romano": "ASCSA bibliographic entry and indexed PDF passage. Direct PDF failed on both domain variants.",
+    "nigro": "Sapienza catalogue, institutional project description and indexed introduction; full chapter returned 403.",
+    "harris": "Author's bibliography and overview; book PDF retrieval failed.",
+    "metis": "ASCSA institutional resource description only; no raw GIS downloaded."
+  },
+  "editorialRules": [
+    "No Josephus-dependent material added outside Scholars.",
+    "No quantitative confidence scores.",
+    "No reconstructed image presented as a photograph, facsimile or measured plan.",
+    "Biblical passages are literary comparisons; theology is not decided by laboratory dating.",
+    "Names, language and cultural periods do not imply uniform populations."
+  ],
+  "visuals": [
+    {
+      "name": "Formation experiment",
+      "type": "original schematic section and relative-order chain",
+      "purpose": "Show a late pit below an earlier floor and explain redeposition",
+      "data": "invented instructional geometry; no numerical historical values"
+    },
+    {
+      "name": "Cereal measurements",
+      "type": "interactive dot-and-whisker chart",
+      "purpose": "Separate measurement uncertainty from calendar interpretation",
+      "data": "JER-02; shared linear BP axis; sample buttons expose exact values"
+    },
+    {
+      "name": "City context drawings",
+      "type": "original symbolic forms",
+      "purpose": "Differentiate fortifications, residences, reuse and civic architecture",
+      "data": "not measured or topographic; selected horizon changes illustration"
+    },
+    {
+      "name": "Object/process sequences",
+      "type": "ordered labeled chains",
+      "purpose": "Separate growth, use, deposition, recovery and interpretation",
+      "data": "qualitative; equal spacing is not elapsed time"
+    }
+  ],
+  "remainingGaps": [
+    "Modern recalibration of Jericho measurements and independent review of sample aggregation.",
+    "Full Romano catalogue and Jerusalem supplementary chronological models.",
+    "Kenyon's complete final excavation volumes and comparative review of later criticisms.",
+    "Licensed measured plans and object photography; none fabricated.",
+    "A full Megiddo/Hazor extension requires its own dossier and is deliberately deferred."
+  ],
+  "neighbouringStudies": {
+    "discoveries": "Already teaches convergence of Lachish ramp, relief and literary narrative; this page concentrates on formation and sequence.",
+    "world": "Retains ordinary-life links without replacing the separate journey study."
+  },
+  "sources": [
+    {
+      "id": "kenyon",
+      "title": "Kathleen M. Kenyon · Excavations at Jericho, Volume III",
+      "date": "1981 · Architecture and Stratigraphy of the Tell; edited by T. A. Holland",
+      "url": "https://pure.rug.nl/ws/portalfiles/portal/6807335/1995RadiocarbonBruins.pdf",
+      "access": "Bibliographic reference and use of its phase records checked in Bruins & van der Plicht; full volume not consulted. Link leads to that citing study.",
+      "contribution": "The excavation record behind the later sample analysis. To challenge a chronological result, return to the room, phase and deposit assignments, as well as the laboratory measurements."
+    },
+    {
+      "id": "lachishreports",
+      "title": "Olga Tufnell and David Ussishkin · successive Lachish reports",
+      "date": "Lachish III (1953); The Renewed Archaeological Excavations at Lachish (1973–1994), published 2004",
+      "url": "https://www.southern.edu/administration/archaeology/lachish/docs/articles/2019_Garfinkel_LachishFortifications.pdf",
+      "access": "Bibliographic and historical discussion in the 2019 report consulted; complete earlier excavation volumes not read. Link leads to the later comparison.",
+      "contribution": "Foundational records against which later excavators test fortification phases. Disagreement about early urban growth depends on which walls, floors and assemblages belong together, not simply on choosing a preferred ruler."
+    },
+    {
+      "id": "harris",
+      "title": "Edward C. Harris · Principles of Archaeological Stratigraphy",
+      "date": "1979; second edition 1989",
+      "url": "https://harrismatrix.com/about-the-book/",
+      "access": "Author’s bibliographical and methodological overview consulted; complete book not retrieved.",
+      "contribution": "A language for recording deposits and surfaces as a sequence of relationships. A matrix expresses what precedes what; it does not supply calendar years."
+    },
+    {
+      "id": "grain",
+      "title": "Hendrik J. Bruins & Johannes van der Plicht · Tell es-Sultan (Jericho)",
+      "date": "Radiocarbon 37.2 (1995), 213–220",
+      "url": "https://pure.rug.nl/ws/portalfiles/portal/6807335/1995RadiocarbonBruins.pdf",
+      "access": "Full article consulted, especially Table 1, Figures 1–4 and pp. 218–219.",
+      "contribution": "Re-examines material preserved from Kenyon’s excavation through independent laboratory measurements. Separates short-lived cereals from wood and laboratory precision from calendar uncertainty."
+    },
+    {
+      "id": "lachish2019",
+      "title": "Yosef Garfinkel and colleagues · Lachish fortifications and state formation",
+      "date": "2019 · DOI 10.1017/RDC.2019.5",
+      "url": "https://www.southern.edu/administration/archaeology/lachish/docs/articles/2019_Garfinkel_LachishFortifications.pdf",
+      "access": "Full report available; methods, Area CC, Figures 3–4 and results consulted. The political interpretation is the authors’ argument.",
+      "contribution": "Connects newly excavated architecture with samples from a floor. Helps distinguish dating the use of a building from identifying the political authority responsible for it."
+    },
+    {
+      "id": "jerusalem2024",
+      "title": "Johanna Regev and colleagues · Radiocarbon chronology of Iron Age Jerusalem",
+      "date": "PNAS 121.19 (2024), e2321024121",
+      "url": "https://doi.org/10.1073/pnas.2321024121",
+      "access": "Indexed abstract, significance statement and opening text consulted. Full article retrieval was blocked; supplementary models were not inspected.",
+      "contribution": "Reports 103 determinations from five excavation areas. Connects context assessment, tree-ring comparisons and radiocarbon to a dense urban sequence; precise historical conclusions require reading the models."
+    },
+    {
+      "id": "romano",
+      "title": "Irene B. Romano · A Hellenistic Deposit from Corinth",
+      "date": "Hesperia 63.1 (1994), 57–104",
+      "url": "https://ascsa.edu.gr/publications/hesperia/article/63/1/57-104",
+      "access": "Journal catalogue and indexed passage from p. 62 consulted; full PDF retrieval failed.",
+      "contribution": "An assemblage challenges a simple picture of emptiness between 146 and 44 BCE. This page does not reproduce its object catalogue or estimate the population from it."
+    },
+    {
+      "id": "nigro",
+      "title": "Lorenzo Nigro · The Italian–Palestinian Expedition to Tell es-Sultan",
+      "date": "In Digging Up Jericho (2020), 175–214",
+      "url": "https://iris.uniroma1.it/handle/11573/1361743",
+      "access": "Institutional catalogue, abstract and indexed introductory page consulted; complete chapter not retrieved.",
+      "contribution": "Brings renewed excavation, comparison of older trenches and heritage protection together. Palestinian and Italian collaboration widens the story beyond the older European expeditions."
+    },
+    {
+      "id": "metis",
+      "title": "ASCSA · Metis archaeological platform",
+      "date": "Institutional excavation archive",
+      "url": "https://www.ascsa.edu.gr/excavations/ancient-corinth/digital-corinth",
+      "access": "Institutional resource description consulted; individual GIS layers and object datasets not downloaded.",
+      "contribution": "A route from an overview to excavation records and spatial documentation. The plan and find context are part of the evidence, not merely illustrations."
+    }
+  ],
+  "investigations": {
+    "jericho": {
+      "question": "Can a precise measurement give an exact destruction year?",
+      "observation": "The 1995 study reports six cereal determinations and twelve charcoal determinations. The latter came from ten charcoal samples: one was divided into three fractions. Counts of measurements and original samples are not interchangeable.",
+      "reasoning": "The grain mean is 3306 ± 7 radiocarbon years BP. The paper’s 1993-curve OxCal option gives two 1σ calendar intervals: 1601–1566 and 1561–1524 cal BCE. These are historical published results, not an IntCal20 recalibration.",
+      "limit": "The paper argues against a destruction around 1400 BCE. Neither a laboratory measurement nor a calibrated interval identifies the attackers. Choosing one point inside an interval would manufacture precision.",
+      "implication": "Ask three separate questions: when did the plant grow, when did the deposit form, and who caused the destruction? The evidence may answer them with very different strength.",
+      "source": "grain",
+      "stages": [
+        "Plant grows",
+        "Harvest or timber use",
+        "Burning and deposition",
+        "Excavation",
+        "Laboratory measurement"
+      ]
+    },
+    "lachish": {
+      "question": "When does a wall become evidence for a kingdom?",
+      "observation": "At Area CC, Floor C308 meets a stone wall assigned to Level V and lies beneath the later mudbrick fortifications. Olive pits from that floor provide a chronological test of the architectural sequence.",
+      "reasoning": "Garfinkel and colleagues argue for fortification in the later tenth century BCE. A floor associated with a wall constrains its use; translating that relationship into a construction date requires an argument. Their wider conclusion concerns Judah’s expansion.",
+      "limit": "Figure 4 sets aside an older pit, Lachish 7, as displaced material. Sample selection and stratigraphic association therefore matter alongside measurement. The wall itself does not name its builder.",
+      "implication": "Keep this earlier dispute separate from Level III’s well-supported association with 701 BCE and Level II’s later Babylonian destruction. Different questions at the same site can have different degrees of resolution.",
+      "source": "lachish2019",
+      "stages": [
+        "Earlier settlement",
+        "Level V wall and floor",
+        "Levels IV–III rebuilding",
+        "Level III destruction",
+        "Level II city"
+      ]
+    },
+    "jerusalem": {
+      "question": "How can we date a city that keeps rebuilding itself?",
+      "observation": "The 2024 Jerusalem study reports 103 radiocarbon determinations across five areas of the Southeastern Ridge. These are Iron Age contexts, separate from the Upper City residences and western workshop in the explorer.",
+      "reasoning": "The authors combine carefully assessed deposits with tree-ring comparisons. A plateau in the calibration curve can make a small laboratory uncertainty correspond to a much wider span of calendar years.",
+      "limit": "This page has not independently checked the supplementary models. It therefore does not turn the paper’s urban-history conclusions into a new precise timeline, or assign a building to a biblical king.",
+      "implication": "A chronological model joins observations to assumptions about sequence and sample formation. More measurements help only when we understand what was sampled and how it entered the deposit.",
+      "source": "jerusalem2024",
+      "stages": [
+        "Material grows",
+        "Use or storage",
+        "Deposit forms",
+        "Later rebuilding",
+        "Context is sampled"
+      ]
+    },
+    "corinth": {
+      "question": "Does a destroyed city stay empty?",
+      "observation": "Romano’s 1994 publication identifies a Hellenistic deposit as evidence for activity in the interval between the sack of 146 BCE and the Roman refoundation in 44 BCE.",
+      "reasoning": "The accessible passage discusses imports attributed to that interval and the absence of ceramic classes associated with the early colony. Dating an assemblage involves comparing the group, not simply choosing its most spectacular object.",
+      "limit": "This is evidence for activity, not a census. One deposit cannot establish the size, status or prosperity of the whole community. The full catalogue remains a reading gap here.",
+      "implication": "Destruction, survival and redevelopment can coexist. The Roman colony inherited a landscape with an earlier history; “Greek” and “Roman” are not self-contained populations or identical experiences for every resident.",
+      "source": "romano",
+      "stages": [
+        "Greek urban landscape",
+        "Sack · 146 BCE",
+        "Interim activity",
+        "Colony · 44 BCE",
+        "Later rebuilding"
+      ]
+    }
+  },
+  "grainMeasurements": [
+    {
+      "id": "GrN-18539",
+      "material": "Barley",
+      "bp": 3312,
+      "error": 14
+    },
+    {
+      "id": "GrN-18542",
+      "material": "Wheat",
+      "bp": 3288,
+      "error": 20
+    },
+    {
+      "id": "GrN-18543",
+      "material": "Wheat",
+      "bp": 3331,
+      "error": 18
+    },
+    {
+      "id": "GrN-18544",
+      "material": "Fragmented cereal",
+      "bp": 3312,
+      "error": 15
+    },
+    {
+      "id": "GrN-19063",
+      "material": "Barley",
+      "bp": 3240,
+      "error": 18
+    },
+    {
+      "id": "GrN-19064",
+      "material": "Fragmented cereal",
+      "bp": 3375,
+      "error": 25
+    }
+  ]
+}

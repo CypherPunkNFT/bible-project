@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "checks": [
+    "4 cities, 12 horizons, find selectors, comparisons, records and close-focus return",
+    "Keyboard selection and query-state reload",
+    "320/390/1024/1440 light and dark; normal/reduced motion; local artifact link; no runtime errors"
+  ],
+  "errors": [],
+  "notTested": [
+    "Screen reader announcement quality",
+    "External source availability",
+    "Production integration"
+  ],
+  "date": "2026-10-14"
+}

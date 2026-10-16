@@ -143,7 +143,7 @@ describe("lanes and wording by kind", () => {
   it("words the two-accounts card by kind of ruler", () => {
     expect(accountsHeading({ kind: "king", realm: "judah" }).title).toBe("Where Kings and Chronicles differ");
     expect(accountsHeading({ kind: "king", realm: "united" }).title).toBe("Where Samuel–Kings and Chronicles differ");
-    expect(accountsHeading({ kind: "roman", realm: "rome" }).lead).toMatch(/Gospels, Acts and Josephus/);
+    expect(accountsHeading({ kind: "roman", realm: "rome" }).lead).toMatch(/Gospels, Acts and outside records/);
     expect(accountsHeading({ kind: "foreign", realm: "babylon" }).lead).toMatch(/outside/);
   });
   it("draws every ruler on the guide, Egypt's Pharaohs in story order", () => {

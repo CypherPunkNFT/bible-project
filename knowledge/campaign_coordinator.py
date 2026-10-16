@@ -26,9 +26,13 @@ def locations(config):
     return config['state_dir'] / 'campaign-coordination', config['site_dir'] / 'content/library/reports/campaign-reconciliation'
 
 
-def metadata_matches(hint, row, field, records):
+def metadata_matches(hint, row, field, records, identity_fills=None):
     if field in ('workId', 'editionId') and row.get(field) and records.get(row[field], {}).get('kind') != field[:-2]:
-        return not hint.get(field) and hint.get('legacyCatalogueIds', {}).get(field) == row[field]
+        legacy_matches=hint.get('legacyCatalogueIds', {}).get(field)==row[field]
+        if not hint.get(field):return legacy_matches
+        fill=(identity_fills or {}).get(row.get('sha256'),{}).get('fields',{})
+        return bool(legacy_matches and fill.get(field)==hint.get(field)
+            and records.get(hint[field],{}).get('kind')==field[:-2])
     return hint.get(field) == row[field]
 
 
@@ -70,18 +74,20 @@ def archive_moves(config):
 
 def prepare(config):
     from .library import plan_library
+    from .library_identity import load_identities,IDENTITY_FILE
     out, reports = locations(config)
     summaries = {name: read(reports / name / 'summary.json') for name in ('catalogue', 'sources', 'text')}
     if summaries['catalogue']['validationErrors'] or summaries['sources']['status'] != 'complete' or summaries['text']['state'] != 'complete':
         raise ValueError('Preparation handoffs are incomplete or invalid')
     records, provenance, hints, derivatives, files = plan_library(config)
+    identity_fills=load_identities(config['site_dir'],records)
     overlay = read(reports / 'catalogue/acquisition-manifest.json')['files']
     conflicts, legacy = [], []
     canonical_variants = 0
     for row in overlay:
         hint = hints[str(Path(row['path']).resolve())]
         for field in ('title', 'author', 'licence', 'sha256', 'workId', 'editionId', 'contributor', 'credit'):
-            if row.get(field) is not None and not metadata_matches(hint, row, field, records):
+            if row.get(field) is not None and not metadata_matches(hint, row, field, records,identity_fills):
                 conflicts.append(dict(path=row['path'], field=field))
         for field in ('workId', 'editionId'):
             if row.get(field) and row[field] not in records:
@@ -109,6 +115,7 @@ def prepare(config):
               reports / 'sources/source-documentation.json', config['site_dir'] / 'SOURCES.md',
               reports / 'text/acquisition-manifest.json', reports / 'text/existing-ocr-completion/acquisition-manifest.json',
               reports / 'text/page-dispositions.json', reports / 'text/unresolved-text-gaps.json']
+    if (config['site_dir']/IDENTITY_FILE).exists():inputs.append(config['site_dir']/IDENTITY_FILE)
     identity = {k: config['embedding'][k] for k in ('model', 'revision', 'dimensions', 'max_tokens')}
     if read(config['state_dir'] / 'embedding-model.json') != identity:
         raise ValueError('Existing vector model identity differs from configuration')
@@ -117,6 +124,7 @@ def prepare(config):
                   overlayEntries=len(overlay), metadataConflicts=conflicts, canonicalWorkTitleVariants=canonical_variants,
                   legacyIdentityRepresentations=len(legacy), distinctLegacyIdentities=len({r['identifier'] for r in legacy}),
                   recoveredOriginalLinks=len(text_rows), selectedDerivativeLinks=len(derivatives),
+                  deferredIdentityBackfills=sum('identityFillConflict' in hint for hint in hints.values()),
                   heldFilesInPlan=len(files), catalogueKinds=dict(Counter(r.get('kind') for r in records.values())),
                   preparation=summaries, modelIdentity=identity,
                   inputs=[dict(path=str(p), sha256=digest(p), inLibraryPlan=p in provenance) for p in inputs])
@@ -126,10 +134,25 @@ def prepare(config):
     return result
 
 
+def current_preparation_plan(config):
+    """Revalidate changed handoff inputs; never treat replanning as publication."""
+    out, _ = locations(config)
+    plan = read(out / 'intake-plan.json')
+    if not plan or plan.get('metadataConflicts') or any(not Path(entry['path']).is_file() or digest(Path(entry['path'])) != entry['sha256']
+                       for entry in plan['inputs']):
+        # The completion owner may have waited days while catalogue/source
+        # documentation changed. Run the full existing preparation validation,
+        # then leave all published-database checks below mandatory.
+        plan = prepare(config)
+    return plan
+
+
 def final_handoffs(config):
     """Require actual publication of overlays, recovered links and explicit deferrals."""
     out, reports = locations(config)
-    plan = read(out / 'intake-plan.json')
+    plan = current_preparation_plan(config)
+    from .library_identity import load_identities
+    identity_fills=load_identities(config['site_dir'])
     conflicts = []
     for entry in plan['inputs']:
         if digest(Path(entry['path'])) != entry['sha256']:
@@ -147,7 +170,7 @@ def final_handoffs(config):
                 continue
             hint = json.loads(published[1])['acquisition']
             for field in ('title', 'author', 'licence', 'sha256', 'workId', 'editionId', 'contributor', 'credit'):
-                if row.get(field) is not None and not metadata_matches(hint, row, field, records):
+                if row.get(field) is not None and not metadata_matches(hint, row, field, records,identity_fills):
                     conflicts.append(dict(path=row['path'], field=field))
         for row in read(reports / 'text/existing-ocr-completion/acquisition-manifest.json')['files']:
             published = db.execute('SELECT status,metadata,document_id FROM library_files WHERE path=?', (row['path'],)).fetchone()
@@ -178,9 +201,10 @@ def final_handoffs(config):
 
 
 def report(config):
+    from .report_health import observed_status
     out, reports = locations(config)
-    progress = read(config['state_dir'] / 'embedding-progress.json', {})
-    completion = read(config['state_dir'] / 'intake-completion.json', {})
+    progress = observed_status(read(config['state_dir'] / 'embedding-progress.json', {}), 'embedding', config['site_dir'])
+    completion = observed_status(read(config['state_dir'] / 'intake-completion.json', {}), 'completion', config['site_dir'])
     queue = read(config['state_dir'] / 'bulk-queue.json', {})
     stock = read(config['state_dir'] / 'campaign-stocktake/summary.json', {})
     plan = read(out / 'intake-plan.json', {})
@@ -195,6 +219,9 @@ def report(config):
                    intakePlan={k:v for k,v in plan.items() if k not in ('preparation', 'inputs')},
                    publishedHandoffs=handoffs, monitorPid=os.environ.get('BIBLE_CAMPAIGN_MONITOR_PID'),
                    enrichmentStarted=False, publicOriginalsPublished=False)
+    summary['nativeRecovery'] = read(config['state_dir'] / 'native-supervisor/status.json', {})
+    summary['nativeRecoveryAlert'] = read(config['state_dir'] / 'native-supervisor/alert.json', {})
+    summary['nativeRecoveryTest'] = read(config['state_dir'] / 'native-supervisor/test-result.json', {})
     if progress.get('state') == 'running' and progress.get('rate_per_second', 0) > 0:
         seconds = progress.get('remaining', 0) / progress['rate_per_second']
         summary['currentPassETA'] = dict(hoursRemaining=round(seconds / 3600, 1),
@@ -214,7 +241,9 @@ def report(config):
     lines = ['# Campaign intake and embedding coordination', '',
              f"**{'VERIFIED COMPLETE' if complete else 'PENDING — passage/vector parity has not been verified for the final corpus'}**. Updated {summary['updatedAt']}.", '',
              f"Passages: {progress.get('total', 0):,}; saved vectors (worker progress): {progress.get('indexed', 0):,}; remaining: {progress.get('remaining', 0):,}. Before coordination: {before.get('total', 0):,} passages / {before.get('indexed', 0):,} vectors. Worker state: {progress.get('state')}; corpus: {progress.get('corpus_build')}.", '',
-             f"Current-pass estimate at the observed rate: {summary.get('currentPassETA', {}).get('hoursRemaining', 'unavailable')} hours. Final refresh and later acquisitions add work; this is not a campaign-completion ETA.", '',
+             f"Last worker checkpoint: {progress.get('updated_at')}. Process observation: {progress.get('health', {}).get('process', 'not applicable')}. Report generation time is not evidence of embedding progress.", '',
+             f"Native recovery: {summary['nativeRecovery'].get('state', 'not installed')}; last supervisor check: {summary['nativeRecovery'].get('updated_at', 'none')}. Local alert: {summary['nativeRecoveryAlert'].get('reason') if summary['nativeRecoveryAlert'].get('active') else 'none'}. Controlled recovery test: {'passed (one worker interruption and scheduled replacement)' if summary['nativeRecoveryTest'].get('verified') else 'not yet verified'}.", '',
+             (f"Current-pass estimate at the observed rate: {summary['currentPassETA']['hoursRemaining']} hours. Final refresh and later acquisitions add work; this is not a campaign-completion ETA." if 'currentPassETA' in summary else 'Current-pass completion ETA: unavailable.'), '',
              f"Held library snapshot {stock.get('snapshotAt')}: {stock.get('libraryFiles', 0):,} files, {stock.get('GB', 0)} GB; {stock.get('unpublishedBodyCandidates', 0):,} pending body candidates. Includes support files and representations, not a book count.", '',
              f"Published intake classifications: {json.dumps(intake.get('statuses', {}), sort_keys=True)}. Plan catalogue records by kind: {json.dumps(plan.get('catalogueKinds', {}), sort_keys=True)}.", '',
              f"Catalogue preparation scope: {catalogue.get('bodyFilesConsidered', 0):,} body representations; {catalogue.get('representations', {}).get('original', 0):,} classified original representations and {catalogue.get('representations', {}).get('duplicate-original', 0)} duplicate originals. Sermons/articles/chapters and derivatives are not counted as distinct books.", '',
@@ -223,7 +252,7 @@ def report(config):
              f"Legacy source work IDs: {plan.get('distinctLegacyIdentities', 0):,} unregistered identifiers across {plan.get('legacyIdentityRepresentations', 0):,} representations, retained as source metadata rather than dangling catalogue links. These do not prevent private text indexing; authority registration remains pending.", '',
              'Three excluded-author archive moves are checksum-proven in archive-moves.json; the rebuild must remove their bodies. Valid saved vectors and model identity are reused; obsolete passages alone are pruned by the existing content-addressed pipeline.', '',
              f"Completion pipeline: {completion.get('state')}; queue: {queue.get('phase')} / {queue.get('state')}; queue failures: {len(queue.get('failures', []))}. Historical failed-download ledger entries: {sum(r['entries'] for r in failures):,} across {len(failures)} ledgers (may overlap; not unique works). Error: {completion.get('error', 'none')}. Monitor PID: {summary['monitorPid']}.", '',
-             'Next: let the current embedding pass finish, wait for acquisition phases to settle, prove missing-input disposition, refresh once, embed only absent passage IDs, and verify parity plus published handoffs. Unknown missing inputs or extraction errors stop completion. Hard download failures remain in the existing TODO ledgers without retries.', '',
+             ('Embedding pass finished; final verification requires separate authorization.' if progress.get('state') == 'embedded_pending_verification' else 'Embedding is not confirmed running. No current-pass completion ETA is available; completion remains pending.' if progress.get('state') not in ('running', 'complete') else 'Completion remains gated on final corpus/vector parity and published handoffs.'), '',
              'Runtime outputs here: intake-plan.json, archive-moves.json, published-handoffs.json (after final intake), monitor-state.json, summary.json and this live REPORT.md. Preparation outputs remain under Website/content/library/reports/campaign-reconciliation/{catalogue,sources,text}/. The monitor owns no vector writer.']
     (out / 'REPORT.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
     return {'state': summary['state'], 'passages': progress.get('total'), 'vectors': progress.get('indexed'), 'remaining': progress.get('remaining')}

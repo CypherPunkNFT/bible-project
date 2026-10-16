@@ -1,0 +1,200 @@
+{
+  "date": "2026-10-14",
+  "browser": "Headless Microsoft Edge via Playwright",
+  "checks": [
+    {
+      "name": "Primary page loaded",
+      "passed": true
+    },
+    {
+      "name": "greek selection",
+      "passed": true
+    },
+    {
+      "name": "greek evidence expands",
+      "passed": true
+    },
+    {
+      "name": "greek Escape closes and returns focus",
+      "passed": true
+    },
+    {
+      "name": "latin selection",
+      "passed": true
+    },
+    {
+      "name": "latin evidence expands",
+      "passed": true
+    },
+    {
+      "name": "latin Escape closes and returns focus",
+      "passed": true
+    },
+    {
+      "name": "marks selection",
+      "passed": true
+    },
+    {
+      "name": "marks evidence expands",
+      "passed": true
+    },
+    {
+      "name": "marks Escape closes and returns focus",
+      "passed": true
+    },
+    {
+      "name": "Reset restores whole page",
+      "passed": true
+    },
+    {
+      "name": "1522 adds clause",
+      "passed": true
+    },
+    {
+      "name": "1519 lacks clause",
+      "passed": true
+    },
+    {
+      "name": "bh12 source",
+      "passed": true
+    },
+    {
+      "name": "bh3 source",
+      "passed": true
+    },
+    {
+      "name": "bhs source",
+      "passed": true
+    },
+    {
+      "name": "bhq source",
+      "passed": true
+    },
+    {
+      "name": "Keyboard selects Latin",
+      "passed": true
+    },
+    {
+      "name": "State survives reload",
+      "passed": true
+    },
+    {
+      "name": "No overflow 1440",
+      "passed": true
+    },
+    {
+      "name": "Expanded greek fits 1440",
+      "passed": true
+    },
+    {
+      "name": "Expanded latin fits 1440",
+      "passed": true
+    },
+    {
+      "name": "Expanded marks fits 1440",
+      "passed": true
+    },
+    {
+      "name": "No overflow 1280",
+      "passed": true
+    },
+    {
+      "name": "Expanded greek fits 1280",
+      "passed": true
+    },
+    {
+      "name": "Expanded latin fits 1280",
+      "passed": true
+    },
+    {
+      "name": "Expanded marks fits 1280",
+      "passed": true
+    },
+    {
+      "name": "No overflow 1024",
+      "passed": true
+    },
+    {
+      "name": "Expanded greek fits 1024",
+      "passed": true
+    },
+    {
+      "name": "Expanded latin fits 1024",
+      "passed": true
+    },
+    {
+      "name": "Expanded marks fits 1024",
+      "passed": true
+    },
+    {
+      "name": "No overflow 768",
+      "passed": true
+    },
+    {
+      "name": "Expanded greek fits 768",
+      "passed": true
+    },
+    {
+      "name": "Expanded latin fits 768",
+      "passed": true
+    },
+    {
+      "name": "Expanded marks fits 768",
+      "passed": true
+    },
+    {
+      "name": "No overflow 390",
+      "passed": true
+    },
+    {
+      "name": "Expanded greek fits 390",
+      "passed": true
+    },
+    {
+      "name": "Expanded latin fits 390",
+      "passed": true
+    },
+    {
+      "name": "Expanded marks fits 390",
+      "passed": true
+    },
+    {
+      "name": "No overflow 320",
+      "passed": true
+    },
+    {
+      "name": "Expanded greek fits 320",
+      "passed": true
+    },
+    {
+      "name": "Expanded latin fits 320",
+      "passed": true
+    },
+    {
+      "name": "Expanded marks fits 320",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion removes image transition",
+      "passed": true
+    },
+    {
+      "name": "No script errors",
+      "passed": true
+    },
+    {
+      "name": "All local links resolve",
+      "passed": true
+    },
+    {
+      "name": "External links use HTTPS or established preview",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "No screen-reader session",
+    "No application integration or route-transition test",
+    "External source availability not re-audited in this design pass"
+  ]
+}

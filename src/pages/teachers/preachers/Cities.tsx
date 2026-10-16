@@ -23,7 +23,7 @@ export function Cities() {
   const choose = (i: number) => { setChosen(i); setLit(null); };
 
   return <>
-    <SectionHead num="03" kicker="Places · where their paths met" title={<>Cities that <em>gathered them</em></>}
+    <SectionHead num="04" kicker="Places · where their paths met" title={<>Cities that <em>gathered them</em></>}
       line={`${cities.length} towns where two or more of these teachers lived. Choose one and the map flies there, with a line from where each of them came.`} />
     <div className="cty-rail" role="group" aria-label="Choose a city">
       {cities.map((c, i) => <CityCard key={c.name} city={c} pressed={c === city} onChoose={() => choose(i)} />)}

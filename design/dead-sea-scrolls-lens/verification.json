@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-14",
+  "checks": [
+    "All original SVG paths preserved except exactly two left-curl paths; right end/body/seam/marks/fragments unchanged",
+    "Current/Proposed and scroll/fragment keyboard states; light/dark and 320–1440px overflow checks",
+    "Reduced motion, real-object destination and no browser exceptions"
+  ],
+  "errors": [],
+  "limits": [
+    "Isolated prototype only; no route or production transition integration.",
+    "No manual screen-reader session."
+  ]
+}

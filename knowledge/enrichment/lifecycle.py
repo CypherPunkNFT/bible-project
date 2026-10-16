@@ -10,8 +10,22 @@ from .core import Graph, checksum, dumps, identity, now, readonly, writer_lock
 from ..settings import write_json
 
 
+def transient_access(error):
+    return isinstance(error, PermissionError) or getattr(error, 'winerror', None) in (32, 33)
+
+
 def read(path, default=None):
-    return json.loads(Path(path).read_text('utf-8-sig')) if Path(path).exists() else default
+    # Atomic status replacements can briefly collide with Windows readers.
+    # Missing data stays missing; malformed JSON is never treated as ready.
+    for attempt in range(6):
+        try:
+            return json.loads(Path(path).read_text('utf-8-sig'))
+        except FileNotFoundError:
+            return default
+        except OSError as error:
+            if not transient_access(error) or attempt == 5:
+                raise
+            time.sleep(.05 * 2**attempt)
 
 
 def production_gate(config):
@@ -20,20 +34,22 @@ def production_gate(config):
     handoffs=read(coordination/'published-handoffs.json',{}); verify=completion.get('verification',{})
     reasons=[]; build=verify.get('corpus_build')
     if summary.get('state')!='verified_complete': reasons.append('campaign coordinator has not verified completion')
+    if not build: reasons.append('verified corpus build missing')
     if completion.get('state')!='complete' or not verify.get('complete') or not verify.get('enrichment_ready'): reasons.append('intake verification incomplete')
     if embedding.get('state')!='complete' or embedding.get('remaining')!=0 or embedding.get('corpus_build')!=build: reasons.append('embedding completion/build parity pending')
     if not handoffs.get('preparationPublished') or handoffs.get('conflicts'): reasons.append('preparation handoffs unpublished or conflicting')
     if 'explicitTextDeferrals' not in handoffs or any(r.get('status')!='deferred_scan' for r in handoffs.get('explicitTextDeferrals',[])): reasons.append('explicit text deferrals not verified')
     for field in ('missing_vectors','stale_vectors','duplicate_vectors','foreign_key_errors','missing_library_files_since_snapshot','new_library_files_since_snapshot','changed_library_ledgers_since_snapshot','new_source_files_since_snapshot','changed_source_inputs_since_snapshot','missing_source_inputs_since_snapshot'):
-        if verify.get(field,0): reasons.append(field+' is nonzero')
-    if verify.get('sqlite_integrity')!='ok' or not verify.get('embedding_identity_matches') or verify.get('chunks')!=verify.get('vectors'): reasons.append('reported integrity/vector parity failed')
+        if type(verify.get(field)) is not int or verify[field] != 0: reasons.append(field+' is missing or nonzero')
+    if verify.get('sqlite_integrity')!='ok' or verify.get('embedding_identity_matches') is not True or type(verify.get('chunks')) is not int or verify['chunks']<=0 or verify.get('chunks')!=verify.get('vectors'): reasons.append('reported integrity/vector parity failed')
+    plan=read(coordination/'intake-plan.json',{})
+    if not plan.get('inputs') or plan.get('metadataConflicts'): reasons.append('preparation plan missing or conflicting')
     if reasons: return dict(ready=False,reasons=reasons,corpusBuild=build)
     # No live DB handle is opened while waiting. Once status is ready, independently
     # compare publication inputs/deferrals and build with the actual read-only DB.
     with closing(readonly(config['db'])) as db:
         actual=db.execute("SELECT value FROM meta WHERE key='built_at'").fetchone()[0]
         if actual!=build: reasons.append('actual corpus build differs from completion')
-        plan=read(coordination/'intake-plan.json',{})
         for entry in plan.get('inputs',[]):
             published=db.execute('SELECT sha256 FROM files WHERE path=?',(entry['path'],)).fetchone()
             if not published or published[0]!=entry['sha256'] or checksum(entry['path'])!=entry['sha256']: reasons.append('changed/unpublished handoff: '+entry['path'])
@@ -118,13 +134,13 @@ def rollback(config):
         return previous
 
 
-def report(config,monitor=None):
+def report(config,monitor=None,gate=None):
     root=config['state_dir']/'graph-development'; root.mkdir(parents=True,exist_ok=True)
     pilot=read(root/'latest-pilot.json',{}); full=read(root/'latest-full.json',{}); published=read(root/'current-release.json',{})
     latest=full or pilot; result=dict(updatedAt=now(),softwareImplemented=True,pilotTested=bool(pilot),fullCorpusScanned=bool(full),releaseValidated=bool(published),
         state='private_release_validated' if published else 'monitored_pending' if monitor else 'development',pilot=pilot,full=full,currentRelease=published,
         monitor=monitor or read(root/'monitor-state.json',{}),embedding=read(config['state_dir']/'embedding-progress.json',{}),
-        progress=read(root/'run-progress.json',{}),quality=read(root/'quality-policy.json',{}),productionGate=production_gate(config),
+        progress=read(root/'run-progress.json',{}),quality=read(root/'quality-policy.json',{}),productionGate=production_gate(config) if gate is None else gate,
         testResult=read(root/'tests.json',{}),coverage=dict(topicLanguage='English only',topicRules=24,interpretiveClaims='deferred',
         aliasResolution='unique full registry names or distinctive biblical names; ambiguous candidates retained',
         citations='literal named book chapter:verse, Roman numerals, lists/ranges; unknown edition/numbering remains unknown'),
@@ -183,14 +199,17 @@ def monitor(config):
     root=config['state_dir']/'graph-development'
     os.environ['CUDA_VISIBLE_DEVICES']=''; os.environ['OMP_NUM_THREADS']='1'; os.environ['ARROW_NUM_THREADS']='1'
     state=dict(pid=os.getpid(),startedAt=now(),state='waiting_for_verified_intake',cpuOnly=True,log=str(root/'monitor.log'))
+    failures=0
     with writer_lock(config['state_dir'],'monitor.lock'):
         while True:
+            extracting=False
             try:
                 from .runner import check_cancel
                 check_cancel(config)
                 gate=production_gate(config); state.update(updatedAt=now(),gate=gate)
                 policy=read(root/'quality-policy.json',{})
                 if gate['ready'] and policy.get('reviewComplete'):
+                    extracting=True
                     state['state']='capturing_final_snapshot'; write_json(root/'monitor-state.json',state)
                     from .snapshot import capture
                     snapshot=capture(config)
@@ -203,12 +222,27 @@ def monitor(config):
                     state.update(state='private_release_validated',release=release,updatedAt=now()); write_json(root/'monitor-state.json',state); report(config,state)
                     print(dumps(state),flush=True); return
                 state['state']='waiting_for_verified_intake' if not gate['ready'] else 'waiting_for_pilot_review'
-                write_json(root/'monitor-state.json',state); report(config,state)
+                state.pop('error',None); state.pop('retryInSeconds',None)
+                state.pop('statusWriteError',None); state['consecutiveAccessFailures']=0
+                write_json(root/'monitor-state.json',state); report(config,state,gate)
+                failures=0
             except Exception as error:
                 from .runner import Cancelled
-                state.update(state='cancelled' if isinstance(error,Cancelled) else 'needs_attention',error=str(error),updatedAt=now())
-                write_json(root/'monitor-state.json',state); report(config,state)
+                retry=not extracting and transient_access(error)
+                failures+=1
+                retry=retry and failures<10
+                state.update(state='retrying_status_access' if retry else 'cancelled' if isinstance(error,Cancelled) else 'needs_attention',
+                    error=str(error),updatedAt=now(),consecutiveAccessFailures=failures,
+                    gate=dict(ready=False,reasons=['monitor could not verify current status'],corpusBuild=None))
+                if retry: state['retryInSeconds']=30
+                else: state.pop('retryInSeconds',None)
+                # Never call report() here: it may reread the same inaccessible
+                # input. Keep the primary error visible even if heartbeat writing
+                # also fails. A gate-read error can never reuse a prior ready gate.
+                try: write_json(root/'monitor-state.json',state)
+                except OSError as status_error: state['statusWriteError']=str(status_error)
                 print(dumps(state),flush=True)
-                # Never retry bad inputs or failed validation indefinitely.
-                return
+                # Do not automatically repeat extraction, parity or publication
+                # on failure. Persistent access failures also stop after 10 polls.
+                if not retry: return
             time.sleep(30)

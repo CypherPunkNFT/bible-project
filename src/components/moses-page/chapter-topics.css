@@ -1,0 +1,77 @@
+.moses-topics {padding:1.5rem 0 0;overflow-anchor:none}
+.moses-topics .horizontal-groups {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-block:1px solid var(--line)}
+.moses-topics .horizontal-groups button {display:flex;align-items:center;gap:1.15rem;min-height:136px;padding:1.3rem;text-align:left;background:none;border:0;border-right:1px solid var(--line);color:var(--muted);cursor:pointer}
+.moses-topics .horizontal-groups button:last-child {border-right:0}
+.moses-topics .horizontal-groups button:is([aria-selected="true"],[aria-expanded="true"]) {background:color-mix(in srgb,var(--tone) 7%,var(--page));color:var(--ink);box-shadow:inset 0 -3px var(--tone)}
+.moses-topics .horizontal-groups button:hover {background:color-mix(in srgb,var(--tone) 10%,var(--page))}
+.moses-topics .category-icon {width:76px;height:76px;flex-shrink:0;color:var(--tone);filter:drop-shadow(0 6px 15px color-mix(in srgb,var(--tone) 15%,transparent))}
+.moses-topics .horizontal-label strong {font:500 clamp(1.1rem,1.7vw,1.55rem)/1.2 var(--serif)}
+.moses-topics .horizontal-arrow {color:var(--tone);margin-left:auto;font-size:1.3rem}
+.moses-topics .topic-panel {display:block;padding:0 0 3rem;overflow-anchor:none;box-sizing:border-box}
+.moses-topics .topic-panel[hidden] {display:none}
+.moses-topics .chapter-topic-card .horizontal-arrow {display:block;opacity:0;transition:opacity .15s}
+.moses-topics .chapter-topic-card:is(:hover,:focus-visible,[aria-expanded="true"]) .horizontal-arrow {opacity:1}
+.moses-topics .chapter-topic-card .horizontal-arrow svg {display:block}
+@media(hover:none){.moses-topics .chapter-topic-card .horizontal-arrow{opacity:1}}
+.moses-topics .topic-subnav {padding:1.2rem 0 1.6rem;border-bottom:1px solid var(--line)}
+.moses-topics .topic-subnav nav {display:flex;flex-wrap:wrap;gap:.55rem}
+.moses-topics .topic-subnav button {display:flex;align-items:center;padding:.65rem 1rem;border:1px solid var(--line);border-radius:4px;gap:.6rem;font-size:.78rem;color:var(--muted);background:none;cursor:pointer}
+.moses-topics .topic-subnav button small {font:500 .6rem var(--mono)}
+.moses-topics .topic-subnav button[aria-current="true"] {color:var(--tone);border-color:var(--tone);background:color-mix(in srgb,var(--tone) 7%,var(--page))}
+.moses-topics .topic-reading {padding:2rem 0;max-width:1050px}
+.moses-topics .topic-reading-single {padding-top:1.5rem}
+.moses-topics .topic-nation {columns:2;column-gap:2.8rem;column-rule:1px solid var(--line)}
+.moses-topics .topic-nation .lg-nat {break-inside:avoid;margin-bottom:1.5rem}
+@media(max-width:680px){.moses-topics .topic-nation{columns:1;column-rule:none}}
+.moses-topics .topic-index {font-size:.62rem;letter-spacing:.18em;color:var(--tone)}
+.moses-topics .topic-reading>h3 {font:400 2rem/1.1 var(--serif);letter-spacing:-.04em;margin:.4rem 0 1.5rem}
+.moses-topics .topic-reading p {font-size:.83rem;line-height:1.7}
+.moses-topics .topic-reading .lg-people {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem 2.3rem;padding-left:1rem}
+.moses-topics .topic-reading .lg-people li {margin:0}
+.moses-topics .topic-reading .lg-people b {font:500 1.3rem var(--serif)}
+.moses-topics .topic-reading .lg-people q {font:italic 1.1rem/1.6 var(--serif)}
+.moses-topics .topic-reading .lg-src {font-size:.7rem}
+.moses-topics .topic-reading :is(.lg-sign,.lg-power,.lg-dview,.lg-two) {margin-bottom:2rem}
+.moses-topics .topic-reading :is(.lg-sign b,.lg-power>b) {font:500 1.4rem var(--serif)}
+.moses-topics button:focus-visible {outline:2px solid var(--tone)!important;outline-offset:4px}
+.word-topics .topic-reading .claim-theme {display:none}
+.word-topics .topic-reading>.lg-call {max-width:58rem}
+.word-topics .topic-reading .claim>p {font-size:.92rem;line-height:1.8}
+.word-topics .topic-reading .mx-like-foot {grid-template-columns:1fr;gap:1rem;margin-top:2rem}
+.word-topics .topic-reading .mx-like-foot .mg-link {justify-self:start}
+.word-topics .topic-reading .mx-mouth.is-end {padding:1.5rem 0;max-width:58rem}
+@media(max-width:900px){.moses-topics .horizontal-groups button{gap:.6rem;padding:1rem .7rem}.moses-topics .category-icon{width:52px;height:52px}.moses-topics .horizontal-arrow{display:none}}
+@media(max-width:680px){.moses-topics .horizontal-groups{display:flex;overflow-x:auto;scroll-snap-type:x proximity}.moses-topics .horizontal-groups button{flex:0 0 78%;scroll-snap-align:start;min-height:105px}.moses-topics .category-icon{width:58px;height:58px}.moses-topics .horizontal-label strong{font-size:1.25rem}.moses-topics .horizontal-arrow{display:block}.moses-topics .topic-reading .lg-people{grid-template-columns:1fr}.moses-topics .topic-subnav nav{flex-wrap:nowrap;overflow:auto}.moses-topics .topic-subnav button{white-space:nowrap}}
+
+.moses-topics .topic-outcomes { columns:2; column-gap:2.8rem; column-rule:1px solid var(--line); }
+.moses-topics .topic-outcomes .lg-ful { break-inside:avoid; margin-bottom:1.8rem; }
+@media(max-width:680px){.moses-topics .topic-outcomes{columns:1;column-rule:none}}
+.moses-topics .egypt-context {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8rem 2.5rem;margin-top:1.8rem}
+.moses-topics .egypt-context section {border-top:1px solid var(--line);padding-top:1rem;min-width:0}
+.moses-topics .egypt-context-label {font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tone)}
+.moses-topics .egypt-context h5 {font:500 1.2rem/1.35 var(--serif);margin:.45rem 0 .7rem}
+.moses-topics .egypt-context p {margin:.65rem 0;font-size:.86rem;line-height:1.75}
+.moses-topics .egypt-context footer {font-size:.68rem;line-height:1.8;color:var(--muted)}
+.moses-topics .egypt-context footer a {color:var(--tone);border-bottom:1px solid color-mix(in srgb,var(--tone) 30%,transparent)}
+.moses-topics .egypt-context .egypt-royal-line {font-size:.8rem;color:var(--ink);font-weight:600}
+.moses-topics .egypt-royal-line span {color:var(--tone);padding:0 .25rem}
+@media(max-width:680px){.moses-topics .egypt-context{grid-template-columns:1fr;gap:1.3rem}}
+.moses-topics .topic-slider {display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;overflow-anchor:none;align-items:stretch}
+.moses-topics .topic-slider::-webkit-scrollbar {display:none}
+.moses-topics .topic-slider>.topic-slide {flex:0 0 100%;min-width:0;max-width:none;box-sizing:border-box;scroll-snap-align:start;padding:2rem 1px}
+.moses-topics .topic-scrollbar {display:flex;gap:1rem;align-items:center;padding:1.3rem 0;border-bottom:1px solid var(--line);color:var(--tone)}
+.moses-topics .topic-scrollbar[hidden] {display:none}
+.moses-topics .topic-scrollbar button {flex-shrink:0;display:grid;place-items:center;width:32px;height:32px;border:1px solid var(--line);border-radius:50%;color:var(--tone)}
+.moses-topics .topic-scrollbar button:disabled {opacity:.35;cursor:default}
+.moses-topics .topic-scrollbar [data-topic-step="-1"] svg {transform:rotate(180deg)}
+.moses-topics .topic-scrollbar output {font:500 .65rem var(--mono);color:var(--muted);min-width:3rem;text-align:center}
+.moses-topics .topic-scrollbar input {flex:1;min-width:0;height:24px;margin:0;background:transparent;appearance:none;cursor:ew-resize;color:var(--tone)}
+.moses-topics .topic-scrollbar input::-webkit-slider-runnable-track {height:2px;background:var(--line);border-radius:4px}
+.moses-topics .topic-scrollbar input::-webkit-slider-thumb {appearance:none;width:var(--topic-thumb);height:7px;margin-top:-2.5px;background:var(--tone);border-radius:8px}
+.moses-topics .topic-scrollbar input::-moz-range-track {height:2px;background:var(--line)}
+.moses-topics .topic-scrollbar input::-moz-range-thumb {width:var(--topic-thumb);height:7px;border:0;border-radius:8px;background:var(--tone)}
+.moses-topics .topic-slider:focus-visible,.moses-topics .topic-scrollbar input:focus-visible {outline:2px solid var(--tone);outline-offset:4px}
+@media(max-width:680px){.moses-topics .topic-scrollbar{gap:.65rem}.moses-topics .topic-slider>.topic-slide{padding-top:1.5rem}}
+.moses-topics .topic-kingdoms {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 3rem}
+.moses-topics .topic-kingdoms>.lg-power {margin:0}
+@media(max-width:680px){.moses-topics .topic-kingdoms{grid-template-columns:1fr}}

@@ -12,6 +12,8 @@
 
 /* Light (parchment) is the default; dark follows the system unless the reader picked one. */
 :root {
+  --site-content-width: 92rem;
+  --site-gutter: 1rem;
   --font-sans: "Archivo Variable", system-ui, sans-serif;
   --font-serif: "Literata Variable", Georgia, "Times New Roman", serif;
   --font-hebrew: "Noto Serif Hebrew", "SBL Hebrew", "Times New Roman", serif;
@@ -27,6 +29,7 @@
 
   /* The site's own section palette (2026-10-03; the owner asked not to copy Visual Unit's reading-chart colours):
      terracotta, teal, blue, royal purple, magenta, goldenrod, crimson, slate. --x = text/accent, -tab / -box / -tab-ink for the chart. */
+  --resource-life: #3d6b58;
   --history: #a14d28; --history-tab: #a8502a; --history-box: #f0c3a9; --history-tab-ink: #ffffff;
   --poetry: #18716a; --poetry-tab: #1b7a71; --poetry-box: #a7dbd3; --poetry-tab-ink: #ffffff;
   --prophets: #22599f; --prophets-tab: #22599f; --prophets-box: #b5cdee; --prophets-tab-ink: #ffffff;
@@ -55,6 +58,7 @@
     --line: #36322c;
     --accent: #e0b25c;
     --red-letter: #ff7a6e;
+    --resource-life: #80c498;
     --history: #ec9670; --history-tab: #a8502a; --history-box: color-mix(in srgb, #f0c3a9 62%, #12110f); --history-tab-ink: #ffffff;
     --poetry: #5fc6ba; --poetry-tab: #1b7a71; --poetry-box: color-mix(in srgb, #a7dbd3 62%, #12110f); --poetry-tab-ink: #ffffff;
     --prophets: #86b1ee; --prophets-tab: #22599f; --prophets-box: color-mix(in srgb, #b5cdee 62%, #12110f); --prophets-tab-ink: #ffffff;
@@ -81,6 +85,7 @@
   --line: #36322c;
   --accent: #e0b25c;
   --red-letter: #ff7a6e;
+  --resource-life: #80c498;
   --history: #ec9670; --history-tab: #a8502a; --history-box: color-mix(in srgb, #f0c3a9 62%, #12110f); --history-tab-ink: #ffffff;
   --poetry: #5fc6ba; --poetry-tab: #1b7a71; --poetry-box: color-mix(in srgb, #a7dbd3 62%, #12110f); --poetry-tab-ink: #ffffff;
   --prophets: #86b1ee; --prophets-tab: #22599f; --prophets-box: color-mix(in srgb, #b5cdee 62%, #12110f); --prophets-tab-ink: #ffffff;
@@ -284,3 +289,5 @@ body {
   background: color-mix(in srgb, #2e9e5b 11%, var(--page));
 }
 
+
+@media (min-width:640px) { :root { --site-gutter:1.5rem; } }

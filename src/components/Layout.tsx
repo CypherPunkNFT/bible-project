@@ -6,6 +6,9 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 import "./site-navigation.css";
+import "./site-page-transitions.css";
+import { usePageArrival } from "@/components/usePageArrival";
+import { useLongMemoryTransition } from "@/components/people-pages/useLongMemoryTransition";
 
 const COMMUNITY = { to: "/testimonies", label: "Testimonies", icon: GitBranch };
 
@@ -20,6 +23,8 @@ const NAV = [
 export function Layout({ children }: { children: ReactNode }) {
   const [theme, toggleTheme] = useTheme();
   const location = useLocation();
+  const memoryTransition = useLongMemoryTransition();
+  usePageArrival();
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -30,7 +35,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded focus:bg-surface focus:px-3 focus:py-2">
         Skip to content
       </a>
-      <header className="sticky top-0 z-40 border-b border-line bg-page/85 backdrop-blur-md" style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}>
+      <header data-site-header className="sticky top-0 z-40 border-b border-line bg-page/85 backdrop-blur-md" style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}>
         <SectionStrip className="h-1" />
         <div className="site-header-row mx-auto flex max-w-7xl items-center gap-2 px-4 sm:px-6">
           <Link to="/" className="mr-2 flex items-center gap-2 font-serif text-lg font-semibold tracking-tight">
@@ -109,7 +114,7 @@ export function Layout({ children }: { children: ReactNode }) {
           </a>
         </div>
       </header>
-      <main id="main" className="flex-1">
+      <main id="main" className="flex-1" onClickCapture={memoryTransition}>
         {children}
       </main>
       <SiteFooter />

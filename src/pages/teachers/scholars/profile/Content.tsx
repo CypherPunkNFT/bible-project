@@ -7,6 +7,8 @@ import type { Scholar, ScholarsData } from "@/data/teachers/pages-types";
 import { eraParts, lived, NOW, yearPct, years } from "../marks/facts";
 import { Mark } from "../marks/Mark";
 import { toneStyle } from "../marks/shapes";
+import { useScholars } from '../context';
+import { PopulationWorks } from '../catalogue/PopulationWorks';
 import { ProfileMap } from "./ProfileMap";
 
 function SiteBadge({ s, compact }: { s: Scholar; compact?: boolean }) {
@@ -27,7 +29,7 @@ function AreaBars({ s }: { s: Scholar }) {
 
 /** Their life on a line from year 0 to today: works as dots, faint marks for every other scholar. */
 function LifeBar({ data, s }: { data: ScholarsData; s: Scholar }) {
-  return <div className="prf-lb" role="img" aria-label={`Life: ${years(s)}, shown on a line from year 0 to ${NOW}`}>
+  return <div className="prf-lb" role="img" aria-label={`Life: ${years(s)}, compared with the curated profile subset, shown on a line from year 0 to ${NOW}`}>
     <div className="prf-lb-track">
       {data.scholars.filter((o) => o.id !== s.id).map((o) => <i key={o.id} className="prf-lb-other" style={{ left: yearPct((o.born + (o.died ?? NOW)) / 2) }} />)}
       <b style={{ left: yearPct(s.born), width: `max(4px, calc(${yearPct(s.died ?? NOW)} - ${yearPct(s.born)}))` }} />
@@ -51,6 +53,8 @@ function Extras({ data, s }: { data: ScholarsData; s: Scholar }) {
 }
 
 export function ProfileContent({ data, s }: { data: ScholarsData; s: Scholar }) {
+  const {library}=useScholars();
+  const entry=library?.find(p=>p.scholar?.id===s.id);
   const [eraName, eraSpan] = eraParts(data, s.era), c = s.circa ? "c. " : "";
   return <div className="prf-grid" style={toneStyle(s.field)}>
     <div className="prf-main">
@@ -60,11 +64,13 @@ export function ProfileContent({ data, s }: { data: ScholarsData; s: Scholar }) 
         <p className="prf-years">{years(s)} <span>· {s.died === null ? "Living" : `lived ${lived(s)}`}</span></p>
         <p className="prf-tags"><span className="prf-faith">{data.faiths[s.faith]}</span>{s.tags?.map(tag => <span key={tag} className="prf-badge">{tag}</span>)}<SiteBadge s={s} compact /></p></div></header>
       <p className="prf-line">{s.line}</p>
+      <p><Link to={`/teachers/collections/${encodeURIComponent(s.id)}`}>Explore their works through the years →</Link></p>
       <dl className="prf-facts">
         <div><dt>Born</dt><dd>{c}{s.born}</dd></div><div><dt>{s.died === null ? "Status" : "Died"}</dt><dd>{s.died === null ? "Living" : `${c}${s.died}`}</dd></div>
         <div><dt>Faith</dt><dd>{data.faiths[s.faith]}</dd></div><div><dt>Era</dt><dd>{eraName}<small>{eraSpan}</small></dd></div>
       </dl>
-      <section><h3>Key works</h3><ol className="prf-works">{s.works.map(([title, year]) => <li key={`${title}-${year}`}><b>{title}</b><span>{year}</span></li>)}</ol></section>
+      <section><h3>Selected bibliography</h3><ol className="prf-works">{s.works.map(([title, year]) => <li key={`${title}-${year}`}><b>{title}</b><span>{year}</span></li>)}</ol></section>
+      {entry&&<section><h3>Complete library work associations</h3><PopulationWorks person={entry}/></section>}
       {s.writings && <section><h3>Apologetics materials</h3><p>Popular and scholarly articles from Reasonable Faith.</p><Link to={s.writings.to}>{s.writings.label} →</Link></section>}
       {s.biographyUrl && <p><a href={s.biographyUrl} target="_blank" rel="noreferrer">Author biography and bibliography ↗</a></p>}
       {s.acquiredId && <section><h3>Acquired texts</h3><p>{s.heldTexts.toLocaleString()} held text representations · {s.readableTexts.toLocaleString()} readable here. Editions and formats can overlap.</p><Link to={`/teachers/works?author=${encodeURIComponent(s.acquiredId)}`}>Browse the full shelf →</Link></section>}

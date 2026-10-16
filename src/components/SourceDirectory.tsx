@@ -1,10 +1,11 @@
 import { ArrowDown, ArrowUpRight, BookOpen, Search } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { CorpusDashboard, AcquisitionLinks } from "./sources/CorpusDashboard";
 import { SourceProviders } from "./sources/SourceProviders";
 import type { Directory } from "./sources/types";
+import { isScholarsOnlySource } from "@/lib/editorial-sources";
 
 const foundational = [
   ["eBible.org", "Scripture editions", "The source editions behind the reader, with their own language, book coverage and verse numbering.", "https://ebible.org/"],
@@ -30,7 +31,6 @@ const referenceLibrary = [
   ["James Strong", "Hebrew & Greek dictionaries", "Word studies keyed to the Strong's numbers in the King James text.", "Public domain · Open Scriptures edition", "https://github.com/openscriptures/strongs"],
   ["Brown, Driver & Briggs", "Hebrew and English Lexicon · 1906", "Hebrew word studies, keyed to Strong's numbers.", "Text public domain · edition CC BY 4.0, Open Scriptures", "https://github.com/openscriptures/HebrewLexicon"],
   ["Joseph Henry Thayer", "Greek-English Lexicon of the New Testament · 1889", "Greek word studies, once its scanned text is cleaned.", "Public domain · Internet Archive scan", "https://archive.org/details/thayer-lexicon"],
-  ["Flavius Josephus", "Antiquities · Wars · Life · Against Apion (tr. Whiston)", "First-century history beside person and place pages, labelled as history, not Scripture.", "Public domain in the US · Project Gutenberg", "https://www.gutenberg.org/ebooks/2848"],
 ];
 const research = [
   ["Spurgeon’s published sermons", "spurgeon"], ["Reformation & Puritan preaching", "puritan-sermons"],
@@ -46,7 +46,7 @@ const research = [
 const repo = "https://github.com/CypherPunkNFT/bible-project/blob/main/";
 const PAGE_SIZE = 12;
 
-export function SourceDirectory({ scriptureCount }: { scriptureCount: number }) {
+export function SourceDirectory({ scriptureCount, children }: { scriptureCount: number; children: ReactNode }) {
   const [directory, setDirectory] = useState<Directory | null>(null);
   const [failed, setFailed] = useState(false);
   const [category, setCategory] = useState("all");
@@ -58,13 +58,17 @@ export function SourceDirectory({ scriptureCount }: { scriptureCount: number }) 
     fetch("/content/sources/directory.json", { signal: controller.signal }).then(response => {
       if (!response.ok) throw new Error("Source directory unavailable");
       return response.json() as Promise<Directory>;
-    }).then(setDirectory).catch(() => { if (!controller.signal.aborted) setFailed(true); });
+    }).then(data => setDirectory({ ...data,
+      entries: data.entries.filter(entry => !isScholarsOnlySource(JSON.stringify(entry))),
+      sources: data.sources.filter(source => !isScholarsOnlySource(JSON.stringify(source))),
+      sourceProfiles: data.sourceProfiles?.filter(source => !isScholarsOnlySource(JSON.stringify(source))),
+    })).catch(() => { if (!controller.signal.aborted) setFailed(true); });
     return () => controller.abort();
   }, []);
   useEffect(() => {
     if (directory && window.location.hash) document.getElementById(window.location.hash.slice(1))?.scrollIntoView();
   }, [directory]);
-  if (!directory) return <section className="py-12"><h1 className="font-serif text-4xl">Sources & references</h1><p className="mt-4 text-muted" role="status">{failed ? "The directory could not load. Reload to try again; the Scripture editions remain available below." : "Opening the source directory…"}</p></section>;
+  if (!directory) return <><section className="py-12"><h1 className="font-serif text-4xl">Sources & references</h1><p className="mt-4 text-muted" role="status">{failed ? "The directory could not load. Reload to try again; the Scripture editions remain available below." : "Opening the source directory…"}</p></section>{children}</>;
   const terms = query.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
   const matches = directory.entries.filter(entry => (category === "all" || entry.categories.includes(category)) && (holdings === "all" || (holdings === "held" ? entry.held : !entry.held)) && terms.every(term => `${entry.title} ${entry.author} ${entry.kind} ${entry.links.map(link => (link.name || "") + " " + link.url).join(" ")}`.toLocaleLowerCase().includes(term)));
   const shown = matches.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
@@ -83,6 +87,8 @@ export function SourceDirectory({ scriptureCount }: { scriptureCount: number }) 
     <nav aria-label="Source directory" className="my-7 flex flex-wrap gap-2 text-sm">
       {[["scriptures", "Scriptures"], ["collections", "Collections"], ["foundations", "Study & atlas"], ["reference-library", "Reference library"], ["bibliography", "Bibliography"], ["research", "Research guides"], ["repositories", "Libraries & ministries"]].map(([id, label]) => <a key={id} href={`#${id}`} className="rounded-full border border-line px-4 py-2 hover:border-accent hover:text-accent">{label}</a>)}
     </nav>
+
+    {children}
 
     <CorpusDashboard directory={directory} />
 

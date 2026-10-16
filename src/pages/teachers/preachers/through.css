@@ -37,7 +37,7 @@
 .tp-preachers .tp-sec-through .thr-who > p:not(.kicker) { margin-top: .2rem; font-size: .78rem; color: var(--muted); }
 .tp-preachers .tp-sec-through .thr-name { color: inherit; font: inherit; border-bottom: 1px solid color-mix(in srgb, var(--tone) 45%, transparent); transition: border-color .15s, color .15s; }
 .tp-preachers .tp-sec-through .thr-name:hover { border-color: var(--tone); color: var(--tone); }
-.tp-preachers .tp-sec-through .thr-ring { display: block; width: 100%; max-width: 540px; margin: .2rem auto 0; overflow: visible; }
+.tp-preachers .tp-sec-through .thr-ring { display: block; width: 100%; max-width: none; margin: .2rem auto 0; overflow: visible; }
 .tp-preachers .tp-sec-through .thr-ring path { cursor: pointer; opacity: .82; stroke: var(--surface); stroke-width: .6; transition: opacity .3s; }
 .tp-preachers .tp-sec-through .thr-ring path.thr-zero { opacity: .2; }
 .tp-preachers .tp-sec-through .thr-ring path:hover, .tp-preachers .tp-sec-through .thr-ring path.thr-on { opacity: 1; }
@@ -52,7 +52,6 @@
 .tp-preachers .tp-sec-through .thr-label { font: 10.5px var(--sans); fill: var(--muted); pointer-events: none; }
 .tp-preachers .tp-sec-through .thr-years-slot { display: grid; align-items: center; min-height: 44px; margin-top: .6rem; }
 .tp-preachers .tp-sec-through .thr-years { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: .9rem; align-items: center; }
-.tp-preachers .tp-sec-through .thr-years-note { font-size: .76rem; line-height: 1.55; color: var(--muted); }
 .tp-preachers .tp-sec-through .thr-play { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; color: var(--tone); transition: background .2s, border-color .2s; }
 .tp-preachers .tp-sec-through .thr-play:hover, .tp-preachers .tp-sec-through .thr-play.thr-on { border-color: var(--tone); background: color-mix(in srgb, var(--tone) 12%, transparent); }
 .tp-preachers .tp-sec-through .thr-readout { min-width: 9.5rem; font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; }
@@ -62,7 +61,6 @@
 .tp-preachers .tp-sec-through .thr-range::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; margin-top: -6px; border: 2px solid var(--surface); border-radius: 50%; background: var(--tone); box-shadow: 0 1px 4px rgb(0 0 0 / 30%); }
 .tp-preachers .tp-sec-through .thr-range::-moz-range-track { height: 4px; border-radius: 2px; background: var(--surface-2); }
 .tp-preachers .tp-sec-through .thr-range::-moz-range-thumb { width: 14px; height: 14px; border: 2px solid var(--surface); border-radius: 50%; background: var(--tone); }
-.tp-preachers .tp-sec-through .thr-caption { margin-top: .7rem; font-size: .74rem; line-height: 1.65; color: var(--muted); }
 
 /* Right: the narrow book panel */
 .tp-preachers .tp-sec-through .thr-book { --tone: var(--poetry); position: sticky; top: 76px; display: flex; flex-direction: column; min-width: 0; max-height: calc(100vh - 92px); padding: .95rem .95rem .3rem;
@@ -87,6 +85,21 @@
 .tp-preachers .tp-sec-through .thr-go:hover { background: color-mix(in srgb, var(--tone) 10%, transparent); }
 .tp-preachers .tp-sec-through .thr-chapter { position: sticky; top: 0; z-index: 1; padding: .55rem .35rem .3rem; background: var(--surface); font-size: .58rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
 .tp-preachers .tp-sec-through .thr-empty { padding: 1rem .35rem; font-size: .78rem; line-height: 1.55; color: var(--muted); }
+
+/* The teacher rail sets the three cards' height; the extra-teachers footer sits below it. */
+@media (min-width: 1200px) {
+  .tp-preachers .tp-sec-through .thr-layout { --thr-panel-height: min(53rem, calc(100dvh - 5rem)); align-items: start; }
+  .tp-preachers .tp-sec-through .thr-side { position: relative; top: 0; display: flex; flex-direction: column; min-height: 0; }
+  .tp-preachers .tp-sec-through .thr-rail { flex: none; height: var(--thr-panel-height); min-height: 0; overflow-y: auto; scrollbar-width: thin; }
+  .tp-preachers .tp-sec-through .thr-t { flex-shrink: 0; }
+  .tp-preachers .tp-sec-through .thr-quiet { flex-shrink: 0; }
+  .tp-preachers .tp-sec-through .thr-ringcard { display: flex; flex-direction: column; height: var(--thr-panel-height); min-height: 0; }
+  .tp-preachers .tp-sec-through .thr-who, .tp-preachers .tp-sec-through .thr-years-slot { flex-shrink: 0; }
+  .tp-preachers .tp-sec-through .thr-ring { flex: 1 1 0; min-height: 0; height: 100%; width: 100%; }
+  .tp-preachers .tp-sec-through .thr-book { position: relative; top: 0; height: var(--thr-panel-height); min-height: 0; max-height: none; }
+  .tp-preachers .tp-sec-through .thr-book-head { flex-shrink: 0; }
+  .tp-preachers .tp-sec-through .thr-list { max-height: none; }
+}
 
 /* Narrower desktops: the book panel moves under the ring */
 @media (max-width: 1199px) {
@@ -117,5 +130,5 @@
   .tp-preachers .tp-sec-through .thr-guide-label { font-size: 13px; }
   .tp-preachers .tp-sec-through .thr-big { font-size: 30px; }
 }
-.tp-preachers .tp-sec-through .thr-years[hidden], .tp-preachers .tp-sec-through .thr-years-note[hidden] { display: none; }
+.tp-preachers .tp-sec-through .thr-years[hidden] { display: none; }
 .tp-preachers .tp-sec-through .thr-seg[hidden] { display: none; }

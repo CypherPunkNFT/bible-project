@@ -6,7 +6,9 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState, type RefObject }
 import type { Person } from "@/data/teachers/pages-types";
 import { FAMILIES, familyOf, lifeLabel } from "../../shared/people";
 import { cssVars, initials, prefersReducedMotion, toneOf } from "../drawer/helpers";
-import { layoutArc, type ArcLayout } from "./arc";
+import { layoutLandingArc, type ArcLayout } from "./arc";
+import "../../shared/landing-graph.css";
+import { reclaimedLandingSpace } from "../../shared/landing-graph";
 
 interface ArcBandProps {
   people: Person[];
@@ -27,13 +29,13 @@ function runIntro(band: HTMLElement) {
 }
 
 /** Width of the band, re-measured on resize (once per frame at most). */
-function useBandSize(band: RefObject<HTMLDivElement>) {
-  const [size, setSize] = useState({ width: 0, minimumHeight: 560 });
+function useBandWidth(band: RefObject<HTMLDivElement>) {
+  const [size, setSize] = useState({ width: 0, reclaimed: 0 });
   useLayoutEffect(() => {
     const element = band.current;
     if (!element) return;
     let frame = 0;
-    const measure = () => setSize({ width: element.clientWidth, minimumHeight: parseFloat(getComputedStyle(element).getPropertyValue('--teacher-panel-height')) || 560 });
+    const measure = () => setSize({ width: element.clientWidth, reclaimed: reclaimedLandingSpace(element) });
     measure();
     const observer = new ResizeObserver(() => {
       frame ||= requestAnimationFrame(() => { frame = 0; measure(); });
@@ -57,9 +59,10 @@ function placeTip(tip: HTMLElement, band: HTMLElement, layout: ArcLayout, id: st
 export function ArcBand({ people, hotId, onHot, matchIds, filtering, onOpen }: ArcBandProps) {
   const bandRef = useRef<HTMLDivElement>(null);
   const tipRef = useRef<HTMLDivElement>(null);
-  const { width, minimumHeight } = useBandSize(bandRef);
-  const layout = useMemo(() => (width ? layoutArc(people, width, minimumHeight) : null), [people, width, minimumHeight]);
-  const [ready, setReady] = useState(() => prefersReducedMotion());
+  const { width, reclaimed } = useBandWidth(bandRef);
+  const layout = useMemo(() => width ? layoutLandingArc(people, width, reclaimed) : null, [people, width, reclaimed]);
+  const families = FAMILIES.filter(f => people.some(p => familyOf(p).key === f.key));
+  const [ready, setReady] = useState(prefersReducedMotion);
   // The tip keeps its last person while it fades out.
   const [tipId, setTipId] = useState<string | null>(null);
   if (hotId && hotId !== tipId) setTipId(hotId);
@@ -84,12 +87,16 @@ export function ArcBand({ people, hotId, onHot, matchIds, filtering, onOpen }: A
   }, [hotId, layout]);
 
   const positionOf = new Map(layout?.positions.map((q) => [q.id, q]) ?? []);
-  const bandClass = `lnd-band${ready ? " lnd-ready" : ""}${filtering ? " lnd-filtering" : ""}`;
-  return <div ref={bandRef} className={bandClass} onPointerLeave={() => onHot(null)} onBlur={() => onHot(null)}
+  const bandClass = `lnd-band teacher-landing-graph${ready ? " lnd-ready" : ""}${filtering ? " lnd-filtering" : ""}`;
+  const legend = (mobile = false) => <ul className={`lnd-legend${mobile ? ' lnd-legend-mobile' : ''}`} aria-label="Teacher traditions">
+    {families.map(f => <li key={f.key}><i style={{ background: `var(${f.tone})` }} />{f.label}</li>)}
+  </ul>;
+  return <><div ref={bandRef} className={bandClass} onPointerLeave={() => onHot(null)} onBlur={() => onHot(null)}
     style={layout ? { height: `${layout.height}px`, ...cssVars({ "--r": `${layout.r}px` }) } : undefined}>
-    <ul className="lnd-legend lnd-band-legend" aria-label="Traditions">
-      {FAMILIES.filter(f => people.some(p => familyOf(p).key === f.key)).map(f => <li key={f.key}><i style={{ background: `var(${f.tone})` }} />{f.label}</li>)}
-    </ul>
+    <div className="lnd-band-head">
+      <p className="lnd-band-cap"><span className="lnd-pulse" />Each circle is one teacher, placed by the year they were born.</p>
+      {legend()}
+    </div>
     <svg className="lnd-art" aria-hidden="true" viewBox={layout ? `0 0 ${layout.width} ${layout.height}` : undefined}>
       {layout && <g className="lnd-grid">
         {layout.centuries.map((c) => <line key={c.year} x1={c.x.toFixed(1)} x2={c.x.toFixed(1)} y1={layout.gridTop} y2={layout.gridBottom} />)}
@@ -122,5 +129,5 @@ export function ArcBand({ people, hotId, onHot, matchIds, filtering, onOpen }: A
       {layout?.centuries.map((c) => <span key={c.year} style={{ left: `${c.x.toFixed(1)}px` }}>{c.year}</span>)}
       {layout?.showToday && <span className="lnd-axis-now" style={{ left: `${layout.today.x.toFixed(1)}px` }}>Today</span>}
     </div>
-  </div>;
+  </div>{legend(true)}</>;
 }

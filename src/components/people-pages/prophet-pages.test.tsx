@@ -65,7 +65,7 @@ describe("the switch between a person's pages", () => {
     const nav = switchFor("moses-exo-2-10", "Moses", "word");
     const links = within(nav).getAllByRole("link");
     expect(links.map((a) => a.textContent)).toEqual(["The person", "As leader", "The word"]);
-    expect(links.map((a) => a.getAttribute("href"))).toEqual(["/people/moses-exo-2-10", "/people/moses-exo-2-10/rule", "/people/moses-exo-2-10/word"]);
+    expect(links.map((a) => a.getAttribute("href"))).toEqual(["/people/moses", "/people/moses-exo-2-10/rule", "/people/moses-exo-2-10/word"]);
     expect(within(nav).getByRole("link", { name: "The word" })).toHaveAttribute("aria-current", "page");
     expect(within(nav).getByRole("link", { name: "The person" })).not.toHaveAttribute("aria-current");
   });

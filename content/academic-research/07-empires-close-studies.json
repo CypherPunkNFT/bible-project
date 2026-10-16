@@ -1,0 +1,547 @@
+{
+  "schemaVersion": 1,
+  "parent": "07-israel-among-the-empires.json",
+  "updated": "2026-10-14",
+  "purpose": "Expanded evidence, teaching copy and claim-level citations for the existing study. Texts below are editorial paraphrases unless explicitly labelled otherwise.",
+  "researchAudit": {
+    "originalStrengths": [
+      "Synchronized geographical scales",
+      "Eight political windows",
+      "Explicit border uncertainty",
+      "Distinction between royal and biblical interpretations"
+    ],
+    "originalGaps": [
+      "Few sustained examples of historical reasoning",
+      "Administrative evidence described in aggregate",
+      "Debates named without explaining methods",
+      "Little account of how later scholarship changed the questions"
+    ],
+    "newQuestions": [
+      "What distinguishes paying tribute from becoming a province?",
+      "What does a dated source actually establish?",
+      "Can a victory account be tested against a different kind of evidence?",
+      "Which people become visible when we change archives?"
+    ],
+    "accessPolicy": "Source records distinguish text read, selected pages, abstract, indexed record and bibliography located. No complete critical edition, excavation corpus or monograph is represented as read.",
+    "rejectedSource": {
+      "url": "https://www.yorku.ca/pswarney/Texts/p-eleph-iud.htm",
+      "reason": "Brief teaching caption conflicts with Berlin catalogue on date and misidentifies relationships. Not used as authority for the Elephantine case."
+    },
+    "visualPolicy": "No photographs or manuscript facsimiles added. Evidence matrix is categorical, not a score. Archive diagrams represent a chain of reasoning, not a reconstructed ancient administrative chart. No population or migration totals are inferred.",
+    "biblicalVerification": [
+      "2 Kings 25:8 and Jeremiah 52:29 checked in indexed Bible Gateway passage records; paraphrased, not quoted.",
+      "Other passage links retain the original study’s primary-text references."
+    ],
+    "bibliographicChecks": [
+      {
+        "source": "ramat-reassessment",
+        "url": "https://cris.tau.ac.il/en/publications/introduction-the-riddle-of-ramat-ra%E1%B8%A5el-and-the-problem-of-identif/",
+        "finding": "2021; Ramat Raḥel VI, pp. 1–5; not confused with the 2012 article of a similar title."
+      },
+      {
+        "source": "samaria",
+        "url": "https://crossmark.crossref.org/dialog-content?date_stamp=23+May+2024&doi=10.1080%2F00758914.2024.2351677&domain=pdf",
+        "finding": "Andrea Squitieri; published online 23 May 2024; title and DOI verified."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "shalmaneser-research",
+      "title": "Shalmaneser V · Assyrian Empire Builders",
+      "url": "https://oracc.museum.upenn.edu/saao/aebp/Essentials/Kings/ShalmaneserV/index.html",
+      "kind": "University research synthesis",
+      "read": "Indexed research text consulted; direct ORACC retrieval remains unreliable.",
+      "scope": "Sparse evidence for Shalmaneser; western provincial organization and the disputed transition to Sargon. Provincial attribution is partly circumstantial."
+    },
+    {
+      "id": "sargon-edition",
+      "title": "Grant Frame · Royal Inscriptions of Sargon II (RINAP 2)",
+      "url": "https://oracc.museum.upenn.edu/rinap/downloads/Frame_RINAP_2.pdf",
+      "kind": "Critical edition · deeper reading",
+      "read": "Edition located through indexed publication record; PDF fetch failed. Not read or collated.",
+      "scope": "Modern corpus to consult for variant royal accounts. Not used to silently correct or choose a deportee total."
+    },
+    {
+      "id": "chronicle-text",
+      "title": "BM 21946 · translated Jerusalem entry",
+      "url": "https://cojs.org/the_babylonian_chronicle_-chronicle_5-_nebuchadnezzar_besieges_jerusalem-_597_bce/",
+      "kind": "Primary passage in translation",
+      "read": "Displayed translated entry and contextual discussion read. Not a fresh collation of the tablet.",
+      "scope": "Capture on the second of Adar, removal and replacement of a king, and tribute. The passage does not name the Judean kings."
+    },
+    {
+      "id": "lachish-throne",
+      "title": "Lachish relief · BM 124911",
+      "url": "https://www.britishmuseum.org/collection/object/W_1856-0909-14_7",
+      "kind": "Institutional object record",
+      "read": "Indexed catalogue description read; direct request failed.",
+      "scope": "Gypsum palace relief from Nineveh, Room XXXVI, panel 12; catalogue dates it 700–692 BCE. Represents Sennacherib receiving captives; the king’s face was damaged in antiquity."
+    },
+    {
+      "id": "ramp-study",
+      "title": "Garfinkel, Carroll, Pytlik & Mumcuoglu · Lachish siege ramp (2021)",
+      "url": "https://cris.huji.ac.il/en/publications/constructing-the-assyrian-siege-ramp-at-lachish-texts-iconography/",
+      "kind": "Original research · institutional abstract",
+      "read": "Abstract and publication metadata read; full article not read. An alternative PDF fetch failed.",
+      "scope": "Oxford Journal of Archaeology 40(4), 417–439; doi:10.1111/ojoa.12231. Combines texts, images, archaeology and drone photogrammetry to test construction scenarios, not to observe an ancient work schedule."
+    },
+    {
+      "id": "stern-gap",
+      "title": "Ephraim Stern · The Babylonian Gap (2004)",
+      "url": "https://journals.sagepub.com/doi/10.1177/030908920402800302",
+      "kind": "Archaeological argument · abstract",
+      "read": "Publisher abstract read, not the full article.",
+      "scope": "Argues for extensive destruction and depopulation across Judah, allowing a possible exception in Benjamin. A substantive position, not a claim that literally no one remained."
+    },
+    {
+      "id": "lipschits-rural",
+      "title": "Oded Lipschits · Rural Settlement: A Rejoinder (2004)",
+      "url": "https://humanities.tau.ac.il/sites/personal.tau.ac.il/files/media_server/1304/untitled%20folder/rural%20settelment.pdf",
+      "kind": "Original archaeological argument",
+      "read": "Pages 99–103 read in institutional PDF; remainder located, not closely read.",
+      "scope": "Palestine Exploration Quarterly 136(2), 99–107. Emphasizes regional differences, rural continuity, and sampling problems when salvage excavations stand for the whole country."
+    },
+    {
+      "id": "ramat-reassessment",
+      "title": "Oded Lipschits · Ramat Raḥel VI (2021), introduction",
+      "url": "https://www.psupress.org/sample_chapter/Lipschits_introduction.pdf",
+      "kind": "Excavation publication · introduction excerpt",
+      "read": "Opening pp. 1–2 of the five-page introduction read; 2021 bibliographic identity checked against Tel Aviv University research record. Full report not read.",
+      "scope": "Renewed excavations revise the relation between architecture and Persian-period finds. Identifying post-destruction pottery is a methodological problem; a governor’s residence remains an interpretation."
+    },
+    {
+      "id": "alstola-close",
+      "title": "Tero Alstola · Judeans in Babylonia (2020), pp. 125–127",
+      "url": "https://helda.helsinki.fi/server/api/core/bitstreams/7aa4f149-8dce-4d26-a666-78617a3b4aae/content#page=137",
+      "kind": "Research monograph · selected pages",
+      "read": "Printed pp. 125–127 read, with nearby indexed passages on administration and naming. Whole monograph not read.",
+      "scope": "Yāhūdu attestation 572–477 BCE; Rapā-Yāma, Ahīqam and descendants in records spanning 561–488. Mixed administrative and family-related records, not simply a private family archive."
+    },
+    {
+      "id": "pearce-wunsch",
+      "title": "Laurie E. Pearce & Cornelia Wunsch · Documents of Judean Exiles (2014)",
+      "url": "https://www.eisenbrauns.org/books/titles/978-1-934309-57-5.html",
+      "kind": "Primary-text edition · deeper reading",
+      "read": "Publisher description and bibliographic record read; edition itself not read.",
+      "scope": "CUSAS 28, translations, transliterations, commentary and scans of texts in the Sofer collection. It supplies texts for subsequent social histories; a catalogue is not a substitute for the edition."
+    },
+    {
+      "id": "elephantine",
+      "title": "Elephantine petition · Berlin papyrus record",
+      "url": "https://search.smb.museum/object/obj-823546",
+      "kind": "Institutional primary-object record",
+      "read": "Indexed German catalogue description and translated petition excerpt consulted.",
+      "scope": "Aramaic request dated November 407 BCE for rebuilding the community’s temple of Yahu; addressed to the Persian governor of Judah. Use the museum dating, not the conflicting York teaching caption."
+    },
+    {
+      "id": "cyrus-comparison",
+      "title": "R. J. van der Spek · Cyrus, Exiles and Foreign Gods (2014)",
+      "url": "https://isac.uchicago.edu/publications/extraction-control-studies-honor-matthew-w-stolper",
+      "kind": "Comparative historical research · selected excerpt",
+      "read": "Volume contents and indexed p. 261 conclusion/translation preface consulted; full chapter not read.",
+      "scope": "Places restoration claims within older royal practices; cautions against the modern human-rights-charter reading. Translation work has textual and interpretive choices."
+    },
+    {
+      "id": "chronology-method",
+      "title": "Rodger C. Young · When Did Jerusalem Fall? (2004)",
+      "url": "https://www.rcyoung.org/articles/jerusalem.pdf",
+      "kind": "Chronological argument · selected pages",
+      "read": "Opening pp. 21–22 read. Full argument not audited; author advocates 587. Used here to explain counting conventions, not as a consensus verdict.",
+      "scope": "JETS 47(1), 21–38. Discusses accession and non-accession counting and spring/autumn year starts."
+    },
+    {
+      "id": "dewaard-chronology",
+      "title": "H. de Waard · Dates of the 587/586 capture and destruction (2020)",
+      "url": "https://research.tuu.nl/en/publications/the-dates-of-the-587586-bce-capture-and-destruction-of-jerusalem/",
+      "kind": "Recent chronological research · located",
+      "read": "Institutional bibliographic record only. Article not read.",
+      "scope": "Textus 29, 1–7. Further specialist work to consult before adjudicating the one-year difference."
+    }
+  ],
+  "relationships": [
+    {
+      "term": "Tributary kingdom",
+      "chain": [
+        "Imperial king",
+        "Local king",
+        "Households & estates"
+      ],
+      "explanation": "The local dynasty can survive while money, goods and loyalty flow to an overlord. Independence in internal affairs is constrained, not simply present or absent.",
+      "example": "Judah after 701: Hezekiah remains king, but Sennacherib claims tribute and territorial losses.",
+      "sources": [
+        "prism"
+      ],
+      "period": "siege"
+    },
+    {
+      "term": "Imperial province",
+      "chain": [
+        "Imperial king",
+        "Governor",
+        "Local communities"
+      ],
+      "explanation": "Annexation removes the kingdom as a sovereign political unit. Officials organize extraction and control; surviving residents need not all disappear.",
+      "example": "Samaria’s incorporation unfolds through conquest, deportation, resettlement and provincial administration.",
+      "sources": [
+        "shalmaneser-research",
+        "samaria"
+      ],
+      "period": "annexation"
+    },
+    {
+      "term": "Restoration under empire",
+      "chain": [
+        "Persian authority",
+        "Provincial & temple leadership",
+        "Communities at home and abroad"
+      ],
+      "explanation": "Permission to rebuild a temple does not restore a Davidic monarchy. Return, continued residence abroad and imperial obligations can coexist.",
+      "example": "Ezra 1 and 6 narrate rebuilding under Persian authorization; Babylonian records continue beyond 539.",
+      "sources": [
+        "alstola-close"
+      ],
+      "period": "return"
+    }
+  ],
+  "dates": [
+    {
+      "id": "samaria",
+      "label": "722/721 & 720",
+      "place": "Samaria",
+      "question": "One fall, or a sequence of conquests?",
+      "tag": "Contested attribution",
+      "record": "A Babylonian chronicle credits Shalmaneser V with action against Samaria. Sargon II’s inscriptions also claim its conquest and describe deportation and resettlement.",
+      "inference": "Distinguish the siege and fall near the end of Shalmaneser’s reign from Sargon’s suppression of western rebellion in 720. This is a historical reconstruction of several accounts, not a date printed identically in all of them.",
+      "limit": "The division of responsibility remains debated. The surviving royal accounts are uneven, and a successor can appropriate an earlier achievement. Do not use one royal total as an independently counted census.",
+      "contrast": [
+        "Shalmaneser: siege / conquest",
+        "Sargon: conquest claim / reorganization",
+        "Historians: reconstruct the sequence"
+      ],
+      "sources": [
+        "shalmaneser-research",
+        "penn",
+        "samaria"
+      ],
+      "passage": "2 Kings 17:1–6; 18:9–12",
+      "query": "2 Kings 17:1-6;2 Kings 18:9-12"
+    },
+    {
+      "id": "jerusalem597",
+      "label": "597 BCE",
+      "place": "Jerusalem",
+      "question": "A city is captured. Is this the temple’s destruction?",
+      "tag": "Strong event anchor",
+      "record": "BM 21946 places a capture of the city of Judah on the second day of Adar. It describes taking its king, installing a replacement and taking tribute to Babylon.",
+      "inference": "Comparison with 2 Kings 24 identifies the removed king as Jehoiachin and the replacement as Zedekiah. Those personal names come from the biblical account, not this chronicle entry.",
+      "limit": "The surviving tablet covers 605–594 BCE. It is not a Babylonian account of the later temple destruction. Its museum production range, 550–400 BCE, is also distinct from the years narrated.",
+      "contrast": [
+        "Event narrated: 597 BCE",
+        "Narrative coverage: 605–594 BCE",
+        "Object catalogue: 550–400 BCE"
+      ],
+      "sources": [
+        "chronicle",
+        "chronicle-text"
+      ],
+      "passage": "2 Kings 24:10–17",
+      "query": "2 Kings 24:10-17"
+    },
+    {
+      "id": "jerusalem587",
+      "label": "587/586 BCE",
+      "place": "Jerusalem",
+      "question": "Why keep two possible years?",
+      "tag": "Regnal-year alignment",
+      "record": "2 Kings 25:8 dates the burning to Nebuchadnezzar’s nineteenth year. Jeremiah 52:29 places a deportation in his eighteenth year. The surviving chronicle used for 597 does not cover this event.",
+      "inference": "Historians align reigns, accession-year counting and calendars with the sequence of siege and destruction. Different alignments produce 587 or 586; archaeology establishes destruction without automatically resolving a one-year difference.",
+      "limit": "The slash marks a chronological problem, not doubt that the kingdom and temple suffered a catastrophe. The deportation notice and the burning notice must not be assumed to describe exactly the same event.",
+      "contrast": [
+        "Narrative: reigns and months",
+        "Reconstruction: calendar alignment",
+        "Study date: 587/586 BCE"
+      ],
+      "sources": [
+        "met",
+        "chronicle",
+        "chronology-method"
+      ],
+      "passage": "2 Kings 25:8–12; Jeremiah 52:12, 28–30",
+      "query": "2 Kings 25:8-12;Jeremiah 52:12;Jeremiah 52:28-30"
+    }
+  ],
+  "siege": {
+    "question": "What survives when we leave the king’s account?",
+    "intro": "Texts, palace images and excavated remains answer different questions. Select a witness to see its contribution. Shared royal sponsorship also matters: an inscription and a palace relief are not two politically independent observers.",
+    "claims": [
+      "Judah’s towns attacked",
+      "Captives represented or reported",
+      "Siege construction",
+      "Jerusalem captured"
+    ],
+    "witnesses": [
+      {
+        "id": "annals",
+        "name": "Royal inscription",
+        "subtitle": "Sennacherib · Akkadian",
+        "cells": [
+          "Royal claim",
+          "Royal claim",
+          "Described generally",
+          "Not claimed"
+        ],
+        "title": "The victory is narrated through submission.",
+        "observation": "Column III names Hezekiah and describes captured fortified towns, people carried away and tribute. Jerusalem’s king is confined; the text does not claim the city’s capture.",
+        "inference": "The account supports a campaign against Judah and coerced submission. Its numerical claims and presentation of complete royal success still require criticism.",
+        "limit": "Royal language selects an outcome worth commemorating. Silence about a capture is not a full explanation of why Jerusalem survived.",
+        "sources": [
+          "prism"
+        ]
+      },
+      {
+        "id": "relief",
+        "name": "Palace relief",
+        "subtitle": "Nineveh · BM 124911",
+        "cells": [
+          "Lachish depicted",
+          "Captives depicted",
+          "Shown in relief cycle",
+          "Not depicted here"
+        ],
+        "title": "A conquered city becomes a palace spectacle.",
+        "observation": "The Nineveh panel represents Sennacherib seated while prisoners are brought before him. The catalogue dates the carved object to 700–692 BCE, after the 701 campaign.",
+        "inference": "The relief shows how the court wanted Lachish’s defeat remembered. Captives and royal dominance are central to that message.",
+        "limit": "It is neither a photograph nor a scaled plan of the battle. The later carving date should not be mistaken for a second date for Lachish’s capture.",
+        "sources": [
+          "lachish-throne",
+          "ramp-study"
+        ]
+      },
+      {
+        "id": "excavation",
+        "name": "Excavated ramp",
+        "subtitle": "Lachish · landscape evidence",
+        "cells": [
+          "Siege evidence at Lachish",
+          "No individual testimony",
+          "Physical remains",
+          "Different city"
+        ],
+        "title": "A military claim meets a physical problem.",
+        "observation": "The Lachish siege ramp survives as archaeological evidence. Garfinkel and colleagues combine the terrain, texts and images with photogrammetry—measurements derived from overlapping photographs.",
+        "inference": "Their 2021 study tests ways the ramp could have been constructed. A construction model asks whether a proposed process fits the surviving landscape.",
+        "limit": "The accessible abstract does not establish an exact labour force, construction time or stone count. Those model-dependent quantities are not displayed here.",
+        "sources": [
+          "ramp-study"
+        ]
+      }
+    ],
+    "finding": "At Lachish, royal representation and physical siege evidence can be compared. Jerusalem is a different city. Evidence for one siege must not quietly become evidence for the capture of the other."
+  },
+  "archives": [
+    {
+      "id": "palace",
+      "label": "The palace",
+      "place": "Babylon",
+      "date": "6th century BCE",
+      "object": "Oil-ration record · VAT 16378",
+      "language": "Akkadian · clay tablet",
+      "record": "The Berlin ration record names the king of Judah and his entourage among recipients of oil.",
+      "nodes": [
+        "Palace distribution",
+        "Named royal recipient",
+        "Provisioning in Babylonia"
+      ],
+      "inference": "Jehoiachin is visible within a Babylonian provisioning system. The record adds an administrative trace to a king also remembered in 2 Kings.",
+      "limit": "An allowance does not tell us how every deportee lived, or establish freedom to leave. A palace list is an elite sample.",
+      "sources": [
+        "rations",
+        "alstola-palace"
+      ],
+      "passage": "2 Kings 25:27–30",
+      "query": "2 Kings 25:27-30"
+    },
+    {
+      "id": "rural",
+      "label": "The countryside",
+      "place": "Yāhūdu · Babylonia",
+      "date": "572–477 BCE attestation",
+      "object": "Legal & administrative tablets",
+      "language": "Akkadian · clay tablets",
+      "record": "Alstola follows Rapā-Yāma, his son Ahīqam and descendants in documents spanning 561–488 BCE. Yāhūdu itself is attested from 572 to 477 in the corpus he studies.",
+      "nodes": [
+        "Dated transactions",
+        "Names & family links",
+        "Activity across generations"
+      ],
+      "inference": "Families remain visible across the 539 change of empire. Their dealings include the land-for-service economy: access to land accompanied by obligations.",
+      "limit": "These are selected attestations, not lifespans or a census. The corpus combines family-related and administrative material. Lost excavation context restricts reconstruction; the village is not placed at a guessed coordinate.",
+      "sources": [
+        "alstola-close",
+        "alstola-provenance"
+      ],
+      "passage": "Jeremiah 29:4–7",
+      "query": "Jeremiah 29:4-7"
+    },
+    {
+      "id": "petition",
+      "label": "A community’s petition",
+      "place": "Elephantine · Egypt",
+      "date": "407 BCE · later perspective",
+      "object": "Petition to the governor of Judah",
+      "language": "Aramaic · papyrus",
+      "record": "The Elephantine community asks the Persian governor of Judah for help rebuilding its temple of Yahu, according to the Berlin papyrus record.",
+      "nodes": [
+        "A damaged community temple",
+        "An appeal across provinces",
+        "Authority negotiated through officials"
+      ],
+      "inference": "A Judean community in Egypt had its own temple and sought support through imperial channels. Restoration and diaspora were still intertwined well after Cyrus.",
+      "limit": "The petition seeks a favourable decision; it is not a neutral survey of religion. One community cannot stand for all Judeans. This 407 example extends beyond the atlas’s c. 450 endpoint.",
+      "sources": [
+        "elephantine"
+      ],
+      "passage": "Ezra 6:6–12 · compare imperial authorization",
+      "query": "Ezra 6:6-12"
+    }
+  ],
+  "debate": {
+    "question": "Did destruction leave an empty land?",
+    "commonGround": "Jerusalem’s destruction and the loss of the monarchy are not the main disagreement. The issue is how far disruption extended, which rural communities continued, and how we recognize their remains.",
+    "arguments": [
+      {
+        "name": "Ephraim Stern · 2004",
+        "claim": "Widespread devastation",
+        "reason": "Destruction layers and the reduced settlement record support a severe demographic break. Stern’s abstract allows a possible exception in Benjamin; his argument should not be reduced to ‘nobody survived.’",
+        "sources": [
+          "stern-gap"
+        ]
+      },
+      {
+        "name": "Oded Lipschits · 2004",
+        "claim": "Different regions, different outcomes",
+        "reason": "Urban collapse can coexist with rural continuity. Lipschits compares regions and challenges the representativeness of salvage excavations concentrated in particular areas. His explanation in terms of Babylonian agricultural interests is an inference about policy.",
+        "sources": [
+          "lipschits-rural"
+        ]
+      }
+    ],
+    "method": "A missing settlement on a period map can reflect abandonment, but also pottery that is difficult to date narrowly. Survey coverage and excavation choices affect what becomes visible. Continuity is not proof of prosperity; destruction in a capital is not a population count for its hinterland.",
+    "later": "Ramat Raḥel shows why revisiting the evidence matters. Persian-period stamped handles once seemed disconnected from the architecture. Renewed excavation and republication led Lipschits and colleagues to reassess the compound as an important Persian administrative centre. Its possible use as a governor’s residence remains a reconstruction.",
+    "sources": [
+      "lipschits-rural",
+      "ramat-reassessment"
+    ],
+    "passage": "2 Kings 25:12, 22–26 explicitly remembers people left in the land. Read that beside—not as a substitute for—the settlement evidence."
+  },
+  "works": [
+    {
+      "who": "Grant Frame",
+      "title": "Royal Inscriptions of Sargon II · RINAP 2",
+      "contribution": "Start with the edited witnesses when asking why Sargon’s accounts differ. A modern edition records textual variation that a smooth historical summary can hide.",
+      "status": "Located, not read; access gap.",
+      "source": "sargon-edition"
+    },
+    {
+      "who": "Stern / Lipschits",
+      "title": "The Babylonian gap debate · 2004",
+      "contribution": "Compare an argument from widespread destruction with a regional analysis of continuity. Ask how each selects and dates the archaeological sample.",
+      "status": "Stern abstract; Lipschits pp. 99–103 consulted.",
+      "source": "lipschits-rural"
+    },
+    {
+      "who": "Laurie E. Pearce & Cornelia Wunsch",
+      "title": "Documents of Judean Exiles · 2014",
+      "contribution": "The edition makes administrative texts available for close study. Follow from transliteration and translation to the social histories built from them.",
+      "status": "Publisher description consulted; complete edition not read.",
+      "source": "pearce-wunsch"
+    },
+    {
+      "who": "Tero Alstola",
+      "title": "Judeans in Babylonia · 2020",
+      "contribution": "Uses documentary groups to investigate households, work and imperial obligations. Read its archive analysis before treating a set of tablets as a whole community.",
+      "status": "Selected pages and earlier research abstract consulted.",
+      "source": "alstola-close"
+    },
+    {
+      "who": "Yosef Garfinkel and colleagues",
+      "title": "Constructing the Assyrian Siege Ramp · 2021",
+      "contribution": "A method changes the question: photogrammetry helps test how a siege installation could have been built, beyond identifying which king attacked.",
+      "status": "Institutional abstract consulted; full model remains deeper reading.",
+      "source": "ramp-study"
+    },
+    {
+      "who": "R. J. van der Spek",
+      "title": "Cyrus, Exiles and Foreign Gods · 2014",
+      "contribution": "Compares Persian restoration with older Assyrian practices. Challenges a simple contrast between an exclusively destructive Assyria and an unprecedentedly tolerant Persia.",
+      "status": "Selected conclusion and publication contents consulted.",
+      "source": "cyrus-comparison"
+    },
+    {
+      "who": "Andrea Squitieri",
+      "title": "Assyrian conquest and ruralization · 2024",
+      "contribution": "Examines the provinces of Magiddû and Samerina through settlement change and imperial integration. Extends the question beyond a capital’s fall to a transformed regional economy.",
+      "status": "Indexed opening and discussion excerpts consulted; full article inaccessible.",
+      "source": "samaria"
+    }
+  ],
+  "remainingGaps": [
+    "Modern Assyrian editions were located but not collated. Exact Sargon deportee totals and variant readings need direct edition access.",
+    "Lachish construction-model parameters and full excavation stratigraphy were not audited; no numerical simulation is offered.",
+    "The 587/586 discussion explains the kind of chronological problem without choosing a full specialist regnal chronology.",
+    "The Elephantine case uses the museum record, not a full Aramaic edition. It does not reconstruct the whole correspondence network.",
+    "Rural settlement debate uses a limited, explicitly attributed sample of scholarship; no updated site-by-site census or population estimate is claimed.",
+    "Yāhūdu’s unprovenanced tablets cannot support a precise archaeological map. Named documentary families are not fictional first-person experiences.",
+    "Karnak campaign topography, Moabite epigraphy and Yehud’s borders remain topics for specialist expansion rather than invented precision."
+  ],
+  "claimChecks": [
+    {
+      "claim": "BM 21946 records a capture in 597, not the 587/586 destruction.",
+      "sourceIds": [
+        "chronicle",
+        "chronicle-text"
+      ],
+      "classification": "Preserved event plus comparison to biblical names"
+    },
+    {
+      "claim": "Different year-counting conventions can shift numbered regnal years by one.",
+      "sourceIds": [
+        "chronology-method"
+      ],
+      "classification": "Method; illustrated with generic numbers, not a proof of a chosen absolute date"
+    },
+    {
+      "claim": "Lachish palace panel was made after the campaign it represents.",
+      "sourceIds": [
+        "lachish-throne",
+        "lachish-date"
+      ],
+      "classification": "Institutional object dating distinguished from historical event"
+    },
+    {
+      "claim": "Yāhūdu records name family members across 539.",
+      "sourceIds": [
+        "alstola-close"
+      ],
+      "locator": "Printed pp. 125–127",
+      "classification": "Documentary attestation; neither lifespans nor population totals"
+    },
+    {
+      "claim": "The extent of rural continuity depends on regional and chronological methods.",
+      "sourceIds": [
+        "stern-gap",
+        "lipschits-rural",
+        "ramat-reassessment"
+      ],
+      "classification": "Attributed scholarly disagreement"
+    },
+    {
+      "claim": "Elephantine petition dates to November 407 and requests temple restoration.",
+      "sourceIds": [
+        "elephantine"
+      ],
+      "classification": "Museum primary-object description; explicitly outside main atlas range"
+    }
+  ]
+}

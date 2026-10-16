@@ -1,0 +1,65 @@
+{
+  "track": "P5",
+  "status": "complete",
+  "scope": "Bounded source-location preparation only; final corpus and publication gates remain pending",
+  "outputs": [
+    "KnowledgeBase/library-knowledge/parallel-preparation/05-source-locations/selection.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/05-source-locations/capture-spec.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/05-source-locations/collection.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/05-source-locations/verification.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/05-source-locations/source-verification.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/05-source-locations/unresolved.json",
+    "Website/initiatives/library-knowledge/parallel-preparation/05-source-locations/RESULT.md",
+    "Website/initiatives/library-knowledge/parallel-preparation/05-source-locations/locate_samples.py"
+  ],
+  "inputVersions": {
+    "corpusBuild": "2026-10-07T23:00:34.844772+00:00",
+    "upstream": "KnowledgeBase/library-knowledge/ephesians-connections-20261012/release-final/manifest.json",
+    "selectedInputHashes": "selection.json/inputHashes",
+    "unchangedInputHashes": 13
+  },
+  "completedCounts": {
+    "attemptedSections": 12,
+    "locatedSections": 12,
+    "locatedSamples": 12,
+    "capturedSamples": 12,
+    "onSiteSamples": 6,
+    "chapterOnlyMappings": 12,
+    "explicitVerseMappings": 0,
+    "distinctSelectedWorks": 2,
+    "distinctNamedAuthors": 2,
+    "unresolvedSections": 0,
+    "hardFailures": 0,
+    "ambiguityAttempts": 0
+  },
+  "unresolvedCounts": {
+    "selectedLocations": 0,
+    "hardFailures": 0,
+    "claimSpecificReviews": 12,
+    "samplesWithoutOnSiteText": 6,
+    "assignedVerseIds": 0,
+    "sourceSectionsRequiringFinalSnapshotRecheck": 12,
+    "encodedSourceGapsRetained": 408,
+    "damagedReferenceContainers": 2
+  },
+  "verification": {
+    "captureValid": true,
+    "sourceVerificationValid": true,
+    "exactSectionSelectors": 12,
+    "exactParagraphSelectors": 12,
+    "sourceAndCorpusOffsets": 12,
+    "onSiteSamples": 6,
+    "changedInputs": [],
+    "productionReaderVerified": false
+  },
+  "integrationNeeds": [
+    "Join by existing source document and connection IDs without rewriting immutable upstream artifacts",
+    "Reconcile P3 identities and retain unresolved canonical IDs",
+    "Review local voice and explicit reference wording before verse or claim promotion",
+    "Keep Hodge catalogue-only; no external reading substitution",
+    "Revalidate after final intake/parity/graph gates before mining or publication"
+  ],
+  "requiresFinalSnapshotRecheck": true,
+  "publication": "private",
+  "supersededArtifacts": "development-01/ is non-authoritative; use root outputs only"
+}

@@ -1,14 +1,15 @@
 import { usedEntry } from "../site-evidence";
-import type { Scholar, ScholarsData } from '@/data/teachers/pages-types';
+import type { Field, Scholar, ScholarsData } from '@/data/teachers/pages-types';
 import type { AcquiredCatalogue } from '../../shared/acquired';
 import type { FieldEntry, FieldLibrary } from '../field-library';
 import type { ContributorFact, ContributorFacts } from '../facts';
 import type { CatalogueFilters } from '../context';
 import { weight } from '../marks/facts';
+import type { PopulationEntry } from '../population';
 import featured from '../../../../../content/teachers/field-featured.json';
 
-export interface LibraryPerson extends FieldEntry { scholar?: Scholar; facts?: ContributorFact; search: string; sourceLifeDates: string[] }
-export interface LibraryOptions { collection: string; role: string; scope: string; unclassified: boolean; unknownEra: boolean }
+export interface LibraryPerson extends FieldEntry { scholar?: Scholar; facts?: ContributorFact; search: string; sourceLifeDates: string[]; population?: PopulationEntry }
+export interface LibraryOptions { collection: string; role: string; scope: string; unclassified: boolean; unknownEra: boolean; identity?: string; dateStatus?: string }
 export const ALL_LIBRARY: LibraryOptions = { collection: '', role: '', scope: '', unclassified: false, unknownEra: false };
 export type LibrarySort = 'featured' | 'az' | 'year' | 'held' | 'named';
 
@@ -33,11 +34,21 @@ export function mergeLibrary(index: FieldLibrary, acquired: AcquiredCatalogue, d
   });
 }
 
+/** Profile filters follow the field on their cards; unprofiled entries retain overlapping work subjects. */
+export function hasCatalogueField(p: LibraryPerson, field: Field): boolean {
+  return p.scholar ? p.scholar.field === field : Boolean(p.fields[field]);
+}
+
 export function matchesLibrary(p: LibraryPerson, f: CatalogueFilters, o: LibraryOptions, ignore = ''): boolean {
-  if (ignore !== 'field' && f.field.length && !f.field.some(key => p.fields[key])) return false;
+  if (ignore !== 'field' && f.field.length && !f.field.some(key => hasCatalogueField(p, key))) return false;
   if (ignore !== 'era' && f.era.length && !f.era.includes((p.facts?.dates.era ?? p.scholar?.era ?? "unknown") as typeof f.era[number])) return false;
   if (ignore !== 'faith' && f.faith.length && !f.faith.includes(p.facts?.faith ?? p.scholar?.faith ?? 'unrecorded')) return false;
   if (ignore !== 'used' && f.used && !usedEntry(p)) return false;
+  if (o.identity==='review-required' && !p.population?.identity.reviewRequired) return false;
+  if (o.identity && o.identity!=='review-required' && p.facts?.kind!==o.identity) return false;
+  if (o.dateStatus==='birth-unknown' && p.facts?.dates.born!==undefined && ['documented-profile','source-supported'].includes(p.facts.dates.status)) return false;
+  if (o.dateStatus==='floruit-only' && (p.facts?.dates.floruit===undefined || p.facts.dates.born!==undefined)) return false;
+  if (o.dateStatus && !['birth-unknown','floruit-only'].includes(o.dateStatus) && p.facts?.dates.status!==o.dateStatus) return false;
   if (o.collection && !p.collections.includes(o.collection)) return false;
   if (o.role && !p.roles.includes(o.role)) return false;
   if (o.scope === 'profiles' && !p.scholar || o.scope === 'library' && p.scholar) return false;
@@ -52,7 +63,7 @@ export function orderLibrary(people: LibraryPerson[], sort: LibrarySort): Librar
   return [...people].sort((a, b) => {
     if (sort === 'az') return a.name.localeCompare(b.name) || a.id.localeCompare(b.id);
     if (sort === 'featured') return rank(a) - rank(b) || (a.scholar && b.scholar ? a.scholar.born - b.scholar.born : 0) || b.records - a.records || a.name.localeCompare(b.name);
-    if (sort === 'year') return (a.facts?.dates.born ?? a.facts?.dates.floruit ?? a.scholar?.born ?? Infinity) - (b.facts?.dates.born ?? b.facts?.dates.floruit ?? b.scholar?.born ?? Infinity) || a.name.localeCompare(b.name);
+    if (sort === 'year') return (a.facts?.dates.born ?? a.scholar?.born ?? Infinity) - (b.facts?.dates.born ?? b.scholar?.born ?? Infinity) || a.name.localeCompare(b.name);
     if (sort === 'named') return (b.scholar ? weight(b.scholar) : 0) - (a.scholar ? weight(a.scholar) : 0) || a.name.localeCompare(b.name);
     return b.records - a.records || a.name.localeCompare(b.name);
   });

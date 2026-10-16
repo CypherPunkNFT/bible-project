@@ -1,0 +1,37 @@
+{
+  "study": "How the canon took shape",
+  "programme": "academic-research",
+  "order": 4,
+  "updated": "2026-10-14",
+  "status": "implemented-local-verified",
+  "approval": "user-approved-local-integration",
+  "design": "design.md",
+  "artifact": "prototype/index.html",
+  "verification": "prototype/verification.json",
+  "completed": [
+    "Current study, complete inherited research and reference implementations inspected",
+    "Three distinct approaches compared; Registers of reception selected",
+    "Complete content-to-design map saved",
+    "Isolated opening and nine-judgment comparison built from existing dossier",
+    "All eighteen historical records accessible in prototype",
+    "14 browser checks passed in Edge",
+    "Desktop opening, laptop selected state and mobile screenshots visually inspected",
+    "Research dossier unchanged; design snapshot provenance recorded",
+    "Approved register comparison integrated into existing page; duplicate ledger removed without losing its sources",
+    "Local frontend build, focused types, editorial check and three browser suites passed",
+    "Light/dark, keyboard, responsive layouts, reduced motion, state restoration and standard transitions verified",
+    "Focused release source mirrors updated; public deployment not performed"
+  ],
+  "notCompleted": [
+    "Assistive-technology audit",
+    "Physical-device testing",
+    "Public deployment (not requested)"
+  ],
+  "scope": "Academic study 04 local implementation only. Existing research preserved. Separate forty-study queue unchanged.",
+  "localPreview": "http://127.0.0.1:8931/study/how-the-canon-took-shape",
+  "implementationVerification": [
+    ".local/canon-qa/report.json",
+    ".local/canon-qa/investigations-report.json",
+    ".local/canon-qa/registers-report.json"
+  ]
+}

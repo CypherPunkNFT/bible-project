@@ -16,7 +16,8 @@ import { useDiscoveryMap, useListFollow } from "./discoveries/useDiscoveryMap";
 import "./Discoveries.css";
 
 export function Discoveries() {
-  const { data } = useScholars();
+  const { data:curated, library } = useScholars();
+  const data=useMemo(()=>({...curated,scholars:library?library.flatMap(p=>p.scholar?[p.scholar]:[]):curated.scholars}),[curated,library]);
   const model = useMemo(() => buildModel(data), [data]);
   const projections = useMemo(() => buildProjections(data), [data]);
   const markers = useMemo(() => ({ holyland: markersFor(model, projections, VIEWS[0]), med: markersFor(model, projections, VIEWS[1]) }), [model, projections]);

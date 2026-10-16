@@ -1,0 +1,100 @@
+{
+  "study": 3,
+  "title": "The Dead Sea Scrolls",
+  "route": "/study/dead-sea-scrolls",
+  "preview": "http://127.0.0.1:8931/study/dead-sea-scrolls",
+  "updated": "2026-10-13",
+  "publication": "local-only; no public deployment",
+  "identity": "Warm limestone and copper with a blue-green evidence accent; schematic cave landscape, alphabetic comparison and fragment workbench.",
+  "interactions": [
+    "Five selected caves connect to recovery records and six representative objects.",
+    "Writing filters preserve a valid selected object and distinguish modern classification from ancient authority.",
+    "Three date views distinguish composition, physical copying and modern recovery.",
+    "Psalm 145 comparison exposes the nun line; collection view changes the interpretive question.",
+    "Three fictional fragment candidates distinguish same text, proposed placement and demonstrated physical contact.",
+    "Native disclosures provide discovery history, conservation, open questions and source access notes."
+  ],
+  "integration": {
+    "category": "The Bible: formation & transmission",
+    "categoryRoute": "/study/academic?area=texts",
+    "sharedShell": "Existing Layout, fonts, fixed header and PageTransitions retained.",
+    "releaseSource": ".local/release-atlas-loop",
+    "scope": "Added one study route and category item; copied new study files and dossier; patched shared files independently to preserve unrelated changes."
+  },
+  "verification": {
+    "focusedTypeScript": "passed",
+    "frontendBuild": "passed using current source and existing generated library projections; the normal site-wide content-generation build stalled during concurrent work",
+    "repositoryTypeScript": "not clean: unrelated StudyBranch ES2020/replaceAll and concurrently edited world-study errors were observed; those files were not changed by this task",
+    "editorialSourcePolicy": "passed",
+    "browser": "Microsoft Edge via Playwright, existing port 8931",
+    "widths": [
+      320,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "states": "All caves, objects, writing filters, date views, close-reading choices and fragment verdicts tested; overlay reversibility verified.",
+    "keyboard": "Enter, Space and native disclosures verified; 110 sequential mobile Tab steps checked for header obstruction.",
+    "motion": "Reduced-motion interaction transitions disabled; standard navigation and reduced-motion return navigation verified.",
+    "navigation": "Academic entry, return link, object deep-link reload and selection scroll stability passed.",
+    "visual": "Desktop and mobile screenshots inspected; header favicon restored from the unchanged public asset after concurrent preview replacement.",
+    "sourceIntegrity": "All object, claim and event source identifiers resolve; release copies match byte for byte.",
+    "evidenceFiles": [
+      ".local/dead-sea-scrolls-qa.json",
+      ".local/dss-frontend-build.log",
+      ".local/check-dead-sea-scrolls.mjs",
+      ".local/dss-final-check.mjs"
+    ]
+  },
+  "assets": "Original SVG/CSS schematics only. No third-party manuscript photography or archival film reproduced.",
+  "upgrade": {
+    "date": "2026-10-14",
+    "authorization": "User explicitly requested direct research, implementation and verification on the existing page; no further mockup approval required.",
+    "preview": "http://127.0.0.1:8931/study/dead-sea-scrolls",
+    "design": "Manuscript-led opening with attributed real Isaiah photograph, compact recovery ledger, 54-column scribal inference, Psalm and Psalter comparison, fragment workbench and archaeological inference.",
+    "preserved": [
+      "Six object records and deep-linked selection",
+      "Three distinct dating questions",
+      "Psalm 145 comparison and attributed hymn excerpt",
+      "Three fragment candidates",
+      "Discovery, conservation and source records",
+      "Shared site header and standard route transitions"
+    ],
+    "research": "30 source records; 9 additional claim-level records; 10 annotated scholarly works; explicit access limitations.",
+    "verification": {
+      "checks": [
+        "Academic navigation and standard page arrival",
+        "Caves, six objects, filters, three clocks, Psalm comparison, 54-column scribal argument and both Psalter interpretations",
+        "All fragment candidates and archaeological inference disclosure",
+        "320–1440px layouts, both themes, all disclosure controls",
+        "Image loads, reduced motion, return transition and object deep link",
+        "150 sequential mobile Tab targets clear of fixed header"
+      ],
+      "errors": [],
+      "typescript": "Pass, no diagnostics",
+      "build": "node scripts/build-portable.mjs --preserve-output; successful Vite build with existing non-fatal bundle warnings",
+      "visualReview": [
+        "1440px light opening",
+        "390px light opening",
+        "Dark scribal argument",
+        "Dark Psalter comparison",
+        "Dark archaeology section"
+      ],
+      "release": "Focused study source and dossier mirrored to .local/release-atlas-loop; shared catalogue description changed only for this study.",
+      "publication": "Local only; no public deployment"
+    }
+  },
+  "landingArtwork": {
+    "date": "2026-10-14",
+    "correction": "Owner rejected rendered parchment as inconsistent with line-art theme. Surviving witnesses TSX and CSS reread; replaced opaque materials, gradients, shadows and parallax with currentColor strokes and faint washes.",
+    "design": "Gold scroll contour and stitched seam; blue fragments; understated reference lines; gentle hover and keyboard/touch emphasis states.",
+    "accuracy": "Original schematic, not manuscript facsimile or claimed fragment joins. Real photograph retained below.",
+    "accessibility": "Native toggle buttons, live description, theme-specific gold/blue contrast and reduced-motion handling.",
+    "publication": "Local preview only; focused release mirror."
+  }
+}

@@ -1,6 +1,7 @@
 import { useId, useState } from "react";
 import type { Run } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { isScholarsOnlySource } from "@/lib/editorial-sources";
 
 export interface DisplayOptions {
   redLetters: boolean;
@@ -31,7 +32,7 @@ export function RunView({ run, options }: { run: Run; options: DisplayOptions })
     if (flags.includes("u")) return <sup className={styledClass(flags, options)}>{text}</sup>;
     return flags ? <span className={styledClass(flags, options)}>{text}</span> : <>{text}</>;
   }
-  if ("f" in run) return options.footnotes ? <Footnote text={run.f} /> : null;
+  if ("f" in run) return options.footnotes && !isScholarsOnlySource(run.f) ? <Footnote text={run.f} /> : null;
   return null;
 }
 

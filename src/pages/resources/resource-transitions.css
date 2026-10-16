@@ -1,0 +1,11 @@
+/* The selected Apologetics lift/rise motion, with the site header held still. */
+html[data-resource-slide] .rs-route-content{view-transition-name:resource-page;background:var(--page)}
+html[data-resource-slide]::view-transition{pointer-events:none}
+html[data-resource-slide]::view-transition-old(root){display:none}
+html[data-resource-slide]::view-transition-new(root),html[data-resource-slide]::view-transition-group(resource-page){animation:none}
+html[data-resource-slide]::view-transition-old(resource-page){translate:0 var(--resource-old-shift,0px);animation:resource-page-lift-out 260ms ease both}
+html[data-resource-slide]::view-transition-new(resource-page){animation:resource-page-rise-in 440ms cubic-bezier(.22,1,.36,1) 50ms both}
+html[data-resource-slide]::view-transition-old(resource-page),html[data-resource-slide]::view-transition-new(resource-page){height:auto;mix-blend-mode:normal;animation-fill-mode:both}
+@keyframes resource-page-lift-out{to{opacity:0;transform:translateY(-14px)}}
+@keyframes resource-page-rise-in{from{opacity:0;transform:translateY(28px)}}
+@media(prefers-reduced-motion:reduce){html[data-resource-slide]::view-transition-old(resource-page),html[data-resource-slide]::view-transition-new(resource-page){animation:none!important}}

@@ -75,7 +75,7 @@ export function Lives() {
   const tipPerson = tipFor >= 0 ? people[tipFor] : null;
 
   return <>
-    <SectionHead num="04" kicker="Five centuries of lives" title={<>Who was alive <em>at the same time?</em></>}
+    <SectionHead num="05" kicker="Five centuries of lives" title={<>Who was alive <em>at the same time?</em></>}
       line="Every line is one teacher's life, coloured by tradition. Drag across the chart, use the arrow keys or press play: those alive in that year light up, and the map shows where each was living. Click a line to meet that teacher." />
     <div className="life-card">
       <div className="life-tools">

@@ -45,6 +45,13 @@ def main():
     else:
         from .retrieval import search, status, verify
         result = search(config, args.query, args.mode, args.limit, kind=args.kind, edition=args.edition, language=args.language, book=args.book) if args.command == "search" else verify(config) if args.command == "verify" else status(config)
+        if args.command == 'verify':
+            import os
+            if os.environ.get('BIBLE_VERIFY_ONLY') == '1':
+                from datetime import datetime, timezone
+                from .settings import write_json
+                result['verified_at'] = datetime.now(timezone.utc).isoformat()
+                write_json(config['state_dir']/'verification.json', result)
         print(json.dumps(result, ensure_ascii=False, indent=2))
 
 

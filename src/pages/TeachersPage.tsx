@@ -27,7 +27,7 @@ export default function TeachersPage() {
     const timer=setTimeout(task,250);return()=>clearTimeout(timer);
   },[side]);
   return <div onClickCapture={transition}>
-    {side&&<div className="tp-page tp-switch-frame"><SidesSwitch current={side}/></div>}
+    {side&&<div className="tp-page tp-switch-frame" data-side={side}><SidesSwitch current={side}/></div>}
     <div className="tp-route-content"><Routes>
     <Route index element={<Station />} />
     <Route path="preachers-and-authors" element={<Suspense fallback={null}><PreachersPage /></Suspense>} />

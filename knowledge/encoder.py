@@ -53,8 +53,11 @@ class Encoder:
         self.config, self.model, self.gpu_lock = config, None, None
         self.mutex = threading.Lock()
         self.last_used, self.batches = time.monotonic(), 0
+        self.failure = None
 
     def load(self):
+        if self.failure:
+            raise RuntimeError('Encoder requires restart: ' + self.failure)
         if self.model is not None:
             return
         cfg = self.config["embedding"]
@@ -75,7 +78,8 @@ class Encoder:
                     fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
             except OSError as exc:
                 raise GPUUnavailable("GPU coordination lock is held by another encoder") from exc
-            free = subprocess.check_output(["nvidia-smi", "--query-gpu=memory.free", "--format=csv,noheader,nounits"], text=True, timeout=10)
+            free = subprocess.check_output(["nvidia-smi", "--query-gpu=memory.free", "--format=csv,noheader,nounits"], text=True, timeout=10,
+                                           creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
             if int(free.strip().splitlines()[0]) < 10500:
                 raise GPUUnavailable("Local GPU has less than 10,500 MB free; retry when available")
             os.environ["HF_HUB_OFFLINE"] = "1"
@@ -114,6 +118,22 @@ class Encoder:
             self.last_used, self.batches = time.monotonic(), self.batches + 1
             return vectors.tolist()
 
+    def unload(self):
+        # A poisoned CUDA context can throw during cleanup. Always release the
+        # hardware lock and expose failure instead of pretending to be available.
+        self.model = None
+        try:
+            import gc
+            import torch
+            gc.collect()
+            torch.cuda.empty_cache()
+        except Exception as exc:
+            self.failure = str(exc)
+        finally:
+            if self.gpu_lock is not None:
+                self.gpu_lock.close()
+                self.gpu_lock = None
+
     def idle_loop(self):
         while True:
             time.sleep(30)
@@ -121,14 +141,7 @@ class Encoder:
                 continue
             with self.mutex:
                 if self.model is not None and time.monotonic()-self.last_used >= 300:
-                    del self.model
-                    self.model = None
-                    import gc
-                    import torch
-                    gc.collect()
-                    torch.cuda.empty_cache()
-                    self.gpu_lock.close()
-                    self.gpu_lock = None
+                    self.unload()
 
 
 def serve_encoder(config):
@@ -151,7 +164,7 @@ def serve_encoder(config):
         def do_GET(self):
             if not self.allowed() or self.path != "/health":
                 return self.reply(403, {"error": "Local encoder only"})
-            self.reply(200, {"service": "bible-project-encoder", "loaded": encoder.model is not None, "batches": encoder.batches, "pid": os.getpid()})
+            self.reply(503 if encoder.failure else 200, {"service": "bible-project-encoder", "loaded": encoder.model is not None, "batches": encoder.batches, "pid": os.getpid(), "error": encoder.failure})
 
         def do_POST(self):
             if not self.allowed() or self.path != "/embed":
@@ -168,6 +181,8 @@ def serve_encoder(config):
                 cfg = config["embedding"]
                 self.reply(200, {"vectors": vectors, "model": cfg["model"], "revision": cfg["revision"], "dimensions": cfg["dimensions"]})
             except Exception as exc:
+                if 'CUDA error:' in str(exc):
+                    encoder.failure = str(exc)
                 self.reply(503, {"error": str(exc), "code": "gpu_busy" if isinstance(exc, GPUUnavailable) else "embedding_failed"})
 
         def log_message(self, *_):

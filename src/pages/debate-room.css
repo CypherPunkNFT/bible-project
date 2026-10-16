@@ -1,14 +1,15 @@
+.am-layout:has(.dr-room) { margin-top: 20px; }
 .dr-room { --dr-gold: var(--accent); }
 .dr-room p { line-height: 1.75; }
 .dr-room .dr-section { margin-top: 5rem; scroll-margin-top: 7rem; }
 .dr-room h2 { font-size: clamp(1.9rem, 3vw, 2.65rem); line-height: 1.18; margin: .5rem 0 1rem; }
-.dr-hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3rem; align-items: center; padding: 2.5rem 0 3rem; }
+.dr-hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3rem; align-items: center; padding: 0 0 3rem; }
 .dr-hero h1 { font-size: clamp(3.2rem, 6.7vw, 6.4rem); line-height: 1.02; margin: 1.2rem 0 1.6rem; }
 .dr-hero h1 em { color: var(--dr-gold); font-weight: inherit; }
 .dr-lead { color: var(--muted); max-width: 36rem; font-size: 1.04rem; margin-bottom: 1.8rem; }
-.dr-hero-art { color: var(--dr-gold); text-align: center; background: radial-gradient(ellipse, color-mix(in srgb, var(--dr-gold) 9%, transparent), transparent 70%); }
-.dr-hero-art svg { width: 100%; max-height: 23rem; stroke: currentColor; stroke-width: 1.1; }
-.dr-hero-art span { font-size: .68rem; line-height: 1.7; letter-spacing: .09em; text-transform: uppercase; }
+.dr-hero-art { align-self: start; padding-top: 0; color: var(--dr-gold); text-align: center; background: radial-gradient(ellipse, color-mix(in srgb, var(--dr-gold) 9%, transparent), transparent 70%); }
+.dr-hero-art svg { display: block; width: calc(100% + 36px); margin-left: -18px; height: 27.1rem; max-height: none; stroke: currentColor; stroke-width: 1.1; }
+.dr-hero-art span { display: block; margin-top: -3.2rem; font-size: .68rem; line-height: 1.7; letter-spacing: .09em; text-transform: uppercase; }
 .dr-orientation { display: flex; justify-content: space-between; gap: 1.5rem; align-items: center; border-block: 1px solid var(--line); padding: 1.2rem 0; }
 .dr-counts, .dr-orientation nav { display: flex; flex-wrap: wrap; gap: 1.4rem; }
 .dr-counts span { color: var(--muted); font-size: .75rem; }
@@ -104,9 +105,9 @@
 }
 @media (max-width: 600px) {
   .dr-room .dr-section { margin-top: 3.5rem; }
-  .dr-hero { grid-template-columns: 1fr; padding-top: 2rem; gap: 1.5rem; }
+  .dr-hero { grid-template-columns: 1fr; padding-top: 0; gap: 1.5rem; }
   .dr-hero h1 { font-size: clamp(3.2rem, 14vw, 4.5rem); }
-  .dr-hero-art svg { max-height: 220px; }
+  .dr-hero-art { padding-top: 0; }.dr-hero-art svg { width: calc(100% + 12px); margin-left: -6px; height: 17rem; max-height: none; }.dr-hero-art span { margin-top: -1.8rem; }
   .dr-hero-art span { font-size: .6rem; }
   .dr-orientation nav { column-gap: 1.2rem; row-gap: .2rem; }
   .dr-counts { gap: 1rem; }

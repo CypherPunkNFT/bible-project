@@ -3,14 +3,15 @@ import raw from '../../../../src/data/teachers/scholars.json';
 import facts from '../../../../content/teachers/contributor-facts.json';
 import type { Era, ScholarsData } from '@/data/teachers/pages-types';
 import { authorCredits, evidencedProfiles, featureEvidence } from './site-evidence';
-import { buildModel as ribbons } from './built/model';
+import { topSources, buildModel as ribbons } from './built/model';
 import { buildModel as discoveries } from './discoveries/model';
 import { matchesLibrary, ALL_LIBRARY, type LibraryPerson } from './catalogue/library';
 const data=evidencedProfiles(raw as unknown as ScholarsData);
 describe('shared data in established scholar visuals',()=>{
- it('retains every exact source in the ribbon model and every credit in the heat grid',()=>{
+ it('labels a bounded source overview while retaining every credit in the heat grid',()=>{
   const model=ribbons(data.scholars);
-  expect(model.rows.length).toBe(featureEvidence.reduce((n,f)=>n+f.sources.length,0));
+  expect(model.rows.length).toBe(featureEvidence.reduce((n,f)=>n+topSources(f.sources).length,0));
+  for(const f of model.features)expect(model.rows.filter(r=>r.fs.some(x=>x.id===f.id)).length).toBeLessThanOrEqual(8);
   expect(model.features).toHaveLength(featureEvidence.length);
   expect(new Set(authorCredits(data.scholars).map(c=>c.name))).toEqual(new Set(featureEvidence.flatMap(f=>f.sources.map(s=>s.author))));
   for(const row of model.rows)expect(row.s.sourceUrl).toBeTruthy();

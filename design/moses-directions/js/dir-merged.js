@@ -28,9 +28,10 @@
     return `<div class="mg-slide mg-slide-title" data-id="${c.id}" style="--tone:${toneVar(c.tone)}">
       <div class="mg-text"><span class="mg-kick">Chapter ${ROMAN[c.n]} · ${esc(c.years)}</span><h2 class="mg-title mg-title-xl">${esc(c.title)}</h2>
         <blockquote class="mg-verse"><p>${esc(f.verse.text)}</p><footer>${refLink(f.verse.ref)} · KJV · Stephen's telling</footer></blockquote>
+        ${c.act === 2 ? `<div class="mg-chapter-context"><p>Midian became Moses' home in exile after he fled Pharaoh. Here he married Zipporah, became a father, and tended the flock of his father-in-law Jethro. The man raised in Egypt's royal household was now living as a stranger and a shepherd.</p><p>Acts places forty years between his flight and the burning bush. At Horeb, God called him to return to Egypt and bring Israel out of bondage, a new commission near the end of this long season away.</p><footer>${refLink([2002015, 2002022])} &middot; ${refLink([2003001, 2003010])} &middot; ${refLink([44007029, 44007030])}</footer></div>` : ""}
         <div class="mg-actions"><button type="button" class="mg-link" data-map="${c.id}">${icon("map", 15)}See the map <small>${esc(c.road)}</small></button>
           <a class="mg-link" href="#mg-${c.id}-events" data-events="${c.id}">${icon("route", 15)}Every event <small>${c.timeline.filter((e) => e.k !== "gap").length}, with their verses</small></a></div></div>
-      <ol class="mg-index">${list.map((s, i) => `<li><button type="button" data-go="${i + 1}"><span>${String(i + 1).padStart(2, "0")}</span><b>${esc(s.title)}</b><small>${esc(refText(s.verse.ref))}</small></button></li>`).join("")}</ol></div>`;
+      <ol class="mg-index">${list.map((s, i) => `<li><button type="button" data-go="${i + 1}"><span>${String(i + 1).padStart(2, "0")}</span><b>${esc(s.title)}</b><small>${esc(refText(s.verse.ref))}</small><i class="mg-index-arrow" aria-hidden="true">${icon("arrowRight", 18)}</i></button></li>`).join("")}</ol></div>`;
   };
   const stopsLine = (c) => c.stops.map((i) => M.map.route[i]).filter((s, i, all) => all.findIndex((x) => x.name === s.name) === i)
     .map((s) => `<li><b>${esc(s.name)}</b>${refLink(s.verse.ref)}<small>${Math.round(s.confidence * 100)}%</small></li>`).join("");

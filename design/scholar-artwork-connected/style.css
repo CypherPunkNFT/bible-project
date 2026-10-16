@@ -1,0 +1,4 @@
+@import url('../scholar-artwork/style.css');
+.options{grid-template-columns:1fr 1fr;max-width:650px}.artwork{display:flex;justify-content:center;align-items:center;height:350px}.scene{display:block;width:760px;max-width:100%;height:auto;color:var(--gold);overflow:visible}.scene path,.scene circle,.scene ellipse{stroke-linecap:round;stroke-linejoin:round}.scene path,.scene ellipse{stroke:currentColor;stroke-width:1.05}.scene .page{fill:var(--page)}.scene .fine{stroke-width:.65;opacity:.64}.scene .faded{opacity:.35}.scene .ground{stroke-width:.7;opacity:.36}.scene .rb-stroke{stroke-width:1.15}.scene .rb-fine{stroke-width:.8}.scene .rb-faint,.scene .rb-text{stroke-width:.7}.scene .rb-paper{fill:var(--page)}.scene .rb-dot{stroke:none}.scene .rb-wave{stroke-width:1.15}.scene .rb-ink{stroke:var(--ink)}
+@media(min-width:1400px){.artwork{height:380px}.scene{width:800px}}
+@media(max-width:700px){.artwork{height:250px}.options{max-width:none}.options button{line-height:1.5}}

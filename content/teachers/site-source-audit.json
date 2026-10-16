@@ -1,0 +1,323 @@
+{
+  "schemaVersion": 1,
+  "scope": "Verified chart data inputs, registered page bibliographies, source directories imported by live academic/theological studies, and published apologetics citations. Institutions identify source providers where no author is recorded. Consultation limits are retained. Holdings and incidental name mentions are excluded.",
+  "features": [
+    {
+      "id": "topics",
+      "label": "Topics",
+      "sourceRecords": 3,
+      "pageConnections": 3,
+      "contributors": 3,
+      "kinds": {
+        "data": 3,
+        "citation": 0,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "harmony",
+      "label": "Gospel harmony",
+      "sourceRecords": 1,
+      "pageConnections": 1,
+      "contributors": 1,
+      "kinds": {
+        "data": 1,
+        "citation": 0,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "miracles",
+      "label": "Miracles",
+      "sourceRecords": 2,
+      "pageConnections": 2,
+      "contributors": 2,
+      "kinds": {
+        "data": 2,
+        "citation": 0,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "letters",
+      "label": "Letters study",
+      "sourceRecords": 126,
+      "pageConnections": 151,
+      "contributors": 76,
+      "kinds": {
+        "data": 2,
+        "citation": 124,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "people-rulers",
+      "label": "People · rulers",
+      "sourceRecords": 381,
+      "pageConnections": 547,
+      "contributors": 118,
+      "kinds": {
+        "data": 0,
+        "citation": 381,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "people-apostles",
+      "label": "People · apostles and the early church",
+      "sourceRecords": 91,
+      "pageConnections": 111,
+      "contributors": 64,
+      "kinds": {
+        "data": 0,
+        "citation": 91,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "people-prophets",
+      "label": "People · prophets",
+      "sourceRecords": 339,
+      "pageConnections": 370,
+      "contributors": 113,
+      "kinds": {
+        "data": 0,
+        "citation": 339,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "apologetics",
+      "label": "Apologetics studies",
+      "sourceRecords": 27,
+      "pageConnections": 146,
+      "contributors": 19,
+      "kinds": {
+        "data": 0,
+        "citation": 27,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "debates",
+      "label": "Debates and exchanges",
+      "sourceRecords": 9,
+      "pageConnections": 18,
+      "contributors": 8,
+      "kinds": {
+        "data": 0,
+        "citation": 9,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "worldviews",
+      "label": "Worldview studies",
+      "sourceRecords": 20,
+      "pageConnections": 78,
+      "contributors": 10,
+      "kinds": {
+        "data": 0,
+        "citation": 20,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "apologetics-practice",
+      "label": "Conversation practice",
+      "sourceRecords": 2,
+      "pageConnections": 6,
+      "contributors": 2,
+      "kinds": {
+        "data": 0,
+        "citation": 2,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "witnesses",
+      "label": "Surviving manuscripts",
+      "sourceRecords": 14,
+      "pageConnections": 14,
+      "contributors": 9,
+      "kinds": {
+        "data": 0,
+        "citation": 14,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "manuscript-passages",
+      "label": "Passage through manuscripts",
+      "sourceRecords": 26,
+      "pageConnections": 26,
+      "contributors": 16,
+      "kinds": {
+        "data": 0,
+        "citation": 26,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "dead-sea-scrolls",
+      "label": "Dead Sea Scrolls",
+      "sourceRecords": 30,
+      "pageConnections": 30,
+      "contributors": 20,
+      "kinds": {
+        "data": 0,
+        "citation": 25,
+        "bibliography": 5
+      }
+    },
+    {
+      "id": "canon",
+      "label": "How the canon took shape",
+      "sourceRecords": 34,
+      "pageConnections": 34,
+      "contributors": 27,
+      "kinds": {
+        "data": 0,
+        "citation": 34,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "printed-bible",
+      "label": "Manuscript to printed Bible",
+      "sourceRecords": 43,
+      "pageConnections": 43,
+      "contributors": 32,
+      "kinds": {
+        "data": 0,
+        "citation": 38,
+        "bibliography": 5
+      }
+    },
+    {
+      "id": "discoveries",
+      "label": "Discoveries and the biblical record",
+      "sourceRecords": 33,
+      "pageConnections": 33,
+      "contributors": 27,
+      "kinds": {
+        "data": 0,
+        "citation": 30,
+        "bibliography": 3
+      }
+    },
+    {
+      "id": "empires",
+      "label": "Israel among the empires",
+      "sourceRecords": 18,
+      "pageConnections": 18,
+      "contributors": 17,
+      "kinds": {
+        "data": 0,
+        "citation": 18,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "cities",
+      "label": "Cities through their layers",
+      "sourceRecords": 29,
+      "pageConnections": 29,
+      "contributors": 25,
+      "kinds": {
+        "data": 0,
+        "citation": 29,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "world",
+      "label": "World of Jesus and the apostles",
+      "sourceRecords": 25,
+      "pageConnections": 25,
+      "contributors": 22,
+      "kinds": {
+        "data": 0,
+        "citation": 25,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "parables",
+      "label": "Parables · close reading",
+      "sourceRecords": 16,
+      "pageConnections": 16,
+      "contributors": 5,
+      "kinds": {
+        "data": 0,
+        "citation": 16,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "atlas-history",
+      "label": "Atlas · historical collections",
+      "sourceRecords": 12,
+      "pageConnections": 12,
+      "contributors": 12,
+      "kinds": {
+        "data": 0,
+        "citation": 12,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "bible-texts",
+      "label": "Bible reader · text editions",
+      "sourceRecords": 1,
+      "pageConnections": 1,
+      "contributors": 1,
+      "kinds": {
+        "data": 1,
+        "citation": 0,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "cross-references",
+      "label": "Scripture cross-references",
+      "sourceRecords": 1,
+      "pageConnections": 1,
+      "contributors": 1,
+      "kinds": {
+        "data": 1,
+        "citation": 0,
+        "bibliography": 0
+      }
+    },
+    {
+      "id": "atlas",
+      "label": "Atlas and biblical places",
+      "sourceRecords": 1,
+      "pageConnections": 1,
+      "contributors": 1,
+      "kinds": {
+        "data": 1,
+        "citation": 0,
+        "bibliography": 0
+      }
+    }
+  ],
+  "summary": {
+    "features": 25,
+    "sourceRecords": 1284,
+    "pageConnections": 1716,
+    "creditLabels": 519,
+    "verifiedInputFiles": 158
+  },
+  "excluded": [
+    "Unpublished research plans and acquisition archives",
+    "Library holdings without a live page citation or linked source directory",
+    "Incidental personal-name matches",
+    "Navigation-only pages whose source connections are recorded on the linked studies"
+  ],
+  "refresh": [
+    "node scripts/collect-scholar-site-sources.mjs",
+    "python scripts/build-scholar-usage.py"
+  ]
+}

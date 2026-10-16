@@ -44,3 +44,10 @@
 
 /* Keep the established directory columns inside their own growing scroll list. */
 .tp-scholars .dir-frame { max-height: 70vh; overflow-y: auto; padding: .5rem; }
+
+/* Match section 04's slim pill and arrow-free, transparent track. */
+@supports selector(::-webkit-scrollbar) {
+  .tp-scholars .dir-frame.slim-scroll { scrollbar-width: auto; scrollbar-color: auto; }
+  .tp-scholars .dir-frame.slim-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+  .tp-scholars .dir-frame.slim-scroll::-webkit-scrollbar-button { display: none; width: 0; height: 0; background: transparent; }
+}

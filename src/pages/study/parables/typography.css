@@ -1,0 +1,70 @@
+/* Reading scale: prose, supporting text, then compact metadata. */
+.pb-invitation{font-size:1rem;line-height:1.8;color:var(--ink);max-width:68ch;margin:0 0 2rem}
+.pb-page .pb-invitation a{color:var(--pb-tone);text-decoration:underline;text-underline-offset:3px;white-space:normal}
+.pb-begin{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem 1.25rem;margin-bottom:1.8rem;padding:.75rem 1rem;border-radius:.5rem;background:color-mix(in srgb,var(--pb-tone) 6%,var(--surface))}
+.pb-begin>span{font-size:.875rem;line-height:1.6;color:var(--ink)}
+.pb-page .pb-open-passage{display:inline-flex;align-items:center;flex-wrap:wrap;gap:.5rem;min-height:44px;font-size:.9375rem;line-height:1.6;color:var(--pb-tone);text-decoration:underline;text-underline-offset:4px}
+.pb-open-passage svg{flex-shrink:0}
+#pb-method-title{scroll-margin-top:100px}
+.pb-reading p:not(.pb-kicker):not(.pb-reading-question):not(.pb-audience){
+  font-size:1rem;line-height:1.8;color:var(--ink);max-width:68ch;
+}
+.pb-reading-question{font-size:1.05rem;line-height:1.7;color:var(--ink);max-width:58ch}
+.pb-audience{font-size:.875rem;line-height:1.7;margin:.75rem 0}
+.pb-context>div{min-width:0}
+.pb-reading-head h2{line-height:1.2;letter-spacing:-.025em;overflow-wrap:break-word}
+.pb-section-heading h3,.pb-context h3{font-size:1.3rem;line-height:1.4}
+.pb-deep-reading h4{font-size:1.25rem;line-height:1.45;max-width:48ch;margin-bottom:.8rem}
+.pb-account-title{font-size:1.15rem;line-height:1.5}
+.pb-close,.pb-movement,.pb-accounts{margin-top:2.2rem}
+.pb-deep-reading{margin-top:1.8rem;padding-top:1.6rem}
+.pb-page summary{font-size:.95rem;line-height:1.6;padding:.25rem 0}
+.pb-page .pb-reading-sources a{font-size:.875rem;line-height:1.75}
+.pb-reading-sources{gap:.6rem 1.2rem;margin-top:1rem;max-width:68ch}
+.pb-page .pb-account-tabs button{font-size:.875rem;line-height:1.5;min-height:44px}
+.pb-read-link{font-size:.95rem;line-height:1.6;min-height:44px;flex-wrap:wrap}
+.pb-read-link svg{flex-shrink:0}
+.pb-page button.pb-back-top{font-size:.875rem;line-height:1.6;min-height:44px}
+.pb-reflect>span:last-child{font-size:.875rem;line-height:1.6;display:block}
+.pb-kicker{font-size:.75rem;line-height:1.7;letter-spacing:.12em}
+.pb-number,.pb-hinge>span{font-size:.75rem}
+.pb-section-heading>span:last-child:not(:first-child){font-size:.8125rem;line-height:1.6}
+.pb-page .pb-search input{font-size:1rem;line-height:1.5}
+.pb-search svg{flex-shrink:0}
+.pb-search-help,.pb-result-count,.pb-scope{font-size:.8125rem;line-height:1.65}
+.pb-page .pb-search-clear,.pb-page .pb-search-widen{font-size:.875rem;line-height:1.6;min-height:44px;text-align:left}
+.pb-empty{font-size:.9375rem}
+.pb-story-list strong{font-size:1rem;line-height:1.45}
+.pb-story-list small{font-size:.8125rem;line-height:1.5}
+.pb-story-list button>span:nth-child(2){min-width:0;overflow-wrap:break-word}
+.pb-category strong{font-size:.875rem;line-height:1.5}
+.pb-category small{font-size:.75rem;line-height:1.5}
+.pb-category>span{min-width:0;overflow-wrap:break-word}
+.pb-statline>span{font-size:.8125rem;line-height:1.5}
+.pb-breadcrumb{font-size:.8125rem;line-height:1.6}
+.pb-start{font-size:.9375rem}
+.pb-hero p:not(.pb-kicker){font-size:1.05rem;line-height:1.8}
+.pb-hero-scene>span,.pb-listening-scene>span{font-size:.75rem;line-height:1.7;letter-spacing:.12em}
+.pb-method p:not(.pb-kicker),.pb-method .pb-practice p,.pb-count-note p,.pb-sources p{
+  font-size:1rem;line-height:1.8;color:var(--ink);max-width:68ch;
+}
+.pb-method a,.pb-sources a{font-size:.875rem;line-height:1.6}
+.pb-practice>div{min-width:0}
+.pb-method .pb-practice h3{font-size:1.25rem;line-height:1.45}
+.pb-count-note>div{max-width:68ch}
+.pb-page button:focus-visible,.pb-page a:focus-visible,.pb-page summary:focus-visible,
+.pb-page input:focus-visible,.pb-page #parable-title:focus-visible{
+  /* Override the site's global important outline reset only within this study. */
+  outline:2px solid var(--ink)!important;outline-offset:3px;
+}
+@media(max-width:640px){
+  .pb-reading{padding:1.15rem}
+  .pb-reading-head{gap:.75rem}
+  .pb-category{gap:.5rem;padding:.7rem;min-height:84px}
+  .pb-story-list strong{font-size:1rem}
+  .pb-beats button strong{font-size:.9375rem;line-height:1.4;overflow-wrap:break-word}
+  .pb-beats button>span{font-size:.8125rem}
+  .pb-practice{padding:1.1rem;gap:.75rem}
+  .pb-sources>div{min-width:0;flex-basis:220px}
+  .pb-sources>a{white-space:normal}
+}

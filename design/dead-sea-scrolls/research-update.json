@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-14",
+  "status": "local-design-proposal",
+  "scope": "Three landing alternatives and eight interactive section proposals; existing study not replaced.",
+  "teachingSequence": [
+    "What the scrolls are, their age and significance",
+    "Earlier witnesses and a wider literary world",
+    "Six representative objects",
+    "Composition versus copy versus recovery",
+    "Psalm 145: observation before interpretation",
+    "Recovery and provenance",
+    "Testing a proposed direct join",
+    "Conservation",
+    "Open questions and deeper reading"
+  ],
+  "evidenceBasis": "Existing structured dossier content/academic-research/03-dead-sea-scrolls.json, with institutional web records consulted again for introduction and images.",
+  "sources": [
+    {
+      "url": "https://www.deadseascrolls.org.il/learn-about-the-scrolls/introduction",
+      "consulted": "Web text",
+      "supports": [
+        "Broad Qumran date period",
+        "Languages and materials",
+        "Variety and significance"
+      ]
+    },
+    {
+      "url": "https://museum.imj.org.il/pdf/dss-english.pdf",
+      "consulted": "Search-indexed text, not full visual inspection",
+      "supports": [
+        "1946–47 recovery period",
+        "Qualification of comparisons with medieval biblical witnesses"
+      ]
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Great_Isaiah_Scroll.jpg",
+      "consulted": "File record, licensing and downloaded photograph visually inspected",
+      "supports": [
+        "Image identity and rights"
+      ]
+    }
+  ],
+  "image": {
+    "file": "assets/isaiah.jpg",
+    "photographer": "Ardon Bar Hama",
+    "collection": "Israel Museum",
+    "source": "https://commons.wikimedia.org/wiki/File:Great_Isaiah_Scroll.jpg",
+    "rights": "Public-domain faithful photographic reproduction of a public-domain two-dimensional work (PD-Art); Commons identifies public-domain status in the United States.",
+    "display": "Commons image arranges the scroll in three rows; this is labelled. Landing A uses a CSS crop. No generated manuscript imagery.",
+    "container": "assets/isaiah.svg embeds the unchanged JPEG because the preview mockup middleware does not serve JPEG extensions."
+  },
+  "schematics": [
+    "Psalm 145 letters and English themes are editorial, not facsimile or translation.",
+    "Fragment exercise is entirely fictional; it does not assert an actual join.",
+    "Three-date display is conceptual, not a proportional timeline."
+  ],
+  "limits": [
+    "Source catalogue ranges retained; Copper Scroll date explicitly attributed.",
+    "Institutional abstract, not full Anava et al. paper, consulted.",
+    "No implication that all fragments have excavated findspots.",
+    "Mockup header is a visual stand-in; final integration must retain shared production header and transition components."
+  ],
+  "verification": {
+    "preview": "http://127.0.0.1:8931/mockups/dead-sea-scrolls/",
+    "checks": [
+      "All 9 section routes and assembled route",
+      "All 3 landing variants",
+      "Every switch button and Psalm reveal",
+      "320, 390, 768px overflow checks",
+      "1440px desktop screenshot review",
+      "Light and dark appearances",
+      "Keyboard activation and focus entry",
+      "Reduced-motion mode",
+      "Image loading",
+      "No browser JavaScript exceptions"
+    ],
+    "limitations": [
+      "Mockups use a visual header stand-in. Shared React header and standard route transitions will need verification during selected-design integration.",
+      "No public deployment or production study replacement."
+    ]
+  }
+}

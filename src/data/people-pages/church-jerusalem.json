@@ -69,7 +69,7 @@
       ]
     },
     {
-      "text": "Scripture records the death of only one of them, Stephen (Acts 7:59-60). What is told of the others' later lives comes from Josephus, from church writers of the 2nd to 5th centuries, and from later legends; every such line names who said it and when.",
+      "text": "Scripture records the death of only one of them, Stephen (Acts 7:59-60). What is told of the others' later lives comes from church writers of the 2nd to 5th centuries, and from later legends; every such line names who said it and when.",
       "layer": "text",
       "refs": [
         [
@@ -660,15 +660,6 @@
         ],
         "tradition": [
           {
-            "text": "When Festus was dead and Albinus “but upon the road”, the high priest Ananus “assembled the sanhedrim of judges, and brought before them the brother of Jesus, who was called Christ, whose name was James, and some others”, and “delivered them to be stoned”. Some citizens protested; Agrippa took the high priesthood from Ananus after three months.",
-            "layer": "ancient-record",
-            "cites": [
-              "josephus-whiston-1737"
-            ],
-            "who": "Josephus, Antiquities 20.9.1 (trans. Whiston, 1737)",
-            "when": "written about AD 93; the events about 62"
-          },
-          {
             "text": "James was set on the pinnacle of the temple at Passover and asked to turn the people from Jesus; he answered that Jesus “sitteth in heaven at the right hand of the great Power”. He was thrown down, stoned, prayed “forgive them, for they know not what they do”, and was struck dead with a fuller's club. “And immediately Vespasian besieged them.”",
             "layer": "early-church",
             "cites": [
@@ -694,18 +685,6 @@
             ],
             "who": "Clement of Alexandria, Hypotyposes book 7, quoted by Eusebius, Church History 2.1.4",
             "when": "about AD 200"
-          },
-          {
-            "text": "Origen, and Eusebius after him, say that Josephus traced Jerusalem's sufferings to the death of James; in Eusebius's words they came “to avenge James the Just”. McGiffert notes that the sentence is not in the surviving manuscripts of Josephus; it is not in the Whiston text the project holds either.",
-            "layer": "early-church",
-            "cites": [
-              "origen-celsus-anf-1885",
-              "eusebius-npnf-1890",
-              "mcgiffert-notes-1890",
-              "josephus-whiston-1737"
-            ],
-            "who": "Origen, Against Celsus 1.47 and 2.13; Eusebius, Church History 2.23.20",
-            "when": "Origen about 245 or later; Eusebius about 325"
           },
           {
             "text": "Jerome says James “ruled the church of Jerusalem thirty years, that is until the seventh year of Nero, and was buried near the temple”, and that his tombstone was known until the siege of Titus and the end of Hadrian's reign.",
@@ -857,50 +836,6 @@
                     40010002,
                     40010003
                   ]
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "id": "james-death-date",
-          "question": "When did James die? (In the order of the sources.)",
-          "views": [
-            {
-              "label": "About AD 62, by stoning, under the high priest Ananus",
-              "holders": "Josephus's account as McGiffert (1890: “61 or 62”) and Kerr (ISBE, 1915: “about 62 or 63”) read it; Jerome (392) has “the seventh year of Nero”",
-              "argument": {
-                "text": "Josephus dates the trial between the death of Festus and the arrival of Albinus; McGiffert holds that this exact setting fixes the date.",
-                "layer": "scholars",
-                "cites": [
-                  "josephus-whiston-1737",
-                  "mcgiffert-notes-1890",
-                  "kerr-isbe-james-1915",
-                  "jerome-lives-npnf-1892"
-                ]
-              }
-            },
-            {
-              "label": "Condemned then, but he “did not die till long afterwards”",
-              "holders": "William Whiston, in a note to his translation (1737)",
-              "argument": {
-                "text": "Whiston argues that the Sanhedrin could not put a man to death without the Roman governor's approval, which Ananus never had.",
-                "layer": "scholars",
-                "cites": [
-                  "josephus-whiston-1737"
-                ]
-              }
-            },
-            {
-              "label": "Just before Vespasian's war (from AD 67)",
-              "holders": "Hegesippus (about 170), who ends his account “And immediately Vespasian besieged them”; E. C. Richardson (1892), who gives “69 (Hegesippus)” beside “62 or 63 (according to Josephus and Jerome)”; McGiffert (1890) reports this reading but thinks “immediately” too loose to set a date",
-              "argument": {
-                "text": "Hegesippus links the death directly to the siege that followed, without giving a year.",
-                "layer": "early-church",
-                "cites": [
-                  "eusebius-npnf-1890",
-                  "jerome-lives-npnf-1892",
-                  "mcgiffert-notes-1890"
                 ]
               }
             }
@@ -4848,14 +4783,6 @@
       "url": "https://www.ccel.org/ccel/s/schaff/npnf201/cache/npnf201.txt"
     },
     {
-      "id": "josephus-whiston-1737",
-      "author": "Flavius Josephus (trans. William Whiston)",
-      "title": "Antiquities of the Jews",
-      "year": "1737",
-      "where": "book 20, chapter 9, section 1, with Whiston's note 24 (Project Gutenberg text, held locally as sources/gutenberg/josephus-antiquities-2848.txt)",
-      "url": "https://www.gutenberg.org/ebooks/2848"
-    },
-    {
       "id": "jerome-lives-npnf-1892",
       "author": "Jerome (trans. E. C. Richardson, Nicene and Post-Nicene Fathers, series 2, vol. 3)",
       "title": "Lives of Illustrious Men",
@@ -4878,14 +4805,6 @@
       "year": "1896",
       "where": "book 10, section 17, The Brethren of Jesus; ANF vol. 9 first published Buffalo, 1896; checked against the 1903 Scribner reprint (archive.org scan antenicenefather0009unse_s0x0)",
       "url": "https://www.ccel.org/ccel/s/schaff/anf09/cache/anf09.txt"
-    },
-    {
-      "id": "origen-celsus-anf-1885",
-      "author": "Origen (trans. Frederick Crombie, Ante-Nicene Fathers, vol. 4)",
-      "title": "Against Celsus",
-      "year": "1885",
-      "where": "book 1, chapter 47; book 2, chapter 13",
-      "url": "https://www.ccel.org/ccel/s/schaff/anf04/cache/anf04.txt"
     },
     {
       "id": "walker-anf8-1886",
@@ -5025,14 +4944,6 @@
       "year": "1915",
       "where": "vol. 1, pp. 518-519; checked against the printed 1915 edition (archive.org scan bibleencyclopaed01unknuoft)",
       "url": "https://www.internationalstandardbible.com/B/brethren-of-the-lord.html"
-    },
-    {
-      "id": "kerr-isbe-james-1915",
-      "author": "C. M. Kerr",
-      "title": "James (International Standard Bible Encyclopedia)",
-      "year": "1915",
-      "where": "vol. 3, section on his death (about 62 or 63); checked against the printed 1915 edition (archive.org scan bibleencyclopedi03orruoft)",
-      "url": "https://www.internationalstandardbible.com/J/james.html"
     },
     {
       "id": "press-isbe-stephen-1915",

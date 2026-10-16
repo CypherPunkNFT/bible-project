@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-10-14",
+  "phase": "content-first-pass",
+  "instructions": [
+    "Proceed through all 25 studies in this order, one dossier per user next.",
+    "First pass compiles substance, sources, objects, works, people, events, disagreements, and research gaps.",
+    "Do not design or implement study pages during this pass.",
+    "After all 25 first passes, the next user next starts the design pass at study 01.",
+    "Distinguish documented facts from proposals and unverified candidates; retain source identifiers for individual claims.",
+    "Do not automatically publish research dossiers as finished page content."
+  ],
+  "completedFirstPass": 2,
+  "nextStudy": 2,
+  "studies": [
+    {
+      "order": 1,
+      "category": "bible-formation",
+      "categoryTitle": "The Bible: formation & transmission",
+      "title": "The surviving witnesses",
+      "status": "first-pass-compiled",
+      "dossier": "01-surviving-witnesses.json"
+    },
+    {
+      "order": 2,
+      "category": "bible-formation",
+      "categoryTitle": "The Bible: formation & transmission",
+      "title": "A passage through the manuscripts",
+      "status": "implemented-local-only",
+      "dossier": "02-passage-through-manuscripts.json",
+      "route": "/study/passage-through-manuscripts",
+      "design": "02-design.json",
+      "designProposal": "02-passage-through-manuscripts/design.md",
+      "designProposalStatus": "isolated-prototype-verified-no-integration"
+    },
+    {
+      "order": 3,
+      "category": "bible-formation",
+      "categoryTitle": "The Bible: formation & transmission",
+      "title": "The Dead Sea Scrolls",
+      "status": "researched-and-implemented-local-preview",
+      "dossier": "03-dead-sea-scrolls.json",
+      "route": "/study/dead-sea-scrolls",
+      "designProposal": "03-dead-sea-scrolls/design.md",
+      "designProposalStatus": "implemented-and-verified-local-preview"
+    },
+    {
+      "order": 4,
+      "category": "bible-formation",
+      "categoryTitle": "The Bible: formation & transmission",
+      "title": "How the canon took shape",
+      "status": "implemented-local",
+      "dossier": "04-how-the-canon-took-shape.json",
+      "route": "/study/how-the-canon-took-shape",
+      "note": "Explicit user request authorized research and implementation out of programme order. Preview only; no public deployment.",
+      "designProposal": "04-how-the-canon-took-shape/design.md",
+      "designProposalStatus": "implemented-local-verified"
+    },
+    {
+      "order": 5,
+      "category": "bible-formation",
+      "categoryTitle": "The Bible: formation & transmission",
+      "title": "From manuscript to printed Bible",
+      "status": "researched-and-implemented-local",
+      "dossier": "05-from-manuscript-to-printed-bible.json",
+      "route": "/study/from-manuscript-to-printed-bible",
+      "design": "05-design.json",
+      "designProposal": "05-from-manuscript-to-printed-bible/design.md",
+      "designProposalStatus": "approved-implemented-verified-local"
+    },
+    {
+      "order": 6,
+      "category": "history",
+      "categoryTitle": "History & archaeology",
+      "title": "From discovery to history",
+      "status": "implemented-local",
+      "dossier": "06-discoveries-biblical-record.json",
+      "route": "/study/from-discovery-to-history",
+      "design": "06-design.json",
+      "designProposal": "06-discoveries-biblical-record/design.md",
+      "designProposalStatus": "campaign-narrative-implemented-and-verified-local",
+      "legacyRoute": "/study/discoveries-biblical-record",
+      "purpose": "Historical methods taught through archaeological and inscriptional examples",
+      "relatedStudyLandings": [
+        {
+          "id": "mesha",
+          "title": "Mesha and the world of Moab",
+          "route": "/study/mesha-and-the-world-of-moab",
+          "status": "landing-only"
+        },
+        {
+          "id": "lachish",
+          "title": "Lachish under siege",
+          "route": "/study/lachish-under-siege",
+          "status": "landing-only"
+        },
+        {
+          "id": "cyrus",
+          "title": "Cyrus, restoration and return",
+          "route": "/study/cyrus-restoration-and-return",
+          "status": "landing-only"
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "category": "history",
+      "categoryTitle": "History & archaeology",
+      "title": "Israel among the empires",
+      "status": "researched-and-implemented-local",
+      "dossier": "07-israel-among-the-empires.json",
+      "route": "/study/israel-among-the-empires",
+      "designProposal": "07-israel-among-the-empires/design.md",
+      "designProposalStatus": "illustrated-revamp-implemented-and-verified-local"
+    },
+    {
+      "order": 8,
+      "category": "history",
+      "categoryTitle": "History & archaeology",
+      "title": "Cities through their layers",
+      "status": "expanded-and-implemented-local",
+      "dossier": "08-cities-through-layers.json",
+      "design": "08-cities-through-layers/design.md",
+      "designStatus": "implemented-and-verified-local",
+      "designProgress": "08-cities-through-layers/progress.json",
+      "designPrototype": "08-cities-through-layers/prototype.html",
+      "route": "/study/cities-through-their-layers",
+      "note": "Expanded research preserved; latest user instruction authorized design implementation in existing local preview. No public deployment.",
+      "implementation": "08-cities-through-layers/implementation.md"
+    },
+    {
+      "order": 9,
+      "category": "history",
+      "categoryTitle": "History & archaeology",
+      "title": "The world of Jesus & the apostles",
+      "status": "approved-merged-local",
+      "dossier": "09-world-of-jesus-apostles.json",
+      "design": "09-consolidation.json",
+      "route": "/study/world-of-jesus-apostles",
+      "expandedResearch": "09-expanded-research.json",
+      "designProposal": "09-world-of-jesus-apostles/design.md",
+      "designProposalStatus": "isolated-prototype-verified-no-integration",
+      "designProgress": "09-world-of-jesus-apostles/progress.json"
+    },
+    {
+      "order": 10,
+      "category": "history",
+      "categoryTitle": "History & archaeology",
+      "title": "Dating the biblical world",
+      "status": "queued"
+    },
+    {
+      "order": 11,
+      "category": "interpretation",
+      "categoryTitle": "Reading & interpreting Scripture",
+      "title": "Why translations differ",
+      "status": "queued"
+    },
+    {
+      "order": 12,
+      "category": "interpretation",
+      "categoryTitle": "Reading & interpreting Scripture",
+      "title": "Words in their passages",
+      "status": "queued"
+    },
+    {
+      "order": 13,
+      "category": "interpretation",
+      "categoryTitle": "Reading & interpreting Scripture",
+      "title": "How biblical writing works",
+      "status": "queued"
+    },
+    {
+      "order": 14,
+      "category": "interpretation",
+      "categoryTitle": "Reading & interpreting Scripture",
+      "title": "Scripture reading Scripture",
+      "status": "queued"
+    },
+    {
+      "order": 15,
+      "category": "interpretation",
+      "categoryTitle": "Reading & interpreting Scripture",
+      "title": "The churches behind the letters",
+      "status": "queued"
+    },
+    {
+      "order": 16,
+      "category": "thought",
+      "categoryTitle": "Christian thought & great works",
+      "title": "Works that shaped Christianity",
+      "status": "queued"
+    },
+    {
+      "order": 17,
+      "category": "thought",
+      "categoryTitle": "Christian thought & great works",
+      "title": "God, Christ & the Spirit",
+      "status": "queued"
+    },
+    {
+      "order": 18,
+      "category": "thought",
+      "categoryTitle": "Christian thought & great works",
+      "title": "Grace, freedom & salvation",
+      "status": "queued"
+    },
+    {
+      "order": 19,
+      "category": "thought",
+      "categoryTitle": "Christian thought & great works",
+      "title": "Faith, reason & understanding",
+      "status": "queued"
+    },
+    {
+      "order": 20,
+      "category": "thought",
+      "categoryTitle": "Christian thought & great works",
+      "title": "The church, worship & the good life",
+      "status": "queued"
+    },
+    {
+      "order": 21,
+      "category": "church-history",
+      "categoryTitle": "The church through history",
+      "title": "The first Christian generations",
+      "status": "queued"
+    },
+    {
+      "order": 22,
+      "category": "church-history",
+      "categoryTitle": "The church through history",
+      "title": "Creeds & councils",
+      "status": "queued"
+    },
+    {
+      "order": 23,
+      "category": "church-history",
+      "categoryTitle": "The church through history",
+      "title": "Traditions: shared roots & divisions",
+      "status": "queued"
+    },
+    {
+      "order": 24,
+      "category": "church-history",
+      "categoryTitle": "The church through history",
+      "title": "Reform, renewal & revival",
+      "status": "queued"
+    },
+    {
+      "order": 25,
+      "category": "church-history",
+      "categoryTitle": "The church through history",
+      "title": "Christianity across the world",
+      "status": "queued"
+    }
+  ],
+  "activeDesign": {
+    "study": 5,
+    "route": "/study/from-manuscript-to-printed-bible",
+    "record": "05-design.json",
+    "reason": "Explicit user instruction to research and build this study locally, superseding the initial research-only sequence for this item."
+  },
+  "implementationExceptions": {
+    "03": "User explicitly requested research, design and implementation of this study; local preview only."
+  }
+}

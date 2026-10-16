@@ -1,5 +1,5 @@
 {
-  "about": "Hand-entered for the Scholars mock-ups (2026-10-08): life years, faith label, field, where they mainly worked, one line, key works, and how this site uses their work (status from SOURCES.md / REFERENCE_LIBRARY.md). Fact-checked 2026-10-08 against Wikipedia, Britannica and other references (report in the session DevLog); corrections applied. `match` is the pattern build-scholars.mjs uses to count where the site's own content mentions them.",
+  "about": "Curated scholar catalogue: life years, faith label, field, main working location, concise contribution, selected works, and verified site use or holdings. Archaeology profiles and bibliographies expanded against institutional and publisher sources in October 2026; see scholars-archaeology-sources.md. `match` counts mentions in the site's own content.",
   "faiths": {
     "jewish": "Jewish",
     "roman": "Roman, not a Christian",
@@ -355,6 +355,10 @@
         [
           "Biblical Researches in Palestine",
           1841
+        ],
+        [
+          "Later Biblical Researches in Palestine",
+          1856
         ]
       ],
       "site": null,
@@ -760,6 +764,10 @@
         [
           "St. Paul the Traveller and the Roman Citizen",
           1895
+        ],
+        [
+          "The Church in the Roman Empire Before A.D. 170",
+          1893
         ]
       ],
       "site": [
@@ -838,6 +846,10 @@
         [
           "The Archaeology of Palestine",
           1949
+        ],
+        [
+          "From the Stone Age to Christianity",
+          1940
         ]
       ],
       "site": null,
@@ -861,6 +873,10 @@
         [
           "Digging Up Jericho",
           1957
+        ],
+        [
+          "Archaeology in the Holy Land",
+          1960
         ]
       ],
       "site": null,
@@ -884,10 +900,921 @@
         [
           "Masada",
           1966
+        ],
+        [
+          "Hazor: The Rediscovery of a Great Citadel of the Bible",
+          1975
         ]
       ],
       "site": null,
       "match": "Yadin"
+    },
+    {
+      "id": "charles-warren",
+      "name": "Charles Warren",
+      "short": "Warren",
+      "born": 1840,
+      "died": 1927,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": ["Jerusalem", 31.78, 35.23],
+      "line": "Surveyed and explored Jerusalem's walls, tunnels, and ancient waterworks for the Palestine Exploration Fund.",
+      "works": [["The Recovery of Jerusalem", 1871], ["Underground Jerusalem", 1876]],
+      "site": null,
+      "match": "Charles Warren",
+      "biographyUrl": "https://www.pef.org.uk/about/history/sir-charles-warren/"
+    },
+    {
+      "id": "flinders-petrie",
+      "name": "Flinders Petrie",
+      "short": "Petrie",
+      "born": 1853,
+      "died": 1942,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": ["Tell el-Hesi", 31.55, 34.69],
+      "line": "Excavated Tell el-Hesi and helped establish pottery sequence and stratigraphic dating in Palestinian archaeology.",
+      "works": [["Tell el Hesy (Lachish)", 1891], ["Methods and Aims in Archaeology", 1904]],
+      "site": null,
+      "match": "Flinders Petrie|W. M. F. Petrie",
+      "biographyUrl": "https://www.pef.org.uk/about/history/sir-william-flinders-petrie/"
+    },
+    {
+      "id": "frederick-jones-bliss",
+      "name": "Frederick Jones Bliss",
+      "short": "Bliss",
+      "born": 1859,
+      "died": 1937,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": ["Jerusalem", 31.78, 35.23],
+      "line": "Excavated Tell el-Hesi, Jerusalem, and sites in the southern Shephelah for the Palestine Exploration Fund.",
+      "works": [["A Mound of Many Cities: Tell el Hesy", 1894], ["Excavations in Palestine During the Years 1898–1900", 1902]],
+      "site": null,
+      "match": "Frederick Jones Bliss|F. J. Bliss",
+      "biographyUrl": "https://www.pef.org.uk/about/history/frederick-jones-bliss/"
+    },
+    {
+      "id": "john-garstang",
+      "name": "John Garstang",
+      "short": "Garstang",
+      "born": 1876,
+      "died": 1956,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": ["Jericho", 31.87, 35.44],
+      "line": "Led major excavations at Jericho; his chronology and conclusions became a focus of later archaeological reassessment.",
+      "works": [["The Foundations of Bible History: Joshua, Judges", 1931], ["The Story of Jericho", 1940]],
+      "site": null,
+      "match": "John Garstang",
+      "biographyUrl": "https://www.liverpool.ac.uk/garstang-museum/about-us/john-garstang/"
+    },
+    {
+      "id": "nelson-glueck",
+      "name": "Nelson Glueck",
+      "short": "Glueck",
+      "born": 1900,
+      "died": 1971,
+      "faith": "jewish",
+      "field": "places",
+      "place": ["Negev", 30.85, 34.78],
+      "line": "Rabbi and archaeologist whose surveys of Transjordan and the Negev mapped ancient settlements and trade routes.",
+      "works": [["The Other Side of the Jordan", 1940], ["Rivers in the Desert: A History of the Negev", 1959]],
+      "site": null,
+      "match": "Nelson Glueck",
+      "biographyUrl": "https://press.huc.edu/nelson-glueck-biblical-archaeologist-president-hebrew-union-college-jewish-institute-religion/"
+    },
+    {
+      "id": "roland-de-vaux",
+      "name": "Roland de Vaux",
+      "short": "de Vaux",
+      "born": 1903,
+      "died": 1971,
+      "faith": "catholic",
+      "field": "places",
+      "place": ["Qumran", 31.74, 35.46],
+      "line": "Directed excavations at Qumran and developed an influential, still debated interpretation of the settlement and Dead Sea Scrolls.",
+      "works": [["Ancient Israel: Its Life and Institutions", 1961], ["Archaeology and the Dead Sea Scrolls", 1973]],
+      "site": null,
+      "match": "Roland de Vaux|R. de Vaux",
+      "biographyUrl": "https://www.ebaf.edu/the-qumran-excavations/"
+    },
+    {
+      "id": "olga-tufnell",
+      "name": "Olga Tufnell",
+      "short": "Tufnell",
+      "born": 1905,
+      "died": 1985,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": ["Lachish", 31.56, 34.85],
+      "line": "Worked on the Lachish excavations and brought their Iron and Bronze Age finds into the final excavation reports.",
+      "works": [["Lachish III: The Iron Age", 1953], ["Lachish IV: The Bronze Age", 1958]],
+      "site": null,
+      "match": "Olga Tufnell",
+      "biographyUrl": "https://www.pef.org.uk/about/history/olga-tufnell/"
+    },
+    {
+      "id": "g-ernest-wright",
+      "name": "G. Ernest Wright",
+      "short": "Wright",
+      "born": 1909,
+      "died": 1974,
+      "faith": "protestant",
+      "field": "places",
+      "place": ["Shechem", 32.21, 35.28],
+      "line": "Archaeologist and biblical scholar who directed excavations at Shechem and wrote widely on archaeology and Israelite history.",
+      "works": [["Biblical Archaeology", 1957], ["Shechem: The Biography of a Biblical City", 1965]],
+      "site": null,
+      "match": "G\\. Ernest Wright|George Ernest Wright",
+      "biographyUrl": "https://www.asor.org/initiatives-projects/asor-archives/coll-018/"
+    },
+    {
+      "id": "avraham-biran",
+      "name": "Avraham Biran",
+      "short": "Biran",
+      "born": 1909,
+      "died": 2008,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": ["Tel Dan", 33.25, 35.65],
+      "line": "Directed the long-running Tel Dan excavations, including the discovery of the inscription mentioning the House of David.",
+      "works": [["Biblical Dan", 1994], ["Dan I: A Chronicle of the Excavations, the Pottery Neolithic, the Early Bronze Age and the Middle Bronze Age Tombs", 1995]],
+      "site": null,
+      "match": "Avraham Biran",
+      "biographyUrl": "https://huc.edu/wp-content/uploads/Chronicle68.pdf"
+    },
+    {
+      "id": "amihai-mazar",
+      "name": "Amihai Mazar",
+      "short": "Mazar",
+      "born": 1942,
+      "died": null,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": ["Jerusalem", 31.78, 35.22],
+      "line": "Archaeologist of ancient Israel whose excavations and synthesis examine settlement, chronology, and material culture.",
+      "works": [["Archaeology of the Land of the Bible: 10,000–586 B.C.E.", 1990], ["Timnah: A Biblical Town in the Sorek Valley", 1995]],
+      "site": null,
+      "match": "Amihai Mazar",
+      "biographyUrl": "https://cris.huji.ac.il/en/publications/archaeology-of-the-land-of-the-bible-10-000-586-bce/"
+    },
+    {
+      "id": "lawrence-stager",
+      "name": "Lawrence E. Stager",
+      "short": "Stager",
+      "born": 1943,
+      "died": 2017,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": ["Ashkelon", 31.67, 34.55],
+      "line": "Directed the Leon Levy Expedition to Ashkelon, documenting the city's long history through excavation reports.",
+      "works": [["Ashkelon 1: Introduction and Overview (1985–2006)", 2008], ["Ashkelon 3: The Seventh Century B.C.", 2011]],
+      "site": null,
+      "match": "Lawrence E\\. Stager|Lawrence Stager",
+      "biographyUrl": "https://nelc.fas.harvard.edu/memoriam-lawrence-stager-1943%E2%80%932017"
+    },
+    {
+      "id": "israel-finkelstein",
+      "name": "Israel Finkelstein",
+      "short": "Finkelstein",
+      "born": 1949,
+      "died": null,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": ["Megiddo", 32.59, 35.18],
+      "line": "Archaeologist of the Levant whose surveys and contested chronological proposals have reshaped debate about ancient Israel.",
+      "works": [["The Archaeology of the Israelite Settlement", 1988], ["The Bible Unearthed", 2001]],
+      "site": null,
+      "match": "Israel Finkelstein",
+      "biographyUrl": "https://cris.tau.ac.il/en/persons/israel-finkelstein/"
+    },
+    {
+      "id": "jodi-magness",
+      "name": "Jodi Magness",
+      "short": "Magness",
+      "born": 1956,
+      "died": null,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": ["Qumran", 31.74, 35.46],
+      "line": "Archaeologist of the Second Temple and early Roman periods whose work examines Qumran and the wider Holy Land.",
+      "works": [["The Archaeology of Qumran and the Dead Sea Scrolls", 2002], ["The Archaeology of the Holy Land", 2012]],
+      "site": null,
+      "match": "Jodi Magness",
+      "biographyUrl": "https://www.cambridge.org/core/books/archaeology-of-the-holy-land/22D828E7C9A290BCB132BF5234F02332"
+    },
+    {
+      "id": "austen-henry-layard",
+      "name": "Austen Henry Layard",
+      "short": "Layard",
+      "born": 1817,
+      "died": 1894,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Nineveh",
+        36.36,
+        43.15
+      ],
+      "line": "Excavated the Assyrian palaces at Nimrud and Nineveh, publishing reliefs, inscriptions, and accounts of the fieldwork.",
+      "works": [
+        [
+          "Nineveh and Its Remains",
+          1849
+        ],
+        [
+          "Discoveries in the Ruins of Nineveh and Babylon",
+          1853
+        ]
+      ],
+      "site": null,
+      "match": "Austen Henry Layard|A\\. H\\. Layard",
+      "biographyUrl": "https://www.cambridge.org/core/books/nineveh-and-its-remains/DF02558840A6F1F3E472D6C6FE2FB112"
+    },
+    {
+      "id": "hormuzd-rassam",
+      "name": "Hormuzd Rassam",
+      "short": "Rassam",
+      "born": 1826,
+      "died": 1910,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Mosul",
+        36.34,
+        43.13
+      ],
+      "line": "Mosul-born archaeologist who excavated at Nineveh, Nimrud, Babylon, and Sippar and recovered major collections of cuneiform tablets.",
+      "works": [
+        [
+          "Asshur and the Land of Nimrod",
+          1897
+        ]
+      ],
+      "site": null,
+      "match": "Hormuzd Rassam",
+      "biographyUrl": "https://www.britishmuseum.org/collection/term/BIOG62807"
+    },
+    {
+      "id": "george-smith-assyriologist",
+      "name": "George Smith (Assyriologist)",
+      "short": "G. Smith",
+      "born": 1840,
+      "died": 1876,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Nineveh",
+        36.36,
+        43.15
+      ],
+      "line": "Assyriologist and excavator who identified the Babylonian flood narrative among tablets from Nineveh and published Mesopotamian texts and discoveries.",
+      "works": [
+        [
+          "Assyrian Discoveries",
+          1875
+        ],
+        [
+          "The Chaldean Account of Genesis",
+          1876
+        ]
+      ],
+      "site": null,
+      "match": "George Smith.{0,30}(?:Assyriolog|Nineveh)|Assyriologist George Smith",
+      "biographyUrl": "https://www.cambridge.org/core/books/assyrian-discoveries/5C29A8FD9D18EF33BC3804367279B5FE"
+    },
+    {
+      "id": "robert-koldewey",
+      "name": "Robert Koldewey",
+      "short": "Koldewey",
+      "born": 1855,
+      "died": 1925,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Babylon",
+        32.54,
+        44.42
+      ],
+      "line": "Directed the German excavations at Babylon, documenting its temples, palaces, fortifications, and the Ishtar Gate.",
+      "works": [
+        [
+          "The Excavations at Babylon",
+          1914
+        ]
+      ],
+      "site": null,
+      "match": "Robert Koldewey",
+      "biographyUrl": "https://www.smb.museum/en/museums-institutions/vorderasiatisches-museum/collection-research/research/babylon-collection/"
+    },
+    {
+      "id": "james-henry-breasted",
+      "name": "James Henry Breasted",
+      "short": "Breasted",
+      "born": 1865,
+      "died": 1935,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Luxor",
+        25.7,
+        32.64
+      ],
+      "line": "Egyptologist whose epigraphic surveys and translations made Egyptian historical inscriptions widely available for studying the ancient Near East.",
+      "works": [
+        [
+          "A History of Egypt",
+          1905
+        ],
+        [
+          "Ancient Records of Egypt",
+          1906
+        ],
+        [
+          "Development of Religion and Thought in Ancient Egypt",
+          1912
+        ]
+      ],
+      "site": null,
+      "match": "James Henry Breasted|J\\. H\\. Breasted",
+      "biographyUrl": "https://www.lib.uchicago.edu/collex/exhibits/university-chicago-centennial-catalogues/university-chicago-faculty-centennial-view/james-h-breasted-1865-1935-egyptology/"
+    },
+    {
+      "id": "leonard-woolley",
+      "name": "Leonard Woolley",
+      "short": "Woolley",
+      "born": 1880,
+      "died": 1960,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Ur",
+        30.96,
+        46.1
+      ],
+      "line": "Directed the excavations at Ur, documenting the Royal Cemetery, the ziggurat, houses, and the development of ancient Mesopotamian urban life.",
+      "works": [
+        [
+          "Ur Excavations II: The Royal Cemetery",
+          1934
+        ],
+        [
+          "Ur Excavations V: The Ziggurat and Its Surroundings",
+          1939
+        ],
+        [
+          "Excavations at Ur: A Record of Twelve Years' Work",
+          1954
+        ]
+      ],
+      "site": null,
+      "match": "Leonard Woolley|C\\. L\\. Woolley",
+      "biographyUrl": "https://www.penn.museum/sites/expedition/sir-leonard-woolley/"
+    },
+    {
+      "id": "nahman-avigad",
+      "name": "Nahman Avigad",
+      "short": "Avigad",
+      "born": 1905,
+      "died": 1992,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Jerusalem",
+        31.78,
+        35.23
+      ],
+      "line": "Excavated Jerusalem's Jewish Quarter and studied ancient Hebrew inscriptions, seals, and the material culture of the city.",
+      "works": [
+        [
+          "Discovering Jerusalem",
+          1983
+        ],
+        [
+          "Corpus of West Semitic Stamp Seals",
+          1997
+        ]
+      ],
+      "site": null,
+      "match": "Nahman Avigad",
+      "biographyUrl": "https://archaeology.huji.ac.il/people/memoriam"
+    },
+    {
+      "id": "benjamin-mazar",
+      "name": "Benjamin Mazar",
+      "short": "B. Mazar",
+      "born": 1906,
+      "died": 1995,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Jerusalem",
+        31.78,
+        35.24
+      ],
+      "line": "Combined historical geography with excavation at Tell Qasile, Beth Shearim, and the area south and west of Jerusalem's Temple Mount.",
+      "works": [
+        [
+          "The Mountain of the Lord",
+          1975
+        ],
+        [
+          "The Early Biblical Period: Historical Essays",
+          1986
+        ]
+      ],
+      "site": null,
+      "match": "Benjamin Mazar|Binyamin Mazar",
+      "biographyUrl": "https://archaeology.huji.ac.il/people/benjamin-mazar"
+    },
+    {
+      "id": "kurt-bittel",
+      "name": "Kurt Bittel",
+      "short": "Bittel",
+      "born": 1907,
+      "died": 1991,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Hattusha",
+        40.02,
+        34.62
+      ],
+      "line": "Directed excavations at the Hittite capital Hattusha, documenting its architecture and material culture within the wider ancient Near East.",
+      "works": [
+        [
+          "Hattusha: The Capital of the Hittites",
+          1970
+        ],
+        [
+          "Les Hittites",
+          1976
+        ]
+      ],
+      "site": null,
+      "match": "Kurt Bittel",
+      "biographyUrl": "https://commons.library.stonybrook.edu/amar/83/"
+    },
+    {
+      "id": "james-pritchard",
+      "name": "James B. Pritchard",
+      "short": "Pritchard",
+      "born": 1909,
+      "died": 1997,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Gibeon",
+        31.85,
+        35.18
+      ],
+      "line": "Excavated Gibeon, Tell es-Sa'idiyeh, and Sarepta and edited ancient Near Eastern texts used to study the Bible's historical setting.",
+      "works": [
+        [
+          "Ancient Near Eastern Texts Relating to the Old Testament",
+          1950
+        ],
+        [
+          "Gibeon, Where the Sun Stood Still",
+          1962
+        ],
+        [
+          "Recovering Sarepta, a Phoenician City",
+          1978
+        ]
+      ],
+      "site": null,
+      "match": "James B\\. Pritchard|James Bennett Pritchard",
+      "biographyUrl": "https://almanac.upenn.edu/archive/v43/n17/pritchar.html"
+    },
+    {
+      "id": "trude-dothan",
+      "name": "Trude Dothan",
+      "short": "Dothan",
+      "born": 1922,
+      "died": 2016,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Tel Miqne-Ekron",
+        31.78,
+        34.85
+      ],
+      "line": "Specialist in Philistine material culture who excavated Deir el-Balah and co-directed the Tel Miqne-Ekron project.",
+      "works": [
+        [
+          "The Philistines and Their Material Culture",
+          1982
+        ],
+        [
+          "People of the Sea: The Search for the Philistines",
+          1992
+        ]
+      ],
+      "site": null,
+      "match": "Trude Dothan",
+      "biographyUrl": "https://archaeology.huji.ac.il/people/dothan-trude?ref_tid=3179"
+    },
+    {
+      "id": "william-dever",
+      "name": "William G. Dever",
+      "short": "W. Dever",
+      "born": 1933,
+      "died": null,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Gezer",
+        31.86,
+        34.92
+      ],
+      "line": "Excavator of Gezer and interpreter of ancient Israel whose work examines settlement, daily life, religion, and the relationship between archaeology and biblical texts.",
+      "works": [
+        [
+          "What Did the Biblical Writers Know and When Did They Know It?",
+          2001
+        ],
+        [
+          "Who Were the Early Israelites and Where Did They Come From?",
+          2003
+        ],
+        [
+          "The Lives of Ordinary People in Ancient Israel",
+          2012
+        ],
+        [
+          "Beyond the Texts: An Archaeological Portrait of Ancient Israel and Judah",
+          2017
+        ],
+        [
+          "My Nine Lives: Sixty Years in Israeli and Biblical Archaeology",
+          2020
+        ]
+      ],
+      "site": null,
+      "match": "William G\\. Dever|William Dever|William Gwinn Dever",
+      "biographyUrl": "https://cart.sbl-site.org/books/069035C"
+    },
+    {
+      "id": "ehud-netzer",
+      "name": "Ehud Netzer",
+      "short": "Netzer",
+      "born": 1934,
+      "died": 2010,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Herodium",
+        31.67,
+        35.24
+      ],
+      "line": "Archaeologist and architect who excavated Herodian palaces at Jericho, Masada, and Herodium and studied their construction and development.",
+      "works": [
+        [
+          "Masada III: The Buildings, Stratigraphy and Architecture",
+          1991
+        ],
+        [
+          "Hasmonean and Herodian Palaces at Jericho I: Stratigraphy and Architecture",
+          2001
+        ],
+        [
+          "The Architecture of Herod, the Great Builder",
+          2006
+        ]
+      ],
+      "site": null,
+      "match": "Ehud Netzer",
+      "biographyUrl": "https://archaeology.huji.ac.il/people/ehud-netzer"
+    },
+    {
+      "id": "david-ussishkin",
+      "name": "David Ussishkin",
+      "short": "Ussishkin",
+      "born": 1935,
+      "died": null,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Lachish",
+        31.56,
+        34.85
+      ],
+      "line": "Directed renewed excavations at Lachish and investigated its destruction levels, siege works, and relationship to Assyrian records.",
+      "works": [
+        [
+          "The Conquest of Lachish by Sennacherib",
+          1982
+        ],
+        [
+          "Biblical Lachish: A Tale of Construction, Destruction, Excavation and Restoration",
+          2014
+        ]
+      ],
+      "site": null,
+      "match": "David Ussishkin",
+      "biographyUrl": "https://ajaonline.org/author/1752/"
+    },
+    {
+      "id": "amnon-ben-tor",
+      "name": "Amnon Ben-Tor",
+      "short": "Ben-Tor",
+      "born": 1935,
+      "died": 2023,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Hazor",
+        33.02,
+        35.57
+      ],
+      "line": "Led the renewed Hazor excavations and edited reports on its Canaanite and Israelite remains, as well as a broad survey of Israel's archaeology.",
+      "works": [
+        [
+          "The Archaeology of Ancient Israel",
+          1992
+        ],
+        [
+          "Hazor VI: The 1990–2009 Excavations, the Iron Age",
+          2012
+        ],
+        [
+          "Hazor: Canaanite Metropolis, Israelite City",
+          2016
+        ]
+      ],
+      "site": null,
+      "match": "Amnon Ben-Tor|Amnon Ben Tor",
+      "biographyUrl": "https://archaeology.huji.ac.il/people/memoriam"
+    },
+    {
+      "id": "seymour-gitin",
+      "name": "Seymour Gitin",
+      "short": "Gitin",
+      "born": 1936,
+      "died": null,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Tel Miqne-Ekron",
+        31.78,
+        34.85
+      ],
+      "line": "Co-directed the Tel Miqne-Ekron excavations and published research on Philistine industry, the Ekron inscription, and ceramic chronology.",
+      "works": [
+        [
+          "A Royal Dedicatory Inscription from Ekron",
+          1997
+        ],
+        [
+          "The Ancient Pottery of Israel and Its Neighbors, Volumes 1–2",
+          2015
+        ],
+        [
+          "The Ancient Pottery of Israel and Its Neighbors, Volume 3",
+          2019
+        ]
+      ],
+      "site": null,
+      "match": "Seymour Gitin",
+      "biographyUrl": "https://www.eisenbrauns.org/books/titles/978-1-64602-134-5.html"
+    },
+    {
+      "id": "yigal-shiloh",
+      "name": "Yigal Shiloh",
+      "short": "Shiloh",
+      "born": 1937,
+      "died": 1987,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "City of David, Jerusalem",
+        31.77,
+        35.24
+      ],
+      "line": "Directed the City of David excavations and studied Israelite masonry, architecture, and the development of ancient Jerusalem.",
+      "works": [
+        [
+          "The Proto-Aeolic Capital and Israelite Ashlar Masonry",
+          1979
+        ],
+        [
+          "Excavations at the City of David I",
+          1984
+        ]
+      ],
+      "site": null,
+      "match": "Yigal Shiloh",
+      "biographyUrl": "https://archaeology.huji.ac.il/faculty"
+    },
+    {
+      "id": "carol-meyers",
+      "name": "Carol L. Meyers",
+      "short": "C. Meyers",
+      "born": 1942,
+      "died": null,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Sepphoris",
+        32.75,
+        35.28
+      ],
+      "line": "Archaeologist of ancient Israel whose research combines household remains, social history, and biblical texts to study everyday life and women's activities.",
+      "works": [
+        [
+          "Discovering Eve: Ancient Israelite Women in Context",
+          1988
+        ],
+        [
+          "Household Archaeology in Ancient Israel and Beyond",
+          2012
+        ]
+      ],
+      "site": null,
+      "match": "Carol L\\. Meyers|Carol Meyers",
+      "biographyUrl": "https://scholars.duke.edu/person/carol/scholarly-works"
+    },
+    {
+      "id": "ronny-reich",
+      "name": "Ronny Reich",
+      "short": "Reich",
+      "born": 1947,
+      "died": null,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Gihon Spring, Jerusalem",
+        31.77,
+        35.24
+      ],
+      "line": "Excavated ancient Jerusalem with Eli Shukron and studied its water systems, the City of David, and Jewish ritual baths.",
+      "works": [
+        [
+          "Excavating the City of David: Where Jerusalem's History Began",
+          2011
+        ],
+        [
+          "The Date of the Siloam Tunnel Reconsidered",
+          2011
+        ]
+      ],
+      "site": null,
+      "match": "Ronny Reich",
+      "biographyUrl": "https://cris.haifa.ac.il/en/publications/excavating-the-city-of-david-the-place-where-the-history-of-jerus/"
+    },
+    {
+      "id": "thomas-levy",
+      "name": "Thomas E. Levy",
+      "short": "T. Levy",
+      "born": 1953,
+      "died": null,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Khirbat en-Nahas",
+        30.68,
+        35.44
+      ],
+      "line": "Field archaeologist whose projects in Israel and Jordan combine excavation, radiocarbon dating, and metallurgy to study ancient societies and Edomite copper production.",
+      "works": [
+        [
+          "Historical Biblical Archaeology and the Future: The New Pragmatism",
+          2010
+        ],
+        [
+          "New Insights into the Iron Age Archaeology of Edom, Southern Jordan",
+          2014
+        ]
+      ],
+      "site": null,
+      "match": "Thomas E\\. Levy|Thomas Evan Levy",
+      "biographyUrl": "https://anthropology.ucsd.edu/people/faculty/faculty-profiles/thomas-levy.html"
+    },
+    {
+      "id": "eilat-mazar",
+      "name": "Eilat Mazar",
+      "short": "E. Mazar",
+      "born": 1956,
+      "died": 2021,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Ophel, Jerusalem",
+        31.78,
+        35.24
+      ],
+      "line": "Directed excavations at the Ophel and City of David, publishing architectural remains, pottery, and seal impressions; some proposed building identifications remain debated.",
+      "works": [
+        [
+          "The Ophel Excavations to the South of the Temple Mount 2009–2013: Final Reports, Volume I",
+          2015
+        ],
+        [
+          "The Ophel Excavations to the South of the Temple Mount 2009–2013: Final Reports, Volume II",
+          2018
+        ]
+      ],
+      "site": null,
+      "match": "Eilat Mazar",
+      "biographyUrl": "https://huji.academia.edu/EilatMazar"
+    },
+    {
+      "id": "yosef-garfinkel",
+      "name": "Yosef Garfinkel",
+      "short": "Garfinkel",
+      "born": 1956,
+      "died": null,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Khirbet Qeiyafa",
+        31.7,
+        34.96
+      ],
+      "line": "Excavator of Khirbet Qeiyafa and Lachish whose reports and interpretations contribute to debate about the emergence of the kingdom of Judah.",
+      "works": [
+        [
+          "Khirbet Qeiyafa I: Excavation Report 2007–2008",
+          2009
+        ],
+        [
+          "In the Footsteps of King David: Revelations from an Ancient Biblical City",
+          2018
+        ]
+      ],
+      "site": null,
+      "match": "Yosef Garfinkel",
+      "biographyUrl": "https://www.israelexplorationsociety.com/he/product-page/khirbet-qeiyafa-volume-i-excavation-report-2007-2008"
+    },
+    {
+      "id": "aren-maeir",
+      "name": "Aren M. Maeir",
+      "short": "Maeir",
+      "born": 1958,
+      "died": null,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Tell es-Safi/Gath",
+        31.7,
+        34.85
+      ],
+      "line": "Directs the Tell es-Safi/Gath project, investigating Philistine culture, urban life, trade, and scientific methods of dating excavated contexts.",
+      "works": [
+        [
+          "Tell es-Safi/Gath I: The 1996–2005 Seasons",
+          2012
+        ],
+        [
+          "Characterization of Contexts for Radiocarbon Dating: Results from the Early Iron Age at Tell es-Safi/Gath, Israel",
+          2012
+        ]
+      ],
+      "site": null,
+      "match": "Aren M\\. Maeir|Aren Maeir",
+      "biographyUrl": "https://cris.biu.ac.il/en/publications/tell-es-safigath-i-the-1996-2005-seasons/"
+    },
+    {
+      "id": "eric-cline",
+      "name": "Eric H. Cline",
+      "short": "Cline",
+      "born": 1960,
+      "died": null,
+      "faith": "unrecorded",
+      "field": "places",
+      "place": [
+        "Tel Kabri",
+        33.02,
+        35.15
+      ],
+      "line": "Excavator at Megiddo and Tel Kabri whose books examine Bronze Age societies, archaeological methods, and the history of biblical archaeology.",
+      "works": [
+        [
+          "Biblical Archaeology: A Very Short Introduction",
+          2009
+        ],
+        [
+          "1177 B.C.: The Year Civilization Collapsed",
+          2014
+        ],
+        [
+          "Three Stones Make a Wall: The Story of Archaeology",
+          2017
+        ],
+        [
+          "Digging Up Armageddon: The Search for the Lost City of Solomon",
+          2020
+        ],
+        [
+          "After 1177 B.C.: The Survival of Civilizations",
+          2024
+        ]
+      ],
+      "site": null,
+      "match": "Eric H\\. Cline|Eric Cline",
+      "biographyUrl": "https://archaeology.columbian.gwu.edu/eric-cline"
     },
     {
       "id": "william-lane-craig",

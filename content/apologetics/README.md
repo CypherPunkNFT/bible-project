@@ -10,6 +10,8 @@ guide, all guides on a topic, or every guide using a particular source without o
 
 ## Where content lives
 
+`transcripts/` holds owner-supplied debate text reproduced on the site. Preserve each original `.txt` byte for byte; `index.json` records its SHA-256, receipt date, coverage counts and editorial section starts. The first entry is Lennox–Dawkins, supplied on 2026-10-11. The reader adds speaker formatting, search and navigation without correcting or abridging the supplied wording. Transcript availability is separate from a guide's documentary source link; do not infer recording alignment from the existence of a supplied copy.
+
 | Folder | Documents | Purpose |
 | --- | ---: | --- |
 | `studies/` | 25 | Questions, answers, reasoning, objections, replies, limitations and Scripture passages |

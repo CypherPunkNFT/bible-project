@@ -6,25 +6,25 @@
 /* Closed it is not drawn at all (display, not visibility: under reduced motion the site turns every transition into a
    1 ms one, and a 1 ms visibility transition left the close button unfocusable at the moment the profile opened).
    The scrim still fades in from nothing (@starting-style). While shrinking away it ignores clicks. */
-.tp-scholars .prf { position: fixed; inset: 0; z-index: 70; display: none; }
+.tp-scholars .prf { position: fixed; inset: 0; width: 100vw; z-index: 100; display: none; overflow: hidden; }
 .tp-scholars .prf.prf-open { display: block; }
 @starting-style { .tp-scholars .prf.prf-open .prf-scrim { opacity: 0; } }
 .tp-scholars .prf.prf-closing { pointer-events: none; }
 .tp-scholars .prf button { padding: 0; border: 0; background: none; }
 .tp-scholars .prf [hidden] { display: none !important; }
-.tp-scholars .prf-scrim { position: absolute; inset: 0; background: color-mix(in srgb, #0d0b08 34%, transparent); opacity: 0; transition: opacity .35s; }
+.tp-scholars .prf-scrim { position: absolute; inset: 0; background: color-mix(in srgb, var(--ink) 28%, transparent); opacity: 0; transition: opacity .4s; }
 .tp-scholars .prf.prf-open .prf-scrim { opacity: 1; }
-.tp-scholars .prf.prf-closing .prf-scrim { opacity: 0; transition-duration: .3s; }
-.tp-scholars .prf-panel { position: absolute; inset: 0; display: flex; flex-direction: column; width: min(66rem, calc(100% - 2.5rem)); height: min(calc(100% - 3rem), 52rem); margin: auto;
-  overflow: hidden; border: 1px solid var(--line); border-radius: 1.25rem; background: var(--page); box-shadow: 0 40px 90px -40px rgb(0 0 0 / 55%); transform-origin: 0 0; }
+.tp-scholars .prf.prf-closing .prf-scrim { opacity: 0; }
+.tp-scholars .prf-panel { position: absolute; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; width: min(36rem, 100%); height: 100%; margin: 0;
+  overflow: hidden; border-left: 1px solid var(--line); border-radius: 0; background: var(--page); box-shadow: -24px 0 60px -30px rgb(0 0 0 / 45%); }
 .tp-scholars .prf:not(.prf-open) .prf-panel { opacity: 0; }
 
-.tp-scholars .prf-bar { display: flex; gap: .45rem; align-items: center; padding: calc(.7rem + env(safe-area-inset-top, 0px)) 1rem .7rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.tp-scholars .prf-bar { display: flex; gap: .5rem; align-items: center; padding: calc(.7rem + env(safe-area-inset-top, 0px)) 1rem .7rem; border-bottom: 1px solid var(--line); }
 .tp-scholars .prf .prf-btn { display: grid; flex: none; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); transition: border-color .2s, color .2s; }
 .tp-scholars .prf .prf-btn:hover { border-color: var(--ink); color: var(--ink); }
 .tp-scholars .prf-count { margin-left: .3rem; font-size: .74rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .tp-scholars .prf .prf-close { margin-left: auto; }
-.tp-scholars .prf-body { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 1.7rem 1.9rem calc(2.2rem + env(safe-area-inset-bottom, 0px)); }
+.tp-scholars .prf-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 1.4rem 1.4rem calc(2rem + env(safe-area-inset-bottom, 0px)); }
 .tp-scholars .prf-body::-webkit-scrollbar { width: 6px; }
 .tp-scholars .prf-body::-webkit-scrollbar-track, .tp-scholars .prf-body::-webkit-scrollbar-corner { background: transparent; }
 .tp-scholars .prf-body::-webkit-scrollbar-button { display: none; }
@@ -38,7 +38,7 @@
 .tp-scholars .prf-badge-used i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
 .tp-scholars .prf-badge-held { border: 1px dashed color-mix(in srgb, var(--muted) 55%, transparent); color: var(--muted); font-weight: 500; }
 
-.tp-scholars .prf-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 2.2rem; }
+.tp-scholars .prf-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
 .tp-scholars .prf-head { display: flex; gap: 1.2rem; align-items: center; }
 .tp-scholars .prf-head .kicker { color: var(--tone); }
 .tp-scholars .prf-head h2 { margin-top: .25rem; font: 500 clamp(1.7rem, 3vw, 2.25rem)/1.08 var(--serif); letter-spacing: -.03em; }
@@ -103,7 +103,7 @@
 
 @media (max-width: 860px) { .tp-scholars .prf-grid { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; } }
 @media (max-width: 640px) {
-  .tp-scholars .prf-panel { width: 100%; height: 100%; border: 0; border-radius: 0; }
+  .tp-scholars .prf-panel { border-radius: 0; }
   .tp-scholars .prf-body { padding: 1.2rem 1rem calc(2rem + env(safe-area-inset-bottom, 0px)); }
   .tp-scholars .prf-head { gap: .9rem; }
   .tp-scholars .prf-head .prf-mark { width: 64px; height: 64px; }

@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "engine": "Microsoft Edge / Playwright",
+  "transport": "file://; no preview server",
+  "results": [
+    {
+      "width": 1440,
+      "scenes": 8,
+      "views": 28,
+      "status": "passed"
+    },
+    {
+      "width": 1024,
+      "scenes": 8,
+      "views": 28,
+      "status": "passed"
+    },
+    {
+      "width": 390,
+      "scenes": 8,
+      "views": 28,
+      "status": "passed"
+    },
+    {
+      "width": 320,
+      "scenes": 8,
+      "views": 28,
+      "status": "passed"
+    }
+  ],
+  "checks": [
+    "all28 viewpoints at4 widths",
+    "reconstruction fade and reset",
+    "hypothesis switches",
+    "three coin contexts",
+    "two dated civic accounts",
+    "inline WEB excerpt and close focus",
+    "Bible link and browser Back retain state",
+    "reduced motion",
+    "keyboard focus",
+    "light and dark screenshots",
+    "no overflow",
+    "no page errors"
+  ],
+  "limits": [
+    "No screen-reader session",
+    "No integrated site transitions tested; prototype is isolated",
+    "External source links inherited, not newly fetched for this design pass"
+  ]
+}

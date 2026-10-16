@@ -13,6 +13,7 @@ export interface Reading {
 export interface Area {
     id: string;
     title: string;
+    titleLines?: [string, string];
     short: string;
     art: string;
     tone: string;
@@ -43,7 +44,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
         "label": "Scripture & Theology",
         "kicker": "Begin with the passage",
         "heading": "Read. Understand.<br><em>Live the Word.</em>",
-        "lead": "Explore the Bible’s books, follow its teaching, and consider the life it calls us to lead. Choose a subject. Find a place to begin.",
+        "lead": "Explore the Bible’s books, follow its teaching, and consider the life it calls us to lead.",
         "tone": "epistles",
         "other": "academic",
         "otherLine": "Explore the world behind the passage.",
@@ -116,7 +117,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
             },
             {
                 "id": "jesus",
-                "cards": ["gospels", "miracles"],
+                "cards": ["gospels", "parables", "miracles"],
                 "title": "Jesus Christ",
                 "short": "Follow his life & teaching",
                 "art": "gospels",
@@ -183,7 +184,8 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
             {
                 "id": "doctrine",
                 "cards": ["topics", "names"],
-                "title": "God & the Christian Faith",
+                "title": "God & Christian Faith",
+                "titleLines": ["God &", "Christian Faith"],
                 "short": "Trace what Scripture teaches",
                 "art": "doctrine",
                 "tone": "revelation",
@@ -258,6 +260,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                 "id": "life",
                 "cards": ["topics"],
                 "title": "Living the Christian Life",
+                "titleLines": ["Living the", "Christian Life"],
                 "short": "Bring the Word into life",
                 "art": "prayer",
                 "tone": "poetry",
@@ -322,7 +325,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
             },
             {
                 "id": "people",
-                "cards": ["people"],
+                "cards": ["people", "memory"],
                 "title": "People of Scripture",
                 "short": "Meet the people behind the pages",
                 "art": "writers",
@@ -404,7 +407,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
         "areas": [
             {
                 "id": "history",
-                "title": "Biblical history & archaeology",
+                "title": "History & archaeology",
                 "short": "Events, places & surviving records",
                 "art": "inscription",
                 "tone": "history",
@@ -412,15 +415,22 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                 "heading": "A world recorded.<br><em>A past to investigate.</em>",
                 "intro": "Begin with a historical question. Compare the biblical narrative with an ancient account, then examine the setting, source and limits of the comparison.",
                 "featured": {
-                    "kind": "Guide",
-                    "title": "Rulers in the biblical world",
-                    "text": "Follow rulers and their settings, then open the biblical passages and the people they connect.",
-                    "href": "/study/people?view=rulers",
-                    "meta": "People · Kingdoms · Scripture",
+                    "kind": "Methods study",
+                    "title": "From discovery to history",
+                    "text": "Learn how historians read archaeology and inscriptions through worked examples from the biblical world.",
+                    "href": "/study/from-discovery-to-history",
+                    "meta": "Preserved evidence · Reconstruction · Interpretation",
                     "art": "inscription"
                 },
                 "group": "Explore the setting and source",
                 "items": [
+                    {"kind": "Study landing", "title": "Mesha and the world of Moab", "text": "Illustrated landing for a historical study of Mesha and Moab.", "href": "/study/mesha-and-the-world-of-moab", "outline": true},
+                    {"kind": "Study landing", "title": "Lachish under siege", "text": "Illustrated landing for a historical study of Lachish and the campaign.", "href": "/study/lachish-under-siege", "outline": true},
+                    {"kind": "Study landing", "title": "Cyrus, restoration and return", "text": "Illustrated landing for a historical study of imperial restoration and return.", "href": "/study/cyrus-restoration-and-return", "outline": true},
+                    {"kind": "Interactive study", "title": "Israel among the empires", "text": "Trace tribute, conquest, exile and return through synchronized maps and primary evidence.", "href": "/study/israel-among-the-empires", "art": "inscription"},
+                    {"kind": "Interactive journey", "title": "The world of Jesus & the apostles", "text": "Explore eight connected settings, from Galilean households and Jerusalem to Caesarea, Corinth, Ephesus and travel toward Rome.", "href": "/study/world-of-jesus-apostles", "art": "city"},
+                    {"kind": "Interactive archaeology", "title": "Cities through their layers", "text": "Explore Jericho, Lachish, Jerusalem and Corinth through selected phases, finds and disputed interpretations.", "href": "/study/cities-through-their-layers", "art": "inscription"},
+                    {"kind": "Guide", "title": "Rulers in the biblical world", "text": "Follow rulers and their settings, then open the biblical passages and the people they connect.", "href": "/study/people?view=rulers"},
                     {
                         "kind": "Atlas",
                         "title": "Places behind the narrative",
@@ -441,7 +451,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
             },
             {
                 "id": "texts",
-                "title": "Manuscripts & textual history",
+                "title": "The Bible: formation & transmission",
                 "short": "The surviving witnesses",
                 "art": "manuscript",
                 "tone": "prophets",
@@ -449,15 +459,42 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                 "heading": "The text survives<br><em>in witnesses.</em>",
                 "intro": "Each manuscript has a date, a history and a particular scope. Look closely at one witness, then consider how it contributes to a larger textual question.",
                 "featured": {
-                    "kind": "Question",
-                    "title": "Has the Bible been changed?",
-                    "text": "Explore the existing discussion of surviving manuscripts, textual transmission and the evidence behind the question.",
-                    "href": "/apologetics/study/manuscripts",
+                    "kind": "Study",
+                    "title": "The surviving witnesses",
+                    "text": "Examine six manuscripts, reunite the scattered leaves of a codex, and discover what the surviving evidence can tell us.",
+                    "href": "/study/surviving-witnesses",
                     "meta": "Manuscripts · Transmission · Evidence",
                     "art": "manuscript"
                 },
                 "group": "Transmission and reception",
                 "items": [
+                    {
+                        "kind": "Interactive study",
+                        "title": "A passage through the manuscripts",
+                        "text": "Compare actual readings, inspect corrections and distinguish missing pages from omitted words.",
+                        "href": "/study/passage-through-manuscripts",
+                        "art": "manuscript"
+                    },
+                    {
+                        "kind": "Study",
+                        "title": "From manuscript to printed Bible",
+                        "text": "Enter the print room: reveal a page’s layers, trace an edition’s sources, and separate editing from translation.",
+                        "href": "/study/from-manuscript-to-printed-bible"
+                    },
+                    {
+                        "kind": "Interactive study",
+                        "title": "How the canon took shape",
+                        "text": "Inspect historical lists in their own time and place, follow disputed writings, and compare Jewish and Christian collections.",
+                        "href": "/study/how-the-canon-took-shape",
+                        "meta": "Timeline · Reception · Traditions",
+                        "art": "books"
+                    },
+                    {
+                        "kind": "Study",
+                        "title": "The Dead Sea Scrolls",
+                        "text": "Meet ancient manuscripts, compare scribal hands and psalms, and follow the evidence behind dates, joins and scholarly debates.",
+                        "href": "/study/dead-sea-scrolls"
+                    },
                     {
                         "kind": "Guide",
                         "title": "How the letters were read",
@@ -471,7 +508,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                         "/apologetics/study/canon"
                     ],
                     [
-                        "Versions & languages",
+                        "Compare editions & choose a reading text",
                         "/study/versions"
                     ]
                 ]
@@ -479,33 +516,27 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
             {
                 "id": "languages",
                 "title": "Languages & translation",
-                "short": "Words, meaning & editions",
+                "short": "Translation choices, words & textual scholarship",
                 "art": "languages",
                 "tone": "poetry",
-                "hint": "Explore language in context, compare editions and meet the people who translated them.",
-                "heading": "Words in context.<br><em>Meaning in view.</em>",
-                "intro": "Compare editions, examine words within their passages, and discover the reference scholarship that supports careful reading.",
+                "hint": "Investigate how texts were edited and translated, and how words carry meaning in their passages.",
+                "heading": "Examine the wording.<br><em>Understand the choices.</em>",
+                "intro": "Study the evidence behind editions and translations: how texts reached print, how words work in context, and why readings and renderings differ.",
                 "featured": {
-                    "kind": "Collection",
-                    "title": "Versions & languages",
-                    "text": "See the editions in time, compare their coverage and choose a text to read.",
-                    "href": "/study/versions",
-                    "meta": "Editions · Coverage · Reading",
-                    "art": "languages"
+                    "kind": "Study",
+                    "title": "From manuscript to printed Bible",
+                    "text": "Enter the print room: examine source texts, editorial decisions and the editions that carried Scripture into print.",
+                    "href": "/study/from-manuscript-to-printed-bible",
+                    "meta": "Source texts · Editing · Printing",
+                    "art": "manuscript"
                 },
-                "group": "Look more closely",
+                "group": "Explore language and interpretation",
                 "items": [
                     {
                         "kind": "Guide",
                         "title": "Words across the letters",
                         "text": "Explore the Greek words the Letters guides bring into view.",
                         "href": "/study/letters/what-runs-through-them/words"
-                    },
-                    {
-                        "kind": "Tool",
-                        "title": "Versions through time",
-                        "text": "Place the collection’s editions on a timeline.",
-                        "href": "/study/versions#timeline"
                     },
                     {
                         "kind": "People",
@@ -516,13 +547,17 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                 ],
                 "support": [
                     [
-                        "Choose a reading edition",
-                        "/library"
+                        "Compare editions & choose a reading text",
+                        "/study/versions"
                     ],
                     [
                         "Compare the letters",
                         "/study/letters/look-closer"
                     ]
+                ],
+                "planned": [
+                    "Why translations differ",
+                    "Words in their passages"
                 ]
             },
             {

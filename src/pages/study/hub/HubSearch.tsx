@@ -5,7 +5,7 @@ const entries = Object.entries(STUDY_BRANCHES).flatMap(([id, b]) => b.areas.flat
     { title: a.title, text: a.hint, kind: b.label, href: `/study/${id}?area=${a.id}` },
     ...[a.featured, ...a.items].map(e => ({ ...e, kind: `${b.label} · ${e.kind}` })),
 ]));
-entries.push({ title: "Writers of Scripture", text: "Paul Luke Moses David Isaiah John", kind: "People", href: "/study/theology?area=people#writer-preview" }, { title: "Scholars", text: "Historians translators archaeology theologians Josephus Tacitus", kind: "People", href: "/teachers/scholars" }, { title: "Atlas", text: "Places journeys maps ancient cities geography Paul", kind: "Shared collection", href: "/study/atlas" });
+entries.push({ title: "Writers of Scripture", text: "Paul Luke Moses David Isaiah John", kind: "People", href: "/study/theology?area=people#writer-preview" }, { title: "Scholars", text: "Historians translators archaeology theologians Tacitus", kind: "People", href: "/teachers/scholars" }, { title: "Atlas", text: "Places journeys maps ancient cities geography Paul", kind: "Shared collection", href: "/study/atlas" });
 export function HubSearch() {
     const [query, setQuery] = useState("");
     const input = useRef<HTMLInputElement>(null);

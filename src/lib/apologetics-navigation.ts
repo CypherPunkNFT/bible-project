@@ -35,16 +35,16 @@ const destinations: Destination[] = [
 ];
 function groupFor(path:string) {
   if(path.startsWith(base+'/topics/reformed')) return 'Reformed theology';
-  if(path.startsWith(base+'/topics/')||path.startsWith(base+'/study/')) return 'Questions';
+  if(path.startsWith(base+'/topics/')||path.startsWith(base+'/study/')||path.startsWith(base+'/practice')) return 'Questions';
   return [...main].reverse().find(x=>x.to!==base&&path.startsWith(x.to))?.label ?? (path.startsWith(base+'/sources')?'Sources':'Explore');
 }
 function secondary(group:string): Destination[] {
   if(group==='Worldviews') return [{label:'All worldviews',to:base+'/worldviews'},...worlds];
-  if(group==='Questions') return [{label:'All questions',to:base+'/questions'},...TOPICS.map(t=>({label:t.title,to:base+'/topics/'+t.id}))];
+  if(group==='Questions') return [{label:'All questions',to:base+'/questions'},{label:'Practice',to:base+'/practice'},...TOPICS.map(t=>({label:t.title,to:base+'/topics/'+t.id}))];
   if(group==='Learning paths') return [{label:'All paths',to:base+'/paths'},...PATHS.map(p=>({label:p.title,to:base+'/paths/'+p.id}))];
   if(group==='Practice') return PRACTICE.map(p=>({label:p.label,to:base+'/practice?scenario='+p.id}));
   if(group==='Reformed theology'||group==='Historic texts') return [{label:'Reformed questions',to:base+'/topics/reformed'},{label:'Confessions & historic texts',to:base+'/texts'},{label:'The source room',to:base+'/sources'}];
-  if(group==='Debates') return [{label:'All exchanges',to:base+'/debates'},{label:'The source room',to:base+'/sources'},{label:'Conversation practice',to:base+'/practice'}];
+  if(group==='Debates') return [];
   if(group==='My study'||group==='Sources') return [...materials,{label:'My study',to:base+'/saved'},{label:'The source room',to:base+'/sources'},{label:'Find a question',to:base+'/questions'}];
   return [{label:'Start here',to:base+'/paths/begin'},{label:'Explore the questions',to:base+'/questions'},{label:'Across beliefs',to:base+'/worldviews'},{label:'The source room',to:base+'/sources'}];
 }

@@ -1,0 +1,315 @@
+{
+  "study": "The world of Jesus & the apostles",
+  "route": "/study/world-of-jesus-apostles",
+  "revision": "2026-10-14 expanded academic investigation",
+  "status": "implemented and verified locally; not deployed",
+  "predecessors": [
+    "09-world-of-jesus-apostles.json",
+    "09-consolidation.json"
+  ],
+  "editorial": {
+    "scope": "Sole approved C page, gold palette from B; no comparison pill or duplicate pages.",
+    "sourcePolicy": "Josephus-specific material excluded from general study. Existing research archives preserved.",
+    "art": "Original CSS relationship diagrams; no external images or borrowed measured plans. Textual excerpts from local public-domain WEB."
+  },
+  "intellectualSequence": [
+    "Orient to unequal survival of evidence and regional government.",
+    "Trace work, synagogue and pilgrimage across Galilee and Judaea without treating Judaism as uniform.",
+    "Inspect stratigraphic inference at Migdal.",
+    "Move through provincial government and urban assemblies.",
+    "Separate Paul’s complaint from architectural and scheduling hypotheses.",
+    "Compare Ephesian literary and inscribed voices without collapsing their chronology.",
+    "Return to travel, change over time and the evolution of scholarly questions."
+  ],
+  "sources": {
+    "migdal": {
+      "title": "Avshalom-Gorni & Najar · Migdal (2013)",
+      "url": "https://hadashot.iaa.org.il/report_detail_eng.aspx?id=2304",
+      "access": "Excavation report read, especially Area D and its coin contexts. Historical narrative outside the archaeological observations is not used."
+    },
+    "migdal2026": {
+      "title": "Tzin & Najar · Migdal Junction (2026)",
+      "url": "https://publications.iaa.org.il/ha-esi/vol138/iss1/24/",
+      "access": "Excavation description, Areas A3–A4 and B3, and pottery discussion read. No identification of its public building as a synagogue is assumed."
+    },
+    "talgam": {
+      "title": "Talgam, Avshalom-Gorni & Najar · From the Magdala Stone to the Syriac Bema (2025)",
+      "url": "https://cris.huji.ac.il/en/publications/from-the-magdala-stone-to-the-syriac-bema-mutual-influences-betwe-2/",
+      "access": "University publication record and publisher description reviewed. Full book not read; its proposed liturgical connections are further research, not established conclusions here."
+    },
+    "horrell": {
+      "title": "David G. Horrell · Domestic Space and Christian Meetings at Corinth (2004)",
+      "url": "https://doi.org/10.1017/S0028688504000207",
+      "access": "Publisher abstract and visible notes read, not the full article. Abstract supports the critique of the default villa model and the proposed comparison with buildings east of Corinth’s theatre."
+    },
+    "theissen": {
+      "title": "Gerd Theissen · Social Conflicts in the Corinthian Community (2003)",
+      "url": "https://doi.org/10.1177/0142064X0302500307",
+      "access": "Abstract and visible notes read, not the full article. Identifies the debate with J. J. Meggitt’s Paul, Poverty and Survival (1998); Meggitt’s book was located through this reference, not read."
+    },
+    "meeks": {
+      "title": "Wayne A. Meeks · The First Urban Christians (1983; second edition 2003)",
+      "url": "https://yalebooks.yale.edu/book/9780300098617/the-first-urban-christians/",
+      "access": "Yale publisher description reviewed, not the full book. Used to orient further reading in the social history of Pauline groups."
+    },
+    "salutaris": {
+      "title": "I.Ephesos 27 · Salutaris’s endowment, 104 CE",
+      "url": "https://www.theatrum.de/991.html",
+      "access": "THEATRUM’s German translation after H. Wankel, I.Ephesos Ia (1979), no. 27: opening decree and sections 22–90, 117–132 read. Parentheses mark restorations in the edition. English descriptions here are paraphrases, not a new critical translation."
+    },
+    "myles": {
+      "title": "Robert J. Myles · Fishing for Entrepreneurs? (2019)",
+      "url": "https://bibleinterp.arizona.edu/articles/fishing-entrepreneurs-sea-galilee-unmasking-neoliberal-ideology-biblical-interpretation",
+      "access": "Author’s online chapter, opening argument and methodological discussion read. Only the critique of modern entrepreneurial categories is used; source-dependent historical reconstructions elsewhere in the essay are excluded."
+    }
+  },
+  "claims": [
+    {
+      "id": "migdal-43",
+      "kind": "observation",
+      "claim": "A coin dated 43 CE was found in the reading-room mosaic foundation.",
+      "source": "migdal",
+      "locator": "Area D, final dating paragraph",
+      "inference": "If undisturbed, this gives a terminus post quem for laying that floor, not the founding date of the whole building."
+    },
+    {
+      "id": "migdal-80",
+      "kind": "observation",
+      "claim": "An 80 CE coin is reported on the ceiling collapse.",
+      "source": "migdal",
+      "locator": "Area D, final dating paragraph",
+      "limit": "Position on collapse is not a sealed find under collapse. No collapse year inferred."
+    },
+    {
+      "id": "migdal-phases",
+      "kind": "observation",
+      "claim": "Report distinguishes construction phases and describes the latest preserved phase.",
+      "source": "migdal",
+      "locator": "Area D, building phases",
+      "limit": "Do not combine every architectural element into a simultaneous first-century scene."
+    },
+    {
+      "id": "migdal-public-room",
+      "kind": "observation and qualified interpretation",
+      "claim": "2026 report extends settlement west and records a public building with bench, plaster and floors whose boundaries are unclear; gathering function is suggested.",
+      "source": "migdal2026",
+      "locator": "Introduction; Area A4",
+      "limit": "Not identified here as a synagogue. Public-building description alone insufficient."
+    },
+    {
+      "id": "temple-and-local",
+      "kind": "interpretation",
+      "claim": "Migdal Temple imagery and Theodotos dedication support discussing local assembly and Temple connections without a replacement model.",
+      "source": [
+        "migdal",
+        "https://www.inscriptionsisraelpalestine.org/story/theodotus-dialogue/"
+      ],
+      "locator": "Carved stone; translated dedication only",
+      "limit": "No universal service order or exact stone function reconstructed; fictional dialogue excluded."
+    },
+    {
+      "id": "meal-text",
+      "kind": "textual observation",
+      "claim": "Paul reports division, unequal eating and shame, and commands waiting.",
+      "source": "local WEB 1 Corinthians 11:17–34",
+      "locator": "11:18,21,22,33",
+      "limit": "Pastoral intervention, not neutral census; obedience unknown. Quoted fragments verified against data/plain/web/1CO.json."
+    },
+    {
+      "id": "meal-models",
+      "kind": "explicit reconstruction",
+      "claim": "Separate rooms and different arrival times are independently switchable possibilities.",
+      "source": [
+        "1 Corinthians 11:17–34",
+        "horrell"
+      ],
+      "limit": "No identified meeting house, number of participants, work schedule or causal certainty. Switching changes assumptions, not textual evidence."
+    },
+    {
+      "id": "villa-challenge",
+      "kind": "scholarly argument",
+      "claim": "Horrell challenges conventional villa model and proposes comparison with buildings east of theatre.",
+      "source": "horrell",
+      "locator": "Publisher abstract",
+      "limit": "Full article not read. Alternative building is not identified as Paul’s assembly."
+    },
+    {
+      "id": "social-debate",
+      "kind": "scholarly disagreement",
+      "claim": "Theissen’s 2003 reply to Meggitt defends social interpretation of Corinthian conflicts.",
+      "source": "theissen",
+      "locator": "Publisher abstract and article title",
+      "limit": "No full reconstruction of either scholar’s economic model claimed; Meggitt book located, not read."
+    },
+    {
+      "id": "missing-voices",
+      "kind": "textual comparison",
+      "claim": "Romans 16 names women in Pauline networks; Philemon 10–16 raises Onesimus and slavery.",
+      "source": [
+        "local WEB Romans 16:1–12",
+        "local WEB Philemon 10–16"
+      ],
+      "limit": "Neither identifies who prepared Corinth’s meal or which people went hungry there."
+    },
+    {
+      "id": "salutaris",
+      "kind": "inscribed prescription",
+      "claim": "104 CE endowment links Salutaris, Artemis images, theatre, civic bodies and provincial authorisation.",
+      "source": "salutaris",
+      "locator": "Opening date; sections22–90,117–132",
+      "limit": "Later than Acts19 narrated events; restorations present in edition; programme not observation of every performance. No riot corroboration or exact route map."
+    },
+    {
+      "id": "acts-civic",
+      "kind": "literary observation",
+      "claim": "Acts19 links craft income, Artemis honour, crowd and appeal to civic procedure.",
+      "source": "local WEB Acts19:23–41",
+      "limit": "Literary account; no independent verification of speeches; narrated 50sCE not asserted composition date."
+    },
+    {
+      "id": "economy-method",
+      "kind": "interpretive comparison",
+      "claim": "Myles critiques entrepreneurial categories; Hakola2023 challenges uniformly negative pictures.",
+      "source": [
+        "myles",
+        "https://doi.org/10.35068/aabner.v3i3.1100"
+      ],
+      "limit": "Myles2019 is not a response to Hakola2023. Only methodological critique used; no uniform prosperity or subsistence conclusion."
+    },
+    {
+      "id": "hired-servants",
+      "kind": "textual observation",
+      "claim": "Mark1:20 mentions hired servants with Zebedee.",
+      "source": "local WEB Mark1:16–20",
+      "limit": "Not net income, debt balance, class census or proof of all fishers’ circumstances."
+    }
+  ],
+  "interactions": {
+    "stratigraphicContexts": [
+      {
+        "label": "On the collapsed ceiling",
+        "date": "Coin dated 80 CE",
+        "observation": "The report places this coin on the ceiling collapse.",
+        "inference": "Its position associates it with material above the fallen ceiling. It does not, by itself, date the moment the roof fell. A coin can be lost long after it was minted.",
+        "excludes": "“The synagogue was destroyed in 80 CE.” That converts a coin’s date into an event date without establishing the deposition history."
+      },
+      {
+        "label": "The mosaic floor",
+        "date": "A building phase",
+        "observation": "The mosaic belongs to a sequence of alterations, not the building’s entire lifetime.",
+        "inference": "A date for this floor cannot simply be assigned to every wall, earlier room or later use. Archaeologists date contexts and phases before reconstructing a building’s history.",
+        "excludes": "“Every feature shown here existed at the same time.” A composite plan can quietly combine successive arrangements."
+      },
+      {
+        "label": "In the mosaic foundation",
+        "date": "Coin dated 43 CE",
+        "observation": "A coin dated 43 CE was recovered in the reading-room mosaic’s foundation.",
+        "inference": "If the context is undisturbed, the floor was laid no earlier than the coin’s issue. Archaeologists call this a terminus post quem: a date after which an event can occur. It is a lower bound, not an exact construction year.",
+        "excludes": "“The whole synagogue was founded in 43 CE.” Neither the building’s first use nor the floor’s exact year follows from this coin alone."
+      }
+    ],
+    "annotatedPassage": [
+      {
+        "verse": "11:18",
+        "quote": "I hear that divisions exist among you, and I partly believe it.",
+        "title": "A report filtered through a letter",
+        "note": "Paul is responding to information and evaluating it. We hear his intervention, not a transcript from every participant. The recipients’ own explanations do not survive in this passage."
+      },
+      {
+        "verse": "11:21",
+        "quote": "One is hungry, and another is drunken.",
+        "title": "An unequal meal is the firm starting point",
+        "note": "The contrast concerns access to food and drink within a gathering. It warrants asking about resources and conduct. It supplies neither a membership census nor the dimensions of a dining room."
+      },
+      {
+        "verse": "11:22",
+        "quote": "put them to shame who don’t have enough",
+        "title": "Food has become a question of dignity",
+        "note": "Paul connects material lack with humiliation. Calling the gathering a household does not make it egalitarian. But the verse does not identify each participant’s income, occupation or legal status."
+      },
+      {
+        "verse": "11:33",
+        "quote": "when you come together to eat, wait for one another.",
+        "title": "An instruction is not an observed outcome",
+        "note": "The remedy addresses how they gather. It makes timing worth investigating, without proving a complete schedule of work and arrival. Paul’s command does not tell us whether the community obeyed."
+      }
+    ],
+    "mealAssumptions": [
+      "neither",
+      "separate rooms",
+      "arrival timing",
+      "both"
+    ],
+    "civicAccounts": [
+      "Acts19 literary event sequence",
+      "I.Ephesos27 prescribed civic relationships"
+    ]
+  },
+  "researchGaps": [
+    "Full Horrell2004 and Theissen2003 articles not accessed; arguments limited to abstracts and visible notes.",
+    "Meeks1983/2003 and Talgam et al2025 full books not read. Meggitt1998 located through Theissen, not read. They are marked as deeper reading.",
+    "No fresh critical Greek edition collation of I.Ephesos27; German translated and restored text examined, paraphrased without silently treating restorations as intact words.",
+    "Migdal2013 is preliminary; new2026 report concerns other excavation contexts. Publication development does not silently resolve exact function of stone or chronology of every phase.",
+    "No population, household-income, attendance or transport-duration dataset adequate for numerical reconstruction. Diagrams carry no such quantities.",
+    "Evidence privileges literate correspondents, civic donors and surviving buildings; enslaved labour and many women’s own voices remain asymmetrically represented.",
+    "Existing dossier access gaps for Adams, Hakola, Rathmayr, ORBIS and indexed institutional records remain in force."
+  ],
+  "verification": {
+    "date": "2026-10-14",
+    "preview": "http://127.0.0.1:8931/study/world-of-jesus-apostles",
+    "build": "portable Vite/esbuild build passed",
+    "typescript": "full tsconfig.app.json check passed",
+    "eslint": "world source directory passed",
+    "editorial": "editorial source guard passed",
+    "browser": [
+      {
+        "status": "passed",
+        "scenes": [
+          "synagogue",
+          "household",
+          "ephesus"
+        ],
+        "viewports": [
+          1440,
+          390,
+          320
+        ],
+        "checks": [
+          "entry links and hash scrolling",
+          "all three stratigraphic contexts",
+          "four passage annotations",
+          "all four assumption combinations",
+          "two civic accounts",
+          "keyboard focus and Space/Enter",
+          "mobile overflow",
+          "light theme",
+          "reduced-motion interaction",
+          "Bible highlighted navigation and back",
+          "expanded research register",
+          "no runtime errors"
+        ]
+      },
+      {
+        "status": "passed",
+        "preview": "http://127.0.0.1:8931/study/world-of-jesus-apostles",
+        "scenes": 8,
+        "viewpoints": 28,
+        "checks": [
+          "single academic entry",
+          "no comparison pill",
+          "B dark/light palette",
+          "28 views desktop/mobile",
+          "320–1440px overflow",
+          "legacy redirects preserve scene and map Ephesus",
+          "keyboard controls and next-heading focus",
+          "Bible reader",
+          "reduced motion",
+          "no page errors"
+        ]
+      }
+    ],
+    "screenshots": "Desktop, mobile320/390 and light-theme rendered screenshots inspected; narrow civic sequence changed to vertical.",
+    "releaseMirror": ".local/release-history-focused-20261013",
+    "limits": "No public deployment. Reading-access limitations remain recorded above."
+  }
+}

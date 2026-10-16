@@ -1,0 +1,66 @@
+{
+  "study": 5,
+  "route": "/study/from-manuscript-to-printed-bible",
+  "identity": "Letterpress composing room: warm paper, iron rules, reversed type, muted vermilion and teal; existing Archivo and Literata typography.",
+  "sequence": [
+    "Make and compare copies",
+    "Read the architecture",
+    "Trace documented inputs",
+    "Inspect a real page and test an argument",
+    "Separate translation from production",
+    "Read beneath the line"
+  ],
+  "accessibility": [
+    "Native buttons with aria-pressed/aria-expanded",
+    "Text alternatives for diagrams and image detail views",
+    "Equivalent lists for network edges",
+    "No automatic zoom or flashing; reduced-motion disables transformations’ transitions",
+    "Visible background/inset/underline keyboard focus",
+    "Shared fixed header and page transitions unchanged"
+  ],
+  "artwork": "One public-domain 1516 Basel page, with user-controlled detail views and normalized reading aid. Original schematic page models, press mechanism and source-linked edition networks retained.",
+  "releaseSource": ".local/release-atlas-loop",
+  "verification": {
+    "date": "2026-10-14",
+    "preview": "http://127.0.0.1:8931/study/from-manuscript-to-printed-bible",
+    "results": [
+      "Correcting the setting preserves earlier sheets",
+      "Six editions and all 18 layer toggles",
+      "Three networks, all 17 node selections, cited edge lists",
+      "Three Erasmus revision states and five translation projects",
+      "Original page loads, all four detail views, reply disclosure, stable Hebrew text with changing apparatus, all three editorial aims",
+      "Keyboard Space/Enter toggles and visible focus",
+      "Academic category round-trip, settled standard transition, header remains pinned",
+      "320/390/768px layouts without horizontal overflow, both themes, reduced-motion navigation",
+      "Downloadable dossier, source-linked graph integrity, no browser runtime errors"
+    ],
+    "errors": [],
+    "additionalChecks": [
+      "New page-detail and editorial-policy controls work with keyboard and visible focus",
+      "Page-detail controls precede the image on mobile",
+      "All three edition networks tested at 320/390/768px without overlapping nodes",
+      "All chapter anchors resolve; 43 source-register links have valid HTTPS targets; all dossier source references resolve",
+      "Primary page asset loads at its recorded dimensions; download matches expanded dossier"
+    ],
+    "build": "Passed: current working tree, portable esbuild transform; existing public assets preserved to avoid an unrelated atlas copy lock.",
+    "typecheck": "Focused typecheck passed for all print-room components.",
+    "editorial": "check-editorial-sources.mjs passed",
+    "visualReview": [
+      "Desktop primary page, Greek/Latin details and printer marks",
+      "Desktop revision argument expanded and editorial-policy states",
+      "Mobile 390px actual viewport with shared fixed header and image controls",
+      "Mobile Hebrew apparatus and edition network",
+      "Light and dark primary-page contrast"
+    ],
+    "evidenceLimits": "External hosts sometimes deny automated access; source records distinguish successful reads, indexed excerpts and inaccessible full works. No claim of exhaustive external URL availability.",
+    "publicDeployment": false
+  },
+  "revision": "2026-10-14: evidence-led second edition",
+  "approvedDesignImplementation": {
+    "date": "2026-10-14",
+    "proposal": "05-from-manuscript-to-printed-bible/design.md",
+    "verification": "05-from-manuscript-to-printed-bible/implementation-verification.json",
+    "status": "implemented-and-verified-local",
+    "publicDeployment": false
+  }
+}

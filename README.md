@@ -1,5 +1,13 @@
 # Bible Project
 
+**Chapter summaries and local Qwen work — 13 October 2026:** [Documentation and locations](initiatives/chapter-summaries/README.md) · [Handoff](initiatives/chapter-summaries/HANDOFF.md) · [Architecture](initiatives/chapter-summaries/ARCHITECTURE.md) · [Runbook](initiatives/chapter-summaries/RUNBOOK.md) · [Trial results](initiatives/chapter-summaries/RESULTS.md). The Python studio is on localhost:8947; the main Bible preview remains 8931. Three evidence-first trial rounds are complete, the full Bible run remains paused for quality, and all prior drafts/archives are preserved locally. Trial outputs have not been approved or published.
+
+**Library knowledge initiative — updated 14 October 2026:** [Start here](initiatives/library-knowledge/README.md) · [System design](initiatives/library-knowledge/DESIGN.md) · [Execution backlog](initiatives/library-knowledge/TODO.md) · [Handoff protocol](initiatives/library-knowledge/HANDOFF.md) · [Sufficiency review](initiatives/library-knowledge/REVIEW-2026-10-13.md).
+
+**Future additions and next-chat continuation:** [Refresh, recovery and backup protocol](initiatives/library-knowledge/FUTURE-ADDITIONS-PROTOCOL.md) · [Complete new-chat context and remaining steps](initiatives/library-knowledge/NEW-CHAT-CONTEXT.md) · [Execute KR-110 in the next chat](initiatives/library-knowledge/PROMPT-KR110.txt).
+
+Extend delivered metadata/descriptive analytics into connected source sections, concepts/questions, semantic relationships, attributed arguments, historical/language links and prepared evidence for the existing site. KR-100/101/102 sections and alignment are complete for their supported snapshots; next is KR-110 concepts and question retrieval. Seven workstreams share one active backlog. Further analytical processors and public consumer delivery remain open. The protocol distinguishes implemented persistence/resume from pending cross-generation refresh and unverified backup/restore. Preserve source/corpus/vector ownership. Earlier mission counts, PIDs and readiness statements below are dated history, not current completion evidence.
+
 ## Production release, 2026-10-10
 
 All accumulated site and library changes are published at https://bibleproject.io. Final application commit: `6fd0f71aa`; immutable deployment: https://3e607d51.bible-project-4af.pages.dev. The package has 19,676 files, 149,799 library records and 19,841 on-site reading copies. Both Teachers acquired sections use their live contributor totals. Later Study refinements are included.

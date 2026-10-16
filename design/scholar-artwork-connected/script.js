@@ -1,0 +1,6 @@
+const options=[['The scholar’s desk','A single desk scene with substantial books, an open notebook, a modern pen, pottery and a coin.','desk.svg'],['Texts & discoveries','The same broad book stack, with a modern pen beside an inscribed tablet and a pottery fragment.','discoveries.svg']];
+let request=0;
+async function select(index){const current=++request;const [name,description,file]=options[index];const response=await fetch(file);if(!response.ok)throw new Error('Artwork unavailable');const svg=await response.text();if(current!==request)return;document.querySelector('#composition').innerHTML=svg;document.querySelector('#name').textContent=name;document.querySelector('#description').textContent=description;document.querySelector('#number').textContent=`0${index+1} / 02`;document.querySelectorAll('[data-option]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.option)===index)));}
+document.querySelectorAll('[data-option]').forEach(b=>b.addEventListener('click',()=>select(Number(b.dataset.option))));
+document.querySelector('#theme').addEventListener('click',event=>{const light=document.body.classList.toggle('light');event.currentTarget.textContent=light?'Dark view':'Light view';});
+select(0);

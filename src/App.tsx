@@ -1,6 +1,8 @@
+import WorldStudyRedirect from "@/pages/study/world/WorldStudyRedirect";
 import { lazy, Suspense, type ReactNode } from "react";
 import { MotionConfig } from "framer-motion";
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { PageTransitions } from "@/components/PageTransitions";
 import { Layout } from "@/components/Layout";
 import { PageErrorBoundary } from "@/components/PageErrorBoundary";
 import { CatalogProvider } from "@/lib/catalog-context";
@@ -20,6 +22,16 @@ const TeachersPage = lazy(() => import("@/pages/TeachersPage"));
 const ResourcesPage = lazy(() => import("@/pages/ResourcesPage"));
 const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
+const SurvivingWitnessesPage = lazy(() => import("@/pages/study/witnesses/SurvivingWitnessesPage"));
+const PassageManuscriptsPage = lazy(() => import("@/pages/study/passages/PassageManuscriptsPage"));
+const IsraelEmpiresPage = lazy(() => import("@/pages/study/empires/IsraelEmpiresPage"));
+const PrintRoomPage = lazy(() => import("@/pages/study/print-room/PrintRoomPage"));
+const MergedWorldPage = lazy(() => import("@/pages/study/world/MergedWorldPage"));
+const CitiesLayersPage = lazy(() => import("@/pages/study/history/CitiesLayersPage"));
+const CanonPage = lazy(() => import("@/pages/study/canon/CanonPage"));
+const DeadSeaScrollsPage = lazy(() => import("@/pages/study/scrolls/DeadSeaScrollsPage"));
+const DiscoveriesPage = lazy(() => import("@/pages/study/discoveries/DiscoveriesPage"));
+const HistoricalStudyLanding = lazy(() => import("@/pages/study/discoveries/HistoricalStudyLanding"));
 const StudyBranch = lazy(() => import("@/pages/study/hub/StudyBranch"));
 const StudyPage = lazy(() => import("@/pages/study/StudyPage"));
 const StudyCollection = lazy(() => import("@/pages/study/StudyCollection"));
@@ -29,6 +41,7 @@ const MiraclesPage = lazy(() => import("@/pages/study/MiraclesPage"));
 const LettersPage = lazy(() => import("@/pages/study/LettersPage"));
 const CurvedGenealogyPage = lazy(() => import("@/pages/study/CurvedGenealogyPage"));
 const CircularGenealogyPage = lazy(() => import("@/pages/study/CircularGenealogyPage"));
+const LongMemoryPage = lazy(() => import("@/pages/study/LongMemoryPage"));
 const PeoplePage = lazy(() => import("@/pages/study/PeoplePage"));
 const PersonPage = lazy(() => import("@/pages/PersonPage"));
 const PersonRedirect = lazy(() => import("@/pages/PersonPage").then((m) => ({ default: m.PersonRedirect })));
@@ -39,10 +52,11 @@ const DesignReviewPage = lazy(() => import("@/pages/review/DesignReviewPage"));
 const ResearchPreviewPage = lazy(() => import("@/pages/research/ResearchPreviewPage"));
 const ReadingSourcePage = lazy(() => import("@/pages/ReadingSourcePage"));
 const LibraryWorkPage = lazy(() => import("@/pages/teachers/LibraryWorkPage"));
+const CirclesPage = lazy(() => import("@/pages/study/circles/CirclesPage"));
 
 function PageFallback() {
   return (
-    <div className="flex min-h-[50vh] items-center justify-center" role="status" aria-live="polite">
+    <div className="flex min-h-[50vh] items-center justify-center" data-page-loading role="status" aria-live="polite">
       <span className="animate-pulse font-serif text-muted">Loading…</span>
     </div>
   );
@@ -54,11 +68,18 @@ function AppFrame({ children }: { children: ReactNode }) {
   return pathname === "/mock/genealogy-circle-2" || pathname === "/mock/genealogy-circle" || pathname === "/mock/genealogy-curves" ? page : <Layout>{page}</Layout>;
 }
 
+function Apologetics2Redirect() {
+  const location = useLocation();
+  const pathname = location.pathname.replace(/^\/apologetics2(?=\/|$)/, "/apologetics").replace(/\/source-records(?=\/|$)/, "/sources");
+  return <Navigate replace to={pathname + location.search + location.hash} />;
+}
+
 export default function App() {
   return (
     // Framer Motion animations follow the reader's "reduce motion" setting, like the CSS ones.
     <MotionConfig reducedMotion="user">
     <BrowserRouter>
+      <PageTransitions>
       <CatalogProvider>
         <AppFrame>
           <Suspense fallback={<PageFallback />}>
@@ -82,12 +103,29 @@ export default function App() {
               <Route path="/search/meaning" element={<MeaningSearchPage />} />
               <Route path="/topics/*" element={<TopicsPage />} />
               <Route path="/teachers/*" element={<TeachersPage />} />
+              <Route path="/teachers/collections/:leaderId" element={<CirclesPage />} />
               <Route path="/resources/*" element={<ResourcesPage />} />
               <Route path="/versions" element={<VersionsPage />} />
               <Route path="/sources" element={<VersionsPage />} />
               <Route path="/study" element={<StudyPage />} />
+              <Route path="/study/circles" element={<CirclesPage />} />
               <Route path="/study2" element={<StudyCollection />} />
               <Route path="/study/theology" element={<StudyBranch branch="theology" />} />
+              <Route path="/study/surviving-witnesses" element={<SurvivingWitnessesPage />} />
+              <Route path="/study/passage-through-manuscripts" element={<PassageManuscriptsPage />} />
+              <Route path="/study/israel-among-the-empires" element={<IsraelEmpiresPage />} />
+              <Route path="/study/from-manuscript-to-printed-bible" element={<PrintRoomPage />} />
+              <Route path="/study/world-of-jesus-and-apostles" element={<WorldStudyRedirect />} />
+              <Route path="/study/world-of-jesus-apostles-complete" element={<WorldStudyRedirect />} />
+              <Route path="/study/world-of-jesus-apostles" element={<MergedWorldPage />} />
+              <Route path="/study/cities-through-their-layers" element={<CitiesLayersPage />} />
+              <Route path="/study/how-the-canon-took-shape" element={<CanonPage />} />
+              <Route path="/study/dead-sea-scrolls" element={<DeadSeaScrollsPage />} />
+              <Route path="/study/discoveries-biblical-record" element={<DiscoveriesPage />} />
+              <Route path="/study/from-discovery-to-history" element={<DiscoveriesPage />} />
+              <Route path="/study/mesha-and-the-world-of-moab" element={<HistoricalStudyLanding study="mesha" />} />
+              <Route path="/study/lachish-under-siege" element={<HistoricalStudyLanding study="lachish" />} />
+              <Route path="/study/cyrus-restoration-and-return" element={<HistoricalStudyLanding study="cyrus" />} />
               <Route path="/study/academic" element={<StudyBranch branch="academic" />} />
               <Route path="/study/references" element={<ChartsPage />} />
               <Route path="/study/structure" element={<ChartsPage />} />
@@ -96,13 +134,14 @@ export default function App() {
               <Route path="/study/atlas/*" element={<AtlasPage />} />
               <Route path="/study/places/*" element={<AtlasRedirect />} />
               <Route path="/apologetics/*" element={<ApologeticsPage />} />
-              <Route path="/apologetics2/*" element={<ApologeticsPage variant="proposed" />} />
+              <Route path="/apologetics2/*" element={<Apologetics2Redirect />} />
               <Route path="/study/harmony" element={<StudyRedirect />} />
               <Route path="/study/miracles" element={<MiraclesPage />} />
               <Route path="/study/letters/*" element={<LettersPage />} />
               <Route path="/mock/genealogy-curves" element={<CurvedGenealogyPage />} />
               <Route path="/mock/genealogy-circle-2" element={<CircularGenealogyPage familyBands />} />
               <Route path="/mock/genealogy-circle" element={<CircularGenealogyPage />} />
+              <Route path="/study/long-memory" element={<LongMemoryPage />} />
               <Route path="/study/people" element={<PeoplePage />} />
               <Route path="/study/people/:id" element={<PersonRedirect />} />
               {/* A ruler's or apostle's second page: /people/:id/rule, /people/:id/mission (one route, so the page stays mounted). */}
@@ -120,6 +159,7 @@ export default function App() {
           </Suspense>
         </AppFrame>
       </CatalogProvider>
+      </PageTransitions>
     </BrowserRouter>
     </MotionConfig>
   );

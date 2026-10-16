@@ -3,12 +3,12 @@
 // counts are shown; the match is a rough text search. Two sort orders slide the rows into place (transforms only);
 // those never named are listed as chips underneath. Every name opens the shared profile.
 import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent, type SyntheticEvent } from "react";
-import { ScholarSectionHead as SectionHead } from "./SectionHead";
 import { reducedMotion } from "./marks/dom";
 import { useScholars } from "./context";
 import { AREAS, areaPhrase, buildHeat, type SortKey } from "./named/model";
 import { Row } from "./named/Row";
 import "./Named.css";
+import type {SourceInspection} from './built/SourceDetails';
 
 interface Tip { id: string; col: number; name: string; text: string; x: number; y: number }
 
@@ -17,9 +17,9 @@ function HeadRow({ hotCol }: { hotCol: number }) {
     <span key={area} className={hotCol === i + 1 ? "nmd-hot" : undefined} style={{ "--tone": `var(${tone})` } as CSSProperties}>{area}</span>)}</div>;
 }
 
-export function Named() {
-  const { data, openProfile } = useScholars();
-  const heat = useMemo(() => buildHeat(data.scholars), [data]);
+export function Named({onInspect}:{onInspect?:(selection:SourceInspection)=>void}) {
+  const { library, openProfile } = useScholars();
+  const heat = useMemo(() => buildHeat((library??[]).flatMap(p=>p.scholar?[p.scholar]:[])), [library]);
   const weights = useMemo(() => new Map(heat.named.map((s) => [s.id, AREAS.map(([a]) => heat.weight(s, a))])), [heat]);
   const [limit, setLimit] = useState(96);
   const [sort, setSort] = useState<SortKey>("era");
@@ -67,18 +67,18 @@ export function Named() {
   };
   const onClick = (event: SyntheticEvent) => {
     const hit = (event.target as Element).closest<HTMLElement>("[data-scholar]");
-    if (hit?.dataset.scholar) { const credit=heat.named.find(s=>s.id===hit.dataset.scholar); if(credit?.profile)openProfile(credit.profile.id,hit); else if(credit)window.open(credit.records[0].url,"_blank","noopener,noreferrer"); else openProfile(hit.dataset.scholar,hit); }
+    if (hit?.dataset.scholar) { const credit=heat.named.find(s=>s.id===hit.dataset.scholar); if(credit?.profile)openProfile(credit.profile.id,hit); else if(credit){onInspect?.({name:credit.name,records:credit.records.map(r=>({title:r.title,year:r.year,url:r.url,kind:r.kind,uses:r.uses}))});} else openProfile(hit.dataset.scholar,hit); }
   };
 
-  return <div onClick={onClick}>
-    <SectionHead section="named" kicker="In the site's own pages" title={<>Where the site <em>names them</em></>}
-      line="Darker squares mean more distinct content pages credit that name. All recorded source credits are included, with initials and joint credits retained. Hover for the page count or follow a square to a linked page. Names open profiles where documented, otherwise their recorded source." />
+  return <div id="named" className="source-credits" onClick={onClick}>
+    <header className="scholar-subhead"><h3>Source credits</h3><p>Darker squares mean more distinct pages credit that name. Hover for counts, follow a square to a page, or select a name to open its profile or recorded source. Initials and joint credits are retained.</p></header>
     <div className="nmd-tools" role="group" aria-label="Sort the grid">
       <span>Sort</span>
       <button type="button" aria-pressed={sort === "era"} onClick={() => choose("era")}>By era</button>
       <button type="button" aria-pressed={sort === "wide"} onClick={() => choose("wide")}>By how widely named</button>
     </div>
-    <div ref={gridRef} className="nmd-grid" role="region" aria-label="Source credit grid" tabIndex={0} onScroll={e=>{const el=e.currentTarget;if(el.scrollTop>=(el.scrollHeight-el.clientHeight)*.4)setLimit(n=>Math.min(n+96,heat.named.length));}} onPointerOver={onPointerOver} onPointerLeave={hide}>
+    <div className="nmd-frame">
+    <div ref={gridRef} className="nmd-grid slim-scroll" style={{'--source-area-count':AREAS.length} as CSSProperties} role="region" aria-label="Source credit grid" tabIndex={0} onScroll={e=>{const el=e.currentTarget;if(el.scrollTop>=(el.scrollHeight-el.clientHeight)*.4)setLimit(n=>Math.min(n+96,heat.named.length));}} onPointerOver={onPointerOver} onPointerLeave={hide}>
       <div className="nmd-heads"><HeadRow hotCol={tip?.col ?? 0} /><HeadRow hotCol={tip?.col ?? 0} /></div>
       <ol ref={listRef} className="nmd-rows">
         {heat.sorted(sort).slice(0,limit).map((s) => <Row key={s.id} scholar={s} weights={weights.get(s.id) ?? []} hot={tip?.id === s.id} />)}
@@ -88,7 +88,8 @@ export function Named() {
         <b>{tipState.tip?.name}</b><span>{tipState.tip?.text}</span>
       </div>
     </div>
-    <p className="num-explain">{heat.named.length} recorded credits, not unique people. Topics includes harmony and miracles; People includes apostles and prophets. Coverage is registered citations, bibliographies and verified feature inputs, not all incidental name mentions. Unknown dates sort after documented dates.</p>
+    </div>
+    <p className="num-explain">{heat.named.length} recorded credit labels across nine areas, including named contributors and institutional source providers. Joint credits may represent several people. Squares compare distinct page connections for each credit; source details retain the recorded consultation limits. Coverage includes citations, linked research directories, bibliographies and chart inputs.</p>
     <p className="nmd-unnamed"><span>Profiles without a matched credit in this source index:</span>
       {heat.unnamed.map((s) => <button key={s.id} type="button" data-scholar={s.id}>{s.short}</button>)}</p>
   </div>;

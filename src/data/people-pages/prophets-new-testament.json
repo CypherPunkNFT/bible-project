@@ -1330,10 +1330,6 @@
           "note": "“Because there was much water there”"
         },
         {
-          "name": "Machaerus (not in the atlas)",
-          "note": "Josephus names it as John’s prison and the place of his death (Antiquities 18.5.2); the Gospels do not name the prison"
-        },
-        {
           "name": "Samaria (Sebaste)",
           "placeId": "a041bb3",
           "note": "Jerome (AD 404) says John lies here; Theodoret says his tomb here was opened in the reign of Julian",
@@ -1429,15 +1425,6 @@
           }
         ],
         "tradition": [
-          {
-            "text": "In this passage Josephus does not mention Herodias; he says Herod feared that John’s “great influence” over the people might lead to a rebellion; John “was sent a prisoner, out of Herod's suspicious temper, to Macherus, the castle I before mentioned, and was there put to death.” Some of the Jews, he says, thought the later defeat of Herod’s army “came from God”, as “a punishment of what he did against John, that was called the Baptist”.",
-            "layer": "ancient-record",
-            "cites": [
-              "jos-ant-john"
-            ],
-            "who": "Josephus, Antiquities 18.5.2 (an outside record, shown beside the Gospels, not merged with them)",
-            "when": "the Antiquities were finished, Josephus says, in the thirteenth year of Domitian (20.11.3)"
-          },
           {
             "text": "Of Paula’s visit to Samaria, which Herod had renamed Sebaste: “There lie the prophets Elisha and Obadiah and John the Baptist”.",
             "layer": "tradition",
@@ -1594,58 +1581,6 @@
                 "cites": [
                   "ramsay-1898",
                   "plummer-1896"
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "id": "john-death-why",
-          "question": "Why was John killed? The Gospels and Josephus give different reasons.",
-          "views": [
-            {
-              "label": "Matthew and Mark",
-              "holders": "Scripture",
-              "argument": {
-                "text": "John had told Herod that his marriage to his brother’s wife was unlawful. Matthew says Herod would have put him to death but “feared the multitude, because they counted him as a prophet”; Mark says it was Herodias who “would have killed him”, while Herod “feared John”. In both, Herod’s birthday oath to the daughter of Herodias brought his death.",
-                "layer": "scripture",
-                "refs": [
-                  [
-                    40014003,
-                    40014011
-                  ],
-                  [
-                    41006017,
-                    41006028
-                  ]
-                ]
-              }
-            },
-            {
-              "label": "Josephus",
-              "holders": "Josephus, Antiquities 18.5.2",
-              "argument": {
-                "text": "Herod feared that John’s influence over the crowds might raise a rebellion, and put him to death at Machaerus to prevent it. Josephus does not mention Herodias in this passage.",
-                "layer": "ancient-record",
-                "cites": [
-                  "jos-ant-john"
-                ]
-              }
-            },
-            {
-              "label": "Both may be true",
-              "holders": "E. Schürer (1890)",
-              "argument": {
-                "text": "Schürer thinks it “highly probable” that the real occasion of John’s imprisonment was fear of political trouble, “just as Josephus states”, yet “the evangelists may be right”: “The two statements are not inconsistent with one another.” He uses Josephus’s account “if it really belongs originally to him”, and says that, because Josephus was elsewhere altered by Christian copyists, “we cannot be here perfectly confident regarding its genuineness.”",
-                "layer": "scholars",
-                "refs": [
-                  [
-                    40014003,
-                    40014004
-                  ]
-                ],
-                "cites": [
-                  "schurer-2-21"
                 ]
               }
             }
@@ -1829,7 +1764,7 @@
         "Scripture does not say how old John was when the word of God came to him.",
         "Luke calls Elisabeth Mary’s “cousin” (Luke 1:36); Scripture does not say more exactly how they were related.",
         "Scripture records no miracle by John; the people beyond Jordan said, “John did no miracle” (John 10:41).",
-        "The Gospels do not name the prison where he was held and killed; Josephus does.",
+        "The Gospels do not name the prison where he was held and killed.",
         "Scripture does not say where his disciples buried him."
       ],
       "passages": [
@@ -3113,29 +3048,6 @@
           "question": "What famine was it?",
           "views": [
             {
-              "label": "Famine over the Roman world, worst in Judaea",
-              "holders": "E. H. Plumptre (Ellicott’s commentary, about 1880); Jamieson, Fausset and Brown (1871); J. R. Lumby (Cambridge Bible, 1885); Albert Barnes",
-              "argument": {
-                "text": "They read “all the world” as the Roman empire and point to the frequent famines of Claudius’s reign. Outside writers record such famines: Suetonius “a scarcity of grain because of long-continued droughts” at Rome; Tacitus “scanty crops, too, and consequent famine”; Josephus “that great famine” in Judaea under the governors Fadus and Tiberius Alexander, when Queen Helena bought grain in Egypt. None of them speaks of one famine over all the world.",
-                "layer": "scholars",
-                "refs": [
-                  [
-                    44011028,
-                    44011028
-                  ]
-                ],
-                "cites": [
-                  "ellicott-act-11-28",
-                  "jfb-act-11-28",
-                  "cambridge-act-11-28",
-                  "barnes-act-11-28",
-                  "suet-claudius",
-                  "tacitus-annals",
-                  "jos-ant-famine"
-                ]
-              }
-            },
-            {
               "label": "The famine of Judaea only",
               "holders": "N. Lardner (as reported by Barnes)",
               "argument": {
@@ -4156,25 +4068,6 @@
           "question": "Was he kin to Manahem the Essene, who foretold that Herod the Great would be king?",
           "views": [
             {
-              "label": "Perhaps his son or grandson",
-              "holders": "E. H. Plumptre (Ellicott’s commentary); J. Lightfoot (as reported by Gill)",
-              "argument": {
-                "text": "Josephus tells of an Essene named Manahem who greeted the boy Herod (Herod the Great) as king of the Jews; when Herod was king he sent for Manahem, and from then on “he continued to honor all the Essens”. Plumptre: “The identity of name makes it probable” that this Manaen was his son or grandson.",
-                "layer": "scholars",
-                "refs": [
-                  [
-                    44013001,
-                    44013001
-                  ]
-                ],
-                "cites": [
-                  "jos-ant-manahem",
-                  "ellicott-act-13-1",
-                  "gill-act-13-1"
-                ]
-              }
-            },
-            {
               "label": "Only the name is shared",
               "holders": "J. R. Lumby (Cambridge Bible, 1885)",
               "argument": {
@@ -4804,38 +4697,6 @@
   ],
   "citations": [
     {
-      "id": "jos-ant-john",
-      "author": "Flavius Josephus, tr. William Whiston",
-      "title": "The Antiquities of the Jews",
-      "year": "1737",
-      "url": "https://www.gutenberg.org/ebooks/2848",
-      "where": "18.5.2; the date of the work from 20.11.3 (book.chapter.section as printed in the Project Gutenberg text)"
-    },
-    {
-      "id": "jos-ant-manahem",
-      "author": "Flavius Josephus, tr. William Whiston",
-      "title": "The Antiquities of the Jews",
-      "year": "1737",
-      "url": "https://www.gutenberg.org/ebooks/2848",
-      "where": "15.10.5 (as printed in the Project Gutenberg text)"
-    },
-    {
-      "id": "jos-ant-famine",
-      "author": "Flavius Josephus, tr. William Whiston",
-      "title": "The Antiquities of the Jews",
-      "year": "1737",
-      "url": "https://www.gutenberg.org/ebooks/2848",
-      "where": "20.5.2, with Helena's purchase of grain at 20.2.5 (as printed in the Project Gutenberg text)"
-    },
-    {
-      "id": "schurer-2-21",
-      "author": "E. Schürer",
-      "title": "A History of the Jewish People in the Time of Jesus Christ, Division I, vol. 2 (tr. J. Macpherson)",
-      "year": "1890",
-      "where": "§17b, pp. 21–28 and notes (Herodias; John the Baptist); the passages used are on pp. 24–25",
-      "url": "https://archive.org/details/s1historyofjewis02schuoft"
-    },
-    {
       "id": "plummer-1896",
       "author": "A. Plummer",
       "title": "A Critical and Exegetical Commentary on the Gospel according to S. Luke (International Critical Commentary)",
@@ -4858,22 +4719,6 @@
       "year": "about 1880",
       "where": "read on Bible Hub",
       "url": "https://biblehub.com/commentaries/luke/2-2.htm"
-    },
-    {
-      "id": "suet-claudius",
-      "author": "Suetonius, tr. J. C. Rolfe",
-      "title": "The Life of Claudius (Loeb Classical Library)",
-      "year": "1914",
-      "where": "18.2",
-      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Suetonius/12Caesars/Claudius*.html"
-    },
-    {
-      "id": "tacitus-annals",
-      "author": "Tacitus, tr. A. J. Church and W. J. Brodribb",
-      "title": "The Annals of Tacitus",
-      "year": "1884",
-      "where": "12.43 (1884 printing; first published 1876)",
-      "url": "https://archive.org/details/annalstranslated00taci"
     },
     {
       "id": "origen-john",
@@ -5260,34 +5105,10 @@
       "url": "https://biblehub.com/commentaries/john/3-31.htm"
     },
     {
-      "id": "ellicott-act-11-28",
-      "author": "E. H. Plumptre, in C. J. Ellicott (ed.), A New Testament Commentary for English Readers",
-      "title": "Note on Acts 11:28",
-      "year": "about 1880",
-      "where": "note on Acts 11:28; read on Bible Hub",
-      "url": "https://biblehub.com/commentaries/acts/11-28.htm"
-    },
-    {
       "id": "barnes-act-11-28",
       "author": "Albert Barnes",
       "title": "Notes on the New Testament",
       "year": "1832–1851",
-      "where": "note on Acts 11:28; read on Bible Hub",
-      "url": "https://biblehub.com/commentaries/acts/11-28.htm"
-    },
-    {
-      "id": "cambridge-act-11-28",
-      "author": "J. R. Lumby",
-      "title": "The Acts of the Apostles (Cambridge Bible for Schools and Colleges)",
-      "year": "1885",
-      "where": "note on Acts 11:28; read on Bible Hub",
-      "url": "https://biblehub.com/commentaries/acts/11-28.htm"
-    },
-    {
-      "id": "jfb-act-11-28",
-      "author": "R. Jamieson, A. R. Fausset and D. Brown",
-      "title": "A Commentary, Critical and Explanatory, on the Whole Bible",
-      "year": "1871",
       "where": "note on Acts 11:28; read on Bible Hub",
       "url": "https://biblehub.com/commentaries/acts/11-28.htm"
     },

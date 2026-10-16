@@ -25,9 +25,10 @@ export function LegacyConstellation(props: SkyProps) {
   const timeline = new URLSearchParams(window.location.search).get("scholars-view") === "timeline";
   const narrow = useMediaQuery("(max-width: 760px)");
   const sky = useMemo(()=>{
-    const data={...props.data,scholars:[...props.data.scholars,...extras]};
+    const profiles=(library??[]).flatMap(p=>p.scholar?[p.scholar]:[]);
+    const data={...props.data,scholars:[...profiles,...extras]};
     return timeline ? buildTimeline(data) : buildSky(data,"band");
-  },[props.data,extras,timeline]);
+  },[props.data,library,extras,timeline]);
   const [active,setActive] = useState<Field|"">("");
   const selected = active || (narrow && !timeline ? "history" : "");
   const home = useMemo<View>(()=>{
@@ -110,6 +111,6 @@ export function LegacyConstellation(props: SkyProps) {
       </svg>
       {hover&&<div className="cg-tip" role="status"><b>{hover.name}</b><span>{hover.work??props.data.scholars.find(p=>p.id===hover.id)?.works[0]?.[0]??props.data.fields[hover.field]}</span></div>}
     </div>
-    <div className="cg-footer"><span>{timeline?"Birth years · Before 1500 compressed · Drag to move, scroll or pinch to zoom":"Drag to move · Scroll or pinch to zoom"}</span><span>{selected?`${sky.nodes.filter(n=>n.s.field===selected).length} selected contributors`:`${sky.nodes.length} selected contributors`}</span></div>
+    <div className="cg-footer"><span>{timeline?"Birth years · Before 1500 compressed · Drag to move, scroll or pinch to zoom":"Drag to move · Scroll or pinch to zoom"}</span><span>{selected?`${sky.nodes.filter(n=>n.s.field===selected).length} selected contributors`:`${sky.nodes.length} editorial sample entries of ${library?.length.toLocaleString()??"…"}`}</span></div>
   </div>;
 }

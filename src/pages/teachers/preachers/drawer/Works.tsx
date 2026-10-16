@@ -5,21 +5,22 @@ import { Link } from "react-router-dom";
 import type { PeopleData, Person } from "@/data/teachers/pages-types";
 import { formatNumber } from "../../shared/people";
 import { GENRE_TONE, cssVars, genreName } from "./helpers";
+import type { OpenWork } from "./ProfileWorks";
 
 const ICON = { strokeWidth: 1.5, "aria-hidden": true } as const;
 
-function ReadLink({ url }: { url: string }) {
-  return <Link className="drw-read" to={url}>Read<ArrowUpRight size={13} {...ICON} /></Link>;
+function ReadLink({ url, title, onOpenWork }: { url: string; title: string; onOpenWork?: OpenWork }) {
+  return <Link className="drw-read" to={url} onClick={onOpenWork?e=>{e.preventDefault();onOpenWork({id:decodeURIComponent(url.split('/').pop()!),title},e.currentTarget);}:undefined}>Read<ArrowUpRight size={13} {...ICON} /></Link>;
 }
 
-export function KnownWorks({ person }: { person: Person }) {
+export function KnownWorks({ person, onOpenWork }: { person: Person; onOpenWork?: OpenWork }) {
   return <ul className="drw-known">
     {person.known.map((k) => <li key={`${k.t}-${k.y}`}>
       <b>{k.y}</b>
-      <span>{k.u ? <Link to={k.u}>{k.t}</Link> : k.t}</span>
+      <span>{k.u ? <Link to={k.u} onClick={onOpenWork?e=>{e.preventDefault();onOpenWork({id:decodeURIComponent(k.u!.split('/').pop()!),title:k.t},e.currentTarget);}:undefined}>{k.t}</Link> : k.t}</span>
       <span className="drw-tags">
         {k.inLibrary ? <em className="drw-in">In the library</em> : <em className="drw-out">Not in the library yet</em>}
-        {k.u && <ReadLink url={k.u} />}
+        {k.u && <ReadLink url={k.u} title={k.t} onOpenWork={onOpenWork} />}
       </span>
     </li>)}
   </ul>;

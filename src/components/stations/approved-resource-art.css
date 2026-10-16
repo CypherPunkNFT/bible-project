@@ -1,0 +1,78 @@
+.resource-approved{--surface:var(--page);width:min(100%,300px);height:auto;display:block;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;overflow:hidden}
+.resource-approved .paper{fill:var(--surface)}
+.resource-approved .fine{stroke-width:.8;opacity:.65}
+.resource-approved .faint{stroke-width:.65;opacity:.3}
+.resource-approved .prayer-inner-ring{stroke-width:1.8;opacity:.95}
+.resource-approved .bible-print{stroke-width:.6;opacity:.7}
+.resource-approved .turning-page{animation:resource-page-breath 8s ease-in-out infinite;transform-box:fill-box;transform-origin:left bottom}
+@keyframes resource-page-breath{50%{transform:skewY(-2deg)}}
+@media(prefers-reduced-motion:reduce){.resource-approved *{animation:none!important;transition:none!important}}
+
+.resource-approved{--land:#776d56;--leaf:#778167;--gold:#ab7035;--flower:#9e654d}
+:root[data-theme=dark] .resource-approved{--land:#bcb29d;--leaf:#a5b394;--gold:#e4b268;--flower:#dba584}
+.resource-approved .drawing{height:268px;margin-top:12px;margin-bottom:18px}
+.resource-approved .morning-art{stroke:var(--land);stroke-width:1.05}
+.resource-approved .morning-art .land-mask{fill:var(--surface);stroke:none}
+.resource-approved .morning-art .land{stroke-width:1.15;opacity:.9}
+.resource-approved .morning-art .land-far{stroke-width:.9;opacity:.48}
+.resource-approved .morning-art .land-fine{stroke-width:.65;opacity:.55}
+.resource-approved .morning-art .morning-disc{fill:color-mix(in srgb,var(--gold) 6%,var(--surface));stroke:var(--gold);stroke-width:1.6}
+.resource-approved .morning-art .morning-ray{stroke:var(--gold);stroke-width:.8;opacity:.8}
+.resource-approved .morning-art .tree-crown{fill:var(--surface);stroke:var(--leaf);stroke-width:1.15}
+.resource-approved .morning-art .tree-trunk{stroke:var(--land);stroke-width:1.3}
+.resource-approved .morning-art .leaf-detail{stroke:var(--leaf);stroke-width:.7;opacity:.75}
+.resource-approved .morning-art .stem,.resource-approved .morning-art .grass{stroke:var(--leaf);stroke-width:.8}
+.resource-approved .morning-art .flower-petal{stroke:var(--flower);stroke-width:.7;fill:var(--surface)}
+.resource-approved .morning-art .flower-core{stroke:var(--gold);stroke-width:.65;fill:color-mix(in srgb,var(--gold) 20%,var(--surface))}
+.resource-approved .morning-art .bird-line{stroke:var(--land);stroke-width:1;opacity:.85}
+.resource-approved .morning-art .river-edge{stroke-width:.9;opacity:.8}
+.resource-approved .morning-art .water-light{stroke:var(--gold);stroke-width:.85;opacity:.65}
+.resource-approved .morning-art .water-line{stroke-width:.65;opacity:.45}
+.resource-approved .morning-art .reed{stroke:var(--leaf);stroke-width:1.1}
+.resource-approved .morning-art .gate{stroke:var(--land);stroke-width:1.05}
+.resource-approved h2{font-size:23px;line-height:1.3;min-height:60px}
+.resource-approved .morning-verse{margin:14px 0 10px;font:italic 400 13px/1.7 var(--serif);color:var(--ink)}
+.resource-approved .verse-ref{font-size:10px;color:var(--tone);margin-bottom:20px}
+.resource-approved .morning-radiance{animation:morning-light 12s ease-in-out infinite}
+.resource-approved .morning-flower{animation:morning-sway 9s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}
+.resource-approved .morning-birds{animation:morning-flight 18s ease-in-out infinite}
+.resource-approved .morning-reflection{animation:morning-light 9s ease-in-out infinite}
+@keyframes morning-light{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes morning-sway{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(2deg)}}
+@keyframes morning-flight{50%{translate:5px -2px}}
+@media(max-width:900px) and (min-width:641px){.resource-approved .drawing{height:210px}.resource-approved h2{font-size:20px}}
+@media(max-width:640px){.resource-approved h2{min-height:0}.resource-approved .drawing{height:255px}}
+@media(prefers-reduced-motion:reduce){.resource-approved .morning-art *{animation:none!important}}
+.resource-approved .morning-verse{font-size:14px}.resource-approved h2{min-height:52px}
+.resource-approved .morning-art .lake-ray{stroke:var(--gold);stroke-width:1.2;opacity:.85}
+.resource-approved .lake-sun-rays{transform-origin:0 0;animation:lake-rays-turn 100s linear infinite}
+.resource-approved .lake-flock{animation:lake-bird-flight 42s linear infinite;animation-delay:var(--flight-delay,0s)}
+.resource-approved .lake-ripple{transform-box:fill-box;transform-origin:center;animation:lake-ripples var(--ripple-time,8s) ease-in-out infinite;animation-delay:var(--ripple-delay,0s)}
+.resource-approved .morning-art .lake-water{stroke:var(--land);stroke-width:.75;opacity:.65}
+.resource-approved .morning-art .lake-reflection{stroke:var(--gold);stroke-width:1;opacity:.85}
+@keyframes lake-rays-turn{to{transform:rotate(360deg)}}
+@keyframes lake-bird-flight{0%{transform:translateX(var(--flight-start));opacity:0}8%,92%{opacity:1}100%{transform:translateX(var(--flight-end));opacity:0}}
+@keyframes lake-ripples{0%,100%{transform:translate(-2px,-.6px) scaleX(.94);opacity:.5}50%{transform:translate(2px,.8px) scaleX(1.05);opacity:1}}
+@media(prefers-reduced-motion:reduce){.resource-approved .morning-art .lake-sun-rays,.resource-approved .morning-art .lake-flock,.resource-approved .morning-art .lake-wings,.resource-approved .morning-art .lake-ripple{animation:none!important}}
+.resource-approved .morning-art .al-foreground .land-fine{stroke-width:1;opacity:.95}.resource-approved .morning-art .al-foreground .grass{stroke-width:1.05;opacity:1}
+
+.resource-margin-accents{stroke:currentColor;stroke-width:1.15;opacity:1;fill:none;stroke-linecap:round;stroke-linejoin:round;shape-rendering:geometricPrecision}
+.resource-margin-accents path{vector-effect:non-scaling-stroke}
+.resource-margin-accents .resource-solid-cross{fill:currentColor;stroke:none;opacity:1;filter:none;shape-rendering:geometricPrecision}
+:is(.resource-approved,.morning-card) .resource-life-landscape .land-far{opacity:.62}
+:is(.resource-approved,.morning-card) .resource-life-landscape .land-fine{opacity:.7}
+:is(.resource-approved,.morning-card) .resource-life-landscape .resource-far-shore{stroke-width:.95;opacity:.8}
+:is(.resource-approved,.morning-card) .resource-life-landscape .tree-crown{stroke-width:1.45}
+:is(.resource-approved,.morning-card) .resource-life-landscape .tree-trunk{stroke-width:1.65}
+:is(.resource-approved,.morning-card) .resource-life-landscape .leaf-detail{stroke-width:.9}
+.resource-cloud{fill:var(--surface);stroke:var(--land);stroke-width:1.05;stroke-linecap:round;stroke-linejoin:round;animation:resource-cloud-drift 24s ease-in-out infinite}
+.resource-cloud.cloud-far{animation-duration:32s;animation-delay:-11s}
+.resource-cloud.cloud-small{animation-duration:29s;animation-delay:-7s}
+.resource-cloud.cloud-mid{animation-duration:35s;animation-delay:-15s}
+.resource-cloud .cloud-fold{fill:none;stroke-width:.7;opacity:.55}
+@keyframes resource-cloud-drift{0%,100%{transform:translateX(-5px)}50%{transform:translateX(7px)}}
+@media(prefers-reduced-motion:reduce){.resource-cloud{animation:none!important}}
+.resource-glow-line{fill:none!important;stroke:currentColor;stroke-width:1.15;opacity:0;pointer-events:none;filter:drop-shadow(0 0 2.5px currentColor);transition:opacity 650ms cubic-bezier(.22,.61,.36,1)}
+.resource-glow-gold{color:var(--gold);stroke:var(--gold)}
+:is(a.st-door,.card):is(:hover,:focus-visible) .resource-glow-line{opacity:.65}
+@media(prefers-reduced-motion:reduce){.resource-glow-line{transition:none!important}}

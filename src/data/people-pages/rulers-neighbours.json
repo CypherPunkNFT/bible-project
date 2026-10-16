@@ -80,7 +80,7 @@
       ]
     },
     {
-      "text": "Records from outside the Bible are kept apart from Scripture: Assyrian annals (in Luckenbill's and Rogers's translations), the Mesha Stele (in Driver's translation, shown beside 2 Kings 3, not blended with it), Tyrian historians as Josephus quotes them, and Greek and Roman writers on the queens of Ethiopia. Dates are reconstructions; where no year is known, the page says so.",
+      "text": "Records from outside the Bible are kept apart from Scripture: Assyrian annals (in Luckenbill's and Rogers's translations), the Mesha Stele (in Driver's translation, shown beside 2 Kings 3, not blended with it), Greek and Roman writers on the queens of Ethiopia. Dates are reconstructions; where no year is known, the page says so.",
       "layer": "text"
     }
   ],
@@ -630,17 +630,6 @@
               "luck-obelisk"
             ]
           }
-        },
-        {
-          "name": "Nicolaus of Damascus, quoted by Josephus",
-          "date": "Nicolaus wrote in the 1st century BC; Josephus about AD 93",
-          "claim": {
-            "text": "Josephus quotes Nicolaus: after a king Hadad who fought David, “his posterity reigned for ten generations, each of his successors receiving from his father that his dominion, and this his name”, and “the third” laid waste Samaria. Josephus adds: “this is that Hadad who made the expedition against Samaria, in the reign of Ahab”.",
-            "layer": "ancient-record",
-            "cites": [
-              "josephus-antiquities"
-            ]
-          }
         }
       ],
       "twoAccounts": [
@@ -711,17 +700,6 @@
                 "cites": [
                   "keil-kings",
                   "isbe-benhadad"
-                ]
-              }
-            },
-            {
-              "label": "A name handed down in one line of kings",
-              "holders": "Nicolaus of Damascus (1st century BC), quoted by Josephus, Antiquities 7.5.2 (about AD 93)",
-              "argument": {
-                "text": "Nicolaus says each of Hadad's successors received “his dominion, and this his name”, for ten generations; Josephus takes the third of them to be the king who besieged Samaria under Ahab.",
-                "layer": "ancient-record",
-                "cites": [
-                  "josephus-antiquities"
                 ]
               }
             },
@@ -1354,26 +1332,6 @@
           "id": "q-who-spread-the-cloth",
           "question": "Who spread the wet cloth on Ben-hadad's face (2 Kings 8:15)? The verse says only “he”.",
           "views": [
-            {
-              "label": "Hazael",
-              "holders": "Josephus, Antiquities 9.4.6 (about AD 93); C. F. Keil (tr. 1872), p. 336; the Pulpit Commentary; Ellicott's Commentary",
-              "argument": {
-                "text": "Josephus writes that Hazael “spread a wet cloth, in the nature of a net, over him, and strangled him”. Keil, the Pulpit Commentary and Ellicott take Hazael as the subject, as of the verbs in the verse before.",
-                "layer": "scholars",
-                "refs": [
-                  [
-                    12008014,
-                    12008015
-                  ]
-                ],
-                "cites": [
-                  "josephus-antiquities",
-                  "keil-kings",
-                  "pulpit-2ki-8-15",
-                  "ellicott-2ki-8-15"
-                ]
-              }
-            },
             {
               "label": "Ben-hadad himself, by accident",
               "holders": "Luther, Schultz, Geddes and Boothroyd, as reported by the Pulpit Commentary",
@@ -2091,17 +2049,6 @@
               "biran-naveh"
             ]
           }
-        },
-        {
-          "name": "Josephus on the kings of Damascus in his own day",
-          "date": "about AD 93",
-          "claim": {
-            "text": "Josephus writes that Ben-hadad and Hazael “are honored to this day as gods” by the people of Damascus, “by reason of their benefactions, and their building them temples”.",
-            "layer": "ancient-record",
-            "cites": [
-              "josephus-antiquities"
-            ]
-          }
         }
       ],
       "twoAccounts": [
@@ -2326,8 +2273,7 @@
       "id": "ben-hadad-2ki-13-3",
       "name": "Ben-hadad",
       "otherNames": [
-        "Ben-hadad the son of Hazael",
-        "Adad (Josephus)"
+        "Ben-hadad the son of Hazael"
       ],
       "kind": "foreign",
       "realm": "aram",
@@ -2625,17 +2571,6 @@
             "cites": [
               "luck-mari",
               "rogers-296"
-            ]
-          }
-        },
-        {
-          "name": "Josephus's retelling",
-          "date": "about AD 93",
-          "claim": {
-            "text": "Josephus calls Hazael's son “Adad” and says Joash beat him “in three battles”.",
-            "layer": "ancient-record",
-            "cites": [
-              "josephus-antiquities"
             ]
           }
         }
@@ -3269,25 +3204,6 @@
           "question": "Did Rezin take Elath for Syria, or give it back to Edom (2 Kings 16:6)?",
           "views": [
             {
-              "label": "For Syria, as the text is written",
-              "holders": "Josephus, Antiquities 9.12.1 (about AD 93); C. F. Keil (tr. 1872), pp. 402–403; J. R. Lumby (1887)",
-              "argument": {
-                "text": "Josephus says Rezin took Elath and “peopled it with Syrians”. Keil and Lumby keep the written text: the Edomites already lived in their own land and could not be said to come to Elath.",
-                "layer": "scholars",
-                "refs": [
-                  [
-                    12016006,
-                    12016006
-                  ]
-                ],
-                "cites": [
-                  "josephus-antiquities",
-                  "keil-kings",
-                  "lumby2-2ki-16-6"
-                ]
-              }
-            },
-            {
               "label": "To Edom",
               "holders": "T. Nicol, ISBE (1915); Ellicott's Commentary",
               "argument": {
@@ -3412,8 +3328,7 @@
       "id": "hiram-2sa-5-11",
       "name": "Hiram",
       "otherNames": [
-        "Huram (Chronicles)",
-        "Hirom (Josephus)"
+        "Huram (Chronicles)"
       ],
       "kind": "foreign",
       "realm": "other",
@@ -3467,24 +3382,9 @@
       ],
       "records": [],
       "reign": {
-        "text": "Scripture gives no length of reign; Josephus, quoting Menander, gives thirty-four years."
+        "text": "Scripture gives no length of reign."
       },
-      "dates": [
-        {
-          "system": "other",
-          "label": "Our own count, from Josephus's Tyrian figures and the main system's date for the temple",
-          "from": 978,
-          "to": 945,
-          "approx": true,
-          "note": "Our own count, shown so it can be checked: Josephus puts the founding of the temple in Hiram's twelfth year (Against Apion 1.18; the eleventh in Antiquities 8.3.1) and gives him thirty-four years (Menander). The temple was begun in Solomon's fourth year (1 Kings 6:1), 967 BC on Young's dating. If 967 BC was Hiram's twelfth year, his first was 978 BC (967 + 11), and thirty-four years run to 945 BC (978 − 33): about 978–945 BC. On the “eleventh year” figure every date moves one year later, to about 977–944 BC. Keil holds that the temple date is Josephus's own reckoning rather than Menander's, and that Hiram may have reigned longer, since Scripture makes him David's friend too.",
-          "cites": [
-            "josephus-apion",
-            "josephus-antiquities",
-            "young-2003",
-            "keil-samuel"
-          ]
-        }
-      ],
+      "dates": [],
       "verdictTone": "none",
       "scriptureSays": [
         {
@@ -3875,44 +3775,7 @@
           }
         }
       ],
-      "outside": [
-        {
-          "name": "Menander of Ephesus, quoted by Josephus",
-          "date": "Josephus wrote about AD 93–100",
-          "claim": {
-            "text": "“When Abibalus was dead, his son Hiram received the kingdom from him, who, when he had lived fifty-three years, reigned thirty-four.” Menander says he cut timber on Libanus for the roofs of temples and built temples of Hercules and Astarte, and that under him Abdemon, “a very youth in age”, “always conquered the difficult problems which Solomon, king of Jerusalem, commanded him to explain” (Antiquities 8.5.3).",
-            "layer": "ancient-record",
-            "cites": [
-              "josephus-antiquities",
-              "josephus-apion"
-            ]
-          }
-        },
-        {
-          "name": "Dius, quoted by Josephus",
-          "date": "Josephus wrote about AD 93–100",
-          "claim": {
-            "text": "Dius says that Solomon sent riddles to Hiram on terms that whoever could not solve them would pay; Hiram paid, but afterwards solved them “by means of Abdemon, a man of Tyre”, set riddles of his own that Solomon could not solve, and won the money back.",
-            "layer": "ancient-record",
-            "cites": [
-              "josephus-antiquities",
-              "josephus-apion"
-            ]
-          }
-        },
-        {
-          "name": "Josephus's own reckoning",
-          "date": "about AD 93–100",
-          "claim": {
-            "text": "Josephus dates the temple to the twelfth year of Hiram's reign, 143 years and eight months before Carthage was founded (Against Apion 1.18); in the Antiquities (8.3.1) he says the eleventh year.",
-            "layer": "ancient-record",
-            "cites": [
-              "josephus-apion",
-              "josephus-antiquities"
-            ]
-          }
-        }
-      ],
+      "outside": [],
       "twoAccounts": [
         {
           "topic": "What Solomon paid",
@@ -3990,18 +3853,6 @@
           "question": "Was David's Hiram the same king as Solomon's?",
           "views": [
             {
-              "label": "A different, earlier Hiram",
-              "holders": "Thenius and Ewald, as reported by Keil (1866)",
-              "argument": {
-                "text": "Josephus's Tyrian figures seem to start Hiram's reign late in David's life, so Thenius suggested that Hiram's father Abibal is meant in David's story, and Ewald that Abibal's own father was also called Hiram.",
-                "layer": "scholars",
-                "cites": [
-                  "keil-samuel",
-                  "josephus-apion"
-                ]
-              }
-            },
-            {
               "label": "Samuel's order is by topic, not date",
               "holders": "Movers, as reported by Keil (1866)",
               "argument": {
@@ -4011,23 +3862,6 @@
                   [
                     10005011,
                     10005011
-                  ]
-                ],
-                "cites": [
-                  "keil-samuel"
-                ]
-              }
-            },
-            {
-              "label": "Josephus's dating is his own calculation",
-              "holders": "Keil and Delitzsch (tr. 1866)",
-              "argument": {
-                "text": "Keil notes that Scripture makes the same Hiram a friend of both kings, and argues that the temple-in-Hiram's-twelfth-year figure is Josephus's own reckoning, not Menander's, so Hiram may have reigned longer.",
-                "layer": "scholars",
-                "refs": [
-                  [
-                    11005001,
-                    11005001
                   ]
                 ],
                 "cites": [
@@ -4081,7 +3915,7 @@
         }
       ],
       "notSaid": [
-        "Scripture does not name Hiram's father (Josephus, quoting Menander, calls him Abibalus).",
+        "Scripture does not name Hiram's father.",
         "Scripture gives no length of reign and does not tell how his reign ended.",
         "No prophet in Scripture speaks to or about this Hiram; the “prince of Tyre” of Ezekiel 28 is a later king.",
         "Scripture does not say what Hiram did with the twenty cities, beyond naming them Cabul."
@@ -4604,17 +4438,6 @@
       ],
       "outside": [
         {
-          "name": "Josephus's retelling",
-          "date": "about AD 93",
-          "claim": {
-            "text": "Josephus calls her “a woman queen of Egypt and Ethiopia”, and links her with the queen Herodotus names Nicaule. He retells Kings and is not an independent witness to her.",
-            "layer": "ancient-record",
-            "cites": [
-              "josephus-antiquities"
-            ]
-          }
-        },
-        {
           "name": "The Kebra Nagast (Ethiopia)",
           "date": "Arabic version dated by its colophons to AD 1314–1344",
           "claim": {
@@ -4738,30 +4561,6 @@
           "id": "q-where-sheba",
           "question": "Where was Sheba?",
           "views": [
-            {
-              "label": "South-west Arabia (Saba)",
-              "holders": "W. Whiston (1737), note 16 to Antiquities 8.6.5; T. H. Weir, ISBE (1915); E. A. W. Budge (1922)",
-              "argument": {
-                "text": "Whiston thought it “now generally agreed” that she was a queen of Sabea in South Arabia; Weir calls Sheba a South-Arabian tribe whose capital was Marib; Budge thinks it “far more probable that her home was Shebha, or Saba, or Sheba, in the south-west of Arabia”.",
-                "layer": "scholars",
-                "cites": [
-                  "josephus-antiquities",
-                  "isbe-sheba",
-                  "budge-1922"
-                ]
-              }
-            },
-            {
-              "label": "Egypt and Ethiopia",
-              "holders": "Josephus, Antiquities 8.6.5 (about AD 93)",
-              "argument": {
-                "text": "Josephus calls her “queen of Egypt and Ethiopia”.",
-                "layer": "ancient-record",
-                "cites": [
-                  "josephus-antiquities"
-                ]
-              }
-            },
             {
               "label": "Ethiopia",
               "holders": "The Kebra Nagast (Arabic version AD 1314–1344)",
@@ -5516,26 +5315,6 @@
           "question": "Whose eldest son was offered on the wall (2 Kings 3:27)?",
           "views": [
             {
-              "label": "Mesha's own heir",
-              "holders": "Josephus, Antiquities 9.3.2 (about AD 93); C. F. Keil (tr. 1872), p. 307; John Gill; J. R. Lumby (1887)",
-              "argument": {
-                "text": "Josephus: “he took his eldest son, who was to reign after him”. Keil: “his first-born son, who was to succeed him as king”; Lumby: “his own eldest son, not as has been explained by some, the eldest son of the Edomite king”.",
-                "layer": "scholars",
-                "refs": [
-                  [
-                    12003027,
-                    12003027
-                  ]
-                ],
-                "cites": [
-                  "josephus-antiquities",
-                  "keil-kings",
-                  "gill-2ki-3-27",
-                  "lumby2-2ki-3-27"
-                ]
-              }
-            },
-            {
               "label": "The king of Edom's son",
               "holders": "Joseph Kimchi; Moses Kimchi and Gersonides; as reported (and rejected) by John Gill (1748–1763)",
               "argument": {
@@ -5569,18 +5348,6 @@
                   "lumby2-2ki-3-27",
                   "pulpit-2ki-3-27",
                   "ellicott-2ki-3-27"
-                ]
-              }
-            },
-            {
-              "label": "To God",
-              "holders": "Josephus, Antiquities 9.3.2; Ephrem the Syrian, as reported by Keil (tr. 1872), p. 307",
-              "argument": {
-                "text": "Josephus writes that he “offered him as a whole burnt-offering to God”; Keil names Josephus and Ephrem as holding that it was offered to the God of Israel.",
-                "layer": "scholars",
-                "cites": [
-                  "josephus-antiquities",
-                  "keil-kings"
                 ]
               }
             }
@@ -6006,14 +5773,6 @@
       "url": "https://www.rcyoung.org/CTables/frame4.html"
     },
     {
-      "id": "young-2003",
-      "author": "Rodger C. Young",
-      "title": "“When Did Solomon Die?”, Journal of the Evangelical Theological Society 46/4",
-      "year": "2003",
-      "where": "pp. 589–603 (temple begun 967 BC; facts only; copyrighted)",
-      "url": "https://www.rcyoung.org/articles/solomon.pdf"
-    },
-    {
       "id": "luck-obelisk",
       "author": "D. D. Luckenbill",
       "title": "Ancient Records of Assyria and Babylonia, vol. 1 (Shalmaneser III to Tiglath-pileser III)",
@@ -6174,22 +5933,6 @@
       "url": "https://archive.org/details/bibleencyclopaed01unknuoft"
     },
     {
-      "id": "josephus-antiquities",
-      "author": "Flavius Josephus, tr. William Whiston",
-      "title": "The Antiquities of the Jews",
-      "year": "1737",
-      "where": "7.5.2; 8.3.1; 8.5.3; 8.6.2; 8.6.5 (with Whiston's note 16); 8.12.4; 8.14.1; 9.3.1–2; 9.4.6; 9.8.4; 9.8.7; 9.12.1–3",
-      "url": "https://www.gutenberg.org/ebooks/2848"
-    },
-    {
-      "id": "josephus-apion",
-      "author": "Flavius Josephus, tr. William Whiston",
-      "title": "Against Apion",
-      "year": "1737",
-      "where": "1.17–18 (Dius and Menander of Ephesus on Hirom of Tyre)",
-      "url": "https://www.gutenberg.org/ebooks/2849"
-    },
-    {
       "id": "keil-kings",
       "author": "C. F. Keil, tr. J. Martin",
       "title": "Biblical Commentary on the Books of the Kings (Keil and Delitzsch)",
@@ -6258,14 +6001,6 @@
       "author": "C. J. Ellicott (ed.)",
       "title": "A Bible Commentary for English Readers",
       "year": "c. 1878–1884",
-      "where": "note on 2 Kgs 16:6 (read on Bible Hub)",
-      "url": "https://biblehub.com/commentaries/2_kings/16-6.htm"
-    },
-    {
-      "id": "lumby2-2ki-16-6",
-      "author": "J. R. Lumby",
-      "title": "The Second Book of the Kings (Cambridge Bible for Schools and Colleges)",
-      "year": "1887",
       "where": "note on 2 Kgs 16:6 (read on Bible Hub)",
       "url": "https://biblehub.com/commentaries/2_kings/16-6.htm"
     },

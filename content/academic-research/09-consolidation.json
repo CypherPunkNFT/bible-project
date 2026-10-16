@@ -1,0 +1,892 @@
+{
+  "date": "2026-10-14",
+  "title": "The world of Jesus & the apostles — consolidation review",
+  "status": "approved-canonical-local",
+  "recommendation": "Consolidate, rather than rename as separate subjects. C is a new reviewable merger; A and B remain available.",
+  "routes": {
+    "A": "/study/world-of-jesus-apostles",
+    "B": "/study/world-of-jesus-and-apostles",
+    "C": "/study/world-of-jesus-apostles-complete"
+  },
+  "baseDossier": "09-world-of-jesus-apostles.json",
+  "preservation": "Historical A/B/C comparison recorded above; approved version C now replaces A/B in the application. Older links redirect to the canonical page.",
+  "sources": [
+    {
+      "id": "capernaum",
+      "label": "Custodia · Capernaum archaeology",
+      "url": "https://www.custodia.org/en/sanctuaries/capernaum/",
+      "access": "See base dossier for access and limitations."
+    },
+    {
+      "id": "migdal",
+      "label": "IAA · Migdal excavation, 2013",
+      "url": "https://hadashot.iaa.org.il/report_detail_eng.aspx?id=2304",
+      "access": "See base dossier for access and limitations."
+    },
+    {
+      "id": "antipas",
+      "label": "Oxford RPC · coin type I 4923",
+      "url": "https://rpc.ashmus.ox.ac.uk/coins/1/4923",
+      "access": "See base dossier for access and limitations."
+    },
+    {
+      "id": "pilate",
+      "label": "Israel Museum · Pilate inscription",
+      "url": "https://artsandculture.google.com/asset/latin-dedicatory-inscription-mentioning-pontius-pilate-the-procurator-of-judea-0002/SgGV0ad7K8m3BQ",
+      "access": "See base dossier for access and limitations."
+    },
+    {
+      "id": "theodotos",
+      "label": "AIP · Theodotos dedication, translated text",
+      "url": "https://www.inscriptionsisraelpalestine.org/story/theodotus-dialogue/",
+      "access": "See base dossier for access and limitations."
+    },
+    {
+      "id": "warning",
+      "label": "AIP · Temple boundary inscription",
+      "url": "https://www.inscriptionsisraelpalestine.org/story/keep-out-for-the-sake-of-all-that-is-holy-a-temple-warning-inscription/",
+      "access": "See base dossier for access and limitations."
+    },
+    {
+      "id": "jerusalem",
+      "label": "IAA · Wilson’s Arch and its phases, 2011",
+      "url": "https://hadashot.iaa.org.il/report_detail_eng.aspx?id=1738",
+      "access": "See base dossier for access and limitations."
+    },
+    {
+      "id": "economy",
+      "label": "David Fiensy · evidence and the Galilean economy",
+      "url": "https://bibleinterp.arizona.edu/articles/2013/07/fie378015",
+      "access": "See base dossier for access and limitations."
+    },
+    {
+      "id": "corinth",
+      "label": "ASCSA · History of Corinth",
+      "url": "https://www.ascsa.edu.gr/excavations/ancient-corinth/about-the-excavations-1/history-timeline",
+      "access": "See base dossier for access and limitations."
+    },
+    {
+      "id": "pompeii",
+      "label": "Pompeii Archaeological Park · Vetutius Placidus",
+      "url": "https://pompeiisites.org/en/archaeological-site/house-and-thermopolium-of-vetutius-placidus/",
+      "access": "See base dossier for access and limitations."
+    },
+    {
+      "id": "slavery",
+      "label": "Pompeii Archaeological Park · Civita Giuliana",
+      "url": "https://pompeiisites.org/en/press-kit-en/the-excavations-of-civita-giuliana/",
+      "access": "See base dossier for access and limitations."
+    },
+    {
+      "id": "adams",
+      "label": "Edward Adams · The Earliest Christian Meeting Places",
+      "url": "https://www.bloomsbury.com/uk/earliest-christian-meeting-places-9780567157324/",
+      "access": "See base dossier for access and limitations."
+    },
+    {
+      "id": "hakola",
+      "label": "Raimo Hakola · Jesus and Poverty",
+      "url": "https://doi.org/10.35068/aabner.v3i3.1100",
+      "access": "See base dossier for access and limitations."
+    },
+    {
+      "id": "orbis",
+      "label": "Stanford · Introducing ORBIS (PDF)",
+      "url": "https://orbis.stanford.edu/orbis2012/ORBIS_v1paper_20120501.pdf",
+      "access": "See base dossier for access and limitations."
+    },
+    {
+      "id": "uppercity",
+      "label": "Israel Ministry of Foreign Affairs · Upper City excavations",
+      "url": "https://www.gov.il/en/pages/jerusalem-the-upper-city-during-the-second-temple-period",
+      "access": "Institutional indexed excavation text reviewed 2026-10-14; direct page returned 403. Only pool/house observations used; excluded historical narration."
+    },
+    {
+      "id": "ship",
+      "label": "French Ministry of Culture · Madrague de Giens excavation",
+      "url": "https://archeologie.culture.gouv.fr/archeo-sous-marine/fr/une-fouille-ecole-la-madrague-de-giens",
+      "access": "French Ministry short excavation overview read 2026-10-14; no full excavation monograph read."
+    },
+    {
+      "id": "ephesus",
+      "label": "Elisabeth Rathmayr / FWF · Terrace House 2, Unit 7",
+      "url": "https://www.fwf.ac.at/en/research-radar/10.55776/PUB290",
+      "access": "FWF research abstract read 2026-10-14; full publication not read."
+    }
+  ],
+  "mergeMap": [
+    {
+      "from": "A: all 15 viewpoints",
+      "to": "C: preserved across village, synagogue, pilgrimage, household, Corinth street and sea",
+      "treatment": "Synagogue material expanded to its own stop; claims, source limits, governments, chronology and exercises retained."
+    },
+    {
+      "from": "B: Capernaum courtyard / grinding / toll station",
+      "to": "C: village, four viewpoints",
+      "treatment": "Court/work, food preparation and toll narrative retained. Custodia archaeological sections reviewed; tool does not establish worker identity."
+    },
+    {
+      "from": "B: Magdala benches / carved stone / reading",
+      "to": "C: synagogue, three viewpoints",
+      "treatment": "Uses A’s primary Migdal report and explicit phase warning; Theodotos stays a Jerusalem comparison. Diaspora Acts 13 retained."
+    },
+    {
+      "from": "B: Jerusalem lodging / boundary / immersion",
+      "to": "C: pilgrimage, four viewpoints",
+      "treatment": "Combined lodging and boundary evidence; adds household ritual baths, Luke 2 festival travel and Mark 11. Temple drawing is not a plan."
+    },
+    {
+      "from": "B: Caesarea dedication / hearing / departure",
+      "to": "C: port, three viewpoints",
+      "treatment": "Preserves reuse, multilingual caution, Felix/Festus versus Pilate chronology, Cornelius household and guarded departure."
+    },
+    {
+      "from": "B: Mediterranean amphorae / hull / weather",
+      "to": "C: sea, four viewpoints",
+      "treatment": "Adds explicitly earlier western wine wreck, hull/restoration limits, 2 Corinthians 11 and Cenchreae departure; not conflated with Acts’s wheat cargo."
+    },
+    {
+      "from": "B: Corinth meal / work-support / platform",
+      "to": "C: household, four viewpoints",
+      "treatment": "Meal and legal status combined with A; adds craft, 1 Corinthians 9/12, support and uncertain hearing location."
+    },
+    {
+      "from": "B: Ephesus house / religious economy / assembly",
+      "to": "C: Ephesus, three viewpoints",
+      "treatment": "Retains distinct city, Artemis artisans, civic procedure, confused crowd and dated elite-house comparison."
+    }
+  ],
+  "claims": [
+    {
+      "scene": "village",
+      "view": "The household",
+      "evidence": "Mark moves from the synagogue to Simon and Andrew’s house, then describes a crowd at the door. Capernaum’s excavated basalt dwellings give material context for a village household.",
+      "interpretation": "Kinship, care and hospitality belong in the setting of Jesus’ ministry. Mark’s crowded doorway is more useful here than imagining a modern private living room.",
+      "limit": "A surviving house cannot establish its owner’s name. This drawing does not identify Peter’s house or reproduce the roof opened in Mark 2.",
+      "sources": [
+        "capernaum"
+      ],
+      "passages": [
+        {
+          "label": "Mark 1:29–34",
+          "book": "MRK",
+          "chapter": 1,
+          "verses": "29-34"
+        },
+        {
+          "label": "Mark 2:1–4",
+          "book": "MRK",
+          "chapter": 2,
+          "verses": "1-4"
+        }
+      ]
+    },
+    {
+      "scene": "village",
+      "view": "The working shore",
+      "evidence": "Mark names fishers, a boat and hired workers. Fiensy’s review of Galilean pottery research describes vessels circulating beyond their production villages.",
+      "interpretation": "Farming, fishing and crafts connected households to wider exchange. A village was not necessarily economically isolated; neither does a market connection prove that everyone prospered.",
+      "limit": "Scholars disagree about exploitation and living standards. No standard household budget, tax percentage or class label for every fisher can be recovered from these examples.",
+      "sources": [
+        "economy"
+      ],
+      "passages": [
+        {
+          "label": "Mark 1:16–20",
+          "book": "MRK",
+          "chapter": 1,
+          "verses": "16-20"
+        },
+        {
+          "label": "Mark 6:3",
+          "book": "MRK",
+          "chapter": 6,
+          "verses": "3"
+        }
+      ]
+    },
+    {
+      "scene": "village",
+      "view": "Bread & labour",
+      "evidence": "The Capernaum excavation account describes courtyard houses, grain-grinding implements and ovens for bread. These remains span phases; they provide context for household work rather than identifying a particular Gospel household.",
+      "interpretation": "Preparing food, maintaining a house and caring for people take labour. A grinding tool can suggest an activity; it cannot by itself tell us the worker’s gender or legal status.",
+      "limit": "The courtyard is schematic. A recovered tool is not a biography, and a house plan cannot assign a fixed task to every person. No named household is identified here.",
+      "sources": [
+        "capernaum"
+      ],
+      "passages": [
+        {
+          "label": "Mark 1:29–34",
+          "book": "MRK",
+          "chapter": 1,
+          "verses": "29-34"
+        }
+      ]
+    },
+    {
+      "scene": "village",
+      "view": "The toll station",
+      "evidence": "Mark 2 places Levi at a tax office after Jesus goes out beside the sea. Luke 3 distinguishes Antipas’s Galilee from Pilate’s Judaea.",
+      "interpretation": "Exchange and government enter the same local story. Regional offices matter even when the scene begins with ordinary work.",
+      "limit": "These texts do not supply a uniform tax rate, a recovered toll building or a complete household budget.",
+      "sources": [],
+      "passages": [
+        {
+          "label": "Mark 2:13–14",
+          "book": "MRK",
+          "chapter": 2,
+          "verses": "13-14"
+        },
+        {
+          "label": "Luke 3:1–2",
+          "book": "LUK",
+          "chapter": 3,
+          "verses": "1-2"
+        }
+      ]
+    },
+    {
+      "scene": "synagogue",
+      "view": "Benches & phases",
+      "evidence": "Luke depicts Sabbath reading at Nazareth. At Migdal, excavators found benches and a carved stone bearing a menorah. A coin dated 43 CE lay beneath the final reading-room mosaic.",
+      "interpretation": "Reading and teaching were local communal activities. The carving may evoke the Temple, but its full meaning and the stone’s function are interpretations.",
+      "limit": "Migdal’s final floor should not be pictured as the floor Jesus stood on. Capernaum’s prominent white synagogue is centuries later. These are different buildings and phases.",
+      "sources": [
+        "migdal",
+        "capernaum"
+      ],
+      "passages": [
+        {
+          "label": "Luke 4:16–21",
+          "book": "LUK",
+          "chapter": 4,
+          "verses": "16-21"
+        }
+      ]
+    },
+    {
+      "scene": "synagogue",
+      "view": "The carved stone",
+      "evidence": "The Migdal excavation report describes a stone bearing a seven-branched menorah. Its placement and carved imagery are material evidence.",
+      "interpretation": "The image invites comparison with Temple imagery. A proposed table function or interpretation of every motif adds an argument to what was excavated.",
+      "limit": "The carving does not preserve an order of worship, establish Jesus’ attendance or settle how every synagogue was organised.",
+      "sources": [
+        "migdal"
+      ],
+      "passages": [
+        {
+          "label": "Luke 4:16–22",
+          "book": "LUK",
+          "chapter": 4,
+          "verses": "16-22"
+        }
+      ]
+    },
+    {
+      "scene": "synagogue",
+      "view": "Reading across regions",
+      "evidence": "The Jerusalem dedication of Theodotos names Torah reading and teaching. Acts 13 depicts reading from the Law and Prophets at Pisidian Antioch, followed by an invitation to speak.",
+      "interpretation": "Language, leadership and practice could vary across communities. Acts 23 also portrays disagreement about resurrection; Pharisees and Sadducees do not exhaust the diversity of Jewish life.",
+      "limit": "Theodotos’s inscription was not found at Migdal. Acts narrates particular assemblies; neither source supplies a universal synagogue liturgy.",
+      "sources": [
+        "theodotos"
+      ],
+      "passages": [
+        {
+          "label": "Acts 13:14–16",
+          "book": "ACT",
+          "chapter": 13,
+          "verses": "14-16"
+        },
+        {
+          "label": "Acts 23:6–8",
+          "book": "ACT",
+          "chapter": 23,
+          "verses": "6-8"
+        }
+      ]
+    },
+    {
+      "scene": "pilgrimage",
+      "view": "Festival & Temple",
+      "evidence": "Deuteronomy prescribes pilgrimage festivals; John places Jesus at the Temple during Booths. A surviving Greek warning inscription forbids outsiders to cross an inner sanctuary boundary, threatening death.",
+      "interpretation": "Pilgrimage connected worship with movement and practical needs. Acts 21 makes a boundary accusation central to the confrontation over Paul; the narrator calls it a supposition.",
+      "limit": "The inscription does not prove that Paul brought Trophimus inside. A festival command is not an attendance count, and an inner boundary is not the whole Temple complex.",
+      "sources": [
+        "warning"
+      ],
+      "passages": [
+        {
+          "label": "Deuteronomy 16:16–17",
+          "book": "DEU",
+          "chapter": 16,
+          "verses": "16-17"
+        },
+        {
+          "label": "John 7:10–14",
+          "book": "JHN",
+          "chapter": 7,
+          "verses": "10-14"
+        },
+        {
+          "label": "Acts 21:27–29",
+          "book": "ACT",
+          "chapter": 21,
+          "verses": "27-29"
+        }
+      ]
+    },
+    {
+      "scene": "pilgrimage",
+      "view": "Reading & lodging",
+      "evidence": "The Greek dedication of Theodotos, a priest and synagogue leader, records provision for Torah reading, instruction and lodging for people from abroad. It is commonly dated before 70 CE.",
+      "interpretation": "Temple and synagogue should not be treated as successive institutions, one simply replacing the other. Visitors could encounter teaching, hospitality and Temple worship in the same city.",
+      "limit": "The dating is scholarly, not a date written on the stone. One dedication does not tell us every synagogue’s practices, and it is not securely identified with a synagogue in Acts.",
+      "sources": [
+        "theodotos"
+      ],
+      "passages": [
+        {
+          "label": "Acts 6:9",
+          "book": "ACT",
+          "chapter": 6,
+          "verses": "9"
+        }
+      ]
+    },
+    {
+      "scene": "pilgrimage",
+      "view": "A contested road",
+      "evidence": "John 4 depicts a Samaritan woman contrasting her community’s mountain with Jerusalem. Luke 9 describes a Samaritan village refusing travellers because they are going to Jerusalem.",
+      "interpretation": "Samaritans were a distinct community, with a different sacred centre. Within Jewish communities too, Acts depicts disagreement over resurrection; Luke even shows some Pharisees warning Jesus of danger.",
+      "limit": "These are particular literary depictions. They do not prove that every Jewish traveller avoided Samaria, or that every Pharisee had the same attitude toward Jesus.",
+      "sources": [],
+      "passages": [
+        {
+          "label": "John 4:20–22",
+          "book": "JHN",
+          "chapter": 4,
+          "verses": "20-22"
+        },
+        {
+          "label": "Luke 9:51–56",
+          "book": "LUK",
+          "chapter": 9,
+          "verses": "51-56"
+        },
+        {
+          "label": "Acts 23:6–8",
+          "book": "ACT",
+          "chapter": 23,
+          "verses": "6-8"
+        },
+        {
+          "label": "Luke 13:31–32",
+          "book": "LUK",
+          "chapter": 13,
+          "verses": "31-32"
+        }
+      ]
+    },
+    {
+      "scene": "pilgrimage",
+      "view": "Purity & wealth",
+      "evidence": "Excavations of wealthy Upper City residences revealed plastered, stepped pools interpreted as ritual baths, alongside decorated rooms and courtyards.",
+      "interpretation": "Purity practices had a material setting within household life. Compare the practical needs of a festival journey in Luke 2 with the Temple’s economic and religious setting in Mark 11.",
+      "limit": "These residences are not a representative sample of every Jerusalem household. The pool drawing is not a surveyed bath or the route required of every pilgrim.",
+      "sources": [
+        "uppercity"
+      ],
+      "passages": [
+        {
+          "label": "Luke 2:41–50",
+          "book": "LUK",
+          "chapter": 2,
+          "verses": "41-50"
+        },
+        {
+          "label": "Mark 11:15–18",
+          "book": "MRK",
+          "chapter": 11,
+          "verses": "15-18"
+        }
+      ]
+    },
+    {
+      "scene": "port",
+      "view": "An official dedication",
+      "evidence": "The damaged Latin dedication names Pontius Pilate as prefect of Judaea. The Israel Museum records its discovery reused in Caesarea’s theatre staircase.",
+      "interpretation": "An object’s findspot can differ from its original display. An official Latin text also does not establish the language or religion of every resident.",
+      "limit": "Restored letters must not be treated as surviving ones. The stone does not identify the location of Jesus’ trial or provide the original building’s complete form.",
+      "sources": [
+        "pilate"
+      ],
+      "passages": [
+        {
+          "label": "Luke 3:1–2",
+          "book": "LUK",
+          "chapter": 3,
+          "verses": "1-2"
+        }
+      ]
+    },
+    {
+      "scene": "port",
+      "view": "A delayed hearing",
+      "evidence": "Acts 24 presents accusations and Paul’s defence before Felix, followed by continuing custody. Acts 25 names Festus as his successor. Acts 10 separately introduces Cornelius in a military household.",
+      "interpretation": "Governors, military officers, accusers and prisoners occupy different positions. Caesarea’s place in these stories cannot be reduced to a single episode under Pilate.",
+      "limit": "Acts supplies the narrative, not a transcript. No chair, prison or courtroom in the illustration is identified as Paul’s.",
+      "sources": [],
+      "passages": [
+        {
+          "label": "Acts 24:1–27",
+          "book": "ACT",
+          "chapter": 24,
+          "verses": "1-27"
+        },
+        {
+          "label": "Acts 25:1–12",
+          "book": "ACT",
+          "chapter": 25,
+          "verses": "1-12"
+        },
+        {
+          "label": "Acts 10:1–8",
+          "book": "ACT",
+          "chapter": 10,
+          "verses": "1-8"
+        }
+      ]
+    },
+    {
+      "scene": "port",
+      "view": "Leaving under guard",
+      "evidence": "Acts 27 distinguishes soldiers, prisoners and companions. It names an initial vessel from Adramyttium, followed by a change to an Alexandrian ship at Myra.",
+      "interpretation": "Military custody and commercial transport meet at the port. An official, prisoner and free traveller do not have interchangeable freedom of movement.",
+      "limit": "This is a selected narrative itinerary. It does not document every passenger’s contract or establish a regular scheduled service.",
+      "sources": [],
+      "passages": [
+        {
+          "label": "Acts 27:1–6",
+          "book": "ACT",
+          "chapter": 27,
+          "verses": "1-6"
+        }
+      ]
+    },
+    {
+      "scene": "household",
+      "view": "What Paul reports",
+      "evidence": "In 1 Corinthians 11, Paul rebukes divisions at the gathering: one person is hungry while another is drunk. He asks why they shame those who have little.",
+      "interpretation": "Sharing a religious identity did not automatically dissolve economic difference. The text allows us to see a conflict in a particular assembly, rather than imagine every early gathering as socially equal.",
+      "limit": "Paul does not provide a guest list or a plan of the building. “Rich in the dining room, poor in the courtyard” is a reconstruction, not a sentence in his letter.",
+      "sources": [],
+      "passages": [
+        {
+          "label": "1 Corinthians 11:17–22",
+          "book": "1CO",
+          "chapter": 11,
+          "verses": "17-22"
+        }
+      ]
+    },
+    {
+      "scene": "household",
+      "view": "What we reconstruct",
+      "evidence": "The letters explicitly name assemblies in houses. Philemon addresses a house assembly and speaks of Onesimus as a slave and a beloved brother; 1 Corinthians also addresses enslaved people.",
+      "interpretation": "A household could contain unequal legal and social positions. A large house, a workshop or restricted dining space may help us imagine possibilities; no one plan explains all communities.",
+      "limit": "The dashed rooms are hypothetical. Slavery was coercive ownership, not simply employment. Philemon’s appeal does not document Onesimus’s eventual legal status.",
+      "sources": [
+        "adams"
+      ],
+      "passages": [
+        {
+          "label": "1 Corinthians 16:19",
+          "book": "1CO",
+          "chapter": 16,
+          "verses": "19"
+        },
+        {
+          "label": "Philemon 1–2",
+          "book": "PHM",
+          "chapter": 1,
+          "verses": "1-2"
+        },
+        {
+          "label": "Philemon 15–16",
+          "book": "PHM",
+          "chapter": 1,
+          "verses": "15-16"
+        },
+        {
+          "label": "1 Corinthians 7:21–22",
+          "book": "1CO",
+          "chapter": 7,
+          "verses": "21-22"
+        }
+      ]
+    },
+    {
+      "scene": "household",
+      "view": "What Paul asks",
+      "evidence": "Paul’s instruction in 1 Corinthians 11:33 is to wait for one another when they gather to eat. Romans 16 names Prisca and Aquila’s house assembly and commends Phoebe from Cenchreae.",
+      "interpretation": "The response concerns how people treat one another. Women appear among the named people sustaining these networks, not merely as anonymous background figures.",
+      "limit": "The inclusive diagram illustrates the instruction, not proof that the Corinthians obeyed. Phoebe, Prisca and Aquila must not be placed at this imagined table as an attested guest list.",
+      "sources": [],
+      "passages": [
+        {
+          "label": "1 Corinthians 11:33–34",
+          "book": "1CO",
+          "chapter": 11,
+          "verses": "33-34"
+        },
+        {
+          "label": "Romans 16:1–5",
+          "book": "ROM",
+          "chapter": 16,
+          "verses": "1-5"
+        }
+      ]
+    },
+    {
+      "scene": "household",
+      "view": "Craft & support",
+      "evidence": "Acts 18 connects Paul, Aquila and Priscilla through a shared craft. First Corinthians 9 argues about the right to material support; 12:13 names enslaved and free people within the body.",
+      "interpretation": "Income, hospitality and dependence were negotiated within these communities. The assembly’s meals belong alongside its working lives.",
+      "limit": "Neither text supplies a standard apostolic income or an excavated workshop address. A public platform at Corinth is a plausible civic setting for Acts 18, not proof of the exact place of the hearing.",
+      "sources": [
+        "corinth"
+      ],
+      "passages": [
+        {
+          "label": "Acts 18:1–3",
+          "book": "ACT",
+          "chapter": 18,
+          "verses": "1-3"
+        },
+        {
+          "label": "1 Corinthians 9:1–18",
+          "book": "1CO",
+          "chapter": 9,
+          "verses": "1-18"
+        },
+        {
+          "label": "1 Corinthians 12:12–27",
+          "book": "1CO",
+          "chapter": 12,
+          "verses": "12-27"
+        },
+        {
+          "label": "Acts 18:12–17",
+          "book": "ACT",
+          "chapter": 18,
+          "verses": "12-17"
+        }
+      ]
+    },
+    {
+      "scene": "street",
+      "view": "Buy at the market",
+      "evidence": "Paul allows eating what is sold in the meat market without investigating it for conscience’s sake (1 Corinthians 10:25–26). His earlier discussion also attends to people affected by associations with idols.",
+      "interpretation": "Do not flatten an entire urban food economy into a single religious action. A purchaser’s situation differs from participation at a cult table.",
+      "limit": "The passage does not say that all meat came from temples. The drawn counter is an analogy, not an identified shop used by Paul.",
+      "sources": [
+        "pompeii"
+      ],
+      "passages": [
+        {
+          "label": "1 Corinthians 10:25–26",
+          "book": "1CO",
+          "chapter": 10,
+          "verses": "25-26"
+        },
+        {
+          "label": "1 Corinthians 8:7–13",
+          "book": "1CO",
+          "chapter": 8,
+          "verses": "7-13"
+        }
+      ]
+    },
+    {
+      "scene": "street",
+      "view": "Accept an invitation",
+      "evidence": "Paul permits accepting an unbeliever’s invitation and eating without inquiry. If someone points out that food was offered in sacrifice, he advises abstaining for that person’s sake.",
+      "interpretation": "The social meaning of the act changes with the situation. Conscience and the effect on another person matter alongside the origin of the food.",
+      "limit": "This is Paul’s instruction to Corinth, not a universal Roman etiquette code. Romans 14 shows that food and the observance of days also divided the Roman assemblies.",
+      "sources": [],
+      "passages": [
+        {
+          "label": "1 Corinthians 10:27–29",
+          "book": "1CO",
+          "chapter": 10,
+          "verses": "27-29"
+        },
+        {
+          "label": "Romans 14:2–6",
+          "book": "ROM",
+          "chapter": 14,
+          "verses": "2-6"
+        }
+      ]
+    },
+    {
+      "scene": "street",
+      "view": "Join a cult meal",
+      "evidence": "In 1 Corinthians 10:20–21 Paul rejects participation in sacrificial worship. At Pompeii, the food shop of Vetutius Placidus preserves a counter, a household shrine and an adjoining dwelling.",
+      "interpretation": "The Italian example makes the proximity of commerce, home and worship tangible. Paul draws a boundary around cult participation even while permitting ordinary market purchases.",
+      "limit": "Pompeii is neither Corinth nor proof of a Christian gathering. Roman society contained diverse local cults and communities; a shrine in one shop does not establish everyone’s beliefs.",
+      "sources": [
+        "pompeii",
+        "corinth"
+      ],
+      "passages": [
+        {
+          "label": "1 Corinthians 10:20–21",
+          "book": "1CO",
+          "chapter": 10,
+          "verses": "20-21"
+        }
+      ]
+    },
+    {
+      "scene": "ephesus",
+      "view": "A house & its phases",
+      "evidence": "Rathmayr’s research abstract dates the beginning of Terrace House 2, Unit 7 to the early first century CE and describes later rebuilding. First Corinthians 16 connects Ephesus with greetings from Aquila and Prisca’s house assembly.",
+      "interpretation": "An elite house helps us ask about space and status. It cannot stand for all residents; its later appearance cannot simply be carried back to Paul’s lifetime.",
+      "limit": "The house is not identified as Aquila and Prisca’s. The research abstract was reviewed, not the complete excavation volume.",
+      "sources": [
+        "ephesus"
+      ],
+      "passages": [
+        {
+          "label": "1 Corinthians 16:8–20",
+          "book": "1CO",
+          "chapter": 16,
+          "verses": "8-20"
+        }
+      ]
+    },
+    {
+      "scene": "ephesus",
+      "view": "Artisans & Artemis",
+      "evidence": "Acts 19:23–27 connects silver-shrine manufacture with concern about artisans’ income and the honour of Artemis.",
+      "interpretation": "The narrative joins economic interest to religious commitment. That overlap differs from Corinth’s question about purchasing meat or accepting a dinner invitation.",
+      "limit": "This is a particular conflict in Acts, not evidence that every craft worker opposed Christians or every purchase was a religious act.",
+      "sources": [],
+      "passages": [
+        {
+          "label": "Acts 19:23–27",
+          "book": "ACT",
+          "chapter": 19,
+          "verses": "23-27"
+        }
+      ]
+    },
+    {
+      "scene": "ephesus",
+      "view": "Crowd & civic procedure",
+      "evidence": "Acts describes a gathering in the theatre with people shouting different things. The town clerk appeals to courts, proconsuls and a lawful assembly.",
+      "interpretation": "Local civic institutions operated within provincial government. A crowd, its organisers and an official can have different motives even in the same scene.",
+      "limit": "The narrative is not a transcript of civic proceedings. Visible monuments may include later building phases; no complete first-century theatre is reconstructed here.",
+      "sources": [],
+      "passages": [
+        {
+          "label": "Acts 19:28–41",
+          "book": "ACT",
+          "chapter": 19,
+          "verses": "28-41"
+        }
+      ]
+    },
+    {
+      "scene": "sea",
+      "view": "Wind & season",
+      "evidence": "Acts describes slow progress against the wind, shelter along Crete and a debate about wintering. Later, an Alexandrian ship that had wintered at Malta carries the party onward.",
+      "interpretation": "Weather and waiting shape the narrative. The route is not a timetable, and a favourable breeze in one moment does not guarantee safe passage.",
+      "limit": "This is a reading of Acts, not a weather reconstruction. Stanford’s ORBIS explores mode and season around 200 CE; its model should not silently become first-century travel data.",
+      "sources": [
+        "orbis"
+      ],
+      "passages": [
+        {
+          "label": "Acts 27:7–15",
+          "book": "ACT",
+          "chapter": 27,
+          "verses": "7-15"
+        },
+        {
+          "label": "Acts 28:11–14",
+          "book": "ACT",
+          "chapter": 28,
+          "verses": "11-14"
+        }
+      ]
+    },
+    {
+      "scene": "sea",
+      "view": "Authority & status",
+      "evidence": "At Myra, a centurion puts the party aboard an Alexandrian ship. When Paul warns about continuing, the centurion listens to the ship’s master and owner instead.",
+      "interpretation": "The story combines military custody with commercial expertise. Elsewhere Acts shows Roman citizenship affecting Paul’s treatment at Philippi: status changes what a person can claim.",
+      "limit": "These are narrated decisions, not a universal shipping regulation. A prisoner, a shipowner and a free passenger do not have interchangeable freedom of movement.",
+      "sources": [],
+      "passages": [
+        {
+          "label": "Acts 27:6–12",
+          "book": "ACT",
+          "chapter": 27,
+          "verses": "6-12"
+        },
+        {
+          "label": "Acts 16:37–39",
+          "book": "ACT",
+          "chapter": 16,
+          "verses": "37-39"
+        }
+      ]
+    },
+    {
+      "scene": "sea",
+      "view": "Cargo & welcome",
+      "evidence": "The ship in Acts 27 carries wheat that is thrown overboard. After Malta, Acts names Syracuse, Rhegium and Puteoli; believers offer hospitality, and others come out from Rome to meet Paul.",
+      "interpretation": "Transport of goods, military movement and community hospitality intersect. Romans 16’s commendation of Phoebe similarly shows a network of people expected to receive and assist a traveller.",
+      "limit": "Phoebe’s exact itinerary is not given. This diagram follows Acts’s selected stops; it is not her route or a composite of all Paul’s voyages.",
+      "sources": [],
+      "passages": [
+        {
+          "label": "Acts 27:38",
+          "book": "ACT",
+          "chapter": 27,
+          "verses": "38"
+        },
+        {
+          "label": "Acts 28:11–16",
+          "book": "ACT",
+          "chapter": 28,
+          "verses": "11-16"
+        },
+        {
+          "label": "Romans 16:1–2",
+          "book": "ROM",
+          "chapter": 16,
+          "verses": "1-2"
+        }
+      ]
+    },
+    {
+      "scene": "sea",
+      "view": "Compare a shipwreck",
+      "evidence": "The French Ministry of Culture describes the excavated hull and wine amphorae of Madrague de Giens, wrecked off southern Gaul around 75–60 BCE. Acts 27:38 separately describes wheat being discarded.",
+      "interpretation": "A wreck provides material evidence of maritime freight. Paul’s own recollection of shipwrecks in 2 Corinthians adds another literary perspective on vulnerability at sea.",
+      "limit": "Different dates, cargoes and routes: this earlier western wreck is not Paul’s ship. The restored mast and sail are schematic; no ship capacity or journey time is calculated.",
+      "sources": [
+        "ship"
+      ],
+      "passages": [
+        {
+          "label": "Acts 27:38",
+          "book": "ACT",
+          "chapter": 27,
+          "verses": "38"
+        },
+        {
+          "label": "2 Corinthians 11:25–27",
+          "book": "2CO",
+          "chapter": 11,
+          "verses": "25-27"
+        },
+        {
+          "label": "Acts 18:18",
+          "book": "ACT",
+          "chapter": 18,
+          "verses": "18"
+        }
+      ]
+    }
+  ],
+  "teachingSequence": [
+    {
+      "id": "village",
+      "title": "A small place. A connected life.",
+      "connection": "Move from household work to an assembly at nearby Migdal. These are connected settings, not one excavated settlement."
+    },
+    {
+      "id": "synagogue",
+      "title": "Shared Scripture. Different local settings.",
+      "connection": "Local reading and teaching coexisted with pilgrimage and Temple worship. Continue to Jerusalem."
+    },
+    {
+      "id": "pilgrimage",
+      "title": "One destination. Different ways of belonging.",
+      "connection": "Move west to Caesarea, then forward several decades: Pilate’s dedication and Paul’s hearings belong to different administrations."
+    },
+    {
+      "id": "port",
+      "title": "One port. Different kinds of power.",
+      "connection": "Across the Mediterranean, livelihood and legal status also shape the gatherings addressed by Paul. Continue to Corinth."
+    },
+    {
+      "id": "household",
+      "title": "At one gathering. Not on equal terms.",
+      "connection": "The meal begins before anyone arrives: food is bought, invitations accepted, and social obligations negotiated on the city street."
+    },
+    {
+      "id": "street",
+      "title": "The same food. A different situation.",
+      "connection": "Cross to Ephesus, where Acts describes another interaction between craft, religious honour and civic authority. Similar pressures do not make the cities identical."
+    },
+    {
+      "id": "ephesus",
+      "title": "A city does not speak with one voice.",
+      "connection": "People and letters connect these cities. End by returning to the hazards, cargoes and hospitality of travel toward Rome."
+    },
+    {
+      "id": "sea",
+      "title": "A route is more than a line.",
+      "connection": "Return to the passages with a sharper question: which features belong to this place, this date and these people?"
+    }
+  ],
+  "assets": "Original schematic SVGs only. No third-party pictures or measured plans. New diagrams distinguish evidence settings and material/text comparisons.",
+  "editorial": "No Josephus-specific material introduced; prior editorial boundary applies.",
+  "counts": {
+    "scenes": 8,
+    "viewpoints": 28
+  },
+  "approval": {
+    "date": "2026-10-14",
+    "selection": "C merger",
+    "palette": "B: dark gold #cfad73, light gold #795727, muted secondary",
+    "canonical": "/study/world-of-jesus-apostles",
+    "aliases": [
+      "/study/world-of-jesus-and-apostles",
+      "/study/world-of-jesus-apostles-complete"
+    ],
+    "comparison": "Removed. Original page files archived outside source; shared data and diagrams retained.",
+    "deployment": "Local preview only"
+  },
+  "verification": {
+    "status": "passed",
+    "preview": "http://127.0.0.1:8931/study/world-of-jesus-apostles",
+    "scenes": 8,
+    "viewpoints": 28,
+    "checks": [
+      "single academic entry",
+      "no comparison pill",
+      "B dark/light palette",
+      "28 views desktop/mobile",
+      "320–1440px overflow",
+      "legacy redirects preserve scene and map Ephesus",
+      "keyboard controls and next-heading focus",
+      "Bible reader",
+      "reduced motion",
+      "no page errors"
+    ],
+    "date": "2026-10-14",
+    "build": "Passed; current dist serves 8931",
+    "typecheck": "Full-app TypeScript passed",
+    "lint": "Study ESLint passed",
+    "editorial": "Source guard passed",
+    "releaseSource": ".local/release-history-focused-20261013",
+    "deployment": "None"
+  }
+}

@@ -9,7 +9,7 @@ const paths = [
 export function SiteFooter() {
   return <footer className="relative isolate mt-10 overflow-hidden border-t border-line bg-surface" style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}>
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_left,rgba(202,161,82,0.10),transparent_60%)]" />
-    <div className="mx-auto max-w-7xl px-5 pt-12 sm:px-6 sm:pt-14">
+    <div className="mx-auto max-w-7xl px-4 pt-12 sm:px-6 sm:pt-14">
       <div className="grid gap-x-12 gap-y-10 lg:grid-cols-[1.25fr_1fr]">
         <div className="max-w-lg">
           <Link to="/" className="inline-flex items-center gap-3 font-serif text-xl"><img src="/favicon.svg" alt="" className="h-8 w-8" />Bible Project</Link>

@@ -1,10 +1,11 @@
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Search } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { ApBack, TopicArt } from '@/components/ApologeticsParts';
+import { TopicArt } from '@/components/ApologeticsParts';
 import { AP_EDITORIAL, DEBATES } from '@/data/apologetics-library';
 import { AP_BASE } from '@/lib/apologetics-links';
 import { DebateCard } from '@/components/apologetics/DebateCard';
+import { DebateLandingArt } from '@/components/apologetics/DebateLandingArt';
 import './debate-room.css';
 
 const root = AP_BASE + '/debates';
@@ -67,10 +68,9 @@ export default function DebateRoom() {
   const returnState = { debateReturn: root + location.search + '#collection' };
 
   return <div className="dr-room">
-    <ApBack />
     <header className="dr-hero">
       <div className="dr-hero-copy"><p className="ap-eyebrow">Apologetics / The debate room</p><h1>Ideas meet<br /><em>in the open.</em></h1><p className="dr-lead">Great questions deserve a careful hearing. Explore Christian debates, hear the objections and follow the reasoning wherever it needs to be examined.</p><a className="ap-button ap-button-solid" href="#collection">Explore the debates <ArrowDown size={16} /></a></div>
-      <div className="dr-hero-art" aria-hidden="true"><svg viewBox="0 0 420 350" fill="none"><circle cx="210" cy="160" r="135" /><circle cx="210" cy="160" r="109" strokeDasharray="2 7" /><path d="M70 294h280M102 294V186l67-15v123m149 0V186l-67-15v123M90 185l78-20 13 15-79 20Zm240 0-78-20-13 15 79 20ZM123 175v-38q0-14 15-14h19m140 52v-38q0-14-15-14h-19" /><path d="M174 90q36-35 72 0m-61 18q25-24 50 0m-38 19q13-12 26 0" /><circle cx="210" cy="144" r="4" fill="currentColor" /><path d="M187 267q12-7 23 0 11-7 23 0v31q-12-7-23 0-11-7-23 0Zm23 0v31" /></svg><span>Listen closely. Think carefully.<br />Keep the question open to examination.</span></div>
+      <div className="dr-hero-art" aria-hidden="true"><DebateLandingArt /><span>Listen closely. Think carefully.<br />Keep the question open to examination.</span></div>
     </header>
     <div className="dr-orientation"><div className="dr-counts"><span><strong>{DEBATES.length}</strong> exchanges</span><span><strong>{speakers.length}</strong> voices</span><span><strong>{topics.length}</strong> topic routes</span></div><nav aria-label="Debate room contents"><a href="#topics">Topics</a><a href="#debaters">Debaters</a><a href="#collection">All debates</a><a href="#listening">How to listen</a></nav></div>
 
@@ -88,7 +88,7 @@ export default function DebateRoom() {
     <section ref={collectionRef} className="dr-section" id="collection" aria-labelledby="dr-collection-title"><p className="ap-eyebrow">The complete collection</p><h2 id="dr-collection-title" tabIndex={-1}>Find your next debate.</h2><p className="dr-section-intro">Every guide connects the question, the speakers, a transcript source and a YouTube recording, with prompts for your own study.</p><div className="dr-filters"><label className="dr-search"><Search size={18} /><span className="sr-only">Search debates</span><input type="search" placeholder="Search a name, question or idea…" value={query} onChange={event => change('q', event.target.value)} /></label><label>Topic<select aria-label="Topic" value={topic} onChange={event => change('topic', event.target.value)}><option value="">All topics</option>{topic && !selectedTopic && <option value={topic}>Unknown topic</option>}{topics.map(item => <option value={item.id} key={item.id}>{item.title}</option>)}</select></label><label>Speaker<select aria-label="Speaker" value={speaker} onChange={event => change('speaker', event.target.value)}><option value="">All speakers</option>{speaker && !speakers.includes(speaker) && <option value={speaker}>Unknown speaker</option>}{speakers.map(name => <option value={name} key={name}>{name}</option>)}</select></label></div><div className="dr-results"><p role="status">{visible.length} of {DEBATES.length} debates{selectedTopic ? ' · ' + selectedTopic.title : ''}{speaker ? ' · ' + speaker : ''}</p>{(topic || speaker || query) && <button type="button" onClick={clear}>Clear search & filters</button>}</div>
       <div className="ap-debate-list dr-list">{visible.map(debate => <DebateCard key={debate.id} debate={debate} index={DEBATES.indexOf(debate)} returnState={returnState} />)}</div>
       {!visible.length && <div className="ap-empty"><Search size={26} /><h3>No debates match these filters.</h3><p>Try a broader search or return to the full collection.</p><button className="ap-button" type="button" onClick={clear}>Show all debates <ArrowRight size={15} /></button></div>}
-      <div className="dr-source-note"><BookOpen size={21} /><div><h3>Read with the source in view.</h3><p>Transcripts are hosted by the linked publishers. Some omit sections or contain uncertain wording; each guide records known coverage limits. Use the recording to check the exchange in context.</p><p>{AP_EDITORIAL.debateIndexNote}</p><Link to={AP_BASE + '/sources'}>Explore the source room <ArrowRight size={14} /></Link></div></div>
+      <div className="dr-source-note"><BookOpen size={21} /><div><h3>Read with the source in view.</h3><p>Read supplied transcripts on this site, or follow the linked publisher where an on-site copy is not yet available. Each guide records known coverage limits. Use the recording to check the exchange in context.</p><p>{AP_EDITORIAL.debateIndexNote}</p><Link to={AP_BASE + '/sources'}>Explore the source room <ArrowRight size={14} /></Link></div></div>
     </section>
 
     <section className="dr-section dr-listening" id="listening" aria-labelledby="dr-listening-title"><p className="ap-eyebrow">A practice worth developing</p><h2 id="dr-listening-title">Listen with a pencil in hand.</h2><p className="dr-section-intro">Let the exchange become a study. These four habits help you follow both speakers fairly and decide what to examine next.</p><ol>{method.map((item, index) => <li key={item.title}><span className="dr-number">0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></li>)}</ol></section>

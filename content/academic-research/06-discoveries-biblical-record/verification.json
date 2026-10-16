@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-14",
+  "browser": "Headless Microsoft Edge",
+  "url": "file:///D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/academic-research/06-discoveries-biblical-record/prototype.html",
+  "checks": [
+    "Question 0",
+    "Question 1",
+    "Question 2",
+    "Four record selections; close and focus return",
+    "All six records and twelve disclosures",
+    "Reload preserves question, object and join",
+    "Keyboard Enter selection",
+    "No horizontal overflow 320",
+    "No horizontal overflow 390",
+    "No horizontal overflow 768",
+    "No horizontal overflow 1365",
+    "Reduced motion question switch",
+    "Rendered links have valid destinations; no JavaScript errors"
+  ],
+  "errors": [],
+  "limits": [
+    "No production integration, build or deployment.",
+    "External source destinations retained from dossier, not re-fetched in this design pass.",
+    "No screen-reader software or physical touch-device test."
+  ]
+}

@@ -1,6 +1,6 @@
 import type { Scholar } from '@/data/teachers/pages-types';
 import { authorCredits } from '../site-evidence';
-export const AREAS: [string,string][] = [['Letters study','--epistles'],['Apologetics','--revelation'],['Topics','--poetry'],['People pages','--history'],['Rulers','--prophets']];
+export const AREAS: [string,string][] = [['Theological study','--epistles'],['Manuscripts & text','--prophets'],['Canon','--gospels'],['Historical study','--poetry'],['Archaeology','--history'],['People pages','--history'],['Rulers','--prophets'],['Apologetics','--revelation'],['Atlas','--poetry']];
 export type SortKey = 'era'|'wide';
 export type NamedPerson = ReturnType<typeof authorCredits>[number];
 export function buildHeat(scholars:Scholar[]) {

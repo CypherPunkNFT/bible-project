@@ -1,0 +1,619 @@
+{
+  "schemaVersion": 1,
+  "order": 9,
+  "title": "The world of Jesus & the apostles",
+  "category": "history",
+  "categoryTitle": "History & archaeology",
+  "updated": "2026-10-13",
+  "status": "researched-and-implemented-local-only",
+  "route": "/study/world-of-jesus-apostles",
+  "authorization": "User explicitly requested research, design, implementation and preview verification for study 09; this overrides the index's older content-only sequence for this study only. Other queue positions are preserved.",
+  "scope": "Five connected learning situations across Galilee, Jerusalem, Corinth and travel to Rome, mainly the 20s–60s CE. Pompeii before 79 CE is an explicitly comparative Italian example, not a reconstruction of Corinth. Later remains and post-70 changes are identified separately.",
+  "method": {
+    "evidence": "Objects, excavation observations and what a particular ancient text actually says.",
+    "reconstruction": "A proposed physical arrangement, itinerary, social mechanism or scene assembled from evidence. Never presented as a recovered photograph or eyewitness account.",
+    "interpretation": "An argument about the significance of evidence. Literary representation is distinguished from independently documented events.",
+    "sourceAccess": "Access descriptions below distinguish full short reports, selected sections, catalogue records, abstracts and located books. No claim to have read the books listed only for further reading.",
+    "editorialBoundary": "Josephus-specific quotations, citations, retellings and dependent claims remain in Scholars. Sources that also discuss him are used here only for independently described objects, excavation observations or non-dependent arguments. No Josephus material is reproduced in the public study.",
+    "assets": "Original SVG diagrams and CSS only. No third-party photographs, manuscript images, inscription facsimiles or copyrighted plans reproduced. Drawings are schematic, not to scale; symbols are not demographic counts."
+  },
+  "teachingSequence": [
+    {
+      "step": 1,
+      "question": "Who governs here?",
+      "activity": "Compare Galilee and Judaea around 30 CE with Achaia and Philippi in the apostolic narratives.",
+      "outcome": "Roman imperial power operated through different regional offices; citizenship and local magistrates also mattered."
+    },
+    {
+      "step": 2,
+      "question": "What connects a village to a wider world?",
+      "activity": "Inspect a household, working shore and synagogue in a schematic Galilean settlement.",
+      "outcome": "Household work, exchange and Jewish religious life overlap; neither isolation nor universal poverty is demonstrated by one find."
+    },
+    {
+      "step": 3,
+      "question": "Why travel to Jerusalem if there is a synagogue nearby?",
+      "activity": "Move among festival worship, synagogue hospitality and a contested road.",
+      "outcome": "Temple and synagogue had overlapping but distinct roles; Samaritans must not be assimilated to Jerusalem-centred Jewish practice."
+    },
+    {
+      "step": 4,
+      "question": "Who gets to eat at a gathering?",
+      "activity": "Distinguish Paul's reported inequality from hypothetical seating arrangements, then reveal his instruction.",
+      "outcome": "A house gathering could reproduce status divisions; archaeological analogy does not identify a particular congregation's floor plan."
+    },
+    {
+      "step": 5,
+      "question": "Is every meal the same social act?",
+      "activity": "Compare a market purchase, a private invitation and participation in a cult meal using 1 Corinthians 10.",
+      "outcome": "Paul's instructions differ by situation; Roman religion, commerce and hospitality were intertwined without being uniform."
+    },
+    {
+      "step": 6,
+      "question": "What determines a journey?",
+      "activity": "Follow a textual route and inspect wind, authority and cargo.",
+      "outcome": "Weather, commercial shipping, military custody and hospitality shaped travel; no fabricated journey times."
+    },
+    {
+      "step": 7,
+      "question": "What changes after 70?",
+      "activity": "Compare chronological anchors and classify a claim.",
+      "outcome": "Do not project later synagogues, imperial models or Christian buildings back into the ministry of Jesus."
+    }
+  ],
+  "sources": [
+    {
+      "id": "bible",
+      "title": "World English Bible: primary passages in the local reader",
+      "url": "https://ebible.org/web/",
+      "type": "primary literary texts in a modern public-domain translation",
+      "access": "Selected verses read in repository data/plain/web/{MRK,LUK,JHN,ACT,1CO,ROM,PHM,DEU}.json; links validated against those files. No external BibleGateway fetch relied upon.",
+      "checked": "2026-10-13",
+      "limit": "Gospels and Acts narrate settings and events; letters address specific communities. Neither genre is a statistical survey. Translation does not replace Greek-text analysis."
+    },
+    {
+      "id": "capernaum",
+      "title": "Custodia Terrae Sanctae: Capernaum, archaeology and synagogue",
+      "url": "https://www.custodia.org/en/sanctuaries/capernaum/",
+      "type": "excavating/custodial institution overview",
+      "access": "Archaeology, village and synagogue sections reviewed",
+      "checked": "2026-10-13",
+      "limit": "Confessional identification of Peter's house is not adopted as demonstrated ownership. White synagogue dated to fifth century by this institution; exact dating is debated elsewhere. Use only the secure distinction from the first-century setting."
+    },
+    {
+      "id": "migdal",
+      "title": "Dina Avshalom-Gorni and Arfan Najar, Migdal, Hadashot Arkheologiyot 125 (2013)",
+      "url": "https://hadashot.iaa.org.il/report_detail_eng.aspx?id=2304",
+      "type": "primary excavation preliminary report, Israel Antiquities Authority",
+      "access": "Report read, especially Early Roman Stratum 3, Areas A/C and dating paragraph; linked figures not reproduced",
+      "checked": "2026-10-13",
+      "limit": "Fish-processing identification is explicitly unsubstantiated in this report. Menorah is observed; stone function and Temple symbolism are interpretations. A coin of 43 CE under the reading-room mosaic prevents treating that final floor as Jesus-era. Report's historical wartime narrative excluded."
+    },
+    {
+      "id": "antipas",
+      "title": "Roman Provincial Coinage I 4923, Herod Antipas, Tiberias",
+      "url": "https://rpc.ashmus.ox.ac.uk/coins/1/4923",
+      "type": "Oxford/Ashmolean numismatic catalogue of primary objects",
+      "access": "Full coin-type record read; no image reused",
+      "checked": "2026-10-13",
+      "limit": "Year 33 is catalogued as 29/30 CE. A ruler's title on a coin is evidence for an office, not household income or the incidence of tax."
+    },
+    {
+      "id": "pilate",
+      "title": "Israel Museum: Latin dedication naming Pontius Pilate (Google Arts & Culture record)",
+      "url": "https://artsandculture.google.com/asset/latin-dedicatory-inscription-mentioning-pontius-pilate-the-procurator-of-judea-0002/SgGV0ad7K8m3BQ",
+      "type": "holding-institution object record",
+      "access": "Record and displayed inscription translation read",
+      "checked": "2026-10-13",
+      "limit": "Record title says procurator, but displayed inscription reads prefect; use the epigraphic title. Record dates object 26–36 CE. Original building identification is tentative. Does not narrate Jesus' trial."
+    },
+    {
+      "id": "pilate-text",
+      "title": "K. C. Hanson and Douglas E. Oakman: Pilate inscription, text with restorations",
+      "url": "https://kchanson.com/ANCDOCS/latin/pilate.html",
+      "type": "scholarly transcription and translation of primary inscription",
+      "access": "Inscription text and restoration notation read; bibliography located only",
+      "checked": "2026-10-13",
+      "limit": "Bracketed letters are restorations. Whole first and last lines should not be presented as certainly recovered wording. Bibliography and discussion questions are not additional primary evidence."
+    },
+    {
+      "id": "theodotos",
+      "title": "Margaret Follett, Theodotus Dialogue, Ancient Inscriptions from Israel/Palestine (2017)",
+      "url": "https://www.inscriptionsisraelpalestine.org/story/theodotus-dialogue/",
+      "type": "academic epigraphy project teaching resource with primary inscription translation",
+      "access": "Translation and framing reviewed; fictional dialogue not used as historical testimony. Direct jeru0591 database endpoint returned an error.",
+      "checked": "2026-10-13",
+      "limit": "Greek dedication specifies Torah teaching and accommodation for people from abroad. It does not establish the building's full liturgy, every Jerusalem synagogue's practice or identification with Acts 6. Its commonly accepted pre-70 dating is not an inscribed calendar date."
+    },
+    {
+      "id": "temple-warning",
+      "title": "Lauren Montieth, Temple warning inscription, Ancient Inscriptions from Israel/Palestine (2017)",
+      "url": "https://www.inscriptionsisraelpalestine.org/story/keep-out-for-the-sake-of-all-that-is-holy-a-temple-warning-inscription/",
+      "type": "academic epigraphy project, primary inscription translation embedded in a teaching essay",
+      "access": "Translated inscription reviewed; wider architectural narrative not adopted",
+      "checked": "2026-10-13",
+      "limit": "Use only the text's boundary prohibition and threatened death. Do not infer actual enforcement, all court boundaries or universal exclusion from the whole Temple complex. Essay contains architectural/historical assertions not independently verified here."
+    },
+    {
+      "id": "jerusalem",
+      "title": "Alexander Onn, Shlomit Weksler-Bdolah and Rachel Bar-Nathan, Jerusalem, the Old City, Wilson's Arch and the Great Causeway, Hadashot Arkheologiyot 123 (2011)",
+      "url": "https://hadashot.iaa.org.il/report_detail_eng.aspx?id=1738",
+      "type": "primary IAA excavation report",
+      "access": "Chronological framework and Early Roman sections reviewed",
+      "checked": "2026-10-13",
+      "limit": "Used for the 70 CE destruction horizon and phase distinction, not a complete reconstruction of Temple architecture."
+    },
+    {
+      "id": "fiensy",
+      "title": "David A. Fiensy, The Galilean Economy in the Time of Jesus: Can You Dig It? (2013)",
+      "url": "https://bibleinterp.arizona.edu/articles/2013/07/fie378015",
+      "type": "researcher's methodological essay hosted at University of Arizona",
+      "access": "Essay read, including pottery distribution and limits of economic models",
+      "checked": "2026-10-13",
+      "limit": "Pottery circulation is evidence of exchange, not by itself proof of improving peasant living standards. Wider social arguments are debated."
+    },
+    {
+      "id": "hakola",
+      "title": "Raimo Hakola, Jesus and Poverty in the Context of Imperial and Local Economies in First Century Galilee (2023)",
+      "url": "https://doi.org/10.35068/aabner.v3i3.1100",
+      "type": "peer-reviewed original research, AABNER 3.3",
+      "access": "Journal abstract and metadata read; full article not read",
+      "checked": "2026-10-13",
+      "limit": "Further-reading entry and attributed abstract-level counterargument only; not treated as verification of individual excavated finds."
+    },
+    {
+      "id": "corinth",
+      "title": "American School of Classical Studies at Athens: History of Corinth",
+      "url": "https://www.ascsa.edu.gr/excavations/ancient-corinth/about-the-excavations-1/history-timeline",
+      "type": "excavating institution historical/archaeological overview",
+      "access": "Indexed institutional record and Roman Corinth section located; direct fetch timed out",
+      "checked": "2026-10-13",
+      "limit": "44 BCE colonial foundation supported also by primary excavation publications. Proposed identification of the standing bema with Acts is not asserted as certain."
+    },
+    {
+      "id": "corinth-road",
+      "title": "A Roman Road Southeast of the Forum at Corinth, Hesperia 80.2 (2011), 287–336",
+      "url": "https://www.ascsa.edu.gr/publications/hesperia/article/80/2/287-336",
+      "type": "primary excavation research publication",
+      "access": "Publisher abstract reviewed; full article not read",
+      "checked": "2026-10-13",
+      "limit": "Used to explain that streets have phases; not used for precise first-century shop placement."
+    },
+    {
+      "id": "pompeii",
+      "title": "Parco Archeologico di Pompei: House and Thermopolium of Vetutius Placidus",
+      "url": "https://pompeiisites.org/en/archaeological-site/house-and-thermopolium-of-vetutius-placidus/",
+      "type": "custodial institution object/site record",
+      "access": "Full short record read",
+      "checked": "2026-10-13",
+      "limit": "Counter jars, household shrine and adjoining house are evidence at Pompeii. No claim that a Corinthian shop had this layout, that all meat passed through temples, or that every resident shared a religion."
+    },
+    {
+      "id": "slavery",
+      "title": "Parco Archeologico di Pompei: The excavations of Civita Giuliana",
+      "url": "https://pompeiisites.org/en/press-kit-en/the-excavations-of-civita-giuliana/",
+      "type": "excavating institution report",
+      "access": "Room/furniture description reviewed; not a full excavation monograph",
+      "checked": "2026-10-13",
+      "limit": "Material differences illuminate hierarchy by comparison; inferred enslaved occupants cannot be assigned names or transplanted to Paul's congregation."
+    },
+    {
+      "id": "adams",
+      "title": "Edward Adams, The Earliest Christian Meeting Places: Almost Exclusively Houses? (T&T Clark, 2013)",
+      "url": "https://www.bloomsbury.com/uk/earliest-christian-meeting-places-9780567157324/",
+      "type": "publisher record for scholarly monograph",
+      "access": "Description, contents and bibliographic metadata read; book not read",
+      "checked": "2026-10-13",
+      "limit": "Further reading on alternatives to house-only models; no detailed argument attributed beyond publisher description."
+    },
+    {
+      "id": "orbis",
+      "title": "Scheidel, Meeks and Weiland, Introducing ORBIS (2012)",
+      "url": "https://orbis.stanford.edu/orbis2012/ORBIS_v1paper_20120501.pdf",
+      "type": "original model documentation, Stanford",
+      "access": "Introductory scope and transport-network description reviewed; model not run",
+      "checked": "2026-10-13",
+      "limit": "Broadly represents circa 200 CE, with some later features. No model output or numerical travel estimates used in this first-century study."
+    },
+    {
+      "id": "orbis-nyu",
+      "title": "NYU Institute for the Study of the Ancient World: Travel the Roman Empire with Stanford ORBIS",
+      "url": "https://isaw.nyu.edu/exhibitions/space/orbis.html",
+      "type": "institutional model explanation",
+      "access": "Full short explanation read",
+      "checked": "2026-10-13",
+      "limit": "Demonstrates effects of mode and season; not evidence for the exact duration of Paul's journeys."
+    }
+  ],
+  "claims": [
+    {
+      "id": "G1",
+      "claim": "Luke 3:1 distinguishes a Galilean tetrarch from the governor of Judaea; Antipas's coin bears the tetrarch title and Pilate's inscription the prefect title.",
+      "kind": "evidence",
+      "sources": [
+        "bible",
+        "antipas",
+        "pilate",
+        "pilate-text"
+      ],
+      "passages": [
+        "Luke 3:1–2"
+      ],
+      "limit": "Offices differ; do not equate Antipas with a Roman provincial prefect."
+    },
+    {
+      "id": "G2",
+      "claim": "Acts presents Gallio as proconsul of Achaia and Philippi's officials as local magistrates. Paul invokes Roman citizenship at Philippi.",
+      "kind": "literary evidence",
+      "sources": [
+        "bible"
+      ],
+      "passages": [
+        "Acts 18:12–17",
+        "Acts 16:19–39"
+      ],
+      "limit": "Not an independent verification of every narrated exchange; local magistrates and a provincial governor are different levels."
+    },
+    {
+      "id": "V1",
+      "claim": "Capernaum's excavated domestic remains use basalt; its prominent white synagogue is later than the ministry of Jesus.",
+      "kind": "evidence",
+      "sources": [
+        "capernaum"
+      ],
+      "limit": "Do not draw the later synagogue as Jesus' building or prove Peter's ownership from a dwelling."
+    },
+    {
+      "id": "V2",
+      "claim": "Mark puts fishing, hired workers, a household and synagogue teaching in close narrative proximity.",
+      "kind": "literary evidence",
+      "sources": [
+        "bible"
+      ],
+      "passages": [
+        "Mark 1:16–39",
+        "Mark 2:1–4",
+        "Mark 6:3"
+      ],
+      "limit": "No occupation percentages or universal class assignment follows."
+    },
+    {
+      "id": "V3",
+      "claim": "Galilean pottery distribution indicates exchange beyond individual households; economic welfare remains debated.",
+      "kind": "evidence and interpretation distinguished",
+      "sources": [
+        "fiensy",
+        "hakola"
+      ],
+      "limit": "Do not infer tax rates, typical daily budgets, standard wages or universal destitution/prosperity."
+    },
+    {
+      "id": "V4",
+      "claim": "Migdal's synagogue has benches and a stone with a menorah relief. The 2013 report distinguishes construction phases and a 43 CE coin beneath its final reading-room mosaic.",
+      "kind": "excavation evidence",
+      "sources": [
+        "migdal"
+      ],
+      "limit": "Final floor not a securely Jesus-era environment. Stone's use and full iconographic interpretation remain proposals."
+    },
+    {
+      "id": "V5",
+      "claim": "Migdal's small pools were tentatively associated with fishing industry by excavators who explicitly said the hypothesis was not substantiated.",
+      "kind": "unconfirmed reconstruction",
+      "sources": [
+        "migdal"
+      ],
+      "limit": "Not labelled fish-salting vats as an established fact; not included as a demonstrated public claim."
+    },
+    {
+      "id": "P1",
+      "claim": "Deuteronomy prescribes pilgrimage festivals; John narrates Jesus going to Jerusalem for Booths and teaching in the Temple.",
+      "kind": "normative and narrative literary evidence",
+      "sources": [
+        "bible"
+      ],
+      "passages": [
+        "Deuteronomy 16:16–17",
+        "John 7:2,10,14"
+      ],
+      "limit": "A command is not attendance statistics; no claim that every Jewish person made every pilgrimage."
+    },
+    {
+      "id": "P2",
+      "claim": "Theodotos's Greek dedication records Torah reading/teaching and accommodation for visitors from abroad.",
+      "kind": "inscriptional evidence",
+      "sources": [
+        "theodotos"
+      ],
+      "limit": "One institution; do not identify it with a named Acts synagogue. Common pre-70 dating remains scholarly dating."
+    },
+    {
+      "id": "P3",
+      "claim": "The Temple warning text marks a prohibited inner boundary and threatens death for trespass; Acts 21 narrates an accusation about bringing a Greek into the Temple.",
+      "kind": "separate material and literary evidence",
+      "sources": [
+        "temple-warning",
+        "bible"
+      ],
+      "passages": [
+        "Acts 21:27–29"
+      ],
+      "limit": "The inscription does not prove the accusation against Paul, which Acts itself describes as a supposition."
+    },
+    {
+      "id": "P4",
+      "claim": "John 4 portrays a Samaritan woman's dispute over the place of worship; Luke 9 depicts a Samaritan village refusing Jerusalem-bound travellers.",
+      "kind": "literary representation",
+      "sources": [
+        "bible"
+      ],
+      "passages": [
+        "John 4:9,20–22",
+        "Luke 9:51–56"
+      ],
+      "limit": "Samaritans are a distinct community, not a generic Jewish sect. Neither episode establishes that all Jewish travellers always avoided Samaria."
+    },
+    {
+      "id": "P5",
+      "claim": "Acts 23 represents Pharisees and Sadducees as disagreeing about resurrection. Luke 13 depicts some Pharisees warning Jesus.",
+      "kind": "literary evidence",
+      "sources": [
+        "bible"
+      ],
+      "passages": [
+        "Acts 23:6–8",
+        "Luke 13:31–32"
+      ],
+      "limit": "These depictions are not a complete map of Jewish groups; do not make all Pharisees antagonists or all Jews members of named parties."
+    },
+    {
+      "id": "H1",
+      "claim": "Paul addresses unequal eating and humiliation at the Corinthian assembly and tells them to wait for one another.",
+      "kind": "primary letter evidence",
+      "sources": [
+        "bible"
+      ],
+      "passages": [
+        "1 Corinthians 11:17–34"
+      ],
+      "limit": "No floor plan, seating list or occupational timetable is supplied. Late-arriving workers and separate dining rooms are possible models, not quoted facts."
+    },
+    {
+      "id": "H2",
+      "claim": "Prisca and Aquila host assemblies; Phoebe is commended from Cenchreae; Philemon concerns Onesimus and addresses a house assembly.",
+      "kind": "primary letter evidence",
+      "sources": [
+        "bible"
+      ],
+      "passages": [
+        "Romans 16:1–5",
+        "1 Corinthians 16:19",
+        "Philemon 1–2,10–16"
+      ],
+      "limit": "Do not assign everyone to the same city/date. Do not reduce women to passive hosts or describe slavery as ordinary employment. Paul's language does not itself document legal emancipation."
+    },
+    {
+      "id": "H3",
+      "claim": "Household space could include dependency and unequal status; the exact composition of a given congregation is not recoverable from a schematic house.",
+      "kind": "interpretive comparison",
+      "sources": [
+        "bible",
+        "slavery"
+      ],
+      "passages": [
+        "1 Corinthians 7:21–22",
+        "Philemon 15–16"
+      ],
+      "limit": "Pompeian room evidence is Italian and comparative. No invented enslaved person's diary or Christian identity assigned."
+    },
+    {
+      "id": "C1",
+      "claim": "Corinth was a Roman colony founded in 44 BCE; Roman public structures reshaped an older Greek city.",
+      "kind": "historical/archaeological evidence",
+      "sources": [
+        "corinth",
+        "corinth-road"
+      ],
+      "limit": "Present ruins span multiple phases. Not every standing building dates to Paul."
+    },
+    {
+      "id": "C2",
+      "claim": "A Pompeian food shop combines counter jars, a household shrine and a connected dwelling.",
+      "kind": "material evidence",
+      "sources": [
+        "pompeii"
+      ],
+      "limit": "Italian analogy, not a surveyed Corinthian street or a Christian venue."
+    },
+    {
+      "id": "C3",
+      "claim": "Paul distinguishes market food, a private invitation and participation in sacrificial worship; information about an offering changes his instruction at a meal.",
+      "kind": "primary letter evidence",
+      "sources": [
+        "bible"
+      ],
+      "passages": [
+        "1 Corinthians 8:7–13",
+        "1 Corinthians 10:20–29"
+      ],
+      "limit": "Not all meat is claimed to originate in a temple; these are Paul's instructions to Corinth, not a universal Roman dining code."
+    },
+    {
+      "id": "C4",
+      "claim": "Romans 14 represents differences about food and days within the Roman assemblies.",
+      "kind": "primary letter evidence",
+      "sources": [
+        "bible"
+      ],
+      "passages": [
+        "Romans 14:2–6"
+      ],
+      "limit": "Do not simply assign every practice to a presumed ethnicity or describe a uniform Roman church."
+    },
+    {
+      "id": "S1",
+      "claim": "Acts 27 describes a ship change at Myra, an Alexandrian vessel, contrary winds, a decision about wintering, a centurion's authority and wheat discarded from the ship.",
+      "kind": "narrative evidence",
+      "sources": [
+        "bible"
+      ],
+      "passages": [
+        "Acts 27:5–15,38"
+      ],
+      "limit": "Narrative route is not a precise marine track. Cargo does not provide a complete passenger economy."
+    },
+    {
+      "id": "S2",
+      "claim": "Acts 28 describes wintering at Malta then travel by Syracuse, Rhegium and Puteoli before Rome.",
+      "kind": "narrative evidence",
+      "sources": [
+        "bible"
+      ],
+      "passages": [
+        "Acts 28:1,11–16"
+      ],
+      "limit": "Date not pinned to a single year; schematic route includes only selected named stops and an overland final leg."
+    },
+    {
+      "id": "S3",
+      "claim": "Transport mode and season change connectivity in ORBIS, a model broadly representing circa 200 CE.",
+      "kind": "modern reconstruction",
+      "sources": [
+        "orbis",
+        "orbis-nyu"
+      ],
+      "limit": "Not run here; no ORBIS figures represented as first-century observations."
+    },
+    {
+      "id": "T1",
+      "claim": "The destruction horizon of 70 CE separates the functioning Jerusalem Temple setting from later environments.",
+      "kind": "historical/archaeological chronology",
+      "sources": [
+        "jerusalem"
+      ],
+      "limit": "Do not imply Jewish life or all synagogue activity began or ended in 70. Later rabbinic materials require their own chronological controls."
+    }
+  ],
+  "people": [
+    {
+      "name": "Jesus of Nazareth",
+      "role": "Jewish teacher in Gospel village, synagogue and festival narratives",
+      "sources": [
+        "bible"
+      ]
+    },
+    {
+      "name": "Herod Antipas",
+      "role": "Galilean tetrarch; RPC I 4923",
+      "sources": [
+        "antipas",
+        "bible"
+      ]
+    },
+    {
+      "name": "Pontius Pilate",
+      "role": "Judaean prefect named in dedication from Caesarea",
+      "sources": [
+        "pilate",
+        "pilate-text"
+      ]
+    },
+    {
+      "name": "Theodotos son of Vettenus",
+      "role": "Priest and synagogue leader named in dedication",
+      "sources": [
+        "theodotos"
+      ]
+    },
+    {
+      "name": "Paul",
+      "role": "Author addressing Corinthian and Roman situations; traveller in Acts",
+      "sources": [
+        "bible"
+      ]
+    },
+    {
+      "name": "Prisca/Priscilla, Aquila and Phoebe",
+      "role": "Named coworkers, assembly hosts and a commended woman from Cenchreae; locations and functions distinguished",
+      "sources": [
+        "bible"
+      ]
+    },
+    {
+      "name": "Lydia",
+      "role": "Acts 16 portrays a trader offering household hospitality in Philippi",
+      "sources": [
+        "bible"
+      ]
+    },
+    {
+      "name": "Onesimus and Philemon",
+      "role": "A letter's unequal household relationship; outcome not independently recorded",
+      "sources": [
+        "bible"
+      ]
+    },
+    {
+      "name": "Gallio",
+      "role": "Proconsul in Acts 18; no exact tenure date needed for this study",
+      "sources": [
+        "bible"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "question": "How poor was Galilee?",
+      "positions": "Exchange and specialised production challenge an isolated subsistence model; market access does not by itself establish egalitarian growth. Fiensy's essay explains inferential limits; Hakola's abstract challenges one-sided poverty accounts.",
+      "sources": [
+        "fiensy",
+        "hakola"
+      ],
+      "resolution": "No numerical budget, tax burden or blanket prosperity/poverty claim."
+    },
+    {
+      "question": "What was the Magdala stone for?",
+      "positions": "Its menorah is observed; a table function and wider Temple representation are proposed interpretations.",
+      "sources": [
+        "migdal"
+      ],
+      "resolution": "Public scene distinguishes the carving from its proposed meaning; omits unsupported functional certainty."
+    },
+    {
+      "question": "Were early meetings almost exclusively in houses?",
+      "positions": "Explicit household assemblies are attested in letters. Adams challenges expansion of those examples into a universal architectural model.",
+      "sources": [
+        "bible",
+        "adams"
+      ],
+      "resolution": "No claim all congregations met in wealthy villas; book only located via publisher record."
+    },
+    {
+      "question": "Did dining-room architecture cause the Corinthian divisions?",
+      "positions": "Spatial or scheduling reconstructions can explain the letter but are not its explicit evidence.",
+      "sources": [
+        "bible",
+        "adams"
+      ],
+      "resolution": "Interactive diagram makes the difference between reported inequality and possible arrangement visible."
+    },
+    {
+      "question": "When was the visible Capernaum synagogue built?",
+      "positions": "Custodial account argues fifth century; other publications discuss fourth/fifth-century dating and underlying remains.",
+      "sources": [
+        "capernaum"
+      ],
+      "resolution": "Safe public conclusion: prominent white building is centuries later than Jesus, without fixing a contested decade."
+    }
+  ],
+  "researchLimits": [
+    "No reconstructed demographic percentages, prices, tax rates, travel durations or attendance counts.",
+    "No complete archaeological plan of Jesus-era Nazareth, Capernaum or the Jerusalem Temple claimed.",
+    "No assertion that a surviving inscription proves an entire biblical narrative.",
+    "No exact identification of Paul's house, table, prison, ship or shop.",
+    "Full Hakola article and Adams monograph remain further reading, not works read in full.",
+    "Direct AIP inscription database, one British Museum endpoint and some institutional requests failed; alternative readable records and access limits are recorded.",
+    "Ostia synagogue chronology is contested; it was investigated but excluded rather than used as a secure first-century parallel.",
+    "This selected journey does not survey every Jewish movement, Roman province or early Christian city."
+  ]
+}

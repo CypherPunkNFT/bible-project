@@ -25,6 +25,16 @@ const REGION_OF = new Map<string, string>();
 for (const [region, towns] of Object.entries(REGIONS)) for (const town of towns.split("|")) REGION_OF.set(town, region);
 const UNKNOWN_REGION = "Elsewhere";
 
+const CONTINENTS: Record<string, string> = {
+  England: "Europe", Scotland: "Europe", Wales: "Europe", Ireland: "Europe", Switzerland: "Europe",
+  France: "Europe", Germany: "Europe", Silesia: "Europe", Netherlands: "Europe",
+  "United States": "North America", Canada: "North America", India: "Asia",
+  "Middle East": "Asia", "Australia & Pacific": "Oceania",
+};
+
+/** Continents follow the same main service town; Cairo is in Africa rather than Asia. */
+export const continentFor = (region: string, town: string) => town === "Cairo" ? "Africa" : CONTINENTS[region] ?? "Unrecorded";
+
 function regionOf(town: string) {
   const region = REGION_OF.get(town);
   if (!region) console.error(`Teachers directory: no country or region recorded for the town "${town}"; listed under "${UNKNOWN_REGION}"`);

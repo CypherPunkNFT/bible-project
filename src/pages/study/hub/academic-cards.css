@@ -1,0 +1,14 @@
+.academic-original-cards .academic-card-art{height:220px;padding:12px 24px 30px;position:relative;color:var(--resource-color);display:flex;justify-content:center;align-items:center}
+.academic-card-art>svg{width:100%;height:100%;max-width:400px;overflow:visible}
+.academic-art-object{transform-origin:180px 90px;transition:transform .35s ease,filter .35s ease}
+.academic-original-cards .study-resource-link:is(:hover,:focus-visible) .academic-art-object{transform:translateY(-3px);filter:drop-shadow(0 4px 12px color-mix(in srgb,var(--resource-color) 18%,transparent))}
+.academic-original-cards .study-resource-link:focus-visible{outline:2px solid var(--resource-color)!important;outline-offset:4px}
+.academic-original-cards .study-card-copy h2{font-size:1.45rem;line-height:1.35;margin:0}
+.academic-original-cards .study-card-copy>p{max-width:none}
+.study-experience[data-branch=academic] .subject-door:focus-visible{outline:2px solid var(--tone)!important;outline-offset:-5px}
+@media(max-width:639px){.academic-original-cards .academic-card-art{height:200px}.academic-original-cards .study-resource:last-child .academic-card-art{height:200px}}
+@media(prefers-reduced-motion:reduce){.academic-art-object{transition:none}.academic-original-cards .study-resource-link:is(:hover,:focus-visible) .academic-art-object{transform:none}}
+.academic-reading-links .reading-row:focus-visible {
+  outline: 2px solid var(--tone) !important;
+  outline-offset: 4px;
+}

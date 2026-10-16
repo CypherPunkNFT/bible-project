@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-14",
+  "url": "http://127.0.0.1:8931/study/dead-sea-scrolls",
+  "checks": [
+    "Original paths preserved except two left-curl paths",
+    "SVG lens reference resolves",
+    "Both themes at 320,390,768,1024,1440px without overflow",
+    "Keyboard scroll/fragment selection and lens emphasis",
+    "Reduced motion",
+    "Real-object anchor",
+    "Academic navigation and browser return"
+  ],
+  "errors": [],
+  "limits": [
+    "No manual screen-reader session"
+  ]
+}

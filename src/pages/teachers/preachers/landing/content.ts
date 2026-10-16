@@ -1,6 +1,5 @@
-// What the landing says, computed from the data: the figures, the search over names and towns, and the three famous
-// works to start reading (ported from the mock-up's landing.js).
-import type { KnownWork, Person } from "@/data/teachers/pages-types";
+// What the landing says, computed from the data: the figures, the search over names and towns, and searches (ported from the mock-up's landing.js).
+import type { Person } from "@/data/teachers/pages-types";
 import { THIS_YEAR, formatNumber } from "../../shared/people";
 
 export interface Figure { label: string; value: string; note: string }
@@ -31,19 +30,6 @@ export function searchPeople(people: Person[], query: string): SearchHit[] {
   return hits;
 }
 export const RESULTS_SHOWN = 7;
-
-export interface Read { person: Person; work: KnownWork & { u: string } }
-// Three famous works the library holds and can open, across three centuries (kept only if the data still says so).
-const READS: [string, string][] = [["Calvin", "Institutes"], ["Edwards", "Religious Affections"], ["Spurgeon", "Morning and Evening"]];
-export function readsOf(people: Person[]): Read[] {
-  const reads: Read[] = [];
-  for (const [short, title] of READS) {
-    const person = people.find((x) => x.short === short);
-    const work = person?.known.find((w) => w.t.includes(title) && w.inLibrary && w.u);
-    if (person && work?.u) reads.push({ person, work: { ...work, u: work.u } });
-  }
-  return reads;
-}
 
 const COUNT_WORDS: Record<number, string> = { 2: "Two", 3: "Three", 47: "Forty-seven", 50: "Fifty" };
 export const countWord = (n: number) => COUNT_WORDS[n] ?? String(n);

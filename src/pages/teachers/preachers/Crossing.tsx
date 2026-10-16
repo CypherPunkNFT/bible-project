@@ -43,7 +43,7 @@ export function Crossing() {
   };
 
   return <>
-    <SectionHead num="05" kicker="Two lives side by side" title={<>Did their lives <em>cross?</em></>}
+    <SectionHead num="06" kicker="Two lives side by side" title={<>Did their lives <em>cross?</em></>}
       line="Choose any two teachers. Their lives line up on one timeline, cut into the places they lived; the years both were alive are shaded, and any city they shared at the same time is outlined." />
     <div className="xing-pick">
       {picker("a", "First teacher")}

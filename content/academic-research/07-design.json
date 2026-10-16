@@ -1,0 +1,204 @@
+{
+  "study": 7,
+  "title": "Israel among the empires",
+  "status": "working-local-study",
+  "updated": "2026-10-14",
+  "route": "/study/israel-among-the-empires",
+  "dossier": "07-israel-among-the-empires.json",
+  "visualIdentity": "Historical atlas extended with a chronology desk, categorical evidence matrix and documentary archive explorer; sage, copper and blue in the shared site typography.",
+  "interactionSequence": [
+    {
+      "step": 1,
+      "question": "Who is subordinate to whom?",
+      "method": "Select a period; read both maps and the two political-status statements.",
+      "outcome": "Distinguish coalition, tribute, annexation, forced displacement and return."
+    },
+    {
+      "step": 2,
+      "question": "What changes when the scale changes?",
+      "method": "Compare regional relationships with named places in the southern Levant; switch between power and people.",
+      "outcome": "Separate a royal capital’s outcome from the experience of an entire population."
+    },
+    {
+      "step": 3,
+      "question": "What does a date actually date?",
+      "method": "Read the proportional time window and its explanation.",
+      "outcome": "Distinguish event, object, broad horizon and debated alignment."
+    },
+    {
+      "step": 4,
+      "question": "Whose victory in 701?",
+      "method": "Select event, payment and explanation comparisons.",
+      "outcome": "Locate overlap, discrepancies and theological interpretation without forced harmonization."
+    },
+    {
+      "step": 5,
+      "question": "Does a parallel restoration account prove Ezra’s decree?",
+      "method": "Choose and review an inference about the Cyrus Cylinder.",
+      "outcome": "Use comparative context without claiming direct attestation."
+    },
+    {
+      "step": 6,
+      "question": "What was actually consulted?",
+      "method": "Open the register and follow object and research links.",
+      "outcome": "Distinguish catalogue verification, primary translation, abstract and deeper reading."
+    }
+  ],
+  "verification": {
+    "build": "Portable esbuild/Vite build passed; public assets preserved.",
+    "browser": {
+      "states": [
+        {
+          "period": 1,
+          "heading": "A campaign leaves a list, not a border.",
+          "maps": [
+            "Regional map · c. 925 BCE",
+            "Local map · c. 925 BCE"
+          ]
+        },
+        {
+          "period": 2,
+          "heading": "An ally against Assyria becomes a tributary.",
+          "maps": [
+            "Regional map · 853–841 BCE",
+            "Local map · 853–841 BCE"
+          ]
+        },
+        {
+          "period": 3,
+          "heading": "Protection and conquest can come from the same power.",
+          "maps": [
+            "Regional map · 734–720 BCE",
+            "Local map · 734–720 BCE"
+          ]
+        },
+        {
+          "period": 4,
+          "heading": "Jerusalem survives. Judah pays.",
+          "maps": [
+            "Regional map · 701 BCE",
+            "Local map · 701 BCE"
+          ]
+        },
+        {
+          "period": 5,
+          "heading": "The throne remains. The choice of king does not.",
+          "maps": [
+            "Regional map · 609–597 BCE",
+            "Local map · 609–597 BCE"
+          ]
+        },
+        {
+          "period": 6,
+          "heading": "A kingdom ends. Its people have different futures.",
+          "maps": [
+            "Regional map · 587/586–539 BCE",
+            "Local map · 587/586–539 BCE"
+          ]
+        },
+        {
+          "period": 7,
+          "heading": "Return does not restore the old kingdom.",
+          "maps": [
+            "Regional map · 539–515 BCE",
+            "Local map · 539–515 BCE"
+          ]
+        },
+        {
+          "period": 8,
+          "heading": "The archive continues beyond the homecoming story.",
+          "maps": [
+            "Regional map · 6th–5th centuries BCE",
+            "Local map · 6th–5th centuries BCE"
+          ]
+        }
+      ],
+      "errors": [],
+      "focusOutline": "solid",
+      "header": {
+        "position": "sticky",
+        "top": 0
+      },
+      "widths": [
+        {
+          "viewport": 390,
+          "width": 390
+        },
+        {
+          "viewport": 320,
+          "width": 320
+        },
+        {
+          "viewport": 768,
+          "width": 768
+        }
+      ],
+      "motion": {
+        "transition": "0s",
+        "animation": "none"
+      },
+      "regionalWidth": {
+        "client": 356,
+        "scroll": 640
+      },
+      "passed": true
+    },
+    "typecheck": "Default tsconfig.app.json --noEmit passed.",
+    "editorial": "check-editorial-sources.mjs passed",
+    "sourceMirror": ".local/release-atlas-loop; dedicated files byte-matched, shared files patched in place",
+    "publicDeployment": false,
+    "expandedBrowser": {
+      "atlas": [
+        "A campaign leaves a list, not a border.",
+        "An ally against Assyria becomes a tributary.",
+        "Protection and conquest can come from the same power.",
+        "Jerusalem survives. Judah pays.",
+        "The throne remains. The choice of king does not.",
+        "A kingdom ends. Its people have different futures.",
+        "Return does not restore the old kingdom.",
+        "The archive continues beyond the homecoming story."
+      ],
+      "sourceRecords": 32,
+      "mobileWidths": [
+        390,
+        320,
+        768
+      ],
+      "keyboard": true,
+      "reducedMotion": "0s",
+      "navigation": true,
+      "errors": []
+    },
+    "sourceAudit": "32 source records; expanded claim checks and bibliographic checks in companion dossier.",
+    "visualReview": [
+      "Light and dark desktop screenshots",
+      "Mobile expanded chronology and archive views",
+      "Anchored section clears fixed header",
+      "Selected witness matrix and scholarly disagreement layout"
+    ],
+    "sourceLinkCheck": "All source IDs resolve; URL syntax and internal anchors checked. External records consulted during research; some primary sites reject direct automated retrieval, as recorded per source. No claim that every external endpoint returned HTTP 200.",
+    "finalAudit": {
+      "research": "Materially expanded with primary-object comparisons, selected original research and an explicit consultation ledger.",
+      "teaching": "Evidence, inference and limits remain adjacent; archive selection and chronological methods are explained.",
+      "disagreement": "Regional continuity and chronology are attributed and bounded; no invented consensus or population total.",
+      "visuals": "Categorical matrix, schematic reasoning chains and an attributed proportional documentary span.",
+      "gaps": "Documented in the companion dossier and exposed on the page."
+    }
+  },
+  "limitations": [
+    "Full modern editions of the Assyrian corpus would deepen philological comparison; no claim of full collation is made.",
+    "Karnak plates and uncertain toponyms need specialist study before any exact campaign map.",
+    "No attempt to estimate total numbers deported or returning from biased surviving samples.",
+    "Yehud’s changing provincial limits require dedicated regional research before territorial drawing.",
+    "Full archaeological reports and administrative editions remain deeper reading, not silently assimilated evidence."
+  ],
+  "expandedDossier": "07-empires-close-studies.json",
+  "expansion": {
+    "politics": "Three schematic authority relationships link directly to corresponding atlas periods.",
+    "chronology": "Three cases distinguish object date, event date and reconstructed sequence; optional year-counting diagram.",
+    "witnesses": "Three source types compared across four historical questions; each column opens observation, interpretation and limits.",
+    "archives": "Three documentary settings; evidence first, optional inference, visible limits and a proportional family-attestation timeline.",
+    "debate": "Destruction and rural continuity compared by evidence and method, followed by a 2021 archaeological reassessment.",
+    "scholarship": "Seven annotated routes into editions, original research and historical arguments, with access status."
+  }
+}

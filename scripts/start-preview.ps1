@@ -2,17 +2,29 @@
 # (at logon and every 5 minutes, hidden). Copied from the CypherPunk NFT site's start-preview.ps1.
 #
 # It serves dist/ as last built (`bun run build`); if dist/ is missing it builds once first.
-# Safe to run twice: if something already listens on 8921 it logs that and exits instead of starting a
+# This is the original canonical preview. Rebuild the current working tree to refresh dist/;
+# production deployments must preserve newer working-tree changes in this preview.
+# Safe to run twice: if something already listens on 8931 it logs that and exits instead of starting a
 # second server (vite's strictPort would refuse anyway, less clearly).
 $ErrorActionPreference = "Stop"
 $site = Split-Path -Parent $PSScriptRoot
 $logDir = Join-Path $site ".logs"
 $log = Join-Path $logDir "preview.log"
+$startupLog = Join-Path $logDir "preview-startup.log"
 $port = 8931
 New-Item -ItemType Directory -Force -Path $logDir | Out-Null
 
 function Write-Log([string]$message) {
-    Add-Content -Path $log -Value "[$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')] $message" -Encoding utf8
+    Add-Content -Path $startupLog -Value "[$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')] $message" -Encoding utf8
+}
+
+# Keep bookmarks to the old review port on the original preview, with no separate build state.
+$redirectListening = Get-NetTCPConnection -LocalPort 8941 -State Listen -ErrorAction SilentlyContinue
+if (-not $redirectListening) {
+    $previewNode = (Get-Command node -ErrorAction Stop).Source
+    $redirectScript = Join-Path $PSScriptRoot "preview-redirect.mjs"
+    Start-Process -FilePath $previewNode -ArgumentList @("`"$redirectScript`"") -WorkingDirectory $site -WindowStyle Hidden
+    Write-Log "port 8941 redirects to the original preview on $port"
 }
 
 $listening = Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue

@@ -1,0 +1,18 @@
+/* The approved opposing manuscripts, shared by the debate-room landing. */
+.debate-landing-art{--art-gold:var(--accent);stroke:var(--art-gold);stroke-width:.95;stroke-linecap:round;stroke-linejoin:round}
+.debate-landing-art .quiet{stroke:var(--art-gold);opacity:.36}
+.debate-landing-art .fine{stroke:var(--art-gold);opacity:.75;stroke-width:.8}
+.debate-landing-art .bright{stroke:var(--art-gold);stroke-width:1.15}
+.debate-landing-art .solid,.debate-landing-art .orbit-electron{fill:var(--art-gold);stroke:none}
+.debate-landing-art .vs{font:30px Georgia,serif;letter-spacing:2px;fill:var(--art-gold);stroke:none}
+.debate-landing-art .sand-upper path,.debate-landing-art .sand-lower path{fill:var(--art-gold);stroke:none;opacity:.55}
+.debate-landing-art .sand-grain{fill:var(--art-gold);stroke:none;animation:debate-neck-grain 1.45s linear infinite}
+.debate-landing-art .floating-dot{fill:var(--art-gold);stroke:none;opacity:.55;animation:debate-dot-drift 13s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.debate-landing-art .drift-1{animation-duration:17s}.debate-landing-art .drift-2{animation-duration:21s}
+.debate-landing-art .debate-cross path{fill:var(--art-gold);stroke:none;filter:drop-shadow(0 0 4px color-mix(in srgb,var(--art-gold) 30%,transparent))}
+.debate-landing-art .orbit-electron{filter:drop-shadow(0 0 2px color-mix(in srgb,var(--art-gold) 45%,transparent))}
+@keyframes debate-neck-grain{0%{translate:0 0;opacity:0}8%{translate:0 1px;opacity:.8}85%{translate:0 17px;opacity:.8}100%{translate:0 20px;opacity:0}}
+@keyframes debate-dot-drift{0%,100%{translate:0 0;opacity:.35}50%{translate:4px -6px;opacity:.65}}
+@media(prefers-reduced-motion:reduce){.debate-landing-art .floating-dot,.debate-landing-art .sand-grain{animation:none}.debate-landing-art .sand-grain{opacity:0}}
+
+.debate-landing-art .atom-nucleus{filter:drop-shadow(0 0 4px color-mix(in srgb,var(--art-gold) 30%,transparent))}

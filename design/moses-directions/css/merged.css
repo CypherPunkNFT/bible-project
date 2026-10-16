@@ -261,3 +261,15 @@
 .lg-scroll.is-static .lg-bar { display: none; }
 @media (max-width: 600px) { .lg-scroll .lg-time { column-width: calc(100vw - 3.5rem); height: min(32rem, 70vh); } .lg-pos { min-width: 5rem; } }
 @media (prefers-reduced-motion: reduce) { .lg-scroll .lg-time { scroll-behavior: auto; } }
+
+/* Chapter introductions: context and visible scene-link affordances. */
+.mg-chapter-context { max-width: 36rem; margin-top: 1.3rem; color: color-mix(in srgb, var(--ink) 82%, transparent); }
+.mg-chapter-context p { font-size: .92rem; line-height: 1.65; margin: 0 0 .7rem; }
+.mg-chapter-context footer { display: flex; flex-wrap: wrap; gap: .35rem; font-size: .74rem; color: var(--muted); }
+.mg-index button { width: 100%; grid-template-columns: 2rem minmax(0, 1fr) 2rem; padding: .65rem .7rem; border: 1px solid color-mix(in srgb, var(--tone) 20%, transparent); border-radius: .35rem; cursor: pointer; transition: background .2s, border-color .2s; }
+.mg-index button > small { grid-column: 2; }
+.mg-index .mg-index-arrow { grid-column: 3; grid-row: 1 / span 2; align-self: center; justify-self: end; color: var(--tone); transition: transform .2s; }
+.mg-index button:hover { background: color-mix(in srgb, var(--tone) 8%, transparent); border-color: var(--tone); }
+.mg-index button:hover .mg-index-arrow { transform: translateX(3px); }
+.mg-index button:focus-visible { outline: 2px solid var(--tone) !important; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .mg-index button, .mg-index .mg-index-arrow { transition: none; } }

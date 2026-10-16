@@ -1,0 +1,28 @@
+.dt-transcript { margin: 3rem 0; scroll-margin-top: 7rem; border: 1px solid var(--line); border-radius: .75rem; background: var(--surface); overflow: hidden; }
+.dt-transcript > header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.6rem 2rem 1rem; }
+.dt-transcript h2 { font-size: 2rem; margin: .35rem 0; }
+.dt-transcript header p:last-child { font-size: .78rem; color: var(--muted); }
+.dt-controls { display: grid; grid-template-columns: 1fr 1.4fr; gap: 1rem; padding: 0 2rem; }
+.dt-controls label { display: grid; min-width: 0; gap: .4rem; font-size: .75rem; }
+.dt-controls select, .dt-search { min-height: 2.8rem; width: 100%; border: 1px solid var(--line); border-radius: .4rem; background: var(--paper, var(--surface)); color: var(--ink); }
+.dt-controls select { padding: .6rem; font: inherit; }
+.dt-search { display: flex; align-items: center; gap: .5rem; padding: 0 .7rem; }
+.dt-search svg { flex: none; color: var(--muted); }
+.dt-search input { border: 0; background: none; color: inherit; min-width: 0; width: 100%; padding: .65rem 0; font: inherit; }
+.dt-status { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; padding: .9rem 2rem; font-size: .75rem; color: var(--muted); }
+.dt-status button { padding: 0; background: none; border: 0; color: var(--ink); font: inherit; text-decoration: underline; cursor: pointer; }
+.dt-reader { height: clamp(24rem, 70svh, 48rem); overflow-y: auto; overscroll-behavior-y: contain; scrollbar-width: thin; padding: 1.5rem max(2rem, calc((100% - 46rem) / 2)); border-block: 1px solid var(--line); }
+.dt-reader article { padding: 0 0 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+.dt-reader article:last-child { margin-bottom: 0; border: 0; }
+.dt-reader h3 { display: flex; justify-content: space-between; gap: 1rem; font-size: 1.2rem; margin: 0 0 .9rem; color: var(--accent); }
+.dt-reader h3 span { font: 400 .7rem var(--font-sans); color: var(--muted); }
+.dt-reader article > p:not(.dt-section-label) { font-size: .96rem; line-height: 1.85; white-space: pre-line; margin: 0 0 1rem; }
+.dt-reader .dt-section-label { font-size: .67rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 1.3rem; }
+.dt-reader .dt-dawkins h3 { color: var(--ink); }
+.dt-reader .dt-host h3 { color: var(--muted); }
+.dt-provenance { margin: 0; padding: 1rem 2rem; font-size: .72rem; line-height: 1.6; color: var(--muted); }
+@media (max-width: 600px) {
+  .dt-controls { grid-template-columns: 1fr; }
+  .dt-transcript > header, .dt-controls, .dt-status, .dt-provenance { padding-inline: 1rem; }
+  .dt-reader { padding: 1.25rem 1rem; }
+}

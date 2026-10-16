@@ -10,8 +10,6 @@ import './muslim-world.css';
 
 const CountryPanelPrototype = lazy(() => import('./CountryPanelPrototype'));
 const countries = snapshot.countries;
-const number = (value: number) => new Intl.NumberFormat('en').format(value);
-const date = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(snapshot.snapshotDate + 'T12:00:00Z'));
 
 function CountryMap({ code, selectionVersion, spinning, search, onSelect, onPause }: { code: string; selectionVersion: number; spinning: boolean; search: boolean; onSelect(code: string): void; onPause(): void }) {
   const stage = useRef<HTMLDivElement>(null), canvas = useRef<HTMLCanvasElement>(null), svg = useRef<SVGSVGElement>(null);
@@ -120,7 +118,6 @@ export default function MuslimWorldExplorer() {
         <CountryPanelPrototype country={country} design={prototypeDesign ?? 'c'} adopted={!prototypeDesign} panel={panel} filter={filter} setFilter={setFilter} openGroups={openGroups} choose={choose} setPanel={setPanel} />
       </Suspense>
     </div>
-    <details className="mw-method"><summary>What do “unreached” and “engaged” mean?</summary><div><p>IMB describes a people group as a community within which the gospel can spread without substantial barriers of understanding or acceptance. An unreached group has less than 2% evangelical Christians. “Unengaged” indicates no known effort focused on establishing self-sustaining evangelical churches; engagement describes sustained work toward that goal.</p><p>“No longer unreached” means at least 2% evangelical Christians. It does not mean everyone in a group is Christian, or that a country is fully reached. The globe shows places; the statistics describe people groups.</p><p>Counts aggregate IMB’s published Engagement Progress categories. The demographic figures are Pew’s 2020 estimates, published in 2025; they are not present-day counts. IMB’s separate population total for {country.name} is {number(country.imb.population)}, across its recorded groups. Estimates, classification and country profiles may change.</p><p>Data: <a href={snapshot.sources.imb.url} target="_blank" rel="noreferrer">IMB Global Research</a>, country aggregates prepared by Bible Project from the {date} snapshot, under <a href={snapshot.sources.imb.licenseUrl} target="_blank" rel="noreferrer">CC BY-NC 4.0</a>. <a href="https://peoplegroups.org/definitions/" target="_blank" rel="noreferrer">Read IMB’s definitions.</a> Boundaries: <a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noreferrer">Natural Earth</a>; country and territory names follow the source datasets.</p></div></details>
     </section>
   </div>;
 }

@@ -64,10 +64,6 @@
 .tp-scholars .cat-library-filters label { display: grid; gap: .25rem; font-size: .75rem; color: var(--muted); }
 .tp-scholars .cat-library-filters select { min-width: 0; width: 100%; border: 1px solid var(--line); border-radius: .5rem; background: var(--surface); color: var(--ink); padding: .45rem; font: inherit; }
 .tp-scholars .cat-library-filters .cat-checkbox { display: flex; gap: .5rem; align-items: center; }
-.tp-scholars .cat-profile-wrap { display: flex; flex-direction: column; min-width: 0; }
-.tp-scholars .cat-profile-wrap .cat-card { flex: 1; }
-.tp-scholars .cat-profile-actions { display: flex; flex-wrap: wrap; gap: .35rem .7rem; justify-content: space-between; padding: .5rem .25rem; font-size: .68rem; color: var(--muted); }
-.tp-scholars .cat-profile-actions button { color: var(--accent); text-decoration: underline; }
 .tp-scholars .cat-neutral-mark { width: 54px; height: 54px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; font: 1.1rem var(--serif); }
 .tp-scholars .cat-library-card .cat-card-name { overflow-wrap: anywhere; }
 .tp-scholars .cat-collections, .tp-scholars .cat-held-count { font-size: .72rem; color: var(--muted); margin-top: .7rem; }
@@ -158,3 +154,35 @@
 }
 
 .tp-scholars .fld-works-scroll { max-height: 60vh; overflow-y: auto; }
+
+/* Keep the card scrollbar inside the content edge, clear of the sort controls. */
+.tp-scholars .cat-scroll { min-width: 0; margin-inline-end: .5rem; padding-inline-end: .75rem; scrollbar-gutter: stable; }
+.tp-scholars .cat-bar { padding-inline-end: 1.625rem; }
+
+/* Keep the established cards as the catalogue; detailed data is an optional view. */
+.tp-scholars .cat-tools { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: .65rem 1rem; }
+.tp-scholars .tp-sec-catalogue .cat-view-toggle { display: inline-flex; align-items: center; gap: .4rem; padding: .35rem .1rem; color: var(--muted); font-size: .75rem; cursor: pointer; }
+.tp-scholars .tp-sec-catalogue .cat-view-toggle:hover { color: var(--accent); }
+.tp-scholars .cat-view-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: .3rem; }
+.tp-scholars .cat-download { display: inline-block; margin-left: 1rem; color: var(--accent); text-underline-offset: 3px; }
+.tp-scholars .cat-download:hover { text-decoration: underline; }
+.tp-scholars .cat-evidence-filters { font-size: .72rem; color: var(--muted); }
+.tp-scholars .cat-evidence-filters summary { cursor: pointer; padding: .2rem 0; }
+.tp-scholars .cat-evidence-filters summary span { color: var(--accent); }
+.tp-scholars .cat-evidence-filters>div { display: grid; gap: .6rem; padding-top: .6rem; }
+.tp-scholars .cat-data-panel { margin-top: 1.25rem; font-size: .76rem; color: var(--muted); }
+.tp-scholars .cat-data-panel>summary { cursor: pointer; width: fit-content; }
+.tp-scholars .cat-scroll[data-view=table] { overflow: auto; }
+.tp-scholars .cat-scroll[data-view=table] .pop-table-wrap { overflow: visible; }
+.tp-scholars .cat-sort-select { display: flex; align-items: center; gap: .6rem; color: var(--muted); font-size: .72rem; }
+.tp-scholars .cat-sort-select select { padding: .5rem .75rem; border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); color: var(--ink); font: inherit; }
+.tp-scholars .cat-filter-dropdown { margin-top: .65rem; border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); font-size: .75rem; }
+.tp-scholars .cat-filter-dropdown>summary { display: flex; align-items: center; gap: .5rem; padding: .65rem .7rem; cursor: pointer; list-style: none; }
+.tp-scholars .cat-filter-dropdown>summary::-webkit-details-marker { display: none; }
+.tp-scholars .cat-filter-dropdown>summary span { margin-left: auto; color: var(--muted); font-size: .65rem; }
+.tp-scholars .cat-filter-dropdown>summary:after { content: ''; width: 6px; height: 6px; margin-left: auto; border-right: 1px solid var(--muted); border-bottom: 1px solid var(--muted); transform: rotate(45deg); flex: none; }
+.tp-scholars .cat-filter-dropdown[open]>summary:after { transform: rotate(225deg); }
+.tp-scholars .cat-filter-dropdown .cat-opts { display: flex; flex-direction: column; gap: 1px; padding: 0 .25rem .35rem; margin: 0; overflow: visible; }
+.tp-scholars .cat-filter-dropdown .cat-opt { width: 100%; border-radius: .45rem; font-size: .76rem; }
+@media(max-width:900px){.tp-scholars .cat-evidence-filters{grid-column:1/-1}}
+@media(max-width:640px){.tp-scholars .cat-tools{justify-content:flex-start;gap:.45rem}.tp-scholars .cat-download{margin-left:.7rem}}

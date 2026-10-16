@@ -5,6 +5,7 @@ import { groupLabels, type GroupStatus } from '@/lib/mission-groups';
 import type { CountryPanelDesign } from '@/lib/country-panel-designs';
 import CountryPeopleGroups from './CountryPeopleGroups';
 import CountryFinder from './CountryFinder';
+import MissionDefinitions from './MissionDefinitions';
 import CountryPanelHeader from './CountryPanelHeader';
 import './country-panel-prototype.css';
 
@@ -47,5 +48,6 @@ export default function CountryPanelPrototype({ country, design, panel, choose, 
       <div className="mw-prototype-body" role="tabpanel" id="mw-groups-panel" aria-labelledby="mw-groups-tab" hidden={panel !== 'groups'}>{panel === 'groups' && <CountryPeopleGroups layout={adopted ? 'b' : design} filter={filter} onFilterChange={setFilter} key={country.code} code={country.code} name={country.name} count={country.imb.totalGroups} snapshotDate={snapshot.snapshotDate} sourceHash={snapshot.sources.imb.sha256} />}</div>
       <div className="mw-prototype-sources"><a href={`https://peoplegroups.org/country/${country.code}/`} target="_blank" rel="noreferrer">IMB profile ↗</a><a href={snapshot.sources.pew.url} target="_blank" rel="noreferrer">Pew demographics ↗</a></div>
     </article>
+    {panel === 'gospel' && <MissionDefinitions />}
   </div>;
 }

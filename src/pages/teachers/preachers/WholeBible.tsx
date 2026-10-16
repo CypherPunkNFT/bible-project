@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, 
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { useThemeVersion } from "@/lib/theme";
+import { OutsideScroll } from "@/components/OutsideScroll";
 import { SectionHead } from "../shared/Frame";
 import { formatNumber } from "../shared/people";
 import { usePreachers } from "./context";
@@ -163,8 +164,10 @@ export function WholeBible() {
         <div className="bib-legend">{Object.entries(SECTION_LABEL).map(([key, label]) => <span key={key}><i style={{ background: `var(--${key})` }} />{label}</span>)}
           <span className="bib-legend-quiet"><i />No work yet</span></div>
       </div>
-      <aside className="bib-detail slim-scroll" aria-live="polite">
-        {narrow || shownCell < 0 ? summary : chapter(shownCell, pinned >= 0 && hovered < 0)}
+      <aside className={`bib-detail${narrow ? " slim-scroll" : ""}`} aria-live="polite">
+        {narrow ? summary : <OutsideScroll label="Chapter details" className="bib-detail-scroll" frameClassName="bib-detail-frame" viewportClassName="bib-detail-viewport" resetKey={`${view}-${shownCell}`}>
+          {shownCell < 0 ? summary : chapter(shownCell, pinned >= 0 && hovered < 0)}
+        </OutsideScroll>}
       </aside>
     </div>
     <div ref={sheetRef} className={`bib-sheet slim-scroll${sheetOpen ? " bib-open" : ""}`} role="dialog" aria-label="Chapter">

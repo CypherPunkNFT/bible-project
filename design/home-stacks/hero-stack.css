@@ -1,0 +1,27 @@
+body footer { display: none; }
+.hero-stack { position:absolute; inset:0; z-index:2; }
+.hero-card-deck { position:absolute; top:20%; left:10%; width:83%; height:280px; transform:rotate(-9deg); touch-action:pan-y; outline-offset:14px; }
+.hero-stack-card { position:absolute; inset:0; transform:translate(calc(var(--depth) * 10px),calc(var(--depth) * -18px)) rotate(calc(var(--depth) * 2.5deg)); transform-origin:center; transition:transform .5s cubic-bezier(.22,.8,.2,1),opacity .35s; border-radius:8px 15px 15px 8px; background:var(--surface); box-shadow:0 1px 0 1px color-mix(in srgb,var(--card-color) 40%,var(--line)),0 12px 25px #0002; }
+.hero-stack-card:not([data-depth="0"]) { pointer-events:none; background:color-mix(in srgb,var(--card-color) 6%,var(--surface)); }
+.hero-stack-card:not([data-depth="0"]) > * { visibility:hidden; }
+.hero-stack-card .home-open-bible { height:100%; min-height:0; }
+.hero-stack-card[data-depth="0"]:hover { outline:1px solid var(--card-color); }
+.hero-collection-card { height:100%; display:grid; grid-template-columns:42% 58%; align-items:center; border:1px solid color-mix(in srgb,var(--card-color) 40%,var(--line)); border-radius:inherit; overflow:hidden; background:radial-gradient(ellipse at top left,color-mix(in srgb,var(--card-color) 10%,transparent),transparent 70%),var(--surface); }
+.hero-collection-art { color:var(--card-color); padding:18px; }
+.hero-collection-art svg { width:100%; height:150px; }
+.hero-collection-copy { border-left:1px solid var(--line); padding:22px; }
+.hero-collection-copy > span { font-size:8px; color:var(--card-color); text-transform:uppercase; letter-spacing:.12em; }
+.home-hub .hero-collection-copy h2 { font-size:29px; margin:9px 0 12px; }
+.hero-collection-copy p { font-size:11px; line-height:1.8; color:var(--muted); }
+.hero-collection-copy strong { display:flex; align-items:center; gap:10px; margin-top:20px; font-size:10px; font-weight:500; color:var(--card-color); }
+.hero-stack-controls { position:absolute; bottom:5%; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:24px; }
+.hero-stack-controls button { display:grid; place-items:center; width:32px; height:32px; border:1px solid var(--line); border-radius:50%; color:var(--accent); background:var(--page); }
+.hero-stack-controls button:hover { border-color:var(--accent); background:var(--surface); }
+.hero-stack-controls > span { min-width:78px; text-align:center; font-size:11px; }
+.hero-stack-controls small { display:block; margin-top:4px; color:var(--muted); font-size:9px; }
+.hero-stack-hint { position:absolute; bottom:-1%; width:100%; text-align:center; font-size:8px; letter-spacing:.12em; color:var(--muted); }
+.home-coordinate-bottom { bottom:0; }
+@media(max-width:1050px) and (min-width:701px) { .hero-card-deck { height:235px; top:17%; } .hero-collection-copy { padding:14px; } .home-hub .hero-collection-copy h2 { font-size:23px; } .hero-collection-copy p { font-size:10px; } .hero-stack-controls { bottom:1%; } .hero-stack-hint { bottom:-6%; } }
+@media(max-width:700px) { .home-opening .home-hero { grid-template-columns:1fr; } .home-hub .home-opening .home-hero-art { display:block; height:355px; margin-top:18px; } .hero-card-deck { top:17%; left:4%; width:88%; height:218px; } .hero-collection-art { padding:10px; } .hero-collection-copy { padding:14px; } .home-hub .hero-collection-copy h2 { font-size:22px; } .hero-collection-copy p { font-size:9px; line-height:1.6; } .hero-collection-copy strong { margin-top:12px; font-size:9px; } .hero-stack-controls { bottom:4%; } .hero-stack-hint { bottom:-1%; } .home-hero-coordinate { display:none; } .hero-stack-card .home-open-bible > div { padding:18px 12px; } .hero-stack-card .home-book-left p { font-size:9px; } .hero-stack-card .home-open-bible b { font-size:25px; } }
+@media(prefers-reduced-motion:reduce) { .hero-stack-card { transition:none; } }
+

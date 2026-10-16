@@ -5,6 +5,7 @@ import subprocess
 from pathlib import Path
 from .bibles import read_json
 from .references import parse_reference
+from .library_identity import IDENTITY_FILE
 
 
 def source_text(file):
@@ -20,6 +21,7 @@ class TextContext:
     def __init__(self, catalog):
         self.catalog = catalog
         self.books = {book["num"]: book for book in catalog["books"]}
+        self.reference_rejections=[]
 
     def ref(self, number):
         book = self.books.get(number // 1000000)
@@ -40,9 +42,14 @@ class TextContext:
             return self.ref(value)
         return str(value) if value is not None else ""
 
-    def refs(self, value, key=""):
+    def refs(self, value, key="", trail=()):
         if isinstance(value, str) and key == "reference":
-            parsed = parse_reference(value, self.catalog)
+            try:parsed = parse_reference(value, self.catalog)
+            except ValueError as error:
+                pointer='/'+ '/'.join(str(part).replace('~','~0').replace('/','~1') for part in trail)
+                self.reference_rejections.append({'literal':value,'reason':str(error),'jsonPointer':pointer,
+                    'disposition':'original text retained; invalid Scripture link omitted'})
+                return
             if parsed:
                 book, chapter, first, last_chapter, last = parsed
                 yield book["num"]*1000000 + chapter*1000 + first, book["num"]*1000000 + last_chapter*1000 + last
@@ -50,21 +57,27 @@ class TextContext:
             if "start" in value and "end" in value and isinstance(value["start"], int):
                 yield value["start"], value["end"]
             for k, item in value.items():
-                yield from self.refs(item, k)
+                yield from self.refs(item, k,trail+(k,))
         elif isinstance(value, list):
             if key in ("v", "verses", "refs", "r") and all(isinstance(x, int) for x in value):
                 yield from ((x, x) for x in value if x >= 1001001)
             elif len(value) == 2 and all(isinstance(x, int) and x >= 1001001 for x in value):
                 yield value[0], value[1]
             else:
-                for item in value:
-                    yield from self.refs(item, "span" if isinstance(item, list) else key)
+                for ordinal,item in enumerate(value):
+                    yield from self.refs(item, "span" if isinstance(item, list) else key,trail+(ordinal,))
 
 
 def record(writer, context, id, title, value, kind, path, licence, link=""):
+    before=len(context.reference_rejections)
+    references=set(context.refs(value))
+    if len(context.reference_rejections)>before:
+        if not hasattr(writer,'reference_rejections'):writer.reference_rejections=[]
+        writer.reference_rejections.extend({'documentId':id,'path':str(path),**row}
+            for row in context.reference_rejections[before:])
     writer.document(id, title, kind, path, licence, metadata=value if isinstance(value, dict) else {"data": value})
     writer.chunk(id, title, context.text(value), kind, link=link, locator=id)
-    for start, end in set(context.refs(value)):
+    for start, end in references:
         writer.reference(id, start, end, source=path)
 
 
@@ -142,7 +155,8 @@ def import_authored(writer, catalog):
     content = site / "content"
     if content.exists():
         for file in sorted(content.rglob("*.json")):
-            if file.is_relative_to(content / "library/catalog") or file.is_relative_to(content / "library/reports"):
+            if (file.is_relative_to(content / "library/catalog") or file.is_relative_to(content / "library/reports")
+                or file==site/IDENTITY_FILE):
                 continue  # The library adapter retains these ledgers and indexes actual works.
             value = read_json(file)
             writer.file(file)
@@ -150,6 +164,10 @@ def import_authored(writer, catalog):
             title = body.get("title", file.stem) if isinstance(body, dict) else file.stem
             record(writer, context, f"content:{file.relative_to(content).as_posix()}", title, value, "authored_document", file,
                    "Bible Project authored document; publication/review status retained")
+    from .settings import write_json
+    write_json(writer.config['state_dir']/'authored-reference-rejections.json',{
+        'items':getattr(writer,'reference_rejections',[]),'textImportHolds':0,
+        'scope':'Invalid explicit Scripture reference fields; original text/metadata preserved without guessed links'})
 
 
 def import_reference_books(writer):

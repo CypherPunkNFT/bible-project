@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ACQUIRED_BASE, recordUrl, getAcquired, workUrl, languageLabel, sourceLabel, type AcquiredCatalogue as Catalogue, type AcquiredContributor, type AcquiredWork } from "./acquired";
+import { ACQUIRED_BASE, getAcquired, getContributorShelf, workUrl, languageLabel, sourceLabel, type AcquiredCatalogue as Catalogue, type AcquiredContributor, type AcquiredWork } from "./acquired";
 import { SectionHead } from "./Frame";
 import "./acquired.css";
 
@@ -15,12 +15,12 @@ function useAcquiredCatalogue() {
   return { data, error };
 }
 
-export function ContributorWorks({ contributor }: { contributor: AcquiredContributor }) {
+export function ContributorWorks({ contributor, onOpenWork }: { contributor: Pick<AcquiredContributor, "id">; onOpenWork?: (work: AcquiredWork, origin: HTMLElement) => void }) {
   const [rows, setRows] = useState<AcquiredWork[]>([]), [query, setQuery] = useState(""), [page, setPage] = useState(0), [error, setError] = useState("");
   useEffect(() => {
     const abort = new AbortController();
     setRows([]); setError(""); setPage(0);
-    recordUrl(contributor.id, "contributors").then(url => getAcquired<Record<string, AcquiredWork[]>>(url, abort.signal)).then(data => { if (!abort.signal.aborted) setRows(data[contributor.id] ?? []); }).catch(error => { if (!abort.signal.aborted) setError(error.message); });
+    getContributorShelf(contributor.id,abort.signal).then(data => { if (!abort.signal.aborted) setRows(data); }).catch(error => { if (!abort.signal.aborted) setError(error.message); });
     return () => abort.abort();
   }, [contributor.id]);
   const found = useMemo(() => rows.filter(w => `${w.title} ${w.source} ${w.language}`.toLowerCase().includes(query.toLowerCase())), [rows, query]);
@@ -28,7 +28,7 @@ export function ContributorWorks({ contributor }: { contributor: AcquiredContrib
     <label>Find a work<input value={query} onChange={e => { setQuery(e.target.value); setPage(0); }} placeholder="Title, source or language" /></label>
     <p className="acq-caption">{found.length.toLocaleString()} text representations. Editions and formats can overlap; this is not a count of distinct books.</p>
     {error && <p role="alert">{error}</p>}
-    <ul>{found.slice(page * 20, (page + 1) * 20).map(w => <li key={w.id}><Link to={workUrl(w.id)}><strong>{w.title}</strong><span>{languageLabel(w.language)} · {sourceLabel(w.source)}</span><small>{w.availability === "on-site-text" ? "Read on this site" : "Held · public text pending"}</small></Link></li>)}</ul>
+    <ul>{found.slice(page * 20, (page + 1) * 20).map(w => <li key={w.id}>{onOpenWork ? <button type="button" onClick={e=>onOpenWork(w,e.currentTarget)}><strong>{w.title}</strong><span>{languageLabel(w.language)} · {sourceLabel(w.source)}</span><small>{w.localReadable ? "Read local copy" : w.availability === "on-site-text" ? "Read on this site" : "Catalogue only · no held reading copy"}</small></button> : <Link to={workUrl(w.id)}><strong>{w.title}</strong><span>{languageLabel(w.language)} · {sourceLabel(w.source)}</span><small>{w.localReadable ? "Read local copy" : w.availability === "on-site-text" ? "Read on this site" : "Catalogue only · no held reading copy"}</small></Link>}</li>)}</ul>
     {found.length > 20 && <nav className="acq-pagination" aria-label="Work pages"><button disabled={!page} onClick={() => setPage(p => p - 1)}>Previous</button><span>{page + 1} / {Math.ceil(found.length / 20)}</span><button disabled={(page + 1) * 20 >= found.length} onClick={() => setPage(p => p + 1)}>Next</button></nav>}
   </div>;
 }

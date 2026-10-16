@@ -230,3 +230,18 @@
 
 /* Original catalogue positions do not apply inside the new subject categories. */
 .theology-original-cards .study-card-number { display: none; }
+
+.study-memory-art { color:var(--epistles); }
+.study-memory-art svg { width:100%; max-width:600px; height:170px; }
+.study-memory-resource .study-card-number { display:none; }
+@media(max-width:767px){.study-contents-grid[data-count='6']{grid-template-columns:1fr}}
+
+/* Centered memory artwork and gentle invitations on the paired People cards. */
+.study-memory-art { display:flex; align-items:flex-start; justify-content:center; }
+.study-memory-art .study-memory-grid { display:block; margin:0 auto; }
+.study-memory-glass { animation:study-memory-float 4.5s ease-in-out infinite; filter:drop-shadow(0 3px 5px color-mix(in srgb,var(--resource-color) 25%,transparent)); }
+@keyframes study-memory-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-5px); } }
+.theology-cards-people .study-resource-link::after { content:""; position:absolute; bottom:0; left:0; right:0; height:46px; pointer-events:none; opacity:0; background:radial-gradient(ellipse at 50% 100%,color-mix(in srgb,var(--resource-color) 32%,transparent),transparent 75%); transition:opacity .3s; }
+.theology-cards-people .study-resource-link:is(:hover,:focus-visible)::after { opacity:1; }
+.study-memory-resource .study-resource-link:is(:hover,:focus-visible) .study-memory-glass { filter:drop-shadow(0 3px 9px color-mix(in srgb,var(--resource-color) 45%,transparent)); }
+@media(prefers-reduced-motion:reduce){.study-memory-glass{animation:none}.theology-cards-people .study-resource-link::after{transition:none}}

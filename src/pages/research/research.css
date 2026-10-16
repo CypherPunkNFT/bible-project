@@ -1,4 +1,4 @@
-.rs-page{--rs-accent:var(--history);--rs-art-fill:var(--surface-2);max-width:1200px;margin:auto;padding:0 28px;color:var(--ink)}
+.rs-page{--rs-accent:var(--history);--rs-art-fill:var(--surface-2);max-width:var(--site-content-width);margin:auto;padding:0 var(--site-gutter);color:var(--ink)}
 .rs-page a,.rs-page button,.rs-page input,.rs-page textarea,.rs-page summary{touch-action:manipulation}
 .rs-page a:focus-visible,.rs-page summary:focus-visible,.rs-page input:focus-visible,.rs-page textarea:focus-visible{outline:0;background:color-mix(in srgb,var(--rs-accent) 15%,var(--surface));box-shadow:inset 0 -2px 0 var(--rs-accent);border-radius:3px}
 .rs-page a{transition:color .15s,background .15s}.rs-page a:hover{color:var(--rs-accent)}

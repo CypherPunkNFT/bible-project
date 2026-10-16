@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-tcp-a41197",
+  "editorialState": "draft",
+  "notes": [
+    "Galatians and Ephesians container retained; no component work IDs allocated. Legacy acquisition work-tcp-A41197 retained in external identifiers."
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-12",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-approved source-bound identity and edition metadata; no whole-text theological approval or new public clearance."
+    }
+  ],
+  "title": "A brief exposition of the Epistles of Paul to the Galatians and Ephesians",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-james-fergusson",
+      "role": "author"
+    }
+  ],
+  "genre": "commentary",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-eebo-tcp": [
+      "A41197",
+      "work-tcp-A41197"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A41197/master/A41197.xml",
+      "locator": "Held XML title/creator and publication headers; original SHA256 140823cc0ca835eda48a3dc99d4025ef928530e997e92a25e5fecbc82b00f0d2",
+      "note": "Source-bound identity/date/role assertions verified by P3. Unknown composition and delivery dates remain unknown.",
+      "checkedOn": "2026-10-12"
+    }
+  ]
+}

@@ -13,12 +13,14 @@ import re
 import shutil
 import sys
 import unicodedata
+from teacher_identity_overrides import load_overrides, apply_record
 
 SITE = Path(__file__).resolve().parents[1]
 ROOT = SITE.parent
 sys.path.insert(0, str(SITE))
 from knowledge.library import objects
 from knowledge.library_extract import extract, VERSION
+from knowledge.library_identity import load_contributors
 
 OUT = SITE / '.local/teacher-library-unpacked'
 PRIVATE = SITE / '.local/teacher-library'
@@ -145,6 +147,7 @@ def prepare_text(row, path, record):
 
 
 def main():
+    identity_overrides = load_overrides(SITE)
     try:
         import ctypes
         ctypes.windll.kernel32.SetPriorityClass(ctypes.windll.kernel32.GetCurrentProcess(), 0x4000)
@@ -165,6 +168,11 @@ def main():
         ident = aliases.get(key(name(s['name']) or s['name'])) or 'scholar-' + s['id']
         identities[ident] = {'id': ident, 'name': s['name'], 'side': 'scholars', 'traditions': [s['faith']], 'profileId': s['id']}
         for value in [s['name'], s['short']]: aliases[key(name(value) or value)] = ident
+    contributor_authorities=load_contributors(SITE)
+    for ident,a in contributor_authorities.items():
+        identities[ident]=identities.get(ident,{'id':ident,'profileId':None}) | {
+            'name':a['name'],'entityType':a.get('entityType'),'eligibility':a.get('eligibility'),
+            'side':'preachers' if a.get('eligibility')=='eligible' else 'scholars','traditions':a.get('traditions',[])}
     # The owner's Baptist campaign selection, without inventing biographies.
     for label in read(SITE / 'content/teachers/acquired-selection.json')['preachers']:
         ident = aliases.get(key(label)) or 'contributor-' + hashlib.sha256(key(label).encode()).hexdigest()[:20]
@@ -173,6 +181,14 @@ def main():
     # These are recorded aliases of existing people, not a fuzzy name join.
     for alias, ident in {'Charles Haddon Spurgeon':'author-charles-spurgeon','Charles H. Spurgeon':'author-charles-spurgeon','Dwight Lyman Moody':'author-d-l-moody','W. A. Criswell':'author-w-a-criswell','William A. Criswell':'author-w-a-criswell','Augustinus':'scholar-augustine','Aurelius Augustinus':'scholar-augustine','Thomas Aquinas':'scholar-aquinas'}.items():
         if ident in identities: aliases[key(alias)] = ident
+    # Preserve existing shelf IDs when newly registered canonical contributors
+    # become available. A source-local credit does not merge uncertain names.
+    for correction in identity_overrides.values():
+        for credit in correction['credits']:
+            ident = credit['contributorId']
+            if ident:
+                aliases[key(credit['name'])] = ident
+                identities[ident] = identities.get(ident, {'id':ident,'name':credit['name'],'side':'scholars','traditions':[],'profileId':None})
     # Canonical works all receive an internal record. No external reading fallback.
     works, editions, url_to_work, assets = {}, {}, {}, []
     for f in sorted((SITE / 'content/library/catalog/works').glob('*.json')):
@@ -270,6 +286,11 @@ def main():
         if not sha or not re.fullmatch('[0-9a-fA-F]{64}', sha):
             missing += 1; continue
         if sha in seen: continue
+        correction = identity_overrides.get(sha)
+        if correction and correction['fields'].get('authors') is not None:
+            row = row | {'authorNames':correction['fields']['authors'], 'author':'; '.join(correction['fields']['authors']),
+                         'translator':[c['name'] for c in correction['credits'] if c['role']=='translator' and c['contributorId']],
+                         'workId':correction['fields']['workId'], 'editionId':correction['fields']['editionId']}
         if not p.is_file(): missing += 1; continue
         title = str(row.get('title') or '').strip()
         if not title: missing += 1; continue
@@ -313,6 +334,7 @@ def main():
             if stale.is_dir():
                 if not stale.is_relative_to((OUT / 'text').resolve()): raise ValueError('Unexpected output path')
                 shutil.rmtree(stale)
+        record = apply_record(record, identity_overrides)
         records[rid] = record
         private[rid] = {'path':pathstr,'row':row,'authors':author_ids,'workId':record['workId']}
         for ident in dict.fromkeys(author_ids + credits):
@@ -351,6 +373,19 @@ def main():
     for shard, rows_ in shards.items(): write(OUT / 'records' / (shard + '.json'), rows_)
     for ident, ids in by_contributor.items():
         write(OUT / 'contributors' / (ident + '.json'), [{k:records[rid][k] for k in ['id','title','language','source','availability','genre']} for rid in ids])
+    # Source-verified identities also cover existing canonical stub memberships.
+    # Preserve record IDs and memberships; no biography or teaching approval is inferred.
+    for ident,a in contributor_authorities.items():
+        ids=[rid for rid,r in records.items() if ident in r.get('contributors',[])]
+        if not ids:continue
+        entry=contributors.setdefault(ident,identities[ident] | {'roles':[]})
+        entry.update(identities[ident]);roles=set(entry.get('roles',[]))
+        for rid in ids:
+            for credit in works.get(records[rid].get('workId'),{}).get('creators',[]):
+                if credit.get('authorId')==ident and credit.get('role'):roles.add(credit['role'])
+        entry.update(records=len(ids),readable=sum(records[r]['availability']=='on-site-text' for r in ids),roles=sorted(roles))
+        by_contributor[ident]=ids
+        write(OUT/'contributors'/(ident+'.json'),[{k:records[rid][k] for k in ['id','title','language','source','availability','genre']} for rid in ids])
     ordered = sorted(contributors.values(), key=lambda c:c['name'].casefold())
     write(PRIVATE / 'teacher-input.json', {
         'addresses': {wid:'/teachers/works/'+rid for wid,rid in route_by_work.items() if records[rid]['availability']=='on-site-text'},

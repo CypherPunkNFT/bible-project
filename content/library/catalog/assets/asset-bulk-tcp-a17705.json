@@ -1,0 +1,85 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-bulk-tcp-a17705",
+  "editorialState": "draft",
+  "notes": [
+    "Existing held original registered in place; no acquisition, re-extraction or publication action."
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-12",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-approved source-bound identity and edition metadata; no whole-text theological approval or new public clearance."
+    }
+  ],
+  "editionId": "edition-reconciled-0418b34a71238f5cdfa389ce",
+  "sourceId": "source-tcp-bulk",
+  "canonicalUrl": "https://raw.githubusercontent.com/textcreationpartnership/A17705/master/A17705.xml",
+  "finalUrl": "https://raw.githubusercontent.com/textcreationpartnership/A17705/master/A17705.xml",
+  "format": "other",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-tcp-bulk/asset-bulk-tcp-a17705/original.xml",
+  "sha256": "ec5430010801378dda5e6e5fa89e87b142281c45a416acf56a800d88bb984757",
+  "byteCount": 2379411,
+  "mimeType": "application/xml",
+  "retrievedAt": "2026-10-07T15:50:31.141815Z",
+  "rights": {
+    "category": "open-license",
+    "jurisdiction": null,
+    "licenseId": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "attribution": "John Calvin (author); Arthur Golding (translator); Text Creation Partnership",
+    "conditions": [
+      "Retain source provenance and encoded gaps; dedication concerns transcription, not scan images."
+    ],
+    "conditionsMet": true,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "allowed",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://raw.githubusercontent.com/textcreationpartnership/A17705/master/A17705.xml",
+        "locator": "Held XML title/creator and publication headers; original SHA256 ec5430010801378dda5e6e5fa89e87b142281c45a416acf56a800d88bb984757",
+        "note": "Source-bound identity/date/role assertions verified by P3. Unknown composition and delivery dates remain unknown.",
+        "checkedOn": "2026-10-12"
+      }
+    ],
+    "unresolved": [
+      "Existing public reader availability retained; no new derivative publication review performed."
+    ],
+    "review": {
+      "date": "2026-10-12",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-approved source-bound identity and edition metadata; no whole-text theological approval or new public clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Source-offered ThML transcription retained unchanged; no OCR, generated reconstruction, or public full-text indexing."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-12",
+    "note": "Original bytes and metadata verified; transcription gaps and claim-level interpretation remain unreviewed."
+  }
+}

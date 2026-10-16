@@ -1,0 +1,46 @@
+import { chromium } from '@playwright/test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const base='http://127.0.0.1:8931';
+const route='/study/how-the-canon-took-shape';
+const data=JSON.parse(fs.readFileSync('content/academic-research/04-how-the-canon-took-shape.json','utf8'));
+const output='.local/canon-qa';fs.mkdirSync(output,{recursive:true});
+const sourceIds=new Set(data.sources.map(s=>s.id));
+for(const item of [...data.records,...data.traditions,...data.evidenceKinds]) for(const id of item.sourceIds) assert.ok(sourceIds.has(id),id);
+for(const t of data.traditions) assert.equal(t.states.length,data.comparisonRows.length);
+const browser=await chromium.launch({channel:'msedge'});
+const page=await browser.newPage({viewport:{width:1440,height:1000}});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));
+const checks=[];
+const pass=x=>{checks.push(x);console.log('PASS',x);};
+await page.addInitScript(()=>{window.canonTransitions=[];if(document.startViewTransition){const start=document.startViewTransition.bind(document);document.startViewTransition=update=>{const item={};window.canonTransitions.push(item);const t=start(update);t.ready.then(()=>Object.assign(item,{animation:getComputedStyle(document.documentElement,'::view-transition-new(site-page)').animationName,headerOpacity:getComputedStyle(document.documentElement,'::view-transition-new(site-header)').opacity,headerZ:getComputedStyle(document.documentElement,'::view-transition-group(site-header)').zIndex})).catch(()=>{});return t;};}});
+try{
+ const response=await page.goto(base+route);assert.equal(response.status(),200);await page.locator('.cn-hero h1').waitFor();await page.evaluate(()=>document.fonts.ready);pass('Preview route and lazy component load');
+ await page.screenshot({path:output+'/desktop.png',fullPage:true});
+ for(let i=0;i<data.evidenceKinds.length;i++){const button=page.getByRole('group',{name:'Kinds of evidence'}).getByRole('button').nth(i);await button.focus();await page.keyboard.press('Enter');assert.equal(await button.getAttribute('aria-pressed'),'true');assert.ok((await page.locator('#cn-kind-explanation').innerText()).includes(data.evidenceKinds[i].example));}
+ pass('Five evidence controls operate from keyboard and reveal matching explanations');
+ for(let era=0;era<4;era++){
+  await page.getByRole('group',{name:'Timeline periods'}).getByRole('button').nth(era).click();
+  const records=data.records.filter(r=>r.era===era);
+  for(let i=0;i<records.length;i++){await page.getByRole('group',{name:'Choose a historical record'}).getByRole('button').nth(i).click();await page.waitForURL(u=>u.searchParams.get('record')===records[i].id);assert.equal(await page.locator('#cn-record-heading').innerText(),records[i].title);await page.locator('.cn-contents summary').click();assert.ok(await page.locator('.cn-contents').evaluate(e=>e.open));assert.equal(await page.locator('.cn-contents li').count(),records[i].contents.length);await page.locator('.cn-contents summary').click();}
+ }
+ pass('All eighteen timeline records, dates, citations and collection details');
+ await page.getByRole('button',{name:'Later record',exact:true}).isDisabled().then(x=>assert.ok(x));
+ await page.goto(base+route+'?record=sirach');await page.getByRole('button',{name:'Earlier record',exact:true}).isDisabled().then(x=>assert.ok(x));
+ await page.goto(base+route+'?record=invalid');assert.equal(await page.locator('#cn-record-heading').innerText(),data.records.find(r=>r.id==='eusebius').title);pass('Deep links, invalid-record fallback and timeline boundaries');
+ for(const [i,book] of ['Hermas','Esther','Revelation'].entries()){await page.getByRole('group',{name:'Follow a writing'}).getByRole('button').nth(i).click();assert.equal(await page.locator('.cn-trail li').count(),data.records.filter(r=>r.books?.[book]).length);}
+ await page.locator('.cn-trail button').first().focus();await page.keyboard.press('Enter');await page.waitForFunction(()=>document.activeElement?.id==='cn-record-heading');assert.ok(await page.locator('#canon-register').evaluate(e=>e.getBoundingClientRect().top>=60));pass('Writing trails and keyboard focus return to the source record');
+ for(const t of data.traditions){await page.locator('#cn-left').selectOption(t.id);for(let i=0;i<data.comparisonRows.length;i++)assert.equal(await page.locator('tbody tr').nth(i).locator('td').first().innerText(),t.states[i]);}
+ for(const t of data.traditions){await page.locator('#cn-right').selectOption(t.id);for(let i=0;i<data.comparisonRows.length;i++)assert.equal(await page.locator('tbody tr').nth(i).locator('td').last().innerText(),t.states[i]);}
+ assert.ok(await page.locator('.cn-same').isVisible());await page.locator('#cn-left').selectOption('jewish');await page.locator('#cn-right').selectOption('reformed');
+ await page.locator('.cn-counts summary').focus();await page.keyboard.press('Space');assert.ok(await page.locator('.cn-counts').evaluate(e=>e.open));pass('Six independent comparison choices, all cells and counting explanation');
+ for(const correct of [1,2,0]){await page.locator('.cn-question [role=group] button').nth((correct+1)%3).click();assert.ok((await page.locator('.cn-feedback').innerText()).includes('beyond'));await page.locator('.cn-question [role=group] button').nth(correct).click();assert.ok((await page.locator('.cn-feedback').innerText()).includes('supported'));await page.locator('.cn-next').click();}pass('All three reasoning exercises, supported and unsupported answers');
+ await page.locator('.cn-reading>details>summary').click();assert.equal(await page.locator('.cn-source-list>div').count(),data.sources.length);pass('Source directory with accurate access notes');
+ for(const width of [320,390,768]){await page.setViewportSize({width,height:844});await page.goto(base+route+'?record=athanasius');await page.locator('.cn-hero h1').waitFor();assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'overflow '+width);await page.locator('#cn-right').selectOption('ethiopian');await page.locator('.cn-table-wrap').scrollIntoViewIfNeeded();await page.locator('.cn-table-wrap').evaluate(e=>e.scrollLeft=e.scrollWidth);assert.ok(await page.locator('.cn-table-wrap').evaluate(e=>e.scrollLeft>0)||width===768);if(width<720)assert.ok(await page.locator('tbody th').first().evaluate(e=>e.getBoundingClientRect().left>=15),'Writing names remain visible after scroll');assert.ok(await page.locator('[data-site-header]').evaluate(e=>Math.abs(e.getBoundingClientRect().top)<1));await page.screenshot({path:output+`/comparison-${width}.png`});await page.evaluate(()=>scrollTo(0,0));if(width===390){await page.screenshot({path:output+'/mobile.png',fullPage:true});await page.screenshot({path:output+'/mobile-hero.png'});await page.locator('#canon-register').scrollIntoViewIfNeeded();await page.screenshot({path:output+'/mobile-register.png'});}}pass('320, 390 and 768px layouts: no page overflow; scrollable comparison, pinned writing names and fixed header');
+ await page.setViewportSize({width:1440,height:1000});await page.goto(base+route);await page.getByRole('switch',{name:'Dark mode'}).click();await page.screenshot({path:output+'/alternate-theme.png',fullPage:true});pass('Alternate theme rendering');
+ await page.goto(base+'/study/academic?area=texts');const link=page.locator(`a[href="${route}"]`).first();await link.waitFor();await link.click();await page.waitForURL(u=>u.pathname===route);await page.waitForFunction(()=>window.canonTransitions.some(x=>x.animation));const transitions=await page.evaluate(()=>window.canonTransitions);assert.equal(transitions.at(-1).animation,'site-page-rise-in');assert.equal(transitions.at(-1).headerOpacity,'1');assert.equal(transitions.at(-1).headerZ,'100');await page.waitForFunction(()=>!document.documentElement.dataset.sitePageSlide);pass('Academic category link and standard page transition; header remains visible');
+ const before=await page.evaluate(()=>window.canonTransitions.length);await page.getByRole('button',{name:'Later record',exact:true}).click();assert.equal(await page.evaluate(()=>window.canonTransitions.length),before);pass('Timeline selection does not trigger a full-page transition');
+ await page.emulateMedia({reducedMotion:'reduce'});await page.getByRole('button',{name:'Earlier record',exact:true}).click();assert.equal(await page.locator('.cn-record-body').evaluate(e=>getComputedStyle(e).animationName),'none');const reducedBefore=await page.evaluate(()=>window.canonTransitions.length);await page.locator('.cn-breadcrumb a').click();await page.waitForURL(u=>u.pathname==='/study/academic');assert.equal(await page.evaluate(()=>window.canonTransitions.length),reducedBefore);await page.goBack();await page.waitForURL(u=>u.pathname===route);await page.locator('.cn-hero h1').waitFor();pass('Reduced motion, return navigation and browser Back');
+ assert.deepEqual(errors,[]);pass('No browser page errors');
+ fs.writeFileSync(output+'/report.json',JSON.stringify({url:base+route,checks,errors,transitions},null,2)+'\n');
+}catch(error){console.log('BROWSER ERRORS',errors);console.log('PAGE',await page.locator('body').innerText());await page.screenshot({path:output+'/failure.png',fullPage:true});throw error;}finally{await browser.close();}

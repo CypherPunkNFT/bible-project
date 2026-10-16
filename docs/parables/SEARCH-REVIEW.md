@@ -1,0 +1,11 @@
+# Study search: implementation step 7
+
+Implemented 11 October 2026 following authorization for the next step. Search now accepts reordered words, repeated whitespace, straight/curly apostrophes, ampersands and British/American neighbour spelling. It searches study titles, existing familiar-name aliases, guiding questions and theme names. All meaningful words must match; title/alias matches come first, with the existing study order preserved within each group. Short connecting words are ignored. Internal image identifiers are no longer search terms.
+
+Gospel references are parsed separately. Full names and common abbreviations (Matthew/Matt/Mat/Mt, Mark/Mrk/Mk, Luke/Luk/Lk) support optional chapter numbers and verses or same-chapter ranges. For example, `Matt. 13:18` finds a study whose linked passage contains that verse. Chapter numbers match exactly, so `Luke 1` does not match Luke 11 or 15. Range searches match overlapping linked ranges, including passage settings/explanations where the study deliberately links those. The result displays the matching range; choosing it opens that Gospel account. Reference lookup searches the curated collection, not every verse of the Bible.
+
+The search field has a brief example and a Clear search control. Result counts identify the active category. If another category contains matching studies, Search all categories preserves the query while widening the scope. The existing Show all studies recovery clears both filters. Clearing the query retains the category and moves focus to the input. URL persistence from step 6 remains intact. Textual study content, categories and counts are unchanged; no fuzzy or full-commentary search is claimed.
+
+## Verification
+
+`scripts/check-parables-search.ts` checks every study title plus reordered aliases, normalization, themes, chapter/verse boundaries, overlapping ranges, invalid ranges and empty results. The browser suite exercises representative searches, matching-account opening, clear-search focus and widening beyond a category without losing the query, alongside the existing navigation and study checks in six viewport/theme combinations. Screenshots of the empty category state support visual review. Final execution results are recorded in the page handoff. Step 8 and later work await authorization; no publication.

@@ -1,0 +1,6 @@
+@import "./standard-page-motion.css";
+/* Keep site navigation above every page-content snapshot. */
+html:is([data-site-page-slide],[data-ap-section-slide],[data-memory-page-slide],[data-study-slide],[data-teacher-slide],[data-resource-slide],[data-places-slide],[data-people-slide],[data-topics-slide]) [data-site-header]{view-transition-name:site-header}
+::view-transition-group(site-header){animation:none;z-index:100}
+::view-transition-old(site-header){display:none}
+::view-transition-new(site-header){animation:none;mix-blend-mode:normal;opacity:1}

@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Icon, StudyLink } from "./shared";
 import { HubSearch } from "./HubSearch";
-import { JesusCard } from "./JesusCard";
 import { PeopleCards } from "./PeopleCards";
 import "./hub.css";
 const AtlasWindow = lazy(() => import("./AtlasWindow"));
@@ -14,7 +13,8 @@ export default function StudyHub() {
         <h1>Go deeper into <em>the Word.</em></h1>
         <p className="intro-lead">Begin with Scripture and its teaching, or explore the history,<br className="wide-break"/> texts and people that illuminate it.</p>
       </div>
-    <HubSearch /></header>    <div className="section-rule"><span>Choose your way in</span><span>Scripture, its teaching and its world.</span></div>
+    <HubSearch /></header>
+    <div className="section-rule"><span>Choose your way in</span><StudyLink to="/study/circles">Circles of study · Explore the works behind each subject <Icon name="arrowUp"/></StudyLink></div>
     <section className="study-doors" aria-label="Study collections">
       <StudyLink className="study-door scripture-door" to="/study/theology/" aria-labelledby="scripture-title">
         <div className="door-top"><span>01 / Begin with the passage</span><Icon name="book"/></div>
@@ -78,6 +78,6 @@ export default function StudyHub() {
       </StudyLink>
     </section>
 
-    <JesusCard /><PeopleCards /><Suspense fallback={<p className="atlas-loading">Loading the Atlas…</p>}><AtlasWindow /></Suspense><section className="hub-closing"><p className="eyebrow">One collection. Many connections.</p><h2>Begin with a question.<br /><em>See where it leads.</em></h2><div><StudyLink to="/study/theology/?area=jesus">Read the Gospels together <Icon name="arrowUp"/></StudyLink><StudyLink to="/study/academic/?area=texts">Explore the surviving texts <Icon name="arrowUp"/></StudyLink></div></section>
+    <PeopleCards /><Suspense fallback={<p className="atlas-loading">Loading the Atlas…</p>}><AtlasWindow /></Suspense><section className="hub-closing"><p className="eyebrow">One collection. Many connections.</p><h2>Begin with a question.<br /><em>See where it leads.</em></h2><div><StudyLink to="/study/theology/?area=jesus">Read the Gospels together <Icon name="arrowUp"/></StudyLink><StudyLink to="/study/academic/?area=texts">Explore the surviving texts <Icon name="arrowUp"/></StudyLink></div></section>
     </div></div>;
 }

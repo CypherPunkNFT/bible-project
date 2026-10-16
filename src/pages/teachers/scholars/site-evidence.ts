@@ -2,7 +2,13 @@ import aliasData from '../../../../content/teachers/source-profile-aliases.json'
 import usage from '../../../../content/teachers/feature-usage.json';
 import type { Scholar, ScholarsData } from '@/data/teachers/pages-types';
 export const featureEvidence = usage.features;
-export const areaFor: Record<string,string> = { letters:'Letters study', apologetics:'Apologetics', topics:'Topics', harmony:'Topics', miracles:'Topics', 'people-apostles':'People pages', 'people-prophets':'People pages', 'people-rulers':'Rulers' };
+export const areaFor: Record<string,string> = {
+ letters:'Theological study',topics:'Theological study',harmony:'Theological study',miracles:'Theological study',parables:'Theological study','cross-references':'Theological study','bible-texts':'Theological study',
+ apologetics:'Apologetics',debates:'Apologetics',worldviews:'Apologetics','apologetics-paths':'Apologetics','apologetics-practice':'Apologetics',
+ 'people-apostles':'People pages','people-prophets':'People pages','people-rulers':'Rulers',
+ witnesses:'Manuscripts & text','manuscript-passages':'Manuscripts & text','dead-sea-scrolls':'Manuscripts & text','printed-bible':'Manuscripts & text',
+ canon:'Canon',empires:'Historical study',world:'Historical study',discoveries:'Archaeology',cities:'Archaeology',atlas:'Atlas','atlas-history':'Atlas',
+};
 // Explicit attribution aliases; joint author/translator credits remain separate in the full credit grid.
 const aliases: Record<string,string[]> = aliasData.aliases;
 export const nameKey = (name:string) => name.normalize('NFKC').toLocaleLowerCase().replace(/\s+/g,' ').trim();
@@ -33,4 +39,9 @@ export function authorCredits(scholars:Scholar[]) {
 const activeCredits = new Set(featureEvidence.flatMap(f=>f.sources.filter(s=>s.kind!=="bibliography").map(s=>nameKey(s.author))));
 export function usedEntry(p:{name:string;aliases:string[];scholar?:Scholar}) {
   return p.scholar?.site?.status === 'in-use' || [p.name,...p.aliases].some(n=>activeCredits.has(nameKey(n)));
+}
+
+/** Source-only citations do not establish a held reading representation. */
+export function heldEntry(p:{records:number;population?:{counts:{publicRecords:number;localCopies:number;intakeRecords:number}}}) {
+  return p.population ? p.population.counts.publicRecords+p.population.counts.localCopies+p.population.counts.intakeRecords>0 : p.records>0;
 }

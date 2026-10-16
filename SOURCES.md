@@ -1,4 +1,29 @@
+## Parables final verification - 11 October 2026
+
+The ten-step local revision is complete. See [Final review](docs/parables/FINAL-REVIEW.md) for source-link checks, Scripture validation, interface verification and limits. Current collection: 57 studies / 96 ranges / 610 verse references; 13 distinct public commentary/inventory links responded successfully. No publication. Earlier entries below remain the historical review trail.
+
+## Parables Gospel parallels reviewed - 11 October 2026
+
+Implementation-plan step 5: added Luke 11:33 to the lamp and Matthew 12:33-37 to the tree/fruit study. Each occurrence has its own setting note and full-reference selector. See [Gospel parallels](docs/parables/GOSPEL-PARALLELS.md) for Scripture and commentary checks. Current coverage is 57 studies / 96 passage ranges / 610 verse references. This supersedes earlier passage totals below. Steps 6 through 10 await authorization; no publication.
+
+## Parables difficult passages reviewed - 11 October 2026
+
+Implementation-plan step 4 completed: seven studies now have deeper explanations, reasons for their adopted readings, significant attributed alternatives and named source links. See [Difficult passages](docs/parables/DIFFICULT-PASSAGES.md) for the exact texts, independently authored treatments and limits. The source register adds Bock and a clearly identified comparative Catholic application from Benedict XVI. The collection remains 57 studies / 94 passage ranges / 604 verse references. Steps 5 through 10 await authorization. No publication.
+
 # Sources
+
+## Parables content review — 11 October 2026
+
+Implementation-plan step 3: [content review and study ledger](docs/parables/CONTENT-REVIEW.md). All 57 studies checked against their Gospel passages and setting anchors; 45 revised and 12 retained. The record distinguishes direct textual corrections, qualified interpretations and applications, and identifies the Christian commentary sections actually consulted. The seven deeper treatments remain for step 4. Collection counts and passage ranges are unchanged; this is a local revision with no publication.
+
+## Parables inventory review — 11 October 2026
+
+Implementation-plan step 2 completed locally: [inventory reconciliation and classification ledger](docs/parables/INVENTORY-REVIEW.md). The current collection has 57 studies in seven themes: 24 narrative parables, 31 brief comparisons and two related figurative teachings. Seven additions were checked against the Gospel text; 94 passage ranges / 604 verse references passed local KJV validation. This supersedes the historical collection counts below. No universal total or completed theological review is claimed. Steps 3–10 await their own authorization; no publication performed.
+
+
+## Parables source policy review 11 October 2026
+
+Implementation-plan step 1 completed: [source policy](docs/parables/SOURCE-POLICY.md) and [reviewed source register](docs/parables/SOURCE-REGISTER.md). These govern subsequent parables revisions and qualify the source roles in the historical acquisition notes below. No additional studies or public content changes are part of this step.
 
 ## Parables of Christ expansion ? 11 October 2026
 

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Bible Project private evidence collection v1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schemaVersion", "id", "title", "question", "language", "audience", "scope", "topicIds", "inputs", "evidence", "coverage", "publication", "integrity"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "id": {"type": "string", "pattern": "^collection:[a-z0-9-]+$"},
+    "title": {"$ref": "#/$defs/text"}, "question": {"$ref": "#/$defs/text"},
+    "language": {"$ref": "#/$defs/text"}, "audience": {"$ref": "#/$defs/strings"}, "scope": {"$ref": "#/$defs/text"},
+    "topicIds": {"$ref": "#/$defs/strings"},
+    "inputs": {
+      "type": "object", "additionalProperties": false,
+      "required": ["corpusBuild", "catalogueFingerprint", "method", "vectorModel", "graphRun", "implementationHashes"],
+      "properties": {
+        "corpusBuild": {"$ref": "#/$defs/text"}, "catalogueFingerprint": {"$ref": "#/$defs/hash"},
+        "method": {"const": "explicit-chunk-selection-v1"}, "vectorModel": {"type": "null"}, "graphRun": {"type": "null"},
+        "implementationHashes": {"type": "object", "minProperties": 1, "additionalProperties": {"$ref": "#/$defs/hash"}}
+      }
+    },
+    "evidence": {"type": "array", "minItems": 1, "maxItems": 50, "items": {"$ref": "#/$defs/item"}},
+    "coverage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["selectedDocuments", "knownWorks", "unresolvedWorkDocuments", "limits"],
+      "properties": {
+        "selectedDocuments": {"type": "integer", "minimum": 1}, "knownWorks": {"type": "integer", "minimum": 0},
+        "unresolvedWorkDocuments": {"type": "integer", "minimum": 0}, "limits": {"$ref": "#/$defs/strings"}
+      }
+    },
+    "publication": {"const": "draft"}, "integrity": {"$ref": "#/$defs/hash"}
+  },
+  "$defs": {
+    "text": {"type": "string", "minLength": 1}, "strings": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+    "nullable": {"type": ["string", "null"], "minLength": 1}, "hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "citation": {"$ref": "../../content/research/citation.schema.json"},
+    "item": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "basis", "citation", "anchor", "identity", "attribution", "reader", "permissions", "reviewFingerprint"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^evidence:[a-f0-9]{64}$"},
+        "basis": {"enum": ["literal-quotation", "reported-position", "rule-candidate", "semantic-candidate", "reviewed-interpretation"]},
+        "citation": {"$ref": "#/$defs/citation"},
+        "anchor": {
+          "type": "object", "additionalProperties": false,
+          "required": ["documentId", "chunkId", "chunkSha256", "metadataSha256", "start", "end", "offsetUnit", "locatorKind"],
+          "properties": {
+            "documentId": {"$ref": "#/$defs/text"}, "chunkId": {"$ref": "#/$defs/text"},
+            "chunkSha256": {"$ref": "#/$defs/hash"}, "metadataSha256": {"$ref": "#/$defs/hash"},
+            "start": {"type": "integer", "minimum": 0}, "end": {"type": "integer", "minimum": 1},
+            "offsetUnit": {"const": "unicode-code-points"}, "locatorKind": {"const": "corpus-transcription-segment"}
+          }
+        },
+        "identity": {
+          "type": "object", "additionalProperties": false, "required": ["workId", "editionId", "assetId", "sourceCollection", "sourceItem"],
+          "properties": {"workId": {"$ref": "#/$defs/nullable"}, "editionId": {"$ref": "#/$defs/nullable"}, "assetId": {"$ref": "#/$defs/nullable"}, "sourceCollection": {"$ref": "#/$defs/nullable"}, "sourceItem": {"$ref": "#/$defs/nullable"}}
+        },
+        "attribution": {
+          "type": "object", "additionalProperties": false, "required": ["authorLabel", "authorId", "speakerLabel", "speakerId", "role", "evidence", "translator", "editor"],
+          "properties": {
+            "authorLabel": {"$ref": "#/$defs/text"}, "authorId": {"$ref": "#/$defs/nullable"},
+            "speakerLabel": {"$ref": "#/$defs/text"}, "speakerId": {"$ref": "#/$defs/nullable"},
+            "role": {"enum": ["author-statement", "reported-opposing-position", "quotation-of-another", "unresolved"]},
+            "evidence": {"$ref": "#/$defs/text"}, "translator": {"$ref": "#/$defs/nullable"}, "editor": {"$ref": "#/$defs/nullable"}
+          }
+        },
+        "reader": {
+          "type": "object", "additionalProperties": false, "required": ["status", "route"],
+          "properties": {"status": {"enum": ["unverified", "verified-on-site"]}, "route": {"$ref": "#/$defs/nullable"}}
+        },
+        "permissions": {
+          "type": "object", "additionalProperties": false, "required": ["translation", "editorial"],
+          "properties": {"translation": {"$ref": "#/$defs/citation/$defs/permission"}, "editorial": {"$ref": "#/$defs/citation/$defs/permission"}}
+        },
+        "reviewFingerprint": {"$ref": "#/$defs/hash"}
+      }
+    }
+  }
+}

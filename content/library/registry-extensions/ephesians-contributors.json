@@ -1,0 +1,66 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "author-registry",
+  "updated": "2026-10-12",
+  "authors": [
+    {
+      "id": "author-james-fergusson",
+      "entityType": "person",
+      "name": "James Fergusson",
+      "aliases": [],
+      "cohort": "ephesians-source-identities",
+      "traditions": [],
+      "eligibility": "provisional",
+      "rationale": "Named author in held TCP A41197.",
+      "receptionBasis": "Source-header identity only; no new biographical or doctrinal endorsement.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/textcreationpartnership/A41197/master/A41197.xml",
+          "locator": "Held XML title/creator and publication headers; original SHA256 140823cc0ca835eda48a3dc99d4025ef928530e997e92a25e5fecbc82b00f0d2",
+          "note": "Source-bound identity/date/role assertions verified by P3. Unknown composition and delivery dates remain unknown.",
+          "checkedOn": "2026-10-12"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Independent biographical and whole-corpus theological review are outside this source-bound registration."
+      ],
+      "review": {
+        "date": "2026-10-12",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Owner-approved source-bound identity and edition metadata; no whole-text theological approval or new public clearance."
+      }
+    },
+    {
+      "id": "author-arthur-golding",
+      "entityType": "person",
+      "name": "Arthur Golding",
+      "aliases": [],
+      "cohort": "ephesians-source-identities",
+      "traditions": [],
+      "eligibility": "context-only",
+      "rationale": "Explicitly credited translator of TCP A17705, not its author.",
+      "receptionBasis": "Source-header identity only; no new biographical or doctrinal endorsement.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/textcreationpartnership/A17705/master/A17705.xml",
+          "locator": "Held XML title/creator and publication headers; original SHA256 ec5430010801378dda5e6e5fa89e87b142281c45a416acf56a800d88bb984757",
+          "note": "Source-bound identity/date/role assertions verified by P3. Unknown composition and delivery dates remain unknown.",
+          "checkedOn": "2026-10-12"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Independent biographical and whole-corpus theological review are outside this source-bound registration."
+      ],
+      "review": {
+        "date": "2026-10-12",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Owner-approved source-bound identity and edition metadata; no whole-text theological approval or new public clearance."
+      }
+    }
+  ]
+}

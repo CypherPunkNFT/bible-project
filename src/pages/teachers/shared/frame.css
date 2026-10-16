@@ -1,7 +1,7 @@
 /* The two Teachers subpages: page width, the switch between the two sides, section frames and headings.
    The sections were designed against two short font names; they map to the site's fonts here. */
-.tp-page { --sans: var(--font-sans); --serif: var(--font-serif); max-width: 80rem; margin: 0 auto; padding: 0 1rem 2rem; }
-@media (min-width: 640px) { .tp-page { padding-inline: 1.5rem; } }
+.tp-page { --sans: var(--font-sans); --serif: var(--font-serif); max-width: var(--site-content-width); margin: 0 auto; padding: 0 1rem 2rem; }
+@media (min-width: 640px) { .tp-page { padding-inline: 1rem; } }
 .tp-page .kicker { font-size: .65rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--tone, var(--accent)); }
 .tp-page *:focus, .tp-page *:focus-visible { outline: none; }
 
@@ -25,4 +25,8 @@
 .tp-failed, .tp-status p { padding: 1rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }
 .tp-status { display: flex; min-height: 50vh; align-items: center; justify-content: center; font-family: var(--font-serif); }
 .tp-status p { border: 0; }
+.tp-scholars .scholar-subhead { margin: 2rem 0 1rem; }
+.tp-scholars .scholar-subhead h3 { margin: 0; font: 500 1.25rem/1.3 var(--serif); }
+.tp-scholars .scholar-subhead p { max-width: 85ch; margin-top: .45rem; color: var(--muted); font-size: .8rem; line-height: 1.65; }
+.tp-scholars :is(.source-credits, .scholar-counts) { scroll-margin-top: 84px; }
 @media (prefers-reduced-motion: reduce) { .tp-page *, .tp-page *::before, .tp-page *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; } }

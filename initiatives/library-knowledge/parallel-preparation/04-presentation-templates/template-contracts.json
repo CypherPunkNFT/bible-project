@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "purpose": "Presentation adapter proposal; not a replacement citation schema or publication validator",
+  "authoritativeSchemas": [
+    "knowledge/evidence_collections/collection.schema.json",
+    "content/research/citation.schema.json"
+  ],
+  "templates": [
+    {
+      "id": "answer",
+      "name": "Prepared answer",
+      "required": [
+        "question",
+        "responseClaimIds",
+        "evidenceIds",
+        "qualifications",
+        "objections"
+      ],
+      "optional": [
+        "relatedReadingIds"
+      ]
+    },
+    {
+      "id": "passage",
+      "name": "Passage companion",
+      "required": [
+        "bibleReference",
+        "bibleTextState",
+        "treatmentClaimIds",
+        "evidenceIds",
+        "relationship"
+      ],
+      "optional": [
+        "relatedReadingIds"
+      ]
+    },
+    {
+      "id": "comparison",
+      "name": "Attributed comparison",
+      "required": [
+        "question",
+        "positions",
+        "evidenceIds",
+        "unresolvedInterpretation"
+      ],
+      "optional": [
+        "synthesisClaimIds"
+      ]
+    },
+    {
+      "id": "dossier",
+      "name": "Historical dossier",
+      "required": [
+        "question",
+        "observationClaimIds",
+        "interpretationClaimIds",
+        "evidenceIds",
+        "dateRoles",
+        "limits"
+      ],
+      "optional": [
+        "biblicalRelationClaimIds"
+      ]
+    },
+    {
+      "id": "lesson",
+      "name": "Lesson / editorial packet",
+      "required": [
+        "objective",
+        "sequence",
+        "evidenceIds",
+        "applicationDrafts",
+        "revisionHistory"
+      ],
+      "optional": [
+        "audience",
+        "duration"
+      ]
+    }
+  ],
+  "commonRequired": [
+    "id",
+    "templateId",
+    "title",
+    "evidenceIds",
+    "claimIds",
+    "synthetic",
+    "publicationState"
+  ],
+  "registryRule": "Resolve claimIds and evidenceIds through shared immutable registries; do not duplicate editable claim prose per template.",
+  "mappings": {
+    "evidenceId": "evidence[].id",
+    "quote": "evidence[].citation.quote",
+    "claimId": "evidence[].citation.claimId",
+    "claimText": "evidence[].citation.claim",
+    "claimKind": "evidence[].citation.claimKind",
+    "sourceRole": "evidence[].citation.sourceRole",
+    "author": "evidence[].attribution.authorLabel",
+    "speaker": "evidence[].attribution.speakerLabel",
+    "attributionRole": "evidence[].attribution.role",
+    "translator": "evidence[].attribution.translator",
+    "editor": "evidence[].attribution.editor",
+    "editionId": "evidence[].identity.editionId",
+    "locator": "evidence[].citation.locator; anchor offsets remain transcription offsets",
+    "dates": "evidence[].citation.dates",
+    "basis": "evidence[].basis",
+    "review": "evidence[].citation.review",
+    "sourceUrl": "evidence[].citation.sourceUrl",
+    "reader": "evidence[].reader plus verified crosswalk sidecar",
+    "permissions": "evidence[].citation.permissions plus evidence[].permissions",
+    "limits": "evidence[].citation.limits",
+    "dependencies": "collection inputs/integrity plus verified assembly dependency sidecar"
+  },
+  "sidecarsRequired": {
+    "conflict": "explicit conflict/issue record; not an enum in v1 review",
+    "stale": "dependency verification or citation.review.state; never inferred from age alone",
+    "publication": "separate output-use eligibility and editorial review; private v1 remains draft",
+    "relationship": "explicit reference/source-location sidecar; do not invent v1 basis values",
+    "catalogueOnly": "crosswalk reader availability; v1 reader alone cannot distinguish unavailable states",
+    "bibleReference": "existing canonical Bible reference input, never derived solely from similarity"
+  },
+  "rules": {
+    "null": "Render unknown/not recorded; do not infer dates, translator or locator",
+    "stale": "Suppress current answer/synthesis; retain evidence as stale for inspection; require revalidation",
+    "conflict": "Quarantine affected assertion/verse binding; present issue and alternatives without choosing a winner",
+    "candidate": "No approved answer or endorsement label",
+    "reviewed": "Show kind and limited scope; never imply doctrinal or public approval",
+    "reading": "Enable only an existing permitted on-site route; external source link in footer only",
+    "missingRequired": "Do not render as complete; explicit incomplete-data state",
+    "longContent": "Wrap identifiers; do not ellipsize quotations, attribution, limitations or source locators; details may collapse on screen and expand for print"
+  },
+  "fieldTypes": {
+    "id": "string; presentation-scoped, not a new canonical identity",
+    "templateId": "enum: answer, passage, comparison, dossier, lesson",
+    "title": "nonempty string",
+    "evidenceIds": "array of existing evidence IDs; unresolved references block complete rendering",
+    "claimIds": "array of registry keys; claim text resolved centrally",
+    "synthetic": "boolean; true for every gallery fixture",
+    "publicationState": "draft only in this gallery",
+    "*ClaimIds": "array of shared claim registry keys",
+    "qualifications": "array of attributed text or claim references",
+    "objections": "array of attributed objection/reply references; unknown speaker explicit",
+    "positions": "array of author/work/edition references and claim IDs",
+    "dateRoles": "object of distinct source-bound dates or null",
+    "sequence": "ordered array of learning prompts and evidence references",
+    "revisionHistory": "array of version/date/change/source-dependency records",
+    "relationship": "explicit-exposition, explicit-citation, chapter-candidate or unresolved; presentation-sidecar only",
+    "bibleTextState": "omitted, available or unavailable; do not invent Scripture text",
+    "relatedReadingIds": "optional array of verified on-site reader sidecar IDs",
+    "otherTextFields": "string or explicitly labelled draft; unknown optional metadata null"
+  }
+}

@@ -2,6 +2,19 @@
 // transform and opacity only), and the page scroll is locked while it is open.
 const EASE = "cubic-bezier(.16, 1, .3, 1)";
 
+/** Match the Preachers profile's slide from the right edge. */
+export function openDrawer(panel: HTMLElement) {
+  panel.getAnimations().forEach(animation => animation.cancel());
+  panel.animate([{ transform: "translateX(104%)" }, { transform: "none" }], { duration: 500, easing: EASE });
+}
+
+export function closeDrawer(panel: HTMLElement, done: () => void): () => void {
+  panel.getAnimations().forEach(animation => animation.cancel());
+  const move = panel.animate([{ transform: "none" }, { transform: "translateX(104%)" }], { duration: 500, easing: EASE, fill: "forwards" });
+  move.onfinish = () => { done(); move.cancel(); };
+  return () => { move.onfinish = null; move.cancel(); };
+}
+
 const isCard = (el: Element | null) => Boolean(el?.classList.contains("cat-card"));
 
 /** A catalogue card hides while the panel stands in for it; any other origin stays where it is. */

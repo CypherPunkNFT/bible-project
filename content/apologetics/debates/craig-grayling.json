@@ -41,7 +41,7 @@
       "duration": "1:48:11",
       "note": "Audio recording on YouTube."
     },
-    "transcriptCoverage": "Speeches, discussion and closings. The editor notes a recording break, shortened or omitted moderator remarks, inaudible passages and some guessed words."
+    "transcriptCoverage": "Both openings, rebuttals, three question groups and closing statements. The supplied text marks a missing question summary and the beginning of Grayling's answer in the second question group, plus inaudible passages. Recording alignment has not been independently checked."
   },
   "reviews": [
     {
@@ -51,6 +51,15 @@
       "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
       "date": "2026-10-11",
       "contentHash": "2525bdc3ce22f723dc91d50883490ef689125c0df48e75a2fd4a23960b6f1bbb",
+      "basisHash": "8218594ee2dee5e7563dd6384c582898a80ccf35a9753f5afd8bf894cfece04c"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-supplied transcript preservation, attribution and coverage",
+      "note": "Saved the original supplied bytes and indexed explicit speech and dialogue boundaries. Preserved headings, source notes and stated recording gaps. Bahnsen promotional snippets are separate source material; duplicate attachments were byte-identical. Coverage reflects supplied text only; recording alignment and playback have not been independently verified.",
+      "date": "2026-10-11",
+      "contentHash": "b6d2703b894f3c977a65516336857b84db6f481e96429268533f417af48d853e",
       "basisHash": "8218594ee2dee5e7563dd6384c582898a80ccf35a9753f5afd8bf894cfece04c"
     }
   ]

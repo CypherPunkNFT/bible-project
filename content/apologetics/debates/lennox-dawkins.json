@@ -42,7 +42,7 @@
       "duration": "1:46:40",
       "note": "Debate recording on YouTube."
     },
-    "transcriptCoverage": "Speaker-attributed transcript arranged around six theses and concluding statements. Published as a full transcript; not independently aligned word for word with the recording."
+    "transcriptCoverage": "Read the supplied transcript on this page, from the introduction through six theses and the closing remarks. Speaker labels and wording are preserved as supplied; not independently aligned word for word with the recording."
   },
   "reviews": [
     {
@@ -52,6 +52,15 @@
       "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
       "date": "2026-10-11",
       "contentHash": "99d8572d5993f0b5304479b569c829d359d8abd8c2008341685f40b0bee6285a",
+      "basisHash": "098a255363d41ceb1192676829caa45c70b1127fd3b56821bad6e45a7e599c7e"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Supplied transcript ingestion, attribution and local reader coverage",
+      "note": "The owner supplied the transcript on 2026-10-11 and requested reproduction. Original bytes retained with SHA-256 provenance. Reader preserves supplied speaker labels and text across 95 turns, including the Dr. Lennox label, through the final thanks. Section navigation is editorial. No audio alignment or independent accuracy check claimed; earlier external source research remains historical. Existing debate summary and doctrine are unchanged.",
+      "date": "2026-10-11",
+      "contentHash": "99c0a153b7e7872bdef52bbd8adfbc09ddbeb72df29f2d19ba417ef4f10009cc",
       "basisHash": "098a255363d41ceb1192676829caa45c70b1127fd3b56821bad6e45a7e599c7e"
     }
   ]

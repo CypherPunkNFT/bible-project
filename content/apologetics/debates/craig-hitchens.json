@@ -38,11 +38,11 @@
     "recording": {
       "url": "https://www.youtube.com/watch?v=0tYm41hb48o",
       "label": "Watch on YouTube",
-      "credit": "Biola University",
-      "duration": "2:27:43",
-      "note": "Debate recording on YouTube."
+      "credit": "YouTube recording",
+      "duration": "Not verified",
+      "note": "Recording URL supplied by the site owner on 2026-10-12. Uploader, runtime and full-event coverage have not been independently checked for this replacement."
     },
-    "transcriptCoverage": "Both speakers and audience questions."
+    "transcriptCoverage": "Both speakers' openings, rebuttals, cross-examination and responses, followed by Craig's closing, audience questions and final remarks. The moderator states that Hitchens yielded his closing time. The July 2010 source heading is retained separately from the April 2009 event date. Recording alignment has not been independently checked."
   },
   "reviews": [
     {
@@ -61,6 +61,42 @@
       "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
       "date": "2026-10-11",
       "contentHash": "67ab57324c208bb21983eed3470ebdf709341b7b7bcd7eef8ee0a502e1861bd2",
+      "basisHash": "fd6397c2f4e0bb8bff87e039682a89805080bdb0822f0f73f3f84dd1a1b461ee"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-supplied recording URL replacement and page scaffold",
+      "note": "Updated the recording URL to the exact link supplied by the owner on 2026-10-11. Removed runtime and uploader metadata belonging to the replaced recording. Embedded video ID matches the supplied URL. No independent playback, runtime or full-event coverage verification is claimed. Existing documentary summary and doctrinal policy remain unchanged. On-site transcript awaits the owner's supplied text.",
+      "date": "2026-10-11",
+      "contentHash": "946cfa78fa9f38ef913fd89104649bc25927dcbdd15e8b931b6875a891c8c040",
+      "basisHash": "fd6397c2f4e0bb8bff87e039682a89805080bdb0822f0f73f3f84dd1a1b461ee"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-supplied transcript preservation, attribution and coverage",
+      "note": "Saved the supplied text byte for byte with SHA-256 provenance. Explicit source labels and headings determine reader passages and sections. Hitchens text contains only his own statements. Krauss text also includes written post-debate reflections and footnotes, labelled separately from speech. Speaker attribution follows the supplied text and is not independently audio-verified. Full text and downloads are checked against the original source; previous documentary summary and doctrine unchanged.",
+      "date": "2026-10-11",
+      "contentHash": "b4b32ba753d5f4ecf93b9085eb809ae98eed9ba5f27192ca5898c4b1f56e0aa0",
+      "basisHash": "fd6397c2f4e0bb8bff87e039682a89805080bdb0822f0f73f3f84dd1a1b461ee"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Replacement owner-supplied transcript, speaker attribution and coverage",
+      "note": "Replaced the Hitchens-only reader with the owner's newly supplied transcript containing both speakers, cross-examination, responses and audience questions. Retained every source word and original file bytes. Archived the prior file and its manifest. The source explicitly says Hitchens yielded his closing time. Source publication heading July 21, 2010 is distinct from event April 4, 2009. Recording alignment remains unverified.",
+      "date": "2026-10-12",
+      "contentHash": "34d4f3e242c9b38779a4351893ab5c6fff7906b6f23f62f8a5609f6ff03af4dd",
+      "basisHash": "fd6397c2f4e0bb8bff87e039682a89805080bdb0822f0f73f3f84dd1a1b461ee"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-corrected YouTube recording URL",
+      "note": "Updated the recording URL to the exact replacement supplied by the owner on 2026-10-12: https://www.youtube.com/watch?v=0tYm41hb48o. Playback, runtime and transcript alignment were not independently verified.",
+      "date": "2026-10-12",
+      "contentHash": "943a3740c358b75f2b03b53ee9407b513f39e40d6bfb1156f3dc6e1834ab1ecc",
       "basisHash": "fd6397c2f4e0bb8bff87e039682a89805080bdb0822f0f73f3f84dd1a1b461ee"
     }
   ]

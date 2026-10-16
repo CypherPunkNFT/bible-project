@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-14",
+  "checks": [
+    "Scroll and magnified surface share identical movement at two pointer locations",
+    "Leaving scroll resets both surfaces",
+    "Three separate labels; crossing annotation removed",
+    "Each fragment responds to hover, Enter, Space and click",
+    "Scroll and fragment overview states render",
+    "Reduced motion disables surface motion",
+    "320px and 390px without horizontal overflow"
+  ],
+  "errors": []
+}

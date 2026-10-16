@@ -19,7 +19,7 @@
 }
 
 /* The canvas card and the side panel */
-.tp-preachers .tp-sec-bible .bib-grid { display: grid; grid-template-columns: minmax(0, 1fr) 21rem; gap: 1rem; align-items: start; }
+.tp-preachers .tp-sec-bible .bib-grid { display: grid; grid-template-columns: minmax(0, 1fr) 21rem; gap: 1rem; align-items: stretch; }
 .tp-preachers .tp-sec-bible .bib-card, .tp-preachers .tp-sec-bible .bib-detail { border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
 .tp-preachers .tp-sec-bible .bib-card { padding: 1.2rem 1.3rem 1rem; border-top: 2px solid var(--accent); box-shadow: 0 30px 60px -48px rgb(0 0 0 / 45%); }
 .tp-preachers .tp-sec-bible .bib-key { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
@@ -34,7 +34,21 @@
 .tp-preachers .tp-sec-bible .bib-legend i { width: 10px; height: 10px; border-radius: 3px; }
 .tp-preachers .tp-sec-bible .bib-legend-quiet i { background: color-mix(in srgb, var(--line) 70%, var(--surface)); }
 
-.tp-preachers .tp-sec-bible .bib-detail { position: sticky; top: 76px; min-height: 30rem; max-height: calc(100vh - 92px); padding: 1.3rem 1.25rem 1.2rem; overflow-y: auto; }
+.tp-preachers .tp-sec-bible .bib-detail { position: relative; min-height: 0; padding: 1.3rem 1.25rem 1.2rem; }
+@media (min-width: 900px) {
+  /* Only the chart sets the row height. Long chapter details scroll without enlarging either card. */
+  .tp-preachers .tp-sec-bible .bib-detail { contain: size; display: flex; flex-direction: column; padding: 0; }
+  .tp-preachers .tp-sec-bible .bib-detail-scroll { flex: 1; border-radius: inherit; }
+  .tp-preachers .tp-sec-bible .bib-detail-frame { border-radius: inherit; }
+  .tp-preachers .tp-sec-bible .bib-detail-viewport { padding: 1.3rem 1.25rem 1.2rem; }
+  .tp-preachers .tp-sec-bible .bib-detail .outside-scrollbar { right: -11px; width: 8px; }
+}
+@supports selector(::-webkit-scrollbar) {
+  .tp-preachers .tp-sec-bible .bib-detail .outside-scrollbar { scrollbar-width: auto; scrollbar-color: auto; }
+  .tp-preachers .tp-sec-bible .bib-detail .outside-scrollbar::-webkit-scrollbar { width: 6px; }
+  .tp-preachers .tp-sec-bible .bib-detail .outside-scrollbar::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+  .tp-preachers .tp-sec-bible .bib-detail .outside-scrollbar::-webkit-scrollbar-track { background: transparent; }
+}
 .tp-preachers .tp-sec-bible .bib-inner { --tone: var(--accent); animation: bib-fade .28s ease-out; }
 .tp-preachers .tp-sec-bible .bib-detail .bib-inner::before { content: ""; position: absolute; inset: 0 0 auto; height: 2px; background: var(--tone); }
 @keyframes bib-fade { from { opacity: 0; } }

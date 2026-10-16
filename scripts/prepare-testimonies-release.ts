@@ -2,6 +2,8 @@ import { cp, mkdir, mkdtemp, readFile, readdir, stat, writeFile } from "node:fs/
 import { spawnSync } from "node:child_process";
 import path from "node:path";
 import { verifyBuiltContent } from "./content/compile.ts";
+import {preparePopulationHosting} from './prepare-population-hosting.mjs';
+import {pruneReleaseAssets} from './prune-release-assets.mjs';
 
 // Produces a fresh deployable directory. Never creates a cloud resource or deploys it.
 const databaseId = process.env.TESTIMONY_D1_ID;
@@ -14,6 +16,8 @@ await mkdir(".release", { recursive: true });
 const directory = await mkdtemp(path.resolve(".release/testimonies-"));
 const site = path.join(directory, "site");
 await cp("dist", site, { recursive: true });
+await preparePopulationHosting(path.join(site,'content/scholar-population'),{omitOriginals:true});
+console.log('Release build assets:',await pruneReleaseAssets(site));
 // dereference: follow links/junctions (a clean release worktree links data/ in), never ship a link.
 await cp("data", path.join(site, "data"), { recursive: true, dereference: true });
 await cp("migrations", path.join(directory, "migrations"), { recursive: true });

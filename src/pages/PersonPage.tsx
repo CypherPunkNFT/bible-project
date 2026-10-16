@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { Navigate, useLocation, useParams } from "react-router-dom";
 import { BackLink } from "@/components/BackLink";
 import { AspectSwitch, EntryCard } from "@/components/people-pages/PersonEntry";
@@ -9,6 +9,8 @@ import { useCachedLoad } from "@/lib/people-pages";
 import { isApostleEndpoint, isAspect, personPath, specialPageOf, type Aspect } from "@/lib/people-pages-index";
 import { personIdOf, slugOf } from "@/lib/people-slugs";
 import { loadPeople, loadPersonDetail } from "@/lib/study";
+
+const MosesPage = lazy(() => import("@/components/moses-page/MosesPage"));
 
 type SpecialPages = typeof import("@/components/people-pages/SpecialPages");
 let specialPages: SpecialPages | undefined;
@@ -66,6 +68,9 @@ export default function PersonPage() {
   </div>;
 
   const ready = row && detail.status === "ready";
+  if (id === "moses-exo-2-10" && row && detail.status === "ready") return <Suspense fallback={<div className="min-h-[60vh] animate-pulse" role="status" aria-label="Loading Moses" />}>
+    <MosesPage person={{ ...row, ...detail.value }} />
+  </Suspense>;
   return <div className="mx-auto max-w-7xl px-4 pb-16 pt-6 sm:px-6" onClickCapture={slide}>
     <div className="people-page-slide" data-people-ready={ready ? readyKey({ kind: "person", id }) : undefined}>
       <BackLink fallback={{ path: "/study/people", label: "People & genealogies" }} />

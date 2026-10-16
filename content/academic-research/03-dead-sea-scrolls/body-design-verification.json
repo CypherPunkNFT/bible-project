@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-14",
+  "checks": [
+    "All six object selections work with keyboard",
+    "Filters retain all six positions and correctly disable nonmatches",
+    "Cave context updates selected record",
+    "Selected manuscript persists through reload",
+    "All three date histories keyboard accessible",
+    "All three independent evidence layers in all three candidates",
+    "Assessment open/close and reset",
+    "Both themes at 320,390,768,1440px without horizontal overflow",
+    "Reduced motion disables evidence fades",
+    "Isaiah, Psalms, community and scholarship sections retained"
+  ],
+  "errors": [],
+  "limits": [
+    "No manual screen-reader session",
+    "Illustrations are labelled formats and teaching models; no new historical research claims"
+  ]
+}

@@ -6,44 +6,48 @@ import { evidencedProfiles } from "./site-evidence";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { ScholarsData } from "@/data/teachers/pages-types";
 import { PageStatus, TeacherSection } from "../shared/Frame";
-import { useScholarsData } from "../shared/data";
+import { usePeopleData, useScholarsData } from "../shared/data";
 import { Built } from "./Built";
 import { Catalogue } from "./Catalogue";
 import { NO_FILTERS, ScholarsContext, type CatalogueFilters, type ProfileTarget } from "./context";
 import { Directory } from "./Directory";
 import { Discoveries } from "./Discoveries";
 import { Landing } from "./Landing";
-import { Named } from "./Named";
-import { Numbers } from "./Numbers";
 import { Profile } from "./Profile";
 import { useLibrary } from "./catalogue/useLibrary";
+import { ALL_LIBRARY, matchesLibrary, orderLibrary, type LibraryOptions, type LibrarySort } from './catalogue/library';
 import { SCHOLAR_SECTIONS } from "./sections";
 
-const COMPONENTS = { catalogue: Catalogue, built: Built, discoveries: Discoveries, named: Named, numbers: Numbers, directory: Directory };
+const COMPONENTS = { catalogue: Catalogue, built: Built, discoveries: Discoveries, directory: Directory };
 
 
 export default function ScholarsPage() {
   const { data, error } = useScholarsData();
+  // The landing frame uses the Preachers geometry. Load it before mounting the
+  // page so the chart never paints a guessed height while that import is pending.
+  const { data: graphPeople, error: graphError } = usePeopleData();
   useEffect(() => { document.title = "Scholars · Teachers · Bible Project"; return () => { document.title = "Bible Project"; }; }, []);
-  return data ? <Loaded data={data} /> : <PageStatus error={error} />;
+  return data && graphPeople ? <Loaded data={data} /> : <PageStatus error={error ?? graphError} />;
 }
 
 function Loaded({ data: original }: { data: ScholarsData }) {
   const data = useMemo(() => evidencedProfiles(original), [original]);
-  const { library, libraryError, libraryFacts } = useLibrary(data);
+  const { library, libraryError, libraryFacts, population } = useLibrary(data);
   const [profile, setProfile] = useState<ProfileTarget | null>(null);
-  const [catalogueResetToken, resetCatalogue] = useState(0);
+  const [catalogueOptions,setCatalogueOptions]=useState<LibraryOptions>(ALL_LIBRARY);
+  const [catalogueSort,setCatalogueSort]=useState<LibrarySort>('featured');
   const [filters, setFilters] = useState<CatalogueFilters>(NO_FILTERS);
-  const [shownIds, setShownIds] = useState<string[]>(() => data.scholars.map((s) => s.id));
+  const cataloguePeople=useMemo(()=>orderLibrary((library??[]).filter(p=>matchesLibrary(p,filters,catalogueOptions)),catalogueSort),[library,filters,catalogueOptions,catalogueSort]);
+  const shownIds=useMemo(()=>cataloguePeople.map(p=>p.id),[cataloguePeople]);
   const openProfile = useCallback((id: string, origin: Element | null = null) => setProfile({ id, origin }), []);
   const closeProfile = useCallback(() => setProfile(null), []);
   const filterCatalogue = useCallback((next: Partial<CatalogueFilters>, options: { scroll?: boolean } = {}) => {
     setFilters({ ...NO_FILTERS, ...next });
-    if(options.scroll !== false) resetCatalogue(n=>n+1);
+    if(options.scroll !== false) setCatalogueOptions(ALL_LIBRARY);
     if (options.scroll !== false) document.getElementById("catalogue")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
-  const value = useMemo(() => ({ data, catalogueResetToken, library, libraryError, libraryFacts, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds, setShownIds }),
-    [data, catalogueResetToken, library, libraryError, libraryFacts, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds]);
+  const value = useMemo(() => ({ data, catalogueOptions, setCatalogueOptions, catalogueSort, setCatalogueSort, cataloguePeople, library, libraryError, libraryFacts, population, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds }),
+    [data, catalogueOptions, setCatalogueOptions, catalogueSort, setCatalogueSort, cataloguePeople, library, libraryError, libraryFacts, population, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds]);
   return <ScholarsContext.Provider value={value}>
     <div className="tp-page tp-scholars">
       <TeacherSection id="landing" title="Scholars"><Landing /></TeacherSection>

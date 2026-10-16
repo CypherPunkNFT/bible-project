@@ -1,0 +1,157 @@
+{
+  "verified_at": "2026-10-13T22:11:05-04:00",
+  "verified_by": "Claude Code session (claude-opus-5-5); Claude database opened read-only and checked against data/stats.json (all 1,189 chapters of the 66 books present), integrity_check ok, studio /api/state probed, tests run",
+  "project_root": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website",
+  "services": {
+    "studio_8947": {
+      "reachable": true,
+      "data_dir": ".local/chapter-summary-studio/claude",
+      "records": 1189,
+      "job_running": false,
+      "note": "started by this session on the Claude database; Generate refuses there (prompt version differs)"
+    },
+    "ollama_11434": {
+      "reachable": true,
+      "models_loaded": [],
+      "installed": [
+        "qwen3.6:27b-q4_K_M"
+      ],
+      "note": "started inadvertently by `ollama list` at ~17:18 and then used for the Qwen writer comparison; a downloaded Ollama update is pending and was not installed"
+    },
+    "main_preview_8931": {
+      "reachable": true
+    }
+  },
+  "databases": {
+    "summaries.sqlite3": {
+      "summaries": 584,
+      "approved": 0
+    },
+    "summaries-v2.sqlite3": {
+      "summaries": 8,
+      "approved": 0
+    },
+    "summaries-v3.sqlite3": {
+      "summaries": 5,
+      "approved": 0,
+      "keys": [
+        "GEN:4",
+        "GEN:5",
+        "PSA:117",
+        "ROM:1",
+        "JON:4"
+      ],
+      "note": "manually corrected, unapproved; untouched by the pilot"
+    },
+    "claude/summaries-v3.sqlite3": {
+      "summaries": 1189,
+      "approved": 0,
+      "status": "all draft",
+      "prompt_version": "claude-pilot-v3",
+      "mean_summary_words": 161,
+      "max_summary_words": 200,
+      "integrity_check": "ok",
+      "review": "every record passed one blind review with no material issue (1,079 first time; 110 after revision and a fresh re-review)"
+    }
+  },
+  "full_bible_run": {
+    "state": "complete",
+    "started_at": "2026-10-13T19:30:00-04:00",
+    "completed_at": "2026-10-13T22:10:00-04:00",
+    "batches": 24,
+    "chapters": 1141,
+    "first_pass_no_material": 1041,
+    "revised": 100,
+    "second_revisions": [
+      "EXO:13",
+      "LUK:12"
+    ],
+    "length_retries": [
+      "PSA:127",
+      "DAN:11"
+    ],
+    "after_revision_no_material": 1141,
+    "progress_file": ".local/chapter-summary-studio/claude-pilot/full-run-progress.json",
+    "human_approved": 0
+  },
+  "coverage": {
+    "implemented": "studio.verse_units + studio.derive_sections; trial.validate_plan (section starts, ends derived, lumped-final-section guard, cap 32)",
+    "tests": {
+      "command": "D:\\Python\\python.exe -X utf8 -m unittest discover -s scripts/tests -p test_chapter_summary*.py",
+      "passed": 60,
+      "failed": 0
+    }
+  },
+  "evidence_trials_rounds_1_3": {
+    "unchanged": true,
+    "hashed_files": 152,
+    "source_consistency": "All eight chapters and supplied context unchanged across three rounds"
+  },
+  "claude_pilot": {
+    "root": ".local/chapter-summary-studio/claude-pilot",
+    "report": ".local/chapter-summary-studio/claude-pilot/REPORT.md",
+    "runs": {
+      "dev-1": {
+        "chapters": 8,
+        "writer_prompt": "v1",
+        "length_gate": false,
+        "claude_drafts": 8,
+        "claude_no_material_adjudicated": 8,
+        "qwen_same_packet_drafts": 8,
+        "qwen_same_no_material_adjudicated": 3,
+        "qwen_round3_no_material": 1,
+        "claude_mean_summary_words": 164,
+        "qwen_writer_seconds": 919.2
+      },
+      "dev-2": {
+        "chapters": 8,
+        "writer_prompt": "v2",
+        "length_gate": false,
+        "plans_reused_from": "dev-1",
+        "claude_drafts": 8,
+        "claude_no_material_adjudicated": 8,
+        "claude_mean_summary_words": 152
+      },
+      "fresh-1": {
+        "chapters": [
+          "EXO:21",
+          "2SA:11",
+          "PSA:88",
+          "ISA:53",
+          "MRK:9",
+          "JOB:22",
+          "DAN:7",
+          "JAS:2"
+        ],
+        "writer_prompt": "v2",
+        "length_gate": true,
+        "claude_drafts": 8,
+        "claude_no_material_adjudicated": 7,
+        "qwen_same_packet_drafts": 8,
+        "qwen_same_no_material_adjudicated": 2,
+        "claude_mean_summary_words": 150,
+        "qwen_writer_seconds": 852.4
+      },
+      "sample-1": {
+        "chapters": 48,
+        "writer_prompt": "v3",
+        "length_gate": "v2",
+        "first_pass_no_material": 38,
+        "revised": 10,
+        "after_revision_no_material": 48,
+        "mean_summary_words": 161,
+        "write_wall_minutes": 5,
+        "parallel_agents": 8
+      }
+    },
+    "reviewers": "Claude subagents, blind A/B/C labels; not human; same model family as the writer",
+    "human_approved": 0
+  },
+  "recommendation": "Owner reads and approves in the studio (http://localhost:8947). Integration of approved summaries into the main site is a separate step that needs the owner's go.",
+  "limitations": [
+    "Reviewers share the writer's model family; blind labels reduce but do not remove style bias.",
+    "fresh-1 is 8 chapters, one draft each: a small sample.",
+    "Claude vs Qwen round 3 compares pipelines (different section plans); Claude vs Qwen same-packet isolates the writer.",
+    "Syntactic validation and verse citations do not prove semantic support."
+  ]
+}

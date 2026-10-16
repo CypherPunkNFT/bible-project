@@ -1,0 +1,696 @@
+{
+  "schemaVersion": 2,
+  "order": 2,
+  "title": "A passage through the manuscripts",
+  "category": "bible-formation",
+  "categoryTitle": "The Bible: formation & transmission",
+  "updated": "2026-10-14",
+  "status": "researched-and-implemented-local-only",
+  "route": "/study/passage-through-manuscripts",
+  "scope": "Three closely followed Greek New Testament passages, a papyrus restoration and a fourth manuscript investigation (GA 304). Early translated traditions are introduced as evidence, not independently collated. Not a statistical sample of the Bible or a survey of Hebrew/Septuagint textual criticism.",
+  "authorization": "The user's explicit request for completed research, design and implementation supersedes the programme's earlier content-only pass for study 02. No public deployment authorized.",
+  "teachingSequence": [
+    "Separate object, transcription, restoration and critical edition before comparing readings.",
+    "Galatians: compare spelling and word order, then decode the real comparative apparatus token by token.",
+    "Romans: distinguish hands, then test external attestation, copying mechanism and intrinsic context without assigning artificial probabilities.",
+    "Mark: inspect coverage; read each continuation and ask how its narrative joins; distinguish circulation, authorial origin and theological reception.",
+    "At the broken edge: restoration does not recover ink.",
+    "GA 304: inspect commentary context before treating the last biblical extract as a Gospel ending; follow a research correction.",
+    "Optional copying model and P45 assessment test dependence and absence.",
+    "Trace changing editorial practice from historical editions through ECM and CBGM; follow primary sources and explicitly labeled reading leads."
+  ],
+  "displayPolicy": {
+    "greek": "Short selected readings, with accents, case and spaces normalized for comparison unless explicitly labeled diplomatic excerpt. Sacred-name contractions expanded. No attempt at a facsimile or complete diplomatic transcription.",
+    "english": "Original explanatory glosses of the selected words; not quotations from a modern Bible translation.",
+    "absence": "A non-extant portion has no recoverable reading here. It is never represented as an omission or counted against a variant.",
+    "corrections": "First-hand and corrected states belong to the same physical witness. Corrector labels follow the cited apparatus and are not independently redated.",
+    "editions": "SBLGNT primary text and comparative apparatus checked. NA28 and historical edition readings are reported through that apparatus, not claimed as an independent full collation of those editions.",
+    "rights": "No manuscript photographs reproduced. All diagrams original and explicitly schematic. Short SBLGNT excerpts attributed to Michael W. Holmes, SBL and Logos, 2010, CC BY 4.0; formatting and highlighting adapted. Michigan transcriptions quoted only in short extracts with adjacent attribution.",
+    "editorialPlacement": "No Josephus-specific material included."
+  },
+  "cases": [
+    {
+      "id": "galatians",
+      "passage": "Galatians 1:3",
+      "question": "When does a different spelling become a different reading?",
+      "witness": {
+        "id": "P46",
+        "shelfmark": "Michigan inv. 6238 / Chester Beatty BP II",
+        "locator": "Codex page 168; Galatians opening lines 5–6 in Michigan's reader",
+        "date": "Third century, as dated in Michigan's introductory exhibit",
+        "sourceIds": [
+          "mich-intro",
+          "mich-reading"
+        ]
+      },
+      "evidence": [
+        {
+          "claim": "Michigan transcribes υμειν and explains it as reverse iotacism; its normal equivalent is ὑμῖν. Both mean 'to you'.",
+          "sourceIds": [
+            "mich-line5"
+          ]
+        },
+        {
+          "claim": "P46 has καὶ κυρίου ἡμῶν after πατρὸς. SBLGNT prints this order; its apparatus reports ἡμῶν καὶ κυρίου for NA28 and Westcott–Hort.",
+          "sourceIds": [
+            "mich-variants",
+            "sbl-gal",
+            "sbl-gal-app"
+          ]
+        }
+      ],
+      "interpretation": "The vowel spelling does not change the addressee. Moving 'our' makes it most naturally qualify 'Lord' instead of 'Father'. This is a modest difference in phrasing, not a new identity for either referent.",
+      "editorialReasoning": "A normalized critical edition can retain a witness's word order while regularizing its spelling. The comparative apparatus documents editorial disagreement; it does not give Holmes's complete local rationale or a manuscript census.",
+      "limits": [
+        "Do not call Michigan's teaching 'standard text' the wording of every critical edition.",
+        "Do not infer that agreement at this phrase makes SBLGNT a transcription of P46.",
+        "Do not infer a direct copying relationship from one shared reading."
+      ]
+    },
+    {
+      "id": "romans",
+      "passage": "Romans 5:1",
+      "question": "A statement or an exhortation?",
+      "evidence": [
+        {
+          "claim": "NET's textual note reports ἔχωμεν for Sinaiticus first hand and Vaticanus first hand, and ἔχομεν for their cited corrected states (א1, B2).",
+          "sourceIds": [
+            "net-rom"
+          ]
+        },
+        {
+          "claim": "Sinaiticus project locates Romans 4:12–5:16 on BL folio 262b, scribe A.",
+          "sourceIds": [
+            "sina-rom"
+          ]
+        },
+        {
+          "claim": "SBLGNT prints ἔχομεν; its apparatus reports agreement with NA28 and Robinson–Pierpont, against ἔχωμεν in Westcott–Hort and Tregelles.",
+          "sourceIds": [
+            "sbl-rom",
+            "sbl-rom-app"
+          ]
+        }
+      ],
+      "interpretation": "ἔχομεν is indicative ('we have'); ἔχωμεν is subjunctive (here 'let us have'). A single vowel can alter the force of a clause even though other vowel differences are mere spelling.",
+      "editorialReasoning": "NET prefers the indicative from the flow of Paul's argument while acknowledging strong external evidence for the subjunctive. Similar vowel sounds offer a possible route of confusion but cannot establish its direction. NET questions UBS4's A-level confidence; this is an attributed disagreement, not a claim about every later edition.",
+      "limits": [
+        "The digital viewer shell was read for the folio locator; its dynamic Greek correction display was not independently collated. Readings are explicitly attributed to NET's apparatus.",
+        "No claim that the two correctors worked at the same date.",
+        "The small displayed witness selection cannot settle the case by vote.",
+        "Correction can preserve a good alternative or introduce a change; 'corrected' does not mean 'original recovered'."
+      ]
+    },
+    {
+      "id": "mark",
+      "passage": "Mark 16:8–20",
+      "question": "Is an absent ending the same as a lost page?",
+      "evidence": [
+        {
+          "claim": "Sinaiticus ends Mark at 16:8; the project records Mark 16:1–8 and Luke 1:1–18 on BL folio 228, scribe D.",
+          "sourceIds": [
+            "sina-mark",
+            "head"
+          ]
+        },
+        {
+          "claim": "Vaticanus ends at 16:8 with a blank column; Alexandrinus contains 16:9–20.",
+          "sourceIds": [
+            "vaticanus",
+            "head",
+            "snapp"
+          ]
+        },
+        {
+          "claim": "P45's extant Mark portions belong to chapters 4–9 and 11–12. Mark 16 is not extant; this is no evidence of omission.",
+          "sourceIds": [
+            "p45-inventory"
+          ]
+        },
+        {
+          "claim": "SBLGNT's digital text includes both the unnumbered Shorter Ending and 16:9–20 in double brackets.",
+          "sourceIds": [
+            "sbl-mark"
+          ]
+        },
+        {
+          "claim": "Irenaeus, Against Heresies 3.10.5, quotes wording from Mark 16:19 as Mark's conclusion; this attests use of the longer ending in the late second century, not a surviving second-century Gospel codex.",
+          "sourceIds": [
+            "irenaeus",
+            "head"
+          ]
+        },
+        {
+          "claim": "The prevailing critical-edition judgment is an earliest attainable ending at 16:8, while the authorial intent question remains distinct.",
+          "sourceIds": [
+            "houghton-2023"
+          ]
+        }
+      ],
+      "interpretations": [
+        {
+          "person": "Peter M. Head",
+          "position": "Argues for the ending at 16:8, combining early manuscript evidence and the literary difficulties at the join.",
+          "sourceIds": [
+            "head"
+          ]
+        },
+        {
+          "person": "James Snapp Jr.",
+          "position": "Defends the longer ending; emphasizes early reception and broad transmission, proposing that Mark's colleagues attached material by Mark. This is a minority reconstruction; the main critical-edition conclusion is not evenly split between these two essays.",
+          "sourceIds": [
+            "snapp"
+          ]
+        }
+      ],
+      "limits": [
+        "Snapp's proposed composition history is a reconstruction, not a fact written on a manuscript.",
+        "A blank column does not by itself establish what a scribe knew or intended.",
+        "A surviving ending at 16:8 does not prove that no earlier ending was lost before this copy was made.",
+        "This selection is not a full apparatus: the Shorter Ending, translated witnesses and the Freer Logion require deeper study.",
+        "Canonical reception and authorial origin are related but different questions; the page does not equate them.",
+        "Alexandrinus wording is reported from scholarly accounts; the old BL viewer redirected to an unavailable-images landing page."
+      ]
+    },
+    {
+      "id": "damage",
+      "passage": "Galatians 1:4",
+      "question": "Are the restored letters actually there?",
+      "evidence": [
+        {
+          "claim": "Michigan's diplomatic transcription ends the relevant line with θελ[ημα; the bracket marks supplied letters at the broken edge.",
+          "sourceIds": [
+            "mich-whole",
+            "mich-line8"
+          ]
+        }
+      ],
+      "display": {
+        "surviving": "θελ",
+        "supplied": "ημα",
+        "normalized": "θέλημα",
+        "gloss": "will",
+        "convention": "The desk closes the square bracket for an isolated excerpt, displaying θελ[ημα]; this is an adaptation of Michigan's line-ending notation."
+      },
+      "reconstruction": "The rest of the word is supplied from linguistic and textual context, not read as surviving ink. Confidence in a restoration does not change its evidential category.",
+      "limits": [
+        "The displayed edge is typographic, not a tracing of the papyrus.",
+        "Lacuna means a physical or textual gap; an entire missing leaf has two lost sides. Neither is automatically a copying omission."
+      ]
+    }
+  ],
+  "method": {
+    "externalEvidence": "Compare dates, distribution, corrections, relationships and actual coverage; copy date is not automatically the age of a reading.",
+    "internalEvidence": "Ask what fits the author's language and what copying process might account for the alternatives. A plausible process is an argument, not an observed event.",
+    "counting": "Surviving descendants of a common source are not independent origins. Neither always choose the oldest nor always choose the majority is a sufficient method. The educational 8-versus-2 copying model is invented, not a genealogy of these witnesses.",
+    "cbgm": "INTF's Coherence-Based Genealogical Method relates variant genealogies and textual witnesses; its results require editorial analysis and do not simply recover a physical family tree of extant books.",
+    "sourceIds": [
+      "intf-cbgm",
+      "sbl-intro"
+    ]
+  },
+  "peopleAndWorks": [
+    {
+      "name": "Paul",
+      "role": "Named sender of Galatians and Romans; the selected cases concern transmission, not a reconstruction of his physical autographs."
+    },
+    {
+      "name": "Anonymous copyists and correctors",
+      "role": "Their recorded textual states must remain distinct from modern editors' choices."
+    },
+    {
+      "name": "Terrence Szymanski; Traianos Gagos",
+      "role": "Michigan's exhibit writer/designer and acknowledged papyrus-collection scholar; consulted exhibit, not all bibliography."
+    },
+    {
+      "name": "Michael W. Holmes",
+      "role": "Editor of SBLGNT, initially published 2010; selected text, apparatus and introduction consulted."
+    },
+    {
+      "name": "Irenaeus",
+      "role": "Late-second-century author; Against Heresies 3.10.5 consulted in an English translation of the ancient work."
+    },
+    {
+      "name": "Westcott and Hort; Tregelles; Robinson and Pierpont",
+      "role": "Editors represented in SBLGNT's comparison, not manuscript sigla; their complete editions were not independently read."
+    },
+    {
+      "name": "Head and Snapp",
+      "role": "Contrasting signed arguments published 14 June and 1 June 2022; selected arguments and evidence sections consulted."
+    }
+  ],
+  "researchLimits": [
+    "This is a curated introduction, not a new collation or a comprehensive apparatus.",
+    "No attempt to calculate global percentages of variants or manuscripts.",
+    "No full reading of Metzger/Ehrman, Parker or the ECM volumes is claimed.",
+    "Primary object locators were checked where accessible; a viewer shell is not visual verification of every letter.",
+    "The selected critical apparatus is edition-to-edition: it must not be presented as a full list of manuscripts.",
+    "Future extensions could add a Hebrew case only after equivalent object-level verification."
+  ],
+  "sources": [
+    {
+      "id": "mich-intro",
+      "title": "University of Michigan: Introduction to P46",
+      "url": "https://apps.lib.umich.edu/files/collections/papyrus/k12/reading/Paul/index.html",
+      "type": "holding-institution exhibit",
+      "access": "page read"
+    },
+    {
+      "id": "mich-reading",
+      "title": "Michigan: Reading the text, page 168",
+      "url": "https://apps.lib.umich.edu/files/collections/papyrus/k12/reading/Paul/reading.html",
+      "type": "holding-institution teaching edition",
+      "access": "page read"
+    },
+    {
+      "id": "mich-line5",
+      "title": "Michigan: Galatians line 5, spelling",
+      "url": "https://apps.lib.umich.edu/files/collections/papyrus/k12/reading/Paul/line05.html",
+      "type": "holding-institution transcription and commentary",
+      "access": "page read"
+    },
+    {
+      "id": "mich-variants",
+      "title": "Michigan: Variant readings in P46",
+      "url": "https://apps.lib.umich.edu/files/collections/papyrus/k12/reading/Paul/variants.html",
+      "type": "holding-institution commentary",
+      "access": "page read; not treated as the text of every modern edition"
+    },
+    {
+      "id": "mich-whole",
+      "title": "Michigan: Opening text of Galatians",
+      "url": "https://apps.lib.umich.edu/files/collections/papyrus/k12/reading/Paul/wholetext.html",
+      "type": "published diplomatic transcription",
+      "access": "selected lines and presentation conventions read"
+    },
+    {
+      "id": "mich-line8",
+      "title": "Michigan: Galatians line 8",
+      "url": "https://apps.lib.umich.edu/files/collections/papyrus/k12/reading/Paul/line08.html",
+      "type": "holding-institution reader",
+      "access": "page read; textual restoration cross-checked with wholetext"
+    },
+    {
+      "id": "sbl-gal",
+      "title": "SBLGNT Galatians: primary digital text",
+      "url": "https://raw.githubusercontent.com/Faithlife/SBLGNT/master/data/sblgnt/text/Gal.txt",
+      "type": "critical edition",
+      "access": "1:3–4 checked"
+    },
+    {
+      "id": "sbl-gal-app",
+      "title": "SBLGNT Galatians: comparative apparatus",
+      "url": "https://raw.githubusercontent.com/Faithlife/SBLGNT/master/data/sblgntapp/text/Gal.txt",
+      "type": "editorial apparatus",
+      "access": "1:3–4 checked; NA28 wording reported through this source"
+    },
+    {
+      "id": "sbl-rom",
+      "title": "SBLGNT Romans: primary digital text",
+      "url": "https://raw.githubusercontent.com/Faithlife/SBLGNT/master/data/sblgnt/text/Rom.txt",
+      "type": "critical edition",
+      "access": "5:1 checked"
+    },
+    {
+      "id": "sbl-rom-app",
+      "title": "SBLGNT Romans: comparative apparatus",
+      "url": "https://raw.githubusercontent.com/Faithlife/SBLGNT/master/data/sblgntapp/text/Rom.txt",
+      "type": "editorial apparatus",
+      "access": "5:1 checked"
+    },
+    {
+      "id": "sbl-mark",
+      "title": "SBLGNT Mark: primary digital text",
+      "url": "https://raw.githubusercontent.com/Faithlife/SBLGNT/master/data/sblgnt/text/Mark.txt",
+      "type": "critical edition",
+      "access": "16:8–20 and bracket boundaries checked"
+    },
+    {
+      "id": "sbl-intro",
+      "title": "Michael W. Holmes: SBLGNT introduction",
+      "url": "https://www.sblgnt.com/about/introduction/",
+      "type": "editor's methodological account",
+      "access": "text establishment, orthography and apparatus sections read"
+    },
+    {
+      "id": "sbl-license",
+      "title": "SBLGNT repository and license",
+      "url": "https://github.com/Faithlife/SBLGNT",
+      "type": "publisher repository",
+      "access": "CC BY 4.0 and version history checked"
+    },
+    {
+      "id": "net-rom",
+      "title": "NET Bible, Romans 5:1 textual note",
+      "url": "https://bible.org/download/netbible/ondemand/bybook/rom.pdf#page=9",
+      "type": "translation committee's textual commentary",
+      "access": "PDF page 9 (printed page 2214), note 4 read; not the complete volume"
+    },
+    {
+      "id": "sina-rom",
+      "title": "Codex Sinaiticus: Romans 5, BL folio 262b",
+      "url": "https://codexsinaiticus.org/en/manuscript.aspx?book=37&chapter=5&lid=en&side=r&zoomSlider=0",
+      "type": "custodial manuscript viewer",
+      "access": "folio metadata read; dynamic Greek not independently collated"
+    },
+    {
+      "id": "sina-mark",
+      "title": "Codex Sinaiticus: Mark 16:8 / Luke 1, BL folio 228",
+      "url": "https://codexsinaiticus.org/en/manuscript.aspx?book=34&chapter=16&verse=8&lid=en&side=r&zoomSlider=0",
+      "type": "custodial manuscript viewer",
+      "access": "folio content boundary and scribe metadata read"
+    },
+    {
+      "id": "sina-transcription",
+      "title": "Codex Sinaiticus: the transcription project",
+      "url": "https://codexsinaiticus.org/en/project/transcription.aspx",
+      "type": "primary editorial methodology",
+      "access": "project page read"
+    },
+    {
+      "id": "vaticanus",
+      "title": "Vatican Library, Vat.gr.1209, Mark ending",
+      "url": "https://digi.vatlib.it/view/MSS_Vat.gr.1209/1307",
+      "type": "holding-institution object viewer",
+      "access": "viewer located; letter-level collation not claimed"
+    },
+    {
+      "id": "p45-inventory",
+      "title": "CSNTM: P45 object and folio inventory, 17 July 2013",
+      "url": "https://images.csntm.org/Manuscripts/GA_P45/P45_(Dublin_CBL_BP_I).pdf",
+      "type": "research inventory from manuscript photography",
+      "access": "both pages read; extant Mark list checked"
+    },
+    {
+      "id": "head",
+      "title": "Peter M. Head: A Case against the Longer Ending of Mark (2022)",
+      "url": "https://textandcanon.org/a-case-against-the-longer-ending-of-mark/",
+      "type": "signed scholarly argument",
+      "access": "evidence and argument sections read"
+    },
+    {
+      "id": "snapp",
+      "title": "James Snapp Jr.: A Case for the Longer Ending of Mark (2022)",
+      "url": "https://textandcanon.org/a-case-for-the-longer-ending-of-mark/",
+      "type": "signed counterargument",
+      "access": "evidence and reconstruction sections read"
+    },
+    {
+      "id": "irenaeus",
+      "title": "Irenaeus, Against Heresies 3.10.5, Ante-Nicene Fathers translation",
+      "url": "https://en.wikisource.org/wiki/Ante-Nicene_Fathers/Volume_I/IRENAEUS/Against_Heresies:_Book_III#Chapter_X",
+      "type": "ancient literary evidence in a public-domain translation",
+      "access": "relevant paragraph read; not a second-century physical manuscript"
+    },
+    {
+      "id": "intf-cbgm",
+      "title": "University of Münster, INTF: Coherence-Based Genealogical Method",
+      "url": "https://www.uni-muenster.de/INTF/en/forschung/cbgm/index.html",
+      "type": "research institute's methodological account",
+      "access": "overview consulted; no CBGM computation performed"
+    },
+    {
+      "id": "parker",
+      "title": "D. C. Parker, An Introduction to the New Testament Manuscripts and their Texts",
+      "url": "https://www.cambridge.org/core/books/an-introduction-to-the-new-testament-manuscripts-and-their-texts/C9A0AF6DD351B4A6C492DE5D8ED6BFCC",
+      "type": "further reading",
+      "access": "bibliographic lead inherited from study 01; full book not read"
+    },
+    {
+      "id": "houghton-2023",
+      "title": "H. A. G. Houghton, Unfinished Business: The Ending of Mark in Two Catena Manuscripts",
+      "url": "https://doi.org/10.1017/S0028688522000224",
+      "type": "original peer-reviewed research; open access CC BY 4.0",
+      "access": "Full HTML sections 1–4 and relevant notes read; no new collation of the objects. NTS 69.1 (January 2023), 35–42; first online 6 December 2022."
+    },
+    {
+      "id": "eusebius-marinus",
+      "title": "Eusebius, Gospel Problems and Solutions, To Marinus 1; Roger Pearse (ed.), David J. D. Miller (Greek translator), 2010",
+      "url": "https://archive.org/details/EusebiusGospelProblemsAndSolutions2010/page/95/mode/2up",
+      "type": "ancient text in modern text-and-translation edition",
+      "access": "Selected pp. 97–99 inspected through digitized OCR; Greek OCR not reliable for exact quotation. Paraphrases only. Publisher explicitly permits free PDF distribution; no manuscript images reproduced."
+    },
+    {
+      "id": "kelhoffer-2001",
+      "title": "James A. Kelhoffer, The Witness of Eusebius’ ad Marinum and Other Christian Writings to Text-Critical Debates concerning the Original Conclusion to Mark’s Gospel",
+      "url": "https://www.diva-portal.org/smash/get/diva2:385568/fulltext02",
+      "type": "published original research in Uppsala institutional repository",
+      "access": "Selected introduction, transmission discussion and text/translation sections consulted; not a complete reading. ZNW 92 (2001), 78–112. DOI 10.1515/zntw.92.1-2.78."
+    },
+    {
+      "id": "intf-history",
+      "title": "INTF institutional history",
+      "url": "https://www.uni-muenster.de/INTF/institut/geschichte/index.html",
+      "type": "institutional research history",
+      "access": "History of Nestle editions, Kurt and Barbara Aland, collaboration and ECM read. Stale future publication schedules not adopted."
+    },
+    {
+      "id": "intf-ecm",
+      "title": "INTF: Editio Critica Maior",
+      "url": "https://www.uni-muenster.de/INTF/forschung/ecm/index.html",
+      "type": "institutional editorial project description",
+      "access": "Scope and kinds of evidence read. No claim to have read complete ECM volumes; current completion forecasts not repeated."
+    },
+    {
+      "id": "mink-method",
+      "title": "Gerd Mink, The Coherence-Based Genealogical Method — What is it about?",
+      "url": "https://www.uni-muenster.de/INTF/Genealogical_method.html",
+      "type": "method developer’s account",
+      "access": "Preliminary remarks and discussion of contamination, repeated emergence and textual states read; no numerical analysis performed."
+    },
+    {
+      "id": "ecm-split",
+      "title": "INTF: Passages with a split guiding line in ECM Mark",
+      "url": "https://www.uni-muenster.de/imperia/md/content/INTF/passages_with_a_split_guiding_line.pdf",
+      "type": "primary editorial data, five-page list",
+      "access": "List inspected; Mark 9:29/29, page 3, checked: a – / b καὶ νηστείᾳ Byz. Does not mean the whole Longer Ending is on a split guiding line."
+    },
+    {
+      "id": "ecm-changes",
+      "title": "INTF: Textual changes as against NA28",
+      "url": "https://www.uni-muenster.de/imperia/md/content/INTF/textual_changes_as_against_na28.pdf",
+      "type": "primary editorial data",
+      "access": "Located and opened; retained for further comparison, no unsourced count or complete commentary claimed."
+    },
+    {
+      "id": "monier-2019",
+      "title": "Mina Monier, GA 304, Theophylact’s Commentary and the Ending of Mark (2019)",
+      "url": "https://hal.archives-ouvertes.fr/hal-03363084/document",
+      "type": "original research, access gap",
+      "access": "Repository access denied by bot protection. Position known through Houghton’s 2023 discussion and Head’s 2022 citation; NOT independently read. Bibliography differs on first page (94/95); use title/year rather than assert resolved pagination."
+    },
+    {
+      "id": "parker-frontmatter",
+      "title": "D. C. Parker, An Introduction to the New Testament Manuscripts and their Texts (2008), publisher front matter",
+      "url": "https://assets.cambridge.org/97805217/19896/frontmatter/9780521719896_frontmatter.pdf",
+      "type": "publisher contents and bibliography lead",
+      "access": "Contents consulted, including manuscript traditions, description, collation and transcription. Full book not read."
+    }
+  ],
+  "expansion": {
+    "date": "2026-10-14",
+    "researchQuestions": [
+      "What does each object actually preserve at the location under discussion?",
+      "Which differences alter meaning, and which reflect spelling or editorial normalization?",
+      "What kind of support does an edition’s apparatus record—and exclude?",
+      "Can a copying explanation discriminate between alternatives, or does it work in both directions?",
+      "When does a textual ending establish an authorial ending, and when does it expose incomplete production?",
+      "How can a scholarly consensus retain its conclusion while revising a supporting witness?"
+    ],
+    "claims": [
+      {
+        "id": "apparatus-token",
+        "claim": "The published Gal 1:3 entry is καὶ κυρίου ἡμῶν Treg RP ] ἡμῶν καὶ κυρίου WH NA28. The bracket separates the printed reading from alternatives; cited sigla here identify editions.",
+        "kind": "primary editorial evidence",
+        "sourceIds": [
+          "sbl-gal-app",
+          "sbl-intro"
+        ],
+        "limits": "Not a complete manuscript apparatus. The older introduction defines NA26–27; the currently consulted digital entry explicitly says NA28."
+      },
+      {
+        "id": "rom-mechanism",
+        "claim": "The same sound confusion can generate either vowel; it cannot independently determine direction.",
+        "kind": "editorial reasoning",
+        "sourceIds": [
+          "net-rom"
+        ],
+        "limits": "A plausible mechanism, not an observed copying event. No inferred dictation event is asserted."
+      },
+      {
+        "id": "rom-context",
+        "claim": "Romans 5:10 presents reconciliation as accomplished; NET uses the argument’s indicative force in preferring ἔχομεν.",
+        "kind": "primary text and attributed interpretation",
+        "sourceIds": [
+          "sbl-rom",
+          "net-rom"
+        ],
+        "limits": "Do not equate a preferred contextual reading with an extant autograph."
+      },
+      {
+        "id": "mark-join",
+        "claim": "Mark 16:7 promises a meeting in Galilee; 16:8 describes flight and silence; 16:9 reintroduces Mary Magdalene with the seven-demon detail.",
+        "kind": "primary edited text",
+        "sourceIds": [
+          "sbl-mark"
+        ],
+        "limits": "Narrative summaries in original English. The literary significance of the seam is an inference, not a manuscript inscription."
+      },
+      {
+        "id": "mark-shorter",
+        "claim": "The unnumbered Shorter Ending resolves silence with a report to Peter’s circle and a worldwide proclamation. SBLGNT distinguishes it from stopping at 16:8 and from 16:9–20.",
+        "kind": "primary edited text",
+        "sourceIds": [
+          "sbl-mark"
+        ],
+        "limits": "Selected forms only; no complete survey of combined endings or Freer Logion."
+      },
+      {
+        "id": "eusebius-two",
+        "claim": "To Marinus 1 presents two responses: dispute the ending on manuscript grounds, or accept it and reconcile the resurrection chronology by punctuation.",
+        "kind": "ancient literary testimony",
+        "sourceIds": [
+          "eusebius-marinus",
+          "kelhoffer-2001"
+        ],
+        "limits": "The work survives through later transmission including an abridgment. Reported prevalence is not a recoverable manuscript census; the author’s precise preference requires interpretation."
+      },
+      {
+        "id": "mark-consensus",
+        "claim": "Houghton reports the editorial consensus that the earliest attainable text ends at 16:8, reaffirmed by ECM Mark 2021.",
+        "kind": "scholarly assessment",
+        "sourceIds": [
+          "houghton-2023"
+        ],
+        "limits": "Not the same claim as certainty about Mark’s intended conclusion. The site does not adopt Head’s theological inference from non-originality to non-inspiration."
+      },
+      {
+        "id": "ga304-context",
+        "claim": "GA 304 is BnF grec 194, a first-half-twelfth-century catena. Its biblical extract at 16:8 is followed by a scholium. Houghton questions its use as a short-ending witness using scribal ending practice, another hand’s erased epigram and commentary dependence.",
+        "kind": "original research about an object",
+        "sourceIds": [
+          "houghton-2023"
+        ],
+        "limits": "Analysis followed from published research, not a fresh object inspection. Reason copying ceased is unresolved."
+      },
+      {
+        "id": "field-history",
+        "claim": "Nestle’s 1898 edition compared editions; Kurt Aland introduced direct manuscript evidence into that edition’s work; Barbara Aland’s directorship supported the ECM collaboration; James appeared in 1997.",
+        "kind": "institutional history",
+        "sourceIds": [
+          "intf-history"
+        ],
+        "limits": "This is a selected development, not a history of all textual scholarship or a claim that nineteenth-century editors did not consult manuscripts."
+      },
+      {
+        "id": "split-line",
+        "claim": "ECM’s published split-guiding-line list includes presence/absence of καὶ νηστείᾳ at Mark 9:29/29.",
+        "kind": "primary editorial evidence",
+        "sourceIds": [
+          "ecm-split"
+        ],
+        "limits": "A concrete example of an unresolved editorial choice; no full manuscript collation or commentary of this passage undertaken."
+      },
+      {
+        "id": "cbgm-states",
+        "claim": "Mink distinguishes textual states from physical manuscripts and incorporates contamination and possible repeated independent emergence of readings.",
+        "kind": "primary methodological account",
+        "sourceIds": [
+          "mink-method"
+        ],
+        "limits": "Educational explanation only. No historical copying connections among the desk’s selected witnesses are asserted."
+      }
+    ],
+    "researchDevelopments": [
+      {
+        "earlier": "Monier (2019) supported treating GA 304 as a witness to ending at 16:8; Head (June 2022) cites that research.",
+        "later": "Houghton (online December 2022; issue January 2023) argues that the manuscript is unfinished.",
+        "significance": "Read a witness’s production and commentary context before using its last biblical words as evidence. The revision changes one supporting datum, not the broader consensus.",
+        "sourceIds": [
+          "head",
+          "monier-2019",
+          "houghton-2023"
+        ]
+      },
+      {
+        "earlier": "Compact editions compare selected textual alternatives.",
+        "later": "ECM documents extensive Greek, versional and patristic evidence; CBGM adds explicit hypotheses about variant relationships.",
+        "significance": "Increased documentation can reveal uncertainty as well as support decisions.",
+        "sourceIds": [
+          "sbl-intro",
+          "intf-ecm",
+          "mink-method",
+          "ecm-split"
+        ]
+      }
+    ],
+    "traditionsAndLimits": {
+      "greek": "Papyri, majuscule codices, corrections and Byzantine catena production all contribute different kinds of evidence.",
+      "versions": "Latin, Syriac and Coptic are introduced through ECM scope and ancient transmission. No new versional readings displayed: translating back into Greek is not mechanically reliable.",
+      "geography": "The objects’ modern custodians are not assumed to be their ancient places of copying. Scholarship consulted spans Michigan, Münster, Birmingham, Cambridge and Uppsala; ancient testimony includes Irenaeus and Eusebius.",
+      "hebrewBible": "Not covered by these examples; no assertion that all biblical textual traditions follow the same editorial history.",
+      "theology": "Canonical authority and inspiration require interpretive commitments beyond identifying the earliest attainable wording. The study explains textual claims without resolving denominational reception."
+    },
+    "readingPlan": [
+      {
+        "work": "Michigan P46 reader",
+        "contribution": "Observe how a diplomatic transcription differs from a normalized reading.",
+        "access": "Selected lines and commentary read",
+        "sourceIds": [
+          "mich-whole",
+          "mich-line5"
+        ]
+      },
+      {
+        "work": "Tregelles 1857–1879; Westcott–Hort 1881",
+        "contribution": "Historical edition choices still test later judgments at Romans 5:1.",
+        "access": "Reported through SBLGNT introduction and comparative apparatus; full editions not read",
+        "sourceIds": [
+          "sbl-intro",
+          "sbl-rom-app"
+        ]
+      },
+      {
+        "work": "Parker, An Introduction (2008)",
+        "contribution": "Further training in manuscripts, collation and transcription across Greek and translated traditions.",
+        "access": "Publisher contents only",
+        "sourceIds": [
+          "parker-frontmatter"
+        ]
+      },
+      {
+        "work": "Kelhoffer (2001)",
+        "contribution": "Examines the transmission and rhetorical structure of ancient testimony rather than turning isolated patristic sentences into votes.",
+        "access": "Selected sections read",
+        "sourceIds": [
+          "kelhoffer-2001"
+        ]
+      },
+      {
+        "work": "Houghton, Unfinished Business (2023)",
+        "contribution": "Tests an inherited apparatus entry against scribal practice and commentary tradition.",
+        "access": "Main article sections read",
+        "sourceIds": [
+          "houghton-2023"
+        ]
+      },
+      {
+        "work": "ECM Mark (2021), Holger Strutwolf et al.",
+        "contribution": "Larger documentary basis and explicit unresolved alternatives.",
+        "access": "Project description and primary lists consulted, whole three-part edition not read",
+        "sourceIds": [
+          "intf-ecm",
+          "ecm-split"
+        ]
+      }
+    ],
+    "openResearchGaps": [
+      "Romans corrected hands remain apparatus-based reports; exact physical forms and correction chronology await direct visual collation.",
+      "GA 304 classification follows Houghton. The original object and its erased epigram were not freshly inspected; Monier’s 2019 paper was blocked at the repository.",
+      "Full ECM explanatory volumes and Parker’s full book remain unread. Historical edition readings are verified through the SBLGNT comparative apparatus.",
+      "The full range of translated Mark endings, combined endings and Freer Logion is not collated here.",
+      "No surviving evidence can identify with certainty the lost exemplar or interrupted copying event behind GA 304."
+    ],
+    "rights": "SBLGNT Greek extracts and apparatus adapted under CC BY 4.0. GA 304 schematic is original, labeled sequence/not-to-scale and attributed to Houghton’s CC BY 4.0 research. No manuscript image or copyrighted long translation reproduced."
+  }
+}

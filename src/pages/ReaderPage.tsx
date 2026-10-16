@@ -284,9 +284,9 @@ function MarkRead({ code, chapter }: { code: string; chapter: string }) {
 /** Big round arrows either side of the text, riding at mid-screen as you scroll (wide screens only). */
 function SideArrows({ prev, next, nextInside = false }: { prev: ChapterLink | null; next: ChapterLink | null; nextInside?: boolean }) {
   // With the cross-reference panel open, the next arrow sits to the right of the panel (OuterNextArrow) where
-  // there is room for it (1440px+); on narrower wide screens it stays here, between the text and the panel.
+  // there is room for it (1632px+); on narrower wide screens it stays here, between the text and the panel.
   const arrow = (link: ChapterLink | null, side: "left" | "right") => (
-    <div className={cn("pointer-events-none absolute inset-y-0 hidden xl:block", side === "left" ? "-left-24" : "-right-24", side === "right" && nextInside && "min-[1440px]:hidden")}>
+    <div className={cn("pointer-events-none absolute inset-y-0 hidden xl:block", side === "left" ? "-left-24" : "-right-24", side === "right" && nextInside && "min-[1632px]:hidden")}>
       {link && (
         <button
           type="button"
@@ -308,11 +308,11 @@ function SideArrows({ prev, next, nextInside = false }: { prev: ChapterLink | nu
   );
 }
 
-/** The next-chapter arrow to the right of the open cross-reference panel (screens 1440px and wider). */
+/** The next-chapter arrow to the right of the open cross-reference panel (screens 1632px and wider). */
 function OuterNextArrow({ link }: { link: ChapterLink | null }) {
   if (!link) return null;
   return (
-    <div className="pointer-events-none absolute inset-y-0 -right-[5.5rem] hidden min-[1440px]:block">
+    <div className="pointer-events-none absolute inset-y-0 -right-[5.5rem] hidden min-[1632px]:block">
       <button
         type="button"
         onClick={link.go}

@@ -1,0 +1,20 @@
+.resource-margin-accents{stroke:currentColor;stroke-width:1.15;opacity:1;fill:none;stroke-linecap:round;stroke-linejoin:round;shape-rendering:geometricPrecision}
+.resource-margin-accents path{vector-effect:non-scaling-stroke}
+.resource-margin-accents .resource-solid-cross{fill:currentColor;stroke:none;opacity:1;filter:none;shape-rendering:geometricPrecision}
+:is(.resource-approved,.morning-card) .resource-life-landscape .land-far{opacity:.62}
+:is(.resource-approved,.morning-card) .resource-life-landscape .land-fine{opacity:.7}
+:is(.resource-approved,.morning-card) .resource-life-landscape .resource-far-shore{stroke-width:.95;opacity:.8}
+:is(.resource-approved,.morning-card) .resource-life-landscape .tree-crown{stroke-width:1.45}
+:is(.resource-approved,.morning-card) .resource-life-landscape .tree-trunk{stroke-width:1.65}
+:is(.resource-approved,.morning-card) .resource-life-landscape .leaf-detail{stroke-width:.9}
+.resource-cloud{fill:var(--surface);stroke:var(--land);stroke-width:1.05;stroke-linecap:round;stroke-linejoin:round;animation:resource-cloud-drift 24s ease-in-out infinite}
+.resource-cloud.cloud-far{animation-duration:32s;animation-delay:-11s}
+.resource-cloud.cloud-small{animation-duration:29s;animation-delay:-7s}
+.resource-cloud.cloud-mid{animation-duration:35s;animation-delay:-15s}
+.resource-cloud .cloud-fold{fill:none;stroke-width:.7;opacity:.55}
+@keyframes resource-cloud-drift{0%,100%{transform:translateX(-5px)}50%{transform:translateX(7px)}}
+@media(prefers-reduced-motion:reduce){.resource-cloud{animation:none!important}}
+.resource-glow-line{fill:none!important;stroke:currentColor;stroke-width:1.15;opacity:0;pointer-events:none;filter:drop-shadow(0 0 2.5px currentColor);transition:opacity 650ms cubic-bezier(.22,.61,.36,1)}
+.resource-glow-gold{color:var(--gold);stroke:var(--gold)}
+:is(a.st-door,.card):is(:hover,:focus-visible) .resource-glow-line{opacity:.65}
+@media(prefers-reduced-motion:reduce){.resource-glow-line{transition:none!important}}

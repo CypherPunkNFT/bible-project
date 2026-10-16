@@ -8,7 +8,7 @@ import { usePeopleData } from "../shared/data";
 import { PreachersContext, type ProfileTarget } from "./context";
 import { Cities } from "./Cities";
 import { Crossing } from "./Crossing";
-import { Directory } from "./Directory";
+import { TeacherCatalogue as Directory } from "./catalogue/TeacherCatalogue";
 import { Drawer } from "./Drawer";
 import { Handed } from "./Handed";
 import { Landing } from "./Landing";
@@ -21,13 +21,13 @@ import { AcquiredCatalogue } from "../shared/AcquiredCatalogue";
 const SECTIONS = [
   ["landing", "Preachers & authors", Landing],
   ["bible", "The whole Bible", WholeBible],
+  ["directory", "Every teacher, one place", Directory],
   ["through", "Teachers through the Bible", Through],
   ["cities", "Cities that gathered them", Cities],
   ["lives", "Who was alive at the same time", Lives],
   ["crossing", "Did their lives cross?", Crossing],
   ["handed", "Who passed it to whom", Handed],
   ["sameyear", "Same year, different worlds", SameYear],
-  ["directory", "Everyone, by where they served", Directory],
 ] as const;
 
 export default function PreachersPage() {

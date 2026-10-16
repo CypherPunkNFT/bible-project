@@ -59,7 +59,7 @@ export function SameYear() {
   const notYet = people.filter((p) => p.born > year).length, gone = people.filter((p) => p.died && p.died < year).length;
 
   return <>
-    <SectionHead num="07" kicker="Side by side" title={<>Same year, <em>different worlds</em></>}
+    <SectionHead num="08" kicker="Side by side" title={<>Same year, <em>different worlds</em></>}
       line="Pick a year to see which teachers were alive and where each of them was living." />
     <div className="yr">
       <div className="yr-controls">

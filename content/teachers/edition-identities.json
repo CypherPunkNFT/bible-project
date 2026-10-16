@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "sha256": "fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd",
+      "evidence": [
+        {
+          "url": "https://www.ccel.org/ccel/c/calvin/calcom41.xml",
+          "locator": "Held XML title/creator and publication headers; original SHA256 fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd",
+          "note": "Source-bound identity/date/role assertions verified by P3. Unknown composition and delivery dates remain unknown.",
+          "checkedOn": "2026-10-12"
+        }
+      ],
+      "credits": [
+        {
+          "name": "John Calvin",
+          "role": "author",
+          "contributorId": "author-john-calvin"
+        },
+        {
+          "name": "William Pringle",
+          "role": "translator",
+          "contributorId": null
+        }
+      ],
+      "fields": {
+        "authors": [
+          "John Calvin"
+        ],
+        "contributors": [
+          "author-john-calvin"
+        ],
+        "editors": [],
+        "translators": [
+          "William Pringle"
+        ],
+        "language": "en",
+        "workId": "work-l06-calvin-41",
+        "editionId": "edition-l06-calvin-41",
+        "editionDetails": {
+          "printDate": null,
+          "electronicDate": "1999-11-23",
+          "printPublisher": null,
+          "electronicPublisher": "Christian Classics Ethereal Library"
+        }
+      }
+    },
+    {
+      "sha256": "a25226498c8646bb3b062d0b3e58ccbea7ed9f4b14a04ef9b3728757301c21dc",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/h/hodge/ephesians.xml",
+          "locator": "Held XML title/creator and publication headers; original SHA256 a25226498c8646bb3b062d0b3e58ccbea7ed9f4b14a04ef9b3728757301c21dc",
+          "note": "Source-bound identity/date/role assertions verified by P3. Unknown composition and delivery dates remain unknown.",
+          "checkedOn": "2026-10-12"
+        }
+      ],
+      "credits": [
+        {
+          "name": "Charles Hodge",
+          "role": "author",
+          "contributorId": "author-charles-hodge"
+        }
+      ],
+      "fields": {
+        "authors": [
+          "Charles Hodge"
+        ],
+        "contributors": [
+          "author-charles-hodge"
+        ],
+        "editors": [],
+        "translators": [],
+        "language": "en",
+        "workId": "work-reconciled-f8523f9859d1a7f7c2209d27",
+        "editionId": "edition-reconciled-c9d4770316381f346cb26ae4",
+        "editionDetails": {
+          "printDate": "[1860]",
+          "electronicDate": "2006-03-02",
+          "printPublisher": "New York: Robert Carter and Bros.",
+          "electronicPublisher": "Christian Classics Ethereal Library"
+        }
+      }
+    },
+    {
+      "sha256": "140823cc0ca835eda48a3dc99d4025ef928530e997e92a25e5fecbc82b00f0d2",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/textcreationpartnership/A41197/master/A41197.xml",
+          "locator": "Held XML title/creator and publication headers; original SHA256 140823cc0ca835eda48a3dc99d4025ef928530e997e92a25e5fecbc82b00f0d2",
+          "note": "Source-bound identity/date/role assertions verified by P3. Unknown composition and delivery dates remain unknown.",
+          "checkedOn": "2026-10-12"
+        }
+      ],
+      "credits": [
+        {
+          "name": "James Fergusson",
+          "role": "author",
+          "contributorId": "contributor-e807f8a10dd14ed450bf"
+        }
+      ],
+      "fields": {
+        "authors": [
+          "James Fergusson"
+        ],
+        "contributors": [
+          "contributor-e807f8a10dd14ed450bf"
+        ],
+        "editors": [],
+        "translators": [],
+        "language": "en",
+        "workId": "work-tcp-a41197",
+        "editionId": "edition-tcp-a41197-1659",
+        "editionDetails": {
+          "printDate": "1659",
+          "electronicDate": "2004-11",
+          "printPublisher": "Printed for the Company of Stationers",
+          "electronicPublisher": "Text Creation Partnership"
+        }
+      }
+    },
+    {
+      "sha256": "ec5430010801378dda5e6e5fa89e87b142281c45a416acf56a800d88bb984757",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/textcreationpartnership/A17705/master/A17705.xml",
+          "locator": "Held XML title/creator and publication headers; original SHA256 ec5430010801378dda5e6e5fa89e87b142281c45a416acf56a800d88bb984757",
+          "note": "Source-bound identity/date/role assertions verified by P3. Unknown composition and delivery dates remain unknown.",
+          "checkedOn": "2026-10-12"
+        }
+      ],
+      "credits": [
+        {
+          "name": "John Calvin",
+          "role": "author",
+          "contributorId": "author-john-calvin"
+        },
+        {
+          "name": "Arthur Golding",
+          "role": "translator",
+          "contributorId": "contributor-e474134dd04adf162905"
+        }
+      ],
+      "fields": {
+        "authors": [
+          "John Calvin"
+        ],
+        "contributors": [
+          "author-john-calvin",
+          "contributor-e474134dd04adf162905"
+        ],
+        "editors": [],
+        "translators": [
+          "Arthur Golding"
+        ],
+        "language": "en",
+        "workId": "work-reconciled-8ad80b675ee9c39db8f4f275",
+        "editionId": "edition-reconciled-0418b34a71238f5cdfa389ce",
+        "editionDetails": {
+          "printDate": "1577",
+          "electronicDate": "2005-10",
+          "printPublisher": "[By Thomas Dawson] for Lucas Harison, and George Byshop",
+          "electronicPublisher": "Text Creation Partnership"
+        }
+      }
+    }
+  ]
+}

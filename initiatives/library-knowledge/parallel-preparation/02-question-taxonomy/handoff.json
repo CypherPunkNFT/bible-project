@@ -1,0 +1,290 @@
+{
+  "track": "P2",
+  "status": "complete",
+  "scope": "Bounded question-taxonomy preparation only; mining/evaluation/publication are not complete.",
+  "completedDate": "2026-10-12",
+  "outputs": [
+    "KnowledgeBase/library-knowledge/parallel-preparation/02-question-taxonomy/topics.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/02-question-taxonomy/mapping-evidence.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/02-question-taxonomy/questions-development.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/02-question-taxonomy/evaluation/questions-reserved.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/02-question-taxonomy/split-manifest.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/02-question-taxonomy/counts.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/02-question-taxonomy/input-versions.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/02-question-taxonomy/verification.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/02-question-taxonomy/evaluation/README.txt",
+    "KnowledgeBase/library-knowledge/parallel-preparation/02-question-taxonomy/evaluation/build_package.py",
+    "Website/initiatives/library-knowledge/parallel-preparation/02-question-taxonomy/MAPPING-NOTES.md",
+    "Website/initiatives/library-knowledge/parallel-preparation/02-question-taxonomy/taxonomy-overview.html",
+    "Website/initiatives/library-knowledge/parallel-preparation/02-question-taxonomy/validate.py",
+    "Website/initiatives/library-knowledge/parallel-preparation/02-question-taxonomy/RESULT.md",
+    "Website/initiatives/library-knowledge/parallel-preparation/02-question-taxonomy/handoff.json"
+  ],
+  "inputVersions": [
+    {
+      "path": "Website/content/topics/naves-placement.json",
+      "sha256": "0cfdec47923e2c1e711196c179ed10e2d84f103edc2cb89d0ae646c82f3c5db0"
+    },
+    {
+      "path": "Website/content/topics/taxonomy.json",
+      "sha256": "8543ec4e669ceba8393a24880e0e26288b65842079ec6629136ee0647b18e316"
+    },
+    {
+      "path": "Website/data/topics/index.json",
+      "sha256": "46c0972051763f6f10998df20795c0a16ca59b0ba37801df54e692e660a1deea"
+    },
+    {
+      "path": "Website/data/topics/t/100.json",
+      "sha256": "7c4dd2af8a12b7651f5c2bd1209dc997c27c5cbd48401c2b883bd671c9aa8c9f"
+    },
+    {
+      "path": "Website/data/topics/t/103.json",
+      "sha256": "e1448ef5582f793a8382dc9432e205212c725b1c37db7b305247d0939940a3ea"
+    },
+    {
+      "path": "Website/data/topics/t/109.json",
+      "sha256": "c976e293d04eba87842b5271e096c179bf99f70137b3bc5d4abdb5cf75c11b0b"
+    },
+    {
+      "path": "Website/data/topics/t/12.json",
+      "sha256": "d72d584aa268fbdf862e028580bc3c641316ddae2059574e4868f568ac08b230"
+    },
+    {
+      "path": "Website/data/topics/t/126.json",
+      "sha256": "a2214710178e7c6277cc398d812464bb644660459d9865403e2ea3c6ceb5ab31"
+    },
+    {
+      "path": "Website/data/topics/t/133.json",
+      "sha256": "250639bf4941822d6b04e77bc072f2c7fe36ee575ecc63f09decfe2265923432"
+    },
+    {
+      "path": "Website/data/topics/t/134.json",
+      "sha256": "ebc5deb3d2500d00cf236f34890e96d7add5fc501e6f5621200e723e7f244996"
+    },
+    {
+      "path": "Website/data/topics/t/141.json",
+      "sha256": "910ce3548cd2ce253901aaa2b1c323da774a39a57c72fcdb985910e5c41df16f"
+    },
+    {
+      "path": "Website/data/topics/t/15.json",
+      "sha256": "a9753dc81c18a17974f8036765f8b2842053fb155be09df96f73919fa905dd58"
+    },
+    {
+      "path": "Website/data/topics/t/161.json",
+      "sha256": "b8b14cfdbcc4e91f4dcf2681261601654394c6807d14d86b73362ea6528fe99c"
+    },
+    {
+      "path": "Website/data/topics/t/174.json",
+      "sha256": "e402bce422a6a51f9f72428f702df8af935b6e46aca201c04324860fae8b4a33"
+    },
+    {
+      "path": "Website/data/topics/t/183.json",
+      "sha256": "0c17581a6e192c126ea4197d2c11da9581deee0e7963121beffd2785849bec37"
+    },
+    {
+      "path": "Website/data/topics/t/187.json",
+      "sha256": "94906b58468c802bf22ae55f0c8a28a9811f1b3d57c56fbde20dacbcbf7c7ca7"
+    },
+    {
+      "path": "Website/data/topics/t/195.json",
+      "sha256": "4f6abdb52b16870c125b27d547da998929d7e80b846e0408f23a6d11fba93e85"
+    },
+    {
+      "path": "Website/data/topics/t/204.json",
+      "sha256": "527ccd74ef7db32f06276d487eaf13da9a3cad9a5fefd529665e95308b4aedeb"
+    },
+    {
+      "path": "Website/data/topics/t/224.json",
+      "sha256": "d20d833faab33226c69144eab7f2073987f777aaf26f0b0ef7da7aed9643e76a"
+    },
+    {
+      "path": "Website/data/topics/t/229.json",
+      "sha256": "c563258cd6c59631f396f1ef6dd0082281aa12a5db1b603b9e3b34265028b45a"
+    },
+    {
+      "path": "Website/data/topics/t/23.json",
+      "sha256": "a3c7509e20d7da18fcdf2f71900a3180bd5d6097f793dc3e8794052e1b5574a7"
+    },
+    {
+      "path": "Website/data/topics/t/231.json",
+      "sha256": "9f8bc692f64a979da9f4f48dc1e19c842dab1e86ff4408a37679fe00d19f65dd"
+    },
+    {
+      "path": "Website/data/topics/t/237.json",
+      "sha256": "0a91fdd9fdd21908d3e20e8fb0df6a79f85f87e54ddc603c8bd4f071dce58bb8"
+    },
+    {
+      "path": "Website/data/topics/t/247.json",
+      "sha256": "8e077127e442183f0fe69ff13fdaf4367668c4fe4f83b8ce2ac6598c0ea68282"
+    },
+    {
+      "path": "Website/data/topics/t/254.json",
+      "sha256": "d8dbdf7aa9b6cd96cfef32abd5f6c14a8d226efe64670b16fcccc8eb429a0dbe"
+    },
+    {
+      "path": "Website/data/topics/t/35.json",
+      "sha256": "4dd5c56edaf188ee11eddee1bd91a3a459a9ca32b8b4e84c301a2822c72869b7"
+    },
+    {
+      "path": "Website/data/topics/t/4.json",
+      "sha256": "f21ecedf89efe428a6f3d09e4e368f01e37c54d4f4f649209141cab060bc1cb3"
+    },
+    {
+      "path": "Website/data/topics/t/47.json",
+      "sha256": "4d3d7017d32eaab85f956076c666b02e6462f00a19971d54230961c455ae67d3"
+    },
+    {
+      "path": "Website/data/topics/t/48.json",
+      "sha256": "bd534f95c66d4bca6d6c920eb85e7b92eb8b0fd2424cbdb297c33f2e1c0570d8"
+    },
+    {
+      "path": "Website/data/topics/t/52.json",
+      "sha256": "a0f36224c770055861e33efac101120e06b836960a134f465283bba5df23f2ec"
+    },
+    {
+      "path": "Website/data/topics/t/54.json",
+      "sha256": "4062c19fcb2ddf3ae40795c7f84c84ceff55aa26e2595191d7ae6c56cd4c05bc"
+    },
+    {
+      "path": "Website/data/topics/t/69.json",
+      "sha256": "2db58a17554adcdad0b8d09a9b6c1991dc3c937da26a95600340d62737f9aa6a"
+    },
+    {
+      "path": "Website/data/topics/t/70.json",
+      "sha256": "bd30ab03f15805d42d03e367a3784bc8999d0e521210d59cdaef50edfdbdf586"
+    },
+    {
+      "path": "Website/data/topics/t/91.json",
+      "sha256": "ba94dd17c0a1a26d1712b5c5433cbb58ac0a9e2c02724992ac6933ca86c6077f"
+    },
+    {
+      "path": "Website/initiatives/library-knowledge/EVIDENCE-CONTRACT.md",
+      "sha256": "07a43ede270fcb6297271fa4fb9abc3a7064c24b492afb65e83fd48a63976b61"
+    },
+    {
+      "path": "Website/initiatives/library-knowledge/PILOT.md",
+      "sha256": "4376f87c441e659baa08255fbb3f3069878ffbc15609cdfc1073038397f5acf6"
+    },
+    {
+      "path": "Website/initiatives/library-knowledge/PLAN.md",
+      "sha256": "a2ac237bc49934196fabcd78ddaca6b6b9fa7fdc0ca508fea170fcf377b9c913"
+    },
+    {
+      "path": "Website/initiatives/library-knowledge/parallel-preparation/02-question-taxonomy/PROPOSAL.md",
+      "sha256": "82179ecc33283bd1bad6e90976a173503fdb76d280dbb9ebeaecca2a82f430ef"
+    },
+    {
+      "path": "Website/initiatives/library-knowledge/parallel-preparation/README.md",
+      "sha256": "ae4e49eee51f6314c11fbe49ecad68cc7d79795291abf3b83bfd40215688c35c"
+    },
+    {
+      "path": "Website/knowledge/enrichment/terms/english-v1.json",
+      "sha256": "c14957ffdd2ff16e1d5aecc121741ed80efc1813b0373e0350c9858e0280f65c"
+    },
+    {
+      "path": "Website/scripts/build-topics.py",
+      "sha256": "9214e835e80107203449eadfece8b66abb8d5ec7770d3310e9d8f791d01794fd"
+    },
+    {
+      "path": "Website/src/index.css",
+      "sha256": "191014d4a41f3df1e0c9f8ec0f7a8e458f7397955d63fa64dc1d79e843d9f693"
+    },
+    {
+      "path": "Website/src/lib/topics.ts",
+      "sha256": "d2dd72622be7b1e547bb6fc41acca827614d932d3e9e4ff1cd39f81b783616ba"
+    }
+  ],
+  "completedCounts": {
+    "topicProposals": 25,
+    "scopedExistingTopicMappings": 21,
+    "developmentQuestions": 80,
+    "reservedQuestions": 20,
+    "uniqueQuestions": 100,
+    "questionTypes": 4,
+    "presentationGroups": 5,
+    "reservedChallengeCategories": 5,
+    "selectedInputsRechecked": 43
+  },
+  "unresolvedCounts": {
+    "canonicalMappings": 4,
+    "topicsWithoutReservedQuestionInThisWave": 5,
+    "questionsWithAvailabilityAndRelevanceUnassessed": 100,
+    "independentHumanReviewCompleted": 0
+  },
+  "unresolvedMappings": [
+    "covenant",
+    "suffering",
+    "christ-person",
+    "interpretation"
+  ],
+  "verification": {
+    "structural": {
+      "status": "passed",
+      "topics": 25,
+      "mapped": 21,
+      "unresolvedMappings": 4,
+      "development": 80,
+      "reserved": 20,
+      "selectedInputsUnchanged": 43,
+      "reservedWordingInOverview": 0,
+      "checks": [
+        "required fields",
+        "unique identities and wording",
+        "valid links and acyclic parents",
+        "scoped registry bindings and selected entry headings",
+        "deterministic disjoint balanced split",
+        "question/evidence fields",
+        "challenge coverage",
+        "no answers or judgments",
+        "file fingerprints",
+        "actual/report count parity",
+        "selected input recheck",
+        "reserved wording containment"
+      ]
+    },
+    "visual": {
+      "browser": "Microsoft Edge via Playwright; local file only",
+      "widths": [
+        1440,
+        390
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "filterVisibleCounts": [
+        25,
+        4
+      ],
+      "pageErrors": 0,
+      "pageOverflow": false,
+      "screenshots": "KnowledgeBase/library-knowledge/parallel-preparation/02-question-taxonomy/visual-verification"
+    },
+    "reproducibility": "Authoring rerun accepted byte-identical generated outputs; no prior held-out questions read."
+  },
+  "integrationNeeds": [
+    {
+      "owner": "coordinator",
+      "action": "Review the four null canonical mappings against Website/data/topics/index.json and its authoring sources. Do not register p2 planning/group keys as production IDs."
+    },
+    {
+      "owner": "coordinator",
+      "action": "Use questions-development.json for LK-203/LK-301 design only. Exclude evaluation/ from tuning and freeze retrieval configuration before reserved-set access."
+    },
+    {
+      "owner": "coordinator",
+      "action": "If evaluation must cover all 25 topics, commission a separate fresh wave for the five omitted topics; do not imply this 20-question split covers them."
+    },
+    {
+      "owner": "coordinator",
+      "action": "After final intake/vector parity/gated graph completion, assess source availability and gather attributed evidence; do not infer answers from question wording."
+    },
+    {
+      "owner": "coordinator",
+      "action": "Review taxonomy-overview.html for later wiki integration; this track has made no shared wiki/site edits."
+    }
+  ],
+  "requiresFinalSnapshotRecheck": true,
+  "recheckScope": "Recheck selected registry fingerprints before integration; corpus was never consulted, so there are no corpus locators to reconcile. Retrieval coverage and multilingual sufficiency need the final verified snapshot.",
+  "protectedWork": "No corpus connection, retrieval, vectors, intake, graph jobs, prior evidence or shared production writes."
+}

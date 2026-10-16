@@ -1,0 +1,75 @@
+{
+  "track": "P1",
+  "status": "complete",
+  "scope": "Bounded offline interface proposal only; no production implementation",
+  "outputs": {
+    "gallery": "Website/initiatives/library-knowledge/parallel-preparation/01-interfaces/prototype/index.html",
+    "prototypePages": [
+      "passage.html",
+      "topic.html",
+      "shelf.html"
+    ],
+    "interactionContract": "Website/initiatives/library-knowledge/parallel-preparation/01-interfaces/INTERACTIONS.md",
+    "screenshots": "Website/initiatives/library-knowledge/parallel-preparation/01-interfaces/prototype/screenshots",
+    "privateEvidence": "KnowledgeBase/library-knowledge/parallel-preparation/01-interfaces"
+  },
+  "inputVersions": {
+    "Website/AGENTS.md": "69a63a2cac2f0c6c77826a760141153147947b23fba62ee71785c6285d09b8f0",
+    "Pages/Study/PLAN.md": "8b4d1b9c32be3648f7680e7445c172f4269796392cf9bf2e5cc993dbd84d99dd",
+    "Website/src/index.css": "191014d4a41f3df1e0c9f8ec0f7a8e458f7397955d63fa64dc1d79e843d9f693",
+    "Website/src/App.tsx": "876cfe369ba260f0e7b2cde9a8abbed61842bce8279c8da517a980f839b47019",
+    "Website/src/pages/ReaderPage.tsx": "2902dd9eda6c2c4d61e40858f900f8ef7b3c6b87bb40bfe5d92b1a8a5033c99c",
+    "Website/src/pages/teachers/teachers.css": "cf3346176347b7a797835a6794102463f9e16bec86da786503b5679a6766d21e",
+    "Website/src/pages/teachers/shared/frame.css": "50a34eef97fb621dbe647e38ac9ca7ca39b0fa466a30f866e77c7fabc36660be",
+    "Website/src/pages/teachers/shared/acquired.ts": "c29cff92d2374cf2266acb9a07032fea412b4aec1e0114f20b22c9d7cb19b9a6",
+    "Website/src/pages/teachers/shared/AcquiredCatalogue.tsx": "aa062368f91e1cb8a0e01f4284429945b22f284bfa6a45e454dca9ea80f2a044",
+    "Website/src/pages/teachers/LibraryWorkPage.tsx": "0567b3d23bf4000ec59314c4292625dda8b965670202cc12bd10c19a25047193",
+    "Website/src/pages/teachers/preachers/PreachersPage.tsx": "9a43a5326259998991f1cca9e51a8b5d5c926e2d3f3f705aacb25846e48ea97c",
+    "Website/src/pages/teachers/scholars/Catalogue.tsx": "147a151dba27bce403d8d7a9de7f20154aca5c36e70cfb31a62eae3f5a264a23",
+    "Website/src/pages/teachers/scholars/ScholarsPage.tsx": "f59a6aa48f4412cca6e5031d0396fc57ddfb82a757280644ccf68b5251bda190",
+    "Website/initiatives/library-knowledge/EVIDENCE-CONTRACT.md": "07a43ede270fcb6297271fa4fb9abc3a7064c24b492afb65e83fd48a63976b61",
+    "Website/initiatives/library-knowledge/BOOK-SELECTION.md": "f96886384360670af09a2581f80706bdff0c1a50cdb17869da83cc863b78c87b",
+    "Website/initiatives/library-knowledge/EPHESIANS-CONNECTIONS.md": "fc52321f1461fa644312b01831be0d80fb6ae8b572f08953e5ee075a9142c716",
+    "Website/initiatives/library-knowledge/parallel-preparation/README.md": "ae4e49eee51f6314c11fbe49ecad68cc7d79795291abf3b83bfd40215688c35c",
+    "Website/initiatives/library-knowledge/parallel-preparation/01-interfaces/PROPOSAL.md": "2f79b054cb50eb98ebae588a879e92437105954fe38c4fa19eda04f0edbbf089",
+    "Website/public/content/teacher-library/records/5e.json": "111a4df5f5998ffdc1afd219b69c811b107734e4f25d2cd0059d77217dfc6ee3",
+    "Website/public/content/teacher-library/records/33.json": "9ae89a6b166351a5550e73b65e689639077cef21f0a82e000d0ea9b2e8ddaeed",
+    "Website/public/content/teacher-library/records/bc.json": "ffdb5c51c2a46baf46088cc1c2a69e911f4851872f2b92ab6a61283a80e64837",
+    "Website/public/content/teacher-library/records/16.json": "69462e3d3d3283cc2c805bc2679edb8c5e20d24a5bb3921147ba89ceea892703"
+  },
+  "completedCounts": {
+    "interactivePrototypes": 3,
+    "galleryPages": 1,
+    "availabilityStates": 5,
+    "additionalStates": 2,
+    "themes": 2,
+    "viewportWidths": 2,
+    "screenshots": 24,
+    "acceptanceChecks": 91,
+    "verifiedExistingWorkRecords": 4
+  },
+  "unresolvedCounts": {
+    "prototypeDefectsDetected": 0,
+    "changedSelectedInputs": 0,
+    "integrationDecisions": 5,
+    "comprehensiveMiningReadiness": "not assessed; existing gates remain"
+  },
+  "verification": {
+    "record": "KnowledgeBase/library-knowledge/parallel-preparation/01-interfaces/verification.json",
+    "mode": "offline file URLs",
+    "browser": "installed Microsoft Edge via Playwright",
+    "httpRequests": 0,
+    "javascriptErrors": 0,
+    "selectedInputFilesUnchanged": 22,
+    "visualReview": "Gallery and desktop passage/topic, dark phone shelf/passage inspected"
+  },
+  "integrationNeeds": [
+    "Owner design review and reconciliation with P4 blocks",
+    "Verified reader locator/deep-link contract",
+    "Canonical topic/question mapping from P2",
+    "Final source identity, review, availability and output-use validation",
+    "Production composition and route/responsive integration at existing 8931 preview"
+  ],
+  "requiresFinalSnapshotRecheck": true,
+  "pipelineOperations": []
+}

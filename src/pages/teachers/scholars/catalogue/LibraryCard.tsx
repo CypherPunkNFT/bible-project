@@ -13,9 +13,9 @@ export function LibraryCard({ person: p, data, onOpen }: { person: LibraryPerson
     <p className="cat-card-meta">{p.roles.join(' · ') || 'Recorded contributor'}</p>
     <p className="cat-card-tags">{fields.length ? fields.map(f => <span key={f} className="cat-field">{data.fields[f]}</span>) : <span className="cat-field">Field unassigned</span>}</p>
     {p.collections.length > 0 && <p className="cat-collections">{p.collections.map(id => FIELD_COLLECTIONS.find(([key]) => key === id)?.[1] ?? id).join(' · ')}</p>}
-    {example && <div className="cat-card-work"><span>In the library</span><b>{example.title}</b></div>}
-    <p className="cat-held-count">{p.records.toLocaleString()} held records · {p.readable.toLocaleString()} readable here</p>
-    <p className="cat-library-action">Browse held works</p>
-    <button type="button" className="cat-card-hit" aria-label={`Browse held works by ${p.name}`} onClick={onOpen} />
+    {example && <div className="cat-card-work"><span>Associated work</span><b>{example.title}</b></div>}
+    <p className="cat-held-count">{p.records.toLocaleString()} associated records · {p.readable.toLocaleString()} public reading records</p>
+    <p className="cat-library-action">Browse associated works</p>
+    <button type="button" className="cat-card-hit" aria-label={`Browse associated works by ${p.name}`} onClick={onOpen} />
   </article>;
 }

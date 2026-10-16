@@ -1,0 +1,71 @@
+.ap-question-fields {
+  margin: 20px 0 36px;
+}
+
+.ap-question-fields > div {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.ap-question-fields > div > a {
+  display: grid;
+  grid-template-columns: 1fr 20px;
+  grid-template-rows: auto 112px auto auto;
+  gap: 5px;
+  min-height: 218px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  transition: border-color .2s, transform .2s;
+}
+
+.ap-question-fields > div > a:hover,
+.ap-question-fields > div > a:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.ap-question-fields > div > a > span {
+  font-size: 10px;
+  color: var(--accent);
+}
+
+.ap-question-fields > div > a > svg:not(:last-child) {
+  grid-column: 1 / -1;
+  width: 156px;
+  height: 108px;
+  justify-self: center;
+}
+
+.ap-question-fields > div > a > strong {
+  grid-column: 1 / -1;
+  font: normal 18px var(--font-serif);
+}
+
+.ap-question-fields > div > a > small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.ap-question-fields > div > a > svg:last-child {
+  grid-column: 2;
+  grid-row: 1;
+  color: var(--accent);
+}
+
+.ap-question-fields > p:last-child {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .ap-question-fields > div { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .ap-question-fields > div { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ap-question-fields > div > a { min-height: 192px; grid-template-rows: auto 94px auto auto; }
+  .ap-question-fields > div > a > svg:not(:last-child) { width: 132px; height: 92px; }
+}

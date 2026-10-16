@@ -9,7 +9,6 @@ import { familyOf } from "../shared/people";
 import { usePreachers } from "./context";
 import { centreInStrip, reducedMotion } from "./bible/words";
 import { BookPanel, type Order } from "./through/BookPanel";
-import { noPlaybackReason, ringCaption } from "./through/captions";
 import { buildThroughModel, timelineOf } from "./through/model";
 import { Rail, Who, Years } from "./through/parts";
 import { Ring } from "./through/Ring";
@@ -64,15 +63,14 @@ export function Through() {
   function slide(next: number) { setPlaying(false); setYear(next); }
 
   return <div className="thr" style={tone("--poetry")}>
-    <SectionHead num="02" kicker="Book by book" title={<>Teachers <em>through</em> the Bible</>}
+    <SectionHead num="03" kicker="Book by book" title={<>Teachers <em>through</em> the Bible</>}
       line="Choose a teacher. Each spoke is one book of the Bible, as long as the number of their works on it. Choose a spoke to read those works." />
     <div className="thr-layout">
       <Rail model={model} chosen={chosen} onChoose={choose} onOpen={openProfile} />
       <div className="thr-ringcard" style={tone(track.person ? familyOf(track.person).tone : "--accent")}>
         <Who model={model} track={track} onOpen={openProfile} />
         <Ring books={model.books} track={track} timeline={timeline} year={year} selected={selected} onSelect={selectBook} />
-        <Years track={track} timeline={timeline} year={year} playing={playing} reason={noPlaybackReason(model, track)} onPlay={play} onYear={slide} />
-        <p className="thr-caption">{ringCaption(model, track, timeline, model.books)}</p>
+        {timeline && <Years track={track} timeline={timeline} year={year} playing={playing} onPlay={play} onYear={slide} />}
       </div>
       <BookPanel books={model.books} track={track} byId={model.byId} timeline={timeline} year={year} selected={selected} order={order} onOrder={setOrder} />
     </div>

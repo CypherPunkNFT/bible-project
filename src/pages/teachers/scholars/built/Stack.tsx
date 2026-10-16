@@ -6,18 +6,18 @@ import type { Model } from "./model";
 import { Mark } from "../marks/Mark";
 
 export function Stack({ data, model }: { data: ScholarsData; model: Model }) {
-  return <div className="blt-stack">
+  return <div className="blt-stack slim-scroll">
     {model.features.map((f) => <div key={f.id} className={`blt-st-group${f.planned ? " blt-planned" : ""}`} style={{ "--tone": `var(${f.tone})` } as CSSProperties}>
-      <h3><i />{f.name}<small>{f.sub}</small></h3>
+      <h3><i />{f.name}<small>{model.links.filter(l => l.f === f).length} / {f.matched}</small></h3>
       <ul>
         {model.links.filter((l) => l.f === f).map(({ s }) => <li key={s.id}>
-          <a href={s.sourceUrl} target="_blank" rel="noreferrer">
+          <button type="button" data-source={s.id}>
             <span className="blt-st-work">{s.works[0][0]} <em>{s.works[0][1]}</em></span>
             <span className="blt-st-who" style={{ "--tone": `var(${toneOf(s.field)})` } as CSSProperties}>
               {s.profileId && <Mark scholar={s} size={24} />}
-              <span><b>{s.name}</b><small>{yearsOf(s)} · {faithOf(data, s)}</small></span>
+              <span><b>{s.name}</b><small>{s.profileId?`${yearsOf(s)} · ${faithOf(data,s)}`:'Recorded source credit'}</small></span>
             </span>
-          </a>
+          </button>
         </li>)}
       </ul>
     </div>)}

@@ -1,0 +1,48 @@
+/* Only the Apologetics content changes; the site header and section tabs stay still. */
+html[data-ap-section-slide] .ap-route-content {
+  view-transition-name: ap-section-page;
+  background: var(--page);
+}
+
+html[data-ap-section-slide]::view-transition { pointer-events: none; }
+html[data-ap-section-slide]::view-transition-old(root) { display: none; }
+html[data-ap-section-slide]::view-transition-new(root),
+html[data-ap-section-slide]::view-transition-group(ap-section-page) { animation: none; }
+
+html[data-ap-section-slide]::view-transition-old(ap-section-page) {
+  translate: 0 var(--ap-old-shift, 0px);
+}
+
+html[data-ap-section-slide]::view-transition-old(ap-section-page),
+html[data-ap-section-slide]::view-transition-new(ap-section-page) {
+  height: auto;
+  mix-blend-mode: normal;
+  animation-fill-mode: both;
+}
+
+/* One selected motion applies to every link in the Apologetics navigation. */
+html[data-ap-section-slide="1"]::view-transition-old(ap-section-page) { animation: ap-page-fade-out 200ms ease both; }
+html[data-ap-section-slide="1"]::view-transition-new(ap-section-page) { animation: ap-page-fade-in 390ms ease 70ms both; }
+
+html[data-ap-section-slide="2"]::view-transition-old(ap-section-page) { animation: ap-page-dim 460ms ease both; }
+html[data-ap-section-slide="2"]::view-transition-new(ap-section-page) { animation: ap-page-circle 590ms cubic-bezier(.65,0,.35,1) both; }
+
+html[data-ap-section-slide="3"]::view-transition-old(ap-section-page) { animation: ap-page-lift-out 260ms ease both; }
+html[data-ap-section-slide="3"]::view-transition-new(ap-section-page) { animation: ap-page-rise-in 440ms cubic-bezier(.22,1,.36,1) 50ms both; }
+
+html[data-ap-section-slide="4"]::view-transition-old(ap-section-page) { animation: ap-page-left-out 310ms ease both; }
+html[data-ap-section-slide="4"]::view-transition-new(ap-section-page) { animation: ap-page-right-in 460ms cubic-bezier(.22,1,.36,1) 50ms both; }
+
+@keyframes ap-page-fade-out { to { opacity: 0; } }
+@keyframes ap-page-fade-in { from { opacity: 0; transform: scale(.985); } }
+@keyframes ap-page-dim { to { opacity: .45; } }
+@keyframes ap-page-circle { from { clip-path: circle(0 at 50% 0); } to { clip-path: circle(160% at 50% 0); } }
+@keyframes ap-page-lift-out { to { opacity: 0; transform: translateY(-14px); } }
+@keyframes ap-page-rise-in { from { opacity: 0; transform: translateY(28px); } }
+@keyframes ap-page-left-out { to { opacity: 0; transform: translateX(-24px); } }
+@keyframes ap-page-right-in { from { opacity: 0; transform: translateX(34px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-ap-section-slide]::view-transition-old(ap-section-page),
+  html[data-ap-section-slide]::view-transition-new(ap-section-page) { animation: none !important; }
+}

@@ -1,0 +1,7 @@
+/* The graph spans the same width as the landing search/statistics row. */
+.tp-page .lnd{--teacher-graph-reclaimed-rem:1.85}
+.tp-page .lnd .lnd-top,.tp-page .lnd .lnd-top.teacher-landing-header{row-gap:.8rem}
+.tp-page .tp-sec-landing .lnd .teacher-landing-graph{width:100%;max-width:none;margin:1.05rem 0 0;border-radius:1.5rem}
+/* Stacked headers have two gaps around the tools row. */
+@media(max-width:900px){.tp-page .lnd{--teacher-graph-reclaimed-rem:2.65}}
+@media(max-width:560px){.tp-page .lnd{--teacher-graph-reclaimed-rem:2.5}.tp-page .tp-sec-landing .lnd .teacher-landing-graph{margin-top:.9rem;border-radius:1.1rem}}

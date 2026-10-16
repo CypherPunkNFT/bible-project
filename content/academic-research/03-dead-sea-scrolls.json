@@ -1,0 +1,797 @@
+{
+  "schemaVersion": 2,
+  "order": 3,
+  "title": "The Dead Sea Scrolls",
+  "category": "The Bible: formation & transmission",
+  "updated": "2026-10-14",
+  "status": "researched-and-implemented-local-preview",
+  "route": "/study/dead-sea-scrolls",
+  "scope": "Selected Qumran manuscripts, with the wider Judaean Desert corpus distinguished. Modern genre labels do not establish an ancient canon. Dates below describe physical copies, never automatically the composition of their works.",
+  "teachingSequence": [
+    "Understand what survives, how old it is, and why it matters",
+    "Meet six distinct manuscripts and follow their recovery contexts",
+    "Inspect a real Isaiah photograph; distinguish physical columns from inferred scribes",
+    "Separate composition, copying, recovery and model-based dating",
+    "Compare Psalm 145 and examine rival explanations of the Psalms collection",
+    "Test the evidential requirements for a fragment join",
+    "Connect archaeological observations with interpretations of Qumran",
+    "Understand conservation and the history of scholarly access",
+    "Follow foundational editions, arguments and recent methods"
+  ],
+  "sources": [
+    {
+      "id": "discovery",
+      "title": "IAA · Discovery and publication",
+      "url": "https://www.deadseascrolls.org.il/learn-about-the-scrolls/discovery-and-publication",
+      "access": "Institutional account read; discovery and publication sections"
+    },
+    {
+      "id": "sites",
+      "title": "IAA · Discovery sites",
+      "url": "https://www.deadseascrolls.org.il/learn-about-the-scrolls/discovery-sites",
+      "access": "Institutional site accounts read; Qumran and refuge caves"
+    },
+    {
+      "id": "languages",
+      "title": "IAA · Languages and scripts",
+      "url": "https://www.deadseascrolls.org.il/learn-about-the-scrolls/languages-and-scripts",
+      "access": "Institutional account read"
+    },
+    {
+      "id": "genres",
+      "title": "IAA · Kinds of writing",
+      "url": "https://www.deadseascrolls.org.il/learn-about-the-scrolls/scrolls-content",
+      "access": "Institutional classification and manuscript-assignment cautions read"
+    },
+    {
+      "id": "psalms",
+      "title": "Library of Congress · Psalms Scroll record",
+      "url": "https://www.loc.gov/exhibits/scrolls/intr.html#obj5",
+      "access": "1993 object caption read; historical catalogue dating retained as attributed estimate"
+    },
+    {
+      "id": "alphabet",
+      "title": "Library of Congress · Psalm 145 and the nun line",
+      "url": "https://www.loc.gov/exhibits/scrolls/bib.html",
+      "access": "Exhibition bibliography and Complutensian caption read"
+    },
+    {
+      "id": "prayer",
+      "title": "J. A. Sanders · Plea for Deliverance, column XIX",
+      "url": "https://www.loc.gov/exhibits/scrolls/trans1.html",
+      "access": "Published translation read; excerpt limited to 13 words"
+    },
+    {
+      "id": "library",
+      "title": "Library of Congress · Enoch and other objects",
+      "url": "https://www.loc.gov/exhibits/scrolls/libr.html",
+      "access": "Object captions read, including 4Q201, 11Q1 and 4Q403; books cited there were located, not read"
+    },
+    {
+      "id": "rule",
+      "title": "Library of Congress · Community Rule, 4Q258",
+      "url": "https://www.loc.gov/exhibits/scrolls/late.html#obj7",
+      "access": "Object caption read; surrounding ancient-historian material excluded from this study"
+    },
+    {
+      "id": "isaiah",
+      "title": "Israel Museum · Great Isaiah Scroll exhibition brief",
+      "url": "https://www.imj.org.il/sites/default/files/IMJ%20Great%20Isaiah%20Scroll%20Exhibition.pdf",
+      "access": "Institutional indexed PDF text read for approximate date and coverage; digital viewer failed to load"
+    },
+    {
+      "id": "museum",
+      "title": "Israel Museum · Digital Dead Sea Scrolls",
+      "url": "https://dss.collections.imj.org.il/",
+      "access": "Collection landing record read; individual viewers not inspected"
+    },
+    {
+      "id": "conservation",
+      "title": "IAA · Conservation history and methods",
+      "url": "https://www.deadseascrolls.org.il/learn-about-the-scrolls/conservation",
+      "access": "Institutional conservation account read"
+    },
+    {
+      "id": "dna",
+      "title": "Anava et al. (2020) · Illuminating Genetic Mysteries",
+      "url": "https://cris.tau.ac.il/en/publications/illuminating-genetic-mysteries-of-the-dead-sea-scrolls/",
+      "access": "Primary research abstract and bibliographic record read, not full paper; Cell 181, DOI 10.1016/j.cell.2020.04.046"
+    },
+    {
+      "id": "dna-report",
+      "title": "Tel Aviv University · DNA study explained",
+      "url": "https://english.tau.ac.il/news/puzzle_scrolls",
+      "access": "Research institution summary consulted; claims kept at method level"
+    },
+    {
+      "id": "dating",
+      "title": "Popović et al. (2025) · Radiocarbon and handwriting",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0323185",
+      "access": "Primary research abstract and methods discussion consulted; supplements and individual predictions not independently reanalysed"
+    },
+    {
+      "id": "greek-record",
+      "title": "IAA · 7Q1 manuscript catalogue",
+      "url": "https://www.deadseascrolls.org.il/explore-the-archive/manuscript/7Q1-1?locale=en_US",
+      "access": "Catalogue fields read: Greek, papyrus, Hasmonean; DJD III pp. 142–143 located but not read"
+    },
+    {
+      "id": "copper-record",
+      "title": "Jordan Museum · Copper Scroll account",
+      "url": "https://jm-qr-objects.jo/en/objects/dead-sea-scrolls",
+      "access": "Object account and period field read; general ancient-historian discussion not used"
+    },
+    {
+      "id": "copper-opening",
+      "title": "DQCAAS · Opening the Copper Scroll",
+      "url": "https://dqcaas.com/photographic-collections/copperscroll/",
+      "access": "Archival film description read; film located, not watched or reproduced"
+    },
+    {
+      "id": "introduction",
+      "title": "IAA · Introduction to the scrolls",
+      "url": "https://www.deadseascrolls.org.il/learn-about-the-scrolls/introduction",
+      "access": "Institutional text consulted; dates, materials, languages and scope"
+    },
+    {
+      "id": "hands",
+      "title": "Popović, Dhali & Schomaker (2021) · Two scribes of Isaiah",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0249769",
+      "access": "Primary article: abstract, introduction, methods, results 3.1–3.3 and discussion consulted. Supplements and code not independently reproduced."
+    },
+    {
+      "id": "schiffman",
+      "title": "Schiffman (1994) · The Psalms Scroll as liturgy",
+      "url": "https://cojs.org/psalms-_lawrence_h-_schiffman-_reclaiming_the_dead_sea_scrolls-_jewish_publication_society-_philadelphia_1994/",
+      "access": "Author’s published argument, pp. 178–180, read in online excerpt; whole book not read"
+    },
+    {
+      "id": "flint",
+      "title": "Flint (1997) · The Dead Sea Psalms Scrolls and the Book of Psalms",
+      "url": "https://www.degruyterbrill.com/document/isbn/9789004350199/html",
+      "access": "Publisher search-indexed description consulted: alternative Psalter and stages of stabilization. Full book inaccessible; no detailed reconstruction taken from it."
+    },
+    {
+      "id": "hempel",
+      "title": "Hempel (2020) · The Community Rules from Qumran",
+      "url": "https://www.mohrsiebeck.com/buch/the-community-rules-from-qumran-9783161570278/",
+      "access": "Publisher description read; commentary located, not read"
+    },
+    {
+      "id": "hempel-scope",
+      "title": "Birmingham · Hempel’s manuscript research",
+      "url": "https://www.birmingham.ac.uk/staff/profiles/tr/hempel-charlotte",
+      "access": "Author institutional description consulted for coverage of all twelve ancient Rule manuscripts"
+    },
+    {
+      "id": "qumran-archaeology",
+      "title": "Orion Center · Scrolls and settlement",
+      "url": "https://virtualqumran.huji.ac.il/scrolls/sectqumran.htm",
+      "access": "Institutional archaeological argument read, especially proximity, pottery and inkwells; ancient-historian-dependent identification excluded from this page"
+    },
+    {
+      "id": "room101",
+      "title": "Traubman (2023) · Qumran, Room 101 excavation",
+      "url": "https://hadashot.iaa.org.il/report_detail_eng.aspx?id=26421&mag_id=135",
+      "access": "Full short final excavation report read: 2020 excavation, jar, walls and undocumented covering stone; figures linked, not reproduced"
+    },
+    {
+      "id": "magness",
+      "title": "Magness (2021) · The Archaeology of Qumran, second edition",
+      "url": "https://www.eerdmans.com/9780802879080/the-archaeology-of-qumran-and-the-dead-sea-scrolls-2nd-ed/",
+      "access": "Publisher description consulted; book located, not read"
+    },
+    {
+      "id": "tov",
+      "title": "Tov (2014) · Understanding the Text of the Bible",
+      "url": "https://www.degruyterbrill.com/document/doi/10.2478/opth-2014-0007/html",
+      "access": "Bibliographic and search-indexed records only. Publisher and author-hosted full text failed to load; retained as further reading, not basis for a detailed passage comparison."
+    },
+    {
+      "id": "isaiah-edition",
+      "title": "Ulrich & Flint · The Isaiah Scrolls, DJD XXXII",
+      "url": "https://toc.library.ethz.ch/objects/pdf/z01_978-0-19-956666-2_01.pdf",
+      "access": "Library-hosted edition title/contents located through indexed record; edition not read"
+    },
+    {
+      "id": "image-isaiah",
+      "title": "Great Isaiah Scroll · image and rights record",
+      "url": "https://commons.wikimedia.org/wiki/File:Great_Isaiah_Scroll.jpg",
+      "access": "Commons file record and public-domain reproduction status checked; downloaded photograph visually inspected. Ardon Bar Hama / Israel Museum. Three-row arrangement is a modern display."
+    }
+  ],
+  "caves": [
+    {
+      "id": "1",
+      "name": "Cave 1",
+      "year": "1947 / 1949",
+      "context": "First scrolls recovered by Bedouin and sold; archaeologists excavated the cave in 1949. Excavated fragments helped corroborate the purchased material’s origin.",
+      "source": "sites"
+    },
+    {
+      "id": "3",
+      "name": "Cave 3",
+      "year": "1952",
+      "context": "Discovered and excavated by archaeologists. The Copper Scroll has an excavated cave context, unlike the first purchased scrolls.",
+      "source": "sites"
+    },
+    {
+      "id": "4",
+      "name": "Cave 4",
+      "year": "1952",
+      "context": "Bedouin finds preceded archaeological recovery. Thousands of fragments require object-by-object reconstruction; a cave label is not an excavation number.",
+      "source": "sites"
+    },
+    {
+      "id": "7",
+      "name": "Cave 7",
+      "year": "1955",
+      "context": "Archaeological discovery. Its surviving manuscript fragments are Greek papyri; most are too small for secure literary identification.",
+      "source": "languages"
+    },
+    {
+      "id": "11",
+      "name": "Cave 11",
+      "year": "1956",
+      "context": "Discovered by Bedouin. The Psalms Scroll was subsequently unrolled in 1961. Discovery, acquisition and opening are different events.",
+      "source": "psalms"
+    }
+  ],
+  "objects": [
+    {
+      "id": "isaiah",
+      "cave": "1",
+      "name": "Great Isaiah Scroll",
+      "siglum": "1QIsaᵃ",
+      "kind": "Scripture",
+      "language": "Hebrew",
+      "material": "Animal skin",
+      "date": "c. 125 BCE",
+      "dateBasis": "Israel Museum’s approximate manuscript date",
+      "text": "An unusually extensive witness: all 66 chapters of Isaiah are represented. This physical copy witnesses a book already transmitted before its copying.",
+      "limit": "The copy’s date does not identify an author or date every layer of Isaiah’s composition.",
+      "provenance": "One of the first seven scrolls, recovered outside controlled excavation and later acquired through the antiquities market.",
+      "collection": "Israel Museum · Shrine of the Book",
+      "sources": [
+        "isaiah",
+        "museum",
+        "discovery"
+      ]
+    },
+    {
+      "id": "copper",
+      "cave": "3",
+      "name": "Copper Scroll",
+      "siglum": "3Q15",
+      "kind": "Inventory",
+      "language": "Hebrew",
+      "material": "Copper",
+      "date": "c. 100 CE in the museum record",
+      "dateBasis": "Jordan Museum label; dating is debated",
+      "text": "An inventory of valuables and locations incised into metal. Whether its deposits can be securely located, and how to interpret the inventory, remain questions.",
+      "limit": "A written claim about treasure is evidence for the list, not proof that its contents have been recovered.",
+      "provenance": "Excavated in Cave 3 in 1952 by a team headed by Henri de Contenson. The corroded rolls were cut into strips in Manchester in 1955–1956 to expose the writing.",
+      "collection": "Jordan Museum · Amman",
+      "sources": [
+        "copper-record",
+        "copper-opening"
+      ]
+    },
+    {
+      "id": "enoch",
+      "cave": "4",
+      "name": "Enoch",
+      "siglum": "4Q201",
+      "kind": "Revelation",
+      "language": "Aramaic",
+      "material": "Parchment",
+      "date": "c. 200–150 BCE",
+      "dateBasis": "Library of Congress exhibition caption",
+      "text": "Aramaic portions of Enoch open a window onto revelation and cosmic order. This is a manuscript of part of a literary tradition, not a complete copy of everything now called 1 Enoch.",
+      "limit": "Being outside the modern Hebrew Bible does not tell us exactly what authority ancient readers gave it.",
+      "provenance": "Assigned to Cave 4; the exhibition caption does not give an individual excavated findspot. Do not upgrade that attribution to controlled recovery.",
+      "collection": "Israel Antiquities Authority · exhibition loan record",
+      "sources": [
+        "library",
+        "genres"
+      ]
+    },
+    {
+      "id": "rule",
+      "cave": "4",
+      "name": "Community Rule",
+      "siglum": "4Q258",
+      "kind": "Community",
+      "language": "Hebrew",
+      "material": "Parchment",
+      "date": "Late 1st c. BCE–early 1st c. CE",
+      "dateBasis": "Library of Congress exhibition caption",
+      "text": "Rules for admission, conduct and penalties describe the Yahad’s communal ideal. Other copies survive: one manuscript should not stand for every version of the rule.",
+      "limit": "A rule prescribes behaviour; it does not prove that every member always followed it.",
+      "provenance": "Cave 4 attribution; precise recovery context is not supplied by the object caption consulted.",
+      "collection": "Israel Antiquities Authority · exhibition loan record",
+      "sources": [
+        "rule"
+      ]
+    },
+    {
+      "id": "greek",
+      "cave": "7",
+      "name": "Greek Exodus",
+      "siglum": "7Q1",
+      "kind": "Scripture",
+      "language": "Greek",
+      "material": "Papyrus",
+      "date": "Hasmonean period",
+      "dateBasis": "IAA catalogue period label; no narrower range asserted",
+      "text": "A Greek translation witness among the Cave 7 papyri. Language, writing material and literary work are separate catalogue fields.",
+      "limit": "An identified Exodus fragment does not make every nearby scrap identifiable. Claims of New Testament texts from Cave 7 have not been established.",
+      "provenance": "Cave 7 was discovered by archaeologists in 1955.",
+      "collection": "IAA digital archive · Cave 7 group",
+      "sources": [
+        "greek-record",
+        "languages",
+        "sites"
+      ]
+    },
+    {
+      "id": "psalms",
+      "cave": "11",
+      "name": "Great Psalms Scroll",
+      "siglum": "11Q5 / 11QPsᵃ",
+      "kind": "Psalms",
+      "language": "Hebrew",
+      "material": "Parchment",
+      "date": "c. 30–50 CE",
+      "dateBasis": "Library of Congress exhibition caption",
+      "text": "Familiar psalms appear in a different sequence alongside other hymns. The object invites a question about the collection’s purpose, not just its individual words.",
+      "limit": "A different arrangement alone cannot settle whether this was a liturgical anthology or a different edition of a Psalter.",
+      "provenance": "Found in Cave 11 in 1956; opened in 1961. Its discovery date is not its writing date.",
+      "collection": "Israel Antiquities Authority · exhibition loan record",
+      "sources": [
+        "psalms",
+        "alphabet"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "discovery-chain",
+      "status": "evidence",
+      "claim": "The first seven manuscripts travelled through dealers; Sukenik acquired three, Samuel held four, Trever photographed three in 1948, and Yadin acquired Samuel’s four in 1954. De Vaux and Harding directed archaeological work. This history must not become an in-situ recovery narrative for each purchased scroll.",
+      "sources": [
+        "discovery",
+        "sites"
+      ]
+    },
+    {
+      "id": "publication",
+      "status": "evidence",
+      "claim": "Restricted access and a small editorial team slowed early publication. The team expanded under Emanuel Tov in the early 1990s; most official editions were published by 2001.",
+      "sources": [
+        "discovery"
+      ]
+    },
+    {
+      "id": "scope",
+      "status": "evidence",
+      "claim": "The wider Judaean Desert archive includes documents from Wadi Murabba’at and Nahal Hever, including refuge-cave material of the Bar Kokhba era, 132–135 CE. These are not Qumran Cave 4 finds.",
+      "sources": [
+        "sites"
+      ]
+    },
+    {
+      "id": "psalm-nun",
+      "status": "evidence",
+      "claim": "Psalm 145 is alphabetic. The Cave 11 Psalms Scroll includes a nun line absent from the standard Masoretic form. The interface represents sequence, not manuscript lineation, and paraphrases themes rather than reproducing a critical text.",
+      "sources": [
+        "alphabet"
+      ]
+    },
+    {
+      "id": "psalm-purpose",
+      "status": "interpretation",
+      "claim": "The function and authority of this Psalms collection cannot be read directly from its physical arrangement. Liturgical collection and alternative Psalter are interpretive possibilities; no percentage of textual agreement is calculated.",
+      "sources": [
+        "psalms",
+        "genres"
+      ]
+    },
+    {
+      "id": "composition",
+      "status": "method",
+      "claim": "Radiocarbon measures the age of organic material; palaeography compares writing. Neither method directly dates the first composition of a work. Date estimates and probabilities must not be displayed as exact years.",
+      "sources": [
+        "dating",
+        "languages"
+      ]
+    },
+    {
+      "id": "enoch-model",
+      "status": "research-proposal",
+      "claim": "The 2025 Enoch model uses 24 radiocarbon-dated training samples and handwriting features. Its predictions can revise conventional dating but are not new direct radiocarbon measurements for every manuscript.",
+      "sources": [
+        "dating"
+      ]
+    },
+    {
+      "id": "fragment-method",
+      "status": "method",
+      "claim": "Text, script, material, ruling, damage and provenance should be considered together. Same composition does not mean same copy; physical contact, assignment to one manuscript and a placement across a gap are different claims.",
+      "sources": [
+        "genres",
+        "dna",
+        "conservation"
+      ]
+    },
+    {
+      "id": "dna-limit",
+      "status": "evidence-and-limit",
+      "claim": "The 2020 research used skin DNA to investigate manuscript relationships, including disputed Jeremiah groupings. Similar genetic material alone cannot locate two fragments next to each other. This study uses a fictional workshop, not a claimed new join.",
+      "sources": [
+        "dna",
+        "dna-report"
+      ]
+    },
+    {
+      "id": "conservation",
+      "status": "evidence",
+      "claim": "Early tape, glass pressure and later treatments damaged fragments. The IAA records fragment condition, removes old adhesives, controls storage conditions and preserves historical PAM photographs. Digital enhancement can reveal surviving traces; it cannot recover missing skin.",
+      "sources": [
+        "conservation"
+      ]
+    },
+    {
+      "id": "copper-opening",
+      "status": "evidence",
+      "claim": "The excavated Copper Scroll’s modern opening required irreversible cutting of corroded metal. The DQCAAS archive identifies Henri de Contenson’s discovery team, Harding’s arrangement, Allegro’s involvement and H. Wright Baker’s cutting in Manchester. The film is copyrighted; only the archival record is linked.",
+      "sources": [
+        "copper-opening",
+        "copper-record"
+      ]
+    }
+  ],
+  "majorQuestions": [
+    {
+      "question": "Who collected and copied the manuscripts?",
+      "evidence": "Find contexts, handwriting, literary differences and material analyses.",
+      "interpretation": "A relationship between the caves and Qumran is important to examine; uniform authorship or manufacture of all manuscripts at the settlement does not follow.",
+      "limit": "No ancient-historian arguments are reproduced in this general study."
+    },
+    {
+      "question": "How fixed were scriptural texts and collections?",
+      "evidence": "Compare individual witnesses and their wording or order, including 11Q5.",
+      "interpretation": "Shared wording and variation coexist. Modern biblical versus other labels are useful navigation, not a recovered shelf catalogue.",
+      "limit": "Absence among surviving fragments cannot by itself prove rejection of a book."
+    },
+    {
+      "question": "Can a new measurement change a manuscript date?",
+      "evidence": "Radiocarbon probability distributions and handwriting-based models.",
+      "interpretation": "Dates are estimates open to refinement.",
+      "limit": "Contamination, calibration and model training affect results; copying is not composition."
+    },
+    {
+      "question": "Can a fragment’s seller supply its context?",
+      "evidence": "Excavation documentation and independently corroborated associations.",
+      "interpretation": "Dealer histories can be informative but require checking; the Seiyal collection illustrates attribution corrected through later finds.",
+      "limit": "This is not a complete provenance or ownership audit."
+    }
+  ],
+  "deeperReading": [
+    {
+      "work": "J. A. Sanders, The Psalms Scroll of Qumran Cave 11, DJD IV (1965)",
+      "status": "Located in LOC object bibliography; full edition not read",
+      "source": "psalms"
+    },
+    {
+      "work": "J. T. Milik, The Books of Enoch: Aramaic Fragments of Qumran Cave 4 (1976)",
+      "status": "Located in LOC bibliography; not read",
+      "source": "library"
+    },
+    {
+      "work": "Anava et al., Cell 181 (2020), 1218–1231.e27",
+      "status": "Abstract and institutional summary consulted; full paper not read",
+      "source": "dna"
+    },
+    {
+      "work": "Popović et al., PLOS ONE 20 (2025), e0323185",
+      "status": "Article abstract and methods consulted; not an independent validation of the model",
+      "source": "dating"
+    }
+  ],
+  "visualPolicy": {
+    "landscape": "Original schematic linking selected caves; neither scale, coordinates nor exhaustive cave inventory",
+    "fragments": "Original fictional shapes and marks, not manuscript facsimiles; established contact demonstrated only within the fictional exercise",
+    "text": "Alphabet labels in modern Hebrew type; English thematic paraphrases explicitly marked",
+    "rights": "Ardon Bar Hama photograph of the Great Isaiah Scroll, Israel Museum, via Commons PD-Art record. Hosted unchanged JPEG; CSS cropping and three-row display labelled. All other diagrams original and schematic.",
+    "scribes": "54 equal cells represent actual column count, not relative column width. Colour represents the 2021 authors’ proposed two-hand division, not raw data or a probability estimate.",
+    "psalter": "Editorial sequence diagram displays mem/nun/samekh and a recurring refrain, without manuscript lineation or invented Hebrew text."
+  },
+  "researchLimits": [
+    "Institutional records from different years use different counts; no exact total or percentage claimed.",
+    "Isaiah length differs between the older digital record and the 2026 exhibition record; omitted rather than silently harmonised.",
+    "No claim to have inspected individual high-resolution manuscript viewers that failed to load.",
+    "Research-programme ordering is retained; this user explicitly requested implementation of study 03 before the remaining first passes.",
+    "Copper Scroll date is attributed to the Jordan Museum’s approximate period field, not presented as scholarly consensus."
+  ],
+  "peopleAndEvents": [
+    {
+      "date": "1947",
+      "people": [
+        "Taʿamireh Bedouin discoverers, including Muhammad adh-Dhib",
+        "Khalil Iskander Shahin (Kando), dealer"
+      ],
+      "event": "The first finds entered a market chain. Accounts of the discovery differ in detail; the familiar lost-goat story is not an excavation report.",
+      "sources": [
+        "discovery",
+        "copper-record"
+      ]
+    },
+    {
+      "date": "1947–1954",
+      "people": [
+        "Eleazar Lipa Sukenik",
+        "Archbishop Athanasius Samuel",
+        "Yigael Yadin"
+      ],
+      "event": "Sukenik acquired three of the initial seven scrolls. Samuel held four, acquired by Yadin through an intermediary in 1954.",
+      "sources": [
+        "discovery"
+      ]
+    },
+    {
+      "date": "1948 onward",
+      "people": [
+        "John C. Trever",
+        "Najib Anton Albina"
+      ],
+      "event": "Trever photographed early scrolls; Albina’s later infrared photography contributed to the PAM archive. Early images can preserve traces now harder to see.",
+      "sources": [
+        "discovery",
+        "conservation"
+      ]
+    },
+    {
+      "date": "1949–1956",
+      "people": [
+        "Gerald Lankester Harding",
+        "Roland de Vaux",
+        "Henri de Contenson"
+      ],
+      "event": "Archaeological investigations complemented Bedouin discoveries. De Contenson led the team that found the Copper Scroll in 1952.",
+      "sources": [
+        "discovery",
+        "copper-opening"
+      ]
+    },
+    {
+      "date": "1955–1956",
+      "people": [
+        "H. Wright Baker",
+        "John Allegro"
+      ],
+      "event": "The corroded Copper Scroll was opened by cutting in Manchester. The archival description identifies Allegro’s film of a cut on 3 October 1955.",
+      "sources": [
+        "copper-opening",
+        "copper-record"
+      ]
+    },
+    {
+      "date": "1965",
+      "people": [
+        "James A. Sanders"
+      ],
+      "event": "Publication of the Cave 11 Psalms Scroll in DJD IV; the full edition is listed for deeper reading, not claimed as read.",
+      "sources": [
+        "psalms"
+      ]
+    },
+    {
+      "date": "Early 1990s",
+      "people": [
+        "Emanuel Tov",
+        "International editorial and conservation teams"
+      ],
+      "event": "Expansion of publication and systematic conservation changed access to the evidence.",
+      "sources": [
+        "discovery",
+        "conservation"
+      ]
+    }
+  ],
+  "researchExpansion": {
+    "date": "2026-10-14",
+    "centralQuestions": [
+      "How does an early manuscript change what we can know about transmission?",
+      "What is the difference between a work, its copy and its place in a collection?",
+      "How do physical observations constrain reconstructed scribes, joins and dates?",
+      "What connects the cave manuscripts with the settlement, and what does that connection not establish?"
+    ],
+    "claims": [
+      {
+        "id": "age-scope",
+        "claim": "The Qumran corpus broadly dates from the third century BCE to the first century CE; the wider Judaean Desert corpus has a wider chronological scope.",
+        "type": "catalogue synthesis",
+        "sources": [
+          "introduction",
+          "sites"
+        ],
+        "limit": "Not every object shares one date; exceptions and contested catalogue dates remain attributed."
+      },
+      {
+        "id": "isaiah-columns",
+        "claim": "1QIsaᵃ has 54 columns; the 2021 study identifies two main scribes with columns 1–27 and 28–54.",
+        "type": "physical description plus research inference",
+        "sources": [
+          "hands"
+        ],
+        "limit": "Column division is physical description; assignment of hands is the authors’ inference. The graphic carries no invented measurements or confidence scores."
+      },
+      {
+        "id": "hands-method",
+        "claim": "The 2021 study compared handwriting features and found a transition near columns 27–29.",
+        "type": "research result",
+        "sources": [
+          "hands"
+        ],
+        "limit": "Different features vary in separation. Does not identify scribes by name or locate their workplace; does not establish literary authorship."
+      },
+      {
+        "id": "psalms-refrain",
+        "claim": "11Q5 Psalm 145 includes a recurring blessing refrain; Schiffman uses its liturgical features in arguing for a worship collection.",
+        "type": "reported textual observation and attributed interpretation",
+        "sources": [
+          "schiffman"
+        ],
+        "limit": "Refrain is represented by an editorial label, not quoted or reconstructed Hebrew; its liturgical significance does not settle canonical status."
+      },
+      {
+        "id": "psalter-debate",
+        "claim": "Flint’s 1997 monograph treats 11QPsᵃ as part of an edition of Psalms; Schiffman argues for a liturgical anthology.",
+        "type": "competing interpretations",
+        "sources": [
+          "flint",
+          "schiffman"
+        ],
+        "limit": "Flint’s publisher description, not full argument, accessed. Proposed discriminating tests are editorial reasoning rather than claims to have adjudicated the debate."
+      },
+      {
+        "id": "rule-range",
+        "claim": "Hempel’s 2020 commentary treats the multiple ancient Rule manuscripts rather than privileging only the well-preserved Cave 1 copy.",
+        "type": "scope of scholarly work",
+        "sources": [
+          "hempel",
+          "hempel-scope"
+        ],
+        "limit": "Full commentary inaccessible; no unverified individual manuscript omissions or exact reconstructed developmental sequence asserted."
+      },
+      {
+        "id": "site-association",
+        "claim": "Proximity, pottery parallels and inkwells support a relationship between the caves and settlement.",
+        "type": "archaeological argument",
+        "sources": [
+          "qumran-archaeology"
+        ],
+        "limit": "Relationship does not demonstrate all scrolls were composed or copied at Qumran. Religious group identification dependent on excluded ancient-historian material is not presented."
+      },
+      {
+        "id": "room101",
+        "claim": "A 2020 excavation in Qumran Room 101 exposed a buried Early Roman jar; its covering stone was removed before documentation.",
+        "type": "excavation observation",
+        "sources": [
+          "room101"
+        ],
+        "limit": "Food-storage interpretation uses context and earlier finds; the jar is not evidence for a scroll inside it."
+      },
+      {
+        "id": "dating-model",
+        "claim": "The 2025 Enoch model used handwriting images from 24 radiocarbon-dated manuscripts.",
+        "type": "published method",
+        "sources": [
+          "dating"
+        ],
+        "limit": "Model predictions are not independent carbon dates. No individual catalogue date silently replaced."
+      }
+    ],
+    "works": [
+      {
+        "author": "James A. Sanders",
+        "year": "1965",
+        "title": "The Psalms Scroll of Qumran Cave 11 · DJD IV",
+        "contribution": "The edition made the manuscript’s readings and unusual collection available for systematic comparison.",
+        "question": "What does this physical Psalms manuscript preserve?",
+        "source": "psalms",
+        "access": "Edition located in catalogue bibliography; not read in full."
+      },
+      {
+        "author": "J. T. Milik",
+        "year": "1976",
+        "title": "The Books of Enoch: Aramaic Fragments of Qumran Cave 4",
+        "contribution": "A foundational edition for studying the Aramaic Enoch witnesses rather than starting only from later versions.",
+        "question": "How does fragmentary Aramaic evidence enter the history of Enoch?",
+        "source": "library",
+        "access": "Located through institutional object bibliography; full edition not read."
+      },
+      {
+        "author": "Lawrence H. Schiffman",
+        "year": "1994",
+        "title": "Reclaiming the Dead Sea Scrolls · Psalms discussion",
+        "contribution": "An argument from refrains, selection and liturgical use against inferring an open Psalms canon from 11Q5 alone.",
+        "question": "An alternative Psalter or a worship anthology?",
+        "source": "schiffman",
+        "access": "Online excerpt, pp. 178–180, read."
+      },
+      {
+        "author": "Peter W. Flint",
+        "year": "1997",
+        "title": "The Dead Sea Psalms Scrolls and the Book of Psalms",
+        "contribution": "Studies the Psalms manuscripts together and argues for stages in stabilization, including an alternative edition represented by 11QPsᵃ.",
+        "question": "What changes when the collection of Psalms witnesses is compared?",
+        "source": "flint",
+        "access": "Publisher indexed synopsis only; full argument not read."
+      },
+      {
+        "author": "Eugene Ulrich & Peter W. Flint",
+        "year": "DJD XXXII",
+        "title": "Qumran Cave 1.II: The Isaiah Scrolls",
+        "contribution": "The critical edition is the next step for checking readings against transcriptions, commentary and plates.",
+        "question": "What is actually written in each Isaiah witness?",
+        "source": "isaiah-edition",
+        "access": "Title and contents record located; edition not read."
+      },
+      {
+        "author": "Charlotte Hempel",
+        "year": "2020",
+        "title": "The Community Rules from Qumran",
+        "contribution": "Extends the commentary’s field of view to all ancient Rule manuscripts. Comparison matters before treating one copy as the constitution of a single unchanging community.",
+        "question": "Do rules describe practice, construct ideals, or both?",
+        "source": "hempel",
+        "access": "Publisher and author institutional descriptions consulted; full commentary not read."
+      },
+      {
+        "author": "Jodi Magness",
+        "year": "2002 / revised 2021",
+        "title": "The Archaeology of Qumran and the Dead Sea Scrolls",
+        "contribution": "An archaeological case for a sectarian settlement, engaging alternative readings of the site.",
+        "question": "What connects a settlement with a nearby manuscript collection?",
+        "source": "magness",
+        "access": "Publisher record consulted; book not read."
+      },
+      {
+        "author": "Popović, Dhali & Schomaker",
+        "year": "2021",
+        "title": "Writer identification in the Great Isaiah Scroll",
+        "contribution": "Tests a long-standing scribal question through measurable handwriting features and multiple analyses.",
+        "question": "One main scribe, or two closely similar hands?",
+        "source": "hands",
+        "access": "Article sections consulted; no independent reproduction of code or measurements."
+      },
+      {
+        "author": "Anava and colleagues",
+        "year": "2020",
+        "title": "Illuminating Genetic Mysteries of the Dead Sea Scrolls",
+        "contribution": "Tests manuscript relationships using the animal origins of parchment.",
+        "question": "Can material evidence challenge a textual grouping?",
+        "source": "dna",
+        "access": "Abstract and institutional summary consulted, not full paper."
+      },
+      {
+        "author": "Popović and colleagues",
+        "year": "2025",
+        "title": "Dating ancient manuscripts using radiocarbon and AI-based writing style analysis",
+        "contribution": "Combines radiocarbon evidence with handwriting-based date prediction while modelling uncertainty.",
+        "question": "How can new measurements revise a script chronology?",
+        "source": "dating",
+        "access": "Abstract, methods and relevant discussion read; supplements not independently reanalysed."
+      }
+    ],
+    "researchGaps": [
+      "Tov 2014 full article and his detailed Isaiah essay failed to load; listed for further reading, no detailed Jeremiah or Isaiah variant is invented from their titles.",
+      "Hempel’s full commentary and 2016 Cave 4 paper were inaccessible; manuscript-specific redaction claims are deferred.",
+      "Flint’s full 1997 argument and Sanders DJD IV edition were not accessed. The Psalter debate is limited to the accessible author excerpt and publisher synopsis.",
+      "Individual high-resolution museum viewers were not reliably accessible. The hosted Isaiah photograph is a separately verified Commons reproduction; no claim to have transcribed it.",
+      "No original reanalysis of radiocarbon, DNA or machine-learning data.",
+      "No comprehensive treatment of the Ethiopic reception of Enoch, Samaritan textual history, or all Judaean Desert documentary archives; these require separate evidence sequences."
+    ]
+  }
+}

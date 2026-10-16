@@ -1,0 +1,18 @@
+{
+  "study": "Israel among the empires",
+  "category": "History & archaeology",
+  "updated": "2026-10-14",
+  "phase": "illustrated-revamp-implemented-local",
+  "designDocument": "design.md",
+  "prototype": "prototype.html",
+  "verification": "../../../.local/empires-revamp-qa/visual-results.json",
+  "status": "implemented-and-browser-verified-local",
+  "liveIntegration": true,
+  "buildRun": true,
+  "publicDeployment": false,
+  "scope": "Full illustrated landing and section-specific visual revamp; all six research chapters retained.",
+  "remaining": [],
+  "preview": "http://127.0.0.1:8931/study/israel-among-the-empires",
+  "additionalVerification": "../../../.local/empires-revamp-qa/results.json",
+  "prototypeStatus": "Historical atlas proposal, superseded visually by current live page"
+}

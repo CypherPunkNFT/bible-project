@@ -138,14 +138,14 @@ export function reignLength(r: { years?: number; months?: number; days?: number 
 
 /**
  * The "Two accounts" heading, by the kind of ruler: Kings and Chronicles for the kings of the two kingdoms; Samuel–Kings
- * and Chronicles for the united kingdom; for the Herods and Rome, the Gospels, Acts and Josephus; for other nations,
+ * and Chronicles for the united kingdom; for the Herods and Rome, the Gospels, Acts and outside records; for other nations,
  * Scripture and the records outside it.
  */
 export function accountsHeading(ruler: Pick<RulerLike, "kind" | "realm">): { title: string; lead: string; rails?: [string, string] } {
   const apart = "Shown side by side and never blended. Neither is corrected by the other.";
   if (ruler.realm === "united") return { title: "Where Samuel–Kings and Chronicles differ", lead: `The two histories of the kingdom. ${apart}`, rails: ["Samuel–Kings", "Chronicles"] };
   if (ruler.realm === "israel" || ruler.realm === "judah") return { title: "Where Kings and Chronicles differ", lead: `The two histories of the kingdoms. ${apart}`, rails: ["Kings", "Chronicles"] };
-  if (ruler.kind === "herod" || ruler.kind === "roman" || ruler.realm === "rome") return { title: "Where the accounts differ", lead: `The Gospels, Acts and Josephus. ${apart}` };
+  if (ruler.kind === "herod" || ruler.kind === "roman" || ruler.realm === "rome") return { title: "Where the accounts differ", lead: `The Gospels, Acts and outside records. ${apart}` };
   if (isForeign(ruler) || ruler.kind === "governor") return { title: "Where the accounts differ", lead: `Scripture and the records outside it. ${apart}` };
   return { title: "Where the accounts differ", lead: `Two tellings of the same events. ${apart}` };
 }

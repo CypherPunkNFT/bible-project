@@ -7,7 +7,7 @@ export interface ResourceSection { slug: "learning" | "fellowships" | "life"; ar
 export const RESOURCE_SECTIONS: ResourceSection[] = [
   { slug: "learning", art: "learning", title: "Learning materials", text: "Workbooks, lessons and activity pages for every reader, from little ones to leaders, written from the site’s reviewed pages.", color: "epistles" },
   { slug: "fellowships", art: "fellowships", title: "Fellowships", text: "Free national fellowships that gather believers to pray and to study the word together.", color: "gospels" },
-  { slug: "life", art: "life", title: "Help for life", text: "National hotlines, food, pregnancy and post-abortion care and grief care, with a map of places across the USA.", color: "history" },
+  { slug: "life", art: "life", title: "Help for life", text: "National hotlines, food, pregnancy and post-abortion care and grief care, with a map of places across the USA.", color: "resource-life" },
 ];
 
 /** A section is open once its data file exists in src/data/resources/. */

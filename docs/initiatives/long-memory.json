@@ -1,0 +1,86 @@
+{
+  "initiative": 65,
+  "name": "Long Memory",
+  "campaign": 4,
+  "goal": "Long Memory as a study experience and within individual people pages.",
+  "current": {
+    "example": "Moses",
+    "verses": 786,
+    "books": 31,
+    "entryPoints": [
+      "/study/theology?area=people",
+      "/study/people",
+      "/study/long-memory",
+      "/people/moses#memory"
+    ],
+    "study": "/study/long-memory",
+    "people": [
+      {
+        "name": "Jesus",
+        "verses": 1160,
+        "books": 27
+      },
+      {
+        "name": "David",
+        "verses": 964,
+        "books": 28
+      },
+      {
+        "name": "Moses",
+        "verses": 786,
+        "books": 31
+      },
+      {
+        "name": "Aaron",
+        "verses": 333,
+        "books": 16
+      },
+      {
+        "name": "Abraham",
+        "verses": 275,
+        "books": 27
+      },
+      {
+        "name": "Solomon",
+        "verses": 272,
+        "books": 15
+      },
+      {
+        "name": "Joseph",
+        "verses": 197,
+        "books": 18
+      },
+      {
+        "name": "Joshua",
+        "verses": 189,
+        "books": 10
+      },
+      {
+        "name": "Paul",
+        "verses": 182,
+        "books": 15
+      },
+      {
+        "name": "Peter",
+        "verses": 178,
+        "books": 9
+      }
+    ],
+    "lenses": [
+      "Mentions (full person index)",
+      "Words spoken (selected passages)",
+      "Pivotal moments (selected passages)",
+      "Remembered later (selected passages)"
+    ]
+  },
+  "next": [
+    "Expand the sourced speech, event, and remembrance selections.",
+    "Share the study graph with additional individual person pages."
+  ],
+  "design": [
+    "Only books with verses in the active study lens.",
+    "Whole books in compact stacked rows with labeled color bands.",
+    "Clickable verse points; no quote callouts or bulk verse list.",
+    "Accessible controls, mobile layout, and reduced-motion support."
+  ]
+}

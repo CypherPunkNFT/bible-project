@@ -1,0 +1,85 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-expanded-4e1dcad4712abe3f7e84",
+  "editorialState": "draft",
+  "notes": [
+    "Existing held original registered in place; no acquisition, re-extraction or publication action."
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-12",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-approved source-bound identity and edition metadata; no whole-text theological approval or new public clearance."
+    }
+  ],
+  "editionId": "edition-reconciled-c9d4770316381f346cb26ae4",
+  "sourceId": "source-ccel-expansion",
+  "canonicalUrl": "https://ccel.org/ccel/h/hodge/ephesians.xml",
+  "finalUrl": "https://ccel.org/ccel/h/hodge/ephesians.xml",
+  "format": "other",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-ccel-expansion/asset-expanded-4e1dcad4712abe3f7e84/original.xml",
+  "sha256": "a25226498c8646bb3b062d0b3e58ccbea7ed9f4b14a04ef9b3728757301c21dc",
+  "byteCount": 1137326,
+  "mimeType": "application/xml",
+  "retrievedAt": "2026-10-05T14:10:25.629800Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": null,
+    "licenseId": "CCEL-personal-educational-permission",
+    "licenseUrl": "https://www.ccel.org/about/copyright.html",
+    "attribution": "Charles Hodge (author); Christian Classics Ethereal Library",
+    "conditions": [
+      "Personal/educational use; retain notices. Republication or commercial use requires separate permission."
+    ],
+    "conditionsMet": true,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "allowed",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://ccel.org/ccel/h/hodge/ephesians.xml",
+        "locator": "Held XML title/creator and publication headers; original SHA256 a25226498c8646bb3b062d0b3e58ccbea7ed9f4b14a04ef9b3728757301c21dc",
+        "note": "Source-bound identity/date/role assertions verified by P3. Unknown composition and delivery dates remain unknown.",
+        "checkedOn": "2026-10-12"
+      }
+    ],
+    "unresolved": [
+      "Existing CCEL restricted disposition retained; this registration grants no public text permission."
+    ],
+    "review": {
+      "date": "2026-10-12",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-approved source-bound identity and edition metadata; no whole-text theological approval or new public clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Source-offered ThML transcription retained unchanged; no OCR, generated reconstruction, or public full-text indexing."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-12",
+    "note": "Original bytes and metadata verified; transcription gaps and claim-level interpretation remain unreviewed."
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "track": "P3",
+  "status": "complete",
+  "scope": "Four-source reconciliation and owner-approved local catalogue/reader implementation",
+  "outputs": [
+    {
+      "path": "KnowledgeBase/library-knowledge/parallel-preparation/03-source-identities/identity-crosswalk.json",
+      "sha256": "5a6f13480801818045b514177a60ac3aa11e2571172fc32f7756b2f8cea80cd7"
+    },
+    {
+      "path": "KnowledgeBase/library-knowledge/parallel-preparation/03-source-identities/source-header-evidence.json",
+      "sha256": "59195c9f51437dc9a360baa3874386574716292fe73eedde2c6057a3a136282c"
+    },
+    {
+      "path": "KnowledgeBase/library-knowledge/parallel-preparation/03-source-identities/registration-proposals.json",
+      "sha256": "9525eb9df3ad42a4320ec773b5167f65a764968a7f9b42f8cd19ef07ca2b9587"
+    },
+    {
+      "path": "KnowledgeBase/library-knowledge/parallel-preparation/03-source-identities/validation.json",
+      "sha256": "0d36c44eebdaa249bfbc8cdeb748f655ba8d353e30103422ce9514d333924038"
+    },
+    {
+      "path": "Website/initiatives/library-knowledge/parallel-preparation/03-source-identities/reconcile.py",
+      "sha256": "47d168ed3c124e30e9cbb9806ea41675a561751a5f7a9e8bb6716d896edd8b12"
+    },
+    {
+      "path": "Website/initiatives/library-knowledge/parallel-preparation/03-source-identities/RESULT.md",
+      "sha256": "2f6fa9e2d31cff3ad222d26dbc56ff68a07170fa4b4a552ccf42ee16cc333f0b"
+    },
+    {
+      "path": "Website/initiatives/library-knowledge/parallel-preparation/03-source-identities/IMPLEMENTED.md",
+      "sha256": "d7afbfe5fb8e0858c86a7308eab2c81f9f6dd38f435d89fd8d8c77a07d52a0f7"
+    },
+    {
+      "path": "KnowledgeBase/library-knowledge/parallel-preparation/03-source-identities/implementation-validation.json",
+      "sha256": "4008aabcfbc406293c2f62ebfa07c308d47d556a04e22dc6532d0c5b877b9330"
+    },
+    {
+      "path": "Website/content/teachers/edition-identities.json",
+      "sha256": "85a422c7074e9ff909a42e169e7d391bed4201c21b73902ed8d67ba4e59d2aaa"
+    }
+  ],
+  "inputVersions": {
+    "corpusBuild": "2026-10-07T23:00:34.844772+00:00",
+    "selectionManifestIntegrity": "51edbbe7d46810a590e1bce7fe169dbdaf239c53df140d44f43d6b44e358b8d2",
+    "crosswalkIntegrity": "cac18f812dbc4698c4a2f57042707d061e1aac650fdd0c90be37feae1b781e51",
+    "inputFingerprintManifest": "KnowledgeBase/library-knowledge/parallel-preparation/03-source-identities/identity-crosswalk.json"
+  },
+  "completedCounts": {
+    "selectedSources": 4,
+    "originalBindingsResolved": 4,
+    "resourceBindingsResolved": 4,
+    "canonicalWorkResolved": 4,
+    "canonicalEditionResolved": 4,
+    "canonicalAssetResolved": 4,
+    "canonicalChainsResolved": 4,
+    "onSiteReadable": 2,
+    "catalogueOnly": 2,
+    "readerPagesVerified": 78,
+    "authorsSourceAsserted": 4,
+    "translatorRolesSourceAsserted": 2,
+    "translatorsWithExistingSelectedContributorBinding": 1,
+    "printDatesSourceAsserted": 3,
+    "electronicDatesSourceAsserted": 4,
+    "printPublishersSourceAsserted": 3,
+    "electronicPublishersSourceAsserted": 4,
+    "distinctNamedAuthors": 3,
+    "selectedSourceRepresentations": 4,
+    "headerAssertionsVerified": 62,
+    "canonicalRecordsAdded": 5,
+    "contributorRecordsAdded": 2,
+    "implementedReaderCorrections": 4
+  },
+  "unresolvedCounts": {
+    "canonicalWorks": 0,
+    "canonicalEditions": 0,
+    "canonicalAssets": 0,
+    "completeCanonicalChains": 0,
+    "exactEditionOnSiteTexts": 2,
+    "translatorContributorBindings": 1,
+    "legacyWorkIdDifferences": 0,
+    "printDates": 1,
+    "printPublishers": 1,
+    "compositionDates": 4,
+    "deliveryDates": 4,
+    "editorIdentities": 4,
+    "newOutputPublicUseReviews": 4,
+    "sourceNumberingConflictsCarriedForward": 1
+  },
+  "verification": {
+    "valid": true,
+    "httpChecksPassed": true,
+    "httpRequests": 12,
+    "selectedInputFilesChanged": 0,
+    "selectedDatabaseRowsChanged": false,
+    "selectedExportRecordsChanged": [],
+    "validationPath": "KnowledgeBase/library-knowledge/parallel-preparation/03-source-identities/validation.json"
+  },
+  "integrationNeeds": [
+    "Existing coordinator incorporates changed catalogue metadata through normal final intake; do not start a second pipeline.",
+    "Resolve Pringle contributor linkage independently; display credit already present.",
+    "Separate public-use/reader decisions for the two CCEL texts.",
+    "Revalidate dependent sidecars against the verified final snapshot; retain historical fingerprints."
+  ],
+  "requiresFinalSnapshotRecheck": true,
+  "pipelineMutations": false,
+  "sharedWrites": true,
+  "reconciliationCountsBeforeImplementation": {
+    "completed": {
+      "selectedSources": 4,
+      "originalBindingsResolved": 4,
+      "resourceBindingsResolved": 4,
+      "canonicalWorkResolved": 3,
+      "canonicalEditionResolved": 3,
+      "canonicalAssetResolved": 1,
+      "canonicalChainsResolved": 1,
+      "onSiteReadable": 2,
+      "catalogueOnly": 2,
+      "readerPagesVerified": 78,
+      "authorsSourceAsserted": 4,
+      "translatorRolesSourceAsserted": 2,
+      "translatorsWithExistingSelectedContributorBinding": 1,
+      "printDatesSourceAsserted": 3,
+      "electronicDatesSourceAsserted": 4,
+      "printPublishersSourceAsserted": 3,
+      "electronicPublishersSourceAsserted": 4,
+      "distinctNamedAuthors": 3,
+      "selectedSourceRepresentations": 4,
+      "headerAssertionsVerified": 62
+    },
+    "unresolved": {
+      "canonicalWorks": 1,
+      "canonicalEditions": 1,
+      "canonicalAssets": 3,
+      "completeCanonicalChains": 3,
+      "exactEditionOnSiteTexts": 2,
+      "translatorContributorBindings": 1,
+      "legacyWorkIdDifferences": 1,
+      "printDates": 1,
+      "printPublishers": 1,
+      "compositionDates": 4,
+      "deliveryDates": 4,
+      "editorIdentities": 4,
+      "newOutputPublicUseReviews": 4,
+      "sourceNumberingConflictsCarriedForward": 1
+    }
+  },
+  "sharedWriteScope": "Only approved catalogue records, role corrections, generator support and reader UI/data; no live pipeline databases.",
+  "implementation": {
+    "report": "Website/initiatives/library-knowledge/parallel-preparation/03-source-identities/IMPLEMENTED.md",
+    "validation": "KnowledgeBase/library-knowledge/parallel-preparation/03-source-identities/implementation-validation.json",
+    "localPreviewVerified": true,
+    "publicDeployment": false,
+    "completedAtDate": "2026-10-12"
+  }
+}

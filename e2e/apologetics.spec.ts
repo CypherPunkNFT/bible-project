@@ -1,6 +1,9 @@
 import { expect, test } from "@playwright/test";
 import { mkdir } from "node:fs/promises";
+import { readFileSync } from "node:fs";
 import { DEBATES, PATHS, STUDIES, TOPICS, WORLDVIEWS } from "../src/data/apologetics-library";
+import type { TranscriptRecord } from "../src/lib/debate-transcripts";
+const transcripts = JSON.parse(readFileSync("content/apologetics/transcripts/index.json", "utf8")) as Record<string, TranscriptRecord>;
 
 for (const theme of ["light", "dark"] as const) {
   test(`apologetics: the ${theme} universe and collections fit the viewport`, async ({ page }, testInfo) => {
@@ -163,11 +166,22 @@ test("apologetics: each debate has a real transcript, a reading guide and connec
   await expect(page.locator(".ap-debate-list > a")).toHaveCount(DEBATES.length);
   for (const debate of DEBATES) {
     await page.goto("/apologetics/debates/" + debate.id);
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(debate.title);
-    await expect(page.getByRole("link", { name: "Read the transcript", exact: true })).toHaveAttribute("href", /^https:\/\//);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(debate.id === "lennox-dawkins" ? debate.title + "." : debate.title);
+    const transcript = transcripts[debate.id];
+    if (transcript) {
+      await expect(page.locator(".ld-video-layout a[download]")).toHaveAttribute("download", transcript.file);
+      await expect(page.getByRole("searchbox", { name: "Search the whole transcript", exact: true })).toHaveAttribute("placeholder", "Search the whole transcript");
+      await expect(page.locator(".ld-chapter")).toHaveCount(transcript.sections.length);
+      await expect(page.locator(".ld-reader article")).toHaveCount((transcript.sections[1]?.turn ?? transcript.turns + 1) - 1);
+    } else {
+      await expect(page.locator(".ld-awaiting")).toContainText("Transcript coming next.");
+      await expect(page.locator(".ld-chapter")).toHaveCount(0);
+    }
     if (debate.recording) await expect(page.getByRole("link", { name: debate.recording.label, exact: true })).toHaveAttribute("href", debate.recording.url);
-    if (debate.transcriptCoverage) await expect(page.locator(".ap-debate-availability")).toContainText(debate.transcriptCoverage);
-    await expect(page.locator(".ap-debate-study ol li")).toHaveCount(3);
+    await expect(page.locator(".ld-title h1 + .ld-argument")).toHaveText(debate.claim);
+    await expect(page.locator(".ld-guide, #sm-panel")).toHaveCount(0);
+    await expect(page.getByText("Record of the exchange", { exact: true })).toHaveCount(0);
+    if (debate.recording) await expect(page.locator(".ld-video-layout iframe")).toHaveAttribute("src", `https://www.youtube-nocookie.com/embed/${new URL(debate.recording.url).searchParams.get('v')}?rel=0&playsinline=1`);
     await expect(page.locator(".ap-study-card")).toHaveCount(debate.studies.length);
   }
 });

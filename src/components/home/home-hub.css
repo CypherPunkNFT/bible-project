@@ -50,12 +50,13 @@
 .home-marquee { overflow: hidden; padding: 5px 0 14px; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
 .home-marquee-track { display: flex; width: max-content; animation: home-marquee 65s linear infinite; }
 .home-marquee-group { display: flex; gap: 16px; padding-right: 16px; flex-shrink: 0; }
-.home-preview { width: 252px; padding: 16px 20px 20px; border: 1px solid var(--line); border-top-color: color-mix(in srgb, var(--home-color) 70%, var(--line)); border-radius: 9px; background: linear-gradient(125deg, color-mix(in srgb, var(--home-color) 6%, var(--surface)), var(--surface)); transition: border-color .2s; }
+.home-preview { width: 315px; padding: 20px 25px 25px; border: 1px solid var(--line); border-top-color: color-mix(in srgb, var(--home-color) 70%, var(--line)); border-radius: 11.25px; background: linear-gradient(125deg, color-mix(in srgb, var(--home-color) 6%, var(--surface)), var(--surface)); transition: border-color .2s; }
 .home-preview:hover { border-color: var(--home-color); }
-.home-preview > div { height: 87px; color: var(--home-color); }
+.home-preview > div { height: 108.75px; color: var(--home-color); }
 .home-preview > div > svg { width: 100%; height: 100%; }
-.home-preview p { margin-top: 7px; color: var(--home-color); font-size: 9px; display: flex; justify-content: space-between; }
-.home-preview strong { display: block; font-family: Literata, Georgia, serif; font-size: 14px; font-weight: 400; margin-top: 9px; }
+.home-preview p { margin-top: 8.75px; color: var(--home-color); font-size: 11.25px; display: flex; justify-content: space-between; }
+.home-preview p > svg { width: 16.25px; height: 16.25px; }
+.home-preview strong { display: block; font-family: Literata, Georgia, serif; font-size: 17.5px; font-weight: 400; margin-top: 11.25px; }
 .home-marquee[data-paused="true"] .home-marquee-track, .home-marquee:focus-within .home-marquee-track { animation-play-state: paused; }
 .home-marquee:focus-within { overflow-x: auto; mask-image: none; }
 .home-section { padding-top: 88px; }
@@ -178,7 +179,7 @@
   .home-coordinate-bottom { font-size: 6px; bottom: 7%; }
   .home-preview-strip { margin-top: 25px; }
   .home-strip-heading { width: calc(100% - 36px); }
-  .home-preview { width: 225px; }
+  .home-preview { width: 281.25px; }
   .home-section { padding-top: 56px; }
   .home-section-heading { flex-direction: column; align-items: flex-start; gap: 17px; margin-bottom: 24px; }
   .home-section-heading > div > p:last-child { font-size: 13px; }

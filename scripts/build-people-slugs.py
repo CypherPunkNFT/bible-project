@@ -4,7 +4,7 @@
 
 The rule: the plain name when no other person in the site's people data bears it; when the name is shared, the name
 plus Scripture's own label for him ("son of Zebedee", "the Zealot", "Iscariot"). This first release covers the Twelve,
-Matthias and Paul. The script stops if a plain name is not unique, if two people would share an address, or if an
+Matthias, Paul and the integrated Moses page. The script stops if a plain name is not unique, if two people would share an address, or if an
 address would collide with an existing person id. The old addresses keep working: the site forwards them.
 
     py -3.12 scripts/build-people-slugs.py           # write src/data/people-slugs.json
@@ -22,6 +22,7 @@ OUT = SITE / "src" / "data" / "people-slugs.json"
 
 # person id -> (the name used, and whether it is the plain name, which must be unique among all people)
 APOSTLES: dict[str, tuple[str, bool]] = {
+    "moses-exo-2-10": ("Moses", True),
     "peter-mat-4-18": ("Peter", True),
     "andrew-mat-4-18": ("Andrew", True),
     "james-mat-4-21": ("James son of Zebedee", False),

@@ -1,0 +1,69 @@
+/* The Word is an open reading section, with three full-width subject dividers. */
+.mx-word>.wrap {max-width:var(--site-content-width, 92rem)}
+.mx-word .mx-head h2 {font-size:clamp(2.8rem,5.2vw,4.7rem);line-height:1.08;max-width:70rem;text-wrap:balance}
+.mx-word .mx-head p {font-size:1rem;max-width:55rem}
+.mx-word>.wrap>.mx-mouth {max-width:74rem;margin-bottom:3.2rem}
+.word-open {columns:auto;column-rule:none;margin:0}
+.word-group {padding:2rem 0 3.5rem;overflow-anchor:none}
+.word-group[hidden] {display:none}
+.word-open>.horizontal-groups {margin-bottom:0}
+.word-divider {display:flex;align-items:center;gap:1.2rem;margin:0 0 2rem}
+.word-divider .category-icon {display:block;width:68px;height:68px;flex-shrink:0;color:var(--tone)}
+.word-divider h3 {font:500 clamp(1.8rem,2.7vw,2.7rem)/1.15 var(--serif);letter-spacing:-.03em}
+.word-divider>span {height:1px;background:color-mix(in srgb,var(--tone) 35%,var(--line));flex:1;margin-left:1rem}
+.word-body {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem 2.8rem}
+.word-group[data-word-group="0"] .word-body {grid-template-columns:repeat(2,minmax(0,1fr))}
+.word-detail {min-width:0}
+.word-detail>h4 {font:500 1.25rem/1.35 var(--serif);margin:0 0 .9rem;color:var(--ink)}
+.word-detail>h4 .word-scripture-title {color:var(--egypt)}
+.word-detail>h4.word-gold-heading {color:var(--egypt)}
+.word-detail>h4.scripture-silence-heading,.mx-scripture-limits .lg-h.scripture-silence-heading {--tone:var(--revelation);display:flex;align-items:center;gap:.65rem;color:var(--revelation);font-family:var(--sans);font-style:normal}
+.scripture-warning-icon {flex-shrink:0}
+.mx-scripture-limits .lg-h.scripture-silence-heading {font-size:1.25rem;font-weight:500;letter-spacing:normal;text-transform:none}
+.word-detail-copy .claim {margin:0 0 1.3rem}
+.word-detail-copy .claim>p {font-size:.92rem;line-height:1.75}
+.word-detail-copy .claim-theme {display:none}
+.word-detail-copy .lg-call {display:block}
+.word-detail-copy .lg-call>span,.word-detail-copy .lg-call>div>b {display:none}
+.word-detail-copy .lg-call blockquote {font:italic 400 1.06rem/1.65 var(--serif)}
+.word-how {grid-column:1/-1;padding-top:1.6rem;border-top:1px solid var(--line)}
+.word-how .word-detail-copy {display:block;columns:3;column-gap:2.8rem}
+.word-how .claim {break-inside:avoid}
+.word-transmission {margin:0 0 2.5rem;padding-top:1.6rem}
+.word-group[data-word-group="2"] .word-body {grid-template-columns:1.3fr 1fr;row-gap:1rem}
+.word-comparison {grid-column:1/-1}
+.word-comparison .mx-chain {margin-top:.6rem;gap:2.8rem}
+.word-comparison .mx-v p {font-size:1.04rem;line-height:1.65}
+.word-comparison .mx-like-foot {grid-template-columns:1fr;gap:0;margin:1.2rem 0 0}
+.word-comparison .mx-like-foot .claim {margin-bottom:0}
+.word-comparison .mx-like-foot .mg-link {justify-self:start}
+.word-detail .mx-mouth.is-end {padding:0;max-width:none}
+.word-detail .mx-mouth.is-end p {font-size:1.3rem;line-height:1.6}
+@media(max-width:1000px){.word-body{grid-template-columns:repeat(2,minmax(0,1fr))}.word-how .word-detail-copy{columns:2}.word-divider>span{margin-left:0}}
+@media(max-width:680px){.mx-word .mx-head h2{font-size:2.7rem}.word-divider{gap:.8rem;margin-bottom:1.5rem}.word-divider .category-icon{width:48px;height:48px}.word-divider h3{font-size:1.8rem}.word-divider>span{min-width:20px}.word-body,.word-group[data-word-group="0"] .word-body,.word-group[data-word-group="2"] .word-body{grid-template-columns:1fr;gap:1.7rem}.word-how .word-detail-copy{columns:1}.word-comparison .mx-chain{gap:1.5rem}.word-group{padding-bottom:2.8rem}}
+
+/* Consolidated Word uses the same horizontal subsection controls as the chapters. */
+.word-consolidated .word-reading-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.8rem 2.8rem}
+.word-consolidated .topic-slide:first-child .word-reading-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.word-consolidated .word-reading-prose{max-width:62rem}
+.word-consolidated .word-language{border-top:1px solid var(--line);margin-top:1.2rem;padding-top:1rem;max-width:62rem}
+.word-consolidated .word-language summary{cursor:pointer;color:var(--muted);font:500 .9rem/1.6 var(--sans)}
+.word-consolidated .word-language summary:hover{color:var(--egypt)}
+.word-consolidated .word-language[open] summary{margin-bottom:1rem;color:var(--egypt)}
+.word-consolidated .word-language .claim p{font-size:.88rem}
+.word-consolidated .topic-slide[aria-label="No prophet like him:"]>h3{color:var(--egypt)}
+.word-consolidated .topic-slide[aria-label="What Scripture does not say"]>h3{display:none}
+.word-consolidated .word-comparison{margin-top:2rem}
+@media(max-width:800px){.word-consolidated .word-reading-grid,.word-consolidated .topic-slide:first-child .word-reading-grid{grid-template-columns:1fr;gap:1.5rem}}
+
+.word-consolidated .word-speaking-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8rem 2.8rem}
+@media(max-width:800px){.word-consolidated .word-speaking-grid{grid-template-columns:1fr}}
+
+/* Two content rows on desktop; let the columns follow the amount of material. */
+.word-consolidated .word-reading-grid,.word-consolidated .topic-slide:first-child .word-reading-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,auto)}
+.word-consolidated .topic-slide[aria-label="He proclaimed"] .word-reading-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.word-consolidated .word-two-rows{display:grid;grid-template-rows:repeat(2,auto);gap:1.8rem}
+.word-consolidated .word-two-rows>.word-comparison{margin-top:0}
+.word-consolidated .word-reading-grid>.word-language{margin:0;align-self:start}
+.word-consolidated .word-two-rows>.word-detail+.word-detail{border-top:1px solid var(--line);padding-top:1.5rem}
+@media(max-width:800px){.word-consolidated .word-reading-grid,.word-consolidated .topic-slide:first-child .word-reading-grid,.word-consolidated .topic-slide[aria-label="He proclaimed"] .word-reading-grid{grid-template-columns:1fr;grid-template-rows:none}}

@@ -1,0 +1,39 @@
+{
+  "study": 9,
+  "title": "The world of Jesus & the apostles",
+  "date": "2026-10-13",
+  "status": "implemented-local-only",
+  "route": "/study/world-of-jesus-apostles",
+  "preview": "http://127.0.0.1:8931/study/world-of-jesus-apostles",
+  "dossier": "09-world-of-jesus-apostles.json",
+  "authorization": "Explicit user instruction authorizes research and implementation of this study, superseding the programme's initial research-only sequence for this item. No public deployment.",
+  "teachingSequence": [
+    "Compare offices and jurisdictions before entering a scene: Galilee, Judaea, Achaia and Philippi.",
+    "Village: distinguish archaeology of homes, production and synagogue life from named Gospel events.",
+    "Pilgrimage: examine Temple boundaries, synagogue hospitality and contested routes without flattening Jewish differences.",
+    "Household: start with Paul's report of unequal meals; distinguish a hypothetical arrangement from his instructions.",
+    "City street: compare buying food, accepting an invitation and participating in a cult meal.",
+    "Sea journey: change the lens from winds to legal status to cargo and hospitality; retain Acts as the narrative source.",
+    "Classify claims as evidence, reconstruction or inference beyond the evidence."
+  ],
+  "interaction": {
+    "scenes": 5,
+    "viewpoints": 15,
+    "governmentContexts": 4,
+    "claimExercises": 3,
+    "meaning": "Each selection changes the question, highlighted schematic feature, evidence, interpretive limit, citations and linked biblical passage. Scene URLs support history, reload and direct links.",
+    "accessibility": "Native buttons with pressed state, visible keyboard focus, live feedback, heading focus after next/previous navigation, reduced-motion CSS and shared site transitions."
+  },
+  "visualDesign": "Clay and teal field-journal palette, a continuous journey ribbon and large original scene drawings. Site typography, header, page width and transition wrapper retained.",
+  "assets": "Original SVG schematics only. Not archaeological plans, measured maps or photographic reconstructions. Sea route is selected narrative stops, not a plotted track. No third-party image reuse.",
+  "editorial": "No Josephus-specific quotations, citations, retellings or dependent arguments in the public study. Institutional records and biblical passages are cited near claims; further reading records access limits.",
+  "verification": {
+    "script": "e2e/world-journey-check.mjs",
+    "receipt": ".local/world-journey-qa/result.json",
+    "coverage": "All 15 viewpoints, four governments, both quiz outcomes, 37 passage references, source mappings, keyboard Tab/Enter/Space, source disclosure, direct links/back/reload, fixed-header focus clearance, 320/390/768/1024/1440px overflow, light/dark visual inspection, reduced motion, shared transitions and highlighted reader links.",
+    "build": "Current tree Vite build completed with emptyOutDir:false after a shared asset was locked during the ordinary portable build. Existing preview assets preserved.",
+    "typecheck": "Study-scoped strict TypeScript check and ESLint. Whole-app TypeScript check has an unrelated ES2020 replaceAll error in StudyBranch.tsx; preserved rather than editing concurrent work."
+  },
+  "releaseMirrors": [".local/release-atlas-loop", ".local/release-circles-20261013"],
+  "concurrentWork": "An independently added history/WorldOfJesusPage.tsx and its /study/world-of-jesus-and-apostles route were preserved. The Academic category selects this dossier-backed five-scene journey. Other study entries, programme state and release source work were not replaced."
+}

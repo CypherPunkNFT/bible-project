@@ -1,6 +1,8 @@
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { Fragment, useId, type CSSProperties, type ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { PARABLES, PARABLE_ROOMS } from '@/data/parables';
+import { ParablesPreview } from "./hub/ParablesCard";
 import { StudyMiniature } from "@/components/study/StudyArtwork";
 import type { StudyCollectionId } from "@/data/study-collections";
 import { categoryStyle } from "@/lib/topic-style";
@@ -8,11 +10,11 @@ import { TopicsArtwork } from "@/pages/topics/TopicsArtwork";
 import "./study.css";
 
 type ResourceProps = {
-  to: string; title: string; description: string; source: string;
+  to: string; title: string; description: ReactNode; source: string;
   number: string; category: string; color: string; className?: string; children: ReactNode;
 };
 
-function Resource({ to, title, description, source, number, category, color, className = "", children }: ResourceProps) {
+export function Resource({ to, title, description, source, number, category, color, className = "", children }: ResourceProps) {
   const titleId = useId(), location = useLocation();
   return (
     <li className={`study-resource ${className}`} style={{ "--resource-color": `var(--${color})` } as CSSProperties}>
@@ -76,6 +78,21 @@ function PeoplePreview() {
   </div>;
 }
 
+function MemoryPreview() {
+  const lensId = useId().replace(/:/g, "");
+  return <div className="study-art study-memory-art" aria-hidden="true"><svg className="study-memory-grid" viewBox="0 0 600 170" fill="none">
+    {[0,1,2].map(row => <g key={row}><path d={`M12 ${16+row*48}H588M12 ${56+row*48}H588`} stroke="currentColor" strokeOpacity=".5" strokeWidth="1.4" />
+      {Array.from({length:42},(_,i) => <circle key={i} cx={18+(i*41)%560} cy={23+row*48+(i*17)%26} r={i%5===0?3.2:1.8} fill="currentColor" opacity={.4+(i%5)*.15} />)}
+      {[12,126,245,366,478,588].map(x => <path key={x} d={`M${x} ${16+row*48}V${56+row*48}`} stroke="currentColor" strokeOpacity=".5" strokeWidth="1.4" />)}</g>)}
+    <defs><clipPath id={lensId}><circle cx="410" cy="82" r="29" /></clipPath></defs>
+    <g className="study-memory-glass"><path d="M435 107L461 133" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
+      <circle cx="410" cy="82" r="33" fill="var(--surface)" fillOpacity=".94" stroke="currentColor" strokeWidth="2.5" />
+      <g clipPath={`url(#${lensId})`}><path d="M377 71H443M377 94H443M398 49V115M422 49V115" stroke="currentColor" strokeWidth="1.5" opacity=".5" />
+        {[[389,61],[408,88],[426,65],[395,103],[433,97]].map(([x,y])=><circle key={x} cx={x} cy={y} r="3.8" fill="currentColor" />)}</g>
+    </g>
+  </svg><span className="study-art-note">A life remembered across Scripture</span></div>;
+}
+
 function LettersPreview() {
   return <div className="study-art study-letters-art" aria-hidden="true">
     <div className="study-letter-sheet study-letter-back" />
@@ -123,17 +140,19 @@ const RESOURCE_CARDS = {
   topics: <Resource to="/topics" title="Topics" description="5,603 subjects in 55 families, from the love of God and the books of the Bible to every person, place, miracle and parable. Each gathers every passage that speaks to it, with key verses quoted in full." source="Torrey, Nave & Easton" number="01" category="Every subject, every verse" color="epistles" className="study-wide"><TopicsPreview /></Resource>,
   names: <Resource to="/study/names" title="Names & descriptions of God" description="302 names and titles of the Father, the Son and the Holy Spirit. Unfold each name to discover the passages behind it." source="The Faith-page collection" number="02" category="His character, revealed" color="revelation" className="study-wide"><NamesPreview /></Resource>,
   gospels: <Resource to="/study/gospels" title="Jesus & the Gospels" description="Read his teaching in its setting, see where he speaks, and compare 185 events across Matthew, Mark, Luke and John. Four accounts open onto one life." source="Gospel harmony · Teaching journeys · Speech atlas" number="03" category="The life of Christ" color="gospels" className="study-feature"><GospelPreview /></Resource>,
+  parables: <Resource to="/study/gospels?guide=parables" title="The parables of Christ" description="A seed, a treasure, an open door. Enter the stories Jesus told, discover the turn that changes everything, and hear their invitation to respond." source={`${PARABLES.length} studies & ${PARABLE_ROOMS.length} themes`} number="" category="Stories that open our eyes" color="epistles" className="study-parables-resource"><ParablesPreview /></Resource>,
   miracles: <Resource to="/study/miracles" title="Miracles & encounters" description="Explore the 35 miracles of Jesus, and wonders worked through Moses, Elijah, the apostles and others. Open each event to its passages." source="Robertson & Torrey" number="04" category="Signs & wonders" color="acts"><MiraclePreview /></Resource>,
   references: <Resource to="/study/references" title="Connections in Scripture" description="How does one passage lead to another? Follow the cross-reference arcs and compare whole books, then read the linked passages in context." source="Cross-reference arcs · Book-to-book matrix" number="05" category="Passages in conversation" color="poetry"><ChartPreview kind="references" note="Across chapters. Between books." /></Resource>,
   structure: <Resource to="/study/structure" title="The shape of the Bible" description="How does the whole fit together? Explore literary forms, compare nine measures, and find your place among the books and numbered chapters." source="Sections & measures · Book lengths · Chapter atlas" number="06" category="Books & literary forms" color="history"><ChartPreview kind="structure" note="The whole. The books. The chapters." /></Resource>,
   people: <Resource to="/study/people" title="People & genealogies" description="Meet 3,052 people in the order of biblical history, follow their families and open each life on its own page. The prophets guide places named prophets in the eras Scripture gives them." source="People · Families · Prophets · Rulers · Apostles" number="07" category="Lives & lineages" color="history"><PeoplePreview /></Resource>,
+  memory: <Resource to="/study/long-memory" title="Long Memory" description={<>Follow a life across Scripture, one verse at a time.<br /><span>Begin with ten lives: explore their mentions, words, pivotal moments, and how Scripture remembers them.</span></>} source="Ten lives · Four study lenses · Every light opens a verse" number="" category="A life across Scripture" color="epistles" className="study-memory-resource"><MemoryPreview /></Resource>,
   letters: <Resource to="/study/letters" title="Letters & their message" description="Explore all 21 New Testament letters: who wrote them, who received them, and how each message unfolds, section by section." source="Westcott, Lightfoot, Ramsay & other public-domain scholars" number="08" category="Letters to the church" color="epistles"><LettersPreview /></Resource>,
   atlas: <Resource to="/study/atlas" title="Places & journeys" description="Find 1,252 biblical places on a map of the ancient world. Explore the settings of the story, compare places by book, and open their passages." source="OpenBible.info · OpenStreetMap" number="09" category="The world of the Bible" color="poetry" className="study-map-feature"><PlacesPreview /></Resource>,
   versions: <Resource to="/study/versions" title="Versions & languages" description="Which edition are you reading? Place the library's versions in time, compare their actual book collections, and choose one to read." source="Edition timeline · Book coverage · Library" number="10" category="Editions & contents" color="acts" className="study-wide"><ChartPreview kind="versions" note="The texts in your hands" /></Resource>,
 };
 
 export type StudyResourceId = keyof typeof RESOURCE_CARDS;
-export const STUDY_RESOURCE_IDS = Object.keys(RESOURCE_CARDS) as StudyResourceId[];
+export const STUDY_RESOURCE_IDS = Object.keys(RESOURCE_CARDS).filter(id => id !== "parables" && id !== "memory") as StudyResourceId[];
 
 /** The original Study2 cards, shared intact with the organized Theology collections. */
 export function StudyResourceCards({ ids = STUDY_RESOURCE_IDS, className = "", label = "Study resources" }: {

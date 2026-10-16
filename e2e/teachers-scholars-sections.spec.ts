@@ -35,29 +35,24 @@ test("Built on their work joins features, books and scholars, follows the pointe
     return;
   }
   const planned = await card.locator(".blt-work.blt-planned").count();
-  expect(planned).toBeGreaterThan(0);
   await expect(card.locator(".blt-rib.blt-planned")).toHaveCount(planned);
   expect(await card.locator(".blt-rib:not(.blt-planned)").count()).toBeGreaterThanOrEqual(await card.locator(".blt-work:not(.blt-planned)").count());
-  const caption = card.locator(".blt-cap-text");
-  await expect(caption).toContainText("Hover a ribbon");
-  const capBox = await card.locator(".blt-cap").boundingBox();
+  await expect(card.locator(".blt-cap, .blt-legend")).toHaveCount(0);
+  await expect(card.locator(".blt-scroll")).toHaveClass(/slim-scroll/);
+  for (const subtitle of await card.locator(".blt-feat small").allTextContents()) expect(subtitle).toMatch(/^Top [1-5] sources$/);
 
   const topics = card.locator(".blt-feat", { hasText: "Topics" });
   await topics.hover();
-  await expect(caption).toContainText("Topics draws on");
   await expect(card.locator(".blt-stage")).toHaveClass(/blt-dim/);
-  expect((await card.locator(".blt-cap").boundingBox())?.height).toBe(capBox?.height);
   await card.locator(".blt-sch").first().hover();
   await expect(card.locator(".blt-sch").first()).toHaveClass(/blt-on/);
 
   await topics.click();
   await expect(topics).toHaveAttribute("aria-pressed", "true");
   await page.mouse.move(5, 5);
-  await expect(caption).toContainText("Topics draws on");
   await topics.click();
   await expect(topics).toHaveAttribute("aria-pressed", "false");
   await page.mouse.move(5, 5);
-  await expect(caption).toContainText("Hover a ribbon");
 
   const scholar = card.locator(".blt-sch").first();
   const name = (await scholar.locator("b").textContent()) ?? "";

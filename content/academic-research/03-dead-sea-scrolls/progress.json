@@ -1,0 +1,38 @@
+{
+  "study": "The Dead Sea Scrolls",
+  "programme": "academic-research",
+  "order": 3,
+  "updated": "2026-10-14",
+  "status": "implemented-and-verified-local-preview",
+  "design": "design.md",
+  "artifact": "../../../design/dead-sea-scrolls-lens/index.html",
+  "verification": "../../../design/dead-sea-scrolls-lens/verification.json",
+  "completed": [
+    "Existing study, research dossier and reference entry points inspected",
+    "Complete design document and content preservation map saved",
+    "Isolated current/proposed comparison built",
+    "Every original SVG path except the two left-curl paths verified unchanged",
+    "Keyboard selections, both themes, 320–1440px widths and reduced motion checked",
+    "Desktop and mobile rendered screenshots visually inspected",
+    "Design gallery registered",
+    "Approved artwork integrated in existing React page",
+    "Focused two-file release mirror verified identical",
+    "Portable build and editorial policy check passed",
+    "Live desktop/mobile screenshots and reference page screenshots inspected",
+    "Live keyboard, reduced-motion, themes, source anchor and route-return checks passed",
+    "Three substantial main-study visual experiences redesigned",
+    "Application TypeScript check passed",
+    "All object selections, context/filter reset and URL persistence checked",
+    "All date selections and nine fragment candidate/evidence combinations checked",
+    "Desktop and mobile rendered screenshots inspected in both themes"
+  ],
+  "notCompleted": [
+    "Manual screen-reader testing",
+    "Public deployment (not requested)"
+  ],
+  "scope": "Main-study visual redesign implemented locally: illustrated six-object collection, three date histories and independent fragment evidence layers. Accepted hero, research and unrelated studies preserved. Focused release source mirrored; no deployment.",
+  "preview": "http://127.0.0.1:8931/study/dead-sea-scrolls",
+  "integrationVerification": "local-verification.json",
+  "bodyVerification": "body-design-verification.json",
+  "bodyArtifact": "../../../design/dead-sea-scrolls/body-redesign.html"
+}

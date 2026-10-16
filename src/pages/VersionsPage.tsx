@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CreditLine } from "@/components/CreditLine";
 import { SourceDirectory } from "@/components/SourceDirectory";
+import { ScriptureDownload } from "@/components/ScriptureDownload";
 import { useCatalog } from "@/lib/catalog";
 import { groupVersions, VERSION_GROUPS, type VersionGroup } from "@/lib/languages";
 import { NUMBERING_LABEL } from "@/lib/numbering";
@@ -26,14 +27,15 @@ export default function VersionsPage() {
   const shown = grouped.filter((g) => filter === "all" || g.group.id === filter);
   return (
     <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
-      <SourceDirectory scriptureCount={catalog.translations.length} />
+      <SourceDirectory scriptureCount={catalog.translations.length}>
       <header id="scriptures" className="scroll-mt-24 pb-6 pt-10">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Versions & sources</p>
-        <h2 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">{catalog.translations.length} scriptures, all free to read.</h2>
+        <h2 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">{catalog.translations.length} scriptures, all free to read and download.</h2>
         <p className="mt-3 max-w-2xl text-muted">
           Every text below is in the public domain except one: the Hindi Indian Revised Version, which its publisher shares under an open licence (CC BY-SA 4.0).
           Each was downloaded from eBible.org and is shown as published there, without the book introductions some of them carry.
         </p>
+        <p className="mt-2 max-w-2xl text-sm text-muted">Download any edition as a free text file (.txt) for offline reading, with book and verse references and source credits. Downloads contain verse text without headings or footnotes.</p>
       </header>
 
       <div role="group" aria-label="Show" className="mb-4 flex flex-wrap gap-1.5">
@@ -65,7 +67,7 @@ export default function VersionsPage() {
               <th scope="col" className="px-3 py-3">Books (OT · NT · Apocrypha)</th>
               <th scope="col" className="px-3 py-3 text-right">Verses</th>
               <th scope="col" className="px-3 py-3">Numbering</th>
-              <th scope="col" className="px-3 py-3"><span className="sr-only">Read</span></th>
+              <th scope="col" className="px-3 py-3"><span className="sr-only">Read and download</span></th>
             </tr>
           </thead>
           {shown.map(({ group, count, sections }) => (
@@ -99,9 +101,12 @@ export default function VersionsPage() {
                       <td className="px-3 py-3 text-right tabular-nums">{formatNumber(t.verses)}</td>
                       <td className="px-3 py-3 text-muted">{NUMBERING_LABEL[t.numbering]}</td>
                       <td className="px-3 py-3">
-                        <Link to={`/read/${t.slug}/${first}/${t.books[first][0]}`} className="inline-flex items-center gap-1 rounded-full border border-line px-2.5 py-1 hover:bg-surface-2">
+                        <div className="flex items-start gap-2">
+                        <Link to={`/read/${t.slug}/${first}/${t.books[first][0]}`} className="inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-line px-2.5 py-1 hover:bg-surface-2">
                           <BookOpen className="h-3.5 w-3.5" aria-hidden /> Read
                         </Link>
+                        <ScriptureDownload catalog={catalog} version={t} />
+                        </div>
                       </td>
                     </tr>
                   );
@@ -111,6 +116,8 @@ export default function VersionsPage() {
           ))}
         </table>
       </div>
+
+      </SourceDirectory>
 
       <section className="mt-10 grid gap-6 md:grid-cols-2">
         <div className="rounded-2xl border border-line bg-surface p-5">

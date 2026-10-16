@@ -1,5 +1,5 @@
 /* The shared profile drawer (ported from the approved mock-up, design/authors-directions/teachers/drawer.css): slides in from the right over a soft scrim, above the site header (z 40) and everything else on the page. */
-.tp-preachers .drw { position: fixed; inset: 0; z-index: 100; visibility: hidden; transition: visibility 0s .5s; pointer-events: none; }
+.tp-preachers .drw { position: fixed; inset: 0; z-index: 100; overflow: hidden; visibility: hidden; transition: visibility 0s .5s; pointer-events: none; }
 .tp-preachers .drw.drw-open { visibility: visible; transition: none; pointer-events: auto; }
 /* Nothing inside the drawer transitions by default: the page's reduced-motion rule gives every element a 1ms transition,
    which would carry the drawer's visibility down the tree a frame late and stop the close button taking focus on open. */
@@ -7,7 +7,7 @@
 .tp-preachers .drw button { padding: 0; border: 0; background: none; }
 .tp-preachers .drw-scrim { position: absolute; inset: 0; background: color-mix(in srgb, var(--ink) 28%, transparent); opacity: 0; transition: opacity .4s; }
 .tp-preachers .drw.drw-open .drw-scrim { opacity: 1; }
-.tp-preachers .drw-panel { position: absolute; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; width: min(36rem, 100%); border-left: 1px solid var(--line);
+.tp-preachers .drw-panel { position: absolute; top: 0; right: 0; bottom: 0; z-index: 2; display: flex; flex-direction: column; width: min(36rem, 100%); border-left: 1px solid var(--line);
   background: var(--page); box-shadow: -24px 0 60px -30px rgb(0 0 0 / 45%); transform: translateX(104%); transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
 .tp-preachers .drw.drw-open .drw-panel { transform: none; }
 .tp-preachers .drw-bar { display: flex; gap: .5rem; align-items: center; padding: calc(.7rem + env(safe-area-inset-top, 0px)) 1rem .7rem; border-bottom: 1px solid var(--line); }
@@ -108,4 +108,46 @@
   .tp-preachers .drw-top h2 { font-size: 1.6rem; }
   .tp-preachers .drw-known li { grid-template-columns: 2.6rem minmax(0, 1fr); }
   .tp-preachers .drw-tags { grid-column: 2; justify-self: start; }
+}
+
+/* A second sheet emerges from behind the profile, without moving the first sheet. */
+.tp-preachers .drw-document { position: absolute; inset-block: 0; right: 36rem; z-index: 1; display: flex; flex-direction: column; width: min(46rem, calc(100vw - 36rem)); min-width: 0; background: var(--page); border-left: 1px solid var(--line); box-shadow: -24px 0 60px -30px rgb(0 0 0 / 45%); transform: translateX(100%); visibility: hidden; pointer-events: none; transition: transform .6s cubic-bezier(.16,1,.3,1), visibility 0s .6s; }
+.tp-preachers .drw-open.drw-work-open .drw-document { transform: none; visibility: visible; pointer-events: auto; transition: transform .6s cubic-bezier(.16,1,.3,1), visibility 0s; }
+.tp-preachers .drw-document-bar { display: flex; flex: none; align-items: center; justify-content: space-between; gap: 1rem; min-height: 62px; padding: calc(.7rem + env(safe-area-inset-top,0px)) 1.2rem .7rem; border-bottom: 1px solid var(--line); }
+.tp-preachers .drw-document-bar button { display: inline-flex; align-items: center; gap: .5rem; color: var(--muted); font-size: .78rem; }
+.tp-preachers .drw-document-bar button:hover { color: var(--ink); }
+.tp-preachers .drw-document-bar .drw-document-close { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; }
+.tp-preachers .drw-document-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.tp-preachers .drw-document .acq-reader-embedded { max-width: none; min-width: 0; padding: 1.4rem 1.8rem 3rem; }
+.tp-preachers .drw-document .acq-reader h1 { font: 500 clamp(1.5rem,2.5vw,2.2rem)/1.25 var(--serif); }
+.tp-preachers .drw-document .acq-reading { margin-block: 1.8rem; }
+.tp-preachers .drw-document .acq-reading p { font: 400 1rem/1.85 var(--serif); }
+.tp-preachers .drw-document .acq-pagination button { padding: .5rem .8rem; border: 1px solid var(--line); border-radius: .5rem; }
+.tp-preachers .drw-work-search { display: block; margin-block: 1rem .4rem; font-size: .72rem; color: var(--muted); }
+.tp-preachers .drw-work-search input { display: block; width: 100%; margin-top: .45rem; padding: .7rem .8rem; border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); color: var(--ink); }
+.tp-preachers .drw-shelf-views { display: flex; gap: .4rem; margin-top: 1rem; }
+.tp-preachers .drw-shelf-views button { padding: .4rem .7rem; border: 1px solid var(--line); border-radius: 999px; font-size: .72rem; color: var(--muted); }
+.tp-preachers .drw-shelf-views button[aria-pressed="true"] { color: var(--ink); background: var(--surface-2); border-color: var(--tone); }
+.tp-preachers .drw-worklist em { font-style: normal; }
+.tp-preachers .drw-work-readable { color: var(--tone); }
+.tp-preachers .drw-work-catalogue { color: var(--muted); }
+.tp-preachers .drw-worklist li > button { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: .15rem .8rem; align-items: center; width: 100%; padding: .75rem .5rem; text-align: left; border-radius: .5rem; color: var(--ink); }
+.tp-preachers .drw-worklist li > button:hover { background: var(--surface-2); }
+.tp-preachers .drw-worklist li > button svg { grid-column: 2; grid-row: 1 / 3; color: var(--tone); }
+.tp-preachers .drw-work-pages { display: flex; align-items: center; justify-content: space-between; gap: .7rem; margin-block: 1rem; font-size: .72rem; color: var(--muted); }
+.tp-preachers .drw-work-pages button { display: inline-flex; align-items: center; gap: .4rem; padding: .5rem .7rem; border: 1px solid var(--line); border-radius: .5rem; color: var(--ink); }
+.tp-preachers .drw-work-pages button:disabled { opacity: .4; }
+.tp-preachers .drw-editions { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.tp-preachers .drw-editions summary { cursor: pointer; font-size: .8rem; }
+.tp-preachers .drw-editions .acq-works li button { display: block; width: 100%; color: var(--ink); text-align: left; }
+.tp-preachers .drw-editions .acq-works li button:hover { color: var(--tone); }
+.tp-preachers .drw-editions .acq-pagination button { padding: .5rem .7rem; border: 1px solid var(--line); border-radius: .5rem; }
+.tp-preachers .drw :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 999px) {
+  .tp-preachers .drw-document { right: 0; width: 100%; }
+  .tp-preachers .drw-work-open .drw-panel { visibility: hidden; pointer-events: none; }
+  .tp-preachers .drw-document .acq-reader-embedded { padding-inline: 1.2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tp-preachers .drw-document { transition-duration: 1ms, 0s; transition-delay: 0s; }
 }

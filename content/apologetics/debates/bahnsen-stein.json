@@ -41,7 +41,7 @@
       "duration": "2:13:17",
       "note": "Audio recording on YouTube."
     },
-    "transcriptCoverage": "42-page transcript with speeches, questioning, closing statements and audience questions. Third-party-hosted copy; the remastered recording and its subtitles have not been checked word for word."
+    "transcriptCoverage": "Both speakers' opening statements, cross-examinations, rebuttals and closing statements. Editorial headings are retained; promotional snippets are separately labelled as source material. The two supplied copies were byte-identical and are stored once. Recording alignment has not been independently checked."
   },
   "reviews": [
     {
@@ -51,6 +51,15 @@
       "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
       "date": "2026-10-11",
       "contentHash": "97c3ca9eb730f4170a5e54ed99440d87ade0716322f30b6b33324e051ec0cf9c",
+      "basisHash": "7fd2ed5cb7d0479df34afd3222924ac4ccc3bf2f6bd564b4f294470b970c350b"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-supplied transcript preservation, attribution and coverage",
+      "note": "Saved the original supplied bytes and indexed explicit speech and dialogue boundaries. Preserved headings, source notes and stated recording gaps. Bahnsen promotional snippets are separate source material; duplicate attachments were byte-identical. Coverage reflects supplied text only; recording alignment and playback have not been independently verified.",
+      "date": "2026-10-11",
+      "contentHash": "66be0ffefba5c5d7b84f89e4d0c48c7773378948ad1939962673af325a466897",
       "basisHash": "7fd2ed5cb7d0479df34afd3222924ac4ccc3bf2f6bd564b4f294470b970c350b"
     }
   ]

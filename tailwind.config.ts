@@ -17,6 +17,7 @@ export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
+      maxWidth: { "7xl": "var(--site-content-width)" },
       fontFamily: {
         sans: "var(--font-sans)",
         serif: "var(--font-serif)",

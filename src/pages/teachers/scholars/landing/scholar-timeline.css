@@ -1,0 +1,50 @@
+.tp-scholars .scholar-time{padding:1.2rem 1.25rem 0}
+.tp-scholars .st-caption{margin:0;color:var(--muted);font-size:.76rem}
+.tp-scholars .st-caption span{white-space:normal;opacity:.8}
+.tp-scholars .st-scroll{overflow-x:auto;overflow-y:auto;max-height:399px;overscroll-behavior:contain;scrollbar-gutter:stable;padding-bottom:.5rem}
+.tp-scholars .st-band{position:relative;min-width:0;min-height:180px}
+.tp-scholars .st-art{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.tp-scholars .st-art line{stroke:var(--line);stroke-dasharray:2 5}
+.tp-scholars .st-art path{fill:none;stroke:color-mix(in srgb,var(--muted) 45%,transparent);stroke-width:1.5}
+.tp-scholars .st-art circle{fill:var(--accent)}
+.tp-scholars .st-art text{font:10px var(--sans);fill:var(--muted)}
+.tp-scholars .st-mark{position:absolute;transform:translate(-50%,-50%);display:grid;place-items:center;padding:0;border:1px solid var(--tone);border-radius:50%;background:color-mix(in srgb,var(--tone) 13%,var(--surface));color:var(--tone);font:500 .7rem var(--serif);cursor:pointer;transition:opacity .2s,background .2s,box-shadow .2s}
+.tp-scholars .st-mark:hover,.tp-scholars .st-mark.st-hot,.tp-scholars .st-mark.st-match{background:color-mix(in srgb,var(--tone) 24%,var(--surface));box-shadow:0 0 0 4px color-mix(in srgb,var(--tone) 10%,transparent);z-index:2}
+.tp-scholars .st-mark:focus-visible{outline:2px solid var(--tone);outline-offset:4px}
+.tp-scholars .st-dim{opacity:.2}
+.tp-scholars .st-unknown{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;padding:.7rem 0;border-top:1px dashed var(--line);font-size:.7rem;color:var(--muted)}
+.tp-scholars .st-unknown>div{display:flex;gap:.5rem;flex-wrap:wrap}
+.tp-scholars .st-mark.st-undated{position:relative;transform:none}
+.tp-scholars .st-topline{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.tp-scholars .st-topline .st-caption{flex:1;min-width:0}
+.tp-scholars .st-legend{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:.25rem .65rem;max-width:50%;margin:0;padding:0;list-style:none;font-size:.62rem;line-height:1.65;color:var(--muted)}
+.tp-scholars .st-legend li{display:inline-flex;align-items:center;gap:.4rem}
+.tp-scholars .st-legend i{width:6px;height:6px;flex:none;border-radius:50%}
+.tp-scholars .st-legend .st-unassigned{background:var(--muted)}
+@media(max-width:900px){.tp-scholars .st-topline{flex-direction:column;gap:.6rem}.tp-scholars .st-legend{justify-content:flex-start;max-width:none}}
+@media(max-width:600px){.tp-scholars .scholar-time{padding:1rem 1rem 0}.tp-scholars .st-mark{font-size:.5rem}.tp-scholars .st-caption{font-size:.7rem}}
+@media(prefers-reduced-motion:reduce){.tp-scholars .st-mark{transition:none}}
+
+.tp-scholars .st-controls{display:flex;align-items:end;flex-wrap:wrap;gap:.6rem;padding:.8rem 0;font-size:.7rem;color:var(--muted)}
+.tp-scholars .st-controls label{display:grid;gap:.3rem}.tp-scholars .st-controls select,.tp-scholars .st-controls button{border:1px solid var(--line);border-radius:.35rem;padding:.4rem .5rem;background:var(--surface);color:var(--ink);font-size:.7rem}
+.tp-scholars .st-controls button:disabled{opacity:.35}.tp-scholars .st-mark.st-approximate{border-style:dashed}
+.tp-scholars .st-mobile-options{flex-shrink:0;font-size:.7rem;color:var(--muted)}
+.tp-scholars .st-mobile-options>summary{cursor:pointer;padding:0 0 .6rem;color:var(--ink)}
+.tp-scholars .st-mobile-options>div{padding-bottom:.7rem}
+.tp-scholars .il-overview>.scholar-time[data-compact=true] .st-scroll{flex:1 0 80px;min-height:80px}
+.tp-scholars .il-overview>.scholar-time[data-compact=true]{padding-top:.5rem}
+.tp-scholars .scholar-time[data-compact=true] .st-mobile-options>summary{padding-bottom:.35rem}
+
+/* Timeline filters occupy the right side of the existing graph header. */
+.tp-scholars .il-timeline-controls{grid-column:3;grid-row:1;min-width:0}
+.tp-scholars .il-timeline-controls .st-controls{justify-content:flex-end;align-items:center;gap:.35rem;padding:0;flex-wrap:wrap}
+.tp-scholars .il-timeline-controls .st-controls label{gap:.15rem;font-size:.58rem;text-align:left}
+.tp-scholars .il-timeline-controls .st-controls select{max-width:9rem;padding:.3rem .4rem;font-size:.65rem}
+.tp-scholars .il-timeline-controls .st-controls button{width:auto;height:auto;padding:.35rem .45rem;font-size:.62rem;border:1px solid var(--line);border-radius:.35rem;background:var(--surface);color:var(--ink)}
+.tp-scholars .il-timeline-controls .st-controls>span{font-size:.6rem;white-space:nowrap}
+.tp-scholars .il-overview>.scholar-time{padding-top:.65rem}
+.tp-scholars .st-topline{justify-content:flex-end;padding-bottom:.45rem}
+.tp-scholars .st-topline .st-legend{max-width:none}
+@media(max-width:1050px){.tp-scholars .il-timeline-controls{grid-column:1/-1;grid-row:2}.tp-scholars .il-timeline-controls .st-controls{justify-content:flex-start}}
+@media(max-width:600px){.tp-scholars .il-timeline-controls{grid-row:3}.tp-scholars .il-timeline-controls .st-controls select{max-width:8rem}.tp-scholars .st-topline{justify-content:flex-start}}
+

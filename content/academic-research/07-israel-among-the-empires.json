@@ -1,0 +1,1128 @@
+{
+  "schemaVersion": 2,
+  "order": 7,
+  "title": "Israel among the empires",
+  "category": "History & archaeology",
+  "updated": "2026-10-14",
+  "status": "researched-and-implemented-local",
+  "route": "/study/israel-among-the-empires",
+  "scope": {
+    "from": "Egyptian campaign horizon c. 925 BCE",
+    "to": "Judean communities in the sixth and fifth centuries BCE",
+    "focus": "Israel and Judah in a network of unequal political relationships; royal, administrative and biblical evidence.",
+    "limits": [
+      "Not a comprehensive political history of every reign.",
+      "No precise territorial reconstructions.",
+      "Biblical books are literary and theological evidence as well as sources used critically in political reconstruction.",
+      "No manuscript or museum photographs reproduced.",
+      "A later Elephantine petition (407 BCE) is explicitly outside the atlas’s c. 450 endpoint."
+    ]
+  },
+  "researchMethod": {
+    "consulted": "Primary texts in translation, institutional object catalogues, institutional chronological summaries, research abstracts and explicitly identified excerpts.",
+    "accessLimits": "British Museum direct pages often returned 403; indexed catalogue text was consulted. ORACC direct requests failed; inaccessible pages are not presented as read. Full monographs were not read.",
+    "editorial": "Josephus-specific material excluded from this general study.",
+    "sourceStatus": "See read and scope in every source entry. Located works are never represented as fully read."
+  },
+  "teachingSequence": [
+    {
+      "step": 1,
+      "question": "Who is subordinate to whom?",
+      "method": "Select a period; read both maps and the two political-status statements.",
+      "outcome": "Distinguish coalition, tribute, annexation, forced displacement and return."
+    },
+    {
+      "step": 2,
+      "question": "What changes when the scale changes?",
+      "method": "Compare regional relationships with named places in the southern Levant; switch between power and people.",
+      "outcome": "Separate a royal capital’s outcome from the experience of an entire population."
+    },
+    {
+      "step": 3,
+      "question": "What does a date actually date?",
+      "method": "Read the proportional time window and its explanation.",
+      "outcome": "Distinguish event, object, broad horizon and debated alignment."
+    },
+    {
+      "step": 4,
+      "question": "Whose victory in 701?",
+      "method": "Select event, payment and explanation comparisons.",
+      "outcome": "Locate overlap, discrepancies and theological interpretation without forced harmonization."
+    },
+    {
+      "step": 5,
+      "question": "Does a parallel restoration account prove Ezra’s decree?",
+      "method": "Choose and review an inference about the Cyrus Cylinder.",
+      "outcome": "Use comparative context without claiming direct attestation."
+    },
+    {
+      "step": 6,
+      "question": "What was actually consulted?",
+      "method": "Open the register and follow object and research links.",
+      "outcome": "Distinguish catalogue verification, primary translation, abstract and deeper reading."
+    },
+    {
+      "step": 7,
+      "question": "What does the choice of archive make visible?",
+      "method": "Compare palace rations, multigenerational transactions and a community petition; inspect evidence before opening interpretation.",
+      "outcome": "Reject a universal deportee experience and universal return."
+    },
+    {
+      "step": 8,
+      "question": "Why do archaeologists disagree about rural continuity?",
+      "method": "Compare the stated methods of Stern and Lipschits and the reassessment at Ramat Raḥel.",
+      "outcome": "Distinguish regional sampling, dating and demographic inference."
+    }
+  ],
+  "sources": [
+    {
+      "id": "karnak",
+      "title": "The Bubastite Portal · OIP 74",
+      "url": "https://isac.uchicago.edu/publications/reliefs-and-inscriptions-karnak-volume-iii-bubastite",
+      "kind": "Primary epigraphic publication",
+      "read": "Publication record and indexed preface excerpt consulted; plates not examined.",
+      "scope": "Shoshenq I’s campaign monument; the approximate chronology is discussed in the preface. A place list is not an itinerary."
+    },
+    {
+      "id": "kurkh",
+      "title": "Kurkh Stela · BM 118884",
+      "url": "https://www.britishmuseum.org/collection/object/W_1863-0619-2",
+      "kind": "Institutional object record",
+      "read": "Indexed museum catalogue text consulted; direct fetch blocked.",
+      "scope": "Shalmaneser III’s limestone monument, catalogued about 852 BCE; distinguish the object’s date from Qarqar in 853."
+    },
+    {
+      "id": "obelisk",
+      "title": "Black Obelisk · BM 118885",
+      "url": "https://www.britishmuseum.org/collection/object/W_1848-1104-1",
+      "kind": "Institutional object record",
+      "read": "Indexed museum description consulted; direct fetch blocked.",
+      "scope": "Jehu’s tribute in 841 BCE, commemorated on a later royal monument. The image stages submission."
+    },
+    {
+      "id": "penn",
+      "title": "Through Assyria’s Eyes · Penn Museum",
+      "url": "https://www.penn.museum/sites/expedition/through-assyrias-eyes/",
+      "kind": "Scholarly institutional synthesis",
+      "read": "Relevant article sections read, including Israel, tribute lists and Ahaz.",
+      "scope": "Compares Assyrian naming, inscriptions and Kings. Its proposed explanations of biblical silence remain interpretations."
+    },
+    {
+      "id": "mesha",
+      "title": "Mesha Stele · Louvre AO 5066",
+      "url": "https://collections.louvre.fr/en/ark:/53355/cl010120339",
+      "kind": "Institutional object record",
+      "read": "Catalogue description and dating fields read.",
+      "scope": "Mesha’s Moabite victory account. The record uses a ninth-century range; its dating fields should not be collapsed into a single exact year."
+    },
+    {
+      "id": "samaria",
+      "title": "Andrea Squitieri · Assyrian conquest and ruralization (2024)",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/00758914.2024.2351677",
+      "kind": "Archaeological research",
+      "read": "Indexed opening and discussion excerpts consulted; full article not read. Author and DOI checked in Crossmark record.",
+      "scope": "Distinguishes Shalmaneser V’s conquest from Sargon II’s provincial organization; investigates continuing rural settlement."
+    },
+    {
+      "id": "prism",
+      "title": "Sennacherib’s prism · column III, 18–49",
+      "url": "https://www.kchanson.com/ANCDOCS/meso/sennprism3.html",
+      "kind": "Primary text in translation",
+      "read": "Column III read in K. C. Hanson’s adaptation of Luckenbill, 1924, pp. 31–36.",
+      "scope": "Claims captured towns, deportees and Hezekiah’s tribute. Royal totals are claims, not independently verified counts."
+    },
+    {
+      "id": "prism2",
+      "title": "Sennacherib’s prism · column II, 73–83",
+      "url": "https://www.kchanson.com/ANCDOCS/meso/sennprism2.html",
+      "kind": "Primary text in translation",
+      "read": "Column II read in Hanson’s adaptation of Luckenbill.",
+      "scope": "Ekron’s rebellion, Hezekiah’s detention of Padi and appeal to Egyptian and Kushite forces."
+    },
+    {
+      "id": "lachish",
+      "title": "Lachish captives · British Museum relief",
+      "url": "https://www.britishmuseum.org/collection/object/W_1856-0909-14_4",
+      "kind": "Institutional object record",
+      "read": "Indexed description consulted.",
+      "scope": "The relief represents prisoners from Lachish. It is palace art, not an unmediated view through a camera."
+    },
+    {
+      "id": "lachish-date",
+      "title": "Assyria: lion hunts · British Museum",
+      "url": "https://www.britishmuseum.org/collection/galleries/assyria-lion-hunts",
+      "kind": "Institutional gallery account",
+      "read": "Indexed historical description consulted.",
+      "scope": "Dates Sennacherib’s capture of Lachish to 701 BCE."
+    },
+    {
+      "id": "chronicle",
+      "title": "Babylonian Chronicle · BM 21946",
+      "url": "https://www.britishmuseum.org/collection/object/W_1896-0409-51",
+      "kind": "Institutional object record",
+      "read": "Indexed description and date coverage consulted; direct fetch blocked.",
+      "scope": "Covers 605–594 BCE and the 597 Jerusalem campaign, not the later destruction of the temple."
+    },
+    {
+      "id": "letter",
+      "title": "Lachish Letter II · BM 125702",
+      "url": "https://www.britishmuseum.org/collection/object/W_1959-0711-2",
+      "kind": "Institutional object record",
+      "read": "Catalogue description, context and bibliography read.",
+      "scope": "Hebrew writing on pottery; the bibliography records disagreement over letter, accreditation pass or writing exercise."
+    },
+    {
+      "id": "rations",
+      "title": "Jehoiachin ration list · Berlin VAT 16378",
+      "url": "https://search.smb.museum/en/object/obj-1743721",
+      "kind": "Institutional administrative-text record",
+      "read": "Museum description read, including findspot, sixth-century date and oil distributions.",
+      "scope": "Names the king of Judah and his entourage at the Babylonian court; an elite sample, not all deportees."
+    },
+    {
+      "id": "alstola",
+      "title": "Tero Alstola · Judeans in Babylonia",
+      "url": "https://researchportal.helsinki.fi/en/publications/judeans-in-babylonia-a-study-of-deportees-in-the-sixth-and-fifth-/",
+      "kind": "Primary-source research · thesis abstract",
+      "read": "Institutional abstract read; the full thesis was not read.",
+      "scope": "Research on 289 administrative/legal tablets finds differing occupations and status, including land-for-service obligations."
+    },
+    {
+      "id": "alstola-palace",
+      "title": "Judean Royalty and Professionals in Babylon · chapter 2",
+      "url": "https://doi.org/10.1163/9789004365421_003",
+      "kind": "Primary-source research · chapter introduction",
+      "read": "Chapter introduction read, not the complete chapter.",
+      "scope": "Oil ration texts attest Jehoiachin and Judean princes within a decade of the 597 deportation."
+    },
+    {
+      "id": "alstola-provenance",
+      "title": "Judeans in Babylonia · provenance discussion, p. 42",
+      "url": "https://helda.helsinki.fi/server/api/core/bitstreams/7aa4f149-8dce-4d26-a666-78617a3b4aae/content",
+      "kind": "Research monograph · selected excerpt",
+      "read": "Page 42 excerpt and publication metadata consulted, not the full monograph.",
+      "scope": "Yāhūdu tablets entered private collections through the antiquities market; lost excavation context and likely illicit origins require explicit caution."
+    },
+    {
+      "id": "cyrus",
+      "title": "Cyrus Cylinder · BM 90920",
+      "url": "https://www.britishmuseum.org/collection/object/W_1880-0617-1941",
+      "kind": "Institutional royal-text record",
+      "read": "Indexed extended catalogue account read; direct fetch blocked.",
+      "scope": "Babylonian legitimation of Cyrus after 539, with restoration of cults and displaced populations. It does not name Jerusalem or provide Ezra’s decree."
+    },
+    {
+      "id": "met",
+      "title": "Eastern Mediterranean chronology · Metropolitan Museum",
+      "url": "https://www.metmuseum.org/toah/ht/04/wae.html",
+      "kind": "Institutional chronological synthesis",
+      "read": "Overview and relevant key events read.",
+      "scope": "853, the Assyrian sequence, 587/586 and Persian rule. Its simplified Samaria attribution is qualified here using the 2024 research."
+    }
+  ],
+  "periods": [
+    {
+      "id": "egypt",
+      "date": "c. 925 BCE",
+      "short": "Egypt reaches north",
+      "start": 935,
+      "end": 915,
+      "title": "A campaign leaves a list, not a border.",
+      "deck": "Egypt and the southern Levant",
+      "north": "Northern communities within Egypt’s campaign horizon",
+      "south": "Judah: tribute reported in Kings",
+      "political": "Shoshenq I commemorated a Levantine campaign at Karnak. He is generally identified with the Shishak of 1 Kings 14. The biblical narrative reports the removal of Jerusalem’s treasures; the Egyptian monument has a different geographical and royal focus.",
+      "people": "1 Kings 14:25–28 places the loss in the temple and royal treasury. It says little about village households. A royal list of places cannot supply their voices or tell us exactly what happened at every named site.",
+      "limit": "Around 925 is a conventional approximation, not a dated eyewitness itinerary. The Karnak evidence does not independently establish every detail of the Jerusalem episode. The arrow marks a regional campaign, not its route or the extent of lasting Egyptian rule.",
+      "sourceIds": [
+        "karnak"
+      ],
+      "passages": [
+        {
+          "label": "1 Kings 14:25–28",
+          "query": "1 Kings 14:25-28",
+          "note": "Shishak and Jerusalem’s treasures; a biblical account of the loss."
+        }
+      ],
+      "edges": [
+        {
+          "from": "delta",
+          "to": "megiddo",
+          "kind": "force",
+          "label": "Egypt → southern Levant: campaign (schematic)"
+        }
+      ],
+      "places": [
+        "megiddo",
+        "jerusalem"
+      ],
+      "localNote": "Megiddo and Jerusalem orient the region; they do not outline tenth-century kingdoms.",
+      "anchor": "Approximate campaign horizon; the shaded interval signals uncertainty, not a twenty-year war.",
+      "claims": [
+        {
+          "id": "egypt-politics",
+          "classification": "historical reconstruction from identified records",
+          "text": "Shoshenq I commemorated a Levantine campaign at Karnak. He is generally identified with the Shishak of 1 Kings 14. The biblical narrative reports the removal of Jerusalem’s treasures; the Egyptian monument has a different geographical and royal focus.",
+          "sourceIds": [
+            "karnak"
+          ],
+          "biblicalReferences": [
+            "1 Kings 14:25–28"
+          ]
+        },
+        {
+          "id": "egypt-people",
+          "classification": "evidence and cautiously bounded interpretation",
+          "text": "1 Kings 14:25–28 places the loss in the temple and royal treasury. It says little about village households. A royal list of places cannot supply their voices or tell us exactly what happened at every named site.",
+          "sourceIds": [
+            "karnak"
+          ],
+          "biblicalReferences": [
+            "1 Kings 14:25–28"
+          ]
+        },
+        {
+          "id": "egypt-limits",
+          "classification": "uncertainty and interpretive boundary",
+          "text": "Around 925 is a conventional approximation, not a dated eyewitness itinerary. The Karnak evidence does not independently establish every detail of the Jerusalem episode. The arrow marks a regional campaign, not its route or the extent of lasting Egyptian rule.",
+          "sourceIds": [
+            "karnak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neighbours",
+      "date": "853–841 BCE",
+      "short": "Coalition to tribute",
+      "start": 853,
+      "end": 841,
+      "title": "An ally against Assyria becomes a tributary.",
+      "deck": "Israel, Aram, Moab and Assyria",
+      "north": "Israel: coalition in 853; tribute in 841",
+      "south": "Judah remains a separate kingdom",
+      "political": "At Qarqar in 853, Ahab appears among the opponents in Shalmaneser III’s account. In 841, Jehu paid the same Assyrian ruler tribute. These are two different reigns and relationships. Meanwhile Mesha’s monument celebrates Moab’s recovery of territory from Israel.",
+      "people": "Royal monuments foreground rulers and their gods. Tribute means a transfer of valuables, but the Black Obelisk does not tell us how Jehu collected them. The burden on particular households cannot be calculated from its display.",
+      "limit": "Shalmaneser’s victory language does not establish permanent occupation after Qarqar. Mesha and 2 Kings 3 present different perspectives on conflict; they are not interchangeable transcripts of one battle.",
+      "sourceIds": [
+        "kurkh",
+        "obelisk",
+        "mesha",
+        "penn",
+        "met"
+      ],
+      "passages": [
+        {
+          "label": "2 Kings 3:4–27",
+          "query": "2 Kings 3:4-27",
+          "note": "Moab’s tribute, rebellion and a disputed campaign outcome."
+        },
+        {
+          "label": "2 Kings 9–10",
+          "query": "2 Kings 9-10",
+          "note": "Jehu’s coup; Kings does not describe his Assyrian tribute."
+        }
+      ],
+      "edges": [
+        {
+          "from": "samaria",
+          "to": "qarqar",
+          "kind": "alliance",
+          "label": "Israel → Qarqar: participation in the 853 coalition"
+        },
+        {
+          "from": "damascus",
+          "to": "qarqar",
+          "kind": "alliance",
+          "label": "Damascus → Qarqar: coalition partner"
+        },
+        {
+          "from": "samaria",
+          "to": "kalhu",
+          "kind": "tribute",
+          "label": "Israel → Assyria: Jehu’s tribute in 841"
+        }
+      ],
+      "places": [
+        "samaria",
+        "jerusalem",
+        "dibon"
+      ],
+      "localNote": "Dibon locates Mesha’s monument in Moab. Neighbouring states also exercised power over one another.",
+      "anchor": "853 and 841 are distinct anchors. Both are shown together to expose the change in relationship.",
+      "claims": [
+        {
+          "id": "neighbours-politics",
+          "classification": "historical reconstruction from identified records",
+          "text": "At Qarqar in 853, Ahab appears among the opponents in Shalmaneser III’s account. In 841, Jehu paid the same Assyrian ruler tribute. These are two different reigns and relationships. Meanwhile Mesha’s monument celebrates Moab’s recovery of territory from Israel.",
+          "sourceIds": [
+            "kurkh",
+            "obelisk",
+            "mesha",
+            "penn",
+            "met"
+          ],
+          "biblicalReferences": [
+            "2 Kings 3:4–27",
+            "2 Kings 9–10"
+          ]
+        },
+        {
+          "id": "neighbours-people",
+          "classification": "evidence and cautiously bounded interpretation",
+          "text": "Royal monuments foreground rulers and their gods. Tribute means a transfer of valuables, but the Black Obelisk does not tell us how Jehu collected them. The burden on particular households cannot be calculated from its display.",
+          "sourceIds": [
+            "kurkh",
+            "obelisk",
+            "mesha",
+            "penn",
+            "met"
+          ],
+          "biblicalReferences": [
+            "2 Kings 3:4–27",
+            "2 Kings 9–10"
+          ]
+        },
+        {
+          "id": "neighbours-limits",
+          "classification": "uncertainty and interpretive boundary",
+          "text": "Shalmaneser’s victory language does not establish permanent occupation after Qarqar. Mesha and 2 Kings 3 present different perspectives on conflict; they are not interchangeable transcripts of one battle.",
+          "sourceIds": [
+            "kurkh",
+            "obelisk",
+            "mesha",
+            "penn",
+            "met"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "annexation",
+      "date": "734–720 BCE",
+      "short": "A kingdom dismantled",
+      "start": 734,
+      "end": 720,
+      "title": "Protection and conquest can come from the same power.",
+      "deck": "Tiglath-pileser III, Shalmaneser V and Sargon II",
+      "north": "Israel: territory lost, then kingdom ended",
+      "south": "Judah: tribute-paying monarchy",
+      "political": "Tiglath-pileser III’s campaigns broke up Israel’s territory. Kings describes Ahaz seeking Assyrian help against Israel and Damascus. Samaria then fell under Shalmaneser V; Sargon II also claimed its conquest and reorganized the region. Direct provincial rule replaced Israel’s monarchy.",
+      "people": "Deportation and resettlement changed communities, but did not empty the countryside. Recent archaeological research investigates continuity and rural reorganization in the Assyrian provinces. Those who stayed and newcomers belong in the story alongside those removed.",
+      "limit": "The fall is conventionally placed in 722/721, with Sargon’s suppression and reorganization around 720. Scholars debate how to distribute events between the two reigns. Judah’s appeal is not proof that it caused Assyria’s wider expansion.",
+      "sourceIds": [
+        "penn",
+        "samaria",
+        "met"
+      ],
+      "passages": [
+        {
+          "label": "2 Kings 15:29; 16:5–9",
+          "query": "2 Kings 16:5-9",
+          "note": "Territorial loss (15:29) and Ahaz’s appeal for protection (16:5–9)."
+        },
+        {
+          "label": "2 Kings 17:3–24",
+          "query": "2 Kings 17:3-24",
+          "note": "Tribute, rebellion, conquest and resettlement, followed by theological explanation."
+        }
+      ],
+      "edges": [
+        {
+          "from": "kalhu",
+          "to": "samaria",
+          "kind": "force",
+          "label": "Assyria → Israel: conquest in stages"
+        },
+        {
+          "from": "jerusalem",
+          "to": "kalhu",
+          "kind": "tribute",
+          "label": "Judah → Assyria: tribute and dependence"
+        },
+        {
+          "from": "samaria",
+          "to": "gozan",
+          "kind": "movement",
+          "label": "Samaria → Gozan region: one deportation destination in 2 Kings 17:6"
+        }
+      ],
+      "places": [
+        "samaria",
+        "jerusalem",
+        "damascus"
+      ],
+      "localNote": "Samaria loses its royal function; Jerusalem’s king remains. Dependence is not identical to annexation.",
+      "anchor": "734–720 is a sequence; 722/721 is the disputed conventional fall date, not precision to a single day.",
+      "claims": [
+        {
+          "id": "annexation-politics",
+          "classification": "historical reconstruction from identified records",
+          "text": "Tiglath-pileser III’s campaigns broke up Israel’s territory. Kings describes Ahaz seeking Assyrian help against Israel and Damascus. Samaria then fell under Shalmaneser V; Sargon II also claimed its conquest and reorganized the region. Direct provincial rule replaced Israel’s monarchy.",
+          "sourceIds": [
+            "penn",
+            "samaria",
+            "met"
+          ],
+          "biblicalReferences": [
+            "2 Kings 15:29; 16:5–9",
+            "2 Kings 17:3–24"
+          ]
+        },
+        {
+          "id": "annexation-people",
+          "classification": "evidence and cautiously bounded interpretation",
+          "text": "Deportation and resettlement changed communities, but did not empty the countryside. Recent archaeological research investigates continuity and rural reorganization in the Assyrian provinces. Those who stayed and newcomers belong in the story alongside those removed.",
+          "sourceIds": [
+            "penn",
+            "samaria",
+            "met"
+          ],
+          "biblicalReferences": [
+            "2 Kings 15:29; 16:5–9",
+            "2 Kings 17:3–24"
+          ]
+        },
+        {
+          "id": "annexation-limits",
+          "classification": "uncertainty and interpretive boundary",
+          "text": "The fall is conventionally placed in 722/721, with Sargon’s suppression and reorganization around 720. Scholars debate how to distribute events between the two reigns. Judah’s appeal is not proof that it caused Assyria’s wider expansion.",
+          "sourceIds": [
+            "penn",
+            "samaria",
+            "met"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "siege",
+      "date": "701 BCE",
+      "short": "Two cities, two outcomes",
+      "start": 701,
+      "end": 701,
+      "title": "Jerusalem survives. Judah pays.",
+      "deck": "Sennacherib’s campaign",
+      "north": "Former Israel under Assyrian provincial rule",
+      "south": "Judah: devastated but its king remains",
+      "political": "Sennacherib’s account boasts of Hezekiah’s confinement and tribute, without claiming Jerusalem’s capture. Lachish, by contrast, was taken. His text also describes Egyptian and Kushite intervention in the coastal conflict: Judah was part of a regional struggle.",
+      "people": "The palace reliefs represent Lachish’s captives. Read them alongside the royal account: a city’s survival is not a measure of the safety of people across the kingdom. The reliefs give victims a visible presence within the conqueror’s chosen story.",
+      "limit": "The campaign is securely anchored in 701, but the accounts explain its outcome differently. Neither an Assyrian boast nor a biblical deliverance story should silently replace the other. See the comparison below.",
+      "sourceIds": [
+        "prism",
+        "prism2",
+        "lachish",
+        "lachish-date"
+      ],
+      "passages": [
+        {
+          "label": "2 Kings 18:13–19:37",
+          "query": "2 Kings 18-19",
+          "note": "Tribute and devastation, followed by the narrative of Jerusalem’s deliverance."
+        },
+        {
+          "label": "Isaiah 10:5–19",
+          "query": "Isaiah 10:5-19",
+          "note": "Assyria interpreted as an instrument that is itself accountable to God."
+        }
+      ],
+      "edges": [
+        {
+          "from": "nineveh",
+          "to": "lachish",
+          "kind": "force",
+          "label": "Assyria → Lachish: conquest in 701"
+        },
+        {
+          "from": "jerusalem",
+          "to": "nineveh",
+          "kind": "tribute",
+          "label": "Hezekiah → Sennacherib: tribute"
+        }
+      ],
+      "places": [
+        "samaria",
+        "jerusalem",
+        "lachish",
+        "ekron"
+      ],
+      "localNote": "Lachish falls; Jerusalem is not reported captured. The local distinction changes what “victory” means.",
+      "anchor": "701 is the campaign date. Surviving prisms and palace reliefs commemorate it later.",
+      "claims": [
+        {
+          "id": "siege-politics",
+          "classification": "historical reconstruction from identified records",
+          "text": "Sennacherib’s account boasts of Hezekiah’s confinement and tribute, without claiming Jerusalem’s capture. Lachish, by contrast, was taken. His text also describes Egyptian and Kushite intervention in the coastal conflict: Judah was part of a regional struggle.",
+          "sourceIds": [
+            "prism",
+            "prism2",
+            "lachish",
+            "lachish-date"
+          ],
+          "biblicalReferences": [
+            "2 Kings 18:13–19:37",
+            "Isaiah 10:5–19"
+          ]
+        },
+        {
+          "id": "siege-people",
+          "classification": "evidence and cautiously bounded interpretation",
+          "text": "The palace reliefs represent Lachish’s captives. Read them alongside the royal account: a city’s survival is not a measure of the safety of people across the kingdom. The reliefs give victims a visible presence within the conqueror’s chosen story.",
+          "sourceIds": [
+            "prism",
+            "prism2",
+            "lachish",
+            "lachish-date"
+          ],
+          "biblicalReferences": [
+            "2 Kings 18:13–19:37",
+            "Isaiah 10:5–19"
+          ]
+        },
+        {
+          "id": "siege-limits",
+          "classification": "uncertainty and interpretive boundary",
+          "text": "The campaign is securely anchored in 701, but the accounts explain its outcome differently. Neither an Assyrian boast nor a biblical deliverance story should silently replace the other. See the comparison below.",
+          "sourceIds": [
+            "prism",
+            "prism2",
+            "lachish",
+            "lachish-date"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "babylon",
+      "date": "609–597 BCE",
+      "short": "A new overlord",
+      "start": 609,
+      "end": 597,
+      "title": "The throne remains. The choice of king does not.",
+      "deck": "Egypt and Babylon compete for the Levant",
+      "north": "Samaria beyond the former northern monarchy",
+      "south": "Judah: Egyptian, then Babylonian dependence",
+      "political": "Kings reports that Necho II removed Jehoahaz and installed Jehoiakim, extracting tribute. Babylon defeated Egypt at Carchemish in 605. The Babylonian Chronicle anchors the capture of Jerusalem in 597; Jehoiachin was deported and Zedekiah installed.",
+      "people": "2 Kings 23:35 describes Jehoiakim collecting silver and gold from the people to meet Egypt’s demand. In 597, removal of court members and skilled workers affected both those taken and the society they left behind (2 Kings 24:14–16).",
+      "limit": "Do not combine 597 with the later destruction of Jerusalem. BM 21946 covers 605–594; it cannot by itself document the temple’s burning in 587/586. Biblical regnal numbering and Babylonian conventions also need careful alignment.",
+      "sourceIds": [
+        "chronicle",
+        "met"
+      ],
+      "passages": [
+        {
+          "label": "2 Kings 23:29–24:17",
+          "query": "2 Kings 23:29-24:17",
+          "note": "Necho, imposed kingship, tribute, rebellion and the 597 deportation."
+        },
+        {
+          "label": "Jeremiah 46:2",
+          "query": "Jeremiah 46:2",
+          "note": "Names the Egyptian defeat at Carchemish under Nebuchadnezzar."
+        }
+      ],
+      "edges": [
+        {
+          "from": "jerusalem",
+          "to": "delta",
+          "kind": "tribute",
+          "label": "Judah → Egypt: tribute under Jehoiakim"
+        },
+        {
+          "from": "babylon",
+          "to": "carchemish",
+          "kind": "force",
+          "label": "Babylon → Carchemish: defeat of Egypt in 605"
+        },
+        {
+          "from": "babylon",
+          "to": "jerusalem",
+          "kind": "force",
+          "label": "Babylon → Jerusalem: capture in 597"
+        }
+      ],
+      "places": [
+        "jerusalem",
+        "lachish"
+      ],
+      "localNote": "Jerusalem is captured in 597, but a dependent monarchy continues under Zedekiah.",
+      "anchor": "609, 605 and 597 are separate events, not one uninterrupted campaign.",
+      "claims": [
+        {
+          "id": "babylon-politics",
+          "classification": "historical reconstruction from identified records",
+          "text": "Kings reports that Necho II removed Jehoahaz and installed Jehoiakim, extracting tribute. Babylon defeated Egypt at Carchemish in 605. The Babylonian Chronicle anchors the capture of Jerusalem in 597; Jehoiachin was deported and Zedekiah installed.",
+          "sourceIds": [
+            "chronicle",
+            "met"
+          ],
+          "biblicalReferences": [
+            "2 Kings 23:29–24:17",
+            "Jeremiah 46:2"
+          ]
+        },
+        {
+          "id": "babylon-people",
+          "classification": "evidence and cautiously bounded interpretation",
+          "text": "2 Kings 23:35 describes Jehoiakim collecting silver and gold from the people to meet Egypt’s demand. In 597, removal of court members and skilled workers affected both those taken and the society they left behind (2 Kings 24:14–16).",
+          "sourceIds": [
+            "chronicle",
+            "met"
+          ],
+          "biblicalReferences": [
+            "2 Kings 23:29–24:17",
+            "Jeremiah 46:2"
+          ]
+        },
+        {
+          "id": "babylon-limits",
+          "classification": "uncertainty and interpretive boundary",
+          "text": "Do not combine 597 with the later destruction of Jerusalem. BM 21946 covers 605–594; it cannot by itself document the temple’s burning in 587/586. Biblical regnal numbering and Babylonian conventions also need careful alignment.",
+          "sourceIds": [
+            "chronicle",
+            "met"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exile",
+      "date": "587/586–539 BCE",
+      "short": "Land and exile",
+      "start": 587,
+      "end": 539,
+      "title": "A kingdom ends. Its people have different futures.",
+      "deck": "Judah and Babylonia after the destruction",
+      "north": "Samaria: the northern kingdom is not restored",
+      "south": "Judah: monarchy ended; communities remain",
+      "political": "After Zedekiah’s rebellion, Jerusalem and its temple were destroyed in 587/586. Kings describes deportation, a population left to cultivate the land, and Gedaliah’s appointment at Mizpah. The end of the kingdom did not mean the disappearance of everyone in Judah.",
+      "people": "In Babylon, an oil ration list names Jehoiachin and his entourage. It establishes a royal presence abroad, not the circumstances of every exile. Jeremiah 29:4–7 imagines building, planting and family life in exile; Psalm 137 voices grief and remembered violence.",
+      "limit": "587 and 586 reflect competing alignments of regnal chronologies; the destruction itself is not in doubt. Lachish’s Hebrew ostraca illuminate communication, but an individual sherd’s function and exact relation to the final crisis can be disputed.",
+      "sourceIds": [
+        "met",
+        "rations",
+        "alstola-palace",
+        "letter"
+      ],
+      "passages": [
+        {
+          "label": "2 Kings 25:1–26",
+          "query": "2 Kings 25:1-26",
+          "note": "Destruction, deportation, those left in the land and Gedaliah at Mizpah."
+        },
+        {
+          "label": "Jeremiah 29:4–7; Psalm 137",
+          "query": "Jeremiah 29:4-7",
+          "note": "Read counsel for life abroad beside Psalm 137’s lament; these are different literary voices."
+        }
+      ],
+      "edges": [
+        {
+          "from": "jerusalem",
+          "to": "babylon",
+          "kind": "movement",
+          "label": "Judah → Babylonia: forced displacement (selected destination)"
+        }
+      ],
+      "places": [
+        "jerusalem",
+        "mizpah",
+        "lachish"
+      ],
+      "localNote": "Mizpah marks an administrative focus in the biblical account. The land was not simply empty.",
+      "anchor": "587/586 marks the destruction; exile is an extended and varied condition, not a single departure.",
+      "claims": [
+        {
+          "id": "exile-politics",
+          "classification": "historical reconstruction from identified records",
+          "text": "After Zedekiah’s rebellion, Jerusalem and its temple were destroyed in 587/586. Kings describes deportation, a population left to cultivate the land, and Gedaliah’s appointment at Mizpah. The end of the kingdom did not mean the disappearance of everyone in Judah.",
+          "sourceIds": [
+            "met",
+            "rations",
+            "alstola-palace",
+            "letter"
+          ],
+          "biblicalReferences": [
+            "2 Kings 25:1–26",
+            "Jeremiah 29:4–7; Psalm 137"
+          ]
+        },
+        {
+          "id": "exile-people",
+          "classification": "evidence and cautiously bounded interpretation",
+          "text": "In Babylon, an oil ration list names Jehoiachin and his entourage. It establishes a royal presence abroad, not the circumstances of every exile. Jeremiah 29:4–7 imagines building, planting and family life in exile; Psalm 137 voices grief and remembered violence.",
+          "sourceIds": [
+            "met",
+            "rations",
+            "alstola-palace",
+            "letter"
+          ],
+          "biblicalReferences": [
+            "2 Kings 25:1–26",
+            "Jeremiah 29:4–7; Psalm 137"
+          ]
+        },
+        {
+          "id": "exile-limits",
+          "classification": "uncertainty and interpretive boundary",
+          "text": "587 and 586 reflect competing alignments of regnal chronologies; the destruction itself is not in doubt. Lachish’s Hebrew ostraca illuminate communication, but an individual sherd’s function and exact relation to the final crisis can be disputed.",
+          "sourceIds": [
+            "met",
+            "rations",
+            "alstola-palace",
+            "letter"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "return",
+      "date": "539–515 BCE",
+      "short": "Return under Persia",
+      "start": 539,
+      "end": 515,
+      "title": "Return does not restore the old kingdom.",
+      "deck": "Cyrus, Darius and the rebuilding of the temple",
+      "north": "Samaria within the Persian imperial world",
+      "south": "Yehud: a province, not a Davidic monarchy",
+      "political": "Cyrus took Babylon in 539. Ezra attributes authorization for return and temple rebuilding to him; its account places completion in Darius’s sixth year, conventionally 515. These are distinct moments. Judah’s renewed temple existed within Persian government.",
+      "people": "Ezra 3 describes joy and weeping at the new foundation. Haggai 1 links rebuilding to economic hardship, while Ezra 4 records opposition. “Return” involved rebuilding institutions and negotiating relationships; it was not one simultaneous homecoming for all Judeans.",
+      "limit": "The Cyrus Cylinder presents a Babylonian ruler chosen by Marduk and restoring cults. It does not name Judah or Jerusalem. It provides a comparison for royal restoration language, not an independent copy of Ezra 1. The scale and timing of return remain debated.",
+      "sourceIds": [
+        "cyrus",
+        "met"
+      ],
+      "passages": [
+        {
+          "label": "Ezra 1:1–4; 6:14–15",
+          "query": "Ezra 1:1-4",
+          "note": "Authorization in Ezra 1; completion dated in Ezra 6:14–15."
+        },
+        {
+          "label": "Haggai 1; Ezra 3–4",
+          "query": "Haggai 1",
+          "note": "Economic strain, mixed emotions and contested rebuilding."
+        },
+        {
+          "label": "Isaiah 44:24–45:7",
+          "query": "Isaiah 44:24-45:7",
+          "note": "Cyrus’s role interpreted in relation to Israel’s God."
+        }
+      ],
+      "edges": [
+        {
+          "from": "babylon",
+          "to": "jerusalem",
+          "kind": "movement",
+          "label": "Babylonia → Jerusalem: return in Ezra (route and numbers uncertain)"
+        }
+      ],
+      "places": [
+        "jerusalem",
+        "samaria"
+      ],
+      "localNote": "Jerusalem is a temple centre in Persian Yehud. No precise provincial border is asserted here.",
+      "anchor": "539 is Babylon’s fall; 538 is the conventional date for Cyrus’s authorization in Ezra; 515 derives from Ezra’s regnal dating.",
+      "claims": [
+        {
+          "id": "return-politics",
+          "classification": "historical reconstruction from identified records",
+          "text": "Cyrus took Babylon in 539. Ezra attributes authorization for return and temple rebuilding to him; its account places completion in Darius’s sixth year, conventionally 515. These are distinct moments. Judah’s renewed temple existed within Persian government.",
+          "sourceIds": [
+            "cyrus",
+            "met"
+          ],
+          "biblicalReferences": [
+            "Ezra 1:1–4; 6:14–15",
+            "Haggai 1; Ezra 3–4",
+            "Isaiah 44:24–45:7"
+          ]
+        },
+        {
+          "id": "return-people",
+          "classification": "evidence and cautiously bounded interpretation",
+          "text": "Ezra 3 describes joy and weeping at the new foundation. Haggai 1 links rebuilding to economic hardship, while Ezra 4 records opposition. “Return” involved rebuilding institutions and negotiating relationships; it was not one simultaneous homecoming for all Judeans.",
+          "sourceIds": [
+            "cyrus",
+            "met"
+          ],
+          "biblicalReferences": [
+            "Ezra 1:1–4; 6:14–15",
+            "Haggai 1; Ezra 3–4",
+            "Isaiah 44:24–45:7"
+          ]
+        },
+        {
+          "id": "return-limits",
+          "classification": "uncertainty and interpretive boundary",
+          "text": "The Cyrus Cylinder presents a Babylonian ruler chosen by Marduk and restoring cults. It does not name Judah or Jerusalem. It provides a comparison for royal restoration language, not an independent copy of Ezra 1. The scale and timing of return remain debated.",
+          "sourceIds": [
+            "cyrus",
+            "met"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "communities",
+      "date": "6th–5th centuries BCE",
+      "short": "Lives beyond the return",
+      "start": 572,
+      "end": 450,
+      "title": "The archive continues beyond the homecoming story.",
+      "deck": "Judean communities in Babylonia",
+      "north": "Samaria within the wider imperial administration",
+      "south": "Yehud alongside enduring communities abroad",
+      "political": "The change from Babylonian to Persian rule did not erase the communities formed through deportation. Legal and administrative records let us ask how people worked, held land and met obligations across that political transition.",
+      "people": "Alstola’s research finds rural land-for-service arrangements alongside urban occupations and differences in status. These records complicate the idea that every deportee was enslaved in the same way, or that every family left Babylonia when return became possible.",
+      "limit": "The Yāhūdu material lacks secure excavation provenance; its precise location is uncertain, so it is not pinned to a guessed village. Contract archives overrepresent recorded transactions and cannot reconstruct every household’s beliefs or feelings.",
+      "sourceIds": [
+        "alstola",
+        "alstola-provenance"
+      ],
+      "passages": [
+        {
+          "label": "Jeremiah 29:4–14",
+          "query": "Jeremiah 29:4-14",
+          "note": "A biblical literary perspective on settlement, hope and the duration of exile."
+        }
+      ],
+      "edges": [],
+      "places": [
+        "jerusalem",
+        "samaria"
+      ],
+      "localNote": "Yehud and communities in Babylonia coexist. This final window overlaps the exile and return periods.",
+      "anchor": "A broad documentary horizon, overlapping earlier windows; 572–450 is a teaching window, not the exact limits of every archive.",
+      "claims": [
+        {
+          "id": "communities-politics",
+          "classification": "historical reconstruction from identified records",
+          "text": "The change from Babylonian to Persian rule did not erase the communities formed through deportation. Legal and administrative records let us ask how people worked, held land and met obligations across that political transition.",
+          "sourceIds": [
+            "alstola",
+            "alstola-provenance"
+          ],
+          "biblicalReferences": [
+            "Jeremiah 29:4–14"
+          ]
+        },
+        {
+          "id": "communities-people",
+          "classification": "evidence and cautiously bounded interpretation",
+          "text": "Alstola’s research finds rural land-for-service arrangements alongside urban occupations and differences in status. These records complicate the idea that every deportee was enslaved in the same way, or that every family left Babylonia when return became possible.",
+          "sourceIds": [
+            "alstola",
+            "alstola-provenance"
+          ],
+          "biblicalReferences": [
+            "Jeremiah 29:4–14"
+          ]
+        },
+        {
+          "id": "communities-limits",
+          "classification": "uncertainty and interpretive boundary",
+          "text": "The Yāhūdu material lacks secure excavation provenance; its precise location is uncertain, so it is not pinned to a guessed village. Contract archives overrepresent recorded transactions and cannot reconstruct every household’s beliefs or feelings.",
+          "sourceIds": [
+            "alstola",
+            "alstola-provenance"
+          ]
+        }
+      ]
+    }
+  ],
+  "people": [
+    [
+      "Shoshenq I / Shishak",
+      "Egyptian campaign; identification conventional",
+      "karnak"
+    ],
+    [
+      "Ahab",
+      "Israelite participant at Qarqar",
+      "kurkh"
+    ],
+    [
+      "Shalmaneser III",
+      "Royal commissioner; Qarqar and Jehu’s tribute",
+      "obelisk"
+    ],
+    [
+      "Jehu",
+      "Tributary; coup narrated in 2 Kings 9–10",
+      "obelisk"
+    ],
+    [
+      "Mesha",
+      "Moabite ruler and voice of his monument",
+      "mesha"
+    ],
+    [
+      "Ahaz",
+      "Judah’s tribute and appeal in Kings",
+      "penn"
+    ],
+    [
+      "Tiglath-pileser III",
+      "Territorial loss, deportation and tribute",
+      "penn"
+    ],
+    [
+      "Shalmaneser V and Sargon II",
+      "Disputed allocation of the Samaria sequence",
+      "samaria"
+    ],
+    [
+      "Hezekiah and Sennacherib",
+      "701 campaign, tribute and Jerusalem’s survival",
+      "prism"
+    ],
+    [
+      "Necho II, Jehoiakim, Jehoiachin and Zedekiah",
+      "Egyptian and Babylonian imposed kingship; 2 Kings 23–25",
+      "chronicle"
+    ],
+    [
+      "Nebuchadnezzar II",
+      "597 capture; later destruction and deportation",
+      "chronicle"
+    ],
+    [
+      "Gedaliah",
+      "Mizpah administration as narrated in 2 Kings 25",
+      null
+    ],
+    [
+      "Cyrus and Darius I",
+      "Conquest, authorization in Ezra and subsequent rebuilding",
+      "cyrus"
+    ],
+    [
+      "Deportees, rural cultivators, skilled workers and families",
+      "Different experiences, visible unevenly through administrative and literary sources",
+      "alstola"
+    ]
+  ],
+  "debates": [
+    {
+      "question": "Samaria: whose conquest and when?",
+      "positions": [
+        "Conventional 722/721 fall; Shalmaneser V associated with the siege and conquest.",
+        "Sargon II claims conquest; 720 suppression and provincial consolidation are distinguished in recent research."
+      ],
+      "policy": "Display 734–720 as sequence and explain 722/721 uncertainty; do not treat a royal claim as a transparent timestamp.",
+      "sourceIds": [
+        "samaria",
+        "met"
+      ]
+    },
+    {
+      "question": "Jerusalem destroyed in 587 or 586?",
+      "positions": [
+        "Different regnal-year alignments produce 587 or 586."
+      ],
+      "policy": "Retain 587/586 and separate it from 597.",
+      "sourceIds": [
+        "met",
+        "chronicle"
+      ]
+    },
+    {
+      "question": "Silver tribute in 701?",
+      "positions": [
+        "800 talents in Sennacherib’s account.",
+        "300 talents in 2 Kings 18:14."
+      ],
+      "policy": "Show discrepancy, avoid silently selecting an explanation; gold agrees at 30.",
+      "sourceIds": [
+        "prism"
+      ],
+      "passage": "2 Kings 18:14–16"
+    },
+    {
+      "question": "Cyrus Cylinder and return?",
+      "positions": [
+        "Useful comparison for restoration claims.",
+        "No direct mention of Jerusalem and no independent reproduction of Ezra’s decree."
+      ],
+      "policy": "Distinguish Babylonian legitimation through Marduk from Ezra’s theological frame.",
+      "sourceIds": [
+        "cyrus"
+      ]
+    },
+    {
+      "question": "Empty land / universal return?",
+      "positions": [
+        "Biblical narratives themselves name people left in Judah.",
+        "Administrative research documents varied, enduring communities in Babylonia."
+      ],
+      "policy": "No total-population claims or guessed migration numbers.",
+      "sourceIds": [
+        "alstola",
+        "rations"
+      ],
+      "passages": [
+        "2 Kings 25",
+        "Jeremiah 29"
+      ]
+    },
+    {
+      "question": "What kind of document is Lachish Letter II?",
+      "positions": [
+        "Letter",
+        "Accreditation pass",
+        "Writing instruction"
+      ],
+      "policy": "Museum bibliography records the debate; do not quote it as an unquestioned last battlefield dispatch.",
+      "sourceIds": [
+        "letter"
+      ]
+    }
+  ],
+  "geography": {
+    "source": "Natural Earth land-10m via world-atlas 2.0.2",
+    "rights": "Public domain",
+    "rightsUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "projection": "Mercator, separately cropped regional and local views",
+    "coordinates": "Approximate conventional site coordinates in scripts/build-empires-geography.mjs, sufficient for orientation only; no precision claim or territorial dataset.",
+    "borderPolicy": "No political polygons. No exact Yāhūdu location. Nile Delta and Gozan labels represent regions. Mizpah / Tell en-Nasbeh identification explicitly labelled conventional.",
+    "arrows": "Schematic participant/destination relationships, not itineraries. Coalition and 841 tribute coexist only in the explicitly multi-event 853–841 window.",
+    "timeline": "950–450 BCE proportional scale. Around 925 represented by a deliberately illustrative uncertainty band, not a statistical interval. Final 572–450 window is a teaching horizon and not archive endpoints."
+  },
+  "outstandingResearch": [
+    "Full modern editions of the Assyrian corpus would deepen philological comparison; no claim of full collation is made.",
+    "Karnak plates and uncertain toponyms need specialist study before any exact campaign map.",
+    "No attempt to estimate total numbers deported or returning from biased surviving samples.",
+    "Yehud’s changing provincial limits require dedicated regional research before territorial drawing.",
+    "Full archaeological reports and administrative editions remain deeper reading, not silently assimilated evidence."
+  ],
+  "expandedResearch": {
+    "dossier": "07-empires-close-studies.json",
+    "scope": "Chronology, independent evidence, archive selection, rural continuity debates, comparative Persian restoration and scholarly methods.",
+    "caseStudies": [
+      "samaria",
+      "jerusalem597",
+      "jerusalem587",
+      "palace",
+      "rural",
+      "petition"
+    ],
+    "sourceIds": [
+      "shalmaneser-research",
+      "sargon-edition",
+      "chronicle-text",
+      "lachish-throne",
+      "ramp-study",
+      "stern-gap",
+      "lipschits-rural",
+      "ramat-reassessment",
+      "alstola-close",
+      "pearce-wunsch",
+      "elephantine",
+      "cyrus-comparison",
+      "chronology-method",
+      "dewaard-chronology"
+    ],
+    "consultationPolicy": "Source records distinguish text read, selected pages, abstract, indexed record and bibliography located. No complete critical edition, excavation corpus or monograph is represented as read."
+  }
+}

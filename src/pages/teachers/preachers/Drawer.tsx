@@ -8,6 +8,8 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
 import { usePreachers } from "./context";
 import { prefersReducedMotion } from "./drawer/helpers";
 import { ProfileBody } from "./drawer/ProfileBody";
+import { DocumentPanel } from "./drawer/DocumentPanel";
+import type { ProfileWork } from "./drawer/ProfileWorks";
 import "./drawer.css";
 
 const EASE_OUT = "cubic-bezier(.16,1,.3,1)";
@@ -28,6 +30,30 @@ export function Drawer() {
   const wasOpen = useRef(false);
   const origin = useRef<Element | null>(null);
   const fadeIn = useRef(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const documentCloseRef = useRef<HTMLButtonElement>(null);
+  const workOrigin = useRef<HTMLElement | null>(null);
+  const hadWork = useRef(false);
+  const [work, setWork] = useState<ProfileWork | null>(null);
+  const [shownWork, setShownWork] = useState<ProfileWork | null>(null);
+  const openWork = useCallback((next: ProfileWork, element?: HTMLElement) => {
+    workOrigin.current = element ?? null;
+    setShownWork(next); setWork(next);
+  }, []);
+  const closeWork = useCallback(() => { setWork(null); }, []);
+  const closeAll = useCallback(() => { setWork(null); closeProfile(); }, [closeProfile]);
+  useEffect(() => { setWork(null); setShownWork(null); }, [wantedId]);
+  useLayoutEffect(() => {
+    if(work) documentCloseRef.current?.focus({preventScroll:true});
+    else if(hadWork.current) { if(workOrigin.current?.isConnected) workOrigin.current.focus({preventScroll:true}); else closeRef.current?.focus({preventScroll:true}); }
+    hadWork.current=Boolean(work);
+  }, [work]);
+  useEffect(() => {
+    if(!open)return;
+    const previous=document.body.style.overflow;
+    document.body.style.overflow='hidden';
+    return()=>{document.body.style.overflow=previous;};
+  },[open]);
 
   // Swap the profile: straight away when the drawer is opening, with a short fade when it is already open.
   // (A layout effect, so a freshly opened drawer never paints the previous person; it runs before the open/close
@@ -80,26 +106,33 @@ export function Drawer() {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => {
       if (event.altKey || event.ctrlKey || event.metaKey) return;
-      if (event.key === "Escape") closeProfile();
-      else if (event.key === "ArrowRight" || event.key === "ArrowLeft") step(event.key === "ArrowRight" ? 1 : -1);
+      if (event.key === "Escape") { event.preventDefault(); if(work) closeWork(); else closeAll(); }
+      else if(event.key==='Tab') {
+        const nodes=Array.from(rootRef.current?.querySelectorAll<HTMLElement>('button:not(:disabled),a[href],input,select,summary,[tabindex="0"]')??[]).filter(e=>!e.closest('[aria-hidden="true"]')&&getComputedStyle(e).visibility!=='hidden'&&e.getClientRects().length);
+        const first=nodes[0],last=nodes[nodes.length-1];
+        if(event.shiftKey&&(document.activeElement===first||!rootRef.current?.contains(document.activeElement))){event.preventDefault();last?.focus();}
+        else if(!event.shiftKey&&(document.activeElement===last||!rootRef.current?.contains(document.activeElement))){event.preventDefault();first?.focus();}
+      }
+      else if (!work && !['INPUT','TEXTAREA','SELECT'].includes((event.target as HTMLElement)?.tagName) && (event.key === "ArrowRight" || event.key === "ArrowLeft")) step(event.key === "ArrowRight" ? 1 : -1);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open, closeProfile, step]);
+  }, [open, work, closeWork, closeAll, step]);
 
   const person = people.find((p) => p.id === shownId) ?? null;
   const index = person ? people.indexOf(person) : -1;
-  return <div className={`drw${open ? " drw-open" : ""}`} aria-hidden={!open} role="dialog" aria-modal="true" aria-label="Teacher profile">
-    <div className="drw-scrim" onClick={closeProfile} />
+  return <div ref={rootRef} className={`drw${open ? " drw-open" : ""}${work ? " drw-work-open" : ""}`} aria-hidden={!open} role="dialog" aria-modal="true" aria-label="Teacher profile">
+    <div className="drw-scrim" onClick={closeAll} />
+    <DocumentPanel work={shownWork} person={person} open={Boolean(work)&&open} onClose={closeWork} closeRef={documentCloseRef} />
     <aside className="drw-panel">
       <div className="drw-bar">
         <button type="button" onClick={() => step(-1)} aria-label="Previous teacher"><ArrowLeft size={16} strokeWidth={1.5} aria-hidden /></button>
         <span className="drw-count">{index >= 0 ? `${index + 1} of ${people.length}` : ""}</span>
         <button type="button" onClick={() => step(1)} aria-label="Next teacher"><ArrowRight size={16} strokeWidth={1.5} aria-hidden /></button>
-        <button type="button" ref={closeRef} className="drw-close" onClick={closeProfile} aria-label="Close profile"><X size={18} strokeWidth={1.5} aria-hidden /></button>
+        <button type="button" ref={closeRef} className="drw-close" onClick={closeAll} aria-label="Close profile"><X size={18} strokeWidth={1.5} aria-hidden /></button>
       </div>
       <div className="drw-body slim-scroll" ref={bodyRef}>
-        {person && <ProfileBody key={person.id} data={data} person={person} onOpen={openOther} />}
+        {person && <ProfileBody key={person.id} data={data} person={person} onOpen={openOther} onOpenWork={openWork} />}
       </div>
     </aside>
   </div>;

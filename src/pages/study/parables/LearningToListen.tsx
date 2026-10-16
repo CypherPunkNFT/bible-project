@@ -1,12 +1,7 @@
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const practices = [
-  ['Start with who is listening', 'Read the question, complaint or encounter before the story. Luke 15:1–2 makes the celebration of the lost intelligible; Luke 18:9 names the self-trust that the two prayers expose.'],
-  ['Notice the surprise before solving the symbols', 'Ask what changes: who acts, who receives mercy, who protests, and where the ending turns. When Jesus gives an explanation, as with the sower and the weeds, begin there.'],
-  ['Let each Gospel keep its own voice', 'The sheep in Matthew 18 and Luke 15 share an image but appear in different conversations. The comparison tabs preserve those settings. A parallel passage is not proof of a single reconstructed occasion.'],
-  ['Bring the question back to your own life', 'Distinguish what the text says, your interpretation and your application. Read the closing words as carefully as the opening scene. Some stories leave the hearer to answer.'],
-];
+import { PARABLE_PAGE_COPY as copy } from '@/data/parables-page-copy';
 
 function ListeningArt() {
   return <svg className="pb-listening-art" viewBox="0 0 520 260" fill="none" aria-hidden="true">
@@ -30,9 +25,9 @@ export function LearningToListen() {
   return <section className="pb-method" aria-labelledby="pb-method-title">
     <div className="pb-section-heading"><span className="pb-number">II</span><h2 id="pb-method-title">Learning to listen</h2><span>Keep the story in its setting</span></div>
     <div className="pb-method-grid">
-      <div><span className="pb-kicker">Why stories?</span><h3>A parable can reveal.<br/>It can also confront.</h3><p>When the disciples ask why Jesus speaks in parables, his answer includes both understanding and failure to perceive. These are invitations to attentive listening, and searching challenges to the listener.</p><Link to="/read/kjv/MAT/13?hl=10-17">Read Matthew 13:10–17 <ArrowUpRight size={14} aria-hidden="true"/></Link></div>
+      <div><span className="pb-kicker">Why stories?</span><h3>A parable can reveal.<br/>It can also confront.</h3><p>{copy.listeningIntro}</p><Link to="/read/kjv/MAT/13?hl=10-17">Read Matthew 13:10–17 <ArrowUpRight size={14} aria-hidden="true"/></Link></div>
       <div className="pb-listening-scene"><ListeningArt/><span>Hear the story · Hold the question</span></div>
     </div>
-    <div className="pb-practice-grid">{practices.map(([title,text],i)=><article className="pb-practice" key={title}><span className="pb-practice-number">0{i+1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
+    <div className="pb-practice-grid">{copy.practices.map(([title,text],i)=><article className="pb-practice" key={title}><span className="pb-practice-number">0{i+1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
   </section>;
 }

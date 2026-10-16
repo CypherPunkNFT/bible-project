@@ -4,7 +4,7 @@
    sheet. The site's reset makes svg blocks; the page's small icons sit in the line. */
 .ap { --sans: var(--font-sans); --serif: var(--font-serif); color: var(--ink); font: 14px/1.5 var(--sans); }
 .ap .ico { display: inline-block; flex: none; vertical-align: middle; }
-.ap .wrap { max-width: 80rem; margin: 0 auto; padding: 0 1rem 2rem; }
+.ap .wrap { max-width: var(--site-content-width); margin: 0 auto; padding: 0 1rem 2rem; }
 @media (min-width: 640px) { .ap .wrap { padding-inline: 1.5rem; } }
 .ap .kicker { font-size: .65rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--tone, var(--accent)); }
 .ap .serif { font-family: var(--serif); }
@@ -150,7 +150,7 @@ html.no-select, html.no-select * { -webkit-user-select: none !important; user-se
 .ap .land-art { position: absolute; inset: 3.4rem 0 4.6rem; z-index: -1; }
 .ap .land-art .art { width: 100%; height: 100%; }
 .ap .land-veil { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(90deg, var(--page) 0, color-mix(in srgb, var(--page) 70%, transparent) 26%, transparent 44%); }
-.ap .land-top { position: absolute; top: 0; left: 0; right: 0; z-index: 3; display: flex; gap: 1rem; align-items: center; justify-content: flex-start; max-width: 80rem; margin: 0 auto; padding: 1.2rem 12rem 0 1.5rem; }
+.ap .land-top { position: absolute; top: 0; left: 0; right: 0; z-index: 3; display: flex; gap: 1rem; align-items: center; justify-content: flex-start; max-width: var(--site-content-width); margin: 0 auto; padding: 1.2rem 12rem 0 1.5rem; }
 .ap .land-text { position: absolute; left: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem)); top: 50%; z-index: 2; max-width: min(34rem, 39vw); transform: translateY(-56%); }
 .ap .land-text h1 { margin: .7rem 0 1.2rem; font: 500 clamp(4rem, 9vw, 8.6rem)/.9 var(--serif); letter-spacing: -.055em; }
 .ap .land-text h1.long { font-size: clamp(3.4rem, 6.6vw, 6.4rem); }
@@ -175,7 +175,7 @@ html.no-select, html.no-select * { -webkit-user-select: none !important; user-se
    whole length of the page (Counter.tsx). Black and quiet; arrows either side; a click opens the list. */
 .ap .ap-float { position: sticky; top: var(--ap-head, 61px); z-index: 35; height: 0; }
 /* The float spans the width but only the counter takes the pointer, so the switch and links beneath stay clickable. */
-.ap .ap-float-in { display: flex; justify-content: flex-end; max-width: 80rem; margin: 0 auto; padding: .7rem 1.1rem 0; pointer-events: none; }
+.ap .ap-float-in { display: flex; justify-content: flex-end; max-width: var(--site-content-width); margin: 0 auto; padding: .7rem 1.1rem 0; pointer-events: none; }
 /* The mock-up's switcher pill: arrows either side of a dark pill holding "3 / 12", the name and a chevron. */
 .ap .ap-count { position: relative; pointer-events: auto; display: inline-flex; gap: 2px; align-items: center; padding: 3px; border: 1px solid var(--line); border-radius: 999px;
   background: color-mix(in srgb, var(--surface) 88%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }

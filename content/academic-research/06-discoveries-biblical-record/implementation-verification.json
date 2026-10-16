@@ -1,0 +1,22 @@
+{
+  "typecheck": "tsconfig.app.json --noEmit passed",
+  "build": "node scripts/build-portable.mjs --preserve-output passed",
+  "editorial": "Passed in build",
+  "browser": {
+    "date": "2026-10-14",
+    "checks": [
+      "History category card, standard page transition and fixed header",
+      "Three questions, twelve contributions, keyboard activation, no selection scroll",
+      "Four source records, close and focus restoration",
+      "Six discoveries, eighteen close readings, all claim boundaries and provenance",
+      "Pilate, Mesha, Tel Dan and Cyrus controls; selections persist on reload",
+      "Bible reader link and Back preserve chosen discovery",
+      "All claim exercises, source register and seven explicit research gaps",
+      "No horizontal overflow at 320–1440px, including expanded sources",
+      "Light/dark screenshots and reduced motion",
+      "Invalid query values safely fall back"
+    ],
+    "errors": [],
+    "failed": []
+  }
+}

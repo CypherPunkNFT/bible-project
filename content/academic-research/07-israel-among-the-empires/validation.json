@@ -1,0 +1,117 @@
+{
+  "date": "2026-10-14",
+  "isolatedFile": true,
+  "selected": [
+    "A campaign leaves a list, not a border.",
+    "An ally against Assyria becomes a tributary.",
+    "Protection and conquest can come from the same power.",
+    "Jerusalem survives. Judah pays.",
+    "The throne remains. The choice of king does not.",
+    "A kingdom ends. Its people have different futures.",
+    "Return does not restore the old kingdom.",
+    "The archive continues beyond the homecoming story."
+  ],
+  "widths": [
+    {
+      "viewport": 1024,
+      "content": 1024
+    },
+    {
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "viewport": 320,
+      "content": 320
+    }
+  ],
+  "geographyFill": {
+    "localSea": false,
+    "localLand": true,
+    "regionalSea": false,
+    "regionalBabylon": true
+  },
+  "noSelectionScroll": true,
+  "localLinks": [
+    {
+      "file": "prototype.html",
+      "ref": "prototype.css",
+      "exists": true
+    },
+    {
+      "file": "prototype.html",
+      "ref": "data.js",
+      "exists": true
+    },
+    {
+      "file": "prototype.html",
+      "ref": "prototype.js",
+      "exists": true
+    },
+    {
+      "file": "prototype.css",
+      "ref": "../../../node_modules/@fontsource-variable/archivo/files/archivo-latin-wght-normal.woff2",
+      "exists": true
+    },
+    {
+      "file": "prototype.css",
+      "ref": "../../../node_modules/@fontsource-variable/literata/files/literata-latin-wght-normal.woff2",
+      "exists": true
+    },
+    {
+      "file": "prototype.css",
+      "ref": "../../../node_modules/@fontsource-variable/literata/files/literata-latin-wght-italic.woff2",
+      "exists": true
+    },
+    {
+      "file": "design.md",
+      "ref": "prototype.html",
+      "exists": true
+    },
+    {
+      "file": "design.md",
+      "ref": "desktop.png",
+      "exists": true
+    },
+    {
+      "file": "design.md",
+      "ref": "mobile.png",
+      "exists": true
+    },
+    {
+      "file": "design.md",
+      "ref": "validation.json",
+      "exists": true
+    },
+    {
+      "file": "design.md",
+      "ref": "../07-israel-among-the-empires.json",
+      "exists": true
+    },
+    {
+      "file": "design.md",
+      "ref": "../07-empires-close-studies.json",
+      "exists": true
+    },
+    {
+      "file": "design.md",
+      "ref": "validation.json",
+      "exists": true
+    }
+  ],
+  "reducedMotion": "0s",
+  "keyboard": true,
+  "periodStateOnReload": true,
+  "evidenceOpenClose": true,
+  "witnesses": 3,
+  "errors": [],
+  "limits": [
+    "No live integration, build or deployment performed.",
+    "External sources retain prior consultation status; not re-audited in this design pass.",
+    "Full page transition and Bible return integration remain production acceptance checks."
+  ]
+}

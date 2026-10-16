@@ -61,7 +61,7 @@ export function Handed() {
   const hotGap = hotLink ? gapOf(hotLink) : 0;
 
   return <>
-    <SectionHead num="06" kicker="Handed on" title={<>Who passed it <em>to whom</em></>}
+    <SectionHead num="07" kicker="Handed on" title={<>Who passed it <em>to whom</em></>}
       line="Each curve is a documented link: a teacher and a student, two colleagues, or a writer who shaped a later one. Where their lives overlapped the curve sits in their shared years; where they did not, it runs from one death to the next birth. Point at or tap a curve to read the link." />
     <div className="hand-chains">
       <span className="hand-lab">Follow</span>

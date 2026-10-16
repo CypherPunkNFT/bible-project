@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-tcp-a41197-1659",
+  "editorialState": "draft",
+  "notes": [
+    "Print publisher: Printed for the Company of Stationers.",
+    "Composition/delivery dates are not established by the electronic creation date."
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-12",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-approved source-bound identity and edition metadata; no whole-text theological approval or new public clearance."
+    }
+  ],
+  "workId": "work-tcp-a41197",
+  "label": "TCP transcription of the 1659 Galatians and Ephesians exposition",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "Text Creation Partnership",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "1659",
+      "precision": "year",
+      "label": "Print source edition; exact header assertion",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/textcreationpartnership/A41197/master/A41197.xml",
+          "locator": "Held XML title/creator and publication headers; original SHA256 140823cc0ca835eda48a3dc99d4025ef928530e997e92a25e5fecbc82b00f0d2",
+          "note": "Source-bound identity/date/role assertions verified by P3. Unknown composition and delivery dates remain unknown.",
+          "checkedOn": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "event": "edition-publication",
+      "value": "2004-11",
+      "precision": "month",
+      "label": "Electronic edition creation; exact header assertion",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/textcreationpartnership/A41197/master/A41197.xml",
+          "locator": "Held XML title/creator and publication headers; original SHA256 140823cc0ca835eda48a3dc99d4025ef928530e997e92a25e5fecbc82b00f0d2",
+          "note": "Source-bound identity/date/role assertions verified by P3. Unknown composition and delivery dates remain unknown.",
+          "checkedOn": "2026-10-12"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A41197/master/A41197.xml",
+      "locator": "Held XML title/creator and publication headers; original SHA256 140823cc0ca835eda48a3dc99d4025ef928530e997e92a25e5fecbc82b00f0d2",
+      "note": "Source-bound identity/date/role assertions verified by P3. Unknown composition and delivery dates remain unknown.",
+      "checkedOn": "2026-10-12"
+    }
+  ]
+}

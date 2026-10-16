@@ -3,6 +3,7 @@
 // arc without touching (ported from the mock-up's landing.js).
 import type { Person } from "@/data/teachers/pages-types";
 import { THIS_YEAR } from "../../shared/people";
+type BirthMark = Pick<Person, "id" | "born">;
 
 export interface MarkPosition { id: string; x: number; y: number }
 export interface ArcLayout {
@@ -18,16 +19,16 @@ export interface ArcLayout {
   showToday: boolean;
 }
 
-export const arcStart = (people: Person[]) => Math.floor(Math.min(...people.map((p) => p.born)) / 100) * 100;
+export const arcStart = (people: BirthMark[]) => Math.floor(Math.min(...people.map((p) => p.born)) / 100) * 100;
 
 function sizesFor(width: number) {
   const narrow = width < 560;
   const r = narrow ? 11 : width < 960 ? 15 : 18, gap = narrow ? 2 : 4;
-  return { narrow, r, d: 2 * r + gap, pad: r + (narrow ? 12 : 26), amp: narrow ? 10 : 22, top: narrow ? 115 : 85, bottom: narrow ? 40 : 44 };
+  return { narrow, r, d: 2 * r + gap, pad: r + (narrow ? 12 : 26), amp: narrow ? 10 : 22, top: narrow ? 52 : 58, bottom: narrow ? 40 : 44 };
 }
 
 /** Offsets from the arc: each mark takes the free slot nearest the arc, above first on a tie. */
-function stack(people: Person[], sx: (year: number) => number, d: number) {
+function stack(people: BirthMark[], sx: (year: number) => number, d: number) {
   const placed: { id: string; x: number; off: number }[] = [];
   for (const p of people) {
     const x = sx(p.born), near = placed.filter((q) => Math.abs(q.x - x) < d), candidates = [0];
@@ -39,15 +40,13 @@ function stack(people: Person[], sx: (year: number) => number, d: number) {
   return placed;
 }
 
-export function layoutArc(people: Person[], width: number, minimumHeight = 560): ArcLayout {
-  const s = sizesFor(width), start = arcStart(people), end = THIS_YEAR;
+export function layoutArc(people: BirthMark[], width: number, startYear = arcStart(people), extraHeight = 0): ArcLayout {
+  const s = sizesFor(width), start = startYear, end = THIS_YEAR;
   const sx = (year: number) => s.pad + ((year - start) / (end - start)) * (width - 2 * s.pad);
   const lift = (x: number) => -s.amp * Math.sin(Math.PI * (x / width));
   const placed = stack(people, sx, s.d);
   const minOff = Math.min(...placed.map((q) => q.off + lift(q.x))) - s.r, maxOff = Math.max(...placed.map((q) => q.off + lift(q.x))) + s.r;
-  const naturalHeight = Math.ceil(s.top - minOff + maxOff + s.bottom);
-  const height = Math.max(naturalHeight, minimumHeight);
-  const base = s.top - minOff + (height - naturalHeight) / 2;
+  const base = s.top - minOff + extraHeight / 2, height = Math.ceil(base + maxOff + s.bottom + extraHeight / 2);
   let arcPath = "";
   for (let i = 0; i <= 48; i++) { const x = (width * i) / 48; arcPath += `${i ? "L" : "M"}${x.toFixed(1)} ${(base + lift(x)).toFixed(1)}`; }
   const centuries = [];
@@ -58,5 +57,27 @@ export function layoutArc(people: Person[], width: number, minimumHeight = 560):
     gridTop: s.top - 22, gridBottom: height - 26,
     today: { x: sx(end), y: base + lift(sx(end)) },
     showToday: !s.narrow,
+  };
+}
+
+/** Keep the approved desktop composition when the page grows wider.
+ * Repacking at larger widths can flip whole stacks over the arc and change its height.
+ * Expand horizontal positions instead; the marks retain their size and vertical order.
+ */
+export function layoutLandingArc(people: BirthMark[], width: number, reclaimedSpace = 0): ArcLayout {
+  const referenceWidth = Math.min(width, 1422);
+  const layout = layoutArc(people, referenceWidth, undefined, 56);
+  if (width === referenceWidth && !reclaimedSpace) return layout;
+  const scale = width / referenceWidth;
+  const offset = reclaimedSpace / 2;
+  return {
+    ...layout,
+    width,
+    height: layout.height + reclaimedSpace,
+    arcPath: layout.arcPath.replace(/([ML])([\d.]+) ([\d.]+)/g, (_, command: string, x: string, y: string) => `${command}${(Number(x) * scale).toFixed(1)} ${(Number(y) + offset).toFixed(1)}`),
+    positions: layout.positions.map(position => ({ ...position, x: position.x * scale, y: position.y + offset })),
+    centuries: layout.centuries.map(century => ({ ...century, x: century.x * scale })),
+    gridBottom: layout.gridBottom + reclaimedSpace,
+    today: { ...layout.today, x: layout.today.x * scale, y: layout.today.y + offset },
   };
 }

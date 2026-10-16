@@ -1,0 +1,7 @@
+/* Approved merger, using B's warm gold palette and muted blue-green secondary. */
+.wj-study.wj-merged{--wj-clay:#cfad73;--wj-teal:#9ab9bb;--wj-rule:color-mix(in srgb,var(--ink) 15%,transparent)}
+:root[data-theme=light] .wj-study.wj-merged{--wj-clay:#795727;--wj-teal:#44686b}
+.wj-merged .wj-stops{grid-template-columns:repeat(4,minmax(0,1fr))}.wj-merged .wj-stops button{min-height:70px}
+.wj-merged .wj-supplement-svg text{font-size:12px;letter-spacing:.06em}.wj-merged .wj-supplement-svg .wj-highlight{color:var(--wj-clay)}
+.wj-merged :is(.wj-citations a,.wj-reading a,.wj-time-line a,.wj-feedback>a,.wj-orientation>a,.wj-end>a){color:var(--wj-clay)}
+@media(max-width:560px){.wj-merged .wj-stops{grid-template-columns:repeat(2,minmax(0,1fr))}.wj-merged .wj-stops button{min-height:64px}}

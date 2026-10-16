@@ -1,0 +1,981 @@
+{
+  "schemaVersion": 1,
+  "order": 1,
+  "title": "The surviving witnesses",
+  "category": "The Bible: formation & transmission",
+  "phase": "content-first-pass",
+  "status": "compiled-research-dossier-not-publication-ready",
+  "updated": "2026-10-13",
+  "premise": "Meet the surviving physical witnesses to biblical texts: what each preserves, how it is dated, where it has been, and what it can tell us.",
+  "intendedOutcomes": [
+    "Distinguish an original composition from a surviving copy.",
+    "Read a manuscript identifier and find a trustworthy catalogue record.",
+    "Distinguish surviving coverage from reconstructed original contents.",
+    "Understand why date, completeness, language and textual value are separate dimensions.",
+    "Recognize Jewish custodianship of Hebrew texts and the multilingual history of Christian copying.",
+    "Describe a manuscript without claiming it proves more than it contains."
+  ],
+  "boundaries": {
+    "include": [
+      "Physical witnesses and their identification",
+      "Copy dates and methods of dating",
+      "Coverage, loss, corrections, format and provenance",
+      "Selected translation witnesses as physical manuscripts",
+      "People, catalogues, editions and digitization that make witnesses accessible"
+    ],
+    "defer": {
+      "02": "Detailed adjudication of individual variant readings",
+      "03": "Full Dead Sea Scrolls discovery history and non-biblical literature",
+      "04": "Full canon-development arguments",
+      "05": "Detailed printing and translation chronology"
+    },
+    "design": "Deferred until all 25 content dossiers have completed their first pass."
+  },
+  "contentSections": [
+    {
+      "title": "What is a witness?",
+      "substance": [
+        "Define manuscript, fragment, scroll, codex, leaf, page, recto, verso, palimpsest, colophon and lectionary.",
+        "Separate the physical object, the literary work, the copyist’s text and a modern edited transcription.",
+        "Explain that a translation witness supplies a translated text, not automatically the exact wording of its source language."
+      ],
+      "examples": [
+        "P52",
+        "P46",
+        "Sinaiticus",
+        "Bezae"
+      ]
+    },
+    {
+      "title": "Before the great codices",
+      "substance": [
+        "Introduce fragmentary survival and why different books have different surviving evidence.",
+        "Compare a small Gospel fragment with a substantial collection of letters.",
+        "Introduce papyrus as material and codex as format, rather than treating the two as synonyms."
+      ],
+      "examples": [
+        "P52",
+        "P45",
+        "P46",
+        "P47",
+        "Great Isaiah Scroll"
+      ]
+    },
+    {
+      "title": "Large collections of Scripture",
+      "substance": [
+        "Examine what the major Greek codices actually preserve.",
+        "Distinguish missing leaves from an intentional exclusion of a book.",
+        "Show why corrections, book order and associated writings are historical evidence."
+      ],
+      "examples": [
+        "Sinaiticus",
+        "Vaticanus",
+        "Alexandrinus",
+        "Bezae"
+      ]
+    },
+    {
+      "title": "Hebrew texts and their custodians",
+      "substance": [
+        "Connect ancient Hebrew witnesses with medieval Masoretic codices without presenting them as a single unchanged physical book.",
+        "Explain consonants, vocalization, accents and Masorah as distinct recorded features.",
+        "Respect separate Jewish and Samaritan transmission histories; select a documented Samaritan witness in the next verification round."
+      ],
+      "examples": [
+        "Great Isaiah Scroll",
+        "Aleppo Codex",
+        "Leningrad Codex"
+      ]
+    },
+    {
+      "title": "Scripture across languages",
+      "substance": [
+        "Introduce Greek, Hebrew, Latin, Syriac and Coptic witnesses.",
+        "Differentiate a translation’s proposed origin from the date of a surviving translated manuscript.",
+        "Include additional Armenian, Georgian and Ethiopic candidates without assigning dates before catalogue checks."
+      ],
+      "examples": [
+        "Bezae",
+        "Glazier Codex",
+        "Codex Amiatinus",
+        "Syriac Pentateuch candidate"
+      ]
+    },
+    {
+      "title": "Dates, journeys and survival",
+      "substance": [
+        "Record dated colophons separately from palaeographic estimates.",
+        "Explain radiocarbon dating as evidence about material and calibrated ranges; do not equate it automatically to the writing date.",
+        "Distinguish excavated findspots, dealer reports, copying locations and modern repositories.",
+        "Compare missing pages, overwritten text, modern imaging and divided collections."
+      ],
+      "examples": [
+        "P52 dating debate",
+        "P46 divided collection",
+        "Sinaiticus distributed custody",
+        "Bezae lost-page recovery"
+      ]
+    }
+  ],
+  "witnesses": [
+    {
+      "id": "isaiah",
+      "title": "Great Isaiah Scroll",
+      "shelfmark": "1QIsa-a",
+      "language": [
+        "Hebrew"
+      ],
+      "date": {
+        "label": "Ancient Qumran witness; object-specific dating still to verify",
+        "status": "pending precise catalogue range"
+      },
+      "coverage": "Isaiah; full chapter and damage inventory to ingest",
+      "significance": "An anchor for sustained Hebrew manuscript survival before medieval codices.",
+      "sourceIds": [
+        "imj-scrolls",
+        "iaa-intro"
+      ],
+      "followUp": [
+        "Verify date, exact extent, scribal hands and image permissions against the object record."
+      ],
+      "recordStatus": "documented-anchor-with-open-fields"
+    },
+    {
+      "id": "p52",
+      "title": "Rylands Gospel fragment",
+      "shelfmark": "P52; P.Ryl. III 457",
+      "language": [
+        "Greek"
+      ],
+      "date": {
+        "label": "Palaeographic dating disputed; retain attributed ranges",
+        "status": "disputed"
+      },
+      "coverage": "Fragment of John; exact verse coverage to check against IGNTP transcription",
+      "significance": "A strong case for the difference between a surviving fragment and the complete work.",
+      "sourceIds": [
+        "p52-catalogue",
+        "p52-transcript",
+        "p52-dating"
+      ],
+      "followUp": [
+        "Import transcription and exact surviving verse portions.",
+        "Nongbri’s 2020 abstract argues that possible dates extend into the third century; read full argument and earlier dating studies before assigning a range."
+      ],
+      "recordStatus": "documented-anchor-with-open-fields"
+    },
+    {
+      "id": "p45",
+      "title": "Chester Beatty Gospel and Acts papyrus",
+      "shelfmark": "P45; Chester Beatty BP I",
+      "language": [
+        "Greek"
+      ],
+      "date": {
+        "label": "Date not normalized in this first pass",
+        "status": "pending"
+      },
+      "coverage": "Gospels and Acts collection; exact surviving portions pending",
+      "significance": "Pairs with P46 and P47 to avoid treating one manuscript as representative of the whole New Testament.",
+      "sourceIds": [
+        "beatty-editions"
+      ],
+      "followUp": [
+        "Read catalogue and Kenyon edition; verify date and surviving leaf inventory."
+      ],
+      "recordStatus": "documented-anchor-with-open-fields"
+    },
+    {
+      "id": "p46",
+      "title": "Pauline letters codex",
+      "shelfmark": "P46; Chester Beatty BP II; Michigan inv. 6238",
+      "language": [
+        "Greek"
+      ],
+      "date": {
+        "label": "Third century in Michigan’s introductory guide",
+        "status": "attributed; compare catalogues"
+      },
+      "coverage": "Collection of letters, not the entire New Testament",
+      "significance": "The surviving codex is split between Dublin and Ann Arbor. Michigan describes 86 surviving leaves, with 30 there and 56 at Chester Beatty. Dealer acquisition limits archaeological context.",
+      "sourceIds": [
+        "p46-intro",
+        "p46-history",
+        "p46-format"
+      ],
+      "followUp": [
+        "Reconcile published dating ranges.",
+        "Separate reconstructed original contents and leaf count from surviving contents."
+      ],
+      "recordStatus": "documented-anchor-with-open-fields"
+    },
+    {
+      "id": "p47",
+      "title": "Chester Beatty Revelation papyrus",
+      "shelfmark": "P47; Chester Beatty BP III",
+      "language": [
+        "Greek"
+      ],
+      "date": {
+        "label": "Date pending catalogue reading",
+        "status": "pending"
+      },
+      "coverage": "Revelation; exact surviving extent pending",
+      "significance": "Ensures the evidence set includes Revelation rather than only Gospels and Paul.",
+      "sourceIds": [
+        "beatty-editions"
+      ],
+      "followUp": [
+        "Read catalogue, date and surviving extent."
+      ],
+      "recordStatus": "documented-anchor-with-open-fields"
+    },
+    {
+      "id": "sinaiticus",
+      "title": "Codex Sinaiticus",
+      "shelfmark": "Gregory-Aland 01; Aleph",
+      "language": [
+        "Greek"
+      ],
+      "date": {
+        "label": "Fourth century",
+        "status": "institutional dating"
+      },
+      "coverage": "Complete surviving New Testament; substantial but incomplete Old Testament; associated early Christian writings",
+      "significance": "The project identifies it as the earliest complete surviving New Testament. Its contents include Barnabas and part of the Shepherd of Hermas. Survival and book inclusion require separate explanations.",
+      "sourceIds": [
+        "sina-home",
+        "sina-content",
+        "sina-history",
+        "sina-digital"
+      ],
+      "followUp": [
+        "Import exact book coverage, shelfmarks and repository allocation; no claim that it is a complete surviving Old and New Testament."
+      ],
+      "recordStatus": "documented-anchor-with-open-fields"
+    },
+    {
+      "id": "vaticanus",
+      "title": "Codex Vaticanus",
+      "shelfmark": "Vat.gr.1209; Gregory-Aland 03",
+      "language": [
+        "Greek"
+      ],
+      "date": {
+        "label": "Precise catalogue dating pending extraction",
+        "status": "pending"
+      },
+      "coverage": "Greek Bible; exact surviving original-hand coverage pending",
+      "significance": "Essential comparator for large Greek Bible collections. A verified digital object provides a route to primary images.",
+      "sourceIds": [
+        "vaticanus",
+        "ntvmr"
+      ],
+      "followUp": [
+        "Extract original versus supplemental leaves and missing books.",
+        "Do not derive precise content or dating merely from the viewer shell."
+      ],
+      "recordStatus": "documented-anchor-with-open-fields"
+    },
+    {
+      "id": "alexandrinus",
+      "title": "Codex Alexandrinus",
+      "shelfmark": "Royal MSS 1 D V–VIII; Gregory-Aland 02",
+      "language": [
+        "Greek"
+      ],
+      "date": {
+        "label": "Fifth century",
+        "status": "BL catalogue range 400–499"
+      },
+      "coverage": "Greek Bible in four volumes; losses and associated Clement writings need explicit inventory",
+      "significance": "Connects substantial Greek biblical coverage with documented modern reception and scholarly printing.",
+      "sourceIds": [
+        "alexandrinus",
+        "alexandrinus-history"
+      ],
+      "followUp": [
+        "Gather all four volume records; BL currently marks cited images unavailable."
+      ],
+      "recordStatus": "documented-anchor-with-open-fields"
+    },
+    {
+      "id": "bezae",
+      "title": "Codex Bezae",
+      "shelfmark": "Cambridge MS Nn.2.41; Gregory-Aland 05",
+      "language": [
+        "Greek",
+        "Latin"
+      ],
+      "date": {
+        "label": "Late fourth or fifth century",
+        "status": "Cambridge exhibition range"
+      },
+      "coverage": "Gospels and Acts, with a fragment of 3 John; incomplete",
+      "significance": "Facing Greek and Latin texts make it useful for language comparison; its distinctive readings need their own case studies.",
+      "sourceIds": [
+        "bezae",
+        "bezae-recovery"
+      ],
+      "followUp": [
+        "Do not imply its Greek and Latin always match.",
+        "Check digital manuscript inventory before selecting leaves."
+      ],
+      "recordStatus": "documented-anchor-with-open-fields"
+    },
+    {
+      "id": "aleppo",
+      "title": "Aleppo Codex",
+      "shelfmark": "Keter Aram Tsova",
+      "language": [
+        "Hebrew"
+      ],
+      "date": {
+        "label": "Tenth century",
+        "status": "institutional contextual description"
+      },
+      "coverage": "Surviving portions of a formerly fuller Hebrew Bible",
+      "significance": "Introduces Masoretic annotation, communal custody and the difference between former and surviving completeness.",
+      "sourceIds": [
+        "aleppo",
+        "aleppo-context"
+      ],
+      "followUp": [
+        "Acquire surviving-leaf inventory and precise dating source.",
+        "Separate Aleppo from the various Damascus Crowns."
+      ],
+      "recordStatus": "documented-anchor-with-open-fields"
+    },
+    {
+      "id": "leningrad",
+      "title": "Leningrad Codex",
+      "shelfmark": "Commonly identified as B19a; verify normalized shelfmark",
+      "language": [
+        "Hebrew"
+      ],
+      "date": {
+        "label": "Early eleventh century; exact year unresolved in dossier",
+        "status": "source discrepancy"
+      },
+      "coverage": "Complete Hebrew Bible according to holding institution",
+      "significance": "A major complete Hebrew witness. The NLR page uses 1010; do not silently substitute commonly cited 1008/1009 without checking the colophon and scholarship.",
+      "sourceIds": [
+        "leningrad"
+      ],
+      "followUp": [
+        "Reconcile date conventions against the colophon and catalogue.",
+        "Verify relationship to modern edited Hebrew texts."
+      ],
+      "recordStatus": "documented-anchor-with-open-fields"
+    },
+    {
+      "id": "glazier",
+      "title": "Glazier Codex",
+      "shelfmark": "Morgan MS G.67",
+      "language": [
+        "Coptic"
+      ],
+      "date": {
+        "label": "Fifth century in Morgan conservation account",
+        "status": "institutional dating"
+      },
+      "coverage": "Acts manuscript; precise surviving chapters pending catalogue",
+      "significance": "Broadens the witness set beyond Greek and introduces physical-book and binding research.",
+      "sourceIds": [
+        "glazier"
+      ],
+      "followUp": [
+        "Confirm exact textual extent, dialect, date range and rights from catalogue."
+      ],
+      "recordStatus": "documented-anchor-with-open-fields"
+    },
+    {
+      "id": "amiatinus",
+      "title": "Codex Amiatinus",
+      "shelfmark": "Laurenziana Amiatino 1; shelfmark to verify",
+      "language": [
+        "Latin"
+      ],
+      "date": {
+        "label": "Date pending full custodial record reading",
+        "status": "candidate"
+      },
+      "coverage": "Latin Bible; exact scope to verify",
+      "significance": "Candidate for a substantial Latin witness and its journey between northern Europe and Italy.",
+      "sourceIds": [
+        "amiatinus"
+      ],
+      "followUp": [
+        "Read custodial exhibition document and manuscript record before promoting facts."
+      ],
+      "recordStatus": "documented-anchor-with-open-fields"
+    }
+  ],
+  "findings": [
+    {
+      "claim": "The Qumran collection includes biblical and non-biblical writings and predominantly fragmentary material.",
+      "sourceIds": [
+        "iaa-intro"
+      ]
+    },
+    {
+      "claim": "The IAA describes both close resemblance to the Masoretic text and variation among biblical scrolls.",
+      "sourceIds": [
+        "iaa-intro"
+      ]
+    },
+    {
+      "claim": "A manuscript’s modern ownership history may be much better documented than its ancient findspot.",
+      "sourceIds": [
+        "p46-history"
+      ],
+      "example": "P46"
+    },
+    {
+      "claim": "The surviving copies differ substantially in physical extent; a fragment, a collection of letters and a complete New Testament are different kinds of evidence.",
+      "sourceIds": [
+        "p52-transcript",
+        "p46-intro",
+        "sina-home"
+      ]
+    },
+    {
+      "claim": "Modern transcriptions and imaging can improve access without changing the ancient age of the manuscript.",
+      "sourceIds": [
+        "p52-transcript",
+        "sina-digital",
+        "glazier"
+      ]
+    },
+    {
+      "claim": "A copy made centuries later can preserve evidence about an earlier manuscript’s subsequently lost material.",
+      "sourceIds": [
+        "bezae-recovery"
+      ],
+      "note": "Use the Bezae recovery case after full reading, not as a general claim that every late copy preserves early readings."
+    }
+  ],
+  "researchQuestions": [
+    "What is the earliest surviving evidence for each biblical book, under an explicit definition of evidence?",
+    "How much text survives in each witness, and what portion is physically missing?",
+    "What changes when a date is a range rather than a single year?",
+    "Which dates come from colophons, handwriting comparison, archaeological contexts or radiocarbon measurements?",
+    "What can versions and patristic citations establish, and how do they differ from direct manuscript evidence?",
+    "How have climate, collection history and publication shaped what survives and what is accessible?",
+    "How should two shelfmarks belonging to one codex be counted?",
+    "When can an absence be attributed to loss, and when is original omission demonstrable?"
+  ],
+  "events": [
+    {
+      "date": "1581",
+      "event": "Beza presents Codex Bezae to Cambridge University Library",
+      "sourceIds": [
+        "bezae"
+      ]
+    },
+    {
+      "date": "1627",
+      "event": "Codex Alexandrinus reaches England",
+      "sourceIds": [
+        "alexandrinus-history"
+      ]
+    },
+    {
+      "date": "1931–1936",
+      "event": "P46 acquisitions and successive publications reveal portions held in different collections",
+      "sourceIds": [
+        "p46-history"
+      ]
+    },
+    {
+      "date": "1947",
+      "event": "Discovery of the original group of seven Dead Sea Scrolls, including the Great Isaiah Scroll",
+      "sourceIds": [
+        "imj-scrolls"
+      ]
+    },
+    {
+      "date": "1958",
+      "event": "Aleppo Codex reaches Israel",
+      "sourceIds": [
+        "aleppo"
+      ]
+    },
+    {
+      "date": "2009-07-06",
+      "event": "Sinaiticus project website makes its extant pages available together",
+      "sourceIds": [
+        "sina-digital"
+      ]
+    },
+    {
+      "date": "2017",
+      "event": "Cambridge research report on digital recovery of a lost portion of Bezae",
+      "sourceIds": [
+        "bezae-recovery"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "Anonymous scribes, correctors and custodial communities",
+      "role": "Central to the material history; do not organize the account solely around modern collectors."
+    },
+    {
+      "name": "Aaron ben Asher",
+      "role": "Masoretic work associated with Aleppo; distinguish consonantal copying from vocalization and annotation.",
+      "sourceIds": [
+        "aleppo-context"
+      ]
+    },
+    {
+      "name": "Theodore Beza",
+      "role": "Bezae custody and presentation to Cambridge",
+      "sourceIds": [
+        "bezae"
+      ]
+    },
+    {
+      "name": "Frederic G. Kenyon",
+      "role": "Chester Beatty papyri editions",
+      "sourceIds": [
+        "beatty-editions",
+        "p46-editions"
+      ]
+    },
+    {
+      "name": "Henry A. Sanders",
+      "role": "Michigan P46 edition",
+      "sourceIds": [
+        "p46-editions"
+      ]
+    },
+    {
+      "name": "D. C. Parker",
+      "role": "Manuscript and textual scholarship; methodological reading",
+      "sourceIds": [
+        "parker"
+      ]
+    },
+    {
+      "name": "Brent Nongbri",
+      "role": "Dating and acquisition-history questions",
+      "sourceIds": [
+        "p52-dating",
+        "nongbri"
+      ]
+    },
+    {
+      "name": "Larry W. Hurtado",
+      "role": "Physical manuscripts as evidence about early Christianity",
+      "sourceIds": [
+        "hurtado"
+      ]
+    }
+  ],
+  "works": [
+    {
+      "title": "The Chester Beatty Biblical Papyri",
+      "author": "Frederic G. Kenyon",
+      "type": "Original editions",
+      "purpose": "Read object descriptions, text and plates together.",
+      "sourceIds": [
+        "beatty-editions"
+      ]
+    },
+    {
+      "title": "A Third Century Codex of the Epistles of Paul",
+      "author": "Henry A. Sanders",
+      "year": 1935,
+      "type": "Original edition",
+      "purpose": "Foundational publication of the Michigan P46 material.",
+      "sourceIds": [
+        "p46-editions"
+      ]
+    },
+    {
+      "title": "An Introduction to the New Testament Manuscripts and their Texts",
+      "author": "D. C. Parker",
+      "year": 2008,
+      "type": "Research introduction",
+      "purpose": "Catalogue use, manuscripts and textual method.",
+      "sourceIds": [
+        "parker"
+      ]
+    },
+    {
+      "title": "The Earliest Christian Artifacts",
+      "author": "Larry W. Hurtado",
+      "year": 2006,
+      "type": "Research monograph",
+      "purpose": "Codex format and other physical features as evidence.",
+      "sourceIds": [
+        "hurtado"
+      ]
+    },
+    {
+      "title": "God’s Library: The Archaeology of the Earliest Christian Manuscripts",
+      "author": "Brent Nongbri",
+      "year": 2018,
+      "type": "Research monograph",
+      "purpose": "Dating, provenance and acquisition history.",
+      "sourceIds": [
+        "nongbri"
+      ]
+    },
+    {
+      "title": "Palaeography, Precision and Publicity: Further Thoughts on P.Ryl.iii.457 (P52)",
+      "author": "Brent Nongbri",
+      "year": 2020,
+      "type": "Original research article",
+      "purpose": "A specific example of dating uncertainty; abstract read, full argument still required.",
+      "sourceIds": [
+        "p52-dating"
+      ]
+    },
+    {
+      "title": "The Text of the New Testament: Its Transmission, Corruption, and Restoration",
+      "author": "Bruce M. Metzger and Bart D. Ehrman",
+      "edition": "Fourth",
+      "type": "Research reference",
+      "purpose": "Methods and history; bibliography identified, no claim of full reading.",
+      "sourceIds": [
+        "metzger-ehrman"
+      ]
+    },
+    {
+      "title": "Textual Criticism of the Hebrew Bible",
+      "author": "Emanuel Tov",
+      "edition": "Revised and expanded fourth",
+      "type": "Research reference",
+      "purpose": "Hebrew witnesses and ancient versions; chapter-level reading pending.",
+      "sourceIds": [
+        "tov"
+      ]
+    }
+  ],
+  "candidateQueue": [
+    {
+      "item": "Nash Papyrus",
+      "reason": "Hebrew material and liturgical versus continuous-text distinction",
+      "next": "Cambridge manuscript record and exact passage coverage"
+    },
+    {
+      "item": "P66 and P75",
+      "reason": "Substantial Gospel papyri beyond a tiny fragment",
+      "next": "Current custodial records, dating research, and exact coverage"
+    },
+    {
+      "item": "Syriac Pentateuch, BL Add MS 14425",
+      "reason": "Dated Syriac witness",
+      "next": "Verify colophon date and exact surviving contents in holding catalogue"
+    },
+    {
+      "item": "Syriac Sinaitic palimpsest",
+      "reason": "Translated Gospel text and recovery of overwritten writing",
+      "next": "Custodial record and transcription project"
+    },
+    {
+      "item": "A dated Greek minuscule and a lectionary",
+      "reason": "Prevent the story ending with famous early codices",
+      "next": "Select from NTVMR with open images and clear provenance"
+    },
+    {
+      "item": "Documented Samaritan Pentateuch witness",
+      "reason": "Represent a distinct Pentateuch tradition accurately",
+      "next": "Choose named dated manuscript, avoid legendary dating"
+    },
+    {
+      "item": "Armenian, Georgian and Ethiopic witnesses",
+      "reason": "Wider transmission beyond Greek and Latin",
+      "next": "Select named objects with institutional dating and available catalogues"
+    },
+    {
+      "item": "Codex Ephraemi Rescriptus",
+      "reason": "Greek palimpsest and recovery history",
+      "next": "BnF record and surviving-text inventory"
+    },
+    {
+      "item": "Ketef Hinnom silver texts",
+      "reason": "Potential boundary example of biblical wording on an object",
+      "next": "Original publication; label inscription/amulet rather than biblical book manuscript"
+    }
+  ],
+  "dataRequirements": [
+    "Stable object ID, aliases and catalogue IDs",
+    "Original language and material",
+    "Format, leaves, dimensions and physical condition",
+    "Date as attributed proposals, range, method and source—not one forced number",
+    "Work and passage coverage with complete/partial/missing/reconstructed distinctions",
+    "Original hand, corrections and later supplements",
+    "Copy location, findspot, acquisition route and current repository as separate fields",
+    "Primary image or catalogue URL and access status",
+    "Source-linked claims, disputed fields and last checked date",
+    "Image and transcription reuse terms before publication"
+  ],
+  "editorialRules": [
+    "Do not quote a live manuscript total without a dated catalogue export and counting rule.",
+    "Do not call a fragment a complete book or a complete New Testament a complete Bible.",
+    "Do not treat all institutional summaries as equally precise; record contradictions.",
+    "Do not claim earliest always means best or number of copies alone settles a reading.",
+    "Do not confuse Hebrew, Greek, Latin or Syriac transmission with manuscript age.",
+    "Keep first-pass candidate entries visibly distinct from verified publication facts.",
+    "Preserve the site rule keeping Josephus-specific material in Scholars; none is needed for this dossier."
+  ],
+  "completion": {
+    "firstPass": "Complete as a structured research dossier with documented anchors and explicit research gaps.",
+    "publication": "Not ready: object-level coverage, some dates, selected-language witnesses, rights and full bibliographic reading remain to verify.",
+    "next": "02 — A passage through the manuscripts"
+  },
+  "sources": [
+    {
+      "id": "iaa-intro",
+      "title": "Israel Antiquities Authority: introduction to the scrolls",
+      "url": "https://www.deadseascrolls.org.il/learn-about-the-scrolls/introduction",
+      "type": "institutional overview",
+      "access": "page read",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "iaa-archive",
+      "title": "Leon Levy Dead Sea Scrolls Digital Library",
+      "url": "https://www.deadseascrolls.org.il/explore-the-archive/search?locale=en_US",
+      "type": "institutional archive",
+      "access": "search record reviewed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "imj-scrolls",
+      "title": "Israel Museum: Digital Dead Sea Scrolls",
+      "url": "https://dss.collections.imj.org.il/",
+      "type": "holding institution",
+      "access": "overview reviewed; individual Isaiah endpoint failed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "sina-home",
+      "title": "Codex Sinaiticus project",
+      "url": "https://codexsinaiticus.org/en/",
+      "type": "collaborative custodial project",
+      "access": "page record reviewed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "sina-content",
+      "title": "Codex Sinaiticus: content",
+      "url": "https://codexsinaiticus.org/en/codex/content.aspx",
+      "type": "collaborative custodial project",
+      "access": "page read",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "sina-history",
+      "title": "Codex Sinaiticus: history",
+      "url": "https://www.codexsinaiticus.org/en/codex/history.aspx",
+      "type": "collaborative custodial project",
+      "access": "page record reviewed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "sina-digital",
+      "title": "Codex Sinaiticus: website contents",
+      "url": "https://codexsinaiticus.org/en/project/webcontents.aspx",
+      "type": "collaborative custodial project",
+      "access": "page record reviewed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "vaticanus",
+      "title": "Vatican Library: Vat.gr.1209",
+      "url": "https://digi.vatlib.it/view/MSS_Vat.gr.1209",
+      "type": "holding institution digital object",
+      "access": "viewer shell read; metadata and folios require follow-up",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "ntvmr",
+      "title": "INTF New Testament Virtual Manuscript Room",
+      "url": "https://ntvmr.uni-muenster.de/",
+      "type": "research catalogue",
+      "access": "portal reviewed; no census exported",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "p52-transcript",
+      "title": "IGNTP transcription of P52, University of Birmingham",
+      "url": "https://epapers.bham.ac.uk/id/eprint/1754/",
+      "type": "research transcription",
+      "access": "repository record reviewed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "p52-catalogue",
+      "title": "CSNTM P52 catalogue",
+      "url": "https://manuscripts.csntm.org/manuscript/Group/GA_P52?sequence=0",
+      "type": "manuscript catalogue",
+      "access": "catalogue record reviewed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "p52-dating",
+      "title": "Brent Nongbri: Palaeography, Precision and Publicity",
+      "url": "https://www.cambridge.org/core/journals/new-testament-studies/article/abs/palaeography-precision-and-publicity-further-thoughts-on-pryliii457-p52/1D4E56BF0E9D4DDDA313D0C2754E2F28",
+      "type": "original research article, 2020",
+      "access": "abstract reviewed, not full article",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "p46-intro",
+      "title": "University of Michigan: introduction to P46",
+      "url": "https://apps.lib.umich.edu/files/collections/papyrus/k12/reading/Paul/index.html",
+      "type": "holding institution",
+      "access": "page reviewed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "p46-history",
+      "title": "University of Michigan: discovery of P46",
+      "url": "https://apps.lib.umich.edu/files/collections/papyrus/exhibits/reading/Paul/discovery.html",
+      "type": "holding institution",
+      "access": "page reviewed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "p46-format",
+      "title": "University of Michigan: state of P46",
+      "url": "https://apps.lib.umich.edu/files/collections/papyrus/k12/reading/Paul/state.html",
+      "type": "holding institution",
+      "access": "page reviewed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "p46-editions",
+      "title": "University of Michigan: P46 bibliography",
+      "url": "https://apps.lib.umich.edu/files/collections/papyrus/exhibits/reading/Paul/resources.html",
+      "type": "holding institution bibliography",
+      "access": "bibliography reviewed, cited books not read",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "beatty-editions",
+      "title": "Chester Beatty collection catalogues",
+      "url": "https://chesterbeatty.ie/collections/research-services/reference-resources/online-catalogues/",
+      "type": "holding institution editions portal",
+      "access": "search record reviewed; direct fetch failed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "alexandrinus",
+      "title": "British Library Royal MS 1 D VIII",
+      "url": "https://searcharchives.bl.uk/catalog/040-002353500",
+      "type": "holding institution catalogue",
+      "access": "record reviewed; images marked unavailable",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "alexandrinus-history",
+      "title": "J. H. Bowman: The Codex Alexandrinus and the Alexandrian Greek Types",
+      "url": "https://bl.iro.bl.uk/entities/publication/b8f233d6-c708-43bf-a8de-aa2d67cd4206",
+      "type": "original research, British Library Journal, 1998",
+      "access": "repository abstract reviewed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "bezae",
+      "title": "Cambridge: Discovering texts, Codex Bezae",
+      "url": "https://exhibitions.lib.cam.ac.uk/linesofthought/artifacts/codex-bezae/",
+      "type": "holding institution",
+      "access": "exhibition record reviewed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "bezae-recovery",
+      "title": "Cambridge: Digital recovery of a lost page of Codex Bezae",
+      "url": "https://specialcollections-blog.lib.cam.ac.uk/?p=15340",
+      "type": "research report, 2017",
+      "access": "article record reviewed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "aleppo",
+      "title": "Aleppo Codex custodial history",
+      "url": "https://www.aleppocodex.org/links/11.html",
+      "type": "specialist codex project",
+      "access": "page record reviewed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "aleppo-context",
+      "title": "National Library of Israel: The Wondrous Story of the Damascus Crown",
+      "url": "https://exhibition.nli.org.il/en/exhibition-items-en/sodot-damascus-keter",
+      "type": "institutional exhibition",
+      "access": "page reviewed; distinguish separate codices",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "leningrad",
+      "title": "National Library of Russia: Manuscripts Department",
+      "url": "https://nlr.ru/manuscripts?l=eng",
+      "type": "holding institution",
+      "access": "page reviewed; date conflicts with common catalogue dating",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "glazier",
+      "title": "Morgan: X-ray microtomography and manuscript codices",
+      "url": "https://www.themorgan.org/blog/inside-story-using-x-ray-microtomography-see-hidden-features-manuscript-codex",
+      "type": "holding institution conservation research",
+      "access": "article record reviewed",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "amiatinus",
+      "title": "Biblioteca Medicea Laurenziana: La Bibbia Amiatina",
+      "url": "https://www.bmlonline.it/comunicati_stampa/la_bibbia_amiatina.pdf",
+      "type": "holding institution exhibition document",
+      "access": "identified; full PDF reading pending",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "parker",
+      "title": "D. C. Parker: An Introduction to the New Testament Manuscripts and their Texts",
+      "url": "https://www.cambridge.org/core/books/an-introduction-to-the-new-testament-manuscripts-and-their-texts/C9A0AF6DD351B4A6C492DE5D8ED6BFCC",
+      "type": "publisher catalogue",
+      "access": "bibliography verified; full book not read",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "hurtado",
+      "title": "Larry W. Hurtado: The Earliest Christian Artifacts",
+      "url": "https://www.eerdmans.com/9780802828958/the-earliest-christian-artifacts/",
+      "type": "publisher catalogue",
+      "access": "bibliography and scope reviewed; full book not read",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "nongbri",
+      "title": "Brent Nongbri: God’s Library",
+      "url": "https://brentnongbri.com/2018/07/31/gods-library/",
+      "type": "author publication record",
+      "access": "bibliography and scope reviewed; full book not read",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "metzger-ehrman",
+      "title": "Bruce M. Metzger and Bart D. Ehrman: The Text of the New Testament, fourth edition",
+      "url": "https://www.bartehrman.com/the-text-of-the-new-testament-its-transmission-corruption-and-restoration/",
+      "type": "coauthor publication record",
+      "access": "bibliography reviewed; full book not read",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "tov",
+      "title": "Fortress Press Hebrew Bible catalogue: Emanuel Tov, Textual Criticism of the Hebrew Bible, fourth edition",
+      "url": "https://ms.fortresspress.com/downloads/FortressPress/catalogs/HebrewBible.pdf",
+      "type": "publisher catalogue",
+      "access": "title and edition identified; full book not read",
+      "checked": "2026-10-13"
+    }
+  ]
+}

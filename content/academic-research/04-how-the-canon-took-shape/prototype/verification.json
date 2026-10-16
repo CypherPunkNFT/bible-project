@@ -1,0 +1,27 @@
+{
+  "checked": "2026-10-14T14:31:13.773Z",
+  "url": "file:///D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/academic-research/04-how-the-canon-took-shape/prototype/index.html",
+  "checks": [
+    "Local file loads three documents and nine source-derived judgments without a server",
+    "Project typography loads from local licensed font files",
+    "All nine entries open using Enter and expose the selected witness",
+    "Switching the writing keeps the selected witness and does not scroll",
+    "Writing, witness and open inspection restore from the URL after reload",
+    "Escape retracts inspection and returns keyboard focus to its origin",
+    "Reset restores the initial writing and closed state",
+    "All eighteen historical records retain evidence, interpretation, limits and source links",
+    "Disputed date remains visible without a fabricated time coordinate",
+    "Desktop/laptop/768/390/320 layouts and expanded states have no horizontal overflow; phones retain three comparable entries",
+    "Reduced motion removes fade and smooth scrolling",
+    "Keyboard focus is visible",
+    "All relative document, stylesheet, script and data links resolve",
+    "No browser exceptions"
+  ],
+  "errors": [],
+  "limits": [
+    "Native Edge only; no assistive-technology audit",
+    "Prototype header is a visual stand-in; site route transitions are not implemented or tested",
+    "External source URLs are preserved from the dossier; not all destinations were re-fetched during this design pass",
+    "Full remaining study sections are mapped in design.md, not implemented in this prototype"
+  ]
+}

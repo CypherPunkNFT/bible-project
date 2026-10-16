@@ -170,3 +170,13 @@
 .a-dark { fill: color-mix(in srgb, var(--ink) 82%, transparent); fill-opacity: calc(var(--draw) * .9); stroke: var(--tone); stroke-width: 1.5; }
 .a-ring { stroke: var(--tone); stroke-width: 1.4; filter: drop-shadow(0 0 6px var(--tone)); }
 .a-fillish { fill: var(--tone); fill-opacity: calc(var(--draw) * .14); }
+
+/* God is shown above the centre, within the family circle. */
+.cs-node.m-omega .cs-dot { fill:var(--tone); stroke:var(--tone); }
+.cs-god-omega { font:500 25px Georgia, serif; text-anchor:middle; fill:#000; stroke:none; pointer-events:none; }
+
+.cs-legend-acts span { display:inline-flex; align-items:center; gap:.4rem; color:var(--muted); font-weight:400; }
+.cs-legend-acts i { width:10px; height:10px; flex-shrink:0; border:0; background:var(--tone); }
+
+/* Keep the chronology row aligned with the Family legend above it. */
+.cs-legend-acts { margin-left:0; flex-basis:100%; flex-wrap:wrap; }

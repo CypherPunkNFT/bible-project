@@ -7,6 +7,7 @@ from pathlib import Path
 from .bibles import read_json
 from .library_extract import extraction_cache, sha256
 from .settings import write_json
+from .library_identity import load_identities,apply_hints,IDENTITY_FILE
 
 
 CONTEXT_KEYS = ("title", "author", "authorId", "authorGroup", "reviewClass", "reviewStatus", "quality", "limitations", "sourcePage", "useScope", "textKind", "rightsCategory", "publicHostingAllowed", "publicFullTextIndexAllowed", "contributor", "credit", "licence", "language", "audience", "audiences", "audienceBasis", "editor", "editorStatus", "adaptationChanges", "adaptationStatus", "editorialMetadataBasis", "source", "sourceId", "sourceMetadata", "configuration", "originalWorkId", "originalSourceId", "originalPath", "originalSha256", "translator", "translatorIdentityBasis", "translatorCreditEvidence", "translationQuality", "countAsBook")
@@ -102,6 +103,15 @@ def plan_library(config):
         for field, kind in (("workId", "work"), ("editionId", "edition")):
             if hint.get(field) and records.get(hint[field], {}).get("kind") != kind:
                 hint.setdefault("legacyCatalogueIds", {})[field] = hint.pop(field)
+    identity_path=config['site_dir']/IDENTITY_FILE
+    identity_fills=load_identities(config['site_dir'],records)
+    if identity_fills:
+        identity_conflicts=[]
+        apply_hints(hints,records,identity_fills,identity_path,identity_conflicts)
+        write_json(config['state_dir']/'library-identity-conflicts.json',{'items':identity_conflicts,
+            'sourceIdentityHashes':len(identity_fills),'conflictingRepresentations':len(identity_conflicts),
+            'textImportHolds':0,'scope':'Backfill proposals conflicting with current source metadata; source identities preserved'})
+        provenance.append(identity_path)
     for asset_id, value, checksum, manifest in asset_derivatives:
         asset = records.get(asset_id, {})
         original = safe_path(config, asset.get("relativePath"), raw=True)
@@ -164,7 +174,8 @@ def import_library(writer):
         hint = dict(hints.get(str(file), {}))
         hint["manifests"] = sorted(hint.get("manifests", []))
         asset = hint.get("catalog", {})
-        edition = records.get(asset.get("editionId") or hint.get("editionId"), {})
+        edition = records.get(asset.get("editionId"), {})
+        if edition.get('kind')!='edition':edition=records.get(hint.get('editionId'),{})
         work = records.get(edition.get("workId") or hint.get("workId"), {})
         title = work.get("title") or hint.get("title") or file.parent.name
         if title.startswith("asset-"):

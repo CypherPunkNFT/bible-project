@@ -35,13 +35,13 @@
       "scripture"
     ],
     "recording": {
-      "url": "https://www.youtube.com/watch?v=vRTUrvTTRAQ",
+      "url": "https://www.youtube.com/watch?v=MW5_nJYSKyk",
       "label": "Watch on YouTube",
-      "credit": "drcraigvideos",
-      "duration": "1:54:52",
-      "note": "Debate recording on YouTube."
+      "credit": "YouTube recording",
+      "duration": "Not verified",
+      "note": "Recording URL supplied by the site owner on 2026-10-11. Uploader, runtime and full-event coverage have not been independently checked for this replacement."
     },
-    "transcriptCoverage": "Both speakers’ openings, replies, conclusions and audience questions. Recording alignment has not been independently checked."
+    "transcriptCoverage": "Both speakers' opening statements, two rounds of rebuttals, conclusions and audience questions, followed by 13 source footnotes. Original headings and contents are retained. Recording alignment has not been independently checked."
   },
   "reviews": [
     {
@@ -51,6 +51,24 @@
       "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
       "date": "2026-10-11",
       "contentHash": "ffc29fdc9192af3e07b3b51c91c64a95701d6437858a58c1569a6628cbeb0979",
+      "basisHash": "554b5ed61c8900080109d6f188cb59f4d9515dc636b4b15b5c7172a19e7f8375"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-supplied recording URL replacement and page scaffold",
+      "note": "Updated the recording URL to the exact link supplied by the owner on 2026-10-11. Removed runtime and uploader metadata belonging to the replaced recording. Embedded video ID matches the supplied URL. No independent playback, runtime or full-event coverage verification is claimed. Existing documentary summary and doctrinal policy remain unchanged. On-site transcript awaits the owner's supplied text.",
+      "date": "2026-10-11",
+      "contentHash": "d93834acab06f8aadb84d7eb8c683cc15fb60e6a0a0be0c16aa5f3bfea389a60",
+      "basisHash": "554b5ed61c8900080109d6f188cb59f4d9515dc636b4b15b5c7172a19e7f8375"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-supplied transcript preservation, attribution and coverage",
+      "note": "Preserved the owner's original file byte for byte. Indexed both opening statements, two rebuttal rounds, conclusions and audience questions. Retained the source contents separately and all 13 footnotes as source material. Speaker boundaries follow explicit supplied labels. No independent recording alignment or playback verification is claimed.",
+      "date": "2026-10-11",
+      "contentHash": "431cd5df61847a81e4b9ea46737744c9e4c97257112ba6aa2c50ce5ced3013e0",
       "basisHash": "554b5ed61c8900080109d6f188cb59f4d9515dc636b4b15b5c7172a19e7f8375"
     }
   ]

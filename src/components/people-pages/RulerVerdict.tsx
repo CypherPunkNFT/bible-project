@@ -78,7 +78,7 @@ function isShortPassage([from, to]: [number, number]): boolean {
 
 /**
  * Where the tellings of a reign differ, side by side and never merged: Kings (or Samuel) and Chronicles for Israel's
- * kings; the Gospels, Acts and Josephus for the Herods and Rome; Scripture and outside records for other nations.
+ * kings; the Gospels, Acts and outside records for the Herods and Rome; Scripture and outside records for other nations.
  */
 export function TwoAccounts({ ruler }: { ruler: Ruler }) {
   const sourceOf = useSourceOf();

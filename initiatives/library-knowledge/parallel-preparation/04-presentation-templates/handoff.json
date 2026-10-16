@@ -1,0 +1,97 @@
+{
+  "track": "P4",
+  "status": "complete",
+  "scope": "Synthetic presentation preparation only; no production or corpus completion claim",
+  "outputs": [
+    "Website/initiatives/library-knowledge/parallel-preparation/04-presentation-templates/CONTENT-RULES.md",
+    "Website/initiatives/library-knowledge/parallel-preparation/04-presentation-templates/template-contracts.json",
+    "Website/initiatives/library-knowledge/parallel-preparation/04-presentation-templates/verify-gallery.py",
+    "Website/initiatives/library-knowledge/parallel-preparation/04-presentation-templates/gallery/archivo-latin-wght-normal.woff2",
+    "Website/initiatives/library-knowledge/parallel-preparation/04-presentation-templates/gallery/archivo-LICENSE",
+    "Website/initiatives/library-knowledge/parallel-preparation/04-presentation-templates/gallery/fixtures.js",
+    "Website/initiatives/library-knowledge/parallel-preparation/04-presentation-templates/gallery/gallery.css",
+    "Website/initiatives/library-knowledge/parallel-preparation/04-presentation-templates/gallery/gallery.js",
+    "Website/initiatives/library-knowledge/parallel-preparation/04-presentation-templates/gallery/index.html",
+    "Website/initiatives/library-knowledge/parallel-preparation/04-presentation-templates/gallery/literata-latin-wght-normal.woff2",
+    "Website/initiatives/library-knowledge/parallel-preparation/04-presentation-templates/gallery/literata-LICENSE",
+    "KnowledgeBase/library-knowledge/parallel-preparation/04-presentation-templates/verification.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/04-presentation-templates/input-versions.json",
+    "KnowledgeBase/library-knowledge/parallel-preparation/04-presentation-templates/specimens/"
+  ],
+  "inputVersions": {
+    "Website/AGENTS.md": "69a63a2cac2f0c6c77826a760141153147947b23fba62ee71785c6285d09b8f0",
+    "Website/initiatives/library-knowledge/parallel-preparation/README.md": "ae4e49eee51f6314c11fbe49ecad68cc7d79795291abf3b83bfd40215688c35c",
+    "Website/initiatives/library-knowledge/parallel-preparation/04-presentation-templates/PROPOSAL.md": "80df09335062d7bfcdba73087f383a183676d63edcc411cc834623f776701e11",
+    "Website/initiatives/library-knowledge/EVIDENCE-CONTRACT.md": "07a43ede270fcb6297271fa4fb9abc3a7064c24b492afb65e83fd48a63976b61",
+    "Website/initiatives/library-knowledge/PILOT.md": "4376f87c441e659baa08255fbb3f3069878ffbc15609cdfc1073038397f5acf6",
+    "Website/initiatives/library-knowledge/PLAN.md": "a2ac237bc49934196fabcd78ddaca6b6b9fa7fdc0ca508fea170fcf377b9c913",
+    "Website/knowledge/evidence_collections/collection.schema.json": "ef1e719fb473c95145a33cfd958a0a8371ee5fdcbc7e70259f4957bca958bb34",
+    "Website/content/research/citation.schema.json": "f054abf21b4d298200d960007c088ce43acd90efc847fa04445a44aa615ec445",
+    "Website/src/index.css": "191014d4a41f3df1e0c9f8ec0f7a8e458f7397955d63fa64dc1d79e843d9f693",
+    "Website/node_modules/@fontsource-variable/archivo/files/archivo-latin-wght-normal.woff2": "8f704806dbedeaaeca334b11ec348bc3ac3a439d6431544b3afb54f534ee4967",
+    "Website/node_modules/@fontsource-variable/literata/files/literata-latin-wght-normal.woff2": "9adbeac5b167fe5ad6c49d9e29aa0c76e2f1bb3b46bf4ebf12a9eca7d3525384"
+  },
+  "completedCounts": {
+    "templates": 5,
+    "stateVariantsVerified": 32,
+    "distinctFixtureEvidence": 2,
+    "sharedEvidenceConsumers": 5,
+    "screenshots": 11,
+    "printMediaSpecimens": 5
+  },
+  "unresolvedCounts": {
+    "boundedTaskDefects": 0,
+    "productionIntegrationItems": 5,
+    "realSourceEditorialReviewsPerformed": 0,
+    "publicationsAuthorized": 0
+  },
+  "verification": {
+    "variantsPassed": 32,
+    "templates": 5,
+    "sourceBlocks": 6,
+    "sharedEvidenceConsumers": 5,
+    "screenshots": 11,
+    "keyboardChecks": [
+      "native details Enter",
+      "control Tab focus"
+    ],
+    "networkRequests": 0,
+    "pageErrors": [],
+    "changedInputs": [],
+    "print": "Five print-media raster specimens; no paginated PDF produced",
+    "browser": "Installed Microsoft Edge via Playwright; offline file URL",
+    "viewports": [
+      1440,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ]
+  },
+  "integrationNeeds": [
+    "Reconcile P4 blocks with P1 page composition",
+    "Implement reviewed adapter/shared citation component in production",
+    "Join accepted P2/P3/P5 handoffs and revalidate real inputs",
+    "Apply output-specific publication and claim review",
+    "Verify final-content routes, browser cost and paginated print output"
+  ],
+  "requiresFinalSnapshotRecheck": true,
+  "finalSnapshotRecheckScope": "Real evidence introduced by later integration; synthetic gallery has no corpus dependency",
+  "pipelineTouched": false,
+  "limitations": [
+    "Synthetic fixtures only; no theological content or eligibility validation",
+    "Print-media raster specimens, not verified physical-printer pagination",
+    "Keyboard checked in Edge; no screen-reader session performed"
+  ],
+  "artifactHashes": {
+    "gallery/archivo-latin-wght-normal.woff2": "8f704806dbedeaaeca334b11ec348bc3ac3a439d6431544b3afb54f534ee4967",
+    "gallery/archivo-LICENSE": "c3c8402eec0e31dc9a76851235b1c02a0bb821488b2db8e35bcc2ab60ca8fc2b",
+    "gallery/fixtures.js": "5fb4e53af1010466fe5ed9f7584393e346ade8e859dfa377fd22d4d6abdec036",
+    "gallery/gallery.css": "6826f0ed65f1b493ed4dac488905122bfc6faf9eade15daa63b6b8de158652e3",
+    "gallery/gallery.js": "6062188d576a627417907745ceba05e94130086ba97a1edda941a64132f9e445",
+    "gallery/index.html": "b4525b397b4654fdd87ec1f8986c7875b91c0d6403467d0a50fa8127dc1f4608",
+    "gallery/literata-latin-wght-normal.woff2": "9adbeac5b167fe5ad6c49d9e29aa0c76e2f1bb3b46bf4ebf12a9eca7d3525384",
+    "gallery/literata-LICENSE": "9895ebc015226accf416b758ac1ca02a2fb4f83a89d316791ef697c3dc0852aa"
+  }
+}

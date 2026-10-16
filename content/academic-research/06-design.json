@@ -1,0 +1,123 @@
+{
+  "study": 6,
+  "title": "Discoveries & the biblical record",
+  "route": "/study/discoveries-biblical-record",
+  "updated": "2026-10-14",
+  "status": "expanded-local-verified",
+  "concept": "An evidence desk: objects lead to bounded historical questions. Terracotta marks interpretations and supplements; patinated green marks connections and preserved wording. Shared typography, header and transitions retained.",
+  "sequence": [
+    "Six object cases, each with three inspectable details and graded conclusions",
+    "Lachish: four sources compared across three questions",
+    "A destruction date reconsidered; a later architectural correction",
+    "Pilate, Mesha and Tel Dan: restoration, disputed marks and disputed joins",
+    "Cyrus and Ezra: compare authority, action/place and document",
+    "Applied claim checks",
+    "Six scholarly pathways, source register and explicit gaps"
+  ],
+  "strongestInsights": [
+    "Different sources are useful because they answer different questions, not because their number constitutes proof.",
+    "Changing a fragment arrangement can alter a reconstructed narrative without erasing a preserved dynastic name.",
+    "A contextual policy parallel is not a duplicate decree.",
+    "Later excavation can correct an architectural reconstruction without overturning a campaign date."
+  ],
+  "interactions": [
+    "Eighteen close-reading annotations across six shareable object states",
+    "Three evidence disclosures and provenance per object",
+    "Sixteen combinations of four campaign sources, evaluated against three historical questions",
+    "Four source inspections",
+    "Preserved/restored Pilate lettering",
+    "Three paired Mesha disagreements with both arguments visible",
+    "Tel Dan textual relationship diagram with proposed link separated from preserved words",
+    "Three Cyrus comparisons",
+    "Three claim checks with feedback and restart"
+  ],
+  "visualizations": [
+    "Categorical evidence matrix; no probability scores",
+    "Original schematic ramp/counter-ramp section, no measured geometry or construction totals",
+    "Tel Dan textual relationship diagram, not a facsimile or proposed physical join"
+  ],
+  "accessibility": [
+    "Native buttons, details and links",
+    "Pressed/expanded states and visible focus",
+    "Polite live updates",
+    "Distinct React keys preserve exactly one close reading on selection",
+    "Responsive table confined to a labeled, keyboard-focusable horizontal scrolling region",
+    "Reduced-motion override",
+    "All source links identify new-tab behavior"
+  ],
+  "assets": "Original SVG and textual diagrams only. Actual epigraphic images linked through source records; no reproduction rights assumed.",
+  "research": "33 source records with access limits; claim-level source IDs in durable dossier. Includes original excavation sections, critical-edition extracts and research through 2025. Does not claim exhaustive coverage or full reading of inaccessible works.",
+  "releaseSource": ".local/release-atlas-loop; only this study’s five source files and two research/design files mirrored.",
+  "deployment": "None. Existing preview at http://127.0.0.1:8931 only.",
+  "validation": {
+    "date": "2026-10-14",
+    "build": "node scripts/build-portable.mjs --preserve-output",
+    "typecheck": "Full tsconfig.app.json --noEmit passes; focused study check passes.",
+    "editorial": "Josephus-only-in-Scholars source policy passes.",
+    "browser": {
+      "date": "2026-10-14",
+      "passed": [
+        "Academic category card and standard entry transition",
+        "Six records, eighteen close readings, evidence disclosures, provenance, query reload and keyboard focus",
+        "All sixteen source combinations across three historical questions; four source inspections",
+        "Pilate lettering toggle; three Mesha disagreements; both Tel Dan arrangements; three Cyrus comparisons",
+        "Quiz feedback and restart, expanded source register and explicit research gaps",
+        "320–1440px layouts, mobile table scrolling, light/dark screenshots, reduced motion, return transition and Bible reader"
+      ],
+      "errors": [],
+      "failed": []
+    },
+    "visualReview": "Desktop hero, evidence matrix, archaeological sequence and schematic section, Mesha debate and fragment workshop; 390px mobile opening and close reading; light/dark and expanded states inspected.",
+    "previousBugFixed": "Duplicate sibling React keys could retain a stale close reading when selecting the next object; separated keys and regression checked."
+  },
+  "previousVersion": {
+    "updated": "2026-10-13",
+    "status": "local-verified",
+    "concept": "A field guide to evidence: terracotta and patinated green, ruled records and object silhouettes. The argument, not the object's fame, is the centre of the gallery."
+  },
+  "approvedImplementation": {
+    "date": "2026-10-14",
+    "status": "implemented-local-verified",
+    "authorization": "User: Implement the design and put it up on local.",
+    "concept": "Two places, one siege. Stable contexts and changing questions reveal what each source can contribute.",
+    "proposal": "06-discoveries-biblical-record/design.md",
+    "preserved": "All six objects, eighteen close readings, claim boundaries, disputes, Cyrus comparisons, exercises, scholarly paths and research limits.",
+    "changes": [
+      "Campaign comparison moves into opening",
+      "Original schematic palace display and siege section",
+      "Connected research sequence, explicitly not a scaled timeline",
+      "Six-object select replaces six repeated tiles",
+      "Claim boundaries remain visible",
+      "Reading choices persist in URL without scroll resets"
+    ],
+    "inspiration": [
+      "Preachers: overview and readable marks",
+      "Scholars: labelled connections between research stages",
+      "Atlas: stable scene and source detail with return",
+      "Theological studies: passage-linked comparison"
+    ],
+    "validation": {
+      "typecheck": "tsconfig.app.json --noEmit passed",
+      "build": "node scripts/build-portable.mjs --preserve-output passed",
+      "editorial": "Passed in build",
+      "browser": {
+        "date": "2026-10-14",
+        "checks": [
+          "History category card, standard page transition and fixed header",
+          "Three questions, twelve contributions, keyboard activation, no selection scroll",
+          "Four source records, close and focus restoration",
+          "Six discoveries, eighteen close readings, all claim boundaries and provenance",
+          "Pilate, Mesha, Tel Dan and Cyrus controls; selections persist on reload",
+          "Bible reader link and Back preserve chosen discovery",
+          "All claim exercises, source register and seven explicit research gaps",
+          "No horizontal overflow at 320–1440px, including expanded sources",
+          "Light/dark screenshots and reduced motion",
+          "Invalid query values safely fall back"
+        ],
+        "errors": [],
+        "failed": []
+      }
+    },
+    "deployment": "Local preview only, no public deployment"
+  }
+}

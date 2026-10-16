@@ -1,0 +1,5 @@
+/* Use the exact selected Worldviews keyframes and timing on this route pair. */
+html[data-memory-page-slide] #main {
+  view-transition-name: ap-section-page;
+  background: var(--page);
+}

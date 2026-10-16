@@ -43,3 +43,7 @@ __pycache__/
 # Private acquisition working ledgers and generated browser output
 /content/library/reports/**/private-catalog.jsonl
 /.output/
+
+# Temporary local build configurations; maintained project config is vite.config.ts.
+/.vite-*.config.ts
+/.vitest-*.config.ts

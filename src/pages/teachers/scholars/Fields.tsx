@@ -1,16 +1,14 @@
 ﻿// Subject discovery generated from the complete packaged library, with paged shelves.
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import { ArrowRight, Search } from "lucide-react";
 import type { Field } from "@/data/teachers/pages-types";
-import libraryUrl from "../../../../content/teachers/field-shelves.json?url";
 import featured from "../../../../content/teachers/field-featured.json";
 import { SectionHead } from "../shared/Frame";
-import { getAcquired } from "../shared/acquired";
 import { faithOf, toneOf, yearsOf } from "./built/labels";
 import { Mark } from "./marks/Mark";
 import { useScholars } from "./context";
 import { FieldWorks } from "./FieldWorks";
-import { FIELD_COLLECTIONS, type FieldEntry, type FieldLibrary } from "./field-library";
+import { FIELD_COLLECTIONS, type FieldEntry } from "./field-library";
 import "./Fields.css";
 
 const SIZE = 40;
@@ -23,17 +21,12 @@ const descriptions: Record<Field, string> = {
 };
 
 export function Fields() {
-  const { data, openProfile, filterCatalogue } = useScholars();
-  const [library, setLibrary] = useState<FieldLibrary | null>(null), [error, setError] = useState("");
+  const { data, library:populationPeople, population, libraryError:error, openProfile, filterCatalogue } = useScholars();
+  const library=useMemo(()=>populationPeople?{entries:populationPeople,coverage:{scannedRecords:population?.summary.recordRepresentations??0,withoutSubjectMatch:populationPeople.filter(p=>!Object.keys(p.fields).length).length,collections:Object.fromEntries(FIELD_COLLECTIONS.map(([id])=>[id,populationPeople.filter(p=>p.collections.includes(id)).length]))}}:null,[populationPeople,population]);
   const [choice, setChoice] = useState<{ key: Field; open: boolean }>({ key: "theology", open: true });
   const [query, setQuery] = useState(""), [collection, setCollection] = useState("");
   const [page, setPage] = useState(0), [expanded, setExpanded] = useState<string | null>(null);
   const [sort, setSort] = useState("featured");
-  useEffect(() => {
-    const abort = new AbortController();
-    getAcquired<FieldLibrary>(libraryUrl, abort.signal).then(setLibrary).catch(e => { if (!abort.signal.aborted) setError(e.message); });
-    return () => abort.abort();
-  }, []);
   const groups = useMemo(() => (Object.entries(data.fields) as [Field, string][]).map(([key, label]) => {
     const people = (library?.entries ?? []).filter(p => p.fields[key]);
     // Editorial introductions are independent of record volume and shelf sorting.

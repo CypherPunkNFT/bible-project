@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-14",
+  "scope": "Isolated file URL prototype in Microsoft Edge; no application build or route changes",
+  "checks": [
+    {
+      "name": "two manuscript vowels change",
+      "pass": true
+    },
+    {
+      "name": "edition remains omicron",
+      "pass": true
+    },
+    {
+      "name": "evidence opens",
+      "pass": true
+    },
+    {
+      "name": "Escape closes and returns focus",
+      "pass": true
+    },
+    {
+      "name": "Enter opens evidence",
+      "pass": true
+    },
+    {
+      "name": "close button collapses",
+      "pass": true
+    },
+    {
+      "name": "same witness retracts",
+      "pass": true
+    },
+    {
+      "name": "restoration retains brackets",
+      "pass": true
+    },
+    {
+      "name": "query state survives reload",
+      "pass": true
+    },
+    {
+      "name": "Space switches state",
+      "pass": true
+    },
+    {
+      "name": "P45 selection explains no evidence",
+      "pass": true
+    },
+    {
+      "name": "coverage choice survives reload",
+      "pass": true
+    },
+    {
+      "name": "coverage selection works with keyboard",
+      "pass": true
+    },
+    {
+      "name": "no horizontal overflow 1440",
+      "pass": true
+    },
+    {
+      "name": "no horizontal overflow 1024",
+      "pass": true
+    },
+    {
+      "name": "no horizontal overflow 390",
+      "pass": true
+    },
+    {
+      "name": "no horizontal overflow 320",
+      "pass": true
+    },
+    {
+      "name": "reduced motion disables entry",
+      "pass": true
+    },
+    {
+      "name": "no JavaScript errors",
+      "pass": true
+    },
+    {
+      "name": "local design link resolves",
+      "pass": true
+    },
+    {
+      "name": "no placeholder links",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "No screen-reader session",
+    "No integration or route-transition validation",
+    "External evidence links retained from existing verified dossier; not all re-fetched during this design pass"
+  ]
+}

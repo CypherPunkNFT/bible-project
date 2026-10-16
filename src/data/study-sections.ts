@@ -1,6 +1,6 @@
 import type { StudyCollectionId } from "./study-collections";
 
-export type StudyIllustration = "arcs" | "matrix" | "sections" | "sizes" | "chapters" | "teaching" | "speech" | "harmony" | "portraits" | "timeline" | "coverage" | "people" | "everyone" | "prophets" | "rulers" | "apostles" | "places" | "miracles" | "letters" | "names";
+export type StudyIllustration = "arcs" | "matrix" | "sections" | "sizes" | "chapters" | "teaching" | "speech" | "harmony" | "portraits" | "timeline" | "coverage" | "people" | "everyone" | "prophets" | "rulers" | "apostles" | "places" | "miracles" | "letters" | "names" | "memory";
 export type StudySection = {
   id: string;
   title: string;

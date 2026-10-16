@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import data from "@/data/teachers/scholars.json";
+import previewIds from "./scholar-preview.json";
 import type { ScholarsData } from "@/data/teachers/pages-types";
 import { buildSky } from "@/pages/teachers/scholars/landing/layout";
 import { fieldShape, initials, FIELD_TONE, type ShapeGeometry } from "@/pages/teachers/scholars/marks/shapes";
@@ -7,10 +8,12 @@ import { WRITERS } from "./writers";
 import { WriterArt } from "./Artwork";
 import { Icon, StudyLink } from "./shared";
 const catalogue = data as unknown as ScholarsData;
-const sky = buildSky(catalogue, "wide");
+// Keep the original invitation composition as the full catalogue grows.
+const previewSet = new Set(previewIds);
+const sky = buildSky({ ...catalogue, scholars: catalogue.scholars.filter(s => previewSet.has(s.id)) }, "wide");
 const fieldOffset = (field: string) => field === 'texts' ? [-28, 0] : field === 'theology' ? [26, -38] : [0, 0];
 const fields = [
-    { id: 'history', label: 'History', names: 'Josephus · Tacitus · Eusebius' },
+    { id: 'history', label: 'History', names: 'Tacitus · Eusebius' },
     { id: 'texts', label: 'Languages', names: 'Westcott · Lightfoot · A. T. Robertson' },
     { id: 'places', label: 'Archaeology', names: 'Ramsay · Robinson · Albright' },
     { id: 'reference', label: 'Reference', names: 'Strong · Easton · Torrey' },

@@ -9,6 +9,7 @@ import { useScholars } from "./context";
 import { buildGroups, type Mode } from "./directory/groups";
 import { Groups } from "./directory/Rows";
 import "./Directory.css";
+import { Numbers } from "./Numbers";
 
 const EASE = "cubic-bezier(.16, 1, .3, 1)", MOVE_MS = 600;
 interface Before { rects: Map<string, DOMRect>; height: number }
@@ -53,12 +54,14 @@ export function Directory() {
 
   const onListClick = (event: SyntheticEvent) => {
     const hit = (event.target as Element).closest<HTMLElement>("[data-scholar]");
-    if (hit?.dataset.scholar) { const person=library?.find(p=>p.id===hit.dataset.scholar); if(person?.scholar) openProfile(person.scholar.id,hit); else if(person) filterCatalogue({q:person.name.toLocaleLowerCase()}); }
+    if (hit?.dataset.scholar) { const person=library?.find(p=>p.id===hit.dataset.scholar); if(person?.scholar) openProfile(person.scholar.id,hit); else if(person) filterCatalogue({q:person.id}); }
   };
 
   return <>
-    <SectionHead section="directory" kicker="Contributor directory" title={<>{library?.length.toLocaleString() ?? "?"} recorded <em>contributors</em></>}
-      line="Every catalogue entry, grouped by reviewed era or recorded name. Unknown dates have their own group. Open a biography where available, or find held works in catalogue 01." />
+    <SectionHead section="directory" kicker="The library" title={<>{library?.length.toLocaleString() ?? "?"} <em>contributors</em></>}
+      line="Explore the full catalogue by field, age, faith or source use, then browse recorded names below. Counts describe contributor entries, not a verified total of unique people. Select a count to filter catalogue 01." />
+    <Numbers />
+    <header className="scholar-subhead"><h3>Browse contributors</h3><p>Group by reviewed era or recorded name. Unknown dates remain separate. Open a documented profile or find associated works in the catalogue.</p></header>
     <div className="dir-tools">
       <ul className="dir-key">
         <li><span className="dir-use dir-use-in-use" />A live feature on this site uses their work</li>
@@ -70,8 +73,9 @@ export function Directory() {
         <button type="button" aria-pressed={mode === "az"} onClick={() => choose("az")}>A to Z</button>
       </div>
     </div>
-    <div ref={frameRef} className="dir-frame" role="region" aria-label="Contributor directory" tabIndex={0} onScroll={e=>{const el=e.currentTarget;if(el.scrollTop>=(el.scrollHeight-el.clientHeight)*.4)setLimit(n=>Math.min(n+96,library?.length??0));}}>
+    <div ref={frameRef} className="dir-frame slim-scroll" role="region" aria-label="Contributor directory" tabIndex={0} onScroll={e=>{const el=e.currentTarget;if(el.scrollTop>=(el.scrollHeight-el.clientHeight)*.4)setLimit(n=>Math.min(n+96,library?.length??0));}}>
       <div ref={listRef} className="dir-list" onClick={onListClick}><Groups data={data} groups={groups[mode]} mode={mode} limit={limit} /></div>
     </div>
+    {library&&limit<library.length&&<button type="button" className="pop-load" onClick={()=>setLimit(n=>Math.min(n+192,library.length))}>Show more directory entries ({Math.min(limit,library.length).toLocaleString()} of {library.length.toLocaleString()})</button>}
   </>;
 }

@@ -1,20 +1,11 @@
 /* 02 · Built on their work (mock-up: built.css): the ribbon diagram (desktop) and its stacked form (phone). */
 .tp-scholars :where(.tp-sec-built button) { padding: 0; border: 0; background: none; text-align: left; font: inherit; color: inherit; cursor: pointer; }
 
-.tp-scholars .blt-card { position: relative; padding: 1.1rem 1.4rem 1.2rem; border: 1px solid var(--line); border-radius: 1.5rem;
+.tp-scholars .blt-card { position: relative; isolation: isolate; padding: 1.1rem 0 1.2rem; }
+.tp-scholars .blt-card::before { content: ""; position: absolute; z-index: -1; inset: 0 18px 0 0; pointer-events: none; border: 1px solid var(--line); border-radius: 1.5rem;
   background: radial-gradient(ellipse 50% 70% at 8% 0%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%),
     radial-gradient(ellipse 40% 60% at 96% 100%, color-mix(in srgb, var(--prophets) 7%, transparent), transparent 70%), var(--surface);
   box-shadow: 0 30px 60px -48px rgb(0 0 0 / 45%); }
-
-/* Caption: a fixed two-line bar, so hovering never moves the page. */
-.tp-scholars .blt-cap { display: flex; gap: .7rem; align-items: flex-start; height: 3.3rem; overflow: hidden; padding-bottom: .8rem; border-bottom: 1px solid var(--line); }
-.tp-scholars .blt-cap-dot { flex: none; width: 7px; height: 7px; margin-top: .45rem; border-radius: 50%; background: var(--cap-tone, var(--accent));
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--cap-tone, var(--accent)) 18%, transparent); transition: background .2s, box-shadow .2s; }
-.tp-scholars .blt-cap-text { min-width: 0; margin: 0; overflow: hidden; font-size: .92rem; line-height: 1.45; white-space: nowrap; text-overflow: ellipsis; }
-.tp-scholars .blt-cap-text b { font: 500 1rem var(--serif); }
-.tp-scholars .blt-cap-hint { color: var(--muted); font-size: .84rem; }
-.tp-scholars .blt-arrow { color: var(--cap-tone, var(--accent)); font-weight: 600; }
-.tp-scholars .blt-cap-note { display: block; overflow: hidden; margin-top: .1rem; font-size: .78rem; color: var(--muted); white-space: nowrap; text-overflow: ellipsis; }
 
 /* ── Desktop stage ───────────────────────────────────────────────────────── */
 .tp-scholars .blt-stage { position: relative; margin-top: .4rem; }
@@ -65,21 +56,15 @@
 .tp-scholars .blt-dim :is(.blt-feat, .blt-work, .blt-sch):not(.blt-on) { opacity: .32; }
 .tp-scholars .blt-dim .blt-work.blt-on i { background: var(--ink); }
 
-.tp-scholars .blt-legend { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 1rem 0 0; padding: .8rem 0 0; border-top: 1px solid var(--line); list-style: none; font-size: .74rem; color: var(--muted); }
-.tp-scholars .blt-legend li { display: inline-flex; gap: .5rem; align-items: center; }
-.tp-scholars .blt-legend li:last-child { margin-left: auto; }
-.tp-scholars .blt-legend i { width: 22px; height: 7px; border-radius: 2px; }
-.tp-scholars .blt-key-live { background: linear-gradient(90deg, var(--poetry), var(--acts), var(--gospels), var(--epistles)); opacity: .7; }
-.tp-scholars .blt-key-planned { background: repeating-linear-gradient(90deg, var(--muted) 0 3px, transparent 3px 6px); opacity: .6; }
 
 /* ── Phone: one list per feature, each book branching off the feature's rail ── */
 .tp-scholars .blt-stack { display: none; }
 @media (max-width: 760px) {
-  .tp-scholars .blt-card { padding: 1rem 1rem 1.1rem; border-radius: 1.1rem; }
+  .tp-scholars .blt-card { padding: 1rem 0 1.1rem; }
+  .tp-scholars .blt-card::before { border-radius: 1.1rem; }
+  .tp-scholars .blt-scroll { display: none; }
   .tp-scholars .blt-stage { display: none; }
-  .tp-scholars .blt-cap { display: none; }
   .tp-scholars .blt-stack { display: grid; gap: 1.3rem; }
-  .tp-scholars .blt-legend li:last-child { margin-left: 0; }
 }
 .tp-scholars .blt-st-group { transition: opacity .5s, transform .6s cubic-bezier(.16, 1, .3, 1); }
 .tp-scholars .blt-card:not(.blt-in) .blt-st-group { opacity: 0; transform: translateY(10px); }
@@ -107,7 +92,64 @@
 }
 
 /* The same ribbon stage, bounded so the complete source index can be explored. */
-.tp-scholars .blt-scroll { max-height: 70vh; overflow: auto; }
+.tp-scholars .blt-scroll { height: var(--blt-window-height,653px); max-height: none; overflow: auto; }
 .tp-scholars .blt-stack { max-height: 70vh; overflow-y: auto; }
 .tp-scholars .blt-work { color: var(--ink); text-decoration: none; }
 .tp-scholars .blt-st-group a { display: block; width: 100%; color: inherit; text-decoration: none; }
+
+/* The surface ends 18px before the outer scroll rail. */
+.tp-scholars :is(.blt-scroll, .blt-stack) { min-width: 0; max-width: 100%; padding-inline: 1.4rem calc(1.4rem + 12px); scrollbar-gutter: stable; }
+.tp-scholars .blt-tabs{display:flex;gap:1.4rem;overflow-x:auto;margin:0 calc(1.4rem + 18px) .75rem 1.4rem;border-bottom:1px solid var(--line);scrollbar-width:none}
+.tp-scholars .blt-tabs button{display:inline-flex;align-items:center;gap:.4rem;flex:none;padding:.35rem 0 .65rem;border-bottom:2px solid transparent;color:var(--muted);font-size:.76rem;white-space:nowrap}
+.tp-scholars .blt-tabs button[aria-selected=true]{border-bottom-color:var(--accent);color:var(--ink)}
+.tp-scholars .blt-tabs button:focus-visible{outline:1px solid var(--accent);outline-offset:-1px}
+.tp-scholars .blt-tabs small{font-size:.6rem;color:var(--muted)}
+@media(max-width:760px){.tp-scholars .blt-tabs{gap:1rem}.tp-scholars .blt-tabs button{font-size:.72rem}}
+
+/* A denser source desk: approximately 15–20% smaller type and rows. */
+.tp-scholars .blt-rib{stroke-width:9}
+.tp-scholars .blt-feat b{font-size:.9rem}
+.tp-scholars .blt-feat small{font-size:.6rem}
+.tp-scholars .blt-work{column-gap:10px}
+.tp-scholars .blt-work span{font-size:.78rem}
+.tp-scholars .blt-work small{font-size:.59rem;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.tp-scholars .blt-sch{gap:.5rem}
+.tp-scholars .blt-sch b{font-size:.76rem}
+.tp-scholars .blt-sch small{font-size:.59rem}
+.tp-scholars .blt-tabs{gap:1.2rem;flex-wrap:wrap}
+.tp-scholars .blt-controls{display:flex;gap:.8rem;align-items:center;margin:0 calc(1.4rem + 18px) .65rem 1.4rem;flex-wrap:wrap}
+.tp-scholars .blt-controls p{margin-right:auto;color:var(--muted);font-size:.68rem}
+.tp-scholars .blt-controls p b{color:var(--ink)}
+.tp-scholars .blt-controls input{width:17rem;max-width:100%;padding:.45rem .7rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.72rem;color:var(--ink)}
+.tp-scholars .blt-controls .blt-more{padding:.4rem .65rem;border:1px solid var(--line);border-radius:999px;color:var(--accent);font-size:.68rem}
+.tp-scholars .blt-empty{position:absolute;top:3rem;left:0;color:var(--muted);font-size:.8rem}
+.tp-scholars .blt-caption{margin-top:.6rem;display:flex;gap:.6rem;flex-wrap:wrap;font-size:.7rem;color:var(--muted)}
+.tp-scholars .blt-caption a{color:var(--accent);margin-left:auto}
+.tp-scholars .blt-st-group h3{font-size:.96rem}
+.tp-scholars .blt-st-work{font-size:.8rem}
+.tp-scholars .blt-st-who b{font-size:.72rem}
+.tp-scholars .blt-st-who small{font-size:.61rem}
+.tp-scholars .blt-source-panel{inset:0 0 0 auto;margin:0;width:min(36rem,100%);max-width:100%;height:100dvh;max-height:none;overflow:auto;padding:1.5rem 1.6rem;border:0;border-left:1px solid var(--line);background:var(--page);color:var(--ink);box-shadow:-20px 0 60px #0004}
+.tp-scholars .blt-source-panel::backdrop{background:#0008}
+.tp-scholars .blt-source-panel header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+.tp-scholars .blt-source-panel header button{padding:.4rem;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--muted)}
+.tp-scholars .blt-source-panel h2{font:500 1.8rem/1.3 var(--serif)}
+.tp-scholars .blt-source-intro{font-size:.78rem;line-height:1.7;color:var(--muted);margin:.7rem 0 1.5rem}
+.tp-scholars .blt-source-panel article{border-top:1px solid var(--line);padding:1.3rem 0}
+.tp-scholars .blt-source-kind{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.tp-scholars .blt-source-panel h3{font:500 1.15rem/1.5 var(--serif);margin:.4rem 0}
+.tp-scholars .blt-source-panel a{display:inline-flex;gap:.35rem;align-items:center;font-size:.76rem;color:var(--accent)}
+.tp-scholars .blt-source-panel article>p{font-size:.72rem;color:var(--muted);margin-bottom:.6rem}
+.tp-scholars .blt-source-panel h4{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;margin:1.3rem 0 .7rem;color:var(--muted)}
+.tp-scholars .blt-source-panel ul{list-style:none;padding:0;margin:0}
+.tp-scholars .blt-source-panel li{padding:.6rem 0;border-top:1px solid var(--line)}
+.tp-scholars .blt-source-panel li p{font-size:.74rem;line-height:1.7;margin:.35rem 0;color:var(--muted)}
+.tp-scholars .blt-source-more{padding:.5rem .8rem;border:1px solid var(--line);border-radius:999px;font-size:.75rem}
+@media(max-width:760px){.tp-scholars .blt-tabs{flex-wrap:nowrap}.tp-scholars .blt-controls label{flex:1 1 100%;min-width:0}.tp-scholars .blt-controls p{width:100%}.tp-scholars .blt-controls input{width:100%}.tp-scholars .blt-controls{gap:.5rem}.tp-scholars .blt-caption a{margin-left:0}}
+
+/* Chromium's standard scrollbar properties override the arrow-free pseudo styling. */
+@supports selector(::-webkit-scrollbar) {
+  .tp-scholars .slim-scroll:is(.cat-scroll, .blt-scroll, .blt-stack) { scrollbar-width: auto; scrollbar-color: auto; }
+  .tp-scholars .slim-scroll:is(.cat-scroll, .blt-scroll, .blt-stack)::-webkit-scrollbar { width: 6px; height: 6px; }
+  .tp-scholars .slim-scroll:is(.cat-scroll, .blt-scroll, .blt-stack)::-webkit-scrollbar-button { display: none; width: 0; height: 0; background: transparent; }
+}

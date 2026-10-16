@@ -9,3 +9,24 @@
 .tp-scholars .lnd-jump{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.2rem}
 .tp-scholars .lnd-jump a{display:inline-flex;gap:.5rem;padding:.4rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.78rem}
 .tp-scholars .lnd-jump b{font:italic 500 .8rem var(--serif);color:var(--accent)}
+.tp-scholars .lnd-section-nav{width:var(--teacher-search-width,28rem);max-width:none;margin-top:1.2rem}
+.tp-scholars .lnd-copy .lnd-jump{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem;margin-top:0}
+.tp-scholars .lnd-copy .lnd-jump a{justify-content:space-between;align-items:center;height:2.355rem;min-height:0;padding:.5rem .95rem;font-size:.78rem}
+.tp-scholars .lnd .teacher-landing-header .lnd-tools{align-items:center}
+.tp-scholars .teacher-landing-header .lnd-figs p{line-height:1.5}
+.tp-scholars .teacher-landing-header .lnd-figs>div{container-type:inline-size}
+.tp-scholars .teacher-landing-header .lnd-figs dt{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@container(min-width:106px){.tp-scholars .teacher-landing-header .lnd-figs p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+@media(max-width:560px){
+ .tp-scholars .teacher-landing-header .lnd-lead{min-height:7em}
+ .tp-scholars .lnd-copy .lnd-jump a{height:calc(2.07rem + 2px);padding:.45rem .8rem}
+}
+@media(max-width:360px){.tp-scholars .teacher-landing-header .lnd-lead{min-height:8.75em}}
+.tp-scholars .teacher-landing-header :is(.lnd-copy,.lnd-tools,.lnd-full-search){min-width:0}
+@media(max-width:900px){.tp-scholars .lnd-section-nav{max-width:100%}}
+.tp-scholars .lnd-jump a>span{display:flex;align-items:center;gap:.5rem;min-width:0}
+.tp-scholars .lnd-jump a>svg{flex:none;color:var(--muted)}
+.tp-scholars .lnd-jump-extra{display:flex;flex-wrap:wrap;gap:.4rem 1.15rem;margin-top:.75rem}
+.tp-scholars .lnd-jump-extra a{display:inline-flex;gap:.4rem;align-items:center;font-size:.69rem;color:var(--muted)}
+.tp-scholars .lnd-jump-extra b{font:italic 500 .75rem var(--serif);color:var(--accent)}
+@media(max-width:400px){.tp-scholars .lnd-copy .lnd-jump a{padding:.45rem .6rem;font-size:.7rem}.tp-scholars .lnd-jump a>span{gap:.3rem}}

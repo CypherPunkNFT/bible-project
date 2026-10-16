@@ -1,0 +1,32 @@
+{
+  "study": "From manuscript to printed Bible",
+  "programme": "academic-research",
+  "order": 5,
+  "updated": "2026-10-14",
+  "status": "implemented-and-verified-local",
+  "design": "design.md",
+  "artifact": "prototype/index.html",
+  "verification": "prototype/verification.json",
+  "completed": [
+    "Current study, investigations, research and earlier design inspected",
+    "Five reference page openings visually inspected in Edge and relevant source components inspected",
+    "Three visual approaches considered; proof sheet with living margins selected",
+    "Complete content-to-design map and interaction specifications saved",
+    "Working primary-page inspection, revision comparison and Hebrew source diagram built in isolation",
+    "47 browser checks passed; desktop, selected, expanded and mobile screenshots inspected"
+  ],
+  "notCompleted": [
+    "Screen-reader session",
+    "Research gaps retained in original dossier",
+    "Public deployment (not requested)"
+  ],
+  "scope": "Owner approved implementation after isolated design review. Current source and focused release source updated; current working build serves port 8931. Other study queues unchanged.",
+  "implementation": {
+    "route": "/study/from-manuscript-to-printed-bible",
+    "approved": "2026-10-14",
+    "verification": "implementation-verification.json",
+    "browserChecks": 96,
+    "releaseSourceMirrored": true,
+    "publicDeployment": false
+  }
+}

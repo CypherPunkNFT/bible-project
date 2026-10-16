@@ -19,6 +19,20 @@
       const base = data.stagger ? .2 + ((k * data.stagger) % 1) * .6 : .5;
       list.forEach((n, i) => { const a = (-90 + 9 + (342 * (i + base)) / list.length) * Math.PI / 180; n.x = C + Math.cos(a) * ring.r; n.y = C + Math.sin(a) * ring.r; n.angle = a; n.tone = toneOf(data, n); });
     });
+    const bottomAnchor = data.nodes.find(n => n.id === 'aaron-exo-4-14');
+    if (bottomAnchor) {
+      const rotation = Math.PI / 2 - bottomAnchor.angle;
+      rings.forEach(ring => { ring.labelX = C + Math.sin(rotation) * ring.r; ring.labelY = C - Math.cos(rotation) * ring.r + 4; });
+      data.nodes.forEach(n => {
+        const radius = Math.hypot(n.x - C, n.y - C);
+        n.angle += rotation;
+        n.x = C + Math.cos(n.angle) * radius;
+        n.y = C + Math.sin(n.angle) * radius;
+      });
+    }
+    data.nodes.filter(n => n.id === 'who:god' || n.label === 'God').forEach(n => {
+      n.mark = 'omega'; n.x = C; n.y = C - (rings.find(r => r.key === 'family')?.r ?? 165) * .65; n.angle = -Math.PI / 2;
+    });
     data.nodes.forEach((n) => { byId[n.id] = n; });
     data.nodes.forEach((n) => { n.linked = (n.links ?? []).map((id) => byId[id]).filter(Boolean); });
     return { rings, byId };
@@ -26,6 +40,7 @@
 
   const mark = (n) => {
     const m = n.mark ?? "dot";
+    if (m === "omega") return '<circle class="cs-dot cs-god-dot" r="18"/><text class="cs-god-omega" y="8">&#937;</text>';
     if (m === "diamond") return `<rect class="cs-dot" x="-6" y="-6" width="12" height="12" rx="2" transform="rotate(45)"/>`;
     const r = m === "numeral" ? 11 : m === "initial" ? 9 : 6;
     const text = m === "numeral" ? `<text class="cs-ico" y="5">${esc(n.numeral ?? "")}</text>` : m === "initial" ? `<text class="cs-ico" y="4">${esc(n.label[0])}</text>` : "";
@@ -39,17 +54,17 @@
       return `<svg class="cs-svg ${cls}" viewBox="0 0 1000 1000" role="group" aria-label="${esc(label)}">
         <defs><radialGradient id="cs-core-${cls || "x"}"><stop offset="0" class="cs-core1"/><stop offset="1" class="cs-core2"/></radialGradient></defs>
         <circle cx="${C}" cy="${C}" r="490" fill="url(#cs-core-${cls || "x"})"/>
-        ${rings.map((r) => `<circle class="cs-ring" data-ring="${r.key}" cx="${C}" cy="${C}" r="${r.r}" pathLength="1"/><text class="cs-ringlabel" x="${C}" y="${C - r.r + 4}">${esc(r.label)}</text>`).join("")}
+        ${rings.map((r) => `<circle class="cs-ring" data-ring="${r.key}" cx="${C}" cy="${C}" r="${r.r}" pathLength="1"/><text class="cs-ringlabel" x="${r.labelX ?? C}" y="${r.labelY ?? (C - r.r + 4)}">${esc(r.label)}</text>`).join("")}
         <g class="cs-spokes">${data.nodes.map((n) => `<line data-for="${n.id}" x1="${C}" y1="${C}" x2="${n.x.toFixed(1)}" y2="${n.y.toFixed(1)}"/>`).join("")}</g>
         <g class="cs-links"></g>
         <g class="cs-nodes">${data.nodes.map((n) => `<g class="cs-node is-${n.ring} m-${n.mark ?? "dot"} ${n.mark === "numeral" ? "is-big" : ""}" data-node="${esc(n.id)}" data-type="${n.ring}" data-group="${n.group}" style="--tone:${n.tone}" transform="translate(${n.x.toFixed(1)} ${n.y.toFixed(1)})" tabindex="0" role="button" aria-label="${esc(n.label)}">
-          <circle class="cs-halo" r="${n.mark === "numeral" ? 22 : 14}"/>${mark(n)}
-          <text class="cs-label" text-anchor="${Math.cos(n.angle) < -.2 ? "end" : Math.cos(n.angle) > .2 ? "start" : "middle"}" x="${(Math.cos(n.angle) * (n.mark === "numeral" ? 18 : 14)).toFixed(1)}" y="${(Math.sin(n.angle) * (n.mark === "numeral" ? 22 : 16) + 4).toFixed(1)}">${esc(short(n.short ?? n.label))}</text></g>`).join("")}</g>
+          <circle class="cs-halo" r="${n.mark === "omega" ? 30 : n.mark === "numeral" ? 22 : 14}"/>${mark(n)}
+          <text class="cs-label" text-anchor="${Math.cos(n.angle) < -.2 ? "end" : Math.cos(n.angle) > .2 ? "start" : "middle"}" x="${(Math.cos(n.angle) * (n.mark === "numeral" ? 18 : 14)).toFixed(1)}" y="${n.mark === "omega" ? -28 : (Math.sin(n.angle) * (n.mark === "numeral" ? 22 : 16) + 4).toFixed(1)}">${esc(short(n.short ?? n.label))}</text></g>`).join("")}</g>
         <g class="cs-core" data-node="core"><circle r="62" class="cs-core-halo" cx="${C}" cy="${C}"/><circle r="46" cx="${C}" cy="${C}"/><text x="${C}" y="${C + 8}">${esc(data.center)}</text></g>
       </svg>`;
     },
     legend(data, { marks = {} } = {}) {
-      return `<ul class="cs-legend">${data.rings.map((r) => `<li class="is-${r.key} m-${marks[r.key] ?? "dot"}"><i></i>${esc(r.label)}</li>`).join("")}<li class="cs-legend-acts">${data.groups.filter((g) => data.nodes.some((n) => n.group === g.key)).map((g) => `<span style="--tone:${toneOf(data, { group: g.key })}">${esc(g.label)}</span>`).join("")}</li></ul>`;
+      return `<ul class="cs-legend">${data.rings.map((r) => `<li class="is-${r.key} m-${marks[r.key] ?? "dot"}"><i></i>${esc(r.label)}</li>`).join("")}<li class="cs-legend-acts">${data.groups.filter((g) => data.nodes.some((n) => n.group === g.key)).map((g) => `<span style="--tone:${toneOf(data, { group: g.key })}"><i aria-hidden="true"></i>${esc(g.label)}</span>`).join("")}</li></ul>`;
     },
     // Wires a drawn field: choosing, links, the bloom, filters by ring and by group, and labels kept inside the field.
     wire(svg, data, { panel, panelHtml, coreHtml, afterSelect, onSelect, scrollPanel = () => innerWidth < 960 } = {}) {

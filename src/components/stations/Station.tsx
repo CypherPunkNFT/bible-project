@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { StationArt, type StationArtKind } from "./StationArt";
+import { ApprovedResourceArt } from "./ApprovedResourceArt";
 import "./stations.css";
 
 export interface DoorProps { index: number; art: StationArtKind; title: string; text: string; to?: string; note: string; action: string; color: string }
@@ -12,7 +13,8 @@ export function StationDoor({ index, art, title, text, to, note, action, color }
   const id = `door-${art}`;
   const body = <>
     <div className="st-door-head"><span>{String(index).padStart(2, "0")}</span>{to && <ArrowUpRight size={18} aria-hidden="true" />}</div>
-    <div className="st-door-art"><StationArt kind={art} /></div>
+    <div className="st-door-art">{art === "learning" || art === "fellowships" || art === "life"
+      ? <ApprovedResourceArt kind={art} /> : <StationArt kind={art} />}</div>
     <h2 id={id}>{title}</h2>
     <p>{text}</p>
     <div className="st-door-foot"><span>{note}</span><strong>{action}{to && <ArrowUpRight size={14} aria-hidden="true" />}</strong></div>

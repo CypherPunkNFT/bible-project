@@ -1,0 +1,6 @@
+.study-parables-art{height:235px;margin:.8rem .8rem 0;color:var(--resource-color);display:flex;align-items:center;justify-content:center}.study-parables-art svg{width:100%;height:100%;max-width:560px;transition:transform .4s ease}.study-parables-resource .study-resource-link:hover .study-parables-art svg{transform:translateY(-3px)}
+.study-experience .theology-cards-jesus .study-resource{grid-column:span 2}.study-experience .theology-cards-jesus .study-feature{grid-column:span 2}
+@media(min-width:1024px){.theology-cards-jesus .study-gospels{min-height:215px}.theology-cards-jesus .study-card-copy h2{font-size:1.6rem}.theology-cards-jesus .study-feature .study-card-copy{padding:1rem 1.5rem 1.25rem}.theology-cards-jesus .study-feature .study-card-top{padding:1.35rem 1.5rem 0}}
+@media(min-width:640px) and (max-width:1023px){.study-experience .theology-cards-jesus .study-feature{grid-column:span 2}.study-experience .theology-cards-jesus .study-resource:not(.study-feature){grid-column:span 1}}
+@media(max-width:639px){.study-experience .theology-cards-jesus .study-resource,.study-experience .theology-cards-jesus .study-feature{grid-column:span 1}.study-parables-art{height:220px}}
+@media(prefers-reduced-motion:reduce){.study-parables-art svg{transition:none!important;transform:none!important}}

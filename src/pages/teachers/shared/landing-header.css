@@ -1,6 +1,6 @@
-/* Shared geometry: loading either route's CSS must never move these slots. */
+/* Scholars follows the original Preachers landing; never impose sizing on Preachers. */
 .tp-page .lnd .teacher-landing-header{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"copy art" "tools tools";gap:1.6rem 2rem;align-items:center}
-.tp-page .teacher-landing-header .lnd-copy{grid-area:copy;align-self:start;min-height:19.6rem}
+.tp-page .teacher-landing-header .lnd-copy{grid-area:copy;align-self:start}
 .tp-page .teacher-landing-header .lnd-bible{grid-area:art;display:block;width:100%;max-width:28rem;justify-self:center;align-self:center;color:var(--accent);overflow:visible}
 .tp-page .teacher-landing-header .lnd-kicker{display:flex;gap:.9rem;align-items:center}
 .tp-page .teacher-landing-header .lnd-kicker:before{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
@@ -8,32 +8,26 @@
 .tp-page .teacher-landing-header .lnd-title em{color:var(--accent);font-weight:400}
 .tp-page .teacher-landing-header .lnd-lead{max-width:54ch;margin:1.2rem 0 0;color:var(--muted);font-size:.98rem;line-height:1.75}
 .tp-page .teacher-landing-header .lnd-tools{grid-area:tools;display:grid;grid-template-columns:minmax(16rem,28rem) minmax(0,1fr);gap:2rem;align-items:center}
-.tp-page .teacher-landing-header .lnd-figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:0;padding:0 0 0 2rem;border:0;border-left:1px solid var(--line);min-height:4.5rem}
+.tp-page .teacher-landing-header .lnd-figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:0;padding:0 0 0 2rem;border:0;border-left:1px solid var(--line)}
 .tp-page .teacher-landing-header .lnd-figs dt{font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .tp-page .teacher-landing-header .lnd-figs dd{margin:.3rem 0 0;font:500 1.8rem/1.05 var(--serif);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .tp-page .teacher-landing-header .lnd-figs :is(p,small){display:block;margin:.25rem 0 0;font-size:.72rem;line-height:1.4;color:var(--muted)}
 .tp-page .teacher-landing-header :is(.lnd-search,.lnd-full-search>div){height:3.1rem}
 .tp-page .teacher-landing-header input{font-size:.95rem}
-.tp-page .lnd{--teacher-panel-height:560px}
-.tp-page .lnd :is(.lnd-band,.idea-lineage){margin-top:2rem}
-@media(min-width:601px){.tp-page .lnd .idea-lineage{height:var(--teacher-panel-height);display:flex;flex-direction:column}.tp-page .idea-lineage #lineage-panel{flex:1;display:flex;flex-direction:column;min-height:0}.tp-page .idea-lineage .il-timeline{margin:auto 0}.tp-page .idea-lineage .il-detail{flex-shrink:0}}
-@media(min-width:601px) and (max-width:1050px){.tp-page .lnd{--teacher-panel-height:640px}}
-@media(max-width:1000px){
+.tp-scholars .idea-lineage{margin-top:2.1rem}
+@media(max-width:900px){
   .tp-page .teacher-landing-header .lnd-tools{grid-template-columns:minmax(14rem,.85fr) minmax(0,1.4fr);gap:1.25rem}
-  .tp-page .teacher-landing-header .lnd-figs{padding-left:1.25rem;gap:.75rem;min-height:7rem}
-  .tp-page .teacher-landing-header .lnd-figs dt{min-height:2.8em}
+  .tp-page .teacher-landing-header .lnd-figs{padding-left:1.25rem;gap:.75rem}
 }
 @media(max-width:900px){
-  .tp-page .lnd .teacher-landing-header{grid-template-columns:1fr;grid-template-areas:"copy" "art" "tools"}
-  .tp-page .teacher-landing-header .lnd-copy{min-height:17rem}
-  .tp-page .teacher-landing-header .lnd-bible{max-width:18rem}
+  .tp-page .lnd .teacher-landing-header{grid-template-columns:1fr;grid-template-areas:"copy" "tools" "art"}
+  .tp-page .teacher-landing-header .lnd-bible{max-width:25rem}
 }
 @media(max-width:700px){
   .tp-page .teacher-landing-header .lnd-tools{grid-template-columns:1fr}
-  .tp-page .teacher-landing-header .lnd-figs{padding:1.1rem 0 0;border-left:0;border-top:1px solid var(--line);gap:.5rem;min-height:7.5rem}
+  .tp-page .teacher-landing-header .lnd-figs{padding:1.1rem 0 0;border-left:0;border-top:1px solid var(--line);gap:.5rem}
   .tp-page .teacher-landing-header .lnd-figs dt{font-size:.55rem;letter-spacing:.1em}
   .tp-page .teacher-landing-header .lnd-figs dd{font-size:1.45rem}
   .tp-page .teacher-landing-header .lnd-figs :is(p,small){font-size:.65rem}
   .tp-page .teacher-landing-header .lnd-lead{font-size:.92rem}
 }
-@media(max-width:600px){.tp-page .lnd{--teacher-panel-height:420px}}

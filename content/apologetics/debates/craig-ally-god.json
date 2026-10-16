@@ -42,7 +42,7 @@
       "duration": "1:31:47",
       "note": "Debate recording on YouTube."
     },
-    "transcriptCoverage": "Formal speeches through the final statements; the announced audience Q&A is absent from the transcript."
+    "transcriptCoverage": "Introduction and four rounds of statements by both speakers. No audience question period is included in this supplied text. Original headings and contents are retained. Recording alignment has not been independently checked."
   },
   "reviews": [
     {
@@ -61,6 +61,15 @@
       "note": "Checked linked transcript structures and publisher notices; compared participant/event descriptions with the recording listings. Verified YouTube metadata and runtimes on 2026-10-11; rejected a 9:12 Concept of God excerpt and selected the 1:31:47 debate. Summaries are editorial paraphrases. Full recordings were not watched or heard, and word-for-word alignment and whole-event completeness remain unverified. No external transcript body is republished. Existing doctrinal policy is unchanged.",
       "date": "2026-10-11",
       "contentHash": "885ed72b64ced0f7ed66800f928ca97d138446f27d803a20202df5e558bc530b",
+      "basisHash": "bf13034733b2d73e39055e9dac066247b77fab46245fe5ea68c7d6bcf184b3cd"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Owner-supplied transcript preservation, attribution and coverage",
+      "note": "Saved the original supplied bytes and indexed explicit speech and dialogue boundaries. Preserved headings, source notes and stated recording gaps. Bahnsen promotional snippets are separate source material; duplicate attachments were byte-identical. Coverage reflects supplied text only; recording alignment and playback have not been independently verified.",
+      "date": "2026-10-11",
+      "contentHash": "4520fbe8a0b4863f8722563db925e2dacd4bf373fd7468edaa6574fa0041ddf8",
       "basisHash": "bf13034733b2d73e39055e9dac066247b77fab46245fe5ea68c7d6bcf184b3cd"
     }
   ]

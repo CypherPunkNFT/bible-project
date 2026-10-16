@@ -1373,12 +1373,6 @@
           "note": "“The great river, which is Hiddekel”; the site's atlas places it at the Tigris."
         },
         {
-          "name": "Ecbatana",
-          "placeId": "a212ef7",
-          "note": "Josephus says Daniel built a tower here in which kings were buried (Antiquities 10.11.7).",
-          "tradition": true
-        },
-        {
           "name": "Shushan (the tomb shown in the 1100s)",
           "placeId": "a033b84",
           "note": "Benjamin of Tudela describes “the sepulchre of Daniel” here.",
@@ -1413,15 +1407,6 @@
           }
         ],
         "tradition": [
-          {
-            "text": "Josephus writes that Daniel “built a tower at Ecbatana, in Media”, that the kings of Media, Persia and Parthia were buried in it “to this day”, and that its keeper was a Jewish priest. He adds that Daniel, “now he is dead”, is remembered by the books he left, but does not say where he died.",
-            "layer": "tradition",
-            "cites": [
-              "jos-ant-10"
-            ],
-            "who": "Josephus, Antiquities 10.11.7",
-            "when": "about AD 93"
-          },
           {
             "text": "Benjamin of Tudela, who travelled between 1165 and 1173, describes “the sepulchre of Daniel” at Shushan, and tells how its coffin was moved from one bank of the river to the other until the Persian ruler Sinjar had it set in a coffin of crystal and hung from the middle of the bridge.",
             "layer": "tradition",
@@ -1548,56 +1533,9 @@
           ]
         },
         {
-          "id": "dan-fierce-king",
-          "question": "Who is the “king of fierce countenance” of Daniel 8:23?",
-          "views": [
-            {
-              "label": "Antiochus IV Epiphanes, king of Syria",
-              "holders": "Josephus (about AD 93); C. F. Keil (1872); S. R. Driver (1891)",
-              "argument": {
-                "text": "Josephus, retelling the vision, says “our nation suffered these things under Antiochus Epiphanes, according to Daniel's vision”. Keil writes that “the little horn denotes Antiochus Epiphanes”. Driver says the description “leaves no question that it is Antiochus Epiphanes, which, indeed, is not here disputed”. No other identification is set out in the sources used for this page.",
-                "layer": "scholars",
-                "refs": [
-                  [
-                    27008009,
-                    27008012
-                  ],
-                  [
-                    27008023,
-                    27008025
-                  ]
-                ],
-                "cites": [
-                  "jos-ant-10",
-                  "keil-dan-8",
-                  "driver-dan"
-                ]
-              }
-            }
-          ]
-        },
-        {
           "id": "dan-weeks",
           "question": "What do the seventy weeks of Daniel 9:24–27 count? (Views in the order of their earliest named holder.)",
           "views": [
-            {
-              "label": "A word about Rome and the desolation of Jerusalem",
-              "holders": "Josephus (about AD 93); the Jewish reading after him, as J. A. Montgomery (1927) describes it",
-              "argument": {
-                "text": "Josephus writes that Daniel “also wrote concerning the Roman government, and that our country should be made desolate by them”. Montgomery counts “the application to the destruction of Jerusalem” as Josephus's reading and, since him, “the regnant Jewish interpretation”.",
-                "layer": "ancient-record",
-                "refs": [
-                  [
-                    27009026,
-                    27009026
-                  ]
-                ],
-                "cites": [
-                  "jos-ant-10",
-                  "mont-393"
-                ]
-              }
-            },
             {
               "label": "Years counted to the coming and death of Christ",
               "holders": "E. B. Pusey (1864); the older Christian reading described by J. A. Montgomery (1927)",
@@ -3617,24 +3555,6 @@
           "id": "ezk-tyre",
           "question": "Did Nebuchadnezzar take Tyre, as Ezekiel 26 foretold? (Ezekiel 29:18 says he had “no wages” for his service against it.)",
           "views": [
-            {
-              "label": "He besieged it but did not take it",
-              "holders": "S. R. Driver (1891)",
-              "argument": {
-                "text": "Driver writes that the siege lasted thirteen years according to Josephus “(quoting from Phoenician sources)”, and that Nebuchadnezzar “did not, as Ezek. himself owns (29, 18), succeed in reducing it”. Josephus's Phoenician record says only: “Nabuchodonosor besieged Tyre for thirteen years in the days of Ithobal, their king”.",
-                "layer": "scholars",
-                "refs": [
-                  [
-                    26029018,
-                    26029018
-                  ]
-                ],
-                "cites": [
-                  "driver-ezk",
-                  "jos-apion"
-                ]
-              }
-            },
             {
               "label": "Whether he took it is not known; 29:18 speaks only of no spoil",
               "holders": "C. F. Keil (1876)",
@@ -7314,14 +7234,6 @@
       "url": "https://biblehub.com/commentaries/kad/daniel/2.htm"
     },
     {
-      "id": "keil-dan-8",
-      "author": "C. F. Keil, tr. M. G. Easton",
-      "title": "Biblical Commentary on the Book of Daniel (Keil and Delitzsch)",
-      "year": "1872",
-      "where": "note on Dan 8:10 (read on Bible Hub)",
-      "url": "https://biblehub.com/commentaries/kad/daniel/8.htm"
-    },
-    {
       "id": "keil-dan-9",
       "author": "C. F. Keil, tr. M. G. Easton",
       "title": "Biblical Commentary on the Book of Daniel (Keil and Delitzsch)",
@@ -7416,22 +7328,6 @@
       "year": "1915",
       "where": "sections 1, 4 and 6",
       "url": "https://www.internationalstandardbible.com/Z/zechariah-book-of.html"
-    },
-    {
-      "id": "jos-ant-10",
-      "author": "Flavius Josephus, tr. William Whiston",
-      "title": "The Antiquities of the Jews",
-      "year": "1737",
-      "where": "10.10.4 and 10.11.7",
-      "url": "https://www.gutenberg.org/ebooks/2848"
-    },
-    {
-      "id": "jos-apion",
-      "author": "Flavius Josephus, tr. William Whiston",
-      "title": "Against Apion",
-      "year": "1737",
-      "where": "1.21",
-      "url": "https://www.gutenberg.org/ebooks/2849"
     },
     {
       "id": "benjamin",

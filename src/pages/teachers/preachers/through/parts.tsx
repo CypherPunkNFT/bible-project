@@ -33,14 +33,14 @@ export const Rail = memo(function Rail({ model, chosen, onChoose, onOpen }: Rail
 function Quiet({ people, onOpen }: { people: Person[]; onOpen: Open }) {
   if (!people.length) return null;
   return <details className="thr-quiet"><summary>{people.length} more teachers have no Bible texts recorded yet</summary>
-    <p>Their works in the library do not name a main Bible text, so they have no ring. Choose a name for their profile.</p>
+    <p>These teachers have profiles, but their works have no main Bible text recorded for this chart yet. This is a list of mapped works, not the whole acquired library. Choose a name for their profile.</p>
     <div className="slim-scroll">{people.map((p) => <button key={p.id} type="button" onClick={(e) => onOpen(p.id, e.currentTarget)}>{p.name}</button>)}</div></details>;
 }
 
 export function Who({ model, track, onOpen }: { model: ThroughModel; track: Track; onOpen: Open }) {
   const p = track.person;
   if (!p) return <div className="thr-who"><p className="kicker">Every teacher, summed</p><h3>Everyone</h3>
-    <p>{plural(track.works, "work")} on a Bible text by {model.teachers.length} teachers, across {plural(track.bookCount, "book")}.</p></div>;
+    <p>{plural(track.works, "work")} on a recorded Bible text by {model.teachers.length} of {model.teachers.length + model.quiet.length} profiled teachers, across {plural(track.bookCount, "book")}.</p></div>;
   const family = familyOf(p);
   return <div className="thr-who">
     <p className="kicker" style={tone(family.tone)}>{family.label} · {lifeLabel(p)}</p>
@@ -53,9 +53,9 @@ function PlayIcon({ playing }: { playing: boolean }) {
     <path d={playing ? "M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" : "M7 4.5v15l12-7.5z"} fill="currentColor" /></svg>;
 }
 
-interface YearsProps { track: Track; timeline: Timeline | null; year: number; playing: boolean; reason: string; onPlay: () => void; onYear: (year: number) => void }
+interface YearsProps { track: Track; timeline: Timeline; year: number; playing: boolean; onPlay: () => void; onYear: (year: number) => void }
 
-export function Years({ track, timeline, year, playing, reason, onPlay, onYear }: YearsProps) {
+export function Years({ track, timeline, year, playing, onPlay, onYear }: YearsProps) {
   const limited = timeline !== null && year < timeline.all;
   const soFar = limited ? track.dated.filter((w) => (exactYear(w) ?? Infinity) <= year).length : track.works;
   return <div className="thr-years-slot">
@@ -65,6 +65,5 @@ export function Years({ track, timeline, year, playing, reason, onPlay, onYear }
         value={timeline ? Math.min(year, timeline.all) : 0} onChange={(e) => onYear(Number(e.target.value))} />
       <output className="thr-readout">{limited ? <><b>{year}</b> {formatNumber(soFar)} dated so far</> : <><b>All</b> {formatNumber(track.works)} works</>}</output>
     </div>
-    <p className="thr-years-note" hidden={Boolean(timeline)}>{reason}</p>
   </div>;
 }

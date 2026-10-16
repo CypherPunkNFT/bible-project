@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+const dir=new URL('./',import.meta.url);
+let p=new URL('prototype.html',dir),s=fs.readFileSync(p,'utf8');s=s.replace('0 0 690 430','0 0 690 470');fs.writeFileSync(p,s);
+p=new URL('prototype.css',dir);s=fs.readFileSync(p,'utf8').replace('.layer-1 .layer-front{fill:var(--char)}','.burn-layer .layer-front{fill:var(--char)}');fs.writeFileSync(p,s);
+p=new URL('prototype.js',dir);s=fs.readFileSync(p,'utf8');
+s=s.replace('const y=i*112;return','const y=i*112,burn=(city.id===\'jericho\'&&i===0)||(city.id===\'lachish\'&&i<2)||(city.id===\'jerusalem\'&&i===1);return');
+s=s.replace('layer-${i} ${selected===i?', 'layer-${i} ${burn?\'burn-layer\':\'\'} ${selected===i?');
+s=s.replace("${i===1?'ash':'soil'}","${burn?'ash':'soil'}");
+s=s.replace("city.id==='lachish'?'Rebuilding separates the two crises.'", "city.id==='lachish'&&[layer.id,other.id].includes('ii')&&[layer.id,other.id].includes('iii')?'Rebuilding separates the two crises.'");
+s=s.replace("'Composite teaching section. Depth, thickness and architecture are illustrative; the spaces between blocks do not measure time.';", "city.id==='jericho'?'Composite teaching section. Urban growth summarizes several periods, not one sealed layer below the destruction. Geometry and spacing are illustrative.':'Composite teaching section. Depth, thickness and architecture are illustrative; the spaces between blocks do not measure time.';");
+fs.writeFileSync(p,s);

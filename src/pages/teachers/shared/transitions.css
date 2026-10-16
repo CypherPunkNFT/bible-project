@@ -1,5 +1,8 @@
 /* A quick opacity-only crossfade; shared landing slots stay in place. */
 .tp-switch-frame{padding-bottom:0}
+.tp-switch-frame[data-side]{position:relative;z-index:2;display:flex;justify-content:flex-end;height:0}
+.tp-switch-frame[data-side] .tp-sides{flex:none;align-self:flex-start}
+@media(max-width:700px){.tp-switch-frame[data-side]{height:auto}}
 html[data-teacher-slide] .tp-route-content{view-transition-name:teacher-page;background:var(--page)}
 html[data-teacher-slide]::view-transition{pointer-events:none}
 html[data-teacher-slide]::view-transition-old(root){display:none}

@@ -1,0 +1,38 @@
+{
+  "study": 6,
+  "title": "From discovery to history",
+  "updated": "2026-10-14",
+  "phase": "methods-study-with-related-landings",
+  "designStatus": "implemented-local-verified",
+  "designPath": "design.md",
+  "prototypePath": "prototype.html",
+  "verificationPath": "verification.json",
+  "implementationStatus": "implemented-local-browser-verified",
+  "approvalStatus": "approved-for-local-implementation",
+  "queueNote": "Academic study 06; does not advance the separate forty-study Scripture/Theology queue.",
+  "implementationVerificationPath": "../../../.local/discoveries-revamp/open-reading-verification.json",
+  "prototypeStatus": "Historical campaign proposal; current interactive artifact is the live page",
+  "preview": "http://127.0.0.1:8931/study/from-discovery-to-history",
+  "publicDeployment": false,
+  "legacyRoute": "/study/discoveries-biblical-record",
+  "relatedStudyLandings": [
+    {
+      "id": "mesha",
+      "title": "Mesha and the world of Moab",
+      "route": "/study/mesha-and-the-world-of-moab",
+      "status": "landing-only"
+    },
+    {
+      "id": "lachish",
+      "title": "Lachish under siege",
+      "route": "/study/lachish-under-siege",
+      "status": "landing-only"
+    },
+    {
+      "id": "cyrus",
+      "title": "Cyrus, restoration and return",
+      "route": "/study/cyrus-restoration-and-return",
+      "status": "landing-only"
+    }
+  ]
+}

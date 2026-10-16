@@ -2,8 +2,9 @@
 // catalogue, "By the numbers" and "Five ways to study" all read and set the same filters).
 import { createContext, useContext } from "react";
 import type { Era, Faith, Field, ScholarsData } from "@/data/teachers/pages-types";
-import type { LibraryPerson } from "./catalogue/library";
+import type { LibraryPerson, LibraryOptions, LibrarySort } from "./catalogue/library";
 
+import type { PopulationSnapshot } from './population';
 import type { ContributorFacts } from "./facts";
 
 export interface ProfileTarget { id: string; origin: Element | null }
@@ -11,8 +12,13 @@ export interface CatalogueFilters { field: Field[]; era: (Era | "unknown")[]; fa
 export const NO_FILTERS: CatalogueFilters = { field: [], era: [], faith: [], used: false, q: "" };
 export interface ScholarsContextValue {
   data: ScholarsData;
-  catalogueResetToken: number;
+  catalogueOptions: LibraryOptions;
+  setCatalogueOptions: (options: LibraryOptions) => void;
+  catalogueSort: LibrarySort;
+  setCatalogueSort: (sort: LibrarySort) => void;
+  cataloguePeople: LibraryPerson[];
   library: LibraryPerson[] | null;
+  population: PopulationSnapshot | null;
   libraryError: string;
   libraryFacts: ContributorFacts | null;
   /** Open a scholar's profile; `origin` is the clicked element, so the profile can grow out of it and shrink back. */
@@ -24,7 +30,6 @@ export interface ScholarsContextValue {
   filterCatalogue: (filters: Partial<CatalogueFilters>, options?: { scroll?: boolean }) => void;
   /** The ids the catalogue currently shows, in its on-screen order (for the profile's previous/next). */
   shownIds: string[];
-  setShownIds: (ids: string[]) => void;
 }
 export const ScholarsContext = createContext<ScholarsContextValue | null>(null);
 export function useScholars(): ScholarsContextValue {
