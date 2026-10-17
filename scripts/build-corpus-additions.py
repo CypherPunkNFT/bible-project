@@ -1,14 +1,13 @@
-"""Build version 2 ("Claude data acquisition") of the /data_acquisition desk.
+"""Add the Christian writers corpus's missing pieces to the /data_acquisition desk.
 
-Reads the Christian writers corpus (D:/FortressOfSolitude/christian-writers-corpus, Fortress
-job 727d55dd, 16 Oct 2026) and writes public/data_acquisition/claude/catalogue.json plus one
-plain-text reading file per volume under claude/texts/. The page script is a copy of version 1's
-desk.js, so the record shape here matches the one that version 1's catalogue uses.
+Reads D:/FortressOfSolitude/christian-writers-corpus (Fortress job 727d55dd, 16 Oct 2026) and writes
+public/data_acquisition/corpus-additions.json plus reading texts in public/data_acquisition/texts/.
+Only what the desk did not already have is added: McClintock & Strong volumes 11 and 12 (the
+supplements), Catholic Encyclopedia volume 6 (the desk's own download of it failed), and the
+Wikipedia/Wikidata list of candidate people. scripts/apply-corpus-additions.mjs merges the records
+into catalogue.json, and build-data-acquisition.mjs calls it on every rebuild.
 
-Copyrighted pages (editorial lists, the Christian History Institute issue) are listed with their
-source link only; their text is not republished.
-
-Usage: python scripts/build-claude-acquisition.py [--corpus PATH]
+Usage: python scripts/build-corpus-additions.py [--corpus PATH]
 """
 import argparse
 import hashlib
@@ -24,12 +23,13 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8")
 
 WEBSITE = Path(__file__).resolve().parent.parent
-OUT = WEBSITE / "public" / "data_acquisition" / "claude"
+OUT = WEBSITE / "public" / "data_acquisition"
+ADDITIONS = OUT / "corpus-additions.json"
+MCCLINTOCK_VOLUMES = {11, 12}
+CATHOLIC_VOLUMES = {6}
 DEFAULT_CORPUS = Path("D:/FortressOfSolitude/christian-writers-corpus")
 MAX_TEXT_BYTES = 24 * 1024 * 1024  # Cloudflare Pages refuses files over 25 MiB
 
-ROMAN = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6, "VII": 7, "VIII": 8, "IX": 9,
-         "X": 10, "XI": 11, "XII": 12, "XIII": 13}
 
 
 def record_id(key):
@@ -59,15 +59,13 @@ def copy_text(record, source):
     record["textBytes"] = source.stat().st_size
 
 
-def review(reason, coverage="pending", known_gap=False, evidence=False, saved=True):
+def review(reason, coverage="pending", known_gap=False, saved=True):
     """Completeness block in version 1's shape. Nothing here has passed a full-coverage check."""
     result = {"status": "INCOMPLETE", "reviewState": "known-gap" if known_gap else "unverified",
               "reason": reason,
               "steps": {"saved": "done" if saved else "pending",
                         "coverage": "blocked" if known_gap else coverage,
                         "compared": "pending", "complete": "pending"}}
-    if evidence:
-        result["evidenceUrl"] = "./volume-verification.json"
     return result
 
 
@@ -86,10 +84,12 @@ def mcclintock(corpus, verification):
     for meta_path in sorted((corpus / "mcclintock-strong").glob("vol*.metadata.json")):
         meta = load_json(meta_path)
         volume = int(meta_path.name[3:5])
+        if volume not in MCCLINTOCK_VOLUMES:
+            continue
         span = spans.get(volume, {})
         label = f"Volume {volume}" + (" (supplement)" if volume > 10 else "")
         text_file = meta_path.with_name(meta_path.name.replace(".metadata.json", "_djvu.txt"))
-        r = base_record(f"mcclintock/{volume}", "McClintock & Strong — Cyclopaedia", "McClintock-Strong",
+        r = base_record(f"mcclintock/{volume}", "McClintock & Strong · Cyclopaedia", "McClintock-Strong",
                         "Encyclopedias", label, "TXT", f"https://archive.org/details/{meta['identifier']}",
                         f"Internet Archive OCR, item {meta['identifier']} ({meta.get('year') or 'year not recorded'}). "
                         "Public domain (1867–1887).")
@@ -101,77 +101,8 @@ def mcclintock(corpus, verification):
             f"Volume identity checked by its running headwords: {span.get('headwords', '?')} headwords, "
             f"first {span.get('first', '?')}, last {span.get('last', '?')} (OCR spelling kept). "
             "The ten main volumes run A to Z with no gap. Page-by-page coverage has not been verified.",
-            coverage="sampled", evidence=True)
+            coverage="sampled")
         copy_text(r, text_file)
-        records.append(r)
-    return records
-
-
-# ── New Schaff-Herzog ────────────────────────────────────────────────────────
-
-def schaff(corpus, verification):
-    spans = {s["volume"]: s for s in verification["Schaff-Herzog (Internet Archive volumes)"]["spans"]}
-    collection, group = "New Schaff–Herzog Encyclopedia", "Schaff-Herzog"
-    records = []
-    for path in sorted((corpus / "schaff-herzog" / "ccel").glob("encyc*.txt")):
-        volume = int(path.stem[5:])
-        r = base_record(f"schaff/ccel/{volume}", collection, group, "Encyclopedias", f"Volume {volume}", "TXT",
-                        f"https://www.ccel.org/ccel/schaff/encyc{volume:02d}",
-                        "CCEL proofread transcription. Public domain text (1908–1914); CCEL's own markup was not used.")
-        r.update(bytes=path.stat().st_size, filename=f"schaff-herzog-volume-{volume:02d}.txt", readPriority=2,
-                 quality="Proofread transcription (CCEL), not raw OCR.",
-                 representationLabel="CCEL proofread text")
-        r["completeness"] = review("CCEL proofread transcription, saved whole. Full article coverage against "
-                                   "the printed volume has not been verified.")
-        copy_text(r, path)
-        records.append(r)
-    for meta_path in sorted((corpus / "schaff-herzog" / "internet-archive").glob("vol*.metadata.json")):
-        records.extend(schaff_ia_volume(corpus, meta_path, spans, collection, group))
-    return sorted(records, key=lambda r: int(r["subtitle"].split()[1]))
-
-
-def schaff_ia_volume(corpus, meta_path, spans, collection, group):
-    meta = load_json(meta_path)
-    volume = int(meta_path.name[3:5])
-    span = spans.get(volume, {})
-    text_file = meta_path.with_name(meta_path.name.replace(".metadata.json", "_djvu.txt"))
-    r = base_record(f"schaff/ia/{volume}", collection, group, "Encyclopedias", f"Volume {volume}", "TXT",
-                    f"https://archive.org/details/{meta['identifier']}",
-                    f"Internet Archive OCR, item {meta['identifier']} ({meta.get('year') or 'year not recorded'}). "
-                    "Taken here because CCEL never transcribed this volume.")
-    r.update(bytes=text_file.stat().st_size, filename=f"schaff-herzog-volume-{volume:02d}-archive-ocr.txt",
-             readPriority=1, quality="Raw OCR of 1900s typography.", representationLabel="Internet Archive OCR")
-    r["completeness"] = review(
-        f"Volume identity checked on the title page: \"{span.get('volume_statement', '?')}\" read "
-        f"{span.get('statement_occurrences', '?')} times, printed span {span.get('printed_alphabetical_span', '?')}. "
-        "Page-by-page coverage has not been verified.", coverage="sampled", evidence=True)
-    copy_text(r, text_file)
-    stub = base_record(f"schaff/ccel-stub/{volume}", collection, group, "Encyclopedias", f"Volume {volume}", "XML",
-                       f"https://www.ccel.org/ccel/s/schaff/encyc{volume:02d}.xml",
-                       "CCEL returns a page-index placeholder for this volume, with no article text.",
-                       status="failed")
-    stub["problem"] = "Placeholder only (about 130 KB of page index). Replaced by the Internet Archive OCR."
-    return [r, stub]
-
-
-# ── Wace & Smith ─────────────────────────────────────────────────────────────
-
-def wace(corpus):
-    folder = corpus / "wace-smith-dictionary-of-christian-biography"
-    collection, group = "Wace & Smith — Dictionary of Christian Biography", "Christian-Biography"
-    note = "Complete work (1877–1887) from CCEL. Public domain text."
-    text = base_record("wace/txt", collection, group, "Encyclopedias", "Complete work", "TXT",
-                       "https://www.ccel.org/ccel/wace/biodict", note)
-    text.update(bytes=(folder / "biodict.txt").stat().st_size, filename="wace-smith-biodict.txt", readPriority=1,
-                quality="CCEL plain-text rendering.")
-    text["completeness"] = review("Saved as one CCEL text. Entry-by-entry coverage has not been verified.")
-    copy_text(text, folder / "biodict.txt")
-    records = [text]
-    for fmt, name in (("PDF", "biodict.pdf"), ("XML", "biodict.xml")):
-        r = base_record(f"wace/{fmt}", collection, group, "Encyclopedias", "Complete work", fmt,
-                        f"https://www.ccel.org/ccel/w/wace/{name}",
-                        f"Held in the corpus as {name}; the reading text above comes from the TXT rendering.")
-        r["bytes"] = (folder / name).stat().st_size
         records.append(r)
     return records
 
@@ -245,18 +176,18 @@ def catholic_pages(corpus):
 
 def catholic(corpus):
     volumes, redirects, transcluded = catholic_pages(corpus)
-    collection, group = "The Catholic Encyclopedia (1913)", "Catholic-Encyclopedia"
+    collection, group = "The Catholic Encyclopedia", "Catholic-Encyclopedia"
     records = []
-    for volume in sorted(volumes, key=lambda v: (v == 0, v)):
+    for volume in sorted(CATHOLIC_VOLUMES):
         pages = sorted(volumes[volume], key=lambda p: p[0].lower())
-        label = "Front matter and contents pages" if volume == 0 else f"Volume {volume}" + (" (index)" if volume == 16 else "")
+        label = f"Volume {volume}"
         body = "\n\n\n".join(f"■ {title}" + (f"\n({contributor})" if contributor else "") + f"\n\n{text}"
                              for title, contributor, text in pages)
         r = base_record(f"catholic/{volume}", collection, group, "Encyclopedias", label, "TXT",
                         "https://en.wikisource.org/wiki/Catholic_Encyclopedia_(1913)",
                         f"{len(pages):,} Wikisource pages, from the English Wikisource dump. 1913 text public domain; "
                         "Wikisource markup CC BY-SA 4.0 (attribution: English Wikisource contributors).")
-        r.update(filename=f"catholic-encyclopedia-{'front-matter' if volume == 0 else f'volume-{volume:02d}'}.txt",
+        r.update(filename=f"catholic-encyclopedia-volume-{volume:02d}-wikisource.txt",
                  quality="Wiki markup stripped automatically; tables and images are dropped. Articles are in title order.")
         missing = transcluded[volume]
         gap = (f"{missing:,} of {len(pages):,} articles are only pointers to Wikisource's scanned-page transcription, "
@@ -264,7 +195,7 @@ def catholic(corpus):
         r["completeness"] = review(
             gap + f"Every Catholic Encyclopedia page in the full Wikisource dump was taken ({redirects:,} redirects "
             "skipped). Whether Wikisource holds every article of the printed volume has not been checked.",
-            coverage="done" if volume else "pending", known_gap=bool(missing))
+            coverage="done", known_gap=bool(missing))
         if missing:
             r["problem"] = f"{missing:,} articles have no text in this corpus (scanned-page transcriptions not collected)."
         write_text(r, body)
@@ -292,7 +223,7 @@ def wikidata(corpus):
         lines.append(" · ".join(part for part in (
             row.get("label") or row["wikipedia_title"], dates, row.get("description") or "",
             ", ".join(row.get("occupations") or []), f"{row.get('sitelinks', 0)} Wikipedias", row["qid"]) if part))
-    collection, group = "Wikipedia & Wikidata — candidate people", "Wikidata"
+    collection, group = "Wikipedia & Wikidata · candidate people", "Wikidata"
     note = ("Ten Wikipedia category trees crawled to depth 2, each person matched to Wikidata. Wikidata is CC0; "
             "Wikipedia titles CC BY-SA 4.0. A wide net that needs human curation — it includes false positives.")
     people = base_record("wikidata/people", collection, group, "People", "Candidate people (A–Z)", "TXT",
@@ -313,70 +244,22 @@ def wikidata(corpus):
     return [people, theologians]
 
 
-# ── Reference pages held but not republished ─────────────────────────────────
-
-def editorial_lists(manifest):
-    source = next(s for s in manifest["sources"] if s["source"].startswith("Editorial ranking lists"))
-    records = []
-    for page in source["per_page_notes"]:
-        slug = page["slug"].split(".wayback")[0]
-        r = base_record(f"lists/{slug}", "Editorial ranking lists", "Editorial-lists", "Scholar lists",
-                        slug.replace("-", " ").capitalize(), "HTML", page["url"],
-                        f"{page['note']} Held privately in the corpus as served; the publisher's copyright has no "
-                        "reuse grant, so the page is not republished here.")
-        r["bytes"] = page["bytes"]
-        r["completeness"] = review("Held as a saved web page only; no reading text is published.", saved=False)
-        records.append(r)
-    return records
-
-
-def held_elsewhere(corpus):
-    chi = base_record("chi/116", "Christian History issue 116 — Writings That Changed Church History", "CHI",
-                      "Publisher references", "Full issue (Top 25 classics)", "PDF",
-                      "https://christianhistoryinstitute.org/st/magazine_pdfs/ch-116sec.pdf",
-                      "The publisher's free full-issue PDF. © Christian History Institute, all rights reserved, so "
-                      "it is held privately and not republished here.")
-    chi["bytes"] = (corpus / "christian-history-institute" / "ch-116-writings-that-changed-church-history.pdf").stat().st_size
-    chi["completeness"] = review("Held as the publisher's PDF only; no reading text is published.", saved=False)
-    ct = base_record("ct/books-of-the-century", "Christianity Today — Books of the Century", "Christianity-Today",
-                     "Publisher references", "Books of the Century (2000) and Top 50 (2006)", "HTML",
-                     "https://www.christianitytoday.com/2000/04/books-of-century/",
-                     "Not fetched by policy: the site's robots.txt names Claude and other AI crawlers in a "
-                     "Disallow: / rule. A person needs to collect it by hand.", status="identified")
-    ct["completeness"] = review("Not collected: manual collection required.", saved=False)
-    return [chi, ct]
-
-
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--corpus", type=Path, default=DEFAULT_CORPUS)
     corpus = parser.parse_args().corpus.resolve()
     if not (corpus / ".corpus-root").exists():
         raise SystemExit(f"Not a corpus folder (no .corpus-root marker): {corpus}")
-    manifest = load_json(corpus / "manifest.json")
     verification = load_json(corpus / "volume-verification.json")
-    texts = OUT / "texts"
-    if texts.exists():
-        shutil.rmtree(texts)  # generated output only; rebuilt in full below
-    texts.mkdir(parents=True)
-    shutil.copyfile(corpus / "volume-verification.json", OUT / "volume-verification.json")
-    records = (schaff(corpus, verification) + mcclintock(corpus, verification) + catholic(corpus)
-               + wace(corpus) + wikidata(corpus) + editorial_lists(manifest) + held_elsewhere(corpus))
-    now = datetime.now(timezone.utc).isoformat()
-    catalogue = {
-        "schema": 1, "generatedAt": now, "receiptUpdatedAt": manifest["built"],
-        "scope": "Christian writers corpus, collected 16 October 2026. Counts are files/representations, not books or authors.",
-        "activity": "No downloads running. This page does not start or retry downloads.",
-        "records": records,
-        "completenessReview": {
-            "updatedAt": now,
-            "scope": "Volume identity is checked for McClintock & Strong and the Internet Archive Schaff–Herzog volumes; "
-                     "page-by-page coverage is not yet checked for any work."},
-    }
-    (OUT / "catalogue.json").write_text(json.dumps(catalogue, ensure_ascii=False, indent=1), encoding="utf-8")
-    with_text = [r for r in records if r.get("textUrl")]
-    print(f"{len(records)} records, {len(with_text)} reading texts, "
-          f"{sum(r['textBytes'] for r in with_text) / 1e6:.1f} MB -> {OUT}")
+    (OUT / "texts").mkdir(parents=True, exist_ok=True)
+    records = mcclintock(corpus, verification) + catholic(corpus) + wikidata(corpus)
+    for r in records:
+        r["addedFrom"] = "christian-writers-corpus"
+    ADDITIONS.write_text(json.dumps({
+        "source": "christian-writers-corpus (Fortress job 727d55dd, collected 2026-10-16)",
+        "generatedAt": datetime.now(timezone.utc).isoformat(), "records": records},
+        ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"{len(records)} records, {sum(r.get('textBytes') or 0 for r in records) / 1e6:.1f} MB of text -> {ADDITIONS}")
 
 
 if __name__ == "__main__":
