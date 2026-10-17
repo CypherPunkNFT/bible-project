@@ -200,6 +200,8 @@ window.Sections = window.Sections || {};
       sheet.classList.remove("bib-open"); sheet.inert = true;
       detail.innerHTML = shownCell >= 0 ? chapterHtml(cells[shownCell], pinned >= 0 && hovered < 0) : summaryHtml();
       panelScroll.reset();
+      // The panel's own top border carries the colour, so it bends with the rounded corners like the map's.
+      panel.style.setProperty("--panel-tone", detail.firstElementChild?.style.getPropertyValue("--tone") || "var(--accent)");
     }
     function pin(i) { pinned = i; expanded = false; hovered = -1; draw(); renderDetail(); }
     function cellAt(event) {

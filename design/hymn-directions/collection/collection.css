@@ -101,3 +101,7 @@
 .t-sec-through .thr-book.os-area { padding: 0; overflow: visible; }
 .t-sec-through .thr-book .os-viewport { padding: .95rem .95rem .3rem; }
 .t-sec-through .thr-book .thr-list { overflow: visible; max-height: none; flex: none; }
+
+/* 01 · the side panel's colour line is its own top border (as the chapter map's is), so it follows the rounded corners */
+.t-sec-bible .bib-detail.os-area { border-top: 2px solid var(--panel-tone, var(--accent)); transition: border-color .2s; }
+.t-sec-bible .bib-detail .bib-inner::before { display: none; }
