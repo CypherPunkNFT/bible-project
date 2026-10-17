@@ -106,3 +106,11 @@
 /* 01 · the side panel's colour line is its own top border (as the chapter map's is), so it follows the rounded corners */
 .t-sec-bible .bib-detail.os-area { border-top: 2px solid var(--panel-tone, var(--accent)); transition: border-color .2s; }
 .t-sec-bible .bib-detail .bib-inner::before { display: none; }
+
+/* 02 · the chapter headings in the hymn list: flush to the top when stuck, a line above and below, nothing showing through */
+.t-sec-through .thr-list { padding-top: 0; }
+.t-sec-through .thr-chapter { top: 0; z-index: 2; margin: 0; padding: .5rem .35rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+.t-sec-through .thr-chapter:first-child { border-top: 0; }
+/* the outside scrollbar: only the pill, no track, no arrows (Chrome 121+ honours these over the -webkit- rules) */
+.os-bar { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; }
+.os-bar::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
