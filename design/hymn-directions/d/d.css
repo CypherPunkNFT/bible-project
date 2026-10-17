@@ -1,0 +1,8 @@
+/* Direction D · A + B together: the "See the constellation" button at the top, and the constellation as the second half of
+   section 01, under a quiet sub-heading rather than a section of its own. */
+.d-go { display: inline-flex; gap: .55rem; align-items: center; margin-top: 1.3rem; padding: .55rem 1.1rem; border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 999px; font-size: .86rem; color: var(--accent); transition: background .15s; }
+.d-go:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.d-among { margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px dashed var(--line); scroll-margin-top: 84px; }
+.d-among-k { font: 600 .66rem var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.d-among-line { max-width: 68ch; margin: .45rem 0 .6rem; color: var(--muted); font-size: .9rem; line-height: 1.7; }

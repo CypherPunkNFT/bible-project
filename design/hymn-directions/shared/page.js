@@ -27,7 +27,7 @@
   function intro(extraClass = "") {
     return `<section class="hy-intro ${extraClass}">
       <div>
-        <p class="hy-crumb"><a href="/study">Study</a><span>/</span><a href="/study/theology">Living the Christian Life</a><span>/</span><a href="/study/hymns">Hymns</a></p>
+        <p class="hy-crumb"><a href="/study">Study</a><span>/</span><a href="/study/theology">Living the Christian Life</a><span>/</span><a href="../collection/">Hymns</a></p>
         <h1>Amazing grace<em>how sweet the sound</em></h1>
         <p class="hy-lede">John Newton printed it in 1779 in <i>Olney Hymns</i>, the hymn book he made with William Cowper, under a verse
           from 1 Chronicles where David asks how God has brought him this far.</p>
@@ -82,7 +82,7 @@
   /** The A · B · C switch between directions. */
   function switcher() {
     const here = location.pathname.split("/").filter(Boolean).at(-1);
-    const dirs = [["a", "The page and its echoes"], ["b", "Constellation"], ["c", "Six movements"]];
+    const dirs = [["a", "The page and its echoes"], ["b", "Constellation"], ["c", "Six movements"], ["d", "A + B together"]];
     const nav = document.createElement("nav");
     nav.className = "hy-switch";
     nav.setAttribute("aria-label", "Design directions");
