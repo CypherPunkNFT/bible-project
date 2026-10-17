@@ -22,8 +22,8 @@ window.Sections = window.Sections || {};
         <p>${sung} of the 150 psalms have at least one hymn made from them here, most by Isaac Watts, who set the psalms "in the language of the
           New Testament": his are paraphrases, not translations. Choose a psalm to see how it was sung.</p></div></header>
       <div class="bib-grid">
-        <div class="bib-card"><div class="ps-grid">${byPsalm.map((list, i) => `<button type="button" class="ps-tile" data-ps="${i}" style="--k: ${list.length ? (0.35 + 0.65 * list.length / max).toFixed(2) : 0}" aria-label="Psalm ${i + 1}, ${plural(list.length, "hymn")}"><span>${i + 1}</span></button>`).join("")}</div>
-          <p class="ps-key">One tile is one psalm, 1 to 150. The deeper it is, the more hymns sing it; pale tiles have none here yet.</p></div>
+        <div class="bib-card"><div class="ps-grid">${byPsalm.map((list, i) => `<button type="button" class="ps-tile" data-ps="${i}" style="--k: ${list.length ? (0.35 + 0.65 * list.length / max).toFixed(2) : 0}" aria-label="Psalm ${i + 1}, ${plural(list.length, "hymn")}"><span class="n">${i + 1}</span>${list.length ? `<small>${list.length} ${list.length === 1 ? "hymn" : "hymns"}</small>` : ""}</button>`).join("")}</div>
+          <p class="ps-key">One tile is one psalm, 1 to 150, with the number of hymns that sing it. The deeper it is, the more hymns; pale tiles have none here yet.</p></div>
         <aside class="bib-detail" aria-live="polite"></aside>
       </div>`;
 

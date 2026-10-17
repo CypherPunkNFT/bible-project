@@ -31,14 +31,19 @@
 @media (prefers-reduced-motion: reduce) { .hc-track { animation: none; } .hc-row { overflow-x: auto; } }
 
 /* 03 · the Psalms tiles */
-.ps-grid { display: grid; grid-template-columns: repeat(25, minmax(0, 1fr)); gap: 4px; }
+/* 15 across, 10 rows: the tiles fill a panel as tall as the psalm's list beside it */
+.t-sec-psalms .bib-grid { align-items: stretch; }
+.t-sec-psalms .bib-card { display: flex; flex-direction: column; }
+.ps-grid { flex: 1; display: grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap: 5px; align-content: start; }
 .ps-tile { position: relative; aspect-ratio: 1; border-radius: 6px; border: 1px solid transparent; background: color-mix(in srgb, var(--poetry) calc(var(--k) * 100%), var(--surface-2));
   font: 500 .72rem var(--sans); color: var(--ink); transition: border-color .15s, transform .15s; }
-.ps-tile span { opacity: .75; }
+.ps-tile { display: grid; place-content: center; gap: 1px; }
+.ps-tile .n { font: 500 .95rem/1 var(--serif); opacity: .9; }
+.ps-tile small { font: 500 .56rem/1 var(--sans); letter-spacing: 0; white-space: nowrap; opacity: .7; }
 .ps-tile:hover { transform: scale(1.06); }
 .ps-tile.on { border-color: var(--ink); }
 .ps-key { margin-top: .9rem; font-size: .78rem; color: var(--muted); line-height: 1.6; }
-@media (max-width: 900px) { .ps-grid { grid-template-columns: repeat(15, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .ps-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .ps-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); } }
 
 /* 02 · the book panel's height is set from the ring card (through.js); its list fills it and scrolls */
