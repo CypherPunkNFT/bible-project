@@ -1,4 +1,5 @@
 import type { ArcData, BookPlace, Catalog, Chapter, CrossRefBook, PlainBook, Place, Run, Stats } from "./types";
+import type { CreedBundle, CreedDocument, CreedsIndex } from "./creeds";
 import type { ChapterTopics, LibraryBook, Topic, TopicIndex } from "./topics";
 
 /** A data file that is missing or malformed. The reader turns this into "not in this version". */
@@ -90,6 +91,16 @@ export const loadCrossRefs = (code: string, chapter: string) => load<CrossRefBoo
 export const loadBookPlaces = (code: string) => load<BookPlace[]>(`places-by-book/${code}.json`, Array.isArray);
 
 export const loadStats = () => load<Stats>("stats.json", (v) => isObject(v) && Array.isArray(v.books));
+
+// Catechisms & Creeds (scripts/build-creeds.py): the landing index, one file per document, and the
+// document's sections in bundles of whole parts, so opening a part never downloads a whole book.
+export const loadCreedsIndex = () => load<CreedsIndex>("creeds/index.json", (v) => isObject(v) && Array.isArray(v.families));
+
+export const loadCreedDocument = (id: string) =>
+  load<CreedDocument>(`creeds/doc/${id}.json`, (v) => isObject(v) && Array.isArray(v.parts) && Array.isArray(v.bundles));
+
+export const loadCreedBundle = (id: string, bundle: string) =>
+  load<CreedBundle>(`creeds/doc/${id}.${bundle}.json`, (v) => isObject(v) && Array.isArray(v.sections));
 
 export const loadArcs = () => load<ArcData>("xref-arcs.json", (v) => isObject(v) && Array.isArray(v.arcs));
 

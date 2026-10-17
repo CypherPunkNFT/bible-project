@@ -12,6 +12,39 @@ Implementation-plan step 4 completed: seven studies now have deeper explanations
 
 # Sources
 
+## Catechisms & Creeds — published 17 October 2026
+
+The 66 creeds, confessions and catechisms behind [/study/creeds](https://bibleproject.io/study/creeds). Every document
+is a historic text long out of copyright; what is credited here is the **edition each one was transcribed from**. The
+corpus itself is `Research/Creeds/` (built by Fortress job 425); the page data is generated from it by
+`scripts/build-creeds.py` into `data/creeds/` and nothing in `Research/` is written to by the website build.
+
+The corpus's own manifest records every file's URL, size and SHA-256: `Research/Creeds/manifest.json`
+(SHA-256 `9d9642c758dd9ee2…`). The "checksum" column below is a SHA-256 over that source's sorted `path sha256` lines,
+so the whole set of downloaded files can be re-verified in one value.
+
+| Source | What was taken | Licence | Files / bytes | Checksum |
+|---|---|---|---|---|
+| [Creeds.json](https://github.com/NonlinearFruit/Creeds.json) (NonlinearFruit), revision `2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5`, retrieved 2026-10-17 | The structured JSON of 35 creeds, confessions and catechisms | **The Unlicense** (public-domain dedication) for every retained file. The repository README declines to license the repo as a whole because eight texts carry third-party copyright; **those eight were not copied** | 36 / 4,347,809 | `414ef0c82b0dbdd2…` |
+| [Philip Schaff, *The Creeds of Christendom*, vols I–III](https://ccel.org/ccel/schaff/creeds1), Christian Classics Ethereal Library, ThML edition of the sixth edition revised by David S. Schaff (1931 printing), retrieved 2026-10-17 | The ThML XML and plain-text renderings of all three volumes | **Public domain** (first published 1877; the 1931 sixth edition's copyright was not renewed). CCEL distributes it as a public-domain text | 6 / 25,496,527 | `1191cd4fb64c5649…` |
+| Project Gutenberg eBooks [#273](https://www.gutenberg.org/ebooks/273) (*The Smalcald Articles*) and [#1722](https://www.gutenberg.org/ebooks/1722) (*Luther's Large Catechism*), both the Bente and Dau translation from *Triglot Concordia* (Concordia Publishing House, 1921), retrieved 2026-10-17 | The two plain-text eBooks | **Public domain in the United States.** The raw files keep Project Gutenberg's header and footer; the normalized text is taken from between the start and end markers, so it carries only the public-domain 1921 translation. Project Gutenberg asks that its trademark not be used once its boilerplate is stripped, so the **public pages credit the underlying 1921 translation, not Project Gutenberg** | 2 / 386,237 | `93bf98cedae08960…` |
+| Berean Standard Bible — every Scripture quotation and proof-text on these pages | The verse text, read from the project's own [engbsb](sources/ebible/engbsb/) copy (registered in the build source checksum registry below, checksum `b77cc2d5161b0361`) and from the site's generated `data/plain/bsb/` | **Public domain** (dedicated 2023); no attribution is legally required. Courtesy credit: *Berean Standard Bible, berean.bible* | — | `b77cc2d5161b0361…` |
+
+**The modern Scripture layer.** Where one of these documents quotes a Bible verse in older English, the quotation is
+shown in the Berean Standard Bible — 2,727 places. The matching was done by code alone (reference parsing plus token
+alignment against eight older public-domain translations, used only to recognise *which* verse is quoted; none of their
+wording is stored or shown). No language model was involved. Where the match could not be made without guessing, the
+document keeps its own older wording and the page says so on the spot. Layer index SHA-256 `1210259aa99acd31…`; method
+and counts: `Research/Creeds/normalized-modern/README.md` (SHA-256 `8af6ed77a339aacd…`).
+
+**Deliberately not published.** Eight Creeds.json files were never copied into the corpus because they carry
+third-party copyright — among them the Chicago Statement on Biblical Inerrancy (Alliance of Confessing Evangelicals)
+and five short confessions whose only upstream English wording is the English Standard Version (Crossway). **No ESV
+text is held anywhere in this project.** Those five confessions appear on the site with their passage supplied from the
+public-domain Berean Standard Bible by reference; their titles, dates and Scripture references are not copyrightable.
+Eleven proof-text references are to the Apocrypha or to verses the Berean text does not carry; each is shown as a
+reference with no verse words rather than filled in from another translation.
+
 ## Parables content review — 11 October 2026
 
 Implementation-plan step 3: [content review and study ledger](docs/parables/CONTENT-REVIEW.md). All 57 studies checked against their Gospel passages and setting anchors; 45 revised and 12 retained. The record distinguishes direct textual corrections, qualified interpretations and applications, and identifies the Christian commentary sections actually consulted. The seven deeper treatments remain for step 4. Collection counts and passage ranges are unchanged; this is a local revision with no publication.

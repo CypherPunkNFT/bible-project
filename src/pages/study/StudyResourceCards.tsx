@@ -136,6 +136,34 @@ function PlacesPreview() {
   </div>;
 }
 
+/** Twelve traditions as a shelf of spines, oldest at the left, the way the collection's own rail reads. */
+function CreedsPreview() {
+  const shelf = [
+    { name: "Scripture", color: "var(--poetry)", height: 54 },
+    { name: "Early church", color: "var(--gospels)", height: 40 },
+    { name: "The councils", color: "var(--revelation)", height: 66 },
+    { name: "Medieval West", color: "var(--history)", height: 34 },
+    { name: "Lutheran", color: "var(--prophets)", height: 58 },
+    { name: "Swiss & continental", color: "var(--epistles)", height: 72 },
+    { name: "Westminster", color: "var(--poetry)", height: 80 },
+    { name: "Anglican", color: "var(--apocrypha)", height: 46 },
+    { name: "Baptist", color: "var(--gospels)", height: 52 },
+    { name: "Methodist", color: "var(--history)", height: 30 },
+    { name: "Rome", color: "var(--revelation)", height: 44 },
+    { name: "Orthodox", color: "var(--prophets)", height: 50 },
+  ];
+  return (
+    <div className="study-art study-creeds-art" aria-hidden="true">
+      <div className="study-creeds-shelf">
+        {shelf.map((spine) => (
+          <span key={spine.name} style={{ background: spine.color, height: `${spine.height}%` }} />
+        ))}
+      </div>
+      <span className="study-art-note">1500 BC → 1870 · Creeds · Confessions · Catechisms</span>
+    </div>
+  );
+}
+
 const RESOURCE_CARDS = {
   topics: <Resource to="/topics" title="Topics" description="5,603 subjects in 55 families, from the love of God and the books of the Bible to every person, place, miracle and parable. Each gathers every passage that speaks to it, with key verses quoted in full." source="Torrey, Nave & Easton" number="01" category="Every subject, every verse" color="epistles" className="study-wide"><TopicsPreview /></Resource>,
   names: <Resource to="/study/names" title="Names & descriptions of God" description="302 names and titles of the Father, the Son and the Holy Spirit. Unfold each name to discover the passages behind it." source="The Faith-page collection" number="02" category="His character, revealed" color="revelation" className="study-wide"><NamesPreview /></Resource>,
@@ -148,11 +176,12 @@ const RESOURCE_CARDS = {
   memory: <Resource to="/study/long-memory" title="Long Memory" description={<>Follow a life across Scripture, one verse at a time.<br /><span>Begin with ten lives: explore their mentions, words, pivotal moments, and how Scripture remembers them.</span></>} source="Ten lives · Four study lenses · Every light opens a verse" number="" category="A life across Scripture" color="epistles" className="study-memory-resource"><MemoryPreview /></Resource>,
   letters: <Resource to="/study/letters" title="Letters & their message" description="Explore all 21 New Testament letters: who wrote them, who received them, and how each message unfolds, section by section." source="Westcott, Lightfoot, Ramsay & other public-domain scholars" number="08" category="Letters to the church" color="epistles"><LettersPreview /></Resource>,
   atlas: <Resource to="/study/atlas" title="Places & journeys" description="Find 1,252 biblical places on a map of the ancient world. Explore the settings of the story, compare places by book, and open their passages." source="OpenBible.info · OpenStreetMap" number="09" category="The world of the Bible" color="poetry" className="study-map-feature"><PlacesPreview /></Resource>,
+  creeds: <Resource to="/study/creeds" title="Catechisms & Creeds" description="What has the church actually confessed? 66 creeds, confessions and catechisms in full, from Israel's own creed to the First Vatican Council, with every Scripture quotation shown in the Berean Standard Bible." source="12 traditions · 11,375 questions & sections · Creeds.json, Schaff & Project Gutenberg" number="" category="The faith, said out loud" color="revelation" className="study-creeds-resource"><CreedsPreview /></Resource>,
   versions: <Resource to="/study/versions" title="Versions & languages" description="Which edition are you reading? Place the library's versions in time, compare their actual book collections, and choose one to read." source="Edition timeline · Book coverage · Library" number="10" category="Editions & contents" color="acts" className="study-wide"><ChartPreview kind="versions" note="The texts in your hands" /></Resource>,
 };
 
 export type StudyResourceId = keyof typeof RESOURCE_CARDS;
-export const STUDY_RESOURCE_IDS = Object.keys(RESOURCE_CARDS).filter(id => id !== "parables" && id !== "memory") as StudyResourceId[];
+export const STUDY_RESOURCE_IDS = Object.keys(RESOURCE_CARDS).filter(id => id !== "parables" && id !== "memory" && id !== "creeds") as StudyResourceId[];
 
 /** The original Study2 cards, shared intact with the organized Theology collections. */
 export function StudyResourceCards({ ids = STUDY_RESOURCE_IDS, className = "", label = "Study resources" }: {

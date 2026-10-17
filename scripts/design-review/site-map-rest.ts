@@ -264,10 +264,55 @@ function studyAndSiteTemplates(): TemplateDef[] {
   ];
 }
 
+interface CreedCardEntry { id: string; title: string; yearLabel: string; documentType: string | null; sections: number; references: number }
+interface CreedsIndexFile { counts: { documents: number }; families: { id: string; title: string; documents: CreedCardEntry[] }[] }
+
+/** Catechisms & Creeds: the collection landing, and one page per document (scripts/build-creeds.py). */
+function creedTemplates(): { templates: TemplateDef[]; valid: { creeds: string[] } } {
+  const index = readJson<CreedsIndexFile>("data/creeds/index.json");
+  const documents = index.families.flatMap((family) => family.documents);
+  const url = (d: CreedCardEntry) => `/study/creeds/${d.id}`;
+  const name = (d: CreedCardEntry) => `${d.title} (${d.yearLabel})`;
+  const ofType = (type: string) => documents.filter((d) => d.documentType === type);
+  const samples = (records: CreedCardEntry[]): SampleRule<CreedCardEntry>[] => [
+    typical<CreedCardEntry>((d) => d.sections, name, "sections"),
+    most<CreedCardEntry>("most-sections", "Longest", (d) => d.sections, name, "sections"),
+    most<CreedCardEntry>("most-proofs", "Most proof-texts", (d) => d.references, name, "proof-texts"),
+  ].slice(0, records.length > 2 ? 3 : 1);
+
+  const home: TemplateDef = {
+    id: "creeds-home", area: "study", name: "Catechisms & Creeds", address: "/study/creeds",
+    what: `${index.counts.documents} creeds, confessions and catechisms in twelve traditions, on a time rail and in shelves that open in place.`,
+    entries: ["src/pages/study/creeds/CreedsPage.tsx"],
+    scopes: ["src/pages/study/creeds/", "src/lib/creeds.ts"],
+    variants: [
+      single("home", "The collection", "The time rail and the first shelf.", "/study/creeds"),
+      ...index.families.map((family) => single(family.id, family.title, `The ${family.title} shelf, opened.`, `/study/creeds?family=${family.id}`)),
+    ],
+  };
+  const document: TemplateDef = {
+    id: "creed-document", area: "study", name: "A creed, confession or catechism", address: "/study/creeds/<document>",
+    instances: documents.length,
+    what: "The full text by section, its date, tradition and source, and its proof-texts in the Berean Standard Bible.",
+    entries: ["src/pages/study/creeds/CreedDocumentPage.tsx"],
+    scopes: ["src/pages/study/creeds/", "src/lib/creeds.ts", "scripts/build-creeds.py"],
+    variants: [
+      variant({ id: "catechism", name: "A catechism", what: "Questions and answers, in ranges of twenty-five.", records: ofType("catechism"), url, samples: samples(ofType("catechism")) }),
+      variant({ id: "confession", name: "A confession", what: "Chapters and numbered sections.", records: ofType("confession"), url, samples: samples(ofType("confession")) }),
+      variant({ id: "creed", name: "A creed", what: "A short text, often with its Latin or Greek beside it.", records: ofType("creed"), url, samples: samples(ofType("creed")) }),
+      variant({ id: "articles", name: "Articles of religion", what: "Numbered articles.", records: ofType("articles"), url, samples: samples(ofType("articles")) }),
+      variant({ id: "canons", name: "Canons and decrees", what: "A council's canons.", records: ofType("canons"), url, samples: samples(ofType("canons")) }),
+      variant({ id: "rule-of-faith", name: "A rule of faith", what: "An early teacher's summary, a few sentences long.", records: ofType("rule-of-faith"), url, samples: samples(ofType("rule-of-faith")) }),
+      variant({ id: "declaration", name: "A declaration", what: "The Savoy Declaration's own shape.", records: ofType("declaration"), url, samples: samples(ofType("declaration")) }),
+    ],
+  };
+  return { templates: [home, document], valid: { creeds: documents.map((d) => d.id) } };
+}
+
 export async function restTemplates() {
-  const topics = topicTemplates(), reader = readerTemplates(), letters = await letterTemplates(), apologetics = await apologeticsTemplates();
+  const topics = topicTemplates(), reader = readerTemplates(), letters = await letterTemplates(), apologetics = await apologeticsTemplates(), creeds = creedTemplates();
   return {
-    templates: [...studyAndSiteTemplates(), ...topics.templates, ...reader.templates, ...letters.templates, ...apologetics.templates],
-    valid: { ...topics.valid, ...reader.valid, ...letters.valid, ...apologetics.valid },
+    templates: [...studyAndSiteTemplates(), ...creeds.templates, ...topics.templates, ...reader.templates, ...letters.templates, ...apologetics.templates],
+    valid: { ...topics.valid, ...reader.valid, ...letters.valid, ...apologetics.valid, ...creeds.valid },
   };
 }

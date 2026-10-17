@@ -183,7 +183,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
             },
             {
                 "id": "doctrine",
-                "cards": ["topics", "names"],
+                "cards": ["topics", "names", "creeds"],
                 "title": "God & Christian Faith",
                 "titleLines": ["God &", "Christian Faith"],
                 "short": "Trace what Scripture teaches",
@@ -320,6 +320,10 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                     [
                         "Work & wealth",
                         "/topics/c/trades?group=work-and-wealth"
+                    ],
+                    [
+                        "The catechisms",
+                        "/study/creeds"
                     ]
                 ]
             },

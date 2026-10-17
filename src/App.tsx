@@ -32,6 +32,8 @@ const CanonPage = lazy(() => import("@/pages/study/canon/CanonPage"));
 const DeadSeaScrollsPage = lazy(() => import("@/pages/study/scrolls/DeadSeaScrollsPage"));
 const DiscoveriesPage = lazy(() => import("@/pages/study/discoveries/DiscoveriesPage"));
 const HistoricalStudyLanding = lazy(() => import("@/pages/study/discoveries/HistoricalStudyLanding"));
+const CreedsPage = lazy(() => import("@/pages/study/creeds/CreedsPage"));
+const CreedDocumentPage = lazy(() => import("@/pages/study/creeds/CreedDocumentPage"));
 const StudyBranch = lazy(() => import("@/pages/study/hub/StudyBranch"));
 const StudyPage = lazy(() => import("@/pages/study/StudyPage"));
 const StudyCollection = lazy(() => import("@/pages/study/StudyCollection"));
@@ -111,6 +113,8 @@ export default function App() {
               <Route path="/study/circles" element={<CirclesPage />} />
               <Route path="/study2" element={<StudyCollection />} />
               <Route path="/study/theology" element={<StudyBranch branch="theology" />} />
+              <Route path="/study/creeds" element={<CreedsPage />} />
+              <Route path="/study/creeds/:id" element={<CreedDocumentPage />} />
               <Route path="/study/surviving-witnesses" element={<SurvivingWitnessesPage />} />
               <Route path="/study/passage-through-manuscripts" element={<PassageManuscriptsPage />} />
               <Route path="/study/israel-among-the-empires" element={<IsraelEmpiresPage />} />
