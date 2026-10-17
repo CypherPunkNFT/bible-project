@@ -84,6 +84,8 @@ window.Sections = window.Sections || {};
     const $ = (selector) => section.querySelector(selector);
     const paths = [...section.querySelectorAll(".thr-spokes path")];
     const list = $(".thr-list");
+    // The hymn list scrolls with its pill outside the panel's right edge, as on the rest of the site.
+    const bookScroll = OutsideScroll.wrap($(".thr-book"));
     const shown = new Float32Array(66);
     let current = D.everyone, selected = current.top, hover = -1, raf = 0;
     const scaleMax = () => Math.min(current.max, CAP);
@@ -154,7 +156,7 @@ window.Sections = window.Sections || {};
         lastChapter = chapter;
         return head + hymnItem(h);
       }).join("") : `<li class="thr-empty">No hymn on ${esc(book.name)} in ${current.group ? esc(current.group.short) : "any of these books"}.</li>`;
-      list.scrollTop = 0;
+      bookScroll.reset();
     }
     function setShelf(id) {
       current = D.byId.get(id);

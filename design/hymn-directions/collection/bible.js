@@ -68,7 +68,11 @@ window.Sections = window.Sections || {};
       <div class="bib-sheet" role="dialog" aria-label="Chapter" inert></div>`;
 
     const canvas = section.querySelector("canvas"), box = section.querySelector(".bib-canvas-box");
-    const detail = section.querySelector(".bib-detail"), sheet = section.querySelector(".bib-sheet");
+    const panel = section.querySelector(".bib-detail"), sheet = section.querySelector(".bib-sheet");
+    // The side panel is always exactly as tall as the chapter map beside it; anything longer scrolls, with the pill outside.
+    const panelScroll = OutsideScroll.wrap(panel), detail = panelScroll.content;
+    const card = section.querySelector(".bib-card");
+    new ResizeObserver(() => { panel.style.height = narrow.matches ? "" : `${card.offsetHeight}px`; }).observe(card);
     const ctx = canvas.getContext("2d");
     let view = "all", hovered = -1, pinned = -1, expanded = false;
     const current = new Float32Array(n), from = new Float32Array(n), target = new Float32Array(n);
@@ -195,6 +199,7 @@ window.Sections = window.Sections || {};
       }
       sheet.classList.remove("bib-open"); sheet.inert = true;
       detail.innerHTML = shownCell >= 0 ? chapterHtml(cells[shownCell], pinned >= 0 && hovered < 0) : summaryHtml();
+      panelScroll.reset();
     }
     function pin(i) { pinned = i; expanded = false; hovered = -1; draw(); renderDetail(); }
     function cellAt(event) {
