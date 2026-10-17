@@ -1,0 +1,286 @@
+{
+ "schema": 1,
+ "built": "2026-10-17T12:57:40Z",
+ "intakes": [
+  {
+   "slug": "reference_books",
+   "title": "Reference books",
+   "jobs": [
+    409,
+    410
+   ],
+   "sources": 11,
+   "files": 76,
+   "bytes": 1322551637,
+   "by_type": {
+    "PDF": [
+     16,
+     1031647343
+    ],
+    "Text": [
+     60,
+     290904294
+    ]
+   },
+   "has_manifest": true
+  },
+  {
+   "slug": "bible_questions",
+   "title": "Bible questions",
+   "jobs": [
+    411,
+    412,
+    413
+   ],
+   "sources": 17,
+   "files": 430,
+   "bytes": 1238370081,
+   "by_type": {
+    "Data": [
+     172,
+     440533077
+    ],
+    "Text": [
+     100,
+     31248159
+    ],
+    "Other": [
+     24,
+     10147744
+    ],
+    "Code": [
+     66,
+     553464
+    ],
+    "PDF": [
+     68,
+     755887637
+    ]
+   },
+   "has_manifest": true
+  },
+  {
+   "slug": "open_bible_data",
+   "title": "Open Bible data",
+   "jobs": [
+    413
+   ],
+   "sources": 3,
+   "files": 4193,
+   "bytes": 3002490198,
+   "by_type": {
+    "Data": [
+     25,
+     284543518
+    ],
+    "Text": [
+     4081,
+     2413427904
+    ],
+    "Archive": [
+     2,
+     302598010
+    ],
+    "Other": [
+     59,
+     554766
+    ],
+    "PDF": [
+     2,
+     1230996
+    ],
+    "Code": [
+     24,
+     135004
+    ]
+   },
+   "has_manifest": true
+  },
+  {
+   "slug": "creeds",
+   "title": "Creeds & confessions",
+   "jobs": [
+    415
+   ],
+   "sources": 3,
+   "files": 114,
+   "bytes": 40473490,
+   "by_type": {
+    "Data": [
+     98,
+     14466707
+    ],
+    "Text": [
+     10,
+     25926347
+    ],
+    "Code": [
+     6,
+     80436
+    ]
+   },
+   "has_manifest": true
+  },
+  {
+   "slug": "hymns",
+   "title": "Hymns",
+   "jobs": [
+    416
+   ],
+   "sources": 4,
+   "files": 5698,
+   "bytes": 30109810,
+   "by_type": {
+    "Data": [
+     5680,
+     24036301
+    ],
+    "Text": [
+     9,
+     5963352
+    ],
+    "Code": [
+     9,
+     110157
+    ]
+   },
+   "has_manifest": true
+  },
+  {
+   "slug": "artifacts",
+   "title": "Archaeology artifacts",
+   "jobs": [
+    417
+   ],
+   "sources": 14,
+   "files": 4059,
+   "bytes": 1345595273,
+   "by_type": {
+    "Other": [
+     1,
+     698
+    ],
+    "Code": [
+     32,
+     670470
+    ],
+    "Image": [
+     2500,
+     611229621
+    ],
+    "Text": [
+     17,
+     1572164
+    ],
+    "Data": [
+     1499,
+     674114425
+    ],
+    "Archive": [
+     10,
+     58007895
+    ]
+   },
+   "has_manifest": true
+  },
+  {
+   "slug": "manuscripts",
+   "title": "Manuscripts",
+   "jobs": [
+    418
+   ],
+   "sources": 7,
+   "files": 431,
+   "bytes": 152932996,
+   "by_type": {
+    "Other": [
+     32,
+     28716796
+    ],
+    "Code": [
+     18,
+     269636
+    ],
+    "Text": [
+     104,
+     47406843
+    ],
+    "Image": [
+     31,
+     28716041
+    ],
+    "Data": [
+     246,
+     47823680
+    ]
+   },
+   "has_manifest": true
+  },
+  {
+   "slug": "audio_bible",
+   "title": "Audio Bible",
+   "jobs": [
+    419
+   ],
+   "sources": 5,
+   "files": 491,
+   "bytes": 11613935548,
+   "by_type": {
+    "Other": [
+     1,
+     1048
+    ],
+    "Data": [
+     11,
+     5823010
+    ],
+    "Code": [
+     8,
+     91023
+    ],
+    "Text": [
+     2,
+     21312
+    ],
+    "Audio": [
+     469,
+     11607999155
+    ]
+   },
+   "has_manifest": true
+  },
+  {
+   "slug": "holy_land_maps",
+   "title": "Holy Land maps",
+   "jobs": [
+    420
+   ],
+   "sources": 5,
+   "files": 3677,
+   "bytes": 25718565463,
+   "by_type": {
+    "Other": [
+     1,
+     356
+    ],
+    "Code": [
+     31,
+     662163
+    ],
+    "Image": [
+     2272,
+     25611245105
+    ],
+    "Data": [
+     1362,
+     106598356
+    ],
+    "Text": [
+     11,
+     59483
+    ]
+   },
+   "has_manifest": true
+  }
+ ]
+}
