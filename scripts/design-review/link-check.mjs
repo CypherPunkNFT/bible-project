@@ -10,7 +10,7 @@ const STATIC = new Set([
   "/charts/references", "/charts/structure", "/charts/words-of-jesus", "/charts/versions",
   "/testimonies", "/testimonies/join", "/testimonies/access", "/testimonies/design", "/topics", "/topics/superlist", "/review",
   "/study/theology", "/study/academic", "/study/references", "/study/structure", "/study/gospels", "/study/versions", "/study/miracles", "/study/names",
-  "/study/people", "/study/prophets", "/study/rulers", "/study/apostles", "/study/harmony", "/study/letters",
+  "/study/people", "/study/prophets", "/study/rulers", "/study/apostles", "/study/harmony", "/study/letters", "/study/creeds",
   "/study/atlas", "/study/atlas/map", "/study/atlas/journeys", "/study/atlas/cities", "/study/atlas/cities/find",
   "/study/atlas/cities/motion", "/study/atlas/gospels", "/study/atlas/early-church", "/study/atlas/catholic-orthodox",
   "/study/atlas/reformation", "/study/atlas/missions",
@@ -31,6 +31,7 @@ export function linkChecker(valid) {
   const teacherWorks = new Set(valid.teacherWorks ?? []);
   const readingSources = new Set(valid.readingSources ?? []);
   const scholarWritings = new Set(valid.scholarWritings ?? []);
+  const creeds = new Set(valid.creeds ?? []);
 
   return function check(address) {
     const url = new URL(address, "http://site");
@@ -57,6 +58,7 @@ export function linkChecker(valid) {
       if (!books.has(m[2])) return `no book "${m[2]}"`;
       return /^\d+$/.test(m[3]) ? null : `chapter "${m[3]}" is not a number`;
     }
+    if ((m = /^\/study\/creeds\/([^/]+)$/.exec(path))) return creeds.has(decodeURIComponent(m[1])) ? null : `no creed, confession or catechism "${m[1]}"`;
     if ((m = /^\/topics\/c\/([^/]+)$/.exec(path))) return categories.has(m[1]) ? null : `no topic card "${m[1]}"`;
     if ((m = /^\/topics\/([^/]+)$/.exec(path))) return topics.has(decodeURIComponent(m[1])) ? null : `no topic "${m[1]}"`;
     if ((m = /^\/study\/letters\/([^/]+)(?:\/([^/]+))?(?:\/([^/]+))?$/.exec(path))) {
