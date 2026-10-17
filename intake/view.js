@@ -105,7 +105,7 @@ function renderSourceDetails() {
   const verdict = s.licence_flag === true ? node('div', `Licence questionable · ${s.licence_reason}`, 'licence-note')
     : s.licence_flag === false ? node('div', 'Licence clear', 'licence-note ok') : null;
   if (s.output_rows !== undefined) facts.append(fact('Output', s.output_rows
-    ? `${count(s.output_rows)} questions${s.output_note ? ` · ${s.output_note}` : ''}` : s.output_note));
+    ? `${count(s.output_rows)} ${s.output_unit || 'rows'}${s.output_note ? ` · ${s.output_note}` : ''}` : s.output_note));
   facts.append(fact('Files', count(s.files)), fact('Size', size(s.bytes)), fact('From', s.host || '—'),
     fact('Publisher', s.publisher), fact('Licence', s.licence));
   if (s.url) facts.append(fact('Address', s.url.replace(/^https?:\/\//, ''), s.url));
@@ -183,13 +183,14 @@ async function showTable(f, url, preview) {
     const fragment = document.createDocumentFragment();
     for (const r of rows) {
       const tr = node('tr');
-      for (const cell of r) tr.append(node('td', cell));
+      // A long cell (a hymn, a commentary chapter) shows its opening; the whole text is in the file.
+      for (const cell of r) { const td = node('td', cell.length > 600 ? `${cell.slice(0, 600)}…` : cell); if (cell.length > 600) td.title = 'Shortened here; the whole text is in the file'; tr.append(td); }
       fragment.append(tr);
     }
     table.append(fragment);
     preview.replaceChildren(table);
     if (end + 1 < f[2]) {
-      const more = node('button', `Showing ${count(rows.length)} questions · ${size(end + 1)} of ${size(f[2])} · show more`, 'more');
+      const more = node('button', `Showing ${count(rows.length)} rows · ${size(end + 1)} of ${size(f[2])} · show more`, 'more');
       more.onclick = () => { peek = end + 1; renderReader(); };
       preview.append(more);
     }

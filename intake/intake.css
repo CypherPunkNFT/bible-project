@@ -26,6 +26,7 @@ h1{font:400 clamp(30px,3vw,44px)/1.1 Literata,Georgia,serif;margin:0}.gold{color
 .card:hover{border-color:var(--gold)}.card h2{font:400 21px/1.25 Literata,Georgia,serif;margin:0}
 .card .size{font:400 30px/1 Literata,Georgia,serif}.card .meta{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
 .card .jobs{font-size:10px;color:var(--gold);letter-spacing:.4px}
+.card-wrap{display:flex;flex-direction:column;gap:6px}.card-wrap .card{flex:1}.card-also{padding:9px 20px;border:1px solid var(--line);border-radius:8px;background:var(--surface);font-size:11px;color:var(--gold);text-decoration:none}.card-also:hover{border-color:var(--gold)}
 /* the three-column desk */
 .workspace{display:grid;grid-template-columns:minmax(250px,23%) minmax(300px,29%) minmax(0,1fr);height:calc(100vh - 230px);min-height:560px;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden}
 .col{display:flex;flex-direction:column;min-width:0;min-height:0;border-right:1px solid var(--line)}.col:last-child{border-right:0}
@@ -43,7 +44,7 @@ h1{font:400 clamp(30px,3vw,44px)/1.1 Literata,Georgia,serif;margin:0}.gold{color
 .licence-note{margin:14px 0 0;padding:10px 12px;border:1px solid var(--flag);border-radius:4px;background:var(--flag-soft);color:var(--flag);font-size:12px;line-height:1.55}
 .licence-note.ok{border-color:var(--ok);background:var(--ok-soft);color:var(--ok)}
 .qa{width:100%;border-collapse:collapse;font-size:12px}.qa th{position:sticky;top:0;background:var(--surface);text-align:left;font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);padding:8px;border-bottom:1px solid var(--line)}
-.qa td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5;overflow-wrap:anywhere}.qa td:first-child{color:var(--muted);font-variant-numeric:tabular-nums;width:1%;white-space:nowrap}.qa td:last-child{color:var(--muted);white-space:nowrap}
+.qa td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5;overflow-wrap:anywhere}.qa td{white-space:pre-line}.qa td:first-child{color:var(--muted);font-variant-numeric:tabular-nums;width:1%;white-space:nowrap}
 .tools{padding:10px 12px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
 .tools input{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:4px;background:var(--page);color:var(--ink);font:inherit;font-size:12px}
 .chips{display:flex;flex-wrap:wrap;gap:4px}.chips button{font-size:10px;padding:5px 8px;background:transparent}.chips button[aria-pressed=true]{border-color:var(--gold);color:var(--gold);background:var(--soft)}

@@ -19,8 +19,17 @@
     card.href = `/data_intake/${x.slug}/`;
     const meta = node('div', null, 'meta');
     meta.append(node('span', `${count(x.files)} files`), node('span', `${count(x.sources)} sources`));
-    card.append(node('h2', x.title), node('div', size(x.bytes), 'size'), meta, typeBar(x.by_type, true),
-      node('div', `Job ${x.jobs.join(' · ')}`, 'jobs'));
+    const jobs = node('div', `Job ${x.jobs.join(' · ')}`, 'jobs');
+    card.append(node('h2', x.title), node('div', size(x.bytes), 'size'), meta, typeBar(x.by_type, true), jobs);
+    if (x.also) {
+      // A second way in (the reference library's files and outputs); its own link, not a link inside the card's link.
+      const wrap = node('div', null, 'card-wrap');
+      const also = node('a', `${x.also.label} →`, 'card-also');
+      also.href = x.also.href;
+      wrap.append(card, also);
+      fragment.append(wrap);
+      continue;
+    }
     fragment.append(card);
   }
   $('cards').replaceChildren(fragment);

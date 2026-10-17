@@ -33,6 +33,10 @@ INTAKES = [
     {"slug": "manuscripts", "title": "Manuscripts", "folder": "Research/Manuscripts", "jobs": [418]},
     {"slug": "audio_bible", "title": "Audio Bible", "folder": "Research/Audio", "jobs": [419]},
     {"slug": "holy_land_maps", "title": "Holy Land maps", "folder": "Research/HistoricalMaps", "jobs": [420]},
+    # The reference library's files and outputs, laid out by kind rather than under raw/. Its card stays the
+    # reading desk (reference_books), which links here.
+    {"slug": "reference_library", "title": "Reference books", "folder": "Data/TheologicalReferenceLibrary", "jobs": [409, 410],
+     "source_dirs": ["Encyclopedias", "Publisher-References", "Scholar-Lists"], "card": False},
 ]
 # The existing acquisition desk, now at /data_intake/reference_books/; its card reads its own catalogue.
 REFERENCE_BOOKS = {"slug": "reference_books", "title": "Reference books", "jobs": [409, 410],
@@ -40,14 +44,20 @@ REFERENCE_BOOKS = {"slug": "reference_books", "title": "Reference books", "jobs"
 
 SKIP_DIRS = {"__pycache__", ".git", "node_modules"}
 # Folders a job made from its downloads, as opposed to the downloads themselves.
-PREPARED = {"normalized": "Prepared · normalized", "extracted": "Prepared · extracted",
+PREPARED = {"normalized": "Prepared · normalized", "extracted": "Prepared · extracted", "notes": "Job's notes",
             "checksums": "Checksums", "tools": "Job's scripts", "logs": "Logs"}
 # Source folders whose names say little, in plain words (used when a manifest gives no title).
 FOLDER_NAMES = {"loc-gm": "Library of Congress · maps", "nypl": "New York Public Library", "internet-archive": "Internet Archive",
                 "archive-org": "Internet Archive", "wikimedia-commons": "Wikimedia Commons", "_terms": "Licence terms",
                 "_catalogue": "Catalogue", "commons": "Wikimedia Commons", "csntm": "CSNTM manuscripts",
                 "etcbc-dss": "Dead Sea Scrolls (ETCBC)", "wikidata": "Wikidata", "wikipedia": "Wikipedia", "gutenberg": "Project Gutenberg",
-                "ccel": "CCEL", "hymnary": "Hymnary.org", "images": "Images"}
+                "ccel": "CCEL", "hymnary": "Hymnary.org", "images": "Images",
+                # The reference library, named as its reading desk names them (build-data-acquisition.mjs).
+                "catholic-encyclopedia": "The Catholic Encyclopedia", "mcclintock-strong": "McClintock & Strong · Cyclopaedia",
+                "schaff-herzog": "New Schaff–Herzog Encyclopedia", "christian-biography": "Wace & Piercy · Dictionary of Christian Biography",
+                "brad-east-153-theologians": "Brad East · 153 theologians", "carolina-100-philosophers-and-theologians": "100 philosophers and theologians",
+                "fifty-key-christian-thinkers": "Fifty Key Christian Thinkers", "the-great-theologians": "The Great Theologians",
+                "131-christians-everyone-should-know": "131 Christians Everyone Should Know"}
 TYPES = {
     "Text": {".txt", ".md", ".html", ".htm", ".xml", ".tei", ".rtf", ".epub", ".usfm", ".usx", ".osis"},
     "PDF": {".pdf", ".djvu"},
@@ -182,16 +192,25 @@ def describe(name: str, records: dict[str, dict]) -> dict:
             "licence_flag": flag, "licence_reason": reason}
 
 
-def group_of(relative: Path) -> tuple[str, str, bool]:
+def group_of(relative: Path, source_dirs: tuple[str, ...] = ()) -> tuple[str, str, bool]:
     """(group key, folder name, is a download) for a file's path inside the intake."""
     parts = relative.parts
+    # Libraries laid out by kind: Encyclopedias/<work>/... or Scholar-Lists/<file> is one source each.
+    if parts[0] in source_dirs and len(parts) > 1:
+        name = parts[1] if len(parts) > 2 else relative.stem
+        return f"source/{name}", name, True
     # output/<source>.csv is that source's finished question list (BibleQuizCorpus/tools/build_output.py).
     if parts[0] == "output" and len(parts) == 2 and relative.suffix == ".csv":
+        if relative.stem in ("images", "raw"):  # a flat images/ or raw/ folder is its own group
+            return relative.stem, relative.stem, True
         return f"source/{relative.stem}", relative.stem, True
     # A source's downloads may sit in raw/<source>/ and images/<source>/: both are that source.
     if parts[0] in ("raw", "images") and len(parts) > 2:
         return f"source/{parts[1]}", parts[1], True
     if parts[0] in ("raw", "images"):
+        # Loose notes the job wrote beside its downloads (LICENCES.md, harvest logs) are the job's, not a source.
+        if relative.suffix.lower() in (".md", ".log", ".txt", ".out"):
+            return "notes", "notes", False
         return parts[0], "images" if parts[0] == "images" else "raw", True
     if len(parts) > 1:
         return parts[0], parts[0], False
@@ -202,6 +221,12 @@ def build_intake(spec: dict) -> dict:
     root = PROJECT / spec["folder"]
     manifest_path = root / "manifest.json"
     records = source_records(json.loads(manifest_path.read_text(encoding="utf-8"))) if manifest_path.exists() else {}
+    receipt = root / "download-receipt.json"
+    if not records and receipt.exists():
+        # The reference library keeps a download record per file instead of a manifest: one record per work,
+        # titled by its folder name, with no licence field (so the licence counts as not recorded).
+        for item in json.loads(receipt.read_text(encoding="utf-8"))["items"].values():
+            records.setdefault(item["group"].lower(), {"url": item.get("url", "")})
     groups: dict[str, dict] = {}
     files: list[list] = []
     for path in sorted(root.rglob("*")):
@@ -210,7 +235,7 @@ def build_intake(spec: dict) -> dict:
         relative = path.relative_to(root)
         if relative.parts[0] == "output" and relative.suffix != ".csv":
             continue  # output/_status.json is read below, not listed
-        key, name, download = group_of(relative)
+        key, name, download = group_of(relative, tuple(spec.get("source_dirs", ())))
         if key not in groups:
             info = describe(name, records) if download and name != "raw" else {"title": PREPARED.get(name, name), "publisher": "", "url": "", "host": "", "licence": ""}
             groups[key] = {"key": key, "download": download, "licence_flag": None, "licence_reason": "", **info, "files": 0, "bytes": 0}
@@ -228,9 +253,11 @@ def build_intake(spec: dict) -> dict:
     status_file = root / "output" / "_status.json"
     if status_file.exists():
         for sid, status in json.loads(status_file.read_text(encoding="utf-8")).items():
-            if f"source/{sid}" in groups:
-                groups[f"source/{sid}"]["output_rows"] = status.get("rows", 0)
-                groups[f"source/{sid}"]["output_note"] = status.get("note", "")
+            key = sid if sid in ("images", "raw") else f"source/{sid}"
+            if key in groups:
+                groups[key]["output_rows"] = status.get("rows", 0)
+                groups[key]["output_unit"] = status.get("unit", "rows")
+                groups[key]["output_note"] = status.get("note", "")
     rank = {"text": 0, "scan": 1, "made": 2}
     # Within each group: clear licences (green) first, then unrated, then questionable (red); biggest first.
     licence_rank = {False: 0, None: 1, True: 2}
@@ -266,6 +293,7 @@ def reference_books_card() -> dict:
         entry[0] += 1
         entry[1] += r.get("bytes") or 0
     return {"slug": REFERENCE_BOOKS["slug"], "title": REFERENCE_BOOKS["title"], "jobs": REFERENCE_BOOKS["jobs"],
+            "also": {"label": "Files & output", "href": "/data_intake/reference_library/"},
             "sources": len({r.get("group") for r in records}), "files": len(records),
             "bytes": sum(r.get("bytes") or 0 for r in records), "by_type": by_type, "has_manifest": True}
 
@@ -278,6 +306,9 @@ def main() -> None:
         (OUT / spec["slug"]).mkdir(exist_ok=True)
         (OUT / spec["slug"] / "catalogue.json").write_text(json.dumps(catalogue, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
         t = catalogue["totals"]
+        if spec.get("card") is False:
+            print(f"{spec['slug']}: {t['sources']} sources, {t['files']} files (no card of its own)")
+            continue
         cards.append({"slug": spec["slug"], "title": spec["title"], "jobs": spec["jobs"], "sources": t["sources"],
                       "files": t["files"], "bytes": t["bytes"], "by_type": t["by_type"], "has_manifest": catalogue["has_manifest"]})
         print(f"{spec['slug']}: {t['sources']} sources, {t['files']} files, {t['bytes'] / 1e9:.2f} GB")
