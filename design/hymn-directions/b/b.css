@@ -1,0 +1,48 @@
+/* Direction B · Constellation. The hymn's six stanzas at the centre; the books hymnals tie it to on an outer ring;
+   words floating with lines, no boxes. Choosing a stanza or a book fills the reading column beside it. */
+.cn { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2rem 3.5rem; align-items: center; }
+.cn-stage { position: relative; aspect-ratio: 1; max-width: 46rem; width: 100%; }
+.cn-stage svg { width: 100%; height: 100%; overflow: visible; }
+.cn-ring { fill: none; stroke: var(--line); stroke-dasharray: 2 5; }
+.cn-tie { fill: none; stroke: var(--tone); stroke-width: .8; opacity: .16; transition: opacity .25s, stroke-width .25s; }
+.cn-echo { fill: none; stroke: var(--accent); stroke-width: 1.2; opacity: .5; transition: opacity .25s, stroke-width .25s; }
+.cn-stage.picked .cn-tie:not(.on), .cn-stage.picked .cn-echo:not(.on) { opacity: .05; }
+.cn-stage .cn-tie.on { opacity: .75; stroke-width: 1.4; }
+.cn-stage .cn-echo.on { opacity: 1; stroke-width: 2.2; }
+.cn-book { cursor: pointer; }
+.cn-book circle { fill: var(--tone); opacity: .8; transition: r .2s, opacity .2s; }
+.cn-book text { font: 500 11px var(--sans); fill: var(--muted); transition: fill .2s; }
+.cn-book:hover text, .cn-book.on text { fill: var(--ink); }
+.cn-stage.picked .cn-book:not(.on) circle { opacity: .25; }
+.cn-stanza { cursor: pointer; }
+.cn-stanza circle { fill: var(--surface); stroke: var(--accent); stroke-width: 1.2; transition: fill .2s; }
+.cn-stanza text { font: 500 13px var(--serif); fill: var(--accent); text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+.cn-stanza.on circle { fill: var(--accent); }
+.cn-stanza.on text { fill: var(--page); }
+.cn-centre text { text-anchor: middle; }
+.cn-centre .t1 { font: 500 17px var(--serif); fill: var(--ink); }
+.cn-centre .t2 { font: italic 400 12px var(--serif); fill: var(--muted); }
+.cn-legend { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin-top: .8rem; font-size: .72rem; color: var(--muted); }
+.cn-legend i { display: inline-block; width: 18px; height: 0; margin-right: .4rem; vertical-align: middle; border-top: 1px solid var(--line); }
+.cn-legend i.e { border-top: 2px solid var(--accent); }
+
+.cn-read { min-height: 30rem; }
+.cn-read .k { font: 600 .64rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.cn-read h3 { margin: .45rem 0 1rem; font: 500 1.6rem/1.2 var(--serif); letter-spacing: -.02em; }
+.cn-read .st p { margin: 0; font: 400 1.3rem/1.75 var(--serif); }
+.cn-read .st p:nth-child(even) { padding-left: 1.4rem; }
+.cn-read .st p.e { cursor: pointer; background: linear-gradient(transparent 88%, color-mix(in srgb, var(--accent) 35%, transparent) 0); display: inline-block; }
+.cn-echoes { margin-top: 1.4rem; display: grid; gap: .8rem; }
+.cn-echoes button { text-align: left; display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); gap: .2rem .6rem; align-items: baseline; }
+.cn-echoes button::before { content: ""; width: 1.2rem; height: 1px; background: var(--accent); align-self: center; }
+.cn-echoes b { font: 600 .66rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.cn-echoes span { grid-column: 2; font: italic 400 1rem/1.45 var(--serif); color: var(--muted); }
+.cn-echoes button:hover span { color: var(--ink); }
+.cn-refs { display: flex; flex-wrap: wrap; gap: .5rem .9rem; margin-top: .4rem; }
+.cn-refs a { font: 400 1.05rem var(--serif); border-bottom: 1px solid var(--line); }
+.cn-refs a:hover { border-color: var(--accent); color: var(--accent); }
+.cn-hint { margin-top: 1.6rem; font-size: .8rem; color: var(--muted); }
+.cn-steps { display: flex; gap: .4rem; margin-top: 1.4rem; }
+.cn-steps button { width: 2.2rem; height: 2.2rem; border: 1px solid var(--line); border-radius: 50%; font: 500 .82rem var(--serif); color: var(--muted); }
+.cn-steps button.on { border-color: var(--accent); background: var(--accent); color: var(--page); }
+@media (max-width: 960px) { .cn { grid-template-columns: 1fr; } .cn-read { min-height: 0; } }

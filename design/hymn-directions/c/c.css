@@ -1,0 +1,77 @@
+/* Direction C · Six movements. A full-screen landing, then one large section per stanza with a giant numeral behind,
+   its echoes as floating words with lines, and a slow line-drawn scene at its foot. Dots down the side to move. */
+.mv-land { position: relative; min-height: calc(100dvh - 62px); display: grid; align-content: end; overflow: hidden; border-bottom: 1px solid var(--line); }
+.mv-land svg.scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+.mv-land .copy { position: relative; z-index: 1; max-width: 80rem; width: 100%; margin: 0 auto; padding: 0 1.5rem 2.2rem; }
+.mv-land .hy-crumb { margin-bottom: .8rem; }
+.mv-land h1 { font: 500 clamp(3rem, 7.5vw, 6.6rem)/.98 var(--serif); letter-spacing: -.05em; }
+.mv-land h1 em { display: block; font-weight: 400; font-size: .5em; color: var(--accent); letter-spacing: -.03em; margin-top: .4rem; }
+.mv-land .line1 { margin-top: 1.1rem; max-width: 56ch; color: var(--muted); font-size: 1rem; line-height: 1.75; }
+.mv-bar { display: flex; flex-wrap: wrap; margin-top: 1.6rem; border-top: 1px solid var(--line); }
+.mv-bar div { flex: 1 1 10rem; padding: .8rem 1.2rem .2rem 0; }
+.mv-bar div + div { padding-left: 1.2rem; border-left: 1px solid var(--line); }
+.mv-bar dt { font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.mv-bar dd { margin: .2rem 0 0; font: 500 1.35rem/1.2 var(--serif); }
+.mv-bar dd small { font: 400 .74rem var(--sans); color: var(--muted); margin-left: .35rem; }
+
+/* scenes: thin lines, low contrast, slow loops */
+svg.scene { color: var(--accent); }
+svg.scene .ln { fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; opacity: .55; }
+svg.scene .fa { opacity: .25; }
+svg.scene .ink { color: var(--ink); }
+svg.scene .dot { fill: currentColor; opacity: .3; }
+.drift { animation: drift 60s linear infinite; }
+.drift.slow { animation-duration: 95s; }
+@keyframes drift { from { transform: translateX(-12%); } to { transform: translateX(112%); } }
+.glide { animation: glide 22s ease-in-out infinite; }
+@keyframes glide { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(40px, -12px); } }
+.breathe { animation: breathe 9s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes breathe { 0%, 100% { opacity: .35; transform: scale(1); } 50% { opacity: .7; transform: scale(1.06); } }
+.march { stroke-dasharray: 10 14; animation: march 6s linear infinite; }
+@keyframes march { to { stroke-dashoffset: -48; } }
+.flicker { animation: flicker 2.6s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+@keyframes flicker { 0%, 100% { transform: scaleY(1) skewX(0deg); } 30% { transform: scaleY(1.08) skewX(2deg); } 60% { transform: scaleY(.95) skewX(-2deg); } }
+.sway { animation: sway 8s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 0; }
+@keyframes sway { 0%, 100% { transform: skewX(0deg); } 50% { transform: skewX(2.2deg); } }
+.fall { animation: fall 14s linear infinite; }
+@keyframes fall { from { transform: translateY(-40px); } to { transform: translateY(190px); } }
+.dim { animation: dim 16s ease-in-out infinite; }
+@keyframes dim { 0%, 100% { opacity: .55; } 50% { opacity: .12; } }
+.rise { animation: rise 18s ease-in-out infinite; }
+@keyframes rise { 0%, 100% { transform: translateY(14px); } 50% { transform: translateY(-6px); } }
+@media (prefers-reduced-motion: reduce) { .drift, .glide, .breathe, .march, .flicker, .sway, .fall, .dim, .rise { animation: none; } }
+
+/* the movements */
+.mv { position: relative; min-height: 86dvh; display: grid; align-content: center; overflow: hidden; border-bottom: 1px solid var(--line); }
+.mv .sky { position: absolute; inset: 0 0 auto; height: 40%; background-image: radial-gradient(circle, color-mix(in srgb, var(--muted) 45%, transparent) .6px, transparent 1px);
+  background-size: 46px 46px; opacity: .45; mask-image: linear-gradient(black, transparent); -webkit-mask-image: linear-gradient(black, transparent); pointer-events: none; }
+.mv .giant { position: absolute; right: 4%; top: 50%; transform: translateY(-58%); font: 400 clamp(12rem, 30vw, 26rem)/1 var(--serif); color: var(--ink); opacity: .045; letter-spacing: -.06em; user-select: none; pointer-events: none; }
+.mv .inner { position: relative; z-index: 1; max-width: 80rem; width: 100%; margin: 0 auto; padding: 4rem 1.5rem 10.5rem; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 24rem); gap: 2rem 4rem; align-items: center; }
+.mv .k { font: 600 .66rem var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.mv .verse { margin-top: 1.1rem; }
+.mv .verse p { font: 400 clamp(1.5rem, 2.6vw, 2.25rem)/1.55 var(--serif); letter-spacing: -.01em; }
+.mv .verse p:nth-child(even) { padding-left: 2.2rem; }
+.mv .verse p.e span { background: linear-gradient(transparent 86%, color-mix(in srgb, var(--accent) 40%, transparent) 0); cursor: pointer; }
+.mv .verse p.e.on span { background: linear-gradient(transparent 58%, color-mix(in srgb, var(--accent) 22%, transparent) 0); }
+.mv .float { display: grid; gap: 1.6rem; }
+.mv .float button { position: relative; text-align: left; padding-left: 2.6rem; }
+.mv .float button::before { content: ""; position: absolute; left: 0; top: .55rem; width: 2rem; height: 1px; background: var(--accent); opacity: .6; }
+.mv .float button::after { content: ""; position: absolute; left: -3px; top: calc(.55rem - 3px); width: 7px; height: 7px; border-radius: 50%; background: var(--accent); opacity: .6; }
+.mv .float b { display: block; font: 600 .66rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.mv .float span { display: block; margin-top: .2rem; font: italic 400 1.15rem/1.45 var(--serif); color: var(--muted); }
+.mv .float button:hover span, .mv .float button.on span { color: var(--ink); }
+.mv .float .own { font: italic 400 1.05rem/1.55 var(--serif); color: var(--muted); }
+.mv svg.scene.foot { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 170px; }
+@media (max-width: 900px) { .mv .inner { grid-template-columns: 1fr; padding-bottom: 9rem; } .mv .giant { right: -2%; } }
+
+/* side dots with a pill (approved cinema navigation) */
+.mv-dots { position: fixed; right: 18px; top: 50%; z-index: 30; transform: translateY(-50%); display: grid; gap: 10px; }
+.mv-dots a { position: relative; display: block; width: 8px; height: 8px; border-radius: 999px; background: var(--line); transition: height .3s, background .3s; }
+.mv-dots a.on { height: 26px; background: var(--accent); }
+.mv-dots a span { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); padding: 2px 8px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line);
+  font: 500 .7rem var(--sans); white-space: nowrap; color: var(--muted); opacity: 0; pointer-events: none; transition: opacity .2s; }
+.mv-dots a:hover span { opacity: 1; }
+@media (max-width: 700px) { .mv-dots { display: none; } }
+/* the landing's lines fade out behind the title, so the type reads clean */
+.mv-land::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: linear-gradient(to top, var(--page) 0, color-mix(in srgb, var(--page) 92%, transparent) 30%, transparent 62%); }

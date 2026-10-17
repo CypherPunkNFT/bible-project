@@ -1,0 +1,34 @@
+/* Direction A · The page and its echoes. The hymn is set like a fine printed page; in the margin, the verses its lines
+   echo float beside them, joined by thin lines. No boxes: words and lines. */
+.ec { position: relative; display: grid; grid-template-columns: minmax(0, 34rem) minmax(0, 1fr); gap: 0 4.5rem; }
+.ec svg.links { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.ec svg.links path { fill: none; stroke: var(--line); stroke-width: 1; transition: stroke .2s, stroke-width .2s; }
+.ec svg.links path.on { stroke: var(--accent); stroke-width: 1.5; }
+.ec svg.links circle { fill: var(--line); transition: fill .2s; }
+.ec svg.links circle.on { fill: var(--accent); }
+
+.stanzas { position: relative; }
+.stanza { position: relative; margin-bottom: 2.2rem; padding-left: 5.6rem; }
+.stanza .rn { position: absolute; left: 0; top: -.35rem; width: 4.4rem; text-align: right; font: 400 3.4rem/1 var(--serif); color: var(--accent); opacity: .22; letter-spacing: -.04em; user-select: none; }
+.line { display: block; font: 400 1.38rem/1.7 var(--serif); letter-spacing: -.005em; }
+.line:nth-child(even of .line) { padding-left: 1.6rem; }
+.line.echo { cursor: pointer; }
+.line.echo .t { background: linear-gradient(transparent 88%, color-mix(in srgb, var(--accent) 35%, transparent) 0); transition: background .2s; }
+.line.echo.on .t { background: linear-gradient(transparent 60%, color-mix(in srgb, var(--accent) 22%, transparent) 0); }
+
+.margin { position: relative; }
+.note { position: absolute; left: 0; right: 0; display: block; max-width: 24rem; padding: .1rem 0; text-align: left; cursor: pointer; transition: opacity .2s; }
+.note .ref { display: block; font: 600 .66rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.note .w { display: block; margin-top: .15rem; font: italic 400 1.02rem/1.45 var(--serif); color: var(--muted); }
+.note.on .w { color: var(--ink); }
+.ec.focus .note:not(.on) { opacity: .35; }
+.ec-key { margin-top: .4rem; font-size: .76rem; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .ec { grid-template-columns: 1fr; }
+  .ec svg.links { display: none; }
+  .margin { display: none; }
+  .line .inline-note { display: block; margin: .1rem 0 .5rem; padding-left: .8rem; border-left: 1px solid var(--accent); font: italic .9rem/1.45 var(--serif); color: var(--muted); }
+  .line .inline-note b { font: 600 .62rem var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-style: normal; margin-right: .4rem; }
+}
+@media (min-width: 901px) { .line .inline-note { display: none; } }
