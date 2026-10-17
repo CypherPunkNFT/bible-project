@@ -31,7 +31,7 @@ h1{font:400 clamp(30px,3vw,44px)/1.1 Literata,Georgia,serif;margin:0}.gold{color
 .col{display:flex;flex-direction:column;min-width:0;min-height:0;border-right:1px solid var(--line)}.col:last-child{border-right:0}
 .col-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line);font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
 .list{overflow-y:auto;min-height:0;flex:1}
-.group-label{padding:10px 16px;background:var(--page);border-bottom:1px solid var(--line);font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.group-label{display:flex;justify-content:space-between;padding:10px 16px;background:var(--page);border-bottom:1px solid var(--line);font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
 .row{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);border-left:3px solid transparent;border-radius:0;background:transparent;padding:12px 14px 12px 13px}
 .row:hover{background:var(--page)}.row.active{border-left-color:var(--gold);background:var(--soft)}
 .src h3{font-size:12px;font-weight:500;line-height:1.45;margin:0 0 6px}.src .sub{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:var(--muted)}

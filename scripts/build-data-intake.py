@@ -163,8 +163,15 @@ def build_intake(spec: dict) -> dict:
         size = path.stat().st_size
         groups[key]["files"] += 1
         groups[key]["bytes"] += size
-        files.append([list(groups).index(key), relative.as_posix(), size, file_type(path)])
-    sources = sorted(groups.values(), key=lambda g: (not g["download"], -g["bytes"]))
+        kind = file_type(path)
+        groups[key]["pdf_bytes"] = groups[key].get("pdf_bytes", 0) + (size if kind == "PDF" else 0)
+        files.append([list(groups).index(key), relative.as_posix(), size, kind])
+    # A downloaded source is a scan when most of its bytes are PDFs (scanned books, with their OCR beside
+    # them); otherwise it is text & data, ready to use. Text & data is listed first.
+    for g in groups.values():
+        g["kind"] = ("scan" if g.pop("pdf_bytes", 0) * 2 >= g["bytes"] > 0 else "text") if g["download"] else "made"
+    rank = {"text": 0, "scan": 1, "made": 2}
+    sources = sorted(groups.values(), key=lambda g: (rank[g["kind"]], -g["bytes"]))
     order = {g["key"]: i for i, g in enumerate(sources)}
     keys = list(groups)
     for row in files:
@@ -179,6 +186,9 @@ def build_intake(spec: dict) -> dict:
             "has_manifest": manifest_path.exists(),
             "totals": {"sources": len(downloads), "files": len(files), "bytes": sum(f[2] for f in files),
                        "download_files": sum(g["files"] for g in downloads), "download_bytes": sum(g["bytes"] for g in downloads),
+                       "text_bytes": sum(g["bytes"] for g in downloads if g["kind"] == "text"),
+                       "scan_bytes": sum(g["bytes"] for g in downloads if g["kind"] == "scan"),
+                       "scan_sources": sum(g["kind"] == "scan" for g in downloads),
                        "by_type": by_type},
             "sources": sources, "columns": ["source", "path", "bytes", "type"], "files": files}
 

@@ -21,10 +21,18 @@ function renderSources() {
   const list = $('sources');
   const max = Math.max(...catalogue.sources.map((s) => s.bytes), 1);
   const fragment = document.createDocumentFragment();
-  let madeLabel = false;
-  fragment.append(node('div', 'Downloaded', 'group-label'));
+  // Ready-to-use text & data first, then PDF scans, then what the job made from them.
+  const GROUPS = { text: 'Text & data', scan: 'PDF scans', made: 'Made by the job' };
+  const groupBytes = {};
+  for (const s of catalogue.sources) groupBytes[s.kind] = (groupBytes[s.kind] || 0) + s.bytes;
+  let current = null;
   catalogue.sources.forEach((s, i) => {
-    if (!s.download && !madeLabel) { fragment.append(node('div', 'Made by the job', 'group-label')); madeLabel = true; }
+    if (s.kind !== current) {
+      current = s.kind;
+      const label = node('div', null, 'group-label');
+      label.append(node('span', GROUPS[s.kind] ?? s.kind), node('span', size(groupBytes[s.kind])));
+      fragment.append(label);
+    }
     const b = node('button', null, `row src${i === source ? ' active' : ''}`);
     const sub = node('div', null, 'sub');
     sub.append(node('span', s.host || ''), node('span', `${count(s.files)} · ${size(s.bytes)}`));
@@ -163,7 +171,9 @@ async function showText(f, url, preview) {
   $('crumb').textContent = catalogue.title.toUpperCase();
   const t = catalogue.totals;
   $('stats').replaceChildren(stat(count(t.sources), 'Sources'), stat(count(t.download_files), 'Files downloaded'),
-    stat(size(t.download_bytes), 'Downloaded'), stat(size(t.bytes), 'Folder total'), stat(`Job ${catalogue.jobs.join(' · ')}`, 'Orchestrator'));
+    stat(size(t.text_bytes), 'Text & data'),
+    ...(t.scan_sources ? [stat(size(t.scan_bytes), `PDF scans · ${t.scan_sources}`)] : []),
+    stat(`Job ${catalogue.jobs.join(' · ')}`, 'Orchestrator'));
   $('filter').oninput = () => { limit = SHOWN; renderFiles(); };
   renderSources(); renderFiles(); renderReader();
 })();
