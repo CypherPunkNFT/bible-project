@@ -179,7 +179,7 @@ You need [Python 3.12+](https://www.python.org/), [Node.js 22.16+](https://nodej
 ```bash
 git clone https://github.com/CypherPunkNFT/bible-project.git
 cd bible-project
-python scripts/fetch-sources.py          # downloads every source from its publisher (~160 MB) into sources/
+python scripts/fetch-sources.py          # downloads every source from its publisher (~310 MB) into sources/
 python scripts/build-data.py             # builds the Bible data into data/ (~560 MB in 84,000 small files, about 3 minutes)
 python scripts/build-study.py            # builds the study pages' data
 node scripts/fetch-imagery.mjs           # downloads the atlas's NASA imagery into public/atlas/

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Download every raw source the site is built from, from its original publisher, into sources/.
 
-    python scripts/fetch-sources.py            # everything (~160 MB), skips files already present
+    python scripts/fetch-sources.py            # everything (~310 MB), skips files already present
     python scripts/fetch-sources.py --force    # download again
 
 Then: python scripts/build-data.py && python scripts/build-study.py (see README.md).
@@ -18,6 +18,7 @@ import os
 import re
 import shutil
 import sys
+import urllib.parse
 import urllib.request
 import zipfile
 from pathlib import Path
@@ -27,6 +28,17 @@ from bible.paths import SITE  # noqa: E402
 from bible.translations import TRANSLATIONS  # noqa: E402
 
 USER_AGENT = "bible-project-fetch-sources/1.0 (+https://github.com/CYPKNFT/bible-project)"
+
+# The STEPBible-Data files below are pinned to one commit, so a later fetch gets exactly these bytes.
+# (TIPNR still tracks master, as it has since it was first fetched; its recorded checksum guards it.
+# The pinned files and TIPNR can therefore drift apart — see SOURCES.md before building on both.)
+STEPBIBLE_COMMIT = "94802ced31e63882ab42a86d79eb0017df4545e3"  # 2026-10-16
+
+
+def stepbible(path: str) -> str:
+    """Raw URL for one file in STEPBible-Data at the pinned commit (its names contain spaces and +)."""
+    return f"https://raw.githubusercontent.com/STEPBible/STEPBible-Data/{STEPBIBLE_COMMIT}/{urllib.parse.quote(path)}"
+
 
 # (checksum key in SOURCES.md, url, path under sources/, folder to unzip into or None)
 DOWNLOADS = [
@@ -60,6 +72,35 @@ DOWNLOADS = [
     ("josephus-wars", "https://www.gutenberg.org/cache/epub/2850/pg2850.txt", "gutenberg/josephus-wars-2850.txt", None),
     ("josephus-life", "https://www.gutenberg.org/cache/epub/2846/pg2846.txt", "gutenberg/josephus-life-2846.txt", None),
     ("josephus-apion", "https://www.gutenberg.org/cache/epub/2849/pg2849.txt", "gutenberg/josephus-apion-2849.txt", None),
+    # The rest of STEPBible-Data, 2026-10-17 (SOURCES.md "Build source checksum registry"; what each is
+    # for: Pages/Study/ORIGINAL-LANGUAGES-PLAN.md). ~140 MB. Repo names keep their own quirks — two
+    # spaces in "TFLSJ  0-5624", "Morphhology" in TEGMC, "CC-BY" in TAGNT where the rest say "CC BY".
+    ("tahot-gen-deu", stepbible("Translators Amalgamated OT+NT/TAHOT Gen-Deu - Translators Amalgamated Hebrew OT - STEPBible.org CC BY.txt"),
+     "stepbible/TAHOT-Gen-Deu.txt", None),
+    ("tahot-jos-est", stepbible("Translators Amalgamated OT+NT/TAHOT Jos-Est - Translators Amalgamated Hebrew OT - STEPBible.org CC BY.txt"),
+     "stepbible/TAHOT-Jos-Est.txt", None),
+    ("tahot-job-sng", stepbible("Translators Amalgamated OT+NT/TAHOT Job-Sng - Translators Amalgamated Hebrew OT - STEPBible.org CC BY.txt"),
+     "stepbible/TAHOT-Job-Sng.txt", None),
+    ("tahot-isa-mal", stepbible("Translators Amalgamated OT+NT/TAHOT Isa-Mal - Translators Amalgamated Hebrew OT - STEPBible.org CC BY.txt"),
+     "stepbible/TAHOT-Isa-Mal.txt", None),
+    ("tagnt-mat-jhn", stepbible("Translators Amalgamated OT+NT/TAGNT Mat-Jhn - Translators Amalgamated Greek NT - STEPBible.org CC-BY.txt"),
+     "stepbible/TAGNT-Mat-Jhn.txt", None),
+    ("tagnt-act-rev", stepbible("Translators Amalgamated OT+NT/TAGNT Act-Rev - Translators Amalgamated Greek NT - STEPBible.org CC-BY.txt"),
+     "stepbible/TAGNT-Act-Rev.txt", None),
+    ("tbesh", stepbible("Lexicons/TBESH - Translators Brief lexicon of Extended Strongs for Hebrew - STEPBible.org CC BY.txt"),
+     "stepbible/TBESH.txt", None),
+    ("tbesg", stepbible("Lexicons/TBESG - Translators Brief lexicon of Extended Strongs for Greek - STEPBible.org CC BY.txt"),
+     "stepbible/TBESG.txt", None),
+    ("tflsj", stepbible("Lexicons/TFLSJ  0-5624 - Translators Formatted full LSJ Bible lexicon - STEPBible.org CC BY.txt"),
+     "stepbible/TFLSJ-0-5624.txt", None),
+    ("tflsj-extra", stepbible("Lexicons/TFLSJ extra - Translators Formatted full LSJ Bible lexicon - STEPBible.org CC BY.txt"),
+     "stepbible/TFLSJ-extra.txt", None),
+    ("tvtms", stepbible("Versification/TVTMS - Translators Versification Traditions with Methodology for Standardisation"
+                        " for Eng+Heb+Lat+Grk+Others - STEPBible.org CC BY.txt"), "stepbible/TVTMS.txt", None),
+    ("tehmc", stepbible("Morphology codes/TEHMC - Translators Expansion of Hebrew Morphology Codes - STEPBible.org CC BY.txt"),
+     "stepbible/TEHMC.txt", None),
+    ("tegmc", stepbible("Morphology codes/TEGMC - Translators Expansion of Greek Morphhology Codes - STEPBible.org CC BY.txt"),
+     "stepbible/TEGMC.txt", None),
 ]
 BUNDLED = [("faith-names", "cypherpunk-faith/faith-names.json"), ("faith-names-approved", "cypherpunk-faith/faith-names-approved.json")]
 
@@ -82,12 +123,29 @@ def checksum(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()[:16]
 
 
+def sources_root() -> Path:
+    """Where downloads go: BIBLE_SOURCES, else whichever sources/ the build scripts already read.
+
+    bible/paths.py prefers a sources/ inside this repository and falls back to one beside it (the
+    original project layout). Downloading must land in whichever of the two already holds the files:
+    creating the other one builds a second copy that then shadows the real one for every build
+    script. A fresh clone has neither and gets sources/ inside the repository, as README.md says.
+    """
+    if os.environ.get("BIBLE_SOURCES"):
+        return Path(os.environ["BIBLE_SOURCES"]).resolve()
+    inside, beside = SITE / "sources", SITE.parent / "sources"
+    has_inside, has_beside = inside.is_dir(), beside.is_dir()
+    if has_inside and has_beside:
+        print(f"warning: a sources/ folder exists both inside ({inside}) and beside ({beside}) the repository. "
+              f"Using the one inside; the builds read that one too, so {beside} is now ignored.")
+    return beside if has_beside and not has_inside else inside
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--force", action="store_true", help="download files that are already present again")
     args = parser.parse_args()
-    # Downloads always go inside this repository (or wherever BIBLE_SOURCES points).
-    root = Path(os.environ["BIBLE_SOURCES"]).resolve() if os.environ.get("BIBLE_SOURCES") else SITE / "sources"
+    root = sources_root()
     root.mkdir(parents=True, exist_ok=True)
     recorded = recorded_checksums()
     changed = []
