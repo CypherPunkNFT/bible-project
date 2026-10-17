@@ -104,7 +104,8 @@ function renderSourceDetails() {
   const facts = node('div', null, 'facts');
   const verdict = s.licence_flag === true ? node('div', `Licence questionable · ${s.licence_reason}`, 'licence-note')
     : s.licence_flag === false ? node('div', 'Licence clear', 'licence-note ok') : null;
-  if (s.output_rows !== undefined) facts.append(fact('Output', s.output_rows ? `${count(s.output_rows)} questions` : s.output_note));
+  if (s.output_rows !== undefined) facts.append(fact('Output', s.output_rows
+    ? `${count(s.output_rows)} questions${s.output_note ? ` · ${s.output_note}` : ''}` : s.output_note));
   facts.append(fact('Files', count(s.files)), fact('Size', size(s.bytes)), fact('From', s.host || '—'),
     fact('Publisher', s.publisher), fact('Licence', s.licence));
   if (s.url) facts.append(fact('Address', s.url.replace(/^https?:\/\//, ''), s.url));
