@@ -232,7 +232,9 @@ def build_intake(spec: dict) -> dict:
                 groups[f"source/{sid}"]["output_rows"] = status.get("rows", 0)
                 groups[f"source/{sid}"]["output_note"] = status.get("note", "")
     rank = {"text": 0, "scan": 1, "made": 2}
-    sources = sorted(groups.values(), key=lambda g: (rank[g["kind"]], -g["bytes"]))
+    # Within each group: clear licences (green) first, then unrated, then questionable (red); biggest first.
+    licence_rank = {False: 0, None: 1, True: 2}
+    sources = sorted(groups.values(), key=lambda g: (rank[g["kind"]], licence_rank[g["licence_flag"]], -g["bytes"]))
     order = {g["key"]: i for i, g in enumerate(sources)}
     keys = list(groups)
     for row in files:
