@@ -33,12 +33,15 @@ function renderSources() {
       label.append(node('span', GROUPS[s.kind] ?? s.kind), node('span', size(groupBytes[s.kind])));
       fragment.append(label);
     }
-    const b = node('button', null, `row src${i === source ? ' active' : ''}`);
+    const tone = s.licence_flag === true ? ' flag' : s.licence_flag === false ? ' ok' : '';
+    const b = node('button', null, `row src${tone}${i === source ? ' active' : ''}`);
     const sub = node('div', null, 'sub');
     sub.append(node('span', s.host || ''), node('span', `${count(s.files)} · ${size(s.bytes)}`));
     const bar = node('div', null, 'bar');
     bar.style.width = `${Math.max(2, (s.bytes / max) * 100)}%`;
-    b.append(node('h3', s.title), sub, bar);
+    const title = node('h3', s.title);
+    if (s.licence_flag) { title.append(node('span', 'Licence', 'lic')); b.title = s.licence_reason; }
+    b.append(title, sub, bar);
     b.onclick = () => { source = i; typeFilter = null; limit = SHOWN; chosen = null; renderSources(); renderFiles(); renderReader(); };
     fragment.append(b);
   });
@@ -72,7 +75,7 @@ function renderFiles() {
   renderChips(rows);
   const term = $('filter').value.trim().toLowerCase();
   const shown = rows.filter((f) => (!typeFilter || f[3] === typeFilter) && (!term || f[1].toLowerCase().includes(term)))
-    .sort((a, b) => b[2] - a[2]);
+    .sort((a, b) => (b[3] === 'Output') - (a[3] === 'Output') || b[2] - a[2]);
   $('file-count').textContent = shown.length === rows.length ? count(rows.length) : `${count(shown.length)} of ${count(rows.length)}`;
   const fragment = document.createDocumentFragment();
   for (const f of shown.slice(0, limit)) {
@@ -99,6 +102,9 @@ function renderSourceDetails() {
   const s = catalogue.sources[source];
   const reader = $('reader');
   const facts = node('div', null, 'facts');
+  const verdict = s.licence_flag === true ? node('div', `Licence questionable · ${s.licence_reason}`, 'licence-note')
+    : s.licence_flag === false ? node('div', 'Licence clear', 'licence-note ok') : null;
+  if (s.output_rows !== undefined) facts.append(fact('Output', s.output_rows ? `${count(s.output_rows)} questions` : s.output_note));
   facts.append(fact('Files', count(s.files)), fact('Size', size(s.bytes)), fact('From', s.host || '—'),
     fact('Publisher', s.publisher), fact('Licence', s.licence));
   if (s.url) facts.append(fact('Address', s.url.replace(/^https?:\/\//, ''), s.url));
@@ -107,6 +113,7 @@ function renderSourceDetails() {
   // A source's files may sit in raw/<name>/ and images/<name>/; show where they really are.
   const folders = [...new Set(sourceFiles().map((f) => f[1].split('/').slice(0, 2).join('/')))].slice(0, 3);
   reader.replaceChildren(node('h2', s.title), node('div', folders.map((f) => `${catalogue.folder}/${f}`).join(' · '), 'path'), facts, typeBar(byType, true));
+  if (verdict) facts.before(verdict);
 }
 
 async function renderReader() {
@@ -127,10 +134,66 @@ async function renderReader() {
     const frame = node('iframe'); frame.src = url; frame.title = baseName(f[1]); preview.append(frame);
   } else if (f[3] === 'Audio') {
     const audio = node('audio'); audio.controls = true; audio.preload = 'metadata'; audio.src = url; preview.append(audio);
+  } else if (f[3] === 'Output') {
+    await showTable(f, url, preview);
   } else if (TEXT_EXT.test(f[1]) && f[2] > 0) {
     await showText(f, url, preview);
   } else {
     preview.append(node('p', f[2] === 0 ? 'Empty file.' : 'No preview for this type.', 'note'));
+  }
+}
+
+/** Parse CSV text (quoted fields, doubled quotes, newlines inside quotes). Returns complete rows only. */
+function parseCsv(text, complete) {
+  const rows = [];
+  let row = [], field = '', quoted = false, i = 0;
+  if (text.charCodeAt(0) === 0xfeff) i = 1;
+  for (; i < text.length; i++) {
+    const c = text[i];
+    if (quoted) {
+      if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+      else if (c === '"') quoted = false;
+      else field += c;
+    } else if (c === '"') quoted = true;
+    else if (c === ',') { row.push(field); field = ''; }
+    else if (c === '\n' || c === '\r') {
+      if (c === '\r' && text[i + 1] === '\n') i++;
+      row.push(field); rows.push(row); row = []; field = '';
+    } else field += c;
+  }
+  if (complete && (field || row.length)) { row.push(field); rows.push(row); }
+  return rows;
+}
+
+/** An Output file: index, question, answer, reference as a table, read in pieces. */
+async function showTable(f, url, preview) {
+  const end = Math.min(f[2], peek + 1048576) - 1;
+  preview.append(node('p', 'Loading…', 'note'));
+  try {
+    const response = await fetch(url, { headers: { Range: `bytes=0-${end}` } });
+    if (!response.ok) throw new Error(`answered ${response.status}`);
+    const text = await response.text();
+    if (chosen !== f) return;
+    const [head, ...rows] = parseCsv(text, end + 1 === f[2]);
+    const table = node('table', null, 'qa');
+    const thead = node('tr');
+    for (const h of head) thead.append(node('th', h));
+    table.append(thead);
+    const fragment = document.createDocumentFragment();
+    for (const r of rows) {
+      const tr = node('tr');
+      for (const cell of r) tr.append(node('td', cell));
+      fragment.append(tr);
+    }
+    table.append(fragment);
+    preview.replaceChildren(table);
+    if (end + 1 < f[2]) {
+      const more = node('button', `Showing ${count(rows.length)} questions · ${size(end + 1)} of ${size(f[2])} · show more`, 'more');
+      more.onclick = () => { peek = end + 1; renderReader(); };
+      preview.append(more);
+    }
+  } catch (error) {
+    if (chosen === f) preview.replaceChildren(node('p', `The file could not be read: ${error.message}`, 'note'));
   }
 }
 

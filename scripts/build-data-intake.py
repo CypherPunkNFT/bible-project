@@ -111,15 +111,62 @@ def first_text(record: dict, *keys: str) -> str:
     return ""
 
 
+# Licence wording that makes a source questionable: no licence, unclear or unknown rights, research only,
+# non-commercial, all rights reserved, or a licence the job found does not hold up.
+QUESTIONABLE = re.compile(
+    r"^\s*\"?(?:none|no licen[cs]e)|not licensed|all rights reserved|unclear|unknown|research[- ]only|non-?commercial|"
+    r"by-nc|\bnc\b|not redistributable|not cleared|does not survive|may not sell|weaker evidence|usage polic|\"?is_open\"?: false|"
+    r"\"?is_non_commercial\"?: true", re.IGNORECASE)
+LICENCE_KEYS = re.compile(r"licen[cs]e|rights|publishable|is_open|is_non_commercial", re.IGNORECASE)
+NOT_A_SOURCE = {"_terms", "_catalogue", "images", "raw"}
+
+
+def licence_check(record: dict) -> tuple[bool, str]:
+    """(questionable, the wording that says so) from a source record's licence fields only."""
+    for key, value in record.items():
+        if not LICENCE_KEYS.search(key):
+            continue
+        if value is False and key == "publishable":
+            return True, "Marked not publishable"
+        if value is None:
+            return True, "No licence recorded"
+        if isinstance(value, dict):
+            # {"name": "CC BY-NC 4.0", "is_non_commercial": true, ...} reads as its name;
+            # {"<licence>": <count>, ...} as the questionable licences with their counts.
+            if QUESTIONABLE.search(json.dumps(value, ensure_ascii=False)) and isinstance(value.get("name"), str):
+                return True, value["name"]
+            counted = [f"{n} × {k}" for k, n in value.items() if QUESTIONABLE.search(str(k))]
+            if counted:
+                return True, " · ".join(counted)
+            continue
+        text = str(value)
+        found = QUESTIONABLE.search(text)
+        if found:
+            if len(text) <= 200:
+                return True, text
+            # A long note: the sentence that says so, not its opening.
+            before = text.rfind(". ", 0, found.start())
+            end = text.find(". ", found.end())
+            return True, text[before + 2 if before >= 0 else 0:end + 1 if end >= 0 else len(text)].strip()[:300]
+    if not any(LICENCE_KEYS.search(k) for k in record):
+        return True, "No licence recorded"
+    return False, ""
+
+
 def describe(name: str, records: dict[str, dict]) -> dict:
     key = name.lower()
     fallback = FOLDER_NAMES.get(key) or name.replace("-", " ").replace("_", " ").strip().capitalize()
     record = records.get(key)
     if record is None:
         near = [r for slug, r in records.items() if key in slug or slug in key]
+        if not near and FOLDER_NAMES.get(key):
+            near = [r for r in records.values() if host_label(first_text(r, "url", "archive_url", "source_url", "licence_url")) == FOLDER_NAMES[key]]
         if len(near) > 1:  # one folder holding several sources (e.g. raw/ccel/): name the folder, not one of them
             url = next((u for u in (first_text(r, "url", "archive_url", "source_urls") for r in near) if u.startswith("http")), "")
-            return {"title": fallback, "publisher": "", "url": "", "host": host_label(url), "licence": f"{len(near)} works, each with its own licence"}
+            flagged = [licence_check(r) for r in near]
+            reason = next((why for bad, why in flagged if bad), "")
+            return {"title": fallback, "publisher": "", "url": "", "host": host_label(url), "licence": f"{len(near)} works, each with its own licence",
+                    "licence_flag": bool(reason), "licence_reason": reason}
         record = near[0] if near else {}
     url = first_text(record, "url", "archive_url", "source_url", "source_urls", "homepage")
     if not re.fullmatch(r"https?://\S+", url):  # some manifests put a description where the address goes
@@ -128,14 +175,19 @@ def describe(name: str, records: dict[str, dict]) -> dict:
         url = ""
     else:
         host = host_label(url)
+    flag, reason = licence_check(record) if record or key not in NOT_A_SOURCE else (None, "")
     return {"title": first_text(record, "title", "source_name", "name") or fallback,
             "publisher": first_text(record, "publisher", "provider", "organisation", "organization"),
-            "url": url, "host": host, "licence": first_text(record, "licence", "license")}
+            "url": url, "host": host, "licence": first_text(record, "licence", "licence_as_stated", "license"),
+            "licence_flag": flag, "licence_reason": reason}
 
 
 def group_of(relative: Path) -> tuple[str, str, bool]:
     """(group key, folder name, is a download) for a file's path inside the intake."""
     parts = relative.parts
+    # output/<source>.csv is that source's finished question list (BibleQuizCorpus/tools/build_output.py).
+    if parts[0] == "output" and len(parts) == 2 and relative.suffix == ".csv":
+        return f"source/{relative.stem}", relative.stem, True
     # A source's downloads may sit in raw/<source>/ and images/<source>/: both are that source.
     if parts[0] in ("raw", "images") and len(parts) > 2:
         return f"source/{parts[1]}", parts[1], True
@@ -156,20 +208,29 @@ def build_intake(spec: dict) -> dict:
         if not path.is_file() or SKIP_DIRS.intersection(path.parts):
             continue
         relative = path.relative_to(root)
+        if relative.parts[0] == "output" and relative.suffix != ".csv":
+            continue  # output/_status.json is read below, not listed
         key, name, download = group_of(relative)
         if key not in groups:
             info = describe(name, records) if download and name != "raw" else {"title": PREPARED.get(name, name), "publisher": "", "url": "", "host": "", "licence": ""}
-            groups[key] = {"key": key, "download": download, **info, "files": 0, "bytes": 0}
+            groups[key] = {"key": key, "download": download, "licence_flag": None, "licence_reason": "", **info, "files": 0, "bytes": 0}
         size = path.stat().st_size
         groups[key]["files"] += 1
         groups[key]["bytes"] += size
-        kind = file_type(path)
+        kind = "Output" if relative.parts[0] == "output" else file_type(path)
         groups[key]["pdf_bytes"] = groups[key].get("pdf_bytes", 0) + (size if kind == "PDF" else 0)
         files.append([list(groups).index(key), relative.as_posix(), size, kind])
     # A downloaded source is a scan when most of its bytes are PDFs (scanned books, with their OCR beside
     # them); otherwise it is text & data, ready to use. Text & data is listed first.
     for g in groups.values():
         g["kind"] = ("scan" if g.pop("pdf_bytes", 0) * 2 >= g["bytes"] > 0 else "text") if g["download"] else "made"
+    # Why a source has no output, as tools/build_output.py recorded it.
+    status_file = root / "output" / "_status.json"
+    if status_file.exists():
+        for sid, status in json.loads(status_file.read_text(encoding="utf-8")).items():
+            if f"source/{sid}" in groups:
+                groups[f"source/{sid}"]["output_rows"] = status.get("rows", 0)
+                groups[f"source/{sid}"]["output_note"] = status.get("note", "")
     rank = {"text": 0, "scan": 1, "made": 2}
     sources = sorted(groups.values(), key=lambda g: (rank[g["kind"]], -g["bytes"]))
     order = {g["key"]: i for i, g in enumerate(sources)}

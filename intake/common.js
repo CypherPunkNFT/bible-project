@@ -1,6 +1,6 @@
 // Shared by the cards page and the intake page: sizes, type colours, the type bar, the theme switch.
 const $ = (id) => document.getElementById(id);
-const TYPE_ORDER = ['Text', 'PDF', 'Image', 'Audio', 'Data', 'Archive', 'Code', 'Other'];
+const TYPE_ORDER = ['Output', 'Text', 'PDF', 'Image', 'Audio', 'Data', 'Archive', 'Code', 'Other'];
 const typeColour = (t) => `var(--t-${t.toLowerCase()})`;
 function size(n) {
   if (n == null) return '—';
