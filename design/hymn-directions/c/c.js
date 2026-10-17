@@ -74,7 +74,7 @@
 
   const P = panel();
   book.wire(main);
-  placed.wire(main);
+  placed.wire(main, P);
   switcher();
 
   // Echoes: a line and its floating verse light together; click opens the passage beside the page.

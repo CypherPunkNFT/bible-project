@@ -233,7 +233,33 @@ window.HYMN = {
    "code": "GEN",
    "tone": "history",
    "refs": [
-    "15:1-6"
+    {
+     "ref": "15:1-6",
+     "label": "Genesis 15:1–6",
+     "code": "GEN",
+     "chapter": 15,
+     "first": 1,
+     "whole": false,
+     "count": 6,
+     "verses": [
+      {
+       "n": 1,
+       "text": "After these things the word of the LORD came unto Abram in a vision, saying, Fear not, Abram: I am thy shield, and thy exceeding great reward."
+      },
+      {
+       "n": 2,
+       "text": "And Abram said, Lord GOD, what wilt thou give me, seeing I go childless, and the steward of my house is this Eliezer of Damascus?"
+      },
+      {
+       "n": 3,
+       "text": "And Abram said, Behold, to me thou hast given no seed: and, lo, one born in my house is mine heir."
+      },
+      {
+       "n": 4,
+       "text": "And, behold, the word of the LORD came unto him, saying, This shall not be thine heir; but he that shall come forth out of thine own bowels shall be thine heir."
+      }
+     ]
+    }
    ]
   },
   {
@@ -241,9 +267,67 @@ window.HYMN = {
    "code": "EXO",
    "tone": "history",
    "refs": [
-    "15:6",
-    "19:1-8",
-    "34:6-7"
+    {
+     "ref": "15:6",
+     "label": "Exodus 15:6",
+     "code": "EXO",
+     "chapter": 15,
+     "first": 6,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 6,
+       "text": "Thy right hand, O LORD, is become glorious in power: thy right hand, O LORD, hath dashed in pieces the enemy."
+      }
+     ]
+    },
+    {
+     "ref": "19:1-8",
+     "label": "Exodus 19:1–8",
+     "code": "EXO",
+     "chapter": 19,
+     "first": 1,
+     "whole": false,
+     "count": 8,
+     "verses": [
+      {
+       "n": 1,
+       "text": "In the third month, when the children of Israel were gone forth out of the land of Egypt, the same day came they into the wilderness of Sinai."
+      },
+      {
+       "n": 2,
+       "text": "For they were departed from Rephidim, and were come to the desert of Sinai, and had pitched in the wilderness; and there Israel camped before the mount."
+      },
+      {
+       "n": 3,
+       "text": "And Moses went up unto God, and the LORD called unto him out of the mountain, saying, Thus shalt thou say to the house of Jacob, and tell the children of Israel;"
+      },
+      {
+       "n": 4,
+       "text": "Ye have seen what I did unto the Egyptians, and how I bare you on eagles’ wings, and brought you unto myself."
+      }
+     ]
+    },
+    {
+     "ref": "34:6-7",
+     "label": "Exodus 34:6–7",
+     "code": "EXO",
+     "chapter": 34,
+     "first": 6,
+     "whole": false,
+     "count": 2,
+     "verses": [
+      {
+       "n": 6,
+       "text": "And the LORD passed by before him, and proclaimed, The LORD, The LORD God, merciful and gracious, longsuffering, and abundant in goodness and truth,"
+      },
+      {
+       "n": 7,
+       "text": "Keeping mercy for thousands, forgiving iniquity and transgression and sin, and that will by no means clear the guilty; visiting the iniquity of the fathers upon the children, and upon the children’s children, unto the third and to the fourth generation."
+      }
+     ]
+    }
    ]
   },
   {
@@ -251,7 +335,21 @@ window.HYMN = {
    "code": "1SA",
    "tone": "history",
    "refs": [
-    "7:12"
+    {
+     "ref": "7:12",
+     "label": "1 Samuel 7:12",
+     "code": "1SA",
+     "chapter": 7,
+     "first": 12,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 12,
+       "text": "Then Samuel took a stone, and set it between Mizpeh and Shen, and called the name of it Eben-ezer, saying, Hitherto hath the LORD helped us."
+      }
+     ]
+    }
    ]
   },
   {
@@ -259,8 +357,36 @@ window.HYMN = {
    "code": "2SA",
    "tone": "history",
    "refs": [
-    "7:18",
-    "7:28"
+    {
+     "ref": "7:18",
+     "label": "2 Samuel 7:18",
+     "code": "2SA",
+     "chapter": 7,
+     "first": 18,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 18,
+       "text": "Then went king David in, and sat before the LORD, and he said, Who am I, O Lord GOD? and what is my house, that thou hast brought me hitherto?"
+      }
+     ]
+    },
+    {
+     "ref": "7:28",
+     "label": "2 Samuel 7:28",
+     "code": "2SA",
+     "chapter": 7,
+     "first": 28,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 28,
+       "text": "And now, O Lord GOD, thou art that God, and thy words be true, and thou hast promised this goodness unto thy servant:"
+      }
+     ]
+    }
    ]
   },
   {
@@ -268,7 +394,21 @@ window.HYMN = {
    "code": "1KI",
    "tone": "history",
    "refs": [
-    "1:29"
+    {
+     "ref": "1:29",
+     "label": "1 Kings 1:29",
+     "code": "1KI",
+     "chapter": 1,
+     "first": 29,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 29,
+       "text": "And the king sware, and said, As the LORD liveth, that hath redeemed my soul out of all distress,"
+      }
+     ]
+    }
    ]
   },
   {
@@ -276,10 +416,86 @@ window.HYMN = {
    "code": "1CH",
    "tone": "history",
    "refs": [
-    "17:16",
-    "17:16-17",
-    "17:16-19",
-    "17:26-27"
+    {
+     "ref": "17:16",
+     "label": "1 Chronicles 17:16",
+     "code": "1CH",
+     "chapter": 17,
+     "first": 16,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 16,
+       "text": "And David the king came and sat before the LORD, and said, Who am I, O LORD God, and what is mine house, that thou hast brought me hitherto?"
+      }
+     ]
+    },
+    {
+     "ref": "17:16-17",
+     "label": "1 Chronicles 17:16–17",
+     "code": "1CH",
+     "chapter": 17,
+     "first": 16,
+     "whole": false,
+     "count": 2,
+     "verses": [
+      {
+       "n": 16,
+       "text": "And David the king came and sat before the LORD, and said, Who am I, O LORD God, and what is mine house, that thou hast brought me hitherto?"
+      },
+      {
+       "n": 17,
+       "text": "And yet this was a small thing in thine eyes, O God; for thou hast also spoken of thy servant’s house for a great while to come, and hast regarded me according to the estate of a man of high degree, O LORD God."
+      }
+     ]
+    },
+    {
+     "ref": "17:16-19",
+     "label": "1 Chronicles 17:16–19",
+     "code": "1CH",
+     "chapter": 17,
+     "first": 16,
+     "whole": false,
+     "count": 4,
+     "verses": [
+      {
+       "n": 16,
+       "text": "And David the king came and sat before the LORD, and said, Who am I, O LORD God, and what is mine house, that thou hast brought me hitherto?"
+      },
+      {
+       "n": 17,
+       "text": "And yet this was a small thing in thine eyes, O God; for thou hast also spoken of thy servant’s house for a great while to come, and hast regarded me according to the estate of a man of high degree, O LORD God."
+      },
+      {
+       "n": 18,
+       "text": "What can David speak more to thee for the honour of thy servant? for thou knowest thy servant."
+      },
+      {
+       "n": 19,
+       "text": "O LORD, for thy servant’s sake, and according to thine own heart, hast thou done all this greatness, in making known all these great things."
+      }
+     ]
+    },
+    {
+     "ref": "17:26-27",
+     "label": "1 Chronicles 17:26–27",
+     "code": "1CH",
+     "chapter": 17,
+     "first": 26,
+     "whole": false,
+     "count": 2,
+     "verses": [
+      {
+       "n": 26,
+       "text": "And now, LORD, thou art God, and hast promised this goodness unto thy servant:"
+      },
+      {
+       "n": 27,
+       "text": "Now therefore let it please thee to bless the house of thy servant, that it may be before thee for ever: for thou blessest, O LORD, and it shall be blessed for ever."
+      }
+     ]
+    }
    ]
   },
   {
@@ -287,24 +503,328 @@ window.HYMN = {
    "code": "PSA",
    "tone": "poetry",
    "refs": [
-    "103",
-    "119:114",
-    "119:57",
-    "119:97-104",
-    "142:5",
-    "142:5-6",
-    "145:1-2",
-    "16:5",
-    "18:1-3",
-    "28:7",
-    "33:20",
-    "34:4",
-    "3:1-6",
-    "3:3",
-    "48:14",
-    "66:16",
-    "67:1",
-    "73:26"
+    {
+     "ref": "103",
+     "label": "Psalm 103",
+     "code": "PSA",
+     "chapter": 103,
+     "first": 1,
+     "whole": true,
+     "count": 22,
+     "verses": [
+      {
+       "n": 1,
+       "text": "Bless the LORD, O my soul: and all that is within me, bless his holy name."
+      },
+      {
+       "n": 2,
+       "text": "Bless the LORD, O my soul, and forget not all his benefits:"
+      },
+      {
+       "n": 3,
+       "text": "Who forgiveth all thine iniquities; who healeth all thy diseases;"
+      },
+      {
+       "n": 4,
+       "text": "Who redeemeth thy life from destruction; who crowneth thee with lovingkindness and tender mercies;"
+      }
+     ]
+    },
+    {
+     "ref": "119:114",
+     "label": "Psalm 119:114",
+     "code": "PSA",
+     "chapter": 119,
+     "first": 114,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 114,
+       "text": "Thou art my hiding place and my shield: I hope in thy word."
+      }
+     ]
+    },
+    {
+     "ref": "119:57",
+     "label": "Psalm 119:57",
+     "code": "PSA",
+     "chapter": 119,
+     "first": 57,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 57,
+       "text": "Thou art my portion, O LORD: I have said that I would keep thy words."
+      }
+     ]
+    },
+    {
+     "ref": "119:97-104",
+     "label": "Psalm 119:97–104",
+     "code": "PSA",
+     "chapter": 119,
+     "first": 97,
+     "whole": false,
+     "count": 8,
+     "verses": [
+      {
+       "n": 97,
+       "text": "O how love I thy law! it is my meditation all the day."
+      },
+      {
+       "n": 98,
+       "text": "Thou through thy commandments hast made me wiser than mine enemies: for they are ever with me."
+      },
+      {
+       "n": 99,
+       "text": "I have more understanding than all my teachers: for thy testimonies are my meditation."
+      },
+      {
+       "n": 100,
+       "text": "I understand more than the ancients, because I keep thy precepts."
+      }
+     ]
+    },
+    {
+     "ref": "142:5",
+     "label": "Psalm 142:5",
+     "code": "PSA",
+     "chapter": 142,
+     "first": 5,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 5,
+       "text": "I cried unto thee, O LORD: I said, Thou art my refuge and my portion in the land of the living."
+      }
+     ]
+    },
+    {
+     "ref": "142:5-6",
+     "label": "Psalm 142:5–6",
+     "code": "PSA",
+     "chapter": 142,
+     "first": 5,
+     "whole": false,
+     "count": 2,
+     "verses": [
+      {
+       "n": 5,
+       "text": "I cried unto thee, O LORD: I said, Thou art my refuge and my portion in the land of the living."
+      },
+      {
+       "n": 6,
+       "text": "Attend unto my cry; for I am brought very low: deliver me from my persecutors; for they are stronger than I."
+      }
+     ]
+    },
+    {
+     "ref": "145:1-2",
+     "label": "Psalm 145:1–2",
+     "code": "PSA",
+     "chapter": 145,
+     "first": 1,
+     "whole": false,
+     "count": 2,
+     "verses": [
+      {
+       "n": 1,
+       "text": "I will extol thee, my God, O king; and I will bless thy name for ever and ever."
+      },
+      {
+       "n": 2,
+       "text": "Every day will I bless thee; and I will praise thy name for ever and ever."
+      }
+     ]
+    },
+    {
+     "ref": "16:5",
+     "label": "Psalm 16:5",
+     "code": "PSA",
+     "chapter": 16,
+     "first": 5,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 5,
+       "text": "The LORD is the portion of mine inheritance and of my cup: thou maintainest my lot."
+      }
+     ]
+    },
+    {
+     "ref": "18:1-3",
+     "label": "Psalm 18:1–3",
+     "code": "PSA",
+     "chapter": 18,
+     "first": 1,
+     "whole": false,
+     "count": 3,
+     "verses": [
+      {
+       "n": 1,
+       "text": "I will love thee, O LORD, my strength."
+      },
+      {
+       "n": 2,
+       "text": "The LORD is my rock, and my fortress, and my deliverer; my God, my strength, in whom I will trust; my buckler, and the horn of my salvation, and my high tower."
+      },
+      {
+       "n": 3,
+       "text": "I will call upon the LORD, who is worthy to be praised: so shall I be saved from mine enemies."
+      }
+     ]
+    },
+    {
+     "ref": "28:7",
+     "label": "Psalm 28:7",
+     "code": "PSA",
+     "chapter": 28,
+     "first": 7,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 7,
+       "text": "The LORD is my strength and my shield; my heart trusted in him, and I am helped: therefore my heart greatly rejoiceth; and with my song will I praise him."
+      }
+     ]
+    },
+    {
+     "ref": "33:20",
+     "label": "Psalm 33:20",
+     "code": "PSA",
+     "chapter": 33,
+     "first": 20,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 20,
+       "text": "Our soul waiteth for the LORD: he is our help and our shield."
+      }
+     ]
+    },
+    {
+     "ref": "34:4",
+     "label": "Psalm 34:4",
+     "code": "PSA",
+     "chapter": 34,
+     "first": 4,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 4,
+       "text": "I sought the LORD, and he heard me, and delivered me from all my fears."
+      }
+     ]
+    },
+    {
+     "ref": "3:1-6",
+     "label": "Psalm 3:1–6",
+     "code": "PSA",
+     "chapter": 3,
+     "first": 1,
+     "whole": false,
+     "count": 6,
+     "verses": [
+      {
+       "n": 1,
+       "text": "LORD, how are they increased that trouble me! many are they that rise up against me."
+      },
+      {
+       "n": 2,
+       "text": "Many there be which say of my soul, There is no help for him in God. Selah."
+      },
+      {
+       "n": 3,
+       "text": "But thou, O LORD, art a shield for me; my glory, and the lifter up of mine head."
+      },
+      {
+       "n": 4,
+       "text": "I cried unto the LORD with my voice, and he heard me out of his holy hill. Selah."
+      }
+     ]
+    },
+    {
+     "ref": "3:3",
+     "label": "Psalm 3:3",
+     "code": "PSA",
+     "chapter": 3,
+     "first": 3,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 3,
+       "text": "But thou, O LORD, art a shield for me; my glory, and the lifter up of mine head."
+      }
+     ]
+    },
+    {
+     "ref": "48:14",
+     "label": "Psalm 48:14",
+     "code": "PSA",
+     "chapter": 48,
+     "first": 14,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 14,
+       "text": "For this God is our God for ever and ever: he will be our guide even unto death."
+      }
+     ]
+    },
+    {
+     "ref": "66:16",
+     "label": "Psalm 66:16",
+     "code": "PSA",
+     "chapter": 66,
+     "first": 16,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 16,
+       "text": "Come and hear, all ye that fear God, and I will declare what he hath done for my soul."
+      }
+     ]
+    },
+    {
+     "ref": "67:1",
+     "label": "Psalm 67:1",
+     "code": "PSA",
+     "chapter": 67,
+     "first": 1,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 1,
+       "text": "God be merciful unto us, and bless us; and cause his face to shine upon us; Selah."
+      }
+     ]
+    },
+    {
+     "ref": "73:26",
+     "label": "Psalm 73:26",
+     "code": "PSA",
+     "chapter": 73,
+     "first": 26,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 26,
+       "text": "My flesh and my heart faileth: but God is the strength of my heart, and my portion for ever."
+      }
+     ]
+    }
    ]
   },
   {
@@ -312,7 +832,21 @@ window.HYMN = {
    "code": "PRO",
    "tone": "poetry",
    "refs": [
-    "29:25"
+    {
+     "ref": "29:25",
+     "label": "Proverbs 29:25",
+     "code": "PRO",
+     "chapter": 29,
+     "first": 25,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 25,
+       "text": "The fear of man bringeth a snare: but whoso putteth his trust in the LORD shall be safe."
+      }
+     ]
+    }
    ]
   },
   {
@@ -320,7 +854,33 @@ window.HYMN = {
    "code": "ISA",
    "tone": "prophets",
    "refs": [
-    "43:1-7"
+    {
+     "ref": "43:1-7",
+     "label": "Isaiah 43:1–7",
+     "code": "ISA",
+     "chapter": 43,
+     "first": 1,
+     "whole": false,
+     "count": 7,
+     "verses": [
+      {
+       "n": 1,
+       "text": "But now thus saith the LORD that created thee, O Jacob, and he that formed thee, O Israel, Fear not: for I have redeemed thee, I have called thee by thy name; thou art mine."
+      },
+      {
+       "n": 2,
+       "text": "When thou passest through the waters, I will be with thee; and through the rivers, they shall not overflow thee: when thou walkest through the fire, thou shalt not be burned; neither shall the flame kindle upon thee."
+      },
+      {
+       "n": 3,
+       "text": "For I am the LORD thy God, the Holy One of Israel, thy Saviour: I gave Egypt for thy ransom, Ethiopia and Seba for thee."
+      },
+      {
+       "n": 4,
+       "text": "Since thou wast precious in my sight, thou hast been honourable, and I have loved thee: therefore will I give men for thee, and people for thy life."
+      }
+     ]
+    }
    ]
   },
   {
@@ -328,8 +888,36 @@ window.HYMN = {
    "code": "JER",
    "tone": "prophets",
    "refs": [
-    "29:11",
-    "33:14"
+    {
+     "ref": "29:11",
+     "label": "Jeremiah 29:11",
+     "code": "JER",
+     "chapter": 29,
+     "first": 11,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 11,
+       "text": "For I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil, to give you an expected end."
+      }
+     ]
+    },
+    {
+     "ref": "33:14",
+     "label": "Jeremiah 33:14",
+     "code": "JER",
+     "chapter": 33,
+     "first": 14,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 14,
+       "text": "Behold, the days come, saith the LORD, that I will perform that good thing which I have promised unto the house of Israel and to the house of Judah."
+      }
+     ]
+    }
    ]
   },
   {
@@ -337,7 +925,21 @@ window.HYMN = {
    "code": "DAN",
    "tone": "prophets",
    "refs": [
-    "12:3"
+    {
+     "ref": "12:3",
+     "label": "Daniel 12:3",
+     "code": "DAN",
+     "chapter": 12,
+     "first": 3,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 3,
+       "text": "And they that be wise shall shine as the brightness of the firmament; and they that turn many to righteousness as the stars for ever and ever."
+      }
+     ]
+    }
    ]
   },
   {
@@ -345,7 +947,29 @@ window.HYMN = {
    "code": "AMO",
    "tone": "prophets",
    "refs": [
-    "5:4-6"
+    {
+     "ref": "5:4-6",
+     "label": "Amos 5:4–6",
+     "code": "AMO",
+     "chapter": 5,
+     "first": 4,
+     "whole": false,
+     "count": 3,
+     "verses": [
+      {
+       "n": 4,
+       "text": "For thus saith the LORD unto the house of Israel, Seek ye me, and ye shall live:"
+      },
+      {
+       "n": 5,
+       "text": "But seek not Beth-el, nor enter into Gilgal, and pass not to Beer-sheba: for Gilgal shall surely go into captivity, and Beth-el shall come to nought."
+      },
+      {
+       "n": 6,
+       "text": "Seek the LORD, and ye shall live; lest he break out like fire in the house of Joseph, and devour it, and there be none to quench it in Beth-el."
+      }
+     ]
+    }
    ]
   },
   {
@@ -353,7 +977,21 @@ window.HYMN = {
    "code": "MAT",
    "tone": "gospels",
    "refs": [
-    "18:12"
+    {
+     "ref": "18:12",
+     "label": "Matthew 18:12",
+     "code": "MAT",
+     "chapter": 18,
+     "first": 12,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 12,
+       "text": "How think ye? if a man have an hundred sheep, and one of them be gone astray, doth he not leave the ninety and nine, and goeth into the mountains, and seeketh that which is gone astray?"
+      }
+     ]
+    }
    ]
   },
   {
@@ -361,7 +999,33 @@ window.HYMN = {
    "code": "MRK",
    "tone": "gospels",
    "refs": [
-    "10:46-52"
+    {
+     "ref": "10:46-52",
+     "label": "Mark 10:46–52",
+     "code": "MRK",
+     "chapter": 10,
+     "first": 46,
+     "whole": false,
+     "count": 7,
+     "verses": [
+      {
+       "n": 46,
+       "text": "And they came to Jericho: and as he went out of Jericho with his disciples and a great number of people, blind Bartimæus, the son of Timæus, sat by the highway side begging."
+      },
+      {
+       "n": 47,
+       "text": "And when he heard that it was Jesus of Nazareth, he began to cry out, and say, Jesus, thou Son of David, have mercy on me."
+      },
+      {
+       "n": 48,
+       "text": "And many charged him that he should hold his peace: but he cried the more a great deal, Thou Son of David, have mercy on me."
+      },
+      {
+       "n": 49,
+       "text": "And Jesus stood still, and commanded him to be called. And they call the blind man, saying unto him, Be of good comfort, rise; he calleth thee."
+      }
+     ]
+    }
    ]
   },
   {
@@ -369,14 +1033,202 @@ window.HYMN = {
    "code": "LUK",
    "tone": "gospels",
    "refs": [
-    "12:32",
-    "13:1-9",
-    "15:1-6",
-    "15:11-31",
-    "15:11-32",
-    "18:9-14",
-    "20:27-38",
-    "22:19-20"
+    {
+     "ref": "12:32",
+     "label": "Luke 12:32",
+     "code": "LUK",
+     "chapter": 12,
+     "first": 32,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 32,
+       "text": "Fear not, little flock; for it is your Father’s good pleasure to give you the kingdom."
+      }
+     ]
+    },
+    {
+     "ref": "13:1-9",
+     "label": "Luke 13:1–9",
+     "code": "LUK",
+     "chapter": 13,
+     "first": 1,
+     "whole": false,
+     "count": 9,
+     "verses": [
+      {
+       "n": 1,
+       "text": "There were present at that season some that told him of the Galilæans, whose blood Pilate had mingled with their sacrifices."
+      },
+      {
+       "n": 2,
+       "text": "And Jesus answering said unto them, Suppose ye that these Galilæans were sinners above all the Galilæans, because they suffered such things?"
+      },
+      {
+       "n": 3,
+       "text": "I tell you, Nay: but, except ye repent, ye shall all likewise perish."
+      },
+      {
+       "n": 4,
+       "text": "Or those eighteen, upon whom the tower in Siloam fell, and slew them, think ye that they were sinners above all men that dwelt in Jerusalem?"
+      }
+     ]
+    },
+    {
+     "ref": "15:1-6",
+     "label": "Luke 15:1–6",
+     "code": "LUK",
+     "chapter": 15,
+     "first": 1,
+     "whole": false,
+     "count": 6,
+     "verses": [
+      {
+       "n": 1,
+       "text": "Then drew near unto him all the publicans and sinners for to hear him."
+      },
+      {
+       "n": 2,
+       "text": "And the Pharisees and scribes murmured, saying, This man receiveth sinners, and eateth with them."
+      },
+      {
+       "n": 3,
+       "text": "And he spake this parable unto them, saying,"
+      },
+      {
+       "n": 4,
+       "text": "What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine in the wilderness, and go after that which is lost, until he find it?"
+      }
+     ]
+    },
+    {
+     "ref": "15:11-31",
+     "label": "Luke 15:11–31",
+     "code": "LUK",
+     "chapter": 15,
+     "first": 11,
+     "whole": false,
+     "count": 21,
+     "verses": [
+      {
+       "n": 11,
+       "text": "And he said, A certain man had two sons:"
+      },
+      {
+       "n": 12,
+       "text": "And the younger of them said to his father, Father, give me the portion of goods that falleth to me. And he divided unto them his living."
+      },
+      {
+       "n": 13,
+       "text": "And not many days after the younger son gathered all together, and took his journey into a far country, and there wasted his substance with riotous living."
+      },
+      {
+       "n": 14,
+       "text": "And when he had spent all, there arose a mighty famine in that land; and he began to be in want."
+      }
+     ]
+    },
+    {
+     "ref": "15:11-32",
+     "label": "Luke 15:11–32",
+     "code": "LUK",
+     "chapter": 15,
+     "first": 11,
+     "whole": false,
+     "count": 22,
+     "verses": [
+      {
+       "n": 11,
+       "text": "And he said, A certain man had two sons:"
+      },
+      {
+       "n": 12,
+       "text": "And the younger of them said to his father, Father, give me the portion of goods that falleth to me. And he divided unto them his living."
+      },
+      {
+       "n": 13,
+       "text": "And not many days after the younger son gathered all together, and took his journey into a far country, and there wasted his substance with riotous living."
+      },
+      {
+       "n": 14,
+       "text": "And when he had spent all, there arose a mighty famine in that land; and he began to be in want."
+      }
+     ]
+    },
+    {
+     "ref": "18:9-14",
+     "label": "Luke 18:9–14",
+     "code": "LUK",
+     "chapter": 18,
+     "first": 9,
+     "whole": false,
+     "count": 6,
+     "verses": [
+      {
+       "n": 9,
+       "text": "And he spake this parable unto certain which trusted in themselves that they were righteous, and despised others:"
+      },
+      {
+       "n": 10,
+       "text": "Two men went up into the temple to pray; the one a Pharisee, and the other a publican."
+      },
+      {
+       "n": 11,
+       "text": "The Pharisee stood and prayed thus with himself, God, I thank thee, that I am not as other men are, extortioners, unjust, adulterers, or even as this publican."
+      },
+      {
+       "n": 12,
+       "text": "I fast twice in the week, I give tithes of all that I possess."
+      }
+     ]
+    },
+    {
+     "ref": "20:27-38",
+     "label": "Luke 20:27–38",
+     "code": "LUK",
+     "chapter": 20,
+     "first": 27,
+     "whole": false,
+     "count": 12,
+     "verses": [
+      {
+       "n": 27,
+       "text": "Then came to him certain of the Sadducees, which deny that there is any resurrection; and they asked him,"
+      },
+      {
+       "n": 28,
+       "text": "Saying, Master, Moses wrote unto us, If any man’s brother die, having a wife, and he die without children, that his brother should take his wife, and raise up seed unto his brother."
+      },
+      {
+       "n": 29,
+       "text": "There were therefore seven brethren: and the first took a wife, and died without children."
+      },
+      {
+       "n": 30,
+       "text": "And the second took her to wife, and he died childless."
+      }
+     ]
+    },
+    {
+     "ref": "22:19-20",
+     "label": "Luke 22:19–20",
+     "code": "LUK",
+     "chapter": 22,
+     "first": 19,
+     "whole": false,
+     "count": 2,
+     "verses": [
+      {
+       "n": 19,
+       "text": "And he took bread, and gave thanks, and brake it, and gave unto them, saying, This is my body which is given for you: this do in remembrance of me."
+      },
+      {
+       "n": 20,
+       "text": "Likewise also the cup after supper, saying, This cup is the new testament in my blood, which is shed for you."
+      }
+     ]
+    }
    ]
   },
   {
@@ -384,12 +1236,136 @@ window.HYMN = {
    "code": "JHN",
    "tone": "gospels",
    "refs": [
-    "10:25",
-    "1:14-17",
-    "1:16-17",
-    "3:14-21",
-    "9",
-    "9:25"
+    {
+     "ref": "10:25",
+     "label": "John 10:25",
+     "code": "JHN",
+     "chapter": 10,
+     "first": 25,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 25,
+       "text": "Jesus answered them, I told you, and ye believed not: the works that I do in my Father’s name, they bear witness of me."
+      }
+     ]
+    },
+    {
+     "ref": "1:14-17",
+     "label": "John 1:14–17",
+     "code": "JHN",
+     "chapter": 1,
+     "first": 14,
+     "whole": false,
+     "count": 4,
+     "verses": [
+      {
+       "n": 14,
+       "text": "And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth."
+      },
+      {
+       "n": 15,
+       "text": "John bare witness of him, and cried, saying, This was he of whom I spake, He that cometh after me is preferred before me: for he was before me."
+      },
+      {
+       "n": 16,
+       "text": "And of his fulness have all we received, and grace for grace."
+      },
+      {
+       "n": 17,
+       "text": "For the law was given by Moses, but grace and truth came by Jesus Christ."
+      }
+     ]
+    },
+    {
+     "ref": "1:16-17",
+     "label": "John 1:16–17",
+     "code": "JHN",
+     "chapter": 1,
+     "first": 16,
+     "whole": false,
+     "count": 2,
+     "verses": [
+      {
+       "n": 16,
+       "text": "And of his fulness have all we received, and grace for grace."
+      },
+      {
+       "n": 17,
+       "text": "For the law was given by Moses, but grace and truth came by Jesus Christ."
+      }
+     ]
+    },
+    {
+     "ref": "3:14-21",
+     "label": "John 3:14–21",
+     "code": "JHN",
+     "chapter": 3,
+     "first": 14,
+     "whole": false,
+     "count": 8,
+     "verses": [
+      {
+       "n": 14,
+       "text": "And as Moses lifted up the serpent in the wilderness, even so must the Son of man be lifted up:"
+      },
+      {
+       "n": 15,
+       "text": "That whosoever believeth in him should not perish, but have eternal life."
+      },
+      {
+       "n": 16,
+       "text": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."
+      },
+      {
+       "n": 17,
+       "text": "For God sent not his Son into the world to condemn the world; but that the world through him might be saved."
+      }
+     ]
+    },
+    {
+     "ref": "9",
+     "label": "John 9",
+     "code": "JHN",
+     "chapter": 9,
+     "first": 1,
+     "whole": true,
+     "count": 41,
+     "verses": [
+      {
+       "n": 1,
+       "text": "And as Jesus passed by, he saw a man which was blind from his birth."
+      },
+      {
+       "n": 2,
+       "text": "And his disciples asked him, saying, Master, who did sin, this man, or his parents, that he was born blind?"
+      },
+      {
+       "n": 3,
+       "text": "Jesus answered, Neither hath this man sinned, nor his parents: but that the works of God should be made manifest in him."
+      },
+      {
+       "n": 4,
+       "text": "I must work the works of him that sent me, while it is day: the night cometh, when no man can work."
+      }
+     ]
+    },
+    {
+     "ref": "9:25",
+     "label": "John 9:25",
+     "code": "JHN",
+     "chapter": 9,
+     "first": 25,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 25,
+       "text": "He answered and said, Whether he be a sinner or no, I know not: one thing I know, that, whereas I was blind, now I see."
+      }
+     ]
+    }
    ]
   },
   {
@@ -397,7 +1373,21 @@ window.HYMN = {
    "code": "ACT",
    "tone": "acts",
    "refs": [
-    "15:11"
+    {
+     "ref": "15:11",
+     "label": "Acts 15:11",
+     "code": "ACT",
+     "chapter": 15,
+     "first": 11,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 11,
+       "text": "But we believe that through the grace of the Lord Jesus Christ we shall be saved, even as they."
+      }
+     ]
+    }
    ]
   },
   {
@@ -405,15 +1395,209 @@ window.HYMN = {
    "code": "ROM",
    "tone": "epistles",
    "refs": [
-    "1:16-17",
-    "3:21-31",
-    "5:1-21",
-    "5:15",
-    "5:20-21",
-    "6:12-23",
-    "8:3",
-    "8:36-39",
-    "9:1-5"
+    {
+     "ref": "1:16-17",
+     "label": "Romans 1:16–17",
+     "code": "ROM",
+     "chapter": 1,
+     "first": 16,
+     "whole": false,
+     "count": 2,
+     "verses": [
+      {
+       "n": 16,
+       "text": "For I am not ashamed of the gospel of Christ: for it is the power of God unto salvation to every one that believeth; to the Jew first, and also to the Greek."
+      },
+      {
+       "n": 17,
+       "text": "For therein is the righteousness of God revealed from faith to faith: as it is written, The just shall live by faith."
+      }
+     ]
+    },
+    {
+     "ref": "3:21-31",
+     "label": "Romans 3:21–31",
+     "code": "ROM",
+     "chapter": 3,
+     "first": 21,
+     "whole": false,
+     "count": 11,
+     "verses": [
+      {
+       "n": 21,
+       "text": "But now the righteousness of God without the law is manifested, being witnessed by the law and the prophets;"
+      },
+      {
+       "n": 22,
+       "text": "Even the righteousness of God which is by faith of Jesus Christ unto all and upon all them that believe: for there is no difference:"
+      },
+      {
+       "n": 23,
+       "text": "For all have sinned, and come short of the glory of God;"
+      },
+      {
+       "n": 24,
+       "text": "Being justified freely by his grace through the redemption that is in Christ Jesus:"
+      }
+     ]
+    },
+    {
+     "ref": "5:1-21",
+     "label": "Romans 5:1–21",
+     "code": "ROM",
+     "chapter": 5,
+     "first": 1,
+     "whole": false,
+     "count": 21,
+     "verses": [
+      {
+       "n": 1,
+       "text": "Therefore being justified by faith, we have peace with God through our Lord Jesus Christ:"
+      },
+      {
+       "n": 2,
+       "text": "By whom also we have access by faith into this grace wherein we stand, and rejoice in hope of the glory of God."
+      },
+      {
+       "n": 3,
+       "text": "And not only so, but we glory in tribulations also: knowing that tribulation worketh patience;"
+      },
+      {
+       "n": 4,
+       "text": "And patience, experience; and experience, hope:"
+      }
+     ]
+    },
+    {
+     "ref": "5:15",
+     "label": "Romans 5:15",
+     "code": "ROM",
+     "chapter": 5,
+     "first": 15,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 15,
+       "text": "But not as the offence, so also is the free gift. For if through the offence of one many be dead, much more the grace of God, and the gift by grace, which is by one man, Jesus Christ, hath abounded unto many."
+      }
+     ]
+    },
+    {
+     "ref": "5:20-21",
+     "label": "Romans 5:20–21",
+     "code": "ROM",
+     "chapter": 5,
+     "first": 20,
+     "whole": false,
+     "count": 2,
+     "verses": [
+      {
+       "n": 20,
+       "text": "Moreover the law entered, that the offence might abound. But where sin abounded, grace did much more abound:"
+      },
+      {
+       "n": 21,
+       "text": "That as sin hath reigned unto death, even so might grace reign through righteousness unto eternal life by Jesus Christ our Lord."
+      }
+     ]
+    },
+    {
+     "ref": "6:12-23",
+     "label": "Romans 6:12–23",
+     "code": "ROM",
+     "chapter": 6,
+     "first": 12,
+     "whole": false,
+     "count": 12,
+     "verses": [
+      {
+       "n": 12,
+       "text": "Let not sin therefore reign in your mortal body, that ye should obey it in the lusts thereof."
+      },
+      {
+       "n": 13,
+       "text": "Neither yield ye your members as instruments of unrighteousness unto sin: but yield yourselves unto God, as those that are alive from the dead, and your members as instruments of righteousness unto God."
+      },
+      {
+       "n": 14,
+       "text": "For sin shall not have dominion over you: for ye are not under the law, but under grace."
+      },
+      {
+       "n": 15,
+       "text": "What then? shall we sin, because we are not under the law, but under grace? God forbid."
+      }
+     ]
+    },
+    {
+     "ref": "8:3",
+     "label": "Romans 8:3",
+     "code": "ROM",
+     "chapter": 8,
+     "first": 3,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 3,
+       "text": "For what the law could not do, in that it was weak through the flesh, God sending his own Son in the likeness of sinful flesh, and for sin, condemned sin in the flesh:"
+      }
+     ]
+    },
+    {
+     "ref": "8:36-39",
+     "label": "Romans 8:36–39",
+     "code": "ROM",
+     "chapter": 8,
+     "first": 36,
+     "whole": false,
+     "count": 4,
+     "verses": [
+      {
+       "n": 36,
+       "text": "As it is written, For thy sake we are killed all the day long; we are accounted as sheep for the slaughter."
+      },
+      {
+       "n": 37,
+       "text": "Nay, in all these things we are more than conquerors through him that loved us."
+      },
+      {
+       "n": 38,
+       "text": "For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come,"
+      },
+      {
+       "n": 39,
+       "text": "Nor height, nor depth, nor any other creature, shall be able to separate us from the love of God, which is in Christ Jesus our Lord."
+      }
+     ]
+    },
+    {
+     "ref": "9:1-5",
+     "label": "Romans 9:1–5",
+     "code": "ROM",
+     "chapter": 9,
+     "first": 1,
+     "whole": false,
+     "count": 5,
+     "verses": [
+      {
+       "n": 1,
+       "text": "I say the truth in Christ, I lie not, my conscience also bearing me witness in the Holy Ghost,"
+      },
+      {
+       "n": 2,
+       "text": "That I have great heaviness and continual sorrow in my heart."
+      },
+      {
+       "n": 3,
+       "text": "For I could wish that myself were accursed from Christ for my brethren, my kinsmen according to the flesh:"
+      },
+      {
+       "n": 4,
+       "text": "Who are Israelites; to whom pertaineth the adoption, and the glory, and the covenants, and the giving of the law, and the service of God, and the promises;"
+      }
+     ]
+    }
    ]
   },
   {
@@ -421,10 +1605,94 @@ window.HYMN = {
    "code": "1CO",
    "tone": "epistles",
    "refs": [
-    "11:23-25",
-    "15:10",
-    "15:9-11",
-    "1:1-9"
+    {
+     "ref": "11:23-25",
+     "label": "1 Corinthians 11:23–25",
+     "code": "1CO",
+     "chapter": 11,
+     "first": 23,
+     "whole": false,
+     "count": 3,
+     "verses": [
+      {
+       "n": 23,
+       "text": "For I have received of the Lord that which also I delivered unto you, That the Lord Jesus the same night in which he was betrayed took bread:"
+      },
+      {
+       "n": 24,
+       "text": "And when he had given thanks, he brake it, and said, Take, eat: this is my body, which is broken for you: this do in remembrance of me."
+      },
+      {
+       "n": 25,
+       "text": "After the same manner also he took the cup, when he had supped, saying, This cup is the new testament in my blood: this do ye, as oft as ye drink it, in remembrance of me."
+      }
+     ]
+    },
+    {
+     "ref": "15:10",
+     "label": "1 Corinthians 15:10",
+     "code": "1CO",
+     "chapter": 15,
+     "first": 10,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 10,
+       "text": "But by the grace of God I am what I am: and his grace which was bestowed upon me was not in vain; but I laboured more abundantly than they all: yet not I, but the grace of God which was with me."
+      }
+     ]
+    },
+    {
+     "ref": "15:9-11",
+     "label": "1 Corinthians 15:9–11",
+     "code": "1CO",
+     "chapter": 15,
+     "first": 9,
+     "whole": false,
+     "count": 3,
+     "verses": [
+      {
+       "n": 9,
+       "text": "For I am the least of the apostles, that am not meet to be called an apostle, because I persecuted the church of God."
+      },
+      {
+       "n": 10,
+       "text": "But by the grace of God I am what I am: and his grace which was bestowed upon me was not in vain; but I laboured more abundantly than they all: yet not I, but the grace of God which was with me."
+      },
+      {
+       "n": 11,
+       "text": "Therefore whether it were I or they, so we preach, and so ye believed."
+      }
+     ]
+    },
+    {
+     "ref": "1:1-9",
+     "label": "1 Corinthians 1:1–9",
+     "code": "1CO",
+     "chapter": 1,
+     "first": 1,
+     "whole": false,
+     "count": 9,
+     "verses": [
+      {
+       "n": 1,
+       "text": "Paul, called to be an apostle of Jesus Christ through the will of God, and Sosthenes our brother,"
+      },
+      {
+       "n": 2,
+       "text": "Unto the church of God which is at Corinth, to them that are sanctified in Christ Jesus, called to be saints, with all that in every place call upon the name of Jesus Christ our Lord, both theirs and ours:"
+      },
+      {
+       "n": 3,
+       "text": "Grace be unto you, and peace, from God our Father, and from the Lord Jesus Christ."
+      },
+      {
+       "n": 4,
+       "text": "I thank my God always on your behalf, for the grace of God which is given you by Jesus Christ;"
+      }
+     ]
+    }
    ]
   },
   {
@@ -432,14 +1700,182 @@ window.HYMN = {
    "code": "2CO",
    "tone": "epistles",
    "refs": [
-    "11:26-27",
-    "12:1-10",
-    "12:9-10",
-    "2:8",
-    "4:13-18",
-    "5",
-    "9:6-15",
-    "9:8"
+    {
+     "ref": "11:26-27",
+     "label": "2 Corinthians 11:26–27",
+     "code": "2CO",
+     "chapter": 11,
+     "first": 26,
+     "whole": false,
+     "count": 2,
+     "verses": [
+      {
+       "n": 26,
+       "text": "In journeyings often, in perils of waters, in perils of robbers, in perils by mine own countrymen, in perils by the heathen, in perils in the city, in perils in the wilderness, in perils in the sea, in perils among false brethren;"
+      },
+      {
+       "n": 27,
+       "text": "In weariness and painfulness, in watchings often, in hunger and thirst, in fastings often, in cold and nakedness."
+      }
+     ]
+    },
+    {
+     "ref": "12:1-10",
+     "label": "2 Corinthians 12:1–10",
+     "code": "2CO",
+     "chapter": 12,
+     "first": 1,
+     "whole": false,
+     "count": 10,
+     "verses": [
+      {
+       "n": 1,
+       "text": "It is not expedient for me doubtless to glory. I will come to visions and revelations of the Lord."
+      },
+      {
+       "n": 2,
+       "text": "I knew a man in Christ above fourteen years ago, (whether in the body, I cannot tell; or whether out of the body, I cannot tell: God knoweth;) such an one caught up to the third heaven."
+      },
+      {
+       "n": 3,
+       "text": "And I knew such a man, (whether in the body, or out of the body, I cannot tell: God knoweth;)"
+      },
+      {
+       "n": 4,
+       "text": "How that he was caught up into paradise, and heard unspeakable words, which it is not lawful for a man to utter."
+      }
+     ]
+    },
+    {
+     "ref": "12:9-10",
+     "label": "2 Corinthians 12:9–10",
+     "code": "2CO",
+     "chapter": 12,
+     "first": 9,
+     "whole": false,
+     "count": 2,
+     "verses": [
+      {
+       "n": 9,
+       "text": "And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness. Most gladly therefore will I rather glory in my infirmities, that the power of Christ may rest upon me."
+      },
+      {
+       "n": 10,
+       "text": "Therefore I take pleasure in infirmities, in reproaches, in necessities, in persecutions, in distresses for Christ’s sake: for when I am weak, then am I strong."
+      }
+     ]
+    },
+    {
+     "ref": "2:8",
+     "label": "2 Corinthians 2:8",
+     "code": "2CO",
+     "chapter": 2,
+     "first": 8,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 8,
+       "text": "Wherefore I beseech you that ye would confirm your love toward him."
+      }
+     ]
+    },
+    {
+     "ref": "4:13-18",
+     "label": "2 Corinthians 4:13–18",
+     "code": "2CO",
+     "chapter": 4,
+     "first": 13,
+     "whole": false,
+     "count": 6,
+     "verses": [
+      {
+       "n": 13,
+       "text": "We having the same spirit of faith, according as it is written, I believed, and therefore have I spoken; we also believe, and therefore speak;"
+      },
+      {
+       "n": 14,
+       "text": "Knowing that he which raised up the Lord Jesus shall raise up us also by Jesus, and shall present us with you."
+      },
+      {
+       "n": 15,
+       "text": "For all things are for your sakes, that the abundant grace might through the thanksgiving of many redound to the glory of God."
+      },
+      {
+       "n": 16,
+       "text": "For which cause we faint not; but though our outward man perish, yet the inward man is renewed day by day."
+      }
+     ]
+    },
+    {
+     "ref": "5",
+     "label": "2 Corinthians 5",
+     "code": "2CO",
+     "chapter": 5,
+     "first": 1,
+     "whole": true,
+     "count": 21,
+     "verses": [
+      {
+       "n": 1,
+       "text": "For we know that if our earthly house of this tabernacle were dissolved, we have a building of God, an house not made with hands, eternal in the heavens."
+      },
+      {
+       "n": 2,
+       "text": "For in this we groan, earnestly desiring to be clothed upon with our house which is from heaven:"
+      },
+      {
+       "n": 3,
+       "text": "If so be that being clothed we shall not be found naked."
+      },
+      {
+       "n": 4,
+       "text": "For we that are in this tabernacle do groan, being burdened: not for that we would be unclothed, but clothed upon, that mortality might be swallowed up of life."
+      }
+     ]
+    },
+    {
+     "ref": "9:6-15",
+     "label": "2 Corinthians 9:6–15",
+     "code": "2CO",
+     "chapter": 9,
+     "first": 6,
+     "whole": false,
+     "count": 10,
+     "verses": [
+      {
+       "n": 6,
+       "text": "But this I say, He which soweth sparingly shall reap also sparingly; and he which soweth bountifully shall reap also bountifully."
+      },
+      {
+       "n": 7,
+       "text": "Every man according as he purposeth in his heart, so let him give; not grudgingly, or of necessity: for God loveth a cheerful giver."
+      },
+      {
+       "n": 8,
+       "text": "And God is able to make all grace abound toward you; that ye, always having all sufficiency in all things, may abound to every good work:"
+      },
+      {
+       "n": 9,
+       "text": "(As it is written, He hath dispersed abroad; he hath given to the poor: his righteousness remaineth for ever."
+      }
+     ]
+    },
+    {
+     "ref": "9:8",
+     "label": "2 Corinthians 9:8",
+     "code": "2CO",
+     "chapter": 9,
+     "first": 8,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 8,
+       "text": "And God is able to make all grace abound toward you; that ye, always having all sufficiency in all things, may abound to every good work:"
+      }
+     ]
+    }
    ]
   },
   {
@@ -447,17 +1883,243 @@ window.HYMN = {
    "code": "EPH",
    "tone": "epistles",
    "refs": [
-    "1:2-14",
-    "1:3-14",
-    "1:4",
-    "1:6-7",
-    "1:7",
-    "2",
-    "2:1-10",
-    "2:8",
-    "2:8-9",
-    "6:10-20",
-    "6:23-24"
+    {
+     "ref": "1:2-14",
+     "label": "Ephesians 1:2–14",
+     "code": "EPH",
+     "chapter": 1,
+     "first": 2,
+     "whole": false,
+     "count": 13,
+     "verses": [
+      {
+       "n": 2,
+       "text": "Grace be to you, and peace, from God our Father, and from the Lord Jesus Christ."
+      },
+      {
+       "n": 3,
+       "text": "Blessed be the God and Father of our Lord Jesus Christ, who hath blessed us with all spiritual blessings in heavenly places in Christ:"
+      },
+      {
+       "n": 4,
+       "text": "According as he hath chosen us in him before the foundation of the world, that we should be holy and without blame before him in love:"
+      },
+      {
+       "n": 5,
+       "text": "Having predestinated us unto the adoption of children by Jesus Christ to himself, according to the good pleasure of his will,"
+      }
+     ]
+    },
+    {
+     "ref": "1:3-14",
+     "label": "Ephesians 1:3–14",
+     "code": "EPH",
+     "chapter": 1,
+     "first": 3,
+     "whole": false,
+     "count": 12,
+     "verses": [
+      {
+       "n": 3,
+       "text": "Blessed be the God and Father of our Lord Jesus Christ, who hath blessed us with all spiritual blessings in heavenly places in Christ:"
+      },
+      {
+       "n": 4,
+       "text": "According as he hath chosen us in him before the foundation of the world, that we should be holy and without blame before him in love:"
+      },
+      {
+       "n": 5,
+       "text": "Having predestinated us unto the adoption of children by Jesus Christ to himself, according to the good pleasure of his will,"
+      },
+      {
+       "n": 6,
+       "text": "To the praise of the glory of his grace, wherein he hath made us accepted in the beloved."
+      }
+     ]
+    },
+    {
+     "ref": "1:4",
+     "label": "Ephesians 1:4",
+     "code": "EPH",
+     "chapter": 1,
+     "first": 4,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 4,
+       "text": "According as he hath chosen us in him before the foundation of the world, that we should be holy and without blame before him in love:"
+      }
+     ]
+    },
+    {
+     "ref": "1:6-7",
+     "label": "Ephesians 1:6–7",
+     "code": "EPH",
+     "chapter": 1,
+     "first": 6,
+     "whole": false,
+     "count": 2,
+     "verses": [
+      {
+       "n": 6,
+       "text": "To the praise of the glory of his grace, wherein he hath made us accepted in the beloved."
+      },
+      {
+       "n": 7,
+       "text": "In whom we have redemption through his blood, the forgiveness of sins, according to the riches of his grace;"
+      }
+     ]
+    },
+    {
+     "ref": "1:7",
+     "label": "Ephesians 1:7",
+     "code": "EPH",
+     "chapter": 1,
+     "first": 7,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 7,
+       "text": "In whom we have redemption through his blood, the forgiveness of sins, according to the riches of his grace;"
+      }
+     ]
+    },
+    {
+     "ref": "2",
+     "label": "Ephesians 2",
+     "code": "EPH",
+     "chapter": 2,
+     "first": 1,
+     "whole": true,
+     "count": 22,
+     "verses": [
+      {
+       "n": 1,
+       "text": "And you hath he quickened, who were dead in trespasses and sins;"
+      },
+      {
+       "n": 2,
+       "text": "Wherein in time past ye walked according to the course of this world, according to the prince of the power of the air, the spirit that now worketh in the children of disobedience:"
+      },
+      {
+       "n": 3,
+       "text": "Among whom also we all had our conversation in times past in the lusts of our flesh, fulfilling the desires of the flesh and of the mind; and were by nature the children of wrath, even as others."
+      },
+      {
+       "n": 4,
+       "text": "But God, who is rich in mercy, for his great love wherewith he loved us,"
+      }
+     ]
+    },
+    {
+     "ref": "2:1-10",
+     "label": "Ephesians 2:1–10",
+     "code": "EPH",
+     "chapter": 2,
+     "first": 1,
+     "whole": false,
+     "count": 10,
+     "verses": [
+      {
+       "n": 1,
+       "text": "And you hath he quickened, who were dead in trespasses and sins;"
+      },
+      {
+       "n": 2,
+       "text": "Wherein in time past ye walked according to the course of this world, according to the prince of the power of the air, the spirit that now worketh in the children of disobedience:"
+      },
+      {
+       "n": 3,
+       "text": "Among whom also we all had our conversation in times past in the lusts of our flesh, fulfilling the desires of the flesh and of the mind; and were by nature the children of wrath, even as others."
+      },
+      {
+       "n": 4,
+       "text": "But God, who is rich in mercy, for his great love wherewith he loved us,"
+      }
+     ]
+    },
+    {
+     "ref": "2:8",
+     "label": "Ephesians 2:8",
+     "code": "EPH",
+     "chapter": 2,
+     "first": 8,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 8,
+       "text": "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God:"
+      }
+     ]
+    },
+    {
+     "ref": "2:8-9",
+     "label": "Ephesians 2:8–9",
+     "code": "EPH",
+     "chapter": 2,
+     "first": 8,
+     "whole": false,
+     "count": 2,
+     "verses": [
+      {
+       "n": 8,
+       "text": "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God:"
+      },
+      {
+       "n": 9,
+       "text": "Not of works, lest any man should boast."
+      }
+     ]
+    },
+    {
+     "ref": "6:10-20",
+     "label": "Ephesians 6:10–20",
+     "code": "EPH",
+     "chapter": 6,
+     "first": 10,
+     "whole": false,
+     "count": 11,
+     "verses": [
+      {
+       "n": 10,
+       "text": "Finally, my brethren, be strong in the Lord, and in the power of his might."
+      },
+      {
+       "n": 11,
+       "text": "Put on the whole armour of God, that ye may be able to stand against the wiles of the devil."
+      },
+      {
+       "n": 12,
+       "text": "For we wrestle not against flesh and blood, but against principalities, against powers, against the rulers of the darkness of this world, against spiritual wickedness in high places."
+      },
+      {
+       "n": 13,
+       "text": "Wherefore take unto you the whole armour of God, that ye may be able to withstand in the evil day, and having done all, to stand."
+      }
+     ]
+    },
+    {
+     "ref": "6:23-24",
+     "label": "Ephesians 6:23–24",
+     "code": "EPH",
+     "chapter": 6,
+     "first": 23,
+     "whole": false,
+     "count": 2,
+     "verses": [
+      {
+       "n": 23,
+       "text": "Peace be to the brethren, and love with faith, from God the Father and the Lord Jesus Christ."
+      },
+      {
+       "n": 24,
+       "text": "Grace be with all them that love our Lord Jesus Christ in sincerity. Amen."
+      }
+     ]
+    }
    ]
   },
   {
@@ -465,7 +2127,33 @@ window.HYMN = {
    "code": "COL",
    "tone": "epistles",
    "refs": [
-    "1:1-14"
+    {
+     "ref": "1:1-14",
+     "label": "Colossians 1:1–14",
+     "code": "COL",
+     "chapter": 1,
+     "first": 1,
+     "whole": false,
+     "count": 14,
+     "verses": [
+      {
+       "n": 1,
+       "text": "Paul, an apostle of Jesus Christ by the will of God, and Timotheus our brother,"
+      },
+      {
+       "n": 2,
+       "text": "To the saints and faithful brethren in Christ which are at Colosse: Grace be unto you, and peace, from God our Father and the Lord Jesus Christ."
+      },
+      {
+       "n": 3,
+       "text": "We give thanks to God and the Father of our Lord Jesus Christ, praying always for you,"
+      },
+      {
+       "n": 4,
+       "text": "Since we heard of your faith in Christ Jesus, and of the love which ye have to all the saints,"
+      }
+     ]
+    }
    ]
   },
   {
@@ -473,7 +2161,33 @@ window.HYMN = {
    "code": "1TH",
    "tone": "epistles",
    "refs": [
-    "5:1-11"
+    {
+     "ref": "5:1-11",
+     "label": "1 Thessalonians 5:1–11",
+     "code": "1TH",
+     "chapter": 5,
+     "first": 1,
+     "whole": false,
+     "count": 11,
+     "verses": [
+      {
+       "n": 1,
+       "text": "But of the times and the seasons, brethren, ye have no need that I write unto you."
+      },
+      {
+       "n": 2,
+       "text": "For yourselves know perfectly that the day of the Lord so cometh as a thief in the night."
+      },
+      {
+       "n": 3,
+       "text": "For when they shall say, Peace and safety; then sudden destruction cometh upon them, as travail upon a woman with child; and they shall not escape."
+      },
+      {
+       "n": 4,
+       "text": "But ye, brethren, are not in darkness, that that day should overtake you as a thief."
+      }
+     ]
+    }
    ]
   },
   {
@@ -481,7 +2195,33 @@ window.HYMN = {
    "code": "1TI",
    "tone": "epistles",
    "refs": [
-    "1:12-17"
+    {
+     "ref": "1:12-17",
+     "label": "1 Timothy 1:12–17",
+     "code": "1TI",
+     "chapter": 1,
+     "first": 12,
+     "whole": false,
+     "count": 6,
+     "verses": [
+      {
+       "n": 12,
+       "text": "And I thank Christ Jesus our Lord, who hath enabled me, for that he counted me faithful, putting me into the ministry;"
+      },
+      {
+       "n": 13,
+       "text": "Who was before a blasphemer, and a persecutor, and injurious: but I obtained mercy, because I did it ignorantly in unbelief."
+      },
+      {
+       "n": 14,
+       "text": "And the grace of our Lord was exceeding abundant with faith and love which is in Christ Jesus."
+      },
+      {
+       "n": 15,
+       "text": "This is a faithful saying, and worthy of all acceptation, that Christ Jesus came into the world to save sinners; of whom I am chief."
+      }
+     ]
+    }
    ]
   },
   {
@@ -489,7 +2229,33 @@ window.HYMN = {
    "code": "2TI",
    "tone": "epistles",
    "refs": [
-    "1:1-14"
+    {
+     "ref": "1:1-14",
+     "label": "2 Timothy 1:1–14",
+     "code": "2TI",
+     "chapter": 1,
+     "first": 1,
+     "whole": false,
+     "count": 14,
+     "verses": [
+      {
+       "n": 1,
+       "text": "Paul, an apostle of Jesus Christ by the will of God, according to the promise of life which is in Christ Jesus,"
+      },
+      {
+       "n": 2,
+       "text": "To Timothy, my dearly beloved son: Grace, mercy, and peace, from God the Father and Christ Jesus our Lord."
+      },
+      {
+       "n": 3,
+       "text": "I thank God, whom I serve from my forefathers with pure conscience, that without ceasing I have remembrance of thee in my prayers night and day;"
+      },
+      {
+       "n": 4,
+       "text": "Greatly desiring to see thee, being mindful of thy tears, that I may be filled with joy;"
+      }
+     ]
+    }
    ]
   },
   {
@@ -497,9 +2263,75 @@ window.HYMN = {
    "code": "TIT",
    "tone": "epistles",
    "refs": [
-    "2:11",
-    "2:11-14",
-    "3:3-7"
+    {
+     "ref": "2:11",
+     "label": "Titus 2:11",
+     "code": "TIT",
+     "chapter": 2,
+     "first": 11,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 11,
+       "text": "For the grace of God that bringeth salvation hath appeared to all men,"
+      }
+     ]
+    },
+    {
+     "ref": "2:11-14",
+     "label": "Titus 2:11–14",
+     "code": "TIT",
+     "chapter": 2,
+     "first": 11,
+     "whole": false,
+     "count": 4,
+     "verses": [
+      {
+       "n": 11,
+       "text": "For the grace of God that bringeth salvation hath appeared to all men,"
+      },
+      {
+       "n": 12,
+       "text": "Teaching us that, denying ungodliness and worldly lusts, we should live soberly, righteously, and godly, in this present world;"
+      },
+      {
+       "n": 13,
+       "text": "Looking for that blessed hope, and the glorious appearing of the great God and our Saviour Jesus Christ;"
+      },
+      {
+       "n": 14,
+       "text": "Who gave himself for us, that he might redeem us from all iniquity, and purify unto himself a peculiar people, zealous of good works."
+      }
+     ]
+    },
+    {
+     "ref": "3:3-7",
+     "label": "Titus 3:3–7",
+     "code": "TIT",
+     "chapter": 3,
+     "first": 3,
+     "whole": false,
+     "count": 5,
+     "verses": [
+      {
+       "n": 3,
+       "text": "For we ourselves also were sometimes foolish, disobedient, deceived, serving divers lusts and pleasures, living in malice and envy, hateful, and hating one another."
+      },
+      {
+       "n": 4,
+       "text": "But after that the kindness and love of God our Saviour toward man appeared,"
+      },
+      {
+       "n": 5,
+       "text": "Not by works of righteousness which we have done, but according to his mercy he saved us, by the washing of regeneration, and renewing of the Holy Ghost;"
+      },
+      {
+       "n": 6,
+       "text": "Which he shed on us abundantly through Jesus Christ our Saviour;"
+      }
+     ]
+    }
    ]
   },
   {
@@ -507,8 +2339,36 @@ window.HYMN = {
    "code": "HEB",
    "tone": "epistles",
    "refs": [
-    "4:16",
-    "6:19"
+    {
+     "ref": "4:16",
+     "label": "Hebrews 4:16",
+     "code": "HEB",
+     "chapter": 4,
+     "first": 16,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 16,
+       "text": "Let us therefore come boldly unto the throne of grace, that we may obtain mercy, and find grace to help in time of need."
+      }
+     ]
+    },
+    {
+     "ref": "6:19",
+     "label": "Hebrews 6:19",
+     "code": "HEB",
+     "chapter": 6,
+     "first": 19,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 19,
+       "text": "Which hope we have as an anchor of the soul, both sure and stedfast, and which entereth into that within the veil;"
+      }
+     ]
+    }
    ]
   },
   {
@@ -516,8 +2376,36 @@ window.HYMN = {
    "code": "2PE",
    "tone": "epistles",
    "refs": [
-    "3:10",
-    "3:12"
+    {
+     "ref": "3:10",
+     "label": "2 Peter 3:10",
+     "code": "2PE",
+     "chapter": 3,
+     "first": 10,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 10,
+       "text": "But the day of the Lord will come as a thief in the night; in the which the heavens shall pass away with a great noise, and the elements shall melt with fervent heat, the earth also and the works that are therein shall be burned up."
+      }
+     ]
+    },
+    {
+     "ref": "3:12",
+     "label": "2 Peter 3:12",
+     "code": "2PE",
+     "chapter": 3,
+     "first": 12,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 12,
+       "text": "Looking for and hasting unto the coming of the day of God, wherein the heavens being on fire shall be dissolved, and the elements shall melt with fervent heat?"
+      }
+     ]
+    }
    ]
   },
   {
@@ -525,8 +2413,36 @@ window.HYMN = {
    "code": "1JN",
    "tone": "epistles",
    "refs": [
-    "2:17",
-    "3:1"
+    {
+     "ref": "2:17",
+     "label": "1 John 2:17",
+     "code": "1JN",
+     "chapter": 2,
+     "first": 17,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 17,
+       "text": "And the world passeth away, and the lust thereof: but he that doeth the will of God abideth for ever."
+      }
+     ]
+    },
+    {
+     "ref": "3:1",
+     "label": "1 John 3:1",
+     "code": "1JN",
+     "chapter": 3,
+     "first": 1,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 1,
+       "text": "Behold, what manner of love the Father hath bestowed upon us, that we should be called the sons of God: therefore the world knoweth us not, because it knew him not."
+      }
+     ]
+    }
    ]
   },
   {
@@ -534,7 +2450,21 @@ window.HYMN = {
    "code": "REV",
    "tone": "revelation",
    "refs": [
-    "22:5"
+    {
+     "ref": "22:5",
+     "label": "Revelation 22:5",
+     "code": "REV",
+     "chapter": 22,
+     "first": 5,
+     "whole": false,
+     "count": 1,
+     "verses": [
+      {
+       "n": 5,
+       "text": "And there shall be no night there; and they need no candle, neither light of the sun; for the Lord God giveth them light: and they shall reign for ever and ever."
+      }
+     ]
+    }
    ]
   }
  ],

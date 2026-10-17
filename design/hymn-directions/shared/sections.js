@@ -40,21 +40,51 @@
     } };
   }
 
-  /** 0X · Where hymnals place it: one square per passage hymnal editors attach to the hymn, by book. */
+  /** 0X · Where hymnals place it: this hymn only. Printed hymnals carry a scripture index, so a church can choose a hymn
+   *  for a reading; Hymnary.org gathers those indexes. One square per passage editors tie this hymn to, by book. Hover
+   *  shows the verse; click opens the passage beside the page. A ring marks a passage one of the hymn's own lines echoes. */
   function placed(num) {
-    const total = H.placed.reduce((s, b) => s + b.refs.length, 0);
+    const all = H.placed.flatMap((b) => b.refs.map((r) => ({ ...r, book: b.book, tone: b.tone })));
+    const ROMAN = ["I", "II", "III", "IV", "V", "VI"];
+    const echoed = (r) => H.echoes.filter((e) => e.code === r.code && e.chapter === r.chapter
+      && (r.whole || (e.verses[0].n <= r.first + r.count - 1 && e.verses.at(-1).n >= r.first)));
+    all.forEach((r) => { r.echoes = echoed(r); });
+    const echoedCount = all.filter((r) => r.echoes.length).length;
+    let i = 0;
     const html = `<section class="hy-sec" id="placed"><div class="hy-head"><span class="hy-num">${num}</span><div>
         <h2>Where hymnals <em>place it</em></h2>
-        <p>Hymnal editors attach it to ${total} passages in ${H.placed.length} books. Psalms, Ephesians and Romans lead. Hover a square to see the passage; click to read it.</p></div></div>
+        <p>Printed hymnals list, for each hymn, the Bible passages it goes with, so a church can choose a hymn for the day's reading.
+          Gathered from the hymnals Hymnary.org catalogues, editors have tied <b>this hymn</b> to ${all.length} passages in ${H.placed.length} books.
+          One square is one passage; a ringed square is one the hymn's own lines echo. Point at a square to read it; click to open it beside the page.</p></div></div>
       <div class="hy-placed">${H.placed.map((b) => `<div class="hy-placed-book" style="--tone: var(--${b.tone})"><h4>${esc(b.book)}<span>${b.refs.length}</span></h4>
-        <div class="sq">${b.refs.map((r) => { const m = /^(\d+)(?::([\d–-]+))?/.exec(r); const ch = m ? m[1] : "1"; const hl = m && m[2] ? `?hl=${m[2].replace("–", "-")}` : "";
-          return `<a href="/read/kjv/${b.code}/${ch}${hl}" data-ref="${esc(`${b.book} ${r}`)}" aria-label="${esc(`${b.book} ${r}`)}"></a>`; }).join("")}</div></div>`).join("")}</div>
-      <p class="hy-placed-tip" aria-live="polite">&nbsp;</p></section>`;
-    return { html, wire(root) {
-      const tip = root.querySelector(".hy-placed-tip");
-      root.querySelectorAll(".hy-placed .sq a").forEach((a) => {
-        a.addEventListener("mouseenter", () => { tip.textContent = a.dataset.ref; tip.style.color = "var(--ink)"; });
-        a.addEventListener("mouseleave", () => { tip.innerHTML = "&nbsp;"; });
+        <div class="sq">${b.refs.map(() => { const r = all[i]; return `<a href="${Hymn.placedUrl(r)}" data-p="${i++}" class="${r.echoes.length ? "echo" : ""}" aria-label="${esc(r.label)}"></a>`; }).join("")}</div></div>`).join("")}</div>
+      <div class="hy-placed-read" aria-live="polite"></div>
+      <p class="hy-placed-key"><span><i class="k-sq"></i>a passage hymnals tie it to</span><span><i class="k-sq echo"></i>one its lines echo (${echoedCount})</span></p></section>`;
+
+    return { html, wire(root, P) {
+      const read = root.querySelector(".hy-placed-read");
+      const squares = [...root.querySelectorAll(".hy-placed .sq a")];
+      const verseText = (r) => `${r.verses.map((v) => `<sup>${v.n}</sup>${esc(v.text)}`).join(" ")}${r.count > r.verses.length ? ` <span class="more">… ${r.count - r.verses.length} more verses</span>` : ""}`;
+      function show(r, a) {
+        squares.forEach((s) => s.classList.toggle("on", s === a));
+        read.style.setProperty("--tone", `var(--${r.tone})`);
+        read.innerHTML = `<p class="ref">${esc(r.label)}${r.whole ? " · the whole chapter" : ""}${r.echoes.length ? ` <em>echoed in stanza ${[...new Set(r.echoes.map((e) => ROMAN[e.stanza]))].join(", ")}</em>` : ""}</p>
+          <p class="txt">${verseText(r)}</p>`;
+      }
+      const resting = all.find((r) => r.echoes.length) ?? all[0];
+      show(resting, squares[all.indexOf(resting)]);
+      squares.forEach((a) => {
+        const r = all[+a.dataset.p];
+        a.addEventListener("mouseenter", () => show(r, a));
+        a.addEventListener("focus", () => show(r, a));
+        a.addEventListener("click", (event) => {
+          if (!P) return; // without a panel, the link opens the reader
+          event.preventDefault();
+          show(r, a);
+          const line = r.echoes.length ? H.stanzas[r.echoes[0].stanza][r.echoes[0].line] : "";
+          P.open({ ref: r.label, code: r.code, chapter: r.chapter, verses: r.verses }, line,
+            `Hymnals tie the hymn here${r.count > r.verses.length ? ` · first ${r.verses.length} of ${r.count} verses` : ""}`);
+        });
       });
     } };
   }

@@ -6,6 +6,9 @@ window.Sections = window.Sections || {};
 (() => {
   const SECTION_LABEL = { history: "History", poetry: "Poetry & Wisdom", prophets: "Prophets", gospels: "Gospels & Acts", epistles: "Epistles", revelation: "Revelation" };
   const R0 = 92, R1 = 240, STEP = (Math.PI * 2) / 66, PAD = 0.012;
+  // The scale stops at 50 hymns (owner, 2026-10-17: one book "drowns out everything else"). A book with more reaches the
+  // edge and gets a dashed tip; its real count still shows in the centre and in the list.
+  const CAP = 50;
   const esc = (text) => String(text).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[ch]);
   const plural = (n, word, many = `${word}s`) => `${formatNumber(n)} ${n === 1 ? word : many}`;
   const reducedMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -84,7 +87,8 @@ window.Sections = window.Sections || {};
     const list = $(".thr-list");
     const shown = new Float32Array(66);
     let current = D.everyone, selected = current.top, hover = -1, raf = 0;
-    const goal = (b) => Math.sqrt(current.totals[b] / current.max);
+    const scaleMax = () => Math.min(current.max, CAP);
+    const goal = (b) => Math.sqrt(Math.min(current.totals[b], scaleMax()) / scaleMax());
 
     function drawSpokes() { for (let b = 0; b < 66; b++) paths[b].setAttribute("d", wedge(b, radiusOf(shown[b]))); }
     function tick() {
@@ -99,16 +103,17 @@ window.Sections = window.Sections || {};
     }
     const niceStep = (max) => { for (const s of [200, 100, 50, 20, 10, 5]) if (s <= max / 3) return s; return 0; };
     function drawFrame() {
-      const max = current.max, mid = niceStep(max);
+      const max = scaleMax(), capped = current.max > CAP, mid = capped ? CAP / 2 : niceStep(max);
       $(".thr-guides").innerHTML = [mid, max].filter(Boolean).map((v) => {
         const r = radiusOf(Math.sqrt(v / max)).toFixed(1);
-        return `<circle r="${r}" class="thr-guide"/><text class="thr-guide-label" x="0" text-anchor="middle" y="${(Number(r) + 11).toFixed(1)}">${formatNumber(v)}</text>`;
+        return `<circle r="${r}" class="thr-guide"/><text class="thr-guide-label" x="0" text-anchor="middle" y="${(Number(r) + 11).toFixed(1)}">${formatNumber(v)}${capped && v === max ? "+" : ""}</text>`;
       }).join("");
+      const over = current.totals.map((t, b) => [t, b]).filter(([t]) => t > CAP).map(([, b]) => b);
       const labelled = current.totals.map((t, b) => [t, b]).filter(([t]) => t).sort((a, b) => b[0] - a[0]).slice(0, 10).map(([, b]) => b);
       $(".thr-labels").innerHTML = labelled.map((b) => {
-        const a = angle(b) + STEP / 2, r = R1 + 10, deg = (a * 180) / Math.PI, flip = Math.cos(a) < 0;
+        const a = angle(b) + STEP / 2, r = R1 + (over.includes(b) ? 30 : 10), deg = (a * 180) / Math.PI, flip = Math.cos(a) < 0;
         return `<text class="thr-label" transform="translate(${point(r, a).replace(" ", ",")}) rotate(${flip ? deg + 180 : deg})" text-anchor="${flip ? "end" : "start"}" dominant-baseline="middle">${esc(books[b].name)}</text>`;
-      }).join("");
+      }).join("") + over.map((b) => { const a = angle(b) + STEP / 2; return `<path class="thr-over" d="M${point(R1 + 4, a)} L${point(R1 + 22, a)}"/>`; }).join("");
       paths.forEach((path, b) => { path.classList.toggle("thr-zero", !current.totals[b]); path.firstElementChild.textContent = `${books[b].name}: ${plural(current.totals[b], "hymn")}`; });
     }
     function renderWho() {
@@ -118,7 +123,8 @@ window.Sections = window.Sections || {};
            <p>${plural(s.works, "hymn")} on a chapter, across ${plural(s.bookCount, "book")} of the Bible; ${plural(s.all - s.works, "more hymn")} on a subject.</p>`
         : `<p class="kicker">Every hymn, together</p><h3>Every hymn</h3>
            <p>${plural(s.works, "hymn")} on a chapter in ${D.shelves.length} hymn books and hands, across ${plural(s.bookCount, "book")} of the Bible.</p>`;
-      let caption = `Spoke length grows with the square root of the count, so small books stay visible. The longest spoke is ${books[s.top].name}, with ${plural(s.max, "hymn")}.`;
+      const runs = s.totals.map((t, b) => [t, b]).filter(([t]) => t > CAP).map(([t, b]) => `${books[b].name} (${formatNumber(t)})`);
+      let caption = `Spoke length grows with the square root of the count, and the scale stops at ${CAP} hymns so no one book drowns the rest.${runs.length ? ` A dashed tip marks a book that runs past it: ${runs.join(", ")}.` : ` The longest spoke is ${books[s.top].name}, with ${plural(s.max, "hymn")}.`}`;
       if (!g) caption += " Watts's psalms are most of the Psalms spoke; choose Hymns & Songs or Newton to see the New Testament fill.";
       $(".thr-caption").textContent = caption;
     }

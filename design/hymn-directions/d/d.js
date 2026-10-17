@@ -39,7 +39,7 @@
 
   const P = panel();
   book.wire(wrap);
-  placed.wire(wrap);
+  placed.wire(wrap, P);
   switcher();
   HymnEchoes.wire(wrap, P);
   HymnConstellation.wire(wrap, P);

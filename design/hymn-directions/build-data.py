@@ -62,6 +62,24 @@ def passage(label: str, code: str, chapter: int, first: int, last: int | None = 
     return {"ref": label, "code": code, "chapter": chapter, "verses": verses(code, chapter, first, last or first)}
 
 
+SHOWN_VERSES = 4  # verses of a placed passage carried in the data; the reader holds the rest
+
+
+def placed_passage(book: str, code: str, ref: str) -> dict:
+    """One passage hymnal editors tie the hymn to ("17:16-17", "15:11-32", or a whole chapter "2"), with its first verses."""
+    found = re.match(r"^(\d+)(?::(\d+)(?:[-–](\d+))?)?$", ref.strip())
+    if not found:
+        raise ValueError(f"placed passage {book} {ref!r}: expected chapter, chapter:verse or chapter:verse-verse")
+    chapter = int(found.group(1))
+    first = int(found.group(2) or 1)
+    last = int(found.group(3) or found.group(2) or 0)
+    whole = found.group(2) is None
+    held = verses(code, chapter, first, 999 if whole else last)
+    label = f"{'Psalm' if book == 'Psalms' else book} {ref.replace('-', '–')}"
+    return {"ref": ref, "label": label, "code": code, "chapter": chapter, "first": first, "whole": whole,
+            "count": len(held), "verses": held[:SHOWN_VERSES]}
+
+
 hymn = json.loads((HYMNS / f"normalized/hymns/{HYMN_ID}.json").read_text(encoding="utf-8"))
 stanzas = [s.split("\n") for s in hymn["text"].split("\n\n")]
 
@@ -114,7 +132,7 @@ data = {
     "heading": {"label": "1 Chronicles 17:16–17", "passage": passage("1 Chronicles 17:16–17", "1CH", 17, 16, 17)},
     "echoes": [{"stanza": stanza, "line": line, "words": words, **found} for stanza, line, found, words in ECHOES],
     "hymnals": hymnals,
-    "placed": [{"book": n, "code": c, "tone": s, "refs": placed[n]} for n, c, s in BOOKS if n in placed],
+    "placed": [{"book": n, "code": c, "tone": s, "refs": [placed_passage(n, c, r) for r in placed[n]]} for n, c, s in BOOKS if n in placed],
     "book1": book1,
     "olneyAuthors": {"John Newton": 281, "William Cowper": 68},
     "source": {"title": hymn["source"]["title"], "url": hymn["source"]["url"], "licence": hymn["source"]["licence"],

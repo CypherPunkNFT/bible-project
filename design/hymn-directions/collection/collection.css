@@ -39,3 +39,6 @@
 .ps-key { margin-top: .9rem; font-size: .78rem; color: var(--muted); line-height: 1.6; }
 @media (max-width: 900px) { .ps-grid { grid-template-columns: repeat(15, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .ps-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); } }
+
+/* 02 · a book that runs past the ring's 50-hymn scale gets a dashed tip */
+.thr-over { fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-dasharray: 3 3; opacity: .55; }

@@ -70,7 +70,7 @@
       stage.querySelectorAll(".cn-echo").forEach((p) => p.classList.toggle("on", p.dataset.b === name));
       const echoes = H.echoes.map((e, i) => ({ ...e, i })).filter((e) => bookOfEcho(e)?.book === name);
       read.innerHTML = `<p class="k">${b.refs.length} passage${b.refs.length > 1 ? "s" : ""} hymnals name</p><h3>${esc(name)}</h3>
-        <div class="cn-refs">${b.refs.map((r) => { const m = /^(\d+)(?::([\d–-]+))?/.exec(r); return `<a href="/read/kjv/${b.code}/${m ? m[1] : 1}${m && m[2] ? `?hl=${m[2]}` : ""}">${esc(`${name.replace("Psalms", "Psalm")} ${r}`)}</a>`; }).join("")}</div>
+        <div class="cn-refs">${b.refs.map((r) => `<a href="${Hymn.placedUrl(r)}">${esc(r.label)}</a>`).join("")}</div>
         ${echoes.length ? `<p class="cn-hint">Echoed in the hymn:</p><div class="cn-echoes">${echoes.map((e) => `<button type="button" data-i="${e.i}"><b>${esc(e.ref)} · stanza ${ROMAN[e.stanza]}</b><span>“${esc(H.stanzas[e.stanza][e.line])}”</span></button>`).join("")}</div>` : ""}
         ${steps()}`;
       read.querySelectorAll("[data-i]").forEach((el) => el.addEventListener("click", () => { const e = H.echoes[+el.dataset.i]; P.open(e, H.stanzas[e.stanza][e.line], `Stanza ${ROMAN[e.stanza]} echoes`); }));

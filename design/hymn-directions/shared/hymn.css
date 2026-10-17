@@ -53,7 +53,17 @@ button { border: 0; background: none; padding: 0; }
 .hy-placed-book .sq { display: flex; flex-wrap: wrap; gap: 3px; }
 .hy-placed-book .sq a { width: 14px; height: 14px; border-radius: 3px; background: var(--tone); opacity: .55; transition: opacity .15s, transform .15s; }
 .hy-placed-book .sq a:hover { opacity: 1; transform: scale(1.25); }
-.hy-placed-tip { margin-top: 1.2rem; min-height: 1.6rem; font: 400 1rem var(--serif); color: var(--muted); }
+.hy-placed-book .sq a.echo { box-shadow: 0 0 0 2px var(--page), 0 0 0 3px var(--accent); opacity: .85; }
+.hy-placed-book .sq a.on { opacity: 1; transform: scale(1.25); }
+.hy-placed-read { margin-top: 1.4rem; padding: 1rem 0 0 1.1rem; border-left: 2px solid var(--tone, var(--accent)); min-height: 6.5rem; max-width: 72ch; }
+.hy-placed-read .ref { font: 600 .68rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--tone, var(--accent)); }
+.hy-placed-read .ref em { margin-left: .6rem; font-style: normal; color: var(--accent); letter-spacing: .1em; }
+.hy-placed-read .txt { margin-top: .45rem; font: 400 1.12rem/1.7 var(--serif); }
+.hy-placed-read sup { margin: 0 .2rem 0 .1rem; font: 600 .58rem var(--sans); color: var(--muted); }
+.hy-placed-read .more { font: italic .9rem var(--serif); color: var(--muted); }
+.hy-placed-key { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin-top: 1rem; font-size: .74rem; color: var(--muted); }
+.hy-placed-key i { display: inline-block; width: 12px; height: 12px; margin-right: .45rem; vertical-align: -1px; border-radius: 3px; background: var(--muted); opacity: .55; }
+.hy-placed-key i.echo { box-shadow: 0 0 0 2px var(--page), 0 0 0 3px var(--accent); opacity: .85; }
 
 /* ── The passage panel, sliding in beside the page ───────────────────────────────────────────── */
 .hy-panel { position: fixed; top: 0; right: 0; bottom: 0; z-index: 50; width: min(30rem, 100vw); padding: 1.6rem 1.8rem;

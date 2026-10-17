@@ -21,6 +21,8 @@
   };
 
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  /** A passage hymnal editors tie the hymn to, in the reader: the chapter, with its verses highlighted unless it is all of it. */
+  const placedUrl = (r) => `/read/kjv/${r.code}/${r.chapter}${r.whole ? "" : `?hl=${r.ref.split(":")[1].replace("–", "-")}`}`;
   const readerUrl = (p) => `/read/kjv/${p.code}/${p.chapter}?hl=${p.verses[0].n}${p.verses.length > 1 ? `-${p.verses.at(-1).n}` : ""}`;
 
   /** The breadcrumb, title and facts row every direction opens with. */
@@ -90,5 +92,5 @@
     document.body.append(nav);
   }
 
-  window.Hymn = { H, esc, readerUrl, intro, panel, sources, switcher };
+  window.Hymn = { H, esc, readerUrl, placedUrl, intro, panel, sources, switcher };
 })();
