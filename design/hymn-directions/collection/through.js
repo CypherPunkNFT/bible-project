@@ -74,7 +74,6 @@ window.Sections = window.Sections || {};
             <text class="thr-big" y="-2" text-anchor="middle"></text>
             <text class="thr-small" y="22" text-anchor="middle"></text>
           </svg>
-          <p class="thr-caption"></p>
         </div>
         <aside class="thr-book">
           <div class="thr-book-head"><p class="kicker"></p><h3></h3><p class="thr-book-sub"></p></div>
@@ -124,9 +123,6 @@ window.Sections = window.Sections || {};
         : `<p class="kicker">Every hymn, together</p><h3>Every hymn</h3>
            <p>${plural(s.works, "hymn")} on a chapter in ${D.shelves.length} hymn books and hands, across ${plural(s.bookCount, "book")} of the Bible.</p>`;
       const runs = s.totals.map((t, b) => [t, b]).filter(([t]) => t > CAP).map(([t, b]) => `${books[b].name} (${formatNumber(t)})`);
-      let caption = `Spoke length grows with the square root of the count, and the scale stops at ${CAP} hymns so no one book drowns the rest.${runs.length ? ` A dashed tip marks a book that runs past it: ${runs.join(", ")}.` : ` The longest spoke is ${books[s.top].name}, with ${plural(s.max, "hymn")}.`}`;
-      if (!g) caption += " Watts's psalms are most of the Psalms spoke; choose Hymns & Songs or Newton to see the New Testament fill.";
-      $(".thr-caption").textContent = caption;
     }
     function center() {
       const b = hover >= 0 ? hover : selected;
@@ -180,6 +176,9 @@ window.Sections = window.Sections || {};
     });
     section.addEventListener("click", (event) => { const shelf = event.target.closest("[data-thr-teacher]"); if (shelf) setShelf(shelf.dataset.thrTeacher); });
 
+    // The book panel is always exactly as tall as the ring card beside it; its list scrolls inside.
+    const ringCard = $(".thr-ringcard"), bookPanel = $(".thr-book");
+    new ResizeObserver(() => { bookPanel.style.height = innerWidth > 1100 ? `${ringCard.offsetHeight}px` : ""; }).observe(ringCard);
     setShelf("all");
     shown.fill(0); drawSpokes();
     if (raf) { cancelAnimationFrame(raf); raf = 0; }
