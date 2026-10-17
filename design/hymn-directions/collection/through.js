@@ -85,7 +85,11 @@ window.Sections = window.Sections || {};
     const paths = [...section.querySelectorAll(".thr-spokes path")];
     const list = $(".thr-list");
     // The hymn list scrolls with its pill outside the panel's right edge, as on the rest of the site.
-    const bookScroll = OutsideScroll.wrap($(".thr-book"));
+    // Only the list scrolls; the panel's header stays fixed and whole above it.
+    const listBox = document.createElement("div");
+    listBox.className = "thr-scroll";
+    list.before(listBox); listBox.append(list);
+    const bookScroll = OutsideScroll.wrap(listBox);
     const shown = new Float32Array(66);
     let current = D.everyone, selected = current.top, hover = -1, raf = 0;
     const scaleMax = () => Math.min(current.max, CAP);
