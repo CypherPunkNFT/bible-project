@@ -1,8 +1,10 @@
 // Topics, the Bible reader, Letters, Apologetics, Study, Testimonies and the site's own pages.
-import { readdirSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
+import path from "node:path";
 import { PARABLES, PARABLE_GUIDE_URL } from "../../src/data/parables";
 import { registerSiteModules } from "../pages/study-lib.ts";
 import { fewest, firstOf, longestText, most, readJson, single, typical, variant, type SampleRule, type TemplateDef } from "./model.ts";
+import { WEBSITE } from "./sources.ts";
 
 interface TopicEntry { title: string; points: number; refs: number; s: string; parts?: number }
 interface TopicIndex { categories: { id: string; title: string; subcategories: { id: string; title: string; topics: string[] }[] }[]; topics: Record<string, TopicEntry>; aliases: Record<string, string> }
@@ -309,10 +311,57 @@ function creedTemplates(): { templates: TemplateDef[]; valid: { creeds: string[]
   return { templates: [home, document], valid: { creeds: documents.map((d) => d.id) } };
 }
 
+interface MuseumCardEntry { slug: string; name: string; place: string; group: string; state: string; records: number; photographs: number; catalogue_rows: number }
+interface MuseumsIndexFile { counts: { cards: number; photographs: number }; cards: MuseumCardEntry[] }
+
+/** Museum-Grade Archaeology: the collections, and one page per museum (scripts/build-museums.py).
+ *
+ * The data is generated and git-ignored, and the build script is not in `prebuild` (nor is the
+ * creeds one). A worktree that has never run it must still produce an inventory for the other
+ * thirty-nine page types, so a missing file means no templates rather than a thrown error. */
+function museumTemplates(): { templates: TemplateDef[]; valid: { museums: string[] } } {
+  if (!existsSync(path.join(WEBSITE, "data/museums/index.json"))) return { templates: [], valid: { museums: [] } };
+  const index = readJson<MuseumsIndexFile>("data/museums/index.json");
+  const cards = index.cards;
+  const url = (c: MuseumCardEntry) => `/study/museum-archaeology/${c.slug}`;
+  const name = (c: MuseumCardEntry) => `${c.name}${c.place && c.place !== "—" ? `, ${c.place}` : ""}`;
+  const ofGroup = (group: string) => cards.filter((c) => c.group === group && c.state !== "coming-soon");
+  const samples = (records: MuseumCardEntry[]): SampleRule<MuseumCardEntry>[] => [
+    typical<MuseumCardEntry>((c) => c.records, name, "records"),
+    most<MuseumCardEntry>("most-records", "The largest", (c) => c.records, name, "records"),
+    most<MuseumCardEntry>("most-photographs", "Most photographed", (c) => c.photographs, name, "photographs"),
+  ].slice(0, records.length > 2 ? 3 : 1);
+
+  const home: TemplateDef = {
+    id: "museums-home", area: "study", name: "Museum-Grade Archaeology", address: "/study/museum-archaeology",
+    what: `${index.counts.cards} museums, archives and catalogues, a cabinet of ${index.counts.photographs} openly licensed photographs, and the institutions the records name as holders.`,
+    entries: ["src/pages/study/museums/MuseumArchaeologyPage.tsx"],
+    scopes: ["src/pages/study/museums/", "src/lib/museums.ts", "scripts/build-museums.py", "scripts/museums/"],
+    variants: [
+      single("home", "Every collection", "The cabinet and the full grid.", "/study/museum-archaeology"),
+      single("collections", "The open collections", "Only what we fetched from.", "/study/museum-archaeology?group=collections"),
+      single("holders", "The holding institutions", "Only who has the objects.", "/study/museum-archaeology?group=holders"),
+    ],
+  };
+  const museum: TemplateDef = {
+    id: "museum", area: "study", name: "One museum", address: "/study/museum-archaeology/<museum>",
+    instances: cards.length,
+    what: "What we hold for one collection: objects with their dates, culture, findspot, openly licensed photographs with credit, and the archaeology catalogue rows they match.",
+    entries: ["src/pages/study/museums/MuseumPage.tsx"],
+    scopes: ["src/pages/study/museums/", "src/lib/museums.ts", "scripts/build-museums.py", "scripts/museums/"],
+    variants: [
+      variant({ id: "collection", name: "An open collection", what: "A collection publishing its own catalogue.", records: ofGroup("collections"), url, samples: samples(ofGroup("collections")) }),
+      variant({ id: "holder", name: "A holding institution", what: "Named as the holder inside other collections' records.", records: ofGroup("holders"), url, samples: samples(ofGroup("holders")) }),
+      variant({ id: "coming-soon", name: "Coming soon", what: "A museum we hold nothing from, and why.", records: cards.filter((c) => c.state === "coming-soon"), url, samples: samples(cards.filter((c) => c.state === "coming-soon")) }),
+    ],
+  };
+  return { templates: [home, museum], valid: { museums: cards.map((c) => c.slug) } };
+}
+
 export async function restTemplates() {
-  const topics = topicTemplates(), reader = readerTemplates(), letters = await letterTemplates(), apologetics = await apologeticsTemplates(), creeds = creedTemplates();
+  const topics = topicTemplates(), reader = readerTemplates(), letters = await letterTemplates(), apologetics = await apologeticsTemplates(), creeds = creedTemplates(), museums = museumTemplates();
   return {
-    templates: [...studyAndSiteTemplates(), ...creeds.templates, ...topics.templates, ...reader.templates, ...letters.templates, ...apologetics.templates],
-    valid: { ...topics.valid, ...reader.valid, ...letters.valid, ...apologetics.valid, ...creeds.valid },
+    templates: [...studyAndSiteTemplates(), ...creeds.templates, ...museums.templates, ...topics.templates, ...reader.templates, ...letters.templates, ...apologetics.templates],
+    valid: { ...topics.valid, ...reader.valid, ...letters.valid, ...apologetics.valid, ...creeds.valid, ...museums.valid },
   };
 }

@@ -1,0 +1,593 @@
+/* Museum-Grade Archaeology.
+   The site's own ground and type, no new colours. Photographs sit on the parchment with no frame, no
+   drop shadow and no hover lift: the owner's standing notes are no glow everywhere and no boxes
+   around everything, and this page would be the easiest one on the site to get that wrong on.
+   Every colour is a variable, so the dark theme follows for free. */
+
+.mu-page {
+  width: 100%;
+  max-width: var(--site-content-width);
+  margin: 0 auto;
+  padding: 1.6rem var(--site-gutter) 4rem;
+  color: var(--ink);
+}
+
+.mu-kicker {
+  font-family: var(--font-sans);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.mu-page h1 {
+  margin: .5rem 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2.1rem, 6vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -.015em;
+}
+
+.mu-page h1 em,
+.mu-page h2 em,
+.mu-footer em {
+  font-style: italic;
+  color: var(--history);
+}
+
+.mu-page h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3.4vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.mu-page h3 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.07rem;
+  font-weight: 600;
+}
+
+.mu-lead {
+  margin: 1rem 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  line-height: 1.3;
+}
+
+.mu-intro,
+.mu-group-lead,
+.mu-section-head > p {
+  margin: .9rem 0 0;
+  max-width: 56ch;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.mu-place {
+  margin: .2rem 0 0;
+  font-family: var(--font-sans);
+  font-size: .82rem;
+  color: var(--muted);
+}
+
+.mu-caption {
+  margin: 1rem 0 0;
+  font-size: .78rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.mu-loading { padding: 3rem 0; font-family: var(--font-serif); color: var(--muted); }
+.mu-unavailable { margin: 1.2rem 0 0; max-width: 58ch; color: var(--muted); line-height: 1.6; }
+
+/* --- the way back ------------------------------------------------------------------------------ */
+.mu-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem 1rem;
+  font-family: var(--font-sans);
+  font-size: .78rem;
+  color: var(--muted);
+}
+
+.mu-breadcrumb a { display: inline-flex; align-items: center; gap: .3rem; color: var(--muted); text-decoration: none; }
+.mu-breadcrumb a:hover { color: var(--ink); text-decoration: underline; }
+
+/* --- the landing, with four figures beside the type -------------------------------------------- */
+.mu-landing {
+  display: grid;
+  gap: 2rem;
+  align-items: end;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 60rem) {
+  .mu-landing { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); }
+}
+
+.mu-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem 1.6rem;
+  margin: 0;
+}
+
+.mu-stats > div { padding-left: .9rem; border-left: 1px solid var(--line); }
+.mu-stats dt { font-family: var(--font-serif); font-size: 1.55rem; font-weight: 600; line-height: 1; }
+.mu-stats dd {
+  margin: .3rem 0 0;
+  font-family: var(--font-sans);
+  font-size: .72rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.mu-museum-stats { margin-top: 2rem; }
+@media (min-width: 48rem) { .mu-museum-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* --- section headings -------------------------------------------------------------------------- */
+.mu-cabinet,
+.mu-rooms,
+.mu-others,
+.mu-objects { margin-top: 3.2rem; }
+
+.mu-section-head {
+  display: grid;
+  gap: 1rem 2.4rem;
+  align-items: end;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 60rem) {
+  .mu-section-head { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .mu-section-head > p { margin-top: 0; }
+}
+
+/* --- the cabinet: a quiet array of real photographs -------------------------------------------- */
+.mu-cabinet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: 1.4rem 1.2rem;
+  margin: 1.8rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mu-cabinet-grid a {
+  display: grid;
+  gap: .55rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* No blend mode. Museum photography is as often shot against black as against white, and multiplying
+   a black-ground plate into the parchment turns the object into a smudge. Shown as they are. */
+.mu-cabinet-grid img {
+  width: 100%;
+  height: 7.5rem;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+.mu-cabinet-grid span {
+  font-family: var(--font-sans);
+  font-size: .72rem;
+  line-height: 1.35;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: .4rem;
+}
+
+.mu-cabinet-grid a:hover span { color: var(--ink); }
+
+/* --- the filter chips -------------------------------------------------------------------------- */
+.mu-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1.6rem 0 0;
+}
+
+.mu-filters button {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .45rem;
+  padding: .45rem .85rem;
+  font-family: var(--font-sans);
+  font-size: .78rem;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.mu-filters button small { font-size: .68rem; opacity: .75; }
+.mu-filters button:hover { color: var(--ink); border-color: var(--muted); }
+.mu-filters button[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: var(--history);
+  box-shadow: inset 0 0 0 1px var(--history);
+}
+
+/* --- the museum grid --------------------------------------------------------------------------- */
+.mu-group { margin-top: 2.4rem; }
+.mu-group h3 {
+  font-family: var(--font-sans);
+  font-size: .74rem;
+  font-weight: 600;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+/* The dividers are drawn by each card, not by a tinted gap behind the grid: auto-fill leaves empty
+   cells at the end of the last row, and a tinted background turns those into blocks of colour. */
+.mu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  margin: 1.4rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.mu-card {
+  background: var(--page);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.mu-card > a {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: .9rem;
+  height: 100%;
+  padding: 1.3rem 1.2rem 1.1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.mu-card > a:hover { background: var(--surface); }
+.mu-card > a:hover h3 { color: var(--history); }
+
+.mu-emblem { display: block; color: var(--ink); opacity: .8; }
+.mu-card .mu-emblem { width: 3.4rem; height: 3.4rem; }
+.mu-card > a:hover .mu-emblem { opacity: 1; color: var(--history); }
+
+.mu-card-lead {
+  margin: .5rem 0 0;
+  font-size: .82rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.mu-card footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+  padding-top: .7rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-sans);
+  font-size: .72rem;
+  color: var(--muted);
+}
+
+.mu-card footer svg { flex: none; }
+/* On a phone a directory of this many cards is a very long scroll, so each one becomes a single
+   compact row: the emblem, the name and its figures. The lead paragraph is desktop only. */
+@media (max-width: 42rem) {
+  .mu-grid { grid-template-columns: minmax(0, 1fr); }
+  .mu-card > a {
+    grid-template-rows: auto;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: .9rem;
+    padding: .85rem 1rem;
+  }
+  .mu-card .mu-emblem { width: 2.3rem; height: 2.3rem; }
+  .mu-card-lead { display: none; }
+  .mu-card footer {
+    grid-column: 1 / -1;
+    padding-top: .35rem;
+    border-top: 0;
+  }
+}
+
+.mu-card-soon { background: color-mix(in srgb, var(--line) 22%, var(--page)); }
+.mu-card-soon .mu-emblem { opacity: .45; }
+.mu-soon {
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* --- the long list of institutions with no page ------------------------------------------------ */
+.mu-disclose,
+.mu-more {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: 1.4rem;
+  padding: .45rem .9rem;
+  font-family: var(--font-sans);
+  font-size: .78rem;
+  color: var(--ink);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.mu-disclose:hover,
+.mu-more:hover { border-color: var(--history); color: var(--history); }
+.mu-disclose[aria-pressed="true"] { border-color: var(--history); color: var(--history); }
+
+.mu-other-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 0 2rem;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mu-other-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .45rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: .8rem;
+}
+
+.mu-other-list small { flex: none; font-family: var(--font-sans); font-size: .7rem; color: var(--muted); }
+
+/* --- one museum -------------------------------------------------------------------------------- */
+.mu-museum-head {
+  display: grid;
+  gap: 1.4rem;
+  align-items: start;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 42rem) { .mu-museum-head { grid-template-columns: auto minmax(0, 1fr); gap: 2.2rem; } }
+.mu-museum-head .mu-emblem { width: 5.5rem; height: 5.5rem; color: var(--history); opacity: .9; }
+
+.mu-note,
+.mu-cut {
+  max-width: 62ch;
+  margin-top: 1.6rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--line);
+  font-size: .85rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.mu-details { margin-top: 1.6rem; font-size: .82rem; }
+.mu-details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+  padding: .6rem 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-sans);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.mu-details summary:hover { color: var(--ink); }
+.mu-recorded { margin: .8rem 0 0; padding-left: 1.2rem; color: var(--muted); line-height: 1.7; }
+
+/* --- an object --------------------------------------------------------------------------------- */
+.mu-object-list {
+  display: grid;
+  gap: 1px;
+  margin-top: 1.8rem;
+  background: var(--line);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.mu-object { padding: 1.6rem 0 1.8rem; background: var(--page); }
+
+.mu-object > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mu-object-sub {
+  margin: .25rem 0 0;
+  font-family: var(--font-sans);
+  font-size: .76rem;
+  color: var(--muted);
+}
+
+.mu-basis {
+  flex: none;
+  font-family: var(--font-sans);
+  font-size: .64rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.mu-basis-catalog-crosswalk { color: var(--history); }
+.mu-basis-source-stated { color: var(--poetry); }
+
+.mu-object-body { margin-top: 1rem; }
+
+@media (min-width: 52rem) {
+  .mu-object-photo {
+    display: grid;
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+    grid-template-areas: "head head" "photo body";
+    gap: 0 2rem;
+  }
+  .mu-object-photo > header { grid-area: head; }
+  .mu-object-photo .mu-photo { grid-area: photo; }
+  .mu-object-photo .mu-object-body { grid-area: body; margin-top: 1rem; }
+}
+
+.mu-photo { margin: 1.1rem 0 0; }
+
+.mu-photo img {
+  display: block;
+  width: 100%;
+  max-width: 15rem;
+  height: auto;
+}
+
+.mu-photo figcaption {
+  display: grid;
+  gap: .15rem;
+  max-width: 15rem;
+  margin-top: .5rem;
+  padding-top: .4rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-sans);
+  font-size: .66rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.mu-photo figcaption a { display: inline-flex; align-items: center; gap: .2rem; color: inherit; }
+.mu-licence { opacity: .85; }
+
+.mu-why {
+  margin: 0 0 .7rem;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.mu-description { margin: 0; font-size: .86rem; line-height: 1.6; color: var(--muted); }
+
+.mu-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: .7rem 1.6rem;
+  margin: 1.1rem 0 0;
+}
+
+.mu-facts dt {
+  font-family: var(--font-sans);
+  font-size: .64rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.mu-facts dd { margin: .15rem 0 0; font-size: .84rem; line-height: 1.45; }
+
+.mu-catalogue { margin-top: 1.2rem; }
+.mu-catalogue > div + div { margin-top: 1rem; }
+.mu-catalogue p { margin: 0 0 .4rem; font-size: .84rem; line-height: 1.6; }
+.mu-catalogue strong { font-weight: 600; }
+.mu-limit { color: var(--muted); }
+
+.mu-row-id {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .3rem .7rem;
+  font-family: var(--font-sans);
+  font-size: .66rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--history);
+}
+
+.mu-row-id small { font-weight: 400; letter-spacing: .04em; text-transform: none; color: var(--muted); }
+.mu-row-related { color: var(--muted); }
+.mu-related p:last-child { margin-bottom: 0; }
+
+.mu-how,
+.mu-named {
+  margin: .9rem 0 0;
+  font-family: var(--font-sans);
+  font-size: .7rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.mu-object-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem 1.3rem;
+  margin-top: .9rem;
+  font-family: var(--font-sans);
+  font-size: .74rem;
+}
+
+.mu-object-links a { display: inline-flex; align-items: center; gap: .25rem; color: var(--muted); }
+.mu-object-links a:hover { color: var(--ink); }
+
+.mu-more { justify-content: center; width: 100%; margin-top: 1.6rem; border-radius: .4rem; }
+.mu-more span { margin-left: .6rem; font-size: .7rem; color: var(--muted); }
+
+/* --- the Coming soon panel --------------------------------------------------------------------- */
+/* No rule of its own: the museum header above already closes with one. */
+.mu-soon-panel { max-width: 62ch; margin-top: 2.4rem; }
+
+.mu-soon-panel p { margin: .9rem 0 0; line-height: 1.65; color: var(--muted); }
+.mu-soon-panel > p:first-of-type { color: var(--accent); }
+
+.mu-soon-panel a {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: 1.4rem;
+  font-family: var(--font-sans);
+  font-size: .8rem;
+  color: var(--ink);
+}
+
+/* --- the way on -------------------------------------------------------------------------------- */
+.mu-footer {
+  margin-top: 3.4rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--line);
+}
+
+.mu-footer > p:first-child {
+  margin: 0 0 1.4rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 3vw, 1.75rem);
+  line-height: 1.25;
+}
+
+.mu-footer > div { display: flex; flex-wrap: wrap; gap: .6rem 1.8rem; }
+
+.mu-footer > div a {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-family: var(--font-sans);
+  font-size: .82rem;
+  color: var(--ink);
+}
+
+.mu-footer > div a:hover { color: var(--history); }

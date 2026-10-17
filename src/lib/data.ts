@@ -1,5 +1,6 @@
 import type { ArcData, BookPlace, Catalog, Chapter, CrossRefBook, PlainBook, Place, Run, Stats } from "./types";
 import type { CreedBundle, CreedDocument, CreedsIndex } from "./creeds";
+import { isMuseumSlug, type Museum, type MuseumIndex } from "./museums";
 import type { ChapterTopics, LibraryBook, Topic, TopicIndex } from "./topics";
 
 /** A data file that is missing or malformed. The reader turns this into "not in this version". */
@@ -101,6 +102,16 @@ export const loadCreedDocument = (id: string) =>
 
 export const loadCreedBundle = (id: string, bundle: string) =>
   load<CreedBundle>(`creeds/doc/${id}.${bundle}.json`, (v) => isObject(v) && Array.isArray(v.sections));
+
+// Museum-Grade Archaeology (scripts/build-museums.py): the museum cards, and one file per museum.
+export const loadMuseumIndex = () =>
+  load<MuseumIndex>("museums/index.json", (v) => isObject(v) && Array.isArray(v.cards));
+
+/** One museum. `slug` must be checked against the index first; this only guards the path itself. */
+export const loadMuseum = (slug: string) => {
+  if (!isMuseumSlug(slug)) throw new DataUnavailable(`museums/${slug}.json`, "not a museum address");
+  return load<Museum>(`museums/${slug}.json`, (v) => isObject(v) && Array.isArray(v.objects));
+};
 
 export const loadArcs = () => load<ArcData>("xref-arcs.json", (v) => isObject(v) && Array.isArray(v.arcs));
 

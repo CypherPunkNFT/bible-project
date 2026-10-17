@@ -20,6 +20,8 @@
     "teacher-pages": "node --experimental-strip-types scripts/build-teacher-pages.ts",
     "teacher-pages:check": "node --experimental-strip-types scripts/build-teacher-pages.ts --check",
     "data": "py -3.12 scripts/build-data.py",
+    "museums": "py -3.12 scripts/build-museums.py",
+    "museums:check": "py -3.12 scripts/build-museums.py --check",
     "test:data": "py -3.12 -m pytest scripts/tests -q",
     "map": "node scripts/build-map.mjs",
     "learning": "node scripts/check-learning.mjs && node scripts/build-learning.mjs",

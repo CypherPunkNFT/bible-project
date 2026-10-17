@@ -9,6 +9,8 @@ export interface Reading {
     art?: string;
     preview?: boolean;
     outline?: boolean;
+    /** A finished collection or directory rather than a study, promoted to the card grid as one. */
+    collection?: boolean;
 }
 export interface Area {
     id: string;
@@ -440,6 +442,15 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                         "title": "Places behind the narrative",
                         "text": "Find a place and open the passages associated with it.",
                         "href": "/study/atlas/map"
+                    },
+                    {
+                        "kind": "Museum collections",
+                        "title": "Museum-Grade Archaeology",
+                        "text": "Open the museums themselves: real object records from collections that publish openly, with dates, findspots and photographs under their own licences.",
+                        "href": "/study/museum-archaeology",
+                        "meta": "Museums · Objects · Open licences",
+                        "art": "museum",
+                        "collection": true
                     }
                 ],
                 "support": [
