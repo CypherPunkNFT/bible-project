@@ -37,7 +37,7 @@
 .ps-grid { flex: 1; display: grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap: 5px; align-content: start; }
 .ps-tile { position: relative; aspect-ratio: 1; border-radius: 6px; border: 1px solid transparent; background: color-mix(in srgb, var(--poetry) calc(var(--k) * 100%), var(--surface-2));
   font: 500 .72rem var(--sans); color: var(--ink); transition: border-color .15s, transform .15s; }
-.ps-tile { display: grid; place-content: center; gap: 1px; }
+.ps-tile { display: grid; place-content: center; gap: 2px; aspect-ratio: 1 / 1.22; }
 .ps-tile .n { font: 500 .95rem/1 var(--serif); opacity: .9; }
 .ps-tile small { font: 500 .56rem/1 var(--sans); letter-spacing: 0; white-space: nowrap; opacity: .7; }
 .ps-tile:hover { transform: scale(1.06); }
@@ -119,3 +119,5 @@
 /* the outside scrollbar: only the pill, no track, no arrows (Chrome 121+ honours these over the -webkit- rules) */
 .os-bar { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; }
 .os-bar::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+/* 03 · the lead runs the width of the tile panel below it, so it takes fewer lines */
+.t-sec-psalms .t-head p:not(.kicker) { max-width: calc(100% - 22rem); }
