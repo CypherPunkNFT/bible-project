@@ -11,6 +11,8 @@ export interface Reading {
     outline?: boolean;
     /** A finished collection or directory rather than a study, promoted to the card grid as one. */
     collection?: boolean;
+    /** A fixed card colour (a section token: history, poetry, prophets…), so reordering cards does not repaint them. */
+    tone?: string;
 }
 export interface Area {
     id: string;
@@ -433,16 +435,6 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                     {"kind": "Study landing", "title": "Mesha and the world of Moab", "text": "Illustrated landing for a historical study of Mesha and Moab.", "href": "/study/mesha-and-the-world-of-moab", "outline": true},
                     {"kind": "Study landing", "title": "Lachish under siege", "text": "Illustrated landing for a historical study of Lachish and the campaign.", "href": "/study/lachish-under-siege", "outline": true},
                     {"kind": "Study landing", "title": "Cyrus, restoration and return", "text": "Illustrated landing for a historical study of imperial restoration and return.", "href": "/study/cyrus-restoration-and-return", "outline": true},
-                    {"kind": "Interactive study", "title": "Israel among the empires", "text": "Trace tribute, conquest, exile and return through synchronized maps and primary evidence.", "href": "/study/israel-among-the-empires", "art": "inscription"},
-                    {"kind": "Interactive journey", "title": "The world of Jesus & the apostles", "text": "Explore eight connected settings, from Galilean households and Jerusalem to Caesarea, Corinth, Ephesus and travel toward Rome.", "href": "/study/world-of-jesus-apostles", "art": "city"},
-                    {"kind": "Interactive archaeology", "title": "Cities through their layers", "text": "Explore Jericho, Lachish, Jerusalem and Corinth through selected phases, finds and disputed interpretations.", "href": "/study/cities-through-their-layers", "art": "inscription"},
-                    {"kind": "Guide", "title": "Rulers in the biblical world", "text": "Follow rulers and their settings, then open the biblical passages and the people they connect.", "href": "/study/people?view=rulers"},
-                    {
-                        "kind": "Atlas",
-                        "title": "Places behind the narrative",
-                        "text": "Find a place and open the passages associated with it.",
-                        "href": "/study/atlas/map"
-                    },
                     {
                         "kind": "Museum collections",
                         "title": "Museum-Grade Archaeology",
@@ -450,7 +442,18 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                         "href": "/study/museum-archaeology",
                         "meta": "Museums · Objects · Open licences",
                         "art": "museum",
-                        "collection": true
+                        "collection": true,
+                        "tone": "poetry"
+                    },
+                    {"kind": "Interactive study", "title": "Israel among the empires", "text": "Trace tribute, conquest, exile and return through synchronized maps and primary evidence.", "href": "/study/israel-among-the-empires", "art": "inscription", "tone": "prophets"},
+                    {"kind": "Interactive archaeology", "title": "Cities through their layers", "text": "Explore Jericho, Lachish, Jerusalem and Corinth through selected phases, finds and disputed interpretations.", "href": "/study/cities-through-their-layers", "art": "inscription", "tone": "epistles"},
+                    {"kind": "Interactive journey", "title": "The world of Jesus & the apostles", "text": "Explore eight connected settings, from Galilean households and Jerusalem to Caesarea, Corinth, Ephesus and travel toward Rome.", "href": "/study/world-of-jesus-apostles", "art": "city", "tone": "gospels"},
+                    {"kind": "Guide", "title": "Rulers in the biblical world", "text": "Follow rulers and their settings, then open the biblical passages and the people they connect.", "href": "/study/people?view=rulers"},
+                    {
+                        "kind": "Atlas",
+                        "title": "Places behind the narrative",
+                        "text": "Find a place and open the passages associated with it.",
+                        "href": "/study/atlas/map"
                     }
                 ],
                 "support": [

@@ -76,7 +76,7 @@ export function AcademicCards({area}:{area:Area}) {
   const readings=items.filter(item=>!studies.includes(item));
   return <>
     {studies.length>0 && <ul className="study-resource-grid theology-original-cards academic-original-cards" aria-label={`${area.title} studies`}>
-      {studies.map((item,i)=>{const drawing=artFor(item.href);return <Resource key={item.href} to={item.href} title={item.title} description={item.text} source={item.meta??captions[drawing]} number="" category={item.kind} color={tones[(tones.indexOf(area.tone)+i+tones.length)%tones.length]}><AcademicArtwork kind={drawing}/></Resource>;})}
+      {studies.map((item,i)=>{const drawing=artFor(item.href);return <Resource key={item.href} to={item.href} title={item.title} description={item.text} source={item.meta??captions[drawing]} number="" category={item.kind} color={item.tone ?? tones[(tones.indexOf(area.tone)+i+tones.length)%tones.length]}><AcademicArtwork kind={drawing}/></Resource>;})}
     </ul>}
     {readings.length>0 && <div className="reading-list academic-reading-links"><h3>{area.group}</h3>{readings.map((item,i)=><StudyLink key={item.href} className="reading-row" to={item.href}><span className="reading-n">{String(i+1).padStart(2,'0')}</span><div><small>{item.kind}</small><h4>{item.title}</h4><p>{item.text}</p></div><Icon name="arrowUp"/></StudyLink>)}</div>}
   </>;
