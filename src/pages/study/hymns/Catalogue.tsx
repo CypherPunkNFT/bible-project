@@ -8,11 +8,9 @@ import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Search } from "lucide-react";
 import { OutsideScroll } from "@/components/OutsideScroll";
 import { bookIndexOf, chapterOf, hymnHref, metreName, type HymnCollection, type HymnEntry, type HymnGroup } from "@/lib/hymns";
-import { SectionHead } from "@/pages/teachers/shared/Frame";
+import { SectionHead } from "./parts";
 import { SECTION_LABEL } from "@/pages/teachers/preachers/bible/model";
 import { firstLine, formatNumber, groupsById, tone } from "./model";
-import "@/pages/teachers/shared/acquired.css";
-import "./catalogue.css";
 
 const normalise = (text: string) => text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLocaleLowerCase();
 const DISC: Record<string, string> = { psalms: "IW", hss: "IW", divine: "IW", newton: "JN", cowper: "WC" };

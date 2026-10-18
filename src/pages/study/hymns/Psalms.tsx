@@ -1,13 +1,13 @@
 // 03 · Through the Psalms: the 150 psalms as tiles, each lit by how many of our hymns sing it; click one to see them, each
 // opening its own page. The list is as tall as the tiles beside it and scrolls with the outside pill; it changes on
 // click only (approved mock-up: design/hymn-directions/collection/psalms.js).
-import { useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { OutsideScroll } from "@/components/OutsideScroll";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { bookIndexOf, chapterOf, hymnHref, type HymnCollection, type HymnEntry } from "@/lib/hymns";
-import { SectionHead } from "@/pages/teachers/shared/Frame";
+import { SectionHead } from "./parts";
 import { groupsById, plural, tone } from "./model";
 
 export function Psalms({ collection }: { collection: HymnCollection }) {
@@ -23,6 +23,16 @@ export function Psalms({ collection }: { collection: HymnCollection }) {
   const max = Math.max(...byPsalm.map((l) => l.length));
   const sung = byPsalm.filter((l) => l.length).length;
   const [shown, setShown] = useState(22);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [panelHeight, setPanelHeight] = useState<number | undefined>(undefined);
+  // The list is always exactly as tall as the tiles beside it; a longer one (Psalm 119) scrolls, with the pill outside.
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+    const observer = new ResizeObserver(() => setPanelHeight(narrow ? undefined : card.offsetHeight));
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, [narrow]);
   const list = byPsalm[shown];
 
   const detail = <div className="bib-inner" style={tone("--poetry")}><p className="kicker">Poetry &amp; Wisdom</p>
@@ -33,17 +43,15 @@ export function Psalms({ collection }: { collection: HymnCollection }) {
         <small>{h.r} · {groups.get(h.g)?.short} · {h.y}{h.m ? ` · metre ${h.m.replace(/,/g, ".")}` : ""}</small></li>)}</ul></>}
     <Link className="bib-read" to={`/read/kjv/PSA/${shown + 1}`}><BookOpen size={15} strokeWidth={1.5} aria-hidden />Read Psalm {shown + 1}<ArrowRight size={15} strokeWidth={1.5} aria-hidden /></Link></div>;
 
-  return <div className="tp-sec-bible" style={tone("--poetry")}>
+  return <div style={tone("--poetry")}>
     <SectionHead num="03" kicker="The Psalms" title={<>Through <em>the Psalms</em></>}
       line={`${sung} of the 150 psalms have at least one hymn made from them here, most by Isaac Watts, who set the psalms "in the language of the New Testament": his are paraphrases, not translations. Choose a psalm to see how it was sung.`} />
     <div className="bib-grid">
-      <div className="bib-card"><div className="ps-grid">{byPsalm.map((l, i) =>
+      <div className="bib-card" ref={cardRef}><div className="ps-grid">{byPsalm.map((l, i) =>
         <button key={i} type="button" className={`ps-tile${i === shown ? " on" : ""}`} aria-pressed={i === shown} onClick={() => setShown(i)}
           style={{ "--k": l.length ? (0.35 + 0.65 * l.length / max).toFixed(2) : 0 } as CSSProperties} aria-label={`Psalm ${i + 1}, ${plural(l.length, "hymn")}`}>
           <span className="n">{i + 1}</span>{l.length > 0 && <small>{l.length} {l.length === 1 ? "hymn" : "hymns"}</small>}</button>)}</div></div>
-      <aside className="bib-detail ps-detail" aria-live="polite">
-        {narrow ? detail : <OutsideScroll label={`Hymns on Psalm ${shown + 1}`} className="bib-detail-scroll" frameClassName="bib-detail-frame" viewportClassName="bib-detail-viewport" resetKey={String(shown)}>{detail}</OutsideScroll>}
-      </aside>
+      <OutsideScroll label={`Hymns on Psalm ${shown + 1}`} className="bib-detail" style={{ height: panelHeight }} resetKey={String(shown)}><div aria-live="polite">{detail}</div></OutsideScroll>
     </div>
   </div>;
 }

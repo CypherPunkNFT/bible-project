@@ -3,7 +3,7 @@
 // churches. Words floating with lines, no boxes; a moment reads out below the line
 // (approved mock-up: design/hymn-directions/collection/history.js).
 import { useState } from "react";
-import { SectionHead } from "@/pages/teachers/shared/Frame";
+import { SectionHead } from "./parts";
 import { tone } from "./model";
 
 // The scale runs 1640–1845; 1562 sits at the left edge, behind a break in the line.

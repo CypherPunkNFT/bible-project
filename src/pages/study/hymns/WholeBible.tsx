@@ -3,19 +3,18 @@
 // The side panel shows what was clicked, never what the pointer passes over (owner, 2026-10-17): moving to the panel
 // to click a hymn must not change it. Pointing only outlines the square
 // (approved mock-up: design/hymn-directions/collection/bible.js).
-import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, BookOpen, X } from "lucide-react";
 import { OutsideScroll } from "@/components/OutsideScroll";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { useThemeVersion } from "@/lib/theme";
 import { bookIndexOf, chapterOf, hymnHref, type HymnCollection, type HymnEntry, type HymnGroup } from "@/lib/hymns";
-import { SectionHead } from "@/pages/teachers/shared/Frame";
+import { SectionHead } from "./parts";
 import { ChapterCanvas } from "@/pages/teachers/preachers/bible/chapter-canvas";
 import { SECTION_LABEL, type Cell } from "@/pages/teachers/preachers/bible/model";
 import { centreInStrip } from "@/pages/teachers/preachers/bible/words";
 import { chapterLabel, formatNumber, groupsById, plural, tone } from "./model";
-import "@/pages/teachers/preachers/bible.css";
 
 const SHOWN_TITLES = 8;
 const MOVES: Record<string, number> = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
@@ -115,6 +114,8 @@ export function WholeBible({ collection }: { collection: HymnCollection }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const boxRef = useRef<HTMLDivElement>(null);
   const sheetRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [panelHeight, setPanelHeight] = useState<number | undefined>(undefined);
   const mapRef = useRef<ChapterCanvas | null>(null);
   const viewRef = useRef(view);
   const litRef = useRef(false);
@@ -149,6 +150,15 @@ export function WholeBible({ collection }: { collection: HymnCollection }) {
   useEffect(() => { viewRef.current = view; if (litRef.current) mapRef.current?.repaint(targetsFor(model.cells, view)); }, [view, model]);
   useEffect(() => { const map = mapRef.current; if (map) { map.setHighlight(hovered, pinned); map.draw(); } }, [hovered, pinned]);
   useEffect(() => { const map = mapRef.current; if (map && themeVersion) { map.resetPalette(); map.draw(); } }, [themeVersion]);
+
+  // The side panel is always exactly as tall as the chapter map beside it; anything longer scrolls, with the pill outside.
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+    const observer = new ResizeObserver(() => setPanelHeight(narrow ? undefined : card.offsetHeight));
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, [narrow]);
 
   const pin = useCallback((i: number) => { setPinned(i); setExpanded(false); setHovered(-1); if (i >= 0) setSheetCell(i); }, []);
   useEffect(() => {
@@ -206,7 +216,7 @@ export function WholeBible({ collection }: { collection: HymnCollection }) {
           <i className="bib-dot" />{v.label}<b>{formatNumber(v.chapters)}</b></button>)}</div>
     </div>
     <div className="bib-grid">
-      <div className="bib-card">
+      <div className="bib-card" ref={cardRef}>
         <div className="bib-key"><p>One square is one chapter, Genesis to Revelation, reading down each column. The brighter it is, the more hymns take that chapter as their text.</p>
           <span className="bib-scale" aria-hidden="true">fewer<i /><i /><i /><i /><i />more</span></div>
         <div className="bib-canvas-box" ref={boxRef}>
@@ -216,11 +226,10 @@ export function WholeBible({ collection }: { collection: HymnCollection }) {
         <div className="bib-legend">{Object.entries(SECTION_LABEL).map(([key, label]) => <span key={key}><i style={{ background: `var(--${key})` }} />{label}</span>)}
           <span className="bib-legend-quiet"><i />No hymn yet</span></div>
       </div>
-      <aside className={`bib-detail${narrow ? " slim-scroll" : ""}`} aria-live="polite" style={{ borderTop: `2px solid var(${pinned >= 0 && !narrow ? `--${model.books[model.cells[pinned].b].section}` : (model.views.find((v) => v.id === view)?.tone ?? "--accent")})` }}>
-        {narrow ? summary : <OutsideScroll label="Chapter details" className="bib-detail-scroll" frameClassName="bib-detail-frame" viewportClassName="bib-detail-viewport" resetKey={`${view}-${pinned}`}>
-          {pinned < 0 ? summary : chapter(pinned)}
-        </OutsideScroll>}
-      </aside>
+      <OutsideScroll label="Chapter details" className="bib-detail" resetKey={`${view}-${pinned}`}
+        style={{ height: panelHeight, "--panel-tone": `var(${pinned >= 0 && !narrow ? `--${model.books[model.cells[pinned].b].section}` : (model.views.find((v) => v.id === view)?.tone ?? "--accent")})` } as CSSProperties}>
+        <div aria-live="polite">{narrow || pinned < 0 ? summary : chapter(pinned)}</div>
+      </OutsideScroll>
     </div>
     <div ref={sheetRef} className={`bib-sheet slim-scroll${sheetOpen ? " bib-open" : ""}`} role="dialog" aria-label="Chapter">
       {narrow && sheetCell >= 0 && chapter(sheetCell)}

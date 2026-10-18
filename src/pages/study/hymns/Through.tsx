@@ -7,12 +7,11 @@ import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Library } from "lucide-react";
 import { OutsideScroll } from "@/components/OutsideScroll";
 import { bookIndexOf, chapterOf, hymnHref, type HymnCollection, type HymnEntry, type HymnGroup } from "@/lib/hymns";
-import { SectionHead } from "@/pages/teachers/shared/Frame";
+import { SectionHead } from "./parts";
 import { SECTION_LABEL } from "@/pages/teachers/preachers/bible/model";
 import { centreInStrip } from "@/pages/teachers/preachers/bible/words";
 import { BOOKS, R0, R1, SpokeAnimator, angle, labelAt, niceStep, point, radiusOf, wedge } from "@/pages/teachers/preachers/through/geometry";
 import { chapterLabel, formatNumber, groupsById, passageHref, plural, tone } from "./model";
-import "@/pages/teachers/preachers/through.css";
 
 // The scale stops at 50 hymns (owner, 2026-10-17: one book "drowns out everything else"). A book with more reaches the
 // edge and gets a dashed tip; its real count still shows in the centre and in the list.
@@ -118,7 +117,7 @@ export function Through({ collection }: { collection: HymnCollection }) {
   useEffect(() => {
     const card = ringCard.current;
     if (!card) return;
-    const fit = () => setPanelHeight(window.innerWidth >= 1200 ? card.offsetHeight : undefined);
+    const fit = () => setPanelHeight(window.innerWidth > 1100 ? card.offsetHeight : undefined);
     const observer = new ResizeObserver(fit);
     observer.observe(card);
     window.addEventListener("resize", fit);
@@ -170,7 +169,7 @@ export function Through({ collection }: { collection: HymnCollection }) {
             <p>{plural(shelf.works, "hymn")} on a chapter in {model.shelves.length} hymn books and hands, across {plural(shelf.bookCount, "book")} of the Bible.</p></>}</div>
         <Ring collection={collection} shelf={shelf} selected={selected} onSelect={(b) => setSelected((b + BOOKS) % BOOKS)} />
       </div>
-      <aside className="thr-book hy-thr-book" style={{ ...tone(`--${book.section}`), height: panelHeight }}>
+      <aside className="thr-book" style={{ ...tone(`--${book.section}`), height: panelHeight }}>
         <div className="thr-book-head"><p className="kicker">{SECTION_LABEL[book.section]}</p><h3>{book.name}</h3>
           <p className="thr-book-sub">{plural(entries.length, "hymn")} · {shelf.group ? shelf.group.short : "every hymn book"}</p></div>
         <OutsideScroll label={`Hymns on ${book.name}`} className="thr-scroll" resetKey={`${chosen}-${selected}`}>
