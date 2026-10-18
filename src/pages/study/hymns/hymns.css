@@ -10,3 +10,7 @@ body:has(.hy-page) { overflow-x: clip; }
 .hy-page .hh-sung h4 { margin-top: 1.33em; }
 /* The mock-up ran without the site's reset, where an icon sits inline with its text (the arrow after a hymn's title). */
 .hy-page svg { display: inline; vertical-align: baseline; }
+/* 05 · the card grid fades out at the bottom, as the site's other card catalogues do (owner, 2026-10-17); the scrolling
+   part fades, not the pill beside it, and the last cards can still scroll clear of the fade. */
+.hy-page .hy-cat .pc-scroll .outside-scroll-viewport { padding-bottom: 64px; scroll-padding-block: 16px 72px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 56px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 56px), transparent); }
