@@ -14,3 +14,12 @@
 .m2-label b { font: 400 26px/1 var(--font-serif); color: var(--accent); }
 .m2-label strong { display: block; font: 500 17px/1.3 var(--font-serif); }
 .m2-label span { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+
+/* 03, larger (owner, 2026-10-18): the disc much larger, the caption only "150 psalms" under it, the description smaller
+   and across the card's width so it takes a line less. Both cards' picture boxes grow together, so the two cards keep the
+   same size and dimensions. */
+.m2-big .study-art { height: 350px; }
+.m2-big .study-card-copy > p { font-size: .76rem; line-height: 1.65; max-width: none; }
+.m2-big .psalter { grid-template-columns: 350px minmax(0, 1fr); gap: 28px; padding-bottom: 18px; }
+.m2-big .psalter svg { width: 100%; height: 100%; }
+.m2-big .art-note { right: auto; width: 350px; bottom: 1.5rem; font-size: .5rem; }

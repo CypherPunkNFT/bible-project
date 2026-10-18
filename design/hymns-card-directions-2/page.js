@@ -14,23 +14,32 @@
     <div class="study-experience"><div class="branch" id="m2-list"></div></div>`;
   const list = document.getElementById("m2-list");
 
-  CARD_ART.forEach((d, i) => {
+  // First, the owner's pick refined (2026-10-18): 03 with a much larger disc, "150 psalms" as its only caption, and a smaller
+  // description; then the six as they were.
+  const psalter = CARD_ART.find((d) => d.id === "psalter");
+  if (!psalter) throw new Error('hymns card 2: direction "psalter" (03) did not register; expected ../hymns-card-directions/art-psalter-lines.js');
+  const entries = [{ ...psalter, key: "psalter-larger", num: "03", label: "The Psalter, turning · larger", idea: "Your pick, refined: the disc much larger, the caption only \"150 psalms\", and a smaller description that takes a line less. Both cards' picture boxes grow together, so the cards stay the same size.", big: true },
+    ...CARD_ART.map((d, i) => ({ ...d, key: d.id, num: String(i + 1).padStart(2, "0") }))];
+
+  entries.forEach((d) => {
     const wrap = document.createElement("div");
-    wrap.id = d.id;
-    wrap.innerHTML = `<div class="m2-label"><b>${String(i + 1).padStart(2, "0")}</b><div><strong>${esc(d.label)}</strong><span>${esc(d.idea)}</span></div></div>${LIVE_SECTION}`;
+    wrap.id = d.key;
+    if (d.big) wrap.className = "m2-big";
+    wrap.innerHTML = `<div class="m2-label"><b>${d.num}</b><div><strong>${esc(d.label)}</strong><span>${esc(d.idea)}</span></div></div>${LIVE_SECTION}`;
     const section = wrap.querySelector(".subject-collection");
     // A crop of the real section: its heading and the two cards; the list of links below them is left out.
     section.querySelectorAll(".theology-topic-links, .support-links").forEach((el) => el.remove());
     // Ids must stay unique with six copies on one page.
-    section.querySelectorAll("[id]").forEach((el) => { el.id = `${el.id}-${d.id}`; });
-    section.id = `section-${d.id}`;
-    section.querySelectorAll("[aria-labelledby]").forEach((el) => el.setAttribute("aria-labelledby", `${el.getAttribute("aria-labelledby")}-${d.id}`));
+    section.querySelectorAll("[id]").forEach((el) => { el.id = `${el.id}-${d.key}`; });
+    section.id = `section-${d.key}`;
+    section.querySelectorAll("[aria-labelledby]").forEach((el) => el.setAttribute("aria-labelledby", `${el.getAttribute("aria-labelledby")}-${d.key}`));
     const card = section.querySelector(".study-hymns-resource");
     if (!card) throw new Error(`hymns card 2: the captured section has no Hymns card (.study-hymns-resource); recapture section.js`);
     card.classList.add("study-wide");
     const art = card.querySelector(".study-art");
     art.className = `study-art art art-${d.id}`;
     art.innerHTML = d.art();
+    if (d.big) art.querySelector(".art-note").textContent = "150 psalms";
     list.append(wrap);
     Promise.resolve(d.start(wrap)).catch((error) => console.error(`hymns card 2: direction "${d.id}" stopped`, error));
   });
