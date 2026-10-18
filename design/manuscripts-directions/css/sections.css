@@ -152,8 +152,8 @@
 .pl-land { fill: color-mix(in srgb, var(--ink) 7%, var(--page)); stroke: color-mix(in srgb, var(--ink) 24%, transparent); stroke-width: .7; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 .pl-land path { vector-effect: non-scaling-stroke; }
 .pl-city { cursor: pointer; }
-.pl-city circle { fill: color-mix(in srgb, var(--prophets) 30%, transparent); stroke: var(--prophets); stroke-width: calc(1.2px * var(--u)); transition: fill .2s; }
-.pl-city:hover circle, .pl-city.on circle { fill: var(--prophets); }
+.pl-city circle { fill: color-mix(in srgb, var(--tone, var(--prophets)) 30%, transparent); stroke: var(--tone, var(--prophets)); stroke-width: calc(1.2px * var(--u)); transition: fill .2s; }
+.pl-city:hover circle, .pl-city.on circle { fill: var(--tone, var(--prophets)); }
 .pl-city.on circle { stroke: var(--ink); stroke-width: calc(1.8px * var(--u)); }
 .pl-city text { font-family: var(--serif); font-weight: 500; font-size: calc(13px * var(--u)); fill: var(--ink); paint-order: stroke; stroke: var(--page); stroke-width: calc(4px * var(--u)); stroke-linejoin: round; pointer-events: none; }
 .pl-drawer { z-index: 59; }
@@ -178,6 +178,8 @@
 .pl-continents { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin-bottom: .6rem; }
 .pl-continents button { padding: .15rem 0; font-size: .74rem; font-weight: 600; letter-spacing: .04em; color: var(--muted); border-bottom: 1px solid transparent !important; }
 .pl-continents button em { font-style: normal; font-weight: 500; margin-left: .2rem; }
+.pl-continents button { display: inline-flex; align-items: center; gap: .4rem; }
+.pl-continents button i { width: 8px; height: 8px; border-radius: 50%; background: var(--tone); }
 .pl-continents button:hover { color: var(--ink); border-bottom-color: var(--prophets) !important; }
 .pl-cardarea { height: calc(4 * 4.55rem + 3 * 8px + 2.2rem); }
 .pl-cardarea .os-viewport { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 5rem), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 5rem), transparent); }

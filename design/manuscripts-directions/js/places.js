@@ -13,6 +13,8 @@
   const CONTINENTS = [["Europe", "Europe"], ["Near East", "The Near East and the Caucasus"], ["North America", "North America"]];
   const CONTINENT_OF = { Egypt: "Near East", Israel: "Near East", Syria: "Near East", Georgia: "Near East", Armenia: "Near East", "United States": "North America" };
   const continentOf = (country) => CONTINENT_OF[country] ?? "Europe";
+  // Each continent has its own colour on the map, repeated as a key beside its name above the cards (owner 2026-10-18).
+  const TONE = { Europe: "--prophets", "Near East": "--history", "North America": "--poetry" };
 
   function cityTable() {
     const byCity = new Map();
@@ -35,7 +37,7 @@
   function mapHtml(cities) {
     const dots = cities.map((c) => {
       const [x, y] = proj(c.lat, c.lon);
-      return `<g class="pl-city" data-city="${esc(c.city)}" data-x="${x.toFixed(1)}" data-y="${y.toFixed(1)}" data-r="${(4 + Math.sqrt(c.n) * 1.5).toFixed(1)}" data-side="${SIDE[c.city] ?? "e"}" tabindex="0" role="button" aria-label="${esc(c.city)}: ${plural(c.n, "record")}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}"/><text>${esc(shortCity(c.city))}</text></g>`;
+      return `<g class="pl-city" style="--tone: var(${TONE[continentOf(c.country)]})" data-city="${esc(c.city)}" data-x="${x.toFixed(1)}" data-y="${y.toFixed(1)}" data-r="${(4 + Math.sqrt(c.n) * 1.5).toFixed(1)}" data-side="${SIDE[c.city] ?? "e"}" tabindex="0" role="button" aria-label="${esc(c.city)}: ${plural(c.n, "record")}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}"/><text>${esc(shortCity(c.city))}</text></g>`;
     }).join("");
     return `<div class="pl-mapview" tabindex="0" aria-label="Map of the cities that hold the manuscripts. Scroll or pinch to zoom, drag to move; plus and minus keys zoom, arrow keys move.">
         <svg class="pl-map" role="img" aria-label="Map from Chicago to the Caucasus">
@@ -53,7 +55,7 @@
         <span class="pl-card-text"><b>${esc(h.name)}</b><small>${esc(h.city)}, ${esc(h.country)}</small><small>Oldest here: ${esc(first ? `${first.n}${first.d ? `, ${first.d}` : ""}` : "–")}</small></span><em>${formatNumber(h.n)}</em></button>`;
     };
     const groups = CONTINENTS.map(([key, title]) => ({ key, title, list: holders.filter((h) => continentOf(h.country) === key) })).filter((g) => g.list.length);
-    return `<div class="pl-continents">${groups.map((g) => `<button type="button" data-continent="${g.key}">${esc(g.key)} <em>${g.list.length}</em></button>`).join("")}</div>
+    return `<div class="pl-continents">${groups.map((g) => `<button type="button" data-continent="${g.key}" style="--tone: var(${TONE[g.key]})"><i></i>${esc(g.key)} <em>${g.list.length}</em></button>`).join("")}</div>
       <div class="pl-cardarea">${groups.map((g) => `<div class="pl-group" data-group="${g.key}"><p class="pl-group-head">${esc(g.title)}<span>${plural(g.list.length, "library", "libraries")} · ${plural(g.list.reduce((s, h) => s + h.n, 0), "record")}</span></p>
         <div class="pl-cards" role="list">${g.list.map(card).join("")}</div></div>`).join("")}</div>`;
   }
