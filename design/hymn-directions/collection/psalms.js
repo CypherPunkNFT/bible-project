@@ -45,7 +45,6 @@ window.Sections = window.Sections || {};
       panelScroll.reset();
     }
     section.addEventListener("click", (event) => { const t = event.target.closest("[data-ps]"); if (t) show(Number(t.dataset.ps)); });
-    section.addEventListener("pointerover", (event) => { const t = event.target.closest("[data-ps]"); if (t) show(Number(t.dataset.ps)); });
     show(22);
   }
 

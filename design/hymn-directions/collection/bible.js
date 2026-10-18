@@ -170,7 +170,7 @@ window.Sections = window.Sections || {};
         <p class="bib-note">${note}</p>
         <p class="bib-mini">Most sung chapters</p>
         <ol class="bib-top">${top.map((c) => `<li><button type="button" data-bib-cell="${c.i}"><span>${chapterName(c)}</span><b>${valueOf(c, view)}</b></button></li>`).join("")}</ol>
-        <p class="bib-hint">${narrow.matches ? "Tap a square" : "Point at a square, or click it to keep it open,"} to see the hymns on that chapter and open one.</p>
+        <p class="bib-hint">${narrow.matches ? "Tap a square" : "Click a square"} to see the hymns on that chapter and open one.</p>
       </div>`;
     }
     function chapterHtml(cell, closable) {
@@ -190,7 +190,9 @@ window.Sections = window.Sections || {};
       </div>`;
     }
     function renderDetail() {
-      const shownCell = hovered >= 0 ? hovered : pinned;
+      // The panel shows what was clicked, never what the pointer is passing over (owner, 2026-10-17): moving to the panel
+      // to click a hymn must not change it. Pointing only outlines the square.
+      const shownCell = pinned;
       if (narrow.matches) {
         detail.innerHTML = summaryHtml();
         if (pinned >= 0) { sheet.innerHTML = chapterHtml(cells[pinned], true); sheet.inert = false; sheet.classList.add("bib-open"); }
@@ -198,7 +200,7 @@ window.Sections = window.Sections || {};
         return;
       }
       sheet.classList.remove("bib-open"); sheet.inert = true;
-      detail.innerHTML = shownCell >= 0 ? chapterHtml(cells[shownCell], pinned >= 0 && hovered < 0) : summaryHtml();
+      detail.innerHTML = shownCell >= 0 ? chapterHtml(cells[shownCell], true) : summaryHtml();
       panelScroll.reset();
       // The panel's own top border carries the colour, so it bends with the rounded corners like the map's.
       panel.style.setProperty("--panel-tone", detail.firstElementChild?.style.getPropertyValue("--tone") || "var(--accent)");
@@ -221,10 +223,10 @@ window.Sections = window.Sections || {};
         const i = cellAt(pendingMove); pendingMove = null;
         if (i === hovered) return;
         hovered = i; canvas.style.cursor = i >= 0 ? "pointer" : "default";
-        draw(); renderDetail();
+        draw();
       });
     });
-    canvas.addEventListener("pointerleave", () => { pendingMove = null; if (hovered < 0) return; hovered = -1; draw(); renderDetail(); });
+    canvas.addEventListener("pointerleave", () => { pendingMove = null; if (hovered < 0) return; hovered = -1; draw(); });
     canvas.addEventListener("click", (event) => {
       const i = cellAt(event);
       pinned = i === pinned ? -1 : i; expanded = false;
