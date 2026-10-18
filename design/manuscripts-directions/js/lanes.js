@@ -9,7 +9,7 @@
     ["majuscule", "NT majuscules"], ["minuscule", "NT minuscules"], ["lectionary", "NT lectionaries"], ["latin", "Latin"],
     ["syriac", "Syriac"], ["coptic", "Coptic"], ["gothic", "Gothic"], ["armenian", "Armenian"], ["georgian", "Georgian"], ["geez", "Ge'ez"]];
   const Y0 = -250, Y1 = 1500, LABEL = 206, RIGHT = 54, TOP = 30, LANE = 36, FULL = LANES.length * LANE;
-  const COL = 6.5, MAX_STEP = 12, DURATION = 320;
+  const COL_WIDTHS = [6.5, 8, 10, 12, 14, 16, 18, 20, 22], STEP_TARGET = 10, MAX_STEP = 14, DURATION = 320;
   const BIN = 25, THIN = 3, THIN_W = 14, GAP_W = 18, TICK_SPACE = 46;
   const DSS_SPAN = [-250, 135];
   const motion = matchMedia("(prefers-reduced-motion: reduce)");
@@ -34,18 +34,33 @@
   }
 
   // The open lane's layout: dots binned into narrow columns and stacked outward from the middle line, as tall as the chart.
+  // Column width is chosen so the tallest stack reaches most of the chart's height: the narrowest column (finest dates)
+  // whose stacks, at a comfortable spacing, fill three quarters of it. Each dot sits on its column's centre line.
   function stack(lane) {
-    const byCol = new Map();
-    let deepest = 0;
-    for (const d of lane.dots) {
-      const col = Math.round(d.xo / COL), k = byCol.get(col) ?? 0;
-      byCol.set(col, k + 1);
-      d.k = k ? (k % 2 ? 1 : -1) * Math.ceil(k / 2) : 0;
-      deepest = Math.max(deepest, Math.abs(d.k));
+    const room = FULL - 56;
+    const layout = (width) => {
+      const byCol = new Map();
+      let deepest = 0;
+      const placed = lane.dots.map((d) => {
+        const col = Math.round(d.xo / width), k = byCol.get(col) ?? 0;
+        byCol.set(col, k + 1);
+        const offset = k ? (k % 2 ? 1 : -1) * Math.ceil(k / 2) : 0;
+        deepest = Math.max(deepest, Math.abs(offset));
+        return { d, offset, xs: col * width };
+      });
+      return { placed, deepest, width };
+    };
+    let best = layout(COL_WIDTHS[0]);
+    for (const width of COL_WIDTHS) {
+      best = layout(width);
+      if (2 * best.deepest * STEP_TARGET >= room * 0.75) break;
     }
-    const step = Math.min(MAX_STEP, (FULL - 56) / Math.max(1, 2 * deepest));
-    lane.rOpen = Math.max(2.6, Math.min(4, step * 0.42));
-    for (const d of lane.dots) d.ye = d.k * step;
+    const step = Math.min(MAX_STEP, room / Math.max(1, 2 * best.deepest));
+    lane.rOpen = Math.max(2.6, Math.min(4.4, step * 0.42, best.width * 0.42));
+    // Centre each column on the mean position of its own copies, so a column never drifts into a cut-out stretch.
+    const centres = new Map();
+    for (const { d, xs } of best.placed) { const c = centres.get(xs) ?? { sum: 0, n: 0 }; c.sum += d.xo; c.n++; centres.set(xs, c); }
+    for (const { d, offset, xs } of best.placed) { const c = centres.get(xs); d.ye = offset * step; d.xs = c.sum / c.n; }
   }
 
   // The open lane's own time axis: only the years its copies cover. Stretches of 25 years with no copy fold into a narrow
@@ -181,7 +196,7 @@
         lane.g.querySelector(".ln-later")?.setAttribute("y", (h / 2 + 4).toFixed(1));
         const r = (2.6 + (lane.rOpen - 2.6) * p).toFixed(2);
         for (const d of lane.dots) {
-          d.cx = d.x + (d.xo - d.x) * p;
+          d.cx = d.x + (d.xs - d.x) * p;
           d.el.setAttribute("cx", d.cx.toFixed(1)); d.el.setAttribute("cy", (dotY(d, top) - top).toFixed(1)); d.el.setAttribute("r", r);
         }
         svg.querySelector(`[data-axis="${lane.i}"]`)?.style.setProperty("opacity", p.toFixed(2));
