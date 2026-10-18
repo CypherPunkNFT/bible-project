@@ -970,6 +970,78 @@
           "line": "The current site header, typography, artwork, twelve-question desk, four reading stages and working atlas, with proposed Understanding Islam and Ministry pages around them."
         }
       ]
+    },
+    {
+      "id": "hymns",
+      "title": "Study · Hymns",
+      "cards": [
+        {
+          "id": "hymn-page-a",
+          "title": "Hymn page · Amazing Grace",
+          "url": "/mockups/hymn-directions/a/",
+          "date": "2026-10-17",
+          "status": "built",
+          "line": "The chosen page: the six stanzas with their verses beside them, the constellation inside section 01, and the sections that follow. Built as one template for all 1,169 hymns.",
+          "built": "/study/hymns/ccel-olney-hymns-3-o-for-a-closer-walk-with-god"
+        },
+        {
+          "id": "hymn-page-b",
+          "title": "Hymn (earlier) · Verses on hover",
+          "url": "/mockups/hymn-directions/earlier/hover/",
+          "date": "2026-10-17",
+          "status": "option",
+          "line": "The A + B page; the stanzas clean, and a line's verse and join appear only while you point at it."
+        },
+        {
+          "id": "hymn-page-c",
+          "title": "Hymn (earlier) · Hymn in the panel",
+          "url": "/mockups/hymn-directions/earlier/panel/",
+          "date": "2026-10-17",
+          "status": "option",
+          "line": "The A + B page with the verses beside the lines, and 'Read the whole hymn' sliding the clean hymn in beside the page."
+        },
+        {
+          "id": "hymn-a-echoes",
+          "title": "Hymn (earlier) A · The page and its echoes",
+          "url": "/mockups/hymn-directions/earlier/a/",
+          "date": "2026-10-17",
+          "status": "option",
+          "line": "One hymn's page (Amazing Grace, Olney Hymns 1779). The six stanzas set like a printed page; beside each line that echoes Scripture, the verse hymnal editors tie to it, joined by a thin line. Click opens the passage beside the page."
+        },
+        {
+          "id": "hymn-b-constellation",
+          "title": "Hymn (earlier) B · Constellation",
+          "url": "/mockups/hymn-directions/earlier/b/",
+          "date": "2026-10-17",
+          "status": "option",
+          "line": "The six stanzas at the centre, the 30 books hymnals tie the hymn to around them (Old Testament left, New right). Pick a stanza for its text and echoes, or a book for its passages."
+        },
+        {
+          "id": "hymn-c-movements",
+          "title": "Hymn (earlier) C · Six movements",
+          "url": "/mockups/hymn-directions/earlier/c/",
+          "date": "2026-10-17",
+          "status": "option",
+          "line": "Full-screen landing with a line-drawn road home, then one large section per stanza: giant numeral behind, echoes floating beside, a slow line-drawn scene at its foot (the Ebenezer stone, the veil, the snow). Side dots to move."
+        },
+        {
+          "id": "hymn-d-merged",
+          "title": "Hymn (earlier) D · A + B together",
+          "url": "/mockups/hymn-directions/earlier/d/",
+          "date": "2026-10-17",
+          "status": "option",
+          "line": "The owner's pick: page A with B's constellation inside section 01 below the hymn, and a 'See the constellation' button at the top."
+        },
+        {
+          "id": "hymns-collection",
+          "title": "Hymns · the collection page",
+          "url": "/mockups/hymn-directions/collection/",
+          "date": "2026-10-17",
+          "status": "built",
+          "built": "/study/hymns",
+          "line": "/study/hymns: intro with a drifting row of hymn cards; every chapter sung in our hymns (the Preachers chapter grid); hymns through the Bible (the Preachers three-panel ring); through the Psalms."
+        }
+      ]
     }
   ]
 }
