@@ -144,22 +144,32 @@
 @media (max-width: 960px) { .bk-layout { grid-template-columns: 1fr; } .bk-scroll { max-height: 26rem; } }
 
 /* ── C · Where are they now ── */
-.pl-layout { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 1.6rem 2.4rem; align-items: start; }
-.pl-mapbox { position: relative; }
-.pl-map { display: block; width: 100%; height: auto; }
+/* Where are they now: a full-width map that drags west to New England, the pill beneath it, and the city panel sliding in. */
+.pl-mapwrap { position: relative; }
+.pl-mapview { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; cursor: grab; touch-action: pan-x pan-y; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.pl-mapview::-webkit-scrollbar { display: none; }
+.pl-mapview.is-dragging { cursor: grabbing; user-select: none; }
+.pl-mapcontent { position: relative; width: max-content; }
+.pl-map { display: block; height: clamp(380px, 44vw, 640px); width: auto; aspect-ratio: 1805 / 646; }
 .pl-land { fill: color-mix(in srgb, var(--ink) 7%, var(--page)); stroke: color-mix(in srgb, var(--ink) 24%, transparent); stroke-width: .7; stroke-linejoin: round; }
 .pl-city { cursor: pointer; }
 .pl-city circle { fill: color-mix(in srgb, var(--prophets) 30%, transparent); stroke: var(--prophets); stroke-width: 1.2; transition: fill .2s; }
 .pl-city:hover circle, .pl-city.on circle { fill: var(--prophets); }
 .pl-city.on circle { stroke: var(--ink); stroke-width: 1.8; }
-.pl-city text { font: 500 15px var(--serif); fill: var(--ink); paint-order: stroke; stroke: var(--page); stroke-width: 4px; stroke-linejoin: round; pointer-events: none; }
-.pl-across { position: absolute; left: 0; top: 31%; display: grid; gap: 1px; width: 9.4rem; padding-left: .7rem; border-left: 1px solid var(--line); }
-.pl-across p { margin-bottom: .2rem; font-size: .58rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
-.pl-across button { display: flex; justify-content: space-between; gap: .5rem; padding: .1rem .1rem; font-size: .7rem; white-space: nowrap; color: var(--muted); border-bottom: 1px solid transparent !important; }
-.pl-across button b { font-weight: 500; color: var(--ink); } .pl-across button em { font-style: normal; font-variant-numeric: tabular-nums; }
-.pl-across button.on, .pl-across button:hover { border-bottom-color: var(--prophets) !important; }
-.pl-panel { --tone: var(--prophets); padding-top: .8rem; border-top: 2px solid var(--prophets); }
-.pl-panel h3 { margin: .25rem 0 .5rem; font: 500 1.6rem/1.15 var(--serif); letter-spacing: -.02em; }
+.pl-city text { font: 500 13px var(--serif); fill: var(--ink); paint-order: stroke; stroke: var(--page); stroke-width: 4px; stroke-linejoin: round; pointer-events: none; }
+.pl-west { position: absolute; left: .9rem; bottom: 1.2rem; display: grid; gap: 1px; width: 9rem; padding-left: .7rem; border-left: 1px solid var(--line); }
+.pl-west p { margin-bottom: .2rem; font-size: .58rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.pl-west button { display: flex; justify-content: space-between; gap: .5rem; padding: .1rem; font-size: .7rem; white-space: nowrap; color: var(--muted); border-bottom: 1px solid transparent !important; }
+.pl-west button b { font-weight: 500; color: var(--ink); } .pl-west button em { font-style: normal; font-variant-numeric: tabular-nums; }
+.pl-west button.on, .pl-west button:hover { border-bottom-color: var(--prophets) !important; }
+/* The pill under the map: the site's outside scroll turned sideways, a thumb with no track. */
+.pl-hbar { position: relative; height: 12px; margin-top: 6px; cursor: pointer; }
+.pl-hthumb { position: absolute; top: 3px; height: 6px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent); cursor: grab; transition: background .2s; }
+.pl-hbar:hover .pl-hthumb { background: color-mix(in srgb, var(--ink) 45%, transparent); }
+.pl-drawer { z-index: 59; }
+.pl-drawer button:not(.ms-sheet-close) { appearance: none; margin: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; }
+.pl-drawer button:focus, .pl-drawer button:focus-visible { outline: none; }
+.pl-drawer h2 { margin-bottom: .6rem; }
 .pl-holders { display: flex; flex-wrap: wrap; gap: 4px; }
 .pl-holders button { padding: .25rem .6rem; border: 1px solid var(--line) !important; border-radius: 999px; font-size: .72rem; color: var(--muted); }
 .pl-holders button em { font-style: normal; margin-left: .25rem; }
@@ -169,19 +179,29 @@
 .pl-sub { margin: .9rem 0 .2rem; font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 .pl-list { margin: 0; padding: 0; list-style: none; }
 .pl-list li { border-top: 1px solid var(--line); }
-.pl-list button { display: grid; grid-template-columns: 6.4rem minmax(0, 1fr) auto; gap: .6rem; align-items: baseline; width: 100%; padding: .42rem .1rem; }
+.pl-list button { display: grid; grid-template-columns: 6.4rem minmax(0, 1fr) auto; gap: .6rem; align-items: baseline; width: 100%; padding: .42rem .1rem; text-align: left; }
 .pl-list span { font-size: .72rem; color: var(--muted); } .pl-list b { font: 500 .88rem var(--serif); } .pl-list small { font-size: .7rem; color: var(--prophets); font-weight: 600; }
 .pl-list button:hover b { color: var(--prophets); }
-.pl-cards { display: grid; grid-auto-flow: column; grid-template-rows: repeat(2, auto); grid-auto-columns: minmax(250px, 1fr); gap: 8px 10px; margin-top: 1.4rem; padding-bottom: .5rem; overflow-x: auto; scrollbar-width: thin; }
-.pl-card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .7rem; padding: .65rem .8rem; border: 1px solid var(--line) !important; border-radius: 12px; background: var(--surface) !important; }
+/* The holders: grouped by continent in a three-row area that scrolls under the pointer, with the outside pill. */
+.pl-holderwrap { margin-top: 1.8rem; }
+.pl-continents { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin-bottom: .6rem; }
+.pl-continents button { padding: .15rem 0; font-size: .74rem; font-weight: 600; letter-spacing: .04em; color: var(--muted); border-bottom: 1px solid transparent !important; }
+.pl-continents button em { font-style: normal; font-weight: 500; margin-left: .2rem; }
+.pl-continents button:hover { color: var(--ink); border-bottom-color: var(--prophets) !important; }
+.pl-cardarea { height: calc(3 * 4.55rem + 2 * 8px + 2.2rem); }
+.pl-group + .pl-group { margin-top: 1rem; }
+.pl-group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin: 0 0 .5rem; padding-top: .25rem; font: 500 1rem var(--serif); }
+.pl-group-head span { font: 500 .68rem var(--sans); letter-spacing: .04em; color: var(--muted); }
+.pl-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 8px 10px; }
+.pl-card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .7rem; min-height: 4.55rem; padding: .65rem .8rem; border: 1px solid var(--line) !important; border-radius: 12px; background: var(--surface) !important; text-align: left; }
 .pl-card:hover { border-color: color-mix(in srgb, var(--prophets) 55%, var(--line)) !important; }
 .pl-card[aria-pressed="true"] { border-color: var(--prophets) !important; }
 .pl-icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; color: var(--prophets); background: color-mix(in srgb, var(--prophets) 11%, transparent); }
 .pl-card-text { display: grid; min-width: 0; } .pl-card-text b { font: 500 .88rem/1.25 var(--serif); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pl-card-text small { font-size: .68rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pl-card em { font: 500 1.1rem var(--serif); font-style: normal; color: var(--prophets); }
-@media (max-width: 960px) { .pl-layout { grid-template-columns: 1fr; } }
-@media (max-width: 640px) { .pl-across { position: static; width: auto; margin-top: .6rem; } .pl-city text { font-size: 22px; } .pl-cards { grid-auto-columns: 82%; } }
+.pl-mapview:focus, .pl-mapview:focus-visible { outline: none; }
+@media (max-width: 640px) { .pl-map { height: 360px; } .pl-city text { font-size: 15px; } .pl-cardarea { height: 22rem; } }
 /* Pointing at a lane tints it lightly; a clicked lane fills the whole chart. "All traditions" folds it back. */
 .ln-wash { fill: transparent; transition: fill .18s; }
 .ln-lane.is-hover .ln-wash { fill: color-mix(in srgb, var(--ink) 6%, transparent); }

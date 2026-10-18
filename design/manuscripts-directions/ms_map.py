@@ -1,12 +1,13 @@
 """The land outline for the 'Where are they now?' map: Natural Earth 1:50m land (public domain, via the world-atlas
-package in Website/node_modules), cut to Europe and the Near East; one SVG path per ring, because
+package in Website/node_modules), cut to the American east coast, Europe and the Near East; one SVG path per ring, because
 rings clamped at the frame would cancel each other's fill if joined into one path."""
 import json
 import math
 from pathlib import Path
 
-LON0, LON1, LAT0, LAT1 = -26.0, 47.0, 27.0, 61.0
-WIDTH = 1000.0
+# West to New England and the American east coast (owner 2026-10-18); cities further west are listed at the map's edge.
+LON0, LON1, LAT0, LAT1 = -81.0, 51.0, 27.0, 61.0
+WIDTH = 1805.0
 COS = math.cos(math.radians((LAT0 + LAT1) / 2))
 SCALE = WIDTH / ((LON1 - LON0) * COS)
 HEIGHT = (LAT1 - LAT0) * SCALE
