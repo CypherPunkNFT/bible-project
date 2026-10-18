@@ -1,0 +1,15 @@
+/* What a generated hymn page (HymnFullPage.tsx) adds to the approved hymn page's styles (../song/song.css): the echo
+   label, the small tag on each margin verse, a single verse in "where he found it", and a dense book row for long books.
+   Scoped under .hy-song.hy-full so Amazing Grace's page is untouched. No outlines: selection is the components' own. */
+.hy-song.hy-full .hf-label { max-width: 68ch; margin: -.6rem 0 1.4rem; font-size: .78rem; line-height: 1.6; color: var(--muted); }
+.hy-song.hy-full .hf-label b { font-weight: 600; color: var(--accent); letter-spacing: .04em; }
+.hy-song.hy-full .note .ref .kind { margin-left: .55rem; font-style: normal; font-weight: 500; letter-spacing: .1em; color: var(--muted); }
+.hy-song.hy-full .hy-found.hf-single { grid-template-columns: minmax(0, 46rem); }
+.hy-song.hy-full .hy-found sup { margin-right: .2em; font: 600 .6em var(--sans); color: var(--muted); }
+.hy-song.hy-full .hf-more { color: var(--muted); font-style: italic; }
+.hy-song.hy-full .hf-read { display: inline-flex; align-items: center; gap: .35rem; margin-top: .8rem; font: 600 .72rem var(--sans); letter-spacing: .08em;
+  text-transform: uppercase; color: var(--accent); cursor: pointer; }
+.hy-song.hy-full .hf-read:hover { text-decoration: underline; text-underline-offset: 3px; }
+.hy-song.hy-full .hy-book-row.hf-dense { gap: 1px; }
+.hy-song.hy-full .hy-book-row.hf-dense button { min-width: 1px; border-radius: 1px; }
+.hy-song.hy-full *:focus, .hy-song.hy-full *:focus-visible { outline: none; }

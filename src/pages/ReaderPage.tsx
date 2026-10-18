@@ -5,6 +5,7 @@ import { CreditLine } from "@/components/CreditLine";
 import { BookPicker } from "@/components/reader/BookPicker";
 import { ChapterPlaces } from "@/components/reader/ChapterPlaces";
 import { ChapterTopics } from "@/components/reader/ChapterTopics";
+import { ChapterHymns } from "@/components/reader/ChapterHymns";
 import { ChapterText } from "@/components/reader/ChapterText";
 import { ParallelText, type Column } from "@/components/reader/ParallelText";
 import { ReaderToolbar, type ChapterLink } from "@/components/reader/ReaderToolbar";
@@ -228,6 +229,7 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
           <div style={{ fontSize: "1rem" }}>
             {translation.numbering === "english" && <ChapterPlaces bookCode={code} bookNum={book.num} chapter={Number(chapter)} />}
             {translation.numbering === "english" && <ChapterTopics bookCode={code} bookNum={book.num} chapter={Number(chapter)} />}
+            {translation.numbering === "english" && <ChapterHymns bookCode={code} bookNum={book.num} chapter={Number(chapter)} />}
             {translation.numbering === "english" && <WhoRuledCard translation={translation} bookCode={code} bookNum={book.num} bookName={book.name} chapter={Number(chapter)} />}
           </div>
         </article>

@@ -2,12 +2,16 @@
 // floating in the margin, joined by a thin line. Pointing joins a line and its verse; clicking opens the passage
 // (approved mock-up: design/hymn-directions/shared/echoes.js, shown in its "compare" form).
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
-import type { HymnSong } from "@/lib/hymns";
+import type { SongEcho } from "@/lib/hymns";
 import { ROMAN, type OpenPassage } from "./parts";
+
+/** What the echoes need of a hymn. `kind` (on the generated hymn pages) tags how an echo was found. */
+export interface EchoesHymn { stanzas: string[][]; echoes: (SongEcho & { kind?: "shared" | "echo" })[] }
+const KIND_LABEL = { shared: "shared words", echo: "echo" } as const;
 
 interface Joins { tops: number[]; paths: { i: number; d: string; x1: number; y1: number; x2: number; y2: number }[]; height: number }
 
-export function Echoes({ song, open, closedAt }: { song: HymnSong; open: OpenPassage; closedAt: number }) {
+export function Echoes({ song, open, closedAt }: { song: EchoesHymn; open: OpenPassage; closedAt: number }) {
   const box = useRef<HTMLDivElement>(null);
   const margin = useRef<HTMLDivElement>(null);
   const lineRefs = useRef<(HTMLSpanElement | null)[]>([]);
@@ -69,7 +73,7 @@ export function Echoes({ song, open, closedAt }: { song: HymnSong; open: OpenPas
       <div className="margin" ref={margin} style={{ minHeight: joins.height || undefined }}>{song.echoes.map((e, i) =>
         <button key={i} type="button" ref={(el) => { noteRefs.current[i] = el; }} className={`note${on(i) ? " on" : ""}`} style={{ top: joins.tops[i] ?? 0 }}
           onMouseEnter={() => setFocus([i])} onMouseLeave={() => setFocus([])} onClick={() => openEcho(i)}>
-          <span className="ref">{e.ref}</span><span className="w">“{e.words}”</span></button>)}</div>
+          <span className="ref">{e.ref}{e.kind && <i className="kind">{KIND_LABEL[e.kind]}</i>}</span><span className="w">“{e.words}”</span></button>)}</div>
     </div>
     <p className="ec-key">{song.echoes.length} echoes in {song.stanzas.reduce((n, s) => n + s.length, 0)} lines.</p>
   </>;

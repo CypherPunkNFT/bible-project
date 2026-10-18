@@ -44,7 +44,7 @@ type Placed = SongPlacedRef & { book: string; tone: string; echoes: HymnSong["ec
 
 /** 04 · Where hymnals place it: one square per passage hymnal editors tie this hymn to, by book. Pointing shows the verse;
  *  a click opens the passage beside the page; a ring marks a passage one of the hymn's own lines echoes. */
-export function PlacedSquares({ song, open }: { song: HymnSong; open: OpenPassage }) {
+export function PlacedSquares({ song, open, num = "04" }: { song: Pick<HymnSong, "placed" | "echoes" | "stanzas">; open: OpenPassage; num?: string }) {
   const all = useMemo<Placed[]>(() => song.placed.flatMap((b) => b.refs.map((r) => ({ ...r, book: b.book, tone: b.tone,
     echoes: song.echoes.filter((e) => e.code === r.code && e.chapter === r.chapter && (r.whole || (e.verses[0].n <= r.first + r.count - 1 && e.verses[e.verses.length - 1].n >= r.first))) }))), [song]);
   const echoed = all.filter((r) => r.echoes.length).length;
@@ -59,7 +59,7 @@ export function PlacedSquares({ song, open }: { song: HymnSong; open: OpenPassag
   }
   let i = 0;
   return <section className="hy-sec" id="placed">
-    <Head num="04" title={<>Where hymnals <em>place it</em></>}>Printed hymnals list, for each hymn, the Bible passages it goes with, so a church can choose a hymn for the day's reading.
+    <Head num={num} title={<>Where hymnals <em>place it</em></>}>Printed hymnals list, for each hymn, the Bible passages it goes with, so a church can choose a hymn for the day's reading.
       Gathered from the hymnals Hymnary.org catalogues, editors have tied <b>this hymn</b> to {all.length} passages in {song.placed.length} books.
       One square is one passage; a ringed square is one the hymn's own lines echo. Point at a square to read it; click to open it beside the page.</Head>
     <div className="hy-placed">{song.placed.map((b) => <div key={b.book} className="hy-placed-book" style={tone(b.tone)}><h4>{b.book}<span>{b.refs.length}</span></h4>

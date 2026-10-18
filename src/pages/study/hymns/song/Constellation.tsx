@@ -4,6 +4,9 @@
 import { useMemo, useState, type KeyboardEvent } from "react";
 import { Link } from "react-router-dom";
 import type { HymnSong, SongEcho } from "@/lib/hymns";
+
+/** What the constellation needs of a hymn: its stanzas and echoes, and the books on the outer ring. */
+export interface ConstellationHymn { stanzas: HymnSong["stanzas"]; echoes: HymnSong["echoes"]; placed: HymnSong["placed"]; author: string; year: number }
 import { ROMAN, placedUrl, type OpenPassage } from "./parts";
 
 // Geometry: a 600 × 600 stage. Books on an outer ring in Bible order, Old Testament down the left side from the top,
@@ -16,7 +19,7 @@ const curve = (x1: number, y1: number, x2: number, y2: number, bend = .35) => {
 };
 type Pick = { stanza: number } | { book: string };
 
-function buildStage(song: HymnSong) {
+function buildStage(song: ConstellationHymn) {
   const ntStart = song.placed.findIndex((b) => b.book === "Matthew");
   const ot = ntStart < 0 ? song.placed : song.placed.slice(0, ntStart), nt = ntStart < 0 ? [] : song.placed.slice(ntStart);
   const books = [...ot.map((b, i) => ({ ...b, a: angle(i, ot.length, -1) })), ...nt.map((b, i) => ({ ...b, a: angle(i, nt.length, 1) }))]
@@ -28,7 +31,9 @@ function buildStage(song: HymnSong) {
 
 const activate = (fn: () => void) => ({ onClick: fn, onKeyDown: (e: KeyboardEvent) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fn(); } } });
 
-export function Constellation({ song, open }: { song: HymnSong; open: OpenPassage }) {
+export function Constellation({ song, open, title = "Amazing grace", ringLabel = "hymnal editors tie the hymn here", ringNoun = "passage", ringVerb = "hymnals name" }: {
+  song: ConstellationHymn; open: OpenPassage; title?: string; ringLabel?: string; ringNoun?: string; ringVerb?: string;
+}) {
   const { books, stanzas, bookOf } = useMemo(() => buildStage(song), [song]);
   const [pick, setPick] = useState<Pick>({ stanza: 0 });
   const echoes = song.echoes.map((e, i) => ({ ...e, i, book: bookOf(e) }));
@@ -51,7 +56,7 @@ export function Constellation({ song, open }: { song: HymnSong; open: OpenPassag
   } else {
     const b = books.find((x) => x.book === bookPicked);
     const mine = echoes.filter((e) => e.book === bookPicked);
-    reading = <><p className="k">{b ? `${b.refs.length} passage${b.refs.length > 1 ? "s" : ""} hymnals name` : ""}</p><h3>{bookPicked}</h3>
+    reading = <><p className="k">{b ? `${b.refs.length} ${ringNoun}${b.refs.length > 1 ? "s" : ""} ${ringVerb}` : ""}</p><h3>{bookPicked}</h3>
       <div className="cn-refs">{b?.refs.map((r) => <Link key={r.ref} to={placedUrl(r)}>{r.label}</Link>)}</div>
       {mine.length > 0 && <><p className="cn-hint">Echoed in the hymn:</p><div className="cn-echoes">{mine.map((e) =>
         <button key={e.i} type="button" onClick={() => openEcho(e.i)}><b>{e.ref} · stanza {ROMAN[e.stanza]}</b><span>“{song.stanzas[e.stanza][e.line]}”</span></button>)}</div></>}{steps}</>;
@@ -65,13 +70,13 @@ export function Constellation({ song, open }: { song: HymnSong; open: OpenPassag
         return b ? <path key={`echo-${e.i}`} className={`cn-echo${echoOn(e) ? " on" : ""}`} d={curve(st.x, st.y, b.x, b.y)} /> : null; })}
       {books.map((b) => { const left = b.x < C, lx = b.x + (left ? -1 : 1) * (b.r + 6);
         return <g key={`book-${b.book}`} className={`cn-book${bookOn(b.book) ? " on" : ""}`} style={{ "--tone": `var(--${b.tone})` } as React.CSSProperties} tabIndex={0} role="button"
-          aria-label={`${b.book}, ${b.refs.length} passages`} {...activate(() => setPick({ book: b.book }))}>
+          aria-label={`${b.book}, ${b.refs.length} ${ringNoun}s`} {...activate(() => setPick({ book: b.book }))}>
           <circle cx={b.x} cy={b.y} r={b.r} /><text x={lx} y={b.y + 4} textAnchor={left ? "end" : "start"}>{b.book}</text></g>; })}
       {stanzas.map((st) => <g key={`st-${st.s}`} className={`cn-stanza${stanzaOn(st.s) ? " on" : ""}`} tabIndex={0} role="button" aria-label={`Stanza ${ROMAN[st.s]}`} {...activate(() => setPick({ stanza: st.s }))}>
         <circle cx={st.x} cy={st.y} r="17" /><text x={st.x} y={st.y}>{ROMAN[st.s]}</text></g>)}
-      <g className="cn-centre"><text className="t1" x={C} y={C - 4}>Amazing grace</text><text className="t2" x={C} y={C + 16}>{song.author.split(" ").pop()} · {song.year}</text></g>
+      <g className="cn-centre"><text className="t1" x={C} y={C - 4}>{title}</text><text className="t2" x={C} y={C + 16}>{song.author.split(" ").pop()} · {song.year}</text></g>
     </svg></div>
-      <p className="cn-legend"><span><i className="e" />a line echoes this verse</span><span><i />hymnal editors tie the hymn here</span></p></div>
+      <p className="cn-legend"><span><i className="e" />a line echoes this verse</span><span><i />{ringLabel}</span></p></div>
     <div className="cn-read" aria-live="polite">{reading}</div>
   </div>;
 }

@@ -32,6 +32,7 @@ from hymns_common import (
     chapter_verses,
     read_json,
     ref_label,
+    stems,
     verse_text,
     write_json,
 )
@@ -180,9 +181,43 @@ def heading(copies: list[dict]) -> dict | None:
     return None
 
 
+def clean_line(line: str) -> str:
+    """Two scanning slips in the Gutenberg text: a zero for the vocative "O" ("0 Lord") and footnote marks ("[1]")."""
+    line = re.sub(r"\s*\[\d+\]", "", line)
+    return " ".join(re.sub(r"(?<![\w\d])0(?= [A-Z])", "O", line).split())
+
+
 def stanzas_of(hymn: dict) -> list[list[str]]:
-    out = [[" ".join(line.split()) for line in v["lines"] if line.strip()] for v in hymn["verses"]]
+    out = [[clean_line(line) for line in v["lines"] if line.strip()] for v in hymn["verses"]]
     return [s for s in out if s]
+
+
+REFERENCE_SPILL = re.compile(r"^[\"\[(]?(\d+[ .]|[A-Z][a-z]+\.? \d)")
+
+
+def first_real_line(hymn: dict) -> str:
+    """The first line of words: the Gutenberg text sometimes keeps the end of a heading reference ("Peter 1. 3-5.") as a line."""
+    return next((line for st in hymn["stanzas"] for line in st if re.search(r"[a-z]{3}", line) and not REFERENCE_SPILL.match(line)),
+                hymn["firstLine"])
+
+
+def mark_duplicates(hymns: list[dict]) -> int:
+    """The same hymn under two spellings ("shew"/"show", "Bless'd"/"Blest", "heav'n"/"heaven") escapes the first-line merge.
+    Within one book, hymns whose first real lines stem the same are one hymn: the CCEL copy is kept (its heading comes
+    from the structured markup and its first line is never a stray reference), and the other is marked duplicateOf it,
+    so its address can send readers to the kept page. Nothing is removed, so item numbering downstream never shifts."""
+    seen: dict[tuple, dict] = {}
+    marked = 0
+    for h in sorted(hymns, key=lambda h: (not h["source"]["slug"].startswith("ccel"), h["id"])):
+        key = (h["group"], h["part"], " ".join(stems(first_real_line(h))[:6]))
+        if key in seen:
+            keep = seen[key]
+            h["duplicateOf"] = keep["id"]
+            keep["copies"] = sorted(set(keep["copies"]) | set(h["copies"]))
+            marked += 1
+        else:
+            seen[key] = h
+    return marked
 
 
 def main() -> None:
@@ -212,12 +247,15 @@ def main() -> None:
             "source": {k: keep["source"][k] for k in ("slug", "title", "url", "licence", "attribution")},
         })
     hymns.sort(key=lambda h: (list(GROUPS).index(h["group"]), h["order"], h["id"]))
+    duplicates = mark_duplicates(hymns)
     write_json(HYMNS_FILE, {"schema": "bibleproject.hymns-pipeline/v1", "count": len(hymns), "hymns": hymns})
 
     headed = [h for h in hymns if h["heading"] and h["heading"]["ranges"]]
     flagged = [h for h in hymns if h["heading"] and h["heading"]["problems"]]
     lines = sum(len(s) for h in hymns for s in h["stanzas"])
-    print(f"{len(held)} texts → {len(hymns)} distinct hymns, {lines:,} lines; {len(headed)} with a heading verse; "
+    print(f"{len(held)} texts → {len(hymns)} first lines, of which {duplicates} are another spelling of a hymn already held: "
+          f"{len(hymns) - duplicates} distinct hymns")
+    print(f"{lines:,} lines; {len(headed)} with a heading verse; "
           f"{len(flagged)} headings with a part that does not resolve")
     print(dict(Counter(h["group"] for h in hymns)))
     for h in flagged:

@@ -2,6 +2,7 @@ import type { ArcData, BookPlace, Catalog, Chapter, CrossRefBook, PlainBook, Pla
 import type { CreedBundle, CreedDocument, CreedsIndex } from "./creeds";
 import { HYMN_GROUPS, isHymnId, type HymnCollection, type HymnGroupId, type HymnSong, type HymnText } from "./hymns";
 import { isMuseumSlug, type Museum, type MuseumIndex } from "./museums";
+import type { HymnPageData, HymnPagesIndex, HymnsByChapter } from "./hymn-pages";
 import type { ChapterTopics, LibraryBook, Topic, TopicIndex } from "./topics";
 
 /** A data file that is missing or malformed. The reader turns this into "not in this version". */
@@ -115,6 +116,18 @@ export const loadHymnSong = (id: string) => {
 export const loadHymnTexts = (group: HymnGroupId) => {
   if (!HYMN_GROUPS.includes(group)) throw new DataUnavailable(`hymns/texts/${group}.json`, "not a hymn book");
   return load<Record<string, HymnText>>(`hymns/texts/${group}.json`, isObject);
+};
+
+// Hymn pages (scripts/build-hymn-pages.py): which bundle holds a hymn, the bundle itself, and one book's hymns by chapter.
+export const loadHymnPagesIndex = () =>
+  load<HymnPagesIndex>("hymns/pages/index.json", (v) => isObject(v) && isObject(v.bundles));
+export const loadHymnPageBundle = (n: number) => {
+  if (!Number.isInteger(n) || n < 0) throw new DataUnavailable(`hymns/pages/${n}.json`, "not a bundle number");
+  return load<Record<string, HymnPageData>>(`hymns/pages/${n}.json`, isObject);
+};
+export const loadHymnsByChapter = (code: string) => {
+  if (!/^[A-Z0-9]{3}$/.test(code)) throw new DataUnavailable(`hymns/by-book/${code}.json`, "not a book code");
+  return load<HymnsByChapter>(`hymns/by-book/${code}.json`, isObject);
 };
 
 // Museum-Grade Archaeology (scripts/build-museums.py): the museum cards, and one file per museum.

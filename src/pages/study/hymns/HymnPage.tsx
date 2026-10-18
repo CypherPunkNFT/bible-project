@@ -1,9 +1,11 @@
-// /study/hymns/:id — one hymn. A hymn with a full study (Amazing Grace, the approved mock-up
-// design/hymn-directions/a/) opens it; every other hymn opens a plain page of its words, its facts and its source.
+// /study/hymns/:id — one hymn. Amazing Grace opens its hand-made full study (the approved mock-up
+// design/hymn-directions/a/); every other hymn opens the same design filled from its generated page data
+// (page/HymnFullPage.tsx, data from scripts/build-hymn-pages.py). If that data is not in this build, the plain page of
+// its words, facts and source is the fallback.
 import { useCallback, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, BookOpen } from "lucide-react";
-import { loadHymnCollection, loadHymnSong, loadHymnTexts } from "@/lib/data";
+import { loadHymnCollection, loadHymnPageBundle, loadHymnPagesIndex, loadHymnSong, loadHymnTexts } from "@/lib/data";
 import { useAsync } from "@/lib/useAsync";
 import { AMAZING_GRACE, isHymnId, type HymnCollection, type HymnEntry, type HymnSong } from "@/lib/hymns";
 import { PageStatus } from "@/pages/teachers/shared/Frame";
@@ -12,6 +14,7 @@ import { Constellation } from "./song/Constellation";
 import { Echoes } from "./song/Echoes";
 import { BookRow, Found, Head, PlacedSquares } from "./song/Sections";
 import { PassagePanel, ROMAN, Sources, type PanelContent } from "./song/parts";
+import { HymnFullPage } from "./page/HymnFullPage";
 import "./song/song.css";
 
 function Crumb() {
@@ -103,15 +106,30 @@ export default function HymnPage() {
   const valid = isHymnId(id);
   const collection = useAsync(loadHymnCollection, "hymns/collection");
   const song = useAsync(() => (id === AMAZING_GRACE ? loadHymnSong(id) : Promise.resolve(null)), `hymns/song/${id}`);
+  // Every other hymn: its bundle of generated page data, or null when this build has none (the plain page then shows).
+  const page = useAsync(async () => {
+    if (id === AMAZING_GRACE || !valid) return null;
+    const index = await loadHymnPagesIndex().catch((error: unknown) => { console.warn("Hymn pages: no page index in this build", error); return null; });
+    const alias = index?.aliases?.[id];
+    if (alias) return { alias };
+    const n = index?.bundles[id];
+    return n === undefined ? null : (await loadHymnPageBundle(n))[id] ?? null;
+  }, `hymns/pages/${id}`);
   const hymn = collection.status === "ready" ? collection.value.hymns.find((h) => h.id === id) : undefined;
+  const full = page.status === "ready" && page.value && !("alias" in page.value) ? page.value : null;
   useEffect(() => {
     const old = document.title;
-    document.title = `${hymn ? firstLine(hymn) : "A hymn"} · Hymns · Bible Project`;
+    const title = full ? full.firstLine.replace(/[,;:]$/, "") : hymn ? firstLine(hymn) : "A hymn";
+    document.title = `${title} · Hymns · Bible Project`;
     return () => { document.title = old; };
-  }, [hymn]);
+  }, [hymn, full]);
   useEffect(() => { window.scrollTo(0, 0); }, [id]);
   if (!valid) return <NotAHymn />;
-  if (collection.status !== "ready" || song.status === "loading") return <PageStatus error={collection.status === "error" ? collection.error as Error : null} />;
+  if (song.status === "loading" || page.status === "loading") return <PageStatus error={null} />;
+  if (page.status === "ready" && page.value && "alias" in page.value) return <Navigate to={`/study/hymns/${page.value.alias}`} replace />;
+  // A generated page stands on its own data: the collection list is not needed to show it.
+  if (full) return <HymnFullPage key={id} page={full} />;
+  if (collection.status !== "ready") return <PageStatus error={collection.status === "error" ? collection.error as Error : null} />;
   if (!hymn) return <NotAHymn />;
   if (song.status === "ready" && song.value) return <SongStudy song={song.value} />;
   return <PlainHymn collection={collection.value} hymn={hymn} />;
