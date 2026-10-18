@@ -26,7 +26,12 @@
 }
 
 /* ── A · Crystals by kind and the catalogue ── */
-.cr-groups { display: grid; grid-template-columns: 1fr 1fr 1.7fr; grid-template-areas: "nt ot tr" "nt he tr"; gap: 1rem 1.4rem; align-items: start; }
+/* Every column ends flush with the tallest (owner 2026-10-18): groups stretch, their cards share the height evenly, and
+   an odd last card in the two-column translations spans both columns. */
+.cr-groups { display: grid; grid-template-columns: 1fr 1fr 1.7fr; grid-template-rows: auto 1fr; grid-template-areas: "nt ot tr" "nt he tr"; gap: 1rem 1.4rem; align-items: stretch; }
+.cr-group { display: flex; flex-direction: column; min-width: 0; }
+.cr-group .cr-list { flex: 1; grid-auto-rows: 1fr; }
+.cr-group:last-child .cr:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .cr-group:nth-child(1) { grid-area: nt; } .cr-group:nth-child(2) { grid-area: ot; } .cr-group:nth-child(3) { grid-area: he; } .cr-group:nth-child(4) { grid-area: tr; }
 .cr-group-name { margin-bottom: .5rem; font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 .cr-list { display: grid; gap: 6px; }
@@ -59,9 +64,9 @@
 .ct-pages { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1rem; font-size: .8rem; color: var(--muted); }
 .ct-pages button { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem .9rem; border: 1px solid var(--line) !important; border-radius: 999px; color: var(--ink); }
 .ct-pages button:disabled { opacity: .35; cursor: default; }
-@media (max-width: 1100px) { .cr-groups { grid-template-columns: 1fr 1fr; grid-template-areas: "nt ot" "nt he" "tr tr"; } }
+@media (max-width: 1100px) { .cr-groups { grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr auto; grid-template-areas: "nt ot" "nt he" "tr tr"; } }
 @media (max-width: 760px) { .ct-list { columns: 1; } .ct-bar { flex-direction: column; align-items: stretch; } .ct-search { max-width: none; } .ct-sort { align-self: flex-start; } }
-@media (max-width: 520px) { .cr-groups { grid-template-columns: 1fr; grid-template-areas: "nt" "ot" "he" "tr"; } .cr-group:last-child .cr-list { grid-template-columns: 1fr; } .ct-list button { grid-template-columns: 8px 3.6rem minmax(0, 1fr); grid-template-areas: "dot sig name" "dot sig date" "dot sig where"; } }
+@media (max-width: 520px) { .cr-groups { grid-template-columns: 1fr; grid-template-rows: none; grid-template-areas: "nt" "ot" "he" "tr"; } .cr-group:last-child .cr:last-child:nth-child(odd) { grid-column: auto; } .cr-group:last-child .cr-list { grid-template-columns: 1fr; } .ct-list button { grid-template-columns: 8px 3.6rem minmax(0, 1fr); grid-template-areas: "dot sig name" "dot sig date" "dot sig where"; } }
 
 /* ── B · Lanes through time ── */
 .ln-scroll { overflow-x: auto; scrollbar-width: thin; }
