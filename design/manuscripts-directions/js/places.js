@@ -73,7 +73,8 @@
       return `<button type="button" role="listitem" class="pl-card" style="--tone: var(${TONE[continentOf(h.country)]})" data-city="${esc(h.city)}" data-holder="${h.id}" data-kind="${kind[0]}"><span class="pl-icon" title="${kind[1]}">${holderIcon(kind)}</span>
         <span class="pl-card-text"><b>${esc(h.name)}</b><small>${kind[1]} · ${esc(h.city)}, ${esc(h.country)}</small><small>Oldest here: ${esc(first ? `${first.n}${first.d ? `, ${first.d}` : ""}` : "–")}</small></span><em>${formatNumber(h.n)}</em></button>`;
     };
-    const groups = CONTINENTS.map(([key, title]) => ({ key, title, list: holders.filter((h) => continentOf(h.country) === key) })).filter((g) => g.list.length);
+    const groups = CONTINENTS.map(([key, title]) => ({ key, title, list: holders.filter((h) => continentOf(h.country) === key) })).filter((g) => g.list.length)
+      .sort((x, y) => x.list.length - y.list.length); // smallest first (owner 2026-10-18): Near East, North America, Europe
     return `<div class="pl-continents">${groups.map((g) => `<button type="button" data-continent="${g.key}" style="--tone: var(${TONE[g.key]})"><i></i>${esc(g.key)} <em>${g.list.length}</em></button>`).join("")}</div>
       <div class="pl-cardarea">${groups.map((g) => `<div class="pl-group" data-group="${g.key}"><p class="pl-group-head">${esc(g.title)}<span>${plural(g.list.length, "place")} · ${plural(g.list.reduce((s, h) => s + h.n, 0), "record")}</span></p>
         <div class="pl-cards" role="list">${g.list.map(card).join("")}</div></div>`).join("")}</div>`;
