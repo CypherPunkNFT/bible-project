@@ -123,3 +123,7 @@
 .t-sec-psalms .bib-detail .bib-inner::before { display: none; }
 /* 03 · the lead runs the width of the tile panel below it, so it takes fewer lines */
 .t-sec-psalms .t-head p:not(.kicker) { max-width: calc(100% - 22rem); }
+
+/* 05 · the card grid: the standard outside scroll (catalogue.js) instead of the browser's bar; the padding moves inside */
+.hy-cat .pc-scroll.os-area { overflow: visible; padding: 0; scrollbar-gutter: auto; }
+.hy-cat .pc-scroll .os-viewport { padding: 2px 2px 2px 2px; }

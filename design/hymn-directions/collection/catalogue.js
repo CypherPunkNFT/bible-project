@@ -50,6 +50,8 @@ window.Sections = window.Sections || {};
         </div>
       </div>`;
     const $ = (s) => section.querySelector(s);
+    // The card grid scrolls with the page's standard outside scroll: a pill with no track, outside the right edge.
+    const cardScroll = OutsideScroll.wrap($(".pc-scroll"));
     const words = () => normalise(query).trim().split(/\s+/).filter(Boolean);
     const matches = (r, ignore) => words().every((w) => r.search.includes(w))
       && (ignore === "g" || !filters.g.length || filters.g.includes(r.g.id))
@@ -74,7 +76,7 @@ window.Sections = window.Sections || {};
       $(".pc-grid").innerHTML = visible.slice(0, 240).map(card).join("") || `<div class="pc-empty"><p>No hymn matches these filters.</p></div>`;
       if (visible.length > 240) $(".pc-grid").insertAdjacentHTML("beforeend", `<p class="pc-more">Showing the first 240 of ${formatNumber(visible.length)}. Narrow the filters to see the rest.</p>`);
       $("[data-clear]").hidden = !(query.trim() || Object.values(filters).some((v) => v.length));
-      $(".pc-scroll").scrollTop = 0;
+      cardScroll.reset();
     }
     $("input").addEventListener("input", (e) => { query = e.target.value; render(); });
     section.addEventListener("click", (e) => {
