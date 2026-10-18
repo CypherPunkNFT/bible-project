@@ -262,7 +262,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
             },
             {
                 "id": "life",
-                "cards": ["topics"],
+                "cards": ["topics", "hymns"],
                 "title": "Living the Christian Life",
                 "titleLines": ["Living the", "Christian Life"],
                 "short": "Bring the Word into life",

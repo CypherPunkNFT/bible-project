@@ -115,6 +115,7 @@ Inputs: `data/plain/kjv/MAT.json`, `MRK.json`, `LUK.json`; 23 passage ranges and
 - Matthew: `2b1c7219e7f3e72ae9f64aae00132142787b90cc8b8cacca4cff0ca870854895`
 - Mark: `cf9ccb7d831b350c3ac5767be6a9da121b99d02abc4d70e808b3a1932c4349d9`
 - Luke: `0f38e2a4658588636fcd0d044a054589fc44e6d96b69936e0b1b4c060f16baed`
+| King James Version — the verses **shown** on the Amazing Grace page only (the owner-approved design, "the Bible Newton read"): its echoes, its heading verse and the passages hymnals tie it to | The verse text from the site's own `data/text/kjv/`, written into `data/hymns/songs/` by `scripts/build-hymns.py` | **Public domain** outside the United Kingdom; the site already publishes it as one of its 37 versions | — | — |
 
 Content: `src/data/parables.ts`. Public passage links open the existing Bible reader. These selected stories are not presented as a complete inventory of all parables.
 

@@ -1,0 +1,100 @@
+/* The Hymns collection page (/study/hymns). Sections 01 and 02 wear the Preachers page's own stylesheets unchanged
+   (the page carries .tp-preachers and the sections its ids); these are the Hymns page's own pieces, from the approved
+   mock-up (design/hymn-directions/collection/collection.css). */
+.hy-page { overflow-x: clip; }
+.hy-page .tp-sec-hymns + .tp-sec { border-top: 0; padding-top: 0; }
+
+/* ── The intro, and the row of hymn cards drifting by (it pauses under the pointer) ───────────────────────────── */
+.hy-page .hc-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 27rem); gap: 1.5rem 3rem; align-items: end; padding-block: 2.6rem 1.6rem; }
+.hy-page .hc-crumb { display: flex; flex-wrap: wrap; gap: .5rem; font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.hy-page .hc-crumb span { color: var(--muted); font-weight: 400; }
+.hy-page .hc-crumb a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.hy-page .hc-intro h1 { margin-block: .9rem 1rem; font: 500 clamp(2.6rem, 5.6vw, 4.6rem)/1.02 var(--serif); letter-spacing: -.045em; }
+.hy-page .hc-intro h1 em { display: block; color: var(--accent); font-weight: 400; font-size: .6em; letter-spacing: -.03em; margin-top: .3rem; }
+.hy-page .hc-lede { max-width: 56ch; color: var(--muted); font-size: .96rem; line-height: 1.8; }
+.hy-page .hc-figures { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--line); }
+.hy-page .hc-figures > div { padding: .85rem 0 .85rem 1rem; border-bottom: 1px solid var(--line); }
+.hy-page .hc-figures > div:nth-child(odd) { padding-left: 0; border-right: 1px solid var(--line); }
+.hy-page .hc-figures dt { font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.hy-page .hc-figures dd { margin: .25rem 0 0; font: 500 1.65rem/1.15 var(--serif); letter-spacing: -.02em; }
+.hy-page .hc-figures dd small { font: 400 .8rem var(--sans); color: var(--muted); }
+.hy-page .hc-figures > div > small { display: block; margin-top: .15rem; font-size: .74rem; color: var(--muted); }
+@media (max-width: 860px) { .hy-page .hc-intro { grid-template-columns: 1fr; } }
+
+/* full bleed: the row runs from the left edge of the screen to the right, whatever the page width */
+.hy-page .hc-row { position: relative; width: 100vw; margin: .6rem 0 1rem calc(50% - 50vw); overflow: hidden; }
+.hy-page .hc-track { display: flex; gap: 1rem; width: max-content; padding: .6rem 0 1rem; animation: hc-drift 90s linear infinite; }
+.hy-page .hc-row:hover .hc-track, .hy-page .hc-row:focus-within .hc-track { animation-play-state: paused; }
+@keyframes hc-drift { to { transform: translateX(-50%); } }
+.hy-page .hc-card { display: grid; align-content: space-between; gap: .9rem; width: 16.5rem; min-height: 9.5rem; padding: 1.1rem 1.2rem; border: 1px solid var(--line); border-radius: 14px; background: var(--surface);
+  border-top: 2px solid var(--tone); transition: transform .3s cubic-bezier(.16, 1, .3, 1), border-color .2s; }
+.hy-page .hc-card:hover { transform: translateY(-4px) rotate(-.6deg); border-color: color-mix(in srgb, var(--tone) 55%, var(--line)); }
+.hy-page .hc-kicker { font: 600 .6rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.hy-page .hc-first { font: 500 1.2rem/1.3 var(--serif); letter-spacing: -.01em; }
+.hy-page .hc-book { font-size: .74rem; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .hy-page .hc-track { animation: none; } .hy-page .hc-row { overflow-x: auto; } }
+
+/* ── 01 · the side panel's colour line is its own top border, so it bends with the rounded corners ─────────────── */
+.hy-page .tp-sec-bible .bib-detail { transition: border-color .2s; }
+.hy-page .tp-sec-bible .bib-detail-viewport .bib-inner::before { display: none; }
+
+/* ── 02 · the hymn list scrolls with the pill outside the panel; the heading stays whole above it ──────────────── */
+.hy-page .tp-sec-through .hy-thr-book { overflow: visible; }
+.hy-page .tp-sec-through .thr-scroll { flex: 1; min-height: 0; margin: 0 -.35rem; }
+.hy-page .tp-sec-through .thr-scroll .outside-scrollbar { right: calc(-13px - .6rem - 1px); }
+.hy-page .tp-sec-through .hy-thr-book .thr-list { overflow: visible; max-height: none; flex: none; margin: 0; padding-top: 0; }
+@media (max-width: 1199px) { .hy-page .tp-sec-through .thr-scroll { max-height: 26rem; } }
+/* the chapter headings: flush to the top when stuck, a line above and below, nothing showing through; a heading right
+   under a hymn already has that hymn's bottom line above it, so no second line */
+.hy-page .tp-sec-through .thr-chapter { top: 0; z-index: 2; margin: 0; padding: .5rem .35rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+.hy-page .tp-sec-through .thr-chapter:first-child, .hy-page .tp-sec-through .thr-item + .thr-chapter { border-top: 0; }
+/* a book that runs past the ring's 50-hymn scale gets a dashed tip */
+.hy-page .thr-over { fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-dasharray: 3 3; opacity: .55; }
+
+/* ── 03 · the Psalms: 15 tiles across, the list beside them as tall as the tiles, the lead as wide as the tiles ── */
+.hy-page .tp-sec-psalms .tp-line { max-width: calc(100% - 22rem); }
+.hy-page .tp-sec-psalms .ps-grid { display: grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap: 5px; align-content: start; }
+.hy-page .tp-sec-psalms .ps-tile { position: relative; display: grid; place-content: center; gap: 6px; aspect-ratio: 1 / 1.22; padding: 0; border-radius: 6px; border: 1px solid transparent;
+  background: color-mix(in srgb, var(--poetry) calc(var(--k) * 100%), var(--surface-2)); font: 500 .72rem var(--sans); color: var(--ink); cursor: pointer; transition: border-color .15s, transform .15s; }
+.hy-page .tp-sec-psalms .ps-tile .n { font: 500 .95rem/1 var(--serif); opacity: .9; }
+.hy-page .tp-sec-psalms .ps-tile small { font: 500 .56rem/1 var(--sans); letter-spacing: 0; white-space: nowrap; opacity: .7; }
+.hy-page .tp-sec-psalms .ps-tile:hover { transform: scale(1.06); }
+.hy-page .tp-sec-psalms .ps-tile.on { border-color: var(--ink); }
+.hy-page .tp-sec-psalms .bib-detail.ps-detail { border-top: 2px solid var(--poetry); }
+.hy-page .tp-sec-psalms .ps-detail .bib-detail-viewport .bib-inner::before { display: none; }
+@media (max-width: 900px) { .hy-page .tp-sec-psalms .ps-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); } .hy-page .tp-sec-psalms .tp-line { max-width: none; } }
+
+/* ── 04 · their history: moments on one rule, three lifelines on the same scale, words floating with lines ───────── */
+.hy-page .hh-time { margin-top: .4rem; }
+.hy-page .hh-axis { position: relative; height: 16rem; margin: 0 2rem 0 1.2rem; }
+.hy-page .hh-axis::before { content: ""; position: absolute; left: 0; right: 0; top: 6.4rem; height: 1px; background: var(--line); }
+.hy-page .hh-break { position: absolute; left: 1.6rem; top: 6.4rem; width: 10px; height: 14px; transform: translate(-50%, -50%) skewX(-20deg); border-left: 1px solid var(--muted); border-right: 1px solid var(--muted); background: var(--page); }
+.hy-page .hh-tick { position: absolute; top: 6.4rem; transform: translate(-50%, -50%); padding: 0 .3rem; background: var(--page); font-size: .6rem; color: var(--muted); letter-spacing: .06em; }
+.hy-page .hh-dot { position: absolute; top: 6.4rem; width: 0; height: 0; padding: 0; border: 0; background: none; cursor: pointer; }
+.hy-page .hh-dot i { position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--surface); border: 1.5px solid var(--accent); transition: background .2s, transform .2s; z-index: 1; }
+.hy-page .hh-dot span { position: absolute; left: 50%; transform: translateX(-50%); width: 8rem; text-align: center; font: 500 .74rem/1.3 var(--serif); color: var(--muted); transition: color .2s; }
+.hy-page .hh-dot span b { display: block; font: 600 .6rem var(--sans); letter-spacing: .1em; color: var(--accent); }
+.hy-page .hh-dot span::after { content: ""; position: absolute; left: 50%; width: 1px; background: var(--line); }
+.hy-page .hh-u1 span { bottom: 14px; } .hy-page .hh-u1 span::after { top: 100%; height: 9px; }
+.hy-page .hh-u2 span { bottom: 52px; } .hy-page .hh-u2 span::after { top: 100%; height: 47px; }
+.hy-page .hh-d1 span { top: 14px; } .hy-page .hh-d1 span::after { bottom: 100%; height: 9px; }
+.hy-page .hh-d2 span { top: 52px; } .hy-page .hh-d2 span::after { bottom: 100%; height: 47px; }
+.hy-page .hh-before span { left: 0; transform: none; text-align: left; } .hy-page .hh-before span::after { left: 0; }
+.hy-page .hh-dot:hover i, .hy-page .hh-dot.on i { background: var(--accent); transform: scale(1.25); }
+.hy-page .hh-dot:hover span, .hy-page .hh-dot.on span { color: var(--ink); }
+.hy-page .hh-life { position: absolute; height: 3px; border-radius: 3px; background: var(--tone); opacity: .8; }
+.hy-page .hh-life em { position: absolute; left: calc(100% + .5rem); top: -.5rem; font: italic 400 .74rem var(--serif); white-space: nowrap; color: var(--tone); }
+.hy-page .hh-read { min-height: 3.4em; max-width: 78ch; margin: 1.2rem 0 0; font: 400 1rem/1.7 var(--serif); color: var(--ink); }
+.hy-page .hh-read b { font-weight: 500; color: var(--accent); }
+.hy-page .hh-people { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; margin-top: 2.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+.hy-page .hh-person { border-left: 2px solid var(--tone); padding-left: 1rem; }
+.hy-page .hh-person .k, .hy-page .hh-sung .k { font: 600 .6rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone, var(--accent)); }
+.hy-page .hh-person h3 { margin: .3rem 0 .45rem; font: 500 1.35rem/1.2 var(--serif); letter-spacing: -.02em; }
+.hy-page .hh-person p:not(.k) { color: var(--muted); font-size: .86rem; line-height: 1.7; }
+.hy-page .hh-sung { display: grid; grid-template-columns: 9rem repeat(4, minmax(0, 1fr)); gap: 1.6rem; margin-top: 2.2rem; padding-top: 1.6rem; border-top: 1px dashed var(--line); }
+.hy-page .hh-sung h4 { font: 500 1rem/1.3 var(--serif); margin-bottom: .35rem; }
+.hy-page .hh-sung p:not(.k) { color: var(--muted); font-size: .82rem; line-height: 1.65; }
+@media (max-width: 1000px) { .hy-page .hh-people { grid-template-columns: 1fr; gap: 1.4rem; } .hy-page .hh-sung { grid-template-columns: 1fr 1fr; } .hy-page .hh-dot span { width: 5.5rem; font-size: .66rem; } }
+
+/* 05 opens the catalogue wrapper, so it is not a sibling of 04: give it the line and space a section gets */
+.hy-page .hy-cat > .tp-sec:first-child { margin-top: 3.2rem; padding-top: 1.8rem; border-top: 1px solid var(--line); }

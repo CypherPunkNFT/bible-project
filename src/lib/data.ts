@@ -1,5 +1,6 @@
 import type { ArcData, BookPlace, Catalog, Chapter, CrossRefBook, PlainBook, Place, Run, Stats } from "./types";
 import type { CreedBundle, CreedDocument, CreedsIndex } from "./creeds";
+import { HYMN_GROUPS, isHymnId, type HymnCollection, type HymnGroupId, type HymnSong, type HymnText } from "./hymns";
 import { isMuseumSlug, type Museum, type MuseumIndex } from "./museums";
 import type { ChapterTopics, LibraryBook, Topic, TopicIndex } from "./topics";
 
@@ -102,6 +103,19 @@ export const loadCreedDocument = (id: string) =>
 
 export const loadCreedBundle = (id: string, bundle: string) =>
   load<CreedBundle>(`creeds/doc/${id}.${bundle}.json`, (v) => isObject(v) && Array.isArray(v.sections));
+
+// Hymns (scripts/build-hymns.py): the collection, the full study of a hymn that has one, and the words of every hymn
+// filed by hymn book.
+export const loadHymnCollection = () =>
+  load<HymnCollection>("hymns/collection.json", (v) => isObject(v) && Array.isArray(v.hymns) && Array.isArray(v.books));
+export const loadHymnSong = (id: string) => {
+  if (!isHymnId(id)) throw new DataUnavailable(`hymns/songs/${id}.json`, "not a hymn address");
+  return load<HymnSong>(`hymns/songs/${id}.json`, (v) => isObject(v) && Array.isArray(v.stanzas) && Array.isArray(v.echoes));
+};
+export const loadHymnTexts = (group: HymnGroupId) => {
+  if (!HYMN_GROUPS.includes(group)) throw new DataUnavailable(`hymns/texts/${group}.json`, "not a hymn book");
+  return load<Record<string, HymnText>>(`hymns/texts/${group}.json`, isObject);
+};
 
 // Museum-Grade Archaeology (scripts/build-museums.py): the museum cards, and one file per museum.
 export const loadMuseumIndex = () =>

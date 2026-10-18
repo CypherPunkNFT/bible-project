@@ -136,6 +136,15 @@ function PlacesPreview() {
   </div>;
 }
 
+/** The first 45 psalms as tiles, each lit by how many of the collection's hymns sing it (counts from data/hymns, 2026-10-17). */
+const PSALM_HYMNS = [4, 3, 2, 3, 1, 3, 2, 5, 2, 1, 1, 2, 3, 3, 3, 5, 2, 5, 7, 1, 3, 3, 6, 2, 3, 1, 2, 0, 1, 2, 3, 4, 4, 4, 3, 4, 3, 1, 4, 4, 1, 2, 0, 1, 5];
+function HymnsPreview() {
+  return <div className="study-art study-hymns-art" aria-hidden="true">
+    <div className="study-hymns-tiles">{PSALM_HYMNS.map((n, i) => <span key={i} style={{ opacity: n ? 0.3 + 0.7 * n / 7 : 0.12 }} />)}</div>
+    <span className="study-art-note">1707 → 1779 · Watts · Newton · Cowper</span>
+  </div>;
+}
+
 /** Twelve traditions as a shelf of spines, oldest at the left, the way the collection's own rail reads. */
 function CreedsPreview() {
   const shelf = [
@@ -177,11 +186,12 @@ const RESOURCE_CARDS = {
   letters: <Resource to="/study/letters" title="Letters & their message" description="Explore all 21 New Testament letters: who wrote them, who received them, and how each message unfolds, section by section." source="Westcott, Lightfoot, Ramsay & other public-domain scholars" number="08" category="Letters to the church" color="epistles"><LettersPreview /></Resource>,
   atlas: <Resource to="/study/atlas" title="Places & journeys" description="Find 1,252 biblical places on a map of the ancient world. Explore the settings of the story, compare places by book, and open their passages." source="OpenBible.info · OpenStreetMap" number="09" category="The world of the Bible" color="poetry" className="study-map-feature"><PlacesPreview /></Resource>,
   creeds: <Resource to="/study/creeds" title="Catechisms & Creeds" description="What has the church actually confessed? 66 creeds, confessions and catechisms in full, from Israel's own creed to the First Vatican Council, with every Scripture quotation shown in the Berean Standard Bible." source="12 traditions · 11,375 questions & sections · Creeds.json, Schaff & Project Gutenberg" number="" category="The faith, said out loud" color="revelation" className="study-creeds-resource"><CreedsPreview /></Resource>,
+  hymns: <Resource to="/study/hymns" title="Hymns" description="1,228 hymns whose words we hold, from Isaac Watts's psalms and hymns to the Olney Hymns of John Newton and William Cowper, each beside the chapter it was written on. Amazing Grace opens with every verse its lines echo." source="Watts, Newton & Cowper · CCEL & Project Gutenberg" number="" category="The faith, sung" color="poetry" className="study-creeds-resource study-hymns-resource"><HymnsPreview /></Resource>,
   versions: <Resource to="/study/versions" title="Versions & languages" description="Which edition are you reading? Place the library's versions in time, compare their actual book collections, and choose one to read." source="Edition timeline · Book coverage · Library" number="10" category="Editions & contents" color="acts" className="study-wide"><ChartPreview kind="versions" note="The texts in your hands" /></Resource>,
 };
 
 export type StudyResourceId = keyof typeof RESOURCE_CARDS;
-export const STUDY_RESOURCE_IDS = Object.keys(RESOURCE_CARDS).filter(id => id !== "parables" && id !== "memory" && id !== "creeds") as StudyResourceId[];
+export const STUDY_RESOURCE_IDS = Object.keys(RESOURCE_CARDS).filter(id => id !== "parables" && id !== "memory" && id !== "creeds" && id !== "hymns") as StudyResourceId[];
 
 /** The original Study2 cards, shared intact with the organized Theology collections. */
 export function StudyResourceCards({ ids = STUDY_RESOURCE_IDS, className = "", label = "Study resources" }: {
