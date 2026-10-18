@@ -99,6 +99,8 @@ def main() -> None:
     index, counts = {}, {"echo": 0, "decoy": 0, "control": 0}
     for checked in read_json(args.checked)["hymns"]:
         hymn = hymns[checked["id"]]
+        if hymn.get("duplicateOf"):
+            continue  # a second spelling of a hymn already held: its page is the kept one's
         pairs = [{"kind": "echo", **{k: e[k] for k in ("stanza", "line", "code", "chapter", "first", "last", "source")}} for e in checked["echoes"]]
         if hymn["id"] == AMAZING_GRACE:
             have = {(p["stanza"], p["line"], p["code"], p["chapter"], p["first"]) for p in pairs}

@@ -56,6 +56,7 @@ def main() -> None:
     parser.add_argument("--checked", type=Path, default=PIPELINE / "run1-checked.json")
     parser.add_argument("--verify-index", type=Path, default=PIPELINE / "verify-items.json")
     parser.add_argument("--verify-answers", type=Path, required=True)
+    parser.add_argument("--heading-answers", type=Path, help="the second check of the headings run 1 turned down (make-heading-items.py)")
     parser.add_argument("--write", type=Path, default=CHECKED_FILE)
     parser.add_argument("--sheet", type=Path, default=PIPELINE / "spot-check.md")
     args = parser.parse_args()
@@ -87,6 +88,14 @@ def main() -> None:
                 score["controls said yes, clear"] += yes_clear
             verdicts.setdefault(entry["id"], {})[key(pair)] = verdict
 
+    # A printed heading is dropped only when both runs say it does not fit; the second check's verdicts by hymn id.
+    second: dict[str, dict] = {}
+    if args.heading_answers:
+        for item, hymn_id in read_json(PIPELINE / "heading-items.json").items():
+            path = args.heading_answers / f"{item}.json"
+            verdict = answer_of(path) if path.exists() else None
+            if verdict:
+                second[hymn_id] = verdict
     results, heading_rejected = [], []
     for hymn_id, checked in run1.items():
         hymn = hymns[hymn_id]
@@ -99,9 +108,15 @@ def main() -> None:
             else:
                 turned_down.append({**e, "verified": f"{v['echo']}, {v['strength']}" if v else "not verified"})
         heading = hymn.get("heading")
-        if heading and heading["ranges"] and checked["heading"]["fits"] == "no":
-            heading_rejected.append({"id": hymn_id, "firstLine": hymn["firstLine"], "printed": heading["printed"], "why": "run 1: does not fit the hymn"})
-        results.append({"id": hymn_id, "echoes": kept, "turnedDown": turned_down, "heading": checked["heading"],
+        verdict = dict(checked["heading"])
+        if heading and heading["ranges"] and verdict["fits"] == "no":
+            again = second.get(hymn_id)
+            if again and again["fits"] == "yes":
+                verdict = {"fits": "yes", "line": 0, "note": f"run 1 said no; the second check said yes, {again['strength']}"}
+            else:
+                why = f"both checks: does not fit the hymn (second check {again['strength']})" if again else "run 1: does not fit the hymn (no second check)"
+                heading_rejected.append({"id": hymn_id, "firstLine": hymn["firstLine"], "printed": heading["printed"], "why": why})
+        results.append({"id": hymn_id, "echoes": kept, "turnedDown": turned_down, "heading": verdict,
                         "mainPassage": checked["mainPassage"]})
     for hymn in hymns.values():
         heading = hymn.get("heading")

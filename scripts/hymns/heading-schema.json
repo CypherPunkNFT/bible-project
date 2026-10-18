@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["fits", "strength"],
+  "properties": {
+    "fits": { "type": "string", "enum": ["yes", "no"] },
+    "strength": { "type": "string", "enum": ["clear", "probable", "doubtful"] }
+  }
+}
