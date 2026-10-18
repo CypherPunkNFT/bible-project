@@ -18,7 +18,7 @@
   // description; then the six as they were.
   const psalter = CARD_ART.find((d) => d.id === "psalter");
   if (!psalter) throw new Error('hymns card 2: direction "psalter" (03) did not register; expected ../hymns-card-directions/art-psalter-lines.js');
-  const entries = [{ ...psalter, key: "psalter-larger", num: "03", label: "The Psalter, turning · larger", idea: "Your pick, refined: the disc much larger, the caption only \"150 psalms\", and a smaller description that takes a line less. Both cards' picture boxes grow together, so the cards stay the same size.", big: true },
+  const entries = [{ ...psalter, key: "psalter-larger", num: "03", label: "The Psalter, turning · larger", idea: "Your pick, refined at the site's exact card size: the disc as large as the picture box allows, the caption only \"150 psalms\", and a smaller description.", big: true },
     ...CARD_ART.map((d, i) => ({ ...d, key: d.id, num: String(i + 1).padStart(2, "0") }))];
 
   entries.forEach((d) => {
@@ -39,7 +39,11 @@
     const art = card.querySelector(".study-art");
     art.className = `study-art art art-${d.id}`;
     art.innerHTML = d.art();
-    if (d.big) art.querySelector(".art-note").textContent = "150 psalms";
+    if (d.big) {
+      art.querySelector(".art-note").textContent = "150 psalms";
+      // The disc fills the real 210 px box: the drawing's empty margin is cropped (the ticks reach 102 units from the centre).
+      art.querySelector(".psalter svg").setAttribute("viewBox", "6 -1 208 226");
+    }
     list.append(wrap);
     Promise.resolve(d.start(wrap)).catch((error) => console.error(`hymns card 2: direction "${d.id}" stopped`, error));
   });
