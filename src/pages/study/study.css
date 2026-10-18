@@ -237,6 +237,7 @@
 .study-creeds-shelf span { flex: 1 1 0; min-width: 4px; border-radius: 2px 2px 0 0; opacity: .72; transition: opacity .18s ease-out; }
 .study-resource-link:is(:hover, :focus-visible) .study-creeds-shelf span { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .study-creeds-shelf span { transition: none; } }
+.study-hymns-resource .study-card-number { display: none; }
 .study-hymns-art { display: flex; align-items: flex-end; }
 .study-hymns-tiles { display: grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap: 4px; width: 100%; padding: 0 .25rem 1.6rem; border-bottom: 1px solid var(--line); }
 .study-hymns-tiles span { aspect-ratio: 1 / 1.22; border-radius: 3px; background: var(--poetry); transition: filter .18s ease-out; }

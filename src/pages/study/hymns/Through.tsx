@@ -110,6 +110,20 @@ export function Through({ collection }: { collection: HymnCollection }) {
   const [chosen, setChosen] = useState("all");
   const shelf = model.byId.get(chosen) ?? model.everyone;
   const [selected, setSelected] = useState(model.everyone.top);
+  const ringCard = useRef<HTMLDivElement>(null);
+  const [panelHeight, setPanelHeight] = useState<number | undefined>(undefined);
+
+  // The book panel is exactly as tall as the ring card beside it on wide screens (as the mock-up did, so it holds
+  // whichever version of the Preachers stylesheet is live); its list scrolls inside.
+  useEffect(() => {
+    const card = ringCard.current;
+    if (!card) return;
+    const fit = () => setPanelHeight(window.innerWidth >= 1200 ? card.offsetHeight : undefined);
+    const observer = new ResizeObserver(fit);
+    observer.observe(card);
+    window.addEventListener("resize", fit);
+    return () => { observer.disconnect(); window.removeEventListener("resize", fit); };
+  }, []);
 
   function choose(id: string, item: HTMLElement) {
     const next = model.byId.get(id);
@@ -148,7 +162,7 @@ export function Through({ collection }: { collection: HymnCollection }) {
         <details className="thr-quiet"><summary>{formatNumber(model.everyone.all - model.everyone.works)} more hymns are on a subject, not a chapter</summary>
           <p>Their books give them a subject (the love of God, the Lord's Supper, a funeral) rather than a passage, so they have no spoke. They are listed in the catalogue below.</p></details>
       </div>
-      <div className="thr-ringcard" style={tone(shelf.group ? shelf.group.tone : "--accent")}>
+      <div className="thr-ringcard" ref={ringCard} style={tone(shelf.group ? shelf.group.tone : "--accent")}>
         <div className="thr-who">{shelf.group
           ? <><p className="kicker" style={tone(shelf.group.tone)}>{shelf.group.year} · {shelf.group.who}</p><h3>{shelf.group.label}</h3>
             <p>{plural(shelf.works, "hymn")} on a chapter, across {plural(shelf.bookCount, "book")} of the Bible; {plural(shelf.all - shelf.works, "more hymn")} on a subject.</p></>
@@ -156,7 +170,7 @@ export function Through({ collection }: { collection: HymnCollection }) {
             <p>{plural(shelf.works, "hymn")} on a chapter in {model.shelves.length} hymn books and hands, across {plural(shelf.bookCount, "book")} of the Bible.</p></>}</div>
         <Ring collection={collection} shelf={shelf} selected={selected} onSelect={(b) => setSelected((b + BOOKS) % BOOKS)} />
       </div>
-      <aside className="thr-book hy-thr-book" style={tone(`--${book.section}`)}>
+      <aside className="thr-book hy-thr-book" style={{ ...tone(`--${book.section}`), height: panelHeight }}>
         <div className="thr-book-head"><p className="kicker">{SECTION_LABEL[book.section]}</p><h3>{book.name}</h3>
           <p className="thr-book-sub">{plural(entries.length, "hymn")} · {shelf.group ? shelf.group.short : "every hymn book"}</p></div>
         <OutsideScroll label={`Hymns on ${book.name}`} className="thr-scroll" resetKey={`${chosen}-${selected}`}>

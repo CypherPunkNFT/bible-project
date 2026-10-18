@@ -39,7 +39,7 @@
 .hy-page .tp-sec-bible .bib-detail-viewport .bib-inner::before { display: none; }
 
 /* ── 02 · the hymn list scrolls with the pill outside the panel; the heading stays whole above it ──────────────── */
-.hy-page .tp-sec-through .hy-thr-book { overflow: visible; }
+.hy-page .tp-sec-through .hy-thr-book { overflow: visible; display: flex; flex-direction: column; min-height: 0; max-height: none; position: relative; top: 0; }
 .hy-page .tp-sec-through .thr-scroll { flex: 1; min-height: 0; margin: 0 -.35rem; }
 .hy-page .tp-sec-through .thr-scroll .outside-scrollbar { right: calc(-13px - .6rem - 1px); }
 .hy-page .tp-sec-through .hy-thr-book .thr-list { overflow: visible; max-height: none; flex: none; margin: 0; padding-top: 0; }
