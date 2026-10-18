@@ -14,7 +14,7 @@ Implementation-plan step 4 completed: seven studies now have deeper explanations
 
 ## Hymns — registered 17 October 2026 (local preview only; nothing published)
 
-The hymn texts and the hymnal metadata behind `/study/hymns` and its 1,228 hymn pages. Every hymn text here was first
+The hymn texts and the hymnal metadata behind `/study/hymns` and its 1,169 hymn pages (1,228 first lines; 59 are a second spelling of a hymn already held). Every hymn text here was first
 published between 1707 and 1779 and is long out of copyright; what is credited is the **edition each was transcribed
 from**. The corpus is `Research/Hymns/`; its manifest records every file's URL, size and SHA-256
 (`Research/Hymns/manifest.json`, SHA-256 `d172ee8120482e59…`). The page data is generated from it by
