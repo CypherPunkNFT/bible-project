@@ -132,6 +132,14 @@ export interface CreedBundle {
 }
 
 /** "catechism" -> "Catechism", for the eyebrow line above a document's title. */
+/** A year as the page prints it: the era after the number, "381 AD", "c. 200 AD", "1500 BC". The data
+ * writes most years bare and a few the older way round ("AD 60"). */
+export function yearWithEra(label: string): string {
+  const year = label.trim();
+  if (!year || /\b(BC|BCE)\b/.test(year)) return year;
+  return `${year.replace(/^AD\s+/, "")} AD`;
+}
+
 export function documentTypeLabel(type: string | null | undefined): string {
   switch (type) {
     case "catechism":

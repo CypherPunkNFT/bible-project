@@ -13,8 +13,7 @@ import {
   type CreedDocument,
   type CreedPart,
   type CreedReference,
-  type CreedSection,
-} from "@/lib/creeds";
+  type CreedSection, yearWithEra } from "@/lib/creeds";
 import { studyRefLink } from "@/lib/study";
 import { useAsync } from "@/lib/useAsync";
 import "./creeds.css";
@@ -272,7 +271,7 @@ export default function CreedDocumentPage() {
             </Link>
           </nav>
           <p className="eyebrow">
-            {documentTypeLabel(found.documentType)} · {found.yearLabel}
+            {documentTypeLabel(found.documentType)} · {yearWithEra(found.yearLabel)}
             {found.tradition ? ` · ${found.tradition}` : ""}
           </p>
           <h1>{found.title}</h1>
@@ -282,7 +281,7 @@ export default function CreedDocumentPage() {
           <dl className="creed-figures">
             <div>
               <dt>Written</dt>
-              <dd>{found.yearLabel}</dd>
+              <dd>{yearWithEra(found.yearLabel)}</dd>
             </div>
             <div>
               <dt>Tradition</dt>

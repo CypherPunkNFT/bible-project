@@ -1,388 +1,124 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, BookOpen } from "lucide-react";
 import { StudyBackLink } from "@/components/study/StudyBackLink";
-import { StableTip } from "@/components/StableTip";
 import { loadCreedsIndex } from "@/lib/data";
-import { documentTypeLabel, type CreedCard, type CreedFamily } from "@/lib/creeds";
+import { documentTypeLabel, type CreedCard, type CreedFamily, yearWithEra } from "@/lib/creeds";
 import { useAsync } from "@/lib/useAsync";
 import { CreedFamilyArt } from "./CreedsArt";
 import "./creeds.css";
+import "./creeds-collection.css";
 
-/**
- * Where a year sits on the rail, as a percentage across it.
- *
- * The documents are nowhere near evenly spread: five of them are written before AD 100 and
- * twenty-three in the sixteenth century alone. A plain scale would stack most of the collection into
- * one unreadable smudge, so the rail is stretched where the documents actually are. Each pair below is
- * a year and the place it is drawn at; years between two pairs are spaced evenly within them.
- */
-const RAIL_SCALE: [year: number, percent: number][] = [
-  [-1500, 0],
-  [100, 8],
-  [500, 15],
-  [1000, 22],
-  [1500, 32],
-  [1550, 46],
-  [1600, 60],
-  [1650, 72],
-  [1700, 80],
-  [1800, 90],
-  [1900, 100],
-];
+type Entry = { card: CreedCard; family: CreedFamily };
+const tone = (family: CreedFamily) => ({ "--seal-tone": `var(--${family.tone})` }) as CSSProperties;
 
-function railPosition(year: number): number {
-  const first = RAIL_SCALE[0];
-  const last = RAIL_SCALE[RAIL_SCALE.length - 1];
-  if (year <= first[0]) return first[1];
-  if (year >= last[0]) return last[1];
-  for (let step = 1; step < RAIL_SCALE.length; step++) {
-    const [toYear, toPercent] = RAIL_SCALE[step];
-    if (year > toYear) continue;
-    const [fromYear, fromPercent] = RAIL_SCALE[step - 1];
-    return fromPercent + ((year - fromYear) / (toYear - fromYear)) * (toPercent - fromPercent);
-  }
-  return last[1];
+function ManuscriptArt() {
+  return <svg className="cc-manuscript" viewBox="0 0 520 440" fill="none" aria-hidden="true">
+    <defs><radialGradient id="creed-glow"><stop stopColor="currentColor" stopOpacity=".1"/><stop offset="1" stopColor="currentColor" stopOpacity="0"/></radialGradient></defs>
+    <circle cx="270" cy="210" r="205" fill="url(#creed-glow)"/>
+    <g stroke="currentColor" strokeWidth="1.15">
+      <circle cx="270" cy="210" r="165" strokeDasharray="1 9" opacity=".45"/>
+      <path d="M111 253V181a159 159 0 0 1 318 0v72" opacity=".28"/>
+      <path d="M163 98h194l-18 243H145z" fill="var(--cc-paper)"/>
+      <path d="M173 87h194l-18 243H155z" fill="var(--cc-paper)"/>
+      <path d="M196 112h143l-13 188H182z" opacity=".35"/>
+      <path d="M267 127v33m-13-21h26M206 222h109m-111 12h110m-112 12h108m-110 12h91m-93 12h104m-106 12h75" opacity=".7"/>
+      <path d="M359 287c14-53 28-106 81-148-3 55-28 95-65 116m-18 46 59-131m-35 80 3-40m8 19 28-13"/>
+      <path d="m294 333-8 53 23-13 19 17 4-57" fill="var(--cc-paper)"/>
+      <circle cx="312" cy="326" r="29" fill="var(--cc-paper)"/><circle cx="312" cy="326" r="23" strokeDasharray="2 3"/>
+      <path d="M312 312v29m-10-19h20M94 137h17m-8-8v16M410 291h15m-7-7v14M136 310l3 8 8 3-8 3-3 8-3-8-8-3 8-3zM388 95l2 6 6 2-6 2-2 6-2-6-6-2 6-2zM238 42v16m-7-8h14M86 233h-17m379-12h18"/>
+    </g>
+    <text x="267" y="202" textAnchor="middle" fill="currentColor" fontFamily="Georgia, serif" fontSize="31" letterSpacing="5">CREDO</text>
+    <text x="260" y="422" textAnchor="middle" fill="currentColor" fontSize="8" letterSpacing="3">BELIEVED · CONFESSED · HANDED ON</text>
+  </svg>;
 }
 
-const RAIL_RESTING = (
-  <span className="text-muted">The oldest is Israel's own creed; the newest is the First Vatican Council.</span>
-);
-
-function RailLine({ card, family }: { card: CreedCard; family: CreedFamily }) {
-  return (
-    <>
-      <strong>{card.title}</strong> · {card.yearLabel} · {family.title}
-    </>
-  );
+const scale = [[-1500,0],[100,8],[500,15],[1000,22],[1500,32],[1550,46],[1600,60],[1650,72],[1700,80],[1800,90],[1900,100]];
+function position(year: number) {
+  for (let i=1;i<scale.length;i++) if (year<=scale[i][0]) return scale[i-1][1]+(year-scale[i-1][0])/(scale[i][0]-scale[i-1][0])*(scale[i][1]-scale[i-1][1]);
+  return 100;
 }
 
-function TimeRail({ families, onPick }: { families: CreedFamily[]; onPick: (family: string) => void }) {
-  const [shown, setShown] = useState<{ card: CreedCard; family: CreedFamily } | null>(null);
-  const points = useMemo(
-    () =>
-      families
-        .flatMap((family) => family.documents.map((card) => ({ card, family })))
-        .filter((point) => typeof point.card.year === "number")
-        .sort((a, b) => (a.card.year ?? 0) - (b.card.year ?? 0)),
-    [families],
-  );
-  // The scale changes pace at each of these, so they are the honest places to label it.
-  const marks = [
-    { year: -1500, label: "1500 BC", minor: false },
-    { year: 100, label: "AD 100", minor: true },
-    { year: 500, label: "500", minor: true },
-    { year: 1000, label: "1000", minor: false },
-    { year: 1500, label: "1500", minor: false },
-    { year: 1600, label: "1600", minor: true },
-    { year: 1700, label: "1700", minor: true },
-    { year: 1900, label: "1900", minor: false },
-  ];
-  return (
-    <section className="creed-rail-section" aria-labelledby="creed-rail-title">
-      <div className="creed-section-head">
-        <span className="eyebrow">01 / Across three and a half thousand years</span>
-        <h2 id="creed-rail-title">
-          Every document, <em>in its own moment.</em>
-        </h2>
-        <p>
-          One mark for each of the {points.length} documents that carry a date. Point at a mark to see what it is; choose
-          it to open its family below.
-        </p>
+function Timeline({ entries, onExplore }: { entries: Entry[]; onExplore: (id: string) => void }) {
+  const [selected, setSelected] = useState("nicene-creed-381");
+  const [hovered, setHovered] = useState<string | null>(null);
+  const chartRef = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(820);
+  useEffect(() => {
+    const chart = chartRef.current;
+    if (!chart) return;
+    const observer = new ResizeObserver(([entry]) => setWidth(entry.contentRect.width));
+    observer.observe(chart);
+    return () => observer.disconnect();
+  }, []);
+  const active = entries.find(e=>e.card.id===selected) ?? entries[0];
+  const layout = useMemo(() => {
+    const placed: { entry: Entry; x: number; y: number }[]=[];
+    const levels = Array.from({ length: entries.length }, (_, i) => i === 0 ? 0 : Math.ceil(i / 2) * 40 * (i % 2 ? -1 : 1));
+    for (const entry of [...entries].filter(e=>e.card.year!==null).sort((a,b)=>a.card.year!-b.card.year!)) {
+      const x=34+position(entry.card.year!)*(width-68)/100;
+      const y=levels.find(level=>!placed.some(p=>Math.hypot(p.x-x,p.y-level)<36)) ?? 0;
+      placed.push({entry,x,y});
+    }
+    const minY = Math.min(0, ...placed.map(p => p.y));
+    const maxY = Math.max(0, ...placed.map(p => p.y));
+    return { points: placed.map(p => ({ ...p, y: p.y - minY + 30 })), height: maxY - minY + 94, axis: 30 - minY };
+  },[entries,width]);
+  return <section className="cc-section" id="creed-timeline" aria-labelledby="cc-time-title">
+    <div className="cc-heading"><span className="eyebrow">01 / The faith through time</span><h2 id="cc-time-title">Different centuries.<br/><em>The same enduring questions.</em></h2><p>Explore the documents in their historical moment. Choose a seal to take a closer look.</p></div>
+    <div className="cc-timeline">
+      <div className="cc-chart-wrap">
+        <div className="cc-hover-name" aria-live="polite">{hovered}</div>
+        <div ref={chartRef} className="cc-chart" style={{ height: layout.height, "--guide-height": `${layout.height - 72}px` } as CSSProperties} role="group" aria-label="Dated documents">
+        <div className="cc-axis" style={{ top: layout.axis }}/>
+        {(width < 550 ? [-1500,1500,1700,1900] : [-1500,500,1000,1500,1600,1700,1900]).map(year=><span className="cc-tick" key={year} style={{left:34+position(year)*(width-68)/100}}>{year<0?"1500 BC":`${year} AD`}</span>)}
+        {layout.points.map(({entry,x,y})=><button type="button" key={entry.card.id} className={`cc-time-seal ${selected===entry.card.id?"is-selected":""}`} style={{...tone(entry.family),left:x,top:y}} aria-label={`${entry.card.title}, ${yearWithEra(entry.card.yearLabel)}`} aria-pressed={selected===entry.card.id} onClick={()=>setSelected(entry.card.id)} onFocus={()=>setHovered(entry.card.title)} onBlur={()=>setHovered(null)} onPointerEnter={event=>{if(event.pointerType==="mouse")setHovered(entry.card.title);}} onPointerLeave={()=>setHovered(null)}><span aria-hidden="true">{entry.card.title.replace(/^The /,"").split(/[ ’'-]/).filter(Boolean).slice(0,2).map(w=>w[0]).join("")}</span></button>)}
+      </div></div>
+      <div className="cc-time-detail" style={tone(active.family)}>
+        <div className="cc-detail-top"><CreedFamilyArt kind={active.family.art}/><span>{yearWithEra(active.card.yearLabel)}</span></div>
+        <span className="cc-small-label">{documentTypeLabel(active.card.documentType)}</span><h3 className={active.card.title.length > 55 ? "cc-long-title" : undefined}>{active.card.title}</h3><p>{active.family.title}</p>
+        <div className="cc-detail-figures">{active.card.sections.toLocaleString()} sections <span>·</span> {active.card.references.toLocaleString()} proof-texts</div>
+        <Link className="cc-text-link" to={`/study/creeds/${active.card.id}`}>Read the document <ArrowUpRight size={16}/></Link>
+        <button className="cc-explore" onClick={()=>{onExplore(active.family.id);document.getElementById("creed-catalogue")?.scrollIntoView({behavior:"instant"});}}>Explore this tradition <ArrowDown size={13}/></button>
       </div>
-      <div className="creed-rail">
-        <div className="creed-rail-track" role="group" aria-label="The documents in time">
-          {points.map((point) => (
-            <button
-              key={point.card.id}
-              type="button"
-              className={`creed-rail-mark ${shown?.card.id === point.card.id ? "shown" : ""}`}
-              style={{ left: `${railPosition(point.card.year ?? 0)}%`, "--tone": `var(--${point.family.tone})` } as CSSProperties}
-              onPointerEnter={() => setShown(point)}
-              onPointerLeave={() => setShown(null)}
-              onFocus={() => setShown(point)}
-              onBlur={() => setShown(null)}
-              onClick={() => onPick(point.family.id)}
-            >
-              <span className="sr-only">
-                {point.card.title}, {point.card.yearLabel} — open {point.family.title}
-              </span>
-            </button>
-          ))}
-        </div>
-        <div className="creed-rail-marks" aria-hidden="true">
-          {marks.map((mark) => (
-            <span key={mark.label} className={mark.minor ? "minor" : undefined} style={{ left: `${railPosition(mark.year)}%` }}>
-              {mark.label}
-            </span>
-          ))}
-        </div>
-        <StableTip
-          className="creed-rail-tip"
-          show={shown ? <RailLine card={shown.card} family={shown.family} /> : RAIL_RESTING}
-          options={[RAIL_RESTING, ...points.map((point) => <RailLine key={point.card.id} card={point.card} family={point.family} />)]}
-        />
-      </div>
-    </section>
-  );
+    </div>
+  </section>;
 }
 
-function DocumentCard({ card, tone }: { card: CreedCard; tone: string }) {
-  return (
-    <li className="creed-card" style={{ "--tone": `var(--${tone})` } as CSSProperties}>
-      <Link to={`/study/creeds/${card.id}`}>
-        <div className="creed-card-top">
-          <span>{documentTypeLabel(card.documentType)}</span>
-          <span className="creed-card-year">{card.yearLabel}</span>
-        </div>
-        <h3>{card.title}</h3>
-        {card.tradition ? <p className="creed-card-tradition">{card.tradition}</p> : null}
-        <dl className="creed-card-figures">
-          <div>
-            <dt>{card.documentType === "catechism" ? "Questions" : "Sections"}</dt>
-            <dd>{card.sections.toLocaleString("en-US")}</dd>
-          </div>
-          <div>
-            <dt>Proof-texts</dt>
-            <dd>{card.references.toLocaleString("en-US")}</dd>
-          </div>
-          {card.quotations > 0 && (
-            <div>
-              <dt>Quoted in the Berean text</dt>
-              <dd>{card.quotations.toLocaleString("en-US")}</dd>
-            </div>
-          )}
-        </dl>
-        <span className="creed-card-open">
-          Read it <ArrowUpRight size={16} aria-hidden="true" />
-        </span>
-      </Link>
-    </li>
-  );
+function DocumentCard({ entry, featured=false, number }: { entry: Entry; featured?: boolean; number?: number }) {
+  const {card,family}=entry;
+  return <li className={`cc-document ${featured?"cc-featured-document":""}`} style={tone(family)}><Link to={`/study/creeds/${card.id}`}>
+    <div className="cc-book-art"><span className="cc-small-label">{featured?`A place to begin / 0${number}`:documentTypeLabel(card.documentType)}</span><CreedFamilyArt kind={family.art}/><span className="cc-book-date">{yearWithEra(card.yearLabel)}</span><span className="cc-book-rule"/></div>
+    <div className="cc-book-copy"><span className="cc-small-label">{featured?documentTypeLabel(card.documentType):family.title}</span><h3>{card.title}</h3><p>{card.sections.toLocaleString()} {card.documentType==="catechism"?"questions & sections":card.sections===1?"section":"sections"}{card.references>0?` · ${card.references.toLocaleString()} proof-texts`:""}</p><span className="cc-text-link">Open and read <ArrowUpRight size={16}/></span></div>
+  </Link></li>;
 }
 
 export default function CreedsPage() {
-  const index = useAsync(loadCreedsIndex, "creeds-index");
-  const [params, setParams] = useSearchParams();
-  const [query, setQuery] = useState("");
-  const collection = useRef<HTMLDivElement>(null);
-  const doors = useRef<(HTMLButtonElement | null)[]>([]);
-
-  useEffect(() => {
-    document.title = "Catechisms & Creeds · Study · Bible Project";
-    return () => {
-      document.title = "Bible Project";
-    };
-  }, []);
-
-  if (index.status === "loading") {
-    return (
-      <div className="mx-auto w-full max-w-7xl px-4 py-10">
-        <p className="animate-pulse font-serif text-muted">Loading the creeds…</p>
+  const index=useAsync(loadCreedsIndex,"creeds-index");
+  const [params,setParams]=useSearchParams();
+  useEffect(()=>{document.title="Catechisms & Creeds · Study · Bible Project";return()=>{document.title="Bible Project";};},[]);
+  if(index.status==="loading") return <div className="mx-auto max-w-7xl px-4 py-10"><p className="font-serif text-muted">Opening the collection…</p></div>;
+  if(index.status==="error") return <div className="mx-auto max-w-7xl px-4 py-10"><StudyBackLink/><h1>Catechisms &amp; Creeds</h1><p>This collection could not be loaded. Please try again.</p></div>;
+  const {families,counts,sources,scripture}=index.value;
+  const entries=families.flatMap(family=>family.documents.map(card=>({card,family})));
+  const family=families.find(f=>f.id===params.get("family"));
+  const pick=(id:string)=>{const next=new URLSearchParams(params);if(id==="all")next.delete("family");else next.set("family",id);setParams(next,{preventScrollReset:true});};
+  const found=entries.filter(e=>!family||e.family.id===family.id);
+  const featured=["apostles-creed-710","nicene-creed-381","heidelberg-catechism-1563"].map(id=>entries.find(e=>e.card.id===id)).filter((e):e is Entry=>!!e);
+  return <div className="creeds-page creed-collection"><div className="cc-container">
+    <header className="cc-hero"><div className="cc-hero-copy"><StudyBackLink/><p className="eyebrow">Catechisms &amp; Creeds</p><h1>The faith,<br/><em>said out loud.</em></h1><p className="cc-lead">Words to confess together. Questions to grow into. Explore the creeds, confessions, and catechisms that have given Christian belief a voice across the centuries.</p><nav className="cc-jumps" aria-label="On this page"><a href="#creed-timeline">Through time <ArrowDown size={12}/></a><a href="#creed-first-reads">Begin reading <ArrowDown size={12}/></a><a href="#creed-catalogue">The collection <ArrowDown size={12}/></a></nav></div><ManuscriptArt/></header>
+    <dl className="cc-stats">{[[counts.documents,"Historic documents"],[counts.families,"Traditions & families"],[counts.catechisms,"Catechisms"],[counts.references.toLocaleString(),"Scripture proof-texts"]].map(([n,label])=><div key={label}><dd>{n}</dd><dt>{label}</dt></div>)}</dl>
+    <Timeline entries={entries} onExplore={pick}/>
+    <section className="cc-section" id="creed-first-reads" aria-labelledby="cc-begin-title"><div className="cc-heading cc-heading-row"><div><span className="eyebrow">02 / A few open doors</span><h2 id="cc-begin-title">Start with <em>the familiar.</em></h2></div><p>A short confession, a shared statement of faith, or a catechism to take one question at a time.</p></div><ul className="cc-featured">{featured.map((entry,i)=><DocumentCard key={entry.card.id} entry={entry} featured number={i+1}/>)}</ul></section>
+    <section className="cc-section" id="creed-catalogue" aria-labelledby="cc-catalogue-title"><div className="cc-heading"><span className="eyebrow">03 / The complete collection</span><h2 id="cc-catalogue-title">Many traditions.<em> Room to read.</em></h2><p>Browse a family, find a familiar title, or discover a document you have yet to open.</p></div>
+      <div className="cc-catalogue">
+        <div className="cc-families" role="group" aria-label="Filter by tradition">
+          <button className={!family?"active":""} aria-pressed={!family} onClick={()=>pick("all")}><BookOpen size={22}/><span>All documents</span><small>{counts.documents}</small></button>
+          {families.map(f=><button key={f.id} className={family?.id===f.id?"active":""} style={tone(f)} aria-pressed={family?.id===f.id} onClick={()=>pick(f.id)}><CreedFamilyArt kind={f.art}/><span>{f.title}</span><small>{f.documents.length}</small></button>)}
+        </div>
+        <div className="cc-scroll"><ul className="cc-document-grid" aria-label={family?`${family.title} documents`:"All documents"}>{found.map(entry=><DocumentCard key={entry.card.id} entry={entry}/>)}</ul></div>
       </div>
-    );
-  }
-  if (index.status === "error") {
-    return (
-      <div className="mx-auto w-full max-w-7xl px-4 py-10">
-        <StudyBackLink />
-        <h1 className="mt-4 font-serif text-3xl font-semibold">Catechisms &amp; Creeds</h1>
-        <p className="mt-3 text-muted">This collection could not be loaded. Please try again.</p>
-      </div>
-    );
-  }
-
-  const { families, counts, scripture, sources } = index.value;
-  const asked = params.get("family");
-  const family = families.find((candidate) => candidate.id === asked) ?? families[0];
-
-  const found = query.trim()
-    ? families
-        .flatMap((candidate) => candidate.documents.map((card) => ({ card, family: candidate })))
-        .filter(
-          (point) =>
-            point.card.title.toLowerCase().includes(query.trim().toLowerCase()) ||
-            (point.card.tradition ?? "").toLowerCase().includes(query.trim().toLowerCase()),
-        )
-    : [];
-
-  const pick = (id: string) => {
-    const next = new URLSearchParams(params);
-    next.set("family", id);
-    setParams(next);
-    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      collection.current?.animate(
-        [
-          { opacity: 0.35, transform: "translateY(8px)" },
-          { opacity: 1, transform: "translateY(0)" },
-        ],
-        { duration: 240, easing: "ease-out" },
-      );
-    }
-  };
-
-  return (
-    <div className="creeds-page">
-      <div className="mx-auto w-full max-w-7xl px-4 pb-16">
-        <header className="creed-intro">
-          <StudyBackLink />
-          <p className="eyebrow">God &amp; Christian Faith · Catechisms &amp; Creeds</p>
-          <h1>
-            The faith, <em>said out loud.</em>
-          </h1>
-          <p className="creed-lead">
-            For as long as there have been Christians, they have written down what they believe — in creeds short enough
-            to say together, in confessions that settled an argument, and in catechisms that taught a child one question
-            at a time. Here are {counts.documents} of them in full, from Israel's own creed to the First Vatican Council.
-          </p>
-          <dl className="creed-figures">
-            <div>
-              <dt>Documents</dt>
-              <dd>{counts.documents}</dd>
-            </div>
-            <div>
-              <dt>Catechisms</dt>
-              <dd>{counts.catechisms}</dd>
-            </div>
-            <div>
-              <dt>Questions &amp; sections</dt>
-              <dd>{counts.sections.toLocaleString("en-US")}</dd>
-            </div>
-            <div>
-              <dt>Scripture proof-texts</dt>
-              <dd>{counts.references.toLocaleString("en-US")}</dd>
-            </div>
-          </dl>
-          <p className="creed-scripture-note">
-            Scripture is shown in the <strong>{scripture.title}</strong>, a modern translation given to the public domain
-            in 2023. Where one of these documents quotes a verse, that quotation is given in the Berean wording wherever
-            it could be matched word for word — {counts.quotations.toLocaleString("en-US")} places in all. Where it could
-            not, the document keeps its own older wording and the page says so, rather than guessing.
-          </p>
-        </header>
-
-        <TimeRail families={families} onPick={pick} />
-
-        <section className="creed-families-section" aria-labelledby="creed-families-title">
-          <div className="creed-section-head">
-            <span className="eyebrow">02 / Twelve shelves</span>
-            <h2 id="creed-families-title">
-              Choose a tradition. <em>Open its shelf.</em>
-            </h2>
-            <p>Each shelf opens in place, below. The documents inside are in the order they were written.</p>
-          </div>
-
-          <label className="creed-search">
-            <span className="sr-only">Search every creed, confession and catechism</span>
-            <input
-              type="search"
-              value={query}
-              placeholder="Search by name or tradition"
-              onChange={(event) => setQuery(event.target.value)}
-            />
-          </label>
-          {query.trim() ? (
-            <div className="creed-found" aria-live="polite">
-              <p>
-                {found.length === 0
-                  ? "Nothing of that name here."
-                  : `${found.length} ${found.length === 1 ? "document" : "documents"}`}
-              </p>
-              <ul>
-                {found.map((point) => (
-                  <li key={point.card.id}>
-                    <Link to={`/study/creeds/${point.card.id}`}>
-                      <strong>{point.card.title}</strong>
-                      <span>
-                        {point.card.yearLabel} · {point.family.title}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-
-          <div className="creed-doors" role="group" aria-label="Families of documents">
-            {families.map((candidate, position) => (
-              <button
-                key={candidate.id}
-                ref={(element) => {
-                  doors.current[position] = element;
-                }}
-                type="button"
-                className={`creed-door ${candidate.id === family.id ? "selected" : ""}`}
-                style={{ "--tone": `var(--${candidate.tone})` } as CSSProperties}
-                aria-expanded={candidate.id === family.id}
-                aria-controls="creed-shelf"
-                onClick={() => pick(candidate.id)}
-                onKeyDown={(event) => {
-                  const next =
-                    event.key === "ArrowRight"
-                      ? (position + 1) % families.length
-                      : event.key === "ArrowLeft"
-                        ? (position + families.length - 1) % families.length
-                        : event.key === "Home"
-                          ? 0
-                          : event.key === "End"
-                            ? families.length - 1
-                            : null;
-                  if (next !== null) {
-                    event.preventDefault();
-                    doors.current[next]?.focus();
-                  }
-                }}
-              >
-                <CreedFamilyArt kind={candidate.art} />
-                <strong>{candidate.title}</strong>
-                <small>
-                  {candidate.documents.length} · {candidate.span}
-                </small>
-              </button>
-            ))}
-          </div>
-
-          <div ref={collection} className="creed-shelf" id="creed-shelf" style={{ "--tone": `var(--${family.tone})` } as CSSProperties}>
-            <div className="creed-shelf-head">
-              <h3>{family.title}</h3>
-              <p>{family.lead}</p>
-            </div>
-            <ul className="creed-cards">
-              {family.documents.map((card) => (
-                <DocumentCard key={card.id} card={card} tone={family.tone} />
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <footer className="creed-credits">
-          <h2>Where these texts come from</h2>
-          <ul>
-            {sources.map((source) => (
-              <li key={source.slug}>
-                <a href={source.url} target="_blank" rel="noopener noreferrer">
-                  {source.title}
-                </a>
-                <span>
-                  {source.publisher ? `${source.publisher} · ` : ""}
-                  {source.licence}
-                </span>
-              </li>
-            ))}
-            <li>
-              <a href={scripture.home ?? "https://berean.bible/"} target="_blank" rel="noopener noreferrer">
-                {scripture.title}
-              </a>
-              <span>{scripture.licence}</span>
-            </li>
-          </ul>
-          <p>
-            Every source, with its licence and checksum, is listed in the project's own source register. The documents
-            themselves are historic texts, long out of copyright; the editions they were transcribed from are credited
-            above and on each document's own page.
-          </p>
-        </footer>
-      </div>
-    </div>
-  );
+    </section>
+    <footer className="cc-sources"><div><span className="eyebrow">Preserved &amp; passed on</span><h2>Old words.<br/><em>Open to everyone.</em></h2><p>The historic texts are credited to their source editions. Find individual attributions and reading notes on each document’s page.</p></div><div><h3>Where these texts come from</h3><ul>{sources.map(s=><li key={s.slug}><a href={s.url} target="_blank" rel="noopener noreferrer">{s.title}<ArrowUpRight size={14}/></a><span>{s.publisher?`${s.publisher} · `:""}{s.licence}</span></li>)}<li><a href={scripture.home??"https://berean.bible/"} target="_blank" rel="noopener noreferrer">{scripture.title}<ArrowUpRight size={14}/></a><span>{scripture.licence}</span></li></ul><details><summary>A note on Scripture quotations</summary><p>Scripture is shown in the {scripture.title}, given to the public domain in 2023. Matched quotations use the Berean wording in {counts.quotations.toLocaleString()} places. Where a match could not be made with confidence, the document retains its older wording and the reader explains why. The collection contains {counts.sections.toLocaleString()} questions and sections. Sources, licences, and checksums are recorded in the project’s source register.</p></details></div></footer>
+  </div></div>;
 }
