@@ -1,0 +1,155 @@
+/* Hymns card · six directions. The card shell copies the live Study card (src/pages/study/study.css, .study-resource),
+   with one change the owner asked for: the description runs the full width of the card. */
+#main { width: min(1320px, 100%); margin: auto; padding: 30px 28px 72px; }
+.back { font-size: 12px; color: var(--muted); }
+.back:hover { color: var(--accent); }
+.intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin: 26px 0 34px; }
+.eyebrow { color: var(--accent); font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 12px; }
+.intro h1 { font: 500 clamp(32px, 4vw, 50px)/1.15 var(--serif); letter-spacing: -.04em; margin: 0; }
+.intro h1 em { color: var(--accent); font-weight: 400; }
+.intro > p { max-width: 380px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+.directions { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 22px; }
+.direction { display: grid; grid-row: span 2; grid-template-rows: subgrid; min-width: 0; margin-bottom: 32px; }
+.direction-label { display: flex; align-items: baseline; gap: 14px; }
+.direction-label b { font: 400 26px/1 var(--serif); color: var(--accent); }
+.direction-label strong { display: block; font: 500 17px/1.3 var(--serif); }
+.direction-label span { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+
+/* The card: the live Study card's shell. */
+.card { --tone: var(--poetry); display: flex; container-type: inline-size; }
+.card-link { width: 100%; display: flex; flex-direction: column; position: relative; isolation: isolate; overflow: hidden; border: 1px solid color-mix(in srgb, var(--tone) 20%, var(--line)); border-radius: 1rem; background: linear-gradient(155deg, color-mix(in srgb, var(--tone) 8%, var(--surface)), var(--surface) 65%); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.card-link:hover { transform: translateY(-4px); border-color: var(--tone); box-shadow: 0 14px 35px -22px color-mix(in srgb, var(--tone) 50%, transparent); }
+.card-top { position: relative; z-index: 1; padding: 1.35rem 1.5rem 0; color: var(--tone); font-size: .62rem; font-weight: 600; text-transform: uppercase; letter-spacing: .16em; }
+.card-copy { display: flex; flex: 1; flex-direction: column; padding: .75rem 1.5rem 1.25rem; }
+.card-copy h2 { margin: 0; font: 500 1.45rem/1.35 var(--serif); letter-spacing: -.025em; }
+.card-copy > p { margin: .65rem 0 1.25rem; color: var(--muted); font-size: .85rem; line-height: 1.7; max-width: none; }
+.card-foot { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin-top: auto; padding-top: .75rem; border-top: 1px solid color-mix(in srgb, var(--tone) 13%, transparent); }
+.card-foot > span:first-child { color: var(--muted); font-size: .64rem; line-height: 1.5; }
+.card-open { display: grid; place-items: center; flex-shrink: 0; height: 2rem; width: 2rem; border-radius: 50%; color: var(--tone); background: color-mix(in srgb, var(--tone) 9%, transparent); transition: color .25s, background .25s, transform .25s; }
+.card-link:hover .card-open { transform: rotate(45deg); color: var(--surface); background: var(--tone); }
+
+.art { position: relative; height: 232px; margin: .75rem 1.25rem 0; color: var(--tone); overflow: hidden; }
+.art svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.art-note { position: absolute; bottom: .35rem; left: 0; right: 0; text-align: center; font-size: .59rem; letter-spacing: .11em; text-transform: uppercase; color: var(--muted); }
+.serif-t { font-family: var(--serif); }
+
+/* 01 · Sung in metre */
+.metre { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 22px; height: 100%; padding-bottom: 26px; }
+.metre-stanza { display: flex; flex-direction: column; justify-content: center; gap: 15px; }
+.metre-line { display: flex; align-items: flex-start; gap: 0; }
+.metre-line .count { width: 26px; flex-shrink: 0; font: 400 17px/20px var(--serif); color: var(--muted); }
+.metre-syl { flex: 0 0 auto; width: 42px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.metre-syl i { width: 11px; height: 11px; border-radius: 50%; border: 1.25px solid currentColor; opacity: .38; transition: opacity .25s, transform .25s, background .25s; }
+.metre-syl small { font: italic 400 12.5px/1.1 var(--serif); color: var(--muted); opacity: .55; transition: opacity .25s, color .25s; white-space: nowrap; }
+.metre-syl.sung i { opacity: .7; background: color-mix(in srgb, currentColor 35%, transparent); }
+.metre-syl.sung small { opacity: .85; }
+.metre-syl.now i { opacity: 1; background: currentColor; transform: scale(1.35); }
+.metre-syl.now small { opacity: 1; color: var(--ink); }
+.metre-key { display: flex; flex-direction: column; justify-content: center; gap: 13px; padding-left: 20px; border-left: 1px solid var(--line); }
+.metre-key h3 { margin: 0 0 2px; font-size: .56rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.metre-row { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; align-items: baseline; }
+.metre-row strong { font: 400 13px/1.2 var(--serif); }
+.metre-row em { font-style: normal; font: 400 15px/1 var(--serif); color: var(--tone); font-variant-numeric: tabular-nums; }
+.metre-row .shape { grid-column: 1 / -1; display: flex; gap: 3px; align-items: flex-end; height: 10px; }
+.metre-row .shape b { width: 4px; border-radius: 1px; background: currentColor; opacity: .55; }
+.metre-row.on .shape b { opacity: 1; }
+.metre-row.on strong { color: var(--tone); }
+@container (max-width: 560px) { .metre { grid-template-columns: 1fr; } .metre-key { display: none; } .metre-syl { width: 36px; } }
+@container (max-width: 400px) { .metre-syl { width: 31px; } .metre-syl small { font-size: 10.5px; } .metre-line .count { width: 20px; } }
+
+/* 02 · Organ pipes */
+.pipe { transition: opacity .3s; }
+.pipes-sounding .pipe { animation: pipe-sound 7s ease-in-out infinite; }
+@keyframes pipe-sound { 0%, 30%, 100% { opacity: .62; } 12% { opacity: 1; } }
+.pipe-label { font: 400 11px var(--serif); fill: var(--ink); }
+.pipe-label.n { fill: var(--muted); font-family: var(--sans); font-size: 9px; }
+.pipe-section { font: 600 7.5px var(--sans); letter-spacing: .12em; fill: var(--muted); text-transform: uppercase; }
+
+/* 03 · The Psalter turning */
+.psalter { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 18px; height: 100%; padding-bottom: 24px; align-items: center; }
+.psalter svg { height: 206px; }
+.psalter .tick { transition: opacity .5s, stroke-width .5s; }
+.psalter .tick.on { opacity: 1 !important; stroke-width: 3.2; }
+.psalter .arm { transition: transform 1.1s cubic-bezier(.45, 0, .2, 1); transform-origin: 110px 103px; }
+.psalter-read { min-width: 0; }
+.psalter-read small { display: block; font-size: .56rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.psalter-read .num { display: flex; align-items: baseline; gap: 10px; margin: 2px 0 6px; }
+.psalter-read .num b { font: 400 54px/1 var(--serif); letter-spacing: -.04em; color: var(--tone); }
+.psalter-read .num span { color: var(--muted); font-size: 12px; }
+.psalter-read q { display: block; font: italic 400 18px/1.35 var(--serif); color: var(--ink); quotes: "“" "”"; }
+.psalter-read p { margin: 6px 0 0; color: var(--muted); font-size: 11px; }
+.psalter-read .fade { transition: opacity .45s; }
+.psalter-read.swap .fade { opacity: 0; }
+@container (max-width: 500px) { .psalter { grid-template-columns: 150px minmax(0, 1fr); gap: 12px; } .psalter svg { height: 150px; } .psalter-read .num b { font-size: 40px; } .psalter-read q { font-size: 15px; } }
+
+/* 04 · First lines */
+.first { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 0 .25rem 26px; }
+.first-year { position: absolute; right: -6px; top: -14px; font: 400 128px/1 var(--serif); letter-spacing: -.05em; color: var(--tone); opacity: .07; transition: opacity .6s; pointer-events: none; }
+.first-line { position: relative; margin: 0; min-height: 2.6em; font: italic 400 clamp(20px, 5.4cqi, 30px)/1.25 var(--serif); letter-spacing: -.02em; color: var(--ink); }
+.first-line span { opacity: 0; transition: opacity .35s ease; }
+.first-line span.in { opacity: 1; }
+.first-who { position: relative; margin-top: 8px; color: var(--muted); font-size: 11px; letter-spacing: .02em; transition: opacity .5s; }
+.first-join { display: flex; align-items: flex-start; gap: 12px; margin-top: 14px; position: relative; }
+.first-join .rule { width: 34px; height: 1px; margin-top: 9px; background: var(--tone); transform-origin: left; transform: scaleX(0); transition: transform .7s ease; flex-shrink: 0; }
+.first-join.in .rule { transform: scaleX(1); }
+.first-join blockquote { margin: 0; color: var(--muted); font: 400 13px/1.55 var(--serif); opacity: 0; transition: opacity .7s ease .35s; }
+.first-join blockquote cite { display: block; margin-top: 2px; font: 600 9.5px var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--tone); font-style: normal; }
+.first-join.in blockquote { opacity: 1; }
+.first-dots { position: absolute; left: .25rem; bottom: 30px; display: flex; gap: 6px; }
+.first-dots i { width: 14px; height: 2px; border-radius: 1px; background: var(--line); transition: background .4s, width .4s; }
+.first-dots i.on { width: 26px; background: var(--tone); }
+.first.out .first-line span, .first.out .first-join blockquote, .first.out .first-who { opacity: 0; transition-duration: .5s; transition-delay: 0s; }
+.first.out .first-join .rule { transform: scaleX(0); }
+
+/* 05 · Rung out: Amazing Grace's echoes */
+.ring-arc { fill: none; stroke: currentColor; stroke-opacity: .28; stroke-width: 1; }
+.ring-numeral { font: 400 11px var(--serif); fill: var(--muted); text-anchor: middle; }
+.echo-dot { fill: var(--surface); stroke: currentColor; stroke-width: 1.4; }
+.echo-ref { font: 400 9.5px var(--sans); fill: var(--muted); }
+.echo-words { font: italic 400 10px var(--serif); fill: var(--ink); opacity: .75; }
+.ringing .echo { animation: echo-lit 6s ease-out infinite; }
+@keyframes echo-lit { 0%, 100% { opacity: .55; } 6% { opacity: 1; } 30% { opacity: .55; } }
+.ringing .echo .echo-dot { animation: echo-fill 6s ease-out infinite; animation-delay: inherit; }
+@keyframes echo-fill { 0%, 100% { fill: var(--surface); } 6% { fill: currentColor; } 30% { fill: var(--surface); } }
+.pulse { fill: none; stroke: currentColor; stroke-width: 1.2; vector-effect: non-scaling-stroke; opacity: 0; }
+.ringing .pulse { animation: pulse 6s linear infinite; transform-box: fill-box; transform-origin: 50% 50%; }
+.echo-halo { opacity: 0; transition: opacity .4s; }
+.echo.on .echo-halo { opacity: .7; }
+.echo.on .echo-ref { fill: var(--ink); font-weight: 600; }
+.ring-read { position: absolute; left: 0; right: 0; bottom: .2rem; text-align: center; font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: opacity .4s; }
+.ring-read em { font: 400 12px var(--serif); color: var(--tone); font-style: normal; margin-right: 2px; }
+.ring-read i { font-family: var(--serif); color: var(--ink); }
+.ring-read b { font-weight: 600; color: var(--tone); }
+.echo-ref { paint-order: stroke; stroke: var(--surface); stroke-width: 3px; }
+@keyframes pulse { 0% { transform: scale(.05); opacity: .8; } 85% { opacity: .15; } 100% { transform: scale(1); opacity: 0; } }
+.ringing .bell { animation: bell-swing 6s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 0; }
+@keyframes bell-swing { 0%, 100% { transform: rotate(0); } 4% { transform: rotate(-7deg); } 10% { transform: rotate(5deg); } 17% { transform: rotate(-2.5deg); } 24% { transform: rotate(0); } }
+@container (max-width: 500px) { .echo-words { display: none; } }
+
+/* 06 · Olney, 1 January 1773 */
+.scene { fill: none; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; }
+.scene .fine { stroke-width: .8; opacity: .65; }
+.scene .faint { stroke-width: .7; opacity: .32; }
+.scene .paper { fill: var(--surface); }
+.scene .wash { fill: currentColor; fill-opacity: .05; stroke: none; }
+.scene .peal { opacity: 0; animation: peal 5.4s ease-out infinite; transform-box: fill-box; transform-origin: 50% 50%; }
+.scene .peal:nth-of-type(2) { animation-delay: 1.8s; }
+.scene .peal:nth-of-type(3) { animation-delay: 3.6s; }
+@keyframes peal { 0% { opacity: 0; transform: scale(.5); } 15% { opacity: .75; } 100% { opacity: 0; transform: scale(1.6); } }
+.scene .water { animation: water 9s ease-in-out infinite; }
+.scene .water:nth-of-type(2n) { animation-duration: 12s; animation-direction: reverse; }
+@keyframes water { 50% { transform: translateX(7px); } }
+.scene .smoke { stroke-dasharray: 4 6; animation: smoke 6s linear infinite; }
+@keyframes smoke { to { stroke-dashoffset: -60; } }
+.scene .bird { animation: bird 26s linear infinite; }
+.scene .bird + .bird { animation-duration: 31s; animation-delay: -12s; }
+@keyframes bird { from { transform: translate(-60px, 8px); } 50% { transform: translate(300px, -6px); } to { transform: translate(660px, 4px); } }
+.scene .wing { animation: wing 1.4s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+@keyframes wing { 50% { transform: scaleY(.45); } }
+.scene-caption { font: italic 400 12px var(--serif); fill: var(--muted); }
+
+@media (max-width: 960px) { .directions { grid-template-columns: 1fr; } }
+.tick-label { font: 400 8px var(--sans); fill: var(--muted); }
+@media (max-width: 640px) { #main { padding-inline: 16px; } .intro { display: block; } .intro > p { margin-top: 14px; } .art { margin-inline: 1rem; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

@@ -1,0 +1,16 @@
+/* The two wrappers the real section sits in (src/pages/study/hub/hub.css: .study-experience, .study-experience .branch),
+   and this page's own labels between the copies. Nothing here touches the section or its cards. */
+.study-experience { --sans: var(--font-sans); --serif: var(--font-serif); --mono: ui-monospace, monospace; color: var(--ink); font-family: var(--sans); }
+.study-experience .branch { max-width: var(--site-content-width); padding: 0 var(--site-gutter) 70px; margin: auto; }
+@media (max-width: 1000px) { .study-experience .branch { padding-inline: 25px; } }
+@media (max-width: 700px) { .study-experience .branch { padding: 0 20px 45px; } }
+
+.m2-head { max-width: var(--site-content-width); margin: 0 auto; padding: 30px var(--site-gutter) 10px; }
+.m2-head a { font-size: 12px; color: var(--muted); }
+.m2-head h1 { margin: 18px 0 8px; font: 500 clamp(30px, 3.6vw, 46px)/1.15 var(--font-serif); letter-spacing: -.04em; }
+.m2-head h1 em { color: var(--accent); font-weight: 400; }
+.m2-head p { max-width: 70ch; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.m2-label { display: flex; align-items: baseline; gap: 14px; padding: 46px 0 18px; border-top: 1px dashed var(--line); margin-top: 30px; }
+.m2-label b { font: 400 26px/1 var(--font-serif); color: var(--accent); }
+.m2-label strong { display: block; font: 500 17px/1.3 var(--font-serif); }
+.m2-label span { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; line-height: 1.55; }

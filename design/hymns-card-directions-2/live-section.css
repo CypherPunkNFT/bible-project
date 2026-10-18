@@ -1,0 +1,253 @@
+/* Captured from the running site (http://127.0.0.1:8931/study/theology?area=life, 2026-10-18): every rule that
+   styles the Living the Christian Life section, plus the site's :root tokens and fonts. Do not edit; recapture instead. */
+html[data-site-page-slide] #main { view-transition-name: site-page; background: var(--page); }
+html[data-site-page-slide] [data-site-header] { view-transition-name: site-header; }
+html[data-site-page-slide]::view-transition { pointer-events: none; }
+html[data-site-page-slide]::view-transition-old(root) { display: none; }
+html[data-site-page-slide]::view-transition-new(root), html[data-site-page-slide]::view-transition-group(site-page) { animation: auto ease 0s 1 normal none running none; }
+html[data-site-page-slide]::view-transition-old(site-page) { translate: 0 var(--site-old-shift,0px); }
+html[data-topics-slide][data-topics-morph] [data-topics-morph], html[data-places-slide][data-places-morph] [data-places-morph] { view-transition-name: none !important; }
+@keyframes site-page-lift-out { 
+  100% { opacity: 0; transform: translateY(-14px); }
+}
+@keyframes site-page-rise-in { 
+  0% { opacity: 0; transform: translateY(28px); }
+}
+html:is([data-site-page-slide], [data-ap-section-slide], [data-memory-page-slide], [data-study-slide], [data-teacher-slide], [data-resource-slide], [data-places-slide], [data-people-slide], [data-topics-slide]) [data-site-header] { view-transition-name: site-header; }
+html[data-ap-section-slide] .ap-route-content { view-transition-name: ap-section-page; background: var(--page); }
+html[data-ap-section-slide]::view-transition { pointer-events: none; }
+html[data-ap-section-slide]::view-transition-old(root) { display: none; }
+html[data-ap-section-slide]::view-transition-new(root), html[data-ap-section-slide]::view-transition-group(ap-section-page) { animation: auto ease 0s 1 normal none running none; }
+html[data-ap-section-slide]::view-transition-old(ap-section-page) { translate: 0 var(--ap-old-shift, 0px); }
+html[data-ap-section-slide]::view-transition-old(ap-section-page), html[data-ap-section-slide]::view-transition-new(ap-section-page) { height: auto; mix-blend-mode: normal; animation-fill-mode: both; }
+html[data-ap-section-slide="1"]::view-transition-old(ap-section-page) { animation: 0.2s ease 0s 1 normal both running ap-page-fade-out; }
+html[data-ap-section-slide="1"]::view-transition-new(ap-section-page) { animation: 0.39s ease 70ms 1 normal both running ap-page-fade-in; }
+html[data-ap-section-slide="2"]::view-transition-old(ap-section-page) { animation: 0.46s ease 0s 1 normal both running ap-page-dim; }
+html[data-ap-section-slide="2"]::view-transition-new(ap-section-page) { animation: 0.59s cubic-bezier(0.65, 0, 0.35, 1) 0s 1 normal both running ap-page-circle; }
+html[data-ap-section-slide="3"]::view-transition-old(ap-section-page) { animation: 0.26s ease 0s 1 normal both running ap-page-lift-out; }
+html[data-ap-section-slide="3"]::view-transition-new(ap-section-page) { animation: 0.44s cubic-bezier(0.22, 1, 0.36, 1) 50ms 1 normal both running ap-page-rise-in; }
+html[data-ap-section-slide="4"]::view-transition-old(ap-section-page) { animation: 0.31s ease 0s 1 normal both running ap-page-left-out; }
+html[data-ap-section-slide="4"]::view-transition-new(ap-section-page) { animation: 0.46s cubic-bezier(0.22, 1, 0.36, 1) 50ms 1 normal both running ap-page-right-in; }
+@keyframes ap-page-fade-out { 
+  100% { opacity: 0; }
+}
+@keyframes ap-page-fade-in { 
+  0% { opacity: 0; transform: scale(0.985); }
+}
+@keyframes ap-page-dim { 
+  100% { opacity: 0.45; }
+}
+@keyframes ap-page-circle { 
+  0% { clip-path: circle(0px at 50% 0px); }
+  100% { clip-path: circle(160% at 50% 0px); }
+}
+@keyframes ap-page-lift-out { 
+  100% { opacity: 0; transform: translateY(-14px); }
+}
+@keyframes ap-page-rise-in { 
+  0% { opacity: 0; transform: translateY(28px); }
+}
+@keyframes ap-page-left-out { 
+  100% { opacity: 0; transform: translate(-24px); }
+}
+@keyframes ap-page-right-in { 
+  0% { opacity: 0; transform: translate(34px); }
+}
+@media (prefers-reduced-motion: reduce) { html[data-ap-section-slide]::view-transition-old(ap-section-page), html[data-ap-section-slide]::view-transition-new(ap-section-page) { animation: auto ease 0s 1 normal none running none !important; } }
+html[data-memory-page-slide] #main { view-transition-name: ap-section-page; background: var(--page); }
+@keyframes home-marquee { 
+  100% { transform: translate(var(--home-marquee-shift, -50%)); }
+}
+@font-face { font-family: "Archivo Variable"; font-style: normal; font-display: swap; font-weight: 100 900; src: url("/assets/archivo-vietnamese-wght-normal-XAtsl5Q_.woff2") format("woff2-variations"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+@font-face { font-family: "Archivo Variable"; font-style: normal; font-display: swap; font-weight: 100 900; src: url("/assets/archivo-latin-ext-wght-normal-C4zznr8T.woff2") format("woff2-variations"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Archivo Variable"; font-style: normal; font-display: swap; font-weight: 100 900; src: url("/assets/archivo-latin-wght-normal-E0tuGl4L.woff2") format("woff2-variations"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Archivo Variable"; font-style: normal; font-display: swap; font-weight: 100 900; font-stretch: 62% 125%; src: url("/assets/archivo-vietnamese-wdth-normal-rJmnGBSt.woff2") format("woff2-variations"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+@font-face { font-family: "Archivo Variable"; font-style: normal; font-display: swap; font-weight: 100 900; font-stretch: 62% 125%; src: url("/assets/archivo-latin-ext-wdth-normal-7khWdh9v.woff2") format("woff2-variations"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Archivo Variable"; font-style: normal; font-display: swap; font-weight: 100 900; font-stretch: 62% 125%; src: url("/assets/archivo-latin-wdth-normal-DY7AcnAa.woff2") format("woff2-variations"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Literata Variable"; font-style: normal; font-display: swap; font-weight: 200 900; src: url("/assets/literata-cyrillic-ext-opsz-normal-C5tfwALZ.woff2") format("woff2-variations"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+@font-face { font-family: "Literata Variable"; font-style: normal; font-display: swap; font-weight: 200 900; src: url("/assets/literata-cyrillic-opsz-normal-DgmypKXX.woff2") format("woff2-variations"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+@font-face { font-family: "Literata Variable"; font-style: normal; font-display: swap; font-weight: 200 900; src: url("/assets/literata-greek-ext-opsz-normal-DGm64vGR.woff2") format("woff2-variations"); unicode-range: U+1F00-1FFF; }
+@font-face { font-family: "Literata Variable"; font-style: normal; font-display: swap; font-weight: 200 900; src: url("/assets/literata-greek-opsz-normal-DFglUmAd.woff2") format("woff2-variations"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+@font-face { font-family: "Literata Variable"; font-style: normal; font-display: swap; font-weight: 200 900; src: url("/assets/literata-vietnamese-opsz-normal-Gqw5JQlq.woff2") format("woff2-variations"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+@font-face { font-family: "Literata Variable"; font-style: normal; font-display: swap; font-weight: 200 900; src: url("/assets/literata-latin-ext-opsz-normal-STiTPs0F.woff2") format("woff2-variations"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Literata Variable"; font-style: normal; font-display: swap; font-weight: 200 900; src: url("/assets/literata-latin-opsz-normal-BHZsWIlc.woff2") format("woff2-variations"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Literata Variable"; font-style: italic; font-display: swap; font-weight: 200 900; src: url("/assets/literata-cyrillic-ext-opsz-italic-5yUt4G_9.woff2") format("woff2-variations"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+@font-face { font-family: "Literata Variable"; font-style: italic; font-display: swap; font-weight: 200 900; src: url("/assets/literata-cyrillic-opsz-italic-Bj0ndbyp.woff2") format("woff2-variations"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+@font-face { font-family: "Literata Variable"; font-style: italic; font-display: swap; font-weight: 200 900; src: url("/assets/literata-greek-ext-opsz-italic-DFpO5j-Z.woff2") format("woff2-variations"); unicode-range: U+1F00-1FFF; }
+@font-face { font-family: "Literata Variable"; font-style: italic; font-display: swap; font-weight: 200 900; src: url("/assets/literata-greek-opsz-italic-CHERNRFq.woff2") format("woff2-variations"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+@font-face { font-family: "Literata Variable"; font-style: italic; font-display: swap; font-weight: 200 900; src: url("/assets/literata-vietnamese-opsz-italic-BdcrZMcO.woff2") format("woff2-variations"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+@font-face { font-family: "Literata Variable"; font-style: italic; font-display: swap; font-weight: 200 900; src: url("/assets/literata-latin-ext-opsz-italic-4y8iAqqs.woff2") format("woff2-variations"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Literata Variable"; font-style: italic; font-display: swap; font-weight: 200 900; src: url("/assets/literata-latin-opsz-italic-CJ93D38p.woff2") format("woff2-variations"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Noto Serif Hebrew"; font-style: normal; font-display: swap; font-weight: 400; src: url("/assets/noto-serif-hebrew-hebrew-400-normal-v_xU1ROG.woff2") format("woff2"), url("/assets/noto-serif-hebrew-hebrew-400-normal-jyUp5Tfv.woff") format("woff"); unicode-range: U+307-308, U+590-5FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
+@font-face { font-family: "Noto Serif Hebrew"; font-style: normal; font-display: swap; font-weight: 400; src: url("/assets/noto-serif-hebrew-latin-ext-400-normal-BiXgBxzW.woff2") format("woff2"), url("/assets/noto-serif-hebrew-latin-ext-400-normal-DPDY_J25.woff") format("woff"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Noto Serif Hebrew"; font-style: normal; font-display: swap; font-weight: 400; src: url("/assets/noto-serif-hebrew-latin-400-normal-D22OmSTw.woff2") format("woff2"), url("/assets/noto-serif-hebrew-latin-400-normal-BWkL_LQQ.woff") format("woff"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+:root { --worldview-secular: #26733e; --worldview-buddhism: #995011; --worldview-hinduism: #3d57a3; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --worldview-secular: #62b781; --worldview-buddhism: #efa057; --worldview-hinduism: #80a4ee; } }
+:root[data-theme="dark"] { --worldview-secular: #62b781; --worldview-buddhism: #efa057; --worldview-hinduism: #80a4ee; }
+*, ::before, ::after { --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / .5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; }
+*, ::before, ::after { box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); }
+::before, ::after { --tw-content: ""; }
+html, :host { line-height: 1.5; text-size-adjust: 100%; tab-size: 4; font-family: var(--font-sans); font-feature-settings: normal; font-variation-settings: normal; -webkit-tap-highlight-color: transparent; }
+body { margin: 0px; line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
+a { color: inherit; text-decoration: inherit; }
+::-webkit-inner-spin-button, ::-webkit-outer-spin-button { height: auto; }
+::-webkit-search-decoration { appearance: none; }
+::-webkit-file-upload-button { appearance: button; font: inherit; }
+blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre { margin: 0px; }
+ol, ul, menu { list-style: none; margin: 0px; padding: 0px; }
+img, svg, video, canvas, audio, iframe, embed, object { display: block; vertical-align: middle; }
+@keyframes pulse { 
+  50% { opacity: 0.5; }
+}
+@keyframes enter { 
+  0% { opacity: var(--tw-enter-opacity, 1); transform: translate3d(var(--tw-enter-translate-x, 0),var(--tw-enter-translate-y, 0),0) scale3d(var(--tw-enter-scale, 1),var(--tw-enter-scale, 1),var(--tw-enter-scale, 1)) rotate(var(--tw-enter-rotate, 0)); }
+}
+@keyframes exit { 
+  100% { opacity: var(--tw-exit-opacity, 1); transform: translate3d(var(--tw-exit-translate-x, 0),var(--tw-exit-translate-y, 0),0) scale3d(var(--tw-exit-scale, 1),var(--tw-exit-scale, 1),var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0)); }
+}
+:root { --site-content-width: 92rem; --site-gutter: 1rem; --font-sans: "Archivo Variable", system-ui, sans-serif; --font-serif: "Literata Variable", Georgia, "Times New Roman", serif; --font-hebrew: "Noto Serif Hebrew", "SBL Hebrew", "Times New Roman", serif; --page: #f6f1e7; --surface: #fffdf8; --surface-2: #ece4d4; --ink: #1f1b16; --muted: #6b6255; --line: #d9cfbd; --accent: #8a5a12; --red-letter: #b3261e; --resource-life: #3d6b58; --history: #a14d28; --history-tab: #a8502a; --history-box: #f0c3a9; --history-tab-ink: #ffffff; --poetry: #18716a; --poetry-tab: #1b7a71; --poetry-box: #a7dbd3; --poetry-tab-ink: #ffffff; --prophets: #22599f; --prophets-tab: #22599f; --prophets-box: #b5cdee; --prophets-tab-ink: #ffffff; --gospels: #6b38a3; --gospels-tab: #6b38a3; --gospels-box: #d4c1ef; --gospels-tab-ink: #ffffff; --acts: #a3378c; --acts-tab: #a3378c; --acts-box: #efc1e5; --acts-tab-ink: #ffffff; --epistles: #87610a; --epistles-tab: #c48d14; --epistles-box: #f5dd9c; --epistles-tab-ink: #1f1b16; --revelation: #b3263c; --revelation-tab: #b3263c; --revelation-box: #f4b7c0; --revelation-tab-ink: #ffffff; --apocrypha: #5f6670; --apocrypha-tab: #5f6670; --apocrypha-box: #c3c8ce; --apocrypha-tab-ink: #ffffff; --land-north: #aebb98; --land-mid: #cfc99c; --land-south: #e6d29a; --sea: #8fb8d6; --coast: #6f6a4c; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --page: #12110f; --surface: #1b1916; --surface-2: #26231f; --ink: #ece6da; --muted: #a39a8b; --line: #36322c; --accent: #e0b25c; --red-letter: #ff7a6e; --resource-life: #80c498; --history: #ec9670; --history-tab: #a8502a; --history-box: color-mix(in srgb, #f0c3a9 62%, #12110f); --history-tab-ink: #ffffff; --poetry: #5fc6ba; --poetry-tab: #1b7a71; --poetry-box: color-mix(in srgb, #a7dbd3 62%, #12110f); --poetry-tab-ink: #ffffff; --prophets: #86b1ee; --prophets-tab: #22599f; --prophets-box: color-mix(in srgb, #b5cdee 62%, #12110f); --prophets-tab-ink: #ffffff; --gospels: #bb9bee; --gospels-tab: #6b38a3; --gospels-box: color-mix(in srgb, #d4c1ef 62%, #12110f); --gospels-tab-ink: #ffffff; --acts: #e68cd3; --acts-tab: #a3378c; --acts-box: color-mix(in srgb, #efc1e5 62%, #12110f); --acts-tab-ink: #ffffff; --epistles: #ebc55e; --epistles-tab: #c48d14; --epistles-box: color-mix(in srgb, #f5dd9c 62%, #12110f); --epistles-tab-ink: #1f1b16; --revelation: #f27d8f; --revelation-tab: #b3263c; --revelation-box: color-mix(in srgb, #f4b7c0 62%, #12110f); --revelation-tab-ink: #ffffff; --apocrypha: #c3c8ce; --apocrypha-tab: #5f6670; --apocrypha-box: color-mix(in srgb, #c3c8ce 62%, #12110f); --apocrypha-tab-ink: #ffffff; --land-north: #4f5a44; --land-mid: #5d5a42; --land-south: #6e6040; --sea: #1d3447; --coast: #a39a72; color-scheme: dark; } }
+:root[data-theme="dark"] { --page: #12110f; --surface: #1b1916; --surface-2: #26231f; --ink: #ece6da; --muted: #a39a8b; --line: #36322c; --accent: #e0b25c; --red-letter: #ff7a6e; --resource-life: #80c498; --history: #ec9670; --history-tab: #a8502a; --history-box: color-mix(in srgb, #f0c3a9 62%, #12110f); --history-tab-ink: #ffffff; --poetry: #5fc6ba; --poetry-tab: #1b7a71; --poetry-box: color-mix(in srgb, #a7dbd3 62%, #12110f); --poetry-tab-ink: #ffffff; --prophets: #86b1ee; --prophets-tab: #22599f; --prophets-box: color-mix(in srgb, #b5cdee 62%, #12110f); --prophets-tab-ink: #ffffff; --gospels: #bb9bee; --gospels-tab: #6b38a3; --gospels-box: color-mix(in srgb, #d4c1ef 62%, #12110f); --gospels-tab-ink: #ffffff; --acts: #e68cd3; --acts-tab: #a3378c; --acts-box: color-mix(in srgb, #efc1e5 62%, #12110f); --acts-tab-ink: #ffffff; --epistles: #ebc55e; --epistles-tab: #c48d14; --epistles-box: color-mix(in srgb, #f5dd9c 62%, #12110f); --epistles-tab-ink: #1f1b16; --revelation: #f27d8f; --revelation-tab: #b3263c; --revelation-box: color-mix(in srgb, #f4b7c0 62%, #12110f); --revelation-tab-ink: #ffffff; --apocrypha: #c3c8ce; --apocrypha-tab: #5f6670; --apocrypha-box: color-mix(in srgb, #c3c8ce 62%, #12110f); --apocrypha-tab-ink: #ffffff; --land-north: #4f5a44; --land-mid: #5d5a42; --land-south: #6e6040; --sea: #1d3447; --coast: #a39a72; color-scheme: dark; }
+html { background: var(--page); color: var(--ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+body { min-height: 100dvh; background: var(--page); }
+:focus, :focus-visible { outline: none !important; }
+@media (prefers-reduced-motion: reduce) { *, ::before, ::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+@keyframes atlas-pulse { 
+  0% { transform: scale(0.6); opacity: 0.95; }
+  100% { transform: scale(3.2); opacity: 0; }
+}
+@keyframes atlas-name-in { 
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@media (min-width: 640px) { :root { --site-gutter: 1.5rem; } }
+.study-experience .eyebrow { display: flex; align-items: center; gap: 14px; font-size: 10px; font-weight: 650; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); }
+.study-experience .branch .eyebrow { color: var(--branch-tone); }
+.study-experience .subject-collection { display: grid; grid-template-columns: minmax(0px, 0.84fr) minmax(0px, 1.65fr); gap: 58px; border-top: 1px solid var(--line); padding: 38px 0px 0px; scroll-margin-top: 90px; }
+.study-experience .subject-collection .eyebrow { color: var(--tone); font-size: 9px; }
+.study-experience .collection-intro { padding-top: 8px; }
+.study-experience .collection-intro h2 { font: 400 34px/1.27 var(--serif); letter-spacing: -0.035em; margin: 22px 0px; }
+.study-experience .collection-intro h2 em { color: var(--tone); }
+.study-experience .collection-intro > p:not(.eyebrow) { font-size: 13px; color: var(--muted); line-height: 1.9; max-width: 350px; }
+.study-experience .collection-method { display: flex; align-items: center; gap: 12px; font: 9px var(--sans); text-transform: uppercase; letter-spacing: 0.08em; color: var(--tone); margin-top: 35px; }
+.study-experience .collection-method i { width: 24px; height: 1px; background: var(--line); }
+.study-experience .reading-label, .study-experience .reading-list > h3 { font: 500 10px var(--sans); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; color: var(--muted); }
+.study-experience .reading-list { margin-top: 31px; }
+.study-experience .reading-list > h3 { margin-bottom: 3px; }
+.study-experience .reading-row { display: flex; align-items: center; gap: 20px; padding: 20px 0px; border-bottom: 1px solid var(--line); }
+.study-experience .reading-row > div { flex: 1 1 0%; }
+.study-experience .reading-row h4 { font: 450 19px/1.4 var(--serif); margin: 6px 0px; }
+.study-experience .reading-row p { font-size: 11px; color: var(--muted); line-height: 1.8; }
+.study-experience .reading-row > svg { flex-shrink: 0; color: var(--tone); }
+.study-experience .reading-row:hover h4, .study-experience .reading-row:focus-visible h4, .study-experience .featured-reading:hover h3, .study-experience .featured-reading:focus-visible h3 { color: var(--tone); }
+.study-experience .support-links { display: flex; gap: 18px; margin-top: 24px; align-items: baseline; flex-wrap: wrap; }
+.study-experience .support-links > span { font-size: 9px; color: var(--muted); }
+.study-experience .support-links > div { display: flex; gap: 16px; flex-wrap: wrap; }
+.study-experience .support-links a { display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--tone); }
+@keyframes journey-line { 
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes endpoint-thump { 
+  0%, 100% { transform: scale(1); fill-opacity: 0.08; stroke-opacity: 0.35; }
+  28% { transform: scale(1.32); fill-opacity: 0.18; stroke-opacity: 0.8; }
+  60% { transform: scale(1.08); fill-opacity: 0.1; stroke-opacity: 0.45; }
+}
+@keyframes endpoint-beat { 
+  0%, 100% { transform: scale(1); }
+  28% { transform: scale(1.18); }
+  60% { transform: scale(1); }
+}
+@media (max-width: 1000px) { .study-experience .subject-collection { gap: 32px; grid-template-columns: 1fr 1.6fr; } }
+@media (max-width: 1000px) { .study-experience .collection-intro h2 { font-size: 29px; } }
+@media (max-width: 700px) { .study-experience .branch .eyebrow { font-size: 8px; letter-spacing: 0.1em; } }
+@media (max-width: 700px) { .study-experience .subject-collection { display: block; padding-top: 23px; } }
+@media (max-width: 700px) { .study-experience .collection-intro { padding: 0px 0px 28px; } }
+@media (max-width: 700px) { .study-experience .collection-intro h2 { font-size: 31px; margin: 16px 0px; } }
+@media (max-width: 700px) { .study-experience .collection-intro > p:not(.eyebrow) { max-width: 100%; font-size: 12px; } }
+@media (max-width: 700px) { .study-experience .collection-method { margin-top: 20px; } }
+@media (max-width: 700px) { .study-experience .reading-list { margin-top: 26px; } }
+@media (max-width: 700px) { .study-experience .reading-row { gap: 14px; padding: 17px 0px; } }
+@media (max-width: 700px) { .study-experience .reading-row h4 { font-size: 18px; } }
+@media (max-width: 700px) { .study-experience .reading-row p { font-size: 11px; } }
+@media (max-width: 700px) { .study-experience .reading-row > svg { width: 14px; } }
+@media (max-width: 700px) { .study-experience .support-links { gap: 12px; } }
+@media (max-width: 700px) { .study-experience .support-links > div { gap: 13px; } }
+@media (max-width: 700px) { .study-experience .support-links a { font-size: 10px; } }
+@media (max-width: 360px) { .study-experience .collection-intro h2 { font-size: 28px; } }
+@media (prefers-reduced-motion: reduce) { .study-experience *, .study-experience ::before, .study-experience ::after { animation-duration: 0s !important; transition: none !important; scroll-behavior: auto !important; } }
+@keyframes hub-compass-turn { 
+  0% { transform: rotate(-360deg); }
+  100% { transform: rotate(0deg); }
+}
+.study-experience .theology-library { grid-template-columns: 1fr; gap: 24px; }
+.study-experience .theology-library .collection-intro { max-width: 730px; }
+.study-experience .theology-library .collection-intro > p:not(.eyebrow) { max-width: 650px; }
+.study-experience .theology-library .collection-method { display: none; }
+.study-experience .theology-original-cards { margin: 0px; padding: 0px; list-style: none; }
+.study-experience .theology-original-cards .study-resource { grid-column: span 3; }
+.study-experience .theology-topic-links { margin-top: 30px; }
+.study-experience .theology-topic-links .reading-row { grid-template-columns: minmax(0px, 1fr) 18px; }
+@media (max-width: 1023px) { .study-experience .theology-original-cards .study-resource { grid-column: span 1; } }
+@media (max-width: 639px) { .study-experience .theology-original-cards .study-resource, .study-experience .theology-cards-jesus .study-feature, .study-experience .theology-cards-jesus .study-resource:not(.study-feature) { grid-column: span 1; } }
+.study-experience .theology-library { padding-top: 22px; gap: 18px; }
+.study-experience .theology-library .collection-intro { display: grid; grid-template-columns: auto minmax(280px, 1fr); align-items: end; gap: 9px 28px; max-width: none; padding: 0px; }
+.study-experience .theology-library .collection-intro > .eyebrow { grid-column: 1 / -1; margin: 0px; }
+.study-experience .theology-library .collection-intro h2 { font-size: 30px; line-height: 1.25; margin: 0px; }
+.study-experience .theology-library .collection-intro > p:not(.eyebrow) { max-width: none; margin: 0px; line-height: 1.65; font-size: 12px; }
+@media (max-width: 1100px) { .study-experience .theology-library .collection-intro { grid-template-columns: 1fr; gap: 8px; } }
+@media (max-width: 1100px) { .study-experience .theology-library .collection-intro h2 { font-size: 28px; } }
+@media (max-width: 700px) { .study-experience .theology-library { padding-top: 18px; } }
+@media (max-width: 700px) { .study-experience .theology-library .collection-intro { padding: 0px 0px 16px; } }
+@media (max-width: 700px) { .study-experience .theology-library .collection-intro h2 { font-size: 26px; } }
+.study-experience .theology-library .collection-intro { padding-top: 20px; padding-bottom: 20px; }
+.study-resource-grid { display: grid; grid-template-columns: repeat(6, minmax(0px, 1fr)); gap: 1.25rem; }
+.study-resource { grid-column: span 2; min-width: 0px; display: flex; }
+.study-resource-link { width: 100%; display: flex; flex-direction: column; position: relative; isolation: isolate; overflow: hidden; border: 1px solid color-mix(in srgb,var(--resource-color) 20%,var(--line)); border-radius: 1rem; background: linear-gradient(155deg,color-mix(in srgb,var(--resource-color) 8%,var(--surface)),var(--surface) 65%); transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
+.study-resource-link:hover { transform: translateY(-4px); border-color: var(--resource-color); box-shadow: 0 14px 35px -22px color-mix(in srgb,var(--resource-color) 50%,transparent); }
+.study-card-top { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; padding: 1.35rem 1.5rem 0px; color: var(--resource-color); font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; }
+.study-card-number { color: var(--muted); font-size: 0.6rem; letter-spacing: 0.09em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.study-card-copy { display: flex; flex: 1 1 0%; flex-direction: column; padding: 0.75rem 1.5rem 1.25rem; }
+.study-card-copy h2 { font-family: var(--font-serif); font-size: 1.45rem; font-weight: 500; line-height: 1.35; letter-spacing: -0.025em; }
+.study-card-copy > p { color: var(--muted); font-size: 0.85rem; line-height: 1.7; margin: 0.65rem 0px 1.25rem; max-width: 34rem; }
+.study-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: auto; padding-top: 0.75rem; border-top: 1px solid color-mix(in srgb,var(--resource-color) 13%,transparent); }
+.study-card-foot > span:first-child { color: var(--muted); font-size: 0.64rem; line-height: 1.5; }
+.study-open { display: grid; place-items: center; flex-shrink: 0; height: 2rem; width: 2rem; border-radius: 50%; color: var(--resource-color); background: color-mix(in srgb,var(--resource-color) 9%,transparent); transition: color 0.25s, background 0.25s, transform 0.25s; }
+.study-resource-link:hover .study-open { transform: rotate(45deg); color: var(--surface); background: var(--resource-color); }
+@keyframes study-light { 
+  0% { opacity: 0.45; }
+  100% { opacity: 1; filter: drop-shadow(currentcolor 0px 0px 5px); }
+}
+.study-art { position: relative; height: 205px; margin: 0.75rem 1rem 0px; overflow: hidden; color: var(--resource-color); }
+.study-art-note { position: absolute; bottom: 0.5rem; left: 0px; right: 0px; text-align: center; font-size: 0.59rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--muted); }
+.study-art svg { width: 100%; height: 175px; }
+.study-wide { grid-column: span 3; }
+.study-wide .study-art { height: 210px; }
+@media (max-width: 1023px) { .study-resource-grid { grid-template-columns: repeat(2, minmax(0px, 1fr)); } }
+@media (max-width: 1023px) { .study-resource, .study-wide { grid-column: span 1; } }
+@media (max-width: 1023px) { .study-resource:last-child { grid-column: span 2; } }
+@media (max-width: 1023px) { .study-resource:last-child .study-art { height: 240px; } }
+@media (max-width: 639px) { .study-resource-grid { grid-template-columns: minmax(0px, 1fr); gap: 1rem; } }
+@media (max-width: 639px) { .study-resource, .study-feature, .study-resource:last-child { grid-column: span 1; } }
+@media (max-width: 639px) { .study-card-top, .study-feature .study-card-top { padding: 1.25rem 1.25rem 0px; } }
+@media (max-width: 639px) { .study-card-copy, .study-feature .study-card-copy { padding: 0.75rem 1.25rem 1.25rem; } }
+@media (max-width: 639px) { .study-art { height: 190px; } }
+@media (prefers-reduced-motion: reduce) { .study-resource-link, .study-open, .study-ripple, .study-letter-front, .study-places-art img { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .study-resource-link:hover, .study-resource-link:hover .study-places-art img { transform: none; } }
+@media (max-width: 1023px) { .study-resource:last-child { grid-column: span 1; } }
+.study-topics-art .topics-artwork { position: relative; z-index: 1; display: block; width: 100%; height: 175px; margin-top: 15px; }
+.study-topics-word { position: absolute; z-index: 0; font-family: var(--font-serif); font-size: 0.8rem; font-style: italic; white-space: nowrap; color: var(--resource-color); opacity: 0.22; animation: 9s ease-in-out 0s infinite alternate none running study-topics-drift; }
+@keyframes study-topics-drift { 
+  0% { transform: translate(0px); }
+  100% { transform: translate(10px, -8px); }
+}
+@media (prefers-reduced-motion: reduce) { .study-topics-word { animation: auto ease 0s 1 normal none running none; } }
+.theology-original-cards .study-card-number, .study-creeds-resource .study-card-number { display: none; }
+.study-hymns-resource .study-card-number { display: none; }
+.study-hymns-art { display: flex; align-items: flex-end; }
+.study-hymns-tiles { display: grid; grid-template-columns: repeat(15, minmax(0px, 1fr)); gap: 4px; width: 100%; padding: 0px 0.25rem 1.6rem; border-bottom: 1px solid var(--line); }
+.study-hymns-tiles span { aspect-ratio: 1 / 1.22; border-radius: 3px; background: var(--poetry); transition: filter 0.18s ease-out; }
+@keyframes study-memory-float { 
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
