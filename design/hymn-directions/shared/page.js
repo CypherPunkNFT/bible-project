@@ -11,7 +11,7 @@
     return `<header class="site-header">
       <div class="strip" aria-hidden="true">${["history", "poetry", "prophets", "gospels", "epistles", "revelation"].map((s) => `<span style="background: var(--${s})"></span>`).join("")}</div>
       <div class="bar">
-        <a href="/" class="logo"><img src="../../letters-shared/favicon.svg" alt=""><span>Bible Project</span></a>
+        <a href="/" class="logo"><img src="/mockups/letters-shared/favicon.svg" alt=""><span>Bible Project</span></a>
         <nav class="nav" aria-label="Main">${nav.map(([to, label, i]) => `<a href="${to}" class="${label === "Study" ? "active" : ""}">${icon(i, 16)}<span>${label}</span></a>`).join("")}
           <span class="sep" aria-hidden="true"></span><a href="/testimonies" class="community">${icon("branch", 16)}<span>Testimonies</span></a></nav>
         <a href="/search" class="search-btn" aria-label="Search" title="Search">${icon("search", 16)}</a>

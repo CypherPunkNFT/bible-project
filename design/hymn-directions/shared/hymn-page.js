@@ -19,6 +19,7 @@
     "read-compare": "All six stanzas as Newton printed them. Switch to Compare to see, beside each line that echoes Scripture, the verse hymnal editors attach to the hymn.",
     hover: "All six stanzas as Newton printed them. Point at a line to see the verse it echoes; click to read the passage.",
     panel: "All six stanzas as Newton printed them, with the verses their lines echo beside them. Read the whole hymn on its own from the button above.",
+    compare: "All six stanzas as Newton printed them. Beside the lines that echo a verse, the verse hymnal editors attach to the hymn. Hover a line or a verse to join them; click to read the passage.",
   }[mode];
 
   wrap.innerHTML = `${intro()}
@@ -57,7 +58,7 @@
   const P = panel();
   book.wire(wrap);
   placed.wire(wrap, P);
-  switcher();
+  if (mode !== "compare") switcher(); // the page itself has no variants now; the archived ones keep their switch
   const ec = wrap.querySelector(".ec");
   ec.classList.add(`hp-${mode}`);
   const echoes = HymnEchoes.wire(wrap, P);
