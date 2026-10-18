@@ -16,6 +16,24 @@
   // Each continent has its own colour on the map, repeated as a key beside its name above the cards (owner 2026-10-18).
   const TONE = { Europe: "--prophets", "Near East": "--history", "North America": "--poetry" };
 
+  // What kind of place keeps them, read from the holder's name (owner 2026-10-18: an icon for each kind). Checked in
+  // order, so "Grottaferrata Abbey Library" is a monastery and "Berlin State Museums and Library" a museum; a name that
+  // says library is a library even inside a university ("Cambridge University Library"); what is left is a university.
+  const HOLDER_KINDS = [
+    ["monastery", "Monastery", /monaster|abbey|saint catherine/i,
+      '<path d="M10 9h4"/><path d="M12 7v5"/><path d="M14 22v-4a2 2 0 0 0-4 0v4"/><path d="M18 22V5.618a1 1 0 0 0-.553-.894l-4.553-2.277a2 2 0 0 0-1.788 0L6.553 4.724A1 1 0 0 0 6 5.618V22"/><path d="m18 7 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9.382a1 1 0 0 1 .553-.894L6 7"/>'],
+    ["museum", "Museum", /museum|gallery|bodmer/i,
+      '<path d="M3 22h18"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M12 2 20 7H4z"/>'],
+    ["treasury", "Mosque treasury", /qubbat/i,
+      '<path d="M4 21h16"/><path d="M6 21v-7a6 6 0 0 1 12 0v7"/><path d="M12 8V3"/><path d="M10 21v-4h4v4"/>'],
+    ["library", "Library", /librar|bibliot|matenadaran|centre of manuscripts/i,
+      '<rect width="8" height="18" x="3" y="3" rx="1"/><path d="M7 3v18"/><path d="M20.4 18.9c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z"/>'],
+    ["university", "University", /./,
+      '<path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>'],
+  ];
+  const holderKind = (name) => HOLDER_KINDS.find(([, , test]) => test.test(name));
+  const holderIcon = (kind) => `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${kind[3]}</svg>`;
+
   function cityTable() {
     const byCity = new Map();
     for (const h of MS.holders) {
@@ -51,12 +69,13 @@
     const holders = [...MS.holders].sort((a, b) => b.n - a.n);
     const card = (h) => {
       const c = cities.find((x) => x.city === h.city), first = c.records.find((r) => r.h.includes(h.id));
-      return `<button type="button" role="listitem" class="pl-card" data-city="${esc(h.city)}" data-holder="${h.id}"><span class="pl-icon">${glyph("building", 22)}</span>
-        <span class="pl-card-text"><b>${esc(h.name)}</b><small>${esc(h.city)}, ${esc(h.country)}</small><small>Oldest here: ${esc(first ? `${first.n}${first.d ? `, ${first.d}` : ""}` : "–")}</small></span><em>${formatNumber(h.n)}</em></button>`;
+      const kind = holderKind(h.name);
+      return `<button type="button" role="listitem" class="pl-card" data-city="${esc(h.city)}" data-holder="${h.id}" data-kind="${kind[0]}"><span class="pl-icon" title="${kind[1]}">${holderIcon(kind)}</span>
+        <span class="pl-card-text"><b>${esc(h.name)}</b><small>${kind[1]} · ${esc(h.city)}, ${esc(h.country)}</small><small>Oldest here: ${esc(first ? `${first.n}${first.d ? `, ${first.d}` : ""}` : "–")}</small></span><em>${formatNumber(h.n)}</em></button>`;
     };
     const groups = CONTINENTS.map(([key, title]) => ({ key, title, list: holders.filter((h) => continentOf(h.country) === key) })).filter((g) => g.list.length);
     return `<div class="pl-continents">${groups.map((g) => `<button type="button" data-continent="${g.key}" style="--tone: var(${TONE[g.key]})"><i></i>${esc(g.key)} <em>${g.list.length}</em></button>`).join("")}</div>
-      <div class="pl-cardarea">${groups.map((g) => `<div class="pl-group" data-group="${g.key}"><p class="pl-group-head">${esc(g.title)}<span>${plural(g.list.length, "library", "libraries")} · ${plural(g.list.reduce((s, h) => s + h.n, 0), "record")}</span></p>
+      <div class="pl-cardarea">${groups.map((g) => `<div class="pl-group" data-group="${g.key}"><p class="pl-group-head">${esc(g.title)}<span>${plural(g.list.length, "place")} · ${plural(g.list.reduce((s, h) => s + h.n, 0), "record")}</span></p>
         <div class="pl-cards" role="list">${g.list.map(card).join("")}</div></div>`).join("")}</div>`;
   }
 
