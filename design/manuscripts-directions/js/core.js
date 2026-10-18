@@ -22,6 +22,9 @@ window.Sections = window.Sections || {};
     { key: "armenian", label: "Armenian", one: "Armenian manuscript", tone: "--accent", glyph: "tongue", group: "Early translations", line: "" },
     { key: "georgian", label: "Georgian", one: "Georgian manuscript", tone: "--accent", glyph: "tongue", group: "Early translations", line: "" },
     { key: "geez", label: "Ge'ez", one: "Ge'ez manuscript", tone: "--accent", glyph: "tongue", group: "Early translations", line: "Ethiopia's ancient language" },
+    { key: "arabic", label: "Arabic", one: "Arabic manuscript", tone: "--accent", glyph: "tongue", group: "Early translations", line: "Christian and Judaeo-Arabic translations" },
+    { key: "slavonic", label: "Church Slavonic", one: "Slavonic manuscript", tone: "--accent", glyph: "tongue", group: "Early translations", line: "Gospels, Psalters and Apostols of the Slavs" },
+    { key: "samaritan", label: "Samaritan", one: "Samaritan manuscript", tone: "--revelation", glyph: "codex", group: "Hebrew Bible", line: "The Samaritan Pentateuch" },
   ];
   const KIND = Object.fromEntries(KINDS.map((k) => [k.key, k]));
 

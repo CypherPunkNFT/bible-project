@@ -5,13 +5,13 @@
 // at a dot names it on the line below and clicking it opens the record.
 (() => {
   const { mid, yearText, booksText, holderText, sigla } = MSX;
-  const LANES = [["hebrew", "Hebrew Bible"], ["dss", "Dead Sea Scrolls"], ["lxx", "Greek Old Testament"], ["papyrus", "NT papyri"],
+  const LANES = [["hebrew", "Hebrew Bible"], ["dss", "Dead Sea Scrolls"], ["samaritan", "Samaritan"], ["lxx", "Greek Old Testament"], ["papyrus", "NT papyri"],
     ["majuscule", "NT majuscules"], ["minuscule", "NT minuscules"], ["lectionary", "NT lectionaries"], ["latin", "Latin"],
-    ["syriac", "Syriac"], ["coptic", "Coptic"], ["gothic", "Gothic"], ["armenian", "Armenian"], ["georgian", "Georgian"], ["geez", "Ge'ez"]];
+    ["syriac", "Syriac"], ["coptic", "Coptic"], ["gothic", "Gothic"], ["armenian", "Armenian"], ["georgian", "Georgian"], ["geez", "Ge'ez"],
+    ["arabic", "Arabic"], ["slavonic", "Church Slavonic"]];
   const Y0 = -250, Y1 = 1500, LABEL = 206, RIGHT = 54, TOP = 30, LANE = 36, FULL = LANES.length * LANE;
   const COL_WIDTHS = [6.5, 8, 10, 12, 14, 16, 18, 20, 22], STEP_TARGET = 10, MAX_STEP = 14, DURATION = 320;
   const BIN = 25, THIN = 3, THIN_W = 14, GAP_W = 18, TICK_SPACE = 46;
-  const DSS_SPAN = [-250, 135];
   const motion = matchMedia("(prefers-reduced-motion: reduce)");
   const hash = (text) => { let h = 2166136261; for (const ch of text) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); } return ((h >>> 0) % 10000) / 10000; };
   const ease = (t) => (t < 0.5 ? 4 * t ** 3 : 1 - (-2 * t + 2) ** 3 / 2);
@@ -27,7 +27,6 @@
 
   // What the small number under a lane's name says, in words rather than a bare fraction.
   function countText(lane) {
-    if (lane.key === "dss") return `${formatNumber(lane.all.length)} scrolls · none dated yet`;
     if (!lane.all.length) return "no open records yet";
     if (lane.dated.length === lane.all.length) return lane.all.length === 1 ? "1 copy, dated" : `${formatNumber(lane.all.length)} copies, all dated`;
     return `${formatNumber(lane.dated.length)} dated of ${formatNumber(lane.all.length)}`;
@@ -162,7 +161,6 @@
           <line class="ln-rule" x1="${LABEL}" x2="${W - RIGHT}"/>
           <text class="ln-name" x="0" y="${LANE / 2 - 1}">${esc(lane.label)}</text>
           <text class="ln-n" x="0" y="${LANE / 2 + 11}">${esc(countText(lane))}</text>
-          ${lane.key === "dss" ? `<rect class="ln-band" data-band="1" x="${sx(DSS_SPAN[0])}" y="6" width="${sx(DSS_SPAN[1]) - sx(DSS_SPAN[0])}" rx="4"/><text class="ln-bandtext" x="${sx(DSS_SPAN[1]) + 8}">no date per scroll in this data yet</text>` : ""}
           ${lane.later ? `<text class="ln-later" x="${W - RIGHT + 8}">+${lane.later}</text>` : ""}
           ${lane.dots.map(() => `<circle class="ln-dot" r="2.6" style="fill: ${tone}"/>`).join("")}
         </g>`);
@@ -191,8 +189,6 @@
         lane.g.classList.toggle("is-hover", lane.i === hover && openLane == null);
         lane.g.querySelector(".ln-wash").setAttribute("height", h.toFixed(1));
         const rule = lane.g.querySelector(".ln-rule"); rule.setAttribute("y1", h.toFixed(1)); rule.setAttribute("y2", h.toFixed(1));
-        lane.g.querySelector(".ln-band")?.setAttribute("height", Math.max(0, h - 12).toFixed(1));
-        lane.g.querySelector(".ln-bandtext")?.setAttribute("y", (h / 2 + 4).toFixed(1));
         lane.g.querySelector(".ln-later")?.setAttribute("y", (h / 2 + 4).toFixed(1));
         const r = (2.6 + (lane.rOpen - 2.6) * p).toFixed(2);
         for (const d of lane.dots) {
@@ -242,10 +238,6 @@
       const r = d.r, bits = [sigla(r), r.d, booksText(r), holderText(r)].filter(Boolean);
       say.innerHTML = `<b>${esc(r.n)}</b> · ${bits.map(esc).join(" · ")} <span class="ms-say-go">Choose to open</span>`;
     }
-    function bandSay() {
-      cur = null; svg.querySelector(".ln-focus").style.display = "none";
-      say.innerHTML = `<b>The Judaean Desert scrolls</b> · ${formatNumber(MS.counts.byKind.dss)} manuscripts from Qumran, Masada and the caves nearby. This data gives no date scroll by scroll; they are generally dated between the 3rd century BC and the 2nd century AD.`;
-    }
     function setHover(index) {
       if (index === hover) return;
       hover = index;
@@ -268,17 +260,15 @@
       return best;
     }
     const local = (e) => { const b = svg.getBoundingClientRect(); return [(e.clientX - b.left) * (W / b.width), (e.clientY - b.top) * (W / b.width)]; };
-    const canOpen = (index) => index != null && (lanes[index].dots.length || lanes[index].key === "dss");
+    const canOpen = (index) => index != null && lanes[index].dots.length > 0;
 
     svg.addEventListener("pointermove", (e) => {
       const [px, py] = local(e), index = laneAt(py);
       if (openLane == null) {
         setHover(canOpen(index) ? index : null);
         svg.style.cursor = canOpen(index) ? "pointer" : "";
-        if (e.target.closest("[data-band]")) bandSay();
         return;
       }
-      if (e.target.closest("[data-band]")) { bandSay(); return; }
       const d = nearest(px, py, index);
       svg.style.cursor = d || px < LABEL ? "pointer" : "";
       if (d) focusDot(d);

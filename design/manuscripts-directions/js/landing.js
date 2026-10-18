@@ -8,7 +8,7 @@
   const fig = (label, value, note) => `<div><dt>${label}</dt><dd>${value}</dd><small>${note}</small></div>`;
   function figuresA() {
     return [
-      fig("Records", formatNumber(C.records), "from two open catalogues"),
+      fig("Records", formatNumber(C.records), "from open catalogues"),
       fig("Greek New Testament", formatNumber(C.gaTotal), `of about ${formatNumber(C.liste.total)} known`),
       fig("Papyri", `${formatNumber(C.ga.papyrus)}`, `of about ${C.liste.papyrus} known`),
       fig("Judaean Desert scrolls", formatNumber(C.byKind.dss), `${formatNumber(C.dssBiblical)} with a book of the Bible`),
@@ -22,7 +22,7 @@
     return [
       fig("Dated", formatNumber(C.dated), `of ${formatNumber(C.records)} records`),
       fig("Oldest dated", esc(oldest.d.replace(" century", " c.")), esc(oldest.n)),
-      fig("Traditions", `${lanes.size} <small>of ${lanes.size + 1}</small>`, "Georgian has no record yet"),
+      fig("Traditions", `${lanes.size} <small>of ${KINDS.length}</small>`, KINDS.length > lanes.size ? `${KINDS.filter((k) => !lanes.has(k.key)).map((k) => k.label).join(", ")} has no record yet` : "every one has records"),
       fig("Before AD 400", formatNumber(early), "Greek New Testament copies"),
     ];
   }

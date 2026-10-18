@@ -19,7 +19,7 @@
         ${pct(C.ga.papyrus, C.liste.papyrus)}% of the papyri and ${pct(C.ga.majuscule, C.liste.majuscule)}% of the majuscules. Most of what is missing is mediaeval.
         Another catalogue we consulted does not allow its records to be republished, so nothing from it is shown.</p>
       <p>Only ${formatNumber(C.lxxDated)} of the ${formatNumber(C.byKind.lxx)} Greek Old Testament records carry a date; most are a catalogue number alone.
-        The ${formatNumber(C.byKind.dss)} scroll records give where each was found, but no date or present holder.</p>`;
+        The ${formatNumber(C.byKind.dss)} scroll records give where each was found but no present holder; ${formatNumber(C.dssDated)} of them carry a date, most of them the period of their script.</p>`;
   }
   function credits() {
     const excluded = MS.excluded.map((x) => `<li><b>${esc(x.n)}</b>: ${esc(x.why)}.</li>`).join("");
@@ -27,6 +27,8 @@
         <li><b>Wikidata</b>, catalogue records, CC0.</li>
         <li><b>English Wikipedia</b>, dates, materials and contents for ${formatNumber(MS.records.filter((r) => r.wp).length)} records, CC BY-SA 4.0; each record links its article.</li>
         <li><b>ETCBC Dead Sea Scrolls</b>, transcriptions by Martin G. Abegg, Jr., James E. Bowley and Edward M. Cook; Text-Fabric conversion by Jarod Jacobs, Martijn Naaijer and Dirk Roorda. CC BY-NC 4.0, non-commercial.</li>
+        <li><b>Dead Sea Scroll dates</b>: Popović et al. 2025, PLOS ONE e0323185 (radiocarbon, palaeography and AI estimates), CC BY 4.0; English Wikipedia's Qumran cave lists and its radiocarbon table, CC BY-SA 4.0.</li>
+        <li><b>Syriaca.org</b>, ${formatNumber(MS.records.filter((r) => r.src === "syr").length)} Syriac biblical manuscripts after William Wright's catalogue, CC BY 3.0.</li>
         <li><b>Wikimedia Commons</b>, ${C.images} pictures, each credited where it appears.</li>
         <li><b>Natural Earth</b>, the land outline of the map, public domain.</li>
       </ul>

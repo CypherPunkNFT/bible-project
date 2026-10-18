@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Build data.js and assets/ for the Manuscripts mock-ups from the open catalogue sources.
 
-Reads Research/Manuscripts/normalized/manuscripts/wikidata.json (CC0 + CC BY-SA) and etcbc-dss.json (CC BY-NC),
+Reads Research/Manuscripts/normalized/manuscripts/wikidata.json (CC0 + CC BY-SA), etcbc-dss.json (CC BY-NC; since
+2026-10-18 its scrolls carry dates from Wikipedia, CC BY-SA, and Popovic et al. 2025, CC BY) and syriaca.json (CC BY 3.0),
 the corpus's own pinned identities (tools/wikidata-pinned.json) and image licences (raw/commons/_harvest.json).
 csntm.json is all rights reserved and is never opened. Run: python build-data.py
 """
@@ -27,6 +28,21 @@ ATLAS = PROJECT / "Website" / "node_modules" / "world-atlas" / "land-50m.json"
 PINNED_KIND = {"hebrew-bible": "hebrew", "latin-vulgate": "latin", "latin-vetus-latina": "latin", "syriac-peshitta": "syriac",
                "coptic": "coptic", "gothic": "gothic", "armenian": "armenian", "ethiopic": "geez"}
 GA_KIND = {"papyrus": "papyrus", "majuscule": "majuscule", "minuscule": "minuscule", "lectionary": "lectionary"}
+# The corpus's 2026-10-18 Wikidata language cohorts -> kind, most specific first: a Judaeo-Arabic Torah is in both the
+# Hebrew and the Arabic cohort and is filed as Arabic; a Samaritan Pentateuch as Samaritan.
+COHORT_KIND = [("samaritan", "samaritan"), ("gothic", "gothic"), ("georgian", "georgian"), ("armenian", "armenian"),
+               ("church-slavonic", "slavonic"), ("arabic", "arabic"), ("latin", "latin"), ("hebrew-bible", "hebrew")]
+# OSIS-style book codes used by the corpus's Syriac records -> this page's codes. A Syriac title names "Samuel" or
+# "Kings" for the pair, so the pair is held; a group name expands to its books.
+OSIS_BOOKS = {"Gen": ["GEN"], "Exod": ["EXO"], "Lev": ["LEV"], "Num": ["NUM"], "Deut": ["DEU"], "Josh": ["JOS"], "Judg": ["JDG"],
+              "Ruth": ["RUT"], "1Sam": ["1SA", "2SA"], "1Kgs": ["1KI", "2KI"], "1Chr": ["1CH", "2CH"], "Ezra": ["EZR"], "Neh": ["NEH"],
+              "Esth": ["EST"], "Job": ["JOB"], "Ps": ["PSA"], "Prov": ["PRO"], "Eccl": ["ECC"], "Song": ["SNG"], "Isa": ["ISA"],
+              "Jer": ["JER"], "Lam": ["LAM"], "Ezek": ["EZK"], "Dan": ["DAN"], "Minor Prophets": OT[27:39], "Matt": ["MAT"],
+              "Mark": ["MRK"], "Luke": ["LUK"], "John": ["JHN"], "Gospels": GOSPELS, "Acts": ["ACT"], "Rom": ["ROM"],
+              "1Cor": ["1CO", "2CO"], "Gal": ["GAL"], "Eph": ["EPH"], "Phil": ["PHP"], "Col": ["COL"], "1Thess": ["1TH", "2TH"],
+              "1Tim": ["1TI", "2TI"], "Titus": ["TIT"], "Phlm": ["PHM"], "Heb": ["HEB"], "Pauline epistles": PAUL,
+              "Catholic epistles": CATHOLIC, "Jas": ["JAS"], "1Pet": ["1PE", "2PE"], "1John": ["1JN", "2JN", "3JN"], "Jude": ["JUD"],
+              "Rev": ["REV"]}
 # Images held for a collection that show one of its papyri (P. Chester Beatty I is P45; P. Bodmer VIII is P72).
 IMAGE_TO_WITNESS = {"Q1070692": ("papyrus", "P45"), "Q664820": ("papyrus", "P72")}
 # Two corrections, each with its reason; everything else is shown as the open record has it.
@@ -94,6 +110,9 @@ def wikidata_record(rec: dict, pinned: dict, problems: dict) -> dict | None:
     elif pin:
         kind = PINNED_KIND[pin["traditions"][0]]
         problems["pinned_traditions_restored"] += 1
+    elif any(t in rec["traditions"] for t, _k in COHORT_KIND):
+        kind = next(k for t, k in COHORT_KIND if t in rec["traditions"])
+        lanes += [k for t, k in COHORT_KIND if t in rec["traditions"] and k != kind]
     else:
         problems["no_kind"].append(rec["name"])
         return None
@@ -108,7 +127,7 @@ def wikidata_record(rec: dict, pinned: dict, problems: dict) -> dict | None:
         lanes.append("latin")
     if "cop" in langs or "coptic" in script:
         lanes.append("coptic")
-    out = {"i": qid, "n": rec["name"], "k": kind, "L": list(dict.fromkeys(lanes)), "src": "wd"}
+    out = {"i": qid, "n": rec["name"] or qid, "k": kind, "L": list(dict.fromkeys(lanes)), "src": "wd"}
     if siglum:
         out["g"] = siglum
     elif kind == "lxx":
@@ -217,12 +236,71 @@ def dss_record(rec: dict, problems: dict) -> dict | None:
         raise ValueError(f"etcbc-dss {rec['name']}: book codes {unknown} are not in ETCBC_BOOK; add them before building")
     if books:
         out.update(b=sorted({CODE_INDEX[c] for c in books}), bs="etcbc")
+    add_dss_date(out, rec)
     if "paleohebrew" in (rec["script"] or ""):
         out["sc"] = "palaeo-Hebrew script"
     if "arc" in rec["languages"]:
         out["la"] = "Hebrew and Aramaic"
     elif "grc" in rec["languages"]:
         out["la"] = "Hebrew and Greek"
+    return out
+
+
+def year_label(year: int) -> str:
+    """A historical year (no year zero: -30 is 30 BC) as words."""
+    return f"{-year} BC" if year < 0 else f"AD {year}"
+
+
+def span_label(early: int, late: int) -> str:
+    if early == late:
+        return year_label(early)
+    if late < 0:
+        return f"{-early}–{-late} BC"
+    if early > 0:
+        return f"AD {early}–{late}"
+    return f"{-early} BC – AD {late}"
+
+
+DSS_SOURCE = {"wikipedia-qumran": "wq", "wikipedia-dss-carbon": "wc", "popovic-2025": "pp"}
+
+
+def add_dss_date(out: dict, rec: dict) -> None:
+    """The display date the corpus chose for a scroll, by its stated precedence, and how many other claims it holds.
+
+    The corpus writes historical years (-30 is 30 BC); this page counts astronomically (0 is 1 BC), so BC years move up one.
+    """
+    date = rec.get("date")
+    if not date or date.get("earliest") is None:
+        return
+    early, late = date["earliest"], date["latest"]
+    astro = lambda y: y + 1 if y < 0 else y
+    label = span_label(early, late)
+    if date["basis"] == "palaeographic-period":
+        # Kept short for the lists; the source's own wording ("Early Hellenistic; Paleo-Hebrew script") goes in dw.
+        label = f"c. {label}"
+        out["dw"] = (date["raw"] or "").strip(" |")
+    out.update(e=astro(early), l=astro(late), d=label, db=date["basis"], ds=DSS_SOURCE.get(date["display_source"], "wq"),
+               dn=len(rec.get("date_claims") or []))
+
+
+def syriaca_record(rec: dict, problems: dict) -> dict:
+    out = {"i": rec["record_id"], "n": rec["name"] or rec["record_id"], "k": "syriac", "L": ["syriac"], "src": "syr", "su": rec["record_url"]}
+    date = rec.get("date")
+    if date and date.get("earliest") is not None:
+        raw = (date["raw"] or "").strip(" .")
+        e, late = date["earliest"], date["latest"]
+        label = raw if raw and len(raw) <= 28 and re.search(r"\d|cent", raw) else (f"{e}–{late}" if e != late else str(e))
+        out.update(e=e, l=late, d=label, db="year" if e == late else "range")
+    codes = sorted({CODE_INDEX[c] for b in rec["contents"]["books"] for c in OSIS_BOOKS.get(b, [])})
+    if codes:
+        out.update(b=codes, bs="catalogue")
+    elif re.search(r"lectionar|lessons|evangeliar", rec["contents"]["raw"] or "", re.I):
+        out["lect"] = 1
+    if rec["contents"]["raw"]:
+        out["c"] = clean(rec["contents"]["raw"][:240])
+    add_place(out, rec, problems)
+    if rec["material"] in ("vellum", "parchment", "paper"):
+        out["m"] = "parchment" if rec["material"] == "vellum" else rec["material"]
     return out
 
 
@@ -294,7 +372,7 @@ def summarise(records: list[dict], images: dict) -> dict:
         "records": len(records), "byKind": by_kind, "dated": sum(1 for r in records if "e" in r),
         "ga": ga_counts, "gaTotal": sum(ga_counts.values()), "liste": LISTE,
         "lxxDated": sum(1 for r in records if r["k"] == "lxx" and "e" in r),
-        "dssBiblical": sum(1 for r in dss if r.get("b")), "dssFinds": finds,
+        "dssBiblical": sum(1 for r in dss if r.get("b")), "dssFinds": finds, "dssDated": sum(1 for r in dss if "e" in r),
         "ntWithBooks": sum(1 for r in greek_nt if r.get("b")), "ntRecords": len(greek_nt),
         "withChapters": sum(1 for r in records if r.get("ch")), "lectionaries": sum(1 for r in records if r.get("lect")),
         "holders": len(holders), "withHolder": sum(1 for r in records if r.get("hr")),
@@ -321,6 +399,9 @@ def main() -> None:
                 "dss_plates_left_out": 0, "dss_not_judaean": []}
     records = [r for r in (wikidata_record(rec, pinned, problems) for rec in wikidata) if r]
     records += [r for r in (dss_record(rec, problems) for rec in etcbc) if r]
+    syriaca_path = CORPUS / "normalized" / "manuscripts" / "syriaca.json"
+    if syriaca_path.exists():
+        records += [syriaca_record(rec, problems) for rec in load(syriaca_path)["records"]]
     seen: dict[tuple, str] = {}
     for r in records:
         if r["k"] in GA_KIND.values() and r.get("g"):
@@ -332,14 +413,14 @@ def main() -> None:
     by_siglum = {(r["k"], r.get("g")): r for r in records if r.get("g")}
     images = build_images(by_qid, by_siglum)
     data = {
-        "built": "2026-10-17", "books": [{"code": c, "name": n, "ch": ch, "sec": s} for c, n, ch, s in BOOKS],
+        "built": "2026-10-18", "books": [{"code": c, "name": n, "ch": ch, "sec": s} for c, n, ch, s in BOOKS],
         "groups": {"gospels": [CODE_INDEX[c] for c in GOSPELS], "paul": [CODE_INDEX[c] for c in PAUL], "catholic": [CODE_INDEX[c] for c in CATHOLIC]},
         "written": {str(CODE_INDEX[c]): list(v) for c, v in WRITTEN.items()},
         "counts": summarise(records, images), "holders": holder_table(records), "images": images,
         "excluded": [{"n": next((r["name"] for r in wikidata if r["identifiers"]["wikidata_qid"] == q), q), "why": why} for q, why in EXCLUDED.items()],
         "map": land_paths(ATLAS), "records": records,
     }
-    text = "// Built by build-data.py from the open Manuscripts corpus (Wikidata CC0 + Wikipedia CC BY-SA; ETCBC CC BY-NC). Do not edit.\n"
+    text = "// Built by build-data.py from the open Manuscripts corpus (Wikidata CC0 + Wikipedia CC BY-SA; ETCBC CC BY-NC; Popovic et al. 2025 CC BY; Syriaca.org CC BY 3.0). Do not edit.\n"
     text += "window.MS = " + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n"
     (HERE / "data.js").write_text(text, encoding="utf-8")
     report(problems, data)

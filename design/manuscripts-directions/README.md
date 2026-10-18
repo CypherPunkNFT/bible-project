@@ -135,3 +135,12 @@ kinds, lanes, closeness, books, places, onward. Shared pieces are [js/core.js](j
 (the record sheet) and [js/art.js](js/art.js) (line drawings of the form). [js/outside-scroll.js](js/outside-scroll.js)
 is copied from the Hymns mock-up. Styles are in [css/ms.css](css/ms.css) and [css/sections.css](css/sections.css).
 [shot-a.png](shot-a.png), [shot-b.png](shot-b.png) and [shot-c.png](shot-c.png) are 1440 px light previews.
+
+## 2026-10-18: scroll dates, Syriac records, three more lanes
+
+The corpus gained five owner-approved open sources (registered in [SOURCES.md](../../SOURCES.md)), and `data.js` now has
+5,269 records. 439 of the 954 Judaean Desert scrolls carry a date: the corpus keeps every dating claim (radiocarbon,
+palaeography, an AI estimate, a Wikipedia script period) and picks one by a stated rule; the record sheet names its
+source. The "no date per scroll" band on the Dead Sea Scrolls lane is gone, since the lane now has dots and its count
+says how many are still undated. Three lanes and kinds were added, Samaritan, Arabic and Church Slavonic; 194 Syriac
+records come from Syriaca.org.
