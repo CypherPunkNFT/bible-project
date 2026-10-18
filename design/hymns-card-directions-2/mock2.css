@@ -15,9 +15,16 @@
 .m2-label strong { display: block; font: 500 17px/1.3 var(--font-serif); }
 .m2-label span { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; line-height: 1.55; }
 
-/* 03, larger (owner, 2026-10-18): the cards keep the site's exact dimensions (picture box 210 px); inside it the disc is
-   as large as it can be, the caption is only "150 psalms", and the description is smaller. */
-.m2-big .study-hymns-resource .study-card-copy > p { font-size: .76rem; line-height: 1.65; max-width: none; }
-.m2-big .psalter { grid-template-columns: 236px minmax(0, 1fr); gap: 24px; padding-bottom: 0; height: 100%; }
-.m2-big .psalter svg { width: 100%; height: 100%; }
-.m2-big .art-note { right: auto; width: 236px; bottom: 0; font-size: .5rem; }
+/* 03, larger (owner, 2026-10-18), at the site's exact card size (702 x 469 at 1730 px, as measured on the live page):
+   both descriptions smaller so each takes two lines, the titles and descriptions sit at the bottom of the cards, and the
+   line that frees goes to the picture boxes. The disc sits near the middle of the card and grows into that height; the
+   hymn read-out is a narrow column at the right, its first line wrapping to two lines. */
+.m2-big .study-resource { min-height: 469px; }
+.m2-big .study-resource-link { width: 100%; display: flex; flex-direction: column; }
+.m2-big .study-art { flex: 1 1 auto; height: auto; min-height: 210px; }
+.m2-big .study-card-copy { flex: 0 0 auto; }
+.m2-big .study-card-copy > p { font-size: .76rem; line-height: 1.65; max-width: none; }
+.m2-big .psalter { position: absolute; inset: 0; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 0 18px; padding-bottom: 0; height: auto; }
+.m2-big .psalter svg { grid-column: 2; grid-row: 1; height: 100%; width: auto; aspect-ratio: 208 / 226; }
+.m2-big .psalter-read { grid-column: 3; grid-row: 1; justify-self: end; max-width: 13rem; }
+.m2-big .art-note { left: 50%; right: auto; transform: translateX(-50%); bottom: 0; font-size: .5rem; }
