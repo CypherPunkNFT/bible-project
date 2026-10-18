@@ -70,7 +70,7 @@
     const card = (h) => {
       const c = cities.find((x) => x.city === h.city), first = c.records.find((r) => r.h.includes(h.id));
       const kind = holderKind(h.name);
-      return `<button type="button" role="listitem" class="pl-card" data-city="${esc(h.city)}" data-holder="${h.id}" data-kind="${kind[0]}"><span class="pl-icon" title="${kind[1]}">${holderIcon(kind)}</span>
+      return `<button type="button" role="listitem" class="pl-card" style="--tone: var(${TONE[continentOf(h.country)]})" data-city="${esc(h.city)}" data-holder="${h.id}" data-kind="${kind[0]}"><span class="pl-icon" title="${kind[1]}">${holderIcon(kind)}</span>
         <span class="pl-card-text"><b>${esc(h.name)}</b><small>${kind[1]} · ${esc(h.city)}, ${esc(h.country)}</small><small>Oldest here: ${esc(first ? `${first.n}${first.d ? `, ${first.d}` : ""}` : "–")}</small></span><em>${formatNumber(h.n)}</em></button>`;
     };
     const groups = CONTINENTS.map(([key, title]) => ({ key, title, list: holders.filter((h) => continentOf(h.country) === key) })).filter((g) => g.list.length);
