@@ -182,3 +182,11 @@
 .pl-card em { font: 500 1.1rem var(--serif); font-style: normal; color: var(--prophets); }
 @media (max-width: 960px) { .pl-layout { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .pl-across { position: static; width: auto; margin-top: .6rem; } .pl-city text { font-size: 22px; } .pl-cards { grid-auto-columns: 82%; } }
+/* Lanes open out under the pointer: a faint wash marks the open lane; its name darkens. */
+.ln-wash { fill: transparent; transition: fill .2s; }
+.ln-lane.is-open .ln-wash { fill: color-mix(in srgb, var(--ink) 4%, transparent); }
+.ln-lane:not(.is-empty) .ln-name { cursor: pointer; }
+.ln-lane.is-open .ln-name { font-weight: 600; }
+.ln-lane.is-open .ln-dot { opacity: .85; }
+.ln-lane.is-empty .ln-name { fill: var(--muted); }
+.ln:focus, .ln:focus-visible { outline: none; }
