@@ -37,7 +37,7 @@ export function PassagePanel({ content, onClose }: { content: PanelContent | nul
       <h3>{p.ref}</h3>
       {shown.line && <blockquote className="hy-panel-line">{shown.line}</blockquote>}
       <div className="hy-panel-verses">{p.verses.map((v) => <p key={v.n}><sup>{v.n}</sup>{v.text}</p>)}</div>
-      <p className="hy-panel-tr">King James Version, the Bible Newton read.</p>
+      <p className="hy-panel-tr">Berean Standard Bible.</p>
       <Link className="hy-panel-go" to={readerUrl(p)}>Read {p.ref.split(":")[0]} in the reader <ArrowRight size={15} strokeWidth={1.5} aria-hidden /></Link>
     </div>}
   </aside>;
@@ -49,6 +49,7 @@ export function Sources({ song }: { song: HymnSong }) {
       (<a href={song.source.url} target="_blank" rel="noreferrer">{song.source.url.replace("https://", "")}</a>). {song.source.licence}.</li>
     <li><b>Where hymnals place it.</b> Hymnary.org's catalogue (<a href={song.source.hymnary} target="_blank" rel="noreferrer">hymnary.org</a>): the passages hymnal
       editors attach to it, and the number of hymnals that print it. No words were taken from Hymnary.</li>
-    <li><b>The verses.</b> King James Version, from this site's own Bible text. Each verse set beside a line is one the hymnal
-      editors attach to the hymn; placing it beside the line it echoes is ours.</li></ul></details>;
+    <li><b>The verses.</b> Shown in the Berean Standard Bible, from this site's own Bible text. The echoes were found in the King
+      James wording Newton read; each verse set beside a line is one the hymnal editors attach to the hymn, and placing it beside
+      the line it echoes is ours.</li></ul></details>;
 }

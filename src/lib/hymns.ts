@@ -1,5 +1,5 @@
 /**
- * The Hymns data, as written by scripts/build-hymns.py from the hymns corpus (Research/Hymns).
+ * The Hymns data, as written by scripts/build-hymn-collection.py from the hymns corpus (Research/Hymns).
  *
  * The collection holds each distinct hymn once (the corpus has 1,812 texts, but CCEL's combined Watts edition repeats
  * most of Project Gutenberg's separate Watts books). A hymn's main chapter is packed into one number, `v`:

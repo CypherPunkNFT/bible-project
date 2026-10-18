@@ -12,12 +12,12 @@ export function Head({ num, title, children }: { num: string; title: JSX.Element
 
 /** 02 · Where Newton found it: his heading verse beside his line. */
 export function Found({ song }: { song: HymnSong }) {
-  const verse = song.heading.passage.verses[0].text, phrase = "that thou hast brought me hitherto";
+  const verse = song.heading.passage.verses[0].text, phrase = "that You have brought me this far";
   const at = verse.indexOf(phrase);
   return <section className="hy-sec" id="found">
-    <Head num="02" title={<>Where Newton <em>found it</em></>}>He printed the hymn under David's prayer after God's promise of a lasting house. "Hitherto" is the word the hymn turns into "thus far".</Head>
+    <Head num="02" title={<>Where Newton <em>found it</em></>}>He printed the hymn under David's prayer after God's promise of a lasting house. David asks why God has brought him "this far"; the hymn answers that grace has brought me "safe thus far".</Head>
     <div className="hy-found">
-      <blockquote>{at < 0 ? verse : <>{verse.slice(0, at)}<b>{phrase}</b>{verse.slice(at + phrase.length)}</>}<cite>1 Chronicles 17:16 · King James Version</cite></blockquote>
+      <blockquote>{at < 0 ? verse : <>{verse.slice(0, at)}<b>{phrase}</b>{verse.slice(at + phrase.length)}</>}<cite>1 Chronicles 17:16 · Berean Standard Bible</cite></blockquote>
       <span className="join" aria-hidden="true" />
       <blockquote>Through many dangers, toils and snares, I have already come; <b>’Tis grace has brought me safe thus far</b>, and grace will lead me home.<cite>Stanza III</cite></blockquote>
     </div>

@@ -104,7 +104,7 @@ export const loadCreedDocument = (id: string) =>
 export const loadCreedBundle = (id: string, bundle: string) =>
   load<CreedBundle>(`creeds/doc/${id}.${bundle}.json`, (v) => isObject(v) && Array.isArray(v.sections));
 
-// Hymns (scripts/build-hymns.py): the collection, the full study of a hymn that has one, and the words of every hymn
+// Hymns (scripts/build-hymn-collection.py): the collection, the full study of a hymn that has one, and the words of every hymn
 // filed by hymn book.
 export const loadHymnCollection = () =>
   load<HymnCollection>("hymns/collection.json", (v) => isObject(v) && Array.isArray(v.hymns) && Array.isArray(v.books));
