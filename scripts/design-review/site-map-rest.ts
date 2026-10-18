@@ -358,10 +358,51 @@ function museumTemplates(): { templates: TemplateDef[]; valid: { museums: string
   return { templates: [home, museum], valid: { museums: cards.map((c) => c.slug) } };
 }
 
+interface HymnPageFile { id: string; firstLine: string; author: string; group: string; stanzas: string[][]; heading: unknown; echoes: unknown[]; mainPassage: unknown }
+
+/** One hymn's page: one template filled for every hymn (scripts/build-hymn-pages.py; data git-ignored, so missing data means
+ *  no template). Amazing Grace keeps its own hand-made study and is left to the collection page's chat. */
+function hymnTemplates(): { templates: TemplateDef[]; valid: { hymns: string[] } } {
+  const indexPath = path.join(WEBSITE, "data/hymns/pages/index.json");
+  if (!existsSync(indexPath)) return { templates: [], valid: { hymns: [] } };
+  const index = readJson<{ bundles: Record<string, number> }>("data/hymns/pages/index.json");
+  const pages = [...new Set(Object.values(index.bundles))].flatMap((n) => Object.values(readJson<Record<string, HymnPageFile>>(`data/hymns/pages/${n}.json`)));
+  const url = (h: HymnPageFile) => `/study/hymns/${h.id}`;
+  const name = (h: HymnPageFile) => `${h.firstLine.replace(/[,;:]$/, "")} (${h.author})`;
+  const lines = (h: HymnPageFile) => h.stanzas.reduce((n, s) => n + s.length, 0);
+  const samples = (records: HymnPageFile[]): SampleRule<HymnPageFile>[] => [
+    typical<HymnPageFile>(lines, name, "lines"),
+    most<HymnPageFile>("most-echoes", "Most echoes", (h) => h.echoes.length, name, "echoes"),
+    most<HymnPageFile>("longest", "Longest", lines, name, "lines"),
+  ].slice(0, records.length > 2 ? 3 : 1);
+  const kinds = {
+    psalm: pages.filter((h) => h.group === "psalms" && h.echoes.length),
+    echoes: pages.filter((h) => h.group !== "psalms" && h.echoes.length),
+    heading: pages.filter((h) => !h.echoes.length && h.heading),
+    main: pages.filter((h) => !h.echoes.length && !h.heading && h.mainPassage),
+    words: pages.filter((h) => !h.echoes.length && !h.heading && !h.mainPassage),
+  };
+  const hymn: TemplateDef = {
+    id: "hymn", area: "study", name: "One hymn", address: "/study/hymns/<hymn>",
+    instances: pages.length,
+    what: "A hymn's words with the verses its lines echo (Berean text), the verse its author printed above it, its place in its book, and where hymnals place it.",
+    entries: ["src/pages/study/hymns/page/HymnFullPage.tsx"],
+    scopes: ["src/pages/study/hymns/page/", "src/pages/study/hymns/song/", "src/lib/hymn-pages.ts", "scripts/build-hymn-pages.py", "scripts/hymns/"],
+    variants: [
+      variant({ id: "psalm", name: "A psalm setting with echoes", what: "Watts's psalm paraphrases: lines matched to the psalm's verses.", records: kinds.psalm, url, samples: samples(kinds.psalm) }),
+      variant({ id: "echoes", name: "A hymn with echoes", what: "The margin of verses and, across two books or more, the constellation.", records: kinds.echoes, url, samples: samples(kinds.echoes) }),
+      variant({ id: "heading", name: "A heading, no echoes", what: "The words, where the author found it, its place in the book.", records: kinds.heading, url, samples: samples(kinds.heading) }),
+      variant({ id: "main", name: "No heading, a main passage", what: "The passage it draws on most, labelled as the checks' choice.", records: kinds.main, url, samples: samples(kinds.main) }),
+      variant({ id: "words", name: "Words and book only", what: "No heading and no echoes: the words, the book and its place in it.", records: kinds.words, url, samples: samples(kinds.words) }),
+    ],
+  };
+  return { templates: [hymn], valid: { hymns: pages.map((h) => h.id) } };
+}
+
 export async function restTemplates() {
-  const topics = topicTemplates(), reader = readerTemplates(), letters = await letterTemplates(), apologetics = await apologeticsTemplates(), creeds = creedTemplates(), museums = museumTemplates();
+  const topics = topicTemplates(), reader = readerTemplates(), letters = await letterTemplates(), apologetics = await apologeticsTemplates(), creeds = creedTemplates(), museums = museumTemplates(), hymns = hymnTemplates();
   return {
-    templates: [...studyAndSiteTemplates(), ...creeds.templates, ...museums.templates, ...topics.templates, ...reader.templates, ...letters.templates, ...apologetics.templates],
-    valid: { ...topics.valid, ...reader.valid, ...letters.valid, ...apologetics.valid, ...creeds.valid, ...museums.valid },
+    templates: [...studyAndSiteTemplates(), ...creeds.templates, ...museums.templates, ...hymns.templates, ...topics.templates, ...reader.templates, ...letters.templates, ...apologetics.templates],
+    valid: { ...topics.valid, ...reader.valid, ...letters.valid, ...apologetics.valid, ...creeds.valid, ...museums.valid, ...hymns.valid },
   };
 }
