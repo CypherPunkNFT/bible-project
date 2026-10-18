@@ -98,13 +98,15 @@ export function HymnFullPage({ page }: { page: HymnPageData }) {
 
     <section className="hy-sec" id="hymn">
       {page.echoes.length > 0 ? <>
-        <Head num={num()} title={<>The hymn, <em>and the Scripture in it</em></>}>All {page.stanzas.length > 1 ? `${page.stanzas.length} stanzas` : "of it"} as {who} printed
-          them. Beside {page.echoes.length === 1 ? "the line" : "each line"} that echoes a verse, the verse. Point at a line or a verse to join them; click to read the passage.
-          {showRing ? " Below the hymn, the same links as a constellation." : ""}</Head>
-        <p className="hf-label">Verses a line echoes, found by matching the words or proposed by an AI model, and each checked twice: the words are in the
-          verse, and a separate check agreed. <b>shared words</b> marks a verse found by its wording; <b>echo</b> one proposed and confirmed. Not the author's own notes.</p>
-        <StanzaPager pages={pages}>{(p) => <Echoes song={slice(page, p)} stanzaOffset={p.first} open={setPanel} closedAt={closedAt} showKey={false} />}</StanzaPager>
-        <p className="ec-key">{page.echoes.length} echo{page.echoes.length === 1 ? "" : "es"} in {lines} lines.</p>
+        <div className="hy-head"><span className="hy-num">{num()}</span><div>
+          <h2>The hymn, <em>and the Scripture in it</em></h2>
+          <p>{page.stanzas.length > 1 ? `All ${page.stanzas.length} stanzas` : "The hymn"} as {who} printed {page.stanzas.length > 1 ? "them" : "it"}, with the verses their lines
+            echo beside them. Point at a line to join it to its verse; click to read the passage.</p>
+          <p className="hf-key"><span><b>Shared words</b>the verse shares the line's wording</span><span><b>Echo</b>proposed by an AI model, confirmed by a separate
+            check</span><span>Not the author's own notes</span></p>
+        </div></div>
+        <StanzaPager pages={pages} summary={`${page.echoes.length} echo${page.echoes.length === 1 ? "" : "es"}`}>{(p) =>
+          <Echoes song={slice(page, p)} stanzaOffset={p.first} open={setPanel} closedAt={closedAt} showKey={pages.length === 1} />}</StanzaPager>
         {showRing && <div className="d-among" id="constellation">
           <p className="d-among-k">Among the Scriptures</p>
           <p className="d-among-line">The stanzas at the centre; around them, every book its heading and its echoes come from, Old Testament on the left and New on the

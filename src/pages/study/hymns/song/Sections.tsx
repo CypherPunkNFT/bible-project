@@ -60,7 +60,7 @@ export function PlacedSquares({ song, open, num = "04" }: { song: Pick<HymnSong,
   let i = 0;
   return <section className="hy-sec" id="placed">
     <Head num={num} title={<>Where hymnals <em>place it</em></>}>Printed hymnals list, for each hymn, the Bible passages it goes with, so a church can choose a hymn for the day's reading.
-      Gathered from the hymnals Hymnary.org catalogues, editors have tied <b>this hymn</b> to {all.length} passages in {song.placed.length} books.
+      Gathered from the hymnals Hymnary.org catalogues, editors have tied <b>this hymn</b> to {all.length} passage{all.length === 1 ? "" : "s"} in {song.placed.length} book{song.placed.length === 1 ? "" : "s"}.
       One square is one passage; a ringed square is one the hymn's own lines echo. Point at a square to read it; click to open it beside the page.</Head>
     <div className="hy-placed">{song.placed.map((b) => <div key={b.book} className="hy-placed-book" style={tone(b.tone)}><h4>{b.book}<span>{b.refs.length}</span></h4>
       <div className="sq">{b.refs.map(() => { const k = i++, p = all[k];

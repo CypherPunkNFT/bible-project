@@ -116,6 +116,9 @@ def place(hymn: dict, group: str, olney: dict) -> dict:
             psalm, _, version = number.partition(":")
             return {"part": "psalms", "partLabel": "The Psalms of David Imitated", "number": number, "order": int(psalm) * 100 + int(version or 1)}
         found = re.search(r"Psalm (\d+)(?:\s+Part (\d+))?", hymn.get("section") or hymn.get("title") or "")
+        doxology = re.match(r"Doxology (\d+)", hymn.get("title") or "")
+        if not found and doxology:  # the doxologies printed after the psalms keep their place at the end, by their own name
+            return {"part": "psalms", "partLabel": "The Psalms of David Imitated", "number": doxology.group(0), "order": 99000 + int(doxology.group(1))}
         psalm = int(found.group(1)) if found else 999
         return {"part": "psalms", "partLabel": "The Psalms of David Imitated", "number": f"{psalm}" + (f":{found.group(2)}" if found and found.group(2) else ""),
                 "order": psalm * 100 + int(found.group(2) or 1) if found else 99999}

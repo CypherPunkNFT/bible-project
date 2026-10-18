@@ -1,8 +1,10 @@
 /* What a generated hymn page (HymnFullPage.tsx) adds to the approved hymn page's styles (../song/song.css): the echo
    label, the small tag on each margin verse, a single verse in "where he found it", and a dense book row for long books.
    Scoped under .hy-song.hy-full so Amazing Grace's page is untouched. No outlines: selection is the components' own. */
-.hy-song.hy-full .hf-label { max-width: 68ch; margin: -.6rem 0 1.4rem; font-size: .78rem; line-height: 1.6; color: var(--muted); }
-.hy-song.hy-full .hf-label b { font-weight: 600; color: var(--accent); letter-spacing: .04em; }
+/* Section 01's key, in the heading's own text column: two tags and what each means. */
+.hy-song.hy-full .hy-head .hf-key { max-width: none; }
+.hy-song.hy-full .hf-key { display: flex; flex-wrap: wrap; gap: .35rem 1.4rem; margin-top: .7rem; font-size: .76rem; line-height: 1.5; color: var(--muted); }
+.hy-song.hy-full .hf-key b { margin-right: .45rem; font: 600 .62rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
 .hy-song.hy-full .note .ref .kind { margin-left: .55rem; font-style: normal; font-weight: 500; letter-spacing: .1em; color: var(--muted); }
 .hy-song.hy-full .hy-found.hf-single { grid-template-columns: minmax(0, 46rem); }
 .hy-song.hy-full .hy-found sup { margin-right: .2em; font: 600 .6em var(--sans); color: var(--muted); }
@@ -10,15 +12,18 @@
 .hy-song.hy-full .hf-read { display: inline-flex; align-items: center; gap: .35rem; margin-top: .8rem; font: 600 .72rem var(--sans); letter-spacing: .08em;
   text-transform: uppercase; color: var(--accent); cursor: pointer; }
 .hy-song.hy-full .hf-read:hover { text-decoration: underline; text-underline-offset: 3px; }
-.hy-song.hy-full .hy-book-row.hf-dense { gap: 1px; }
-.hy-song.hy-full .hy-book-row.hf-dense button { min-width: 1px; border-radius: 1px; }
+/* A long book in two or three rows, each with its own end labels. */
+.hy-song.hy-full .hf-book-line + .hf-book-line { margin-top: .5rem; }
+.hy-song.hy-full .hf-book-line .hy-book-row { height: 54px; }
+.hy-song.hy-full .hy-book-row { gap: 2px; }
+.hy-song.hy-full .hy-book-row button { min-width: 2px; }
 .hy-song.hy-full *:focus, .hy-song.hy-full *:focus-visible { outline: none; }
 /* The stanza pager (StanzaPager.tsx): a dot per page and arrows either side, under the stanzas. */
 .hy-song.hy-full .hf-pager-body { position: relative; }
 .hy-song.hy-full .hf-turn { animation: hf-turn .28s ease-out; }
 @keyframes hf-turn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .hy-song.hy-full .hf-turn { animation: none; } }
-.hy-song.hy-full .hf-pager-nav { display: flex; align-items: center; gap: .9rem; margin-top: 1.4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.hy-song.hy-full .hf-pager-nav { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin: -.4rem 0 0 5.6rem; }
 .hy-song.hy-full .hf-arrow { display: inline-grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 1px solid var(--line) !important; border-radius: 999px;
   color: var(--ink); cursor: pointer; transition: border-color .15s, color .15s, opacity .15s; }
 .hy-song.hy-full .hf-arrow:hover:not(:disabled) { border-color: var(--accent) !important; color: var(--accent); }
@@ -27,6 +32,6 @@
 .hy-song.hy-full .hf-dots button { width: .55rem; height: .55rem; border-radius: 999px; background: var(--line); cursor: pointer; transition: background .15s, width .2s; }
 .hy-song.hy-full .hf-dots button:hover { background: var(--muted); }
 .hy-song.hy-full .hf-dots button.on { width: 1.6rem; background: var(--accent); }
-.hy-song.hy-full .hf-where { margin-left: auto; font: 600 .68rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.hy-song.hy-full .hf-where { margin-left: .6rem; font: 600 .66rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
 .hy-song.hy-full .hf-where small { font: inherit; color: var(--muted); }
-@media (max-width: 560px) { .hy-song.hy-full .hf-where { width: 100%; margin: .2rem 0 0; order: 4; } .hy-song.hy-full .hf-pager-nav { flex-wrap: wrap; } }
+@media (max-width: 560px) { .hy-song.hy-full .hf-pager-nav { margin-left: 0; } .hy-song.hy-full .hf-where { width: 100%; margin: .2rem 0 0; } }

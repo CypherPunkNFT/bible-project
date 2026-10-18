@@ -4,7 +4,7 @@
 import { useState, type CSSProperties } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import type { HymnPageData, PagePassage } from "@/lib/hymn-pages";
+import type { BookTick, HymnPageData, PagePassage } from "@/lib/hymn-pages";
 import { Head } from "../song/Sections";
 import { ROMAN, type OpenPassage } from "../song/parts";
 
@@ -50,11 +50,16 @@ export function MainPassage({ num, page, open }: { num: string; page: HymnPageDa
   </section>;
 }
 
-function scale(page: HymnPageData) {
-  const t = page.book.ticks;
-  if (page.book.label.startsWith("Book I · On select passages")) return ["Genesis", "Psalms", "Prophets", "Gospels", "Revelation"];
-  if (page.group === "psalms") return ["Psalm 1", "Psalm 50", "Psalm 100", "Psalm 150"];
-  return [`No. ${t[0].n.replace(/^\d+:/, "")}`, `No. ${t[t.length - 1].n.replace(/^\d+:/, "")}`];
+/** A long book is drawn in two or three rows (owner, 2026-10-18), so a tick stays wide enough to point at. */
+const ONE_ROW = 150, ROW = 130, MOST_ROWS = 3;
+
+/** What a tick is called at the ends of its row: "Psalm 104" for a psalm setting, "No. 26" otherwise. */
+const tickName = (page: HymnPageData, n: string) => (!/^\d/.test(n) ? n : page.group === "psalms" ? `Psalm ${n.split(":")[0].replace(/^0+/, "")}` : `No. ${n.replace(/^\d+:/, "")}`);
+
+/** The labels under a row: Book I of Olney Hymns, on one row, reads as a walk through the Bible; any other row names its ends. */
+function scale(page: HymnPageData, row: BookTick[], rows: number) {
+  if (rows === 1 && page.book.label.startsWith("Book I · On select passages")) return ["Genesis", "Psalms", "Prophets", "Gospels", "Revelation"];
+  return [tickName(page, row[0].n), tickName(page, row[row.length - 1].n)];
 }
 
 /** Its place in the book: one tick per hymn of its book, in the book's order; pointing names a hymn, a click opens it. */
@@ -63,6 +68,9 @@ export function BookTicks({ num, page }: { num: string; page: HymnPageData }) {
   const { ticks, here, label } = page.book;
   const [shown, setShown] = useState(here);
   const t = ticks[shown] ?? ticks[here];
+  const count = ticks.length <= ONE_ROW ? 1 : Math.min(MOST_ROWS, Math.ceil(ticks.length / ROW));
+  const size = Math.ceil(ticks.length / count);
+  const rows = Array.from({ length: count }, (_, r) => ({ start: r * size, row: ticks.slice(r * size, (r + 1) * size) }));
   const book = label.replace(/^Book ([IV]+) · (.*)$/, "Book $1 of the hymn book, “$2”,");
   const what = page.group === "psalms" ? "Watts's psalms run from Psalm 1 to Psalm 150, several settings to many psalms"
     : label.startsWith("Book I · On select passages") ? "Book I of Olney Hymns walks through the Bible from Genesis to Revelation, one hymn per passage"
@@ -70,10 +78,11 @@ export function BookTicks({ num, page }: { num: string; page: HymnPageData }) {
   return <section className="hy-sec" id="book">
     <Head num={num} title={<>Its place in <em>the book</em></>}>{what}: {ticks.length} hymns. This is number {page.number.replace(/^\d+:/, "")}.
       Point at a tick to see the hymn; click it to open that hymn.</Head>
-    <div className="hy-book"><div className={`hy-book-row${ticks.length > 160 ? " hf-dense" : ""}`} onMouseLeave={() => setShown(here)}>{ticks.map((x, i) =>
-      <button key={x.id} type="button" style={tone(x.tone)} className={i === here ? "here" : undefined} aria-label={`No. ${x.n}: ${x.t}`}
-        onMouseEnter={() => setShown(i)} onFocus={() => setShown(i)} onClick={() => (i === here ? setShown(i) : navigate(`/study/hymns/${x.id}`))} />)}</div>
-      <div className="hy-book-scale">{scale(page).map((s) => <span key={s}>{s}</span>)}</div>
+    <div className="hy-book">{rows.map(({ start, row }) => <div key={start} className="hf-book-line">
+      <div className="hy-book-row" onMouseLeave={() => setShown(here)}>{row.map((x, k) => { const i = start + k;
+        return <button key={x.id} type="button" style={tone(x.tone)} className={i === here ? "here" : undefined} aria-label={`No. ${x.n}: ${x.t}`}
+          onMouseEnter={() => setShown(i)} onFocus={() => setShown(i)} onClick={() => (i === here ? setShown(i) : navigate(`/study/hymns/${x.id}`))} />; })}</div>
+      <div className="hy-book-scale">{scale(page, row, rows.length).map((s) => <span key={s}>{s}</span>)}</div></div>)}
       <p className="hy-book-readout" aria-live="polite"><small>No. {t.n.replace(/^\d+:/, "")} · {t.a}{shown === here ? " · this hymn" : ""}</small>{t.t.replace(/[,;:]$/, "")}</p></div>
   </section>;
 }
