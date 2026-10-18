@@ -397,6 +397,34 @@
 .mu-recorded { margin: .8rem 0 0; padding-left: 1.2rem; color: var(--muted); line-height: 1.7; }
 
 /* --- an object --------------------------------------------------------------------------------- */
+/* The kinds of object: one row of quiet chips, the chosen one in the section's colour. */
+.mu-kinds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1.4rem;
+}
+
+.mu-kind {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .45rem;
+  padding: .4rem .85rem;
+  font-family: var(--font-sans);
+  font-size: .78rem;
+  color: var(--ink);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  outline: none;
+}
+
+.mu-kind span { color: var(--muted); font-variant-numeric: tabular-nums; }
+.mu-kind:hover { border-color: var(--history); }
+.mu-kind[aria-pressed="true"] { border-color: var(--history); color: var(--history); }
+.mu-kind[aria-pressed="true"] span { color: inherit; }
+
 .mu-object-list {
   display: grid;
   gap: 1px;

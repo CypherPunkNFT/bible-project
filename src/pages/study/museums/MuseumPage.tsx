@@ -3,7 +3,16 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Plus } from "lucide-react";
 import { loadMuseum, loadMuseumIndex } from "@/lib/data";
 import { useAsync } from "@/lib/useAsync";
-import { BASIS_TONE, isMuseumSlug, objectSubtitle, type Museum, type MuseumObject } from "@/lib/museums";
+import {
+  BASIS_TONE,
+  OBJECT_KINDS,
+  isMuseumSlug,
+  objectKind,
+  objectSubtitle,
+  type Museum,
+  type MuseumObject,
+  type ObjectKind,
+} from "@/lib/museums";
 import { MuseumEmblem } from "./MuseumEmblems";
 import "./museums.css";
 
@@ -165,6 +174,7 @@ export default function MuseumPage() {
   const museum = useAsync(() => (valid ? loadMuseum(slug) : Promise.reject(new Error("bad slug"))), `museums/${slug}`);
   const [limit, setLimit] = useState(PAGE);
   const [onlyPhotos, setOnlyPhotos] = useState(false);
+  const [kind, setKind] = useState<ObjectKind | null>(null);
   const name = museum.status === "ready" ? museum.value.name : "A museum";
   useEffect(() => {
     const old = document.title;
@@ -176,13 +186,25 @@ export default function MuseumPage() {
   useEffect(() => {
     setLimit(PAGE);
     setOnlyPhotos(false);
+    setKind(null);
   }, [slug]);
 
   const known = index.status === "ready" ? index.value.cards.some((card) => card.slug === slug) : true;
+  const kinds = useMemo(
+    () => new Map(museum.status === "ready" ? museum.value.objects.map((object) => [object, objectKind(object)]) : []),
+    [museum],
+  );
   const objects = useMemo(() => {
     if (museum.status !== "ready") return [];
-    return onlyPhotos ? museum.value.objects.filter((object) => object.photo) : museum.value.objects;
-  }, [museum, onlyPhotos]);
+    return museum.value.objects.filter(
+      (object) => (!onlyPhotos || object.photo) && (!kind || kinds.get(object) === kind),
+    );
+  }, [museum, onlyPhotos, kind, kinds]);
+  const kindCounts = OBJECT_KINDS.map(([id, label]) => ({
+    id,
+    label,
+    count: [...kinds.values()].filter((value) => value === id).length,
+  })).filter((entry) => entry.count > 0);
 
   if (!valid || !known || museum.status === "error") {
     return (
@@ -311,11 +333,33 @@ export default function MuseumPage() {
                   </button>
                 ) : null}
               </div>
+              {kindCounts.length > 1 ? (
+                <div className="mu-kinds" role="group" aria-label="Kinds of object">
+                  {[{ id: null, label: "Everything", count: held.objects.length }, ...kindCounts].map((entry) => (
+                    <button
+                      key={entry.id ?? "all"}
+                      type="button"
+                      className="mu-kind"
+                      aria-pressed={kind === entry.id}
+                      onClick={() => {
+                        setKind(entry.id);
+                        setLimit(PAGE);
+                      }}
+                    >
+                      {entry.label}
+                      <span>{entry.count.toLocaleString()}</span>
+                    </button>
+                  ))}
+                </div>
+              ) : null}
               <div className="mu-object-list">
                 {objects.slice(0, limit).map((object) => (
                   <ObjectEntry key={object.id} object={object} museum={held} />
                 ))}
               </div>
+              {objects.length === 0 ? (
+                <p className="mu-unavailable">None of this kind has a photograph. Show every object to see them.</p>
+              ) : null}
               {objects.length > limit ? (
                 <button type="button" className="mu-more" onClick={() => setLimit(limit + PAGE)}>
                   Show {Math.min(PAGE, objects.length - limit)} more

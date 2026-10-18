@@ -1,5 +1,5 @@
 import { existsSync, readFileSync } from "node:fs";
-import { initials, isMuseumSlug, objectSubtitle, type MuseumIndex, type Museum, type MuseumObject } from "@/lib/museums";
+import { initials, isMuseumSlug, objectKind, objectSubtitle, type MuseumIndex, type Museum, type MuseumObject } from "@/lib/museums";
 
 // The pure helpers are always tested. The data assertions need `npm run museums`, whose output lives
 // in the git-ignored data/ folder like all the site's data, so they are skipped where it is absent.
@@ -31,6 +31,34 @@ describe("emblem initials", () => {
 
   it("falls back to the plain words when every word is filler", () => {
     expect(initials("The Museum")).toBe("TM");
+  });
+});
+
+describe("kind of object", () => {
+  const object = (title: string, medium = "", description = "", source_url = "") =>
+    ({ title, medium, description, source_url, record_url: "" }) as MuseumObject;
+
+  it.each([
+    ["Cuneiform cylinder: inscription of Esarhaddon", "Clay", "tablets"],
+    ["Verica Stater: Sunken Tablet (obverse); Horse and Rider", "gold", "coins"],
+    ["CDLI Seals 007107 (physical)", "stone", "seals"],
+    ["Deuteronomy 4.14-23; 4.23-32", "", "manuscripts"],
+    ["Isaiah scroll", "parchment", "manuscripts"],
+    ["Tel Dan Stele", "", "inscriptions"],
+    ["Relief: Royal servant", "", "sculpture"],
+    ["Cat Amulet", "Blue faience", "amulets"],
+    ["Jar with handles", "Pottery", "vessels"],
+    ["Building a Catafalque, Tomb of Ipuy", "Tempera on paper", "paintings"],
+    ["Doorjamb from a Temple of Ramesses II", "Granite", "buildings"],
+    ["Foundation Deposit Plaque", "Faience", "other"],
+  ])("files %s as %s", (title, medium, kind) => {
+    expect(objectKind(object(title, medium))).toBe(kind);
+  });
+
+  it("falls back to the description, then to the cuneiform corpora", () => {
+    expect(objectKind(object("Lachish relief", "", "Assyrian palace reliefs"))).toBe("sculpture");
+    expect(objectKind(object("Arad ostraca", "", "inscribed pottery shards"))).toBe("inscriptions");
+    expect(objectKind(object("Artaxerxes I  09", "", "", "https://oracc.museum.upenn.edu/x"))).toBe("tablets");
   });
 });
 

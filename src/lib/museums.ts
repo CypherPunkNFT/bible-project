@@ -155,6 +155,50 @@ export const BASIS_TONE: Record<MuseumObject["basis"], string> = {
   none: "no link",
 };
 
+/** What sort of thing an object is, in the order the page lists them. No source records this, so it is
+ * read from the title and medium, then the description: the first rule that matches wins, which is why
+ * a cuneiform cylinder "inscription of Esarhaddon" is a tablet and a stater showing a tablet is a coin. */
+export const OBJECT_KINDS = [
+  ["tablets", "Tablets & cuneiform"],
+  ["manuscripts", "Manuscripts & papyri"],
+  ["inscriptions", "Inscriptions & ostraca"],
+  ["sculpture", "Sculpture & reliefs"],
+  ["seals", "Seals & sealings"],
+  ["coins", "Coins"],
+  ["amulets", "Amulets & jewellery"],
+  ["vessels", "Vessels & pottery"],
+  ["paintings", "Painted copies"],
+  ["buildings", "Buildings & sites"],
+  ["other", "Other objects"],
+] as const;
+export type ObjectKind = (typeof OBJECT_KINDS)[number][0];
+
+const BIBLE_BOOK =
+  /^(genesis|exodus|leviticus|numbers|deuteronomy|joshua|judges|ruth|samuel|kings|chronicles|ezra|nehemiah|esther|job|psalms?|proverbs|ecclesiastes|isaiah|jeremiah|ezekiel|daniel|hosea|matthew|mark|luke|john|acts|romans|corinthians|hebrews|revelation)\b/;
+const KIND_RULES: [ObjectKind, RegExp][] = [
+  ["coins", /\b(coins?|stater|aureus|denarius|drachm|tetradrachm|didrachm|shekel|prutah|sestertius|dupondius|obol)\b/],
+  ["seals", /\b(seals?|bullae?|sealings?|scarabs?|scaraboid)\b/],
+  ["paintings", /\b(tempera|watercolou?r|facsimile)\b/],
+  ["manuscripts", /\b(papyr\w*|parchment|vellum|scrolls?|codex|manuscripts?|folios?|papers)\b/],
+  ["tablets", /\b(cuneiform|tablets?|clay|cylinder|prism|letters|chronicle|epic|myth)\b/],
+  ["inscriptions", /\b(inscriptions?|inscribed|ostrac\w*|stele|stela|obelisk|monoliths?)\b/],
+  ["sculpture", /\b(reliefs?|reliëf|statue\w*|figur\w*|bust|sculpt\w*|sphinx|lamassu|portal|head)\b/],
+  ["amulets", /\b(amulets?|shawabty|ushabti|rings?|beads?|necklace|earrings?|pendant|cameo|inlay|jewel\w*)\b/],
+  ["vessels", /\b(jars?|vessels?|bowls?|cups?|ossuary|lamps?|pottery|ceramic|vase|flask|jug|aryballos)\b/],
+  ["buildings", /\b(archaeological site|locality|temple|palace|hall|tile|doorjamb|column|shipwreck|boat)\b/],
+];
+
+export function objectKind(object: MuseumObject): ObjectKind {
+  const title = `${object.title} ${object.medium}`.toLowerCase();
+  if (BIBLE_BOOK.test(object.title.toLowerCase())) return "manuscripts";
+  for (const text of [title, object.description.slice(0, 200).toLowerCase()]) {
+    const rule = KIND_RULES.find(([, pattern]) => pattern.test(text));
+    if (rule) return rule[0];
+  }
+  // The cuneiform corpora file a text under its edition number alone, "SAA 19 064".
+  return /cdli|oracc/.test(object.source_url + object.record_url) ? "tablets" : "other";
+}
+
 export function objectSubtitle(object: MuseumObject): string {
   return [object.date, object.culture || object.period, object.medium].filter(Boolean).join(" · ");
 }
