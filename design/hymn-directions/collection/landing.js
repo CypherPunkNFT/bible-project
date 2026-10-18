@@ -14,7 +14,7 @@ window.Sections = window.Sections || {};
     const psa = books.findIndex((b) => b.code === "PSA") + 1;
     const psalmsSung = new Set(hymns.filter((h) => Math.floor(h.v / 1e6) === psa).map((h) => Math.floor(h.v / 1e3) % 1000)).size;
     const cards = KNOWN.map((first) => hymns.find((h) => h.t.toLowerCase().replace(/[’']/g, "'").startsWith(first.toLowerCase().replace(/[’']/g, "'")))).filter(Boolean);
-    const href = (h) => h.id === "ccel-olney-hymns-41-amazing-grace-how-sweet-the-sound" ? "../d/" : `/study/hymns/${h.id}`;
+    const href = (h) => h.id === "ccel-olney-hymns-41-amazing-grace-how-sweet-the-sound" ? "../a/" : `/study/hymns/${h.id}`;
     const card = (h) => { const g = groupById.get(h.g); return `<a class="hc-card" href="${href(h)}" style="--tone: var(${g.tone})">
       <span class="hc-kicker">${esc(g.who)} · ${h.y}</span><span class="hc-first">${esc(h.t.replace(/[,;:]$/, ""))}</span>
       <span class="hc-book">${esc(g.id === "newton" || g.id === "cowper" ? "Olney Hymns" : g.label)}</span></a>`; };

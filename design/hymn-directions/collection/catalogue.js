@@ -18,7 +18,7 @@ window.Sections = window.Sections || {};
     return hymns.map((h) => {
       const g = groupById.get(h.g), b = h.v ? books[Math.floor(h.v / 1e6) - 1] : null;
       const section = b ? b.section : "none";
-      return { h, g, section, metre: metreName(h.m), href: h.id === "ccel-olney-hymns-41-amazing-grace-how-sweet-the-sound" ? "../d/" : `/study/hymns/${h.id}`,
+      return { h, g, section, metre: metreName(h.m), href: h.id === "ccel-olney-hymns-41-amazing-grace-how-sweet-the-sound" ? "../a/" : `/study/hymns/${h.id}`,
         search: normalise([h.t, h.s, h.r, g.label, g.who].join(" ")) };
     });
   }

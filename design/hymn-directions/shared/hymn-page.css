@@ -1,0 +1,40 @@
+/* Direction D · A + B together: the "See the constellation" button at the top, and the constellation as the second half of
+   section 01, under a quiet sub-heading rather than a section of its own. */
+.d-go { display: inline-flex; gap: .55rem; align-items: center; margin-top: 1.3rem; padding: .55rem 1.1rem; border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 999px; font-size: .86rem; color: var(--accent); transition: background .15s; }
+.d-go:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.d-among { margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px dashed var(--line); scroll-margin-top: 84px; }
+.d-among-k { font: 600 .66rem var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.d-among-line { max-width: 68ch; margin: .45rem 0 .6rem; color: var(--muted); font-size: .9rem; line-height: 1.7; }
+
+/* The buttons under the opening line */
+.hp-actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+.hp-actions .d-go { cursor: pointer; background: none; font: inherit; font-size: .86rem; }
+
+/* read-compare: the Read · Compare switch; in Read the verses, joins and underlines are hidden but keep their space,
+   so the block is the same height either way */
+.hp-mode { display: inline-flex; gap: 2px; margin: 0 0 1.2rem 5.6rem; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.hp-mode button { padding: .35rem .95rem; border: 0; border-radius: 999px; background: none; font-size: .78rem; color: var(--muted); }
+.hp-mode button[aria-checked="true"] { background: var(--ink); color: var(--page); }
+.ec .margin, .ec svg.links { transition: opacity .3s; }
+.ec.hp-reading .margin, .ec.hp-reading svg.links { opacity: 0; visibility: hidden; }
+.ec.hp-reading .line.echo .t { background: none; }
+.ec.hp-reading .line.echo { cursor: text; }
+.ec.hp-reading ~ .ec-key { visibility: hidden; }
+
+/* hover: the stanzas clean; a line's verse and join appear while you point at it (the underline stays a faint hint) */
+.ec.hp-hover .note, .ec.hp-hover svg.links path, .ec.hp-hover svg.links circle { opacity: 0; transition: opacity .25s; }
+.ec.hp-hover .note.on, .ec.hp-hover svg.links .on { opacity: 1; }
+.ec.hp-hover .line.echo .t { background: linear-gradient(transparent 92%, color-mix(in srgb, var(--accent) 22%, transparent) 0); }
+.ec.hp-hover .line.echo.on .t { background: linear-gradient(transparent 60%, color-mix(in srgb, var(--accent) 22%, transparent) 0); }
+
+/* panel: the whole hymn in the side panel */
+.hp-whole-meta { margin: -.2rem 0 .9rem; font-size: .74rem; color: var(--muted); }
+.hp-whole-text { margin-bottom: 1rem; font: italic 400 .9rem var(--serif); color: var(--accent); }
+.hp-whole { display: grid; gap: 1.1rem; }
+.hp-st { position: relative; padding-left: 2rem; }
+.hp-st span { position: absolute; left: 0; top: .15rem; font: 500 .8rem var(--serif); color: var(--accent); opacity: .7; }
+.hp-st p { font: 400 1.08rem/1.6 var(--serif); }
+.hp-st p:nth-of-type(even) { padding-left: 1.2rem; }
+.ec.hp-hover.focus .note:not(.on) { opacity: 0; }
+.ec.hp-reading .line .inline-note { display: none; }

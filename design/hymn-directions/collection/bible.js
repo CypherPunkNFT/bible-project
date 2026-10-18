@@ -44,7 +44,7 @@ window.Sections = window.Sections || {};
     const valueOf = (cell, view) => view === "all" ? cell.total : cell.counts[view] ?? 0;
     const chapterName = (cell) => `${books[cell.b].name === "Psalms" ? "Psalm" : books[cell.b].name} ${cell.c}`;
     const readHref = (cell) => `/read/kjv/${books[cell.b].code}/${cell.c}`;
-    const hymnHref = (h) => h.id === "ccel-olney-hymns-41-amazing-grace-how-sweet-the-sound" ? "../d/" : `/study/hymns/${h.id}`;
+    const hymnHref = (h) => h.id === "ccel-olney-hymns-41-amazing-grace-how-sweet-the-sound" ? "../a/" : `/study/hymns/${h.id}`;
     const views = [{ id: "all", label: "Every hymn", chapters: D.litCount, tone: "--accent" }, ...D.groups.map((g) => ({ id: g.id, label: g.short, chapters: g.chapters, tone: g.tone, group: g }))];
 
     section.style.setProperty("--tone", "var(--accent)");

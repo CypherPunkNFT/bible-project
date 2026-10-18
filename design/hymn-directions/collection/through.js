@@ -39,7 +39,7 @@ window.Sections = window.Sections || {};
       return `M${point(R0, a0)} L${point(outer, a0)} A${outer} ${outer} 0 0 1 ${point(outer, a1)} L${point(R0, a1)} A${R0} ${R0} 0 0 0 ${point(R0, a0)}Z`;
     };
     const bookName = (b, chapter) => (books[b].name === "Psalms" && chapter ? "Psalm" : books[b].name);
-    const hymnHref = (h) => h.id === "ccel-olney-hymns-41-amazing-grace-how-sweet-the-sound" ? "../d/" : `/study/hymns/${h.id}`;
+    const hymnHref = (h) => h.id === "ccel-olney-hymns-41-amazing-grace-how-sweet-the-sound" ? "../a/" : `/study/hymns/${h.id}`;
 
     const railItem = (s) => {
       const g = s.group;

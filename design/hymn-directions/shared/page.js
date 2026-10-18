@@ -66,6 +66,12 @@
         el.classList.add("open");
         el.setAttribute("aria-hidden", "false");
       },
+      /** Open with any content: a kicker, a title and the body's markup. */
+      show(kicker, title, body) {
+        el.querySelector(".hy-panel-body").innerHTML = `<p class="hy-panel-kicker">${esc(kicker)}</p><h3>${esc(title)}</h3>${body}`;
+        el.classList.add("open");
+        el.setAttribute("aria-hidden", "false");
+      },
       close,
     };
   }
@@ -84,7 +90,10 @@
   /** The A · B · C switch between directions. */
   function switcher() {
     const here = location.pathname.split("/").filter(Boolean).at(-1);
-    const dirs = [["a", "The page and its echoes"], ["b", "Constellation"], ["c", "Six movements"], ["d", "A + B together"]];
+    // The current three: the A + B page, with the whole hymn shown three ways. The earlier four live under earlier/.
+    const dirs = location.pathname.includes("/earlier/")
+      ? [["a", "The page and its echoes"], ["b", "Constellation"], ["c", "Six movements"], ["d", "A + B together"]]
+      : [["a", "Read · Compare"], ["b", "Verses on hover"], ["c", "Hymn in the panel"]];
     const nav = document.createElement("nav");
     nav.className = "hy-switch";
     nav.setAttribute("aria-label", "Design directions");
