@@ -8,8 +8,7 @@
 .cab-shelf-name b { font: 500 1.05rem var(--serif); }
 .cab-shelf-name span { flex: 1; display: flex; align-items: center; gap: .8rem; font-size: .76rem; color: var(--muted); }
 .cab-shelf-name span::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-.cab-row { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 12px; }
-@media (max-width: 1180px) { .cab-row { grid-template-columns: repeat(7, minmax(0, 1fr)); } }
+.cab-row { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 14px 12px; }
 .cab-case { --tone: var(--accent); display: flex; flex-direction: column; min-width: 0; border-radius: 10px; cursor: pointer; }
 .cab-art { position: relative; display: grid; place-items: center; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 10px; background: var(--surface-2); border: 1px solid transparent; transition: border-color .2s; }
 .cab-art img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.55) contrast(.96); transition: filter .4s, transform .6s cubic-bezier(.16, 1, .3, 1); }
@@ -144,28 +143,19 @@
 @media (max-width: 960px) { .bk-layout { grid-template-columns: 1fr; } .bk-scroll { max-height: 26rem; } }
 
 /* ── C · Where are they now ── */
-/* Where are they now: a full-width map that drags west to New England, the pill beneath it, and the city panel sliding in. */
+/* Where are they now: a map that opens on every city, zooms under the scroll wheel and drags; the city panel slides in.
+   --u is the map's units per screen pixel, so strokes and names stay the same size on screen at every zoom. */
 .pl-mapwrap { position: relative; }
-.pl-mapview { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; cursor: grab; touch-action: pan-x pan-y; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.pl-mapview::-webkit-scrollbar { display: none; }
+.pl-mapview { position: relative; height: 420px; /* set from the fitted land by places.js */ overflow: hidden; cursor: grab; touch-action: none; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .pl-mapview.is-dragging { cursor: grabbing; user-select: none; }
-.pl-mapcontent { position: relative; width: max-content; }
-.pl-map { display: block; height: clamp(380px, 44vw, 640px); width: auto; aspect-ratio: 1805 / 646; }
-.pl-land { fill: color-mix(in srgb, var(--ink) 7%, var(--page)); stroke: color-mix(in srgb, var(--ink) 24%, transparent); stroke-width: .7; stroke-linejoin: round; }
+.pl-map { display: block; width: 100%; height: 100%; --u: 1; }
+.pl-land { fill: color-mix(in srgb, var(--ink) 7%, var(--page)); stroke: color-mix(in srgb, var(--ink) 24%, transparent); stroke-width: .7; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.pl-land path { vector-effect: non-scaling-stroke; }
 .pl-city { cursor: pointer; }
-.pl-city circle { fill: color-mix(in srgb, var(--prophets) 30%, transparent); stroke: var(--prophets); stroke-width: 1.2; transition: fill .2s; }
+.pl-city circle { fill: color-mix(in srgb, var(--prophets) 30%, transparent); stroke: var(--prophets); stroke-width: calc(1.2px * var(--u)); transition: fill .2s; }
 .pl-city:hover circle, .pl-city.on circle { fill: var(--prophets); }
-.pl-city.on circle { stroke: var(--ink); stroke-width: 1.8; }
-.pl-city text { font: 500 13px var(--serif); fill: var(--ink); paint-order: stroke; stroke: var(--page); stroke-width: 4px; stroke-linejoin: round; pointer-events: none; }
-.pl-west { position: absolute; left: .9rem; bottom: 1.2rem; display: grid; gap: 1px; width: 9rem; padding-left: .7rem; border-left: 1px solid var(--line); }
-.pl-west p { margin-bottom: .2rem; font-size: .58rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
-.pl-west button { display: flex; justify-content: space-between; gap: .5rem; padding: .1rem; font-size: .7rem; white-space: nowrap; color: var(--muted); border-bottom: 1px solid transparent !important; }
-.pl-west button b { font-weight: 500; color: var(--ink); } .pl-west button em { font-style: normal; font-variant-numeric: tabular-nums; }
-.pl-west button.on, .pl-west button:hover { border-bottom-color: var(--prophets) !important; }
-/* The pill under the map: the site's outside scroll turned sideways, a thumb with no track. */
-.pl-hbar { position: relative; height: 12px; margin-top: 6px; cursor: pointer; }
-.pl-hthumb { position: absolute; top: 3px; height: 6px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent); cursor: grab; transition: background .2s; }
-.pl-hbar:hover .pl-hthumb { background: color-mix(in srgb, var(--ink) 45%, transparent); }
+.pl-city.on circle { stroke: var(--ink); stroke-width: calc(1.8px * var(--u)); }
+.pl-city text { font-family: var(--serif); font-weight: 500; font-size: calc(13px * var(--u)); fill: var(--ink); paint-order: stroke; stroke: var(--page); stroke-width: calc(4px * var(--u)); stroke-linejoin: round; pointer-events: none; }
 .pl-drawer { z-index: 59; }
 .pl-drawer button:not(.ms-sheet-close) { appearance: none; margin: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; }
 .pl-drawer button:focus, .pl-drawer button:focus-visible { outline: none; }
@@ -182,13 +172,16 @@
 .pl-list button { display: grid; grid-template-columns: 6.4rem minmax(0, 1fr) auto; gap: .6rem; align-items: baseline; width: 100%; padding: .42rem .1rem; text-align: left; }
 .pl-list span { font-size: .72rem; color: var(--muted); } .pl-list b { font: 500 .88rem var(--serif); } .pl-list small { font-size: .7rem; color: var(--prophets); font-weight: 600; }
 .pl-list button:hover b { color: var(--prophets); }
-/* The holders: grouped by continent in a three-row area that scrolls under the pointer, with the outside pill. */
+/* The holders: grouped by continent in a four-row area that scrolls under the pointer, with the outside pill; while there
+   is more below, the cards fade into the page at the foot rather than being cut off. */
 .pl-holderwrap { margin-top: 1.8rem; }
 .pl-continents { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin-bottom: .6rem; }
 .pl-continents button { padding: .15rem 0; font-size: .74rem; font-weight: 600; letter-spacing: .04em; color: var(--muted); border-bottom: 1px solid transparent !important; }
 .pl-continents button em { font-style: normal; font-weight: 500; margin-left: .2rem; }
 .pl-continents button:hover { color: var(--ink); border-bottom-color: var(--prophets) !important; }
-.pl-cardarea { height: calc(3 * 4.55rem + 2 * 8px + 2.2rem); }
+.pl-cardarea { height: calc(4 * 4.55rem + 3 * 8px + 2.2rem); }
+.pl-cardarea .os-viewport { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 5rem), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 5rem), transparent); }
+.pl-cardarea.at-end .os-viewport { -webkit-mask-image: none; mask-image: none; }
 .pl-group + .pl-group { margin-top: 1rem; }
 .pl-group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin: 0 0 .5rem; padding-top: .25rem; font: 500 1rem var(--serif); }
 .pl-group-head span { font: 500 .68rem var(--sans); letter-spacing: .04em; color: var(--muted); }
@@ -201,7 +194,7 @@
 .pl-card-text small { font-size: .68rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pl-card em { font: 500 1.1rem var(--serif); font-style: normal; color: var(--prophets); }
 .pl-mapview:focus, .pl-mapview:focus-visible { outline: none; }
-@media (max-width: 640px) { .pl-map { height: 360px; } .pl-city text { font-size: 15px; } .pl-cardarea { height: 22rem; } }
+@media (max-width: 640px) { .pl-cardarea { height: 26rem; } }
 /* Pointing at a lane tints it lightly; a clicked lane fills the whole chart. "All traditions" folds it back. */
 .ln-wash { fill: transparent; transition: fill .18s; }
 .ln-lane.is-hover .ln-wash { fill: color-mix(in srgb, var(--ink) 6%, transparent); }

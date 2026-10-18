@@ -1,4 +1,5 @@
-// The Manuscripts page (/study/manuscripts) in three directions, chosen with ?d=a|b|c: the site frame with Study
+// The Manuscripts page (/study/manuscripts) in three directions and the owner's merge of them (D, 2026-10-18), chosen with
+// ?d=a|b|c|d: the site frame with Study
 // selected, then that direction's sections in order. Each section lives in its own file and registers as
 // Sections.<key>; one failing section never stops the others.
 (() => {
@@ -6,6 +7,7 @@
     a: { letter: "A", name: "The cabinet", sections: ["landing", "cabinet", "kinds", "onward"] },
     b: { letter: "B", name: "Through time", sections: ["landing", "lanes", "closeness", "onward"] },
     c: { letter: "C", name: "By the book", sections: ["landing", "books", "places", "onward"] },
+    d: { letter: "D", name: "Merged", sections: ["landing", "cabinet", "lanes", "closeness", "books", "places", "kinds", "onward"] },
   };
   const params = new URLSearchParams(location.search);
   const d = DIRECTIONS[params.get("d")] ? params.get("d") : "a";

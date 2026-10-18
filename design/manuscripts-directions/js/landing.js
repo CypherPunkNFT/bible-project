@@ -39,6 +39,7 @@
   const TEXT = {
     a: ["a cabinet of witnesses", "The Bible reaches us through copies made by hand: scrolls, bound books and scraps of papyrus, now kept in libraries from Dublin to Sinai. Open any one to see its date, its contents and where it is today.", figuresA],
     b: ["across the centuries", "Every dated copy on one line of time, tradition by tradition, from the oldest Hebrew fragment to the last Gospels copied by hand. Then, book by book, how close the surviving copies come to the writing.", figuresB],
+    d: ["across the centuries", "The Bible reaches us through copies made by hand: scrolls, bound books and scraps of papyrus. Open the great witnesses case by case, follow every dated copy through time, choose a book to see the copies that hold it, and find where they are kept today.", figuresB],
     c: ["book by book", "Choose a book of the Bible to see the surviving copies that hold it, oldest first, then follow the manuscripts to the libraries and monasteries that keep them today.", figuresC],
   };
 
@@ -66,8 +67,8 @@
           <p class="hc-lede">${lede}</p>
         </div>
         <dl class="hc-figures">${figures().join("")}</dl>
-      </div>${d === "b" ? centuries() : ""}`;
-    if (d === "b") {
+      </div>${d === "b" || d === "d" ? centuries() : ""}`;
+    if (d === "b" || d === "d") {
       const say = section.querySelector(".cs-say"), base = say.textContent;
       const show = (bar) => { say.innerHTML = bar ? `<b>${esc(bar.dataset.c)}</b> · ${plural(Number(bar.dataset.n), "dated copy", "dated copies")}` : base; };
       section.querySelector(".cs-bars").addEventListener("pointerover", (e) => show(e.target.closest(".cs-bar")));

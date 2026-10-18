@@ -1,14 +1,15 @@
 // C · 02 Where are they now? The approved "place cards + SVG atlas map": the cities that hold the manuscripts as dots on
-// a full-width map from New England to the Caucasus (owner 2026-10-18). The map opens on Europe and drags (or scrolls
-// sideways, with the standard pill under it) west across the Atlantic. Choosing a city slides its panel in from the
-// right; choosing a manuscript there opens its record over it. Beneath, the holders as cards, grouped by continent, in
-// a three-row area that scrolls under the pointer with the site's outside pill. All counts are records.
+// a map from Chicago to the Caucasus. The map opens zoomed out to show every city; scrolling over it zooms in and out
+// around the pointer, dragging moves it, and two fingers pinch on touch (owner 2026-10-18: no bar). Choosing a city
+// slides its panel in from the right; choosing a manuscript there opens its record over it. Beneath, the holders as
+// cards, grouped by continent, in a four-row area that scrolls under the pointer and fades out at its foot.
 (() => {
   const { byDate, sigla } = MSX;
   const P = MS.map;
   const proj = (lat, lon) => [(lon - P.lon0) * P.cos * P.k, (P.lat1 - lat) * P.k];
-  const START_LON = -12; // the map opens with Ireland at its left edge
   const DRAG = 6; // pixels of movement before a press becomes a drag rather than a click
+  const MAX_ZOOM = 14; // how far in, relative to the opening view
+  const CHAR_W = 0.56, LABEL_PX = 13; // a name's width on screen is about its letters × CHAR_W × the font size
   const CONTINENTS = [["Europe", "Europe"], ["Near East", "The Near East and the Caucasus"], ["North America", "North America"]];
   const CONTINENT_OF = { Egypt: "Near East", Israel: "Near East", Syria: "Near East", Georgia: "Near East", Armenia: "Near East", "United States": "North America" };
   const continentOf = (country) => CONTINENT_OF[country] ?? "Europe";
@@ -29,29 +30,19 @@
 
   // Cities close together on the map get their labels on different sides.
   const SIDE = { Oxford: "w", London: "s", Cambridge: "n", "Cambridge, Massachusetts": "e", "New Haven": "w", "New York": "s", Princeton: "w", "Washington, D.C.": "e" };
-  function labelAt(name, x, y, r) {
-    const side = SIDE[name] ?? "e";
-    const [tx, ty, anchor] = side === "w" ? [x - r - 5, y + 4, "end"] : side === "s" ? [x, y + r + 14, "middle"] : side === "n" ? [x + 4, y - r - 5, "start"] : [x + r + 5, y + 4, "start"];
-    return `<text x="${tx.toFixed(0)}" y="${ty.toFixed(0)}" text-anchor="${anchor}">${esc(name)}</text>`;
-  }
   const shortCity = (name) => name.replace(", North Carolina", ", N.C.").replace(", Massachusetts", ", Mass.");
 
   function mapHtml(cities) {
-    const onMap = cities.filter((c) => c.lon >= P.lon0), west = cities.filter((c) => c.lon < P.lon0);
-    const dots = onMap.map((c) => {
-      const [x, y] = proj(c.lat, c.lon), r = 4 + Math.sqrt(c.n) * 1.5, label = c.n >= 25 || continentOf(c.country) !== "Europe";
-      return `<g class="pl-city" data-city="${esc(c.city)}" tabindex="0" role="button" aria-label="${esc(c.city)}: ${plural(c.n, "record")}"><circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${r.toFixed(1)}"/>${label ? labelAt(c.city, x, y, r).replace(`>${esc(c.city)}<`, `>${esc(shortCity(c.city))}<`) : ""}</g>`;
+    const dots = cities.map((c) => {
+      const [x, y] = proj(c.lat, c.lon);
+      return `<g class="pl-city" data-city="${esc(c.city)}" data-x="${x.toFixed(1)}" data-y="${y.toFixed(1)}" data-r="${(4 + Math.sqrt(c.n) * 1.5).toFixed(1)}" data-side="${SIDE[c.city] ?? "e"}" tabindex="0" role="button" aria-label="${esc(c.city)}: ${plural(c.n, "record")}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}"/><text>${esc(shortCity(c.city))}</text></g>`;
     }).join("");
-    return `<div class="pl-mapview" tabindex="0" aria-label="Map of the cities that hold the manuscripts. Drag, or use the left and right arrows, to move west to America.">
-        <div class="pl-mapcontent">
-          <svg class="pl-map" viewBox="0 0 ${P.w} ${P.h}" role="img" aria-label="Map from New England to the Caucasus">
-            <g class="pl-land">${P.d.map((d) => `<path d="${d}"/>`).join("")}</g>
-            <g class="pl-dots">${dots}</g>
-          </svg>
-          ${west.length ? `<div class="pl-west"><p>Further west</p>${west.map((c) => `<button type="button" data-city="${esc(c.city)}"><b>${esc(shortCity(c.city))}</b><em>${formatNumber(c.n)}</em></button>`).join("")}</div>` : ""}
-        </div>
-      </div>
-      <div class="pl-hbar" aria-hidden="true"><span class="pl-hthumb"></span></div>`;
+    return `<div class="pl-mapview" tabindex="0" aria-label="Map of the cities that hold the manuscripts. Scroll or pinch to zoom, drag to move; plus and minus keys zoom, arrow keys move.">
+        <svg class="pl-map" role="img" aria-label="Map from Chicago to the Caucasus">
+          <g class="pl-land">${P.d.map((d) => `<path d="${d}"/>`).join("")}</g>
+          <g class="pl-dots">${dots}</g>
+        </svg>
+      </div>`;
   }
 
   function cardsHtml(cities) {
@@ -79,69 +70,163 @@
     return el;
   }
 
-  // Sideways movement of the map: drag, arrow keys, and the pill beneath, which mirrors and drives the scroll.
-  function panning(view, bar) {
-    const thumb = bar.querySelector(".pl-hthumb");
-    let press = null;
+  // Zoom and pan by rewriting the SVG's viewBox. The opening view fits every city with a margin; zooming never goes
+  // further out than the whole map, nor further in than MAX_ZOOM times the opening view. Dots and names keep their size
+  // on screen whatever the zoom (dots grow a little as you zoom in).
+  function zooming(view, svg) {
+    const cities = [...svg.querySelectorAll(".pl-city")];
+    const xs = cities.map((g) => Number(g.dataset.x)), ys = cities.map((g) => Number(g.dataset.y));
+    const box = { x0: Math.min(...xs), x1: Math.max(...xs), y0: Math.min(...ys), y1: Math.max(...ys) };
+    let vb = null, fitWidth = 0;
     view.dragged = false;
-    function measure() {
-      const ratio = view.clientWidth / view.scrollWidth, range = view.scrollWidth - view.clientWidth;
-      bar.hidden = range <= 1;
-      thumb.style.width = `${ratio * 100}%`;
-      thumb.style.left = `${range > 0 ? (view.scrollLeft / range) * (1 - ratio) * 100 : 0}%`;
+
+    const aspect = () => view.clientWidth / Math.max(1, view.clientHeight);
+    // The frame is as tall as the fitted land needs (so no empty page shows above or below it), within sensible limits.
+    function sizeFrame() {
+      const padX = (box.x1 - box.x0) * 0.08 + 30, padY = (box.y1 - box.y0) * 0.12 + 30;
+      const landAspect = Math.min(P.w, box.x1 - box.x0 + 2 * padX) / Math.min(P.h, box.y1 - box.y0 + 2 * padY);
+      view.style.height = `${Math.round(Math.max(view.clientWidth < 640 ? 220 : 320, Math.min(640, view.clientWidth / landAspect)))}px`;
     }
-    view.addEventListener("scroll", measure, { passive: true });
-    new ResizeObserver(measure).observe(view);
+    function fit() {
+      const padX = (box.x1 - box.x0) * 0.08 + 30, padY = (box.y1 - box.y0) * 0.12 + 30;
+      // The margin never reaches past the map's own edges, where the land outline stops.
+      let w = Math.min(P.w, box.x1 - box.x0 + 2 * padX), h = Math.min(P.h, box.y1 - box.y0 + 2 * padY);
+      if (w / h < aspect()) w = h * aspect(); else h = w / aspect();
+      fitWidth = w;
+      return clampBox({ x: (box.x0 + box.x1) / 2 - w / 2, y: (box.y0 + box.y1) / 2 - h / 2, w, h });
+    }
+    function clampBox(b) {
+      const maxW = Math.max(P.w, fitWidth || P.w), minW = (fitWidth || P.w) / MAX_ZOOM;
+      const w = Math.min(maxW, Math.max(minW, b.w)), h = w / aspect();
+      const cx = b.x + b.w / 2, cy = b.y + b.h / 2;
+      const x = w >= P.w ? (P.w - w) / 2 : Math.min(P.w - w, Math.max(0, cx - w / 2));
+      const y = h >= P.h ? (P.h - h) / 2 : Math.min(P.h - h, Math.max(0, cy - h / 2));
+      return { x, y, w, h };
+    }
+    function apply() {
+      svg.setAttribute("viewBox", `${vb.x.toFixed(2)} ${vb.y.toFixed(2)} ${vb.w.toFixed(2)} ${vb.h.toFixed(2)}`);
+      const unit = vb.w / view.clientWidth, zoom = fitWidth / vb.w, grow = Math.min(1.8, zoom ** 0.25);
+      svg.style.setProperty("--u", unit.toFixed(4));
+      view.classList.toggle("is-zoomed", zoom > 1.02);
+      const placed = []; // label boxes already placed, in map units
+      const hits = (a) => placed.some((b) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0);
+      for (const g of cities) { // biggest cities first: cityTable() sorts by record count
+        const x = Number(g.dataset.x), y = Number(g.dataset.y), r = Number(g.dataset.r) * 0.62 * unit * grow;
+        g.firstElementChild.setAttribute("r", r.toFixed(2));
+        placed.push({ x0: x - r, x1: x + r, y0: y - r, y1: y + r });
+      }
+      for (const g of cities) {
+        const x = Number(g.dataset.x), y = Number(g.dataset.y), r = Number(g.firstElementChild.getAttribute("r"));
+        const text = g.lastElementChild, gap = r + 4 * unit, w = text.textContent.length * CHAR_W * LABEL_PX * unit, h = LABEL_PX * unit;
+        const options = { e: [x + gap, y + 4 * unit, "start"], w: [x - gap, y + 4 * unit, "end"], s: [x, y + gap + 10 * unit, "middle"], n: [x, y - gap, "middle"] };
+        const order = [g.dataset.side, "e", "w", "n", "s"].filter((s, i, all) => all.indexOf(s) === i);
+        let chosen = null;
+        for (const side of order) {
+          const [tx, ty, anchor] = options[side];
+          const x0 = anchor === "start" ? tx : anchor === "end" ? tx - w : tx - w / 2, rect = { x0, x1: x0 + w, y0: ty - h * 0.8, y1: ty + h * 0.25 };
+          const inside = x0 >= vb.x && x0 + w <= vb.x + vb.w && rect.y0 >= vb.y && rect.y1 <= vb.y + vb.h;
+          if (!hits(rect) && inside) { chosen = { tx, ty, anchor, rect }; break; }
+        }
+        text.style.display = chosen ? "" : "none";
+        if (!chosen) continue;
+        placed.push(chosen.rect);
+        text.setAttribute("x", chosen.tx.toFixed(2)); text.setAttribute("y", chosen.ty.toFixed(2)); text.setAttribute("text-anchor", chosen.anchor);
+      }
+    }
+    function zoomAt(factor, px, py) {
+      const b = view.getBoundingClientRect(), fx = (px - b.left) / b.width, fy = (py - b.top) / b.height;
+      const w = vb.w / factor, h = vb.h / factor;
+      vb = clampBox({ x: vb.x + (vb.w - w) * fx, y: vb.y + (vb.h - h) * fy, w, h });
+      apply();
+    }
+    function panBy(dxPx, dyPx) {
+      const unit = vb.w / view.clientWidth;
+      vb = clampBox({ ...vb, x: vb.x - dxPx * unit, y: vb.y - dyPx * unit });
+      apply();
+    }
+
+    view.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      const delta = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY;
+      zoomAt(Math.exp(-delta * 0.0018), e.clientX, e.clientY);
+    }, { passive: false });
+
+    const pointers = new Map();
+    let press = null, pinch = null;
     view.addEventListener("pointerdown", (e) => {
-      if (e.button !== 0 || e.pointerType === "touch") return; // touch scrolls natively
-      press = { x: e.clientX, left: view.scrollLeft, id: e.pointerId };
-      view.dragged = false;
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pointers.size === 1) { press = { x: e.clientX, y: e.clientY, last: { x: e.clientX, y: e.clientY } }; view.dragged = false; }
+      if (pointers.size === 2) {
+        const [a, b] = [...pointers.values()];
+        pinch = { dist: Math.hypot(a.x - b.x, a.y - b.y) };
+        view.dragged = true;
+      }
     });
     view.addEventListener("pointermove", (e) => {
-      if (!press || e.pointerId !== press.id) return;
-      const dx = e.clientX - press.x;
-      if (!view.dragged && Math.abs(dx) < DRAG) return;
-      if (!view.dragged) { view.dragged = true; view.setPointerCapture(press.id); view.classList.add("is-dragging"); }
-      view.scrollLeft = press.left - dx;
+      if (!pointers.has(e.pointerId)) return;
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pinch && pointers.size === 2) {
+        const [a, b] = [...pointers.values()], dist = Math.hypot(a.x - b.x, a.y - b.y);
+        zoomAt(dist / pinch.dist, (a.x + b.x) / 2, (a.y + b.y) / 2);
+        pinch.dist = dist;
+        return;
+      }
+      if (!press) return;
+      if (!view.dragged && Math.hypot(e.clientX - press.x, e.clientY - press.y) < DRAG) return;
+      if (!view.dragged) { view.dragged = true; view.setPointerCapture(e.pointerId); view.classList.add("is-dragging"); }
+      panBy(e.clientX - press.last.x, e.clientY - press.last.y);
+      press.last = { x: e.clientX, y: e.clientY };
     });
-    const end = () => { press = null; view.classList.remove("is-dragging"); };
+    const end = (e) => {
+      pointers.delete(e.pointerId);
+      if (pointers.size < 2) pinch = null;
+      if (!pointers.size) { press = null; view.classList.remove("is-dragging"); }
+    };
     view.addEventListener("pointerup", end);
     view.addEventListener("pointercancel", end);
     view.addEventListener("keydown", (e) => {
-      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-      e.preventDefault();
-      view.scrollBy({ left: (e.key === "ArrowLeft" ? -1 : 1) * view.clientWidth * 0.4, behavior: "smooth" });
+      const b = view.getBoundingClientRect(), cx = b.left + b.width / 2, cy = b.top + b.height / 2, step = view.clientWidth * 0.15;
+      const moves = { ArrowLeft: [step, 0], ArrowRight: [-step, 0], ArrowUp: [0, step], ArrowDown: [0, -step] };
+      if (moves[e.key]) { e.preventDefault(); panBy(...moves[e.key]); }
+      else if (e.key === "+" || e.key === "=") { e.preventDefault(); zoomAt(1.4, cx, cy); }
+      else if (e.key === "-" || e.key === "_") { e.preventDefault(); zoomAt(1 / 1.4, cx, cy); }
+      else if (e.key === "0") { e.preventDefault(); vb = fit(); apply(); }
     });
-    thumb.addEventListener("pointerdown", (e) => {
-      e.preventDefault();
-      const x0 = e.clientX, left0 = view.scrollLeft, perPixel = view.scrollWidth / bar.clientWidth;
-      thumb.setPointerCapture(e.pointerId);
-      const move = (m) => { view.scrollLeft = left0 + (m.clientX - x0) * perPixel; };
-      thumb.addEventListener("pointermove", move);
-      thumb.addEventListener("pointerup", () => thumb.removeEventListener("pointermove", move), { once: true });
-    });
-    bar.addEventListener("pointerdown", (e) => {
-      if (e.target === thumb) return;
-      const at = (e.clientX - bar.getBoundingClientRect().left) / bar.clientWidth;
-      view.scrollTo({ left: at * view.scrollWidth - view.clientWidth / 2, behavior: "smooth" });
-    });
-    // Open on Europe rather than the middle of the Atlantic.
-    const start = () => { view.scrollLeft = (proj(0, START_LON)[0] / P.w) * view.scrollWidth; measure(); };
-    requestAnimationFrame(start);
-    return { measure };
+
+    let lastSize = "";
+    new ResizeObserver(() => {
+      const size = `${view.clientWidth}x${view.clientHeight}`;
+      if (!view.clientWidth || size === lastSize) return;
+      sizeFrame();
+      lastSize = `${view.clientWidth}x${view.clientHeight}`;
+      vb = fit();
+      apply();
+    }).observe(view);
+  }
+
+  // The holder cards fade out at the foot of their area while there is more below, and end crisply at the bottom.
+  function footFade(area) {
+    const vp = area.querySelector(".os-viewport");
+    if (!vp) { console.error("Where are they now: the card area has no scrolling viewport to fade"); return; }
+    const update = () => area.classList.toggle("at-end", vp.scrollTop + vp.clientHeight >= vp.scrollHeight - 2);
+    vp.addEventListener("scroll", update, { passive: true });
+    new ResizeObserver(update).observe(vp);
+    update();
   }
 
   function mount(section, { num }) {
     const cities = cityTable();
     const unplaced = MS.counts.withHolder - MS.counts.placed;
-    section.innerHTML = `${head(num, "Where are they now?", `From New England to Sinai, <em>who keeps them</em>`,
-      `${formatNumber(MS.counts.placed)} records name a holder this page can place, in ${cities.length} cities. Drag the map west to reach America; choose a city or a card to see what is kept there, oldest first. ${formatNumber(unplaced)} more name a holder not yet placed; their records still show it.`)}
+    section.innerHTML = `${head(num, "Where are they now?", `From Chicago to Sinai, <em>who keeps them</em>`,
+      `${formatNumber(MS.counts.placed)} records name a holder this page can place, in ${cities.length} cities. Scroll on the map to zoom in and out, and drag to move it; choose a city or a card to see what is kept there, oldest first. ${formatNumber(unplaced)} more name a holder not yet placed; their records still show it.`)}
       <div class="pl-mapwrap">${mapHtml(cities)}</div>
       <div class="pl-holderwrap">${cardsHtml(cities)}</div>`;
     const view = section.querySelector(".pl-mapview");
-    panning(view, section.querySelector(".pl-hbar"));
+    zooming(view, section.querySelector(".pl-map"));
     const area = section.querySelector(".pl-cardarea");
     const scroller = OutsideScroll.wrap(area);
+    footFade(area);
     const panel = drawer(), body = panel.querySelector(".ms-sheet-body");
     let city = null, lastFocus = null;
 

@@ -5,8 +5,8 @@ import json
 import math
 from pathlib import Path
 
-# West to New England and the American east coast (owner 2026-10-18); cities further west are listed at the map's edge.
-LON0, LON1, LAT0, LAT1 = -81.0, 51.0, 27.0, 61.0
+# West to Chicago so every holding city sits on the map (owner 2026-10-18: the map opens showing all of them).
+LON0, LON1, LAT0, LAT1 = -92.0, 51.0, 27.0, 61.0
 WIDTH = 1805.0
 COS = math.cos(math.radians((LAT0 + LAT1) / 2))
 SCALE = WIDTH / ((LON1 - LON0) * COS)
