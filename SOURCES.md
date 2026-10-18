@@ -12,6 +12,41 @@ Implementation-plan step 4 completed: seven studies now have deeper explanations
 
 # Sources
 
+## Hymns — registered 17 October 2026 (local preview only; nothing published)
+
+The hymn texts and the hymnal metadata behind `/study/hymns` and its 1,228 hymn pages. Every hymn text here was first
+published between 1707 and 1779 and is long out of copyright; what is credited is the **edition each was transcribed
+from**. The corpus is `Research/Hymns/`; its manifest records every file's URL, size and SHA-256
+(`Research/Hymns/manifest.json`, SHA-256 `d172ee8120482e59…`). The page data is generated from it by
+`scripts/hymns/` and `scripts/build-hymn-pages.py` into `data/hymns/` (generated, not in git). The corpus's
+`normalized/` and `raw/` folders are only read; the pipeline's own in-between files go to `Research/Hymns/pipeline/`.
+
+The checksum column is the SHA-256 of the one downloaded file, or for Hymnary.org a SHA-256 over its sorted
+`path sha256` lines, so the whole set can be re-verified in one value.
+
+| Source | What was taken | Licence | Files / bytes | Checksum |
+|---|---|---|---|---|
+| [*Olney Hymns, in Three Books*](https://ccel.org/ccel/newton/olneyhymns), John Newton and William Cowper (London, 1779), Christian Classics Ethereal Library ThML edition 0.7, retrieved 2026-10-17 | The ThML XML: all 349 hymns (Newton 281, Cowper 68), with each hymn's author, metre, book and the passage printed above it | **Public domain** (1779; Newton died 1807, Cowper 1800). CCEL distributes it as a public-domain title. Courtesy credit: *Christian Classics Ethereal Library* | 1 / 1,205,373 | `de616012b61f32fe…` |
+| [*The Psalms and Hymns of Isaac Watts*](https://ccel.org/ccel/watts/psalmshymns), Christian Classics Ethereal Library ThML edition, retrieved 2026-10-17 | The ThML XML of *The Psalms of David Imitated* (1719) and the three books of *Hymns and Spiritual Songs* (1707). Its passage markup is the first source for each Watts hymn's heading verse; its words are shown only for hymns the Gutenberg books below do not hold | **Public domain** (Watts died 1748). Courtesy credit: *Christian Classics Ethereal Library* | 1 / 2,644,854 | `b44344215aa5e177…` |
+| [*Divine Songs Attempted in Easy Language for the Use of Children*](https://ccel.org/ccel/watts/divsongs), Isaac Watts (1715), Christian Classics Ethereal Library ThML edition, retrieved 2026-10-17 | The ThML XML: 44 divine and moral songs | **Public domain** (1715). Courtesy credit: *Christian Classics Ethereal Library* | 1 / 113,047 | `708e7bd752c24cc5…` |
+| Project Gutenberg eBook [#13166](https://www.gutenberg.org/ebooks/13166), Watts, *The Psalms of David Imitated in the Language of the New Testament* (1719), retrieved 2026-10-17 | The plain-text eBook: the words of Watts's 391 psalm settings, each with its metre and the verses it sets | **Public domain in the United States.** The raw file keeps Project Gutenberg's header and footer; only the text between the start and end markers is used, so the pages carry the 1719 work and **credit the underlying hymn book, not Project Gutenberg**, as Project Gutenberg asks | 1 / 383,205 | `833372ea59a43d3d…` |
+| Project Gutenberg eBook [#13341](https://www.gutenberg.org/ebooks/13341), Watts, *Hymns and Spiritual Songs* (1707), retrieved 2026-10-17 | The plain-text eBook: the words of the hymns of all three books | **Public domain in the United States**, on the same terms as #13166 | 1 / 366,780 | `da345a262661c9b2…` |
+| [Hymnary.org](https://hymnary.org/) scripture-reference API (Calvin Institute of Christian Worship and the Hymn Society), queried 2026-10-17 | **Metadata only, no lyrics:** for each hymn, the passages hymnal editors attach to it and how many hymnals print it. Shown on the 24 of our hymns it covers ("Where hymnals place it"). Hymnary's robots.txt disallows its full-text pages, so none were fetched | Factual bibliographic metadata from a public API; no hymn text taken. Each hymn page links back to its Hymnary entry. Courtesy credit: *Hymnary.org* | 216 / 2,714,148 | `c763c78cd7633518…` |
+| King James Version — **only to find** which verses a hymn's lines share wording with | The verse text from the site's generated `data/plain/kjv/`. These authors read and quoted the KJV, so matching is done in its wording; **no KJV text is shown on the hymn pages** | **Public domain** outside the United Kingdom (Crown copyright in the UK) | — | — |
+| Berean Standard Bible — every verse **shown** on the hymn pages | The verse text from the site's generated `data/plain/bsb/` (from the project's own [engbsb](sources/ebible/engbsb/) copy, build checksum `b77cc2d5161b0361`) | **Public domain** (dedicated 2023). Courtesy credit: *Berean Standard Bible, berean.bible* | — | `b77cc2d5161b0361…` |
+
+**How the verses beside a hymn's lines were found.** A script (`scripts/hymns/hymn-matcher.py`) scores every line
+against every KJV verse by the rare words and phrases they share, and keeps up to three strong candidates per line;
+no model is involved in that. One bare call per hymn to Claude Haiku 5.5 then chooses **only among those candidates**
+(or none), and a check script drops any answer that names a verse it was not offered or is not marked high
+confidence. The model writes no page text. Each page labels these as *verses that share wording with a line, found by
+matching the words and checked; not the author's own notes*, kept apart from the heading verse the author printed.
+
+**Held but not used.** The corpus also holds Project Gutenberg's *Otterbein Hymnal* (eBook #16455) and the Internet
+Archive scan of the 1912 *Psalter*; neither is on these pages (no reliable per-hymn text). Four printed heading verses
+point at verses that do not exist (for example *Glorious things of thee are spoken*, printed as "Isaiah 33:27"); they
+are left off the pages and listed for the owner, never corrected by hand.
+
 ## Catechisms & Creeds — published 17 October 2026
 
 The 66 creeds, confessions and catechisms behind [/study/creeds](https://bibleproject.io/study/creeds). Every document
