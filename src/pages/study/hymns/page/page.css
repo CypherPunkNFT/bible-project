@@ -19,10 +19,11 @@
 .hy-song.hy-full .hy-book-row button { min-width: 2px; }
 .hy-song.hy-full *:focus, .hy-song.hy-full *:focus-visible { outline: none; }
 /* The stanza pager (StanzaPager.tsx): a dot per page and arrows either side, under the stanzas. */
-.hy-song.hy-full .hf-pager-body { position: relative; }
-.hy-song.hy-full .hf-turn { animation: hf-turn .28s ease-out; }
+.hy-song.hy-full .hf-pager-body { display: grid; }
+.hy-song.hy-full .hf-page { grid-area: 1 / 1; visibility: hidden; }
+.hy-song.hy-full .hf-page.on { visibility: visible; animation: hf-turn .28s ease-out; }
 @keyframes hf-turn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .hy-song.hy-full .hf-turn { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .hy-song.hy-full .hf-page.on { animation: none; } }
 .hy-song.hy-full .hf-pager-nav { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin: -.4rem 0 0 5.6rem; }
 .hy-song.hy-full .hf-arrow { display: inline-grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 1px solid var(--line) !important; border-radius: 999px;
   color: var(--ink); cursor: pointer; transition: border-color .15s, color .15s, opacity .15s; }
