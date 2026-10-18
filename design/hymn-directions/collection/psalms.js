@@ -26,8 +26,15 @@ window.Sections = window.Sections || {};
         <aside class="bib-detail" aria-live="polite"></aside>
       </div>`;
 
-    const detail = section.querySelector(".bib-detail");
+    // The list is always exactly as tall as the tiles beside it; a longer one (Psalm 119) scrolls, with the pill outside.
+    const panel = section.querySelector(".bib-detail"), card = section.querySelector(".bib-card");
+    const panelScroll = OutsideScroll.wrap(panel), detail = panelScroll.content;
+    const narrow = matchMedia("(max-width: 899px)");
+    new ResizeObserver(() => { panel.style.height = narrow.matches ? "" : `${card.offsetHeight}px`; }).observe(card);
+    let showing = -1;
     function show(i) {
+      if (i === showing) return;
+      showing = i;
       const list = byPsalm[i];
       section.querySelectorAll(".ps-tile").forEach((t) => t.classList.toggle("on", Number(t.dataset.ps) === i));
       detail.innerHTML = `<div class="bib-inner" style="--tone: var(--poetry)"><p class="kicker">Poetry & Wisdom</p>
@@ -35,6 +42,7 @@ window.Sections = window.Sections || {};
         <p class="bib-note">${list.length ? `${plural(list.length, "hymn")} here sing this psalm.` : "No hymn here sings this psalm yet."}</p>
         ${list.length ? `<p class="bib-mini">Open a hymn</p><ul class="bib-titles">${list.map((h) => `<li><a class="bib-work" href="${href(h)}"><span>${esc(h.t)}</span>${icon("arrowRight", 13)}</a><small>${esc(h.r)} · ${esc(groupById.get(h.g).short)} · ${h.y}${h.m ? ` · metre ${esc(h.m.replace(/,/g, "."))}` : ""}</small></li>`).join("")}</ul>` : ""}
         <a class="bib-read" href="/read/kjv/PSA/${i + 1}">${icon("book", 15)}Read Psalm ${i + 1}${icon("arrowRight", 15)}</a></div>`;
+      panelScroll.reset();
     }
     section.addEventListener("click", (event) => { const t = event.target.closest("[data-ps]"); if (t) show(Number(t.dataset.ps)); });
     section.addEventListener("pointerover", (event) => { const t = event.target.closest("[data-ps]"); if (t) show(Number(t.dataset.ps)); });
