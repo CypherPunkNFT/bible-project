@@ -114,9 +114,17 @@
 .t-sec-through .thr-list { padding-top: 0; }
 .t-sec-through .thr-chapter { top: 0; z-index: 2; margin: 0; padding: .5rem .35rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
 .t-sec-through .thr-chapter:first-child { border-top: 0; }
-/* the outside scrollbar: only the pill, no track, no arrows (Chrome 121+ honours these over the -webkit- rules) */
-.os-bar { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; }
-.os-bar::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+/* a heading right under a hymn already has that hymn's bottom line above it: no second line */
+.t-sec-through .thr-item + .thr-chapter { border-top: 0; }
+/* the outside scrollbar: only the pill, no track, no arrows. As the site does (src/pages/teachers/preachers/bible.css),
+   browsers with -webkit- scrollbars drop the standard properties, which would bring Chrome's arrow buttons back. */
+@supports selector(::-webkit-scrollbar) {
+  .os-bar { scrollbar-width: auto; scrollbar-color: auto; }
+  .os-bar::-webkit-scrollbar { width: 6px; }
+  .os-bar::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+  .os-bar::-webkit-scrollbar-track { background: transparent; }
+  .os-bar::-webkit-scrollbar-thumb { border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent); }
+}
 /* 03 · the psalm's list: as tall as the tiles (psalms.js), scrolling inside with the pill outside, like 01's panel */
 .t-sec-psalms .bib-detail.os-area { position: relative; top: 0; min-height: 0; max-height: none; padding: 0; overflow: visible; border-top: 2px solid var(--poetry); }
 .t-sec-psalms .bib-detail .os-viewport { padding: 1.3rem 1.25rem 1.2rem; }
