@@ -1042,6 +1042,78 @@
           "line": "/study/hymns: intro with a drifting row of hymn cards; every chapter sung in our hymns (the Preachers chapter grid); hymns through the Bible (the Preachers three-panel ring); through the Psalms."
         }
       ]
+    },
+    {
+      "id": "old-maps",
+      "title": "Atlas · Old maps",
+      "line": "Historical maps of the Holy Land and the biblical world, 680–1928, as an Atlas page, inside the Atlas sections and as a Study card.",
+      "page": "/study/atlas/old-maps",
+      "cards": [
+        {
+          "id": "old-maps-a",
+          "title": "Old maps · A · Through time",
+          "line": "One lane per biblical subject, 680–1928, a dot per dated map; hover shows the map below, click opens it in the slide-in viewer.",
+          "url": "/mockups/old-maps-directions/?d=a",
+          "date": "2026-10-17",
+          "status": "option"
+        },
+        {
+          "id": "old-maps-b",
+          "title": "Old maps · B · The map chest",
+          "line": "Cabinet intro, then drawers by century with a giant numeral behind each, sideways slides and subject filters.",
+          "url": "/mockups/old-maps-directions/?d=b",
+          "date": "2026-10-17",
+          "status": "option"
+        },
+        {
+          "id": "old-maps-c",
+          "title": "Old maps · C · How the land was drawn",
+          "line": "Eight Holy Land maps, 1150–1880, beside today's coast (turns to match each sheet), then a subject × half-century grid.",
+          "url": "/mockups/old-maps-directions/?d=c",
+          "date": "2026-10-17",
+          "status": "option"
+        },
+        {
+          "id": "old-maps-atlas",
+          "title": "Old maps · In the Atlas",
+          "line": "Ninth Atlas card, strips under Paul, Moses and Jerusalem, an old-maps row in the place panel, and the Study card.",
+          "url": "/mockups/old-maps-directions/?d=atlas",
+          "date": "2026-10-17",
+          "status": "option"
+        }
+      ]
+    },
+    {
+      "id": "manuscripts",
+      "title": "Study · Manuscripts",
+      "line": "The manuscript catalogue as a Study collection, in The Bible: formation & transmission.",
+      "page": "/study/manuscripts",
+      "cards": [
+        {
+          "id": "manuscripts-a",
+          "title": "Manuscripts A · The cabinet",
+          "line": "31 great witnesses on three shelves, each opening its record; crystals by kind filter a searchable catalogue of 4,354 open records.",
+          "url": "/mockups/manuscripts-directions/?d=a",
+          "date": "2026-10-17",
+          "status": "option"
+        },
+        {
+          "id": "manuscripts-b",
+          "title": "Manuscripts B · Through time",
+          "line": "Every dated copy in one lane per tradition, 250 BC to AD 1500, read on a line below; then how close each New Testament book's oldest copy comes to its writing.",
+          "url": "/mockups/manuscripts-directions/?d=b",
+          "date": "2026-10-17",
+          "status": "option"
+        },
+        {
+          "id": "manuscripts-c",
+          "title": "Manuscripts C · By the book",
+          "line": "66 book tiles with a chapter grid listing each book's copies oldest first; then where they are now, on an atlas map with holder cards.",
+          "url": "/mockups/manuscripts-directions/?d=c",
+          "date": "2026-10-17",
+          "status": "option"
+        }
+      ]
     }
   ]
 }
