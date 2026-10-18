@@ -24,7 +24,17 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from hymns_common import CORPUS, HYMNS_FILE, NORMALIZED, OSIS_TO_CODE, chapter_verses, read_json, ref_label, verse_text, write_json  # noqa: E402
+from hymns_common import (
+    CORPUS,
+    HYMNS_FILE,
+    NORMALIZED,
+    OSIS_TO_CODE,
+    chapter_verses,
+    read_json,
+    ref_label,
+    verse_text,
+    write_json,
+)
 
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -155,7 +165,9 @@ def heading(copies: list[dict]) -> dict | None:
                 continue
             if last is not None and last not in verses:
                 last = verses[-1] if last > verses[-1] else first
-            ranges.append({"code": code, "chapter": chapter, "first": first, "last": last})
+            entry = {"code": code, "chapter": chapter, "first": first, "last": last}
+            if entry not in ranges:  # "1 Pet. 1:5, 5" names the same verse twice
+                ranges.append(entry)
         if not ranges and not problems:
             continue
         label = None
@@ -193,7 +205,7 @@ def main() -> None:
         collection, author_default, year = GROUPS[group]
         hymns.append({
             "id": keep["id"], "firstLine": keep["first_line"].strip(), "title": (keep.get("title") or "").strip(),
-            "subject": (keep.get("subject") or "").strip(), "author": keep["author"] or author_default, "year": keep["year"] or year,
+            "subject": (keep.get("subject") or "").strip(), "author": keep["author"] or author_default, "year": year,
             "group": group, "collection": collection, **place(keep, group, olney), "metre": digits, "metreName": name,
             "stanzas": stanzas, "heading": heading(copies),
             "copies": [c["id"] for c in copies],

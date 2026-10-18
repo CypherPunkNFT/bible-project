@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["lines", "heading_fits", "heading_line", "main_passage"],
+  "properties": {
+    "lines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["line", "pick", "pick_confidence", "propose", "propose_words", "propose_kind", "propose_confidence"],
+        "properties": {
+          "line": { "type": "integer", "minimum": 1 },
+          "pick": { "type": "string" },
+          "pick_confidence": { "type": "string", "enum": ["high", "low"] },
+          "propose": { "type": "string" },
+          "propose_words": { "type": "string" },
+          "propose_kind": { "type": "string", "enum": ["quotation", "paraphrase", "allusion", "none"] },
+          "propose_confidence": { "type": "string", "enum": ["high", "low", "none"] }
+        }
+      }
+    },
+    "heading_fits": { "type": "string", "enum": ["yes", "no", "none"] },
+    "heading_line": { "type": "integer", "minimum": 0 },
+    "main_passage": { "type": "string" }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["pairs"],
+  "properties": {
+    "pairs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["pair", "echo", "strength"],
+        "properties": {
+          "pair": { "type": "integer", "minimum": 1 },
+          "echo": { "type": "string", "enum": ["yes", "no"] },
+          "strength": { "type": "string", "enum": ["clear", "probable", "doubtful"] }
+        }
+      }
+    }
+  }
+}

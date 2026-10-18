@@ -10,12 +10,12 @@ from __future__ import annotations
 import json
 import re
 import sys
-from functools import lru_cache
+from functools import cache
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from bible.books import BOOKS  # noqa: E402
+from bible.books import BOOKS
 
 WEBSITE = Path(__file__).resolve().parents[2]
 PROJECT = WEBSITE.parent
@@ -49,7 +49,7 @@ def read_json(path: Path) -> object:
         return json.load(handle)
 
 
-@lru_cache(maxsize=None)
+@cache
 def bible(translation: str) -> dict[str, dict[str, str]]:
     """The site's plain text of one translation: code → {"chapter:verse": text}, for the 66 books."""
     out: dict[str, dict[str, str]] = {}
@@ -62,7 +62,9 @@ def bible(translation: str) -> dict[str, dict[str, str]]:
 
 
 def verse_text(translation: str, code: str, chapter: int, verse: int) -> str | None:
-    return bible(translation)[code].get(f"{chapter}:{verse}")
+    """One verse's text with the KJV's paragraph marks taken out, or None if there is no such verse."""
+    text = bible(translation)[code].get(f"{chapter}:{verse}")
+    return " ".join(text.replace("¶", "").split()) if text is not None else None
 
 
 def chapter_verses(translation: str, code: str, chapter: int) -> list[int]:
@@ -104,11 +106,7 @@ SPELLING = {"savior": "saviour", "honor": "honour", "vail": "veil", "shew": "sho
             "flew": "fly", "flown": "fly", "blest": "bless", "blessed": "bless", "burnt": "burn", "felt": "feel", "dealt": "deal"}
 # Words so common they say nothing about which verse a line echoes. "thee", "thou" and "thy" are kept as words (the
 # plan's rule), so they still count inside a shared phrase, but not on their own.
-STOP = set("""a an and are as at be but by for from he her him his i if in into is it its me my no nor not o of oh on or our
-ours shall should she so than that the their them then there these they this those thou thee thy to too unto up us was we
-were what when where which while who whom why will with ye you your yea all also am do did have had has let may might must
-shalt wilt would can could now one own out such upon very more most yet lo behold every any even ever how here thus
-like through many""".split())
+STOP = set(["a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "from", "he", "her", "him", "his", "i", "if", "in", "into", "is", "it", "its", "me", "my", "no", "nor", "not", "o", "of", "oh", "on", "or", "our", "ours", "shall", "should", "she", "so", "than", "that", "the", "their", "them", "then", "there", "these", "they", "this", "those", "thou", "thee", "thy", "to", "too", "unto", "up", "us", "was", "we", "were", "what", "when", "where", "which", "while", "who", "whom", "why", "will", "with", "ye", "you", "your", "yea", "all", "also", "am", "do", "did", "have", "had", "has", "let", "may", "might", "must", "shalt", "wilt", "would", "can", "could", "now", "one", "own", "out", "such", "upon", "very", "more", "most", "yet", "lo", "behold", "every", "any", "even", "ever", "how", "here", "thus", "like", "through", "many"])
 WORD = re.compile(r"[a-z]+(?:'[a-z]+)*'?|'[a-z]+")
 
 

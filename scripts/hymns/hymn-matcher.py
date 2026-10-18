@@ -25,7 +25,17 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from hymns_common import CANDIDATES_FILE, CANON, HYMNS_FILE, STOP, bible, read_json, ref_label, stem, stems, words, write_json  # noqa: E402
+from hymns_common import (
+    CANDIDATES_FILE,
+    CANON,
+    HYMNS_FILE,
+    STOP,
+    bible,
+    read_json,
+    ref_label,
+    stems,
+    write_json,
+)
 
 sys.stdout.reconfigure(encoding="utf-8")
 
