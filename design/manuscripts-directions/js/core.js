@@ -68,7 +68,9 @@ window.Sections = window.Sections || {};
   // A picture's address: the data URI from assets/images.js on the local preview, else the JPEG beside it.
   const imgSrc = (key) => window.MS_IMG?.[key] ?? `assets/${key}.jpg`;
   // A section heading in the house style: number, kicker, serif title with one italic accent (<em>), one plain line.
-  const head = (num, kicker, h2, lead) => `<header class="t-head"><span class="t-num">${num}</span><div><p class="kicker">${kicker}</p><h2>${h2}</h2>${lead ? `<p>${lead}</p>` : ""}</div></header>`;
+  // Section heads sit flush left: the number rides on the small label line ("01 · The cabinet"), not in a column of its
+  // own that would indent the title (owner 2026-10-18).
+  const head = (num, kicker, h2, lead) => `<header class="t-head ms-head"><div><p class="kicker">${num ? `<span class="ms-num">${num}</span><span class="ms-dot" aria-hidden="true">·</span>` : ""}${kicker}</p><h2>${h2}</h2>${lead ? `<p>${lead}</p>` : ""}</div></header>`;
   // Records sorted oldest first; undated ones last, by name.
   const byDate = (a, b) => ("e" in a ? 0 : 1) - ("e" in b ? 0 : 1) || (("e" in a) ? mid(a) - mid(b) : 0) || a.n.localeCompare(b.n, "en", { numeric: true });
 

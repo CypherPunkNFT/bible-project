@@ -34,7 +34,9 @@ window.OM = (() => {
   const subjectIcon = (key, size = 18) => `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${SUBJECT_ICONS[key] ?? ""}</svg>`;
 
   // A section heading in the house style: number, kicker, serif title with one italic accent word, one plain line.
-  const head = (num, kicker, title, lead) => `<header class="t-head"><span class="t-num">${num}</span><div><p class="kicker">${kicker}</p><h2>${title}</h2>${lead ? `<p>${lead}</p>` : ""}</div></header>`;
+  // Section heads sit flush left: the number rides on the label line ("01 · Through time"), not in its own column
+  // (owner 2026-10-18, on the manuscripts pages; same here).
+  const head = (num, kicker, title, lead) => `<header class="t-head om-head"><div><p class="kicker">${num ? `<span class="om-num">${num}</span><span class="om-dot" aria-hidden="true">·</span>` : ""}${kicker}</p><h2>${title}</h2>${lead ? `<p>${lead}</p>` : ""}</div></header>`;
 
   // The quiet figures bar: [label, value, note] in one row with thin dividers.
   const figures = (items) => `<dl class="om-figures">${items.map(([label, value, note]) => `<div><dt>${esc(label)}</dt><dd>${value}</dd>${note ? `<small>${esc(note)}</small>` : ""}</div>`).join("")}</dl>`;

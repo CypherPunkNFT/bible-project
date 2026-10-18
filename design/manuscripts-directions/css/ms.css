@@ -126,3 +126,9 @@ body { overflow-x: clip; }
 .sr-more p { line-height: 1.6; }
 @media (max-width: 1000px) { .on-grid { grid-template-columns: 1fr 1fr; } .on-links { grid-column: 1 / -1; } }
 @media (max-width: 640px) { .on-grid { grid-template-columns: 1fr; } }
+
+/* Section heads flush left: no number column; the number leads the label line. */
+.ms-head { display: block; }
+.ms-head .kicker { display: flex; align-items: baseline; gap: .45rem; }
+.ms-num { font-variant-numeric: tabular-nums; }
+.ms-dot { opacity: .6; }

@@ -119,3 +119,9 @@ body.om-viewing .om-switch { opacity: 0; pointer-events: none; }
 .om-art-oldmaps .om-rose { animation: om-rose 9s ease-in-out infinite alternate; }
 .om-art-oldmaps .om-ship { transform-box: fill-box; transform-origin: center; animation: om-ship 6s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .om-art-oldmaps .om-rose, .om-art-oldmaps .om-ship { animation: none; } .om-viewer { transition: none; } }
+
+/* Section heads flush left: no number column; the number leads the label line. */
+.om-head { display: block; }
+.om-head .kicker { display: flex; align-items: baseline; gap: .45rem; }
+.om-num { font-variant-numeric: tabular-nums; }
+.om-dot { opacity: .6; }
