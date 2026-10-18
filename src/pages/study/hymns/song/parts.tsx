@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import { ArrowRight, X } from "lucide-react";
 import type { HymnSong, SongPassage, SongPlacedRef } from "@/lib/hymns";
 
+/** A stanza numeral's size: numerals longer than three letters (VIII, XXVIII) shrink to fit the numeral column. */
+export const numeralStyle = (label: string) => (label.length > 3 ? { fontSize: `${(4.4 / (0.41 * label.length)).toFixed(2)}rem`, top: ".2rem" } : undefined);
+
 export const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII",
   "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX"];
 

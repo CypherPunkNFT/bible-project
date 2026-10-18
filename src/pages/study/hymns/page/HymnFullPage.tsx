@@ -9,8 +9,9 @@ import type { SongPlacedBook } from "@/lib/hymns";
 import { Constellation } from "../song/Constellation";
 import { Echoes } from "../song/Echoes";
 import { Head, PlacedSquares } from "../song/Sections";
-import { PassagePanel, ROMAN, type PanelContent } from "../song/parts";
+import { PassagePanel, ROMAN, numeralStyle, type PanelContent } from "../song/parts";
 import { BookTicks, Found, MainPassage, PageSources } from "./sections";
+import { StanzaPager, stanzaPages, type StanzaPage } from "./StanzaPager";
 import "../song/song.css";
 import "./page.css";
 
@@ -46,6 +47,12 @@ function ringOf(page: HymnPageData): SongPlacedBook[] {
   return [...books.values()];
 }
 
+/** One page of stanzas, with its echoes renumbered from the page's first stanza. */
+function slice(page: HymnPageData, p: StanzaPage) {
+  return { stanzas: page.stanzas.slice(p.first, p.last + 1),
+    echoes: page.echoes.filter((e) => e.stanza >= p.first && e.stanza <= p.last).map((e) => ({ ...e, stanza: e.stanza - p.first })) };
+}
+
 function lede(page: HymnPageData) {
   if (page.group === "psalms" && page.heading) return <>Isaac Watts's setting of {page.heading.label}, printed in {page.year} in <i>{page.collection}</i>, where he set
     the psalms "in the language of the New Testament".</>;
@@ -58,6 +65,7 @@ export function HymnFullPage({ page }: { page: HymnPageData }) {
   const [closedAt, setClosedAt] = useState(0);
   const close = useCallback(() => { setPanel(null); setClosedAt((n) => n + 1); }, []);
   const ring = useMemo(() => ({ ...page, placed: ringOf(page) }), [page]);
+  const pages = useMemo(() => stanzaPages(page.stanzas), [page]);
   const lines = page.stanzas.reduce((n, s) => n + s.length, 0);
   // The constellation earns its place only when the hymn reaches into two books or more (a psalm setting's echoes all sit
   // in its one psalm) and its stanzas fit the inner ring.
@@ -95,7 +103,8 @@ export function HymnFullPage({ page }: { page: HymnPageData }) {
           {showRing ? " Below the hymn, the same links as a constellation." : ""}</Head>
         <p className="hf-label">Verses a line echoes, found by matching the words or proposed by an AI model, and each checked twice: the words are in the
           verse, and a separate check agreed. <b>shared words</b> marks a verse found by its wording; <b>echo</b> one proposed and confirmed. Not the author's own notes.</p>
-        <Echoes song={page} open={setPanel} closedAt={closedAt} />
+        <StanzaPager pages={pages}>{(p) => <Echoes song={slice(page, p)} stanzaOffset={p.first} open={setPanel} closedAt={closedAt} showKey={false} />}</StanzaPager>
+        <p className="ec-key">{page.echoes.length} echo{page.echoes.length === 1 ? "" : "es"} in {lines} lines.</p>
         {showRing && <div className="d-among" id="constellation">
           <p className="d-among-k">Among the Scriptures</p>
           <p className="d-among-line">The stanzas at the centre; around them, every book its heading and its echoes come from, Old Testament on the left and New on the
@@ -105,8 +114,9 @@ export function HymnFullPage({ page }: { page: HymnPageData }) {
         </div>}
       </> : <>
         <Head num={num()} title={<>The <em>hymn</em></>}>The words as {who} printed them, {lines} lines.</Head>
-        <div className="ec ec-plain"><div className="stanzas">{page.stanzas.map((stanza, s) => <div key={s} className="stanza"><span className="rn" aria-hidden="true">{ROMAN[s] ?? s + 1}</span>
-          {stanza.map((line, l) => <span key={l} className="line"><span className="t">{line}</span></span>)}</div>)}</div></div>
+        <StanzaPager pages={pages}>{(p) => <div className="ec ec-plain"><div className="stanzas">{page.stanzas.slice(p.first, p.last + 1).map((stanza, i) =>
+          <div key={p.first + i} className="stanza"><span className="rn" aria-hidden="true" style={numeralStyle(ROMAN[p.first + i] ?? "")}>{ROMAN[p.first + i] ?? p.first + i + 1}</span>
+            {stanza.map((line, l) => <span key={l} className="line"><span className="t">{line}</span></span>)}</div>)}</div></div>}</StanzaPager>
       </>}
     </section>
 

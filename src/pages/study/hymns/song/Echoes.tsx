@@ -3,7 +3,7 @@
 // (approved mock-up: design/hymn-directions/shared/echoes.js, shown in its "compare" form).
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import type { SongEcho } from "@/lib/hymns";
-import { ROMAN, type OpenPassage } from "./parts";
+import { ROMAN, numeralStyle, type OpenPassage } from "./parts";
 
 /** What the echoes need of a hymn. `kind` (on the generated hymn pages) tags how an echo was found. */
 export interface EchoesHymn { stanzas: string[][]; echoes: (SongEcho & { kind?: "shared" | "echo" })[] }
@@ -11,7 +11,8 @@ const KIND_LABEL = { shared: "shared words", echo: "echo" } as const;
 
 interface Joins { tops: number[]; paths: { i: number; d: string; x1: number; y1: number; x2: number; y2: number }[]; height: number }
 
-export function Echoes({ song, open, closedAt }: { song: EchoesHymn; open: OpenPassage; closedAt: number }) {
+/** `stanzaOffset`: the first stanza's place in the whole hymn, when a page shows only some stanzas; `showKey`: the count line. */
+export function Echoes({ song, open, closedAt, stanzaOffset = 0, showKey = true }: { song: EchoesHymn; open: OpenPassage; closedAt: number; stanzaOffset?: number; showKey?: boolean }) {
   const box = useRef<HTMLDivElement>(null);
   const margin = useRef<HTMLDivElement>(null);
   const lineRefs = useRef<(HTMLSpanElement | null)[]>([]);
@@ -53,7 +54,7 @@ export function Echoes({ song, open, closedAt }: { song: EchoesHymn; open: OpenP
 
   const openEcho = (i: number) => {
     const e = song.echoes[i];
-    open({ passage: e, line: song.stanzas[e.stanza][e.line], kicker: `Stanza ${ROMAN[e.stanza]} echoes` });
+    open({ passage: e, line: song.stanzas[e.stanza][e.line], kicker: `Stanza ${ROMAN[e.stanza + stanzaOffset]} echoes` });
     setFocus([i]);
   };
   const on = (i: number) => focus.includes(i);
@@ -62,7 +63,7 @@ export function Echoes({ song, open, closedAt }: { song: EchoesHymn; open: OpenP
     <div className={`ec${focus.length ? " focus" : ""}`} ref={box}>
       <svg className="links" aria-hidden="true">{joins.paths.map((p) => <g key={p.i}>
         <path className={on(p.i) ? "on" : undefined} d={p.d} /><circle className={on(p.i) ? "on" : undefined} cx={p.x1} cy={p.y1} r="2.5" /><circle className={on(p.i) ? "on" : undefined} cx={p.x2} cy={p.y2} r="2.5" /></g>)}</svg>
-      <div className="stanzas">{song.stanzas.map((lines, s) => <div key={s} className="stanza"><span className="rn" aria-hidden="true">{ROMAN[s]}</span>
+      <div className="stanzas">{song.stanzas.map((lines, s) => <div key={s} className="stanza"><span className="rn" aria-hidden="true" style={numeralStyle(ROMAN[s + stanzaOffset] ?? "")}>{ROMAN[s + stanzaOffset]}</span>
         {lines.map((text, l) => {
           const ids = song.echoes.flatMap((e, i) => (e.stanza === s && e.line === l ? [i] : []));
           if (!ids.length) return <span key={l} className="line"><span className="t">{text}</span></span>;
@@ -75,6 +76,6 @@ export function Echoes({ song, open, closedAt }: { song: EchoesHymn; open: OpenP
           onMouseEnter={() => setFocus([i])} onMouseLeave={() => setFocus([])} onClick={() => openEcho(i)}>
           <span className="ref">{e.ref}{e.kind && <i className="kind">{KIND_LABEL[e.kind]}</i>}</span><span className="w">“{e.words}”</span></button>)}</div>
     </div>
-    <p className="ec-key">{song.echoes.length} echoes in {song.stanzas.reduce((n, s) => n + s.length, 0)} lines.</p>
+    {showKey && <p className="ec-key">{song.echoes.length} echoes in {song.stanzas.reduce((n, s) => n + s.length, 0)} lines.</p>}
   </>;
 }
