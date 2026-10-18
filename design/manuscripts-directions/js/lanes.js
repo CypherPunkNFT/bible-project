@@ -1,7 +1,8 @@
 // B · 01 Through time: the approved "through time (lanes)" section. One lane per tradition across 250 BC to AD 1500, a
 // dot per dated copy (a copy dated only by century is spread across its century). Pointing at a lane tints it lightly;
 // clicking it opens that tradition across the whole chart, top to bottom, its dots stacked into columns so each can be
-// told apart. In the open chart, pointing at a dot names it on the line below and clicking it opens the record.
+// told apart, on that tradition's own time axis (empty years cut out, sparse ones narrowed). In the open chart, pointing
+// at a dot names it on the line below and clicking it opens the record.
 (() => {
   const { mid, yearText, booksText, holderText, sigla } = MSX;
   const LANES = [["hebrew", "Hebrew Bible"], ["dss", "Dead Sea Scrolls"], ["lxx", "Greek Old Testament"], ["papyrus", "NT papyri"],
@@ -9,6 +10,7 @@
     ["syriac", "Syriac"], ["coptic", "Coptic"], ["gothic", "Gothic"], ["armenian", "Armenian"], ["georgian", "Georgian"], ["geez", "Ge'ez"]];
   const Y0 = -250, Y1 = 1500, LABEL = 206, RIGHT = 54, TOP = 30, LANE = 36, FULL = LANES.length * LANE;
   const COL = 6.5, MAX_STEP = 12, DURATION = 320;
+  const BIN = 25, THIN = 3, THIN_W = 14, GAP_W = 18, TICK_SPACE = 46;
   const DSS_SPAN = [-250, 135];
   const motion = matchMedia("(prefers-reduced-motion: reduce)");
   const hash = (text) => { let h = 2166136261; for (const ch of text) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); } return ((h >>> 0) % 10000) / 10000; };
@@ -36,7 +38,7 @@
     const byCol = new Map();
     let deepest = 0;
     for (const d of lane.dots) {
-      const col = Math.round(d.x / COL), k = byCol.get(col) ?? 0;
+      const col = Math.round(d.xo / COL), k = byCol.get(col) ?? 0;
       byCol.set(col, k + 1);
       d.k = k ? (k % 2 ? 1 : -1) * Math.ceil(k / 2) : 0;
       deepest = Math.max(deepest, Math.abs(d.k));
@@ -44,6 +46,54 @@
     const step = Math.min(MAX_STEP, (FULL - 56) / Math.max(1, 2 * deepest));
     lane.rOpen = Math.max(2.6, Math.min(4, step * 0.42));
     for (const d of lane.dots) d.ye = d.k * step;
+  }
+
+  // The open lane's own time axis: only the years its copies cover. Stretches of 25 years with no copy fold into a narrow
+  // break; stretches with one to three copies get a narrow strip; the rest of the width goes to the busy stretches, more
+  // to the busier ones. Returns the year-to-x mapping, its year labels and where the breaks are.
+  function fitAxis(lane, plot) {
+    if (!lane.dots.length) return null;
+    const years = lane.dots.map((d) => d.v);
+    const a0 = Math.floor(Math.min(...years) / BIN) * BIN, a1 = Math.floor(Math.max(...years) / BIN) * BIN + BIN;
+    const bins = [];
+    for (let y = a0; y < a1; y += BIN) bins.push({ a: y, b: y + BIN, n: 0 });
+    for (const v of years) bins[Math.min(bins.length - 1, Math.floor((v - a0) / BIN))].n++;
+    const segs = [];
+    for (const bin of bins) {
+      if (bin.n) segs.push({ ...bin, gap: false });
+      else if (segs.at(-1)?.gap) segs.at(-1).b = bin.b;
+      else segs.push({ ...bin, gap: true });
+    }
+    const dense = segs.filter((s) => !s.gap && s.n > THIN), thin = segs.filter((s) => !s.gap && s.n <= THIN), gaps = segs.filter((s) => s.gap);
+    let thinW = THIN_W, gapW = GAP_W;
+    if (!dense.length) thinW = (plot - gaps.length * gapW) / thin.length;
+    else {
+      const fixed = thin.length * thinW + gaps.length * gapW;
+      if (fixed > plot * 0.45) { const k = (plot * 0.45) / fixed; thinW *= k; gapW *= k; }
+    }
+    const weight = (s) => s.n ** 0.75, total = dense.reduce((sum, s) => sum + weight(s), 0);
+    const free = plot - thin.length * thinW - gaps.length * gapW;
+    let x = LABEL;
+    for (const s of segs) { s.x0 = x; x += s.gap ? gapW : s.n > THIN ? (free * weight(s)) / total : thinW; s.x1 = x; }
+    const map = (year) => {
+      if (year <= segs[0].a) return segs[0].x0;
+      const s = segs.find((seg) => year < seg.b) ?? segs.at(-1);
+      return s.x0 + ((Math.min(year, s.b) - s.a) / (s.b - s.a)) * (s.x1 - s.x0);
+    };
+    const every = a1 - a0 > 600 ? 100 : 50, candidates = [];
+    segs.forEach((s, n) => {
+      if (s.gap) return;
+      if (n === 0 || segs[n - 1].gap) candidates.push(s.a);
+      for (let y = Math.ceil(s.a / every) * every; y < s.b; y += every) candidates.push(y);
+    });
+    candidates.push(segs.at(-1).b);
+    const ticks = [];
+    let last = -Infinity;
+    for (const y of [...new Set(candidates)].sort((a, b) => a - b)) {
+      const tx = map(y);
+      if (tx - last >= TICK_SPACE) { ticks.push({ y, x: tx }); last = tx; }
+    }
+    return { map, ticks, breaks: gaps.map((s) => ({ x0: s.x0, x1: s.x1, a: s.a, b: s.b })) };
   }
 
   function mount(section, { num }) {
@@ -72,17 +122,25 @@
       const sx = (y) => LABEL + ((Math.max(Y0, Math.min(Y1, y)) - Y0) / (Y1 - Y0)) * plot;
       const ticks = [-250, 1, 250, 500, 750, 1000, 1250, 1500];
       const parts = [`<defs><pattern id="ln-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0v6" class="ln-hatch"/></pattern></defs>`];
-      parts.push(ticks.map((t) => `<line class="ln-grid" x1="${sx(t)}" x2="${sx(t)}" y1="${TOP - 6}" y2="${TOP + FULL + 2}"/><text class="ln-tick" x="${sx(t)}" y="14" text-anchor="middle">${t === 1 ? "AD 1" : yearText(t < 0 ? t + 1 : t).replace("AD ", "")}</text>`).join(""));
+      const tickLabel = (t) => (t === 1 || t === 0 ? "AD 1" : yearText(t < 0 ? t + 1 : t).replace("AD ", ""));
+      parts.push(`<g class="ln-axis-all">${ticks.map((t) => `<line class="ln-grid" x1="${sx(t)}" x2="${sx(t)}" y1="${TOP - 6}" y2="${TOP + FULL + 2}"/><text class="ln-tick" x="${sx(t)}" y="14" text-anchor="middle">${tickLabel(t)}</text>`).join("")}</g>`);
       for (const lane of lanes) {
         lane.dots = [];
         for (const r of lane.dated) {
           const m = mid(r);
           if (m > Y1) continue;
           const span = r.l - r.e;
-          lane.dots.push({ r, lane: lane.i, x: sx(span >= 50 ? r.e + hash(`${r.i}x`) * span : m), yc: (hash(r.i + lane.key) * 2 - 1) * (LANE / 2 - 7), x0: sx(r.e), x1: sx(r.l) });
+          const v = span >= 50 ? r.e + hash(`${r.i}x`) * span : m;
+          lane.dots.push({ r, v, lane: lane.i, x: sx(v), yc: (hash(r.i + lane.key) * 2 - 1) * (LANE / 2 - 7), x0: sx(r.e), x1: sx(r.l) });
         }
-        lane.dots.sort((a, b) => a.x - b.x);
+        lane.dots.sort((a, b) => a.v - b.v);
+        lane.axis = fitAxis(lane, plot);
+        for (const d of lane.dots) { d.xo = lane.axis.map(d.v); d.xo0 = lane.axis.map(d.r.e); d.xo1 = lane.axis.map(d.r.l); }
         stack(lane);
+        if (lane.axis) parts.push(`<g class="ln-axis" data-axis="${lane.i}" style="opacity: 0">
+          ${lane.axis.breaks.map((g) => `<rect class="ln-gap" x="${g.x0.toFixed(1)}" y="${TOP - 6}" width="${(g.x1 - g.x0).toFixed(1)}" height="${FULL + 8}"><title>${tickLabel(g.a)} to ${tickLabel(g.b)}: no dated copy</title></rect><path class="ln-break" d="M${(g.x0 + 4).toFixed(1)} ${TOP - 2}l4 -8M${(g.x1 - 8).toFixed(1)} ${TOP - 2}l4 -8"/>`).join("")}
+          ${lane.axis.ticks.map((t) => `<line class="ln-grid" x1="${t.x.toFixed(1)}" x2="${t.x.toFixed(1)}" y1="${TOP - 6}" y2="${TOP + FULL + 2}"/><text class="ln-tick" x="${t.x.toFixed(1)}" y="14" text-anchor="middle">${tickLabel(t.y)}</text>`).join("")}
+        </g>`);
         const tone = `var(${lane.kind.tone})`;
         parts.push(`<g class="ln-lane${lane.dots.length ? "" : " is-empty"}" data-lane="${lane.i}">
           <rect class="ln-wash" x="0" y="0" width="${W - RIGHT}"/>
@@ -95,11 +153,11 @@
         </g>`);
       }
       parts.push(`<text class="ln-later" x="${W - RIGHT + 14}" y="14">later</text>`);
-      parts.push(`<g class="ln-focus" hidden><line class="ln-range"/><circle class="ln-ring" r="6"/></g>`);
+      parts.push(`<g class="ln-focus" style="display: none"><line class="ln-range"/><circle class="ln-ring" r="6"/></g>`);
       svg.innerHTML = parts.join("");
       for (const lane of lanes) {
         lane.g = svg.querySelector(`.ln-lane[data-lane="${lane.i}"]`);
-        [...lane.g.querySelectorAll(".ln-dot")].forEach((el, n) => { lane.dots[n].el = el; el.setAttribute("cx", lane.dots[n].x.toFixed(1)); });
+        [...lane.g.querySelectorAll(".ln-dot")].forEach((el, n) => { lane.dots[n].el = el; });
       }
       place();
       if (cur) focusDot(lanes[cur.lane].dots.find((d) => d.r === cur.r) ?? null);
@@ -122,8 +180,15 @@
         lane.g.querySelector(".ln-bandtext")?.setAttribute("y", (h / 2 + 4).toFixed(1));
         lane.g.querySelector(".ln-later")?.setAttribute("y", (h / 2 + 4).toFixed(1));
         const r = (2.6 + (lane.rOpen - 2.6) * p).toFixed(2);
-        for (const d of lane.dots) { d.el.setAttribute("cy", (dotY(d, top) - top).toFixed(1)); d.el.setAttribute("r", r); }
+        for (const d of lane.dots) {
+          d.cx = d.x + (d.xo - d.x) * p;
+          d.el.setAttribute("cx", d.cx.toFixed(1)); d.el.setAttribute("cy", (dotY(d, top) - top).toFixed(1)); d.el.setAttribute("r", r);
+        }
+        svg.querySelector(`[data-axis="${lane.i}"]`)?.style.setProperty("opacity", p.toFixed(2));
       }
+      const fitted = Math.max(0, ...lanes.filter((lane) => lane.axis).map((lane) => ease(progress(lane))));
+      svg.querySelector(".ln-axis-all").style.opacity = (1 - fitted).toFixed(2);
+      svg.querySelectorAll(".ln-later").forEach((el) => { el.style.opacity = (1 - fitted).toFixed(2); });
       if (cur) ringAt(cur);
     }
 
@@ -147,23 +212,23 @@
     }
 
     function ringAt(d) {
-      const g = svg.querySelector(".ln-focus"), y = dotY(d, tops()[d.lane]);
+      const g = svg.querySelector(".ln-focus"), y = dotY(d, tops()[d.lane]), p = ease(progress(lanes[d.lane]));
       const ring = g.querySelector(".ln-ring"), range = g.querySelector(".ln-range");
-      ring.setAttribute("cx", d.x); ring.setAttribute("cy", y);
-      range.setAttribute("x1", d.x0); range.setAttribute("x2", d.x1); range.setAttribute("y1", y); range.setAttribute("y2", y);
+      ring.setAttribute("cx", d.cx ?? d.x); ring.setAttribute("cy", y);
+      range.setAttribute("x1", d.x0 + (d.xo0 - d.x0) * p); range.setAttribute("x2", d.x1 + (d.xo1 - d.x1) * p); range.setAttribute("y1", y); range.setAttribute("y2", y);
     }
     function focusDot(d) {
       cur = d;
       const g = svg.querySelector(".ln-focus");
-      if (!d) { g.hidden = true; say.textContent = openLane == null ? baseAll : baseOpen; return; }
-      g.hidden = false;
+      if (!d) { g.style.display = "none"; say.textContent = openLane == null ? baseAll : baseOpen; return; }
+      g.style.display = "";
       ringAt(d);
       g.querySelector(".ln-ring").style.stroke = `var(${KIND[LANES[d.lane][0]].tone})`;
       const r = d.r, bits = [sigla(r), r.d, booksText(r), holderText(r)].filter(Boolean);
       say.innerHTML = `<b>${esc(r.n)}</b> · ${bits.map(esc).join(" · ")} <span class="ms-say-go">Choose to open</span>`;
     }
     function bandSay() {
-      cur = null; svg.querySelector(".ln-focus").hidden = true;
+      cur = null; svg.querySelector(".ln-focus").style.display = "none";
       say.innerHTML = `<b>The Judaean Desert scrolls</b> · ${formatNumber(MS.counts.byKind.dss)} manuscripts from Qumran, Masada and the caves nearby. This data gives no date scroll by scroll; they are generally dated between the 3rd century BC and the 2nd century AD.`;
     }
     function setHover(index) {
@@ -182,7 +247,7 @@
       const top = tops()[index];
       let best = null, bestD = 12 * 12;
       for (const d of lanes[index].dots) {
-        const dd = (d.x - px) ** 2 + (dotY(d, top) - py) ** 2;
+        const dd = ((d.cx ?? d.x) - px) ** 2 + (dotY(d, top) - py) ** 2;
         if (dd < bestD) { bestD = dd; best = d; }
       }
       return best;

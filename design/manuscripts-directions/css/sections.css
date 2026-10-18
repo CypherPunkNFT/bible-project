@@ -214,3 +214,6 @@
 .ln-back { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; background: none; color: var(--ink); font: 500 12px var(--sans); cursor: pointer; }
 .ln-back:hover { border-color: var(--ink); }
 .ln-back:focus, .ln-back:focus-visible { outline: none; }
+/* The open lane's fitted axis: a faint band and two slashes where empty years were cut out. */
+.ln-gap { fill: color-mix(in srgb, var(--ink) 3%, transparent); }
+.ln-break { stroke: var(--muted); stroke-width: 1.2; fill: none; }
