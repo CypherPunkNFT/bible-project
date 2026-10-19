@@ -23,15 +23,19 @@
         <div class="ct-sort" role="radiogroup" aria-label="Order">${SORTS.map(([k, l]) => `<button type="button" role="radio" data-sort="${k}" aria-checked="${k === sort}">${l}</button>`).join("")}</div>
       </div>
       <p class="ct-count" aria-live="polite"></p>
-      <ol class="ct-list"></ol>
-      <nav class="ct-pages" aria-label="Catalogue pages"><button type="button" data-prev>${icon("arrowLeft", 14)}Previous</button><span></span><button type="button" data-next>Next${icon("arrowRight", 14)}</button></nav>`;
+      <p class="ct-page" aria-live="polite"></p>
+      <div class="ct-table">
+        <button type="button" class="ct-arrow" data-prev aria-label="Previous page">${icon("arrowLeft", 16)}</button>
+        ${[0, 1].map((n) => `<div class="ct-col"><p class="ct-head" aria-hidden="true"><span></span><span>No.</span><span>Manuscript</span><span>Date</span><span>Where</span></p><ol class="ct-list" data-col="${n}"></ol></div>`).join('<span class="ct-divider" aria-hidden="true"></span>')}
+        <button type="button" class="ct-arrow" data-next aria-label="Next page">${icon("arrowRight", 16)}</button>
+      </div>`;
     const $ = (s) => section.querySelector(s);
 
     const item = ({ r }) => {
       const k = KIND[r.k], where = r.h ? MSX.holderById.get(r.h[0]).city : r.f ?? "";
       return `<li><button type="button" data-open="${esc(r.i)}" style="--tone: var(${k.tone})"><i aria-hidden="true"></i>
         <span class="ct-sig">${esc(sigla(r) || r.g || "")}</span><span class="ct-name">${esc(r.n)}</span>
-        <span class="ct-date">${esc(r.d ?? "undated")}</span><span class="ct-where">${esc(where)}</span></button></li>`;
+        <span class="ct-date">${esc(r.d ?? "undated")}</span><span class="ct-where" title="${esc(where)}">${esc(where)}</span></button></li>`;
     };
     function sorted(list) {
       if (sort === "name") return list.sort((a, b) => a.r.n.localeCompare(b.r.n, "en", { numeric: true }));
@@ -47,8 +51,12 @@
       $(".ct-count").innerHTML = found.length
         ? `<strong>${formatNumber(found.length)}</strong> ${esc(label)}${query ? ` matching “${esc(query)}”` : ""} · showing ${page * PAGE + 1}–${Math.min(found.length, (page + 1) * PAGE)}`
         : `Nothing matches${query ? ` “${esc(query)}”` : ""}.`;
-      $(".ct-list").innerHTML = found.slice(page * PAGE, (page + 1) * PAGE).map(item).join("");
-      $(".ct-pages span").textContent = `${page + 1} / ${pages}`;
+      // The page splits into two side-by-side tables, the first half on the left.
+      const shown = found.slice(page * PAGE, (page + 1) * PAGE), half = Math.ceil(shown.length / 2);
+      $('[data-col="0"]').innerHTML = shown.slice(0, half).map(item).join("");
+      $('[data-col="1"]').innerHTML = shown.slice(half).map(item).join("");
+      section.querySelectorAll(".ct-col")[1].hidden = shown.length <= half;
+      $(".ct-page").innerHTML = `Page <b>${formatNumber(page + 1)}</b> of ${formatNumber(pages)}`;
       $("[data-prev]").disabled = !page; $("[data-next]").disabled = page >= pages - 1;
       for (const b of section.querySelectorAll("[data-kind]")) b.setAttribute("aria-pressed", String(b.dataset.kind === kind));
       section.classList.toggle("ct-filtered", Boolean(kind));
