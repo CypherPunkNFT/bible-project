@@ -6,13 +6,14 @@ Holy Land maps with the Atlas and to give them a card in Study; these are the op
 HTML/CSS/JS, not React. Nothing here is wired into the site.
 
 Preview (local only): http://127.0.0.1:8931/mockups/old-maps-directions/ — the small pill at the foot of the screen
-switches views, or use `?d=a`, `?d=b`, `?d=c`, `?d=atlas`, `?d=pages`. Light and dark both work (the site's own theme switch).
+switches views, or use `?d=a`, `?d=b`, `?d=c`, `?d=d`, `?d=atlas`, `?d=pages`. Light and dark both work (the site's own theme switch).
 
 | View | Address | Idea |
 |---|---|---|
 | A · Through time | [?d=a](http://127.0.0.1:8931/mockups/old-maps-directions/?d=a) | One lane per biblical subject across 680–1928, a dot per dated map; hover shows the map on a line below, a ringed dot opens it. Then the mapmakers as lifelines, and the libraries with what each licence asks. |
 | B · The map chest | [?d=b](http://127.0.0.1:8931/mockups/old-maps-directions/?d=b) | A chest of seven drawers, one per age (before print, XVI–XX, undated). A rail of Roman numerals opens a drawer; its maps lie in a quiet grid with the giant numeral behind, and drawers slide sideways. |
 | C · How the land was drawn | [?d=c](http://127.0.0.1:8931/mockups/old-maps-directions/?d=c) | One question: how did the shape of the land change? Eight Holy Land maps (1150–1880) on a year track, each beside the same land as the Atlas draws it; where the sheet faces east or west, today's map turns to match. Then a subject × half-century heat grid; a square lays out its maps. |
+| D · Merged | [?d=d](http://127.0.0.1:8931/mockups/old-maps-directions/?d=d) | The owner's merge (2026-10-19), favouring the map chest: A's title and landing, its drawing about half as large again and centred; B's chest, its eleven subject chips in two even lines (six over five); then A's "Through time" lanes and "Who kept them", and C's "One land, eight maps" and "Which stories, when". Same sections as the three directions, renumbered in this order; the merge's own styles are in `om-merged.css`. |
 | In the Atlas | [?d=atlas](http://127.0.0.1:8931/mockups/old-maps-directions/?d=atlas) | Four excerpts: the Atlas home with a ninth card (a third row, one wide card); strips under Paul's and Moses' journeys and Jerusalem's city card; an "Old maps of this place" row in Jerusalem's map panel; the Study card beside Museum-Grade Archaeology. |
 | In the pages: 2 and 3 | [?d=pages](http://127.0.0.1:8931/mockups/old-maps-directions/?d=pages) | Added 2026-10-19 at the owner's request, after he approved parts 1 and 4 of "In the Atlas" for building (both are now built). 2: a quiet row of old maps at the very foot of Paul's and Moses' journeys and Jerusalem's city card, shown under pictures of those pages as they are today (`assets/real/`, captured from the local site). 3: in the map's place panel, a small bar pinned to the panel's foot ("Old maps of Jerusalem · 238") that unfolds upward into four maps and folds away again; folded by default, because it is "not vital, just fun". **Owner, 2026-10-19:** 3 approved and built (`src/components/atlas/OldMapsFold.tsx`, 53 places); 2 declined, "too much content for little gain". |
 

@@ -71,7 +71,7 @@ window.Art = (() => {
       <path d="M301 80C306 92 297 100 304 110S300 118 304 122" stroke="currentColor" stroke-opacity=".7"/><ellipse cx="305" cy="136" rx="7" ry="15" fill="currentColor" fill-opacity=".14" stroke="currentColor"/>
       <g transform="translate(272 112)" stroke="currentColor"><circle r="8" fill="var(--surface)"/><path d="M-5 -3v-5h3v3h4v-3h3v5M-1 -10l1-3 1 3"/><circle r="2" fill="currentColor"/></g>
       <path d="M312 40h40q6 0 6 7v8q0 7-6 7h-40q-6 0-6-7v-8q0-7 6-7z" fill="var(--surface)" stroke="currentColor"/><path d="M306 47q-6 0-6 4t6 4M358 47q6 0 6 4t-6 4" stroke="currentColor" stroke-opacity=".6"/>
-      <text x="332" y="54" text-anchor="middle" fill="currentColor" font-size="6.5" letter-spacing="1.6">TERRA SANCTA</text>
+      <text x="332" y="54" text-anchor="middle" fill="currentColor" font-size="5.6" textLength="44" lengthAdjust="spacingAndGlyphs">TERRA SANCTA</text>
       <path d="M232 152h48M232 149v6M256 150v4M280 149v6" stroke="currentColor"/><path d="M232 152h12" stroke="currentColor" stroke-width="2.4"/>`;
   }
 
