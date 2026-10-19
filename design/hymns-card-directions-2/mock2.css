@@ -24,7 +24,7 @@
 .m2-big .study-art { flex: 1 1 auto; height: auto; min-height: 210px; }
 .m2-big .study-card-copy { flex: 0 0 auto; }
 .m2-big .study-card-copy > p { font-size: .76rem; line-height: 1.65; max-width: none; }
-.m2-big .psalter { position: absolute; inset: 0; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 0 18px; padding-bottom: 0; height: auto; }
-.m2-big .psalter svg { grid-column: 2; grid-row: 1; height: 100%; width: auto; aspect-ratio: 208 / 226; }
-.m2-big .psalter-read { grid-column: 3; grid-row: 1; justify-self: end; max-width: 13rem; }
-.m2-big .art-note { left: 50%; right: auto; transform: translateX(-50%); bottom: 0; font-size: .5rem; }
+.m2-big .psalter { position: absolute; inset: 0; grid-template-columns: minmax(0, 1fr) 13rem; padding-bottom: 0; height: auto; }
+.m2-big .study-hymns-resource .study-art { overflow: visible; }
+.m2-big .psalter svg { position: absolute; width: 240px; height: 240px; z-index: 1; } /* placed by page.js beside the title's last letter */
+.m2-big .psalter-read { grid-column: 2; grid-row: 1; }
