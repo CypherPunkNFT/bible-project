@@ -1,0 +1,154 @@
+/* How the canon took shape, mock-ups: what every direction shares. Frame from the Authors mock-ups, look from the
+   Manuscripts mock-up (ms.css). No focus rings anywhere: a chosen control shows its own single border. */
+.cn-page { --tone: var(--accent); }
+:where(.cn-page, .cn-sheet) :is(button, a, input, select, summary, [tabindex]):focus,
+:where(.cn-page, .cn-sheet) :focus-visible { outline: none; }
+:where(.cn-page) button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ── Small shared pieces ── */
+.cn-caption { margin-top: .8rem; max-width: 92ch; font-size: .74rem; line-height: 1.6; color: var(--muted); }
+.cn-caption a { color: var(--accent); }
+.cn-cite { display: flex; flex-wrap: wrap; gap: .35rem .9rem; margin-top: .8rem; font-size: .74rem; }
+.cn-cite a { color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+.cn-cite a:hover { border-bottom-color: var(--accent); }
+.cn-link { display: inline-block; margin-top: .9rem; font-size: .8rem; font-weight: 600; color: var(--accent) !important; text-decoration: none; }
+.cn-link:hover { text-decoration: underline; }
+.cn-tag { display: inline-block; padding: .2rem .55rem; border: 1px solid color-mix(in srgb, var(--tone) 45%, var(--line)); border-radius: 999px; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--tone); }
+
+/* ── The opening (all directions) ── */
+.cn-lead { margin-bottom: .8rem; font: 400 1.3rem/1.4 var(--serif); color: var(--ink); }
+.cn-start { display: inline-flex; gap: .5rem; margin-top: 1.3rem; padding: .6rem 1.05rem; border: 1px solid var(--ink); border-radius: 999px; font-size: .8rem; font-weight: 600; color: var(--ink); text-decoration: none; }
+.cn-start:hover { background: var(--ink); color: var(--page); }
+
+/* A: the drawing. The list's marks keep changing: filled (canonical), half (instruction), dashed (not named). */
+.cn-hero-art .cg-rule { stroke: color-mix(in srgb, var(--ink) 45%, transparent); stroke-width: 1; }
+.cn-hero-art .cg-entry { stroke: color-mix(in srgb, var(--ink) 50%, transparent); stroke-width: 1.5; stroke-dasharray: 5 2 3 1.5; }
+.cn-hero-art .cg-mark { stroke-width: 1.3; animation: cg-place 9s calc(var(--i) * -1.3s) steps(1) infinite; }
+.cn-hero-art .cg-list { animation: ms-drift 14s ease-in-out -4s infinite; }
+@keyframes cg-place {
+  0% { fill: var(--accent); stroke: var(--accent); stroke-dasharray: none; }
+  33% { fill: color-mix(in srgb, var(--history) 30%, transparent); stroke: var(--history); stroke-dasharray: none; }
+  66% { fill: transparent; stroke: var(--muted); stroke-dasharray: 2 2; }
+}
+@media (prefers-reduced-motion: reduce) { .cn-hero-art .cg-mark, .cn-hero-art .cg-list { animation: none; fill: var(--accent); stroke: var(--accent); } }
+
+/* B: real photographs laid on a table. */
+.cn-intro-b { grid-template-columns: minmax(0, 1fr) minmax(0, 34rem); align-items: center; }
+.cn-table { margin: 0; }
+.cn-table-top { position: relative; aspect-ratio: 5 / 4; max-width: 100%; border-radius: 22px; background: radial-gradient(120% 90% at 30% 20%, color-mix(in srgb, var(--accent) 10%, var(--surface)), var(--surface-2)); overflow: hidden; }
+.cn-photo { position: absolute; left: var(--l); top: var(--t); width: var(--w); z-index: var(--z); transform: rotate(var(--r)); padding: 6px 6px 8px !important; background: var(--surface) !important; border-radius: 4px; box-shadow: 0 14px 30px -14px rgb(0 0 0 / 45%); transition: transform .35s cubic-bezier(.16, 1, .3, 1), z-index 0s; }
+.cn-photo:hover, .cn-photo:focus { z-index: 20; transform: rotate(0) scale(1.08); }
+.cn-photo img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.cn-photo span { display: block; margin-top: .3rem; font-size: .6rem; line-height: 1.3; color: var(--muted); }
+.cn-photo b { display: block; font: 500 .74rem/1.25 var(--serif); color: var(--ink); }
+.cn-table figcaption, .cn-strip figcaption { margin-top: .6rem; font-size: .72rem; line-height: 1.55; color: var(--muted); }
+@media (max-width: 860px) { .cn-intro-b { grid-template-columns: 1fr; } }
+
+/* C: the photographs as one strip. */
+.cn-strip { margin: .4rem 0 0; }
+.cn-strip-row { display: grid; grid-template-columns: repeat(6, minmax(9rem, 1fr)); gap: .8rem; overflow-x: auto; scrollbar-width: thin; padding-bottom: .3rem; }
+.cn-strip-item { display: block; border: 1px solid var(--line) !important; border-radius: 12px; overflow: hidden; background: var(--surface) !important; transition: border-color .2s, transform .3s; }
+.cn-strip-item:hover, .cn-strip-item:focus { border-color: var(--accent) !important; transform: translateY(-2px); }
+.cn-strip-item img { display: block; width: 100%; height: 11rem; object-fit: cover; }
+.cn-strip-item span { display: block; padding: .55rem .7rem .7rem; font-size: .7rem; color: var(--muted); }
+.cn-strip-item b { display: block; font: 500 .92rem/1.25 var(--serif); color: var(--ink); }
+
+/* ── A: the shelf of surviving witnesses ── */
+.cn-shelf { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; }
+.cn-book { display: flex; flex-direction: column; border: 1px solid var(--line) !important; border-radius: 14px; overflow: hidden; background: var(--surface) !important; transition: border-color .2s, transform .3s cubic-bezier(.16, 1, .3, 1); }
+.cn-book:hover, .cn-book:focus { border-color: var(--accent) !important; transform: translateY(-3px); }
+.cn-book-img { display: block; aspect-ratio: 4 / 5; background: var(--surface-2); overflow: hidden; }
+.cn-book-img img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.cn-book:hover .cn-book-img img { transform: scale(1.05); }
+.cn-book-text { display: grid; gap: .2rem; padding: .7rem .8rem .9rem; font-size: .72rem; line-height: 1.45; color: var(--muted); }
+.cn-book-text small { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.cn-book-text b { font: 500 1rem/1.25 var(--serif); color: var(--ink); }
+.cn-book-tag { margin-top: .3rem; font-style: normal; font-size: .64rem; font-weight: 600; color: var(--accent); }
+@media (max-width: 1100px) { .cn-shelf { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .cn-shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ── The same writings, different boundaries: three leaves ── */
+.cr-controls { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem; }
+.cr-controls .kicker { display: block; margin-bottom: .45rem; }
+.cr-reset { font-size: .76rem; color: var(--muted) !important; }
+.cr-reset:hover { color: var(--ink) !important; }
+.cr-legend { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; margin: 1rem 0; font-size: .74rem; color: var(--muted); }
+.cr-legend span { display: inline-flex; align-items: center; gap: .45rem; }
+.cr-mark { display: inline-block; flex: none; width: 14px; height: 18px; border-radius: 2px; }
+.cr-mark.canon { background: var(--accent); }
+.cr-mark.instruction { border: 1.5px solid var(--history); border-right: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--history) 35%, transparent) 50%, transparent 50%); }
+.cr-mark.silence { border: 1.5px dashed var(--muted); }
+.cr-leaves { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+.cr-leaf { position: relative; padding: 1.2rem 1.2rem .9rem 1.6rem; border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 4px 4px 10px 10px; background: var(--surface); box-shadow: 4px 5px 0 -1px var(--surface-2), 8px 10px 0 -2px color-mix(in srgb, var(--surface-2) 70%, transparent); }
+.cr-leaf:nth-child(2) { border-top-color: var(--history); } .cr-leaf:nth-child(3) { border-top-color: var(--poetry); }
+.cr-leaf::before { content: ""; position: absolute; left: .7rem; top: 0; bottom: 0; border-left: 1px solid var(--line); }
+.cr-leaf header { padding-bottom: .8rem; border-bottom: 1px solid var(--line); }
+.cr-no { display: flex; justify-content: space-between; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.cr-leaf h3 { margin-top: .3rem; font: 500 1.5rem/1.2 var(--serif); letter-spacing: -.02em; }
+.cr-date { margin-top: .2rem; font-size: .74rem; color: var(--muted); }
+.cr-entries { display: grid; gap: .35rem; padding: .7rem 0; }
+.cr-entry { display: grid; grid-template-columns: 20px minmax(0, 1fr) 14px; align-items: center; gap: .7rem; padding: .7rem .6rem !important; border: 1px solid transparent !important; border-radius: 8px; transition: background .18s, border-color .18s; }
+.cr-entry:hover { background: var(--surface-2) !important; }
+.cr-entry.match { background: color-mix(in srgb, var(--accent) 10%, var(--surface)) !important; }
+.cr-entry[aria-expanded="true"] { border-color: var(--accent) !important; }
+.cr-entry b { display: block; font: 500 .98rem/1.35 var(--serif); }
+.cr-entry small { display: block; margin-top: .15rem; font-size: .72rem; color: var(--muted); }
+.cr-down { color: var(--accent); }
+.cr-leaf footer { padding-top: .7rem; border-top: 1px solid var(--line); font-size: .72rem; color: var(--muted); }
+.cr-caption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; margin-top: 1rem; font-size: .7rem; color: var(--muted); }
+.cr-finding { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.cr-finding p { max-width: 76ch; font: 400 1.1rem/1.6 var(--serif); }
+.cr-inspect { margin-top: 1.2rem; padding: 1.3rem 1.4rem; border: 1px solid var(--line); border-top: 2px solid var(--accent); border-radius: 12px; background: var(--surface); animation: cn-reveal .2s ease-out; }
+.cr-inspect > header { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.cr-inspect h3 { margin-top: .3rem; font: 500 1.45rem/1.2 var(--serif); }
+.cr-close { display: grid; place-items: center; width: 36px; height: 36px; flex: none; border: 1px solid var(--line) !important; border-radius: 50%; font-size: 1.2rem !important; color: var(--muted) !important; text-align: center !important; }
+.cr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.cr-grid p { margin-top: .5rem; font-size: .88rem; line-height: 1.65; color: var(--muted); }
+.cr-grid blockquote { margin: .9rem 0 .4rem; font: italic 1.3rem/1.5 var(--serif); color: var(--accent); }
+.cr-grid small { font-size: .72rem; color: var(--muted); }
+.cr-bridge { max-width: 78ch; margin: 1.6rem 0 0; font: 400 1.08rem/1.7 var(--serif); }
+@keyframes cn-reveal { from { opacity: 0; transform: translateY(4px); } }
+@media (max-width: 900px) { .cr-leaves, .cr-grid { grid-template-columns: 1fr; } .cr-finding { grid-template-columns: 1fr; gap: .3rem; } }
+
+/* ── Five kinds of evidence ── */
+.ce-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .8rem; }
+.ce-kind { display: grid; justify-items: start; gap: .2rem; padding: 1rem 1rem .9rem !important; border: 1px solid var(--line) !important; border-radius: 14px; background: var(--surface) !important; transition: border-color .2s; }
+.ce-kind:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)) !important; }
+.ce-kind[aria-pressed="true"] { border-color: var(--accent) !important; }
+.ce-art { display: block; width: 40px; height: 40px; margin-bottom: .5rem; color: var(--accent); }
+.ce-art svg { width: 100%; height: 100%; }
+.ce-kind small { font-size: .6rem; font-weight: 600; letter-spacing: .14em; color: var(--muted); }
+.ce-kind b { font: 500 1.05rem/1.25 var(--serif); }
+.ce-say { margin-top: 1.1rem; padding: 1.2rem 1.4rem; border-left: 2px solid var(--accent); background: color-mix(in srgb, var(--accent) 5%, transparent); border-radius: 0 12px 12px 0; }
+.ce-say h3 { margin-top: .35rem; font: 500 1.35rem/1.3 var(--serif); }
+.ce-say p:not(.kicker) { max-width: 72ch; margin-top: .45rem; font-size: .92rem; line-height: 1.65; color: var(--muted); }
+.ce-say > small { display: block; margin-top: .8rem; font-size: .72rem; color: var(--muted); }
+@media (max-width: 860px) { .ce-row { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .ce-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ── What changed over time? (under the timeline / cabinet / map) ── */
+.cn-bridge { margin-top: 1.6rem; padding: 1.3rem 1.5rem; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.cn-bridge > p:first-of-type { margin-top: .5rem; max-width: 80ch; font: 400 1.05rem/1.7 var(--serif); }
+.cn-bridge strong { font-weight: 600; }
+
+/* ── The record sheet ── */
+.cn-sheet-top { display: flex; justify-content: space-between; align-items: center; margin: 0 2.6rem .8rem 0; font-size: .7rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.cn-sheet .cn-limit dd { color: var(--revelation); }
+.cn-sheet .cn-contents { margin-top: 1rem; padding-top: .8rem; border-top: 1px solid var(--line); font-size: .84rem; }
+.cn-sheet .cn-contents summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+.cn-sheet .cn-contents ul { margin: .5rem 0 0; padding-left: 1.1rem; line-height: 1.6; }
+.cn-paging { display: flex; justify-content: space-between; gap: .6rem; margin-top: 1.3rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.cn-paging button { padding: .5rem .85rem; border: 1px solid var(--line); border-radius: 999px; background: none; font: 600 .74rem var(--sans); color: var(--ink); cursor: pointer; }
+.cn-paging button:hover:not(:disabled) { border-color: var(--ink); }
+.cn-paging button:disabled { opacity: .35; cursor: default; }
+
+/* ── On this page ── */
+.cn-chapters { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.6rem; }
+.cn-chapters a { padding: .4rem .8rem; border: 1px solid var(--line); border-radius: 999px; font-size: .72rem; color: var(--muted); text-decoration: none; }
+.cn-chapters a b { margin-right: .35rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+.cn-chapters a:hover { border-color: var(--ink); color: var(--ink); }
+
+/* Fixes after the first screenshots: A's note sits under the drawing, not on it; C has no picture beside the title. */
+.cn-hero-art .ms-art-note { position: static; margin: .4rem 0 0 4%; }
+.cn-intro-c { grid-template-columns: minmax(0, 1fr); }
