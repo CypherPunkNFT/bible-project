@@ -86,7 +86,7 @@
 .om-pp-label span { margin-left: .4rem; color: var(--tone, var(--accent)); }
 .om-pp-old { padding: .9rem 1.1rem 1rem; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--tone) 5%, var(--surface)); }
 .om-pp-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; }
-.om-pp-row button { display: grid; gap: .3rem; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.om-pp-row button { display: grid; gap: .3rem; padding: 0; border: 0; background: none; cursor: pointer; }
 .om-pp-row img { width: 100%; aspect-ratio: 1; object-fit: cover; border: 1px solid transparent; border-radius: 6px; transition: border-color .15s; }
 .om-pp-row button:hover img { border-color: var(--tone); }
 .om-pp-row b { font: 500 .8rem var(--serif); color: var(--tone); }

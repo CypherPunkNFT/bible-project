@@ -120,5 +120,15 @@ window.OM = (() => {
     });
   }
 
+  // Over a map strip the mouse wheel scrolls it sideways; at either end the page scrolls on as usual.
+  document.addEventListener("wheel", (event) => {
+    const strip = event.target.closest?.(".om-strip");
+    if (!strip || event.shiftKey || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+    const room = strip.scrollWidth - strip.clientWidth;
+    if (room <= 0 || (event.deltaY < 0 && strip.scrollLeft <= 0) || (event.deltaY > 0 && strip.scrollLeft >= room - 1)) return;
+    event.preventDefault();
+    strip.scrollLeft += event.deltaY;
+  }, { passive: false });
+
   return { D, esc, fmt, subjects, subjectByKey, subjectIndex, maps, mapById, centuryOf, ROMAN, ORDINAL, tone, dotHas, subjectIcon, head, figures, landing, levantSVG, thumb, creditLine, crystals, atlasFrame, bindOpen };
 })();

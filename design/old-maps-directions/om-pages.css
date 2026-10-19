@@ -34,7 +34,7 @@
 .op-fold.is-open .op-drawer { grid-template-rows: 1fr; }
 .op-drawer-in { min-height: 0; overflow: hidden; padding-inline: 1rem; }
 .op-drawer-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; padding-top: .9rem; }
-.op-drawer-row button { display: grid; gap: .3rem; padding: 0; border: 0; background: none; cursor: zoom-in; outline: none; }
+.op-drawer-row button { display: grid; gap: .3rem; padding: 0; border: 0; background: none; cursor: pointer; outline: none; }
 .op-drawer-row img { width: 100%; aspect-ratio: 1; object-fit: cover; border: 1px solid transparent; border-radius: 6px; transition: border-color .15s; }
 .op-drawer-row button:hover img { border-color: var(--tone); }
 .op-drawer-row b { font: 500 .8rem var(--serif); color: var(--tone); }
