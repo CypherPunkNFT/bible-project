@@ -6,6 +6,22 @@
   const normalise = (text) => String(text).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
   const GROUPS = ["Greek New Testament", "Greek Old Testament", "Hebrew Bible", "Early translations"];
   const SORTS = [["date", "Oldest first"], ["siglum", "By number"], ["name", "A–Z"]];
+  // The table sits on a sheet whose left edge is torn, like a leaf with pieces lost: a fixed run of points down the
+  // left (mostly small nicks, now and then a deeper bite), the other three edges barely rough.
+  const TORN = (() => {
+    let seed = 7;
+    const rand = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+    const left = [];
+    for (let i = 0; i <= 40; i++) {
+      const bite = rand() < 0.12 ? 10 + rand() * 8 : rand() * 7;
+      left.push(`${bite.toFixed(1)}px ${(100 - i * 2.5).toFixed(1)}%`);
+    }
+    const edge = (n, make) => Array.from({ length: n + 1 }, (_, i) => make(i / n, rand() * 1.6));
+    const top = edge(24, (f, r) => `calc(${(f * 100).toFixed(1)}% + ${f === 0 ? 6 : 0}px) ${r.toFixed(1)}px`);
+    const right = edge(16, (f, r) => `calc(100% - ${r.toFixed(1)}px) ${(f * 100).toFixed(1)}%`);
+    const bottom = edge(24, (f, r) => `${(100 - f * 100).toFixed(1)}% calc(100% - ${r.toFixed(1)}px)`);
+    return `polygon(${[...top, ...right, ...bottom, ...left].join(", ")})`;
+  })();
 
   function mount(section, { num }) {
     const counts = Object.fromEntries(KINDS.map((k) => [k.key, 0]));
@@ -26,7 +42,9 @@
       </div>
       <div class="ct-table">
         <button type="button" class="ct-arrow" data-prev aria-label="Previous page">${icon("arrowLeft", 16)}</button>
+        <div class="ct-sheet" style="--torn: ${TORN}"><div class="ct-sheet-inner">
         ${[0, 1].map((n) => `<div class="ct-col"><p class="ct-head" aria-hidden="true"><span></span><span>No.</span><span>Manuscript</span><span>Date</span><span>Where</span></p><ol class="ct-list" data-col="${n}"></ol></div>`).join('<span class="ct-divider" aria-hidden="true"></span>')}
+        </div></div>
         <button type="button" class="ct-arrow" data-next aria-label="Next page">${icon("arrowRight", 16)}</button>
       </div>`;
     const $ = (s) => section.querySelector(s);
@@ -50,7 +68,7 @@
       const label = kind ? KIND[kind].label.toLowerCase() : "records";
       // The whole catalogue reads just "N records"; a kind or a search adds an × that returns to the whole catalogue.
       const narrowed = Boolean(kind || query);
-      $(".ct-count").innerHTML = `<strong>${formatNumber(found.length)}</strong> ${esc(query ? "matching" : label)}${narrowed
+      $(".ct-count").innerHTML = `<span>${formatNumber(found.length)} ${esc(query ? "matching" : label)}</span>${narrowed
         ? `<button type="button" class="ct-clear" data-clear aria-label="Show every record">${icon("x", 13)}</button>` : ""}`;
       $(".ct-count").classList.toggle("is-narrowed", narrowed);
       // The page splits into two side-by-side tables, the first half on the left.
