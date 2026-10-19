@@ -17,10 +17,11 @@
 .places-artwork-old-maps .old-maps-rose { transform: translate(150px, 104px); animation: old-maps-rose 9s ease-in-out infinite alternate; }
 .places-artwork-old-maps .old-maps-ship { transform-box: fill-box; transform-origin: center; animation: old-maps-ship 6s ease-in-out infinite; }
 
-/* Nine tiles on a sub-page: four on the first row, five on the second. */
-.places-collection-nav { grid-template-columns: repeat(20, minmax(0, 1fr)); }
-.places-collection-nav > a { grid-column: span 5; }
-.places-collection-nav > a:nth-child(n+5) { grid-column: span 4; }
+/* Nine tiles on a sub-page: four on the first row, five on the second. Scoped under .places-destination so the rule
+   wins whatever order the stylesheets load in (places-collection.css sets four columns). */
+.places-destination .places-collection-nav { grid-template-columns: repeat(20, minmax(0, 1fr)); }
+.places-destination .places-collection-nav > a { grid-column: span 5; }
+.places-destination .places-collection-nav > a:nth-child(n+5) { grid-column: span 4; }
 
 /* The preview page */
 .old-maps-preview { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin-top: 1.6rem; }
@@ -35,8 +36,8 @@
 @media (prefers-reduced-motion: reduce) { .places-artwork-old-maps .old-maps-rose, .places-artwork-old-maps .old-maps-ship { animation: none; } .old-maps-fan img { transition: none; } }
 @media (max-width: 900px) { .old-maps-card-body { grid-template-columns: 1fr; gap: .8rem; } .old-maps-fan { display: none; } .old-maps-card .places-artwork { height: 130px; } }
 @media (max-width: 767px) {
-  .places-collection-nav > a, .places-collection-nav > a:nth-child(n+5) { grid-column: auto; }
-  .places-collection-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .places-collection-nav > a:last-child { grid-column: 1 / -1; }
+  .places-destination .places-collection-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .places-destination .places-collection-nav > a, .places-destination .places-collection-nav > a:nth-child(n+5) { grid-column: auto; }
+  .places-destination .places-collection-nav > a:last-child { grid-column: 1 / -1; }
   .old-maps-preview { grid-template-columns: 1fr; }
 }
