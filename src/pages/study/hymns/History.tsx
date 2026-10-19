@@ -54,6 +54,6 @@ export function History() {
       <p className="hh-read" aria-live="polite"><b>{year} · {title}.</b> {text}</p>
     </div>
     <div className="hh-people">{PEOPLE.map((p) => <div key={p.name} className="hh-person" style={tone(p.tone)}><p className="k">{p.born}–{p.died} · {p.count}</p><h3>{p.name}</h3><p>{p.line}</p></div>)}</div>
-    <div className="hh-sung"><p className="k">How they were sung</p>{SUNG.map(([h, t, Icon]) => <div key={h}><Icon className="hh-sung-icon" size={22} strokeWidth={1.4} aria-hidden /><h4>{h}</h4><p>{t}</p></div>)}</div>
+    <div className="hh-sung"><p className="k">How they were sung</p>{SUNG.map(([h, t, Icon]) => <div key={h}><Icon className="hh-sung-icon" size={26} strokeWidth={1.3} aria-hidden /><h4>{h}</h4><p>{t}</p></div>)}</div>
   </div>;
 }

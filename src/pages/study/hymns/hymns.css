@@ -37,3 +37,18 @@ html:has(.hy-page) { scroll-snap-type: y proximity; }
 .hy-page .hh-sung .hh-sung-icon { display: block; margin-bottom: .55rem; color: var(--accent); }
 .hy-page .hh-sung h4 { margin-top: 0; }
 @media (max-width: 1000px) { .hy-page .hh-sung { grid-template-columns: 1fr 1fr; } }
+/* 05 · the foot of the card grid: "Load more" and how many are showing, centred (owner, 2026-10-18). */
+.hy-page .hy-cat .pc-load { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 8px 0 4px; }
+.hy-page .hy-cat .pc-load button { padding: .55rem 1.3rem; border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line)); border-radius: 999px; background: var(--surface); color: var(--accent); font: 500 .82rem var(--sans); cursor: pointer; }
+.hy-page .hy-cat .pc-load button:hover { background: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
+.hy-page .hy-cat .pc-load span { font-size: .78rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+/* 04 · "How they were sung" two by two, each with a larger icon in a circle beside it (owner, 2026-10-18). */
+.hy-page .hh-sung { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 3rem; }
+.hy-page .hh-sung > div { display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); column-gap: 1.1rem; align-items: start; }
+.hy-page .hh-sung > div > .hh-sung-icon { grid-row: span 2; box-sizing: content-box; width: 26px; height: 26px; padding: 14px; margin: 0; border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line)); border-radius: 50%; background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.hy-page .hh-sung > div > h4 { align-self: end; margin-top: .35rem; }
+@media (max-width: 700px) { .hy-page .hh-sung { grid-template-columns: 1fr; } }
+/* The button itself in the middle, the count beside it to the right. */
+.hy-page .hy-cat .pc-load { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+.hy-page .hy-cat .pc-load button { grid-column: 2; }
+.hy-page .hy-cat .pc-load span { grid-column: 3; justify-self: start; }
