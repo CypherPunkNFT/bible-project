@@ -1,0 +1,18 @@
+/* Contact page: the line drawing beside the form (ContactArt.tsx). */
+.ct-art { margin: 0; color: var(--accent); }
+.ct-art svg { display: block; width: 100%; height: auto; overflow: visible; }
+.ct-paper { fill: var(--surface); }
+.ct-faint { color: var(--muted); opacity: 0.55; stroke-width: 1.1; }
+.ct-orbit { color: var(--line); stroke-width: 1.1; }
+.ct-accent { color: var(--accent); }
+.ct-seal { fill: var(--accent); stroke: none; }
+.ct-seal-cross { color: var(--surface); stroke-width: 1.6; }
+.ct-star { stroke-width: 1.1; animation: ct-twinkle 4.8s ease-in-out infinite; animation-delay: calc(var(--i) * -0.6s); }
+.ct-letter { animation: ct-float 7s ease-in-out infinite; }
+
+@keyframes ct-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes ct-twinkle { 0%, 100% { opacity: 0.9; } 50% { opacity: 0.25; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-star, .ct-letter { animation: none; }
+}
