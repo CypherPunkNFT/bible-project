@@ -4,6 +4,7 @@ import path from "node:path";
 import { verifyBuiltContent } from "./content/compile.ts";
 import {preparePopulationHosting} from './prepare-population-hosting.mjs';
 import {pruneReleaseAssets} from './prune-release-assets.mjs';
+import { packPersonFiles } from "./pack-person-files.ts";
 
 // Produces a fresh deployable directory. Never creates a cloud resource or deploys it.
 const databaseId = process.env.TESTIMONY_D1_ID;
@@ -20,6 +21,8 @@ await preparePopulationHosting(path.join(site,'content/scholar-population'),{omi
 console.log('Release build assets:',await pruneReleaseAssets(site));
 // dereference: follow links/junctions (a clean release worktree links data/ in), never ship a link.
 await cp("data", path.join(site, "data"), { recursive: true, dereference: true });
+// One file per person would push the release past 20,000 files; the release copy gets packs instead.
+console.log("Person packs:", await packPersonFiles(site));
 await cp("migrations", path.join(directory, "migrations"), { recursive: true });
 const compiler = spawnSync(process.execPath, ["node_modules/wrangler/bin/wrangler.js", "pages", "functions", "build", "--outdir", path.join(site, "_worker.js")], { stdio: "inherit" });
 if (compiler.status !== 0) throw new Error("Pages Function compilation failed.");

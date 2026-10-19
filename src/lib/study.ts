@@ -1,5 +1,6 @@
 import { DataUnavailable } from "./data";
 import { lastReadPath } from "./last-read";
+import { personPack, personPackPath } from "./person-pack";
 import { bookByNum, splitId } from "./refs";
 import type { Catalog } from "./types";
 
@@ -95,6 +96,8 @@ export interface NamesOfGod {
 export interface StudyIndex {
   stamp: string;
   corrections: { source: string; where: string; printed: string; corrected: string; why: string }[];
+  /** Live site only: the person records ship in this many packs (src/lib/person-pack.ts), not one file each. */
+  personPacks?: number;
 }
 
 const cache = new Map<string, Promise<unknown>>();
@@ -133,7 +136,15 @@ export const loadHarmony = () => loadStudy<Harmony>("harmony.json");
 export const loadMiracles = () => loadStudy<Miracles>("miracles.json");
 export const loadLetters = () => loadStudy<Letter[]>("letters.json");
 export const loadPeople = () => loadStudy<PersonRow[]>("people.json");
-export const loadPersonDetail = (id: string) => loadStudy<PersonDetail>(`people/${id}.json`);
+/** One person's record: from its pack on the live site, from its own file in local preview. */
+export async function loadPersonDetail(id: string): Promise<PersonDetail> {
+  const packs = (await loadStudyIndex()).personPacks;
+  if (!packs) return loadStudy<PersonDetail>(`people/${id}.json`);
+  const pack = await loadStudy<Record<string, PersonDetail>>(personPackPath(personPack(id, packs), packs));
+  // Own keys only: "constructor" or "toString" must read as missing, not as Object's own members.
+  if (!Object.prototype.hasOwnProperty.call(pack, id)) throw new DataUnavailable(`study/people/${id}.json`, "not in its pack");
+  return pack[id];
+}
 export const loadProphets = () => loadStudy<Prophet[]>("prophets.json");
 export const loadNames = () => loadStudy<NamesOfGod>("names.json");
 
