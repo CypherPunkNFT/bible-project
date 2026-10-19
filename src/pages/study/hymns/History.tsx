@@ -3,6 +3,7 @@
 // churches. Words floating with lines, no boxes; a moment reads out below the line
 // (approved mock-up: design/hymn-directions/collection/history.js).
 import { useState } from "react";
+import { Repeat2, ScrollText, Shuffle, Users, type LucideIcon } from "lucide-react";
 import { SectionHead } from "./parts";
 import { tone } from "./model";
 
@@ -29,11 +30,11 @@ const PEOPLE = [
   { name: "John Newton", born: 1725, died: 1807, tone: "--history", line: "Sailor, slave-ship captain, then Anglican curate. Later rector in London, he spoke against the slave trade in print in 1788.", count: "280 here" },
   { name: "William Cowper", born: 1731, died: 1800, tone: "--prophets", line: "One of the finest poets of his day, and often in deep despair. His hymns hold both the trust and the dark.", count: "68 here" },
 ];
-const SUNG: [string, string][] = [
-  ["Words without music", "Hymn books printed only the words. Tunes lived in separate tune books, or in the clerk's head."],
-  ["Lined out", "Few could read and books were dear, so a clerk read or sang each line and the congregation sang it back after him."],
-  ["Any tune of the metre", "Common Metre (8.6.8.6) is the old ballad measure. A Common Metre text fits any Common Metre tune, which is why our pages give a metre and not a tune."],
-  ["At the prayer meeting", "Olney Hymns were written for a weekday meeting in a large room, not for Sunday worship, where the metrical psalms still ruled."],
+const SUNG: [string, string, LucideIcon][] = [
+  ["Words without music", "Hymn books printed only the words. Tunes lived in separate tune books, or in the clerk's head.", ScrollText],
+  ["Lined out", "Few could read and books were dear, so a clerk read or sang each line and the congregation sang it back after him.", Repeat2],
+  ["Any tune of the metre", "Common Metre (8.6.8.6) is the old ballad measure. A Common Metre text fits any Common Metre tune, which is why our pages give a metre and not a tune.", Shuffle],
+  ["At the prayer meeting", "Olney Hymns were written for a weekday meeting in a large room, not for Sunday worship, where the metrical psalms still ruled.", Users],
 ];
 
 export function History() {
@@ -53,6 +54,6 @@ export function History() {
       <p className="hh-read" aria-live="polite"><b>{year} · {title}.</b> {text}</p>
     </div>
     <div className="hh-people">{PEOPLE.map((p) => <div key={p.name} className="hh-person" style={tone(p.tone)}><p className="k">{p.born}–{p.died} · {p.count}</p><h3>{p.name}</h3><p>{p.line}</p></div>)}</div>
-    <div className="hh-sung"><p className="k">How they were sung</p>{SUNG.map(([h, t]) => <div key={h}><h4>{h}</h4><p>{t}</p></div>)}</div>
+    <div className="hh-sung"><p className="k">How they were sung</p>{SUNG.map(([h, t, Icon]) => <div key={h}><Icon className="hh-sung-icon" size={22} strokeWidth={1.4} aria-hidden /><h4>{h}</h4><p>{t}</p></div>)}</div>
   </div>;
 }

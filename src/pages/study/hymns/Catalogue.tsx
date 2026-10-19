@@ -1,13 +1,13 @@
-// 05 and 06 · Every hymn, two ways (approved mock-up: design/hymn-directions/collection/catalogue.js):
+// 05 · Every hymn (the first-line list, 06, was removed by the owner, 2026-10-18) (approved mock-up: design/hymn-directions/collection/catalogue.js):
 //   05 the card catalogue, as the Teachers page's "Every teacher, one place": search and filters on the left, a sort bar,
 //      a scrolling grid of cards with the outside pill;
 //   06 the list catalogue, as the Teachers page's "The texts we hold": a search and a select, two columns of first lines
 //      that open in place, 24 to a page.
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpen, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { OutsideScroll } from "@/components/OutsideScroll";
-import { bookIndexOf, chapterOf, hymnHref, metreName, type HymnCollection, type HymnEntry, type HymnGroup } from "@/lib/hymns";
+import { bookIndexOf, hymnHref, metreName, type HymnCollection, type HymnEntry, type HymnGroup } from "@/lib/hymns";
 import { SectionHead } from "./parts";
 import { SECTION_LABEL } from "@/pages/teachers/preachers/bible/model";
 import { firstLine, formatNumber, groupsById, tone } from "./model";
@@ -83,42 +83,5 @@ export function Cards({ collection }: { collection: HymnCollection }) {
         </OutsideScroll>
       </div>
     </div>
-  </div>;
-}
-
-const PAGE = 24;
-
-export function List({ collection }: { collection: HymnCollection }) {
-  const rows = useRows(collection);
-  const sorted = useMemo(() => [...rows].sort((a, b) => a.h.t.localeCompare(b.h.t)), [rows]);
-  const [query, setQuery] = useState("");
-  const [group, setGroup] = useState("");
-  const [page, setPage] = useState(0);
-  const words = wordsOf(query);
-  const found = sorted.filter((r) => (!group || r.g.id === group) && words.every((w) => r.search.includes(w)));
-  const pages = Math.max(1, Math.ceil(found.length / PAGE));
-  const current = Math.min(page, pages - 1);
-
-  return <div style={tone("--accent")}>
-    <SectionHead num="06" kicker="The catalogue · list" title={<>Every hymn, <em>by first line</em></>}
-      line="The whole collection in first-line order, the way hymn books index themselves. Open a line to see its book, passage and metre." />
-    <div className="acq-controls">
-      <label>Find a hymn<input placeholder="First line, subject or passage" value={query} onChange={(e) => { setQuery(e.target.value); setPage(0); }} /></label>
-      <label>Hymn book<select value={group} onChange={(e) => { setGroup(e.target.value); setPage(0); }}><option value="">All hymn books</option>
-        {collection.groups.map((g) => <option key={g.id} value={g.id}>{g.label}</option>)}</select></label>
-    </div>
-    <p className="acq-caption">{query || group ? `${formatNumber(found.length)} of ${formatNumber(sorted.length)} hymns match` : `${formatNumber(sorted.length)} hymns`}, each listed once.</p>
-    <div className="acq-contributors">
-      {found.slice(current * PAGE, (current + 1) * PAGE).map((r) => {
-        const book = r.h.v ? collection.books[bookIndexOf(r.h.v)] : null;
-        return <details key={r.h.id} style={tone(r.g.tone)}><summary><strong>{firstLine(r.h)}</strong><span>{r.g.short} · {r.h.y}{r.h.v ? ` · ${r.h.r}` : ""}</span></summary>
-          <p className="acq-caption">{r.g.label}, {r.h.a}, {r.h.y}. {r.h.s ? `Subject: ${r.h.s}. ` : ""}{r.h.v ? `Written on ${r.h.r}. ` : "Written on a subject rather than a passage. "}Metre: {r.h.m ? `${r.h.m.replace(/,/g, ".")} (${r.metre})` : "not recorded"}.</p>
-          <p className="acq-links"><Link to={hymnHref(r.h.id)}>Open the hymn <ArrowRight size={13} strokeWidth={1.5} aria-hidden /></Link>
-            {book && <Link to={`/read/kjv/${book.code}/${chapterOf(r.h.v)}`}>Read {r.h.r.split(":")[0]} <BookOpen size={13} strokeWidth={1.5} aria-hidden /></Link>}</p></details>;
-      })}
-      {found.length === 0 && <p className="acq-caption">No hymn matches.</p>}
-    </div>
-    <nav className="acq-pagination" aria-label="Hymn pages"><button type="button" disabled={!current} onClick={() => setPage(current - 1)}>Previous</button>
-      <span>{current + 1} / {pages}</span><button type="button" disabled={current >= pages - 1} onClick={() => setPage(current + 1)}>Next</button></nav>
   </div>;
 }

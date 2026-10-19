@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { loadHymnCollection } from "@/lib/data";
 import { useAsync } from "@/lib/useAsync";
 import { PageStatus } from "@/pages/teachers/shared/Frame";
-import { Cards, List } from "./Catalogue";
+import { Cards } from "./Catalogue";
 import { History } from "./History";
 import { Landing } from "./Landing";
 import { HymnSection } from "./parts";
@@ -29,6 +29,5 @@ export default function HymnsPage() {
     <HymnSection id="psalms" title="Through the Psalms"><Psalms collection={data} /></HymnSection>
     <HymnSection id="history" title="Their history"><History /></HymnSection>
     <HymnSection id="cards" title="Every hymn · cards" className="hy-cat"><Cards collection={data} /></HymnSection>
-    <HymnSection id="list" title="Every hymn · list"><List collection={data} /></HymnSection>
   </div></div>;
 }

@@ -22,3 +22,18 @@ body:has(.hy-page) { overflow-x: clip; }
 .hy-page .hc-rows.hc-played .pipe { animation: none; opacity: .55; transition: opacity .45s ease-out, transform .45s ease-out; transform-box: fill-box; transform-origin: 50% 100%; }
 .hy-page .hc-rows.hc-played .pipe.on { opacity: 1; transform: translateY(-3px); transition: opacity .05s, transform .08s; }
 .hy-page .hc-rows.hc-played .pipe.silent { opacity: .22; }
+
+/* Scrolling settles at a section's start when it comes near one, its number and heading in full view under the header
+   (owner, 2026-10-18); "proximity" never forces a stop elsewhere, so long sections scroll freely. */
+html:has(.hy-page) { scroll-snap-type: y proximity; }
+.hy-page .t-sec { scroll-snap-align: start; }
+/* 03 · shorter Psalm tiles (owner, 2026-10-18): less empty space above the number and below the hymn count. */
+.hy-page .t-sec-psalms .ps-tile { aspect-ratio: 1 / .9; gap: 3px; }
+.hy-page .t-sec-psalms .ps-grid { gap: 4px; }
+/* 04 · "How they were sung": the label on its own line and the four below it from the same left edge, each with a quiet
+   line icon (owner, 2026-10-18). */
+.hy-page .hh-sung { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: .9rem; }
+.hy-page .hh-sung > .k { grid-column: 1 / -1; }
+.hy-page .hh-sung .hh-sung-icon { display: block; margin-bottom: .55rem; color: var(--accent); }
+.hy-page .hh-sung h4 { margin-top: 0; }
+@media (max-width: 1000px) { .hy-page .hh-sung { grid-template-columns: 1fr 1fr; } }
