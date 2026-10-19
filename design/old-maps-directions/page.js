@@ -7,6 +7,7 @@
     b: { label: "The map chest", order: ["b_landing", "b_chest"] },
     c: { label: "How the land was drawn", order: ["c_landing", "c_sequence", "c_grid"] },
     atlas: { label: "In the Atlas", order: ["x_home", "x_strips", "x_panel", "x_study"] },
+    pages: { label: "In the pages: 2 and 3", order: ["p_strips", "p_panel"] },
   };
   const requested = new URLSearchParams(location.search).get("d");
   const key = VIEWS[requested] ? requested : "a";
@@ -22,8 +23,9 @@
   const main = Frame.mount();
   // The shared frame points at the logo from two folders down; this page sits one down.
   document.querySelectorAll('img[src="../../letters-shared/favicon.svg"]').forEach((logo) => { logo.src = "../letters-shared/favicon.svg"; });
-  const page = key === "atlas" ? Object.assign(document.createElement("div"), { className: "wrap om-page om-atlas-view" }) : OM.atlasFrame(main);
-  if (key === "atlas") main.append(page);
+  const inPage = key === "atlas" || key === "pages";
+  const page = inPage ? Object.assign(document.createElement("div"), { className: "wrap om-page om-atlas-view" }) : OM.atlasFrame(main);
+  if (inPage) main.append(page);
 
   for (const name of view.order) {
     const section = document.createElement("section");
@@ -42,6 +44,6 @@
   const switcher = document.createElement("nav");
   switcher.className = "om-switch";
   switcher.setAttribute("aria-label", "Mock-up views");
-  switcher.innerHTML = Object.entries(VIEWS).map(([k, v]) => `<a href="?d=${k}" title="${v.label}"${k === key ? ' aria-current="page"' : ""}>${k === "atlas" ? "Atlas" : k.toUpperCase()}<span>${v.label}</span></a>`).join("");
+  switcher.innerHTML = Object.entries(VIEWS).map(([k, v]) => `<a href="?d=${k}" title="${v.label}"${k === key ? ' aria-current="page"' : ""}>${k === "atlas" ? "Atlas" : k === "pages" ? "2 · 3" : k.toUpperCase()}<span>${v.label}</span></a>`).join("");
   document.body.append(switcher);
 })();

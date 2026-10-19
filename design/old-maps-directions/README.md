@@ -6,7 +6,7 @@ Holy Land maps with the Atlas and to give them a card in Study; these are the op
 HTML/CSS/JS, not React. Nothing here is wired into the site.
 
 Preview (local only): http://127.0.0.1:8931/mockups/old-maps-directions/ — the small pill at the foot of the screen
-switches views, or use `?d=a`, `?d=b`, `?d=c`, `?d=atlas`. Light and dark both work (the site's own theme switch).
+switches views, or use `?d=a`, `?d=b`, `?d=c`, `?d=atlas`, `?d=pages`. Light and dark both work (the site's own theme switch).
 
 | View | Address | Idea |
 |---|---|---|
@@ -14,6 +14,7 @@ switches views, or use `?d=a`, `?d=b`, `?d=c`, `?d=atlas`. Light and dark both w
 | B · The map chest | [?d=b](http://127.0.0.1:8931/mockups/old-maps-directions/?d=b) | A chest of seven drawers, one per age (before print, XVI–XX, undated). A rail of Roman numerals opens a drawer; its maps lie in a quiet grid with the giant numeral behind, and drawers slide sideways. |
 | C · How the land was drawn | [?d=c](http://127.0.0.1:8931/mockups/old-maps-directions/?d=c) | One question: how did the shape of the land change? Eight Holy Land maps (1150–1880) on a year track, each beside the same land as the Atlas draws it; where the sheet faces east or west, today's map turns to match. Then a subject × half-century heat grid; a square lays out its maps. |
 | In the Atlas | [?d=atlas](http://127.0.0.1:8931/mockups/old-maps-directions/?d=atlas) | Four excerpts: the Atlas home with a ninth card (a third row, one wide card); strips under Paul's and Moses' journeys and Jerusalem's city card; an "Old maps of this place" row in Jerusalem's map panel; the Study card beside Museum-Grade Archaeology. |
+| In the pages: 2 and 3 | [?d=pages](http://127.0.0.1:8931/mockups/old-maps-directions/?d=pages) | Added 2026-10-19 at the owner's request, after he approved parts 1 and 4 of "In the Atlas" for building (both are now built). 2: a quiet row of old maps at the very foot of Paul's and Moses' journeys and Jerusalem's city card, shown under pictures of those pages as they are today (`assets/real/`, captured from the local site). 3: in the map's place panel, a small bar pinned to the panel's foot ("Old maps of Jerusalem · 238") that unfolds upward into four maps and folds away again; folded by default, because it is "not vital, just fun". |
 
 Every direction opens a map in the **slide-in viewer**: it slides in from the right under the site header and slides
 away on close (Esc or ×). Scroll or pinch to zoom, drag to pan, double-click to fit. Below the map: title, mapmaker,

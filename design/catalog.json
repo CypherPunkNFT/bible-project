@@ -1092,9 +1092,18 @@
         {
           "id": "old-maps-atlas",
           "title": "Old maps · In the Atlas",
-          "line": "Ninth Atlas card, strips under Paul, Moses and Jerusalem, an old-maps row in the place panel, and the Study card.",
+          "line": "Parts 1 (the ninth Atlas card) and 4 (the Study card) approved and built 2026-10-19; parts 2 and 3 re-drawn in 'In the pages'.",
           "url": "/mockups/old-maps-directions/?d=atlas",
           "date": "2026-10-17",
+          "status": "approved",
+          "built": "/study/atlas"
+        },
+        {
+          "id": "old-maps-pages",
+          "title": "Old maps · In the pages (2 and 3)",
+          "line": "A row of old maps at the foot of Paul's, Moses' and Jerusalem's pages, under captures of those pages today; and a folded bar at the foot of the map's place panel that unfolds into four maps.",
+          "url": "/mockups/old-maps-directions/?d=pages",
+          "date": "2026-10-19",
           "status": "option"
         }
       ]
