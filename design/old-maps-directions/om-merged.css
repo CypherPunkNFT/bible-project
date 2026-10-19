@@ -8,3 +8,13 @@
 @media (max-width: 1100px) { .om-view-d .om-chest-chips .om-crystal { flex-basis: calc((100% - 1.5rem) / 4); } }
 @media (max-width: 860px) { .om-view-d .om-landing { grid-template-columns: 1fr; } .om-view-d .om-landing .places-artwork { height: 170px; } }
 @media (max-width: 560px) { .om-view-d .om-chest-chips .om-crystal { flex-basis: calc((100% - .5rem) / 2); } }
+
+/* "One land, different maps": the choice of land above the year track (merged view and C alike). */
+.om-lands { display: flex; flex-wrap: wrap; gap: .4rem; margin: .4rem 0 .6rem; }
+.om-lands button { display: inline-flex; align-items: baseline; gap: .5rem; padding: .5rem 1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: .82rem; font-weight: 600; color: var(--ink); cursor: pointer; outline: none; transition: border-color .15s, background .15s; }
+.om-lands button small { font-weight: 400; font-size: .68rem; color: var(--muted); }
+.om-lands button:hover { border-color: var(--accent); }
+.om-lands button[aria-selected="true"] { border-color: var(--ink); background: var(--ink); color: var(--page); }
+.om-lands button[aria-selected="true"] small { color: color-mix(in srgb, var(--page) 70%, transparent); }
+.om-modern-box { display: contents; }
+.om-modern-svg text.is-hidden { opacity: 0; }

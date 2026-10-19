@@ -89,6 +89,45 @@ MODERN_WATERS = [("Great Sea", "Great Sea"), ("Sea of Galilee", "Sea of Galilee"
 MODERN_PLACES = ["Jerusalem", "Jericho", "Hebron", "Gaza", "Joppa", "Samaria", "Nazareth",
                  "Tyre", "Sidon", "Damascus", "Beersheba", "Dan"]
 
+# "One land, different maps" (merged view D, owner 2026-10-19): the Holy Land set above plus three more, each eight
+# dated sheets spread across the centuries and the same ground today. Places are OpenBible names, shown as
+# (name, label); "key" is the one drawn larger; "left" puts a label on the west side (the sea side, or to avoid a clash).
+# Jerusalem has no coast at this scale, so its ground is drawn by its named features alone (the gates share the city's
+# own point in OpenBible and are left out).
+LANDS = [
+    {"key": "holy-land", "label": "The Holy Land", "frame": LEVANT, "specs": SEQUENCE, "key_place": "Jerusalem",
+     "places": [(n, n) for n in MODERN_PLACES], "waters": MODERN_WATERS,
+     "left": ["Sidon", "Tyre", "Joppa", "Gaza", "Bethlehem", "Hebron", "Beersheba"]},
+    {"key": "jerusalem", "label": "Jerusalem", "frame": (35.2160, 31.7655, 35.2560, 31.7835), "key_place": "Mount Moriah",
+     "specs": ["commons-arculf-de-locis-sanctis-jerusalem",
+               "ia-dr-jerusalem-15058224", "loc-2010587005",
+               "commons-a-plan-of-jerusalem-and-the-adja:A Plan of Jerusalem and the Adjacent Country - Pococke",
+               "nypl-f5091a50-c6bd-012f-854e-58d385a7bc34", "loc-2009579461", "nypl-f34942e0-c6ef-012f-e366-58d385a7bc3",
+               "commons-jerusalem-mkl-bd-9-1890"],
+     "places": [("Mount Moriah", "Temple Mount"), ("City of David", "City of David"), ("Mount Zion", "Mount Zion"),
+                ("Mount of Olives", "Mount of Olives"), ("Siloam", "Pool of Siloam"),
+                ("Valley of Hinnom", "Valley of Hinnom"), ("Golgotha", "Golgotha"), ("Gethsemane", "Gethsemane"),
+                ("Bethesda", "Pool of Bethesda")],
+     "waters": [], "left": ["Mount Zion", "Golgotha", "Valley of Hinnom"]},
+    {"key": "egypt", "label": "Egypt & Sinai", "frame": (28.3, 25.0, 36.3, 32.6), "key_place": "Mount Sinai",
+     "specs": ["commons-aegyptus-abraham-ortelius", "commons-aegyptus-antiqua-divisa-in-nomos-authore-p-duval",
+               "commons-carte-de-l-egypte-ancienne-et-moderne", "loc-99446219", "ia-dr-lower-egypt-and-the-adjacent-deserts",
+               "commons-alexandre-delamarche-carte-de-l-egypte", "ia-dr-sinai-and-the-desert-of-the-wanderings",
+               "nypl-a181bf80-c5f3-012f-40ee-58d385a7bc34"],
+     "places": [("Alexandria", "Alexandria"), ("Zoan", "Zoan"), ("Rameses", "Rameses"), ("Heliopolis", "On (Heliopolis)"),
+                ("Memphis", "Memphis"), ("Thebes", "Thebes"), ("Mount Sinai", "Mount Sinai"), ("Kadesh-barnea", "Kadesh-barnea"),
+                ("Gaza", "Gaza"), ("Elim", "Elim")],
+     "waters": [("Red Sea", "Red Sea")], "left": ["Memphis", "Thebes", "Heliopolis"]},
+    {"key": "asia-minor", "label": "Asia Minor", "frame": (24.0, 35.0, 37.9, 42.3), "key_place": "Ephesus",
+     "specs": ["commons-fotothek-df-tg-0005110", "commons-natoliae-quae-olim-asia-minor-nova-descriptio-jpg", "ia-dr-natoliae-sive-asia-minor-petrus-ka",
+               "ia-dr-natoliae-quae-olim-asia-minor-108521118", "ia-dr-asia-minor-12178201", "commons-robert-asia-minor",
+               "ia-dr-asia-minor-c-london-published", "ia-dr-turkey-in-asia-asia-minor-and-transcaucasia-2307047"],
+     "places": [("Troas", "Troas"), ("Pergamum", "Pergamum"), ("Smyrna", "Smyrna"), ("Ephesus", "Ephesus"), ("Miletus", "Miletus"),
+                ("Sardis", "Sardis"), ("Laodicea", "Laodicea"), ("Iconium", "Iconium"), ("Lystra", "Lystra"), ("Derbe", "Derbe"),
+                ("Tarsus", "Tarsus"), ("Antioch", "Antioch"), ("Perga", "Perga")],
+     "waters": [], "left": ["Troas", "Pergamum", "Smyrna", "Ephesus", "Miletus"]},
+]
+
 
 def load_records():
     catalogue = json.loads((CORPUS / "normalized" / "catalogue.json").read_text(encoding="utf-8"))["maps"]
@@ -289,11 +328,13 @@ def select(rows):
     return picked
 
 
-def levant_outline():
+def land_outline(land):
+    """Today's ground for one "One land" set: Natural Earth coast (land-50m) inside the frame, OpenBible places and waters.
+    Where several places share a name (two Antiochs), the one named in the most verses is used."""
     topo = json.loads((WEBSITE / "design" / "apostle-directions" / "data" / "land-50m.json").read_text(encoding="utf-8"))
     (kx, ky), (dx, dy) = topo["transform"]["scale"], topo["transform"]["translate"]
-    west, south, east, north = LEVANT
-    pad = 0.4
+    west, south, east, north = land["frame"]
+    pad = 0.15 * (east - west)
     lines = []
     for arc in topo["arcs"]:
         x = y = 0
@@ -303,25 +344,29 @@ def levant_outline():
             y += qy
             lon, lat = x * kx + dx, y * ky + dy
             if west - pad <= lon <= east + pad and south - pad <= lat <= north + pad:
-                current.append((round(lon, 3), round(lat, 3)))
+                current.append((round(lon, 4), round(lat, 4)))
             elif current:
                 lines.append(current)
                 current = []
         if current:
             lines.append(current)
     places = json.loads((WEBSITE / "data" / "places.json").read_text(encoding="utf-8"))
+
+    def find(name):
+        matches = [p for p in places if p["name"] == name and west - pad <= p["lon"] <= east + pad and south - pad <= p["lat"] <= north + pad]
+        if not matches:
+            raise SystemExit(f"build-data: '{name}' for the {land['label']} set is not in data/places.json inside its frame {land['frame']}")
+        return max(matches, key=lambda p: len(p["verses"]))
+
     chosen = []
-    for name in MODERN_PLACES:
-        match = next((p for p in places if p["name"] == name), None)
-        if match:
-            chosen.append({"n": name, "lon": match["lon"], "lat": match["lat"], "v": len(match["verses"]), "c": match.get("confidence"),
-                           "refs": match["verses"][:16] if name == "Jerusalem" else None})
-    waters = []
-    for name, label in MODERN_WATERS:
-        match = next((p for p in places if p["name"] == name), None)
-        if match:
-            waters.append({"n": label, "lon": match["lon"], "lat": match["lat"]})
-    return {"frame": LEVANT, "lines": [line for line in lines if len(line) > 1], "places": chosen, "waters": waters}
+    for name, label in land["places"]:
+        match = find(name)
+        chosen.append({"n": label, "lon": match["lon"], "lat": match["lat"], "v": len(match["verses"]), "c": match.get("confidence"),
+                       "refs": match["verses"][:16] if name == land["key_place"] else None})
+    waters = [{"n": label, "lon": find(name)["lon"], "lat": find(name)["lat"]} for name, label in land["waters"]]
+    key_label = dict(land["places"])[land["key_place"]]
+    return {"frame": land["frame"], "lines": [line for line in lines if len(line) > 1], "places": chosen, "waters": waters,
+            "key": key_label, "left": [dict(land["places"]).get(n, n) for n in land["left"]]}
 
 
 def main():
@@ -357,8 +402,9 @@ def main():
     for index, row in enumerate(on_subject):
         row["short_id"] = f"m{index:04d}"
     picked = select(on_subject)
-    sequence = [find_by_spec(spec, on_subject) for spec in SEQUENCE]
-    showpieces = sequence + [find_by_spec(spec, on_subject) for spec in SHOWPIECES]
+    lands = [(land, [find_by_spec(spec, on_subject) for spec in land["specs"]]) for land in LANDS]
+    sequence = lands[0][1]
+    showpieces = [row for _land, rows in lands for row in rows] + [find_by_spec(spec, on_subject) for spec in SHOWPIECES]
     for row in showpieces:
         if row not in picked:
             picked.append(row)
@@ -411,7 +457,9 @@ def main():
         "sequence": [r["short_id"] for r in sequence if r["short_id"] in kept],
         "maps": maps,
         "dots": dots,
-        "levant": levant_outline(),
+        "levant": land_outline(LANDS[0]),
+        "lands": [{"key": land["key"], "label": land["label"], "ids": [r["short_id"] for r in rows if r["short_id"] in kept],
+                   "outline": land_outline(land)} for land, rows in lands],
     }
     body = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     (HERE / "data.js").write_text(

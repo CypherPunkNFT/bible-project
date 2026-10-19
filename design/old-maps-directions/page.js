@@ -8,7 +8,7 @@
     c: { label: "How the land was drawn", order: ["c_landing", "c_sequence", "c_grid"] },
     // The owner's merge (2026-10-19): A's landing with a larger, centred drawing; B's chest as the heart; then A's lanes and
     // libraries and C's eight maps and subject grid. The sections are the same ones the three directions use.
-    d: { label: "Merged", order: ["a_landing", "b_chest", "a_lanes", "a_libraries", "c_sequence", "c_grid"] },
+    d: { label: "Merged", order: ["a_landing", "b_chest", "a_lanes", "c_sequence", "c_grid", "a_libraries"] },
     atlas: { label: "In the Atlas", order: ["x_home", "x_strips", "x_panel", "x_study"] },
     pages: { label: "In the pages: 2 and 3", order: ["p_strips", "p_panel"] },
   };

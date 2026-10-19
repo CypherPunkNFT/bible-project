@@ -41,22 +41,26 @@ window.OM = (() => {
   // The quiet figures bar: [label, value, note] in one row with thin dividers.
   const figures = (items) => `<dl class="om-figures">${items.map(([label, value, note]) => `<div><dt>${esc(label)}</dt><dd>${value}</dd>${note ? `<small>${esc(note)}</small>` : ""}</div>`).join("")}</dl>`;
 
-  // Today's land, from the build's Levant extract, in a square frame so it can turn without leaving its box.
-  function levantSVG({ cls = "om-modern-svg", labels = true } = {}) {
-    const L = D.levant, [w, s, e, n] = L.frame, k = Math.cos(((s + n) / 2) * Math.PI / 180);
-    const px = (lon, lat) => [((lon - w) * k * 100).toFixed(1), ((n - lat) * 100).toFixed(1)];
-    const W = (e - w) * k * 100, H = (n - s) * 100, side = Math.max(W, H) * 1.04, ox = (W - side) / 2, oy = (H - side) / 2;
+  // Today's ground for one "One land" set (the Holy Land by default), in a square frame so it can turn without leaving
+  // its box. Coordinates are scaled so the frame's longer side is about 315 units whatever its size (the Holy Land at
+  // 100 units a degree, Jerusalem a few streets across), so dots and labels keep one size. The key place is drawn larger.
+  function levantSVG({ cls = "om-modern-svg", labels = true, outline = D.levant } = {}) {
+    const L = outline, [w, s, e, n] = L.frame, k = Math.cos(((s + n) / 2) * Math.PI / 180);
+    const scale = 315 / Math.max((e - w) * k, n - s);
+    const px = (lon, lat) => [((lon - w) * k * scale).toFixed(1), ((n - lat) * scale).toFixed(1)];
+    const W = (e - w) * k * scale, H = (n - s) * scale, side = Math.max(W, H) * 1.04, ox = (W - side) / 2, oy = (H - side) / 2;
     const lines = L.lines.map((line) => `M${line.map(([lon, lat]) => px(lon, lat).join(" ")).join("L")}`).join("");
-    const LEFT = new Set(["Sidon", "Tyre", "Joppa", "Gaza", "Bethlehem", "Hebron", "Beersheba"]); // label on the sea side
+    const keyName = L.key ?? "Jerusalem";
+    const LEFT = new Set(L.left ?? ["Sidon", "Tyre", "Joppa", "Gaza", "Bethlehem", "Hebron", "Beersheba"]); // label on the west side
     const places = L.places.map((p) => {
-      const [x, y] = px(p.lon, p.lat), left = LEFT.has(p.n);
-      const label = labels || p.n === "Jerusalem" ? `<text x="${left ? -7 : 7}" y="3.5"${left ? ' text-anchor="end" class="is-left"' : ""}>${esc(p.n)}</text>` : "";
-      return `<g transform="translate(${x} ${y})" class="${p.n === "Jerusalem" ? "is-key" : ""}"><circle r="${p.n === "Jerusalem" ? 5 : 3}"/>${label}</g>`;
+      const [x, y] = px(p.lon, p.lat), left = LEFT.has(p.n), key = p.n === keyName;
+      const label = labels || key ? `<text x="${left ? -7 : 7}" y="3.5"${left ? ' text-anchor="end" class="is-left"' : ""}>${esc(p.n)}</text>` : "";
+      return `<g transform="translate(${x} ${y})" class="${key ? "is-key" : ""}"><circle r="${key ? 5 : 3}"/>${label}</g>`;
     }).join("");
     const waters = (L.waters ?? []).map((wtr) => { const [x, y] = px(wtr.lon, wtr.lat); return `<text class="om-water" x="${x}" y="${y}" text-anchor="middle">${esc(wtr.n)}</text>`; }).join("");
-    return `<svg class="${cls}" viewBox="${ox.toFixed(1)} ${oy.toFixed(1)} ${side.toFixed(1)} ${side.toFixed(1)}" role="img" aria-label="The same land on today's map">
+    return `<svg class="${cls}" viewBox="${ox.toFixed(1)} ${oy.toFixed(1)} ${side.toFixed(1)} ${side.toFixed(1)}" role="img" aria-label="The same ground on today's map">
       <g class="om-modern-turn" style="transform-origin:${(W / 2).toFixed(1)}px ${(H / 2).toFixed(1)}px"><path class="om-coast" d="${lines}"/>${waters}${places}
-      <g class="om-north" transform="translate(30 30)"><path d="M0 -16L5 4 0 0 -5 4Z"/><text y="16">N</text></g></g></svg>`;
+      <g class="om-north" transform="translate(${(ox + 30).toFixed(1)} ${(oy + 30).toFixed(1)})"><path d="M0 -16L5 4 0 0 -5 4Z"/><text y="16">N</text></g></g></svg>`;
   }
 
   // The landing every direction opens with: crumbs, the big plain-type title, a lede, a drawing, the figures bar.
