@@ -18,7 +18,7 @@
   // description; then the six as they were.
   const psalter = CARD_ART.find((d) => d.id === "psalter");
   if (!psalter) throw new Error('hymns card 2: direction "psalter" (03) did not register; expected ../hymns-card-directions/art-psalter-lines.js');
-  const entries = [{ ...psalter, key: "psalter-larger", num: "03", label: "The Psalter, turning · larger", idea: "Your pick, refined at the site's exact card size: the disc larger, its lower-left edge just off the “s” of Hymns, no caption, the turning arm and the Psalm 119 tick shorter, and both descriptions smaller at the bottom of the cards.", big: true },
+  const entries = [{ ...psalter, key: "psalter-larger", num: "03", label: "The Psalter, turning · larger", idea: "Your pick, refined at the site's exact card size: the disc larger, placed in the clear space above the title so the turning arm never crosses it, no caption, the turning arm and the Psalm 119 tick shorter, and both descriptions smaller at the bottom of the cards.", big: true },
     ...CARD_ART.map((d, i) => ({ ...d, key: d.id, num: String(i + 1).padStart(2, "0") }))];
 
   // The owner's refinements to 03 (2026-10-18), on the drawing ../hymns-card-directions/art-psalter-lines.js made: no caption;
@@ -49,29 +49,22 @@
     svg.setAttribute("viewBox", `${CX - edge} ${CY - edge} ${edge * 2} ${edge * 2}`);
   }
 
-  // The disc's south-west edge sits just off the "s" of the card's "Hymns" title (owner, 2026-10-18): the title's last letter
-  // is measured, and the disc placed so the point 45° below-left on its tick ring lands GAP px above and right of it.
-  const RING = INNER + TICK_CAP, GAP = 5;
+  // Where the disc sits (owner, 2026-10-18): in the clear zone of the picture, below the eyebrow, above the "Hymns" title and
+  // left of the read-out, as large as that zone allows and centred in it. The svg's box holds the arm's whole sweep (its
+  // half-width is ARM + 4, the arm's dot reaching ARM + 2.6), so at no angle can the arm or a tick cross the title.
+  const CLEAR = 14;
   function placeDisc(card) {
     const art = card.querySelector(".study-art"), svg = art.querySelector(".psalter svg"), title = card.querySelector("h2");
-    if (!svg || !title.firstChild) return;
-    const range = document.createRange();
-    range.setStart(title.firstChild, title.textContent.length - 1); range.setEnd(title.firstChild, title.textContent.length);
-    const s = range.getBoundingClientRect(), box = art.getBoundingClientRect(), size = svg.getBoundingClientRect().width;
-    const ring = RING * size / ((ARM + 4) * 2), diag = ring * Math.SQRT1_2;
-    const cx = s.right + GAP + diag, cy = s.top - GAP - diag;
-    let left = cx - box.left - size / 2, top = cy - box.top - size / 2;
-    svg.style.left = `${left}px`; svg.style.top = `${top}px`;
-    // Then close the gap to the nearest real tick in that corner (they are shorter than the full ring), along the diagonal.
-    const centre = svg.querySelector('circle[r="2.4"]').getBoundingClientRect(), mid = { x: centre.left + centre.width / 2, y: centre.top + centre.height / 2 };
-    const nearest = Math.min(...[...svg.querySelectorAll(".tick")].map((tick) => tick.getBoundingClientRect())
-      .filter((b) => b.left < mid.x && b.bottom > mid.y).map((b) => Math.hypot(b.left - s.right, b.bottom - s.top)));
-    if (Number.isFinite(nearest) && nearest > GAP) {
-      const step = (nearest - GAP) * Math.SQRT1_2;
-      left -= step; top += step;
-      svg.style.left = `${left}px`; svg.style.top = `${top}px`;
-    }
+    const eyebrow = card.querySelector(".study-card-top"), read = art.querySelector(".psalter-read");
+    if (!svg || !title || !eyebrow || !read) return;
+    const box = art.getBoundingClientRect(), t = title.getBoundingClientRect(), e = eyebrow.getBoundingClientRect(), r = read.getBoundingClientRect();
+    const zone = { left: box.left, right: r.left - CLEAR, top: e.bottom + CLEAR, bottom: t.top - CLEAR };
+    const size = Math.max(0, Math.min(zone.right - zone.left, zone.bottom - zone.top));
+    svg.style.width = svg.style.height = `${size}px`;
+    svg.style.left = `${(zone.left + zone.right) / 2 - size / 2 - box.left}px`;
+    svg.style.top = `${(zone.top + zone.bottom) / 2 - size / 2 - box.top}px`;
   }
+
 
   entries.forEach((d) => {
     const wrap = document.createElement("div");

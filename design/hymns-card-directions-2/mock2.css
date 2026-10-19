@@ -26,5 +26,5 @@
 .m2-big .study-card-copy > p { font-size: .76rem; line-height: 1.65; max-width: none; }
 .m2-big .psalter { position: absolute; inset: 0; grid-template-columns: minmax(0, 1fr) 13rem; padding-bottom: 0; height: auto; }
 .m2-big .study-hymns-resource .study-art { overflow: visible; }
-.m2-big .psalter svg { position: absolute; width: 240px; height: 240px; z-index: 1; } /* placed by page.js beside the title's last letter */
+.m2-big .psalter svg { position: absolute; z-index: 1; } /* sized and placed by page.js in the clear zone above the title */
 .m2-big .psalter-read { grid-column: 2; grid-row: 1; }
