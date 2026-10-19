@@ -16,7 +16,7 @@
   const fibres = (x, y, w, h, step = 6) => `${Array.from({ length: Math.ceil(h / step) }, (_, i) => `<path d="M${x} ${y + i * step}h${w}"/>`).join("")}${Array.from({ length: Math.ceil(w / (step + 2)) }, (_, i) => `<path d="M${x + i * (step + 2)} ${y}v${h}"/>`).join("")}`;
 
   // The base drawing, unchanged, with two slots for a variant's additions.
-  function art(id, back = "", front = "") {
+  function art(id, back = "", front = "", shift = 0) {
     const frag = "M214 128 L262 116 290 134 284 158 302 181 289 222 258 236 236 218 212 226 198 190 210 170Z";
     return `<figure class="ms-hero-art" aria-hidden="true"><svg viewBox="0 0 420 330">
       <defs><clipPath id="ms-frag-${id}"><path d="${frag}"/></clipPath></defs>
@@ -34,11 +34,11 @@
         <path class="ms-fold" d="M249 104 V280"/>
         <g class="ms-ink">${lines(186, 124, 54, 21, 7.2)}${lines(259, 124, 54, 21, 7.2)}</g>
       </g></g>
-      <g class="ms-fragment">
+      <g transform="translate(${shift} 0)"><g class="ms-fragment">
         <path class="ms-papyrus" d="${frag}"/>
         <g clip-path="url(#ms-frag-${id})"><g class="ms-fibres">${Array.from({ length: 14 }, (_, i) => `<path d="M190 ${116 + i * 9}h120"/>`).join("")}${Array.from({ length: 10 }, (_, i) => `<path d="M${200 + i * 10} 110v130"/>`).join("")}</g>
           <g class="ms-ink ms-ink-gold">${lines(212, 140, 72, 12, 7.5, { dash: "5 1.5 2.5 1.5" })}</g></g>
-      </g>
+      </g></g>
       <g class="hv-front">${front}</g>
       <path class="ms-mark" d="M28 52h10m-5-5v10M384 286h10m-5-5v10M372 40h8m-4-4v8"/>
     </svg>
@@ -92,7 +92,29 @@
         <path class="hv-label" d="M348 288h30M348 294h22M348 300h26"/></g></g>`;
   }
 
+  // E · Merged (owner 2026-10-18): C's scattered fragments, D's lens moved to the top right, the main fragment a little
+  // to the left, and bound books in the space under the scroll, left of the open leaf, behind the sheets.
+  const SHIFT = -24;
+  function shelf() {
+    const upright = (x, y, w, h, tilt) => `<g transform="rotate(${tilt} ${x} ${y + h})"><path class="ms-roll" d="M${x} ${y}h${w}v${h}h-${w}Z"/><path class="hv-band" d="M${x} ${y + 8}h${w}M${x} ${y + 12}h${w}M${x} ${y + h - 11}h${w}"/><path class="hv-pages" d="M${x + w / 2} ${y + 19}v${h - 36}"/></g>`;
+    const flat = (x, y, w, h, tilt) => `<g transform="rotate(${tilt} ${x + w / 2} ${y + h / 2})"><path class="mh-sheet" d="M${x} ${y}h${w}v${h}h-${w}Z"/><path class="hv-pages" d="M${x + 4} ${y + 2.5}h${w - 6}M${x + 4} ${y + h - 2.5}h${w - 6}"/><path class="hv-band" d="M${x + 8} ${y}v${h}M${x + w - 10} ${y}v${h}"/></g>`;
+    return `<g class="hv-books">${upright(96, 188, 13, 66, -4)}${upright(110, 194, 12, 60, 0)}${upright(123, 200, 13, 54, 0)}${upright(137, 204, 12, 50, 12)}
+      ${flat(92, 254, 74, 11, -1)}<path class="hv-shelf" d="M78 266h96"/></g>`;
+  }
+  function lensTopRight(id) {
+    return `<defs><clipPath id="hv-lens-${id}"><circle cx="352" cy="82" r="30"/></clipPath></defs>
+      <g class="hv-lens"><circle class="hv-glass" cx="352" cy="82" r="30"/>
+        <g clip-path="url(#hv-lens-${id})"><g class="ms-ink hv-big" transform="translate(-112 -120) scale(1.5)">${lines(259, 124, 54, 9, 7.2)}</g></g>
+        <circle class="hv-rim" cx="352" cy="82" r="30"/><circle class="hv-rim hv-rim-2" cx="352" cy="82" r="34"/>
+        <path class="hv-handle" d="M374 104 400 130"/></g>`;
+  }
+  function scatteredShifted(id) {
+    // C's threads start at the main fragment's edge; move those ends with it.
+    return scattered(id).replace(/M300 200Q|M290 222Q|M266 236Q/g, (m) => m.replace(/\d+/, (n) => String(Number(n) + SHIFT)));
+  }
+
   const VARIANTS = [
+    ["E", "Merged", "C's scattered fragments, the lens at the top right, the main fragment moved a little left, and books in the space under the scroll.", (id) => [shelf(), `${scatteredShifted(id)}${lensTopRight(id)}`, SHIFT]],
     ["A", "The library behind", "Bound books, closed, stacked and leaning behind the leaf: the codex as it ended up, on shelves.", (id) => [library(), ""]],
     ["B", "Jar and pen", "A lidded storage jar like those the scrolls were found in, and a reed pen at its inkwell: where the text was kept, and how it was copied.", (id) => [jar(), ""]],
     ["C", "Scattered witnesses", "Three smaller scraps lying apart, each tied back to the fragment by a dotted thread: pieces of one book, waiting to be reunited.", (id) => ["", scattered(id)]],
@@ -107,8 +129,8 @@
   const main = Frame.mount();
   main.insertAdjacentHTML("beforeend", `<div class="wrap hv-page">
     <p class="hv-kicker">Manuscripts · the opening drawing</p>
-    <h1>Four ways to <em>fill the corner</em></h1>
+    <h1>Ways to <em>fill the corner</em></h1>
     <p class="hv-lede">The drawing as it is, unchanged, with one addition each, mostly in the empty corner at the bottom right.</p>
-    <div class="hv-grid">${VARIANTS.map(([letter, name, line, make], i) => { const [back, front] = make(i); return `<section class="hv-card hv-${letter.toLowerCase()}">
-      <header><span>${letter}</span><div><h2>${name}</h2><p>${line}</p></div></header>${art(i, back, front)}</section>`; }).join("")}</div></div>`);
+    <div class="hv-grid">${VARIANTS.map(([letter, name, line, make], i) => { const [back, front, shift = 0] = make(i); return `<section class="hv-card hv-${letter.toLowerCase()}">
+      <header><span>${letter}</span><div><h2>${name}</h2><p>${line}</p></div></header>${art(i, back, front, shift)}</section>`; }).join("")}</div></div>`);
 })();

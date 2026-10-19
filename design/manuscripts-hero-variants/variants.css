@@ -36,3 +36,5 @@
 @keyframes hv-lens { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-6px, 4px); } }
 @media (prefers-reduced-motion: reduce) { .hv-thread, .hv-books, .hv-jar, .hv-pen, .hv-scrap-1, .hv-scrap-2, .hv-scrap-3, .hv-lens, .hv-tag { animation: none; } }
 @media (max-width: 900px) { .hv-grid { grid-template-columns: 1fr; } }
+.hv-card.hv-e { grid-column: 1 / -1; }
+.hv-card.hv-e .ms-hero-art { max-width: 46rem; }
