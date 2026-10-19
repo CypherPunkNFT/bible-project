@@ -26,10 +26,10 @@
     ];
   }
   const TEXT = {
-    a: ["a cabinet of witnesses", "The Bible reaches us through copies made by hand: scrolls, bound books and scraps of papyrus, now kept in libraries from Dublin to Sinai. Open any one to see its date, its contents and where it is today."],
-    b: ["across the centuries", "Every dated copy on one line of time, tradition by tradition, from the oldest Hebrew fragment to the last Gospels copied by hand. Then, book by book, how close the surviving copies come to the writing."],
-    d: ["across the centuries", "The Bible reaches us through copies made by hand: scrolls, bound books and scraps of papyrus. Open the great witnesses case by case, follow every dated copy through time, choose a book to see the copies that hold it, and find where they are kept today."],
-    c: ["book by book", "Choose a book of the Bible to see the surviving copies that hold it, oldest first, then follow the manuscripts to the libraries and monasteries that keep them today."],
+    a: ["across the centuries", "The Bible reaches us through copies made by hand: scrolls, bound books and scraps of papyrus. Open the great witnesses case by case, follow every dated copy through time, choose a book to see the copies that hold it, and find where they are kept today."],
+    b: ["across the centuries", "The Bible reaches us through copies made by hand: scrolls, bound books and scraps of papyrus. Follow every dated copy through time, choose a book to see the copies that hold it, find where they are kept today, then browse them all."],
+    c: ["the surviving witnesses", "The Bible reaches us through copies made by hand: scrolls, bound books and scraps of papyrus. Begin with the great witnesses, see where every copy is kept today, then follow them through time and book by book."],
+    d: ["five ways in", "The Bible reaches us through copies made by hand: scrolls, bound books and scraps of papyrus. One collection of over five thousand records, explored through time, by book, by place, or one by one."],
   };
 
   // Rows of writing as short strokes, slightly ragged, inside a column.
@@ -118,7 +118,7 @@
 
   function mount(section, { d }) {
     const [accent, lede] = TEXT[d];
-    const strip = d === "b" || d === "d";
+    const strip = d === "a"; // the century strip stays only on the merged page; the consolidations rely on the timeline
     section.innerHTML = `
       <div class="hc-intro ms-intro">
         <div>

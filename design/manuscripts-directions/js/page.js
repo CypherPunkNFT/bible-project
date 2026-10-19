@@ -1,13 +1,14 @@
-// The Manuscripts page (/study/manuscripts) in three directions and the owner's merge of them (D, 2026-10-18), chosen with
+// The Manuscripts page (/study/manuscripts): the owner's merge (A) and three consolidations of it (B, C, D), chosen with
 // ?d=a|b|c|d: the site frame with Study
 // selected, then that direction's sections in order. Each section lives in its own file and registers as
 // Sections.<key>; one failing section never stops the others.
 (() => {
+  // A is the owner's merge (the former D); B, C and D are three ways to consolidate it (owner 2026-10-18).
   const DIRECTIONS = {
-    a: { letter: "A", name: "The cabinet", sections: ["landing", "cabinet", "kinds", "onward", "basis"] },
-    b: { letter: "B", name: "Through time", sections: ["landing", "lanes", "closeness", "onward", "basis"] },
-    c: { letter: "C", name: "By the book", sections: ["landing", "books", "places", "onward", "basis"] },
-    d: { letter: "D", name: "Merged", sections: ["landing", "cabinet", "lanes", "books", "closeness", "places", "kinds", "onward", "basis"] },
+    a: { letter: "A", name: "Merged", sections: ["landing", "cabinet", "lanes", "books", "closeness", "places", "kinds", "onward", "basis"] },
+    b: { letter: "B", name: "Consolidated", sections: ["landing", "lanes", "bookpill", "places", "collection", "onward", "basis"] },
+    c: { letter: "C", name: "Witnesses up front", sections: ["landing", "shelf", "places", "lanes", "bookpill", "kinds", "onward", "basis"] },
+    d: { letter: "D", name: "One explorer", sections: ["landing", "explore", "onward", "basis"] },
   };
   const params = new URLSearchParams(location.search);
   const d = DIRECTIONS[params.get("d")] ? params.get("d") : "a";

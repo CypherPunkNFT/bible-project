@@ -246,3 +246,20 @@
 .bk-pic { color: var(--accent); font-weight: 600; white-space: nowrap; }
 :root[data-theme="light"] .bk-pic { color: color-mix(in srgb, var(--accent) 75%, var(--ink)); }
 .pl-pulse circle { fill: none; pointer-events: none; }
+
+/* Consolidated sections (combos.js): the pill switch over a stage, notes kept from merged sections, the one-row shelf. */
+.ms-switch { margin: .2rem 0 1.4rem; }
+.ms-part-lead { max-width: 46rem; margin: 0 0 1.2rem; font-size: .88rem; line-height: 1.65; color: var(--muted); }
+.ms-pane > .ms-part > .ms-head { margin-bottom: 1rem; }
+.ms-pane > .ms-part > .ms-head h2 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
+.ms-shelf .cab { display: flex; gap: 1.6rem; overflow-x: auto; scrollbar-width: none; padding-bottom: .4rem; }
+.ms-shelf .cab::-webkit-scrollbar { display: none; }
+.ms-shelf .cab-shelf { flex: none; }
+.ms-shelf .cab-row { display: flex; gap: 12px; }
+.ms-shelf .cab-case { flex: none; width: 150px; }
+.ms-shelf .cab-shelf + .cab-shelf { padding-left: 1.6rem; border-left: 1px solid var(--line); }
+.ms-part-cabinet + .ms-hbar + .ms-part-kinds, .ms-part-cabinet + .ms-part-kinds { margin-top: 2.2rem; }
+.ms-hbar { position: relative; height: 12px; margin-top: 6px; cursor: pointer; }
+.ms-hthumb { position: absolute; top: 3px; height: 6px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent); cursor: grab; }
+.ms-hbar:hover .ms-hthumb { background: color-mix(in srgb, var(--ink) 45%, transparent); }
+@media (max-width: 640px) { .ms-shelf .cab-case { width: 128px; } .ms-switch { max-width: 100%; } }
