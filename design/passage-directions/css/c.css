@@ -1,0 +1,51 @@
+/* Direction C · Through the witnesses */
+.pm-c .t-sec + .t-sec { margin-top: 3.2rem; }
+
+/* Opening: the torn edge of P46 at θελ[ημα], the supplied letters coming and going, three labels on leader lines. */
+.ch-art { position: relative; margin: 0; padding-bottom: 3.4rem; }
+.ch-art .ed-art { max-width: none; margin: 0; }
+.ch-art .ed-greek, .ch-art .ed-ghost, .ch-art .ed-bracket { font-size: 52px; }
+.ch-tag { position: absolute; display: grid; font: 500 .9rem/1.3 var(--serif); color: var(--ink); pointer-events: none; }
+.ch-tag small { font: italic 400 .76rem var(--serif); color: var(--muted); }
+.ch-tag i { display: block; width: 2.4rem; height: 1px; margin-bottom: .45rem; background: var(--muted); }
+.ch-tag-ink { left: 30%; bottom: .6rem; }
+.ch-tag-break { left: 58%; top: -2%; } .ch-tag-break i { background: var(--accent); }
+.ch-tag-sup { right: 0; bottom: .6rem; text-align: right; justify-items: end; animation: ed-breathe 9s ease-in-out infinite; } .ch-tag-sup i { background: var(--accent); }
+.c-layers { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .9rem; margin-top: 1.3rem; padding-top: .9rem; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); }
+.c-layers b { font-size: .6rem; letter-spacing: .12em; color: var(--accent); }
+.c-layers i { width: 1.6rem; height: 1px; background: var(--line); }
+@media (max-width: 560px) { .ch-tag { display: none; } }
+
+/* 01 · Passage crystals */
+.c-crystals { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.c-crystals button { position: relative; display: grid; gap: .2rem; padding: 1.2rem 1.3rem 1.1rem !important; border: 1px solid var(--line) !important; border-radius: 16px; overflow: hidden; cursor: pointer;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--tone) 7%, var(--surface)), var(--surface) 60%) !important; transition: border-color .25s, transform .3s cubic-bezier(.16, 1, .3, 1); }
+.c-crystals button:hover { transform: translateY(-2px); }
+.c-crystals button[aria-pressed="true"] { border-color: var(--tone) !important; }
+.c-cr-num { position: absolute; right: .8rem; top: -.6rem; font: 400 4.6rem/1 var(--serif); color: color-mix(in srgb, var(--tone) 16%, transparent); }
+.c-crystals b { font: 500 1.3rem var(--serif); }
+.c-cr-title { font-size: .8rem; color: var(--tone); font-weight: 600; letter-spacing: .04em; }
+.c-cr-figs { display: grid; gap: .1rem; margin-top: .7rem; padding-top: .6rem; border-top: 1px solid var(--line); font-size: .76rem; color: var(--muted); }
+.c-cr-figs em { font: 500 1rem var(--serif); font-style: normal; color: var(--ink); }
+@media (max-width: 760px) { .c-crystals { grid-template-columns: 1fr; } }
+
+/* 02 · Lane beside the chapter grid */
+.c-lanebox { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 1.6rem 2.4rem; align-items: start; }
+.c-chapters { padding-left: 1.6rem; border-left: 1px solid var(--line); }
+@media (max-width: 960px) { .c-lanebox { grid-template-columns: 1fr; } .c-chapters { padding-left: 0; border-left: 0; } }
+
+/* 03 · The desk, then reasoning beside the close reading */
+.c-beneath { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 2rem 3.4rem; margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+@media (max-width: 960px) { .c-beneath { grid-template-columns: 1fr; } }
+
+/* 04 · Kinds of evidence as crystals, then the chosen test */
+.c-kinds { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; margin-bottom: 1.6rem; }
+.c-kinds button { display: grid; grid-template-columns: 34px 1fr; gap: .1rem .8rem; align-items: center; padding: .9rem 1rem !important; border: 1px solid var(--line) !important; border-radius: 14px; cursor: pointer; transition: border-color .25s, background .25s; }
+.c-kinds svg { grid-row: span 2; width: 34px; height: 34px; fill: none; stroke: var(--accent); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.c-kinds b { font: 500 1rem var(--serif); }
+.c-kinds small { font-size: .74rem; color: var(--muted); line-height: 1.4; }
+.c-kinds button[aria-pressed="true"] { border-color: var(--accent) !important; background: color-mix(in srgb, var(--accent) 6%, transparent) !important; }
+.c-kind-stage > h3 { font: 500 1.35rem/1.25 var(--serif); margin-bottom: .4rem; }
+.c-kind-stage { animation: dk-in .6s cubic-bezier(.16, 1, .3, 1); }
+@media (max-width: 960px) { .c-kinds { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .c-kinds button { grid-template-columns: 1fr; } .c-kinds svg { grid-row: auto; } }

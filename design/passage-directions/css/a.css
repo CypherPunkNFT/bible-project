@@ -1,0 +1,103 @@
+/* Direction A · The desk */
+.pm-a .t-sec + .t-sec { margin-top: 3.4rem; }
+
+/* Opening: the leaf of Romans 5:1 under the lens; ω (first hand) and ο (correction) take turns, slowly, for ever. */
+.ah-art { position: relative; margin: 0; color: var(--muted); }
+.ah-art svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-linecap: round; }
+.ah-leaf { animation: ms-drift 18s ease-in-out infinite; }
+.ah-uncial { font: 500 9.6px var(--serif); letter-spacing: .06em; fill: var(--ink); stroke: none; }
+.ah-slot-w { fill: var(--prophets); }
+.ah-margin { stroke: var(--prophets); stroke-dasharray: 2 3; opacity: .7; }
+.ah-zoom-line { stroke: color-mix(in srgb, var(--ink) 25%, transparent); stroke-dasharray: 6 2 3 1.5; }
+.ah-big { font: 500 38px var(--serif); fill: var(--ink); stroke: none; }
+.ah-letter { fill: var(--prophets); }
+.ah-w { animation: ah-w 12s ease-in-out infinite; }
+.ah-o { animation: ah-o 12s ease-in-out infinite; }
+.ah-corr { font: 500 15px var(--serif); fill: var(--prophets); stroke: none; animation: ah-corr 12s ease-in-out infinite; }
+.ah-nib { stroke: color-mix(in srgb, var(--ink) 60%, transparent); stroke-width: 1.2; fill: var(--surface); animation: ah-nib 12s ease-in-out infinite; }
+.ah-lens-g { animation: ah-lens 24s ease-in-out infinite; }
+@keyframes ah-w { 0%, 38% { opacity: 1; } 48%, 88% { opacity: 0; } 98%, 100% { opacity: 1; } }
+@keyframes ah-o { 0%, 38% { opacity: 0; } 48%, 88% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes ah-corr { 0%, 30% { opacity: 0; transform: translateY(6px); } 40%, 46% { opacity: 1; transform: none; } 52%, 100% { opacity: 0; transform: translateY(14px); } }
+@keyframes ah-nib { 0%, 22% { transform: translate(30px, -26px); opacity: 0; } 32%, 46% { transform: translate(-4px, 2px); opacity: 1; } 58%, 100% { transform: translate(30px, -26px); opacity: 0; } }
+@keyframes ah-lens { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-3px, 2px); } }
+.ah-tags { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin: .4rem 6% 0; padding-top: .7rem; border-top: 1px solid var(--line); }
+.ah-tag { display: grid; grid-template-columns: auto 1fr; gap: 0 .7rem; align-items: baseline; font: 500 .9rem/1.3 var(--serif); color: var(--ink); }
+.ah-tag b { grid-row: span 2; font: 500 1.9rem/1 var(--serif); color: var(--prophets); }
+.ah-tag small { font: italic 400 .78rem var(--serif); color: var(--muted); }
+.ah-tag-w { animation: ah-tw 12s ease-in-out infinite; }
+.ah-tag-o { animation: ah-to 12s ease-in-out infinite; }
+@keyframes ah-tw { 0%, 38% { opacity: 1; } 48%, 88% { opacity: .3; } 98%, 100% { opacity: 1; } }
+@keyframes ah-to { 0%, 38% { opacity: .3; } 48%, 88% { opacity: 1; } 98%, 100% { opacity: .3; } }
+.ah-holes circle { fill: color-mix(in srgb, var(--ink) 45%, transparent); stroke: none; }
+.ah-pricks path, .ah-rule { stroke: color-mix(in srgb, var(--ink) 30%, transparent); stroke-width: .8; }
+@media (prefers-reduced-motion: reduce) { .ah-leaf, .ah-lens-g, .ah-nib, .ah-corr, .ah-w, .ah-o, .ah-tag { animation: none; } .ah-o, .ah-corr, .ah-nib { opacity: 0; } }
+
+/* 01 · The layers as planes */
+.al-wrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 1rem 3rem; align-items: center; }
+.al-stage { position: relative; }
+.al-art { display: block; width: 62%; height: auto; overflow: visible; }
+.al-sheet { fill: color-mix(in srgb, var(--surface) 92%, transparent); stroke: color-mix(in srgb, var(--ink) 40%, transparent); stroke-width: 1; }
+.al-p2 .al-sheet { fill: color-mix(in srgb, var(--accent) 14%, var(--page)); stroke: var(--accent); }
+.al-ink path { fill: none; stroke: color-mix(in srgb, var(--ink) 60%, transparent); stroke-width: 1.4; stroke-linecap: round; }
+.al-ink-object path { stroke: var(--accent); stroke-dasharray: 6 2 3 2; }
+.al-ink-trans path { stroke-dasharray: 3 2; }
+.al-bracket { stroke: var(--revelation) !important; stroke-dasharray: none !important; }
+.al-ink circle { fill: var(--muted); }
+.al-app { stroke-width: .8 !important; opacity: .6; }
+.al-plane { transition: transform .6s cubic-bezier(.16, 1, .3, 1), opacity .4s; }
+.al-p0 { animation: al-float 10s ease-in-out infinite; } .al-p1 { animation: al-float 10s ease-in-out -3s infinite; } .al-p2 { animation: al-float 10s ease-in-out -6s infinite; }
+@keyframes al-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -3px; } }
+.al-lead { stroke: var(--line); } .al-knot { fill: var(--tone); }
+.al-stage[data-lift="0"] .al-p0, .al-stage[data-lift="1"] .al-p1, .al-stage[data-lift="2"] .al-p2 { transform: translate(-10px, -8px); }
+.al-stage[data-lift] .al-plane { opacity: .45; }
+.al-stage[data-lift="0"] .al-p0, .al-stage[data-lift="1"] .al-p1, .al-stage[data-lift="2"] .al-p2 { opacity: 1; }
+.al-names { position: absolute; inset: 0 0 0 63%; margin: 0; padding: 0; list-style: none; }
+.al-names li { position: absolute; left: 0; right: 0; transform: translateY(-.7rem); }
+.al-names button { display: grid; grid-template-columns: auto 1fr; gap: 0 .6rem; cursor: pointer; padding-bottom: .1rem !important; border-bottom: 1px solid transparent !important; }
+.al-names button span { grid-row: span 2; font: 400 1.2rem/1 var(--serif); color: var(--tone); }
+.al-names button b { font: 500 1rem var(--serif); }
+.al-names button small { font-size: .74rem; line-height: 1.45; color: var(--muted); }
+.al-names button[aria-pressed="true"] b { color: var(--tone); }
+@media (max-width: 960px) { .al-wrap { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .al-art { width: 100%; } .al-names { position: static; display: grid; gap: .8rem; margin-top: 1rem; } .al-names li { position: static; transform: none; } }
+
+/* 02 · Beneath the desk: the reasoning thread beside the close reading */
+.a-desk { padding-top: .2rem; }
+.a-beneath { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 2rem 3.4rem; margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+.a-reason > .kicker { margin-bottom: 1rem; }
+@media (max-width: 960px) { .a-beneath { grid-template-columns: 1fr; } }
+
+/* 03 · Broken edge with the real P46 leaf beside it */
+.a-edge { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 15rem); gap: 2rem 3rem; align-items: start; }
+.a-photo { margin: 0; }
+.a-photo button { display: block; width: 100%; cursor: zoom-in; }
+.a-photo img { display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 18px 40px -26px rgb(0 0 0 / 55%); transform: rotate(1.5deg); transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
+.a-photo button:hover img { transform: rotate(0) scale(1.02); }
+.a-photo figcaption { margin-top: .9rem; font-size: .7rem; line-height: 1.55; color: var(--muted); }
+.a-photo figcaption b { color: var(--ink); font-weight: 600; } .a-photo figcaption a { color: var(--accent); }
+@media (max-width: 960px) { .a-edge { grid-template-columns: 1fr; } .a-photo { max-width: 15rem; } }
+
+/* 05 · Counting beside the P45 question, divided by one thin line */
+.a-count { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2rem 3rem; }
+.a-count .cp { grid-template-columns: 1fr; }
+.a-count .cp-model svg { max-width: 470px; }
+.a-quiz { padding-left: 3rem; border-left: 1px solid var(--line); }
+.a-quiz .qz { grid-template-columns: 1fr; }
+@media (max-width: 960px) { .a-count { grid-template-columns: 1fr; } .a-quiz { padding-left: 0; border-left: 0; padding-top: 1.6rem; border-top: 1px solid var(--line); } }
+
+/* 07 · The cabinet */
+.a-cab { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.6rem 1.2rem; }
+.a-cab-item { display: grid; align-content: start; gap: .15rem; cursor: pointer; }
+.a-cab-fig { display: grid; place-items: center; height: 150px; margin-bottom: .6rem; border-bottom: 1px solid var(--line); overflow: hidden; }
+.a-cab-fig img { max-height: 140px; max-width: 100%; width: auto; border-radius: 3px; box-shadow: 0 14px 30px -22px rgb(0 0 0 / 60%); transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
+.a-cab-fig .ms-art { width: 100%; height: 130px; color: var(--muted); }
+.a-cab-item:hover .a-cab-fig img { transform: translateY(-4px) rotate(-1deg); }
+.a-cab-sig { font: 400 1.2rem/1 var(--serif); color: var(--accent); }
+.a-cab-item b { font: 500 .98rem/1.25 var(--serif); }
+.a-cab-item small { font-size: .72rem; color: var(--muted); }
+.a-cab-role { margin-top: .35rem; font-size: .76rem; line-height: 1.5; color: var(--ink); }
+.a-cab-item:hover b { color: var(--accent); }
+@media (max-width: 1100px) { .a-cab { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .a-cab { grid-template-columns: repeat(2, minmax(0, 1fr)); } .a-cab-fig { height: 120px; } .a-cab-fig img { max-height: 110px; } }
+.ah-art .ah-note { position: static; display: block; margin: .5rem 6% 0; }
