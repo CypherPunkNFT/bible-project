@@ -59,7 +59,8 @@
     if (!svg || !title || !eyebrow || !read) return;
     const box = art.getBoundingClientRect(), t = title.getBoundingClientRect(), e = eyebrow.getBoundingClientRect(), r = read.getBoundingClientRect();
     const zone = { left: box.left, right: r.left - CLEAR, top: e.bottom + CLEAR, bottom: t.top - CLEAR };
-    const size = Math.max(0, Math.min(zone.right - zone.left, zone.bottom - zone.top));
+    // 10% larger than the zone's fit (owner, 2026-10-18), still centred in it.
+    const size = Math.max(0, Math.min(zone.right - zone.left, zone.bottom - zone.top)) * 1.1;
     svg.style.width = svg.style.height = `${size}px`;
     svg.style.left = `${(zone.left + zone.right) / 2 - size / 2 - box.left}px`;
     svg.style.top = `${(zone.top + zone.bottom) / 2 - size / 2 - box.top}px`;
