@@ -4,12 +4,14 @@
 .old-maps-card .places-artwork { height: 170px; }
 .old-maps-card .places-card-foot { margin-top: 0; }
 .old-maps-fan { position: relative; height: 170px; }
-.old-maps-fan img { position: absolute; top: 50%; left: 50%; width: 50%; border: 4px solid var(--surface); box-shadow: 0 10px 26px -14px rgb(0 0 0 / 60%); transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
-.old-maps-fan img:nth-child(1) { transform: translate(-95%, -50%) rotate(-6deg); }
-.old-maps-fan img:nth-child(2) { transform: translate(-50%, -56%) rotate(1deg); z-index: 1; }
-.old-maps-fan img:nth-child(3) { transform: translate(-5%, -48%) rotate(6deg); }
-.old-maps-card:hover .old-maps-fan img:nth-child(1) { transform: translate(-104%, -50%) rotate(-10deg); }
-.old-maps-card:hover .old-maps-fan img:nth-child(3) { transform: translate(4%, -48%) rotate(9deg); }
+/* All three maps hang from the right edge, so they keep their overlap at any width and the right-hand one always breaks the
+   card's border by the same clear amount (1.6rem is the card's padding; the others sit 45% and 22.5% of the fan further in). */
+.old-maps-fan img { position: absolute; top: 50%; width: 50%; border: 4px solid var(--surface); box-shadow: 0 10px 26px -14px rgb(0 0 0 / 60%); transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
+.old-maps-fan img:nth-child(1) { right: calc(45% - 1.6rem - 4px); transform: translateY(-50%) rotate(-7deg); }
+.old-maps-fan img:nth-child(2) { right: calc(22.5% - 1.6rem - 4px); transform: translateY(-56%) rotate(1deg); z-index: 1; }
+.old-maps-fan img:nth-child(3) { right: calc(-1.6rem - 4px); transform: translateY(-48%) rotate(6deg); }
+.old-maps-card:hover .old-maps-fan img:nth-child(1) { transform: translate(-9%, -50%) rotate(-10deg); }
+.old-maps-card:hover .old-maps-fan img:nth-child(3) { transform: translate(4px, -48%) rotate(8deg); }
 
 /* The drawing's rose sways and the ship rocks, slowly and for as long as the card is on screen. */
 @keyframes old-maps-rose { from { transform: translate(150px, 104px) rotate(-9deg); } to { transform: translate(150px, 104px) rotate(9deg); } }
