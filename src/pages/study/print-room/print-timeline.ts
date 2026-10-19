@@ -28,19 +28,19 @@ export const TICKS = [1450, 1500, 1550, 1600, 1650, 1700, 1880, 1900, 1950, 2000
 
 /** The six chapters, in page order: the opening's row of ways in, and where the timeline says it will take you. */
 export const CHAPTERS = [
-  { n: '01', anchor: 'proof-sheet', title: 'Inspect a page', text: 'One sheet of 1516, three kinds of work on it.' },
-  { n: '02', anchor: 'revision', title: 'Watch a revision', text: 'The same Greek, edited again in 1519 and 1522.' },
-  { n: '03', anchor: 'bookmaking', title: 'Make a book', text: 'Set type, pull a sheet, correct it, pull again.' },
-  { n: '04', anchor: 'page-inspection', title: 'Read the architecture', text: 'Pages, polyglots and family trees of editions.' },
-  { n: '05', anchor: 'translation-desk', title: 'Translate', text: 'Luther to King James, and who did the work.' },
-  { n: '06', anchor: 'critical-desk', title: 'Look beneath the line', text: 'The apparatus, the editor’s aim, research still going.' },
+  { n: '01', tone: 'var(--accent)', kind: 'Inspect', foot: 'Text · Translation · Book', anchor: 'proof-sheet', title: 'Inspect a page', text: 'One sheet of 1516, three kinds of work on it.' },
+  { n: '02', tone: 'var(--prophets)', kind: 'Compare', foot: '1516 · 1519 · 1522', anchor: 'revision', title: 'Watch a revision', text: 'The same Greek, edited again in 1519 and 1522.' },
+  { n: '03', tone: 'var(--history)', kind: 'Exercise', foot: 'Set · Pull · Correct', anchor: 'bookmaking', title: 'Make a book', text: 'Set type, pull a sheet, correct it, pull again.' },
+  { n: '04', tone: 'var(--poetry)', kind: 'Take apart', foot: 'Pages · Polyglots · Family trees', anchor: 'page-inspection', title: 'Read the architecture', text: 'Pages, polyglots and family trees of editions.' },
+  { n: '05', tone: 'var(--gospels)', kind: 'Translate', foot: 'Luther · Tyndale · King James', anchor: 'translation-desk', title: 'Translate', text: 'Luther to King James, and who did the work.' },
+  { n: '06', tone: 'var(--acts)', kind: 'Look beneath', foot: 'Apparatus · Aims · Research', anchor: 'critical-desk', title: 'Look beneath the line', text: 'The apparatus, the editor’s aim, research still going.' },
 ] as const;
 
 export const LANES: Lane[] = [
-  { id: 'latin', label: 'First presses', tone: 'var(--pr-red)' },
-  { id: 'greek', label: 'Greek New Testament', tone: 'var(--epistles)' },
-  { id: 'hebrew', label: 'Hebrew Bible', tone: 'var(--prophets)' },
-  { id: 'poly', label: 'Polyglots & Greek Old Testament', tone: 'var(--history)' },
+  { id: 'latin', label: 'First presses', tone: 'var(--history)' },
+  { id: 'greek', label: 'Greek New Testament', tone: 'var(--prophets)' },
+  { id: 'hebrew', label: 'Hebrew Bible', tone: 'var(--poetry)' },
+  { id: 'poly', label: 'Polyglots & Greek Old Testament', tone: 'var(--epistles)' },
   { id: 'trans', label: 'Translations', tone: 'var(--gospels)' },
 ];
 

@@ -1,10 +1,21 @@
 /* The 2026-10 overhaul of "From manuscript to printed Bible": the Manuscripts page's opening, a timeline of every
-   edition, flush-left chapter heads, pill switches, and far fewer boxes. Loaded after print-room.css and proof-sheet.css,
+   edition, flush-left chapter heads, pill switches, and the studies' tinted cards and panels. Loaded after print-room.css and proof-sheet.css,
    and wins over them by naming .pr-study first. */
 
 /* The site's content width, edge to edge with the header. */
 .pr-study { max-width: var(--site-content-width); padding: 0 var(--site-gutter) 64px; overflow-x: clip; }
 body:has(.pr-study) { overflow-x: clip; }
+/* The studies' theme: gold for the page, one palette colour per chapter. The red and blue of the older styles take the
+   chapter's colour; only the printed pages themselves keep rubric red. */
+.pr-study.pr-study { --tone: var(--accent); --pr-red: var(--tone); --pr-blue: var(--tone); }
+.pr-study > section { --pr-red: var(--tone); --pr-blue: var(--tone); }
+.pr-study > #revision { --tone: var(--prophets); }
+.pr-study > #bookmaking { --tone: var(--history); }
+.pr-study > #page-inspection { --tone: var(--poetry); }
+.pr-study > #translation-desk { --tone: var(--gospels); }
+.pr-study > #critical-desk { --tone: var(--acts); }
+.pr-study :is(.pr-page-model, .pr-specimen > *, .pr-proof-object > *, .pr-proof-sheets, .ph-art) { --pr-red: #bd7565; --pr-blue: #8bb4b6; }
+[data-theme=light] .pr-study :is(.pr-page-model, .pr-specimen > *, .pr-proof-object > *, .pr-proof-sheets, .ph-art) { --pr-red: #934839; --pr-blue: #39676d; }
 .pr-study :is(.pr-tl-item, .pr-pills button) { background: none; border: 0; padding: 0; color: inherit; font: inherit; text-align: left; }
 .pr-study :is(h1, h2, h3, p, dl, dd, ol) { margin: 0; }
 
@@ -14,7 +25,7 @@ body:has(.pr-study) { overflow-x: clip; }
 .pr-study .pr-crumb span { color: var(--muted); font-weight: 400; }
 .pr-study .pr-crumb a:hover { color: var(--ink); }
 .pr-study .pr-intro h1 { margin-block: .9rem 1rem; font: 500 clamp(2.6rem, 5.6vw, 4.6rem)/1.02 var(--font-serif); letter-spacing: -.045em; }
-.pr-study .pr-intro h1 em { display: block; margin-top: .3rem; color: var(--pr-red); font-weight: 400; font-size: .6em; letter-spacing: -.03em; }
+.pr-study .pr-intro h1 em { display: block; margin-top: .3rem; color: var(--accent); font-weight: 400; font-size: .6em; letter-spacing: -.03em; }
 .pr-study .pr-lede { max-width: 58ch; color: var(--muted); font-size: .96rem; line-height: 1.8; }
 
 .pr-study .pr-figures { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); margin-top: 1.6rem; border-block: 1px solid var(--line); }
@@ -72,7 +83,8 @@ body:has(.pr-study) { overflow-x: clip; }
 /* ── Timeline ────────────────────────────────────────────── */
 .pr-study .pr-timeline { margin-top: 2.8rem; }
 .pr-study .pr-tl-head h2 { margin-top: .5rem; font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.2; letter-spacing: -.03em; }
-.pr-study .pr-tl-head h2 em { color: var(--pr-red); }
+.pr-study .pr-tl-head h2 em { color: var(--accent); }
+.pr-study .pr-tl-head .pr-kicker { color: var(--accent); }
 .pr-study .pr-tl-head > p:last-child { margin-top: .5rem; font-size: .88rem; color: var(--muted); }
 .pr-study .pr-tl-scroll { margin-top: 1.3rem; overflow-x: auto; scrollbar-width: thin; }
 .pr-study .pr-tl-chart { position: relative; min-width: 1000px; padding-bottom: .4rem; }
@@ -100,28 +112,50 @@ body:has(.pr-study) { overflow-x: clip; }
 .pr-study .pr-tl-item[data-active] .pr-tl-mark { transform: scaleY(1.45); }
 .pr-study .pr-tl-say { min-height: 4.4em; margin-top: .9rem; padding-top: .9rem; border-top: 1px solid var(--line); font-size: .86rem; line-height: 1.7; color: var(--muted); }
 .pr-study .pr-tl-say strong { margin-right: .7rem; font: 500 1.1rem var(--font-serif); color: var(--ink); }
-.pr-study .pr-tl-say strong + span { margin-right: .7rem; font-size: .64rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--pr-red); }
-.pr-study .pr-tl-say em { margin-left: .3rem; font-style: normal; color: var(--pr-red); white-space: nowrap; }
+.pr-study .pr-tl-say strong + span { margin-right: .7rem; font-size: .64rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.pr-study .pr-tl-say em { margin-left: .3rem; font-style: normal; color: var(--accent); white-space: nowrap; }
 
-/* ── Six ways in ─────────────────────────────────────────── */
+/* ── Six ways in: the studies' tinted cards, one colour per chapter ── */
 .pr-study .pr-ways { margin-top: 2.6rem; }
-.pr-study .pr-ways ol { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); margin-top: .8rem; padding: 0; list-style: none; border-block: 1px solid var(--line); }
-.pr-study .pr-ways li + li { border-left: 1px solid var(--line); }
-.pr-study .pr-ways a { display: block; height: 100%; padding: 1rem 1rem 1.1rem; }
-.pr-study .pr-ways li:first-child a { padding-left: 0; }
-.pr-study .pr-ways a > span { display: block; font: 500 1.35rem/1 var(--font-serif); color: var(--pr-red); }
-.pr-study .pr-ways strong { display: block; margin-top: .55rem; font: 500 1.02rem/1.3 var(--font-serif); color: var(--ink); transition: color .18s; }
-.pr-study .pr-ways small { display: block; margin-top: .3rem; font-size: .74rem; line-height: 1.45; color: var(--muted); }
-.pr-study .pr-ways a:hover strong { color: var(--pr-red); }
+.pr-study .pr-ways ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; margin-top: .9rem; padding: 0; list-style: none; }
+.pr-study .pr-ways li { display: flex; min-width: 0; }
+.pr-study .pr-ways a { display: flex; flex-direction: column; width: 100%; padding: 1.4rem 1.5rem 1.2rem; border: 1px solid color-mix(in srgb, var(--tone) 28%, var(--line)); border-radius: 18px; background: linear-gradient(170deg, color-mix(in srgb, var(--tone) 7%, var(--surface)), var(--surface) 55%); color: var(--ink); transition: border-color .2s, transform .3s cubic-bezier(.16, 1, .3, 1); }
+.pr-study .pr-ways a:hover { color: var(--ink); border-color: color-mix(in srgb, var(--tone) 60%, var(--line)); transform: translateY(-2px); }
+.pr-study .pr-ways-kind { font-size: .6rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--tone); }
+.pr-study .pr-ways-art { display: block; width: min(100%, 300px); height: auto; margin: .8rem auto .2rem; overflow: visible; color: var(--tone); fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+.pr-study .pr-ways-art .wa-base { fill: color-mix(in srgb, var(--tone) 10%, transparent); stroke: none; }
+.pr-study .pr-ways-art .wa-line { stroke-width: 1.4; }
+.pr-study .pr-ways-art .wa-fine { stroke-width: 1; opacity: .45; }
+.pr-study .pr-ways-art .wa-mark { stroke-width: 2.2; }
+.pr-study .pr-ways-art .wa-gap { stroke-width: 1; stroke-dasharray: 2 3; opacity: .35; }
+.pr-study .pr-ways-art text { fill: currentColor; stroke: none; font: 600 15px var(--font-serif); text-anchor: middle; }
+.pr-study .pr-ways-art text.wa-small { font-size: 13px; opacity: .8; }
+.pr-study .pr-ways-art .wa-blink { animation: wa-blink 3.2s ease-in-out infinite; }
+.pr-study .pr-ways-art .wa-float { animation: wa-float 5s ease-in-out infinite; }
+.pr-study .pr-ways-art .wa-sort { animation: wa-sort 3s ease-in-out infinite; }
+.pr-study .pr-ways-art .wa-flow { stroke-dasharray: 4 3; animation: wa-flow 1.6s linear infinite; }
+.pr-study .pr-ways strong { margin-top: 1.1rem; font: 500 1.35rem/1.2 var(--font-serif); letter-spacing: -.015em; }
+.pr-study .pr-ways small { flex: 1; margin-top: .55rem; font-size: .82rem; line-height: 1.6; color: var(--muted); }
+.pr-study .pr-ways-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.1rem; padding-top: .8rem; border-top: 1px solid var(--line); }
+.pr-study .pr-ways-foot em { font-size: .68rem; font-style: normal; color: var(--tone); }
+.pr-study .pr-ways-foot i { display: grid; place-items: center; flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; color: var(--tone); background: color-mix(in srgb, var(--tone) 12%, transparent); transition: background .2s, color .2s; }
+.pr-study .pr-ways a:hover .pr-ways-foot i { background: var(--tone); color: var(--page); }
+@keyframes wa-blink { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+@keyframes wa-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes wa-sort { 0%, 60%, 100% { transform: translateY(0); } 75% { transform: translateY(-5px); } }
+@keyframes wa-flow { to { stroke-dashoffset: -14; } }
 
 /* ── Chapters: a rule between them, heads flush left ──────── */
 .pr-study > section:not(.pr-timeline) { margin-top: 3.6rem; padding-top: 2rem; border-top: 1px solid var(--line); scroll-margin-top: 84px; }
 .pr-study .pr-head-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; margin-bottom: 1.8rem; }
 .pr-study .pr-section-heading { display: block; margin: 0; max-width: 64rem; }
-.pr-study .pr-section-heading .pr-kicker { display: flex; align-items: baseline; gap: .6rem; }
-.pr-study .pr-section-heading .pr-index { padding: 0; font: 500 1rem/1 var(--font-serif); letter-spacing: 0; color: var(--pr-red); }
+.pr-study .pr-section-heading .pr-kicker { display: flex; align-items: baseline; gap: .45rem; }
+.pr-study .pr-section-heading .pr-kicker { color: var(--tone); }
+.pr-study .pr-section-heading .pr-index { padding: 0; font: inherit; letter-spacing: inherit; color: inherit; }
+.pr-study .pr-section-heading .pr-index::after { content: " ·"; }
 .pr-study .pr-section-heading h2 { margin-top: .55rem; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.2; letter-spacing: -.03em; }
-.pr-study .pr-section-heading h2 em { color: var(--pr-red); }
+.pr-study .pr-section-heading h2 em { color: var(--tone); }
+.pr-study .pr-cites a { color: var(--accent); text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent); }
 .pr-study .pr-section-heading > p:last-child:not(.pr-kicker) { margin-top: .6rem; max-width: 70ch; font-size: .9rem; color: var(--muted); }
 .pr-study .pr-head-aside { margin-bottom: .2rem; max-width: 100%; }
 
@@ -131,33 +165,46 @@ body:has(.pr-study) { overflow-x: clip; }
 .pr-study .pr-pills button:hover { color: var(--ink); }
 .pr-study .pr-pills button[aria-checked="true"] { background: var(--ink); color: var(--page); }
 
-/* ── Fewer boxes: frames become rules ─────────────────────── */
+/* ── Panels: every working surface is a tinted rounded card in its chapter's colour ── */
+.pr-study :is(.pr-proof-workbench, .pr-proof-trail, .pr-revision-proof, .pr-press-exercise, .pr-inspection-panel, .pr-translation-workbench, .pr-edge-record, .pr-apparatus-page, .pr-policy-result, .pr-family, .pr-copy-history) {
+  border: 1px solid color-mix(in srgb, var(--tone) 28%, var(--line)); border-radius: 18px; overflow: hidden;
+  background: linear-gradient(170deg, color-mix(in srgb, var(--tone) 7%, var(--surface)), var(--surface) 55%); }
+.pr-study .pr-copy-history { padding: 1.6rem; }
+.pr-study .pr-latin-reply { border-left-color: var(--tone); border-radius: 0 14px 14px 0; background: color-mix(in srgb, var(--tone) 6%, var(--surface)); }
+.pr-study :is(.pr-policy-sheet, .pr-type-case) { border: 1px solid var(--line); border-radius: 14px; background: var(--page); }
+.pr-study .pr-proof-object, .pr-study .pr-specimen { background: color-mix(in srgb, var(--tone) 5%, var(--page)); border-color: var(--line); }
 .pr-study .pr-proof { border: 0; border-radius: 0; background: none; overflow: visible; }
-.pr-study .pr-proof-workbench { border-block: 1px solid var(--line); }
-.pr-study .pr-proof-roles { padding-left: 0; }
-.pr-study .pr-proof-object { border-inline-color: var(--line); background: color-mix(in srgb, var(--ink) 3%, transparent); }
-.pr-study .pr-proof-reading { padding-right: 0; }
-.pr-study .pr-proof-trail { border-top: 0; border-bottom: 1px solid var(--line); background: none; padding-inline: 0; }
-.pr-study .pr-revision-proof, .pr-study .pr-press-exercise, .pr-study .pr-apparatus-page { padding: 0; border: 0; background: none; }
-.pr-study .pr-press-exercise { padding-top: 1.2rem; border-top: 1px solid var(--line); }
-.pr-study .pr-type-case { border: 0; border-bottom: 1px solid var(--line); padding: 0 0 1rem; }
-.pr-study .pr-architecture-guide { border-bottom-color: var(--line); }
+.pr-study .pr-proof-distinction { border-top: 1px solid var(--line); }
+.pr-study .pr-proof-trail { margin-top: .8rem; }
+.pr-study :is(.pr-translation-selector, .pr-specimen) { border-right-color: var(--line); }
+.pr-study .pr-inspection-panel { margin-top: 1rem; }
 .pr-study .pr-edition-select { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.2rem; margin-bottom: 1.4rem; padding: 0; border: 0; background: none; }
-.pr-study .pr-inspection-panel { border: 0; border-block: 1px solid var(--line); }
-.pr-study .pr-specimen { background: color-mix(in srgb, var(--ink) 3%, transparent); border-right-color: var(--line); }
-.pr-study .pr-inspection-copy { padding-right: 0; }
 .pr-study .pr-network-top { display: flex; flex-direction: column; align-items: flex-start; gap: .9rem; }
 .pr-study .pr-network-intro { margin: 0; max-width: 70ch; }
-.pr-study .pr-graph button { border-color: var(--line); }
-.pr-study .pr-graph button[aria-pressed=true] { box-shadow: none; border-color: var(--pr-blue); background: color-mix(in srgb, var(--pr-blue) 10%, var(--page)); }
-.pr-study .pr-edge-record { background: none; padding-inline: 0; border-color: var(--line); }
-.pr-study .pr-translation-workbench { background: none; border-color: var(--line); }
-.pr-study .pr-translation-selector { padding-left: 0; border-right-color: var(--line); }
-.pr-study .pr-translation-record { padding-right: 0; }
-.pr-study .pr-policy-controls { border: 0; border-block: 1px solid var(--line); margin-top: 0; }
-.pr-study .pr-policy-result { border: 0; padding-inline: 0; min-height: 0; }
-.pr-study .pr-policy-controls + .pr-policy-result { border-bottom: 1px solid var(--line); }
 .pr-study .pr-open-scholarship { padding-top: 0; }
+
+/* Rows, as the Manuscripts page's collection rows: a tinted rounded strip with a round numbered glyph. */
+.pr-study .pr-proof-roles button { margin-top: 6px; padding: .7rem .8rem; border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(140deg, color-mix(in srgb, var(--tone) 9%, var(--surface)), var(--surface)); box-shadow: none; transition: border-color .2s, transform .2s; }
+.pr-study .pr-proof-roles button:hover { transform: translateY(-2px); }
+.pr-study .pr-proof-roles button[aria-pressed=true] { padding-left: .8rem; border-color: var(--tone); box-shadow: none; background: linear-gradient(140deg, color-mix(in srgb, var(--tone) 16%, var(--surface)), var(--surface)); }
+.pr-study .pr-proof-roles button b { display: grid; place-items: center; flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; font-size: 1rem; color: var(--tone); background: color-mix(in srgb, var(--tone) 12%, transparent); }
+.pr-study .pr-proof-roles button svg { color: var(--tone); }
+.pr-study .pr-graph button { border-color: color-mix(in srgb, var(--tone) 22%, var(--line)); border-radius: 14px; background: linear-gradient(140deg, color-mix(in srgb, var(--tone) 9%, var(--surface)), var(--surface)); transition: border-color .2s; }
+.pr-study .pr-graph button[aria-pressed=true] { box-shadow: none; border-color: var(--tone); background: color-mix(in srgb, var(--tone) 16%, var(--surface)); }
+.pr-study .pr-family-editions button { border-radius: 14px; border-color: var(--line); background: var(--surface); }
+.pr-study .pr-family-editions button[aria-pressed=true] { background: var(--tone); border-color: var(--tone); color: var(--page); }
+
+/* Buttons and switches, pill-shaped like the page's sort control. */
+.pr-study .pr-press-actions button { border-radius: 999px; padding-inline: 1rem; border-color: var(--line); }
+.pr-study .pr-press-actions button:first-child { background: var(--tone); border-color: var(--tone); color: var(--page); }
+.pr-study .pr-press-actions .pr-reset { padding: 0; }
+.pr-study .pr-year-switch { gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.pr-study .pr-year-switch button { padding: .55rem; border-radius: 999px; transition: background .18s, color .18s; }
+.pr-study .pr-year-switch button[aria-pressed=true] { box-shadow: none; background: var(--tone); color: var(--page); }
+.pr-study .pr-policy-controls { gap: 6px; margin-block: 0 1rem; border: 0; }
+.pr-study .pr-policy-controls button { border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(140deg, color-mix(in srgb, var(--tone) 9%, var(--surface)), var(--surface)); }
+.pr-study .pr-policy-controls button[aria-pressed=true] { box-shadow: none; border-color: var(--tone); background: color-mix(in srgb, var(--tone) 16%, var(--surface)); }
+.pr-study .pr-policy-result { min-height: 0; }
 .pr-study .pr-polyglot-context { padding-top: 0; }
 .pr-study .pr-making-grid + .pr-copy-history { margin-top: 2.4rem; }
 
@@ -165,10 +212,7 @@ body:has(.pr-study) { overflow-x: clip; }
   .pr-study .pr-figures { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .pr-study .pr-figures > div:nth-child(5) { padding-left: 0; border-left: 0; }
   .pr-study .pr-figures > div:nth-child(n+5) { border-top: 1px solid var(--line); }
-  .pr-study .pr-ways ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .pr-study .pr-ways li:nth-child(4) { border-left: 0; }
-  .pr-study .pr-ways li:nth-child(4) a { padding-left: 0; }
-  .pr-study .pr-ways li:nth-child(n+4) { border-top: 1px solid var(--line); }
+  .pr-study .pr-ways ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 860px) {
   .pr-study .pr-intro { grid-template-columns: 1fr; }
@@ -177,27 +221,20 @@ body:has(.pr-study) { overflow-x: clip; }
 @media (max-width: 650px) {
   .pr-study { padding: 0 var(--site-gutter) 40px; }
   .pr-study > section:not(.pr-timeline) { margin-top: 2.6rem; padding-top: 1.6rem; }
-  .pr-study .pr-proof-object { border-inline: 0; }
-  .pr-study .pr-proof-roles { padding-inline: 0; }
-  .pr-study .pr-proof-reading { padding-inline: 0; }
-  .pr-study .pr-specimen { border-right: 0; }
-  .pr-study .pr-inspection-copy { padding-inline: 0; }
-  .pr-study .pr-translation-selector { border-right: 0; padding-right: 0; }
-  .pr-study .pr-translation-record { padding-left: 0; }
+  .pr-study .pr-specimen, .pr-study .pr-translation-selector { border-right: 0; }
+  .pr-study .pr-proof-roles button { margin-top: 0; }
+  .pr-study .pr-proof-roles button b { margin: 0 auto 5px; width: 32px; height: 32px; }
+  .pr-study .pr-copy-history { padding: 1.2rem; }
 }
 @media (max-width: 560px) {
   .pr-study .pr-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pr-study .pr-figures > div { padding-left: 1rem; border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
   .pr-study .pr-figures > div:nth-child(odd) { padding-left: 0; border-left: 0; }
   .pr-study .pr-figures > div:nth-child(-n+2) { border-top: 0; }
-  .pr-study .pr-ways ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pr-study .pr-ways li { border-left: 0 !important; border-top: 1px solid var(--line); }
-  .pr-study .pr-ways li:nth-child(-n+2) { border-top: 0; }
-  .pr-study .pr-ways li:nth-child(even) { border-left: 1px solid var(--line) !important; }
-  .pr-study .pr-ways li a { padding-left: 0; }
-  .pr-study .pr-ways li:nth-child(even) a { padding-left: 1rem; }
+  .pr-study .pr-ways ol { grid-template-columns: 1fr; }
   .pr-study .ph-art-note { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pr-study :is(.ph-orbit, .ph-leaf, .ph-quill, .ph-sheets, .ph-platen, .ph-ink-press, .ph-thread, .ph-sort) { animation: none; }
+  .pr-study :is(.ph-orbit, .ph-leaf, .ph-quill, .ph-sheets, .ph-platen, .ph-ink-press, .ph-thread, .ph-sort, .wa-blink, .wa-float, .wa-sort, .wa-flow) { animation: none; }
+  .pr-study :is(.pr-ways a, .pr-proof-roles button) { transition: none; transform: none !important; }
 }
