@@ -1,0 +1,38 @@
+/* The 2x2 grid of opening-drawing variants. The drawing's own styles come from manuscripts-directions/css/ms.css. */
+.hv-page { max-width: 1240px; margin-inline: auto; padding: 2.6rem clamp(16px, 4vw, 48px) 4rem; }
+.hv-kicker { font-size: .6rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.hv-page h1 { margin: .4rem 0 .5rem; font: 500 clamp(2rem, 4vw, 3rem)/1.05 var(--serif); letter-spacing: -.02em; }
+.hv-page h1 em { color: var(--accent); }
+.hv-lede { max-width: 38rem; font-size: .9rem; line-height: 1.6; color: var(--muted); }
+.hv-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.4rem 3rem; margin-top: 2.2rem; }
+.hv-card { min-width: 0; padding-top: 1.1rem; border-top: 1px solid var(--line); }
+.hv-card header { display: flex; gap: 1rem; align-items: baseline; margin-bottom: 1.6rem; }
+.hv-card header > span { font: 500 1.6rem var(--serif); color: var(--accent); }
+.hv-card h2 { margin: 0; font: 500 1.25rem var(--serif); }
+.hv-card header p { margin: .25rem 0 0; font-size: .8rem; line-height: 1.55; color: var(--muted); }
+.hv-card .ms-hero-art { max-width: 34rem; margin-inline: auto; }
+
+/* Additions, drawn in the base drawing's own hand. */
+.hv-band { stroke: color-mix(in srgb, var(--ink) 45%, transparent); stroke-width: .9; }
+.hv-pages { stroke: color-mix(in srgb, var(--ink) 30%, transparent); stroke-width: .7; stroke-dasharray: 2 2; }
+.hv-shelf { stroke: color-mix(in srgb, var(--ink) 35%, transparent); stroke-width: 1; }
+.hv-reed { stroke: color-mix(in srgb, var(--ink) 60%, transparent); stroke-width: 2.2; }
+.hv-nib { fill: var(--accent); stroke: var(--accent); stroke-width: .6; }
+.hv-thread { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 1.5 4; opacity: .7; animation: hv-thread 6s linear infinite; }
+.hv-glass { fill: color-mix(in srgb, var(--surface) 82%, transparent); stroke: none; }
+.hv-rim { stroke: color-mix(in srgb, var(--ink) 60%, transparent); stroke-width: 1.4; }
+.hv-rim-2 { stroke-width: .7; opacity: .4; }
+.hv-handle { stroke: color-mix(in srgb, var(--ink) 60%, transparent); stroke-width: 5; }
+.hv-big path { stroke-width: 1.4; }
+.hv-label { stroke: color-mix(in srgb, var(--ink) 55%, transparent); stroke-width: 1.2; }
+.hv-books { animation: ms-drift 21s ease-in-out -9s infinite; }
+.hv-jar { animation: ms-drift 23s ease-in-out -4s infinite reverse; }
+.hv-pen { animation: hv-pen 7s ease-in-out infinite; transform-box: fill-box; transform-origin: 20% 90%; }
+.hv-scrap-1 { animation: ms-lift 15s ease-in-out -2s infinite; } .hv-scrap-2 { animation: ms-lift 12s ease-in-out -7s infinite; } .hv-scrap-3 { animation: ms-lift 17s ease-in-out -11s infinite; }
+.hv-lens { animation: hv-lens 14s ease-in-out infinite; }
+.hv-tag { animation: ms-drift 11s ease-in-out -3s infinite; }
+@keyframes hv-thread { to { stroke-dashoffset: -22; } }
+@keyframes hv-pen { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-3deg); } }
+@keyframes hv-lens { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-6px, 4px); } }
+@media (prefers-reduced-motion: reduce) { .hv-thread, .hv-books, .hv-jar, .hv-pen, .hv-scrap-1, .hv-scrap-2, .hv-scrap-3, .hv-lens, .hv-tag { animation: none; } }
+@media (max-width: 900px) { .hv-grid { grid-template-columns: 1fr; } }
