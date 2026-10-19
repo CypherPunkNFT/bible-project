@@ -17,6 +17,7 @@ import { usePlacesPageSlide } from "./usePlacesPageSlide";
 import { AtlasFindLink } from "./AtlasFindLink";
 import { TransitionTicker } from "@/components/ticker/TransitionTicker";
 import "./places-collection.css";
+import { OLD_MAPS, OldMapsPreview, OldMapsRow } from "./old-maps";
 
 import { ATLAS_BASE as BASE, atlasDestination } from "./routes";
 const DESTINATIONS = [
@@ -25,7 +26,9 @@ const DESTINATIONS = [
   { id: "cities", title: "Ancient Cities", eyebrow: "Enter their world", icon: Landmark, color: "history", description: "Get to know a city behind the text. Explore its setting, its people, and the moments that make it part of the story.", detail: "Jerusalem · Corinth · Beyond", action: "Choose a city" },
   { id: "gospels", title: "Gospel Events", eyebrow: "Walk through the accounts", icon: BookOpen, color: "gospels", description: "Follow the life of Jesus across the land. Explore events in their setting and see how the four Gospels tell them.", detail: "Four accounts · Places & encounters", action: "Explore the Gospels" },
 ] as const;
-export type PlacesDestination = typeof DESTINATIONS[number]["id"] | HistoryId;
+export type PlacesDestination = typeof DESTINATIONS[number]["id"] | HistoryId | typeof OLD_MAPS.id;
+// Every destination in tile order: the biblical world, beyond the New Testament, then Old maps.
+const ALL_DESTINATIONS = [...DESTINATIONS, ...HISTORY_COLLECTIONS, OLD_MAPS];
 type PreviewId = "journeys" | "cities" | "gospels";
 type Choice = { id: string; title: string; subtitle: string; place: string };
 type Lens = { id: string; label: string; title: string; description: string };
@@ -88,6 +91,7 @@ export function AtlasCollection({ atlas }: { atlas: ReactNode }) {
     <Route path="map" element={<DestinationShell id="atlas">{atlas}</DestinationShell>} />
     <Route path="cities/motion" element={<LegacyCityMotion />} />
     <Route path="cities/find" element={<DestinationShell id="cities"><CityDirectory /></DestinationShell>} />
+    <Route path={OLD_MAPS.id} element={<DestinationShell id={OLD_MAPS.id}><OldMapsPreview /></DestinationShell>} />
     {HISTORY_COLLECTIONS.map(({ id }) => <Route key={id} path={id} element={<DestinationShell id={id}><HistoryExperience key={id} id={id} /></DestinationShell>} />)}
     {(["journeys", "cities", "gospels"] as const).map((id) => <Route key={id} path={id} element={<DestinationShell id={id}><ExperiencePreview id={id} /></DestinationShell>} />)}
     <Route path="*" element={<Navigate to={BASE} replace />} />
@@ -129,17 +133,18 @@ function CollectionHome() {
         <div className="places-card-foot"><span>{item.detail}</span><strong>{item.action}<ArrowRight size={15} aria-hidden /></strong></div>
       </Link>)}
     </nav>
+    <OldMapsRow style={morph(OLD_MAPS.id, OLD_MAPS.color)} />
     <div className="places-collection-note"><span><BookOpen size={16} aria-hidden />Every place opens a passage. Every journey invites a closer reading.</span><Link to={`${BASE}/map`}>Open the map <ArrowUpRight size={14} aria-hidden /></Link></div>
     </div>
   </div>;
 }
 
 function DestinationShell({ id, children }: { id: PlacesDestination; children: ReactNode }) {
-  const item = [...DESTINATIONS, ...HISTORY_COLLECTIONS].find((entry) => entry.id === id)!;
+  const item = ALL_DESTINATIONS.find((entry) => entry.id === id)!;
   return <div className="places-collection places-destination mx-auto max-w-7xl px-4 sm:px-6" style={tint(item.color)}>
     <div className="places-topline"><Link to={BASE}><ArrowLeft size={15} aria-hidden />Back to Atlas</Link><Link to={`${BASE}/map`}>Open the map <ArrowUpRight size={13} aria-hidden /></Link></div>
     <nav className="places-collection-nav" aria-label="Explore the collection">
-      {[...DESTINATIONS, ...HISTORY_COLLECTIONS].map((entry) => <NavLink key={entry.id} to={atlasDestination(entry.id)} data-places-morph style={morph(entry.id, entry.color)}><entry.icon className="places-tile-icon" strokeWidth={1.35} aria-hidden /><span>{entry.title}</span><ArrowUpRight size={14} aria-hidden /></NavLink>)}
+      {ALL_DESTINATIONS.map((entry) => <NavLink key={entry.id} to={atlasDestination(entry.id)} data-places-morph style={morph(entry.id, entry.color)}><entry.icon className="places-tile-icon" strokeWidth={1.35} aria-hidden /><span>{entry.title}</span><ArrowUpRight size={14} aria-hidden /></NavLink>)}
     </nav>
     <div className="places-page-slide">{children}</div>
   </div>;

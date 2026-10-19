@@ -445,6 +445,15 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                         "collection": true,
                         "tone": "poetry"
                     },
+                    {
+                        "kind": "Map collection",
+                        "title": "Old maps of the Holy Land",
+                        "text": "Historical maps of the biblical world, 680 to 1928, from ten libraries. Open any map at full size, with its maker, its library and its credit.",
+                        "href": "/study/atlas/old-maps",
+                        "meta": "Maps · Mapmakers · Libraries",
+                        "collection": true,
+                        "tone": "epistles"
+                    },
                     {"kind": "Interactive study", "title": "Israel among the empires", "text": "Trace tribute, conquest, exile and return through synchronized maps and primary evidence.", "href": "/study/israel-among-the-empires", "art": "inscription", "tone": "prophets"},
                     {"kind": "Interactive archaeology", "title": "Cities through their layers", "text": "Explore Jericho, Lachish, Jerusalem and Corinth through selected phases, finds and disputed interpretations.", "href": "/study/cities-through-their-layers", "art": "inscription", "tone": "epistles"},
                     {"kind": "Interactive journey", "title": "The world of Jesus & the apostles", "text": "Explore eight connected settings, from Galilean households and Jerusalem to Caesarea, Corinth, Ephesus and travel toward Rome.", "href": "/study/world-of-jesus-apostles", "art": "city", "tone": "gospels"},

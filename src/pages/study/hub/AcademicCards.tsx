@@ -4,9 +4,10 @@ import type { STUDY_BRANCHES } from './collections';
 import './academic-cards.css';
 
 type Area = (typeof STUDY_BRANCHES)['academic']['areas'][number];
-type Drawing = 'tablet'|'map'|'city'|'layers'|'rulers'|'manuscript'|'variants'|'press'|'canon'|'scroll'|'letter'|'language'|'timeline'|'scholars'|'church'|'museum'|'witnesses';
+type Drawing = 'tablet'|'map'|'city'|'layers'|'rulers'|'manuscript'|'variants'|'press'|'canon'|'scroll'|'letter'|'language'|'timeline'|'scholars'|'church'|'museum'|'witnesses'|'oldmaps';
 const artFor = (href: string): Drawing => {
   if(href.includes('museum-archaeology'))return 'museum';
+  if(href.includes('/atlas/old-maps'))return 'oldmaps';
   if(href==='/study/manuscripts')return 'witnesses';
   if(href.includes('discoveries')||href.includes('from-discovery'))return 'tablet';
   if(href.includes('empires'))return 'map';
@@ -25,7 +26,7 @@ const artFor = (href: string): Drawing => {
   if(href.includes('/atlas'))return 'map';
   return 'letter';
 };
-const captions:Record<Drawing,string>={tablet:'Objects · Context · Evidence',map:'Places · Relationships · Journeys',city:'Streets · Communities · Daily life',layers:'Layers · Finds · Interpretation',rulers:'Kingdoms · Reigns · People',manuscript:'Pages · Hands · Survival',variants:'Readings · Corrections · Comparison',press:'Manuscript · Type · Printed page',canon:'Lists · Reception · Collections',scroll:'Caves · Scrolls · Fragments',letter:'Writing · Carrying · Reading',language:'Words · Context · Meaning',timeline:'Editions · Dates · Connections',scholars:'People · Works · Ideas',church:'Communities · Reading · Reception',museum:'Museums · Records · Licences',witnesses:'Scrolls · Codices · Fragments'};
+const captions:Record<Drawing,string>={tablet:'Objects · Context · Evidence',map:'Places · Relationships · Journeys',city:'Streets · Communities · Daily life',layers:'Layers · Finds · Interpretation',rulers:'Kingdoms · Reigns · People',manuscript:'Pages · Hands · Survival',variants:'Readings · Corrections · Comparison',press:'Manuscript · Type · Printed page',canon:'Lists · Reception · Collections',scroll:'Caves · Scrolls · Fragments',letter:'Writing · Carrying · Reading',language:'Words · Context · Meaning',timeline:'Editions · Dates · Connections',scholars:'People · Works · Ideas',church:'Communities · Reading · Reception',museum:'Museums · Records · Licences',witnesses:'Scrolls · Codices · Fragments',oldmaps:'Maps · Centuries · Credits'};
 const tones=['history','prophets','poetry','epistles','gospels','acts'];
 
 // Promote reviewed, standalone studies only. A working link or an attractive
@@ -68,6 +69,7 @@ function AcademicArtwork({kind}:{kind:Drawing}) {
     {kind==='scholars'&&<>{[111,180,249].map((x,i)=><g key={x} opacity={i===1?1:.45}><circle cx={x} cy={48+i%2*9} r="17"/><path d={`M${x-28} 106q0-33 28-33t28 33`}/>{book(x-24,111,48)}</g>)}</>}
     {kind==='museum'&&<><path d="M62 150h236M78 150V72h32v78m18 0V72h32v78m18 0V72h32v78m18 0V72h32v78" opacity=".55"/><path d="m70 72 110-44 110 44Z" fill="currentColor" fillOpacity=".05"/><path d="m70 72 110-44 110 44Z"/><path d="M140 150V106a40 40 0 0 1 80 0v44Z" fill="var(--surface)"/><path d="M140 150V106a40 40 0 0 1 80 0v44Z"/>{Array.from({length:4},(_,i)=><g key={i} opacity={.3+i*.14}><path d={`M152 ${110+i*9}h56`} strokeDasharray="5 4 2 5"/></g>)}<path d="M66 158h228" opacity=".3"/></>}
     {kind==='witnesses'&&<><g transform="rotate(-6 150 76)" opacity=".55"><path d="M98 38h112v76H98Z" fill="currentColor" fillOpacity=".04"/><ellipse cx="96" cy="76" rx="6" ry="40" fill="var(--surface)"/><ellipse cx="212" cy="76" rx="6" ry="40" fill="var(--surface)"/>{lines(110,52,40,6)}{lines(158,52,40,6)}</g>{book(184,62,112)}<path d="M126 104l30-8 22 10-4 16 10 14-12 18-28 4-12-12-14 2 2-24Z" fill="var(--surface)"/>{lines(138,116,30,4)}</>}
+    {kind==='oldmaps'&&<><path d="M96 34l150-9 8 112-150 9Z" opacity=".3"/><path d="M106 28l158-6 6 104-18 20-140 6Z" fill="var(--surface)"/><path d="M270 126l-18 20q6-14 18-20Z" fill="currentColor" fillOpacity=".15"/><path d="M168 34c-5 15 4 23-3 38s-7 24-5 37-8 24-11 41"/><path d="M164 34c-5 15 4 23-3 38s-7 24-5 37-8 24-11 41" opacity=".3"/><path d="M228 38c-3 10 3 16-1 24" opacity=".7"/><ellipse cx="227" cy="68" rx="4.5" ry="7" fill="currentColor" fillOpacity=".12"/><path d="M227 75c4 10-3 18 2 27" opacity=".7"/><ellipse cx="230" cy="114" rx="6" ry="13" fill="currentColor" fillOpacity=".12"/>{[[190,62],[202,76],[188,92],[204,104]].map(([x,y])=><path key={x+y} d={`M${x-6} ${y}l6-7 6 7`} opacity=".55"/>)}<g transform="translate(134 98)"><circle r="17" opacity=".4"/><path d="M0-15 3 0 0 15-3 0Z M-15 0 0-3 15 0 0 3Z" fill="currentColor" fillOpacity=".2"/><circle r="1.8" fill="currentColor"/></g><circle cx="212" cy="98" r="6" fill="var(--surface)"/><circle cx="212" cy="98" r="1.8" fill="currentColor"/><path d="M226 42h30v12h-30Z" fill="var(--surface)" opacity=".8"/><path d="M231 48h20" opacity=".5"/><path d="M84 160h192" opacity=".25"/></>}
     {kind==='church'&&<><path d="M115 145V78l65-42 65 42v67M102 149h156M180 35V13m-9 9h18M163 145v-34q17-25 34 0v34"/><circle cx="180" cy="72" r="10"/><path d="M130 94h16v26h-16Zm84 0h16v26h-16Z" opacity=".5"/><path d="M91 161h179" opacity=".25"/></>}
     </g>
   </svg><span className="study-art-note">{captions[kind]}</span></div>;

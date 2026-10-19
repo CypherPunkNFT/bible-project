@@ -1,3 +1,18 @@
+## Old maps — registered 19 October 2026 (local only; nothing published)
+
+The Atlas home's ninth card ("Old maps", `/study/atlas/old-maps`) and its Study card in History & archaeology. The counts on the
+card come from the historical maps corpus in `Research/HistoricalMaps/` (every source, licence and checksum is in its
+`MANIFEST.md`), as re-tagged by `design/old-maps-directions/build-data.py` and copied into
+`src/pages/places/old-maps-summary.json`. Until the owner chooses the collection page's design, only the three maps below are
+shown, as small previews.
+
+| Source | What was taken | Licence | Files / bytes | Checksum |
+|---|---|---|---|---|
+| Historical maps corpus, `Research/HistoricalMaps/normalized/catalogue.json` (built 2026-10-17 from Wikimedia Commons, the Internet Archive incl. the David Rumsey Map Collection, the Library of Congress and the New York Public Library) | Counts only: 1,093 maps of the biblical world by title, 343 mapmakers, 10 libraries, dated 680–1928 | Per record; see the corpus `MANIFEST.md`. Counts are facts | 1 / 2,713,941 | `164ff533a1791b39…` |
+| Library of Congress, Geography and Map Division: *Palestine*, Rudimentum Novitiorum, Lübeck 1475 ([2021668403](https://www.loc.gov/item/2021668403/)) | A 340 px preview, `public/images/old-maps/m0009.jpg` | **Public domain.** Courtesy credit: *Library of Congress, Geography and Map Division* | 1 / 21,289 | `06b055dd475259bc…` |
+| Library of Congress, Geography and Map Division: Nicolaes Visscher, *Terra sancta sive promissionis*, 1659 ([2006629146](https://www.loc.gov/item/2006629146/)) | A 340 px preview, `public/images/old-maps/m0125.jpg` | **Public domain.** Courtesy credit as above | 1 / 14,611 | `da3a59a17af37afa…` |
+| Library of Congress, Geography and Map Division: Johann Baptist Homann, *Ivdaea sev Palaestina*, 1748 ([99466737](https://www.loc.gov/item/99466737/)) | A 340 px preview, `public/images/old-maps/m0225.jpg` | **Public domain.** Courtesy credit as above | 1 / 24,970 | `78466ccdbca53ba5…` |
+
 ## Parables final verification - 11 October 2026
 
 The ten-step local revision is complete. See [Final review](docs/parables/FINAL-REVIEW.md) for source-link checks, Scripture validation, interface verification and limits. Current collection: 57 studies / 96 ranges / 610 verse references; 13 distinct public commentary/inventory links responded successfully. No publication. Earlier entries below remain the historical review trail.
