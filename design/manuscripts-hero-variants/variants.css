@@ -38,3 +38,5 @@
 @media (max-width: 900px) { .hv-grid { grid-template-columns: 1fr; } }
 .hv-card.hv-e { grid-column: 1 / -1; }
 .hv-card.hv-e .ms-hero-art { max-width: 46rem; }
+.hv-glass-solid { fill: var(--surface); }
+.hv-glare { fill: color-mix(in srgb, var(--ink) 4%, transparent); stroke: none; }

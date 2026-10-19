@@ -34,7 +34,7 @@
         <path class="ms-fold" d="M249 104 V280"/>
         <g class="ms-ink">${lines(186, 124, 54, 21, 7.2)}${lines(259, 124, 54, 21, 7.2)}</g>
       </g></g>
-      <g transform="translate(${shift} 0)"><g class="ms-fragment">
+      <g transform="translate(${Array.isArray(shift) ? shift.join(" ") : `${shift} 0`})"><g class="ms-fragment">
         <path class="ms-papyrus" d="${frag}"/>
         <g clip-path="url(#ms-frag-${id})"><g class="ms-fibres">${Array.from({ length: 14 }, (_, i) => `<path d="M190 ${116 + i * 9}h120"/>`).join("")}${Array.from({ length: 10 }, (_, i) => `<path d="M${200 + i * 10} 110v130"/>`).join("")}</g>
           <g class="ms-ink ms-ink-gold">${lines(212, 140, 72, 12, 7.5, { dash: "5 1.5 2.5 1.5" })}</g></g>
@@ -92,29 +92,38 @@
         <path class="hv-label" d="M348 288h30M348 294h22M348 300h26"/></g></g>`;
   }
 
-  // E · Merged (owner 2026-10-18): C's scattered fragments, D's lens moved to the top right, the main fragment a little
-  // to the left, and bound books in the space under the scroll, left of the open leaf, behind the sheets.
-  const SHIFT = -24;
-  function shelf() {
-    const upright = (x, y, w, h, tilt) => `<g transform="rotate(${tilt} ${x} ${y + h})"><path class="ms-roll" d="M${x} ${y}h${w}v${h}h-${w}Z"/><path class="hv-band" d="M${x} ${y + 8}h${w}M${x} ${y + 12}h${w}M${x} ${y + h - 11}h${w}"/><path class="hv-pages" d="M${x + w / 2} ${y + 19}v${h - 36}"/></g>`;
-    const flat = (x, y, w, h, tilt) => `<g transform="rotate(${tilt} ${x + w / 2} ${y + h / 2})"><path class="mh-sheet" d="M${x} ${y}h${w}v${h}h-${w}Z"/><path class="hv-pages" d="M${x + 4} ${y + 2.5}h${w - 6}M${x + 4} ${y + h - 2.5}h${w - 6}"/><path class="hv-band" d="M${x + 8} ${y}v${h}M${x + w - 10} ${y}v${h}"/></g>`;
-    return `<g class="hv-books">${upright(96, 188, 13, 66, -4)}${upright(110, 194, 12, 60, 0)}${upright(123, 200, 13, 54, 0)}${upright(137, 204, 12, 50, 12)}
-      ${flat(92, 254, 74, 11, -1)}<path class="hv-shelf" d="M78 266h96"/></g>`;
+  // E · Merged (owner 2026-10-18): C's scattered fragments; the main fragment a little left and lower; a lens resting over
+  // the leaf's upper right that really enlarges the leaf beneath it; and the museum tag, in the space under the scroll,
+  // tied to the fragment's left edge by a thread.
+  const SHIFT = [-24, 14];
+  const LENS = [312, 150, 30]; // centre and radius, over the leaf's right-hand column
+  const leafCopy = () => `<g transform="rotate(7 250 190)"><path class="mh-sheet mh-sheet-front" d="M176 104 Q250 96 326 106 L322 286 Q248 276 172 284Z"/><path class="ms-fold" d="M249 104 V280"/><g class="ms-ink">${lines(186, 124, 54, 21, 7.2)}${lines(259, 124, 54, 21, 7.2)}</g></g>`;
+  function lensOnLeaf(id) {
+    const [cx, cy, r] = LENS;
+    return `<defs><clipPath id="hv-lens-${id}"><circle cx="${cx}" cy="${cy}" r="${r}"/></clipPath></defs>
+      <g class="hv-lens-still"><circle class="hv-glass hv-glass-solid" cx="${cx}" cy="${cy}" r="${r}"/>
+        <g clip-path="url(#hv-lens-${id})"><g transform="translate(${cx} ${cy}) scale(1.7) translate(${-cx} ${-cy})">${leafCopy()}</g></g>
+        <circle class="hv-glare" cx="${cx}" cy="${cy}" r="${r}"/>
+        <circle class="hv-rim" cx="${cx}" cy="${cy}" r="${r}"/><circle class="hv-rim hv-rim-2" cx="${cx}" cy="${cy}" r="${r + 4}"/>
+        <path class="hv-handle" d="M${cx + 22} ${cy + 22} ${cx + 48} ${cy + 48}"/></g>`;
   }
-  function lensTopRight(id) {
-    return `<defs><clipPath id="hv-lens-${id}"><circle cx="352" cy="82" r="30"/></clipPath></defs>
-      <g class="hv-lens"><circle class="hv-glass" cx="352" cy="82" r="30"/>
-        <g clip-path="url(#hv-lens-${id})"><g class="ms-ink hv-big" transform="translate(-112 -120) scale(1.5)">${lines(259, 124, 54, 9, 7.2)}</g></g>
-        <circle class="hv-rim" cx="352" cy="82" r="30"/><circle class="hv-rim hv-rim-2" cx="352" cy="82" r="34"/>
-        <path class="hv-handle" d="M374 104 400 130"/></g>`;
+  function tagUnderScroll() {
+    const [dx, dy] = SHIFT;
+    return `<g class="hv-tag"><path class="hv-thread" d="M${198 + dx} ${190 + dy}Q150 214 132 226"/>
+      <g transform="rotate(-8 112 232)"><path class="mh-sheet mh-sheet-front" d="M92 220h52v26h-52l-8-13Z"/><circle class="ms-roll-end" cx="96" cy="233" r="2.4"/>
+      <path class="hv-label" d="M104 228h30M104 234h22M104 240h26"/></g></g>`;
   }
   function scatteredShifted(id) {
     // C's threads start at the main fragment's edge; move those ends with it.
-    return scattered(id).replace(/M300 200Q|M290 222Q|M266 236Q/g, (m) => m.replace(/\d+/, (n) => String(Number(n) + SHIFT)));
+    const [dx, dy] = SHIFT;
+    return scattered(id).replace(/M(300) (200)Q|M(290) (222)Q|M(266) (236)Q/g, (m) => {
+      const [x, y] = m.slice(1, -1).split(" ").map(Number);
+      return `M${x + dx} ${y + dy}Q`;
+    });
   }
 
   const VARIANTS = [
-    ["E", "Merged", "C's scattered fragments, the lens at the top right, the main fragment moved a little left, and books in the space under the scroll.", (id) => [shelf(), `${scatteredShifted(id)}${lensTopRight(id)}`, SHIFT]],
+    ["E", "Merged", "C's scattered fragments, the main fragment a little left and lower, a lens resting on the leaf that enlarges it, and the museum tag under the scroll.", (id) => ["", `${scatteredShifted(id)}${tagUnderScroll()}${lensOnLeaf(id)}`, SHIFT]],
     ["A", "The library behind", "Bound books, closed, stacked and leaning behind the leaf: the codex as it ended up, on shelves.", (id) => [library(), ""]],
     ["B", "Jar and pen", "A lidded storage jar like those the scrolls were found in, and a reed pen at its inkwell: where the text was kept, and how it was copied.", (id) => [jar(), ""]],
     ["C", "Scattered witnesses", "Three smaller scraps lying apart, each tied back to the fragment by a dotted thread: pieces of one book, waiting to be reunited.", (id) => ["", scattered(id)]],
