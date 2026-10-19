@@ -42,6 +42,10 @@
       label.setAttribute("x", (CX + r * Math.cos(a)).toFixed(1));
       label.setAttribute("y", (CY + r * Math.sin(a) - 3).toFixed(1));
     }
+    // The middle circle out to the third groove (r 34), its words scaled with it.
+    svg.querySelector('circle[r="19"]')?.setAttribute("r", "34");
+    const [word, maker] = [...svg.querySelectorAll("text")].filter((el) => !el.classList.contains("tick-label"));
+    if (word && maker) { word.setAttribute("font-size", "11"); word.setAttribute("y", String(CY - 3)); maker.setAttribute("font-size", "9.5"); maker.setAttribute("y", String(CY + 13)); }
     const arm = svg.querySelector(".arm");
     arm.querySelector("path").setAttribute("d", `M${CX} ${CY - 20} V${CY - ARM}`);
     arm.querySelector("circle").setAttribute("cy", String(CY - ARM));
@@ -59,11 +63,11 @@
     if (!svg || !title || !eyebrow || !read) return;
     const box = art.getBoundingClientRect(), t = title.getBoundingClientRect(), e = eyebrow.getBoundingClientRect(), r = read.getBoundingClientRect();
     const zone = { left: box.left, right: r.left - CLEAR, top: e.bottom + CLEAR, bottom: t.top - CLEAR };
-    // 10% larger than the zone's fit (owner, 2026-10-18), still centred in it.
-    const size = Math.max(0, Math.min(zone.right - zone.left, zone.bottom - zone.top)) * 1.1;
+    // 20% larger than the zone's fit (owner, 2026-10-18), resting on the title line and growing upward.
+    const size = Math.max(0, Math.min(zone.right - zone.left, zone.bottom - zone.top)) * 1.2;
     svg.style.width = svg.style.height = `${size}px`;
     svg.style.left = `${(zone.left + zone.right) / 2 - size / 2 - box.left}px`;
-    svg.style.top = `${(zone.top + zone.bottom) / 2 - size / 2 - box.top}px`;
+    svg.style.top = `${t.top - size - box.top}px`;
   }
 
 
