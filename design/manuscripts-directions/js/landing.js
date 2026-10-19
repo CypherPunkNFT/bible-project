@@ -42,7 +42,36 @@
     }
     return out.join("");
   }
-  // The drawing. Shapes describe formats only; no manuscript's text or damage is reproduced.
+  const fibres = (x, y, w, h, step = 6) => `${Array.from({ length: Math.ceil(h / step) }, (_, i) => `<path d="M${x} ${y + i * step}h${w}"/>`).join("")}${Array.from({ length: Math.ceil(w / (step + 2)) }, (_, i) => `<path d="M${x + i * (step + 2)} ${y}v${h}"/>`).join("")}`;
+  const leafBody = () => `<path class="mh-sheet mh-sheet-front" d="M176 104 Q250 96 326 106 L322 286 Q248 276 172 284Z"/>
+        <path class="ms-fold" d="M249 104 V280"/>
+        <g class="ms-ink">${lines(186, 124, 54, 21, 7.2)}${lines(259, 124, 54, 21, 7.2)}</g>`;
+  // Three smaller scraps lying apart, each tied back to the fragment by a dotted thread: pieces of one book.
+  function scraps() {
+    const scrap = (n, d, x, y, w, h, rows) => `<g class="hv-scrap hv-scrap-${n}"><defs><clipPath id="hv-s${n}"><path d="${d}"/></clipPath></defs>
+      <path class="ms-papyrus" d="${d}"/><g clip-path="url(#hv-s${n})"><g class="ms-fibres">${fibres(x, y, w, h)}</g><g class="ms-ink ms-ink-gold">${lines(x + 6, y + 9, w - 14, rows, 7, { dash: "5 1.5 2.5 1.5" })}</g></g></g>`;
+    return `<path class="hv-thread" d="M276 214Q340 214 352 246M266 236Q306 274 312 298M242 250Q262 290 250 312"/>
+      ${scrap(1, "M346 236l22-6 18 9-3 15 9 14-10 15-20 2-9-11-10-3 2-19Z", 336, 226, 56, 60, 6)}
+      ${scrap(2, "M302 292l20-4 9 9-4 14-15 4-11-8Z", 298, 286, 34, 30, 3)}
+      ${scrap(3, "M240 306l15-3 6 7-3 10-12 2-7-7Z", 236, 300, 26, 22, 2)}`;
+  }
+  // A museum tag under the scroll, tied to the fragment's left edge.
+  const tag = () => `<g class="hv-tag"><path class="hv-thread" d="M174 204Q150 214 132 226"/>
+      <g transform="rotate(-8 112 232)"><path class="mh-sheet mh-sheet-front" d="M92 220h52v26h-52l-8-13Z"/><circle class="ms-roll-end" cx="96" cy="233" r="2.4"/>
+      <path class="hv-label" d="M104 228h30M104 234h22M104 240h26"/></g></g>`;
+  // A lens resting on the leaf's right-hand column, showing the leaf beneath it enlarged.
+  function lens() {
+    const [cx, cy, r] = [312, 150, 30];
+    return `<defs><clipPath id="hv-lens"><circle cx="${cx}" cy="${cy}" r="${r}"/></clipPath></defs>
+      <g><circle class="hv-glass" cx="${cx}" cy="${cy}" r="${r}"/>
+        <g clip-path="url(#hv-lens)"><g transform="translate(${cx} ${cy}) scale(1.7) translate(${-cx} ${-cy})"><g transform="rotate(7 250 190)">${leafBody()}</g></g></g>
+        <circle class="hv-glare" cx="${cx}" cy="${cy}" r="${r}"/>
+        <circle class="hv-rim" cx="${cx}" cy="${cy}" r="${r}"/><circle class="hv-rim hv-rim-2" cx="${cx}" cy="${cy}" r="${r + 4}"/>
+        <path class="hv-handle" d="M${cx + 22} ${cy + 22} ${cx + 48} ${cy + 48}"/></g>`;
+  }
+  // The drawing (the owner's chosen variant E, 2026-10-18): scroll, codex leaf and a papyrus fragment set a little left and
+  // lower, three smaller scraps threaded back to it, a museum tag, and a lens on the leaf. Shapes describe formats only;
+  // no manuscript's text or damage is reproduced.
   function art() {
     const frag = "M214 128 L262 116 290 134 284 158 302 181 289 222 258 236 236 218 212 226 198 190 210 170Z";
     return `<figure class="ms-hero-art" aria-hidden="true"><svg viewBox="0 0 420 330">
@@ -60,11 +89,12 @@
         <path class="ms-fold" d="M249 104 V280"/>
         <g class="ms-ink">${lines(186, 124, 54, 21, 7.2)}${lines(259, 124, 54, 21, 7.2)}</g>
       </g></g>
-      <g class="ms-fragment">
+      <g transform="translate(-24 14)"><g class="ms-fragment">
         <path class="ms-papyrus" d="${frag}"/>
         <g clip-path="url(#ms-frag)"><g class="ms-fibres">${Array.from({ length: 14 }, (_, i) => `<path d="M190 ${116 + i * 9}h120"/>`).join("")}${Array.from({ length: 10 }, (_, i) => `<path d="M${200 + i * 10} 110v130"/>`).join("")}</g>
           <g class="ms-ink ms-ink-gold">${lines(212, 140, 72, 12, 7.5, { dash: "5 1.5 2.5 1.5" })}</g></g>
-      </g>
+      </g></g>
+      ${scraps()}${tag()}${lens()}
       <path class="ms-mark" d="M28 52h10m-5-5v10M384 286h10m-5-5v10M372 40h8m-4-4v8"/>
     </svg>
     <span class="ms-art-top">Three forms, one text</span>

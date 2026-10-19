@@ -154,7 +154,18 @@ body { overflow-x: clip; }
 @keyframes ms-orbit { to { stroke-dashoffset: -400; } }
 @keyframes ms-drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-4px, 3px); } }
 @keyframes ms-lift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(5px, -6px); } }
-@media (prefers-reduced-motion: reduce) { .ms-orbit, .ms-scroll, .ms-leaf, .ms-fragment { animation: none; } }
+/* The opening drawing's additions (variant E): scraps threaded to the fragment, the museum tag and the lens on the leaf. */
+.hv-thread { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 1.5 4; opacity: .7; animation: hv-thread 6s linear infinite; }
+.hv-glass { fill: var(--surface); stroke: none; }
+.hv-glare { fill: color-mix(in srgb, var(--ink) 4%, transparent); stroke: none; }
+.hv-rim { stroke: color-mix(in srgb, var(--ink) 60%, transparent); stroke-width: 1.4; }
+.hv-rim-2 { stroke-width: .7; opacity: .4; }
+.hv-handle { stroke: color-mix(in srgb, var(--ink) 60%, transparent); stroke-width: 5; }
+.hv-label { stroke: color-mix(in srgb, var(--ink) 55%, transparent); stroke-width: 1.2; }
+.hv-scrap-1 { animation: ms-lift 15s ease-in-out -2s infinite; } .hv-scrap-2 { animation: ms-lift 12s ease-in-out -7s infinite; } .hv-scrap-3 { animation: ms-lift 17s ease-in-out -11s infinite; }
+.hv-tag { animation: ms-drift 11s ease-in-out -3s infinite; }
+@keyframes hv-thread { to { stroke-dashoffset: -22; } }
+@media (prefers-reduced-motion: reduce) { .ms-orbit, .ms-scroll, .ms-leaf, .ms-fragment, .hv-thread, .hv-scrap-1, .hv-scrap-2, .hv-scrap-3, .hv-tag { animation: none; } }
 .ms-art-top { position: absolute; top: 0; left: 8%; font-size: .58rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
 .ms-art-note { position: absolute; left: 4%; bottom: 4%; font: 500 1.02rem/1.35 var(--serif); color: var(--ink); text-align: left; }
 .ms-art-note i { display: block; width: 2.6rem; height: 1px; margin-bottom: .6rem; background: var(--muted); }
