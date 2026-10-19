@@ -16,6 +16,7 @@ const TestimoniesPage = lazy(() => import("@/pages/TestimoniesPage"));
 const AtlasPage = lazy(() => import("@/pages/AtlasPage"));
 const AtlasRedirect = lazy(() => import("@/pages/places/AtlasRedirect"));
 const SearchPage = lazy(() => import("@/pages/SearchPage"));
+const ContactPage = lazy(() => import("@/pages/ContactPage"));
 const MeaningSearchPage = lazy(() => import("@/pages/MeaningSearchPage"));
 const TopicsPage = lazy(() => import("@/pages/TopicsPage"));
 const TeachersPage = lazy(() => import("@/pages/TeachersPage"));
@@ -105,6 +106,7 @@ export default function App() {
               <Route path="/testimonies/design" element={<Navigate to="/testimonies" replace />} />
               <Route path="/atlas" element={<StudyRedirect />} />
               <Route path="/search" element={<SearchPage />} />
+              <Route path="/contact" element={<ContactPage />} />
               <Route path="/search/meaning" element={<MeaningSearchPage />} />
               <Route path="/topics/*" element={<TopicsPage />} />
               <Route path="/teachers/*" element={<TeachersPage />} />

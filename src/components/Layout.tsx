@@ -1,4 +1,4 @@
-import { BookOpen, Church, GitBranch, GraduationCap, HandHeart, Moon, Search, ShieldCheck, Sun, UsersRound } from "lucide-react";
+import { BookOpen, Church, GitBranch, GraduationCap, HandHeart, Mail, Moon, Search, ShieldCheck, Sun, UsersRound } from "lucide-react";
 import { useEffect, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { SectionStrip } from "@/components/SectionStrip";
@@ -77,6 +77,19 @@ export function Layout({ children }: { children: ReactNode }) {
               <span className="sr-only md:hidden">{COMMUNITY.label}</span>
             </NavLink>
           </nav>
+          <NavLink
+            to="/contact"
+            aria-label="Contact"
+            title="Contact"
+            className={({ isActive }) =>
+              cn(
+                "grid h-[34px] w-[34px] shrink-0 place-items-center rounded-full border transition-colors focus:outline-none",
+                isActive ? "border-ink bg-ink text-page" : "border-line text-muted hover:bg-surface-2 hover:text-ink",
+              )
+            }
+          >
+            <Mail className="h-4 w-4" aria-hidden />
+          </NavLink>
           <NavLink
             to="/search"
             aria-label="Search"

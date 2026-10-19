@@ -1,5 +1,6 @@
 import { ChevronDown, ChevronLeft, ChevronRight, Columns2, Type } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { shortBookName } from "@/lib/book-short-names";
 import { useCatalog } from "@/lib/catalog";
 import { sectionColor } from "@/lib/sections";
 import type { BookInfo, Translation } from "@/lib/types";
@@ -118,7 +119,8 @@ export function ReaderToolbar(props: Props) {
           >
             <span className="h-3 w-3 shrink-0 rounded-full" style={{ background: sectionColor(book.section) }} aria-hidden />
             <span className="truncate font-serif text-lg font-semibold tracking-tight sm:text-2xl">
-              {book.name} <span className="text-muted">{chapter}</span>
+              <span className="sm:hidden">{shortBookName(book.code, book.name)}</span>
+              <span className="hidden sm:inline">{book.name}</span> <span className="text-muted">{chapter}</span>
             </span>
             <ChevronDown className="hidden h-4 w-4 shrink-0 text-muted transition group-hover:text-ink sm:block" aria-hidden />
           </button>
