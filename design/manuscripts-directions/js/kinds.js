@@ -48,15 +48,17 @@
       const pages = Math.max(1, Math.ceil(found.length / PAGE));
       page = Math.min(page, pages - 1);
       const label = kind ? KIND[kind].label.toLowerCase() : "records";
-      $(".ct-count").innerHTML = found.length
-        ? `<strong>${formatNumber(found.length)}</strong> ${esc(query ? "matching" : label)} · ${page * PAGE + 1}–${Math.min(found.length, (page + 1) * PAGE)}`
-        : "No matches";
+      // The whole catalogue reads just "N records"; a kind or a search adds an × that returns to the whole catalogue.
+      const narrowed = Boolean(kind || query);
+      $(".ct-count").innerHTML = `<strong>${formatNumber(found.length)}</strong> ${esc(query ? "matching" : label)}${narrowed
+        ? `<button type="button" class="ct-clear" data-clear aria-label="Show every record">${icon("x", 13)}</button>` : ""}`;
+      $(".ct-count").classList.toggle("is-narrowed", narrowed);
       // The page splits into two side-by-side tables, the first half on the left.
       const shown = found.slice(page * PAGE, (page + 1) * PAGE), half = Math.ceil(shown.length / 2);
       $('[data-col="0"]').innerHTML = shown.slice(0, half).map(item).join("");
       $('[data-col="1"]').innerHTML = shown.slice(half).map(item).join("");
       section.querySelectorAll(".ct-col")[1].hidden = shown.length <= half;
-      $(".ct-page").innerHTML = `Page <b>${formatNumber(page + 1)}</b> of ${formatNumber(pages)}`;
+      $(".ct-page").innerHTML = `<span>Page</span><b>${formatNumber(page + 1)}</b><span>of</span><b>${formatNumber(pages)}</b>`;
       $("[data-prev]").disabled = !page; $("[data-next]").disabled = page >= pages - 1;
       for (const b of section.querySelectorAll("[data-kind]")) b.setAttribute("aria-pressed", String(b.dataset.kind === kind));
       section.classList.toggle("ct-filtered", Boolean(kind));
@@ -67,6 +69,7 @@
       if (c) { kind = kind === c.dataset.kind ? "" : c.dataset.kind; page = 0; render(); return; }
       const s = e.target.closest("[data-sort]");
       if (s) { sort = s.dataset.sort; section.querySelectorAll("[data-sort]").forEach((b) => b.setAttribute("aria-checked", String(b === s))); render(); return; }
+      if (e.target.closest("[data-clear]")) { kind = ""; query = ""; $("input").value = ""; page = 0; render(); return; }
       if (e.target.closest("[data-prev]")) { page--; render(); }
       if (e.target.closest("[data-next]")) { page++; render(); }
     });
