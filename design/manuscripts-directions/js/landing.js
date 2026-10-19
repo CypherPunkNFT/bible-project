@@ -1,49 +1,78 @@
-// The face of the Manuscripts page: breadcrumb, the big plain-type title with one italic accent, a short lede and four
-// quiet figures, all counted from data.js. Direction B adds a strip of dated copies per century beneath it.
+// The face of the Manuscripts page: breadcrumb, the big plain-type title with one italic accent and a short lede beside
+// a line drawing of the three forms the text survives in (scroll, codex leaf, papyrus fragment), in the manner of the
+// Surviving witnesses study but its own. Directions B and D add the strip of dated copies per century; every direction
+// then closes with one end-to-end row of figures, as on the Hymns page. All figures are counted from data.js.
 (() => {
   const { mid } = MSX;
   const C = MS.counts;
   const R = MS.records;
 
   const fig = (label, value, note) => `<div><dt>${label}</dt><dd>${value}</dd><small>${note}</small></div>`;
-  function figuresA() {
-    return [
-      fig("Records", formatNumber(C.records), "from open catalogues"),
-      fig("Greek New Testament", formatNumber(C.gaTotal), `of about ${formatNumber(C.liste.total)} known`),
-      fig("Papyri", `${formatNumber(C.ga.papyrus)}`, `of about ${C.liste.papyrus} known`),
-      fig("Judaean Desert scrolls", formatNumber(C.byKind.dss), `${formatNumber(C.dssBiblical)} with a book of the Bible`),
-    ];
-  }
-  function figuresB() {
+  function figures() {
     const dated = R.filter((r) => "e" in r);
     const oldest = dated.reduce((a, b) => (b.e < a.e ? b : a));
     const lanes = new Set(R.flatMap((r) => r.L));
     const early = dated.filter((r) => ["papyrus", "majuscule"].includes(r.k) && mid(r) < 400).length;
+    const cities = new Set(MS.holders.map((h) => h.city)).size;
+    const pictured = R.filter((r) => r.im).length;
     return [
-      fig("Dated", formatNumber(C.dated), `of ${formatNumber(C.records)} records`),
+      fig("Records", formatNumber(C.records), "from open catalogues"),
+      fig("Dated", formatNumber(C.dated), `${Math.round((C.dated / C.records) * 100)}% of the records`),
       fig("Oldest dated", esc(oldest.d.replace(" century", " c.")), esc(oldest.n)),
-      fig("Traditions", `${lanes.size} <small>of ${KINDS.length}</small>`, KINDS.length > lanes.size ? `${KINDS.filter((k) => !lanes.has(k.key)).map((k) => k.label).join(", ")} has no record yet` : "every one has records"),
-      fig("Before AD 400", formatNumber(early), "Greek New Testament copies"),
-    ];
-  }
-  function figuresC() {
-    const withBooks = R.filter((r) => r.b?.length);
-    const covered = new Set(withBooks.flatMap((r) => r.b)).size;
-    return [
-      fig("Books held", `${covered} <small>of 66</small>`, "in at least one record"),
-      fig("Records with contents", formatNumber(withBooks.length), "read from the catalogues' words"),
-      fig("Places", formatNumber(C.holders), "libraries, monasteries, museums"),
-      fig("Records placed", formatNumber(C.placed), `of ${formatNumber(C.withHolder)} that name a holder`),
+      fig("Traditions", `${lanes.size}`, "languages and families of copies"),
+      fig("Greek New Testament", formatNumber(C.gaTotal), `of about ${formatNumber(C.liste.total)} known · ${formatNumber(early)} before AD 400`),
+      fig("Libraries", formatNumber(C.holders), `in ${cities} cities, Dublin to Sinai`),
+      fig("Pictured", `${formatNumber(pictured)} <span class="ms-star" aria-hidden="true">★</span>`, "with an openly licensed picture"),
     ];
   }
   const TEXT = {
-    a: ["a cabinet of witnesses", "The Bible reaches us through copies made by hand: scrolls, bound books and scraps of papyrus, now kept in libraries from Dublin to Sinai. Open any one to see its date, its contents and where it is today.", figuresA],
-    b: ["across the centuries", "Every dated copy on one line of time, tradition by tradition, from the oldest Hebrew fragment to the last Gospels copied by hand. Then, book by book, how close the surviving copies come to the writing.", figuresB],
-    d: ["across the centuries", "The Bible reaches us through copies made by hand: scrolls, bound books and scraps of papyrus. Open the great witnesses case by case, follow every dated copy through time, choose a book to see the copies that hold it, and find where they are kept today.", figuresB],
-    c: ["book by book", "Choose a book of the Bible to see the surviving copies that hold it, oldest first, then follow the manuscripts to the libraries and monasteries that keep them today.", figuresC],
+    a: ["a cabinet of witnesses", "The Bible reaches us through copies made by hand: scrolls, bound books and scraps of papyrus, now kept in libraries from Dublin to Sinai. Open any one to see its date, its contents and where it is today."],
+    b: ["across the centuries", "Every dated copy on one line of time, tradition by tradition, from the oldest Hebrew fragment to the last Gospels copied by hand. Then, book by book, how close the surviving copies come to the writing."],
+    d: ["across the centuries", "The Bible reaches us through copies made by hand: scrolls, bound books and scraps of papyrus. Open the great witnesses case by case, follow every dated copy through time, choose a book to see the copies that hold it, and find where they are kept today."],
+    c: ["book by book", "Choose a book of the Bible to see the surviving copies that hold it, oldest first, then follow the manuscripts to the libraries and monasteries that keep them today."],
   };
 
-  // B only: how many dated copies survive from each century, as a quiet strip; pointing at a century names it below.
+  // Rows of writing as short strokes, slightly ragged, inside a column.
+  function lines(x, y, width, rows, gap, opts = {}) {
+    const out = [];
+    for (let r = 0; r < rows; r++) {
+      const w = width - ((r * 7 + x) % 11) - (r === rows - 1 ? width * 0.4 : 0);
+      const x0 = opts.right ? x + width - w : x;
+      out.push(`<path d="M${x0.toFixed(1)} ${(y + r * gap).toFixed(1)}h${w.toFixed(1)}" stroke-dasharray="${opts.dash ?? "6 2 3 1.5"}" opacity="${(0.34 + (r % 4) * 0.12).toFixed(2)}"/>`);
+    }
+    return out.join("");
+  }
+  // The drawing. Shapes describe formats only; no manuscript's text or damage is reproduced.
+  function art() {
+    const frag = "M214 128 L262 116 290 134 284 158 302 181 289 222 258 236 236 218 212 226 198 190 210 170Z";
+    return `<figure class="ms-hero-art" aria-hidden="true"><svg viewBox="0 0 420 330">
+      <defs><clipPath id="ms-frag"><path d="${frag}"/></clipPath></defs>
+      <ellipse class="ms-orbit" cx="214" cy="170" rx="196" ry="128"/>
+      <ellipse class="ms-orbit ms-orbit-2" cx="214" cy="170" rx="160" ry="150" transform="rotate(-18 214 170)"/>
+      <g class="ms-scroll"><g transform="rotate(-9 150 120)">
+        <path class="mh-sheet" d="M62 64 H244 V176 H62Z"/>
+        <path class="ms-roll" d="M48 60 h14 v120 h-14 a7 4 0 0 1 0 -8 v-104 a7 4 0 0 1 0 -8Z M244 60 h14 a7 4 0 0 1 0 8 v104 a7 4 0 0 1 0 8 h-14Z"/>
+        <ellipse class="ms-roll-end" cx="55" cy="60" rx="7" ry="3.5"/><ellipse class="ms-roll-end" cx="251" cy="60" rx="7" ry="3.5"/>
+        <g class="ms-ink">${lines(74, 80, 46, 13, 7, { right: true, dash: "4 1.5 7 1.5" })}${lines(130, 80, 46, 13, 7, { right: true, dash: "4 1.5 7 1.5" })}${lines(186, 80, 46, 13, 7, { right: true, dash: "4 1.5 7 1.5" })}</g>
+      </g></g>
+      <g class="ms-leaf"><g transform="rotate(7 250 190)">
+        <path class="mh-sheet mh-sheet-front" d="M176 104 Q250 96 326 106 L322 286 Q248 276 172 284Z"/>
+        <path class="ms-fold" d="M249 104 V280"/>
+        <g class="ms-ink">${lines(186, 124, 54, 21, 7.2)}${lines(259, 124, 54, 21, 7.2)}</g>
+      </g></g>
+      <g class="ms-fragment">
+        <path class="ms-papyrus" d="${frag}"/>
+        <g clip-path="url(#ms-frag)"><g class="ms-fibres">${Array.from({ length: 14 }, (_, i) => `<path d="M190 ${116 + i * 9}h120"/>`).join("")}${Array.from({ length: 10 }, (_, i) => `<path d="M${200 + i * 10} 110v130"/>`).join("")}</g>
+          <g class="ms-ink ms-ink-gold">${lines(212, 140, 72, 12, 7.5, { dash: "5 1.5 2.5 1.5" })}</g></g>
+      </g>
+      <path class="ms-mark" d="M28 52h10m-5-5v10M384 286h10m-5-5v10M372 40h8m-4-4v8"/>
+    </svg>
+    <span class="ms-art-top">Three forms, one text</span>
+    <span class="ms-art-note"><i></i>Scroll. Codex. Fragment.<br><span>Copied by hand.</span></span>
+    <small>Illustrative forms · not manuscript facsimiles</small></figure>`;
+  }
+
+  // B and D: how many dated copies survive from each century, as a quiet strip; pointing at a century names it below.
   function centuries() {
     const buckets = new Map();
     for (const r of R) if ("e" in r) { const c = Math.floor((mid(r) - 1) / 100); buckets.set(c, (buckets.get(c) ?? 0) + 1); }
@@ -58,17 +87,19 @@
   }
 
   function mount(section, { d }) {
-    const [accent, lede, figures] = TEXT[d];
+    const [accent, lede] = TEXT[d];
+    const strip = d === "b" || d === "d";
     section.innerHTML = `
-      <div class="hc-intro">
+      <div class="hc-intro ms-intro">
         <div>
           <p class="hc-crumb"><a href="/study">Study</a><span>/</span><a href="/study">The Bible: formation &amp; transmission</a><span>/</span>Manuscripts</p>
           <h1>Manuscripts<em>${accent}</em></h1>
           <p class="hc-lede">${lede}</p>
         </div>
-        <dl class="hc-figures">${figures().join("")}</dl>
-      </div>${d === "b" || d === "d" ? centuries() : ""}`;
-    if (d === "b" || d === "d") {
+        ${art()}
+      </div>${strip ? centuries() : ""}
+      <dl class="ms-figures">${figures().join("")}</dl>`;
+    if (strip) {
       const say = section.querySelector(".cs-say"), base = say.textContent;
       const show = (bar) => { say.innerHTML = bar ? `<b>${esc(bar.dataset.c)}</b> · ${plural(Number(bar.dataset.n), "dated copy", "dated copies")}` : base; };
       section.querySelector(".cs-bars").addEventListener("pointerover", (e) => show(e.target.closest(".cs-bar")));

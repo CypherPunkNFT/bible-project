@@ -236,3 +236,12 @@
 /* The open lane's fitted axis: a faint band and two slashes where empty years were cut out. */
 .ln-gap { fill: color-mix(in srgb, var(--ink) 3%, transparent); }
 .ln-break { stroke: var(--muted); stroke-width: 1.2; fill: none; }
+
+/* A star on a book, chapter or copy with an openly licensed picture. */
+.bk-star { margin-left: .25em; color: var(--accent); font-size: .72em; font-weight: 400; vertical-align: .2em; }
+.bk-ch button .bk-star { position: absolute; top: 1px; right: 2px; margin: 0; font-size: .5rem; vertical-align: 0; }
+.bk-ch button { position: relative; }
+.bk-key-star { margin-right: 1rem; }
+.bk-tile small { display: flex; justify-content: space-between; gap: .3rem; }
+.bk-pic { color: var(--accent); font-weight: 600; white-space: nowrap; }
+:root[data-theme="light"] .bk-pic { color: color-mix(in srgb, var(--accent) 75%, var(--ink)); }
