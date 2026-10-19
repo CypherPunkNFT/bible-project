@@ -1,0 +1,18 @@
+/* Direction D · Merger: A's sections keep A's spacing; B's prologue and chapters run edge to edge as in B. */
+.pm-d .t-sec + .t-sec { margin-top: 3.4rem; }
+.pm-d .bp, .pm-d .bc, .pm-d .bp + .bc { margin-top: 0 !important; }
+.pm-d .bp { padding-block: 3.4rem 1.4rem; }
+.pm-d .bc { position: relative; isolation: isolate; min-height: min(calc(100svh - 64px), 800px); display: flex; flex-direction: column; justify-content: center; padding-block: 4rem 7.4rem; border-top: 1px solid var(--line); overflow: hidden; }
+.pm-d .bc + .t-sec:not(.bc) { margin-top: 0; padding-top: 3.6rem; border-top: 1px solid var(--line); }
+@media (max-width: 960px) { .pm-d .bc { min-height: 0; padding-block: 3.4rem 6.4rem; } }
+
+/* The broken edge: the switch above C's torn edge, the real P46 leaf beside it */
+.d-edge { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 15rem); gap: 2rem 3rem; align-items: start; }
+.d-edge-main > h3 { font: 500 1.35rem/1.25 var(--serif); margin: .3rem 0 .4rem; }
+.d-edge-switch { margin: 1.1rem 0 .4rem; padding: .45rem .9rem .45rem .6rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); }
+.d-edge-art { max-width: 560px; }
+.d-edge .ch-tag-sup { animation: none; opacity: .35; transition: opacity .6s; }
+.d-edge.is-restored .ch-tag-sup { opacity: 1; }
+.d-edge .a-photo { margin-top: 2.4rem; }
+@media (max-width: 960px) { .d-edge { grid-template-columns: 1fr; } .d-edge .a-photo { max-width: 15rem; margin-top: 0; } }
+@media (max-width: 560px) { .d-edge-art { padding-bottom: .4rem; } }

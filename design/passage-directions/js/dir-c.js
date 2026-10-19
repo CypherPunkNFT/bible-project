@@ -111,5 +111,5 @@ window.Directions = window.Directions || {};
     run("closing", () => { add("c-close").innerHTML = closing("06"); });
     pickSec.after(copySec); copySec.after(readSec);
   }
-  window.Directions.c = { mount };
+  window.Directions.c = { mount, parts: { KINDS } };
 })();

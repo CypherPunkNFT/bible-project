@@ -89,12 +89,15 @@ window.Directions = window.Directions || {};
     fill("galatians");
   }
 
-  function edge(sec, num) {
+  // The only open picture of P46: another leaf of the same codex, opening its record.
+  function p46Photo() {
     const r = byId.get("Q1513469"), im = MS.images[r.im];
+    return `<figure class="a-photo"><button type="button" data-open="${r.i}" aria-label="Open the record for Papyrus 46"><img src="${imgSrc(r.im)}" width="${im.w}" height="${im.h}" alt="Papyrus 46, folio 142 recto: 2 Corinthians 11:33–12:9"></button>
+          <figcaption><b>The same codex, another leaf.</b> P46 folio 142r, 2 Corinthians 11:33–12:9, University of Michigan. ${esc(im.lic)} · <a href="${esc(im.page)}" target="_blank" rel="noopener">Wikimedia Commons</a>. No open picture of its Galatians page is held here.</figcaption></figure>`;
+  }
+  function edge(sec, num) {
     sec.innerHTML = `${sectionHead(num, "At the broken edge", PM.EDGE.title, esc(PM.EDGE.lead))}
-      <div class="a-edge"><div class="a-edge-main"></div>
-        <figure class="a-photo"><button type="button" data-open="${r.i}" aria-label="Open the record for Papyrus 46"><img src="${imgSrc(r.im)}" width="${im.w}" height="${im.h}" alt="Papyrus 46, folio 142 recto: 2 Corinthians 11:33–12:9"></button>
-          <figcaption><b>The same codex, another leaf.</b> P46 folio 142r, 2 Corinthians 11:33–12:9, University of Michigan. ${esc(im.lic)} · <a href="${esc(im.page)}" target="_blank" rel="noopener">Wikimedia Commons</a>. No open picture of its Galatians page is held here.</figcaption></figure></div>`;
+      <div class="a-edge"><div class="a-edge-main"></div>${p46Photo()}</div>`;
     Evidence.edge(sec.querySelector(".a-edge-main"));
   }
 
@@ -144,5 +147,5 @@ window.Directions = window.Directions || {};
       try { fn(sec, id === "a-landing" ? "" : String(++n).padStart(2, "0")); } catch (error) { console.error(`Direction A: section ${id} failed`, error); sec.innerHTML = `<p class="t-failed">This section could not be drawn.</p>`; }
     }
   }
-  window.Directions.a = { mount };
+  window.Directions.a = { mount, parts: { landing, editions, cabinet, p46Photo } };
 })();

@@ -167,8 +167,8 @@ window.Directions = window.Directions || {};
   }
 
   // Side dots with a pill that slides to the chapter in view.
-  function rail(wrap) {
-    const stops = [["b-landing", "Opening"], ["b-prologue", "Prologue"], ["b-gal", "I · Galatians"], ["b-rom", "II · Romans"], ["b-mark", "III · Mark"], ["b-eds", "IV · The editions"], ["b-close", "Sources"]];
+  const STOPS = [["b-landing", "Opening"], ["b-prologue", "Prologue"], ["b-gal", "I · Galatians"], ["b-rom", "II · Romans"], ["b-mark", "III · Mark"], ["b-eds", "IV · The editions"], ["b-close", "Sources"]];
+  function rail(wrap, stops = STOPS) {
     const nav = document.createElement("nav");
     nav.className = "mg-rail b-rail"; nav.setAttribute("aria-label", "Chapters");
     nav.innerHTML = `<i class="mg-rail-pill" aria-hidden="true"></i>${stops.map(([id, label]) => `<a href="#${id}"><i></i><span>${esc(label)}</span></a>`).join("")}`;
@@ -182,5 +182,5 @@ window.Directions = window.Directions || {};
     stops.forEach(([id]) => { const el = document.getElementById(id); if (el) io.observe(el); });
     set(0);
   }
-  window.Directions.b = { mount };
+  window.Directions.b = { mount, parts: { prologue, chapter, deskScene, reasonScene, keyList, rail } };
 })();

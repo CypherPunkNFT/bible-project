@@ -1,8 +1,8 @@
-// "A passage through the manuscripts": three directions, chosen with ?d=a|b|c. The site frame with Study active, then
+// "A passage through the manuscripts": four directions, chosen with ?d=a|b|c|d (D merges the other three). The site frame with Study active, then
 // the direction's own page; the small switch at the foot moves between them. One failing direction logs its error and
 // says so on the page.
 (() => {
-  const DIRECTIONS = { a: ["A", "The desk"], b: ["B", "Cinema"], c: ["C", "Through the witnesses"] };
+  const DIRECTIONS = { a: ["A", "The desk"], b: ["B", "Cinema"], c: ["C", "Through the witnesses"], d: ["D", "Merger"] };
   const params = new URLSearchParams(location.search);
   const d = DIRECTIONS[params.get("d")] ? params.get("d") : "a";
   document.title = `A passage through the manuscripts · ${DIRECTIONS[d][1]} · Bible Project`;
