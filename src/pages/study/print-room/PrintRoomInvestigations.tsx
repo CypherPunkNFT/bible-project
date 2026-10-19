@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { usePrintState } from './usePrintState';
 import { ArrowRight } from 'lucide-react';
-import { Cites, SectionHeading } from './PrintRoomShared';
+import { Cites, Pills, SectionHeading } from './PrintRoomShared';
 
 export function CopyHistory() {
   return <aside className="pr-copy-history">
@@ -15,7 +15,7 @@ export function ErasmusEvidence() {
   const [year,setYear]=usePrintState("revision-year",1516);
   const [reply,setReply]=usePrintState("reply",false);
   return <section id="revision" className="pr-revision">
-    <SectionHeading n="02" title="The same project. A different decision." text="The page above is one state of a continuing editorial undertaking. Compare the editions, then examine the argument behind the change."/>
+    <SectionHeading n="02" kicker="Watch a revision" title={<>The same project. <em>A different decision.</em></>} text="The page above is one state of a continuing editorial undertaking. Compare the editions, then examine the argument behind the change."/>
     <div className="pr-revision-grid pr-revision-close">
       <div className="pr-revision-proof"><p className="pr-kicker">Compare the Greek editions</p><div className="pr-year-switch" role="group" aria-label="Compare Erasmus editions">{[1516,1519,1522].map(y=><button key={y} aria-pressed={y===year} onClick={()=>setYear(y)}>{y}</button>)}</div><div className="pr-variant" role="status"><span>1 John 5:7–8 · abbreviated content guide</span><h3>{year===1522?'The Comma is included.':'The Comma is absent.'}</h3><div className={`pr-witness-line ${year===1522?'pr-witness-added':''}`}><span>Heavenly witnesses</span><strong>{year===1522?'Father · Word · Holy Spirit':'Not present in this Greek edition'}</strong></div><div className="pr-witness-line"><span>Witnesses in the shorter text</span><strong>Spirit · water · blood</strong></div><p>The additional clause is called the <em>Comma Johanneum</em>. This comparison isolates its presence; it does not display every difference between the editions.</p><small>1516 page inspected above. The 1519 and 1522 states are checked through de Jonge’s research.</small></div><Cites ids={['dejonge']}/></div>
       <div className="pr-revision-argument"><span className="pr-evidence-label">The argument behind the change</span><h3>Did Erasmus make a promise?</h3><p>A familiar account says he promised to insert the clause if a Greek copy could be found. H. J. de Jonge revisited the supposed evidence in 1980. Inspect the wording he quotes from Erasmus’s reply to Edward Lee.</p><blockquote className="pr-latin-reply"><p lang="la">Si mihi contigisset unum exemplar</p><p>“If a single copy had come into my hands…”</p><cite>May 1520 reply · quoted in de Jonge, p. 385<br/>Study rendering of the opening words</cite></blockquote><button className="pr-reveal" aria-expanded={reply} aria-controls="pr-reply-analysis" onClick={()=>setReply(!reply)}>{reply?'Close the grammatical reading':'Read the condition carefully'}<ArrowRight size={15} aria-hidden="true"/></button><div id="pr-reply-analysis" hidden={!reply} className="pr-reply-analysis"><strong>A past condition, not a future pledge.</strong><p>The continuation says what Erasmus would have done. De Jonge reads it as a defense of his earlier editions. That weakens the promise story; it does not reveal every motive behind the 1522 decision.</p></div><p>Confessional pressure made this more than a question of wording. The clause had been used in arguments about the Trinity. McDonald’s later monograph places the controversy in that wider social history.</p><Cites ids={['dejonge','mcdonald']}/><p className="pr-note">The reply is accessed through de Jonge, not the original printing. McDonald’s description and contents were consulted; the full book remains deeper reading.</p></div>
@@ -36,25 +36,50 @@ const policies=[
   {name:'Keep witnesses in context',edition:'A synoptic proposal',top:'Witness A  |  Witness B  |  Witness C',below:'Aligned passages, differences and interpretation',why:'Gert Prinsloo argues that short apparatus entries can detach readings from their contexts. His alternative puts fuller witness texts alongside one another.',cost:'Context takes space and still needs editorial choices. This is a methodological proposal, not a claim that every witness is equally early or valuable.',ids:['prinsloo']},
 ];
 
+type DeskTab = 'apparatus' | 'aims' | 'research';
+const DESK_TABS = [['apparatus', 'The apparatus'], ['aims', 'Main-text aims'], ['research', 'Research continues']] as const;
+const DESK_INTRO: Record<DeskTab, string> = {
+  apparatus: 'A critical apparatus is a compact record of textual evidence. It can change even when the reading text above it does not. That makes the foot of a page a place of argument.',
+  aims: 'Every edition decides what its main text should represent. Choose the aim, and watch what belongs above and below the rule.',
+  research: 'Editions are dated results of research that has not stopped: the Jewish commentary page, and the Greek New Testament’s changing methods.',
+};
+
 export function CriticalDesk() {
-  const [updated,setUpdated]=usePrintState("apparatus",false);
-  const [policy,setPolicy]=usePrintState("policy",0);
-  const p=policies[policy];
+  const [tab,setTab]=usePrintState<DeskTab>('desk-tab','apparatus');
   return <section id="critical-desk" className="pr-critical-desk">
-    <SectionHeading n="07" title="What changes beneath the line?" text="A critical apparatus is a compact record of textual evidence. It can change even when the reading text above it does not. That makes the foot of a page a place of argument."/>
-    <div className="pr-apparatus-desk">
+    <SectionHeading n="06" kicker="Look beneath the line" title={<>What changes <em>beneath the line?</em></>} text={DESK_INTRO[tab]}
+      aside={<Pills label="Apparatus, main-text aims or research" options={DESK_TABS} value={tab} onChange={setTab}/>}/>
+    {tab==='apparatus' && <Apparatus/>}
+    {tab==='aims' && <Aims/>}
+    {tab==='research' && <Research/>}
+  </section>;
+}
+
+function Apparatus() {
+  const [updated,setUpdated]=usePrintState("apparatus",false);
+  return <div className="pr-apparatus-desk">
       <div className="pr-apparatus-page"><div className="pr-apparatus-header"><span>Habakkuk 3:1 · selected phrase</span><strong>{updated?'BHQ / Gelston, 2010':'BHS / Elliger, 1970'}</strong></div><p lang="he" dir="rtl" className="pr-hebrew-proof">לַחֲבַקּוּק <mark>הַנָּבִיא</mark></p><p className="pr-literal">of Habakkuk <span>the prophet</span></p><div className="pr-under-line" aria-live="polite"><span className="pr-kicker">At the foot of the page</span>{updated?<><h3>A difference is now recorded.</h3><p>The Barberini Greek version omits “the prophet”. The Hebrew phrase remains in the main text.</p></>:<><h3>No note at this phrase.</h3><p>The absence of an entry tells us what this apparatus reports. It cannot establish that every witness agrees.</p></>}</div><button className="pr-reveal" aria-pressed={updated} onClick={()=>setUpdated(!updated)}>{updated?'Return to the BHS comparison':'Compare the BHQ apparatus'}<ArrowRight size={15} aria-hidden="true"/></button><small>Normalized teaching excerpt and paraphrased apparatus comparison, following Prinsloo (2022). Not a facsimile or full apparatus.</small></div>
       <div className="pr-apparatus-argument"><p className="pr-kicker">Follow the reasoning</p><h3>The largest type is only one layer of evidence.</h3><p>The modern <em>Biblia Hebraica</em> series changed its base: Kittel’s first two editions used Ben Hayyim’s printed tradition; the third turned to the Leningrad Codex under Paul Kahle’s influence. BHS and BHQ continue with that manuscript as their reference text.</p><Cites ids={['bh-history']}/><p>Keeping the reference text stable makes other readings easier to locate. It also asks something of the reader: separate <strong>what the base manuscript has</strong> from <strong>what the editor considers earlier</strong>.</p><p>The Habakkuk example, reported by Prinsloo, shows a change in the reporting of evidence. It does not demonstrate a newly discovered manuscript or a newly changed Hebrew sentence.</p><Cites ids={['prinsloo','bhq']}/><Link className="pr-object-link" to="/read/kjv/HAB/3?v=1">Read Habakkuk 3 in context →</Link></div>
-    </div>
-    <div className="pr-policy-heading"><p className="pr-kicker">An editorial decision with consequences</p><h3>What should the main text represent?</h3><p>Choose the aim. Watch what belongs above and below the rule.</p></div>
+    </div>;
+}
+
+function Aims() {
+  const [policy,setPolicy]=usePrintState("policy",0);
+  const p=policies[policy];
+  return <>
     <div className="pr-policy-controls" role="group" aria-label="Choose an editorial aim">{policies.map((item,i)=><button key={item.name} aria-pressed={policy===i} aria-controls="pr-policy-result" onClick={()=>setPolicy(i)}><span>0{i+1}</span>{item.name}</button>)}</div>
     <div id="pr-policy-result" className="pr-policy-result" aria-live="polite"><div className="pr-policy-sheet"><span>{p.edition}</span><strong>{p.top}</strong><div>{p.below}</div><small>Conceptual diagram · no biblical reading invented</small></div><div><h4>What this makes possible</h4><p>{p.why}</p><h4>What the reader must watch</h4><p>{p.cost}</p><Cites ids={p.ids}/></div></div>
+  </>;
+}
+
+function Research() {
+  return <>
     <div className="pr-open-scholarship">
       <article><p className="pr-kicker">The Jewish commentary page continues</p><h3>Editing the words around the words</h3><p>Menachem Cohen’s <em>Mikra’ot Gedolot HaKeter</em> returns to manuscripts for the biblical text, Masorah, targum and medieval commentaries. Based on the Aleppo tradition, it continues the many-layered Jewish reading page in print and digital form. The commentaries themselves also have textual histories.</p><Cites ids={['haketer','hobbins']}/></article>
       <article><p className="pr-kicker">Greek New Testament · changing methods</p><h3>From edition comparison to witness research</h3><p>John Mill’s 1707 Testament gathered variants after decades of work: evidence could accumulate beneath an inherited printed text. Later, the editions of Tischendorf and Westcott–Hort became two of the inputs to Eberhard Nestle’s 1898 comparison.</p><Cites ids={['mill','nestle']}/><p>Nestle selected the reading shared by two of three scholarly editions. Erwin Nestle expanded the apparatus in 1927; Kurt Aland’s work brought systematic manuscript checking. This was a changing method, not perpetual reproduction of one original setting.</p><Cites ids={['nestle']}/><p>NA28 incorporated ECM decisions in James–Jude. CBGM helps assess relationships among witness texts, while editors still judge how readings developed. Its genealogies do not identify the physical parent of every codex.</p><Cites ids={['na28','cbgm']}/></article>
     </div>
     <div className="pr-continuing"><strong>An edition is a dated research result.</strong><p>BHQ remains a fascicle project. The publisher’s NA29 notice describes further ECM-based work for Mark, Acts and Revelation as <em>in preparation</em>. Status checked 14 October 2026; no release date inferred.</p><Cites ids={['bhq','na29']}/></div>
-  </section>;
+  </>;
 }
 
 export function PolyglotContext() {

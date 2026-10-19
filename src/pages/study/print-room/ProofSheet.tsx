@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowDown, ArrowUpRight, RotateCcw, X } from 'lucide-react';
 import dossier from '../../../../content/academic-research/05-from-manuscript-to-printed-bible.json';
-import { Cites } from './PrintRoomShared';
+import { Cites, SectionHeading } from './PrintRoomShared';
 import { usePrintState } from './usePrintState';
 
 const views = [
@@ -18,7 +18,7 @@ export function ProofSheet() {
   const trigger=useRef<HTMLButtonElement>(null);
   const close=()=>{setOpen(false);trigger.current?.focus({preventScroll:true});if((trigger.current?.getBoundingClientRect().top ?? 100)<76)trigger.current?.scrollIntoView({block:'center'});};
   return <section className="pr-proof" id="proof-sheet" aria-labelledby="proof-title" onKeyDown={e=>{if(e.key==='Escape'&&open){e.stopPropagation();close();}}}>
-    <header className="pr-proof-heading"><div><p className="pr-kicker">01 / A book contains several kinds of work</p><h2 id="proof-title">One page. <em>Three different jobs.</em></h2></div><p>Basel · 1516<br/>Erasmus / Johann Froben</p></header>
+    <SectionHeading n="01" kicker="Inspect a page" id="proof-title" title={<>One page. <em>Three different jobs.</em></>} text="A book contains several kinds of work. Choose a layer of this sheet, printed at Basel in 1516 for Erasmus by Johann Froben, and see whose job it was."/>
     <div className="pr-proof-workbench">
       <div className="pr-proof-roles" role="group" aria-label="Inspect the original page"><p className="pr-kicker">Select a layer to examine</p>{views.slice(1).map((v,i)=><button key={v.label} aria-label={`${v.task}: ${v.label}`} aria-pressed={selected===i+1} aria-controls="pr-proof-reading" onClick={()=>setSelected(i+1)}><b>0{i+1}</b><span>{v.task}<small>{v.location}</small></span><ArrowUpRight size={15}/></button>)}<div className="pr-proof-distinction"><span aria-hidden="true">¶</span><h3>Two columns are not two independent ancient witnesses.</h3><p>Both belong to Erasmus’s editorial undertaking.</p></div></div>
       <figure className="pr-proof-object"><div className="pr-object-heading"><span>UBH BibG B 3</span><span>Printed p. 183</span></div><div className="pr-image-window"><img src="/assets/print-room/erasmus-1516-1john.jpg" width="1400" height="1950" alt="Erasmus’s 1516 page: Greek left, Latin right, chapter V in the margin, q3 and a catchword at the foot." style={{transform:`translate(${50-view.x}%,${50-view.y}%) scale(${view.scale})`,transformOrigin:`${view.x}% ${view.y}%`}}/></div><figcaption>Actual printed page · UB Basel / e-rara<br/><a href="https://doi.org/10.3931/e-rara-2849" target="_blank" rel="noreferrer">Public Domain Mark · collection record ↗<span className="sr-only"> (opens in a new tab)</span></a></figcaption><button className="pr-proof-reset" aria-pressed={selected===0} onClick={()=>{setSelected(0);setOpen(false);}}><RotateCcw size={14}/> Whole page / reset</button></figure>

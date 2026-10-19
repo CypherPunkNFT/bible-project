@@ -1,0 +1,203 @@
+/* The 2026-10 overhaul of "From manuscript to printed Bible": the Manuscripts page's opening, a timeline of every
+   edition, flush-left chapter heads, pill switches, and far fewer boxes. Loaded after print-room.css and proof-sheet.css,
+   and wins over them by naming .pr-study first. */
+
+/* The site's content width, edge to edge with the header. */
+.pr-study { max-width: var(--site-content-width); padding: 0 var(--site-gutter) 64px; overflow-x: clip; }
+body:has(.pr-study) { overflow-x: clip; }
+.pr-study :is(.pr-tl-item, .pr-pills button) { background: none; border: 0; padding: 0; color: inherit; font: inherit; text-align: left; }
+.pr-study :is(h1, h2, h3, p, dl, dd, ol) { margin: 0; }
+
+/* ── Opening ─────────────────────────────────────────────── */
+.pr-study .pr-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 27rem); gap: 1.5rem 3rem; align-items: end; padding-block: 2.6rem 1.6rem; }
+.pr-study .pr-crumb { display: flex; flex-wrap: wrap; gap: .5rem; font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.pr-study .pr-crumb span { color: var(--muted); font-weight: 400; }
+.pr-study .pr-crumb a:hover { color: var(--ink); }
+.pr-study .pr-intro h1 { margin-block: .9rem 1rem; font: 500 clamp(2.6rem, 5.6vw, 4.6rem)/1.02 var(--font-serif); letter-spacing: -.045em; }
+.pr-study .pr-intro h1 em { display: block; margin-top: .3rem; color: var(--pr-red); font-weight: 400; font-size: .6em; letter-spacing: -.03em; }
+.pr-study .pr-lede { max-width: 58ch; color: var(--muted); font-size: .96rem; line-height: 1.8; }
+
+.pr-study .pr-figures { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); margin-top: 1.6rem; border-block: 1px solid var(--line); }
+.pr-study .pr-figures > div { min-width: 0; padding: .9rem 1rem; border-left: 1px solid var(--line); }
+.pr-study .pr-figures > div:first-child { padding-left: 0; border-left: 0; }
+.pr-study .pr-figures dt { font-size: .58rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.pr-study .pr-figures dd { margin-top: .3rem; font: 500 1.5rem/1.15 var(--font-serif); letter-spacing: -.02em; white-space: nowrap; }
+.pr-study .pr-figures small { display: block; margin-top: .2rem; font-size: .7rem; line-height: 1.4; color: var(--muted); }
+
+/* ── Opening drawing (PrintHeroArt): gold is the hand, vermilion the press ── */
+.pr-study .ph-art { position: relative; margin: 0; color: var(--muted); }
+.pr-study .ph-art svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-linecap: round; }
+.pr-study .ph-orbit { stroke-width: 1; opacity: .22; stroke-dasharray: 2 6; animation: ph-orbit 60s linear infinite; }
+.pr-study .ph-orbit-2 { opacity: .14; animation-duration: 90s; animation-direction: reverse; }
+.pr-study .ph-vellum { fill: color-mix(in srgb, var(--accent) 9%, var(--surface)); stroke: color-mix(in srgb, var(--ink) 55%, transparent); stroke-width: 1.1; }
+.pr-study .ph-ink-hand path { stroke: color-mix(in srgb, var(--ink) 70%, transparent); stroke-width: 1.4; }
+.pr-study .ph-initial-gold { fill: var(--accent); stroke: none; opacity: .85; }
+.pr-study .ph-vane { fill: color-mix(in srgb, var(--accent) 22%, var(--page)); stroke: var(--accent); stroke-width: 1.1; }
+.pr-study .ph-shaft { stroke: var(--accent); stroke-width: 1.4; }
+.pr-study .ph-paper { fill: var(--surface); stroke: color-mix(in srgb, var(--ink) 55%, transparent); stroke-width: 1.1; }
+.pr-study .ph-paper-back { fill: color-mix(in srgb, var(--ink) 6%, var(--page)); stroke-opacity: .5; }
+.pr-study .ph-head { stroke: var(--ink); stroke-width: 2; opacity: .7; }
+.pr-study .ph-ink-press path { stroke: var(--ink); stroke-width: 1.5; }
+.pr-study .ph-ink-press { animation: ph-ink 7s ease-in-out infinite; }
+.pr-study .ph-initial-red { fill: var(--pr-red); stroke: none; }
+.pr-study .ph-sig { stroke: var(--pr-red); stroke-width: 1.4; }
+.pr-study .ph-frame { stroke: color-mix(in srgb, var(--ink) 50%, transparent); stroke-width: 1.4; }
+.pr-study .ph-screw, .pr-study .ph-bar { stroke: color-mix(in srgb, var(--ink) 60%, transparent); stroke-width: 1.3; }
+.pr-study .ph-bar { stroke-width: 3; }
+.pr-study .ph-plate { fill: color-mix(in srgb, var(--pr-red) 18%, var(--page)); stroke: var(--pr-red); stroke-width: 1.2; }
+.pr-study .ph-platen { animation: ph-press 7s ease-in-out infinite; }
+.pr-study .ph-thread { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 1.5 4; opacity: .7; animation: ph-thread 6s linear infinite; }
+.pr-study .ph-stick { fill: color-mix(in srgb, var(--ink) 8%, var(--page)); stroke: color-mix(in srgb, var(--ink) 55%, transparent); stroke-width: 1.1; }
+.pr-study .ph-sort rect { fill: var(--surface); stroke: color-mix(in srgb, var(--ink) 50%, transparent); stroke-width: 1; }
+.pr-study .ph-sort { animation: ph-sort 7s ease-in-out infinite; }
+.pr-study .ph-letter { fill: var(--ink); stroke: none; font: 600 20px var(--font-serif); text-anchor: middle; }
+.pr-study .ph-letter-red { fill: var(--pr-red); }
+.pr-study .ph-leaf { animation: ph-drift 19s ease-in-out -6s infinite reverse; }
+.pr-study .ph-quill { transform-origin: 120px 106px; animation: ph-write 4.5s ease-in-out infinite; }
+.pr-study .ph-sheets { animation: ph-drift 16s ease-in-out infinite; }
+.pr-study .ph-mark { opacity: .5; }
+.pr-study .ph-art-top { position: absolute; top: 0; left: 8%; font-size: .58rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.pr-study .ph-art-note { position: absolute; left: 2%; bottom: 2%; font: 500 .9rem/1.35 var(--font-serif); color: var(--ink); }
+.pr-study .ph-art-note i { display: block; width: 2.6rem; height: 1px; margin-bottom: .6rem; background: var(--muted); }
+.pr-study .ph-art-note span { color: var(--muted); }
+@keyframes ph-orbit { to { stroke-dashoffset: -400; } }
+@keyframes ph-drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-4px, 3px); } }
+@keyframes ph-thread { to { stroke-dashoffset: -22; } }
+@keyframes ph-write { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-2.5deg) translate(-2px, 1px); } 55% { transform: rotate(1.5deg); } }
+/* The platen comes down onto the sheet, holds, and lifts; the ink darkens as it presses. */
+@keyframes ph-press { 0%, 22%, 78%, 100% { transform: translateY(0); } 40%, 58% { transform: translateY(16px); } }
+@keyframes ph-ink { 0%, 30%, 100% { opacity: .55; } 45%, 70% { opacity: 1; } }
+@keyframes ph-sort { 0%, 70%, 100% { transform: translateY(0); } 80% { transform: translateY(-3px); } 88% { transform: translateY(0); } }
+
+/* ── Timeline ────────────────────────────────────────────── */
+.pr-study .pr-timeline { margin-top: 2.8rem; }
+.pr-study .pr-tl-head h2 { margin-top: .5rem; font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.2; letter-spacing: -.03em; }
+.pr-study .pr-tl-head h2 em { color: var(--pr-red); }
+.pr-study .pr-tl-head > p:last-child { margin-top: .5rem; font-size: .88rem; color: var(--muted); }
+.pr-study .pr-tl-scroll { margin-top: 1.3rem; overflow-x: auto; scrollbar-width: thin; }
+.pr-study .pr-tl-chart { position: relative; min-width: 1000px; padding-bottom: .4rem; }
+.pr-study .pr-tl-grid { position: absolute; inset: 1.4rem 0 0; pointer-events: none; }
+.pr-study .pr-tl-grid > i { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); opacity: .7; }
+.pr-study .pr-tl-narrowed { position: absolute; top: 0; bottom: 0; background: repeating-linear-gradient(135deg, transparent 0 6px, color-mix(in srgb, var(--ink) 5%, transparent) 6px 7px); }
+.pr-study .pr-tl-narrowed span { position: absolute; bottom: .2rem; left: 50%; transform: translateX(-50%); font-size: .56rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+.pr-study .pr-tl-axis { position: relative; height: 1.4rem; border-bottom: 1px solid var(--line); }
+.pr-study .pr-tl-axis span { position: absolute; top: 0; transform: translateX(-50%); font: .64rem 'JetBrains Mono Variable', monospace; color: var(--muted); }
+.pr-study .pr-tl-axis span:first-child { transform: none; }
+.pr-study .pr-tl-lane { position: relative; padding-top: .9rem; }
+.pr-study .pr-tl-lane + .pr-tl-lane { border-top: 1px dashed color-mix(in srgb, var(--line) 70%, transparent); }
+.pr-study .pr-tl-lane-label { position: sticky; left: 0; display: inline-block; padding-right: .6rem; background: var(--page); font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.pr-study .pr-tl-track { position: relative; margin-top: .45rem; }
+.pr-study .pr-tl-item { position: absolute; display: block; height: 30px; cursor: pointer; }
+.pr-study .pr-tl-mark { display: block; width: 9px; height: 9px; border-radius: 50%; background: var(--tone); transition: transform .2s; }
+.pr-study .pr-tl-mark[style*="width"] { height: 7px; margin-top: 1px; border-radius: 4px; }
+.pr-study .pr-tl-item[data-loose] .pr-tl-mark { background: repeating-linear-gradient(90deg, var(--tone) 0 5px, transparent 5px 9px); opacity: .7; }
+.pr-study .pr-tl-item[data-open] .pr-tl-mark { background: linear-gradient(90deg, var(--tone) 65%, transparent); }
+.pr-study .pr-tl-item[data-before] .pr-tl-mark { visibility: hidden; }
+.pr-study .pr-tl-item > span { display: block; margin-top: 4px; font-size: .74rem; white-space: nowrap; color: var(--muted); transition: color .18s; }
+.pr-study .pr-tl-item[data-before] > span { margin-top: -9px; font-style: italic; }
+.pr-study .pr-tl-item:hover > span, .pr-study .pr-tl-item:focus-visible > span { color: var(--ink); }
+.pr-study .pr-tl-item[data-active] > span { color: var(--tone); font-weight: 600; }
+.pr-study .pr-tl-item[data-active] .pr-tl-mark { transform: scaleY(1.45); }
+.pr-study .pr-tl-say { min-height: 4.4em; margin-top: .9rem; padding-top: .9rem; border-top: 1px solid var(--line); font-size: .86rem; line-height: 1.7; color: var(--muted); }
+.pr-study .pr-tl-say strong { margin-right: .7rem; font: 500 1.1rem var(--font-serif); color: var(--ink); }
+.pr-study .pr-tl-say strong + span { margin-right: .7rem; font-size: .64rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--pr-red); }
+.pr-study .pr-tl-say em { margin-left: .3rem; font-style: normal; color: var(--pr-red); white-space: nowrap; }
+
+/* ── Six ways in ─────────────────────────────────────────── */
+.pr-study .pr-ways { margin-top: 2.6rem; }
+.pr-study .pr-ways ol { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); margin-top: .8rem; padding: 0; list-style: none; border-block: 1px solid var(--line); }
+.pr-study .pr-ways li + li { border-left: 1px solid var(--line); }
+.pr-study .pr-ways a { display: block; height: 100%; padding: 1rem 1rem 1.1rem; }
+.pr-study .pr-ways li:first-child a { padding-left: 0; }
+.pr-study .pr-ways a > span { display: block; font: 500 1.35rem/1 var(--font-serif); color: var(--pr-red); }
+.pr-study .pr-ways strong { display: block; margin-top: .55rem; font: 500 1.02rem/1.3 var(--font-serif); color: var(--ink); transition: color .18s; }
+.pr-study .pr-ways small { display: block; margin-top: .3rem; font-size: .74rem; line-height: 1.45; color: var(--muted); }
+.pr-study .pr-ways a:hover strong { color: var(--pr-red); }
+
+/* ── Chapters: a rule between them, heads flush left ──────── */
+.pr-study > section:not(.pr-timeline) { margin-top: 3.6rem; padding-top: 2rem; border-top: 1px solid var(--line); scroll-margin-top: 84px; }
+.pr-study .pr-head-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; margin-bottom: 1.8rem; }
+.pr-study .pr-section-heading { display: block; margin: 0; max-width: 64rem; }
+.pr-study .pr-section-heading .pr-kicker { display: flex; align-items: baseline; gap: .6rem; }
+.pr-study .pr-section-heading .pr-index { padding: 0; font: 500 1rem/1 var(--font-serif); letter-spacing: 0; color: var(--pr-red); }
+.pr-study .pr-section-heading h2 { margin-top: .55rem; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.2; letter-spacing: -.03em; }
+.pr-study .pr-section-heading h2 em { color: var(--pr-red); }
+.pr-study .pr-section-heading > p:last-child:not(.pr-kicker) { margin-top: .6rem; max-width: 70ch; font-size: .9rem; color: var(--muted); }
+.pr-study .pr-head-aside { margin-bottom: .2rem; max-width: 100%; }
+
+/* Pill switch, as the Manuscripts page's sort control. */
+.pr-study .pr-pills { display: inline-flex; align-items: center; gap: .15rem; max-width: 100%; padding: 4px; overflow-x: auto; scrollbar-width: none; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.pr-study .pr-pills button { padding: .4rem .85rem; border-radius: 999px; font-size: .76rem; color: var(--muted); white-space: nowrap; transition: color .18s, background .18s; }
+.pr-study .pr-pills button:hover { color: var(--ink); }
+.pr-study .pr-pills button[aria-checked="true"] { background: var(--ink); color: var(--page); }
+
+/* ── Fewer boxes: frames become rules ─────────────────────── */
+.pr-study .pr-proof { border: 0; border-radius: 0; background: none; overflow: visible; }
+.pr-study .pr-proof-workbench { border-block: 1px solid var(--line); }
+.pr-study .pr-proof-roles { padding-left: 0; }
+.pr-study .pr-proof-object { border-inline-color: var(--line); background: color-mix(in srgb, var(--ink) 3%, transparent); }
+.pr-study .pr-proof-reading { padding-right: 0; }
+.pr-study .pr-proof-trail { border-top: 0; border-bottom: 1px solid var(--line); background: none; padding-inline: 0; }
+.pr-study .pr-revision-proof, .pr-study .pr-press-exercise, .pr-study .pr-apparatus-page { padding: 0; border: 0; background: none; }
+.pr-study .pr-press-exercise { padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.pr-study .pr-type-case { border: 0; border-bottom: 1px solid var(--line); padding: 0 0 1rem; }
+.pr-study .pr-architecture-guide { border-bottom-color: var(--line); }
+.pr-study .pr-edition-select { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.2rem; margin-bottom: 1.4rem; padding: 0; border: 0; background: none; }
+.pr-study .pr-inspection-panel { border: 0; border-block: 1px solid var(--line); }
+.pr-study .pr-specimen { background: color-mix(in srgb, var(--ink) 3%, transparent); border-right-color: var(--line); }
+.pr-study .pr-inspection-copy { padding-right: 0; }
+.pr-study .pr-network-top { display: flex; flex-direction: column; align-items: flex-start; gap: .9rem; }
+.pr-study .pr-network-intro { margin: 0; max-width: 70ch; }
+.pr-study .pr-graph button { border-color: var(--line); }
+.pr-study .pr-graph button[aria-pressed=true] { box-shadow: none; border-color: var(--pr-blue); background: color-mix(in srgb, var(--pr-blue) 10%, var(--page)); }
+.pr-study .pr-edge-record { background: none; padding-inline: 0; border-color: var(--line); }
+.pr-study .pr-translation-workbench { background: none; border-color: var(--line); }
+.pr-study .pr-translation-selector { padding-left: 0; border-right-color: var(--line); }
+.pr-study .pr-translation-record { padding-right: 0; }
+.pr-study .pr-policy-controls { border: 0; border-block: 1px solid var(--line); margin-top: 0; }
+.pr-study .pr-policy-result { border: 0; padding-inline: 0; min-height: 0; }
+.pr-study .pr-policy-controls + .pr-policy-result { border-bottom: 1px solid var(--line); }
+.pr-study .pr-open-scholarship { padding-top: 0; }
+.pr-study .pr-polyglot-context { padding-top: 0; }
+.pr-study .pr-making-grid + .pr-copy-history { margin-top: 2.4rem; }
+
+@media (max-width: 1100px) {
+  .pr-study .pr-figures { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .pr-study .pr-figures > div:nth-child(5) { padding-left: 0; border-left: 0; }
+  .pr-study .pr-figures > div:nth-child(n+5) { border-top: 1px solid var(--line); }
+  .pr-study .pr-ways ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pr-study .pr-ways li:nth-child(4) { border-left: 0; }
+  .pr-study .pr-ways li:nth-child(4) a { padding-left: 0; }
+  .pr-study .pr-ways li:nth-child(n+4) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 860px) {
+  .pr-study .pr-intro { grid-template-columns: 1fr; }
+  .pr-study .ph-art { width: 100%; max-width: 28rem; margin-inline: auto; }
+}
+@media (max-width: 650px) {
+  .pr-study { padding: 0 var(--site-gutter) 40px; }
+  .pr-study > section:not(.pr-timeline) { margin-top: 2.6rem; padding-top: 1.6rem; }
+  .pr-study .pr-proof-object { border-inline: 0; }
+  .pr-study .pr-proof-roles { padding-inline: 0; }
+  .pr-study .pr-proof-reading { padding-inline: 0; }
+  .pr-study .pr-specimen { border-right: 0; }
+  .pr-study .pr-inspection-copy { padding-inline: 0; }
+  .pr-study .pr-translation-selector { border-right: 0; padding-right: 0; }
+  .pr-study .pr-translation-record { padding-left: 0; }
+}
+@media (max-width: 560px) {
+  .pr-study .pr-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pr-study .pr-figures > div { padding-left: 1rem; border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
+  .pr-study .pr-figures > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .pr-study .pr-figures > div:nth-child(-n+2) { border-top: 0; }
+  .pr-study .pr-ways ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pr-study .pr-ways li { border-left: 0 !important; border-top: 1px solid var(--line); }
+  .pr-study .pr-ways li:nth-child(-n+2) { border-top: 0; }
+  .pr-study .pr-ways li:nth-child(even) { border-left: 1px solid var(--line) !important; }
+  .pr-study .pr-ways li a { padding-left: 0; }
+  .pr-study .pr-ways li:nth-child(even) a { padding-left: 1rem; }
+  .pr-study .ph-art-note { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pr-study :is(.ph-orbit, .ph-leaf, .ph-quill, .ph-sheets, .ph-platen, .ph-ink-press, .ph-thread, .ph-sort) { animation: none; }
+}
