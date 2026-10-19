@@ -8,6 +8,7 @@ import { sectionColor } from "@/lib/sections";
 import { useVerseText } from "@/lib/useVerseText";
 import type { MapPlace } from "./projection";
 import { OutsideScroll } from "@/components/OutsideScroll";
+import { OldMapsFold } from "./OldMapsFold";
 
 /** One place: where it is named, as a reference list by book, then the verses themselves. */
 export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClose: () => void; overlay: boolean }) {
@@ -87,6 +88,7 @@ export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClo
       )}
       <p className="mt-4 text-[11px] text-muted">Place data from OpenBible.info's Bible geocoding (CC-BY 4.0).</p>
       </OutsideScroll>
+      <OldMapsFold placeId={place.id} placeName={place.name} />
     </aside>
   );
 }
