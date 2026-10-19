@@ -53,9 +53,9 @@ export function HymnsCardArt() {
     return () => { live = false; observer.disconnect(); };
   }, []);
 
-  // The cycle: the read-out fades out as the arm starts to turn (always clockwise), and the new psalm and its hymn fade in
-  // while the arm finishes, fully shown the moment it lands (owner, 2026-10-18: never changes before the arm moves, and
-  // never sits blank after it arrives).
+  // The cycle: the arm turns (always clockwise); halfway round the read-out fades out, stays blank about 0.1 s, and the new
+  // psalm and its hymn fade in, fully shown just before the arm lands (owner, 2026-10-18: never changes before the arm
+  // moves, never blank after it arrives, blank for 0.1 s).
   useEffect(() => {
     if (reduced()) return;
     let live = true;
@@ -67,8 +67,11 @@ export function HymnsCardArt() {
         i = (i + 1) % PSALTER_STOPS.length;
         const next = PSALTER_STOPS[i];
         angle += ((angleOf(next.psalm) - (angle % 360)) + 360) % 360;
-        setShown(false); setTurned(angle); setArmPsalm(next.psalm);
-        await wait(750);
+        setTurned(angle); setArmPsalm(next.psalm);
+        await wait(450);
+        if (!live) return;
+        setShown(false);
+        await wait(300);
         if (!live) return;
         setStop(next); setShown(true);
       }
