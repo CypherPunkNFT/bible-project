@@ -1,0 +1,45 @@
+/* Phone pass (2026-10-19): fixes found by walking every page type at 390px wide.
+   Page stylesheets load lazily after this file, so every selector starts with :root to outrank them. */
+@media (max-width: 640px) {
+  /* Atlas: the eight-collection switcher becomes one swipeable row instead of a 300px grid. */
+  :root .places-collection-nav { display: flex; gap: .45rem; overflow-x: auto; margin-inline: -1rem; padding: 0 1rem .35rem; scroll-snap-type: x proximity; scroll-padding-inline: 1rem; scrollbar-width: none; }
+  :root .places-collection-nav::-webkit-scrollbar { display: none; }
+  :root .places-collection-nav > a { flex: 0 0 auto; gap: .45rem; padding: .45rem .75rem; scroll-snap-align: start; }
+  :root .places-collection-nav > a[aria-current=page] { order: -1; }
+  :root .places-collection-nav > a > svg:last-child { display: none; }
+  :root .places-collection-nav .places-tile-icon { width: 20px; height: 20px; }
+  :root .places-collection-nav > a > span { font-size: .78rem; white-space: nowrap; }
+  /* Atlas journeys: the title no longer shares its row with the picture (other atlas pages already hide theirs). */
+  :root .history-intro > .pg-hero-art { display: none; }
+
+  /* Creed documents: the four figures sit in a 2 x 2 grid instead of a broken staircase. */
+  :root .creed-figures { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem 0; }
+  :root .creed-figures > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+
+  /* Letters: the group label and its count no longer overlap; the breadcrumb wraps above the section count. */
+  :root .lb-bar > div { grid-template-columns: minmax(0, 1fr); gap: .3rem; }
+  :root .lb-bar small { grid-area: auto; white-space: normal; }
+  :root .lb-topline { flex-wrap: wrap; gap: .35rem .75rem; }
+
+  /* Reader toolbar: room for the whole book name ("Genesis 1", not "Gene…"). */
+  :root button[aria-label$="choose a book and chapter"] { gap: 0; padding-inline: .35rem; }
+  :root button[aria-label$="choose a book and chapter"] > span:first-child { display: none; }
+  :root button[aria-label$="choose a book and chapter"] > span:nth-child(2) { font-size: 1.05rem; }
+
+  /* Study hub: the heading and the finder stack instead of sharing two narrow columns. */
+  :root .study-experience .hub-intro { grid-template-columns: 1fr; }
+  :root .study-experience .finder { max-width: none; }
+  :root .study-experience .section-rule { flex-direction: column; gap: .4rem; }
+
+  /* Teachers: four figures in a 2 x 2 grid, so labels like "Era established" are not cut off. */
+  :root .tp-page .teacher-landing-header .lnd-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: .9rem; }
+  :root .tp-page .teacher-landing-header .lnd-figs dt { white-space: normal; }
+
+  /* Study collections ("In this collection"): shorter cards, so content starts sooner. */
+  /* The bare variant's drawing size and margins (study.css, data-bare) outranked the compact phone rows. */
+  :root body .study-contents .study-content-card { min-height: 0; padding: .7rem 1rem; }
+  :root body .study-contents .study-content-card .study-miniature { height: 40px; margin: 0; }
+
+  /* The transition ticker's closed button shrinks to an icon so it covers less of the page. */
+  :root .transition-ticker-unfold { right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); padding: 8px; font-size: 0; gap: 0; }
+}
