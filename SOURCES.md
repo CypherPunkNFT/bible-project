@@ -1119,3 +1119,30 @@ follows it. The corpus's all-rights-reserved CSNTM file is never read by the moc
 **The scrolls' dates are claims, not one value.** The corpus keeps every claim on the scroll with its source and method;
 the mock-up shows the chosen one and credits its source in the record sheet. 439 of the 955 scroll manuscripts now have
 a date; most are script-period spans rather than measurements, and the record says so.
+
+## Manuscripts page — registered 18 October 2026 (local preview only; nothing published)
+
+The page [/study/manuscripts](src/pages/study/manuscripts/) is built from the open catalogue corpus
+[Research/Manuscripts/](../Research/Manuscripts/) by [scripts/build-manuscripts.py](scripts/build-manuscripts.py) (`bun run manuscripts`),
+with the record rules of the owner-approved mock-up ([design/manuscripts-directions/](design/manuscripts-directions/)), into
+`data/manuscripts/collection.json` (git-ignored) and the 29 pictures under
+[public/images/manuscripts/](public/images/manuscripts/) (committed, with a per-picture
+[manifest.json](public/images/manuscripts/manifest.json): licence, credit, Commons page and the SHA-256 of the original). The
+corpus's all-rights-reserved CSNTM file is never read. The five sources registered in the block above (Wikipedia's Qumran
+lists and radiocarbon table, Popović et al. 2025, the 2026-10-18 Wikidata additions and Syriaca.org) are read the same way.
+Every downloaded file keeps its URL, size and SHA-256 in the corpus ([MANIFEST.md](../Research/Manuscripts/MANIFEST.md)).
+**Nothing here has been deployed.**
+
+| Source | What the page reads | Licence and credit | Bytes | SHA-256 (prefix) |
+|---|---|---|---|---|
+| [Wikidata](https://www.wikidata.org/), via the corpus's `normalized/manuscripts/wikidata.json` | Catalogue records: siglum, date, material, contents as the catalogue words them, holder and shelfmark | **CC0 1.0** | 12,107,557 | `7c4218edfbaa9a83` |
+| [English Wikipedia](https://en.wikipedia.org/), carried in the same file | Dates, materials and contents for the records that have an article; each record links its article by revision | **CC BY-SA 4.0 — credit and share-alike.** Credit: *English Wikipedia contributors*, linked per record | (in the above) | — |
+| [ETCBC Dead Sea Scrolls](https://github.com/ETCBC/dss), via `normalized/manuscripts/etcbc-dss.json` | 954 Judaean Desert manuscripts: siglum, find site, books, fragments and lines | **CC BY-NC 4.0 — non-commercial.** Credit: *transcriptions by Martin G. Abegg, Jr., James E. Bowley and Edward M. Cook; Text-Fabric conversion by Jarod Jacobs, Martijn Naaijer and Dirk Roorda* | 3,585,139 | `63888ac10178bc8e` |
+| [Syriaca.org](https://syriaca.org/), via `normalized/manuscripts/syriaca.json` | 194 Syriac biblical manuscripts | **CC BY 3.0.** Credit as in the block above | 625,118 | `0627cf1c31bd1b46` |
+| The corpus's pinned identities, `tools/wikidata-pinned.json` | The tradition and, for five witnesses, the date of named non-Greek witnesses whose records lack them; each such date is marked "from the note" | The corpus's own research, from Wikidata (CC0) | 20,371 | `4f02b305fa23c2cd` |
+| [Wikimedia Commons](https://commons.wikimedia.org/), via `raw/commons/_harvest.json` and `images/` | 29 pictures, resized to 560 px; 28 public domain, 1 CC BY 4.0 (Codex Argenteus, Magnus Hjalmarsson) | **Per picture**, shown under each picture with its author and Commons page | 25,188 (index) | `c3440f929492e7a8` |
+| [Natural Earth](https://www.naturalearthdata.com/) 1:50m land, via the `world-atlas` 2.0.2 package already in `node_modules` | The land outline of the "Where are they now?" map, cut to the American east coast, Europe and the Near East | **Public domain** ([terms](https://www.naturalearthdata.com/about/terms-of-use/)); credit Natural Earth | 545,534 | `619477ff690c0868` |
+
+**Editorial, and labelled as such on the page:** when each New Testament book was written (wide approximate ranges) and
+the city and coordinates of each holder, both in [scripts/manuscripts/ms_tables.py](scripts/manuscripts/ms_tables.py). The
+coverage percentages compare against the approximate Kurzgefasste Liste totals given in the corpus MANIFEST.

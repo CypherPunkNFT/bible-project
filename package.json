@@ -22,6 +22,7 @@
     "data": "py -3.12 scripts/build-data.py",
     "museums": "py -3.12 scripts/build-museums.py",
     "hymns": "py -3.12 scripts/build-hymn-collection.py",
+    "manuscripts": "py -3.12 scripts/build-manuscripts.py",
     "museums:check": "py -3.12 scripts/build-museums.py --check",
     "test:data": "py -3.12 -m pytest scripts/tests -q",
     "map": "node scripts/build-map.mjs",

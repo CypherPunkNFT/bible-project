@@ -9,6 +9,7 @@ import { parablesPage } from "./study-parables";
 import { guidePages } from "./study-guides";
 import { lettersPage } from "./study-letters";
 import { blocks, link, table } from "./study-lib";
+import { manuscriptsPages } from "./study-manuscripts";
 import { museumPages } from "./study-museums";
 import { peoplePage } from "./study-people";
 import { wording } from "./study-source";
@@ -30,5 +31,5 @@ async function hub(): Promise<PageContent> {
 
 export const extract: Extractor = async () => {
   const [study, charts, gospels, guides, people, letters] = await Promise.all([hub(), chartPages(), gospelsPage(), guidePages(), peoplePage(), lettersPage()]);
-  return [study, gospels, parablesPage(), ...charts, people, ...guides, letters, ...museumPages()];
+  return [study, gospels, parablesPage(), ...charts, people, ...guides, letters, ...museumPages(), ...manuscriptsPages()];
 };

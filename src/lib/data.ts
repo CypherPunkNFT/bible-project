@@ -2,6 +2,7 @@ import type { ArcData, BookPlace, Catalog, Chapter, CrossRefBook, PlainBook, Pla
 import type { CreedBundle, CreedDocument, CreedsIndex } from "./creeds";
 import { HYMN_GROUPS, isHymnId, type HymnCollection, type HymnGroupId, type HymnSong, type HymnText } from "./hymns";
 import { isMuseumSlug, type Museum, type MuseumIndex } from "./museums";
+import type { ManuscriptCollection } from "./manuscripts";
 import type { HymnPageData, HymnPagesIndex, HymnsByChapter } from "./hymn-pages";
 import type { ChapterTopics, LibraryBook, Topic, TopicIndex } from "./topics";
 
@@ -129,6 +130,10 @@ export const loadHymnsByChapter = (code: string) => {
   if (!/^[A-Z0-9]{3}$/.test(code)) throw new DataUnavailable(`hymns/by-book/${code}.json`, "not a book code");
   return load<HymnsByChapter>(`hymns/by-book/${code}.json`, isObject);
 };
+
+// Manuscripts (scripts/build-manuscripts.py): every record, holder and picture credit the page shows, in one file.
+export const loadManuscripts = () =>
+  load<ManuscriptCollection>("manuscripts/collection.json", (v) => isObject(v) && Array.isArray(v.records) && Array.isArray(v.books) && isObject(v.map));
 
 // Museum-Grade Archaeology (scripts/build-museums.py): the museum cards, and one file per museum.
 export const loadMuseumIndex = () =>

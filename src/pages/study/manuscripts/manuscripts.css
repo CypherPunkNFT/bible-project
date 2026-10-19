@@ -1,0 +1,15 @@
+/* The Manuscripts page (/study/manuscripts). Its look is the approved mock-up's own CSS, generated into
+   mockup-manuscripts.css by scripts/build-manuscript-styles.py; only what the mock-up's frame supplied around it, and what
+   the site's base styles change, is added here. */
+@import "./mockup-manuscripts.css";
+
+/* The mock-up's frame named the site's two fonts this way. */
+.ms-root { --sans: var(--font-sans); --serif: var(--font-serif); }
+/* The page runs the site's content width, edge to edge with the header, as the Hymns page does (owner, 2026-10-18). */
+.ms-root .wrap { max-width: var(--site-content-width); padding-inline: var(--site-gutter); }
+/* As the mock-up's page did (body { overflow-x: clip }): nothing makes the page scroll sideways. */
+body:has(.ms-root) { overflow-x: clip; }
+/* The mock-up ran without the site's reset, where an icon sits inline with its text and a list keeps its bullets. */
+.ms-root svg { display: inline; vertical-align: baseline; }
+.ms-root .sr-more ul { list-style: disc; }
+.ms-root .ms-sheet-close svg, .ms-root .ct-arrow svg, .ms-root .ct-clear svg, .ms-root .sc-foot i svg { display: block; }
