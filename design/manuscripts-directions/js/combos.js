@@ -22,7 +22,8 @@
   }
 
   // A pill of views over one stage; each view is mounted when first chosen.
-  function switcher(section, views, label) {
+  // `opts.pillInto` places the pill elsewhere (beside the title); `opts.onShow(key, pane)` runs after a view is shown.
+  function switcher(section, views, label, opts = {}) {
     const pill = document.createElement("div");
     pill.className = "ct-sort ms-switch";
     pill.setAttribute("role", "tablist");
@@ -30,7 +31,7 @@
     pill.innerHTML = views.map(([key, name], i) => `<button type="button" role="tab" data-view="${key}" aria-checked="${i === 0}" aria-selected="${i === 0}">${name}</button>`).join("");
     const stage = document.createElement("div");
     stage.className = "ms-stage";
-    section.append(pill, stage);
+    if (opts.pillInto) { opts.pillInto.append(pill); section.append(stage); } else section.append(pill, stage);
     const panes = new Map();
     function show(key) {
       for (const b of pill.querySelectorAll("[data-view]")) { const on = b.dataset.view === key; b.setAttribute("aria-checked", String(on)); b.setAttribute("aria-selected", String(on)); }
@@ -40,6 +41,7 @@
         catch (error) { console.error(`Manuscripts page: the "${key}" view failed to draw`, error); const el = Object.assign(document.createElement("p"), { className: "t-failed", textContent: "This view could not be drawn." }); stage.append(el); panes.set(key, el); }
       }
       for (const [k, el] of panes) el.hidden = k !== key;
+      opts.onShow?.(key, panes.get(key));
     }
     pill.addEventListener("click", (e) => { const b = e.target.closest("[data-view]"); if (b) show(b.dataset.view); });
     show(views[0][0]);
@@ -88,6 +90,25 @@
       section.innerHTML = head(num, "Book by book", `Choose a book, <em>see its copies</em>`,
         "Which surviving copies hold each book of the Bible, and how close the oldest of them comes to when the book was written.");
       switcher(section, [["hold", "Which copies hold it", (pane) => part("books", pane, { bare: true })], ["close", "How close to the writing", (pane) => part("closeness", pane, { bare: true })]], "Book by book");
+    },
+  };
+
+  // B's first section (owner 2026-10-18): the timeline and the two book views under one title, with the pill to the right
+  // of the title as on Teachers; under the title, the chosen view's own description.
+  Sections.timebook = {
+    mount(section, { num }) {
+      section.innerHTML = `<div class="ms-headrow">${head(num, "Through time · book by book", `Every dated copy, <em>by time and by book</em>`, "")}<div class="ms-headpill"></div></div>
+        <p class="ms-sublead" aria-live="polite"></p>`;
+      const sub = section.querySelector(".ms-sublead");
+      switcher(section, [
+        ["time", "Through time", (pane) => part("lanes", pane, { bare: true })],
+        ["hold", "By book", (pane) => part("books", pane, { bare: true })],
+        ["close", "How close", (pane) => part("closeness", pane, { bare: true })],
+      ], "Through time or book by book", {
+        pillInto: section.querySelector(".ms-headpill"),
+        // The view's own lead moves up under the title, so each view reads as a subparagraph of the one heading.
+        onShow: (key, pane) => { const lead = pane.querySelector(".ms-part-lead"); sub.textContent = lead?.textContent ?? ""; if (lead) lead.hidden = true; },
+      });
     },
   };
 

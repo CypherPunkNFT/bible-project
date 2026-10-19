@@ -263,3 +263,8 @@
 .ms-hthumb { position: absolute; top: 3px; height: 6px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent); cursor: grab; }
 .ms-hbar:hover .ms-hthumb { background: color-mix(in srgb, var(--ink) 45%, transparent); }
 @media (max-width: 640px) { .ms-shelf .cab-case { width: 128px; } .ms-switch { max-width: 100%; } }
+/* One title with the view pill on its right (as on Teachers), and the chosen view's description under it. */
+.ms-headrow { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; }
+.ms-headrow > .ms-head { margin-bottom: 0; }
+.ms-headpill .ms-switch { margin: 0 0 .2rem; }
+.ms-sublead { max-width: 62ch; margin: .6rem 0 1.4rem; font-size: .9rem; line-height: 1.65; color: var(--muted); }

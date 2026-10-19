@@ -6,7 +6,7 @@
   // A is the owner's merge (the former D); B, C and D are three ways to consolidate it (owner 2026-10-18).
   const DIRECTIONS = {
     a: { letter: "A", name: "Merged", sections: ["landing", "cabinet", "lanes", "books", "closeness", "places", "kinds", "onward", "basis"] },
-    b: { letter: "B", name: "Consolidated", sections: ["landing", "lanes", "bookpill", "places", "collection", "onward", "basis"] },
+    b: { letter: "B", name: "Consolidated", sections: ["landing", "timebook", "places", "collection", "onward", "basis"] },
     c: { letter: "C", name: "Witnesses up front", sections: ["landing", "shelf", "places", "lanes", "bookpill", "kinds", "onward", "basis"] },
     d: { letter: "D", name: "One explorer", sections: ["landing", "explore", "onward", "basis"] },
   };
