@@ -237,11 +237,6 @@
 .study-creeds-shelf span { flex: 1 1 0; min-width: 4px; border-radius: 2px 2px 0 0; opacity: .72; transition: opacity .18s ease-out; }
 .study-resource-link:is(:hover, :focus-visible) .study-creeds-shelf span { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .study-creeds-shelf span { transition: none; } }
-.study-hymns-resource .study-card-number { display: none; }
-.study-hymns-art { display: flex; align-items: flex-end; }
-.study-hymns-tiles { display: grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap: 4px; width: 100%; padding: 0 .25rem 1.6rem; border-bottom: 1px solid var(--line); }
-.study-hymns-tiles span { aspect-ratio: 1 / 1.22; border-radius: 3px; background: var(--poetry); transition: filter .18s ease-out; }
-.study-resource-link:is(:hover, :focus-visible) .study-hymns-tiles span { filter: saturate(1.25); }
 
 .study-memory-art { color:var(--epistles); }
 .study-memory-art svg { width:100%; max-width:600px; height:170px; }
@@ -257,3 +252,19 @@
 .theology-cards-people .study-resource-link:is(:hover,:focus-visible)::after { opacity:1; }
 .study-memory-resource .study-resource-link:is(:hover,:focus-visible) .study-memory-glass { filter:drop-shadow(0 3px 9px color-mix(in srgb,var(--resource-color) 45%,transparent)); }
 @media(prefers-reduced-motion:reduce){.study-memory-glass{animation:none}.theology-cards-people .study-resource-link::after{transition:none}}
+/* Living the Christian Life (owner-approved mock-up design/hymns-card-directions-2, 2026-10-18): both cards' descriptions
+   smaller (two lines), the freed line given to the pictures, so the cards keep their size; the Hymns card's turning Psalter. */
+.theology-cards-life .study-art { height: 240px; }
+.theology-cards-life .study-card-copy > p { font-size: .76rem; line-height: 1.65; max-width: none; }
+.study-hymns-resource .study-art.study-hymns-art { overflow: visible; color: var(--resource-color); }
+.study-hymns-disc { position: absolute; z-index: 1; display: block; overflow: visible; }
+.study-hymns-disc line { transition: opacity .5s, stroke-width .5s; } .study-hymns-disc line.on { stroke-width: 3.2; }
+.study-hymns-arm { transform-origin: 110px 103px; transition: transform 1.1s cubic-bezier(.45, 0, .2, 1); }
+.study-hymns-read { position: absolute; width: 13rem; transition: opacity .45s; } .study-hymns-read.swap { opacity: 0; }
+.study-hymns-read small { display: block; font-size: .56rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.study-hymns-read .num { display: flex; align-items: baseline; gap: 10px; margin: 2px 0 6px; }
+.study-hymns-read .num b { font: 400 54px/1 var(--font-serif); letter-spacing: -.04em; color: var(--resource-color); }
+.study-hymns-read .num span { color: var(--muted); font-size: 12px; }
+.study-hymns-read q { display: block; font: italic 400 18px/1.35 var(--font-serif); color: var(--ink); quotes: "C" "D"; }
+.study-hymns-read p { margin: 6px 0 0; color: var(--muted); font-size: 11px; }
+@media (prefers-reduced-motion: reduce) { .study-hymns-arm, .study-hymns-read, .study-hymns-disc line { transition: none; } }
