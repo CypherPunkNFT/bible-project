@@ -35,13 +35,8 @@
       tick.setAttribute("x2", (x1 + (x2 - x1) * TICK_CAP / len).toFixed(1));
       tick.setAttribute("y2", (y1 + (y2 - y1) * TICK_CAP / len).toFixed(1));
     }
-    // The "119" mark follows its shortened tick, just inside the arm's reach.
-    const label = [...svg.querySelectorAll(".tick-label")].find((el) => el.textContent === "119");
-    if (label) {
-      const a = ((119 - 0.5) * 2.4 - 90) * Math.PI / 180, r = INNER + TICK_CAP + 12;
-      label.setAttribute("x", (CX + r * Math.cos(a)).toFixed(1));
-      label.setAttribute("y", (CY + r * Math.sin(a) - 3).toFixed(1));
-    }
+    // No "1" or "119" marks (owner, 2026-10-18): the read-out names each psalm as the arm reaches it.
+    svg.querySelectorAll(".tick-label").forEach((el) => el.remove());
     // The middle circle out to the third groove (r 34), its words scaled with it.
     svg.querySelector('circle[r="19"]')?.setAttribute("r", "34");
     const [word, maker] = [...svg.querySelectorAll("text")].filter((el) => !el.classList.contains("tick-label"));
@@ -56,18 +51,27 @@
   // Where the disc sits (owner, 2026-10-18): in the clear zone of the picture, below the eyebrow, above the "Hymns" title and
   // left of the read-out, as large as that zone allows and centred in it. The svg's box holds the arm's whole sweep (its
   // half-width is ARM + 4, the arm's dot reaching ARM + 2.6), so at no angle can the arm or a tick cross the title.
-  const CLEAR = 14;
+  const CLEAR = 14, SHIFT_LEFT = 24, SHIFT_DOWN = 24;
   function placeDisc(card) {
     const art = card.querySelector(".study-art"), svg = art.querySelector(".psalter svg"), title = card.querySelector("h2");
     const eyebrow = card.querySelector(".study-card-top"), read = art.querySelector(".psalter-read");
     if (!svg || !title || !eyebrow || !read) return;
-    const box = art.getBoundingClientRect(), t = title.getBoundingClientRect(), e = eyebrow.getBoundingClientRect(), r = read.getBoundingClientRect();
-    const zone = { left: box.left, right: r.left - CLEAR, top: e.bottom + CLEAR, bottom: t.top - CLEAR };
+    const box = art.getBoundingClientRect(), t = title.getBoundingClientRect(), e = eyebrow.getBoundingClientRect();
+    // The read-out's column is 13rem at the picture's right; the disc's zone is measured from that, not from where the
+    // read-out last sat (it is moved below), so placing one never moves the other.
+    const column = 13 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+    const zone = { left: box.left, right: box.right - column - CLEAR, top: e.bottom + CLEAR, bottom: t.top - CLEAR };
     // 20% larger than the zone's fit (owner, 2026-10-18), resting on the title line and growing upward.
     const size = Math.max(0, Math.min(zone.right - zone.left, zone.bottom - zone.top)) * 1.2;
     svg.style.width = svg.style.height = `${size}px`;
-    svg.style.left = `${(zone.left + zone.right) / 2 - size / 2 - box.left}px`;
-    svg.style.top = `${t.top - size - box.top}px`;
+    // Down and to the left of the zone's centre (owner, 2026-10-18).
+    const left = (zone.left + zone.right) / 2 - size / 2 - box.left - SHIFT_LEFT, top = t.top - size - box.top + SHIFT_DOWN;
+    svg.style.left = `${left}px`; svg.style.top = `${top}px`;
+    // The read-out centred in the space between the disc and the picture's right edge.
+    const gapLeft = box.left + left + size, room = box.right - gapLeft;
+    read.style.position = "absolute"; read.style.gridColumn = "1 / -1"; read.style.left = "0"; read.style.width = "13rem"; // its box is the whole picture, not its old grid column
+    read.style.left = `${gapLeft - box.left + (room - read.offsetWidth) / 2}px`;
+    read.style.top = `${(box.height - read.offsetHeight) / 2}px`;
   }
 
 
