@@ -19,11 +19,11 @@
       `Choose a kind to narrow the list, or search by name, number, library or book. ${formatNumber(MS.records.length)} records from Wikidata, the ETCBC Dead Sea Scrolls and Syriaca.org.`)}
       <div class="cr-groups">${GROUPS.map((g) => `<div class="cr-group"><p class="cr-group-name">${esc(g)}</p><div class="cr-list">${KINDS.filter((k) => k.group === g).map(crystal).join("")}</div></div>`).join("")}</div>
       <div class="ct-bar">
-        <label class="ct-search">${icon("search", 16)}<input type="search" aria-label="Search the manuscripts" placeholder="Name, number, library or book"></label>
+        <div class="ct-left"><label class="ct-search">${icon("search", 16)}<input type="search" aria-label="Search the manuscripts" placeholder="Name, number, library or book"></label>
+          <p class="ct-count ct-pill" aria-live="polite"></p></div>
+        <p class="ct-page ct-pill" aria-live="polite"></p>
         <div class="ct-sort" role="radiogroup" aria-label="Order">${SORTS.map(([k, l]) => `<button type="button" role="radio" data-sort="${k}" aria-checked="${k === sort}">${l}</button>`).join("")}</div>
       </div>
-      <p class="ct-count" aria-live="polite"></p>
-      <p class="ct-page" aria-live="polite"></p>
       <div class="ct-table">
         <button type="button" class="ct-arrow" data-prev aria-label="Previous page">${icon("arrowLeft", 16)}</button>
         ${[0, 1].map((n) => `<div class="ct-col"><p class="ct-head" aria-hidden="true"><span></span><span>No.</span><span>Manuscript</span><span>Date</span><span>Where</span></p><ol class="ct-list" data-col="${n}"></ol></div>`).join('<span class="ct-divider" aria-hidden="true"></span>')}
@@ -49,8 +49,8 @@
       page = Math.min(page, pages - 1);
       const label = kind ? KIND[kind].label.toLowerCase() : "records";
       $(".ct-count").innerHTML = found.length
-        ? `<strong>${formatNumber(found.length)}</strong> ${esc(label)}${query ? ` matching “${esc(query)}”` : ""} · showing ${page * PAGE + 1}–${Math.min(found.length, (page + 1) * PAGE)}`
-        : `Nothing matches${query ? ` “${esc(query)}”` : ""}.`;
+        ? `<strong>${formatNumber(found.length)}</strong> ${esc(query ? "matching" : label)} · ${page * PAGE + 1}–${Math.min(found.length, (page + 1) * PAGE)}`
+        : "No matches";
       // The page splits into two side-by-side tables, the first half on the left.
       const shown = found.slice(page * PAGE, (page + 1) * PAGE), half = Math.ceil(shown.length / 2);
       $('[data-col="0"]').innerHTML = shown.slice(0, half).map(item).join("");
