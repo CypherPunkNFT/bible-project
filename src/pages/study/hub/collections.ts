@@ -477,21 +477,21 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                 "heading": "The text survives<br><em>in witnesses.</em>",
                 "intro": "Each manuscript has a date, a history and a particular scope. Look closely at one witness, then consider how it contributes to a larger textual question.",
                 "featured": {
-                    "kind": "Manuscript collection",
-                    "title": "Manuscripts",
-                    "text": "Every dated copy through time and book by book, the libraries that keep them now, and over five thousand open catalogue records to open one by one.",
-                    "href": "/study/manuscripts",
-                    "meta": "Witnesses · Dates · Libraries",
+                    "kind": "Study",
+                    "title": "The surviving witnesses",
+                    "text": "Why the manuscripts matter: examine six of them in their own photographs, count how many survive and how close they come to the writing, and reunite the scattered leaves of a codex.",
+                    "href": "/study/surviving-witnesses",
+                    "meta": "Manuscripts · Transmission · Evidence",
                     "art": "manuscript"
                 },
                 "group": "Transmission and reception",
                 "items": [
                     {
-                        "kind": "Study",
-                        "title": "The surviving witnesses",
-                        "text": "Examine six manuscripts, reunite the scattered leaves of a codex, and discover what the surviving evidence can tell us.",
-                        "href": "/study/surviving-witnesses",
-                        "meta": "Manuscripts · Transmission · Evidence",
+                        "kind": "Manuscript collection",
+                        "title": "Manuscripts",
+                        "text": "Every dated copy through time and book by book, the libraries that keep them now, and over five thousand open catalogue records to open one by one.",
+                        "href": "/study/manuscripts",
+                        "meta": "Witnesses · Dates · Libraries",
                         "art": "manuscript"
                     },
                     {

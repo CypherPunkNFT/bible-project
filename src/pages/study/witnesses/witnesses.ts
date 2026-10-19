@@ -3,11 +3,13 @@ export type Witness = {
   form: string; colour: string; kind: 'fragment' | 'leaf' | 'columns' | 'facing' | 'hebrew';
   title: string; introduction: string; object: string; text: string; journey: string;
   caution: string; sources: { label: string; url: string }[];
+  /** Its record in the open collection (/study/manuscripts), and where its surviving pages are kept now. */
+  qid: string; held: string[];
 };
 
 export const witnesses: Witness[] = [
   {
-    id: 'p52', name: 'The Rylands fragment', short: 'P52', mark: '𝔓⁵²', date: 'Date debated', language: 'Greek',
+    id: 'p52', qid: 'Q1165472', held: ['John Rylands Library, Manchester'], name: 'The Rylands fragment', short: 'P52', mark: '𝔓⁵²', date: 'Date debated', language: 'Greek',
     form: 'A fragment of a codex', colour: '#dab979', kind: 'fragment',
     title: 'A fragment can carry a large question.',
     introduction: 'A small surviving piece of John invites two separate questions: what can we read, and how closely can we date the handwriting?',
@@ -21,7 +23,7 @@ export const witnesses: Witness[] = [
     ],
   },
   {
-    id: 'p46', name: 'The Pauline letters codex', short: 'P46', mark: '𝔓⁴⁶', date: '3rd century¹', language: 'Greek',
+    id: 'p46', qid: 'Q1513469', held: ['Chester Beatty, Dublin', 'University of Michigan, Ann Arbor'], name: 'The Pauline letters codex', short: 'P46', mark: '𝔓⁴⁶', date: '3rd century¹', language: 'Greek',
     form: 'Papyrus codex', colour: '#d7b778', kind: 'leaf',
     title: 'One book. Two collections. Missing leaves.',
     introduction: 'The surviving leaves of P46 now sit on opposite sides of the Atlantic. Reading the codex means bringing those pieces back into conversation.',
@@ -36,7 +38,7 @@ export const witnesses: Witness[] = [
     ],
   },
   {
-    id: 'sinaiticus', name: 'Codex Sinaiticus', short: 'Sinaiticus', mark: 'א', date: '4th century', language: 'Greek',
+    id: 'sinaiticus', qid: 'Q152962', held: ['British Library, London', 'Leipzig University Library', 'St Catherine’s Monastery, Sinai', 'National Library of Russia, St Petersburg'], name: 'Codex Sinaiticus', short: 'Sinaiticus', mark: 'א', date: '4th century', language: 'Greek',
     form: 'Parchment codex', colour: '#93b6d3', kind: 'columns',
     title: 'A complete New Testament. An incomplete Bible.',
     introduction: 'Sinaiticus preserves the whole New Testament, alongside an incomplete Old Testament and other early Christian writings.',
@@ -51,7 +53,7 @@ export const witnesses: Witness[] = [
     ],
   },
   {
-    id: 'bezae', name: 'Codex Bezae', short: 'Bezae', mark: 'D', date: 'Late 4th / early 5th c.', language: 'Greek · Latin',
+    id: 'bezae', qid: 'Q818305', held: ['Cambridge University Library'], name: 'Codex Bezae', short: 'Bezae', mark: 'D', date: 'Late 4th / early 5th c.', language: 'Greek · Latin',
     form: 'Bilingual codex', colour: '#bf9bc8', kind: 'facing',
     title: 'Two languages face one another.',
     introduction: 'Greek and Latin meet on facing pages. Bezae lets us examine a biblical text alongside a witness to its translation.',
@@ -66,7 +68,7 @@ export const witnesses: Witness[] = [
     ],
   },
   {
-    id: 'alexandrinus', name: 'Codex Alexandrinus', short: 'Alexandrinus', mark: 'A', date: '5th century', language: 'Greek',
+    id: 'alexandrinus', qid: 'Q318233', held: ['British Library, London'], name: 'Codex Alexandrinus', short: 'Alexandrinus', mark: 'A', date: '5th century', language: 'Greek',
     form: 'Bible in four volumes', colour: '#c7a17e', kind: 'columns',
     title: 'Sometimes the silence is a missing page.',
     introduction: 'A substantial biblical manuscript can still have gaps. Alexandrinus makes the difference between a lost leaf and an absent reading especially visible.',
@@ -77,7 +79,7 @@ export const witnesses: Witness[] = [
     sources: [{ label: 'British Library · contents and history', url: 'https://searcharchives.bl.uk/catalog/040-002353500' }],
   },
   {
-    id: 'aleppo', name: 'The Aleppo Codex', short: 'Aleppo', mark: 'א', date: '10th century', language: 'Hebrew',
+    id: 'aleppo', qid: 'Q637584', held: ['Israel Museum, Jerusalem'], name: 'The Aleppo Codex', short: 'Aleppo', mark: 'א', date: '10th century', language: 'Hebrew',
     form: 'Hebrew Bible codex', colour: '#81b6a6', kind: 'hebrew',
     title: 'A text carried by a community.',
     introduction: 'The history of biblical manuscripts includes Jewish scribes, readers and custodians. The Aleppo Codex belongs within that living history of the Hebrew Bible.',

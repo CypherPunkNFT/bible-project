@@ -1,0 +1,84 @@
+/* The Surviving witnesses page's parts drawn from the open manuscript collection (Evidence.tsx), in the page's own hand. */
+
+/* A witness's photograph in the inspection desk's left column. */
+.sw-photo { margin: 0; display: flex; flex-direction: column; align-items: center; gap: .55rem; }
+.sw-photo img { display: block; max-width: 100%; max-height: 330px; width: auto; height: auto; border-radius: 3px; box-shadow: 0 18px 40px -22px rgba(0, 0, 0, .6); }
+.sw-photo figcaption { font-size: .55rem; color: var(--muted); text-align: center; max-width: 260px; line-height: 1.5; }
+.sw-photo figcaption a:hover { text-decoration: underline; }
+.sw-held dd { display: grid; gap: .2rem; }
+.sw-record .sw-held { flex-basis: 100%; }
+.sw-record-links a.sw-record-open { font-weight: 600; }
+
+/* 02 How much survives, and 03 How close: a head over a full-width body. */
+.sw-count, .sw-close { margin: 5rem 0; padding: 0 1.5rem; }
+.sw-count-head { display: grid; grid-template-columns: .72fr 1.28fr; column-gap: 5rem; align-items: end; margin-bottom: 2.2rem; }
+.sw-count-head > .sw-eyebrow { grid-column: 1 / -1; }
+.sw-count-head h2, .sw-kept h2, .sw-collection h2 { font-size: clamp(1.9rem, 3vw, 2.8rem); line-height: 1.3; letter-spacing: -.045em; margin: .8rem 0 0; }
+.sw-count-head h2 em, .sw-kept h2 em, .sw-collection h2 em { color: var(--sw-gold); }
+.sw-count-head > p:last-child { color: var(--muted); font-size: .85rem; }
+.sw-count-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+.sw-count-grid article { display: flex; flex-direction: column; padding: 1.4rem 1.3rem 1.2rem; border: 1px solid var(--sw-line); border-top: 2px solid var(--fam); border-radius: 8px; background: radial-gradient(ellipse at 15% 0%, color-mix(in srgb, var(--fam) 8%, transparent), transparent 70%); }
+.sw-count-grid .sw-eyebrow { color: var(--fam); }
+.sw-count-grid strong { font: 400 clamp(2.4rem, 3.6vw, 3.4rem)/1.1 var(--font-serif); letter-spacing: -.05em; margin: .9rem 0 .35rem; font-variant-numeric: tabular-nums; }
+.sw-count-grid b { font-weight: 500; font-size: .8rem; }
+.sw-count-grid p { font-size: .74rem; color: var(--muted); margin: .6rem 0 1rem; line-height: 1.7 !important; }
+.sw-count-grid a { margin-top: auto; display: grid; grid-template-columns: 1fr auto; column-gap: .5rem; align-items: center; padding-top: .8rem; border-top: 1px solid var(--sw-line); font-size: .72rem; color: var(--fam); }
+.sw-count-grid a small { grid-column: 1 / -1; font-size: .56rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .15rem; }
+.sw-count-grid a:hover { text-decoration: underline; }
+
+.sw-centuries { margin-top: 2.2rem; padding: 1.5rem 1.5rem 1.2rem; border: 1px solid var(--sw-line); border-radius: 10px; }
+.sw-cent-key { display: flex; flex-wrap: wrap; gap: 1.1rem; font-size: .65rem; color: var(--muted); margin-bottom: 1.2rem; }
+.sw-cent-key span { display: flex; align-items: center; gap: .4rem; }
+.sw-cent-key i { width: 8px; height: 8px; border-radius: 2px; }
+.sw-cent-bars { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 4px; height: 190px; }
+.sw-cent { display: flex; flex-direction: column; justify-content: flex-end; align-items: stretch; min-width: 0; cursor: default; }
+.sw-cent-stack { display: flex; flex-direction: column-reverse; min-height: 1px; border-radius: 3px 3px 0 0; overflow: hidden; opacity: .8; transition: opacity .2s; }
+.sw-cent-stack i { display: block; min-height: 1px; }
+.sw-cent-on .sw-cent-stack, .sw-cent:hover .sw-cent-stack { opacity: 1; }
+.sw-cent-bars:hover .sw-cent:not(:hover) .sw-cent-stack { opacity: .45; }
+.sw-cent small { font-size: .55rem; color: var(--muted); text-align: center; margin-top: .45rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.sw-cent-say { min-height: 3.4em; margin-top: 1rem; padding-top: .8rem; border-top: 1px solid var(--sw-line); font: 400 .95rem/1.65 var(--font-serif) !important; color: var(--muted); }
+.sw-cent-say b { color: var(--ink); font-weight: 500; }
+
+/* The Manuscripts page's own closeness chart, on this page's ground. */
+.sw-close-chart.ms-root { background: none; padding: 1.4rem 1.5rem 1.2rem; border: 1px solid var(--sw-line); border-radius: 10px; }
+
+/* 05 Where they are kept now. */
+.sw-kept { display: grid; grid-template-columns: .72fr 1.28fr; gap: 5rem; margin: 5rem 0; padding: 0 1.5rem; }
+.sw-kept > div > p:not(.sw-eyebrow) { color: var(--muted); font-size: .85rem; margin-top: 1.1rem; }
+.sw-kept-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--sw-line); }
+.sw-kept-list li { position: relative; display: grid; grid-template-columns: 2.2rem 1fr auto; align-items: center; gap: .8rem; padding: .7rem .3rem; border-bottom: 1px solid var(--sw-line); }
+.sw-kept-list li > span { font: 400 .8rem var(--font-serif); color: var(--sw-gold); }
+.sw-kept-list b { font: 400 1rem var(--font-serif); }
+.sw-kept-list small { display: block; font: 400 .66rem var(--font-sans); color: var(--muted); margin-top: .15rem; }
+.sw-kept-list em { font-style: normal; font-size: .85rem; font-variant-numeric: tabular-nums; }
+.sw-kept-list li > i { position: absolute; left: 0; bottom: -1px; height: 1px; background: var(--sw-gold); }
+
+/* The collection, as the last card before the page's closing line. */
+.sw-collection { display: grid; grid-template-columns: 1fr auto; column-gap: 3rem; align-items: end; margin-top: 4rem; padding: 2.2rem 2rem; border: 1px solid var(--sw-line); border-radius: 12px; background: radial-gradient(ellipse at 85% 20%, color-mix(in srgb, var(--sw-blue) 10%, transparent), transparent 70%); transition: border-color .3s; }
+.sw-collection:hover { border-color: color-mix(in srgb, var(--sw-blue) 50%, transparent); }
+.sw-collection > .sw-eyebrow, .sw-collection h2, .sw-collection p { grid-column: 1; }
+.sw-collection p { color: var(--muted); font-size: .85rem; margin-top: .7rem; max-width: 46rem; }
+.sw-collection > span:last-child { grid-column: 2; grid-row: 1 / 4; display: flex; align-items: center; gap: .8rem; color: var(--sw-blue); font-size: .8rem; white-space: nowrap; }
+
+@media (max-width: 1150px) {
+  .sw-count, .sw-close, .sw-kept { padding-inline: 0; }
+  .sw-count-head, .sw-kept { column-gap: 2rem; gap: 2rem; }
+  .sw-count-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 850px) {
+  .sw-count-head, .sw-kept { grid-template-columns: 1fr; }
+  .sw-count-head > p:last-child { margin-top: 1rem; }
+  .sw-cent-bars { height: 150px; gap: 2px; }
+  .sw-cent small { font-size: .48rem; }
+  .sw-cent:nth-child(even) small { visibility: hidden; }
+  .sw-collection { grid-template-columns: 1fr; }
+  .sw-collection > span:last-child { grid-column: 1; grid-row: auto; margin-top: 1.4rem; }
+}
+@media (max-width: 580px) {
+  .sw-count, .sw-close, .sw-kept { margin-block: 3rem; }
+  .sw-count-grid { grid-template-columns: 1fr; }
+  .sw-centuries, .sw-close-chart.ms-root { padding: 1rem .8rem; }
+  .sw-photo img { max-height: 220px; }
+  .sw-collection { padding: 1.5rem 1.2rem; }
+}

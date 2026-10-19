@@ -3,6 +3,7 @@
 // mockup-manuscripts.css by scripts/build-manuscript-styles.py). The data is scripts/build-manuscripts.py's. Each section
 // keeps its own failure; any manuscript chosen anywhere opens the record sheet from the right.
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { loadManuscripts } from "@/lib/data";
 import { useAsync } from "@/lib/useAsync";
 import { PageStatus } from "@/pages/teachers/shared/Frame";
@@ -41,6 +42,15 @@ function Page({ data }: { data: Parameters<typeof buildIndex>[0] }) {
   }, [index]);
   const closeRecord = useCallback(() => setSheet((s) => ({ ...s, open: false })), []);
   const context = useMemo(() => ({ index, openRecord }), [index, openRecord]);
+  // Ways in from other pages: ?record=<id> opens that record's sheet; #<section> scrolls to it once the page is drawn.
+  const [params] = useSearchParams(), { hash } = useLocation();
+  useEffect(() => {
+    const id = params.get("record");
+    if (id) openRecord(id);
+    else if (hash) document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView();
+    // Only on arrival: the sheet and the scroll are the reader's after that.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const record = sheet.id ? index.byId.get(sheet.id) ?? null : null;
 
   return <MsContext.Provider value={context}><div className="ms-root">

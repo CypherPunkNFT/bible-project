@@ -34,6 +34,8 @@ IMAGE_TO_WITNESS = {"Q1070692": ("papyrus", "P45"), "Q664820": ("papyrus", "P72"
 DATE_FIX = {"Q290500": (401, 500, "5th century",
                         "The open record dates it to the 13th century, which belongs to the later text written over it: "
                         "Ephraemi is a palimpsest, its biblical text scraped and overwritten centuries after it was copied.")}
+# Dates in the open record that cannot be right: the record is shown undated, with what the source says.
+DATE_DROP = {"Q133501306": "the year 18; this Hebrew-Arabic Bible from the Sassoon collection cannot be that old, so the year is set aside"}
 BOOKS_FIX = {"Q209285": ([c for c in NT if c not in ("1TI", "2TI", "TIT", "PHM", "REV")],
                          "Vaticanus is recorded as the whole New Testament, but it lacks 1 and 2 Timothy, Titus, Philemon and Revelation.")}
 # Contents read from the corpus's pinned-identity notes or the witness's own name, for witnesses whose record has none.
@@ -135,6 +137,9 @@ def add_date(out: dict, rec: dict, pin: dict | None, problems: dict) -> None:
     if qid in DATE_FIX:
         early, late, label, why = DATE_FIX[qid]
         out.update(e=early, l=late, d=label, db="corrected", why=why)
+        return
+    if qid in DATE_DROP:
+        out["dr"] = DATE_DROP[qid]
         return
     parsed = wikidata_date(rec["date"])
     if parsed:
