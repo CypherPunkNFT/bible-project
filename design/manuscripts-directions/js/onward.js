@@ -9,7 +9,7 @@
     ["Interactive study", "A passage through the manuscripts", "Compare actual readings, inspect corrections and distinguish missing pages from omitted words.", "/study/passage-through-manuscripts", "variants", "Readings · Corrections · Comparison", "Readings · Corrections · Comparison", "--poetry"],
     ["Study", "The Dead Sea Scrolls", "Meet ancient manuscripts, compare scribal hands and psalms, and follow the evidence behind dates, joins and scholarly debates.", "/study/dead-sea-scrolls", "scroll", "Scrolls · Hands · Dates", "Scrolls · Hands · Dates", "--epistles"],
     ["Apologetics", "Has the Bible been changed beyond recognition?", "Trust God’s preservation and examine the actual manuscript witnesses.", "/apologetics/study/manuscripts", "question", "Question · Evidence · Answer", "Questions · Reasons · Replies", "--history"],
-    ["Teachers", "Meet the scholars", "The scholars who study how the text was handed down, and what they found.", "/teachers/scholars", "scholars", "Lives · Works · Fields", "Scholars · Fields · Writings", "--gospels"],
+    ["Teachers", "Meet the scholars", "The scholars who study how the text was handed down, and what they found.", "/teachers/scholars", "teachers-scholars", "Lives · Works · Fields", "Scholars · Fields · Writings", "--prophets"],
   ];
   // The Study page's own symbolic drawings (AcademicCards.tsx), as plain SVG; "question" is new, in the same hand.
   const lines = (x, y, w, n = 7) => Array.from({ length: n }, (_, i) => `<path d="M${x} ${y + i * 9}h${w - (i % 3) * 7}" opacity="${i % 3 === 0 ? 0.7 : 0.3}"/>`).join("");
@@ -23,7 +23,7 @@
   };
   const art = (kind) => `<svg viewBox="0 0 360 180" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><ellipse cx="180" cy="150" rx="117" ry="12" opacity=".08"/>${ART[kind]}</svg>`;
   const card = ([kind, title, line, href, drawing, caption, foot, tone]) => `<a class="sc-card" href="${href}" style="--tone: var(${tone})">
-      <span class="sc-kind">${esc(kind)}</span><span class="sc-art">${art(drawing)}</span><span class="sc-caption">${esc(caption)}</span>
+      <span class="sc-kind">${esc(kind)}</span><span class="sc-art${drawing === "teachers-scholars" ? " sc-art-door" : ""}">${drawing === "teachers-scholars" ? SCHOLAR_ART : art(drawing)}</span><span class="sc-caption">${esc(caption)}</span>
       <b class="sc-title">${esc(title)}</b><span class="sc-line">${esc(line)}</span>
       <span class="sc-foot"><small>${esc(foot)}</small><i>${icon("arrowUp", 15)}</i></span></a>`;
   const CLASSES = [["papyrus", "Papyri"], ["majuscule", "Majuscules"], ["minuscule", "Minuscules"], ["lectionary", "Lectionaries"]];

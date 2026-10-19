@@ -49,7 +49,7 @@
   }
 
   // Cities close together on the map get their labels on different sides.
-  const SIDE = { Oxford: "w", London: "s", Cambridge: "n", "Cambridge, Massachusetts": "e", "New Haven": "w", "New York": "s", Princeton: "w", "Washington, D.C.": "e" };
+  const SIDE = { Oxford: "w", London: "e", Cambridge: "n", "Cambridge, Massachusetts": "e", "New Haven": "w", "New York": "s", Princeton: "w", "Washington, D.C.": "e" };
   const shortCity = (name) => name.replace(", North Carolina", ", N.C.").replace(", Massachusetts", ", Mass.");
 
   function mapHtml(cities) {
@@ -60,6 +60,7 @@
     return `<div class="pl-mapview" tabindex="0" aria-label="Map of the cities that hold the manuscripts. Scroll or pinch to zoom, drag to move; plus and minus keys zoom, arrow keys move.">
         <svg class="pl-map" role="img" aria-label="Map from Chicago to the Caucasus">
           <g class="pl-land">${P.d.map((d) => `<path d="${d}"/>`).join("")}</g>
+          <g class="pl-pulse" aria-hidden="true"></g>
           <g class="pl-dots">${dots}</g>
         </svg>
       </div>`;
@@ -131,13 +132,15 @@
       svg.style.setProperty("--u", unit.toFixed(4));
       view.classList.toggle("is-zoomed", zoom > 1.02);
       const placed = []; // label boxes already placed, in map units
-      const hits = (a) => placed.some((b) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0);
-      for (const g of cities) { // biggest cities first: cityTable() sorts by record count
+      // A label may sit over the dot of a smaller city (so London is named before Oxford), never over a bigger city's dot
+      // or another label. Dots carry their rank; labels have none and always count.
+      const hits = (a, rank) => placed.some((b) => (b.rank === undefined || b.rank < rank) && a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0);
+      for (const [rank, g] of cities.entries()) { // biggest cities first: cityTable() sorts by record count
         const x = Number(g.dataset.x), y = Number(g.dataset.y), r = Number(g.dataset.r) * 0.62 * unit * grow;
         g.firstElementChild.setAttribute("r", r.toFixed(2));
-        placed.push({ x0: x - r, x1: x + r, y0: y - r, y1: y + r });
+        placed.push({ x0: x - r, x1: x + r, y0: y - r, y1: y + r, rank });
       }
-      for (const g of cities) {
+      for (const [rank, g] of cities.entries()) {
         const x = Number(g.dataset.x), y = Number(g.dataset.y), r = Number(g.firstElementChild.getAttribute("r"));
         const text = g.lastElementChild, gap = r + 4 * unit, w = text.textContent.length * CHAR_W * LABEL_PX * unit, h = LABEL_PX * unit;
         const options = { e: [x + gap, y + 4 * unit, "start"], w: [x - gap, y + 4 * unit, "end"], s: [x, y + gap + 10 * unit, "middle"], n: [x, y - gap, "middle"] };
@@ -147,14 +150,55 @@
           const [tx, ty, anchor] = options[side];
           const x0 = anchor === "start" ? tx : anchor === "end" ? tx - w : tx - w / 2, rect = { x0, x1: x0 + w, y0: ty - h * 0.8, y1: ty + h * 0.25 };
           const inside = x0 >= vb.x && x0 + w <= vb.x + vb.w && rect.y0 >= vb.y && rect.y1 <= vb.y + vb.h;
-          if (!hits(rect) && inside) { chosen = { tx, ty, anchor, rect }; break; }
+          if (!hits(rect, rank) && inside) { chosen = { tx, ty, anchor, rect }; break; }
         }
         text.style.display = chosen ? "" : "none";
         if (!chosen) continue;
         placed.push(chosen.rect);
         text.setAttribute("x", chosen.tx.toFixed(2)); text.setAttribute("y", chosen.ty.toFixed(2)); text.setAttribute("text-anchor", chosen.anchor);
       }
+      drawPulse();
     }
+    // The chosen city radiates: two rings widening from its dot and fading, again and again, sized on screen.
+    const pulseLayer = svg.querySelector(".pl-pulse");
+    let pulsing = null;
+    function drawPulse() {
+      if (!pulsing) { pulseLayer.innerHTML = ""; return; }
+      const g = cities.find((c) => c.dataset.city === pulsing);
+      if (!g) { pulseLayer.innerHTML = ""; return; }
+      const x = g.dataset.x, y = g.dataset.y, r0 = Number(g.firstElementChild.getAttribute("r")), unit = vb.w / view.clientWidth;
+      const r1 = r0 + 30 * unit, width = (1.4 * unit).toFixed(3);
+      pulseLayer.innerHTML = [0, 0.9].map((begin) => `<circle cx="${x}" cy="${y}" r="${r0.toFixed(2)}" stroke-width="${width}" style="stroke: var(--tone-pulse, var(--prophets))">
+        <animate attributeName="r" values="${r0.toFixed(2)};${r1.toFixed(2)}" dur="1.8s" begin="${begin}s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values=".75;0" dur="1.8s" begin="${begin}s" repeatCount="indefinite"/></circle>`).join("");
+      pulseLayer.style.setProperty("--tone-pulse", g.style.getPropertyValue("--tone"));
+    }
+    // Glide towards a city: most of the way to centring it, not all, and a little closer in if the map is wide open.
+    let glide = 0;
+    function focusCity(name) {
+      const g = cities.find((c) => c.dataset.city === name);
+      if (!g) { console.error(`Where are they now: no dot for "${name}" to move to`); return; }
+      pulsing = name;
+      const from = { ...vb }, zoom = fitWidth / vb.w, w = zoom < 1.5 ? fitWidth / 1.5 : vb.w, h = w / aspect();
+      const cx0 = vb.x + vb.w / 2, cy0 = vb.y + vb.h / 2, x = Number(g.dataset.x), y = Number(g.dataset.y);
+      // The city panel covers the right of the screen on wide screens: aim for the middle of what is left uncovered.
+      const box = view.getBoundingClientRect(), covered = innerWidth > 720 ? Math.max(0, box.right - (innerWidth - Math.min(440, innerWidth))) : 0;
+      const unitTo = w / view.clientWidth, shift = (covered / 2) * unitTo;
+      const to = clampBox({ x: cx0 + (x - cx0) * 0.8 - w / 2, y: cy0 + (y - cy0) * 0.8 - h / 2, w, h });
+      // Past the land's eastern edge only by as much as the panel covers, so what shows is never empty map.
+      if (covered) to.x = Math.min(to.x + shift * 2, Math.max(to.x, x - (w - covered * unitTo) / 2), P.w - w + covered * unitTo);
+      const still = matchMedia("(prefers-reduced-motion: reduce)").matches, start = performance.now(), ms = 700;
+      cancelAnimationFrame(glide);
+      const step = (now) => {
+        const t = still ? 1 : Math.min(1, (now - start) / ms), k = 1 - (1 - t) ** 3;
+        vb = { x: from.x + (to.x - from.x) * k, y: from.y + (to.y - from.y) * k, w: from.w + (to.w - from.w) * k, h: from.h + (to.h - from.h) * k };
+        apply();
+        if (t < 1) glide = requestAnimationFrame(step);
+      };
+      glide = requestAnimationFrame(step);
+    }
+    function stopPulse() { pulsing = null; drawPulse(); }
+
     function zoomAt(factor, px, py) {
       const b = view.getBoundingClientRect(), fx = (px - b.left) / b.width, fy = (py - b.top) / b.height;
       const w = vb.w / factor, h = vb.h / factor;
@@ -225,6 +269,7 @@
       vb = fit();
       apply();
     }).observe(view);
+    return { focusCity, stopPulse };
   }
 
   // The holder cards fade out at the foot of their area while there is more below, and end crisply at the bottom.
@@ -245,7 +290,7 @@
       <div class="pl-mapwrap">${mapHtml(cities)}</div>
       <div class="pl-holderwrap">${cardsHtml(cities)}</div>`;
     const view = section.querySelector(".pl-mapview");
-    zooming(view, section.querySelector(".pl-map"));
+    const map = zooming(view, section.querySelector(".pl-map"));
     const area = section.querySelector(".pl-cardarea");
     const scroller = OutsideScroll.wrap(area);
     footFade(area);
@@ -270,10 +315,17 @@
       if (!city) { console.error(`Where are they now: no city named "${name}" in the holder table`); return; }
       lastFocus = from ?? null;
       render(holderId ?? null);
+      map.focusCity(name);
+      // Coming from a card below, bring the map into view so the move can be seen.
+      if (from && !view.contains(from)) {
+        const b = view.getBoundingClientRect(), shown = Math.max(0, Math.min(b.bottom, innerHeight) - Math.max(b.top, 64));
+        if (shown < b.height * 0.65) view.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
       requestAnimationFrame(() => panel.classList.add("open"));
     }
     function close() {
       panel.classList.remove("open");
+      map.stopPulse();
       section.querySelectorAll("[data-city].on").forEach((el) => el.classList.remove("on"));
       section.querySelectorAll('.pl-card[aria-pressed="true"]').forEach((el) => el.setAttribute("aria-pressed", "false"));
       if (lastFocus?.isConnected) lastFocus.focus({ preventScroll: true });

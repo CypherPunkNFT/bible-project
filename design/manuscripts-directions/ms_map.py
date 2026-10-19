@@ -6,7 +6,8 @@ import math
 from pathlib import Path
 
 # West to Chicago so every holding city sits on the map (owner 2026-10-18: the map opens showing all of them).
-LON0, LON1, LAT0, LAT1 = -92.0, 51.0, 27.0, 61.0
+# A margin of land past the outermost cities (owner 2026-10-18), so Sinai, Jerusalem or Yerevan can be centred.
+LON0, LON1, LAT0, LAT1 = -95.0, 58.0, 21.0, 64.0
 WIDTH = 1805.0
 COS = math.cos(math.radians((LAT0 + LAT1) / 2))
 SCALE = WIDTH / ((LON1 - LON0) * COS)

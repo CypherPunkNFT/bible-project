@@ -65,7 +65,7 @@
 .ct-pager { display: inline-flex; align-items: center; gap: .5rem; }
 /* The sheet: a faint leaf behind the two tables, its edge drawn by a drop shadow that follows the torn outline. */
 .ct-sheet { min-width: 0; filter: drop-shadow(0 0 .6px color-mix(in srgb, var(--ink) 45%, transparent)) drop-shadow(0 10px 18px rgb(0 0 0 / 6%)); }
-.ct-sheet-inner { display: grid; grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr); gap: 0 1.3rem; padding: 1.1rem 2rem 1rem 2rem; background: var(--surface); clip-path: var(--torn); }
+.ct-sheet-inner { display: grid; grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr); gap: 0 1.3rem; padding: 1.1rem 2rem 1rem 2rem; background: var(--surface); clip-path: var(--torn); transition: clip-path 1.6s cubic-bezier(.45, 0, .2, 1); }
 .ct-divider { background: var(--line); }
 .ct-col { min-width: 0; }
 .ct-col[hidden] { display: block !important; visibility: hidden; }
@@ -245,3 +245,4 @@
 .bk-tile small { display: flex; justify-content: space-between; gap: .3rem; }
 .bk-pic { color: var(--accent); font-weight: 600; white-space: nowrap; }
 :root[data-theme="light"] .bk-pic { color: color-mix(in srgb, var(--accent) 75%, var(--ink)); }
+.pl-pulse circle { fill: none; pointer-events: none; }

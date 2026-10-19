@@ -6,23 +6,29 @@
   const normalise = (text) => String(text).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
   const GROUPS = ["Greek New Testament", "Greek Old Testament", "Hebrew Bible", "Early translations"];
   const SORTS = [["date", "Oldest first"], ["siglum", "By number"], ["name", "A–Z"]];
-  // The table sits on a sheet torn down both sides, like a leaf with pieces lost: a fixed run of points down each side
-  // (mostly small nicks, now and then a deeper bite; the two sides drawn from different runs), the top and bottom barely
-  // rough. Each corner is shared by the two edges that meet there, so no edge snags where it turns.
-  const TORN = (() => {
+  // The table sits on a sheet torn down both sides, like a leaf with pieces lost. Three tears take turns, in a loop: the
+  // tear on the right comes round to the left as its mirror (the next piece of the same page fitting against it) while a
+  // new tear opens on the right. Each tear is a fixed run of points (mostly small nicks, now and then a deeper bite); the
+  // top and bottom stay barely rough. Every outline has the same number of points, so one eases into the next.
+  const DEPTH = 18;
+  const TEARS = (() => {
     let seed = 7;
     const rand = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
-    const side = () => Array.from({ length: 41 }, () => (rand() < 0.12 ? 10 + rand() * 8 : rand() * 7));
-    const left = side(), right = side();
-    const across = (n) => Array.from({ length: n - 1 }, () => rand() * 1.6);
-    const top = across(24), bottom = across(24);
-    const points = [`${left[40].toFixed(1)}px 0%`];
-    top.forEach((r, i) => points.push(`${(((i + 1) / 24) * 100).toFixed(1)}% ${r.toFixed(1)}px`));
-    right.forEach((x, i) => points.push(`calc(100% - ${x.toFixed(1)}px) ${(i * 2.5).toFixed(1)}%`));
-    bottom.forEach((r, i) => points.push(`${(100 - ((i + 1) / 24) * 100).toFixed(1)}% calc(100% - ${r.toFixed(1)}px)`));
-    left.forEach((x, i) => points.push(`${x.toFixed(1)}px ${(100 - i * 2.5).toFixed(1)}%`));
-    return `polygon(${points.join(", ")})`;
+    const tear = () => Array.from({ length: 41 }, () => (rand() < 0.12 ? 10 + rand() * 8 : rand() * 7));
+    const edges = [tear(), tear(), tear()];
+    const top = Array.from({ length: 23 }, () => rand() * 1.6), bottom = Array.from({ length: 23 }, () => rand() * 1.6);
+    // State i: the mirror of tear i on the left (top to bottom, as the right was), tear i+1 on the right.
+    return edges.map((_, i) => {
+      const right = edges[(i + 1) % 3], left = edges[i].map((x) => DEPTH - x).reverse();
+      const points = [`${left[40].toFixed(1)}px 0%`];
+      top.forEach((r, k) => points.push(`${(((k + 1) / 24) * 100).toFixed(1)}% ${r.toFixed(1)}px`));
+      right.forEach((x, k) => points.push(`calc(100% - ${x.toFixed(1)}px) ${(k * 2.5).toFixed(1)}%`));
+      bottom.forEach((r, k) => points.push(`${(100 - ((k + 1) / 24) * 100).toFixed(1)}% calc(100% - ${r.toFixed(1)}px)`));
+      left.forEach((x, k) => points.push(`${x.toFixed(1)}px ${(100 - k * 2.5).toFixed(1)}%`));
+      return `polygon(${points.join(", ")})`;
+    });
   })();
+  const TORN = TEARS[0], TEAR_EVERY = 6000;
 
   function mount(section, { num }) {
     const counts = Object.fromEntries(KINDS.map((k) => [k.key, 0]));
@@ -93,6 +99,11 @@
       if (e.target.closest("[data-next]")) { page++; render(); }
     });
     render();
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const sheet = $(".ct-sheet");
+      let tear = 0;
+      setInterval(() => { tear = (tear + 1) % TEARS.length; sheet.style.setProperty("--torn", TEARS[tear]); }, TEAR_EVERY);
+    }
   }
   Sections.kinds = { mount };
 })();
