@@ -53,8 +53,9 @@ export function HymnsCardArt() {
     return () => { live = false; observer.disconnect(); };
   }, []);
 
-  // The cycle: the read-out fades out, the arm turns (always clockwise), and only when it has settled does the new psalm
-  // and its hymn fade in (owner, 2026-10-18: the number must not change before the arm moves).
+  // The cycle: the read-out fades out as the arm starts to turn (always clockwise), and the new psalm and its hymn fade in
+  // while the arm finishes, fully shown the moment it lands (owner, 2026-10-18: never changes before the arm moves, and
+  // never sits blank after it arrives).
   useEffect(() => {
     if (reduced()) return;
     let live = true;
@@ -65,12 +66,9 @@ export function HymnsCardArt() {
         if (!live) return;
         i = (i + 1) % PSALTER_STOPS.length;
         const next = PSALTER_STOPS[i];
-        setShown(false);
-        await wait(450);
-        if (!live) return;
         angle += ((angleOf(next.psalm) - (angle % 360)) + 360) % 360;
-        setTurned(angle); setArmPsalm(next.psalm);
-        await wait(1150);
+        setShown(false); setTurned(angle); setArmPsalm(next.psalm);
+        await wait(750);
         if (!live) return;
         setStop(next); setShown(true);
       }
