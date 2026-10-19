@@ -204,9 +204,20 @@
 
 /* Topics card: the God family drawing with faint topic names drifting around it. */
 .study-topics-art .topics-artwork { position: relative; z-index: 1; display: block; width: 100%; height: 175px; margin-top: 15px; }
-.study-topics-word { position: absolute; z-index: 0; font-family: var(--font-serif); font-size: .8rem; font-style: italic; white-space: nowrap; color: var(--resource-color); opacity: .22; animation: study-topics-drift 9s ease-in-out infinite alternate; }
+.study-topics-word { position: absolute; z-index: 0; font-family: var(--font-serif); font-size: .8rem; font-style: italic; white-space: nowrap; color: var(--resource-color); opacity: .5; animation: study-topics-drift 9s ease-in-out infinite alternate, study-topics-lit 5s ease-in-out infinite alternate; }
 @keyframes study-topics-drift { from { transform: translate(0, 0); } to { transform: translate(10px, -8px); } }
-@media (prefers-reduced-motion: reduce) { .study-topics-word { animation: none; } }
+@keyframes study-topics-lit { from { opacity: .45; } to { opacity: .72; } }
+/* The drawing on the Study card only (the Topics pages keep it still): orbits a little taller and stronger, the rays turning. */
+.study-topics-art .topics-god-orbits { opacity: .3; transform: scaleY(1.15); transform-box: view-box; transform-origin: 240px 92px; }
+.study-topics-art .topics-god-rays { opacity: .75; transform-box: view-box; transform-origin: 240px 92px; animation: study-topics-turn 48s linear infinite; }
+.study-topics-art .topics-god-rays path { animation: study-topics-ray 4s ease-in-out infinite alternate; }
+.study-topics-art .topics-god-rays path:nth-child(3n+2) { animation-delay: -1.3s; }
+.study-topics-art .topics-god-rays path:nth-child(3n) { animation-delay: -2.6s; }
+@keyframes study-topics-turn { to { transform: rotate(360deg); } }
+@keyframes study-topics-ray { from { stroke-opacity: .45; } to { stroke-opacity: 1; } }
+/* The Topics card's description in two lines wherever it appears, as in Living the Christian Life. */
+.study-topics-resource .study-card-copy > p { font-size: .76rem; line-height: 1.65; max-width: none; }
+@media (prefers-reduced-motion: reduce) { .study-topics-word, .study-topics-art .topics-god-rays, .study-topics-art .topics-god-rays path { animation: none; } }
 
 /* Back to Study as a small link at the end of the eyebrow line (StudyBackLink inline, People & genealogies). */
 .study-back-inline { display: inline-flex; align-items: center; gap: .35rem; font-size: .78rem; color: var(--muted); }

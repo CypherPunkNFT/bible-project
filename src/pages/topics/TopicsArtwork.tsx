@@ -42,8 +42,8 @@ const ray = (cx: number, cy: number, r1: number, r2: number, deg: number) => {
 const ART: Record<string, ReactElement> = {
   // A radiant circle around the triangle of the Godhead.
   god: <>
-    <g stroke="currentColor" opacity=".12"><ellipse cx="240" cy="92" rx="200" ry="70" /><ellipse cx="240" cy="92" rx="140" ry="48" /><path d="M30 92H450" /></g>
-    <g stroke="currentColor" opacity=".55">{Array.from({ length: 24 }, (_, i) => <path key={i} d={ray(240, 92, 56, i % 2 ? 70 : 84, i * 15)} />)}</g>
+    <g className="topics-god-orbits" stroke="currentColor" opacity=".12"><ellipse cx="240" cy="92" rx="200" ry="70" /><ellipse cx="240" cy="92" rx="140" ry="48" /><path d="M30 92H450" /></g>
+    <g className="topics-god-rays" stroke="currentColor" opacity=".55">{Array.from({ length: 24 }, (_, i) => <path key={i} d={ray(240, 92, 56, i % 2 ? 70 : 84, i * 15)} />)}</g>
     <circle cx="240" cy="92" r="46" fill="var(--surface)" stroke="currentColor" />
     <circle cx="240" cy="92" r="38" stroke="currentColor" strokeOpacity=".3" />
     <path d="M240 62L266 107H214Z" fill="currentColor" fillOpacity=".12" stroke="currentColor" strokeWidth="1.6" />
