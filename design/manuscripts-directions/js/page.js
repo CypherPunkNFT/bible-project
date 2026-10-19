@@ -4,10 +4,10 @@
 // Sections.<key>; one failing section never stops the others.
 (() => {
   const DIRECTIONS = {
-    a: { letter: "A", name: "The cabinet", sections: ["landing", "cabinet", "kinds", "onward"] },
-    b: { letter: "B", name: "Through time", sections: ["landing", "lanes", "closeness", "onward"] },
-    c: { letter: "C", name: "By the book", sections: ["landing", "books", "places", "onward"] },
-    d: { letter: "D", name: "Merged", sections: ["landing", "cabinet", "lanes", "closeness", "books", "places", "kinds", "onward"] },
+    a: { letter: "A", name: "The cabinet", sections: ["landing", "cabinet", "kinds", "onward", "basis"] },
+    b: { letter: "B", name: "Through time", sections: ["landing", "lanes", "closeness", "onward", "basis"] },
+    c: { letter: "C", name: "By the book", sections: ["landing", "books", "places", "onward", "basis"] },
+    d: { letter: "D", name: "Merged", sections: ["landing", "cabinet", "lanes", "closeness", "books", "places", "kinds", "onward", "basis"] },
   };
   const params = new URLSearchParams(location.search);
   const d = DIRECTIONS[params.get("d")] ? params.get("d") : "a";

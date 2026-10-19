@@ -132,3 +132,64 @@ body { overflow-x: clip; }
 .ms-head .kicker { display: flex; align-items: baseline; gap: .45rem; }
 .ms-num { font-variant-numeric: tabular-nums; }
 .ms-dot { opacity: .6; }
+/* ── The opening drawing: scroll, codex leaf and papyrus fragment, after the Surviving witnesses hero, drifting slowly ── */
+.ms-intro { grid-template-columns: minmax(0, 1fr) minmax(0, 30rem); align-items: center; }
+.ms-hero-art { position: relative; margin: 0; color: var(--muted); }
+.ms-hero-art svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-linecap: round; }
+.ms-orbit { stroke-width: 1; opacity: .22; stroke-dasharray: 2 6; animation: ms-orbit 60s linear infinite; }
+.ms-orbit-2 { opacity: .14; animation-duration: 90s; animation-direction: reverse; }
+.mh-sheet { fill: color-mix(in srgb, var(--ink) 9%, var(--page)); stroke: color-mix(in srgb, var(--ink) 55%, transparent); stroke-width: 1.1; }
+.mh-sheet-front { fill: color-mix(in srgb, var(--ink) 5%, var(--surface)); }
+.ms-roll { fill: color-mix(in srgb, var(--ink) 12%, var(--page)); stroke: color-mix(in srgb, var(--ink) 55%, transparent); stroke-width: 1.1; }
+.ms-roll-end { fill: var(--page); stroke: color-mix(in srgb, var(--ink) 55%, transparent); }
+.ms-fold { stroke-opacity: .4; }
+.ms-ink path { stroke-width: 1.4; }
+.ms-papyrus { fill: color-mix(in srgb, var(--accent) 16%, var(--page)); stroke: var(--accent); stroke-width: 1.2; }
+.ms-fibres path { stroke: var(--accent); stroke-width: .6; opacity: .25; }
+.ms-ink-gold path { stroke: var(--accent); stroke-width: 1.6; }
+.ms-mark { opacity: .5; }
+.ms-scroll { animation: ms-drift 16s ease-in-out infinite; }
+.ms-leaf { animation: ms-drift 19s ease-in-out -6s infinite reverse; }
+.ms-fragment { animation: ms-lift 13s ease-in-out -3s infinite; }
+@keyframes ms-orbit { to { stroke-dashoffset: -400; } }
+@keyframes ms-drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-4px, 3px); } }
+@keyframes ms-lift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(5px, -6px); } }
+@media (prefers-reduced-motion: reduce) { .ms-orbit, .ms-scroll, .ms-leaf, .ms-fragment { animation: none; } }
+.ms-art-top { position: absolute; top: 0; left: 8%; font-size: .58rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.ms-art-note { position: absolute; right: -2%; bottom: 4%; font: 500 1.02rem/1.35 var(--serif); color: var(--ink); text-align: left; }
+.ms-art-note i { display: block; width: 2.6rem; height: 1px; margin-bottom: .6rem; background: var(--muted); }
+.ms-art-note span { color: var(--muted); }
+.ms-hero-art small { position: absolute; left: 8%; bottom: -.4rem; font-size: .6rem; color: var(--muted); }
+/* ── One end-to-end row of figures under the strip, as on the Hymns page ── */
+.ms-figures { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); margin: 1.6rem 0 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.ms-figures > div { min-width: 0; padding: .9rem 1rem; border-left: 1px solid var(--line); }
+.ms-figures > div:first-child { padding-left: 0; border-left: 0; }
+.ms-figures dt { font-size: .58rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.ms-figures dd { margin: .3rem 0 0; font: 500 1.5rem/1.15 var(--serif); letter-spacing: -.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ms-figures > div > small { display: block; margin-top: .2rem; font-size: .7rem; line-height: 1.4; color: var(--muted); }
+.ms-star { color: var(--accent); font-size: .7em; vertical-align: .25em; }
+@media (max-width: 1100px) { .ms-figures { grid-template-columns: repeat(4, minmax(0, 1fr)); } .ms-figures > div:nth-child(5) { padding-left: 0; border-left: 0; } .ms-figures > div:nth-child(n+5) { border-top: 1px solid var(--line); } }
+@media (max-width: 860px) { .ms-intro { grid-template-columns: 1fr; } .ms-hero-art { max-width: 28rem; margin-inline: auto; } }
+@media (max-width: 560px) { .ms-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ms-figures > div { padding-left: 1rem; border-left: 1px solid var(--line); border-top: 1px solid var(--line); } .ms-figures > div:nth-child(odd) { padding-left: 0; border-left: 0; } .ms-figures > div:nth-child(-n+2) { border-top: 0; } .ms-art-note { display: none; } }
+
+/* Keep going: the Study page's illustrated cards (kind, drawing, caption, title, line, footer with arrow), in its tones. */
+.sc-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.1rem; }
+.sc-card { grid-column: span 2; display: flex; flex-direction: column; padding: 1.4rem 1.5rem 1.2rem; border: 1px solid color-mix(in srgb, var(--tone) 28%, var(--line)); border-radius: 18px;
+  background: linear-gradient(170deg, color-mix(in srgb, var(--tone) 7%, var(--surface)), var(--surface) 55%); color: var(--ink); text-decoration: none; transition: border-color .2s, transform .3s cubic-bezier(.16, 1, .3, 1); }
+.sc-card:nth-child(n + 4) { grid-column: span 3; }
+.sc-card:hover { border-color: color-mix(in srgb, var(--tone) 60%, var(--line)); transform: translateY(-2px); }
+.sc-kind { font-size: .6rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--tone); }
+.sc-art { display: block; margin: .8rem auto .2rem; width: min(100%, 300px); color: var(--tone); }
+.sc-art svg { display: block; width: 100%; height: auto; }
+.sc-caption { text-align: center; font-size: .58rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.sc-title { margin-top: 1.1rem; font: 500 1.35rem/1.2 var(--serif); letter-spacing: -.015em; }
+.sc-line { flex: 1; margin-top: .55rem; font-size: .82rem; line-height: 1.6; color: var(--muted); }
+.sc-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.1rem; padding-top: .8rem; border-top: 1px solid var(--line); }
+.sc-foot small { font-size: .68rem; color: var(--tone); }
+.sc-foot i { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: var(--tone); background: color-mix(in srgb, var(--tone) 12%, transparent); }
+.sc-card:hover .sc-foot i { background: var(--tone); color: var(--page); }
+.sc-card:focus, .sc-card:focus-visible { outline: none; }
+/* Behind the records: coverage beside the sources. */
+.bs-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.6rem; }
+@media (max-width: 1000px) { .sc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sc-card, .sc-card:nth-child(n + 4) { grid-column: span 1; } .sc-card:last-child { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .sc-grid, .bs-grid { grid-template-columns: 1fr; } .sc-card:last-child { grid-column: auto; } }
