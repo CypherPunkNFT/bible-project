@@ -69,7 +69,7 @@
     </svg>
     <span class="ms-art-top">Three forms, one text</span>
     <span class="ms-art-note"><i></i>Scroll. Codex. Fragment.<br><span>Copied by hand.</span></span>
-    <small>Illustrative forms · not manuscript facsimiles</small></figure>`;
+    </figure>`;
   }
 
   // B and D: how many dated copies survive from each century, as a quiet strip; pointing at a century names it below.
