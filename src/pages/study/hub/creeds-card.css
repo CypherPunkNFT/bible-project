@@ -1,0 +1,16 @@
+.study-creeds-art{height:265px;margin:.8rem .8rem 0;color:var(--resource-color);display:flex;align-items:center;justify-content:center}
+.study-creeds-art svg{width:100%;height:100%;max-width:600px;transition:transform .4s ease}
+.study-creeds-resource .study-resource-link:hover .study-creeds-art svg{transform:translateY(-3px)}
+.study-creeds-art text{text-anchor:middle}
+.study-creeds-art .creeds-label text{font-size:10px;letter-spacing:2.5px}
+.study-creeds-art .creeds-source text{font-size:8px;letter-spacing:1.8px;opacity:.7}
+.study-creeds-art .creeds-letter text{font-family:var(--font-serif);font-style:italic;font-size:10px;text-anchor:start;opacity:.75}
+/* The faith handed down: the thread drifts left to right, and each scene inks in turn. */
+.creeds-thread{animation:creeds-thread 3.2s linear infinite}
+@keyframes creeds-thread{to{stroke-dashoffset:-18}}
+.creeds-scene{opacity:.72;animation:creeds-ink 9s ease-in-out infinite}
+.creeds-scene:nth-child(2){animation-delay:3s}
+.creeds-scene:nth-child(3){animation-delay:6s}
+@keyframes creeds-ink{0%,40%,100%{opacity:.72}12%,28%{opacity:1}}
+@media(max-width:639px){.study-creeds-art{height:220px}}
+@media(prefers-reduced-motion:reduce){.study-creeds-art svg{transition:none!important;transform:none!important}.creeds-thread,.creeds-scene{animation:none;opacity:1}}

@@ -3,6 +3,7 @@ import { Fragment, useId, type CSSProperties, type ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { PARABLES, PARABLE_ROOMS } from '@/data/parables';
 import { ParablesPreview } from "./hub/ParablesCard";
+import { CreedsPreview } from "./hub/CreedsCard";
 import { StudyMiniature } from "@/components/study/StudyArtwork";
 import type { StudyCollectionId } from "@/data/study-collections";
 import { categoryStyle } from "@/lib/topic-style";
@@ -135,34 +136,6 @@ function PlacesPreview() {
     <div className="study-map-grid" /><span className="study-map-caption"><span className="study-map-dot" /> Explore the biblical world</span>
     <span className="study-map-credit">NASA Blue Marble</span>
   </div>;
-}
-
-/** Twelve traditions as a shelf of spines, oldest at the left, the way the collection's own rail reads. */
-function CreedsPreview() {
-  const shelf = [
-    { name: "Scripture", color: "var(--poetry)", height: 54 },
-    { name: "Early church", color: "var(--gospels)", height: 40 },
-    { name: "The councils", color: "var(--revelation)", height: 66 },
-    { name: "Medieval West", color: "var(--history)", height: 34 },
-    { name: "Lutheran", color: "var(--prophets)", height: 58 },
-    { name: "Swiss & continental", color: "var(--epistles)", height: 72 },
-    { name: "Westminster", color: "var(--poetry)", height: 80 },
-    { name: "Anglican", color: "var(--apocrypha)", height: 46 },
-    { name: "Baptist", color: "var(--gospels)", height: 52 },
-    { name: "Methodist", color: "var(--history)", height: 30 },
-    { name: "Rome", color: "var(--revelation)", height: 44 },
-    { name: "Orthodox", color: "var(--prophets)", height: 50 },
-  ];
-  return (
-    <div className="study-art study-creeds-art" aria-hidden="true">
-      <div className="study-creeds-shelf">
-        {shelf.map((spine) => (
-          <span key={spine.name} style={{ background: spine.color, height: `${spine.height}%` }} />
-        ))}
-      </div>
-      <span className="study-art-note">1500 BC → 1870 · Creeds · Confessions · Catechisms</span>
-    </div>
-  );
 }
 
 const RESOURCE_CARDS = {
