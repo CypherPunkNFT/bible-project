@@ -4,6 +4,8 @@
 
 /* The mock-up's frame named the site's two fonts this way. */
 .hy-page { --sans: var(--font-sans); --serif: var(--font-serif); }
+/* The page runs the site's content width, edge to edge with the header (owner, 2026-10-18), not the mock-up frame's 80rem. */
+.hy-page .wrap { max-width: var(--site-content-width); padding-inline: var(--site-gutter); }
 /* As the mock-up's page did (body { overflow-x: clip }): the full-bleed row of hymn cards never makes the page scroll sideways. */
 body:has(.hy-page) { overflow-x: clip; }
 /* The mock-up ran without the site's reset, so these headings kept the browser's default top margin. */
@@ -14,3 +16,9 @@ body:has(.hy-page) { overflow-x: clip; }
    part fades, not the pill beside it, and the last cards can still scroll clear of the fade. */
 .hy-page .hy-cat .pc-scroll .outside-scroll-viewport { padding-bottom: 64px; scroll-padding-block: 16px 72px;
   -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 56px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 56px), transparent); }
+
+/* The organ pipes are played by Pipes.tsx (owner, 2026-10-18), not swept: a pipe brightens and lifts as its note sounds and
+   fades as it is released. Replaces the mock-up's even left-to-right wave. */
+.hy-page .hc-rows.hc-played .pipe { animation: none; opacity: .55; transition: opacity .45s ease-out, transform .45s ease-out; transform-box: fill-box; transform-origin: 50% 100%; }
+.hy-page .hc-rows.hc-played .pipe.on { opacity: 1; transform: translateY(-3px); transition: opacity .05s, transform .08s; }
+.hy-page .hc-rows.hc-played .pipe.silent { opacity: .22; }

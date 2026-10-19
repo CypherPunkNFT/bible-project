@@ -2,9 +2,9 @@
    scripts/build-hymn-styles.py; only what the mock-up's frame and scripts supplied around it is added here. */
 @import "./mockup-song.css";
 
-/* The mock-up's frame named the site's two fonts this way, and set the page width (.wrap, 80rem) on the page itself. */
-.hy-song { --sans: var(--font-sans); --serif: var(--font-serif); max-width: 80rem; margin: 0 auto; padding: 0 1rem 2rem; }
-@media (min-width: 640px) { .hy-song { padding-inline: 1.5rem; } }
+/* The mock-up's frame named the site's two fonts this way. The page runs the site's content width, edge to edge with the
+   header (owner, 2026-10-18), not the mock-up frame's narrower 80rem. */
+.hy-song { --sans: var(--font-sans); --serif: var(--font-serif); max-width: var(--site-content-width); margin: 0 auto; padding: 0 var(--site-gutter) 2rem; }
 
 /* Closed, the passage panel is hidden outright, so its shadow never shows at the right edge; it hides after sliding away. */
 .hy-song .hy-panel:not(.open) { visibility: hidden; transition: transform 520ms cubic-bezier(.16, 1, .3, 1), visibility 0s 520ms; }
