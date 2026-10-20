@@ -5,6 +5,8 @@ manuscripts collection (data/manuscripts/collection.json) for the openly license
 Adds only what the page needs to draw: each record's span on a time line and its place on a map, both stated as loosely
 as the record itself states them, plus the ten reasoning questions and trail notes that the live page keeps in code.
 
+Also writes the same data, less the research file, to src/pages/study/canon/canon-data.json for the live page.
+
 Run: python design/canon-directions/build-data.py   (from the Website folder)
 """
 from __future__ import annotations
@@ -18,6 +20,7 @@ SITE = HERE.parent.parent
 DOSSIER = SITE / "content" / "academic-research" / "04-how-the-canon-took-shape.json"
 COLLECTION = SITE / "data" / "manuscripts" / "collection.json"
 OUT = HERE / "data.js"
+SITE_OUT = SITE / "src" / "pages" / "study" / "canon" / "canon-data.json"
 
 # Each record on the time line: first year, last year, and how firm the span is.
 #   firm     the record gives a year or a short span
@@ -159,6 +162,10 @@ def main() -> None:
     text = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     OUT.write_text(f"// Built by build-data.py from the study's research file and the manuscripts collection. Do not edit.\nwindow.CN = {text};\n", encoding="utf-8")
     print(f"wrote {OUT} ({OUT.stat().st_size // 1024} KB): {len(ids)} records, {len(data['pictured'])} pictures")
+    # The live page (direction D, owner-approved 2026-10-20) imports the research file itself, so its copy leaves it out.
+    site = {k: v for k, v in data.items() if k != "dossier"}
+    SITE_OUT.write_text(json.dumps(site, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8", newline="\n")
+    print(f"wrote {SITE_OUT.relative_to(SITE).as_posix()} ({SITE_OUT.stat().st_size // 1024} KB)")
 
 
 if __name__ == "__main__":
