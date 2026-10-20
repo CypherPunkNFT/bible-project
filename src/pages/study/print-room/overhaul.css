@@ -238,3 +238,13 @@ body:has(.pr-study) { overflow-x: clip; }
   .pr-study :is(.ph-orbit, .ph-leaf, .ph-quill, .ph-sheets, .ph-platen, .ph-ink-press, .ph-thread, .ph-sort, .wa-blink, .wa-float, .wa-sort, .wa-flow) { animation: none; }
   .pr-study :is(.pr-ways a, .pr-proof-roles button) { transition: none; transform: none !important; }
 }
+
+/* Chapter 05: the translation projects as one list, each a single click; the chosen one carries the accent border. */
+.pr-study .pr-translation-label { margin: 0 0 .9rem; font-size: .73rem; color: var(--ink); }
+.pr-study .pr-translation-list { display: grid; gap: 6px; margin-bottom: 1rem; }
+.pr-study .pr-translation-list button { display: grid; gap: .2rem; text-align: left; padding: .7rem .9rem; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); font: inherit; font-size: .86rem; cursor: pointer; transition: border-color .18s, background .18s; }
+.pr-study .pr-translation-list button span { font-size: .66rem; letter-spacing: .12em; color: var(--muted); }
+.pr-study .pr-translation-list button:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+.pr-study .pr-translation-list button[aria-pressed=true] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
+.pr-study .pr-translation-list button[aria-pressed=true] span { color: var(--accent); }
+.pr-study .pr-translation-list button:is(:focus, :focus-visible) { outline: none; }

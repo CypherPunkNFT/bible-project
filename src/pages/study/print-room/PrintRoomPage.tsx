@@ -6,17 +6,18 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { ArrowDown, ArrowUpRight, Check, Layers3, Printer, RotateCcw } from 'lucide-react';
 import dossier from '../../../../content/academic-research/05-from-manuscript-to-printed-bible.json';
 import { Cites, SectionHeading } from './PrintRoomShared';
-import { CopyHistory, ErasmusEvidence, TranslationContext, CriticalDesk } from './PrintRoomInvestigations';
+import { CopyHistory, ErasmusEvidence, CriticalDesk } from './PrintRoomInvestigations';
 import { ProofSheet } from './ProofSheet';
 import { Architecture } from './Architecture';
 import { ChapterRow, Opening } from './Opening';
 import { PrintTimeline } from './PrintTimeline';
-import { setPrintState, usePrintState } from './usePrintState';
+import { TranslationDesk } from './TranslationDesk';
+import { setPrintState } from './usePrintState';
 import './print-room.css';
 import './proof-sheet.css';
 import './overhaul.css';
 
-const { editions, translations, sources } = dossier;
+const { editions, sources } = dossier;
 
 function PressExercise() {
   const [corrected,setCorrected] = useState(false);
@@ -31,8 +32,6 @@ function PressExercise() {
 export default function PrintRoomPage() {
   const [params,setParams] = useSearchParams();
   const edition = editions.find(e=>e.id===params.get('edition')) ?? editions[0];
-  const [translation,setTranslation] = usePrintState("translation",0);
-  const t=translations[translation];
   useEffect(()=>{const previous=document.title;document.title='From manuscript to printed Bible · Bible Project';return()=>{document.title=previous;};},[]);
   const choose=(id:string)=>{const next=new URLSearchParams(params);next.set('edition',id);setParams(next,{replace:true,preventScrollReset:true});};
   const openEdition=(id:string)=>{setPrintState('arch-tab','pages');choose(id);};
@@ -50,10 +49,7 @@ export default function PrintRoomPage() {
 
     <Architecture edition={edition} choose={choose}/>
 
-    <section id="translation-desk" className="pr-translations"><SectionHeading n="05" kicker="Translate" title={<>At another desk, <em>a different decision</em></>} text="A translation renders a text into another language. Its source choices, wording and printing history must be investigated separately."/>
-      <div className="pr-translation-workbench"><div className="pr-translation-selector"><label htmlFor="pr-translation">Choose a translation project</label><select id="pr-translation" value={translation} onChange={e=>setTranslation(Number(e.target.value))}>{translations.map((t,i)=><option value={i} key={t.id}>{t.date} · {t.name}</option>)}</select><p>A selected European sequence, not a census of Bible translation. Jewish, Catholic and Protestant editing histories also overlap without becoming one chain.</p></div><div className="pr-translation-record" aria-live="polite"><p className="pr-kicker">{t.date}</p><h3>{t.name}</h3><dl><div><dt>Source / revision base</dt><dd>{t.source}</dd></div><div><dt>Translation decision</dt><dd>{t.decision}</dd></div><div><dt>Physical publication</dt><dd>{t.production}</dd></div></dl><p>{t.text}</p><Cites ids={t.sourceIds}/></div></div>
-      <TranslationContext/>
-    </section>
+    <TranslationDesk/>
 
     <CriticalDesk/>
 
