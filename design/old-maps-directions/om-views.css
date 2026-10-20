@@ -81,7 +81,7 @@
 .om-drawer-inner { position: relative; transition: transform .45s cubic-bezier(.16, 1, .3, 1), opacity .3s; }
 .om-drawer-inner.is-leaving { transform: translateX(var(--from)); opacity: 0; transition-duration: .22s; }
 .om-drawer-inner.is-entering { transform: translateX(calc(var(--from) * -1)); opacity: 0; transition: none; }
-.om-numeral { position: absolute; z-index: 0; top: -.6rem; right: 0; font: 400 clamp(5.5rem, 12vw, 10rem)/1 var(--serif); letter-spacing: -.04em; color: color-mix(in srgb, var(--accent) 16%, transparent); pointer-events: none; white-space: nowrap; }
+.om-numeral { position: absolute; z-index: 0; top: -1.4rem; right: 0; font: 400 clamp(5.5rem, 12vw, 10rem)/1 var(--serif); letter-spacing: -.04em; color: color-mix(in srgb, var(--accent) 16%, transparent); pointer-events: none; white-space: nowrap; }
 @media (max-width: 760px) { .om-numeral { top: -1.5rem; font-size: 2.8rem; } }
 .om-drawer-head { position: relative; max-width: 46rem; margin-bottom: 1.4rem; }
 .om-drawer-head h3 { margin-top: .3rem; font: 500 clamp(1.5rem, 3vw, 2.2rem)/1.15 var(--serif); letter-spacing: -.03em; }
