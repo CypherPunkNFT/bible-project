@@ -1,0 +1,189 @@
+{
+  "note": "Approved representative artwork; dimensions are decorative, not book-length estimates. Names come from the Bible catalogue.",
+  "wings": [
+    {
+      "side": "history",
+      "sections": [
+        "history"
+      ]
+    },
+    {
+      "side": "left",
+      "sections": [
+        "poetry",
+        "prophets"
+      ]
+    },
+    {
+      "side": "right",
+      "sections": [
+        "epistles",
+        "gospels"
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "section": "history",
+      "label": "Historical books",
+      "books": [
+        {
+          "code": "GEN",
+          "width": 100,
+          "height": 28,
+          "offset": 0
+        },
+        {
+          "code": "EXO",
+          "width": 92,
+          "height": 30,
+          "offset": 2
+        },
+        {
+          "code": "LEV",
+          "width": 88,
+          "height": 27,
+          "offset": 10
+        },
+        {
+          "code": "NUM",
+          "width": 96,
+          "height": 29,
+          "offset": 1
+        },
+        {
+          "code": "DEU",
+          "width": 90,
+          "height": 29,
+          "offset": 4
+        },
+        {
+          "code": "JOS",
+          "width": 98,
+          "height": 33,
+          "offset": 2
+        },
+        {
+          "code": "JDG",
+          "width": 94,
+          "height": 30,
+          "offset": 3
+        }
+      ]
+    },
+    {
+      "section": "poetry",
+      "label": "Poetical books",
+      "books": [
+        {
+          "code": "JOB",
+          "width": 90,
+          "height": 28,
+          "offset": 5
+        },
+        {
+          "code": "PSA",
+          "width": 100,
+          "height": 34,
+          "offset": 0
+        },
+        {
+          "code": "PRO",
+          "width": 94,
+          "height": 30,
+          "offset": 4
+        }
+      ]
+    },
+    {
+      "section": "prophets",
+      "label": "Prophetical books",
+      "books": [
+        {
+          "code": "ISA",
+          "width": 96,
+          "height": 33,
+          "offset": 1
+        },
+        {
+          "code": "JER",
+          "width": 91,
+          "height": 32,
+          "offset": 6
+        },
+        {
+          "code": "EZK",
+          "width": 100,
+          "height": 34,
+          "offset": 0
+        },
+        {
+          "code": "DAN",
+          "width": 95,
+          "height": 30,
+          "offset": 3
+        }
+      ]
+    },
+    {
+      "section": "gospels",
+      "label": "Gospels",
+      "books": [
+        {
+          "code": "MAT",
+          "width": 98,
+          "height": 31,
+          "offset": 1
+        },
+        {
+          "code": "MRK",
+          "width": 89,
+          "height": 27,
+          "offset": 3
+        },
+        {
+          "code": "LUK",
+          "width": 96,
+          "height": 32,
+          "offset": 4
+        },
+        {
+          "code": "JHN",
+          "width": 100,
+          "height": 30,
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "section": "epistles",
+      "label": "Epistles",
+      "books": [
+        {
+          "code": "ROM",
+          "width": 100,
+          "height": 32,
+          "offset": 0
+        },
+        {
+          "code": "EPH",
+          "width": 89,
+          "height": 28,
+          "offset": 8
+        },
+        {
+          "code": "PHP",
+          "width": 92,
+          "height": 27,
+          "offset": 2
+        },
+        {
+          "code": "JAS",
+          "width": 95,
+          "height": 28,
+          "offset": 4
+        }
+      ]
+    }
+  ]
+}

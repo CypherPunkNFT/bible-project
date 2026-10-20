@@ -12,7 +12,7 @@ import { layoutLandingArc } from "../../preachers/landing/arc";
 import "../../shared/landing-graph.css";
 import { reclaimedLandingSpace } from "../../shared/landing-graph";
 
-export function IdeaLineage(props: ScholarTimelineProps & { initialView?: "lineage"|"timeline";onTimeline?:()=>void }) {
+export function IdeaLineage(props: ScholarTimelineProps & { initialView?: "lineage"|"timeline";onTimeline?:()=>void;sectionMode?:boolean }) {
   const {library,filterCatalogue}=useScholars();
   const {data:preachers}=usePeopleData();
   const frameRef=useRef<HTMLElement>(null);
@@ -68,9 +68,9 @@ export function IdeaLineage(props: ScholarTimelineProps & { initialView?: "linea
     else return;
     event.preventDefault();choose(next);document.getElementById(`lineage-tab-${next}`)?.focus();
   };
-  return <section ref={frameRef} className="idea-lineage teacher-landing-graph" aria-labelledby="lineage-heading" style={{"--thread":toneVar(chain.field),"--scholar-panel-height":`${frameHeight}px`} as CSSProperties}>
+  return <section ref={frameRef} className={`idea-lineage teacher-landing-graph${props.sectionMode?" il-section":""}`} aria-labelledby={props.sectionMode?undefined:"lineage-heading"} aria-label={props.sectionMode?"Connections between works":undefined} style={{"--thread":toneVar(chain.field),"--scholar-panel-height":`${frameHeight}px`} as CSSProperties}>
     <div className="il-frame">
-    <header className="il-header"><div className="il-heading"><h2 id="lineage-heading">Knowledge, <em>handed on.</em></h2><div className="il-views" role="group" aria-label="Graph view"><button type="button" aria-label="Connections view" title="Connections" aria-pressed={view==="lineage"} onClick={()=>setView("lineage")}><Route size={16} aria-hidden="true"/></button><button type="button" aria-label="Birth-year timeline view" title="Through time" aria-pressed={view==="timeline"} onClick={()=>props.onTimeline?props.onTimeline():setView("timeline")}><Clock size={16} aria-hidden="true"/></button></div></div>{view==="lineage"?<div role="tablist" aria-label="Choose a field">{IDEA_CHAINS.map((item,index)=><button key={item.field} type="button" role="tab" id={`lineage-tab-${index}`} aria-selected={index===active} aria-controls="lineage-panel" tabIndex={index===active?0:-1} onClick={()=>choose(index)} onKeyDown={event=>navigate(event,index)} style={{"--field":toneVar(item.field)} as CSSProperties}>{item.label}</button>)}</div>:<div className="il-timeline-controls" ref={setControlsHost}/>}</header>
+    <header className="il-header">{!props.sectionMode&&(<div className="il-heading"><h2 id="lineage-heading">Knowledge, <em>handed on.</em></h2><div className="il-views" role="group" aria-label="Graph view"><button type="button" aria-label="Connections view" title="Connections" aria-pressed={view==="lineage"} onClick={()=>setView("lineage")}><Route size={16} aria-hidden="true"/></button><button type="button" aria-label="Birth-year timeline view" title="Through time" aria-pressed={view==="timeline"} onClick={()=>props.onTimeline?props.onTimeline():setView("timeline")}><Clock size={16} aria-hidden="true"/></button></div></div>)}{view==="lineage"?<div role="tablist" aria-label="Choose a field">{IDEA_CHAINS.map((item,index)=><button key={item.field} type="button" role="tab" id={`lineage-tab-${index}`} aria-selected={index===active} aria-controls="lineage-panel" tabIndex={index===active?0:-1} onClick={()=>choose(index)} onKeyDown={event=>navigate(event,index)} style={{"--field":toneVar(item.field)} as CSSProperties}>{item.label}</button>)}</div>:<div className="il-timeline-controls" ref={setControlsHost}/>}</header>
     <div className="il-overview">
     {view==="timeline"?<ScholarTimeline {...props} controlsHost={controlsHost}/>:<div id="lineage-panel" role="tabpanel" aria-labelledby={`lineage-tab-${active}`}>
       <ol className="il-timeline" style={{"--steps":chain.nodes.length} as CSSProperties} aria-label={`${chain.label}: works in chronological order`}>

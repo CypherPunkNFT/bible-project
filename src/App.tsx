@@ -10,6 +10,8 @@ import HomePage from "@/pages/HomePage";
 
 const LibraryPage = lazy(() => import("@/pages/LibraryPage"));
 const BiblePage = lazy(() => import("@/pages/BiblePage"));
+const ListenPage = lazy(() => import("@/pages/ListenPage"));
+const AudioBiblePage = lazy(() => import("@/pages/AudioBiblePage"));
 const ReaderPage = lazy(() => import("@/pages/ReaderPage"));
 const ChartsPage = lazy(() => import("@/pages/ChartsPage"));
 const TestimoniesPage = lazy(() => import("@/pages/TestimoniesPage"));
@@ -17,9 +19,11 @@ const AtlasPage = lazy(() => import("@/pages/AtlasPage"));
 const AtlasRedirect = lazy(() => import("@/pages/places/AtlasRedirect"));
 const SearchPage = lazy(() => import("@/pages/SearchPage"));
 const ContactPage = lazy(() => import("@/pages/ContactPage"));
+const OtherWorkPage = lazy(() => import("@/pages/OtherWorkPage"));
 const MeaningSearchPage = lazy(() => import("@/pages/MeaningSearchPage"));
 const TopicsPage = lazy(() => import("@/pages/TopicsPage"));
 const TeachersPage = lazy(() => import("@/pages/TeachersPage"));
+const AnalysisPage = lazy(() => import("@/pages/AnalysisPage"));
 const ResourcesPage = lazy(() => import("@/pages/ResourcesPage"));
 const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
@@ -32,17 +36,19 @@ const CitiesLayersPage = lazy(() => import("@/pages/study/history/CitiesLayersPa
 const CanonPage = lazy(() => import("@/pages/study/canon/CanonPage"));
 const DeadSeaScrollsPage = lazy(() => import("@/pages/study/scrolls/DeadSeaScrollsPage"));
 const DiscoveriesPage = lazy(() => import("@/pages/study/discoveries/DiscoveriesPage"));
+const MuseumArchaeologyPage = lazy(() => import("@/pages/study/museums/MuseumArchaeologyPage"));
+const MuseumPage = lazy(() => import("@/pages/study/museums/MuseumPage"));
 const HistoricalStudyLanding = lazy(() => import("@/pages/study/discoveries/HistoricalStudyLanding"));
 const CreedsPage = lazy(() => import("@/pages/study/creeds/CreedsPage"));
 const CreedDocumentPage = lazy(() => import("@/pages/study/creeds/CreedDocumentPage"));
+const HymnsPage = lazy(() => import("@/pages/study/hymns/HymnsPage"));
+const HymnPage = lazy(() => import("@/pages/study/hymns/HymnPage"));
+const ManuscriptsPage = lazy(() => import("@/pages/study/manuscripts/ManuscriptsPage"));
 const StudyBranch = lazy(() => import("@/pages/study/hub/StudyBranch"));
 const StudyPage = lazy(() => import("@/pages/study/StudyPage"));
 const StudyCollection = lazy(() => import("@/pages/study/StudyCollection"));
 const ApologeticsPage = lazy(() => import("@/pages/ApologeticsPage"));
 const StudyRedirect = lazy(() => import("@/pages/study/StudyRedirect"));
-const HymnsPage = lazy(() => import("@/pages/study/hymns/HymnsPage"));
-const HymnPage = lazy(() => import("@/pages/study/hymns/HymnPage"));
-const ManuscriptsPage = lazy(() => import("@/pages/study/manuscripts/ManuscriptsPage"));
 const MiraclesPage = lazy(() => import("@/pages/study/MiraclesPage"));
 const LettersPage = lazy(() => import("@/pages/study/LettersPage"));
 const CurvedGenealogyPage = lazy(() => import("@/pages/study/CurvedGenealogyPage"));
@@ -93,6 +99,8 @@ export default function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/library" element={<LibraryPage />} />
               <Route path="/bible" element={<BiblePage />} />
+              <Route path="/listen" element={<ListenPage />} />
+              <Route path="/listen/asv" element={<AudioBiblePage />} />
               <Route path="/read" element={<ReaderPage />} />
               <Route path="/read/:slug/:book/:chapter" element={<ReaderPage />} />
               <Route path="/charts" element={<StudyRedirect />} />
@@ -107,9 +115,11 @@ export default function App() {
               <Route path="/atlas" element={<StudyRedirect />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/contact/other-work" element={<OtherWorkPage />} />
               <Route path="/search/meaning" element={<MeaningSearchPage />} />
               <Route path="/topics/*" element={<TopicsPage />} />
               <Route path="/teachers/*" element={<TeachersPage />} />
+              <Route path="/analysis" element={<AnalysisPage />} />
               <Route path="/teachers/collections/:leaderId" element={<CirclesPage />} />
               <Route path="/resources/*" element={<ResourcesPage />} />
               <Route path="/versions" element={<VersionsPage />} />
@@ -120,6 +130,9 @@ export default function App() {
               <Route path="/study/theology" element={<StudyBranch branch="theology" />} />
               <Route path="/study/creeds" element={<CreedsPage />} />
               <Route path="/study/creeds/:id" element={<CreedDocumentPage />} />
+              <Route path="/study/hymns" element={<HymnsPage />} />
+              <Route path="/study/hymns/:id" element={<HymnPage />} />
+              <Route path="/study/manuscripts" element={<ManuscriptsPage />} />
               <Route path="/study/surviving-witnesses" element={<SurvivingWitnessesPage />} />
               <Route path="/study/passage-through-manuscripts" element={<PassageManuscriptsPage />} />
               <Route path="/study/israel-among-the-empires" element={<IsraelEmpiresPage />} />
@@ -128,13 +141,12 @@ export default function App() {
               <Route path="/study/world-of-jesus-apostles-complete" element={<WorldStudyRedirect />} />
               <Route path="/study/world-of-jesus-apostles" element={<MergedWorldPage />} />
               <Route path="/study/cities-through-their-layers" element={<CitiesLayersPage />} />
-              <Route path="/study/hymns" element={<HymnsPage />} />
-              <Route path="/study/hymns/:id" element={<HymnPage />} />
-              <Route path="/study/manuscripts" element={<ManuscriptsPage />} />
               <Route path="/study/how-the-canon-took-shape" element={<CanonPage />} />
               <Route path="/study/dead-sea-scrolls" element={<DeadSeaScrollsPage />} />
               <Route path="/study/discoveries-biblical-record" element={<DiscoveriesPage />} />
               <Route path="/study/from-discovery-to-history" element={<DiscoveriesPage />} />
+              <Route path="/study/museum-archaeology" element={<MuseumArchaeologyPage />} />
+              <Route path="/study/museum-archaeology/:slug" element={<MuseumPage />} />
               <Route path="/study/mesha-and-the-world-of-moab" element={<HistoricalStudyLanding study="mesha" />} />
               <Route path="/study/lachish-under-siege" element={<HistoricalStudyLanding study="lachish" />} />
               <Route path="/study/cyrus-restoration-and-return" element={<HistoricalStudyLanding study="cyrus" />} />

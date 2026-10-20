@@ -13,6 +13,7 @@ import { useScholars } from "./context";
 import "./Built.css";
 import { Link } from "react-router-dom";
 import { Named } from "./Named";
+import { Connections } from './Connections';
 import { SourceDetails, type SourceInspection } from './built/SourceDetails';
 import {sourceIndexCsv} from './built/export';
 
@@ -139,6 +140,7 @@ export function Built() {
     </div>
     <p className="blt-caption">Solid ribbons: cited sources and data inputs. Dashed ribbons: listed bibliographies. <Link to="/study/circles?study=letters">Explore circles of study →</Link></p>
     <Named onInspect={setInspection}/>
+    <Connections/>
     {inspection&&<SourceDetails key={JSON.stringify([inspection.name,inspection.records.map(r=>r.url)])} selection={inspection} onClose={()=>setInspection(null)}/>}
   </>;
 }

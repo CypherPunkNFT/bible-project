@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-10-19T18:19:33.824Z",
+  "curation": {
+    "unchanged_from_start": true,
+    "counts": {
+      "approved": 0,
+      "discovered": 0,
+      "integrated": 0,
+      "needs_work": 0,
+      "pending": 21,
+      "rejected": 0,
+      "stale": 0
+    },
+    "sequence": 41,
+    "needsSync": false,
+    "needsExport": false
+  },
+  "completion": {
+    "state": "building",
+    "pid": 86792,
+    "process_created": 1792429292.5313587,
+    "started_at": "2026-10-19T17:01:33.104131+00:00",
+    "updated_at": "2026-10-19T18:19:24.445396+00:00",
+    "launcher": "native-python",
+    "run_id": "native-20261019T170133-86792",
+    "run_directory": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\native-intake\\native-20261019T170133-86792",
+    "enrichment_started": false,
+    "child_pid": 61492
+  },
+  "supervisor": {
+    "updated_at": "2026-10-19T18:19:03.380307+00:00",
+    "state": "busy",
+    "observation": "busy",
+    "mode": "verification_only",
+    "console_window": false,
+    "attempts": 3,
+    "max_attempts": 3
+  },
+  "inputs": {
+    "consumed_inputs_rechecked": 227,
+    "changed_inputs": []
+  },
+  "tracked_doc_whitespace_check": {
+    "exit": 0,
+    "output": "",
+    "configuration": "blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol",
+    "note": "Windows CR-at-EOL recognized for the repository documentation; the initial default check classified CRLF as trailing whitespace and exceeded its output cap."
+  }
+}

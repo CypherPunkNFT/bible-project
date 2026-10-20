@@ -1,0 +1,119 @@
+{
+  "captured_at": "2026-10-19T18:57:32.798Z",
+  "scope": "Existing private pages and retained public bundles containing Ephesians locating passages. HTTP verification, not a browser/interpretation review.",
+  "checks": [
+    {
+      "route": "/api/local-library/pages/local-fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd/8",
+      "status": 200,
+      "kind": "private-page",
+      "page": 9,
+      "served_sha256": "6e85276b783478e6f7de71478618f7e9c300d8ba9d7ee00d38a0792cb4935ce6",
+      "file_sha256": "0ba450ae95ffbb853dc38a816e5a5adac71cbed3f1ae0ffb5d7d1e6498d7145f",
+      "json_equal": true
+    },
+    {
+      "route": "/api/local-library/pages/local-fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd/9",
+      "status": 200,
+      "kind": "private-page",
+      "page": 10,
+      "served_sha256": "816bae9e528af095f4510a25449ae4c33df32d0614e21ef36bc1efd3ead5bc45",
+      "file_sha256": "9db6a6f16966f3be0efb3897ca6e9da00a52c865cb1bf174a520a65ec485ddb1",
+      "json_equal": true
+    },
+    {
+      "route": "/api/local-library/pages/local-fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd/10",
+      "status": 200,
+      "kind": "private-page",
+      "page": 11,
+      "served_sha256": "51086acd520bfc17a785de3123ab9a089f0ff51bc42c95ca3f89e0adb3d3e6ba",
+      "file_sha256": "d02f973a30c5e95af16f81e9ffacc4485cd55385f2555e2141762743acfb2a3b",
+      "json_equal": true
+    },
+    {
+      "route": "/api/local-library/pages/local-fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd/11",
+      "status": 200,
+      "kind": "private-page",
+      "page": 12,
+      "served_sha256": "0d6a543887c18aa38d838dd72d2c58f98c6590b68664ad502c704c24cb6a7107",
+      "file_sha256": "48cf6e1d243af5476a01335c5aeae15040ec1e302037dcc188c4ba24a8915d5a",
+      "json_equal": true
+    },
+    {
+      "route": "/api/local-library/pages/local-fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd/12",
+      "status": 200,
+      "kind": "private-page",
+      "page": 13,
+      "served_sha256": "11743113bd6b1996daaa10dbe633e64c4c0a306eb748ef3469a969940d617767",
+      "file_sha256": "4f9f25483fa421227d3bed23266c2372046419a0c10dacda60f880d5042724de",
+      "json_equal": true
+    },
+    {
+      "route": "/api/local-library/pages/local-fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd/13",
+      "status": 200,
+      "kind": "private-page",
+      "page": 14,
+      "served_sha256": "488e288adc548221e99c5fe02ae75ca95d1abd8ec0b788adfbfcc305c7945441",
+      "file_sha256": "efee3086ca4bf181659798654f3592a80103efc13c7ff7efc3091265d4bac9b3",
+      "json_equal": true
+    },
+    {
+      "route": "/api/local-library/pages/local-fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd/14",
+      "status": 200,
+      "kind": "private-page",
+      "page": 15,
+      "served_sha256": "69db40d59dfe55b0d458d7071be1f32ab920fc790664cf86f0c08e9b5b0bfc1f",
+      "file_sha256": "8739b96c3b27b34823f540aad733febeeadb40dee430e058eac2e7429e8e95e9",
+      "json_equal": true
+    },
+    {
+      "route": "/api/local-library/pages/local-fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd/15",
+      "status": 200,
+      "kind": "private-page",
+      "page": 16,
+      "served_sha256": "2223ad2fb0587df656874fd5feddadc403513dff5eeeb54c33881f87a1eb477e",
+      "file_sha256": "336986f46d1cf92f20831750d5748f3588d985922098e47c2e0cf137de5e41d7",
+      "json_equal": true
+    },
+    {
+      "route": "/api/local-library/pages/local-fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd/16",
+      "status": 200,
+      "kind": "private-page",
+      "page": 17,
+      "served_sha256": "9f2badd0763f877c0bfd46755f1d5f2096a688d2657704c4841178e5361ded3f",
+      "file_sha256": "9e9c0e0148bf625cad6b5df6ddef4635f6cd391342c42ba9207972d1c0ad84f3",
+      "json_equal": true
+    },
+    {
+      "route": "/content/teacher-library/pages/ee0d05e6d165b86aedcdb4ee1dc73763715864e72f5d0215ced504708b40e716.json",
+      "status": 200,
+      "kind": "retained-public-bundle",
+      "served_sha256": "ee0d05e6d165b86aedcdb4ee1dc73763715864e72f5d0215ced504708b40e716",
+      "file_sha256": "ee0d05e6d165b86aedcdb4ee1dc73763715864e72f5d0215ced504708b40e716",
+      "json_equal": true
+    },
+    {
+      "route": "/content/teacher-library/pages/dfdb8ccbafc40b8cf92966a6076ce979cbdf0227b168940929b0ed585b9579d3.json",
+      "status": 200,
+      "kind": "retained-public-bundle",
+      "served_sha256": "dfdb8ccbafc40b8cf92966a6076ce979cbdf0227b168940929b0ed585b9579d3",
+      "file_sha256": "dfdb8ccbafc40b8cf92966a6076ce979cbdf0227b168940929b0ed585b9579d3",
+      "json_equal": true
+    },
+    {
+      "route": "/content/teacher-library/pages/dc5f225f6110e87304cfdb75d3e17195fef60348efca779db1ecd7b4e949f518.json",
+      "status": 200,
+      "kind": "retained-public-bundle",
+      "served_sha256": "dc5f225f6110e87304cfdb75d3e17195fef60348efca779db1ecd7b4e949f518",
+      "file_sha256": "dc5f225f6110e87304cfdb75d3e17195fef60348efca779db1ecd7b4e949f518",
+      "json_equal": true
+    },
+    {
+      "route": "/content/teacher-library/pages/ec69d9a21c345c88095b78ec2d706bd8c016dfb71f8e1cdff94beea3486f93ef.json",
+      "status": 200,
+      "kind": "retained-public-bundle",
+      "served_sha256": "ec69d9a21c345c88095b78ec2d706bd8c016dfb71f8e1cdff94beea3486f93ef",
+      "file_sha256": "ec69d9a21c345c88095b78ec2d706bd8c016dfb71f8e1cdff94beea3486f93ef",
+      "json_equal": true
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+import { chromium } from 'playwright';
+import fs from 'node:fs';
+import {listenArt,libraryArt} from './art.mjs';
+
+// Capture the existing Bible page so the proposal retains the real site shell.
+const browser = await chromium.launch({channel:'msedge',headless:true});
+const page = await browser.newPage({viewport:{width:1440,height:1100}});
+await page.goto('http://127.0.0.1:8931/bible');
+await page.locator('.bible-path-copy').first().waitFor();
+await page.evaluate(({listenArt,libraries}) => {
+  document.querySelectorAll('script').forEach(node=>node.remove());
+  document.querySelector('.bible-listening')?.remove();
+  const read=document.querySelector('.bible-reading');
+  read.querySelector('.bible-path-copy > p').textContent='Spend time in Scripture, compare versions, and pick up where you left off.';
+  const listen=read.cloneNode(true);
+  listen.className='bible-path bible-listening';
+  listen.href='https://www.youtube.com/results?search_query=audio+bible';
+  listen.target='_blank';listen.rel='noopener noreferrer';
+  listen.setAttribute('aria-labelledby','bible-listening-title');
+  listen.querySelector('.bible-path-top span').textContent='Hear the Word';
+  listen.querySelector('.bible-path-top svg').outerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="12" width="4" height="8" rx="2"/><rect x="17" y="12" width="4" height="8" rx="2"/></svg>';
+  listen.querySelector('.bible-open-book').outerHTML='<div class="bible-audio-art" aria-hidden="true"><svg viewBox="0 0 370 215" fill="none"><circle cx="185" cy="106" r="77" stroke="currentColor" opacity=".13"/><circle cx="185" cy="106" r="60" stroke="currentColor" opacity=".22"/><path d="M139 105V92a46 46 0 0 1 92 0v13" stroke="currentColor" stroke-width="3"/><rect x="132" y="100" width="19" height="42" rx="9" fill="currentColor" fill-opacity=".12" stroke="currentColor"/><rect x="219" y="100" width="19" height="42" rx="9" fill="currentColor" fill-opacity=".12" stroke="currentColor"/><path d="M162 108v12m9-20v28m9-35v42m10-35v28m9-22v16m9-10v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M159 161h52" stroke="currentColor" opacity=".3"/><path d="m181 153 10 8-10 8z" fill="currentColor"/></svg></div>';
+  listen.querySelector('h2').id='bible-listening-title';listen.querySelector('h2').textContent='Listen';
+  listen.querySelector('.bible-path-copy > p').textContent='Let Scripture accompany your day. Find an audio Bible on YouTube and listen, one passage at a time.';
+  listen.querySelector('.bible-path-foot > span').textContent='Audio Bible · YouTube';
+  listen.querySelector('.bible-path-foot strong').firstChild.textContent='Listen on YouTube ';
+  read.after(listen);
+  listen.querySelector('.bible-audio-art').outerHTML=listenArt;
+  const library=document.querySelector('.bible-library');
+  const labels=['01 · The collected volumes','02 · Book by book','03 · The collected shelves'];
+  libraries.forEach((art,index)=>{
+    const option=1;
+    const card=index===0?library:library.cloneNode(true);
+    card.className=`bible-path bible-library library-option-${option}`;
+    const old=card.querySelector('.bible-shelf, .library-illustration, .category-library');old.outerHTML=art;
+    card.querySelectorAll('.category-label small').forEach(label=>label.textContent+=' shown');
+    card.querySelector('.bible-path-top span').textContent='Explore the collection';
+    const title=card.querySelector('h2');title.id=`bible-library-title-${option}`;card.setAttribute('aria-labelledby',title.id);
+    card.querySelector('.bible-path-copy > p').textContent='See the Bible at a glance. Choose a version, explore its books, and open any chapter.';
+    if(index>0)document.querySelector('.bible-paths').append(card);
+  });
+  document.querySelector('.bible-intro > p:last-child').textContent='Read a passage, listen to Scripture, or explore the whole collection. One Bible. A lifetime of discovery.';
+  document.querySelectorAll('link[rel="modulepreload"]').forEach(node=>node.remove());
+  const style=document.createElement('link');style.rel='stylesheet';style.href='./proposal.css';document.head.append(style);
+  document.title='Bible · Read, Listen, Library — design preview';
+  document.documentElement.dataset.theme='dark';
+  const themeScript=document.createElement('script');themeScript.src='./theme.js';document.body.append(themeScript);
+},{listenArt,libraries:[1].map(libraryArt)});
+fs.writeFileSync('design/bible-listen/index.html',await page.content());
+await browser.close();
+const file='design/catalog.json';const catalog=JSON.parse(fs.readFileSync(file,'utf8'));
+if(!catalog.sections.some(section=>section.id==='bible-listen'))catalog.sections.unshift({id:'bible-listen',title:'Bible',line:'Read, listen, and explore the library.',page:'/bible',cards:[{id:'bible-listen',title:'Read · Listen · Library',url:'/mockups/bible-listen/',date:'2026-10-17',status:'option',line:'Equal Read and Listen cards above a full-width Library card; three matching cards on mobile.'}]});
+fs.writeFileSync(file,JSON.stringify(catalog,null,2)+'\n');

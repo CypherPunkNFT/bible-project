@@ -1,0 +1,492 @@
+{
+  "captured_at": "2026-10-19T03:38:18.248Z",
+  "scope": "Merged handoff read-only reconciliation; individual file/API/SQLite/process observations, not an atomic corpus snapshot",
+  "receipts": {
+    "embedding-progress.json": {
+      "state": "optimizing",
+      "indexed": 11579535,
+      "total": 11579535,
+      "remaining": 0,
+      "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+      "updated_at": "2026-10-19T02:38:22.213012+00:00"
+    },
+    "intake-completion.json": {
+      "state": "embedding",
+      "pid": 75348,
+      "process_created": 1792377304.0699956,
+      "started_at": "2026-10-19T02:35:04.605506+00:00",
+      "updated_at": "2026-10-19T03:37:28.452263+00:00",
+      "launcher": "native-python",
+      "run_id": "native-20261019T023504-75348",
+      "run_directory": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\native-intake\\native-20261019T023504-75348",
+      "enrichment_started": false,
+      "child_pid": 8896
+    },
+    "verification.json": {
+      "sqlite_integrity": "ok",
+      "foreign_key_errors": 0,
+      "embedding_identity_matches": true,
+      "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+      "embedding_job_complete": true,
+      "chunks": 11579535,
+      "vectors": 11579535,
+      "missing_vectors": 0,
+      "stale_vectors": 0,
+      "verse_count": 1027939,
+      "duplicate_vectors": 0,
+      "new_source_files_since_snapshot": 13,
+      "changed_source_inputs_since_snapshot": 2,
+      "missing_source_inputs_since_snapshot": 0,
+      "missing_source_input_paths": [],
+      "source_files_hash_checked": 301737,
+      "reference_library": {
+        "records_by_file": {
+          "ccel/hitchcock-bible-names.xml": 2623,
+          "ccel/smith-bibledict.xml": 4561,
+          "gutenberg/josephus-antiquities-2848.txt": 1,
+          "gutenberg/josephus-apion-2849.txt": 1,
+          "gutenberg/josephus-life-2846.txt": 1,
+          "gutenberg/josephus-wars-2850.txt": 1,
+          "archive-org/fausset-bible-encyclopedia-1900.txt": 1,
+          "archive-org/thayer-lexicon-1889.txt": 1,
+          "crosswire/ISBE/modules/lexdict/zld/isbe/isbe.zdt": 9380,
+          "openscriptures/strongs/strongs-master/hebrew/StrongHebrewG.xml": 8674,
+          "openscriptures/strongs/strongs-master/greek/StrongsGreekDictionaryXML_1.4/strongsgreek.xml": 5624,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/BrownDriverBriggs.xml": 11845,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/HebrewStrong.xml": 8674,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/LexicalIndex.xml": 10221,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/AugIndex.xml": 9299,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/BDBPartsOfSpeech.xml": 135,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/PartsOfSpeech.xml": 52,
+          "openbible-topics/topic-scores.txt": 6713,
+          "theographic/theographic-bible-metadata-master/json/books.json": 66,
+          "theographic/theographic-bible-metadata-master/json/chapters.json": 1189,
+          "theographic/theographic-bible-metadata-master/json/easton.json": 6519,
+          "theographic/theographic-bible-metadata-master/json/events.json": 450,
+          "theographic/theographic-bible-metadata-master/json/people.json": 3067,
+          "theographic/theographic-bible-metadata-master/json/peopleGroups.json": 23,
+          "theographic/theographic-bible-metadata-master/json/places.json": 1274,
+          "theographic/theographic-bible-metadata-master/json/verses.json": 31102,
+          "theographic/theographic-bible-metadata-master/CSV/WordIndex.csv": 31102,
+          "theographic/theographic-bible-metadata-master/geo/pauls_journeys_all.geojson": 112,
+          "theographic/theographic-bible-metadata-master/api/README.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/api-documentation.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/contributing.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/data-source-bibliography.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/json-fields-documentation.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/neo4j-graph-documentation.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/other-data-formats-csv-json-etc.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/querying-with-cypher-and-neo4j.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/README.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/view-and-export-data-with-airtable.md": 1,
+          "theographic/theographic-bible-metadata-master/LICENSE": 1,
+          "theographic/theographic-bible-metadata-master/neo4j/README.md": 1,
+          "theographic/theographic-bible-metadata-master/readme.md": 1,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/HomeFiles/readme.md": 1,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/readme.md": 1,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/sinri/README.md": 1,
+          "openscriptures/strongs/strongs-master/greek/StrongsGreekDictionaryXML_1.4/README.txt": 1,
+          "crosswire/ISBE/mods.d/isbe.conf": 1
+        },
+        "input_files": 49,
+        "records": 152729,
+        "errors": [],
+        "topics": {
+          "topics": 5603,
+          "categories": 55,
+          "bundles": 256
+        }
+      },
+      "new_library_files_since_snapshot": 29,
+      "missing_library_files_since_snapshot": 0,
+      "missing_library_paths": [],
+      "changed_library_ledgers_since_snapshot": 1,
+      "library": {
+        "files": 172530,
+        "statuses": {
+          "indexed": 143520,
+          "deferred_scan": 2,
+          "duplicate": 244,
+          "metadata_or_asset": 28764
+        },
+        "errors": 0,
+        "missing_catalog_files": 0
+      },
+      "complete": true,
+      "enrichment_ready": false,
+      "verified_at": "2026-10-19T00:19:21.172334+00:00"
+    },
+    "native-supervisor/control.json": {
+      "enabled": true,
+      "mode": "verification_only",
+      "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+      "run_id": "embedding-only-20261014T134809Z",
+      "reason": "Owner authorized windowless embedding watchdog and encoder/worker automatic recovery",
+      "verification_request": {
+        "state": "activated",
+        "requested_at": "2026-10-14T14:11:41.113070+00:00",
+        "run_id": "embedding-only-20261014T134809Z",
+        "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+        "scope": "verification_and_late_acquisitions_only",
+        "graph_authorized": false,
+        "mining_authorized": false,
+        "activated_at": "2026-10-18T13:45:02.713267+00:00"
+      },
+      "disabled_at": "2026-10-14T17:38:38.088997+00:00",
+      "encoder_recovery": true,
+      "recovery_epoch": "armed-1792037288325381500",
+      "armed_at": "2026-10-15T04:08:08.328456+00:00"
+    },
+    "native-supervisor/status.json": {
+      "pid": 69264,
+      "updated_at": "2026-10-19T03:37:03.251034+00:00",
+      "enabled": true,
+      "observation": "busy",
+      "mode": "verification_only",
+      "run_id": "embedding-only-20261014T134809Z",
+      "authorized_corpus_build": "2026-10-13T23:47:33.488164+00:00",
+      "reason": "Vector optimization is protected from automatic interruption",
+      "processes": [
+        {
+          "pid": 8896,
+          "created": 1792377306.6637633,
+          "parent": 75348,
+          "role": "embed"
+        },
+        {
+          "pid": 58340,
+          "created": 1792377306.6711545,
+          "parent": 8896,
+          "role": "embed"
+        },
+        {
+          "pid": 75348,
+          "created": 1792377304.0699956,
+          "parent": 82020,
+          "role": "owner"
+        },
+        {
+          "pid": 82020,
+          "created": 1792377304.0609047,
+          "parent": 40544,
+          "role": "owner"
+        }
+      ],
+      "uninspected_python_pids": [],
+      "attempts": 3,
+      "max_attempts": 3,
+      "interval_seconds": 60,
+      "heartbeat_timeout_seconds": 120,
+      "progress_timeout_seconds": 1800,
+      "recovery_test_verified": true,
+      "verification_request": {
+        "state": "activated",
+        "requested_at": "2026-10-14T14:11:41.113070+00:00",
+        "run_id": "embedding-only-20261014T134809Z",
+        "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+        "scope": "verification_and_late_acquisitions_only",
+        "graph_authorized": false,
+        "mining_authorized": false,
+        "activated_at": "2026-10-18T13:45:02.713267+00:00"
+      },
+      "encoder": null,
+      "console_window": false,
+      "state": "busy"
+    },
+    "native-supervisor/recovery.json": {
+      "attempts": 3,
+      "recovery_epoch": "armed-1792037288325381500",
+      "reason": "Completion owner and embedding worker are absent",
+      "previous_ledger": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\native-supervisor\\armed-1792037288325381500\\before.json",
+      "encoder_observation": {
+        "identity": [
+          [
+            42728,
+            1792008556.9416213
+          ],
+          [
+            43516,
+            1792008556.9510565
+          ]
+        ],
+        "failures": 0,
+        "state": "healthy"
+      },
+      "next_attempt_at": 1792378201.5680993,
+      "last_attempt_at": "2026-10-19T02:35:04.000507+00:00",
+      "last_launch": {
+        "pid": 82020,
+        "launched_at": "2026-10-19T02:35:04.067030+00:00",
+        "mode": "resume"
+      }
+    },
+    "native-supervisor/alert.json": {
+      "active": false,
+      "updated_at": "2026-10-19T03:37:03.254746+00:00",
+      "reason": "Vector optimization is protected from automatic interruption"
+    }
+  },
+  "input_fingerprints": [
+    {
+      "path": "KnowledgeBase/embedding-progress.json",
+      "sha256": "1a3f96cae6d3e6b179ff1f52268b77337dc5e2eebd3794e192e2ec9afa019669"
+    },
+    {
+      "path": "KnowledgeBase/intake-completion.json",
+      "sha256": "026e4dd48cafcfaaf96c95691328dcff687618e34ddd76c2739e9f29b665ec71"
+    },
+    {
+      "path": "KnowledgeBase/verification.json",
+      "sha256": "e858c0972e6e71f9cafd2a19782b2fecc884080b8a45b1a66c63285ef05e0ce0"
+    },
+    {
+      "path": "KnowledgeBase/native-supervisor/control.json",
+      "sha256": "9578558554934365e493fa12dc9c65b52482ea10f621d0b85cae678329f0bdb3"
+    },
+    {
+      "path": "KnowledgeBase/native-supervisor/status.json",
+      "sha256": "4c0365bd105888bfc60a96fe7dc37d860d785761a5bf4625f53e219853fb9e7d"
+    },
+    {
+      "path": "KnowledgeBase/native-supervisor/recovery.json",
+      "sha256": "1efce7b34a2126649a0ff11f2b1011b00f111a387a458006aa0952499009ae90"
+    },
+    {
+      "path": "KnowledgeBase/native-supervisor/alert.json",
+      "sha256": "080f29be64d55cfafc9a2867506cbfd776fd1d9fb9bce81557bd4ae471d5972c"
+    }
+  ],
+  "processes": [
+    {
+      "create_time": 1792377306.6637633,
+      "ppid": 75348,
+      "exe": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+      "cwd": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website",
+      "pid": 8896,
+      "cmdline": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "knowledge",
+        "embed"
+      ],
+      "identity_matches": true
+    },
+    {
+      "create_time": 1792377306.6711545,
+      "ppid": 8896,
+      "exe": "D:\\Python\\python.exe",
+      "cwd": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website",
+      "pid": 58340,
+      "cmdline": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "knowledge",
+        "embed"
+      ],
+      "identity_matches": true
+    },
+    {
+      "create_time": 1792377304.0699956,
+      "ppid": 82020,
+      "exe": "D:\\Python\\python.exe",
+      "cwd": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website",
+      "pid": 75348,
+      "cmdline": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "knowledge.finish_intake",
+        "--resume"
+      ],
+      "identity_matches": true
+    },
+    {
+      "create_time": 1792377304.0609047,
+      "ppid": 40544,
+      "exe": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+      "cwd": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website",
+      "pid": 82020,
+      "cmdline": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "knowledge.finish_intake",
+        "--resume"
+      ],
+      "identity_matches": true
+    }
+  ],
+  "curation_sqlite": {
+    "counts": {
+      "pending": 21
+    },
+    "sequence": 41,
+    "current_source_refs": 273,
+    "items": [
+      [
+        "ephesians-guide",
+        "8e8f1efc2e288fbfafc7c09e665f15b786e16b04caf4969cca96eed7cbf37901",
+        1,
+        "pending"
+      ],
+      [
+        "unity",
+        "da4c6d17ea26bd23a1b23d7a7960baa2fc3703bd4cca3c537e40a515bc94a5c5",
+        2,
+        "pending"
+      ],
+      [
+        "supper",
+        "7f7733d0162cf9f8fc007e9ad5d070482eb864f5b5208230c9205c07a496b9a9",
+        2,
+        "pending"
+      ],
+      [
+        "grief",
+        "1bf3010dc008e930068c46890198844c10a6bb69b3d06d3d7609ada436c1a49c",
+        2,
+        "pending"
+      ],
+      [
+        "dryness",
+        "ba5f6ac2d22d75edf51c0e7d1a07662fa7d58c693c2b8ffffae9cf1aa64deb7b",
+        2,
+        "pending"
+      ],
+      [
+        "forgiveness",
+        "a33e28aa4ffa699bde6739ba66454b8ebe73b372e13c11b0cc258bd935395898",
+        2,
+        "pending"
+      ],
+      [
+        "temptation",
+        "c7da1540d9fac39fc06ac8880a5ea883308d48847e7ac38d577aa291e6e6a4f3",
+        2,
+        "pending"
+      ],
+      [
+        "justification",
+        "7ef4edb4c6cf5bafcdf941ab8055d551b6aec813c809f40aba3de1010407a08a",
+        2,
+        "pending"
+      ],
+      [
+        "perseverance",
+        "fb12ddb494eaec595fe9d66b060f1d0ce2ee47a3eb5e50e7c0c3a4537bfcec47",
+        2,
+        "pending"
+      ],
+      [
+        "new-covenant",
+        "d897b9205ba7c9cb5716eee3e1a3bb250d8627064923ac3dde0dfdb527568a10",
+        2,
+        "pending"
+      ],
+      [
+        "apostasy",
+        "e9e8b93640807534b0466ff7db44e6f2a11653d995d04e6dea6adbad8bff52e6",
+        2,
+        "pending"
+      ],
+      [
+        "repentance",
+        "d54b9541d1e5706b690f5a684a3ce8f34a21921abc33221f4a52c6971886d580",
+        2,
+        "pending"
+      ],
+      [
+        "quotation",
+        "fe7de32cb94666f98d528718c8480690f943e7239e045e9601d0fdfb4874eb12",
+        2,
+        "pending"
+      ],
+      [
+        "judging",
+        "11ce7c188dd160c7a4119b3291454f280b712be04336befa98e3579b109ca10f",
+        2,
+        "pending"
+      ],
+      [
+        "word-effects",
+        "7783a564a3425f00c0f9215569786a6a44bc8a6004ba2ffe8117ff120dca363a",
+        2,
+        "pending"
+      ],
+      [
+        "knowing-god",
+        "376fcebbce5fa8cbf79ae131bde09a97c1f0ae17e4240489cbf0b8800d08c448",
+        2,
+        "pending"
+      ],
+      [
+        "confession-1644",
+        "d40655207a89f8d65a38a47d852b073ad3b5d4713215bed3dbe9b67020359b5a",
+        2,
+        "pending"
+      ],
+      [
+        "boyce-profile",
+        "159abc55287a440b9526a4cdeae5ca40f9a98912196bfd034fa566c3ded872b9",
+        2,
+        "pending"
+      ],
+      [
+        "caritas",
+        "fc523d3146814e3c382ee687e45acd0cbf7bc0c20040d4be5b7d82fd3cd227ea",
+        2,
+        "pending"
+      ],
+      [
+        "editor-voice",
+        "2460c6c977cd470ffdb1553a107a3bab084d7f8183272cd86f4e1c9ccd9d6102",
+        2,
+        "pending"
+      ],
+      [
+        "father-gloss",
+        "dd2041bb4170a6ea48c921c2c88acb3a119f03e6ccbf9de2832e03217bbc71af",
+        2,
+        "pending"
+      ]
+    ]
+  },
+  "curation_api": {
+    "counts": {
+      "approved": 0,
+      "discovered": 0,
+      "integrated": 0,
+      "needs_work": 0,
+      "pending": 21,
+      "rejected": 0,
+      "stale": 0
+    },
+    "sequence": 41,
+    "needsSync": false,
+    "needsExport": false,
+    "mappings": 273
+  },
+  "logs": [
+    {
+      "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase/embedding.log",
+      "bytes": 708486,
+      "mtime": "2026-10-19T02:38:22.212Z",
+      "tail": "e-metadata-master/docs/data-source-bibliography.md\": 1, \"theographic/theographic-bible-metadata-master/docs/json-fields-documentation.md\": 1, \"theographic/theographic-bible-metadata-master/docs/neo4j-graph-documentation.md\": 1, \"theographic/theographic-bible-metadata-master/docs/other-data-formats-csv-json-etc.md\": 1, \"theographic/theographic-bible-metadata-master/docs/querying-with-cypher-and-neo4j.md\": 1, \"theographic/theographic-bible-metadata-master/docs/README.md\": 1, \"theographic/theographic-bible-metadata-master/docs/view-and-export-data-with-airtable.md\": 1, \"theographic/theographic-bible-metadata-master/LICENSE\": 1, \"theographic/theographic-bible-metadata-master/neo4j/README.md\": 1, \"theographic/theographic-bible-metadata-master/readme.md\": 1, \"openscriptures/HebrewLexicon/HebrewLexicon-master/HomeFiles/readme.md\": 1, \"openscriptures/HebrewLexicon/HebrewLexicon-master/readme.md\": 1, \"openscriptures/HebrewLexicon/HebrewLexicon-master/sinri/README.md\": 1, \"openscriptures/strongs/strongs-master/greek/StrongsGreekDictionaryXML_1.4/README.txt\": 1, \"crosswire/ISBE/mods.d/isbe.conf\": 1}, \"input_files\": 49, \"records\": 152729, \"errors\": [], \"topics\": {\"topics\": 5603, \"categories\": 55, \"bundles\": 256}}, \"new_library_files_since_snapshot\": 29, \"missing_library_files_since_snapshot\": 0, \"missing_library_paths\": [], \"changed_library_ledgers_since_snapshot\": 1, \"library\": {\"files\": 172530, \"statuses\": {\"indexed\": 143520, \"deferred_scan\": 2, \"duplicate\": 244, \"metadata_or_asset\": 28764}, \"errors\": 0, \"missing_catalog_files\": 0}, \"complete\": true, \"enrichment_ready\": false, \"verified_at\": \"2026-10-18T23:31:44.493775+00:00\"}\r\nReconciled obsolete vectors 0/0\r\nFetching only missing passages by indexed ID; saved vectors and their text are skipped\r\nBuilding cosine search index…\r\n"
+    },
+    {
+      "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase/embedding-error.log",
+      "bytes": 2875,
+      "mtime": "2026-10-14T17:20:08.824Z",
+      "tail": "ror 503: Service Unavailable\r\n\r\nThe above exception was the direct cause of the following exception:\r\n\r\nTraceback (most recent call last):\r\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\r\n  File \"<frozen runpy>\", line 88, in _run_code\r\n  File \"D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\knowledge\\__main__.py\", line 52, in <module>\r\n    from .settings import write_json\r\n    \r\n  File \"D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\knowledge\\__main__.py\", line 38, in main\r\n    embed_all(config, args.limit, args.batch_size)\r\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\knowledge\\vectors.py\", line 152, in embed_all\r\n    return _embed_all(config, limit, batch_size)\r\n  File \"D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\knowledge\\vectors.py\", line 235, in _embed_all\r\n    flush()\r\n    ~~~~~^^\r\n  File \"D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\knowledge\\vectors.py\", line 215, in flush\r\n    embeddings = encode_when_available(config, [row[\"embed_text\"] for row in buffer], waiting)\r\n  File \"D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\knowledge\\vectors.py\", line 129, in encode_when_available\r\n    return request_vectors(config, texts)\r\n  File \"D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\knowledge\\encoder.py\", line 37, in request_vectors\r\n    raise RuntimeError(message) from exc\r\nRuntimeError: {\"error\": \"CUDA error: unspecified launch failure\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n\", \"code\": \"embedding_failed\"}\r\n"
+    },
+    {
+      "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase/intake-build-error.log",
+      "bytes": 4686,
+      "mtime": "2026-10-19T02:34:06.807Z",
+      "tail": "n\r\n    build(config)\r\n    ~~~~~^^^^^^^^\r\n  File \"D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\knowledge\\ingest.py\", line 98, in build\r\n    config[\"db\"].replace(state / \"knowledge.previous.sqlite3\")\r\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\Python\\Lib\\pathlib\\_local.py\", line 780, in replace\r\n    os.replace(self, target)\r\n    ~~~~~~~~~~^^^^^^^^^^^^^^\r\nPermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\\\FortressOfSolitude\\\\Jarvis\\\\Projects\\\\BibleProject\\\\KnowledgeBase\\\\knowledge.sqlite3' -> 'D:\\\\FortressOfSolitude\\\\Jarvis\\\\Projects\\\\BibleProject\\\\KnowledgeBase\\\\knowledge.previous.sqlite3'\r\nTraceback (most recent call last):\r\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\r\n  File \"<frozen runpy>\", line 88, in _run_code\r\n  File \"D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\knowledge\\__main__.py\", line 59, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\knowledge\\__main__.py\", line 35, in main\r\n    build(config)\r\n    ~~~~~^^^^^^^^\r\n  File \"D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\knowledge\\ingest.py\", line 98, in build\r\n    config[\"db\"].replace(state / \"knowledge.previous.sqlite3\")\r\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\Python\\Lib\\pathlib\\_local.py\", line 780, in replace\r\n    os.replace(self, target)\r\n    ~~~~~~~~~~^^^^^^^^^^^^^^\r\nPermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\\\FortressOfSolitude\\\\Jarvis\\\\Projects\\\\BibleProject\\\\KnowledgeBase\\\\knowledge.sqlite3' -> 'D:\\\\FortressOfSolitude\\\\Jarvis\\\\Projects\\\\BibleProject\\\\KnowledgeBase\\\\knowledge.previous.sqlite3'\r\n"
+    }
+  ],
+  "boundary": "Read-only input inspection plus initiative documentation/planning outputs only; no source/corpus/vector/curation/scheduler mutations"
+}

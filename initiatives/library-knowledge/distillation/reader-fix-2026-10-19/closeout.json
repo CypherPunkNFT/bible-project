@@ -1,0 +1,127 @@
+{
+  "at": "2026-10-19T12:55:48.831Z",
+  "authorization": "Latest owner request to do the next few steps, following the concrete two-copy repair proposal; bounded implementation only.",
+  "testCommand": "..\\KnowledgeBase\\.venv\\Scripts\\python.exe -X utf8 -m unittest discover -s scripts/tests -p test_local_library.py -v",
+  "focusedTestsPassed": 14,
+  "beforeIndexSha256": "481c257dd5c608171e48fbc5d6d0070c880cca2210c229c949a7a70403f99a32",
+  "afterIndexSha256": "95cf06bba70ecdf41ccd97d8d67b4d69d1162bdd532ad1c6439affdcedf25d17",
+  "backup": ".local/local-library/index-backups/481c257dd5c608171e48fbc5d6d0070c880cca2210c229c949a7a70403f99a32.json",
+  "index": {
+    "oldEntriesUnchanged": [
+      {
+        "section": "documents",
+        "unchanged": true
+      },
+      {
+        "section": "bindings",
+        "unchanged": true
+      },
+      {
+        "section": "profiles",
+        "unchanged": true
+      },
+      {
+        "section": "contributors",
+        "unchanged": true
+      }
+    ],
+    "addedDocuments": [
+      "local-3c6ae92f1578f913c09839d2c8604310111a9b02b5a3f2ef97b5d5ca60d5c3f4",
+      "local-7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76"
+    ],
+    "addedBindings": [
+      "held-3c6ae92f1578f913c09839d2c8604310",
+      "held-7824047daefbe859f7f5f167719ca85f"
+    ],
+    "builtAtUnchanged": true,
+    "backupExact": true
+  },
+  "all21ProposalsAndDecisionsUnchanged": true,
+  "candidateCatalogueUnchanged": true,
+  "remaining": {
+    "browser": "Brave blocked original Candidates route; no browser proof or screenshot of successful reader",
+    "identities": "Henry/Boyce work and edition IDs remain null",
+    "wholeBook": "Exact retained text served, not independent transcription/content certification",
+    "semantic": "Pilot/adapter not executed; no corpus/vector/index reads",
+    "corpus": "Embedding complete; verification enrichment_ready false; completion needs_attention; supervisor exhausted 3/3; no restart/reset"
+  },
+  "finalRuntime": {
+    "completion": {
+      "state": "needs_attention",
+      "pid": 75348,
+      "process_created": 1792377304.0699956,
+      "started_at": "2026-10-19T02:35:04.605506+00:00",
+      "updated_at": "2026-10-19T08:41:46.526639+00:00",
+      "launcher": "native-python",
+      "run_id": "native-20261019T023504-75348",
+      "run_directory": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\native-intake\\native-20261019T023504-75348",
+      "enrichment_started": false,
+      "error": "build failed with exit 1; inspect intake-build-error.log"
+    },
+    "embedding": {
+      "state": "complete",
+      "total": 11579535,
+      "indexed": 11579535,
+      "remaining": 0,
+      "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+      "updated_at": "2026-10-19T04:36:36.644342+00:00",
+      "seconds": 7115.5
+    },
+    "supervisor": {
+      "pid": 65876,
+      "updated_at": "2026-10-19T12:59:05.262739+00:00",
+      "enabled": true,
+      "observation": "recover",
+      "mode": "verification_only",
+      "run_id": "embedding-only-20261014T134809Z",
+      "authorized_corpus_build": "2026-10-13T23:47:33.488164+00:00",
+      "reason": "Completion owner and embedding worker are absent",
+      "processes": [],
+      "uninspected_python_pids": [],
+      "attempts": 3,
+      "max_attempts": 3,
+      "interval_seconds": 60,
+      "heartbeat_timeout_seconds": 120,
+      "progress_timeout_seconds": 1800,
+      "recovery_test_verified": true,
+      "verification_request": {
+        "state": "activated",
+        "requested_at": "2026-10-14T14:11:41.113070+00:00",
+        "run_id": "embedding-only-20261014T134809Z",
+        "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+        "scope": "verification_and_late_acquisitions_only",
+        "graph_authorized": false,
+        "mining_authorized": false,
+        "activated_at": "2026-10-18T13:45:02.713267+00:00"
+      },
+      "encoder": {
+        "state": "healthy",
+        "service": "bible-project-encoder",
+        "loaded": false,
+        "batches": 44524,
+        "pid": 43516,
+        "error": null,
+        "processes": [
+          {
+            "pid": 42728,
+            "parent": 40584,
+            "created": 1792008556.9416213
+          },
+          {
+            "pid": 43516,
+            "parent": 42728,
+            "created": 1792008556.9510565
+          }
+        ],
+        "unknown": [],
+        "failures": 0
+      },
+      "console_window": false,
+      "state": "exhausted"
+    },
+    "observed_completion_build_embed_verify": []
+  },
+  "finalValidationAt": "2026-10-19T12:59:08.525Z",
+  "reportLinksValid": true,
+  "codeReview": "No blocking issues in final read-only implementation review; dependency pinning issues found earlier were corrected before live use."
+}

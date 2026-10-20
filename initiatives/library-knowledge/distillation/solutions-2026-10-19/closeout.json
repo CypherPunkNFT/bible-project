@@ -1,0 +1,116 @@
+{
+  "at": "2026-10-19T17:06:50.636Z",
+  "tests": {
+    "nativeExisting": 41,
+    "publicationPassed": 12,
+    "publicationOptionalSkipped": 1,
+    "reader": 17,
+    "route": 4,
+    "totalPassed": 74,
+    "typecheck": true,
+    "frontendBuild": true
+  },
+  "browser": {
+    "candidatesViaData": true,
+    "candidateSourceLinks": true,
+    "boyceDirect25": true,
+    "hodgeDirect32": true,
+    "fergussonFallback25": true,
+    "go": true,
+    "browserBack": true,
+    "invalidPageNotice": true,
+    "mobileNoHorizontalOverflow": true
+  },
+  "curation": {
+    "all21FingerprintsRevisionsStatesUnchanged": true,
+    "counts": {
+      "approved": 0,
+      "discovered": 0,
+      "integrated": 0,
+      "needs_work": 0,
+      "pending": 21,
+      "rejected": 0,
+      "stale": 0
+    },
+    "sequence": 41,
+    "needsSync": false,
+    "needsExport": false
+  },
+  "preservation": {
+    "supervisorControlUnchanged": true,
+    "retryLedgerUnchanged": true,
+    "packageInstallations": 0,
+    "encoderRestart": false,
+    "websiteDeployment": false
+  },
+  "completion": {
+    "state": "building",
+    "pid": 86792,
+    "process_created": 1792429292.5313587,
+    "started_at": "2026-10-19T17:01:33.104131+00:00",
+    "updated_at": "2026-10-19T17:06:40.603865+00:00",
+    "launcher": "native-python",
+    "run_id": "native-20261019T170133-86792",
+    "run_directory": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\native-intake\\native-20261019T170133-86792",
+    "enrichment_started": false,
+    "child_pid": 61492
+  },
+  "supervisor": {
+    "pid": 51536,
+    "updated_at": "2026-10-19T17:06:03.971546+00:00",
+    "enabled": true,
+    "observation": "busy",
+    "mode": "verification_only",
+    "run_id": "embedding-only-20261014T134809Z",
+    "authorized_corpus_build": "2026-10-13T23:47:33.488164+00:00",
+    "reason": "Build or verification owns the corpus; automatic interruption is prohibited",
+    "processes": [
+      {
+        "pid": 9400,
+        "created": 1792429480.4667318,
+        "parent": 61492,
+        "role": "build"
+      },
+      {
+        "pid": 19316,
+        "created": 1792429292.5182967,
+        "parent": 34120,
+        "role": "owner"
+      },
+      {
+        "pid": 61492,
+        "created": 1792429480.4553585,
+        "parent": 86792,
+        "role": "build"
+      },
+      {
+        "pid": 86792,
+        "created": 1792429292.5313587,
+        "parent": 19316,
+        "role": "owner"
+      }
+    ],
+    "uninspected_python_pids": [],
+    "attempts": 3,
+    "max_attempts": 3,
+    "interval_seconds": 60,
+    "heartbeat_timeout_seconds": 120,
+    "progress_timeout_seconds": 1800,
+    "recovery_test_verified": true,
+    "verification_request": {
+      "state": "activated",
+      "requested_at": "2026-10-14T14:11:41.113070+00:00",
+      "run_id": "embedding-only-20261014T134809Z",
+      "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+      "scope": "verification_and_late_acquisitions_only",
+      "graph_authorized": false,
+      "mining_authorized": false,
+      "activated_at": "2026-10-18T13:45:02.713267+00:00"
+    },
+    "encoder": null,
+    "console_window": false,
+    "state": "busy"
+  },
+  "remaining": "Finalcurrent-sourcepublicationandcorpusvectorparity pending. Preserve the existing owner; no competingwriter.",
+  "latestStageObservedBytes": 2180104192
+}

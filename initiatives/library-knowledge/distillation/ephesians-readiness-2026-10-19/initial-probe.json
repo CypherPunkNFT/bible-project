@@ -1,0 +1,26 @@
+{
+  "captured_at": "2026-10-19T18:55:31.503Z",
+  "result": "Checker stopped before output: assumed normalized locating sample equals literal capture. Three Calvin samples differ by preserved whitespace only.",
+  "source_defect": false,
+  "differences": [
+    {
+      "id": "connection:a87d771b032f89859dd51cc653eb34801ac4041d43615923d63a858813fccbb2",
+      "role": "calvin-commentary",
+      "quote": "1. And you who were dead. This is an ἐπεξεργασία of the former statements, that is, an exposition accompanied by an illustration.  \n\t\t \n\n\t\t   “Il expose et",
+      "sample": "1. And you who were dead. This is an ἐπεξεργασία of the former statements, that is, an exposition accompanied by an illustration. “Il expose et"
+    },
+    {
+      "id": "connection:e0bc1303fe31bf0b6ef9034b2a0fe501b92a524b04ac1802bc271caaba32b5e3",
+      "role": "calvin-commentary",
+      "quote": "4. But God, who is rich in mercy.  \n\t\t \n\n\t\t   “That is, exceedingly bountiful and liberal in the exercise of mercy. And in this metaphorical sense, the",
+      "sample": "4. But God, who is rich in mercy. “That is, exceedingly bountiful and liberal in the exercise of mercy. And in this metaphorical sense, the"
+    },
+    {
+      "id": "connection:3f452732de422db33c3f6e8888e39ac703c8b08b0e79ae91d2495348748b24e7",
+      "role": "calvin-commentary",
+      "quote": "1. Children, obey. Why does the apostle use the word obey instead of honor,  \n\t\t \n\n\t\t   “Τιμᾷν properly signifies, ‘to perform one’s duty to any one;’ and",
+      "sample": "1. Children, obey. Why does the apostle use the word obey instead of honor, “Τιμᾷν properly signifies, ‘to perform one’s duty to any one;’ and"
+    }
+  ],
+  "correction": "Use existing whitespace-only matcher; independently retain exact literal capture equality and inspect embedded note boundaries."
+}

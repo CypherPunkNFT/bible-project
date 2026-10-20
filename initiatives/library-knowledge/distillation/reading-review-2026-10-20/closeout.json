@@ -1,0 +1,112 @@
+{
+  "captured_at": "2026-10-20T04:31:23.755Z",
+  "delivered": {
+    "overview": "http://127.0.0.1:8931/data_analysis/reading/",
+    "ephesians": "http://127.0.0.1:8931/data_analysis/reading/ephesians/",
+    "proposals": 21,
+    "proposalOutlineSections": 85,
+    "chapters": 6,
+    "chapterSections": 25,
+    "verses": 155,
+    "explainedCommentaryReadings": 12,
+    "savedSourceCards": 39,
+    "retainedSourceConnections": 235
+  },
+  "authorization": "Latest owner explicitly requested new review pages, a clear complete Ephesians guide, outlines for all 21 and their relationships. Local editorial presentation only; no curation decisions or publication.",
+  "critiquePasses": [
+    {
+      "title": "A record is not a reason to read",
+      "text": "The previous view proved that sources had been located, but did not show what the proposed page would teach. The replacement starts with a reader’s question, a substantive introduction and a sequence of explained sections."
+    },
+    {
+      "title": "An excerpt is not an explanation",
+      "text": "Short windows left arguments unfinished and sometimes mixed commentary with notes. The replacement explains what each writer contributes, links the reading passage and labels material that still cannot support the proposed conclusion."
+    },
+    {
+      "title": "Twenty-one records are not twenty-one separate pages",
+      "text": "The earlier list flattened whole guides, supporting comparisons and small reader aids into the same category. The replacement gives each proposal a role. Unity belongs inside Ephesians 4; the records stay distinct for owner review."
+    }
+  ],
+  "validation": {
+    "routeTests": 5,
+    "routeTestsPassed": 5,
+    "syntaxCheck": "passed",
+    "browserReceipt": "browser-check.json",
+    "inputHashes": {
+      "analysis-desk/reading-content.json": "6dfd85ceb090454a736f6b62a177b6af4b750d611f06f9cb8b5608d6d6c901cc",
+      ".local/data-analysis/website-candidates.json": "31bab5204f918d804ca9b3b0bec7e4d3d93fc123e7d9a348afea038b134072d0",
+      "initiatives/library-knowledge/distillation/candidate-audit-2026-10-19/audit.json": "d0d1d59c85f9909bfae3ed1ff5e1e8cfe2a7c417a5808aee2f8a9b512681d218",
+      "initiatives/library-knowledge/distillation/candidate-audit-2026-10-19/reader-followup.json": "c856af915e4775c343c60f968fef846e3a7e8930aab7a69319afb664dc6dc248",
+      "initiatives/library-knowledge/distillation/source-followup-2026-10-19/reader-verification.json": "bb1d1ef3839412a5fa5e211b6e0681d95f0ffa540dfbeaf3427a2b0aedb57d21",
+      "initiatives/library-knowledge/distillation/ephesians-readiness-2026-10-19/source-reader-check.json": "fa29e6e233b73c10c26ad94fae1aa942cd56b2a4228fea652d6c4ab24043ee1c",
+      "initiatives/library-knowledge/distillation/context-review-2026-10-19/native-context.json": "cc264c1c71aeeb54796b775542e013fad8fcd4ec45826ecbf7e6b23c74f726ba",
+      "initiatives/library-knowledge/distillation/source-followup-2026-10-19/supper-apparatus-and-http.json": "1c9ae9fc302177883cc0fd2132a7634753a56704fe4ee23fbf4144c8c0bfa8f7",
+      "initiatives/library-knowledge/distillation/reading-review-2026-10-20/bible-kjv.json": "2332416479acb37ddcdf6f558ae3b4364e7257d1e07e1e2e1fb49b5767a6b21c"
+    },
+    "curation": {
+      "counts": {
+        "approved": 0,
+        "discovered": 0,
+        "integrated": 0,
+        "needs_work": 0,
+        "pending": 21,
+        "rejected": 0,
+        "stale": 0
+      },
+      "sequence": 41,
+      "statesRevisionsFingerprintsUnchanged": true,
+      "needsSync": false,
+      "needsExport": false
+    },
+    "protectedFiles": {
+      "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/.local/data-analysis/website-candidates.json": {
+        "before": "31bab5204f918d804ca9b3b0bec7e4d3d93fc123e7d9a348afea038b134072d0",
+        "after": "31bab5204f918d804ca9b3b0bec7e4d3d93fc123e7d9a348afea038b134072d0",
+        "unchanged": true
+      },
+      "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/.local/local-library/index.json": {
+        "before": "8b10d1bd9fc4c4d857ff7146c3c6baa9dad75e6b79ebdd02ae22b09757299ab2",
+        "after": "8b10d1bd9fc4c4d857ff7146c3c6baa9dad75e6b79ebdd02ae22b09757299ab2",
+        "unchanged": true
+      },
+      "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/scripts/local-reader-scope.json": {
+        "before": "912ce90a2bd927e5db741df91275b6ba64cef2a12a44f31d6e4cd0c706e2ba48",
+        "after": "912ce90a2bd927e5db741df91275b6ba64cef2a12a44f31d6e4cd0c706e2ba48",
+        "unchanged": true
+      },
+      "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase/native-supervisor/control.json": {
+        "before": "9578558554934365e493fa12dc9c65b52482ea10f621d0b85cae678329f0bdb3",
+        "after": "9578558554934365e493fa12dc9c65b52482ea10f621d0b85cae678329f0bdb3",
+        "unchanged": true
+      },
+      "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase/native-supervisor/recovery.json": {
+        "before": "1efce7b34a2126649a0ff11f2b1011b00f111a387a458006aa0952499009ae90",
+        "after": "1efce7b34a2126649a0ff11f2b1011b00f111a387a458006aa0952499009ae90",
+        "unchanged": true
+      }
+    }
+  },
+  "completionReceipt": {
+    "state": "needs_attention",
+    "pid": 86792,
+    "process_created": 1792429292.5313587,
+    "started_at": "2026-10-19T17:01:33.104131+00:00",
+    "updated_at": "2026-10-20T02:10:06.258236+00:00",
+    "launcher": "native-python",
+    "run_id": "native-20261019T170133-86792",
+    "run_directory": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\native-intake\\native-20261019T170133-86792",
+    "enrichment_started": false,
+    "error": "build failed with exit 3221225786; inspect intake-build-error.log"
+  },
+  "completionOwnerObserved": {
+    "exists": false
+  },
+  "unchangedBoundaries": [
+    "No approval, integration, deployment, new public source bodies or source repair",
+    "No embedding/corpus access, pilot queries, supervisor retry reset, scheduler change or encoder launch",
+    "Historical KR110 failure, KR120 limitation and KR140 truth/translation limits unchanged",
+    "Dependency adapter, current-source parity and selective-refresh/backup guarantees remain unresolved"
+  ],
+  "preview": "Only current 8931 preview was identity-checked, refreshed and relaunched through the original windowless start-preview.mjs; existing 8941 redirect untouched.",
+  "nextTask": "Bounded editorial acceptance on the new six-chapter guide and unity extension: inspect each selected source argument and credit against the full unit, record precise corrections with existing proposal IDs. Keep public-use and semantic acceptance separate."
+}

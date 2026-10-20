@@ -1,0 +1,32 @@
+/* Direction F (merged.js): joins the three pages it borrows from. Their own sheets each pad the bottom for a full page. */
+.ss.mg, .cv.mg { padding-bottom: 0; }
+.mg-why { margin-top: 8px; border-top: 1px solid var(--line); }
+.mg-text { margin-top: 16px; max-width: 46rem; line-height: 1.75; color: var(--muted); }
+.mg-center { text-align: center; }
+/* The letter is written on its ruled lines: every line of text takes one 34px row, gaps are whole blank rows, and each
+   size of type is nudged so its baseline sits just above the rule. The rules stop after the P.S.; the buttons sit below
+   them on blank paper, and the seal is pressed over the sheet's bottom-right corner. */
+.mg-letter { --row: 34px; background: var(--surface); padding-bottom: 36px; }
+.mg-ruled { background: repeating-linear-gradient(to bottom, transparent 0 calc(var(--row) - 1px), color-mix(in srgb, var(--accent) 9%, transparent) calc(var(--row) - 1px) var(--row));
+  background-position: 0 var(--rule-shift, -7px); }
+.mg-ruled :is(header, .la-dear, .la-body > p, .la-close, .la-sign, .la-role, .la-ps) { position: relative; margin: 0; line-height: var(--row); }
+.mg-ruled header { top: 3px; }
+.mg-letter .mg-ruled .la-dear { margin-top: var(--row); top: -2px; }
+.mg-ruled .la-body { margin-top: 0; }
+.mg-letter .mg-ruled .la-body > p + p, .mg-letter .mg-ruled .la-body > .la-note + p { margin-top: var(--row); }
+.mg-ruled footer { margin-top: var(--row); }
+.mg-letter .mg-ruled .la-sign { margin-top: var(--row); top: -8px; }
+.mg-ruled .la-role { top: 3px; }
+.mg-letter .mg-ruled .la-ps { margin-top: var(--row); padding-top: 0; border-top: 0; }
+.mg-links { margin-top: 30px; }
+.mg-letter .la-wax { right: -30px; bottom: -30px; }
+
+@media (max-width: 1240px) {
+  .mg-ruled .la-note { margin: var(--row) 0 0; padding: 0 0 0 16px; }
+  .mg-ruled :is(.la-note p, .la-note cite) { position: relative; margin: 0; line-height: var(--row); }
+  .mg-ruled .la-note cite { top: 2px; }
+}
+@media (max-width: 860px) {
+  .mg-ruled .la-body > p { font-size: 17px; }
+  .mg-letter .la-wax { right: -14px; bottom: -22px; }
+}

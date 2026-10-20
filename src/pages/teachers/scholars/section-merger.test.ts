@@ -7,8 +7,8 @@ import type {ScholarsData} from '@/data/teachers/pages-types';
 const data:ScholarsData=JSON.parse(readFileSync('src/data/teachers/scholars.json','utf8'));
 
 describe('merged Scholars sections',()=>{
- it('has four sections and numbers them in landing order',()=>{
-  expect(SCHOLAR_SECTIONS.map(s=>s.id)).toEqual(['catalogue','built','discoveries','directory']);
+ it('keeps connections within sources rather than adding a landing chooser entry',()=>{
+  expect(SCHOLAR_SECTIONS.map(s=>s.id)).toEqual(['built','catalogue','discoveries','directory']);
   expect(SCHOLAR_SECTIONS.map(s=>sectionNumber(s.id))).toEqual(['01','02','03','04']);
  });
  it('retains every ribbon group while bounding the opening view through People · rulers',()=>{

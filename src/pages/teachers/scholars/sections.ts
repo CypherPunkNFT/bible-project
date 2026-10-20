@@ -1,7 +1,7 @@
 // One order for the live page, headings and jump links. Archived mockups are frozen.
 export const SCHOLAR_SECTIONS = [
-  { id: 'catalogue', title: 'The full catalogue' },
   { id: 'built', title: 'Sources in use' },
+  { id: 'catalogue', title: 'The full catalogue' },
   { id: 'discoveries', title: 'Discoveries' },
   { id: 'directory', title: 'Contributors' },
 ] as const;

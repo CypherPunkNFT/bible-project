@@ -1,0 +1,26 @@
+{
+  "captured_at": "2026-10-19T18:33:20.754Z",
+  "mode": "disposable process; read-only scoped_rows invocation, injected proposed config only",
+  "epub_proposals_pass_existing_path_source_cache_record_guards": 10,
+  "unsupported_formats_rejected": [
+    {
+      "candidate": "unity",
+      "format": ".html",
+      "guard_rejected": true
+    },
+    {
+      "candidate": "confession-1644",
+      "format": ".html",
+      "guard_rejected": true
+    },
+    {
+      "candidate": "boyce-profile",
+      "format": ".xml",
+      "guard_rejected": true
+    }
+  ],
+  "reader_scope_unchanged": true,
+  "reader_index_unchanged": true,
+  "index_owner_merge_publish_called": false,
+  "review_or_implementation_approval_granted": false
+}

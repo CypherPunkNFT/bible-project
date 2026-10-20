@@ -90,7 +90,5 @@ export function Named({onInspect}:{onInspect?:(selection:SourceInspection)=>void
     </div>
     </div>
     <p className="num-explain">{heat.named.length} recorded credit labels across nine areas, including named contributors and institutional source providers. Joint credits may represent several people. Squares compare distinct page connections for each credit; source details retain the recorded consultation limits. Coverage includes citations, linked research directories, bibliographies and chart inputs.</p>
-    <p className="nmd-unnamed"><span>Profiles without a matched credit in this source index:</span>
-      {heat.unnamed.map((s) => <button key={s.id} type="button" data-scholar={s.id}>{s.short}</button>)}</p>
   </div>;
 }

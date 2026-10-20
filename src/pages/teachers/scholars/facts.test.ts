@@ -25,6 +25,7 @@ it('includes unknowns in era totals and never promotes subject matches into expe
 });
 it('numbers every live section once in page order', () => {
   expect(SCHOLAR_SECTIONS.map(s => sectionNumber(s.id))).toEqual(['01', '02', '03', '04']);
-  expect(sectionNumber('built')).toBe('02');
+  expect(sectionNumber('built')).toBe('01');
+  expect(sectionNumber('catalogue')).toBe('02');
   expect(sectionNumber('directory')).toBe('04');
 });

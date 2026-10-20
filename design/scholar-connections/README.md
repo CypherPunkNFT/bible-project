@@ -1,0 +1,13 @@
+# Knowledge handed on: topic chooser and subgraphs
+
+Local review: http://127.0.0.1:8931/mockups/scholar-connections/?field=4
+
+The mock embeds the actual local Scholars page and substitutes only its connections graph. Each field tab now opens a responsive grid of ten topic cards with line icons, titles and work/connection counts. Selecting a topic fades the grid away, reveals its subgraph and progressively draws its links/nodes. All topics returns to the grid and restores focus to the selected card. Tabs always return to their topic grid. Reduced motion skips transitions. The heading, introduction, navigation and rest of the Scholars page are the actual current preview.
+
+A light, trackless 5px scroll pill floats inside overflowing plots with 36px side margins (24px on phones) and 14px bottom clearance. Names end 12px above the circles, with extra top room automatically added for long joint credits. Grey work titles remain .8rem and relationship explanations .9rem; captions wrap within separate columns. Background dragging, pill dragging and keyboard arrows/Home/End pan the graph. Circles and relationship captions open evidence details with source links, review statuses, caveats and unconfirmed edition information. The actual page theme control works normally.
+
+The mock bundles `content/teachers/knowledge-connections/index.json`: 50 topics, 133 works/edition records and 91 explicit connections, exactly ten topics in each category. Graph membership uses `workIds`; arrows use only `edgeIds`, never implicit array adjacency. Nestle and Rice have parallel inputs; Petilian and the Descartes objections branch. Original five examples retain approved expanded captions and existing relationship headings. New captions use the recorded claims. This interface work does not independently verify historical claims, resolve library editions or change review flags. Dates are labels, not a proportional time scale.
+
+Card counts and layout derive from the dataset rather than fixed card slots, allowing future category expansion. The build checks distinct topic IDs, valid work/edge membership and at least ten topics per field; `dataset-audit.json` records current counts. Research inputs, production components and preview dist are unchanged.
+
+Build: `node design/scholar-connections/build.mjs`. Current verification: `node .local/check-connections-topics.mjs` checks all 50 topics at 1536/1024/390px: exact work and edge ID sets, caption/identity separation, clipping/overflow, evidence links, return focus, real background/pill dragging and animated selection. Screenshots `.local/connections-topics-*.png`. Earlier comparison/single-thread checks are superseded. Local mock only; no push or deployment.

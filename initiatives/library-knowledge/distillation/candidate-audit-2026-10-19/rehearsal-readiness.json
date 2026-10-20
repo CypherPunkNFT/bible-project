@@ -1,0 +1,273 @@
+{
+  "schema": 1,
+  "created_at": "2026-10-19T18:15:25.574Z",
+  "state": "proposed source-readiness overlay; no queries executed",
+  "original_design_sha256": "95e70302c78b291e99ba0c21313d7983777691f8761a4423b2ef80e0002bcb03",
+  "scope_preserved": "12 selected document records for feasibility only, not 12 independent books; alternate Hodge TXT witness excluded from retrieval denominator",
+  "documents": [
+    {
+      "slot": "D01",
+      "candidate": "supper",
+      "document_id": "library:text:ef1341f8441e72db4a5d370a5b80f098bed505248fe99023ebf15e1bf99b22db",
+      "original_sha256": "ef1341f8441e72db4a5d370a5b80f098bed505248fe99023ebf15e1bf99b22db",
+      "extraction_sha256": "0f2bdf735f376c815504b4952f98a012271ec2a4360bb1342f0b56bcd9582243",
+      "source_readiness": "Hash recheck plus retained 548-page audit; known defects held",
+      "semantic_mapping": "unresolved; current corpus/vector/index not frozen",
+      "evidence": "closeout.json scan_control"
+    },
+    {
+      "slot": "D02",
+      "candidate": "supper",
+      "document_id": "library:text:86058bf61ffc35119a87b6667e4f835d475e98d7fc88cf6148c9f9b6603c7ac7",
+      "original_sha256": "86058bf61ffc35119a87b6667e4f835d475e98d7fc88cf6148c9f9b6603c7ac7",
+      "extraction_sha256": "05d721e2bcda183e9ba4786769c98b48afff9146bf968b4bcf3f4bf6a5933fcc",
+      "source_readiness": "Pinned extraction/span/context exact; reader readiness separately recorded",
+      "semantic_mapping": "unresolved; current corpus/vector/index not frozen",
+      "evidence": "audit.json + prior source-dependencies-2026-10-19.json + reader-followup.json where present"
+    },
+    {
+      "slot": "D03",
+      "candidate": "supper",
+      "document_id": "library:text:3c6ae92f1578f913c09839d2c8604310111a9b02b5a3f2ef97b5d5ca60d5c3f4",
+      "original_sha256": "3c6ae92f1578f913c09839d2c8604310111a9b02b5a3f2ef97b5d5ca60d5c3f4",
+      "extraction_sha256": "051a0249f09baaec8aeae8c94aff7ac7e35c1f3bf3a4ac4f49543fbd71cb24de",
+      "source_readiness": "Pinned extraction/span/context exact; reader readiness separately recorded",
+      "semantic_mapping": "unresolved; current corpus/vector/index not frozen",
+      "evidence": "audit.json + prior source-dependencies-2026-10-19.json + reader-followup.json where present"
+    },
+    {
+      "slot": "D04",
+      "candidate": "justification",
+      "document_id": "library:text:7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76",
+      "original_sha256": "7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76",
+      "extraction_sha256": "ae8f22224a89b41db58ae4384bea4ce7fb44df492e782c084d6e0ad71883f6c1",
+      "source_readiness": "Pinned extraction/span/context exact; reader readiness separately recorded",
+      "semantic_mapping": "unresolved; current corpus/vector/index not frozen",
+      "evidence": "audit.json + prior source-dependencies-2026-10-19.json + reader-followup.json where present"
+    },
+    {
+      "slot": "D05",
+      "candidate": "justification",
+      "document_id": "library:text:c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f",
+      "original_sha256": "c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f",
+      "extraction_sha256": "a64d980a9426d434be889f055d03de4efc3e2b267fb2ce23723ce27e655b7f2f",
+      "source_readiness": "Pinned extraction/span/context exact; reader readiness separately recorded",
+      "semantic_mapping": "unresolved; current corpus/vector/index not frozen",
+      "evidence": "audit.json + prior source-dependencies-2026-10-19.json + reader-followup.json where present"
+    },
+    {
+      "slot": "D06",
+      "candidate": "quotation",
+      "document_id": "library:text:b07ac3b308bd0355c65ac4be72a8bdc60eca137f93906bfdbd9bdfad0c94f690",
+      "original_sha256": "b07ac3b308bd0355c65ac4be72a8bdc60eca137f93906bfdbd9bdfad0c94f690",
+      "extraction_sha256": "603689fcaf3e02c47fa1136c90bbb8fe86497a601e8b56f82c9eb4b746001e5c",
+      "source_readiness": "Pinned extraction/span/context exact; reader readiness separately recorded",
+      "semantic_mapping": "unresolved; current corpus/vector/index not frozen",
+      "evidence": "audit.json + prior source-dependencies-2026-10-19.json + reader-followup.json where present"
+    },
+    {
+      "slot": "D07",
+      "candidate": "quotation",
+      "document_id": "library:text:be280c9aaf6e44ccfccac47fc6b676caf820d310cab9169a0913b8596feb9890",
+      "original_sha256": "be280c9aaf6e44ccfccac47fc6b676caf820d310cab9169a0913b8596feb9890",
+      "extraction_sha256": "ed7536fe29a2c63e3c7f2e4b1a480690fec0ed64543264682807daa1cf65fc70",
+      "source_readiness": "Pinned extraction/span/context exact; reader readiness separately recorded",
+      "semantic_mapping": "unresolved; current corpus/vector/index not frozen",
+      "evidence": "audit.json + prior source-dependencies-2026-10-19.json + reader-followup.json where present"
+    },
+    {
+      "slot": "D08",
+      "candidate": "editor-voice",
+      "document_id": "library:text:c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579",
+      "original_sha256": "c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579",
+      "extraction_sha256": "3bf97632eb5985f828e9b9c407bad86e2761205f028253c164b0ff031734e9d7",
+      "source_readiness": "Pinned extraction/span/context exact; reader readiness separately recorded",
+      "semantic_mapping": "unresolved; current corpus/vector/index not frozen",
+      "evidence": "audit.json + prior source-dependencies-2026-10-19.json + reader-followup.json where present"
+    },
+    {
+      "slot": "D09",
+      "candidate": "caritas",
+      "document_id": "library:text:176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012",
+      "original_sha256": "176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012",
+      "extraction_sha256": "ebc7896541a5423595f99ab68d7c3ed646a18c2fecf0526ac0ac7e25b30a88b4",
+      "source_readiness": "Pinned extraction/span/context exact; reader readiness separately recorded",
+      "semantic_mapping": "unresolved; current corpus/vector/index not frozen",
+      "evidence": "audit.json + prior source-dependencies-2026-10-19.json + reader-followup.json where present"
+    },
+    {
+      "slot": "D10",
+      "candidate": "ephesians-guide",
+      "document_id": "library:text:140823cc0ca835eda48a3dc99d4025ef928530e997e92a25e5fecbc82b00f0d2",
+      "original_sha256": "140823cc0ca835eda48a3dc99d4025ef928530e997e92a25e5fecbc82b00f0d2",
+      "extraction_sha256": "5f5d8f9e56fe3eaf35db157f5cc8e9f8c92320ad951b7c0226fe6afe71e9c534",
+      "source_readiness": "Native selected element/quote exact; reader page25 verified",
+      "semantic_mapping": "unresolved; current corpus/vector/index not frozen",
+      "evidence": "audit.json + prior source-dependencies-2026-10-19.json + reader-followup.json where present"
+    },
+    {
+      "slot": "D11",
+      "candidate": "father-gloss",
+      "document_id": "reference-library:openscriptures/HebrewLexicon/HebrewLexicon-master/HebrewStrong.xml:H1:0",
+      "original_sha256": "a628f4f89f8bdaf2483fd3faf1abc8653cc6717758dfc9f24beb7571d9bdd0c4",
+      "extraction_sha256": null,
+      "source_readiness": "Native element spans exact; separate short-script controls",
+      "semantic_mapping": "unresolved; current corpus/vector/index not frozen",
+      "evidence": "audit.json + prior source-dependencies-2026-10-19.json + reader-followup.json where present"
+    },
+    {
+      "slot": "D12",
+      "candidate": "father-gloss",
+      "document_id": "reference-library:openscriptures/HebrewLexicon/HebrewLexicon-master/HebrewStrong.xml:H2:1",
+      "original_sha256": "a628f4f89f8bdaf2483fd3faf1abc8653cc6717758dfc9f24beb7571d9bdd0c4",
+      "extraction_sha256": null,
+      "source_readiness": "Native element spans exact; separate short-script controls",
+      "semantic_mapping": "unresolved; current corpus/vector/index not frozen",
+      "evidence": "audit.json + prior source-dependencies-2026-10-19.json + reader-followup.json where present"
+    }
+  ],
+  "queries": [
+    {
+      "id": "Q01",
+      "documents": [
+        "D02"
+      ],
+      "question": "Which institution passages does the held Hodge EPUB list, and where does the answer begin?",
+      "assessment_scope": "positive feasibility task; source check pending beyond saved span",
+      "judgment": "not run; labels not collected"
+    },
+    {
+      "id": "Q02",
+      "documents": [
+        "D01",
+        "D02"
+      ],
+      "question": "How do the identified Hodge witnesses arrange the opening Supper questions and naming explanation?",
+      "assessment_scope": "edition comparison; do not collapse witnesses",
+      "judgment": "not run; labels not collected"
+    },
+    {
+      "id": "Q03",
+      "documents": [
+        "D03"
+      ],
+      "question": "How does the identified Henry passage explain the name used in 1 Corinthians 11:20?",
+      "assessment_scope": "source explanation, not doctrinal validation",
+      "judgment": "not run; labels not collected"
+    },
+    {
+      "id": "Q04",
+      "documents": [
+        "D04",
+        "D05"
+      ],
+      "question": "What do these Gill and Boyce passages say about faith in justification, including qualifications?",
+      "assessment_scope": "inspect both contexts; do not invent agreement",
+      "judgment": "not run; labels not collected"
+    },
+    {
+      "id": "Q05",
+      "documents": [
+        "D02"
+      ],
+      "question": "Can this selected EPUB passage be attributed specifically to Charles Hodge as its named author?",
+      "assessment_scope": "invalid-attribution challenge; source roles must control answer",
+      "judgment": "not run; labels not collected"
+    },
+    {
+      "id": "Q06",
+      "documents": [
+        "D06",
+        "D07"
+      ],
+      "question": "What named quotation links the retained Piper and Whitefield witnesses, and what steps can be located?",
+      "assessment_scope": "source trail, not independent support",
+      "judgment": "not run; labels not collected"
+    },
+    {
+      "id": "Q07",
+      "documents": [
+        "D06",
+        "D07"
+      ],
+      "question": "Do these witnesses prove Piper used this exact held Whitefield edition directly?",
+      "assessment_scope": "insufficient-evidence/direction challenge",
+      "judgment": "not run; labels not collected"
+    },
+    {
+      "id": "Q08",
+      "documents": [
+        "D08"
+      ],
+      "question": "Who speaks in the selected editorial note, and what marks the editor/author boundary?",
+      "assessment_scope": "attribution boundary",
+      "judgment": "not run; labels not collected"
+    },
+    {
+      "id": "Q09",
+      "documents": [
+        "D09"
+      ],
+      "question": "What does this identified commentary witness support about caritas, charity and love?",
+      "assessment_scope": "single witness; no general translation claim",
+      "judgment": "not run; labels not collected"
+    },
+    {
+      "id": "Q10",
+      "documents": [
+        "D10"
+      ],
+      "question": "Does the selected Fergusson Ephesians 4 passage offer substantive exposition or only a reference?",
+      "assessment_scope": "retain numbering/conflict controls; LK mapping required",
+      "judgment": "not run; labels not collected"
+    },
+    {
+      "id": "Q11",
+      "documents": [
+        "D11",
+        "D12"
+      ],
+      "question": "What recorded glosses accompany the separate Hebrew and Aramaic father entries?",
+      "assessment_scope": "Separate Hebrew H1 meaning and Aramaic H2 usage; no verse-level sense choice",
+      "judgment": "not run; labels not collected"
+    },
+    {
+      "id": "Q12",
+      "documents": [
+        "D11",
+        "D12"
+      ],
+      "question": "Do the two gloss entries determine the correct translation of an unspecified complete biblical verse?",
+      "assessment_scope": "out-of-scope/insufficient-context challenge",
+      "judgment": "not run; labels not collected"
+    }
+  ],
+  "amendments": [
+    {
+      "id": "Q08",
+      "change": "prefatory passage → editorial note",
+      "basis": "Selected native heading Notes and Ed. markers; named editor remains unresolved"
+    },
+    {
+      "id": "Q11",
+      "change": "Clarify meaning versus usage in assessment scope; no new task or answer label",
+      "basis": "H1 meaning element versus H2 usage element"
+    }
+  ],
+  "comparisons": {
+    "lexical": "unchanged existing lexical baseline",
+    "hybrid": "unchanged existing hybrid baseline",
+    "scope": "identical frozen source/task population for both and any proposed method",
+    "judging": "pooled/displaced evidence; separate answerable usefulness from abstention",
+    "execution": "not run"
+  },
+  "holds": [
+    "Current terminal corpus publication and late-source reconciliation",
+    "Exact retained vector fragments and Lance version/index dependencies for target generation",
+    "Historical KR/LK to target source/chunk/span mappings",
+    "Ranking population, eligibility and quality-policy generations",
+    "External dossier dependency digest in live proposal fingerprint",
+    "Consistent dependency-closed backup and isolated restoration"
+  ],
+  "budgets": "Original proposed 15 min /16 GB extra RAM /10 GB scratch remain plans, not demonstrated runtime; reviewer capacity to be measured before larger sampling"
+}

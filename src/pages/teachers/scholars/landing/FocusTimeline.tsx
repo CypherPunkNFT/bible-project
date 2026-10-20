@@ -1,5 +1,5 @@
 import {useState,useMemo,useLayoutEffect,useRef,useCallback,useId,type CSSProperties} from 'react';
-import {ArrowUpRight,ChevronDown,Route} from 'lucide-react';
+import {ArrowUpRight,ChevronDown} from 'lucide-react';
 import {useScholars} from '../context';
 import {eligibleBirth,dateLabel} from '../population';
 import {toneVar,initials} from '../marks/shapes';
@@ -10,7 +10,7 @@ import {focusLayout,focusName} from './focus-timeline';
 import type {ScholarTimelineProps} from './ScholarTimeline';
 import './focus-timeline.css';
 
-export function FocusTimeline({data,matches,searching,onOpen,onConnections}:ScholarTimelineProps&{onConnections:()=>void}){
+export function FocusTimeline({data,matches,searching,onOpen}:ScholarTimelineProps){
  const {library,libraryError}=useScholars(),id=useId();
  const frame=useRef<HTMLDivElement>(null),periodPanel=useRef<HTMLDivElement>(null),nameButton=useRef<HTMLButtonElement>(null);
  const [width,setWidth]=useState(0),[selected,setSelected]=useState<string|null>(null),[expanded,setExpanded]=useState<number|null>(null),[query,setQuery]=useState(''),[details,setDetails]=useState<LibraryPerson|null>(null);
@@ -26,7 +26,7 @@ export function FocusTimeline({data,matches,searching,onOpen,onConnections}:Scho
  const tone=(p:LibraryPerson)=>{const field=p.scholar?.field??Object.keys(p.fields)[0] as Field|undefined;return field?toneVar(field):'var(--muted)';};
  const mark=(p:LibraryPerson,placed=false)=>{const position=layout.positions.get(p.id);return <button type="button" key={p.id} data-contributor={p.id} className={`ft-circle${placed?' ft-placed':''}${selected===p.id?' ft-selected':''}`} aria-label={`${focusName(p.name)}, ${dateLabel(p)}`} aria-pressed={selected===p.id} style={{'--tone':tone(p),...(placed?{left:position?.x,top:position?.y}:{})} as CSSProperties} onClick={()=>setSelected(p.id)}>{initials({name:focusName(p.name)})}</button>;};
  return <><div className="focus-timeline teacher-landing-graph" aria-label="Contributors through time" style={{'--ft-r':`${layout.radius}px`} as CSSProperties}>
-  <div className="ft-heading"><p className="ft-caption"><i/>Each circle is one teacher, placed by the year they were born.</p><button className="ft-connections" type="button" aria-label="Connections view" title="Connections" onClick={onConnections}><Route size={15}/></button><ul className="ft-legend" aria-label="Contributor subjects">{Object.entries(data.fields).map(([field,label])=><li key={field}><i style={{background:toneVar(field as Field)}}/>{label}</li>)}<li><i style={{background:'var(--muted)'}}/>Unassigned</li></ul>{person&&<button ref={nameButton} type="button" className="ft-name" style={{'--tone':tone(person)} as CSSProperties} onClick={event=>person.scholar?onOpen(person.scholar.id,event.currentTarget):setDetails(person)}><strong>{focusName(person.name)}</strong><span>{person.facts?.dates.approximate?'c. ':''}{eligibleBirth(person)}–{person.facts?.dates.died??''}</span><ArrowUpRight size={12}/></button>}</div>
+  <div className="ft-heading"><p className="ft-caption"><i/>Each circle is one teacher, placed by the year they were born.</p><ul className="ft-legend" aria-label="Contributor subjects">{Object.entries(data.fields).map(([field,label])=><li key={field}><i style={{background:toneVar(field as Field)}}/>{label}</li>)}<li><i style={{background:'var(--muted)'}}/>Unassigned</li></ul>{person&&<button ref={nameButton} type="button" className="ft-name" style={{'--tone':tone(person)} as CSSProperties} onClick={event=>person.scholar?onOpen(person.scholar.id,event.currentTarget):setDetails(person)}><strong>{focusName(person.name)}</strong><span>{person.facts?.dates.approximate?'c. ':''}{eligibleBirth(person)}–{person.facts?.dates.died??''}</span><ArrowUpRight size={12}/></button>}</div>
   <div className="ft-scroll" ref={frame}><div className="ft-band" style={{width:layout.width,height:layout.height}}>
    <svg className="ft-art" viewBox={`0 0 ${layout.width} ${layout.height}`} aria-hidden="true">{layout.groups.map(g=><line key={g.start} x1={g.x} x2={g.x} y1="48" y2="384"/>)}<line x1={layout.year2000} x2={layout.year2000} y1="48" y2="384"/><path d={layout.path}/><circle cx={layout.today.x} cy={layout.today.y} r="3"/></svg>
    {layout.groups.map((g,i)=><div key={g.start}><span className="ft-year" style={{left:g.x}} aria-hidden="true">{g.start}</span><button type="button" className="ft-period" data-period={i} style={{left:g.x,width:Math.max(22,g.right-g.x)}} disabled={!g.people.length} aria-label={`Expand ${g.start} to ${g.end}, ${g.people.length} contributors${g.hidden?`, ${g.hidden} more`:''}`} aria-expanded={expanded===i} aria-controls={`${id}-period`} onClick={()=>{setQuery('');setExpanded(i);}}>{g.hidden>0?`+${g.hidden.toLocaleString()}`:''}</button></div>)}

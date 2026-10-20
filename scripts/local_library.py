@@ -6,6 +6,8 @@ outside public/ and dist/. No models, vector access, downloads or shared-cache w
 from __future__ import annotations
 import argparse
 import collections
+from contextlib import contextmanager
+import copy
 import hashlib
 import importlib.util
 import json
@@ -23,6 +25,7 @@ SITE=Path(__file__).resolve().parents[1]
 STATE=SITE.parent/'KnowledgeBase'
 SOURCES=SITE.parent/'sources/library'
 PRIVATE=SITE/'.local/local-library'
+SCOPE=SITE/'scripts/local-reader-scope.json'
 
 
 def read(p):return json.loads(Path(p).read_text(encoding='utf-8-sig'))
@@ -37,6 +40,131 @@ def guarded(raw,roots):
  p=Path(raw).resolve()
  if not any(p.is_relative_to(root.resolve()) for root in roots):raise ValueError('Held file is outside the permitted library directories')
  return p
+
+
+def digest(path):
+ with Path(path).open('rb') as stream:return hashlib.file_digest(stream,'sha256').hexdigest()
+
+
+@contextmanager
+def index_owner():
+ """One cooperating index publisher; never reclaim an uncertain/stale owner."""
+ PRIVATE.mkdir(parents=True,exist_ok=True)
+ lock=PRIVATE/'index-write.lock'
+ try:
+  with lock.open('x',encoding='utf-8') as stream:
+   json.dump({'pid':os.getpid(),'startedAt':now()},stream)
+ except FileExistsError:raise ValueError('Another reader-index owner holds index-write.lock; inspect its identity before recovery')
+ try:yield
+ finally:lock.unlink()
+
+
+def index_hash():
+ path=PRIVATE/'index.json'
+ return digest(path) if path.is_file() else None
+
+
+def publish_index(value,expected):
+ """Called under index_owner. Preserve exact prior bytes and reject changed input."""
+ path=PRIVATE/'index.json'
+ if index_hash()!=expected:raise ValueError('Reader index changed; inspect the new snapshot before applying')
+ data=(json.dumps(value,ensure_ascii=False,separators=(',',':'))+'\n').encode('utf-8')
+ actual=hashlib.sha256(data).hexdigest()
+ if actual==expected:return actual
+ if expected:
+  backup=PRIVATE/'index-backups'/(expected+'.json');backup.parent.mkdir(exist_ok=True)
+  if backup.exists():
+   if digest(backup)!=expected:raise ValueError('Reader index backup failed its hash check')
+  else:
+   with backup.open('xb') as stream:
+    stream.write(path.read_bytes());stream.flush();os.fsync(stream.fileno())
+   if digest(backup)!=expected:raise ValueError('Reader index changed during backup')
+ temp=path.with_suffix('.'+str(os.getpid())+'.tmp')
+ try:
+  with temp.open('xb') as stream:stream.write(data);stream.flush();os.fsync(stream.fileno())
+  if index_hash()!=expected:raise ValueError('Reader index changed before publication')
+  temp.replace(path)
+ finally:temp.unlink(missing_ok=True)
+ return actual
+
+
+def scoped_record(record_id,sha,expected):
+ shard=hashlib.sha256(record_id.encode()).hexdigest()[:2]
+ r=read(SITE/'public/content/teacher-library/records'/(shard+'.json'))[record_id]
+ fingerprint=hashlib.sha256(json.dumps(r,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+ if fingerprint!=expected or r['sha256']!=sha:raise ValueError('Scoped catalogue record changed; review attribution/use dependencies')
+ return r
+
+
+def scoped_rows():
+ """Reviewed exact copies only; existing public metadata supplies names/use notices."""
+ scope=read(SCOPE)
+ if scope.get('schemaVersion')!=1:raise ValueError('Unsupported private reader scope')
+ rows=[];seen=set()
+ for item in scope['copies']:
+  sha=item['sha256'];ident='local-'+sha
+  if not re.fullmatch('[a-f0-9]{64}',sha) or sha in seen:raise ValueError('Invalid/duplicate scoped source identity')
+  seen.add(sha)
+  if item['recordId']!='held-'+sha[:32]:raise ValueError('Scoped record is not the exact held-source identity')
+  source=guarded(SOURCES/item['source'],[SOURCES])
+  cache=guarded(STATE/'extracted-library'/item['cache'],[STATE/'extracted-library'])
+  if source.suffix.lower()!='.epub':raise ValueError('This reviewed private scope contains EPUB copies only')
+  if digest(source)!=sha or digest(cache)!=item['cacheSha256']:raise ValueError('Scoped original or extraction changed; review its dependencies')
+  r=scoped_record(item['recordId'],sha,item['recordSha256'])
+  if not r['authors'] or not r['contributors']:raise ValueError('Scoped source has no recorded attribution')
+  rows.append({'id':ident,'path':str(source),'sha256':sha,'cache':str(cache),'cacheSha256':item['cacheSha256'],
+   'status':'reviewed-private-reader-scope','title':r['title'],'authorIds':r['contributors'],'authors':r['authors'],
+   **{key:r.get(key) for key in ['workId','editionId','source','sourceId','sourceUrl','language','genre','licence','credit']},
+   'mixedAttribution':False,'attributionConflict':bool(r.get('reviewWarning')),'reviewWarning':r.get('reviewWarning'),
+   'format':'epub','hasPdf':False,'textPath':None,'textSha256':None,'derivative':None,'documentId':'library:text:'+sha,
+   'privateReaderScope':{'recordId':r['id'],'recordSha256':item['recordSha256'],'evidence':item['evidence']}})
+ return rows
+
+
+def merge_reader_scope(index):
+ """Do not assign source contributors to invented profile shelves."""
+ result=copy.deepcopy(index);added=[];rows=scoped_rows()
+ for row in rows:
+  ident=row['id'];record_id=row['privateReaderScope']['recordId']
+  previous=result['documents'].get(ident)
+  if previous is not None and previous!=row:raise ValueError('Scoped copy already has different metadata; review before replacing it')
+  if previous is None:result['documents'][ident]=row;added.append(ident)
+  binding=result['bindings'].get(record_id)
+  if binding is not None and binding!=[ident]:raise ValueError('Scoped reader binding conflicts with an existing copy')
+  result['bindings'][record_id]=[ident]
+ result['counts']['heldReadingCopies']=len(result['documents'])
+ result['privateReaderScope']={'manifestSha256':digest(SCOPE),'copyIds':[r['id'] for r in rows]}
+ # builtAt identifies the unchanged profile/intake snapshot used by reader_catalog.py.
+ # Do not invalidate all 52 shelves for two additions outside their memberships.
+ return result,added
+
+
+def apply_reader_scope(expected):
+ with index_owner():
+  if index_hash()!=expected:raise ValueError('Reader index changed; inspect before applying')
+  result,added=merge_reader_scope(read(PRIVATE/'index.json'))
+  actual=publish_index(result,expected)
+  print(json.dumps({'indexSha256':actual,'previousSha256':expected,'added':added,'counts':result['counts']}))
+
+
+def restore_index(backup_hash,expected):
+ if not re.fullmatch('[a-f0-9]{64}',backup_hash):raise ValueError('Invalid reader backup hash')
+ with index_owner():
+  backup=PRIVATE/'index-backups'/(backup_hash+'.json')
+  if digest(backup)!=backup_hash:raise ValueError('Reader backup hash mismatch')
+  if index_hash()!=expected:raise ValueError('Reader index changed; inspect before rollback')
+  # Restore exact bytes, including the original snapshot timestamp/format.
+  current=PRIVATE/'index.json';data=backup.read_bytes();json.loads(data);read(current)
+  saved=PRIVATE/'index-backups'/(expected+'.json')
+  if not saved.exists():saved.write_bytes(current.read_bytes())
+  if digest(saved)!=expected:raise ValueError('Current index rollback backup mismatch')
+  temp=PRIVATE/('restore-'+str(os.getpid())+'.tmp')
+  try:
+   with temp.open('xb') as stream:stream.write(data);stream.flush();os.fsync(stream.fileno())
+   if index_hash()!=expected:raise ValueError('Reader index changed before rollback')
+   temp.replace(current)
+  finally:temp.unlink(missing_ok=True)
+  print(json.dumps({'restoredSha256':backup_hash,'previousSha256':expected}))
 
 
 def recover_group_author(metadata, people):
@@ -60,6 +188,10 @@ def recover_group_author(metadata, people):
 
 
 def build_index():
+ with index_owner():_build_index(index_hash())
+
+
+def _build_index(expected_index):
  PRIVATE.mkdir(parents=True,exist_ok=True)
  spec=importlib.util.spec_from_file_location('teacher_reference_analysis',SITE/'scripts/analyse-teacher-scripture.py')
  module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
@@ -128,7 +260,8 @@ def build_index():
   return (bool(r['attributionConflict']),not bool(r['cache']),r['format']=='pdf',r['path'])
  bindings={key:sorted(set(values),key=priority) for key,values in bindings.items()}
  result={'schemaVersion':1,'builtAt':now(),'sourceDatabase':'Read-only intake snapshot','documents':docs,'bindings':bindings,'profiles':profiles,'contributors':{key:p['id'] for p in people for key in [p['id'],p.get('acquiredId')] if key},'counts':{'profiles':len(profiles),'heldReadingCopies':len(docs),'profilesWithContent':sum(bool(x) for x in profiles.values()),**counts},'scope':'Private local reading only; public publication, licences, attribution review and embedding state are unchanged'}
- write(PRIVATE/'index.json',result)
+ result,_=merge_reader_scope(result)
+ publish_index(result,expected_index)
  write(PRIVATE/'build-progress.json',{'state':'complete','finishedAt':now(),**result['counts']})
  print(json.dumps(result['counts']),flush=True)
  # Keep every profile shelf and its integrity audit on the same source snapshot.
@@ -206,16 +339,26 @@ def prepare(row):
  source=guarded(row['path'],[SOURCES])
  stat=source.stat() if source.is_file() else None
  stamp=[stat.st_size,stat.st_mtime_ns] if stat else None
+ dependencies=None
+ def verify_scoped_dependencies():
+  cache=guarded(row['cache'],[STATE/'extracted-library'])
+  if digest(source)!=row['sha256'] or digest(cache)!=row['cacheSha256']:raise ValueError('Reviewed reading-copy dependencies changed; inspect before reading')
+  scope=row['privateReaderScope'];scoped_record(scope['recordId'],row['sha256'],scope['recordSha256'])
+ if row.get('privateReaderScope'):
+  # These exceptional copies are dependency-pinned even when reading pages exist.
+  verify_scoped_dependencies()
+  dependencies={'sourceSha256':row['sha256'],'cacheSha256':row['cacheSha256']}
+ def matches(value):return value.get('sourceStamp')==stamp and (dependencies is None or value.get('readerDependencies')==dependencies)
  if manifest.is_file():
   value=read(manifest)
-  if value.get('sourceStamp')==stamp:return value
+  if matches(value):return value
  folder.mkdir(parents=True,exist_ok=True)
  lock=folder/'prepare.lock'
  for attempt in range(100):
   try:handle=lock.open('x');handle.close();break
   except FileExistsError:
    time.sleep(.1)
-   if manifest.is_file() and read(manifest).get('sourceStamp')==stamp:return read(manifest)
+   if manifest.is_file() and matches(read(manifest)):return read(manifest)
  else:raise ValueError('This reading copy is still being prepared; try again shortly')
  try:
   if stat:
@@ -234,7 +377,9 @@ def prepare(row):
     if size+len(part)>48000:flush()
     current.append({'locator':block.get('locator') or 'Held text','text':part});size+=len(part)
   flush()
+  if dependencies is not None:verify_scoped_dependencies()
   value={'pages':pages,'characters':characters,'sourceStamp':stamp,'preparedAt':now()}
+  if dependencies is not None:value['readerDependencies']=dependencies
   write(manifest,value);return value
  finally:lock.unlink(missing_ok=True)
 
@@ -244,9 +389,17 @@ def record(row,prepared):
 
 
 def main():
- parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--build-index',action='store_true');parser.add_argument('--record');parser.add_argument('--page',type=int)
+ parser=argparse.ArgumentParser(description=__doc__)
+ actions=parser.add_mutually_exclusive_group()
+ actions.add_argument('--build-index',action='store_true');actions.add_argument('--apply-reader-scope',action='store_true');actions.add_argument('--restore-index')
+ parser.add_argument('--expected-index-sha256');parser.add_argument('--record');parser.add_argument('--page',type=int)
  args=parser.parse_args()
  if args.build_index:build_index();return
+ if args.apply_reader_scope or args.restore_index:
+  if not args.expected_index_sha256 or not re.fullmatch('[a-f0-9]{64}',args.expected_index_sha256):raise ValueError('An inspected expected index SHA-256 is required')
+  if args.apply_reader_scope:apply_reader_scope(args.expected_index_sha256)
+  else:restore_index(args.restore_index,args.expected_index_sha256)
+  return
  if not args.record or not re.fullmatch('local-[a-f0-9]{64}',args.record):raise ValueError('Invalid local reading-copy identity')
  index=read(PRIVATE/'index.json');row=index['documents'].get(args.record)
  if not row:raise ValueError('No held reading copy for this identity')

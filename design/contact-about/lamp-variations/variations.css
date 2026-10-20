@@ -1,0 +1,26 @@
+/* Direction D, four scenes in a 2 × 2 grid (variations.js); the drawings use lamp.css. */
+.lv { max-width: 80rem; margin: 0 auto; padding: 30px 1rem 4rem; }
+@media (min-width: 640px) { .lv { padding-inline: 1.5rem; } }
+.lv-head h1 { margin-top: 12px; font: 500 clamp(34px, 4vw, 52px)/1.05 var(--serif); letter-spacing: -.035em; }
+.lv-head h1 em { display: block; font-style: italic; color: var(--accent); }
+.lv-head > p:last-child { margin-top: 14px; max-width: 44rem; color: var(--muted); line-height: 1.7; }
+
+.lv-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 34px; }
+.lv-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line)); border-radius: 16px; background: var(--page); transition: border-color .3s; }
+.lv-card:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+.lv-scene { padding: 18px 18px 0; border-bottom: 1px solid var(--line); }
+.lv-scene svg { overflow: hidden; }
+.lv-copy { display: flex; flex-direction: column; flex: 1; padding: 22px 26px 0; }
+.lv-label { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.lv-label span { font: 500 15px var(--serif); letter-spacing: 0; }
+.lv-copy h2 { margin-top: 12px; font: 500 30px/1.1 var(--serif); letter-spacing: -.03em; }
+.lv-copy h2 em { display: block; font-style: italic; color: var(--accent); }
+.lv-line { margin-top: 12px; color: var(--muted); line-height: 1.65; }
+.lv-copy blockquote { margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--line); font: italic 17px/1.5 var(--serif); flex: 1; }
+.lv-copy cite { display: block; margin-top: 8px; font: normal 10px var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.lv-open { display: flex; align-items: center; justify-content: space-between; margin: 20px -26px 0; padding: 16px 26px; border-top: 1px solid var(--line); font-size: 14px; font-weight: 600; color: var(--accent); transition: background .25s; }
+.lv-open span { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: color-mix(in srgb, var(--accent) 16%, transparent); transition: transform .25s; }
+.lv-open:hover { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+.lv-open:hover span { transform: translateX(3px); }
+
+@media (max-width: 860px) { .lv-grid { grid-template-columns: 1fr; } }

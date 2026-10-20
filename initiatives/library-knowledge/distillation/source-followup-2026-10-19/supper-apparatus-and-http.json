@@ -1,0 +1,58 @@
+{
+  "captured_at": "2026-10-19T18:28:43.430Z",
+  "apparatus": [
+    {
+      "marker": "9",
+      "native_href": "index_split_017.html#note_9",
+      "member_sha256": "af8eebcccb0a7cf0b0613bf0b035466edb9cf273dc842c6abc0544ab072816b6",
+      "locator": "EPUB section 19: index_split_017.html",
+      "text_sha256": "5a43451ada98a5f1d2ece0e0679c26165484f0cc6940124cff4576062d7fbc6a",
+      "reading_pages": [
+        3
+      ],
+      "role": "Glossary apparatus in the compiled edition; do not merge into the main author’s quoted prose"
+    },
+    {
+      "marker": "10",
+      "native_href": "index_split_018.html#note_10",
+      "member_sha256": "ed747617a8b617bbb2cd8aa42257bd79f2fa5ca4877d4148dbc1e28c6108c7e1",
+      "locator": "EPUB section 20: index_split_018.html",
+      "text_sha256": "2810191dd4d92232c13c87c6a9482e7a611606bfffc739418e49ef0e6bd96304",
+      "reading_pages": [
+        3
+      ],
+      "role": "Glossary apparatus in the compiled edition; do not merge into the main author’s quoted prose"
+    }
+  ],
+  "reading_http": [
+    {
+      "sha256": "86058bf61ffc35119a87b6667e4f835d475e98d7fc88cf6148c9f9b6603c7ac7",
+      "page": 32,
+      "status": 200,
+      "equals_retained": true
+    },
+    {
+      "sha256": "86058bf61ffc35119a87b6667e4f835d475e98d7fc88cf6148c9f9b6603c7ac7",
+      "page": 33,
+      "status": 200,
+      "equals_retained": true
+    },
+    {
+      "sha256": "3c6ae92f1578f913c09839d2c8604310111a9b02b5a3f2ef97b5d5ca60d5c3f4",
+      "page": 1,
+      "status": 200,
+      "equals_retained": true
+    },
+    {
+      "sha256": "3c6ae92f1578f913c09839d2c8604310111a9b02b5a3f2ef97b5d5ca60d5c3f4",
+      "page": 3,
+      "status": 200,
+      "equals_retained": true
+    }
+  ],
+  "method_hashes": {
+    "inspect_script": "b69de4b5acd7c91c94eae738fd71fed191db9c6656070f698a1e6a972fe1d9b5",
+    "section_contract": "7325f46fc1994617e9d0e7021d0ac80de2749f9a1f1e76f36ebef67eb8303a9f"
+  },
+  "interpretation": "Local source/voice/edition-readiness inspection; not doctrinal validation, independent quotation verification or public-use clearance"
+}

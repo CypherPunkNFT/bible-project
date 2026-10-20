@@ -11,6 +11,11 @@ import "./creeds-collection.css";
 
 type Entry = { card: CreedCard; family: CreedFamily };
 const tone = (family: CreedFamily) => ({ "--seal-tone": `var(--${family.tone})` }) as CSSProperties;
+const familyButtonLabels: Record<string, string> = {
+  "british-reformed": "British Reformed",
+  "swiss-continental": "Swiss & Continental",
+  "rule-of-faith": "Early Church Rule of Faith",
+};
 
 function ManuscriptArt() {
   return <svg className="cc-manuscript" viewBox="0 0 520 440" fill="none" aria-hidden="true">
@@ -114,7 +119,7 @@ export default function CreedsPage() {
       <div className="cc-catalogue">
         <div className="cc-families" role="group" aria-label="Filter by tradition">
           <button className={!family?"active":""} aria-pressed={!family} onClick={()=>pick("all")}><BookOpen size={22}/><span>All documents</span><small>{counts.documents}</small></button>
-          {families.map(f=><button key={f.id} className={family?.id===f.id?"active":""} style={tone(f)} aria-pressed={family?.id===f.id} onClick={()=>pick(f.id)}><CreedFamilyArt kind={f.art}/><span>{f.title}</span><small>{f.documents.length}</small></button>)}
+          {families.map(f=><button key={f.id} className={family?.id===f.id?"active":""} style={tone(f)} title={f.title} aria-pressed={family?.id===f.id} onClick={()=>pick(f.id)}><CreedFamilyArt kind={f.art}/><span>{familyButtonLabels[f.id]??f.title}</span><small>{f.documents.length}</small></button>)}
         </div>
         <div className="cc-scroll"><ul className="cc-document-grid" aria-label={family?`${family.title} documents`:"All documents"}>{found.map(entry=><DocumentCard key={entry.card.id} entry={entry}/>)}</ul></div>
       </div>

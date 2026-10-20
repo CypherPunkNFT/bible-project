@@ -1,0 +1,114 @@
+{
+  "captured_at": "2026-10-19T18:58:10.929766+00:00",
+  "source_path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-ready-text-edition-l06-calvin-41\\calcom41.xml",
+  "source_sha256": "fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd",
+  "coordinate_unit": "Unicode codepoints, half-open, within exact complete xml_render/source reader stream; not chunk offsets",
+  "native_reader_stream_equal": true,
+  "units": [
+    {
+      "connection_id": "connection:a87d771b032f89859dd51cc653eb34801ac4041d43615923d63a858813fccbb2",
+      "heading": "Ephesians 2:1-3",
+      "native_id": "Bible:Eph.2.1",
+      "complete_commentary_unit": {
+        "start": 486466,
+        "end": 489366,
+        "sha256": "d589fbd4e38bb8c7b73bbf634e67d7c568a0ba77463a1325cfaabf281538985d",
+        "chars": 2900,
+        "includes_embedded_notes": true
+      },
+      "overlapping_note_observation": "Unsigned bilingual gloss; no personal note credit independently established.",
+      "note_intervals": [
+        {
+          "native_id": "iv.iii.i-p10.1",
+          "start": 486612,
+          "end": 486723,
+          "sha256": "ef167663ac3afcf2f21849e274fa9a01a32ba8a54fa5f91aaa181120c5e442fb",
+          "normalized_text_sha256": "ef167663ac3afcf2f21849e274fa9a01a32ba8a54fa5f91aaa181120c5e442fb",
+          "closing_text": "Il expose et esclarcit ce qu’il avoit dit ci-dessus.” “He explains and illustrates what he had formerly said.”",
+          "overlaps_saved_sample": true
+        },
+        {
+          "native_id": "iv.iii.i-p11.2",
+          "start": 487428,
+          "end": 487896,
+          "sha256": "5eb6bbc200a9ac7051cd19d83ff89fe6d24086b34a5b6146e6e23d924d754a0b",
+          "normalized_text_sha256": "ee0b3c718e6a44d078b52a8c05144efe94391d47960bba1c974ad6fb5022bcf0",
+          "closing_text": " dead. When you are satiated to-day, you sit down and weep about to-morrow, what you shall have to eat.” — Ed.",
+          "overlaps_saved_sample": false
+        }
+      ],
+      "reader_links": [
+        "/teachers/works/held-fac8c754eb4291391a28e94f9e285c40?page=11"
+      ],
+      "live_proposal_changed": false
+    },
+    {
+      "connection_id": "connection:e0bc1303fe31bf0b6ef9034b2a0fe501b92a524b04ac1802bc271caaba32b5e3",
+      "heading": "Ephesians 2:4-7",
+      "native_id": "Bible:Eph.2.4",
+      "complete_commentary_unit": {
+        "start": 498924,
+        "end": 501180,
+        "sha256": "5988a1d4b94e22cfd7c2c6b1fab667c40c90775cbcf1c25287bc972ff2d1c8b3",
+        "chars": 2256,
+        "includes_embedded_notes": true
+      },
+      "overlapping_note_observation": "The overlapping note explicitly attributes its quotation to Chandler. That name is retained as a source label; the individual/work and quotation accuracy are not independently verified.",
+      "note_intervals": [
+        {
+          "native_id": "iv.iii.ii-p12.1",
+          "start": 498974,
+          "end": 499529,
+          "sha256": "738ddf4901576f6bb0ba7da491594ee1701db0fdc0cf2141d9de3ee81515bacb",
+          "normalized_text_sha256": "720038a003d4b6b9173b9c068bce6725c270ea8741fcf7a123ee0fe0a62a7157",
+          "closing_text": "ere the infinite benignity of the Divine Nature, and his unchangeable disposition to be merciful.” — Chandler.",
+          "overlaps_saved_sample": true
+        },
+        {
+          "native_id": "iv.iii.ii-p14.1",
+          "start": 500542,
+          "end": 500880,
+          "sha256": "b57a7fdfcd50f06f159cf1ccb21c56f19258eab091783e45f5cfaad6343d6482",
+          "normalized_text_sha256": "b57a7fdfcd50f06f159cf1ccb21c56f19258eab091783e45f5cfaad6343d6482",
+          "closing_text": "ve.’ An allowed beauty in a profane author should not be censured as a tautology in a sacred one.” — Chandler.",
+          "overlaps_saved_sample": false
+        }
+      ],
+      "reader_links": [
+        "/teachers/works/held-fac8c754eb4291391a28e94f9e285c40?page=11"
+      ],
+      "live_proposal_changed": false
+    },
+    {
+      "connection_id": "connection:3f452732de422db33c3f6e8888e39ac703c8b08b0e79ae91d2495348748b24e7",
+      "heading": "Ephesians 6:1-4",
+      "native_id": "Bible:Eph.6.1",
+      "complete_commentary_unit": {
+        "start": 743025,
+        "end": 745093,
+        "sha256": "6a9da0b92f89a0fe01cf63384e18aa8959acce0357d3b0accde4fe3326bd0bbb",
+        "chars": 2068,
+        "includes_embedded_notes": true
+      },
+      "overlapping_note_observation": "The overlapping note explicitly attributes its quotation to Bloomfield. That name is retained as a source label; the individual/work and quotation accuracy are not independently verified.",
+      "note_intervals": [
+        {
+          "native_id": "iv.vii.i-p12.2",
+          "start": 743117,
+          "end": 743395,
+          "sha256": "e209b178a19eeb7b264c82e79ac25a669b2652f1023d284f1e81ea6e9cb7fe25",
+          "normalized_text_sha256": "e209b178a19eeb7b264c82e79ac25a669b2652f1023d284f1e81ea6e9cb7fe25",
+          "closing_text": "ty of sense is observable in the classical phrase τιμᾷν τὸν ἰατρόν [to reverence the physician.] — Bloomfield.",
+          "overlaps_saved_sample": true
+        }
+      ],
+      "reader_links": [
+        "/teachers/works/held-fac8c754eb4291391a28e94f9e285c40?page=16"
+      ],
+      "live_proposal_changed": false
+    }
+  ],
+  "proposed_remedy": "Inspect each complete unit with notes separated before quoting/summarizing. Preserve note signatures and unsigned roles. Do not silently join commentator text across omitted notes or promote a locating sample into an approved answer.",
+  "queries": 0,
+  "model_calls": 0
+}

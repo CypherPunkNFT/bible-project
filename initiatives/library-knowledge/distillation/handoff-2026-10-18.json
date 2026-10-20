@@ -1,0 +1,415 @@
+{
+  "captured_at": "2026-10-19T03:18:38.731921+00:00",
+  "boundary": "Read-only observations of files/processes/encoder health; not an atomic corpus snapshot or certification of completion",
+  "processes": [
+    {
+      "pid": 8896,
+      "created": 1792377306.6637633,
+      "parent": 75348,
+      "role": "embed"
+    },
+    {
+      "pid": 58340,
+      "created": 1792377306.6711545,
+      "parent": 8896,
+      "role": "embed"
+    },
+    {
+      "pid": 75348,
+      "created": 1792377304.0699956,
+      "parent": 82020,
+      "role": "owner"
+    },
+    {
+      "pid": 82020,
+      "created": 1792377304.0609047,
+      "parent": 40544,
+      "role": "owner"
+    }
+  ],
+  "unknown_python_pids": [],
+  "encoder_health": {
+    "service": "bible-project-encoder",
+    "loaded": false,
+    "batches": 44524,
+    "pid": 43516,
+    "error": null
+  },
+  "configured_model": {
+    "model": "Qwen/Qwen3-Embedding-4B",
+    "revision": "5cf2132abc99cad020ac570b19d031efec650f2b",
+    "dimensions": 2560,
+    "max_tokens": 4096,
+    "batch_size": 16,
+    "write_batch_size": 64
+  },
+  "receipts": {
+    "embedding-progress.json": {
+      "state": "optimizing",
+      "indexed": 11579535,
+      "total": 11579535,
+      "remaining": 0,
+      "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+      "updated_at": "2026-10-19T02:38:22.213012+00:00"
+    },
+    "intake-completion.json": {
+      "state": "embedding",
+      "pid": 75348,
+      "process_created": 1792377304.0699956,
+      "started_at": "2026-10-19T02:35:04.605506+00:00",
+      "updated_at": "2026-10-19T03:18:27.863037+00:00",
+      "launcher": "native-python",
+      "run_id": "native-20261019T023504-75348",
+      "run_directory": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\native-intake\\native-20261019T023504-75348",
+      "enrichment_started": false,
+      "child_pid": 8896
+    },
+    "verification.json": {
+      "sqlite_integrity": "ok",
+      "foreign_key_errors": 0,
+      "embedding_identity_matches": true,
+      "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+      "embedding_job_complete": true,
+      "chunks": 11579535,
+      "vectors": 11579535,
+      "missing_vectors": 0,
+      "stale_vectors": 0,
+      "verse_count": 1027939,
+      "duplicate_vectors": 0,
+      "new_source_files_since_snapshot": 13,
+      "changed_source_inputs_since_snapshot": 2,
+      "missing_source_inputs_since_snapshot": 0,
+      "missing_source_input_paths": [],
+      "source_files_hash_checked": 301737,
+      "reference_library": {
+        "records_by_file": {
+          "ccel/hitchcock-bible-names.xml": 2623,
+          "ccel/smith-bibledict.xml": 4561,
+          "gutenberg/josephus-antiquities-2848.txt": 1,
+          "gutenberg/josephus-apion-2849.txt": 1,
+          "gutenberg/josephus-life-2846.txt": 1,
+          "gutenberg/josephus-wars-2850.txt": 1,
+          "archive-org/fausset-bible-encyclopedia-1900.txt": 1,
+          "archive-org/thayer-lexicon-1889.txt": 1,
+          "crosswire/ISBE/modules/lexdict/zld/isbe/isbe.zdt": 9380,
+          "openscriptures/strongs/strongs-master/hebrew/StrongHebrewG.xml": 8674,
+          "openscriptures/strongs/strongs-master/greek/StrongsGreekDictionaryXML_1.4/strongsgreek.xml": 5624,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/BrownDriverBriggs.xml": 11845,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/HebrewStrong.xml": 8674,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/LexicalIndex.xml": 10221,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/AugIndex.xml": 9299,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/BDBPartsOfSpeech.xml": 135,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/PartsOfSpeech.xml": 52,
+          "openbible-topics/topic-scores.txt": 6713,
+          "theographic/theographic-bible-metadata-master/json/books.json": 66,
+          "theographic/theographic-bible-metadata-master/json/chapters.json": 1189,
+          "theographic/theographic-bible-metadata-master/json/easton.json": 6519,
+          "theographic/theographic-bible-metadata-master/json/events.json": 450,
+          "theographic/theographic-bible-metadata-master/json/people.json": 3067,
+          "theographic/theographic-bible-metadata-master/json/peopleGroups.json": 23,
+          "theographic/theographic-bible-metadata-master/json/places.json": 1274,
+          "theographic/theographic-bible-metadata-master/json/verses.json": 31102,
+          "theographic/theographic-bible-metadata-master/CSV/WordIndex.csv": 31102,
+          "theographic/theographic-bible-metadata-master/geo/pauls_journeys_all.geojson": 112,
+          "theographic/theographic-bible-metadata-master/api/README.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/api-documentation.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/contributing.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/data-source-bibliography.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/json-fields-documentation.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/neo4j-graph-documentation.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/other-data-formats-csv-json-etc.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/querying-with-cypher-and-neo4j.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/README.md": 1,
+          "theographic/theographic-bible-metadata-master/docs/view-and-export-data-with-airtable.md": 1,
+          "theographic/theographic-bible-metadata-master/LICENSE": 1,
+          "theographic/theographic-bible-metadata-master/neo4j/README.md": 1,
+          "theographic/theographic-bible-metadata-master/readme.md": 1,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/HomeFiles/readme.md": 1,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/readme.md": 1,
+          "openscriptures/HebrewLexicon/HebrewLexicon-master/sinri/README.md": 1,
+          "openscriptures/strongs/strongs-master/greek/StrongsGreekDictionaryXML_1.4/README.txt": 1,
+          "crosswire/ISBE/mods.d/isbe.conf": 1
+        },
+        "input_files": 49,
+        "records": 152729,
+        "errors": [],
+        "topics": {
+          "topics": 5603,
+          "categories": 55,
+          "bundles": 256
+        }
+      },
+      "new_library_files_since_snapshot": 29,
+      "missing_library_files_since_snapshot": 0,
+      "missing_library_paths": [],
+      "changed_library_ledgers_since_snapshot": 1,
+      "library": {
+        "files": 172530,
+        "statuses": {
+          "indexed": 143520,
+          "deferred_scan": 2,
+          "duplicate": 244,
+          "metadata_or_asset": 28764
+        },
+        "errors": 0,
+        "missing_catalog_files": 0
+      },
+      "complete": true,
+      "enrichment_ready": false,
+      "verified_at": "2026-10-19T00:19:21.172334+00:00"
+    },
+    "embedding-model.json": {
+      "model": "Qwen/Qwen3-Embedding-4B",
+      "revision": "5cf2132abc99cad020ac570b19d031efec650f2b",
+      "dimensions": 2560,
+      "max_tokens": 4096
+    },
+    "native-supervisor/status.json": {
+      "pid": 84440,
+      "updated_at": "2026-10-19T03:18:04.617275+00:00",
+      "enabled": true,
+      "observation": "busy",
+      "mode": "verification_only",
+      "run_id": "embedding-only-20261014T134809Z",
+      "authorized_corpus_build": "2026-10-13T23:47:33.488164+00:00",
+      "reason": "Vector optimization is protected from automatic interruption",
+      "processes": [
+        {
+          "pid": 8896,
+          "created": 1792377306.6637633,
+          "parent": 75348,
+          "role": "embed"
+        },
+        {
+          "pid": 58340,
+          "created": 1792377306.6711545,
+          "parent": 8896,
+          "role": "embed"
+        },
+        {
+          "pid": 75348,
+          "created": 1792377304.0699956,
+          "parent": 82020,
+          "role": "owner"
+        },
+        {
+          "pid": 82020,
+          "created": 1792377304.0609047,
+          "parent": 40544,
+          "role": "owner"
+        }
+      ],
+      "uninspected_python_pids": [],
+      "attempts": 3,
+      "max_attempts": 3,
+      "interval_seconds": 60,
+      "heartbeat_timeout_seconds": 120,
+      "progress_timeout_seconds": 1800,
+      "recovery_test_verified": true,
+      "verification_request": {
+        "state": "activated",
+        "requested_at": "2026-10-14T14:11:41.113070+00:00",
+        "run_id": "embedding-only-20261014T134809Z",
+        "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+        "scope": "verification_and_late_acquisitions_only",
+        "graph_authorized": false,
+        "mining_authorized": false,
+        "activated_at": "2026-10-18T13:45:02.713267+00:00"
+      },
+      "encoder": null,
+      "console_window": false,
+      "state": "busy"
+    },
+    "native-supervisor/control.json": {
+      "enabled": true,
+      "mode": "verification_only",
+      "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+      "run_id": "embedding-only-20261014T134809Z",
+      "reason": "Owner authorized windowless embedding watchdog and encoder/worker automatic recovery",
+      "verification_request": {
+        "state": "activated",
+        "requested_at": "2026-10-14T14:11:41.113070+00:00",
+        "run_id": "embedding-only-20261014T134809Z",
+        "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+        "scope": "verification_and_late_acquisitions_only",
+        "graph_authorized": false,
+        "mining_authorized": false,
+        "activated_at": "2026-10-18T13:45:02.713267+00:00"
+      },
+      "disabled_at": "2026-10-14T17:38:38.088997+00:00",
+      "encoder_recovery": true,
+      "recovery_epoch": "armed-1792037288325381500",
+      "armed_at": "2026-10-15T04:08:08.328456+00:00"
+    },
+    "native-supervisor/recovery.json": {
+      "attempts": 3,
+      "recovery_epoch": "armed-1792037288325381500",
+      "reason": "Completion owner and embedding worker are absent",
+      "previous_ledger": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\native-supervisor\\armed-1792037288325381500\\before.json",
+      "encoder_observation": {
+        "identity": [
+          [
+            42728,
+            1792008556.9416213
+          ],
+          [
+            43516,
+            1792008556.9510565
+          ]
+        ],
+        "failures": 0,
+        "state": "healthy"
+      },
+      "next_attempt_at": 1792378201.5680993,
+      "last_attempt_at": "2026-10-19T02:35:04.000507+00:00",
+      "last_launch": {
+        "pid": 82020,
+        "launched_at": "2026-10-19T02:35:04.067030+00:00",
+        "mode": "resume"
+      }
+    },
+    "native-supervisor/alert.json": {
+      "active": false,
+      "updated_at": "2026-10-19T03:18:04.621356+00:00",
+      "reason": "Vector optimization is protected from automatic interruption"
+    },
+    "native-supervisor/arming-result.json": {
+      "at": "2026-10-15T04:08:08.332330+00:00",
+      "armed": true,
+      "recovery_epoch": "armed-1792037288325381500",
+      "processes": [
+        {
+          "pid": 2756,
+          "created": 1792008557.4724858,
+          "parent": 42720,
+          "role": "embed"
+        },
+        {
+          "pid": 8180,
+          "created": 1792008553.3449373,
+          "parent": 42864,
+          "role": "owner"
+        },
+        {
+          "pid": 40584,
+          "created": 1792008553.3558702,
+          "parent": 8180,
+          "role": "owner"
+        },
+        {
+          "pid": 42720,
+          "created": 1792008557.464804,
+          "parent": 40584,
+          "role": "embed"
+        }
+      ],
+      "progress": {
+        "state": "running",
+        "updated_at": "2026-10-15T04:08:04.951364+00:00",
+        "pid": 2756,
+        "total": 11579535,
+        "indexed": 8982056,
+        "remaining": 2597479,
+        "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+        "rate_per_second": 8.85,
+        "seconds": 28469.3
+      },
+      "encoder": {
+        "state": "healthy",
+        "service": "bible-project-encoder",
+        "loaded": true,
+        "batches": 3938,
+        "pid": 43516,
+        "error": null,
+        "processes": [
+          {
+            "pid": 42728,
+            "parent": 40584,
+            "created": 1792008556.9416213
+          },
+          {
+            "pid": 43516,
+            "parent": 42728,
+            "created": 1792008556.9510565
+          }
+        ],
+        "unknown": [],
+        "failures": 0
+      },
+      "attempts": 0,
+      "max_attempts": 3,
+      "scope": "embedding_only",
+      "console_launch": "pythonw.exe",
+      "prior_ledger": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\native-supervisor\\armed-1792037288325381500\\before.json"
+    },
+    "native-supervisor/windowless-registration.json": {
+      "at": "2026-10-15T04:08:04.733070+00:00",
+      "registered": true,
+      "result": "SUCCESS: The scheduled task \"BibleProject-Native-Completion-Supervisor\" has successfully been created.\r\n"
+    },
+    "embedding-repair-verified.json": {
+      "at": "2026-10-14T20:16:29.973367+00:00",
+      "before": 8730024,
+      "checkpoint": {
+        "state": "running",
+        "updated_at": "2026-10-14T20:16:24.307352+00:00",
+        "pid": 2756,
+        "total": 11579535,
+        "indexed": 8731496,
+        "remaining": 2848039,
+        "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+        "rate_per_second": 8.73,
+        "seconds": 168.7
+      },
+      "saved_rows": 8731496,
+      "new_rows": 1472,
+      "observed_chunks_per_second": 10.5
+    }
+  },
+  "input_fingerprints": [
+    {
+      "path": "KnowledgeBase/embedding-progress.json",
+      "sha256": "1a3f96cae6d3e6b179ff1f52268b77337dc5e2eebd3794e192e2ec9afa019669"
+    },
+    {
+      "path": "KnowledgeBase/intake-completion.json",
+      "sha256": "00b923439fb682a6315be5509b6f5e181bcf973b5251ece16b01690cbf9319ca"
+    },
+    {
+      "path": "KnowledgeBase/verification.json",
+      "sha256": "e858c0972e6e71f9cafd2a19782b2fecc884080b8a45b1a66c63285ef05e0ce0"
+    },
+    {
+      "path": "KnowledgeBase/embedding-model.json",
+      "sha256": "9e257310b3cbf2591851c40c6d89178a2f087f716e534a44ca046712489628ad"
+    },
+    {
+      "path": "KnowledgeBase/native-supervisor/status.json",
+      "sha256": "42af561ba1c37a3914fef6b0430e27af525b10d6e80f6fbdb89f3eb86916b3d4"
+    },
+    {
+      "path": "KnowledgeBase/native-supervisor/control.json",
+      "sha256": "9578558554934365e493fa12dc9c65b52482ea10f621d0b85cae678329f0bdb3"
+    },
+    {
+      "path": "KnowledgeBase/native-supervisor/recovery.json",
+      "sha256": "1efce7b34a2126649a0ff11f2b1011b00f111a387a458006aa0952499009ae90"
+    },
+    {
+      "path": "KnowledgeBase/native-supervisor/alert.json",
+      "sha256": "962afb0240956d5fafe00ce93c518429d867bb15e46ab648090ebaed58c4a1e9"
+    },
+    {
+      "path": "KnowledgeBase/native-supervisor/arming-result.json",
+      "sha256": "198581b00ec367e38c7c15b754c596565c092705580428afb1aa82e85b915936"
+    },
+    {
+      "path": "KnowledgeBase/native-supervisor/windowless-registration.json",
+      "sha256": "624b83a665efa8ee1d43534c492efebdb8f44f0bac19391096005ea566ca9972"
+    },
+    {
+      "path": "KnowledgeBase/embedding-repair-verified.json",
+      "sha256": "68d5527572e779a4810de1dc15750cd60762f3e0ce63c4340983b3726d085342"
+    }
+  ]
+}

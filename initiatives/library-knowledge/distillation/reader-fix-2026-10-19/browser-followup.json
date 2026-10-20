@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-19T14:36:06.522Z",
+  "scope": "Read-only follow-up on readiness limits; original127.0.0.1:8931 only",
+  "candidates": {
+    "route": "/data_analysis/candidates/",
+    "available": false,
+    "browser": "Brave",
+    "error": "ERR_BLOCKED_BY_CLIENT",
+    "protectionChanges": false
+  },
+  "henry": {
+    "route": "/teachers/works/held-3c6ae92f1578f913c09839d2c8604310",
+    "loaded": true,
+    "authorVisible": true,
+    "selectedPassageVisible": true,
+    "creditVisible": true,
+    "licenceVisible": true,
+    "displayPage": 1,
+    "pages": 3,
+    "alerts": []
+  },
+  "boyce": {
+    "route": "/teachers/works/held-7824047daefbe859f7f5f167719ca85f",
+    "loaded": true,
+    "authorVisible": true,
+    "selectedPassageVisible": true,
+    "creditVisible": true,
+    "privateUseNoticeVisible": true,
+    "displayPage": 25,
+    "pages": 25,
+    "nextActions": 24,
+    "nextDisabled": true,
+    "alerts": []
+  },
+  "remaining": "Candidates-to-reader click-through is blocked; direct reader interaction is now verified.",
+  "mutations": "No candidate decisions, source repairs, corpus writes, supervisor resets or browser protection changes."
+}

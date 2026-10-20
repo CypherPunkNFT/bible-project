@@ -1,0 +1,96 @@
+{
+  "captured_at": "2026-10-19T18:43:10.263Z",
+  "paratextReader": [
+    {
+      "member": "EPUB/title.xhtml",
+      "locator": "EPUB section 1: EPUB/title.xhtml",
+      "reader_text_matches_native_cache": true,
+      "unit": {
+        "start": 0,
+        "end": 131
+      },
+      "reading_pages": [
+        1
+      ],
+      "links": [
+        "/teachers/works/held-c3e709ba58b60fead7cdb12ee5235226?page=1"
+      ]
+    },
+    {
+      "member": "EPUB/copyright.xhtml",
+      "locator": "EPUB section 2: EPUB/copyright.xhtml",
+      "reader_text_matches_native_cache": true,
+      "unit": {
+        "start": 0,
+        "end": 761
+      },
+      "reading_pages": [
+        1
+      ],
+      "links": [
+        "/teachers/works/held-c3e709ba58b60fead7cdb12ee5235226?page=1"
+      ]
+    },
+    {
+      "member": "EPUB/translator-preface.xhtml",
+      "locator": "EPUB section 4: EPUB/translator-preface.xhtml",
+      "reader_text_matches_native_cache": true,
+      "unit": {
+        "start": 12416,
+        "end": 16635,
+        "sha256": "b3b94d3a4cfc8f96cdaa89c3a42109722d0f683fdc3cdefd87d8f4a517b638b3"
+      },
+      "reading_pages": [
+        1
+      ],
+      "links": [
+        "/teachers/works/held-c3e709ba58b60fead7cdb12ee5235226?page=1"
+      ]
+    }
+  ],
+  "servedChecks": [
+    {
+      "source_id": "4014056",
+      "sha": "7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76",
+      "page": 25,
+      "status": 200,
+      "equals_retained": true
+    },
+    {
+      "source_id": "6448057",
+      "sha": "c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f",
+      "page": 58,
+      "status": 200,
+      "equals_retained": true
+    },
+    {
+      "source_id": "6336875",
+      "sha": "c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579",
+      "page": 5,
+      "status": 200,
+      "equals_retained": true
+    },
+    {
+      "source_id": "1048479",
+      "sha": "176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012",
+      "page": 21,
+      "status": 200,
+      "equals_retained": true
+    },
+    {
+      "source_id": "1048479",
+      "sha": "176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012",
+      "page": 22,
+      "status": 200,
+      "equals_retained": true
+    },
+    {
+      "source_id": "6336875:paratext",
+      "sha": "c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579",
+      "page": 1,
+      "status": 200,
+      "equals_retained": true
+    }
+  ],
+  "limits": "Existing local reader GET/file equality; no new browser interaction claims or reader-index changes."
+}

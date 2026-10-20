@@ -1,0 +1,155 @@
+{
+  "created_at": "2026-10-19T18:44:35.026Z",
+  "reviewer": "Assistant read-only source inspection; no human acceptance or owner decision",
+  "state": "source-readiness preparation only",
+  "cases": [
+    {
+      "id": "justification",
+      "source_finding": "The selected Boyce text is the complete JUSTIFICATION subsection of A Brief Catechism of Bible Doctrine contained in the EPUB catalogued as Abstract of Systematic Theology. Its internal byline names James P. Boyce.",
+      "gill_finding": "The current saved Gill window begins mid-sentence and does not reach the full faith discussion. The complete native-numbered 5a5 subsection, including a-f, is located without changing the proposal.",
+      "proposed_units": [
+        {
+          "source_id": "4014056",
+          "original_sha256": "7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76",
+          "locator": "EPUB section 8: abstract_split_006.html",
+          "units": [
+            {
+              "kind": "complete catechism subsection",
+              "start": 12564,
+              "end": 13632,
+              "native_heading": "JUSTIFICATION",
+              "reader_pages": [
+                25
+              ],
+              "reader_links": [
+                "/teachers/works/held-7824047daefbe859f7f5f167719ca85f?page=25"
+              ],
+              "span_sha256": "3718f227fc3624b115c6714cc0a3d3ec79d1cfcbfaa44c489c25abfd167e580e"
+            }
+          ]
+        },
+        {
+          "source_id": "6448057",
+          "original_sha256": "c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f",
+          "locator": "EPUB section 24: bodydivinity_split_022.html",
+          "units": [
+            {
+              "kind": "complete source-numbered faith subsection 5a5 with a-f",
+              "start": 47006,
+              "end": 50338,
+              "native_heading": "5a5. Fifthly, nor faith, or act of believing",
+              "reader_pages": [
+                58
+              ],
+              "reader_links": [
+                "/teachers/works/held-c6d2a4fae26109773599ac53919f9b51?page=58"
+              ],
+              "span_sha256": "b1592edf16f7798230103d158b680faa05c52313810cd661b6b393300d455c56"
+            }
+          ]
+        }
+      ],
+      "limits": [
+        "No new global work/edition IDs or proposal revision.",
+        "Use a contained-work label for Boyce and a section label for Gill.",
+        "The exact comparison remains source-attributed; full-chapter review, doctrinal balance and public-use review are separate."
+      ]
+    },
+    {
+      "id": "editor-voice",
+      "source_finding": "The title page names John King as translator. The translator’s preface self-describes an Editor who translates and appends notes. The exact conjectural Ed. note matches the alternate held CCEL John King witness after whitespace normalization.",
+      "attribution_basis": "Named editor attribution follows an edition-level title/preface/alternate-note chain. The note itself is signed Ed.; preserve this basis rather than asserting a personal note signature or assigning all modern wrapper additions to King.",
+      "source_unit": {
+        "kind": "complete conjectural editorial note, including role signature/backlink",
+        "start": 23437,
+        "end": 23709,
+        "native_xpath": "/html/body/main/section/aside[6]",
+        "native_id": "fnf_viii.i-p63.3",
+        "role_marker": "Ed.",
+        "conjectural_reading": "vocatio / vacatio; retain hypothesis rather than silently emend source",
+        "reader_pages": [
+          5
+        ],
+        "reader_links": [
+          "/teachers/works/held-c3e709ba58b60fead7cdb12ee5235226?page=5"
+        ],
+        "span_sha256": "54d4d63d6df5197beb3f474b40cbb1559c0afb27ecaffd516c1d776db2894ec7"
+      },
+      "quotation_unit": {
+        "start": 23437,
+        "end": 23707,
+        "span_sha256": "6c4e7f802d73fa6e61270a5d7d0627d03c90f49509fc31c2a8f6c375be7838b3",
+        "excluded_span": {
+          "start": 23707,
+          "end": 23709,
+          "kind": "EPUB return-link separator/glyph; not quoted author/editor prose"
+        },
+        "reader_pages": [
+          5
+        ]
+      },
+      "limits": [
+        "Retain the vocatio/vacatio conjecture and reported edition variants.",
+        "Do not attribute this note to Calvin.",
+        "Preserve the 2026 Monergism wrapper and separate use restrictions."
+      ]
+    },
+    {
+      "id": "caritas",
+      "source_finding": "The selected span is a parallel English/Latin Scripture table for 1 Corinthians13:4-8. The adjacent translated commentary begins after that span and contains five embedded notes: four explicitly signed Ed. and one unsigned.",
+      "translator": "Rev. John Pringle",
+      "correction_evidence": "credit-correction.json",
+      "proposed_units": [
+        {
+          "kind": "selected heading and parallel Scripture table; not commentary prose",
+          "start": 1005532,
+          "end": 1006711,
+          "native_table_xpath": "/ThML/ThML.body/div1[20]/div2[2]/table",
+          "native_table_sha256": "4db652bc75164273a9df416f8c2f48a7fdc8e3a99810561e9124b3458dad6e41",
+          "reader_pages": [
+            21
+          ],
+          "reader_links": [
+            "/teachers/works/held-176ef9aa57b3973664dcf65d4ca12c1b?page=21"
+          ],
+          "span_sha256": "4dd1fb86b981c62e2114047524c02df305f94c6506b6ac5f5f57c890ab811b9a"
+        },
+        {
+          "kind": "adjacent translated commentary on verse4 with embedded editorial notes",
+          "start": 1006711,
+          "end": 1010285,
+          "native_xpath": "/ThML/ThML.body/div1[20]/div2[2]/div[1]",
+          "embedded_note_ids": [
+            "xx.ii-p15.2",
+            "xx.ii-p17.2",
+            "xx.ii-p18.1",
+            "xx.ii-p19.3",
+            "xx.ii-p20.2"
+          ],
+          "reader_pages": [
+            21,
+            22
+          ],
+          "reader_links": [
+            "/teachers/works/held-176ef9aa57b3973664dcf65d4ca12c1b?page=21",
+            "/teachers/works/held-176ef9aa57b3973664dcf65d4ca12c1b?page=22"
+          ],
+          "span_sha256": "a55c312796991215bda5ab775387ab5ed77450dce10ae5c967944733faf87ab8"
+        }
+      ],
+      "limits": [
+        "The printed English column uses Charity; Latin has Caritas, including the retained source join Caritaspatiens.",
+        "The separate translated commentary begins Love is patient. These roles do not establish a universal translation rule or independent textual witnesses.",
+        "Precise Bible-version/Latin-translation authorship is not newly verified.",
+        "William Pringle remains the separately credited translator for the Ephesians witness."
+      ]
+    }
+  ],
+  "unresolved_dependencies": [
+    "Active corpus/vector/index generation and old-to-new source/chunk/span mappings",
+    "Compatible role/quality/credit dependency digest in live proposal fingerprints",
+    "Public-use and complete editorial interpretation review"
+  ],
+  "queries_executed": 0,
+  "live_candidate_mutations": 0
+}

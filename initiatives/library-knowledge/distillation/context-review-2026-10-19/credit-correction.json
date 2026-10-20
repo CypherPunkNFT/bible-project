@@ -1,0 +1,55 @@
+{
+  "captured_at": "2026-10-19T18:36:55.793Z",
+  "scope": "Correction to derivative caritas preparation only; original inventory and source remain intact",
+  "previous_six_dossiers_sha256": "18ec01f8f6d87a71383b7a7407aa03199aa023bce2e6e8720be1fabf9ac20cd9",
+  "old_claim": "The prior native DC.Creator Translator check identifies William Pringle; this resolves that source-level credit question beyond the unchanged saved proposal.",
+  "corrected_claim": "The exact native DC.Creator Translator entry and internal title page identify Rev. John Pringle. The Ephesians witness separately credits William Pringle; preserve the distinct translator identities.",
+  "evidence": [
+    {
+      "source_id": "1048479",
+      "source_path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-ready-text-edition-l06-calvin-39\\calcom39.xml",
+      "sha256": "176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012",
+      "translator_assertions": [
+        {
+          "xpath": "/ThML/ThML.head/electronicEdInfo/DC/DC.Creator[9]",
+          "text": "Pringle, Rev. John",
+          "attributes": {
+            "sub": "Translator",
+            "scheme": "short-form"
+          }
+        }
+      ],
+      "paratext_assertions": [
+        {
+          "xpath": "/ThML/ThML.body/div1[1]/p[11]",
+          "text": "BY THE REV. JOHN PRINGLE"
+        }
+      ]
+    },
+    {
+      "source_id": "connection:355ff25b555a29fb12dc1de98caf740cee9b55d1ef707e11792962789c487688",
+      "source_path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-ready-text-edition-l06-calvin-41\\calcom41.xml",
+      "sha256": "fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd",
+      "translator_assertions": [
+        {
+          "xpath": "/ThML/ThML.head/electronicEdInfo/DC/DC.Creator[9]",
+          "text": "Pringle, Rev. William",
+          "attributes": {
+            "sub": "Translator",
+            "scheme": "short-form"
+          }
+        }
+      ],
+      "paratext_assertions": []
+    }
+  ],
+  "live_candidate_state": "Translator remains unresolved in the unchanged live proposal; no wrong credit was applied to curation",
+  "additional_corrected_documents": [
+    {
+      "path": "initiatives/library-knowledge/distillation/CANDIDATE-READINESS-2026-10-19.md",
+      "previous_sha256": "58606789783cfdc315e7a24887acdd4c3ee6f763854bfc6fbb1807cbeeb18eca",
+      "old_claim": "Carry the source-verified William Pringle translator credit into a proposed shadow revision; inspect the full local language correspondence.",
+      "corrected_claim": "Carry Rev. John Pringle’s source-verified translator credit into a proposed shadow revision; keep the Scripture table, translated commentary and embedded editor notes distinct. See the later context guide and credit correction."
+    }
+  ]
+}

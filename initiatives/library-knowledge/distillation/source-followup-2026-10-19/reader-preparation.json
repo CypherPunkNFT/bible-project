@@ -1,0 +1,223 @@
+{
+  "captured_at": "2026-10-19T18:21:48.294Z",
+  "scope": "Seven existing private copies, ordinary reader GETs only",
+  "records": [
+    {
+      "candidate": "unity",
+      "source_id": "5426384",
+      "original_sha256": "a587ad69878c87b029fa41d78d1bf7100e1c21a55dfb7c72b06a30474ff3d284",
+      "route": "/teachers/works/held-a587ad69878c87b029fa41d78d1bf710",
+      "status": 200,
+      "record": {
+        "id": "local-a587ad69878c87b029fa41d78d1bf7100e1c21a55dfb7c72b06a30474ff3d284",
+        "title": "Magnalia Dei",
+        "authors": [
+          "Herman Bavinck"
+        ],
+        "contributors": [
+          "author-herman-bavinck"
+        ],
+        "language": "und",
+        "source": "source-monergism-library",
+        "sourceId": null,
+        "sourceUrl": "https://www.monergism.com/thethreshold/sdg/bavinck/The%20Wonderful%20Works%20of%20God%20-%20Herman%20Bavinck.epub",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+        "credit": "Bavinck, Herman; Monergism",
+        "sha256": "a587ad69878c87b029fa41d78d1bf7100e1c21a55dfb7c72b06a30474ff3d284",
+        "pages": 29,
+        "genre": "treatise",
+        "workId": "work-reconciled-d270b93a5af26b6efba63519",
+        "editionId": "edition-reconciled-55584238ac1214fad49e195c",
+        "reviewWarning": null,
+        "availability": "local-text",
+        "localCopy": true
+      }
+    },
+    {
+      "candidate": "grief",
+      "source_id": "1945362",
+      "original_sha256": "3512797ae879d4fdbdcde90e5ebc04299e501658fd8fb6c09977c2e2648ad0a4",
+      "route": "/teachers/works/held-3512797ae879d4fdbdcde90e5ebc0429",
+      "status": 200,
+      "record": {
+        "id": "local-3512797ae879d4fdbdcde90e5ebc04299e501658fd8fb6c09977c2e2648ad0a4",
+        "title": "Morning and Evening",
+        "authors": [
+          "Charles Haddon Spurgeon"
+        ],
+        "contributors": [
+          "author-charles-spurgeon"
+        ],
+        "language": "en",
+        "source": "source-ccel",
+        "sourceId": "source-ccel",
+        "sourceUrl": "https://www.ccel.org/ccel/s/spurgeon/morneve.xml",
+        "licence": "Recorded category: restricted-license; Personal/educational use; retain notices. Republication or commercial use requires separate permission.",
+        "credit": "Author and source credited in the catalog.",
+        "sha256": "3512797ae879d4fdbdcde90e5ebc04299e501658fd8fb6c09977c2e2648ad0a4",
+        "pages": 31,
+        "genre": "devotional",
+        "workId": "work-spurgeon-morning-evening",
+        "editionId": "edition-spurgeon-morning-evening",
+        "reviewWarning": null,
+        "availability": "local-text",
+        "localCopy": true
+      }
+    },
+    {
+      "candidate": "dryness",
+      "source_id": "5560243",
+      "original_sha256": "aa5013b7d6cf2cb4a10dfd74c8de21ba3d64255915d53730d0303e6c3fcede64",
+      "route": "/teachers/works/held-aa5013b7d6cf2cb4a10dfd74c8de21ba",
+      "status": 200,
+      "record": {
+        "id": "local-aa5013b7d6cf2cb4a10dfd74c8de21ba3d64255915d53730d0303e6c3fcede64",
+        "title": "Sermons on various subjects. By George Whitefield, A.B. of Pembroke College, Oxford. ; In two volumes. Vol. I[-II].",
+        "authors": [
+          "George Whitefield"
+        ],
+        "contributors": [
+          "author-george-whitefield"
+        ],
+        "language": "und",
+        "source": "Text Creation Partnership official public distribution",
+        "sourceId": "N03789",
+        "sourceUrl": "https://raw.githubusercontent.com/textcreationpartnership/N03789/master/N03789.xml",
+        "licence": "CC0-1.0",
+        "credit": "Whitefield, George, 1714-1770.; Text Creation Partnership",
+        "sha256": "aa5013b7d6cf2cb4a10dfd74c8de21ba3d64255915d53730d0303e6c3fcede64",
+        "pages": 15,
+        "genre": "treatise",
+        "workId": "work-reconciled-43169740eaa28da836d43c7f",
+        "editionId": "edition-reconciled-c0001fd4440779c048ac795c",
+        "reviewWarning": null,
+        "availability": "local-text",
+        "localCopy": true
+      }
+    },
+    {
+      "candidate": "temptation",
+      "source_id": "554791",
+      "original_sha256": "067dd3ee082db08c24205093d52a3b882ae061bd72c9b02eb8983087ac491c26",
+      "route": "/teachers/works/held-067dd3ee082db08c24205093d52a3b88",
+      "status": 200,
+      "record": {
+        "id": "local-067dd3ee082db08c24205093d52a3b882ae061bd72c9b02eb8983087ac491c26",
+        "title": "The Work of the Holy Ghost in our Salvation",
+        "authors": [
+          "Thomas Goodwin"
+        ],
+        "contributors": [
+          "author-thomas-goodwin"
+        ],
+        "language": "und",
+        "source": "source-monergism-library",
+        "sourceId": null,
+        "sourceUrl": "https://www.monergism.com/thethreshold/sdg/goodwin/The%20Work%20of%20the%20Holy%20Ghost%20in%20o%20-%20Thomas%20Goodwin.epub",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+        "credit": "Goodwin, Thomas; Monergism",
+        "sha256": "067dd3ee082db08c24205093d52a3b882ae061bd72c9b02eb8983087ac491c26",
+        "pages": 42,
+        "genre": "treatise",
+        "workId": "work-reconciled-345a09139d22e2db2110bf5c",
+        "editionId": "edition-reconciled-3a50151fcd73f9df1dd4d4d2",
+        "reviewWarning": null,
+        "availability": "local-text",
+        "localCopy": true
+      }
+    },
+    {
+      "candidate": "perseverance",
+      "source_id": "3361730",
+      "original_sha256": "64bf5813248d09edd649e1b232807fe1da6e60535fc1a916fed5988d02427588",
+      "route": "/teachers/works/held-64bf5813248d09edd649e1b232807fe1",
+      "status": 200,
+      "record": {
+        "id": "local-64bf5813248d09edd649e1b232807fe1da6e60535fc1a916fed5988d02427588",
+        "title": "An Exposition of the Assembly's Shorter Catechism",
+        "authors": [
+          "John Flavel"
+        ],
+        "contributors": [
+          "author-john-flavel"
+        ],
+        "language": "und",
+        "source": "source-monergism",
+        "sourceId": null,
+        "sourceUrl": "https://www.monergism.com/thethreshold/sdg/flavel/An%20Exposition%20of%20the%20Assembly's%20-%20John%20Flavel.epub",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: unspecified; recorded use scope: private-personal-educational-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+        "credit": "John Flavel; Monergism",
+        "sha256": "64bf5813248d09edd649e1b232807fe1da6e60535fc1a916fed5988d02427588",
+        "pages": 10,
+        "genre": "treatise",
+        "workId": "work-reconciled-c879e21ed1feb363e946555d",
+        "editionId": "edition-reconciled-be55e22bd2684466941fa6b9",
+        "reviewWarning": null,
+        "availability": "local-text",
+        "localCopy": true
+      }
+    },
+    {
+      "candidate": "perseverance",
+      "source_id": "6148517",
+      "original_sha256": "be0744abfe0c6a987c979ac182ece4aa46a5e3fa3af3d9de7701dcf22854b487",
+      "route": "/teachers/works/held-be0744abfe0c6a987c979ac182ece4aa",
+      "status": 200,
+      "record": {
+        "id": "local-be0744abfe0c6a987c979ac182ece4aa46a5e3fa3af3d9de7701dcf22854b487",
+        "title": "Saved by Grace",
+        "authors": [
+          "John Bunyan"
+        ],
+        "contributors": [
+          "author-john-bunyan"
+        ],
+        "language": "und",
+        "source": "source-monergism-library",
+        "sourceId": null,
+        "sourceUrl": "https://www.monergism.com/thethreshold/sdg/bunyan/Saved%20by%20Grace%20-%20John%20Bunyan.epub",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+        "credit": "Bunyan, John; Monergism",
+        "sha256": "be0744abfe0c6a987c979ac182ece4aa46a5e3fa3af3d9de7701dcf22854b487",
+        "pages": 4,
+        "genre": "treatise",
+        "workId": "work-reconciled-755a11780e6d70d65ab35dbc",
+        "editionId": "edition-reconciled-63f8387f8b506f8d95da090f",
+        "reviewWarning": null,
+        "availability": "local-text",
+        "localCopy": true
+      }
+    },
+    {
+      "candidate": "apostasy",
+      "source_id": "7891455",
+      "original_sha256": "f49e7bbe1de1ae318f9fa4a22f387405d22dc43ba8418bb4d2bb9e4559b2e9c4",
+      "route": "/teachers/works/held-f49e7bbe1de1ae318f9fa4a22f387405",
+      "status": 200,
+      "record": {
+        "id": "local-f49e7bbe1de1ae318f9fa4a22f387405d22dc43ba8418bb4d2bb9e4559b2e9c4",
+        "title": "An Exposition of the Epistle to the Hebrews, Volume II",
+        "authors": [
+          "John Owen"
+        ],
+        "contributors": [
+          "author-john-owen"
+        ],
+        "language": "und",
+        "source": "source-monergism",
+        "sourceId": null,
+        "sourceUrl": "https://www.monergism.com/thethreshold/sdg/owen/Hebrews_Vol V_Owen.epub",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: unspecified; recorded use scope: private-personal-educational-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+        "credit": "John Owen; Monergism",
+        "sha256": "f49e7bbe1de1ae318f9fa4a22f387405d22dc43ba8418bb4d2bb9e4559b2e9c4",
+        "pages": 37,
+        "genre": "treatise",
+        "workId": "work-reconciled-ea8e25834c1df7ee31d3f6e8",
+        "editionId": "edition-reconciled-70fb15172e699fe664588037",
+        "reviewWarning": null,
+        "availability": "local-text",
+        "localCopy": true
+      }
+    }
+  ]
+}

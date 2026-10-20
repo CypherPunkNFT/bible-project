@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Two reviewed private reading copies; independent of featured profile shelves. No public display clearance or resolved work/edition identity.",
+  "copies": [
+    {
+      "sha256": "3c6ae92f1578f913c09839d2c8604310111a9b02b5a3f2ef97b5d5ca60d5c3f4",
+      "source": "bulk/chapel/lsup.epub",
+      "cache": "c541bbcadc1e5b62d9276a11a80e9dc4fa28669d3b0ededda4917b47f9880b84.jsonl",
+      "cacheSha256": "051a0249f09baaec8aeae8c94aff7ac7e35c1f3bf3a4ac4f49543fbd71cb24de",
+      "recordId": "held-3c6ae92f1578f913c09839d2c8604310",
+      "recordSha256": "1843e62e90cba640c1140dc4d8676b34f47a782b51d34f1416a5bf976e15893a",
+      "evidence": "initiatives/library-knowledge/distillation/source-dependencies-2026-10-19.json#D03"
+    },
+    {
+      "sha256": "7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76",
+      "source": "source-monergism-library/asset-expanded-528d7381b8115df7ee82/original.epub",
+      "cache": "b6714aa3857e162e85059dd1e2a9a15872be8d2a6b2727488849c4734636acce.jsonl",
+      "cacheSha256": "ae8f22224a89b41db58ae4384bea4ce7fb44df492e782c084d6e0ad71883f6c1",
+      "recordId": "held-7824047daefbe859f7f5f167719ca85f",
+      "recordSha256": "f8f5d34d941b7f8c1546a5dc75a569dddb1355034fc5a168a73588f598cde955",
+      "evidence": "initiatives/library-knowledge/distillation/source-dependencies-2026-10-19.json#D04"
+    }
+  ]
+}

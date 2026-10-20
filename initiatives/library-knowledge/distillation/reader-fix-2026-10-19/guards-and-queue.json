@@ -1,0 +1,82 @@
+{
+  "at": "2026-10-19T12:55:24.768Z",
+  "guards": [
+    {
+      "name": "foreign-origin",
+      "status": 403,
+      "blocked": true
+    },
+    {
+      "name": "cross-site",
+      "status": 403,
+      "blocked": true
+    },
+    {
+      "name": "write-method",
+      "status": 403,
+      "blocked": true
+    },
+    {
+      "name": "foreign-host",
+      "status": 403,
+      "blocked": true
+    }
+  ],
+  "shelves": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "profile": "author-charles-hodge",
+        "status": 200,
+        "rows": 243
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "profile": "author-heinrich-bullinger",
+        "status": 200,
+        "rows": 21
+      }
+    }
+  ],
+  "publicRecords": [
+    {
+      "slot": "D03",
+      "httpStatus": 200,
+      "servedMatchesDisk": true,
+      "availability": "permission-required",
+      "pages": 0,
+      "useNoticeUnchanged": true,
+      "authorsUnchanged": true,
+      "workId": null,
+      "editionId": null
+    },
+    {
+      "slot": "D04",
+      "httpStatus": 200,
+      "servedMatchesDisk": true,
+      "availability": "permission-required",
+      "pages": 0,
+      "useNoticeUnchanged": true,
+      "authorsUnchanged": true,
+      "workId": null,
+      "editionId": null
+    }
+  ],
+  "queue": {
+    "status": 200,
+    "counts": {
+      "approved": 0,
+      "discovered": 0,
+      "integrated": 0,
+      "needs_work": 0,
+      "pending": 21,
+      "rejected": 0,
+      "stale": 0
+    },
+    "sequence": 41,
+    "needsSync": false,
+    "needsExport": false
+  }
+}

@@ -47,3 +47,6 @@ __pycache__/
 # Temporary local build configurations; maintained project config is vite.config.ts.
 /.vite-*.config.ts
 /.vitest-*.config.ts
+
+# Encyclopedia text gathered by the data-acquisition desk (297 MB, another chat's work in progress): kept on disk, out of git and releases (owner, 2026-10-20).
+/public/data_acquisition/

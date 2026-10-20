@@ -1,0 +1,114 @@
+.bible-listening { --path-color: var(--gospels); }
+.bible-audio-art { height:215px; margin:1.5rem auto 0; width:calc(100% - 2rem); max-width:520px; color:var(--path-color); }
+.bible-audio-art svg { width:100%; height:100%; }
+.bible-path-copy > p {margin-bottom:.65rem;}
+@media(min-width:768px) {
+  .bible-library { grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; }
+  .bible-library .bible-path-top { grid-column:1 / -1; }
+  .bible-library { min-height:390px; grid-template-columns:.9fr 1.1fr; }
+  .bible-library .library-illustration { grid-column:2; grid-row:2; }
+  .bible-library .bible-path-copy { grid-column:1; grid-row:2; align-self:center; margin:0; }
+}
+@media(max-width:767px) {
+ .bible-paths {grid-auto-rows:1fr;}
+  .bible-audio-art { width:calc(100% - 2rem); }
+}
+.library-illustration { position:relative; height:310px; margin:0 1.5rem 1.5rem; display:flex; align-items:flex-end; justify-content:center; color:var(--poetry); }
+.library-stars { position:absolute; inset:0; opacity:.5; pointer-events:none; }
+.library-stars svg { width:100%;height:100%; }
+.library-volumes { position:relative;display:flex;align-items:flex-end;gap:20px;width:min(100%,530px);padding:0 12px 22px; }
+.horizontal-books { display:flex; flex-direction:column; gap:6px; flex:1;min-width:0; }
+.horizontal-book { display:flex;align-items:center;gap:10px; height:39px;padding:0 14px;border:1px solid color-mix(in srgb,var(--book-color) 65%,var(--line));border-radius:5px 8px 8px 4px;background:linear-gradient(180deg,color-mix(in srgb,var(--book-color) 20%,var(--surface)),color-mix(in srgb,var(--book-color) 9%,var(--surface)));color:var(--ink);box-shadow:inset 0 -4px 0 #0002, inset 4px 0 0 #fff1;font-family:var(--font-serif);font-size:.95rem;white-space:nowrap; }
+.spine-title { flex:1;text-align:center; }
+.spine-symbol { color:var(--book-color);font-size:1.2rem; }
+.spine-symbol svg {display:block;width:21px;height:21px;}
+.spine-symbol {flex-shrink:0;}
+.spine-rule { align-self:stretch;width:3px;border-inline:1px solid var(--book-color);opacity:.55;margin:4px 0; }
+.revelation-volume { flex:0 0 112px;height:247px;display:flex;align-items:center;flex-direction:column;justify-content:center;padding:12px 5px;border:1px solid color-mix(in srgb,var(--revelation) 65%,var(--line));border-radius:4px 9px 3px 3px;background:linear-gradient(90deg,#0003 0 5px,transparent 5px 10px,#ffffff08 10px 12px,transparent 12px),color-mix(in srgb,var(--revelation) 14%,var(--surface));color:var(--revelation);box-shadow:inset -4px 0 0 #0002; }
+.revelation-volume svg { width:76px;height:110px; }
+.revelation-volume strong { font-family:var(--font-serif);font-weight:400;font-size:1rem;color:var(--ink); }
+.volume-top,.volume-bottom { font-size:.4rem;letter-spacing:.13em; }
+.volume-bottom { margin-top:10px; }
+.library-shelf-line { position:absolute;bottom:18px;left:10px;right:10px;height:4px;border-block:1px solid var(--line); }
+.library-art-1 .book-0 { margin-right:19px;margin-left:8px; }
+.library-art-1 .book-1 { margin-right:3px; }
+.library-art-1 .book-2 { margin-left:12px; }
+.library-art-1 .book-3 { margin-right:12px; }
+.library-art-1 .horizontal-books {height:247px;}
+.library-art-1 .horizontal-book {flex:1;height:auto;min-height:0;}
+.library-art-1 .revelation-volume {flex-basis:100px;}
+.library-art-1 .revelation-volume svg {width:64px;height:94px;color:var(--ink);}
+.library-art-1 .revelation-volume strong {font-size:.9rem;}
+.library-art-2 .library-volumes { flex-direction:row-reverse;gap:28px; }
+.library-art-2 .horizontal-books { flex-direction:column-reverse;gap:9px; }
+.library-art-2 .horizontal-book { height:35px;border-radius:3px 12px 12px 3px; }
+.library-art-2 .book-1,.library-art-2 .book-3 { margin-right:18px; }
+.library-art-2 .library-volumes {max-width:470px;padding-inline:25px;}
+.library-art-2 .book-5 {margin-left:26px;margin-right:16px;}
+.library-art-2 .book-4 {margin-left:9px;}
+.library-art-2 .revelation-volume { transform:rotate(-6deg);transform-origin:bottom; }
+.library-art-3 .library-volumes { gap:12px;padding:20px 20px 24px;border:1px solid var(--line);border-radius:90px 90px 3px 3px;background:color-mix(in srgb,var(--poetry) 3%,transparent); }
+.library-art-3 .horizontal-books { gap:3px; }
+.library-art-3 .horizontal-book { height:36px;font-size:.88rem; }
+.library-art-3 .revelation-volume { height:222px;flex-basis:100px; }
+.library-art-3 .revelation-volume svg { height:90px; }
+@media(max-width:1000px) and (min-width:768px) { .bible-library { grid-template-columns:.7fr 1.3fr; } .library-illustration { margin-inline:.75rem; } .horizontal-book { padding-inline:7px;gap:5px;font-size:.8rem; } .revelation-volume { flex-basis:90px; } .library-volumes {gap:10px;} }
+@media(max-width:767px) {
+ .library-illustration { height:285px;margin:1rem .7rem 0; }
+ .library-volumes {gap:10px;padding-inline:5px;}
+ .horizontal-book {padding-inline:6px;gap:5px;font-size:.8rem;height:36px;}
+ .revelation-volume {flex-basis:88px;height:229px;}
+ .library-art-1 .horizontal-books {height:229px;}
+ .library-art-1 .revelation-volume {flex-basis:80px;}
+ .revelation-volume strong {font-size:.85rem;}
+ .library-art-2 .library-volumes {gap:14px;}
+ .library-art-3 .library-volumes {padding-inline:10px;}
+ .library-art-3 .horizontal-book {font-size:.76rem;}
+ .library-art-3 .revelation-volume {flex-basis:86px;}
+}
+@media(max-width:360px) { .spine-symbol svg {width:15px;height:15px;} .horizontal-book {font-size:.66rem;gap:3px;padding-inline:4px;} .library-art-3 .horizontal-book {font-size:.62rem;} .library-art-3 .revelation-volume {flex-basis:76px;} .library-art-2 .library-volumes {padding-inline:10px;} }
+.bible-library.library-option-2,.bible-library.library-option-3 {display:flex;flex-direction:column;}
+.library-option-2 .bible-path-copy,.library-option-3 .bible-path-copy {align-self:stretch;margin:0;padding-top:1.4rem;}
+.category-library {display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:28px;margin:1.4rem 2.2rem 0;padding:0 1rem;}
+.category-stack {min-width:0;display:flex;flex-direction:column;}
+.category-piles {position:relative;display:flex;gap:9px;align-items:flex-end;justify-content:center;min-height:205px;padding:0 5px 14px;border-bottom:2px solid var(--line);}
+.individual-pile {display:flex;flex-direction:column;justify-content:flex-end;gap:3px;width:100%;max-width:162px;min-width:0;}
+.individual-book {position:relative;transform:translateX(var(--offset));height:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1px solid color-mix(in srgb,var(--book-color) 68%,var(--line));border-radius:2px 4px 4px 2px;background:linear-gradient(180deg,color-mix(in srgb,var(--book-color) 22%,var(--surface)),color-mix(in srgb,var(--book-color) 10%,var(--surface)));box-shadow:inset 0 -2px 0 #0002;color:var(--ink);font-family:var(--font-serif);font-size:.65rem;line-height:1;white-space:nowrap;}
+.individual-book::before,.individual-book::after {content:'';position:absolute;top:2px;bottom:2px;width:2px;border-left:1px solid var(--book-color);opacity:.6;}
+.individual-book::before {left:5px;}.individual-book::after {right:5px;}
+.category-stack:last-child .individual-book {height:13px;color:#f5f3ed;font-size:.6rem;}
+.category-label {display:grid;grid-template-columns:24px 1fr;column-gap:7px;align-items:center;margin:13px auto 0;width:max-content;max-width:100%;color:var(--book-color);}
+.category-label svg {display:block;width:23px;height:23px;}
+.category-label > span {grid-row:1/3;}
+.category-label strong {font-family:var(--font-serif);font-size:.95rem;font-weight:400;color:var(--ink);}
+.category-label small {font-size:.6rem;color:var(--muted);margin-top:3px;}
+.category-revelation-art {position:absolute;bottom:44px;left:50%;transform:translateX(-50%);width:90px;color:var(--book-color);opacity:.8;}
+.category-revelation-art svg {width:100%;height:auto;}
+.category-stack:last-child .category-revelation-art {width:76px;color:var(--ink);opacity:.9;}
+.category-library-3 {gap:22px;margin-top:2rem;}
+.category-library-3 .category-piles {min-height:270px;padding:18px 8px 16px;border:1px solid var(--line);border-radius:55px 55px 3px 3px;background:color-mix(in srgb,var(--book-color) 3%,transparent);}
+.category-library-3 .individual-book {height:18px;font-size:.52rem;}
+.category-library-3 .individual-book::before {left:3px;}.category-library-3 .individual-book::after {right:3px;}
+.category-library-3 .category-revelation-art {bottom:54px;}
+@media(max-width:1100px) and (min-width:768px) {
+ .category-library {grid-template-columns:repeat(3,minmax(0,1fr));row-gap:24px;}
+ .category-library {gap:12px;margin-inline:1.3rem;padding:0;}
+ .individual-book {font-size:.65rem;}
+ .category-library-3 .category-piles {padding-inline:4px;gap:5px;}
+ .category-library-3 .individual-book {font-size:.55rem;}
+ .category-library-3 .individual-book::before,.category-library-3 .individual-book::after {display:none;}
+ .category-label {grid-template-columns:18px 1fr;gap:4px;}.category-label svg {width:17px;}.category-label strong {font-size:.75rem;}
+}
+@media(max-width:767px) {
+ .bible-paths {grid-auto-rows:auto;}
+ .category-library {display:flex;gap:20px;margin:1.5rem 1rem 0;padding:0 6px 14px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:var(--line) transparent;}
+ .category-stack {flex:0 0 170px;scroll-snap-align:start;}
+ .category-library-3 .category-stack {flex-basis:230px;}
+ .category-piles {min-height:0;height:205px;}
+ .category-library-3 .category-piles {height:260px!important;min-height:0;padding-inline:4px;gap:5px;}
+ .individual-book {font-size:.65rem;}
+ .category-library-3 .individual-book {font-size:.6rem;}
+ .category-library-3 .individual-book::before,.category-library-3 .individual-book::after {display:none;}
+ .category-label strong {font-size:.85rem;}
+ .category-label {grid-template-columns:20px 1fr;gap:4px;}.category-label svg {width:19px;}
+}

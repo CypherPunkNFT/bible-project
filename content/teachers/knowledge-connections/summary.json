@@ -1,0 +1,39 @@
+{
+  "chains": 50,
+  "newChains": 45,
+  "existingChains": 5,
+  "authorsOrCreditedGroups": 183,
+  "minimumNodesPerChain": 5,
+  "smallestChain": 5,
+  "nodeCountDistribution": {
+    "5": 43,
+    "6": 4,
+    "7": 3
+  },
+  "chainsBelowMinimum": 0,
+  "replacedShortCandidates": 11,
+  "worksOrEditions": 244,
+  "connections": 216,
+  "fields": {
+    "history": 10,
+    "places": 10,
+    "reference": 10,
+    "texts": 10,
+    "theology": 10
+  },
+  "connectionReviewStatuses": {
+    "bibliographic-only": 4,
+    "carried-forward": 28,
+    "supported": 184
+  },
+  "linkedAuthors": 28,
+  "worksWithLibraryCandidates": 12,
+  "confirmedEditionLinks": 0,
+  "limits": [
+    "Source access ranges from opened primary text to catalogue/search excerpts; per-source access is recorded.",
+    "The five original chains retain carried-forward status pending passage-level re-review.",
+    "Library candidates are discovery leads, not confirmed holdings of the exact described edition.",
+    "Work dates are display labels; not every edition date has independent verification.",
+    "No frontend, corpus, embedding, deployment or publication changes."
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "at": "2026-10-19T18:50:48.555Z",
+  "identity": {
+    "receipt": {
+      "state": "building",
+      "pid": 86792,
+      "process_created": 1792429292.5313587,
+      "started_at": "2026-10-19T17:01:33.104131+00:00",
+      "updated_at": "2026-10-19T18:50:38.860738+00:00",
+      "launcher": "native-python",
+      "run_id": "native-20261019T170133-86792",
+      "run_directory": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\native-intake\\native-20261019T170133-86792",
+      "enrichment_started": false,
+      "child_pid": 61492
+    },
+    "processes": [
+      {
+        "pid": 86792,
+        "created": 1792429292.5313587,
+        "cmdline": [
+          "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+          "-u",
+          "-m",
+          "knowledge.finish_intake",
+          "--refresh"
+        ],
+        "cwd": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website"
+      },
+      {
+        "pid": 61492,
+        "created": 1792429480.4553585,
+        "cmdline": [
+          "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+          "-u",
+          "-m",
+          "knowledge",
+          "build"
+        ],
+        "cwd": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website"
+      },
+      {
+        "pid": 9400,
+        "created": 1792429480.4667318,
+        "cmdline": [
+          "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+          "-u",
+          "-m",
+          "knowledge",
+          "build"
+        ],
+        "cwd": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website"
+      }
+    ],
+    "staging": [
+      {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\build-9400.sqlite3",
+        "bytes": 73063641088
+      }
+    ],
+    "owner_matches_creation": true
+  },
+  "supervisor": {
+    "state": "busy",
+    "updated_at": "2026-10-19T18:50:03.385973+00:00",
+    "mode": "verification_only",
+    "console_window": false,
+    "attempts": 3,
+    "max_attempts": 3
+  },
+  "publication": null,
+  "curation": {
+    "counts": {
+      "approved": 0,
+      "discovered": 0,
+      "integrated": 0,
+      "needs_work": 0,
+      "pending": 21,
+      "rejected": 0,
+      "stale": 0
+    },
+    "sequence": 41,
+    "needsSync": false,
+    "needsExport": false
+  },
+  "preservation": {
+    "all21StatesRevisionsFingerprintsUnchanged": true,
+    "readerIndexUnchanged": true,
+    "readerScopeUnchanged": true,
+    "catalogueUnchanged": true,
+    "supervisorControlUnchanged": true,
+    "retryLedgerUnchanged": true
+  },
+  "validation": {
+    "four_native_cache_reader_matches": true,
+    "six_http_pages": true,
+    "nested_boyce_work_identity": true,
+    "gill_complete_faith_unit": true,
+    "john_king_role_chain_and_matching_note": true,
+    "john_william_pringle_kept_distinct": true,
+    "four_signed_one_unsigned_note": true,
+    "twelve_documents_twelve_unexecuted_queries": true,
+    "inputs_rechecked": 205,
+    "changed_inputs": [],
+    "relative_links_checked": 18,
+    "missing_links": []
+  },
+  "docCheck": {
+    "exit": 0,
+    "output": ""
+  }
+}

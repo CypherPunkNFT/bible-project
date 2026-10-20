@@ -1,0 +1,43 @@
+{
+  "captured_at": "2026-10-19T18:50:01.151Z",
+  "source_sha256": "176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012",
+  "notes": [
+    {
+      "id": "xx.ii-p15.2",
+      "xpath": "/ThML/ThML.body/div1[20]/div2[2]/div[1]/p[2]/note",
+      "normalized_text_sha256": "74439b3a20077c5afcac23c30561536239080a42ad51eb10fd39a9a98eaa3eb7",
+      "explicit_Ed_signature": true,
+      "named_speaker": "not individually verified; do not infer from note count or container author"
+    },
+    {
+      "id": "xx.ii-p17.2",
+      "xpath": "/ThML/ThML.body/div1[20]/div2[2]/div[1]/p[3]/note[1]",
+      "normalized_text_sha256": "6da43cb4748e604eeda5cc54b8b6aa6f4643e512c8e444e6a89c33857eb8d64b",
+      "explicit_Ed_signature": true,
+      "named_speaker": "not individually verified; do not infer from note count or container author"
+    },
+    {
+      "id": "xx.ii-p18.1",
+      "xpath": "/ThML/ThML.body/div1[20]/div2[2]/div[1]/p[3]/note[2]",
+      "normalized_text_sha256": "35366755f967992f3c83c11195bb6225fd588db4bb1c3aa776b8c3981102de98",
+      "explicit_Ed_signature": true,
+      "named_speaker": "not individually verified; do not infer from note count or container author"
+    },
+    {
+      "id": "xx.ii-p19.3",
+      "xpath": "/ThML/ThML.body/div1[20]/div2[2]/div[1]/p[3]/note[3]",
+      "normalized_text_sha256": "29e76ef291e79e3ee7c571531f1b18c1bc82c2d78d2e7122b3fd7805689c6736",
+      "explicit_Ed_signature": false,
+      "named_speaker": "not individually verified; do not infer from note count or container author"
+    },
+    {
+      "id": "xx.ii-p20.2",
+      "xpath": "/ThML/ThML.body/div1[20]/div2[2]/div[1]/p[3]/note[4]",
+      "normalized_text_sha256": "b233098b538e7793d97b55d191285b5b02a2be87b6a42d49253ea596860dc0bb",
+      "explicit_Ed_signature": true,
+      "named_speaker": "not individually verified; do not infer from note count or container author"
+    }
+  ],
+  "explicit_Ed_signatures": 4,
+  "unsigned": 1
+}

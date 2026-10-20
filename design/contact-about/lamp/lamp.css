@@ -1,0 +1,95 @@
+/* Direction D, "The lamp in the window" (lamp.js, lamp-scene.js). */
+.lp { max-width: 80rem; margin: 0 auto; padding: 0 1rem 3rem; }
+@media (min-width: 640px) { .lp { padding-inline: 1.5rem; } }
+.lp-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.lp h1, .lp h2 { font: 500 clamp(36px, 4.4vw, 58px)/1.04 var(--serif); letter-spacing: -.035em; margin-top: 12px; }
+.lp h1 em, .lp h2 em { display: block; font-style: italic; color: var(--accent); }
+.lp-lead { margin: 14px 0 24px; max-width: 30rem; color: var(--muted); line-height: 1.7; }
+
+/* The landing: the form beside the night drawing, filling the first screen with the bar beneath. */
+.lp-landing { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 40px; align-items: center; min-height: min(calc(100svh - 230px), 680px); padding-top: 24px; }
+.lp-scene { margin: 0; color: var(--accent); }
+.lp-scene svg { display: block; width: 100%; overflow: visible; }
+.lp-star { fill: var(--ink); stroke: none; opacity: .55; }
+.lp-twinkle { animation: lp-twinkle 5s ease-in-out infinite; animation-delay: calc(var(--i) * -.6s); }
+.lp-moon { fill: var(--accent); stroke: none; opacity: .85; }
+.lp-faint { color: var(--muted); opacity: .5; stroke-width: 1; }
+.lp-accent { color: var(--accent); }
+.lp-paper { fill: var(--page); }
+.lp-city .lp-paper { stroke: color-mix(in srgb, var(--accent) 60%, var(--muted)); }
+.lp-lit { fill: var(--accent); stroke: none; opacity: .75; }
+.lp-stay { color: var(--muted); stroke-width: .7; opacity: .55; }
+.lp-river { fill: color-mix(in srgb, var(--accent) 4%, var(--page)); stroke: none; }
+.lp-wave { color: var(--muted); stroke-width: .8; opacity: .45; animation: lp-drift 9s linear infinite; animation-delay: calc(var(--i) * -1.7s); }
+.lp-reflection path { color: var(--accent); stroke-width: 2; animation: lp-shimmer 3.2s ease-in-out infinite; animation-delay: calc(var(--i) * -.5s); }
+.lp-window { fill: color-mix(in srgb, var(--accent) 55%, var(--page)); animation: lp-lamp 6s ease-in-out infinite; }
+.lp-halo { fill: url(#lp-window-glow); pointer-events: none; }
+.lp-lamp { color: var(--page); stroke-width: 1.6; }
+.lp-callouts path { color: var(--muted); stroke-width: .8; opacity: .7; }
+.lp-callouts circle { fill: var(--accent); stroke: none; }
+.lp-callouts text { fill: var(--accent); stroke: none; font: 600 9.5px var(--sans); letter-spacing: .18em; }
+/* The biblical scenes (lamp-scenes.js). */
+.lp-hill { fill: var(--page); stroke: none; }
+.lp-ridge { stroke: color-mix(in srgb, var(--accent) 45%, var(--muted)); }
+.lp-hill-near { fill: color-mix(in srgb, var(--accent) 3%, var(--page)); }
+.lp-step { color: var(--accent); stroke-width: 3; }
+.lp-flame { fill: var(--accent); stroke: none; animation: lp-flicker 2.6s ease-in-out infinite; }
+.lp-breathe { animation: lp-breathe 6s ease-in-out infinite; }
+.lp-door { fill: color-mix(in srgb, var(--accent) 12%, var(--page)); stroke: var(--accent); }
+.lp-menorah, .lp-stand { color: var(--accent); stroke-width: 1.6; }
+.lp-figure { color: color-mix(in srgb, var(--accent) 70%, var(--ink)); }
+@keyframes lp-flicker { 0%, 100% { transform: scale(1, 1); } 30% { transform: scale(.92, 1.08); } 60% { transform: scale(1.06, .94); } }
+@keyframes lp-breathe { 50% { opacity: .7; } }
+@keyframes lp-twinkle { 50% { opacity: .1; } }
+@keyframes lp-drift { to { transform: translateX(-90px); } }
+@keyframes lp-shimmer { 50% { opacity: .2; transform: translateX(4px); } }
+@keyframes lp-lamp { 50% { fill: color-mix(in srgb, var(--accent) 70%, var(--page)); } }
+
+.lp-bar { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 20px 0 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.lp-bar > div { padding: 16px 20px; } .lp-bar > div + div { border-left: 1px solid var(--line); }
+.lp-bar dt { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.lp-bar dd { margin: 5px 0 0; font: 17px var(--serif); }
+
+/* Chapters: a giant numeral behind, and a faint sky of dots. */
+.lp-chapter { position: relative; isolation: isolate; padding: 90px 0 70px; border-bottom: 1px solid var(--line); }
+.lp-chapter::before { content: attr(data-numeral); position: absolute; z-index: -1; right: 0; top: 10px; font: 500 clamp(160px, 22vw, 300px)/1 var(--serif); color: color-mix(in srgb, var(--accent) 8%, transparent); pointer-events: none; }
+.lp-chapter::after { content: ""; position: absolute; z-index: -2; inset: 0; pointer-events: none; opacity: .5;
+  background-image: radial-gradient(circle at 12% 18%, var(--muted) .7px, transparent 1.4px), radial-gradient(circle at 38% 8%, var(--muted) .6px, transparent 1.2px), radial-gradient(circle at 64% 26%, var(--muted) .7px, transparent 1.4px), radial-gradient(circle at 86% 12%, var(--muted) .6px, transparent 1.2px);
+  background-size: 260px 200px, 340px 240px, 300px 220px, 420px 260px; }
+.lp-chapter-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; margin-top: 8px; }
+.lp-prose p { font: 18px/1.8 var(--serif); color: var(--muted); }
+.lp-prose p + p { margin-top: 14px; }
+.lp-chapter-grid .lp-prose { padding-top: 22px; }
+.lp-role { margin-top: 12px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.lp-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.lp-links a { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; font-weight: 600; transition: border-color .2s, color .2s; }
+.lp-links a:hover { border-color: var(--accent); color: var(--accent); }
+.lp-reason { text-align: center; border-bottom: 0; }
+.lp-reason blockquote { margin: 26px auto 0; max-width: 56rem; font: italic 500 clamp(28px, 3.6vw, 46px)/1.25 var(--serif); letter-spacing: -.02em; }
+.lp-reason blockquote em { display: block; color: var(--accent); }
+.lp-reason cite { display: block; margin-top: 18px; font: normal 11px var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.lp-reason-line { max-width: 38rem; margin: 26px auto 0; font: 18px/1.8 var(--serif); color: var(--muted); }
+
+/* The side navigation: dots, the current one stretched into a pill, its name on hover. */
+.lp-dots { position: fixed; z-index: 30; right: 18px; top: 50%; transform: translateY(-50%); display: grid; gap: 12px; }
+.lp-dots a { position: relative; display: block; width: 8px; height: 8px; border-radius: 999px; background: var(--line); transition: height .3s, background .3s; }
+.lp-dots a.is-on { height: 26px; background: var(--accent); }
+.lp-dots a span { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); white-space: nowrap; padding: 4px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: 12px; opacity: 0; pointer-events: none; transition: opacity .2s; }
+.lp-dots a:hover span { opacity: 1; }
+
+@media (max-width: 960px) {
+  .lp-landing { grid-template-columns: 1fr; min-height: 0; gap: 20px; }
+  .lp-scene { order: -1; }
+  .lp-bar { grid-template-columns: 1fr 1fr; }
+  .lp-bar > div:nth-child(odd) { border-left: 0; }
+  .lp-bar > div:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .lp-chapter-grid { grid-template-columns: 1fr; gap: 8px; }
+  .lp-dots { display: none; }
+}
+.lp-verse { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 6px 18px; margin-top: 20px; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; }
+.lp-verse q { font: italic 20px/1.5 var(--serif); quotes: "“" "”"; }
+.lp-verse cite { font: normal 11px var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+@media (prefers-reduced-motion: reduce) { .lp-twinkle, .lp-wave, .lp-reflection path, .lp-window, .lp-flame, .lp-breathe { animation: none; } }
+.lp-back { margin-top: 18px; }
+.lp-back a { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+.lp-back a:hover { color: var(--accent); }

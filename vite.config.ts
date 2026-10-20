@@ -10,6 +10,7 @@ import { atlasTilesPlugin } from "./scripts/atlas-tiles-vite";
 import { designReviewPlugin } from "./scripts/design-review/vite-plugin";
 import { localLibraryPlugin } from "./scripts/local-library-vite";
 import { dataIntakePlugin } from "./scripts/data-intake-vite";
+import { dataAnalysisPlugin } from "./scripts/data-analysis-vite";
 
 // The CypherPunk NFT site's toolchain. Local only: dev on 8930, the always-on preview
 // (scripts/start-preview.ps1) on 8931; browser checks start their own preview on 8932.
@@ -133,7 +134,7 @@ const dataPlugin: Plugin = {
 export default defineConfig({
   server: { host: "127.0.0.1", port: 8930, strictPort: true },
   preview: { host: "127.0.0.1", port: 8931, strictPort: true },
-  plugins: [studyContentPlugin(), react(), dataPlugin, mockupsPlugin, dataIntakePlugin(__dirname), atlasTilesPlugin(), designReviewPlugin(), testimonyApiPlugin(), localLibraryPlugin(__dirname), dropUnusedOrtEngine],
+  plugins: [studyContentPlugin(), react(), dataAnalysisPlugin(__dirname), dataPlugin, mockupsPlugin, dataIntakePlugin(__dirname), atlasTilesPlugin(), designReviewPlugin(), testimonyApiPlugin(), localLibraryPlugin(__dirname), dropUnusedOrtEngine],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
   },

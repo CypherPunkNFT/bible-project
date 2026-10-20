@@ -1,0 +1,347 @@
+{
+  "source": "data/catalog.json",
+  "representativeBooks": 22,
+  "stackOrder": {
+    "historicalTopToBottom": [
+      "history"
+    ],
+    "leftTopToBottom": [
+      "poetry",
+      "prophets"
+    ],
+    "rightTopToBottom": [
+      "epistles",
+      "gospels"
+    ]
+  },
+  "alignment": "Historical pile on the left; Poetical/Prophetical lowered to the common invisible baseline; close joins with varied edges",
+  "artworkSizes": {
+    "meaning": "Decorative dimensions for SIDE books only; not book-length estimates; original center artwork preserved",
+    "dimensions": [
+      "widthPercent",
+      "heightPx",
+      "leftOffsetPercent"
+    ],
+    "sideBookHeightRange": [
+      27,
+      34
+    ],
+    "originalCenterPreserved": true,
+    "books": {
+      "GEN": [
+        100,
+        28,
+        0
+      ],
+      "EXO": [
+        92,
+        30,
+        2
+      ],
+      "LEV": [
+        88,
+        27,
+        10
+      ],
+      "NUM": [
+        96,
+        29,
+        1
+      ],
+      "DEU": [
+        90,
+        29,
+        4
+      ],
+      "JOS": [
+        98,
+        33,
+        2
+      ],
+      "JDG": [
+        94,
+        30,
+        3
+      ],
+      "JOB": [
+        90,
+        28,
+        5
+      ],
+      "PSA": [
+        100,
+        34,
+        0
+      ],
+      "PRO": [
+        94,
+        30,
+        4
+      ],
+      "ISA": [
+        96,
+        33,
+        1
+      ],
+      "JER": [
+        91,
+        32,
+        6
+      ],
+      "EZK": [
+        100,
+        34,
+        0
+      ],
+      "DAN": [
+        95,
+        30,
+        3
+      ],
+      "MAT": [
+        98,
+        31,
+        1
+      ],
+      "MRK": [
+        89,
+        27,
+        3
+      ],
+      "LUK": [
+        96,
+        32,
+        4
+      ],
+      "JHN": [
+        100,
+        30,
+        0
+      ],
+      "ROM": [
+        100,
+        32,
+        0
+      ],
+      "EPH": [
+        89,
+        28,
+        8
+      ],
+      "PHP": [
+        92,
+        27,
+        2
+      ],
+      "JAS": [
+        95,
+        28,
+        4
+      ]
+    }
+  },
+  "gospels": "All four Gospels; Acts is not a Gospel",
+  "groups": [
+    {
+      "section": "history",
+      "label": "Historical books",
+      "books": [
+        {
+          "code": "GEN",
+          "num": 1,
+          "name": "Genesis",
+          "section": "history"
+        },
+        {
+          "code": "EXO",
+          "num": 2,
+          "name": "Exodus",
+          "section": "history"
+        },
+        {
+          "code": "LEV",
+          "num": 3,
+          "name": "Leviticus",
+          "section": "history"
+        },
+        {
+          "code": "NUM",
+          "num": 4,
+          "name": "Numbers",
+          "section": "history"
+        },
+        {
+          "code": "DEU",
+          "num": 5,
+          "name": "Deuteronomy",
+          "section": "history"
+        },
+        {
+          "code": "JOS",
+          "num": 6,
+          "name": "Joshua",
+          "section": "history"
+        },
+        {
+          "code": "JDG",
+          "num": 7,
+          "name": "Judges",
+          "section": "history"
+        }
+      ],
+      "codes": [
+        "GEN",
+        "EXO",
+        "LEV",
+        "NUM",
+        "DEU",
+        "JOS",
+        "JDG"
+      ]
+    },
+    {
+      "section": "poetry",
+      "label": "Poetical books",
+      "books": [
+        {
+          "code": "JOB",
+          "num": 18,
+          "name": "Job",
+          "section": "poetry"
+        },
+        {
+          "code": "PSA",
+          "num": 19,
+          "name": "Psalms",
+          "section": "poetry"
+        },
+        {
+          "code": "PRO",
+          "num": 20,
+          "name": "Proverbs",
+          "section": "poetry"
+        }
+      ],
+      "codes": [
+        "JOB",
+        "PSA",
+        "PRO"
+      ]
+    },
+    {
+      "section": "prophets",
+      "label": "Prophetical books",
+      "books": [
+        {
+          "code": "ISA",
+          "num": 23,
+          "name": "Isaiah",
+          "section": "prophets"
+        },
+        {
+          "code": "JER",
+          "num": 24,
+          "name": "Jeremiah",
+          "section": "prophets"
+        },
+        {
+          "code": "EZK",
+          "num": 26,
+          "name": "Ezekiel",
+          "section": "prophets"
+        },
+        {
+          "code": "DAN",
+          "num": 27,
+          "name": "Daniel",
+          "section": "prophets"
+        }
+      ],
+      "codes": [
+        "ISA",
+        "JER",
+        "EZK",
+        "DAN"
+      ]
+    },
+    {
+      "section": "gospels",
+      "label": "Gospels",
+      "books": [
+        {
+          "code": "MAT",
+          "num": 40,
+          "name": "Matthew",
+          "section": "gospels"
+        },
+        {
+          "code": "MRK",
+          "num": 41,
+          "name": "Mark",
+          "section": "gospels"
+        },
+        {
+          "code": "LUK",
+          "num": 42,
+          "name": "Luke",
+          "section": "gospels"
+        },
+        {
+          "code": "JHN",
+          "num": 43,
+          "name": "John",
+          "section": "gospels"
+        }
+      ],
+      "codes": [
+        "MAT",
+        "MRK",
+        "LUK",
+        "JHN"
+      ]
+    },
+    {
+      "section": "epistles",
+      "label": "Epistles",
+      "books": [
+        {
+          "code": "ROM",
+          "num": 45,
+          "name": "Romans",
+          "section": "epistles"
+        },
+        {
+          "code": "EPH",
+          "num": 49,
+          "name": "Ephesians",
+          "section": "epistles"
+        },
+        {
+          "code": "PHP",
+          "num": 50,
+          "name": "Philippians",
+          "section": "epistles"
+        },
+        {
+          "code": "JAS",
+          "num": 59,
+          "name": "James",
+          "section": "epistles"
+        }
+      ],
+      "codes": [
+        "ROM",
+        "EPH",
+        "PHP",
+        "JAS"
+      ]
+    }
+  ],
+  "options": [
+    {
+      "id": 1,
+      "title": "Collected stacks",
+      "description": "Varied spines and gently staggered edges, gathered around the original collection."
+    }
+  ]
+}

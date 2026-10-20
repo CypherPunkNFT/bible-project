@@ -1,0 +1,88 @@
+/* Study-style contact pages (page.js) and their drawings (arts.js); the twelve-theme grid adds sets.css. */
+.ss { max-width: 80rem; margin: 0 auto; padding: 0 1rem 4rem; }
+@media (min-width: 640px) { .ss { padding-inline: 1.5rem; } }
+.ss-crumbs { display: flex; align-items: center; gap: 8px; margin-top: 18px; font-size: 12px; color: var(--muted); }
+.ss-crumbs a { display: inline-flex; align-items: center; gap: 6px; } .ss-crumbs a:hover { color: var(--accent); }
+.ss-kicker, .ss-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.ss-eyebrow span { font-variant-numeric: tabular-nums; }
+
+.ss-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; padding: 22px 0 34px; }
+.ss-hero h1 { margin-top: 12px; font: 400 clamp(46px, 5.6vw, 76px)/1 var(--serif); letter-spacing: -.045em; }
+.ss-hero h1 em { display: block; font-style: italic; color: var(--accent); }
+.ss-sub { margin-top: 22px; font: 400 21px/1.45 var(--serif); }
+.ss-lead { margin: 14px 0 24px; max-width: 32rem; font-size: 14px; line-height: 1.7; color: var(--muted); }
+.ss-lead a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.ss-form { max-width: 34rem; }
+
+.ss-art { position: relative; margin: 0; color: var(--ink); }
+.ss-art svg { display: block; width: 100%; overflow: visible; }
+.ss-art figcaption { position: absolute; right: 0; bottom: 6%; display: grid; gap: 2px; font: 17px/1.35 var(--serif); color: var(--muted); text-align: left; }
+.ss-art figcaption span { width: 34px; height: 1px; margin-bottom: 10px; background: var(--accent); }
+.ss-art figcaption b { font-weight: 400; color: var(--accent); }
+.ss-orbit { color: var(--line); stroke-dasharray: 2 7; }
+.ss-faint { color: var(--muted); opacity: .55; stroke-width: 1; }
+.ss-paper { fill: var(--surface); color: color-mix(in srgb, var(--ink) 55%, var(--surface)); }
+.ss-faint-paper { fill: none; color: var(--muted); opacity: .6; }
+.ss-papyrus { fill: color-mix(in srgb, var(--accent) 7%, var(--surface)); color: color-mix(in srgb, var(--accent) 50%, var(--muted)); }
+.ss-fibre { color: color-mix(in srgb, var(--accent) 25%, transparent); stroke-width: .7; }
+.ss-line { color: color-mix(in srgb, var(--ink) 45%, transparent); stroke-width: 1.4; }
+.ss-dim { opacity: .45; }
+.ss-gold { color: var(--accent); stroke-width: 1.5; }
+.ss-gold-fill { fill: color-mix(in srgb, var(--accent) 24%, transparent); color: var(--accent); }
+/* Literata is loaded as a Latin subset, so Greek falls back; Palatino Linotype carries the full polytonic accents. */
+.ss-word { fill: var(--accent); stroke: none; font-family: "Literata Variable", "Palatino Linotype", Georgia, serif; font-style: italic; }
+.ss-word-dim { fill: var(--muted); }
+.ss-lens { fill: color-mix(in srgb, var(--page) 80%, transparent); color: var(--ink); stroke-width: 2.5; }
+.ss-handle { color: var(--muted); stroke-width: 9; }
+.ss-pen { color: color-mix(in srgb, var(--accent) 70%, var(--ink)); stroke-width: 5; }
+.ss-wax { fill: color-mix(in srgb, var(--ink) 12%, var(--surface)); stroke: none; }
+.ss-scratch { color: var(--muted); stroke-width: 1.1; }
+.ss-seal { fill: var(--accent); stroke: none; } .ss-seal-mark { color: var(--surface); stroke-width: 2; }
+.ss-coast { color: color-mix(in srgb, var(--ink) 50%, transparent); stroke-width: 1.4; }
+.ss-dot { fill: var(--accent); stroke: none; }
+.ss-label { fill: var(--muted); stroke: none; font: 600 9px var(--sans); letter-spacing: .16em; }
+.ss-route { color: var(--muted); stroke-dasharray: 3 6; }
+.ss-route-gold { stroke-dasharray: 5 6; stroke-width: 2; animation: ss-travel 3s linear infinite; }
+.ss-spill { opacity: .7; }
+.ss-trunk { color: color-mix(in srgb, var(--ink) 60%, transparent); stroke-width: 2.2; }
+.ss-leaf { fill: color-mix(in srgb, var(--accent) 8%, transparent); color: color-mix(in srgb, var(--accent) 55%, var(--muted)); }
+@keyframes ss-travel { to { stroke-dashoffset: -22; } }
+
+.ss-figures { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.ss-figures > div { padding: 16px 18px; } .ss-figures > div + div { border-left: 1px solid var(--line); }
+.ss-figures dt { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.ss-figures dd { margin: 6px 0 4px; font: 26px var(--serif); letter-spacing: -.02em; }
+.ss-figures dd i { font-size: 13px; color: var(--muted); }
+.ss-figures small { font-size: 12px; color: var(--muted); }
+
+.ss-section { padding-top: 56px; }
+.ss-section h2 { margin-top: 10px; font: 400 clamp(32px, 3.4vw, 44px)/1.08 var(--serif); letter-spacing: -.03em; }
+.ss-section h2 em { font-style: italic; color: var(--accent); margin-left: .25em; }
+.ss-text { margin-top: 14px; max-width: 44rem; line-height: 1.75; color: var(--muted); }
+.ss-steps { list-style: none; margin: 26px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.ss-steps li { display: flex; gap: 16px; padding: 22px 20px; } .ss-steps li + li { border-left: 1px solid var(--line); }
+.ss-step-icon { color: var(--accent); flex-shrink: 0; padding-top: 2px; }
+.ss-num { font-size: 10px; font-weight: 700; letter-spacing: .2em; color: var(--accent); }
+.ss-steps h3 { margin-top: 2px; font: 400 20px var(--serif); }
+.ss-steps p:last-child { margin-top: 4px; font-size: 13px; line-height: 1.6; color: var(--muted); }
+
+.ss-builder { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 48px; align-items: start; }
+.ss-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 22px; }
+.ss-links a { display: inline-flex; align-items: center; gap: 6px; padding-bottom: 4px; border-bottom: 1px solid var(--accent); font-size: 14px; color: var(--accent); }
+.ss-record { padding: 22px 24px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.ss-record dl { margin: 14px 0 0; }
+.ss-record dl > div { display: grid; grid-template-columns: 96px 1fr; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); }
+.ss-record dt { font-size: 11px; color: var(--muted); padding-top: 2px; }
+.ss-record dd { margin: 0; font-size: 14px; }
+
+@media (max-width: 960px) {
+  .ss-hero { grid-template-columns: 1fr; gap: 10px; }
+  .ss-art { order: -1; max-width: 460px; margin: 0 auto; width: 100%; }
+  .ss-art figcaption { position: static; margin-top: 4px; }
+  .ss-figures { grid-template-columns: 1fr 1fr; }
+  .ss-figures > div:nth-child(odd) { border-left: 0; } .ss-figures > div:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .ss-steps { grid-template-columns: 1fr; } .ss-steps li + li { border-left: 0; border-top: 1px solid var(--line); }
+  .ss-builder { grid-template-columns: 1fr; gap: 26px; }
+  .ss-section h2 em { display: block; margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .ss-route-gold { animation: none; } }

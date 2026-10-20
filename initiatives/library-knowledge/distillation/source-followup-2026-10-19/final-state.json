@@ -1,0 +1,66 @@
+{
+  "captured_at": "2026-10-19T18:34:02.132Z",
+  "completion": {
+    "state": "building",
+    "pid": 86792,
+    "process_created": 1792429292.5313587,
+    "started_at": "2026-10-19T17:01:33.104131+00:00",
+    "updated_at": "2026-10-19T18:33:56.867181+00:00",
+    "launcher": "native-python",
+    "run_id": "native-20261019T170133-86792",
+    "run_directory": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\native-intake\\native-20261019T170133-86792",
+    "enrichment_started": false,
+    "child_pid": 61492
+  },
+  "staging_observation": {
+    "bytes": 67584040960,
+    "modified": "2026-10-19T18:34:02.027Z"
+  },
+  "supervisor": {
+    "updated_at": "2026-10-19T18:33:03.974839+00:00",
+    "state": "busy",
+    "mode": "verification_only",
+    "console_window": false,
+    "attempts": 3,
+    "max_attempts": 3
+  },
+  "curation": {
+    "counts": {
+      "approved": 0,
+      "discovered": 0,
+      "integrated": 0,
+      "needs_work": 0,
+      "pending": 21,
+      "rejected": 0,
+      "stale": 0
+    },
+    "sequence": 41,
+    "needsSync": false,
+    "needsExport": false
+  },
+  "preservation": {
+    "all21ProposalsUnchanged": true,
+    "readerIndexUnchanged": true,
+    "readerScopeUnchanged": true,
+    "supervisorControlUnchanged": true,
+    "retryLedgerUnchanged": true
+  },
+  "validation": {
+    "seven_full_spans_and_contexts": true,
+    "eight_selected_reader_http_pages": true,
+    "native_supper_boundaries_and_notice": true,
+    "four_supper_http_pages": true,
+    "thirteen_source_hash_pairs": true,
+    "ten_existing_scope_guard_passes": true,
+    "three_format_guard_rejections": true,
+    "relative_links_checked": 13,
+    "missing_links": [],
+    "prior_input_stats_rechecked": 227,
+    "prior_inputs_changed": [],
+    "semantic_queries_executed": 0
+  },
+  "whitespace": {
+    "exit": 0,
+    "output": ""
+  }
+}

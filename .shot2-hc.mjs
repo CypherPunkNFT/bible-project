@@ -1,0 +1,20 @@
+import { chromium } from "playwright";
+const [,, out, url, theme = "dark", width = "1440", height = "900", wait = "2500"] = process.argv;
+const browser = await chromium.launch();
+const page = await browser.newPage({ viewport: { width: Number(width), height: Number(height) } });
+const errors = [];
+page.on("pageerror", (e) => errors.push(`pageerror: ${e.message}`));
+page.on("console", (m) => { if (m.type() === "error") errors.push(`console: ${m.text()}`); });
+await page.addInitScript((t) => localStorage.setItem("bp-theme", t), theme);
+await page.goto("http://127.0.0.1:8931" + url, { waitUntil: "networkidle" });
+await page.waitForTimeout(Number(wait));
+await page.screenshot({ path: out });
+const edges = await page.evaluate(() => {
+  const logo = document.querySelector("[data-site-header] a").getBoundingClientRect().left;
+  const last = [...document.querySelectorAll("[data-site-header] .site-header-row > *")].at(-1).getBoundingClientRect().right;
+  const h1 = document.querySelector("main h1")?.getBoundingClientRect().left;
+  const pipes = document.querySelector(".hc-pipes")?.getBoundingClientRect();
+  return { logo: Math.round(logo), headerRight: Math.round(last), h1: h1 && Math.round(h1), pipesRight: pipes && Math.round(pipes.right) };
+});
+console.log(url, width, JSON.stringify(edges), errors.length ? errors.join(" | ") : "no errors");
+await browser.close();

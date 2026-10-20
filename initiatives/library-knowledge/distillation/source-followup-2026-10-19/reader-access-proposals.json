@@ -1,0 +1,1224 @@
+{
+  "captured_at": "2026-10-19T18:26:14.805Z",
+  "state": "Evidence and proposed remedies only; not a drop-in reader scope or authorization to apply",
+  "records": [
+    {
+      "candidate": "unity",
+      "source_id": "6187015",
+      "format": ".html",
+      "source_proofs": [
+        {
+          "kind": "original",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-cbts\\asset-rb02-42114c0bd7655af3e356\\original.html",
+          "sha256": "bf6c959c31c76118fdd6a10771006cae06aee73d0839de14e37ffbf7230019cd",
+          "matches_expected": true,
+          "stable_read": true
+        },
+        {
+          "kind": "extraction",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\e008d1d3a7178e8542a8ad51b5e04d96167c06e5d964911096378f8ff7d01d5f.jsonl",
+          "sha256": "611b9dd7a9a962981c8f46c08c7a0361e1cd90aec2dd234db31c803c1154e170",
+          "matches_expected": true,
+          "stable_read": true
+        }
+      ],
+      "public_record_id": "held-bf6c959c31c76118fdd6a10771006cae",
+      "public_record_fingerprint": "18a318dba97363229c006ed187bcd45f5842fa17275ffb7d406956a49a629bf1",
+      "public_record": {
+        "id": "held-bf6c959c31c76118fdd6a10771006cae",
+        "title": "Shall We Baptize Children? Part 2: Scriptural Foundations",
+        "authors": [
+          "Sam Waldron"
+        ],
+        "contributors": [
+          "contributor-b0ffde7a9a90e57beb4b"
+        ],
+        "language": "und",
+        "source": "source-cbts",
+        "sourceId": "source-cbts",
+        "sourceUrl": "https://content.cbtseminary.org/shall-we-baptize-children-part-2-scriptural-foundations-sam-waldron/",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: publisher-copyright-private-reading; recorded use scope: private-noncommercial-reading",
+        "credit": null,
+        "editors": [],
+        "licenseUrl": null,
+        "sha256": "bf6c959c31c76118fdd6a10771006cae06aee73d0839de14e37ffbf7230019cd",
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "availability": "permission-required",
+        "pages": 0,
+        "reviewWarning": null,
+        "pageBundles": []
+      },
+      "native_metadata": [
+        {
+          "xpath": "/html/head/title",
+          "tag": "title",
+          "text": "Shall We Baptize Children? Part 2: Scriptural Foundations | Sam Waldron - Covenant Baptist Theological Seminary"
+        },
+        {
+          "xpath": "/html/head/meta[17]",
+          "tag": "meta",
+          "text": ""
+        },
+        {
+          "xpath": "/html/body/div[1]/div/div/div/div/div/div/div[1]/div/div[1]/div[1]/h1",
+          "tag": "h1",
+          "text": "Shall We Baptize Children? Part 2: Scriptural Foundations | Sam Waldron"
+        },
+        {
+          "xpath": "/html/body/div[1]/div/div/div/div/div/div/div[1]/div/div[3]/div/h1",
+          "tag": "h1",
+          "text": "Follow Us In Social Media"
+        }
+      ],
+      "state": "proposed private reading access only; not applied",
+      "work_edition_status": "preserve current IDs/unknowns; do not infer exact print identity from packaging metadata",
+      "profile_status": "source-confirmed named byline outside current 52-profile set; no profile/shelf addition proposed",
+      "public_use": "unchanged permission-required; output-specific review remains",
+      "meta_author": [
+        "Sam Waldron"
+      ],
+      "remedy": "Propose a guarded HTML extension of the existing reviewed scope, pinned to original/cache/record hashes; preserve native article or collective-document context and public-use state."
+    },
+    {
+      "candidate": "grief",
+      "source_id": "5362049",
+      "format": ".epub",
+      "source_proofs": [
+        {
+          "kind": "original",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism-library\\asset-expanded-348bfe1a1199b4be6364\\original.epub",
+          "sha256": "a3494dab9727ba5814d212672fc71e3c308dac5f3bcc1ea548f0a606f8873f0e",
+          "matches_expected": true,
+          "stable_read": true
+        },
+        {
+          "kind": "extraction",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\4bba5ede71842f3b8c85a098094d69fa8db006f04113e0410a261c5f08cdce2e.jsonl",
+          "sha256": "ea6e728df2bd846e827141c289ee9997634602ebff702c8a2c4ebc99edc9d534",
+          "matches_expected": true,
+          "stable_read": true
+        }
+      ],
+      "public_record_id": "held-a3494dab9727ba5814d212672fc71e3c",
+      "public_record_fingerprint": "18712410264db4e97384d3f3cb41341205a4dc5aab15507cd1b660fd6dc1d9ee",
+      "public_record": {
+        "id": "held-a3494dab9727ba5814d212672fc71e3c",
+        "title": "The Book of Comfort",
+        "authors": [
+          "J. R. Miller"
+        ],
+        "contributors": [
+          "contributor-72a9fef78a33827bec2d"
+        ],
+        "language": "und",
+        "source": "source-monergism-library",
+        "sourceId": null,
+        "sourceUrl": "https://www.monergism.com/thethreshold/sdg/miller/The%20Book%20of%20Comfort%20-%20J.%20R.%20Miller.epub",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+        "credit": "Miller, J. R.; Monergism",
+        "editors": [],
+        "licenseUrl": null,
+        "sha256": "a3494dab9727ba5814d212672fc71e3c308dac5f3bcc1ea548f0a606f8873f0e",
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "availability": "permission-required",
+        "pages": 0,
+        "reviewWarning": null,
+        "pageBundles": []
+      },
+      "native_metadata": [
+        {
+          "element": "title",
+          "text": "The Book of Comfort",
+          "attributes": {}
+        },
+        {
+          "element": "contributor",
+          "text": "calibre (5.41.0) [https://calibre-ebook.com]",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}role": "bkp"
+          }
+        },
+        {
+          "element": "creator",
+          "text": "J. R. Miller",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}file-as": "Miller, J. R.",
+            "{http://www.idpf.org/2007/opf}role": "aut"
+          }
+        },
+        {
+          "element": "publisher",
+          "text": "Monergism Books",
+          "attributes": {}
+        },
+        {
+          "element": "date",
+          "text": "0101-01-01T00:00:00+00:00",
+          "attributes": {}
+        }
+      ],
+      "state": "proposed private reading access only; not applied",
+      "work_edition_status": "preserve current IDs/unknowns; do not infer exact print identity from packaging metadata",
+      "profile_status": "source-confirmed named byline outside current 52-profile set; no profile/shelf addition proposed",
+      "public_use": "unchanged permission-required; output-specific review remains",
+      "opf_path": "content.opf",
+      "opf_sha256": "2954e7c5d83f564b317d0d22f1bbdc427997a1d75e9fea576a910db538f941d5",
+      "remedy": "Review exact-copy byline/use and include through existing EPUB reader scope under its shared lease/CAS/backup guards; no full rebuild.",
+      "proposed_scope_item": {
+        "sha256": "a3494dab9727ba5814d212672fc71e3c308dac5f3bcc1ea548f0a606f8873f0e",
+        "source": "source-monergism-library/asset-expanded-348bfe1a1199b4be6364/original.epub",
+        "cache": "4bba5ede71842f3b8c85a098094d69fa8db006f04113e0410a261c5f08cdce2e.jsonl",
+        "cacheSha256": "ea6e728df2bd846e827141c289ee9997634602ebff702c8a2c4ebc99edc9d534",
+        "recordId": "held-a3494dab9727ba5814d212672fc71e3c",
+        "recordSha256": "18712410264db4e97384d3f3cb41341205a4dc5aab15507cd1b660fd6dc1d9ee",
+        "evidence": "initiatives/library-knowledge/distillation/source-followup-2026-10-19/reader-access-proposals.json#5362049"
+      },
+      "date_warnings": [
+        "0101-01-01T00:00:00+00:00"
+      ]
+    },
+    {
+      "candidate": "dryness",
+      "source_id": "1474151",
+      "format": ".epub",
+      "source_proofs": [
+        {
+          "kind": "original",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism-library\\asset-expanded-5f02f6f916230dd627c5\\original.epub",
+          "sha256": "2659696217c6873c8d8861a69030dfb14b26d9ede69b0010d01f3d76edc966bf",
+          "matches_expected": true,
+          "stable_read": true
+        },
+        {
+          "kind": "extraction",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\9a9730a25e6c882a1a523f8e4776f55b12e64bb107d7b406317b6abbd795488f.jsonl",
+          "sha256": "19ba0e81a059e3f3cbbad489b865ec640c56b87177b9bbd0e9cb90482660350d",
+          "matches_expected": true,
+          "stable_read": true
+        }
+      ],
+      "public_record_id": "held-2659696217c6873c8d8861a69030dfb1",
+      "public_record_fingerprint": "8e9b0beaa20cacb6ea0a2cbf41278750eefed669294b1215c7651a9885c1ca18",
+      "public_record": {
+        "id": "held-2659696217c6873c8d8861a69030dfb1",
+        "title": "The Mystical Marriage",
+        "authors": [
+          "Francis Rous"
+        ],
+        "contributors": [
+          "contributor-dc471e3b4948b3450398"
+        ],
+        "language": "und",
+        "source": "source-monergism-library",
+        "sourceId": null,
+        "sourceUrl": "https://www.monergism.com/thethreshold/sdg/rous/The%20Mystical%20Marriage%20-%20Francis%20Rous.epub",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+        "credit": "Rous, Francis; Monergism",
+        "editors": [],
+        "licenseUrl": null,
+        "sha256": "2659696217c6873c8d8861a69030dfb14b26d9ede69b0010d01f3d76edc966bf",
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "availability": "permission-required",
+        "pages": 0,
+        "reviewWarning": null,
+        "pageBundles": []
+      },
+      "native_metadata": [
+        {
+          "element": "title",
+          "text": "The Mystical Marriage",
+          "attributes": {}
+        },
+        {
+          "element": "contributor",
+          "text": "calibre (5.41.0) [https://calibre-ebook.com]",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}role": "bkp"
+          }
+        },
+        {
+          "element": "creator",
+          "text": "Francis Rous",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}file-as": "Rous, Francis",
+            "{http://www.idpf.org/2007/opf}role": "aut"
+          }
+        },
+        {
+          "element": "publisher",
+          "text": "Monergism Books",
+          "attributes": {}
+        },
+        {
+          "element": "date",
+          "text": "0101-01-01T00:00:00+00:00",
+          "attributes": {}
+        }
+      ],
+      "state": "proposed private reading access only; not applied",
+      "work_edition_status": "preserve current IDs/unknowns; do not infer exact print identity from packaging metadata",
+      "profile_status": "source-confirmed named byline outside current 52-profile set; no profile/shelf addition proposed",
+      "public_use": "unchanged permission-required; output-specific review remains",
+      "opf_path": "content.opf",
+      "opf_sha256": "4fe129d49347b7b86d7ad601e3d9e523509b742f45d2e6c16e38533b070dd70e",
+      "remedy": "Review exact-copy byline/use and include through existing EPUB reader scope under its shared lease/CAS/backup guards; no full rebuild.",
+      "proposed_scope_item": {
+        "sha256": "2659696217c6873c8d8861a69030dfb14b26d9ede69b0010d01f3d76edc966bf",
+        "source": "source-monergism-library/asset-expanded-5f02f6f916230dd627c5/original.epub",
+        "cache": "9a9730a25e6c882a1a523f8e4776f55b12e64bb107d7b406317b6abbd795488f.jsonl",
+        "cacheSha256": "19ba0e81a059e3f3cbbad489b865ec640c56b87177b9bbd0e9cb90482660350d",
+        "recordId": "held-2659696217c6873c8d8861a69030dfb1",
+        "recordSha256": "8e9b0beaa20cacb6ea0a2cbf41278750eefed669294b1215c7651a9885c1ca18",
+        "evidence": "initiatives/library-knowledge/distillation/source-followup-2026-10-19/reader-access-proposals.json#1474151"
+      },
+      "date_warnings": [
+        "0101-01-01T00:00:00+00:00"
+      ]
+    },
+    {
+      "candidate": "forgiveness",
+      "source_id": "2663432",
+      "format": ".epub",
+      "source_proofs": [
+        {
+          "kind": "original",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism-library\\asset-expanded-4d1be886c185ed4c9be9\\original.epub",
+          "sha256": "4e93101e2e2d214dee853dfa68ec8c4706316c2e5fef737f342cae5dc451ed00",
+          "matches_expected": true,
+          "stable_read": true
+        },
+        {
+          "kind": "extraction",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\5e73e710f12c2e2181662f95d794136aba3aad3ac1e8e008471ece8b9baef062.jsonl",
+          "sha256": "8e048973028c6c3b93742300678a3a2569f1dc759889005c29f9d003c5d84e05",
+          "matches_expected": true,
+          "stable_read": true
+        }
+      ],
+      "public_record_id": "held-4e93101e2e2d214dee853dfa68ec8c47",
+      "public_record_fingerprint": "e784e3e803a45c89913a0c47e9c4ea13c662f36d8249aec89729af05f76c96ac",
+      "public_record": {
+        "id": "held-4e93101e2e2d214dee853dfa68ec8c47",
+        "title": "Consider Jesus: Thoughts for Daily Duty, Service, and Suffering",
+        "authors": [
+          "Octavius Winslow"
+        ],
+        "contributors": [
+          "author-octavius-winslow"
+        ],
+        "language": "und",
+        "source": "source-monergism-library",
+        "sourceId": null,
+        "sourceUrl": "https://www.monergism.com/thethreshold/sdg/winslow/Consider%20Jesus_%20Thoughts%20for%20Da%20-%20Octavius%20Winslow.epub",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+        "credit": "Winslow, Octavius; Monergism",
+        "editors": [],
+        "licenseUrl": null,
+        "sha256": "4e93101e2e2d214dee853dfa68ec8c4706316c2e5fef737f342cae5dc451ed00",
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "availability": "permission-required",
+        "pages": 0,
+        "reviewWarning": null,
+        "pageBundles": []
+      },
+      "native_metadata": [
+        {
+          "element": "title",
+          "text": "Consider Jesus: Thoughts for Daily Duty, Service, and Suffering",
+          "attributes": {}
+        },
+        {
+          "element": "contributor",
+          "text": "calibre (5.21.0) [https://calibre-ebook.com]",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}role": "bkp"
+          }
+        },
+        {
+          "element": "creator",
+          "text": "Octavius Winslow",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}file-as": "Winslow, Octavius",
+            "{http://www.idpf.org/2007/opf}role": "aut"
+          }
+        },
+        {
+          "element": "publisher",
+          "text": "Monergism Books",
+          "attributes": {}
+        },
+        {
+          "element": "date",
+          "text": "0101-01-01T00:00:00+00:00",
+          "attributes": {}
+        }
+      ],
+      "state": "proposed private reading access only; not applied",
+      "work_edition_status": "preserve current IDs/unknowns; do not infer exact print identity from packaging metadata",
+      "profile_status": "source-confirmed named byline outside current 52-profile set; no profile/shelf addition proposed",
+      "public_use": "unchanged permission-required; output-specific review remains",
+      "opf_path": "content.opf",
+      "opf_sha256": "d9bdbfadce6c2e081de6a0900b55e28c4757cd13c9a524a4b6b94794abd96f5e",
+      "remedy": "Review exact-copy byline/use and include through existing EPUB reader scope under its shared lease/CAS/backup guards; no full rebuild.",
+      "proposed_scope_item": {
+        "sha256": "4e93101e2e2d214dee853dfa68ec8c4706316c2e5fef737f342cae5dc451ed00",
+        "source": "source-monergism-library/asset-expanded-4d1be886c185ed4c9be9/original.epub",
+        "cache": "5e73e710f12c2e2181662f95d794136aba3aad3ac1e8e008471ece8b9baef062.jsonl",
+        "cacheSha256": "8e048973028c6c3b93742300678a3a2569f1dc759889005c29f9d003c5d84e05",
+        "recordId": "held-4e93101e2e2d214dee853dfa68ec8c47",
+        "recordSha256": "e784e3e803a45c89913a0c47e9c4ea13c662f36d8249aec89729af05f76c96ac",
+        "evidence": "initiatives/library-knowledge/distillation/source-followup-2026-10-19/reader-access-proposals.json#2663432"
+      },
+      "date_warnings": [
+        "0101-01-01T00:00:00+00:00"
+      ]
+    },
+    {
+      "candidate": "temptation",
+      "source_id": "7709991",
+      "format": ".epub",
+      "source_proofs": [
+        {
+          "kind": "original",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism-library\\asset-expanded-d568ae76bcafcf2ef0cd\\original.epub",
+          "sha256": "eda3ea9c1ca6044bb4d82b0f0376a44e1e371245f61bd5513bd53fc27d6ec7c2",
+          "matches_expected": true,
+          "stable_read": true
+        },
+        {
+          "kind": "extraction",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\b491073b2f8b92bb6abdfaa58349fdd11930abc299f9d057f787c88260e0fc50.jsonl",
+          "sha256": "253bdfa32c7eec74b0970d99d83cccea83364198335b75984198aec2d67dc6f3",
+          "matches_expected": true,
+          "stable_read": true
+        }
+      ],
+      "public_record_id": "held-eda3ea9c1ca6044bb4d82b0f0376a44e",
+      "public_record_fingerprint": "f5001a582e84dcaf000c2c5cfed46dd723102810d1cb981a108d8859539370f7",
+      "public_record": {
+        "id": "held-eda3ea9c1ca6044bb4d82b0f0376a44e",
+        "title": "The Works of Thomas Brooks",
+        "authors": [
+          "Thomas Brooks"
+        ],
+        "contributors": [
+          "contributor-7bf4c7b75ab03238b142"
+        ],
+        "language": "und",
+        "source": "source-monergism-library",
+        "sourceId": null,
+        "sourceUrl": "https://www.monergism.com/thethreshold/sdg/brooks/The%20Works%20of%20Thomas%20Brooks%20-%20Thomas%20Brooks.epub",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+        "credit": "Brooks, Thomas; Monergism",
+        "editors": [],
+        "licenseUrl": null,
+        "sha256": "eda3ea9c1ca6044bb4d82b0f0376a44e1e371245f61bd5513bd53fc27d6ec7c2",
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "availability": "permission-required",
+        "pages": 0,
+        "reviewWarning": null,
+        "pageBundles": []
+      },
+      "native_metadata": [
+        {
+          "element": "creator",
+          "text": "Thomas Brooks",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}file-as": "Brooks, Thomas",
+            "{http://www.idpf.org/2007/opf}role": "aut"
+          }
+        },
+        {
+          "element": "publisher",
+          "text": "Monergism Books",
+          "attributes": {}
+        },
+        {
+          "element": "title",
+          "text": "The Works of Thomas Brooks",
+          "attributes": {}
+        },
+        {
+          "element": "contributor",
+          "text": "calibre (2.12.0) [http://calibre-ebook.com]",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}role": "bkp"
+          }
+        },
+        {
+          "element": "date",
+          "text": "0101-01-01T00:00:00+00:00",
+          "attributes": {}
+        }
+      ],
+      "state": "proposed private reading access only; not applied",
+      "work_edition_status": "preserve current IDs/unknowns; do not infer exact print identity from packaging metadata",
+      "profile_status": "source-confirmed named byline outside current 52-profile set; no profile/shelf addition proposed",
+      "public_use": "unchanged permission-required; output-specific review remains",
+      "opf_path": "content.opf",
+      "opf_sha256": "b070c134a19ae1f11b86a2ff5b08750b3920fc933030e0e9ac2a14b59b620874",
+      "remedy": "Review exact-copy byline/use and include through existing EPUB reader scope under its shared lease/CAS/backup guards; no full rebuild.",
+      "proposed_scope_item": {
+        "sha256": "eda3ea9c1ca6044bb4d82b0f0376a44e1e371245f61bd5513bd53fc27d6ec7c2",
+        "source": "source-monergism-library/asset-expanded-d568ae76bcafcf2ef0cd/original.epub",
+        "cache": "b491073b2f8b92bb6abdfaa58349fdd11930abc299f9d057f787c88260e0fc50.jsonl",
+        "cacheSha256": "253bdfa32c7eec74b0970d99d83cccea83364198335b75984198aec2d67dc6f3",
+        "recordId": "held-eda3ea9c1ca6044bb4d82b0f0376a44e",
+        "recordSha256": "f5001a582e84dcaf000c2c5cfed46dd723102810d1cb981a108d8859539370f7",
+        "evidence": "initiatives/library-knowledge/distillation/source-followup-2026-10-19/reader-access-proposals.json#7709991"
+      },
+      "date_warnings": [
+        "0101-01-01T00:00:00+00:00"
+      ]
+    },
+    {
+      "candidate": "new-covenant",
+      "source_id": "8090149",
+      "format": ".epub",
+      "source_proofs": [
+        {
+          "kind": "original",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\bulk\\chapel\\lats.epub",
+          "sha256": "fbf0075ad5dd02df825fa4da6d03abf56b1d625ced21ff5da467fa5814f6d29e",
+          "matches_expected": true,
+          "stable_read": true
+        },
+        {
+          "kind": "extraction",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\d3f60900c1611097edc8fe06013273c1e58ea27a2bd4c8056444d2ce042ab30c.jsonl",
+          "sha256": "8c2e2c2593b462c42f9e17cc15dbf626b09de1bd25e72f63eb8c1fc47efa5956",
+          "matches_expected": true,
+          "stable_read": true
+        }
+      ],
+      "public_record_id": "held-fbf0075ad5dd02df825fa4da6d03abf5",
+      "public_record_fingerprint": "cd577a836baa4702c57f9eb47b9a0cf2802383127158e753c8d1a38a90b073e7",
+      "public_record": {
+        "id": "held-fbf0075ad5dd02df825fa4da6d03abf5",
+        "title": "Law and the Saint, The",
+        "authors": [
+          "Arthur W. Pink"
+        ],
+        "contributors": [
+          "contributor-6856e084443d05e2de81"
+        ],
+        "language": "EN",
+        "source": "chapel",
+        "sourceId": "lats",
+        "sourceUrl": "https://www.chapellibrary.org/epub/books/lats.epub",
+        "licence": "Publisher freely offered electronic edition for personal use; source notices retained",
+        "credit": "Arthur W. Pink; Chapel Library / Mount Zion Bible Church",
+        "editors": [],
+        "licenseUrl": null,
+        "sha256": "fbf0075ad5dd02df825fa4da6d03abf56b1d625ced21ff5da467fa5814f6d29e",
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "availability": "permission-required",
+        "pages": 0,
+        "reviewWarning": null,
+        "pageBundles": []
+      },
+      "native_metadata": [
+        {
+          "element": "creator",
+          "text": "Arthur W. Pink",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}role": "aut",
+            "{http://www.idpf.org/2007/opf}file-as": "Pink, Arthur W."
+          }
+        },
+        {
+          "element": "publisher",
+          "text": "Chapel Library",
+          "attributes": {}
+        },
+        {
+          "element": "date",
+          "text": "0101-01-01T00:00:00+00:00",
+          "attributes": {}
+        },
+        {
+          "element": "contributor",
+          "text": "calibre (2.58.0) [http://calibre-ebook.com]",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}role": "bkp"
+          }
+        },
+        {
+          "element": "title",
+          "text": "The Law and the Saint",
+          "attributes": {}
+        }
+      ],
+      "state": "proposed private reading access only; not applied",
+      "work_edition_status": "preserve current IDs/unknowns; do not infer exact print identity from packaging metadata",
+      "profile_status": "source-confirmed named byline outside current 52-profile set; no profile/shelf addition proposed",
+      "public_use": "unchanged permission-required; output-specific review remains",
+      "opf_path": "content.opf",
+      "opf_sha256": "5593190e1dcdf9e10dd47888a96fba6206f031ae04c9c6a2302aabbbb69b83d4",
+      "remedy": "Review exact-copy byline/use and include through existing EPUB reader scope under its shared lease/CAS/backup guards; no full rebuild.",
+      "proposed_scope_item": {
+        "sha256": "fbf0075ad5dd02df825fa4da6d03abf56b1d625ced21ff5da467fa5814f6d29e",
+        "source": "bulk/chapel/lats.epub",
+        "cache": "d3f60900c1611097edc8fe06013273c1e58ea27a2bd4c8056444d2ce042ab30c.jsonl",
+        "cacheSha256": "8c2e2c2593b462c42f9e17cc15dbf626b09de1bd25e72f63eb8c1fc47efa5956",
+        "recordId": "held-fbf0075ad5dd02df825fa4da6d03abf5",
+        "recordSha256": "cd577a836baa4702c57f9eb47b9a0cf2802383127158e753c8d1a38a90b073e7",
+        "evidence": "initiatives/library-knowledge/distillation/source-followup-2026-10-19/reader-access-proposals.json#8090149"
+      },
+      "date_warnings": [
+        "0101-01-01T00:00:00+00:00"
+      ]
+    },
+    {
+      "candidate": "new-covenant",
+      "source_id": "5132341",
+      "format": ".epub",
+      "source_proofs": [
+        {
+          "kind": "original",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism-library\\asset-expanded-eb995567eec258588c36\\original.epub",
+          "sha256": "9b28d6889a68967eb092aa920b25782f14482346f7fdd55295d83d508a1b26f3",
+          "matches_expected": true,
+          "stable_read": true
+        },
+        {
+          "kind": "extraction",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\1104a262334e1432ed5524e206be2d0b34bdea2fcaa02b073a03a8616e0331f3.jsonl",
+          "sha256": "c3fc504ab399be1c9c545fd9905ac95c4f0c25eae006df3a7956258b611c5c6a",
+          "matches_expected": true,
+          "stable_read": true
+        }
+      ],
+      "public_record_id": "held-9b28d6889a68967eb092aa920b25782f",
+      "public_record_fingerprint": "014ae63fbe132a36e99ffa913b6829c4987e167f77646414686cd0ec7bbbc94b",
+      "public_record": {
+        "id": "held-9b28d6889a68967eb092aa920b25782f",
+        "title": "Dispensationalism Today, Yesterday and Tomorrow",
+        "authors": [
+          "Grover Gunn"
+        ],
+        "contributors": [
+          "contributor-002bd7c543d49fce573c"
+        ],
+        "language": "und",
+        "source": "source-monergism-library",
+        "sourceId": null,
+        "sourceUrl": "https://www.monergism.com/thethreshold/sdg/gunn/Dispensationalism%20-%20Grover%20E.%20Gunn.epub",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+        "credit": "Gunn, Grover; Monergism",
+        "editors": [],
+        "licenseUrl": null,
+        "sha256": "9b28d6889a68967eb092aa920b25782f14482346f7fdd55295d83d508a1b26f3",
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "availability": "permission-required",
+        "pages": 0,
+        "reviewWarning": null,
+        "pageBundles": []
+      },
+      "native_metadata": [
+        {
+          "element": "title",
+          "text": "Dispensationalism",
+          "attributes": {}
+        },
+        {
+          "element": "creator",
+          "text": "Grover E. Gunn III",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}role": "aut",
+            "{http://www.idpf.org/2007/opf}file-as": "Gunn, Grover E. III"
+          }
+        },
+        {
+          "element": "contributor",
+          "text": "calibre (5.41.0) [https://calibre-ebook.com]",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}role": "bkp"
+          }
+        },
+        {
+          "element": "publisher",
+          "text": "Monergism Books",
+          "attributes": {}
+        },
+        {
+          "element": "date",
+          "text": "2011-03-12T06:43:39+00:00",
+          "attributes": {}
+        }
+      ],
+      "state": "proposed private reading access only; not applied",
+      "work_edition_status": "preserve current IDs/unknowns; do not infer exact print identity from packaging metadata",
+      "profile_status": "source-confirmed named byline outside current 52-profile set; no profile/shelf addition proposed",
+      "public_use": "unchanged permission-required; output-specific review remains",
+      "opf_path": "content.opf",
+      "opf_sha256": "e54de712058cabffa0ee1cfa03b6ae81cf28552720a582b8fa5f51969beed63c",
+      "remedy": "Review exact-copy byline/use and include through existing EPUB reader scope under its shared lease/CAS/backup guards; no full rebuild.",
+      "proposed_scope_item": {
+        "sha256": "9b28d6889a68967eb092aa920b25782f14482346f7fdd55295d83d508a1b26f3",
+        "source": "source-monergism-library/asset-expanded-eb995567eec258588c36/original.epub",
+        "cache": "1104a262334e1432ed5524e206be2d0b34bdea2fcaa02b073a03a8616e0331f3.jsonl",
+        "cacheSha256": "c3fc504ab399be1c9c545fd9905ac95c4f0c25eae006df3a7956258b611c5c6a",
+        "recordId": "held-9b28d6889a68967eb092aa920b25782f",
+        "recordSha256": "014ae63fbe132a36e99ffa913b6829c4987e167f77646414686cd0ec7bbbc94b",
+        "evidence": "initiatives/library-knowledge/distillation/source-followup-2026-10-19/reader-access-proposals.json#5132341"
+      },
+      "date_warnings": []
+    },
+    {
+      "candidate": "apostasy",
+      "source_id": "859870",
+      "format": ".epub",
+      "source_proofs": [
+        {
+          "kind": "original",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism-library\\asset-expanded-29586931124ed4a48712\\original.epub",
+          "sha256": "1079ecd60e47b9ae191e69dba68ccec7c1f0d57f6e2aef83b3a8bdfe577a8995",
+          "matches_expected": true,
+          "stable_read": true
+        },
+        {
+          "kind": "extraction",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\e391e8879852836de803d406bb4f584c0622deb62648f38dbd0f4dac21b4f490.jsonl",
+          "sha256": "ae5fd04b7fe94d22f92743f7b1415c0b53e19b819aa02212a792d13a1493b7b4",
+          "matches_expected": true,
+          "stable_read": true
+        }
+      ],
+      "public_record_id": "held-1079ecd60e47b9ae191e69dba68ccec7",
+      "public_record_fingerprint": "37a429bf031dc8614f0c47d243d003940de2a8f73283206fd2082acd06c8edfa",
+      "public_record": {
+        "id": "held-1079ecd60e47b9ae191e69dba68ccec7",
+        "title": "An Exposition of Hebrews",
+        "authors": [
+          "A. W Pink"
+        ],
+        "contributors": [
+          "contributor-3f7720711155b2083a17"
+        ],
+        "language": "und",
+        "source": "source-monergism-library",
+        "sourceId": null,
+        "sourceUrl": "https://www.monergism.com/thethreshold/sdg/pink/An%20Exposition%20of%20Hebrews_Pink.epub",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+        "credit": "Pink, A. W; Monergism",
+        "editors": [],
+        "licenseUrl": null,
+        "sha256": "1079ecd60e47b9ae191e69dba68ccec7c1f0d57f6e2aef83b3a8bdfe577a8995",
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "availability": "permission-required",
+        "pages": 0,
+        "reviewWarning": null,
+        "pageBundles": []
+      },
+      "native_metadata": [
+        {
+          "element": "title",
+          "text": "An Exposition of Hebrews",
+          "attributes": {
+            "id": "id"
+          }
+        },
+        {
+          "element": "creator",
+          "text": "A. W. Pink",
+          "attributes": {
+            "id": "id-1"
+          }
+        },
+        {
+          "element": "rights",
+          "text": "Original text in the public domain. Monergism edition © 2026 Monergism Books, where applicable.",
+          "attributes": {}
+        },
+        {
+          "element": "publisher",
+          "text": "Monergism Books",
+          "attributes": {}
+        }
+      ],
+      "state": "proposed private reading access only; not applied",
+      "work_edition_status": "preserve current IDs/unknowns; do not infer exact print identity from packaging metadata",
+      "profile_status": "source-confirmed named byline outside current 52-profile set; no profile/shelf addition proposed",
+      "public_use": "unchanged permission-required; output-specific review remains",
+      "opf_path": "OEBPS/content.opf",
+      "opf_sha256": "d7d239fafa0a31e85ae4f53b74fa620366d5df2e5ef630a184fb99edbf7f8963",
+      "remedy": "Review exact-copy byline/use and include through existing EPUB reader scope under its shared lease/CAS/backup guards; no full rebuild.",
+      "proposed_scope_item": {
+        "sha256": "1079ecd60e47b9ae191e69dba68ccec7c1f0d57f6e2aef83b3a8bdfe577a8995",
+        "source": "source-monergism-library/asset-expanded-29586931124ed4a48712/original.epub",
+        "cache": "e391e8879852836de803d406bb4f584c0622deb62648f38dbd0f4dac21b4f490.jsonl",
+        "cacheSha256": "ae5fd04b7fe94d22f92743f7b1415c0b53e19b819aa02212a792d13a1493b7b4",
+        "recordId": "held-1079ecd60e47b9ae191e69dba68ccec7",
+        "recordSha256": "37a429bf031dc8614f0c47d243d003940de2a8f73283206fd2082acd06c8edfa",
+        "evidence": "initiatives/library-knowledge/distillation/source-followup-2026-10-19/reader-access-proposals.json#859870"
+      },
+      "date_warnings": []
+    },
+    {
+      "candidate": "repentance",
+      "source_id": "3090618",
+      "format": ".epub",
+      "source_proofs": [
+        {
+          "kind": "original",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism-library\\asset-expanded-2aa5d74692ecab8b9ddc\\original.epub",
+          "sha256": "5cf8f963b5dccc73ee3e1f0240fd2ead6734e4ca42b537305eaab7936f341223",
+          "matches_expected": true,
+          "stable_read": true
+        },
+        {
+          "kind": "extraction",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\6ed5f0d40bac72ace4f559037c3e82d089c885164d4794278b848000f83fa0f8.jsonl",
+          "sha256": "8ff1c49c7d2e0b037e084cb5638bae05440835abdb54409928f22ff4b9a830dd",
+          "matches_expected": true,
+          "stable_read": true
+        }
+      ],
+      "public_record_id": "held-5cf8f963b5dccc73ee3e1f0240fd2ead",
+      "public_record_fingerprint": "5016fa5676178975da7e4a748533b2cc9aa5eb0e8f64fea1f484f24906055fcb",
+      "public_record": {
+        "id": "held-5cf8f963b5dccc73ee3e1f0240fd2ead",
+        "title": "152 Lectures Upon Psalm 51",
+        "authors": [
+          "Arthur Hildersham"
+        ],
+        "contributors": [
+          "contributor-db27c00a506fb87daf31"
+        ],
+        "language": "und",
+        "source": "source-monergism-library",
+        "sourceId": null,
+        "sourceUrl": "https://www.monergism.com/thethreshold/sdg/hildersham/152%20Lectures%20Upon%20Psalm%2051%20-%20Arthur%20Hildersham.epub",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+        "credit": "Hildersham, Arthur; Monergism",
+        "editors": [],
+        "licenseUrl": null,
+        "sha256": "5cf8f963b5dccc73ee3e1f0240fd2ead6734e4ca42b537305eaab7936f341223",
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "availability": "permission-required",
+        "pages": 0,
+        "reviewWarning": null,
+        "pageBundles": []
+      },
+      "native_metadata": [
+        {
+          "element": "title",
+          "text": "152 Lectures Upon Psalm 51",
+          "attributes": {}
+        },
+        {
+          "element": "creator",
+          "text": "Arthur Hildersham",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}file-as": "Arthur Hildersham",
+            "{http://www.idpf.org/2007/opf}role": "aut"
+          }
+        },
+        {
+          "element": "contributor",
+          "text": "calibre (5.41.0) [https://calibre-ebook.com]",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}role": "bkp"
+          }
+        },
+        {
+          "element": "publisher",
+          "text": "Monergism Books",
+          "attributes": {}
+        },
+        {
+          "element": "date",
+          "text": "2026-03-14T00:00:00+00:00",
+          "attributes": {}
+        }
+      ],
+      "state": "proposed private reading access only; not applied",
+      "work_edition_status": "preserve current IDs/unknowns; do not infer exact print identity from packaging metadata",
+      "profile_status": "source-confirmed named byline outside current 52-profile set; no profile/shelf addition proposed",
+      "public_use": "unchanged permission-required; output-specific review remains",
+      "opf_path": "content.opf",
+      "opf_sha256": "80991c8e0fe808a6b9f04c4a9367664931651ca7e118dcbad9d20c902ab53345",
+      "remedy": "Review exact-copy byline/use and include through existing EPUB reader scope under its shared lease/CAS/backup guards; no full rebuild.",
+      "proposed_scope_item": {
+        "sha256": "5cf8f963b5dccc73ee3e1f0240fd2ead6734e4ca42b537305eaab7936f341223",
+        "source": "source-monergism-library/asset-expanded-2aa5d74692ecab8b9ddc/original.epub",
+        "cache": "6ed5f0d40bac72ace4f559037c3e82d089c885164d4794278b848000f83fa0f8.jsonl",
+        "cacheSha256": "8ff1c49c7d2e0b037e084cb5638bae05440835abdb54409928f22ff4b9a830dd",
+        "recordId": "held-5cf8f963b5dccc73ee3e1f0240fd2ead",
+        "recordSha256": "5016fa5676178975da7e4a748533b2cc9aa5eb0e8f64fea1f484f24906055fcb",
+        "evidence": "initiatives/library-knowledge/distillation/source-followup-2026-10-19/reader-access-proposals.json#3090618"
+      },
+      "date_warnings": []
+    },
+    {
+      "candidate": "judging",
+      "source_id": "8066084",
+      "format": ".epub",
+      "source_proofs": [
+        {
+          "kind": "original",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\bulk\\chapel\\si41.epub",
+          "sha256": "fafe9691b1c8267a8bfbca376b2003f92be04a072fc797e5cffc52544313fbe5",
+          "matches_expected": true,
+          "stable_read": true
+        },
+        {
+          "kind": "extraction",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\7b1ecbd1b8eae97411d3cd6c06d3433fba6e2a28b66704ec8c13155b64781538.jsonl",
+          "sha256": "b6b4afa3456c8b3ad4241cd65edcbc8168502d669275b65c429083e6ff7bf0c5",
+          "matches_expected": true,
+          "stable_read": true
+        }
+      ],
+      "public_record_id": "held-fafe9691b1c8267a8bfbca376b2003f9",
+      "public_record_fingerprint": "a152fb2836d55d9d005f80fcec5fdc7a3404cd3bc17239298c809d29d51681d4",
+      "public_record": {
+        "id": "held-fafe9691b1c8267a8bfbca376b2003f9",
+        "title": "Studies in the Scriptures, Annual Volume 1941",
+        "authors": [
+          "Arthur W. Pink"
+        ],
+        "contributors": [
+          "contributor-6856e084443d05e2de81"
+        ],
+        "language": "EN",
+        "source": "chapel",
+        "sourceId": "si41",
+        "sourceUrl": "https://www.chapellibrary.org/api/books/download?code=si41&format=epub",
+        "licence": "Publisher freely offered electronic edition for personal use; source notices retained",
+        "credit": "Arthur W. Pink; Chapel Library / Mount Zion Bible Church",
+        "editors": [],
+        "licenseUrl": null,
+        "sha256": "fafe9691b1c8267a8bfbca376b2003f92be04a072fc797e5cffc52544313fbe5",
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "availability": "permission-required",
+        "pages": 0,
+        "reviewWarning": null,
+        "pageBundles": []
+      },
+      "native_metadata": [
+        {
+          "element": "title",
+          "text": "Studies in the Scriptures Annual Volume 1941",
+          "attributes": {}
+        },
+        {
+          "element": "creator",
+          "text": "Arthur W. Pink",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}role": "aut",
+            "{http://www.idpf.org/2007/opf}file-as": "Pink, Arthur W."
+          }
+        },
+        {
+          "element": "contributor",
+          "text": "calibre (8.13.0) [https://calibre-ebook.com]",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}role": "bkp"
+          }
+        },
+        {
+          "element": "publisher",
+          "text": "Chapel Library",
+          "attributes": {}
+        },
+        {
+          "element": "date",
+          "text": "0101-01-01T00:00:00+00:00",
+          "attributes": {}
+        }
+      ],
+      "state": "proposed private reading access only; not applied",
+      "work_edition_status": "preserve current IDs/unknowns; do not infer exact print identity from packaging metadata",
+      "profile_status": "source-confirmed named byline outside current 52-profile set; no profile/shelf addition proposed",
+      "public_use": "unchanged permission-required; output-specific review remains",
+      "opf_path": "content.opf",
+      "opf_sha256": "701f94e8abf96e3a9824d6d0df42addf990880cf7935056df48762669c42fcc8",
+      "remedy": "Review exact-copy byline/use and include through existing EPUB reader scope under its shared lease/CAS/backup guards; no full rebuild.",
+      "proposed_scope_item": {
+        "sha256": "fafe9691b1c8267a8bfbca376b2003f92be04a072fc797e5cffc52544313fbe5",
+        "source": "bulk/chapel/si41.epub",
+        "cache": "7b1ecbd1b8eae97411d3cd6c06d3433fba6e2a28b66704ec8c13155b64781538.jsonl",
+        "cacheSha256": "b6b4afa3456c8b3ad4241cd65edcbc8168502d669275b65c429083e6ff7bf0c5",
+        "recordId": "held-fafe9691b1c8267a8bfbca376b2003f9",
+        "recordSha256": "a152fb2836d55d9d005f80fcec5fdc7a3404cd3bc17239298c809d29d51681d4",
+        "evidence": "initiatives/library-knowledge/distillation/source-followup-2026-10-19/reader-access-proposals.json#8066084"
+      },
+      "date_warnings": [
+        "0101-01-01T00:00:00+00:00"
+      ]
+    },
+    {
+      "candidate": "word-effects",
+      "source_id": "2174339",
+      "format": ".epub",
+      "source_proofs": [
+        {
+          "kind": "original",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism-library\\asset-expanded-e3800df2e35929d4114a\\original.epub",
+          "sha256": "3de4b00b7fc2b8be8c210f4e107c625e2f1379090c68deb66e6e2576ee459094",
+          "matches_expected": true,
+          "stable_read": true
+        },
+        {
+          "kind": "extraction",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\56d3e78c752727ba60868c0ba925d4f920ecb575643e12ec64f99ebf4b31f878.jsonl",
+          "sha256": "c00464e93e69ac6983414338b82e414b28c81aa897ba791cf70e6e6253f55327",
+          "matches_expected": true,
+          "stable_read": true
+        }
+      ],
+      "public_record_id": "held-3de4b00b7fc2b8be8c210f4e107c625e",
+      "public_record_fingerprint": "cdbee2745a4f524f5bab1f0db282d7e4614d1e2253cd99f8e48bde373f7f0771",
+      "public_record": {
+        "id": "held-3de4b00b7fc2b8be8c210f4e107c625e",
+        "title": "The Doctrine of the Atonement",
+        "authors": [
+          "James Haldane"
+        ],
+        "contributors": [
+          "contributor-27f6704ccf57c2dd413f"
+        ],
+        "language": "und",
+        "source": "source-monergism-library",
+        "sourceId": null,
+        "sourceUrl": "https://www.monergism.com/thethreshold/sdg/haldane/TheDoctrineoftheAtonementJamesHaldane1.epub",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+        "credit": "Haldane, James; Monergism",
+        "editors": [],
+        "licenseUrl": null,
+        "sha256": "3de4b00b7fc2b8be8c210f4e107c625e2f1379090c68deb66e6e2576ee459094",
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "availability": "permission-required",
+        "pages": 0,
+        "reviewWarning": null,
+        "pageBundles": []
+      },
+      "native_metadata": [
+        {
+          "element": "title",
+          "text": "The Doctrine of the Atonement",
+          "attributes": {}
+        },
+        {
+          "element": "creator",
+          "text": "James Haldane",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}file-as": "Haldane, James",
+            "{http://www.idpf.org/2007/opf}role": "aut"
+          }
+        },
+        {
+          "element": "contributor",
+          "text": "calibre (5.21.0) [https://calibre-ebook.com]",
+          "attributes": {
+            "{http://www.idpf.org/2007/opf}role": "bkp"
+          }
+        },
+        {
+          "element": "publisher",
+          "text": "Monergism Books",
+          "attributes": {}
+        },
+        {
+          "element": "date",
+          "text": "0101-01-01T00:00:00+00:00",
+          "attributes": {}
+        }
+      ],
+      "state": "proposed private reading access only; not applied",
+      "work_edition_status": "preserve current IDs/unknowns; do not infer exact print identity from packaging metadata",
+      "profile_status": "source-confirmed named byline outside current 52-profile set; no profile/shelf addition proposed",
+      "public_use": "unchanged permission-required; output-specific review remains",
+      "opf_path": "content.opf",
+      "opf_sha256": "e7ba69014c5de0abd45e7644faab69fa09013fb29f7d989891623058d4f4ae4f",
+      "remedy": "Review exact-copy byline/use and include through existing EPUB reader scope under its shared lease/CAS/backup guards; no full rebuild.",
+      "proposed_scope_item": {
+        "sha256": "3de4b00b7fc2b8be8c210f4e107c625e2f1379090c68deb66e6e2576ee459094",
+        "source": "source-monergism-library/asset-expanded-e3800df2e35929d4114a/original.epub",
+        "cache": "56d3e78c752727ba60868c0ba925d4f920ecb575643e12ec64f99ebf4b31f878.jsonl",
+        "cacheSha256": "c00464e93e69ac6983414338b82e414b28c81aa897ba791cf70e6e6253f55327",
+        "recordId": "held-3de4b00b7fc2b8be8c210f4e107c625e",
+        "recordSha256": "cdbee2745a4f524f5bab1f0db282d7e4614d1e2253cd99f8e48bde373f7f0771",
+        "evidence": "initiatives/library-knowledge/distillation/source-followup-2026-10-19/reader-access-proposals.json#2174339"
+      },
+      "date_warnings": [
+        "0101-01-01T00:00:00+00:00"
+      ]
+    },
+    {
+      "candidate": "confession-1644",
+      "source_id": "2284834",
+      "format": ".html",
+      "source_proofs": [
+        {
+          "kind": "original",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-romans45\\asset-rb01-73f2404c1011ff4e3d74\\original.html",
+          "sha256": "420127370235e868e8479072b4d7a6479a158253e7860a4c6e65999762e9d5f4",
+          "matches_expected": true,
+          "stable_read": true
+        },
+        {
+          "kind": "extraction",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\3e75ded161f14ede96872aa91026d13825e759712c7494a602262b29815e2316.jsonl",
+          "sha256": "8567cc86e205e31f21be9932e0638cad5b21aba7a604c468b1e2d7a1b0d70497",
+          "matches_expected": true,
+          "stable_read": true
+        }
+      ],
+      "public_record_id": "held-420127370235e868e8479072b4d7a647",
+      "public_record_fingerprint": "1a8474492b1bce6939aadf788e8b64d2d656c4e53dc669d9942b4cc3dbebd515",
+      "public_record": {
+        "id": "held-420127370235e868e8479072b4d7a647",
+        "title": "First London Confession (1644), with preface and signatures",
+        "authors": [
+          "Seven Particular Baptist congregations"
+        ],
+        "contributors": [
+          "contributor-c0c55b061b5ccab10f09"
+        ],
+        "language": "und",
+        "source": "source-romans45",
+        "sourceId": "source-romans45",
+        "sourceUrl": "https://www.romans45.org/creeds/bc1644.htm",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: historic-text-host-packaging-reserved; recorded use scope: private-noncommercial-reading; policy evidence: https://www.romans45.org/robots.txt",
+        "credit": null,
+        "editors": [],
+        "licenseUrl": null,
+        "sha256": "420127370235e868e8479072b4d7a6479a158253e7860a4c6e65999762e9d5f4",
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "availability": "permission-required",
+        "pages": 0,
+        "reviewWarning": null,
+        "pageBundles": []
+      },
+      "native_metadata": [
+        {
+          "xpath": "/html/head/title",
+          "tag": "title",
+          "text": "London Baptist Confession of 1644"
+        },
+        {
+          "xpath": "/html/body/table/tr/td[2]/center[1]/h1",
+          "tag": "h1",
+          "text": "London Baptist Confession of Faith A.D. 1644"
+        }
+      ],
+      "state": "proposed private reading access only; not applied",
+      "work_edition_status": "preserve current IDs/unknowns; do not infer exact print identity from packaging metadata",
+      "profile_status": "Collective author; preserve contributor identity rather than invent a personal profile.",
+      "public_use": "unchanged permission-required; output-specific review remains",
+      "meta_author": [],
+      "collective_attribution": {
+        "literal_marker_found": true,
+        "marker_sha256": "fd47a70d1a6acf44bac2af402bf7bcc9f88bbf5252a654057366cb7c565aae50",
+        "normalized_offset": 4980,
+        "limit": "The transcription self-describes collective subscription; signatories and printed-edition fidelity are not independently verified."
+      },
+      "remedy": "Propose a guarded HTML extension of the existing reviewed scope, pinned to original/cache/record hashes; preserve native article or collective-document context and public-use state."
+    },
+    {
+      "candidate": "boyce-profile",
+      "source_id": "6553885",
+      "format": ".xml",
+      "source_proofs": [
+        {
+          "kind": "original",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\bulk\\ccel\\boyce_theology.xml",
+          "sha256": "caae3e79e9bbf10cc4ba78e86482a4481a9738e19ae98fb10048f91be0bbcac3",
+          "matches_expected": true,
+          "stable_read": true
+        },
+        {
+          "kind": "extraction",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\0d4940838e2d8663646bfcbf050029ff28a18f08389b52a1c444a4387da8b335.jsonl",
+          "sha256": "4581a242421e1cf152b54ae2c6810677d8b5a22777b56f2443411cbabc386942",
+          "matches_expected": true,
+          "stable_read": true
+        }
+      ],
+      "public_record_id": "held-caae3e79e9bbf10cc4ba78e86482a448",
+      "public_record_fingerprint": "36261f4710372ca6e8bc301f2cf95842d8c8e1b7f19d9269d640eaa2e93dc97d",
+      "public_record": {
+        "id": "held-caae3e79e9bbf10cc4ba78e86482a448",
+        "title": "Abstract of Systematic Theology",
+        "authors": [
+          "James Petigru Boyce"
+        ],
+        "contributors": [
+          "contributor-76cf3cdf0cf93d46f98c"
+        ],
+        "language": "en",
+        "source": "ccel",
+        "sourceId": "boyce/theology",
+        "sourceUrl": "https://ccel.org/ccel/boyce/theology.xml",
+        "licence": "CCEL personal/educational/non-profit use; electronic edition credit retained",
+        "credit": "Boyce, James Petigru (1827-1888); Christian Classics Ethereal Library",
+        "editors": [],
+        "licenseUrl": null,
+        "sha256": "caae3e79e9bbf10cc4ba78e86482a4481a9738e19ae98fb10048f91be0bbcac3",
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "availability": "permission-required",
+        "pages": 0,
+        "reviewWarning": null,
+        "pageBundles": []
+      },
+      "native_metadata": [
+        {
+          "xpath": "/ThML/ThML.head/electronicEdInfo/DC/DC.Title",
+          "tag": "DC.Title",
+          "text": "Abstract of Systematic Theology"
+        },
+        {
+          "xpath": "/ThML/ThML.head/electronicEdInfo/DC/DC.Creator[1]",
+          "tag": "DC.Creator",
+          "text": "James P. Boyce"
+        },
+        {
+          "xpath": "/ThML/ThML.head/electronicEdInfo/DC/DC.Creator[2]",
+          "tag": "DC.Creator",
+          "text": "Boyce, James Petigru (1827-1888)"
+        }
+      ],
+      "state": "proposed private reading access only; not applied",
+      "work_edition_status": "preserve current IDs/unknowns; do not infer exact print identity from packaging metadata",
+      "profile_status": "source-confirmed named byline outside current 52-profile set; no profile/shelf addition proposed",
+      "public_use": "unchanged permission-required; output-specific review remains",
+      "remedy": "Propose a format-specific extension of the reviewed scope for this exact XML and test guards/page preparation; do not substitute the different repaired Boyce EPUB without verifying the profile fact."
+    }
+  ],
+  "implementation_constraints": [
+    "Preserve source/cache/public record hashes and existing contributor IDs",
+    "Reuse index-write.lock, compare-and-swap publication, backups and guarded rollback",
+    "No source repairs, featured-profile creation or public-use changes",
+    "Current scope permits EPUB only; HTML/XML require separately reviewed guard coverage",
+    "Validate actual pages/context and curation preservation on any later implementation"
+  ]
+}

@@ -52,6 +52,12 @@
 
 .tp-scholars .il-scope{font-size:.7rem;line-height:1.5;color:var(--muted);margin:.7rem 1.5rem 0;max-width:110ch}
 .tp-scholars .il-population-link button{color:var(--accent);font-size:.72rem;text-decoration:underline}.tp-scholars .il-population-link small{color:var(--muted);font-size:.65rem;overflow-wrap:anywhere}
+.tp-scholars .scholar-connections{margin-top:2rem;scroll-margin-top:84px}
+.tp-scholars .scholar-connections .idea-lineage{margin-top:1.25rem;--lineage-header-height:48px}
+.tp-scholars .il-section .il-header{display:flex;min-height:48px;padding:.55rem 1.3rem}
+.tp-scholars .il-section .il-header>[role=tablist]{justify-content:flex-start;text-align:left;gap:.45rem}
+.tp-scholars .scholar-connections .scholar-subhead p{width:75%;max-width:none}
+@media(max-width:900px){.tp-scholars .scholar-connections .scholar-subhead p{width:100%}}
 
 /* The closed frame follows the Preachers arc; details still reveal below it on selection. */
 .tp-scholars .idea-lineage{position:relative;margin-top:2.1rem}

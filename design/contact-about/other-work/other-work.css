@@ -1,0 +1,81 @@
+/* Other work (other-work.js): framed bands after "Faith in tech" on the CypherPunk Faith page, in Bible Project's palette. */
+.ow { max-width: 80rem; margin: 0 auto; padding: 0 1rem 4rem; }
+@media (min-width: 640px) { .ow { padding-inline: 1.5rem; } }
+.ow-crumbs { display: flex; margin-top: 18px; font-size: 12px; color: var(--muted); }
+.ow-crumbs a { display: inline-flex; align-items: center; gap: 6px; } .ow-crumbs a:hover { color: var(--accent); }
+.ow-kicker { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+
+.ow-head { padding: 26px 0 34px; }
+.ow-head h1 { margin-top: 12px; font: 400 clamp(42px, 5vw, 68px)/1.02 var(--serif); letter-spacing: -.045em; }
+.ow-head h1 em { display: block; font-style: italic; color: var(--accent); }
+.ow-head > p:last-child { margin-top: 16px; max-width: 40rem; font: 19px/1.5 var(--serif); color: var(--muted); }
+
+.ow-band { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 27rem; border: 1px solid var(--line); background: var(--surface); }
+.ow-band + .ow-band { margin-top: 20px; }
+.ow-band-right .ow-pic { order: 2; }
+.ow-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(24px, 4vw, 56px); }
+.ow-copy h2 { margin: 14px 0 8px; }
+.ow-name { display: inline-flex; align-items: center; gap: .25em; font: 400 clamp(34px, 3.6vw, 54px)/1.05 var(--serif); letter-spacing: -.035em; }
+.ow-name em { font-style: italic; color: var(--accent); }
+.ow-name-arrow { align-self: flex-start; color: var(--muted); transition: transform .25s, color .25s; }
+.ow-name:hover .ow-name-arrow { transform: translate(2px, -2px); color: var(--ink); }
+.ow-name .ow-spark { width: .5em; height: .5em; fill: var(--accent); flex: none; }
+.ow-summary { max-width: 46ch; font-size: 17px; line-height: 1.6; }
+.ow-lead { margin-top: 18px; font: italic 400 clamp(22px, 2vw, 28px)/1.25 var(--serif); letter-spacing: -.02em; color: var(--accent); }
+.ow-text { margin-top: 10px; max-width: 58ch; font-size: 14px; line-height: 1.75; color: var(--muted); }
+.ow-link { display: inline-flex; align-items: center; gap: 6px; width: fit-content; margin-top: 26px; padding-bottom: 3px; border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.ow-link:hover { border-bottom-color: var(--accent); }
+
+/* The pictures. Each project keeps its own colours and logo, as on the Faith page. */
+.ow-pic { position: relative; overflow: hidden; min-height: 18rem; }
+/* Logo and both drawings kept at their own heights and centred together, so no gap opens between or below them. */
+.ow-rf { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 28px; background: #e4dcd2; }
+.ow-rf img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; filter: saturate(.75) sepia(.12); }
+.ow-rf-logo { margin-bottom: 4px; }
+.ow-rf-logo, .ow-cc-logo { display: inline-flex; align-items: center; gap: .3em; color: #111318; font: 800 clamp(22px, 2.4vw, 34px)/1 "Segoe UI", system-ui, sans-serif; letter-spacing: -.035em; }
+.ow-rf-logo b { color: #e60012; font-weight: 800; }
+.ow-rf-logo .ow-spark { width: .8em; height: .8em; fill: #e60012; }
+/* ChurchFamily in its own house colours (ChurchFamily/src/styles/house-theme.css): parchment and evergreen by day,
+   the wine ground and gold line work at night. Its logo is the header's: a rounded square holding a heart, then the name. */
+.ow-cc { --cf-ground: rgb(241 235 223); --cf-glow: rgb(127 155 134 / .2); --cf-line: rgb(61 107 88); --cf-ink: rgb(29 42 36);
+  --cf-badge: #2f6b55; --cf-badge-ink: #faf7f0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 30px 28px;
+  background: radial-gradient(ellipse 90% 80% at 10% 100%, var(--cf-glow), transparent 75%), var(--cf-ground); }
+:root[data-theme="dark"] .ow-cc { --cf-ground: rgb(16 13 17); --cf-glow: rgb(80 38 49 / .45); --cf-line: rgb(194 163 107); --cf-ink: rgb(237 230 217);
+  --cf-badge: hsl(39 41% 59%); --cf-badge-ink: hsl(285 13% 6%); }
+.ow-cc-logo { color: var(--cf-ink); font-size: clamp(20px, 2vw, 28px); }
+.ow-cc-art { width: min(100%, 300px); height: auto; color: var(--cf-line); }
+.ow-cc-flame { fill: currentColor; fill-opacity: .35; }
+.ow-cc-badge { display: grid; place-items: center; width: 1.2em; height: 1.2em; flex: none; border-radius: .3em; background: var(--cf-badge, #2f6b55); color: var(--cf-badge-ink, #faf7f0); }
+.ow-cc-badge svg { width: 62%; height: 62%; }
+.ow-name .ow-name-badge { width: .62em; height: .62em; border-radius: .16em; background: var(--accent); color: var(--page); }
+/* CypherPunkNFT: its own wordmark, white on black at night and black on white by day, over a Luxury Collection room. */
+.ow-cp { --cp-ground: #f4f2ee; --cp-ink: #0b0b0d; --cp-muted: #6d6a66;
+  display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 28px; background: var(--cp-ground); }
+:root[data-theme="dark"] .ow-cp { --cp-ground: #050507; --cp-ink: #f2efe8; --cp-muted: #8f8b86; }
+.ow-cp-logo { display: block; width: min(100%, 420px); align-self: center; color: var(--cp-ink); }
+.ow-cp-logo svg { display: block; width: 100%; height: auto; }
+.ow-cp-logo .ow-cp-stacked { display: none; }
+.ow-cp-room { margin: 0; }
+.ow-cp-slides { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 4px; background: #000; }
+.ow-cp-slides img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .5s ease; }
+.ow-cp-slides img.is-on { opacity: 1; }
+.ow-cp-room figcaption { display: flex; justify-content: space-between; gap: 12px; margin-top: 10px; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--cp-muted); }
+.ow-cp-badge { color: var(--cp-ink); }
+/* The dots: a pill for the one showing; no outline when clicked or focused (owner's rule on all his sites). */
+.ow-cp-dots { display: flex; justify-content: center; gap: 4px; margin-top: 12px; }
+.ow-cp-dots button { display: grid; place-items: center; width: 30px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; outline: none; }
+.ow-cp-dots span { width: 7px; height: 7px; border-radius: 999px; background: color-mix(in srgb, var(--cp-ink) 30%, transparent); transition: width .3s, background .3s; }
+.ow-cp-dots button:hover span { background: color-mix(in srgb, var(--cp-ink) 60%, transparent); }
+.ow-cp-dots button[aria-current] span { width: 22px; background: var(--cp-ink); }
+@media (prefers-reduced-motion: reduce) { .ow-cp-slides img, .ow-cp-dots span { transition: none; } }
+@media (max-width: 480px) {
+  .ow-cp-logo { width: min(70%, 260px); }
+  .ow-cp-logo .ow-cp-line { display: none; } .ow-cp-logo .ow-cp-stacked { display: block; }
+}
+
+@media (max-width: 860px) {
+  .ow-band { grid-template-columns: 1fr; min-height: 0; }
+  .ow-band-right .ow-pic { order: 0; }
+}

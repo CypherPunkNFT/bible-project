@@ -1,39 +1,32 @@
 import { Check, Mail } from "lucide-react";
 import { useState, type FormEvent } from "react";
-import { ContactArt } from "@/pages/contact/ContactArt";
+import { AboutProject, FounderLetter } from "@/pages/contact/AboutSections";
+import { EpistleArt } from "@/pages/contact/EpistleArt";
 import "@/pages/contact/contact.css";
 
 const CONTACT_ADDRESS = "amen@bibleproject.io";
 
 type Status = { state: "idle" | "sending" | "sent" } | { state: "error"; message: string };
 
-/** Contact form, then About (the project, and who builds it). Messages go through /api/contact to CONTACT_ADDRESS; if sending is unavailable, the visitor's own mail app opens instead. */
+/** "Grace to you" contact form, then About: 01 the project and its convictions, 02 a letter from the founder (approved mock-up F, 2026-10-20). Messages go through /api/contact to CONTACT_ADDRESS; if sending is unavailable, the visitor's own mail app opens instead. */
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6">
-      <section className="grid items-center gap-8 pt-8 sm:pt-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:gap-14">
+    <div className="ct-page">
+      <section className="ct-hero">
         <div>
-          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
-            Contact
-          </p>
-          <h1 className="mt-3 font-serif text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
-            Write to us. <span className="block italic text-accent">Every word is read.</span>
-          </h1>
-          <p className="mt-3 max-w-xl text-muted">
-            Questions, corrections or a word of encouragement. You can also write directly to{" "}
-            <a href={`mailto:${CONTACT_ADDRESS}`} className="text-accent underline underline-offset-2">
-              {CONTACT_ADDRESS}
-            </a>
-            .
+          <p className="cv-eyebrow">A letter · a greeting · a reply</p>
+          <h1>Grace to you,<em>and peace.</em></h1>
+          <p className="ct-sub">The church grew by letters.<br />Write one to us.</p>
+          <p className="ct-lead">
+            Questions, corrections, or a word of encouragement. Write below, or to{" "}
+            <a href={`mailto:${CONTACT_ADDRESS}`}>{CONTACT_ADDRESS}</a>.
           </p>
           <ContactForm />
         </div>
-        <div className="mx-auto w-full max-w-[220px] lg:order-last lg:max-w-[460px]">
-          <ContactArt />
-        </div>
+        <EpistleArt />
       </section>
-      <About />
+      <AboutProject />
+      <FounderLetter />
     </div>
   );
 }
@@ -91,7 +84,7 @@ function ContactForm() {
     );
 
   return (
-    <form onSubmit={send} className="mt-6 max-w-xl space-y-3.5">
+    <form onSubmit={send} className="max-w-xl space-y-3.5">
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block text-sm font-semibold">
           Your name <span className="font-normal text-muted">(optional)</span>
@@ -122,45 +115,5 @@ function ContactForm() {
         </p>
       )}
     </form>
-  );
-}
-
-function About() {
-  const label = "font-mono text-xs uppercase tracking-[0.18em] text-muted";
-  return (
-    <section id="about" aria-labelledby="about-title" className="mt-9 border-t border-line pb-20 pt-7">
-      <p id="about-title" className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-        <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
-        About
-      </p>
-      <div className="mt-5 grid gap-10 md:grid-cols-2 md:gap-14">
-        <div>
-          <p className={label}>01 — Bible Project</p>
-          <h2 className="mt-3 font-serif text-2xl font-semibold tracking-tight sm:text-3xl">The wisdom of the faith, gathered in one open place.</h2>
-          <p className="mt-4 leading-relaxed text-muted">
-            Bible Project brings the history, knowledge and wisdom of Christianity together in one source: the Scriptures in many
-            versions and languages, the people and places of the Bible, the creeds, the teachers of the church and the hard
-            questions, each linked to the next. It is free, and fully open to the public.
-          </p>
-        </div>
-        <div>
-          <p className={label}>02 — Who builds it</p>
-          <h2 className="mt-3 font-serif text-2xl font-semibold tracking-tight sm:text-3xl">Lucas Campbell Saint Laurent</h2>
-          <p className="mt-1 text-sm font-semibold text-accent">Founder and sole developer</p>
-          <p className="mt-4 leading-relaxed text-muted">
-            Bible Project is the work of one person. Lucas founded it and is its only developer. He lives in Jacksonville,
-            Florida, serves on the greet team at his church, and leads RedeemerForge, a faith-based youth programme. He builds
-            this for the glory of God, so that the history, knowledge and wisdom of Christianity can be gathered in one place
-            and given freely to anyone who wants it.
-          </p>
-        </div>
-      </div>
-      <figure className="mt-12 rounded-2xl border border-line bg-surface px-6 py-7 text-center sm:px-10">
-        <blockquote className="font-serif text-xl italic leading-snug sm:text-2xl">
-          “Whether therefore ye eat, or drink, or whatsoever ye do, do all to the glory of God.”
-        </blockquote>
-        <figcaption className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-muted">1 Corinthians 10:31 · KJV · Soli Deo gloria</figcaption>
-      </figure>
-    </section>
   );
 }

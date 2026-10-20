@@ -1,5 +1,6 @@
 import { startTransition, useEffect, useRef, useState } from "react";
 import { LayoutGrid, Table2 } from "lucide-react";
+import { Link } from 'react-router-dom';
 import { ScholarSectionHead as SectionHead } from "./SectionHead";
 import { useScholars } from "./context";
 import { Card } from "./catalogue/Card";
@@ -65,7 +66,7 @@ export function Catalogue() {
     <span id="acquired" /><span id="fields" />
     <SectionHead section="catalogue" kicker="The catalogue" title={<>Every contributor, <em>one place</em></>}
       line={<>Explore authors, translators and their works across the full library. Open a documented profile or browse a contributor’s works.</>} />
-    <p className="cat-coverage">{data.scholars.length} documented scholar profiles{library && <> · {library.length.toLocaleString()} contributor entries</>}<a className="cat-download" href={`${POPULATION_BASE}/scholars-library-export.zip`} download>Download complete catalogue</a></p>
+    <p className="cat-coverage">{data.scholars.length} documented scholar profiles{library && <> · {library.length.toLocaleString()} contributor entries</>}<Link className="cat-download" to="/analysis">Full-page list</Link><a className="cat-download" href={`${POPULATION_BASE}/scholars-library-export.zip`} download>Download complete catalogue</a></p>
     {libraryError && <p role="alert">The full library could not load: {libraryError}. Reload to try again.</p>}
     <div className="cat-layout">
       <Facets view={view} data={data} filters={filters} people={people} options={options} onOptions={setOptions} text={text} onText={search}

@@ -1,0 +1,131 @@
+{
+  "at": "2026-10-19T12:54:42.275Z",
+  "index": {
+    "oldEntriesUnchanged": [
+      {
+        "section": "documents",
+        "unchanged": true
+      },
+      {
+        "section": "bindings",
+        "unchanged": true
+      },
+      {
+        "section": "profiles",
+        "unchanged": true
+      },
+      {
+        "section": "contributors",
+        "unchanged": true
+      }
+    ],
+    "addedDocuments": [
+      "local-3c6ae92f1578f913c09839d2c8604310111a9b02b5a3f2ef97b5d5ca60d5c3f4",
+      "local-7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76"
+    ],
+    "addedBindings": [
+      "held-3c6ae92f1578f913c09839d2c8604310",
+      "held-7824047daefbe859f7f5f167719ca85f"
+    ],
+    "builtAtUnchanged": true,
+    "backupExact": true
+  },
+  "readers": [
+    {
+      "slot": "D03",
+      "route": "/teachers/works/held-3c6ae92f1578f913c09839d2c8604310",
+      "record": {
+        "id": "local-3c6ae92f1578f913c09839d2c8604310111a9b02b5a3f2ef97b5d5ca60d5c3f4",
+        "title": "Lord's Supper, The",
+        "authors": [
+          "Matthew Henry"
+        ],
+        "contributors": [
+          "contributor-3bae78dd8165bd662d89"
+        ],
+        "language": "EN",
+        "source": "chapel",
+        "sourceId": "lsup",
+        "sourceUrl": "https://www.chapellibrary.org/api/books/download?code=lsup&format=epub",
+        "licence": "Publisher freely offered electronic edition for personal use; source notices retained",
+        "credit": "Matthew Henry; Chapel Library / Mount Zion Bible Church",
+        "sha256": "3c6ae92f1578f913c09839d2c8604310111a9b02b5a3f2ef97b5d5ca60d5c3f4",
+        "pages": 3,
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "reviewWarning": null,
+        "availability": "local-text",
+        "localCopy": true
+      },
+      "pageCount": 3,
+      "allPagesHTTP200": true,
+      "allTextExactlyMatchesCache": true,
+      "servedTextSha256": "7dced00f5d92c8575f99133ffd1bc8b27a9b499529ecc58de194ba5cc399c94c",
+      "characters": 125994,
+      "evidenceHashMatches": true,
+      "selectedTextInReader": true,
+      "expandedContextInReader": true,
+      "displayedPageHits": [
+        1
+      ],
+      "sourceUnchanged": true,
+      "cacheUnchanged": true
+    },
+    {
+      "slot": "D04",
+      "route": "/teachers/works/held-7824047daefbe859f7f5f167719ca85f",
+      "record": {
+        "id": "local-7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76",
+        "title": "Abstract of Systematic Theology",
+        "authors": [
+          "James Petigru Boyce"
+        ],
+        "contributors": [
+          "contributor-76cf3cdf0cf93d46f98c"
+        ],
+        "language": "und",
+        "source": "source-monergism-library",
+        "sourceId": null,
+        "sourceUrl": "https://www.monergism.com/thethreshold/sdg/boyce/Abstract%20of%20Systematic%20Theology%20-%20James%20Petigru%20Boyce.epub",
+        "licence": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+        "credit": "Boyce, James Petigru; Monergism",
+        "sha256": "7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76",
+        "pages": 25,
+        "genre": "text",
+        "workId": null,
+        "editionId": null,
+        "reviewWarning": null,
+        "availability": "local-text",
+        "localCopy": true
+      },
+      "pageCount": 25,
+      "allPagesHTTP200": true,
+      "allTextExactlyMatchesCache": true,
+      "servedTextSha256": "1465803a0df98e12e7436052e230d905f98fe620bd1892c407eb9b806299c7fb",
+      "characters": 1171880,
+      "evidenceHashMatches": true,
+      "selectedTextInReader": true,
+      "expandedContextInReader": true,
+      "displayedPageHits": [
+        25
+      ],
+      "sourceUnchanged": true,
+      "cacheUnchanged": true
+    }
+  ],
+  "controls": {
+    "fergusson": {
+      "status": 200,
+      "exactBundle": true
+    },
+    "hodge": {
+      "status": 200,
+      "selectedSpanPresent": true
+    }
+  },
+  "browser": {
+    "validated": false,
+    "reason": "Brave blocks the existing Candidates URL with ERR_BLOCKED_BY_CLIENT. No protection changed or workaround attempted."
+  }
+}

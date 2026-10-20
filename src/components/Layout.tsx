@@ -51,7 +51,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 className={({ isActive }) =>
                   cn(
                     "site-nav-item relative flex shrink-0 items-center gap-1.5 px-3 text-sm transition-colors",
-                    isActive || (to === "/bible" && (location.pathname.startsWith("/read") || location.pathname === "/library"))
+                    isActive || (to === "/bible" && (location.pathname.startsWith("/read") || location.pathname === "/library" || location.pathname === "/listen" || location.pathname.startsWith("/listen/")))
                       ? "site-nav-selected"
                       : "text-muted hover:bg-surface-2 hover:text-ink",
                   )

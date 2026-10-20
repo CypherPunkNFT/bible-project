@@ -1,0 +1,60 @@
+/* Direction A, "A letter" (letter.js). */
+.la { max-width: 80rem; margin: 0 auto; padding: 0 1rem 4rem; }
+@media (min-width: 640px) { .la { padding-inline: 1.5rem; } }
+.la-eyebrow { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.la-eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.la-center { justify-content: center; }
+
+.la-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); gap: 56px; align-items: center; padding-top: 36px; }
+.la-hero h1 { margin-top: 14px; font: 500 clamp(40px, 5vw, 60px)/1.04 var(--serif); letter-spacing: -.035em; }
+.la-hero h1 em { display: block; font-style: italic; color: var(--accent); }
+.la-lead { margin: 14px 0 26px; max-width: 34rem; color: var(--muted); line-height: 1.7; }
+.la-form { max-width: 36rem; }
+.la-envelope { margin: 0; color: var(--accent); }
+.la-envelope svg { width: 100%; max-width: 440px; display: block; margin: 0 auto; overflow: visible; }
+.la-paper { fill: var(--surface); }
+.la-faint { color: var(--muted); opacity: .5; stroke-width: 1.1; }
+.la-script { fill: var(--accent); stroke: none; font: italic 13px var(--serif); }
+.la-seal { fill: var(--accent); stroke: none; } .la-seal-cross { color: var(--surface); stroke-width: 1.8; }
+.la-star { stroke-width: 1.1; animation: la-twinkle 4.8s ease-in-out infinite; animation-delay: calc(var(--i) * -.7s); }
+.la-rise { animation: la-rise 7s ease-in-out infinite; }
+@keyframes la-twinkle { 50% { opacity: .25; } }
+@keyframes la-rise { 50% { transform: translateY(-6px); } }
+
+/* The letter: a sheet of paper with a faint ruled ground, the notes standing in the margins beside it. */
+.la-letter-wrap { padding-top: 64px; }
+.la-letter { position: relative; max-width: 46rem; margin: 22px auto 0; padding: 48px 56px 44px; border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line)); border-radius: 4px;
+  background: repeating-linear-gradient(to bottom, transparent 0 33px, color-mix(in srgb, var(--accent) 7%, transparent) 33px 34px), var(--surface);
+  box-shadow: 0 1px 0 var(--line), 0 30px 60px -40px rgb(0 0 0 / 45%); transform: rotate(-.4deg); }
+.la-letter header { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.la-dear { margin-top: 34px; font: italic 26px var(--serif); color: var(--accent); }
+.la-body { position: relative; margin-top: 16px; }
+.la-body > p { margin-top: 16px; font: 18px/34px var(--serif); }
+.la-note { position: absolute; width: 190px; padding-top: 6px; border-top: 1px solid var(--accent); }
+.la-note-right { right: -250px; } .la-note-left { left: -250px; text-align: right; }
+.la-note p { font: italic 16px/1.4 var(--serif); }
+.la-note cite { display: block; margin-top: 6px; font-size: 10px; font-style: normal; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.la-letter footer { position: relative; margin-top: 30px; }
+.la-close { font: italic 18px var(--serif); color: var(--muted); }
+.la-sign { margin-top: 6px; font: italic 500 clamp(30px, 4vw, 42px)/1.1 var(--serif); letter-spacing: -.02em; color: var(--accent); }
+.la-role { margin-top: 6px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.la-wax { position: absolute; right: -4px; bottom: calc(100% + 8px); width: 74px; height: 74px; transform: rotate(-12deg); }
+.la-wax svg { width: 100%; height: 100%; } .la-wax path:first-child { fill: var(--accent); }
+.la-wax-cross { fill: none; stroke: var(--surface); stroke-width: 3; stroke-linecap: round; }
+.la-ps { margin-top: 30px; padding-top: 20px; border-top: 1px dashed var(--line); font: 16px/1.7 var(--serif); color: var(--muted); }
+.la-ps b { color: var(--ink); }
+.la-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.la-links a { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; font-weight: 600; transition: border-color .2s, color .2s; }
+.la-links a:hover { border-color: var(--accent); color: var(--accent); }
+
+@media (max-width: 1240px) {
+  .la-note { position: static; width: auto; margin: 20px 0 4px; padding: 10px 0 0 16px; border-top: 0; border-left: 2px solid var(--accent); text-align: left; }
+}
+@media (max-width: 860px) {
+  .la-hero { grid-template-columns: 1fr; gap: 24px; }
+  .la-envelope { order: -1; max-width: 240px; margin: 0 auto; }
+  .la-letter { padding: 32px 22px; transform: none; }
+  .la-body > p { font-size: 17px; line-height: 30px; }
+  .la-wax { width: 56px; height: 56px; }
+}
+@media (prefers-reduced-motion: reduce) { .la-star, .la-rise { animation: none; } }

@@ -48,7 +48,7 @@
 .psalter-read .num { display: flex; align-items: baseline; gap: 10px; margin: 2px 0 6px; }
 .psalter-read .num b { font: 400 54px/1 var(--serif); letter-spacing: -.04em; color: var(--tone); }
 .psalter-read .num span { color: var(--muted); font-size: 12px; }
-.psalter-read q { display: block; font: italic 400 18px/1.35 var(--serif); color: var(--ink); quotes: "“" "”"; }
+.psalter-read q { display: block; font: italic 400 18px/1.35 var(--serif); color: var(--ink); quotes: "C" "D"; }
 .psalter-read p { margin: 6px 0 0; color: var(--muted); font-size: 11px; }
 .psalter-read .fade { transition: opacity .45s; }
 .psalter-read.swap .fade { opacity: 0; }

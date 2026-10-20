@@ -1,0 +1,1283 @@
+{
+  "captured_at": "2026-10-19T18:41:45.082121+00:00",
+  "purpose": "Source/role/context readiness annotations, not candidate revisions or a retrieval experiment",
+  "coordinate_unit": "Unicode codepoint, half-open intervals within the specified locator",
+  "records": [
+    {
+      "source_id": "4014056",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism-library\\asset-expanded-528d7381b8115df7ee82\\original.epub",
+        "sha256": "7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76",
+        "matches": true
+      },
+      "extraction": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\b6714aa3857e162e85059dd1e2a9a15872be8d2a6b2727488849c4734636acce.jsonl",
+        "sha256": "ae8f22224a89b41db58ae4384bea4ce7fb44df492e782c084d6e0ad71883f6c1",
+        "blocks": 8,
+        "body_stream_matches": true
+      },
+      "member": "abstract_split_006.html",
+      "member_sha256": "e1c6088d278c6d9f7277914cd869137b86f18c8d9d376a1f63c5ad1b37608b5a",
+      "locator": "EPUB section 8: abstract_split_006.html",
+      "native_cache_equal": true,
+      "units": [
+        {
+          "kind": "complete catechism subsection",
+          "start": 12564,
+          "end": 13632,
+          "native_heading": "JUSTIFICATION",
+          "reader_pages": [
+            25
+          ],
+          "reader_links": [
+            "/teachers/works/held-7824047daefbe859f7f5f167719ca85f?page=25"
+          ],
+          "span_sha256": "3718f227fc3624b115c6714cc0a3d3ec79d1cfcbfaa44c489c25abfd167e580e"
+        }
+      ],
+      "nested_work": {
+        "title": "A Brief Catechism of Bible Doctrine",
+        "start": 0,
+        "byline_present": true,
+        "byline_span_sha256": "c465ee7573f50db9016f08dfc5b782b5294cf4107bc4283eabf173721d8bb7c3",
+        "container_title": "Abstract of Systematic Theology",
+        "identity_limit": "Source-level contained-work distinction; no global work/edition ID is assigned."
+      },
+      "reader_locator_matches": true
+    },
+    {
+      "source_id": "6448057",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-241c101b2f67439352\\original.epub",
+        "sha256": "c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f",
+        "matches": true
+      },
+      "extraction": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\957c138421254005fda86f662bc90ee1443fe5de31e7509fb105689964e075d5.jsonl",
+        "sha256": "a64d980a9426d434be889f055d03de4efc3e2b267fb2ce23723ce27e655b7f2f",
+        "blocks": 31,
+        "body_stream_matches": true
+      },
+      "member": "bodydivinity_split_022.html",
+      "member_sha256": "ee544873d509a4ac6e7af96449018dd7fd036905577df2f1d25fbbbaaa9a61eb",
+      "locator": "EPUB section 24: bodydivinity_split_022.html",
+      "native_cache_equal": true,
+      "units": [
+        {
+          "kind": "complete source-numbered faith subsection 5a5 with a-f",
+          "start": 47006,
+          "end": 50338,
+          "native_heading": "5a5. Fifthly, nor faith, or act of believing",
+          "reader_pages": [
+            58
+          ],
+          "reader_links": [
+            "/teachers/works/held-c6d2a4fae26109773599ac53919f9b51?page=58"
+          ],
+          "span_sha256": "b1592edf16f7798230103d158b680faa05c52313810cd661b6b393300d455c56"
+        }
+      ],
+      "chapter": {
+        "heading": "Of Justification",
+        "start": 0,
+        "end": 88309
+      },
+      "native_paragraph_xpath": "/html/body/p[76]",
+      "saved_window_issue": "Current36000:37800 begins mid-sentence, crosses section5 and5a1, and ends before the full faith discussion at5a5. Proposed source window only; no live change.",
+      "reader_locator_matches": true
+    },
+    {
+      "source_id": "6336875",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-ffd2fef8aa9d1d649c\\original.epub",
+        "sha256": "c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579",
+        "matches": true
+      },
+      "extraction": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\9e69596e3163554655e281c8b50776a47e3c10dd5751e5a5f59abb0ad477a058.jsonl",
+        "sha256": "3bf97632eb5985f828e9b9c407bad86e2761205f028253c164b0ff031734e9d7",
+        "blocks": 119,
+        "body_stream_matches": true
+      },
+      "member": "EPUB/chapter-02.xhtml",
+      "member_sha256": "84c9dd82027b9a2cdd31850866133dbdd2099dc08ba9e6b1dc69d1997e723554",
+      "locator": "EPUB section 11: EPUB/chapter-02.xhtml",
+      "native_cache_equal": true,
+      "units": [
+        {
+          "kind": "complete conjectural editorial note, including role signature/backlink",
+          "start": 23437,
+          "end": 23709,
+          "native_xpath": "/html/body/main/section/aside[6]",
+          "native_id": "fnf_viii.i-p63.3",
+          "role_marker": "Ed.",
+          "conjectural_reading": "vocatio / vacatio; retain hypothesis rather than silently emend source",
+          "reader_pages": [
+            5
+          ],
+          "reader_links": [
+            "/teachers/works/held-c3e709ba58b60fead7cdb12ee5235226?page=5"
+          ],
+          "span_sha256": "54d4d63d6df5197beb3f474b40cbb1559c0afb27ecaffd516c1d776db2894ec7"
+        }
+      ],
+      "paratext": [
+        {
+          "member": "EPUB/title.xhtml",
+          "sha256": "38298ea862d396f97721480f9e035965e965fcf40f73161ee51bf04e6bdee30c",
+          "text_sha256": "c555738ed461b8a22fa40b5524ebf5570e89484978ae9db6661e4364fec09f69",
+          "native_cache_equal": true,
+          "named_credit": "Translated by the Rev. John King, M.A."
+        },
+        {
+          "member": "EPUB/copyright.xhtml",
+          "sha256": "29a2536751239c8caa9e86c9b920b25333f6cf9b0d372347ac136592f510d3c1",
+          "text_sha256": "a2909642468b71635da4bbac2614e26fd450ca1674225a190eae36542e5d5f0c",
+          "native_cache_equal": true,
+          "use_gate": "2026 Monergism wrapper/use restrictions retained; not independently cleared for public output."
+        },
+        {
+          "member": "EPUB/translator-preface.xhtml",
+          "sha256": "050ea3e1b3db7f429847e47015c627559e0ba716ae3ef378c08cdc0f6072c373",
+          "text_sha256": "ecc9c57bdef444729bd8bae237142057ccee51ab8192243ef99b451a21b34f15",
+          "native_cache_equal": true,
+          "role_evidence_span": {
+            "start": 12416,
+            "end": 16635,
+            "sha256": "b3b94d3a4cfc8f96cdaa89c3a42109722d0f683fdc3cdefd87d8f4a517b638b3"
+          },
+          "claim": "The preface self-describes the Editor as translator and says he appended notes and may disagree with the author; edition-level role evidence."
+        }
+      ],
+      "alternate_held_note": {
+        "original_path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-ready-text-edition-l06-calvin-01\\calcom01.xml",
+        "sha256": "4b700a5aa4f799f9363cc232cde85409a4f2ff58ebba6c82d9c4830ba83c7b33",
+        "xpath": "/ThML/ThML.body/div1[8]/div2/div[3]/p[1]/note[1]",
+        "native_id": "viii.i-p63.3",
+        "normalized_note_sha256": "caa109c89dea2aaec1713daa40896c7bef96deb4948289fc1e3f25bef32b11e1",
+        "whitespace_only_match": true,
+        "translator_assertions": [
+          {
+            "xpath": "/ThML/ThML.head/electronicEdInfo/DC/DC.Creator[9]",
+            "text": "King, Rev. John"
+          }
+        ],
+        "independence": "Alternate representation of the same note/translation, not independent doctrinal corroboration."
+      },
+      "reader_locator_matches": true
+    },
+    {
+      "source_id": "1048479",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-ready-text-edition-l06-calvin-39\\calcom39.xml",
+        "sha256": "176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012",
+        "matches": true
+      },
+      "extraction": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\a7bf643ad9ed8fb2cbe03a7988b660d207d3c959ed40d0f03334d121c5ff7280.jsonl",
+        "sha256": "ebc7896541a5423595f99ab68d7c3ed646a18c2fecf0526ac0ac7e25b30a88b4",
+        "blocks": 1,
+        "body_stream_matches": true
+      },
+      "locator": "calcom39.xml",
+      "native_cache_equal": true,
+      "native_section": {
+        "key": "/ThML[1]/ThML.body[1]/div1[20]/div2[2]",
+        "parent": "/ThML[1]/ThML.body[1]/div1[20]",
+        "start": 1005532,
+        "end": 1020300,
+        "heading": "ii",
+        "kind": "xml-scripture",
+        "native_id": "xx.ii"
+      },
+      "units": [
+        {
+          "kind": "selected heading and parallel Scripture table; not commentary prose",
+          "start": 1005532,
+          "end": 1006711,
+          "native_table_xpath": "/ThML/ThML.body/div1[20]/div2[2]/table",
+          "native_table_sha256": "4db652bc75164273a9df416f8c2f48a7fdc8e3a99810561e9124b3458dad6e41",
+          "reader_pages": [
+            21
+          ],
+          "reader_links": [
+            "/teachers/works/held-176ef9aa57b3973664dcf65d4ca12c1b?page=21"
+          ],
+          "span_sha256": "4dd1fb86b981c62e2114047524c02df305f94c6506b6ac5f5f57c890ab811b9a"
+        },
+        {
+          "kind": "adjacent translated commentary on verse4 with embedded editorial notes",
+          "start": 1006711,
+          "end": 1010285,
+          "native_xpath": "/ThML/ThML.body/div1[20]/div2[2]/div[1]",
+          "embedded_note_ids": [
+            "xx.ii-p15.2",
+            "xx.ii-p17.2",
+            "xx.ii-p18.1",
+            "xx.ii-p19.3",
+            "xx.ii-p20.2"
+          ],
+          "reader_pages": [
+            21,
+            22
+          ],
+          "reader_links": [
+            "/teachers/works/held-176ef9aa57b3973664dcf65d4ca12c1b?page=21",
+            "/teachers/works/held-176ef9aa57b3973664dcf65d4ca12c1b?page=22"
+          ],
+          "span_sha256": "a55c312796991215bda5ab775387ab5ed77450dce10ae5c967944733faf87ab8"
+        }
+      ],
+      "translator_assertions": [
+        {
+          "xpath": "/ThML/ThML.head/electronicEdInfo/DC/DC.Creator[9]",
+          "text": "Pringle, Rev. John"
+        }
+      ],
+      "native_title_credit": [
+        {
+          "xpath": "/ThML/ThML.body/div1[1]/p[11]",
+          "text": "BY THE REV. JOHN PRINGLE"
+        }
+      ],
+      "column_roles": {
+        "english": "Printed English Scripture column; precise Bible-version attribution is not newly verified here.",
+        "latin": "Printed Latin Scripture column; no universal sense rule or independently verified translation authorship.",
+        "commentary": "Separate translated commentary begins Love is patient and contains Ed. notes."
+      },
+      "literal_join": "Caritaspatiens is present in the original XML verse4 line as well as the cache; retained, not silently corrected.",
+      "reader_locator_matches": true
+    }
+  ],
+  "semantic_queries": 0,
+  "model_calls": 0,
+  "inputs": {
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism-library\\asset-expanded-528d7381b8115df7ee82\\original.epub": {
+      "sha256": "7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76",
+      "bytes": 448978,
+      "mtime_ns": 1791208902000829000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\b6714aa3857e162e85059dd1e2a9a15872be8d2a6b2727488849c4734636acce.jsonl": {
+      "sha256": "ae8f22224a89b41db58ae4384bea4ce7fb44df492e782c084d6e0ad71883f6c1",
+      "bytes": 1181612,
+      "mtime_ns": 1791213763177406600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\manifest.json": {
+      "sha256": "fe93637ed5df0b5603403555b90f060e1e05766b360e7ebe9259031d670d8f7d",
+      "bytes": 312,
+      "mtime_ns": 1792414434590847500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\0.json": {
+      "sha256": "541de55c48608c92e3307fab80e05963d04a086771d1ab25758928815011195c",
+      "bytes": 48547,
+      "mtime_ns": 1792414434542198600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\1.json": {
+      "sha256": "f5fd9dc43e7e24acbd0ac5599526439c8429f630875f8ad3a46ecbe04d4e73e8",
+      "bytes": 48510,
+      "mtime_ns": 1792414434544333600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\2.json": {
+      "sha256": "afd9dbcdf23fb576797ae3f5ae3fa768cb00c6b71d6dff6e02de529f53428bd7",
+      "bytes": 48558,
+      "mtime_ns": 1792414434545652000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\3.json": {
+      "sha256": "4d6299368f02eda2722e33c522d7ed49959c3f46af1b1b1a30a9954b29c6ccac",
+      "bytes": 48570,
+      "mtime_ns": 1792414434545652000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\4.json": {
+      "sha256": "0aef2c4bee098e0e1f7fe1eba49e700fed21a7b14823b56b7343b0e0fbd5e847",
+      "bytes": 37518,
+      "mtime_ns": 1792414434548394400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\5.json": {
+      "sha256": "7426e60858f67a27d88287352cb977631a071adce45a944c1d0488063b7d0fd2",
+      "bytes": 48471,
+      "mtime_ns": 1792414434549401600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\6.json": {
+      "sha256": "ce90b0b788a808e3c15da9c9ecbc7fbce50c2d7102cd8859667cce65da763629",
+      "bytes": 48677,
+      "mtime_ns": 1792414434551400300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\7.json": {
+      "sha256": "f5050a6d3ad1e318ddd6217cf86cdf060ab6c4cb77a4b86bfc448974a2e400b2",
+      "bytes": 48653,
+      "mtime_ns": 1792414434551400300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\8.json": {
+      "sha256": "d600a2d7caf76cac3d37e3a305dec0d5c585d8d8c335ed478767b2ccc3964ca2",
+      "bytes": 48572,
+      "mtime_ns": 1792414434552473100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\9.json": {
+      "sha256": "e4aefcfa8d611444a97f6c6a5bc301edf01a312e644c0cdbbc137817352f8cb5",
+      "bytes": 48491,
+      "mtime_ns": 1792414434554526400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\10.json": {
+      "sha256": "45d068bbc714b40bc05b8ecb71e24c63e46275cfc4000a1fd9f007adfd1dbefd",
+      "bytes": 48413,
+      "mtime_ns": 1792414434555533000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\11.json": {
+      "sha256": "b37efcb573f431b88c66208b0ea2c427baa46fa6afc7903fa3acd8df76dfddfe",
+      "bytes": 48615,
+      "mtime_ns": 1792414434556749700
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\12.json": {
+      "sha256": "5bca6e1887eb257a091b427ca533ce438e63da32831e2202fdbcf3dda90d3603",
+      "bytes": 48572,
+      "mtime_ns": 1792414434566034100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\13.json": {
+      "sha256": "81f80e55a34c1a5f6249e313080a7e94a048ddd5ebb8414164b844a43605cd20",
+      "bytes": 39905,
+      "mtime_ns": 1792414434568691300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\14.json": {
+      "sha256": "a2fb8ff266b1ba9399bc297e78ce1a27a2f85682186347b428f4d68ffe597fc2",
+      "bytes": 48537,
+      "mtime_ns": 1792414434569761600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\15.json": {
+      "sha256": "c28d5aa4b5e19c06c46d4c52b40f98238d381f55628855b9e140b5a7f05de404",
+      "bytes": 48566,
+      "mtime_ns": 1792414434570763600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\16.json": {
+      "sha256": "e0e28e279977b47b96fe188c1ca40866412069ac4627eebbcdca4ec7cf8dacfa",
+      "bytes": 48786,
+      "mtime_ns": 1792414434570763600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\17.json": {
+      "sha256": "c07ed60e0aeb0e19a3cc9523cf5fdaca5775d3fe5dae21b0a2f8b3a8b884e9d8",
+      "bytes": 48736,
+      "mtime_ns": 1792414434573058800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\18.json": {
+      "sha256": "cb35118f89e82c0e34abf36fa5fb5ae4d2a77b6fd4936c631372ace33cb83540",
+      "bytes": 45755,
+      "mtime_ns": 1792414434579179000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\19.json": {
+      "sha256": "84337649b1cb6ca970d9420f628e23d03bb3b301a289b0dc185c9dd764fac29d",
+      "bytes": 48844,
+      "mtime_ns": 1792414434579711000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\20.json": {
+      "sha256": "50f43116b3250999f48dc0942c49fe9af63fbca6703fab82a7c6c7e055aea961",
+      "bytes": 44435,
+      "mtime_ns": 1792414434579711000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\21.json": {
+      "sha256": "eb7b3157bedd984ea68a5a6765db1bdf7a8c70f8b1b0cbfd623500246f185ece",
+      "bytes": 48635,
+      "mtime_ns": 1792414434582469300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\22.json": {
+      "sha256": "de2b1170823e6011251e8301006a6efdad1f613dc847d7cbf54f3bb68ec1e9d6",
+      "bytes": 48757,
+      "mtime_ns": 1792414434582469300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\23.json": {
+      "sha256": "d546a6fb813a9f8e18855814bf7ef0d7d7b35bbf74d89d6e5cb62496f7c49509",
+      "bytes": 48953,
+      "mtime_ns": 1792414434584946400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76\\24.json": {
+      "sha256": "d8d5c9ee9803b0ab05fffb264741b98202bb07b4d6639538c43e42506cf43ff0",
+      "bytes": 47814,
+      "mtime_ns": 1792414434586382800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-241c101b2f67439352\\original.epub": {
+      "sha256": "c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f",
+      "bytes": 1417925,
+      "mtime_ns": 1791207564691217100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\957c138421254005fda86f662bc90ee1443fe5de31e7509fb105689964e075d5.jsonl": {
+      "sha256": "a64d980a9426d434be889f055d03de4efc3e2b267fb2ce23723ce27e655b7f2f",
+      "bytes": 3584807,
+      "mtime_ns": 1791213710970448400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\manifest.json": {
+      "sha256": "137a78972a1bfb36d55be50518b50ddcf25dc2ff4705890a302fa4827f40ca8c",
+      "bytes": 127,
+      "mtime_ns": 1792433591284708200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\0.json": {
+      "sha256": "a7bd81465a3a381459f906e8d5b362bed93aefc837c4138ccb77e723a3e805d8",
+      "bytes": 36733,
+      "mtime_ns": 1792433590790843400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\1.json": {
+      "sha256": "7f4fbde95725cfd0a32d8bf515add1b77a613d07d6eae9e394b2ee1f3362fca4",
+      "bytes": 48559,
+      "mtime_ns": 1792433590792038500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\2.json": {
+      "sha256": "623329fad85d60481bff70268ba99cce19c59893fc168b5f94a1506666a933b7",
+      "bytes": 48153,
+      "mtime_ns": 1792433590793058900
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\3.json": {
+      "sha256": "db91114965305dcbc5a7c54d3f69d9d520db42ef5f64d400c82ffe55a47f5a98",
+      "bytes": 48983,
+      "mtime_ns": 1792433590794087800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\4.json": {
+      "sha256": "49fa3ad540f239288e043a4b3bdd5b22f9e58b4d09315e43322336f3a3e03cb0",
+      "bytes": 48769,
+      "mtime_ns": 1792433590795120600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\5.json": {
+      "sha256": "f4ba994bd20ea246c3e361d7120eaecb3654df7a35ac8c9b7d21e11037f2598f",
+      "bytes": 44686,
+      "mtime_ns": 1792433590796147300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\6.json": {
+      "sha256": "9b19d4bf0958af8488c0f889a5914570399eb26ffda7f11d8d98a34db39946cb",
+      "bytes": 48853,
+      "mtime_ns": 1792433590797335100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\7.json": {
+      "sha256": "84dcc552a0eb26e5e11e93537c617619b22d1952c76ed257239c7eb8b26cb5b7",
+      "bytes": 40344,
+      "mtime_ns": 1792433590805698800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\8.json": {
+      "sha256": "6bf604b3dc9b69d2504ca23b7730b3bfbad6fd9810d670c50a89411de21a6318",
+      "bytes": 48822,
+      "mtime_ns": 1792433590832572400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\9.json": {
+      "sha256": "13c26c180d12904893236aab77a7486c73a6507d9f83bdedb40474d64f6848f9",
+      "bytes": 49008,
+      "mtime_ns": 1792433590834803900
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\10.json": {
+      "sha256": "3f9135e37fde6538f66d95f491bff0a3b11d376b5daf2764f137d58699cd6909",
+      "bytes": 48806,
+      "mtime_ns": 1792433590852852700
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\11.json": {
+      "sha256": "b38937c131fece4aede893c851dc64e0d3231164957f9eb6716bc09bca6a3abf",
+      "bytes": 39868,
+      "mtime_ns": 1792433590854376200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\12.json": {
+      "sha256": "c6452a20a7f74cc05f3e691528cf7590a41e6aff78213750f9bbfe73e76f145d",
+      "bytes": 48907,
+      "mtime_ns": 1792433590859959900
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\13.json": {
+      "sha256": "609a27c39a88ad040841371cb65abec383a8209a9311c7423166a9eb0627c39e",
+      "bytes": 48760,
+      "mtime_ns": 1792433590860959000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\14.json": {
+      "sha256": "ac12d73baf83623cf2740a6bb0ec8cc57db878bd9ab0366f64c6bb8dc54d30dc",
+      "bytes": 38693,
+      "mtime_ns": 1792433590862090800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\15.json": {
+      "sha256": "c12cdf313d03b45baa36243895d27a582ec6a4be101e997701810057e3ed3a4f",
+      "bytes": 40103,
+      "mtime_ns": 1792433590863809700
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\16.json": {
+      "sha256": "0262c18651d0e1bda350d4f3e76d418a0ac80fde62c90db8374be4f7a338ca6b",
+      "bytes": 48632,
+      "mtime_ns": 1792433590867943200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\17.json": {
+      "sha256": "aa47983ca68f2d22443ddc82636490ebc25ac27c44273d721d07080e2598474e",
+      "bytes": 48793,
+      "mtime_ns": 1792433590869454100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\18.json": {
+      "sha256": "66b749e3a7f8a0d1dca6e82be4c7133c8473850202920900336efb3f3ef7dc3b",
+      "bytes": 38961,
+      "mtime_ns": 1792433590869454100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\19.json": {
+      "sha256": "3f909251ded91679d06638905b0381ba61114c7d5e15d740676c0de711babb7c",
+      "bytes": 48865,
+      "mtime_ns": 1792433590869454100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\20.json": {
+      "sha256": "12f4cf80ed6c7bb1100cc4536372ac72ceecd56159c7916d7c6c719173bea8ab",
+      "bytes": 48677,
+      "mtime_ns": 1792433590873467300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\21.json": {
+      "sha256": "d0337be55ec04ec12b7b1a3a14a19390bcddbe249d8ce4341469efe69f998516",
+      "bytes": 43501,
+      "mtime_ns": 1792433590873467300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\22.json": {
+      "sha256": "b33bff0097027738e1fad49d4a64bc50cd278e6522f6fa1e32349997b66730dc",
+      "bytes": 48794,
+      "mtime_ns": 1792433590873467300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\23.json": {
+      "sha256": "994bb722265293fdf6f996766c5f62881057d084dd0961019fc4b28596286641",
+      "bytes": 48618,
+      "mtime_ns": 1792433590873467300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\24.json": {
+      "sha256": "4c60bc6200d40274127fa6943793444521042a7362565afb77ba439ed7484e96",
+      "bytes": 44351,
+      "mtime_ns": 1792433590882773200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\25.json": {
+      "sha256": "4bdd955bc2b74ac7a48a55816169c79eb2312578a1e9cd6a3fb202f74fdda1d6",
+      "bytes": 48786,
+      "mtime_ns": 1792433590883776500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\26.json": {
+      "sha256": "6e58e775e5d77f5583b8f2572caf7df98dd969090f99fa80aa1b388481e55b9d",
+      "bytes": 48586,
+      "mtime_ns": 1792433590884849200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\27.json": {
+      "sha256": "7270149ed8499b689cd7b8aa9bfb5b7ada89ecfea4672fea923428ca9371b966",
+      "bytes": 48742,
+      "mtime_ns": 1792433590885852500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\28.json": {
+      "sha256": "a4993ae26ad337aa441e6e3d58d78cd42f84c63d8c4ad913915d8da4120932a0",
+      "bytes": 47219,
+      "mtime_ns": 1792433590889862700
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\29.json": {
+      "sha256": "88eca5268224ffeb36d6b53777eff5a7c0bcd2d1c34806222e9056cbc5fb9caa",
+      "bytes": 48828,
+      "mtime_ns": 1792433590890863300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\30.json": {
+      "sha256": "bdf03fa7264aa1b29fa8a7a58771a426c656bf73ff17436c6125bbe2bc77dacf",
+      "bytes": 41769,
+      "mtime_ns": 1792433590891865600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\31.json": {
+      "sha256": "9a5967e051ab973db1356d282f83ff8f13182189a4f770303765ca085628c2ad",
+      "bytes": 48609,
+      "mtime_ns": 1792433590892910000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\32.json": {
+      "sha256": "aa46054508496500c749bda12b7e10bb5d0338f73a8f99a688dd03604bc68249",
+      "bytes": 48813,
+      "mtime_ns": 1792433590897720800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\33.json": {
+      "sha256": "ab74d139fb3cb6f17c51fb0c86c022439b2f4c5d64ec59994f6c925a32411078",
+      "bytes": 48781,
+      "mtime_ns": 1792433590898730200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\34.json": {
+      "sha256": "dd1173820d1c8eebce0589dcf016c438b0ca3ddd9d5c531bcaefd08f800307bd",
+      "bytes": 37255,
+      "mtime_ns": 1792433590900442300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\35.json": {
+      "sha256": "dd41d17975cce7c39709504b3eeb52299e634d56b305ebd3b62abbe0c2d31e15",
+      "bytes": 40178,
+      "mtime_ns": 1792433590903946500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\36.json": {
+      "sha256": "5e369b4a2f74545ea15042041a7548d81012972c888dce8ca14b344691a07a40",
+      "bytes": 48786,
+      "mtime_ns": 1792433590903946500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\37.json": {
+      "sha256": "3f5b7c30f79dab0098010db1387188f31233d79f5bec771b31780d4df3cec4a2",
+      "bytes": 48592,
+      "mtime_ns": 1792433590903946500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\38.json": {
+      "sha256": "7cdc4db143117ff062749afbb97dc00e0365ff38a7e5c6c6fb7f99939e2e2827",
+      "bytes": 47474,
+      "mtime_ns": 1792433590909662200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\39.json": {
+      "sha256": "b548a4d720f5b4b5c8ca6296c4ba53e2dca723278e60710fe61f9cdacd8735f5",
+      "bytes": 48662,
+      "mtime_ns": 1792433590909662200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\40.json": {
+      "sha256": "a6f81322fd7f8c2a83489cb0019c9f3a0caeedbe6de27f44e8a6dafae6ca33e4",
+      "bytes": 48928,
+      "mtime_ns": 1792433590911659400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\41.json": {
+      "sha256": "101b6b16dbc1ecb76199986e05eac868f9084cb83f87d0b89baa5d438afa1830",
+      "bytes": 44722,
+      "mtime_ns": 1792433590915355000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\42.json": {
+      "sha256": "56929087e2e037c21351436c2054363d3d3c5cb9e87da87a66385f09fe504b87",
+      "bytes": 48789,
+      "mtime_ns": 1792433590916413500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\43.json": {
+      "sha256": "5f74b434decd48b50ae94dc9ac34692e46f0147496c92e17a69c66ed10a03ebb",
+      "bytes": 48674,
+      "mtime_ns": 1792433590916413500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\44.json": {
+      "sha256": "e349d59dc0ebf7354010bf5e34c8a1e1c0a7ba8990f3062b1aca4ff64246529f",
+      "bytes": 47117,
+      "mtime_ns": 1792433590923125300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\45.json": {
+      "sha256": "de04300c5923837f9a671f79461152414c80de3964fdf2c5f0cfc0e4c118119d",
+      "bytes": 48772,
+      "mtime_ns": 1792433590923125300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\46.json": {
+      "sha256": "010e9a9bfb56c9ddcbc2e9bb02b38437661e54c7a41baf4df0feb87cb8f3a5dc",
+      "bytes": 38531,
+      "mtime_ns": 1792433590925686300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\47.json": {
+      "sha256": "65524bcfdc8127463ced29d7bf1044701d45fb2514b0c0732051b0f5763e7787",
+      "bytes": 48877,
+      "mtime_ns": 1792433590926684300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\48.json": {
+      "sha256": "b7f7592b1cb8db2b977a7af3e4712f91b511fd8a289b0f0bb9a9e0e84bc24499",
+      "bytes": 48778,
+      "mtime_ns": 1792433590943818300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\49.json": {
+      "sha256": "b9f141ddf8048c136c04c397c1cc09f61e08e73e9d8588adfdb5c2f58daf5aac",
+      "bytes": 48678,
+      "mtime_ns": 1792433590949367300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\50.json": {
+      "sha256": "3f94ad25f4c67b5bf9b6b4e611f47abf8c50f339b53251058773819098e8b4f5",
+      "bytes": 41013,
+      "mtime_ns": 1792433590951379500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\51.json": {
+      "sha256": "70ac977751900b5c0da7138573415b973fdce902a30f155104ee045682d7076f",
+      "bytes": 48739,
+      "mtime_ns": 1792433590952383300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\52.json": {
+      "sha256": "74c287fe308800b222dd465057f6e8ddad81fefc2a041a5747944a4cf18c9752",
+      "bytes": 48825,
+      "mtime_ns": 1792433590969901100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\53.json": {
+      "sha256": "8cd89df30a35d61215e8cabd5623f4b385f000236386ab2b05f69855a2866ad6",
+      "bytes": 40802,
+      "mtime_ns": 1792433590972591800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\54.json": {
+      "sha256": "44a51511a691215820da25f677cec7f32b371bc56dddfd4a95cf65c9b925cdd8",
+      "bytes": 48804,
+      "mtime_ns": 1792433590972591800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\55.json": {
+      "sha256": "6d9ed37dee565612bde61bfe2768ccd92bd06a220cc7117e676fce0ea898058a",
+      "bytes": 48794,
+      "mtime_ns": 1792433590972591800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\56.json": {
+      "sha256": "c48e09b8ce5cf0b9dd98e7024dce0f3cb839eec1d15199c0f40690758f77f83c",
+      "bytes": 38225,
+      "mtime_ns": 1792433590986275700
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\57.json": {
+      "sha256": "686a080f5fa638476d1ee2322d60eecb363332ae33ec59978189d2cabd6646e5",
+      "bytes": 48726,
+      "mtime_ns": 1792433590996872200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\58.json": {
+      "sha256": "525545e43d5a31531345c050c3d7e0689f8cf161cb8fec0b341d9177eb4b7154",
+      "bytes": 38742,
+      "mtime_ns": 1792433590998376500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\59.json": {
+      "sha256": "8528283a342e3cf170f34c7f6b0dc9eb8f870bea6828b63310885926f134de0d",
+      "bytes": 48706,
+      "mtime_ns": 1792433590999818500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\60.json": {
+      "sha256": "cc353a862121517540f50b2b8d164a089ab1fdbbb95363e0cdd57f8c378b8fa3",
+      "bytes": 45407,
+      "mtime_ns": 1792433591016232600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\61.json": {
+      "sha256": "95834776ba75558031a0ae98a490e61aaf6599ebfcd465a938c7a1ec79e7e397",
+      "bytes": 48694,
+      "mtime_ns": 1792433591017269000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\62.json": {
+      "sha256": "af0ac2b062a8d9f898d170fb49918d4015bf37ab7cfe44ac0041db8ecbf1ed7a",
+      "bytes": 40821,
+      "mtime_ns": 1792433591019305000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\63.json": {
+      "sha256": "ad1cddaf83c5e5558a878df8b14dea142da9f02b44912a027aa8c5819f49044c",
+      "bytes": 48680,
+      "mtime_ns": 1792433591020359400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\64.json": {
+      "sha256": "8a65dd1a9959a80be8a988a7796276a5981581b73c54597c66e2ac46712d495c",
+      "bytes": 48819,
+      "mtime_ns": 1792433591045360800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\65.json": {
+      "sha256": "4ae917f7ebf0fed8d10b4bdfb23989bcead71954c0ac75b8fcd7477ff2ad3f44",
+      "bytes": 48619,
+      "mtime_ns": 1792433591069884700
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\66.json": {
+      "sha256": "c253b17098756e6ebc830abd871303ed2ce3463d48dceb72bc1491376aee52d3",
+      "bytes": 41384,
+      "mtime_ns": 1792433591069884700
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\67.json": {
+      "sha256": "8a74d7bcd0e4816d851a51423b3fdec2601823e7c200f9f49813a9404e984e86",
+      "bytes": 48627,
+      "mtime_ns": 1792433591075296400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\68.json": {
+      "sha256": "8ca29b91c973163ee58ebfb144e53c17f3908b5e6b042ad2d015eb300d18930c",
+      "bytes": 48658,
+      "mtime_ns": 1792433591110753100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\69.json": {
+      "sha256": "c486ed225af51057988f873dad5650e3ff58568b69cbeb7fe70f9562ec231e91",
+      "bytes": 48801,
+      "mtime_ns": 1792433591110753100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\70.json": {
+      "sha256": "c260d392606c6742a9c21ab73c2c5c8f1204871ae86cbfef334f8912c5115a1d",
+      "bytes": 43750,
+      "mtime_ns": 1792433591114263500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\71.json": {
+      "sha256": "639b04abcbc98e7c818746502ced4466fb21c473dd5f8307b1c01663dc5d6549",
+      "bytes": 42497,
+      "mtime_ns": 1792433591116058100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\72.json": {
+      "sha256": "5c3b5f79e964f52acf862b237a8f703dbb1e59de5ca7cb67c01fa852118cdd28",
+      "bytes": 48747,
+      "mtime_ns": 1792433591151464500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\73.json": {
+      "sha256": "78e7b14656aecd2597f5635919974a3ae58758e0ae19eb122d13bc9b2ebda624",
+      "bytes": 48812,
+      "mtime_ns": 1792433591158584100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\74.json": {
+      "sha256": "08ed51044d2515c15ce385c0fed5b9c7f373040bddbdeb061900d6b1d81f0dd5",
+      "bytes": 38197,
+      "mtime_ns": 1792433591186039900
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\75.json": {
+      "sha256": "e64584e8df291024148a6185ae80ed288eefc1c097bb76763719c019224b8c25",
+      "bytes": 48777,
+      "mtime_ns": 1792433591265366100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\76.json": {
+      "sha256": "9b0c74663b9a524228a7c291adb198c892f47697c40add5affd9076fc471b3db",
+      "bytes": 48809,
+      "mtime_ns": 1792433591282538600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f\\77.json": {
+      "sha256": "eab4eadceeb2193ceb33aebda2b3022a1759832b48761d2e73a01c142cba693b",
+      "bytes": 45449,
+      "mtime_ns": 1792433591283542700
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-ffd2fef8aa9d1d649c\\original.epub": {
+      "sha256": "c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579",
+      "bytes": 1950362,
+      "mtime_ns": 1791207487303300400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\9e69596e3163554655e281c8b50776a47e3c10dd5751e5a5f59abb0ad477a058.jsonl": {
+      "sha256": "3bf97632eb5985f828e9b9c407bad86e2761205f028253c164b0ff031734e9d7",
+      "bytes": 2593291,
+      "mtime_ns": 1791213746541542900
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-ready-text-edition-l06-calvin-01\\calcom01.xml": {
+      "sha256": "4b700a5aa4f799f9363cc232cde85409a4f2ff58ebba6c82d9c4830ba83c7b33",
+      "bytes": 1760992,
+      "mtime_ns": 1791203784075457600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\manifest.json": {
+      "sha256": "282cf2311eabc266037471fb2ec4905932bc4eccce93d142a5040f364c84895e",
+      "bytes": 127,
+      "mtime_ns": 1792433593410482800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\0.json": {
+      "sha256": "3cfe876ecd22b2951a52e5b6a87aec4830732509642f4b262c4973e9bc7248b7",
+      "bytes": 37976,
+      "mtime_ns": 1792433593142053000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\1.json": {
+      "sha256": "674cf67a1a9aee31e964aa8947471c6046b2d62213f73b2163b7160879623ddb",
+      "bytes": 46038,
+      "mtime_ns": 1792433593154280300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\2.json": {
+      "sha256": "7a867c3af91afb1e5dbcd5dd05c00082a27cc8541b243f5ed993726be4415efc",
+      "bytes": 45035,
+      "mtime_ns": 1792433593198417400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\3.json": {
+      "sha256": "aec0a1646329a42242c395f0be6417e5fdd51c1d21c04dad8f60436c157c1d6f",
+      "bytes": 41277,
+      "mtime_ns": 1792433593221258300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\4.json": {
+      "sha256": "d0250267298ce6d76f074041a620e80b3e4bc29c436655e7da275ece6818d517",
+      "bytes": 45263,
+      "mtime_ns": 1792433593238439500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\5.json": {
+      "sha256": "1059acfc9cb5b41087a399e9bdb152c0b23a8a97d2c074aeec21b761b0f90362",
+      "bytes": 45517,
+      "mtime_ns": 1792433593240399800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\6.json": {
+      "sha256": "e803d9d1642771a319ea2154c80ca4002d8d00412fa4f0510fac7caa3f03caa5",
+      "bytes": 42851,
+      "mtime_ns": 1792433593241411700
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\7.json": {
+      "sha256": "a4b3e7e6f6cc1a43a5ad276f4e3ebfb4ae726ff991b0a016fc298449714150ae",
+      "bytes": 42436,
+      "mtime_ns": 1792433593242439100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\8.json": {
+      "sha256": "df007253891a511595dcec6fa956c80751526e4aa8375933a6d316f06d25147c",
+      "bytes": 46489,
+      "mtime_ns": 1792433593245607500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\9.json": {
+      "sha256": "b71f4ffbd2305e9bf27a6763ebf2f3abd798fdee46a2d2bb548d3cbb7105f8c2",
+      "bytes": 47848,
+      "mtime_ns": 1792433593245607500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\10.json": {
+      "sha256": "1e003677b77609c97198613a2aa9e0fd5b907a0fc4e7f21697d03ddb5f98174d",
+      "bytes": 41253,
+      "mtime_ns": 1792433593248246400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\11.json": {
+      "sha256": "b9a97338b05d9316ffa721cf8bd65fb8b9f4bebf9b5e386538185a65522225c0",
+      "bytes": 48157,
+      "mtime_ns": 1792433593249209400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\12.json": {
+      "sha256": "390d2eed4b80da101fc739b5fc1a757e6913da7c64bda415818ba7adb46613fe",
+      "bytes": 40973,
+      "mtime_ns": 1792433593249209400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\13.json": {
+      "sha256": "3120ca4cb1c9ea439e7b39420974b71b5af7a8085abb132471397fce6931c5b3",
+      "bytes": 47624,
+      "mtime_ns": 1792433593255405100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\14.json": {
+      "sha256": "9d7a5871091686a96847d1d7574c1b0d2b6bc6872b6d59a4d2a6ea69e7d76209",
+      "bytes": 42655,
+      "mtime_ns": 1792433593256459900
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\15.json": {
+      "sha256": "e9954af7be49cadbc32ff145f408b8d85c4ef83672be86b89113389589911e7c",
+      "bytes": 40898,
+      "mtime_ns": 1792433593257760300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\16.json": {
+      "sha256": "f00e97e4487ad6821f97235cd7b531461653fff4539c6eddd6313d88fca709c7",
+      "bytes": 44197,
+      "mtime_ns": 1792433593260090900
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\17.json": {
+      "sha256": "ff2448dea1892f3be21863876bb8e3a8396c7b1d1cc6adeafb00a70011c80dab",
+      "bytes": 42176,
+      "mtime_ns": 1792433593261778800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\18.json": {
+      "sha256": "bed61da0b69113412c0c1ecf7e605e5c701c557b43b755e4fa7f684a6ccc80b8",
+      "bytes": 47108,
+      "mtime_ns": 1792433593264846900
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\19.json": {
+      "sha256": "dc5c6568e07287745b1e6b24af9ab358222ead469c696b591367cde9c51c5d12",
+      "bytes": 43191,
+      "mtime_ns": 1792433593265734300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\20.json": {
+      "sha256": "2f7a441b50c65ca951e01f48a5f284eaee31e0006b701839908d4a7d9cfea7e1",
+      "bytes": 43848,
+      "mtime_ns": 1792433593267527300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\21.json": {
+      "sha256": "960cb13c2850d2e5bf0df8340eac3446a84130504b9e217bc404ba899b7525f6",
+      "bytes": 38161,
+      "mtime_ns": 1792433593267527300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\22.json": {
+      "sha256": "aa968403670500d38b6abf789dd0ba4e98b92f4479b8a59cf0aec6e26a627ff0",
+      "bytes": 40331,
+      "mtime_ns": 1792433593274103100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\23.json": {
+      "sha256": "ff8c0681ea788dcb6e242dbefb54ccde8dcbfa129d52a3479e03f8aec38d18a4",
+      "bytes": 40801,
+      "mtime_ns": 1792433593274621600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\24.json": {
+      "sha256": "c10718644508ad31d507cb597c688da2d5e03759a6f2ae16b7918172b6364465",
+      "bytes": 48729,
+      "mtime_ns": 1792433593276128600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\25.json": {
+      "sha256": "a466920b498526160787cb8776ad51dd976d6269e463e06b9f0253396e3a7eba",
+      "bytes": 38222,
+      "mtime_ns": 1792433593276128600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\26.json": {
+      "sha256": "7cff1dc24ca259fe354c11fe36c6a81c9f3a2f643951b4a7b35734a7454c298c",
+      "bytes": 47361,
+      "mtime_ns": 1792433593281625000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\27.json": {
+      "sha256": "4286728d1d95e7ccb8a8974b32e7ea4633a19db75ae6345d6a7193f95d846dbf",
+      "bytes": 42145,
+      "mtime_ns": 1792433593282733200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\28.json": {
+      "sha256": "23531dbb667f109a334ed24200e5a95ebe1aa9341bb80533ff8167419595fc8b",
+      "bytes": 48248,
+      "mtime_ns": 1792433593285195600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\29.json": {
+      "sha256": "1973ccb194ac70119d9b04f871fcbaf50d93f9597aefc7e611ff7404e97b25d6",
+      "bytes": 46587,
+      "mtime_ns": 1792433593286196700
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\30.json": {
+      "sha256": "fe84a5964ca26ff372fb2a8f4da260914009e7404e386cc11e1ca2fd18f77f70",
+      "bytes": 38060,
+      "mtime_ns": 1792433593287628300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\31.json": {
+      "sha256": "6b3515efa0f68264cbe92e5a18802932c18009dc029fa962c5ff46a5f05fb292",
+      "bytes": 45029,
+      "mtime_ns": 1792433593288629100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\32.json": {
+      "sha256": "78f3aa6c2024b104761c922a310d9462ffd509718fdb8b26110b4c71c6d1173c",
+      "bytes": 45726,
+      "mtime_ns": 1792433593300483300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\33.json": {
+      "sha256": "266f7e4ff1095e07c435922afcf09c75690e4ad8a5f34020190c6391cbb115bb",
+      "bytes": 45918,
+      "mtime_ns": 1792433593301526700
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\34.json": {
+      "sha256": "abcdd0e5229c2b86a9251e921e62ca6fc6664c3f6174f9fb258c8e38d1b3268f",
+      "bytes": 43511,
+      "mtime_ns": 1792433593302696800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\35.json": {
+      "sha256": "eb04addb8edbf5ead4296895e26739dd8b444320aff25769d56afbf9812e475e",
+      "bytes": 39434,
+      "mtime_ns": 1792433593303700200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\36.json": {
+      "sha256": "d54fd1eb8214d2c9eab0b6a74935101b24bf89d06a0381fde487fc0447ad681f",
+      "bytes": 45669,
+      "mtime_ns": 1792433593316270200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\37.json": {
+      "sha256": "210ba65f06d83a298ec1fdf4f769dea6d9857208ed89f1586a76de46404847e4",
+      "bytes": 41451,
+      "mtime_ns": 1792433593321397000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\38.json": {
+      "sha256": "ec7d7fef6cfb5443d1e7b2540a031267267fd31d74e819553b12c31fec3b74e2",
+      "bytes": 48149,
+      "mtime_ns": 1792433593322401300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\39.json": {
+      "sha256": "e8e68fe2a037dbc17066decf6c10769c38cd5aa49eede2192c5de2af9772523f",
+      "bytes": 39316,
+      "mtime_ns": 1792433593323447000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\40.json": {
+      "sha256": "56a5b9e50fe307b882929953afb04034f4cff1852d440f81f179cbfd71ccee21",
+      "bytes": 48196,
+      "mtime_ns": 1792433593339464000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\41.json": {
+      "sha256": "f3eb10243c3aae4c9e17c97941803b4e1038a14acae650dc710c5ee35326aee4",
+      "bytes": 38912,
+      "mtime_ns": 1792433593340806100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\42.json": {
+      "sha256": "ec62be95bdea0873d3ff4abc90d0083280ed5a916160a141e87b5fce6fd515a4",
+      "bytes": 42833,
+      "mtime_ns": 1792433593342009000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\43.json": {
+      "sha256": "6dee42362fa67f6eab68e09e8e8c21489d4955a60741194f6add3cb145c2e0ed",
+      "bytes": 43065,
+      "mtime_ns": 1792433593343144700
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\44.json": {
+      "sha256": "f5612e6b98e079a9c70978536474e24c59e36f42884783188a5fd825143213c0",
+      "bytes": 42843,
+      "mtime_ns": 1792433593354630200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\45.json": {
+      "sha256": "cdd0a7ddd3787435634120a95ba7bae42fc0d84320ab02ea52d868d1f32397ec",
+      "bytes": 37655,
+      "mtime_ns": 1792433593355684500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\46.json": {
+      "sha256": "a56b0c31de3b77169fe798c749c88293f51b7431fb619054b3b1cf6c6a513440",
+      "bytes": 48372,
+      "mtime_ns": 1792433593356938600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\47.json": {
+      "sha256": "c7e6c4cdefb5bdc19f281ef7fcc838982a6516d0e864435a932a495e170cd0bf",
+      "bytes": 37622,
+      "mtime_ns": 1792433593356938600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\48.json": {
+      "sha256": "10473273253368e34e1eec120388de45c389539f78eb34c9ce77e8519ec2d44b",
+      "bytes": 49006,
+      "mtime_ns": 1792433593368562500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\49.json": {
+      "sha256": "e5efb7034aed1870afa17ef1d94feb4056dc2c293047647316b1041a15b570a9",
+      "bytes": 42300,
+      "mtime_ns": 1792433593368562500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\50.json": {
+      "sha256": "7a446e118cbb6f5839e2c3f3adf825f8ca54f9f2bfd87471e3ee0f06d27f647e",
+      "bytes": 41468,
+      "mtime_ns": 1792433593377453300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\51.json": {
+      "sha256": "f9458cafe036a74e8510a0cd8bdaa83a12927604e05adb86544db452ed54e6d0",
+      "bytes": 45874,
+      "mtime_ns": 1792433593378962400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\52.json": {
+      "sha256": "c82748bffb80e0c9f48bdffe355e0208f2dac41145ea049387277317f9d1631b",
+      "bytes": 40331,
+      "mtime_ns": 1792433593388278800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\53.json": {
+      "sha256": "f983ca357b1ce494174dc839d042dfef1c4892ad46384dc0654fc3e0c96a4f24",
+      "bytes": 42755,
+      "mtime_ns": 1792433593389283100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\54.json": {
+      "sha256": "1b9261e08c0ee7eb273db9230f52478f7b53e70d9c1751cbc8d0d78c9a689dfd",
+      "bytes": 45140,
+      "mtime_ns": 1792433593390723500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\55.json": {
+      "sha256": "159e29b8535c15066329bd31156996b045d7663c6a263c7b262947d57e15cbd4",
+      "bytes": 42207,
+      "mtime_ns": 1792433593391728200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\56.json": {
+      "sha256": "13676c339040a63304a28ffd02d7fd3da2572d03ee6aa301a717bfd4ab62728b",
+      "bytes": 41384,
+      "mtime_ns": 1792433593403059100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\57.json": {
+      "sha256": "146e93c1bc2735ccfd4b71f337d509acb6b9172e08c04f4f205c0c111fd2a47d",
+      "bytes": 39945,
+      "mtime_ns": 1792433593404095000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\58.json": {
+      "sha256": "e4bd2a0e37d814541e80b0b66391fc52968532e4ce07b318c01ff2491d7dac2f",
+      "bytes": 46355,
+      "mtime_ns": 1792433593405126900
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579\\59.json": {
+      "sha256": "d601809f37c2dfb1bdc8e30df101b91a29fdcb95cbb36505dca9b103587810ea",
+      "bytes": 41651,
+      "mtime_ns": 1792433593406133800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-ready-text-edition-l06-calvin-39\\calcom39.xml": {
+      "sha256": "176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012",
+      "bytes": 1767435,
+      "mtime_ns": 1791203752745376300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\a7bf643ad9ed8fb2cbe03a7988b660d207d3c959ed40d0f03334d121c5ff7280.jsonl": {
+      "sha256": "ebc7896541a5423595f99ab68d7c3ed646a18c2fecf0526ac0ac7e25b30a88b4",
+      "bytes": 1273962,
+      "mtime_ns": 1791212600007752000
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\manifest.json": {
+      "sha256": "575a2211ff08e30c579af9f2fc7340b861990667a80a56d1610d2431a3e661e2",
+      "bytes": 127,
+      "mtime_ns": 1792433592727856400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\0.json": {
+      "sha256": "e90c6b22aaf77ac65319a8cef6ee090cd0d88e40a19910ae3a00ad4bc4a6d54a",
+      "bytes": 49844,
+      "mtime_ns": 1792433592698240700
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\1.json": {
+      "sha256": "f500debb163fd5d708451fa13d3fbdddfc6668f8b4a29efeb0e5a7fac23b3089",
+      "bytes": 49682,
+      "mtime_ns": 1792433592699785900
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\2.json": {
+      "sha256": "55c18030f13b426bb56bceca473aac2c56c0ddea1fd3680b5ab6c970f704645a",
+      "bytes": 50558,
+      "mtime_ns": 1792433592701174200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\3.json": {
+      "sha256": "2fb02063e3d5ad3a0e0cafb9345f24f34da996ca4f640e06a0b8743cc0d95fe5",
+      "bytes": 50616,
+      "mtime_ns": 1792433592702284900
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\4.json": {
+      "sha256": "3027ac42f2fba862719247b0bdec3c97ff71f5a0a879d4ee90d1fbbdfa33a09b",
+      "bytes": 50536,
+      "mtime_ns": 1792433592703296200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\5.json": {
+      "sha256": "de51cd9692dc96cbd11aa1a222cbd0ac07592ad4158447b04ec1ffa6aaccef57",
+      "bytes": 51066,
+      "mtime_ns": 1792433592703296200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\6.json": {
+      "sha256": "b87151ad6de8e16c3c7955f31ab73ee8b04c2b659771b7f961ef79f815eed08e",
+      "bytes": 50994,
+      "mtime_ns": 1792433592705115400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\7.json": {
+      "sha256": "b33025bed2e82e4c425066fc202efd4d82ddbb280e5d5f4a67ea167547c1c615",
+      "bytes": 51070,
+      "mtime_ns": 1792433592708109200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\8.json": {
+      "sha256": "ad798a5ab9823abe60f95e2464925aa7d7d70b2dfd72553e03806dabf2e33d4b",
+      "bytes": 50658,
+      "mtime_ns": 1792433592709171100
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\9.json": {
+      "sha256": "e399d142a51350a37ddd97b431391ca327254566cbf1142e6c6644798f77da5a",
+      "bytes": 51193,
+      "mtime_ns": 1792433592710182400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\10.json": {
+      "sha256": "56d522bd8e63dcecfd88045dc075f8589d8890879aea2d884e7f0257135026ed",
+      "bytes": 50735,
+      "mtime_ns": 1792433592710182400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\11.json": {
+      "sha256": "970c2e97edb550231bc81c5d492e51cf02e2ac1ce40560ee1da1b115f7ace9b8",
+      "bytes": 50593,
+      "mtime_ns": 1792433592711609800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\12.json": {
+      "sha256": "1c3b7584a8b9a77b45adc605530a98d1ec9864ece510a7341fe79032deab3c70",
+      "bytes": 50955,
+      "mtime_ns": 1792433592711609800
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\13.json": {
+      "sha256": "04f8942097b224ae8c300b7508ae3b668b55c7c5476f405d47a45338befdf1d7",
+      "bytes": 50964,
+      "mtime_ns": 1792433592714077300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\14.json": {
+      "sha256": "55814df884a472ba8cf9c5457669102b11b4084cf3d29b5c52e444f05f7aa9d8",
+      "bytes": 50402,
+      "mtime_ns": 1792433592715875700
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\15.json": {
+      "sha256": "796b24af5acdf1bd0845df8e3f1f6528f248c68b438b5b7dd784ebfbcdb5d203",
+      "bytes": 51160,
+      "mtime_ns": 1792433592717060900
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\16.json": {
+      "sha256": "392d389bc14db56730f92a8805adebf9b0d9ad1aa3b49cf9cdc04c369c4b8484",
+      "bytes": 51503,
+      "mtime_ns": 1792433592718220300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\17.json": {
+      "sha256": "445eb9ae149e6a79ef8c2dfdb9943ca1ab9140bec2e15e5b204ffbb48aa2248f",
+      "bytes": 51188,
+      "mtime_ns": 1792433592719231300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\18.json": {
+      "sha256": "d6870a62bde9e88b59bc4310967daffb3d02e96318f7aa3eed3c0cdc205815dc",
+      "bytes": 50876,
+      "mtime_ns": 1792433592720239900
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\19.json": {
+      "sha256": "07d093cc5dfe2923ff931412fb32040efd81a88d1212b70551a9aba9c7a68d54",
+      "bytes": 51230,
+      "mtime_ns": 1792433592721260300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\20.json": {
+      "sha256": "6fbad65f3a2e08acdca9176af8f6caf8c9fb3135d1cc4ba3122eaddd08268702",
+      "bytes": 51546,
+      "mtime_ns": 1792433592722280400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\21.json": {
+      "sha256": "10962ffca8ad79c6641d1098556135206c1b7c65352e9c05e197dbbce64c11c5",
+      "bytes": 51258,
+      "mtime_ns": 1792433592722280400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\22.json": {
+      "sha256": "bcc406cdb98ef24937688b49f9d6a93ddca799a0bcfa5c8db513c78c0df50d16",
+      "bytes": 50880,
+      "mtime_ns": 1792433592724143200
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\23.json": {
+      "sha256": "8c1eb6159fb4ec3eadd68d9326d8d3db7f9a77d45927fb7c96fadea41930715c",
+      "bytes": 55070,
+      "mtime_ns": 1792433592725356500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\local-library\\pages\\176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012\\24.json": {
+      "sha256": "a7943155f6cdb71fb4b8d5cc44db3fb261f3eab40b0e166be6271e3e5bfaf033",
+      "bytes": 53394,
+      "mtime_ns": 1792433592726852400
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\knowledge\\library_analytics\\section_contract.py": {
+      "sha256": "7325f46fc1994617e9d0e7021d0ac80de2749f9a1f1e76f36ebef67eb8303a9f",
+      "bytes": 13460,
+      "mtime_ns": 1791932123261157500
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\knowledge\\library_analytics\\inputs.py": {
+      "sha256": "a596ceb77fd041b2dc401846c1a17c549bc291e561cc90e16dd5d9d8dbb77f99",
+      "bytes": 12376,
+      "mtime_ns": 1791825842457564600
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\scripts\\local_library.py": {
+      "sha256": "b4bd184d2f652b9ed4705eeecb1962ac2fee6b8ea43a00a6792a69e468f75062",
+      "bytes": 22864,
+      "mtime_ns": 1792414398278995300
+    },
+    "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\initiatives\\library-knowledge\\distillation\\context-review-2026-10-19\\inspect-context.py": {
+      "sha256": "1227a12ae2973e02091d1d56bb8192c0adefa32a3bd5ecd0bffa539f018e9a6e",
+      "bytes": 10723,
+      "mtime_ns": 1792435302247084300
+    }
+  },
+  "input_bytes": 24714022,
+  "changed_input_stats": []
+}

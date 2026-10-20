@@ -1,0 +1,56 @@
+/* Direction C, "Convictions" (convictions.js). */
+.cv { max-width: 80rem; margin: 0 auto; padding: 0 1rem 4rem; }
+@media (min-width: 640px) { .cv { padding-inline: 1.5rem; } }
+.cv-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.cv h1, .cv h2 { font: 500 clamp(36px, 4.4vw, 56px)/1.04 var(--serif); letter-spacing: -.035em; margin-top: 12px; }
+.cv h1 em, .cv h2 em { display: block; font-style: italic; color: var(--accent); }
+.cv-accent { color: var(--accent); } .cv-faint { color: var(--muted); opacity: .5; } .cv-paper { fill: var(--surface); } .cv-dot { fill: var(--accent); stroke: none; }
+
+.cv-contact { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); gap: 56px; align-items: start; padding: 34px 0 40px; border-bottom: 1px solid var(--line); }
+.cv-lead { margin-top: 16px; max-width: 30rem; color: var(--muted); line-height: 1.7; }
+
+.cv-why { padding-top: 48px; }
+.cv-why-head { display: block; }
+.cv-list { list-style: none; margin: 34px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.cv-list li { position: relative; overflow: hidden; display: flex; flex-direction: column; padding: 28px 26px 26px; transition: background .3s; }
+.cv-list li + li { border-left: 1px solid var(--line); }
+.cv-list li:hover { background: color-mix(in srgb, var(--accent) 5%, transparent); }
+.cv-numeral { position: absolute; right: 10px; top: -18px; font: 500 150px/1 var(--serif); color: color-mix(in srgb, var(--accent) 9%, transparent); pointer-events: none; transition: color .3s; }
+.cv-list li:hover .cv-numeral { color: color-mix(in srgb, var(--accent) 16%, transparent); }
+.cv-art { position: relative; width: 120px; color: var(--accent); }
+.cv-art svg { width: 100%; display: block; overflow: visible; }
+.cv-list h3 { position: relative; margin-top: 18px; font: 500 25px/1.15 var(--serif); letter-spacing: -.02em; }
+.cv-list p { position: relative; margin-top: 10px; color: var(--muted); line-height: 1.7; flex: 1; }
+.cv-list blockquote { position: relative; margin: 22px 0 0; padding-top: 14px; border-top: 1px solid var(--line); font: italic 16px/1.45 var(--serif); }
+.cv-list cite { display: block; margin-top: 6px; font: normal 10px var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+
+.cv-founder { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 48px; align-items: center; margin-top: 64px; padding: 44px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.cv-mark { width: 180px; color: var(--accent); }
+.cv-mark svg { width: 100%; display: block; }
+.cv-mono { fill: currentColor; stroke: none; font: 500 30px var(--serif); letter-spacing: .12em; }
+.cv-founder h2 { font-size: clamp(32px, 4vw, 50px); }
+.cv-founder-line { margin-top: 14px; max-width: 46rem; font: 18px/1.7 var(--serif); color: var(--muted); }
+.cv-bar { display: grid; grid-template-columns: repeat(5, auto); justify-content: start; margin: 26px 0 0; }
+.cv-bar > div { padding: 2px 26px 2px 0; } .cv-bar > div + div { padding-left: 26px; border-left: 1px solid var(--line); }
+.cv-bar dt { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.cv-bar dd { margin: 4px 0 0; font: 17px var(--serif); }
+.cv-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.cv-links a { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; font-weight: 600; transition: border-color .2s, color .2s; }
+.cv-links a:hover { border-color: var(--accent); color: var(--accent); }
+
+@media (max-width: 1100px) {
+  .cv-list { grid-template-columns: 1fr 1fr; }
+  .cv-list li:nth-child(3) { border-left: 0; }
+  .cv-list li:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .cv-bar { grid-template-columns: repeat(3, auto); row-gap: 14px; }
+  .cv-bar > div:nth-child(4) { border-left: 0; padding-left: 0; }
+}
+@media (max-width: 760px) {
+  .cv-contact { grid-template-columns: 1fr; gap: 24px; }
+  .cv-list { grid-template-columns: 1fr; }
+  .cv-list li + li { border-left: 0; border-top: 1px solid var(--line); }
+  .cv-founder { grid-template-columns: 1fr; gap: 22px; }
+  .cv-mark { width: 120px; }
+  .cv-bar { grid-template-columns: 1fr 1fr; }
+  .cv-bar > div, .cv-bar > div + div { padding: 0; border-left: 0; }
+}

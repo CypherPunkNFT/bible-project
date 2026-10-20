@@ -1,0 +1,510 @@
+{
+  "captured_at": "2026-10-19T18:15:25.574Z",
+  "scope": "Read-only selected-source audit and ordinary reader cache preparation",
+  "curation": {
+    "at": "2026-10-19T18:15:25.574Z",
+    "catalogue_sha256": "31bab5204f918d804ca9b3b0bec7e4d3d93fc123e7d9a348afea038b134072d0",
+    "all21_proposals_unchanged": true,
+    "counts": {
+      "approved": 0,
+      "discovered": 0,
+      "integrated": 0,
+      "needs_work": 0,
+      "pending": 21,
+      "rejected": 0,
+      "stale": 0
+    },
+    "sequence": 41,
+    "source_mapping_count": 273,
+    "needsSync": false,
+    "needsExport": false,
+    "items": [
+      {
+        "id": "ephesians-guide",
+        "fingerprint": "8e8f1efc2e288fbfafc7c09e665f15b786e16b04caf4969cca96eed7cbf37901",
+        "revision": 1,
+        "status": "pending"
+      },
+      {
+        "id": "unity",
+        "fingerprint": "da4c6d17ea26bd23a1b23d7a7960baa2fc3703bd4cca3c537e40a515bc94a5c5",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "supper",
+        "fingerprint": "7f7733d0162cf9f8fc007e9ad5d070482eb864f5b5208230c9205c07a496b9a9",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "grief",
+        "fingerprint": "1bf3010dc008e930068c46890198844c10a6bb69b3d06d3d7609ada436c1a49c",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "dryness",
+        "fingerprint": "ba5f6ac2d22d75edf51c0e7d1a07662fa7d58c693c2b8ffffae9cf1aa64deb7b",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "forgiveness",
+        "fingerprint": "a33e28aa4ffa699bde6739ba66454b8ebe73b372e13c11b0cc258bd935395898",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "temptation",
+        "fingerprint": "c7da1540d9fac39fc06ac8880a5ea883308d48847e7ac38d577aa291e6e6a4f3",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "justification",
+        "fingerprint": "7ef4edb4c6cf5bafcdf941ab8055d551b6aec813c809f40aba3de1010407a08a",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "perseverance",
+        "fingerprint": "fb12ddb494eaec595fe9d66b060f1d0ce2ee47a3eb5e50e7c0c3a4537bfcec47",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "new-covenant",
+        "fingerprint": "d897b9205ba7c9cb5716eee3e1a3bb250d8627064923ac3dde0dfdb527568a10",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "apostasy",
+        "fingerprint": "e9e8b93640807534b0466ff7db44e6f2a11653d995d04e6dea6adbad8bff52e6",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "repentance",
+        "fingerprint": "d54b9541d1e5706b690f5a684a3ce8f34a21921abc33221f4a52c6971886d580",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "quotation",
+        "fingerprint": "fe7de32cb94666f98d528718c8480690f943e7239e045e9601d0fdfb4874eb12",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "judging",
+        "fingerprint": "11ce7c188dd160c7a4119b3291454f280b712be04336befa98e3579b109ca10f",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "word-effects",
+        "fingerprint": "7783a564a3425f00c0f9215569786a6a44bc8a6004ba2ffe8117ff120dca363a",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "knowing-god",
+        "fingerprint": "376fcebbce5fa8cbf79ae131bde09a97c1f0ae17e4240489cbf0b8800d08c448",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "confession-1644",
+        "fingerprint": "d40655207a89f8d65a38a47d852b073ad3b5d4713215bed3dbe9b67020359b5a",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "boyce-profile",
+        "fingerprint": "159abc55287a440b9526a4cdeae5ca40f9a98912196bfd034fa566c3ded872b9",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "caritas",
+        "fingerprint": "fc523d3146814e3c382ee687e45acd0cbf7bc0c20040d4be5b7d82fd3cd227ea",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "editor-voice",
+        "fingerprint": "2460c6c977cd470ffdb1553a107a3bab084d7f8183272cd86f4e1c9ccd9d6102",
+        "revision": 2,
+        "status": "pending"
+      },
+      {
+        "id": "father-gloss",
+        "fingerprint": "dd2041bb4170a6ea48c921c2c88acb3a119f03e6ccbf9de2832e03217bbc71af",
+        "revision": 2,
+        "status": "pending"
+      }
+    ]
+  },
+  "scan_control": {
+    "original": {
+      "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l07-aa-hodge-pdf\\outlinesoftheolo00hodguoft.pdf",
+      "sha256": "ef1341f8441e72db4a5d370a5b80f098bed505248fe99023ebf15e1bf99b22db",
+      "matches_recorded": true,
+      "bytes": 26964899,
+      "unchanged_during_read": true
+    },
+    "extraction": {
+      "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\7e2cf31d325578f22385d4ec2e58a123afded225fe3f31811a32bc6cf6ea35ac.jsonl",
+      "sha256": "0f2bdf735f376c815504b4952f98a012271ec2a4360bb1342f0b56bcd9582243",
+      "matches_recorded": true,
+      "bytes": 1482337,
+      "unchanged_during_read": true
+    }
+  },
+  "runtime": {
+    "receipts": {
+      "intake-completion.json": {
+        "sha256": "5cedd120713c30bef44ea5289822eb32c6ce6dbec5ffe7cc41f78b99630bcbc7",
+        "receipt": {
+          "state": "building",
+          "pid": 86792,
+          "process_created": 1792429292.5313587,
+          "started_at": "2026-10-19T17:01:33.104131+00:00",
+          "updated_at": "2026-10-19T18:14:43.042219+00:00",
+          "launcher": "native-python",
+          "run_id": "native-20261019T170133-86792",
+          "run_directory": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\native-intake\\native-20261019T170133-86792",
+          "enrichment_started": false,
+          "child_pid": 61492
+        }
+      },
+      "embedding-progress.json": {
+        "sha256": "099485abcb6484885af5c756527d7517924fdb44ebb098028aa323b5b956e728",
+        "receipt": {
+          "state": "complete",
+          "total": 11579535,
+          "indexed": 11579535,
+          "remaining": 0,
+          "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+          "updated_at": "2026-10-19T04:36:36.644342+00:00",
+          "seconds": 7115.5
+        }
+      },
+      "verification.json": {
+        "sha256": "500035b161ef9f7b837a273317f5071c2712fa92b78e06b7976b2600f8f46cb5",
+        "receipt": {
+          "sqlite_integrity": "ok",
+          "foreign_key_errors": 0,
+          "embedding_identity_matches": true,
+          "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+          "embedding_job_complete": true,
+          "chunks": 11579535,
+          "vectors": 11579535,
+          "missing_vectors": 0,
+          "stale_vectors": 0,
+          "verse_count": 1027939,
+          "duplicate_vectors": 0,
+          "new_source_files_since_snapshot": 13,
+          "changed_source_inputs_since_snapshot": 2,
+          "missing_source_inputs_since_snapshot": 0,
+          "missing_source_input_paths": [],
+          "source_files_hash_checked": 301737,
+          "reference_library": {
+            "records_by_file": {
+              "ccel/hitchcock-bible-names.xml": 2623,
+              "ccel/smith-bibledict.xml": 4561,
+              "gutenberg/josephus-antiquities-2848.txt": 1,
+              "gutenberg/josephus-apion-2849.txt": 1,
+              "gutenberg/josephus-life-2846.txt": 1,
+              "gutenberg/josephus-wars-2850.txt": 1,
+              "archive-org/fausset-bible-encyclopedia-1900.txt": 1,
+              "archive-org/thayer-lexicon-1889.txt": 1,
+              "crosswire/ISBE/modules/lexdict/zld/isbe/isbe.zdt": 9380,
+              "openscriptures/strongs/strongs-master/hebrew/StrongHebrewG.xml": 8674,
+              "openscriptures/strongs/strongs-master/greek/StrongsGreekDictionaryXML_1.4/strongsgreek.xml": 5624,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/BrownDriverBriggs.xml": 11845,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/HebrewStrong.xml": 8674,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/LexicalIndex.xml": 10221,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/AugIndex.xml": 9299,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/BDBPartsOfSpeech.xml": 135,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/PartsOfSpeech.xml": 52,
+              "openbible-topics/topic-scores.txt": 6713,
+              "theographic/theographic-bible-metadata-master/json/books.json": 66,
+              "theographic/theographic-bible-metadata-master/json/chapters.json": 1189,
+              "theographic/theographic-bible-metadata-master/json/easton.json": 6519,
+              "theographic/theographic-bible-metadata-master/json/events.json": 450,
+              "theographic/theographic-bible-metadata-master/json/people.json": 3067,
+              "theographic/theographic-bible-metadata-master/json/peopleGroups.json": 23,
+              "theographic/theographic-bible-metadata-master/json/places.json": 1274,
+              "theographic/theographic-bible-metadata-master/json/verses.json": 31102,
+              "theographic/theographic-bible-metadata-master/CSV/WordIndex.csv": 31102,
+              "theographic/theographic-bible-metadata-master/geo/pauls_journeys_all.geojson": 112,
+              "theographic/theographic-bible-metadata-master/api/README.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/api-documentation.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/contributing.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/data-source-bibliography.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/json-fields-documentation.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/neo4j-graph-documentation.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/other-data-formats-csv-json-etc.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/querying-with-cypher-and-neo4j.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/README.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/view-and-export-data-with-airtable.md": 1,
+              "theographic/theographic-bible-metadata-master/LICENSE": 1,
+              "theographic/theographic-bible-metadata-master/neo4j/README.md": 1,
+              "theographic/theographic-bible-metadata-master/readme.md": 1,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/HomeFiles/readme.md": 1,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/readme.md": 1,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/sinri/README.md": 1,
+              "openscriptures/strongs/strongs-master/greek/StrongsGreekDictionaryXML_1.4/README.txt": 1,
+              "crosswire/ISBE/mods.d/isbe.conf": 1
+            },
+            "input_files": 49,
+            "records": 152729,
+            "errors": [],
+            "topics": {
+              "topics": 5603,
+              "categories": 55,
+              "bundles": 256
+            }
+          },
+          "new_library_files_since_snapshot": 29,
+          "missing_library_files_since_snapshot": 0,
+          "missing_library_paths": [],
+          "changed_library_ledgers_since_snapshot": 1,
+          "library": {
+            "files": 172530,
+            "statuses": {
+              "indexed": 143520,
+              "deferred_scan": 2,
+              "duplicate": 244,
+              "metadata_or_asset": 28764
+            },
+            "errors": 0,
+            "missing_catalog_files": 0
+          },
+          "complete": true,
+          "enrichment_ready": false,
+          "verified_at": "2026-10-19T06:47:18.420713+00:00"
+        }
+      },
+      "embedding-model.json": {
+        "sha256": "9e257310b3cbf2591851c40c6d89178a2f087f716e534a44ca046712489628ad",
+        "receipt": {
+          "model": "Qwen/Qwen3-Embedding-4B",
+          "revision": "5cf2132abc99cad020ac570b19d031efec650f2b",
+          "dimensions": 2560,
+          "max_tokens": 4096
+        }
+      },
+      "native-supervisor/status.json": {
+        "sha256": "8078a71d8d18d1d7b7c4be8427ec740435d1ab55f6791f97b6ce05c466502e4b",
+        "receipt": {
+          "pid": 77368,
+          "updated_at": "2026-10-19T18:14:04.214406+00:00",
+          "enabled": true,
+          "observation": "busy",
+          "mode": "verification_only",
+          "run_id": "embedding-only-20261014T134809Z",
+          "authorized_corpus_build": "2026-10-13T23:47:33.488164+00:00",
+          "reason": "Build or verification owns the corpus; automatic interruption is prohibited",
+          "processes": [
+            {
+              "pid": 9400,
+              "created": 1792429480.4667318,
+              "parent": 61492,
+              "role": "build"
+            },
+            {
+              "pid": 19316,
+              "created": 1792429292.5182967,
+              "parent": 34120,
+              "role": "owner"
+            },
+            {
+              "pid": 61492,
+              "created": 1792429480.4553585,
+              "parent": 86792,
+              "role": "build"
+            },
+            {
+              "pid": 86792,
+              "created": 1792429292.5313587,
+              "parent": 19316,
+              "role": "owner"
+            }
+          ],
+          "uninspected_python_pids": [],
+          "attempts": 3,
+          "max_attempts": 3,
+          "interval_seconds": 60,
+          "heartbeat_timeout_seconds": 120,
+          "progress_timeout_seconds": 1800,
+          "recovery_test_verified": true,
+          "verification_request": {
+            "state": "activated",
+            "requested_at": "2026-10-14T14:11:41.113070+00:00",
+            "run_id": "embedding-only-20261014T134809Z",
+            "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+            "scope": "verification_and_late_acquisitions_only",
+            "graph_authorized": false,
+            "mining_authorized": false,
+            "activated_at": "2026-10-18T13:45:02.713267+00:00"
+          },
+          "encoder": null,
+          "console_window": false,
+          "state": "busy"
+        }
+      },
+      "native-supervisor/control.json": {
+        "sha256": "9578558554934365e493fa12dc9c65b52482ea10f621d0b85cae678329f0bdb3",
+        "receipt": {
+          "enabled": true,
+          "mode": "verification_only",
+          "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+          "run_id": "embedding-only-20261014T134809Z",
+          "reason": "Owner authorized windowless embedding watchdog and encoder/worker automatic recovery",
+          "verification_request": {
+            "state": "activated",
+            "requested_at": "2026-10-14T14:11:41.113070+00:00",
+            "run_id": "embedding-only-20261014T134809Z",
+            "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+            "scope": "verification_and_late_acquisitions_only",
+            "graph_authorized": false,
+            "mining_authorized": false,
+            "activated_at": "2026-10-18T13:45:02.713267+00:00"
+          },
+          "disabled_at": "2026-10-14T17:38:38.088997+00:00",
+          "encoder_recovery": true,
+          "recovery_epoch": "armed-1792037288325381500",
+          "armed_at": "2026-10-15T04:08:08.328456+00:00"
+        }
+      },
+      "native-supervisor/recovery.json": {
+        "sha256": "1efce7b34a2126649a0ff11f2b1011b00f111a387a458006aa0952499009ae90",
+        "receipt": {
+          "attempts": 3,
+          "recovery_epoch": "armed-1792037288325381500",
+          "reason": "Completion owner and embedding worker are absent",
+          "previous_ledger": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\native-supervisor\\armed-1792037288325381500\\before.json",
+          "encoder_observation": {
+            "identity": [
+              [
+                42728,
+                1792008556.9416213
+              ],
+              [
+                43516,
+                1792008556.9510565
+              ]
+            ],
+            "failures": 0,
+            "state": "healthy"
+          },
+          "next_attempt_at": 1792378201.5680993,
+          "last_attempt_at": "2026-10-19T02:35:04.000507+00:00",
+          "last_launch": {
+            "pid": 82020,
+            "launched_at": "2026-10-19T02:35:04.067030+00:00",
+            "mode": "resume"
+          }
+        }
+      }
+    },
+    "identity": {
+      "receipt": {
+        "state": "building",
+        "pid": 86792,
+        "process_created": 1792429292.5313587,
+        "started_at": "2026-10-19T17:01:33.104131+00:00",
+        "updated_at": "2026-10-19T18:14:43.042219+00:00",
+        "launcher": "native-python",
+        "run_id": "native-20261019T170133-86792",
+        "run_directory": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\native-intake\\native-20261019T170133-86792",
+        "enrichment_started": false,
+        "child_pid": 61492
+      },
+      "processes": [
+        {
+          "pid": 86792,
+          "created": 1792429292.5313587,
+          "parent": 19316,
+          "cmdline": [
+            "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+            "-u",
+            "-m",
+            "knowledge.finish_intake",
+            "--refresh"
+          ],
+          "cwd": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website"
+        },
+        {
+          "pid": 54492,
+          "created": 1792429292.5403779,
+          "parent": 86792,
+          "cmdline": [
+            "\\??\\C:\\WINDOWS\\system32\\conhost.exe",
+            "0x4"
+          ],
+          "cwd": "C:\\WINDOWS"
+        },
+        {
+          "pid": 61492,
+          "created": 1792429480.4553585,
+          "parent": 86792,
+          "cmdline": [
+            "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+            "-u",
+            "-m",
+            "knowledge",
+            "build"
+          ],
+          "cwd": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website"
+        },
+        {
+          "pid": 9400,
+          "created": 1792429480.4667318,
+          "parent": 61492,
+          "cmdline": [
+            "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+            "-u",
+            "-m",
+            "knowledge",
+            "build"
+          ],
+          "cwd": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website"
+        },
+        {
+          "pid": 21608,
+          "created": 1792429480.4762375,
+          "parent": 9400,
+          "cmdline": [
+            "\\??\\C:\\WINDOWS\\system32\\conhost.exe",
+            "0x4"
+          ],
+          "cwd": "C:\\WINDOWS"
+        }
+      ],
+      "owner_matches_receipt": true
+    },
+    "staging": {
+      "name": "build-9400.sqlite3",
+      "bytes": 59492990976,
+      "modified": "2026-10-19T18:14:48.771Z"
+    },
+    "database_publication_receipt_present": false
+  },
+  "preservation": {
+    "corpus_opened": false,
+    "vectors_or_index_opened": false,
+    "source_text_changes": false,
+    "live_candidate_writes": false,
+    "owner_restart": false,
+    "scheduler_or_retry_changes": false,
+    "deployment": false,
+    "normal_reader_cache_preparations": 5,
+    "control_sha256_unchanged": true,
+    "retry_ledger_sha256_unchanged": true
+  }
+}

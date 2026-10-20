@@ -1,0 +1,2700 @@
+{
+  "started_at": "2026-10-19T04:19:55.879Z",
+  "scope": "Read-only source/representation/reader dependencies of twelve proposed records; no semantic reads or pilot execution",
+  "start": {
+    "processes": [
+      {
+        "pid": 8896,
+        "created": 1792377306.6637633,
+        "matches": true,
+        "cmdline": [
+          "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+          "-u",
+          "-m",
+          "knowledge",
+          "embed"
+        ],
+        "cwd": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website"
+      },
+      {
+        "pid": 58340,
+        "created": 1792377306.6711545,
+        "matches": true,
+        "cmdline": [
+          "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+          "-u",
+          "-m",
+          "knowledge",
+          "embed"
+        ],
+        "cwd": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website"
+      },
+      {
+        "pid": 75348,
+        "created": 1792377304.0699956,
+        "matches": true,
+        "cmdline": [
+          "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+          "-u",
+          "-m",
+          "knowledge.finish_intake",
+          "--resume"
+        ],
+        "cwd": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website"
+      },
+      {
+        "pid": 82020,
+        "created": 1792377304.0609047,
+        "matches": true,
+        "cmdline": [
+          "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe",
+          "-u",
+          "-m",
+          "knowledge.finish_intake",
+          "--resume"
+        ],
+        "cwd": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website"
+      }
+    ],
+    "curation": {
+      "counts": {
+        "pending": 21
+      },
+      "sequence": 41,
+      "mappings": 273,
+      "items": [
+        [
+          "ephesians-guide",
+          "8e8f1efc2e288fbfafc7c09e665f15b786e16b04caf4969cca96eed7cbf37901",
+          1,
+          "pending"
+        ],
+        [
+          "unity",
+          "da4c6d17ea26bd23a1b23d7a7960baa2fc3703bd4cca3c537e40a515bc94a5c5",
+          2,
+          "pending"
+        ],
+        [
+          "supper",
+          "7f7733d0162cf9f8fc007e9ad5d070482eb864f5b5208230c9205c07a496b9a9",
+          2,
+          "pending"
+        ],
+        [
+          "grief",
+          "1bf3010dc008e930068c46890198844c10a6bb69b3d06d3d7609ada436c1a49c",
+          2,
+          "pending"
+        ],
+        [
+          "dryness",
+          "ba5f6ac2d22d75edf51c0e7d1a07662fa7d58c693c2b8ffffae9cf1aa64deb7b",
+          2,
+          "pending"
+        ],
+        [
+          "forgiveness",
+          "a33e28aa4ffa699bde6739ba66454b8ebe73b372e13c11b0cc258bd935395898",
+          2,
+          "pending"
+        ],
+        [
+          "temptation",
+          "c7da1540d9fac39fc06ac8880a5ea883308d48847e7ac38d577aa291e6e6a4f3",
+          2,
+          "pending"
+        ],
+        [
+          "justification",
+          "7ef4edb4c6cf5bafcdf941ab8055d551b6aec813c809f40aba3de1010407a08a",
+          2,
+          "pending"
+        ],
+        [
+          "perseverance",
+          "fb12ddb494eaec595fe9d66b060f1d0ce2ee47a3eb5e50e7c0c3a4537bfcec47",
+          2,
+          "pending"
+        ],
+        [
+          "new-covenant",
+          "d897b9205ba7c9cb5716eee3e1a3bb250d8627064923ac3dde0dfdb527568a10",
+          2,
+          "pending"
+        ],
+        [
+          "apostasy",
+          "e9e8b93640807534b0466ff7db44e6f2a11653d995d04e6dea6adbad8bff52e6",
+          2,
+          "pending"
+        ],
+        [
+          "repentance",
+          "d54b9541d1e5706b690f5a684a3ce8f34a21921abc33221f4a52c6971886d580",
+          2,
+          "pending"
+        ],
+        [
+          "quotation",
+          "fe7de32cb94666f98d528718c8480690f943e7239e045e9601d0fdfb4874eb12",
+          2,
+          "pending"
+        ],
+        [
+          "judging",
+          "11ce7c188dd160c7a4119b3291454f280b712be04336befa98e3579b109ca10f",
+          2,
+          "pending"
+        ],
+        [
+          "word-effects",
+          "7783a564a3425f00c0f9215569786a6a44bc8a6004ba2ffe8117ff120dca363a",
+          2,
+          "pending"
+        ],
+        [
+          "knowing-god",
+          "376fcebbce5fa8cbf79ae131bde09a97c1f0ae17e4240489cbf0b8800d08c448",
+          2,
+          "pending"
+        ],
+        [
+          "confession-1644",
+          "d40655207a89f8d65a38a47d852b073ad3b5d4713215bed3dbe9b67020359b5a",
+          2,
+          "pending"
+        ],
+        [
+          "boyce-profile",
+          "159abc55287a440b9526a4cdeae5ca40f9a98912196bfd034fa566c3ded872b9",
+          2,
+          "pending"
+        ],
+        [
+          "caritas",
+          "fc523d3146814e3c382ee687e45acd0cbf7bc0c20040d4be5b7d82fd3cd227ea",
+          2,
+          "pending"
+        ],
+        [
+          "editor-voice",
+          "2460c6c977cd470ffdb1553a107a3bab084d7f8183272cd86f4e1c9ccd9d6102",
+          2,
+          "pending"
+        ],
+        [
+          "father-gloss",
+          "dd2041bb4170a6ea48c921c2c88acb3a119f03e6ccbf9de2832e03217bbc71af",
+          2,
+          "pending"
+        ]
+      ]
+    }
+  },
+  "reader_index": {
+    "built_at": "2026-10-19T03:58:03.375655+00:00",
+    "sha256": "4bbf7533b0f4cac85e1f0b4c9802c8325d66b1a94a2ef93cdf12f27f4101b47b"
+  },
+  "records": [
+    {
+      "slot": "D01",
+      "candidate": "supper",
+      "document_id": "library:text:ef1341f8441e72db4a5d370a5b80f098bed505248fe99023ebf15e1bf99b22db",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l07-aa-hodge-pdf\\outlinesoftheolo00hodguoft.pdf",
+        "sha256": "ef1341f8441e72db4a5d370a5b80f098bed505248fe99023ebf15e1bf99b22db",
+        "bytes": 26964899,
+        "matches_recorded": true
+      },
+      "extraction": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\7e2cf31d325578f22385d4ec2e58a123afded225fe3f31811a32bc6cf6ea35ac.jsonl",
+        "sha256": "0f2bdf735f376c815504b4952f98a012271ec2a4360bb1342f0b56bcd9582243",
+        "matches_historical": true,
+        "blocks": 548
+      },
+      "selected_evidence": {
+        "state": "Prior bounded Hodge scan readiness, no new selected span",
+        "evidence": "HODGE-READINESS-2026-10-18.md"
+      },
+      "native_literal_check": null,
+      "identity": {
+        "work_id": "work-aa-hodge-outlines",
+        "edition_id": "edition-aa-hodge-outlines",
+        "basis": "Current reader/catalogue recorded identity, separately from literal source-header evidence",
+        "historical_work_id": "work-aa-hodge-outlines",
+        "historical_edition_id": "edition-aa-hodge-outlines"
+      },
+      "source_header": null,
+      "catalogue_assertions": [
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/works/work-aa-hodge-outlines.json",
+          "sha256": "814f3342d33316e70a60b473a5ea7999845d63054e04d392fc9a51ec69d52815",
+          "id": "work-aa-hodge-outlines",
+          "state": "published",
+          "dates": [],
+          "contributors": [
+            {
+              "authorId": "author-a-a-hodge",
+              "role": "author"
+            }
+          ],
+          "label": "Outlines of Theology"
+        },
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/editions/edition-aa-hodge-outlines.json",
+          "sha256": "59d80f93fc4cd6f55f4185ca81592a0c22712eeec5ce7c0d8032f73215e6df00",
+          "id": "edition-aa-hodge-outlines",
+          "state": "published",
+          "dates": [
+            {
+              "event": "edition-publication",
+              "value": "1877",
+              "precision": "year",
+              "label": "Thomas Nelson edition, 1877",
+              "evidence": [
+                {
+                  "url": "https://archive.org/details/outlinesoftheolo00hodguoft",
+                  "locator": "Thomas Nelson edition, 1877",
+                  "note": "Source identifies this work and the selected reading edition or historic text.",
+                  "checkedOn": "2026-10-05"
+                }
+              ]
+            }
+          ],
+          "contributors": [],
+          "label": "Thomas Nelson edition, 1877"
+        }
+      ],
+      "reader": {
+        "kind": "local-cache",
+        "route": "/teachers/works/held-ef1341f8441e72db4a5d370a5b80f098",
+        "local_id": "local-ef1341f8441e72db4a5d370a5b80f098bed505248fe99023ebf15e1bf99b22db",
+        "index_binding": null,
+        "manifest": null
+      },
+      "source_use": "Recorded category: public-domain; ",
+      "credits": "Author and source credited in the catalog.",
+      "historical": {
+        "run": "kr101-31239794030518bcb2299a31",
+        "descriptor_sha256": "4b09597fc54090b6deb950cd46dee26337fbfdc7c1d03f2abbbaaed1998930c3",
+        "cache_match": true,
+        "selected_window": null
+      },
+      "semantic": {
+        "state": "Not verified; no live corpus/vector/index read in this task",
+        "candidate_track": "kr110-54f0bfca9b30da6cc49b2347",
+        "adapter": "required before new semantic evidence can affect live proposals"
+      },
+      "holds": [
+        "Known local scan OCR/reading-order defects; prior Hodge packet applies; no whole-book clearance"
+      ]
+    },
+    {
+      "slot": "D02",
+      "candidate": "supper",
+      "document_id": "library:text:86058bf61ffc35119a87b6667e4f835d475e98d7fc88cf6148c9f9b6603c7ac7",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism-library\\asset-expanded-6fdc8e1a9688e88c59fc\\original.epub",
+        "sha256": "86058bf61ffc35119a87b6667e4f835d475e98d7fc88cf6148c9f9b6603c7ac7",
+        "bytes": 644189,
+        "matches_recorded": true
+      },
+      "extraction": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\39c0530cb4b34f090f0b8da40f556010aff364bb3e04a9bddfb9b50b1407173e.jsonl",
+        "sha256": "05d721e2bcda183e9ba4786769c98b48afff9146bf968b4bcf3f4bf6a5933fcc",
+        "matches_historical": true,
+        "blocks": 12
+      },
+      "selected_evidence": {
+        "locator": "EPUB section 12: Outlines of Theology_split_010.html",
+        "start": 136732,
+        "end": 138532,
+        "expected_sha256": "ad32069ab47da31b49f5d4a07e3578b76575eccaa0f7e82f6c587d6ab6035294",
+        "reconstructed_sha256": "ad32069ab47da31b49f5d4a07e3578b76575eccaa0f7e82f6c587d6ab6035294",
+        "text_matches": true,
+        "context_exact_occurrence": true,
+        "context_start_codepoint": 136732,
+        "context_end_codepoint": 139032,
+        "context_relation": "starts at selected span",
+        "context_sha256": "78dccac13bafcdf857bfdc36ed30c368a31ed123a4acbd36d589b769867460ba",
+        "context_unique_occurrence": true
+      },
+      "native_literal_check": {
+        "slot": "D02",
+        "native_member": "Outlines of Theology_split_010.html",
+        "selected_nonwhitespace_sequence_in_native_source": true,
+        "limit": "Whitespace-insensitive literal containment only; not layout, context-role or transcription completeness validation"
+      },
+      "identity": {
+        "work_id": "work-reconciled-193dcc28e73c06b09d9b5dc3",
+        "edition_id": "edition-reconciled-2cbfa94e3f059f7210e17521",
+        "basis": "Current reader/catalogue recorded identity, separately from literal source-header evidence",
+        "historical_work_id": null,
+        "historical_edition_id": null,
+        "electronic_edition_notice": "October 2018, Monergism Books; package timestamp 2025; underlying print edition unverified"
+      },
+      "source_header": {
+        "slot": "D02",
+        "opf": "content.opf",
+        "fields": [
+          {
+            "tag": "language",
+            "text": "en",
+            "attributes": {}
+          },
+          {
+            "tag": "title",
+            "text": "Outlines of Theology",
+            "attributes": {}
+          },
+          {
+            "tag": "contributor",
+            "text": "calibre (5.41.0) [https://calibre-ebook.com]",
+            "attributes": {
+              "{http://www.idpf.org/2007/opf}role": "bkp"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "",
+            "attributes": {
+              "name": "calibre:timestamp",
+              "content": "2025-01-31T18:24:52.656285+00:00"
+            }
+          },
+          {
+            "tag": "identifier",
+            "text": "b1ec7596-cc4f-4168-97dc-562839113e96",
+            "attributes": {
+              "id": "uuid_id",
+              "{http://www.idpf.org/2007/opf}scheme": "uuid"
+            }
+          },
+          {
+            "tag": "identifier",
+            "text": "b1ec7596-cc4f-4168-97dc-562839113e96",
+            "attributes": {
+              "{http://www.idpf.org/2007/opf}scheme": "calibre"
+            }
+          },
+          {
+            "tag": "creator",
+            "text": "A. A. Hodge",
+            "attributes": {
+              "{http://www.idpf.org/2007/opf}file-as": "Hodge, A. A.",
+              "{http://www.idpf.org/2007/opf}role": "aut"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "",
+            "attributes": {
+              "name": "calibre:title_sort",
+              "content": "Outlines of Theology"
+            }
+          },
+          {
+            "tag": "publisher",
+            "text": "Monergism Books",
+            "attributes": {}
+          },
+          {
+            "tag": "date",
+            "text": "0101-01-01T00:00:00+00:00",
+            "attributes": {}
+          },
+          {
+            "tag": "meta",
+            "text": "",
+            "attributes": {
+              "name": "cover",
+              "content": "cover"
+            }
+          }
+        ],
+        "opf_sha256": "fd8b6aee0beff089add9cd22bd4191a117e57ba4648a475c4b55a7d4d45bc638"
+      },
+      "catalogue_assertions": [
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/works/work-reconciled-193dcc28e73c06b09d9b5dc3.json",
+          "sha256": "64ec8043f99a8914d1ea961e3b1478af900d7094bd52b5c839910514f102148e",
+          "id": "work-reconciled-193dcc28e73c06b09d9b5dc3",
+          "state": "draft",
+          "dates": [],
+          "contributors": [
+            {
+              "authorId": "author-a-a-hodge",
+              "role": "author"
+            }
+          ],
+          "label": "Outlines of Theology"
+        },
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/editions/edition-reconciled-2cbfa94e3f059f7210e17521.json",
+          "sha256": "3b480087575f7ac45e9f3e46f8fce9889fe7e0bcf5d21905577424d576063fe3",
+          "id": "edition-reconciled-2cbfa94e3f059f7210e17521",
+          "state": "draft",
+          "dates": [],
+          "contributors": [],
+          "label": "Outlines of Theology — held source edition 86058bf61ffc"
+        }
+      ],
+      "reader": {
+        "kind": "local-cache",
+        "route": "/teachers/works/held-86058bf61ffc35119a87b6667e4f835d",
+        "local_id": "local-86058bf61ffc35119a87b6667e4f835d475e98d7fc88cf6148c9f9b6603c7ac7",
+        "index_binding": [
+          "local-86058bf61ffc35119a87b6667e4f835d475e98d7fc88cf6148c9f9b6603c7ac7"
+        ],
+        "manifest": {
+          "pages": 34,
+          "characters": 1559071,
+          "sourceStamp": [
+            644189,
+            1791222282524627000
+          ],
+          "preparedAt": "2026-10-19T03:39:59.420679+00:00"
+        },
+        "page_hits": [
+          {
+            "index": 31,
+            "display_page": 32,
+            "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/.local/local-library/pages/86058bf61ffc35119a87b6667e4f835d475e98d7fc88cf6148c9f9b6603c7ac7/31.json",
+            "sha256": "8f93f400a4b4254d6955048939986d0eff275176cf4ca5985ac4360b099386f7",
+            "includes_selected_span": true
+          }
+        ]
+      },
+      "source_use": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+      "credits": "Hodge, A. A.; Monergism",
+      "historical": {
+        "run": "kr101-31239794030518bcb2299a31",
+        "descriptor_sha256": "886b0797b749d62ca2e06ab808d5efd1b2ff5cf17c4cc2cbc81c68b2a144f931",
+        "cache_match": true,
+        "selected_window": "4473820"
+      },
+      "semantic": {
+        "state": "Not verified; no live corpus/vector/index read in this task",
+        "candidate_track": "kr110-54f0bfca9b30da6cc49b2347",
+        "adapter": "required before new semantic evidence can affect live proposals"
+      },
+      "holds": [
+        "Underlying print edition unidentified; October 2018 electronic notice does not identify print exemplar",
+        "Containing-work reader requires 31 Next clicks for selected span",
+        "Recorded private-use notice; public export not cleared"
+      ]
+    },
+    {
+      "slot": "D03",
+      "candidate": "supper",
+      "document_id": "library:text:3c6ae92f1578f913c09839d2c8604310111a9b02b5a3f2ef97b5d5ca60d5c3f4",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\bulk\\chapel\\lsup.epub",
+        "sha256": "3c6ae92f1578f913c09839d2c8604310111a9b02b5a3f2ef97b5d5ca60d5c3f4",
+        "bytes": 286467,
+        "matches_recorded": true
+      },
+      "extraction": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\c541bbcadc1e5b62d9276a11a80e9dc4fa28669d3b0ededda4917b47f9880b84.jsonl",
+        "sha256": "051a0249f09baaec8aeae8c94aff7ac7e35c1f3bf3a4ac4f49543fbd71cb24de",
+        "matches_historical": true,
+        "blocks": 100
+      },
+      "selected_evidence": {
+        "locator": "EPUB section 6: index_split_004.html",
+        "start": 5561,
+        "end": 5867,
+        "expected_sha256": "b6682c489ffd3fd8f9e2c95d31ec7818da9db1c07bb40aa1348c4b0b0f21c809",
+        "reconstructed_sha256": "b6682c489ffd3fd8f9e2c95d31ec7818da9db1c07bb40aa1348c4b0b0f21c809",
+        "text_matches": true,
+        "context_exact_occurrence": true,
+        "context_start_codepoint": 5561,
+        "context_end_codepoint": 6367,
+        "context_relation": "starts at selected span",
+        "context_sha256": "9f018f4bd5dc7e104825c35699dd6c977c23ce7edeb0cf4cca9775007774f091",
+        "context_unique_occurrence": true
+      },
+      "native_literal_check": {
+        "slot": "D03",
+        "native_member": "index_split_004.html",
+        "selected_nonwhitespace_sequence_in_native_source": true,
+        "limit": "Whitespace-insensitive literal containment only; not layout, context-role or transcription completeness validation"
+      },
+      "identity": {
+        "work_id": null,
+        "edition_id": null,
+        "basis": "Current reader/catalogue recorded identity, separately from literal source-header evidence",
+        "historical_work_id": null,
+        "historical_edition_id": null
+      },
+      "source_header": {
+        "slot": "D03",
+        "opf": "content.opf",
+        "fields": [
+          {
+            "tag": "title",
+            "text": "The Lord's Supper",
+            "attributes": {}
+          },
+          {
+            "tag": "creator",
+            "text": "Matthew Henry",
+            "attributes": {
+              "{http://www.idpf.org/2007/opf}role": "aut",
+              "{http://www.idpf.org/2007/opf}file-as": "Henry, Matthew"
+            }
+          },
+          {
+            "tag": "contributor",
+            "text": "calibre (5.36.0) [https://calibre-ebook.com]",
+            "attributes": {
+              "{http://www.idpf.org/2007/opf}role": "bkp"
+            }
+          },
+          {
+            "tag": "identifier",
+            "text": "c53e3d0c-0424-4ac3-a58c-16e988556749",
+            "attributes": {
+              "id": "uuid_id",
+              "{http://www.idpf.org/2007/opf}scheme": "uuid"
+            }
+          },
+          {
+            "tag": "publisher",
+            "text": "Chapel Library",
+            "attributes": {}
+          },
+          {
+            "tag": "date",
+            "text": "0101-01-01T00:00:00+00:00",
+            "attributes": {}
+          },
+          {
+            "tag": "language",
+            "text": "en",
+            "attributes": {}
+          },
+          {
+            "tag": "identifier",
+            "text": "c53e3d0c-0424-4ac3-a58c-16e988556749",
+            "attributes": {
+              "{http://www.idpf.org/2007/opf}scheme": "calibre"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "",
+            "attributes": {
+              "name": "calibre:timestamp",
+              "content": "2022-02-28T21:55:56.438828+00:00"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "",
+            "attributes": {
+              "name": "calibre:title_sort",
+              "content": "Lord's Supper, The"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "",
+            "attributes": {
+              "name": "cover",
+              "content": "cover"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "",
+            "attributes": {
+              "name": "calibre:author_link_map",
+              "content": "{\"Matthew Henry\": \"\"}"
+            }
+          }
+        ],
+        "opf_sha256": "4a82c8026ef31b4cfc8636afebb6c6f542f64b52459d33d40f6ea4db73a8da5c"
+      },
+      "catalogue_assertions": [],
+      "reader": {
+        "route": "/teachers/works/held-3c6ae92f1578f913c09839d2c8604310",
+        "local_binding": false,
+        "fallback_status": {
+          "route": "/api/local-library/records/held-3c6ae92f1578f913c09839d2c8604310",
+          "status": 404
+        },
+        "public_record": {
+          "route": "/content/teacher-library/records/85.json",
+          "status": 200,
+          "record": {
+            "id": "held-3c6ae92f1578f913c09839d2c8604310",
+            "title": "Lord's Supper, The",
+            "authors": [
+              "Matthew Henry"
+            ],
+            "contributors": [
+              "contributor-3bae78dd8165bd662d89"
+            ],
+            "language": "EN",
+            "source": "chapel",
+            "sourceId": "lsup",
+            "sourceUrl": "https://www.chapellibrary.org/api/books/download?code=lsup&format=epub",
+            "licence": "Publisher freely offered electronic edition for personal use; source notices retained",
+            "credit": "Matthew Henry; Chapel Library / Mount Zion Bible Church",
+            "editors": [],
+            "licenseUrl": null,
+            "sha256": "3c6ae92f1578f913c09839d2c8604310111a9b02b5a3f2ef97b5d5ca60d5c3f4",
+            "genre": "text",
+            "workId": null,
+            "editionId": null,
+            "availability": "permission-required",
+            "pages": 0,
+            "reviewWarning": null
+          }
+        },
+        "record_fallback_http": {
+          "route": "/api/local-library/records/held-3c6ae92f1578f913c09839d2c8604310",
+          "status": 404
+        },
+        "browser": {
+          "checked": true,
+          "body_available": false,
+          "message": "This text is held for local research. Public display permission is not yet established; the catalogue preserves its identity and source."
+        }
+      },
+      "source_use": "Publisher freely offered electronic edition for personal use; source notices retained",
+      "credits": "Matthew Henry; Chapel Library / Mount Zion Bible Church",
+      "historical": {
+        "run": "kr101-31239794030518bcb2299a31",
+        "descriptor_sha256": "7f22d39ab7b171b394e281316e4c4cb7f6918b59eeb72d349d5662b33911f270",
+        "cache_match": true,
+        "selected_window": "2134297"
+      },
+      "semantic": {
+        "state": "Not verified; no live corpus/vector/index read in this task",
+        "candidate_track": "kr110-54f0bfca9b30da6cc49b2347",
+        "adapter": "required before new semantic evidence can affect live proposals"
+      },
+      "holds": [
+        "Exact candidate copy absent from current local index; public fallback has no reading text",
+        "Work/edition IDs unresolved; OPF placeholder date",
+        "Source/extraction intact; reader hold is not a missing-text finding"
+      ]
+    },
+    {
+      "slot": "D04",
+      "candidate": "justification",
+      "document_id": "library:text:7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism-library\\asset-expanded-528d7381b8115df7ee82\\original.epub",
+        "sha256": "7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76",
+        "bytes": 448978,
+        "matches_recorded": true
+      },
+      "extraction": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\b6714aa3857e162e85059dd1e2a9a15872be8d2a6b2727488849c4734636acce.jsonl",
+        "sha256": "ae8f22224a89b41db58ae4384bea4ce7fb44df492e782c084d6e0ad71883f6c1",
+        "matches_historical": true,
+        "blocks": 8
+      },
+      "selected_evidence": {
+        "locator": "EPUB section 8: abstract_split_006.html",
+        "start": 12564,
+        "end": 13632,
+        "expected_sha256": "3718f227fc3624b115c6714cc0a3d3ec79d1cfcbfaa44c489c25abfd167e580e",
+        "reconstructed_sha256": "3718f227fc3624b115c6714cc0a3d3ec79d1cfcbfaa44c489c25abfd167e580e",
+        "text_matches": true,
+        "context_exact_occurrence": true,
+        "context_start_codepoint": 12564,
+        "context_end_codepoint": 13632,
+        "context_relation": "starts at selected span",
+        "context_sha256": "3718f227fc3624b115c6714cc0a3d3ec79d1cfcbfaa44c489c25abfd167e580e",
+        "context_unique_occurrence": true
+      },
+      "native_literal_check": {
+        "slot": "D04",
+        "native_member": "abstract_split_006.html",
+        "selected_nonwhitespace_sequence_in_native_source": true,
+        "limit": "Whitespace-insensitive literal containment only; not layout, context-role or transcription completeness validation"
+      },
+      "identity": {
+        "work_id": null,
+        "edition_id": null,
+        "basis": "Current reader/catalogue recorded identity, separately from literal source-header evidence",
+        "historical_work_id": null,
+        "historical_edition_id": null
+      },
+      "source_header": {
+        "slot": "D04",
+        "opf": "content.opf",
+        "fields": [
+          {
+            "tag": "language",
+            "text": "en",
+            "attributes": {}
+          },
+          {
+            "tag": "title",
+            "text": "Abstract of Systematic Theology",
+            "attributes": {}
+          },
+          {
+            "tag": "contributor",
+            "text": "calibre (5.21.0) [https://calibre-ebook.com]",
+            "attributes": {
+              "{http://www.idpf.org/2007/opf}role": "bkp"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "",
+            "attributes": {
+              "name": "calibre:timestamp",
+              "content": "2022-04-18T17:27:25.859264+00:00"
+            }
+          },
+          {
+            "tag": "identifier",
+            "text": "cd8b2a51-6f3d-4be2-990f-ff87b5c72663",
+            "attributes": {
+              "id": "uuid_id",
+              "{http://www.idpf.org/2007/opf}scheme": "uuid"
+            }
+          },
+          {
+            "tag": "identifier",
+            "text": "cd8b2a51-6f3d-4be2-990f-ff87b5c72663",
+            "attributes": {
+              "{http://www.idpf.org/2007/opf}scheme": "calibre"
+            }
+          },
+          {
+            "tag": "creator",
+            "text": "James Petigru Boyce",
+            "attributes": {
+              "{http://www.idpf.org/2007/opf}file-as": "Boyce, James Petigru",
+              "{http://www.idpf.org/2007/opf}role": "aut"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "",
+            "attributes": {
+              "name": "calibre:title_sort",
+              "content": "Abstract of Systematic Theology"
+            }
+          },
+          {
+            "tag": "publisher",
+            "text": "Monergism Books",
+            "attributes": {}
+          },
+          {
+            "tag": "date",
+            "text": "0101-01-01T00:00:00+00:00",
+            "attributes": {}
+          },
+          {
+            "tag": "meta",
+            "text": "",
+            "attributes": {
+              "name": "cover",
+              "content": "cover"
+            }
+          }
+        ],
+        "opf_sha256": "62738800910cf0fb13fbb6e2b254e83cb07092038e451e4e7e734f31e90a6e12"
+      },
+      "catalogue_assertions": [],
+      "reader": {
+        "route": "/teachers/works/held-7824047daefbe859f7f5f167719ca85f",
+        "local_binding": false,
+        "fallback_status": {
+          "route": "/api/local-library/records/held-7824047daefbe859f7f5f167719ca85f",
+          "status": 404
+        },
+        "public_record": {
+          "route": "/content/teacher-library/records/60.json",
+          "status": 200,
+          "record": {
+            "id": "held-7824047daefbe859f7f5f167719ca85f",
+            "title": "Abstract of Systematic Theology",
+            "authors": [
+              "James Petigru Boyce"
+            ],
+            "contributors": [
+              "contributor-76cf3cdf0cf93d46f98c"
+            ],
+            "language": "und",
+            "source": "source-monergism-library",
+            "sourceId": null,
+            "sourceUrl": "https://www.monergism.com/thethreshold/sdg/boyce/Abstract%20of%20Systematic%20Theology%20-%20James%20Petigru%20Boyce.epub",
+            "licence": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+            "credit": "Boyce, James Petigru; Monergism",
+            "editors": [],
+            "licenseUrl": null,
+            "sha256": "7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76",
+            "genre": "text",
+            "workId": null,
+            "editionId": null,
+            "availability": "permission-required",
+            "pages": 0,
+            "reviewWarning": null
+          }
+        },
+        "record_fallback_http": {
+          "route": "/api/local-library/records/held-7824047daefbe859f7f5f167719ca85f",
+          "status": 404
+        },
+        "browser": {
+          "checked": true,
+          "body_available": false,
+          "message": "This text is held for local research. Public display permission is not yet established; the catalogue preserves its identity and source."
+        }
+      },
+      "source_use": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+      "credits": "Boyce, James Petigru; Monergism",
+      "historical": {
+        "run": "kr101-31239794030518bcb2299a31",
+        "descriptor_sha256": "15b22d34fe03294f3a5aa9e1435c2f1499215c04ed8374b65a38bfd6064cb8ba",
+        "cache_match": true,
+        "selected_window": "4014056"
+      },
+      "semantic": {
+        "state": "Not verified; no live corpus/vector/index read in this task",
+        "candidate_track": "kr110-54f0bfca9b30da6cc49b2347",
+        "adapter": "required before new semantic evidence can affect live proposals"
+      },
+      "holds": [
+        "Exact candidate copy absent from current local index; public fallback has no reading text",
+        "Work/edition IDs unresolved; OPF placeholder date",
+        "Source/extraction intact; reader hold is not a missing-text finding"
+      ]
+    },
+    {
+      "slot": "D05",
+      "candidate": "justification",
+      "document_id": "library:text:c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-241c101b2f67439352\\original.epub",
+        "sha256": "c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f",
+        "bytes": 1417925,
+        "matches_recorded": true
+      },
+      "extraction": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\957c138421254005fda86f662bc90ee1443fe5de31e7509fb105689964e075d5.jsonl",
+        "sha256": "a64d980a9426d434be889f055d03de4efc3e2b267fb2ce23723ce27e655b7f2f",
+        "matches_historical": true,
+        "blocks": 31
+      },
+      "selected_evidence": {
+        "locator": "EPUB section 24: bodydivinity_split_022.html",
+        "start": 36000,
+        "end": 37800,
+        "expected_sha256": "dd39c86b2380fdbf4a48fb234aff6b4f097f8acb9c10d4faf4cd9cb1df3a6ebb",
+        "reconstructed_sha256": "dd39c86b2380fdbf4a48fb234aff6b4f097f8acb9c10d4faf4cd9cb1df3a6ebb",
+        "text_matches": true,
+        "context_exact_occurrence": true,
+        "context_start_codepoint": 35500,
+        "context_end_codepoint": 38300,
+        "context_relation": "includes preceding context",
+        "context_sha256": "899576f9b77ec57dfde41fdab563ed78ec7c29ff5d6343a12794b8f75ff4f590",
+        "context_unique_occurrence": true
+      },
+      "native_literal_check": {
+        "slot": "D05",
+        "native_member": "bodydivinity_split_022.html",
+        "selected_nonwhitespace_sequence_in_native_source": true,
+        "limit": "Whitespace-insensitive literal containment only; not layout, context-role or transcription completeness validation"
+      },
+      "identity": {
+        "work_id": "work-reconciled-ae7ae7849e45fc3fc32d5e2c",
+        "edition_id": "edition-reconciled-9ad39e2f6d7464b07d19b7f3",
+        "basis": "Current reader/catalogue recorded identity, separately from literal source-header evidence",
+        "historical_work_id": "work-reconciled-ae7ae7849e45fc3fc32d5e2c",
+        "historical_edition_id": null
+      },
+      "source_header": {
+        "slot": "D05",
+        "opf": "content.opf",
+        "fields": [
+          {
+            "tag": "meta",
+            "text": "",
+            "attributes": {
+              "name": "cover",
+              "content": "cover"
+            }
+          },
+          {
+            "tag": "title",
+            "text": "A Body of Doctrinal Divinity",
+            "attributes": {}
+          },
+          {
+            "tag": "language",
+            "text": "en",
+            "attributes": {}
+          },
+          {
+            "tag": "meta",
+            "text": "",
+            "attributes": {
+              "name": "calibre:timestamp",
+              "content": "2017-12-06T22:11:15.808000+00:00"
+            }
+          },
+          {
+            "tag": "identifier",
+            "text": "c495e9a9-a11f-42b6-98e2-f6206b2f0b09",
+            "attributes": {
+              "id": "uuid_id",
+              "{http://www.idpf.org/2007/opf}scheme": "uuid"
+            }
+          },
+          {
+            "tag": "identifier",
+            "text": "c495e9a9-a11f-42b6-98e2-f6206b2f0b09",
+            "attributes": {
+              "{http://www.idpf.org/2007/opf}scheme": "calibre"
+            }
+          },
+          {
+            "tag": "creator",
+            "text": "John Gill",
+            "attributes": {
+              "{http://www.idpf.org/2007/opf}file-as": "Gill, John",
+              "{http://www.idpf.org/2007/opf}role": "aut"
+            }
+          },
+          {
+            "tag": "contributor",
+            "text": "calibre (2.51.0) [http://calibre-ebook.com]",
+            "attributes": {
+              "{http://www.idpf.org/2007/opf}role": "bkp"
+            }
+          },
+          {
+            "tag": "date",
+            "text": "0101-01-01T00:00:00+00:00",
+            "attributes": {}
+          },
+          {
+            "tag": "publisher",
+            "text": "Monergism Books",
+            "attributes": {}
+          },
+          {
+            "tag": "meta",
+            "text": "",
+            "attributes": {
+              "name": "calibre:title_sort",
+              "content": "Body of Doctrinal Divinity, A"
+            }
+          }
+        ],
+        "opf_sha256": "203862827e2067ac5ffa7b0084d99405b0a1660fc77ac46657c02537c7785547"
+      },
+      "catalogue_assertions": [
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/works/work-reconciled-ae7ae7849e45fc3fc32d5e2c.json",
+          "sha256": "6469e5a85cf922ee59991c66d87cf9711d8772278e3b511f6c2e91d639588bcc",
+          "id": "work-reconciled-ae7ae7849e45fc3fc32d5e2c",
+          "state": "draft",
+          "dates": [],
+          "contributors": [
+            {
+              "authorId": "author-john-gill",
+              "role": "author"
+            }
+          ],
+          "label": "A Body of Doctrinal Divinity"
+        },
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/editions/edition-reconciled-9ad39e2f6d7464b07d19b7f3.json",
+          "sha256": "e56c28b3d0d56d76ae080833bf96d3d1e79e4056afc67a30c17afad4542d3c8e",
+          "id": "edition-reconciled-9ad39e2f6d7464b07d19b7f3",
+          "state": "draft",
+          "dates": [],
+          "contributors": [],
+          "label": "A Body of Doctrinal Divinity — held source edition c6d2a4fae261"
+        }
+      ],
+      "reader": {
+        "kind": "local-cache",
+        "route": "/teachers/works/held-c6d2a4fae26109773599ac53919f9b51",
+        "local_id": "local-c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f",
+        "index_binding": [
+          "local-c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f"
+        ],
+        "manifest": null
+      },
+      "source_use": "Copyright and edition notices retained; recorded acquisition category: unspecified; recorded use scope: private-personal-educational-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+      "credits": "John Gill; Monergism",
+      "historical": {
+        "run": "kr101-31239794030518bcb2299a31",
+        "descriptor_sha256": "f40b35fc0900221498bdfeac28ab83b6f62723a66a7d38541f795dbf5b7a69e9",
+        "cache_match": true,
+        "selected_window": "6448057"
+      },
+      "semantic": {
+        "state": "Not verified; no live corpus/vector/index read in this task",
+        "candidate_track": "kr110-54f0bfca9b30da6cc49b2347",
+        "adapter": "required before new semantic evidence can affect live proposals"
+      },
+      "holds": [
+        "Source-specific catalogue edition dates unresolved",
+        "Local reader binding exists; no prepared page cache inspected in this run"
+      ]
+    },
+    {
+      "slot": "D06",
+      "candidate": "quotation",
+      "document_id": "library:text:b07ac3b308bd0355c65ac4be72a8bdc60eca137f93906bfdbd9bdfad0c94f690",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-tcp-bulk\\asset-bulk-tcp-n22608\\original.xml",
+        "sha256": "b07ac3b308bd0355c65ac4be72a8bdc60eca137f93906bfdbd9bdfad0c94f690",
+        "bytes": 445832,
+        "matches_recorded": true
+      },
+      "extraction": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\f10009743a78f082104b3c04dc6f169232f29be86930a6f256e450bf6713a414.jsonl",
+        "sha256": "603689fcaf3e02c47fa1136c90bbb8fe86497a601e8b56f82c9eb4b746001e5c",
+        "matches_historical": true,
+        "blocks": 1
+      },
+      "selected_evidence": {
+        "locator": "original.xml",
+        "start": 210065,
+        "end": 211865,
+        "expected_sha256": "94e5b6ea2123e1cf7067de638d81e73720f37dd24200a82bf0dd4ade8f50ee7f",
+        "reconstructed_sha256": "94e5b6ea2123e1cf7067de638d81e73720f37dd24200a82bf0dd4ade8f50ee7f",
+        "text_matches": true,
+        "context_exact_occurrence": true,
+        "context_start_codepoint": 209715,
+        "context_end_codepoint": 212215,
+        "context_relation": "includes preceding context",
+        "context_sha256": "8f66626cf35d933788e118aa202ebc731ad3d9ef2e2147294c465b9c26f19ab7",
+        "context_unique_occurrence": true
+      },
+      "native_literal_check": {
+        "slot": "D06",
+        "native_member": "XML body",
+        "selected_nonwhitespace_sequence_in_native_source": false,
+        "limit": "Whitespace-insensitive literal containment only; not layout, context-role or transcription completeness validation",
+        "annotation_alignment": {
+          "literal_sequence_matches_after_removing_only_two_generated_labels": true,
+          "removed_labels": [
+            "[Editorial gap: illegible]",
+            "[Source page 127]"
+          ],
+          "native_gap_witnesses": [
+            {
+              "xpath": "/*/*[2]/*[2]/*[6]/*[10]/*[2]",
+              "attributes": {
+                "reason": "illegible",
+                "resp": "#AELD",
+                "extent": "1 word"
+              },
+              "source_marker": "\n                  〈◊〉\n               "
+            }
+          ],
+          "native_page_witnesses": [
+            {
+              "xpath": "/*/*[2]/*[2]/*[6]/*[11]/*[1]",
+              "attributes": {
+                "n": "127",
+                "facs": "unknown:029886_0122_0FE2C178A5796628"
+              }
+            }
+          ],
+          "scope": "Diagnostic comparison only; original cache and proposal unchanged; unreadable source characters not reconstructed"
+        }
+      },
+      "identity": {
+        "work_id": "work-reconciled-1779a96206887a3336c1af33",
+        "edition_id": "edition-reconciled-ddcdac69c4f9a9ee6bc7a8fe",
+        "basis": "Current reader/catalogue recorded identity, separately from literal source-header evidence",
+        "historical_work_id": null,
+        "historical_edition_id": null
+      },
+      "source_header": {
+        "slot": "D06",
+        "captured_header_excerpt_sha256": "ac62bbe43dced09b2e412082b0fbe6a85d1fa849e0d5639a1d2acc0180057546",
+        "captured_header_limit_characters": 9000
+      },
+      "catalogue_assertions": [
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/works/work-reconciled-1779a96206887a3336c1af33.json",
+          "sha256": "ce7ed8386e3d5ba0fbd7807bc73bfcce649f60fce63904f60a1d8fe07376410a",
+          "id": "work-reconciled-1779a96206887a3336c1af33",
+          "state": "draft",
+          "dates": [],
+          "contributors": [
+            {
+              "authorId": "author-george-whitefield",
+              "role": "author"
+            }
+          ],
+          "label": "Ten sermons preached on various important subjects. By George Whitefield, A.B. ; Carefully corrected and revised according to the best London edition.; Ten sermons on the following subjects"
+        },
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/editions/edition-reconciled-ddcdac69c4f9a9ee6bc7a8fe.json",
+          "sha256": "abafaf6678f041b671aa8881bae91591d00db21897259f5f82776784f2aae69c",
+          "id": "edition-reconciled-ddcdac69c4f9a9ee6bc7a8fe",
+          "state": "draft",
+          "dates": [],
+          "contributors": [],
+          "label": "Ten sermons preached on various important subjects. By George Whitefield, A.B. ; Carefully corrected and revised according to the best London edition.; Ten sermons on the following subjects — held source edition b07ac3b308bd"
+        }
+      ],
+      "reader": {
+        "kind": "local-cache",
+        "route": "/teachers/works/held-b07ac3b308bd0355c65ac4be72a8bdc6",
+        "local_id": "local-b07ac3b308bd0355c65ac4be72a8bdc60eca137f93906bfdbd9bdfad0c94f690",
+        "index_binding": [
+          "local-b07ac3b308bd0355c65ac4be72a8bdc60eca137f93906bfdbd9bdfad0c94f690"
+        ],
+        "manifest": {
+          "pages": 8,
+          "characters": 371862,
+          "sourceStamp": [
+            445832,
+            1791405037500110000
+          ],
+          "preparedAt": "2026-10-16T01:30:29.524079+00:00"
+        },
+        "page_hits": [
+          {
+            "index": 4,
+            "display_page": 5,
+            "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/.local/local-library/pages/b07ac3b308bd0355c65ac4be72a8bdc60eca137f93906bfdbd9bdfad0c94f690/4.json",
+            "sha256": "19e035e18e230adb1e37818bbe533238fac4a86b413d668b344d7daa4545d7d1",
+            "includes_selected_span": true
+          }
+        ]
+      },
+      "source_use": "CC0-1.0",
+      "credits": "Whitefield, George, 1714-1770.; Text Creation Partnership",
+      "historical": {
+        "run": "kr101-31239794030518bcb2299a31",
+        "descriptor_sha256": "98807738df44eb0dfad7d805d9f190aa51774b23f74320181014521960b9751d",
+        "cache_match": true,
+        "selected_window": "5721008"
+      },
+      "semantic": {
+        "state": "Not verified; no live corpus/vector/index read in this task",
+        "candidate_track": "kr120-66a741ba22a7025744d3b98d",
+        "adapter": "required before new semantic evidence can affect live proposals"
+      },
+      "holds": [
+        "Named quotation witness is not independent corroboration of Piper; direction/edition use unproved",
+        "Historical catalogue imprints remain unverified here",
+        "Selected extraction includes generated gap/page labels: retain as annotations, never quote as Whitefield; source illegibility persists"
+      ]
+    },
+    {
+      "slot": "D07",
+      "candidate": "quotation",
+      "document_id": "library:text:be280c9aaf6e44ccfccac47fc6b676caf820d310cab9169a0913b8596feb9890",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-desiring-god\\asset-modern-piper-fbafcb4a8f7ed079dee3-epub\\original.epub",
+        "sha256": "be280c9aaf6e44ccfccac47fc6b676caf820d310cab9169a0913b8596feb9890",
+        "bytes": 440862,
+        "matches_recorded": true
+      },
+      "extraction": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\d41de07cefbd2e662eead3fed2c20329346ae87fb031528fdf11a73130b0cfd3.jsonl",
+        "sha256": "ed7536fe29a2c63e3c7f2e4b1a480690fec0ed64543264682807daa1cf65fc70",
+        "matches_historical": true,
+        "blocks": 24
+      },
+      "selected_evidence": {
+        "locator": "EPUB section 11: OEBPS/intro.html",
+        "start": 36000,
+        "end": 37800,
+        "expected_sha256": "3c1343f019d13dc488b2e2e4044733eca07bd9dab882898fac43a1092b2834d6",
+        "reconstructed_sha256": "3c1343f019d13dc488b2e2e4044733eca07bd9dab882898fac43a1092b2834d6",
+        "text_matches": true,
+        "context_exact_occurrence": true,
+        "context_start_codepoint": 35650,
+        "context_end_codepoint": 38150,
+        "context_relation": "includes preceding context",
+        "context_sha256": "f31616059325627c4fe1aa4bfae083475e367bcfec52a2e8044894635bd99819",
+        "context_unique_occurrence": true
+      },
+      "native_literal_check": {
+        "slot": "D07",
+        "native_member": "OEBPS/intro.html",
+        "selected_nonwhitespace_sequence_in_native_source": true,
+        "limit": "Whitespace-insensitive literal containment only; not layout, context-role or transcription completeness validation"
+      },
+      "identity": {
+        "work_id": "work-reconciled-6d772a6458d7803eeb709877",
+        "edition_id": "edition-reconciled-ae1b045cfdcadaa37f980365",
+        "basis": "Current reader/catalogue recorded identity, separately from literal source-header evidence",
+        "historical_work_id": "work-reconciled-6d772a6458d7803eeb709877",
+        "historical_edition_id": null
+      },
+      "source_header": {
+        "slot": "D07",
+        "opf": "OEBPS/content.opf",
+        "fields": [
+          {
+            "tag": "title",
+            "text": "Seeing Beauty and Saying Beautifully",
+            "attributes": {}
+          },
+          {
+            "tag": "creator",
+            "text": "John Piper",
+            "attributes": {}
+          },
+          {
+            "tag": "identifier",
+            "text": "9781433542978",
+            "attributes": {
+              "id": "bookid"
+            }
+          },
+          {
+            "tag": "language",
+            "text": "en",
+            "attributes": {}
+          },
+          {
+            "tag": "rights",
+            "text": "Copyright © 2014 by Desiring God Foundation",
+            "attributes": {}
+          },
+          {
+            "tag": "publisher",
+            "text": "Crossway",
+            "attributes": {}
+          },
+          {
+            "tag": "meta",
+            "text": "",
+            "attributes": {
+              "name": "cover",
+              "content": "cover"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "2014-02-26T00:00:00Z",
+            "attributes": {
+              "property": "dcterms:modified"
+            }
+          }
+        ],
+        "opf_sha256": "f001fcb52cc22c673f89eb9d2ccc52d88dd709d51f72d112e0ddaf95f6c79e5f"
+      },
+      "catalogue_assertions": [
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/works/work-reconciled-6d772a6458d7803eeb709877.json",
+          "sha256": "404b35dd1593edf83b124983bb66d3c7451a027877604ff66f92ba654018641d",
+          "id": "work-reconciled-6d772a6458d7803eeb709877",
+          "state": "draft",
+          "dates": [],
+          "contributors": [
+            {
+              "authorId": "author-john-piper",
+              "role": "author"
+            }
+          ],
+          "label": "Seeing Beauty and Saying Beautifully"
+        },
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/editions/edition-reconciled-ae1b045cfdcadaa37f980365.json",
+          "sha256": "aa2df603774be976e171c8ca3dc29c549a154d3ed0a4a60b2cd245cf59c7530f",
+          "id": "edition-reconciled-ae1b045cfdcadaa37f980365",
+          "state": "draft",
+          "dates": [],
+          "contributors": [],
+          "label": "Seeing Beauty and Saying Beautifully — held source edition be280c9aaf6e"
+        }
+      ],
+      "reader": {
+        "kind": "local-cache",
+        "route": "/teachers/works/held-be280c9aaf6e44ccfccac47fc6b676ca",
+        "local_id": "local-be280c9aaf6e44ccfccac47fc6b676caf820d310cab9169a0913b8596feb9890",
+        "index_binding": [
+          "local-be280c9aaf6e44ccfccac47fc6b676caf820d310cab9169a0913b8596feb9890"
+        ],
+        "manifest": null
+      },
+      "source_use": "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.desiringgod.org/permissions",
+      "credits": "John Piper; Desiring God",
+      "historical": {
+        "run": "kr101-31239794030518bcb2299a31",
+        "descriptor_sha256": "02edaa0926a115052e7ef97366330c499b957792cca1b2d245b624e299d0da5d",
+        "cache_match": true,
+        "selected_window": "6150813"
+      },
+      "semantic": {
+        "state": "Not verified; no live corpus/vector/index read in this task",
+        "candidate_track": "kr120-66a741ba22a7025744d3b98d",
+        "adapter": "required before new semantic evidence can affect live proposals"
+      },
+      "holds": [
+        "Copyright 2014 notice; recorded private-use/public-export restrictions retained",
+        "Local reader binding exists; prepared page cache not present at inspection"
+      ]
+    },
+    {
+      "slot": "D08",
+      "candidate": "editor-voice",
+      "document_id": "library:text:c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-ffd2fef8aa9d1d649c\\original.epub",
+        "sha256": "c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579",
+        "bytes": 1950362,
+        "matches_recorded": true
+      },
+      "extraction": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\9e69596e3163554655e281c8b50776a47e3c10dd5751e5a5f59abb0ad477a058.jsonl",
+        "sha256": "3bf97632eb5985f828e9b9c407bad86e2761205f028253c164b0ff031734e9d7",
+        "matches_historical": true,
+        "blocks": 119
+      },
+      "selected_evidence": {
+        "locator": "EPUB section 11: EPUB/chapter-02.xhtml",
+        "start": 22165,
+        "end": 23965,
+        "expected_sha256": "8721a1ca99890bd073ebfe7af717ad68c2ccb9a2214ca99f519b3db374c719a8",
+        "reconstructed_sha256": "8721a1ca99890bd073ebfe7af717ad68c2ccb9a2214ca99f519b3db374c719a8",
+        "text_matches": true,
+        "context_exact_occurrence": true,
+        "context_start_codepoint": 22165,
+        "context_end_codepoint": 24465,
+        "context_relation": "starts at selected span",
+        "context_sha256": "c227b3d69b23273ab8a5f93db3b8fc352f50bb71aa72a4654d84c6906bfb598e",
+        "context_unique_occurrence": true
+      },
+      "native_literal_check": {
+        "slot": "D08",
+        "native_member": "EPUB/chapter-02.xhtml",
+        "selected_nonwhitespace_sequence_in_native_source": true,
+        "limit": "Whitespace-insensitive literal containment only; not layout, context-role or transcription completeness validation"
+      },
+      "identity": {
+        "work_id": "work-reconciled-f961163135e23a8cd1c44aa5",
+        "edition_id": "edition-reconciled-33500c193f08e9c377b238cd",
+        "basis": "Current reader/catalogue recorded identity, separately from literal source-header evidence",
+        "historical_work_id": "work-reconciled-f961163135e23a8cd1c44aa5",
+        "historical_edition_id": null,
+        "local_speaker_role": "Editorial notes with Ed. markers; named editor not determined"
+      },
+      "source_header": {
+        "slot": "D08",
+        "opf": "EPUB/package.opf",
+        "fields": [
+          {
+            "tag": "identifier",
+            "text": "urn:uuid:b9e1fec8-af0a-4d6a-863f-406364901db6",
+            "attributes": {
+              "id": "pub-id"
+            }
+          },
+          {
+            "tag": "title",
+            "text": "Commentary on Genesis: Chapters 1–50",
+            "attributes": {}
+          },
+          {
+            "tag": "creator",
+            "text": "John Calvin",
+            "attributes": {
+              "id": "creator"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "aut",
+            "attributes": {
+              "refines": "#creator",
+              "property": "role",
+              "scheme": "marc:relators"
+            }
+          },
+          {
+            "tag": "contributor",
+            "text": "John King",
+            "attributes": {
+              "id": "translator"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "trl",
+            "attributes": {
+              "refines": "#translator",
+              "property": "role",
+              "scheme": "marc:relators"
+            }
+          },
+          {
+            "tag": "language",
+            "text": "en",
+            "attributes": {}
+          },
+          {
+            "tag": "publisher",
+            "text": "Monergism Books",
+            "attributes": {}
+          },
+          {
+            "tag": "date",
+            "text": "2026",
+            "attributes": {}
+          },
+          {
+            "tag": "subject",
+            "text": "Bible Commentary",
+            "attributes": {}
+          },
+          {
+            "tag": "subject",
+            "text": "Genesis",
+            "attributes": {}
+          },
+          {
+            "tag": "subject",
+            "text": "Reformed Theology",
+            "attributes": {}
+          },
+          {
+            "tag": "rights",
+            "text": "Original text in the public domain. Editorial material and cover artwork © 2026 Monergism Books, where applicable.",
+            "attributes": {}
+          },
+          {
+            "tag": "meta",
+            "text": "2026-09-22T17:09:43Z",
+            "attributes": {
+              "property": "dcterms:modified"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "textual",
+            "attributes": {
+              "property": "schema:accessMode"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "visual",
+            "attributes": {
+              "property": "schema:accessMode"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "tableOfContents",
+            "attributes": {
+              "property": "schema:accessibilityFeature"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "structuralNavigation",
+            "attributes": {
+              "property": "schema:accessibilityFeature"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "displayTransformability",
+            "attributes": {
+              "property": "schema:accessibilityFeature"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "none",
+            "attributes": {
+              "property": "schema:accessibilityHazard"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "This publication contains structured navigation, linked notes with return links, and descriptive cover text.",
+            "attributes": {
+              "property": "schema:accessibilitySummary"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "reflowable",
+            "attributes": {
+              "property": "rendition:layout"
+            }
+          },
+          {
+            "tag": "meta",
+            "text": "none",
+            "attributes": {
+              "property": "rendition:spread"
+            }
+          }
+        ],
+        "opf_sha256": "4ee963f3f4a245dc8d10813a18eb20673d45eb927e121008b3ed8f9a70d17294"
+      },
+      "catalogue_assertions": [
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/works/work-reconciled-f961163135e23a8cd1c44aa5.json",
+          "sha256": "29c06e2289d1d18a54d63c8b0d5786746e2a9c2208601561ccef07b580a1b14e",
+          "id": "work-reconciled-f961163135e23a8cd1c44aa5",
+          "state": "draft",
+          "dates": [],
+          "contributors": [
+            {
+              "authorId": "author-john-calvin",
+              "role": "author"
+            }
+          ],
+          "label": "Calvin's Commentaries"
+        },
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/editions/edition-reconciled-33500c193f08e9c377b238cd.json",
+          "sha256": "91095bca8def83ca01f2f575ad2bfdfb20d333bb7c4341cac501a2c711c5fe20",
+          "id": "edition-reconciled-33500c193f08e9c377b238cd",
+          "state": "draft",
+          "dates": [],
+          "contributors": [],
+          "label": "Commentary on Genesis: Chapters 1–50 — held source edition c3e709ba58b6"
+        }
+      ],
+      "reader": {
+        "kind": "local-cache",
+        "route": "/teachers/works/held-c3e709ba58b60fead7cdb12ee5235226",
+        "local_id": "local-c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579",
+        "index_binding": [
+          "local-c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579"
+        ],
+        "manifest": null
+      },
+      "source_use": "Copyright and edition notices retained; recorded acquisition category: unspecified; recorded use scope: private-personal-educational-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions",
+      "credits": "John Calvin; Monergism",
+      "historical": {
+        "run": "kr101-31239794030518bcb2299a31",
+        "descriptor_sha256": "3feb922d52697a67e18536cbc899d7410d1ed11dd24381e4bf809e1ee7d26e4f",
+        "cache_match": true,
+        "selected_window": "6336875"
+      },
+      "semantic": {
+        "state": "Not verified; no live corpus/vector/index read in this task",
+        "candidate_track": "kr110-54f0bfca9b30da6cc49b2347",
+        "adapter": "required before new semantic evidence can affect live proposals"
+      },
+      "holds": [
+        "Selected witness is editorial Notes signed Ed.; named editor identity unresolved",
+        "Plan Q08 incorrectly calls this prefatory: correct to editorial notes before any run",
+        "OPF creator Calvin does not assign authorship of every note"
+      ]
+    },
+    {
+      "slot": "D09",
+      "candidate": "caritas",
+      "document_id": "library:text:176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-ready-text-edition-l06-calvin-39\\calcom39.xml",
+        "sha256": "176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012",
+        "bytes": 1767435,
+        "matches_recorded": true
+      },
+      "extraction": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\a7bf643ad9ed8fb2cbe03a7988b660d207d3c959ed40d0f03334d121c5ff7280.jsonl",
+        "sha256": "ebc7896541a5423595f99ab68d7c3ed646a18c2fecf0526ac0ac7e25b30a88b4",
+        "matches_historical": true,
+        "blocks": 1
+      },
+      "selected_evidence": {
+        "locator": "calcom39.xml",
+        "start": 1005532,
+        "end": 1006711,
+        "expected_sha256": "4dd1fb86b981c62e2114047524c02df305f94c6506b6ac5f5f57c890ab811b9a",
+        "reconstructed_sha256": "4dd1fb86b981c62e2114047524c02df305f94c6506b6ac5f5f57c890ab811b9a",
+        "text_matches": true,
+        "context_exact_occurrence": true,
+        "context_start_codepoint": 1005532,
+        "context_end_codepoint": 1007211,
+        "context_relation": "starts at selected span",
+        "context_sha256": "8aa6090d0cde6c1e529b824aa0431b194316e50704fa86718c4cd23a74591682",
+        "context_unique_occurrence": true
+      },
+      "native_literal_check": {
+        "slot": "D09",
+        "native_member": "XML body",
+        "selected_nonwhitespace_sequence_in_native_source": true,
+        "limit": "Whitespace-insensitive literal containment only; not layout, context-role or transcription completeness validation"
+      },
+      "identity": {
+        "work_id": "work-l06-calvin-39",
+        "edition_id": "edition-l06-calvin-39",
+        "basis": "Current reader/catalogue recorded identity, separately from literal source-header evidence",
+        "historical_work_id": "work-l06-calvin-39",
+        "historical_edition_id": "edition-l06-calvin-39",
+        "translator_from_header": "Pringle, Rev. John"
+      },
+      "source_header": {
+        "slot": "D09",
+        "captured_header_excerpt_sha256": "87a4af492456cc0a423c5cbd48ea242061e1404cb4d9b0bfd55c43667d662484",
+        "captured_header_limit_characters": 9000
+      },
+      "catalogue_assertions": [
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/works/work-l06-calvin-39.json",
+          "sha256": "67567f60efec5ec60efd3ad5470d90a11e6e9905a92bc53ccdd2929d1eff2a34",
+          "id": "work-l06-calvin-39",
+          "state": "catalogued",
+          "dates": [],
+          "contributors": [
+            {
+              "authorId": "author-john-calvin",
+              "role": "author"
+            }
+          ],
+          "label": "Commentary on Corinthians, volume 1"
+        },
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/editions/edition-l06-calvin-39.json",
+          "sha256": "627afaf8e0a0e8cf5253dff742c256516cbb55e3e2104f6f0b45d0edb5795546",
+          "id": "edition-l06-calvin-39",
+          "state": "catalogued",
+          "dates": [],
+          "contributors": [],
+          "label": "CCEL electronic presentation of Calvin Translation Society text; individual print impression not established"
+        }
+      ],
+      "reader": {
+        "kind": "local-cache",
+        "route": "/teachers/works/held-176ef9aa57b3973664dcf65d4ca12c1b",
+        "local_id": "local-176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012",
+        "index_binding": [
+          "local-176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012"
+        ],
+        "manifest": null
+      },
+      "source_use": "Recorded category: restricted-license; Personal/educational use; retain notices. Republication or commercial use requires separate permission.",
+      "credits": "Author and source credited in the catalog.",
+      "historical": {
+        "run": "kr101-31239794030518bcb2299a31",
+        "descriptor_sha256": "7791f70b940ff88fb80de962da56a66c7b38eec32a24c0b6c394377f8ec3d5f0",
+        "cache_match": true,
+        "selected_window": "1048479"
+      },
+      "semantic": {
+        "state": "Not verified; no live corpus/vector/index read in this task",
+        "candidate_track": "kr110-54f0bfca9b30da6cc49b2347",
+        "adapter": "required before new semantic evidence can affect live proposals"
+      },
+      "holds": [
+        "Source header names John Pringle as translator; preserve role separately from Calvin",
+        "CCEL source-use caution remains despite Public Domain header string",
+        "Local reader binding exists; prepared page cache not present at inspection"
+      ]
+    },
+    {
+      "slot": "D10",
+      "candidate": "ephesians-guide",
+      "document_id": "library:text:140823cc0ca835eda48a3dc99d4025ef928530e997e92a25e5fecbc82b00f0d2",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-tcp-bulk\\asset-bulk-tcp-a41197\\original.xml",
+        "sha256": "140823cc0ca835eda48a3dc99d4025ef928530e997e92a25e5fecbc82b00f0d2",
+        "bytes": 1959561,
+        "matches_recorded": true
+      },
+      "extraction": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\3a066d570ac5328eaf02af83fff4f740b60b8a097b9365664920bc0241396c35.jsonl",
+        "sha256": "5f5d8f9e56fe3eaf35db157f5cc8e9f8c92320ad951b7c0226fe6afe71e9c534",
+        "matches_historical": true,
+        "blocks": 1
+      },
+      "selected_evidence": {
+        "basis": "Exact retained LK quote; not a reinterpreted KR window",
+        "locator": "original.xml",
+        "start": 1156445,
+        "end": 1156534,
+        "text_sha256": "dffdb4ddb2f1dacd0a4a9dda6574c2feb5fc4ca5336b7905411813916cd96231",
+        "literal_quote_occurrences": 1,
+        "native_xml_matches": [
+          {
+            "xpath": "/*/*[2]/*[2]/*[2]/*[8]/*[5]/*[2]",
+            "tag": "p",
+            "chars": 7832,
+            "normalized_quote_offset": 0,
+            "normalized_text_sha256": "c5aef75274845a57ef1fe687fda3f2b4a742060fcf0c134053e26fbf365d816f"
+          },
+          {
+            "xpath": "/*/*[2]/*[2]/*[2]/*[8]/*[5]",
+            "tag": "div",
+            "chars": 8027,
+            "normalized_quote_offset": 120,
+            "normalized_text_sha256": "d84c7e17f6d04c4471180ec232ca7af25326397e89c8c2a22f4fad94e2dd0b14"
+          },
+          {
+            "xpath": "/*/*[2]/*[2]/*[2]/*[8]",
+            "tag": "div",
+            "chars": 203352,
+            "normalized_quote_offset": 3333,
+            "normalized_text_sha256": "9b60f8f4fa4fec8c30684dd666f3e55aed793b39b0d8f3ea20bd0aca51c68bf4"
+          },
+          {
+            "xpath": "/*/*[2]/*[2]/*[2]",
+            "tag": "div",
+            "chars": 999991,
+            "normalized_quote_offset": 446688,
+            "normalized_text_sha256": "ee29a2942e822756f68843fcfb1b6a8b10e99fa7c1cfae8c71e1d050176cbbcd"
+          }
+        ],
+        "retained_connection": "connection:04105c20fa301e4ff0ca3759ae207f2d8d7f7aebb5ee478ff5b6b975278ce919"
+      },
+      "native_literal_check": null,
+      "identity": {
+        "work_id": "work-tcp-a41197",
+        "edition_id": "edition-tcp-a41197-1659",
+        "basis": "Current reader/catalogue recorded identity, separately from literal source-header evidence",
+        "historical_work_id": "work-tcp-a41197",
+        "historical_edition_id": "edition-tcp-a41197-1659"
+      },
+      "source_header": {
+        "slot": "D10",
+        "captured_header_excerpt_sha256": "38b9c3914c9d42772bc6a92ee78cacbba3297062143a51b9085edb9590d69f0b",
+        "captured_header_limit_characters": 9000
+      },
+      "catalogue_assertions": [
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/works/work-tcp-a41197.json",
+          "sha256": "0b210febe3f4cd06c08fba7c330da9563b0200aa11840bf15761f457157ff21b",
+          "id": "work-tcp-a41197",
+          "state": "draft",
+          "dates": [],
+          "contributors": [
+            {
+              "authorId": "author-james-fergusson",
+              "role": "author"
+            }
+          ],
+          "label": "A brief exposition of the Epistles of Paul to the Galatians and Ephesians"
+        },
+        {
+          "path": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/catalog/editions/edition-tcp-a41197-1659.json",
+          "sha256": "8f9f18da8741d6ea3837219080244168973d7e33970a8d12e8864ffb60a02f96",
+          "id": "edition-tcp-a41197-1659",
+          "state": "draft",
+          "dates": [
+            {
+              "event": "edition-publication",
+              "value": "1659",
+              "precision": "year",
+              "label": "Print source edition; exact header assertion",
+              "evidence": [
+                {
+                  "url": "https://raw.githubusercontent.com/textcreationpartnership/A41197/master/A41197.xml",
+                  "locator": "Held XML title/creator and publication headers; original SHA256 140823cc0ca835eda48a3dc99d4025ef928530e997e92a25e5fecbc82b00f0d2",
+                  "note": "Source-bound identity/date/role assertions verified by P3. Unknown composition and delivery dates remain unknown.",
+                  "checkedOn": "2026-10-12"
+                }
+              ]
+            },
+            {
+              "event": "edition-publication",
+              "value": "2004-11",
+              "precision": "month",
+              "label": "Electronic edition creation; exact header assertion",
+              "evidence": [
+                {
+                  "url": "https://raw.githubusercontent.com/textcreationpartnership/A41197/master/A41197.xml",
+                  "locator": "Held XML title/creator and publication headers; original SHA256 140823cc0ca835eda48a3dc99d4025ef928530e997e92a25e5fecbc82b00f0d2",
+                  "note": "Source-bound identity/date/role assertions verified by P3. Unknown composition and delivery dates remain unknown.",
+                  "checkedOn": "2026-10-12"
+                }
+              ]
+            }
+          ],
+          "contributors": [],
+          "label": "TCP transcription of the 1659 Galatians and Ephesians exposition"
+        }
+      ],
+      "reader": {
+        "resolution": "public record fallback, containing-work URL",
+        "page_hits": [
+          {
+            "index": 24,
+            "display_page": 25,
+            "bundle": "pages/dfdb8ccbafc40b8cf92966a6076ce979cbdf0227b168940929b0ed585b9579d3.json",
+            "bundle_sha256": "dfdb8ccbafc40b8cf92966a6076ce979cbdf0227b168940929b0ed585b9579d3",
+            "quote_offset": 4445,
+            "blocks": [
+              {
+                "locator": "original.xml",
+                "characters": 12000
+              },
+              {
+                "locator": "original.xml",
+                "characters": 12000
+              },
+              {
+                "locator": "original.xml",
+                "characters": 12000
+              },
+              {
+                "locator": "original.xml",
+                "characters": 12000
+              }
+            ]
+          }
+        ],
+        "record_route": "/content/teacher-library/records/5e.json",
+        "record_http": 200,
+        "browser": {
+          "initial_page": 1,
+          "displayed_page": 25,
+          "total_pages": 36,
+          "next_clicks": 24,
+          "retained_quote_visible": true
+        },
+        "record_fallback_http": {
+          "route": "/api/local-library/records/held-140823cc0ca835eda48a3dc99d4025ef",
+          "status": 404
+        },
+        "served_bundle": {
+          "route": "/content/teacher-library/pages/dfdb8ccbafc40b8cf92966a6076ce979cbdf0227b168940929b0ed585b9579d3.json",
+          "status": 200,
+          "sha256": "dfdb8ccbafc40b8cf92966a6076ce979cbdf0227b168940929b0ed585b9579d3",
+          "matches_pinned_file": true
+        }
+      },
+      "source_use": "CC0-1.0",
+      "credits": "Fergusson, James, 1621-1667.; Text Creation Partnership",
+      "historical": {
+        "run": "kr101-31239794030518bcb2299a31",
+        "descriptor_sha256": "8c7a55d979c71d8f9993e04bf4e4074689dc470c58be96a2d332e05dd2123ecd",
+        "cache_match": true,
+        "selected_window": "connection:04105c20fa301e4ff0ca3759ae207f2d8d7f7aebb5ee478ff5b6b975278ce919"
+      },
+      "semantic": {
+        "state": "Not verified; no live corpus/vector/index read in this task",
+        "candidate_track": "historical LK package",
+        "adapter": "required before new semantic evidence can affect live proposals"
+      },
+      "holds": [
+        "Containing-work fallback is usable, but requires 24 Next clicks to page 25",
+        "Existing LK transcription gaps/numbering conflict retained; selected location does not clear whole work"
+      ]
+    },
+    {
+      "slot": "D11",
+      "candidate": "father-gloss",
+      "document_id": "reference-library:openscriptures/HebrewLexicon/HebrewLexicon-master/HebrewStrong.xml:H1:0",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\openscriptures\\HebrewLexicon\\HebrewLexicon-master\\HebrewStrong.xml",
+        "sha256": "a628f4f89f8bdaf2483fd3faf1abc8653cc6717758dfc9f24beb7571d9bdd0c4",
+        "matches_recorded": true
+      },
+      "representation": {
+        "adapter": "native XML entry",
+        "xpath": "/*/*[1]",
+        "entry_id": "H1",
+        "expected_entry_key": "H1:0"
+      },
+      "source": {
+        "xpath": "/*/*[1]/*[1]",
+        "sha256": "ba560a916a31e40924972cfebcccd69cb532e6d56ee9c628a0e9ca1b623915b1",
+        "text_matches": true,
+        "language": "heb"
+      },
+      "target": {
+        "xpath": "/*/*[1]/*[3]",
+        "sha256": "a305b2f55c50dcaccf7f13422f3a9c526933cd2a496084e701fa1740c0123853",
+        "text_matches": true,
+        "element": "meaning",
+        "relation_limit": "Meaning-element gloss, no contextual sense choice"
+      },
+      "work_id": null,
+      "edition_id": null,
+      "reader": {
+        "route": "/data_analysis/kr140/?record=43d343163c747995d138b72e#record-detail",
+        "resolution": "exact saved local lexicon evidence; no general reader mapping"
+      },
+      "semantic": {
+        "state": "not verified; active owner/index protected",
+        "historical_run": "kr140-3092a59f7c3f691bb7cdf4f9"
+      },
+      "descriptor_sha256": "1d0e0050ed0e9b9dddb6b913ee7063c514fe8be575c440d4aa26694af63f827a",
+      "source_use": "Not reassessed; preserve existing source credit/use conditions; no public-export decision",
+      "credits": "Held lexicon source/editor credits retained; translator not inferred",
+      "holds": [
+        "Protected short script entry; glossary evidence does not choose a contextual biblical sense",
+        "Bibliographic work/edition identity and public-use scope not established by this check",
+        "No current corpus/vector/index dependency proof"
+      ]
+    },
+    {
+      "slot": "D12",
+      "candidate": "father-gloss",
+      "document_id": "reference-library:openscriptures/HebrewLexicon/HebrewLexicon-master/HebrewStrong.xml:H2:1",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\openscriptures\\HebrewLexicon\\HebrewLexicon-master\\HebrewStrong.xml",
+        "sha256": "a628f4f89f8bdaf2483fd3faf1abc8653cc6717758dfc9f24beb7571d9bdd0c4",
+        "matches_recorded": true
+      },
+      "representation": {
+        "adapter": "native XML entry",
+        "xpath": "/*/*[2]",
+        "entry_id": "H2",
+        "expected_entry_key": "H2:1"
+      },
+      "source": {
+        "xpath": "/*/*[2]/*[1]",
+        "sha256": "887aff78e9377f4315cf44579a98fbd629154cece17774333edf60517ff48b8f",
+        "text_matches": true,
+        "language": "arc"
+      },
+      "target": {
+        "xpath": "/*/*[2]/*[3]",
+        "sha256": "5d715252e2feceaff6c0de0c9cd816f07849cc4a98599d0006e40745bd9f954a",
+        "text_matches": true,
+        "element": "usage",
+        "relation_limit": "Recorded usage gloss; not a meaning-element definition"
+      },
+      "work_id": null,
+      "edition_id": null,
+      "reader": {
+        "route": "/data_analysis/kr140/?record=ab4e893a411aae5063160cc6#record-detail",
+        "resolution": "exact saved local lexicon evidence; no general reader mapping"
+      },
+      "semantic": {
+        "state": "not verified; active owner/index protected",
+        "historical_run": "kr140-3092a59f7c3f691bb7cdf4f9"
+      },
+      "descriptor_sha256": "2cd5bda0b15e8374e87797af0d2b8fcc94365a7e9fed78658b60a4fb847329df",
+      "source_use": "Not reassessed; preserve existing source credit/use conditions; no public-export decision",
+      "credits": "Held lexicon source/editor credits retained; translator not inferred",
+      "holds": [
+        "Protected short script entry; glossary evidence does not choose a contextual biblical sense",
+        "Bibliographic work/edition identity and public-use scope not established by this check",
+        "No current corpus/vector/index dependency proof"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "path": "Website/.local/data-analysis/website-candidates.json",
+      "sha256": "31bab5204f918d804ca9b3b0bec7e4d3d93fc123e7d9a348afea038b134072d0"
+    },
+    {
+      "path": "Website/src/pages/teachers/shared/acquired.ts",
+      "sha256": "3046d73a96f355d1e601b9e931cd80b81c5e7440e44615a02126ba9f365aeba6"
+    },
+    {
+      "path": "Website/src/pages/teachers/LibraryWorkPage.tsx",
+      "sha256": "cdc40f2dcfeb7114ee3901472ea2bcd63b1c872e66d32a480df69c6bf1689e2d"
+    },
+    {
+      "path": "Website/scripts/local-library-vite.ts",
+      "sha256": "b5cd86e735f4cc4edc222e6e4b8b57e1631d717540cbb28b361f543ec2a2469a"
+    },
+    {
+      "path": "Website/scripts/local_library.py",
+      "sha256": "704a460d67afde9a71092686ea8c0a9892b322aa4acf64b4a0984f35990c6de5"
+    },
+    {
+      "path": "Website/initiatives/library-knowledge/distillation/rehearsal-scope-2026-10-18.json",
+      "sha256": "95e70302c78b291e99ba0c21313d7983777691f8761a4423b2ef80e0002bcb03"
+    },
+    {
+      "path": "Website/public/content/teacher-library/records/65.json",
+      "sha256": "3222a65b9ddeee77accd83c5f1f093e3eb58dfa5d7d31cd0cac6635566b68071"
+    },
+    {
+      "path": "Website/public/content/teacher-library/records/85.json",
+      "sha256": "df8636cc4e13696ed4cd7e9a8f40bfde43ebef6dc76f62807e9bcc8e47ee4152"
+    },
+    {
+      "path": "Website/public/content/teacher-library/records/60.json",
+      "sha256": "cebc5c4eaa28a48d18d7b8f882c5476b5aa944f054f62f96821c613d9b332423"
+    },
+    {
+      "path": "Website/public/content/teacher-library/records/22.json",
+      "sha256": "f8933d354ab59986b0b3c38d63a360d7e6e64e82d1bb76f5d6fd853ee5ddbea8"
+    },
+    {
+      "path": "Website/public/content/teacher-library/records/c6.json",
+      "sha256": "38fa5350d117b2c0caa839662406fc5215db74150c11583ed7f7902a93c3989a"
+    },
+    {
+      "path": "Website/public/content/teacher-library/records/c0.json",
+      "sha256": "0abb46fc9d35a35a66f0637c1fddb65291b19f8b4ed346b2a2877b3207162612"
+    },
+    {
+      "path": "Website/public/content/teacher-library/records/81.json",
+      "sha256": "5fd3ccbc6c0339f3ef871e831f6e07262774ffba9e932923e438ed6e568a7b77"
+    },
+    {
+      "path": "Website/public/content/teacher-library/records/09.json",
+      "sha256": "a450354f50bc31e9f02e8ae11ad59b34e7d9f1537806c75df782a454df5973ab"
+    },
+    {
+      "path": "Website/public/content/teacher-library/records/5e.json",
+      "sha256": "0fd2161a2a40d0ef1a58dc9c22e1e5eaed28e6dce031b38de7b090b8f4855962"
+    },
+    {
+      "path": "Website/scripts/analyse-teacher-scripture.py",
+      "sha256": "d61dcd000d1f7a154124167c8cc3d3d1ead4d7541a1b4adef287006a72cdf850"
+    },
+    {
+      "path": "Website/src/data/teachers/people.json",
+      "sha256": "06a66bd7789e88aafa163b0e8ab2eaaafc772a4fb6bc55270af1f59276d9947c"
+    }
+  ],
+  "holds": [],
+  "hodge_edition": {
+    "electronic_notice": "ePub and .mobi Editions October 2018",
+    "notice_source_member": "Outlines of Theology_split_010.html#copy",
+    "notice_codepoint_offset": 232629,
+    "notice_sha256": "0f29426799bd4d9c0f45090759eadd2ebaad55cf8a2fecbd7e288173dbcdd985",
+    "revised_preface_date": "1878-08-06",
+    "packaging_timestamp": "2025-01-31T18:24:52.656285+00:00",
+    "print_edition": "unresolved; no print imprint found in inspected embedded metadata/notices",
+    "policy": "Keep exact edition unknown; do not substitute 1877 scan or treat OPF 0101 as date"
+  },
+  "plan_amendments": [
+    {
+      "query": "Q08",
+      "previous": "Who speaks in the selected prefatory passage, and what marks the editor/author boundary?",
+      "proposed": "Who speaks in the selected editorial notes, and which source marks distinguish them from Calvin’s prose?",
+      "reason": "Actual selected heading is Notes, with Ed. markers. Original proposed scope preserved; no question judgments or live proposal modified."
+    }
+  ],
+  "methods": {
+    "sources": "Original SHA256 and selected KR-101 descriptor/cache fingerprints; ten exact run/document index lookups, no live corpus connection",
+    "spans": "Code-point slice and SHA256 plus expanded-context occurrence; source XML/EPUB whitespace-insensitive containment recorded separately",
+    "readers": "Read current index, public shard fallback and existing page/bundle files; browser checks for Fergusson, Henry and Boyce; no new page cache preparation",
+    "lexicon": "Native entry IDs, XML language attributes and separate term/meaning-or-usage XPath/text hashes",
+    "limits": "No full text-fidelity certification, fresh held-out labels, legal permission decision, vector coverage/index retention proof, or atomic dependency-closed snapshot"
+  },
+  "candidate_revisions": [
+    [
+      "ephesians-guide",
+      "8e8f1efc2e288fbfafc7c09e665f15b786e16b04caf4969cca96eed7cbf37901",
+      1,
+      "pending"
+    ],
+    [
+      "unity",
+      "da4c6d17ea26bd23a1b23d7a7960baa2fc3703bd4cca3c537e40a515bc94a5c5",
+      2,
+      "pending"
+    ],
+    [
+      "supper",
+      "7f7733d0162cf9f8fc007e9ad5d070482eb864f5b5208230c9205c07a496b9a9",
+      2,
+      "pending"
+    ],
+    [
+      "grief",
+      "1bf3010dc008e930068c46890198844c10a6bb69b3d06d3d7609ada436c1a49c",
+      2,
+      "pending"
+    ],
+    [
+      "dryness",
+      "ba5f6ac2d22d75edf51c0e7d1a07662fa7d58c693c2b8ffffae9cf1aa64deb7b",
+      2,
+      "pending"
+    ],
+    [
+      "forgiveness",
+      "a33e28aa4ffa699bde6739ba66454b8ebe73b372e13c11b0cc258bd935395898",
+      2,
+      "pending"
+    ],
+    [
+      "temptation",
+      "c7da1540d9fac39fc06ac8880a5ea883308d48847e7ac38d577aa291e6e6a4f3",
+      2,
+      "pending"
+    ],
+    [
+      "justification",
+      "7ef4edb4c6cf5bafcdf941ab8055d551b6aec813c809f40aba3de1010407a08a",
+      2,
+      "pending"
+    ],
+    [
+      "perseverance",
+      "fb12ddb494eaec595fe9d66b060f1d0ce2ee47a3eb5e50e7c0c3a4537bfcec47",
+      2,
+      "pending"
+    ],
+    [
+      "new-covenant",
+      "d897b9205ba7c9cb5716eee3e1a3bb250d8627064923ac3dde0dfdb527568a10",
+      2,
+      "pending"
+    ],
+    [
+      "apostasy",
+      "e9e8b93640807534b0466ff7db44e6f2a11653d995d04e6dea6adbad8bff52e6",
+      2,
+      "pending"
+    ],
+    [
+      "repentance",
+      "d54b9541d1e5706b690f5a684a3ce8f34a21921abc33221f4a52c6971886d580",
+      2,
+      "pending"
+    ],
+    [
+      "quotation",
+      "fe7de32cb94666f98d528718c8480690f943e7239e045e9601d0fdfb4874eb12",
+      2,
+      "pending"
+    ],
+    [
+      "judging",
+      "11ce7c188dd160c7a4119b3291454f280b712be04336befa98e3579b109ca10f",
+      2,
+      "pending"
+    ],
+    [
+      "word-effects",
+      "7783a564a3425f00c0f9215569786a6a44bc8a6004ba2ffe8117ff120dca363a",
+      2,
+      "pending"
+    ],
+    [
+      "knowing-god",
+      "376fcebbce5fa8cbf79ae131bde09a97c1f0ae17e4240489cbf0b8800d08c448",
+      2,
+      "pending"
+    ],
+    [
+      "confession-1644",
+      "d40655207a89f8d65a38a47d852b073ad3b5d4713215bed3dbe9b67020359b5a",
+      2,
+      "pending"
+    ],
+    [
+      "boyce-profile",
+      "159abc55287a440b9526a4cdeae5ca40f9a98912196bfd034fa566c3ded872b9",
+      2,
+      "pending"
+    ],
+    [
+      "caritas",
+      "fc523d3146814e3c382ee687e45acd0cbf7bc0c20040d4be5b7d82fd3cd227ea",
+      2,
+      "pending"
+    ],
+    [
+      "editor-voice",
+      "2460c6c977cd470ffdb1553a107a3bab084d7f8183272cd86f4e1c9ccd9d6102",
+      2,
+      "pending"
+    ],
+    [
+      "father-gloss",
+      "dd2041bb4170a6ea48c921c2c88acb3a119f03e6ccbf9de2832e03217bbc71af",
+      2,
+      "pending"
+    ]
+  ],
+  "summary": {
+    "document_records": 12,
+    "unique_original_assets": 11,
+    "book_records": 10,
+    "extraction_caches_checked": 10,
+    "matching_originals": 12,
+    "kr_spans_reconstructed": 8,
+    "kr_spans_exact": 8,
+    "fergusson_lk_quote_source_and_reader_verified": true,
+    "lexical_entries_verified": 2,
+    "reader_body_holds": [
+      "D03",
+      "D04"
+    ],
+    "all_semantic_mappings": "unverified; no vector/index opening",
+    "pilot_executed": false
+  },
+  "completed_at": "2026-10-19T04:28:03.376Z",
+  "closeout": {
+    "at": "2026-10-19T04:29:01.116Z",
+    "curation_unchanged": true,
+    "reader_index_unchanged": true,
+    "originals": [
+      {
+        "slot": "D01",
+        "unchanged": true
+      },
+      {
+        "slot": "D02",
+        "unchanged": true
+      },
+      {
+        "slot": "D03",
+        "unchanged": true
+      },
+      {
+        "slot": "D04",
+        "unchanged": true
+      },
+      {
+        "slot": "D05",
+        "unchanged": true
+      },
+      {
+        "slot": "D06",
+        "unchanged": true
+      },
+      {
+        "slot": "D07",
+        "unchanged": true
+      },
+      {
+        "slot": "D08",
+        "unchanged": true
+      },
+      {
+        "slot": "D09",
+        "unchanged": true
+      },
+      {
+        "slot": "D10",
+        "unchanged": true
+      },
+      {
+        "slot": "D11",
+        "unchanged": true
+      },
+      {
+        "slot": "D12",
+        "unchanged": true
+      }
+    ],
+    "caches": [
+      {
+        "slot": "D01",
+        "unchanged": true
+      },
+      {
+        "slot": "D02",
+        "unchanged": true
+      },
+      {
+        "slot": "D03",
+        "unchanged": true
+      },
+      {
+        "slot": "D04",
+        "unchanged": true
+      },
+      {
+        "slot": "D05",
+        "unchanged": true
+      },
+      {
+        "slot": "D06",
+        "unchanged": true
+      },
+      {
+        "slot": "D07",
+        "unchanged": true
+      },
+      {
+        "slot": "D08",
+        "unchanged": true
+      },
+      {
+        "slot": "D09",
+        "unchanged": true
+      },
+      {
+        "slot": "D10",
+        "unchanged": true
+      }
+    ],
+    "proposed_scope_unchanged": true,
+    "live": {
+      "curation": {
+        "counts": {
+          "pending": 21
+        },
+        "sequence": 41,
+        "mappings": 273,
+        "items": [
+          [
+            "ephesians-guide",
+            "8e8f1efc2e288fbfafc7c09e665f15b786e16b04caf4969cca96eed7cbf37901",
+            1,
+            "pending"
+          ],
+          [
+            "unity",
+            "da4c6d17ea26bd23a1b23d7a7960baa2fc3703bd4cca3c537e40a515bc94a5c5",
+            2,
+            "pending"
+          ],
+          [
+            "supper",
+            "7f7733d0162cf9f8fc007e9ad5d070482eb864f5b5208230c9205c07a496b9a9",
+            2,
+            "pending"
+          ],
+          [
+            "grief",
+            "1bf3010dc008e930068c46890198844c10a6bb69b3d06d3d7609ada436c1a49c",
+            2,
+            "pending"
+          ],
+          [
+            "dryness",
+            "ba5f6ac2d22d75edf51c0e7d1a07662fa7d58c693c2b8ffffae9cf1aa64deb7b",
+            2,
+            "pending"
+          ],
+          [
+            "forgiveness",
+            "a33e28aa4ffa699bde6739ba66454b8ebe73b372e13c11b0cc258bd935395898",
+            2,
+            "pending"
+          ],
+          [
+            "temptation",
+            "c7da1540d9fac39fc06ac8880a5ea883308d48847e7ac38d577aa291e6e6a4f3",
+            2,
+            "pending"
+          ],
+          [
+            "justification",
+            "7ef4edb4c6cf5bafcdf941ab8055d551b6aec813c809f40aba3de1010407a08a",
+            2,
+            "pending"
+          ],
+          [
+            "perseverance",
+            "fb12ddb494eaec595fe9d66b060f1d0ce2ee47a3eb5e50e7c0c3a4537bfcec47",
+            2,
+            "pending"
+          ],
+          [
+            "new-covenant",
+            "d897b9205ba7c9cb5716eee3e1a3bb250d8627064923ac3dde0dfdb527568a10",
+            2,
+            "pending"
+          ],
+          [
+            "apostasy",
+            "e9e8b93640807534b0466ff7db44e6f2a11653d995d04e6dea6adbad8bff52e6",
+            2,
+            "pending"
+          ],
+          [
+            "repentance",
+            "d54b9541d1e5706b690f5a684a3ce8f34a21921abc33221f4a52c6971886d580",
+            2,
+            "pending"
+          ],
+          [
+            "quotation",
+            "fe7de32cb94666f98d528718c8480690f943e7239e045e9601d0fdfb4874eb12",
+            2,
+            "pending"
+          ],
+          [
+            "judging",
+            "11ce7c188dd160c7a4119b3291454f280b712be04336befa98e3579b109ca10f",
+            2,
+            "pending"
+          ],
+          [
+            "word-effects",
+            "7783a564a3425f00c0f9215569786a6a44bc8a6004ba2ffe8117ff120dca363a",
+            2,
+            "pending"
+          ],
+          [
+            "knowing-god",
+            "376fcebbce5fa8cbf79ae131bde09a97c1f0ae17e4240489cbf0b8800d08c448",
+            2,
+            "pending"
+          ],
+          [
+            "confession-1644",
+            "d40655207a89f8d65a38a47d852b073ad3b5d4713215bed3dbe9b67020359b5a",
+            2,
+            "pending"
+          ],
+          [
+            "boyce-profile",
+            "159abc55287a440b9526a4cdeae5ca40f9a98912196bfd034fa566c3ded872b9",
+            2,
+            "pending"
+          ],
+          [
+            "caritas",
+            "fc523d3146814e3c382ee687e45acd0cbf7bc0c20040d4be5b7d82fd3cd227ea",
+            2,
+            "pending"
+          ],
+          [
+            "editor-voice",
+            "2460c6c977cd470ffdb1553a107a3bab084d7f8183272cd86f4e1c9ccd9d6102",
+            2,
+            "pending"
+          ],
+          [
+            "father-gloss",
+            "dd2041bb4170a6ea48c921c2c88acb3a119f03e6ccbf9de2832e03217bbc71af",
+            2,
+            "pending"
+          ]
+        ]
+      },
+      "supervisor": {
+        "pid": 21120,
+        "updated_at": "2026-10-19T04:28:02.689828+00:00",
+        "enabled": true,
+        "observation": "busy",
+        "mode": "verification_only",
+        "run_id": "embedding-only-20261014T134809Z",
+        "authorized_corpus_build": "2026-10-13T23:47:33.488164+00:00",
+        "reason": "Vector optimization is protected from automatic interruption",
+        "processes": [
+          {
+            "pid": 8896,
+            "created": 1792377306.6637633,
+            "parent": 75348,
+            "role": "embed"
+          },
+          {
+            "pid": 58340,
+            "created": 1792377306.6711545,
+            "parent": 8896,
+            "role": "embed"
+          },
+          {
+            "pid": 75348,
+            "created": 1792377304.0699956,
+            "parent": 82020,
+            "role": "owner"
+          },
+          {
+            "pid": 82020,
+            "created": 1792377304.0609047,
+            "parent": 40544,
+            "role": "owner"
+          }
+        ],
+        "uninspected_python_pids": [],
+        "attempts": 3,
+        "max_attempts": 3,
+        "interval_seconds": 60,
+        "heartbeat_timeout_seconds": 120,
+        "progress_timeout_seconds": 1800,
+        "recovery_test_verified": true,
+        "verification_request": {
+          "state": "activated",
+          "requested_at": "2026-10-14T14:11:41.113070+00:00",
+          "run_id": "embedding-only-20261014T134809Z",
+          "corpus_build": "2026-10-13T23:47:33.488164+00:00",
+          "scope": "verification_and_late_acquisitions_only",
+          "graph_authorized": false,
+          "mining_authorized": false,
+          "activated_at": "2026-10-18T13:45:02.713267+00:00"
+        },
+        "encoder": null,
+        "console_window": false,
+        "state": "busy"
+      },
+      "processes": [
+        {
+          "pid": 8896,
+          "created": 1792377306.6637633,
+          "identity_matches": true
+        },
+        {
+          "pid": 58340,
+          "created": 1792377306.6711545,
+          "identity_matches": true
+        },
+        {
+          "pid": 75348,
+          "created": 1792377304.0699956,
+          "identity_matches": true
+        },
+        {
+          "pid": 82020,
+          "created": 1792377304.0609047,
+          "identity_matches": true
+        }
+      ]
+    }
+  },
+  "reader_omission_diagnosis": {
+    "checked_at": "2026-10-19T04:31:56.894Z",
+    "status": "Read-only diagnosis and concrete proposal; no implementation",
+    "profile_scope": {
+      "file": "Website/src/data/teachers/people.json",
+      "sha256": "06a66bd7789e88aafa163b0e8ab2eaaafc772a4fb6bc55270af1f59276d9947c",
+      "profiles": 52,
+      "henry_profile_present": false,
+      "boyce_profile_present": false
+    },
+    "selection_rule": {
+      "file": "Website/scripts/local_library.py",
+      "sha256": "704a460d67afde9a71092686ea8c0a9892b322aa4acf64b4a0984f35990c6de5",
+      "lines": [
+        83,
+        84,
+        86,
+        87,
+        89
+      ],
+      "condition": "Intersect resolved source authors with the 52 profile IDs; recovery searches only that same people list; skip if no profile author remains"
+    },
+    "cases": [
+      {
+        "slot": "D03",
+        "original_sha256": "3c6ae92f1578f913c09839d2c8604310111a9b02b5a3f2ef97b5d5ca60d5c3f4",
+        "source_path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\bulk\\chapel\\lsup.epub",
+        "extraction_path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\c541bbcadc1e5b62d9276a11a80e9dc4fa28669d3b0ededda4917b47f9880b84.jsonl",
+        "public_record_id": "held-3c6ae92f1578f913c09839d2c8604310",
+        "recorded_author": [
+          "Matthew Henry"
+        ],
+        "recorded_contributor_ids": [
+          "contributor-3bae78dd8165bd662d89"
+        ],
+        "work_id": null,
+        "edition_id": null,
+        "source_header_creator": [
+          "Matthew Henry"
+        ],
+        "profile_presence": false,
+        "canonical_author_match_in_loaded_registry": false,
+        "current_http_local": 404,
+        "fallback": "permission-required"
+      },
+      {
+        "slot": "D04",
+        "original_sha256": "7824047daefbe859f7f5f167719ca85f31d23deb4a82ac9d26106a4c2fb88c76",
+        "source_path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism-library\\asset-expanded-528d7381b8115df7ee82\\original.epub",
+        "extraction_path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\extracted-library\\b6714aa3857e162e85059dd1e2a9a15872be8d2a6b2727488849c4734636acce.jsonl",
+        "public_record_id": "held-7824047daefbe859f7f5f167719ca85f",
+        "recorded_author": [
+          "James Petigru Boyce"
+        ],
+        "recorded_contributor_ids": [
+          "contributor-76cf3cdf0cf93d46f98c"
+        ],
+        "work_id": null,
+        "edition_id": null,
+        "source_header_creator": [
+          "James Petigru Boyce"
+        ],
+        "profile_presence": false,
+        "canonical_author_match_in_loaded_registry": false,
+        "current_http_local": 404,
+        "fallback": "permission-required"
+      }
+    ],
+    "conclusion": "The profile-only eligibility gate excludes correctly attributed Henry/Boyce copies under the current 52-person scope; an unchanged index rebuild cannot make those authors eligible. Source/extraction availability is separately verified.",
+    "limit": "Current live library_files metadata was not read while corpus replacement/index work is protected; additional intake/identity issues are not ruled out. Neither source name resolves in the loaded canonical author/alias files, so no canonical author ID/profile may be invented.",
+    "proposal": {
+      "scope": "Two exact held originals only; reuse existing private reader and guards; no broad all-holdings expansion",
+      "affected_implementation": [
+        "Website/scripts/local_library.py (copy eligibility and bindings, keeping profile shelf membership separate)"
+      ],
+      "selection": "Explicit private scope of the two verified hashes backed by existing source/header, public record, extraction and use evidence. Reuse their existing local-<sha> and held-<sha-prefix> IDs.",
+      "metadata": "Preserve recorded author names and existing contributor IDs; retain null work/edition IDs; keep private-use notices and credits. Do not add fabricated profiles, infer an edition or alter public records.",
+      "reader": "Reuse raw_blocks, guarded source/cache paths, hash checks and normal prepare/pages machinery. Add only those exact records/bindings; do not change HTTP roots or access guards.",
+      "verification": [
+        "Disposable fixture: unprofiled verified source can be included in the explicit two-copy scope; unspecified source stays outside",
+        "Exact original/cache/selected span checks and correct author/credits in local reader",
+        "Loopback-only guards remain; production permission-required records unchanged",
+        "Hodge and Fergusson controls retain existing identities/routes; curation decisions/fingerprints unchanged",
+        "Single reader-index owner publishes only after dependency/hash checks; compare existing index to prevent overwriting concurrent changes"
+      ],
+      "rollback": "Existing reader owner retains last-good index/config; revert the scoped eligibility change through that owner, with changed-index conflict checks; do not alter source/corpus/vector/curation stores.",
+      "authorization": "Proposal only. Applying code/index changes is outside the current read-only instruction."
+    },
+    "actual_alias_resolution": {
+      "source_byline_alias_resolution": {
+        "Matthew Henry": null,
+        "James Petigru Boyce": null
+      },
+      "profile_count": 52,
+      "registry_count": 84
+    },
+    "registry_files": [
+      {
+        "path": "Website/content/library/authors.json",
+        "sha256": "588595a56fa63ff7502c05e7ecde1359c9102b3df0b6a5cfee267ce6c20ad4a6"
+      },
+      {
+        "path": "Website/content/library/registry-extensions/confessional-institutions.json",
+        "sha256": "4bf5d5f3da2c57f182c5b56682d8b2511fcc2b129c51b2383885630889ea2f98"
+      },
+      {
+        "path": "Website/content/library/registry-extensions/ephesians-contributors.json",
+        "sha256": "8b6353ef9e25a8093a73b06c372daefe9fc09f88b4c08c45d1cf84f542e1652f"
+      },
+      {
+        "path": "Website/content/library/registry-extensions/historical-lives-authors.json",
+        "sha256": "900788778d423d91ffa4e8d3bb750a408e26e5aa3e895bccc83ae4fecd78af87"
+      },
+      {
+        "path": "Website/content/library/registry-extensions/ministry-authors.json",
+        "sha256": "fe893851c58126617731e581fd97e436995d1fa714a2c65077fc58b1a0d94ab3"
+      },
+      {
+        "path": "Website/content/library/registry-extensions/spurgeon-context-authors.json",
+        "sha256": "e89a71b286b04c4798a37afd585e056140254b3d5d62612840754f86e4d12669"
+      }
+    ]
+  },
+  "validation": {
+    "at": "2026-10-19T04:33:17.721Z",
+    "artifact_checks": {
+      "twelve_unique_slots": true,
+      "all_originals_match": true,
+      "ten_matching_caches": true,
+      "eight_exact_spans": true,
+      "all_expanded_contexts_exact": true,
+      "lexical_matches": true,
+      "whitefield_annotations_explained": true,
+      "fergusson_served_dependency_matches": true,
+      "read_only_scope_preserved": true
+    },
+    "report_links_checked": [
+      "../TODO.md",
+      "source-dependencies-2026-10-19.json",
+      "rehearsal-scope-2026-10-18.json",
+      "HODGE-READINESS-2026-10-18.md"
+    ],
+    "api": {
+      "counts": {
+        "approved": 0,
+        "discovered": 0,
+        "integrated": 0,
+        "needs_work": 0,
+        "pending": 21,
+        "rejected": 0,
+        "stale": 0
+      },
+      "sequence": 41,
+      "needsSync": false,
+      "needsExport": false
+    },
+    "reader_index_still_unchanged": true,
+    "registry_files": 6
+  }
+}

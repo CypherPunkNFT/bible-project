@@ -3,6 +3,7 @@
 Uses the existing build/embed commands; no PowerShell, downloads or graph launch.
 """
 import argparse
+from contextlib import closing
 import ctypes
 import json
 import os
@@ -162,7 +163,10 @@ class Completion:
                     require_parity(verification)
                     progress=read(self.state/'embedding-progress.json')
                     from .store import connect
-                    with connect(self.config['db'],readonly=True) as published:
+                    # sqlite3.Connection.__exit__ commits/rolls back; it does not
+                    # close the handle.  Keeping this connection alive across a
+                    # late-source refresh prevents Windows publishing its rebuild.
+                    with closing(connect(self.config['db'],readonly=True)) as published:
                         current_build=published.execute("SELECT value FROM meta WHERE key='built_at'").fetchone()[0]
                     if (progress.get('state')!='complete' or progress.get('corpus_build')!=current_build
                         or verification['corpus_build']!=current_build):raise RuntimeError('Completion receipts do not match the published corpus')

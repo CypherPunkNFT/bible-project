@@ -279,3 +279,6 @@
 
 /* One text line of breathing room around the collection heading. */
 .study-experience .theology-library .collection-intro{padding-top:20px;padding-bottom:20px}
+/* The turning Psalter on the Hymns card (study.css): its quotation marks as CSS escapes. study.css keeps getting rewritten
+   with "\201C" read as an escape inside a script string (the byte 0x81, then a plain C), which shows a box and a C. */
+.study-experience .study-hymns-read q{quotes:"\201C" "\201D"}

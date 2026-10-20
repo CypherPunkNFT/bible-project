@@ -1,0 +1,166 @@
+{
+  "captured_at": "2026-10-19T18:13:35.806Z",
+  "basis": "Existing reader GET responses and retained prepared files; no new browser assertions",
+  "records": [
+    {
+      "candidate": "justification",
+      "source_id": "6448057",
+      "original_sha256": "c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f",
+      "saved_route": "/teachers/works/held-c6d2a4fae26109773599ac53919f9b51",
+      "inspection_route": "/teachers/works/held-c6d2a4fae26109773599ac53919f9b51",
+      "local_record_id": "local-c6d2a4fae26109773599ac53919f9b51ee7ac3119cdd34ce50af2916364c596f",
+      "pages_total": 78,
+      "matched_pages_zero_based": [
+        57
+      ],
+      "match_basis": "literal codepoints",
+      "full_span_literal_match": true,
+      "expanded_context_literal_match": true,
+      "text_sha256": "dd39c86b2380fdbf4a48fb234aff6b4f097f8acb9c10d4faf4cd9cb1df3a6ebb",
+      "page_files": [
+        {
+          "page": 57,
+          "sha256": "686a080f5fa638476d1ee2322d60eecb363332ae33ec59978189d2cabd6646e5"
+        }
+      ],
+      "links": [
+        "/teachers/works/held-c6d2a4fae26109773599ac53919f9b51?page=58"
+      ],
+      "http": [
+        {
+          "page_zero_based": 57,
+          "status": 200,
+          "served_equals_retained_page": true
+        }
+      ]
+    },
+    {
+      "candidate": "quotation",
+      "source_id": "6150813",
+      "original_sha256": "be280c9aaf6e44ccfccac47fc6b676caf820d310cab9169a0913b8596feb9890",
+      "saved_route": "/teachers/works/held-be280c9aaf6e44ccfccac47fc6b676ca",
+      "inspection_route": "/teachers/works/held-be280c9aaf6e44ccfccac47fc6b676ca",
+      "local_record_id": "local-be280c9aaf6e44ccfccac47fc6b676caf820d310cab9169a0913b8596feb9890",
+      "pages_total": 7,
+      "matched_pages_zero_based": [
+        1
+      ],
+      "match_basis": "literal codepoints",
+      "full_span_literal_match": true,
+      "expanded_context_literal_match": true,
+      "text_sha256": "3c1343f019d13dc488b2e2e4044733eca07bd9dab882898fac43a1092b2834d6",
+      "page_files": [
+        {
+          "page": 1,
+          "sha256": "cdd6c63fbd8cf64082d4c93ab232d3fbc0b02aa2c2d6d805452b8cdafddcef2b"
+        }
+      ],
+      "links": [
+        "/teachers/works/held-be280c9aaf6e44ccfccac47fc6b676ca?page=2"
+      ],
+      "http": [
+        {
+          "page_zero_based": 1,
+          "status": 200,
+          "served_equals_retained_page": true
+        }
+      ]
+    },
+    {
+      "candidate": "caritas",
+      "source_id": "1048479",
+      "original_sha256": "176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012",
+      "saved_route": "/teachers/works/held-176ef9aa57b3973664dcf65d4ca12c1b",
+      "inspection_route": "/teachers/works/held-176ef9aa57b3973664dcf65d4ca12c1b",
+      "local_record_id": "local-176ef9aa57b3973664dcf65d4ca12c1b7b319e51e8df7c270d237d6ad1aed012",
+      "pages_total": 25,
+      "matched_pages_zero_based": [
+        20
+      ],
+      "match_basis": "literal codepoints",
+      "full_span_literal_match": true,
+      "expanded_context_literal_match": true,
+      "text_sha256": "4dd1fb86b981c62e2114047524c02df305f94c6506b6ac5f5f57c890ab811b9a",
+      "page_files": [
+        {
+          "page": 20,
+          "sha256": "6fbad65f3a2e08acdca9176af8f6caf8c9fb3135d1cc4ba3122eaddd08268702"
+        }
+      ],
+      "links": [
+        "/teachers/works/held-176ef9aa57b3973664dcf65d4ca12c1b?page=21"
+      ],
+      "http": [
+        {
+          "page_zero_based": 20,
+          "status": 200,
+          "served_equals_retained_page": true
+        }
+      ]
+    },
+    {
+      "candidate": "editor-voice",
+      "source_id": "6336875",
+      "original_sha256": "c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579",
+      "saved_route": "/teachers/works/held-c3e709ba58b60fead7cdb12ee5235226",
+      "inspection_route": "/teachers/works/held-c3e709ba58b60fead7cdb12ee5235226",
+      "local_record_id": "local-c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579",
+      "pages_total": 60,
+      "matched_pages_zero_based": [
+        4
+      ],
+      "match_basis": "literal codepoints",
+      "full_span_literal_match": true,
+      "expanded_context_literal_match": true,
+      "text_sha256": "8721a1ca99890bd073ebfe7af717ad68c2ccb9a2214ca99f519b3db374c719a8",
+      "page_files": [
+        {
+          "page": 4,
+          "sha256": "d0250267298ce6d76f074041a620e80b3e4bc29c436655e7da275ece6818d517"
+        }
+      ],
+      "links": [
+        "/teachers/works/held-c3e709ba58b60fead7cdb12ee5235226?page=5"
+      ],
+      "http": [
+        {
+          "page_zero_based": 4,
+          "status": 200,
+          "served_equals_retained_page": true
+        }
+      ]
+    },
+    {
+      "candidate": "ephesians-guide",
+      "source_id": "connection:355ff25b555a29fb12dc1de98caf740cee9b55d1ef707e11792962789c487688",
+      "original_sha256": "fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd",
+      "saved_route": null,
+      "inspection_route": "/teachers/works/held-fac8c754eb4291391a28e94f9e285c40",
+      "local_record_id": "local-fac8c754eb4291391a28e94f9e285c40f9a5dfc43326f63a3438f65f9aa9aefd",
+      "pages_total": 18,
+      "matched_pages_zero_based": [
+        12
+      ],
+      "match_basis": "literal codepoints",
+      "full_span_literal_match": true,
+      "expanded_context_literal_match": null,
+      "text_sha256": "b413f374eb40fad684f5dfaefdb9f78efb04ae36cb3a57c8c49d8e75384f389d",
+      "page_files": [
+        {
+          "page": 12,
+          "sha256": "4f9f25483fa421227d3bed23266c2372046419a0c10dacda60f880d5042724de"
+        }
+      ],
+      "links": [
+        "/teachers/works/held-fac8c754eb4291391a28e94f9e285c40?page=13"
+      ],
+      "http": [
+        {
+          "page_zero_based": 12,
+          "status": 200,
+          "served_equals_retained_page": true
+        }
+      ]
+    }
+  ]
+}
