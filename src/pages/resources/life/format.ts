@@ -111,8 +111,15 @@ export function compass(a: { lat: number; lon: number }, b: { lat: number; lon: 
 }
 
 /** The data files that draw each city; a verified city is shown only once both exist (resources.test.ts checks this). */
-export const CITY_FILES = { "jacksonville-fl": { map: "jax-map", facts: "jax-facts" } } as const;
+export const CITY_FILES = {
+  "jacksonville-fl": { map: "jax-map", facts: "jax-facts" }, "miami-fl": { map: "mia-map", facts: "mia-facts" },
+  "tampa-fl": { map: "tpa-map", facts: "tpa-facts" }, "orlando-fl": { map: "orl-map", facts: "orl-facts" },
+} as const;
 export const hasCityFiles = (id: string): id is keyof typeof CITY_FILES => id in CITY_FILES;
+
+/** What a city's centre mark is called, and how a sentence names it ("city hall", "Government Center"). */
+export const centreLabel = (city: City) => city.centreLabel ?? "City hall";
+export const centreWords = (city: City) => (centreLabel(city) === "City hall" ? "city hall" : centreLabel(city));
 
 /** Kinds of place in a city, the commonest first. */
 export const kindsIn = (city: City) => [...new Set(city.entries.map((e) => e.category))]

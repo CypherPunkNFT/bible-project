@@ -97,14 +97,22 @@ test("life: every national line keeps its call or text button on the closed row,
   await expect(page.locator(".lf-nat .lf-pane:not([hidden])")).toHaveCount(1);
 });
 
-test("life: only verified cities appear", async ({ page }) => {
+test("life: only verified cities appear, one at a time, chosen from the pills", async ({ page }) => {
   test.skip(!has("life"), "life.json not written yet");
   await page.goto("/resources/life");
   const names = verifiedCities().map((c) => c.name.split(",")[0]);
-  await expect(page.locator(".lf-city h2")).toHaveCount(names.length);
-  const shown = await page.locator(".lf-city h2").allTextContents();
-  expect(shown.map((t) => t.split(",")[0]).sort()).toEqual([...names].sort());
-  for (const c of life().cities.filter((x) => x.verified !== true)) await expect(page.locator(".lf-city h2", { hasText: c.name.split(",")[0] })).toHaveCount(0);
+  const pills = page.locator(".lf-cities button");
+  if (names.length > 1) await expect(pills).toHaveCount(names.length);
+  if (names.length > 1) expect((await pills.allTextContents()).map((t) => t.replace(/\d+$/, ""))).toEqual(names);
+  await expect(pills.first()).toHaveAttribute("aria-pressed", "true");
+  for (const c of verifiedCities()) {
+    const name = c.name.split(",")[0];
+    if (names.length > 1) await pills.filter({ hasText: name }).click();
+    await expect(page.locator(".lf-city h2")).toHaveCount(1);
+    await expect(page.locator(".lf-city h2")).toContainText(name);
+    await expect(page.locator(".lf-jax .lf-pin")).toHaveCount(c.entries.length);
+  }
+  for (const c of life().cities.filter((x) => x.verified !== true)) await expect(pills.filter({ hasText: c.name.split(",")[0] })).toHaveCount(0);
 });
 
 test("life: the city map's pins and the list light each other", async ({ page }) => {

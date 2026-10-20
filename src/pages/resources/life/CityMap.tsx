@@ -1,10 +1,10 @@
-// A city's own map (US Census Bureau TIGER/Line, scripts/build-jax-map.py) with its places beside it. The list starts
+// A city's own map (US Census Bureau TIGER/Line, scripts/build-city-maps.py) with its places beside it. The list starts
 // level with the map's top and scrolls on its own; pointing at a pin lights its row and choosing a row lights its pin.
 // Kind filters show some kinds only; County and Downtown jump the map; the wheel, a pinch or the buttons zoom it.
 import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { OutsideScroll } from "@/components/OutsideScroll";
 import type { City, CityMap as CityMapData } from "@/data/resources";
-import { compass, kindOf, miles, plural, tone } from "./format";
+import { centreLabel, centreWords, compass, kindOf, miles, plural, tone } from "./format";
 import { ZoomButtons } from "./ZoomButtons";
 import { LifeRow } from "./Row";
 import { attachZoom, placeMarks, type Zoom } from "./zoom";
@@ -21,23 +21,23 @@ function geocoders(city: City) {
 }
 
 /** The map itself: land, water, roads and labels. Drawn once; zooming moves the viewBox, not React. */
-const Layers = memo(function Layers({ map, hall }: { map: CityMapData; hall: [number, number] }) {
+const Layers = memo(function Layers({ map, hall, hallName }: { map: CityMapData; hall: [number, number]; hallName: string }) {
   const { width: W, height: H } = map;
   return <>
     <rect className="lf-sea" width={W} height={H} />
     <path className="lf-around" d={map.land.around} />
-    <path className="lf-duval" d={map.land.duval} />
+    <path className="lf-duval" d={map.land.county} />
     <path className="lf-streets" d={map.roads.streets} />
     <path className="lf-water" d={map.water} />
     <path className="lf-road2" d={map.roads.secondary} />
     <path className="lf-road1" d={map.roads.primary} />
-    <path className="lf-county-line" d={map.land.duval} />
+    <path className="lf-county-line" d={map.land.county} />
     <g>
       {map.waterLabels.filter((w) => !/Atlantic/.test(w.name)).slice(0, 4).map((w) => <g key={w.name} className="lf-mark lf-lab lf-water-lab" data-x={w.x} data-y={w.y}><text>{waterName(w.name)}</text></g>)}
       {map.waterLabels.some((w) => /Atlantic/.test(w.name)) && <g className="lf-mark lf-lab lf-sea-lab" data-x={W - 34} data-y={H * 0.62}><text transform="rotate(90)">Atlantic Ocean</text></g>}
-      {map.places.map((p) => <g key={p.name} className="lf-mark lf-lab lf-town-lab" data-out={p.duval ? undefined : ""} data-x={p.x} data-y={p.y}><text>{p.name}</text></g>)}
+      {map.places.map((p) => <g key={p.name} className="lf-mark lf-lab lf-town-lab" data-out={p.county ? undefined : ""} data-x={p.x} data-y={p.y}><text>{p.name}</text></g>)}
       {map.roadLabels.map((r) => <g key={r.name} className="lf-mark lf-lab lf-road-lab" data-x={r.x} data-y={r.y}><rect x={-17} y={-8} width={34} height={16} rx={4} /><text>{r.name}</text></g>)}
-      <g className="lf-mark lf-lab lf-hall" data-x={hall[0]} data-y={hall[1]}><rect x={-3.5} y={-3.5} width={7} height={7} transform="rotate(45)" /><text x={8} y={-7}>City hall</text></g>
+      <g className="lf-mark lf-lab lf-hall" data-x={hall[0]} data-y={hall[1]}><rect x={-3.5} y={-3.5} width={7} height={7} transform="rotate(45)" /><text x={8} y={-7}>{hallName}</text></g>
     </g>
   </>;
 });
@@ -141,14 +141,14 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
     else { const d = (2.2 / 69) * P.k; zoom.current?.fit([hall[0] - d * 1.2, hall[1] - d, hall[0] + d * 1.2, hall[1] + d], 0); }
   };
 
-  const where = (e: City["entries"][number]) => { const d = miles(city, e); return d < 0.5 ? "downtown, by city hall" : `${d.toFixed(1)} mi ${compass(city, e)} of city hall`; };
+  const where = (e: City["entries"][number]) => { const d = miles(city, e); return d < 0.5 ? `downtown, by ${centreWords(city)}` : `${d.toFixed(1)} mi ${compass(city, e)} of ${centreWords(city)}`; };
   const ordered = selected ? [...places.filter((q) => q.e.id !== selected), ...places.filter((q) => q.e.id === selected)] : places;
   const lines = city.lines ?? [];
   return <div className="lf-city-main">
     <figure className="lf-mapframe lf-jax"><div className="lf-stage">
       <div className="lf-map-filter" role="group" aria-label="Show on the map">{kinds.map(([k, c]) => <button key={k} type="button" aria-pressed={shown.has(k)} style={{ "--c": tone(k) } as CSSProperties} onClick={() => filter(k)}><i />{kindOf(k).short}<b>{c}</b></button>)}</div>
       <svg ref={svg} viewBox={`0 0 ${map.width} ${map.height}`} style={{ aspectRatio: `${map.width} / ${map.height}` }} role="group" aria-label={`Map of ${city.name.split(",")[0]} and ${map.about.split(",")[0]} with the ${city.entries.length} places`}>
-        <Layers map={map} hall={hall} />
+        <Layers map={map} hall={hall} hallName={centreLabel(city)} />
         <g ref={leaders} className="lf-leaders" />
         <g>{ordered.map(({ e, n, at }) => <g key={e.id} className="lf-pin" data-id={e.id} data-cat={e.category} data-x={at[0]} data-y={at[1]} data-off={shown.has(e.category) ? undefined : ""}
           data-on={lit === e.id || undefined} data-sel={selected === e.id || undefined} style={{ "--c": tone(e.category) } as CSSProperties} role="button" tabIndex={-1} aria-label={`${n}. ${e.name}`}

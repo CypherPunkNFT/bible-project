@@ -88,7 +88,7 @@ describe("us-states.json", () => {
   });
 });
 
-describe("city maps and facts (scripts/build-jax-map.py)", () => {
+describe("city maps and facts (scripts/build-city-maps.py)", () => {
   const life = read<LifeData>("life");
   it.skipIf(!life)("every verified city has its map and its sourced facts, so none is silently left off the page", () => {
     for (const city of life!.cities.filter((c) => c.verified === true)) {
@@ -97,7 +97,7 @@ describe("city maps and facts (scripts/build-jax-map.py)", () => {
       const map = read<CityMap>(files.map), facts = read<CityFacts>(files.facts);
       expect(map?.city, files.map).toBe(city.id);
       expect(facts?.city, files.facts).toBe(city.id);
-      for (const d of [map!.land.duval, map!.land.around, map!.water, map!.roads.primary, map!.roads.secondary, map!.roads.streets]) expect(d).toMatch(/^M/);
+      for (const d of [map!.land.county, map!.land.around, map!.water, map!.roads.primary, map!.roads.secondary, map!.roads.streets]) expect(d).toMatch(/^M/);
       expect(map!.width).toBeGreaterThan(0);
       for (const s of map!.sources) { expect(s.url).toMatch(URL_RE); expect(s.sha256).toMatch(/^[0-9a-f]{64}$/); }
       expect(facts!.facts.length).toBeGreaterThan(0);

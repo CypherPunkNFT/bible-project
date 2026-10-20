@@ -1356,77 +1356,62 @@
     {
       "id": "miami-fl",
       "name": "Miami, Florida",
-      "lat": 25.728662,
-      "lon": -80.234994,
-      "centre": "City hall address (3500 Pan American Dr, Miami, FL 33133) via US Census Bureau geocoder (onelineaddress, Public_AR_Current); used only to centre the map",
+      "lat": 25.775081,
+      "lon": -80.196332,
+      "centre": "Miami-Dade Stephen P. Clark Government Center address (111 NW 1st St, Miami, FL 33128) via US Census Bureau geocoder (onelineaddress, Public_AR_Current); used only to centre the map and measure distances",
+      "centreLabel": "Government Center",
+      "checked": "2026-10-20",
       "entries": [
         {
-          "id": "mia-cvac",
-          "name": "Coordinated Victims Assistance Center (CVAC)",
-          "summary": "Miami-Dade County's victim assistance centre, listed on the county's violence prevention page.",
-          "faith": false,
-          "contact": [
-            {
-              "kind": "phone",
-              "value": "305-285-5900"
-            }
-          ],
-          "hours": "Mon–Fri 8am–5pm",
-          "source": "https://wwwx.miamidade.gov/global/service.page?Mduid_service=ser1502483183449106",
-          "checked": "2026-10-08",
-          "category": "abuse",
-          "address": "2400 South Dixie Highway, Miami, FL 33133",
-          "lat": 25.740891,
-          "lon": -80.234452,
-          "geocode": "OpenStreetMap Nominatim (Census geocoder found no match)"
-        },
-        {
-          "id": "mia-rape-treatment-center",
-          "name": "Roxcy Bolton Rape Treatment Center (Jackson Health)",
-          "summary": "Miami-Dade's comprehensive rape treatment centre for victims 12 and older and their non-offending family members: crisis help, exams, counselling and support groups.",
+          "id": "mia-lotus-house",
+          "name": "Lotus House",
+          "summary": "A shelter for women, youth and children, open around the clock. The site says to call the Miami homeless line first unless you are a youth or fleeing domestic violence, who can email the shelter.",
           "faith": null,
           "contact": [
             {
               "kind": "phone",
-              "value": "305-585-7273",
-              "note": "305-585-RAPE, 24/7 helpline"
+              "value": "305-438-0556"
             },
             {
               "kind": "phone",
-              "value": "1-800-955-8771",
-              "note": "Florida Relay (TTY)"
+              "value": "305-960-4980",
+              "note": "Miami Homeless Program, call first (per Lotus House page)"
+            },
+            {
+              "kind": "email",
+              "value": "needshelter@lotushouse.org",
+              "note": "for youth or domestic violence victims seeking shelter"
             }
           ],
-          "hours": "24/7",
-          "cost": "Free and confidential",
-          "source": "https://jacksonhealth.org/services/rape-treatment/",
-          "checked": "2026-10-08",
-          "category": "abuse",
-          "address": "1611 N.W. 12th Ave., first floor, room 116A, Miami, FL 33136",
-          "lat": 25.790604,
-          "lon": -80.214984,
+          "hours": "Business hours Mon-Sun 6AM-9PM; shelters women, youth and children 24/7",
+          "source": "https://lotushouse.org/contact/",
+          "checked": "2026-10-20",
+          "category": "shelter",
+          "address": "217 NW 15th Street, Miami, FL 33136",
+          "lat": 25.789602,
+          "lon": -80.199011,
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         },
         {
-          "id": "mia-camillus-house",
-          "name": "Camillus House — Day Center",
-          "summary": "Hot meals and help for people who are homeless or at risk, and an access point for young adults 18–24. Its page says meal times may change.",
-          "faith": null,
+          "id": "mia-camillus-house-day-center",
+          "name": "Camillus House Day Center",
+          "summary": "Day center for people who are homeless, with a hot meal, showers, clean clothes and mail. Camillus House is a ministry of the Hospitaller Order of St. John of God. Emergency shelter in Miami-Dade does not take walk-ins; the Homeless Helpline is the way in.",
+          "faith": true,
           "contact": [
+            {
+              "kind": "phone",
+              "value": "305-374-1065",
+              "note": "Camillus House main line"
+            },
             {
               "kind": "phone",
               "value": "1-877-994-4357",
               "note": "Homeless Helpline for shelter"
-            },
-            {
-              "kind": "phone",
-              "value": "305-374-1065",
-              "note": "Treatment programme admissions (ext. 509 or 555)"
             }
           ],
-          "hours": "Meals Mon–Fri 8:30am; Tue and Thu 12:30pm",
+          "hours": "Showers from 6:30 a.m. Mon-Fri; hot meal Mon-Fri 8:30 a.m. (also Tue and Thu 12:30 p.m.); access point for ages 18-24 Mon-Fri 8:30 a.m.-5:00 p.m. (times subject to change)",
           "source": "https://www.camillus.org/need-help/",
-          "checked": "2026-10-08",
+          "checked": "2026-10-20",
           "category": "shelter",
           "address": "1603 NW 7th Avenue, Miami, FL 33136",
           "lat": 25.790668,
@@ -1434,167 +1419,1349 @@
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         },
         {
-          "id": "mia-south-dade-phc",
-          "name": "South Dade Pregnancy Help Center (Archdiocese of Miami Respect Life)",
-          "summary": "Confidential, non-judgemental, life-affirming help for families facing a pregnancy, run by the Church; all client services are free.",
+          "id": "mia-salvation-army-center-of-hope",
+          "name": "The Salvation Army Miami Center of Hope",
+          "summary": "A shelter for men, women and families, with a veterans program. Average stay is about 90 days. Intake is not described on the page, so call before going.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-456-5850",
+              "note": "Miami Area Command, per Salvation Army Miami contact page"
+            },
+            {
+              "kind": "phone",
+              "value": "1-800-725-2769",
+              "note": "1-800-SAL-ARMY"
+            }
+          ],
+          "source": "https://miami.salvationarmyflorida.org/miami/center-of-hope-services/",
+          "checked": "2026-10-20",
+          "category": "shelter",
+          "address": "1907 NW 38th Street, Miami, FL 33142",
+          "lat": 25.81133,
+          "lon": -80.229822,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-caring-place-miami-rescue-mission",
+          "name": "The Caring Place (Miami Rescue Mission)",
+          "summary": "A Christian mission serving people experiencing homelessness with meals, safe shelter, residential programs, employment help and housing help. Eligibility and hours are not listed on the page, so call first.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-800-817-4673",
+              "note": "1 800 817 HOPE"
+            },
+            {
+              "kind": "email",
+              "value": "contact@caringplace.org"
+            }
+          ],
+          "source": "https://caringplace.org/contact/",
+          "checked": "2026-10-20",
+          "category": "shelter",
+          "address": "3553 NW 50th Street, Miami, FL 33142",
+          "lat": 25.81987,
+          "lon": -80.253889,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-salvation-army-arc-miami",
+          "name": "The Salvation Army Miami Adult Rehabilitation Center",
+          "summary": "A residential program for people facing substance abuse and other deep instability, generally at no cost to participants. The page lists no admission rules or hours, so call first.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-573-4200"
+            }
+          ],
+          "cost": "Generally at no cost to participants (per page)",
+          "source": "https://southernusa.salvationarmy.org/arc-south/miami",
+          "checked": "2026-10-20",
+          "category": "recovery",
+          "address": "2236 NW Miami Court, Miami, FL 33127",
+          "lat": 25.798515,
+          "lon": -80.195927,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-coordinated-victims-assistance-center",
+          "name": "Coordinated Victims Assistance Center (CVAC)",
+          "summary": "Miami-Dade County center that helps victims of all crimes, including domestic and dating violence survivors, with advocacy and counseling.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-285-5900"
+            },
+            {
+              "kind": "phone",
+              "value": "305-679-0303",
+              "note": "Advocates for Victims/Safespace hotline, call or text, 24/7"
+            }
+          ],
+          "hours": "Monday through Friday, 8 a.m. to 5 p.m.",
+          "source": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1502483183449106",
+          "checked": "2026-10-20",
+          "category": "abuse",
+          "address": "2400 South Dixie Highway, Miami, FL 33133",
+          "lat": 25.740891,
+          "lon": -80.234452,
+          "geocode": "OpenStreetMap Nominatim (Census geocoder found no match)"
+        },
+        {
+          "id": "mia-roxcy-bolton-rape-treatment-center",
+          "name": "Roxcy Bolton Rape Treatment Center (Jackson Health System)",
+          "summary": "Hospital-based center for sexual assault victims and their non-offending family members, open day and night, with free confidential services regardless of whether police are involved.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-585-7273",
+              "note": "24-hour helpline"
+            }
+          ],
+          "hours": "Open 24 hours a day, seven days a week",
+          "cost": "Free",
+          "source": "https://jacksonhealth.org/locations/roxcy-bolton-rape-treatment-center/",
+          "checked": "2026-10-20",
+          "category": "abuse",
+          "address": "1611 NW 12th Avenue, Miami, FL 33136",
+          "lat": 25.790604,
+          "lon": -80.214984,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-kristi-house",
+          "name": "Kristi House Children's Advocacy Center",
+          "summary": "Helps children and teens affected by sexual abuse, trafficking and other childhood trauma, and their families. Main location is in Miami with satellite offices in Miami Gardens, Palmetto Bay and Homestead.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-547-6800"
+            }
+          ],
+          "hours": "Monday to Friday 9 am to 5 pm; Saturday 10 am to 1 pm",
+          "source": "https://kristihouse.org/contact/",
+          "checked": "2026-10-20",
+          "category": "abuse",
+          "address": "1265 NW 12th Avenue, Miami, FL 33136",
+          "lat": 25.786672,
+          "lon": -80.214915,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-mujer",
+          "name": "M.U.J.E.R., Inc.",
+          "summary": "One-stop domestic violence and certified sexual assault center in South Miami-Dade: advocacy, safety planning, counseling and a 24/7 sexual violence helpline. It also holds a drop-in sexual violence support group Tuesdays 6-8 pm at a Homestead outreach office.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-247-1388"
+            },
+            {
+              "kind": "phone",
+              "value": "305-763-2459",
+              "note": "24/7 sexual violence support helpline"
+            }
+          ],
+          "hours": "Monday to Friday 8:30 am to 4:30 pm; Saturdays by appointment",
+          "source": "https://mujerfla.org/about-us/aboutuscontact-us/",
+          "checked": "2026-10-20",
+          "category": "abuse",
+          "address": "27112 South Dixie Highway, Naranja, FL 33032",
+          "lat": 25.515131,
+          "lon": -80.430962,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-south-dade-pregnancy-help-center",
+          "name": "South Dade Pregnancy Help Center",
+          "summary": "Run by the Archdiocese of Miami Respect Life Ministry; confidential, nonjudgmental pregnancy help. All client services are free.",
           "faith": true,
           "contact": [
             {
               "kind": "phone",
               "value": "305-273-8507"
-            },
-            {
-              "kind": "phone",
-              "value": "954-395-7698",
-              "note": "Mobile centre (Miami-Dade)"
             }
           ],
-          "hours": "Mon–Wed & Sat 9am–3pm; Thu 11am–7pm",
+          "hours": "Mon-Wed and Sat 9:00am-3:00pm; Thu 11:00am-7:00pm",
           "cost": "Free",
           "source": "https://respectlifemiami.org/pregnancy-help-centers",
-          "checked": "2026-10-08",
+          "checked": "2026-10-20",
           "category": "pregnancy",
-          "address": "7385 SW 87th Ave, Suite 300, Miami, FL 33173",
+          "address": "7385 SW 87th Avenue, Suite 300, Miami, FL 33173",
           "lat": 25.701024,
           "lon": -80.334019,
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         },
         {
+          "id": "mia-grace-womens-care-center",
+          "name": "Grace Women's Care Center",
+          "summary": "Nonprofit offering free pregnancy testing, limited ultrasounds, lactation help and referrals, with a 24-hour helpline. It says it does not perform or refer for abortions.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-547-9342",
+              "note": "24-hour helpline; Spanish spoken"
+            }
+          ],
+          "hours": "Mon and Wed 9:00 am-3:30 pm; Tue and Thu 9:00 am-5:00 pm; Sat 10:00 am-12:00 pm; closed Fri and Sun",
+          "cost": "Free",
+          "source": "https://gracewomenscarecenter.org/",
+          "checked": "2026-10-20",
+          "category": "pregnancy",
+          "address": "10112 SW 107th Avenue, Miami, FL 33176",
+          "lat": 25.674545,
+          "lon": -80.367867,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-pregnancy-help-clinic-hialeah",
+          "name": "Pregnancy Help Medical Clinics - Hialeah",
+          "summary": "Pregnancy clinic offering pregnancy testing and ultrasound verification. The site asks you to request an appointment.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-821-9970"
+            },
+            {
+              "kind": "phone",
+              "value": "786-558-0058",
+              "note": "main line"
+            }
+          ],
+          "hours": "Monday to Friday, 10 am to 5 pm",
+          "source": "https://pregnancyhelpclinics.org/contact-us/",
+          "checked": "2026-10-20",
+          "category": "pregnancy",
+          "address": "390 West 49th Street, Hialeah, FL 33012",
+          "lat": 25.866613,
+          "lon": -80.290527,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-pregnancy-help-clinic-north-miami",
+          "name": "Pregnancy Help Medical Clinics - North Miami",
+          "summary": "Pregnancy clinic offering pregnancy testing and ultrasound verification. The site asks you to request an appointment.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-685-6010"
+            },
+            {
+              "kind": "phone",
+              "value": "786-558-0058",
+              "note": "main line"
+            }
+          ],
+          "hours": "Monday to Friday, 10 am to 5 pm",
+          "source": "https://pregnancyhelpclinics.org/contact-us/",
+          "checked": "2026-10-20",
+          "category": "pregnancy",
+          "address": "660 NE 125th Street, North Miami, FL 33161",
+          "lat": 25.89028,
+          "lon": -80.185213,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-pregnancy-help-clinic-homestead",
+          "name": "Pregnancy Help Medical Clinics - Homestead",
+          "summary": "Pregnancy clinic offering pregnancy testing and ultrasound verification. The site asks you to request an appointment.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "786-292-4640"
+            },
+            {
+              "kind": "phone",
+              "value": "786-558-0058",
+              "note": "main line"
+            }
+          ],
+          "hours": "Monday to Friday, 10 am to 5 pm",
+          "source": "https://pregnancyhelpclinics.org/contact-us/",
+          "checked": "2026-10-20",
+          "category": "pregnancy",
+          "address": "922 North Krome Avenue, Homestead, FL 33030",
+          "lat": 25.462817,
+          "lon": -80.477279,
+          "geocode": "OpenStreetMap Nominatim (Census geocoder found no match)"
+        },
+        {
+          "id": "mia-pregnancy-help-clinic-flagler",
+          "name": "Pregnancy Help Medical Clinics - Flagler",
+          "summary": "Pregnancy clinic offering pregnancy testing and ultrasound verification. The site asks you to request an appointment.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-603-8668"
+            },
+            {
+              "kind": "phone",
+              "value": "786-558-0058",
+              "note": "main line"
+            }
+          ],
+          "hours": "Monday to Friday, 10 am to 5 pm",
+          "source": "https://pregnancyhelpclinics.org/contact-us/",
+          "checked": "2026-10-20",
+          "category": "pregnancy",
+          "address": "4391 West Flagler Street, Miami, FL 33134",
+          "lat": 25.771632,
+          "lon": -80.268058,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-parenting-with-a-purpose-life-center",
+          "name": "Parenting With A Purpose Life Center",
+          "summary": "Family support center in Miami Lakes; call to schedule an appointment or use its contact form. The page lists hours and an email but no list of services.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-777-3838"
+            },
+            {
+              "kind": "email",
+              "value": "pwplifecenter@hotmail.com"
+            }
+          ],
+          "hours": "9:00 am to 4:00 pm Monday, Tuesday, Wednesday and Saturday",
+          "source": "https://pwplifecenter.wixsite.com/pwaplc/contact",
+          "checked": "2026-10-20",
+          "category": "pregnancy",
+          "address": "6625 Miami Lakes Drive, Suite 217, Miami Lakes, FL 33014",
+          "lat": 25.911374,
+          "lon": -80.304563,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
           "id": "mia-childrens-bereavement-center",
           "name": "Children's Bereavement Center / Lift From Loss",
-          "summary": "Free grief support groups for children, teens, young adults and adults, including child loss and perinatal and infant loss; groups also in Spanish.",
+          "summary": "Free grief support groups for grieving children, teens, young adults and adults, offered in English, Spanish and Creole.",
           "faith": null,
           "contact": [
             {
               "kind": "phone",
               "value": "888-988-5438"
-            },
-            {
-              "kind": "email",
-              "value": "info@childbereavement.org"
             }
           ],
           "cost": "Free",
           "source": "https://childbereavement.org/",
-          "checked": "2026-10-08",
+          "checked": "2026-10-20",
           "category": "grief",
-          "address": "6619 S. Dixie Highway, #302, Miami, FL 33143",
+          "address": "6619 South Dixie Highway, #302, Miami, FL 33143",
           "lat": 25.694582,
           "lon": -80.300376,
           "geocode": "OpenStreetMap Nominatim (Census geocoder found no match)"
-        }
-      ],
-      "lines": [
+        },
         {
-          "id": "mia-211",
-          "name": "211 Miami",
-          "summary": "Confidential help line for Miami-Dade and Monroe counties: emotional support, crisis counselling and connection to community resources, in any language.",
+          "id": "mia-love-to-help-foundation",
+          "name": "Love To Help Foundation",
+          "summary": "Weekly food pantry giving fresh and non-perishable food to families and individuals in need; community members are welcome to visit.",
           "faith": null,
           "contact": [
             {
               "kind": "phone",
-              "value": "211"
+              "value": "305-343-7038"
             },
             {
               "kind": "phone",
-              "value": "305-631-4211",
-              "note": "If 211 does not connect (e.g. on Wi-Fi calling)"
+              "value": "305-396-1153",
+              "note": "questions about services"
+            }
+          ],
+          "hours": "Sundays 1 PM to 3 PM",
+          "source": "https://lovetohelp.care/weekly-food-pantry/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "1434 NE 163rd Street, North Miami Beach, FL 33162",
+          "lat": 25.925541,
+          "lon": -80.171291,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-food-for-life-network",
+          "name": "Food For Life Network Food Pantry",
+          "summary": "Food pantry serving men, women and children living with chronic illness in Miami-Dade County. Call for hours.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-576-3663",
+              "note": "305-576-FOOD"
+            }
+          ],
+          "source": "https://foodforlifenetwork.org/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "3510 Biscayne Boulevard, Suite 109, Miami, FL 33137",
+          "lat": 25.809611,
+          "lon": -80.189556,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-st-patrick-food-pantry",
+          "name": "St. Vincent de Paul Food Pantry at St. Patrick Catholic Parish",
+          "summary": "Parish pantry serving people in the Miami Beach community who face food and housing insecurity, Saturday mornings. No exact times on the page, so call the parish.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-531-1124",
+              "note": "parish main number"
+            }
+          ],
+          "hours": "Saturday mornings",
+          "source": "https://stpatrickmiamibeach.com/church/st-vincent-de-paul-society/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "3716 Garden Avenue, Miami Beach, FL 33140",
+          "lat": 25.811459,
+          "lon": -80.135029,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-homestead-soup-kitchen",
+          "name": "Homestead Soup Kitchen",
+          "summary": "Nonprofit kitchen serving the elderly, unemployed, migrants, people in poverty and anyone facing homelessness, no questions asked. Meal times are not listed on the page, so call.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-245-7448"
+            }
+          ],
+          "source": "https://homesteadsoupkitchen.com/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "105 SW 3rd Avenue, Homestead, FL 33030",
+          "lat": 25.468859,
+          "lon": -80.482376,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-matthew-25-food-pantry",
+          "name": "Matthew 25 Food Pantry (Catholic Charities)",
+          "summary": "Large Catholic Charities pantry. Distributes on the first and third Saturdays of the month, 6 a.m. to 2 p.m.; client enrollment is handled Wednesdays and Thursdays. Call to confirm eligibility and intake.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-964-7816",
+              "note": "the article lists this number for volunteering and donating; confirm intake by phone"
+            }
+          ],
+          "hours": "Distribution Saturdays 6 a.m.-2 p.m. (first and third of month); enrollment Wed and Thu",
+          "source": "https://www.miamiarch.org/CatholicDiocese.php?op=Article_17320453047246",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "14205 SW 142nd Avenue, Miami, FL 33186",
+          "lat": 25.635199,
+          "lon": -80.422816,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-federation-of-families-miami-dade",
+          "name": "Federation of Families of Miami-Dade",
+          "summary": "Peer support, education and advocacy for families of children and youth with emotional, behavioral, substance use or mental health needs. Activities at its Youth and Family Center are free.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "786-802-3448"
+            }
+          ],
+          "cost": "Free",
+          "source": "https://fofmiami.org/",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "111 NW 183rd Street, Suite 110, Miami Gardens, FL 33169",
+          "lat": 25.942662,
+          "lon": -80.2034,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-united-way-eden-place-overtown",
+          "name": "United Way EDEN Place (Overtown)",
+          "summary": "Free family workshops and coaching, school advocacy, parenting and child behavior support, financial coaching and counseling, held with the Overtown Youth Center. Call to book; hours not listed.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-349-1204"
+            }
+          ],
+          "cost": "Free",
+          "source": "https://unitedwaymiami.org/what-we-do/our-take-on-education/united-way-eden-place/",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "450 NW 14th Street, Miami, FL 33136",
+          "lat": 25.787976,
+          "lon": -80.201449,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        }
+      ],
+      "lines": [
+        {
+          "id": "mia-211-miami",
+          "name": "211 Miami",
+          "summary": "A 24/7 information and referral helpline (dial 2-1-1) run with funding from The Children's Trust; counselors help with any situation, in any language.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "211",
+              "note": "or 305-631-4211"
             },
             {
               "kind": "text",
               "value": "898211",
-              "note": "Text your ZIP code"
+              "note": "text your zip code"
             }
           ],
-          "hours": "24/7",
-          "cost": "Free, anonymous, confidential",
           "source": "https://211miami.org/contact/",
-          "checked": "2026-10-08",
-          "category": "crisis",
+          "checked": "2026-10-20",
           "address": "No walk-in address listed (phone service); reach it by phone, text or online"
         },
         {
-          "id": "mia-safespace-hotline",
-          "name": "Miami-Dade Advocates for Victims / Safespace hotline",
-          "summary": "Miami-Dade County's hotline for its certified domestic-violence shelters: safety planning, shelter, information and referrals. Texting works if calling is not safe.",
-          "faith": false,
+          "id": "mia-988-lifeline",
+          "name": "988 Suicide & Crisis Lifeline",
+          "summary": "Call or text 988, or chat online, for free confidential support 24/7. This is the national line; the page does not name a local operator.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "988"
+            },
+            {
+              "kind": "text",
+              "value": "988"
+            },
+            {
+              "kind": "web",
+              "value": "https://chat.988lifeline.org",
+              "note": "chat"
+            }
+          ],
+          "hours": "24/7/365",
+          "cost": "Free",
+          "source": "https://988lifeline.org/",
+          "checked": "2026-10-20",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "mia-advocates-for-victims-hotline",
+          "name": "Advocates for Victims / Safespace Hotline (Miami-Dade)",
+          "summary": "Miami-Dade County domestic violence hotline, by call or text, 24/7.",
+          "faith": null,
           "contact": [
             {
               "kind": "phone",
               "value": "305-679-0303",
-              "note": "Call or text"
+              "note": "call or text, 24/7"
             }
           ],
           "hours": "24/7",
-          "source": "https://wwwx.miamidade.gov/global/service.page?Mduid_service=ser1502483183449106",
-          "checked": "2026-10-08",
+          "source": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1502483183449106",
+          "checked": "2026-10-20",
           "category": "abuse",
-          "address": "No walk-in address listed (shelter locations are confidential); reach it by phone, text or online"
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "mia-florida-abuse-hotline",
+          "name": "Florida Abuse Hotline",
+          "summary": "State line for reporting abuse or neglect of a child or vulnerable adult. If someone is in immediate danger, call 911 first, then the hotline.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-800-962-2873",
+              "note": "1-800-96-ABUSE"
+            },
+            {
+              "kind": "web",
+              "value": "https://reportabuse.myflfamilies.com/s/",
+              "note": "online report, not for urgent cases"
+            }
+          ],
+          "source": "https://www.myflfamilies.com/services/abuse/abuse-hotline/how-report-abuse",
+          "checked": "2026-10-20",
+          "category": "abuse",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
         },
         {
           "id": "mia-homeless-helpline",
-          "name": "Miami-Dade Homeless Trust — Homeless Helpline",
-          "summary": "The way into shelter in Miami-Dade (shelters do not take walk-ins), and help if you are about to lose your home.",
-          "faith": false,
+          "name": "Miami-Dade Homeless Helpline",
+          "summary": "Call, choose a language, then pick the option for prevention, fleeing domestic violence, veterans, unaccompanied youth ages 13-24, or families with children. Outreach staff assess the situation and discuss next steps. Emergency shelters in Miami-Dade do not take walk-ins, so this is the way in.",
+          "faith": null,
           "contact": [
             {
               "kind": "phone",
               "value": "1-877-994-4357"
             }
           ],
-          "source": "https://www.homelesstrust.org/homeless-trust/home.page",
-          "checked": "2026-10-08",
+          "source": "https://www.homelesstrust.org/homeless-trust/homeless-about/home.page",
+          "checked": "2026-10-20",
           "category": "shelter",
           "address": "No walk-in address listed (phone service); reach it by phone, text or online"
         },
         {
-          "id": "mia-catholic-hospice-grief",
-          "name": "Catholic Hospice — Bereavement",
-          "summary": "Grief support for up to 13 months after a loss, open to the whole community, plus free adult support groups and a free camp for grieving children and teens.",
+          "id": "mia-sheriff-non-emergency",
+          "name": "Miami-Dade Sheriff's Office non-emergency line",
+          "summary": "For police matters that are not emergencies; call 911 for emergencies. The county says 305-SHERIFF replaces 305-4-POLICE but at the time of its notice accepted only cell phone calls; landline callers should use 305-4-POLICE.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-743-7433",
+              "note": "305-SHERIFF, cell phones"
+            },
+            {
+              "kind": "phone",
+              "value": "305-476-5423",
+              "note": "305-4-POLICE, landlines"
+            }
+          ],
+          "source": "https://www.miamidade.gov/global/release.page?Mduid_release=rel1745263421817160",
+          "checked": "2026-10-20",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "mia-project-rachel",
+          "name": "Project Rachel (Archdiocese of Miami)",
+          "summary": "Confidential post-abortion healing: individual meetings in person or by phone, one-day Day of Prayer and Healing retreats, monthly gatherings and weekend retreats led by a priest, volunteers and mental health professionals. The office is in Hollywood, not Miami, so use the phone.",
           "faith": true,
           "contact": [
             {
               "kind": "phone",
-              "value": "305-351-7025",
-              "note": "Bereavement hotline"
+              "value": "954-981-2984"
+            },
+            {
+              "kind": "phone",
+              "value": "888-456-4673",
+              "note": "toll-free"
+            },
+            {
+              "kind": "email",
+              "value": "ProjectRachel@theadom.org"
             }
           ],
-          "cost": "Free groups",
-          "source": "https://www.catholichealthservices.org/hospice/grief-support/",
-          "checked": "2026-10-08",
+          "source": "https://respectlifemiami.org/project-rachel",
+          "checked": "2026-10-20",
+          "category": "after-abortion",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "mia-catholic-hospice-grief",
+          "name": "Catholic Hospice grief support",
+          "summary": "Compassionate grief support and counseling for families, at home or at its inpatient care centers; run by Catholic Health Services, the Archdiocese of Miami's healthcare ministry, serving all faiths. The page gives no separate grief number.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "786-207-3700",
+              "note": "hospice team"
+            }
+          ],
+          "source": "https://www.catholichealthservices.org/hospice/",
+          "checked": "2026-10-20",
           "category": "grief",
-          "address": "No walk-in address listed (groups meet at several sites); reach it by phone, text or online"
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "mia-feeding-south-florida-find-pantry",
+          "name": "Feeding South Florida - neighborhood pantry directory",
+          "summary": "The regional food bank's directory of neighborhood pantries and agencies; use it to find the nearest pantry.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "web",
+              "value": "https://feedingsouthflorida.org/directory-programs/",
+              "note": "Find a Neighborhood Pantry"
+            }
+          ],
+          "locator": "https://feedingsouthflorida.org/directory-programs/",
+          "source": "https://feedingsouthflorida.org/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
         }
       ],
-      "verified": false
+      "verified": true
+    },
+    {
+      "id": "tampa-fl",
+      "name": "Tampa, Florida",
+      "lat": 27.947682,
+      "lon": -82.457761,
+      "centre": "Tampa city hall address (315 E Kennedy Blvd, Tampa, FL 33602) via US Census Bureau geocoder (onelineaddress, Public_AR_Current); used only to centre the map and measure distances",
+      "checked": "2026-10-20",
+      "entries": [
+        {
+          "id": "tpa-foundations-of-life-tampa",
+          "name": "Foundations of Life Pregnancy Center - Hillsborough",
+          "summary": "Pregnancy center in north Tampa. Its sister Project Rachel page describes free and confidential pregnancy services; call to ask what is offered.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-631-4398"
+            }
+          ],
+          "hours": "Monday-Friday, 8:00 a.m.-5:00 p.m.; after hours by appointment only",
+          "source": "https://foundationsoflife.org/contact-us/tampa-pregnancy-center/",
+          "checked": "2026-10-20",
+          "category": "pregnancy",
+          "address": "6845 N Dale Mabry Hwy, Tampa, FL 33614",
+          "lat": 28.009709,
+          "lon": -82.505062,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-oasis-pregnancy-care",
+          "name": "Oasis Pregnancy Care Centers (Tampa)",
+          "summary": "Free, confidential pregnancy tests and pregnancy support in the Carrollwood and north Tampa area. The center states it does not offer or refer for abortion or birth control.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-978-9737"
+            }
+          ],
+          "cost": "Free",
+          "source": "https://oasispregnancycenter.org/",
+          "checked": "2026-10-20",
+          "category": "pregnancy",
+          "address": "14620 N Nebraska Ave #C, Tampa, FL 33613",
+          "lat": 28.081255,
+          "lon": -82.451289,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-pregnancy-care-center-plant-city",
+          "name": "Pregnancy Care Center of Plant City",
+          "summary": "Confidential pregnancy help in Plant City, with a 24/7 hotline in addition to the office.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-759-0886"
+            },
+            {
+              "kind": "phone",
+              "value": "866-673-4673",
+              "note": "24/7 hotline"
+            }
+          ],
+          "hours": "Mon and Tue 9am-7pm, Wed 9am-5pm, Thu 9am-7pm, Fri 9am-12pm; closed 12-1 for lunch",
+          "cost": "Free",
+          "source": "https://www.plantcitypregnancycenter.org/pregnancy-help",
+          "checked": "2026-10-20",
+          "category": "pregnancy",
+          "address": "304 N Collins St, Plant City, FL 33563",
+          "lat": 28.017167,
+          "lon": -82.123582,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-trinity-cafe",
+          "name": "Trinity Cafe",
+          "summary": "A free sit-down restaurant-style meal for anyone who is hungry; no need to call ahead.",
+          "faith": null,
+          "contact": [],
+          "hours": "Mon-Fri 11:30 a.m.-12:30 p.m.; Sat and Sun 9:00-10:00 a.m.",
+          "cost": "Free",
+          "source": "https://ftb.org/ways-we-serve/trinity-cafe/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "2801 N Nebraska Ave, Tampa, FL 33602",
+          "lat": 27.96768,
+          "lon": -82.451157,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-feeding-tampa-bay-causeway",
+          "name": "Feeding Tampa Bay - The Market at Causeway Center",
+          "summary": "A free on-site grocery store run by Feeding Tampa Bay. Shoppers come once a month and must have an appointment (booked through the scheduling link on its page or by phone).",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-254-1190"
+            },
+            {
+              "kind": "web",
+              "value": "https://ftb.org/findfood/",
+              "note": "find a pantry or meal near you"
+            }
+          ],
+          "hours": "Tuesday-Thursday, 1 pm-7 pm, by appointment only",
+          "locator": "https://ftb.org/findfood/",
+          "source": "https://ftb.org/findfood/ongoing-food-assistance",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "3624 Causeway Blvd, Tampa, FL 33619",
+          "lat": 27.930997,
+          "lon": -82.427944,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-echo-brandon-pantry",
+          "name": "ECHO of Brandon - Food Pantry (Brandon Resource Center)",
+          "summary": "Emergency food for neighbours in a short-term crisis in the Brandon area. Bring photo ID, proof of address from the last 30 days, and a Social Security card or birth certificate for each family member; visits must be at least four months apart.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-685-0935"
+            }
+          ],
+          "hours": "Mon-Fri 9:00 a.m.-1:00 p.m.; Tuesday evening 5:00-7:00 p.m.",
+          "source": "https://echofl.org/brandon/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "507 N Parsons Ave, Brandon, FL 33510",
+          "lat": 27.945486,
+          "lon": -82.285764,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-bread-of-refuge",
+          "name": "Bread of Refuge",
+          "summary": "Brandon ministry giving drive-through food boxes to families and a hot meal for homeless people every Sunday. Its page says new food-box registrations are not being accepted right now, so call first.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-695-6058"
+            },
+            {
+              "kind": "phone",
+              "value": "813-340-2092"
+            }
+          ],
+          "hours": "Food boxes Mon, Wed, Thu, Fri 8:30-10:30 AM or until food runs out; hot meals Sunday 3:00-5:00 PM",
+          "source": "https://bor.getbrowntech.com/Service",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "521 Wilbur St, Brandon, FL 33511",
+          "lat": 27.936316,
+          "lon": -82.279172,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-love-first-christian-center-pantry",
+          "name": "Love First Christian Center - Free Food Pantry",
+          "summary": "A church pantry in Riverview that hands out bags of groceries with no ID, paperwork or income check, and you do not need to attend church.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-671-2009"
+            }
+          ],
+          "hours": "Tuesdays 10:00 AM-1:00 PM; also after Sunday services (7:45, 9:45, 11:45 AM) and after Wednesday 7:00 PM Bible study",
+          "cost": "Free",
+          "source": "https://www.lfcc.tv/food-pantry",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "12847 Balm Riverview Rd, Riverview, FL 33579",
+          "lat": 27.809115,
+          "lon": -82.291071,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-svdp-nebraska-pantry",
+          "name": "Society of St. Vincent de Paul - Nebraska Avenue Food Pantry",
+          "summary": "Catholic charity pantry in north Tampa. Its site says the Hillsborough referral line is 813-971-7685 for help with food, rent and utilities.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-971-7685",
+              "note": "SVdP referral line"
+            }
+          ],
+          "hours": "Mon, Wed, Fri 8:00-10:00 AM",
+          "source": "http://www.svdptampa.org/help.htm",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "12310 N Nebraska Ave, Tampa, FL 33612",
+          "lat": 28.059406,
+          "lon": -82.451257,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-faith-cafe",
+          "name": "Faith Cafe",
+          "summary": "A free meal served restaurant-style in Tampa; bring a picture ID of any kind. Meal hours differ between its own pages, so call before you go.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-877-6889"
+            }
+          ],
+          "cost": "Free",
+          "source": "https://www.faithcafetampa.org/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "1340 N Clearview Ave, Tampa, FL 33607",
+          "lat": 27.954573,
+          "lon": -82.502922,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-amazing-love-ministries",
+          "name": "Amazing Love Ministries",
+          "summary": "Ybor City ministry with a Monday dinner, Wednesday and Thursday lunch, clothing closet, showers when possible, food boxes (every two weeks, subject to donations) and a Saturday lunch after worship.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-465-3836"
+            }
+          ],
+          "hours": "Mon dinner 7 PM (gates 4 PM); Wed and Thu lunch 3 PM, food boxes about 3:30-6 PM; Sat worship 10:30 AM then hot lunch",
+          "source": "https://amazinglovemin.org/hours-services-offered/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "3304 E Columbus Dr, Ybor City, FL 33605",
+          "lat": 27.966811,
+          "lon": -82.423085,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-salvation-army-red-shield-center",
+          "name": "The Salvation Army Tampa - Red Shield Center",
+          "summary": "Emergency shelter for adult men and women, open every day of the year; call 813-549-0641 or 813-450-1110 (South Hillsborough) for how to qualify. The Salvation Army calls itself an evangelical part of the Christian Church.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-549-0641"
+            },
+            {
+              "kind": "phone",
+              "value": "813-450-1110",
+              "note": "South Hillsborough"
+            }
+          ],
+          "hours": "Shelter open 365 days a year; Area Command office Mon-Fri 8:30 AM-4:00 PM",
+          "source": "https://www.salvationarmyusa.org/usa-southern-territory/florida/tampa-area-command/shelter/",
+          "checked": "2026-10-20",
+          "category": "shelter",
+          "address": "1603 N Florida Ave, Tampa, FL 33602",
+          "lat": 27.959595,
+          "lon": -82.459395,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-tampa-hope",
+          "name": "Tampa Hope (Catholic Charities, Diocese of St. Petersburg)",
+          "summary": "Shelter for homeless women and men in east Tampa with meals, hygiene items and case managers. Outreach specialists take calls weekdays and arrange intake.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-394-2881",
+              "note": "outreach specialists, Mon-Fri 9-4"
+            },
+            {
+              "kind": "phone",
+              "value": "813-415-8002",
+              "note": "front desk voicemail"
+            }
+          ],
+          "hours": "Outreach specialists Mon-Fri 9 a.m.-4 p.m.",
+          "source": "https://www.ccdosp.org/tampa-hope/",
+          "checked": "2026-10-20",
+          "category": "shelter",
+          "address": "3704 E 3rd Ave, Tampa, FL 33605",
+          "lat": 27.957437,
+          "lon": -82.417435,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-metropolitan-ministries-miracleplace",
+          "name": "Metropolitan Ministries - MiraclePlace Campus",
+          "summary": "Safe housing for families with children and single women, plus food and help for families. Apply through its site or call the main number.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-209-1000"
+            }
+          ],
+          "source": "https://www.metromin.org",
+          "checked": "2026-10-20",
+          "category": "shelter",
+          "address": "2002 N Florida Ave, Tampa, FL 33602",
+          "lat": 27.963288,
+          "lon": -82.459542,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-metropolitan-ministries-family-support",
+          "name": "Metropolitan Ministries - Family Support Center",
+          "summary": "Help for families facing hunger or a money crisis, at the MiraclePlace campus.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-209-1200"
+            }
+          ],
+          "hours": "Mon-Fri 9 a.m.-5 p.m.; Tue 9 a.m.-7 p.m.",
+          "source": "https://www.metromin.org/locations/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "2301 N Tampa St, Tampa, FL 33602",
+          "lat": 27.965358,
+          "lon": -82.46089,
+          "geocode": "OpenStreetMap Nominatim (Census geocoder found no match)"
+        },
+        {
+          "id": "tpa-mary-lees-house",
+          "name": "Mary Lee's House",
+          "summary": "Child advocacy center in West Tampa for children who have experienced abuse or neglect. Visits are by appointment only, so call first. To report abuse, use the Florida Abuse Hotline.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-250-6650"
+            }
+          ],
+          "hours": "Mon-Thu 8:30 am-4:30 pm; Fri 8:30 am-3:00 pm; by appointment only",
+          "source": "http://www.maryleeshouse.org/contact-us",
+          "checked": "2026-10-20",
+          "category": "abuse",
+          "address": "2806 N Armenia Ave, Tampa, FL 33607",
+          "lat": 27.965352,
+          "lon": -82.484954,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-childrens-board-north-tampa-frc",
+          "name": "Children's Board Family Resource Center - North Tampa",
+          "summary": "A Children's Board of Hillsborough County center for families with young children; services include playgroups, developmental screening and car-seat safety classes. Hours vary, so call first.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-558-1877"
+            }
+          ],
+          "source": "https://www.familysupporthc.org/locations",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "116 W Fletcher Ave, Tampa, FL 33612",
+          "lat": 28.069242,
+          "lon": -82.459634,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-lifepath-circle-of-love",
+          "name": "LifePath Hospice - The Circle of Love Center (Chapters Health)",
+          "summary": "Grief support for children and families in Hillsborough County, with peer support groups and grief counseling. Its page does not state a cost, so ask when you call.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-357-5610"
+            },
+            {
+              "kind": "phone",
+              "value": "866-940-0962",
+              "note": "toll-free"
+            }
+          ],
+          "hours": "Administrative office Mon-Fri 8:00 a.m.-5:00 p.m.; care available 24 hours a day",
+          "source": "https://www.chaptershealth.org/locations/the-circle-of-love-center/",
+          "checked": "2026-10-20",
+          "category": "grief",
+          "address": "4200 W Cypress St, Suite 100, Tampa, FL 33607",
+          "lat": 27.95213,
+          "lon": -82.513917,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-ibis-healthcare-ybor",
+          "name": "IBIS Healthcare (formerly Cove Behavioral Health / DACCO) - Ybor Campus",
+          "summary": "Substance-use and mental-health treatment, including residential programs for women and for men and family treatment where parents and children stay together. Its site says no one is turned away for inability to pay; fees are on a sliding scale. A second office is at 5707 N 22nd St, Tampa 33610 (Seminole Heights).",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-384-4000"
+            },
+            {
+              "kind": "phone",
+              "value": "813-272-2958",
+              "note": "Mobile Crisis Response Team"
+            }
+          ],
+          "hours": "Mon-Fri 8:00 a.m.-5:00 p.m.",
+          "source": "https://ibishealthcare.org/",
+          "checked": "2026-10-20",
+          "category": "recovery",
+          "address": "4422 E Columbus Dr, Tampa, FL 33605",
+          "lat": 27.966825,
+          "lon": -82.409168,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-salvation-army-arc",
+          "name": "The Salvation Army - Tampa Adult Rehabilitation Center",
+          "summary": "Residential recovery program for men (per the Salvation Army page); call to ask about entry. It describes itself as an evangelical part of the Christian Church.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-972-0471"
+            }
+          ],
+          "source": "https://www.salvationarmyusa.org/usa-southern-territory/florida/tampa-area-command/adult-rehabilitation/",
+          "checked": "2026-10-20",
+          "category": "recovery",
+          "address": "13815 N Salvation Army Ln, Tampa, FL 33613",
+          "lat": 28.073144,
+          "lon": -82.453655,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-grace-family-church-ybor",
+          "name": "Grace Family Church - Ybor (Celebrate Recovery)",
+          "summary": "Church campus in Ybor that lists Celebrate Recovery, a Christ-centred recovery group; its page gives no day or time, so call the church to confirm when it meets.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-402-2851"
+            }
+          ],
+          "source": "https://gfcflorida.com/ybor",
+          "checked": "2026-10-20",
+          "category": "recovery",
+          "address": "2806 N 15th St, Tampa, FL 33605",
+          "lat": 27.968199,
+          "lon": -82.443018,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "tpa-aa-tri-county-central-office",
+          "name": "Alcoholics Anonymous - Tri-County Central Office",
+          "summary": "The AA office for the Tampa area, which can point you to meetings (meeting list at meetings.aatampa-area.org). Spanish lines are 813-842-8444 and 813-408-9519.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-933-9123"
+            },
+            {
+              "kind": "web",
+              "value": "https://meetings.aatampa-area.org/meetings/",
+              "note": "meeting list"
+            }
+          ],
+          "hours": "Mon, Wed, Fri 9:00 AM-5:00 PM; Tue, Thu 11:00 AM-5:00 PM; Sat 9:00 AM-5:00 PM; closed Sunday",
+          "locator": "https://meetings.aatampa-area.org/meetings/",
+          "source": "https://www.aatampa-area.org/",
+          "checked": "2026-10-20",
+          "category": "recovery",
+          "address": "8019 N Himes Ave, Suite 104, Tampa, FL 33614",
+          "lat": 28.02287,
+          "lon": -82.500718,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        }
+      ],
+      "lines": [
+        {
+          "id": "tpa-the-spring-hotline",
+          "name": "The Spring of Tampa Bay - 24-hour crisis hotline",
+          "summary": "Hillsborough County's domestic-violence center: crisis line, shelter, safety planning and counselling. Shelter location is confidential. In immediate danger call 911.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-247-7233",
+              "note": "(813) 247-SAFE, call or text, 24 hours"
+            },
+            {
+              "kind": "phone",
+              "value": "813-248-1050",
+              "note": "TTY"
+            }
+          ],
+          "source": "https://thespring.org/get-help",
+          "checked": "2026-10-20",
+          "category": "abuse",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "tpa-florida-abuse-hotline",
+          "name": "Florida Abuse Hotline",
+          "summary": "Report known or suspected abuse, neglect or exploitation of a child or vulnerable adult. If someone is in immediate danger, call 911.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-800-962-2873",
+              "note": "1-800-96-ABUSE, 24 hours"
+            }
+          ],
+          "source": "https://www.myflfamilies.com/services/abuse/abuse-hotline",
+          "checked": "2026-10-20",
+          "category": "abuse",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "tpa-988-lifeline",
+          "name": "988 Suicide & Crisis Lifeline",
+          "summary": "Call or text 988 if you or someone you know is in crisis. For immediate danger call 911.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "988",
+              "note": "call or text"
+            }
+          ],
+          "source": "https://www.samhsa.gov/mental-health/988",
+          "checked": "2026-10-20",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "tpa-211-helpline",
+          "name": "211 (Crisis Center of Tampa Bay helpline)",
+          "summary": "Dial 211 for information, referrals and crisis counselling in Hillsborough County.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "211"
+            }
+          ],
+          "source": "https://www.tampa.gov/homeless",
+          "checked": "2026-10-20",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "tpa-thhi-homeless",
+          "name": "Tampa Hillsborough Homeless Initiative (THHI)",
+          "summary": "The county's homeless-services coordinator; it connects callers to local providers. The City of Tampa homeless outreach line is 813-274-8960.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-223-6115"
+            },
+            {
+              "kind": "phone",
+              "value": "813-274-8960",
+              "note": "City of Tampa homeless outreach"
+            }
+          ],
+          "source": "https://www.thhi.org/homelessresources",
+          "checked": "2026-10-20",
+          "category": "shelter",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "tpa-police-non-emergency",
+          "name": "Tampa Police Department - non-emergency line",
+          "summary": "Non-emergency police line; for police, fire or medical emergencies dial 911.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-231-6130"
+            }
+          ],
+          "source": "https://www.tampa.gov/police/connect",
+          "checked": "2026-10-20",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "tpa-project-rachel",
+          "name": "Project Rachel (Diocese of St. Petersburg) - after-abortion healing",
+          "summary": "Confidential support for women, men and families affected by abortion; retreats, a support group and one-on-one companioning. A Catholic program that says all faiths are welcome. Call to ask about cost.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "813-924-4173"
+            },
+            {
+              "kind": "email",
+              "value": "projectrachel@ccdosp.org"
+            }
+          ],
+          "source": "https://foundationsoflife.org/facts-about-abortion/post-abortion-story/",
+          "checked": "2026-10-20",
+          "category": "after-abortion",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "tpa-empath-grief-care",
+          "name": "Empath Health - Grief Care",
+          "summary": "Free grief counselling for individuals and families in Hillsborough County; you need not be a hospice family. In person, by phone or virtual; Spanish-speaking counsellors available.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "888-308-7150"
+            }
+          ],
+          "cost": "Free",
+          "source": "https://empathhealth.org/community-counseling",
+          "checked": "2026-10-20",
+          "category": "grief",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        }
+      ],
+      "verified": true
     },
     {
       "id": "orlando-fl",
       "name": "Orlando, Florida",
       "lat": 28.538316,
       "lon": -81.37896,
-      "centre": "City hall address (400 S Orange Ave, Orlando, FL 32801) via US Census Bureau geocoder (onelineaddress, Public_AR_Current); used only to centre the map",
+      "centre": "Orlando city hall address (400 S Orange Ave, Orlando, FL 32801) via US Census Bureau geocoder (onelineaddress, Public_AR_Current); used only to centre the map and measure distances",
+      "checked": "2026-10-20",
       "entries": [
         {
           "id": "orl-victim-service-center",
           "name": "Victim Service Center of Central Florida",
-          "summary": "The certified rape crisis centre for Orange, Osceola and Seminole counties: free, confidential crisis help, therapy and advocacy for victims of sexual assault, violent crime and trauma.",
+          "summary": "Support for victims of crime and abuse in Central Florida, with a main office in Orlando and a 24-hour crisis helpline.",
           "faith": null,
           "contact": [
             {
               "kind": "phone",
-              "value": "407-500-4325",
-              "note": "407-500-HEAL, 24/7 helpline"
+              "value": "407-254-9415",
+              "note": "Main office"
             },
             {
               "kind": "phone",
-              "value": "407-254-9415",
-              "note": "Office"
+              "value": "407-500-4325",
+              "note": "24/7 crisis helpline (407-500-HEAL)"
             }
           ],
-          "hours": "Helpline 24/7; office Mon–Fri 8am–5pm",
-          "source": "https://victimservicecenter.org/our-services/sexual-assault-services/",
-          "checked": "2026-10-08",
+          "hours": "Main office Monday-Friday, 8:00 AM - 5:00 PM",
+          "source": "https://www.victimservicecenter.org/contact",
+          "checked": "2026-10-20",
           "category": "abuse",
           "address": "2111 East Michigan Street, Suite 210, Orlando, FL 32806",
           "lat": 28.513215,
@@ -1602,25 +2769,40 @@
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         },
         {
-          "id": "orl-jmj",
-          "name": "JMJ Pregnancy Center — Orlando",
-          "summary": "Pregnancy testing at no cost, limited diagnostic ultrasounds and a consultation about your options; all services confidential and free.",
+          "id": "orl-howard-phillips-center",
+          "name": "The Howard Phillips Center for Children & Families",
+          "summary": "Orlando Health center that provides free services to at-risk children and families, including a children's advocacy center, therapy for children recovering from abuse, and a family support program for new parents.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-317-7430"
+            }
+          ],
+          "cost": "Free services to at-risk children and families in Orange, Osceola and Seminole counties",
+          "source": "https://www.arnoldpalmerhospital.com/facilities/the-howard-phillips-center-for-children-and-families",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "601 W. Michigan Street, Orlando, FL 32805",
+          "lat": 28.514739,
+          "lon": -81.386539,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-jmj-pregnancy-center",
+          "name": "JMJ Pregnancy Center (Orlando)",
+          "summary": "Free, confidential pregnancy tests, limited ultrasounds and talks about options for an unplanned pregnancy. Bilingual staff; appointments can be booked online or by phone. The center says it does not provide or refer for abortion.",
           "faith": null,
           "contact": [
             {
               "kind": "phone",
               "value": "407-839-0620"
-            },
-            {
-              "kind": "phone",
-              "value": "407-201-5085",
-              "note": "Kissimmee centre"
             }
           ],
-          "hours": "Mon, Wed, Fri 10am–2pm",
+          "hours": "Monday, Wednesday and Friday, 10am to 2pm (Orlando location)",
           "cost": "Free",
-          "source": "https://jmjpc.org/",
-          "checked": "2026-10-08",
+          "source": "https://jmjpc.org",
+          "checked": "2026-10-20",
           "category": "pregnancy",
           "address": "1401 W Colonial Dr, Orlando, FL 32804",
           "lat": 28.552985,
@@ -1628,9 +2810,9 @@
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         },
         {
-          "id": "orl-first-life",
+          "id": "orl-first-life-center",
           "name": "First Life Center for Pregnancy",
-          "summary": "Free pregnancy tests and ultrasounds; all services free and confidential. It does not offer or refer for abortion.",
+          "summary": "Free, confidential pregnancy tests and ultrasounds and information on pregnancy options and abortion recovery. The center says it does not offer or refer for abortion.",
           "faith": null,
           "contact": [
             {
@@ -1639,12 +2821,12 @@
             },
             {
               "kind": "text",
-              "value": "1-800-712-4357"
+              "value": "800-712-4357"
             }
           ],
           "cost": "Free",
-          "source": "https://pregnancyanswers.org/contact",
-          "checked": "2026-10-08",
+          "source": "https://pregnancyanswers.org/",
+          "checked": "2026-10-20",
           "category": "pregnancy",
           "address": "3125 Bruton Blvd, Suite B, Orlando, FL 32805",
           "lat": 28.509811,
@@ -1652,9 +2834,70 @@
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         },
         {
+          "id": "orl-pregnancy-center-winter-park",
+          "name": "The Pregnancy Center (Winter Park)",
+          "summary": "Free pregnancy testing and limited ultrasounds in Winter Park. Hours are not on its page, so call first. Some map apps still show the old address on Lee Road.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-790-7411"
+            }
+          ],
+          "cost": "Free",
+          "source": "https://www.thepregnancycenters.com/appointment",
+          "checked": "2026-10-20",
+          "category": "pregnancy",
+          "address": "1971 Lee Road, Winter Park, FL 32789",
+          "lat": 28.606019,
+          "lon": -81.375384,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-fiona-jackson-center",
+          "name": "Fiona Jackson Center for Pregnancy (Pine Hills)",
+          "summary": "Faith-based pregnancy center offering free pregnancy tests, peer support, childbirth classes and post-abortion support. Its page asks people to request an appointment online or by phone.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-751-4191",
+              "note": "Pine Hills location"
+            }
+          ],
+          "hours": "Mon-Wed 9:30 am-1:30 pm and Thu 9:30 am-1:30 pm (Pine Hills); second Saturday 11 am-1 pm; closed Friday and Sunday",
+          "cost": "Free",
+          "source": "https://www.fjcenter.org/",
+          "checked": "2026-10-20",
+          "category": "pregnancy",
+          "address": "800 N Pine Hills Rd, Suite 5-104, Orlando, FL 32808",
+          "lat": 28.554807,
+          "lon": -81.447627,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-catholic-charities",
+          "name": "Catholic Charities of Central Florida (main office)",
+          "summary": "Catholic Diocese of Orlando agency offering help with food, finances, health, immigration and refugee services, and support for domestic violence and trafficking survivors, across Orange, Osceola, Seminole and other counties. Its page lists a second address on the same road, 1819 N Semoran Blvd, so call before going.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-658-1818"
+            }
+          ],
+          "source": "https://cflcc.org/css/catholic-charities-of-central-florida-main-office/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "1771 N Semoran Blvd, Orlando, FL 32807",
+          "lat": 28.568449,
+          "lon": -81.31076,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
           "id": "orl-second-harvest",
           "name": "Second Harvest Food Bank of Central Florida",
-          "summary": "The regional food bank; its Food Finder lists partner pantries with days, hours and phone numbers.",
+          "summary": "The regional food bank. It supplies local pantries and has a Food Finder on its site to locate the nearest free food.",
           "faith": null,
           "contact": [
             {
@@ -1668,8 +2911,8 @@
             }
           ],
           "locator": "https://feedhopenow.org/find-help/food-finder/",
-          "source": "https://feedhopenow.org/",
-          "checked": "2026-10-08",
+          "source": "https://feedhopenow.org/about-us/contact-us/",
+          "checked": "2026-10-20",
           "category": "food",
           "address": "411 Mercy Drive, Orlando, FL 32805",
           "lat": 28.549132,
@@ -1677,9 +2920,129 @@
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         },
         {
-          "id": "orl-coalition",
+          "id": "orl-christian-service-center",
+          "name": "Christian Service Center for Central Florida",
+          "summary": "Faith-driven downtown campus offering rent and utility help, housing support, veteran services, day services, family emergency assistance and Daily Bread meals open to anyone in need. Hours are not on its page, so call.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-425-2523"
+            }
+          ],
+          "source": "https://www.christianservicecenter.org",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "808 W. Central Blvd., Orlando, FL 32805",
+          "lat": 28.541937,
+          "lon": -81.390809,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-jfs-pearlman-pantry",
+          "name": "Pearlman Food Pantry (Jewish Family Services of Greater Orlando)",
+          "summary": "Food pantry run by Jewish Family Services in Winter Park. Pickups are by appointment only; call to schedule. It also asks for donations of diapers and baby formula.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-644-7593"
+            }
+          ],
+          "hours": "Monday-Thursday, 9:00 AM-4:00 PM, by appointment only; closed Friday-Sunday",
+          "source": "https://jfsorlando.org/contact/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "2100 Lee Road, Winter Park, FL 32789",
+          "lat": 28.605754,
+          "lon": -81.377532,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-pine-hills-community-church-pantry",
+          "name": "Pine Hills Community Church Food Pantry",
+          "summary": "Church food pantry in Pine Hills, on the 2nd, 3rd and 4th Wednesday of each month at 10 am. The church's page prints no phone number, so check its page before you go.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "web",
+              "value": "https://www.phccnation.com/event-details-registration/phcc-food-pantry-every-2nd-3rd-and-4th-wednesday",
+              "note": "The church's page for the pantry; no phone is printed there"
+            }
+          ],
+          "hours": "Every 2nd, 3rd and 4th Wednesday at 10 am",
+          "source": "https://www.phccnation.com/event-details-registration/phcc-food-pantry-every-2nd-3rd-and-4th-wednesday",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "1305 N Pine Hills Rd, Orlando, FL 32808",
+          "lat": 28.569867,
+          "lon": -81.45208,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-prince-of-peace-pantry",
+          "name": "Prince of Peace Lutheran Church Food Pantry",
+          "summary": "Monthly food distribution at a Lutheran church in southeast Orlando, in the Bickel Building. The church site lists the next date as Saturday, October 24, 8:30 to 10:30 am.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-277-3945"
+            }
+          ],
+          "hours": "Monthly; next listed Oct 24, 2026, 8:30-10:30 am",
+          "source": "https://poporlando.com",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "1515 S. Semoran Blvd., Orlando, FL 32807",
+          "lat": 28.524727,
+          "lon": -81.310259,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-help-one-heart",
+          "name": "One Heart for Women and Children (food pantry)",
+          "summary": "Drive-up, appointment-based community food pantry in College Park. Its page says clients need no ID and do not have to be referred. Its page is inconsistent on hours, so call or email first.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "email",
+              "value": "info@helponeheart.org"
+            }
+          ],
+          "hours": "Monday, Tuesday, Thursday, Friday, 11 AM-3 PM (page also states a different window in its FAQ)",
+          "source": "https://helponeheart.org/foodpantry",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "2040 N Rio Grande Ave, Orlando, FL 32804",
+          "lat": 28.569548,
+          "lon": -81.401798,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-united-against-poverty",
+          "name": "United Against Poverty Orlando (formerly Community Food & Outreach Center)",
+          "summary": "Low-cost grocery program for households at or below 200% of the poverty level, plus crisis care intake, job training and on-site partner services.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-650-0774"
+            }
+          ],
+          "hours": "Mon-Sat 9:00 am-6:30 pm; Sun 11:00 am-6:00 pm",
+          "source": "https://uporlando.org/campus/orlando/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "150 W. Michigan St., Orlando, FL 32806",
+          "lat": 28.512807,
+          "lon": -81.380237,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-coalition-for-the-homeless",
           "name": "Coalition for the Homeless of Central Florida",
-          "summary": "Low-barrier shelter focused on housing; a free community dinner every night for anyone in need; drop-in diversion services at the Intake Center, 11 Paramore Ave (407-652-5310).",
+          "summary": "Homeless services campus in Downtown Orlando. Its drop-in services are open to the public and include a free dinner every night at the Terry Avenue gate and a diversion intake center where housing counselors help people find other options.",
           "faith": null,
           "contact": [
             {
@@ -1689,12 +3052,13 @@
             {
               "kind": "phone",
               "value": "407-652-5310",
-              "note": "Intake Center"
+              "note": "Diversion intake center"
             }
           ],
-          "hours": "Dinner daily 6:45pm (front gate); Intake Center Mon–Fri 7:30am–3:30pm",
-          "source": "https://www.centralfloridahomeless.org/drop-in-services",
-          "checked": "2026-10-08",
+          "hours": "Community dinner daily at 6:45 PM; diversion intake Monday-Friday 8:00 AM-8:00 PM at 11 Parramore Ave (page also spells it Paramore)",
+          "cost": "Free dinner",
+          "source": "http://www.centralfloridahomeless.org/drop-in-services",
+          "checked": "2026-10-20",
           "category": "shelter",
           "address": "18 North Terry Avenue, Orlando, FL 32801",
           "lat": 28.54262,
@@ -1702,99 +3066,387 @@
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         },
         {
-          "id": "orl-ourm-project-hope",
-          "name": "Orlando Union Rescue Mission — Project Hope (men)",
-          "summary": "Emergency shelter for single men (48 beds a night) with a warm meal, shower and laundry, and a long-term Christ-centred recovery programme.",
+          "id": "orl-union-rescue-mission",
+          "name": "Orlando Union Rescue Mission",
+          "summary": "Christian ministry with Project Hope for men (48 emergency shelter beds nightly, check-in from 2:00 p.m.) and a Family Home program for individuals and families. The page lists only the administration office address; call the numbers given for the shelter or the family program.",
           "faith": true,
           "contact": [
             {
               "kind": "phone",
               "value": "407-422-4855",
               "note": "Administration office"
+            },
+            {
+              "kind": "phone",
+              "value": "407-423-3596",
+              "note": "Project Hope (men)"
+            },
+            {
+              "kind": "phone",
+              "value": "407-423-2131",
+              "note": "Family Home / Family Life Center"
             }
           ],
-          "hours": "Shelter check-in begins 2pm",
-          "source": "https://ourm.org/project-hope-ak/",
-          "checked": "2026-10-08",
+          "source": "https://ourm.org/contact-us/",
+          "checked": "2026-10-20",
           "category": "shelter",
-          "address": "3300 W. Colonial Drive, Orlando, FL 32808",
-          "lat": 28.552601,
-          "lon": -81.417061,
+          "address": "1521 W. Washington Street, Orlando, FL 32805",
+          "lat": 28.543917,
+          "lon": -81.40141,
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         },
         {
-          "id": "orl-ourm-family-home",
-          "name": "Orlando Union Rescue Mission — Family Home",
-          "summary": "Long-term housing and Christ-centred care for single women, single parents with children, and married couples with children.",
+          "id": "orl-salvation-army-orlando",
+          "name": "The Salvation Army Orlando Area Command (shelter)",
+          "summary": "Christian ministry whose Orlando site says its shelters serve men, women and children, including homeless families. Hours, intake steps and cost are not on its page, so call before going.",
           "faith": true,
           "contact": [
             {
               "kind": "phone",
-              "value": "407-423-2131",
-              "note": "Admissions"
+              "value": "407-423-8581"
             }
           ],
-          "source": "https://ourm.org/our-locations/",
-          "checked": "2026-10-08",
+          "source": "https://southernusa.salvationarmy.org/orlando/shelter",
+          "checked": "2026-10-20",
           "category": "shelter",
-          "address": "1525 W Washington Street, Orlando, FL 32805",
-          "lat": 28.543938,
-          "lon": -81.401632,
+          "address": "416 W. Colonial Dr., Orlando, FL 32804",
+          "lat": 28.552939,
+          "lon": -81.384936,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-samaritan-resource-center",
+          "name": "Samaritan Resource Center",
+          "summary": "Faith-based nonprofit in East Orlando for people who are homeless or at risk. It offers meals, showers, laundry, mail and clothing, case management, and help with jobs. Hours are not on its page.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-482-0600"
+            }
+          ],
+          "source": "https://samaritanresourcecenter.org/about-us/",
+          "checked": "2026-10-20",
+          "category": "shelter",
+          "address": "9837 E Colonial Dr., Orlando, FL 32817",
+          "lat": 28.569128,
+          "lon": -81.246947,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-family-promise",
+          "name": "Family Promise of Greater Orlando",
+          "summary": "Winter Park resource center helping families who face homelessness, with prevention and diversion, shelter, housing and stabilization programs.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-951-8269"
+            }
+          ],
+          "hours": "Monday-Thursday 9 AM-5 PM; Friday 9 AM-12 PM",
+          "source": "https://www.fporlandofl.org/contact-us",
+          "checked": "2026-10-20",
+          "category": "shelter",
+          "address": "1000 Clay Street, Winter Park, FL 32789",
+          "lat": 28.588522,
+          "lon": -81.373158,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-covenant-house",
+          "name": "Covenant House Florida (Orlando)",
+          "summary": "Youth-focused agency with an Orlando site; its contact page says to call if you need immediate resources. It does not state on that page who is eligible or whether it has beds, so call first.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-482-0404"
+            },
+            {
+              "kind": "phone",
+              "value": "800-441-4478",
+              "note": "Toll-free"
+            }
+          ],
+          "hours": "Monday-Friday, 8:00am to 6:00pm",
+          "source": "https://www.covenanthousefl.org/contact-us",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "711 N Magnolia Ave, Orlando, FL 32803",
+          "lat": 28.553284,
+          "lon": -81.376802,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-new-hope-for-kids",
+          "name": "New Hope for Kids - Center for Grieving Children",
+          "summary": "Grief support groups in Maitland for children and young people who have lost a loved one, with meetings for ages 3 to 25 and a counselor group for surviving parents or caregivers. Register through the form on its page.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-331-3059"
+            }
+          ],
+          "source": "https://newhopeforkids.org/center-for-grieving-children/",
+          "checked": "2026-10-20",
+          "category": "grief",
+          "address": "544 Mayo Avenue, Maitland, FL 32751",
+          "lat": 28.636756,
+          "lon": -81.358309,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-griefshare-first-orlando",
+          "name": "GriefShare at First Orlando",
+          "summary": "Church-hosted grief support group for people who have lost a loved one or friend to death. The 6 pm session also has a Spanish-language group.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-514-4237",
+              "note": "GriefShare questions"
+            },
+            {
+              "kind": "phone",
+              "value": "407-425-2555",
+              "note": "Church main line"
+            }
+          ],
+          "hours": "Wednesdays at 9:30am and 6pm (room FH-301D)",
+          "source": "https://www.firstorlando.com/resource/grief/",
+          "checked": "2026-10-20",
+          "category": "grief",
+          "address": "3000 S John Young Pkwy, Orlando, FL 32805",
+          "lat": 28.536564,
+          "lon": -81.413842,
+          "geocode": "OpenStreetMap Nominatim (Census geocoder found no match)"
+        },
+        {
+          "id": "orl-celebrate-recovery-first-orlando",
+          "name": "Celebrate Recovery at First Orlando",
+          "summary": "Christ-centered recovery group for anyone struggling with hurt, pain or addiction of any kind. No cost and no registration; just show up. Childcare is available.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-425-2555",
+              "note": "Church main line"
+            }
+          ],
+          "hours": "Tuesdays: 6:30pm fellowship, 7:00pm large group, 8:00pm open share groups",
+          "cost": "Free",
+          "source": "https://www.firstorlando.com/resource/recovery/",
+          "checked": "2026-10-20",
+          "category": "recovery",
+          "address": "3000 S John Young Pkwy, Orlando, FL 32805",
+          "lat": 28.536564,
+          "lon": -81.413842,
+          "geocode": "OpenStreetMap Nominatim (Census geocoder found no match)"
+        },
+        {
+          "id": "orl-salvation-army-arc",
+          "name": "The Salvation Army Adult Rehabilitation Center (Orlando)",
+          "summary": "Free residential programs for men who can no longer cope or provide for themselves, with housing, food, counseling and employment help. Call to ask how to apply.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-295-9311"
+            }
+          ],
+          "cost": "Free",
+          "source": "https://southernusa.salvationarmy.org/orlando/adult-rehabilitation/",
+          "checked": "2026-10-20",
+          "category": "recovery",
+          "address": "3955 W. Colonial Drive, Orlando, FL 32808",
+          "lat": 28.552831,
+          "lon": -81.427908,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-aspire-kassab-plaza",
+          "name": "Aspire Health Partners (Kassab Plaza, addictions receiving facility)",
+          "summary": "Aspire's own page says its addictions receiving facility provides 24/7 medically supervised detox; its contact page lists this Orlando site. For substance use services call the main number and choose option 3. Walk-in policy is not stated, so call first.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-875-3700",
+              "note": "Select option 3 for substance use services"
+            }
+          ],
+          "hours": "Detox described as 24/7",
+          "source": "https://aspirehealthpartners.com/contact-us/",
+          "checked": "2026-10-20",
+          "category": "recovery",
+          "address": "434 W. Kennedy Blvd, Orlando, FL 32810",
+          "lat": 28.618404,
+          "lon": -81.392158,
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         }
       ],
       "lines": [
         {
-          "id": "orl-211",
-          "name": "Heart of Florida United Way 211",
-          "summary": "Information and referral for food, housing, mental health, family support and more, with free translation.",
+          "id": "orl-211-heart-of-florida",
+          "name": "Heart of Florida United Way 2-1-1",
+          "summary": "Free, confidential help finding food, housing, utilities help, healthcare and other local services. Dial 211, text your ZIP code to 898-211, or chat online.",
           "faith": null,
           "contact": [
             {
               "kind": "phone",
-              "value": "211"
-            },
-            {
-              "kind": "phone",
-              "value": "407-839-4357"
+              "value": "211",
+              "note": "24/7/365"
             },
             {
               "kind": "text",
-              "value": "898211",
-              "note": "Text your ZIP code"
+              "value": "898-211",
+              "note": "Text your ZIP code (as printed on its page)"
             },
             {
-              "kind": "chat",
-              "value": "https://www.hfuw.org/chat/"
+              "kind": "web",
+              "value": "https://www.hfuw.org/get-help/211-help/"
             }
           ],
           "hours": "24/7/365",
-          "cost": "Free and confidential",
+          "cost": "Free",
           "source": "https://www.hfuw.org/get-help/211-help/",
-          "checked": "2026-10-08",
+          "checked": "2026-10-20",
           "category": "crisis",
           "address": "No walk-in address listed (phone service); reach it by phone, text or online"
         },
         {
-          "id": "orl-harbor-house",
-          "name": "Harbor House of Central Florida (domestic violence)",
-          "summary": "Domestic-violence shelter and help line.",
+          "id": "orl-988-lifeline",
+          "name": "988 Suicide & Crisis Lifeline (Central Florida, via Heart of Florida United Way)",
+          "summary": "Free, confidential support for anyone in a mental health crisis, thinking about suicide, or worried about someone else. Call or text 988, or chat online.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "988",
+              "note": "24/7/365"
+            },
+            {
+              "kind": "text",
+              "value": "988"
+            },
+            {
+              "kind": "web",
+              "value": "https://988lifeline.org/chat",
+              "note": "Chat"
+            }
+          ],
+          "hours": "24/7/365",
+          "cost": "Free",
+          "source": "https://www.hfuw.org/get-help/988-help/",
+          "checked": "2026-10-20",
+          "category": "crisis",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "orl-harbor-house-hotline",
+          "name": "Harbor House of Central Florida 24-hour crisis hotline",
+          "summary": "Crisis line of the Orlando-area shelter for abused women and their families. The shelter has no public street address; call the hotline if you are in danger rather than emailing.",
           "faith": null,
           "contact": [
             {
               "kind": "phone",
               "value": "407-886-2856",
-              "note": "24-hour confidential crisis hotline"
+              "note": "24-hour crisis hotline"
+            },
+            {
+              "kind": "phone",
+              "value": "407-886-2244",
+              "note": "Main office, Mon-Fri 9-5"
+            }
+          ],
+          "hours": "Hotline 24 hours; main office Monday-Friday 9:00 AM-5:00 PM",
+          "source": "https://www.harborhousefl.com/contact",
+          "checked": "2026-10-20",
+          "category": "abuse",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "orl-florida-abuse-hotline",
+          "name": "Florida Abuse Hotline",
+          "summary": "State line for reporting known or suspected abuse, neglect or abandonment. If someone is in immediate danger, call 911.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-800-962-2873",
+              "note": "24/7"
+            },
+            {
+              "kind": "web",
+              "value": "https://reportabuse.myflfamilies.com/s/",
+              "note": "Online report"
+            }
+          ],
+          "hours": "24 hours a day, 7 days a week",
+          "source": "https://www.myflfamilies.com/services/abuse/abuse-hotline",
+          "checked": "2026-10-20",
+          "category": "abuse",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "orl-victim-service-helpline",
+          "name": "Victim Service Center 24/7 Crisis Helpline",
+          "summary": "Around-the-clock helpline of the Victim Service Center of Central Florida for victims of crime and abuse.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-500-4325",
+              "note": "407-500-HEAL"
             }
           ],
           "hours": "24/7",
-          "source": "https://www.harborhousefl.com/",
-          "checked": "2026-10-08",
+          "source": "https://www.victimservicecenter.org/contact",
+          "checked": "2026-10-20",
           "category": "abuse",
-          "address": "No walk-in address listed (shelter location is confidential); reach it by phone, text or online"
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "orl-project-rachel",
+          "name": "Project Rachel helpline (Diocese of Orlando / Catholic Charities of Central Florida)",
+          "summary": "Confidential helpline for anyone affected by an abortion, open to women and men in English and Spanish. Call or text.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-222-8584",
+              "note": "Call or text"
+            },
+            {
+              "kind": "email",
+              "value": "projectrachel@cflcc.org"
+            }
+          ],
+          "source": "https://www.orlandodiocese.org/e-scroll/archive/project-rachel-helpline-launches/",
+          "checked": "2026-10-20",
+          "category": "after-abortion",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "orl-opd-non-emergency",
+          "name": "Orlando Police Department non-emergency line",
+          "summary": "City of Orlando's non-emergency number for police. For emergencies call 911.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "321-235-5300"
+            }
+          ],
+          "source": "https://www.orlando.gov/Our-Government/Departments-Offices/Orlando-Police-Department/Contact-Us",
+          "checked": "2026-10-20",
+          "category": "crisis",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
         }
       ],
-      "verified": false
+      "verified": true
     },
     {
       "id": "atlanta-ga",

@@ -1,5 +1,5 @@
 /// <reference types="vite/client" /> // for import.meta.glob below
-// The Resources data files (learning.json, fellowships.json, life.json, us-states.json, jax-map.json, jax-facts.json), loaded on demand through a glob
+// The Resources data files (learning.json, fellowships.json, life.json, us-states.json, and each city's <code>-map.json and <code>-facts.json), loaded on demand through a glob
 // so a section whose file has not been written yet simply reports "not ready" instead of breaking the build.
 import { useEffect, useState } from "react";
 
@@ -44,25 +44,25 @@ export interface LocalHelp extends Help { category: string; address: string; lat
 /** A local line reached by phone or text only: no public address, so no point on the map. */
 export interface LocalLine extends Help { category?: string; address?: string }
 /** Only cities with verified: true are shown (owner, 2026-10-08: Jacksonville first). */
-export interface City { id: string; name: string; lat: number; lon: number; verified?: boolean; centre?: string; entries: LocalHelp[]; lines?: LocalLine[] }
+export interface City { id: string; name: string; lat: number; lon: number; verified?: boolean; centre?: string; /** What the map's centre mark is called; "City hall" when absent. */ centreLabel?: string; /** The day this city's places were last checked, when it differs from the page's. */ checked?: string; entries: LocalHelp[]; lines?: LocalLine[] }
 export interface LifeData { checked: string; groups: { id: string; title: string; entries: Help[] }[]; cities: City[] }
 
 export interface UsStates { source?: string; width: number; height: number; scale: number; translate: [number, number]; states: { id: string; name: string; d: string }[] }
 
-/** One sourced fact about a city (scripts/build-jax-map.py, from US Census Bureau files): what it is and where it was read. */
+/** One sourced fact about a city (scripts/build-city-maps.py, from US Census Bureau files): what it is and where it was read. */
 export interface CityFact { id: string; label: string; value: string | number; unit?: string; note: string; source: string; by: string; checked: string }
 export interface CityFacts { city: string; checked: string; facts: CityFact[] }
 interface MapLabel { name: string; x: number; y: number }
-/** A city's zoomable map (scripts/build-jax-map.py, US Census Bureau TIGER/Line): SVG paths per layer and the projection. */
+/** A city's zoomable map (scripts/build-city-maps.py, US Census Bureau TIGER/Line): SVG paths per layer and the projection. */
 export interface CityMap {
   about: string; city: string; width: number; height: number;
   projection: { west: number; north: number; cos: number; k: number };
-  land: { duval: string; around: string }; water: string; roads: { primary: string; secondary: string; streets: string };
-  roadLabels: MapLabel[]; places: (MapLabel & { duval: boolean })[]; waterLabels: MapLabel[];
+  land: { county: string; around: string }; water: string; roads: { primary: string; secondary: string; streets: string };
+  roadLabels: MapLabel[]; places: (MapLabel & { county: boolean })[]; waterLabels: MapLabel[];
   sources: { file: string; url: string; what: string; sha256: string; licence: string; downloaded: string }[];
 }
 
-interface Files { learning: LearningData; fellowships: FellowshipsData; life: LifeData; "us-states": UsStates; "jax-map": CityMap; "jax-facts": CityFacts }
+interface Files { learning: LearningData; fellowships: FellowshipsData; life: LifeData; "us-states": UsStates; "jax-map": CityMap; "jax-facts": CityFacts; "mia-map": CityMap; "mia-facts": CityFacts; "tpa-map": CityMap; "tpa-facts": CityFacts; "orl-map": CityMap; "orl-facts": CityFacts }
 export type ResourceFile = keyof Files;
 
 const FILES = import.meta.glob<{ default: unknown }>("/src/data/resources/*.json");

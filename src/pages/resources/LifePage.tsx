@@ -1,9 +1,9 @@
 // /resources/life, as the owner approved it (design/help-for-life-directions, direction E, 2026-10-08): the crisis strip
 // first; the title with its words and four numbers, the Door line art (Matthew 11:28) beside it; the national lines as a directory;
-// then each researched city (only cities with verified: true) with its USA map, sourced facts and its own map of places;
+// then the researched city chosen from the pills (only cities with verified: true) with its USA map, sourced facts and its own map of places;
 // and how the list is made. No section links: this page stands on its own. Every word and number comes from the data.
 import { MessageSquareText, Phone } from "lucide-react";
-import { useEffect, type CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import type { Help, LifeData } from "@/data/resources";
 import { dialable, smsHref } from "./contact-links";
 import { CitySection } from "./life/CitySection";
@@ -38,8 +38,10 @@ export default function LifePage({ data }: { data: LifeData }) {
   useEffect(() => { document.title = `${info.title} · Resources · Bible Project`; return () => { document.title = "Bible Project"; }; }, [info.title]);
   const groups = data.groups.map((g) => (g.id === "crisis" ? { ...g, entries: g.entries.filter((e) => e.id !== IN_STRIP.danger && e.id !== IN_STRIP.crisis) } : g));
   const national = data.groups.reduce((n, g) => n + g.entries.length, 0);
-  // Only verified cities, and only once their map and facts have been built (scripts/build-jax-map.py).
+  // Only verified cities, and only once their map and facts have been built (scripts/build-city-maps.py).
   const cities = data.cities.filter((c) => c.verified === true && c.entries.length > 0).flatMap((c) => (hasCityFiles(c.id) ? [{ ...c, id: c.id }] : []));
+  const [chosenId, setChosenId] = useState<string | null>(null);
+  const chosen = cities.find((c) => c.id === chosenId) ?? cities[0];
   const places = cities.reduce((n, c) => n + c.entries.length, 0), lines = cities.reduce((n, c) => n + (c.lines?.length ?? 0), 0);
   const helpsWith = listOf([...new Set(cities.flatMap((c) => kindsIn(c).map(([k]) => kindOf(k).short.toLowerCase())))]);
   const stats: [string, string | number][] = [["National lines", national], ...(cities.length ? [["Places", places], ["Local lines", lines]] as [string, number][] : []), ["Checked", data.checked]];
@@ -57,6 +59,6 @@ export default function LifePage({ data }: { data: LifeData }) {
       <DoorArt />
     </header>
     <NationalLines groups={groups} />
-    {cities.map((c) => <CitySection key={c.id} city={c} checked={data.checked} />)}
+    {chosen && <CitySection key={chosen.id} city={{ ...chosen, id: chosen.id }} cities={cities} onPick={setChosenId} checked={data.checked} />}
   </div>;
 }
