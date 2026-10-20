@@ -90,15 +90,6 @@ function axis() {
     <path class="hx-axis-head" d="M${b[0] + 62} ${b[1] + 15}l8 8-11 2"/>${ticks}`;
 }
 
-/** The press platen hovering over the Gutenberg sheet, with its screw. */
-function platen() {
-  const [x, y] = project([75, -48], 2);
-  return `<g class="hx-press" transform="translate(${x} ${y})">
-    <path d="M0 -70V-22M-6 -64l12 5M-6 -55l12 5M-6 -46l12 5M-6 -37l12 5"/>
-    <path d="M-38 -60H38"/><path class="hx-plate" d="M-62 -18l100 -34 22 0 -100 34z"/>
-    <path class="hx-press-drop" d="M-30 -6V22M30 -26V2"/></g>`;
-}
-
 function art() {
   const marks = [[34, 96], [610, 120], [598, 470], [30, 430], [330, 40]]
     .map(([x, y]) => `M${x - 5} ${y}h10M${x} ${y - 5}v10`).join('');
@@ -109,7 +100,7 @@ function art() {
     <path class="hx-mark" d="${marks}"/>
     ${ties()}${SHEETS.map(sheet).join('')}
     <g clip-path="url(#hx-glass-clip)"><path class="hx-beam" d="M40 60h60l-50 520h-60z"/></g>
-    ${platen()}${axis()}
+    ${axis()}
   </svg>`;
 }
 

@@ -44,9 +44,6 @@
 [data-theme="light"] .hx-beam { mix-blend-mode: multiply; }
 @keyframes hx-scan { from { transform: translateX(-60px); } to { transform: translateX(680px); } }
 
-.hx-press { color: var(--pr-red); stroke-width: 1.2; }
-.hx-plate { fill: color-mix(in srgb, var(--pr-red) 14%, transparent); }
-.hx-press-drop { stroke-dasharray: 2 4; opacity: .7; }
 
 .hx-axis { stroke-width: 1; opacity: .7; }
 .hx-axis-head { stroke-width: 1; opacity: .7; }
