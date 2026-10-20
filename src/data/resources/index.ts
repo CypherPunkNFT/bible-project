@@ -62,7 +62,8 @@ export interface CityMap {
   sources: { file: string; url: string; what: string; sha256: string; licence: string; downloaded: string }[];
 }
 
-interface Files { learning: LearningData; fellowships: FellowshipsData; life: LifeData; "us-states": UsStates; "jax-map": CityMap; "jax-facts": CityFacts; "mia-map": CityMap; "mia-facts": CityFacts; "tpa-map": CityMap; "tpa-facts": CityFacts; "orl-map": CityMap; "orl-facts": CityFacts }
+interface Files { learning: LearningData; fellowships: FellowshipsData; life: LifeData; "us-states": UsStates; "jax-map": CityMap; "jax-facts": CityFacts; "mia-map": CityMap; "mia-facts": CityFacts; "tpa-map": CityMap; "tpa-facts": CityFacts; "orl-map": CityMap; "orl-facts": CityFacts;
+  "atl-map": CityMap; "atl-facts": CityFacts; "chs-map": CityMap; "chs-facts": CityFacts; "clt-map": CityMap; "clt-facts": CityFacts; "bna-map": CityMap; "bna-facts": CityFacts; "mem-map": CityMap; "mem-facts": CityFacts; "bhm-map": CityMap; "bhm-facts": CityFacts; "sdf-map": CityMap; "sdf-facts": CityFacts; "dal-map": CityMap; "dal-facts": CityFacts; "hou-map": CityMap; "hou-facts": CityFacts; "okc-map": CityMap; "okc-facts": CityFacts }
 export type ResourceFile = keyof Files;
 
 const FILES = import.meta.glob<{ default: unknown }>("/src/data/resources/*.json");

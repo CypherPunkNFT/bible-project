@@ -42,28 +42,54 @@ ASPECT = 0.9  # width / height: land is added above and below until the map is t
 # drawn (the focus box must sit inside them or the sea of the map has holes); place: the city's own row in the population file.
 CITIES = {
     "jax": {"id": "jacksonville-fl", "name": "Jacksonville", "county": "12031", "focus": None, "water": ["12031", "12089", "12003", "12019", "12109"],
-            "roads": ["12031"], "place": ("35000", "Jacksonville city"), "skip_label": "Jacksonville"},
+            "roads": ["12031"], "place": ("35000", "Jacksonville city"), "skip_label": "Jacksonville", "state": "12", "stateName": "Florida", "states": ["12", "13"]},
     "mia": {"id": "miami-fl", "name": "Miami", "county": "12086", "focus": (-80.58, 25.43, -80.08, 25.96), "water": ["12086", "12011", "12087"],
-            "roads": ["12086"], "place": ("45000", "Miami city"), "skip_label": None},
+            "roads": ["12086"], "place": ("45000", "Miami city"), "skip_label": None, "state": "12", "stateName": "Florida"},
     "tpa": {"id": "tampa-fl", "name": "Tampa", "county": "12057", "focus": (-82.65, 27.72, -82.08, 28.14), "water": ["12057", "12103", "12101", "12081", "12105"],
-            "roads": ["12057", "12103"], "place": ("71000", "Tampa city"), "skip_label": None},
+            "roads": ["12057", "12103"], "place": ("71000", "Tampa city"), "skip_label": None, "state": "12", "stateName": "Florida"},
     "orl": {"id": "orlando-fl", "name": "Orlando", "county": "12095", "focus": (-81.55, 28.42, -81.19, 28.70), "water": ["12095", "12117", "12097", "12069"],
-            "roads": ["12095"], "place": ("53000", "Orlando city"), "skip_label": None},
+            "roads": ["12095"], "place": ("53000", "Orlando city"), "skip_label": None, "state": "12", "stateName": "Florida"},
+    "atl": {"id": "atlanta-ga", "name": "Atlanta", "county": "13121", "focus": (-84.62, 33.62, -84.05, 34.06), "water": ["13067", "13151", "13121", "13063", "13247", "13089", "13097", "13057", "13117", "13135"],
+            "roads": ["13067", "13089", "13121", "13135"], "place": ("04000", "Atlanta city"), "skip_label": None, "state": "13", "stateName": "Georgia"},
+    "chs": {"id": "charleston-sc", "name": "Charleston", "county": "45019", "focus": (-80.12, 32.68, -79.74, 32.99), "water": ["45019", "45035", "45015"],
+            "roads": ["45019"], "place": ("13330", "Charleston city"), "skip_label": None, "state": "45", "stateName": "South Carolina"},
+    "clt": {"id": "charlotte-nc", "name": "Charlotte", "county": "37119", "focus": (-81.05, 35.03, -80.55, 35.55), "water": ["37119", "45091", "45057", "37159", "37025", "37179", "37035", "37097", "37109", "37071"],
+            "roads": ["37119"], "place": ("12000", "Charlotte city"), "skip_label": None, "state": "37", "stateName": "North Carolina", "states": ["37", "45"]},
+    "bna": {"id": "nashville-tn", "name": "Nashville", "county": "47037", "focus": (-87.0, 35.98, -86.45, 36.32), "water": ["47147", "47149", "47165", "47189", "47021", "47187", "47037"],
+            "roads": ["47037"], "place": ("52006", "Nashville-Davidson"), "skip_label": None, "state": "47", "stateName": "Tennessee"},
+    "mem": {"id": "memphis-tn", "name": "Memphis", "county": "47157", "focus": (-90.2, 34.98, -89.75, 35.25), "water": ["28093", "28033", "47157", "05035"],
+            "roads": ["47157"], "place": ("48000", "Memphis city"), "skip_label": None, "state": "47", "stateName": "Tennessee", "states": ["47", "05", "28"]},
+    "bhm": {"id": "birmingham-al", "name": "Birmingham", "county": "01073", "focus": (-86.95, 33.35, -86.55, 33.65), "water": ["01115", "01073", "01117"],
+            "roads": ["01073"], "place": ("07000", "Birmingham city"), "skip_label": None, "state": "01", "stateName": "Alabama"},
+    "sdf": {"id": "louisville-ky", "name": "Louisville", "county": "21111", "focus": (-85.95, 38.1, -85.45, 38.33), "water": ["18061", "21029", "21111", "21211", "18043", "21215", "21185", "18019"],
+            "roads": ["21111"], "place": ("48006", "Louisville/Jefferson County"), "skip_label": None, "state": "21", "stateName": "Kentucky", "states": ["21", "18"]},
+    "dal": {"id": "dallas-tx", "name": "Dallas", "county": "48113", "focus": (-97.05, 32.58, -96.52, 33.04), "water": ["48257", "48121", "48397", "48139", "48439", "48085", "48113"],
+            "roads": ["48113"], "place": ("19000", "Dallas city"), "skip_label": None, "state": "48", "stateName": "Texas"},
+    "hou": {"id": "houston-tx", "name": "Houston", "county": "48201", "focus": (-95.62, 29.6, -95.2, 29.92), "water": ["48039", "48201", "48157", "48167"],
+            "roads": ["48201"], "place": ("35000", "Houston city"), "skip_label": None, "state": "48", "stateName": "Texas"},
+    "okc": {"id": "oklahoma-city-ok", "name": "Oklahoma City", "county": "40109", "focus": (-97.7, 35.3, -97.33, 35.72), "water": ["40027", "40087", "40083", "40109", "40017", "40051", "40073"],
+            "roads": ["40027", "40109"], "place": ("55000", "Oklahoma City city"), "skip_label": None, "state": "40", "stateName": "Oklahoma"},
 }
 FIRST_DAY = {"cb_2025_us_county_500k.zip", "tl_2026_12_prisecroads.zip", "tl_2026_12_place.zip", "tl_2026_12031_roads.zip"} | {f"tl_2026_{c}_areawater.zip" for c in ("12031", "12089", "12003", "12019", "12109")}  # fetched for Jacksonville on 2026-10-08
-SHARED = ["cb_2025_us_county_500k.zip", "tl_2026_12_prisecroads.zip", "tl_2026_12_place.zip", "co-est2025-alldata.csv", "sub-est2025_12.csv"]
+COUNTY_ZIP, COUNTY_CSV = "cb_2025_us_county_500k.zip", "co-est2025-alldata.csv"
 INPUT_URLS = {
-    "cb_2025_us_county_500k.zip": f"{TIGER}/GENZ2025/shp/cb_2025_us_county_500k.zip",
-    "tl_2026_12_prisecroads.zip": f"{TIGER}/TIGER2026/PRISECROADS/tl_2026_12_prisecroads.zip",
-    "tl_2026_12_place.zip": f"{TIGER}/TIGER2026/PLACE/tl_2026_12_place.zip",
-    "co-est2025-alldata.csv": f"{POPEST}/counties/totals/co-est2025-alldata.csv",
-    "sub-est2025_12.csv": f"{POPEST}/cities/totals/sub-est2025_12.csv",
+    COUNTY_ZIP: f"{TIGER}/GENZ2025/shp/{COUNTY_ZIP}",
+    COUNTY_CSV: f"{POPEST}/counties/totals/{COUNTY_CSV}",
 }
+
+
+def states_of(cfg: dict) -> list:
+    """The states whose counties, towns and main roads the map draws: the city's own, plus any the frame reaches into."""
+    return cfg.get("states") or [cfg["state"]]
 
 
 def inputs_for(cfg: dict) -> dict:
-    """Every file one city's build reads: name -> (url, what)."""
-    out = {n: INPUT_URLS[n] for n in SHARED}
+    """Every file one city's build reads: name -> url."""
+    out = dict(INPUT_URLS)
+    out[f"sub-est2025_{int(cfg['state'])}.csv"] = f"{POPEST}/cities/totals/sub-est2025_{int(cfg['state'])}.csv"
+    for st in states_of(cfg):
+        out[f"tl_2026_{st}_prisecroads.zip"] = f"{TIGER}/TIGER2026/PRISECROADS/tl_2026_{st}_prisecroads.zip"
+        out[f"tl_2026_{st}_place.zip"] = f"{TIGER}/TIGER2026/PLACE/tl_2026_{st}_place.zip"
     for code in cfg["roads"]:
         out[f"tl_2026_{code}_roads.zip"] = f"{TIGER}/TIGER2026/ROADS/tl_2026_{code}_roads.zip"
     for code in cfg["water"]:
@@ -77,11 +103,11 @@ def describe(name: str) -> str:
     if name.startswith("co-est"):
         return "Vintage 2025 county population estimates"
     if name.startswith("sub-est"):
-        return "Vintage 2025 city and town population estimates, Florida"
+        return f"Vintage 2025 city and town population estimates, state FIPS {name.split('_')[1][:-4]}"
     if name.endswith("prisecroads.zip"):
-        return "TIGER/Line 2026, primary and secondary roads, Florida"
+        return f"TIGER/Line 2026, primary and secondary roads, state FIPS {name.split('_')[2]}"
     if name.endswith("place.zip"):
-        return "TIGER/Line 2026, places, Florida (town labels)"
+        return f"TIGER/Line 2026, places, state FIPS {name.split('_')[2]} (town labels)"
     county = name.split("_")[2]
     return f"TIGER/Line 2026, {'all roads' if name.endswith('roads.zip') else 'area water'}, county FIPS {county}"
 
@@ -192,7 +218,7 @@ def build(code: str, cfg: dict, tiger: Path, census: Path, lock: dict):
                 if keep(rec):
                     yield rec, shape(sr.shape.__geo_interface__)
 
-    counties = {r["GEOID"]: (r, g) for r, g in read("cb_2025_us_county_500k", lambda r: r["STATEFP"] in ("12", "13"))}
+    counties = {r["GEOID"]: (r, g) for r, g in read("cb_2025_us_county_500k", lambda r: r["STATEFP"] in states_of(cfg))}
     home = cfg["county"]
     if home not in counties:
         raise SystemExit(f"build-city-maps: county {home} not found in cb_2025_us_county_500k")
@@ -234,7 +260,7 @@ def build(code: str, cfg: dict, tiger: Path, census: Path, lock: dict):
 
     # Roads: interstates (S1100) and other primary/secondary roads (S1200), plus the county's local streets as texture.
     primary, secondary, labels = [], [], {}
-    for rec, g in read("tl_2026_12_prisecroads"):
+    for rec, g in (item for st in states_of(cfg) for item in read(f"tl_2026_{st}_prisecroads")):
         if not g.intersects(frame):
             continue
         g = g.intersection(frame)
@@ -264,7 +290,7 @@ def build(code: str, cfg: dict, tiger: Path, census: Path, lock: dict):
     # Incorporated towns in the frame, labelled at a point on land (their legal limits run out to sea).
     all_land = unary_union([county, *neighbours])
     places = []
-    for rec, g in read("tl_2026_12_place", lambda r: r["NAME"] != cfg["skip_label"] and r["CLASSFP"].startswith("C")):
+    for rec, g in (item for st in states_of(cfg) for item in read(f"tl_2026_{st}_place", lambda r: r["NAME"] != cfg["skip_label"] and r["CLASSFP"].startswith("C"))):
         on_land = g.intersection(all_land).intersection(frame)
         if on_land.is_empty or on_land.area < (3 / k) ** 2:
             continue
@@ -286,7 +312,7 @@ def build(code: str, cfg: dict, tiger: Path, census: Path, lock: dict):
 
     county_name = county_rec["NAME"] + " County"
     city_map = {
-        "about": f"{county_name}, Florida, drawn from US Census Bureau TIGER/Line 2026 and cartographic boundary 2025 files (public domain). Built by scripts/build-city-maps.py.",
+        "about": f"{county_name}, {cfg['stateName']}, drawn from US Census Bureau TIGER/Line 2026 and cartographic boundary 2025 files (public domain). Built by scripts/build-city-maps.py.",
         "city": cfg["id"],
         "width": round(WIDTH, 1), "height": round(height, 1),
         "projection": {"west": west, "north": north, "cos": cos0, "k": k},
@@ -302,15 +328,15 @@ def facts(cfg: dict, county_rec: dict, census: Path) -> dict:
     fips = cfg["county"]
     county = find_row(census / "co-est2025-alldata.csv", lambda r: r["STATE"] == fips[:2] and r["COUNTY"] == fips[2:] and r["SUMLEV"] == "050")
     place_code, place_name = cfg["place"]
-    place = find_row(census / "sub-est2025_12.csv", lambda r: r["SUMLEV"] == "162" and r["PLACE"] == place_code)
-    if place["NAME"] != place_name:
+    place = find_row(census / f"sub-est2025_{int(cfg['state'])}.csv", lambda r: r["SUMLEV"] == "162" and r["PLACE"] == place_code)
+    if not place["NAME"].startswith(place_name):
         raise SystemExit(f"build-city-maps: expected {place_name} at PLACE {place_code}, found {place['NAME']!r}")
     sq_mi = lambda m2: m2 / 2_589_988.110336  # noqa: E731
-    shape_src, county_src, city_src = (INPUT_URLS[n] for n in ("cb_2025_us_county_500k.zip", "co-est2025-alldata.csv", "sub-est2025_12.csv"))
+    shape_src, county_src, city_src = (inputs_for(cfg)[n] for n in (COUNTY_ZIP, COUNTY_CSV, f"sub-est2025_{int(cfg['state'])}.csv"))
     estimates = "US Census Bureau, Vintage 2025 population estimates"
     boundary = "US Census Bureau, cartographic boundary file 2025"
     rows = [
-        {"id": "county", "label": "County", "value": county["CTYNAME"], "note": f"Florida · FIPS {fips}", "source": shape_src, "by": f"{boundary} (GEOID {fips})"},
+        {"id": "county", "label": "County", "value": county["CTYNAME"], "note": f"{cfg['stateName']} · FIPS {fips}", "source": shape_src, "by": f"{boundary} (GEOID {fips})"},
         {"id": "county-population", "label": f"{county['CTYNAME']} population", "value": int(county["POPESTIMATE2025"]), "note": "estimate for July 1, 2025", "source": county_src, "by": estimates},
         {"id": "city-population", "label": f"{cfg['name']} city population", "value": int(place["POPESTIMATE2025"]), "note": "estimate for July 1, 2025", "source": city_src, "by": estimates},
         {"id": "land-area", "label": "Land area", "value": round(sq_mi(int(county_rec["ALAND"])), 1), "unit": "sq mi", "note": f"plus {sq_mi(int(county_rec['AWATER'])):.1f} sq mi of water", "source": shape_src, "by": f"{boundary} (ALAND, AWATER)"},

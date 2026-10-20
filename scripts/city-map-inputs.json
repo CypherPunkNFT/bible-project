@@ -133,5 +133,540 @@
     "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12105_areawater.zip",
     "what": "TIGER/Line 2026, area water, county FIPS 12105",
     "sha256": "b2e5fb5650890e3dab79c3d22020c0bbdc945e9cb3dfad6233057ce4e41b7679"
+  },
+  "sub-est2025_13.csv": {
+    "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025_13.csv",
+    "what": "Vintage 2025 city and town population estimates, state FIPS 13",
+    "sha256": "55b20f811cc023177d556a6058029e516e9c5b79cd9ac39343fd29c6ac168972"
+  },
+  "tl_2026_13_prisecroads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PRISECROADS/tl_2026_13_prisecroads.zip",
+    "what": "TIGER/Line 2026, primary and secondary roads, state FIPS 13",
+    "sha256": "e69c1eb2848c3375e26d9f6acf58c3ce5798716fe39570693d6cb896772af02f"
+  },
+  "tl_2026_13_place.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_13_place.zip",
+    "what": "TIGER/Line 2026, places, state FIPS 13 (town labels)",
+    "sha256": "1325e424664f8c0f517c0aa155e3806ca299785ccca4e1badc9fe4f3f4173e09"
+  },
+  "tl_2026_13067_roads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_13067_roads.zip",
+    "what": "TIGER/Line 2026, all roads, county FIPS 13067",
+    "sha256": "f493ec9debb5fa5c717d57cac7f7736a41e51ba9f023c250a0d80a911324007c"
+  },
+  "tl_2026_13089_roads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_13089_roads.zip",
+    "what": "TIGER/Line 2026, all roads, county FIPS 13089",
+    "sha256": "eb833fef81c517793271c3f64cdcd1a84fbf67f638f78d91dbe2f5f839e2b410"
+  },
+  "tl_2026_13121_roads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_13121_roads.zip",
+    "what": "TIGER/Line 2026, all roads, county FIPS 13121",
+    "sha256": "0b51ddeb574a0424e3a0ed5d79b3046b389e983f3bafb58c156ee3d96a3f8c9a"
+  },
+  "tl_2026_13135_roads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_13135_roads.zip",
+    "what": "TIGER/Line 2026, all roads, county FIPS 13135",
+    "sha256": "561eb844fa14a98639b2c1d7cba6d3e92824e73f4bd8c7ddc6ba863662d864cd"
+  },
+  "tl_2026_13067_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_13067_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 13067",
+    "sha256": "beef8968bd5e748a0d1092150b98a592acd8d79ce05a1d8dbe8d996e8f42222b"
+  },
+  "tl_2026_13151_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_13151_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 13151",
+    "sha256": "13486b8206a588de867e75ad4922c6b8d7cdd40157b0d8b2184cd53d52b7de86"
+  },
+  "tl_2026_13121_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_13121_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 13121",
+    "sha256": "5136abc5f9e00aa00ccec96136578a1a852aff106b6ee78621e380aff025498a"
+  },
+  "tl_2026_13063_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_13063_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 13063",
+    "sha256": "7598394a144284bc8ece96d938fff00e755b87c2dd3d3515ee7af118c43181ef"
+  },
+  "tl_2026_13247_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_13247_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 13247",
+    "sha256": "baa161d8fd6e993d864db84dfdf8ef54dda6d59e4a9a45faadc7724b623bd2c3"
+  },
+  "tl_2026_13089_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_13089_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 13089",
+    "sha256": "71bc1b1f0f93cc1fb77ac930a4b55df90735b484bb21d1f91f728af37cf24d4a"
+  },
+  "tl_2026_13097_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_13097_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 13097",
+    "sha256": "e82251d1db616ba70a540b8c988f51c265edc5725ac1fb7f3bdcd610f2427f8e"
+  },
+  "tl_2026_13057_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_13057_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 13057",
+    "sha256": "b50b91bebd30fe6267b6926981f742703b548c83ac0acec6a4073aa33f837224"
+  },
+  "tl_2026_13117_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_13117_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 13117",
+    "sha256": "9cc939f7db3e1e9b010bed6020086f09f0349e2239283137135b1ad312dcf28b"
+  },
+  "tl_2026_13135_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_13135_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 13135",
+    "sha256": "a8632bf172aa63fe12a6ab94ec2770b02590556e154ac955ab58dfaebad35097"
+  },
+  "sub-est2025_45.csv": {
+    "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025_45.csv",
+    "what": "Vintage 2025 city and town population estimates, state FIPS 45",
+    "sha256": "210321823d220644eb1bbbfc16aadb43029e9157680eea4cf1390343dace95b5"
+  },
+  "tl_2026_45_prisecroads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PRISECROADS/tl_2026_45_prisecroads.zip",
+    "what": "TIGER/Line 2026, primary and secondary roads, state FIPS 45",
+    "sha256": "2ba35a2e821edf07b72760301efcdfdc9888a30c85f163971c742bbf3542c9fc"
+  },
+  "tl_2026_45_place.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_45_place.zip",
+    "what": "TIGER/Line 2026, places, state FIPS 45 (town labels)",
+    "sha256": "6311fd1255b1658f6f06de096840c6f121530d8922c63eadc035f55a49b6a579"
+  },
+  "tl_2026_45019_roads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_45019_roads.zip",
+    "what": "TIGER/Line 2026, all roads, county FIPS 45019",
+    "sha256": "9fa116439be0e0e30ae7d86213a9d0e2f95df7522aafc196319156b6dc93dda3"
+  },
+  "tl_2026_45019_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_45019_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 45019",
+    "sha256": "23ef680180907275b9b00066d797f4e1f71285c98918b6679cfe2024fbe0293c"
+  },
+  "tl_2026_45035_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_45035_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 45035",
+    "sha256": "05107b2ae2d4cc05f93ec9dde8c8de8dbc93a13847945b0ca6b8e418de48a404"
+  },
+  "tl_2026_45015_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_45015_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 45015",
+    "sha256": "be11345e47fe8f412c486b68c113d04c1dcecf02ee8298babd57a1e88be54dfc"
+  },
+  "sub-est2025_37.csv": {
+    "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025_37.csv",
+    "what": "Vintage 2025 city and town population estimates, state FIPS 37",
+    "sha256": "72dfbfd8fb4b6bf94ec64ed3c868d8a70e14d810f484725be12f531dead5ad14"
+  },
+  "tl_2026_37_prisecroads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PRISECROADS/tl_2026_37_prisecroads.zip",
+    "what": "TIGER/Line 2026, primary and secondary roads, state FIPS 37",
+    "sha256": "41cb97bb0334b736b79eab40001f6788e3c81f19f41f2b80d7dc780c05f4daae"
+  },
+  "tl_2026_37_place.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_37_place.zip",
+    "what": "TIGER/Line 2026, places, state FIPS 37 (town labels)",
+    "sha256": "d309e8969e5535c3c66245fdd2ba194af9210128e4ab6e0716ec238bfb180328"
+  },
+  "tl_2026_37119_roads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_37119_roads.zip",
+    "what": "TIGER/Line 2026, all roads, county FIPS 37119",
+    "sha256": "936abbac436e1dc8a94cac850a48785b4bafe3da623f46881090316609e9cf18"
+  },
+  "tl_2026_37119_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_37119_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 37119",
+    "sha256": "ccb305892284dba9a593838a6d25450a3a891d1eabc1a847910f104f26350472"
+  },
+  "tl_2026_45091_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_45091_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 45091",
+    "sha256": "113c92ea8a11361c0f9fe655326254116aaf09298c2a1757424f395825a01f7f"
+  },
+  "tl_2026_45057_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_45057_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 45057",
+    "sha256": "6111807de90ef9f08391d27a8c73afd44143578ef3db49a8d0dd790c552aadc0"
+  },
+  "tl_2026_37159_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_37159_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 37159",
+    "sha256": "d9a18f1388d8a9f309f17395c2f390bbd55371349d93e1e4ea35fd82dbbcb068"
+  },
+  "tl_2026_37025_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_37025_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 37025",
+    "sha256": "449326aa32980e8e887e64da5dfcaed889bff9d4be74c85001d371cacad08350"
+  },
+  "tl_2026_37179_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_37179_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 37179",
+    "sha256": "1331c2d4abf72b02314aef911792fbf5889da2499637a571b8b0d0437b14703b"
+  },
+  "tl_2026_37035_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_37035_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 37035",
+    "sha256": "88e7c6a70f24b4be334001301d7c8977788847d4bc53c6d9de7f0187a7ea29e4"
+  },
+  "tl_2026_37097_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_37097_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 37097",
+    "sha256": "cbaf694782743fa6a99eed4c9808343f647cb15fb42532eb452df8636cd51412"
+  },
+  "tl_2026_37109_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_37109_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 37109",
+    "sha256": "520e37d0b4a6a59a6c6295f8ce5287bc1f9fb8cf73270c949334b6c612a5fe25"
+  },
+  "tl_2026_37071_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_37071_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 37071",
+    "sha256": "93a042ffc2cca2b890ac5cf34c9e165a1de55b72b3a6444026df2fb1c6988d08"
+  },
+  "sub-est2025_47.csv": {
+    "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025_47.csv",
+    "what": "Vintage 2025 city and town population estimates, state FIPS 47",
+    "sha256": "783acb2b1da5bb1ae32bd4f1adcbac364d351e9045c2d31b344f162917592b68"
+  },
+  "tl_2026_47_prisecroads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PRISECROADS/tl_2026_47_prisecroads.zip",
+    "what": "TIGER/Line 2026, primary and secondary roads, state FIPS 47",
+    "sha256": "6273fbb40232c2734984394d2c0d3c70b4988a00d8c710ca011d8d76fbdf62f6"
+  },
+  "tl_2026_47_place.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_47_place.zip",
+    "what": "TIGER/Line 2026, places, state FIPS 47 (town labels)",
+    "sha256": "c35ab60215badbb0e10e1ad2c5893e87497e20b98ea75c5a8473936513c4e3a0"
+  },
+  "tl_2026_47037_roads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_47037_roads.zip",
+    "what": "TIGER/Line 2026, all roads, county FIPS 47037",
+    "sha256": "caba815df08c125bb4492fe7105ef125c0df06bb62de6edb7c9b612420d4821b"
+  },
+  "tl_2026_47147_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_47147_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 47147",
+    "sha256": "6c65ceea6e0ac4bcb7581739fc0a55faa67339d03da8e4f92e4fc36700f0d109"
+  },
+  "tl_2026_47149_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_47149_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 47149",
+    "sha256": "de5da108b9efa099db43302b00b19b83b9be0e36cdda607c8a20cfb4ce100001"
+  },
+  "tl_2026_47165_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_47165_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 47165",
+    "sha256": "df2b85895450cb4069ed5dc0d9426e288a81bb1028a1ed210bbb5ec7e16a70d8"
+  },
+  "tl_2026_47189_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_47189_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 47189",
+    "sha256": "73b3d4dfc10025a6fb9f306145b5c648ee99426ae75362f6b710210be334f3d0"
+  },
+  "tl_2026_47021_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_47021_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 47021",
+    "sha256": "e6f1b5099849126452e2e4e77ef5160cf4ab87dd2f5ff7a187494e464625dc98"
+  },
+  "tl_2026_47187_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_47187_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 47187",
+    "sha256": "d5ec40cd7d1caa5cc62b802bf64291a4c217bee5a8903f5ec2db03198484d7bf"
+  },
+  "tl_2026_47037_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_47037_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 47037",
+    "sha256": "e0ce6af2582d1e8b6f36682d9fab46bcf9f2433412cf3823dc620f30dfa8eed1"
+  },
+  "tl_2026_05_prisecroads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PRISECROADS/tl_2026_05_prisecroads.zip",
+    "what": "TIGER/Line 2026, primary and secondary roads, state FIPS 05",
+    "sha256": "1788782da99117e1a1f5d1407c96c2249114636b4244e0e4bf89d2251ca1c164"
+  },
+  "tl_2026_05_place.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_05_place.zip",
+    "what": "TIGER/Line 2026, places, state FIPS 05 (town labels)",
+    "sha256": "8a5af8be4f644ee1c72aa702bf538338b5ad4f1c02d0291522f7e40c3dfaba92"
+  },
+  "tl_2026_28_prisecroads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PRISECROADS/tl_2026_28_prisecroads.zip",
+    "what": "TIGER/Line 2026, primary and secondary roads, state FIPS 28",
+    "sha256": "042b8ecf5d05cde9a6f49e207bfad83874eb2769e23470d63b5de5acdd4561ed"
+  },
+  "tl_2026_28_place.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_28_place.zip",
+    "what": "TIGER/Line 2026, places, state FIPS 28 (town labels)",
+    "sha256": "46c2945ff4ac58db2583f019e57574a96e76ced9fe0d02e81c165a632025de57"
+  },
+  "tl_2026_47157_roads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_47157_roads.zip",
+    "what": "TIGER/Line 2026, all roads, county FIPS 47157",
+    "sha256": "494af7d1a26b9abdcb3a047bae5dd79ae9cb2947b360885e3929a39efdcec61b"
+  },
+  "tl_2026_28093_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_28093_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 28093",
+    "sha256": "7898459d36415ff3f417501be75f15ade4a6f0582d0ca10b97b7ebb1b42a5955"
+  },
+  "tl_2026_28033_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_28033_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 28033",
+    "sha256": "a4a276a259d664503f37b2e395845afa2a2000755a0a7d139d6a143af8cd4763"
+  },
+  "tl_2026_47157_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_47157_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 47157",
+    "sha256": "42faba596958f8539124c4206ca90aefebfba72edb26d9946257d1092ee251f5"
+  },
+  "tl_2026_05035_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_05035_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 05035",
+    "sha256": "ab38bf48ab134fe1dad4032a611099cf6a5a04636e374f37e5719301c3221874"
+  },
+  "sub-est2025_1.csv": {
+    "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025_1.csv",
+    "what": "Vintage 2025 city and town population estimates, state FIPS 1",
+    "sha256": "220436709a033c74b0f880198da0b24f96b6c51121ff064bfe4ccfc85e44c378"
+  },
+  "tl_2026_01_prisecroads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PRISECROADS/tl_2026_01_prisecroads.zip",
+    "what": "TIGER/Line 2026, primary and secondary roads, state FIPS 01",
+    "sha256": "3be8deb8fe75a54b8f72d05bf81944241ff68a87ce896982265e335346f79a64"
+  },
+  "tl_2026_01_place.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_01_place.zip",
+    "what": "TIGER/Line 2026, places, state FIPS 01 (town labels)",
+    "sha256": "b47351eb605640dc81ab7fa569be9a0d9e0500fc51d58f26230586805c8f6219"
+  },
+  "tl_2026_01073_roads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_01073_roads.zip",
+    "what": "TIGER/Line 2026, all roads, county FIPS 01073",
+    "sha256": "9fdde75de5a1544854678b6cf02bc023fd6b92e31a8449203741368b8ea05b77"
+  },
+  "tl_2026_01115_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_01115_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 01115",
+    "sha256": "14beb595f7378680c26519fd5033bb1a9b3d6007a71ee61671b351615b4f9884"
+  },
+  "tl_2026_01073_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_01073_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 01073",
+    "sha256": "f9897f5c10fe02afd584b5a2a8974a56ddc529fbfc74b8b3aeae2f950dcaa900"
+  },
+  "tl_2026_01117_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_01117_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 01117",
+    "sha256": "46606a960aaf3825f7f7bc430235e794587bd78037d2c06e37d39f4920ee6e94"
+  },
+  "sub-est2025_21.csv": {
+    "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025_21.csv",
+    "what": "Vintage 2025 city and town population estimates, state FIPS 21",
+    "sha256": "9a15d3def94f90ba1e9f29004cf10c2967026da6b196f382df21e596e4215412"
+  },
+  "tl_2026_21_prisecroads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PRISECROADS/tl_2026_21_prisecroads.zip",
+    "what": "TIGER/Line 2026, primary and secondary roads, state FIPS 21",
+    "sha256": "a38493d84d78bd59175613c1a09a213e3db824541dde253829903215bfcec76a"
+  },
+  "tl_2026_21_place.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_21_place.zip",
+    "what": "TIGER/Line 2026, places, state FIPS 21 (town labels)",
+    "sha256": "52e6b6876f49991d366936715a9251f7128734ed189376620f2543d41a87dbfd"
+  },
+  "tl_2026_18_prisecroads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PRISECROADS/tl_2026_18_prisecroads.zip",
+    "what": "TIGER/Line 2026, primary and secondary roads, state FIPS 18",
+    "sha256": "d46ced97f7903cb141db495b16dcd443fcf3800b5949b7f0412d6a75cf64dec1"
+  },
+  "tl_2026_18_place.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_18_place.zip",
+    "what": "TIGER/Line 2026, places, state FIPS 18 (town labels)",
+    "sha256": "459568c61726b0fbeba8dba7435eff0a9ae20d33f196320754e4615257b8e015"
+  },
+  "tl_2026_21111_roads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_21111_roads.zip",
+    "what": "TIGER/Line 2026, all roads, county FIPS 21111",
+    "sha256": "f8b2f9acc09ee8b0a2f0f6d3e4381035de632850229adec5f4295818e54597c6"
+  },
+  "tl_2026_18061_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_18061_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 18061",
+    "sha256": "5545187c7f7754b20af84020cac08ec83ef8e81250fc975a99e50042d4fea939"
+  },
+  "tl_2026_21029_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_21029_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 21029",
+    "sha256": "dd60ba7577b2c2d2caf2c97e920c0c8d240ec218892ff4f85b7025e76cb96913"
+  },
+  "tl_2026_21111_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_21111_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 21111",
+    "sha256": "d6de356e022c18afb5595f74a6732e476468569eacf013c47230425c07c6e877"
+  },
+  "tl_2026_21211_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_21211_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 21211",
+    "sha256": "ad7ed38efe9f0a41458981e4eb2391a440ba34b718df01e2978c355a8e927d3e"
+  },
+  "tl_2026_18043_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_18043_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 18043",
+    "sha256": "b7387800c57ed2c9908f1c1c4433acef7444487f20fc95940cd20099dabd12d3"
+  },
+  "tl_2026_21215_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_21215_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 21215",
+    "sha256": "d4c1c0bef3dc90aaeda8069a1ca833c3290ebdc212d8297d686415f2dacbcb4f"
+  },
+  "tl_2026_21185_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_21185_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 21185",
+    "sha256": "05dfe464394fbcf7f8f9f6921877f3a00f89b47df36cf824bb28c5b57d0d9be8"
+  },
+  "tl_2026_18019_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_18019_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 18019",
+    "sha256": "4badf44232d730499f741a2480618664f0f430b367cccaed6ae4d411bbe3b203"
+  },
+  "sub-est2025_48.csv": {
+    "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025_48.csv",
+    "what": "Vintage 2025 city and town population estimates, state FIPS 48",
+    "sha256": "744d8e1c5b480efbc3f0039ba6fbcd87d084c184f33e6639a03d2401625adf02"
+  },
+  "tl_2026_48_prisecroads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PRISECROADS/tl_2026_48_prisecroads.zip",
+    "what": "TIGER/Line 2026, primary and secondary roads, state FIPS 48",
+    "sha256": "81cc61c06c126bb7c9f068f660c9e45a9fbfd030382f734d40ede489a21e139e"
+  },
+  "tl_2026_48_place.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_48_place.zip",
+    "what": "TIGER/Line 2026, places, state FIPS 48 (town labels)",
+    "sha256": "d6bbad505fd9b6b2e2c35512d05bf30858dfdfdf3dabf037537e28f0fbbc5269"
+  },
+  "tl_2026_48113_roads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_48113_roads.zip",
+    "what": "TIGER/Line 2026, all roads, county FIPS 48113",
+    "sha256": "c39acdd3270a4d56c7dc3e22585615f6606f6c2e175feb6a2e07e409300efdc1"
+  },
+  "tl_2026_48257_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_48257_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 48257",
+    "sha256": "dc7d3aa38cda82cb8b22deb29e2faecc4b66fb23c503539766a15122fc51cdcb"
+  },
+  "tl_2026_48121_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_48121_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 48121",
+    "sha256": "21b27edd076e0cbe96ad482e916a9097f32b5c11bbb50241f5772e1f53ed7dbe"
+  },
+  "tl_2026_48397_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_48397_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 48397",
+    "sha256": "c9ff3ae95778e067c7a0ff8b59bc65ff07c8f6dea846ed211b4d144fc9a05f49"
+  },
+  "tl_2026_48139_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_48139_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 48139",
+    "sha256": "86e3d3088b9567ac79254234d41243db1facedf54d35e2ceb0ce1b6da30a6976"
+  },
+  "tl_2026_48439_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_48439_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 48439",
+    "sha256": "71ab5d8959fd72df5d86ef863a5bd5c02225943109b5b8003b3dcd6fa2526268"
+  },
+  "tl_2026_48085_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_48085_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 48085",
+    "sha256": "25cb9b334887bb831c6f533d40876982b9f6fda2124ade280b17ee9fec1ed17d"
+  },
+  "tl_2026_48113_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_48113_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 48113",
+    "sha256": "e51bd0010054be326d234c73318edc5635e1655fde4ec4b5d273a1763f872bc7"
+  },
+  "tl_2026_48201_roads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_48201_roads.zip",
+    "what": "TIGER/Line 2026, all roads, county FIPS 48201",
+    "sha256": "c72029decb19346c4fd58c4d21f43c3caa714f31690a11a07f5aea89bbb6a292"
+  },
+  "tl_2026_48039_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_48039_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 48039",
+    "sha256": "a137fdb3c6e923a587ccb0608f88f1672628b80a1d15332f9960efff2504ae5b"
+  },
+  "tl_2026_48201_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_48201_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 48201",
+    "sha256": "a6850a6d09b93638bbe5ae8f6772ee286373c3cdb6f6bf5dd0a6e55e2ffbbefe"
+  },
+  "tl_2026_48157_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_48157_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 48157",
+    "sha256": "10c88485c1b629c98cc20a32ff0cddc2ede77491ea5caef6417b194f24620b7b"
+  },
+  "tl_2026_48167_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_48167_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 48167",
+    "sha256": "2b10f998bfd629b59370436e84ed102bfc58fdec9aef7b4447ae83a57daca80a"
+  },
+  "sub-est2025_40.csv": {
+    "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025_40.csv",
+    "what": "Vintage 2025 city and town population estimates, state FIPS 40",
+    "sha256": "34c5b9e2e21dc0b7b2382b0c967c7cc3d0b4efc034c66cfc56459f1548c2564a"
+  },
+  "tl_2026_40_prisecroads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PRISECROADS/tl_2026_40_prisecroads.zip",
+    "what": "TIGER/Line 2026, primary and secondary roads, state FIPS 40",
+    "sha256": "9ac1546e2cd65e60986e7681c42c2e59def1dec6059ccb4f76bdca761a802b32"
+  },
+  "tl_2026_40_place.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_40_place.zip",
+    "what": "TIGER/Line 2026, places, state FIPS 40 (town labels)",
+    "sha256": "f54da470cce075bf68cbfefc0022de16e7e3d7acc4fde8a3af0fb0ce65bf1b6f"
+  },
+  "tl_2026_40027_roads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_40027_roads.zip",
+    "what": "TIGER/Line 2026, all roads, county FIPS 40027",
+    "sha256": "0aae41b602233f58458db6f9a35d764af6fe51113285a438d4eb348cff794749"
+  },
+  "tl_2026_40109_roads.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_40109_roads.zip",
+    "what": "TIGER/Line 2026, all roads, county FIPS 40109",
+    "sha256": "2ffc134bbf6fb2dc8b26a1544c1a05482ea252277f0783f6f32b8eb2045bc8cb"
+  },
+  "tl_2026_40027_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_40027_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 40027",
+    "sha256": "478df76b3af2e41f7e002dcb82c7b95ee76fe3b9d2c1414ea3663850eba05402"
+  },
+  "tl_2026_40087_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_40087_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 40087",
+    "sha256": "901e45159cd69539ff1f906fdccf432f4ae654644b0df34a5595c17cf51e737c"
+  },
+  "tl_2026_40083_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_40083_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 40083",
+    "sha256": "619dc09740cf1d7cd6d25fc63674e92a3452f5ae257cfcf50510f71da204f805"
+  },
+  "tl_2026_40109_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_40109_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 40109",
+    "sha256": "183e0d90e1bc7c29c2fb0b6373eeca04bc766cb38e1316e9d80e7fe242c79d0d"
+  },
+  "tl_2026_40017_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_40017_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 40017",
+    "sha256": "23d1950a8584ecdab96e174eb457b1639d78d157baee7875fffe8e7d5e2688f1"
+  },
+  "tl_2026_40051_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_40051_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 40051",
+    "sha256": "c2ce593f038be70f6f06e34099fbc76b1cf171e838661e9c2f87a144ae3e7e15"
+  },
+  "tl_2026_40073_areawater.zip": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_40073_areawater.zip",
+    "what": "TIGER/Line 2026, area water, county FIPS 40073",
+    "sha256": "156340a28e1c1ab637f13b563286ca50cd6b6340989a282a78af8e1b4b4a3235"
   }
 }

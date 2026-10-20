@@ -1,0 +1,43 @@
+{
+  "city": "oklahoma-city-ok",
+  "checked": "2026-10-20",
+  "facts": [
+    {
+      "id": "county",
+      "label": "County",
+      "value": "Oklahoma County",
+      "note": "Oklahoma · FIPS 40109",
+      "source": "https://www2.census.gov/geo/tiger/GENZ2025/shp/cb_2025_us_county_500k.zip",
+      "by": "US Census Bureau, cartographic boundary file 2025 (GEOID 40109)",
+      "checked": "2026-10-20"
+    },
+    {
+      "id": "county-population",
+      "label": "Oklahoma County population",
+      "value": 822125,
+      "note": "estimate for July 1, 2025",
+      "source": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/counties/totals/co-est2025-alldata.csv",
+      "by": "US Census Bureau, Vintage 2025 population estimates",
+      "checked": "2026-10-20"
+    },
+    {
+      "id": "city-population",
+      "label": "Oklahoma City city population",
+      "value": 719849,
+      "note": "estimate for July 1, 2025",
+      "source": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025_40.csv",
+      "by": "US Census Bureau, Vintage 2025 population estimates",
+      "checked": "2026-10-20"
+    },
+    {
+      "id": "land-area",
+      "label": "Land area",
+      "value": 708.9,
+      "unit": "sq mi",
+      "note": "plus 9.5 sq mi of water",
+      "source": "https://www2.census.gov/geo/tiger/GENZ2025/shp/cb_2025_us_county_500k.zip",
+      "by": "US Census Bureau, cartographic boundary file 2025 (ALAND, AWATER)",
+      "checked": "2026-10-20"
+    }
+  ]
+}

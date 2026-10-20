@@ -114,6 +114,16 @@ export function compass(a: { lat: number; lon: number }, b: { lat: number; lon: 
 export const CITY_FILES = {
   "jacksonville-fl": { map: "jax-map", facts: "jax-facts" }, "miami-fl": { map: "mia-map", facts: "mia-facts" },
   "tampa-fl": { map: "tpa-map", facts: "tpa-facts" }, "orlando-fl": { map: "orl-map", facts: "orl-facts" },
+  "atlanta-ga": { map: "atl-map", facts: "atl-facts" },
+  "charleston-sc": { map: "chs-map", facts: "chs-facts" },
+  "charlotte-nc": { map: "clt-map", facts: "clt-facts" },
+  "nashville-tn": { map: "bna-map", facts: "bna-facts" },
+  "memphis-tn": { map: "mem-map", facts: "mem-facts" },
+  "birmingham-al": { map: "bhm-map", facts: "bhm-facts" },
+  "louisville-ky": { map: "sdf-map", facts: "sdf-facts" },
+  "dallas-tx": { map: "dal-map", facts: "dal-facts" },
+  "houston-tx": { map: "hou-map", facts: "hou-facts" },
+  "oklahoma-city-ok": { map: "okc-map", facts: "okc-facts" },
 } as const;
 export const hasCityFiles = (id: string): id is keyof typeof CITY_FILES => id in CITY_FILES;
 
