@@ -1,7 +1,7 @@
 // Chapter 04's "Pages" view: an intro whose lifted page cycles through the six editions, three ways a page is built, and
 // the inspector, which shows one edition either as one sheet or with its three layers lifted apart. Clicking a layer
 // row opens its explanation; its Shown/Hidden switch takes it off the page. Drawings: page-anatomy.ts; styles: page-anatomy.css.
-import { useEffect, useState, type CSSProperties, type ReactNode } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import { EDITIONS, TONES, flatPage, layerSvg, sheetSvg, type AnatomyEdition } from './page-anatomy';
 import './page-anatomy.css';
 
@@ -85,8 +85,8 @@ function Inspector({ editionId, choose }: { editionId: string; choose: (id: stri
   </section>;
 }
 
-export function PageAnatomy({ editionId, choose, switcher }: { editionId: string; choose: (id: string) => void; switcher: ReactNode }) {
-  return <div className="pa">
+export function PageAnatomy({ editionId, choose }: { editionId: string; choose: (id: string) => void }) {
+  return <section id="page-inspection" className="pa">
     <section className="pa-landing" aria-labelledby="pa-title">
       <div className="pa-landing-copy">
         <p className="pa-kicker">04 · Read the architecture</p>
@@ -100,7 +100,6 @@ export function PageAnatomy({ editionId, choose, switcher }: { editionId: string
           <p>Mistake one layer for another and the argument goes wrong. A Latin column is not a second ancient witness; a
             cross-reference is not a variant. Telling the layers apart is the first skill in reading any edition.</p></div>
         <a className="pa-go" href="#pa-inspect">Take a page apart <i aria-hidden="true">↓</i></a>
-        <div className="pa-switch">{switcher}</div>
       </div>
       <figure className="pa-hero" aria-label="A printed page with its three layers lifted apart">
         <svg className="pa-orbits" viewBox="0 0 600 600" aria-hidden="true"><ellipse cx="300" cy="320" rx="270" ry="210"/>
@@ -124,5 +123,5 @@ export function PageAnatomy({ editionId, choose, switcher }: { editionId: string
         <strong>{title}</strong><small>{text}</small></li>)}</ol>
     </section>
     <Inspector editionId={editionId} choose={choose}/>
-  </div>;
+  </section>;
 }

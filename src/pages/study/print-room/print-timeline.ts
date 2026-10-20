@@ -5,8 +5,10 @@
 
 export interface Lane { id: string; label: string; tone: string }
 export interface Go {
-  /** The section to scroll to. */
+  /** The chapter the item belongs to. */
   anchor: string;
+  /** The exact place in that chapter to scroll to, when it is not the chapter's top. */
+  target?: string;
   /** usePrintState keys to set first: [key, value]. */
   state?: [string, unknown][];
   /** A printed edition to open in the architecture chapter (the ?edition= parameter). */
@@ -44,7 +46,9 @@ export const LANES: Lane[] = [
   { id: 'trans', label: 'Translations', tone: 'var(--gospels)' },
 ];
 
-const arch = (tab: string, more: [string, unknown][] = []): Go => ({ anchor: 'page-inspection', state: [['arch-tab', tab], ...more] });
+/** Chapter 04's three parts: the inspector, the polyglots and the family trees. */
+const ARCH_TARGETS: Record<string, string> = { pages: 'pa-inspect', polyglot: 'polyglots', trees: 'edition-network' };
+const arch = (part: string, state: [string, unknown][] = []): Go => ({ anchor: 'page-inspection', target: ARCH_TARGETS[part], state });
 const tree = (family: number, node: string): Go => arch('trees', [['family', family], family === 0 ? ['hebrew-edition', node] : ['network-node', node]]);
 const desk = (tab: string): Go => ({ anchor: 'critical-desk', state: [['desk-tab', tab]] });
 const translation = (i: number): Go => ({ anchor: 'translation-desk', state: [['translation', i]] });

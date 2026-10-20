@@ -1,5 +1,5 @@
-// Chapter 04: how a printed page is built. One chapter with three views on a switch: the pages themselves (PageAnatomy:
-// layers you lift apart and turn off and on), polyglots, and family trees of editions. The timeline can open any of them (usePrintState 'arch-tab').
+// Chapter 04: how a printed page is built. First the page anatomy (PageAnatomy: layers you lift apart and turn off and
+// on), then polyglots, then family trees of editions. The timeline links straight to each part.
 import { useId } from 'react';
 import dossier from '../../../../content/academic-research/05-from-manuscript-to-printed-bible.json';
 import { Cites, Pills, SectionHeading } from './PrintRoomShared';
@@ -10,8 +10,6 @@ import { usePrintState } from './usePrintState';
 
 const { editions, networks } = dossier;
 export type Edition = typeof editions[number];
-type ArchTab = 'pages' | 'polyglot' | 'trees';
-const TABS = [['pages', 'Pages'], ['polyglot', 'Polyglots'], ['trees', 'Family trees']] as const;
 
 function EditionNetwork() {
   const [family,setFamily] = usePrintState("family",0);
@@ -45,17 +43,19 @@ function Polyglots() {
   </>;
 }
 
-const INTRO: Record<Exclude<ArchTab, 'pages'>, string> = {
-  polyglot: 'Several languages in one scholarly instrument: comparison made visible, though not every column is an independent witness.',
-  trees: 'An edition can inherit a printed text, consult manuscripts, and belong to a revised series. Those are three different connections.',
-};
-
+/** Chapter 04: the page anatomy as designed, then its polyglots and family trees, which the timeline links to directly. */
 export function Architecture({ edition, choose }: { edition: Edition; choose: (id: string) => void }) {
-  const [tab,setTab] = usePrintState<ArchTab>('arch-tab','pages');
-  const switcher = <Pills label="Pages, polyglots or family trees" options={TABS} value={tab} onChange={setTab}/>;
-  if (tab === 'pages') return <section id="page-inspection" className="pr-inspection"><PageAnatomy editionId={edition.id} choose={choose} switcher={switcher}/></section>;
-  return <section id="page-inspection" className="pr-inspection">
-    <SectionHeading n="04" kicker="Read the architecture" title={<>A page is more than <em>its main text</em></>} text={INTRO[tab]} aside={switcher}/>
-    {tab === 'polyglot' ? <Polyglots/> : <EditionNetwork/>}
-  </section>;
+  return <>
+    <PageAnatomy editionId={edition.id} choose={choose}/>
+    <section id="polyglots" className="pr-inspection">
+      <SectionHeading n="04" kicker="Read the architecture · Polyglots" title={<>Languages <em>alongside languages</em></>}
+        text="Several languages in one scholarly instrument: comparison made visible, though not every column is an independent witness."/>
+      <Polyglots/>
+    </section>
+    <section className="pr-inspection">
+      <SectionHeading n="04" kicker="Read the architecture · Family trees" title={<>Family trees <em>of editions</em></>}
+        text="An edition can inherit a printed text, consult manuscripts, and belong to a revised series. Those are three different connections."/>
+      <EditionNetwork/>
+    </section>
+  </>;
 }

@@ -12,7 +12,6 @@ import { Architecture } from './Architecture';
 import { ChapterRow, Opening } from './Opening';
 import { PrintTimeline } from './PrintTimeline';
 import { TranslationDesk } from './TranslationDesk';
-import { setPrintState } from './usePrintState';
 import './print-room.css';
 import './proof-sheet.css';
 import './overhaul.css';
@@ -34,10 +33,9 @@ export default function PrintRoomPage() {
   const edition = editions.find(e=>e.id===params.get('edition')) ?? editions[0];
   useEffect(()=>{const previous=document.title;document.title='From manuscript to printed Bible · Bible Project';return()=>{document.title=previous;};},[]);
   const choose=(id:string)=>{const next=new URLSearchParams(params);next.set('edition',id);setParams(next,{replace:true,preventScrollReset:true});};
-  const openEdition=(id:string)=>{setPrintState('arch-tab','pages');choose(id);};
   return <div className="pr-study study-frame">
     <Opening/>
-    <PrintTimeline onEdition={openEdition}/>
+    <PrintTimeline onEdition={choose}/>
     <ChapterRow/>
     <ProofSheet/>
     <ErasmusEvidence/>

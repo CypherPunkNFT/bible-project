@@ -54,9 +54,9 @@ export function PrintTimeline({ onEdition }: { onEdition: (id: string) => void }
     if (item.go.edition) onEdition(item.go.edition);
     setChosen(item.id);
     const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    // Two frames: the chosen tab renders before the page scrolls to it.
+    // Two frames: the chosen tab or edition renders before the page scrolls to it.
     requestAnimationFrame(() => requestAnimationFrame(() =>
-      document.getElementById(item.go.anchor)?.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' })));
+      document.getElementById(item.go.target ?? item.go.anchor)?.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' })));
   };
 
   return <section className="pr-timeline" aria-labelledby="pr-timeline-title">
