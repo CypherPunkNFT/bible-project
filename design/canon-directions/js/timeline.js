@@ -30,7 +30,7 @@
     }
   }
 
-  function mount(section, { num }) {
+  function mount(section, { num, d }) {
     section.innerHTML = `${head(num, "Enter the timeline", "Put each witness back in <em>its own time</em>", "Explore eighteen records. Dates refer to the text, object or decision described; later copies and compilations are identified where relevant.")}
       <div class="tl-scroll"><div class="tl">
         <div class="tl-axis"><span></span><div class="tl-ticks">${TICKS.map((y) => `<i style="left:${(at(y) * 100).toFixed(2)}%">${tickText(y)}</i>`).join("")}<b class="tl-break" style="left:84%;width:4%" title="650–1500 left out: no record falls here">≈</b></div></div>
@@ -42,7 +42,7 @@
       </div></div>
       <p class="tl-key"><span><i class="tl-k tl-firm"></i>A year or short span</span><span><i class="tl-k tl-century"></i>A century or broad period</span><span><i class="tl-k tl-debated"></i>Date debated</span><span class="tl-key-note">Nothing is pinned more precisely than its record. The lanes are this page's grouping; each record's own kind is shown when it is opened.</span></p>
       <p class="ms-say" aria-live="polite">Point at a record to read it here; click to open it.</p>
-      ${CNX.bridge()}`;
+      ${d === "d" ? "" : CNX.bridge()}`;
     const plot = section.querySelector(".tl");
     const say = section.querySelector(".ms-say"), base = say.innerHTML;
     const show = (item) => {

@@ -22,8 +22,8 @@
     return `<g class="mp-mark mp-${p.kind}" data-open="${r.id}" data-era="${r.era}" style="--tone:${tone(r.id)}" tabindex="0" role="button" aria-label="${esc(`${name(r.id)}, ${r.date}, ${p.label}`)}">
       ${shape}<text x="${x + dx}" y="${y + dy}" text-anchor="${anchor}">${esc(name(r.id))}${p.kind === "disputed" ? "?" : ""}</text></g>`;
   }
-  function mount(section, { num }) {
-    section.innerHTML = `${head(num, "Where the lists were made", "Put each witness back in <em>its own place and time</em>", "Eighteen records, each placed only as precisely as it names its own place. Choose a period, or open any record.")}
+  function mount(section, { num, d }) {
+    section.innerHTML = `${head(num, "Where the lists were made", d === "d" ? "Now put each witness back in <em>its own place</em>" : "Put each witness back in <em>its own place and time</em>", "Eighteen records, each placed only as precisely as it names its own place. Choose a period, or open any record.")}
       <div class="ct-sort mp-eras" role="radiogroup" aria-label="Periods"><button type="button" role="radio" data-era="all">All periods</button>${D.eras.map((era, i) => `<button type="button" role="radio" data-era="${i}" title="${esc(ERA_SPANS[i])}">${esc(era)}</button>`).join("")}</div>
       <div class="mp">
         <figure class="mp-map"><svg viewBox="0 0 ${bw} ${bh}" role="group" aria-label="Map of where the records were made">

@@ -16,12 +16,12 @@
     fig("Writings traced", D.comparisonRows.length, "rows in the comparison"),
     fig("Sources", D.sources.length, "each one linked where it is used"),
   ];
-  const intro = (accent) => `<div>
+  const intro = (accent, start = ["#registers", "Compare the evidence"]) => `<div>
       <p class="hc-crumb"><a href="/study/academic?area=texts">Study</a><span>/</span><a href="/study/academic?area=texts">The Bible: formation &amp; transmission</a><span>/</span>How the canon took shape</p>
       <h1>How the canon took shape<em>${accent}</em></h1>
       <p class="cn-lead">The writing stays the same. The claim changes.</p>
       <p class="hc-lede">Before there was a table of contents, there were communities of readers. Follow how writings were gathered, used and recognized as Scripture. Each list belongs to a place, a time and a conversation.</p>
-      <a href="#registers" class="cn-start">Compare the evidence <span aria-hidden="true">↓</span></a>
+      <a href="${start[0]}" class="cn-start">${start[1]} <span aria-hidden="true">↓</span></a>
     </div>`;
 
   // Rows of writing as short ragged strokes.
@@ -82,7 +82,21 @@
       <figcaption>Surviving witnesses, from a papyrus book of Paul's letters to the great Greek and Hebrew codices, pictured from Wikimedia Commons (public domain). Open any for its credit.</figcaption></figure>`;
   }
 
+  // D: before anything else, say what the word means and which Bibles it names, with each tradition's own count.
+  const COUNTS = [
+    ["Jewish · Tanakh", "24", "Torah, Prophets and Writings"],
+    ["Protestant · Westminster", "66", "39 Old Testament + 27 New"],
+    ["Roman Catholic", "73", "46 Old Testament + 27 New"],
+    ["Eastern Orthodox", "More", "adds Tobit, Judith, Wisdom, Sirach, Maccabees and others"],
+    ["Ethiopian Orthodox", "81", "46 Old Testament + 35 New"],
+  ];
+  const canon = () => `<div class="cn-canon"><div><p class="kicker">First, what “canon” means</p>
+      <p>The word comes from the Greek <i>kanōn</i>, a measuring rod or rule. Said of Scripture, a canon is <strong>the list of books a community receives as its Bible</strong>. There is more than one such list, and they still differ today.</p>
+      <p class="cn-caption">The 24 and the 39 are the same Hebrew books, counted and grouped differently. This page follows how the lists took shape, and how far each piece of evidence can take you.</p></div>
+      <dl class="cn-counts">${COUNTS.map(([who, n, what]) => `<div><dt>${who}</dt><dd>${n}</dd><small>${what}</small></div>`).join("")}</dl></div>`;
+
   function mount(section, { d }) {
+    if (d === "d") section.innerHTML = `<div class="hc-intro ms-intro">${intro("Gathered, read, listed", ["#shelf", "Begin with the surviving books"])}${gathering()}</div>${canon()}<dl class="ms-figures">${figures().join("")}</dl>`;
     if (d === "a") section.innerHTML = `<div class="hc-intro ms-intro">${intro("Gathered, read, listed")}${gathering()}</div><dl class="ms-figures">${figures().join("")}</dl>`;
     if (d === "b") section.innerHTML = `<div class="hc-intro cn-intro-b">${intro("The surviving witnesses")}${table()}</div><dl class="ms-figures">${figures().join("")}</dl>`;
     if (d === "c") section.innerHTML = `<div class="hc-intro cn-intro-c">${intro("Where the lists were made")}</div>${strip()}<dl class="ms-figures">${figures().join("")}</dl>`;

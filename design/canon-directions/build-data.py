@@ -3,7 +3,7 @@
 Reads the study's own research file (content/academic-research/04-how-the-canon-took-shape.json, unchanged) and the
 manuscripts collection (data/manuscripts/collection.json) for the openly licensed codex pictures and the land outlines.
 Adds only what the page needs to draw: each record's span on a time line and its place on a map, both stated as loosely
-as the record itself states them, plus the three reasoning questions and trail notes that the live page keeps in code.
+as the record itself states them, plus the ten reasoning questions and trail notes that the live page keeps in code.
 
 Run: python design/canon-directions/build-data.py   (from the Website folder)
 """
@@ -81,6 +81,27 @@ QUESTIONS = [
     {"prompt": "Athanasius recommends a book for instruction. Does that place it in his canon?",
      "answers": ["No: his letter explicitly distinguishes the two categories.", "Yes: recommendation always means canonical.", "Only if it appears in a later printed Bible."],
      "correct": 0, "why": "The source supplies its own distinction. Follow that distinction before applying the categories of another place or period.", "ids": ["athanasius"]},
+    {"prompt": "Jude quotes a prophecy that is found in 1 Enoch. What does that establish?",
+     "answers": ["Jude's readers had the whole of 1 Enoch in their Bible.", "Every church received 1 Enoch as Scripture.", "Jude treats this one saying as authoritative in his argument."],
+     "correct": 2, "why": "A quotation shows how one writer used one passage. It does not identify a complete Enochic collection or its reception in every church.", "ids": ["jude"]},
+    {"prompt": "Justin describes Sunday readings from the memoirs of the apostles. Which conclusion is warranted?",
+     "answers": ["Gospels were read aloud in the worship he describes.", "His church already used our 27-book New Testament.", "Nothing but the Gospels was ever read in church."],
+     "correct": 0, "why": "Justin witnesses public reading in his own setting. His description is not a named list of books and cannot speak for every church.", "ids": ["justin"]},
+    {"prompt": "Irenaeus argues there must be four Gospels, like the four winds. What is this passage evidence of?",
+     "answers": ["A council vote that chose four Gospels.", "A fourfold Gospel he received and defended, with a theological reason.", "Agreement from the opponents he criticizes."],
+     "correct": 1, "why": "His symbolism is a rationale for the collection he already receives, not a record of a vote. His account of opponents is not their own testimony.", "ids": ["irenaeus"]},
+    {"prompt": "The Mishnah preserves a rabbinic dispute about Song of Songs and Ecclesiastes. What does it show?",
+     "answers": ["A council at Jamnia closed the Jewish canon.", "Song of Songs was rejected by the rabbis.", "Rabbis debated the sacred status of particular scrolls."],
+     "correct": 2, "why": "The passage transmits differing opinions within rules about sacred scrolls, and Akiva defends Song of Songs. It is not the record of one council choosing a whole canon.", "ids": ["mishnah", "lim-writings"]},
+    {"prompt": "The Syriac Peshitta New Testament has 22 books and no Revelation. What follows?",
+     "answers": ["A Greek or Latin list does not describe every Christian collection.", "Revelation's pages were lost from the Syriac copies.", "No Syriac church has ever read Revelation."],
+     "correct": 0, "why": "The five writings are absent from the version, not missing leaves. And the version is not the present canon of every Syriac church.", "ids": ["peshitta", "syriac-mss"]},
+    {"prompt": "In 419 the African Code lists the books to be read as divine Scripture. What did that decision do?",
+     "answers": ["It fixed the Bible for every church in the world.", "It regulated reading in North African churches and asked others to confirm it.", "It brought those books into being."],
+     "correct": 1, "why": "A church decision regulates received practice in its own jurisdiction. It does not create the texts or their first use.", "ids": ["carthage"]},
+    {"prompt": "Codex Alexandrinus copies 1 and 2 Clement after Revelation. What does that establish?",
+     "answers": ["The Clement letters had the same rank as Revelation.", "The Clement letters were forbidden to be read.", "This codex gathered them into one collection with Revelation."],
+     "correct": 2, "why": "The arrangement establishes a collection in this object. It does not, by itself, give every component equal canonical rank.", "ids": ["alexandrinus"]},
 ]
 TRAIL_NOTES = {
     "Hermas": "The same work can be copied, read and recommended without being placed in a writer's canon. These are different witnesses, not stages every community passed through.",
