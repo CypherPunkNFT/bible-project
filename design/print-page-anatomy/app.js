@@ -71,10 +71,21 @@ $('#pa-art').addEventListener('pointerover', event => {
 });
 $('#pa-art').addEventListener('pointerleave', () => { $('#pa-art').dataset.focus = ''; });
 
+// The copied header's theme switch: moon when dark, sun when light, as on the live site.
+const ICONS = {
+  dark: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+  light: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',
+};
+function showTheme(dark) {
+  $('#pa-theme').setAttribute('aria-checked', dark);
+  $('#pa-theme > span').innerHTML = `<svg class="lucide h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[dark ? 'dark' : 'light']}</svg>`;
+}
+showTheme(matchMedia('(prefers-color-scheme: dark)').matches);
 $('#pa-theme').addEventListener('click', () => {
   const root = document.documentElement;
-  root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-  $('#pa-theme').setAttribute('aria-checked', root.dataset.theme === 'dark');
+  const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme = dark ? 'light' : 'dark';
+  showTheme(!dark);
 });
 
 drawInspector();
