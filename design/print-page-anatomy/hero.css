@@ -15,7 +15,7 @@
 .pr-study .hx-art { position: relative; margin: 0; align-self: center; color: var(--muted); --pr-red: #c98472; --pr-blue: #8bb4b6; }
 [data-theme="light"] .pr-study .hx-art { --pr-red: #934839; --pr-blue: #39676d; }
 @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .pr-study .hx-art { --pr-red: #934839; --pr-blue: #39676d; } }
-.pr-study .hx-art svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentcolor; stroke-linecap: round; }
+.pr-study .hx-art svg { display: block; width: 90%; margin-inline: auto; height: auto; overflow: visible; fill: none; stroke: currentcolor; stroke-linecap: round; }
 .hx-mark { stroke-width: 1; opacity: .6; }
 .hx-ring { stroke-width: .8; opacity: .45; }
 .hx-tie { stroke-width: .7; stroke-dasharray: 3 4; opacity: .45; }
@@ -70,5 +70,5 @@
 /* Side by side, the drawing keeps its full size and is centred on the text column: it reaches as far above the text as below. */
 @media (min-width: 1000px) {
   .pr-study .hx-art { align-self: stretch; }
-  .pr-study .hx-art svg { position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
+  .pr-study .hx-art svg { position: absolute; left: 5%; top: 50%; transform: translateY(-50%); }
 }
