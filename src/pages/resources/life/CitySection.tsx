@@ -1,4 +1,4 @@
-// The city section of /resources/life (owner's layout, 2026-10-08; city picker added 2026-10-20): the city pills, the USA map on the left with the city marked, the
+// The city section of /resources/life (owner's layout, 2026-10-08; city picker added 2026-10-20): the USA map (every researched city is a dot that chooses it) on the left with the city marked, the
 // city's sourced facts to its right, a rule, then the city's own zoomable map with its places beside it (CityMap.tsx).
 // Facts and map are separate data files (<city>-facts.json, <city>-map.json), loaded only when this section is drawn.
 import { geoAlbersUsa } from "d3-geo";
@@ -10,19 +10,11 @@ import { CITY_FILES, hostOf, kindOf, kindsIn, listOf, plural, tone, wayOf } from
 import { attachZoom, placeMarks, type Zoom } from "./zoom";
 import { ZoomButtons } from "./ZoomButtons";
 
-/** One pill per researched city; the chosen one drives the USA map, the facts, the city map and the list below it. */
-function CityPicker({ cities, chosen, onPick }: { cities: City[]; chosen: string; onPick: (id: string) => void }) {
-  return <div className="lf-cities" role="group" aria-label="Choose a city">
-    {cities.map((c) => <button key={c.id} type="button" aria-pressed={c.id === chosen} onClick={() => onPick(c.id)}>{c.name.split(",")[0]}<b>{c.entries.length}</b></button>)}
-  </div>;
-}
-
 export function CitySection({ city, cities, onPick, leaving, checked }: { city: City & { id: keyof typeof CITY_FILES }; cities: City[]; onPick: (id: string) => void; leaving?: boolean; checked: string }) {
   const files = CITY_FILES[city.id];
   const states = useResource("us-states"), facts = useResource(files.facts), map = useResource(files.map);
   const kinds = useMemo(() => kindsIn(city), [city]);
   return <section className="lf-city" data-leaving={leaving || undefined} aria-labelledby="lf-city-name">
-    {cities.length > 1 && <CityPicker cities={cities} chosen={city.id} onPick={onPick} />}
     <div className="lf-city-top">
       {typeof states === "object" ? <UsaMap states={states} city={city} cities={cities} onPick={onPick} /> : <p className="lf-wait lf-wait-usa">{states === "loading" ? "Loading the map…" : "The map outline is missing."}</p>}
       <CityInfo city={city} facts={typeof facts === "object" ? facts : null} kinds={kinds} checked={city.checked ?? checked} />

@@ -163,12 +163,12 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
     {/* Pointing at a pin only lights it; the list scrolls when a pin is clicked (owner, 2026-10-08). The places in a panel as tall as the map: a header, then the list scrolling with the pill outside the edge. */}
     <div className="lf-places">
       <header className="lf-places-head">
-        <h3>Places in {city.name.split(",")[0]}</h3>
+        <h3>Help in {city.name.split(",")[0]}</h3>
         <p>{plural(city.entries.length, "place")} you can walk into{lines.length > 0 && ` · ${plural(lines.length, "phone line")} below`}</p>
       </header>
-      <OutsideScroll className="lf-places-scroll" viewportClassName="lf-city-list" label={`Places in ${city.name}`} resetKey={city.id}>
+      <OutsideScroll className="lf-places-scroll" viewportClassName="lf-city-list" label={`Help in ${city.name}`} resetKey={city.id}>
       <div ref={list}>
-      <ol aria-label={`Places in ${city.name}`}>{places.map(({ e, n }) => <LifeRow key={e.id} entry={e} kind={e.category} layout="stack" n={n} quick={1} address
+      <ol aria-label={`Help in ${city.name}`}>{places.map(({ e, n }) => <LifeRow key={e.id} entry={e} kind={e.category} layout="stack" n={n} quick={1} address
         sub={`${kindOf(e.category).short}  ·  ${where(e)}`} open={open.has(e.id)} onToggle={() => toggle(e.id, true)} lit={lit === e.id}
         hidden={!shown.has(e.category)} onPointerEnter={() => setLit(e.id)} onPointerLeave={() => setLit(null)} />)}</ol>
       {lines.length > 0 && <>

@@ -97,22 +97,22 @@ test("life: every national line keeps its call or text button on the closed row,
   await expect(page.locator(".lf-nat .lf-pane:not([hidden])")).toHaveCount(1);
 });
 
-test("life: only verified cities appear, one at a time, chosen from the pills", async ({ page }) => {
+test("life: only verified cities appear, one at a time, chosen from the dots on the USA map", async ({ page }) => {
   test.skip(!has("life"), "life.json not written yet");
   await page.goto("/resources/life");
-  const names = verifiedCities().map((c) => c.name.split(",")[0]);
-  const pills = page.locator(".lf-cities button");
-  if (names.length > 1) await expect(pills).toHaveCount(names.length);
-  if (names.length > 1) expect((await pills.allTextContents()).map((t) => t.replace(/\d+$/, ""))).toEqual(names);
-  await expect(pills.first()).toHaveAttribute("aria-pressed", "true");
+  const dots = page.locator(".lf-usa .lf-us-city");
+  await expect(dots).toHaveCount(verifiedCities().length);
+  await expect(page.locator(".lf-cities")).toHaveCount(0);
   for (const c of verifiedCities()) {
     const name = c.name.split(",")[0];
-    if (names.length > 1) await pills.filter({ hasText: name }).click();
+    // dispatched, not mouse-clicked: the page may be scrolled so the dot sits under the sticky header
+    await page.locator(`.lf-usa .lf-us-city[aria-label$="${c.name}"], .lf-usa .lf-us-city[aria-label^="${name}, chosen"]`).first().dispatchEvent("click");
     await expect(page.locator(".lf-city h2")).toHaveCount(1);
     await expect(page.locator(".lf-city h2")).toContainText(name);
+    await expect(page.locator(".lf-places-head h3")).toHaveText(`Help in ${name}`);
     await expect(page.locator(".lf-jax .lf-pin")).toHaveCount(c.entries.length);
   }
-  for (const c of life().cities.filter((x) => x.verified !== true)) await expect(pills.filter({ hasText: c.name.split(",")[0] })).toHaveCount(0);
+  for (const c of life().cities.filter((x) => x.verified !== true)) await expect(page.locator(".lf-usa .lf-us-city", { hasText: c.name.split(",")[0] })).toHaveCount(0);
 });
 
 test("life: the city map's pins and the list light each other", async ({ page }) => {
