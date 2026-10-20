@@ -2,7 +2,7 @@
 // italic accent and a short lede beside the opening drawing, then one end-to-end row of figures, as on the Hymns page.
 // Every figure is counted from the collection. Direction B has no century strip.
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
+import { StudyTrail } from "@/components/study/StudyTrail";
 import { HeroArt } from "./HeroArt";
 import { formatNumber, isDated, mid } from "./model";
 import { useMs } from "./context";
@@ -31,7 +31,7 @@ export function Landing() {
   return <>
     <div className="hc-intro ms-intro">
       <div>
-        <p className="hc-crumb"><Link to="/study">Study</Link><span>/</span><Link to="/study/academic?area=texts">The Bible: formation &amp; transmission</Link><span>/</span>Manuscripts</p>
+        <StudyTrail area="texts" /><p className="ms-eyebrow">Scrolls · Codices · Papyri</p>
         <h1>Manuscripts<em>across the centuries</em></h1>
         <p className="hc-lede">The Bible reaches us through copies made by hand: scrolls, bound books and scraps of papyrus. Follow every dated copy
           through time, choose a book to see the copies that hold it, find where they are kept today, then browse them all.</p>

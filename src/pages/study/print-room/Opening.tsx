@@ -27,6 +27,7 @@ export function Opening() {
     <div className="pr-intro">
       <div>
         <StudyTrail area="texts" n="05"/>
+        <p className="pr-eyebrow">Printed editions · Page layers · Printers and editors</p>
         <h1>From manuscript<em>to printed Bible</em></h1>
         <p className="pr-lede">The press made a page repeatable, but people still chose what went on it. Start with one surviving sheet of 1516,
           then follow the editors, printers and translators behind five centuries of printed Bibles.</p>

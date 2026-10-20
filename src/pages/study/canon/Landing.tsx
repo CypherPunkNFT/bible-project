@@ -2,7 +2,7 @@
 // paragraphs that say whose contents page this is and walk the reader through the page, the drawing of the gathering,
 // what "canon" means with each tradition's count, one row of figures counted from the research file, and the chapters.
 import type { CSSProperties } from "react";
-import { Link } from "react-router-dom";
+import { StudyTrail } from "@/components/study/StudyTrail";
 import { D } from "./model";
 
 // Rows of writing as short ragged strokes.
@@ -73,7 +73,7 @@ export function Landing() {
   return <>
     <div className="hc-intro ms-intro cn-intro-d">
       <div>
-        <p className="hc-crumb"><Link to="/study">Study</Link><span>/</span><Link to="/study/academic?area=texts">The Bible: formation &amp; transmission</Link><span>/</span>The canon takes shape</p>
+        <StudyTrail area="texts" /><p className="cn-eyebrow">Collections · communities · centuries</p>
         <h1>The canon takes shape<em>Gathered, read, listed</em></h1>
         <p className="cn-lead">The writing stays the same. The claim changes.</p>
         <p className="hc-lede">Before the Bible had a table of contents, there were communities of readers. Jews and Christians copied writings by hand, read them aloud in worship and quoted them in argument. Over centuries, some drew up lists of the books they held to be Scripture, and those lists did not all agree.</p>

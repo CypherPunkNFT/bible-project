@@ -13,3 +13,13 @@
    the title column sits at the top of its row instead of being centred against the art. */
 main :is(header, div, section):has(> div > .study-trail:first-child) { padding-top: 2rem; margin-top: 0; }
 main div:has(> .study-trail:first-child) { align-self: start; }
+
+/* The studies' standard heading (as on From manuscript to printed Bible): under the trail, a line of the page's words in small
+   gold capitals, then the title in the ink colour with its emphasised words in gold. One rule for every study, so no page
+   tints its own. The doubled class outranks the pages' own eyebrow and title rules. */
+.study-trail.study-trail ~ :is(p, span, div):has(+ h1) {
+  font-family: var(--font-sans); font-style: normal; font-size: .66rem; font-weight: 600; line-height: 1.6;
+  letter-spacing: .17em; text-transform: uppercase; color: var(--accent);
+}
+.study-trail.study-trail ~ h1 { color: var(--ink); }
+.study-trail.study-trail ~ h1 :is(em, i) { color: var(--accent); }
