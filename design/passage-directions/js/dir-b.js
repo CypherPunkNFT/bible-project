@@ -122,14 +122,15 @@ window.Directions = window.Directions || {};
       track.style.transform = `translateX(${-at * 100}%)`;
       sceneEls.forEach((el, j) => { el.setAttribute("aria-hidden", String(j !== at)); el.inert = j !== at; });
       sec.querySelectorAll("[data-scene]").forEach((b) => b.setAttribute("aria-pressed", String(Number(b.dataset.scene) === at)));
-      stage.style.height = `${sceneEls[at].scrollHeight}px`;
     };
     sec.addEventListener("click", (e) => {
       const b = e.target.closest("[data-scene]"); if (b) go(Number(b.dataset.scene));
       const s = e.target.closest("[data-step]"); if (s && sec.contains(s) && s.closest(".bc-arrows")) go(at + Number(s.dataset.step));
     });
-    new ResizeObserver(() => { stage.style.height = `${sceneEls[at].scrollHeight}px`; }).observe(sceneEls[0].parentElement);
-    sceneEls.forEach((el) => new ResizeObserver(() => { if (el === sceneEls[at]) stage.style.height = `${el.scrollHeight}px`; }).observe(el));
+    // The stage keeps the height of the tallest scene, so moving between scenes never changes the chapter's height.
+    const fit = () => { stage.style.height = `${Math.max(...sceneEls.map((el) => el.scrollHeight))}px`; };
+    new ResizeObserver(fit).observe(track);
+    sceneEls.forEach((el) => new ResizeObserver(fit).observe(el));
     go(0);
   }
   const deskScene = (id) => ({ title: "The readings", mount: (el) => Desk.mount(el, { caseId: id, menu: false }) });

@@ -49,11 +49,10 @@ body { overflow-x: clip; }
 .ct-sort button[aria-pressed="true"] { background: var(--ink); color: var(--page); }
 
 /* ── Reasoning: three statements on one thread ── */
-.pm-reason { position: relative; display: grid; gap: 1.1rem; padding-left: 1.4rem; }
-.pm-reason::before { content: ""; position: absolute; left: 4px; top: .4rem; bottom: .4rem; width: 1px; background: color-mix(in srgb, var(--tone) 45%, var(--line)); }
-.pm-reason-step { position: relative; }
-.pm-reason-step > i { position: absolute; left: calc(-1.4rem + 1px); top: .2rem; width: 7px; height: 7px; border-radius: 50%; background: var(--page); border: 1.5px solid var(--tone); }
-.pm-reason-step.is-limit > i { border-style: dashed; }
+.pm-reason { display: grid; gap: 1.4rem; }
+.pm-reason-step { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); gap: .9rem; align-items: start; }
+.pm-reason-icon { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; color: var(--tone); background: color-mix(in srgb, var(--tone) 10%, transparent); }
+.pm-reason-step h4 { margin: .2rem 0 0; font: 500 1.15rem/1.3 var(--serif); color: var(--ink); }
 .pm-reason-step p:not(.kicker) { margin-top: .3rem; font-size: .86rem; line-height: 1.7; color: var(--ink); }
 .pm-reason-step.is-limit p:not(.kicker) { color: var(--muted); }
 

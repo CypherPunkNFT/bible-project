@@ -49,13 +49,20 @@
     return `<dl class="ms-figures pm-figures">${(which === "short" ? items.slice(0, 5) : items).join("")}</dl>`;
   }
 
-  // Observation, judgment and limit as three statements on one thread (no boxes).
+  // Observation, judgment and limit as three statements, each with its own icon (no boxes, no connecting thread).
+  const REASON_ICONS = {
+    reveal: '<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M8 11h6M11 8v6"/>',
+    reason: '<path d="M12 3v18M5 21h14"/><path d="M3 7h18"/><path d="m6 7-3 7a3 3 0 0 0 6 0z"/><path d="m18 7-3 7a3 3 0 0 0 6 0z"/>',
+    certain: '<path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4-5"/><circle cx="12" cy="18" r="1"/>',
+  };
+  const reasonIcon = (key) => `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${REASON_ICONS[key]}</svg>`;
   function reasoning(id) {
     const a = REASONING[id];
+    const step = (key, title, body, extra = "", cls = "") => `<div class="pm-reason-step${cls}"><span class="pm-reason-icon">${reasonIcon(key)}</span><div><h4>${title}</h4><p>${esc(body)}</p>${extra}</div></div>`;
     return `<div class="pm-reason">
-      <div class="pm-reason-step"><i aria-hidden="true"></i><p class="kicker">What the comparison reveals</p><p>${esc(a.observation)}</p></div>
-      <div class="pm-reason-step"><i aria-hidden="true"></i><p class="kicker">How an editor reasons</p><p>${esc(a.judgment)}</p></div>
-      <div class="pm-reason-step is-limit"><i aria-hidden="true"></i><p class="kicker">How certain is this?</p><p>${esc(a.limit)}</p>${cite(a.links)}</div>
+      ${step("reveal", "What the comparison reveals", a.observation)}
+      ${step("reason", "How an editor reasons", a.judgment)}
+      ${step("certain", "How certain is this?", a.limit, cite(a.links), " is-limit")}
     </div>`;
   }
 
