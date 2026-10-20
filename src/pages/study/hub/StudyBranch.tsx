@@ -7,6 +7,9 @@ import { WRITERS } from "./writers";
 import { SubjectArt } from "./Artwork";
 import { Icon, StudyLink } from "./shared";
 import "./hub.css";
+import "./branch-sides.css";
+
+const SIDES: BranchId[] = ["theology", "academic"];
 function Heading({ text }: {
     text: string;
 }) { return <>{text.split(/(<br>|<em>.*?<\/em>)/).map((part, i) => <Fragment key={i}>{part === '<br>' ? <br /> : part.startsWith('<em>') ? <em>{part.slice(4, -5)}</em> : part}</Fragment>)}</>; }
@@ -22,7 +25,7 @@ export default function StudyBranch({ branch }: {
     useEffect(() => { if (!matchMedia('(prefers-reduced-motion: reduce)').matches)
         collection.current?.animate([{ opacity: .3, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 250, easing: 'ease-out' }); }, [a.id, branch]);
     return <div className="study-experience" data-branch={branch} style={{ '--branch-tone': `var(--${b.tone})` } as CSSProperties}><div className="branch" id="branch-root">
- <header className="branch-intro"><nav className="branch-nav" aria-label="Study navigation"><StudyLink to="/study">← Study hub</StudyLink><StudyLink className="other-branch" to={`/study/${b.other}`}>{STUDY_BRANCHES[b.other].label}<Icon name="arrowUp"/></StudyLink></nav><p className="eyebrow">{b.label} · {b.kicker}</p><h1><Heading text={b.heading}/></h1><p>{b.lead}</p></header>
+ <header className="branch-intro"><nav className="branch-nav" aria-label="Study navigation"><StudyLink to="/study">← Study hub</StudyLink><div className="branch-sides" role="group" aria-label="Study branches">{SIDES.map(id => <StudyLink key={id} to={`/study/${id}`} aria-current={id === branch ? "page" : undefined}>{STUDY_BRANCHES[id].label}</StudyLink>)}</div></nav><p className="eyebrow">{b.label} · {b.kicker}</p><h1><Heading text={b.heading}/></h1><p>{b.lead}</p></header>
  <section className="subject-landing" aria-label="Study subjects">{branch === 'academic' && <div className="subject-rule"><h2>Choose a subject</h2><span>Open a collection. Find your next study.</span></div>}<div className="subject-doors" role="group" aria-label="Study subjects">{b.areas.map((area, i) => <Link key={area.id} ref={el => { doors.current[i] = el; }} className={`subject-door ${area.id === a.id ? 'selected' : ''}`} id={`door-${area.id}`} to={`?area=${area.id}`} data-area={area.id} style={{ '--tone': `var(--${area.tone})` } as CSSProperties} aria-expanded={a.id === area.id} aria-controls="subject-collection" onClick={event => { if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0)
         return; event.preventDefault(); const next = new URLSearchParams(params); next.set('area', area.id); setParams(next); }} onPointerEnter={() => setHover(area.id)} onPointerLeave={() => setHover(null)} onFocus={() => setHover(area.id)} onBlur={() => setHover(null)} onKeyDown={event => { const next = event.key === 'ArrowRight' ? (i + 1) % b.areas.length : event.key === 'ArrowLeft' ? (i + b.areas.length - 1) % b.areas.length : event.key === 'Home' ? 0 : event.key === 'End' ? b.areas.length - 1 : null; if (next !== null) {
         event.preventDefault();
