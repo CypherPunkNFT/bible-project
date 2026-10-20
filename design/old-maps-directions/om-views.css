@@ -81,7 +81,8 @@
 .om-drawer-inner { position: relative; transition: transform .45s cubic-bezier(.16, 1, .3, 1), opacity .3s; }
 .om-drawer-inner.is-leaving { transform: translateX(var(--from)); opacity: 0; transition-duration: .22s; }
 .om-drawer-inner.is-entering { transform: translateX(calc(var(--from) * -1)); opacity: 0; transition: none; }
-.om-numeral { position: absolute; z-index: 0; top: -.4rem; right: -.5rem; font: 400 clamp(7rem, 17vw, 14rem)/1 var(--serif); letter-spacing: -.05em; color: color-mix(in srgb, var(--accent) 11%, transparent); pointer-events: none; white-space: nowrap; }
+.om-numeral { position: absolute; z-index: 0; top: -1.1rem; right: 0; font: 400 clamp(4.5rem, 9vw, 7.5rem)/1 var(--serif); letter-spacing: -.04em; color: color-mix(in srgb, var(--accent) 16%, transparent); pointer-events: none; white-space: nowrap; }
+@media (max-width: 760px) { .om-numeral { top: -1.5rem; font-size: 2.8rem; } }
 .om-drawer-head { position: relative; max-width: 46rem; margin-bottom: 1.4rem; }
 .om-drawer-head h3 { margin-top: .3rem; font: 500 clamp(1.5rem, 3vw, 2.2rem)/1.15 var(--serif); letter-spacing: -.03em; }
 .om-drawer-head p:last-child { margin-top: .5rem; font-size: .84rem; color: var(--muted); }
@@ -108,7 +109,9 @@
 .om-old-stage { position: relative; }
 .om-old-stage img { position: absolute; inset: .8rem; width: calc(100% - 1.6rem); height: calc(100% - 1.6rem); object-fit: contain; filter: drop-shadow(0 10px 14px rgb(0 0 0 / 25%)); opacity: 0; transform: translateX(14px); transition: opacity .45s, transform .6s cubic-bezier(.16, 1, .3, 1); }
 .om-old-stage img.is-in { opacity: 1; transform: none; }
-.om-old figcaption { display: grid; gap: .25rem; font-size: .8rem; line-height: 1.6; }
+.om-old figcaption { display: grid; font-size: .8rem; line-height: 1.6; }
+.om-cap { grid-area: 1 / 1; display: grid; align-content: start; gap: .25rem; visibility: hidden; }
+.om-cap.is-on { visibility: visible; }
 .om-old figcaption b { font: 500 1.8rem/1 var(--serif); color: var(--accent); }
 .om-old figcaption strong { font: 500 1.05rem/1.35 var(--serif); }
 .om-old figcaption small { color: var(--muted); font-size: .74rem; }

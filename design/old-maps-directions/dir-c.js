@@ -72,7 +72,7 @@
       <div class="om-years" role="tablist" aria-label="Eight maps by year"></div>
       <div class="om-compare">
         <figure class="om-old"><button type="button" class="om-old-stage" aria-label="Open this map full size"><img alt=""></button><figcaption></figcaption></figure>
-        <figure class="om-modern"><div class="om-modern-box"></div><figcaption><span class="om-modern-cap"></span><button type="button" class="om-turn" hidden></button></figcaption></figure>
+        <figure class="om-modern"><div class="om-modern-box"></div><figcaption><span class="om-modern-cap"></span><button type="button" class="om-turn"></button></figcaption></figure>
       </div>
       <div class="om-step"><button type="button" class="om-prev" aria-label="Earlier map">${icon("arrowLeft", 16)}</button><span class="om-step-n"></span><button type="button" class="om-next" aria-label="Later map">${icon("arrowRight", 16)}</button></div>`;
     const years = section.querySelector(".om-years");
@@ -81,7 +81,8 @@
     const turnBtn = section.querySelector(".om-turn");
     const box = section.querySelector(".om-modern-box");
     let land = LANDS[0], seq = [], index = 0, turned = false;
-    const note = () => NOTES[land.key]?.[seq[index].y] ?? { up: null, text: "" };
+    const noteFor = (j) => NOTES[land.key]?.[seq[j].y] ?? { up: null, text: "" };
+    const note = () => noteFor(index);
     const turnLabel = () => turned ? "Turn it back: north up" : `This sheet has ${note().up} at the top. Turn today's map to match`;
     // Where two place names meet (the city plan is crowded, and a turned map stacks names that sat side by side), the
     // later name in the list gives way, as does a name the turn carries past the frame's edge; the key place is kept
@@ -111,12 +112,13 @@
       img.src = m.full ?? m.th;
       img.alt = `${m.t}, ${m.y}`;
       section.querySelector(".om-old-stage").dataset.map = m.id;
-      cap.innerHTML = `<b>${m.y}</b><strong>${esc(m.t)}</strong><small>${esc(m.m ?? "Mapmaker not recorded")} · ${esc(m.lib)}</small><p>${esc(note().text)}</p><small class="om-credit">${esc(m.credit)} · ${esc(m.lic)}</small>`;
+      cap.querySelectorAll(".om-cap").forEach((c) => c.classList.toggle("is-on", Number(c.dataset.i) === index));
       turned = false;
       setTurn(0);
       const deg = TURN[note().up] ?? 0;
-      turnBtn.hidden = !deg;
-      turnBtn.textContent = deg ? turnLabel() : "";
+      // Hidden but still taking its line when the sheet is north up, so the arrows below do not move.
+      turnBtn.style.visibility = deg ? "" : "hidden";
+      turnBtn.textContent = deg ? turnLabel() : "North up";
       section.querySelector(".om-step-n").textContent = `${index + 1} of ${seq.length}`;
     }
     // A land: its year track (evenly spaced, so a lone early sheet does not squeeze the rest) and its ground today.
@@ -125,6 +127,9 @@
       seq = land.ids.map((id) => mapById.get(id)).filter(Boolean);
       section.querySelectorAll(".om-lands button").forEach((b) => b.setAttribute("aria-selected", String(Number(b.dataset.land) === i)));
       years.innerHTML = `<i class="om-years-line"></i>${seq.map((m, j) => `<button type="button" role="tab" data-i="${j}" style="left:${(j / (seq.length - 1) * 100).toFixed(2)}%"><i></i><b>${m.y}</b></button>`).join("")}`;
+      // Every caption of the land is laid in the same spot and only the current one shows, so the caption keeps the
+      // height of the longest and the arrows below stay put from year to year.
+      cap.innerHTML = seq.map((m, j) => `<div class="om-cap" data-i="${j}"><b>${m.y}</b><strong>${esc(m.t)}</strong><small>${esc(m.m ?? "Mapmaker not recorded")} · ${esc(m.lib)}</small><p>${esc(noteFor(j).text)}</p><small class="om-credit">${esc(m.credit)} · ${esc(m.lic)}</small></div>`).join("");
       box.innerHTML = OM.levantSVG({ outline: land.outline });
       section.querySelector(".om-modern-cap").textContent = land.outline.lines.length
         ? "The same ground today: the coast as the Atlas draws it (Natural Earth), places from OpenBible.info."
