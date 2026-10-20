@@ -42,4 +42,20 @@
 
   /* The transition ticker's closed button shrinks to an icon so it covers less of the page. */
   :root .transition-ticker-unfold { right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); padding: 8px; font-size: 0; gap: 0; }
+
+  /* Phone pass 2 (2026-10-20). Hymns: the "Begin with Amazing Grace" link reads as one sentence, not three flex columns. */
+  :root .hy-page .hc-begin { display: block; border-radius: 1.1rem; line-height: 1.5; }
+  :root .hy-page .hc-begin span { margin-left: .35rem; }
+  /* Hymns history: the timeline swipes inside its own box. It was too narrow to read, and the composers' dates pushed the page sideways. */
+  :root .hy-page .hh-time { overflow-x: auto; scrollbar-width: thin; padding-bottom: .4rem; }
+  :root .hy-page .hh-time::before, :root .pr-study .pr-tl-scroll::before { content: "Swipe along the timeline \2192"; position: sticky; left: 0; display: block; width: max-content; margin-bottom: .6rem; font-size: .72rem; color: var(--muted); }
+  :root .hy-page .hh-axis { width: 46rem; margin-right: 11rem; }
+  :root .hy-page .hh-read { position: sticky; left: 0; width: calc(100vw - 2rem); }
+
+  /* Labels under 9px, raised to 10px on phones. */
+  :root .listen-row-name small, :root .listen-screen-brand, :root .listen-screen-bottom > span,
+  :root .sw-study .sw-cent small, :root .sw-study .sw-witness-menu small, :root .sw-study .sw-count-grid a small, :root .sw-study figcaption > a,
+  :root .cc-book-copy .cc-small-label, :root .cc-time-detail .cc-small-label,
+  :root .lg-cite, :root .ap-citation-label, :root .ap-source-link span,
+  :root .ap .pcard-n, :root .pcard-foot small, :root .word.w-group small { font-size: .625rem; }
 }
