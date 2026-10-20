@@ -11,6 +11,7 @@ import { lettersPage } from "./study-letters";
 import { blocks, link, table } from "./study-lib";
 import { manuscriptsPages } from "./study-manuscripts";
 import { museumPages } from "./study-museums";
+import { passagePages } from "./study-passage";
 import { peoplePage } from "./study-people";
 import { wording } from "./study-source";
 import type { Extractor, PageContent } from "./types";
@@ -31,5 +32,5 @@ async function hub(): Promise<PageContent> {
 
 export const extract: Extractor = async () => {
   const [study, charts, gospels, guides, people, letters] = await Promise.all([hub(), chartPages(), gospelsPage(), guidePages(), peoplePage(), lettersPage()]);
-  return [study, gospels, parablesPage(), ...charts, people, ...guides, letters, ...museumPages(), ...manuscriptsPages()];
+  return [study, gospels, parablesPage(), ...charts, people, ...guides, letters, ...museumPages(), ...manuscriptsPages(), ...passagePages()];
 };

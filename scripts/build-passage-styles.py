@@ -1,0 +1,126 @@
+"""Generate the passage study's stylesheets from the approved mock-up's own CSS, so the live page looks exactly like it.
+
+  src/pages/study/passages/mockup-passage-base.css     from design/authors-directions/shared/frame.css (page pieces only),
+                                                       teachers/teachers.css, design/manuscripts-directions/css/ms.css and
+                                                       design/passage-directions/css/pm.css
+  src/pages/study/passages/mockup-passage-widgets.css  from design/passage-directions/css/widgets.css
+  src/pages/study/passages/mockup-passage-sections.css from design/passage-directions/css/{a,b,c,d}.css
+
+Approved mock-up: design/passage-directions/?d=d (direction D, the merger). Every rule is scoped under the page's root
+class (.pm-root), so nothing here reaches another page. The mock-up frame's site chrome (header, footer, palette, fonts)
+is left out: the site provides its own. The mock-ups' direction switch, the Manuscripts mock-up's century strip and the
+rules written only for directions A, B and C (.pm-a, .pm-b, .pm-c, which D's page never carries) are set aside. Hand-written
+additions live in passage-manuscripts.css, never here. Same method as scripts/build-manuscript-styles.py. Re-run after the
+mock-up's CSS changes:
+    py -3.12 scripts/build-passage-styles.py
+"""
+from __future__ import annotations
+
+import re
+import sys
+from pathlib import Path
+
+sys.stdout.reconfigure(encoding="utf-8")
+SITE = Path(__file__).resolve().parents[1]
+DESIGN = SITE / "design"
+OUT = SITE / "src/pages/study/passages"
+ROOT = ".pm-root"
+
+OS_RENAME = [(".os-area", ".outside-scroll-area"), (".os-frame", ".outside-scroll-frame"), (".os-viewport", ".outside-scroll-viewport"),
+             (".os-content", ".outside-scroll-content"), (".os-bar", ".outside-scrollbar"), (".os-extent", ".w-px")]
+CHROME = re.compile(r"^(html|:root(\[[^\]]*\])?$|main|\.site-header|\.strip|\.bar\b|\.logo|\.nav|\.search-btn|\.theme-switch|\.site-footer|\.foot-|\.chart-link|\.open-chart)")
+# The mock-ups' A/B/C/D switch, the Manuscripts mock-up's century strip, and the rules for directions A, B and C only.
+SET_ASIDE = re.compile(r"^(\.dir-switch|\.cs\b|\.cs-|\.pm-[abc]\b)")
+THEMED = re.compile(r"^(:root\[data-theme=\"(?:dark|light)\"\])\s+(.*)$")
+
+
+def strip_comments(css: str) -> str:
+    return re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+
+
+def blocks(css: str):
+    i = 0
+    while True:
+        start = css.find("{", i)
+        if start < 0:
+            return
+        depth, j = 1, start + 1
+        while depth:
+            depth += {"{": 1, "}": -1}.get(css[j], 0)
+            j += 1
+        yield css[i:start].strip(), css[start + 1:j - 1]
+        i = j
+
+
+def split_selectors(prelude: str) -> list[str]:
+    """Split on top-level commas only (":is(a, b)" stays whole)."""
+    parts, depth, cur = [], 0, ""
+    for ch in prelude:
+        depth += {"(": 1, ")": -1}.get(ch, 0)
+        if ch == "," and depth == 0:
+            parts.append(cur)
+            cur = ""
+        else:
+            cur += ch
+    return parts + [cur]
+
+
+def scope_selector(sel: str) -> str | None:
+    sel = sel.strip()
+    if not sel or CHROME.match(sel) or SET_ASIDE.match(sel):
+        return None
+    sel = re.sub(r",\s*\.dir-switch(?=[,)])", "", sel)  # the switch inside a :where() list
+    for old, new in OS_RENAME:
+        sel = sel.replace(old, new)
+    themed = THEMED.match(sel)
+    if themed:
+        return f"{themed.group(1)} {ROOT} {themed.group(2)}"
+    if sel == "body":
+        return ROOT
+    if sel.startswith("body "):
+        return f"{ROOT} {sel[5:]}"
+    return f"{ROOT} {sel}"
+
+
+def scope(css: str) -> str:
+    out = []
+    for prelude, body in blocks(css):
+        if prelude.startswith(("@media", "@supports", "@container")):
+            inner = scope(body)
+            if inner.strip():
+                out.append(f"{prelude} {{\n{inner}}}\n")
+        elif prelude.startswith("@font-face"):
+            continue
+        elif prelude.startswith("@"):
+            out.append(f"{prelude} {{{' '.join(body.split())}}}\n")
+        elif prelude == "body" and "100dvh" in body:
+            continue  # the frame's sticky-footer layout: page chrome, not the page
+        else:
+            sels = [s for s in (scope_selector(x) for x in split_selectors(prelude)) if s]
+            if sels:
+                out.append(f"{', '.join(sels)} {{ {' '.join(body.split())} }}\n")
+    return "".join(out)
+
+
+def main() -> None:
+    css = DESIGN / "passage-directions/css"
+    groups = {
+        "mockup-passage-base.css": [DESIGN / "authors-directions/shared/frame.css", DESIGN / "authors-directions/teachers/teachers.css",
+                                    DESIGN / "manuscripts-directions/css/ms.css", css / "pm.css"],
+        "mockup-passage-widgets.css": [css / "widgets.css"],
+        "mockup-passage-sections.css": [css / f"{name}.css" for name in ("a", "b", "c", "d")],
+    }
+    lead = "/* Generated by scripts/build-passage-styles.py from the approved mock-up's CSS. Do not edit; hand additions go in passage-manuscripts.css. */\n"
+    for name, files in groups.items():
+        target = OUT / name
+        text = lead + "".join(f"\n/* ── from {f.relative_to(SITE).as_posix()} ── */\n" + scope(strip_comments(f.read_text(encoding="utf-8"))) for f in files)
+        bad = [line for line in text.splitlines() if "dir-switch" in line or ".os-" in line or f"{ROOT} :root" in line
+               or re.search(r"\.pm-[abc]\b", line) or (line.startswith(".") and not line.startswith(ROOT))]
+        if bad:
+            raise ValueError(f"{name}: a set-aside, unrenamed or mis-scoped rule slipped through: {bad[:3]}")
+        target.write_text(text, encoding="utf-8", newline="\n")
+        print(f"{target.relative_to(SITE).as_posix()}: {text.count('{')} rules, {text.count(chr(10))} lines")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,77 +1,183 @@
-import { chromium } from '@playwright/test';
-import assert from 'node:assert/strict';
-import fs from 'node:fs';
-const out='.local/passage-qa';fs.mkdirSync(out,{recursive:true});
-const browser=await chromium.launch({channel:'msedge'});
-const errors=[];const report=[];
-async function check(page,name,fn){await fn();report.push(name);console.log('PASS',name);}
-async function noOverflow(page){assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),true,'no horizontal page overflow');}
-const url='http://127.0.0.1:8931/study/passage-through-manuscripts';
-try{
- const page=await browser.newPage({viewport:{width:1440,height:1000},colorScheme:'dark'});
- page.on('pageerror',e=>errors.push(e.message));
- await page.addInitScript(()=>{window.passageTransitions=[];if(document.startViewTransition){const original=document.startViewTransition.bind(document);document.startViewTransition=fn=>{const t=original(fn);const record={};window.passageTransitions.push(record);t.ready.then(()=>{record.animation=getComputedStyle(document.documentElement,'::view-transition-new(site-page)').animationName;record.header=getComputedStyle(document.documentElement,'::view-transition-new(site-header)').opacity;}).catch(()=>{});return t;};}});
- await page.goto(url);await page.locator('.pm-study h1').waitFor();await page.evaluate(()=>document.fonts.ready);
- await check(page,'Desktop renders, title and no overflow',async()=>{assert.match(await page.title(),/A passage through/);await noOverflow(page);});
- await page.screenshot({path:out+'/desktop.png',fullPage:true});
- await check(page,'Spelling / word order; two distinct edition readings',async()=>{
-  assert.match(await page.locator('.pm-table').innerText(),/ὑμεῖν/);
-  const button=page.getByRole('button',{name:'Word order',exact:true});await button.focus();await page.keyboard.press('Enter');
-  assert.equal(await button.getAttribute('aria-pressed'),'true');
-  assert.match(await page.locator('.pm-table').innerText(),/καὶ κυρίου ἡμῶν/);assert.match(await page.locator('.pm-table').innerText(),/ἡμῶν καὶ κυρίου/);
- });
- await check(page,'Keyboard opens and closes manuscript evidence',async()=>{
-  const b=page.getByRole('button',{name:/Papyrus 46/});await b.focus();await page.keyboard.press('Space');
-  assert.equal(await b.getAttribute('aria-expanded'),'true');assert.equal(await page.locator('#pm-evidence-p46').isVisible(),true);
-  await page.keyboard.press('Space');assert.equal(await page.locator('#pm-evidence-p46').isVisible(),false);
- });
- await check(page,'Keyboard focus remains visible with site outlines disabled',async()=>{
-  await page.getByRole('button',{name:'Word order',exact:true}).focus();
-  for(let i=0;i<4;i++){await page.keyboard.press('Tab');assert.equal(await page.evaluate(()=>{const a=document.activeElement;const e=a.tagName==='INPUT'?a.closest('label'):a;return a.matches(':focus-visible')&&getComputedStyle(e).boxShadow!=='none';}),true);}
- });
- await check(page,'Highlight toggle retains text',async()=>{const before=await page.locator('.pm-table').innerText();await page.getByLabel('Highlight the focus').uncheck();assert.equal(await page.locator('.pm-desk').evaluate(el=>el.classList.contains('pm-highlight')),false);assert.equal(await page.locator('.pm-table').innerText(),before);await page.getByLabel('Highlight the focus').check();});
- await check(page,'Real apparatus decodes all four parts with keyboard',async()=>{const tokens=await page.locator('.pm-apparatus-line button').all();for(const [i,b] of tokens.entries()){await b.focus();await page.keyboard.press('Enter');assert.equal(await b.getAttribute('aria-pressed'),'true');assert.ok((await page.locator('#pm-apparatus-note').innerText()).length>90);if(i===2)assert.match(await page.locator('#pm-apparatus-note').innerText(),/not damaged parchment/);}await page.locator('.pm-apparatus').screenshot({path:out+'/apparatus.png'});});
- await check(page,'Romans changes hands without adding manuscript rows',async()=>{
-  await page.getByRole('button',{name:/Romans 5:1 A changed vowel/}).click();
-  assert.equal(await page.locator('.pm-gloss').filter({hasText:'Let us have peace.'}).count(),2);
-  await page.getByRole('button',{name:'Corrected',exact:true}).click();
-  assert.equal(await page.locator('.pm-gloss').filter({hasText:'We have peace.'}).count(),3);
-  assert.equal(await page.locator('.pm-evidence-toggle').count(),3);
-  await page.locator('.pm-reasoning summary').focus();await page.keyboard.press('Enter');assert.match(await page.locator('.pm-reasoning').innerText(),/UBS4/);
- });
- await check(page,'Romans criteria expose different arguments without invented scores',async()=>{for(const b of await page.locator('.pm-lens-controls button').all()){await b.click();assert.equal(await b.getAttribute('aria-pressed'),'true');assert.ok((await page.locator('.pm-argument-conclusion').innerText()).length>90);}await page.locator('.pm-argument').screenshot({path:out+'/romans-argument.png'});});
- await check(page,'Mark distinguishes surviving ending, present ending, loss and edition',async()=>{
-  await page.getByRole('button',{name:/Mark 16:8/}).click();
-  assert.equal(await page.locator('.pm-evidence-toggle').count(),5);assert.match(await page.locator('.pm-lost-row').innerText(),/not extant/);
-  for(const b of await page.locator('.pm-evidence-toggle').all()){await b.click();assert.equal(await b.getAttribute('aria-expanded'),'true');}
-  await page.locator('.pm-reasoning summary').click();assert.match(await page.locator('.pm-reasoning').innerText(),/Irenaeus/);
-  await page.locator('.pm-desk').screenshot({path:out+'/mark-desk.png'});
- });
- await check(page,'Mark endings change narrative and distinguish the Shorter Ending',async()=>{for(const b of await page.locator('.pm-ending-controls button').all()){await b.focus();await page.keyboard.press('Space');assert.equal(await b.getAttribute('aria-pressed'),'true');}assert.match(await page.locator('.pm-join-comment').innerText(),/reintroduces Mary/);await page.getByRole('button',{name:'Shorter Ending',exact:true}).click();assert.match(await page.locator('.pm-join-comment').innerText(),/not the same thing/);await page.locator('.pm-deeper summary').click();assert.match(await page.locator('.pm-ancient-voices').innerText(),/punctuate/);await page.locator('.pm-mark-join').screenshot({path:out+'/mark-join.png'});});
- await check(page,'Deep link and reload preserve passage selection',async()=>{assert.match(page.url(),/passage=mark/);await page.reload();await page.locator('.pm-study h1').waitFor();assert.equal(await page.getByRole('button',{name:/Mark 16:8/}).getAttribute('aria-pressed'),'true');});
- await check(page,'Restoration remains visibly supplied',async()=>{await page.getByLabel('Show supplied letters').check();assert.equal(await page.locator('.pm-supplied').innerText(),'[ημα]');assert.match(await page.locator('.pm-restoration [role=status]').innerText(),/supplied, not surviving ink/);});
- await check(page,'GA304 changes classification after context is revealed',async()=>{const b=page.getByRole('button',{name:'Reveal the surrounding evidence'});await b.focus();await page.keyboard.press('Enter');assert.equal(await page.locator('.pm-document-context').getAttribute('aria-hidden'),'false');assert.match(await page.locator('#pm-context-finding').innerText(),/unfinished copying/);await page.waitForFunction(()=>getComputedStyle(document.querySelector('.pm-document-context')).opacity==='1');await page.locator('.pm-investigation').screenshot({path:out+'/ga304.png'});});
- await check(page,'Copying paths reveal dependence and uncertainty',async()=>{await page.locator('.pm-dependence>summary').click();await page.getByRole('button',{name:'Trace the copying paths'}).click();assert.equal(await page.locator('.pm-paths').evaluate(el=>el.classList.contains('visible')),true);assert.match(await page.locator('.pm-model-result').innerText(),/unknown/);});
- await check(page,'All assessment states provide feedback',async()=>{for(const [i,b] of (await page.locator('.pm-answer-options button').all()).entries()){await b.click();assert.match(await page.locator('.pm-answer').innerText(),i===2?/Yes\./:/Look again/);}});
- await check(page,'Source register opens from keyboard',async()=>{await page.locator('.pm-source-register summary').focus();await page.keyboard.press('Space');assert.equal(await page.locator('.pm-source-content').isVisible(),true);assert.ok(await page.locator('.pm-source-content a').count()>15);});
- await check(page,'Source destinations and study anchors are valid',async()=>{const links=await page.locator('.pm-study a').evaluateAll(nodes=>nodes.map(a=>({href:a.getAttribute('href'),target:a.target,rel:a.rel})));for(const a of links){assert.ok(a.href);if(a.href.startsWith('#'))assert.equal(await page.locator(a.href).count(),1);else if(a.href.startsWith('https:')){assert.equal(new URL(a.href).protocol,'https:');assert.equal(a.target,'_blank');assert.ok(a.rel.includes('noopener'));}}});
- await check(page,'Fixed site header survives scrolling',async()=>{assert.equal(await page.locator('[data-site-header]').evaluate(el=>Math.round(el.getBoundingClientRect().top)),0);});
- await check(page,'Academic category navigation uses standard transition',async()=>{
-  await page.locator('.pm-end a').click();await page.waitForURL('**/study/academic?area=texts');await page.waitForFunction(()=>!document.documentElement.dataset.sitePageSlide);
-  const link=page.locator('a[href="/study/passage-through-manuscripts"]').first();await link.click();await page.waitForURL('**/study/passage-through-manuscripts');await page.waitForFunction(()=>!document.documentElement.dataset.sitePageSlide);
-  const audit=await page.evaluate(()=>window.passageTransitions);assert.ok(audit.some(x=>x.animation==='site-page-rise-in'));assert.ok(audit.some(x=>x.header==='1'));await page.locator('.pm-study h1').waitFor();
- });
- await check(page,'Same-page passage changes do not trigger route transitions',async()=>{const n=await page.evaluate(()=>window.passageTransitions.length);await page.getByRole('button',{name:/Romans 5:1 A changed vowel/}).click();assert.equal(await page.evaluate(()=>window.passageTransitions.length),n);});
- await page.emulateMedia({colorScheme:'light'});await page.getByRole('switch',{name:'Dark mode'}).click();await page.waitForFunction(()=>document.documentElement.dataset.theme==='light');await page.screenshot({path:out+'/light.png',fullPage:true});
- for(const width of [390,320,768]){
-  const mobile=await browser.newPage({viewport:{width,height:844},isMobile:width<500,hasTouch:width<500,reducedMotion:'reduce',colorScheme:'light'});mobile.on('pageerror',e=>errors.push(e.message));
-  await mobile.goto(url);await mobile.locator('.pm-study h1').waitFor();await mobile.evaluate(()=>document.fonts.ready);
-  await check(mobile,`${width}px layout and all passage states`,async()=>{await noOverflow(mobile);for(const name of [/Galatians 1:3/,/Romans 5:1/,/Mark 16:8/]){await mobile.getByRole('button',{name}).click();await noOverflow(mobile);await mobile.locator('.pm-evidence-toggle').first().click();await noOverflow(mobile);}await mobile.getByLabel('Show supplied letters').check();await noOverflow(mobile);});
-  await check(mobile,`${width}px new close readings and long labels`,async()=>{for(const b of await mobile.locator('.pm-ending-controls button').all()){await b.click();await noOverflow(mobile);}await mobile.locator('.pm-deeper summary').click();await noOverflow(mobile);await mobile.getByRole('button',{name:'Reveal the surrounding evidence'}).click();await noOverflow(mobile);await mobile.locator('.pm-investigation').screenshot({path:`${out}/ga304-${width}.png`});await mobile.getByRole('button',{name:/Galatians 1:3/}).click();for(const b of await mobile.locator('.pm-apparatus-line button').all()){await b.click();await noOverflow(mobile);}await mobile.locator('.pm-apparatus').screenshot({path:`${out}/apparatus-${width}.png`});});
-  await check(mobile,`${width}px reduced-motion controls`,async()=>{assert.equal(await mobile.locator('.pm-document-context').evaluate(el=>getComputedStyle(el).transitionDuration),'0s');await mobile.locator('.pm-dependence>summary').click();await mobile.getByRole('button',{name:'Trace the copying paths'}).click();assert.match(await mobile.locator('.pm-model-result').innerText(),/unknown/);});
-  await mobile.screenshot({path:`${out}/mobile-${width}.png`,fullPage:true});await mobile.close();
- }
- await check(page,'Reduced motion bypasses page transition',async()=>{await page.emulateMedia({reducedMotion:'reduce'});const n=await page.evaluate(()=>window.passageTransitions.length);await page.locator('.pm-breadcrumb a').click();await page.waitForURL('**/study/academic?area=texts');assert.equal(await page.evaluate(()=>window.passageTransitions.length),n);});
- assert.deepEqual(errors,[]);report.push('No browser page errors');
- fs.writeFileSync(out+'/report.json',JSON.stringify({date:new Date().toISOString(),preview:url,checks:report,errors},null,2));
-}finally{await browser.close();}
+// Browser check for /study/passage-through-manuscripts (approved mock-up D). Run against the local preview of dist/:
+//   node scripts/check-passage-manuscripts.mjs [base-url]
+// At 1440 and 400 px, light and dark: no console or page errors, no sideways scroll, the standard study heading, every
+// section drawn, and every interaction clicked through (scenes, desk toggles and witnesses, apparatus, lenses, endings,
+// the four kinds, the switch with its hover preview, "Reading the marks", GA 304, the quiz, the editions, the CBGM
+// diagram, the cabinet's record sheet and the side dots). Screenshots go to .local/passage-qa/.
+import { chromium } from "@playwright/test";
+import assert from "node:assert/strict";
+import fs from "node:fs";
+
+const base = process.argv[2] ?? "http://127.0.0.1:8931";
+const url = `${base}/study/passage-through-manuscripts`;
+const out = ".local/passage-qa";
+fs.mkdirSync(out, { recursive: true });
+const SECTIONS = ["a-landing", "b-prologue", "b-gal", "b-rom", "b-mark", "d-gaps", "a-editions", "a-cabinet", "a-close"];
+const browser = await chromium.launch({ channel: "msedge" });
+let failures = 0;
+
+async function run(width, theme) {
+  const tag = `${width}-${theme}`, errors = [];
+  const page = await browser.newPage({ viewport: { width, height: width > 600 ? 1000 : 860 }, colorScheme: theme });
+  await page.addInitScript((t) => { try { localStorage.setItem("bp-theme", t); } catch { /* the check falls back to the emulated scheme */ } }, theme);
+  page.on("pageerror", (e) => errors.push(`pageerror: ${e.message}`));
+  page.on("console", (m) => { if (m.type() === "error") errors.push(`console: ${m.text()}`); });
+  const step = async (name, fn) => {
+    try { await fn(); console.log(`PASS ${tag} ${name}`); } catch (error) { failures++; console.log(`FAIL ${tag} ${name}: ${error.message}`); }
+  };
+  const noSideways = async (where) => assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `sideways scroll ${where}`);
+
+  await page.goto(url);
+  await page.locator(".pm-root h1").waitFor();
+  await page.evaluate(() => document.fonts.ready);
+  await page.waitForTimeout(600);
+
+  await step("heading: trail, page words, title", async () => {
+    const heading = await page.evaluate(() => {
+      const trail = document.querySelector(".pm-intro .study-trail"), words = trail?.nextElementSibling, h1 = words?.nextElementSibling;
+      return { trail: trail?.textContent, words: words?.textContent, h1: h1?.tagName, wordsColor: words && getComputedStyle(words).textTransform };
+    });
+    assert.match(heading.trail ?? "", /Academic studies.*formation & transmission.*02/);
+    assert.match(heading.words ?? "", /Variant readings/);
+    assert.equal(heading.h1, "H1");
+    assert.equal(heading.wordsColor, "uppercase");
+  });
+  await step("every section drawn, none failed", async () => {
+    for (const id of SECTIONS) assert.equal(await page.locator(`#${id}`).count(), 1, `#${id}`);
+    assert.equal(await page.locator(".t-failed").count(), 0, "a section says it could not be drawn");
+  });
+  await step("no sideways scroll at load", () => noSideways("at load"));
+  await page.screenshot({ path: `${out}/${tag}-full.png`, fullPage: true });
+
+  await step("chapter I: desk toggle, witness evidence, threads clear of text", async () => {
+    const gal = page.locator("#b-gal");
+    await gal.scrollIntoViewIfNeeded();
+    assert.ok(await gal.locator(".dk-thread").count() >= 3, "threads drawn");
+    await gal.getByRole("button", { name: "Word order", exact: true }).click();
+    assert.match(await gal.locator(".dk-wits").innerText(), /ἡμῶν καὶ κυρίου/);
+    await gal.locator('[data-row="p46"]').click();
+    assert.match(await gal.locator(".dk-below").innerText(), /Codex page 168/);
+    assert.ok(await gal.locator(".dk-thread.is-on").count() === 1, "chosen thread lit");
+    // Sample every thread and test each point against the rectangles of every line of lettering in the witness column.
+    const overlap = await gal.evaluate((sec) => {
+      const svg = sec.querySelector(".dk-threads"), box = svg.getBoundingClientRect();
+      const rects = [...sec.querySelectorAll(".dk-wits .dk-line, .dk-wits .dk-who, .dk-wits .dk-gloss, .dk-wits .dk-sig")].flatMap((n) => {
+        const range = document.createRange(); range.selectNodeContents(n); return [...range.getClientRects()].filter((r) => r.width > 0);
+      });
+      for (const path of sec.querySelectorAll(".dk-thread")) {
+        const length = path.getTotalLength();
+        for (let s = 0; s <= length; s += 3) {
+          const p = path.getPointAtLength(s), x = box.left + p.x, y = box.top + p.y;
+          const hit = rects.find((r) => x > r.left && x < r.right && y > r.top && y < r.bottom);
+          if (hit) return `thread ${path.dataset.rowThread} crosses text at ${Math.round(x)},${Math.round(y)}`;
+        }
+      }
+      return null;
+    });
+    assert.equal(overlap, null);
+  });
+  await step("chapter I: scenes slide, stage height constant, apparatus decodes", async () => {
+    const gal = page.locator("#b-gal");
+    await page.waitForTimeout(800); // the stage eases to a new height when the chosen witness adds its evidence
+    const h0 = await gal.locator(".bc-stage").evaluate((s) => s.offsetHeight);
+    await gal.locator('[data-scene="1"]').click();
+    await page.waitForTimeout(800);
+    await gal.locator('[data-part="2"]').click();
+    assert.match(await gal.locator(".cr-app-note").innerText(), /separator/i);
+    assert.equal(await gal.locator(".bc-stage").evaluate((s) => s.offsetHeight), h0, "stage height changed between scenes");
+    await gal.getByRole("button", { name: "Next scene" }).click();
+    await page.waitForTimeout(800);
+    assert.equal(await gal.locator('[data-scene="2"]').getAttribute("aria-pressed"), "true");
+    assert.equal(await gal.locator(".bc-scene[data-i='2'] .pm-reason-step").count(), 3);
+  });
+  await step("chapter II: hands toggle and three lenses", async () => {
+    const rom = page.locator("#b-rom");
+    await rom.scrollIntoViewIfNeeded();
+    await rom.getByRole("button", { name: "Corrected", exact: true }).click();
+    assert.match(await rom.locator(".dk-wits").innerText(), /א¹/);
+    await rom.locator('[data-scene="1"]').click();
+    await page.waitForTimeout(800);
+    await rom.getByRole("button", { name: "Paul’s argument" }).click();
+    assert.match(await rom.locator(".cr-take").innerText(), /Intrinsic probability/);
+  });
+  await step("chapter III: lost leaf, endings, strip witness opens record", async () => {
+    const mark = page.locator("#b-mark");
+    await mark.scrollIntoViewIfNeeded();
+    assert.equal(await mark.locator(".dk-cut").count(), 1, "P45's thread stops short");
+    await mark.locator('[data-scene="1"]').click();
+    await page.waitForTimeout(800);
+    await mark.getByRole("button", { name: "Longer Ending" }).click();
+    assert.match(await mark.locator(".cr-comment").innerText(), /narrative restarts/);
+    await mark.locator(".st-bar em").first().click();
+    await page.locator(".ms-sheet.open").waitFor();
+    await page.keyboard.press("Escape");
+    await page.waitForTimeout(500);
+  });
+  await step("05: switch preview, restoration, reading the marks", async () => {
+    const gaps = page.locator("#d-gaps");
+    await gaps.scrollIntoViewIfNeeded();
+    if (width > 600) {
+      await gaps.locator(".d-edge-switch").hover();
+      assert.ok(await gaps.locator(".d-edge.is-preview").count() === 1, "hover previews");
+      await page.mouse.move(0, 0);
+    }
+    await gaps.locator(".d-edge-switch").click();
+    assert.match(await gaps.locator(".ed-say").innerText(), /supplied, not surviving ink/);
+    await gaps.locator('[data-mark="ed"]').click();
+    assert.equal(await gaps.locator(".d-edge").getAttribute("data-mark"), "ed");
+    await page.screenshot({ path: `${out}/${tag}-edge.png` });
+  });
+  await step("05: the other three kinds", async () => {
+    const gaps = page.locator("#d-gaps");
+    await gaps.locator('[data-kind="unfinished"]').click();
+    await gaps.getByRole("button", { name: /Reveal the surrounding evidence/ }).click();
+    assert.match(await gaps.locator(".g3-find").innerText(), /Houghton/);
+    await gaps.locator('[data-kind="lost"]').click();
+    await gaps.getByRole("button", { name: /cannot witness/ }).click();
+    assert.match(await gaps.locator(".qz-say").innerText(), /Missing material/);
+    await gaps.locator('[data-kind="related"]').click();
+    assert.equal(await gaps.locator(".cp.is-traced").count(), 1);
+  });
+  await step("06: editions lane and CBGM diagram", async () => {
+    const eds = page.locator("#a-editions");
+    await eds.scrollIntoViewIfNeeded();
+    await eds.locator('.eds-step[data-step="3"] i').click();
+    assert.match(await eds.locator(".eds-say").innerText(), /ECM Mark/);
+    await eds.locator('[data-node="1891"]').click();
+    assert.match(await eds.locator(".cb-say").innerText(), /Mixed ancestry/);
+    assert.ok(await eds.locator(".cb-edge.is-on").count() >= 3);
+  });
+  await step("07: cabinet opens a record sheet with its picture", async () => {
+    const cab = page.locator("#a-cabinet");
+    await cab.scrollIntoViewIfNeeded();
+    assert.equal(await cab.locator(".a-cab-item").count(), 6);
+    await cab.locator('[data-open="Q152962"]').click();
+    await page.locator(".ms-sheet.open").waitFor();
+    assert.match(await page.locator(".ms-sheet.open h2").innerText(), /Sinaiticus/);
+    await page.waitForTimeout(500);
+    await page.screenshot({ path: `${out}/${tag}-sheet.png` });
+    await page.locator(".ms-sheet-close").click();
+    await page.waitForTimeout(500);
+  });
+  await step("side dots follow the page", async () => {
+    await page.locator("#a-close").scrollIntoViewIfNeeded();
+    await page.waitForTimeout(700);
+    assert.match(await page.locator(".mg-rail a[aria-current]").getAttribute("href"), /#a-(close|cabinet)/);
+  });
+  await step("no sideways scroll after interactions", () => noSideways("after interactions"));
+  await step("no focus outlines on a clicked control", async () => {
+    await page.locator("#d-gaps [data-kind='restore']").click();
+    const outline = await page.evaluate(() => getComputedStyle(document.activeElement).outlineStyle);
+    assert.ok(outline === "none" || outline === "", `outline ${outline}`);
+  });
+  await step("no console or page errors", () => assert.deepEqual(errors, []));
+  await page.close();
+}
+
+try {
+  for (const width of [1440, 400]) for (const theme of ["light", "dark"]) await run(width, theme);
+} finally {
+  await browser.close();
+}
+console.log(failures ? `${failures} check(s) failed` : "all checks passed");
+process.exit(failures ? 1 : 0);
