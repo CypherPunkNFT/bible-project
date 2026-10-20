@@ -74,7 +74,7 @@ $('#pa-art').addEventListener('pointerleave', () => { $('#pa-art').dataset.focus
 $('#pa-theme').addEventListener('click', () => {
   const root = document.documentElement;
   root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-  $('#pa-theme').textContent = root.dataset.theme === 'dark' ? 'Light theme' : 'Dark theme';
+  $('#pa-theme').setAttribute('aria-checked', root.dataset.theme === 'dark');
 });
 
 drawInspector();

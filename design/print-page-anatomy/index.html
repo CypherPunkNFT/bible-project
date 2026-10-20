@@ -6,30 +6,23 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="review-bar">
-  <a href="/mockups/">Design gallery</a>
-  <span>From manuscript to printed Bible · chapter 04 in line art</span>
-  <button type="button" id="pa-theme">Light theme</button>
-</header>
+<header data-site-header="true" class="site-head"><div class="site-stripe" aria-hidden="true"><span  style="background: var(--history);"></span><span  style="background: var(--poetry);"></span><span  style="background: var(--prophets);"></span><span  style="background: var(--gospels);"></span><span  style="background: var(--epistles);"></span><span  style="background: var(--revelation);"></span></div><div class="site-row"><a class="site-logo" href="/"><img src="/favicon.svg" alt=""><span >Bible Project</span></a><nav aria-label="Main" class="site-nav"><a class="site-nav-item" href="/bible"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ico" aria-hidden="true"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg><span >Bible</span></a><a aria-current="page" class="site-nav-item is-on" href="/study"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ico" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg><span >Study</span></a><a class="site-nav-item" href="/apologetics"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ico" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg><span >Apologetics</span></a><a class="site-nav-item" href="/teachers"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ico" aria-hidden="true"><path d="M18 21a8 8 0 0 0-16 0"></path><circle cx="10" cy="8" r="5"></circle><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"></path></svg><span >Teachers</span></a><a class="site-nav-item" href="/resources"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ico" aria-hidden="true"><path d="M11 14h2a2 2 0 0 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"></path><path d="m14.45 13.39 5.05-4.694C20.196 8 21 6.85 21 5.75a2.75 2.75 0 0 0-4.797-1.837.276.276 0 0 1-.406 0A2.75 2.75 0 0 0 11 5.75c0 1.2.802 2.248 1.5 2.946L16 11.95"></path><path d="m2 15 6 6"></path><path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a1 1 0 0 0-2.75-2.91"></path></svg><span >Resources</span></a><span aria-hidden="true" class="site-divider"></span><a class="site-nav-item is-accent" href="/testimonies"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ico" aria-hidden="true"><path d="M15 6a9 9 0 0 0-9 9V3"></path><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle></svg><span >Testimonies</span></a></nav><a aria-label="Contact" title="Contact" class="site-round" href="/contact"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ico" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg></a><a aria-label="Search" title="Search" class="site-round" href="/search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ico" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></a><button type="button" class="theme-switch" id="pa-theme" role="switch" aria-checked="true" aria-label="Dark mode" title="Switch to light theme"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ico" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path></svg></span></button><a href="https://churchfamily.io" target="_blank" rel="noopener" title="ChurchFamily — a church community site (opens in a new tab)" class="cf-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ico" aria-hidden="true"><path d="M10 9h4"></path><path d="M12 7v5"></path><path d="M14 21v-3a2 2 0 0 0-4 0v3"></path><path d="m18 9 3.52 2.147a1 1 0 0 1 .48.854V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6.999a1 1 0 0 1 .48-.854L6 9"></path><path d="M6 21V7a1 1 0 0 1 .376-.782l5-3.999a1 1 0 0 1 1.249.001l5 4A1 1 0 0 1 18 7v14"></path></svg><span >ChurchFamily</span></a></div></header>
 
 <main class="pa">
   <!-- ── Landing ─────────────────────────────────────────── -->
   <section class="pa-landing" aria-labelledby="pa-title">
     <div class="pa-landing-copy">
-      <p class="pa-kicker">04 · Read the architecture</p>
+      <p class="pa-crumbs"><a href="/study">Study</a> / <a href="/study/from-manuscript-to-printed-bible">From manuscript to printed Bible</a> / 04</p>
       <h1 id="pa-title">A page is more than <em>its main text</em></h1>
-      <p class="pa-lede">Open a printed Bible and the eye goes straight to the large type in the middle. Yet almost every page carries
-        several kinds of writing at once: a heading, a translation set beside the original, notes on how the text was copied,
-        references to other passages, and in modern editions a dense band of evidence at the foot.</p>
-      <p>Each of those layers was put there by someone, for a reason. A rubricator painted the red initial by hand after the sheet left
-        the press. A Masorete's note records how scribes counted and spelled. A Latin column stands beside the Greek so a scholar can
-        compare. An editor's apparatus lists the manuscripts that read differently. They share one page, but they do different jobs
-        and carry different weight.</p>
+      <p class="pa-lede">Open a printed Bible and the eye goes straight to the large type in the middle. But most pages carry
+        several kinds of writing at once: headings, a translation beside the original, scribal notes, cross-references and, in
+        modern editions, a band of evidence at the foot.</p>
+      <p>Each layer was put there by someone, for a reason: a rubricator’s red initial, a Masorete’s note, a Latin column for
+        comparison, an editor’s list of manuscripts that read differently.</p>
       <div class="pa-why">
         <p class="pa-kicker">Why it matters</p>
-        <p>Mistake one layer for another and the argument goes wrong. A Latin column beside the Greek is not a second ancient witness.
-          A marginal reference is not a textual variant. A footnote that says “some manuscripts add” records evidence; it is not a
-          verdict. Telling the layers apart is the first skill in reading any edition.</p>
+        <p>Mistake one layer for another and the argument goes wrong. A Latin column is not a second ancient witness; a
+          cross-reference is not a variant. Telling the layers apart is the first skill in reading any edition.</p>
       </div>
       <a class="pa-go" href="#pa-inspect">Take a page apart <i aria-hidden="true">↓</i></a>
     </div>
@@ -79,7 +72,7 @@
     <p class="pa-note">Functional diagrams in line art. Lines mark blocks of text; no letters, readings or source images are reproduced.</p>
   </section>
 </main>
-<footer class="review-footer">Mock-up only. The live chapter is at <a href="/study/from-manuscript-to-printed-bible#page-inspection">/study/from-manuscript-to-printed-bible ↗</a></footer>
+<footer class="review-footer"><a href="/mockups/">Design gallery</a> · Mock-up of chapter 04. The live chapter is at <a href="/study/from-manuscript-to-printed-bible#page-inspection">/study/from-manuscript-to-printed-bible ↗</a></footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>
