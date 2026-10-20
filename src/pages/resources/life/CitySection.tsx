@@ -24,7 +24,7 @@ export function CitySection({ city, cities, onPick, checked }: { city: City & { 
   return <section className="lf-city" aria-labelledby="lf-city-name">
     {cities.length > 1 && <CityPicker cities={cities} chosen={city.id} onPick={onPick} />}
     <div className="lf-city-top">
-      {typeof states === "object" ? <UsaMap states={states} city={city} /> : <p className="lf-wait lf-wait-usa">{states === "loading" ? "Loading the map…" : "The map outline is missing."}</p>}
+      {typeof states === "object" ? <UsaMap states={states} city={city} cities={cities} onPick={onPick} /> : <p className="lf-wait lf-wait-usa">{states === "loading" ? "Loading the map…" : "The map outline is missing."}</p>}
       <CityInfo city={city} facts={typeof facts === "object" ? facts : null} kinds={kinds} checked={city.checked ?? checked} />
     </div>
     <hr className="lf-city-rule" />
@@ -32,14 +32,16 @@ export function CitySection({ city, cities, onPick, checked }: { city: City & { 
   </section>;
 }
 
-function UsaMap({ states, city }: { states: UsStates; city: City }) {
+function UsaMap({ states, city, cities, onPick }: { states: UsStates; city: City; cities: City[]; onPick: (id: string) => void }) {
   const svg = useRef<SVGSVGElement>(null), zoom = useRef<Zoom | null>(null);
-  const at = useMemo(() => geoAlbersUsa().scale(states.scale).translate(states.translate)([city.lon, city.lat]), [states, city]);
-  const name = city.name.split(",")[0], stateName = city.name.split(",")[1]?.trim();
+  const project = useMemo(() => geoAlbersUsa().scale(states.scale).translate(states.translate), [states]);
+  const at = useMemo(() => project([city.lon, city.lat]), [project, city]);
+  const dots = useMemo(() => cities.flatMap((c) => { const xy = project([c.lon, c.lat]); return xy ? [{ c, xy }] : []; }), [project, cities]);
+  const stateName = city.name.split(",")[1]?.trim();
   useEffect(() => {
     const el = svg.current;
     if (!el) return;
-    zoom.current = attachZoom(el, { width: states.width, height: states.height, max: 8, onChange: () => placeMarks(el, states.width) });
+    zoom.current = attachZoom(el, { width: states.width, height: states.height, max: 8, onChange: (z) => { placeMarks(el, states.width); el.toggleAttribute("data-close", z >= 3); } });
     const resize = new ResizeObserver(() => placeMarks(el, states.width));
     resize.observe(el);
     return () => { zoom.current?.destroy(); zoom.current = null; resize.disconnect(); };
@@ -50,7 +52,14 @@ function UsaMap({ states, city }: { states: UsStates; city: City }) {
   return <figure className="lf-mapframe lf-usa"><div className="lf-stage">
     <svg ref={svg} viewBox={`0 0 ${states.width} ${states.height}`} style={{ aspectRatio: `${states.width} / ${states.height}` }} role="img" aria-label={`Map of the USA with ${city.name} marked`}>
       <g className="lf-states">{states.states.map((s) => <path key={s.id} d={s.d} data-on={s.name === stateName || undefined}><title>{s.name}</title></path>)}</g>
-      {at && <g className="lf-us-city lf-mark" data-x={at[0]} data-y={at[1]} onClick={focus}><circle className="lf-ring" r={11} /><circle className="lf-dot" r={5} /><text x={-14} y={-9} textAnchor="end">{name}</text></g>}
+      {/* Every city is a small dot that shows its name on hover; the chosen one is drawn last, with its ring and name always on. A click on another dot chooses it. */}
+      {[...dots].sort((a, b) => Number(a.c.id === city.id) - Number(b.c.id === city.id)).map(({ c, xy }) => {
+        const on = c.id === city.id, label = c.name.split(",")[0];
+        return <g key={c.id} className="lf-us-city lf-mark" data-x={xy[0]} data-y={xy[1]} data-on={on || undefined} role="button" tabIndex={0} aria-label={on ? `${label}, chosen; zoom to it` : `Show ${c.name}`}
+          onClick={() => (on ? focus() : onPick(c.id))} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); if (on) focus(); else onPick(c.id); } }}>
+          <circle className="lf-hit" r={11} /><circle className="lf-ring" r={9} /><circle className="lf-dot" r={on ? 4 : 2.6} /><text x={-12} y={-8} textAnchor="end">{label}</text>
+        </g>;
+      })}
     </svg>
     <ZoomButtons zoom={zoom} />
   </div><figcaption>States: {credit}. Scroll or pinch to zoom.</figcaption></figure>;

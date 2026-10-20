@@ -189,10 +189,16 @@ a.lf-contact:hover strong { color: var(--c, var(--door)); }
 .lf-usa figcaption { min-height: 2.4rem; padding-right: 8rem; }
 .lf-states path { fill: color-mix(in srgb, var(--line) 40%, var(--page)); stroke: color-mix(in srgb, var(--muted) 45%, transparent); stroke-width: .6; vector-effect: non-scaling-stroke; }
 .lf-states path[data-on] { fill: color-mix(in srgb, var(--door) 16%, var(--page)); stroke: color-mix(in srgb, var(--door) 60%, transparent); }
-.lf-us-city { cursor: pointer; }
-.lf-us-city .lf-dot { fill: var(--door); stroke: var(--page); stroke-width: 1.5; }
-.lf-us-city .lf-ring { fill: none; stroke: var(--door); stroke-width: 1; opacity: .6; }
-.lf-us-city text { fill: var(--ink); font: 600 12px var(--font-sans); paint-order: stroke; stroke: var(--page); stroke-width: 3px; stroke-linejoin: round; }
+.lf-us-city { cursor: pointer; outline: none; }
+.lf-us-city .lf-hit { fill: transparent; }
+.lf-us-city .lf-dot { fill: var(--door); stroke: var(--page); stroke-width: 1.2; transition: fill .15s; }
+.lf-us-city .lf-ring { fill: none; stroke: var(--door); stroke-width: 1; opacity: 0; }
+.lf-us-city text { fill: var(--ink); font: 600 12px var(--font-sans); paint-order: stroke; stroke: var(--page); stroke-width: 3px; stroke-linejoin: round; opacity: 0; pointer-events: none; transition: opacity .15s; }
+/* Chosen city: ring and name always. Any other: its name on hover or keyboard focus. When zoomed in there is room for every ring. */
+.lf-us-city[data-on] .lf-ring, .lf-usa svg[data-close] .lf-us-city .lf-ring { opacity: .6; }
+.lf-us-city[data-on] text, .lf-us-city:hover text, .lf-us-city:focus-visible text { opacity: 1; }
+.lf-us-city:hover .lf-dot { fill: var(--ink); }
+.lf-us-city:hover .lf-ring { opacity: .6; }
 
 .lf-city-info .lf-kick { color: var(--door); }
 .lf-city-info h2 { margin-top: .5rem; font: 400 clamp(1.9rem, 3.4vw, 2.7rem)/1.05 var(--font-serif); letter-spacing: -.03em; }
