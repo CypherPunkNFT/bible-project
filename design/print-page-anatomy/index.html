@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Printed Bible · A page is more than its main text</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="review-bar">
+  <a href="/mockups/">Design gallery</a>
+  <span>From manuscript to printed Bible · chapter 04 in line art</span>
+  <button type="button" id="pa-theme">Light theme</button>
+</header>
+
+<main class="pa">
+  <!-- ── Landing ─────────────────────────────────────────── -->
+  <section class="pa-landing" aria-labelledby="pa-title">
+    <div class="pa-landing-copy">
+      <p class="pa-kicker">04 · Read the architecture</p>
+      <h1 id="pa-title">A page is more than <em>its main text</em></h1>
+      <p class="pa-lede">Open a printed Bible and the eye goes straight to the large type in the middle. Yet almost every page carries
+        several kinds of writing at once: a heading, a translation set beside the original, notes on how the text was copied,
+        references to other passages, and in modern editions a dense band of evidence at the foot.</p>
+      <p>Each of those layers was put there by someone, for a reason. A rubricator painted the red initial by hand after the sheet left
+        the press. A Masorete's note records how scribes counted and spelled. A Latin column stands beside the Greek so a scholar can
+        compare. An editor's apparatus lists the manuscripts that read differently. They share one page, but they do different jobs
+        and carry different weight.</p>
+      <div class="pa-why">
+        <p class="pa-kicker">Why it matters</p>
+        <p>Mistake one layer for another and the argument goes wrong. A Latin column beside the Greek is not a second ancient witness.
+          A marginal reference is not a textual variant. A footnote that says “some manuscripts add” records evidence; it is not a
+          verdict. Telling the layers apart is the first skill in reading any edition.</p>
+      </div>
+      <a class="pa-go" href="#pa-inspect">Take a page apart <i aria-hidden="true">↓</i></a>
+    </div>
+    <figure class="pa-hero" aria-label="A printed page with its three layers lifted apart">
+      <svg class="pa-orbits" viewBox="0 0 600 600" aria-hidden="true"><ellipse cx="300" cy="320" rx="270" ry="210"/><ellipse class="pa-orbit-2" cx="300" cy="320" rx="215" ry="250"/>
+        <path class="pa-plus" d="M70 120h14M77 113v14M520 470h14M527 463v14M540 140h10M545 135v10"/></svg>
+      <div id="pa-hero-stack"></div>
+      <figcaption><span class="pa-hero-top">One page · three layers</span><span id="pa-hero-caption"></span></figcaption>
+    </figure>
+  </section>
+
+  <dl class="pa-figures">
+    <div><dt>Editions to take apart</dt><dd>6</dd><small>from Mainz to Stuttgart</small></div>
+    <div><dt>Span</dt><dd>1455–2012</dd><small>Gutenberg to NA28</small></div>
+    <div><dt>Layers in each</dt><dd>3</dd><small>switch each off and on</small></div>
+    <div><dt>Languages on one page</dt><dd>4</dd><small>the Complutensian Polyglot</small></div>
+    <div><dt>Kinds of job</dt><dd>Text · aid · evidence</dd><small>what each layer is for</small></div>
+  </dl>
+
+  <!-- ── Three ways a page is built ──────────────────────── -->
+  <section class="pa-ways" aria-labelledby="pa-ways-title">
+    <p class="pa-kicker">Three ways a page is built</p>
+    <h2 id="pa-ways-title">Same book, <em>different architecture</em></h2>
+    <ol>
+      <li style="--tone:var(--poetry)"><span class="pa-card-kind">Venice · 1524</span><div class="pa-thumb" data-thumb="bomberg"></div>
+        <strong>Text with a reading tradition</strong><small>Masorah, targum and commentary surround the Hebrew text.</small></li>
+      <li style="--tone:var(--prophets)"><span class="pa-card-kind">Alcalá · 1514</span><div class="pa-thumb" data-thumb="complutensian"></div>
+        <strong>Languages alongside languages</strong><small>A polyglot makes comparison visible; its columns do different jobs.</small></li>
+      <li style="--tone:var(--accent)"><span class="pa-card-kind">Stuttgart · 2004</span><div class="pa-thumb" data-thumb="bhq"></div>
+        <strong>Evidence beneath the text</strong><small>An apparatus records alternatives without changing the main text.</small></li>
+    </ol>
+  </section>
+
+  <!-- ── Inspector ───────────────────────────────────────── -->
+  <section class="pa-inspect" id="pa-inspect" aria-labelledby="pa-inspect-title">
+    <div class="pa-inspect-head">
+      <div><p class="pa-kicker">Inspect a printed edition</p><h2 id="pa-inspect-title">Lift the layers, <em>one at a time</em></h2></div>
+      <div class="pa-view" role="group" aria-label="How to draw the page">
+        <button type="button" data-view="b">Lifted apart</button><button type="button" data-view="a">One sheet</button>
+      </div>
+    </div>
+    <div class="pa-pills" id="pa-pills" role="radiogroup" aria-label="Edition"></div>
+    <div class="pa-panel">
+      <div class="pa-art" id="pa-art"></div>
+      <div class="pa-read" id="pa-read"></div>
+    </div>
+    <p class="pa-note">Functional diagrams in line art. Lines mark blocks of text; no letters, readings or source images are reproduced.</p>
+  </section>
+</main>
+<footer class="review-footer">Mock-up only. The live chapter is at <a href="/study/from-manuscript-to-printed-bible#page-inspection">/study/from-manuscript-to-printed-bible ↗</a></footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

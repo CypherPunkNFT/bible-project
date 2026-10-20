@@ -2,6 +2,40 @@
   "about": "Every design mock-up, by section, for the gallery at /mockups/ (design/index.html). Add a card here whenever a new mock-up folder lands in design/; `node scripts/mockup-gallery.mjs` refreshes the thumbnails and fails if a folder is missing from this list. Optional `shot`: the address the gallery picture is taken from, when the mock-up's difference is not on its first page.",
   "sections": [
     {
+      "id": "bible-listen",
+      "title": "Bible",
+      "line": "Read, listen, and explore the library.",
+      "page": "/bible",
+      "cards": [
+        {
+          "id": "bible-listen",
+          "title": "Read · Listen · Library",
+          "url": "/mockups/bible-listen/",
+          "date": "2026-10-17",
+          "status": "approved",
+          "line": "Approved Read, Listen and Library cards. Category books with an upright Revelation volume; local implementation at /bible.",
+          "shot": "/bible"
+        },
+        {
+          "id": "listen-page",
+          "title": "Listen · YouTube listening room",
+          "url": "/listen",
+          "shot": "/listen",
+          "date": "2026-10-17",
+          "status": "option",
+          "line": "24 selected Streetlights recordings, a YouTube player, book filters, and quiet-reading selections still to come."
+        },
+        {
+          "id": "library-book-stacks-1",
+          "title": "Library stacks 1 · Collected stacks",
+          "url": "/mockups/library-book-stacks/?option=1",
+          "date": "2026-10-17",
+          "status": "approved",
+          "line": "Varied spines and gently staggered edges, gathered around the original collection."
+        }
+      ]
+    },
+    {
       "id": "dead-sea-scrolls-review",
       "title": "The Dead Sea Scrolls",
       "line": "A manuscript-led redesign: three openings and eight working section studies.",
@@ -31,6 +65,22 @@
           "date": "2026-10-14",
           "status": "option",
           "line": "Captured local implementation: six-object collection, three histories and independent fragment evidence layers."
+        }
+      ]
+    },
+    {
+      "id": "printed-bible",
+      "title": "From manuscript to printed Bible",
+      "line": "Chapter 04 redrawn in the studies' translucent line art.",
+      "page": "/study/from-manuscript-to-printed-bible",
+      "cards": [
+        {
+          "id": "print-page-anatomy",
+          "title": "A page is more than its main text · line art",
+          "url": "/mockups/print-page-anatomy/",
+          "date": "2026-10-19",
+          "status": "option",
+          "line": "A full-size opening, three ways a page is built, and six editions whose layers lift apart as glass sheets or show as one."
         }
       ]
     },
@@ -104,6 +154,14 @@
           "date": "2026-10-11",
           "status": "option",
           "line": "Full-page visual snapshot and restorable source before the Preachers-style landing and interactive subject explorer."
+        },
+        {
+          "id": "scholar-connections",
+          "title": "Knowledge handed on - 50 selectable threads",
+          "url": "/mockups/scholar-connections/?field=4",
+          "date": "2026-10-16",
+          "status": "option",
+          "line": "Ten icon topic cards in each of five fields animate into their recorded subgraphs. All 50 threads include explicit connections, evidence notes, larger text and the light floating scroll pill within the actual Scholars page."
         },
         {
           "id": "scholars-built-directions",
@@ -975,6 +1033,15 @@
       "id": "hymns",
       "title": "Study · Hymns",
       "cards": [
+        {
+          "id": "hymns-landing-two-rows",
+          "title": "Hymns page · landing with two rows of pipes",
+          "url": "/mockups/hymns-landing-two-rows/",
+          "date": "2026-10-18",
+          "status": "built",
+          "line": "The landing up to the sections: title, the three writers and Amazing Grace on the left; the organ pipes in two centred rows (Old Testament over New) on the right; six figures edge to edge; the drifting hymns at the foot.",
+          "built": "/study/hymns"
+        },
         {
           "id": "hymns-card-directions",
           "title": "Hymns card · six directions",
