@@ -23,7 +23,7 @@
   };
   const params = new URLSearchParams(location.search);
   const d = DIRECTIONS[params.get("d")] ? params.get("d") : "a";
-  document.title = `How the canon took shape · ${DIRECTIONS[d].name} · Bible Project`;
+  document.title = `${d === "d" ? "The canon takes shape" : "How the canon took shape"} · ${DIRECTIONS[d].name} · Bible Project`;
 
   // Study is the active section; the page sits one folder below /mockups/, so the frame's shared paths move up one less.
   const nav = [["/bible", "Bible", "book"], ["/study", "Study", "graduation"], ["/apologetics", "Apologetics", "shield"], ["/teachers", "Teachers", "feather"], ["/resources", "Resources", "library"]];

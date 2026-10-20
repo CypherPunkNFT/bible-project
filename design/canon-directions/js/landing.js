@@ -16,12 +16,13 @@
     fig("Writings traced", D.comparisonRows.length, "rows in the comparison"),
     fig("Sources", D.sources.length, "each one linked where it is used"),
   ];
-  const intro = (accent, start = ["#registers", "Compare the evidence"]) => `<div>
-      <p class="hc-crumb"><a href="/study/academic?area=texts">Study</a><span>/</span><a href="/study/academic?area=texts">The Bible: formation &amp; transmission</a><span>/</span>How the canon took shape</p>
-      <h1>How the canon took shape<em>${accent}</em></h1>
+  const LEDE = `<p class="hc-lede">Before there was a table of contents, there were communities of readers. Follow how writings were gathered, used and recognized as Scripture. Each list belongs to a place, a time and a conversation.</p>`;
+  const intro = (accent, { title = "How the canon took shape", lede = LEDE, start = ["#registers", "Compare the evidence"] } = {}) => `<div>
+      <p class="hc-crumb"><a href="/study/academic?area=texts">Study</a><span>/</span><a href="/study/academic?area=texts">The Bible: formation &amp; transmission</a><span>/</span>${title}</p>
+      <h1>${title}<em>${accent}</em></h1>
       <p class="cn-lead">The writing stays the same. The claim changes.</p>
-      <p class="hc-lede">Before there was a table of contents, there were communities of readers. Follow how writings were gathered, used and recognized as Scripture. Each list belongs to a place, a time and a conversation.</p>
-      <a href="${start[0]}" class="cn-start">${start[1]} <span aria-hidden="true">↓</span></a>
+      ${lede}
+      ${start ? `<a href="${start[0]}" class="cn-start">${start[1]} <span aria-hidden="true">↓</span></a>` : ""}
     </div>`;
 
   // Rows of writing as short ragged strokes.
@@ -92,11 +93,15 @@
   ];
   const canon = () => `<div class="cn-canon"><div><p class="kicker">First, what “canon” means</p>
       <p>The word comes from the Greek <i>kanōn</i>, a measuring rod or rule. Said of Scripture, a canon is <strong>the list of books a community receives as its Bible</strong>. There is more than one such list, and they still differ today.</p>
-      <p class="cn-caption">The 24 and the 39 are the same Hebrew books, counted and grouped differently. This page follows how the lists took shape, and how far each piece of evidence can take you.</p></div>
+      <p class="cn-caption">The 24 and the 39 are the same Hebrew books, counted and grouped differently.</p></div>
       <dl class="cn-counts">${COUNTS.map(([who, n, what]) => `<div><dt>${who}</dt><dd>${n}</dd><small>${what}</small></div>`).join("")}</dl></div>`;
 
+  // D: the lede says what the contents page would be of (the Bible), and walks the reader through the page in two paragraphs.
+  const D_LEDE = `<p class="hc-lede">Before the Bible had a table of contents, there were communities of readers. Jews and Christians copied writings by hand, read them aloud in worship and quoted them in argument. Over centuries, some drew up lists of the books they held to be Scripture, and those lists did not all agree.</p>
+      <p class="hc-lede">This page follows that process through what survives: the manuscripts themselves, the writers who quoted and recommended books, and the councils and confessions that finally named them. Each list belongs to a place, a time and a conversation, and each piece of evidence can show only so much.</p>`;
+
   function mount(section, { d }) {
-    if (d === "d") section.innerHTML = `<div class="hc-intro ms-intro">${intro("Gathered, read, listed", ["#shelf", "Begin with the surviving books"])}${gathering()}</div>${canon()}<dl class="ms-figures">${figures().join("")}</dl>`;
+    if (d === "d") section.innerHTML = `<div class="hc-intro ms-intro cn-intro-d">${intro("Gathered, read, listed", { title: "The canon takes shape", lede: D_LEDE, start: null })}${gathering()}</div>${canon()}<dl class="ms-figures">${figures().join("")}</dl>`;
     if (d === "a") section.innerHTML = `<div class="hc-intro ms-intro">${intro("Gathered, read, listed")}${gathering()}</div><dl class="ms-figures">${figures().join("")}</dl>`;
     if (d === "b") section.innerHTML = `<div class="hc-intro cn-intro-b">${intro("The surviving witnesses")}${table()}</div><dl class="ms-figures">${figures().join("")}</dl>`;
     if (d === "c") section.innerHTML = `<div class="hc-intro cn-intro-c">${intro("Where the lists were made")}</div>${strip()}<dl class="ms-figures">${figures().join("")}</dl>`;
