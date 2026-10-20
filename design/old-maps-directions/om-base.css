@@ -3,6 +3,8 @@
    om-views.css. No focus outline anywhere: a chosen control shows its own single border. */
 *:focus, *:focus-visible { outline: none !important; }
 body { overflow-x: clip; }
+/* The live site's margins (92rem, as in src/index.css), not the shared frame's older 80rem. */
+.wrap, .bar, .foot-inner { max-width: 92rem; }
 [hidden] { display: none !important; }
 img { max-width: 100%; }
 .om-page { padding-top: 1.7rem; }

@@ -17,7 +17,8 @@ import { usePlacesPageSlide } from "./usePlacesPageSlide";
 import { AtlasFindLink } from "./AtlasFindLink";
 import { TransitionTicker } from "@/components/ticker/TransitionTicker";
 import "./places-collection.css";
-import { OLD_MAPS, OldMapsPreview, OldMapsRow } from "./old-maps";
+import { OLD_MAPS, OldMapsRow } from "./old-maps";
+import { OldMapsCollection } from "./old-maps-collection/OldMapsCollection";
 
 import { ATLAS_BASE as BASE, atlasDestination } from "./routes";
 const DESTINATIONS = [
@@ -91,7 +92,7 @@ export function AtlasCollection({ atlas }: { atlas: ReactNode }) {
     <Route path="map" element={<DestinationShell id="atlas">{atlas}</DestinationShell>} />
     <Route path="cities/motion" element={<LegacyCityMotion />} />
     <Route path="cities/find" element={<DestinationShell id="cities"><CityDirectory /></DestinationShell>} />
-    <Route path={OLD_MAPS.id} element={<DestinationShell id={OLD_MAPS.id}><OldMapsPreview /></DestinationShell>} />
+    <Route path={OLD_MAPS.id} element={<DestinationShell id={OLD_MAPS.id}><OldMapsCollection /></DestinationShell>} />
     {HISTORY_COLLECTIONS.map(({ id }) => <Route key={id} path={id} element={<DestinationShell id={id}><HistoryExperience key={id} id={id} /></DestinationShell>} />)}
     {(["journeys", "cities", "gospels"] as const).map((id) => <Route key={id} path={id} element={<DestinationShell id={id}><ExperiencePreview id={id} /></DestinationShell>} />)}
     <Route path="*" element={<Navigate to={BASE} replace />} />

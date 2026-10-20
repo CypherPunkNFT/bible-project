@@ -25,21 +25,10 @@
 .places-destination .places-collection-nav > a { grid-column: span 5; }
 .places-destination .places-collection-nav > a:nth-child(n+5) { grid-column: span 4; }
 
-/* The preview page */
-.old-maps-preview { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin-top: 1.6rem; }
-.old-maps-sheet { display: flex; flex-direction: column; gap: .35rem; color: inherit; }
-.old-maps-sheet img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: color-mix(in srgb, var(--places-color) 6%, var(--surface)); border: 1px solid var(--line); border-radius: .6rem; padding: .6rem; transition: border-color .2s; }
-.old-maps-sheet:hover img { border-color: var(--places-color); }
-.old-maps-year { margin-top: .4rem; font: 500 1.2rem var(--font-serif); color: var(--places-color); }
-.old-maps-sheet strong { font-size: .82rem; font-weight: 600; }
-.old-maps-sheet small { color: var(--muted); font-size: .66rem; line-height: 1.5; }
-.old-maps-next { margin-top: 1.8rem; }
-
 @media (prefers-reduced-motion: reduce) { .places-artwork-old-maps .old-maps-rose, .places-artwork-old-maps .old-maps-ship { animation: none; } .old-maps-fan img { transition: none; } }
 @media (max-width: 900px) { .old-maps-card-body { grid-template-columns: 1fr; gap: .8rem; } .old-maps-fan { display: none; } .old-maps-card .places-artwork { height: 130px; } }
 @media (max-width: 767px) {
   .places-destination .places-collection-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .places-destination .places-collection-nav > a, .places-destination .places-collection-nav > a:nth-child(n+5) { grid-column: auto; }
   .places-destination .places-collection-nav > a:last-child { grid-column: 1 / -1; }
-  .old-maps-preview { grid-template-columns: 1fr; }
 }

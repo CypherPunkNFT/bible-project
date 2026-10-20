@@ -35,14 +35,13 @@
     let filter = new Set();
     let current = 1;
     let expanded = false;
-    const most = Math.max(...DRAWERS.map(heldIn));
     const matches = (m) => filter.size === 0 || m.s.some((k) => filter.has(k));
 
     function drawRail() {
       rail.innerHTML = DRAWERS.map((d, i) => {
         const shown = maps.filter((m) => inDrawer(d, m.y) && matches(m)).length;
         return `<button type="button" role="tab" aria-selected="${i === current}" data-i="${i}"${shown ? "" : " disabled"}>
-          <b>${d.numeral}</b><span>${d.label}</span><i style="--w:${(heldIn(d) / most * 100).toFixed(1)}%"></i><small>${fmt(heldIn(d))} held</small></button>`;
+          <b>${d.numeral}</b><span>${d.label}</span><small>${fmt(heldIn(d))} held</small></button>`;
       }).join("");
     }
     function drawDrawer(direction = 0) {

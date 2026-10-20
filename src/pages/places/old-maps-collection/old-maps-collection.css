@@ -1,0 +1,294 @@
+/* The Old maps collection page, ported from the mock-up (design/old-maps-directions). Everything sits under .om-island so
+   nothing leaks to other pages. No focus outline anywhere: a chosen control shows its own single border. */
+.om-island { --serif: var(--font-serif); --sans: var(--font-sans); }
+.om-island *:focus, .om-island *:focus-visible { outline: none !important; }
+.om-island [hidden] { display: none !important; }
+.om-island img { max-width: 100%; }
+.om-island .kicker { font-size: .65rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--tone, var(--accent)); }
+.om-island h1, .om-island h2, .om-island h3, .om-island p { margin: 0; }
+.om-island a { color: inherit; text-decoration: none; }
+.om-island button { font: inherit; color: inherit; cursor: pointer; }
+.om-island .om-page {padding-top: 1.7rem; }
+.om-island .om-page section + section {margin-top: 3rem; padding-top: 1.8rem; border-top: 1px solid var(--line); }
+.om-island .om-page .om-landing + section {border-top: 0; padding-top: .4rem; }
+.om-island .om-landing {display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 24rem); gap: 1.4rem 3rem; align-items: end; padding-block: 2.4rem 1.2rem; }
+.om-island .om-crumb {display: flex; flex-wrap: wrap; gap: .5rem; font-size: .68rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tone, var(--accent)); }
+.om-island .om-crumb span {color: var(--muted); font-weight: 400; }
+.om-island .om-landing h1 {margin-block: .8rem .9rem; font: 500 clamp(2.4rem, 5.2vw, 4.3rem)/1.04 var(--serif); letter-spacing: -.045em; }
+.om-island .om-landing h1 em {color: var(--accent); font-weight: 400; }
+.om-island .om-lede {max-width: 58ch; color: var(--muted); font-size: .95rem; line-height: 1.8; }
+.om-island .om-landing .places-artwork {height: 150px; color: var(--epistles); }
+.om-island .om-figures {grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); margin: .6rem 0 0; border-block: 1px solid var(--line); }
+.om-island .om-figures > div {padding: .8rem 1rem; border-left: 1px solid var(--line); }
+.om-island .om-figures > div:first-child {border-left: 0; padding-left: 0; }
+.om-island .om-figures dt {font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.om-island .om-figures dd {margin: .25rem 0 0; font: 500 1.6rem/1.15 var(--serif); letter-spacing: -.02em; }
+.om-island .om-figures dd small {font: 400 .78rem var(--sans); color: var(--muted); }
+.om-island .om-figures > div > small {display: block; margin-top: .1rem; font-size: .72rem; color: var(--muted); }
+@media (max-width: 860px) {.om-island .om-landing {grid-template-columns: 1fr; }
+.om-island .om-landing .places-artwork {height: 120px; }
+}
+@media (max-width: 560px) {.om-island .om-figures {grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.om-island .om-figures > div {border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+.om-island .om-figures > div:nth-child(-n+2) {border-top: 0; }
+.om-island .om-figures > div:nth-child(even) {padding-left: .9rem; border-left: 1px solid var(--line); }
+}
+.om-island .t-head {display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .3rem 1.1rem; align-items: start; margin-bottom: 1.2rem; }
+.om-island .t-num {font: 500 2rem/1 var(--serif); color: var(--tone, var(--accent)); opacity: .75; padding-top: .15rem; }
+.om-island .t-head h2 {margin-top: .3rem; font: 500 clamp(1.45rem, 2.6vw, 1.95rem)/1.2 var(--serif); letter-spacing: -.02em; }
+.om-island .t-head h2 em {color: var(--tone, var(--accent)); font-weight: 400; }
+.om-island .t-head p:not(.kicker) {max-width: 66ch; margin-top: .4rem; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+.om-island .om-crystals {display: flex; flex-wrap: wrap; gap: .5rem; }
+.om-island .om-crystal {display: inline-flex; align-items: center; gap: .6rem; padding: .45rem .9rem .45rem .5rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); text-align: left; transition: border-color .15s, background .15s, opacity .15s; }
+.om-island .om-crystal-ico {display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: var(--tone); background: color-mix(in srgb, var(--tone) 12%, transparent); }
+.om-island .om-crystal-txt {display: grid; line-height: 1.2; }
+.om-island .om-crystal strong {font-size: .8rem; font-weight: 600; }
+.om-island .om-crystal small {font-size: .66rem; color: var(--muted); }
+.om-island .om-crystal:hover {border-color: color-mix(in srgb, var(--tone) 60%, var(--line)); }
+.om-island .om-crystal[aria-pressed="true"] {border-color: var(--tone); background: color-mix(in srgb, var(--tone) 9%, var(--surface)); }
+.om-island .om-crystals.has-choice .om-crystal[aria-pressed="false"] {opacity: .55; }
+.om-island .om-thumb {display: grid; gap: .55rem; align-content: start; padding: 0; border: 0; background: none; text-align: left; color: inherit; cursor: pointer; }
+.om-island .om-thumb-img {position: relative; display: block; aspect-ratio: 4 / 3; border: 1px solid transparent; border-radius: 10px; background: var(--surface-2); transition: border-color .2s, transform .3s cubic-bezier(.16, 1, .3, 1); }
+.om-island .om-thumb-img img {position: absolute; inset: .55rem .55rem .55rem 0; width: calc(100% - .55rem); height: calc(100% - 1.1rem); object-fit: contain; object-position: left center; filter: drop-shadow(0 5px 8px rgb(0 0 0 / 22%)); }
+.om-island .om-thumb:hover .om-thumb-img {border-color: var(--tone); transform: translateY(-2px); }
+.om-island .om-thumb-cap {display: grid; gap: .15rem; padding-top: .45rem; border-top: 1px solid var(--line); font-size: .74rem; line-height: 1.4; }
+.om-island .om-thumb-cap b {font: 500 .95rem var(--serif); color: var(--tone); }
+.om-island .om-thumb-cap span {display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.om-island .om-thumb-cap small {color: var(--muted); font-size: .68rem; }
+.om-viewer {position: fixed; z-index: 45; top: var(--om-top, 60px); right: 0; bottom: 0; width: min(36rem, 100vw); display: flex; flex-direction: column; gap: .7rem; padding: 1.1rem 1.3rem 1.3rem; overflow-y: auto; overscroll-behavior: contain; border-left: 1px solid var(--line); background: var(--surface); box-shadow: -24px 0 48px -32px rgb(0 0 0 / 45%); transform: translateX(104%); visibility: hidden; transition: transform .55s cubic-bezier(.16, 1, .3, 1), visibility 0s linear .55s; }
+.om-viewer.is-open {transform: none; visibility: visible; transition: transform .55s cubic-bezier(.16, 1, .3, 1), visibility 0s; }
+.om-v-top {display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.om-v-close {display: grid; place-items: center; width: 34px; height: 34px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--muted); }
+.om-v-close:hover {color: var(--ink); border-color: var(--ink); }
+.om-v-title {font: 500 1.3rem/1.3 var(--serif); letter-spacing: -.01em; }
+.om-v-stage {position: relative; flex: none; height: min(56vh, 30rem); overflow: hidden; border-radius: 10px; background: var(--surface-2); cursor: grab; touch-action: none; }
+.om-v-stage.is-zoomed {cursor: grabbing; }
+.om-v-stage img {position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transform-origin: 0 0; user-select: none; -webkit-user-drag: none; }
+.om-v-stage img.is-preview {object-fit: scale-down; }
+.om-v-hint {font-size: .68rem; color: var(--muted); }
+.om-v-facts {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--line); }
+.om-v-facts > div {padding: .6rem 0; border-bottom: 1px solid var(--line); }
+.om-v-facts > div:nth-child(even) {padding-left: .9rem; border-left: 1px solid var(--line); }
+.om-v-facts dt {font-size: .58rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.om-v-facts dd {margin: .2rem 0 0; font-size: .82rem; line-height: 1.45; }
+.om-v-facts dd small {color: var(--muted); }
+.om-v-about, .om-v-full, .om-v-note, .om-v-credit {font-size: .78rem; line-height: 1.65; color: var(--muted); }
+.om-v-about span {font-style: italic; }
+.om-v-full span {display: block; font-size: .58rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+.om-v-credit {display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: .3rem .6rem; margin: 0; }
+.om-v-credit dt {padding-top: .2rem; font-size: .58rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+.om-v-credit dd {margin: 0; }
+.om-v-note {padding-left: .7rem; border-left: 2px solid var(--line); }
+.om-v-source {display: inline-flex; align-items: center; gap: .5rem; align-self: start; font-size: .8rem; color: var(--tone, var(--accent)); }
+.om-v-source:hover {text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 560px) {.om-viewer {padding-inline: 1rem; }
+.om-v-stage {height: 46vh; }
+}
+.om-island .om-failed {padding: 1rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }
+.om-island .om-mocknote {margin-top: .8rem; font-size: .7rem; color: var(--muted); }
+@keyframes om-rose {from {transform: translate(150px, 104px) rotate(-9deg); }
+to {transform: translate(150px, 104px) rotate(9deg); }
+}
+@keyframes om-ship {0%, 100% {transform: translateY(0) rotate(0); }
+50% {transform: translateY(1.6px) rotate(1.5deg); }
+}
+.om-island .om-art-oldmaps .om-rose {animation: om-rose 9s ease-in-out infinite alternate; }
+.om-island .om-art-oldmaps .om-ship {transform-box: fill-box; transform-origin: center; animation: om-ship 6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {.om-island .om-art-oldmaps .om-rose, .om-island .om-art-oldmaps .om-ship {animation: none; }
+.om-viewer {transition: none; }
+}
+.om-island .om-head {display: block; }
+.om-island .om-head .kicker {display: flex; align-items: baseline; gap: .45rem; }
+.om-island .om-num {font-variant-numeric: tabular-nums; }
+.om-island .om-dot {opacity: .6; }
+
+.om-island .om-lane-chips {margin-bottom: 1.2rem; }
+.om-island .om-lanes, .om-island .om-makers {display: grid; gap: 0; }
+.om-island .om-lane, .om-island .om-maker {display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); align-items: center; min-height: 30px; }
+.om-island .om-maker {grid-template-columns: 13rem minmax(0, 1fr); }
+.om-island .om-lane + .om-lane {border-top: 1px dashed color-mix(in srgb, var(--line) 70%, transparent); }
+.om-island .om-lane-label {display: flex; align-items: center; gap: .45rem; padding-right: .8rem; color: var(--tone); font-size: .76rem; }
+.om-island .om-lane-label b {font-weight: 600; color: var(--ink); }
+.om-island .om-lane-label small {margin-left: auto; color: var(--muted); font-size: .66rem; }
+.om-island .om-lane-track {position: relative; height: 30px; }
+.om-island .om-dot {position: absolute; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; border-radius: 50%; background: var(--tone); opacity: .38; transition: transform .15s, opacity .15s; }
+.om-island .om-dot.has-map {opacity: .95; box-shadow: 0 0 0 1.5px var(--page), 0 0 0 2.5px color-mix(in srgb, var(--tone) 60%, transparent); cursor: pointer; z-index: 1; }
+.om-island .om-dot:hover, .om-island .om-dot.is-on {transform: scale(1.7); opacity: 1; z-index: 2; }
+.om-island .om-lane-axis {border-top: 1px solid var(--line); }
+.om-island .om-axis {position: absolute; inset: 0; }
+.om-island .om-axis span {position: absolute; top: 6px; transform: translateX(-50%); font-size: .62rem; letter-spacing: .04em; color: var(--muted); }
+.om-island .om-axis-break {position: absolute; top: -6px; width: 8px; height: 12px; transform: translateX(-50%) skewX(-20deg); border-inline: 1px solid var(--muted); background: var(--page); }
+.om-island .om-hair {position: absolute; bottom: 100%; width: 1px; height: 600px; max-height: 100vh; background: linear-gradient(to top, var(--ink), transparent); opacity: .25; pointer-events: none; }
+.om-island .om-lanes {overflow: hidden; }
+.om-island .om-readout {display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) auto; gap: 1.1rem; align-items: center; min-height: 6.8rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.om-island .om-read-empty {grid-column: 1 / -1; color: var(--muted); font-size: .85rem; }
+.om-island .om-read-img {position: relative; display: grid; place-items: center; height: 5.6rem; border-radius: 8px; background: var(--surface-2); overflow: hidden; }
+.om-island .om-read-img img {position: absolute; inset: .3rem; width: calc(100% - .6rem); height: calc(100% - .6rem); object-fit: contain; }
+.om-island .om-read-img.is-empty {color: var(--muted); }
+.om-island .om-read-txt b {font: 500 1.5rem/1 var(--serif); }
+.om-island .om-read-txt p {margin-top: .3rem; font: 500 1rem/1.4 var(--serif); }
+.om-island .om-read-txt small {display: block; margin-top: .2rem; color: var(--muted); font-size: .74rem; }
+.om-island .om-read-tags {display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .4rem; }
+.om-island .om-read-tags span {font-size: .62rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--tone); }
+.om-island .om-read-open {display: inline-flex; align-items: center; gap: .5rem; padding: .55rem 1rem; border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); border-radius: 999px; background: none; color: var(--accent); font-size: .8rem; white-space: nowrap; }
+.om-island .om-read-open:hover {background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.om-island .om-read-none {max-width: 12rem; font-size: .7rem; color: var(--muted); text-align: right; }
+.om-island .om-maker {min-height: 34px; }
+.om-island .om-maker-name {display: grid; padding-right: .8rem; line-height: 1.25; }
+.om-island .om-maker-name b {font: 500 .9rem var(--serif); }
+.om-island .om-maker-name small {font-size: .64rem; color: var(--muted); }
+.om-island .om-maker .om-lane-track {height: 34px; }
+.om-island .om-maker-line {position: absolute; top: 50%; height: 1px; background: var(--muted); opacity: .45; }
+.om-island .om-makers .om-maker:not(.om-lane-axis) + .om-maker {border-top: 1px dashed color-mix(in srgb, var(--line) 60%, transparent); }
+.om-island .om-libs {display: grid; gap: .1rem; }
+.om-island .om-lib {display: grid; grid-template-columns: minmax(0, 18rem) minmax(0, 1fr) 3.5rem; grid-template-areas: "n bar c" "n terms terms"; gap: .1rem 1rem; align-items: center; padding: .55rem 0; border-bottom: 1px solid var(--line); }
+.om-island .om-lib-name {grid-area: n; font: 500 .95rem/1.35 var(--serif); }
+.om-island .om-lib-bar {grid-area: bar; height: 2px; background: var(--surface-2); }
+.om-island .om-lib-bar i {display: block; height: 100%; background: var(--accent); }
+.om-island .om-lib b {grid-area: c; text-align: right; font: 500 1.05rem var(--serif); }
+.om-island .om-lib small {grid-area: terms; font-size: .72rem; color: var(--muted); }
+.om-island .om-licences {display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin-top: 1rem; font-size: .74rem; color: var(--muted); }
+.om-island .om-licences b {font: 500 .95rem var(--serif); color: var(--ink); }
+@media (max-width: 640px) {.om-island .om-lane, .om-island .om-maker {grid-template-columns: 4.6rem minmax(0, 1fr); }
+.om-island .om-lane-label {flex-wrap: wrap; gap: .1rem .3rem; padding-right: .4rem; font-size: .66rem; }
+.om-island .om-lane-label svg, .om-island .om-lane-label small {display: none; }
+.om-island .om-maker-name b {font-size: .72rem; }
+.om-island .om-maker-name small {display: none; }
+.om-island .om-axis span {font-size: .52rem; }
+.om-island .om-axis span:nth-child(2), .om-island .om-axis span:nth-child(5), .om-island .om-axis span:nth-child(7) {display: none; }
+.om-island .om-readout {grid-template-columns: 5rem minmax(0, 1fr); }
+.om-island .om-read-open, .om-island .om-read-none {grid-column: 1 / -1; justify-self: start; text-align: left; }
+.om-island .om-read-img {height: 4.4rem; }
+.om-island .om-lib {grid-template-columns: minmax(0, 1fr) 3rem; grid-template-areas: "n c" "bar bar" "terms terms"; }
+}
+.om-island .om-cabinet-intro {grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); align-items: center; }
+.om-island .om-cabinet-intro h1 {font-size: clamp(2.8rem, 6.4vw, 5.4rem); }
+.om-island .om-cabinet-intro .om-figures {grid-column: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); border-bottom: 0; }
+.om-island .om-cabinet-intro .om-figures > div {border-left: 0; padding-left: 0; border-bottom: 1px solid var(--line); }
+.om-island .om-cabinet-intro .om-figures > div:nth-child(even) {padding-left: 1rem; border-left: 1px solid var(--line); }
+@media (max-width: 860px) {.om-island .om-cabinet-intro {grid-template-columns: 1fr; }
+}
+.om-island .om-chest-chips {margin-bottom: 1.4rem; }
+.om-island .om-rail {display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); border-bottom: 1px solid var(--line); }
+.om-island .om-rail button {position: relative; display: grid; gap: .1rem; justify-items: start; padding: .4rem .5rem .8rem 0; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; background: none; text-align: left; transition: border-color .2s, color .2s; }
+.om-island .om-rail b {font: 500 1.5rem/1.1 var(--serif); letter-spacing: -.02em; color: var(--muted); transition: color .2s; }
+.om-island .om-rail span {font-size: .66rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.om-island .om-rail small {font-size: .66rem; color: var(--muted); }
+.om-island .om-rail button:hover b {color: var(--ink); }
+.om-island .om-rail button[aria-selected="true"] {border-bottom-color: var(--accent); }
+.om-island .om-rail button[aria-selected="true"] b {color: var(--accent); }
+.om-island .om-rail button:disabled {opacity: .35; cursor: default; }
+.om-island .om-drawer {position: relative; overflow: hidden; padding-top: 1.4rem; }
+.om-island .om-drawer-inner {position: relative; transition: transform .45s cubic-bezier(.16, 1, .3, 1), opacity .3s; }
+.om-island .om-drawer-inner.is-leaving {transform: translateX(var(--from)); opacity: 0; transition-duration: .22s; }
+.om-island .om-drawer-inner.is-entering {transform: translateX(calc(var(--from) * -1)); opacity: 0; transition: none; }
+.om-island .om-numeral {position: absolute; z-index: 0; top: -1.4rem; right: 0; font: 400 clamp(5.5rem, 12vw, 10rem)/1 var(--serif); letter-spacing: -.04em; color: color-mix(in srgb, var(--accent) 16%, transparent); pointer-events: none; white-space: nowrap; }
+@media (max-width: 760px) {.om-island .om-numeral {top: -1.5rem; font-size: 2.8rem; }
+}
+.om-island .om-drawer-head {position: relative; max-width: 46rem; margin-bottom: 1.4rem; }
+.om-island .om-drawer-head h3 {margin-top: .3rem; font: 500 clamp(1.5rem, 3vw, 2.2rem)/1.15 var(--serif); letter-spacing: -.03em; }
+.om-island .om-drawer-head p:last-child {margin-top: .5rem; font-size: .84rem; color: var(--muted); }
+.om-island .om-drawer-head b {font-weight: 600; }
+.om-island .om-grid {position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.6rem 1.2rem; }
+.om-island .om-more {margin-top: 1.4rem; padding: .55rem 1.1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: .8rem; color: var(--muted); }
+.om-island .om-more:hover {color: var(--ink); border-color: var(--ink); }
+@media (max-width: 1100px) {.om-island .om-grid {grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {.om-island .om-grid {grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem .9rem; }
+.om-island .om-rail {grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 6.2rem; overflow-x: auto; scrollbar-width: none; }
+}
+.om-island .om-years {position: relative; height: 3.6rem; margin: .4rem 1.2rem 1.4rem; }
+.om-island .om-years-line {position: absolute; left: 0; right: 0; top: 1.05rem; height: 1px; background: var(--line); }
+.om-island .om-years button {position: absolute; top: 0; transform: translateX(-50%); display: grid; justify-items: center; gap: .45rem; padding: .6rem .2rem; border: 0; background: none; }
+.om-island .om-years button i {width: 11px; height: 11px; border: 1px solid var(--muted); border-radius: 50%; background: var(--page); transition: transform .2s, background .2s, border-color .2s; }
+.om-island .om-years button b {font: 500 .95rem var(--serif); color: var(--muted); }
+.om-island .om-years button:hover b {color: var(--ink); }
+.om-island .om-years button[aria-selected="true"] i {transform: scale(1.35); border-color: var(--accent); background: var(--accent); }
+.om-island .om-years button[aria-selected="true"] b {color: var(--accent); }
+.om-island .om-compare {display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 1.4rem; }
+.om-island .om-compare figure {margin: 0; display: grid; gap: .8rem; align-content: start; }
+.om-island .om-old-stage {display: grid; place-items: center; height: clamp(18rem, 36vw, 30rem); padding: .8rem; border: 1px solid transparent; border-radius: 12px; background: var(--surface-2); cursor: pointer; overflow: hidden; }
+.om-island .om-old-stage:hover {border-color: var(--line); }
+.om-island .om-old-stage {position: relative; }
+.om-island .om-old-stage img {position: absolute; inset: .8rem; width: calc(100% - 1.6rem); height: calc(100% - 1.6rem); object-fit: contain; filter: drop-shadow(0 10px 14px rgb(0 0 0 / 25%)); opacity: 0; transform: translateX(14px); transition: opacity .45s, transform .6s cubic-bezier(.16, 1, .3, 1); }
+.om-island .om-old-stage img.is-in {opacity: 1; transform: none; }
+.om-island .om-old figcaption {display: grid; font-size: .8rem; line-height: 1.6; }
+.om-island .om-cap {grid-area: 1 / 1; display: grid; align-content: start; gap: .25rem; visibility: hidden; }
+.om-island .om-cap.is-on {visibility: visible; }
+.om-island .om-old figcaption b {font: 500 1.8rem/1 var(--serif); color: var(--accent); }
+.om-island .om-old figcaption strong {font: 500 1.05rem/1.35 var(--serif); }
+.om-island .om-old figcaption small {color: var(--muted); font-size: .74rem; }
+.om-island .om-old figcaption p {max-width: 62ch; color: var(--muted); }
+.om-island .om-modern-svg {display: block; width: 100%; height: clamp(18rem, 36vw, 30rem); border-radius: 12px; background: color-mix(in srgb, var(--poetry) 6%, var(--surface)); }
+.om-island .om-modern-turn {transition: transform .9s cubic-bezier(.16, 1, .3, 1); }
+.om-island .om-coast {fill: none; stroke: var(--poetry); stroke-width: 1.6; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.om-island .om-modern-svg g circle {fill: var(--surface); stroke: var(--ink); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.om-island .om-modern-svg .is-key circle {fill: var(--history); stroke: var(--history); }
+.om-island .om-modern-svg text {font: 500 11px var(--sans); fill: var(--muted); transform: rotate(var(--counter, 0deg)); transform-box: fill-box; transform-origin: left center; transition: transform .9s cubic-bezier(.16, 1, .3, 1); }
+.om-island .om-modern-svg .is-key text {fill: var(--ink); font-weight: 700; }
+.om-island .om-modern-svg text.is-left {transform-origin: right center; }
+.om-island .om-modern-svg text.om-water, .om-island .om-panel-svg text.om-water {font: italic 400 12px var(--serif); fill: var(--poetry); opacity: .8; transform-origin: center; }
+.om-island .om-north path {fill: var(--muted); stroke: none; }
+.om-island .om-north text {text-anchor: middle; font-size: 10px; }
+.om-island .om-modern figcaption {display: grid; gap: .6rem; font-size: .74rem; color: var(--muted); line-height: 1.6; }
+.om-island .om-turn {justify-self: start; padding: .5rem .95rem; border: 1px solid color-mix(in srgb, var(--poetry) 45%, transparent); border-radius: 999px; background: none; color: var(--poetry); font-size: .76rem; text-align: left; }
+.om-island .om-turn:hover {background: color-mix(in srgb, var(--poetry) 9%, transparent); }
+.om-island .om-step {display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1rem; font-size: .76rem; color: var(--muted); }
+.om-island .om-step button {display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); }
+.om-island .om-step button:hover {border-color: var(--ink); }
+@media (max-width: 860px) {.om-island .om-compare {grid-template-columns: 1fr; }
+.om-island .om-years {margin-inline: .9rem; }
+.om-island .om-years button b {font-size: .72rem; }
+.om-island .om-years button:nth-child(odd) b {transform: translateY(1.1rem); }
+}
+.om-island .om-heat-wrap {overflow-x: auto; scrollbar-width: thin; }
+.om-island .om-heat {border-collapse: separate; border-spacing: 3px; min-width: 40rem; width: 100%; }
+.om-island .om-heat th {font-size: .68rem; font-weight: 500; color: var(--muted); }
+.om-island .om-heat thead th span {display: block; padding-bottom: .3rem; white-space: nowrap; }
+.om-island .om-heat tbody th {padding-right: .6rem; text-align: right; color: var(--ink); white-space: nowrap; font-size: .74rem; }
+.om-island .om-heat td button {width: 100%; height: 30px; border: 1px solid transparent; border-radius: 5px; background: color-mix(in srgb, var(--tone) calc(var(--k) * 100%), var(--surface-2)); font: 500 .66rem var(--sans); color: var(--ink); transition: border-color .15s, transform .15s; }
+.om-island .om-heat td button:not(:disabled):hover {transform: scale(1.06); }
+.om-island .om-heat td button[aria-pressed="true"] {border-color: var(--ink); }
+.om-island .om-heat td button:disabled {opacity: .5; cursor: default; }
+.om-island .om-heat-pick {margin-top: 1.2rem; }
+.om-island .om-pick-head {margin-bottom: .9rem; font-size: .85rem; color: var(--muted); }
+.om-island .om-pick-head b {font: 500 1.05rem var(--serif); color: var(--tone); }
+.om-island .om-strip {display: grid; grid-auto-flow: column; grid-auto-columns: 10.5rem; gap: 1.1rem; overflow-x: auto; padding: .5rem 0 .8rem; }
+.om-island .om-x-label {display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; margin-bottom: 1rem; }
+.om-island .om-x-label > span {display: grid; place-items: center; width: 2rem; height: 2rem; border: 1px solid var(--accent); border-radius: 50%; font: 600 .75rem var(--sans); color: var(--accent); }
+.om-island .om-x-label h2 {font: 500 1.45rem/1.2 var(--serif); }
+.om-island .om-x-label p {max-width: 70ch; margin-top: .3rem; font-size: .86rem; color: var(--muted); }
+.om-island .om-excerpt {position: relative; padding: 1.4rem; border: 1px dashed color-mix(in srgb, var(--line) 85%, var(--muted)); border-radius: 18px; }
+.om-island .om-excerpt + .om-excerpt {margin-top: 1.2rem; }
+.om-island .om-x-where {margin-bottom: .9rem; font-size: .66rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.om-island .om-x-where em {text-transform: none; letter-spacing: 0; font: italic 400 .9rem var(--serif); }
+@media (max-width: 560px) {.om-island .om-excerpt {padding: .9rem; }
+}
+.om-island .om-strip::-webkit-scrollbar {height: 10px; }
+.om-island .om-strip::-webkit-scrollbar-track {background: transparent; }
+.om-island .om-strip::-webkit-scrollbar-button {display: none; width: 0; height: 0; }
+.om-island .om-strip::-webkit-scrollbar-thumb {border: 2px solid transparent; border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent) padding-box; }
+.om-island .om-strip::-webkit-scrollbar-thumb:hover {background-color: color-mix(in srgb, var(--ink) 45%, transparent); }
+@supports not selector(::-webkit-scrollbar) {.om-island .om-strip {scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; }
+}
+
+.om-island.om-view-d .om-landing {grid-template-columns: minmax(0, 1fr) minmax(0, 34rem); align-items: center; }
+.om-island.om-view-d .om-landing > div:nth-child(2) {display: grid; place-items: center; }
+.om-island.om-view-d .om-landing .places-artwork {width: 100%; height: 225px; }
+.om-island.om-view-d .om-chest-chips {gap: .5rem; }
+.om-island.om-view-d .om-chest-chips .om-crystal {flex: 1 1 calc((100% - 2.5rem) / 6); min-width: 0; }
+@media (max-width: 1100px) {.om-island.om-view-d .om-chest-chips .om-crystal {flex-basis: calc((100% - 1.5rem) / 4); }
+}
+@media (max-width: 860px) {.om-island.om-view-d .om-landing {grid-template-columns: 1fr; }
+.om-island.om-view-d .om-landing .places-artwork {height: 170px; }
+}
+@media (max-width: 560px) {.om-island.om-view-d .om-chest-chips .om-crystal {flex-basis: calc((100% - .5rem) / 2); }
+}
+.om-island .om-lands {display: flex; flex-wrap: wrap; gap: .4rem; margin: .4rem 0 .6rem; }
+.om-island .om-lands button {display: inline-flex; align-items: baseline; gap: .5rem; padding: .5rem 1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: .82rem; font-weight: 600; color: var(--ink); cursor: pointer; outline: none; transition: border-color .15s, background .15s; }
+.om-island .om-lands button small {font-weight: 400; font-size: .68rem; color: var(--muted); }
+.om-island .om-lands button:hover {border-color: var(--accent); }
+.om-island .om-lands button[aria-selected="true"] {border-color: var(--ink); background: var(--ink); color: var(--page); }
+.om-island .om-lands button[aria-selected="true"] small {color: color-mix(in srgb, var(--page) 70%, transparent); }
+.om-island .om-modern-box {display: contents; }
+.om-island .om-modern-svg text.is-hidden {opacity: 0; }

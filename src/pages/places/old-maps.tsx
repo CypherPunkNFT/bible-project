@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Compass } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useId, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { atlasDestination } from "./routes";
@@ -7,7 +7,7 @@ import "./old-maps.css";
 
 // The Atlas's ninth destination: historical maps of the biblical world (Research/HistoricalMaps). The owner approved the
 // card and the Study card on 2026-10-19 (design/old-maps-directions/?d=atlas, parts 1 and 4); the collection page itself
-// is still being chosen among directions A, B and C, so /study/atlas/old-maps shows a short preview until then.
+// is old-maps-collection/ (the merged design, ?d=d).
 
 const fmt = (n: number) => n.toLocaleString("en-GB");
 
@@ -73,20 +73,5 @@ export function OldMapsRow({ style }: { style: CSSProperties }) {
         <div className="old-maps-fan" aria-hidden="true">{SUMMARY.fan.map((map) => <img key={map.src} src={map.src} alt="" loading="lazy" />)}</div>
       </div>
     </Link>
-  </>;
-}
-
-/** /study/atlas/old-maps until the owner chooses the collection's design: what it is, three sheets, and what comes next. */
-export function OldMapsPreview() {
-  return <>
-    <header className="places-destination-intro history-intro"><div><p className="places-kicker">How it was drawn</p><h1>The biblical world, as it was drawn.</h1>
-      <p>{`${fmt(SUMMARY.maps)} maps of the Holy Land, Jerusalem and the lands around them, from a plan of Jerusalem's churches dated about ${SUMMARY.earliest} to the surveys of the ${Math.floor(SUMMARY.latest / 10) * 10}s, by ${fmt(SUMMARY.makers)} mapmakers, from ${SUMMARY.libraries} libraries.`}</p></div>
-      <OldMapsArtwork /></header>
-    <section className="old-maps-preview" aria-label="Three of the maps">
-      {SUMMARY.fan.map((map) => <a key={map.src} href={map.url} target="_blank" rel="noreferrer" className="old-maps-sheet">
-        <img src={map.src} alt={`${map.title}, ${map.year}`} loading="lazy" />
-        <span className="old-maps-year">{map.year}</span><strong>{map.maker}</strong><small>{map.credit} · {map.licence}</small></a>)}
-    </section>
-    <div className="places-next-build old-maps-next"><Compass size={18} aria-hidden /><p>The full collection is being designed: every map through time, by subject and by mapmaker, each opening at full size with its library and its credit.</p></div>
   </>;
 }
