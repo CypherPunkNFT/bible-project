@@ -17,11 +17,11 @@ function CityPicker({ cities, chosen, onPick }: { cities: City[]; chosen: string
   </div>;
 }
 
-export function CitySection({ city, cities, onPick, checked }: { city: City & { id: keyof typeof CITY_FILES }; cities: City[]; onPick: (id: string) => void; checked: string }) {
+export function CitySection({ city, cities, onPick, leaving, checked }: { city: City & { id: keyof typeof CITY_FILES }; cities: City[]; onPick: (id: string) => void; leaving?: boolean; checked: string }) {
   const files = CITY_FILES[city.id];
   const states = useResource("us-states"), facts = useResource(files.facts), map = useResource(files.map);
   const kinds = useMemo(() => kindsIn(city), [city]);
-  return <section className="lf-city" aria-labelledby="lf-city-name">
+  return <section className="lf-city" data-leaving={leaving || undefined} aria-labelledby="lf-city-name">
     {cities.length > 1 && <CityPicker cities={cities} chosen={city.id} onPick={onPick} />}
     <div className="lf-city-top">
       {typeof states === "object" ? <UsaMap states={states} city={city} cities={cities} onPick={onPick} /> : <p className="lf-wait lf-wait-usa">{states === "loading" ? "Loading the map…" : "The map outline is missing."}</p>}

@@ -317,3 +317,9 @@ a.lf-src:hover { color: var(--ink); }
   .lf-door .lfd-mote { opacity: .6; }
   .lf-body, .lf-chev, .lf-row, .lf-pin .lf-disc, .lf-pin .lf-halo { transition: none; }
 }
+
+/* Choosing another city: the old one fades out (.2s), the new one fades in. */
+.lf-city { animation: lf-city-in .4s ease both; transition: opacity .2s ease; }
+.lf-city[data-leaving] { opacity: 0; pointer-events: none; }
+@keyframes lf-city-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .lf-city { animation: none; transition: none; } }

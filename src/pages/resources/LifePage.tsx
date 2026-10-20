@@ -3,7 +3,7 @@
 // then the researched city chosen from the pills (only cities with verified: true) with its USA map, sourced facts and its own map of places;
 // and how the list is made. No section links: this page stands on its own. Every word and number comes from the data.
 import { MessageSquareText, Phone } from "lucide-react";
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { Help, LifeData } from "@/data/resources";
 import { dialable, smsHref } from "./contact-links";
 import { CitySection } from "./life/CitySection";
@@ -40,8 +40,17 @@ export default function LifePage({ data }: { data: LifeData }) {
   const national = data.groups.reduce((n, g) => n + g.entries.length, 0);
   // Only verified cities, and only once their map and facts have been built (scripts/build-city-maps.py).
   const cities = data.cities.filter((c) => c.verified === true && c.entries.length > 0).flatMap((c) => (hasCityFiles(c.id) ? [{ ...c, id: c.id }] : []));
-  const [chosenId, setChosenId] = useState<string | null>(null);
+  const [chosenId, setChosenId] = useState<string | null>(null), [leaving, setLeaving] = useState(false);
+  const timer = useRef(0);
+  useEffect(() => () => window.clearTimeout(timer.current), []);
   const chosen = cities.find((c) => c.id === chosenId) ?? cities[0];
+  // A new city fades the old one out, then fades in (the fade-in is the section's own entrance, in life.css); no fade for reduced motion.
+  const pick = (id: string) => {
+    if (id === chosen?.id || leaving) return;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) { setChosenId(id); return; }
+    setLeaving(true);
+    timer.current = window.setTimeout(() => { setChosenId(id); setLeaving(false); }, 220);
+  };
   const places = cities.reduce((n, c) => n + c.entries.length, 0), lines = cities.reduce((n, c) => n + (c.lines?.length ?? 0), 0);
   const helpsWith = listOf([...new Set(cities.flatMap((c) => kindsIn(c).map(([k]) => kindOf(k).short.toLowerCase())))]);
   const stats: [string, string | number][] = [["National lines", national], ...(cities.length ? [["Places", places], ["Local lines", lines]] as [string, number][] : []), ["Checked", data.checked]];
@@ -59,6 +68,6 @@ export default function LifePage({ data }: { data: LifeData }) {
       <DoorArt />
     </header>
     <NationalLines groups={groups} />
-    {chosen && <CitySection key={chosen.id} city={{ ...chosen, id: chosen.id }} cities={cities} onPick={setChosenId} checked={data.checked} />}
+    {chosen && <CitySection key={chosen.id} city={{ ...chosen, id: chosen.id }} cities={cities} onPick={pick} leaving={leaving} checked={data.checked} />}
   </div>;
 }
