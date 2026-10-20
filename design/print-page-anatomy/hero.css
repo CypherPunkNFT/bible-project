@@ -1,10 +1,7 @@
 /* Landing: one full screen under the 61px site header — text and art on top, the figures pinned to the bottom. */
 .pr-study .hx-landing { display: flex; flex-direction: column; }
-.pr-study .hx-landing .pr-intro { flex: 1; grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); align-items: start; align-content: start; gap: 1rem 3.5rem; padding-block: 2rem 1rem; }
+.pr-study .hx-landing .pr-intro { flex: 1; grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); align-items: start; align-content: start; gap: 1rem 3.5rem; padding-block: 2rem 4.5rem; }
 .pr-study .hx-landing .pr-figures { margin-top: 0; }
-@media (min-width: 1000px) and (min-height: 700px) {
-  .pr-study .hx-landing { min-height: calc(100svh - 61px); }
-}
 
 .pr-study .hx-copy .pr-lede { max-width: 54ch; color: var(--ink); font-size: 1.02rem; }
 .pr-study .hx-copy .hx-why { max-width: 54ch; margin-top: .9rem; color: var(--muted); font-size: .9rem; line-height: 1.8; }
@@ -69,8 +66,8 @@
 .study-trail > span[aria-hidden] { opacity: .5; }
 .study-trail a:is(:focus, :focus-visible) { outline: none; }
 .pr-study .hx-eyebrow { margin: 0; font-size: .66rem; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; color: var(--accent); }
-/* Side by side, the drawing takes exactly the text column's height, centred in it, so it never reaches above or below the text. */
+/* Side by side, the drawing keeps its full size and is centred on the text column: it reaches as far above the text as below. */
 @media (min-width: 1000px) {
-  .pr-study .hx-art { align-self: stretch; min-height: 20rem; }
-  .pr-study .hx-art svg { position: absolute; inset: 0; height: 100%; }
+  .pr-study .hx-art { align-self: stretch; }
+  .pr-study .hx-art svg { position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
 }
