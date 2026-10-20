@@ -1,7 +1,8 @@
+import { StudyTrail } from "@/components/study/StudyTrail";
 import { useEffect, useId, useMemo, useState, type CSSProperties } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Check, ChevronDown, Fingerprint, Layers3, MapPin, ScanLine, X } from 'lucide-react';
+import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Check, ChevronDown, Fingerprint, Layers3, MapPin, ScanLine, X } from 'lucide-react';
 import { glossary, questions, witnesses, type Witness } from './witnesses';
 import { loadManuscripts } from '@/lib/data';
 import { useAsync } from '@/lib/useAsync';
@@ -46,10 +47,9 @@ export default function SurvivingWitnessesPage() {
   useEffect(() => { const previous = document.title; document.title = 'The surviving witnesses · Bible Project'; return () => { document.title = previous; }; }, []);
   const select = (id: string) => { const next = new URLSearchParams(params); next.set('witness', id); setParams(next, { replace: true, preventScrollReset: true }); };
   const transition = { duration: reduced ? 0 : .25, ease: 'easeOut' as const };
-  return <div className="sw-study">
-    <nav className="sw-breadcrumb" aria-label="Study navigation"><Link to="/study/academic?area=texts"><ArrowLeft size={14}/> Academic studies</Link><span>The Bible: formation & transmission <i>/</i> 01</span></nav>
+  return <div className="sw-study study-frame">
     <header className="sw-hero">
-      <div className="sw-hero-copy"><p className="sw-eyebrow">Ink. Hands. Centuries.</p><h1>The surviving<br/><em>witnesses.</em></h1><p className="sw-hero-lead">The words reached us.<br/>The pages did not all survive.</p><p className="sw-hero-description">Meet the physical manuscripts behind the printed Bible. Examine what remains, follow where it travelled, and learn to see the difference between evidence and inference.</p><a className="sw-start" href="#witness-desk">Open the archive <ArrowDown size={17}/></a></div>
+      <div className="sw-hero-copy"><StudyTrail area="texts" n="01"/><p className="sw-eyebrow">Ink. Hands. Centuries.</p><h1>The surviving<br/><em>witnesses.</em></h1><p className="sw-hero-lead">The words reached us.<br/>The pages did not all survive.</p><p className="sw-hero-description">Meet the physical manuscripts behind the printed Bible. Examine what remains, follow where it travelled, and learn to see the difference between evidence and inference.</p><a className="sw-start" href="#witness-desk">Open the archive <ArrowDown size={17}/></a></div>
       <div className="sw-hero-art"><div className="sw-orbit sw-orbit-one"/><div className="sw-orbit sw-orbit-two"/><span className="sw-art-label sw-art-label-top">THE PHYSICAL TRACE</span><div className="sw-hero-sheet sw-hero-sheet-back"><Folio kind="columns" hero/></div><div className="sw-hero-sheet sw-hero-sheet-front"><Folio kind="fragment" hero/></div><span className="sw-art-note"><i/> A surviving part.<br/><span>A larger story.</span></span><small>Illustrative forms · not manuscript facsimiles</small></div>
     </header>
     <div className="sw-orientation"><span><Fingerprint size={18}/> Examine the object</span><span><Layers3 size={18}/> Understand the survival</span><span><ScanLine size={18}/> Test the conclusion</span><a href="#witness-sources">Follow the sources <ArrowUpRight size={14}/></a></div>

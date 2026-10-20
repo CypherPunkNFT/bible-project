@@ -1,6 +1,7 @@
+import { StudyTrail } from "@/components/study/StudyTrail";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Plus } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Plus } from "lucide-react";
 import { loadMuseumIndex } from "@/lib/data";
 import { useAsync } from "@/lib/useAsync";
 import { GROUP_LABELS, GROUP_LEADS, type MuseumCard, type MuseumGroup } from "@/lib/museums";
@@ -75,20 +76,15 @@ export default function MuseumArchaeologyPage() {
 
   if (index.status === "loading") {
     return (
-      <div className="mu-page">
+      <div className="mu-page study-frame">
         <p className="mu-loading">Opening the museum records…</p>
       </div>
     );
   }
   if (index.status === "error") {
     return (
-      <div className="mu-page">
-        <nav className="mu-breadcrumb" aria-label="Study navigation">
-          <Link to="/study/academic?area=history">
-            <ArrowLeft size={14} aria-hidden="true" />
-            Academic studies
-          </Link>
-        </nav>
+      <div className="mu-page study-frame">
+        <StudyTrail area="history" />
         <h1>Museum-Grade Archaeology</h1>
         <p className="mu-unavailable">
           These museum records are not in this version of the site. They are generated from the project's own
@@ -106,17 +102,10 @@ export default function MuseumArchaeologyPage() {
     .slice(0, 12);
 
   return (
-    <div className="mu-page">
-      <nav className="mu-breadcrumb" aria-label="Study navigation">
-        <Link to="/study/academic?area=history">
-          <ArrowLeft size={14} aria-hidden="true" />
-          Academic studies
-        </Link>
-        <span>History &amp; archaeology</span>
-      </nav>
-
+    <div className="mu-page study-frame">
       <header className="mu-landing">
         <div>
+          <StudyTrail area="history" />
           <p className="mu-kicker">Museum records · Open licences · Named objects</p>
           <h1>
             Museum-grade

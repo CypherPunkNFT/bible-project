@@ -36,7 +36,7 @@ export default function PrintRoomPage() {
   useEffect(()=>{const previous=document.title;document.title='From manuscript to printed Bible · Bible Project';return()=>{document.title=previous;};},[]);
   const choose=(id:string)=>{const next=new URLSearchParams(params);next.set('edition',id);setParams(next,{replace:true,preventScrollReset:true});};
   const openEdition=(id:string)=>{setPrintState('arch-tab','pages');choose(id);};
-  return <div className="pr-study">
+  return <div className="pr-study study-frame">
     <Opening/>
     <PrintTimeline onEdition={openEdition}/>
     <ChapterRow/>

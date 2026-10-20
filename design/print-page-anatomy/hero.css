@@ -1,6 +1,6 @@
 /* Landing: one full screen under the 61px site header — text and art on top, the figures pinned to the bottom. */
 .pr-study .hx-landing { display: flex; flex-direction: column; }
-.pr-study .hx-landing .pr-intro { flex: 1; grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); align-items: center; gap: 1rem 3.5rem; padding-block: 2rem 1rem; }
+.pr-study .hx-landing .pr-intro { flex: 1; grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); align-items: start; gap: 1rem 3.5rem; padding-block: 4rem 1rem; }
 .pr-study .hx-landing .pr-figures { margin-top: 0; }
 @media (min-width: 1000px) and (min-height: 700px) {
   .pr-study .hx-landing { min-height: calc(100svh - 61px); }
@@ -19,9 +19,7 @@
 [data-theme="light"] .pr-study .hx-art { --pr-red: #934839; --pr-blue: #39676d; }
 @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .pr-study .hx-art { --pr-red: #934839; --pr-blue: #39676d; } }
 .pr-study .hx-art svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentcolor; stroke-linecap: round; }
-.pr-study .hx-art-top { position: absolute; top: 0; left: 4%; font-size: .58rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
-.hx-orbit { stroke-width: .8; stroke-dasharray: 1 7; opacity: .55; transform-box: fill-box; transform-origin: center; }
-.hx-orbit-2 { opacity: .35; }
+.pr-study .hx-art-top { position: absolute; bottom: 1%; left: 4%; font-size: .58rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
 .hx-mark { stroke-width: 1; opacity: .6; }
 .hx-tie { stroke-width: .7; stroke-dasharray: 3 4; opacity: .45; }
 
@@ -45,9 +43,6 @@
 .hx-beam { fill: url(#hx-beam); stroke: none; animation: hx-scan 9s cubic-bezier(.45, 0, .55, 1) infinite; mix-blend-mode: screen; }
 [data-theme="light"] .hx-beam { mix-blend-mode: multiply; }
 @keyframes hx-scan { from { transform: translateX(-60px); } to { transform: translateX(680px); } }
-.hx-orbit { animation: hx-turn 60s linear infinite; }
-.hx-orbit-2 { animation-duration: 90s; animation-direction: reverse; }
-@keyframes hx-turn { to { transform: rotate(360deg); } }
 
 .hx-press { color: var(--pr-red); stroke-width: 1.2; }
 .hx-plate { fill: color-mix(in srgb, var(--pr-red) 14%, transparent); }
@@ -62,10 +57,21 @@
 .hx-name { fill: var(--muted); stroke: none; font: 600 7.5px/1 var(--font-sans, sans-serif); letter-spacing: .14em; text-transform: uppercase; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hx-beam, .hx-orbit { animation: none; }
+  .hx-beam { animation: none; }
   .hx-sheet { transition: none; }
 }
 @media (max-width: 999px) {
   .pr-study .hx-landing .pr-intro { grid-template-columns: 1fr; }
   .pr-study .hx-art { max-width: 36rem; margin-inline: auto; width: 100%; }
+}
+
+/* The academic studies' trail, as on the live site: one quiet line directly above the eyebrow. */
+.study-trail { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .55rem; margin: 0 0 1.1rem; font-size: .72rem; line-height: 1.5; letter-spacing: .02em; color: var(--muted); }
+.study-trail a { display: inline-flex; align-items: center; gap: .35rem; color: var(--muted); text-decoration: none; transition: color .18s; }
+.study-trail a:hover { color: var(--accent); }
+.study-trail a:last-of-type { color: var(--ink); }
+.study-trail > span[aria-hidden] { opacity: .5; }
+.study-trail a:is(:focus, :focus-visible) { outline: none; }
+@media (max-width: 640px) {
+  .pr-study .hx-art-top { position: static; display: block; margin-top: .6rem; }
 }

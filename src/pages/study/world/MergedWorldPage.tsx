@@ -1,3 +1,4 @@
+import { StudyTrail } from "@/components/study/StudyTrail";
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Check, Compass, Footprints } from 'lucide-react';
@@ -34,10 +35,9 @@ export default function MergedWorldPage() {
     const next = new URLSearchParams(params); next.set('scene', scenes[index].id); navigate({ search: next.toString(), hash: '' }, { preventScrollReset: true });
     if (focus) requestAnimationFrame(() => { sceneTitle.current?.focus({ preventScroll: true }); sceneTitle.current?.scrollIntoView({ block: 'start', behavior: 'instant' }); });
   };
-  return <div className="wj-study wj-merged">
-    <nav className="wj-breadcrumb" aria-label="Study navigation"><Link to="/study/academic?area=history"><ArrowLeft size={14} aria-hidden="true"/> Academic studies</Link><span>History & archaeology <span aria-hidden="true">/</span> 09</span></nav>
+  return <div className="wj-study wj-merged study-frame">
     <header className="wj-hero">
-      <div><p className="wj-kicker">History lived at human scale</p><h1>The world of Jesus<br/><em>& the apostles</em></h1><p className="wj-lead">From a Galilean courtyard to the cities of Paul.<br/>Every place changes the question.</p><p className="wj-intro">Move through homes, assemblies, pilgrimage, a provincial hearing, urban meals and a sea crossing. Bring the material evidence alongside the texts—and keep their dates, places and limits in view.</p><a className="wj-start" href="#world-journey">Begin the journey <ArrowDown size={17} aria-hidden="true"/></a></div>
+      <div><StudyTrail area="history" n="09"/><p className="wj-kicker">History lived at human scale</p><h1>The world of Jesus<br/><em>& the apostles</em></h1><p className="wj-lead">From a Galilean courtyard to the cities of Paul.<br/>Every place changes the question.</p><p className="wj-intro">Move through homes, assemblies, pilgrimage, a provincial hearing, urban meals and a sea crossing. Bring the material evidence alongside the texts—and keep their dates, places and limits in view.</p><a className="wj-start" href="#world-journey">Begin the journey <ArrowDown size={17} aria-hidden="true"/></a></div>
       <figure className="wj-hero-art"><WorldHero/><figcaption>Reconstructed forms · a visual introduction, not a historical panorama</figcaption></figure>
     </header>
     <div className="wj-orientation"><span><Footprints size={17} aria-hidden="true"/> Eight connected situations</span><span><Compass size={17} aria-hidden="true"/> Mainly the 20s–60s CE</span><span>Connected places, different societies</span><a href="#world-reading">Sources & deeper reading ↗</a></div>

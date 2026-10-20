@@ -1,3 +1,4 @@
+import { StudyTrail } from "@/components/study/StudyTrail";
 import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Check, ChevronDown } from 'lucide-react';
@@ -47,10 +48,9 @@ export default function CanonPage() {
     { prompt: 'Athanasius recommends a book for instruction. Does that place it in his canon?', answers: ['No: his letter explicitly distinguishes the two categories.', 'Yes: recommendation always means canonical.', 'Only if it appears in a later printed Bible.'], correct: 0, why: 'The source supplies its own distinction. Follow that distinction before applying the categories of another place or period.', ids: ['athanasius'] }
   ];
   const q = questions[question];
-  return <div className="cn-study">
-    <nav className="cn-breadcrumb" aria-label="Study navigation"><Link to="/study/academic?area=texts"><ArrowLeft size={14} aria-hidden="true"/> Academic studies</Link><span>The Bible: formation & transmission</span></nav>
+  return <div className="cn-study study-frame">
     <header className="cn-hero">
-      <div><p className="cn-kicker">Collections · communities · centuries</p><h1>How the canon<br/><em>took shape.</em></h1></div>
+      <div><StudyTrail area="texts"/><p className="cn-kicker">Collections · communities · centuries</p><h1>How the canon<br/><em>took shape.</em></h1></div>
       <div><p className="cn-lead">The writing stays the same.<br/>The claim changes.</p><p className="cn-intro">Before there was a table of contents, there were communities of readers. Follow how writings were gathered, used and recognized as Scripture. Each list belongs to a place, a time and a conversation.</p><a href="#canon-reception" className="cn-start">Compare the evidence <ArrowDown size={16} aria-hidden="true"/></a></div>
     </header>
     <CanonRegisters/>

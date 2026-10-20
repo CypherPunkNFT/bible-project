@@ -1,8 +1,9 @@
+import { StudyTrail } from "@/components/study/StudyTrail";
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowDown, ArrowRight, Compass } from 'lucide-react';
 import { cities } from './evidence';
-import { Breadcrumb, SourceDirectory } from './HistoryShared';
+import { SourceDirectory } from './HistoryShared';
 import './archaeological-journeys.css';
 import './history-layout.css';
 import { FormationLab, GrainPlot, ResearchTrail } from './CitiesEvidenceLab';
@@ -14,8 +15,8 @@ function SourceNote() { return <a className="cl-reference" href="https://doi.org
 export default function CitiesThroughLayersPage() {
   const [answer,setAnswer] = useState<string | null>(null);
   useEffect(() => { const old = document.title; document.title = 'Cities through their layers · Bible Project'; return () => { document.title = old; }; }, []);
-  return <div className="ha-study ha-cities"><Breadcrumb current="Cities through their layers"/>
-    <header className="ct-opening"><div><p className="ha-kicker">History & archaeology / Buildings change. Evidence remains.</p><h1>Cities through<br/><em>their layers.</em></h1></div><div className="ct-invitation"><p className="ct-lead">A city is more than<br/>the moment it fell.</p><p>Explore a place through its rebuilding, ordinary life and surviving traces. Begin with what was found. Then ask what it can tell us.</p><a href="#section-explorer">Read a city from the ground up <ArrowDown size={17}/></a></div></header>
+  return <div className="ha-study ha-cities study-frame">
+    <header className="ct-opening"><div><StudyTrail area="history"/><p className="ha-kicker">Buildings change. Evidence remains.</p><h1>Cities through<br/><em>their layers.</em></h1></div><div className="ct-invitation"><p className="ct-lead">A city is more than<br/>the moment it fell.</p><p>Explore a place through its rebuilding, ordinary life and surviving traces. Begin with what was found. Then ask what it can tell us.</p><a href="#section-explorer">Read a city from the ground up <ArrowDown size={17}/></a></div></header>
     <CitiesDesk/>
     <nav className="cl-reading-nav" aria-label="Study sections"><a href="#section-explorer">Investigate four cities</a><a href="#formation">Read the ground</a><a href="#dating">Evaluate dates</a><a href="#research-trail">Follow the scholarship</a></nav>
     <FormationLab/>

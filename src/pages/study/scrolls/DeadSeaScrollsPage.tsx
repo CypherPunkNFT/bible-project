@@ -9,8 +9,7 @@ import { Sources as Cite, ScrollsOpening, Significance, IsaiahLab, PsalterDebate
 export default function DeadSeaScrollsPage() {
   const [reading, setReading] = useState<'shared' | 'nun' | 'collection'>('shared');
   useEffect(() => { const old = document.title; document.title = 'The Dead Sea Scrolls · Bible Project'; return () => { document.title = old; }; }, []);
-  return <div className="dss-study">
-    <nav className="dss-crumb" aria-label="Study navigation"><Link to="/study/academic?area=texts">← Academic studies</Link><span>The Bible: formation & transmission</span></nav>
+  return <div className="dss-study study-frame">
     <ScrollsOpening/>
     <nav className="dss-path" aria-label="On this page"><a href="#dss-landscape">The manuscripts</a><a href="#dss-isaiah">Inside Isaiah</a><a href="#dss-dates">Dating</a><a href="#dss-reading">Read & compare</a><a href="#dss-workbench">Fragment workshop</a><a href="#dss-scholarship">Scholarship</a></nav>
     <Significance/>

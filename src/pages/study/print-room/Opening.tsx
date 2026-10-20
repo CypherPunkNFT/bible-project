@@ -1,9 +1,9 @@
+import { StudyTrail } from "@/components/study/StudyTrail";
 // The face of the study, laid out like the Manuscripts page's: breadcrumb, the big title with one italic line and a short
 // lede beside the opening drawing, then one end-to-end row of figures. Every figure is counted from the study's dossier
 // and its timeline. Below the timeline, the six chapters as a row of ways in.
 import type { CSSProperties, JSX } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import dossier from '../../../../content/academic-research/05-from-manuscript-to-printed-bible.json';
 import { PrintHeroArt } from './PrintHeroArt';
 import { CHAPTERS, ITEMS } from './print-timeline';
@@ -26,7 +26,7 @@ export function Opening() {
   return <>
     <div className="pr-intro">
       <div>
-        <p className="pr-crumb"><Link to="/study">Study</Link><span>/</span><Link to="/study/academic?area=texts">The Bible: formation &amp; transmission</Link><span>/</span>05</p>
+        <StudyTrail area="texts" n="05"/>
         <h1>From manuscript<em>to printed Bible</em></h1>
         <p className="pr-lede">The press made a page repeatable, but people still chose what went on it. Start with one surviving sheet of 1516,
           then follow the editors, printers and translators behind five centuries of printed Bibles.</p>

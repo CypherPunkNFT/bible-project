@@ -106,8 +106,6 @@ function art() {
     <defs><linearGradient id="hx-beam" x1="0" x2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity="0"/>
       <stop offset=".5" stop-color="var(--accent)" stop-opacity=".3"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient>
       <clipPath id="hx-glass-clip">${SHEETS.map((_, i) => `<rect x="0" y="0" width="${W}" height="${H}" transform="${SKEW} ${at(i).join(' ')})"/>`).join('')}</clipPath></defs>
-    <ellipse class="hx-orbit" cx="330" cy="290" rx="300" ry="190" transform="rotate(-14 330 290)"/>
-    <ellipse class="hx-orbit hx-orbit-2" cx="330" cy="290" rx="230" ry="250" transform="rotate(24 330 290)"/>
     <path class="hx-mark" d="${marks}"/>
     ${ties()}${SHEETS.map(sheet).join('')}
     <g clip-path="url(#hx-glass-clip)"><path class="hx-beam" d="M40 60h60l-50 520h-60z"/></g>

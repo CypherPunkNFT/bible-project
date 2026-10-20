@@ -1,6 +1,7 @@
+import { StudyTrail } from "@/components/study/StudyTrail";
 import { Fragment, useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, ChevronDown, Plus } from 'lucide-react';
+import { ArrowDown, ArrowRight, ArrowUpRight, ChevronDown, Plus } from 'lucide-react';
 import { cases, readings, reasoning, sources, type CaseId, type SourceId } from './evidence';
 import './passage-manuscripts.css';
 import { CloseReading, UnfinishedWitness, FieldJourney } from './CloseReadings';
@@ -47,10 +48,9 @@ export default function PassageManuscriptsPage() {
     setParams(next, { replace: true, preventScrollReset: true }); setExpanded([]);
   }
   function toggle(id: string) { setExpanded(prev => prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]); }
-  return <article className="pm-study">
-    <nav className="pm-breadcrumb" aria-label="Study navigation"><Link to="/study/academic?area=texts"><ArrowLeft size={14} aria-hidden="true"/> Academic studies</Link><span>The Bible: formation &amp; transmission <b>02</b></span></nav>
+  return <article className="pm-study study-frame">
     <header className="pm-hero">
-      <div><p className="pm-kicker">A reader’s introduction to textual criticism</p><h1>A passage through<br/><em>the manuscripts.</em></h1><p className="pm-lead">One passage. Several witnesses.<br/>Learn to see what changed.</p><a className="pm-action" href="#comparison-desk">Take a place at the desk <ArrowDown size={17} aria-hidden="true"/></a></div>
+      <div><StudyTrail area="texts" n="02"/><p className="pm-kicker">A reader’s introduction to textual criticism</p><h1>A passage through<br/><em>the manuscripts.</em></h1><p className="pm-lead">One passage. Several witnesses.<br/>Learn to see what changed.</p><a className="pm-action" href="#comparison-desk">Take a place at the desk <ArrowDown size={17} aria-hidden="true"/></a></div>
       <div className="pm-hero-proof" aria-label="Romans 5:1: omicron in echomen, we have; omega in echomen, let us have. Typographic comparison, not a manuscript facsimile.">
         <span className="pm-proof-label">Romans 5:1 / one letter in focus</span>
         <div className="pm-proof-line"><span lang="grc">ἔχ<span className="pm-proof-letter">ο</span>μεν</span><small>we have</small></div>
