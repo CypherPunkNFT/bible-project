@@ -2,6 +2,7 @@ export type SourceLink = { url: string; sourceId: string; name?: string; held?: 
 /** A page of this site that cites the work (content/feature-citations.json). */
 export type CitedOn = { feature: string; page: string; address: string };
 export type SourceEntry = { id: string; title: string; author: string; categories: string[]; kind: string; status: string; role: string; held?: boolean; basis?: string; citedOn?: CitedOn[]; links: SourceLink[] };
+export interface CollectionCounts { records: number; authors: number }
 export type SourceProfile = {
   id: string; name: string; url?: string; category: "library" | "data" | "software";
   formats: string[]; terms: string; channel: string;
@@ -10,7 +11,9 @@ export type SourceProfile = {
 export type Directory = {
   collections: { id: string; label: string; definition: string }[];
   sources: { id: string; name: string; url: string; role: string }[];
-  entries: SourceEntry[];
+  /** Present in the unsplit file (dev mode); the build moves the records to `split.entries`. */
+  entries?: SourceEntry[];
+  split?: { schemaVersion: 1; entries: string; records: number; collections: Record<string, CollectionCounts> };
   sourceProfiles?: SourceProfile[];
   sourceProfilesMeasuredAt?: string;
   intakeSnapshot?: { measuredAt: string; files: number; bytes: number; textReady: number; pendingText: number; supportFiles: number; duplicates: number; textGaps: number };

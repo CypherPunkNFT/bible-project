@@ -22,7 +22,7 @@ export default function TeachersPage() {
   const side=pathname===SIDE_PATHS.preachers?"preachers":pathname===SIDE_PATHS.scholars?"scholars":null;
   useEffect(()=>{
     if(!side)return;
-    const task=()=>{void preloadTeacherSide(side==="preachers"?"scholars":"preachers").catch(()=>undefined);};
+    const task=()=>{void preloadTeacherSide(side==="preachers"?"scholars":"preachers",{withLibrary:false}).catch(()=>undefined);};
     if("requestIdleCallback" in window){const id=window.requestIdleCallback(task,{timeout:1500});return()=>window.cancelIdleCallback(id);}
     const timer=setTimeout(task,250);return()=>clearTimeout(timer);
   },[side]);

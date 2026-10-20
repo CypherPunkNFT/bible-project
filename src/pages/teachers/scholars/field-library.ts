@@ -14,7 +14,7 @@ export interface FieldEntry {
   records: number;
   readable: number;
   supplements: (FieldWork & { basis: string })[];
-  fields: Partial<Record<Field, { count: number; basis: string; example: FieldWork | null }>>;
+  fields: Partial<Record<Field, { count: number; basis?: string; example: FieldWork | null }>>;
 }
 export interface FieldLibrary {
   schemaVersion: number;

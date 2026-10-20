@@ -50,3 +50,6 @@ __pycache__/
 
 # Encyclopedia text gathered by the data-acquisition desk (297 MB, another chat's work in progress): kept on disk, out of git and releases (owner, 2026-10-20).
 /public/data_acquisition/
+
+# Load-scan reports (scripts/load-scan/).
+/.load-scan/

@@ -17,3 +17,9 @@ const portable=source.replace(/import react from "@vitejs\/plugin-react-swc";\r?
 fs.writeFileSync(config,portable);
 try{const {build}=await import('vite');await build({configFile:config,...(process.argv.includes('--preserve-output')?{build:{emptyOutDir:false}}:{})});}
 finally{fs.unlinkSync(config);}
+// The scholars index ships split (list, search text, per-scholar details) so pages load only what they show.
+const scholarIndex=path.join(root,'dist/content/scholar-population');
+if(fs.existsSync(path.join(scholarIndex,'index.json'))){const {splitScholarIndex}=await import('./split-scholar-index.mjs');console.log('Scholars index split:',splitScholarIndex(scholarIndex));}
+// The source directory ships as a summary plus its records, which load only when a visitor nears them.
+const sourceDirectory=path.join(root,'dist/content/sources');
+if(fs.existsSync(path.join(sourceDirectory,'directory.json'))){const {splitSourceDirectory}=await import('./split-source-directory.mjs');console.log('Source directory split:',splitSourceDirectory(sourceDirectory));}

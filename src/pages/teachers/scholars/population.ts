@@ -6,14 +6,16 @@ import type { LibraryPerson } from './catalogue/library';
 
 export const POPULATION_BASE = '/content/scholar-population';
 export interface PopulationIdentity {
-  status: string; entityType: string | null; reviewRequired: boolean; joinBasis: string;
+  status: string; entityType: string | null; reviewRequired: boolean; joinBasis?: string;
   candidateIds?: string[];
-  authorities: { id: string; name: string; authority: string; unresolved?: string[]; review?: { date: string; kind: string; scope: string }; evidence?: { url: string; locator?: string; checkedOn?: string }[] }[];
+  authorities?: { id: string; name: string; authority: string; unresolved?: string[]; review?: { date: string; kind: string; scope: string }; evidence?: { url: string; locator?: string; checkedOn?: string }[] }[];
 }
 export interface PopulationEntry extends FieldEntry {
   profileAvailability: { scholarId: string|null; teacherId: string|null };
   facts: ContributorFact; verifiedAliases: string[]; identity: PopulationIdentity;
-  sourceLifeDates: string[]; provenance: string[]; searchText: string;
+  sourceLifeDates: string[];
+  // The split index (scripts/split-scholar-index.mjs) leaves these out: search text loads on first search, the rest when a record opens.
+  provenance?: string[]; searchText?: string;
   counts: { works: number; workGroups: number; editions: number; publicRecords: number; localCopies: number; intakeRecords: number; publicReadable: number; localReadable: number; siteSources: number };
 }
 export interface PopulationSummary {
@@ -25,7 +27,15 @@ export interface PopulationSummary {
   publicUnattributedRecords: number; datedBirths: number; approximateBirths: number; floruitOnly: number; deathOnly: number;
   dateStatus: Record<string, number>; eras: Record<string, number>; identityReviewEntries: number; kinds: Record<string, number>; unclassified: number;
 }
+/** Present when the build split the index (scripts/split-scholar-index.mjs); dev mode serves the whole file without it. */
+export interface PopulationSplit { schemaVersion: 1; search: string; details: string; shards: number }
+/** One scholar's detail-only fields, as the split moves them into details/<shard>.json. */
+export interface PopulationDetails {
+  provenance?: string[]; evidence?: ContributorFact['dates']['evidence']; legacyLabels?: string[];
+  joinBasis?: string; authorities?: PopulationIdentity['authorities']; fieldBasis?: Record<string, string>;
+}
 export interface PopulationSnapshot {
+  split?: PopulationSplit;
   schemaVersion: number; builtAt: string; summary: PopulationSummary; entries: PopulationEntry[];
   factSummary: ContributorFacts['summary']; sourceCredits: Record<string,string[]>;
   reconciliation: { sourceCreditMemberships: {catalogueDeclared:number;contributorShards:number;recordContributorIds:number;missingFromShards:number;shardOnly:number}; baselineMerge: {fieldEntries:number;fallbackEntries:number;entriesWithoutSourceIds:number;groupsWithMultipleSourceIds:number}; oldFactsSummary: { catalogueEntries: number }; counting: string; packagedUpdatedAt: string; shelfMembershipDrift: { contributorId: string; shardOnly: string[]; recordOnly: string[] }[]; unresolvedWorkIds: string[]; unresolvedEditionIds: string[]; intake: { fileStatuses: Record<string,number>; bodyHashesAbsentFromPublic: number }; localReaderAudit: { builtAt: string; issues: Record<string,number> } | null };
@@ -99,6 +109,34 @@ export async function getPopulationShelf(id: string): Promise<PopulationWork[]> 
     shelfCache.set(id,pending);
   }
   return pending;
+}
+// Must match detailsShard() in scripts/split-scholar-index.mjs: the first SHA-256 byte of the id, in 64 groups.
+export async function detailsShard(id: string): Promise<string> {
+  const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(id));
+  return (new Uint8Array(hash)[0] >> 2).toString(16).padStart(2, '0');
+}
+const detailsCache = new Map<string, Promise<Record<string, PopulationDetails>>>();
+export async function getPopulationDetails(split: PopulationSplit, id: string): Promise<PopulationDetails | null> {
+  const shard = await detailsShard(id);
+  let pending = detailsCache.get(shard);
+  if (!pending) {
+    pending = getAcquired<Record<string, PopulationDetails>>(`${POPULATION_BASE}/${split.details}/${shard}.json`);
+    pending.catch(() => detailsCache.delete(shard));
+    detailsCache.set(shard, pending);
+  }
+  return (await pending)[id] ?? null;
+}
+let searchCache: Promise<Record<string, string>> | null = null;
+export function getPopulationSearch(split: PopulationSplit): Promise<Record<string, string>> {
+  if (!searchCache) { searchCache = getAcquired<Record<string, string>>(`${POPULATION_BASE}/${split.search}`); searchCache.catch(() => { searchCache = null; }); }
+  return searchCache;
+}
+/** The entry as it was before the split: its details put back where the record views read them. */
+export function withDetails(entry: PopulationEntry, d: PopulationDetails): PopulationEntry {
+  const fields = Object.fromEntries(Object.entries(entry.fields).map(([key, f]) => [key, f && { ...f, basis: d.fieldBasis?.[key] ?? f.basis }])) as PopulationEntry['fields'];
+  return { ...entry, fields, provenance: d.provenance ?? entry.provenance,
+    identity: { ...entry.identity, joinBasis: d.joinBasis ?? entry.identity.joinBasis, authorities: d.authorities ?? entry.identity.authorities },
+    facts: { ...entry.facts, dates: { ...entry.facts.dates, evidence: d.evidence ?? entry.facts.dates.evidence, legacyLabels: d.legacyLabels ?? entry.facts.dates.legacyLabels } } };
 }
 export function readingLink(r: PopulationRecord): { url: string; label: string } | null {
   if (r.localReadable && localLibraryEnabled()) return {url:workUrl(r.localRecordId ?? r.id),label:'Read local copy'};

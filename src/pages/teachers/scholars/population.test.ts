@@ -36,8 +36,8 @@ describe('shared reconciled population selectors',()=>{
       const entry=people.find(p=>p.id===id||p.contributorIds.includes(id))!;
       expect(matchesLibrary(entry,{...NO_FILTERS,q:id},ALL_LIBRARY)).toBe(true);
     }
-    const entry=people.find(p=>!p.scholar&&p.population!.searchText.length>1000)!;
-    const phrase=entry.population!.searchText.slice(-60).trim();
+    const entry=people.find(p=>!p.scholar&&(p.population!.searchText??'').length>1000)!;
+    const phrase=entry.population!.searchText!.slice(-60).trim();
     expect(matchesLibrary(entry,{...NO_FILTERS,q:phrase},ALL_LIBRARY)).toBe(true);
   });
   it('resolves every exact feature credit through stable population IDs',()=>{

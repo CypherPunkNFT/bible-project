@@ -2,12 +2,14 @@ import {useEffect,useRef,useId} from 'react';
 import {X} from 'lucide-react';
 import type {LibraryPerson} from './library';
 import {PopulationWorks} from './PopulationWorks';
+import {usePersonDetails} from './useLibrary';
 import {dateLabel} from '../population';
 import {lockPage} from '../profile/motion';
 import '../Profile.css';
 import './population.css';
 
-export function ContributorDetails({person,origin,onClose}:{person:LibraryPerson;origin:HTMLElement|null;onClose:()=>void}){
+export function ContributorDetails({person:shown,origin,onClose}:{person:LibraryPerson;origin:HTMLElement|null;onClose:()=>void}){
+ const person=usePersonDetails(shown);
  const panel=useRef<HTMLDivElement>(null),title=useId();
  const evidence=person.facts?.dates.evidence??[];
  useEffect(()=>{

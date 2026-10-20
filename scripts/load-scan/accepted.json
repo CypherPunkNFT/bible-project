@@ -1,0 +1,7 @@
+[
+  { "match": "/data/xref-arcs.json", "reason": "The cross-reference chart draws all 141,709 arcs at once; 0.4 MB to download (2026-10-20)." },
+  { "match": "/data/manuscripts/collection.json", "reason": "5,269 manuscript records the three manuscript pages list and map; 0.17 MB to download (2026-10-20)." },
+  { "match": "/circles/catalogue.json", "reason": "The circles visual places every work at once; 0.24 MB to download (2026-10-20)." },
+  { "match": "/circles/readers.json", "reason": "Reader placements for the circles visual; 0.06 MB to download (2026-10-20)." },
+  { "match": "/assets/AtlasPage-", "reason": "The atlas map engine; loaded only on atlas pages, which cannot draw without it (2026-10-20)." }
+]

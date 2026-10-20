@@ -32,11 +32,11 @@ export default function ScholarsPage() {
 
 function Loaded({ data: original }: { data: ScholarsData }) {
   const data = useMemo(() => evidencedProfiles(original), [original]);
-  const { library, libraryError, libraryFacts, population } = useLibrary(data);
   const [profile, setProfile] = useState<ProfileTarget | null>(null);
   const [catalogueOptions,setCatalogueOptions]=useState<LibraryOptions>(ALL_LIBRARY);
   const [catalogueSort,setCatalogueSort]=useState<LibrarySort>('featured');
   const [filters, setFilters] = useState<CatalogueFilters>(NO_FILTERS);
+  const { library, libraryError, libraryFacts, population } = useLibrary(data, Boolean(filters.q));
   const cataloguePeople=useMemo(()=>orderLibrary((library??[]).filter(p=>matchesLibrary(p,filters,catalogueOptions)),catalogueSort),[library,filters,catalogueOptions,catalogueSort]);
   const shownIds=useMemo(()=>cataloguePeople.map(p=>p.id),[cataloguePeople]);
   const openProfile = useCallback((id: string, origin: Element | null = null) => setProfile({ id, origin }), []);

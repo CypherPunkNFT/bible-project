@@ -13,7 +13,8 @@ export interface ContributorFact {
     approximate?: boolean;
     sourceConflict?: boolean;
     previousSourceStatus?: string;
-    evidence: { label: string; workId: string; field: string; sourceUrl?: string; parsed: unknown }[];
+    // Absent from the split scholars index until the record is opened (getPopulationDetails).
+    evidence?: { label: string; workId: string; field: string; sourceUrl?: string; parsed: unknown }[];
     legacyLabels?: string[];
   };
   expertise: Field[];

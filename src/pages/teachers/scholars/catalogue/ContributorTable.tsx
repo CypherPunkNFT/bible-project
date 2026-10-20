@@ -5,8 +5,10 @@ import type { ScholarsData } from '@/data/teachers/pages-types';
 import type { LibraryPerson } from './library';
 import { dateLabel } from '../population';
 import { PopulationWorks } from './PopulationWorks';
+import { usePersonDetails } from './useLibrary';
 
-function ContributorDetails({ person: p, data }: { person: LibraryPerson; data: ScholarsData }) {
+function ContributorDetails({ person, data }: { person: LibraryPerson; data: ScholarsData }) {
+  const p = usePersonDetails(person);
   const [worksOpen, setWorksOpen] = useState(true);
   const pop = p.population, identity = pop?.identity, counts = pop?.counts;
   return <>
@@ -25,7 +27,7 @@ function ContributorDetails({ person: p, data }: { person: LibraryPerson; data: 
       <p>{dateLabel(p)}. Date status: {p.facts?.dates.status ?? 'missing'}. Date authority: {p.facts?.dates.basis ?? 'unrecorded'}.</p>
       {p.sourceLifeDates.length > 0 && <p>Original date labels: {p.sourceLifeDates.join('; ')}.</p>}
       {p.scholar && <p>Biographical date authority: content/teachers/scholars.json · {p.scholar.id}</p>}
-      {p.facts?.dates.evidence.map((e, i) => <p key={i}>{e.label} · {e.field} · record <code>{e.workId}</code>{e.sourceUrl && <> · <a href={e.sourceUrl} target="_blank" rel="noreferrer">Date source</a></>}</p>)}
+      {p.facts?.dates.evidence?.map((e, i) => <p key={i}>{e.label} · {e.field} · record <code>{e.workId}</code>{e.sourceUrl && <> · <a href={e.sourceUrl} target="_blank" rel="noreferrer">Date source</a></>}</p>)}
       <p>{p.facts?.expertise.length ? 'Documented expertise: ' + p.facts.expertise.map(f => data.fields[f]).join(', ') : 'Expertise unestablished; recorded work subjects are shown below.'}</p>
       {Object.entries(p.fields).length ? Object.entries(p.fields).map(([f, e]) => <p key={f}>{data.fields[f as keyof typeof data.fields]}: {e?.basis}{e?.example && ` · ${e.example.id}`}</p>) : <p>Field unassigned.</p>}
     </div></details>
@@ -35,8 +37,8 @@ function ContributorDetails({ person: p, data }: { person: LibraryPerson; data: 
     </div></details>
     <details className="pop-detail"><summary>Sources &amp; review evidence</summary><div>
       {identity?.joinBasis && <p>Identity join: {identity.joinBasis}.</p>}
-      {identity?.authorities.map(a => <div key={a.id}><p>{a.authority} · {a.id} · {a.review?.date} · {a.review?.kind}</p><p>{a.review?.scope}</p>{a.unresolved?.map((u, i) => <p key={i}>{u}</p>)}{a.evidence?.map((e, i) => <p key={i}><a href={e.url} target="_blank" rel="noreferrer">{e.locator || 'Identity evidence'}</a>{e.checkedOn && ` · checked ${e.checkedOn}`}</p>)}</div>)}
-      <p>Population provenance: {pop?.provenance.join(' · ') || 'Recorded source credit'}</p>
+      {identity?.authorities?.map(a => <div key={a.id}><p>{a.authority} · {a.id} · {a.review?.date} · {a.review?.kind}</p><p>{a.review?.scope}</p>{a.unresolved?.map((u, i) => <p key={i}>{u}</p>)}{a.evidence?.map((e, i) => <p key={i}><a href={e.url} target="_blank" rel="noreferrer">{e.locator || 'Identity evidence'}</a>{e.checkedOn && ` · checked ${e.checkedOn}`}</p>)}</div>)}
+      <p>Population provenance: {pop?.provenance?.join(' · ') || 'Recorded source credit'}</p>
     </div></details>
   </>;
 }
