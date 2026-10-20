@@ -1,11 +1,12 @@
 import { StudyTrail } from "@/components/study/StudyTrail";
-// The face of the study, laid out like the Manuscripts page's: breadcrumb, the big title with one italic line and a short
-// lede beside the opening drawing, then one end-to-end row of figures. Every figure is counted from the study's dossier
+// The face of the study: breadcrumb, the big title with one italic line, a lede, why it matters and three ways to start,
+// beside the exploded drawing of five eras of the page; then one end-to-end row of figures. Every figure is counted from the study's dossier
 // and its timeline. Below the timeline, the six chapters as a row of ways in.
 import type { CSSProperties, JSX } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import dossier from '../../../../content/academic-research/05-from-manuscript-to-printed-bible.json';
-import { PrintHeroArt } from './PrintHeroArt';
+import { OpeningArt } from './OpeningArt';
+import './opening.css';
 import { CHAPTERS, ITEMS } from './print-timeline';
 
 const printed = ITEMS.filter(i => i.from >= 1450);
@@ -23,21 +24,27 @@ const FIGURES = [
 ] as const;
 
 export function Opening() {
-  return <>
+  return <div className="hx-landing">
     <div className="pr-intro">
-      <div>
+      <div className="hx-copy">
         <StudyTrail area="texts" n="05"/>
         <p className="pr-eyebrow">Printed editions · Page layers · Printers and editors</p>
         <h1>From manuscript<em>to printed Bible</em></h1>
-        <p className="pr-lede">The press made a page repeatable, but people still chose what went on it. Start with one surviving sheet of 1516,
-          then follow the editors, printers and translators behind five centuries of printed Bibles.</p>
+        <p className="pr-lede">How the Bible went from hand-copied leaves to the editions on scholars’ desks today — told through the
+          pages themselves. Take six landmark printed pages apart layer by layer, follow twenty-five editions and translations on one
+          timeline, and meet the patrons, editors, printers and correctors behind each.</p>
+        <p className="hx-why"><b>Why it matters.</b> Every Bible you read rests on choices made on these pages: which manuscripts to
+          trust, which language goes in the main column, what is pushed to the margin. The press fixed those choices in thousands of
+          identical copies — and those copies became the text that later readers translated, argued over and revised.</p>
+        <p className="hx-start"><a href="#proof-sheet"><span>01</span>Begin with one sheet of 1516</a><a href="#page-inspection"><span>04</span>Take a page apart</a>
+          <a href="#translation-desk"><span>05</span>The translators</a></p>
       </div>
-      <PrintHeroArt />
+      <OpeningArt/>
     </div>
     <dl className="pr-figures">
       {FIGURES.map(([label, value, note]) => <div key={label}><dt>{label}</dt><dd>{value}</dd><small>{note}</small></div>)}
     </dl>
-  </>;
+  </div>;
 }
 
 const lines = (x: number, y: number, w: number, n: number, gap = 7) =>
