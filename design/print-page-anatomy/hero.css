@@ -17,6 +17,7 @@
 @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .pr-study .hx-art { --pr-red: #934839; --pr-blue: #39676d; } }
 .pr-study .hx-art svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentcolor; stroke-linecap: round; }
 .hx-mark { stroke-width: 1; opacity: .6; }
+.hx-ring { stroke-width: .8; opacity: .45; }
 .hx-tie { stroke-width: .7; stroke-dasharray: 3 4; opacity: .45; }
 
 .hx-sheet { color: var(--tone); transition: transform .45s cubic-bezier(.2, .7, .2, 1); }

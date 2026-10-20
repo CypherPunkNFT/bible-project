@@ -90,19 +90,34 @@ function axis() {
     <path class="hx-axis-head" d="M${b[0] + 62} ${b[1] + 15}l8 8-11 2"/>${ticks}`;
 }
 
+// Small registration marks and rings in the drawing's empty corners: above the tie lines on the right, and under the
+// axis on the left. All of them sit inside the principal drawing's box, so none sets the drawing's edges.
+const MARKS = [[300, 122], [470, 150], [598, 182], [30, 250], [36, 506], [196, 566], [600, 486]];
+const RINGS = [[396, 132], [118, 540], [26, 330]];
+
 function art() {
-  const marks = [[34, 96], [610, 120], [598, 470], [30, 430], [330, 40]]
-    .map(([x, y]) => `M${x - 5} ${y}h10M${x} ${y - 5}v10`).join('');
+  const marks = MARKS.map(([x, y]) => `M${x - 5} ${y}h10M${x} ${y - 5}v10`).join('');
   return `<svg viewBox="0 0 660 560" role="img" aria-label="Five sheets, from a hand-copied leaf to a modern critical edition, drawn as an exploded stack along a dated axis">
     <defs><linearGradient id="hx-beam" x1="0" x2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity="0"/>
       <stop offset=".5" stop-color="var(--accent)" stop-opacity=".3"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient>
       <clipPath id="hx-glass-clip">${SHEETS.map((_, i) => `<rect x="0" y="0" width="${W}" height="${H}" transform="${SKEW} ${at(i).join(' ')})"/>`).join('')}</clipPath></defs>
     <path class="hx-mark" d="${marks}"/>
-    ${ties()}${SHEETS.map(sheet).join('')}
+    ${RINGS.map(([x, y]) => `<circle class="hx-ring" cx="${x}" cy="${y}" r="3.5"/>`).join('')}
+    <g class="hx-principal">${ties()}${SHEETS.map(sheet).join('')}${axis()}</g>
     <g clip-path="url(#hx-glass-clip)"><path class="hx-beam" d="M40 60h60l-50 520h-60z"/></g>
-    ${axis()}
   </svg>`;
 }
 
+/** The drawing's edges are the principal drawing's own: the top corner of the first sheet and the last caption. */
+function fit(svg) {
+  const box = svg.querySelector('.hx-principal').getBBox();
+  svg.setAttribute('viewBox', [box.x, box.y, box.width, box.height].map(n => n.toFixed(1)).join(' '));
+}
+
 const host = document.getElementById('hx-art');
-if (host) host.insertAdjacentHTML('afterbegin', art());
+if (host) {
+  host.insertAdjacentHTML('afterbegin', art());
+  const svg = host.querySelector('svg');
+  fit(svg);
+  document.fonts.ready.then(() => fit(svg));
+}
