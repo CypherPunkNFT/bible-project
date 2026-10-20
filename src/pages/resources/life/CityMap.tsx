@@ -14,12 +14,6 @@ type View = "county" | "downtown" | null;
 
 const waterName = (s: string) => s.replace(/\bRiv\b/, "River").replace(/\bLk\b/, "Lake").replace(/^St /, "St. ");
 
-/** " by the US Census Bureau geocoder", from each place's geocode note. */
-function geocoders(city: City) {
-  const names = [...new Set(city.entries.map((e) => (e.geocode ?? "").split(" (")[0].trim()).filter(Boolean))];
-  return names.length ? ` by the ${names.join(" or ")}` : "";
-}
-
 /** The map itself: land, water, roads and labels. Drawn once; zooming moves the viewBox, not React. */
 const Layers = memo(function Layers({ map, hall, hallName }: { map: CityMapData; hall: [number, number]; hallName: string }) {
   const { width: W, height: H } = map;
@@ -159,7 +153,7 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
       <div className="lf-map-views" role="group" aria-label="View">{(["county", "downtown"] as const).map((v) => <button key={v} type="button" aria-pressed={view === v} onClick={() => jump(v)}>{v === "county" ? "County" : "Downtown"}</button>)}</div>
       <ZoomButtons zoom={zoom} onReset={() => setView("county")} />
     </div>
-    <figcaption>Map: US Census Bureau TIGER/Line 2026 (roads, water, towns) and 2025 county boundary, public domain. Places located from their addresses{geocoders(city)}.</figcaption></figure>
+    </figure>
     {/* Pointing at a pin only lights it; the list scrolls when a pin is clicked (owner, 2026-10-08). The places in a panel as tall as the map: a header, then the list scrolling with the pill outside the edge. */}
     <div className="lf-places">
       <header className="lf-places-head">
