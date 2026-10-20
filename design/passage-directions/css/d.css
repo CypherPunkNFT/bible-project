@@ -6,15 +6,14 @@
 .pm-d .bc + .t-sec:not(.bc) { margin-top: 0; padding-top: 3.6rem; border-top: 1px solid var(--line); }
 @media (max-width: 960px) { .pm-d .bc { min-height: 0; padding-block: 3.4rem 6.4rem; } }
 
-/* The broken edge: the switch above C's torn edge, the real P46 leaf beside it */
-.d-edge { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 15rem); gap: 2rem 3rem; align-items: start; }
+/* The broken edge: the switch above C's torn edge, "Reading the marks" beside it */
+.d-edge { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(18rem, .85fr); gap: 2rem 3.4rem; align-items: start; }
 .d-edge-main > h3 { font: 500 1.35rem/1.25 var(--serif); margin: .3rem 0 .4rem; }
 .d-edge-switch { margin: 1.1rem 0 .4rem; padding: .45rem .9rem .45rem .6rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); }
 .d-edge-art { max-width: 560px; }
 .d-edge .ch-tag-sup { animation: none; opacity: .35; transition: opacity .6s; }
 .d-edge.is-restored .ch-tag-sup { opacity: 1; }
-.d-edge .a-photo { margin-top: 2.4rem; }
-@media (max-width: 960px) { .d-edge { grid-template-columns: 1fr; } .d-edge .a-photo { max-width: 15rem; margin-top: 0; } }
+@media (max-width: 960px) { .d-edge { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .d-edge-art { padding-bottom: .4rem; } }
 
 /* The broken edge: room above the drawing for "The break", so the label no longer sits on the papyrus */
@@ -58,3 +57,49 @@
 .cb-key .k-var { border-top-color: var(--revelation); } .cb-key .k-mix { border-top: 1.5px dashed var(--revelation); }
 @media (max-width: 960px) { .cb { grid-template-columns: 1fr; } .cb-fig { position: static; } }
 .cb-svg.is-lit .cb-edge.is-on-mix { opacity: 1; stroke-width: 2; }
+
+/* Supplied letters: a mouse pointing at the switch previews them; the record rows light their part of the drawing */
+.d-edge.is-preview .ed-ghost, .d-edge.is-preview .ed-bracket, .d-edge[data-mark="dip"] .ed-ghost, .d-edge[data-mark="dip"] .ed-bracket { opacity: 1; }
+.d-edge.is-preview .ch-tag-sup, .d-edge[data-mark="dip"] .ch-tag-sup { opacity: 1; }
+.d-edge .ed-greek, .d-edge .ed-sheet, .d-edge .ed-ink, .d-edge .ch-tag { transition: opacity .35s, fill .35s, stroke-width .35s; }
+.d-edge[data-mark] .ed-ink, .d-edge[data-mark] .ed-fibres { opacity: .35; }
+.d-edge[data-mark="ink"] .ed-greek { fill: var(--accent); }
+.d-edge[data-mark="ink"] .ed-sheet { stroke-width: 2.2; }
+.d-edge[data-mark="ink"] .ch-tag-sup, .d-edge[data-mark="ed"] .ch-tag-break, .d-edge[data-mark="dip"] .ch-tag-ink { opacity: .3; }
+.d-edge[data-mark="ed"] .ed-ghost { opacity: 1; fill: var(--ink); stroke: none; }
+.d-edge[data-mark="ed"] .ed-bracket { opacity: 0; }
+.d-edge[data-mark="ed"] .ed-lost, .d-edge[data-mark="ed"] .ed-gapline { opacity: .15; }
+
+.d-edge-marks { padding-left: 2.4rem; border-left: 1px solid var(--line); }
+.em-h { margin: .35rem 0 1rem; font: 500 1.3rem/1.25 var(--serif); }
+.em-h em { color: var(--accent); font-weight: 400; }
+.em-rows { margin: 0; padding: 0; list-style: none; display: grid; gap: .2rem; }
+.em-rows button { display: grid; grid-template-columns: 7.6rem 1fr; gap: .1rem 1rem; align-items: baseline; width: 100%; padding: .75rem .9rem !important; border: 1px solid transparent !important; border-radius: 12px; cursor: pointer; transition: background .25s, border-color .25s; }
+.em-rows button.is-lit { background: color-mix(in srgb, var(--accent) 7%, transparent) !important; }
+.em-rows button[aria-pressed="true"] { border-color: var(--accent) !important; }
+.em-label { grid-row: span 2; font: 600 .62rem/1.4 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); padding-top: .55rem; }
+.em-word { font: 500 1.75rem/1.2 var(--serif); color: var(--ink); }
+.em-br { color: var(--muted); font-weight: 300; }
+.em-sup { color: transparent; -webkit-text-stroke: .8px var(--accent); }
+.em-tear { display: inline-block; width: .5em; height: .9em; margin-left: .12em; vertical-align: -.1em; border-left: 1.5px solid var(--accent); clip-path: polygon(0 0, 60% 12%, 10% 30%, 70% 50%, 15% 70%, 60% 88%, 0 100%); background: color-mix(in srgb, var(--accent) 25%, transparent); }
+.em-line { font-size: .78rem; line-height: 1.55; color: var(--muted); }
+.em-verse { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.em-v { margin-top: .4rem; font: 400 1.05rem/1.45 var(--serif); color: var(--muted); }
+.em-v mark { background: none; color: var(--ink); border-bottom: 2px solid var(--accent); font-weight: 500; }
+.em-v-dip { letter-spacing: .02em; }
+.em-v-en { font-style: italic; font-size: .95rem; }
+.em-v-en mark { font-style: italic; }
+.d-edge[data-mark="dip"] .em-v-dip, .d-edge[data-mark="ed"] .em-v-ed, .d-edge[data-mark="ink"] .em-v-dip { color: var(--ink); }
+@media (max-width: 960px) { .d-edge-marks { padding-left: 0; border-left: 0; padding-top: 1.4rem; border-top: 1px solid var(--line); } }
+.em-say { display: none; }
+@media (max-width: 560px) {
+  .em-rows { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem; }
+  .em-rows button { grid-template-columns: 1fr; padding: .6rem .5rem !important; border-color: var(--line) !important; text-align: center; }
+  .em-rows button[aria-pressed="true"] { border-color: var(--accent) !important; }
+  .em-label { grid-row: auto; padding-top: 0; font-size: .55rem; letter-spacing: .08em; }
+  .em-word { font-size: 1.3rem; }
+  .em-line { display: none; }
+  .em-say { display: block; min-height: 3em; margin-top: .6rem; font-size: .8rem; line-height: 1.5; color: var(--muted); }
+  .em-h { margin-bottom: .7rem; }
+}
+.pm-d .bc-side > .kicker { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 .45rem; }
