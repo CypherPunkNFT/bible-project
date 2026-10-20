@@ -16,3 +16,45 @@
 .d-edge .a-photo { margin-top: 2.4rem; }
 @media (max-width: 960px) { .d-edge { grid-template-columns: 1fr; } .d-edge .a-photo { max-width: 15rem; margin-top: 0; } }
 @media (max-width: 560px) { .d-edge-art { padding-bottom: .4rem; } }
+
+/* The broken edge: room above the drawing for "The break", so the label no longer sits on the papyrus */
+.d-edge-art { padding-top: 2.8rem; }
+.d-edge .ch-tag-break { top: 0; left: 60%; }
+@media (max-width: 560px) { .d-edge-art { padding-top: .4rem; } }
+
+/* The desk at phone width: a wider gutter so threads have room to run clear of the text */
+@container (max-width: 620px) { .pm-d .dk-graph { column-gap: 2.8rem; } }
+
+/* The CBGM: five steps beside an illustrative flow diagram */
+.cb { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 2rem 3.4rem; margin-top: 2.4rem; padding-top: 1.8rem; border-top: 1px solid var(--line); align-items: start; }
+.cb-steps { margin: .9rem 0 0; padding: 0; list-style: none; display: grid; gap: .9rem; counter-reset: none; }
+.cb-steps li { display: grid; grid-template-columns: 2rem 1fr; gap: .1rem .6rem; }
+.cb-steps span { grid-row: span 2; font: 400 1.1rem/1.3 var(--serif); color: var(--accent); }
+.cb-steps b { font: 500 1rem/1.3 var(--serif); }
+.cb-steps p { font-size: .84rem; line-height: 1.65; color: var(--muted); }
+.cb-steps em { font-style: italic; color: var(--ink); }
+.cb-fig { margin: 0; position: sticky; top: 84px; }
+.cb-svg { display: block; width: 100%; height: auto; max-width: 520px; overflow: visible; }
+.cb-edge { fill: none; stroke: color-mix(in srgb, var(--ink) 38%, transparent); stroke-width: 1.3; transition: stroke .3s, opacity .3s, stroke-width .3s; }
+.cb-edge.is-var { stroke: var(--revelation); }
+.cb-edge.is-mix { stroke: var(--revelation); stroke-dasharray: 3 4; }
+.cb-node { cursor: pointer; transition: opacity .3s; }
+.cb-node circle { fill: var(--surface); stroke: color-mix(in srgb, var(--ink) 50%, transparent); stroke-width: 1.2; transition: fill .3s, stroke .3s; }
+.cb-node text { font: 600 9px var(--sans); text-anchor: middle; fill: var(--ink); pointer-events: none; }
+.cb-node.is-a circle { fill: color-mix(in srgb, var(--accent) 16%, var(--surface)); stroke: var(--accent); stroke-width: 1.6; }
+.cb-node.is-a text { font: 500 15px var(--serif); }
+.cb-node.is-var circle { stroke: var(--revelation); }
+.cb-node.is-mixed circle { stroke-dasharray: 3 2; }
+.cb-arise circle { fill: var(--revelation); } .cb-arise text { font: italic 400 10px var(--serif); fill: var(--revelation); }
+.cb-svg.is-lit .cb-node:not(.is-on) { opacity: .35; }
+.cb-svg.is-lit .cb-edge:not(.is-on) { opacity: .25; }
+.cb-edge.is-on { stroke: var(--accent); stroke-width: 2.4; opacity: 1; }
+.cb-node.is-on circle { fill: color-mix(in srgb, var(--accent) 18%, var(--surface)); stroke: var(--accent); }
+.cb-fig figcaption { margin-top: .6rem; font-size: .7rem; line-height: 1.55; color: var(--muted); }
+.cb-fig figcaption b { color: var(--ink); font-weight: 600; }
+.cb-say { min-height: 3.2em; margin-top: .8rem; padding-top: .7rem; border-top: 1px solid var(--line); font: 400 .98rem/1.55 var(--serif); }
+.cb-key { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; margin-top: .6rem; font-size: .7rem; color: var(--muted); }
+.cb-key i { display: inline-block; width: 1.4rem; height: 0; margin-right: .4rem; vertical-align: middle; border-top: 1.5px solid color-mix(in srgb, var(--ink) 45%, transparent); }
+.cb-key .k-var { border-top-color: var(--revelation); } .cb-key .k-mix { border-top: 1.5px dashed var(--revelation); }
+@media (max-width: 960px) { .cb { grid-template-columns: 1fr; } .cb-fig { position: static; } }
+.cb-svg.is-lit .cb-edge.is-on-mix { opacity: 1; stroke-width: 2; }

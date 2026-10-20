@@ -29,7 +29,16 @@
   const support = (g) => (g.lost ? "no leaf survives here" : [g.ms ? `${g.ms} manuscript${g.ms > 1 ? "s" : ""}` : "", g.ed ? `${g.ed} edition${g.ed > 1 ? "s" : ""}` : ""].filter(Boolean).join(" · "));
   const keyOf = (r) => (r.layer === "No surviving text" ? `lost:${r.id}` : r.difference);
 
-  function mount(el, { caseId = "galatians", menu = true, onCase = () => {} } = {}) {
+  // The right edge of the last line of text inside a node, and the rightmost edge of any of its lines.
+  function textEdges(node) {
+    const range = document.createRange(); range.selectNodeContents(node);
+    const rects = [...range.getClientRects()].filter((r) => r.width > 0);
+    return rects.length ? { last: rects[rects.length - 1], right: Math.max(...rects.map((r) => r.right)) } : null;
+  }
+
+  // `clearText`: threads start after the end of each witness's sentence and only bend once they are clear of every
+  // row's lettering, so no line runs over a letter.
+  function mount(el, { caseId = "galatians", menu = true, onCase = () => {}, clearText = false } = {}) {
     let c = caseOf(caseId), alt = false, chosen = null;
     el.classList.add("dk");
     el.innerHTML = `${menu ? `<div class="dk-menu" role="group" aria-label="Choose a passage">${CASES.map((x, i) => `<button type="button" data-case="${x.id}" aria-pressed="${x.id === c.id}" style="--tone: var(${x.tone})"><span>0${i + 1}</span><b>${esc(x.passage)}</b><small>${esc(x.title)}</small></button>`).join("")}</div>` : ""}
@@ -73,6 +82,7 @@
       if (!box.width) return;
       svg.setAttribute("viewBox", `0 0 ${box.width} ${box.height}`);
       const rows = readings(c.id, alt);
+      if (clearText) { svg.innerHTML = clearThreads(svg, box, rows); return; }
       svg.innerHTML = rows.map((r) => {
         const slot = el.querySelector(`[data-row="${r.id}"] [data-slot]`)?.getBoundingClientRect();
         const read = el.querySelector(`[data-read="${CSS.escape(keyOf(r))}"] b`)?.getBoundingClientRect();
@@ -87,8 +97,27 @@
       }).join("");
     }
 
+    function clearThreads(svg, box, rows) {
+      const GAP = 12;
+      const ends = rows.map((r) => { const line = el.querySelector(`[data-row="${r.id}"] .dk-line`); return line ? textEdges(line) : null; });
+      // Everything lettered in the witness column: Greek lines, names and glosses.
+      const clear = Math.max(...[...el.querySelectorAll(".dk-wits .dk-line, .dk-wits .dk-who, .dk-wits .dk-gloss, .dk-wits .dk-sig")].map((n) => textEdges(n)?.right ?? 0)) - box.left + GAP;
+      return rows.map((r, i) => {
+        const end = ends[i], read = el.querySelector(`[data-read="${CSS.escape(keyOf(r))}"] b`)?.getBoundingClientRect();
+        if (!end || !read) return "";
+        const x1 = end.last.right - box.left + GAP, y1 = end.last.top + end.last.height / 2 - box.top;
+        const x2 = read.left - box.left - GAP, y2 = read.top + read.height / 2 - box.top;
+        const xs = Math.max(clear, x1);
+        if (x2 - xs < 18) return "";
+        const lost = r.layer === "No surviving text", xe = lost ? xs + (x2 - xs) * 0.6 : x2, mx = xs + (xe - xs) * 0.5;
+        const on = chosen === r.id ? " is-on" : "";
+        return `<path class="dk-thread ${kindClass(r)}${on}" data-row-thread="${r.id}" d="M${x1} ${y1}H${xs}C${mx} ${y1} ${mx} ${y2} ${xe} ${y2}"/><circle class="dk-knot ${kindClass(r)}${on}" cx="${x1}" cy="${y1}" r="2.6"/>${lost ? `<path class="dk-cut" d="M${xe + 4} ${y2 - 5}l6 10m0-10-6 10"/>` : `<circle class="dk-knot ${kindClass(r)}" cx="${x2}" cy="${y2}" r="2.2"/>`}`;
+      }).join("");
+    }
+
     el.addEventListener("click", (e) => {
-      const caseBtn = e.target.closest("[data-case]");
+      // Buttons only: the desk itself carries data-case, so a bare selector matched every click and reset the toggle.
+      const caseBtn = e.target.closest("button[data-case]");
       if (caseBtn) { setCase(caseBtn.dataset.case); onCase(c.id); return; }
       const altBtn = e.target.closest("[data-alt]");
       if (altBtn) { alt = altBtn.dataset.alt === "1"; draw(true); return; }

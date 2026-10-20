@@ -28,9 +28,26 @@ window.Directions = window.Directions || {};
     });
   }
 
+  // The copying model with its paths always shown: no button, and the line beneath says what the paths show.
+  function relatedCopies(el) {
+    Evidence.copying(el);
+    el.querySelector("[data-trace]").remove();
+    el.classList.add("is-traced");
+    const [h, p] = PM.COPYING.shown;
+    el.querySelector(".cp-say").innerHTML = `<b>${esc(h)}</b><p>${esc(p)}</p>`;
+  }
+
+  // A's editions, with the short note on the CBGM replaced by the method in five steps beside a flow diagram.
+  function editions(sec) {
+    A.editions(sec, "");
+    const old = sec.querySelector(".eds-cbgm"), box = document.createElement("div");
+    old.replaceWith(box);
+    CBGM.mount(box);
+  }
+
   // C's four kinds of evidence; the first is the broken edge above, the other three keep C's own tests.
   function gaps(sec) {
-    const kinds = C.KINDS.map((k) => (k.id === "restore" ? { ...k, title: "At the broken edge", mount: restoration } : k));
+    const kinds = C.KINDS.map((k) => (k.id === "restore" ? { ...k, title: "At the broken edge", mount: restoration } : k.id === "related" ? { ...k, mount: relatedCopies } : k));
     sec.innerHTML = `${sectionHead("", "At the broken edge · Four kinds of evidence", "Not every gap <em>is the same gap.</em>", "Presence, absence, loss and restoration are different kinds of evidence. Start at the torn edge of P46, then test the other three on real cases.")}
       <div class="c-kinds" role="group" aria-label="Kinds of evidence">${kinds.map((k, i) => `<button type="button" data-kind="${k.id}" aria-pressed="${i === 0}"><svg viewBox="0 0 24 24" aria-hidden="true">${k.icon}</svg><b>${esc(k.title)}</b><small>${esc(k.line)}</small></button>`).join("")}</div>
       <div class="c-kind-stage" aria-live="polite"></div>`;
@@ -41,7 +58,9 @@ window.Directions = window.Directions || {};
   }
 
   function chapters(add) {
-    const { chapter, deskScene, reasonScene, keyList } = B;
+    const { chapter, reasonScene, keyList } = B;
+    // The desk with its threads kept clear of the lettering.
+    const deskScene = (id) => ({ title: "The readings", mount: (el) => Desk.mount(el, { caseId: id, menu: false, clearText: true }) });
     chapter(add("b-gal"), { num: "I", kicker: "Galatians 1:3", title: "Spelling &amp; order. <em>Small differences, different kinds.</em>", lead: esc(CASES[0].context), book: 47,
       keys: keyList([["Q1513469", "P46"], ["Q209285", "B"], ["Q152962", "א"]]), landKey: "galatians",
       scenes: [deskScene("galatians"), { title: "Read the apparatus", mount: (el) => CloseReading.apparatus(el) }, reasonScene("galatians")] });
@@ -67,7 +86,7 @@ window.Directions = window.Directions || {};
     run("prologue", () => B.prologue(add("b-prologue")));
     run("chapters", () => chapters(add));
     run("broken edge", () => gaps(add("d-gaps")));
-    run("editions", () => A.editions(add("a-editions"), ""));
+    run("editions", () => editions(add("a-editions")));
     run("cabinet", () => A.cabinet(add("a-cabinet"), ""));
     run("closing", () => { add("a-close").innerHTML = closing(""); });
     run("rail", () => B.rail(wrap, STOPS));
