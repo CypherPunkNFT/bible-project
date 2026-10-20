@@ -1,3 +1,5 @@
+/* The site's current page width (src/index.css --site-content-width: 92rem, gutter 1rem / 1.5rem from 640px); the shared mock-up frame still uses the older 80rem. */
+.wrap, .site-header .bar, .foot-inner { max-width: 92rem; }
 /* A passage through the manuscripts: what the three directions share. Frame, record sheet, figures row and direction
    switch come from frame.css, teachers.css and the Manuscripts mock-up's ms.css. No focus rings anywhere: a chosen
    control shows its own single border. */
