@@ -8,6 +8,8 @@ import './analysis.css';
 /** The page reads only names, aliases, dates and work counts: the build's analysis.json (scripts/split-scholar-index.mjs),
  *  1.9 MB instead of the 13 MB list. Dev mode has only the full list. */
 type AnalysisList = Pick<PopulationSnapshot, 'entries'>;
+/** Cards added per frame: all 9,106 in one go held the page for ~0.2 s; 1,000 a frame keeps each step short (2026-10-21). */
+const CARDS_PER_FRAME = 1000;
 const loadAnalysisList = () => getAcquired<AnalysisList>(`${POPULATION_BASE}/analysis.json`).catch((): Promise<AnalysisList> => preloadScholarLibrary());
 
 function years(person: PopulationEntry): string {
@@ -46,6 +48,14 @@ export default function AnalysisPage() {
     });
   }, [snapshot, deferredQuery, sort]);
 
+  const [shown, setShown] = useState(CARDS_PER_FRAME);
+  useEffect(() => setShown(CARDS_PER_FRAME), [entries]);
+  useEffect(() => {
+    if (shown >= entries.length) return;
+    const frame = requestAnimationFrame(() => setShown(n => n + CARDS_PER_FRAME));
+    return () => cancelAnimationFrame(frame);
+  }, [shown, entries.length]);
+
   return <div className="analysis-page">
     <header className="analysis-heading">
       <div><Link className="analysis-back" to="/teachers/scholars#catalogue">Scholars / Catalogue</Link>
@@ -64,7 +74,7 @@ export default function AnalysisPage() {
     {!snapshot && !error && <p role="status" className="analysis-status">Loading every contributor…</p>}
     {snapshot && !entries.length && <p className="analysis-status">No matching names. <button type="button" onClick={() => setQuery('')}>Clear search</button></p>}
     <ul className="analysis-grid" aria-label="All contributors">
-      {entries.map(p => <li className="analysis-card" key={p.id} data-contributor-id={p.id}>
+      {entries.slice(0, shown).map(p => <li className="analysis-card" key={p.id} data-contributor-id={p.id}>
         <h2 title={p.name}>{p.name}</h2>
         <div className="analysis-card-meta"><span title={p.facts.dates.sourceConflict ? 'Profile dates shown; conflicting source labels remain in the catalogue.' : undefined}>{years(p)}</span>
           <span><b>{p.counts.workGroups.toLocaleString()}</b> {p.counts.workGroups === 1 ? 'work record' : 'work records'}</span></div>
