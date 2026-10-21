@@ -174,6 +174,9 @@ a.lf-contact:hover strong { color: var(--c, var(--door)); }
 .lf-wait-city { aspect-ratio: 1000 / 866; max-width: 58%; }
 .lf-mapframe { margin: 0; min-width: 0; }
 .lf-stage { position: relative; }
+/* The map's square is the colour of the land around the county, so while the drawing fades the square stays and the dark page does not show through. */
+.lf-jax { --lf-outskirts: color-mix(in srgb, var(--surface-2) 75%, var(--page)); }
+.lf-jax .lf-stage { border-radius: 16px; background: var(--lf-outskirts); }
 .lf-mapframe svg { display: block; width: 100%; height: auto; border-radius: 16px; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
 .lf-mapframe svg[data-dragging] { cursor: grabbing; }
 .lf-mapframe figcaption { margin-top: .55rem; color: var(--muted); font-size: .7rem; line-height: 1.5; }
@@ -222,7 +225,7 @@ a.lf-src:hover { color: var(--ink); }
 
 /* The city map */
 .lf-jax .lf-sea { fill: color-mix(in srgb, var(--sea) 34%, var(--page)); }
-.lf-jax .lf-around { fill: color-mix(in srgb, var(--surface-2) 75%, var(--page)); }
+.lf-jax .lf-around { fill: var(--lf-outskirts); }
 .lf-jax .lf-duval { fill: var(--surface); }
 .lf-jax .lf-streets { fill: none; stroke: color-mix(in srgb, var(--muted) 30%, transparent); stroke-width: .45; vector-effect: non-scaling-stroke; opacity: .45; transition: opacity .3s; }
 .lf-jax svg[data-z="near"] .lf-streets { opacity: 1; }
@@ -318,13 +321,15 @@ a.lf-src:hover { color: var(--ink); }
   .lf-body, .lf-chev, .lf-row, .lf-pin .lf-disc, .lf-pin .lf-halo { transition: none; }
 }
 
-/* Choosing another city: the lower map and list fade out (.2s) and the new ones fade in; the USA map does not fade.
+/* Choosing another city: what changes fades out (.2s) and the new content fades in. In the lower part that is the map's drawing and kind chips, the places list and the heading's words
+   (marked lf-fade); the map's grey square, the panel's box and header bar, the zoom and view buttons stay, so the dark page never shows through. The USA map does not fade.
    No fill-mode on the animation: one that fills forwards never ends, and keeps the whole part in an offscreen layer that is redrawn on every frame
    of a list scroll (measured: 8 ms of GPU time per frame; owner saw it as stutter, 2026-10-21). */
-.lf-city-lower { animation: lf-city-in .4s ease; transition: opacity .2s ease; }
+.lf-fade { animation: lf-city-in .4s ease; transition: opacity .2s ease; }
+.lf-city-lower[data-leaving] { pointer-events: none; }
+.lf-city-lower[data-leaving] .lf-fade { opacity: 0; }
+@keyframes lf-city-in { from { opacity: 0; } }
 /* The city's name, lead and fact values beside the USA map fade the same way; their labels ("Local help", "County"...) and the rules between them stay. */
 .lf-city-info h2, .lf-city-lead, .lf-facts dd { transition: opacity .4s ease; }
 .lf-city-info[data-leaving] :is(h2, .lf-city-lead, .lf-facts dd) { opacity: 0; transition-duration: .2s; }
-.lf-city-lower[data-leaving] { opacity: 0; pointer-events: none; }
-@keyframes lf-city-in { from { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .lf-city-lower { animation: none; transition: none; } .lf-city-info h2, .lf-city-lead, .lf-facts dd { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .lf-fade { animation: none; transition: none; } .lf-city-info h2, .lf-city-lead, .lf-facts dd { transition: none; } }

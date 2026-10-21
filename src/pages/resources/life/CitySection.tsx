@@ -2,7 +2,7 @@
 // city's sourced facts to its right, a rule, then the city's own zoomable map with its places beside it (CityMap.tsx). Choosing another city fades what changes out and in: that lower part, and the city's name and facts (the labels, rules and USA map stay).
 // Facts and map are separate data files (<city>-facts.json, <city>-map.json), loaded only when this section is drawn.
 import { geoAlbersUsa } from "d3-geo";
-import { useEffect, useMemo, useRef, type CSSProperties } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, type CSSProperties } from "react";
 import { useResource, type City, type CityFact, type CityFacts, type UsStates } from "@/data/resources";
 import { dialable } from "../contact-links";
 import { CityMap } from "./CityMap";
@@ -14,6 +14,19 @@ export function CitySection({ city, cities, onPick, leaving, checked }: { city: 
   const files = CITY_FILES[city.id];
   const states = useResource("us-states"), facts = useResource(files.facts), map = useResource(files.map);
   const kinds = useMemo(() => kindsIn(city), [city]);
+  // Cities' maps differ in height: the lower part grows or shrinks from the old height to the new one, so the map's square and the panel's box move smoothly instead of jumping.
+  const lower = useRef<HTMLDivElement>(null), lastHeight = useRef(0);
+  useEffect(() => { if (leaving && lower.current) lastHeight.current = lower.current.offsetHeight; }, [leaving]);
+  useLayoutEffect(() => {
+    const el = lower.current, from = lastHeight.current;
+    lastHeight.current = 0;
+    if (!el || !from || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const to = el.offsetHeight;
+    if (Math.abs(from - to) < 2) return;
+    el.style.overflow = "hidden";
+    const run = el.animate([{ height: `${from}px` }, { height: `${to}px` }], { duration: 400, easing: "cubic-bezier(.16, 1, .3, 1)" });
+    run.onfinish = run.oncancel = () => { el.style.overflow = ""; };
+  }, [city.id]);
   return <section className="lf-city" aria-labelledby="lf-city-name">
     <div className="lf-city-top">
       {typeof states === "object" ? <UsaMap states={states} city={city} cities={cities} onPick={onPick} /> : <p className="lf-wait lf-wait-usa">{states === "loading" ? "Loading the map…" : "The map outline is missing."}</p>}
@@ -21,7 +34,7 @@ export function CitySection({ city, cities, onPick, leaving, checked }: { city: 
     </div>
     <hr className="lf-city-rule" />
     {/* This part fades when another city is chosen, as do the name and the facts above (CityInfo); the USA map, the labels and the rules do not. */}
-    <div key={city.id} className="lf-city-lower" data-leaving={leaving || undefined}>
+    <div key={city.id} ref={lower} className="lf-city-lower" data-leaving={leaving || undefined}>
       {typeof map === "object" ? <CityMap city={city} map={map} kinds={kinds} /> : <p className="lf-wait lf-wait-city">{map === "loading" ? `Loading the map of ${city.name.split(",")[0]}…` : "The city map is missing."}</p>}
     </div>
   </section>;

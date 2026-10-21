@@ -1,6 +1,8 @@
 // A city's own map (US Census Bureau TIGER/Line, scripts/build-city-maps.py) with its places beside it. The list starts
 // level with the map's top and scrolls on its own; pointing at a pin lights its row, and clicking a pin chooses it: the row opens, stays
 // highlighted and the list glides to it. Choosing a row lights its pin.
+// When another city is chosen, what changes (the map's drawing, its kind chips, the places and the heading's words) is marked lf-fade and fades; the map's square, the panel's box and
+// header bar, and the zoom and view buttons stay.
 // Kind filters show some kinds only; County and Downtown jump the map; the wheel, a pinch or the buttons zoom it.
 import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { OutsideScroll } from "@/components/OutsideScroll";
@@ -203,8 +205,8 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
   const lines = city.lines ?? [];
   return <div className="lf-city-main">
     <figure className="lf-mapframe lf-jax"><div className="lf-stage">
-      <div className="lf-map-filter" role="group" aria-label="Show on the map">{kinds.map(([k, c]) => <button key={k} type="button" aria-pressed={shown.has(k)} style={{ "--c": tone(k) } as CSSProperties} onClick={() => filter(k)}><i />{kindOf(k).short}<b>{c}</b></button>)}</div>
-      <svg ref={svg} viewBox={`0 0 ${map.width} ${map.height}`} style={{ aspectRatio: `${map.width} / ${map.height}` }} role="group" aria-label={`Map of ${city.name.split(",")[0]} and ${map.about.split(",")[0]} with the ${city.entries.length} places`}>
+      <div className="lf-map-filter lf-fade" role="group" aria-label="Show on the map">{kinds.map(([k, c]) => <button key={k} type="button" aria-pressed={shown.has(k)} style={{ "--c": tone(k) } as CSSProperties} onClick={() => filter(k)}><i />{kindOf(k).short}<b>{c}</b></button>)}</div>
+      <svg ref={svg} className="lf-fade" viewBox={`0 0 ${map.width} ${map.height}`} style={{ aspectRatio: `${map.width} / ${map.height}` }} role="group" aria-label={`Map of ${city.name.split(",")[0]} and ${map.about.split(",")[0]} with the ${city.entries.length} places`}>
         <Layers map={map} hall={hall} hallName={centreLabel(city)} />
         <g ref={leaders} className="lf-leaders" />
         <g>{ordered.map(({ e, n, at }) => <Pin key={e.id} id={e.id} name={e.name} category={e.category} n={n} at={at} off={!shown.has(e.category)} on={lit === e.id} sel={selected === e.id} onLit={setLit} onChoose={choosePin} />)}</g>
@@ -216,10 +218,10 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
     {/* Pointing at a pin only lights it; the list scrolls when a pin is clicked (owner, 2026-10-08). The places in a panel as tall as the map: a header, then the list scrolling with the pill outside the edge. */}
     <div className="lf-places">
       <header className="lf-places-head">
-        <h3>Help in {city.name.split(",")[0]}</h3>
-        <p>{plural(city.entries.length, "place")} you can walk into{lines.length > 0 && ` · ${plural(lines.length, "phone line")} below`}</p>
+        <h3 className="lf-fade">Help in {city.name.split(",")[0]}</h3>
+        <p className="lf-fade">{plural(city.entries.length, "place")} you can walk into{lines.length > 0 && ` · ${plural(lines.length, "phone line")} below`}</p>
       </header>
-      <OutsideScroll className="lf-places-scroll" viewportClassName="lf-city-list" label={`Help in ${city.name}`} resetKey={city.id}>
+      <OutsideScroll className="lf-places-scroll lf-fade" viewportClassName="lf-city-list" label={`Help in ${city.name}`} resetKey={city.id}>
       <div ref={list} onPointerMove={(e) => { overList.current = [e.clientX, e.clientY]; }} onPointerLeave={() => { overList.current = null; }}>
       <ol aria-label={`Help in ${city.name}`}>{places.map(({ e, n }) => <LifeRow key={e.id} entry={e} kind={e.category} layout="stack" n={n} quick={1} address
         sub={subs.get(e.id)} open={open.has(e.id)} onToggle={toggle} lit={lit === e.id} selected={selected === e.id}
