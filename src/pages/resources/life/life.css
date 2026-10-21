@@ -318,10 +318,13 @@ a.lf-src:hover { color: var(--ink); }
   .lf-body, .lf-chev, .lf-row, .lf-pin .lf-disc, .lf-pin .lf-halo { transition: none; }
 }
 
-/* Choosing another city: the lower map and list fade out (.2s) and the new ones fade in; the USA map and the facts above them change in place.
+/* Choosing another city: the lower map and list fade out (.2s) and the new ones fade in; the USA map does not fade.
    No fill-mode on the animation: one that fills forwards never ends, and keeps the whole part in an offscreen layer that is redrawn on every frame
    of a list scroll (measured: 8 ms of GPU time per frame; owner saw it as stutter, 2026-10-21). */
 .lf-city-lower { animation: lf-city-in .4s ease; transition: opacity .2s ease; }
+/* The city's name, lead and fact values beside the USA map fade the same way; their labels ("Local help", "County"...) and the rules between them stay. */
+.lf-city-info h2, .lf-city-lead, .lf-facts dd { transition: opacity .4s ease; }
+.lf-city-info[data-leaving] :is(h2, .lf-city-lead, .lf-facts dd) { opacity: 0; transition-duration: .2s; }
 .lf-city-lower[data-leaving] { opacity: 0; pointer-events: none; }
 @keyframes lf-city-in { from { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .lf-city-lower { animation: none; transition: none; } }
+@media (prefers-reduced-motion: reduce) { .lf-city-lower { animation: none; transition: none; } .lf-city-info h2, .lf-city-lead, .lf-facts dd { transition: none; } }

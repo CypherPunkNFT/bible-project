@@ -1,5 +1,5 @@
 // The city section of /resources/life (owner's layout, 2026-10-08; city picker added 2026-10-20): the USA map (every researched city is a dot that chooses it) on the left with the city marked, the
-// city's sourced facts to its right, a rule, then the city's own zoomable map with its places beside it (CityMap.tsx). Choosing another city fades only that lower part out and in.
+// city's sourced facts to its right, a rule, then the city's own zoomable map with its places beside it (CityMap.tsx). Choosing another city fades what changes out and in: that lower part, and the city's name and facts (the labels, rules and USA map stay).
 // Facts and map are separate data files (<city>-facts.json, <city>-map.json), loaded only when this section is drawn.
 import { geoAlbersUsa } from "d3-geo";
 import { useEffect, useMemo, useRef, type CSSProperties } from "react";
@@ -17,10 +17,10 @@ export function CitySection({ city, cities, onPick, leaving, checked }: { city: 
   return <section className="lf-city" aria-labelledby="lf-city-name">
     <div className="lf-city-top">
       {typeof states === "object" ? <UsaMap states={states} city={city} cities={cities} onPick={onPick} /> : <p className="lf-wait lf-wait-usa">{states === "loading" ? "Loading the map…" : "The map outline is missing."}</p>}
-      <CityInfo city={city} facts={typeof facts === "object" ? facts : null} kinds={kinds} checked={city.checked ?? checked} />
+      <CityInfo city={city} facts={typeof facts === "object" ? facts : null} kinds={kinds} checked={city.checked ?? checked} leaving={leaving} />
     </div>
     <hr className="lf-city-rule" />
-    {/* Only this lower part fades when another city is chosen; the USA map and the facts above it change in place. */}
+    {/* This part fades when another city is chosen, as do the name and the facts above (CityInfo); the USA map, the labels and the rules do not. */}
     <div key={city.id} className="lf-city-lower" data-leaving={leaving || undefined}>
       {typeof map === "object" ? <CityMap city={city} map={map} kinds={kinds} /> : <p className="lf-wait lf-wait-city">{map === "loading" ? `Loading the map of ${city.name.split(",")[0]}…` : "The city map is missing."}</p>}
     </div>
@@ -78,12 +78,12 @@ function Local211({ city }: { city: City }) {
   </dd></div>;
 }
 
-function CityInfo({ city, facts, kinds, checked }: { city: City; facts: CityFacts | null; kinds: [string, number][]; checked: string }) {
+function CityInfo({ city, facts, kinds, checked, leaving }: { city: City; facts: CityFacts | null; kinds: [string, number][]; checked: string; leaving?: boolean }) {
   const f = Object.fromEntries((facts?.facts ?? []).map((x) => [x.id, x]));
   const n = (v: string | number) => v.toLocaleString("en-US");
   const [place, region] = [city.name.split(",")[0], city.name.split(",").slice(1).join(",").trim()];
   const lines = city.lines?.length ?? 0;
-  return <div className="lf-city-info">
+  return <div className="lf-city-info" data-leaving={leaving || undefined}>
     <p className="lf-kick">02 · Local help</p>
     <h2 id="lf-city-name">{place}{region && <>, <em>{region}</em></>}</h2>
     <p className="lf-city-lead">{plural(city.entries.length, "place")} you can walk into and {plural(lines, "phone line")}, each checked on the organisation’s own page.</p>

@@ -4,10 +4,10 @@
 // and how the list is made. No section links: this page stands on its own. Every word and number comes from the data.
 import { MessageSquareText, Phone } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import type { Help, LifeData } from "@/data/resources";
+import { loadResource, type Help, type LifeData } from "@/data/resources";
 import { dialable, smsHref } from "./contact-links";
 import { CitySection } from "./life/CitySection";
-import { hasCityFiles, kindOf, kindsIn, listOf, wayOf } from "./life/format";
+import { CITY_FILES, hasCityFiles, kindOf, kindsIn, listOf, wayOf } from "./life/format";
 import { NationalLines } from "./life/NationalLines";
 import { DoorArt } from "./life/DoorArt";
 import { RESOURCE_SECTIONS, sectionBySlug } from "./sections";
@@ -42,14 +42,18 @@ export default function LifePage({ data }: { data: LifeData }) {
   const cities = data.cities.filter((c) => c.verified === true && c.entries.length > 0).flatMap((c) => (hasCityFiles(c.id) ? [{ ...c, id: c.id }] : []));
   const [chosenId, setChosenId] = useState<string | null>(null), [leaving, setLeaving] = useState(false);
   const timer = useRef(0);
-  useEffect(() => () => window.clearTimeout(timer.current), []);
+  const gone = useRef(false);
+  useEffect(() => { gone.current = false; return () => { gone.current = true; window.clearTimeout(timer.current); }; }, []);
   const chosen = cities.find((c) => c.id === chosenId) ?? cities[0];
-  // A new city fades the lower map and list out, then fades the new ones in (the fade-in is that part's own entrance, in life.css); no fade for reduced motion.
+  // A new city fades what changes out (the lower map and list, and the city's name and facts beside the USA map), then fades the new ones in; the USA map, the labels and the rules stay. No fade for reduced motion.
+  // The new city's facts and map are read during the fade-out, so nothing shows "loading" (and the facts do not vanish and come back) when it appears.
   const pick = (id: string) => {
     if (id === chosen?.id || leaving) return;
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) { setChosenId(id); return; }
+    const files = hasCityFiles(id) ? CITY_FILES[id] : null;
+    const ready = files ? Promise.all([loadResource(files.facts), loadResource(files.map)]).catch(() => null) : Promise.resolve(null);
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) { void ready.then(() => { if (!gone.current) setChosenId(id); }); return; }
     setLeaving(true);
-    timer.current = window.setTimeout(() => { setChosenId(id); setLeaving(false); }, 220);
+    timer.current = window.setTimeout(() => { void ready.then(() => { if (gone.current) return; setChosenId(id); setLeaving(false); }); }, 220);
   };
   const places = cities.reduce((n, c) => n + c.entries.length, 0), lines = cities.reduce((n, c) => n + (c.lines?.length ?? 0), 0);
   const helpsWith = listOf([...new Set(cities.flatMap((c) => kindsIn(c).map(([k]) => kindOf(k).short.toLowerCase())))]);

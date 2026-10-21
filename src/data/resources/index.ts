@@ -71,14 +71,21 @@ const path = (name: ResourceFile) => `/src/data/resources/${name}.json`;
 
 export const hasResource = (name: ResourceFile) => path(name) in FILES;
 
+/** Files already read: a second ask (a city chosen again, or one preloaded during a fade) is answered at once, so a screen never shows "loading" for data it has. */
+const loaded = new Map<ResourceFile, unknown>();
+
 export async function loadResource<K extends ResourceFile>(name: K): Promise<Files[K] | null> {
   const load = FILES[path(name)];
-  return load ? ((await load()).default as Files[K]) : null;
+  if (!load) return null;
+  const value = (await load()).default as Files[K];
+  loaded.set(name, value);
+  return value;
 }
 
 /** "loading", the data, or "missing" when the file has not been written. A failed import is thrown to the error boundary. */
 export function useResource<K extends ResourceFile>(name: K): Files[K] | "loading" | "missing" {
-  const [state, setState] = useState<{ name: K; value: Files[K] | "loading" | "missing" }>({ name, value: "loading" });
+  const known = loaded.get(name) as Files[K] | undefined;
+  const [state, setState] = useState<{ name: K; value: Files[K] | "loading" | "missing" }>({ name, value: known ?? "loading" });
   const [error, setError] = useState<unknown>(null);
   useEffect(() => {
     let live = true;
@@ -86,5 +93,5 @@ export function useResource<K extends ResourceFile>(name: K): Files[K] | "loadin
     return () => { live = false; };
   }, [name]);
   if (error) throw error instanceof Error ? error : new Error(`resources: could not load ${name}.json: ${String(error)}`);
-  return state.name === name ? state.value : "loading";
+  return state.name === name ? state.value : known ?? "loading";
 }
