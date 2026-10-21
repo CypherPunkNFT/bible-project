@@ -1,0 +1,115 @@
+/* Homepage Study sub-block and Resources drawings (HomeStudyScenes.tsx). Same rules as home-features.css: loops run only
+   while on screen, layers move apart on hover with their pivots set at rest, everything holds still under reduced motion. */
+
+/* ---- Study sub-blocks: theology, scholarly, atlas, then topics, spaced like the Bible blocks ---- */
+.home-study-grid + .hf-intro, .hf-intro + .home-subsection { margin-top: 104px; }
+.home-subsection .home-section-heading h3 { font-size: clamp(27px, 2.7vw, 39px); line-height: 1.2; margin: 16px 0 18px; }
+@media (max-width: 900px) { .home-study-grid + .hf-intro, .hf-intro + .home-subsection { margin-top: 64px; } }
+
+/* ---- Scripture & Theology ---- */
+.hs-trunk, .hs-branch { stroke: currentColor; stroke-width: 1.2; opacity: .45; }
+.hs-current { stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-dasharray: .08 .92; stroke-dashoffset: 1; opacity: 0; animation: hs-rise 5.4s ease-in-out infinite; }
+.hs-subject { animation: hf-drift 12s ease-in-out infinite; }
+.hs-subject circle { fill: var(--surface); stroke: currentColor; stroke-width: 1.3; transition: fill .5s; }
+.hs-subject path { stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.hs-subject text { fill: var(--muted); font: 600 8px Archivo, sans-serif; letter-spacing: .16em; transition: fill .5s; }
+.hs-scroll { fill: var(--surface); stroke: currentColor; stroke-width: 1.3; }
+.hs-scroll-roll { fill: color-mix(in srgb, currentColor 14%, var(--surface)); stroke: currentColor; stroke-width: 1.2; }
+.hs-verse { fill: var(--ink); font: italic 400 17px Literata, Georgia, serif; }
+.hs-verse-ref { fill: currentColor; font: 600 7.5px Archivo, sans-serif; letter-spacing: .2em; }
+.hf-layer-nodes { transform-origin: 300px 236px; }
+.hf-art:hover .hf-layer-nodes { transform: translateY(-10px) scale(1.04); }
+.hf-art:hover .hf-layer-branches { transform: translateY(-5px); filter: drop-shadow(0 0 4px color-mix(in srgb, var(--home-color) 40%, transparent)); }
+.hf-art:hover .hf-layer-passage { transform: translateY(5px); }
+.hf-art:hover .hs-subject circle { fill: color-mix(in srgb, var(--home-color) 12%, var(--surface)); }
+.hf-art:hover .hs-subject text { fill: var(--ink); }
+
+/* ---- Academic Studies: the cabinet of witnesses ---- */
+.hs-case { stroke: color-mix(in srgb, currentColor 40%, var(--line)); stroke-width: 1.2; fill: color-mix(in srgb, currentColor 3%, transparent); }
+.hs-shelf { stroke: currentColor; stroke-width: 1.4; opacity: .55; }
+.hs-sheet { fill: color-mix(in srgb, var(--history) 9%, var(--surface)); stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.hs-gutter { stroke: currentColor; opacity: .5; }
+.hs-roller { fill: color-mix(in srgb, currentColor 16%, var(--surface)); stroke: currentColor; stroke-width: 1.2; }
+.hs-ink path { stroke: var(--ink); stroke-width: 1.1; stroke-dasharray: 6 2 3 1.5; opacity: .5; animation: hf-ink 9s ease-in-out infinite; }
+.hs-ink-faded path { opacity: .3; }
+.hs-papyrus { fill: color-mix(in srgb, var(--history) 14%, var(--surface)); stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.hs-fibre { stroke: currentColor; opacity: .12; }
+.hs-jar path, .hs-stele > path, .hs-lamp > path:first-child, .hs-coin circle { fill: var(--surface); stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.hs-jar .hs-jar-band { fill: none; opacity: .5; }
+.hs-lamp circle { fill: none; stroke: currentColor; }
+.hs-flame { fill: var(--accent) !important; stroke: none !important; transform-box: fill-box; transform-origin: 50% 100%; animation: hs-flicker 1.8s ease-in-out infinite; }
+.hs-coin { animation: hs-glint 6s ease-in-out infinite; }
+.hs-coin circle:last-child { opacity: .5; }
+.hs-lamp-handle { stroke: currentColor; stroke-width: 1.2; }
+.hs-lens-track { animation: hs-lens 18s cubic-bezier(.45, 0, .55, 1) infinite alternate; }
+.hs-lens circle { stroke: var(--ink); stroke-width: 1.3; fill: color-mix(in srgb, var(--surface) 30%, transparent); }
+.hs-lens path { stroke: var(--ink); stroke-width: 3; stroke-linecap: round; }
+.hs-lens { transition: transform .7s cubic-bezier(.2, .7, .2, 1); transform-box: fill-box; transform-origin: center; }
+.hf-layer-tags text { fill: var(--muted); font: 600 7.5px Archivo, sans-serif; letter-spacing: .18em; }
+.hf-art:hover .hf-layer-manuscripts { transform: translateY(-10px); filter: drop-shadow(0 6px 6px color-mix(in srgb, var(--ink) 12%, transparent)); }
+.hf-art:hover .hf-layer-artifacts { transform: translateY(-6px); }
+.hf-art:hover .hs-lens { transform: scale(1.18); }
+
+/* ---- Atlas ---- */
+.hs-wave { stroke: var(--prophets); opacity: .35; animation: hs-wave 6s ease-in-out infinite; }
+.hs-sea-name, .hs-region { fill: var(--prophets); font: 600 8px Archivo, sans-serif; letter-spacing: .26em; opacity: .7; }
+.hs-region { letter-spacing: .14em; font-size: 7px; }
+.hs-coast { stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; }
+.hs-coast-shadow { stroke: currentColor; opacity: .25; stroke-dasharray: 2 4; }
+.hs-water { fill: color-mix(in srgb, var(--prophets) 20%, transparent); stroke: var(--prophets); stroke-width: 1.1; }
+.hs-river { stroke: var(--prophets); stroke-width: 1.4; opacity: .8; }
+.hs-journey { stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: hf-arc 9s cubic-bezier(.45, 0, .55, 1) infinite; }
+.hs-pin { animation: hs-bob 5s ease-in-out infinite; }
+.hs-pin circle { fill: currentColor; }
+.hs-pin .hs-pin-halo { fill: none; stroke: currentColor; opacity: .3; }
+.hs-pin text { fill: var(--ink); font: 600 7.5px Archivo, sans-serif; letter-spacing: .14em; opacity: .8; }
+.hf-layer-compass circle { stroke: currentColor; opacity: .5; }
+.hf-layer-compass .hs-compass-inner { stroke-dasharray: 2 4; }
+.hf-layer-compass text { fill: currentColor; font: 600 9px Archivo, sans-serif; }
+.hs-needle { animation: hs-needle 9s ease-in-out infinite; }
+.hs-needle path { fill: var(--surface); stroke: currentColor; stroke-width: 1.1; }
+.hs-needle .hs-needle-north { fill: currentColor; }
+.hs-scale path { stroke: var(--muted); }
+.hs-scale text { fill: var(--muted); font: 600 7px Archivo, sans-serif; letter-spacing: .18em; }
+.hf-art:hover .hf-layer-pins { transform: translateY(-8px); }
+.hf-art:hover .hf-layer-land { transform: translateY(-3px); }
+.hf-art:hover .hf-layer-sea { transform: translateX(-8px); }
+.hf-layer-compass { transform-origin: 500px 96px; }
+.hf-art:hover .hf-layer-compass { transform: translateY(-6px) rotate(8deg); }
+
+/* ---- Resources ---- */
+.hs-sun { fill: color-mix(in srgb, var(--accent) 14%, transparent); stroke: var(--accent); stroke-width: 1.1; animation: hf-breathe 8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.hs-sun-ray { stroke: var(--accent); stroke-linecap: round; opacity: .3; animation: hf-ray 5s ease-in-out infinite; }
+.hs-road { stroke: color-mix(in srgb, currentColor 22%, var(--line)); stroke-width: 18; stroke-linecap: round; }
+.hs-road-line { stroke: var(--surface); stroke-width: 1.4; stroke-dasharray: 6 8; animation: hf-flow 2.8s linear infinite reverse; }
+.hs-traveller { fill: var(--ink); offset-rotate: 0deg; animation: hs-travel 16s cubic-bezier(.45, 0, .55, 1) infinite; }
+.hs-stop { color: var(--tone); transition: transform .9s cubic-bezier(.2, .7, .2, 1); }
+.hs-stop path, .hs-stop .hs-gathering { stroke: currentColor; stroke-width: 1.3; fill: var(--surface); stroke-linejoin: round; }
+.hs-stop .hs-gathering { stroke-dasharray: 2 4; fill: none; animation: hf-orbit 40s linear infinite; }
+.hs-person { fill: currentColor; animation: hf-pulse 4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.hs-person:nth-of-type(odd) { animation-delay: -2s; }
+.hs-window { fill: var(--accent); opacity: .5; animation: hs-glow 4s ease-in-out infinite; }
+.hs-stop text { fill: currentColor; font: 600 8px Archivo, sans-serif; letter-spacing: .18em; }
+.hf-art:hover .hs-stop { transform: translateY(-10px); }
+.hf-art:hover .hs-stop:nth-child(2) { transform: translateY(-14px); }
+.hf-art:hover .hs-window { opacity: 1; }
+.hf-art:hover .hf-layer-sky { transform: translateY(-8px); }
+
+@keyframes hs-rise { 0% { stroke-dashoffset: 1; opacity: 0; } 10% { opacity: .9; } 80% { opacity: .9; } 100% { stroke-dashoffset: .08; opacity: 0; } }
+@keyframes hs-lens { from { transform: translateX(110px); } to { transform: translateX(490px); } }
+@keyframes hs-flicker { 0%, 100% { transform: scale(1, 1); } 40% { transform: scale(.9, 1.12); } 70% { transform: scale(1.06, .94); } }
+@keyframes hs-glint { 0%, 100% { opacity: .75; } 50% { opacity: 1; } }
+@keyframes hs-wave { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+@keyframes hs-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+@keyframes hs-needle { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+@keyframes hs-travel { 0% { offset-distance: 0%; opacity: 0; } 6% { opacity: 1; } 92% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+@keyframes hs-glow { 0%, 100% { opacity: .4; } 50% { opacity: .85; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-current { opacity: 0; }
+  .hs-journey { stroke-dashoffset: 0; }
+  .hs-traveller { offset-distance: 45%; }
+  .hf-art:hover .hs-stop, .hf-art:hover .hs-lens { transform: none; }
+  .hs-stop, .hs-lens { transition: none; }
+  .hs-lens-track { transform: translateX(300px); }
+}

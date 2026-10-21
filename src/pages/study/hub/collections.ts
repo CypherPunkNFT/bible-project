@@ -408,7 +408,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
         "label": "Academic Studies",
         "kicker": "Follow the sources",
         "heading": "Enter the world.<br><em>Understand the evidence.</em>",
-        "lead": "Explore the history, texts, languages and scholarship surrounding the Bible. Follow a question into the sources, their interpretation and their limits.",
+        "lead": "Explore the history, texts and languages behind the Bible, and weigh the evidence.",
         "tone": "history",
         "other": "theology",
         "otherLine": "Return to the passage and its teaching.",

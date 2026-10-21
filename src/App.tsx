@@ -27,6 +27,8 @@ const TeachersPage = lazy(() => import("@/pages/TeachersPage"));
 const AnalysisPage = lazy(() => import("@/pages/AnalysisPage"));
 const ResourcesPage = lazy(() => import("@/pages/ResourcesPage"));
 const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
+const HomeMockupsPage = lazy(() => import("@/pages/HomeMockupsPage"));
+const EmblemMockupsPage = lazy(() => import("@/pages/EmblemMockupsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
 const SurvivingWitnessesPage = lazy(() => import("@/pages/study/witnesses/SurvivingWitnessesPage"));
 const PassageManuscriptsPage = lazy(() => import("@/pages/study/passages/PassageManuscriptsPage"));
@@ -123,6 +125,8 @@ export default function App() {
               <Route path="/analysis" element={<AnalysisPage />} />
               <Route path="/teachers/collections/:leaderId" element={<CirclesPage />} />
               <Route path="/resources/*" element={<ResourcesPage />} />
+              <Route path="/mockups" element={<HomeMockupsPage />} />
+              <Route path="/banner-emblems" element={<EmblemMockupsPage />} />
               <Route path="/versions" element={<VersionsPage />} />
               <Route path="/sources" element={<VersionsPage />} />
               <Route path="/study" element={<StudyPage />} />

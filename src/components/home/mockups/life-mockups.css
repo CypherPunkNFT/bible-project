@@ -1,0 +1,79 @@
+/* Mock-up drawings for "Help for life" (LifeMockups.tsx). Same rules as home-features.css: loops run only while on
+   screen, layers part on hover with their pivots set at rest, everything holds still under reduced motion. */
+.mf-label { fill: var(--muted); font: 600 7.5px Archivo, sans-serif; letter-spacing: .16em; }
+
+/* ---- Lamplit Street ---- */
+.mf-moon { fill: color-mix(in srgb, var(--accent) 22%, var(--surface)); stroke: currentColor; stroke-width: 1.1; }
+.mf-star { fill: currentColor; opacity: .3; animation: mf-twinkle 5s ease-in-out infinite; }
+.mf-house { fill: color-mix(in srgb, currentColor 7%, var(--surface)); stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.mf-roof { stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; stroke-linecap: round; }
+.mf-window { fill: color-mix(in srgb, var(--accent) 45%, var(--surface)); stroke: currentColor; stroke-width: 1; animation: mf-lamp 6s ease-in-out infinite; }
+.mf-window-bar { stroke: currentColor; opacity: .6; }
+.mf-door-light { fill: color-mix(in srgb, var(--accent) 55%, var(--surface)); stroke: currentColor; stroke-width: 1.1; }
+.mf-door-leaf { fill: color-mix(in srgb, currentColor 24%, var(--surface)); stroke: currentColor; stroke-width: 1.1; transform-box: fill-box; transform-origin: 0 50%; transform: scaleX(.5); transition: transform .9s cubic-bezier(.2, .7, .2, 1); }
+.mf-spill { fill: var(--accent); opacity: .2; transition: opacity .8s; }
+.hf-layer-sky { transform-origin: 300px 90px; }
+.hf-art:hover .mf-door-leaf { transform: scaleX(.12); }
+.hf-art:hover .mf-spill { opacity: .4; }
+.hf-art:hover .hf-layer-sky { transform: translateY(-8px); }
+
+/* ---- Held Light ---- */
+.mf-ray { stroke: var(--accent); stroke-width: 1.1; stroke-dasharray: 2 6; opacity: .55; animation: mf-flow 3s linear infinite reverse; transition: opacity .6s; }
+.mf-kind-dot { fill: var(--surface); stroke: currentColor; stroke-width: 1.3; transform-box: fill-box; transform-origin: center; animation: hf-pulse 4.2s ease-in-out infinite; transition: fill .6s; }
+.mf-glow-stop { stop-color: var(--accent); }
+.mf-glow { opacity: .6; transition: opacity .6s; transform-box: fill-box; transform-origin: center; animation: mf-breathe 4s ease-in-out infinite; }
+.mf-flame { fill: var(--accent); stroke: color-mix(in srgb, var(--accent) 60%, var(--ink)); stroke-width: .8; transform-box: fill-box; transform-origin: 50% 100%; animation: mf-flicker 2.6s ease-in-out infinite; }
+.mf-lamp { fill: color-mix(in srgb, var(--accent) 28%, var(--surface)); stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.mf-hands { fill: color-mix(in srgb, currentColor 9%, var(--surface)); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
+.mf-sleeve { fill: color-mix(in srgb, currentColor 18%, var(--surface)); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
+.mf-hand-line { stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; opacity: .8; }
+.hf-layer-kinds { transform-origin: 300px 286px; }
+.hf-layer-hands { transform-origin: 300px 320px; }
+.hf-art:hover .hf-layer-hands { transform: translateY(-8px); }
+.hf-art:hover .mf-glow { opacity: 1; }
+.hf-art:hover .mf-ray { opacity: .95; }
+.hf-art:hover .hf-layer-kinds { transform: scale(1.04); }
+.hf-art:hover .mf-kind-dot { fill: color-mix(in srgb, var(--accent) 60%, var(--surface)); }
+
+/* ---- Close to Home ---- */
+.mf-panel { stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.mf-panel-0 { fill: var(--surface); }
+.mf-panel-1 { fill: color-mix(in srgb, currentColor 9%, var(--surface)); }
+.mf-river { stroke: var(--prophets); stroke-width: 4; stroke-linecap: round; opacity: .35; }
+.mf-road { stroke: currentColor; stroke-width: 1.1; stroke-dasharray: 5 3; opacity: .5; }
+.mf-pin { animation: mf-bob 4.5s ease-in-out infinite; }
+.mf-pin path { fill: color-mix(in srgb, currentColor 22%, var(--surface)); stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.mf-pin circle { fill: var(--surface); stroke: currentColor; }
+.mf-here-ring { stroke: var(--accent); stroke-width: 1.2; opacity: 0; transform-box: fill-box; transform-origin: center; animation: hf-ring 3.6s ease-out infinite; }
+.mf-here { fill: var(--accent); stroke: var(--surface); stroke-width: 1.5; }
+.mf-tag { fill: var(--surface); stroke: currentColor; stroke-width: 1; }
+.mf-tag-text { fill: var(--ink); font: 600 7px Archivo, sans-serif; letter-spacing: .14em; }
+.mf-phone { fill: var(--surface); stroke: currentColor; stroke-width: 1.4; }
+.mf-screen { fill: color-mix(in srgb, currentColor 7%, var(--surface)); stroke: currentColor; stroke-width: .9; opacity: .9; }
+.mf-phone-line { stroke: currentColor; stroke-width: 2; stroke-linecap: round; opacity: .6; }
+.mf-caller { fill: var(--surface); stroke: currentColor; stroke-width: 1.1; }
+.mf-heart { fill: var(--accent); }
+.mf-voice rect { fill: currentColor; opacity: .7; transform-box: fill-box; transform-origin: center; animation: hf-bar 2.2s ease-in-out infinite; }
+.mf-sound path { stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; opacity: 0; animation: mf-speak 3.6s ease-in-out infinite; }
+.hf-layer-here { transform-origin: 236px 252px; }
+.hf-layer-phone { transform-origin: 464px 214px; }
+.hf-art:hover .hf-layer-pins { transform: translateY(-7px); }
+.hf-art:hover .hf-layer-here { transform: scale(1.08); }
+.hf-art:hover .hf-layer-phone { transform: translateY(-8px) rotate(-4deg); }
+.hf-art:hover .hf-layer-map { transform: translateY(-2px); }
+
+@keyframes mf-twinkle { 0%, 100% { opacity: .2; } 50% { opacity: .75; } }
+@keyframes mf-lamp { 0%, 100% { opacity: .65; } 50% { opacity: 1; } }
+@keyframes mf-flow { to { stroke-dashoffset: -16; } }
+@keyframes mf-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.14); } }
+@keyframes mf-flicker { 0%, 100% { transform: scale(1, 1); } 40% { transform: scale(.94, 1.06); } 70% { transform: scale(1.04, .97); } }
+@keyframes mf-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes mf-speak { 0% { opacity: 0; } 20%, 50% { opacity: .7; } 80%, 100% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .mf-star { opacity: .5; }
+  .mf-here-ring { opacity: .3; }
+  .mf-sound path { opacity: .5; }
+  .mf-door-leaf, .mf-spill { transition: none; }
+  .hf-art:hover .mf-door-leaf { transform: scaleX(.5); }
+}

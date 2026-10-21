@@ -1,5 +1,5 @@
-import { BookOpen, Church, GitBranch, GraduationCap, HandHeart, Mail, Moon, Search, ShieldCheck, Sun, UsersRound } from "lucide-react";
-import { useEffect, type ReactNode } from "react";
+import { BookOpen, Church, GitBranch, GraduationCap, HandHeart, Mail, Menu, Moon, Search, ShieldCheck, Sun, UsersRound, X } from "lucide-react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { SectionStrip } from "@/components/SectionStrip";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -10,7 +10,8 @@ import "./site-page-transitions.css";
 import { usePageArrival } from "@/components/usePageArrival";
 import { useLongMemoryTransition } from "@/components/people-pages/useLongMemoryTransition";
 
-const COMMUNITY = { to: "/testimonies", label: "Testimonies", icon: GitBranch };
+const COMMUNITY = { to: "/testimonies", label: "Testimonies", icon: GitBranch, end: false };
+const CONTACT = { to: "/contact", label: "Contact", icon: Mail, end: false };
 
 const NAV = [
   { to: "/bible", label: "Bible", icon: BookOpen, end: false },
@@ -20,15 +21,29 @@ const NAV = [
   { to: "/resources", label: "Resources", icon: HandHeart, end: false },
 ];
 
+// Everything the mobile header hides behind the hamburger must stay reachable here.
+const MOBILE_MENU_LINKS = [...NAV, COMMUNITY, CONTACT];
+
 export function Layout({ children }: { children: ReactNode }) {
   const [theme, toggleTheme] = useTheme();
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const memoryTransition = useLongMemoryTransition();
   usePageArrival();
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
+    setMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen]);
 
   return (
     <div className="flex min-h-dvh flex-col">
@@ -42,7 +57,7 @@ export function Layout({ children }: { children: ReactNode }) {
             <img src="/favicon.svg" alt="" className="h-7 w-7" />
             <span className="hidden xs:inline">Bible Project</span>
           </Link>
-          <nav aria-label="Main" className="site-navigation no-scrollbar flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto">
+          <nav aria-label="Main" className="site-navigation no-scrollbar hidden min-w-0 flex-1 items-center gap-0.5 overflow-x-auto sm:flex">
             {NAV.map(({ to, label, icon: Icon, end }) => (
               <NavLink
                 key={to}
@@ -83,7 +98,7 @@ export function Layout({ children }: { children: ReactNode }) {
             title="Contact"
             className={({ isActive }) =>
               cn(
-                "grid h-[34px] w-[34px] shrink-0 place-items-center rounded-full border transition-colors focus:outline-none",
+                "hidden h-[34px] w-[34px] shrink-0 place-items-center rounded-full border transition-colors focus:outline-none sm:grid",
                 isActive ? "border-ink bg-ink text-page" : "border-line text-muted hover:bg-surface-2 hover:text-ink",
               )
             }
@@ -119,13 +134,59 @@ export function Layout({ children }: { children: ReactNode }) {
             target="_blank"
             rel="noopener"
             title="ChurchFamily — a church community site (opens in a new tab)"
-            className="flex h-[34px] shrink-0 items-center gap-1.5 rounded-full border border-line px-2.5 text-sm text-accent transition-colors hover:bg-surface-2 focus:outline-none sm:px-3"
+            className="hidden h-[34px] shrink-0 items-center gap-1.5 rounded-full border border-line px-2.5 text-sm text-accent transition-colors hover:bg-surface-2 focus:outline-none sm:flex sm:px-3"
           >
             <Church className="h-4 w-4" aria-hidden />
             <span className="hidden lg:inline">ChurchFamily</span>
             <span className="sr-only lg:hidden">ChurchFamily (opens in a new tab)</span>
           </a>
+          <button
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav-menu"
+            className="grid h-[34px] w-[34px] shrink-0 place-items-center rounded-full border border-line text-muted transition-colors hover:bg-surface-2 hover:text-ink focus:outline-none sm:hidden"
+          >
+            {menuOpen ? <X className="h-4 w-4" aria-hidden /> : <Menu className="h-4 w-4" aria-hidden />}
+          </button>
         </div>
+        {menuOpen && (
+          <nav id="mobile-nav-menu" aria-label="Mobile" className="border-t border-line bg-page sm:hidden">
+            <ul className="mx-auto grid max-w-7xl grid-cols-2 gap-1 px-4 py-3 sm:px-6">
+              {MOBILE_MENU_LINKS.map(({ to, label, icon: Icon, end }) => (
+                <li key={to}>
+                  <NavLink
+                    to={to}
+                    end={end}
+                    className={({ isActive }) =>
+                      cn(
+                        "flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm transition-colors",
+                        isActive ? "bg-surface-2 font-semibold text-ink" : "text-muted hover:bg-surface-2 hover:text-ink",
+                      )
+                    }
+                  >
+                    <Icon className="h-4 w-4 shrink-0" aria-hidden />
+                    {label}
+                  </NavLink>
+                </li>
+              ))}
+              <li className="col-span-2">
+                <a
+                  href="https://churchfamily.io"
+                  target="_blank"
+                  rel="noopener"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm text-accent transition-colors hover:bg-surface-2"
+                >
+                  <Church className="h-4 w-4 shrink-0" aria-hidden />
+                  ChurchFamily
+                  <span className="sr-only">(opens in a new tab)</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        )}
       </header>
       <main id="main" className="flex-1" onClickCapture={memoryTransition}>
         {children}

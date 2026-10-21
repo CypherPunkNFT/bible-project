@@ -38,10 +38,6 @@ export function OpenBible() {
   </div>;
 }
 
-export function BibleShelf() {
-  return <div className="home-bible-shelf" aria-hidden="true">{["Genesis", "Exodus", "Psalms", "Isaiah", "Matthew", "Romans", "Revelation"].map((book, i) => <div key={book} style={{ background: `color-mix(in srgb, var(--${["history", "history", "poetry", "prophets", "gospels", "epistles", "revelation"][i]}) 24%, var(--surface))`, borderColor: `var(--${["history", "history", "poetry", "prophets", "gospels", "epistles", "revelation"][i]})`, height: `${140 + [8, 8, -8, 28, 8, -8, 8][i]}px` }}><span>{book}</span></div>)}</div>;
-}
-
 export function QuestionOrbit() {
   return <svg className="home-question-orbit" viewBox="0 0 540 360" fill="none" aria-hidden="true">
     <circle cx="270" cy="180" r="142" stroke="currentColor" opacity=".3" /><circle cx="270" cy="180" r="108" stroke="currentColor" strokeDasharray="2 7" opacity=".5" /><ellipse cx="270" cy="180" rx="226" ry="66" transform="rotate(-24 270 180)" stroke="currentColor" opacity=".2" />

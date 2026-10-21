@@ -1,4 +1,4 @@
-/* "Scripture & Theology | Academic Studies": the two branches of Study as one pill on the right of the top line, as on Teachers. */
+/* "Theological | Scholarly": the two branches of Study as one pill, on the same line as the eyebrow. */
 .study-experience .branch-nav .branch-sides { display: inline-flex; gap: 2px; margin-left: auto; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
 .study-experience .branch-nav .branch-sides a { display: inline-flex; align-items: center; min-height: 0; padding: .4rem 1rem; border-radius: 999px; font-size: .82rem; color: var(--muted); text-decoration: none; transition: background .15s, color .15s; }
 .study-experience .branch-nav .branch-sides a:hover { color: var(--ink); background: var(--surface-2); }

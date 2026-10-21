@@ -1,0 +1,75 @@
+/* Mock-up drawings for the top of the homepage Resources section (OverviewMockups.tsx). Same rules as home-features.css:
+   loops run only while on screen, layers part on hover with their pivots set at rest, still under reduced motion. */
+.mo-label { fill: var(--muted); font: 600 7.5px Archivo, sans-serif; letter-spacing: .16em; }
+.mo-ink { color: var(--tone); }
+.mo-ink path, .mo-ink rect, .mo-ink circle, .mo-ink ellipse { stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; stroke-linecap: round; }
+.mo-ink rect:not(.mo-fill) { fill: color-mix(in srgb, currentColor 22%, var(--surface)); }
+.mo-fill { fill: var(--surface); }
+.mo-pin { fill: color-mix(in srgb, currentColor 45%, var(--surface)); }
+.mo-wall { fill: var(--surface); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
+
+/* ---- The open house ---- */
+.mo-roof { fill: color-mix(in srgb, currentColor 12%, var(--surface)); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
+.mo-attic { fill: color-mix(in srgb, var(--accent) 22%, var(--surface)); stroke: currentColor; }
+.mo-window { fill: color-mix(in srgb, var(--tone) 10%, var(--surface)); stroke: currentColor; stroke-width: 1.3; }
+.mo-window-glow { fill: var(--accent); opacity: .05; animation: mo-glow 4s ease-in-out infinite; transition: opacity .6s; }
+.mo-sill { stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; opacity: .6; }
+.mo-room .mo-label { fill: color-mix(in srgb, var(--tone) 60%, var(--muted)); }
+.mo-guest { transform-box: fill-box; transform-origin: 50% 100%; animation: mo-nod 5s ease-in-out infinite; }
+.mo-lamp-glow { fill: var(--accent); stroke: none !important; opacity: .18; transform-box: fill-box; transform-origin: center; animation: mo-breathe 4s ease-in-out infinite; }
+.mo-spill { fill: var(--accent); opacity: .08; transition: opacity .8s; }
+.mo-door { fill: color-mix(in srgb, currentColor 18%, var(--surface)); stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.hf-layer-door { transform-origin: 284px 304px; }
+.mo-smoke circle { stroke: currentColor; opacity: 0; transform-box: fill-box; transform-origin: center; animation: mo-smoke 4.8s ease-out infinite; }
+.hf-art:hover .hf-layer-roof { transform: translateY(-10px); }
+.hf-art:hover .hf-layer-rooms { transform: translateY(-3px); }
+.hf-art:hover .mo-window-glow { opacity: .22; }
+.hf-art:hover .hf-layer-door { transform: scaleX(.45); }
+.hf-art:hover .mo-spill { opacity: .2; }
+
+/* ---- The table set ---- */
+.mo-tabletop { fill: color-mix(in srgb, currentColor 9%, var(--surface)); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
+.mo-frame { fill: var(--surface); stroke: currentColor; stroke-width: 1.2; stroke-dasharray: 1 0; }
+.mo-verse { fill: var(--ink); font: italic 400 11.5px Literata, Georgia, serif; }
+.mo-print path { stroke: var(--ink); stroke-dasharray: 6 2 3 1.5; opacity: .4; stroke-width: 1; }
+.mo-ribbon { stroke: var(--history) !important; stroke-width: 2 !important; }
+.mo-steam path { stroke: var(--muted); stroke-linecap: round; opacity: 0; animation: mo-steam 4s ease-in-out infinite; }
+.mo-teapot { transform-box: view-box; transform-origin: 344px 290px; transition: transform .9s cubic-bezier(.2, .7, .2, 1); }
+.mo-glass { fill: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
+.mo-flame { fill: var(--accent); stroke: none !important; transform-box: fill-box; transform-origin: 50% 100%; animation: mo-flicker 2.6s ease-in-out infinite; }
+.mo-halo { fill: var(--accent); opacity: .07; transform-box: fill-box; transform-origin: center; animation: mo-breathe 6s ease-in-out infinite; transition: opacity .6s; }
+.hf-layer-lamp { transform-origin: 456px 290px; }
+.hf-art:hover .mo-teapot { transform: rotate(-14deg); }
+.hf-art:hover .hf-layer-verse { transform: translateY(-8px); }
+.hf-art:hover .hf-layer-lamp { transform: translateY(-4px); }
+.hf-art:hover .mo-halo { opacity: .16; }
+.hf-art:hover .mo-steam path { animation-duration: 2.4s; }
+
+/* ---- The folded map ---- */
+.mo-paper { fill: var(--surface); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
+.mo-paper-shade { fill: color-mix(in srgb, currentColor 7%, var(--surface)); }
+.mo-street { stroke: var(--line) !important; stroke-dasharray: 3 3; fill: none; }
+.mo-city { transform-box: fill-box; transform-origin: 50% 100%; animation: mo-pin 5.4s ease-in-out infinite; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+.mo-trail { stroke: var(--ink); stroke-width: 1.2; stroke-dasharray: 2 5; stroke-linecap: round; opacity: .45; animation: hf-flow 3.4s linear infinite; pointer-events: none; }
+.mo-compass { fill: var(--surface); stroke: currentColor; stroke-dasharray: 2 3; }
+.mo-needle { fill: color-mix(in srgb, var(--accent) 50%, var(--surface)); stroke: var(--ink); stroke-linejoin: round; transform-box: view-box; transform-origin: 540px 80px; animation: mo-needle 6s ease-in-out infinite; }
+.hf-art:hover .hf-layer-panel0 { transform: translate(-12px, -4px); }
+.hf-art:hover .hf-layer-panel1 { transform: translateY(-8px); }
+.hf-art:hover .hf-layer-panel2 { transform: translate(12px, -4px); }
+.hf-art:hover .mo-city { transform: translateY(-4px) scale(1.15); }
+.hf-art:hover .hf-layer-compass { transform: translateY(-6px); }
+
+@keyframes mo-glow { 0%, 100% { opacity: .04; } 50% { opacity: .16; } }
+@keyframes mo-nod { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1.5px); } }
+@keyframes mo-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+@keyframes mo-smoke { 0% { opacity: 0; transform: translate(0, 0) scale(.6); } 25% { opacity: .5; } 100% { opacity: 0; transform: translate(14px, -40px) scale(1.6); } }
+@keyframes mo-steam { 0% { opacity: 0; transform: translateY(4px); } 40% { opacity: .6; } 100% { opacity: 0; transform: translateY(-14px); } }
+@keyframes mo-flicker { 0%, 100% { transform: scale(1, 1); } 40% { transform: scale(.9, 1.1); } 70% { transform: scale(1.06, .94); } }
+@keyframes mo-pin { 0%, 70%, 100% { opacity: .85; } 80% { opacity: 1; filter: drop-shadow(0 0 3px var(--accent)); } }
+@keyframes mo-needle { 0%, 100% { transform: rotate(-10deg); } 50% { transform: rotate(12deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .mo-steam path { opacity: .4; }
+  .mo-teapot, .mo-city { transition: none; }
+  .hf-art:hover .mo-teapot, .hf-art:hover .mo-city { transform: none; }
+}

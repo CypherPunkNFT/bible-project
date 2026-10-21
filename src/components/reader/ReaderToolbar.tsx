@@ -1,10 +1,10 @@
-import { ChevronDown, ChevronLeft, ChevronRight, Columns2, Type } from "lucide-react";
+import { ChevronDown, Columns2, Link2, Type } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { shortBookName } from "@/lib/book-short-names";
 import { useCatalog } from "@/lib/catalog";
 import { sectionColor } from "@/lib/sections";
 import type { BookInfo, Translation } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { cn, formatNumber } from "@/lib/utils";
 import type { ReaderSettings } from "./settings";
 import { VersionMenu } from "./VersionMenu";
 
@@ -19,22 +19,24 @@ interface Props {
   chapter: string;
   parallel: Translation[];
   settings: ReaderSettings;
-  prev: ChapterLink | null;
-  next: ChapterLink | null;
+  /** Null hides the bubble: no usable cross-reference data, or the panel showing them is already open. */
+  crossRefCount: number | null;
   onTranslation: (slug: string) => void;
   onOpenBooks: () => void;
   onParallel: (slugs: string[]) => void;
   onSettings: (settings: ReaderSettings) => void;
+  onCrossRefs: () => void;
 }
 
 type Open = "version" | "side" | "options" | null;
 
 /**
- * The reader's one bar: previous chapter · [version ▾] [book & chapter — opens the reading chart] [side by side ▾] · next.
+ * The reader's one bar: cross-references · [version ▾] [book & chapter — opens the reading chart] [side by side ▾] · text size.
+ * Chapter-to-chapter navigation lives beside the chapter title instead, plus the side arrows and swipe gesture.
  * Each control's panel opens right under that control, never as a native dropdown.
  */
 export function ReaderToolbar(props: Props) {
-  const { translation, book, chapter, parallel, prev, next } = props;
+  const { translation, book, chapter, parallel, crossRefCount } = props;
   const [open, setOpen] = useState<Open>(null);
   const bar = useRef<HTMLDivElement>(null);
   const toggle = (which: Exclude<Open, null>) => setOpen((current) => (current === which ? null : which));
@@ -83,7 +85,18 @@ export function ReaderToolbar(props: Props) {
     <div ref={bar} className="sticky top-[3.6rem] z-30 -mx-4 border-b border-line bg-page/90 px-2 backdrop-blur-md sm:-mx-6 sm:px-4">
       <div className="mx-auto grid h-16 max-w-5xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-1 md:grid-cols-[1fr_auto_1fr] md:gap-2">
         <div className="flex justify-start">
-          <StepButton link={prev} direction="prev" />
+          {crossRefCount !== null && (
+            <button
+              type="button"
+              onClick={props.onCrossRefs}
+              aria-label={`Show this chapter's ${crossRefCount} cross-references`}
+              title={`${formatNumber(crossRefCount)} cross-references`}
+              className="flex h-10 items-center gap-1.5 rounded-full px-2.5 text-sm font-semibold text-muted hover:bg-surface-2 hover:text-ink"
+            >
+              <Link2 className="h-[18px] w-[18px] shrink-0" />
+              <span className="tabular-nums">{formatNumber(crossRefCount)}</span>
+            </button>
+          )}
         </div>
 
         <div className="flex min-w-0 items-center justify-center gap-1.5 sm:gap-2">
@@ -161,7 +174,6 @@ export function ReaderToolbar(props: Props) {
         </div>
 
         <div className="flex items-center justify-end gap-1">
-          <StepButton link={next} direction="next" />
           <div className="sm:relative">
             <button
               type="button"
@@ -182,22 +194,6 @@ export function ReaderToolbar(props: Props) {
         </div>
       </div>
     </div>
-  );
-}
-
-function StepButton({ link, direction }: { link: ChapterLink | null; direction: "prev" | "next" }) {
-  const Icon = direction === "prev" ? ChevronLeft : ChevronRight;
-  if (!link) return <span className="h-10 w-10" aria-hidden />;
-  return (
-    <button
-      type="button"
-      onClick={link.go}
-      aria-label={`${direction === "prev" ? "Previous" : "Next"} chapter: ${link.label}`}
-      className={cn("flex h-10 items-center gap-1 rounded-full px-2 text-sm text-muted hover:bg-surface-2 hover:text-ink", direction === "next" && "flex-row-reverse")}
-    >
-      <Icon className="h-6 w-6 shrink-0" />
-      <span className="hidden max-w-[10rem] truncate md:inline">{link.label}</span>
-    </button>
   );
 }
 

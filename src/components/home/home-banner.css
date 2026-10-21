@@ -1,0 +1,55 @@
+/* The section banner (HomeBanner.tsx): a thick band from edge to edge, tinted by its part, with double rules, a faint
+   engraved hatch, a large outlined numeral and the part's verse. Motion is kept faint: the hatch drifts a few pixels to
+   and fro, the edge rules glow softly, and the emblem's rings turn in place (home-emblems.css). */
+.home-banner { position: relative; margin-top: 120px; overflow: hidden; color: var(--home-color); border-block: 1px solid color-mix(in srgb, var(--home-color) 38%, var(--line));
+  background: linear-gradient(100deg, color-mix(in srgb, var(--home-color) 13%, var(--page)), color-mix(in srgb, var(--home-color) 5%, var(--page)) 55%, color-mix(in srgb, var(--home-color) 11%, var(--page))); }
+.home-banner::before { content: ""; position: absolute; inset: 9px -24px; border-block: 1px solid color-mix(in srgb, var(--home-color) 30%, transparent); pointer-events: none;
+  box-shadow: 0 0 7px color-mix(in srgb, var(--home-color) 16%, transparent), inset 0 0 7px color-mix(in srgb, var(--home-color) 16%, transparent); }
+.home-banner::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, currentColor 0 1px, transparent 1px 11px); opacity: .045; pointer-events: none;
+  animation: home-banner-drift 22s ease-in-out infinite alternate; }
+.home-banner-inner { position: relative; z-index: 1; display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1.25fr) auto; align-items: center; gap: clamp(24px, 3.4vw, 56px); min-height: 236px; padding-block: 40px; }
+.home-banner-number, .home-banner-name { align-self: last baseline; }
+.home-banner-number { font: 400 clamp(92px, 9vw, 148px)/.85 Literata, Georgia, serif; letter-spacing: -.05em; color: color-mix(in srgb, var(--home-color) 10%, transparent); -webkit-text-stroke: 1.2px var(--home-color); opacity: .8; }
+.home-banner-name { display: flex; flex-direction: column; gap: 8px; margin: 0; }
+.home-banner-name small { font: 600 10px Archivo, sans-serif; letter-spacing: .26em; text-transform: uppercase; }
+.home-banner-name strong { font: 500 clamp(36px, 3.6vw, 54px)/1 Literata, Georgia, serif; letter-spacing: -.04em; color: var(--ink); }
+.home-banner-name span { color: var(--muted); font-size: 13px; }
+.home-banner blockquote { margin: 0; padding-left: clamp(20px, 2.6vw, 40px); border-left: 1px solid color-mix(in srgb, var(--home-color) 45%, transparent); }
+.home-banner blockquote p { margin: 0; color: var(--ink); font: italic 400 clamp(18px, 1.6vw, 23px)/1.5 Literata, Georgia, serif; letter-spacing: -.01em; }
+.home-banner blockquote a { display: inline-flex; align-items: center; gap: 5px; margin-top: 14px; color: var(--home-color); font: 600 10px Archivo, sans-serif; letter-spacing: .2em; text-transform: uppercase; }
+.home-banner-emblem { width: clamp(118px, 10.5vw, 158px); height: auto; }
+
+/* The whole band is a link to the part's page; only the verse reference keeps its own link, to the reader. */
+.home-banner { cursor: pointer; transition: border-color .4s; }
+.home-banner-link { position: absolute; inset: 0; z-index: 0; }
+.home-banner-link:focus-visible { outline: none; }
+.home-banner-inner { pointer-events: none; }
+.home-banner blockquote a { pointer-events: auto; }
+.home-banner-number { transition: opacity .5s; }
+.home-banner:hover { border-color: color-mix(in srgb, var(--home-color) 60%, var(--line)); }
+.home-banner:hover .home-banner-number { opacity: 1; }
+.home-banner { box-shadow: 0 -1px 8px -3px color-mix(in srgb, var(--home-color) 40%, transparent), 0 1px 8px -3px color-mix(in srgb, var(--home-color) 40%, transparent); }
+
+/* Glint words in the line under the name catch the light one after another, then rest. */
+.home-banner-glint { font-style: normal; animation: home-banner-glint 12s ease-in-out infinite; animation-delay: calc(var(--n) * 1.6s); }
+@keyframes home-banner-glint { 0%, 30%, 100% { color: var(--muted); text-shadow: none; } 12% { color: var(--home-color); text-shadow: 0 0 10px color-mix(in srgb, var(--home-color) 45%, transparent); } }
+@keyframes home-banner-drift { from { background-position: 0 0; } to { background-position: 9px 0; } }
+@media (prefers-reduced-motion: reduce) { .home-banner::after, .home-banner-glint { animation: none; } }
+
+/* The banner already divides the page, so the apologetics block drops its own rules and spaces like the other sections. */
+.home-banner + .home-wrap > .home-apologetics { margin-top: 0; padding: 88px 0 0; border-block: 0; }
+
+@media (max-width: 900px) {
+  .home-banner + .home-wrap > .home-apologetics { padding-top: 56px; }
+  .home-banner { margin-top: 80px; }
+  .home-banner-inner { grid-template-columns: auto minmax(0, 1fr); row-gap: 22px; min-height: 0; padding-block: 34px; }
+  .home-banner blockquote { grid-column: 1 / -1; }
+  .home-banner-emblem { display: none; }
+}
+
+/* The preview strip above the first banner can be dragged with the mouse (HomePage.tsx PreviewMarquee). */
+.home-marquee { cursor: grab; user-select: none; }
+.home-marquee[data-dragging] { cursor: grabbing; }
+.home-marquee[data-dragging] .home-marquee-track { animation-play-state: paused; }
+.home-marquee img, .home-marquee a { -webkit-user-drag: none; }
+.home-preview-strip + .home-banner { margin-top: 64px; }

@@ -25,3 +25,12 @@ export const HOME_TOPICS = [
   { title: "Jesus Christ", text: "His person, his life, his saving work.", to: "/topics/c/christ", art: "christ", color: "gospels" },
   { title: "The Christian life", text: "Faith lived in the ordinary and the difficult.", to: "/topics/c/christian-life", art: "church", color: "poetry" },
 ] as const;
+/** The six apologetics fields (copied from the apologetics library's topics, so the homepage need not load the library). */
+export const HOME_FIELDS = [
+  { title: "God & reality", text: "Existence, reason and the shape of a meaningful universe.", question: "Why is there anything at all?", to: "/apologetics/topics/god", color: "accent" },
+  { title: "Jesus & resurrection", text: "The identity, death and resurrection at the heart of Christian faith.", question: "Who do you say that I am?", to: "/apologetics/topics/jesus", color: "gospels" },
+  { title: "Bible & reliability", text: "Manuscripts, canon and the patient work of reading in context.", question: "Can we trust what we are reading?", to: "/apologetics/topics/bible", color: "history" },
+  { title: "Suffering & doubt", text: "Honest questions about pain, silence and the failures of Christians.", question: "Where is God in the difficult chapters?", to: "/apologetics/topics/doubt", color: "poetry" },
+  { title: "Religions & worldviews", text: "Understand the real differences. Read each tradition’s own sources.", question: "What do we share, and where do we differ?", to: "/apologetics/worldviews", color: "prophets" },
+  { title: "Faith & witness", text: "Grace, conviction and conversations that leave room for a person.", question: "How do we live and share this hope?", to: "/apologetics/topics/faith", color: "epistles" },
+] as const;

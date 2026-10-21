@@ -1,5 +1,5 @@
-import { ArrowLeft, ArrowRight, CheckSquare, ChevronLeft, ChevronRight, Link2, Square } from "lucide-react";
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
+import { ArrowLeft, ArrowRight, CheckSquare, ChevronLeft, ChevronRight, Square } from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Link, Navigate, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { CreditLine } from "@/components/CreditLine";
 import { BookPicker } from "@/components/reader/BookPicker";
@@ -10,6 +10,7 @@ import { ChapterText } from "@/components/reader/ChapterText";
 import { ParallelText, type Column } from "@/components/reader/ParallelText";
 import { ReaderToolbar, type ChapterLink } from "@/components/reader/ReaderToolbar";
 import { useReaderSettings } from "@/components/reader/settings";
+import { useSwipeNavigation } from "@/components/reader/useSwipeNavigation";
 import { VersePanel } from "@/components/reader/VersePanel";
 import { WhoRuledCard, WhoRuledStrip } from "@/components/reader/WhoRuled";
 import { ChapterCrossRefs } from "@/components/reader/ChapterCrossRefs";
@@ -23,7 +24,7 @@ import { bookByCode, parseHighlight } from "@/lib/refs";
 import { SECTION_BY_ID, sectionColor } from "@/lib/sections";
 import type { Catalog, Translation } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
-import { cn, formatNumber, isTyping } from "@/lib/utils";
+import { cn, isTyping } from "@/lib/utils";
 
 /** Previous/next chapter across books, in canonical order, within the books this version has. */
 function neighbours(catalog: Catalog, translation: Translation, code: string, chapter: string) {
@@ -106,6 +107,11 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
     return () => window.removeEventListener("keydown", onKey);
   }, [goTo, prev, next, picking]);
 
+  const article = useRef<HTMLElement>(null);
+  const goNext = useCallback(() => !picking && goTo(next), [goTo, next, picking]);
+  const goPrev = useCallback(() => !picking && goTo(prev), [goTo, prev, picking]);
+  useSwipeNavigation(article, goNext, goPrev);
+
   useEffect(() => {
     const target = selected ?? (highlight ? String(highlight[0]) : null);
     if (texts.status !== "ready" || !target) return;
@@ -152,44 +158,52 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
           navigate(`/read/${slug}/${code}/${chapter}${rest.length ? `?with=${rest.join(",")}` : ""}`);
         }}
         onOpenBooks={() => setPicking(true)}
-        prev={prevLink}
-        next={nextLink}
         onParallel={(list) => navigate(`/read/${translation.slug}/${code}/${chapter}${list.length ? `?with=${list.join(",")}` : ""}`)}
         onSettings={setSettings}
+        crossRefCount={showReferenceCard ? chapterRefs.total : null}
+        onCrossRefs={() => {
+          setBubbleOpened(true);
+          if (!settings.crossRefs) setSettings({ ...settings, crossRefs: true });
+        }}
       />
       <div className={cn("relative grid grid-cols-[minmax(0,1fr)] gap-8 py-8", showPanel && "lg:grid-cols-[minmax(0,1fr)_23rem]")}>
-        <article className={cn("relative mx-auto w-full", parallel.length ? "max-w-none" : "max-w-[44rem]")} style={{ fontSize: `${settings.scale}rem` }}>
+        <article ref={article} className={cn("relative mx-auto w-full", parallel.length ? "max-w-none" : "max-w-[44rem]")} style={{ fontSize: `${settings.scale}rem` }}>
           {!parallel.length && <SideArrows prev={prevLink} next={nextLink} nextInside={showPanel} />}
-          <header className="mb-6 flex flex-wrap items-center justify-between gap-3 font-sans" style={{ fontSize: "1rem" }}>
-            <div>
-            <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: sectionColor(book.section) }}>
+          <header className="mb-6 flex flex-col items-center gap-1 text-center font-sans" style={{ fontSize: "1rem" }}>
+            <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: sectionColor(book.section) }}>
               <span>
                 {SECTION_BY_ID[book.section].name} · {translation.name}
               </span>
             </p>
-            <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
-              {book.name} <span className="text-muted">{chapter}</span>
-            </h1>
+            <div className="mt-1 flex items-center gap-2 sm:gap-3">
+              {prev ? (
+                <button
+                  type="button"
+                  onClick={() => goTo(prev)}
+                  aria-label={`Previous chapter: ${bookByCode(catalog, prev[0])?.name} ${prev[1]}`}
+                  className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-muted hover:bg-surface-2 hover:text-ink"
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </button>
+              ) : (
+                <span className="h-10 w-10 shrink-0" aria-hidden="true" />
+              )}
+              <h1 className="font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
+                {book.name} <span className="text-muted">{chapter}</span>
+              </h1>
+              {next ? (
+                <button
+                  type="button"
+                  onClick={() => goTo(next)}
+                  aria-label={`Next chapter: ${bookByCode(catalog, next[0])?.name} ${next[1]}`}
+                  className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-muted hover:bg-surface-2 hover:text-ink"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </button>
+              ) : (
+                <span className="h-10 w-10 shrink-0" aria-hidden="true" />
+              )}
             </div>
-            {showReferenceCard && (
-              <button
-                type="button"
-                onClick={() => {
-                  setBubbleOpened(true);
-                  if (!settings.crossRefs) setSettings({ ...settings, crossRefs: true });
-                }}
-                aria-label={`Show this chapter's ${chapterRefs.total} cross-references`}
-                className="flex shrink-0 items-center gap-2.5 rounded-xl border border-line bg-surface px-3 py-2 text-left transition hover:border-accent/60 hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-              >
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-accent/10 text-accent">
-                  <Link2 className="h-4 w-4" aria-hidden />
-                </span>
-                <span>
-                  <span className="block text-xs font-semibold">Cross-references</span>
-                  <span className="block text-sm font-semibold text-accent">{formatNumber(chapterRefs.total)}</span>
-                </span>
-              </button>
-            )}
           </header>
           {translation.numbering === "english" && !parallel.length && (
             <div style={{ fontSize: "1rem" }}>

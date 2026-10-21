@@ -1,0 +1,41 @@
+/* The banner emblems (HomeEmblems.tsx). Every ring turns about the drawing's own centre: in an SVG the view-box origin
+   is the point (0, 0), which is where each emblem is centred, so the origin is set to 0 0 rather than "center" (which
+   would mean the middle of the box measured from that origin, and swing the ring off to one side). */
+.he-emblem { overflow: visible; color: var(--home-color); stroke: currentColor; stroke-width: .8; stroke-linecap: round; stroke-linejoin: round; }
+.he-turn { transform-box: view-box; transform-origin: 0 0; animation: he-spin 160s linear infinite; }
+.he-slow { animation-duration: 160s; }
+.he-back { animation-duration: 120s; animation-direction: reverse; }
+.he-mid { animation-duration: 90s; }
+.he-fast { animation-duration: 60s; animation-direction: reverse; }
+.he-ring { opacity: .6; }
+.he-solid { opacity: .7; }
+.he-faint { opacity: .3; }
+.he-dash { stroke-dasharray: 1.5 3; opacity: .5; }
+.he-dot { stroke-dasharray: .1 2.2; stroke-width: 1.1; }
+.he-emblem > .he-ring:first-of-type { stroke-width: 1.2; opacity: .85; }
+.he-ticks { opacity: .45; stroke-width: .6; }
+.he-figure { opacity: .5; }
+circle.he-dot:not(.he-ring) { fill: currentColor; stroke: none; opacity: .6; }
+.he-hebrew { fill: currentColor; stroke: none; font: 500 6.8px "Times New Roman", "SBL Hebrew", "Ezra SIL", David, serif; opacity: .8; }
+.he-hub { fill: color-mix(in srgb, var(--home-color) 9%, var(--page)); stroke: currentColor; stroke-width: .9; opacity: .95; }
+.he-centre { stroke-width: 1.15; }
+.he-letter { fill: currentColor; stroke: none; font: 600 17px "Times New Roman", "SBL Hebrew", David, serif; }
+.he-mark { stroke: currentColor; }
+.he-star { fill: currentColor; stroke: none; font-size: 19px; }
+.he-emblem :is(.he-ring, .he-figure, .he-hebrew, .he-ticks) { transition: opacity .6s; }
+.home-banner:hover .he-emblem :is(.he-ring, .he-figure, .he-ticks) { opacity: .8; }
+.home-banner:hover .he-hebrew { opacity: 1; }
+@keyframes he-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .he-turn { animation: none; } }
+
+/* The banner mock-up page (EmblemMockupsPage.tsx): each part's banner shown full width, once per emblem design. */
+.hm-banners { padding-bottom: 120px; }
+.hm-banners-head { padding-block: 56px 8px; }
+.hm-banners-head h1 { margin: 0 0 10px; font: 500 clamp(30px, 3.6vw, 46px)/1.1 Literata, Georgia, serif; letter-spacing: -.03em; }
+.hm-banners-head h1 em { color: var(--accent); }
+.hm-banners-head p { margin: 0; color: var(--muted); }
+.hm-banner-part { margin-top: 72px; }
+.hm-banner-option + .hm-banner-option { margin-top: 36px; }
+.hm-banner-label { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; margin: 0 auto 12px; font-size: 13px; color: var(--muted); }
+.hm-banner-label strong { color: var(--ink); font: 500 18px Literata, Georgia, serif; }
+.hm-banner-option .home-banner { margin-top: 0; }

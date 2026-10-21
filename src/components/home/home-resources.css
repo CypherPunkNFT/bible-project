@@ -1,0 +1,65 @@
+/* Homepage Resources drawings (HomeResourceScenes.tsx). Same rules as home-features.css: loops run only while on screen,
+   layers part on hover with their pivots set at rest, everything holds still under reduced motion. */
+.hr-label { fill: var(--muted); font: 600 7.5px Archivo, sans-serif; letter-spacing: .16em; }
+
+/* ---- Learning materials ---- */
+.hr-shelf-book rect { fill: color-mix(in srgb, currentColor calc(8% + var(--i) * 3%), var(--surface)); stroke: currentColor; stroke-width: 1.2; transform-box: fill-box; transform-origin: 50% 100%; transition: transform .7s cubic-bezier(.2, .7, .2, 1); transition-delay: calc(var(--i) * 40ms); }
+.hr-shelf-book path { stroke: currentColor; opacity: .45; }
+.hr-age-arrow { stroke: var(--muted); opacity: .7; }
+.hr-page { fill: var(--surface); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
+.hr-print path { stroke: var(--ink); stroke-dasharray: 6 2 3 1.5; opacity: .4; }
+.hr-question { fill: var(--ink); font: italic 400 10.5px Literata, Georgia, serif; }
+.hr-rule { stroke: currentColor; opacity: .35; }
+.hr-answer { stroke: var(--ink); stroke-width: 1.3; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: hr-write 7s ease-in-out infinite; }
+.hr-pencil { animation: hr-pencil 7s ease-in-out infinite; }
+.hr-pencil path { fill: color-mix(in srgb, var(--accent) 30%, var(--surface)); stroke: var(--ink); stroke-width: 1.1; stroke-linejoin: round; }
+.hr-pencil .hr-pencil-tip { fill: var(--ink); }
+.hr-verse-card { animation: hf-drift 10s ease-in-out infinite; }
+.hr-verse-card rect { fill: var(--surface); stroke: currentColor; stroke-width: 1.2; }
+.hr-card-verse { fill: var(--ink); font: italic 400 11.5px Literata, Georgia, serif; }
+.hf-art:hover .hr-shelf-book rect { transform: translateY(-6px); }
+.hf-art:hover .hf-layer-workbook { transform: translateY(-8px); }
+.hf-layer-card { transform-origin: 477px 95px; }
+.hf-art:hover .hf-layer-card { transform: translateY(-10px) rotate(-3deg); }
+
+/* ---- Fellowships ---- */
+.hr-thread { stroke: currentColor; stroke-dasharray: 2 5; opacity: .55; animation: hf-flow 3.4s linear infinite; }
+.hr-table { fill: color-mix(in srgb, currentColor 8%, var(--surface)); stroke: currentColor; stroke-width: 1.3; }
+.hr-table-book { fill: var(--surface); stroke: currentColor; stroke-width: 1.1; }
+.hr-person { fill: var(--surface); stroke: currentColor; stroke-width: 1.3; transform-box: fill-box; transform-origin: center; animation: hf-pulse 5s ease-in-out infinite; }
+.hr-gathering { transition: transform .9s cubic-bezier(.2, .7, .2, 1); }
+.hr-gathering-ring { fill: var(--surface); stroke: currentColor; stroke-dasharray: 2 4; opacity: .9; }
+.hr-gathering path, .hr-gathering circle:not(.hr-gathering-ring) { stroke: currentColor; stroke-width: 1.3; fill: var(--surface); stroke-linejoin: round; }
+.hf-art:hover .hr-gathering { transform: translate(var(--dx), var(--dy)); }
+.hf-art:hover .hf-layer-table { transform: translateY(-6px); }
+.hf-art:hover .hr-person { fill: color-mix(in srgb, currentColor 20%, var(--surface)); }
+
+/* ---- Help for life ---- */
+.hf-layer-beam { transform-origin: 132px 137px; }
+.hr-beam { fill: var(--accent); opacity: .1; transform-box: view-box; transform-origin: 132px 137px; animation: hr-sweep 9s ease-in-out infinite alternate; }
+.hr-wave { stroke: var(--prophets); opacity: .35; animation: hs-wave 7s ease-in-out infinite; }
+.hr-rock { fill: color-mix(in srgb, currentColor 14%, var(--surface)); stroke: currentColor; stroke-width: 1.2; }
+.hr-tower { fill: var(--surface); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
+.hr-band { stroke: currentColor; stroke-width: 5; opacity: .3; }
+.hr-lantern { fill: color-mix(in srgb, var(--accent) 18%, var(--surface)); stroke: currentColor; stroke-width: 1.2; }
+.hr-lamp { fill: var(--accent); animation: hs-glow 3s ease-in-out infinite; }
+.hr-buoy { fill: var(--surface); stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.hr-glow { fill: var(--accent); opacity: .3; animation: hr-light 4s ease-in-out infinite; }
+.hr-light { transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+.hf-art:hover .hr-beam { opacity: .2; }
+.hf-art:hover .hr-light { transform: translateY(-8px); }
+.hf-art:hover .hr-light .hr-glow { opacity: .95; }
+.hf-art:hover .hf-layer-lighthouse { transform: translateY(-4px); }
+
+@keyframes hr-write { 0%, 10% { stroke-dashoffset: 1; } 55%, 85% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes hr-pencil { 0%, 10% { transform: translate(400px, 242px); } 55% { transform: translate(472px, 242px); } 85% { transform: translate(472px, 242px); } 100% { transform: translate(400px, 242px); } }
+@keyframes hr-sweep { from { transform: rotate(-7deg); } to { transform: rotate(9deg); } }
+@keyframes hr-light { 0%, 100% { opacity: .25; } 50% { opacity: .9; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hr-answer { stroke-dashoffset: 0; }
+  .hr-pencil { transform: translate(472px, 242px); }
+  .hr-glow { opacity: .7; }
+  .hf-art:hover .hr-shelf-book rect, .hf-art:hover .hr-gathering, .hf-art:hover .hr-light { transform: none; }
+  .hr-shelf-book rect, .hr-gathering, .hr-light { transition: none; }
+}
