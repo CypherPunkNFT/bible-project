@@ -257,10 +257,10 @@ export default function HomePage() {
         </FeatureBlock>
         <FeatureBlock reverse tone="resource-life" level="h3" kicker="Help for life" title={<>Help for <em>the hardest moments.</em></>}
           art={<LifeScene />} artTo="/resources/life" artLabel="Find help for life"
-          facts={["Crisis help", "Pregnancy & healing", "Food & families", "Grief & recovery", "15 city maps"]}
+          facts={["Crisis help", "Pregnancy & healing", "Food & families", "Grief & recovery", "14 city maps"]}
           cta={{ to: "/resources/life", label: "Find help", note: "Right now, and close to home", icon: <LifeBuoy size={22} strokeWidth={1.4} aria-hidden />, bookmark: true }}>
           <p>When life breaks open, help should be easy to find. Help for life gathers national hotlines and services for the moments that matter most: crisis help right now, pregnancy help, healing after an abortion, support for babies, children and families, food, grief care, and addiction and recovery.</p>
-          <p>Beside the national lines, local maps show places in fifteen cities, from Miami and Atlanta to Dallas and Oklahoma City, so help can be found close to home. We would rather leave a place out than list one that is no longer open.</p>
+          <p>Beside the national lines, local maps show places in fourteen cities, from Miami and Atlanta to Dallas and Oklahoma City, so help can be found close to home. We would rather leave a place out than list one that is no longer open.</p>
         </FeatureBlock>
       </section>
       <section id="about" className="home-about-band" aria-label="An open invitation"><div><p className="home-eyebrow">An open invitation</p><h2>A lifetime of discovery.<br /><em>Freely shared.</em></h2><p>Scripture to read. Questions to explore. Sources you can follow. Built so anyone can begin, and keep going.</p><div className="home-about-links"><Link to="/sources">Sources & references<ArrowUpRight size={14} /></Link><a href="https://github.com/CypherPunkNFT/bible-project" target="_blank" rel="noreferrer">Open source<ArrowUpRight size={14} /></a></div></div><Link className="home-testimonies" to="/testimonies"><GitBranch size={28} strokeWidth={1.3} /><span className="home-eyebrow">Testimonies</span><h3>The story continues<br />in ordinary lives.</h3><p>Explore the testimony collection and the invitation to share your story.</p><span className="home-card-action">Explore testimonies<ArrowRight size={16} /></span></Link></section>

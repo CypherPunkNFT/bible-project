@@ -4,9 +4,9 @@ import "./resources/resource-transitions.css";
 // pages under it. A section is a link only once its data file exists in src/data/resources/ (learning.json,
 // fellowships.json, life.json); until then its doorway says "In preparation" and its address returns here, so no page
 // is ever empty or invented.
-import { lazy, Suspense, useEffect, type ComponentType, type CSSProperties } from "react";
+import { lazy, Suspense, useEffect, type ComponentType } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { StationDoor } from "@/components/stations/Station";
+import { StationDoor, StationStats } from "@/components/stations/Station";
 import { loadResource, useResource, type FellowshipsData, type LearningData, type LifeData } from "@/data/resources";
 import { divisionCounts } from "@/data/resources/learning-catalogue";
 import { RESOURCE_SECTIONS, sectionReady } from "./resources/sections";
@@ -51,6 +51,20 @@ function learningNote() {
   return `${ready} ready · ${planned} planned · ${readers} readers`;
 }
 
+/** What the three sections hold, counted from their data; a figure reads "…" until its file has loaded. */
+function useStationFigures(): [string, string | number][] {
+  const fellowships = useResource("fellowships");
+  const life = useResource("life");
+  const { ready, planned } = divisionCounts();
+  const cities = typeof life === "object" ? life.cities.filter((c) => c.verified === true && c.entries.length > 0) : null;
+  return [
+    ["Learning titles", ready + planned],
+    ["Fellowships", typeof fellowships === "object" ? fellowships.groups.reduce((n, g) => n + g.entries.length, 0) : "…"],
+    ["Cities with local help", cities ? cities.length : "…"],
+    ["Local places & lines", cities ? cities.reduce((n, c) => n + c.entries.length + (c.lines?.length ?? 0), 0) : "…"],
+  ];
+}
+
 function Station() {
   useEffect(() => { document.title = "Resources · Bible Project"; return () => { document.title = "Bible Project"; }; }, []);
   return <div className="st-page mx-auto max-w-7xl px-4 sm:px-6">
@@ -58,7 +72,7 @@ function Station() {
       <div><p className="st-kick">Resources</p><h1>Help for the road,<br /><span>close at hand.</span></h1></div>
       <div className="st-side">
         <p>Materials to study with, fellowships that gather believers around the word, and help for the hardest moments of life.</p>
-        <ol className="st-index" aria-label="The three sections">{RESOURCE_SECTIONS.map((s, i) => <li key={s.slug} data-ready={sectionReady(s.slug) || undefined} style={{ "--door": `var(--${s.color})` } as CSSProperties}><span>{String(i + 1).padStart(2, "0")}</span><span>{s.title}</span><span>{sectionReady(s.slug) ? "Open" : "In preparation"}</span></li>)}</ol>
+        <StationStats items={useStationFigures()} />
       </div>
     </header>
     <nav className="st-doors" aria-label="Resources">
