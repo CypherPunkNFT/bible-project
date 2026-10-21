@@ -148,7 +148,9 @@ const dataPlugin: Plugin = {
 };
 
 export default defineConfig({
-  server: { host: "127.0.0.1", port: 8930, strictPort: true },
+  // The scratch folders hold millions of snapshot files (.local alone 2.46M, 2026-10-21); watching them grew each dev
+  // server to ~10 GB and it never served a page. Vite adds these to its own defaults (.git, node_modules).
+  server: { host: "127.0.0.1", port: 8930, strictPort: true, watch: { ignored: ["**/.local/**", "**/.release/**", "**/.output/**", "**/.wrangler/**"] } },
   preview: { host: "127.0.0.1", port: 8931, strictPort: true },
   plugins: [studyContentPlugin(), react(), dataAnalysisPlugin(__dirname), dataPlugin, mockupsPlugin, dataIntakePlugin(__dirname), atlasTilesPlugin(), designReviewPlugin(), testimonyApiPlugin(), localLibraryPlugin(__dirname), dropUnusedOrtEngine, preloadPageFonts],
   resolve: {
