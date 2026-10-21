@@ -2503,26 +2503,6 @@
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         },
         {
-          "id": "mia-childrens-bereavement-center",
-          "name": "Children's Bereavement Center / Lift From Loss",
-          "summary": "Free grief support groups for grieving children, teens, young adults and adults, offered in English, Spanish and Creole.",
-          "faith": null,
-          "contact": [
-            {
-              "kind": "phone",
-              "value": "888-988-5438"
-            }
-          ],
-          "cost": "Free",
-          "source": "https://childbereavement.org/",
-          "checked": "2026-10-20",
-          "category": "grief",
-          "address": "6619 South Dixie Highway, #302, Miami, FL 33143",
-          "lat": 25.694582,
-          "lon": -80.300376,
-          "geocode": "OpenStreetMap Nominatim (Census geocoder found no match)"
-        },
-        {
           "id": "mia-love-to-help-foundation",
           "name": "Love To Help Foundation",
           "summary": "Weekly food pantry giving fresh and non-perishable food to families and individuals in need; community members are welcome to visit.",
@@ -3017,6 +2997,272 @@
           "lat": 25.572025,
           "lon": -80.365827,
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-crc-culmer",
+          "name": "Culmer Community Resource Center (Miami-Dade County)",
+          "summary": "A Miami-Dade County neighbourhood centre that offers social services to low-income individuals and families, including a family support programme (Family Development). The county lists free-food distribution (Share Your Heart, supplied by Farm Share) at this site. Services vary by centre, so call to ask what is available now.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-438-4161"
+            }
+          ],
+          "hours": "Monday through Friday, 8 a.m. to 5 p.m., except county-observed holidays (county page, all centres)",
+          "source": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1542309305236810",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "1600 NW 3rd Avenue, Miami, FL 33136",
+          "lat": 25.790302,
+          "lon": -80.200058,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-crc-edison",
+          "name": "Edison Community Resource Center (Miami-Dade County)",
+          "summary": "A Miami-Dade County neighbourhood centre that offers social services to low-income individuals and families, including a family support programme (Family Development). The county lists free-food distribution (Share Your Heart, supplied by Farm Share) at this site. Services vary by centre, so call to ask what is available now.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-758-9662"
+            }
+          ],
+          "hours": "Monday through Friday, 8 a.m. to 5 p.m., except county-observed holidays (county page, all centres)",
+          "source": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1542309305236810",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "150 NW 79th Street, Miami, FL 33150",
+          "lat": 25.847292,
+          "lon": -80.199877,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-crc-florida-city-homestead",
+          "name": "Florida City / Homestead Community Resource Center (Miami-Dade County)",
+          "summary": "A Miami-Dade County neighbourhood centre in Florida City, near Homestead, that offers social services to low-income individuals and families, including a family support programme (Family Development). The county lists free-food distribution (Share Your Heart, supplied by Farm Share) at this site. Services vary by centre, so call to ask what is available now.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-247-2068"
+            }
+          ],
+          "hours": "Monday through Friday, 8 a.m. to 5 p.m., except county-observed holidays (county page, all centres)",
+          "source": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1542309305236810",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "1600 NW 6th Court, Florida City, FL 33034",
+          "lat": 25.460669,
+          "lon": -80.485842,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-crc-frankie-shannon-rolle",
+          "name": "Frankie Shannon Rolle Community Resource Center (Coconut Grove)",
+          "summary": "A Miami-Dade County neighbourhood centre in Coconut Grove that offers social services to low-income individuals and families, including a family support programme (Family Development). The county's list of food-distribution sites does not include this centre. The county's rental-assistance page shows a different street name in this centre's heading, so confirm the address when you call. Services vary by centre.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-446-3311"
+            }
+          ],
+          "hours": "Monday through Friday, 8 a.m. to 5 p.m., except county-observed holidays (county page, all centres)",
+          "source": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1542309305236810",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "3750 S. Dixie Highway, Suite 117, Miami, FL 33133",
+          "lat": 25.731395,
+          "lon": -80.254336,
+          "geocode": "OpenStreetMap Nominatim (Census geocoder found no match)"
+        },
+        {
+          "id": "mia-crc-perrine",
+          "name": "Perrine Community Resource Center (Miami-Dade County)",
+          "summary": "A Miami-Dade County neighbourhood centre in the Perrine area that offers social services to low-income individuals and families, including a family support programme (Family Development). The county lists free-food distribution (Share Your Heart, supplied by Farm Share) at this site. Services vary by centre, so call to ask what is available now.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-254-5804"
+            }
+          ],
+          "hours": "Monday through Friday, 8 a.m. to 5 p.m., except county-observed holidays (county page, all centres)",
+          "source": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1542309305236810",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "17801 Homestead Avenue, Miami, FL 33157",
+          "lat": 25.603202,
+          "lon": -80.354463,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-crc-accion",
+          "name": "Accion Community Resource Center (Miami-Dade County)",
+          "summary": "A Miami-Dade County neighbourhood centre that offers social services to low-income individuals and families, including a family support programme (Family Development). The county's list of food-distribution sites does not include this centre. The centre is on the 4th floor. Services vary by centre.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-545-2224"
+            }
+          ],
+          "hours": "Monday through Friday, 8 a.m. to 5 p.m., except county-observed holidays (county page, all centres)",
+          "source": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1542309305236810",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "970 SW 1st Street, 4th Floor, Miami, FL 33130",
+          "lat": 25.772566,
+          "lon": -80.21081,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-crc-mlk-plaza-caleb",
+          "name": "Dr. Martin Luther King Office Plaza (Joseph Caleb Community Resource Center, temporary location)",
+          "summary": "The Miami-Dade County Joseph Caleb / Liberty City resource centre, listed by the county at this temporary location, which also serves Hialeah-area ZIP codes (33010, 33012, 33013, 33166, 33178) now that the county's Hialeah centre has closed. It offers social services to low-income individuals and families, including Family Development support, and the county lists free-food distribution at the Joseph Caleb / Liberty City site. Call to confirm what is available at this location.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-756-2830"
+            }
+          ],
+          "hours": "Monday through Friday, 8 a.m. to 5 p.m., except county-observed holidays (county page, all centres)",
+          "source": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1542309305236810",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "2525 NW 62nd Street, 1st Floor, Miami, FL 33147",
+          "lat": 25.831237,
+          "lon": -80.239396,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-tmwl-overtown",
+          "name": "Touching Miami with Love - Overtown",
+          "summary": "A nonprofit in Overtown whose site lists after-school and holiday youth programmes for children in kindergarten through 12th grade, a job-training and case-management programme for young people ages 14 to 24, a Parent Partners Program, child psychological therapy, help with social services, notary, and free faxes and copies. No eligibility rules are stated for the adult and family services. Hours are given only for youth programmes; call about the rest.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-416-0435",
+              "note": "Miami office"
+            },
+            {
+              "kind": "web",
+              "value": "https://touchingmiamiwithlove.org/"
+            }
+          ],
+          "hours": "Youth programmes run after school hours Monday through Friday during the school year, and all day on most teacher planning days, spring break and summer",
+          "source": "https://touchingmiamiwithlove.org/",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "711 NW 6th Avenue, Miami, FL 33136",
+          "lat": 25.780684,
+          "lon": -80.204575,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-tmwl-homestead",
+          "name": "Touching Miami with Love - Homestead",
+          "summary": "The Homestead address of Touching Miami with Love, which says it serves youth and families in Overtown and West Homestead with youth programmes, a Parent Partners Program and help with social services. The only phone number on its site is the Miami office, so ask there which services run at the Homestead site.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-416-0435",
+              "note": "Miami office (the only number on the site)"
+            },
+            {
+              "kind": "web",
+              "value": "https://touchingmiamiwithlove.org/"
+            }
+          ],
+          "hours": "Youth programmes run after school hours Monday through Friday during the school year (site-wide)",
+          "source": "https://touchingmiamiwithlove.org/",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "1350 SW 4th Street, Homestead, FL 33030",
+          "lat": 25.466015,
+          "lon": -80.492549,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-chapman-downtown-hac",
+          "name": "Chapman Partnership Homeless Assistance Center - Downtown Miami",
+          "summary": "One of Chapman Partnership's two Homeless Assistance Centers, described on its site as a main intake point into Miami-Dade's homeless services. This is call-first, not walk-in: the site says anyone who is homeless, about to be, or helping someone who is must first contact the Homeless Helpline (1-877-994-4357). For general questions about the centre, call 305-329-3000. Hours are not published on the site.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-877-994-4357",
+              "note": "Homeless Helpline (1-877-994-HELP) - call this first"
+            },
+            {
+              "kind": "phone",
+              "value": "305-329-3000",
+              "note": "general questions about services"
+            }
+          ],
+          "source": "https://chapmanpartnership.org/contact/",
+          "checked": "2026-10-20",
+          "category": "shelter",
+          "address": "1550 North Miami Avenue, Miami, FL 33136",
+          "lat": 25.78996,
+          "lon": -80.194719,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-chapman-homestead-hac",
+          "name": "Chapman Partnership Homeless Assistance Center - Homestead",
+          "summary": "One of Chapman Partnership's two Homeless Assistance Centers, described on its site as a main intake point into Miami-Dade's homeless services. This is call-first, not walk-in: the site says anyone who is homeless, about to be, or helping someone who is must first contact the Homeless Helpline (1-877-994-4357). For general questions about services, call 305-329-3000. Hours are not published on the site.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-877-994-4357",
+              "note": "Homeless Helpline (1-877-994-HELP) - call this first"
+            },
+            {
+              "kind": "phone",
+              "value": "305-329-3000",
+              "note": "general questions about services"
+            }
+          ],
+          "source": "https://chapmanpartnership.org/contact/",
+          "checked": "2026-10-20",
+          "category": "shelter",
+          "address": "28205 SW 124 Court, Homestead, FL 33033",
+          "lat": 25.505453,
+          "lon": -80.393375,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-dv-outreach-downtown-courthouse",
+          "name": "Domestic Violence Outreach Unit - Lawson E. Thomas Courthouse Center (Miami-Dade County)",
+          "summary": "A county court-based unit in downtown Miami that helps domestic violence victims with injunctions for protection, advocacy, referrals, emergency financial assistance and crisis counseling. The county's page invites people to call or visit; it lists the site as the Courthouse Center Garage, mezzanine level. The county's 24-hour hotline and text line for domestic violence is also given here.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-349-5813",
+              "note": "this unit"
+            },
+            {
+              "kind": "phone",
+              "value": "305-679-0303",
+              "note": "county hotline, call or text 24/7"
+            }
+          ],
+          "hours": "Monday through Friday; closed Saturday, Sunday and county holidays (times not listed on the county page)",
+          "source": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1502483183449106",
+          "checked": "2026-10-20",
+          "category": "abuse",
+          "address": "175 NW 1st Avenue, Mezzanine, Miami, FL 33128",
+          "lat": 25.775782,
+          "lon": -80.195267,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         }
       ],
       "lines": [
@@ -3285,6 +3531,53 @@
           "source": "https://www.miamidiaperbank.com/how-we-serve",
           "checked": "2026-10-20",
           "category": "children-families",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "mia-line-better-way-admissions",
+          "name": "Better Way of Miami - treatment admissions and outpatient lines",
+          "summary": "Better Way of Miami describes itself as a CARF-accredited residential and outpatient treatment programme for people in Miami-Dade County with substance use and mental health diagnoses, with individual counseling and group therapy. Its contact page gives admissions, outpatient and housing phone numbers but no street address or hours, so call to ask how to start.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-634-3409",
+              "note": "Treatment Admissions, extensions 121 and 122"
+            },
+            {
+              "kind": "phone",
+              "value": "305-582-8066",
+              "note": "Outpatient Department"
+            },
+            {
+              "kind": "email",
+              "value": "info@BetterWayofMiami.org"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.betterwayofmiami.org"
+            }
+          ],
+          "source": "https://www.betterwayofmiami.org/contact-8",
+          "checked": "2026-10-20",
+          "category": "recovery",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "mia-childrens-bereavement-center",
+          "name": "Children's Bereavement Center / Lift From Loss",
+          "summary": "Free grief support groups for grieving children, teens, young adults and adults, offered in English, Spanish and Creole. In-person groups meet at a Miami venue and others are online; call to register and ask where.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "888-988-5438"
+            }
+          ],
+          "cost": "Free",
+          "source": "https://childbereavement.org/",
+          "checked": "2026-10-20",
+          "category": "grief",
           "address": "No walk-in address listed (phone service); reach it by phone, text or online"
         }
       ],
@@ -8095,6 +8388,119 @@
           "lat": 32.832286,
           "lon": -79.822842,
           "geocode": "OpenStreetMap Nominatim (Census geocoder found no match)"
+        },
+        {
+          "id": "chs-charleston-county-health-department",
+          "name": "Charleston County Health Department (SC Department of Public Health)",
+          "summary": "The county public health office in North Charleston. The state's clinic list shows it provides WIC (nutrition help for pregnant women, new mothers and young children), family planning, immunizations, STD/HIV/hepatitis C testing, TB services and opioid overdose kits. Appointments are made through the state number below; the page says to ask about extended or weekend hours.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "843-953-4713",
+              "note": "clinic"
+            },
+            {
+              "kind": "phone",
+              "value": "855-472-3432",
+              "note": "state appointment line"
+            },
+            {
+              "kind": "web",
+              "value": "https://dph.sc.gov/public/public-health-clinics"
+            }
+          ],
+          "hours": "8:30 a.m. to 5 p.m.; ask about extended or weekend hours",
+          "source": "https://dph.sc.gov/public/public-health-clinics",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "3685 Rivers Ave., Suite 201, North Charleston, SC 29405",
+          "lat": 32.858111,
+          "lon": -79.981779,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "chs-cdmhc-charleston-clinic",
+          "name": "Charleston Dorchester Mental Health Center - Charleston Clinic",
+          "summary": "The Charleston clinic of the public Charleston Dorchester Mental Health Center, listed on the state's mental health centre directory. The state page gives only the location, phone and office hours, so call to ask about services and how to be seen. For a mental health crisis, the state's 24/7 Mobile Crisis line is 833-364-2274.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "843-852-4100"
+            },
+            {
+              "kind": "phone",
+              "value": "833-364-2274",
+              "note": "state Mobile Crisis line, 24/7"
+            },
+            {
+              "kind": "web",
+              "value": "https://bhdd.sc.gov/office-mental-health/providers/mental-health-centers/charleston-dorchester-mental-health-center-cdmhc/cdmhc-locations"
+            }
+          ],
+          "hours": "Monday-Friday, 8:30 a.m.-5 p.m., closed for all state-observed holidays",
+          "source": "https://bhdd.sc.gov/office-mental-health/providers/mental-health-centers/charleston-dorchester-mental-health-center-cdmhc/cdmhc-locations",
+          "checked": "2026-10-20",
+          "category": "crisis",
+          "address": "2100 Charlie Hall Boulevard, Charleston, SC 29414",
+          "lat": 32.813916,
+          "lon": -80.045484,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "chs-cdmhc-dorchester-clinic",
+          "name": "Charleston Dorchester Mental Health Center - Dorchester Clinic",
+          "summary": "The Summerville clinic of the public Charleston Dorchester Mental Health Center, listed on the state's mental health centre directory. The state page gives only the location, phone and office hours, so call to ask about services and how to be seen. For a mental health crisis, the state's 24/7 Mobile Crisis line is 833-364-2274.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "843-873-5063"
+            },
+            {
+              "kind": "phone",
+              "value": "833-364-2274",
+              "note": "state Mobile Crisis line, 24/7"
+            },
+            {
+              "kind": "web",
+              "value": "https://bhdd.sc.gov/office-mental-health/providers/mental-health-centers/charleston-dorchester-mental-health-center-cdmhc/cdmhc-locations"
+            }
+          ],
+          "hours": "Monday-Friday, 8:30 a.m.-5 p.m., closed for all state-observed holidays",
+          "source": "https://bhdd.sc.gov/office-mental-health/providers/mental-health-centers/charleston-dorchester-mental-health-center-cdmhc/cdmhc-locations",
+          "checked": "2026-10-20",
+          "category": "crisis",
+          "address": "106 Springview Lane, Summerville, SC 29485",
+          "lat": 32.960025,
+          "lon": -80.161038,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "chs-holy-communion-food-pantry",
+          "name": "Church of the Holy Communion Food Pantry",
+          "summary": "A small neighbourhood pantry serving people in the Cannonborough area who are struggling financially. Volunteers hand out bags of food picked up from the Lowcountry Food Bank, and homebound people with physical disabilities receive delivered bags. The page gives no pantry-specific phone, so call the church to ask about timing.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "843-722-2024",
+              "note": "church office"
+            },
+            {
+              "kind": "web",
+              "value": "https://holycomm.org/outreach/"
+            }
+          ],
+          "hours": "Second Saturday morning of each month; home deliveries begin at 8:30",
+          "source": "https://holycomm.org/outreach/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "218 Ashley Avenue, Charleston, SC 29403",
+          "lat": 32.788693,
+          "lon": -79.947982,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         }
       ],
       "lines": [
@@ -8368,6 +8774,28 @@
           "source": "https://www.optionline.org/",
           "checked": "2026-10-20",
           "category": "pregnancy",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "chs-line-sc-wic-appointments",
+          "name": "South Carolina WIC Appointment Line",
+          "summary": "The state number to call to make a WIC appointment. WIC gives nutrition education, healthy foods and breastfeeding support at no cost to qualifying South Carolina families: pregnant women, new and breastfeeding mothers, and children under five (people on Medicaid, TANF or SNAP are automatically eligible).",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "855-472-3432",
+              "note": "1-855-472-3432, to make an appointment"
+            },
+            {
+              "kind": "web",
+              "value": "https://dph.sc.gov/wic"
+            }
+          ],
+          "cost": "No cost to South Carolina families who qualify",
+          "source": "https://dph.sc.gov/wic",
+          "checked": "2026-10-20",
+          "category": "children-families",
           "address": "No walk-in address listed (phone service); reach it by phone, text or online"
         }
       ],
@@ -10529,26 +10957,90 @@
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         },
         {
-          "id": "bna-family-childrens-service-honey-alexander-center",
-          "name": "Family & Children's Service - Honey Alexander Center",
-          "summary": "A Nashville nonprofit offering counseling for children, individuals and families, a Relative Caregiver Program for relatives raising children, and other family programs. It also runs the 988 crisis line for Davidson County. Call to ask about the service you need before visiting.",
+          "id": "bna-operation-stand-down-tennessee",
+          "name": "Operation Stand Down Tennessee - Service Center (veterans only)",
+          "summary": "For veterans only; it is not open to the general public. Veterans can walk in to get connected to support, get help tracking down military records, receive mail, use a computer lab for job and benefits applications, and get hot meals on select days and hygiene kits when available. The group also runs a veterans suicide prevention program and a food-bag program called Operation Commissary. The page lists no opening hours, so call first.",
           "faith": null,
           "contact": [
             {
               "kind": "phone",
-              "value": "615-320-0591"
+              "value": "615-248-1981"
             },
             {
               "kind": "email",
-              "value": "counselingreferrals@fcsnashville.org"
+              "value": "info@osdtn.org"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.osdtn.org/servicecenter"
             }
           ],
-          "source": "https://www.fcsnashville.org/programs-and-services/",
+          "source": "https://www.osdtn.org/servicecenter",
           "checked": "2026-10-20",
-          "category": "children-families",
-          "address": "2400 Clifton Ave, Nashville, TN 37209",
-          "lat": 36.158259,
-          "lon": -86.813008,
+          "category": "food",
+          "address": "1125 12th Ave South, Nashville, TN 37203",
+          "lat": 36.143532,
+          "lon": -86.786873,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "bna-city-road-chapel-umc-madison",
+          "name": "City Road Chapel UMC - Feast community meal and Showers of Blessing (Madison)",
+          "summary": "A Madison church that holds a free community meal for all comers on the 4th Sunday of each month, and runs Showers of Blessing, a weekly shower and laundry service for people who are homeless (a partnership with Community Care Fellowship and Laymen's Lessons). Showers close at 11 a.m. and laundry is limited to 15 loads a day. The church office can also arrange meal delivery to residents of Madison and Chippington Towers.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "615-868-1673",
+              "note": "church office"
+            },
+            {
+              "kind": "email",
+              "value": "CRCChurchOffice@cityroadchapel.org"
+            },
+            {
+              "kind": "web",
+              "value": "https://cityroadchapel.org/feast/"
+            }
+          ],
+          "hours": "Community meal: 4th Sunday of each month at 5 p.m. Showers of Blessing: Mondays and Wednesdays 7 a.m.-12 p.m. (showers close at 11 a.m.)",
+          "cost": "The monthly meal is free to all comers",
+          "source": "https://cityroadchapel.org/showers/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "701 Gallatin Pike S, Madison, TN 37115",
+          "lat": 36.256118,
+          "lon": -86.714344,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "bna-cumberland-heights-hermitage-outpatient",
+          "name": "Cumberland Heights - Hermitage outpatient program",
+          "summary": "A licensed outpatient addiction treatment center in Hermitage offering an intensive outpatient program (group and individual therapy several times a week, with family education), for people stepping down from residential care or who need an alternative to full-time treatment. It also treats co-occurring problems such as depression and anxiety. Call first; new patients arrive one hour before their first group to meet a counselor and finish paperwork. The location also hosts alumni care meetings and Alcoholics Anonymous (Seeking Sanity) meetings, which Cumberland Heights says it does not run.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "615-544-6391",
+              "note": "Hermitage location"
+            },
+            {
+              "kind": "phone",
+              "value": "800-646-9998",
+              "note": "admissions"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.cumberlandheights.org/location/hermitage/"
+            }
+          ],
+          "hours": "Intensive outpatient, in person: Monday, Tuesday, Thursday, Friday 9:00 AM-12:00 PM and 6:00-9:00 PM. Counseling, medication management and family services also available by telehealth.",
+          "source": "https://www.cumberlandheights.org/location/hermitage/",
+          "checked": "2026-10-20",
+          "category": "recovery",
+          "address": "3441 Lebanon Pike, Suite 108, Hermitage, TN 37076",
+          "lat": 36.19002,
+          "lon": -86.626639,
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         }
       ],
@@ -10887,6 +11379,58 @@
           "checked": "2026-10-20",
           "category": "pregnancy",
           "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "bna-nurses-for-newborns-tennessee",
+          "name": "Nurses for Newborns - Tennessee (free home visits for babies and new parents)",
+          "summary": "A free home-visiting program for families with babies in Middle Tennessee. Registered nurses check the baby's health and development, home visitors teach parenting skills, and licensed social workers help with mental health and home-environment concerns. Visits are arranged through a referral (a family, caregiver or agency can submit the form on the Tennessee page or call the office), not by walking in. Office hours 9 a.m.-4 p.m.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "615-313-9989",
+              "note": "office, 9 a.m.-4 p.m."
+            },
+            {
+              "kind": "phone",
+              "value": "888-654-7427",
+              "note": "toll-free"
+            },
+            {
+              "kind": "web",
+              "value": "https://nursesfornewborns.org/tennessee/referrals/"
+            }
+          ],
+          "hours": "Office hours 9:00 a.m.-4:00 p.m.",
+          "cost": "Free",
+          "source": "https://www.nursesfornewborns.org/tennessee",
+          "checked": "2026-10-20",
+          "category": "pregnancy",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "bna-nashville-diaper-connection",
+          "name": "Nashville Diaper Connection (diapers through partner agencies)",
+          "summary": "A diaper bank that gives out diapers through partner nonprofits, healthcare providers and community organisations, not from a storefront. The Get Diapers page has a partner finder map and list; contact the partner directly for distribution dates and times. TennCare members may also be able to get a monthly diaper supply through their health plan, and a Diapers for Diplomas program helps parents in school or certification programs. The site lists only a PO box.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "615-915-3089"
+            },
+            {
+              "kind": "email",
+              "value": "info@nashvillediaperconnection.org"
+            },
+            {
+              "kind": "web",
+              "value": "https://nashvillediaperconnection.org/get-diapers"
+            }
+          ],
+          "source": "https://nashvillediaperconnection.org/get-diapers",
+          "checked": "2026-10-20",
+          "category": "children-families",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
         }
       ],
       "verified": true
@@ -11049,53 +11593,6 @@
           "address": "115 Alexander St, Memphis, TN 38111",
           "lat": 35.127695,
           "lon": -89.950867,
-          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
-        },
-        {
-          "id": "mem-morning-center",
-          "name": "Memphis Morning Center",
-          "summary": "A Jesus-centered nonprofit giving prenatal and postpartum care, ultrasounds and labs, and classes to under-resourced pregnant women, at no charge. Book by calling.",
-          "faith": true,
-          "contact": [
-            {
-              "kind": "phone",
-              "value": "901-209-0195",
-              "note": "Appointments"
-            }
-          ],
-          "hours": "Clinic hours Monday-Thursday, 10 a.m.-5 p.m.",
-          "cost": "Free",
-          "source": "https://www.memphismorningcenter.org/contact",
-          "checked": "2026-10-20",
-          "category": "pregnancy",
-          "address": "3638 Macon Rd, Memphis, TN 38122",
-          "lat": 35.162559,
-          "lon": -89.939231,
-          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
-        },
-        {
-          "id": "mem-family-safety-center",
-          "name": "Family Safety Center of Memphis and Shelby County",
-          "summary": "One location where people leaving domestic violence can meet advocates and partner agencies. It also runs an elder-abuse program and a teen dating violence program.",
-          "faith": null,
-          "contact": [
-            {
-              "kind": "phone",
-              "value": "901-222-4400",
-              "note": "Main office"
-            },
-            {
-              "kind": "phone",
-              "value": "901-800-6064",
-              "note": "24-hour crisis line"
-            }
-          ],
-          "source": "https://familysafetycenter.org/contact-us/",
-          "checked": "2026-10-20",
-          "category": "abuse",
-          "address": "1750 Madison Ave, Suite 600, Memphis, TN 38104",
-          "lat": 35.138061,
-          "lon": -90.002451,
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         },
         {
@@ -11704,6 +12201,279 @@
           "lat": 35.056116,
           "lon": -89.9437,
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mem-first-congregational-food-justice",
+          "name": "First Congregational Church - Food Justice Ministry",
+          "summary": "Midtown church that serves a community lunch Monday through Thursday (it says 50-200 guests a day) and hands out pantry goods, produce, bread and other grocery staples on Wednesdays. The page states no requirements; call the church to ask about eligibility.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "901-278-6786",
+              "note": "Church office"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.firstcongo.com/food-justice-ministry"
+            }
+          ],
+          "hours": "Community lunch Monday through Thursday, 11am-1pm; pantry Wednesdays, 11am-1pm",
+          "source": "https://www.firstcongo.com/food-justice-ministry",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "1000 South Cooper St, Memphis, TN 38104",
+          "lat": 35.118838,
+          "lon": -89.991046,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mem-st-johns-umc-food-pantry",
+          "name": "St. John's United Methodist Church Food Pantry",
+          "summary": "Church food pantry in the Fellowship Hall (Peabody entrance); a valid ID is required, and it serves people living in zip codes 38103, 38104, 38105, 38106, 38107, 38108, 38109, 38111, 38112 and 38157. The page says food distribution depends on availability. The church's Swaddling Clothes ministry also gives diapers to Memphis families in need; its page lists no pickup days.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "901-726-4104",
+              "note": "Church office"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.stjohnsmidtown.org/foodpantry"
+            }
+          ],
+          "hours": "1st & 3rd Thursdays of each month, 10:00 AM - 12:00 PM",
+          "source": "https://www.stjohnsmidtown.org/foodpantry",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "1207 Peabody Ave, Memphis, TN 38104",
+          "lat": 35.132691,
+          "lon": -90.021245,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mem-st-lukes-umc-pantry-breakfast",
+          "name": "St. Luke's United Methodist Church - University Cluster Food Pantry and Sunday breakfast",
+          "summary": "Church in the University District that runs a food pantry on the second and fourth Thursdays of each month (its page says it serves all in need who come; the main requirement is to bring ID) and a free Sunday community breakfast open to the public. It also hands out Manna Bags, emergency snack bags with water and food, at the church.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "901-452-6262",
+              "note": "Church office"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.stlukesumc.org/food-pantry"
+            }
+          ],
+          "hours": "Pantry: 2nd and 4th Thursdays, 9:30 am - 12:00 pm. Sunday breakfast: 8:00 - 9:00 am",
+          "source": "https://www.stlukesumc.org/food-pantry",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "480 S. Highland St, Memphis, TN 38111",
+          "lat": 35.118453,
+          "lon": -89.945549,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mem-grace-st-lukes-sunday-meal",
+          "name": "Grace-St. Luke's Episcopal Church - More Than A Meal",
+          "summary": "Sunday meal in Trezevant Hall for neighbors experiencing homelessness and hunger; guests arrive at 4:00 p.m. and the meal is served between 4:00 and 5:00 p.m.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "901-272-7425",
+              "note": "Church office"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.gracestlukes.org/more-than-a-meal"
+            }
+          ],
+          "hours": "Sundays, meal served 4:00 - 5:00 p.m.",
+          "source": "https://www.gracestlukes.org/more-than-a-meal",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "1720 Peabody Ave, Memphis, TN 38104",
+          "lat": 35.13214,
+          "lon": -90.004248,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mem-st-marys-catholic-soup-kitchen",
+          "name": "St. Mary's Soup Kitchen (St. Mary's Catholic Church)",
+          "summary": "Catholic parish soup kitchen that says it has operated continuously since 1870 and serves its community's poor, homeless and less fortunate six days a week. The page does not name the days or meal times, so call before going.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "901-522-9420"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.stmaryssoupkitchen.org/"
+            }
+          ],
+          "hours": "Six days a week (days and times not stated on the page)",
+          "source": "https://www.stmaryssoupkitchen.org/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "155 Market St, Memphis, TN 38105",
+          "lat": 35.151284,
+          "lon": -90.04697,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mem-calvary-episcopal-sunday-breakfast",
+          "name": "Calvary Episcopal Church - Sunday Neighborhood Breakfast and Clothes Closet",
+          "summary": "Downtown church that serves a Sunday morning neighborhood breakfast to about 180 neighbors experiencing homelessness and opens a clothes closet where homeless neighbors can choose clothes, blankets and toiletries.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "901-525-6602",
+              "note": "Church office"
+            },
+            {
+              "kind": "web",
+              "value": "https://calvarymemphis.org/serve/community-ministries/"
+            }
+          ],
+          "hours": "Sunday breakfast 6 a.m. - 8 a.m.; clothes closet Sundays 6:15 - 7:45 a.m.",
+          "source": "https://calvarymemphis.org/serve/community-ministries/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "102 N 2nd St, Memphis, TN 38103",
+          "lat": 35.147115,
+          "lon": -90.050561,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mem-holy-trinity-community-church-pantry",
+          "name": "Holy Trinity Community Church Food Pantry",
+          "summary": "Church food pantry open on the first and third Tuesday of each month; to receive food you must make an appointment by calling before noon on the Monday.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "901-320-9376",
+              "note": "Call before noon Monday for an appointment"
+            },
+            {
+              "kind": "web",
+              "value": "https://holytrinitymemphis.org/food-pantry"
+            }
+          ],
+          "hours": "First and third Tuesday of each month, 10-11 a.m. (appointment required)",
+          "source": "https://holytrinitymemphis.org/food-pantry",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "685 S. Highland St, Memphis, TN 38111",
+          "lat": 35.112887,
+          "lon": -89.945916,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mem-friends-for-all-food-pantry",
+          "name": "Friends For All Memphis - Food Pantry",
+          "summary": "Memphis HIV and sexual-health organization (HIV and STI testing, treatment, case management) that also runs a food pantry for its Memphis and Mid-South community. First-time visitors bring a photo ID and, if applicable, a Ryan White card; the page does not spell out who else qualifies.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "901-272-0855"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.friendsforall.org/food"
+            }
+          ],
+          "hours": "Pantry pick-up Monday-Thursday, 9 am - 3 pm; first-time visits: front desk Monday-Thursday, 8:30 am - 3 pm",
+          "source": "https://www.friendsforall.org/food",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "1548 Poplar Ave, Memphis, TN 38104",
+          "lat": 35.143356,
+          "lon": -90.008476,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mem-st-marys-cathedral-hope-and-food",
+          "name": "St. Mary's Episcopal Cathedral - Hope and Food Ministry",
+          "summary": "Cathedral hunger ministry: individuals in need are invited to Morning Prayer in the Sisters Chapel on Saturday mornings, followed by a brown-bag breakfast. The phone number is the cathedral's general line, not a separate ministry line.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "901-527-3361",
+              "note": "Cathedral office"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.stmarysmemphis.org/community-resources"
+            }
+          ],
+          "hours": "Saturdays, Morning Prayer at 9 am followed by breakfast",
+          "source": "https://www.stmarysmemphis.org/community-resources",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "700 Poplar Ave, Memphis, TN 38105",
+          "lat": 35.145935,
+          "lon": -90.034752,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mem-catholic-charities-st-patrick-mobile-pantry",
+          "name": "Catholic Charities of West Tennessee - Downtown Outreach Center (St. Patrick Catholic Church)",
+          "summary": "Drive-thru mobile food pantry at St. Patrick Catholic Church where food boxes are placed into cars, run by Catholic Charities of West Tennessee. The phone is Catholic Charities' general number, the only one on the page, not a number for this site.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "901-722-4700",
+              "note": "Catholic Charities general number"
+            },
+            {
+              "kind": "web",
+              "value": "https://ccwtn.org/hungry/"
+            }
+          ],
+          "hours": "Tuesday-Thursday, 1:00-2:30PM",
+          "source": "https://ccwtn.org/hungry/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "297 S 4th St, Memphis, TN 38126",
+          "lat": 35.136342,
+          "lon": -90.049954,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mem-catholic-charities-st-augustine-mobile-pantry",
+          "name": "Catholic Charities of West Tennessee - Mobile Food Pantry at St. Augustine Catholic Church",
+          "summary": "Drive-thru mobile food pantry at St. Augustine Catholic Church, run by Catholic Charities of West Tennessee, on the first Saturday of each month. The phone is Catholic Charities' general number, the only one on the page, not a number for this site.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "901-722-4700",
+              "note": "Catholic Charities general number"
+            },
+            {
+              "kind": "web",
+              "value": "https://ccwtn.org/hungry/"
+            }
+          ],
+          "hours": "First Saturday of each month at 9AM",
+          "source": "https://ccwtn.org/hungry/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "1169 Kerr Ave, Memphis, TN 38106",
+          "lat": 35.10683,
+          "lon": -90.023909,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         }
       ],
       "lines": [
@@ -11963,6 +12733,25 @@
           "checked": "2026-10-20",
           "category": "recovery",
           "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "mem-morning-center",
+          "name": "Memphis Morning Center",
+          "summary": "A Jesus-centered nonprofit giving prenatal and postpartum care, ultrasounds and labs, and classes to under-resourced pregnant women, at no charge. Book by calling. Appointments are by phone only; call and they will tell you where the clinic is.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "901-209-0195",
+              "note": "Appointments"
+            }
+          ],
+          "hours": "Clinic hours Monday-Thursday, 10 a.m.-5 p.m.",
+          "cost": "Free",
+          "source": "https://www.memphismorningcenter.org/contact",
+          "checked": "2026-10-20",
+          "category": "pregnancy",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
         }
       ],
       "verified": true
@@ -12147,7 +12936,7 @@
           ],
           "hours": "Monday-Wednesday 9 am-4 pm",
           "cost": "Free",
-          "source": "https://pregnancybirmingham.com/",
+          "source": "https://www.positivechoices.life/",
           "checked": "2026-10-20",
           "category": "pregnancy",
           "address": "700 Huffman Rd, Suite 310A, Birmingham, AL 35235",
@@ -12684,6 +13473,325 @@
           "address": "401 Beacon Parkway West, Birmingham, AL 35209",
           "lat": 33.473614,
           "lon": -86.824161,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "bhm-vestavia-hills-umc-pantry",
+          "name": "Vestavia Hills United Methodist Church food pantry",
+          "summary": "A church food pantry with a drive-through distribution every other Wednesday morning, set up under the main campus parking lot, entered from Kentucky Avenue. Phone the church for the next distribution date. For immediate help with a specific need, the church has a separate benevolence line where you leave your name, phone number and need.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "205-822-9631",
+              "note": "Church office; call for the next distribution date"
+            },
+            {
+              "kind": "phone",
+              "value": "205-769-0142",
+              "note": "Benevolence line, for immediate assistance"
+            },
+            {
+              "kind": "web",
+              "value": "https://vhmc.org/serve/how-can-i-get-help/"
+            }
+          ],
+          "hours": "Drive-through every other Wednesday, 9:00-11:30 am; call for the next date",
+          "source": "https://vhmc.org/serve/how-can-i-get-help/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "2061 Kentucky Avenue, Vestavia Hills, AL 35216",
+          "lat": 33.446864,
+          "lon": -86.787021,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "bhm-highlands-umc-hospitality-hour",
+          "name": "Highlands United Methodist Church, Hospitality Hour (Five Points South)",
+          "summary": "A morning refuge for homeless neighbours with breakfast, mail and phone service, toiletries and a listening ear; laundry can be dropped off during the hour and is usually ready by the next one. On Wednesdays representatives from Cahaba Medical Care, One Roof and Recovery Services are there to meet guests, and a mobile medical unit gives free care and screening on the 4th Thursday of the month, 9:00 AM to 1 PM.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "205-933-8751",
+              "note": "Church office"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.highlandsumc.net/community-ministries"
+            }
+          ],
+          "hours": "Hospitality Hour Monday-Saturday, 9:00-10:00 AM; laundry drop-off Tuesday-Saturday during the hour",
+          "source": "https://www.highlandsumc.net/community-ministries",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "1045 20th Street South, Birmingham, AL 35205",
+          "lat": 33.501069,
+          "lon": -86.796529,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "bhm-avondale-samaritan-place",
+          "name": "Avondale Samaritan Place (Avondale United Methodist Church)",
+          "summary": "The mission arm of Avondale United Methodist Church, based in the church gym. During the week anyone who stops by gets a snack bag and cold water; on Mondays there is a sit-down lunch where a social worker helps connect guests to resources. Three monthly food co-ops give out groceries from the Community Food Bank of Central Alabama. Its page gives no hours, so phone first.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "205-868-3345",
+              "note": "Avondale Samaritan Place"
+            },
+            {
+              "kind": "phone",
+              "value": "205-592-3739",
+              "note": "Avondale UMC church office"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.avonumc.net/avondale-samaritan-place"
+            }
+          ],
+          "source": "https://www.avonumc.net/avondale-samaritan-place",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "500 40th Street South, Birmingham, AL 35222",
+          "lat": 33.520922,
+          "lon": -86.77446,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "bhm-grace-klein-liberty-church-hoover",
+          "name": "Grace Klein Community food drive-through at Liberty Church (Hoover)",
+          "summary": "A food drive-through site listed by Grace Klein Community, a Birmingham-area nonprofit. Its contact page lists this location under food support; it does not say who qualifies, so phone Grace Klein before you go.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "205-490-7516",
+              "note": "Grace Klein Community office, Monday-Friday 9:00am-5:00pm"
+            },
+            {
+              "kind": "web",
+              "value": "https://gracekleincommunity.com/contact/"
+            }
+          ],
+          "hours": "Open every Monday-Thursday, 1pm-4pm",
+          "source": "https://gracekleincommunity.com/contact/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "2732 Old Rocky Ridge Road, Hoover, AL 35216",
+          "lat": 33.404093,
+          "lon": -86.761042,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "bhm-grace-klein-bessemer-court",
+          "name": "Grace Klein Community food drive-through at Bessemer Court (mobile)",
+          "summary": "A food drive-through site listed by Grace Klein Community, a Birmingham-area nonprofit. Its contact page lists this location under food support; it does not say who qualifies, so phone Grace Klein before you go. It is a mobile drive-through.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "205-490-7516",
+              "note": "Grace Klein Community office, Monday-Friday 9:00am-5:00pm"
+            },
+            {
+              "kind": "web",
+              "value": "https://gracekleincommunity.com/contact/"
+            }
+          ],
+          "hours": "Open every second Friday, 1pm-3pm; in November and December 2026 it runs on November 6 and December 4",
+          "source": "https://gracekleincommunity.com/contact/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "2014 1st Avenue North, Bessemer, AL 35020",
+          "lat": 33.402762,
+          "lon": -86.950419,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "bhm-grace-klein-family-court-house",
+          "name": "Grace Klein Community food drive-through at the Jefferson County Family Court House",
+          "summary": "A food drive-through site listed by Grace Klein Community, a Birmingham-area nonprofit. Its contact page lists this location under food support; it does not say who qualifies, so phone Grace Klein before you go.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "205-490-7516",
+              "note": "Grace Klein Community office, Monday-Friday 9:00am-5:00pm"
+            },
+            {
+              "kind": "web",
+              "value": "https://gracekleincommunity.com/contact/"
+            }
+          ],
+          "hours": "Open every fourth Friday, 1pm-3pm; in November and December 2026 it runs on November 20 and December 18",
+          "source": "https://gracekleincommunity.com/contact/",
+          "checked": "2026-10-20",
+          "category": "food",
+          "address": "120 2nd Ct N, Birmingham, AL 35204",
+          "lat": 33.504554,
+          "lon": -86.833438,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "bhm-changed-lives-christian-center",
+          "name": "Changed Lives Christian Center (affiliate of The Foundry Ministries)",
+          "summary": "A Christ-centered transitional housing center for men: a 56-bed center where men stay six months to two years with meals, clothing, basic medical care, recovery services and job-placement help, and it gives residents a mailing address and help getting a Social Security card or driver's license. Residents must be working or looking for work and pay fees toward living costs. Separately, each Tuesday, Thursday and Sunday hungry people are bussed in for a meal served by church groups, with monthly health screenings.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "(205) 521-6421"
+            },
+            {
+              "kind": "web",
+              "value": "https://cl-cc.org/transitional-housing/"
+            }
+          ],
+          "hours": "Meals for homeless neighbours each Tuesday, Thursday and Sunday (people are brought by bus)",
+          "source": "https://cl-cc.org/transitional-housing/",
+          "checked": "2026-10-20",
+          "category": "shelter",
+          "address": "1308 26th Avenue North, Birmingham, AL 35204",
+          "lat": 33.541769,
+          "lon": -86.833362,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "bhm-brother-bryan-mission",
+          "name": "Brother Bryan Mission, New Life Fellowship",
+          "summary": "A nine-month Christian recovery program for men that deals with the causes of homelessness and addiction, ending with help from local business volunteers to prepare a resume and find a job. To apply, download the application from the site and email or mail it in; staff then interview the applicant by phone or in person, and applicants should check in by phone while it is reviewed. The page gives no walk-in hours.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "205-322-0092"
+            },
+            {
+              "kind": "web",
+              "value": "https://bbmission.com/how-to-apply/",
+              "note": "How to apply"
+            }
+          ],
+          "source": "https://bbmission.com/new-life-fellowship/",
+          "checked": "2026-10-20",
+          "category": "recovery",
+          "address": "1616 Second Avenue North, Birmingham, AL 35203",
+          "lat": 33.512874,
+          "lon": -86.811722,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "bhm-foundry-womens-center-bessemer",
+          "name": "The Foundry Ministries, Women's Center (Bessemer)",
+          "summary": "A Christian recovery program in Bessemer where women work to overcome addiction and return to their roles in their families and communities through spiritual classes, guidance and employment-readiness training. Apply through the online form on the Foundry site (choose the women's program); staff follow up the next business day. The page gives no hours.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "(205) 425-7737",
+              "note": "Women's Center"
+            },
+            {
+              "kind": "phone",
+              "value": "(205) 424-4673",
+              "note": "The Foundry contact line, 205-424-HOPE"
+            },
+            {
+              "kind": "web",
+              "value": "https://foundryministries.com/programs/gethelp/",
+              "note": "Online application"
+            }
+          ],
+          "source": "https://foundryministries.com/contact/",
+          "checked": "2026-10-20",
+          "category": "recovery",
+          "address": "1800 4th Avenue North, Bessemer, AL 35020",
+          "lat": 33.402125,
+          "lon": -86.955481,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "bhm-anns-new-life-center-leeds",
+          "name": "Ann's New Life Center, Leeds location",
+          "summary": "A pregnancy medical center offering free, confidential support, information and pregnancy testing for people facing an unexpected pregnancy. Its page says no appointment is needed, you can stop by during open hours, and you will not be asked to pay. Leeds is on the east edge of the Birmingham area.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "(205) 702-6500",
+              "note": "Call"
+            },
+            {
+              "kind": "phone",
+              "value": "(205) 259-6130",
+              "note": "Text"
+            },
+            {
+              "kind": "phone",
+              "value": "(800) 712-4357",
+              "note": "24/7 hotline listed on its page"
+            },
+            {
+              "kind": "web",
+              "value": "https://annsnewlifecenter.com"
+            }
+          ],
+          "hours": "Open Monday and Wednesday, 10:00am-4:00pm",
+          "cost": "Free",
+          "source": "https://annsnewlifecenter.com",
+          "checked": "2026-10-20",
+          "category": "pregnancy",
+          "address": "1312 7th Street NE, Leeds, AL 35094",
+          "lat": 33.544607,
+          "lon": -86.543075,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "bhm-aletheia-house-outpatient",
+          "name": "Aletheia House Outpatient Center",
+          "summary": "The outpatient addiction-treatment site of Aletheia House, in the Finley Avenue area of Birmingham. Its locations page lists no hours and does not say whether walk-ins are accepted, so phone first.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "(205) 324-6502"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.specialkindofcaring.org/contact-us/locations-by-city/"
+            }
+          ],
+          "source": "https://www.specialkindofcaring.org/contact-us/locations-by-city/",
+          "checked": "2026-10-20",
+          "category": "recovery",
+          "address": "201 Finley Avenue West, Birmingham, AL 35204",
+          "lat": 33.536496,
+          "lon": -86.838819,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "bhm-aletheia-house-mothers-hope",
+          "name": "Aletheia House, Mother's Hope",
+          "summary": "Residential addiction treatment for pregnant women and women with children, run by Aletheia House. Its locations page lists no hours and does not say whether walk-ins are accepted, so phone first. The page prints the ZIP as 35204, which may not match this street, so the ZIP is left out here.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "(205) 324-6502"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.specialkindofcaring.org/contact-us/locations-by-city/"
+            }
+          ],
+          "source": "https://www.specialkindofcaring.org/contact-us/locations-by-city/",
+          "checked": "2026-10-20",
+          "category": "recovery",
+          "address": "4246 Fifth Avenue South, Birmingham, AL",
+          "lat": 33.523481,
+          "lon": -86.769558,
           "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
         }
       ],
@@ -14032,7 +15140,7 @@
               "value": "ProjectRachel@archlou.org"
             }
           ],
-          "source": "https://archloufamilyministries.org/2016/04/12/project-rachel-post-abortion-ministry/",
+          "source": "https://www.archlou.org/services-directory/archdiocesan-agencies-facilities/pro-life-ministries/",
           "checked": "2026-10-20",
           "address": "No walk-in address listed (phone service); reach it by phone, text or online",
           "category": "after-abortion"
@@ -17431,11 +18539,11 @@
             },
             {
               "kind": "web",
-              "value": "https://www.citycareokc.org/okc"
+              "value": "https://citycare.org/okc"
             }
           ],
           "hours": "Nightly 6:00 pm-7:00 am (families with children 4:30 pm-8:00 am).",
-          "source": "https://www.citycareokc.org/okc",
+          "source": "https://citycare.org/okc",
           "checked": "2026-10-20",
           "category": "shelter",
           "address": "532 N. Villa Avenue, Oklahoma City, OK 73107",
@@ -18026,11 +19134,11 @@
             },
             {
               "kind": "web",
-              "value": "https://www.lcdaok.org/"
+              "value": "https://www.lcdaok.com/"
             }
           ],
           "hours": "Crisis line: 24 hours",
-          "source": "https://www.lcdaok.org/",
+          "source": "https://www.lcdaok.com/",
           "checked": "2026-10-20",
           "category": "recovery",
           "address": "No walk-in address listed (phone service); reach it by phone, text or online"
