@@ -68,7 +68,14 @@ function selectChapter(index, { reveal = true, from } = {}) {
   renderChapter();
   const bar = app.bars[index];
   if (bar.section !== app.part) selectPart(bar.section); else renderChart();
-  if (from === 'chart') el('river').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (from === 'chart') centerChapter();
+}
+
+/** Bring the chosen chapter to the middle of the screen (its top near the top if it is taller than the screen). */
+function centerChapter() {
+  const box = el('chapter').getBoundingClientRect();
+  const offset = Math.max(24, (innerHeight - box.height) / 2);
+  scrollTo({ top: scrollY + box.top - offset, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 }
 
 function renderChapter() {
@@ -101,8 +108,10 @@ function renderChapter() {
           ${bar.red ? `<div><dt>Words of Jesus</dt><dd>${format(bar.red)}</dd></div>` : ''}
           <div><dt>Reading time</dt><dd>${minutes(bar.words)} min</dd></div>
         </dl>
-        <p class="small-caps">${bar.name}, chapter by chapter</p>
-        <div class="strip" style="--tone:var(--${bar.section})">${strip}</div>
+        <div class="strip-block">
+          <p class="small-caps">${bar.name}, chapter by chapter</p>
+          <div class="strip" style="--tone:var(--${bar.section});--gap:${book.count > 80 ? 0 : book.count > 40 ? 1 : 2}px">${strip}</div>
+        </div>
       </div>
       <div class="chapter-summary">
         ${summary ? `<p>${summary.summary}</p>${summary.invitation ? `<p class="notice"><span class="small-caps">Notice</span>${summary.invitation}</p>` : ''}` : '<p class="muted">No summary for this chapter yet.</p>'}
