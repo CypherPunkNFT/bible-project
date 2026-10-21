@@ -184,7 +184,6 @@ export function Parts({ library, part, onPart, selected, progress, onChapter, on
           onBook={onBook}
         />
       </div>
-      <p className="lib-note">Cells darken with the chapter’s length. Chapters as numbered in the King James Version. Your marks stay in this browser only.</p>
     </section>
   );
 }
