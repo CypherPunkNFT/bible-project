@@ -319,7 +319,9 @@ a.lf-src:hover { color: var(--ink); }
 }
 
 /* Choosing another city: the old one fades out (.2s), the new one fades in. */
-.lf-city { animation: lf-city-in .4s ease both; transition: opacity .2s ease; }
+/* No fill-mode: an animation that fills forwards stays alive after it ends, and keeps the whole section (map and list) in an offscreen layer that is redrawn on every frame
+   of a list scroll (measured: 8 ms of GPU time per frame; owner saw it as stutter, 2026-10-21). */
+.lf-city { animation: lf-city-in .4s ease; transition: opacity .2s ease; }
 .lf-city[data-leaving] { opacity: 0; pointer-events: none; }
 @keyframes lf-city-in { from { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .lf-city { animation: none; transition: none; } }
