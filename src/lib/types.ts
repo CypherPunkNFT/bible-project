@@ -32,8 +32,18 @@ export interface Credit {
   changes: string;
 }
 
+/** Release only (scripts/pack-reader-data.mjs): how the release copy groups chapters into files. */
+export interface DataLayout {
+  /** Chapters per text file, named c<n>-<k>.json. */
+  textChunk: number;
+  /** Chapters per cross-reference file, named g<k>.json (chapter n in group floor((n - 1) / xrefChunk)). */
+  xrefChunk: number;
+}
+
 export interface Catalog {
   stamp: string;
+  /** Absent in the local data folder: five chapters per text file, one cross-reference file per chapter. */
+  layout?: DataLayout;
   sections: SectionId[];
   books: BookInfo[];
   equivalent: Record<string, string>;

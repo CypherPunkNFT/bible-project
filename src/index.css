@@ -1,6 +1,8 @@
-@import "@fontsource-variable/archivo";
-/* The width axis too: the home page's "His names" heading uses the big name-words' extra-wide lettering. */
+/* The width axis too: the home page's "His names" heading uses the big name-words' extra-wide lettering. It comes first
+   because, of two faces that fit equally, the browser uses the later one: normal-width text then takes the plain face
+   (35 KB) instead of the width face (91 KB), which only the extra-wide headings download (load scan, 2026-10-20). */
 @import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource-variable/archivo";
 @import "@fontsource-variable/literata/opsz.css";
 @import "@fontsource-variable/literata/opsz-italic.css";
 @import "@fontsource/noto-serif-hebrew/400.css";

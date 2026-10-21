@@ -90,6 +90,22 @@ const dropUnusedOrtEngine: Plugin = {
   },
 };
 
+// Every page sets text in these two fonts (load scan, 2026-10-20); preloading them starts the download with the page
+// instead of after the stylesheet has been read, so text settles sooner on a first visit.
+const PRELOAD_FONTS = [/^assets\/literata-latin-opsz-normal-[\w-]+\.woff2$/, /^assets\/archivo-latin-wght-normal-[\w-]+\.woff2$/];
+const preloadPageFonts: Plugin = {
+  name: "preload-page-fonts",
+  transformIndexHtml(_html, context) {
+    if (!context.bundle) return;
+    const names = Object.keys(context.bundle);
+    return PRELOAD_FONTS.map((pattern) => {
+      const name = names.find((candidate) => pattern.test(candidate));
+      if (!name) throw new Error(`Font preload: no built file matches ${pattern}; update PRELOAD_FONTS to the fonts the site now uses.`);
+      return { tag: "link", attrs: { rel: "preload", href: `/${name}`, as: "font", type: "font/woff2", crossorigin: "" }, injectTo: "head" as const };
+    });
+  },
+};
+
 // Design mock-ups (design/<name>/index.html) on the local preview only, at /mockups/<name>/. They live in design/, which
 // is never built or deployed, so a rebuild cannot wipe them the way a copy inside dist/ was wiped.
 const DESIGN_DIR = path.resolve(__dirname, "design");
@@ -134,7 +150,7 @@ const dataPlugin: Plugin = {
 export default defineConfig({
   server: { host: "127.0.0.1", port: 8930, strictPort: true },
   preview: { host: "127.0.0.1", port: 8931, strictPort: true },
-  plugins: [studyContentPlugin(), react(), dataAnalysisPlugin(__dirname), dataPlugin, mockupsPlugin, dataIntakePlugin(__dirname), atlasTilesPlugin(), designReviewPlugin(), testimonyApiPlugin(), localLibraryPlugin(__dirname), dropUnusedOrtEngine],
+  plugins: [studyContentPlugin(), react(), dataAnalysisPlugin(__dirname), dataPlugin, mockupsPlugin, dataIntakePlugin(__dirname), atlasTilesPlugin(), designReviewPlugin(), testimonyApiPlugin(), localLibraryPlugin(__dirname), dropUnusedOrtEngine, preloadPageFonts],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
   },

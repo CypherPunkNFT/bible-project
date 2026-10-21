@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { CatalogContext } from "./catalog";
-import { loadCatalog, setStamp } from "./data";
+import { loadCatalog, setLayout, setStamp } from "./data";
 import type { Catalog } from "./types";
 
 export function CatalogProvider({ children }: { children: ReactNode }) {
@@ -11,6 +11,7 @@ export function CatalogProvider({ children }: { children: ReactNode }) {
     loadCatalog()
       .then((value) => {
         setStamp(value.stamp);
+        setLayout(value.layout);
         setCatalog(value);
       })
       .catch((reason: unknown) => {

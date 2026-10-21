@@ -1,4 +1,4 @@
-import type { ArcData, BookPlace, Catalog, Chapter, CrossRefBook, PlainBook, Place, Run, Stats } from "./types";
+import type { ArcData, BookPlace, Catalog, Chapter, CrossRefBook, DataLayout, PlainBook, Place, Run, Stats } from "./types";
 import type { CreedBundle, CreedDocument, CreedsIndex } from "./creeds";
 import { HYMN_GROUPS, isHymnId, type HymnCollection, type HymnGroupId, type HymnSong, type HymnText } from "./hymns";
 import { isMuseumSlug, type Museum, type MuseumIndex } from "./museums";
@@ -19,10 +19,19 @@ export class DataUnavailable extends Error {
 
 const cache = new Map<string, Promise<unknown>>();
 let stamp = "";
+let layout: DataLayout | undefined;
 
 /** Every later request carries the catalogue's build stamp, so a data rebuild is never served stale. */
 export function setStamp(value: string): void {
   stamp = value;
+}
+
+/** The release groups chapters into fewer files (Cloudflare's 20,000-file limit); the catalogue says how. */
+export function setLayout(value: DataLayout | undefined): void {
+  if (value && !(Number.isInteger(value.textChunk) && value.textChunk > 0 && Number.isInteger(value.xrefChunk) && value.xrefChunk > 0)) {
+    throw new Error(`catalog layout must give positive whole chapter counts, got ${JSON.stringify(value)}`);
+  }
+  layout = value;
 }
 
 const SAFE_PATH = /^[A-Za-z0-9_\-/.]+$/;
@@ -60,13 +69,26 @@ export const loadCatalog = () =>
 // The reader's pieces are one small file per chapter (data layout 2, scripts/build-data.py), so a page downloads only
 // the chapter it shows.
 
-/** Chapters are stored five to a file; `labels` is the version's chapter list for the book (from the catalogue). */
+/** Chapters are stored five to a file locally, more in the release (`layout`); `labels` is the version's chapter list for the book (from the catalogue). */
 export const CHUNK = 5;
+
+/** The file holding the chapter at `index` in its book's chapter list. */
+export function textChunkPath(slug: string, code: string, index: number): string {
+  return layout ? `text/${slug}/${code}/c${layout.textChunk}-${Math.floor(index / layout.textChunk)}.json` : `text/${slug}/${code}/${Math.floor(index / CHUNK)}.json`;
+}
+
+/** The file holding a chapter's cross-references. */
+export function crossRefPath(code: string, chapter: string): string {
+  if (!layout) return `xref/${code}/${chapter}.json`;
+  const number = Number(chapter);
+  if (!Number.isInteger(number) || number < 1) throw new DataUnavailable(`xref/${code}`, `chapter ${chapter} is not a chapter number`);
+  return `xref/${code}/g${Math.floor((number - 1) / layout.xrefChunk)}.json`;
+}
 
 async function loadChunk(slug: string, code: string, labels: string[], chapter: string): Promise<Chapter> {
   const index = labels.indexOf(chapter);
   if (index < 0) throw new DataUnavailable(`text/${slug}/${code}`, `no chapter ${chapter}`);
-  const chunk = await load<Record<string, Chapter>>(`text/${slug}/${code}/${Math.floor(index / CHUNK)}.json`, isObject);
+  const chunk = await load<Record<string, Chapter>>(textChunkPath(slug, code, index), isObject);
   const found = chunk[chapter];
   if (!found) throw new DataUnavailable(`text/${slug}/${code}`, `chapter ${chapter} missing from its file`);
   return found;
@@ -89,7 +111,14 @@ export function plainWords(runs: Run[]): string {
 /** A whole book's plain words: only for search, which has to read a whole version. */
 export const loadPlain = (slug: string, code: string) => load<PlainBook>(`plain/${slug}/${code}.json`, isObject);
 
-export const loadCrossRefs = (code: string, chapter: string) => load<CrossRefBook>(`xref/${code}/${chapter}.json`, isObject);
+export async function loadCrossRefs(code: string, chapter: string): Promise<CrossRefBook> {
+  const path = crossRefPath(code, chapter);
+  if (!layout) return load<CrossRefBook>(path, isObject);
+  const group = await load<Record<string, CrossRefBook>>(path, isObject);
+  const found = group[chapter];
+  if (!found) throw new DataUnavailable(path, `chapter ${chapter} missing from its file`);
+  return found;
+}
 
 /** The places named in one book, with that book's verse ids only (the reader's "places in this chapter"). */
 export const loadBookPlaces = (code: string) => load<BookPlace[]>(`places-by-book/${code}.json`, Array.isArray);

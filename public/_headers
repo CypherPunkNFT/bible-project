@@ -3,8 +3,16 @@
   Cache-Control: no-store
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
+# Every data address carries the release's content stamp (scripts/pack-reader-data.mjs), so a change gives new
+# addresses; only the two indexes that carry the stamp are checked on every visit.
 /data/*
-  Cache-Control: public, max-age=3600
+  Cache-Control: public, max-age=31536000, immutable
+/data/catalog.json
+  ! Cache-Control
+  Cache-Control: no-cache
+/data/study/index.json
+  ! Cache-Control
+  Cache-Control: no-cache
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 /content/teacher-library/pages/*

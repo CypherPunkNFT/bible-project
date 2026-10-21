@@ -5,6 +5,7 @@ import { verifyBuiltContent } from "./content/compile.ts";
 import {preparePopulationHosting} from './prepare-population-hosting.mjs';
 import {pruneReleaseAssets} from './prune-release-assets.mjs';
 import { packPersonFiles } from "./pack-person-files.ts";
+import { packReaderData } from "./pack-reader-data.mjs";
 
 // Produces a fresh deployable directory. Never creates a cloud resource or deploys it.
 const databaseId = process.env.TESTIMONY_D1_ID;
@@ -23,6 +24,10 @@ console.log('Release build assets:',await pruneReleaseAssets(site));
 await cp("data", path.join(site, "data"), { recursive: true, dereference: true });
 // One file per person would push the release past 20,000 files; the release copy gets packs instead.
 console.log("Person packs:", await packPersonFiles(site));
+// After the person packs, so the content stamp covers them. Only for a front end that reads the grouped layout.
+const bundles = (await readdir(path.join(site, "assets"))).filter((name) => name.endsWith(".js"));
+if (!(await Promise.all(bundles.map((name) => readFile(path.join(site, "assets", name), "utf8")))).some((code) => code.includes("xrefChunk"))) throw new Error("This build cannot read grouped chapter files (no xrefChunk in its scripts); rebuild before preparing a release.");
+console.log("Reader packs:", packReaderData(site));
 await cp("migrations", path.join(directory, "migrations"), { recursive: true });
 const compiler = spawnSync(process.execPath, ["node_modules/wrangler/bin/wrangler.js", "pages", "functions", "build", "--outdir", path.join(site, "_worker.js")], { stdio: "inherit" });
 if (compiler.status !== 0) throw new Error("Pages Function compilation failed.");
