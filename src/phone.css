@@ -58,4 +58,7 @@
   :root .cc-book-copy .cc-small-label, :root .cc-time-detail .cc-small-label,
   :root .lg-cite, :root .ap-citation-label, :root .ap-source-link span,
   :root .ap .pcard-n, :root .pcard-foot small, :root .word.w-group small { font-size: .625rem; }
+
+  /* Contact: the wax seal hangs off the letter's corner by design, but on a phone it reached 2px past the screen. */
+  :root .lt-wax { right: -6px; }
 }
