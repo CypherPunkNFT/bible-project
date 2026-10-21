@@ -13,6 +13,7 @@ related studies). Only the books' facts and wording are used; CCEL's markup is n
 import html
 import json
 import re
+import runpy
 import sys
 import zlib
 from pathlib import Path
@@ -425,7 +426,8 @@ def build() -> None:
     aliases = {alias: forwards.get(target, target) for alias, target in aliases.items()}
     index = {"source": taxonomy["source"], "categories": taxonomy["categories"], "topics": summary, "aliases": aliases, "readings": readings}
     (OUT / "index.json").write_text(json.dumps(index, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    refs = sum(t["refs"] for t in summary.values())
+    runpy.run_path(str(WEBSITE / "scripts" / "build-chapter-topics.py"))["build"](OUT)  # the reader's per-book topics + names
+    refs =sum(t["refs"] for t in summary.values())
     related = sum(1 for t in topics if t["relatedStudies"])
     merged = sum(1 for t in topics if t["points"] and t.get("nave"))
     print(f"topics: {len(topics)} topics ({len(torrey_ids)} Torrey, {merged} with Nave's points too, {len(topics) - len(torrey_ids)} from Nave), "

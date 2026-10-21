@@ -12,9 +12,12 @@ const databaseId = process.env.TESTIMONY_D1_ID;
 const siteUrl = new URL(process.env.PUBLIC_SITE_URL ?? "https://bible-project-4af.pages.dev");
 if (siteUrl.protocol !== "https:" || siteUrl.username || siteUrl.password || /^(localhost|127\.|\[::1\])/.test(siteUrl.hostname)) throw new Error("PUBLIC_SITE_URL must be the HTTPS website origin.");
 if (databaseId && (!/^[a-f\d]{8}(-[a-f\d]{4}){3}-[a-f\d]{12}$/i.test(databaseId) || databaseId.startsWith("00000000-"))) throw new Error("TESTIMONY_D1_ID must be the real Cloudflare database ID.");
-await stat("dist/index.html"); await stat("data/catalog.json");
+await stat("dist/index.html"); await stat("data/catalog.json"); await stat("data/topics/chapters/GEN.json"); // chapters: scripts/build-chapter-topics.py
 const apologeticsContentHash = verifyBuiltContent();
 await mkdir(".release", { recursive: true });
+// Each copy is ~5.7 GB and nothing removes them: 62 had built up by 2026-10-21. Say so; deleting is the owner's call.
+const oldCopies = (await readdir(".release")).filter((name) => /^testimonies-[A-Za-z0-9]{6}$/.test(name));
+if (oldCopies.length >= 3) console.warn(`Warning: ${oldCopies.length} earlier release copies in .release/ (about ${Math.round(oldCopies.length * 5.7)} GB). Ask the owner before deleting them.`);
 const directory = await mkdtemp(path.resolve(".release/testimonies-"));
 const site = path.join(directory, "site");
 await cp("dist", site, { recursive: true });

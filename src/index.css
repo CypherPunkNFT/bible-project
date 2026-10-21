@@ -8,6 +8,18 @@
 @import "./components/apologetics/worldview-colors.css";
 @import "./phone.css";
 
+/* The reader's footnote mark (†) is the only character on most pages outside Archivo's plain Latin file, so every chapter
+   fetched the 32 KB accented-Latin file for it. This 1 KB cut of that same file holds just the dagger, with the same weight
+   axis; declared last, it is tried first for † (2026-10-21). Pages with accented letters still fetch the full file. */
+@font-face {
+  font-family: "Archivo Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("./fonts/archivo-dagger.woff2") format("woff2-variations");
+  unicode-range: U+2020;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

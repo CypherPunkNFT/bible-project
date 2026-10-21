@@ -41,3 +41,13 @@ it('keeps the list free of detail-only fields and refuses to split twice', () =>
   expect(text).not.toContain('"joinBasis"');
   expect(splitScholarIndex(dir)).toEqual({ skipped: 'already split' });
 });
+
+it('gives the Analysis page every entry with the names, dates and counts it shows', () => {
+  const analysis = read<{ entries: PopulationSnapshot['entries'] }>('analysis.json');
+  expect(analysis.entries.map((e) => e.id)).toEqual(original.entries.map((e) => e.id));
+  original.entries.forEach((entry, i) => {
+    const shown = analysis.entries[i], dates = entry.facts.dates;
+    expect([shown.name, shown.aliases, shown.verifiedAliases, shown.counts.workGroups]).toEqual([entry.name, entry.aliases, entry.verifiedAliases, entry.counts.workGroups]);
+    for (const key of ['status', 'born', 'died', 'floruit', 'approximate', 'sourceConflict'] as const) expect(shown.facts.dates[key], `${entry.id} ${key}`).toEqual(dates[key]);
+  });
+});

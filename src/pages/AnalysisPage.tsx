@@ -1,8 +1,14 @@
 import { useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getAcquired } from './teachers/shared/acquired';
 import { preloadScholarLibrary } from './teachers/scholars/catalogue/useLibrary';
-import type { PopulationEntry, PopulationSnapshot } from './teachers/scholars/population';
+import { POPULATION_BASE, type PopulationEntry, type PopulationSnapshot } from './teachers/scholars/population';
 import './analysis.css';
+
+/** The page reads only names, aliases, dates and work counts: the build's analysis.json (scripts/split-scholar-index.mjs),
+ *  1.9 MB instead of the 13 MB list. Dev mode has only the full list. */
+type AnalysisList = Pick<PopulationSnapshot, 'entries'>;
+const loadAnalysisList = () => getAcquired<AnalysisList>(`${POPULATION_BASE}/analysis.json`).catch((): Promise<AnalysisList> => preloadScholarLibrary());
 
 function years(person: PopulationEntry): string {
   const d = person.facts.dates;
@@ -18,7 +24,7 @@ function years(person: PopulationEntry): string {
 }
 
 export default function AnalysisPage() {
-  const [snapshot, setSnapshot] = useState<PopulationSnapshot | null>(null);
+  const [snapshot, setSnapshot] = useState<AnalysisList | null>(null);
   const [error, setError] = useState('');
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState('name');
@@ -26,7 +32,7 @@ export default function AnalysisPage() {
   useEffect(() => {
     document.title = 'Analysis · The catalogue · Bible Project';
     let live = true;
-    preloadScholarLibrary().then(value => { if (live) setSnapshot(value); })
+    loadAnalysisList().then(value => { if (live) setSnapshot(value); })
       .catch(reason => { if (live) setError(reason.message); });
     return () => { live = false; document.title = 'Bible Project'; };
   }, []);

@@ -4,6 +4,8 @@
 //   search.json         { id: searchText }, fetched when a visitor first searches
 //   details/<xx>.json   per-scholar sources and review evidence, fetched when a scholar's record is opened;
 //                       64 bundles keyed like the page's detailsShard() in population.ts
+//   analysis.json       names, dates and work counts only: the Analysis page's whole list (1.9 MB instead of the
+//                       13 MB list; 2026-10-21). The page falls back to index.json where this file is absent (dev mode).
 // The source file in public/ is never touched; dev mode serves it whole and the page handles both forms.
 // Usage: node scripts/split-scholar-index.mjs [dir]   (default dist/content/scholar-population)
 import fs from 'node:fs';
@@ -25,6 +27,13 @@ function takeDetails(entry) {
   return details;
 }
 
+/** The fields AnalysisPage.tsx reads, in the shape of the full entry. */
+function analysisEntry(entry) {
+  const { status, born, died, floruit, approximate, sourceConflict } = entry.facts?.dates ?? {};
+  return { id: entry.id, name: entry.name, aliases: entry.aliases ?? [], verifiedAliases: entry.verifiedAliases ?? [],
+    facts: { dates: { status, born, died, floruit, approximate, sourceConflict } }, counts: { workGroups: entry.counts?.workGroups ?? 0 } };
+}
+
 export function splitScholarIndex(dir) {
   const file = path.join(dir, 'index.json');
   const snapshot = JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -43,6 +52,7 @@ export function splitScholarIndex(dir) {
   fs.mkdirSync(detailsDir, { recursive: true });
   for (const [shard, rows] of shards) fs.writeFileSync(path.join(detailsDir, `${shard}.json`), JSON.stringify(rows), 'utf8');
   fs.writeFileSync(path.join(dir, 'search.json'), JSON.stringify(search), 'utf8');
+  fs.writeFileSync(path.join(dir, 'analysis.json'), JSON.stringify({ entries: snapshot.entries.map(analysisEntry) }), 'utf8');
   snapshot.split = { schemaVersion: 1, search: 'search.json', details: 'details', shards: SHARDS };
   fs.writeFileSync(file, JSON.stringify(snapshot), 'utf8');
   return { entries: snapshot.entries.length, detailFiles: shards.size, indexBytes: fs.statSync(file).size };

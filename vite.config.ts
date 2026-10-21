@@ -157,9 +157,11 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
+        // Shared pieces under 8 KB join a neighbouring file: a chapter page made ~10 requests of about 1 KB each.
+        experimentalMinChunkSize: 8 * 1024,
+        // Framer Motion is not grouped: as one file, the shell's reduced-motion setting pulled all 45 KB onto every page.
         manualChunks: {
           react: ["react", "react-dom", "react-router-dom"],
-          motion: ["framer-motion"],
           d3: ["d3-geo", "d3-zoom", "d3-selection", "d3-transition", "d3-scale", "d3-shape", "d3-hierarchy", "topojson-client"],
           // One icons file instead of dozens of tiny shared ones (2026-10-07: during a release the edge cached the
           // site's fallback page under three new icon-chunk names, and /assets/* is cached as immutable).

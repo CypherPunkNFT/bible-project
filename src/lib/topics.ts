@@ -21,8 +21,8 @@ export type ArticleParagraph = (string | [number, number, string])[];
 /** A library book that treats a topic, matched by meaning in the local search index (scripts/link-topic-library.py). */
 export interface LibraryBook { title: string; author: string; url: string; distance: number }
 export interface Topic { id: string; title: string; category: string; subcategory: string; points: TopicPoint[]; nave?: TopicPoint[]; dictionary?: ArticleParagraph[]; relatedStudies: string[]; keyVerses: KeyVerse[]; book?: string; parts?: string[]; parent?: string }
-/** Per book (scripts/build-topics.py): chapter -> [[topic id, passages cited], ...], most cited first. */
-export type ChapterTopics = Record<string, [string, number][]>;
+/** Per book (scripts/build-chapter-topics.py): chapter -> [[topic id, passages cited], ...], most cited first, and the titles of the topics each chapter shows. */
+export interface ChapterTopics { chapters: Record<string, [string, number][]>; names: Record<string, string> }
 
 export const topicUrl = (id: string) => `/topics/${id}`;
 export const categoryUrl = (category: string, subcategory?: string) => `/topics/c/${category}${subcategory ? `?group=${subcategory}` : ""}`;

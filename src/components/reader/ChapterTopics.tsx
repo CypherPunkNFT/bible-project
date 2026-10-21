@@ -1,18 +1,19 @@
 import { Tags } from "lucide-react";
 import { Link } from "react-router-dom";
-import { loadChapterTopics, loadTopicIndex } from "@/lib/data";
+import { loadChapterTopics } from "@/lib/data";
 import { topicUrl, type ChapterTopics as ChapterTopicIndex } from "@/lib/topics";
 import { useAsync } from "@/lib/useAsync";
 
-const SHOWN = 12;
+const SHOWN = 12; // scripts/build-chapter-topics.py SHOWN: the book file carries titles for this many per chapter
+const NONE: ChapterTopicIndex = { chapters: {}, names: {} };
 
 /** Topics that cite this chapter (Torrey's New Topical Textbook and Nave's Topical Bible), most-cited first; each a link to the topic. */
 export function ChapterTopics({ bookCode, bookNum, chapter }: { bookCode: string; bookNum: number; chapter: number }) {
   const inCanon = bookNum <= 66;
-  const index = useAsync(loadTopicIndex, "topic-index");
-  const chapters = useAsync(() => (inCanon ? loadChapterTopics(bookCode) : Promise.resolve<ChapterTopicIndex>({})), `chapter-topics:${bookCode}`);
-  if (!inCanon || index.status !== "ready" || chapters.status !== "ready" || !Number.isFinite(chapter)) return null;
-  const found = (chapters.value[String(chapter)] ?? []).filter(([id]) => index.value.topics[id]);
+  const topics = useAsync(() => (inCanon ? loadChapterTopics(bookCode) : Promise.resolve(NONE)), `chapter-topics:${bookCode}`);
+  if (!inCanon || topics.status !== "ready" || !Number.isFinite(chapter)) return null;
+  const { chapters, names } = topics.value;
+  const found = chapters[String(chapter)] ?? [];
   if (!found.length) return null;
   return (
     <section aria-label="Topics in this chapter" className="mt-6 rounded-2xl border border-line bg-surface p-4">
@@ -23,7 +24,7 @@ export function ChapterTopics({ bookCode, bookNum, chapter }: { bookCode: string
         {found.slice(0, SHOWN).map(([id, count]) => (
           <li key={id}>
             <Link to={topicUrl(id)} className="inline-flex items-center gap-1 rounded-full border border-line px-2.5 py-1 text-sm hover:bg-surface-2">
-              {index.value.topics[id].title}
+              {names[id] ?? id}
               {count > 1 && <span className="text-xs text-muted">×{count}</span>}
             </Link>
           </li>

@@ -205,4 +205,6 @@ export async function loadTopic(id: string, bundle: number): Promise<Topic> {
 }
 /** Library books matched to each topic of a bundle; absent until the linker has run. */
 export const loadTopicLibrary = (bundle: number) => load<Record<string, LibraryBook[]>>(`topics/library/${bundle}.json`, isObject);
-export const loadChapterTopics = (code: string) => load<ChapterTopics>(`topics/books/${code}.json`, isObject);
+/** One book's topics by chapter, with the titles a chapter shows (scripts/build-chapter-topics.py). */
+export const loadChapterTopics = (code: string) =>
+  load<ChapterTopics>(`topics/chapters/${code}.json`, (v) => isObject(v) && isObject(v.chapters) && isObject(v.names));
