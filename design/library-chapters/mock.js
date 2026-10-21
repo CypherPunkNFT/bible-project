@@ -139,30 +139,33 @@ function selectPart(id) {
   app.part = id;
   el('part-chips').querySelectorAll('[data-part]').forEach((chip) => chip.setAttribute('aria-selected', String(chip.dataset.part === id)));
   const s = sectionOf(id), stats = partStats(id);
-  const facts = [
+  const numbers = [
     ['Books', `${stats.books.length}`], ['Chapters', format(stats.chapters)], ['Verses', format(stats.verses)], ['Words', format(stats.words)],
-    ['Share of the Bible', `${stats.share.toFixed(1)}%`], ['Reading time', `about ${Math.round(stats.words / 200 / 60)} hours`],
+    ['Of the Bible', `${stats.share.toFixed(1)}%`], ['To read', `${Math.max(1, Math.round(stats.words / 200 / 60))} h`],
   ];
-  if (stats.red) facts.push(['Words of Jesus', format(stats.red)]);
+  if (stats.red) numbers.push(['Words of Jesus', format(stats.red)]);
+  const chapterLink = (bar, unit) => `<button type="button" class="inline-link" data-chapter="${bar.index}">${bar.name} ${bar.chapter}</button> · ${bar.verses} ${bar.verses === 1 ? unit : `${unit}s`}`;
+  const facts = [
+    ['Tells of', s.coversText], ['Written', s.writtenText], ...s.facts,
+    ['Longest chapter', chapterLink(stats.longest, 'verse')], ['Shortest chapter', chapterLink(stats.shortest, 'verse')],
+  ];
+  if (stats.books.length > 1) facts.push(['Longest book', `${stats.bigBook.name} · ${format(stats.bigBook.words)} words`]);
   el('part').style.setProperty('--tone', `var(--${id})`);
   el('part').innerHTML = `
-    <div class="part-copy">
-      <p class="eyebrow tone">${icon(id, 16)} ${s.testament} · ${s.range}</p>
-      <h3>${s.long}</h3>
-      <p class="about">${s.about}</p>
-      <div class="moments">${s.moments.map((m) => `<span>${m}</span>`).join('')}</div>
+    <div class="part-head">
+      <div>
+        <p class="eyebrow tone">${icon(id, 16)} ${s.testament} · ${s.range}</p>
+        <h3>${s.long}</h3>
+      </div>
+      <dl class="numbers">${numbers.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
     </div>
-    <div class="part-facts">
-      <dl class="numbers">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
-      <dl class="words">
-        <div><dt>Tells of</dt><dd>${s.coversText}</dd></div>
-        <div><dt>Written</dt><dd>${s.writtenText}</dd></div>
-        ${s.facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}
-        <div><dt>Longest chapter</dt><dd><button type="button" class="inline-link" data-chapter="${stats.longest.index}">${stats.longest.name} ${stats.longest.chapter}</button>, ${stats.longest.verses} verses</dd></div>
-        <div><dt>Shortest chapter</dt><dd><button type="button" class="inline-link" data-chapter="${stats.shortest.index}">${stats.shortest.name} ${stats.shortest.chapter}</button>, ${stats.shortest.verses} ${stats.shortest.verses === 1 ? 'verse' : 'verses'}</dd></div>
-        ${stats.books.length > 1 ? `<div><dt>Longest book</dt><dd>${stats.bigBook.name}, ${format(stats.bigBook.words)} words</dd></div>` : ''}
-      </dl>
-      <button type="button" class="link-button" id="fly-part">Show ${s.name} in the river ↑</button>
+    <div class="part-body">
+      <div class="part-copy">
+        <p class="about">${s.about}</p>
+        <div class="moments">${s.moments.map((m) => `<span>${m}</span>`).join('')}</div>
+        <button type="button" class="link-button" id="fly-part">Show ${s.name} in the river ↑</button>
+      </div>
+      <dl class="facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
     </div>`;
   el('part').querySelectorAll('[data-chapter]').forEach((b) => b.addEventListener('click', () => selectChapter(Number(b.dataset.chapter), { from: 'chart' })));
   el('fly-part').addEventListener('click', () => { app.river.flyToSection(id); el('river').scrollIntoView({ behavior: 'smooth', block: 'start' }); });

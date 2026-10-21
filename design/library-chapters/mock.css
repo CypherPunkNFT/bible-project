@@ -112,7 +112,7 @@ em{font-style:italic;color:var(--accent);font-weight:inherit}
 
 /* 02 six parts */
 .parts{padding:56px 0 20px}
-.part-chips{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:22px 0 30px}
+.part-chips{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:26px 0 26px}
 .part-chip{position:relative;display:grid;text-align:left;gap:3px;padding:16px 16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden;transition:border-color .2s}
 .part-chip:hover{border-color:color-mix(in srgb,var(--tone) 50%,var(--line))}
 .part-chip[aria-selected=true]{border-color:var(--tone);background:color-mix(in srgb,var(--tone) 7%,var(--surface))}
@@ -122,22 +122,24 @@ em{font-style:italic;color:var(--accent);font-weight:inherit}
 .chip-count{font-size:11px;color:var(--muted);margin-top:6px}
 .chip-count b{color:var(--tone);font-weight:600}
 .chip-share{position:absolute;left:0;bottom:0;height:3px;width:var(--share);background:var(--tone)}
-.part{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;padding-bottom:30px}
-.part h3{margin:12px 0 14px;font:400 36px/1.1 var(--font-serif);color:var(--tone);letter-spacing:-.015em}
+.part{padding:6px 0 34px;border-bottom:1px solid var(--line);margin-bottom:30px}
+.part-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.part h3{margin:10px 0 0;font:400 36px/1.1 var(--font-serif);color:var(--tone);letter-spacing:-.015em}
+.numbers{display:flex;flex-wrap:wrap;margin:0}
+.numbers div{padding:0 18px;border-left:1px solid var(--line)}
+.numbers div:first-child{padding-left:0;border:0}
+.numbers dt,.facts dt{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.numbers dd{margin:4px 0 0;font:500 23px var(--font-serif);white-space:nowrap}
+.part-body{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-top:22px}
 .part .about{margin:0;font:400 17px/1.75 var(--font-serif)}
+.part-copy .link-button{display:inline-block;margin-top:22px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:16px 28px;margin:0;align-content:start}
+.facts dd{margin:4px 0 0;font-size:14px;line-height:1.5}
 .moments{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:22px}
 .moments span{font-size:12.5px;color:var(--muted);padding-left:12px;position:relative}
 .moments span::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--tone);opacity:.7}
-.numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 14px;margin:6px 0 22px;padding-bottom:18px;border-bottom:1px solid var(--line)}
-.numbers dt,.words dt{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.numbers dd{margin:3px 0 0;font:500 24px var(--font-serif)}
-.words{margin:0 0 18px}
-.words div{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:7px 0}
-.words dt{padding-top:3px}
-.words dd{margin:0;font-size:14px;line-height:1.55}
 .inline-link{color:var(--tone);border-bottom:1px solid color-mix(in srgb,var(--tone) 40%,transparent)}
-
-.timeline{margin:6px 0 34px;padding-top:18px;border-top:1px solid var(--line)}
+.timeline{margin:22px 0 0;padding-top:18px;border-top:1px solid var(--line)}
 .timeline figcaption{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-bottom:10px;min-height:20px}
 .timeline-scroll{overflow-x:auto}
 #timeline-svg{display:block}
@@ -186,7 +188,7 @@ em{font-style:italic;color:var(--accent);font-weight:inherit}
   .brand{font-size:17px}.brand img{width:23px;height:23px}
   .header-inner nav{display:none}
   .theme-toggle{padding:7px}.theme-toggle span{display:none}
-  .intro-grid,.part{grid-template-columns:1fr;gap:22px}
+  .intro-grid,.part-body{grid-template-columns:1fr;gap:22px}
   .section-head{grid-template-columns:1fr}
   .num{padding:0}
   .metric{overflow-x:auto;max-width:100%}
@@ -195,8 +197,9 @@ em{font-style:italic;color:var(--accent);font-weight:inherit}
   .chapter-grid{grid-template-columns:1fr}
   .chapter-grid>div{padding:0!important;border:0!important;margin-bottom:22px}
   .part-chips{grid-template-columns:1fr 1fr}
-  .numbers{grid-template-columns:1fr 1fr}
-  .words div{grid-template-columns:1fr;gap:2px}
+  .numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 0}
+  .numbers div:nth-child(3n+1){padding-left:0;border:0}
+  .facts{grid-template-columns:1fr}
   .chart{grid-template-columns:1fr}
   .chart-row{grid-template-columns:1fr}
   .chart-head{flex-direction:column;align-items:flex-start}
