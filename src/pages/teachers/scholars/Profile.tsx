@@ -2,7 +2,7 @@
 // the catalogue's on-screen order (`shownIds`) at the moment it opened; Esc, the scrim or the close button close it,
 // arrow keys step. While it is open the page does not scroll. Content: profile/Content.tsx. Approved mock-up:
 // design/scholars-directions/scholars/profile.js.
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import { useScholars } from "./context";
 import { byBirth } from "./marks/facts";
@@ -22,7 +22,12 @@ export function Profile() {
   const origin = useRef<Element | null>(null), stepped = useRef(0), cancelShrink = useRef<(() => void) | null>(null);
   const phaseNow = useRef(phase), shown = useRef(shownIds), viewNow = useRef(view);
   phaseNow.current = phase;
-  shown.current = shownIds.flatMap(id => { const p=library?.find(p=>p.id===id); const profileId=p?.scholar?.id ?? id; return data.scholars.some(s=>s.id===profileId)?[profileId]:[]; });
+  // Built once per list change, by id: searching the library and the scholars for every shown card on each render froze the page.
+  shown.current = useMemo(() => {
+    const libraryById = new Map((library ?? []).map(p => [p.id, p]));
+    const scholarIds = new Set(data.scholars.map(s => s.id));
+    return shownIds.flatMap(id => { const profileId = libraryById.get(id)?.scholar?.id ?? id; return scholarIds.has(profileId) ? [profileId] : []; });
+  }, [shownIds, library, data.scholars]);
   viewNow.current = view;
 
   // Follow the page's request: open (or show someone else), or close.
