@@ -4,5 +4,5 @@
     "strict": true, "noEmit": true, "skipLibCheck": true, "types": [],
     "noUnusedLocals": true, "noUnusedParameters": true
   },
-  "include": ["server", "functions", "worker-configuration.d.ts", "src/lib/testimonies.ts"]
+  "include": ["server", "functions", "worker-configuration.d.ts", "src/lib/testimonies.ts", "src/lib/corrections.ts"]
 }

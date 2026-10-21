@@ -3,6 +3,7 @@ import { lazy, Suspense, type ReactNode } from "react";
 import { MotionConfig } from "framer-motion";
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { PageTransitions } from "@/components/PageTransitions";
+import { CorrectionButton } from "@/components/corrections/CorrectionButton";
 import { Layout } from "@/components/Layout";
 import { PageErrorBoundary } from "@/components/PageErrorBoundary";
 import { CatalogProvider } from "@/lib/catalog-context";
@@ -184,6 +185,7 @@ export default function App() {
         </AppFrame>
       </CatalogProvider>
       </PageTransitions>
+      <CorrectionButton />
     </BrowserRouter>
     </MotionConfig>
   );

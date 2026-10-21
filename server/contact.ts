@@ -1,4 +1,5 @@
 import { connect } from "cloudflare:sockets";
+import { composeCorrection, correctionProblem } from "../src/lib/corrections";
 import { sendMail, SmtpError } from "./smtp";
 
 /** Secrets set in the Cloudflare Pages project settings (never in wrangler.jsonc). */
@@ -53,27 +54,38 @@ export async function handleContact(request: Request, env: ContactEnv): Promise<
     return json({ error: "The form could not be read." }, 400);
   }
 
-  let name: string, email: string, message: string, website: string;
+  let name: string, email: string, message: string, website: string, label: string, page: string, title: string;
   try {
     name = field(input, "name", 80); email = field(input, "email", 200); message = field(input, "message", 4000); website = field(input, "website", 200);
+    label = field(input, "label", 60); page = field(input, "page", 300); title = field(input, "title", 200);
   } catch (error) {
     return json({ error: (error as Error).message }, 400);
   }
   if (website) return json({ sent: true }); // hidden field only bots fill in; drop quietly
   if (!message) return json({ error: "Please write a message." }, 400);
   if (email && !EMAIL.test(email)) return json({ error: "That email address does not look right." }, 400);
+
+  // A correction (the floating button on every page) carries its label and the page it was sent from.
+  const isCorrection = input.kind === "correction";
+  const correction = { label, page, title, message, email };
+  if (isCorrection) {
+    const problem = correctionProblem(correction);
+    if (problem) return json({ error: problem }, 400);
+  }
   if (!(await underLimit(env, request))) return json({ error: "Please wait a while before sending another message." }, 429);
 
   const host = env.CONTACT_SMTP_HOST || "smtp.zoho.com";
   const safeName = name.replace(/["\\<>]/g, "");
+  const mail = isCorrection
+    ? composeCorrection(correction, new URL(request.url).origin)
+    : { subject: `Contact form: ${name || email || "a visitor"}`, text: `${message}\n\n—\nFrom: ${name || "(no name given)"}\nEmail: ${email || "(none given)"}\nSent from the contact page.` };
   try {
     const socket = connect({ hostname: host, port: 465 }, { secureTransport: "on", allowHalfOpen: false });
     await sendMail(socket, { user: env.CONTACT_SMTP_USER, password: env.CONTACT_SMTP_PASSWORD }, {
-      from: `"Bible Project contact form" <${env.CONTACT_SMTP_USER}>`,
+      from: `"Bible Project ${isCorrection ? "corrections" : "contact form"}" <${env.CONTACT_SMTP_USER}>`,
       to: env.CONTACT_SMTP_USER,
       replyTo: email ? (safeName ? `"${safeName}" <${email}>` : email) : undefined,
-      subject: `Contact form: ${name || email || "a visitor"}`,
-      text: `${message}\n\n—\nFrom: ${name || "(no name given)"}\nEmail: ${email || "(none given)"}\nSent from the contact page.`,
+      ...mail,
     });
     return json({ sent: true });
   } catch (error) {
