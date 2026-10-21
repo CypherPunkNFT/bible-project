@@ -23,8 +23,8 @@ for (const path of PAGES) {
 }
 
 test("library opens a book in the reader", async ({ page }) => {
-  await page.goto("/library");
-  await page.getByRole("link", { name: /^Genesis/ }).first().click();
+  await page.goto("/library?c=GEN.1");
+  await page.getByRole("link", { name: "Read Genesis 1 →" }).click();
   await expect(page).toHaveURL(/\/read\/kjv\/GEN\/1/);
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Genesis");
   await expect(page.locator(".scripture")).toContainText("In the beginning God created the heaven and the earth.");
@@ -158,10 +158,24 @@ test("search results keep their own version after the picker changes", async ({ 
 
 // --- the reading chart (owner's reference: reference/reading-chart.png) ---
 
-test("reading chart: a chapter box opens that chapter", async ({ page }) => {
+test("library: a chapter box shows that chapter, its AI notice, and a link to read it", async ({ page }) => {
   await page.goto("/library");
+  await page.getByRole("tab", { name: /^Epistles/ }).click();
   await page.getByRole("group", { name: "Romans chapters" }).getByRole("button", { name: "Romans 8", exact: true }).click();
+  await expect(page).toHaveURL(/\/library\?c=ROM\.8$/);
+  await expect(page.getByRole("heading", { level: 2, name: "Romans 8", exact: true })).toBeVisible();
+  await expect(page.getByText("AI-generated summary. It may contain mistakes and is still being checked.")).toBeVisible();
+  await page.getByRole("link", { name: "Read Romans 8 →" }).click();
   await expect(page).toHaveURL(/\/read\/kjv\/ROM\/8/);
+});
+
+test("library: the arrow keys step through chapters and the address keeps the choice", async ({ page }) => {
+  await page.goto("/library?c=PSA.63");
+  await expect(page.getByRole("heading", { level: 2, name: "Psalms 63", exact: true })).toBeVisible();
+  await page.getByRole("heading", { level: 2, name: "Psalms 63", exact: true }).click();
+  await page.keyboard.press("ArrowRight");
+  await expect(page.getByRole("heading", { level: 2, name: "Psalms 64", exact: true })).toBeVisible();
+  await expect(page).toHaveURL(/c=PSA\.64$/);
 });
 
 test("reading chart: mark-as-read mode ticks a chapter and the reader agrees", async ({ page }) => {
@@ -183,6 +197,7 @@ test("reading chart: mark-as-read mode ticks a chapter and the reader agrees", a
 
 test("reading chart: one tab stop per book, arrows move between chapters", async ({ page }) => {
   await page.goto("/library");
+  await page.getByRole("tab", { name: /^History/ }).click();
   const first = page.getByRole("group", { name: "Genesis chapters" }).getByRole("button", { name: "Genesis 1", exact: true });
   await first.focus();
   await page.keyboard.press("ArrowRight");

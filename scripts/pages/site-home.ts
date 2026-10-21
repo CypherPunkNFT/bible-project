@@ -1,11 +1,11 @@
 // CONTENT for two Site pages: Home (/) and the library (/library). Read from the page files and the site's data.
 import { HOME_PATHS, HOME_PREVIEWS, HOME_STUDIES, HOME_TOPICS } from "../../src/components/home/collection-data";
 import { groupVersions, VERSION_GROUPS } from "../../src/lib/languages";
-import { SECTIONS } from "../../src/lib/sections";
+import { PARTS } from "../../src/pages/library/part-content";
 import type { Catalog, Stats, Translation } from "../../src/lib/types";
 import { blocks, link, loadCatalog, n, readJson, table } from "./study-lib";
 import { byTag, findAll, first, jsxRoots } from "./study-source";
-import { componentProps, fill, readableText, wordingList } from "./site-source";
+import { componentProps, readableText, wordingList } from "./site-source";
 import type { PageContent } from "./types";
 
 const HOME = "src/pages/HomePage.tsx";
@@ -51,23 +51,19 @@ async function home(): Promise<PageContent> {
 }
 
 async function library(): Promise<PageContent> {
-  const [catalog, stats, places] = await Promise.all([loadCatalog(), readJson<Stats>("data/stats.json"), readJson<unknown[]>("data/places.json")]);
+  const [catalog, stats] = await Promise.all([loadCatalog(), readJson<Stats>("data/stats.json")]);
   const roots = await jsxRoots(LIBRARY, "LibraryPage");
-  const canonVerses = stats.books.filter((book) => book.section !== "apocrypha").reduce((sum, book) => sum + book.verses, 0);
-  // "versions" and "verses (KJV)" are computed on the page (the catalogue's length; the KJV's verses in the 66 books).
-  const figures = (await componentProps(LIBRARY, "LibraryPage", "Stat")).map((stat) => {
-    const value = stat.label === "versions" ? catalog.translations.length : stat.label === "verses (KJV)" ? canonVerses : Number(stat.value);
-    return `**${n(value)}**${typeof stat.suffix === "string" ? stat.suffix : ""} ${String(stat.label)}`;
+  const canon = stats.books.filter((book) => book.section !== "apocrypha");
+  const sum = (pick: (book: Stats["books"][number]) => number) => canon.reduce((total, book) => total + pick(book), 0);
+  // Every figure but "books" is computed on the page from data/stats.json and the catalogue.
+  const values: Record<string, number> = { chapters: sum((b) => b.chapters.length), "verses (KJV)": sum((b) => b.verses), "words (KJV)": sum((b) => b.words), versions: catalog.translations.length };
+  const figures = (await componentProps(LIBRARY, "LibraryPage", "Stat")).map((stat) => `**${n(values[String(stat.label)] ?? Number(stat.value))}** ${String(stat.label)}`);
+  const summaries = await readJson<{ notice: string; chapters: Record<string, unknown> }>("data/summaries/JHN.json").catch(() => null);
+  const summaryCount = summaries ? (await Promise.all(canon.map((book) => readJson<{ chapters: Record<string, unknown> }>(`data/summaries/${book.code}.json`).then((file) => Object.keys(file.chapters).length, () => 0)))).reduce((a, b) => a + b, 0) : 0;
+  const partRows = PARTS.map((part) => {
+    const books = canon.filter((book) => book.section === part.id);
+    return [part.name, part.range, books.length, n(books.reduce((total, book) => total + book.chapters.length, 0)), part.writtenText];
   });
-  const kjv = catalog.translations.find((version) => version.slug === "kjv");
-  if (!kjv) throw new Error("Site content: data/catalog.json has no KJV; the reading chart is built on it");
-  const chartBooks = catalog.books.filter((book) => kjv.books[book.code]);
-  const split = findAll(await jsxRoots("src/components/LibraryChart.tsx", "LibraryChart"), byTag("ReadingChart"))[0]?.attrs.splitBefore;
-  const sectionRows = SECTIONS.map((section) => {
-    const books = chartBooks.filter((book) => book.section === section.id);
-    return [section.name, section.span, books.length, n(books.reduce((sum, book) => sum + kjv.books[book.code].length, 0))];
-  });
-  const chapters = chartBooks.filter((book) => book.section !== "apocrypha").reduce((sum, book) => sum + kjv.books[book.code].length, 0);
   const grouped = groupVersions(catalog.translations);
   const filters = ["All " + catalog.translations.length, ...VERSION_GROUPS.map((group) => `${group.title} ${grouped.find((g) => g.group.id === group.id)?.count ?? 0}`)];
   const lists = grouped.flatMap(({ group, count, sections }) => [`### ${group.title} (${count})`, ...sections.map((section) => blocks(section.label ? `*${section.label}*` : "",
@@ -75,23 +71,26 @@ async function library(): Promise<PageContent> {
       const c = testaments(catalog, version);
       return [version.abbr, version.name, version.year, [c.ot && `${c.ot} OT`, c.nt && `${c.nt} NT`, c.apocrypha && `${c.apocrypha} Apocrypha`].filter(Boolean).join(" · "), n(version.verses)];
     }))))]);
-  // The caption reads "<hovered chapter…> / N chapters, Genesis to Revelation…"; the second half is what shows at rest.
-  const spectrum = (await readableText("src/components/ChapterSpectrum.tsx")).find((line) => line.includes("Genesis to Revelation"))?.split(" / ").at(-1) ?? "";
   return { dir: "Site/library", title: "The library", markdown: blocks(
-    `**Address:** ${link("/library")} (reached from the Bible page's "Library" card; the header's "Bible" item stays highlighted)`,
+    `**Address:** ${link("/library")} (reached from the Bible page's "Library" card; the header's "Bible" item stays highlighted). The chosen chapter is kept in the address, e.g. ${link("/library?c=ROM.8")}.`,
     "## Heading",
-    `- Eyebrow: Library\n- Title: **${first(roots, byTag("h1")).text}**\n- Figures: ${figures.join(" · ")}`,
-    `Checked against the data: data/places.json holds ${n(places.length)} places; the KJV (data/stats.json) has ${n(canonVerses)} verses in the 66 books. The cross-reference figure is written into the page.`,
-    "## The reading chart",
-    await wordingList("src/components/LibraryChart.tsx"),
-    `Two buttons choose what a click does: "Open chapters" (opens the chapter in the version this browser last read, if it numbers chapters like the KJV, else in the KJV) or "Mark as read". A progress bar above the chart shows the reading done in each section. The chart breaks into a second block before ${catalog.books.find((book) => book.code === split)?.name ?? split ?? "—"}; "Apocrypha" adds the apocryphal books.`,
-    table(["Section", "Books", "Books on the chart", "Chapters (KJV)"], sectionRows),
-    `Without the Apocrypha: ${n(chapters)} chapters in ${chartBooks.filter((book) => book.section !== "apocrypha").length} books.`,
-    "## The versions",
+    `- Eyebrow: The library
+- Title: **${first(roots, byTag("h1")).text}**
+- Figures: ${figures.join(" · ")}`,
+    "## 01 · Move through the whole Bible",
+    await wordingList("src/pages/library/River.tsx"),
+    `All ${n(values.chapters)} chapters as one line of bars, coloured by part. Scrolling zooms around the pointer, dragging moves along, the strip below shows and moves the window, and clicking a part or book name flies to it. Bars can show verses, words or words of Jesus, scaled to the tallest chapter on screen. The ← → keys step one chapter at a time anywhere on the page (not while typing or inside a chart, tab row or switch).`,
+    "## The chosen chapter",
+    await wordingList("src/pages/library/ChapterPanel.tsx"),
+    `Shows the chapter's verses, words, words of Jesus and reading time, a strip of its whole book, then its summary, "Notice" line and outline. The Read button opens the chapter in the version this browser last read when that version numbers chapters like the KJV and has the chapter, else in the KJV. Opens on John 1 unless the address names a chapter.`,
+    `**Chapter summaries:** ${n(summaryCount)} of ${n(values.chapters)} chapters, one file per book in data/summaries/ (scripts/build-chapter-summaries.py, \`bun run summaries\`). They are AI-written and not yet checked; the outline column ends with the notice "AI-generated summary. It may contain mistakes and is still being checked."${summaries ? ` Each file also carries: "${summaries.notice}"` : " (Not built on this machine.)"}`,
+    "## 02 · Six parts, one library",
+    await wordingList("src/pages/library/Parts.tsx"),
+    `"Through time" draws one lane per part: the light band is the time it tells of, the dark line when it was written, on an axis compressed across the ~400 years between the Testaments. Six tiles choose a part; its panel gives what it is, key moments, its figures from the data, and hand-written facts (traditional dating, marked "c."). Below, every chapter of the part as cells that darken with the chapter's length: "Choose a chapter" shows it above, "Mark as read" ticks it (kept in this browser only, shared with the reader's Read button).`,
+    table(["Part", "Books", "Books in the part", "Chapters (KJV)", "Written"], partRows),
+    "## 03 · The versions",
     `**The versions** · "${catalog.translations.length} free texts · sources and licences" (→ ${link("/versions")}). Filter buttons: ${filters.join(" · ")}. A box seven rows tall that scrolls, with the scrollbar outside its frame; each row opens the version at its first chapter ("Read").`,
     ...lists,
-    "## The Bible, chapter by chapter",
-    `${fill(spectrum, n(stats.books.filter((book) => book.section !== "apocrypha").reduce((sum, book) => sum + book.chapters.length, 0)))} Bars are coloured by section and sized by the number of words (KJV).`,
   ) };
 }
 

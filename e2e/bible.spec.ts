@@ -17,7 +17,7 @@ test("Bible: Library opens the collection and Read opens a chapter", async ({ pa
   await page.goto("/bible");
   await page.getByRole("link", { name: "Library", exact: true }).click();
   await expect(page).toHaveURL(/\/library$/);
-  await expect(page.getByRole("heading", { name: "The library.", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: /The whole Bible,\s*chapter by chapter\./ })).toBeVisible();
   await page.goto("/bible");
   await page.getByRole("link", { name: "Read", exact: true }).click();
   await expect(page).toHaveURL(/\/read\/kjv\/GEN\/1$/);

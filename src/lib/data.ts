@@ -96,6 +96,20 @@ export const loadBookPlaces = (code: string) => load<BookPlace[]>(`places-by-boo
 
 export const loadStats = () => load<Stats>("stats.json", (v) => isObject(v) && Array.isArray(v.books));
 
+/** One chapter's AI-written summary (scripts/build-chapter-summaries.py); outline parts are [from verse, to verse, heading, text]. */
+export interface ChapterSummary {
+  title: string;
+  summary: string;
+  invitation?: string;
+  outline: [number, number, string, string][];
+}
+
+/** A book's chapter summaries, keyed by chapter number, with the notice that they are AI-written and still being checked. */
+export const loadChapterSummaries = (code: string) => {
+  if (!/^[A-Z0-9]{3}$/.test(code)) throw new DataUnavailable(`summaries/${code}.json`, "not a book code");
+  return load<{ notice: string; chapters: Record<string, ChapterSummary> }>(`summaries/${code}.json`, (v) => isObject(v) && isObject(v.chapters));
+};
+
 // Catechisms & Creeds (scripts/build-creeds.py): the landing index, one file per document, and the
 // document's sections in bundles of whole parts, so opening a part never downloads a whole book.
 export const loadCreedsIndex = () => load<CreedsIndex>("creeds/index.json", (v) => isObject(v) && Array.isArray(v.families));

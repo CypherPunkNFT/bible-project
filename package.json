@@ -20,6 +20,7 @@
     "teacher-pages": "node --experimental-strip-types scripts/build-teacher-pages.ts",
     "teacher-pages:check": "node --experimental-strip-types scripts/build-teacher-pages.ts --check",
     "data": "py -3.12 scripts/build-data.py",
+    "summaries": "py -3.12 scripts/build-chapter-summaries.py",
     "museums": "py -3.12 scripts/build-museums.py",
     "hymns": "py -3.12 scripts/build-hymn-collection.py",
     "manuscripts": "py -3.12 scripts/build-manuscripts.py",
