@@ -53,3 +53,6 @@ __pycache__/
 
 # Load-scan reports (scripts/load-scan/).
 /.load-scan/
+
+# unapproved draft chapter summaries copied into the library mock-up (design/library-chapters/export-summaries.py)
+/design/library-chapters/summaries.local.json
