@@ -10,7 +10,8 @@ type Status = { state: "idle" | "sending" | "sent" } | { state: "error"; message
 
 /** The page's name: its main heading, else its tab title without the site name. */
 function pageTitle(): string {
-  const heading = document.querySelector("main h1, h1")?.textContent?.replace(/\s+/g, " ").trim();
+  // innerText keeps the space a <br> makes ("The whole Bible,<br>chapter by chapter").
+  const heading = document.querySelector<HTMLElement>("main h1, h1")?.innerText?.replace(/\s+/g, " ").trim();
   return (heading || document.title.replace(/\s*[·|–—-]\s*Bible Project\s*$/i, "")).trim().slice(0, 200);
 }
 
