@@ -125,7 +125,14 @@ test("life: the city map's pins and the list light each other", async ({ page })
   await page.locator(`.lf-jax .lf-pin[data-id="${id}"]`).dispatchEvent("click");
   await expect(row.locator(".lf-row-head")).toHaveAttribute("aria-expanded", "true");
   await expect(page.locator(`.lf-jax .lf-pin[data-id="${id}"]`)).toHaveAttribute("data-sel");
+  // A clicked pin leaves its row highlighted (not only while the pointer is on it), and only that row.
+  await expect(row).toHaveAttribute("data-sel");
+  await expect(page.locator(".lf-city-list .lf-row[data-sel]")).toHaveCount(1);
   await expect(row.locator(".lf-addr")).toBeVisible();
+  // The rows run edge to edge across the panel, so their rules meet its border.
+  const [panel, rowBox] = await Promise.all([page.locator(".lf-city-list").boundingBox(), row.boundingBox()]);
+  expect(Math.abs(rowBox!.x - panel!.x)).toBeLessThan(1.5);
+  expect(Math.abs(rowBox!.x + rowBox!.width - (panel!.x + panel!.width))).toBeLessThan(1.5);
   const other = page.locator(".lf-city-list ol").first().locator(".lf-row").nth(1), otherId = await other.getAttribute("data-id");
   await other.locator(".lf-row-head").click();
   await expect(page.locator(`.lf-jax .lf-pin[data-id="${otherId}"]`)).toHaveAttribute("data-sel");

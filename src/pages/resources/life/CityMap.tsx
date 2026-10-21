@@ -1,5 +1,6 @@
 // A city's own map (US Census Bureau TIGER/Line, scripts/build-city-maps.py) with its places beside it. The list starts
-// level with the map's top and scrolls on its own; pointing at a pin lights its row and choosing a row lights its pin.
+// level with the map's top and scrolls on its own; pointing at a pin lights its row, and clicking a pin chooses it: the row opens, stays
+// highlighted and the list glides to it. Choosing a row lights its pin.
 // Kind filters show some kinds only; County and Downtown jump the map; the wheel, a pinch or the buttons zoom it.
 import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { OutsideScroll } from "@/components/OutsideScroll";
@@ -36,6 +37,40 @@ const Layers = memo(function Layers({ map, hall, hallName }: { map: CityMapData;
   </>;
 });
 
+
+interface PinProps { id: string; name: string; category: string; n: number; at: [number, number]; off: boolean; on: boolean; sel: boolean; onLit: (id: string | null) => void; onChoose: (id: string) => void }
+
+/** One pin. Memoised: pointing at a row or pin re-draws only the two pins involved, not all of them. */
+const Pin = memo(function Pin({ id, name, category, n, at, off, on, sel, onLit, onChoose }: PinProps) {
+  return <g className="lf-pin" data-id={id} data-cat={category} data-x={at[0]} data-y={at[1]} data-off={off ? "" : undefined} data-on={on || undefined} data-sel={sel || undefined}
+    style={{ "--c": tone(category) } as CSSProperties} role="button" tabIndex={-1} aria-label={`${n}. ${name}`} onPointerEnter={() => onLit(id)} onPointerLeave={() => onLit(null)} onClick={() => onChoose(id)}>
+    <circle className="lf-halo" r={16} /><circle className="lf-disc" r={10} /><text>{n}</text>
+  </g>;
+});
+
+/** Eases a scroll box so the row is in view, following the row for half a second while rows above it open or close; a wheel, touch or key press hands the scroll back. */
+function glideToRow(box: HTMLElement, row: HTMLElement): () => void {
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let frame = 0, last = performance.now();
+  const start = last;
+  const stop = () => { cancelAnimationFrame(frame); for (const ev of ["wheel", "touchstart", "keydown", "pointerdown"]) box.removeEventListener(ev, stop); };
+  const want = () => {
+    const top = row.offsetTop - box.offsetTop, height = row.offsetHeight, room = box.clientHeight - 16;
+    if (height > room || top < box.scrollTop + 8) return top - 8;
+    if (top + height > box.scrollTop + box.clientHeight - 8) return top + height - box.clientHeight + 8;
+    return box.scrollTop;
+  };
+  const step = (now: number) => {
+    const goal = Math.max(0, Math.min(want(), box.scrollHeight - box.clientHeight)), gap = goal - box.scrollTop;
+    box.scrollTop = reduced || Math.abs(gap) < 1 ? goal : box.scrollTop + gap * (1 - Math.exp(-(now - last) / 120));
+    last = now;
+    if (now - start < 1200 && (now - start < 500 || Math.abs(gap) >= 1)) frame = requestAnimationFrame(step); else stop();
+  };
+  for (const ev of ["wheel", "touchstart", "keydown", "pointerdown"]) box.addEventListener(ev, stop, { passive: true, once: true });
+  frame = requestAnimationFrame(step);
+  return stop;
+}
+
 export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; kinds: [string, number][] }) {
   const P = map.projection;
   const project = useCallback((lon: number, lat: number): [number, number] => [(lon - P.west) * P.cos * P.k, (P.north - lat) * P.k], [P]);
@@ -47,8 +82,15 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
   const [lit, setLit] = useState<string | null>(null);
   const [view, setView] = useState<View>("county");
   const svg = useRef<SVGSVGElement>(null), leaders = useRef<SVGGElement>(null), list = useRef<HTMLDivElement>(null), zoom = useRef<Zoom | null>(null);
-  const shownRef = useRef(shown);
+  const shownRef = useRef(shown), openRef = useRef(open), selectedRef = useRef(selected), stopGlide = useRef<() => void>(() => {});
   shownRef.current = shown;
+  openRef.current = open;
+  selectedRef.current = selected;
+  const placeIds = useMemo(() => new Set(city.entries.map((e) => e.id)), [city]);
+  useEffect(() => () => stopGlide.current(), []);
+  // Rows passing under a still pointer while the list scrolls must not light up (each one would redraw the map): they light once the scrolling stops.
+  const overList = useRef<[number, number] | null>(null), scrolling = useRef(false);
+  const lightRow = useCallback((id: string | null) => { if (!(scrolling.current && id)) setLit(id); }, []);
 
   /** Pins that would overlap at this zoom are pushed apart, each with a thin line back to its true spot. */
   const layoutPins = useCallback(() => {
@@ -100,29 +142,47 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
   }, [map, places, layoutPins]);
   useLayoutEffect(layoutPins, [shown, selected, layoutPins]);
 
-  const scrollRow = (id: string) => {
+  useEffect(() => {
+    const box = list.current?.closest<HTMLElement>(".outside-scroll-viewport");
+    if (!box) return;
+    let timer = 0;
+    const onScroll = () => {
+      scrolling.current = true;
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        scrolling.current = false;
+        const at = overList.current;
+        if (!at) return;
+        const row = document.elementFromPoint(at[0], at[1])?.closest<HTMLElement>(".lf-row[data-id]");
+        setLit(row && box.contains(row) ? row.dataset.id ?? null : null);
+      }, 140);
+    };
+    box.addEventListener("scroll", onScroll, { passive: true });
+    return () => { box.removeEventListener("scroll", onScroll); window.clearTimeout(timer); };
+  }, []);
+
+  const scrollRow = useCallback((id: string) => {
     // `list` marks the list's content; the area that scrolls is OutsideScroll's viewport around it.
     const box = list.current?.closest<HTMLElement>(".outside-scroll-viewport"), row = box?.querySelector<HTMLElement>(`.lf-row[data-id="${CSS.escape(id)}"]`);
     if (!box || !row || getComputedStyle(box).overflowY === "visible") return;
-    const top = row.offsetTop - box.offsetTop, bottom = top + row.offsetHeight;
-    if (top < box.scrollTop + 8) box.scrollTo({ top: top - 8, behavior: "smooth" });
-    else if (bottom > box.scrollTop + box.clientHeight - 8) box.scrollTo({ top: bottom - box.clientHeight + 8, behavior: "smooth" });
-  };
-  const select = (id: string | null) => {
+    stopGlide.current();
+    stopGlide.current = glideToRow(box, row);
+  }, []);
+  const select = useCallback((id: string | null) => {
     setSelected(id);
     const place = id ? places.find((q) => q.e.id === id) : null;
     if (place) zoom.current?.reveal(place.at[0], place.at[1]);
-  };
-  const choosePin = (id: string) => {
-    setOpen((prev) => new Set([...prev].filter((x) => !places.some((q) => q.e.id === x)).concat(id)));
+  }, [places]);
+  const choosePin = useCallback((id: string) => {
+    setOpen((prev) => new Set([...prev].filter((x) => !placeIds.has(x)).concat(id)));
     select(id);
     requestAnimationFrame(() => requestAnimationFrame(() => scrollRow(id)));
-  };
-  const toggle = (id: string, isPlace: boolean) => {
-    const opening = !open.has(id);
+  }, [placeIds, select, scrollRow]);
+  const toggle = useCallback((id: string) => {
+    const opening = !openRef.current.has(id);
     setOpen((prev) => { const next = new Set(prev); if (opening) next.add(id); else next.delete(id); return next; });
-    if (isPlace) select(opening ? id : selected === id ? null : selected);
-  };
+    if (placeIds.has(id)) select(opening ? id : selectedRef.current === id ? null : selectedRef.current);
+  }, [placeIds, select]);
   const filter = (k: string) => setShown((prev) => {
     // The first tap shows only that kind; later taps add or remove kinds; switching the last one off shows all again.
     const next = prev.size === kinds.length ? new Set([k]) : new Set(prev);
@@ -135,7 +195,10 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
     else { const d = (2.2 / 69) * P.k; zoom.current?.fit([hall[0] - d * 1.2, hall[1] - d, hall[0] + d * 1.2, hall[1] + d], 0); }
   };
 
-  const where = (e: City["entries"][number]) => { const d = miles(city, e); return d < 0.5 ? `downtown, by ${centreWords(city)}` : `${d.toFixed(1)} mi ${compass(city, e)} of ${centreWords(city)}`; };
+  const subs = useMemo(() => new Map(city.entries.map((e) => {
+    const d = miles(city, e);
+    return [e.id, `${kindOf(e.category).short}  ·  ${d < 0.5 ? `downtown, by ${centreWords(city)}` : `${d.toFixed(1)} mi ${compass(city, e)} of ${centreWords(city)}`}`];
+  })), [city]);
   const ordered = selected ? [...places.filter((q) => q.e.id !== selected), ...places.filter((q) => q.e.id === selected)] : places;
   const lines = city.lines ?? [];
   return <div className="lf-city-main">
@@ -144,11 +207,7 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
       <svg ref={svg} viewBox={`0 0 ${map.width} ${map.height}`} style={{ aspectRatio: `${map.width} / ${map.height}` }} role="group" aria-label={`Map of ${city.name.split(",")[0]} and ${map.about.split(",")[0]} with the ${city.entries.length} places`}>
         <Layers map={map} hall={hall} hallName={centreLabel(city)} />
         <g ref={leaders} className="lf-leaders" />
-        <g>{ordered.map(({ e, n, at }) => <g key={e.id} className="lf-pin" data-id={e.id} data-cat={e.category} data-x={at[0]} data-y={at[1]} data-off={shown.has(e.category) ? undefined : ""}
-          data-on={lit === e.id || undefined} data-sel={selected === e.id || undefined} style={{ "--c": tone(e.category) } as CSSProperties} role="button" tabIndex={-1} aria-label={`${n}. ${e.name}`}
-          onPointerEnter={() => setLit(e.id)} onPointerLeave={() => setLit(null)} onClick={() => choosePin(e.id)}>
-          <circle className="lf-halo" r={16} /><circle className="lf-disc" r={10} /><text>{n}</text>
-        </g>)}</g>
+        <g>{ordered.map(({ e, n, at }) => <Pin key={e.id} id={e.id} name={e.name} category={e.category} n={n} at={at} off={!shown.has(e.category)} on={lit === e.id} sel={selected === e.id} onLit={setLit} onChoose={choosePin} />)}</g>
       </svg>
       <div className="lf-map-views" role="group" aria-label="View">{(["county", "downtown"] as const).map((v) => <button key={v} type="button" aria-pressed={view === v} onClick={() => jump(v)}>{v === "county" ? "County" : "Downtown"}</button>)}</div>
       <ZoomButtons zoom={zoom} onReset={() => setView("county")} />
@@ -161,13 +220,13 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
         <p>{plural(city.entries.length, "place")} you can walk into{lines.length > 0 && ` · ${plural(lines.length, "phone line")} below`}</p>
       </header>
       <OutsideScroll className="lf-places-scroll" viewportClassName="lf-city-list" label={`Help in ${city.name}`} resetKey={city.id}>
-      <div ref={list}>
+      <div ref={list} onPointerMove={(e) => { overList.current = [e.clientX, e.clientY]; }} onPointerLeave={() => { overList.current = null; }}>
       <ol aria-label={`Help in ${city.name}`}>{places.map(({ e, n }) => <LifeRow key={e.id} entry={e} kind={e.category} layout="stack" n={n} quick={1} address
-        sub={`${kindOf(e.category).short}  ·  ${where(e)}`} open={open.has(e.id)} onToggle={() => toggle(e.id, true)} lit={lit === e.id}
-        hidden={!shown.has(e.category)} onPointerEnter={() => setLit(e.id)} onPointerLeave={() => setLit(null)} />)}</ol>
+        sub={subs.get(e.id)} open={open.has(e.id)} onToggle={toggle} lit={lit === e.id} selected={selected === e.id}
+        hidden={!shown.has(e.category)} onLit={lightRow} />)}</ol>
       {lines.length > 0 && <>
         <h3 className="lf-lines-head">Phone lines <small>no walk-in address</small></h3>
-        <ol aria-label={`Phone lines in ${city.name}`}>{lines.map((l) => <LifeRow key={l.id} entry={l} kind={l.category ?? "crisis"} layout="stack" quick={2} address open={open.has(l.id)} onToggle={() => toggle(l.id, false)} />)}</ol>
+        <ol aria-label={`Phone lines in ${city.name}`}>{lines.map((l) => <LifeRow key={l.id} entry={l} kind={l.category ?? "crisis"} layout="stack" quick={2} address open={open.has(l.id)} onToggle={toggle} />)}</ol>
       </>}
       </div>
       </OutsideScroll>

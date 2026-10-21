@@ -2,7 +2,7 @@
 // name, the ways to reach it, one sentence and the cost, with its first call/text buttons ready; it opens in place for
 // the rest of the summary, the address, the hours, every number and link, and the page it was checked on.
 import { ChevronDown, Clock, Globe, Mail, MapPin, MessageCircle, MessageSquareText, Phone, type LucideIcon } from "lucide-react";
-import { useLayoutEffect, useRef, type CSSProperties, type PointerEventHandler } from "react";
+import { memo, useLayoutEffect, useRef, type CSSProperties } from "react";
 import type { Contact, Help } from "@/data/resources";
 import { firstSentence, hostOf, hrefOf, quickActions, restOf, sameUrl, subtitle, tone, WAY_WORD, wayOf, type Way } from "./format";
 
@@ -51,7 +51,8 @@ interface RowProps {
   /** The kind of help, for the row's colour. */
   kind: string;
   open: boolean;
-  onToggle: () => void;
+  /** Called with the entry's id, so one function can serve every row of a list (the rows are memoised). */
+  onToggle: (id: string) => void;
   /** How many call/text buttons stay on the closed row (0 for none). */
   quick: number;
   /** "wide": the buttons sit beside the words (national lines); "stack": under them (the city list). */
@@ -60,20 +61,23 @@ interface RowProps {
   n?: number;
   sub?: string;
   address?: boolean;
+  /** Pointed at (on the row or on its pin on the map). */
   lit?: boolean;
+  /** Chosen: its pin was clicked or the row was opened. */
+  selected?: boolean;
   hidden?: boolean;
-  onPointerEnter?: PointerEventHandler;
-  onPointerLeave?: PointerEventHandler;
+  /** Pointing at the row lights its pin: called with the id on entering and null on leaving. */
+  onLit?: (id: string | null) => void;
 }
 
-export function LifeRow({ entry: e, kind, open, onToggle, quick, layout, n, sub, address, lit, hidden, onPointerEnter, onPointerLeave }: RowProps) {
+export const LifeRow = memo(function LifeRow({ entry: e, kind, open, onToggle, quick, layout, n, sub, address, lit, selected, hidden, onLit }: RowProps) {
   // React 18 has no inert prop: a closed row's body is made inert here, so its links are out of the tab order.
   const body = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => { if (body.current) body.current.inert = !open; }, [open]);
   const chev = <span className="lf-chev" aria-hidden="true"><ChevronDown size={18} strokeWidth={STROKE} /></span>;
-  return <li className="lf-row" data-layout={layout} data-id={e.id} data-cat={kind} data-open={open || undefined} data-lit={lit || undefined} hidden={hidden}
-    style={{ "--c": tone(kind) } as CSSProperties} onPointerEnter={onPointerEnter} onPointerLeave={onPointerLeave}>
-    <button type="button" className="lf-row-head" aria-expanded={open} onClick={onToggle}>
+  return <li className="lf-row" data-layout={layout} data-id={e.id} data-cat={kind} data-open={open || undefined} data-lit={lit || undefined} data-sel={selected || undefined} hidden={hidden}
+    style={{ "--c": tone(kind) } as CSSProperties} onPointerEnter={onLit && (() => onLit(e.id))} onPointerLeave={onLit && (() => onLit(null))}>
+    <button type="button" className={n != null ? "lf-row-head lf-row-head-n" : "lf-row-head"} aria-expanded={open} onClick={() => onToggle(e.id)}>
       {n != null && <b className="lf-num" aria-hidden="true">{n}</b>}
       <span className="lf-name">{e.name}</span>
       <span className="lf-sub">{sub ?? subtitle(e)}</span>
@@ -82,7 +86,7 @@ export function LifeRow({ entry: e, kind, open, onToggle, quick, layout, n, sub,
       {layout === "stack" && chev}
     </button>
     {quick > 0 && <QuickButtons entry={e} max={quick} />}
-    {layout === "wide" && <button type="button" className="lf-chev-btn" tabIndex={-1} aria-hidden="true" onClick={onToggle}>{chev}</button>}
+    {layout === "wide" && <button type="button" className="lf-chev-btn" tabIndex={-1} aria-hidden="true" onClick={() => onToggle(e.id)}>{chev}</button>}
     <div className="lf-body" ref={body}><Detail entry={e} address={address} /></div>
   </li>;
-}
+});
