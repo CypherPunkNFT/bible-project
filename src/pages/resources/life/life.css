@@ -318,10 +318,10 @@ a.lf-src:hover { color: var(--ink); }
   .lf-body, .lf-chev, .lf-row, .lf-pin .lf-disc, .lf-pin .lf-halo { transition: none; }
 }
 
-/* Choosing another city: the old one fades out (.2s), the new one fades in. */
-/* No fill-mode: an animation that fills forwards stays alive after it ends, and keeps the whole section (map and list) in an offscreen layer that is redrawn on every frame
+/* Choosing another city: the lower map and list fade out (.2s) and the new ones fade in; the USA map and the facts above them change in place.
+   No fill-mode on the animation: one that fills forwards never ends, and keeps the whole part in an offscreen layer that is redrawn on every frame
    of a list scroll (measured: 8 ms of GPU time per frame; owner saw it as stutter, 2026-10-21). */
-.lf-city { animation: lf-city-in .4s ease; transition: opacity .2s ease; }
-.lf-city[data-leaving] { opacity: 0; pointer-events: none; }
+.lf-city-lower { animation: lf-city-in .4s ease; transition: opacity .2s ease; }
+.lf-city-lower[data-leaving] { opacity: 0; pointer-events: none; }
 @keyframes lf-city-in { from { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .lf-city { animation: none; transition: none; } }
+@media (prefers-reduced-motion: reduce) { .lf-city-lower { animation: none; transition: none; } }

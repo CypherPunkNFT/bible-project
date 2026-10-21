@@ -44,7 +44,7 @@ export default function LifePage({ data }: { data: LifeData }) {
   const timer = useRef(0);
   useEffect(() => () => window.clearTimeout(timer.current), []);
   const chosen = cities.find((c) => c.id === chosenId) ?? cities[0];
-  // A new city fades the old one out, then fades in (the fade-in is the section's own entrance, in life.css); no fade for reduced motion.
+  // A new city fades the lower map and list out, then fades the new ones in (the fade-in is that part's own entrance, in life.css); no fade for reduced motion.
   const pick = (id: string) => {
     if (id === chosen?.id || leaving) return;
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) { setChosenId(id); return; }
@@ -68,6 +68,6 @@ export default function LifePage({ data }: { data: LifeData }) {
       <DoorArt />
     </header>
     <NationalLines groups={groups} />
-    {chosen && <CitySection key={chosen.id} city={{ ...chosen, id: chosen.id }} cities={cities} onPick={pick} leaving={leaving} checked={data.checked} />}
+    {chosen && <CitySection city={{ ...chosen, id: chosen.id }} cities={cities} onPick={pick} leaving={leaving} checked={data.checked} />}
   </div>;
 }

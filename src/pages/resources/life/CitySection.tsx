@@ -1,5 +1,5 @@
 // The city section of /resources/life (owner's layout, 2026-10-08; city picker added 2026-10-20): the USA map (every researched city is a dot that chooses it) on the left with the city marked, the
-// city's sourced facts to its right, a rule, then the city's own zoomable map with its places beside it (CityMap.tsx).
+// city's sourced facts to its right, a rule, then the city's own zoomable map with its places beside it (CityMap.tsx). Choosing another city fades only that lower part out and in.
 // Facts and map are separate data files (<city>-facts.json, <city>-map.json), loaded only when this section is drawn.
 import { geoAlbersUsa } from "d3-geo";
 import { useEffect, useMemo, useRef, type CSSProperties } from "react";
@@ -14,13 +14,16 @@ export function CitySection({ city, cities, onPick, leaving, checked }: { city: 
   const files = CITY_FILES[city.id];
   const states = useResource("us-states"), facts = useResource(files.facts), map = useResource(files.map);
   const kinds = useMemo(() => kindsIn(city), [city]);
-  return <section className="lf-city" data-leaving={leaving || undefined} aria-labelledby="lf-city-name">
+  return <section className="lf-city" aria-labelledby="lf-city-name">
     <div className="lf-city-top">
       {typeof states === "object" ? <UsaMap states={states} city={city} cities={cities} onPick={onPick} /> : <p className="lf-wait lf-wait-usa">{states === "loading" ? "Loading the map…" : "The map outline is missing."}</p>}
       <CityInfo city={city} facts={typeof facts === "object" ? facts : null} kinds={kinds} checked={city.checked ?? checked} />
     </div>
     <hr className="lf-city-rule" />
-    {typeof map === "object" ? <CityMap city={city} map={map} kinds={kinds} /> : <p className="lf-wait lf-wait-city">{map === "loading" ? `Loading the map of ${city.name.split(",")[0]}…` : "The city map is missing."}</p>}
+    {/* Only this lower part fades when another city is chosen; the USA map and the facts above it change in place. */}
+    <div key={city.id} className="lf-city-lower" data-leaving={leaving || undefined}>
+      {typeof map === "object" ? <CityMap city={city} map={map} kinds={kinds} /> : <p className="lf-wait lf-wait-city">{map === "loading" ? `Loading the map of ${city.name.split(",")[0]}…` : "The city map is missing."}</p>}
+    </div>
   </section>;
 }
 
