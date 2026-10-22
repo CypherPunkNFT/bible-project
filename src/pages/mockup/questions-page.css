@@ -156,16 +156,17 @@
 .qp-sources strong{color:var(--ink);font-weight:600}
 .qp-sources a{color:var(--accent);text-decoration:underline}
 
-/* Section head's right-hand slot, and 02's "See the answers | Take the test" (as Teachers' Preachers | Scholars) */
-.qp-section-head:has(.qp-section-aside){grid-template-columns:auto 1fr auto}
-.qp-section-aside{align-self:end;padding-bottom:4px}
-.qp-mode{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
-.qp-mode button{padding:.45rem 1.05rem;border:0;border-radius:999px;background:none;font-size:13px;color:var(--muted);white-space:nowrap;transition:background .15s,color .15s}
-.qp-mode button:hover{color:var(--ink);background:var(--surface-2)}
-.qp-mode button[aria-pressed="true"]{background:var(--ink);color:var(--page)}
+/* 02's eyes, at the end of the count line: show the answers, or hide them to test yourself */
+.qp-eyes{display:flex;gap:2px;margin-left:auto}
+.qp-eyes button{display:grid;place-items:center;width:36px;height:36px;border:0;border-radius:50%;background:none;color:var(--muted);transition:background .2s,color .2s}
+.qp-eyes button:hover{background:color-mix(in srgb,var(--ink) 8%,transparent);color:var(--ink)}
+.qp-eyes button[aria-pressed="true"]{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
 
 /* The banner into the test page, between 01 and 02: lines and a soft wash, no box */
-.qp-test-banner{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:center;margin-top:40px;padding:40px 36px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);background:linear-gradient(100deg,color-mix(in srgb,var(--accent) 9%,transparent),transparent 72%)}
+.qp-test-banner{--gold-line:color-mix(in srgb,var(--accent) 40%,#d4a54a);position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:center;margin-top:40px;padding:40px 36px;background:linear-gradient(100deg,color-mix(in srgb,var(--accent) 9%,transparent),transparent 72%)}
+/* Gold rules top and bottom: a solid, lighter gold (never a see-through brown) that fades out like the wash */
+.qp-test-banner::before,.qp-test-banner::after{content:"";position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--gold-line) 0%,var(--gold-line) 18%,transparent 88%)}
+.qp-test-banner::before{top:0}.qp-test-banner::after{bottom:0}
 .qp-test-copy h2{font:450 clamp(30px,3.2vw,44px)/1.15 var(--serif);letter-spacing:-.04em;margin:16px 0 12px}
 .qp-test-copy h2 em{font-weight:400;color:var(--accent)}
 .qp-test-copy>p:last-child{max-width:520px;font-size:14px;line-height:1.8;color:var(--muted)}
@@ -203,7 +204,6 @@
   .qp-stats>div{padding:14px 0 12px;margin:0}.qp-stats>div:nth-child(odd){padding-right:14px}.qp-stats>div:nth-child(even){border-right:0;padding-left:14px}
   .qp-stats>div:nth-child(-n+2){border-bottom:1px solid var(--line)}.qp-stats dd{font-size:24px}
   .qp-section-head{grid-template-columns:1fr;gap:6px}.qp-section-n{font-size:34px}
-  .qp-section-head:has(.qp-section-aside){grid-template-columns:1fr}.qp-section-aside{padding:8px 0 0}
   .qp-test-banner{padding:28px 18px;margin-top:28px}.qp-test-copy h2{font-size:30px}
   .qp-kinds{grid-template-columns:1fr 1fr;gap:8px}.qp-kind{grid-template-columns:auto 1fr;gap:4px 10px;padding:12px}.qp-kind-text small{display:none}
   .qp-kind-icon{grid-row:span 2;width:34px;height:34px}.qp-kind-text strong{font-size:15px}.qp-kind-n{font-size:17px}

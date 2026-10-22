@@ -2,7 +2,7 @@
 // the owner approves it. Every question in the Question Bank (content/questions/question-bank.json, built by
 // scripts/build-question-bank.py): a header with one question to try, 01 the books of the Bible by how many questions
 // each has, a banner into the test page, 02 the questions themselves with filters by kind, topic, Testament and
-// collection, a search and a "See the answers | Take the test" switch, and the credit every source asks for at the foot. The parts live in questions/.
+// collection, a search and an eye to hide or show the answers, and the credit every source asks for at the foot. The parts live in questions/.
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { loadQuestionBank, type QuestionBank } from "@/lib/data";
@@ -11,7 +11,7 @@ import { FilterRail, KindChips } from "./questions/FilterRail";
 import { QuestionsHero } from "./questions/Hero";
 import { facetsOf, haystackOf, readFilters, writeFilters, type Filters } from "./questions/model";
 import { QuestionList } from "./questions/QuestionList";
-import { ModeSwitch, SectionHead } from "./questions/shared";
+import { SectionHead } from "./questions/shared";
 import { TestBanner } from "./questions/TestBanner";
 import "./questions-page.css";
 
@@ -49,13 +49,11 @@ function QuestionsBody({ bank }: { bank: QuestionBank }) {
     <TestBanner bank={bank} filters={filters} available={facets.rows.length} bookNames={bookNames} />
     <section className="qp-section qp-explore" id="qp-explore" aria-labelledby="qp-explore-title">
       <SectionHead n="02" id="qp-explore-title" title={<>Explore <em>the questions</em></>}
-        lead="Choose a kind, a topic or a Testament, or search for a word. Switch to Take the test to hide the answers until you try them.">
-        <ModeSwitch testMode={testMode} setTestMode={setTestMode} />
-      </SectionHead>
+        lead="Choose a kind, a topic or a Testament, or search for a word. Hide the answers with the eye beside the count to test yourself." />
       <KindChips facets={facets} filters={filters} update={update} />
       <div className="qp-explore-grid">
         <FilterRail bank={bank} facets={facets} filters={filters} update={update} />
-        <QuestionList bank={bank} rows={facets.rows} filters={filters} update={update} clear={clear} testMode={testMode} bookNames={bookNames} />
+        <QuestionList bank={bank} rows={facets.rows} filters={filters} update={update} clear={clear} testMode={testMode} setTestMode={setTestMode} bookNames={bookNames} />
       </div>
     </section>
     <details className="qp-sources">

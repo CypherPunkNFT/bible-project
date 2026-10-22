@@ -1,6 +1,6 @@
 // 02's results: the search field, what is filtered, and the questions in a scroll pane (with the pill-only scrollbar
 // the owner chose for result lists), loading more as the pane reaches its end.
-import { Eye, Search, X } from "lucide-react";
+import { Eye, EyeOff, Search, X } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import PillScroll from "@/components/apologetics/PillScroll";
 import type { BankQuestion, QuestionBank } from "@/lib/data";
@@ -11,9 +11,9 @@ const STEP = 40;
 // Longer answers (whole catechism paragraphs) fold to a few lines until asked for.
 const LONG_ANSWER = 260;
 
-interface Props { bank: QuestionBank; rows: number[]; filters: Filters; update: (patch: Partial<Filters>) => void; clear: () => void; testMode: boolean; bookNames: Record<string, string> }
+interface Props { bank: QuestionBank; rows: number[]; filters: Filters; update: (patch: Partial<Filters>) => void; clear: () => void; testMode: boolean; setTestMode: (on: boolean) => void; bookNames: Record<string, string> }
 
-export function QuestionList({ bank, rows, filters, update, clear, testMode, bookNames }: Props) {
+export function QuestionList({ bank, rows, filters, update, clear, testMode, setTestMode, bookNames }: Props) {
   const [shown, setShown] = useState(STEP);
   const sentinel = useRef<HTMLDivElement>(null);
   const terms = searchTerms(filters.search);
@@ -36,6 +36,10 @@ export function QuestionList({ bank, rows, filters, update, clear, testMode, boo
       <p><strong>{rows.length.toLocaleString()}</strong> {rows.length === 1 ? "question" : "questions"}</p>
       {chips.map(([label, patch]) => <button key={label} type="button" className="qp-chip" onClick={() => update(patch)}>{label}<X size={12} aria-label="remove" /></button>)}
       {isFiltered(filters) && <button type="button" className="qp-clear" onClick={clear}>Clear all</button>}
+      <div className="qp-eyes" role="group" aria-label="Answers">
+        <button type="button" aria-pressed={!testMode} aria-label="Show the answers" title="Show the answers" onClick={() => setTestMode(false)}><Eye size={18} strokeWidth={1.6} aria-hidden /></button>
+        <button type="button" aria-pressed={testMode} aria-label="Hide the answers and test yourself" title="Hide the answers and test yourself" onClick={() => setTestMode(true)}><EyeOff size={18} strokeWidth={1.6} aria-hidden /></button>
+      </div>
     </div>
     <PillScroll key={JSON.stringify(filters)} className="qp-list-viewport" label="Questions">
       {rows.length ? <ol className="qp-list">{rows.slice(0, shown).map((index, i) =>
