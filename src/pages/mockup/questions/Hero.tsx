@@ -1,7 +1,7 @@
 // The questions page's header: the title and the bank's figures, and beside them one question to answer straight away.
 import { Check, Shuffle } from "lucide-react";
 import { useMemo, useState } from "react";
-import type { BankQuestion, QuestionBank } from "@/lib/data";
+import { rightChoice, type BankQuestion, type QuestionBank } from "@/lib/data";
 import { LETTERS } from "./model";
 import { ReadLink } from "./shared";
 
@@ -41,21 +41,21 @@ function TryOne({ questions, bookNames }: { questions: BankQuestion[]; bookNames
   if (!q?.options) return null;
   const pick = (option: string) => {
     setPicked(option);
-    setTally((t) => ({ asked: t.asked + 1, right: t.right + (option === q.answer ? 1 : 0) }));
+    setTally((t) => ({ asked: t.asked + 1, right: t.right + (option === rightChoice(q) ? 1 : 0) }));
   };
   const next = () => { setPicked(null); setIndex((i) => (i + 1 + Math.floor(Math.random() * (pool.length - 1))) % pool.length); };
-  const state = (option: string) => !picked ? "" : option === q.answer ? "is-right" : option === picked ? "is-wrong" : "is-dim";
+  const state = (option: string) => !picked ? "" : option === rightChoice(q) ? "is-right" : option === picked ? "is-wrong" : "is-dim";
   return <aside className="qp-try" aria-labelledby="qp-try-title">
     <span className="qp-try-mark" aria-hidden>?</span>
     <div className="qp-try-head"><span id="qp-try-title">Try one</span><span>{tally.asked ? `${tally.right} of ${tally.asked} right` : q.collection}</span></div>
     <p className={`qp-try-question ${questionSize(q.question)}`}>{q.question}</p>
     <ol className={`qp-try-options ${optionSize(q.options)}`}>{q.options.map((option, i) => <li key={option}>
       <button type="button" className={state(option)} disabled={Boolean(picked)} onClick={() => pick(option)}>
-        <span className="qp-letter">{LETTERS[i]}</span><span>{option}</span>{picked && option === q.answer && <Check size={16} aria-hidden />}
+        <span className="qp-letter">{LETTERS[i]}</span><span>{option}</span>{picked && option === rightChoice(q) && <Check size={16} aria-hidden />}
       </button>
     </li>)}{Array.from({ length: 4 - q.options.length }, (_, i) => <li key={`blank${i}`} className="qp-try-blank" aria-hidden />)}</ol>
     <div className="qp-try-foot">
-      <p aria-live="polite">{!picked ? "Choose an answer." : picked === q.answer ? <>Right. <ReadLink q={q} bookNames={bookNames} /></> : <>Not quite: it is <strong>{q.answer}</strong>. <ReadLink q={q} bookNames={bookNames} /></>}</p>
+      <p aria-live="polite">{!picked ? "Choose an answer." : picked === rightChoice(q) ? <>Right. <ReadLink q={q} bookNames={bookNames} /></> : <>Not quite: it is <strong>{q.answer}</strong>. <ReadLink q={q} bookNames={bookNames} /></>}</p>
       <button type="button" onClick={next}><Shuffle size={15} strokeWidth={1.6} aria-hidden />Another question</button>
     </div>
   </aside>;

@@ -49,7 +49,8 @@ judged pair turned out to be a repeat, by score: 86% from 0.90 up, 67% at 0.85â€
 for trivia), `collection`, `lesson`, `standalone`,
 `question_origin`, `licence`, `licence_class`, `attribution` (the credit owed), `source_url`, `also_in`, `repeat_of`
 (the id of the question shown in its place, or `null`), `passages` (each `book`, `chapter`, `verse`, `verse_end` and
-`check`), `people`, `places`, `subjects` (plain topics such as "the flood" or "kings of israel").
+`check`), `people`, `places`, `subjects` (plain topics such as "the flood" or "kings of israel"), `answer_choice` (the option that is
+right, or `null` without options), `options_by` (`source`, `claude-haiku`, `true/false`, or `null`).
 
 **Tags are rules, not reading.** `books`, `testament` and `topic` come from fixed word lists and the references in
 [question_tags.py](../../scripts/question_tags.py): a word in the question counts three times, one in the answer once,
@@ -63,6 +64,22 @@ dropped. A passage whose text, give or take two verses, holds a telling word of 
 otherwise it is `"exists"`, usually the right place worded differently ("covenant" for the promise to Abram). As of 22
 October 2026, all 3,717 shown questions are tagged: 3,049 have a passage (3,746 passages: 3,069 matched, 677 exists;
 39 named verses that do not exist were dropped), 2,356 name people and 1,107 places.
+
+## Multiple choice for written answers
+
+Every shown question with a written answer, unless it leans on the question before it, has four choices (owner, 22
+October 2026). [question_choices.py](../../scripts/question_choices.py) keeps them in [choices.json](choices.json),
+never in the sources. A true-or-false answer gets "True" and "False" by rule (27). For the rest (2,050), Claude Haiku
+wrote three wrong choices. The right choice is the printed answer when it is 12 words or fewer. A longer answer, mostly
+catechism, is shown as Haiku's short version, and the page shows the full printed answer once the right choice is
+revealed. Every set is checked: three distinct wrong choices, none matching the right one, and no "all of the above".
+
+A right choice that is plainly the longest gives itself away. After the first run it was over 15% longer than every
+wrong choice in 304 of the 610 catechism questions (50%). Those were asked again with the right choice fixed. Now it is 21% for
+catechism, 27% for Bible quiz and 15% for lesson questions, against 21% in the sources' own multiple choice.
+
+The site shows 3,308 of its 3,717 questions as multiple choice. The 409 that lean on the question before them keep
+their written answers.
 
 ## Rebuilding
 

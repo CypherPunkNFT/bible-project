@@ -3,7 +3,7 @@
 import { Eye, EyeOff, Search, X } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import PillScroll from "@/components/apologetics/PillScroll";
-import type { BankQuestion, QuestionBank } from "@/lib/data";
+import { rightChoice, type BankQuestion, type QuestionBank } from "@/lib/data";
 import { isFiltered, kindTone, LETTERS, searchTerms, type Filters } from "./model";
 import { Highlight, ReadLink } from "./shared";
 
@@ -70,21 +70,23 @@ function QuestionRow({ n, q, terms, testMode, bookNames, meta }: RowProps) {
   const [whole, setWhole] = useState(false);
   const hidden = testMode && !revealed;
   const folded = !whole && q.answer.length > LONG_ANSWER;
+  // A long answer's choice is a short version of it; the whole printed answer follows once the right one shows.
+  const settled = !testMode || Boolean(picked);
+  const fullAnswer = <div className="qp-q-answer"><p className={folded ? "is-folded" : undefined}><Highlight text={q.answer} terms={terms} /></p>
+    {folded && <button type="button" onClick={() => setWhole(true)}>Read the whole answer</button>}</div>;
   return <li className="qp-q" style={{ "--tone": kindTone(q.kind) } as CSSProperties}>
     <span className="qp-q-n">{n}</span>
     <div className="qp-q-body">
       {q.lesson && <p className="qp-q-lesson">{q.lesson}</p>}
       <p className="qp-q-text"><Highlight text={q.question} terms={terms} /></p>
-      {q.options ? <ol className="qp-q-options">{q.options.map((option, i) => {
-        const settled = !testMode || picked;
-        const state = settled && option === q.answer ? "is-answer" : picked === option ? "is-wrong" : "";
+      {q.options ? <><ol className="qp-q-options">{q.options.map((option, i) => {
+        const state = settled && option === rightChoice(q) ? "is-answer" : picked === option ? "is-wrong" : "";
         return <li key={option}><button type="button" className={state} disabled={!testMode || Boolean(picked)} onClick={() => setPicked(option)}>
           <span className="qp-letter">{LETTERS[i]}</span><Highlight text={option} terms={terms} />
         </button></li>;
-      })}</ol>
+      })}</ol>{settled && rightChoice(q) !== q.answer && fullAnswer}</>
         : hidden ? <button type="button" className="qp-reveal" onClick={() => setRevealed(true)}><Eye size={15} strokeWidth={1.6} aria-hidden />Show the answer</button>
-        : <div className="qp-q-answer"><p className={folded ? "is-folded" : undefined}><Highlight text={q.answer} terms={terms} /></p>
-          {folded && <button type="button" onClick={() => setWhole(true)}>Read the whole answer</button>}</div>}
+        : fullAnswer}
       <p className="qp-q-meta">{meta.filter(Boolean).map((m) => <span key={m}>{m}</span>)}<ReadLink q={q} bookNames={bookNames} /></p>
     </div>
   </li>;

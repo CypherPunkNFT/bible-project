@@ -3,7 +3,7 @@
 import { ArrowRight, ArrowUpRight, Check, Eye, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
-import { loadChapterPlain } from "@/lib/data";
+import { loadChapterPlain, rightChoice } from "@/lib/data";
 import { plainLookup } from "@/lib/refs";
 import { useAsync } from "@/lib/useAsync";
 import { LETTERS } from "../model";
@@ -21,7 +21,7 @@ export function Choices({ run }: { run: Run }) {
   if (!item.choices) return null;
   return <ol className={`tp-choices ${item.format === "truefalse" ? "is-pair" : ""}`}>
     {item.choices.map((option, i) => {
-      const state = choiceState(option, item.q.answer, answered);
+      const state = choiceState(option, rightChoice(item.q), answered);
       return <li key={option}><button type="button" className={state} disabled={Boolean(answered)} onClick={() => run.choose(option)}>
         <span className="tp-letter">{item.format === "truefalse" ? option[0] : LETTERS[i]}</span>
         <span className="tp-choice-text">{option}</span>

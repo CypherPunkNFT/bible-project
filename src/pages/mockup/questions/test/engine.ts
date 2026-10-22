@@ -1,7 +1,7 @@
 // The test page's engine, shared by all four looks: which questions a test can draw from, how each one is answered
 // (choose an option, true or false, or think of the answer and mark yourself), and the run of one test.
 import { useState } from "react";
-import type { BankQuestion } from "@/lib/data";
+import { rightChoice, type BankQuestion } from "@/lib/data";
 
 /** A tagged passage (scripts/question_model_tags.py); "matched" means the answer's words are within two verses. */
 export interface TaggedPassage { book: string; chapter: number; verse: number | null; verse_end: number | null; check: string }
@@ -68,7 +68,7 @@ export function useRun(items: Item[], onFinish: (results: Result[]) => void): Ru
   };
   return {
     items, index, item, results, answered, revealed,
-    choose: (option) => record({ right: option === item.q.answer, given: option }),
+    choose: (option) => record({ right: option === rightChoice(item.q), given: option }),
     reveal: () => setRevealed(true),
     mark: (right) => record({ right, given: null }),
     next: () => {

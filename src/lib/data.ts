@@ -169,7 +169,13 @@ export interface BankQuestion {
   /** The first reference, as the reader opens it. */
   link: { book: string; chapter: number; verse: number | null } | null;
   standalone: boolean;
+  /** The option that is right: the printed answer, or a short version of a long one (scripts/question_choices.py). */
+  answer_choice?: string | null;
+  /** Where the options come from: "source", "claude-haiku" or "true/false". */
+  options_by?: string | null;
 }
+/** The option to mark right; falls back to the printed answer for a copy of the bank built before answer_choice. */
+export const rightChoice = (q: BankQuestion) => q.answer_choice ?? q.answer;
 export interface BankCollection { title: string; kind: string; tradition: string | null; credit: string | null; source_url: string | null; count: number }
 export interface BankTopic { id: string; title: string; group: "story" | "teaching" }
 export interface BankBook { code: string; name: string; short: string; section: string; testament: "OT" | "NT" }
