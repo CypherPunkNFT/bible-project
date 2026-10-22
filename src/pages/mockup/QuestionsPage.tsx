@@ -30,7 +30,8 @@ export default function QuestionsPage() {
 
 function QuestionsBody({ bank }: { bank: QuestionBank }) {
   const [params, setParams] = useSearchParams();
-  const [testMode, setTestMode] = useState(false);
+  // Answers start hidden (owner, 2026-10-22); the eye beside the count shows them.
+  const [testMode, setTestMode] = useState(true);
   const filters = readFilters(params);
   const haystacks = useMemo(() => bank.questions.map(haystackOf), [bank]);
   const bookNames = useMemo(() => Object.fromEntries(bank.books.map((b) => [b.code, b.name])), [bank]);
@@ -49,7 +50,7 @@ function QuestionsBody({ bank }: { bank: QuestionBank }) {
     <TestBanner bank={bank} filters={filters} available={facets.rows.length} bookNames={bookNames} />
     <section className="qp-section qp-explore" id="qp-explore" aria-labelledby="qp-explore-title">
       <SectionHead n="02" id="qp-explore-title" title={<>Explore <em>the questions</em></>}
-        lead="Choose a kind, a topic or a Testament, or search for a word. Hide the answers with the eye beside the count to test yourself." />
+        lead="Choose a kind, a topic or a Testament, or search for a word. The answers are hidden so you can test yourself; the eye beside the count shows them." />
       <KindChips facets={facets} filters={filters} update={update} />
       <div className="qp-explore-grid">
         <FilterRail bank={bank} facets={facets} filters={filters} update={update} />
