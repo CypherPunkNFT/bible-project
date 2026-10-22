@@ -23,6 +23,11 @@ export function QuestionsHero({ bank, bookNames }: { bank: QuestionBank; bookNam
   </header>;
 }
 
+// The panel keeps one height for every question (owner 2026-10-22: no jumpy containers); the type size changes
+// instead. Longer questions and choices take a smaller step.
+const questionSize = (text: string) => (text.length <= 50 ? "is-xl" : text.length <= 85 ? "is-lg" : text.length <= 110 ? "is-md" : "is-sm");
+const optionSize = (options: string[]) => (Math.max(...options.map((o) => o.length)) <= 26 ? "" : "is-small");
+
 // Multiple-choice questions that read well on their own and fit the panel.
 const fits = (q: BankQuestion) => Boolean(q.options && q.options.length >= 3 && q.options.length <= 4 && q.standalone
   && q.question.length <= 130 && q.options.every((o) => o.length <= 42));
@@ -43,12 +48,12 @@ function TryOne({ questions, bookNames }: { questions: BankQuestion[]; bookNames
   return <aside className="qp-try" aria-labelledby="qp-try-title">
     <span className="qp-try-mark" aria-hidden>?</span>
     <div className="qp-try-head"><span id="qp-try-title">Try one</span><span>{tally.asked ? `${tally.right} of ${tally.asked} right` : q.collection}</span></div>
-    <p className="qp-try-question">{q.question}</p>
-    <ol className="qp-try-options">{q.options.map((option, i) => <li key={option}>
+    <p className={`qp-try-question ${questionSize(q.question)}`}>{q.question}</p>
+    <ol className={`qp-try-options ${optionSize(q.options)}`}>{q.options.map((option, i) => <li key={option}>
       <button type="button" className={state(option)} disabled={Boolean(picked)} onClick={() => pick(option)}>
         <span className="qp-letter">{LETTERS[i]}</span><span>{option}</span>{picked && option === q.answer && <Check size={16} aria-hidden />}
       </button>
-    </li>)}</ol>
+    </li>)}{Array.from({ length: 4 - q.options.length }, (_, i) => <li key={`blank${i}`} className="qp-try-blank" aria-hidden />)}</ol>
     <div className="qp-try-foot">
       <p aria-live="polite">{!picked ? "Choose an answer." : picked === q.answer ? <>Right. <ReadLink q={q} bookNames={bookNames} /></> : <>Not quite: it is <strong>{q.answer}</strong>. <ReadLink q={q} bookNames={bookNames} /></>}</p>
       <button type="button" onClick={next}><Shuffle size={15} strokeWidth={1.6} aria-hidden />Another question</button>
