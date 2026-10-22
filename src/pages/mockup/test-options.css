@@ -1,5 +1,5 @@
 /* MOCK-UP: the test page's whole-page options (questions/test/Option*.tsx), the pill that switches them once there is
-   more than one, and option A's parts: the short top, the theme shelves, the book and chapter charts, the ready bar
+   more than one, and option A's parts: the short top, the shelves of themed tests, the book and chapter charts, the ready bar
    and the gold rule over the dusk band.
    The question panel and the band are test-stage.css; the shared pieces test-page.css. */
 :root{--to-head:3.6rem}
@@ -23,28 +23,46 @@
 .ts-float span+span{border-left:1px solid var(--line)}
 .ts-float b{font:400 19px/1 var(--serif);letter-spacing:-.02em;text-transform:none;color:var(--ink)}
 
-/* 01: the themed tests on shelves */
-.th{display:flex;flex-direction:column;gap:40px}
-.th-shelf-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
-.th-shelf-head h3{font:italic 400 25px/1.1 var(--serif);letter-spacing:-.02em}
-.th-shelf-head p{font-size:13px;color:var(--muted)}
-.th-shelf-head span{margin-left:auto;font-size:10px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.th-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.th-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-height:134px;padding:15px 18px 18px 20px;border:1px solid color-mix(in srgb,var(--tone) 28%,var(--line));border-radius:10px;background:linear-gradient(155deg,color-mix(in srgb,var(--tone) 11%,var(--surface)),var(--surface) 72%);text-align:left;overflow:hidden;transition:transform .25s,border-color .2s,box-shadow .25s,background .25s}
-.th-card::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--tone)}
-.th-card:hover{transform:translateY(-3px);border-color:var(--tone);box-shadow:0 14px 30px -16px color-mix(in srgb,var(--tone) 70%,transparent)}
+/* 01: the four shelves as one hairline grid (the homepage's "How the library is organised"), and one shelf opened */
+.th-shelves{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.th-shelves li{border-bottom:1px solid var(--line)}
+.th-shelves li:not(:nth-child(4n+1)){border-left:1px solid var(--line)}
+.th-shelves button{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:9px;width:100%;height:100%;padding:26px clamp(16px,1.8vw,26px);text-align:left;transition:background .3s}
+.th-shelves button::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--tone);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.th-shelves button:hover{background:color-mix(in srgb,var(--tone) 5%,transparent)}
+.th-shelves button:hover::before{transform:scaleX(1)}
+.th-shelves button:focus{outline:none}
+.th-shelf-top{display:flex;justify-content:space-between;align-items:flex-start;width:100%;font-size:10px;font-weight:600;letter-spacing:.16em;color:color-mix(in srgb,var(--tone) 75%,var(--muted))}
+.th-shelf-icon{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;color:var(--tone);background:radial-gradient(circle,color-mix(in srgb,var(--tone) 12%,transparent),transparent 72%)}
+.th-shelves strong{margin-top:8px;font:500 24px/1.2 var(--serif);letter-spacing:-.015em}
+.th-shelf-line{flex:1;font-size:13px;line-height:1.6;color:var(--muted)}
+.th-shelf-meta{font-size:12px;color:var(--muted)}
+.th-shelf-chosen{display:inline-flex;align-items:center;gap:6px;padding:3px 10px 3px 8px;border-radius:999px;background:color-mix(in srgb,var(--tone) 12%,transparent);font-size:12px;color:color-mix(in srgb,var(--tone) 80%,var(--ink))}
+.th-shelf-open{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--tone)}
+.th-shelf-open svg{transition:transform .3s}
+.th-shelves button:hover .th-shelf-open svg{transform:translateX(4px)}
+.th-open{padding:20px clamp(16px,2vw,26px) 26px;border:1px solid color-mix(in srgb,var(--tone) 40%,var(--line));border-radius:14px;background:linear-gradient(170deg,color-mix(in srgb,var(--tone) 6%,var(--surface)),var(--surface) 60%)}
+.th-open-trail{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--muted)}
+.th-open-trail button{display:inline-flex;align-items:center;gap:6px;margin-left:-8px;padding:5px 8px;border-radius:6px;color:var(--tone)}
+.th-open-trail button:hover{background:color-mix(in srgb,var(--tone) 10%,transparent)}
+.th-open-trail button:focus{outline:none}
+.th-open-head{display:flex;align-items:center;gap:16px;margin:18px 0 22px;color:var(--tone)}
+.th-open-head h3{font:450 32px/1.1 var(--serif);letter-spacing:-.025em;color:var(--ink)}
+.th-open-head p{margin-top:4px;font-size:13px;color:var(--muted)}
+.th-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.th-card{position:relative;display:flex;align-items:flex-start;gap:10px;padding:14px 14px 16px 16px;border:1px solid var(--line);border-top:2px solid color-mix(in srgb,var(--tone) 55%,var(--line));border-radius:10px;background:linear-gradient(135deg,color-mix(in srgb,var(--tone) 7%,var(--surface)),var(--surface));text-align:left;overflow:hidden;transition:border-color .2s,background .2s}
+.th-card:hover{border-color:var(--tone);background:color-mix(in srgb,var(--tone) 10%,var(--surface))}
 .th-card:focus{outline:none}
-.th-card-top{display:flex;justify-content:space-between;gap:8px;width:100%;font-size:10px;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in srgb,var(--tone) 75%,var(--ink))}
-.th-new{font-weight:500;color:var(--muted)}
+.th-card-text{display:flex;flex-direction:column;gap:4px;min-width:0}
+.th-title{font:500 17px/1.25 var(--serif);letter-spacing:-.01em}
+.th-line{font-size:12px;line-height:1.45;color:var(--muted)}
+.th-card-meta{margin-top:4px;font-size:11.5px;color:var(--muted)}
+.th-new{color:var(--muted)}
 .th-best{color:var(--right)}
-.th-title{margin-top:auto;font:450 22px/1.2 var(--serif);letter-spacing:-.02em}
-.th-line{font-size:12.5px;line-height:1.5;color:var(--muted)}
-.th-meter{position:absolute;inset:auto 0 0;height:3px;background:color-mix(in srgb,var(--tone) 14%,transparent)}
+.th-card-mark{flex-shrink:0;margin-left:auto;color:var(--tone)}
+.th-meter{position:absolute;inset:auto 0 0;height:2px;background:transparent}
 .th-meter span{display:block;width:var(--best);height:100%;background:var(--tone);transition:width .6s ease}
-.th-card.is-on{background:var(--tone);border-color:var(--tone);color:var(--page)}
-.th-card.is-on::before{background:var(--page);opacity:.5}
-.th-card.is-on .th-card-top,.th-card.is-on .th-line,.th-card.is-on .th-new,.th-card.is-on .th-best{color:inherit;opacity:.85}
-.th-card.is-on .th-meter span{background:var(--page)}
+.th-card.is-on{border-color:var(--tone);background:color-mix(in srgb,var(--tone) 13%,var(--surface));box-shadow:inset 0 0 0 1px var(--tone)}
 
 /* 01: the books as one wide bar chart, the Testaments side by side, their sections named underneath */
 .bb{margin-bottom:6px}
@@ -98,7 +116,8 @@
 .oc-band .qp-section-head h2{color:var(--ink)}
 
 @media(max-width:900px){
-  .th-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .th-cards,.th-shelves{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .th-shelves li:not(:nth-child(4n+1)){border-left:0}.th-shelves li:nth-child(even){border-left:1px solid var(--line)}
   .ts-ready{grid-template-columns:1fr 150px}.ts-kinds{grid-column:1/-1;grid-row:2}.ts-ready-go{grid-column:1/-1;justify-content:flex-end}
   .bb-testaments{flex-direction:column;gap:26px}
   .bb-column{height:130px}
@@ -110,7 +129,10 @@
   .bb-name{font-size:8px;letter-spacing:0}
   .bb-chapter-bars{gap:1px}
   .bb-chapters{padding:16px 12px 12px}
-  .th-cards{grid-template-columns:1fr}.th-card{min-height:118px}
+  .th-cards,.th-shelves{grid-template-columns:1fr}.th-shelves li:nth-child(even){border-left:0}
+  .th-open-head h3{font-size:26px}
+  .th-shelves button{gap:6px;padding:18px 4px 20px}.th-shelf-icon{width:44px;height:44px}.th-shelves strong{margin-top:0;font-size:21px}
+  .th-open{padding:16px 14px 18px}
   .ts-float{display:grid;grid-template-columns:1fr 1fr;row-gap:8px;border-radius:16px;padding:12px 4px}
   .ts-float span{padding:2px 14px}.ts-float span:nth-child(3){border-left:0}
   .ts-ready{grid-template-columns:1fr;padding:18px 16px}.ts-kinds{grid-row:auto;height:auto;grid-auto-flow:row;grid-template-columns:1fr 1fr}.ts-kinds button{height:40px}
