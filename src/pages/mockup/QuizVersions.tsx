@@ -1,7 +1,8 @@
 // MOCK-UP (quiz_mockup): four versions of the homepage's question section, each a working quiz over the same twelve
 // questions and drawings (quiz-data.ts, QuizScenes.tsx). 1 Spotlight: one question centred, drawing above. 2 The card:
 // a card on a deck; answering turns its picture over to the verse. 3 The dark stage: a dark band, story-style steps.
-// 4 The twelve: every question on a board, open any. Shared parts: QuizParts.tsx; styles: quiz-versions.css.
+// 4 The twelve: every question on a board, open any. The board (Tiles) and the card (CardDeck) also make the homepage's
+// quiz (HomeQuiz.tsx). Shared parts: QuizParts.tsx; styles: quiz-versions.css.
 import { ArrowLeft, ArrowRight, LayoutGrid } from "lucide-react";
 import { useState, type CSSProperties } from "react";
 import { QUESTIONS } from "./quiz-data";
@@ -34,15 +35,25 @@ export function QuizSpotlight() {
 
 export function QuizCard() {
   const quiz = useQuiz();
+  return <section className="qv qv-cardset home-wrap" aria-label="Version 2, The card">
+    <header className="qv-cardset-head"><div><p className="home-eyebrow">A little test</p><Title /></div><Tally quiz={quiz} /></header>
+    <CardDeck quiz={quiz} />
+  </section>;
+}
+
+/** One question as a card on a deck that thins as the questions are answered; answering turns its picture over to the
+ *  verse. The twelve steps run along its top. `onBoard` adds a way back to the board of tiles. */
+export function CardDeck({ quiz, onBoard }: { quiz: Quiz; onBoard?: () => void }) {
   const { question } = quiz;
   const turned = Boolean(question && quiz.choice !== null);
   const under = Math.min(2, TOTAL - quiz.answered - (turned ? 0 : 1));
-  return <section className="qv qv-cardset home-wrap" aria-label="Version 2, The card">
-    <header className="qv-cardset-head"><div><p className="home-eyebrow">A little test</p><Title /></div><Tally quiz={quiz} /></header>
-    <div className="qv-deck" style={{ "--under": Math.max(0, under) } as CSSProperties}>
+  return <div className="qv-deck" style={{ "--under": Math.max(0, under) } as CSSProperties}>
       <span className="qv-deck-sheet" aria-hidden="true" /><span className="qv-deck-sheet" aria-hidden="true" />
       <article className="qv-card">
-        <div className="qv-card-top"><Steps quiz={quiz} /><span>{question ? `${pad(quiz.current + 1)} / ${TOTAL}` : "All done"}</span></div>
+        <div className="qv-card-top">
+          {onBoard && <button type="button" className="qv-card-back" onClick={onBoard}><LayoutGrid size={14} aria-hidden />All twelve</button>}
+          <Steps quiz={quiz} /><span>{question ? `${pad(quiz.current + 1)} / ${TOTAL}` : "All done"}</span>
+        </div>
         <div className="qv-card-body" key={quiz.current}>
           <div className="qv-flip" data-turned={turned || undefined}>
             <div className="qv-flip-face qv-flip-front"><span className="qv-card-num" aria-hidden="true">{question ? pad(quiz.current + 1) : quiz.right}</span><QuizScene scene={question?.scene ?? "verdict"} /></div>
@@ -51,8 +62,7 @@ export function QuizCard() {
           <div className="qv-card-main">{question ? <><Meta quiz={quiz} /><h3>{question.ask}</h3><Options quiz={quiz} /><Reveal quiz={quiz} verse={false} /></> : <Verdict quiz={quiz} />}</div>
         </div>
       </article>
-    </div>
-  </section>;
+    </div>;
 }
 
 export function QuizStage() {
@@ -72,6 +82,17 @@ export function QuizStage() {
   </section>;
 }
 
+/** The twelve questions as tiles, each with its drawing: gold once answered right, red once missed. */
+export function Tiles({ quiz, onOpen }: { quiz: Quiz; onOpen: (i: number) => void }) {
+  return <ol className="qv-tiles">{QUESTIONS.map((item, i) => <li key={item.ask}>
+    <button type="button" className="qv-tile" data-state={quiz.stateOf(i)} onClick={() => onOpen(i)}>
+      <span className="qv-tile-top"><span>{pad(i + 1)}</span><span>{quiz.stateOf(i) ? (quiz.stateOf(i) === "right" ? "Right" : "Missed") : item.part}</span></span>
+      <span className="qv-tile-art"><QuizScene scene={item.scene} /></span>
+      <span className="qv-tile-ask">{item.ask}</span>
+    </button>
+  </li>)}</ol>;
+}
+
 export function QuizBoard() {
   const quiz = useQuiz();
   const [board, setBoard] = useState(true);
@@ -84,13 +105,7 @@ export function QuizBoard() {
       <Tally quiz={quiz} />
     </header>
     <div className="qv-board">
-      {board ? <ol className="qv-tiles">{QUESTIONS.map((item, i) => <li key={item.ask}>
-        <button type="button" className="qv-tile" data-state={quiz.stateOf(i)} onClick={() => openQuestion(i)}>
-          <span className="qv-tile-top"><span>{pad(i + 1)}</span><span>{quiz.stateOf(i) ? (quiz.stateOf(i) === "right" ? "Right" : "Missed") : item.part}</span></span>
-          <span className="qv-tile-art"><QuizScene scene={item.scene} /></span>
-          <span className="qv-tile-ask">{item.ask}</span>
-        </button>
-      </li>)}</ol> : <div className="qv-board-open" key={current}>
+      {board ? <Tiles quiz={quiz} onOpen={openQuestion} /> : <div className="qv-board-open" key={current}>
         <div className="qv-board-bar">
           <button type="button" onClick={() => setBoard(true)}><LayoutGrid size={14} aria-hidden />All twelve</button>
           {current !== VERDICT && <span className="qv-board-nav">

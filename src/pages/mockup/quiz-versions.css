@@ -162,6 +162,18 @@
 .qv-boardset .qv-options button:not(:disabled):hover { color: var(--accent); border-color: var(--accent); }
 .qv-boardset .qv-reveal { min-height: 220px; }
 
+/* The homepage's quiz (HomeQuiz.tsx): the board of tiles, then the card, and the way on to the test page beneath. */
+.qv-home .qv-deck { margin-top: 0; }
+.qv-card-back { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; margin-right: auto; padding-right: 20px; white-space: nowrap; font: 600 10.5px var(--font-sans); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.qv-card-top:has(.qv-card-back) .qv-steps { margin-right: auto; }
+.qv-more { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px 48px; margin-top: 36px; padding: 30px clamp(22px, 3vw, 40px);
+  border: 1px solid var(--line); border-radius: 22px; background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+.qv-more > div:first-child { max-width: 640px; }
+.qv-more h3 { min-height: 0; margin: 12px 0 0; font-size: clamp(26px, 2.4vw, 34px); }
+.qv-more p:not(.home-eyebrow) { margin: 10px 0 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.qv-more-links { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
+.qv-more-links a:not(.qv-next) { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-size: 13.5px; font-weight: 600; }
+
 @keyframes qv-in { from { opacity: 0; transform: translateY(10px); } }
 
 @media (max-width: 1100px) {
@@ -197,6 +209,10 @@
   .qv-deck-sheet, .qv-card { border-radius: 22px; }
   .qv-card-top .qv-steps { gap: 5px; }
   .qv-card-top .qv-steps button { width: 13px; }
+  .qv-card-top:has(.qv-card-back) { flex-wrap: wrap; row-gap: 4px; }
+  .qv-card-top:has(.qv-card-back) .qv-steps { order: 3; flex-basis: 100%; justify-content: space-between; }
+  .qv-card-top:has(.qv-card-back) .qv-steps li { flex: 1; }
+  .qv-card-top:has(.qv-card-back) .qv-steps button { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .qv-spot-stage, .qv-card-main, .qv-dark-grid, .qv-board-open, .qv-reveal[data-shown] { animation: none; }
