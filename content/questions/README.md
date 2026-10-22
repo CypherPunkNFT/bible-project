@@ -61,8 +61,8 @@ shown question ([question_model_tags.py](../../scripts/question_model_tags.py), 
 A script then checks every passage it names against the BSB text: a book, chapter or verse that does not exist is
 dropped. A passage whose text, give or take two verses, holds a telling word of the answer has `check: "matched"`;
 otherwise it is `"exists"`, usually the right place worded differently ("covenant" for the promise to Abram). As of 22
-October 2026, 1,500 of the 3,717 shown questions are tagged: 1,347 have a passage (1,195 matched, 187 exists, 2
-dropped). The rest wait on the owner's yes, since the run cost more than quoted.
+October 2026, all 3,717 shown questions are tagged: 3,049 have a passage (3,746 passages: 3,069 matched, 677 exists;
+39 named verses that do not exist were dropped), 2,356 name people and 1,107 places.
 
 ## Rebuilding
 
