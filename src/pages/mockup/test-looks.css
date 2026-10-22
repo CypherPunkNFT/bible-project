@@ -1,0 +1,134 @@
+/* MOCK-UP: the four looks of a question on the test page (questions/test/Looks.tsx). The shared pieces are styled in
+   test-page.css; this file only arranges them per look. */
+
+/* 1. The exam paper */
+.tp-paper{max-width:860px;margin:0 auto}
+.tp-paper-head{display:flex;justify-content:space-between;gap:20px;font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.tp-paper-head>span:first-child{flex:none;font-size:10px;font-weight:650;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.tp-paper-head strong{font:italic 400 15px var(--serif);letter-spacing:0}
+.tp-paper-rule{height:1px;margin-top:12px;background:var(--line)}
+.tp-paper-rule>span{display:block;height:100%;background:var(--ink);transition:width .5s ease}
+.tp-paper-sheet{position:relative;padding:52px 0 8px;animation:tp-rise .35s ease-out}
+/* The margin rule of a ruled exam sheet, faint red */
+.tp-paper-sheet::before{content:"";position:absolute;left:-28px;top:30px;bottom:0;width:1px;background:color-mix(in srgb,var(--wrong) 28%,transparent)}
+.tp-paper-n{position:absolute;right:0;top:-6px;font:italic 400 230px/1 var(--serif);letter-spacing:-.06em;color:var(--accent);opacity:.09;pointer-events:none;user-select:none}
+.tp-paper .tp-prompt{position:relative;max-width:720px;margin-bottom:30px}
+.tp-paper .tp-choices{border-bottom:1px solid var(--line)}
+.tp-paper .tp-choices li{border-top:1px solid var(--line)}
+.tp-paper .tp-choices button{min-height:60px;padding:8px 4px;font:400 19px/1.35 var(--serif)}
+.tp-paper .tp-choices.is-pair{display:grid;grid-template-columns:1fr 1fr}
+.tp-paper .tp-choices.is-pair li+li{border-left:1px solid var(--line);padding-left:20px}
+.tp-paper .tp-choices button:not(:disabled):hover{padding-left:12px;color:var(--accent)}
+.tp-paper .tp-tick{width:34px;height:34px;stroke-width:2.2}
+.tp-paper .tp-open{padding:6px 0 10px}
+.tp-paper .tp-after{margin-top:22px}
+.tp-paper-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:16px;padding-top:18px;border-top:1px solid var(--ink)}
+
+/* 2. The card deck */
+.tp-deck{max-width:660px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:20px}
+.tp-deck-table{position:relative;width:100%;height:540px;margin-bottom:30px}
+.tp-deck-pile>span{position:absolute;inset:0;border-radius:20px;border:1px solid color-mix(in srgb,var(--accent) 22%,var(--line));background:var(--surface);transform:translate(calc(var(--i) * 4px),calc(var(--i) * 5px)) rotate(calc(var(--i) * -.45deg));z-index:calc(10 - var(--i));transition:transform .4s}
+.tp-card{position:absolute;inset:0;z-index:20;perspective:1800px;animation:tp-deal .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes tp-deal{from{opacity:0;transform:translate(10px,14px) rotate(1.5deg)}}
+.tp-card-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.3,.7,.2,1)}
+.tp-card.is-turned .tp-card-inner{transform:rotateY(180deg)}
+.tp-card-face{position:absolute;inset:0;display:flex;flex-direction:column;gap:18px;padding:30px 34px 28px;overflow-y:auto;scrollbar-width:none;border-radius:20px;border:1px solid color-mix(in srgb,var(--accent) 30%,var(--line));background:linear-gradient(165deg,color-mix(in srgb,var(--accent) 7%,var(--surface)),var(--surface) 60%);box-shadow:0 30px 50px -34px rgba(40,26,8,.5);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.tp-card-face[aria-hidden="true"]{pointer-events:none}
+.tp-card-back{transform:rotateY(180deg)}
+.tp-card-q{padding-bottom:14px;border-bottom:1px solid var(--line);font:450 15px/1.45 var(--serif);color:var(--muted)}
+.tp-card-head{display:flex;justify-content:space-between;gap:16px;font-size:11px;color:var(--muted)}
+.tp-card-head>span:first-child{flex:none;font-size:10px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.tp-deck .tp-prompt{margin:8px 0 auto}
+.tp-deck .tp-prompt.is-xl{font-size:32px}
+.tp-deck .tp-choices li+li{border-top:1px solid var(--line)}
+.tp-deck .tp-choices button{height:52px;padding:0 2px;font-size:15px}
+.tp-deck .tp-choices.is-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tp-deck .tp-choices.is-pair li+li{border-top:0}
+.tp-deck .tp-choices.is-pair button{justify-content:center;height:64px;border:1px solid var(--line);border-radius:12px;font:450 20px var(--serif)}
+.tp-deck .tp-choices.is-pair .tp-letter{display:none}
+.tp-deck .tp-choices button:not(:disabled):hover{color:var(--accent);padding-left:8px}
+.tp-stamp{align-self:flex-start;padding:6px 14px;border:2px solid currentColor;border-radius:6px;transform:rotate(-5deg);font:italic 500 22px/1 var(--serif);letter-spacing:.02em}
+.tp-stamp.is-right{color:var(--right)}.tp-stamp.is-wrong{color:var(--wrong)}
+.tp-card-label{font-size:10px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:-10px}
+.tp-card-answer{font:450 32px/1.25 var(--serif);letter-spacing:-.02em}
+.tp-card-back .tp-verse{margin:0}
+.tp-card-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.tp-card-foot .tp-next{margin-left:auto}
+.tp-deck-tally{display:flex;gap:22px;font-size:12.5px;color:var(--muted)}
+.tp-deck-tally .is-right{color:var(--right);font-weight:600}.tp-deck-tally .is-wrong{color:var(--wrong);font-weight:600}
+
+/* 3. The dark stage: its own dark palette, whatever the site's theme */
+.tp--stage .tp-area{--page:#0c0b09;--ink:#f1e8d4;--muted:#a49b88;--line:rgba(217,177,92,.2);--surface:rgba(255,255,255,.035);--surface-2:rgba(255,255,255,.07);--accent:#d9b15c;--right:#7fd3b2;--wrong:#f08d9b;color-scheme:dark;color:var(--ink);overflow:hidden;min-height:760px;
+  background:radial-gradient(ellipse 60% 70% at 12% 38%,rgba(214,168,72,.17),transparent 70%),radial-gradient(ellipse 65% 80% at 92% 62%,rgba(36,62,132,.34),transparent 70%),linear-gradient(90deg,#100e0a,#0a0d17)}
+.tp--stage .tp-area-inner{padding-block:56px 60px}
+.tp--stage .tp-select{background:#16130e}
+.tp--stage .qp-kind{background:rgba(255,255,255,.03)}
+.tp-dust{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.tp-stage{max-width:940px;margin:0 auto;text-align:center}
+.tp-stage-q{position:relative;padding:64px 0 10px;animation:tp-rise .45s ease-out}
+.tp-stage-n{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font:italic 400 400px/1 var(--serif);letter-spacing:-.06em;color:var(--accent);opacity:.06;pointer-events:none;user-select:none}
+.tp-stage-meta{position:relative;margin-bottom:22px;font-size:10px;font-weight:650;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.tp-stage-meta .tp-meta{font-weight:400;letter-spacing:.06em;text-transform:none;color:var(--muted)}
+.tp-stage .tp-prompt{position:relative;max-width:780px;margin:0 auto 40px;color:#f4e5c2}
+.tp-stage .tp-prompt.is-xl{font-size:42px}
+.tp-stage .tp-lesson{position:relative}
+.tp-stage .tp-choices{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:820px;margin:0 auto}
+.tp-stage .tp-choices button{min-height:66px;padding:12px 18px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025);font-size:15.5px}
+.tp-stage .tp-choices button:not(:disabled):hover{border-color:var(--accent);background:rgba(217,177,92,.07)}
+.tp-stage .tp-choices .is-right{border-color:var(--right);background:rgba(127,211,178,.08)}
+.tp-stage .tp-choices .is-wrong{border-color:var(--wrong)}
+.tp-stage .tp-open{position:relative;max-width:720px;margin:0 auto;text-align:left}
+.tp-stage .tp-open.is-waiting{justify-content:center;text-align:center}
+.tp-stage .tp-after{position:relative;max-width:720px;margin:28px auto 0}
+.tp-stage-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;max-width:820px;margin:26px auto 0;padding-top:18px;border-top:1px solid var(--line)}
+.tp-stage .tp-marks{max-width:820px;margin:0 auto}
+.tp-stage .tp-marks li{height:3px}
+.tp-stage .tp-next{background:var(--accent);color:#14110b!important}
+.tp-stage .tp-next:not(:disabled):hover{background:#f0d08a}
+
+/* 4. Try one, grown up: fixed heights throughout, the words resize, the panel never does */
+.tp-panel-layout{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:64px;align-items:center;max-width:1120px;margin:0 auto}
+.tp-panel{position:relative;padding-top:24px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);animation:tp-rise .35s ease-out}
+.tp-panel-mark{position:absolute;right:-4px;top:-40px;font:italic 400 280px/1 var(--serif);color:var(--accent);opacity:.08;pointer-events:none;user-select:none}
+.tp-panel-head{display:flex;justify-content:space-between;gap:16px;font-size:10px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.tp-panel-head .tp-meta{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:none;color:var(--muted)}
+.tp-panel-body{display:flex;flex-direction:column;height:440px}
+.tp-panel .tp-lesson{margin:14px 0 -8px}
+.tp-panel .tp-prompt{position:relative;display:flex;align-items:center;flex:none;height:150px;margin:8px 0 10px;overflow:hidden}
+.tp-panel .tp-choices li+li{border-top:1px solid var(--line)}
+.tp-panel .tp-choices li{height:62px}
+.tp-panel .tp-choices button{height:100%;padding:0 4px;font-size:16.5px;line-height:1.3}
+.tp-panel .tp-choices button:not(:disabled):hover{padding-left:12px;color:var(--accent)}
+.tp-panel .tp-choices.is-pair{display:grid;grid-template-columns:1fr 1fr}
+.tp-panel .tp-choices.is-pair li+li{border-top:0;border-left:1px solid var(--line);padding-left:18px}
+.tp-panel .tp-open{flex:1;min-height:0;display:flex;flex-direction:column}
+.tp-panel .tp-open.is-waiting{flex-direction:row;align-items:flex-start}
+.tp-panel .tp-open-answer{max-height:none;flex:1;min-height:0}
+.tp-panel-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;height:132px;border-top:1px solid var(--line)}
+.tp-panel .tp-after{flex:1;min-width:0;min-height:0}
+.tp-panel .tp-verse blockquote{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:14.5px}
+.tp-panel .tp-verdict.is-waiting{font-style:italic}
+.tp-panel-side{display:flex;flex-direction:column;align-items:center;gap:24px}
+.tp-panel-side .tp-ring{max-width:250px}
+.tp-panel-stats{display:flex;width:100%;border-top:1px solid var(--line)}
+.tp-panel-stats>div{flex:1;display:flex;flex-direction:column-reverse;gap:4px;padding:14px 0 0 16px;border-left:1px solid var(--line)}
+.tp-panel-stats>div:first-child{border-left:0;padding-left:0}
+.tp-panel-stats dd{font:450 28px/1 var(--serif);letter-spacing:-.03em}
+.tp-panel-stats dt{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tp-panel-stats .is-right{color:var(--right)}.tp-panel-stats .is-wrong{color:var(--wrong)}
+
+@media(max-width:900px){
+  .tp-panel-layout{grid-template-columns:1fr;gap:34px}
+  .tp-panel-side{flex-direction:row;flex-wrap:wrap;justify-content:center}.tp-panel-side .tp-ring{max-width:170px}
+  .tp-stage .tp-choices{grid-template-columns:1fr}
+  .tp-stage-n{font-size:260px}
+}
+@media(max-width:600px){
+  .tp-paper-sheet::before{display:none}.tp-paper-n{font-size:150px}
+  .tp-paper .tp-choices button{font-size:17px}
+  .tp-deck-table{height:600px}.tp-card-face{padding:24px 20px}.tp-card-answer{font-size:26px}
+  .tp-stage .tp-prompt.is-xl{font-size:32px}.tp-stage-q{padding-top:40px}
+  .tp-panel-body{height:470px}.tp-panel .tp-prompt{height:160px}.tp-panel .tp-choices li{height:60px}.tp-panel .tp-choices button{font-size:15px}
+  .tp-panel-foot{height:150px;flex-direction:column;align-items:stretch;justify-content:center;gap:10px}
+  .tp-paper-foot,.tp-stage-foot{justify-content:flex-end}
+}
