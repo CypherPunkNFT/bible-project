@@ -205,7 +205,7 @@ def site_copy(questions: list[dict]) -> dict:
     """The page's copy: the questions without the licence wording, which the collection list carries once, and
     without repeats, which the site never shows (scripts/question_repeats.py)."""
     keep = ("question", "answer", "options", "reference", "kind", "tradition", "collection", "lesson", "books",
-            "testament", "topic", "link", "standalone", "passages", "people", "places", "subjects", "answer_choice", "options_by")
+            "testament", "topic", "link", "standalone", "passages", "people", "places", "subjects", "answer_choice", "options_by", "lead_in")
     shown = [q for q in questions if not q["repeat_of"]]
     return {"schema": SCHEMA, "kinds": KINDS, "topics": topics_meta(), "books": books_meta(),
             "collections": collections_of(shown), "questions": [{k: q[k] for k in keep} for q in shown]}

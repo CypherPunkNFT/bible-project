@@ -1,14 +1,18 @@
 """Answer choices for the Question Bank's written-answer questions, so every question the site shows can be asked as
 multiple choice (owner, 2026-10-22).
 
-Which questions: shown (not a repeat), without choices of their own, and standalone; one that leans on the question
-before it ("What were their names?") is left as it is. Each gets four choices:
+Which questions: shown (not a repeat) and without choices of their own. Each gets four choices:
   - a true-or-false answer gets "True" and "False", by rule;
   - every other question gets three wrong choices from Claude Haiku, 40 questions to a call through BatchRunner. The
     right choice is the answer as printed when it is LONG_ANSWER_WORDS words or fewer; a longer answer (mostly
     catechism) is shown as Haiku's short, faithful version, and the full printed answer still follows it on the page.
 Every set is checked here before it is kept: three distinct wrong choices, none the same as the right one, and no "all
 of the above". Choices are kept in content/questions/choices.json by question id, never mixed into the sources.
+
+Two-part questions (owner: "I like two-part questions"). A question the builder marks as leaning on the one before it
+("What were their names?") is sent with up to EARLIER questions before it in its book. Haiku says whether it truly
+needs the earlier one: if so it keeps `lead_in` (the question just before, with its printed answer), which the page
+shows first; if not, it is marked as standing alone after all.
 
 A right choice that is plainly the longest gives itself away. After the first run it was the longest in 66% of the
 catechism questions (25% would be chance), so `rebalance` sends those again with their right choice fixed, asking only
@@ -38,6 +42,7 @@ WORK = WEBSITE / ".local" / "question-choices"
 KEEP_RIGHT = WORK / "keep-right.json"  # the right choice of each question being rebalanced
 
 QUESTIONS_PER_CALL = 40
+EARLIER = 2
 LONG_ANSWER_WORDS = 12
 SHORT_ANSWER_MAX_WORDS = 20
 SHORT_ANSWER_ACCEPT_WORDS = 25  # asked for 20; a few words over still reads as a choice
@@ -57,14 +62,18 @@ For every question in the input:
   the above", a joke, or a choice that is also right.
 - When the input gives a "Right choice", copy it exactly as "right", and give each wrong choice about as many words as
   it (within two words either way), so the right one is not the longest.
+- "needs_earlier": when the input lists earlier questions, true if the question cannot be understood without the one
+  just before it ("What were their names?", "Which is the Seventh?", "Who led them astray?"), false if it reads
+  clearly on its own. The choices must fit the earlier question too. Without earlier questions, always false.
 "q" is the question's number as written (q1, q2, ...). If the input holds no questions, return an empty list."""
 
 SCHEMA = {"type": "object", "properties": {"choices": {"type": "array", "items": {
     "type": "object", "properties": {
         "q": {"type": "string"},
         "right": {"type": "string"},
-        "wrong": {"type": "array", "items": {"type": "string"}}},
-    "required": ["q", "right", "wrong"], "additionalProperties": False}}},
+        "wrong": {"type": "array", "items": {"type": "string"}},
+        "needs_earlier": {"type": "boolean"}},
+    "required": ["q", "right", "wrong", "needs_earlier"], "additionalProperties": False}}},
     "required": ["choices"], "additionalProperties": False}
 
 
@@ -104,20 +113,33 @@ def add_choices(questions: list[dict]) -> int:
     added = 0
     for q in questions:
         if q["options"]:
-            q["answer_choice"], q["options_by"] = q["answer"], "source"
+            q["answer_choice"], q["options_by"] = q["answer"], q.get("options_by") or "source"
         elif q["id"] in recorded:
             record = recorded[q["id"]]
             q["options"], q["answer_choice"], q["options_by"] = record["options"], record["answer_choice"], record["by"]
+            if record.get("stands_alone"):
+                q["standalone"] = True
             added += 1
         else:
             q["answer_choice"], q["options_by"] = None, None
+        q["lead_in"] = recorded.get(q["id"], {}).get("lead_in")
     return added
 
 
 # --- prepare ---------------------------------------------------------------------------------------------------------
 
 def wanted(q: dict) -> bool:
-    return not q.get("repeat_of") and not q["options"] and q["standalone"]
+    return not q.get("repeat_of") and not q["options"]
+
+
+def earlier_of(q: dict, by_id: dict) -> list[dict]:
+    """Up to EARLIER questions just before this one in its book (ids end in their place: "...:pg29067:9"), oldest
+    first; none for a question that stands alone."""
+    if q["standalone"]:
+        return []
+    stem, _, place = q["id"].rpartition(":")
+    found = [by_id.get(f"{stem}:{int(place) - back}") for back in range(EARLIER, 0, -1)] if place.isdigit() else []
+    return [e for e in found if e]
 
 
 def true_false_choices(q: dict) -> dict:
@@ -159,6 +181,7 @@ def rebalance() -> None:
 
 
 def write_items(model: list[dict], tags: dict, keep: dict) -> None:
+    by_id = {q["id"]: q for q in json.loads(BANK.read_text(encoding="utf-8"))["questions"]}
     items = WORK / "items"
     items.mkdir(parents=True, exist_ok=True)
     for old in items.glob("*.txt"):
@@ -169,7 +192,13 @@ def write_items(model: list[dict], tags: dict, keep: dict) -> None:
         name = f"questions-{start // QUESTIONS_PER_CALL + 1:03d}"
         lines = []
         for n, q in enumerate(chunk, 1):
-            lines += [f"q{n} ({q['kind']})", f"  Question: {q['question']}", f"  Answer: {q['answer']}"]
+            lines.append(f"q{n} ({q['kind']})")
+            earlier = earlier_of(q, by_id)
+            if earlier and q.get("lesson"):
+                lines.append(f"  Lesson: {q['lesson']}")
+            for e in earlier:
+                lines.append(f"  Earlier question: {e['question']} Answer: {e['answer']}")
+            lines += [f"  Question: {q['question']}", f"  Answer: {q['answer']}"]
             if q["id"] in keep:
                 lines.append(f"  Right choice: {keep[q['id']]}")
             passages = tags.get(q["id"], {}).get("passages", [])
@@ -186,8 +215,8 @@ def write_items(model: list[dict], tags: dict, keep: dict) -> None:
 
 # --- apply -----------------------------------------------------------------------------------------------------------
 
-def checked(q: dict, reply: dict, kept_right: str | None) -> tuple[dict | None, str]:
-    """The four choices, or None and why they were refused."""
+def checked(q: dict, reply: dict, kept_right: str | None, by_id: dict) -> tuple[dict | None, str]:
+    """The four choices (with the lead-in of a two-part question), or None and why they were refused."""
     long_answer = word_count(q["answer"]) > LONG_ANSWER_WORDS
     right = kept_right or (reply["right"].strip() if long_answer else q["answer"].strip())
     wrong = [w.strip() for w in reply["wrong"]]
@@ -200,7 +229,13 @@ def checked(q: dict, reply: dict, kept_right: str | None) -> tuple[dict | None, 
         if norm(w) in seen or FILLER.search(w):
             return None, "a wrong choice repeats the right one, another choice, or is filler"
         seen.add(norm(w))
-    return {"options": shuffled(q["id"], [right, *wrong]), "answer_choice": right, "by": "claude-haiku"}, ""
+    record = {"options": shuffled(q["id"], [right, *wrong]), "answer_choice": right, "by": "claude-haiku"}
+    earlier = earlier_of(q, by_id)
+    if earlier and reply.get("needs_earlier"):
+        record["lead_in"] = {"question": earlier[-1]["question"], "answer": earlier[-1]["answer"]}
+    elif not q["standalone"]:
+        record["stands_alone"] = True
+    return record, ""
 
 
 def apply(out_dir: Path) -> None:
@@ -220,7 +255,7 @@ def apply(out_dir: Path) -> None:
             if f"q{n}" not in by_number or qid not in by_id:
                 missing.append(f"{name}:q{n}")
                 continue
-            record, why = checked(by_id[qid], by_number[f"q{n}"], keep.get(qid))
+            record, why = checked(by_id[qid], by_number[f"q{n}"], keep.get(qid), by_id)
             if record is None:
                 refused[why] = refused.get(why, 0) + 1
                 continue

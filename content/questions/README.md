@@ -78,8 +78,14 @@ A right choice that is plainly the longest gives itself away. After the first ru
 wrong choice in 304 of the 610 catechism questions (50%). Those were asked again with the right choice fixed. Now it is 21% for
 catechism, 27% for Bible quiz and 15% for lesson questions, against 21% in the sources' own multiple choice.
 
-The site shows 3,308 of its 3,717 questions as multiple choice. The 409 that lean on the question before them keep
-their written answers.
+**Two-part questions.** The 409 that lean on the question before them ("What was the name of this boy?") were sent
+with the two questions before them in their book. Haiku wrote choices that fit, and said whether the question needs
+its first part: 211 keep `lead_in` (the question just before, with its printed answer), which the page shows above
+the question as "First"; 195 read clearly on their own and are marked standalone. The catechism sets were rebalanced
+for length the same way (19% "clearly longest" across all catechism).
+
+Every question the site shows is now multiple choice. One model set held a second right answer (Malta beside Melita,
+the same island) and was corrected by hand; others like it may remain.
 
 ## Rebuilding
 

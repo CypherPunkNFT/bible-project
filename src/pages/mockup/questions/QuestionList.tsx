@@ -78,11 +78,13 @@ function QuestionRow({ n, q, terms, testMode, bookNames, meta }: RowProps) {
     <span className="qp-q-n">{n}</span>
     <div className="qp-q-body">
       {q.lesson && <p className="qp-q-lesson">{q.lesson}</p>}
+      {q.lead_in && <p className="qp-q-lead"><span>First</span><Highlight text={q.lead_in.question} terms={terms} /> <em>{q.lead_in.answer}</em></p>}
       <p className="qp-q-text"><Highlight text={q.question} terms={terms} /></p>
       {q.options ? <><ol className="qp-q-options">{q.options.map((option, i) => {
         const state = settled && option === rightChoice(q) ? "is-answer" : picked === option ? "is-wrong" : "";
         return <li key={option}><button type="button" className={state} disabled={!testMode || Boolean(picked)} onClick={() => setPicked(option)}>
-          <span className="qp-letter">{LETTERS[i]}</span><Highlight text={option} terms={terms} />
+          {/* One span: the button lays out its children with a gap, which split highlighted words ("An ything"). */}
+          <span className="qp-letter">{LETTERS[i]}</span><span><Highlight text={option} terms={terms} /></span>
         </button></li>;
       })}</ol>{settled && rightChoice(q) !== q.answer && fullAnswer}</>
         : hidden ? <button type="button" className="qp-reveal" onClick={() => setRevealed(true)}><Eye size={15} strokeWidth={1.6} aria-hidden />Show the answer</button>

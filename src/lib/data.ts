@@ -173,6 +173,8 @@ export interface BankQuestion {
   answer_choice?: string | null;
   /** Where the options come from: "source", "claude-haiku" or "true/false". */
   options_by?: string | null;
+  /** A two-part question's first part: the question just before it in its book, with its printed answer. */
+  lead_in?: { question: string; answer: string } | null;
 }
 /** The option to mark right; falls back to the printed answer for a copy of the bank built before answer_choice. */
 export const rightChoice = (q: BankQuestion) => q.answer_choice ?? q.answer;

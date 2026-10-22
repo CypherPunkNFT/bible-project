@@ -127,6 +127,9 @@
 .qp-q-n{padding-top:5px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;border-left:2px solid var(--tone);padding-left:10px;height:fit-content}
 .qp-q-lesson{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tone);margin-bottom:6px}
 .qp-q-text{font:450 18px/1.45 var(--serif);letter-spacing:-.01em}
+.qp-q-lead{margin-bottom:6px;font-size:13px;line-height:1.55;color:var(--muted);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.qp-q-lead>span{margin-right:8px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tone)}
+.qp-q-lead em{font-style:normal;color:var(--ink)}
 .qp-q-answer{margin-top:8px;padding-left:14px;border-left:1px solid var(--accent);font-size:14px;line-height:1.7;color:var(--ink)}
 .qp-q-answer .is-folded{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;overflow:hidden}
 .qp-q-answer>button{margin-top:4px;padding:2px 0;background:none;border:0;font-size:12px;font-weight:600;color:var(--accent)}
