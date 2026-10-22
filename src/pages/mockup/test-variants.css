@@ -1,0 +1,117 @@
+/* MOCK-UP: the four versions of the question section, one under another (questions/test/Variants.tsx). The band and
+   the first version are styled in test-stage.css; this file adds the labels and the three alternatives. */
+.tv-nav{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;margin-top:34px;padding-block:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tv-nav>span{margin-right:8px;font-size:10px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.tv-nav a{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);transition:color .2s}
+.tv-nav a:hover{color:var(--accent)}
+.tv-nav b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid var(--line);font-size:11px;font-weight:600}
+.tv-section{padding-top:48px;scroll-margin-top:60px}
+.tv-label{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
+.tv-label>span{font-size:10px;font-weight:650;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.tv-label strong{font:450 28px/1.2 var(--serif);letter-spacing:-.03em}
+.tv-label p{flex:1 1 100%;font-size:13px;color:var(--muted)}
+.tv-section .tp-dusk{margin-top:20px}
+
+/* Shared by the alternatives */
+.tv-head{display:flex;justify-content:space-between;gap:16px;margin-bottom:14px;font-size:10px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.tv-head .tp-meta{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:none;color:var(--muted)}
+.tv-after{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:120px;margin-top:28px;padding-top:18px;border-top:1px solid var(--line)}
+.tv-after>div{flex:1;min-width:0}
+.tv-after .tp-verse blockquote{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:14.5px}
+.tv-after .tp-verdict.is-waiting{font-style:italic}
+.tv-tally{display:flex;gap:18px;font-size:12.5px;color:var(--muted)}
+.tv-tally .is-right{color:var(--right);font-weight:600}.tv-tally .is-wrong{color:var(--wrong);font-weight:600}
+
+/* 2. Floating pills */
+.tv-pills{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:64px;align-items:center;max-width:1120px;margin:0 auto}
+.tv-pills-main{animation:tp-rise .35s ease-out}
+.tv-pills-body{display:flex;flex-direction:column;min-height:390px}
+.tv-pills .tp-prompt{display:flex;align-items:center;min-height:132px;margin-bottom:22px}
+.tv-pills .tp-choices{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.tv-pills .tp-choices button{min-height:66px;padding:10px 22px 10px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.035);font-size:15.5px;line-height:1.3;box-shadow:0 16px 30px -20px rgba(0,0,0,.9);animation:tv-float 6s ease-in-out infinite}
+.tv-pills .tp-choices li:nth-child(2) button{animation-delay:-1.5s}
+.tv-pills .tp-choices li:nth-child(3) button{animation-delay:-3s}
+.tv-pills .tp-choices li:nth-child(4) button{animation-delay:-4.5s}
+@keyframes tv-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.tv-pills .tp-choices button:not(:disabled):hover{border-color:var(--accent);background:rgba(217,177,92,.09)}
+.tv-pills .tp-choices button:disabled{animation-play-state:paused}
+.tv-pills .tp-choices .is-right{border-color:var(--right);background:rgba(127,211,178,.12)}
+.tv-pills .tp-choices .is-wrong{border-color:var(--wrong);background:rgba(240,141,155,.07)}
+.tv-pills .tp-tick{width:22px;height:22px}
+.tv-pills .tp-open{padding-bottom:10px}
+.tv-pills .tp-self{gap:14px;margin-top:22px}
+.tv-pills .tp-self button{padding:14px 26px;font-size:14px;background:rgba(255,255,255,.035);box-shadow:0 16px 30px -20px rgba(0,0,0,.9)}
+.tv-side{display:flex;flex-direction:column;align-items:center;gap:20px}
+.tv-side .tp-ring{max-width:240px}
+
+/* 3. Around the wheel */
+.tv-orbit{max-width:1040px;margin:0 auto;text-align:center;animation:tp-rise .35s ease-out}
+.tv-orbit .tp-prompt{display:flex;align-items:center;justify-content:center;min-height:100px;max-width:780px;margin:4px auto 30px}
+.tv-orbit-stage{display:grid;grid-template-columns:minmax(0,1fr) 250px minmax(0,1fr);align-items:center;gap:0 40px;min-height:260px}
+.tv-orbit-side{display:flex;flex-direction:column;justify-content:center;gap:54px}
+.tv-orbit-side.on-left{align-items:flex-end}.tv-orbit-side.on-right{align-items:flex-start}
+.tv-orbit-option{position:relative;display:flex;align-items:center;gap:12px;max-width:100%;padding:8px 0;background:none;border:0;font-size:16.5px;line-height:1.3;transition:color .2s,transform .25s}
+.tv-orbit-option.on-left{flex-direction:row-reverse;text-align:right}
+.tv-orbit-option.on-left .tp-tick{margin:0 auto 0 0}
+/* The line joining each option to the wheel */
+.tv-orbit-option::after{content:"";position:absolute;top:50%;width:40px;height:1px;background:var(--line);transition:background .3s}
+.tv-orbit-option.on-left::after{right:-40px}.tv-orbit-option.on-right::after{left:-40px}
+.tv-orbit-option:not(:disabled):hover{color:var(--accent)}
+.tv-orbit-option.on-left:not(:disabled):hover{transform:translateX(-6px)}.tv-orbit-option.on-right:not(:disabled):hover{transform:translateX(6px)}
+.tv-orbit-option:not(:disabled):hover::after{background:var(--accent)}
+.tv-orbit-option:not(:disabled):hover .tp-letter{border-color:var(--accent);color:var(--accent)}
+.tv-orbit-option.is-right{color:var(--right);font-weight:600}.tv-orbit-option.is-right::after{background:var(--right)}
+.tv-orbit-option.is-right .tp-letter{background:var(--right);border-color:var(--right);color:var(--page)}
+.tv-orbit-option.is-wrong .tp-letter{border-color:var(--wrong);color:var(--wrong)}
+.tv-orbit-option.is-wrong{color:var(--wrong)}.tv-orbit-option.is-wrong::after{background:var(--wrong)}
+.tv-orbit-option.is-wrong>span:nth-child(2){text-decoration:line-through}
+.tv-orbit-option.is-dim{opacity:.38}
+.tv-orbit-option:disabled{cursor:default}
+.tv-orbit .tp-ring{max-width:250px}
+.tv-orbit-reveal{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px;background:none;border:0;font-size:13px;font-weight:600;color:var(--accent)!important}
+.tv-orbit-reveal:hover{color:#f0d08a!important}
+.tv-orbit-answer{max-width:720px;max-height:7.2em;overflow-y:auto;margin:24px auto 0;font:400 19px/1.6 var(--serif);animation:tp-rise .35s ease-out}
+.tv-orbit .tv-after{text-align:left}
+.tv-orbit-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 20px;margin-top:16px}
+
+/* 4. Tiles at dawn */
+.tv-tiles{max-width:1120px;margin:0 auto}
+/* The sunrise that grows with the score: brighter warm light from the bottom right of the band */
+.tv-dawn{position:absolute;inset:0;z-index:-1;pointer-events:none;transition:opacity 1.4s ease;
+  background:radial-gradient(ellipse 75% 95% at 100% 100%,rgba(255,186,96,.42) 0%,rgba(248,166,80,.3) 14%,rgba(232,146,68,.19) 30%,rgba(206,124,58,.1) 46%,rgba(176,104,50,.04) 62%,rgba(150,90,44,0) 80%)}
+.tv-tiles-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:start}
+.tv-tiles .tp-prompt{display:flex;align-items:center;min-height:118px;max-width:860px}
+.tv-tiles-score{display:flex;align-items:center;gap:16px}
+.tv-tiles-score .tp-ring{width:104px}
+.tv-tiles-score .tp-ring svg{stroke-width:7}
+.tv-tiles-score .tp-ring-centre strong{font-size:32px}
+.tv-tiles-score p{font-size:11.5px;line-height:1.5;color:var(--muted)}
+.tv-tiles-body{min-height:200px;margin-top:22px;animation:tp-rise .35s ease-out}
+.tv-tiles .tp-choices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.tv-tiles .tp-choices.is-pair{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tv-tiles .tp-choices button{position:relative;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:12px;height:180px;padding:18px 18px 20px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.012));font:450 17px/1.35 var(--serif);transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .2s,background .2s}
+.tv-tiles .tp-choices button:not(:disabled):hover{transform:translateY(-6px);border-color:var(--accent)}
+.tv-tiles .tp-letter{width:auto;height:auto;border:0;background:none!important;font:italic 400 42px/1 var(--serif);color:var(--accent)}
+.tv-tiles .tp-choices .is-right{border-color:var(--right);background:linear-gradient(180deg,rgba(127,211,178,.16),rgba(127,211,178,.03))}
+.tv-tiles .tp-choices .is-right .tp-letter{color:var(--right)}
+.tv-tiles .tp-choices .is-wrong{border-color:var(--wrong)}
+.tv-tiles .tp-choices .is-wrong .tp-letter{color:var(--wrong)}
+.tv-tiles .tp-tick{position:absolute;top:18px;right:16px;width:26px;height:26px}
+.tv-tiles-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 20px;margin-top:14px}
+
+@media(max-width:900px){
+  .tv-pills{grid-template-columns:1fr;gap:30px}
+  .tv-side{flex-direction:row;flex-wrap:wrap;justify-content:center}.tv-side .tp-ring{max-width:160px}
+  .tv-orbit-stage{grid-template-columns:1fr;gap:18px}
+  .tv-orbit-stage .tp-ring{order:-1;max-width:190px;margin:0 auto}
+  .tv-orbit-side{gap:6px}.tv-orbit-side.on-left,.tv-orbit-side.on-right{align-items:center}
+  .tv-orbit-option.on-left{flex-direction:row;text-align:left}.tv-orbit-option::after{display:none}
+  .tv-tiles .tp-choices{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tv-tiles .tp-choices button{height:150px}
+}
+@media(max-width:600px){
+  .tv-pills .tp-choices{grid-template-columns:1fr}
+  .tv-tiles-top{grid-template-columns:1fr;gap:10px}.tv-tiles-score{order:-1}
+  .tv-after{flex-direction:column;align-items:stretch}
+}
+@media(prefers-reduced-motion:reduce){.tv-pills .tp-choices button{animation:none}}

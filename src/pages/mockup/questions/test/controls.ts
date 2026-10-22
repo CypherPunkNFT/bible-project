@@ -1,10 +1,14 @@
 // The test page's plain helpers: the type size for a question, and the keyboard.
 import { useEffect } from "react";
 import { LETTERS } from "../model";
-import type { Run } from "./engine";
+import type { Result, Run } from "./engine";
 
 /** The type steps down for longer questions, so a fixed frame never changes size. */
 export const promptSize = (text: string) => (text.length <= 60 ? "is-xl" : text.length <= 110 ? "is-lg" : text.length <= 170 ? "is-md" : "is-sm");
+
+/** How an option shows once the question is answered: the right one, the one you wrongly chose, or set aside. */
+export const choiceState = (option: string, answer: string, result: Result | undefined) =>
+  !result ? "" : option === answer ? "is-right" : option === result.given ? "is-wrong" : "is-dim";
 
 const typing = (target: EventTarget | null) => target instanceof HTMLElement && /^(INPUT|SELECT|TEXTAREA|BUTTON|A)$/.test(target.tagName);
 

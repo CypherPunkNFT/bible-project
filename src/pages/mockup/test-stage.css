@@ -30,7 +30,7 @@
 .tp-panel .tp-choices button:not(:disabled):hover{padding-left:12px;color:var(--accent)}
 .tp-panel .tp-choices.is-pair{display:grid;grid-template-columns:1fr 1fr}
 .tp-panel .tp-choices.is-pair li+li{border-top:0;border-left:1px solid var(--line);padding-left:18px}
-.tp-panel .tp-open{flex:1;min-height:0;display:flex;flex-direction:column}
+.tp-panel .tp-open{flex:1;min-height:0;display:flex;flex-direction:column;padding-bottom:28px}
 .tp-panel .tp-open.is-waiting{flex-direction:row;align-items:flex-start}
 .tp-panel .tp-open-answer{max-height:none;flex:1;min-height:0}
 .tp-panel-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;height:132px;border-top:1px solid var(--line)}

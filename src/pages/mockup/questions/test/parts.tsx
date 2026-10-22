@@ -7,16 +7,14 @@ import { loadChapterPlain } from "@/lib/data";
 import { plainLookup } from "@/lib/refs";
 import { useAsync } from "@/lib/useAsync";
 import { LETTERS } from "../model";
-import { verseOf, type Result, type Run, type TestQuestion, type VerseRef } from "./engine";
+import { choiceState } from "./controls";
+import { verseOf, type Run, type TestQuestion, type VerseRef } from "./engine";
 
 export function Tick({ right }: { right: boolean }) {
   return <svg className={`tp-tick ${right ? "is-right" : "is-wrong"}`} viewBox="0 0 24 24" aria-hidden>
     {right ? <path pathLength={1} d="M4 13.5 9.5 19 20 5.5" /> : <path pathLength={1} d="M6 6 18 18M18 6 6 18" />}
   </svg>;
 }
-
-const choiceState = (option: string, answer: string, result: Result | undefined) =>
-  !result ? "" : option === answer ? "is-right" : option === result.given ? "is-wrong" : "is-dim";
 
 export function Choices({ run }: { run: Run }) {
   const { item, answered } = run;
