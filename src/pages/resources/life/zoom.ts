@@ -20,9 +20,11 @@ export function attachZoom(svg: SVGSVGElement, { width, height, max = 10, onChan
   let anim = 0, moved = false, gesture: Gesture = null;
   const pointers = new Map<number, [number, number]>();
 
+  const limit = (w: number) => Math.min(width, Math.max(width / max, w));
+  // A view past the zoom limits is resized about its own centre, so pressing on at the limit never drifts the map.
   const clamp = (v: View): View => {
-    const w = Math.min(width, Math.max(width / max, v.w)), h = w * (height / width);
-    return { w, h, x: Math.min(width - w, Math.max(0, v.x)), y: Math.min(height - h, Math.max(0, v.y)) };
+    const w = limit(v.w), h = w * (height / width), x = v.x + (v.w - w) / 2, y = v.y + (v.h - h) / 2;
+    return { w, h, x: Math.min(width - w, Math.max(0, x)), y: Math.min(height - h, Math.max(0, y)) };
   };
   const apply = () => { svg.setAttribute("viewBox", `${view.x.toFixed(2)} ${view.y.toFixed(2)} ${view.w.toFixed(2)} ${view.h.toFixed(2)}`); onChange?.(width / view.w); };
   const toMap = (cx: number, cy: number): [number, number] => { const r = svg.getBoundingClientRect(); return [view.x + ((cx - r.left) / r.width) * view.w, view.y + ((cy - r.top) / r.height) * view.h]; };
@@ -39,8 +41,9 @@ export function attachZoom(svg: SVGSVGElement, { width, height, max = 10, onChan
     };
     anim = requestAnimationFrame(step);
   }
+  // The limit is applied before the view is placed: at full zoom a further wheel turn changes nothing.
   const zoomAround = (mx: number, my: number, base: View, factor: number) => {
-    const w = base.w / factor, h = base.h / factor;
+    const w = limit(base.w / factor), h = w * (height / width);
     return clamp({ w, h, x: mx - ((mx - base.x) / base.w) * w, y: my - ((my - base.y) / base.h) * h });
   };
 

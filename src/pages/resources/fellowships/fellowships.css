@@ -59,11 +59,14 @@
 
 /* ── Below each city's map: the groups just outside the county, all listed in two columns ── */
 .fw-beyond { margin-top: 2.4rem; }
-.fw-beyond h3 { padding-bottom: .55rem; border-bottom: 1px solid var(--line); font: 400 1.2rem var(--font-serif); }
+.fw-beyond-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .4rem 1.5rem; padding-bottom: .55rem; border-bottom: 1px solid var(--line); }
+.fw-beyond h3 { font: 400 1.2rem var(--font-serif); }
 .fw-beyond h3 small { margin-left: .6rem; color: var(--muted); font: .74rem var(--font-sans); }
 .fw-beyond ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 3.2rem; }
 .fw-beyond li { display: grid; grid-template-columns: .55rem minmax(0, 1fr); gap: .7rem; padding: .7rem 0; border-bottom: 1px dotted var(--line); font-size: .84rem; line-height: 1.55; }
 .fw-beyond li::before { content: ""; width: 7px; height: 7px; margin-top: .45rem; border-radius: 50%; background: var(--c, var(--door)); }
+.fw-beyond .fw-sbc { display: inline-flex; align-items: center; gap: .3rem; color: var(--door); font-size: .8rem; font-weight: 600; text-decoration: none; }
+.fw-beyond .fw-sbc:hover { text-decoration: underline; text-underline-offset: 3px; }
 .fw-beyond strong { font-weight: 600; }
 .fw-beyond li span { color: color-mix(in srgb, var(--ink) 76%, transparent); }
 .fw-beyond a { color: var(--muted); font-size: .72rem; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }

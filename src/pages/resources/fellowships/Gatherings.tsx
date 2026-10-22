@@ -2,6 +2,7 @@
 // map of the searched cities, the chosen city's facts and a bar of its gatherings by kind, then the county map with a
 // numbered pin for every group or church a fellowship's own finder listed there. Under it, the groups just outside the
 // county, listed in full in two columns.
+import { ArrowUpRight } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { loadResource, type FellowshipCities, type FellowshipCity, type FellowshipsData } from "@/data/resources";
 import { CitySection } from "../life/CitySection";
@@ -16,7 +17,7 @@ export function Gatherings({ data, cities }: { data: FellowshipsData; cities: Fe
   const searched = useMemo(() => cities.cities.filter((c) => c.places.length > 0 && hasCityFiles(c.id)), [cities]);
   const shaped = useMemo(() => searched.map((c) => toCity(c, lookup)), [searched, lookup]);
   const fellowshipOf = useMemo(() => {
-    const names = new Map(searched.flatMap((c) => c.places.map((p) => [p.id, shortName(lookup(p.fellowship).f?.name ?? "")] as const)));
+    const names = new Map(searched.flatMap((c) => c.places.map((p) => [p.id, shortName(lookup(p.fellowship).f?.name ?? "") + (p.sbc ? " · Southern Baptist" : "")] as const)));
     return (placeId: string) => names.get(placeId) ?? "";
   }, [searched, lookup]);
   const words = useMemo(() => gatheringWords(fellowshipOf), [fellowshipOf]);
@@ -66,10 +67,15 @@ function Beyond({ city, lookup }: { city: FellowshipCity; lookup: Lookup }) {
   const rows = byAddress(city.nearby);
   if (!rows.length) return null;
   return <section className="fw-beyond lf-fade" aria-labelledby="fw-nearby">
-    <h3 id="fw-nearby">Just outside the county<small>{plural(rows.length, "place")}</small></h3>
+    <div className="fw-beyond-head">
+      <h3 id="fw-nearby">Just outside the county<small>{plural(rows.length, "place")}</small></h3>
+      {/* A way to search on one's own (owner, 2026-10-22): the Southern Baptist Convention's own church finder. */}
+      <a className="fw-sbc" href="https://churches.sbc.net/" target="_blank" rel="noreferrer">Find a Southern Baptist church<ArrowUpRight size={14} aria-hidden="true" /></a>
+    </div>
     <ul>{rows.map((same) => { const [g] = same, { kind } = lookup(g.fellowship); return <li key={g.id} style={{ "--c": tone(kind) } as CSSProperties}>
       <span><strong>{g.host}</strong> · {whatMeets(same)}<br />{g.address}<br />
-        {same.map((x, n) => { const { f } = lookup(x.fellowship); return <span key={x.id}>{n > 0 && " · "}<a href={x.source} target="_blank" rel="noreferrer">{f ? shortName(f.name) : hostOf(x.source)}</a></span>; })} · checked {g.checked}</span>
+        {same.map((x, n) => { const { f } = lookup(x.fellowship); return <span key={x.id}>{n > 0 && " · "}<a href={x.source} target="_blank" rel="noreferrer">{f ? shortName(f.name) : hostOf(x.source)}</a></span>; })}
+        {same.some((x) => x.sbc) && <> · <a href={same.find((x) => x.sbc)!.sbc} target="_blank" rel="noreferrer">Southern Baptist</a></>} · checked {g.checked}</span>
     </li>; })}</ul>
   </section>;
 }

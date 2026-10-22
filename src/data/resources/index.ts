@@ -38,6 +38,8 @@ export interface FellowshipsData { checked: string; groups: { id: string; title:
 export interface Gathering {
   id: string; fellowship: string; name: string; host: string; address: string; lat: number; lon: number; geocode?: string;
   when?: string | null; for: string[]; meets: string[]; link?: string | null; source: string; checked: string;
+  /** The church's page in the Southern Baptist Convention's own finder, when that finder lists it too. */
+  sbc?: string;
 }
 /** A city whose fellowships were searched (fellowship-cities.json): the places inside its map, those just outside it, and what each finder showed when nothing was pinned. */
 export interface FellowshipCity {

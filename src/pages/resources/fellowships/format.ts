@@ -4,11 +4,11 @@
 import type { City, Fellowship, FellowshipCity, Gathering, LocalHelp } from "@/data/resources";
 import { kindOf, plural, type CityWords } from "../life/format";
 
-/** "Bible Study Fellowship (BSF)" -> "BSF"; "9Marks Church Search" -> "9Marks"; otherwise the name as written. */
+/** "Bible Study Fellowship (BSF)" -> "BSF"; "9Marks Church Search" -> "9Marks"; "… ChurchSearch" (the SBC's) likewise; otherwise the name as written. */
 export function shortName(name: string) {
   const abbreviation = name.match(/\(([A-Z0-9]{2,6})\)\s*$/)?.[1];
   if (abbreviation) return abbreviation;
-  return name.replace(/\s+(Church Search|Church Directory|Ministries International|Ministries Church Search|Christian Fellowship\/USA|International|Task Force)$/, "").replace(/^The /, "");
+  return name.replace(/\s+(Church Search|ChurchSearch|Church Directory|Ministries International|Ministries Church Search|Christian Fellowship\/USA|International|Task Force)$/, "").replace(/^The /, "");
 }
 
 /** "all" in the data means open to anyone. */
@@ -30,6 +30,7 @@ export function toPlace(g: Gathering, f: Fellowship | undefined, kind: string): 
   const contact = [
     ...(g.link ? [{ kind: "web", value: g.link, note: "Its own page" }] : []),
     ...(f?.locator && f.locator !== g.link ? [{ kind: "web", value: f.locator, note: `${shortName(f.name)} group finder` }] : []),
+    ...(g.sbc ? [{ kind: "web", value: g.sbc, note: "Its Southern Baptist Convention listing" }] : []),
   ];
   return {
     id: g.id, name: g.host, summary: `${what}. ${f ? `${f.name}: ${f.summary}` : ""}`.trim(), faith: null, contact,

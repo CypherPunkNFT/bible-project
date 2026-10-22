@@ -40,6 +40,6 @@ export default function FellowshipsPage({ data }: { data: FellowshipsData }) {
     </header>
     <FellowshipDirectory data={data} mapped={mapped} mapCities={cities.length} />
     {typeof places === "object" && <Gatherings data={data} cities={places} />}
-    <p className="fw-how"><strong>How this list is made.</strong> Every fact is copied from the fellowship’s own pages, and each entry links to the page it was checked on. A place is on a map only when the fellowship’s own finder (or the host’s own page) lists it; its street address is placed by the US Census Bureau’s geocoder. Listing a fellowship is not an endorsement of every group that meets under its name.</p>
+    <p className="fw-how"><strong>How this list is made.</strong> Every fact is copied from the fellowship’s own pages, and each entry links to the page it was checked on. A place is on a map only when the fellowship’s own finder (or the host’s own page) lists it; its street address is placed by the US Census Bureau’s geocoder. A church is on a map only when its denomination, its network or its own website shows that it holds to the gospel with men as its pastors and elders, and nothing found affirms same-sex relationships, names a liberal denomination or teaches the prosperity gospel; a church where this could not be shown is left off. Listing a fellowship is not an endorsement of every group that meets under its name.</p>
   </div>;
 }
