@@ -25,13 +25,27 @@ copy), with the other banks named in `also_in`. Everything left out, and why, is
 **Not yet done:** the answers are as the sources printed them and have **not been fact-checked**. `standalone: false`
 marks a question that leans on the one before it ("What were their names?"); it is a best guess from the wording.
 
+## Repeats: kept, never shown
+
+The same question asked twice in different words is a **repeat**. Repeats are not deleted; the site just never shows
+them (owner, 2026-10-22). [question_repeats.py](../../scripts/question_repeats.py) finds them: every question is
+embedded with its answer on the local embedding model ($0), and pairs that score 0.85 or higher become candidates.
+Near-identical text counts as a repeat outright. Every other candidate is judged "same question?" by Claude Haiku: a
+repeat tests the same fact, even when asked the other way round. Every decision is kept in
+[repeats.json](repeats.json), so no pair is asked about twice.
+
+First full pass (2026-10-22): 1,525 candidates. 1,359 were repeats (557 by text, 802 by Haiku) and 166 were not.
+**881 questions are marked `repeat_of`**, and the page's copy holds **4,081**. Of each group, the one shown has
+answer choices first, then comes from a Baptist collection, then carries a reference.
+
 ## Each record
 
 `id`, `source_id`, `attribution_source_id`, `question`, `answer`, `options` (the choices, or `null`), `reference`,
 `books` (book codes from the reference, then any book named outright), `testament` (`OT`, `NT` or `null`), `topic`
 (one of 16, see `topics`), `link` (the first reference as the reader opens it), `kind` (`trivia`, `lesson`, `catechism`), `tradition` (Baptist, Reformed, Lutheran, Puritan, Methodist, or `null`
 for trivia), `collection`, `lesson`, `standalone`,
-`question_origin`, `licence`, `licence_class`, `attribution` (the credit owed), `source_url`, `also_in`.
+`question_origin`, `licence`, `licence_class`, `attribution` (the credit owed), `source_url`, `also_in`, `repeat_of`
+(the id of the question shown in its place, or `null`).
 
 **Tags are rules, not reading.** `books`, `testament` and `topic` come from fixed word lists and the references in
 [question_tags.py](../../scripts/question_tags.py): a word in the question counts three times, one in the answer once,

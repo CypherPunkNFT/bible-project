@@ -24,6 +24,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from bible.books import BOOKS  # noqa: E402
+from question_repeats import mark_repeats  # noqa: E402
 from question_tags import CANON, OLD_TESTAMENT, TOPICS, books_of, link_of, testament_of, topic_of  # noqa: E402
 
 WEBSITE = Path(__file__).resolve().parent.parent
@@ -199,11 +200,13 @@ def collections_of(questions: list[dict]) -> list[dict]:
 
 
 def site_copy(questions: list[dict]) -> dict:
-    """The page's copy: the questions without the licence wording, which the collection list carries once."""
+    """The page's copy: the questions without the licence wording, which the collection list carries once, and
+    without repeats, which the site never shows (scripts/question_repeats.py)."""
     keep = ("question", "answer", "options", "reference", "kind", "tradition", "collection", "lesson", "books",
             "testament", "topic", "link", "standalone")
+    shown = [q for q in questions if not q["repeat_of"]]
     return {"schema": SCHEMA, "kinds": KINDS, "topics": topics_meta(), "books": books_meta(),
-            "collections": collections_of(questions), "questions": [{k: q[k] for k in keep} for q in questions]}
+            "collections": collections_of(shown), "questions": [{k: q[k] for k in keep} for q in shown]}
 
 
 def topics_meta() -> list[dict]:
@@ -223,6 +226,7 @@ def write(path: Path, data: dict) -> None:
 
 def main() -> None:
     questions, excluded = select(load_corpus())
+    repeats = mark_repeats(questions)
     counts = Counter(q["kind"] for q in questions)
     official = {
         "schema": SCHEMA,
@@ -233,7 +237,8 @@ def main() -> None:
                    "with_reference": sum(1 for q in questions if q["reference"]),
                    "standalone": sum(1 for q in questions if q["standalone"]),
                    "with_book": sum(1 for q in questions if q["books"]),
-                   "with_topic": sum(1 for q in questions if q["topic"])},
+                   "with_topic": sum(1 for q in questions if q["topic"]),
+                   "repeats_not_shown": repeats},
         "kinds": KINDS,
         "tagging": "books, testament and topic are set by fixed word lists and the references (scripts/question_tags.py), "
                    "not checked by hand; a question may sit under a near topic.",
