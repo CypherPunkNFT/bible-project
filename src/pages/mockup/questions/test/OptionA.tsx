@@ -45,7 +45,7 @@ export function OptionA(props: OptionProps) {
       </header>
       <section className="qp-section" aria-labelledby="ts-themes-title">
         <SectionHead n="01" id="ts-themes-title" title={<>Choose a <em>theme</em></>}
-          lead="Questions gathered by what they are about: a life, a story, a teaching, or the Bible itself. Choose one and it is ready below." />
+          lead="Questions gathered by what they are about. Choose a shelf, then a group, then a test, and it is ready below." />
         <ThemeShelves counts={themeCounts} selected={props.theme} record={record} onChoose={(id) => { setTheme(id); if (id) toTest(); }} />
       </section>
       <section className="qp-section oc-where" aria-labelledby="oc-where-title">
