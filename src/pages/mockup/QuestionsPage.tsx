@@ -1,8 +1,8 @@
 // MOCK-UP: the questions page, opened at /study/questions on this computer's preview only (see mockup-routes.tsx) until
 // the owner approves it. Every question in the Question Bank (content/questions/question-bank.json, built by
 // scripts/build-question-bank.py): a header with one question to try, 01 the books of the Bible by how many questions
-// each has, 02 the questions themselves with filters by kind, topic, Testament and collection, a search and a
-// test-yourself switch, and the credit every source asks for at the foot. The parts live in questions/.
+// each has, a banner into the test page, 02 the questions themselves with filters by kind, topic, Testament and
+// collection, a search and a "See the answers | Take the test" switch, and the credit every source asks for at the foot. The parts live in questions/.
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { loadQuestionBank, type QuestionBank } from "@/lib/data";
@@ -11,7 +11,8 @@ import { FilterRail, KindChips } from "./questions/FilterRail";
 import { QuestionsHero } from "./questions/Hero";
 import { facetsOf, haystackOf, readFilters, writeFilters, type Filters } from "./questions/model";
 import { QuestionList } from "./questions/QuestionList";
-import { SectionHead } from "./questions/shared";
+import { ModeSwitch, SectionHead } from "./questions/shared";
+import { TestBanner } from "./questions/TestBanner";
 import "./questions-page.css";
 
 export default function QuestionsPage() {
@@ -45,12 +46,15 @@ function QuestionsBody({ bank }: { bank: QuestionBank }) {
   return <>
     <QuestionsHero bank={bank} bookNames={bookNames} />
     <BookGrid books={bank.books} counts={facets.counts.book} selected={filters.book} onChoose={chooseBook} />
+    <TestBanner bank={bank} filters={filters} available={facets.rows.length} bookNames={bookNames} />
     <section className="qp-section qp-explore" id="qp-explore" aria-labelledby="qp-explore-title">
       <SectionHead n="02" id="qp-explore-title" title={<>Explore <em>the questions</em></>}
-        lead="Choose a kind, a topic or a Testament, search for a word, or hide the answers and test yourself." />
+        lead="Choose a kind, a topic or a Testament, or search for a word. Switch to Take the test to hide the answers until you try them.">
+        <ModeSwitch testMode={testMode} setTestMode={setTestMode} />
+      </SectionHead>
       <KindChips facets={facets} filters={filters} update={update} />
       <div className="qp-explore-grid">
-        <FilterRail bank={bank} facets={facets} filters={filters} update={update} testMode={testMode} setTestMode={setTestMode} />
+        <FilterRail bank={bank} facets={facets} filters={filters} update={update} />
         <QuestionList bank={bank} rows={facets.rows} filters={filters} update={update} clear={clear} testMode={testMode} bookNames={bookNames} />
       </div>
     </section>

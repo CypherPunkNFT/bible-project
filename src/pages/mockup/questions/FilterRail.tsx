@@ -1,5 +1,5 @@
 // 02's filters: the four kinds as large chips across the top, and the side rail (topic, Testament, collection, and
-// the two switches). Every count is what that choice would give with the other filters kept.
+// the multiple-choice switch). Every count is what that choice would give with the other filters kept.
 import type { CSSProperties, ReactNode } from "react";
 import type { BankTopic, QuestionBank } from "@/lib/data";
 import { KINDS, type Facets, type Filters } from "./model";
@@ -22,8 +22,7 @@ export function KindChips({ facets, filters, update }: { facets: Facets; filters
   </div>;
 }
 
-export function FilterRail({ bank, facets, filters, update, testMode, setTestMode }:
-  { bank: QuestionBank; facets: Facets; filters: Filters; update: Update; testMode: boolean; setTestMode: (on: boolean) => void }) {
+export function FilterRail({ bank, facets, filters, update }: { bank: QuestionBank; facets: Facets; filters: Filters; update: Update }) {
   const t = facets.counts.testament;
   const collections = bank.collections.filter((c) => !filters.kind || c.kind === filters.kind);
   return <aside className="qp-rail" aria-label="Filters">
@@ -44,7 +43,6 @@ export function FilterRail({ bank, facets, filters, update, testMode, setTestMod
     </RailGroup>
     <RailGroup title="Show">
       <Switch on={filters.choices} onChange={(choices) => update({ choices })}>Multiple choice only</Switch>
-      <Switch on={testMode} onChange={setTestMode}>Test yourself: hide the answers</Switch>
     </RailGroup>
   </aside>;
 }
