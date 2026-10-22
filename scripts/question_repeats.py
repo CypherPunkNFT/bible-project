@@ -6,13 +6,18 @@ show repeats").
 
 How a repeat is found:
   1. Every question is embedded with its answer by the local Qwen3-Embedding-4B daemon (127.0.0.1:8798, $0).
-  2. Pairs scoring SCAN_FLOOR or higher are candidates. A pair whose question and answer are both near-identical text
-     ("10" / "Ten", "Commandment" / "commandment") is a repeat outright.
-  3. Every other candidate is judged "same question?" by Claude Haiku through BatchRunner, 25 pairs to a call, because
-     look-alike templates ("the book after Exodus" / "after Leviticus") score as high as true repeats.
+  2. Pairs scoring SCAN_FLOOR or higher are candidates. A pair whose questions read the same once case and punctuation
+     are set aside, with near-identical answers, is a repeat outright. (A looser "near-identical text" rule merged
+     template questions one word apart, "the book of Ruth" / "of Jonah"; its decisions are re-asked, see SAME_TEXT.)
+  3. Every other candidate is judged "same question?" by Claude Haiku through BatchRunner, 50 pairs to a call, because
+     look-alike templates ("the book after Exodus" / "after Leviticus") score as high as true repeats. The test is
+     whether the two answers could swap; the first, looser test ("answering one in effect answers the other") also
+     merged questions asked the other way round, so its "same" verdicts below RECHECK_BELOW are asked again (recheck).
 Every decision is kept in content/questions/repeats.json, so a rebuild never asks again about a pair already decided.
 
-    python scripts/question_repeats.py prepare           # embed, find candidates, write BatchRunner items
+    python scripts/question_repeats.py prepare           # embed, find candidates among the questions still shown,
+                                                         # write BatchRunner items (plus a sample just below the floor)
+    python scripts/question_repeats.py recheck           # write items re-asking the looser test's "same" verdicts
     python scripts/question_repeats.py apply <out-dir>   # read BatchRunner's answers into repeats.json
     (then python scripts/build-question-bank.py)
 """
@@ -36,23 +41,39 @@ REPEATS = WEBSITE / "content" / "questions" / "repeats.json"
 WORK = WEBSITE / ".local" / "question-repeats"
 EMBED_URL = "http://127.0.0.1:8798/embed"
 
-SCAN_FLOOR = 0.85  # below this, the 2026-10-22 pilot found no repeats worth the judging
-NEAR_TEXT = 0.9  # difflib ratio on normalised text, question and answer both
-PAIRS_PER_CALL = 25
+# First pass 2026-10-22 judged 0.85 and up; 73% of pairs right at 0.85 were still repeats, so the second pass judged
+# 0.75-0.85 in full and a sample just below, to see where repeats run out.
+SCAN_FLOOR = 0.75
+SAMPLE_FLOOR = 0.70
+SAMPLE_SIZE = 100
+NEAR_TEXT = 0.9  # difflib ratio on the normalised answers
+SAME_TEXT = "same question text"
+PAIRS_PER_CALL = 50
+# 2026-10-22: a sample of the looser test's "same" verdicts was right throughout from 0.85 up, wrong about one time in
+# three below it.
+RECHECK_BELOW = 0.85
+LOOSE_JUDGE = "claude-haiku"
+JUDGE = "claude-haiku, answers swap"
 ANSWER_CHARS = 400
 
 TASK = """You decide whether two quiz questions are repeats of each other.
 
-Two questions are a REPEAT when someone who has answered one has in effect answered the other: they test the same fact
-or the same teaching, even if the question is worded differently, the answer is worded differently ("10" / "Ten";
-"Thou shalt not kill" / "You shall not murder"), or one answer gives more detail than the other.
+Two questions are a REPEAT only when they ask for the same thing, so that their answers could swap: answer A is a
+right answer to question B, and answer B is a right answer to question A. Wording may differ ("Who was the first
+Christian martyr?" / "Who was the first martyr of the church?"), the answers may be worded differently ("10" / "Ten";
+"Thou shalt not kill" / "You shall not murder"), and one answer may give more detail than the other.
 
-They are NOT a repeat when they ask about different things, however alike they look: "Which book comes after Exodus?"
-and "Which book comes after Leviticus?" are different; "Who was Jesus' earthly father?" and "What was Joseph's trade?"
-are different; two questions about one story that ask about different parts of it are different.
+They are NOT a repeat when they ask for different things, however alike they look or however close the story:
+- "Which book comes after Exodus?" and "Which book comes after Leviticus?" are different.
+- Questions asked the other way round are different: "Who refused to bow to the golden image?" (Shadrach, Meshach and
+  Abednego) and "What did Daniel's three friends refuse to do?" (bow to the image); "Which daughter of Saul did David
+  marry?" (Michal) and "Whom did David marry?" (a daughter of Saul).
+- Two questions about one story or one teaching that ask about different parts of it are different: "Which epistle has
+  Paul's last words?" (2 Timothy) and "What did Paul write at the end of his life?" ("I have fought a good fight").
 
 The input lists numbered pairs, each with question A and question B. Answer for every pair: "pair" is its number as
-written (p1, p2, ...) and "same" is true for a repeat, false otherwise."""
+written (p1, p2, ...) and "same" is true for a repeat, false otherwise. If the input holds no pairs, return an empty
+list of verdicts."""
 
 SCHEMA = {"type": "object", "properties": {"verdicts": {"type": "array", "items": {
     "type": "object", "properties": {"pair": {"type": "string"}, "same": {"type": "boolean"}},
@@ -154,30 +175,59 @@ def vectors_for(questions: list[dict]):
     return np.stack(rows)
 
 
+def same_text(qa: dict, qb: dict) -> bool:
+    return norm(qa["question"]) == norm(qb["question"]) and         difflib.SequenceMatcher(None, norm(qa["answer"]), norm(qb["answer"])).ratio() >= NEAR_TEXT
+
+
+def drop_loose_decisions(repeats: dict, by_id: dict) -> int:
+    """Forget decisions from the old loose text rule that the strict rule would not make, so they are judged again."""
+    loose = [k for k, d in repeats["pairs"].items() if d["by"] == "near-identical text"
+             and not (d["a"] in by_id and d["b"] in by_id and same_text(by_id[d["a"]], by_id[d["b"]]))]
+    for key in loose:
+        del repeats["pairs"][key]
+    for d in repeats["pairs"].values():
+        if d["by"] == "near-identical text":
+            d["by"] = SAME_TEXT
+    return len(loose)
+
+
+def reopen() -> None:
+    """Drop the old loose decisions; rebuild the bank afterwards so the questions they hid are shown and rescanned."""
+    by_id = {q["id"]: q for q in json.loads(BANK.read_text(encoding="utf-8"))["questions"]}
+    repeats = load_repeats()
+    print(f"re-opened {drop_loose_decisions(repeats, by_id)} decisions made by the old loose text rule")
+    save_repeats(repeats)
+
+
 def prepare() -> None:
     import numpy as np
 
-    questions = json.loads(BANK.read_text(encoding="utf-8"))["questions"]
+    # Only questions still shown: a hidden repeat already has its stand-in, so comparing the shown set is enough.
+    questions = [q for q in json.loads(BANK.read_text(encoding="utf-8"))["questions"] if not q.get("repeat_of")]
     vectors = vectors_for(questions)
     scores = vectors @ vectors.T
     first, second = np.triu_indices(len(questions), k=1)
-    hits = scores[first, second] >= SCAN_FLOOR
+    pair_scores = scores[first, second]
+    hits = pair_scores >= SCAN_FLOOR
+    below = np.flatnonzero((pair_scores >= SAMPLE_FLOOR) & ~hits)
+    sample = np.random.default_rng(22).choice(below, size=min(SAMPLE_SIZE, len(below)), replace=False)
+    hits[sample] = True
     repeats = load_repeats()
     to_judge = []
-    for a, b, score in zip(first[hits], second[hits], scores[first, second][hits]):
+    for a, b, score in zip(first[hits], second[hits], pair_scores[hits]):
         qa, qb = questions[a], questions[b]
         key = pair_key(qa["id"], qb["id"])
         if key in repeats["pairs"]:
             continue
-        near = all(difflib.SequenceMatcher(None, norm(qa[f]), norm(qb[f])).ratio() >= NEAR_TEXT for f in ("question", "answer"))
-        if near:
-            repeats["pairs"][key] = {"a": qa["id"], "b": qb["id"], "score": round(float(score), 3), "same": True, "by": "near-identical text"}
+        if same_text(qa, qb):
+            repeats["pairs"][key] = {"a": qa["id"], "b": qb["id"], "score": round(float(score), 3), "same": True, "by": SAME_TEXT}
         else:
             to_judge.append((qa, qb, round(float(score), 3)))
     save_repeats(repeats)
     write_items(to_judge)
     decided = sum(1 for d in repeats["pairs"].values() if d["same"])
-    print(f"candidates at {SCAN_FLOOR}+: {int(hits.sum())}; decided repeats so far: {decided}; to judge: {len(to_judge)}")
+    print(f"candidates at {SCAN_FLOOR}+ plus a {len(sample)}-pair sample from {SAMPLE_FLOOR}: {int(hits.sum())}; "
+          f"decided repeats so far: {decided}; to judge: {len(to_judge)}")
 
 
 def write_items(to_judge: list[tuple[dict, dict, float]]) -> None:
@@ -201,6 +251,16 @@ def write_items(to_judge: list[tuple[dict, dict, float]]) -> None:
     print(f"wrote {len(index)} BatchRunner items to {items}")
 
 
+def recheck() -> None:
+    """Re-ask, with the swap test, every pair the looser test called "same" below RECHECK_BELOW."""
+    by_id = {q["id"]: q for q in json.loads(BANK.read_text(encoding="utf-8"))["questions"]}
+    to_judge = [(by_id[d["a"]], by_id[d["b"]], d["score"]) for d in load_repeats()["pairs"].values()
+                if d["by"] == LOOSE_JUDGE and d["same"] and d["score"] < RECHECK_BELOW
+                and d["a"] in by_id and d["b"] in by_id]
+    write_items(to_judge)
+    print(f"looser-test repeats below {RECHECK_BELOW} to re-ask: {len(to_judge)}")
+
+
 # --- apply -----------------------------------------------------------------------------------------------------------
 
 def apply(out_dir: Path) -> None:
@@ -219,7 +279,7 @@ def apply(out_dir: Path) -> None:
             if f"p{n}" not in same:
                 missing.append(f"{name}:p{n}")
                 continue
-            repeats["pairs"][pair_key(a, b)] = {"a": a, "b": b, "score": score, "same": same[f"p{n}"], "by": "claude-haiku"}
+            repeats["pairs"][pair_key(a, b)] = {"a": a, "b": b, "score": score, "same": same[f"p{n}"], "by": JUDGE}
             added += 1
     save_repeats(repeats)
     print(f"recorded {added} judged pairs; still undecided: {len(missing)} {missing[:10]}")
@@ -229,11 +289,17 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("prepare")
+    sub.add_parser("reopen")
+    sub.add_parser("recheck")
     apply_parser = sub.add_parser("apply")
     apply_parser.add_argument("out_dir", type=Path)
     args = parser.parse_args()
     if args.command == "prepare":
         prepare()
+    elif args.command == "reopen":
+        reopen()
+    elif args.command == "recheck":
+        recheck()
     else:
         apply(args.out_dir.resolve())
 

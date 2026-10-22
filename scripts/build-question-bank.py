@@ -24,6 +24,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from bible.books import BOOKS  # noqa: E402
+from question_model_tags import add_model_tags  # noqa: E402
 from question_repeats import mark_repeats  # noqa: E402
 from question_tags import CANON, OLD_TESTAMENT, TOPICS, books_of, link_of, testament_of, topic_of  # noqa: E402
 
@@ -203,7 +204,7 @@ def site_copy(questions: list[dict]) -> dict:
     """The page's copy: the questions without the licence wording, which the collection list carries once, and
     without repeats, which the site never shows (scripts/question_repeats.py)."""
     keep = ("question", "answer", "options", "reference", "kind", "tradition", "collection", "lesson", "books",
-            "testament", "topic", "link", "standalone")
+            "testament", "topic", "link", "standalone", "passages", "people", "places", "subjects")
     shown = [q for q in questions if not q["repeat_of"]]
     return {"schema": SCHEMA, "kinds": KINDS, "topics": topics_meta(), "books": books_meta(),
             "collections": collections_of(shown), "questions": [{k: q[k] for k in keep} for q in shown]}
@@ -227,6 +228,7 @@ def write(path: Path, data: dict) -> None:
 def main() -> None:
     questions, excluded = select(load_corpus())
     repeats = mark_repeats(questions)
+    model_tagged = add_model_tags(questions)
     counts = Counter(q["kind"] for q in questions)
     official = {
         "schema": SCHEMA,
@@ -238,10 +240,14 @@ def main() -> None:
                    "standalone": sum(1 for q in questions if q["standalone"]),
                    "with_book": sum(1 for q in questions if q["books"]),
                    "with_topic": sum(1 for q in questions if q["topic"]),
-                   "repeats_not_shown": repeats},
+                   "repeats_not_shown": repeats,
+                   "model_tagged": model_tagged,
+                   "with_passage": sum(1 for q in questions if q["passages"])},
         "kinds": KINDS,
         "tagging": "books, testament and topic are set by fixed word lists and the references (scripts/question_tags.py), "
-                   "not checked by hand; a question may sit under a near topic.",
+                   "not checked by hand; a question may sit under a near topic. passages, people, places and subjects are set by "
+                   "Claude Haiku (scripts/question_model_tags.py); every passage exists in the BSB, and its check says whether "
+                   "the answer's words are in it (\"matched\") or not (\"exists\").",
         "topics": topics_meta(),
         "collections": collections_of(questions),
         "left_out": excluded,

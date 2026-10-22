@@ -28,15 +28,18 @@ marks a question that leans on the one before it ("What were their names?"); it 
 ## Repeats: kept, never shown
 
 The same question asked twice in different words is a **repeat**. Repeats are not deleted; the site just never shows
-them (owner, 2026-10-22). [question_repeats.py](../../scripts/question_repeats.py) finds them: every question is
-embedded with its answer on the local embedding model ($0), and pairs that score 0.85 or higher become candidates.
-Near-identical text counts as a repeat outright. Every other candidate is judged "same question?" by Claude Haiku: a
-repeat tests the same fact, even when asked the other way round. Every decision is kept in
-[repeats.json](repeats.json), so no pair is asked about twice.
+them (owner, 2026-10-22). [question_repeats.py](../../scripts/question_repeats.py) finds them. Every question is
+embedded with its answer on the local embedding model ($0), and pairs scoring 0.75 or higher become candidates. The
+same question text with near-identical answers counts as a repeat outright. Claude Haiku judges every other candidate:
+two questions are a repeat only when their answers could swap, so a question asked the other way round ("Who refused to
+bow?" / "What did the three friends refuse to do?") is not one. Every decision is kept in [repeats.json](repeats.json),
+so no pair is asked about twice.
 
-First full pass (2026-10-22): 1,525 candidates. 1,359 were repeats (557 by text, 802 by Haiku) and 166 were not.
-**881 questions are marked `repeat_of`**, and the page's copy holds **4,081**. Of each group, the one shown has
-answer choices first, then comes from a Baptist collection, then carries a reference.
+As of 22 October 2026, **1,245 questions are marked `repeat_of`**, and the page's copy holds **3,717**. Of each group,
+the one shown has answer choices first, then comes from a Baptist collection, then carries a reference. How often a
+judged pair turned out to be a repeat, by score: 86% from 0.90 up, 67% at 0.85–0.90, 20% at 0.80–0.85, 11% at
+0.75–0.80, and 7% in a 99-pair sample at 0.70–0.75. So a few repeats are left below 0.75: about 3,400 pairs at
+0.70–0.75 have not been judged.
 
 ## Each record
 
@@ -45,12 +48,21 @@ answer choices first, then comes from a Baptist collection, then carries a refer
 (one of 16, see `topics`), `link` (the first reference as the reader opens it), `kind` (`trivia`, `lesson`, `catechism`), `tradition` (Baptist, Reformed, Lutheran, Puritan, Methodist, or `null`
 for trivia), `collection`, `lesson`, `standalone`,
 `question_origin`, `licence`, `licence_class`, `attribution` (the credit owed), `source_url`, `also_in`, `repeat_of`
-(the id of the question shown in its place, or `null`).
+(the id of the question shown in its place, or `null`), `passages` (each `book`, `chapter`, `verse`, `verse_end` and
+`check`), `people`, `places`, `subjects` (plain topics such as "the flood" or "kings of israel").
 
 **Tags are rules, not reading.** `books`, `testament` and `topic` come from fixed word lists and the references in
 [question_tags.py](../../scripts/question_tags.py): a word in the question counts three times, one in the answer once,
 the referenced book three times. 4,839 of 4,962 questions get a topic and 2,303 a book; a question can sit under a near
 topic, and nobody has checked them by hand.
+
+**Passages, people, places and subjects are read by a model, and every passage is checked.** Claude Haiku reads each
+shown question ([question_model_tags.py](../../scripts/question_model_tags.py), kept in [model-tags.json](model-tags.json)).
+A script then checks every passage it names against the BSB text: a book, chapter or verse that does not exist is
+dropped. A passage whose text, give or take two verses, holds a telling word of the answer has `check: "matched"`;
+otherwise it is `"exists"`, usually the right place worded differently ("covenant" for the promise to Abram). As of 22
+October 2026, 1,500 of the 3,717 shown questions are tagged: 1,347 have a passage (1,195 matched, 187 exists, 2
+dropped). The rest wait on the owner's yes, since the run cost more than quoted.
 
 ## Rebuilding
 
