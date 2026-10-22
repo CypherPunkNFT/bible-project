@@ -36,10 +36,12 @@ export function setLayout(value: DataLayout | undefined): void {
 
 const SAFE_PATH = /^[A-Za-z0-9_\-/.]+$/;
 
-async function fetchJson(path: string, check: (value: unknown) => boolean): Promise<unknown> {
+/** `revalidate`: ask the server every time (a cheap 304 when unchanged), for files rebuilt apart from the catalogue,
+ * whose stamp would otherwise let a browser keep an old copy for an hour. */
+async function fetchJson(path: string, check: (value: unknown) => boolean, revalidate = false): Promise<unknown> {
   if (!SAFE_PATH.test(path) || path.includes("..")) throw new DataUnavailable(path, "unsafe path");
   const url = `/data/${path}${stamp ? `?v=${stamp}` : ""}`;
-  const response = await fetch(url, { cache: stamp ? "default" : "no-cache" });
+  const response = await fetch(url, { cache: stamp && !revalidate ? "default" : "no-cache" });
   if (!response.ok) throw new DataUnavailable(path, `HTTP ${response.status}`);
   if (!(response.headers.get("content-type") ?? "").includes("json")) {
     throw new DataUnavailable(path, `expected JSON, got ${response.headers.get("content-type")}`);
@@ -50,10 +52,10 @@ async function fetchJson(path: string, check: (value: unknown) => boolean): Prom
 }
 
 /** One request per file for the whole session; concurrent callers share the in-flight request. */
-function load<T>(path: string, check: (value: unknown) => boolean): Promise<T> {
+function load<T>(path: string, check: (value: unknown) => boolean, revalidate = false): Promise<T> {
   let pending = cache.get(path);
   if (!pending) {
-    pending = fetchJson(path, check);
+    pending = fetchJson(path, check, revalidate);
     pending.catch(() => cache.delete(path));
     cache.set(path, pending);
   }
@@ -173,7 +175,7 @@ export interface BankTopic { id: string; title: string; group: "story" | "teachi
 export interface BankBook { code: string; name: string; short: string; section: string; testament: "OT" | "NT" }
 export interface QuestionBank { kinds: Record<string, string>; topics: BankTopic[]; books: BankBook[]; collections: BankCollection[]; questions: BankQuestion[] }
 export const loadQuestionBank = () =>
-  load<QuestionBank>("questions/bank.json", (v) => isObject(v) && Array.isArray(v.questions) && Array.isArray(v.collections) && Array.isArray(v.topics) && Array.isArray(v.books));
+  load<QuestionBank>("questions/bank.json", (v) => isObject(v) && Array.isArray(v.questions) && Array.isArray(v.collections) && Array.isArray(v.topics) && Array.isArray(v.books), true);
 
 // Hymns (scripts/build-hymn-collection.py): the collection, the full study of a hymn that has one, and the words of every hymn
 // filed by hymn book.
