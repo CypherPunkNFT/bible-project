@@ -35,9 +35,28 @@
 .oc-stats>div:first-child{padding-left:0;border-left:0}
 .oc-stats dd{margin:0;font:400 clamp(32px,3.4vw,46px)/1 var(--serif);letter-spacing:-.04em}
 .oc-stats dt{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+/* 01 folds away: the heading is the button; the body opens and closes on its height */
+.oc-where{padding:0}
+.oc-where h2{margin:0;font:inherit}
+.oc-where-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:26px;width:100%;padding:34px 0;background:none;border:0;text-align:left}
+.oc-where-head:focus{outline:none}
+.oc-where-title{display:block;font:450 clamp(28px,2.8vw,38px)/1.2 var(--serif);letter-spacing:-.035em;color:var(--ink)}
+.oc-where-title em{font-weight:400;color:var(--accent)}
+.oc-where-copy small{display:block;max-width:760px;margin-top:8px;font:14px/1.7 var(--sans);color:var(--muted)}
+.oc-where-toggle{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid var(--line);border-radius:999px;font:600 12.5px var(--sans);color:var(--accent);white-space:nowrap;transition:border-color .2s,background .2s}
+.oc-where-toggle svg{transition:transform .35s}
+.oc-where.is-open .oc-where-toggle svg{transform:rotate(180deg)}
+.oc-where-head:hover .oc-where-toggle{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.oc-where-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s ease}
+.oc-where.is-open .oc-where-body{grid-template-rows:1fr}
+.oc-where-body>div{min-height:0;overflow:hidden}
+.oc-where .qp-books{padding-top:0;border-top:0}
+.oc-where .oc-length{margin-bottom:6px}
 .to-option--c .qp-kinds{margin-top:30px}
 .oc-length{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 40px;margin-top:34px;padding-top:26px;border-top:1px solid var(--ink)}
-.oc-band{margin-top:70px}
+.oc-band{margin-top:56px}
+/* The gold rule dividing the top from the questions, brightest in the middle */
+.oc-band::before{content:"";position:absolute;inset:0 0 auto;z-index:1;height:1px;background:linear-gradient(90deg,rgba(217,177,92,0),rgba(217,177,92,.75) 18%,#f0d08a 50%,rgba(217,177,92,.75) 82%,rgba(217,177,92,0));box-shadow:0 0 14px rgba(240,208,138,.45)}
 .oc-band .qp-section-head h2{color:var(--ink)}
 .oc-cinema{position:relative;max-width:1000px;margin:24px auto 0;text-align:center;animation:tp-rise .4s ease-out}
 .oc-numeral{position:absolute;left:50%;top:-50px;z-index:-1;transform:translateX(-50%);font:italic 400 clamp(220px,30vw,400px)/1 var(--serif);color:var(--accent);opacity:.08;white-space:nowrap;pointer-events:none;user-select:none}
@@ -103,6 +122,7 @@
   .od-column .tp-ring{width:170px}
 }
 @media(max-width:600px){
+  .oc-where-head{grid-template-columns:minmax(0,1fr) auto;gap:14px}.oc-where-head .qp-section-n{grid-column:1/-1}
   .to-pill-label,.to-pill button span{display:none}
   .to-pill button{padding:6px}
   .ob-top{margin-bottom:30px}

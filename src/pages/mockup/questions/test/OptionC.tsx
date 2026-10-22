@@ -1,10 +1,14 @@
 // Whole-page option C, the questions page's own house style: an intro with a large title and four numbers, section 01
-// to choose where the questions come from (the book map, the kinds, how many), then section 02 on the dusk band, where
+// to choose where the questions come from (the book map, the kinds, how many), which folds away to one line of what is
+// chosen (owner, 2026-10-22: "a collapsible and an expandable section in the top part"), then, under a gold rule that
+// divides the top from the questions, section 02 on the dusk band, where
 // each question plays like a film card: its number as a giant Roman numeral behind it, the options as ruled lines two
 // by two, and a small wheel under it.
-import { RotateCcw } from "lucide-react";
+import { ChevronDown, RotateCcw } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { KindChips } from "../FilterRail";
 import { BookGrid } from "../BookGrid";
+import { KINDS } from "../model";
 import { SectionHead } from "../shared";
 import { promptSize, roman } from "./controls";
 import { DustField } from "./DustField";
@@ -16,7 +20,7 @@ import { Choices, KeyHint, NextButton, OpenAnswer, Verdict, VerseWords } from ".
 import { Ring } from "./Ring";
 
 export function OptionC(props: OptionProps) {
-  const { bank, pool, facets, filters, update, length, setLength, active, items, round, bookNames, redraw } = props;
+  const { bank, pool, facets, active, items, round, bookNames } = props;
   const rows = facets.rows;
   const stats: [number, string][] = [
     [rows.length, "questions to draw from"],
@@ -33,15 +37,7 @@ export function OptionC(props: OptionProps) {
         <p>Choose where the questions come from and how many. They come one at a time, in a new order every time, and each answer opens the verse it comes from.</p>
         <dl className="oc-stats">{stats.map(([n, label]) => <div key={label}><dt>{label}</dt><dd>{n.toLocaleString()}</dd></div>)}</dl>
       </header>
-      <BookGrid books={bank.books} counts={facets.counts.book} selected={filters.book} onChoose={(book) => update({ book })}
-        title={<>Choose <em>where</em></>} lead="Every book of the Bible with its questions; the deeper the colour, the more there are. Choose a book, a kind of question and how many, or leave them all open." />
-      <KindChips facets={facets} filters={filters} update={update} />
-      <div className="oc-length">
-        <div className="tp-lengths" role="group" aria-label="How many questions">
-          {LENGTHS.map((n) => <button key={n} type="button" aria-pressed={length === n} onClick={() => setLength(n)}><strong>{n}</strong><small>questions</small></button>)}
-        </div>
-        <button type="button" className="tp-begin-go" disabled={!rows.length} onClick={redraw}>Draw again<RotateCcw size={16} strokeWidth={1.7} aria-hidden /></button>
-      </div>
+      <ChooseWhere {...props} />
     </div>
     <div className="tp-dusk oc-band">
       {active && <DustField />}
@@ -51,6 +47,39 @@ export function OptionC(props: OptionProps) {
       </div>
     </div>
   </>;
+}
+
+/** 01 Choose where: open, the book map, the kinds and how many; folded, one line of what is chosen. */
+function ChooseWhere({ bank, facets, filters, update, length, setLength, bookNames, redraw }: OptionProps) {
+  const [open, setOpen] = useState(true);
+  const body = useRef<HTMLDivElement>(null);
+  // Folded away, its buttons are out of reach of the keyboard and screen readers too.
+  useEffect(() => { if (body.current) body.current.inert = !open; }, [open]);
+  const rows = facets.rows;
+  const summary = [filters.book ? bookNames[filters.book] ?? filters.book : "Every book",
+    KINDS.find((k) => k.id === filters.kind)?.label ?? filters.kind,
+    filters.topic && (bank.topics.find((t) => t.id === filters.topic)?.title ?? filters.topic),
+    filters.testament && (filters.testament === "OT" ? "Old Testament" : "New Testament"),
+    filters.choices && "options only", filters.search && `“${filters.search}”`,
+    `${length} questions from ${rows.length.toLocaleString()}`].filter(Boolean).join(" · ");
+  return <section className={`qp-section oc-where${open ? " is-open" : ""}`}>
+    <h2><button type="button" className="oc-where-head" aria-expanded={open} aria-controls="oc-where-body" onClick={() => setOpen((o) => !o)}>
+      <span className="qp-section-n" aria-hidden>01</span>
+      <span className="oc-where-copy"><span className="oc-where-title">Choose <em>where</em></span>
+        <small>{open ? "Every book of the Bible with its questions; the deeper the colour, the more there are. Choose a book, a kind of question and how many, or leave them all open." : summary}</small></span>
+      <span className="oc-where-toggle">{open ? "Fold away" : "Change"}<ChevronDown size={15} strokeWidth={1.8} aria-hidden /></span>
+    </button></h2>
+    <div className="oc-where-body" id="oc-where-body" ref={body}><div>
+      <BookGrid bare books={bank.books} counts={facets.counts.book} selected={filters.book} onChoose={(book) => update({ book })} />
+      <KindChips facets={facets} filters={filters} update={update} />
+      <div className="oc-length">
+        <div className="tp-lengths" role="group" aria-label="How many questions">
+          {LENGTHS.map((n) => <button key={n} type="button" aria-pressed={length === n} onClick={() => setLength(n)}><strong>{n}</strong><small>questions</small></button>)}
+        </div>
+        <button type="button" className="tp-begin-go" disabled={!rows.length} onClick={redraw}>Draw again<RotateCcw size={16} strokeWidth={1.7} aria-hidden /></button>
+      </div>
+    </div></div>
+  </section>;
 }
 
 function CinemaQuestion({ run, bookNames, kinds }: ViewProps) {
