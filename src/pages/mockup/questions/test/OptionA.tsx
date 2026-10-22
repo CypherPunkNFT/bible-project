@@ -1,60 +1,92 @@
-// Whole-page option A of the test page (owner, 2026-10-22: the house style is A, with the answer in the as-is
-// format). An intro with a large title and four numbers; section 01 to choose where the questions come from: the books
-// as one wide bar chart (with a chapter chart once a book is chosen), the kinds, and how many; then, under a gold rule
-// that divides the top from the questions, section 02 on the dusk band with the question panel and its wheel.
-import { ArrowLeft, RotateCcw } from "lucide-react";
+// Whole-page option A of the test page, the self-test page in full (owner, 2026-10-22: "this needs to be a whole
+// page… the self-test page in all of its glory", with themed tests rather than the sources the questions came from).
+// A short top (a title line, two lines under it, one floating line of numbers); 01 the themed tests on shelves; 02 a
+// test of your own from the book and chapter charts; a ready bar with the kind of question, how many and Begin; then,
+// under a gold rule, 03 on the dusk band with the as-is question panel and its wheel. Finished tests are kept in this
+// browser's record, which each theme card shows.
+import { ArrowDown, ArrowLeft, RotateCcw } from "lucide-react";
+import { useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
-import { KindChips } from "../FilterRail";
+import { KINDS } from "../model";
 import { SectionHead } from "../shared";
 import { BookBars } from "./BookBars";
 import { DustField } from "./DustField";
-import { LENGTHS } from "./engine";
+import { LENGTHS, scoreOf } from "./engine";
 import type { OptionProps } from "./host";
 import { TestArea } from "./host";
 import { QuestionPanel } from "./QuestionPanel";
+import { useRecord } from "./record";
+import { ThemeShelves } from "./ThemeShelves";
+import { MIN_THEME, THEMES, inTheme, themeById } from "./themes";
 
 export function BackLink({ to }: { to: string }) {
   return <Link className="tp-back" to={to}><ArrowLeft size={15} strokeWidth={1.6} aria-hidden />Back to the questions</Link>;
 }
 
 export function OptionA(props: OptionProps) {
-  const { bank, pool, facets, filters, update, length, setLength, active, items, round, bookNames, redraw, bookFacets, chapter, setChapter } = props;
-  const rows = facets.rows;
-  const stats: [number, string][] = [
-    [rows.length, "questions to draw from"],
-    [new Set(rows.flatMap((r) => pool[r].books)).size, "books they come from"],
-    [new Set(rows.map((r) => pool[r].topic).filter(Boolean)).size, "topics they cover"],
-    [rows.filter((r) => pool[r].options?.length).length, "with options to choose"],
-  ];
+  const { bank, pool, facets, filters, update, active, items, round, bookNames, bookFacets, chapter, setChapter, themeRows, setTheme } = props;
+  const { record, save } = useRecord();
+  const theme = themeById(props.theme);
+  const themeCounts = useMemo(() => new Map(THEMES.map((t) => [t.id, themeRows.filter((r) => inTheme(t, pool[r])).length])), [themeRows, pool]);
+  const shown = THEMES.filter((t) => (themeCounts.get(t.id) ?? 0) >= MIN_THEME).length;
+  const taken = Object.values(record).reduce((sum, mark) => sum + mark.taken, 0);
+  const band = useRef<HTMLDivElement>(null);
+  const toTest = () => band.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const what = theme?.title ?? (filters.book ? `${bookNames[filters.book] ?? filters.book}${chapter ? `, chapter ${chapter}` : ""}` : "The whole Bible");
   return <>
     <div className="tp-wrap">
-      <div className="tp-top"><BackLink to={props.backTo} /></div>
-      <header className="oc-intro">
-        <p className="tp-eyebrow"><span aria-hidden />Your test</p>
-        <h1>Test what you <em>know</em></h1>
-        <p>Choose where the questions come from and how many. They come one at a time, in a new order every time, and each answer opens the verse it comes from.</p>
-        <dl className="oc-stats">{stats.map(([n, label]) => <div key={label}><dt>{label}</dt><dd>{n.toLocaleString()}</dd></div>)}</dl>
+      <header className="ts-head">
+        <BackLink to={props.backTo} />
+        <h1>Test <em>yourself</em></h1>
+        <p>{shown} themed tests, from Abraham to the life to come, or one of your own from any book and chapter.
+          One question at a time, and every answer opens the verse it comes from.</p>
+        <p className="ts-float"><span><b>{pool.length.toLocaleString()}</b> questions</span><span><b>{shown}</b> themes</span>
+          <span><b>66</b> books</span><span><b>{taken}</b> {taken === 1 ? "test" : "tests"} taken</span></p>
       </header>
+      <section className="qp-section" aria-labelledby="ts-themes-title">
+        <SectionHead n="01" id="ts-themes-title" title={<>Choose a <em>theme</em></>}
+          lead="Questions gathered by what they are about: a life, a story, a teaching, or the Bible itself. Choose one and it is ready below." />
+        <ThemeShelves counts={themeCounts} selected={props.theme} record={record} onChoose={(id) => { setTheme(id); if (id) toTest(); }} />
+      </section>
       <section className="qp-section oc-where" aria-labelledby="oc-where-title">
-        <SectionHead n="01" id="oc-where-title" title={<>Choose <em>where</em></>}
-          lead="Every book of the Bible, each bar as tall as its questions. Choose a book to see it chapter by chapter, or leave it open for the whole Bible." />
+        <SectionHead n="02" id="oc-where-title" title={<>Or choose <em>where</em></>}
+          lead="Every book of the Bible, each bar as tall as its questions. Choose a book, then a chapter if you like." />
         <BookBars books={bank.books} counts={bookFacets.counts.book} selected={filters.book} onChoose={(book) => update({ book })}
           pool={pool} bookRows={bookFacets.rows} chapter={chapter} onChapter={setChapter} />
-        <KindChips facets={facets} filters={filters} update={update} />
-        <div className="oc-length">
-          <div className="tp-lengths" role="group" aria-label="How many questions">
-            {LENGTHS.map((n) => <button key={n} type="button" aria-pressed={length === n} onClick={() => setLength(n)}><strong>{n}</strong><small>questions</small></button>)}
-          </div>
-          <button type="button" className="tp-begin-go" disabled={!rows.length} onClick={redraw}>Draw again<RotateCcw size={16} strokeWidth={1.7} aria-hidden /></button>
-        </div>
       </section>
+      <ReadyBar {...props} what={what} onBegin={toTest} />
     </div>
-    <div className="tp-dusk oc-band">
+    <div className="tp-dusk oc-band" ref={band}>
       {active && <DustField />}
       <div className="tp-wrap">
-        <SectionHead n="02" id="oc-test-title" title={<>Answer <em>them</em></>} lead="One question at a time. Choose an option, or think of the answer and then look." />
-        {items.length > 0 && <TestArea key={round} items={items} active={active} bank={bank} bookNames={bookNames} View={QuestionPanel} />}
+        <SectionHead n="03" id="oc-test-title" title={theme ? <>{theme.title}</> : <>Answer <em>them</em></>}
+          lead={theme ? theme.line : "One question at a time. Choose an option, or think of the answer and then look."} />
+        {items.length > 0 && <TestArea key={round} items={items} active={active} bank={bank} bookNames={bookNames} View={QuestionPanel}
+          onResults={(results) => save(props.theme || "own", scoreOf(results), results.length)} />}
+        {!facets.rows.length && <p className="ts-empty">No questions match. Choose another theme or book, or a different kind of question.</p>}
       </div>
     </div>
   </>;
+}
+
+/** What the test will be, the kind of question and how many, and Begin. */
+function ReadyBar({ facets, filters, update, length, setLength, redraw, what, onBegin }: OptionProps & { what: string; onBegin: () => void }) {
+  const kinds = facets.counts.kind;
+  const total = [...kinds.values()].reduce((a, b) => a + b, 0);
+  const available = facets.rows.length;
+  return <div className="ts-ready">
+    <div className="ts-ready-what"><span className="tp-field-label">Your test</span><strong>{what}</strong>
+      <small>{available.toLocaleString()} questions to draw from</small></div>
+    <div className="tp-segments ts-kinds" role="group" aria-label="Kind of question">
+      {KINDS.map((k) => <button key={k.label} type="button" aria-pressed={filters.kind === k.id} onClick={() => update({ kind: k.id, topic: "", collection: "" })}>
+        {k.label}<small>{(k.id ? kinds.get(k.id) ?? 0 : total).toLocaleString()}</small></button>)}
+    </div>
+    <div className="tp-segments ts-length" role="group" aria-label="How many questions">
+      {LENGTHS.map((n) => <button key={n} type="button" aria-pressed={length === n} onClick={() => setLength(n)}>{n}</button>)}
+    </div>
+    <div className="ts-ready-go">
+      <button type="button" className="tp-quiet" disabled={!available} onClick={redraw}><RotateCcw size={14} strokeWidth={1.8} aria-hidden />Draw again</button>
+      <button type="button" className="tp-begin-go" disabled={!available} onClick={onBegin}>Begin · {Math.min(length, available)} questions<ArrowDown size={16} strokeWidth={1.7} aria-hidden /></button>
+    </div>
+  </div>;
 }

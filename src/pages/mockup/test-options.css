@@ -1,5 +1,6 @@
 /* MOCK-UP: the test page's whole-page options (questions/test/Option*.tsx), the pill that switches them once there is
-   more than one, and option A's parts: the intro, the book and chapter charts, and the gold rule over the dusk band.
+   more than one, and option A's parts: the short top, the theme shelves, the book and chapter charts, the ready bar
+   and the gold rule over the dusk band.
    The question panel and the band are test-stage.css; the shared pieces test-page.css. */
 :root{--to-head:3.6rem}
 
@@ -13,15 +14,37 @@
 .to-pill button[aria-pressed="true"]{background:#d9b15c;color:#14110b}
 .to-pill button[aria-pressed="true"] b{border-color:rgba(20,17,11,.35)}
 
-/* The intro: a large title and four numbers */
-.oc-intro{padding-block:44px 54px}
-.oc-intro h1{font:450 clamp(48px,6.2vw,86px)/1.02 var(--serif);letter-spacing:-.05em;margin:20px 0 18px}
-.oc-intro>p:not(.tp-eyebrow){max-width:620px;font-size:15px;line-height:1.8;color:var(--muted)}
-.oc-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:40px 0 0;border-top:1px solid var(--ink)}
-.oc-stats>div{display:flex;flex-direction:column-reverse;gap:8px;padding:18px 18px 0 20px;border-left:1px solid var(--line)}
-.oc-stats>div:first-child{padding-left:0;border-left:0}
-.oc-stats dd{margin:0;font:400 clamp(32px,3.4vw,46px)/1 var(--serif);letter-spacing:-.04em}
-.oc-stats dt{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+/* The top: a title line, two lines under it, and one floating line of numbers */
+.ts-head{padding-block:24px 40px}
+.ts-head h1{font:450 clamp(44px,5.4vw,72px)/1.04 var(--serif);letter-spacing:-.05em;margin:26px 0 12px}
+.ts-head>p:not(.ts-float){max-width:640px;font-size:15px;line-height:1.75;color:var(--muted)}
+.ts-float{display:inline-flex;flex-wrap:wrap;align-items:center;margin-top:24px;padding:9px 6px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--surface) 80%,transparent);box-shadow:0 14px 34px -20px rgba(60,40,10,.45);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ts-float span{display:inline-flex;align-items:baseline;gap:7px;padding:0 18px}
+.ts-float span+span{border-left:1px solid var(--line)}
+.ts-float b{font:400 19px/1 var(--serif);letter-spacing:-.02em;text-transform:none;color:var(--ink)}
+
+/* 01: the themed tests on shelves */
+.th{display:flex;flex-direction:column;gap:40px}
+.th-shelf-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.th-shelf-head h3{font:italic 400 25px/1.1 var(--serif);letter-spacing:-.02em}
+.th-shelf-head p{font-size:13px;color:var(--muted)}
+.th-shelf-head span{margin-left:auto;font-size:10px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.th-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.th-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-height:134px;padding:15px 18px 18px 20px;border:1px solid color-mix(in srgb,var(--tone) 28%,var(--line));border-radius:10px;background:linear-gradient(155deg,color-mix(in srgb,var(--tone) 11%,var(--surface)),var(--surface) 72%);text-align:left;overflow:hidden;transition:transform .25s,border-color .2s,box-shadow .25s,background .25s}
+.th-card::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--tone)}
+.th-card:hover{transform:translateY(-3px);border-color:var(--tone);box-shadow:0 14px 30px -16px color-mix(in srgb,var(--tone) 70%,transparent)}
+.th-card:focus{outline:none}
+.th-card-top{display:flex;justify-content:space-between;gap:8px;width:100%;font-size:10px;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in srgb,var(--tone) 75%,var(--ink))}
+.th-new{font-weight:500;color:var(--muted)}
+.th-best{color:var(--right)}
+.th-title{margin-top:auto;font:450 22px/1.2 var(--serif);letter-spacing:-.02em}
+.th-line{font-size:12.5px;line-height:1.5;color:var(--muted)}
+.th-meter{position:absolute;inset:auto 0 0;height:3px;background:color-mix(in srgb,var(--tone) 14%,transparent)}
+.th-meter span{display:block;width:var(--best);height:100%;background:var(--tone);transition:width .6s ease}
+.th-card.is-on{background:var(--tone);border-color:var(--tone);color:var(--page)}
+.th-card.is-on::before{background:var(--page);opacity:.5}
+.th-card.is-on .th-card-top,.th-card.is-on .th-line,.th-card.is-on .th-new,.th-card.is-on .th-best{color:inherit;opacity:.85}
+.th-card.is-on .th-meter span{background:var(--page)}
 
 /* 01: the books as one wide bar chart, the Testaments side by side, their sections named underneath */
 .bb{margin-bottom:6px}
@@ -59,8 +82,14 @@
 .bb-chapter.is-on .bb-number{color:var(--ink);font-weight:700}
 .bb-note{margin-top:12px;font-size:11.5px;color:var(--muted)}
 
-.oc-where .qp-kinds{margin-top:34px}
-.oc-length{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 40px;margin-top:34px;padding-top:26px;border-top:1px solid var(--ink)}
+/* The ready bar: what the test is, the kind of question, how many, and Begin */
+.ts-ready{display:grid;grid-template-columns:minmax(180px,1fr) minmax(0,2.1fr) 150px auto;align-items:center;gap:18px 26px;margin-top:44px;padding:20px 24px;border:1px solid var(--ink);border-radius:14px;background:var(--surface);box-shadow:0 18px 40px -28px rgba(60,40,10,.5)}
+.ts-ready-what .tp-field-label{margin-bottom:5px}
+.ts-ready-what strong{display:block;font:450 24px/1.2 var(--serif);letter-spacing:-.02em}
+.ts-ready-what small{font-size:12px;color:var(--muted)}
+.ts-kinds button{font-size:12px}
+.ts-ready-go{display:flex;align-items:center;gap:18px}
+.ts-empty{padding:30px 0;font-size:15px;color:var(--muted)}
 
 /* 02 on the dusk band, under a gold rule that divides the top from the questions, brightest in the middle */
 .oc-band{margin-top:56px}
@@ -69,8 +98,8 @@
 .oc-band .qp-section-head h2{color:var(--ink)}
 
 @media(max-width:900px){
-  .oc-stats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:22px}
-  .oc-stats>div:nth-child(3){padding-left:0;border-left:0}
+  .th-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ts-ready{grid-template-columns:1fr 150px}.ts-kinds{grid-column:1/-1;grid-row:2}.ts-ready-go{grid-column:1/-1;justify-content:flex-end}
   .bb-testaments{flex-direction:column;gap:26px}
   .bb-column{height:130px}
 }
@@ -81,4 +110,10 @@
   .bb-name{font-size:8px;letter-spacing:0}
   .bb-chapter-bars{gap:1px}
   .bb-chapters{padding:16px 12px 12px}
+  .th-cards{grid-template-columns:1fr}.th-card{min-height:118px}
+  .ts-float{display:grid;grid-template-columns:1fr 1fr;row-gap:8px;border-radius:16px;padding:12px 4px}
+  .ts-float span{padding:2px 14px}.ts-float span:nth-child(3){border-left:0}
+  .ts-ready{grid-template-columns:1fr;padding:18px 16px}.ts-kinds{grid-row:auto;height:auto;grid-auto-flow:row;grid-template-columns:1fr 1fr}.ts-kinds button{height:40px}
+  .ts-kinds button:nth-child(odd){border-left:0}.ts-kinds button:nth-child(n+3){border-top:1px solid var(--line)}
+  .ts-ready-go{justify-content:space-between}
 }

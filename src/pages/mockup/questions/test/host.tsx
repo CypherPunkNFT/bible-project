@@ -18,8 +18,12 @@ export interface OptionProps {
   length: number;
   setLength: (n: number) => void;
   items: Item[];
-  /** The settings without the chapter, for the book and chapter charts (`facets` has the chapter). */
+  /** The settings without the chapter, for the book and chapter charts (`facets` has the chapter and the theme). */
   bookFacets: Facets;
+  /** The questions each theme could draw on: the kind and other settings, without the book, chapter or theme. */
+  themeRows: number[];
+  theme: string;
+  setTheme: (id: string) => void;
   chapter: number | null;
   setChapter: (chapter: number | null) => void;
   /** Goes up with every new draw; a test keyed on it starts over. */
@@ -37,12 +41,13 @@ export function RunHost({ items, active, onFinish, children }: { items: Item[]; 
   return <>{children(run)}</>;
 }
 
-/** The test through `View`, then the results in the same place. */
-export function TestArea({ items, active, bank, bookNames, View }: { items: Item[]; active: boolean; bank: QuestionBank; bookNames: Record<string, string>; View: ComponentType<ViewProps> }) {
+/** The test through `View`, then the results in the same place; `onResults` hears every finished test. */
+export function TestArea({ items, active, bank, bookNames, View, onResults }: { items: Item[]; active: boolean; bank: QuestionBank; bookNames: Record<string, string>; View: ComponentType<ViewProps>; onResults?: (results: Result[]) => void }) {
   const { stage, round, start, finish } = useTestStage(items);
+  const done = (results: Result[]) => { finish(results); onResults?.(results); };
   if (stage.step === "results") return <TestResults items={stage.items} results={stage.results} topics={bank.topics} bookNames={bookNames}
     onRetake={start} onNew={() => start(items)} />;
-  return <RunHost key={round} items={stage.items} active={active} onFinish={finish}>
+  return <RunHost key={round} items={stage.items} active={active} onFinish={done}>
     {(run) => <View run={run} bookNames={bookNames} kinds={bank.kinds} />}
   </RunHost>;
 }

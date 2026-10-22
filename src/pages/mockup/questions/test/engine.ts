@@ -5,7 +5,8 @@ import { rightChoice, type BankQuestion } from "@/lib/data";
 
 /** A tagged passage (scripts/question_model_tags.py); "matched" means the answer's words are within two verses. */
 export interface TaggedPassage { book: string; chapter: number; verse: number | null; verse_end: number | null; check: string }
-export type TestQuestion = BankQuestion & { passages?: TaggedPassage[] };
+/** `people`, `places` and `subjects` are what the question is about, tagged by a model (scripts/question_model_tags.py). */
+export type TestQuestion = BankQuestion & { passages?: TaggedPassage[]; people?: string[]; places?: string[]; subjects?: string[] };
 
 export type Format = "choice" | "truefalse" | "open";
 export interface Item { q: TestQuestion; format: Format; prompt: string; choices: string[] | null }
