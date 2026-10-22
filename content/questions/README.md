@@ -3,8 +3,9 @@
 [question-bank.json](question-bank.json) is the one list of **production-ready** questions the site draws on: the
 questions page (`/study/questions`), and later the home page's "How well do you know the Bible?" section and any quiz.
 
-**8,866 questions** (built 2026-10-22): 2,831 Bible quiz, 902 Sunday school lesson, 2,516 Bible reading and 2,617
-catechism questions; 1,457 are multiple choice and 3,604 carry a scripture reference.
+**4,962 questions** (built 2026-10-22): 2,831 Bible quiz, 902 Sunday school lesson and 1,229 catechism questions;
+1,457 are multiple choice and 1,703 carry a scripture reference. Roman Catholic and Seventh-day Adventist books are
+left out as outside the site's doctrinal scope (owner, 2026-10-22); they stay in the corpus to mine for content later.
 
 ## What "production-ready" means here
 
@@ -27,8 +28,8 @@ marks a question that leans on the one before it ("What were their names?"); it 
 ## Each record
 
 `id`, `source_id`, `attribution_source_id`, `question`, `answer`, `options` (the choices, or `null`), `reference`,
-`kind` (`trivia`, `lesson`, `reading`, `catechism`), `tradition` (Baptist, Reformed, Lutheran, Puritan, Methodist,
-Roman Catholic, Seventh-day Adventist, or `null` for trivia), `collection`, `lesson`, `standalone`,
+`kind` (`trivia`, `lesson`, `catechism`), `tradition` (Baptist, Reformed, Lutheran, Puritan, Methodist, or `null`
+for trivia), `collection`, `lesson`, `standalone`,
 `question_origin`, `licence`, `licence_class`, `attribution` (the credit owed), `source_url`, `also_in`.
 
 ## Rebuilding

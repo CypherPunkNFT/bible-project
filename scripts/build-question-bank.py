@@ -32,7 +32,6 @@ SCHEMA = "bibleproject.question-bank/v1"
 KINDS = {
     "trivia": "Bible quiz",
     "lesson": "Sunday school lesson",
-    "reading": "Bible reading",
     "catechism": "Catechism",
 }
 
@@ -49,7 +48,6 @@ BANKS: dict[str, tuple[str, str, str | None]] = {
     "opentdb-bible-subset": ("Open Trivia Database", "trivia", None),
     "religion-faith-bible-subset": ("OpenTriviaQA, religion and faith", "trivia", None),
     "pg29067": ("Hurlbut's Bible Lessons for Boys and Girls (1903)", "lesson", "Methodist"),
-    "pg34520": ("Bible Readings for the Home Circle (1914)", "reading", "Seventh-day Adventist"),
     "know-the-truth-60": ("Know the Truth: 60 Questions on Christian Beliefs", "catechism", "Baptist"),
     "1695_baptist_catechism": ("1695 Baptist Catechism", "catechism", "Baptist"),
     "keachs_catechism": ("Keach's Catechism", "catechism", "Baptist"),
@@ -62,17 +60,22 @@ BANKS: dict[str, tuple[str, str, str | None]] = {
     "catechism_for_young_children": ("A Catechism for Young Children", "catechism", "Reformed"),
     "pg13274": ("John Mason's Little Catechism (1692)", "catechism", "Puritan"),
     "pg36081": ("Luther's Small Catechism Explained (Sverdrup, 1900)", "catechism", "Lutheran"),
-    "baltimore_no_1": ("Baltimore Catechism No. 1", "catechism", "Roman Catholic"),
-    "baltimore_no_2": ("Baltimore Catechism No. 2", "catechism", "Roman Catholic"),
-    "pg14553": ("Baltimore Catechism No. 3 (1885)", "catechism", "Roman Catholic"),
-    "pg14554": ("Kinkead's Explanation of the Baltimore Catechism (1891)", "catechism", "Roman Catholic"),
 }
+
+# Outside the site's close-to-Baptist scope (owner 2026-10-22): kept in the corpus to mine for content later, never
+# shown as the site's own questions.
+OUT_OF_SCOPE = "Outside the site's doctrinal scope (owner 2026-10-22); kept in the corpus to mine for content later."
 
 LEFT_OUT: dict[str, str] = {
     "uncategorized-bible-subset": "Pub-quiz trivia that is often not about the Bible and sometimes wrong "
     "(a 1930s laxative advert, 'rats are not in the Bible'); not fit to show.",
     "pg9912": "The book prints its questions without answers.",
     "pg53465": "The book prints its questions without answers.",
+    "pg34520": f"Bible Readings for the Home Circle (1914), Seventh-day Adventist. {OUT_OF_SCOPE}",
+    "baltimore_no_1": f"Baltimore Catechism No. 1, Roman Catholic. {OUT_OF_SCOPE}",
+    "baltimore_no_2": f"Baltimore Catechism No. 2, Roman Catholic. {OUT_OF_SCOPE}",
+    "pg14553": f"Baltimore Catechism No. 3 (1885), Roman Catholic. {OUT_OF_SCOPE}",
+    "pg14554": f"Kinkead's Explanation of the Baltimore Catechism (1891), Roman Catholic. {OUT_OF_SCOPE}",
 }
 LEFT_OUT_SOURCES: dict[str, str] = {
     "internet-archive-sunday-school-question-books": "Read off old page scans by machine; every question needs "
@@ -84,9 +87,6 @@ LEFT_OUT_SOURCES: dict[str, str] = {
 # drop them. Trivia questions are written to stand alone.
 LEANS_ON_CONTEXT = re.compile(r"\b(this|these|those|they|them|their|he|him|she|her|it)\b", re.IGNORECASE)
 
-# Banks whose lesson headings the corpus parser got wrong: Bible Readings files 2,282 of its questions under
-# "ISAAC WATTS", a hymn credit. Their headings are dropped rather than shown.
-BAD_LESSONS = {"pg34520"}
 
 
 def load_corpus() -> list[dict]:
@@ -126,7 +126,7 @@ def better(a: dict, b: dict) -> bool:
 
 def to_entry(record: dict) -> dict:
     title, kind, tradition = BANKS[record["bank_id"]]
-    lesson = None if record["bank_id"] in BAD_LESSONS else record.get("lesson")
+    lesson = record.get("lesson")
     return {
         "id": record["id"],
         "source_id": record["source_id"],

@@ -146,7 +146,7 @@ are left off the pages and listed for the owner, never corrected by hand.
 
 ## Question Bank — registered 22 October 2026 (local preview only; nothing published)
 
-The thirteen sources behind the site's official Question Bank, shown at `/study/questions` (local preview only until
+The twelve sources behind the site's official Question Bank, shown at `/study/questions` (local preview only until
 approved). The corpus is `Research/BibleQuizCorpus/` (Fortress jobs 64bc483e and b88ef04a, 16–17 October 2026); the bank
 is generated from its normalized files by `scripts/build-question-bank.py` into `content/questions/question-bank.json`
 (the official record, every question carrying its own licence and credit line) and `data/questions/bank.json` (the
@@ -155,15 +155,14 @@ page's copy). Nothing in `Research/` is written to by the build. Publishability 
 
 The corpus manifest records every file's size and SHA-256: `Research/BibleQuizCorpus/manifest.json`. The checksum below
 is the first 16 hex of a SHA-256 over that source's sorted `path sha256` lines. "Questions" is how many of the bank's
-8,866 questions are credited to that source after duplicates are folded together.
+4,962 questions are credited to that source after duplicates are folded together.
 
 | Source | Questions | Licence and credit owed | Files / bytes | Checksum |
 |---|---:|---|---|---|
-| [Sunday school and catechism question books, 1692-1914 (Project Gutenberg)](https://www.gutenberg.org — 8 ebooks, each listed below), retrieved 2026-10-17 | 4,679 | Public domain in the United States — Project Gutenberg hosts nothing else.  | 16 / 3,907,186 | `d7fd68b56b4999a0` |
+| [Sunday school and catechism question books, 1692-1914 (Project Gutenberg)](https://www.gutenberg.org — 8 ebooks, each listed below), retrieved 2026-10-17 | 1,215 | Public domain in the United States — Project Gutenberg hosts nothing else.  | 16 / 3,907,186 | `d7fd68b56b4999a0` |
 | [Bible trivia, Alpaca-formatted (liaaron1/bibile_trivia_alpaca)](https://huggingface.co/datasets/liaaron1/bibile_trivia_alpaca), revision `079b588e8c6a`, retrieved 2026-10-17 | 1,058 | apache-2.0, in the dataset card YAML and in the Hub's licence tag. Unsettled. If used at all, credit Ministry-To-Children.com for the overlapping questions; the provenance of the rest is unknown. | 3 / 178,040 | `a01021b4fbfbc7f3` |
 | [Scripture Buzzer question set (AyandaNgubane/Bible-Quiz)](https://github.com/AyandaNgubane/Bible-Quiz), revision `f2341765d251`, retrieved 2026-10-17 | 1,005 | None. No licence states terms. Credit AyandaNgubane/Bible-Quiz if permission is ever obtained. | 45 / 541,777 | `f8d90e11a985f475` |
 | [Reformed catechisms from Creeds.json](https://github.com/NonlinearFruit/Creeds.json), revision `2ae21a4c5387`, retrieved 2026-10-17 | 734 | Quoted from README.md: "This repo as a whole is not licensed for reuse due to the copyright right status of several texts (listed below) . The Unlicense requires nothing. Crediting NonlinearFruit/Creeds.json for the transcription is courteous. | 8 / 758,281 | `41827d672885cdf7` |
-| [Baltimore Catechism No. 1 and No. 2 (A Catechism of Christian Doctrine)](https://www.gutenberg.org/ebooks/14551 and https://www.gutenberg.org/ebooks/14552), retrieved 2026-10-17 | 440 | Public domain in the United States. None required. Honest description: A Catechism of Christian Doctrine, prepared and enjoined by order of the Third Plenary Council of Baltimore, 1885, with the imprimatur of Cardinal McCloskey and Archbishop Gibbons. | 4 / 267,596 | `6132a5c98c917e92` |
 | [300 Bible Trivia Questions and Answers for Kids](https://ministry-to-children.com/kids-bible-trivia/), retrieved 2026-10-17 | 289 | CC BY-SA 4.0. Required by CC BY-SA 4.0: credit Ministry-To-Children.com (Tony Kummer) and license any adaptation under the same or a compatible licence. | 3 / 315,337 | `3eaaa6b6c7ef4ed9` |
 | [OpenTriviaQA religion-faith category, Bible questions only](https://github.com/uberspot/OpenTriviaQA), revision `dcc1cdf36c29`, retrieved 2026-10-17 | 246 | CC BY-SA 4.0, stated in README.md, carried in full in the LICENSE file, and detected as CC-BY-SA-4.0 by GitHub's own licence API. Required by CC BY-SA 4.0: credit uberspot/OpenTriviaQA and license any adaptation under the same or a compatible licence. | 3 / 133,603 | `d701b63739699327` |
 | [Westminster Shorter and Larger Catechisms with the Assembly's proof texts](https://github.com/Sundar1205/westminster-catechism), revision `8e7351d8e642`, retrieved 2026-10-17 | 122 | None. No licence states terms. The repository traces its own sources to a public gist of the 1647 Shorter Catechism text and to the Free Presbyterian Church of Scotland's edition of the 1648 Larger Catechism. | 6 / 1,842,981 | `a0ea5c12db1de567` |
@@ -175,7 +174,8 @@ is the first 16 hex of a SHA-256 over that source's sorted `path sha256` lines. 
 
 **Left out of the bank, still in the corpus:** the 67 scanned Internet Archive question books (machine-read, need
 proofreading), the el-cms "uncategorized" trivia (pub quiz, often wrong), two Gutenberg books printed without answers,
-and all of batch 1. Reasons per bank are in the bank file's `left_out` list.
+the Roman Catholic Baltimore catechisms and the Seventh-day Adventist *Bible Readings for the Home Circle*
+(outside the site's doctrinal scope, owner 2026-10-22; kept to mine for content later), and all of batch 1. Reasons per bank are in the bank file's `left_out` list.
 
 ## Catechisms & Creeds — published 17 October 2026
 
