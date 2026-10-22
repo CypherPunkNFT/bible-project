@@ -50,9 +50,12 @@ export const isDated = (r: MsRecord): r is MsRecord & { e: number; l: number } =
 export const yearText = (y: number) => (y < 0 ? `${-y + 1} BC` : y < 400 ? `AD ${y}` : String(y));
 /** The siglum, when the name does not already say it. */
 export const sigla = (r: MsRecord) => (r.g && r.g !== r.n && !r.n.endsWith(` ${r.g}`) && !r.n.endsWith(` ${r.g.replace(/^P/, "")}`) ? r.g : "");
+/** Names in natural order ("P2" before "P10"). One shared collator: passing options to localeCompare rebuilt it on every
+ *  comparison, which made sorting the collection a visible pause. Same order either way. */
+export const byName = new Intl.Collator("en", { numeric: true }).compare;
 /** Oldest first; undated records last, by name. */
 export const byDate = (a: MsRecord, b: MsRecord) =>
-  (isDated(a) ? 0 : 1) - (isDated(b) ? 0 : 1) || (isDated(a) && isDated(b) ? mid(a) - mid(b) : 0) || a.n.localeCompare(b.n, "en", { numeric: true });
+  (isDated(a) ? 0 : 1) - (isDated(b) ? 0 : 1) || (isDated(a) && isDated(b) ? mid(a) - mid(b) : 0) || byName(a.n, b.n);
 
 /** Look-ups built once per collection. */
 export interface MsIndex {

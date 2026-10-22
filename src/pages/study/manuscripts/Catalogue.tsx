@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react"
 import type { MsRecord } from "@/lib/manuscripts";
 import { useMs } from "./context";
 import { catalogueLead } from "./leads";
-import { booksText, byDate, formatNumber, holderText, kindOf, KINDS, reducedMotion, sigla, type Kind } from "./model";
+import { booksText, byDate, byName, formatNumber, holderText, kindOf, KINDS, reducedMotion, sigla, type Kind } from "./model";
 import { Glyph, Icon } from "./parts";
 
 const normalise = (text: string) => text.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
@@ -50,9 +50,9 @@ export function Catalogue() {
   const found = useMemo(() => {
     const words = normalise(query).trim().split(/\s+/).filter(Boolean);
     const list = rows.filter((x) => (!kind || x.r.k === kind) && words.every((w) => x.search.includes(w)));
-    if (sort === "name") return list.sort((a, b) => a.r.n.localeCompare(b.r.n, "en", { numeric: true }));
+    if (sort === "name") return list.sort((a, b) => byName(a.r.n, b.r.n));
     const order = (r: MsRecord) => KINDS.findIndex((k) => k.key === r.k);
-    if (sort === "siglum") return list.sort((a, b) => order(a.r) - order(b.r) || String(a.r.g ?? a.r.n).localeCompare(String(b.r.g ?? b.r.n), "en", { numeric: true }));
+    if (sort === "siglum") return list.sort((a, b) => order(a.r) - order(b.r) || byName(String(a.r.g ?? a.r.n), String(b.r.g ?? b.r.n)));
     return list.sort((a, b) => byDate(a.r, b.r));
   }, [rows, kind, query, sort]);
   const pages = Math.max(1, Math.ceil(found.length / pageSize)), current = Math.min(page, pages - 1);

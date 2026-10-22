@@ -1,4 +1,4 @@
-import { useDeferredValue, useEffect, useMemo, useState } from 'react';
+import { memo, useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAcquired } from './teachers/shared/acquired';
 import { preloadScholarLibrary } from './teachers/scholars/catalogue/useLibrary';
@@ -25,6 +25,18 @@ function years(person: PopulationEntry): string {
   return 'Year unknown';
 }
 
+/** The same order as localeCompare, from one collator instead of one per comparison. */
+const byText = new Intl.Collator().compare;
+
+/** One frame's worth of cards. Memoised, so adding the next batch does not re-render every card already shown. */
+const CardBatch = memo(function CardBatch({ people }: { people: PopulationEntry[] }) {
+  return <>{people.map(p => <li className="analysis-card" key={p.id} data-contributor-id={p.id}>
+    <h2 title={p.name}>{p.name}</h2>
+    <div className="analysis-card-meta"><span title={p.facts.dates.sourceConflict ? 'Profile dates shown; conflicting source labels remain in the catalogue.' : undefined}>{years(p)}</span>
+      <span><b>{p.counts.workGroups.toLocaleString()}</b> {p.counts.workGroups === 1 ? 'work record' : 'work records'}</span></div>
+  </li>)}</>;
+});
+
 export default function AnalysisPage() {
   const [snapshot, setSnapshot] = useState<AnalysisList | null>(null);
   const [error, setError] = useState('');
@@ -44,10 +56,11 @@ export default function AnalysisPage() {
     const birth = (p: PopulationEntry) => ['documented-profile', 'source-supported'].includes(p.facts.dates.status) ? p.facts.dates.born ?? Infinity : Infinity;
     return matches.sort((a, b) => {
       const difference = sort === 'works' ? b.counts.workGroups - a.counts.workGroups : sort === 'year' ? birth(a) - birth(b) : 0;
-      return difference || a.name.localeCompare(b.name) || a.id.localeCompare(b.id);
+      return difference || byText(a.name, b.name) || byText(a.id, b.id);
     });
   }, [snapshot, deferredQuery, sort]);
 
+  const batches = useMemo(() => Array.from({ length: Math.ceil(entries.length / CARDS_PER_FRAME) }, (_, i) => entries.slice(i * CARDS_PER_FRAME, (i + 1) * CARDS_PER_FRAME)), [entries]);
   const [shown, setShown] = useState(CARDS_PER_FRAME);
   useEffect(() => setShown(CARDS_PER_FRAME), [entries]);
   useEffect(() => {
@@ -74,11 +87,7 @@ export default function AnalysisPage() {
     {!snapshot && !error && <p role="status" className="analysis-status">Loading every contributor…</p>}
     {snapshot && !entries.length && <p className="analysis-status">No matching names. <button type="button" onClick={() => setQuery('')}>Clear search</button></p>}
     <ul className="analysis-grid" aria-label="All contributors">
-      {entries.slice(0, shown).map(p => <li className="analysis-card" key={p.id} data-contributor-id={p.id}>
-        <h2 title={p.name}>{p.name}</h2>
-        <div className="analysis-card-meta"><span title={p.facts.dates.sourceConflict ? 'Profile dates shown; conflicting source labels remain in the catalogue.' : undefined}>{years(p)}</span>
-          <span><b>{p.counts.workGroups.toLocaleString()}</b> {p.counts.workGroups === 1 ? 'work record' : 'work records'}</span></div>
-      </li>)}
+      {batches.slice(0, Math.ceil(shown / CARDS_PER_FRAME)).map((people, i) => <CardBatch key={i} people={people} />)}
     </ul>
   </div>;
 }
