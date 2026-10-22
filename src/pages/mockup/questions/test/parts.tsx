@@ -64,16 +64,6 @@ export function NextButton({ run }: { run: Run }) {
   </button>;
 }
 
-/** One mark per question: right, missed, the current one, and those still to come. */
-export function Marks({ run }: { run: Run }) {
-  return <ol className="tp-marks" aria-label={`Question ${run.index + 1} of ${run.items.length}`}>
-    {run.items.map((_, i) => {
-      const r = run.results[i];
-      return <li key={i} className={r ? (r.right ? "is-right" : "is-wrong") : i === run.index ? "is-now" : ""} />;
-    })}
-  </ol>;
-}
-
 const refLabel = (ref: VerseRef, bookNames: Record<string, string>) =>
   `${bookNames[ref.book] ?? ref.book} ${ref.chapter}${ref.verse ? `:${ref.verse}${ref.verseEnd && ref.verseEnd !== ref.verse ? `–${ref.verseEnd}` : ""}` : ""}`;
 

@@ -1,5 +1,5 @@
-// The dark stage's background: slow floating dust over a warm glow that turns deep blue across the page (the owner's
-// favourite background, from the David helix mock-up). The glow is CSS; this canvas draws only the dust. It stays
+// The test page's background dust: slow floating motes over the dusk field (the owner's favourite background, from the
+// David helix mock-up). The light is CSS (test-stage.css); this canvas draws only the dust. It stays
 // still when the reader asks for less motion, and stops drawing while the page is hidden.
 import { useEffect, useRef } from "react";
 
@@ -17,7 +17,7 @@ export function DustField() {
     const context = canvas?.getContext("2d");
     if (!canvas || !context) return;
     const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const motes = makeMotes(90);
+    const motes = makeMotes(140);
     let frame = 0, width = 0, height = 0;
     const resize = () => {
       const ratio = window.devicePixelRatio || 1;
@@ -30,8 +30,9 @@ export function DustField() {
       for (const m of motes) {
         if (!still) { m.x = (m.x + m.dx + 1) % 1; m.y = (m.y + m.dy + 1) % 1; }
         const twinkle = still ? 1 : 0.65 + 0.35 * Math.sin(time / 1400 + m.phase);
-        // Warm motes on the left, cooler on the right, like the glow beneath them.
-        context.fillStyle = `rgba(${Math.round(240 - 90 * m.x)}, ${Math.round(210 - 40 * m.x)}, ${Math.round(150 + 90 * m.x)}, ${m.alpha * twinkle})`;
+        // Warm motes toward the sunrise at the bottom right, cool ones toward the blue at the top left.
+        const warmth = (m.x + m.y) / 2;
+        context.fillStyle = `rgba(${Math.round(150 + 95 * warmth)}, ${Math.round(170 + 30 * warmth)}, ${Math.round(240 - 100 * warmth)}, ${m.alpha * twinkle})`;
         context.beginPath(); context.arc(m.x * width, m.y * height, m.r, 0, Math.PI * 2); context.fill();
       }
       if (!still && !document.hidden) frame = requestAnimationFrame(draw);
