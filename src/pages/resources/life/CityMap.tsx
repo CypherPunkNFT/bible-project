@@ -50,17 +50,16 @@ const Pin = memo(function Pin({ id, name, category, n, at, off, on, sel, onLit, 
   </g>;
 });
 
-/** Eases a scroll box so the row is in view, following the row for half a second while rows above it open or close; a wheel, touch or key press hands the scroll back. */
+/** Eases a scroll box so the row sits in its middle (owner, 2026-10-22: "smack in the middle"), or its top when the row is taller than the box,
+ *  following the row for half a second while rows above it open or close; a wheel, touch or key press hands the scroll back. */
 function glideToRow(box: HTMLElement, row: HTMLElement): () => void {
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   let frame = 0, last = performance.now();
   const start = last;
   const stop = () => { cancelAnimationFrame(frame); for (const ev of ["wheel", "touchstart", "keydown", "pointerdown"]) box.removeEventListener(ev, stop); };
   const want = () => {
-    const top = row.offsetTop - box.offsetTop, height = row.offsetHeight, room = box.clientHeight - 16;
-    if (height > room || top < box.scrollTop + 8) return top - 8;
-    if (top + height > box.scrollTop + box.clientHeight - 8) return top + height - box.clientHeight + 8;
-    return box.scrollTop;
+    const top = row.offsetTop - box.offsetTop, height = row.offsetHeight;
+    return height > box.clientHeight - 16 ? top - 8 : top + (height - box.clientHeight) / 2;
   };
   const step = (now: number) => {
     const goal = Math.max(0, Math.min(want(), box.scrollHeight - box.clientHeight)), gap = goal - box.scrollTop;
