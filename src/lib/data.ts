@@ -149,6 +149,24 @@ export const loadCreedDocument = (id: string) =>
 export const loadCreedBundle = (id: string, bundle: string) =>
   load<CreedBundle>(`creeds/doc/${id}.${bundle}.json`, (v) => isObject(v) && Array.isArray(v.sections));
 
+// The Question Bank (scripts/build-question-bank.py): every production-ready question with its answer, and the
+// collections they come from with the credit each one asks for.
+export interface BankQuestion {
+  question: string;
+  answer: string;
+  options: string[] | null;
+  reference: string | null;
+  kind: string;
+  tradition: string | null;
+  collection: string;
+  lesson: string | null;
+  standalone: boolean;
+}
+export interface BankCollection { title: string; kind: string; tradition: string | null; credit: string | null; source_url: string | null; count: number }
+export interface QuestionBank { kinds: Record<string, string>; collections: BankCollection[]; questions: BankQuestion[] }
+export const loadQuestionBank = () =>
+  load<QuestionBank>("questions/bank.json", (v) => isObject(v) && Array.isArray(v.questions) && Array.isArray(v.collections));
+
 // Hymns (scripts/build-hymn-collection.py): the collection, the full study of a hymn that has one, and the words of every hymn
 // filed by hymn book.
 export const loadHymnCollection = () =>
