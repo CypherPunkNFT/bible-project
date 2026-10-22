@@ -1,0 +1,99 @@
+/* MOCK-UP (home_mockup2): the quiz (HomeQuiz.tsx, QuizScenes.tsx). The question's drawing under a giant faded number,
+   the question with answers floating on lines. No boxes; one soft light behind the
+   drawing is the only glow. */
+.hq { margin-top: 150px; }
+.hq-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 40px; }
+.hq h2 { font: 400 clamp(32px, 3.4vw, 50px)/1.1 var(--font-serif); letter-spacing: -.02em; margin: 16px 0 0; }
+.hq h2 em { color: var(--accent); }
+.hq-tally { display: flex; align-items: flex-end; gap: 34px; }
+.hq-tally p { margin: 0; display: grid; gap: 6px; }
+.hq-tally strong { font: 400 46px/1 var(--font-serif); color: var(--accent); letter-spacing: -.02em; }
+.hq-tally p + p strong { color: var(--ink, inherit); }
+.hq-tally span { font: 600 9.5px var(--font-sans); letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.hq-tally button { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; padding-bottom: 4px; font: 600 10px var(--font-sans); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+
+/* The stage: drawing left, question right, between two hairlines. */
+.hq-stage { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: center; margin-top: 44px; padding-block: 48px;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); min-height: 470px; }
+.hq-scene { position: relative; display: grid; place-items: center; min-height: 380px; color: var(--accent); }
+.hq-scene::before { content: ""; position: absolute; inset: 8% 6%; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 14%, transparent), transparent); pointer-events: none; }
+.hq-numeral { position: absolute; left: -.04em; top: 50%; transform: translateY(-54%); font: 400 clamp(220px, 22vw, 340px)/1 var(--font-serif); letter-spacing: -.05em;
+  color: color-mix(in srgb, var(--accent) 9%, transparent); pointer-events: none; user-select: none; animation: hq-numeral .9s cubic-bezier(.2, .7, .2, 1); }
+.hq-scene .qs-scene { position: relative; width: min(100%, 540px); overflow: visible; }
+
+.hq-body { animation: hq-in .6s .1s cubic-bezier(.2, .7, .2, 1) both; }
+.hq-meta { display: flex; justify-content: space-between; gap: 16px; margin: 0; font: 600 10px var(--font-sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.hq-meta span:last-child { color: var(--accent); }
+.hq-body h3 { margin: 20px 0 0; font: 400 clamp(30px, 3vw, 46px)/1.15 var(--font-serif); letter-spacing: -.02em; }
+
+/* Answers: words on lines, the line turning gold under the pointer. */
+.hq-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 36px; margin-top: 28px; }
+.hq-options button { all: unset; box-sizing: border-box; position: relative; cursor: pointer; display: flex; align-items: center; gap: 16px; padding: 18px 2px;
+  border-bottom: 1px solid var(--line); font: 400 clamp(19px, 1.5vw, 23px)/1.3 var(--font-serif); color: var(--ink, inherit); transition: color .3s, opacity .3s; }
+.hq-options button::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1.5px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(.2, .7, .2, 1); }
+.hq-options button:not(:disabled):hover::after, .hq-options button[data-state="right"]::after { transform: scaleX(1); }
+.hq-options button:not(:disabled):hover { color: var(--accent); }
+.hq-options button:disabled { cursor: default; }
+.hq-letter { flex: none; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line); font: 600 11px var(--font-sans); color: var(--accent); transition: background .3s, border-color .3s, color .3s; }
+.hq-options button:not(:disabled):hover .hq-letter { border-color: var(--accent); }
+.hq-options button[data-state="right"] { color: var(--accent); }
+.hq-options button[data-state="right"] .hq-letter { background: var(--accent); border-color: var(--accent); color: var(--surface, #fff); }
+.hq-options button[data-state="wrong"] { color: #a4473a; }
+.hq-options button[data-state="wrong"] > span:last-child { text-decoration: line-through; text-decoration-thickness: 1px; }
+.hq-options button[data-state="wrong"] .hq-letter { border-color: color-mix(in srgb, #a4473a 50%, transparent); color: #a4473a; }
+.hq-options button[data-state="other"] { opacity: .35; }
+
+.hq-reveal { margin-top: 28px; padding-left: 22px; border-left: 2px solid var(--accent); animation: hq-in .5s cubic-bezier(.2, .7, .2, 1); }
+.hq-result { margin: 0; font-size: 14.5px; line-height: 1.7; font-weight: 600; color: #a4473a; }
+.hq-result[data-right] { color: var(--accent); }
+.hq-result > span { font-weight: 400; color: var(--muted); }
+.hq-stage blockquote { margin: 14px 0 0; font: 400 clamp(18px, 1.5vw, 22px)/1.5 var(--font-serif); letter-spacing: -.01em; }
+.hq-stage cite { display: block; margin-top: 10px; font: 600 10px var(--font-sans); font-style: normal; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.hq-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; margin-top: 22px; }
+.hq-next { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; padding: 12px 22px; border-radius: 999px; background: var(--accent); color: var(--surface, #fff); font: 600 13.5px var(--font-sans); transition: transform .25s; }
+.hq-next:hover { transform: translateX(2px); }
+.hq-actions a { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-size: 13.5px; font-weight: 600; }
+.hq-verdict-title { font-size: clamp(34px, 3.4vw, 52px) !important; }
+
+/* The drawings: drawn in, then one part keeps moving. */
+.qs-scene :is(path, rect, circle) { stroke-dasharray: 900; stroke-dashoffset: 900; animation: qs-draw 1.8s cubic-bezier(.4, .1, .2, 1) forwards; }
+.qs-scene .qs-faint { color: var(--muted); opacity: .55; }
+.qs-scene .qs-paper { fill: var(--surface, #fff); }
+.qs-scene .qs-sand { fill: color-mix(in srgb, var(--accent) 30%, transparent); stroke: none; }
+.qs-scene .qs-dots { stroke-dasharray: 2 4; stroke-dashoffset: 0; animation: none; }
+.qs-scene .qs-stream { stroke-dasharray: 3 6; stroke-dashoffset: 0; animation: qs-stream .9s linear infinite; }
+.qs-scene circle.qs-accent { fill: var(--accent); }
+.qs-sway { animation: qs-sway 5s ease-in-out infinite; }
+.qs-float { animation: qs-float 6s ease-in-out infinite; }
+.qs-drift { animation: qs-drift 7s ease-in-out infinite; }
+.qs-twinkle { animation: qs-twinkle 3.2s ease-in-out infinite; }
+.qs-spin { animation: qs-spin 4s ease-in-out infinite; }
+.qs-fall { animation: qs-fall 6s ease-in-out infinite; }
+.qs-flicker { animation: qs-flicker 1.6s ease-in-out infinite; }
+.qs-write { animation: qs-write 3.6s ease-in-out infinite; }
+.qs-wiggle { animation: qs-wiggle 2.8s ease-in-out infinite; }
+.qs-drip { animation: qs-drip 4s ease-in infinite; }
+.qs-fly { animation: qs-fly 12s linear infinite; }
+@keyframes qs-draw { to { stroke-dashoffset: 0; } }
+@keyframes qs-stream { to { stroke-dashoffset: -9; } }
+@keyframes qs-sway { 0%, 100% { transform: rotate(4deg); } 50% { transform: rotate(10deg); } }
+@keyframes qs-float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-6px, -8px); } }
+@keyframes qs-drift { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-20px); } }
+@keyframes qs-twinkle { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+@keyframes qs-spin { 0%, 100% { transform: rotate(-5deg) scaleX(.94); } 50% { transform: rotate(5deg) scaleX(1.06); } }
+@keyframes qs-fall { 0% { transform: translate(0, -10px) rotate(-6deg); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translate(-14px, 40px) rotate(8deg); opacity: 0; } }
+@keyframes qs-flicker { 0%, 100% { transform: scale(1, 1) rotate(0); } 30% { transform: scale(.92, 1.08) rotate(-3deg); } 60% { transform: scale(1.04, .94) rotate(2deg); } }
+@keyframes qs-write { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-30px, 2px); } }
+@keyframes qs-wiggle { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes qs-drip { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 75% { opacity: 1; } 100% { transform: translateY(70px); opacity: 0; } }
+@keyframes qs-fly { from { transform: translateX(-60px); } to { transform: translateX(360px); } }
+@keyframes hq-in { from { opacity: 0; transform: translateY(10px); } }
+@keyframes hq-numeral { from { opacity: 0; transform: translateY(-50%) scale(.94); } }
+
+@media (max-width: 1100px) { .hq-stage { grid-template-columns: minmax(0, 1fr); padding-block: 32px; } .hq-scene { min-height: 280px; } }
+@media (max-width: 640px) { .hq-options { grid-template-columns: minmax(0, 1fr); } .hq-tally { gap: 22px; } .hq-tally strong { font-size: 36px; } }
+@media (prefers-reduced-motion: reduce) {
+  .qs-scene :is(path, rect, circle) { animation: none; stroke-dashoffset: 0; }
+  .qs-scene *, .hq-numeral, .hq-body, .hq-reveal { animation: none !important; }
+  .hq-options button, .hq-options button::after, .hq-next { transition: none; }
+}
