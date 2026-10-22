@@ -1,7 +1,8 @@
 // MOCK-UP: the test page the questions page's banner opens, at /study/questions/test on this computer's preview only.
-// One dark dusk field (warm light from the bottom right, blue from the top left, slow floating dust) holding the
-// settings (kind, topic, book, Testament, length; they open with the questions page's filters) and, under them, the
-// test itself: one question at a time in the Try one panel with the score ring beside it, then the results. The owner
+// The settings in the site's own style (kind, topic, book, Testament, length; they open with the questions page's
+// filters), and under them the test itself on a dark dusk band (warm light from the bottom right, blue from the top
+// left, slow floating dust): one question at a time in the Try one panel with the score ring beside it, then the
+// results. Only the test is dark (owner, 2026-10-22: "It's only the question section that should be like this"). The owner
 // chose this from four looks on 2026-10-22: "I like the background of look 3, but I like the progress and
 // gamification of look 4 with the wheel". The parts live in questions/test/.
 import { ArrowLeft } from "lucide-react";
@@ -60,8 +61,7 @@ function TestBody({ bank }: { bank: QuestionBank }) {
     setParams(out, { replace: true, preventScrollReset: true });
   };
   const toTest = () => document.getElementById("tp-test")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  return <div className="tp tp-dusk">
-    <DustField />
+  return <div className="tp">
     <div className="tp-wrap tp-top">
       <Link className="tp-back" to={`/study/questions${filterKey ? `?${filterKey}` : ""}`}><ArrowLeft size={15} strokeWidth={1.6} aria-hidden />Back to the questions</Link>
     </div>
@@ -69,13 +69,16 @@ function TestBody({ bank }: { bank: QuestionBank }) {
       <TestSetup bank={bank} pool={pool} facets={facets} filters={filters} update={(patch) => write({ ...filters, ...patch }, length)}
         length={length} setLength={(n) => write(filters, n)} onBegin={() => { redraw(); toTest(); }} actionLabel="Draw again" />
     </div>
-    <div className="tp-wrap tp-area-inner tp-test" id="tp-test">
+    <section className="tp-dusk" id="tp-test" aria-label="The test">
+      <DustField />
+      <div className="tp-wrap">
       {stage.step === "test"
         ? stage.items.length > 0 && <TestRun key={round} items={stage.items} bookNames={bookNames} kinds={bank.kinds}
           onFinish={(results) => setStage({ step: "results", items: stage.items, results })} />
         : <TestResults items={stage.items} results={stage.results} topics={bank.topics} bookNames={bookNames}
           onRetake={(items) => { start(items); toTest(); }} onNew={() => { start(drawn); toTest(); }} />}
-    </div>
+      </div>
+    </section>
   </div>;
 }
 

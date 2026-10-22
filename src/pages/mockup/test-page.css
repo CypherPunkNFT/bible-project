@@ -1,7 +1,7 @@
 /* MOCK-UP: the test page (QuestionsTestPage.tsx and questions/test/): the look bar, the setup and results screens, and
    the pieces every look shares. Each look's own arrangement is in test-looks.css. House style: parchment ground, serif
    titles with one italic accent word, words on lines rather than in boxes. */
-.tp{--serif:var(--font-serif);--sans:var(--font-sans);--right:var(--poetry);--wrong:var(--revelation);color:var(--ink);font-family:var(--sans);padding-bottom:64px}
+.tp{--serif:var(--font-serif);--sans:var(--font-sans);--right:var(--poetry);--wrong:var(--revelation);color:var(--ink);font-family:var(--sans)}
 :where(.tp) button{font:inherit;color:inherit;cursor:pointer}
 .tp button:disabled{cursor:default}
 .tp-wrap{max-width:var(--site-content-width);margin:0 auto;padding-inline:24px}

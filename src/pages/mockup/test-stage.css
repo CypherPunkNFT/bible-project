@@ -1,23 +1,17 @@
 /* MOCK-UP: the test page's look (owner's choice, 2026-10-22): the Try one panel with the score ring (QuestionPanel.tsx)
-   on a dark dusk field. Warm sunrise light rises from the bottom right, blue dusk light falls from the top left; each
+   on a dark dusk band under the settings (which keep the site's own style). Warm sunrise light rises from the bottom right, blue dusk light falls from the top left; each
    glow fades over many stops, and a faint grain over it all keeps the long fades from showing bands. */
 .tp-dusk{--page:#0c0b09;--ink:#f1e8d4;--muted:#a59c8a;--line:rgba(217,177,92,.2);--surface:rgba(255,255,255,.035);--surface-2:rgba(255,255,255,.07);--accent:#d9b15c;--right:#7fd3b2;--wrong:#f08d9b;
-  color-scheme:dark;position:relative;isolation:isolate;overflow:hidden;min-height:100vh;padding-bottom:90px;color:var(--ink);
+  color-scheme:dark;position:relative;isolation:isolate;overflow:hidden;margin-top:44px;padding-block:72px 84px;scroll-margin-top:56px;color:var(--ink);
   background:
     radial-gradient(ellipse 85% 85% at 100% 100%,rgba(246,168,74,.34) 0%,rgba(236,152,66,.27) 12%,rgba(220,136,60,.19) 25%,rgba(196,118,52,.12) 38%,rgba(170,100,46,.065) 52%,rgba(140,82,40,.025) 66%,rgba(120,70,36,0) 82%),
     radial-gradient(ellipse 90% 85% at 0% 0%,rgba(48,82,166,.36) 0%,rgba(42,72,150,.28) 12%,rgba(36,62,134,.2) 25%,rgba(31,52,116,.12) 38%,rgba(26,42,98,.065) 52%,rgba(22,34,82,.025) 66%,rgba(20,30,70,0) 82%),
-    linear-gradient(135deg,#0a0d18 0%,#0b0c13 35%,#0d0c0e 60%,#110d0a 100%);
-  /* The sky stays put while the page scrolls, so the sunrise is always in the bottom-right corner of the screen. */
-  background-attachment:fixed}
+    linear-gradient(135deg,#0a0d18 0%,#0b0c13 35%,#0d0c0e 60%,#110d0a 100%)}
 .tp-dusk::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .tp-dusk .tp-dust{position:absolute;inset:0;z-index:-1;width:100%;height:100%;pointer-events:none}
-.tp-dusk .tp-select{background:#15120e}
-.tp-dusk .qp-kind{background:rgba(255,255,255,.03)}
-.tp-dusk .qp-kind[aria-pressed="true"]{background:color-mix(in srgb,var(--tone) 18%,transparent)}
 .tp-dusk .tp-prompt{color:#f4e5c2}
 .tp-dusk .tp-next,.tp-dusk .tp-begin-go{background:var(--accent);color:#14110b!important}
 .tp-dusk .tp-next:not(:disabled):hover,.tp-dusk .tp-begin-go:not(:disabled):hover{background:#f0d08a}
-.tp-test{margin-top:34px;padding-top:56px!important;border-top:1px solid var(--line)}
 
 /* The panel: fixed heights throughout, the words resize, the panel never does */
 .tp-panel-layout{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:64px;align-items:center;max-width:1120px;margin:0 auto}
