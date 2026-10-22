@@ -7,7 +7,7 @@
 import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { OutsideScroll } from "@/components/OutsideScroll";
 import type { City, CityMap as CityMapData } from "@/data/resources";
-import { centreLabel, centreWords, compass, kindOf, miles, plural, tone } from "./format";
+import { centreLabel, centreWords, compass, kindOf, LIFE_WORDS, miles, tone, type CityWords } from "./format";
 import { ZoomButtons } from "./ZoomButtons";
 import { LifeRow } from "./Row";
 import { attachZoom, placeMarks, type Zoom } from "./zoom";
@@ -73,7 +73,7 @@ function glideToRow(box: HTMLElement, row: HTMLElement): () => void {
   return stop;
 }
 
-export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; kinds: [string, number][] }) {
+export function CityMap({ city, map, kinds, words = LIFE_WORDS }: { city: City; map: CityMapData; kinds: [string, number][]; words?: CityWords }) {
   const P = map.projection;
   const project = useCallback((lon: number, lat: number): [number, number] => [(lon - P.west) * P.cos * P.k, (P.north - lat) * P.k], [P]);
   const places = useMemo(() => city.entries.map((e, i) => ({ e, n: i + 1, at: project(e.lon, e.lat) })), [city, project]);
@@ -199,8 +199,8 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
 
   const subs = useMemo(() => new Map(city.entries.map((e) => {
     const d = miles(city, e);
-    return [e.id, `${kindOf(e.category).short}  ·  ${d < 0.5 ? `downtown, by ${centreWords(city)}` : `${d.toFixed(1)} mi ${compass(city, e)} of ${centreWords(city)}`}`];
-  })), [city]);
+    return [e.id, `${words.tag(e)}  ·  ${d < 0.5 ? `downtown, by ${centreWords(city)}` : `${d.toFixed(1)} mi ${compass(city, e)} of ${centreWords(city)}`}`];
+  })), [city, words]);
   const ordered = selected ? [...places.filter((q) => q.e.id !== selected), ...places.filter((q) => q.e.id === selected)] : places;
   const lines = city.lines ?? [];
   return <div className="lf-city-main">
@@ -218,12 +218,12 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
     {/* Pointing at a pin only lights it; the list scrolls when a pin is clicked (owner, 2026-10-08). The places in a panel as tall as the map: a header, then the list scrolling with the pill outside the edge. */}
     <div className="lf-places">
       <header className="lf-places-head">
-        <h3 className="lf-fade">Help in {city.name.split(",")[0]}</h3>
-        <p className="lf-fade">{plural(city.entries.length, "place")} you can walk into{lines.length > 0 && ` · ${plural(lines.length, "phone line")} below`}</p>
+        <h3 className="lf-fade">{words.title(city.name.split(",")[0])}</h3>
+        <p className="lf-fade">{words.count(city.entries.length, lines.length)}</p>
       </header>
-      <OutsideScroll className="lf-places-scroll lf-fade" viewportClassName="lf-city-list" label={`Help in ${city.name}`} resetKey={city.id}>
+      <OutsideScroll className="lf-places-scroll lf-fade" viewportClassName="lf-city-list" label={words.title(city.name)} resetKey={city.id}>
       <div ref={list} onPointerMove={(e) => { overList.current = [e.clientX, e.clientY]; }} onPointerLeave={() => { overList.current = null; }}>
-      <ol aria-label={`Help in ${city.name}`}>{places.map(({ e, n }) => <LifeRow key={e.id} entry={e} kind={e.category} layout="stack" n={n} quick={1} address
+      <ol aria-label={words.title(city.name)}>{places.map(({ e, n }) => <LifeRow key={e.id} entry={e} kind={e.category} layout="stack" n={n} quick={1} address
         sub={subs.get(e.id)} open={open.has(e.id)} onToggle={toggle} lit={lit === e.id} selected={selected === e.id}
         hidden={!shown.has(e.category)} onLit={lightRow} />)}</ol>
       {lines.length > 0 && <>

@@ -1,0 +1,83 @@
+/* The Fellowships page in the Help for life style (it reuses life.css under .lf-page): the section's own colour for the
+   title, the places header and the hero light; the audience row; the open row's facts; and what each city's search
+   found beyond its map. */
+.lf-page.fw-page { --lf-title: var(--door); --lf-head: var(--door); --lf-head-ink: #fff; }
+:root[data-theme="dark"] .lf-page.fw-page { --lf-head: var(--door); --lf-head-ink: var(--page); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lf-page.fw-page { --lf-head: var(--door); --lf-head-ink: var(--page); } }
+.fw-page .lf-hero { padding-top: 2.2rem; }
+.fw-page .lf-hero h1 em { display: block; margin-top: .3rem; font-size: .62em; letter-spacing: -.025em; }
+.fw-page .lf-sec-head { margin-top: 3.4rem; }
+
+/* ── The hero drawing (TableArt.tsx, Acts 2:42) ── */
+.fw-table { --c: #c99410; margin: 0; }
+:root[data-theme="dark"] .fw-table { --c: #f2cf5c; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .fw-table { --c: #f2cf5c; } }
+.fw-table svg { display: block; width: 100%; height: auto; max-height: 300px; aspect-ratio: 4 / 3; overflow: hidden; color: color-mix(in srgb, var(--ink) 66%, var(--page)); }
+.fw-table .fwt-f { opacity: .42; }
+.fw-table .fwt-pf { fill: var(--page); }
+.fw-table .fwt-head { stroke: currentColor; }
+.fw-table .fwt-moon { stroke: var(--c); fill: color-mix(in srgb, var(--c) 18%, var(--page)); }
+.fw-table .fwt-star { fill: currentColor; stroke: none; opacity: .5; animation: fwt-twinkle 5.5s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -1.3s); }
+.fw-table .fwt-shade { stroke: var(--c); fill: color-mix(in srgb, var(--c) 22%, var(--page)); }
+.fw-table .fwt-bulb { fill: var(--c); stroke: none; }
+.fw-table .fwt-cone { fill: var(--c); stroke: none; opacity: .08; animation: fwt-breathe 7s ease-in-out infinite alternate; }
+.fw-table .fwt-glow { transform-box: fill-box; transform-origin: 50% 50%; animation: fwt-glow 7s ease-in-out infinite alternate; }
+.fw-table .fwt-book, .fw-table .fwt-page { fill: color-mix(in srgb, var(--c) 30%, var(--page)); stroke: var(--c); stroke-width: 1.3; }
+:root[data-theme="dark"] .fw-table :is(.fwt-book, .fwt-page) { fill: color-mix(in srgb, var(--c) 58%, var(--page)); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .fw-table :is(.fwt-book, .fwt-page) { fill: color-mix(in srgb, var(--c) 58%, var(--page)); } }
+.fw-table .fwt-book { filter: drop-shadow(0 0 5px color-mix(in srgb, var(--c) 55%, transparent)); }
+.fw-table .fwt-lines { stroke: color-mix(in srgb, var(--c) 55%, var(--page)); stroke-width: 1; }
+.fw-table .fwt-page { transform-box: view-box; transform-origin: 160px 150px; animation: fwt-turn 11s ease-in-out infinite; }
+.fw-table .fwt-mote { opacity: 0; color: var(--c); animation: fwt-mote 8s linear infinite; animation-delay: calc(var(--i) * -1.6s); }
+.fw-table .fwt-steam { opacity: .45; transform-box: fill-box; animation: fwt-steam 4.5s ease-in-out infinite; animation-delay: calc(var(--i) * -2.2s); }
+.fw-table .fwt-person { transform-box: fill-box; transform-origin: 50% 100%; animation: fwt-lean 9s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -1.9s); }
+.fw-table figcaption { max-width: 27rem; margin: .5rem auto 0; color: var(--ink); font: italic .98rem/1.5 var(--font-serif); text-align: center; text-wrap: balance; }
+.fw-table cite { margin-left: .35rem; font: normal .74rem var(--font-sans); white-space: nowrap; }
+@keyframes fwt-twinkle { from { opacity: .15; } to { opacity: .7; } }
+@keyframes fwt-breathe { from { opacity: .05; } to { opacity: .13; } }
+@keyframes fwt-glow { from { transform: scale(.94); opacity: .65; } to { transform: scale(1.05); opacity: 1; } }
+@keyframes fwt-turn { 0%, 42% { transform: scaleX(1); opacity: 1; } 54% { transform: scaleX(-1); opacity: 1; } 62% { transform: scaleX(-1); opacity: 0; } 63% { transform: scaleX(1); opacity: 0; } 74%, 100% { transform: scaleX(1); opacity: 1; } }
+@keyframes fwt-mote { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: .8; } 80% { opacity: .4; } 100% { transform: translateY(-58px); opacity: 0; } }
+@keyframes fwt-steam { 0% { transform: translateY(2px); opacity: 0; } 30% { opacity: .5; } 100% { transform: translateY(-8px); opacity: 0; } }
+@keyframes fwt-lean { from { transform: rotate(-1.2deg); } to { transform: rotate(1.2deg); } }
+
+/* ── Who it is for: one tile per audience, its number the fellowships open to it ── */
+.fw-who { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 2rem; }
+.fw-who button { display: grid; justify-items: start; gap: .15rem; min-width: 7.2rem; padding: .7rem 1rem .75rem; border: 1px solid var(--line); border-radius: 14px; text-align: left; transition: background-color .2s, border-color .2s; }
+.fw-who b { font: 400 1.5rem/1 var(--font-sans); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.fw-who span { color: var(--muted); font-size: .76rem; font-weight: 600; }
+.fw-who button:hover { background: var(--surface-2); }
+.fw-who button[aria-pressed="true"] { border-color: var(--door); background: color-mix(in srgb, var(--door) 10%, var(--surface)); }
+.fw-who button[aria-pressed="true"] :is(b, span) { color: var(--door); }
+.fw-none { padding: 1.2rem 0; color: var(--muted); font-size: .9rem; }
+.fw-none button { color: var(--door); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── An open fellowship: who, how, cost and what was found near Jacksonville ── */
+.fw-facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .7rem 1.6rem; margin-top: .8rem; }
+.fw-facts dt { color: var(--muted); font: 600 .58rem/1.3 var(--lf-mono); letter-spacing: .16em; text-transform: uppercase; }
+.fw-facts dd { margin-top: .2rem; font-size: .85rem; line-height: 1.55; }
+
+/* ── Below each city's map: the groups just outside the county, all listed in two columns ── */
+.fw-beyond { margin-top: 2.4rem; }
+.fw-beyond h3 { padding-bottom: .55rem; border-bottom: 1px solid var(--line); font: 400 1.2rem var(--font-serif); }
+.fw-beyond h3 small { margin-left: .6rem; color: var(--muted); font: .74rem var(--font-sans); }
+.fw-beyond ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 3.2rem; }
+.fw-beyond li { display: grid; grid-template-columns: .55rem minmax(0, 1fr); gap: .7rem; padding: .7rem 0; border-bottom: 1px dotted var(--line); font-size: .84rem; line-height: 1.55; }
+.fw-beyond li::before { content: ""; width: 7px; height: 7px; margin-top: .45rem; border-radius: 50%; background: var(--c, var(--door)); }
+.fw-beyond strong { font-weight: 600; }
+.fw-beyond li span { color: color-mix(in srgb, var(--ink) 76%, transparent); }
+.fw-beyond a { color: var(--muted); font-size: .72rem; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+
+.fw-how { max-width: 52rem; margin-top: 3.2rem; padding: 1.2rem 0 0 1rem; border-left: 3px solid var(--door); color: var(--muted); font-size: .84rem; line-height: 1.7; }
+.fw-how strong { color: var(--ink); font-weight: 600; }
+
+@media (max-width: 760px) { .fw-beyond ul { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { .fw-who button { min-width: calc(50% - .25rem); } }
+@media (prefers-reduced-motion: reduce) {
+  .fw-table :is(.fwt-star, .fwt-cone, .fwt-glow, .fwt-page, .fwt-mote, .fwt-steam, .fwt-person) { animation: none; }
+}
+
+/* "Find a group" is each row's one ready action, solid in the page's gold (Help for life's national lines outline theirs). */
+.lf-page .fw-dir-section.lf-nat .lf-pane .lf-quick[data-way="call"] { background: var(--door); border-color: var(--door); color: var(--lf-head-ink); }
+.lf-page .fw-dir-section.lf-nat .lf-pane .lf-quick[data-way="call"] svg { color: inherit; }
+.lf-page .fw-dir-section.lf-nat .lf-pane .lf-quick[data-way="call"]:hover { background: color-mix(in srgb, var(--door) 86%, var(--ink)); }

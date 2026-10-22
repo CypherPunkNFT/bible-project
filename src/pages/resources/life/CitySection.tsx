@@ -6,11 +6,11 @@ import { useEffect, useLayoutEffect, useMemo, useRef, type CSSProperties } from 
 import { useResource, type City, type CityFact, type CityFacts, type UsStates } from "@/data/resources";
 import { dialable } from "../contact-links";
 import { CityMap } from "./CityMap";
-import { CITY_FILES, hostOf, kindOf, kindsIn, listOf, plural, tone, wayOf } from "./format";
+import { CITY_FILES, hostOf, kindOf, kindsIn, LIFE_WORDS, listOf, plural, tone, wayOf, type CityWords } from "./format";
 import { attachZoom, placeMarks, type Zoom } from "./zoom";
 import { ZoomButtons } from "./ZoomButtons";
 
-export function CitySection({ city, cities, onPick, leaving, checked }: { city: City & { id: keyof typeof CITY_FILES }; cities: City[]; onPick: (id: string) => void; leaving?: boolean; checked: string }) {
+export function CitySection({ city, cities, onPick, leaving, checked, words = LIFE_WORDS }: { city: City & { id: keyof typeof CITY_FILES }; cities: City[]; onPick: (id: string) => void; leaving?: boolean; checked: string; words?: CityWords }) {
   const files = CITY_FILES[city.id];
   const states = useResource("us-states"), facts = useResource(files.facts), map = useResource(files.map);
   const kinds = useMemo(() => kindsIn(city), [city]);
@@ -30,12 +30,12 @@ export function CitySection({ city, cities, onPick, leaving, checked }: { city: 
   return <section className="lf-city" aria-labelledby="lf-city-name">
     <div className="lf-city-top">
       {typeof states === "object" ? <UsaMap states={states} city={city} cities={cities} onPick={onPick} /> : <p className="lf-wait lf-wait-usa">{states === "loading" ? "Loading the map…" : "The map outline is missing."}</p>}
-      <CityInfo city={city} facts={typeof facts === "object" ? facts : null} kinds={kinds} checked={city.checked ?? checked} leaving={leaving} />
+      <CityInfo city={city} facts={typeof facts === "object" ? facts : null} kinds={kinds} checked={city.checked ?? checked} leaving={leaving} words={words} />
     </div>
     <hr className="lf-city-rule" />
     {/* This part fades when another city is chosen, as do the name and the facts above (CityInfo); the USA map, the labels and the rules do not. */}
     <div key={city.id} ref={lower} className="lf-city-lower" data-leaving={leaving || undefined}>
-      {typeof map === "object" ? <CityMap city={city} map={map} kinds={kinds} /> : <p className="lf-wait lf-wait-city">{map === "loading" ? `Loading the map of ${city.name.split(",")[0]}…` : "The city map is missing."}</p>}
+      {typeof map === "object" ? <CityMap city={city} map={map} kinds={kinds} words={words} /> : <p className="lf-wait lf-wait-city">{map === "loading" ? `Loading the map of ${city.name.split(",")[0]}…` : "The city map is missing."}</p>}
     </div>
   </section>;
 }
@@ -91,15 +91,15 @@ function Local211({ city }: { city: City }) {
   </dd></div>;
 }
 
-function CityInfo({ city, facts, kinds, checked, leaving }: { city: City; facts: CityFacts | null; kinds: [string, number][]; checked: string; leaving?: boolean }) {
+function CityInfo({ city, facts, kinds, checked, leaving, words }: { city: City; facts: CityFacts | null; kinds: [string, number][]; checked: string; leaving?: boolean; words: CityWords }) {
   const f = Object.fromEntries((facts?.facts ?? []).map((x) => [x.id, x]));
   const n = (v: string | number) => v.toLocaleString("en-US");
   const [place, region] = [city.name.split(",")[0], city.name.split(",").slice(1).join(",").trim()];
   const lines = city.lines?.length ?? 0;
   return <div className="lf-city-info" data-leaving={leaving || undefined}>
-    <p className="lf-kick">02 · Local help</p>
+    <p className="lf-kick">{words.kick}</p>
     <h2 id="lf-city-name">{place}{region && <>, <em>{region}</em></>}</h2>
-    <p className="lf-city-lead">{plural(city.entries.length, "place")} you can walk into and {plural(lines, "phone line")}, each checked on the organisation’s own page.</p>
+    <p className="lf-city-lead">{words.lead(city.entries.length, lines)}</p>
     <dl className="lf-facts">
       {f.county && <div><dt>County</dt><dd><strong>{f.county.value}</strong><span>{f.county.note}</span><Source fact={f.county} /></dd></div>}
       {f["county-population"] && <div><dt>Population</dt><dd><strong>{n(f["county-population"].value)}</strong>

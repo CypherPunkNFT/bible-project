@@ -34,6 +34,17 @@ export interface Fellowship {
   cities?: string[]; jacksonville?: string; source: string; checked: string;
 }
 export interface FellowshipsData { checked: string; groups: { id: string; title: string; entries: Fellowship[] }[] }
+/** One place a fellowship meets, as its own finder (or the host's own page) listed it, geocoded by the US Census Bureau. */
+export interface Gathering {
+  id: string; fellowship: string; name: string; host: string; address: string; lat: number; lon: number; geocode?: string;
+  when?: string | null; for: string[]; meets: string[]; link?: string | null; source: string; checked: string;
+}
+/** A city whose fellowships were searched (fellowship-cities.json): the places inside its map, those just outside it, and what each finder showed when nothing was pinned. */
+export interface FellowshipCity {
+  id: string; name: string; lat: number; lon: number; centre?: string; centreLabel?: string; checked: string;
+  places: Gathering[]; nearby: (Omit<Gathering, "lat" | "lon"> & { lat: number | null; lon: number | null })[]; notFound: { fellowship: string; note: string }[];
+}
+export interface FellowshipCities { checked: string; cities: FellowshipCity[] }
 
 export interface Contact { kind: string; value: string; note?: string }
 export interface Help {
@@ -62,7 +73,7 @@ export interface CityMap {
   sources: { file: string; url: string; what: string; sha256: string; licence: string; downloaded: string }[];
 }
 
-interface Files { learning: LearningData; fellowships: FellowshipsData; life: LifeData; "us-states": UsStates; "jax-map": CityMap; "jax-facts": CityFacts; "mia-map": CityMap; "mia-facts": CityFacts; "tpa-map": CityMap; "tpa-facts": CityFacts; "orl-map": CityMap; "orl-facts": CityFacts;
+interface Files { learning: LearningData; fellowships: FellowshipsData; "fellowship-cities": FellowshipCities; life: LifeData; "us-states": UsStates; "jax-map": CityMap; "jax-facts": CityFacts; "mia-map": CityMap; "mia-facts": CityFacts; "tpa-map": CityMap; "tpa-facts": CityFacts; "orl-map": CityMap; "orl-facts": CityFacts;
   "atl-map": CityMap; "atl-facts": CityFacts; "chs-map": CityMap; "chs-facts": CityFacts; "clt-map": CityMap; "clt-facts": CityFacts; "bna-map": CityMap; "bna-facts": CityFacts; "mem-map": CityMap; "mem-facts": CityFacts; "bhm-map": CityMap; "bhm-facts": CityFacts; "sdf-map": CityMap; "sdf-facts": CityFacts; "dal-map": CityMap; "dal-facts": CityFacts; "hou-map": CityMap; "hou-facts": CityFacts; "okc-map": CityMap; "okc-facts": CityFacts }
 export type ResourceFile = keyof Files;
 

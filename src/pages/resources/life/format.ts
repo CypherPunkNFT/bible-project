@@ -1,8 +1,8 @@
 // What the Help for life page derives from life.json: the colour and icon of each kind of help, how a contact becomes a
 // tel:/sms:/web link, the short subtitle and first sentence a closed row shows, and the call/text buttons it keeps ready.
 // Every word shown comes from the data; only these summaries are computed here.
-import { Baby, Flower2, HandHeart, HeartHandshake, House, LifeBuoy, Shield, Sprout, Users, Wheat, type LucideIcon } from "lucide-react";
-import type { City, Contact, Help, LifeData } from "@/data/resources";
+import { Baby, BookOpen, Church, Flower2, GraduationCap, HandHeart, HeartHandshake, House, LifeBuoy, Shield, Sprout, Users, Wheat, type LucideIcon } from "lucide-react";
+import type { City, Contact, Help, LifeData, LocalHelp } from "@/data/resources";
 import { dialable, wayOf as baseWay } from "../contact-links";
 
 export const plural = (n: number, one: string, many = `${one}s`) => `${n.toLocaleString("en-US")} ${n === 1 ? one : many}`;
@@ -20,6 +20,11 @@ const KINDS: Record<string, Kind> = {
   recovery: { short: "Recovery", color: "poetry", Icon: Sprout },
   abuse: { short: "Abuse", color: "history", Icon: Shield },
   shelter: { short: "Shelter", color: "poetry", Icon: House },
+  // The four kinds of fellowship (fellowships.json groups), for the Fellowships page's directory and its city maps.
+  "bible-study": { short: "Bible study", color: "epistles", Icon: BookOpen }, // the site's gold, no purple on that page (owner, 2026-10-22)
+  "students-and-discipleship": { short: "Students & youth", color: "prophets", Icon: GraduationCap },
+  prayer: { short: "Prayer", color: "history", Icon: HandHeart },
+  "church-finders": { short: "Local church", color: "poetry", Icon: Church },
 };
 export const kindOf = (id: string): Kind => KINDS[id] ?? { short: id.charAt(0).toUpperCase() + id.slice(1).replace(/-/g, " "), color: "accent", Icon: HandHeart };
 export const tone = (id: string) => `var(--${kindOf(id).color})`;
@@ -109,6 +114,24 @@ export function compass(a: { lat: number; lon: number }, b: { lat: number; lon: 
   const deg = (Math.atan2(east, north) * 180) / Math.PI;
   return ["N", "NE", "E", "SE", "S", "SW", "W", "NW"][Math.round(((deg + 360) % 360) / 45) % 8];
 }
+
+/** The words a city section uses: Help for life's own, unless a page passes its own (the Fellowships page does). */
+export interface CityWords {
+  kick: string;
+  lead: (places: number, lines: number) => string;
+  /** The places panel's heading, "Help in Jacksonville". */
+  title: (place: string) => string;
+  count: (places: number, lines: number) => string;
+  /** The word before a place's distance on its row: its kind of help. */
+  tag: (e: LocalHelp) => string;
+}
+export const LIFE_WORDS: CityWords = {
+  kick: "02 · Local help",
+  lead: (places, lines) => `${plural(places, "place")} you can walk into and ${plural(lines, "phone line")}, each checked on the organisation’s own page.`,
+  title: (place) => `Help in ${place}`,
+  count: (places, lines) => `${plural(places, "place")} you can walk into${lines > 0 ? ` · ${plural(lines, "phone line")} below` : ""}`,
+  tag: (e) => kindOf(e.category).short,
+};
 
 /** The data files that draw each city; a verified city is shown only once both exist (resources.test.ts checks this). */
 export const CITY_FILES = {
