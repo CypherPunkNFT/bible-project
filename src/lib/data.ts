@@ -160,12 +160,20 @@ export interface BankQuestion {
   tradition: string | null;
   collection: string;
   lesson: string | null;
+  /** Book codes from the reference, then any book named outright; set by fixed rules (scripts/question_tags.py). */
+  books: string[];
+  testament: "OT" | "NT" | null;
+  topic: string | null;
+  /** The first reference, as the reader opens it. */
+  link: { book: string; chapter: number; verse: number | null } | null;
   standalone: boolean;
 }
 export interface BankCollection { title: string; kind: string; tradition: string | null; credit: string | null; source_url: string | null; count: number }
-export interface QuestionBank { kinds: Record<string, string>; collections: BankCollection[]; questions: BankQuestion[] }
+export interface BankTopic { id: string; title: string; group: "story" | "teaching" }
+export interface BankBook { code: string; name: string; short: string; section: string; testament: "OT" | "NT" }
+export interface QuestionBank { kinds: Record<string, string>; topics: BankTopic[]; books: BankBook[]; collections: BankCollection[]; questions: BankQuestion[] }
 export const loadQuestionBank = () =>
-  load<QuestionBank>("questions/bank.json", (v) => isObject(v) && Array.isArray(v.questions) && Array.isArray(v.collections));
+  load<QuestionBank>("questions/bank.json", (v) => isObject(v) && Array.isArray(v.questions) && Array.isArray(v.collections) && Array.isArray(v.topics) && Array.isArray(v.books));
 
 // Hymns (scripts/build-hymn-collection.py): the collection, the full study of a hymn that has one, and the words of every hymn
 // filed by hymn book.

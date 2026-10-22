@@ -21,12 +21,17 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from bible.books import BOOKS  # noqa: E402
+from question_tags import CANON, OLD_TESTAMENT, TOPICS, books_of, link_of, testament_of, topic_of  # noqa: E402
+
 WEBSITE = Path(__file__).resolve().parent.parent
 CORPUS = WEBSITE.parent / "Research" / "BibleQuizCorpus" / "normalized"
 OFFICIAL = WEBSITE / "content" / "questions" / "question-bank.json"
 SITE = WEBSITE / "data" / "questions" / "bank.json"
 
-SCHEMA = "bibleproject.question-bank/v1"
+SCHEMA = "bibleproject.question-bank/v2"
 
 # The kinds of question, in the order the page lists them.
 KINDS = {
@@ -127,18 +132,25 @@ def better(a: dict, b: dict) -> bool:
 def to_entry(record: dict) -> dict:
     title, kind, tradition = BANKS[record["bank_id"]]
     lesson = record.get("lesson")
+    question, answer = record["question"].strip(), record["answer"].strip()
+    books = books_of(question, answer, record.get("reference"))
+    topic = topic_of(question, answer, lesson, kind, books)
     return {
         "id": record["id"],
         "source_id": record["source_id"],
         "attribution_source_id": record.get("attribution_source_id"),
-        "question": record["question"].strip(),
-        "answer": record["answer"].strip(),
+        "question": question,
+        "answer": answer,
         "options": record.get("options"),
         "reference": record.get("reference"),
         "kind": kind,
         "tradition": tradition,
         "collection": title,
         "lesson": lesson,
+        "books": books,
+        "testament": testament_of(kind, books, topic),
+        "topic": topic,
+        "link": link_of(record.get("reference")),
         "standalone": kind == "trivia" or not LEANS_ON_CONTEXT.search(record["question"]),
         "question_origin": record["question_origin"],
         "licence": record["licence"],
@@ -188,9 +200,20 @@ def collections_of(questions: list[dict]) -> list[dict]:
 
 def site_copy(questions: list[dict]) -> dict:
     """The page's copy: the questions without the licence wording, which the collection list carries once."""
-    keep = ("question", "answer", "options", "reference", "kind", "tradition", "collection", "lesson", "standalone")
-    return {"schema": SCHEMA, "kinds": KINDS, "collections": collections_of(questions),
-            "questions": [{k: q[k] for k in keep} for q in questions]}
+    keep = ("question", "answer", "options", "reference", "kind", "tradition", "collection", "lesson", "books",
+            "testament", "topic", "link", "standalone")
+    return {"schema": SCHEMA, "kinds": KINDS, "topics": topics_meta(), "books": books_meta(),
+            "collections": collections_of(questions), "questions": [{k: q[k] for k in keep} for q in questions]}
+
+
+def topics_meta() -> list[dict]:
+    return [{"id": topic, "title": spec["title"], "group": spec["group"]} for topic, spec in TOPICS.items()]
+
+
+def books_meta() -> list[dict]:
+    names = {code: (name, section, osis) for code, name, section, osis in BOOKS}
+    return [{"code": code, "name": names[code][0], "short": names[code][2], "section": names[code][1],
+             "testament": "OT" if code in OLD_TESTAMENT else "NT"} for code in CANON]
 
 
 def write(path: Path, data: dict) -> None:
@@ -208,8 +231,13 @@ def main() -> None:
         "counts": {"questions": len(questions), "by_kind": {KINDS[k]: counts[k] for k in KINDS},
                    "with_choices": sum(1 for q in questions if q["options"]),
                    "with_reference": sum(1 for q in questions if q["reference"]),
-                   "standalone": sum(1 for q in questions if q["standalone"])},
+                   "standalone": sum(1 for q in questions if q["standalone"]),
+                   "with_book": sum(1 for q in questions if q["books"]),
+                   "with_topic": sum(1 for q in questions if q["topic"])},
         "kinds": KINDS,
+        "tagging": "books, testament and topic are set by fixed word lists and the references (scripts/question_tags.py), "
+                   "not checked by hand; a question may sit under a near topic.",
+        "topics": topics_meta(),
         "collections": collections_of(questions),
         "left_out": excluded,
         "questions": questions,

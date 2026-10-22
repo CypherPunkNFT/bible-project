@@ -28,9 +28,15 @@ marks a question that leans on the one before it ("What were their names?"); it 
 ## Each record
 
 `id`, `source_id`, `attribution_source_id`, `question`, `answer`, `options` (the choices, or `null`), `reference`,
-`kind` (`trivia`, `lesson`, `catechism`), `tradition` (Baptist, Reformed, Lutheran, Puritan, Methodist, or `null`
+`books` (book codes from the reference, then any book named outright), `testament` (`OT`, `NT` or `null`), `topic`
+(one of 16, see `topics`), `link` (the first reference as the reader opens it), `kind` (`trivia`, `lesson`, `catechism`), `tradition` (Baptist, Reformed, Lutheran, Puritan, Methodist, or `null`
 for trivia), `collection`, `lesson`, `standalone`,
 `question_origin`, `licence`, `licence_class`, `attribution` (the credit owed), `source_url`, `also_in`.
+
+**Tags are rules, not reading.** `books`, `testament` and `topic` come from fixed word lists and the references in
+[question_tags.py](../../scripts/question_tags.py): a word in the question counts three times, one in the answer once,
+the referenced book three times. 4,839 of 4,962 questions get a topic and 2,303 a book; a question can sit under a near
+topic, and nobody has checked them by hand.
 
 ## Rebuilding
 

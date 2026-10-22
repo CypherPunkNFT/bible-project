@@ -1,73 +1,63 @@
 // MOCK-UP: the questions page, opened at /study/questions on this computer's preview only (see mockup-routes.tsx) until
-// the owner approves it. Deliberately undesigned for now (owner 2026-10-22): a plain table of every question in the
-// Question Bank (content/questions/question-bank.json, built by scripts/build-question-bank.py) with its answer,
-// filtered by kind and collection, and the credit every source asks for underneath.
+// the owner approves it. Every question in the Question Bank (content/questions/question-bank.json, built by
+// scripts/build-question-bank.py): a header with one question to try, 01 the books of the Bible by how many questions
+// each has, 02 the questions themselves with filters by kind, topic, Testament and collection, a search and a
+// test-yourself switch, and the credit every source asks for at the foot. The parts live in questions/.
 import { useEffect, useMemo, useState } from "react";
-import { loadQuestionBank, type BankQuestion, type QuestionBank } from "@/lib/data";
+import { useSearchParams } from "react-router-dom";
+import { loadQuestionBank, type QuestionBank } from "@/lib/data";
+import { BookGrid } from "./questions/BookGrid";
+import { FilterRail, KindChips } from "./questions/FilterRail";
+import { QuestionsHero } from "./questions/Hero";
+import { facetsOf, haystackOf, readFilters, writeFilters, type Filters } from "./questions/model";
+import { QuestionList } from "./questions/QuestionList";
+import { SectionHead } from "./questions/shared";
 import "./questions-page.css";
-
-const PAGE_SIZE = 100;
 
 export default function QuestionsPage() {
   const [bank, setBank] = useState<QuestionBank | null>(null);
   const [failed, setFailed] = useState<string | null>(null);
-  const [kind, setKind] = useState("all");
-  const [collection, setCollection] = useState("all");
-  const [shown, setShown] = useState(PAGE_SIZE);
-
   useEffect(() => {
     loadQuestionBank().then(setBank, (error: unknown) => setFailed(error instanceof Error ? error.message : String(error)));
   }, []);
-
-  const collections = useMemo(() => (bank?.collections ?? []).filter((c) => kind === "all" || c.kind === kind), [bank, kind]);
-  const rows = useMemo(() => (bank?.questions ?? []).filter((q) => (kind === "all" || q.kind === kind) && (collection === "all" || q.collection === collection)), [bank, kind, collection]);
-
-  const chooseKind = (next: string) => { setKind(next); setCollection("all"); setShown(PAGE_SIZE); };
-  const chooseCollection = (next: string) => { setCollection(next); setShown(PAGE_SIZE); };
-
-  return <div className="questions-page">
-    <header>
-      <p className="questions-eyebrow">Study · Questions</p>
-      <h1>Questions &amp; answers</h1>
-      <p>Every question in the site's question bank, with the answer its source printed. Answers are as published and are still to be checked.</p>
-    </header>
-    {failed && <p role="alert">The questions could not be loaded: {failed}</p>}
-    {!bank && !failed && <p>Loading the questions…</p>}
-    {bank && <>
-      <div className="questions-filters">
-        <label>Kind <select value={kind} onChange={(e) => chooseKind(e.target.value)}>
-          <option value="all">All kinds ({bank.questions.length.toLocaleString()})</option>
-          {Object.entries(bank.kinds).map(([id, label]) => <option key={id} value={id}>{label}</option>)}
-        </select></label>
-        <label>Collection <select value={collection} onChange={(e) => chooseCollection(e.target.value)}>
-          <option value="all">All collections</option>
-          {collections.map((c) => <option key={c.title} value={c.title}>{c.title}{c.tradition ? ` · ${c.tradition}` : ""} ({c.count.toLocaleString()})</option>)}
-        </select></label>
-        <span>{rows.length.toLocaleString()} questions</span>
-      </div>
-      <div className="questions-table-wrap">
-        <table className="questions-table">
-          <thead><tr><th>#</th><th>Question</th><th>Answer</th><th>Reference</th><th>Collection</th></tr></thead>
-          <tbody>{rows.slice(0, shown).map((q, i) => <Row key={i} n={i + 1} q={q} kinds={bank.kinds} />)}</tbody>
-        </table>
-      </div>
-      {shown < rows.length && <button type="button" className="questions-more" onClick={() => setShown(shown + PAGE_SIZE)}>Show {Math.min(PAGE_SIZE, rows.length - shown)} more of {(rows.length - shown).toLocaleString()} left</button>}
-      <section className="questions-credits" aria-labelledby="questions-credits-title">
-        <h2 id="questions-credits-title">Where these questions come from</h2>
-        <ul>{bank.collections.map((c) => <li key={c.title}><strong>{c.title}</strong>{c.tradition && ` (${c.tradition})`}. {c.credit}{c.source_url && <> <a href={c.source_url} target="_blank" rel="noreferrer">Source</a></>}</li>)}</ul>
-      </section>
-    </>}
+  return <div className="qp">
+    {failed && <p className="qp-status" role="alert">The questions could not be loaded: {failed}</p>}
+    {!bank && !failed && <p className="qp-status">Loading the questions…</p>}
+    {bank && <QuestionsBody bank={bank} />}
   </div>;
 }
 
-function Row({ n, q, kinds }: { n: number; q: BankQuestion; kinds: Record<string, string> }) {
-  return <tr>
-    <td>{n}</td>
-    <td>{q.lesson && <small>{q.lesson}</small>}{q.question}</td>
-    <td>{q.options
-      ? <ol className="questions-options">{q.options.map((option) => <li key={option} className={option === q.answer ? "is-answer" : undefined}>{option}</li>)}</ol>
-      : q.answer}</td>
-    <td>{q.reference ?? ""}</td>
-    <td>{q.collection}<small>{kinds[q.kind]}{q.tradition ? ` · ${q.tradition}` : ""}</small></td>
-  </tr>;
+function QuestionsBody({ bank }: { bank: QuestionBank }) {
+  const [params, setParams] = useSearchParams();
+  const [testMode, setTestMode] = useState(false);
+  const filters = readFilters(params);
+  const haystacks = useMemo(() => bank.questions.map(haystackOf), [bank]);
+  const bookNames = useMemo(() => Object.fromEntries(bank.books.map((b) => [b.code, b.name])), [bank]);
+  const key = params.toString();
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- filters are read from params, which `key` stands for
+  const facets = useMemo(() => facetsOf(bank.questions, haystacks, filters), [bank, haystacks, key]);
+  const update = (patch: Partial<Filters>) => setParams(writeFilters({ ...filters, ...patch }), { replace: true, preventScrollReset: true });
+  const clear = () => setParams(new URLSearchParams(), { replace: true, preventScrollReset: true });
+  const chooseBook = (book: string) => {
+    update({ book });
+    if (book) document.getElementById("qp-explore")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  return <>
+    <QuestionsHero bank={bank} bookNames={bookNames} />
+    <BookGrid books={bank.books} counts={facets.counts.book} selected={filters.book} onChoose={chooseBook} />
+    <section className="qp-section qp-explore" id="qp-explore" aria-labelledby="qp-explore-title">
+      <SectionHead n="02" id="qp-explore-title" title={<>Explore <em>the questions</em></>}
+        lead="Choose a kind, a topic or a Testament, search for a word, or hide the answers and test yourself." />
+      <KindChips facets={facets} filters={filters} update={update} />
+      <div className="qp-explore-grid">
+        <FilterRail bank={bank} facets={facets} filters={filters} update={update} testMode={testMode} setTestMode={setTestMode} />
+        <QuestionList bank={bank} rows={facets.rows} filters={filters} update={update} clear={clear} testMode={testMode} bookNames={bookNames} />
+      </div>
+    </section>
+    <details className="qp-sources">
+      <summary>Sources · {bank.collections.length} collections</summary>
+      <p>Answers are as each source printed them and are still to be checked. Books, Testament and topic are set by fixed word lists and the references, so a question may sit under a near topic.</p>
+      <ul>{bank.collections.map((c) => <li key={c.title}><strong>{c.title}</strong>{c.tradition && ` (${c.tradition})`}. {c.credit}{c.source_url && <> <a href={c.source_url} target="_blank" rel="noreferrer">Source</a></>}</li>)}</ul>
+    </details>
+  </>;
 }
