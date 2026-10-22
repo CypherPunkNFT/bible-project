@@ -81,3 +81,11 @@ export function useRun(items: Item[], onFinish: (results: Result[]) => void): Ru
 }
 
 export const scoreOf = (results: (Result | undefined)[]) => results.filter((r) => r?.right).length;
+
+/** The chapters of `book` a question points to: its own reference, then its tagged passages. */
+export function chaptersOf(q: TestQuestion, book: string): number[] {
+  const found = new Set<number>();
+  if (q.link?.book === book) found.add(q.link.chapter);
+  for (const p of q.passages ?? []) if (p.book === book) found.add(p.chapter);
+  return [...found];
+}

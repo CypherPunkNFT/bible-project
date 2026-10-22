@@ -18,6 +18,10 @@ export interface OptionProps {
   length: number;
   setLength: (n: number) => void;
   items: Item[];
+  /** The settings without the chapter, for the book and chapter charts (`facets` has the chapter). */
+  bookFacets: Facets;
+  chapter: number | null;
+  setChapter: (chapter: number | null) => void;
   /** Goes up with every new draw; a test keyed on it starts over. */
   round: number;
   redraw: () => void;

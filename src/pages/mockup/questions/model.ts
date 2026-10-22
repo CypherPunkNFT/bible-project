@@ -39,12 +39,14 @@ const keysOf: Record<Facet, (q: BankQuestion) => string[]> = {
 
 export interface Facets { rows: number[]; counts: Record<Facet, Map<string, number>> }
 
-/** The questions that pass every filter, and per filter, how many each of its choices would give. */
-export function facetsOf(questions: BankQuestion[], haystacks: string[], f: Filters): Facets {
+/** The questions that pass every filter, and per filter, how many each of its choices would give. `keep` leaves out
+ * questions before anything is counted (the test page's chapter). */
+export function facetsOf(questions: BankQuestion[], haystacks: string[], f: Filters, keep?: (index: number) => boolean): Facets {
   const terms = searchTerms(f.search);
   const counts = Object.fromEntries(FACETS.map((facet) => [facet, new Map<string, number>()])) as Record<Facet, Map<string, number>>;
   const rows: number[] = [];
   questions.forEach((q, index) => {
+    if (keep && !keep(index)) return;
     if (f.choices && !q.options) return;
     if (terms.length && !terms.every((term) => haystacks[index].includes(term))) return;
     const failing = FACETS.filter((facet) => f[facet] && !keysOf[facet](q).includes(f[facet]));
