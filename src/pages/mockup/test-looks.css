@@ -58,11 +58,9 @@
 .tp-deck-tally .is-right{color:var(--right);font-weight:600}.tp-deck-tally .is-wrong{color:var(--wrong);font-weight:600}
 
 /* 3. The dark stage: its own dark palette, whatever the site's theme */
-.tp--stage .tp-area{--page:#0c0b09;--ink:#f1e8d4;--muted:#a49b88;--line:rgba(217,177,92,.2);--surface:rgba(255,255,255,.035);--surface-2:rgba(255,255,255,.07);--accent:#d9b15c;--right:#7fd3b2;--wrong:#f08d9b;color-scheme:dark;color:var(--ink);overflow:hidden;min-height:760px;
+.tp-look--stage .tp-area{--page:#0c0b09;--ink:#f1e8d4;--muted:#a49b88;--line:rgba(217,177,92,.2);--surface:rgba(255,255,255,.035);--surface-2:rgba(255,255,255,.07);--accent:#d9b15c;--right:#7fd3b2;--wrong:#f08d9b;color-scheme:dark;color:var(--ink);overflow:hidden;min-height:760px;
   background:radial-gradient(ellipse 60% 70% at 12% 38%,rgba(214,168,72,.17),transparent 70%),radial-gradient(ellipse 65% 80% at 92% 62%,rgba(36,62,132,.34),transparent 70%),linear-gradient(90deg,#100e0a,#0a0d17)}
-.tp--stage .tp-area-inner{padding-block:56px 60px}
-.tp--stage .tp-select{background:#16130e}
-.tp--stage .qp-kind{background:rgba(255,255,255,.03)}
+.tp-look--stage .tp-area-inner{padding-block:56px 60px}
 .tp-dust{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .tp-stage{max-width:940px;margin:0 auto;text-align:center}
 .tp-stage-q{position:relative;padding:64px 0 10px;animation:tp-rise .45s ease-out}

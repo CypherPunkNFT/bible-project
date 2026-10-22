@@ -16,9 +16,11 @@ interface Props {
   length: number;
   setLength: (n: number) => void;
   onBegin: () => void;
+  /** The start button's words before the count ("Begin"). */
+  actionLabel?: string;
 }
 
-export function TestSetup({ bank, pool, facets, filters, update, length, setLength, onBegin }: Props) {
+export function TestSetup({ bank, pool, facets, filters, update, length, setLength, onBegin, actionLabel = "Begin" }: Props) {
   const available = facets.rows.length;
   const count = Math.min(length, available);
   return <section className="tp-setup" aria-labelledby="tp-setup-title">
@@ -53,7 +55,7 @@ export function TestSetup({ bank, pool, facets, filters, update, length, setLeng
       <div className="tp-begin">
         <Mix pool={pool} rows={facets.rows} />
         <button type="button" className="tp-begin-go" disabled={!available} onClick={onBegin}>
-          {available ? <>Begin · {count} question{count === 1 ? "" : "s"}</> : "No questions match"}<ArrowRight size={17} strokeWidth={1.6} aria-hidden />
+          {available ? <>{actionLabel} · {count} question{count === 1 ? "" : "s"}</> : "No questions match"}<ArrowRight size={17} strokeWidth={1.6} aria-hidden />
         </button>
       </div>
     </div>

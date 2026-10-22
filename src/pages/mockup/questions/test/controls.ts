@@ -8,9 +8,10 @@ export const promptSize = (text: string) => (text.length <= 60 ? "is-xl" : text.
 
 const typing = (target: EventTarget | null) => target instanceof HTMLElement && /^(INPUT|SELECT|TEXTAREA|BUTTON|A)$/.test(target.tagName);
 
-/** Keys: A–D (or 1–4) to answer, T or F for true or false, Space to show an answer, Y or N to mark it, Enter for the next. */
-export function useTestKeys(run: Run) {
+/** Only one test on a page listens (`enabled`). Keys: A–D (or 1–4) to answer, T or F for true or false, Space to show an answer, Y or N to mark it, Enter for the next. */
+export function useTestKeys(run: Run, enabled = true) {
   useEffect(() => {
+    if (!enabled) return;
     const onKey = (event: KeyboardEvent) => {
       if (event.ctrlKey || event.metaKey || event.altKey) return;
       const key = event.key.toLowerCase();
@@ -28,5 +29,5 @@ export function useTestKeys(run: Run) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [run]);
+  }, [run, enabled]);
 }

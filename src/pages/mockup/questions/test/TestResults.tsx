@@ -1,7 +1,7 @@
 // The last screen of a test: the score as a ring, how it went topic by topic, and every question missed with its answer
 // and verse, so the test ends as a lesson rather than a number.
-import { ArrowLeft, RotateCcw, Shuffle } from "lucide-react";
-import type { CSSProperties } from "react";
+import { ArrowLeft, RotateCcw, RotateCw } from "lucide-react";
+import { useId, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import type { BankTopic } from "@/lib/data";
 import type { Item, Result } from "./engine";
@@ -13,7 +13,8 @@ interface Props {
   results: Result[];
   topics: BankTopic[];
   bookNames: Record<string, string>;
-  backTo: string;
+  /** The way back to the questions page; left out where the test sits on the page itself. */
+  backTo?: string;
   onRetake: (items: Item[]) => void;
   onNew: () => void;
 }
@@ -22,19 +23,20 @@ const verdictOf = (share: number) =>
   share === 1 ? "Every one right." : share >= 0.8 ? "Very well done." : share >= 0.5 ? "A good start. Go over the ones you missed below." : "Worth another try. Read the ones you missed below first.";
 
 export function TestResults({ items, results, topics, bookNames, backTo, onRetake, onNew }: Props) {
+  const titleId = useId();
   const right = results.filter((r) => r.right).length;
   const missed = items.filter((_, i) => !results[i].right);
-  return <section className="tp-results" aria-labelledby="tp-results-title">
+  return <section className="tp-results" aria-labelledby={titleId}>
     <div className="tp-results-top">
       <Ring results={results}><strong>{Math.round((right / items.length) * 100)}<small>%</small></strong></Ring>
       <div className="tp-results-copy">
         <p className="tp-eyebrow"><span aria-hidden />Your results</p>
-        <h1 id="tp-results-title"><strong>{right}</strong> of {items.length} <em>right</em></h1>
+        <h1 id={titleId}><strong>{right}</strong> of {items.length} <em>right</em></h1>
         <p>{verdictOf(right / items.length)}</p>
         <div className="tp-results-actions">
           {missed.length > 0 && <button type="button" className="tp-begin-go" onClick={() => onRetake(missed)}><RotateCcw size={16} strokeWidth={1.6} aria-hidden />Retake the {missed.length} I missed</button>}
-          <button type="button" className="tp-quiet" onClick={onNew}><Shuffle size={15} strokeWidth={1.6} aria-hidden />A new test</button>
-          <Link className="tp-quiet" to={backTo}><ArrowLeft size={15} strokeWidth={1.6} aria-hidden />Back to the questions</Link>
+          <button type="button" className="tp-quiet" onClick={onNew}><RotateCw size={15} strokeWidth={1.6} aria-hidden />Take it again</button>
+          {backTo && <Link className="tp-quiet" to={backTo}><ArrowLeft size={15} strokeWidth={1.6} aria-hidden />Back to the questions</Link>}
         </div>
       </div>
     </div>
