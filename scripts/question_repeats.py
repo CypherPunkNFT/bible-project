@@ -105,8 +105,12 @@ def save_repeats(data: dict) -> None:
 def mark_repeats(questions: list[dict]) -> int:
     """Give every repeat a `repeat_of` naming the question its group keeps; return how many were marked.
 
-    Groups join every pair decided "same"; the one kept is the most useful to show: one with choices, then from a
-    Baptist collection (the site's own tradition), then with a reference, then the original over a copy."""
+    Groups join every pair decided "same"; the one kept is the most useful to show: one with choices of its own
+    source (written-answer choices are added after this), then from a Baptist collection (the site's own tradition),
+    then with a reference, then the original over a copy.
+
+    A mined question (question_mining.py) never joins two groups of the bank's own questions, and never displaces
+    one: a mined group that repeats a bank question is hidden behind that question's group."""
     by_id = {q["id"]: q for q in questions}
     parent = {qid: qid for qid in by_id}
 
@@ -116,10 +120,21 @@ def mark_repeats(questions: list[dict]) -> int:
             x = parent[x]
         return x
 
+    def mined(qid: str) -> bool:
+        return qid.startswith("mined:")
+
+    crossing = []
     for decision in load_repeats()["pairs"].values():
         a, b = decision["a"], decision["b"]
         if decision["same"] and a in by_id and b in by_id:
-            parent[root(a)] = root(b)
+            if mined(a) != mined(b):
+                crossing.append((a, b) if mined(a) else (b, a))
+            else:
+                parent[root(a)] = root(b)
+    # Each mined group follows the first bank group it repeats; it is not merged, so it links no two bank groups.
+    follows: dict[str, str] = {}
+    for new, old in crossing:
+        follows.setdefault(root(new), root(old))
     groups: dict[str, list[dict]] = {}
     for qid, q in by_id.items():
         groups.setdefault(root(qid), []).append(q)
@@ -129,9 +144,10 @@ def mark_repeats(questions: list[dict]) -> int:
         return (bool(q.get("options")), q.get("tradition") == "Baptist", bool(q.get("reference")),
                 q["source_id"] == q.get("attribution_source_id"), -order[q["id"]])
 
+    keeper = {group: max(members, key=rank) for group, members in groups.items()}
     marked = 0
-    for members in groups.values():
-        keep = max(members, key=rank)
+    for group, members in groups.items():
+        keep = keeper[follows[group]] if group in follows else keeper[group]
         for q in members:
             q["repeat_of"] = None if q is keep else keep["id"]
             marked += q is not keep

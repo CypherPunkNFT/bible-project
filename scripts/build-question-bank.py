@@ -25,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from bible.books import BOOKS  # noqa: E402
 from question_choices import add_choices  # noqa: E402
+from question_mining import mined_records  # noqa: E402
 from question_model_tags import add_model_tags  # noqa: E402
 from question_repeats import mark_repeats  # noqa: E402
 from question_tags import CANON, OLD_TESTAMENT, TOPICS, books_of, link_of, testament_of, topic_of  # noqa: E402
@@ -68,6 +69,11 @@ BANKS: dict[str, tuple[str, str, str | None]] = {
     "catechism_for_young_children": ("A Catechism for Young Children", "catechism", "Reformed"),
     "pg13274": ("John Mason's Little Catechism (1692)", "catechism", "Puritan"),
     "pg36081": ("Luther's Small Catechism Explained (Sverdrup, 1900)", "catechism", "Lutheran"),
+    # Made usable by scripts/question_mining.py (content/questions/mined.json), each record saying how.
+    "mined-bibleqa": ("Bible quiz, reworded (facts from BibleQA)", "trivia", None),
+    "mined-bibledata": ("Bible people and places (from BibleData)", "trivia", None),
+    "mined-pg9912": ("Stump's Explanation of Luther's Small Catechism (1910)", "catechism", "Lutheran"),
+    "mined-pg53465": ("Mezger's Lessons in the Small Catechism (1923)", "catechism", "Lutheran"),
 }
 
 # Outside the site's close-to-Baptist scope (owner 2026-10-22): kept in the corpus to mine for content later, never
@@ -100,7 +106,7 @@ LEANS_ON_CONTEXT = re.compile(r"\b(this|these|those|they|them|their|he|him|she|h
 def load_corpus() -> list[dict]:
     batch2 = json.loads((CORPUS / "all-questions.json").read_text(encoding="utf-8"))["questions"]
     batch3 = json.loads((CORPUS / "all-questions-batch3.json").read_text(encoding="utf-8"))["questions"]
-    return batch2 + batch3
+    return batch2 + batch3 + mined_records()
 
 
 def reason_left_out(record: dict) -> str | None:
@@ -154,13 +160,15 @@ def to_entry(record: dict) -> dict:
         "testament": testament_of(kind, books, topic),
         "topic": topic,
         "link": link_of(record.get("reference")),
-        "standalone": kind == "trivia" or not LEANS_ON_CONTEXT.search(record["question"]),
+        # A mined question was reworded to stand alone (question_mining.py).
+        "standalone": record["id"].startswith("mined:") or kind == "trivia" or not LEANS_ON_CONTEXT.search(record["question"]),
         "question_origin": record["question_origin"],
         "licence": record["licence"],
         "licence_class": record["licence_class"],
         "attribution": record.get("attribution"),
         "source_url": record.get("source_url"),
         "also_in": [],
+        "options_by": record.get("options_by"),
     }
 
 
