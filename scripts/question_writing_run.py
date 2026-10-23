@@ -34,6 +34,7 @@ HAIKU_OVERPRICE = 50
 WRITE_ATTEMPTS, REVIEW_PASSES = 3, 8
 OK_EXITS = {0, 1}  # 1: finished, some items failed; a question with no answer waits for the next pass
 BUDGET_USED_UP, BUDGET_ROUNDS = 5, 3  # BatchRunner's exit code when a run's own budget is spent
+KILLED = 0xC000013A  # Windows: ended by Ctrl-C or its console closing
 NOTHING_LEFT = ("No items left to run after the pilot.", "Nothing to pilot")
 
 
@@ -96,6 +97,10 @@ class Driver:
         mode = "full" if full else "pilot"
         self.log(f"{folder.name}: {mode} run starts")
         done = subprocess.run(command, capture_output=True, text=True, encoding="utf-8", errors="replace", check=False)
+        if done.returncode == KILLED:  # stopped from outside (a console's Ctrl-C reaching it): finished items are kept
+            self.log(f"{folder.name}: {mode} run was killed from outside; running it once more")
+            done = subprocess.run(command, capture_output=True, text=True, encoding="utf-8", errors="replace",
+                                  check=False)
         tail = "\n".join(done.stdout.strip().splitlines()[-4:])
         self.log(f"{folder.name}: {mode} run exit {done.returncode}; spent so far ${self.spent():.2f}\n{tail}")
         if full and done.returncode == BUDGET_USED_UP:
