@@ -3,8 +3,9 @@
 // they're all clicked, then take a test comes out." The words on the left are the banner's own, with the row of dots
 // now under them; on the right the three settings start unchosen, and the button comes out once all three are chosen.
 // Of the first four, the owner kept the sentence and asked for the other three condensed into one, laid out like the
-// icon tiles, "the same length as it is normally… keep the icons and all of them in one go". Styles:
-// test-banner-mockup.css.
+// icon tiles, "the same length as it is normally… keep the icons and all of them in one go"; then "the same box design
+// as the questions themes… take the test is in the middle", so the tiles became the theme shelves' hairline grid, tried
+// with the button under it and in the banner's middle. Styles: test-banner-mockup.css.
 import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
@@ -31,24 +32,24 @@ function testHref({ length, level, age }: Picks) {
   return `/study/questions/test?${out}`;
 }
 
-/** The banner with its own words and the dots on the left; the version's settings, then the button once all are chosen,
- * on the right. `keep` holds the button's place while it is hidden, so the banner does not grow when it comes out. */
-function Shell({ picks, done, keep, children }: { picks: Picks; done: boolean; keep?: boolean; children: ReactNode }) {
-  return <section className="qp-test-banner tb-banner">
+/** The banner with its own words and the dots on the left and the version's settings on the right. The button comes out
+ * once all three are chosen, in a place kept for it so the banner does not grow: under the settings, or with
+ * `middle` in a column of its own between the words and the settings. */
+function Shell({ picks, done, middle, children }: { picks: Picks; done: boolean; middle?: boolean; children: ReactNode }) {
+  const go = <div className="tb-go" data-open={done || undefined}><div>
+    <Link className="qp-test-go" to={testHref(picks)} tabIndex={done ? 0 : -1} aria-hidden={!done}>
+      Take a test on {SUBJECT.title}<ArrowRight size={17} strokeWidth={1.6} aria-hidden /></Link>
+    <small>{SUBJECT.available} questions to draw from</small>
+  </div></div>;
+  return <section className="qp-test-banner tb-banner" data-middle={middle || undefined}>
     <div className="qp-test-copy">
       <p className="qp-eyebrow"><span></span>A test of your own</p>
       <h2>Ready to <em>test yourself?</em></h2>
       <p>Choose what to be tested on and answer one question at a time. The answers stay hidden until you give yours.</p>
       <ol className="qp-test-marks" aria-hidden>{MARKS.map((mark, i) => <li key={i} className={mark && `is-${mark}`} />)}</ol>
     </div>
-    <div className="tb-action">
-      {children}
-      <div className="tb-go" data-open={done || undefined} data-keep={keep || undefined}><div>
-        <Link className="qp-test-go" to={testHref(picks)} tabIndex={done ? 0 : -1} aria-hidden={!done}>
-          Take a test on {SUBJECT.title}<ArrowRight size={17} strokeWidth={1.6} aria-hidden /></Link>
-        <small>{SUBJECT.available} questions to draw from</small>
-      </div></div>
-    </div>
+    {middle && <div className="tb-middle">{go}</div>}
+    <div className="tb-action">{children}{!middle && go}</div>
   </section>;
 }
 
@@ -64,23 +65,33 @@ type Key = (typeof SETTINGS)[number]["key"];
 function Mark({ setting, id, size }: { setting: Key; id: number | string; size: number }) {
   if (setting === "level") return <Pips level={Number(id)} />;
   if (setting === "age") { const { Icon } = ageOf(String(id)); return <Icon size={size} strokeWidth={1.6} aria-hidden />; }
+  if (setting === "length") return <b>{id}</b>;
   return null;
 }
 
-/** 1 · The icon tiles condensed: each setting one row, its name beside three short tiles with the number, the rising
- * bars or the age group's icon, all three rows at once and the banner its usual height. */
-export function TilesBanner() {
+/** The three settings in the theme shelves' hairline grid: the setting's name in the first column, then its three
+ * boxes, each with its mark in a soft round tint, its name and a line, glowing faintly when pointed at or chosen. */
+function SettingsGrid({ picks, pick }: { picks: Picks; pick: (key: Key, id: number | string) => void }) {
+  return <div className="tb-grid">{SETTINGS.map(({ key, label, items }) =>
+    <div key={key} className="tb-grid-row" role="group" aria-label={label}>
+      <span className="tb-grid-name">{label}{picks[key] !== null && <Check size={12} strokeWidth={2.2} aria-hidden />}</span>
+      {items.map((item) => <button key={item.id} type="button" className="tb-cell" aria-pressed={picks[key] === item.id} onClick={() => pick(key, item.id)}>
+        <i className="tb-cell-icon"><Mark setting={key} id={item.id} size={18} /></i>
+        <span><strong>{key === "length" ? "questions" : item.label}</strong><small>{item.note}</small></span>
+      </button>)}
+    </div>)}</div>;
+}
+
+/** 1 · The theme boxes, the button centred under them. */
+export function GridBanner() {
   const { picks, pick, done } = usePicks();
-  return <Shell picks={picks} done={done} keep>
-    <div className="tb-compact">{SETTINGS.map(({ key, label, items }) =>
-      <div key={key} className="tb-compact-row" role="group" aria-label={label}>
-        <span>{label}{picks[key] !== null && <Check size={12} strokeWidth={2.2} aria-hidden />}</span>
-        {items.map((item) =>
-          <button key={item.id} type="button" className="tb-ctile" aria-pressed={picks[key] === item.id} title={item.note} onClick={() => pick(key, item.id)}>
-            {key === "length" ? <b>{item.label}</b> : <i><Mark setting={key} id={item.id} size={19} /></i>}
-            <strong>{key === "length" ? "questions" : item.label}</strong></button>)}
-      </div>)}</div>
-  </Shell>;
+  return <Shell picks={picks} done={done}><SettingsGrid picks={picks} pick={pick} /></Shell>;
+}
+
+/** 2 · The theme boxes, the button in the middle of the banner between the words and the boxes. */
+export function GridMiddleBanner() {
+  const { picks, pick, done } = usePicks();
+  return <Shell picks={picks} done={done} middle><SettingsGrid picks={picks} pick={pick} /></Shell>;
 }
 
 /** One blank in the sentence: empty and dashed until chosen, opening a short list of the choices. */
@@ -96,7 +107,7 @@ function Blank({ setting, placeholder, value, onChoose }: { setting: (typeof SET
   </span>;
 }
 
-/** 2 · The test said as one sentence with three blanks to fill. */
+/** 3 · The test said as one sentence with three blanks to fill. */
 export function SentenceBanner() {
   const { picks, pick, done } = usePicks();
   const [length, level, age] = SETTINGS;
