@@ -2,7 +2,7 @@
 // open like drawers. "By the book": Law, History, Poetry & wisdom, Prophets, Gospels & Acts, Epistles and Revelation,
 // each opening to its books. "By theme": the test page's four shelves (Lives, Stories, Teaching, Know your Bible), each
 // opening to its groups and themes. One book and one theme can be chosen together; every count is what choosing it
-// would give with the other choices kept. The collection list and the multiple-choice switch stay. The topic list and
+// would give with the other choices kept. The multiple-choice switch stays; the collection list went (owner, 2026-10-23). The topic list and
 // the Testament switch of FilterRail.tsx are not used here (the book drawers cover both Testaments).
 import { ChevronDown, X } from "lucide-react";
 import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
@@ -61,7 +61,6 @@ export function ListRail({ bank, facets, filters, choice, members, update, choos
     if (ids.length) setOpen((now) => new Set([...now, ...ids]));
     // eslint-disable-next-line react-hooks/exhaustive-deps -- `span` only reads the bank's books
   }, [choice.book, choice.theme]);
-  const collections = bank.collections;
   // The rail scrolls with the same gold pill outside its edge as the list beside it (owner, 2026-10-23: no box, no arrows).
   return <aside className="qx-rail-wrap"><PillScroll className="qp-rail qx-rail" label="Filters">
     <RailGroup title="By the book">{BOOK_SECTIONS.map((s) => {
@@ -90,12 +89,6 @@ export function ListRail({ bank, facets, filters, choice, members, update, choos
         })}
       </Drawer>;
     })}</RailGroup>
-    <RailGroup title="Collection">
-      <select className="qp-select" value={filters.collection} onChange={(e) => update({ collection: e.target.value })} aria-label="Collection">
-        <option value="">Every collection</option>
-        {collections.map((c) => <option key={c.title} value={c.title}>{c.title} ({(facets.collectionCount.get(c.title) ?? 0).toLocaleString()})</option>)}
-      </select>
-    </RailGroup>
     <RailGroup title="Show">
       <Switch on={filters.choices} onChange={(choices) => update({ choices })}>Multiple choice only</Switch>
     </RailGroup>
