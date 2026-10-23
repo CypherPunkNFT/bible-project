@@ -529,7 +529,7 @@ def promote_from_hidden(questions: list[dict]) -> int:
     order = {q["id"]: n for n, q in enumerate(questions)}
 
     def rank(q: dict) -> tuple:
-        return (not q["id"].startswith("mined:"), q.get("options_by") == "source", q.get("tradition") == "Baptist",
+        return (not q["id"].startswith(("mined:", "written:")), q.get("options_by") == "source", q.get("tradition") == "Baptist",
                 bool(q.get("reference")), q["source_id"] == q.get("attribution_source_id"), -order[q["id"]])
 
     members: dict[str, list[dict]] = {}

@@ -15,7 +15,7 @@ from pathlib import Path
 
 from bible.books import BOOKS
 from question_audit import load_audit
-from question_grounding import load_grounding
+from question_grounding import CATEGORIES, load_grounding
 from question_model_tags import bible_book
 from question_tags import parse_reference
 
@@ -33,8 +33,8 @@ WRONG_GROUPS = {
 QUESTION_FAULTS = {"misquote", "other_translation", "other"}
 
 COLUMNS = ["id", "status", "collection", "kind", "tradition", "question", "answer", "right", "options", "reference",
-           "refBooks", "leadIn", "basis", "strength", "outside", "verses", "verseKeys", "moreVerses", "note", "doubt",
-           "groundedBy", "verdict", "faults", "why", "auditedBy", "optionsBy", "repeatOf", "hidden", "sourceUrl",
+           "refBooks", "leadIn", "basis", "category", "strength", "outside", "verses", "verseKeys", "moreVerses", "note", "doubt",
+           "groundedBy", "verdict", "faults", "why", "auditedBy", "recheck", "optionsBy", "repeatOf", "hidden", "sourceUrl",
            "problems", "before", "wrong"]
 
 
@@ -97,11 +97,11 @@ def explorer_row(q: dict, audit: dict | None, grounding_record: dict | None, ver
         "tradition": q.get("tradition"), "question": q["question"], "answer": q["answer"],
         "right": q.get("answer_choice"), "options": q.get("options"), "reference": q.get("reference"),
         "refBooks": list(dict.fromkeys(book for book, _c, _v in parse_reference(q.get("reference")))),
-        "leadIn": q.get("lead_in"), "basis": g.get("basis"), "strength": g.get("strength"),
+        "leadIn": q.get("lead_in"), "basis": g.get("basis"), "category": g.get("category"), "strength": g.get("strength"),
         "outside": g.get("outside"), "verses": g.get("verses", []), "verseKeys": sent,
         "moreVerses": max(0, len(keys) - VERSES_PER_QUESTION), "note": g.get("note"), "doubt": g.get("doubt"),
         "groundedBy": g.get("by"), "verdict": a.get("verdict"), "faults": a.get("kinds", []), "why": a.get("why"),
-        "auditedBy": a.get("by"), "optionsBy": q.get("options_by"), "repeatOf": q.get("repeat_of"),
+        "auditedBy": a.get("by"), "recheck": ((audit or {}).get("rechecked") or {}).get("verdict"), "optionsBy": q.get("options_by"), "repeatOf": q.get("repeat_of"),
         "hidden": q.get("hidden"), "sourceUrl": q.get("source_url"),
         "problems": [[p["kind"], p["detail"]] for p in audit["problems"]] if audit else [],
         "before": before, "wrong": wrong_groups(audit) if audit else [],
@@ -118,7 +118,7 @@ def write_explorer(questions: list[dict], path: Path) -> int:
                          groundings.get(q["id"]) if q.get("grounding") else None, verses) for q in questions]
     data = {"schema": "bibleproject.question-explorer/v1",
             "built": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
-            "wrongGroups": WRONG_GROUPS, "books": {code: name for code, name, _section, _osis in BOOKS},
+            "wrongGroups": WRONG_GROUPS, "categories": CATEGORIES, "books": {code: name for code, name, _section, _osis in BOOKS},
             "columns": COLUMNS, "rows": rows, "verses": verses}
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(path.name + ".tmp")

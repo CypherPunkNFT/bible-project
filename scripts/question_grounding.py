@@ -42,6 +42,11 @@ VERSES = WORK / "bsb-verses.npz"
 SEARCHED = 8  # verses found by meaning, each shown with the verse either side
 OUTSIDE = ["history", "language and manuscripts", "the Bible as a book", "church teaching", "geography or nature",
            "other"]
+# The owner's plain categories (2026-10-23: "scriptural, biblical like how many books are there, and academic or
+# historical"), with church teaching apart: a catechism's doctrine beyond its verses is none of the three.
+CATEGORIES = {"scripture": "Scripture", "about-the-bible": "About the Bible", "church-teaching": "Church teaching",
+              "history-and-scholarship": "History and scholarship"}
+CATEGORY_OF_OUTSIDE = {"the Bible as a book": "about-the-bible", "church teaching": "church-teaching"}
 
 TASK = """You decide where the answer to one Bible quiz or catechism question comes from. The question, its answer
 and passages of the Berean Standard Bible (BSB) are below. Some passages are the question's own reference, some were
@@ -301,7 +306,9 @@ def apply_grounding(questions: list[dict]) -> dict:
             counts["stale"] += 1
             continue
         refs = [v["ref"] for v in record["verses"]]
-        q["grounding"] = {"basis": record["basis"], "strength": record["strength"] or None,
+        category = "scripture" if record["basis"] == "scripture" else CATEGORY_OF_OUTSIDE.get(record["outside"],
+                                                                                           "history-and-scholarship")
+        q["grounding"] = {"basis": record["basis"], "category": category, "strength": record["strength"] or None,
                           "outside": record["outside"] or None, "verses": refs, "note": record["note"],
                           "doubt": record["doubt"] or None, "by": record["by"]}
         counts[record["basis"]] += 1
@@ -318,7 +325,7 @@ def apply_grounding(questions: list[dict]) -> dict:
 
 
 TABLE_COLUMNS = ["id", "status", "collection", "kind", "tradition", "question", "answer", "right_choice",
-                 "wrong_choices", "reference", "basis", "strength", "outside_kind", "verses", "basis_note", "doubt",
+                 "wrong_choices", "reference", "basis", "category", "strength", "outside_kind", "verses", "basis_note", "doubt",
                  "grounded_by", "audit_verdict", "audit_faults", "audit_why", "audited_by", "options_by", "repeat_of",
                  "hidden_reason", "source_url"]
 
@@ -336,7 +343,7 @@ def write_table(questions: list[dict], path: Path) -> None:
             wrong = [o for o in q.get("options") or [] if o != q.get("answer_choice")]
             writer.writerow([q["id"], status, q["collection"], q["kind"], q.get("tradition") or "", q["question"],
                              q["answer"], q.get("answer_choice") or "", " | ".join(wrong), q.get("reference") or "",
-                             g.get("basis", ""), g.get("strength") or "", g.get("outside") or "",
+                             g.get("basis", ""), g.get("category", ""), g.get("strength") or "", g.get("outside") or "",
                              "; ".join(g.get("verses", [])), g.get("note", ""), g.get("doubt") or "", g.get("by", ""),
                              a.get("verdict", ""), ", ".join(a.get("kinds", [])), a.get("why", ""), a.get("by", ""),
                              q.get("options_by") or "", q.get("repeat_of") or "", q.get("hidden") or "",

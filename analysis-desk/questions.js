@@ -11,17 +11,19 @@ const KINDS={trivia:'Bible quiz',lesson:'Sunday school lesson',catechism:'Catech
 const VERDICTS={keep:'Kept',fix:'Fixed',hide:'Hidden',none:'Not checked'};
 const SHORT_WRONG={question:'Question',answer:'Answer',choice:'Choice',reworded:'Reworded',reference:'Reference',other:'Other'};
 const FAULTS={wrong_answer:'Wrong answer',choice_also_right:'A wrong choice also right',misquote:'Misquote or overstatement',other_translation:'King James or other wording',reference:'Reference',other:'Other'};
-let ROWS=[],VERSES={},BOOKS={},WRONG={},filtered=[],flags={};
+let ROWS=[],VERSES={},BOOKS={},WRONG={},CATEGORIES={},filtered=[],flags={};
 const state={selected:{},search:'',terms:[],sort:{key:null,dir:1}};
 
 // Each filter: its title, the values a row has for it (several for some), and how a value reads.
 const FACETS=[
  {key:'status',title:'Status',values:r=>[r.status],label:v=>({shown:'Shown',repeat:'Repeat',hidden:'Hidden'}[v])},
  {key:'verdict',title:"The check's verdict",values:r=>[r.verdict??'none'],label:v=>VERDICTS[v]},
+ {key:'recheck',title:'Re-checked against the answer verses',values:r=>[r.recheck??'none'],label:v=>v==='none'?'Not re-checked':VERDICTS[v]},
  {key:'wrong',title:'Type of wrong',values:r=>r.wrong.length?r.wrong:['none'],label:v=>v==='none'?'Nothing found':WRONG[v]},
  {key:'doubt',title:'Doubt',values:r=>[r.doubt?'has':'none'],label:v=>v==='has'?'Has a doubt':'No doubt'},
  {key:'kind',title:'Kind',values:r=>[r.kind],label:v=>KINDS[v]??v},
  {key:'tradition',title:'Tradition',values:r=>[r.tradition??'none'],label:v=>v==='none'?'None (quiz)':v},
+ {key:'category',title:'Where the answer comes from',values:r=>[r.category??'none'],label:v=>CATEGORIES[v]??'Not grounded'},
  {key:'basis',title:'Basis',values:r=>[r.basis??'none'],label:v=>({scripture:'Scripture',outside:'Outside the Bible',none:'Not grounded'}[v])},
  {key:'strength',title:'Strength',values:r=>[r.strength??'none'],label:v=>({stated:'Stated',taught:'Taught',none:'—'}[v])},
  {key:'flagged',title:'Your flags',values:r=>[flags[r.id]?'yes':'no'],label:v=>v==='yes'?'Flagged':'Not flagged'},
@@ -36,7 +38,7 @@ const COLS=[
  {key:'question',title:'Question',cell:r=>clip(r.question)},
  {key:'answer',title:'Answer',cell:r=>clip(r.right??r.answer)},
  {key:'reference',title:'Reference',cell:r=>clip(r.reference??'—','muted')},
- {key:'basis',title:'Basis',cell:r=>clip(r.basis==='outside'?'Outside':r.basis==='scripture'?'Scripture':'—','muted')},
+ {key:'category',title:'Comes from',cell:r=>clip(CATEGORIES[r.category]??'—','muted')},
  {key:'verdict',title:'Check',cell:r=>r.verdict?tag(VERDICTS[r.verdict],r.verdict):clip('—','muted')},
  {key:'wrong',title:'Type of wrong',cell:r=>{const d=node('div',null,'wrong-dots');if(flags[r.id])d.append(tag('Flagged','flag'));for(const w of r.wrong)d.append(tag(SHORT_WRONG[w],''));return d;}},
 ];
@@ -48,7 +50,7 @@ async function load(){
  if(!res.ok)throw Error((await res.json().catch(()=>({}))).error??`The questions could not be loaded (${res.status}).`);
  const data=await res.json();
  if(flagRes.ok)flags=(await flagRes.json()).flags??{};
- VERSES=data.verses;BOOKS=data.books;WRONG=data.wrongGroups;
+ VERSES=data.verses;BOOKS=data.books;WRONG=data.wrongGroups;CATEGORIES=data.categories??{};
  ROWS=data.rows.map((row,i)=>{const r=Object.fromEntries(data.columns.map((c,j)=>[c,row[j]]));r.order=i;
   r.search=[r.question,r.answer,r.right,...(r.options??[])].join(' \u0001 ').toLowerCase();return r;});
  $('built').textContent='Last built '+new Date(data.built).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'})+'.';
@@ -112,8 +114,8 @@ function renderFacets(counts){
 const orders={};
 function orderOf(f){ // a filter's values in a fixed order: as listed in the labels, then as first met
  if(orders[f.key])return orders[f.key];
- const fixed={status:['shown','repeat','hidden'],verdict:['fix','keep','hide','none'],wrong:[...Object.keys(WRONG),'none'],doubt:['has','none'],
-  kind:Object.keys(KINDS),basis:['scripture','outside','none'],strength:['stated','taught','none'],flagged:['yes','no'],book:[...Object.keys(BOOKS),'none']}[f.key]??[];
+ const fixed={status:['shown','repeat','hidden'],verdict:['fix','keep','hide','none'],recheck:['fix','keep','hide','none'],wrong:[...Object.keys(WRONG),'none'],doubt:['has','none'],
+  kind:Object.keys(KINDS),basis:['scripture','outside','none'],strength:['stated','taught','none'],flagged:['yes','no'],category:[...Object.keys(CATEGORIES),'none'],book:[...Object.keys(BOOKS),'none']}[f.key]??[];
  const seen=[...fixed];for(const r of ROWS)for(const v of f.values(r))if(!seen.includes(v))seen.push(v);
  return orders[f.key]=seen;
 }
@@ -186,10 +188,10 @@ function openDetail(r){
  if(r.before)body.append(section('Before and after the check',compare(r)));
  if(r.problems.length){const ul=node('ul',null,'faults');for(const [k,d] of r.problems){const li=node('li');li.append(tag(FAULTS[k]??k,''),document.createTextNode(d));ul.append(li);}body.append(section('Faults found',ul));}
  if(r.why)body.append(section('Reason for the change',para(r.why)));
- if(r.basis)body.append(section('Where the answer comes from',para(r.basis==='scripture'?`Scripture, ${r.strength??''}`.replace(/, $/,''):`Outside the Bible: ${r.outside??''}`),
+ if(r.basis)body.append(section('Where the answer comes from',para(r.basis==='scripture'?`Scripture, ${r.strength??''}`.replace(/, $/,''):`${CATEGORIES[r.category]??'Outside the Bible'} (${r.outside??''})`),
   para(r.verses.length?'Verses: '+r.verses.join('; '):null,'quiet'),...verseBlocks(r),para(r.note)));
  if(r.doubt)body.append(section('Doubt',para(r.doubt)));
- const dl=node('dl',null,'models');for(const [k,v] of [['Choices written by',r.optionsBy],['Checked by',r.auditedBy],['Grounded by',r.groundedBy]])dl.append(node('dt',k),node('dd',v??'—'));
+ const dl=node('dl',null,'models');for(const [k,v] of [['Choices written by',r.optionsBy],['Checked by',r.auditedBy],['Re-checked',r.recheck?VERDICTS[r.recheck]:null],['Grounded by',r.groundedBy]])dl.append(node('dt',k),node('dd',v??'—'));
  body.append(section('Which model did each part',dl));
  const link=safeLink(r.sourceUrl,r.sourceUrl);
  body.append(section('Source',link??para('No source link.','quiet'),para(r.id,'quiet')));

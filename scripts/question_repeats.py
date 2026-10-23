@@ -109,8 +109,9 @@ def mark_repeats(questions: list[dict]) -> int:
     source (written-answer choices are added after this), then from a Baptist collection (the site's own tradition),
     then with a reference, then the original over a copy.
 
-    A mined question (question_mining.py) never joins two groups of the bank's own questions, and never displaces
-    one: a mined group that repeats a bank question is hidden behind that question's group."""
+    A mined or written question (question_mining.py, question_writing.py) never joins two groups of the bank's own
+    questions, and never displaces one: such a group that repeats a bank question is hidden behind that question's
+    group. A mined and a written question that repeat each other are one group like any other pair."""
     by_id = {q["id"]: q for q in questions}
     parent = {qid: qid for qid in by_id}
 
@@ -121,7 +122,7 @@ def mark_repeats(questions: list[dict]) -> int:
         return x
 
     def mined(qid: str) -> bool:
-        return qid.startswith("mined:")
+        return qid.startswith(("mined:", "written:"))  # made for the site: question_mining.py, question_writing.py
 
     crossing = []
     for decision in load_repeats()["pairs"].values():

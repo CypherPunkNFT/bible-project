@@ -169,6 +169,53 @@ outside (231 the Bible as a book, 162 church teaching, 29 history, 21 language a
 - A question with no reference gets the verses read as its reference (243). In 65 the reference holds none of the
   verses read; read one by one, the reference is right and another verse also holds the answer.
 
+## Checked again against the verses that hold the answer
+
+The first check judged each question by the passages it cited. Grounding later found the verses that actually hold
+each answer, and for about a third of the shown Scripture questions the check had not seen all of them, so their wrong
+choices and quotations were never compared with those verses. [question_recheck.py](../../scripts/question_recheck.py)
+sends each such question again, as the site shows it now, with those verses first (owner, 23 October 2026: "I do not
+want any questions to be wrong"). A "keep" leaves the record as it was, an earlier fix included; a "fix" keeps the
+source's wording as `before`, adds the new faults to the earlier ones, and gives both reasons. Each record gets
+`rechecked` (model, date, verdict), shown in the explorer.
+
+As of 23 October 2026, 1,563 of the 1,668 chosen were checked again: **1,119 kept, 444 fixed** (392 a missing or wrong
+reference, 38 King James or other wording, 17 a misquote, 16 a wrong answer, 3 a wrong choice also right, 4 other).
+Seven replies were refused by the reply checks, and 98 questions were not reached when the run hit its budget.
+
+## Questions written for the site
+
+The owner, 23 October 2026: "we're gonna have to start creating our own questions and our own answers", through
+several independent reviews, with parallel writers that never write the same questions.
+[question_writing.py](../../scripts/question_writing.py) writes them one **BSB section** at a time: the BSB's own
+headings ("The Creation", "Cain and Abel") divide the Bible into 3,016 sections. [writing-map.json](writing-map.json)
+lists each one with its verses, its related sections, how many shown questions already land in it (1,396 have none),
+and how many to write: one per 60 words of text, two to eight, less those already asked (8,028 in all).
+
+**No overlap by construction.** One call owns one section, and every question must cite verses inside it, so two calls
+never write from the same verses. Each call is shown the questions the site already asks about its section. Sections
+the BSB links as related passages ("(Mark 1:1-8; Luke 3:1-18)") wait for each other in Bible order, five waves in all
+(Matthew before Mark before Luke), and each writer is shown what was written for its linked sections. What still
+repeats is caught by the repeat check over the whole bank, which hides a written question behind any bank question it
+repeats.
+
+**Every question passes five checks, or is rejected, never patched by hand:**
+1. the script's own rules ([question_writing_gate.py](../../scripts/question_writing_gate.py)): the cited verses lie in
+   the section; every name and number of the answer is in them exactly ("75" is not "seventy-five") and most of its
+   other words; quotations word for word; four distinct choices, no "all of the above"; no King James wording; it
+   names whom it is about; it does not hold its answer; the right choice is not plainly the longest;
+2. a blind quiz with the section's text: another model must pick the writer's answer and call no other choice right
+   by the section or anywhere in the Bible ([question_writing_review.py](../../scripts/question_writing_review.py));
+3. a blind quiz with no text at all: the question must be clear on its own, and no other choice right anywhere in the
+   Bible;
+4. the site's own BSB check (the audit above), by a fresh model. A suggested fix sends the fixed wording through every
+   check once more; a second fault rejects it;
+5. after publishing, grounding as for every question: a written question it finds is not answered by Scripture, or
+   whose answer it doubts, is hidden.
+Passed questions go to [written.json](written.json) as the bank "Written for the site from the BSB", each with its
+section, cited verses and the full review history; rejected ones are kept there too, with the stage and the reason.
+Nothing reaches the bank until a run is published.
+
 ## The table
 
 [question-table.csv](question-table.csv) is written by every build: one row per question, shown, repeat or hidden,

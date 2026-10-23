@@ -177,6 +177,12 @@ proofreading), the el-cms "uncategorized" trivia (pub quiz, often wrong), two Gu
 the Roman Catholic Baltimore catechisms and the Seventh-day Adventist *Bible Readings for the Home Circle*
 (outside the site's doctrinal scope, owner 2026-10-22; kept to mine for content later), and all of batch 1. Reasons per bank are in the bank file's `left_out` list.
 
+**Written for the site (registered 23 October 2026, none published yet):** the bank `written-bsb` ("Written for the site
+from the BSB") takes no outside source. Each question is written by Claude from one section of the Berean Standard
+Bible (public domain; the project's own `data/text/bsb/` copy, the one every page reads), and its record names the
+section, the cited verses and every model that reviewed it. Written by `scripts/question_writing.py` into
+`content/questions/written.json`; see the question bank's README.
+
 ## Catechisms & Creeds — published 17 October 2026
 
 The 66 creeds, confessions and catechisms behind [/study/creeds](https://bibleproject.io/study/creeds). Every document

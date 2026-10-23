@@ -34,6 +34,7 @@ from question_grounding import apply_grounding, write_table  # noqa: E402
 from question_mining import mined_records  # noqa: E402
 from question_model_tags import add_model_tags  # noqa: E402
 from question_repeats import mark_repeats  # noqa: E402
+from question_writing import written_records  # noqa: E402
 from question_tags import CANON, OLD_TESTAMENT, TOPICS, books_of, link_of, testament_of, topic_of  # noqa: E402
 
 WEBSITE = Path(__file__).resolve().parent.parent
@@ -82,6 +83,8 @@ BANKS: dict[str, tuple[str, str, str | None]] = {
     "mined-bibledata": ("Bible people and places (from BibleData)", "trivia", None),
     "mined-pg9912": ("Stump's Explanation of Luther's Small Catechism (1910)", "catechism", "Lutheran"),
     "mined-pg53465": ("Mezger's Lessons in the Small Catechism (1923)", "catechism", "Lutheran"),
+    # Written for the site one BSB section at a time and passed by every review (scripts/question_writing.py).
+    "written-bsb": ("Written for the site from the BSB", "trivia", None),
 }
 
 # Outside the site's close-to-Baptist scope (owner 2026-10-22): kept in the corpus to mine for content later, never
@@ -114,7 +117,7 @@ LEANS_ON_CONTEXT = re.compile(r"\b(this|these|those|they|them|their|he|him|she|h
 def load_corpus() -> list[dict]:
     batch2 = json.loads((CORPUS / "all-questions.json").read_text(encoding="utf-8"))["questions"]
     batch3 = json.loads((CORPUS / "all-questions-batch3.json").read_text(encoding="utf-8"))["questions"]
-    return batch2 + batch3 + mined_records()
+    return batch2 + batch3 + mined_records() + written_records()
 
 
 def reason_left_out(record: dict) -> str | None:
@@ -208,6 +211,18 @@ def select(records: list[dict]) -> tuple[list[dict], list[dict]]:
     return questions, excluded
 
 
+def hide_doubted_written(questions: list[dict]) -> int:
+    """A question written for the site (question_writing.py) that grounding finds is not answered by Scripture, or
+    whose answer it doubts, is hidden: it was written from a verse, so either means something went wrong."""
+    hidden = 0
+    for q in questions:
+        g = q["grounding"]
+        if q["id"].startswith("written:") and not q["hidden"] and g and (g["basis"] != "scripture" or g["doubt"]):
+            q["hidden"] = f"Written for the site, but grounding found {g['doubt'] or g['note']}"
+            hidden += 1
+    return hidden
+
+
 def collections_of(questions: list[dict]) -> list[dict]:
     seen: dict[str, dict] = {}
     for q in questions:
@@ -250,6 +265,7 @@ def main() -> None:
     model_choices = add_choices(questions)
     audited = apply_audit(questions)
     grounded = apply_grounding(questions)
+    grounded["written, hidden by grounding"] = hide_doubted_written(questions)
     counts = Counter(q["kind"] for q in questions)
     official = {
         "schema": SCHEMA,
@@ -268,7 +284,12 @@ def main() -> None:
                    "audit": audited,
                    "hidden_by_audit": sum(1 for q in questions if q["hidden"]),
                    "grounding": grounded,
-                   "shown": sum(1 for q in questions if not q["repeat_of"] and not q["hidden"])},
+                   "shown": sum(1 for q in questions if not q["repeat_of"] and not q["hidden"]),
+                   # both should be 0: a question promoted from a repeat group, or reworded since, needs its turn
+                   "shown_not_audited": sum(1 for q in questions if not q["repeat_of"] and not q["hidden"]
+                                            and not q["audit"]),
+                   "shown_not_grounded": sum(1 for q in questions if not q["repeat_of"] and not q["hidden"]
+                                             and not q["grounding"])},
         "kinds": KINDS,
         "tagging": "books, testament and topic are set by fixed word lists and the references (scripts/question_tags.py), "
                    "not checked by hand; a question may sit under a near topic. passages, people, places and subjects are set by "
