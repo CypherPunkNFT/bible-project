@@ -5,56 +5,31 @@
 // group a row of its tests in the same cells again (owner, 2026-10-23: "the third categories also the same… square with
 // hover glow… just the same as the other two"), each with its number of questions and the reader's best score so far.
 // The shelf and group of the chosen test open on their own.
-import {
-  ArrowRight, BookMarked, Castle, Check, Crown, Cross, Fish, Flame, Flower2, Footprints, HandHeart, Hash, Hourglass, Landmark,
-  Library, MessageCircle, Music, Scale, ScrollText, Shield, Ship, Sparkles, Sprout, Sun, Tent, Users, Waves, type LucideIcon,
-} from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { useState, type CSSProperties, type ReactNode } from "react";
 import type { TestRecord } from "./record";
-import { MIN_THEME, SHELVES, type Theme } from "./themes";
+import { chosenIn, homeOf, iconOf, plural, shelfMeta, shownShelves, toneOf, type Counted } from "./shelf-model";
 
-interface Props { counts: Map<string, number>; selected: string; onChoose: (id: string) => void; record: TestRecord }
-type Counted = { theme: Theme; n: number };
+/** `boxed`: the three rows inside one bordered box, sharing their borders (the mock-up's version B). */
+interface Props { counts: Map<string, number>; selected: string; onChoose: (id: string) => void; record: TestRecord; boxed?: boolean }
 
-const ICONS: Record<string, LucideIcon> = {
-  lives: Users, stories: ScrollText, teaching: Sparkles, know: Library,
-  patriarchs: Tent, leaders: Shield, rulers: Crown, prophets: Flame, women: Flower2, apostles: Fish,
-  beginnings: Sprout, exodus: Waves, kingdom: Landmark, exile: Castle, jesus: Footprints, church: Ship,
-  god: Sun, law: Scale, salvation: Cross, life: HandHeart, words: MessageCircle, last: Hourglass,
-  books: BookMarked, wisdom: Music, facts: Hash,
-};
-const iconOf = (id: string) => ICONS[id] ?? Library;
-const toneOf = (tone: string) => ({ "--tone": `var(--${tone})` }) as CSSProperties;
-const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`;
-
-/** The shelves with only the groups and tests that have enough questions to show. */
-function shownShelves(counts: Map<string, number>) {
-  return SHELVES.map((shelf) => ({
-    shelf,
-    groups: shelf.groups.map((group) => ({ group, themes: group.themes.map((theme) => ({ theme, n: counts.get(theme.id) ?? 0 })).filter(({ n }) => n >= MIN_THEME) }))
-      .filter(({ themes }) => themes.length),
-  })).filter(({ groups }) => groups.length);
-}
-
-export function ThemeShelves({ counts, selected, onChoose, record }: Props) {
+export function ThemeShelves({ counts, selected, onChoose, record, boxed }: Props) {
   const shelves = shownShelves(counts);
-  const home = SHELVES.flatMap((s) => s.groups.map((g) => ({ s, g }))).find(({ g }) => g.themes.some((t) => t.id === selected));
-  const [open, setOpen] = useState({ shelf: home?.s.id ?? "", group: home?.g.id ?? "" });
+  const [open, setOpen] = useState(() => homeOf(selected));
   const openShelf = shelves.find(({ shelf }) => shelf.id === open.shelf);
   const openGroup = openShelf?.groups.find(({ group }) => group.id === open.group);
-  const chosenIn = (groups: { themes: Counted[] }[]) => groups.flatMap(({ themes }) => themes).find(({ theme }) => theme.id === selected)?.theme.title;
-  return <div className="th">
+  return <div className={boxed ? "th th--boxed" : "th"}>
     <ul className="th-shelves">{shelves.map(({ shelf, groups }, i) => {
       const on = shelf.id === open.shelf;
       return <Cell key={shelf.id} id={shelf.id} n={i} title={shelf.title} line={shelf.line} on={on} open="Open the shelf" style={toneOf(shelf.tone)}
-        meta={`${plural(groups.length, "group")} · ${plural(groups.reduce((sum, { themes }) => sum + themes.length, 0), "test")}`} chosen={chosenIn(groups)}
+        meta={shelfMeta(groups)} chosen={chosenIn(groups, selected)}
         onClick={() => setOpen({ shelf: on ? "" : shelf.id, group: "" })} />;
     })}</ul>
     {openShelf && <div className="th-rows" key={openShelf.shelf.id} style={toneOf(openShelf.shelf.tone)}>
       <ul className="th-shelves is-small th-groups" style={{ "--cols": openShelf.groups.length } as CSSProperties}>{openShelf.groups.map(({ group, themes }, i) => {
         const on = group.id === open.group;
         return <Cell key={group.id} id={group.id} n={i} title={group.title} line={group.line} on={on} open="Open the group" meta={plural(themes.length, "test")}
-          chosen={chosenIn([{ themes }])} onClick={() => setOpen({ ...open, group: on ? "" : group.id })} />;
+          chosen={chosenIn([{ themes }], selected)} onClick={() => setOpen({ ...open, group: on ? "" : group.id })} />;
       })}</ul>
       {openGroup && <TestRow key={openGroup.group.id} icon={openGroup.group.id} themes={openGroup.themes} selected={selected} onChoose={onChoose} record={record} />}
     </div>}
@@ -64,7 +39,7 @@ export function ThemeShelves({ counts, selected, onChoose, record }: Props) {
 interface CellProps { id: string; n: number; title: string; line: string; meta: ReactNode; chosen?: string; open: string; on: boolean; onClick: () => void; style?: CSSProperties; press?: boolean }
 
 /** One cell of the library grid, for a shelf and, smaller, for a group or a test (`press`: it is chosen, not opened). */
-function Cell({ id, n, title, line, meta, chosen, open, on, onClick, style, press }: CellProps) {
+export function Cell({ id, n, title, line, meta, chosen, open, on, onClick, style, press }: CellProps) {
   const Icon = iconOf(id);
   return <li style={style}>
     <button type="button" className={on ? "is-open" : undefined} aria-expanded={press ? undefined : on} aria-pressed={press ? on : undefined} onClick={onClick}>
@@ -81,7 +56,7 @@ function Cell({ id, n, title, line, meta, chosen, open, on, onClick, style, pres
 interface TestRowProps { icon: string; themes: Counted[]; selected: string; onChoose: (id: string) => void; record: TestRecord }
 
 /** The third row: an open group's tests, in the group's cells, each with its group's icon. */
-function TestRow({ icon, themes, selected, onChoose, record }: TestRowProps) {
+export function TestRow({ icon, themes, selected, onChoose, record }: TestRowProps) {
   return <ul className="th-shelves is-small th-tests" style={{ "--cols": themes.length } as CSSProperties}>{themes.map(({ theme, n }, i) => {
     const on = theme.id === selected, mark = record[theme.id];
     return <Cell key={theme.id} id={icon} n={i} title={theme.title} line={theme.line} on={on} press open={on ? "Chosen" : "Choose the test"}
