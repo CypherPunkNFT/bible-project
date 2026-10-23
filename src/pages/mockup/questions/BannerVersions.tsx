@@ -1,7 +1,10 @@
-// Four versions of the questions page's "Ready to test yourself?" banner for the mock page (TestBannerMockupPage.tsx),
+// Versions of the questions page's "Ready to test yourself?" banner for the mock page (TestBannerMockupPage.tsx),
 // owner 2026-10-23: "the options should be in where the take the test should be… unclicked at the beginning… when
-// they're all clicked, then take a test comes out." The words on the left are the banner's own; on the right the three
-// settings start unchosen, and the button slides out once all three are chosen. Styles: test-banner-mockup.css.
+// they're all clicked, then take a test comes out." The words on the left are the banner's own, with the row of dots
+// now under them; on the right the three settings start unchosen, and the button comes out once all three are chosen.
+// Of the first four, the owner kept the sentence and asked for the other three condensed into one, laid out like the
+// icon tiles, "the same length as it is normally… keep the icons and all of them in one go". Styles:
+// test-banner-mockup.css.
 import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
@@ -28,18 +31,19 @@ function testHref({ length, level, age }: Picks) {
   return `/study/questions/test?${out}`;
 }
 
-/** The banner with its own words on the left; the version's settings, then the button once all are chosen, on the right. */
-function Shell({ picks, done, children }: { picks: Picks; done: boolean; children: ReactNode }) {
+/** The banner with its own words and the dots on the left; the version's settings, then the button once all are chosen,
+ * on the right. `keep` holds the button's place while it is hidden, so the banner does not grow when it comes out. */
+function Shell({ picks, done, keep, children }: { picks: Picks; done: boolean; keep?: boolean; children: ReactNode }) {
   return <section className="qp-test-banner tb-banner">
     <div className="qp-test-copy">
       <p className="qp-eyebrow"><span></span>A test of your own</p>
       <h2>Ready to <em>test yourself?</em></h2>
       <p>Choose what to be tested on and answer one question at a time. The answers stay hidden until you give yours.</p>
+      <ol className="qp-test-marks" aria-hidden>{MARKS.map((mark, i) => <li key={i} className={mark && `is-${mark}`} />)}</ol>
     </div>
     <div className="tb-action">
-      <ol className="qp-test-marks" aria-hidden>{MARKS.map((mark, i) => <li key={i} className={mark && `is-${mark}`} />)}</ol>
       {children}
-      <div className="tb-go" data-open={done || undefined}><div>
+      <div className="tb-go" data-open={done || undefined} data-keep={keep || undefined}><div>
         <Link className="qp-test-go" to={testHref(picks)} tabIndex={done ? 0 : -1} aria-hidden={!done}>
           Take a test on {SUBJECT.title}<ArrowRight size={17} strokeWidth={1.6} aria-hidden /></Link>
         <small>{SUBJECT.available} questions to draw from</small>
@@ -63,58 +67,18 @@ function Mark({ setting, id, size }: { setting: Key; id: number | string; size: 
   return null;
 }
 
-/** 1 · Three rows of buttons under their names, stacked where the button was. */
-export function RowsBanner() {
-  const { picks, pick, done } = usePicks();
-  return <Shell picks={picks} done={done}>
-    <div className="tb-rows">{SETTINGS.map(({ key, label, items }) => {
-      const value = picks[key];
-      const note = items.find((i) => i.id === value)?.note;
-      return <div key={key} className="qp-test-setting">
-        <span>{label}{value !== null && <Check size={12} strokeWidth={2.2} aria-hidden />}</span>
-        <div className="qp-test-choices" role="group" aria-label={label}>{items.map((item) =>
-          <button key={item.id} type="button" aria-pressed={value === item.id} onClick={() => pick(key, item.id)}>
-            <Mark setting={key} id={item.id} size={15} />{item.label}</button>)}</div>
-        <small>{note ?? " "}</small>
-      </div>;
-    })}</div>
-  </Shell>;
-}
-
-/** 2 · One question at a time; each answer folds into a small chip, which opens it again. */
-export function StepsBanner() {
-  const { picks, pick, done } = usePicks();
-  const [reopened, setReopened] = useState<Key | null>(null);
-  const current = reopened ?? SETTINGS.find(({ key }) => picks[key] === null)?.key ?? null;
-  const step = SETTINGS.findIndex(({ key }) => key === current);
-  const chosen = SETTINGS.filter(({ key }) => picks[key] !== null && key !== current);
-  return <Shell picks={picks} done={done}>
-    {chosen.length > 0 && <div className="tb-chips">{chosen.map(({ key, items }) => {
-      const item = items.find((i) => i.id === picks[key])!;
-      return <button key={key} type="button" onClick={() => setReopened(key)}><Mark setting={key} id={item.id} size={14} />
-        {key === "length" ? `${item.label} questions` : item.label}<Check size={13} strokeWidth={2.2} aria-hidden /></button>;
-    })}</div>}
-    {current && <div className="tb-step" key={current}>
-      <span className="tb-step-n">{step + 1} of 3</span>
-      <p className="tb-step-ask">{SETTINGS[step].ask}</p>
-      <div className="tb-step-choices">{SETTINGS[step].items.map((item) =>
-        <button key={item.id} type="button" aria-pressed={picks[current] === item.id} onClick={() => { pick(current, item.id); setReopened(null); }}>
-          <Mark setting={current} id={item.id} size={16} /><strong>{item.label}</strong><small>{item.note}</small></button>)}</div>
-    </div>}
-  </Shell>;
-}
-
-/** 3 · Square tiles, each with its number, its bars or its age group's icon drawn large. */
+/** 1 · The icon tiles condensed: each setting one row, its name beside three short tiles with the number, the rising
+ * bars or the age group's icon, all three rows at once and the banner its usual height. */
 export function TilesBanner() {
   const { picks, pick, done } = usePicks();
-  return <Shell picks={picks} done={done}>
-    <div className="tb-tiles">{SETTINGS.map(({ key, label, items }) =>
-      <div key={key} className="tb-tile-row">
+  return <Shell picks={picks} done={done} keep>
+    <div className="tb-compact">{SETTINGS.map(({ key, label, items }) =>
+      <div key={key} className="tb-compact-row" role="group" aria-label={label}>
         <span>{label}{picks[key] !== null && <Check size={12} strokeWidth={2.2} aria-hidden />}</span>
-        <div role="group" aria-label={label}>{items.map((item) =>
-          <button key={item.id} type="button" className="tb-tile" data-setting={key} aria-pressed={picks[key] === item.id} onClick={() => pick(key, item.id)}>
-            {key === "length" ? <b>{item.label}</b> : <i><Mark setting={key} id={item.id} size={26} /></i>}
-            <strong>{key === "length" ? "questions" : item.label}</strong></button>)}</div>
+        {items.map((item) =>
+          <button key={item.id} type="button" className="tb-ctile" aria-pressed={picks[key] === item.id} title={item.note} onClick={() => pick(key, item.id)}>
+            {key === "length" ? <b>{item.label}</b> : <i><Mark setting={key} id={item.id} size={19} /></i>}
+            <strong>{key === "length" ? "questions" : item.label}</strong></button>)}
       </div>)}</div>
   </Shell>;
 }
@@ -132,7 +96,7 @@ function Blank({ setting, placeholder, value, onChoose }: { setting: (typeof SET
   </span>;
 }
 
-/** 4 · The test said as one sentence with three blanks to fill. */
+/** 2 · The test said as one sentence with three blanks to fill. */
 export function SentenceBanner() {
   const { picks, pick, done } = usePicks();
   const [length, level, age] = SETTINGS;
