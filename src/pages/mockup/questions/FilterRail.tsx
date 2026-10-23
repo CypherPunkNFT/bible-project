@@ -1,26 +1,11 @@
-// 02's filters: the four kinds as large chips across the top, and the side rail (topic, Testament, collection, and
-// the multiple-choice switch). Every count is what that choice would give with the other filters kept.
+// 02's filters: the side rail (topic, Testament, collection, and the multiple-choice switch); the four kinds of
+// question were removed (owner, 2026-10-22). Every count is what that choice would give with the other filters kept.
+import { X } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";
 import type { BankTopic, QuestionBank } from "@/lib/data";
-import { KINDS, type Facets, type Filters } from "./model";
+import type { Facets, Filters } from "./model";
 
 type Update = (patch: Partial<Filters>) => void;
-
-export function KindChips({ facets, filters, update }: { facets: Facets; filters: Filters; update: Update }) {
-  const counts = facets.counts.kind;
-  const total = [...counts.values()].reduce((a, b) => a + b, 0);
-  return <div className="qp-kinds" role="group" aria-label="Kind of question">
-    {KINDS.map(({ id, label, note, tone, Icon }) => {
-      const n = id ? counts.get(id) ?? 0 : total;
-      return <button key={label} type="button" className="qp-kind" aria-pressed={filters.kind === id} style={{ "--tone": tone } as CSSProperties}
-        onClick={() => update({ kind: id, topic: "", collection: "" })}>
-        <span className="qp-kind-icon"><Icon size={20} strokeWidth={1.5} aria-hidden /></span>
-        <span className="qp-kind-text"><strong>{label}</strong><small>{note}</small></span>
-        <span className="qp-kind-n">{n.toLocaleString()}</span>
-      </button>;
-    })}
-  </div>;
-}
 
 export function FilterRail({ bank, facets, filters, update }: { bank: QuestionBank; facets: Facets; filters: Filters; update: Update }) {
   const t = facets.counts.testament;
@@ -57,19 +42,21 @@ function TopicList({ topics, counts, selected, onChoose }: { topics: BankTopic[]
     return <RailGroup key={title} title={title}>
       <ul className="qp-topics">{shown.map((t) => {
         const n = counts.get(t.id) ?? 0, on = selected === t.id;
-        return <li key={t.id}><button type="button" aria-pressed={on} onClick={() => onChoose(on ? "" : t.id)} style={{ "--share": `${(n / max) * 100}%` } as CSSProperties}>
+        return <li key={t.id}><button type="button" aria-pressed={on} aria-label={on ? `${t.title}, chosen: remove` : undefined} onClick={() => onChoose(on ? "" : t.id)} style={{ "--share": `${(n / max) * 100}%` } as CSSProperties}>
           <span>{t.title}</span><small>{n.toLocaleString()}</small>
+          {/* The chosen row's cancel mark (owner, 2026-10-23): a black circle with an X; the row itself is the button. */}
+          {on && <span className="qp-topic-x" aria-hidden><X size={11} strokeWidth={2.6} /></span>}
         </button></li>;
       })}</ul>
     </RailGroup>;
   })}</>;
 }
 
-function RailGroup({ title, children }: { title: string; children: ReactNode }) {
+export function RailGroup({ title, children }: { title: string; children: ReactNode }) {
   return <div className="qp-rail-group"><h3>{title}</h3>{children}</div>;
 }
 
-function Switch({ on, onChange, children }: { on: boolean; onChange: (on: boolean) => void; children: ReactNode }) {
+export function Switch({ on, onChange, children }: { on: boolean; onChange: (on: boolean) => void; children: ReactNode }) {
   return <button type="button" role="switch" aria-checked={on} className="qp-switch" onClick={() => onChange(!on)}>
     <span className="qp-switch-track" aria-hidden><span /></span>{children}
   </button>;

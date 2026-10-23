@@ -1,0 +1,10 @@
+/* The theme menu as one box (owner, 2026-10-23, choosing version B of /themes_mockup): the shelves, groups and tests
+   rows inside one bordered box, each row sharing its border with the next, like the apologetics pages' two-row menu.
+   The same rules as themes-mockup.css's .tm-menu.is-b, for ThemeShelves.tsx on the questions pages. */
+.th.th-box{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--page)}
+.th.th-box>.th-shelves{border-top-color:transparent;background:var(--surface)}
+.th.th-box .th-rows{gap:0;margin-top:0}
+/* Three steps of ground (owner, 2026-10-23): the shelves lightest, the groups halfway, the tests (the endpoints, the
+   ones that are chosen) on the page's own ground, so the roots read apart from the ends. */
+.th.th-box .th-groups{background:color-mix(in srgb,var(--surface) 50%,var(--page))}
+.th.th-box .th-tests{background:var(--page)}

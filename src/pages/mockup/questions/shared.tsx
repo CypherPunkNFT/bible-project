@@ -4,10 +4,12 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import type { BankQuestion } from "@/lib/data";
 
-export function SectionHead({ n, id, title, lead }: { n: string; id: string; title: ReactNode; lead: string }) {
-  return <div className="qp-section-head">
+/** A section's number, title and line; `aside` follows on the same line (02's results bar and search). */
+export function SectionHead({ n, id, title, lead, aside }: { n: string; id: string; title: ReactNode; lead: string; aside?: ReactNode }) {
+  return <div className="qp-section-head" data-aside={aside ? "" : undefined}>
     <span className="qp-section-n" aria-hidden>{n}</span>
     <div><h2 id={id}>{title}</h2><p>{lead}</p></div>
+    {aside}
   </div>;
 }
 

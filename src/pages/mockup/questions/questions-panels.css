@@ -1,0 +1,75 @@
+/* questions_mockup: each section's own list of questions (ExplorePanel.tsx), opened right under the section, and 03's
+   whole list, closed until asked for. The list itself keeps the questions page's styles (questions-page.css). */
+.qx-panel{margin:4px 0 44px;padding:26px 28px 6px;border:1px solid var(--line);border-top:2px solid var(--accent);border-radius:14px;background:color-mix(in srgb,var(--accent) 4%,var(--surface));scroll-margin-top:76px;animation:qx-open .35s ease-out}
+.qx-panel-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px 28px;align-items:end;margin-bottom:20px}
+.qx-panel-head h3{margin:10px 0 4px;font:450 32px/1.15 var(--serif);letter-spacing:-.03em}
+.qx-line{font-size:13.5px;line-height:1.6;color:var(--muted)}
+.qx-panel-tools{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:10px}
+.qx-panel-tools .qp-find{width:min(400px,100%);margin:0}
+.qx-panel-tools .qp-search{height:44px}
+.qx-panel-test{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--page);font-size:13px;font-weight:600;white-space:nowrap;transition:background .2s,gap .25s}
+.qx-panel-test:hover{background:var(--accent);gap:12px}
+.qx-close{display:grid;place-items:center;width:38px;height:38px;border:0;border-radius:50%;background:none;color:var(--muted);transition:background .2s,color .2s}
+.qx-close:hover{background:color-mix(in srgb,var(--ink) 8%,transparent);color:var(--ink)}
+.qx-panel .qp-list-viewport{height:min(60vh,620px)}
+.qx-panel :focus-visible,.qx-open:focus-visible{outline:none}
+
+.qx-after-shelves{margin-top:24px}
+.qx-after-shelves .qx-panel{margin-bottom:10px}
+
+/* 03 closed: one button opens the whole list. */
+.qx-open{display:inline-flex;align-items:center;justify-self:end;align-self:end;gap:10px;height:44px;margin-bottom:4px;padding:0 20px;border:1px solid var(--ink);border-radius:999px;background:none;font-size:14px;font-weight:600;transition:background .2s,color .2s}
+.qx-open:hover{background:var(--ink);color:var(--page)}
+
+@keyframes qx-open{from{opacity:0;transform:translateY(-8px)}}
+@media(max-width:900px){.qx-panel-head{grid-template-columns:1fr}.qx-panel-tools{justify-content:flex-start}}
+@media(max-width:600px){.qx-panel{padding:20px 14px 4px}.qx-panel-head h3{font-size:26px}.qx-panel-tools .qp-find{width:100%}.qx-open{justify-self:start}}
+@media(prefers-reduced-motion:reduce){.qx-panel{animation:none}}
+
+/* 01 redone: one row per colour (a long section in two), the ring of spokes at the right (BookRing.tsx). */
+/* The rows take only the width their tiles need; the ring fills the rest, as large as the margins allow. */
+.qx-books-layout{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:40px;align-items:center}
+.qx-rows{display:grid;gap:5px}
+.qx-row-wrap .qp-book-label{display:block;margin:10px 0 6px}
+.qx-row-wrap:first-child .qp-book-label{margin-top:0}
+.qx-row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:10px;align-items:center}
+.qx-row-label{display:flex;align-items:center;gap:7px;font-size:11.5px;line-height:1.25;color:var(--muted)}
+.qx-row-label::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--tone)}
+.qx-row-tiles{display:grid;grid-template-columns:repeat(9,60px);gap:5px}
+.qx-row-label[data-empty]::before{content:none}
+.qx-row-tiles .qp-book{min-width:0;overflow:hidden}
+/* Pointed at, as a tile or as its spoke: brighter and lighter (owner, 2026-10-23). */
+.qx-row-tiles .qp-book{transition:transform .2s,box-shadow .2s,border-color .2s,filter .2s}
+.qx-row-tiles .qp-book.is-lit,.qx-row-tiles .qp-book:not(:disabled):hover{transform:translateY(-2px);border-color:var(--tone);filter:brightness(1.22) saturate(1.15)}
+.qx-ring-card{margin:0;text-align:center}
+.qx-ring{display:block;width:100%;overflow:visible}
+.qx-ring path{cursor:pointer;opacity:.82;stroke:var(--surface);stroke-width:.6;transition:opacity .3s,filter .2s}
+.qx-ring path.is-zero{opacity:.2}
+.qx-ring path.is-lit,.qx-ring path:hover{opacity:1;filter:brightness(1.3) saturate(1.15)}
+.qx-ring path.is-on{opacity:1;stroke:var(--ink);stroke-width:1.6}
+.qx-ring-guide{fill:none;stroke:var(--line);stroke-dasharray:2 4}
+.qx-ring-guide-label{font:12px var(--sans);fill:var(--muted)}
+.qx-ring-label{font:16px var(--sans);fill:var(--muted);pointer-events:none}
+.qx-ring-hole{fill:var(--surface);stroke:var(--line)}
+.qx-ring-big{font:500 40px var(--serif);fill:var(--ink);letter-spacing:-.02em}
+.qx-ring-small{font:13px var(--sans);fill:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.qx-books .qp-section-head{margin-bottom:26px}
+@media(max-width:1100px){.qx-books-layout{grid-template-columns:minmax(0,1fr)}.qx-ring-card{width:min(600px,100%);margin:8px auto 0}}
+@media(max-width:700px){.qx-row{grid-template-columns:1fr;gap:6px}.qx-row-label[data-empty]{display:none}.qx-row-tiles{grid-template-columns:repeat(auto-fill,minmax(46px,1fr))}}
+
+/* 03's rail (ListRail.tsx): drawers by the book and by theme, each with its colour dot and count. */
+.qx-rail{gap:22px}
+.qx-drawer{border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+.qx-drawer-head{display:flex;align-items:center;gap:9px;width:100%;padding:9px 0;border:0;background:none;text-align:left;font-size:13.5px;font-weight:550;color:var(--ink)}
+.qx-drawer-head>span:nth-child(2){flex:1;min-width:0}
+.qx-drawer-head small{font-size:11px;font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.qx-drawer-dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--tone)}
+.qx-drawer-chev{flex:none;color:var(--muted);transition:transform .25s}
+.qx-drawer.is-open .qx-drawer-chev{transform:rotate(180deg)}
+.qx-drawer-head:hover{color:var(--tone)}
+.qx-drawer.has-choice .qx-drawer-head>span:nth-child(2){color:var(--accent)}
+.qx-drawer-body{padding:0 0 10px 17px;animation:qx-open .25s ease-out}
+.qx-drawer-group p{margin:8px 0 2px;font-size:10px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.qx-choices button{padding:6px 0 7px;font-size:12.5px}
+.qx-rail .qp-rail-group h3{margin-bottom:2px}
+.qp-explore-grid .qx-rail{max-height:calc(100vh - 100px);overflow-y:auto;scrollbar-width:thin;padding-right:6px}

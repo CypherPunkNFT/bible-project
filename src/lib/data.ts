@@ -169,6 +169,9 @@ export interface BankQuestion {
   /** The first reference, as the reader opens it. */
   link: { book: string; chapter: number; verse: number | null } | null;
   standalone: boolean;
+  /** People and places the question names (scripts/question_tags.py); not in every copy of the bank. */
+  people?: string[];
+  places?: string[];
   /** The option that is right: the printed answer, or a short version of a long one (scripts/question_choices.py). */
   answer_choice?: string | null;
   /** Where the options come from: "source", "claude-haiku" or "true/false". */

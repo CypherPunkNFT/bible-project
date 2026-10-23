@@ -1,19 +1,52 @@
-// 02's results: the search field, what is filtered, and the questions in a scroll pane (with the pill-only scrollbar
-// the owner chose for result lists), loading more as the pane reaches its end.
+// 03's results: the count (ResultsBar, just above the list's top line at its left, owner 2026-10-23), the one eye
+// beside the search, and the questions in a scroll pane (with
+// the pill-only scrollbar the owner chose for result lists), loading more as the pane reaches its end.
 import { Eye, EyeOff, Search, X } from "lucide-react";
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import PillScroll from "@/components/apologetics/PillScroll";
 import { rightChoice, type BankQuestion, type QuestionBank } from "@/lib/data";
-import { isFiltered, kindTone, LETTERS, searchTerms, type Filters } from "./model";
+import { kindTone, LETTERS, searchTerms, type Filters } from "./model";
 import { Highlight, ReadLink } from "./shared";
 
 const STEP = 40;
 // Longer answers (whole catechism paragraphs) fold to a few lines until asked for.
 const LONG_ANSWER = 260;
 
-interface Props { bank: QuestionBank; rows: number[]; filters: Filters; update: (patch: Partial<Filters>) => void; clear: () => void; testMode: boolean; setTestMode: (on: boolean) => void; bookNames: Record<string, string> }
+/** The search, shown at the right of 03's heading (owner, 2026-10-22). */
+export function SearchField({ search, update }: { search: string; update: (patch: Partial<Filters>) => void }) {
+  return <label className="qp-search"><Search size={17} strokeWidth={1.5} aria-hidden />
+    <input type="search" value={search} onChange={(e) => update({ search: e.target.value })} placeholder="Search questions, answers and references" aria-label="Search the questions" />
+    {search && <button type="button" onClick={() => update({ search: "" })} aria-label="Clear the search"><X size={16} aria-hidden /></button>}
+  </label>;
+}
 
-export function QuestionList({ bank, rows, filters, update, clear, testMode, setTestMode, bookNames }: Props) {
+/** How many questions, and Clear all when anything is chosen. What is chosen shows where it was chosen (the book tile,
+ *  the theme card, the gold row in the rail) and in words under 03's title, never as pills (owner, 2026-10-22). */
+export function ResultsBar({ count, filtered, clear }: { count: number; filtered: boolean; clear: () => void }) {
+  return <div className="qp-results-head">
+    <p><strong>{count.toLocaleString()}</strong> {count === 1 ? "question" : "questions"}</p>
+    {filtered && <button type="button" className="qp-clear" onClick={clear}>Clear all</button>}
+  </div>;
+}
+
+/** One button that hides or shows every answer, at the right of the search (owner, 2026-10-22: one icon, on or off). */
+export function EyeToggle({ testMode, setTestMode }: { testMode: boolean; setTestMode: (on: boolean) => void }) {
+  const label = testMode ? "Show the answers" : "Hide the answers and test yourself";
+  return <button type="button" className="qp-eye" aria-pressed={!testMode} aria-label={label} title={label} onClick={() => setTestMode(!testMode)}>
+    {testMode ? <EyeOff size={18} strokeWidth={1.6} aria-hidden /> : <Eye size={18} strokeWidth={1.6} aria-hidden />}
+  </button>;
+}
+
+/** What the list is narrowed to, in words: the theme or book, then the rail's choices and the search. */
+export function choiceInWords(f: Filters, bank: QuestionBank, bookNames: Record<string, string>, themeTitle?: string): string[] {
+  const topic = f.topic === "none" ? "Other questions" : bank.topics.find((t) => t.id === f.topic)?.title;
+  return [themeTitle, f.book && (bookNames[f.book] ?? f.book), f.topic && topic, f.testament && (f.testament === "OT" ? "Old Testament" : "New Testament"),
+    f.collection, f.choices && "multiple choice only", f.search.trim() && `matching “${f.search.trim()}”`].filter((part): part is string => Boolean(part));
+}
+
+interface Props { bank: QuestionBank; rows: number[]; filters: Filters; clear: () => void; testMode: boolean; bookNames: Record<string, string>; bar: ReactNode }
+
+export function QuestionList({ bank, rows, filters, clear, testMode, bookNames, bar }: Props) {
   const [shown, setShown] = useState(STEP);
   const sentinel = useRef<HTMLDivElement>(null);
   const terms = searchTerms(filters.search);
@@ -26,21 +59,8 @@ export function QuestionList({ bank, rows, filters, update, clear, testMode, set
     watch.observe(node);
     return () => watch.disconnect();
   }, [shown, rows]);
-  const chips = activeChips(filters, bank, topicTitle, bookNames);
   return <div className="qp-results">
-    <label className="qp-search"><Search size={18} strokeWidth={1.5} aria-hidden />
-      <input type="search" value={filters.search} onChange={(e) => update({ search: e.target.value })} placeholder="Search questions, answers and references" aria-label="Search the questions" />
-      {filters.search && <button type="button" onClick={() => update({ search: "" })} aria-label="Clear the search"><X size={16} aria-hidden /></button>}
-    </label>
-    <div className="qp-results-head">
-      <p><strong>{rows.length.toLocaleString()}</strong> {rows.length === 1 ? "question" : "questions"}</p>
-      {chips.map(([label, patch]) => <button key={label} type="button" className="qp-chip" onClick={() => update(patch)}>{label}<X size={12} aria-label="remove" /></button>)}
-      {isFiltered(filters) && <button type="button" className="qp-clear" onClick={clear}>Clear all</button>}
-      <div className="qp-eyes" role="group" aria-label="Answers">
-        <button type="button" aria-pressed={!testMode} aria-label="Show the answers" title="Show the answers" onClick={() => setTestMode(false)}><Eye size={18} strokeWidth={1.6} aria-hidden /></button>
-        <button type="button" aria-pressed={testMode} aria-label="Hide the answers and test yourself" title="Hide the answers and test yourself" onClick={() => setTestMode(true)}><EyeOff size={18} strokeWidth={1.6} aria-hidden /></button>
-      </div>
-    </div>
+    {bar}
     <PillScroll key={JSON.stringify(filters)} className="qp-list-viewport" label="Questions">
       {rows.length ? <ol className="qp-list">{rows.slice(0, shown).map((index, i) =>
         <QuestionRow key={index} n={i + 1} q={bank.questions[index]} terms={terms} testMode={testMode} bookNames={bookNames}
@@ -49,17 +69,6 @@ export function QuestionList({ bank, rows, filters, update, clear, testMode, set
       {shown < rows.length && <div ref={sentinel} className="qp-more">Loading more of {rows.length.toLocaleString()}…</div>}
     </PillScroll>
   </div>;
-}
-
-function activeChips(f: Filters, bank: QuestionBank, topicTitle: Record<string, string>, bookNames: Record<string, string>): [string, Partial<Filters>][] {
-  const chips: [string, Partial<Filters>][] = [];
-  if (f.kind) chips.push([bank.kinds[f.kind] ?? f.kind, { kind: "" }]);
-  if (f.topic) chips.push([f.topic === "none" ? "Other questions" : topicTitle[f.topic] ?? f.topic, { topic: "" }]);
-  if (f.testament) chips.push([f.testament === "OT" ? "Old Testament" : "New Testament", { testament: "" }]);
-  if (f.book) chips.push([bookNames[f.book] ?? f.book, { book: "" }]);
-  if (f.collection) chips.push([f.collection, { collection: "" }]);
-  if (f.choices) chips.push(["Multiple choice", { choices: false }]);
-  return chips;
 }
 
 interface RowProps { n: number; q: BankQuestion; terms: string[]; testMode: boolean; bookNames: Record<string, string>; meta: (string | null | undefined)[] }

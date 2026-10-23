@@ -1,62 +1,69 @@
-// The questions page's header: the title and the bank's figures, and beside them one question to answer straight away.
-import { Check, Shuffle } from "lucide-react";
-import { useMemo, useState } from "react";
-import { rightChoice, type BankQuestion, type QuestionBank } from "@/lib/data";
-import { LETTERS } from "./model";
-import { ReadLink } from "./shared";
+// The questions page's header: the title, a paragraph, where the questions come from in three words and the two ways on, beside the line drawing
+// (QuestionsArt.tsx), which replaced the "Try one" question (owner, 2026-10-22). Under it, the bank's figures run in a
+// bar across the page, its foot the line above 01 (StatsBar).
+import { ArrowDown, ArrowRight } from "lucide-react";
+import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
+import type { QuestionBank } from "@/lib/data";
+import { QuestionsArt } from "./QuestionsArt";
 
-export function QuestionsHero({ bank, bookNames }: { bank: QuestionBank; bookNames: Record<string, string> }) {
-  const stats: [number, string][] = [
-    [bank.questions.length, "questions"],
-    [bank.questions.filter((q) => q.options).length, "multiple choice"],
-    [new Set(bank.questions.flatMap((q) => q.books)).size, "books of the Bible"],
-    [bank.collections.length, "collections"],
-  ];
+/** Where the questions come from, as three words with a small drawing each; the figures are in the bar below
+ *  (owner, 2026-10-22: no numbers here, three words on a theme beside a drawing). */
+const THEMES: { word: string; line: string; icon: ReactNode }[] = [
+  { word: "Confessed", line: "The catechisms of the churches, since 1563", icon: <>
+    <path d="M6 11Q13 8 20 11Q27 8 34 11V31Q27 28 20 31Q13 28 6 31Z" /><path d="M20 11V31M10 16H16M10 20H16M24 16H30M24 20H30M24 24H28" opacity=".6" /></> },
+  { word: "Taught", line: "Sunday school lessons for children, 1903", icon: <>
+    <rect x="7" y="7" width="26" height="26" rx="2" /><path d="M7 27Q15 19 20 20T33 24" /><path d="M20 20V12M16.5 15H23.5" /></> },
+  { word: "Tested", line: "Bible quizzes, old and new", icon: <>
+    <circle cx="20" cy="20" r="13" /><path d="M16 16.5C16 13.5 18 12 20 12S24 13.5 24 16.5C24 19.5 20 20 20 23.5" /><circle cx="20" cy="27.5" r="1" fill="currentColor" /></> },
+];
+
+function Themes() {
+  return <ul className="qp-themes" aria-label="Where the questions come from">
+    {THEMES.map(({ word, line, icon }) => <li key={word}>
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{icon}</svg>
+      <strong>{word}</strong><span>{line}</span>
+    </li>)}
+  </ul>;
+}
+
+export function QuestionsHero() {
+  const toList = () => document.getElementById("qp-explore")?.scrollIntoView({ behavior: "smooth", block: "start" });
   return <header className="qp-hero">
     <div className="qp-hero-copy">
       <p className="qp-eyebrow"><span aria-hidden />Study · Questions</p>
       <h1>How well do you know <em>the Bible?</em></h1>
-      <p className="qp-lead">Questions asked in Sunday schools, catechism classes and Bible quizzes, from a children's catechism of 1692 to quizzes written this year, each with the answer its source printed.</p>
-      <dl className="qp-stats">{stats.map(([n, label]) => <div key={label}><dt>{label}</dt><dd>{n.toLocaleString()}</dd></div>)}</dl>
+      <p className="qp-lead">For more than four hundred years, churches have taught the faith by asking questions. Parents put them to their children at home, Sunday school teachers to their classes, pastors to those about to join the church. Here they are gathered in one place, from the Heidelberg Catechism of 1563 to Bible quizzes written this year, each with the answer its source printed and many tied to the verse they ask about.</p>
+      <Themes />
+      <div className="qp-hero-go">
+        <Link className="qp-hero-test" to="/study/questions/test">Take a test<ArrowRight size={16} strokeWidth={1.7} aria-hidden /></Link>
+        <button type="button" className="qp-hero-browse" onClick={toList}>Browse every question<ArrowDown size={15} strokeWidth={1.7} aria-hidden /></button>
+      </div>
     </div>
-    <TryOne questions={bank.questions} bookNames={bookNames} />
+    <QuestionsArt />
   </header>;
 }
 
-// The panel keeps one height for every question (owner 2026-10-22: no jumpy containers); the type size changes
-// instead. Longer questions and choices take a smaller step.
-const questionSize = (text: string) => (text.length <= 50 ? "is-xl" : text.length <= 85 ? "is-lg" : text.length <= 110 ? "is-md" : "is-sm");
-const optionSize = (options: string[]) => (Math.max(...options.map((o) => o.length)) <= 26 ? "" : "is-small");
+// Years of the collections whose titles name none; the others give their year in the title.
+const YEARS: Record<string, number> = { "Heidelberg Catechism": 1563, "Westminster Larger Catechism": 1647, "Westminster Shorter Catechism": 1647 };
 
-// Multiple-choice questions that read well on their own and fit the panel.
-const fits = (q: BankQuestion) => Boolean(q.options && q.options.length >= 3 && q.options.length <= 4 && q.standalone
-  && q.question.length <= 130 && q.options.every((o) => o.length <= 42));
-
-function TryOne({ questions, bookNames }: { questions: BankQuestion[]; bookNames: Record<string, string> }) {
-  const pool = useMemo(() => questions.filter(fits), [questions]);
-  const [index, setIndex] = useState(() => Math.floor(Math.random() * pool.length));
-  const [picked, setPicked] = useState<string | null>(null);
-  const [tally, setTally] = useState({ asked: 0, right: 0 });
-  const q = pool[index];
-  if (!q?.options) return null;
-  const pick = (option: string) => {
-    setPicked(option);
-    setTally((t) => ({ asked: t.asked + 1, right: t.right + (option === rightChoice(q) ? 1 : 0) }));
-  };
-  const next = () => { setPicked(null); setIndex((i) => (i + 1 + Math.floor(Math.random() * (pool.length - 1))) % pool.length); };
-  const state = (option: string) => !picked ? "" : option === rightChoice(q) ? "is-right" : option === picked ? "is-wrong" : "is-dim";
-  return <aside className="qp-try" aria-labelledby="qp-try-title">
-    <span className="qp-try-mark" aria-hidden>?</span>
-    <div className="qp-try-head"><span id="qp-try-title">Try one</span><span>{tally.asked ? `${tally.right} of ${tally.asked} right` : q.collection}</span></div>
-    <p className={`qp-try-question ${questionSize(q.question)}`}>{q.question}</p>
-    <ol className={`qp-try-options ${optionSize(q.options)}`}>{q.options.map((option, i) => <li key={option}>
-      <button type="button" className={state(option)} disabled={Boolean(picked)} onClick={() => pick(option)}>
-        <span className="qp-letter">{LETTERS[i]}</span><span>{option}</span>{picked && option === rightChoice(q) && <Check size={16} aria-hidden />}
-      </button>
-    </li>)}{Array.from({ length: 4 - q.options.length }, (_, i) => <li key={`blank${i}`} className="qp-try-blank" aria-hidden />)}</ol>
-    <div className="qp-try-foot">
-      <p aria-live="polite">{!picked ? "Choose an answer." : picked === rightChoice(q) ? <>Right. <ReadLink q={q} bookNames={bookNames} /></> : <>Not quite: it is <strong>{q.answer}</strong>. <ReadLink q={q} bookNames={bookNames} /></>}</p>
-      <button type="button" onClick={next}><Shuffle size={15} strokeWidth={1.6} aria-hidden />Another question</button>
-    </div>
-  </aside>;
+/** The bank's figures across the page; the oldest source is the earliest year a collection is known by. */
+export function StatsBar({ bank }: { bank: QuestionBank }) {
+  const { questions, collections } = bank;
+  const dated = collections.flatMap((c) => {
+    const year = YEARS[c.title] ?? Number(c.title.match(/\b1[5-9]\d\d\b/)?.[0]);
+    return year ? [{ year, title: c.title }] : [];
+  });
+  const oldest = dated.reduce((a, b) => (b.year < a.year ? b : a), dated[0] ?? { year: 0, title: "" });
+  const distinct = (pick: (q: (typeof questions)[number]) => string[] | undefined) => new Set(questions.flatMap((q) => pick(q) ?? [])).size;
+  const traditions = [...new Set(collections.map((c) => c.tradition).filter(Boolean))];
+  const cells: [ReactNode, string, string][] = [
+    [questions.length.toLocaleString(), "Questions", `in ${collections.length} collections`],
+    [<><small className="qp-statbar-era">AD</small>{oldest.year}</>, "The oldest source", oldest.title.replace(/\s*\(\d{4}\)$/, "")],
+    [questions.filter((q) => q.link).length.toLocaleString(), "Tied to a verse", "each opens the passage it asks about"],
+    [distinct((q) => q.people).toLocaleString(), "People asked about", `and ${distinct((q) => q.places).toLocaleString()} places`],
+    [String(distinct((q) => q.books)), "Books of the Bible", "every one has questions"],
+    [String(traditions.length), "Church traditions", traditions.join(", ")],
+  ];
+  return <dl className="qp-statbar">{cells.map(([n, label, line]) => <div key={label}><dt>{label}</dt><dd>{n}</dd><dd className="qp-statbar-line">{line}</dd></div>)}</dl>;
 }

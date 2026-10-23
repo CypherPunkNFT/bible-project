@@ -49,7 +49,7 @@
 .tp-panel-stats .is-right{color:var(--right)}.tp-panel-stats .is-wrong{color:var(--wrong)}
 
 @media(max-width:900px){
-  .tp-panel-layout{grid-template-columns:1fr;gap:34px}
+  .tp-panel-layout{grid-template-columns:minmax(0,1fr);gap:34px}
   .tp-panel-side{flex-direction:row;flex-wrap:wrap;justify-content:center}.tp-panel-side .tp-ring{max-width:170px}
 }
 @media(max-width:600px){

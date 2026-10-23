@@ -5,11 +5,14 @@
 // group a row of its tests in the same cells again (owner, 2026-10-23: "the third categories also the same… square with
 // hover glow… just the same as the other two"), each with its number of questions and the reader's best score so far.
 // The shelf and group of the chosen test open on their own. The three rows sit in one bordered box, sharing their
-// borders (owner, 2026-10-23, version B of /themes_mockup; theme-box.css).
+// borders (owner, 2026-10-23, version B of /themes_mockup; theme-box.css). Only the tests, the endpoints, are numbered
+// (owner: numbers on the shelves and groups made them look like units).
 import { ArrowRight, Check } from "lucide-react";
 import { useState, type CSSProperties, type ReactNode } from "react";
 import type { TestRecord } from "./record";
 import { chosenIn, homeOf, iconOf, plural, shelfMeta, shownShelves, toneOf, type Counted } from "./shelf-model";
+// Its styles sit with the test page's (th- rules); imported here so the questions page, which shows it too, has them.
+import "../../test-options.css";
 import "./theme-box.css";
 
 interface Props { counts: Map<string, number>; selected: string; onChoose: (id: string) => void; record: TestRecord }
@@ -20,16 +23,16 @@ export function ThemeShelves({ counts, selected, onChoose, record }: Props) {
   const openShelf = shelves.find(({ shelf }) => shelf.id === open.shelf);
   const openGroup = openShelf?.groups.find(({ group }) => group.id === open.group);
   return <div className="th th-box">
-    <ul className="th-shelves">{shelves.map(({ shelf, groups }, i) => {
+    <ul className="th-shelves">{shelves.map(({ shelf, groups }) => {
       const on = shelf.id === open.shelf;
-      return <Cell key={shelf.id} id={shelf.id} n={i} title={shelf.title} line={shelf.line} on={on} open="Open the shelf" style={toneOf(shelf.tone)}
+      return <Cell key={shelf.id} id={shelf.id} title={shelf.title} line={shelf.line} on={on} open="Open the shelf" style={toneOf(shelf.tone)}
         meta={shelfMeta(groups)} chosen={chosenIn(groups, selected)}
         onClick={() => setOpen({ shelf: on ? "" : shelf.id, group: "" })} />;
     })}</ul>
     {openShelf && <div className="th-rows" key={openShelf.shelf.id} style={toneOf(openShelf.shelf.tone)}>
-      <ul className="th-shelves is-small th-groups" style={{ "--cols": openShelf.groups.length } as CSSProperties}>{openShelf.groups.map(({ group, themes }, i) => {
+      <ul className="th-shelves is-small th-groups" style={{ "--cols": openShelf.groups.length } as CSSProperties}>{openShelf.groups.map(({ group, themes }) => {
         const on = group.id === open.group;
-        return <Cell key={group.id} id={group.id} n={i} title={group.title} line={group.line} on={on} open="Open the group" meta={plural(themes.length, "test")}
+        return <Cell key={group.id} id={group.id} title={group.title} line={group.line} on={on} open="Open the group" meta={plural(themes.length, "test")}
           chosen={chosenIn([{ themes }], selected)} onClick={() => setOpen({ ...open, group: on ? "" : group.id })} />;
       })}</ul>
       {openGroup && <TestRow key={openGroup.group.id} icon={openGroup.group.id} themes={openGroup.themes} selected={selected} onChoose={onChoose} record={record} />}
@@ -37,14 +40,14 @@ export function ThemeShelves({ counts, selected, onChoose, record }: Props) {
   </div>;
 }
 
-interface CellProps { id: string; n: number; title: string; line: string; meta: ReactNode; chosen?: string; open: string; on: boolean; onClick: () => void; style?: CSSProperties; press?: boolean }
+interface CellProps { id: string; n?: number; title: string; line: string; meta: ReactNode; chosen?: string; open: string; on: boolean; onClick: () => void; style?: CSSProperties; press?: boolean }
 
 /** One cell of the library grid, for a shelf and, smaller, for a group or a test (`press`: it is chosen, not opened). */
 function Cell({ id, n, title, line, meta, chosen, open, on, onClick, style, press }: CellProps) {
   const Icon = iconOf(id);
   return <li style={style}>
     <button type="button" className={on ? "is-open" : undefined} aria-expanded={press ? undefined : on} aria-pressed={press ? on : undefined} onClick={onClick}>
-      <span className="th-shelf-top"><span className="th-shelf-icon"><Icon size={24} strokeWidth={1.4} aria-hidden /></span><span>{String(n + 1).padStart(2, "0")}</span></span>
+      <span className="th-shelf-top"><span className="th-shelf-icon"><Icon size={24} strokeWidth={1.4} aria-hidden /></span>{n !== undefined && <span>{String(n + 1).padStart(2, "0")}</span>}</span>
       <strong>{title}</strong>
       <span className="th-shelf-line">{line}</span>
       <span className="th-shelf-meta">{meta}</span>

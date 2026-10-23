@@ -1,0 +1,79 @@
+/* The questions page's header drawing (QuestionsArt.tsx), after the surviving witnesses page's: rings, three layered
+   sheets, things from a desk and a note. Each sheet sits in two boxes: the outer one fans out on hover, the inner one leans after
+   the pointer (--px, --py, set from the page) by its own depth, so the two movements never fight. */
+.qa-art{--px:0;--py:0;position:relative;height:460px;color:var(--accent);background:radial-gradient(ellipse at 50% 50%,color-mix(in srgb,var(--accent) 10%,transparent),transparent 65%)}
+.qa-orbit{position:absolute;left:50%;top:50%;border:1px solid color-mix(in srgb,var(--accent) 14%,transparent);border-radius:50%;translate:-50% -50%;animation:qa-turn 90s linear infinite}
+.qa-orbit-one{width:84%;height:84%;rotate:-25deg}
+.qa-orbit-two{width:64%;height:64%;border-style:dashed;animation-direction:reverse;animation-duration:140s}
+.qa-note{position:absolute;right:0;bottom:22%;font:400 19px/1.5 var(--serif);color:var(--ink);z-index:3}
+.qa-note>span{color:var(--muted)}
+.qa-note i{display:block;width:40px;margin-bottom:12px;border-top:1px solid var(--accent)}
+
+.qa-sheet{position:absolute;top:8%;left:22%;width:50%;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.qa-depth{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.qa-sheet-svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 14px 18px #0003)}
+.qa-sheet-back{transform:rotate(-13deg) translate(-40px,-6px);color:var(--prophets);opacity:.6}
+.qa-sheet-mid{transform:rotate(-2deg) translate(-4px,-14px);color:var(--muted);opacity:.85}
+.qa-sheet-front{transform:rotate(11deg) translate(34px,22px)}
+.qa-sheet-back .qa-depth{transform:translate(calc(var(--px) * 6px),calc(var(--py) * 4px))}
+.qa-sheet-mid .qa-depth{transform:translate(calc(var(--px) * 12px),calc(var(--py) * 8px))}
+.qa-sheet-front .qa-depth{transform:translate(calc(var(--px) * 20px),calc(var(--py) * 13px)) rotate(calc(var(--px) * 2deg))}
+.qa-art[data-ready]:hover .qa-sheet-back{transform:rotate(-19deg) translate(-70px,-12px);opacity:.75}
+.qa-art[data-ready]:hover .qa-sheet-mid{transform:rotate(-4deg) translate(-14px,-30px)}
+.qa-art[data-ready]:hover .qa-sheet-front{transform:rotate(7deg) translate(52px,18px)}
+
+/* Each sheet arrives whole, back first, with a short fade and rise; no drawing in of lines (owner, 2026-10-22). Hover
+   does nothing until everything has arrived (data-ready, set by QuestionsArt.tsx). */
+.qa-sheet-svg{animation:qa-enter .7s cubic-bezier(.2,.7,.2,1) both}
+.qa-sheet-mid .qa-sheet-svg{animation-delay:.12s}
+.qa-sheet-front .qa-sheet-svg{animation-delay:.24s}
+.qa-letter{font:italic 500 13px var(--serif);fill:currentColor;stroke:none}
+.qa-letter-soft{font-style:normal;font-size:12px}
+.qa-twinkle{fill:currentColor;stroke:none;animation:qa-twinkle 3.2s ease-in-out infinite}
+
+/* The quiz card: the question mark floats; on hover its dot beats, the answers light in turn and the right one is ticked. */
+.qa-mark{animation:qa-float 5s ease-in-out infinite}
+.qa-mark-dot{transform-box:fill-box;transform-origin:center}
+.qa-art[data-ready]:hover .qa-mark-dot{animation:qa-beat 1.1s ease-in-out infinite}
+.qa-row-glow{fill:currentColor;opacity:0;transition:opacity .35s calc(var(--i) * .14s)}
+.qa-art[data-ready]:hover .qa-row-glow{opacity:.1}
+.qa-art[data-ready]:hover .qa-row[data-right] .qa-row-glow{opacity:.22;transition-delay:.7s}
+.qa-check{stroke-dasharray:22;stroke-dashoffset:22;transition:stroke-dashoffset .45s ease-out 0s}
+.qa-art[data-ready]:hover .qa-check{stroke-dashoffset:0;transition-delay:.85s}
+
+/* Things from a desk, each in its own place over the sheets, with a solid backing so nothing shows through; they
+   arrive whole just after the sheets. The glass rests close to the quiz card and on hover slides over it, its lens see-through so
+   the card shows beneath; the pencil rolls and the seal turns. */
+.qa-thing{position:absolute;z-index:2;height:auto;overflow:visible;color:var(--accent);transition:transform .9s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 8px 10px #0002)}
+.qa-thing{animation:qa-enter .6s cubic-bezier(.2,.7,.2,1) .4s both}
+.qa-seal{animation-delay:.5s}
+.qa-glass{animation-delay:.6s}
+.qa-solid{fill:var(--page)}
+.qa-lens{fill:color-mix(in srgb,var(--accent) 7%,transparent)}
+.qa-pencil{left:20%;bottom:1%;width:36%;rotate:-6deg}
+.qa-seal{left:5%;bottom:18%;width:12%;color:var(--revelation);rotate:-10deg}
+.qa-glass{right:calc(2% + 58px);bottom:calc(40% + 10px);width:15%;color:var(--muted)}
+.qa-art[data-ready]:hover .qa-pencil{transform:translate(18px,-4px) rotate(-3deg)}
+.qa-art[data-ready]:hover .qa-seal{transform:rotate(14deg) translate(6px,-4px)}
+.qa-art[data-ready]:hover .qa-glass{transform:translate(-60px,28px)}
+
+@keyframes qa-enter{from{opacity:0;translate:0 14px}to{opacity:1;translate:0 0}}
+@keyframes qa-turn{to{rotate:335deg}}
+@keyframes qa-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes qa-beat{0%,100%{transform:scale(1)}50%{transform:scale(1.45)}}
+@keyframes qa-twinkle{0%,100%{opacity:.25}50%{opacity:1}}
+
+@media(max-width:1100px){.qa-art{height:400px}}
+/* Narrower: the note moves under the drawing so it does not crowd the width. */
+@media(max-width:1200px){
+  .qa-art{margin-bottom:76px}
+  .qa-note{bottom:auto;left:0;right:0;top:calc(100% + 14px);font-size:16px;text-align:center}
+  .qa-note i{margin-inline:auto}
+}
+@media(max-width:860px){.qa-art{height:360px;max-width:520px;margin-inline:auto;width:100%}}
+@media(max-width:520px){.qa-art{height:290px;margin-bottom:64px}.qa-note{font-size:14px}.qa-pencil{width:30%}.qa-glass{display:none}}
+@media(prefers-reduced-motion:reduce){
+  .qa-orbit,.qa-mark,.qa-twinkle,.qa-art[data-ready]:hover .qa-mark-dot{animation:none}
+  .qa-sheet-svg,.qa-thing{animation:none}
+  .qa-sheet,.qa-depth,.qa-row-glow,.qa-check,.qa-thing{transition:none}
+}
