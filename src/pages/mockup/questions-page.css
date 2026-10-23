@@ -123,6 +123,8 @@
 .qp-clear{background:none;border:0;font-size:11px;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 .qp-list-viewport{height:min(76vh,860px);overflow-y:auto;scrollbar-width:none;border-top:1px solid var(--ink)}
 .qp-list-viewport::-webkit-scrollbar{display:none}
+/* The scroll pills (list and rail) in a bright gold (owner, 2026-10-23). */
+.qp .mw-scroll-pill>span,.qp .mw-scroll-pill:hover>span{background:color-mix(in srgb,var(--accent) 40%,#ebbb4c);opacity:1}
 .qp-list{list-style:none;margin:0;padding:0}
 .qp-q{display:grid;grid-template-columns:44px 1fr;gap:6px;padding:20px 8px 20px 0;border-bottom:1px solid var(--line)}
 .qp-q-n{padding-top:5px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;border-left:2px solid var(--tone);padding-left:10px;height:fit-content}

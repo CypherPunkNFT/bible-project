@@ -6,6 +6,7 @@
 // the Testament switch of FilterRail.tsx are not used here (the book drawers cover both Testaments).
 import { ChevronDown, X } from "lucide-react";
 import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
+import PillScroll from "@/components/apologetics/PillScroll";
 import type { BankBook, QuestionBank } from "@/lib/data";
 import { RailGroup, Switch } from "./FilterRail";
 import { facetsOf, type Filters } from "./model";
@@ -61,7 +62,8 @@ export function ListRail({ bank, facets, filters, choice, members, update, choos
     // eslint-disable-next-line react-hooks/exhaustive-deps -- `span` only reads the bank's books
   }, [choice.book, choice.theme]);
   const collections = bank.collections;
-  return <aside className="qp-rail qx-rail" aria-label="Filters">
+  // The rail scrolls with the same gold pill outside its edge as the list beside it (owner, 2026-10-23: no box, no arrows).
+  return <aside className="qx-rail-wrap"><PillScroll className="qp-rail qx-rail" label="Filters">
     <RailGroup title="By the book">{BOOK_SECTIONS.map((s) => {
       const books = span(s.from, s.to), codes = new Set(books.map((b) => b.code));
       const n = facets.anyBook.reduce((sum, i) => sum + (bank.questions[i].books.some((c) => codes.has(c)) ? 1 : 0), 0);
@@ -90,7 +92,7 @@ export function ListRail({ bank, facets, filters, choice, members, update, choos
     <RailGroup title="Show">
       <Switch on={filters.choices} onChange={(choices) => update({ choices })}>Multiple choice only</Switch>
     </RailGroup>
-  </aside>;
+  </PillScroll></aside>;
 }
 
 interface DrawerProps { id: string; title: string; tone: string; count: number; open: boolean; chosen: boolean; toggle: (id: string) => void; children: ReactNode }
