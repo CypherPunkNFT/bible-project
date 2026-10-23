@@ -20,7 +20,7 @@ export function useSelection(bank: QuestionBank, options: string[]) {
   const askedChapter = Number(params.get("ch"));
   const chapter = filters.book && askedChapter > 0 ? askedChapter : null;
   // Only questions that read well on their own: a test has no lesson around it.
-  const pool = useMemo(() => bank.questions.filter((q) => q.standalone) as TestQuestion[], [bank]);
+  const pool = useMemo(() => bank.questions.filter((q) => q.standalone || q.lead_in) as TestQuestion[], [bank]);
   const haystacks = useMemo(() => pool.map(haystackOf), [pool]);
   const filterKey = writeFilters(filters).toString();
   /* eslint-disable react-hooks/exhaustive-deps -- filters are read from params, which `filterKey` stands for */

@@ -4160,7 +4160,13 @@
     "To maintain justice and equality by giving others what they earn through their own efforts"
    ],
    "answer_choice": "Love your neighbor as yourself, and do to others as you would have them do to you",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:124": {
    "options": [
@@ -4170,7 +4176,13 @@
     "Only biological parents, since the commandment specifically uses the word 'father' and 'mother' literally in each case"
    ],
    "answer_choice": "Not only natural parents, but all superiors in age and gifts, especially those in authority in family, church, commonwealth",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:125": {
    "options": [
@@ -4180,7 +4192,13 @@
     "Named Father and Mother because superiors must exercise firm discipline and correction over inferiors, like fathers discipline children"
    ],
    "answer_choice": "Styled Father and Mother to teach superiors to be like parents expressing love and tenderness, making inferiors more willing in duties",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:127": {
    "options": [
@@ -4194,6 +4212,14 @@
    "lead_in": {
     "question": "What is the general scope of the fifth commandment?",
     "answer": "The general scope of the fifth commandment is, the performance of those duties which we mutually owe in our several relations, as inferiors, superiors, or equals."
+   },
+   "check": {
+    "also_right": [
+     "Respect shown outwardly, submission to their lawful authority, and honor to their position without question."
+    ],
+    "faithful": false,
+    "note": "",
+    "ok": false
    }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:128": {
@@ -4208,6 +4234,14 @@
    "lead_in": {
     "question": "What is the honor that inferiors owe to their superiors?",
     "answer": "The honor which inferiors owe to their superiors is, all due reverence in heart, word, and behavior; prayer and thanksgiving for them; imitation of their virtues and graces; willing obedience to their lawful commands and counsels; due submission to their corrections; fidelity to, defense and maintenance of their persons and authority, according to their several ranks, and the nature of their places; bearing with their infirmities, and covering them in love, that so they may be an honor to them and to their government."
+   },
+   "check": {
+    "also_right": [
+     "Disobedience to their commands, speaking disrespectfully and critically, refusing their correction, and showing contempt for them."
+    ],
+    "faithful": false,
+    "note": "",
+    "ok": false
    }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:129": {
@@ -4222,6 +4256,12 @@
    "lead_in": {
     "question": "What are the sins of inferiors against their superiors?",
     "answer": "The sins of inferiors against their superiors are, all neglect of the duties required toward them; envying at, contempt of, and rebellion against, their persons and places, in their lawful counsels, commands, and corrections; cursing, mocking, and all such refractory and scandalous carriage, as proves a shame and dishonor to them and their government."
+   },
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
    }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:13": {
@@ -4232,7 +4272,13 @@
     "God foresaw who would believe in Christ and predestined only those who exercise faith to salvation and eternal life."
    ],
    "answer_choice": "God has eternally elected some angels to glory and some men to eternal life in Christ, and foreordained others to wrath.",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:130": {
    "options": [
@@ -4242,7 +4288,13 @@
     "Any failure whatsoever to enforce established laws and rules, showing unwarranted mercy when discipline is deserved, and refusing to correct subordinates"
    ],
    "answer_choice": "Neglect of duties, seeking own glory and pleasure, commanding unlawful things, counseling in evil, dissuading from good, unduly correcting, exposing to danger",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:131": {
    "options": [
@@ -4252,7 +4304,13 @@
     "To compete with one another for recognition and to advance your own gifts above others"
    ],
    "answer_choice": "Regard each other's dignity and worth, give honor, and rejoice in each other's gifts and advancement",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:132": {
    "options": [
@@ -4262,7 +4320,13 @@
     "Neglect of duties, undervaluing worth, envying gifts, grieving at advancement and prosperity, usurping preeminence"
    ],
    "answer_choice": "Neglect of duties, undervaluing worth, envying gifts, grieving at advancement and prosperity, usurping preeminence",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:136": {
    "options": [
@@ -4272,7 +4336,13 @@
     "Taking life except public justice, war, or defense; sinful anger, hatred, envy, revenge; immoderate use; provoking words; oppression; quarreling; striking"
    ],
    "answer_choice": "Taking life except public justice, war, or defense; sinful anger, hatred, envy, revenge; immoderate use; provoking words; oppression; quarreling; striking",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:140": {
    "options": [
@@ -4282,7 +4352,13 @@
     "The eighth commandment is, Thou shalt not commit adultery."
    ],
    "answer_choice": "The eighth commandment is, Thou shalt not steal.",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:151": {
    "options": [
@@ -4296,6 +4372,12 @@
    "lead_in": {
     "question": "Are all transgressions of the law of God equally heinous in themselves, and in the sight of God?",
     "answer": "All transgressions of the law of God are not equally heinous; but some sins in themselves, and by reason of several aggravations, are more heinous in the sight of God than others."
+   },
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
    }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:156": {
@@ -4306,7 +4388,13 @@
     "The word should remain only in original languages so people depend on authorized interpreters"
    ],
    "answer_choice": "Not all permitted to read publicly; all bound to read privately with families; scriptures translated to vulgar languages",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:157": {
    "options": [
@@ -4316,7 +4404,13 @@
     "Privately reading Scripture while skeptical of its authority, trusting personal interpretation over scholarly and church tradition"
    ],
    "answer_choice": "With reverent esteem, firm persuasion they are God's word, desire to obey, diligence, attention, meditation, application, self-denial, and prayer",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:158": {
    "options": [
@@ -4326,7 +4420,13 @@
     "Only by those sufficiently gifted, duly approved, and called to the office of preaching"
    ],
    "answer_choice": "Only by those sufficiently gifted, duly approved, and called to the office of preaching",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:159": {
    "options": [
@@ -4336,7 +4436,13 @@
     "Sound doctrine, plainly, faithfully the whole counsel, wisely, zealously, sincerely, with Spirit's demonstration"
    ],
    "answer_choice": "Sound doctrine, plainly, faithfully the whole counsel, wisely, zealously, sincerely, with Spirit's demonstration",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:16": {
    "options": [
@@ -4346,7 +4452,13 @@
     "God created angels as pure spirits composed of divine substance, eternal and unchangeable like God Himself."
    ],
    "answer_choice": "God created angels as immortal, holy spirits of knowledge and power, to execute commandments and praise God, yet subject to change.",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:162": {
    "options": [
@@ -4356,7 +4468,13 @@
     "Holy ordinance instituted by Christ to signify, seal, and exhibit benefits of his mediation to those in covenant of grace"
    ],
    "answer_choice": "Holy ordinance instituted by Christ to signify, seal, and exhibit benefits of his mediation to those in covenant of grace",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:163": {
    "options": [
@@ -4366,7 +4484,13 @@
     "Two parts: an outward sensible sign according to Christ's appointment, and an inward spiritual grace signified thereby"
    ],
    "answer_choice": "Two parts: an outward sensible sign according to Christ's appointment, and an inward spiritual grace signified thereby",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:167": {
    "options": [
@@ -4376,7 +4500,13 @@
     "Increasing strength in fighting sin through personal moral effort and determined will to obey God's law."
    ],
    "answer_choice": "Serious and thankful consideration of baptism's nature, benefits, and vow; humbling for sin; assurance of pardon; drawing strength from Christ's death",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:169": {
    "options": [
@@ -4386,7 +4516,13 @@
     "The blessing transforms elements into Christ's literal body through the power of consecration formula"
    ],
    "answer_choice": "Ministers set apart bread and wine by word of institution, thanksgiving, and prayer; give to communicants who eat and drink",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:170": {
    "options": [
@@ -4397,7 +4533,13 @@
    ],
    "answer_choice": "Spiritually, not carnally, present to faith; truly and really receiving Christ crucified and his benefits",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:171": {
    "options": [
@@ -4408,7 +4550,13 @@
    ],
    "answer_choice": "Examine their being in Christ, faith, sins, love to God and brethren, forgiveness; renew by prayer",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:172": {
    "options": [
@@ -4418,7 +4566,13 @@
     "May have true interest if affected by lack and unfeignedly desires Christ; sacrament for weak and doubting; should come for strengthening"
    ],
    "answer_choice": "May have true interest if affected by lack and unfeignedly desires Christ; sacrament for weak and doubting; should come for strengthening",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:173": {
    "options": [
@@ -4429,7 +4583,13 @@
    ],
    "answer_choice": "Yes; the ignorant and scandalous are to be excluded by church power until reformed",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:174": {
    "options": [
@@ -4440,7 +4600,13 @@
    ],
    "answer_choice": "With reverence and attention, discern the Lord's body, meditate on death, judge themselves, feed by faith",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:175": {
    "options": [
@@ -4451,7 +4617,13 @@
    ],
    "answer_choice": "Reflect on their behavior; if blessed, bless God and attend frequently; if not, review and improve",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:176": {
    "options": [
@@ -4461,7 +4633,13 @@
     "The sacraments were instituted by the apostles as Church traditions and will end with the current age"
    ],
    "answer_choice": "Both authored by God; spiritual part is Christ and his benefits; seals of same covenant; dispensed by gospel ministers only",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:177": {
    "options": [
@@ -4471,7 +4649,13 @@
     "Baptism with bread and wine for regeneration; Lord's supper with water for spiritual nourishment of believers"
    ],
    "answer_choice": "Baptism administered once with water for regeneration; Lord's supper administered often with bread and wine for spiritual nourishment",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:179": {
    "options": [
@@ -4481,7 +4665,13 @@
     "God and deceased saints hear prayer; they should be prayed to for their intercession with God"
    ],
    "answer_choice": "God only can search hearts, hear requests, and pardon sins; prayer is to be made to him alone",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:180": {
    "options": [
@@ -4492,7 +4682,13 @@
    ],
    "answer_choice": "In confidence on his promises, ask mercy for his sake, drawing boldness from Christ's mediation",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:181": {
    "options": [
@@ -4502,7 +4698,13 @@
     "Mary, the mother of Jesus, intercedes for us as the great mediator between God and all sinners"
    ],
    "answer_choice": "Man's sinfulness and distance from God make Christ alone the appointed mediator; we must pray in his name",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:182": {
    "options": [
@@ -4512,7 +4714,13 @@
     "Spirit writes down prayers and presents them to God; only ministers' prayers receive God's full attention"
    ],
    "answer_choice": "Spirit helps by enabling understanding of for whom, what, and how to pray; works requisite graces in our hearts",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:183": {
    "options": [
@@ -4522,7 +4730,13 @@
     "All men, living, dead, and yet to be born, including those who have sinned the sin unto death"
    ],
    "answer_choice": "Whole church, magistrates, ministers, ourselves, brethren, enemies, and all men living or to come; but not the dead",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:184": {
    "options": [
@@ -4532,7 +4746,13 @@
     "Anything we desire and request, whether lawful or unlawful, as God judges all petitions impartially"
    ],
    "answer_choice": "All things tending to God's glory, the church's welfare, our own or others' good; but not unlawful things",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:185": {
    "options": [
@@ -4542,7 +4762,13 @@
     "With apprehension of God's majesty, sense of unworthiness, penitent and thankful hearts, understanding, faith, sincerity, fervency, love, and perseverance"
    ],
    "answer_choice": "With apprehension of God's majesty, sense of unworthiness, penitent and thankful hearts, understanding, faith, sincerity, fervency, love, and perseverance",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:187": {
    "options": [
@@ -4552,7 +4778,13 @@
     "As pattern for other prayers and as prayer itself, with understanding, faith, reverence, and other necessary graces"
    ],
    "answer_choice": "As pattern for other prayers and as prayer itself, with understanding, faith, reverence, and other necessary graces",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:188": {
    "options": [
@@ -4562,7 +4794,13 @@
     "Seven parts distributed throughout the prayer in theological order"
    ],
    "answer_choice": "Three parts: a preface, petitions, and a conclusion",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:19": {
    "options": [
@@ -4572,7 +4810,13 @@
     "God permitted some angels to fall through temptation and weakness; He established the rest but employs some unwillingly."
    ],
    "answer_choice": "God permitted some angels to fall willfully into sin and damnation; He established the rest in holiness and employs both to His glory.",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:26": {
    "options": [
@@ -4586,6 +4830,12 @@
    "lead_in": {
     "question": "Wherein consists the sinfulness of that estate whereinto man fell?",
     "answer": "The sinfulness of that estate whereinto man fell, consisteth in the guilt of Adam's first sin, the want of that righteousness wherein he was created, and the corruption of his nature, whereby he is utterly indisposed, disabled, and made opposite unto all that is spiritually good, and wholly inclined to all evil, and that continually; which is commonly called Original Sin, and from which do proceed all actual transgressions."
+   },
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
    }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:28": {
@@ -4600,6 +4850,12 @@
    "lead_in": {
     "question": "What misery did the fall bring upon mankind?",
     "answer": "The fall brought upon mankind the loss of communion with God, his displeasure and curse; so as we are by nature children of wrath, bond slaves to Satan, and justly liable to all punishments in this world, and that which is to come."
+   },
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
    }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:29": {
@@ -4610,7 +4866,13 @@
     "Eternal sleep and unconsciousness as the soul's annihilation, ceasing to exist after physical death."
    ],
    "answer_choice": "Everlasting separation from God's comfortable presence and most grievous torments in soul and body, without intermission, in hell fire forever.",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:31": {
    "options": [
@@ -4620,7 +4882,13 @@
     "The covenant of grace was made with all humanity; God offers salvation freely to anyone who will accept it."
    ],
    "answer_choice": "The covenant of grace was made with Christ as the second Adam, and in him with all the elect as his seed.",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:32": {
    "options": [
@@ -4630,7 +4898,13 @@
     "God freely provides a Mediator and life and salvation by Him; He gives His Holy Spirit to work faith in believers and enable holy obedience."
    ],
    "answer_choice": "God freely provides a Mediator and life and salvation by Him; He gives His Holy Spirit to work faith in believers and enable holy obedience.",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:33": {
    "options": [
@@ -4640,7 +4914,13 @@
     "The substance changed though the outward signs and sacraments remained similar in their basic form."
    ],
    "answer_choice": "The covenant of grace was not always administered the same way; Old Testament administrations differed from New Testament administrations.",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:34": {
    "options": [
@@ -4650,7 +4930,13 @@
     "By types and figures as shadows, but no actual grace was given until Christ's coming."
    ],
    "answer_choice": "By promises, prophecies, sacrifices, circumcision, passover, and types which foresignified Christ to come; sufficient to give full remission of sins and eternal salvation.",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:35": {
    "options": [
@@ -4660,7 +4946,13 @@
     "By preaching the Word and administering Baptism and Lord's Supper; grace and salvation are held forth in fuller evidence and efficacy to all nations."
    ],
    "answer_choice": "By preaching the Word and administering Baptism and Lord's Supper; grace and salvation are held forth in fuller evidence and efficacy to all nations.",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:36": {
    "options": [
@@ -4670,7 +4962,13 @@
     "The Lord Jesus Christ, eternal Son of God, equal with the Father, is the sole Mediator of the covenant of grace."
    ],
    "answer_choice": "The Lord Jesus Christ, eternal Son of God, equal with the Father, is the sole Mediator of the covenant of grace.",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:38": {
    "options": [
@@ -4684,6 +4982,12 @@
    "lead_in": {
     "question": "How did Christ, being the Son of God, become man?",
     "answer": "Christ the Son of God became man, by taking to himself a true body, and a reasonable soul, being conceived by the power of the Holy Ghost in the womb of the virgin Mary, of her substance, and born of her, yet without sin."
+   },
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
    }
   },
   "creeds-json-reformed-catechisms:westminster_larger_catechism:39": {
@@ -5775,7 +6079,15 @@
    ],
    "answer_choice": "They took the land from the Canaanites",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [
+     "They defeated all the Canaanite kings"
+    ],
+    "faithful": true,
+    "note": "Both defeated the Canaanite kings and took the land; choice A overstates the destruction (not all cities were destroyed).",
+    "ok": false
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:119": {
    "options": [
@@ -5786,7 +6098,13 @@
    ],
    "answer_choice": "The land of Israel",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:12": {
    "options": [
@@ -5796,7 +6114,13 @@
     "He rejected his brother's calling"
    ],
    "answer_choice": "He killed his brother Abel",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:120": {
    "options": [
@@ -5810,6 +6134,12 @@
    "lead_in": {
     "question": "What was the land of Canaan called after this war?",
     "answer": "The land of Israel"
+   },
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
    }
   },
   "gutenberg-sunday-school-question-books:pg29067:121": {
@@ -5820,7 +6150,13 @@
     "At Shechem"
    ],
    "answer_choice": "At Shiloh",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:122": {
    "options": [
@@ -5831,7 +6167,13 @@
    ],
    "answer_choice": "Fear the Lord and serve him",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:123": {
    "options": [
@@ -5841,7 +6183,13 @@
     "We will serve Joshua and obey him"
    ],
    "answer_choice": "\"We will serve the Lord, and the Lord only.\"",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:124": {
    "options": [
@@ -5852,7 +6200,13 @@
    ],
    "answer_choice": "No, they forgot God, and served idols",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:125": {
    "options": [
@@ -5863,7 +6217,13 @@
    ],
    "answer_choice": "They fell under the power of their enemies",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:126": {
    "options": [
@@ -5874,7 +6234,13 @@
    ],
    "answer_choice": "Rulers who were called Judges",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:127": {
    "options": [
@@ -5885,7 +6251,13 @@
    ],
    "answer_choice": "Fifteen",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:13": {
    "options": [
@@ -5895,7 +6267,13 @@
     "They lived forever without any death at all"
    ],
    "answer_choice": "They lived to be hundreds of years old",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:130": {
    "options": [
@@ -5905,7 +6283,13 @@
     "She was a great prophetess of Israel"
    ],
    "answer_choice": "She led them to a great victory over the Canaanites",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:131": {
    "options": [
@@ -5915,7 +6299,13 @@
     "Samson, the sixth judge"
    ],
    "answer_choice": "Gideon, the fifth judge",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:132": {
    "options": [
@@ -5925,7 +6315,13 @@
     "He led them into Canaan"
    ],
    "answer_choice": "He won victories over the Midianites",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:133": {
    "options": [
@@ -5935,7 +6331,13 @@
     "A group of priests and warriors"
    ],
    "answer_choice": "A band of three hundred brave men",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:134": {
    "options": [
@@ -5945,7 +6347,13 @@
     "The Philistines"
    ],
    "answer_choice": "The Philistines",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:135": {
    "options": [
@@ -5955,7 +6363,13 @@
     "Samson"
    ],
    "answer_choice": "Samson",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:136": {
    "options": [
@@ -5965,7 +6379,13 @@
     "For his kindness"
    ],
    "answer_choice": "For his great strength",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:137": {
    "options": [
@@ -5975,7 +6395,13 @@
     "The walls of Jericho"
    ],
    "answer_choice": "The gates of Gaza",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:138": {
    "options": [
@@ -5986,7 +6412,13 @@
    ],
    "answer_choice": "They put out his eyes",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:14": {
    "options": [
@@ -5997,7 +6429,13 @@
    ],
    "answer_choice": "Methuselah, who lived more than nine hundred years",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:140": {
    "options": [
@@ -6007,7 +6445,13 @@
     "Esther"
    ],
    "answer_choice": "Ruth",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:141": {
    "options": [
@@ -6017,7 +6461,13 @@
     "Jericho"
    ],
    "answer_choice": "Beth",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "Ruth lived in Bethlehem; 'Beth' is short for Bethlehem.",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:144": {
    "options": [
@@ -6027,7 +6477,13 @@
     "Eli, who was also priest"
    ],
    "answer_choice": "Eli, who was also priest",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:145": {
    "options": [
@@ -6038,7 +6494,13 @@
    ],
    "answer_choice": "Hannah",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:146": {
    "options": [
@@ -6052,6 +6514,12 @@
    "lead_in": {
     "question": "What woman brought her little child to Eli in the house of God?",
     "answer": "Hannah"
+   },
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
    }
   },
   "gutenberg-sunday-school-question-books:pg29067:147": {
@@ -6062,7 +6530,15 @@
     "In the home of Eli"
    ],
    "answer_choice": "In the house of the Lord",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [
+     "In the temple of Shiloh"
+    ],
+    "faithful": true,
+    "note": "Both 'the temple of Shiloh' and 'the house of the Lord' refer to the same place.",
+    "ok": false
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:148": {
    "options": [
@@ -6073,7 +6549,13 @@
    ],
    "answer_choice": "The voice of the Lord",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:149": {
    "options": [
@@ -6087,6 +6569,12 @@
    "lead_in": {
     "question": "What came to Samuel while he was a child?",
     "answer": "The voice of the Lord"
+   },
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
    }
   },
   "gutenberg-sunday-school-question-books:pg29067:15": {
@@ -6098,7 +6586,13 @@
    ],
    "answer_choice": "Nearly all of them were very wicked",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:150": {
    "options": [
@@ -6109,7 +6603,13 @@
    ],
    "answer_choice": "The last of the judges in Israel",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:151": {
    "options": [
@@ -6119,7 +6619,13 @@
     "He fought the Canaanites"
    ],
    "answer_choice": "He brought the people back to God",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:152": {
    "options": [
@@ -6129,7 +6635,13 @@
     "Wisdom and understanding"
    ],
    "answer_choice": "Victory over their enemies",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:153": {
    "options": [
@@ -6139,7 +6651,13 @@
     "He was fair and merciful"
    ],
    "answer_choice": "He was wise and good",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:154": {
    "options": [
@@ -6150,7 +6668,13 @@
    ],
    "answer_choice": "At Ra'mah",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:155": {
    "options": [
@@ -6161,7 +6685,13 @@
    ],
    "answer_choice": "To give them a king",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:156": {
    "options": [
@@ -6171,7 +6701,13 @@
     "To defeat the Philistines"
    ],
    "answer_choice": "To be like the others around them",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:157": {
    "options": [
@@ -6185,6 +6721,12 @@
    "lead_in": {
     "question": "Why did the Israelites wish for a king?",
     "answer": "To be like the others around them"
+   },
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
    }
   },
   "gutenberg-sunday-school-question-books:pg29067:158": {
@@ -6195,7 +6737,13 @@
     "To warn them"
    ],
    "answer_choice": "To let the people have a king",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:159": {
    "options": [
@@ -6205,7 +6753,13 @@
     "A mighty warrior named David"
    ],
    "answer_choice": "A young man named Saul",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:16": {
    "options": [
@@ -6216,7 +6770,13 @@
    ],
    "answer_choice": "Enoch, who walked with God",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:160": {
    "options": [
@@ -6227,7 +6787,15 @@
    ],
    "answer_choice": "He was the tallest man of all the people",
    "by": "claude-haiku",
-   "stands_alone": true
+   "stands_alone": true,
+   "check": {
+    "also_right": [
+     "He was very handsome and strong"
+    ],
+    "faithful": true,
+    "note": "1 Samuel 9:2 records Saul as both exceptionally tall and very handsome, but source specifies 'tallest' only.",
+    "ok": false
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:161": {
    "options": [
@@ -6241,6 +6809,12 @@
    "lead_in": {
     "question": "How did Saul look when he was made king?",
     "answer": "He was the tallest man of all the people"
+   },
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
    }
   },
   "gutenberg-sunday-school-question-books:pg29067:162": {
@@ -6251,7 +6825,13 @@
     "He wrote a history of judges"
    ],
    "answer_choice": "He wrote the laws of the land in a book",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:163": {
    "options": [
@@ -6261,7 +6841,13 @@
     "At Bethel"
    ],
    "answer_choice": "At Gibeah",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:17": {
    "options": [
@@ -6271,7 +6857,13 @@
     "He was the oldest man who ever lived on earth"
    ],
    "answer_choice": "He did not die, but God took him to himself",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:171": {
    "options": [
@@ -6281,7 +6873,13 @@
     "Eli"
    ],
    "answer_choice": "Samson",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:172": {
    "options": [
@@ -6291,7 +6889,13 @@
     "Samuel"
    ],
    "answer_choice": "Eli",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:176": {
    "options": [
@@ -6301,7 +6905,13 @@
     "The land of Egypt"
    ],
    "answer_choice": "The land of Canaan",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "gutenberg-sunday-school-question-books:pg29067:177": {
    "options": [
@@ -25725,7 +26335,13 @@
     "Bow down to the God of Israel"
    ],
    "answer_choice": "Let the Israelite slaves go free.",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:86": {
    "options": [
@@ -25735,7 +26351,13 @@
     "Hail and fire destroyed all the crops"
    ],
    "answer_choice": "The firstborn son of all Egyptian families died.",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:87": {
    "options": [
@@ -25745,7 +26367,13 @@
     "In the wilderness of Paran"
    ],
    "answer_choice": "By the Red Sea",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:89": {
    "options": [
@@ -25755,7 +26383,13 @@
     "God sent wind to dry up the sea"
    ],
    "answer_choice": "The water crashed on them and killed them all.",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:93": {
    "options": [
@@ -25765,7 +26399,13 @@
     "Strong warriors and many chariots"
    ],
    "answer_choice": "Giants in the land",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:94": {
    "options": [
@@ -25775,7 +26415,13 @@
     "Joshua and Caleb (Numbers 14:29-30)."
    ],
    "answer_choice": "Joshua and Caleb (Numbers 14:29-30).",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:96": {
    "options": [
@@ -25785,7 +26431,13 @@
     "Kings"
    ],
    "answer_choice": "Judges",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   },
   "westminster-proof-texts:westminster_shorter_with_proofs:93": {
    "options": [
@@ -25795,7 +26447,13 @@
     "Baptism and penance"
    ],
    "answer_choice": "Baptism and the Lord's supper",
-   "by": "claude-haiku"
+   "by": "claude-haiku",
+   "check": {
+    "also_right": [],
+    "faithful": true,
+    "note": "",
+    "ok": true
+   }
   }
  }
 }

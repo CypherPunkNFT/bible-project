@@ -18,6 +18,8 @@ export function QuestionPanel({ run, bookNames, kinds }: Props) {
         <span className="tp-meta">{kinds[item.q.kind] ?? item.q.kind} · {item.q.collection}</span></div>
       <div className="tp-panel-body">
         {item.q.lesson && <p className="tp-lesson">{item.q.lesson}</p>}
+        {/* A two-part question: its first part, already answered, then the question itself. */}
+        {item.q.lead_in && <p className="tp-lead"><span>First</span>{item.q.lead_in.question} <em>{item.q.lead_in.answer}</em></p>}
         <h2 className={`tp-prompt ${promptSize(item.prompt)}`}>{item.prompt}</h2>
         <Choices run={run} />
         <OpenAnswer run={run} />
