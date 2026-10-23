@@ -4,21 +4,22 @@
 // the same cells, smaller (owner: "the secondary options… in the same format as the super category"), and choosing a
 // group a row of its tests in the same cells again (owner, 2026-10-23: "the third categories also the same… square with
 // hover glow… just the same as the other two"), each with its number of questions and the reader's best score so far.
-// The shelf and group of the chosen test open on their own.
+// The shelf and group of the chosen test open on their own. The three rows sit in one bordered box, sharing their
+// borders (owner, 2026-10-23, version B of /themes_mockup; theme-box.css).
 import { ArrowRight, Check } from "lucide-react";
 import { useState, type CSSProperties, type ReactNode } from "react";
 import type { TestRecord } from "./record";
 import { chosenIn, homeOf, iconOf, plural, shelfMeta, shownShelves, toneOf, type Counted } from "./shelf-model";
+import "./theme-box.css";
 
-/** `boxed`: the three rows inside one bordered box, sharing their borders (the mock-up's version B). */
-interface Props { counts: Map<string, number>; selected: string; onChoose: (id: string) => void; record: TestRecord; boxed?: boolean }
+interface Props { counts: Map<string, number>; selected: string; onChoose: (id: string) => void; record: TestRecord }
 
-export function ThemeShelves({ counts, selected, onChoose, record, boxed }: Props) {
+export function ThemeShelves({ counts, selected, onChoose, record }: Props) {
   const shelves = shownShelves(counts);
   const [open, setOpen] = useState(() => homeOf(selected));
   const openShelf = shelves.find(({ shelf }) => shelf.id === open.shelf);
   const openGroup = openShelf?.groups.find(({ group }) => group.id === open.group);
-  return <div className={boxed ? "th th--boxed" : "th"}>
+  return <div className="th th-box">
     <ul className="th-shelves">{shelves.map(({ shelf, groups }, i) => {
       const on = shelf.id === open.shelf;
       return <Cell key={shelf.id} id={shelf.id} n={i} title={shelf.title} line={shelf.line} on={on} open="Open the shelf" style={toneOf(shelf.tone)}
@@ -39,7 +40,7 @@ export function ThemeShelves({ counts, selected, onChoose, record, boxed }: Prop
 interface CellProps { id: string; n: number; title: string; line: string; meta: ReactNode; chosen?: string; open: string; on: boolean; onClick: () => void; style?: CSSProperties; press?: boolean }
 
 /** One cell of the library grid, for a shelf and, smaller, for a group or a test (`press`: it is chosen, not opened). */
-export function Cell({ id, n, title, line, meta, chosen, open, on, onClick, style, press }: CellProps) {
+function Cell({ id, n, title, line, meta, chosen, open, on, onClick, style, press }: CellProps) {
   const Icon = iconOf(id);
   return <li style={style}>
     <button type="button" className={on ? "is-open" : undefined} aria-expanded={press ? undefined : on} aria-pressed={press ? on : undefined} onClick={onClick}>
@@ -56,7 +57,7 @@ export function Cell({ id, n, title, line, meta, chosen, open, on, onClick, styl
 interface TestRowProps { icon: string; themes: Counted[]; selected: string; onChoose: (id: string) => void; record: TestRecord }
 
 /** The third row: an open group's tests, in the group's cells, each with its group's icon. */
-export function TestRow({ icon, themes, selected, onChoose, record }: TestRowProps) {
+function TestRow({ icon, themes, selected, onChoose, record }: TestRowProps) {
   return <ul className="th-shelves is-small th-tests" style={{ "--cols": themes.length } as CSSProperties}>{themes.map(({ theme, n }, i) => {
     const on = theme.id === selected, mark = record[theme.id];
     return <Cell key={theme.id} id={icon} n={i} title={theme.title} line={theme.line} on={on} press open={on ? "Chosen" : "Choose the test"}

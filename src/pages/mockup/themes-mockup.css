@@ -1,40 +1,39 @@
-/* The themes mock-up (/themes_mockup): versions B and C of section 01's theme menu. Version A is test-options.css as is. */
+/* The themes mock-up (/themes_mockup): the theme menu as A (test-options.css as is), B and C, drawn by ThemeMenu.tsx.
+   A switch moves every cell to its new place (framer-motion); the frame, lines and grounds change colour alongside. */
 .tm{padding-bottom:120px}
+.tm-menu{border:1px solid transparent;border-radius:0;transition:border-color .5s ease,border-radius .5s ease,background-color .5s ease}
+.tm-menu .th-shelves,.tm-menu .th-shelves li{transition:border-color .5s ease,background-color .5s ease}
+.tm-menu .th-groups,.tm-menu .th-tests{animation:none}
 
 /* B: the three rows inside one bordered box, each row sharing its border with the next (like the apologetics pages'
    two-row menu: Explore, Worldviews, Questions, Debates, Sources over the section's own links) */
-.th--boxed{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--page)}
-.th--boxed>.th-shelves{border-top:0;background:var(--surface)}
-.th--boxed .th-rows{gap:0;margin-top:0}
-.th--boxed .th-rows>.th-shelves{border-top:1px solid var(--line)}
+.tm-menu.is-b{border-color:var(--line);border-radius:6px;overflow:hidden;background:var(--page)}
+.tm-menu.is-b>.th-shelves{border-top-color:transparent;background:var(--surface)}
+.tm-menu.is-b .th-rows{gap:0;margin-top:0}
 
-/* C: an open level folds into a slim column on the left and the next level opens to its right */
-@keyframes tc-drift{from{opacity:0;transform:translateX(32px)}}
-@keyframes tc-pop{from{opacity:0;transform:translateX(-16px)}}
-.tc.is-deep{display:grid;grid-template-columns:232px minmax(0,1fr);align-items:start;border-top:1px solid var(--line)}
-.tc.is-deeper{grid-template-columns:232px 232px minmax(0,1fr)}
-.tc-rail{display:flex;flex-direction:column;border-right:1px solid var(--line);animation:tc-drift .4s cubic-bezier(.22,1,.36,1)}
-.tc-rail button{position:relative;display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;transition:background .25s}
-.tc-rail button::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--tone);transform:scaleY(0);transition:transform .3s ease}
-.tc-rail button:hover,.tc-rail button.is-open{background:color-mix(in srgb,var(--tone) 6%,var(--page))}
-.tc-rail button:hover::before,.tc-rail button.is-open::before{transform:scaleY(1)}
-.tc-rail button:focus{outline:none}
-.tc-rail-icon{display:grid;place-items:center;flex-shrink:0;width:32px;height:32px;border-radius:50%;color:var(--tone);background:radial-gradient(circle,color-mix(in srgb,var(--tone) 12%,transparent),transparent 72%)}
-.tc-rail strong{display:block;font:500 15px/1.25 var(--serif)}
-.tc-rail button.is-open strong{color:color-mix(in srgb,var(--tone) 80%,var(--ink))}
-.tc-rail small{display:block;margin-top:2px;font-size:11px;color:var(--muted)}
-.tc.is-deep .th-shelves.is-small{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));border-top:0;animation:tc-pop .4s cubic-bezier(.22,1,.36,1)}
-.tc.is-deep .th-shelves.is-small li{border-left:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.tc.is-deep .th-shelves.th-groups{grid-template-columns:repeat(3,minmax(0,1fr))}
+/* C: an accordion; every cell a bar in one column, an open shelf's groups and an open group's tests folded in under it
+   (the rows' lists step aside so every cell can be ordered: --o comes from ThemeMenu.tsx) */
+.tm-menu.is-c{display:flex;flex-direction:column}
+.tm-menu.is-c>.th-shelves,.tm-menu.is-c .th-rows,.tm-menu.is-c .th-groups{display:contents}
+.tm-menu.is-c li,.tm-menu.is-c .th-tests{order:var(--o)}
+.tm-menu.is-c li{border-left:0;border-top:1px solid var(--line)}
+.tm-menu.is-c .th-groups>li{margin-left:34px;border-left:1px solid var(--line)}
+.tm-menu.is-c .th-shelves.th-tests{grid-template-columns:minmax(0,1fr);margin-left:68px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.tm-menu.is-c .th-tests>li{border-top:0}
+.tm-menu.is-c .th-tests>li+li{border-top:1px solid var(--line)}
+.tm-menu.is-c .th-shelves button{flex-direction:row;flex-wrap:wrap;align-items:center;column-gap:16px;row-gap:4px;padding:12px 18px}
+.tm-menu.is-c .th-shelves button::before{top:0;bottom:0;left:0;right:auto;width:2px;height:auto;transform:scaleY(0);transform-origin:top}
+.tm-menu.is-c .th-shelves button:hover::before,.tm-menu.is-c .th-shelves button.is-open::before{transform:scaleY(1)}
+.tm-menu.is-c .th-shelf-top{width:auto}
+.tm-menu.is-c .tm-n{display:none}
+.tm-menu.is-c .th-shelves strong{flex:0 0 210px;margin-top:0}
+.tm-menu.is-c .th-shelf-line{flex:1 1 220px}
+.tm-menu.is-c .th-shelf-open{margin-top:0}
 
-@media(max-width:700px){
-  .tc.is-deep,.tc.is-deeper{grid-template-columns:minmax(0,1fr)}
-  .tc-rail{flex-direction:row;overflow-x:auto;scrollbar-width:none;border-right:0;border-bottom:1px solid var(--line)}
-  .tc-rail::-webkit-scrollbar{display:none}
-  .tc-rail button{flex-shrink:0;border-bottom:0;border-right:1px solid var(--line)}
-  .tc-rail button::before{top:auto;right:0;width:auto;height:2px;transform:scaleX(0)}
-  .tc-rail button:hover::before,.tc-rail button.is-open::before{transform:scaleX(1)}
-  .tc.is-deep .th-shelves.is-small{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .tc.is-deep .th-shelves.is-small li:nth-child(even){border-right:0}
+@media(max-width:600px){
+  .tm-menu.is-c .th-groups>li{margin-left:14px}
+  .tm-menu.is-c .th-shelves.th-tests{margin-left:28px}
+  .tm-menu.is-c .th-shelves button{padding:12px}
+  .tm-menu.is-c .th-shelves strong{flex-basis:auto}
+  .tm-menu.is-c .th-shelf-line{flex-basis:100%}
 }
-@media(prefers-reduced-motion:reduce){.tc-rail,.tc.is-deep .th-shelves.is-small{animation:none}}
