@@ -191,7 +191,7 @@ def apply_quiz(stage: str, folder: Path, data: dict, by: str) -> Counter:
         answers = {a["q"]: a for a in (reply or {}).get("answers", [])}
         for label_, info in labels.items():
             candidate = data["questions"][info["id"]]
-            if candidate["status"] != "review" or label_ not in answers:
+            if candidate["status"] != "review" or label_ not in answers or not waiting(candidate, stage):
                 counts["no answer" if label_ not in answers else "not waiting"] += 1
                 continue
             why = quiz_verdict(stage, answers[label_], info["right"])

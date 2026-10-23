@@ -8,7 +8,8 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from question_audit import as_sent  # noqa: E402
-from question_writing import Locator, headings_of, link_related, next_number, read_sections, target  # noqa: E402
+from question_writing import Locator, answered_sections, headings_of, link_related, next_number, read_sections, \
+    target  # noqa: E402
 from question_writing_gate import answer_held, cited_keys, gate  # noqa: E402
 from question_writing_review import options_of, quiz_verdict, reference_of, second_round  # noqa: E402
 
@@ -52,6 +53,12 @@ def test_target_counts(words: int, asked: int, expected: int) -> None:
 
 def test_ids_are_never_reused() -> None:
     assert next_number("GEN-12-1", ["written:GEN-12-1:1", "written:GEN-12-1:3", "written:GEN-12-10:9"]) == 4
+
+
+def test_a_section_answered_with_no_questions_counts_as_written() -> None:
+    data = {"questions": {"written:GEN-12-1:1": {"section": "GEN-12-1"}},
+            "notes": {"GEN-12-1": "", "GEN-10-1": "A list of names; nothing worth asking."}}
+    assert answered_sections(data) == {"GEN-12-1", "GEN-10-1"}
 
 
 @pytest.mark.parametrize(("answer", "text", "held"), [

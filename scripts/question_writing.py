@@ -274,6 +274,17 @@ def every_written() -> list[tuple[str, dict]]:
     return found
 
 
+def answered_sections(data: dict) -> set[str]:
+    """Sections a run's writer has answered, with or without questions (a list of names may give none)."""
+    return {c["section"] for c in data["questions"].values()} | set(data.get("notes", {}))
+
+
+def written_sections() -> set[str]:
+    """Sections answered in any run: never offered to a writer again."""
+    return set().union(*(answered_sections(json.loads(f.read_text(encoding="utf-8")))
+                         for f in WORK.glob("*/candidates.json")))
+
+
 def next_number(section_id: str, taken: list[str]) -> int:
     prefix = f"written:{section_id}:"
     return 1 + max((int(qid[len(prefix):]) for qid in taken if qid.startswith(prefix)), default=0)
@@ -338,8 +349,7 @@ def prepare_write(run: str, books: list[str], section_ids: list[str], wave: int 
                   words_per_question: int) -> None:
     sections, _locator, shown = build_map(words_per_question)
     by_id = {s["id"]: s for s in sections}
-    done = {c["section"] for f in WORK.glob("*/candidates.json")
-            for c in json.loads(f.read_text(encoding="utf-8"))["questions"].values()}
+    done = written_sections()
     place = {s["id"]: n for n, s in enumerate(sections)}
 
     def ready(s: dict) -> bool:  # every earlier related section with something to write is written
@@ -385,7 +395,7 @@ def apply_write(run: str, by: str) -> None:
             continue
         section = {**info["section"], "start": tuple(info["section"]["start"]), "end": tuple(info["section"]["end"])}
         asked = list(info["asked"])
-        if any(c["section"] == section["id"] for c in data["questions"].values()):
+        if section["id"] in answered_sections(data):
             counts["section already applied"] += 1
             continue
         for text in reply["questions"][:section["target"]]:
