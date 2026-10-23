@@ -5,36 +5,24 @@
 // are designs and change nothing yet. Styles: test-setup.css.
 import { ArrowDown, ChevronDown, RotateCcw, SlidersHorizontal } from "lucide-react";
 import { useState, type CSSProperties, type ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { LENGTHS, MAX_LENGTH, MIN_LENGTH } from "./engine";
+import { AGES, LEVELS, ageOf, levelOf, minutesFor, readSettings } from "./settings";
 
 export interface SetupBarProps { what: string; changeTo: string; available: number; length: number; setLength: (n: number) => void; redraw: () => void; onBegin: () => void }
 
-const LEVELS = [
-  { id: 1, label: "Gentle", line: "The best-known stories and names" },
-  { id: 2, label: "Steady", line: "A mix, with some details" },
-  { id: 3, label: "Deep", line: "Small details and lesser-known books" },
-];
-const AGES = [
-  { id: "children", label: "Children", line: "Ages about 6 to 11" },
-  { id: "teens", label: "Teens", line: "Ages about 12 to 17" },
-  { id: "adults", label: "Adults", line: "Everything in the bank" },
-];
-/** About twenty seconds a question: reading it, choosing, and a glance at the verse. */
-const minutesFor = (n: number) => `about ${Math.max(1, Math.round((n * 20) / 60))} min`;
-const levelOf = (id: number) => LEVELS.find((l) => l.id === id)!;
-const ageOf = (id: string) => AGES.find((a) => a.id === id)!;
-
-/** How hard and who for: kept only in the bar until the bank can draw on them. */
+/** How hard and who for: kept only in the bar until the bank can draw on them, starting from any the address brings
+ * (the questions page's banner sets them). */
 function useDesignOnly() {
-  const [level, setLevel] = useState(2);
-  const [age, setAge] = useState("adults");
+  const [params] = useSearchParams();
+  const [level, setLevel] = useState(() => readSettings(params).level);
+  const [age, setAge] = useState(() => readSettings(params).age);
   return { level, setLevel, age, setAge };
 }
 type DesignOnly = ReturnType<typeof useDesignOnly>;
 
 /** Three rising bars, filled up to the level: the mark for how hard. */
-function Pips({ level }: { level: number }) {
+export function Pips({ level }: { level: number }) {
   return <span className="tsu-pips" aria-hidden="true">{[1, 2, 3].map((i) => <i key={i} data-on={i <= level || undefined} />)}</span>;
 }
 
