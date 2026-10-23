@@ -233,8 +233,9 @@ model. A GPT model taking the blind quizzes (checks 2 and 3 above) would be trul
 family is less likely to share the writer's blind spots.
 
 **Status:** nothing built yet.
-1. The owner tries one quiz by hand in Codex (the prompt is in the chat of 23 October 2026; its answer key is kept
-   apart, so Codex cannot see it). Claude scores Codex's replies against the key.
+1. The owner gives Codex the real writing job by hand: the exact instructions and reply format Claude's writers get,
+   and the pilot section "Rebekah Is Chosen" (Genesis 24:15-61), in `.local/question-writing/codex-test/`. Its reply
+   goes through the same script checks, and is compared with Claude's questions for the same section from the pilot.
 2. If Codex does well, add a small runner for `codex exec` beside BatchRunner (one call per item, a resume after a
    stop, a cap on calls). Then the open and closed quizzes can run on Codex while the writing and the BSB audit stay
    on Claude.
