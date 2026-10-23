@@ -47,8 +47,9 @@ function Cell({ id, n, title, line, meta, chosen, open, on, onClick, style, pres
   const Icon = iconOf(id);
   return <li style={style}>
     <button type="button" className={on ? "is-open" : undefined} aria-expanded={press ? undefined : on} aria-pressed={press ? on : undefined} onClick={onClick}>
-      <span className="th-shelf-top"><span className="th-shelf-icon"><Icon size={24} strokeWidth={1.4} aria-hidden /></span>{n !== undefined && <span>{String(n + 1).padStart(2, "0")}</span>}</span>
-      <strong>{title}</strong>
+      {press ? <><span className="th-shelf-top"><span className="th-shelf-icon"><Icon size={24} strokeWidth={1.4} aria-hidden /></span>{n !== undefined && <span>{String(n + 1).padStart(2, "0")}</span>}</span>
+        <strong>{title}</strong></>
+        : <span className="th-shelf-top is-side"><span className="th-shelf-icon"><Icon size={24} strokeWidth={1.4} aria-hidden /></span><strong>{title}</strong></span>}
       <span className="th-shelf-line">{line}</span>
       <span className="th-shelf-meta">{meta}</span>
       {chosen && <span className="th-shelf-chosen"><Check size={13} strokeWidth={2} aria-hidden />{chosen}</span>}
@@ -59,12 +60,14 @@ function Cell({ id, n, title, line, meta, chosen, open, on, onClick, style, pres
 
 interface TestRowProps { icon: string; themes: Counted[]; selected: string; onChoose: (id: string) => void; record: TestRecord }
 
-/** The third row: an open group's tests, in the group's cells, each with its group's icon. */
+/** The third row: an open group's tests, in the group's cells, each with its group's icon; set a little apart from the
+ * groups under a small "Tests" heading (owner, 2026-10-23: "separate… a little bit of a margin… tests as mini title"). */
 function TestRow({ icon, themes, selected, onChoose, record }: TestRowProps) {
-  return <ul className="th-shelves is-small th-tests" style={{ "--cols": themes.length } as CSSProperties}>{themes.map(({ theme, n }, i) => {
+  return <div className="th-tests-block"><p className="th-tests-name">Tests</p>
+    <ul className="th-shelves is-small th-tests" style={{ "--cols": themes.length } as CSSProperties}>{themes.map(({ theme, n }, i) => {
     const on = theme.id === selected, mark = record[theme.id];
     return <Cell key={theme.id} id={icon} n={i} title={theme.title} line={theme.line} on={on} press open={on ? "Chosen" : "Choose the test"}
       meta={<>{n.toLocaleString()} questions · <span className={mark ? "th-best" : undefined}>{mark ? `Best ${mark.best} of ${mark.of}` : "Not taken yet"}</span></>}
       onClick={() => onChoose(on ? "" : theme.id)} />;
-  })}</ul>;
+  })}</ul></div>;
 }

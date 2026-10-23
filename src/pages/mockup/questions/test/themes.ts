@@ -114,16 +114,16 @@ export const SHELVES: Shelf[] = [
       { id: "grace", title: "Saved by grace", line: "Grace, justification and redemption", topics: ["salvation"], subjects: /salvation|^grace$|justification|redemption|atonement/ },
       { id: "faith", title: "Faith", line: "Believing God, and living by it", subjects: /^faith$|trust|^conversion$/ },
     ] },
-    { id: "life", title: "The Christian life", line: "Prayer, worship and the church", themes: [
+    { id: "life", title: "Christian life", line: "Prayer, worship and the church", themes: [
       { id: "prayer", title: "Prayer", line: "The Lord's Prayer and the life of prayer", topics: ["prayer"], subjects: /prayer/ },
       { id: "sacraments", title: "Baptism and the Lord's Supper", line: "The water and the bread and the cup", subjects: /baptism|lord's supper|communion|sacrament/ },
       { id: "worship", title: "Worship and the church", line: "Praise, the sabbath and the people of God", topics: ["church-life"], subjects: /^worship$|^praise$|^church$|sabbath/ },
     ] },
-    { id: "words", title: "The words of Jesus", line: "What he taught, and how", themes: [
+    { id: "words", title: "Words of Jesus", line: "What he taught, and how", themes: [
       { id: "parables", title: "The parables", line: "The sower, the lost sheep, the good Samaritan", subjects: /parabl/ },
       { id: "sermon", title: "The Sermon on the Mount", line: "The beatitudes, salt and light", subjects: /sermon on the mount|beatitude|jesus'? teaching/ },
     ] },
-    { id: "last", title: "The last things", line: "Death, judgement and what comes after", themes: [
+    { id: "last", title: "Last things", line: "Death, judgement and what comes after", themes: [
       { id: "life-to-come", title: "Death and the life to come", line: "Heaven, hell and eternal life", topics: ["last-things"], subjects: /heaven|^hell$|eternal life|^death$/ },
       { id: "second-coming", title: "Christ's return", line: "The second coming and the end of the age", books: ["REV"], subjects: /second coming|christ's return|end times|judgment/ },
     ] },

@@ -96,7 +96,7 @@ function PanelsBody({ bank }: { bank: QuestionBank }) {
       {theme && <div className="qx-after-shelves"><ExplorePanel key={theme.id} id="qx-theme" {...panel} title={theme.title} line={theme.line}
         base={NONE} keep={(i) => inTheme(theme, questions[i])} testHref={`/study/questions/test?theme=${theme.id}`} onClose={() => setParam("theme", "")} /></div>}
     </section>
-    <TestBanner bank={bank} filters={NONE} theme={null} available={bank.questions.length} bookNames={bookNames} />
+    <TestBanner bank={bank} filters={NONE} theme={null} bookNames={bookNames} />
     <section className="qp-section qp-explore" id="qp-explore" aria-labelledby="qp-explore-title">
       <SectionHead n="03" id="qp-explore-title" title={<>Every <em>question</em></>}
         lead={chosen.length ? `Showing ${chosen.join(" · ")}.` : `All ${bank.questions.length.toLocaleString()} in one list, by topic, Testament or collection, or search for a word.`}

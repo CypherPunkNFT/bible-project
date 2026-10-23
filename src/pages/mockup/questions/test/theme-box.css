@@ -8,3 +8,17 @@
    ones that are chosen) on the page's own ground, so the roots read apart from the ends. */
 .th.th-box .th-groups{background:color-mix(in srgb,var(--surface) 50%,var(--page))}
 .th.th-box .th-tests{background:var(--page)}
+/* The shelves' and groups' names beside their icons rather than under them, and the tests, the endpoints, in a box of
+   their own a little below the groups, under a small "Tests" heading (owner, 2026-10-23). */
+.th-shelf-top.is-side{justify-content:flex-start;align-items:center;gap:12px}
+.th-shelves .th-shelf-top.is-side strong{margin-top:0;color:var(--ink)}
+.th.th-box{overflow:visible;border:0;background:none}
+.th.th-box>.th-shelves,.th.th-box .th-groups{border:1px solid var(--line)}
+.th.th-box>.th-shelves{border-radius:6px 6px 0 0}
+.th.th-box .th-rows>.th-groups{border-top:0}
+.th.th-box .th-rows>.th-groups:last-child,.th.th-box>.th-shelves:last-child{border-radius:0 0 6px 6px}
+.th.th-box>.th-shelves:last-child{border-radius:6px}
+.th-tests-block{margin-top:22px;animation:th-in .3s ease}
+.th-tests-name{margin:0 0 10px;font-size:10px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.th.th-box .th-tests{border:1px solid var(--line);border-radius:6px;overflow:hidden}
+@media(prefers-reduced-motion:reduce){.th-tests-block{animation:none}}

@@ -1,14 +1,16 @@
 // The banner between 02 and 03 that leads to the test page. It carries whatever is chosen on this page (a book from
 // 01, a theme from 02, a topic or Testament from 03), so "Take a test on David" opens a test already set to David, and
-// the three settings chosen in it: how many questions, how hard and who for (owner, 2026-10-23: "icons for age… the
-// questions, the how hard, the age group"). Styles: test-banner.css.
-import { ArrowRight } from "lucide-react";
-import { useState, type ReactNode } from "react";
+// the three settings chosen in it: how many questions, how hard and who for. Since 2026-10-23 it is version 1 of the
+// test banner mock-up (/test_banner_mockup, owner: "place the version 1 on the page"): the settings in the theme
+// shelves' boxes on the right, all unchosen, and under the words a pill asking for them that becomes the button once
+// all three are chosen. Styles: test-banner.css.
+import { ArrowRight, Check } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import type { QuestionBank } from "@/lib/data";
 import { writeFilters, type Filters } from "./model";
 import { DEFAULT_LENGTH, LENGTHS } from "./test/engine";
-import { AGES, DEFAULT_AGE, DEFAULT_LEVEL, LEVELS, ageOf, levelOf, minutesFor, writeSettings } from "./test/settings";
+import { AGES, LEVELS, ageOf, minutesFor, writeSettings } from "./test/settings";
 import { Pips } from "./test/SetupBars";
 import type { Theme } from "./test/themes";
 import "../test-setup.css";
@@ -17,49 +19,59 @@ import "./test-banner.css";
 // The row of marks drawn beside the words: a test part-way through, right, wrong and still to come.
 const MARKS = ["right", "right", "wrong", "right", "now", "", "", "", "", ""];
 
-interface Props { bank: QuestionBank; filters: Filters; theme: Theme | null; available: number; bookNames: Record<string, string> }
+/** The three settings in the order they are asked, each choice with its note. */
+const SETTINGS = [
+  { key: "length", label: "Questions", items: LENGTHS.map((n) => ({ id: n as number | string, label: String(n), note: minutesFor(n) })) },
+  { key: "level", label: "How hard", items: LEVELS.map((l) => ({ id: l.id as number | string, label: l.label, note: l.line })) },
+  { key: "age", label: "For", items: AGES.map((a) => ({ id: a.id as number | string, label: a.label, note: a.line })) },
+] as const;
+type Key = (typeof SETTINGS)[number]["key"];
+type Picks = Record<Key, number | string | null>;
 
-export function TestBanner({ bank, filters, theme, available, bookNames }: Props) {
+interface Props { bank: QuestionBank; filters: Filters; theme: Theme | null; bookNames: Record<string, string> }
+
+export function TestBanner({ bank, filters, theme, bookNames }: Props) {
   const topic = bank.topics.find((t) => t.id === filters.topic)?.title;
   const subject = theme?.title ?? (filters.book ? bookNames[filters.book] : topic ?? (filters.kind ? bank.kinds[filters.kind] : null));
-  const [length, setLength] = useState<number>(DEFAULT_LENGTH);
-  const [level, setLevel] = useState(DEFAULT_LEVEL);
-  const [age, setAge] = useState(DEFAULT_AGE);
+  const [picks, setPicks] = useState<Picks>({ length: null, level: null, age: null });
+  const done = picks.length !== null && picks.level !== null && picks.age !== null;
   const params = writeFilters(filters);
   if (theme) params.set("theme", theme.id);
-  if (length !== DEFAULT_LENGTH) params.set("n", String(length));
-  writeSettings(params, level, age);
+  if (done && Number(picks.length) !== DEFAULT_LENGTH) params.set("n", String(picks.length));
+  if (done) writeSettings(params, Number(picks.level), String(picks.age));
   const query = params.toString();
+  // The pill under the words; on a phone, where the words sit above the boxes, it stands under the boxes instead.
+  const go = (place: "left" | "phone") => <div className="qp-test-go-slot" data-place={place}>
+    {done ? <Link className="qp-test-go" to={`/study/questions/test${query ? `?${query}` : ""}`}>
+      {subject ? <>Take a test on {subject}</> : "Take the test"}<ArrowRight size={17} strokeWidth={1.6} aria-hidden /></Link>
+      : <span className="qp-test-go qp-test-wait" aria-disabled="true">Choose your options to take the test</span>}
+  </div>;
   return <section className="qp-test-banner" id="qp-test" aria-labelledby="qp-test-title">
     <div className="qp-test-copy">
       <p className="qp-eyebrow"><span></span>A test of your own</p>
       <h2 id="qp-test-title">Ready to <em>test yourself?</em></h2>
       <p>Choose what to be tested on and answer one question at a time. The answers stay hidden until you give yours.</p>
+      <ol className="qp-test-marks" aria-hidden>{MARKS.map((mark, i) => <li key={i} className={mark && `is-${mark}`} />)}</ol>
+      {go("left")}
     </div>
     <div className="qp-test-action">
-      <ol className="qp-test-marks" aria-hidden>{MARKS.map((mark, i) => <li key={i} className={mark && `is-${mark}`} />)}</ol>
-      <Link className="qp-test-go" to={`/study/questions/test${query ? `?${query}` : ""}`}>
-        {subject ? <>Take a test on {subject}</> : "Take the test"}<ArrowRight size={17} strokeWidth={1.6} aria-hidden />
-      </Link>
-      <small>{available.toLocaleString()} questions to draw from</small>
-    </div>
-    <div className="qp-test-settings">
-      <Setting label="Questions" note={minutesFor(length)}>{LENGTHS.map((n) =>
-        <Choice key={n} on={length === n} onClick={() => setLength(n)}>{n}</Choice>)}</Setting>
-      <Setting label="How hard" note={levelOf(level).line}>{LEVELS.map((l) =>
-        <Choice key={l.id} on={level === l.id} onClick={() => setLevel(l.id)}><Pips level={l.id} />{l.label}</Choice>)}</Setting>
-      <Setting label="For" note={ageOf(age).line}>{AGES.map(({ id, label, Icon }) =>
-        <Choice key={id} on={age === id} onClick={() => setAge(id)}><Icon size={15} strokeWidth={1.7} aria-hidden />{label}</Choice>)}</Setting>
+      <div className="qp-test-grid">{SETTINGS.map(({ key, label, items }) =>
+        <div key={key} className="qp-test-row" role="group" aria-label={label}>
+          <span className="qp-test-name">{label}{picks[key] !== null && <Check size={12} strokeWidth={2.2} aria-hidden />}</span>
+          {items.map((item) => <button key={item.id} type="button" className="qp-test-cell" aria-pressed={picks[key] === item.id}
+            onClick={() => setPicks((now) => ({ ...now, [key]: item.id }))}>
+            <i className="qp-test-cell-icon"><Mark setting={key} id={item.id} /></i>
+            <span><strong>{key === "length" ? "questions" : item.label}</strong><small>{item.note}</small></span>
+          </button>)}
+        </div>)}</div>
+      {go("phone")}
     </div>
   </section>;
 }
 
-function Setting({ label, note, children }: { label: string; note: string; children: ReactNode }) {
-  const id = `qp-test-${label.toLowerCase().replace(/\s+/g, "-")}`;
-  return <div className="qp-test-setting"><span id={id}>{label}</span>
-    <div className="qp-test-choices" role="group" aria-labelledby={id}>{children}</div><small>{note}</small></div>;
-}
-
-function Choice({ on, onClick, children }: { on: boolean; onClick: () => void; children: ReactNode }) {
-  return <button type="button" aria-pressed={on} onClick={onClick}>{children}</button>;
+/** The mark in a box: the number, the rising bars, or the age group's icon. */
+function Mark({ setting, id }: { setting: Key; id: number | string }) {
+  if (setting === "level") return <Pips level={Number(id)} />;
+  if (setting === "age") { const { Icon } = ageOf(String(id)); return <Icon size={18} strokeWidth={1.6} aria-hidden />; }
+  return <b>{id}</b>;
 }
