@@ -156,8 +156,8 @@ def mark_repeats(questions: list[dict]) -> int:
 
 # --- prepare ---------------------------------------------------------------------------------------------------------
 
-def embed(text: str) -> list[float]:
-    body = json.dumps({"text": text, "kind": "document"}).encode()
+def embed(text: str, kind: str = "document") -> list[float]:
+    body = json.dumps({"text": text, "kind": kind}).encode()
     for _ in range(120):
         try:
             request = urllib.request.Request(EMBED_URL, body, {"Content-Type": "application/json"})

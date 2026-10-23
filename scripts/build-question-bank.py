@@ -5,9 +5,10 @@ tools; never written to here) and keeps only questions that are ready to show as
 than machine-read scans, with an answer, from a bank listed in BANKS below. Duplicates across banks are kept
 once. Every question keeps the credit its source asks for.
 
-Writes two files:
+Writes three files:
   content/questions/question-bank.json   the official record, committed: every question with its full
                                          licence and credit, plus what was left out and why
+  content/questions/question-table.csv   the same questions as one table, for checking in a spreadsheet
   data/questions/bank.json               the copy the Questions page loads (generated, not committed)
 
     python scripts/build-question-bank.py
@@ -26,6 +27,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from bible.books import BOOKS  # noqa: E402
 from question_audit import apply_audit  # noqa: E402
 from question_choices import add_choices  # noqa: E402
+from question_grounding import apply_grounding, write_table  # noqa: E402
 from question_mining import mined_records  # noqa: E402
 from question_model_tags import add_model_tags  # noqa: E402
 from question_repeats import mark_repeats  # noqa: E402
@@ -35,6 +37,7 @@ WEBSITE = Path(__file__).resolve().parent.parent
 CORPUS = WEBSITE.parent / "Research" / "BibleQuizCorpus" / "normalized"
 OFFICIAL = WEBSITE / "content" / "questions" / "question-bank.json"
 SITE = WEBSITE / "data" / "questions" / "bank.json"
+TABLE = WEBSITE / "content" / "questions" / "question-table.csv"
 
 SCHEMA = "bibleproject.question-bank/v2"
 
@@ -242,6 +245,7 @@ def main() -> None:
     model_tagged = add_model_tags(questions)
     model_choices = add_choices(questions)
     audited = apply_audit(questions)
+    grounded = apply_grounding(questions)
     counts = Counter(q["kind"] for q in questions)
     official = {
         "schema": SCHEMA,
@@ -259,6 +263,7 @@ def main() -> None:
                    "with_passage": sum(1 for q in questions if q["passages"]),
                    "audit": audited,
                    "hidden_by_audit": sum(1 for q in questions if q["hidden"]),
+                   "grounding": grounded,
                    "shown": sum(1 for q in questions if not q["repeat_of"] and not q["hidden"])},
         "kinds": KINDS,
         "tagging": "books, testament and topic are set by fixed word lists and the references (scripts/question_tags.py), "
@@ -272,6 +277,7 @@ def main() -> None:
     }
     write(OFFICIAL, official)
     write(SITE, site_copy(questions))
+    write_table(questions, TABLE)
     print(json.dumps(official["counts"], indent=1))
     for row in excluded:
         print(f"  left out {row['count']:>6}  {row['bank_id']}: {row['reason'][:70]}")

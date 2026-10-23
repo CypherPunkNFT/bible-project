@@ -58,6 +58,7 @@ ITEM_CHARS = 12000  # all of an item's Bible text at most
 SHORT_ANSWER = 12  # an answer this short is its own right choice (as in question_choices.py)
 RIGHT_MAX_WORDS = 25
 ANSWER_MAX_WORDS = 80
+GROWTH = 1.15  # how far past the limit, or the text's own length, a changed answer or right choice may grow
 KINDS = ["misquote", "other_translation", "wrong_answer", "choice_also_right", "reference", "other"]
 NAME = {code: name for code, name, _section, _osis in BOOKS}
 BRACKET_REF = re.compile(r"\s*\(([^()]*\d[^()]*)\)\s*$")
@@ -127,6 +128,9 @@ SCHEMA = {"type": "object", "properties": {
 
 _POINT = r"(?:(?P<{p}book>(?:[1-3]\s*)?[A-Za-z][A-Za-z ]*?)\.?\s+)?(?P<{p}c>\d+)(?::(?P<{p}v>\d+))?"
 _PIECE = re.compile(rf"^{_POINT.format(p='a')}(?:\s*[-–]\s*{_POINT.format(p='b')})?$")
+DOTTED = re.compile(r"\b([1-3]?[A-Za-z]+)\.(\d+)\.(\d+)")
+DOTTED_CHAPTER = re.compile(r"\b([1-3]?[A-Za-z]+)\.(\d+)\b(?!\.)")
+ASIDE = re.compile(r"\((?:NKJV|KJV|ESV|NIV|NASB)\)|\(\s*see(?: also)?\b|\)|\band\b", re.IGNORECASE)
 
 
 def parse_spans(reference: str | None) -> list[dict] | None:
@@ -135,7 +139,10 @@ def parse_spans(reference: str | None) -> list[dict] | None:
     ("Hos 1:1 - Mal 4:6") becomes its two ends. None if any piece cannot be read."""
     spans: list[dict] = []
     book = chapter = None
-    for piece in re.split(r"[;,]", reference or ""):
+    reference = DOTTED.sub(r"\1 \2:\3", reference or "")  # the creeds' "Matt.6.10"
+    reference = DOTTED_CHAPTER.sub(r"\1 \2", reference)  # "Ps.110"
+    reference = ASIDE.sub(";", reference)  # "1st John 3:4 (See also Romans 14:23)", "(NKJV)", "and"
+    for piece in re.split(r"[;,]", reference):
         piece = STRONGS.sub("", piece).strip().rstrip(".")
         if not piece:
             continue
@@ -362,8 +369,9 @@ def checked(reply: dict, sent: dict, note: str | None) -> tuple[dict | None, str
     wrong = [w.strip() for w in reply["wrong"]]
     if not question or not answer or not right:
         return None, "empty question, answer or right choice"
-    if (right != sent["right"] and word_count(right) > RIGHT_MAX_WORDS) or (
-            answer != sent["answer"] and word_count(answer) > ANSWER_MAX_WORDS):  # a long catechism answer kept as it is
+    # a changed text may grow a little past the limit or its own length: a long catechism answer re-quoted in the BSB
+    if (right != sent["right"] and word_count(right) > GROWTH * max(RIGHT_MAX_WORDS, word_count(sent["right"]))) or (
+            answer != sent["answer"] and word_count(answer) > GROWTH * max(ANSWER_MAX_WORDS, word_count(sent["answer"]))):
         return None, "answer or right choice too long"
     if BRACKET_REF.search(answer):
         return None, "reference left in the answer"
