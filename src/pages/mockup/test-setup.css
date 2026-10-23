@@ -1,0 +1,76 @@
+/* The test page's setup bar in four versions (questions/test/SetupBars.tsx), in the place of the old ready bar
+   (test-options.css .ts-ready) and in the same frame; the house pieces (segments, Begin, quiet links) come from
+   test-page.css. */
+.tsu-bar button:focus-visible,.tsu-bar input:focus-visible,.tsu-change:focus-visible{outline:none}
+.tsu-change{margin-left:8px;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.tsu-change:hover{color:var(--ink)}
+.tsu-bar{padding:20px 24px;border:1px solid var(--ink);border-radius:14px;background:var(--surface);box-shadow:0 18px 40px -28px rgba(60,40,10,.5)}
+.tsu-what .tp-field-label{margin-bottom:5px}
+.tsu-what strong{display:block;font:450 24px/1.2 var(--serif);letter-spacing:-.02em}
+.tsu-what small,.tsu-dial small,.tsu-foot small{font-size:12px;color:var(--muted)}
+.tsu-foot{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:18px}
+.tsu-foot-go{display:flex;align-items:center;gap:18px}
+.tsu-pips{display:inline-flex;align-items:flex-end;gap:2px;height:12px;margin-right:2px}
+.tsu-pips i{width:3px;border-radius:1px;background:currentColor;opacity:.25}
+.tsu-pips i:nth-child(1){height:5px}.tsu-pips i:nth-child(2){height:8px}.tsu-pips i:nth-child(3){height:12px}
+.tsu-pips i[data-on]{opacity:1}
+
+/* 1 · Three settings */
+.tsu-v1{display:grid;grid-template-columns:minmax(170px,1fr) 170px minmax(250px,1.3fr) minmax(220px,1.1fr) auto;align-items:start;gap:18px 24px}
+.tsu-v1 .tsu-what{align-self:center}
+.tsu-v1 .tp-begin-go{align-self:center}
+.tsu-dial .tp-field-label{margin-bottom:7px}
+.tsu-dial small{display:block;margin-top:7px}
+
+/* 2 · Ready-made tests */
+.tsu-v2-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.tsu-presets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:18px}
+.tsu-preset{display:grid;gap:6px;justify-items:start;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:none;text-align:left;transition:border-color .2s,background .2s}
+.tsu-preset strong{font:450 21px/1.2 var(--serif);letter-spacing:-.02em;margin-bottom:4px}
+.tsu-preset span{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted)}
+.tsu-preset:hover{border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+.tsu-preset[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.tsu-preset[aria-pressed="true"] span{color:var(--ink)}
+.tsu-v2-own{display:grid;grid-template-columns:170px minmax(250px,1.3fr) minmax(220px,1.1fr);gap:18px 24px;margin-top:18px}
+
+/* 3 · One sentence */
+.tsu-v3{padding:26px 30px}
+.tsu-sentence{margin:4px 0 0;font:400 clamp(26px,2.7vw,36px)/1.55 var(--serif);letter-spacing:-.02em}
+.tsu-sentence em{color:var(--accent)}
+.tsu-blank{position:relative;display:inline-block}
+.tsu-blank>button{display:inline-flex;align-items:center;gap:2px;padding:0 2px;border:0;border-bottom:1.5px solid var(--accent);background:none;color:var(--accent)!important;font:inherit;line-height:1.2}
+.tsu-blank>button svg{opacity:.6;transition:transform .25s}
+.tsu-blank>button[aria-expanded="true"] svg{transform:rotate(180deg)}
+.tsu-blank-menu{position:absolute;z-index:5;left:0;top:calc(100% + 8px);display:grid;min-width:150px;padding:6px;border:1px solid var(--line);border-radius:10px;background:var(--surface);box-shadow:0 18px 40px -20px rgba(0,0,0,.45)}
+.tsu-blank-menu button{padding:8px 12px;border:0;border-radius:6px;background:none;text-align:left;font:400 17px/1.3 var(--serif)}
+.tsu-blank-menu button:hover{background:var(--surface-2)}
+.tsu-blank-menu button[aria-checked="true"]{color:var(--accent)!important}
+
+/* 4 · Slider and bars */
+.tsu-v4{display:grid;grid-template-columns:minmax(170px,1fr) minmax(220px,1.4fr) auto auto auto;align-items:center;gap:18px 34px}
+.tsu-slide p{display:flex;align-items:baseline;gap:10px;margin:0 0 8px}
+.tsu-slide b{font:450 30px/1 var(--serif);letter-spacing:-.03em}
+.tsu-slide p span{font-size:12px;color:var(--muted)}
+.tsu-slide input{--fill:50%;width:100%;height:4px;margin:0;appearance:none;border-radius:2px;background:linear-gradient(90deg,var(--accent) var(--fill),var(--line) var(--fill));cursor:pointer}
+.tsu-slide input::-webkit-slider-thumb{appearance:none;width:18px;height:18px;border-radius:50%;background:var(--page);border:2px solid var(--accent)}
+.tsu-slide input::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--page);border:2px solid var(--accent)}
+.tsu-meter>div{display:flex;align-items:flex-end;gap:6px;height:42px}
+.tsu-meter button{width:22px;padding:0;border:1px solid var(--line);border-radius:4px;background:none;transition:background .2s,border-color .2s}
+.tsu-meter button[data-on]{border-color:var(--accent);background:var(--accent)}
+.tsu-meter button:hover{border-color:var(--accent)}
+.tsu-ages>div{display:flex;gap:6px}
+.tsu-ages button{height:36px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:none;font-size:12.5px;font-weight:550}
+.tsu-ages button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)!important}
+
+@media (max-width:1200px){
+  .tsu-v1{grid-template-columns:repeat(3,minmax(0,1fr))}.tsu-v1 .tsu-what{grid-column:1/-1}.tsu-v1 .tp-begin-go{grid-column:1/-1;justify-self:end}
+  .tsu-presets{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tsu-v4{grid-template-columns:1fr 1fr}.tsu-v4 .tsu-what{grid-column:1/-1}.tsu-v4 .tp-begin-go{grid-column:1/-1;justify-self:end}
+}
+@media (max-width:700px){
+  .tsu-bar{padding:18px 16px}
+  .tsu-v1,.tsu-v2-own,.tsu-v4{grid-template-columns:1fr}
+  .tsu-presets{grid-template-columns:1fr}
+  .tsu-v2-head,.tsu-foot{flex-wrap:wrap}
+  .tsu-v1 .tp-begin-go,.tsu-v4 .tp-begin-go{justify-self:stretch;justify-content:center}
+}

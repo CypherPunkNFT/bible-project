@@ -1,7 +1,6 @@
 // MOCK-UP: the test page the questions page's banner opens, at /study/questions/test on this computer's preview only.
-// The page can come in several whole-page options, swapped by a pill floating at the bottom of the screen; for now
-// there is one, the house style with the as-is answer panel (owner, 2026-10-22), and the pill shows once there are
-// variations. Every option shows the same drawn questions and the same settings; each keeps its own test, results and
+// The page can come in several whole-page options, swapped by a pill floating at the bottom of the screen: the house
+// style with the as-is answer panel (owner, 2026-10-22), once for each of the four setup bars (questions/test/SetupBars.tsx). Every option shows the same drawn questions and the same settings; each keeps its own test, results and
 // place on the page, and only the one showing answers the keyboard. The chosen option is kept in the address
 // (?option=) with everything else chosen (questions/test/selection.ts). The parts live in questions/test/.
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
@@ -13,6 +12,7 @@ import "./questions-page.css";
 import "./test-page.css";
 import "./test-stage.css";
 import "./test-options.css";
+import "./test-setup.css";
 
 export default function QuestionsTestPage() {
   const [bank, setBank] = useState<QuestionBank | null>(null);

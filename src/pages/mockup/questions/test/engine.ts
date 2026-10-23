@@ -15,6 +15,9 @@ export interface Result { right: boolean; given: string | null }
 
 export const LENGTHS = [10, 25, 50] as const;
 export const DEFAULT_LENGTH = 10;
+/** The slider's range (setup bar D): any count in fives between these. */
+export const MIN_LENGTH = 5;
+export const MAX_LENGTH = 50;
 
 const TRUE_FALSE = /^\s*true\s+or\s+false\s*[:?.-]?\s*/i;
 

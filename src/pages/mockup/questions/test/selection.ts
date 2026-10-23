@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import type { QuestionBank } from "@/lib/data";
 import { facetsOf, haystackOf, readFilters, writeFilters, type Filters } from "../model";
-import { DEFAULT_LENGTH, LENGTHS, chaptersOf, drawTest, type Item, type TestQuestion } from "./engine";
+import { DEFAULT_LENGTH, MAX_LENGTH, MIN_LENGTH, chaptersOf, drawTest, type Item, type TestQuestion } from "./engine";
 import { inTheme, themeById } from "./themes";
 
 interface Address { filters: Filters; length: number; chapter: number | null; theme: string; option: string }
@@ -14,7 +14,7 @@ export function useSelection(bank: QuestionBank, options: string[]) {
   const [params, setParams] = useSearchParams();
   const filters = readFilters(params);
   const asked = Number(params.get("n"));
-  const length = (LENGTHS as readonly number[]).includes(asked) ? asked : DEFAULT_LENGTH;
+  const length = asked >= MIN_LENGTH && asked <= MAX_LENGTH && asked % 5 === 0 ? asked : DEFAULT_LENGTH;
   const option = options.find((id) => id === params.get("option")) ?? options[0];
   const theme = themeById(params.get("theme") ?? "");
   const askedChapter = Number(params.get("ch"));
@@ -47,7 +47,7 @@ export function useSelection(bank: QuestionBank, options: string[]) {
   };
   return {
     pool, filters, length, option, chapter, theme: now.theme, facets, bookFacets, themeRows, items: draw.items, round: draw.round, redraw,
-    backTo: `/study/questions${filterKey ? `?${filterKey}` : ""}`,
+    backTo: backTo(filters, now.theme),
     update: (patch: Partial<Filters>) => {
       const next = { ...filters, ...patch };
       const newBook = next.book !== filters.book;
@@ -58,4 +58,12 @@ export function useSelection(bank: QuestionBank, options: string[]) {
     setTheme: (id: string) => write({ theme: id, filters: id ? { ...filters, book: "" } : filters, chapter: null }),
     setOption: (id: string) => write({ option: id }),
   };
+}
+
+/** The questions page with the same choice, its book and filters, and the theme, which it reads from the address too. */
+function backTo(filters: Filters, theme: string) {
+  const out = writeFilters(filters);
+  if (theme) out.set("theme", theme);
+  const query = out.toString();
+  return `/study/questions${query ? `?${query}` : ""}`;
 }
