@@ -170267,9 +170267,13 @@
     {
      "kind": "choice_also_right",
      "detail": "All three wrong choices say the same thing as the right answer in different words (needless oaths in talk, false oaths in court), so each is also right."
+    },
+    {
+     "kind": "reference",
+     "detail": "The answer's second part (false swearing) comes from Leviticus 19:12, not Matthew 5:34 alone, so both verses should be cited."
     }
    ],
-   "why": "The three wrong choices only repeated the right answer in other words, so any of them would be correct; they now name truthful, lawful oaths that the catechism does not forbid.",
+   "why": "The three wrong choices only repeated the right answer in other words, so any of them would be correct; they now name truthful, lawful oaths that the catechism does not forbid. Rechecked against the verses that hold the answer: The answer draws on both Matthew 5:34 (needless swearing) and Leviticus 19:12 (false swearing), so the reference was expanded to include both verses; the answer and wrong choices otherwise match the passages correctly.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -170288,13 +170292,19 @@
     "question": "What kinds of swearing are forbidden?",
     "answer": "Needless swearing in ordinary conversation and false swearing before a magistrate.",
     "right": "Needless swearing in ordinary conversation and false swearing before a magistrate.",
-    "reference": "MAT 5:34",
+    "reference": "Matt 5:34; Lev 19:12",
     "options": [
-     "Oaths of office and marriage vows made in good faith before witnesses.",
-     "Needless swearing in ordinary conversation and false swearing before a magistrate.",
      "Honest testimony given under oath and oaths of loyalty to the government.",
-     "Truthful oaths taken before a magistrate and solemn vows kept to God."
+     "Needless swearing in ordinary conversation and false swearing before a magistrate.",
+     "Truthful oaths taken before a magistrate and solemn vows kept to God.",
+     "Oaths of office and marriage vows made in good faith before witnesses."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:44": {
@@ -170377,6 +170387,12 @@
      "Tell the truth, the whole truth, and nothing but the truth.",
      "Say whatever will protect our family, even if it is not quite true"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:47": {
@@ -170390,11 +170406,15 @@
     {
      "kind": "reference",
      "detail": "No reference given; Psalm 50:15 holds the teaching about calling on God in trouble."
+    },
+    {
+     "kind": "reference",
+     "detail": "The reference listed only Ps 50:15, which supports calling on God for help/deliverance, but the 'grace' part of the answer comes from Heb 4:16 ('find grace to help us in our time of need'), so the reference should include both verses."
     }
    ],
-   "why": "The three wrong choices just restated the right answer in other words, so they were also right; they now give different, clearly wrong reasons, and Psalm 50:15 is added as the reference.",
+   "why": "The three wrong choices just restated the right answer in other words, so they were also right; they now give different, clearly wrong reasons, and Psalm 50:15 is added as the reference. Rechecked against the verses that hold the answer: The answer is sound catechism teaching, but the reference cited only Psalm 50:15; since the 'grace' part of the answer rests on Hebrews 4:16, the reference now includes both verses.",
    "by": "claude-sonnet-5-5",
-   "audited": "2026-10-22",
+   "audited": "2026-10-23",
    "before": {
     "question": "Why should we call upon God?",
     "answer": "God has given us His name so we might call upon Him for His help and grace.",
@@ -170411,13 +170431,19 @@
     "question": "Why should we call upon God?",
     "answer": "God has given us His name so we might call upon Him for His help and grace.",
     "right": "God has given us His name so we might call upon Him for His help and grace.",
-    "reference": "Ps 50:15",
+    "reference": "Ps 50:15; Heb 4:16",
     "options": [
-     "God has given us His name so we might use it to defeat our enemies.",
-     "God has given us His name so we might keep it secret and never speak it.",
      "God has given us His name so we might earn His favor by our good works.",
+     "God has given us His name so we might keep it secret and never speak it.",
+     "God has given us His name so we might use it to defeat our enemies.",
      "God has given us His name so we might call upon Him for His help and grace."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:48": {
@@ -170459,6 +170485,12 @@
      "Only when we have sinned greatly and need God to forgive us.",
      "Only on the Lord's Day, when we gather with the congregation for public worship."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:49": {
@@ -170517,6 +170549,12 @@
      "Law teaches how we are saved; Gospel commands what we must do; Law mainly in Old Testament, Gospel in New",
      "Law commands what we must do; Gospel teaches how we are saved; Law mainly in New Testament, Gospel in Old"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:50": {
@@ -170554,6 +170592,12 @@
      "With prayer for ourselves and others, praise for His majesty and wonderful works, and thanksgiving for His blessings.",
      "With silence before Him alone, meditation on our own hearts, and rejection of all outward worship."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:51": {
@@ -170629,9 +170673,13 @@
     {
      "kind": "choice_also_right",
      "detail": "\"Refusing to learn Scripture or resisting biblical instruction willingly\" is despising God's Word, which is how the Third Commandment is broken in Luther's explanation, so it is also right."
+    },
+    {
+     "kind": "reference",
+     "detail": "Only Heb 10:25 was cited, but Isaiah 58:13 (worldly Sabbath activity, idle words) also holds part of the answer and should be included."
     }
    ],
-   "why": "One wrong choice, refusing to learn Scripture, is really despising God's Word, which also breaks the Third Commandment, so it was replaced with a clearly wrong choice about honoring parents (Fourth Commandment).",
+   "why": "One wrong choice, refusing to learn Scripture, is really despising God's Word, which also breaks the Third Commandment, so it was replaced with a clearly wrong choice about honoring parents (Fourth Commandment). Rechecked against the verses that hold the answer: The answer and wrong choices are accurate, but the reference omitted Isaiah 58:13, which supplies the 'making Sunday worldly' part of the answer, so both verses are now cited.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -170650,13 +170698,19 @@
     "question": "In what ways is the Third Commandment broken?",
     "answer": "Neglecting church, being inattentive at worship, or making Sunday worldly instead of holy.",
     "right": "Neglecting church, being inattentive at worship, or making Sunday worldly instead of holy.",
-    "reference": "HEB 10:25",
+    "reference": "Heb 10:25; Isa 58:13",
     "options": [
-     "Taking God's name in vain or making false oaths and promises.",
      "Dishonoring parents or despising those in authority over us.",
+     "Taking God's name in vain or making false oaths and promises.",
      "Working too hard on weekdays without adequate rest daily.",
      "Neglecting church, being inattentive at worship, or making Sunday worldly instead of holy."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:56": {
@@ -170715,6 +170769,12 @@
      "When completing ordinary household chores and domestic tasks.",
      "When performing works of mercy as a duty to others in need."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:58": {
@@ -170773,6 +170833,12 @@
      "The Old Testament contains outdated laws Christians ignore.",
      "The New Testament completely replaced the Old Testament."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:60": {
@@ -170810,6 +170876,12 @@
      "Only members of our own family and community.",
      "Those who have shown kindness and friendship toward us."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:61": {
@@ -170868,7 +170940,13 @@
     ],
     "reference": ""
    },
-   "after": null
+   "after": null,
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
+   }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:63": {
    "collection": "Stump's Explanation of Luther's Small Catechism (1910)",
@@ -170893,9 +170971,14 @@
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:64": {
    "collection": "Stump's Explanation of Luther's Small Catechism (1910)",
-   "verdict": "keep",
-   "problems": [],
-   "why": "No fault found.",
+   "verdict": "fix",
+   "problems": [
+    {
+     "kind": "reference",
+     "detail": "The reference listed only Eph 6:2, but the full answer (the forbidding of despising/dishonoring parents, as well as the commanding of honor and obedience) is held by Eph 6:1-2 together with Deut 27:16, which should all be cited."
+    }
+   ],
+   "why": "Rechecked against the verses that hold the answer: The answer correctly reflects Luther's catechism explanation and is supported by the passages, but the reference needs to include Eph 6:1-2 and Deut 27:16 together, since the forbidding half of the answer (dishonoring parents) rests on Deuteronomy while the commanding half rests on Ephesians.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -170910,13 +170993,35 @@
     ],
     "reference": "EPH 6:2"
    },
-   "after": null
+   "after": {
+    "question": "What does the Fourth Commandment forbid and command?",
+    "answer": "Forbids: despising or displeasing parents/superiors. Commands: honoring, serving, obeying, loving, esteeming them.",
+    "right": "Forbids despising or displeasing parents/superiors; commands honoring, serving, obeying, loving, esteeming them.",
+    "reference": "Eph 6:1-2; Deut 27:16",
+    "options": [
+     "Forbids questioning authority; commands blind unquestioning obedience always.",
+     "Forbids independence from parents; commands total dependence.",
+     "Forbids despising or displeasing parents/superiors; commands honoring, serving, obeying, loving, esteeming them.",
+     "Forbids rule-breaking; commands rigid compliance in everything."
+    ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
+   }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:65": {
    "collection": "Stump's Explanation of Luther's Small Catechism (1910)",
-   "verdict": "keep",
-   "problems": [],
-   "why": "No fault found.",
+   "verdict": "fix",
+   "problems": [
+    {
+     "kind": "reference",
+     "detail": "The reference cited only Proverbs 30:17, but the answer also draws on Ephesians 6:1, which the catechism uses for this same teaching."
+    }
+   ],
+   "why": "Rechecked against the verses that hold the answer: The reference was incomplete, citing only Proverbs 30:17 when the answer also rests on Ephesians 6:1; the reference now includes both verses.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -170931,7 +171036,24 @@
     ],
     "reference": "PRO 30:17"
    },
-   "after": null
+   "after": {
+    "question": "How should children avoid despising or displeasing their parents?",
+    "answer": "Not mock them, speak disrespectfully, grumble, disobey, or be stubborn or rebellious.",
+    "right": "Not mock them, speak disrespectfully, grumble, disobey, or be stubborn or rebellious.",
+    "reference": "Prov 30:17; Eph 6:1",
+    "options": [
+     "Never leave home or make personal decisions alone.",
+     "Not mock them, speak disrespectfully, grumble, disobey, or be stubborn or rebellious.",
+     "Accept all punishment without complaint or emotional expression.",
+     "Sacrifice health and happiness to please your parents."
+    ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
+   }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:66": {
    "collection": "Stump's Explanation of Luther's Small Catechism (1910)",
@@ -171034,6 +171156,12 @@
      "By keeping away from them to avoid trouble",
      "By helping only when it's convenient"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:70": {
@@ -171076,7 +171204,13 @@
     ],
     "reference": ""
    },
-   "after": null
+   "after": null,
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
+   }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:72": {
    "collection": "Stump's Explanation of Luther's Small Catechism (1910)",
@@ -171089,9 +171223,13 @@
     {
      "kind": "reference",
      "detail": "No reference given; Exod 20:12 and Prov 23:22 fit the question."
+    },
+    {
+     "kind": "wrong_answer",
+     "detail": "The clause 'treasure their memory after death' is not supported by either Exod 20:12 or Prov 23:22, which speak only of honoring and caring for parents while they live, especially in old age."
     }
    ],
-   "why": "One wrong choice (supporting parents if they become poor) is also part of honoring parents, so it was replaced, and a Bible reference (Exodus 20:12; Proverbs 23:22) was added.",
+   "why": "One wrong choice (supporting parents if they become poor) is also part of honoring parents, so it was replaced, and a Bible reference (Exodus 20:12; Proverbs 23:22) was added. Rechecked against the verses that hold the answer: The answer added 'treasure their memory after death,' which the cited verses do not teach; the fix trims the answer to what Exod 20:12 and Prov 23:22 actually say about honoring and tenderly caring for parents in their old age.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -171108,15 +171246,21 @@
    },
    "after": {
     "question": "How should grown children regard and treat elderly parents?",
-    "answer": "Still love and honor them; care tenderly when old; treasure their memory after death.",
-    "right": "Still love and honor them; care tenderly when old; treasure their memory after death.",
+    "answer": "Still love and honor them, caring for them tenderly when they are old.",
+    "right": "Love and honor them, caring tenderly for them in old age.",
     "reference": "Exod 20:12; Prov 23:22",
     "options": [
-     "Leave their care to others once we have our own families.",
-     "Still love and honor them; care tenderly when old; treasure their memory after death.",
      "Provide basic care only if it suits our lives.",
+     "Love and honor them, caring tenderly for them in old age.",
+     "Leave their care to others once we have our own families.",
      "Remember them fondly but not remain bound by duty."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:73": {
@@ -171130,11 +171274,15 @@
     {
      "kind": "reference",
      "detail": "Luke 10:16 speaks of listening to Christ's messengers but not of honoring, helping and encouraging a pastor. Passages such as 1 Thess 5:12-13 and Heb 13:17 fit better."
+    },
+    {
+     "kind": "wrong_answer",
+     "detail": "The original answer ('Honor him, heed his admonitions, help and encourage him in his work') omitted the explicit duty of obedience/submission commanded in Hebrews 13:17 ('Obey your leaders and submit to them'), leaving the answer only partly right against the fuller verse text now provided."
     }
    ],
-   "why": "One wrong choice (supporting the pastor financially) is also something the Bible teaches, so I replaced it with a clearly wrong one, and I added references that speak of honoring and heeding church leaders.",
+   "why": "One wrong choice (supporting the pastor financially) is also something the Bible teaches, so I replaced it with a clearly wrong one, and I added references that speak of honoring and heeding church leaders. Rechecked against the verses that hold the answer: The answer left out the explicit command in Hebrews 13:17 to \"obey your leaders and submit to them,\" so it is reworded to include that duty alongside honoring and helping him, while the wrong choices (which overstate or deny this duty) still stand as clearly wrong.",
    "by": "claude-sonnet-5-5",
-   "audited": "2026-10-22",
+   "audited": "2026-10-23",
    "before": {
     "question": "What is our duty to our pastor?",
     "answer": "Honor him, heed his admonitions, help and encourage him in his work.",
@@ -171149,15 +171297,21 @@
    },
    "after": {
     "question": "What is our duty to our pastor?",
-    "answer": "Honor him, heed his admonitions, help and encourage him in his work.",
-    "right": "Honor him, heed his admonitions, help and encourage him in his work.",
+    "answer": "Honor him, obey his leadership, and help and encourage him in his work.",
+    "right": "Honor him, obey his leadership, and help and encourage him in his work.",
     "reference": "Luke 10:16; 1 Thess 5:12-13; Heb 13:17",
     "options": [
      "Obey him absolutely in all religious and personal matters.",
-     "Leave the work of the church to him alone.",
-     "Honor him, heed his admonitions, help and encourage him in his work.",
-     "Accept all his teachings without any question."
+     "Accept all his teachings without any question.",
+     "Honor him, obey his leadership, and help and encourage him in his work.",
+     "Leave the work of the church to him alone."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:74": {
@@ -171179,7 +171333,13 @@
     ],
     "reference": ""
    },
-   "after": null
+   "after": null,
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
+   }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:75": {
    "collection": "Stump's Explanation of Luther's Small Catechism (1910)",
@@ -171216,6 +171376,12 @@
      "They represent the will of the majority.",
      "The State is God's servant to maintain law and order in the land."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:76": {
@@ -171257,6 +171423,12 @@
      "Obey laws, be patriotic, pray, defend it, pay taxes, vote conscientiously.",
      "Support all government policies without question or hesitation."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:77": {
@@ -171369,9 +171541,13 @@
     {
      "kind": "reference",
      "detail": "No reference given; Exod 20:13 and 1 John 3:15 hold the commandment and the point about hatred."
+    },
+    {
+     "kind": "reference",
+     "detail": "Deut 22:8, which supports the 'accidents through neglect' part of the answer, was missing from the reference."
     }
    ],
-   "why": "One wrong choice, neglecting to help people in need, also breaks the Fifth Commandment, so it was replaced with a choice about misusing God's name, and a Bible reference was added.",
+   "why": "One wrong choice, neglecting to help people in need, also breaks the Fifth Commandment, so it was replaced with a choice about misusing God's name, and a Bible reference was added. Rechecked against the verses that hold the answer: The answer's mention of \"accidents through neglect\" rests on Deut 22:8 (the roof railing to avoid bloodguilt), which was missing from the reference; it has been added. The wrong choices belong to other commandments (stealing/coveting to the 7th/10th, rumor-spreading to the 8th, false swearing to the 2nd), so they remain clearly wrong and the rest of the question stands.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -171390,13 +171566,19 @@
     "question": "What are some ways the Fifth Commandment is broken against others?",
     "answer": "Murder, duels, hatred, accidents through neglect, tempting others to sin or useless risks.",
     "right": "Murder, duels, hatred, accidents through neglect, tempting others to sin or useless risks.",
-    "reference": "Exod 20:13; 1 John 3:15",
+    "reference": "Exod 20:13; 1 John 3:15; Deut 22:8",
     "options": [
      "Murder, duels, hatred, accidents through neglect, tempting others to sin or useless risks.",
      "Stealing from others and desiring their possessions.",
-     "Speaking unkindly and spreading rumors about others.",
-     "Cursing and swearing falsely by God's name."
+     "Cursing and swearing falsely by God's name.",
+     "Speaking unkindly and spreading rumors about others."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:83": {
@@ -171410,9 +171592,13 @@
     {
      "kind": "choice_also_right",
      "detail": "\"Desires for wealth\" is close to the answer's avarice, and \"fear of those who threaten our security\" is a real motive for murder, so people could fairly pick them."
+    },
+    {
+     "kind": "reference",
+     "detail": "The reference omits Mark 7:21-22, which is needed to support envy and avarice (greed) as motives, included alongside Genesis 4 and 1 John 3."
     }
    ],
-   "why": "The reference pointed to Cain's birth rather than his murder of Abel, and two wrong choices (wealth, fear) could also be motives for murder, so the reference now points to Gen 4:3-8 and 1 John 3:12-15 and the wrong choices are now clearly good qualities that do not lead to murder.",
+   "why": "The reference pointed to Cain's birth rather than his murder of Abel, and two wrong choices (wealth, fear) could also be motives for murder, so the reference now points to Gen 4:3-8 and 1 John 3:12-15 and the wrong choices are now clearly good qualities that do not lead to murder. Rechecked against the verses that hold the answer: The reference left out Mark 7:21-22, which supplies the envy and greed (avarice) named in the answer, so Mark 7:21-22 was added to the reference.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -171431,13 +171617,19 @@
     "question": "What motives prompt men to commit murder?",
     "answer": "Anger, hatred, envy, jealousy, revenge, avarice, and desire to hide past sin.",
     "right": "Anger, hatred, envy, jealousy, revenge, avarice, and desire to hide past sin.",
-    "reference": "Gen 4:3-8; 1 John 3:12-15",
+    "reference": "Gen 4:3-8; 1 John 3:12-15; Mark 7:21-22",
     "options": [
      "Pity, mercy, patience, forgiveness, and gratitude.",
      "Contentment, humility, generosity, peace, and love of neighbor.",
      "Joy, kindness, gentleness, faithfulness, and self-control.",
      "Anger, hatred, envy, jealousy, revenge, avarice, and desire to hide past sin."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:84": {
@@ -171500,6 +171692,12 @@
      "Hatred of a brother is a small fault, not a sin",
      "Hatred of one's brother is murder in the heart."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:86": {
@@ -171558,11 +171756,15 @@
     {
      "kind": "reference",
      "detail": "No reference given; the Fifth Commandment (Ex 20:13) is the basis."
+    },
+    {
+     "kind": "reference",
+     "detail": "Exodus 20:13 ('You shall not murder') does not hold the teaching about failing to warn; Ezekiel 3:18, where the watchman is held responsible for the wicked man's blood if he fails to warn him, is the verse that actually supports the answer."
     }
    ],
-   "why": "Two wrong choices (failing in Christian love, and leaving others open to temptation) are also true, so they were replaced with clearly wrong ones, and the Fifth Commandment reference was added.",
+   "why": "Two wrong choices (failing in Christian love, and leaving others open to temptation) are also true, so they were replaced with clearly wrong ones, and the Fifth Commandment reference was added. Rechecked against the verses that hold the answer: The reference given, Exodus 20:13, is only the command \"You shall not murder\" and does not speak of failing to warn; the teaching behind the answer is Ezekiel 3:18, where God holds the watchman responsible for a man's blood if he fails to warn him, so the reference is corrected to Ezekiel 3:18.",
    "by": "claude-sonnet-5-5",
-   "audited": "2026-10-22",
+   "audited": "2026-10-23",
    "before": {
     "question": "Why is it sinful to neglect warning or assisting others?",
     "answer": "Neglecting to warn of danger or assist those in need may result in their injury or death.",
@@ -171579,13 +171781,19 @@
     "question": "Why is it sinful to neglect warning or assisting others?",
     "answer": "Neglecting to warn of danger or assist those in need may result in their injury or death.",
     "right": "Neglecting to warn of danger or assist those in need may result in their injury or death.",
-    "reference": "Ex 20:13",
+    "reference": "Ezek 3:18",
     "options": [
      "It disrespects their ability to help themselves adequately.",
      "Neglecting to warn of danger or assist those in need may result in their injury or death.",
      "It wastes time and goods that God meant for our own use.",
      "It keeps the government from punishing those who do wrong."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:88": {
@@ -171727,9 +171935,13 @@
     {
      "kind": "reference",
      "detail": "Matthew 27:35 is about soldiers casting lots for Jesus' garments and says nothing about suicide; Judas's remorse and death are in Matthew 27:3-5."
+    },
+    {
+     "kind": "reference",
+     "detail": "The reference listed only Matt 27:3-5, but the answer's full content (despair, cowardice, and resisting through Scripture) comes from Ps 42:6, 2 Tim 1:7, and Rom 15:4 as well, so all four verses should be cited."
     }
    ],
-   "why": "The cited verse (Matthew 27:35) is about the soldiers dividing Jesus' garments, not suicide, so the reference now points to Matthew 27:3-5, where Judas, seized with remorse, hanged himself.",
+   "why": "The cited verse (Matthew 27:35) is about the soldiers dividing Jesus' garments, not suicide, so the reference now points to Matthew 27:3-5, where Judas, seized with remorse, hanged himself. Rechecked against the verses that hold the answer: The answer draws its three motives and its remedy from all four passages together (remorse from Judas's story, despair from Psalm 42:6, cowardice/fear from 2 Timothy 1:7, and comfort from Scripture from Romans 15:4), so the reference should list all four verses rather than only Matt 27:3-5.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -171748,13 +171960,19 @@
     "question": "What motives prompt suicide, and how should we resist it?",
     "answer": "Despair, remorse, cowardice. Resist by seeking comfort and strength in God's Word.",
     "right": "Despair, remorse, cowardice. Resist by seeking comfort and strength in God's Word.",
-    "reference": "Matt 27:3-5",
+    "reference": "Matt 27:3-5; Ps 42:6; 2 Tim 1:7; Rom 15:4",
     "options": [
      "Fear and shame; resist by accepting consequences.",
      "Loneliness and isolation; resist by building friendships.",
      "Failure and inadequacy; resist by working harder.",
      "Despair, remorse, cowardice. Resist by seeking comfort and strength in God's Word."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:92": {
@@ -171800,6 +172018,12 @@
      "The Fifth Commandment: You shall not murder.",
      "The Seventh Commandment: You shall not steal."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:93": {
@@ -171830,9 +172054,13 @@
     {
      "kind": "reference",
      "detail": "Gal 6:10 only says to do good to everyone; it does not speak of warning, defending or rescuing a neighbor in danger."
+    },
+    {
+     "kind": "reference",
+     "detail": "The reference 'Prov 24:11; Luke 10:30-37' omits Psalms 82:3 and 2 Chronicles 19:10, which together with Proverbs 24:11 are the verses that actually hold the fourfold answer (warn, defend, rescue, ward off danger); Luke 10:30-37 illustrates the principle but is not the source of the answer's wording."
     }
    ],
-   "why": "The catechism answer and choices are fine, but Galatians 6:10 only says to do good to everyone, so the reference now points to Proverbs 24:11 (rescue those led to death) and the Good Samaritan in Luke 10.",
+   "why": "The catechism answer and choices are fine, but Galatians 6:10 only says to do good to everyone, so the reference now points to Proverbs 24:11 (rescue those led to death) and the Good Samaritan in Luke 10. Rechecked against the verses that hold the answer: The reference was corrected to the three passages (Proverbs 24:11, Psalms 82:3, 2 Chronicles 19:10) that actually contain the fourfold answer, replacing the Good Samaritan reference which only illustrates but does not state that answer.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -171851,20 +172079,31 @@
     "question": "How are we to assist our neighbor in danger?",
     "answer": "Warn of danger, defend, rescue, and ward off danger from him.",
     "right": "Warn of danger, defend, rescue, and ward off danger from him.",
-    "reference": "Prov 24:11; Luke 10:30-37",
+    "reference": "Prov 24:11; Ps 82:3; 2 Chron 19:10",
     "options": [
+     "Provide whatever assistance they immediately request from you.",
      "Help only if doing so does not risk us.",
      "Encourage them to rely on God rather than aid.",
-     "Provide whatever assistance they immediately request from you.",
      "Warn of danger, defend, rescue, and ward off danger from him."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:95": {
    "collection": "Stump's Explanation of Luther's Small Catechism (1910)",
-   "verdict": "keep",
-   "problems": [],
-   "why": "No fault found.",
+   "verdict": "fix",
+   "problems": [
+    {
+     "kind": "reference",
+     "detail": "1 Thessalonians 4:4 also holds the answer (holiness, self-control of the body) and should be included alongside Exodus 20:14."
+    }
+   ],
+   "why": "Rechecked against the verses that hold the answer: The reference was given as only Exodus 20:14, but 1 Thessalonians 4:4 also supports the answer about purity and self-control, so the reference now includes both verses.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -171879,7 +172118,24 @@
     ],
     "reference": "EXO 20:14"
    },
-   "after": null
+   "after": {
+    "question": "What is the Sixth Commandment meant to preserve and guard?",
+    "answer": "Personal purity and the holy estate of marriage.",
+    "right": "Personal purity and the holy estate of marriage.",
+    "reference": "Exo 20:14; 1 Thess 4:4",
+    "options": [
+     "Honesty in business dealings and fair trade",
+     "Personal purity and the holy estate of marriage.",
+     "Respect for parents and elders",
+     "Obedience to civil authorities"
+    ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
+   }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:96": {
    "collection": "Stump's Explanation of Luther's Small Catechism (1910)",
@@ -171892,9 +172148,13 @@
     {
      "kind": "choice_also_right",
      "detail": "\"Forbids lustful thoughts\" is also forbidden by this commandment (Matt 5:28), so it is close to the right answer."
+    },
+    {
+     "kind": "reference",
+     "detail": "Only Exodus 20:14 was cited, but the answer's teaching on impurity and purity in thought, word, and deed also depends on Matthew 5:28, Ephesians 5:3-4, and 1 Thessalonians 4:3-4."
     }
    ],
-   "why": "Two wrong choices were also true teachings of the Sixth Commandment (sex outside marriage, lustful thoughts), so they were replaced with choices that belong to other commandments.",
+   "why": "Two wrong choices were also true teachings of the Sixth Commandment (sex outside marriage, lustful thoughts), so they were replaced with choices that belong to other commandments. Rechecked against the verses that hold the answer: The reference listed only Exodus 20:14, but the fuller answer about impurity and purity \"in thought, word, and deed\" rests on Matthew 5:28, Ephesians 5:3-4, and 1 Thessalonians 4:3-4 as well, so the reference was broadened to include all four; the answer and wrong choices themselves are sound.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -171913,13 +172173,19 @@
     "question": "What does the Sixth Commandment forbid and command?",
     "answer": "Forbids adultery and all impurity; commands chastity and purity in thought, word, and deed.",
     "right": "Forbids adultery and all impurity; commands chastity and purity in thought, word, and deed.",
-    "reference": "EXO 20:14",
+    "reference": "Exodus 20:14; Matthew 5:28; Ephesians 5:3-4; 1 Thessalonians 4:3-4",
     "options": [
      "Forbids adultery and all impurity; commands chastity and purity in thought, word, and deed.",
-     "Forbids lust and desire; commands celibacy always.",
+     "Forbids stealing and cheating; commands honest work and care for our neighbor's property.",
      "Forbids false witness and gossip; commands defending our neighbor's good name.",
-     "Forbids stealing and cheating; commands honest work and care for our neighbor's property."
+     "Forbids lust and desire; commands celibacy always."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "mined:gutenberg-sunday-school-question-books:pg9912:98": {
@@ -172041,6 +172307,12 @@
      "A staff",
      "A lamp"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:105": {
@@ -172611,6 +172883,12 @@
      "Samuel",
      "Eli"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:126": {
@@ -173306,6 +173584,12 @@
      "1st Samuel",
      "2nd Samuel"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:147": {
@@ -173614,6 +173898,12 @@
      "3,000",
      "300"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:159": {
@@ -173905,6 +174195,12 @@
      "Sent Mordecai to speak to the king for her",
      "Waited for the king to call her to the banquet"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:17": {
@@ -174751,6 +175047,12 @@
      "The Pharisees",
      "Sinners"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:194": {
@@ -174846,9 +175148,13 @@
     {
      "kind": "other",
      "detail": "True/False format leaves only one wrong choice; three are needed, and \"True\" is the only alternative."
+    },
+    {
+     "kind": "misquote",
+     "detail": "The text says the people 'drove Him out of the town' (Luke 4:29), not out of the synagogue; the anger arose in the synagogue, but the actual driving out and cliff attempt happened after they left it, in the town."
     }
    ],
-   "why": "The true/false question had no reference and could not give three wrong choices, so it now asks where Jesus was rejected (Nazareth, Luke 4:16-30), which keeps the point that people did not always believe him.",
+   "why": "The true/false question had no reference and could not give three wrong choices, so it now asks where Jesus was rejected (Nazareth, Luke 4:16-30), which keeps the point that people did not always believe him. Rechecked against the verses that hold the answer: The question says the crowd drove Jesus 'out of the synagogue,' but Luke 4:28-29 says they were enraged in the synagogue and then drove Him out of the town itself; reworded to match what the text actually says.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -174862,16 +175168,22 @@
     "reference": ""
    },
    "after": {
-    "question": "Not everyone believed Jesus. In which town did the people drive him out of the synagogue and try to throw him off a cliff?",
+    "question": "Not everyone believed Jesus. In which town did the people drive him out of town and try to throw him off a cliff after hearing him preach in the synagogue?",
     "answer": "Nazareth – many times Jesus was rejected, even in his hometown.",
     "right": "Nazareth – many times Jesus was rejected, even in his hometown.",
     "reference": "Luke 4:16-30",
     "options": [
-     "Jericho",
-     "Bethlehem",
      "Capernaum",
+     "Bethlehem",
+     "Jericho",
      "Nazareth – many times Jesus was rejected, even in his hometown."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:198": {
@@ -174915,6 +175227,12 @@
      "Only those who kept the law perfectly",
      "Only the priests and Pharisees"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:20": {
@@ -174997,6 +175315,12 @@
      "A tax collector",
      "A scribe"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:201": {
@@ -175077,6 +175401,12 @@
      "Because his friend Lazarus died.",
      "Because Peter denied him"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:205": {
@@ -175522,6 +175852,12 @@
      "Both Jesus and Barabbas to be sent away",
      "Jesus to be set free and Pilate removed"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:223": {
@@ -175600,6 +175936,12 @@
      "John the beloved",
      "Thomas"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:227": {
@@ -175639,6 +175981,12 @@
      "He would stay there safely until He grew old",
      "He would be crowned king there and drive out the Romans"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:23": {
@@ -175719,6 +176067,12 @@
      "A wooden door",
      "A large stone"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:234": {
@@ -175846,6 +176200,12 @@
      "Saul of Tarsus",
      "Timothy of Lystra"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:238": {
@@ -176410,6 +176770,12 @@
      "That non-Jews must first keep the Law to be saved",
      "That the Law of Moses is abolished"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:255": {
@@ -176660,6 +177026,12 @@
      "To debate with the Pharisees",
      "To train twelve new apostles"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:262": {
@@ -176669,11 +177041,15 @@
     {
      "kind": "reference",
      "detail": "The question has no reference. Exodus 20:1-19 and 31:18 show God giving the Ten Commandments to Moses."
+    },
+    {
+     "kind": "reference",
+     "detail": "The original reference (Exod 20:1-19; 31:18) omitted Exod 34:28, which also records Moses receiving/writing the Ten Commandments on the tablets."
     }
    ],
-   "why": "The answer, Moses, is right and the wrong choices are clearly wrong, but the question had no Bible reference, so Exodus 20:1-19 and 31:18 were added.",
+   "why": "The answer, Moses, is right and the wrong choices are clearly wrong, but the question had no Bible reference, so Exodus 20:1-19 and 31:18 were added. Rechecked against the verses that hold the answer: The answer and wrong choices are all correct and clearly distinct, but the reference was missing Exod 34:28, which also holds the answer, so it was added.",
    "by": "claude-sonnet-5-5",
-   "audited": "2026-10-22",
+   "audited": "2026-10-23",
    "before": {
     "question": "Name the person who received the 10 Commandments from God?",
     "answer": "Moses",
@@ -176690,13 +177066,19 @@
     "question": "Name the person who received the 10 Commandments from God?",
     "answer": "Moses",
     "right": "Moses",
-    "reference": "Exod 20:1-19; 31:18",
+    "reference": "Exod 31:18; 34:28",
     "options": [
      "Aaron",
      "Joshua",
      "Elijah",
      "Moses"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:268": {
@@ -177302,6 +177684,12 @@
      "Peter",
      "Jesus"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:289": {
@@ -178011,6 +178399,12 @@
      "On the temple wall",
      "On a stone tablet"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "ministry-to-children-kids-bible-trivia:kids-bible-trivia-300:50": {
@@ -179401,6 +179795,12 @@
      "One",
      "Six"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "opentdb-api:opentdb-bible-subset:3": {
@@ -179459,6 +179859,12 @@
      "Cain",
      "Enoch"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:10": {
@@ -179738,6 +180144,12 @@
      "Leah",
      "Rebekah"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:109": {
@@ -180112,6 +180524,12 @@
      "Exodus",
      "Numbers"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:118": {
@@ -180330,6 +180748,12 @@
      "Judah",
      "Jacob"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:125": {
@@ -180570,6 +180994,12 @@
      "About 33",
      "About 30"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:131": {
@@ -180620,9 +181050,13 @@
     {
      "kind": "other",
      "detail": "\"Oprah\" is a joke misspelling of the answer and not a believable choice; \"Ruths\" is missing its apostrophe."
+    },
+    {
+     "kind": "reference",
+     "detail": "Ruth 1:4 alone does not use the word 'sister-in-law'; that term for Orpah appears in Ruth 1:15, so the reference should include both verses."
     }
    ],
-   "why": "The answer Orpah is right (she married the other son of Naomi), but the question had no reference and one choice, \"Oprah,\" was a joke spelling, so I added Ruth 1:4, fixed \"Ruth's,\" and replaced \"Oprah\" with Tamar.",
+   "why": "The answer Orpah is right (she married the other son of Naomi), but the question had no reference and one choice, \"Oprah,\" was a joke spelling, so I added Ruth 1:4, fixed \"Ruth's,\" and replaced \"Oprah\" with Tamar. Rechecked against the verses that hold the answer: The answer and wrong choices are correct, but the reference needed Ruth 1:15 added since that is the verse that actually calls Orpah Ruth's 'sister-in-law'.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -180641,13 +181075,19 @@
     "question": "Who was Ruth's sister-in-law according to the Book of Ruth?",
     "answer": "Orpah",
     "right": "Orpah",
-    "reference": "Ruth 1:4",
+    "reference": "Ruth 1:4, 15",
     "options": [
+     "Rahab",
      "Naomi",
-     "Tamar",
      "Orpah",
-     "Rahab"
+     "Tamar"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:134": {
@@ -181380,6 +181820,12 @@
      "Medo-Persia Empire",
      "Roman Empire"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:154": {
@@ -181579,6 +182025,12 @@
      "Xerxes",
      "Belteshazzar"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:159": {
@@ -181940,6 +182392,12 @@
      "Ephraim",
      "Benjamin"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:17": {
@@ -182092,6 +182550,12 @@
      "Five",
      "Three"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:173": {
@@ -182411,6 +182875,12 @@
      "The three books of the Torah",
      "The names of the three major holidays Jews celebrate in September and October"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:181": {
@@ -182538,6 +183008,12 @@
      "In his own new tomb, cut into the rock",
      "In a pit outside the city gate"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:184": {
@@ -182817,6 +183293,12 @@
      "Eight",
      "Seven"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:190": {
@@ -182905,6 +183387,12 @@
      "Jesus Christ",
      "Paul"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:192": {
@@ -183118,6 +183606,12 @@
      "The Father and the Son and the Holy Spirit",
      "Moses, Elijah, and Jesus"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:198": {
@@ -183434,6 +183928,12 @@
      "Invisibly, as a spiritual presence in the Word",
      "In a vision seen only by the apostles"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:204": {
@@ -183537,6 +184037,12 @@
      "It is where Solomon built the Temple",
      "It is believed that Abraham, Sarah, Isaac, Rebekah, Leah and Jacob are buried there"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:208": {
@@ -183773,6 +184279,12 @@
      "Jeremiah",
      "Hosea"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:213": {
@@ -183955,6 +184467,12 @@
      "Sarah, Rebekah, Leah, Rachel",
      "Sarah, Rebekah, Ruth, Naomi"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:22": {
@@ -184279,6 +184797,12 @@
      "Gad",
      "Dan"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:228": {
@@ -184730,6 +185254,12 @@
      "Ruth",
      "Esther"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:239": {
@@ -184775,6 +185305,12 @@
      "Jesus",
      "Job"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5, quotation corrected by hand"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:240": {
@@ -184816,6 +185352,12 @@
      "Samson",
      "Samuel"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:241": {
@@ -184857,6 +185399,12 @@
      "Peter",
      "Jude"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:242": {
@@ -184984,6 +185532,12 @@
      "Adam",
      "Isaac"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:245": {
@@ -185078,6 +185632,12 @@
      "Mary",
      "Martha"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5, quotation corrected by hand"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:247": {
@@ -185287,6 +185847,12 @@
      "Adam",
      "Seth"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:3": {
@@ -185324,6 +185890,12 @@
      "Rachel",
      "Bilhah"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:30": {
@@ -185445,6 +186017,12 @@
      "Seven days and seven nights",
      "Forty years"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:33": {
@@ -185724,6 +186302,12 @@
      "Water and oil",
      "Blood and tears"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:4": {
@@ -185769,6 +186353,12 @@
      "ram",
      "lion"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:40": {
@@ -185786,9 +186376,13 @@
     {
      "kind": "other",
      "detail": "The question is about church tradition, not Scripture, and no Bible text supports it."
+    },
+    {
+     "kind": "misquote",
+     "detail": "The wrong choice \"This is My blood, poured out for many\" misquotes Luke 22:20, which reads \"poured out for you,\" not \"for many.\""
     }
    ],
-   "why": "The original asked about Catholic Mass tradition with no Bible reference, and \"invocation\" could also fairly name that prayer, so it now asks what Jesus said about the bread in Luke 22:19.",
+   "why": "The original asked about Catholic Mass tradition with no Bible reference, and \"invocation\" could also fairly name that prayer, so it now asks what Jesus said about the bread in Luke 22:19. Rechecked against the verses that hold the answer: One wrong choice quoted Luke 22:20 inaccurately (\"poured out for many\" instead of the BSB's \"poured out for you\"); it was corrected to match the BSB wording while still being wrong for this question (it's about the cup, not the bread).",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -185810,10 +186404,16 @@
     "reference": "Luke 22:19",
     "options": [
      "\"This is My body, given for you.\"",
-     "\"This is the bread of affliction.\"",
-     "\"This is My blood, poured out for many.\"",
-     "\"This is the bread of life.\""
+     "This is the bread of life.",
+     "This is the bread of affliction.",
+     "This is My blood, poured out for you."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:41": {
@@ -186083,6 +186683,12 @@
      "She was his great-grandmother.",
      "She was his great-great-grandmother."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:49": {
@@ -186137,9 +186743,21 @@
     {
      "kind": "reference",
      "detail": "No reference given; the verses are Proverbs 10:1, 10:7, 10:19, and the saying not in chapter 10 is Proverbs 22:3."
+    },
+    {
+     "kind": "reference",
+     "detail": "The reference cited Prov 22:3, but the answer's exact wording ('pay the penalty') is from Prov 27:12, not 22:3 ('suffer the consequences')."
+    },
+    {
+     "kind": "misquote",
+     "detail": "Wrong choice 2 said 'Where words are many, transgression is unavoidable' instead of the BSB's 'When words are many, sin is unavoidable' (Prov 10:19)."
+    },
+    {
+     "kind": "misquote",
+     "detail": "Wrong choice 3 added 'brings' before 'grief,' which the BSB text of Prov 10:1 does not have."
     }
    ],
-   "why": "The sayings were worded from another translation and called \"Book 10\" instead of chapter 10, so I reworded them to the BSB, fixed the spelling and added a reference; the answer (Proverbs 22:3 is not in chapter 10) stays the same.",
+   "why": "The sayings were worded from another translation and called \"Book 10\" instead of chapter 10, so I reworded them to the BSB, fixed the spelling and added a reference; the answer (Proverbs 22:3 is not in chapter 10) stays the same. Rechecked against the verses that hold the answer: The answer's wording matches Proverbs 27:12 exactly, not Proverbs 22:3 (which says \"suffer the consequences\"), so the reference was corrected to cite 27:12; two of the wrong choices were also reworded to match the BSB text of Proverbs 10 exactly.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -186158,13 +186776,19 @@
     "question": "Many of Solomon's wise sayings are recorded in Proverbs chapter 10. Which of these is NOT found there?",
     "answer": "The prudent see danger and take cover, but the simple keep going and pay the penalty.",
     "right": "The prudent see danger and take cover, but the simple keep going and pay the penalty.",
-    "reference": "Prov 10; Prov 22:3",
+    "reference": "Prov 10; Prov 27:12",
     "options": [
-     "The memory of the righteous is a blessing, but the name of the wicked will rot.",
-     "Where words are many, transgression is unavoidable, but he who restrains his lips is wise.",
+     "When words are many, sin is unavoidable, but he who restrains his lips is wise.",
+     "A wise son brings joy to his father, but a foolish son grief to his mother.",
      "The prudent see danger and take cover, but the simple keep going and pay the penalty.",
-     "A wise son brings joy to his father, but a foolish son brings grief to his mother."
+     "The memory of the righteous is a blessing, but the name of the wicked will rot."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "fix",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:50": {
@@ -186327,6 +186951,12 @@
      "Lice",
      "Death of First Born Child"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:55": {
@@ -186417,6 +187047,12 @@
      "A stone temple on a hill",
      "A royal palace for Moses"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:57": {
@@ -186458,6 +187094,12 @@
      "Jared",
      "Methuselah"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:58": {
@@ -186495,6 +187137,12 @@
      "Jesus",
      "Gabriel"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:59": {
@@ -186573,6 +187221,12 @@
      "Moses, David, Abraham",
      "Abraham, Isaac, Jacob"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:62": {
@@ -186916,6 +187570,12 @@
      "Reuben",
      "Levi"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:71": {
@@ -186953,6 +187613,12 @@
      "Queen Vashti",
      "Queen Mary"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:73": {
@@ -187105,6 +187771,12 @@
      "Jochebed",
      "Martha"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:78": {
@@ -187146,6 +187818,12 @@
      "Hagar",
      "Rachel"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:8": {
@@ -187236,6 +187914,12 @@
      "Esther",
      "Ruth"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:81": {
@@ -187391,6 +188075,12 @@
      "To prepare the way for the Son of Man",
      "To bring the nations to peace before Jesus returns"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:86": {
@@ -187430,6 +188120,12 @@
      "He has an entirely human nature only.",
      "He has an entirely divine nature only."
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:88": {
@@ -187549,6 +188245,12 @@
      "Moses",
      "Abraham"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:91": {
@@ -187721,6 +188423,12 @@
      "Cornelius",
      "Titus"
     ]
+   },
+   "rechecked": {
+    "by": "claude-sonnet-5-5",
+    "date": "2026-10-23",
+    "verdict": "keep",
+    "earlier_by": "claude-sonnet-5-5"
    }
   },
   "uberspot-opentriviaqa:religion-faith-bible-subset:96": {
@@ -187899,6 +188607,930 @@
      "Baptism and penance"
     ],
     "reference": "Matthew 28:19; Matthew 26:26-28"
+   },
+   "after": null
+  },
+  "written:GEN-4-17:1": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "In Genesis 4, which son of Lamech was called 'the father of those who dwell in tents and raise livestock'?",
+    "answer": "Jabal",
+    "right": "Jabal",
+    "options": [
+     "Jubal",
+     "Tubal-cain",
+     "Jabal",
+     "Irad"
+    ],
+    "reference": "Genesis 4:20"
+   },
+   "after": null
+  },
+  "written:GEN-8-1:1": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "After the flood waters covered the earth, what did God send to make the waters begin to subside?",
+    "answer": "A wind over the earth",
+    "right": "A wind over the earth",
+    "options": [
+     "A strong east current",
+     "An angel to part the waters",
+     "A wind over the earth",
+     "A great fire from heaven"
+    ],
+    "reference": "Genesis 8:1"
+   },
+   "after": null
+  },
+  "written:GEN-12-10:1": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "When Abram and Sarai were about to enter Egypt, what did Abram ask Sarai to tell the Egyptians about herself?",
+    "answer": "That she was his sister",
+    "right": "That she was his sister",
+    "options": [
+     "That she was a widow",
+     "That she was his wife",
+     "That she was a servant",
+     "That she was his sister"
+    ],
+    "reference": "Genesis 12:13"
+   },
+   "after": null
+  },
+  "written:GEN-12-10:2": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "Besides sheep, cattle, and donkeys, what other animals did Abram acquire in Egypt because of Sarai?",
+    "answer": "Camels",
+    "right": "Camels",
+    "options": [
+     "Camels",
+     "Horses",
+     "Oxen",
+     "Goats"
+    ],
+    "reference": "Genesis 12:16"
+   },
+   "after": null
+  },
+  "written:GEN-12-10:3": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "Why did the LORD afflict Pharaoh and his household with severe plagues in Egypt?",
+    "answer": "Because of Abram's wife Sarai",
+    "right": "Because of Abram's wife Sarai",
+    "options": [
+     "Because Pharaoh mocked the LORD",
+     "Because of Abram's wife Sarai",
+     "Because Pharaoh refused to let Abram leave",
+     "Because Pharaoh seized Abram's possessions"
+    ],
+    "reference": "Genesis 12:17"
+   },
+   "after": null
+  },
+  "written:GEN-14-17:1": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "After Melchizedek blessed Abram, what did Abram give him in return?",
+    "answer": "A tenth of everything",
+    "right": "A tenth of everything",
+    "options": [
+     "A tenth of everything",
+     "Half of all the spoils",
+     "All the captured people",
+     "A tenth of his flocks only"
+    ],
+    "reference": "Genesis 14:20"
+   },
+   "after": null
+  },
+  "written:GEN-19-1:1": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "Where was Lot sitting when the two angels arrived at Sodom in the evening?",
+    "answer": "In the gateway of the city",
+    "right": "In the gateway of the city",
+    "options": [
+     "At the door of his tent",
+     "In the gateway of the city",
+     "In the city square",
+     "On the wall of the city"
+    ],
+    "reference": "Genesis 19:1"
+   },
+   "after": null
+  },
+  "written:GEN-19-1:2": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "What did Lot prepare for the two angels after they came into his house?",
+    "answer": "A feast and unleavened bread",
+    "right": "A feast and unleavened bread",
+    "options": [
+     "A feast and unleavened bread",
+     "Roasted meat and wine",
+     "Bread and dried figs",
+     "A feast and leavened loaves"
+    ],
+    "reference": "Genesis 19:3"
+   },
+   "after": null
+  },
+  "written:GEN-19-1:3": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "What did the men of Sodom demand that Lot do with his two visitors?",
+    "answer": "Send them out so they could have relations with them",
+    "right": "Send them out so they could have relations with them",
+    "options": [
+     "Bring them out to be judged by the elders",
+     "Hand them over to be robbed",
+     "Send them out so they could be questioned",
+     "Send them out so they could have relations with them"
+    ],
+    "reference": "Genesis 19:5"
+   },
+   "after": null
+  },
+  "written:GEN-19-1:5": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "What did the two men inside Lot's house do to the mob at the entrance?",
+    "answer": "Struck them with blindness",
+    "right": "Struck them with blindness",
+    "options": [
+     "Burned them with fire",
+     "Turned them into pillars of salt",
+     "Struck them with a plague",
+     "Struck them with blindness"
+    ],
+    "reference": "Genesis 19:11"
+   },
+   "after": null
+  },
+  "written:GEN-21-22:2": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "What did Abraham complain to Abimelech about before they made their covenant at Beersheba?",
+    "answer": "a well that Abimelech's servants had seized",
+    "right": "a well that Abimelech's servants had seized",
+    "options": [
+     "a field Abimelech had claimed",
+     "a flock of cattle Abimelech withheld",
+     "a well that Abimelech's servants had seized",
+     "land near Gerar Abimelech's men had taken"
+    ],
+    "reference": "Genesis 21:25"
+   },
+   "after": null
+  },
+  "written:GEN-21-22:3": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "How many ewe lambs did Abraham set apart as a witness that he had dug the well at Beersheba?",
+    "answer": "Seven",
+    "right": "Seven",
+    "options": [
+     "Five",
+     "Seven",
+     "Ten",
+     "Three"
+    ],
+    "reference": "Genesis 21:28-30"
+   },
+   "after": null
+  },
+  "written:GEN-21-22:4": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "Why was the place called Beersheba, according to Genesis 21?",
+    "answer": "because the two of them swore an oath there",
+    "right": "because the two of them swore an oath there",
+    "options": [
+     "because Abimelech gave Abraham the land there",
+     "because the two of them swore an oath there",
+     "because God renewed His covenant with Abraham there",
+     "because Abraham built an altar there"
+    ],
+    "reference": "Genesis 21:31"
+   },
+   "after": null
+  },
+  "written:GEN-24-15:1": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "After Rebekah finished watering the camels, what did Abraham's servant give her?",
+    "answer": "A gold ring and two gold bracelets",
+    "right": "A gold ring and two gold bracelets",
+    "options": [
+     "A silver cup and a linen robe",
+     "A flock of sheep and a camel",
+     "A gold ring and two gold bracelets",
+     "A tent and a chest of silver"
+    ],
+    "reference": "Genesis 24:22"
+   },
+   "after": null
+  },
+  "written:GEN-24-15:3": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "When Abraham's servant wanted to leave for home, how long did Rebekah's brother and mother ask her to stay first?",
+    "answer": "Ten days or so",
+    "right": "Ten days or so",
+    "options": [
+     "Three days",
+     "Ten days or so",
+     "Seven days",
+     "One full month"
+    ],
+    "reference": "Genesis 24:55"
+   },
+   "after": null
+  },
+  "written:GEN-24-15:4": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "When Rebekah's family sent her away, how did they bless her?",
+    "answer": "\"May you become the mother of thousands upon thousands.\"",
+    "right": "\"May you become the mother of thousands upon thousands.\"",
+    "options": [
+     "\"May you become the mother of thousands upon thousands.\"",
+     "\"May you live as long as your grandmother Milcah.\"",
+     "\"May you find favor with Isaac's father Abraham.\"",
+     "\"May your husband's house be filled with silver and gold.\""
+    ],
+    "reference": "Genesis 24:60"
+   },
+   "after": null
+  },
+  "written:GEN-26-12:1": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "When Isaac sowed seed in the land of Gerar, how much did he reap that same year?",
+    "answer": "A hundredfold",
+    "right": "A hundredfold",
+    "options": [
+     "A hundredfold",
+     "Thirtyfold",
+     "Sixtyfold",
+     "Tenfold"
+    ],
+    "reference": "Genesis 26:12"
+   },
+   "after": null
+  },
+  "written:GEN-26-12:3": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "What name did Isaac give to the well his herdsmen dug where no one quarreled with him over it?",
+    "answer": "Rehoboth",
+    "right": "Rehoboth",
+    "options": [
+     "Sitnah",
+     "Esek",
+     "Rehoboth",
+     "Beersheba"
+    ],
+    "reference": "Genesis 26:22"
+   },
+   "after": null
+  },
+  "written:GEN-26-12:4": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "What did the LORD say to Isaac when He appeared to him at Beersheba?",
+    "answer": "I am the God of your father Abraham",
+    "right": "I am the God of your father Abraham",
+    "options": [
+     "I will destroy Sodom for its sin",
+     "I am the God of your father Abraham",
+     "I will give you a son by Sarah",
+     "Do not go down to Egypt"
+    ],
+    "reference": "Genesis 26:24"
+   },
+   "after": null
+  },
+  "written:GEN-27-30:1": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "When Isaac realized he had already given his blessing to someone else, how did he react?",
+    "answer": "He trembled violently",
+    "right": "He trembled violently",
+    "options": [
+     "He fell silent in grief",
+     "He wept aloud",
+     "He trembled violently",
+     "He cursed Jacob at once"
+    ],
+    "reference": "Genesis 27:33"
+   },
+   "after": null
+  },
+  "written:GEN-27-30:2": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "What reason did Esau give for saying his brother was rightly named Jacob?",
+    "answer": "\"He has cheated me twice\"",
+    "right": "\"He has cheated me twice\"",
+    "options": [
+     "\"He has deceived our father twice\"",
+     "\"He has taken my land and my name\"",
+     "\"He has cheated me twice\"",
+     "\"He has stolen my birthright and my wife\""
+    ],
+    "reference": "Genesis 27:36"
+   },
+   "after": null
+  },
+  "written:GEN-27-30:3": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "In the blessing Isaac finally gave Esau, what did he say Esau's life would be like?",
+    "answer": "He would live by the sword and serve his brother",
+    "right": "He would live by the sword and serve his brother",
+    "options": [
+     "He would be master of his brothers",
+     "He would live by the sword and serve his brother",
+     "He would have abundant grain and new wine",
+     "He would dwell in the richness of the land"
+    ],
+    "reference": "Genesis 27:39-40"
+   },
+   "after": null
+  },
+  "written:GEN-27-30:4": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "Where did Rebekah tell Jacob to flee at once to escape Esau's fury?",
+    "answer": "To her brother Laban in Haran",
+    "right": "To her brother Laban in Haran",
+    "options": [
+     "To her father Bethuel in Paddan-aram",
+     "To her brother Laban in Haran",
+     "To Isaac's kin in Canaan",
+     "To the land of the Hittites"
+    ],
+    "reference": "Genesis 27:43"
+   },
+   "after": null
+  },
+  "written:GEN-29-1:1": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "When Jacob reached the well near Haran, which relative did he ask the shepherds about?",
+    "answer": "Laban",
+    "right": "Laban",
+    "options": [
+     "Laban",
+     "Bethuel",
+     "Rebekah",
+     "Nahor"
+    ],
+    "reference": "Genesis 29:5"
+   },
+   "after": null
+  },
+  "written:GEN-29-1:2": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "When Jacob asked the shepherds at the well where they were from, what did they answer?",
+    "answer": "Haran",
+    "right": "Haran",
+    "options": [
+     "Bethel",
+     "Canaan",
+     "Haran",
+     "Egypt"
+    ],
+    "reference": "Genesis 29:4"
+   },
+   "after": null
+  },
+  "written:GEN-29-1:3": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "How many flocks of sheep were lying near the well when Jacob arrived?",
+    "answer": "Three",
+    "right": "Three",
+    "options": [
+     "Four",
+     "Seven",
+     "Two",
+     "Three"
+    ],
+    "reference": "Genesis 29:2"
+   },
+   "after": null
+  },
+  "written:GEN-29-1:4": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "What did Jacob do as soon as he saw Rachel coming with Laban's sheep?",
+    "answer": "He rolled away the stone and watered the sheep",
+    "right": "He rolled away the stone and watered the sheep",
+    "options": [
+     "He waited until all the flocks had gathered",
+     "He asked the shepherds to water them",
+     "He rolled away the stone and watered the sheep",
+     "He ran to tell Laban the news himself"
+    ],
+    "reference": "Genesis 29:10"
+   },
+   "after": null
+  },
+  "written:GEN-29-1:5": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "How did Jacob react when he met Rachel at the well?",
+    "answer": "He kissed her and wept aloud",
+    "right": "He kissed her and wept aloud",
+    "options": [
+     "He kissed her and wept aloud",
+     "He gave her a ring",
+     "He fell silent and said nothing",
+     "He bowed down before her"
+    ],
+    "reference": "Genesis 29:11"
+   },
+   "after": null
+  },
+  "written:LEV-2-1:1": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "According to Leviticus 2:1, what was the grain offering to the LORD required to consist of?",
+    "answer": "Fine flour",
+    "right": "Fine flour",
+    "options": [
+     "Crushed heads of grain",
+     "Fine flour",
+     "Unleavened bread",
+     "Barley meal"
+    ],
+    "reference": "Leviticus 2:1"
+   },
+   "after": null
+  },
+  "written:LEV-2-1:2": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "In Leviticus 2:1-2, besides olive oil, what else was put on the fine flour of the grain offering before it was brought to the priest?",
+    "answer": "Frankincense",
+    "right": "Frankincense",
+    "options": [
+     "Salt",
+     "Honey",
+     "Leaven",
+     "Frankincense"
+    ],
+    "reference": "Leviticus 2:1-2"
+   },
+   "after": null
+  },
+  "written:LEV-2-1:3": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "After the priest burned the memorial portion of a grain offering, to whom did the remainder belong?",
+    "answer": "Aaron and his sons",
+    "right": "Aaron and his sons",
+    "options": [
+     "The Levites",
+     "The person who brought the offering",
+     "Aaron and his sons",
+     "The elders of Israel"
+    ],
+    "reference": "Leviticus 2:3; Leviticus 2:10"
+   },
+   "after": null
+  },
+  "written:LEV-2-1:5": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "According to Leviticus 2:11, what two things were never to be burned as an offering made by fire to the LORD?",
+    "answer": "Leaven or honey",
+    "right": "Leaven or honey",
+    "options": [
+     "Frankincense or oil",
+     "Fine flour or barley",
+     "Leaven or honey",
+     "Salt or oil"
+    ],
+    "reference": "Leviticus 2:11"
+   },
+   "after": null
+  },
+  "written:LEV-2-1:6": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "In Leviticus 2:13, what did the LORD call the salt that was to be added to every grain offering?",
+    "answer": "The salt of the covenant of your God",
+    "right": "The salt of the covenant of your God",
+    "options": [
+     "The salt of the covenant of your God",
+     "The salt of remembrance before the LORD",
+     "The salt of the sanctuary",
+     "The salt of the priesthood"
+    ],
+    "reference": "Leviticus 2:13"
+   },
+   "after": null
+  },
+  "written:LEV-10-8:1": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "In Leviticus 10, what did the LORD forbid Aaron and his sons from drinking when they entered the Tent of Meeting?",
+    "answer": "Wine or strong drink",
+    "right": "Wine or strong drink",
+    "options": [
+     "Oil or water",
+     "Milk or honey",
+     "Wine or strong drink",
+     "Blood or wine mixed with water"
+    ],
+    "reference": "Leviticus 10:9"
+   },
+   "after": null
+  },
+  "written:LEV-10-8:2": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "According to Leviticus 10:10, between which two pairs of things were Aaron and his sons to distinguish?",
+    "answer": "The holy and common, the clean and unclean",
+    "right": "The holy and common, the clean and unclean",
+    "options": [
+     "The holy and common, the clean and unclean",
+     "Good and evil, life and death",
+     "The living and the dead, day and night",
+     "Israel and the nations, male and female"
+    ],
+    "reference": "Leviticus 10:10"
+   },
+   "after": null
+  },
+  "written:LEV-10-8:4": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "What did Moses tell Eleazar and Ithamar to do with the remaining grain offering in Leviticus 10:12?",
+    "answer": "Eat it without leaven beside the altar",
+    "right": "Eat it without leaven beside the altar",
+    "options": [
+     "Carry it outside the camp and bury it",
+     "Pour it out at the base of the altar",
+     "Burn it completely on the altar",
+     "Eat it without leaven beside the altar"
+    ],
+    "reference": "Leviticus 10:12"
+   },
+   "after": null
+  },
+  "written:LEV-10-8:5": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "When Moses searched carefully for the goat of the sin offering in Leviticus 10:16, what had happened to it?",
+    "answer": "It had been burned up",
+    "right": "It had been burned up",
+    "options": [
+     "It had been offered as a burnt offering",
+     "It had been burned up",
+     "It had been eaten by Eleazar and Ithamar",
+     "It had been given to the congregation"
+    ],
+    "reference": "Leviticus 10:16"
+   },
+   "after": null
+  },
+  "written:LEV-15-28:1": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "According to Leviticus 15, how many days must a woman count off after she is cleansed of her discharge before she is ceremonially clean?",
+    "answer": "Seven days",
+    "right": "Seven days",
+    "options": [
+     "Forty days",
+     "Three days",
+     "Eight days",
+     "Seven days"
+    ],
+    "reference": "Leviticus 15:28"
+   },
+   "after": null
+  },
+  "written:LEV-15-28:2": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "In Leviticus 15, what offerings was a woman to bring to the priest at the entrance to the Tent of Meeting on the eighth day after her discharge?",
+    "answer": "Two turtledoves or two young pigeons",
+    "right": "Two turtledoves or two young pigeons",
+    "options": [
+     "Two lambs without blemish",
+     "Two turtledoves or two young pigeons",
+     "A ram and a young bull",
+     "A young goat and a lamb"
+    ],
+    "reference": "Leviticus 15:29"
+   },
+   "after": null
+  },
+  "written:LEV-15-28:3": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "In Leviticus 15:31, why did the LORD tell Moses to keep the children of Israel separate from their uncleanness?",
+    "answer": "So they would not die by defiling His tabernacle among them",
+    "right": "So they would not die by defiling His tabernacle among them",
+    "options": [
+     "So they would not be cut off from the priesthood",
+     "So they would not be driven out of the camp",
+     "So they would not die by defiling His tabernacle among them",
+     "So they would not die by eating the sin offering"
+    ],
+    "reference": "Leviticus 15:31"
+   },
+   "after": null
+  },
+  "written:LEV-23-9:1": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "In Leviticus 23, when the Israelites entered the land and reaped their harvest, what were they to bring to the priest?",
+    "answer": "A sheaf of the firstfruits of the harvest",
+    "right": "A sheaf of the firstfruits of the harvest",
+    "options": [
+     "A year-old lamb without blemish",
+     "A sheaf of the firstfruits of the harvest",
+     "A quarter hin of wine",
+     "Two tenths of an ephah of fine flour"
+    ],
+    "reference": "Leviticus 23:10"
+   },
+   "after": null
+  },
+  "written:LEV-23-9:2": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "In Leviticus 23, what animal was to be offered as a burnt offering on the day the sheaf of firstfruits was waved?",
+    "answer": "A year-old lamb without blemish",
+    "right": "A year-old lamb without blemish",
+    "options": [
+     "A bull without blemish",
+     "A year-old goat without blemish",
+     "Two young pigeons",
+     "A year-old lamb without blemish"
+    ],
+    "reference": "Leviticus 23:12"
+   },
+   "after": null
+  },
+  "written:EZK-1-15:1": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "In Ezekiel's vision of the four wheels, what did the workmanship of the wheels resemble?",
+    "answer": "The gleam of beryl",
+    "right": "The gleam of beryl",
+    "options": [
+     "The gleam of sapphire",
+     "The gleam of bronze",
+     "The gleam of beryl",
+     "The gleam of amber"
+    ],
+    "reference": "Ezekiel 1:16"
+   },
+   "after": null
+  },
+  "written:EZK-1-15:2": {
+   "collection": "Written for the site from the BSB",
+   "verdict": "keep",
+   "problems": [],
+   "why": "No fault found.",
+   "by": "claude-sonnet-5-5",
+   "audited": "2026-10-23",
+   "before": {
+    "question": "In Ezekiel's vision, what covered the high rims of the four wheels?",
+    "answer": "Eyes all around",
+    "right": "Eyes all around",
+    "options": [
+     "Eyes all around",
+     "Fire all around",
+     "Faces all around",
+     "Wings all around"
+    ],
+    "reference": "Ezekiel 1:18"
    },
    "after": null
   }

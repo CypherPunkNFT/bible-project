@@ -3,8 +3,8 @@
 [question-bank.json](question-bank.json) is the one list of **production-ready** questions the site draws on: the
 questions page (`/study/questions`), and later the home page's "How well do you know the Bible?" section and any quiz.
 
-**6,467 questions** (built 2026-10-23, the new questions below included): 3,243 Bible quiz, 902 Sunday school lesson
-and 2,322 catechism questions. **4,629 are shown**; the rest are repeats or hidden. Roman Catholic and Seventh-day Adventist books are
+**6,511 questions** (built 2026-10-23, the new questions below included): 3,287 Bible quiz, 902 Sunday school lesson
+and 2,322 catechism questions. **4,667 are shown**; the rest are repeats or hidden. Roman Catholic and Seventh-day Adventist books are
 left out as outside the site's doctrinal scope (owner, 2026-10-22); they stay in the corpus to mine for content later.
 
 ## What "production-ready" means here
@@ -137,7 +137,7 @@ October (owner's yes). As of 23 October 2026, all **4,847** questions that were 
 - The repeat check was run again on the new wording: fixes that put several collections' questions into the BSB's
   words made 210 more of them repeats.
 
-The page shows **4,629** questions.
+The page shows **4,667** questions.
 
 ## Where each answer comes from
 
@@ -156,7 +156,8 @@ local index of all 31,086 BSB verses (Qwen3-Embedding-4B on this PC, $0; `.local
 among them ("missing") is sent again with that passage. Each record keeps which passages were shown and why, the
 wording it judged (a later change makes the record stale), the model and the date.
 
-As of 23 October 2026: **all 4,629 shown questions grounded**, 4,179 scripture (2,579 stated, 1,600 taught) and 450
+As of 23 October 2026: **all 4,667 shown questions grounded**, the 44 written ones below included (all 44 scripture).
+Of the first 4,629: 4,179 scripture (2,579 stated, 1,600 taught) and 450
 outside (231 the Bible as a book, 162 church teaching, 29 history, 21 language and manuscripts, 7 other or nature).
 - Claude Sonnet judged a random 100 again: the same basis in 97, and the three others were catechism answers on the
   line between "taught" and "church teaching".
@@ -179,9 +180,11 @@ want any questions to be wrong"). A "keep" leaves the record as it was, an earli
 source's wording as `before`, adds the new faults to the earlier ones, and gives both reasons. Each record gets
 `rechecked` (model, date, verdict), shown in the explorer.
 
-As of 23 October 2026, 1,563 of the 1,668 chosen were checked again: **1,119 kept, 444 fixed** (392 a missing or wrong
-reference, 38 King James or other wording, 17 a misquote, 16 a wrong answer, 3 a wrong choice also right, 4 other).
-Seven replies were refused by the reply checks, and 98 questions were not reached when the run hit its budget.
+Finished 23 October 2026: 1,661 of the 1,668 chosen were checked again, **1,198 kept, 463 fixed**, for $30.80 at list
+price. Of the first 444 fixes: 392 a missing or wrong reference, 38 King James or other wording, 17 a misquote, 16 a
+wrong answer, 3 a wrong choice also right, 4 other. Seven replies were refused by the reply checks. Afterwards the
+quotation check still lists 56, all read: the 52 above, and BSB words split by "he said" ("Go away from me, Lord," he
+said, "for I am a sinful man").
 
 ## Questions written for the site
 
@@ -215,6 +218,12 @@ repeats.
 Passed questions go to [written.json](written.json) as the bank "Written for the site from the BSB", each with its
 section, cited verses and the full review history; rejected ones are kept there too, with the stage and the reason.
 Nothing reaches the bank until a run is published.
+
+**The pilot, 23 October 2026** (`pilot-1`: 15 sections, ten in Genesis, the rest in Leviticus and Ezekiel). Claude
+Sonnet wrote 54 questions; **44 passed every check** and are shown. The script's rules rejected 10: 8 because the right
+choice was plainly the longest, 2 because the answer's words were not in the cited verses. The two blind quizzes (Claude
+Haiku) failed none, and the BSB check sent one back with a fix, which then passed. All 44 were grounded in Scripture and
+none is a repeat. The writing cost $0.31 at list price.
 
 ## Codex (ChatGPT) on the owner's subscription
 

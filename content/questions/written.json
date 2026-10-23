@@ -1,0 +1,2575 @@
+{
+ "about": "The site's own questions, written one BSB section at a time and passed by every review (scripts/question_writing.py); read by build-question-bank.py as the bank written-bsb.",
+ "questions": {
+  "written:GEN-4-17:1": {
+   "id": "written:GEN-4-17:1",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "In Genesis 4, which son of Lamech was called 'the father of those who dwell in tents and raise livestock'?",
+   "answer": "Jabal",
+   "options": [
+    "Jubal",
+    "Tubal-cain",
+    "Jabal",
+    "Irad"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 4:20",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"The Descendants of Cain\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-4-17",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-8-1:1": {
+   "id": "written:GEN-8-1:1",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "After the flood waters covered the earth, what did God send to make the waters begin to subside?",
+   "answer": "A wind over the earth",
+   "options": [
+    "A strong east current",
+    "An angel to part the waters",
+    "A wind over the earth",
+    "A great fire from heaven"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 8:1",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"The Ark Rests on Ararat\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-8-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-12-10:1": {
+   "id": "written:GEN-12-10:1",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "When Abram and Sarai were about to enter Egypt, what did Abram ask Sarai to tell the Egyptians about herself?",
+   "answer": "That she was his sister",
+   "options": [
+    "That she was a widow",
+    "That she was his wife",
+    "That she was a servant",
+    "That she was his sister"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 12:13",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Abram and Sarai in Egypt\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-12-10",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-12-10:2": {
+   "id": "written:GEN-12-10:2",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "Besides sheep, cattle, and donkeys, what other animals did Abram acquire in Egypt because of Sarai?",
+   "answer": "Camels",
+   "options": [
+    "Camels",
+    "Horses",
+    "Oxen",
+    "Goats"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 12:16",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Abram and Sarai in Egypt\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-12-10",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-12-10:3": {
+   "id": "written:GEN-12-10:3",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "Why did the LORD afflict Pharaoh and his household with severe plagues in Egypt?",
+   "answer": "Because of Abram's wife Sarai",
+   "options": [
+    "Because Pharaoh mocked the LORD",
+    "Because of Abram's wife Sarai",
+    "Because Pharaoh refused to let Abram leave",
+    "Because Pharaoh seized Abram's possessions"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 12:17",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Abram and Sarai in Egypt\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-12-10",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-14-17:1": {
+   "id": "written:GEN-14-17:1",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "After Melchizedek blessed Abram, what did Abram give him in return?",
+   "answer": "A tenth of everything",
+   "options": [
+    "A tenth of everything",
+    "Half of all the spoils",
+    "All the captured people",
+    "A tenth of his flocks only"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 14:20",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Melchizedek Blesses Abram\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-14-17",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-19-1:1": {
+   "id": "written:GEN-19-1:1",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "Where was Lot sitting when the two angels arrived at Sodom in the evening?",
+   "answer": "In the gateway of the city",
+   "options": [
+    "At the door of his tent",
+    "In the gateway of the city",
+    "In the city square",
+    "On the wall of the city"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 19:1",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Lot Welcomes the Angels\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-19-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-19-1:2": {
+   "id": "written:GEN-19-1:2",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "What did Lot prepare for the two angels after they came into his house?",
+   "answer": "A feast and unleavened bread",
+   "options": [
+    "A feast and unleavened bread",
+    "Roasted meat and wine",
+    "Bread and dried figs",
+    "A feast and leavened loaves"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 19:3",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Lot Welcomes the Angels\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-19-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-19-1:3": {
+   "id": "written:GEN-19-1:3",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "What did the men of Sodom demand that Lot do with his two visitors?",
+   "answer": "Send them out so they could have relations with them",
+   "options": [
+    "Bring them out to be judged by the elders",
+    "Hand them over to be robbed",
+    "Send them out so they could be questioned",
+    "Send them out so they could have relations with them"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 19:5",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Lot Welcomes the Angels\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-19-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-19-1:5": {
+   "id": "written:GEN-19-1:5",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "What did the two men inside Lot's house do to the mob at the entrance?",
+   "answer": "Struck them with blindness",
+   "options": [
+    "Burned them with fire",
+    "Turned them into pillars of salt",
+    "Struck them with a plague",
+    "Struck them with blindness"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 19:11",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Lot Welcomes the Angels\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-19-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-21-22:2": {
+   "id": "written:GEN-21-22:2",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "What did Abraham complain to Abimelech about before they made their covenant at Beersheba?",
+   "answer": "a well that Abimelech's servants had seized",
+   "options": [
+    "a field Abimelech had claimed",
+    "a flock of cattle Abimelech withheld",
+    "a well that Abimelech's servants had seized",
+    "land near Gerar Abimelech's men had taken"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 21:25",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"The Covenant at Beersheba\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-21-22",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-21-22:3": {
+   "id": "written:GEN-21-22:3",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "How many ewe lambs did Abraham set apart as a witness that he had dug the well at Beersheba?",
+   "answer": "Seven",
+   "options": [
+    "Five",
+    "Seven",
+    "Ten",
+    "Three"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 21:28-30",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"The Covenant at Beersheba\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-21-22",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-21-22:4": {
+   "id": "written:GEN-21-22:4",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "Why was the place called Beersheba, according to Genesis 21?",
+   "answer": "because the two of them swore an oath there",
+   "options": [
+    "because Abimelech gave Abraham the land there",
+    "because the two of them swore an oath there",
+    "because God renewed His covenant with Abraham there",
+    "because Abraham built an altar there"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 21:31",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"The Covenant at Beersheba\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-21-22",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-24-15:1": {
+   "id": "written:GEN-24-15:1",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "After Rebekah finished watering the camels, what did Abraham's servant give her?",
+   "answer": "A gold ring and two gold bracelets",
+   "options": [
+    "A silver cup and a linen robe",
+    "A flock of sheep and a camel",
+    "A gold ring and two gold bracelets",
+    "A tent and a chest of silver"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 24:22",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Rebekah Is Chosen\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-24-15",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-24-15:3": {
+   "id": "written:GEN-24-15:3",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "When Abraham's servant wanted to leave for home, how long did Rebekah's brother and mother ask her to stay first?",
+   "answer": "Ten days or so",
+   "options": [
+    "Three days",
+    "Ten days or so",
+    "Seven days",
+    "One full month"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 24:55",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Rebekah Is Chosen\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-24-15",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-24-15:4": {
+   "id": "written:GEN-24-15:4",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "When Rebekah's family sent her away, how did they bless her?",
+   "answer": "\"May you become the mother of thousands upon thousands.\"",
+   "options": [
+    "\"May you become the mother of thousands upon thousands.\"",
+    "\"May you live as long as your grandmother Milcah.\"",
+    "\"May you find favor with Isaac's father Abraham.\"",
+    "\"May your husband's house be filled with silver and gold.\""
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 24:60",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Rebekah Is Chosen\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-24-15",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "fix",
+     "problems": [
+      {
+       "kind": "other",
+       "detail": "The wrong choice calls Milcah 'your mother,' but Genesis 24:15,24 show Milcah was Rebekah's grandmother (mother of Bethuel), not her mother."
+      }
+     ],
+     "why": "The quoted blessing is accurate and the reference holds it, but one wrong choice wrongly called Milcah Rebekah's mother instead of her grandmother, so that detail was corrected.",
+     "passed": false
+    },
+    {
+     "stage": "gate",
+     "round": 2,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 2,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 2,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 2,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-26-12:1": {
+   "id": "written:GEN-26-12:1",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "When Isaac sowed seed in the land of Gerar, how much did he reap that same year?",
+   "answer": "A hundredfold",
+   "options": [
+    "A hundredfold",
+    "Thirtyfold",
+    "Sixtyfold",
+    "Tenfold"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 26:12",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Isaac’s Prosperity\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-26-12",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-26-12:3": {
+   "id": "written:GEN-26-12:3",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "What name did Isaac give to the well his herdsmen dug where no one quarreled with him over it?",
+   "answer": "Rehoboth",
+   "options": [
+    "Sitnah",
+    "Esek",
+    "Rehoboth",
+    "Beersheba"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 26:22",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Isaac’s Prosperity\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-26-12",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-26-12:4": {
+   "id": "written:GEN-26-12:4",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "What did the LORD say to Isaac when He appeared to him at Beersheba?",
+   "answer": "I am the God of your father Abraham",
+   "options": [
+    "I will destroy Sodom for its sin",
+    "I am the God of your father Abraham",
+    "I will give you a son by Sarah",
+    "Do not go down to Egypt"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 26:24",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Isaac’s Prosperity\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-26-12",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-27-30:1": {
+   "id": "written:GEN-27-30:1",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "When Isaac realized he had already given his blessing to someone else, how did he react?",
+   "answer": "He trembled violently",
+   "options": [
+    "He fell silent in grief",
+    "He wept aloud",
+    "He trembled violently",
+    "He cursed Jacob at once"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 27:33",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Esau’s Lost Hope\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-27-30",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-27-30:2": {
+   "id": "written:GEN-27-30:2",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "What reason did Esau give for saying his brother was rightly named Jacob?",
+   "answer": "\"He has cheated me twice\"",
+   "options": [
+    "\"He has deceived our father twice\"",
+    "\"He has taken my land and my name\"",
+    "\"He has cheated me twice\"",
+    "\"He has stolen my birthright and my wife\""
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 27:36",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Esau’s Lost Hope\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-27-30",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-27-30:3": {
+   "id": "written:GEN-27-30:3",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "In the blessing Isaac finally gave Esau, what did he say Esau's life would be like?",
+   "answer": "He would live by the sword and serve his brother",
+   "options": [
+    "He would be master of his brothers",
+    "He would live by the sword and serve his brother",
+    "He would have abundant grain and new wine",
+    "He would dwell in the richness of the land"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 27:39-40",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Esau’s Lost Hope\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-27-30",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-27-30:4": {
+   "id": "written:GEN-27-30:4",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "Where did Rebekah tell Jacob to flee at once to escape Esau's fury?",
+   "answer": "To her brother Laban in Haran",
+   "options": [
+    "To her father Bethuel in Paddan-aram",
+    "To her brother Laban in Haran",
+    "To Isaac's kin in Canaan",
+    "To the land of the Hittites"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 27:43",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Esau’s Lost Hope\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-27-30",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-29-1:1": {
+   "id": "written:GEN-29-1:1",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "When Jacob reached the well near Haran, which relative did he ask the shepherds about?",
+   "answer": "Laban",
+   "options": [
+    "Laban",
+    "Bethuel",
+    "Rebekah",
+    "Nahor"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 29:5",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Jacob Meets Rachel\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-29-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-29-1:2": {
+   "id": "written:GEN-29-1:2",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "When Jacob asked the shepherds at the well where they were from, what did they answer?",
+   "answer": "Haran",
+   "options": [
+    "Bethel",
+    "Canaan",
+    "Haran",
+    "Egypt"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 29:4",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Jacob Meets Rachel\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-29-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-29-1:3": {
+   "id": "written:GEN-29-1:3",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "How many flocks of sheep were lying near the well when Jacob arrived?",
+   "answer": "Three",
+   "options": [
+    "Four",
+    "Seven",
+    "Two",
+    "Three"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 29:2",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Jacob Meets Rachel\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-29-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-29-1:4": {
+   "id": "written:GEN-29-1:4",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "What did Jacob do as soon as he saw Rachel coming with Laban's sheep?",
+   "answer": "He rolled away the stone and watered the sheep",
+   "options": [
+    "He waited until all the flocks had gathered",
+    "He asked the shepherds to water them",
+    "He rolled away the stone and watered the sheep",
+    "He ran to tell Laban the news himself"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 29:10",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Jacob Meets Rachel\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-29-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:GEN-29-1:5": {
+   "id": "written:GEN-29-1:5",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "How did Jacob react when he met Rachel at the well?",
+   "answer": "He kissed her and wept aloud",
+   "options": [
+    "He kissed her and wept aloud",
+    "He gave her a ring",
+    "He fell silent and said nothing",
+    "He bowed down before her"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Genesis 29:11",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Jacob Meets Rachel\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "GEN-29-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:LEV-2-1:1": {
+   "id": "written:LEV-2-1:1",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "According to Leviticus 2:1, what was the grain offering to the LORD required to consist of?",
+   "answer": "Fine flour",
+   "options": [
+    "Crushed heads of grain",
+    "Fine flour",
+    "Unleavened bread",
+    "Barley meal"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Leviticus 2:1",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Laws for Grain Offerings\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "LEV-2-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:LEV-2-1:2": {
+   "id": "written:LEV-2-1:2",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "In Leviticus 2:1-2, besides olive oil, what else was put on the fine flour of the grain offering before it was brought to the priest?",
+   "answer": "Frankincense",
+   "options": [
+    "Salt",
+    "Honey",
+    "Leaven",
+    "Frankincense"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Leviticus 2:1-2",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Laws for Grain Offerings\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "LEV-2-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:LEV-2-1:3": {
+   "id": "written:LEV-2-1:3",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "After the priest burned the memorial portion of a grain offering, to whom did the remainder belong?",
+   "answer": "Aaron and his sons",
+   "options": [
+    "The Levites",
+    "The person who brought the offering",
+    "Aaron and his sons",
+    "The elders of Israel"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Leviticus 2:3; Leviticus 2:10",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Laws for Grain Offerings\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "LEV-2-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:LEV-2-1:5": {
+   "id": "written:LEV-2-1:5",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "According to Leviticus 2:11, what two things were never to be burned as an offering made by fire to the LORD?",
+   "answer": "Leaven or honey",
+   "options": [
+    "Frankincense or oil",
+    "Fine flour or barley",
+    "Leaven or honey",
+    "Salt or oil"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Leviticus 2:11",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Laws for Grain Offerings\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "LEV-2-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:LEV-2-1:6": {
+   "id": "written:LEV-2-1:6",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "In Leviticus 2:13, what did the LORD call the salt that was to be added to every grain offering?",
+   "answer": "The salt of the covenant of your God",
+   "options": [
+    "The salt of the covenant of your God",
+    "The salt of remembrance before the LORD",
+    "The salt of the sanctuary",
+    "The salt of the priesthood"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Leviticus 2:13",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Laws for Grain Offerings\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "LEV-2-1",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:LEV-10-8:1": {
+   "id": "written:LEV-10-8:1",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "In Leviticus 10, what did the LORD forbid Aaron and his sons from drinking when they entered the Tent of Meeting?",
+   "answer": "Wine or strong drink",
+   "options": [
+    "Oil or water",
+    "Milk or honey",
+    "Wine or strong drink",
+    "Blood or wine mixed with water"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Leviticus 10:9",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Restrictions for Priests\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "LEV-10-8",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:LEV-10-8:2": {
+   "id": "written:LEV-10-8:2",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "According to Leviticus 10:10, between which two pairs of things were Aaron and his sons to distinguish?",
+   "answer": "The holy and common, the clean and unclean",
+   "options": [
+    "The holy and common, the clean and unclean",
+    "Good and evil, life and death",
+    "The living and the dead, day and night",
+    "Israel and the nations, male and female"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Leviticus 10:10",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Restrictions for Priests\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "LEV-10-8",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:LEV-10-8:4": {
+   "id": "written:LEV-10-8:4",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "What did Moses tell Eleazar and Ithamar to do with the remaining grain offering in Leviticus 10:12?",
+   "answer": "Eat it without leaven beside the altar",
+   "options": [
+    "Carry it outside the camp and bury it",
+    "Pour it out at the base of the altar",
+    "Burn it completely on the altar",
+    "Eat it without leaven beside the altar"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Leviticus 10:12",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Restrictions for Priests\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "LEV-10-8",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:LEV-10-8:5": {
+   "id": "written:LEV-10-8:5",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "When Moses searched carefully for the goat of the sin offering in Leviticus 10:16, what had happened to it?",
+   "answer": "It had been burned up",
+   "options": [
+    "It had been offered as a burnt offering",
+    "It had been burned up",
+    "It had been eaten by Eleazar and Ithamar",
+    "It had been given to the congregation"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Leviticus 10:16",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"Restrictions for Priests\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "LEV-10-8",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:LEV-15-28:1": {
+   "id": "written:LEV-15-28:1",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "According to Leviticus 15, how many days must a woman count off after she is cleansed of her discharge before she is ceremonially clean?",
+   "answer": "Seven days",
+   "options": [
+    "Forty days",
+    "Three days",
+    "Eight days",
+    "Seven days"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Leviticus 15:28",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"The Cleansing of Women\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "LEV-15-28",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:LEV-15-28:2": {
+   "id": "written:LEV-15-28:2",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "In Leviticus 15, what offerings was a woman to bring to the priest at the entrance to the Tent of Meeting on the eighth day after her discharge?",
+   "answer": "Two turtledoves or two young pigeons",
+   "options": [
+    "Two lambs without blemish",
+    "Two turtledoves or two young pigeons",
+    "A ram and a young bull",
+    "A young goat and a lamb"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Leviticus 15:29",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"The Cleansing of Women\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "LEV-15-28",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:LEV-15-28:3": {
+   "id": "written:LEV-15-28:3",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "In Leviticus 15:31, why did the LORD tell Moses to keep the children of Israel separate from their uncleanness?",
+   "answer": "So they would not die by defiling His tabernacle among them",
+   "options": [
+    "So they would not be cut off from the priesthood",
+    "So they would not be driven out of the camp",
+    "So they would not die by defiling His tabernacle among them",
+    "So they would not die by eating the sin offering"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Leviticus 15:31",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"The Cleansing of Women\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "LEV-15-28",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:LEV-23-9:1": {
+   "id": "written:LEV-23-9:1",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "In Leviticus 23, when the Israelites entered the land and reaped their harvest, what were they to bring to the priest?",
+   "answer": "A sheaf of the firstfruits of the harvest",
+   "options": [
+    "A year-old lamb without blemish",
+    "A sheaf of the firstfruits of the harvest",
+    "A quarter hin of wine",
+    "Two tenths of an ephah of fine flour"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Leviticus 23:10",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"The Feast of Firstfruits\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "LEV-23-9",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:LEV-23-9:2": {
+   "id": "written:LEV-23-9:2",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "In Leviticus 23, what animal was to be offered as a burnt offering on the day the sheaf of firstfruits was waved?",
+   "answer": "A year-old lamb without blemish",
+   "options": [
+    "A bull without blemish",
+    "A year-old goat without blemish",
+    "Two young pigeons",
+    "A year-old lamb without blemish"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Leviticus 23:12",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"The Feast of Firstfruits\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "LEV-23-9",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:EZK-1-15:1": {
+   "id": "written:EZK-1-15:1",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "In Ezekiel's vision of the four wheels, what did the workmanship of the wheels resemble?",
+   "answer": "The gleam of beryl",
+   "options": [
+    "The gleam of sapphire",
+    "The gleam of bronze",
+    "The gleam of beryl",
+    "The gleam of amber"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Ezekiel 1:16",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"The Four Wheels\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "EZK-1-15",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  },
+  "written:EZK-1-15:2": {
+   "id": "written:EZK-1-15:2",
+   "source_id": "bible-site-written",
+   "attribution_source_id": "bible-site-written",
+   "bank_id": "written-bsb",
+   "question": "In Ezekiel's vision, what covered the high rims of the four wheels?",
+   "answer": "Eyes all around",
+   "options": [
+    "Eyes all around",
+    "Fire all around",
+    "Faces all around",
+    "Wings all around"
+   ],
+   "options_by": "claude-sonnet-5-5",
+   "reference": "Ezekiel 1:18",
+   "lesson": null,
+   "standalone": true,
+   "question_origin": "written for the site by claude-sonnet-5-5 from the BSB section \"The Four Wheels\"",
+   "licence": "Written for this site; the Bible text is the Berean Standard Bible (public domain)",
+   "licence_class": "public-domain",
+   "publishable": true,
+   "attribution": "Written for this site from the Berean Standard Bible, reviewed by claude-haiku-5-5, claude-sonnet-5-5.",
+   "source_url": null,
+   "section": "EZK-1-15",
+   "review": [
+    {
+     "stage": "gate",
+     "round": 1,
+     "passed": true,
+     "why": ""
+    },
+    {
+     "stage": "open",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "closed",
+     "round": 1,
+     "passed": true,
+     "why": "",
+     "by": "claude-haiku-5-5"
+    },
+    {
+     "stage": "check",
+     "round": 1,
+     "by": "claude-sonnet-5-5",
+     "verdict": "keep",
+     "problems": [],
+     "why": "No fault found.",
+     "passed": true
+    }
+   ]
+  }
+ },
+ "rejected": {
+  "written:GEN-19-1:4": {
+   "section": "GEN-19-1",
+   "question": "What did Lot offer to the men of Sodom in place of his two guests?",
+   "answer": "His two daughters, who had never slept with a man",
+   "stage": "gate",
+   "why": "the right choice is plainly the longest"
+  },
+  "written:GEN-21-22:1": {
+   "section": "GEN-21-22",
+   "question": "When Abimelech came to make a covenant with Abraham at Beersheba, who accompanied him?",
+   "answer": "Phicol the commander of his army",
+   "stage": "gate",
+   "why": "the right choice is plainly the longest"
+  },
+  "written:GEN-24-15:2": {
+   "section": "GEN-24-15",
+   "question": "When Laban and Bethuel heard the servant's account, what did they say about Rebekah becoming Isaac's wife?",
+   "answer": "\"This is from the LORD; we have no choice in the matter.\"",
+   "stage": "gate",
+   "why": "the right choice is plainly the longest"
+  },
+  "written:GEN-26-12:2": {
+   "section": "GEN-26-12",
+   "question": "Why did the Philistines stop up the wells that Abraham's servants had dug?",
+   "answer": "Because they envied Isaac's wealth",
+   "stage": "gate",
+   "why": "the answer's words are not in the cited verses"
+  },
+  "written:LEV-2-1:4": {
+   "section": "LEV-2-1",
+   "question": "According to Leviticus 2:3 and 2:10, how was the remainder of the grain offering described?",
+   "answer": "A most holy part of the offerings made by fire",
+   "stage": "gate",
+   "why": "the right choice is plainly the longest"
+  },
+  "written:LEV-2-1:7": {
+   "section": "LEV-2-1",
+   "question": "According to Leviticus 2:14, what was a firstfruits grain offering to consist of?",
+   "answer": "Crushed heads of new grain roasted on the fire",
+   "stage": "gate",
+   "why": "the right choice is plainly the longest"
+  },
+  "written:LEV-10-8:3": {
+   "section": "LEV-10-8",
+   "question": "In Leviticus 10:11, who did the LORD say was to teach the Israelites all the statutes given through Moses?",
+   "answer": "Aaron and his sons",
+   "stage": "gate",
+   "why": "the answer's words are not in the cited verses"
+  },
+  "written:LEV-10-8:6": {
+   "section": "LEV-10-8",
+   "question": "In Leviticus 10:19, what reason did Aaron give Moses for not eating the sin offering that day?",
+   "answer": "They had presented offerings, and this had happened to him",
+   "stage": "gate",
+   "why": "the right choice is plainly the longest"
+  },
+  "written:LEV-23-9:3": {
+   "section": "LEV-23-9",
+   "question": "In Leviticus 23, what were the Israelites forbidden to eat until they brought the firstfruits offering to God?",
+   "answer": "Bread or roasted or new grain",
+   "stage": "gate",
+   "why": "the right choice is plainly the longest"
+  },
+  "written:EZK-1-15:3": {
+   "section": "EZK-1-15",
+   "question": "In Ezekiel's vision, why did the wheels rise and move along with the living creatures?",
+   "answer": "Because the spirit of the living creatures was in the wheels",
+   "stage": "gate",
+   "why": "the right choice is plainly the longest"
+  }
+ }
+}
