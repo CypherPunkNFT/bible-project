@@ -50,7 +50,9 @@ for trivia), `collection`, `lesson`, `standalone`,
 `question_origin`, `licence`, `licence_class`, `attribution` (the credit owed), `source_url`, `also_in`, `repeat_of`
 (the id of the question shown in its place, or `null`), `passages` (each `book`, `chapter`, `verse`, `verse_end` and
 `check`), `people`, `places`, `subjects` (plain topics such as "the flood" or "kings of israel"), `answer_choice` (the option that is
-right, or `null` without options), `options_by` (`source`, `claude-haiku`, `true/false`, or `null`).
+right, or `null` without options), `options_by` (`source`, `claude-haiku`, `true/false`, or `null`; with ", audited by
+…" added when the audit replaced wrong choices), `hidden` (why the audit hid it, or `null`), `audit` (`verdict`, the
+fault `kinds`, `why` and `by`, or `null` if not audited).
 
 **Tags are rules, not reading.** `books`, `testament` and `topic` come from fixed word lists and the references in
 [question_tags.py](../../scripts/question_tags.py): a word in the question counts three times, one in the answer once,
@@ -86,6 +88,50 @@ for length the same way (19% "clearly longest" across all catechism).
 
 Every question the site shows is now multiple choice. One model set held a second right answer (Malta beside Melita,
 the same island) and was corrected by hand; others like it may remain.
+
+## Checked against the BSB
+
+The owner found "What is the 'root of all evil'?" (1 Timothy 6:10), with "Desire for riches" and "Pursuit of wealth"
+as wrong choices. The BSB says "the root of all kinds of evil", and those two choices mean the same as the right
+answer. So [question_audit.py](../../scripts/question_audit.py) checks questions one at a time against the BSB text
+of the passages they cite (and the passages in model-tags.json), and Claude Sonnet decides for each:
+
+- **keep**: no fault;
+- **fix**: change only what is wrong:
+  - reword a question or answer that misquotes or overstates the Bible;
+  - replace King James or other translations' wording with the BSB's, in the question, answer and choices (owner,
+    22 October 2026: "we're using BSB for all");
+  - correct a wrong answer;
+  - replace a wrong choice that is also right;
+  - add or correct the reference;
+- **hide**: only as a last resort. The owner said: "we can improve them, fix them", not take them away. A question
+  about tradition ("Who was crucified upside down?") becomes one the Bible answers ("In John 21:18-19, whose death
+  did Jesus foretell?").
+
+A reference in brackets at the end of a printed answer ("Titus (Tit 3:15 - Phm 1:1)") gave the right choice away; it
+is moved into the reference by rule before the check. Every reply is checked before it is kept: three distinct wrong
+choices, no filler, a reference that exists in the BSB, and a question that does not contain its own answer.
+
+Every decision is in [audit.json](audit.json) by question id: the faults found, the question `before` and `after`,
+why (in one plain sentence), the model, and the date. The build applies it after the choices. A record whose `before`
+no longer matches the question (its source or choices changed) is skipped and reported as stale, never applied
+blindly. A hidden question stays in the official bank with `hidden` set, and if it was the one shown for a group of
+repeats, the best of the rest takes its place. Every phrase in quotation marks was then compared with the BSB text
+by script, and four fixes were corrected by hand (`by` says so).
+
+As of 22 October 2026, all **821** shown questions from the Hugging Face collection are checked:
+- **479 fixed, 342 kept, none hidden.**
+- Faults found:
+  - King James wording: 255
+  - a wrong choice also right: 261
+  - a misquote or overstatement: 98
+  - a wrong answer: 38
+  - a missing or wrong reference: 49
+  - other: 131
+- The repeat check was run again on the new wording. Six fixed questions now repeat another question and are hidden
+  behind it.
+
+The page shows **4,841** questions.
 
 ## New questions from sources that could not be used as they were
 

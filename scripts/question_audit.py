@@ -362,7 +362,8 @@ def checked(reply: dict, sent: dict, note: str | None) -> tuple[dict | None, str
     wrong = [w.strip() for w in reply["wrong"]]
     if not question or not answer or not right:
         return None, "empty question, answer or right choice"
-    if word_count(right) > RIGHT_MAX_WORDS or word_count(answer) > ANSWER_MAX_WORDS:
+    if (right != sent["right"] and word_count(right) > RIGHT_MAX_WORDS) or (
+            answer != sent["answer"] and word_count(answer) > ANSWER_MAX_WORDS):  # a long catechism answer kept as it is
         return None, "answer or right choice too long"
     if BRACKET_REF.search(answer):
         return None, "reference left in the answer"
