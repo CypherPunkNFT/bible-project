@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import datetime
 import json
+import re
 from collections import Counter
 from pathlib import Path
 
@@ -183,12 +184,18 @@ def record(candidate: dict, stage: str, why: str | None, by: str) -> None:
         candidate["status"] = "check"
 
 
+def quiz_label(text: str) -> str:
+    """"q3" from a reply's label, which Haiku sometimes gives with the question after it ("q3. In Genesis ...")."""
+    found = re.match(r"\s*(q\d+)\b", text, re.IGNORECASE)
+    return found.group(1).lower() if found else text
+
+
 def apply_quiz(stage: str, folder: Path, data: dict, by: str) -> Counter:
     counts = Counter()
     for name, labels in json.loads((folder / "index.json").read_text(encoding="utf-8"))["index"].items():
         answer_file = folder / "out" / f"{name}.json"
         reply = json.loads(answer_file.read_text(encoding="utf-8")).get("structured_output") if answer_file.exists() else None
-        answers = {a["q"]: a for a in (reply or {}).get("answers", [])}
+        answers = {quiz_label(a["q"]): a for a in (reply or {}).get("answers", [])}
         for label_, info in labels.items():
             candidate = data["questions"][info["id"]]
             if candidate["status"] != "review" or label_ not in answers or not waiting(candidate, stage):

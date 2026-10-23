@@ -11,7 +11,7 @@ from question_audit import as_sent  # noqa: E402
 from question_writing import Locator, answered_sections, headings_of, link_related, next_number, read_sections, \
     target  # noqa: E402
 from question_writing_gate import answer_held, cited_keys, gate  # noqa: E402
-from question_writing_review import options_of, quiz_verdict, reference_of, second_round  # noqa: E402
+from question_writing_review import options_of, quiz_label, quiz_verdict, reference_of, second_round  # noqa: E402
 
 GEN_12 = {"id": "GEN-12-1", "book": "GEN", "start": (12, 1), "end": (12, 9), "title": "The Call of Abram",
           "target": 4}
@@ -160,3 +160,9 @@ def test_the_published_audit_record_matches_what_the_build_makes() -> None:
              "options": options, "reference": reference}  # as add_choices leaves a record that has its own options
     assert as_sent(built) == {"question": GOOD["question"], "answer": GOOD["answer"], "right": GOOD["answer"],
                               "options": options, "reference": reference}
+
+
+@pytest.mark.parametrize(("given", "label"), [("q3", "q3"), ("q12. In Genesis 4, which son of Lamech ...?", "q12"),
+                                              (" Q2: who?", "q2"), ("first", "first")])
+def test_a_quiz_label_given_with_its_question_is_still_matched(given: str, label: str) -> None:
+    assert quiz_label(given) == label

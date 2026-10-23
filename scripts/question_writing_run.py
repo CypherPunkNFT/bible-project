@@ -142,14 +142,13 @@ class Driver:
             for stage in STAGES:
                 if self.unapplied(stage):
                     self.stage(stage, self.unapplied(stage))
-            quizzes = [s for s in ("open", "closed") if self.any_waiting(s)]
-            for stage in quizzes:
-                if self.any_waiting(stage):  # the first quiz may have rejected every question the second awaits
+            ran = False
+            for stage in STAGES:  # the first quiz may reject every question the second awaits: ask each time
+                if self.any_waiting(stage):
                     self.stage(stage)
-            if not quizzes:
-                if not self.any_waiting("check"):
-                    return
-                self.stage("check")
+                    ran = True
+            if not ran:
+                return
         self.log(f"still waiting after {REVIEW_PASSES} passes; publishing what passed")
 
     def unwritten(self) -> list[str]:
