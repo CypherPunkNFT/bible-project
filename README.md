@@ -1,4 +1,4 @@
-# Bible Project
+# Bible Guide (formerly Bible Project)
 
 **Chapter summaries and local Qwen work — 13 October 2026:** [Documentation and locations](initiatives/chapter-summaries/README.md) · [Handoff](initiatives/chapter-summaries/HANDOFF.md) · [Architecture](initiatives/chapter-summaries/ARCHITECTURE.md) · [Runbook](initiatives/chapter-summaries/RUNBOOK.md) · [Trial results](initiatives/chapter-summaries/RESULTS.md). The Python studio is on localhost:8947; the main Bible preview remains 8931. Three evidence-first trial rounds are complete, the full Bible run remains paused for quality, and all prior drafts/archives are preserved locally. Trial outputs have not been approved or published.
 
