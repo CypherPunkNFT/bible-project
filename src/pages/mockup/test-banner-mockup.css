@@ -14,24 +14,24 @@
 .tbm-label strong{font:450 24px/1.2 var(--serif)}
 .tbm-label p{font-size:13.5px;line-height:1.6;color:var(--muted)}
 
-/* The banner: its words with the dots under them on the left; the version's settings, then the button, which fades in
-   once all are chosen in a place kept for it, on the right. */
+/* The banner: its words with the dots under them on the left; the version's settings on the right; the button stands
+   greyed, asking for the options, and turns dark once all three are chosen. */
 .tb-banner .qp-test-copy>p:not(.qp-eyebrow){max-width:520px;font-size:14px;line-height:1.8;color:var(--muted)}
 .tb-banner .qp-test-marks{margin-top:22px}
 .tb-action{display:flex;flex-direction:column;gap:18px;min-width:0}
 .tb-action button:focus-visible{outline:none}
-.tb-go{display:grid;opacity:0;transform:translateY(-6px);transition:opacity .35s,transform .45s cubic-bezier(.2,.7,.2,1)}
-.tb-go>div{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
-.tb-go[data-open]{opacity:1;transform:none}
-.tb-go:not([data-open]){pointer-events:none}
-.tb-go small{font-size:12px;color:var(--muted)}
+.tb-go{display:flex}
+.tb-go .qp-test-go{animation:tb-go-in .4s cubic-bezier(.2,.7,.2,1)}
+.tb-go .tb-go-wait{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line);cursor:default}
+.tb-go .tb-go-wait:hover{gap:12px;background:transparent}
+@keyframes tb-go-in{from{opacity:.4;transform:scale(.97)}}
 
 /* 1 · the theme boxes: the theme shelves' hairline grid (test-options.css .th-shelves), the setting's name in the first
    column with no line under it; each box with its mark in a soft round tint, a faint square glow and a line across the
    top when pointed at or chosen. With data-left the button comes out under the words. */
 .tb-go[data-place=left]{margin-top:24px}
 .tb-go[data-place=phone]{display:none}
-@media(max-width:900px){.tb-go[data-place=left]{display:none}.tb-go[data-place=phone]{display:grid}}
+@media(max-width:900px){.tb-go[data-place=left]{display:none}.tb-go[data-place=phone]{display:flex}}
 .tb-grid{--tone:var(--accent)}
 .tb-grid-row{display:grid;grid-template-columns:88px repeat(3,minmax(0,1fr))}
 .tb-grid-row>*+*{border-left:1px solid var(--line)}
@@ -76,4 +76,4 @@
   .tb-cell small{display:none}.tb-cell strong{font-size:14px}
   .tb-blank-menu{min-width:200px}
 }
-@media(prefers-reduced-motion:reduce){.tb-go{transition:none}}
+@media(prefers-reduced-motion:reduce){.tb-go .qp-test-go{animation:none}}

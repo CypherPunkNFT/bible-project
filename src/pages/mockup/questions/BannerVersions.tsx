@@ -15,7 +15,7 @@ import { AGES, LEVELS, ageOf, levelOf, minutesFor, writeSettings } from "./test/
 import { Pips } from "./test/SetupBars";
 
 // The mock shows the banner as it reads with David chosen on the page.
-const SUBJECT = { id: "david", title: "David", available: 162 };
+const SUBJECT = { id: "david", title: "David" };
 const MARKS = ["right", "right", "wrong", "right", "now", "", "", "", "", ""];
 
 type Picks = Record<Key, number | string | null>;
@@ -33,15 +33,15 @@ function testHref({ length, level, age }: Picks) {
   return `/study/questions/test?${out}`;
 }
 
-/** The banner with its own words and the dots on the left and the version's settings on the right. The button comes out
- * once all three are chosen, in a place kept for it so the banner does not grow: under the settings, or with `left`
+/** The banner with its own words and the dots on the left and the version's settings on the right. The button opens
+ * once all three are chosen; until then the same pill stands greyed, asking for the options (owner, 2026-10-23): under
+ * the settings, or with `left`
  * under the words and the dots (on a phone, where the words sit above the settings, still under the settings). */
 function Shell({ picks, done, left, children }: { picks: Picks; done: boolean; left?: boolean; children: ReactNode }) {
-  const go = (place?: string) => <div className="tb-go" data-place={place} data-open={done || undefined}><div>
-    <Link className="qp-test-go" to={testHref(picks)} tabIndex={done ? 0 : -1} aria-hidden={!done}>
-      Take a test on {SUBJECT.title}<ArrowRight size={17} strokeWidth={1.6} aria-hidden /></Link>
-    <small>{SUBJECT.available} questions to draw from</small>
-  </div></div>;
+  const go = (place?: string) => <div className="tb-go" data-place={place}>
+    {done ? <Link className="qp-test-go" to={testHref(picks)}>Take a test on {SUBJECT.title}<ArrowRight size={17} strokeWidth={1.6} aria-hidden /></Link>
+      : <span className="qp-test-go tb-go-wait" aria-disabled="true">Choose your options to take the test</span>}
+  </div>;
   return <section className="qp-test-banner tb-banner" data-left={left || undefined}>
     <div className="qp-test-copy">
       <p className="qp-eyebrow"><span></span>A test of your own</p>
