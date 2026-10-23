@@ -84,9 +84,11 @@ Fields of each question:
   text writes them.
 - "wrong": exactly three wrong choices, each clearly wrong by this section and by the rest of the Bible, yet
   believable to someone who half-remembers: another person, place, number or thing from the same story or the same
-  part of the Bible, in the same form and about the same length as the answer. Never "all of the above", a joke, a
-  synonym of the answer, or anything also true elsewhere in the Bible (if the question asks who built an altar to the
-  LORD at Bethel, Isaac and Jacob, who built altars too, are not fair wrong choices unless the question rules them out).
+  part of the Bible, in the same form and about the same length as the answer: a question whose answer is two or
+  more words longer than every wrong choice is rejected, so give the wrong choices as much detail. Never "all of the
+  above", a joke, a synonym of the answer, or anything also true elsewhere in the Bible (if the question asks who built
+  an altar to the LORD at Bethel, Isaac and Jacob, who built altars too, are not fair wrong choices unless the question
+  rules them out).
 - "verses": the verse or verses of this section that hold the answer, as "chapter:verse" ("12:7") or a range in one
   chapter ("12:7-9").
 - "people", "places": the people and places the question is about, as the BSB names them. "subjects": one to three
