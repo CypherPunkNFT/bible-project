@@ -74,4 +74,7 @@
 .qx-rail .qp-rail-group h3{margin-bottom:2px}
 .qx-rail-wrap{position:sticky;top:84px;align-self:start;min-width:0}
 .qx-rail-wrap .qx-rail{position:static;max-height:calc(100vh - 100px);overflow-y:auto}
+/* The rail's scroll box cuts off anything past its edge, so a chosen row keeps inside it rather than reaching 10px out
+   each side, and its X keeps clear of the edge (owner, 2026-10-23: "way too close to the edge"). */
+.qx-rail .qp-topics button[aria-pressed="true"]{width:100%;margin-inline:0;padding-inline:10px 6px}
 @media(max-width:900px){.qx-rail-wrap{position:static}}
