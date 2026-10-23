@@ -1,0 +1,84 @@
+/* The mock page of four test banners (TestBannerMockupPage.tsx, questions/BannerVersions.tsx). The banner itself keeps
+   the questions page's styles (questions-page.css .qp-test-banner); these place the settings in its right half. */
+.tbm{padding-block:56px 160px}
+.tbm-head h1{font:450 clamp(38px,4.6vw,62px)/1.08 var(--serif);letter-spacing:-.045em;margin:20px 0 14px}
+.tbm-head h1 em{font-weight:400;color:var(--accent)}
+.tbm-head>p:not(.qp-eyebrow){max-width:600px;font-size:15px;line-height:1.7;color:var(--muted)}
+.tbm-head nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.tbm-head nav a{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border:1px solid var(--line);border-radius:999px;color:var(--ink);font-size:14px;font-weight:500;transition:border-color .25s}
+.tbm-head nav a:hover{border-color:var(--accent)}
+.tbm-head nav a span{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--page);font-size:11px;font-weight:600}
+.tbm-version{margin-top:110px;scroll-margin-top:90px}
+.tbm-label{display:grid;grid-template-columns:auto auto minmax(0,1fr);align-items:baseline;gap:6px 18px;margin-bottom:30px;padding-bottom:16px;border-bottom:1px dashed var(--line)}
+.tbm-label span{font-size:11px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.tbm-label strong{font:450 24px/1.2 var(--serif)}
+.tbm-label p{font-size:13.5px;line-height:1.6;color:var(--muted)}
+
+/* The banner's right half: the marks, the version's settings, then the button, which slides out once all are chosen. */
+.tb-banner{align-items:start}
+.tb-banner .qp-test-copy{align-self:center}
+.tb-action{display:flex;flex-direction:column;gap:18px;min-width:0}
+.tb-action button:focus-visible{outline:none}
+.tb-go{display:grid;grid-template-rows:0fr;opacity:0;transform:translateY(-6px);transition:grid-template-rows .45s cubic-bezier(.2,.7,.2,1),opacity .35s,transform .45s cubic-bezier(.2,.7,.2,1);margin-top:-18px}
+.tb-go>div{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;min-height:0;overflow:hidden}
+.tb-go[data-open]{grid-template-rows:1fr;opacity:1;transform:none;margin-top:0}
+.tb-go small{font-size:12px;color:var(--muted)}
+.tb-action .qp-test-setting>span,.tb-tile-row>span{display:flex;align-items:center;gap:6px}
+.tb-action .qp-test-setting>span svg,.tb-tile-row>span svg{color:var(--accent)}
+
+/* 1 · three rows */
+.tb-rows{display:grid;gap:14px}
+.tb-rows .qp-test-choices{height:42px}
+
+/* 2 · one at a time */
+.tb-chips{display:flex;flex-wrap:wrap;gap:8px}
+.tb-chips button{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));border-radius:999px;background:var(--surface);font-size:12.5px;font-weight:550}
+.tb-chips button>svg:last-child{color:var(--accent)}
+.tb-chips button:hover{border-color:var(--accent)}
+.tb-step{animation:tb-in .4s cubic-bezier(.2,.7,.2,1)}
+.tb-step-n{font-size:10px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.tb-step-ask{font:450 26px/1.2 var(--serif);letter-spacing:-.02em;margin:6px 0 14px}
+.tb-step-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tb-step-choices button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);text-align:left;transition:border-color .2s,background .2s}
+.tb-step-choices button:hover{border-color:var(--accent)}
+.tb-step-choices button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+.tb-step-choices strong{font:450 18px/1.2 var(--serif)}
+.tb-step-choices small{font-size:11.5px;line-height:1.45;color:var(--muted)}
+.tb-step-choices svg,.tb-step-choices .tsu-pips{color:var(--accent)}
+@keyframes tb-in{from{opacity:0;transform:translateY(8px)}}
+
+/* 3 · icon tiles */
+.tb-tiles{display:grid;gap:14px}
+.tb-tile-row>span{margin-bottom:8px;font-size:10px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.tb-tile-row>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tb-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;height:84px;border:1px solid var(--line);border-radius:10px;background:var(--surface);transition:border-color .2s,background .2s}
+.tb-tile:hover{border-color:var(--accent)}
+.tb-tile[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+.tb-tile b{font:450 28px/1 var(--serif);color:var(--accent)}
+.tb-tile i{display:grid;place-items:center;height:28px;color:var(--accent)}
+.tb-tile i .tsu-pips{height:24px;gap:4px}
+.tb-tile i .tsu-pips i{width:6px}
+.tb-tile i .tsu-pips i:nth-child(1){height:10px}.tb-tile i .tsu-pips i:nth-child(2){height:17px}.tb-tile i .tsu-pips i:nth-child(3){height:24px}
+.tb-tile strong{font-size:12px;font-weight:550}
+
+/* 4 · the sentence */
+.tb-sentence{font:450 clamp(24px,2.3vw,30px)/1.6 var(--serif);letter-spacing:-.02em}
+.tb-sentence em{color:var(--accent)}
+.tb-blank{position:relative;display:inline-block}
+.tb-blank>button{display:inline-flex;align-items:center;gap:4px;padding:0 2px;border-bottom:1.5px solid var(--accent);color:var(--accent);font:inherit;font-style:italic}
+.tb-blank[data-empty]>button{border-bottom-style:dashed;color:var(--muted);font-size:.8em}
+.tb-blank-menu{position:absolute;left:0;top:calc(100% + 6px);z-index:5;display:grid;min-width:240px;padding:6px;border:1px solid var(--line);border-radius:10px;background:var(--surface);box-shadow:0 18px 40px -24px rgba(60,40,10,.5)}
+.tb-blank-menu button{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:8px;padding:9px 10px;border-radius:6px;text-align:left;font:550 14px/1.3 var(--sans)}
+.tb-blank-menu button small{grid-column:2;font-size:11.5px;font-weight:400;color:var(--muted)}
+.tb-blank-menu button:hover,.tb-blank-menu button[aria-checked="true"]{background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+.tb-blank-menu svg,.tb-blank-menu .tsu-pips{color:var(--accent)}
+.tb-sentence-note{font-size:12px;color:var(--muted);margin-top:-8px}
+
+@media(max-width:600px){
+  .tbm{padding-block:32px 120px}
+  .tbm-label{grid-template-columns:auto minmax(0,1fr)}.tbm-label p{grid-column:1/-1}
+  .tb-step-choices{grid-template-columns:1fr}
+  .tb-tile{height:76px}
+  .tb-blank-menu{min-width:200px}
+}
+@media(prefers-reduced-motion:reduce){.tb-go,.tb-step{transition:none;animation:none}}
