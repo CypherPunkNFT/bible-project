@@ -5,7 +5,7 @@
 // would give with the other choices kept. The collection list and the multiple-choice switch stay. The topic list and
 // the Testament switch of FilterRail.tsx are not used here (the book drawers cover both Testaments).
 import { ChevronDown, X } from "lucide-react";
-import { useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import type { BankBook, QuestionBank } from "@/lib/data";
 import { RailGroup, Switch } from "./FilterRail";
 import { facetsOf, type Filters } from "./model";
@@ -52,6 +52,14 @@ export function ListRail({ bank, facets, filters, choice, members, update, choos
   const [open, setOpen] = useState<Set<string>>(() => new Set());
   const toggle = (id: string) => setOpen((now) => { const next = new Set(now); if (next.has(id)) next.delete(id); else next.add(id); return next; });
   const span = (from: string, to: string) => bank.books.slice(bank.books.findIndex((b) => b.code === from), bank.books.findIndex((b) => b.code === to) + 1);
+  // A book or theme chosen elsewhere on the page (01, 02 or the address) opens its own drawer, so the choice shows.
+  useEffect(() => {
+    const section = BOOK_SECTIONS.find((s) => span(s.from, s.to).some((b) => b.code === choice.book));
+    const shelf = SHELVES.find((sh) => sh.groups.some((g) => g.themes.some((t) => t.id === choice.theme)));
+    const ids = [section && `b-${section.label}`, shelf && `t-${shelf.id}`].filter((id): id is string => Boolean(id));
+    if (ids.length) setOpen((now) => new Set([...now, ...ids]));
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- `span` only reads the bank's books
+  }, [choice.book, choice.theme]);
   const collections = bank.collections;
   return <aside className="qp-rail qx-rail" aria-label="Filters">
     <RailGroup title="By the book">{BOOK_SECTIONS.map((s) => {

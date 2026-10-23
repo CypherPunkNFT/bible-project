@@ -32,7 +32,8 @@ interface Props { bank: QuestionBank; filters: Filters; theme: Theme | null; boo
 
 export function TestBanner({ bank, filters, theme, bookNames }: Props) {
   const topic = bank.topics.find((t) => t.id === filters.topic)?.title;
-  const subject = theme?.title ?? (filters.book ? bookNames[filters.book] : topic ?? (filters.kind ? bank.kinds[filters.kind] : null));
+  const bookName = filters.book ? bookNames[filters.book] : null;
+  const subject = theme && bookName ? `${theme.title} in ${bookName}` : theme?.title ?? bookName ?? topic ?? (filters.kind ? bank.kinds[filters.kind] : null);
   const [picks, setPicks] = useState<Picks>({ length: null, level: null, age: null });
   const done = picks.length !== null && picks.level !== null && picks.age !== null;
   const params = writeFilters(filters);
@@ -43,7 +44,7 @@ export function TestBanner({ bank, filters, theme, bookNames }: Props) {
   // The pill under the words; on a phone, where the words sit above the boxes, it stands under the boxes instead.
   const go = (place: "left" | "phone") => <div className="qp-test-go-slot" data-place={place}>
     {done ? <Link className="qp-test-go" to={`/study/questions/test${query ? `?${query}` : ""}`}>
-      {subject ? <>Take a test on {subject}</> : "Take the test"}<ArrowRight size={17} strokeWidth={1.6} aria-hidden /></Link>
+      {subject ? <>Take a test on {subject}</> : "Take a test on the whole Bible"}<ArrowRight size={17} strokeWidth={1.6} aria-hidden /></Link>
       : <span className="qp-test-go qp-test-wait" aria-disabled="true">Choose your options to take the test</span>}
   </div>;
   return <section className="qp-test-banner" id="qp-test" aria-labelledby="qp-test-title">
