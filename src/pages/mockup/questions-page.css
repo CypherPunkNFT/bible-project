@@ -45,7 +45,9 @@
 /* Section heads */
 .qp-section{border-top:1px solid var(--line);padding:46px 0 10px}
 /* "Browse every question" stops with 02 just under the site bar (about 61px), keeping the section's own space above its title. */
-.qp-explore{scroll-margin-top:64px}
+/* Brought into view, 03's line hides behind the site's header and its heading sits just under it; the rail and the list
+   then end at the foot of the screen (owner, 2026-10-23: "what's the point of a scroll if it's not contained"). */
+.qp-explore{scroll-margin-top:32px}
 .qp-section-head{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;margin-bottom:30px}
 .qp-section-n{font:400 46px/1 var(--serif);color:var(--accent);opacity:.75;letter-spacing:-.04em}
 .qp-section-head h2{font:450 clamp(28px,2.8vw,38px)/1.2 var(--serif);letter-spacing:-.035em}
@@ -120,7 +122,7 @@
 .qp-results-head strong{font:450 20px var(--serif);color:var(--ink)}
 .qp-results-chosen{color:var(--ink)}
 .qp-clear{background:none;border:0;font-size:11px;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
-.qp-list-viewport{height:min(76vh,860px);overflow-y:auto;scrollbar-width:none;border-top:1px solid var(--ink)}
+.qp-list-viewport{height:max(420px,calc(100vh - 244px));overflow-y:auto;scrollbar-width:none;border-top:1px solid var(--ink)}
 .qp-list-viewport::-webkit-scrollbar{display:none}
 /* The scroll pills (list and rail) in a bright gold (owner, 2026-10-23). */
 .qp .mw-scroll-pill>span,.qp .mw-scroll-pill:hover>span{background:color-mix(in srgb,var(--accent) 40%,#ebbb4c);opacity:1}
