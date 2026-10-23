@@ -100,9 +100,9 @@ function QuestionRing({ books, totals, lit, chosen, onHover, onChoose }: RingPro
   const labelled = namedBooks(totals);
   const centre = lit >= 0 ? lit : top;
   return <figure className="qx-ring-card">
-    {/* The box fits what is drawn (the outer guide and its number, the names past the tips), so the ring fills its column
-        (owner, 2026-10-23: "the circle can be larger"); a longer name may reach past it, which overflow shows. */}
-    <svg ref={svgRef} className="qx-ring" viewBox="-264 -300 528 572" role="img" aria-label="Questions by book of the Bible: one spoke per book, as long as its questions">
+    {/* The box leaves a little room round what is drawn, so the ring is an eighth larger than it first was (owner,
+        2026-10-23: "the circle can be larger", then "a little smaller… not .25 but .125"). */}
+    <svg ref={svgRef} className="qx-ring" viewBox="-293 -333 586 635" role="img" aria-label="Questions by book of the Bible: one spoke per book, as long as its questions">
       <g>{guides.map(({ v, r }) => <g key={v}><circle r={r.toFixed(1)} className="qx-ring-guide" />
         <text className="qx-ring-guide-label" textAnchor="middle" y={(r + 13).toFixed(1)}>{v.toLocaleString()}</text></g>)}</g>
       <g onPointerLeave={() => onHover(-1)}>{books.map((book, b) =>
