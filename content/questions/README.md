@@ -216,6 +216,30 @@ Passed questions go to [written.json](written.json) as the bank "Written for the
 section, cited verses and the full review history; rejected ones are kept there too, with the stage and the reason.
 Nothing reaches the bank until a run is published.
 
+## Codex (ChatGPT) as a second, independent reviewer
+
+Owner, 23 October 2026: can Codex run on a subscription too? **Yes.** Codex is installed on this PC (the OpenAI
+extension in VS Code, `codex-cli 0.162`) and signed in with the owner's ChatGPT account, not an API key, so its work
+counts against the ChatGPT plan's usage limits rather than costing dollars. Its program runs one call at a time with
+no chat window (`codex exec`), and these options keep each call minimal, as BatchRunner does for Claude:
+
+- `--ignore-user-config --ignore-rules`: no settings, rules or connected servers;
+- `--ephemeral`: no saved session;
+- `-s read-only`: it cannot change files;
+- `--output-schema FILE -o OUT.json`: a JSON reply in the same shape BatchRunner's replies have.
+
+**Why it matters here:** every reviewer of a written question so far is a Claude model checking another Claude
+model. A GPT model taking the blind quizzes (checks 2 and 3 above) would be truly independent: a different model
+family is less likely to share the writer's blind spots.
+
+**Status:** nothing built yet.
+1. The owner tries one quiz by hand in Codex (the prompt is in the chat of 23 October 2026; its answer key is kept
+   apart, so Codex cannot see it). Claude scores Codex's replies against the key.
+2. If Codex does well, add a small runner for `codex exec` beside BatchRunner (one call per item, a resume after a
+   stop, a cap on calls). Then the open and closed quizzes can run on Codex while the writing and the BSB audit stay
+   on Claude.
+The ChatGPT plan's limits are not measured yet: the first runs must be small.
+
 ## The table
 
 [question-table.csv](question-table.csv) is written by every build: one row per question, shown, repeat or hidden,
