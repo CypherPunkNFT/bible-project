@@ -140,7 +140,7 @@ def not_yet_asked(rows: list[dict]) -> list[dict]:
     """Rows whose question and answer are not already on the site (local embeddings, $0)."""
     import question_repeats as qr
 
-    shown = [q for q in json.loads(BANK.read_text(encoding="utf-8"))["questions"] if not q.get("repeat_of")]
+    shown = [q for q in json.loads(BANK.read_text(encoding="utf-8"))["questions"] if not q.get("repeat_of") and not q.get("hidden")]
     best = (qr.vectors_for(rows) @ qr.vectors_for(shown).T).max(axis=1)
     return [row for row, score in zip(rows, best) if score < ALREADY_ASKED]
 

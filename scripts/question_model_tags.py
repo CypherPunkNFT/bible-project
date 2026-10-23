@@ -115,7 +115,7 @@ def add_model_tags(questions: list[dict]) -> int:
 def prepare() -> None:
     tagged = load_tags()["questions"]
     questions = [q for q in json.loads(BANK.read_text(encoding="utf-8"))["questions"]
-                 if not q.get("repeat_of") and q["id"] not in tagged]
+                 if not q.get("repeat_of") and not q.get("hidden") and q["id"] not in tagged]
     items = WORK / "items"
     items.mkdir(parents=True, exist_ok=True)
     for old in items.glob("*.txt"):

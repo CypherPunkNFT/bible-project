@@ -29,7 +29,7 @@ _NAMES = {
     "2CO": "2co 2cor 2corinthians", "GAL": "gal galatians ga", "EPH": "eph ephesians",
     "PHP": "php phil philippians", "COL": "col colossians", "1TH": "1th 1thess 1thessalonians",
     "2TH": "2th 2thess 2thessalonians", "1TI": "1ti 1tim 1timothy", "2TI": "2ti 2tim 2timothy",
-    "TIT": "tit titus", "PHM": "phm phlm philem philemon", "HEB": "heb hebrews", "JAS": "jas james ja",
+    "TIT": "tit titus", "PHM": "phm phlm philem philemon", "HEB": "heb hebrews", "JAS": "jas james ja jam",
     "1PE": "1pe 1pet 1peter", "2PE": "2pe 2pet 2peter", "1JN": "1jn 1jo 1john", "2JN": "2jn 2jo 2john",
     "3JN": "3jn 3jo 3john", "JUD": "jud jude", "REV": "rev revelation re",
 }
@@ -51,6 +51,7 @@ class RefError(ValueError):
 
 def normalise_book(raw: str, overrides: dict[str, str] | None = None) -> str:
     raw = re.sub(r"^(I{1,3})\s+(?=[A-Z])", lambda m: str(len(m.group(1))), raw.strip())  # "I John" -> "1John"
+    raw = re.sub(r"^([1-3])(?:st|nd|rd)\b", r"\1", raw)  # "1st Corinthians" -> "1 Corinthians"
     key = re.sub(r"[\s.]", "", raw).lower()
     if overrides and key in overrides:
         return overrides[key]

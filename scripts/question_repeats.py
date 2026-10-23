@@ -219,7 +219,7 @@ def prepare() -> None:
     import numpy as np
 
     # Only questions still shown: a hidden repeat already has its stand-in, so comparing the shown set is enough.
-    questions = [q for q in json.loads(BANK.read_text(encoding="utf-8"))["questions"] if not q.get("repeat_of")]
+    questions = [q for q in json.loads(BANK.read_text(encoding="utf-8"))["questions"] if not q.get("repeat_of") and not q.get("hidden")]
     vectors = vectors_for(questions)
     scores = vectors @ vectors.T
     first, second = np.triu_indices(len(questions), k=1)

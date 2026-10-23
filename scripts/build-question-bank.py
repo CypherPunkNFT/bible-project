@@ -24,6 +24,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from bible.books import BOOKS  # noqa: E402
+from question_audit import apply_audit  # noqa: E402
 from question_choices import add_choices  # noqa: E402
 from question_mining import mined_records  # noqa: E402
 from question_model_tags import add_model_tags  # noqa: E402
@@ -211,10 +212,11 @@ def collections_of(questions: list[dict]) -> list[dict]:
 
 def site_copy(questions: list[dict]) -> dict:
     """The page's copy: the questions without the licence wording, which the collection list carries once, and
-    without repeats, which the site never shows (scripts/question_repeats.py)."""
+    without repeats and questions the audit hid, which the site never shows (scripts/question_repeats.py,
+    scripts/question_audit.py)."""
     keep = ("question", "answer", "options", "reference", "kind", "tradition", "collection", "lesson", "books",
             "testament", "topic", "link", "standalone", "passages", "people", "places", "subjects", "answer_choice", "options_by", "lead_in")
-    shown = [q for q in questions if not q["repeat_of"]]
+    shown = [q for q in questions if not q["repeat_of"] and not q["hidden"]]
     return {"schema": SCHEMA, "kinds": KINDS, "topics": topics_meta(), "books": books_meta(),
             "collections": collections_of(shown), "questions": [{k: q[k] for k in keep} for q in shown]}
 
@@ -239,6 +241,7 @@ def main() -> None:
     repeats = mark_repeats(questions)
     model_tagged = add_model_tags(questions)
     model_choices = add_choices(questions)
+    audited = apply_audit(questions)
     counts = Counter(q["kind"] for q in questions)
     official = {
         "schema": SCHEMA,
@@ -253,7 +256,10 @@ def main() -> None:
                    "repeats_not_shown": repeats,
                    "model_tagged": model_tagged,
                    "choices_added": model_choices,
-                   "with_passage": sum(1 for q in questions if q["passages"])},
+                   "with_passage": sum(1 for q in questions if q["passages"]),
+                   "audit": audited,
+                   "hidden_by_audit": sum(1 for q in questions if q["hidden"]),
+                   "shown": sum(1 for q in questions if not q["repeat_of"] and not q["hidden"])},
         "kinds": KINDS,
         "tagging": "books, testament and topic are set by fixed word lists and the references (scripts/question_tags.py), "
                    "not checked by hand; a question may sit under a near topic. passages, people, places and subjects are set by "

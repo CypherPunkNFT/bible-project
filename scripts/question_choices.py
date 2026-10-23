@@ -129,7 +129,7 @@ def add_choices(questions: list[dict]) -> int:
 # --- prepare ---------------------------------------------------------------------------------------------------------
 
 def wanted(q: dict) -> bool:
-    return not q.get("repeat_of") and not q["options"]
+    return not q.get("repeat_of") and not q.get("hidden") and not q["options"]
 
 
 def earlier_of(q: dict, by_id: dict) -> list[dict]:
