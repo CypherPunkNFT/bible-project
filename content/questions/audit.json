@@ -6143,14 +6143,18 @@
    "problems": [
     {
      "kind": "reference",
-     "detail": "No reference given; 1 Kings 4:1 and 11:42 say Solomon was king over all Israel."
+     "detail": "No reference given; the earlier version cited 1 Kings 4:1, which says only \"ruled over Israel\", not \"all Israel\" (that is 1 Kings 11:42)."
+    },
+    {
+     "kind": "misquote",
+     "detail": "\"The united Kingdom of Israel\" is not BSB wording; the BSB says Solomon reigned \"over all Israel\"."
     },
     {
      "kind": "choice_also_right",
-     "detail": "Solomon also ruled Judah (1 Kings 4:20), so 'the southern Kingdom of Judah' is partly true of his realm; 'northern/southern kingdom' are post-division terms the passage doesn't use."
+     "detail": "\"The northern Kingdom of Israel\" is close enough to \"Israel\" that someone could fairly pick it."
     }
    ],
-   "why": "The question had no reference and its choices like \"Kingdom of Judah\" were partly true, since Solomon ruled Judah too; it now asks whom Solomon was king over (all Israel, 1 Kings 4:1) with clearly wrong choices.",
+   "why": "The second reader is right: the BSB of 1 Kings 4:1 says only \"ruled over Israel\", and \"all Israel\" is in 1 Kings 11:42, so the question now cites 1 Kings 11:42 and its wrong choices no longer overlap with \"Israel\".",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -6166,14 +6170,14 @@
     "reference": ""
    },
    "after": {
-    "question": "According to 1 Kings 4:1, King Solomon was king over whom?",
+    "question": "According to 1 Kings 11:42, Solomon reigned in Jerusalem over whom for forty years?",
     "answer": "all Israel",
     "right": "all Israel",
-    "reference": "1 Kings 4:1; 1 Kings 11:42",
+    "reference": "1 Kgs 11:42",
     "options": [
-     "the empire of Assyria",
-     "only the northern tribes of Israel",
+     "Israel and Egypt",
      "only the tribe of Judah",
+     "only the northern tribes",
      "all Israel"
     ]
    }
@@ -10266,7 +10270,7 @@
      "detail": "The question has no reference; Zechariah 9:9 and 11:12-13 hold the answer."
     }
    ],
-   "why": "The answer Zechariah is right (the King riding on a donkey in 9:9 and the thirty pieces of silver in 11:12-13), but the question had no reference, so one was added.",
+   "why": "The doubt is not right: the BSB puts the king on a donkey in Zechariah 9:9 and the thirty pieces of silver in Zechariah 11:12-13, so Zechariah stays the answer (Matthew 27:9 names Jeremiah but quotes Zechariah's words, and Jeremiah is not offered as a choice), and only the missing reference was added.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -22762,11 +22766,15 @@
    "verdict": "fix",
    "problems": [
     {
+     "kind": "misquote",
+     "detail": "Lev 23:42-43 say Israel dwelt in booths when God brought them out of Egypt; they do not mention forty years of wilderness wandering, so the question says more than the passage."
+    },
+    {
      "kind": "reference",
-     "detail": "The question has no reference. Lev 23:33-43 names the Feast of Tabernacles and says Israel lived in booths after the exodus (23:42-43)."
+     "detail": "No reference was given; Lev 23:33-43 holds the answer."
     }
    ],
-   "why": "The question and answer are sound, but it had no Bible reference, so I added Leviticus 23:33-43, where the Feast of Tabernacles and the booths Israel lived in are described.",
+   "why": "The second reader is right that Leviticus 23:42-43 tie the booths to God bringing Israel out of Egypt and never mention forty years, so the question was reworded to say only what the passage says, and the reference Lev 23:33-43 was added.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -22782,7 +22790,7 @@
     "reference": ""
    },
    "after": {
-    "question": "Which feast commemorates Israel's forty years of wilderness wandering, involving living in temporary shelters?",
+    "question": "Which feast did the LORD command Israel to keep by dwelling in booths for seven days, so their descendants would know He made the Israelites dwell in booths when He brought them out of Egypt?",
     "answer": "The Feast of Tabernacles (Booths)",
     "right": "The Feast of Tabernacles (Booths)",
     "reference": "Lev 23:33-43",
@@ -26261,9 +26269,18 @@
   },
   "ayandangubane-bible-quiz:scripture-buzzer:85": {
    "collection": "Scripture Buzzer question set",
-   "verdict": "keep",
-   "problems": [],
-   "why": "No fault found.",
+   "verdict": "fix",
+   "problems": [
+    {
+     "kind": "wrong_answer",
+     "detail": "\"Wisdom\" is a scholarly genre label; the Psalms themselves present songs of praise and prayer (e.g. Ps 150, Ps 72:20), so the answer is only partly right."
+    },
+    {
+     "kind": "reference",
+     "detail": "The question has no reference."
+    }
+   ],
+   "why": "The doubt is right: \"Wisdom\" is a scholars' label that fits only some psalms, while the book itself shows songs of praise and prayer (Psalm 150; 72:20), so the answer now says that, with clearly wrong choices and a reference added.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -26278,7 +26295,18 @@
     ],
     "reference": ""
    },
-   "after": null
+   "after": {
+    "question": "Which of these best describes the book of Psalms?",
+    "answer": "Songs of praise and prayer",
+    "right": "Songs of praise and prayer",
+    "reference": "Ps 150:1-6; Ps 72:20",
+    "options": [
+     "Laws for the priests",
+     "Songs of praise and prayer",
+     "Letters to the churches",
+     "Accounts of Jesus' life"
+    ]
+   }
   },
   "ayandangubane-bible-quiz:scripture-buzzer:850": {
    "collection": "Scripture Buzzer question set",
@@ -51374,10 +51402,14 @@
    "problems": [
     {
      "kind": "reference",
-     "detail": "The question has no reference; Acts 16:8-10 holds the answer."
+     "detail": "The question has no reference; Acts 16:8-11 holds the answer."
+    },
+    {
+     "kind": "other",
+     "detail": "Acts 16:9 does not itself name the city; Troas comes from verses 8 and 11, so the question should say so. It also says 'from Macedonia' where the BSB says 'of Macedonia'."
     }
    ],
-   "why": "The question and answer match Acts 16, but it had no reference, so Acts 16:8-10 was added.",
+   "why": "The second reader is partly right: verse 9 does not name the city, though verse 8 says they went down to Troas and verse 11 says they sailed from Troas, so the answer stands. I reworded the question to rest on verse 8, matched the BSB's \"man of Macedonia\", and added the reference Acts 16:8-11.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -51393,10 +51425,10 @@
     "reference": ""
    },
    "after": {
-    "question": "What was the name of the city where Paul had a vision of a man from Macedonia?",
+    "question": "In Acts 16, to which city did Paul and his companions go down just before Paul had a vision of a man of Macedonia pleading with him?",
     "answer": "Troas",
     "right": "Troas",
-    "reference": "Acts 16:8-10",
+    "reference": "Acts 16:8-11",
     "options": [
      "Berea",
      "Philippi",
@@ -52884,15 +52916,15 @@
    "verdict": "fix",
    "problems": [
     {
-     "kind": "choice_also_right",
-     "detail": "2 Kings 9:2 calls Jehu \"son of Jehoshaphat son of Nimshi\", so Jehoshaphat can fairly be picked as his father."
+     "kind": "wrong_answer",
+     "detail": "2 Kings 9:2, 9:14 say Jehu was the son of Jehoshaphat, the son of Nimshi, so Nimshi was his grandfather; 1 Kings 19:16 calls him 'son of Nimshi' loosely."
     },
     {
      "kind": "reference",
-     "detail": "No reference was given; 1 Kings 19:16 says \"Jehu son of Nimshi\"."
+     "detail": "No reference given; 2 Kings 9:2, 14 hold the answer."
     }
    ],
-   "why": "Jehoshaphat is also called Jehu's father in 2 Kings 9:2, so it was replaced with Shaphat (Elisha's father, named in the same verse), and the reference 1 Kings 19:16 was added.",
+   "why": "The second reader is right: the BSB in 2 Kings 9:2 and 9:14 calls Jehu \"son of Jehoshaphat, son of Nimshi,\" so Nimshi was his grandfather (1 Kings 19:16 uses \"son of Nimshi\" loosely), and the answer is now Jehoshaphat, with Nimshi left out of the choices and a reference added.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -52909,12 +52941,12 @@
    },
    "after": {
     "question": "Who was the father of Jehu?",
-    "answer": "Nimshi",
-    "right": "Nimshi",
-    "reference": "1 Kings 19:16",
+    "answer": "Jehoshaphat",
+    "right": "Jehoshaphat",
+    "reference": "2 Kings 9:2, 14; 1 Kings 19:16",
     "options": [
      "Ahab",
-     "Nimshi",
+     "Jehoshaphat",
      "Shaphat",
      "Omri"
     ]
@@ -59621,10 +59653,14 @@
    "problems": [
     {
      "kind": "reference",
-     "detail": "The question has no reference; Acts 13:21 gives the answer (forty years under Saul)."
+     "detail": "The question has no reference; Acts 13:21 holds the forty-year figure."
+    },
+    {
+     "kind": "other",
+     "detail": "The doubt is only partly right: the text shown is Acts 13:21, not 1 Samuel 13:1, and Acts says forty years. Without a reference the question seems to clash with Samuel's count, so the question is tied to Acts 13:21."
     }
    ],
-   "why": "The answer is right (Acts 13:21 says God gave the people forty years under Saul), but the question had no reference, so Acts 13:21 was added.",
+   "why": "The second reader's doubt does not change the answer: the BSB text given here is Acts 13:21, which says God gave the people \"forty years under Saul\", and the lesson teaches forty years, so the answer stays; but the question had no reference, so it now cites Acts 13:21 and asks what that verse says, which avoids any clash with the count in 1 Samuel 13:1.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -59640,7 +59676,7 @@
     "reference": ""
    },
    "after": {
-    "question": "How long had Saul ruled as king?",
+    "question": "According to Acts 13:21, how many years did God give the people under Saul as king?",
     "answer": "Forty years",
     "right": "Forty years",
     "reference": "Acts 13:21",
@@ -60223,15 +60259,19 @@
    "verdict": "fix",
    "problems": [
     {
-     "kind": "reference",
-     "detail": "No reference given; 2 Samuel 11 holds the story."
+     "kind": "wrong_answer",
+     "detail": "2 Sam 11:15 gives the order's purpose as Uriah being \"struck down and killed\"; marrying Bathsheba comes later (11:27), so the answer states the wrong purpose."
     },
     {
-     "kind": "other",
-     "detail": "\"this\" refers to a previous question, so the question does not stand alone."
+     "kind": "choice_also_right",
+     "detail": "The old wrong choices (gain power, take wealth, become king) do not fit the new answer, and \"become king\" is plainly absurd since David already was king."
+    },
+    {
+     "kind": "reference",
+     "detail": "The question had no reference."
     }
    ],
-   "why": "The answer fits 2 Samuel 11 (David had Uriah killed, then took Bathsheba as his wife), but the question leaned on an earlier question and had no reference, so it now names Uriah and cites 2 Samuel 11.",
+   "why": "The second reader is right: David's letter says Uriah was to be put at the front \"so that he may be struck down and killed\" (2 Samuel 11:15), and David took Bathsheba as his wife only afterward (11:27), so the question now asks about the purpose the letter states and has a reference.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -60247,15 +60287,15 @@
     "reference": ""
    },
    "after": {
-    "question": "Why did King David order that Uriah the Hittite be put at the front of the fiercest battle?",
-    "answer": "So that David might marry the soldier's wife",
-    "right": "So that David might marry the soldier's wife",
-    "reference": "2 Sam 11",
+    "question": "According to David's letter to Joab, why was Uriah the Hittite to be put at the front of the fiercest battle?",
+    "answer": "So that he might be struck down and killed",
+    "right": "So that he might be struck down and killed",
+    "reference": "2 Sam 11:14-15",
     "options": [
-     "So that David might marry the soldier's wife",
-     "So that David could gain great power",
-     "So that he could take the soldier's wealth",
-     "So that David could become king"
+     "So that he might be struck down and killed",
+     "So that he might win honor for his bravery",
+     "So that he might be captured and held for ransom",
+     "So that he might be sent home to his wife"
     ]
    }
   },
@@ -60883,15 +60923,15 @@
    "verdict": "fix",
    "problems": [
     {
-     "kind": "other",
-     "detail": "The question says \"it\" without naming Solomon's temple, so it cannot be understood on its own."
+     "kind": "wrong_answer",
+     "detail": "The BSB passages shown never say the temple copied the Tabernacle's plan; 1 Chronicles 28:11-12, 19 says David gave Solomon the plans, which the LORD gave him in writing."
     },
     {
      "kind": "reference",
-     "detail": "No reference is given. 1 Kings 6 describes the temple's plan (Holy Place and Most Holy Place), and Exodus 26 describes the tabernacle."
+     "detail": "No reference was given, and 1 Kings 6 and Exodus 26 do not state that the temple copied the Tabernacle."
     }
    ],
-   "why": "The question said \"it\" without naming the temple and had no reference, so I named Solomon's temple and added 1 Kings 6 and Exodus 26; the answer and choices stay the same.",
+   "why": "The second reader is right: the Bible text shown never says the temple copied the Tabernacle, and 1 Chronicles 28 says David gave Solomon the temple plans, so the question now asks who gave them.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -60907,15 +60947,15 @@
     "reference": ""
    },
    "after": {
-    "question": "Solomon's temple in Jerusalem followed the plan of what older building?",
-    "answer": "The Tabernacle",
-    "right": "The Tabernacle",
-    "reference": "1 Kings 6; Exod 26",
+    "question": "Who gave Solomon the plans for the temple he built?",
+    "answer": "His father David",
+    "right": "His father David",
+    "reference": "1 Chr 28:11-12, 19",
     "options": [
-     "Solomon's Palace",
-     "King David's House",
-     "The Tabernacle",
-     "The Ark of the Covenant"
+     "Hiram king of Tyre",
+     "The prophet Nathan",
+     "His father David",
+     "Moses"
     ]
    }
   },
@@ -62433,10 +62473,10 @@
    "problems": [
     {
      "kind": "reference",
-     "detail": "The question has no reference; 1 Kings 19:1-9 tells of Elijah fleeing Jezebel and reaching Horeb."
+     "detail": "The question has no reference; 1 Kings 19:3-9 holds the answer."
     }
    ],
-   "why": "The question and choices were sound, but it had no Bible reference, so 1 Kings 19:1-9 (Elijah flees Jezebel and reaches Horeb, the mountain of God) was added.",
+   "why": "The second reader's doubt is wrong, because Beersheba was only a stop where Elijah left his servant, and he fled on to Horeb, the mountain of God (19:8); the only fault was the missing reference, so 1 Kings 19:3-9 is added.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -62455,7 +62495,7 @@
     "question": "Where did Elijah go to escape from Jezebel?",
     "answer": "To Mount Horeb in the wilderness",
     "right": "To Mount Horeb in the wilderness",
-    "reference": "1 Kings 19:1-9",
+    "reference": "1 Kgs 19:3-9",
     "options": [
      "To the land of Egypt",
      "To the city of Zarephath",
@@ -63358,13 +63398,21 @@
    "verdict": "fix",
    "problems": [
     {
+     "kind": "wrong_answer",
+     "detail": "Genesis 18:1-2 says the LORD appeared to Abraham and that he saw three men; \"angels\" comes only from 19:1 (the two angels at Sodom), so \"Angels from God\" is not what the tent scene states and leaves out the LORD."
+    },
+    {
      "kind": "reference",
-     "detail": "The question has no reference; Genesis 18:1-2 (and 19:1, where two are called angels) holds the story."
+     "detail": "The question had no reference."
+    },
+    {
+     "kind": "other",
+     "detail": "The BSB has Abraham sitting at the entrance of his tent, not in it."
     }
    ],
-   "why": "The question and choices were sound, but it had no Bible reference, so Genesis 18:1-2 and 19:1 (where the visitors are called angels) were added.",
+   "why": "The second reader is right: Genesis 18:1-2 says the LORD appeared to Abraham and he saw three men, and \"angels\" comes only from Genesis 19:1, so the question now asks what the tent scene says and has a reference.",
    "by": "claude-sonnet-5-5",
-   "audited": "2026-10-22",
+   "audited": "2026-10-23",
    "before": {
     "question": "Who came to visit Abraham in his tent?",
     "answer": "Angels from God",
@@ -63378,12 +63426,12 @@
     "reference": ""
    },
    "after": {
-    "question": "Who came to visit Abraham in his tent?",
-    "answer": "Angels from God",
-    "right": "Angels from God",
-    "reference": "Gen 18:1-2; 19:1",
+    "question": "In Genesis 18:2, whom did Abraham see standing nearby as he sat at the entrance of his tent?",
+    "answer": "Three men, when the LORD appeared to him",
+    "right": "Three men, when the LORD appeared to him",
+    "reference": "Gen 18:1-2",
     "options": [
-     "Angels from God",
+     "Three men, when the LORD appeared to him",
      "Servants of Pharaoh",
      "Men from the city of Sodom",
      "Kings from Egypt"
@@ -64671,15 +64719,15 @@
    "verdict": "fix",
    "problems": [
     {
-     "kind": "reference",
-     "detail": "No reference given; Daniel 5:30-31 holds the answer."
+     "kind": "misquote",
+     "detail": "The answer says the city was taken, but Daniel 5:30-31 only says Belshazzar was slain and Darius the Mede received the kingdom."
     },
     {
-     "kind": "other",
-     "detail": "\"The kingdom\" is unclear without context; it should name Belshazzar's kingdom."
+     "kind": "reference",
+     "detail": "No reference was given; Daniel 5:30-31 holds the answer."
     }
    ],
-   "why": "The question had no reference and said only \"the kingdom\", so it now names Belshazzar's kingdom and cites Daniel 5:30-31, where he was slain that night and the kingdom passed to the Medes and Persians.",
+   "why": "The second reader is right: the verses say nothing about the city being taken, only that Belshazzar was slain that night and Darius the Mede received the kingdom, so the answer now says just that and the reference Daniel 5:30-31 is added.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -64696,11 +64744,11 @@
    },
    "after": {
     "question": "How did the kingdom of Belshazzar, king of the Chaldeans, end?",
-    "answer": "The city was taken and Belshazzar was killed",
-    "right": "The city was taken and Belshazzar was killed",
+    "answer": "Belshazzar was slain that night and Darius the Mede received the kingdom",
+    "right": "Belshazzar was slain that night and Darius the Mede received the kingdom",
     "reference": "Dan 5:30-31",
     "options": [
-     "The city was taken and Belshazzar was killed",
+     "Belshazzar was slain that night and Darius the Mede received the kingdom",
      "The Egyptians invaded and conquered it",
      "The Persians besieged it for ten years",
      "The people rebelled and the king fled"
@@ -69352,19 +69400,19 @@
    "verdict": "fix",
    "problems": [
     {
-     "kind": "choice_also_right",
-     "detail": "Nazareth is in Galilee, and Jesus was already in Galilee (Luke 4:14), so \"To Galilee\" is too close to the answer."
-    },
-    {
-     "kind": "choice_also_right",
-     "detail": "John 5:1 has Jesus going up to Jerusalem after this miracle, so \"Jerusalem\" could fairly be picked."
-    },
-    {
      "kind": "reference",
-     "detail": "No reference given; Luke 4:16 holds the answer."
+     "detail": "No reference given. The only cited text, Luke 4:16, never mentions the nobleman's son, so it does not link the Nazareth visit to that healing."
+    },
+    {
+     "kind": "wrong_answer",
+     "detail": "\"Soon after\" the healing rests on a harmony of the Gospels. The BSB text shown does not say Nazareth came right after the healing."
+    },
+    {
+     "kind": "choice_also_right",
+     "detail": "\"To Galilee\" is also true, since Luke 4:14 says Jesus returned to Galilee and Nazareth is in Galilee. Luke 4:31 also takes Jesus to Capernaum soon after."
     }
    ],
-   "why": "\"Galilee\" overlaps with Nazareth, which lies in Galilee, and \"Jerusalem\" could fit John 5:1, so both were replaced with clearly wrong places. The question now names the miracle and cites Luke 4:16.",
+   "why": "The second reader is right: the verses shown (Luke 4:16) never mention the nobleman's son, so \"soon after\" is not in the text. The question now asks what Luke 4:16 says, which is that Jesus came to Nazareth, where He had been brought up. The wrong choice \"Galilee\" was also true, so we replaced it, and we added a reference.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -69380,15 +69428,15 @@
     "reference": ""
    },
    "after": {
-    "question": "To what place did Jesus go soon after healing the nobleman's son?",
-    "answer": "To Nazareth, where he had lived as a boy",
-    "right": "To Nazareth, where he had lived as a boy",
-    "reference": "Luke 4:16",
+    "question": "According to Luke 4:16, to what place did Jesus come, where He had been brought up?",
+    "answer": "To Nazareth",
+    "right": "To Nazareth",
+    "reference": "Luke 4:14-16",
     "options": [
-     "To Capernaum, where many people followed him",
-     "To Bethlehem, where he was born",
-     "To Bethany, where Lazarus lived",
-     "To Nazareth, where he had lived as a boy"
+     "To Jerusalem",
+     "To Capernaum",
+     "To Bethlehem",
+     "To Nazareth"
     ]
    }
   },
@@ -69860,15 +69908,19 @@
    "verdict": "fix",
    "problems": [
     {
+     "kind": "wrong_answer",
+     "detail": "Mark 2:10 gives the reason as the Son of Man having authority on earth to forgive sins; the title \"Son of God\" is not in the passage."
+    },
+    {
      "kind": "reference",
-     "detail": "No reference given; Mark 2:1-12 (healing of the paralytic) holds the teaching that Jesus forgives sins."
+     "detail": "No reference was given; Mark 2:1-12 holds the answer."
     },
     {
      "kind": "other",
-     "detail": "\"son of God\" should be capitalized as \"Son of God\" when naming Jesus."
+     "detail": "\"son of God\" was written with a lowercase s; the title is capitalized."
     }
    ],
-   "why": "The answer fits the lesson, but it had no Bible reference and did not capitalize \"Son of God,\" so I added Mark 2:1-12 and fixed the capital.",
+   "why": "The second reader is right: in Mark 2:10 Jesus says the Son of Man has authority on earth to forgive sins, and \"Son of God\" is not in the passage, so the answer now uses the BSB wording and a reference was added.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -69885,14 +69937,14 @@
    },
    "after": {
     "question": "Why had Jesus the right to forgive sins?",
-    "answer": "Because he was the Son of God",
-    "right": "Because he was the Son of God",
+    "answer": "Because the Son of Man has authority on earth to forgive sins",
+    "right": "Because the Son of Man has authority on earth to forgive sins",
     "reference": "Mark 2:1-12",
     "options": [
      "Because he was a great teacher",
      "Because he performed miracles",
      "Because he obeyed the law",
-     "Because he was the Son of God"
+     "Because the Son of Man has authority on earth to forgive sins"
     ]
    }
   },
@@ -71345,10 +71397,10 @@
    "problems": [
     {
      "kind": "reference",
-     "detail": "The question has no Bible reference; the story is in Mark 5:21-43 and Luke 8:40-56."
+     "detail": "The question has no reference; Mark 5:21-43 and Luke 8:40-56 hold the answer."
     }
    ],
-   "why": "The question and answer fit the story, since messengers told Jairus on the way that his daughter was dead, but the question had no reference, so Mark 5:21-43 and Luke 8:40-56 were added.",
+   "why": "The second reader's doubt does not hold for the cited passages: in Mark 5:23 and Luke 8:42 the girl is still dying when Jesus sets out, and on the way messengers say she is dead (Mark 5:35, Luke 8:49), so the answer stands (Matthew 9:18 tells it more briefly and differently), but the question had no reference, so Mark 5:21-43 and Luke 8:40-56 were added.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -75813,14 +75865,18 @@
    "problems": [
     {
      "kind": "choice_also_right",
-     "detail": "Luke 21:37 says Jesus spent the nights on the Mount of Olives, and Bethany lies on its slope, so \"At the Mount of Olives\" can fairly be chosen."
+     "detail": "Luke 21:37 says that each evening Jesus stayed on the Mount of Olives, and Bethany lay on that mount, so the wrong choice 'At the Mount of Olives' can fairly be picked."
+    },
+    {
+     "kind": "wrong_answer",
+     "detail": "Asked about all the days of teaching, 'At Bethany' is only what Matthew 21:17 gives for the first night, so the question is too broad for that answer."
     },
     {
      "kind": "reference",
-     "detail": "The question has no reference; Matthew 21:17 says He went out to Bethany and spent the night."
+     "detail": "The question has no reference."
     }
    ],
-   "why": "The wrong choice \"At the Mount of Olives\" is also true (Luke 21:37, and Bethany is on that hill), so it was replaced with \"In Jericho\", and the reference Matthew 21:17 was added.",
+   "why": "The second reader is right: Luke 21:37 says Jesus stayed each evening on the Mount of Olives, so \"the Mount of Olives\" was also a fair answer to the broad question; the question now asks about the night in Matthew 21:17, when He went out to Bethany, and the Mount of Olives choice is replaced with Jericho.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -75836,10 +75892,10 @@
     "reference": ""
    },
    "after": {
-    "question": "Where did Jesus stay at night, during those days while he was teaching in the temple?",
+    "question": "After the children shouted praise to Jesus in the temple courts, where did He go to spend the night?",
     "answer": "At Bethany",
     "right": "At Bethany",
-    "reference": "Matt 21:17",
+    "reference": "Matt 21:15-17",
     "options": [
      "In the temple",
      "At Bethany",
@@ -79093,15 +79149,15 @@
    "verdict": "fix",
    "problems": [
     {
-     "kind": "choice_also_right",
-     "detail": "John 6:1 calls the lake the \"Sea of Tiberias\" and the feeding took place beside it, so \"Tiberias\" could fairly be picked."
+     "kind": "reference",
+     "detail": "The question has no reference; Luke 9:10-17 holds the answer."
     },
     {
-     "kind": "reference",
-     "detail": "The question has no reference; Luke 9:10-17 names Bethsaida."
+     "kind": "other",
+     "detail": "The second reader is partly right. Luke 9:10-12 says Jesus withdrew to Bethsaida and the crowd was in a 'desolate place', and John 6:3 has a mountain across the sea. So 'at Bethsaida' is stricter than the text; 'near' is safer."
     }
    ],
-   "why": "Tiberias was removed as a choice because John 6:1 links the feeding to the Sea of Tiberias, so Nazareth replaces it; the question now names Jesus and cites Luke 9:10-17, where Bethsaida is named.",
+   "why": "The doubt is partly right: Luke 9:10-12 says Jesus withdrew to the town of Bethsaida and the crowd was in a desolate place, so the feeding was near the town, not in it. The question now asks \"Near what town\", keeps the answer Bethsaida, and cites Luke 9:10-17.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -79117,13 +79173,13 @@
     "reference": ""
    },
    "after": {
-    "question": "Where did Jesus feed five thousand people?",
+    "question": "Near what town did Jesus feed five thousand people?",
     "answer": "Bethsaida",
     "right": "Bethsaida",
     "reference": "Luke 9:10-17",
     "options": [
      "Bethsaida",
-     "Nazareth",
+     "Tiberias",
      "Capernaum",
      "Cana"
     ]
@@ -80121,11 +80177,15 @@
    "verdict": "fix",
    "problems": [
     {
+     "kind": "wrong_answer",
+     "detail": "The verses show Pharaoh's favor and the Israelites prospering, not kindness from \"the Egyptians\" in general. Exod 1:8-14 shows a new king, then harsh labor, so \"for a time afterward\" is not stated in the cited verses."
+    },
+    {
      "kind": "reference",
-     "detail": "No reference given. Gen 47:27 and Exod 1:6-8 show the Israelites settling and prospering in Egypt, then a new king who did not know Joseph."
+     "detail": "The question has no reference. Gen 47:5-6, 27 holds the answer."
     }
    ],
-   "why": "The question and choices were sound, but it had no Bible reference, so I added Genesis 47 and Exodus 1, where the Israelites settle and prosper in Goshen until a new king arises who did not know Joseph.",
+   "why": "The second reader is partly right: the BSB shows Pharaoh's favor to Joseph's family (the best of the land, Goshen) but does not say all the Egyptians were kind, and Exodus 1:8 says a new king later arose who did not know Joseph, so the question now asks about Pharaoh and has a reference.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -80141,15 +80201,15 @@
     "reference": ""
    },
    "after": {
-    "question": "How did the Egyptians treat the Israelites while Joseph lived, and for a time afterward?",
-    "answer": "They were kind to the Israelites",
-    "right": "They were kind to the Israelites",
-    "reference": "Gen 47:5-6, 27; Exod 1:6-8",
+    "question": "How did Pharaoh treat Joseph's father and brothers when they came to Egypt?",
+    "answer": "He let them settle in Goshen, the best part of the land",
+    "right": "He let them settle in Goshen, the best part of the land",
+    "reference": "Gen 47:5-6, 27",
     "options": [
-     "They were kind to the Israelites",
-     "They persecuted them greatly",
-     "They enslaved the Israelites",
-     "They drove them away from Egypt"
+     "He let them settle in Goshen, the best part of the land",
+     "He sent them back to the land of Canaan",
+     "He put them in prison in Egypt",
+     "He made them slaves as soon as they arrived"
     ]
    }
   },
@@ -81134,11 +81194,15 @@
    "verdict": "fix",
    "problems": [
     {
+     "kind": "wrong_answer",
+     "detail": "Acts 12:4 says Herod intended to bring Peter out to the people after the Passover (v. 6: to bring him to trial). It does not say he meant to put Peter to death; that is only inferred from James's death."
+    },
+    {
      "kind": "reference",
-     "detail": "The question has no reference. Acts 12:1-6 holds the story: Herod killed James, jailed Peter, and meant to bring him out the next day."
+     "detail": "The question has no reference; Acts 12:4-6 holds the answer."
     }
    ],
-   "why": "The question had no Bible reference, so Acts 12:1-6 was added; it tells how Herod killed James, jailed Peter, and planned to bring him out to the people.",
+   "why": "The second reader is right: the BSB says Herod intended to bring Peter out to the people after the Passover and does not say he meant to kill him, so the question now asks what the text says and has a reference.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -81154,14 +81218,14 @@
     "reference": ""
    },
    "after": {
-    "question": "What did the king intend to do with Peter on the next day?",
-    "answer": "To put him to death",
-    "right": "To put him to death",
-    "reference": "Acts 12:1-6",
+    "question": "What did King Herod intend to do with Peter after the Passover?",
+    "answer": "To bring him out to the people",
+    "right": "To bring him out to the people",
+    "reference": "Acts 12:4-6",
     "options": [
      "To imprison him for life",
      "To banish him from Judea",
-     "To put him to death",
+     "To bring him out to the people",
      "To force him from the city"
     ]
    }
@@ -110861,7 +110925,7 @@
    "problems": [],
    "why": "No fault found.",
    "by": "claude-sonnet-5-5",
-   "audited": "2026-10-22",
+   "audited": "2026-10-23",
    "before": {
     "question": "How old was Sarah when her son Isaac was born?",
     "answer": "Ninety",
@@ -120555,11 +120619,20 @@
   },
   "liaaron1-bible-trivia-alpaca:bible-trivia-alpaca:999": {
    "collection": "Bible trivia (Hugging Face, liaaron1)",
-   "verdict": "keep",
-   "problems": [],
-   "why": "No fault found.",
+   "verdict": "fix",
+   "problems": [
+    {
+     "kind": "other",
+     "detail": "\"First\" is ambiguous: in John 1:35-42 Andrew and an unnamed disciple follow Jesus first, and Simon is brought afterward, while Matthew 4:18-20 has Simon and Andrew called first."
+    },
+    {
+     "kind": "reference",
+     "detail": "The reference is Matthew, but the question never says it is asking about Matthew's account."
+    }
+   ],
+   "why": "The second reader is right: John 1:35-42 has Andrew and another disciple following Jesus before Simon comes, so \"first\" depends on the Gospel, and the question now asks about Matthew 4:18-20, where Jesus first calls Simon Peter and Andrew, with James and John called next.",
    "by": "claude-sonnet-5-5",
-   "audited": "2026-10-22",
+   "audited": "2026-10-23",
    "before": {
     "question": "Who were the first two disciples to be called?",
     "answer": "Simon (Peter) and Andrew",
@@ -120572,7 +120645,18 @@
     ],
     "reference": "Matt 4:18-19"
    },
-   "after": null
+   "after": {
+    "question": "In Matthew's account, which two men did Jesus call first, as He walked beside the Sea of Galilee?",
+    "answer": "Simon (Peter) and Andrew",
+    "right": "Simon (Peter) and Andrew",
+    "reference": "Matt 4:18-19",
+    "options": [
+     "Simon (Peter) and Andrew",
+     "Thomas and Matthew",
+     "James and John",
+     "Philip and Nathanael"
+    ]
+   }
   },
   "mined:bibledata:1022": {
    "collection": "Bible people and places (from BibleData)",
@@ -121354,7 +121438,7 @@
    "problems": [],
    "why": "No fault found.",
    "by": "claude-sonnet-5-5",
-   "audited": "2026-10-22",
+   "audited": "2026-10-23",
    "before": {
     "question": "Jeroboam the Second was the son of which king?",
     "answer": "Joash",
@@ -124750,18 +124834,18 @@
    "problems": [
     {
      "kind": "wrong_answer",
-     "detail": "Nohah is not in Genesis 46:21; he appears in 1 Chronicles 8:2. The cited verse names Naaman instead."
+     "detail": "The answer lists Nohah, who is not named in Genesis 46:21 (BSB). The first seven names there are Bela, Becher, Ashbel, Gera, Naaman, Ehi, Rosh."
     },
     {
      "kind": "choice_also_right",
-     "detail": "The first wrong choice (Muppim, Huppim, Ard, Gera, Ehi, Rosh, Bela) lists seven true sons of Benjamin."
+     "detail": "Two wrong choices (Muppim, Huppim, Ard with others; Bela, Becher, Ashbel, Gera, Muppim, Huppim, Ard) list only real sons of Benjamin from Gen 46:21, so they fit 'seven sons' too."
     },
     {
-     "kind": "choice_also_right",
-     "detail": "The third wrong choice (Bela, Becher, Ashbel, Gera, Muppim, Huppim, Ard) also lists seven true sons of Benjamin."
+     "kind": "other",
+     "detail": "Genesis 46:21 names ten sons, so 'seven sons' is open-ended; the question should ask for the first seven named."
     }
    ],
-   "why": "Two wrong choices also listed real sons of Benjamin, and the right answer included Nohah, who is not named in Genesis 46:21; the question now asks for the list that names only Benjamin's sons, as the verse gives them, and the wrong lists each include someone who was not his son.",
+   "why": "The second reader is partly right: Genesis 46:21 names ten sons of Benjamin, so \"seven\" was vague and two wrong choices also listed real sons, and the answer wrongly had Nohah (not in this verse); the question now asks for the first seven named, with the correct list and clearly wrong choices.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -124777,15 +124861,15 @@
     "reference": "GEN 46:21"
    },
    "after": {
-    "question": "Which list names seven sons of Benjamin (Genesis 46:21)?",
+    "question": "Which list gives the first seven sons of Benjamin named in Genesis 46:21?",
     "answer": "Bela, Becher, Ashbel, Gera, Naaman, Ehi, Rosh",
     "right": "Bela, Becher, Ashbel, Gera, Naaman, Ehi, Rosh",
     "reference": "Gen 46:21",
     "options": [
-     "Bela, Becher, Ashbel, Gera, Muppim, Manasseh, Ard",
-     "Bela, Becher, Ashbel, Gera, Hushim, Ehi, Rosh",
+     "Manasseh, Ephraim, Bela, Becher, Ashbel, Gera, Naaman",
+     "Reuben, Simeon, Levi, Judah, Dan, Naphtali, Gad",
      "Bela, Becher, Ashbel, Gera, Naaman, Ehi, Rosh",
-     "Reuben, Simeon, Levi, Judah, Dan, Naphtali, Gad"
+     "Bela, Becher, Ashbel, Gera, Hushim, Ehi, Rosh"
     ]
    }
   },
@@ -126935,11 +127019,15 @@
    "verdict": "fix",
    "problems": [
     {
+     "kind": "other_translation",
+     "detail": "The answer uses Shammua (2 Samuel 5:14 form); 1 Chronicles 3:5, the verse that names Bathsheba's four sons, has Shimea in the BSB."
+    },
+    {
      "kind": "reference",
-     "detail": "2 Samuel 12:24 names only Solomon; the four sons are listed in 1 Chronicles 3:5 (Bathshua) and 2 Samuel 5:14."
+     "detail": "2 Samuel 12:24 names only Solomon; 1 Chronicles 3:5 lists all four sons by Bathsheba, so it must be cited."
     }
    ],
-   "why": "The answer is right, but the cited verse names only Solomon, so the reference now points to the passages that list all four sons (Shammua is also spelled Shimea in 1 Chronicles 3:5).",
+   "why": "The second reader is right: 1 Chronicles 3:5 is the verse that says these four were born to David by Bathsheba, and it names the third son Shimea (Shammua is the 2 Samuel 5:14 spelling, which doesn't mention Bathsheba), so the answer now says Shimea and the reference cites 1 Chronicles 3:5.",
    "by": "claude-sonnet-5-5",
    "audited": "2026-10-23",
    "before": {
@@ -126956,14 +127044,14 @@
    },
    "after": {
     "question": "Which four sons did Bathsheba bear to David?",
-    "answer": "Solomon, Shammua, Shobab, Nathan",
-    "right": "Solomon, Shammua, Shobab, Nathan",
-    "reference": "2 Sam 5:14; 1 Chr 3:5",
+    "answer": "Solomon, Shimea, Shobab, Nathan",
+    "right": "Solomon, Shimea, Shobab, Nathan",
+    "reference": "1 Chr 3:5; 2 Sam 12:24",
     "options": [
      "Absalom, Adonijah, Shephatiah, Ithream",
      "Amnon, Chileab, Adonijah, Shephatiah",
      "Amnon, Adonijah, Ithream, Eglah",
-     "Solomon, Shammua, Shobab, Nathan"
+     "Solomon, Shimea, Shobab, Nathan"
     ]
    }
   },

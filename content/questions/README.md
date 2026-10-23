@@ -3,8 +3,8 @@
 [question-bank.json](question-bank.json) is the one list of **production-ready** questions the site draws on: the
 questions page (`/study/questions`), and later the home page's "How well do you know the Bible?" section and any quiz.
 
-**4,962 questions** (built 2026-10-22): 2,831 Bible quiz, 902 Sunday school lesson and 1,229 catechism questions;
-1,457 are multiple choice and 1,703 carry a scripture reference. Roman Catholic and Seventh-day Adventist books are
+**6,467 questions** (built 2026-10-23, the new questions below included): 3,243 Bible quiz, 902 Sunday school lesson
+and 2,322 catechism questions. **4,629 are shown**; the rest are repeats or hidden. Roman Catholic and Seventh-day Adventist books are
 left out as outside the site's doctrinal scope (owner, 2026-10-22); they stay in the corpus to mine for content later.
 
 ## What "production-ready" means here
@@ -22,8 +22,9 @@ the question is:
 The same question and answer in two banks is kept once (choices first, then a reference, then the original over a
 copy), with the other banks named in `also_in`. Everything left out, and why, is in the file's `left_out` list.
 
-**Not yet done:** the answers are as the sources printed them and have **not been fact-checked**. `standalone: false`
-marks a question that leans on the one before it ("What were their names?"); it is a best guess from the wording.
+Every shown question has been **checked against the BSB** and **grounded** (see the two sections below), and
+[question-table.csv](question-table.csv) holds all of it as one table. `standalone: false` marks a question that leans
+on the one before it ("What were their names?"); it is a best guess from the wording.
 
 ## Repeats: kept, never shown
 
@@ -52,7 +53,8 @@ for trivia), `collection`, `lesson`, `standalone`,
 `check`), `people`, `places`, `subjects` (plain topics such as "the flood" or "kings of israel"), `answer_choice` (the option that is
 right, or `null` without options), `options_by` (`source`, `claude-haiku`, `true/false`, or `null`; with ", audited by
 …" added when the audit replaced wrong choices), `hidden` (why the audit hid it, or `null`), `audit` (`verdict`, the
-fault `kinds`, `why` and `by`, or `null` if not audited).
+fault `kinds`, `why` and `by`, or `null` if not audited), `grounding` (`basis`, `strength`, `outside`, `verses`,
+`note`, `doubt`, `by`, or `null` if not grounded).
 
 **Tags are rules, not reading.** `books`, `testament` and `topic` come from fixed word lists and the references in
 [question_tags.py](../../scripts/question_tags.py): a word in the question counts three times, one in the answer once,
@@ -119,19 +121,59 @@ blindly. A hidden question stays in the official bank with `hidden` set, and if 
 repeats, the best of the rest takes its place. Every phrase in quotation marks was then compared with the BSB text
 by script, and four fixes were corrected by hand (`by` says so).
 
-As of 22 October 2026, all **821** shown questions from the Hugging Face collection are checked:
-- **479 fixed, 342 kept, none hidden.**
-- Faults found:
-  - King James wording: 255
-  - a wrong choice also right: 261
-  - a misquote or overstatement: 98
-  - a wrong answer: 38
-  - a missing or wrong reference: 49
-  - other: 131
-- The repeat check was run again on the new wording. Six fixed questions now repeat another question and are hidden
-  behind it.
+The Hugging Face collection (821 shown) was checked first, on 22 October 2026; every other collection followed on 23
+October (owner's yes). As of 23 October 2026, all **4,847** questions that were shown are checked:
+- **3,743 fixed, 1,102 kept, 2 hidden** (one about Hindu scripture; one no fair Bible question could be made from).
+- Faults found (a question can have several): a wrong choice also right 2,003; King James or other wording 814; a
+  misquote or overstatement 256; a wrong answer 246; a missing or wrong reference 2,670; other 1,252.
+- A changed answer may run up to 15% past the length limit or its own length: long catechism answers whose King James
+  quotations were replaced with the BSB's grow a little.
+- [question_audit_quotes.py](../../scripts/question_audit_quotes.py) lists every quotation of three words or more that
+  its passage does not hold word for word. Eight were corrected by hand (`by` says so: "consumed with sorrow" in
+  Matthew 26:38, "naked I will return" in Job 1:21, ...). The 52 it still lists were read and are not quotations of
+  a verse: nicknames ("the love chapter"), the catechisms' own words ("This is most certainly true"), a quotation
+  split by "he said", fill-in-the-blank questions, and the doxology of the Lord's Prayer, which the BSB gives in a
+  footnote.
+- The repeat check was run again on the new wording: fixes that put several collections' questions into the BSB's
+  words made 210 more of them repeats.
 
-The page shows **4,841** questions.
+The page shows **4,629** questions.
+
+## Where each answer comes from
+
+Owner, 23 October 2026: "either there's a verse or there isn't". [question_grounding.py](../../scripts/question_grounding.py)
+records, for every shown question, one of two bases, in [grounding.json](grounding.json):
+- **scripture**: the verses that hold the answer, "stated" when a verse says it outright, "taught" when the verses
+  teach it or it follows plainly from them (most catechism answers);
+- **outside** the Bible: the kind of knowledge that answers it instead (the Bible as a book, church teaching,
+  history, language and manuscripts, geography or nature, other), with a one-line note. "Which book comes after
+  Ruth?" is the Bible as a book; "Which book did Jesus write?" too, noting that Scripture records none.
+
+**The model never names a verse it has not read.** Each question goes to Claude Haiku with the BSB text of its own
+reference, its tagged passages, and the eight verses closest in meaning to the question and its answer, found in a
+local index of all 31,086 BSB verses (Qwen3-Embedding-4B on this PC, $0; `.local/question-grounding/`, rebuilt by
+`index`). A verse it names that was not shown is refused by the script; one it says holds the answer but was not
+among them ("missing") is sent again with that passage. Each record keeps which passages were shown and why, the
+wording it judged (a later change makes the record stale), the model and the date.
+
+As of 23 October 2026: **all 4,629 shown questions grounded**, 4,179 scripture (2,579 stated, 1,600 taught) and 450
+outside (231 the Bible as a book, 162 church teaching, 29 history, 21 language and manuscripts, 7 other or nature).
+- Claude Sonnet judged a random 100 again: the same basis in 97, and the three others were catechism answers on the
+  line between "taught" and "church teaching".
+- The model also says when the printed answer looks wrong by the verses ("doubt"). The 27 Bible quiz and lesson answers
+  it doubted were audited again with the doubt attached (`question_audit.py prepare RUN --doubts`): 22 fixed (Jehu's
+  father is Jehoshaphat, 2 Kings 9:2; Psalms are songs of praise and prayer, not "Wisdom"), 5 kept; the 7
+  such doubts still recorded are on answers that check found right. The 87
+  catechism doubts are kept as the catechisms' own teaching ("a soul that can never die" says more than the verses
+  shown) and stay listed in the table.
+- A question with no reference gets the verses read as its reference (243). In 65 the reference holds none of the
+  verses read; read one by one, the reference is right and another verse also holds the answer.
+
+## The table
+
+[question-table.csv](question-table.csv) is written by every build: one row per question, shown, repeat or hidden,
+with its wording, choices, reference, basis, verses, note, doubt, the audit's verdict, faults and reason, and which
+model did each part. It opens in Excel.
 
 ## New questions from sources that could not be used as they were
 

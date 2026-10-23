@@ -50,6 +50,7 @@ from question_tags import books_of, link_of, testament_of, topic_of  # noqa: E40
 WEBSITE = Path(__file__).resolve().parent.parent
 BANK = WEBSITE / "content" / "questions" / "question-bank.json"
 AUDIT = WEBSITE / "content" / "questions" / "audit.json"
+GROUNDING = WEBSITE / "content" / "questions" / "grounding.json"
 WORK = WEBSITE / ".local" / "question-audit"
 
 NEARBY = 2  # verses either side of a cited verse
@@ -291,8 +292,12 @@ def cleaned(before: dict) -> tuple[dict, str | None]:
     return sent, note + (" and made the reference." if sent["reference"] != before["reference"] else ".")
 
 
-def item_text(q: dict, sent: dict, note: str | None) -> str:
+def item_text(q: dict, sent: dict, note: str | None, doubt: str = "") -> str:
     lines = [f"Kind: {q['kind']} ({q['collection']})"]
+    if doubt:  # from question_grounding.py, about the wording the site shows now, which may already be a fix
+        lines += [f"As the site shows it now, after an earlier fix: {q['question']} Answer: {q['answer']}",
+                  f"A second reader doubts that answer: {doubt} Check this against the BSB text; fix the question "
+                  "only if the doubt is right, and say why either way.", ""]
     if q.get("lead_in"):
         lines.append(f"Shown first: {q['lead_in']['question']} Answer: {q['lead_in']['answer']}")
     lines += [f"Question: {sent['question']}", f"Answer: {sent['answer']}"]
@@ -309,10 +314,17 @@ def item_text(q: dict, sent: dict, note: str | None) -> str:
     return "\n".join(lines) + "\n"
 
 
-def prepare(run: str, collections: list[str], ids: list[str], sample: int, seed: int, redo: bool) -> None:
+def prepare(run: str, collections: list[str], ids: list[str], sample: int, seed: int, redo: bool,
+            doubts: bool = False) -> None:
     audit = load_audit()["questions"]
     questions = [q for q in json.loads(BANK.read_text(encoding="utf-8"))["questions"]
                  if not q.get("repeat_of") and not q.get("hidden")]
+    doubt_of = {}
+    if doubts:  # the grounding pass doubted a Bible quiz or lesson answer: audit it again with that doubt
+        doubt_of = {qid: r["doubt"] for qid, r in json.loads(GROUNDING.read_text(encoding="utf-8"))["questions"].items()
+                    if r["doubt"]}
+        questions = [q for q in questions if q["id"] in doubt_of and q["kind"] in ("trivia", "lesson")]
+        redo = True
     if ids:
         questions = [q for q in questions if q["id"] in ids]
     if collections:
@@ -337,7 +349,8 @@ def prepare(run: str, collections: list[str], ids: list[str], sample: int, seed:
         before = audit[q["id"]]["before"] if q["id"] in audit else as_sent(q)
         sent, note = cleaned(before)
         name = "q-" + re.sub(r"[^A-Za-z0-9]+", "-", q["id"])[-60:]
-        (items / f"{name}.txt").write_text(item_text(q, sent, note), encoding="utf-8", newline="\n")
+        (items / f"{name}.txt").write_text(item_text(q, sent, note, doubt_of.get(q["id"], "")), encoding="utf-8",
+                                           newline="\n")
         index[name] = q["id"]
         sent_by_name[name] = {"before": before, "sent": sent, "note": note, "collection": q["collection"]}
     save_json(folder / "index.json", {"index": index, "sent": sent_by_name})
@@ -547,6 +560,7 @@ def main() -> None:
     p.add_argument("--sample", type=int, default=0)
     p.add_argument("--seed", type=int, default=22)
     p.add_argument("--redo", action="store_true", help="also questions already in audit.json")
+    p.add_argument("--doubts", action="store_true", help="Bible quiz and lesson answers the grounding pass doubted")
     a = sub.add_parser("apply")
     a.add_argument("run")
     a.add_argument("out_dir", type=Path)
@@ -557,7 +571,7 @@ def main() -> None:
     args = parser.parse_args()
     if args.command == "prepare":
         ids = [i for i in args.ids.split(",") if i]
-        prepare(args.run, args.collection, ids, args.sample, args.seed, args.redo)
+        prepare(args.run, args.collection, ids, args.sample, args.seed, args.redo, args.doubts)
     elif args.command == "apply":
         apply(args.run, args.out_dir.resolve(), args.by, args.audit_file.resolve())
     else:

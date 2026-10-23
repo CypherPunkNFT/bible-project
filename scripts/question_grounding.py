@@ -51,7 +51,8 @@ Decide:
 - "scripture" if a verse among those shown holds the answer. List those verses in "verses" ("Luke 5:8",
   "Gen 6:13-14"), only verses whose text is shown below, the fewest that hold it. "strength" is "stated" when a verse
   says it outright, "taught" when the verses teach it or it follows plainly from them (a catechism answer drawn from
-  its proof texts, the number of plagues counted from the account).
+  its proof texts, the number of plagues counted from the account). Look first at the question's own reference: if
+  its verses hold the answer, list them, and add others only where they hold a part it does not.
 - "outside" if no verse holds the answer, because it comes from history, the study of the Bible's languages and
   manuscripts, facts about the Bible as a book (its order, its divisions, who is held to have written it, copies
   sold), church teaching that goes beyond what the verses say, geography or nature, or something else. Put the kind
