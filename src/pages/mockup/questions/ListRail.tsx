@@ -68,6 +68,13 @@ export function ListRail({ bank, facets, filters, choice, members, update, choos
       const books = span(s.from, s.to), codes = new Set(books.map((b) => b.code));
       const n = facets.anyBook.reduce((sum, i) => sum + (bank.questions[i].books.some((c) => codes.has(c)) ? 1 : 0), 0);
       const hasChoice = codes.has(choice.book);
+      // A section of one book (Revelation) is chosen straight from its row, not opened (owner, 2026-10-23).
+      if (books.length === 1) return <div key={s.label} className={`qx-drawer is-single${hasChoice ? " has-choice" : ""}`} style={{ "--tone": `var(--${books[0].section})` } as CSSProperties}>
+        <button type="button" className="qx-drawer-head" aria-pressed={hasChoice} aria-label={hasChoice ? `${s.label}, chosen: remove` : undefined} onClick={() => choose({ book: hasChoice ? "" : books[0].code })}>
+          <span className="qx-drawer-dot" aria-hidden /><span>{s.label}</span><small>{n.toLocaleString()}</small>
+          <span className="qx-drawer-chev" aria-hidden>{hasChoice && <X size={15} strokeWidth={1.9} />}</span>
+        </button>
+      </div>;
       return <Drawer key={s.label} id={`b-${s.label}`} title={s.label} tone={`var(--${books[0]?.section})`} count={n} open={open.has(`b-${s.label}`)} chosen={hasChoice} toggle={toggle}>
         <ChoiceList items={books.map((b: BankBook) => ({ id: b.code, title: b.name, n: facets.bookCount.get(b.code) ?? 0 }))} selected={choice.book} onChoose={(book) => choose({ book })} />
       </Drawer>;
