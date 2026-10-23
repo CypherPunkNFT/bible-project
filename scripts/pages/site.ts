@@ -30,7 +30,7 @@ async function area(): Promise<PageContent> {
   return { dir: "Site", title: "Site: shared parts", markdown: blocks(
     "Every page except the three genealogy mock-ups (/mock/…) is drawn inside the same frame: the header with the main menu at the top, and the footer at the bottom.",
     "## Header",
-    `A thin strip in the reading chart's colours, then the "Bible Project" name and logo (opens ${link("/")}), the main menu, a divider, ${community.label}, and at the right a search button (opens ${link("/search")}) and the light/dark switch. A hidden "Skip to content" link comes first for keyboard users. On narrow screens the menu shows icons only.`,
+    `A thin strip in the reading chart's colours, then the "Bible Guide" name and logo (opens ${link("/")}), the main menu, a divider, ${community.label}, and at the right a search button (opens ${link("/search")}) and the light/dark switch. A hidden "Skip to content" link comes first for keyboard users. On narrow screens the menu shows icons only.`,
     table(["Menu item", "Opens", "Also highlighted on"], [...menu.map((item) => [item.label, link(item.to), item.to === "/bible" ? "/read/… and /library" : item.to === "/study" ? "every /study page except the atlas" : ""]), [community.label, link(community.to), "(after the divider, in the accent colour)"]]),
     "The theme switch: a sun or moon in a sliding switch, with the tooltip \"Switch to dark theme\" or \"Switch to light theme\"; the choice is remembered in this browser.",
     "## Footer",

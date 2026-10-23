@@ -120,7 +120,7 @@ export default function HymnPage() {
   useEffect(() => {
     const old = document.title;
     const title = full ? full.firstLine.replace(/[,;:]$/, "") : hymn ? firstLine(hymn) : "A hymn";
-    document.title = `${title} · Hymns · Bible Project`;
+    document.title = `${title} · Hymns · Bible Guide`;
     return () => { document.title = old; };
   }, [hymn, full]);
   useEffect(() => { window.scrollTo(0, 0); }, [id]);

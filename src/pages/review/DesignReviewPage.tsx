@@ -28,7 +28,7 @@ function useNoIndex() {
     meta.content = "noindex, nofollow";
     document.head.appendChild(meta);
     const title = document.title;
-    document.title = "Design review · Bible Project";
+    document.title = "Design review · Bible Guide";
     return () => { meta.remove(); document.title = title; };
   }, []);
 }

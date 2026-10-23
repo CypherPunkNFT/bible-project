@@ -79,7 +79,7 @@ export function readingArtifacts(root: string, studies: ContentDocument[]) {
   for (const work of library.works) {
     markdown.push(`## ${work.title}`, `**${work.authorIds.map((id) => library.authors.find((a) => a.id === id)!.name).join("; ")}** · ${work.era} · ${work.depth}`, work.summary, `Start here: ${work.startingPoint}`, ...work.cautions.map((c) => `Reading note: ${c}`));
     for (const edition of work.editions) markdown.push(`### ${edition.label}`, `${edition.languages.join(", ")} · ${edition.abridgment}`, ...edition.links.map((link) => `[Read at ${link.host}](${link.url})`), `${edition.textRights.jurisdiction}: ${edition.textRights.scope}`, edition.textRights.basis);
-    markdown.push(`Related guides: ${work.studyIds.map((id) => `[${studies.find((d) => d.kind === "study" && d.id === id)!.content.title}](https://bibleproject.io/apologetics/study/${id})`).join(" · ")}`);
+    markdown.push(`Related guides: ${work.studyIds.map((id) => `[${studies.find((d) => d.kind === "study" && d.id === id)!.content.title}](https://bibleguide.io/apologetics/study/${id})`).join(" · ")}`);
   }
   return new Map([
     ["src/generated/reading-library.ts", '// Generated from content/library. Do not edit.\nimport type { ReadingLibrary } from "../data/reading-library-types";\nexport const REFORMED_LIBRARY: ReadingLibrary = ' + JSON.stringify(library, null, 2) + ';\n'],

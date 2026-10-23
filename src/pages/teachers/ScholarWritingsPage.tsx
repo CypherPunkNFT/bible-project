@@ -9,8 +9,8 @@ export default function ScholarWritingsPage() {
   const query = params.get("q") ?? "", category = params.get("category") ?? "";
   const valid = id === collection.id;
   useEffect(() => {
-    document.title = valid ? `${collection.name} · Writings · Bible Project` : "Collection not found · Bible Project";
-    return () => { document.title = "Bible Project"; };
+    document.title = valid ? `${collection.name} · Writings · Bible Guide` : "Collection not found · Bible Guide";
+    return () => { document.title = "Bible Guide"; };
   }, [valid]);
   const visible = useMemo(() => {
     const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);

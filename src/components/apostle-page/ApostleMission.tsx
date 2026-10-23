@@ -51,7 +51,7 @@ function ApostleMission({ id }: { id: string }) {
 
   useLayoutEffect(() => {
     if (!d) return;
-    document.title = `${d.name} · Apostles · Bible Project`;
+    document.title = `${d.name} · Apostles · Bible Guide`;
     const place = takePlace();
     if (!place) { setPlaced(true); return; }
     // The site's layout scrolls to the top on every new address after this runs; restore the place just after it.

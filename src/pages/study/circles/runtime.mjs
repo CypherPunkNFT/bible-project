@@ -48,7 +48,7 @@ function frame(){app.classList.toggle('leader-view',!!leaderId);const c=category
  $('#breadcrumb').innerHTML=`<a href="/study">Study</a><span>/</span><a href="${urlFor(studyId)}">Circles of study</a>${p?`<span>/</span><span>${esc(p.name)}</span>`:''}`;
  $('#hero-kicker').textContent=p?p.kind.toUpperCase():'THE STUDY LIBRARY';$('#hero-title').innerHTML=p?esc(p.name):'Circles of <em>study.</em>';
  $('#hero-line').textContent=p?(p.line||'Explore the works, follow their dates, and return to the studies they shape.'):'Begin with a subject. Follow the works that deepen it.';
- document.title=(p?p.name+' · Works':'Circles of study')+' · Bible Project';
+ document.title=(p?p.name+' · Works':'Circles of study')+' · Bible Guide';
  $('#categories').innerHTML=categories.map(c=>`<button class="category-card" style="--tone:${c.tone}" data-category="${c.id}" aria-pressed="${c.id===category().id}">${icon(c.icon,'category-icon')}<span class="category-arrow">↗</span><strong>${esc(c.label)}</strong><small>${studies.filter(s=>s.category===c.id).length} subjects · ${esc(c.tag)}</small></button>`).join('');
  $('#collection-heading').innerHTML=p?`<div class="collection-mark">${icon('orbit')}</div><div><p class="eyebrow">PROMINENT WORKS &amp; SELECTED SERMONS</p><h2>A life in <em>words.</em></h2></div>`:`<div class="collection-mark">${icon(c.icon)}</div><div><p class="eyebrow">CIRCLES OF STUDY</p><h2>${esc(c.label)}</h2></div>`;
  $('#subcategories').innerHTML=studies.filter(s=>s.category===c.id).map(s=>`<button data-study="${s.id}" aria-current="${s.id===studyId}">${esc(s.label)}</button>`).join('');

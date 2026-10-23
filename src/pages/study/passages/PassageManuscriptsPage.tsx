@@ -39,8 +39,8 @@ class Section extends Component<{ id: string; extra?: string; children: ReactNod
 export default function PassageManuscriptsPage() {
   const collection = useAsync(loadManuscripts, "manuscripts/collection");
   useEffect(() => {
-    document.title = "A passage through the manuscripts · Study · Bible Project";
-    return () => { document.title = "Bible Project"; };
+    document.title = "A passage through the manuscripts · Study · Bible Guide";
+    return () => { document.title = "Bible Guide"; };
   }, []);
   if (collection.status !== "ready") return <PageStatus error={collection.status === "error" ? collection.error as Error : null} />;
   return <Page data={collection.value} />;

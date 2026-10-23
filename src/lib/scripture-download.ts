@@ -23,7 +23,7 @@ export function scriptureText(catalog: Catalog, version: Translation, books: Pla
     `${version.name} (${version.abbr})`,
     `Edition: ${version.year} | Language: ${version.lang}`,
     "Source: eBible.org — https://ebible.org/",
-    "Free download from Bible Project. All books available in this site's edition are included.",
+    "Free download from Bible Guide. All books available in this site's edition are included.",
     "UTF-8 plain verse text; introductions, headings, footnotes and formatting are omitted.",
     ...(credit ? [credit.text, credit.url, `${credit.licence}: ${credit.licenceUrl}`, credit.changes] : [
       version.slug === "kjv"

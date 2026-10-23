@@ -12,7 +12,7 @@ type Status = { state: "idle" | "sending" | "sent" } | { state: "error"; message
 function pageTitle(): string {
   // innerText keeps the space a <br> makes ("The whole Bible,<br>chapter by chapter").
   const heading = document.querySelector<HTMLElement>("main h1, h1")?.innerText?.replace(/\s+/g, " ").trim();
-  return (heading || document.title.replace(/\s*[·|–—-]\s*Bible Project\s*$/i, "")).trim().slice(0, 200);
+  return (heading || document.title.replace(/\s*[·|–—-]\s*Bible Guide\s*$/i, "")).trim().slice(0, 200);
 }
 
 /**

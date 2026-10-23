@@ -15,7 +15,7 @@ import "./fellowships/fellowships.css";
 
 export default function FellowshipsPage({ data }: { data: FellowshipsData }) {
   const info = sectionBySlug("fellowships");
-  useEffect(() => { document.title = `${info.title} · Resources · Bible Project`; return () => { document.title = "Bible Project"; }; }, [info.title]);
+  useEffect(() => { document.title = `${info.title} · Resources · Bible Guide`; return () => { document.title = "Bible Guide"; }; }, [info.title]);
   const places = useResource("fellowship-cities");
   const cities = useMemo(() => (typeof places === "object" ? places.cities.filter((c) => c.places.length > 0 && hasCityFiles(c.id)) : []), [places]);
   const all = data.groups.flatMap((g) => g.entries);

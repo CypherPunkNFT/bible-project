@@ -26,7 +26,7 @@ export default function ReadingSourcePage() {
     }).catch(e => { if (!abort.signal.aborted) setError(e.message); });
     return () => abort.abort();
   }, [id, search]);
-  useEffect(() => { document.title = source ? `${source.title} · Bible Project` : "Source record · Bible Project"; }, [source]);
+  useEffect(() => { document.title = source ? `${source.title} · Bible Guide` : "Source record · Bible Guide"; }, [source]);
   const chapters = [...new Set(Object.keys(text).map(k => k.split(/[.:]/)[0]))].sort((a,b) => Number(a)-Number(b));
   const isQuran = source?.basis === "quran-pickthall";
   return <main className="tp-page acq-reader"><nav className="acq-breadcrumb"><Link to="/apologetics/sources">Apologetics sources</Link><Link to="/teachers/works">Acquired library</Link></nav>

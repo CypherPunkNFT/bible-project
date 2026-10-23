@@ -101,7 +101,7 @@ function DocumentCard({ entry, featured=false, number }: { entry: Entry; feature
 export default function CreedsPage() {
   const index=useAsync(loadCreedsIndex,"creeds-index");
   const [params,setParams]=useSearchParams();
-  useEffect(()=>{document.title="Catechisms & Creeds · Study · Bible Project";return()=>{document.title="Bible Project";};},[]);
+  useEffect(()=>{document.title="Catechisms & Creeds · Study · Bible Guide";return()=>{document.title="Bible Guide";};},[]);
   if(index.status==="loading") return <div className="mx-auto max-w-7xl px-4 py-10"><p className="font-serif text-muted">Opening the collection…</p></div>;
   if(index.status==="error") return <div className="mx-auto max-w-7xl px-4 py-10"><StudyBackLink/><h1>Catechisms &amp; Creeds</h1><p>This collection could not be loaded. Please try again.</p></div>;
   const {families,counts,sources,scripture}=index.value;

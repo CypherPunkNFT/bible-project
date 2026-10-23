@@ -32,7 +32,7 @@ const SECTIONS = [
 
 export default function PreachersPage() {
   const { data, error } = usePeopleData();
-  useEffect(() => { document.title = "Preachers & authors · Teachers · Bible Project"; return () => { document.title = "Bible Project"; }; }, []);
+  useEffect(() => { document.title = "Preachers & authors · Teachers · Bible Guide"; return () => { document.title = "Bible Guide"; }; }, []);
   return data ? <Loaded data={data} /> : <PageStatus error={error} />;
 }
 

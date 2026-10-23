@@ -36,7 +36,7 @@ class StudyPaths(unittest.TestCase):
             b=books[r['bookCode']];self.assertTrue(1<=r['firstVerse']<=r['lastVerse']<=b['chapters'][r['chapter']-1])
             self.assertEqual(r['start'],b['num']*1000000+r['chapter']*1000+r['firstVerse'])
             self.assertEqual(r['end'],b['num']*1000000+r['chapter']*1000+r['lastVerse'])
-            self.assertEqual(r['url'],f"https://bibleproject.io/read/kjv/{b['code']}/{r['chapter']}?v={r['firstVerse']}")
+            self.assertEqual(r['url'],f"https://bibleguide.io/read/kjv/{b['code']}/{r['chapter']}?v={r['firstVerse']}")
 
     def test_qualified_attributed_recommendations(self):
         authors={a['id']:a for a in read(LIB/'authors.json')['authors']}

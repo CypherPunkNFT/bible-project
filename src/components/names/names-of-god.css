@@ -102,7 +102,7 @@
 .names-mockup-footer a { display: inline-flex; align-items: center; gap: 8px; color: #c6c8cd; text-decoration: none; }
 @media (max-width: 760px) { .names-mockup-header { display: block; } .names-mockup-intro { margin-top: 28px; } .names-mockup-index a { gap: 7px; padding-inline: 4px; font-size: .55rem; } .names-mockup-index a + a { padding-left: 8px; } .names-pillar { padding-block: 14px 6px; } .names-mockup-footer { gap: 16px; flex-direction: column; } }
 
-/* ---- Fitted into the Bible Project site (owner, 2026-10-03): our page background, our title and our light/dark
+/* ---- Fitted into the Bible Guide site (owner, 2026-10-03): our page background, our title and our light/dark
    colours around the Faith page's word fields. The three name colours are shared tokens, so the list below the
    words (study/NamesPage) uses exactly the same gold, blue and green. ---- */
 :root {

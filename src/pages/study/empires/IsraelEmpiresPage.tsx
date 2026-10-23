@@ -32,7 +32,7 @@ export default function IsraelEmpiresPage() {
   const [showEvidence,setShowEvidence]=useState(false);
   const evidenceOrigin=useRef<HTMLButtonElement>(null);
   function closeEvidence(){setShowEvidence(false);requestAnimationFrame(()=>{const el=evidenceOrigin.current;if(!el)return;el.focus({preventScroll:true});const r=el.getBoundingClientRect();if(r.top<85||r.bottom>innerHeight)el.scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});});}
-  useEffect(()=>{const old=document.title;document.title='Israel among the empires · Bible Project';return()=>{document.title=old;};},[]);
+  useEffect(()=>{const old=document.title;document.title='Israel among the empires · Bible Guide';return()=>{document.title=old;};},[]);
   function select(i:number){const next=new URLSearchParams(params);next.set('period',periods[i].id);setParams(next,{replace:true,preventScrollReset:true});}
   const x=(date:number)=>(950-date)/500*100;
   return <div className="ie-study study-frame">

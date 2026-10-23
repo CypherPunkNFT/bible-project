@@ -233,7 +233,7 @@ function cover(book) {
   return `<section class="page bare front cover"><div class="box"><div class="run"></div><div class="body" style="display:flex;flex-direction:column;justify-content:space-between">
 <div><div class="label kicker">Learning materials · Workbook</div><h1>${esc(book.title)}</h1><div class="sub">${esc(book.subtitle)}</div><div class="rule"></div><div class="tag">${esc(book.tagline)}</div></div>
 <div class="art">${coverArt()}</div>
-<div class="foot"><div class="label">${book.sessions.length} sessions · King James Version</div><div class="fine">Bible Project · Questions written by this site · Checked against the text ${esc(book.checked)}</div></div>
+<div class="foot"><div class="label">${book.sessions.length} sessions · King James Version</div><div class="fine">Bible Guide · Questions written by this site · Checked against the text ${esc(book.checked)}</div></div>
 </div><div class="folio"></div></div></section>`;
 }
 

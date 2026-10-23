@@ -162,7 +162,7 @@ export async function citiesMarkdown({ places }: PlacesData, header: Experience)
     parts.push(
       `### ${collection.title}`,
       "",
-      `*${collection.subtitle}.* ${collection.description} Passage: [${collection.passage.label}](https://bibleproject.io${collection.passage.path}).`,
+      `*${collection.subtitle}.* ${collection.description} Passage: [${collection.passage.label}](https://bibleguide.io${collection.passage.path}).`,
       "",
       table(["City", "Subtitle", "Atlas place", "Verses"], collection.cities.map((city) => {
         const place = resolveCityPlace(places, city);
@@ -174,7 +174,7 @@ export async function citiesMarkdown({ places }: PlacesData, header: Experience)
   parts.push("## City notes (written for the Seven Churches only)", "", "Every other city shows its subtitle and its verse list.", "");
   for (const [id, detail] of Object.entries(CITY_DETAILS)) {
     const title = CITY_COLLECTIONS.flatMap((collection) => collection.cities).find((city) => city.id === id)?.title ?? id;
-    parts.push(`### ${title}`, "", `- **${detail.churchTitle}** ([${detail.passage.label}](https://bibleproject.io${detail.passage.path})): ${detail.church}`, `- **The city:** ${detail.city}`, "");
+    parts.push(`### ${title}`, "", `- **${detail.churchTitle}** ([${detail.passage.label}](https://bibleguide.io${detail.passage.path})): ${detail.church}`, `- **The city:** ${detail.city}`, "");
   }
   parts.push(
     "## Find Your City (/study/atlas/cities/find)",

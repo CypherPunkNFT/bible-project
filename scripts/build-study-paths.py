@@ -203,7 +203,7 @@ def build():
         return dict(reference=f'{book} {ch}:{start}–{end}',bookCode=b['code'],chapter=ch,
             firstVerse=start,lastVerse=end,start=b['num']*1000000+ch*1000+start,
             end=b['num']*1000000+ch*1000+end,
-            url=f"https://bibleproject.io/read/kjv/{b['code']}/{ch}?v={start}",
+            url=f"https://bibleguide.io/read/kjv/{b['code']}/{ch}?v={start}",
             why=why,selection='editorial-assignment',endpointVerification='existing KJV canon index')
     def step(title,purpose,refs,sermonKey,sermonWhy,readingKey,readingWhy,question,practice):
         return dict(title=title,purpose=purpose,scripture=[scripture(*r) for r in refs],

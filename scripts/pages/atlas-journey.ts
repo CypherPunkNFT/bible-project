@@ -20,7 +20,7 @@ export async function paulJourneyMarkdown(): Promise<string> {
   const chapterBlock = (chapter: JourneyChapter, i: number, lens: string) => [
     `#### ${i + 1}. ${chapter.title}${chapter.years ? ` · AD ${chapter.years[0]}–${chapter.years[1]}` : ""}`,
     "",
-    `Opens at [/study/atlas/journeys?focus=paul&lens=${lens}&chapter=${chapter.id}](https://bibleproject.io/study/atlas/journeys?focus=paul&lens=${lens}&chapter=${chapter.id}). ${chapter.route ? "The route is drawn dashed: the way between stops is reconstructed." : "No route line: the places are pins, not a journey."}`,
+    `Opens at [/study/atlas/journeys?focus=paul&lens=${lens}&chapter=${chapter.id}](https://bibleguide.io/study/atlas/journeys?focus=paul&lens=${lens}&chapter=${chapter.id}). ${chapter.route ? "The route is drawn dashed: the way between stops is reconstructed." : "No route line: the places are pins, not a journey."}`,
     "",
     chapter.summary,
     "",

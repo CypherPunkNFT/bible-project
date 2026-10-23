@@ -35,8 +35,8 @@ const SECTIONS = [["shelf", Shelf], ["evidence", Evidence], ["trail", Trail], ["
 
 export default function CanonPage() {
   useEffect(() => {
-    document.title = "The canon takes shape · Bible Project";
-    return () => { document.title = "Bible Project"; };
+    document.title = "The canon takes shape · Bible Guide";
+    return () => { document.title = "Bible Guide"; };
   }, []);
   const [sheet, setSheet] = useState<{ opened: Opened | null; open: boolean }>({ opened: null, open: false });
   const returnFocus = useRef<HTMLElement | SVGElement | null>(null), justOpened = useRef(false);

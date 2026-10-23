@@ -1,6 +1,6 @@
 // The link-preview (Open Graph) image designs: 1200 × 630, the site's own fonts, colours and artwork, light mode.
 // Development only (og.html); the chosen one is photographed at 1× into public/ by scripts/og-image.mjs.
-// Round 2 (owner 2026-10-08): for texts, "Bible Project" really big and one striking drawing: the God family drawing
+// Round 2 (owner 2026-10-08): for texts, "Bible Guide" really big and one striking drawing: the God family drawing
 // from the Study page's Topics card (two orbits, the sun's rays, the Trinity triangle), without the floating words.
 import { useLayoutEffect, useRef } from "react";
 import { TopicsArtwork } from "@/pages/topics/TopicsArtwork";
@@ -21,7 +21,7 @@ function Radiant() {
   return <div className="og-card og-radiant">
     <div className="og-glow" />
     <div className="og-r-art"><Sun /></div>
-    <div className="og-r-name"><Logo /><h1>Bible Project</h1></div>
+    <div className="og-r-name"><Logo /><h1>Bible Guide</h1></div>
   </div>;
 }
 
@@ -71,7 +71,7 @@ function FreeOpen() {
       {CROSSES.map((x) => <path key={x} d={`M${x} 280V400M${x - 34} 316H${x + 34}`} stroke="currentColor" strokeWidth="6" />)}
       {STARS.map(([x, y, r]) => <path key={`${x},${y}`} d={sparkle(x, y, r)} fill="currentColor" opacity={r > 12 ? 0.85 : 0.6} />)}
     </svg>
-    <div className="og-f-name"><Logo /><h1>Bible Project</h1></div>
+    <div className="og-f-name"><Logo /><h1>Bible Guide</h1></div>
     <div className="og-f-art"><Sun /></div>
     <p className="og-f-line" ref={line}>The whole Bible, <em>free and open to all.</em></p>
   </div>;
@@ -81,7 +81,7 @@ function FreeOpen() {
 function Sunrise() {
   return <div className="og-card og-sunrise">
     <div className="og-glow og-glow-low" />
-    <div className="og-s-name"><Logo /><h1>Bible Project</h1></div>
+    <div className="og-s-name"><Logo /><h1>Bible Guide</h1></div>
     <div className="og-s-art"><Sun /></div>
   </div>;
 }

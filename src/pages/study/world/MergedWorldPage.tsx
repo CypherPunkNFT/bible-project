@@ -25,7 +25,7 @@ export default function MergedWorldPage() {
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const sceneTitle = useRef<HTMLHeadingElement>(null);
   const gov = governments[government];
-  useEffect(() => { const previous = document.title; document.title = 'The world of Jesus & the apostles · Bible Project'; return () => { document.title = previous; }; }, []);
+  useEffect(() => { const previous = document.title; document.title = 'The world of Jesus & the apostles · Bible Guide'; return () => { document.title = previous; }; }, []);
   useEffect(() => {
     if (location.hash !== '#world-investigation') return;
     const frame = requestAnimationFrame(() => document.getElementById('world-investigation')?.scrollIntoView({ block: 'start', behavior: 'instant' }));

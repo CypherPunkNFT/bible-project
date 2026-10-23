@@ -31,7 +31,7 @@ export default function DiscoveriesPage() {
   const objectIndex = dossier.objects.indexOf(object);
   const previousObject = dossier.objects[(objectIndex + dossier.objects.length - 1) % dossier.objects.length];
   const nextObject = dossier.objects[(objectIndex + 1) % dossier.objects.length];
-  useEffect(() => { const old = document.title; document.title = 'From discovery to history · Bible Project'; return () => { document.title = old; }; }, []);
+  useEffect(() => { const old = document.title; document.title = 'From discovery to history · Bible Guide'; return () => { document.title = old; }; }, []);
   const select = (id: string) => { const next = new URLSearchParams(params); next.set('object',id); setParams(next,{replace:true,preventScrollReset:true}); };
   return <div className="dr-study study-frame">
     <header className="dv-landing"><div><StudyTrail area="history" n="06"/><p className="dr-kicker">Reading archaeology, inscriptions and the biblical record</p><h1>From discovery<br/><em>to history.</em></h1><p className="dv-lead">The object survives.<br/>The argument begins.</p><p className="dv-intro">How does a surviving object become a historical conclusion? Learn to distinguish preserved wording from restored letters, an excavated sequence from a calendar date, and a useful parallel from direct attestation. Six discoveries provide worked examples of how historians read evidence relating to the biblical world.</p><a className="dv-start" href="#lachish-comparison">Begin with a worked example <ArrowDown size={17}/></a></div><DiscoveryLandingArt/></header>

@@ -39,7 +39,7 @@ function ContactForm() {
   const [status, setStatus] = useState<Status>({ state: "idle" });
 
   function openMailApp() {
-    const subject = name.trim() ? `Message from ${name.trim()}` : "Message from the Bible Project site";
+    const subject = name.trim() ? `Message from ${name.trim()}` : "Message from the Bible Guide site";
     window.location.href = `mailto:${CONTACT_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message.trim())}`;
   }
 

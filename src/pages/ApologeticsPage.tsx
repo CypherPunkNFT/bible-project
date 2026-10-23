@@ -27,8 +27,8 @@ export default function ApologeticsPage() {
   useEffect(() => {
     const [, , section, id] = location.pathname.split("/");
     const title = section === "texts" ? "Historic Reformed texts" : section === "study" ? studyById(id)?.title : section === "topics" ? topicById(id)?.title : section === "paths" ? PATHS.find((path) => path.id === id)?.title : section === "worldviews" ? WORLDVIEWS.find((worldview) => worldview.id === id)?.title : section === "debates" ? (id ? DEBATES.find((debate) => debate.id === id)?.title : "Debates") : undefined;
-    document.title = [title, "Apologetics", "Bible Project"].filter(Boolean).join(" · ");
-    return () => { document.title = "Bible Project"; };
+    document.title = [title, "Apologetics", "Bible Guide"].filter(Boolean).join(" · ");
+    return () => { document.title = "Bible Guide"; };
   }, [location.pathname]);
   useEffect(() => {
     if (!location.hash) return;

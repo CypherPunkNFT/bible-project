@@ -13,7 +13,7 @@ interface ShellProps { slug: ResourceSection["slug"]; lead: ReactNode; stats?: [
 
 export function ResourceShell({ slug, lead, stats, note, top, children }: ShellProps) {
   const info = sectionBySlug(slug);
-  useEffect(() => { document.title = `${info.title} · Resources · Bible Project`; return () => { document.title = "Bible Project"; }; }, [info.title]);
+  useEffect(() => { document.title = `${info.title} · Resources · Bible Guide`; return () => { document.title = "Bible Guide"; }; }, [info.title]);
   return <div className="tl-page rs-page mx-auto max-w-7xl px-4 sm:px-6" style={{ "--door": `var(--${info.color})` } as CSSProperties}>
     {top}
     <ResourceCrumbs slug={slug} />

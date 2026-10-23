@@ -8,7 +8,7 @@ import { wordingList } from "./site-source";
 import type { PageContent } from "./types";
 
 const PAGE = "src/pages/TestimoniesPage.tsx";
-const API = "https://bibleproject.io/api/testimonies/";
+const API = "https://bibleguide.io/api/testimonies/";
 
 /** How many stories the live site shows, from its public branch and map addresses; null if the site cannot be reached. */
 async function published(): Promise<{ total: number; pins: number } | null> {

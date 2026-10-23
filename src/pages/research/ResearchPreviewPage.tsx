@@ -34,8 +34,8 @@ export default function ResearchPreviewPage() {
     if (!data) return;
     const id = location.pathname.split("/").at(-1);
     const title = data.cases.find(p => p.id === id)?.title ?? data.lessons.find(p => p.id === id)?.title ?? data.sources.find(p => p.id === id)?.title ?? data.contributors.find(p => p.id === id)?.name ?? data.title;
-    document.title = title + " · Bible Project";
-    return () => { document.title = "Bible Project"; };
+    document.title = title + " · Bible Guide";
+    return () => { document.title = "Bible Guide"; };
   }, [location.pathname, data]);
   if (!local || state === "missing") return <NotFoundPage />;
   if (!data) return <p className="rs-loading" role="status">Loading the readings…</p>;

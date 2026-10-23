@@ -36,7 +36,7 @@ function topicBrowser(index: TopicIndex): string {
   const rows = [...TOPIC_SECTIONS.map((section) => ({ title: section.title, ids: section.categories })), { title: "More topics", ids: index.categories.filter((c) => !placed.has(c.id)).map((c) => c.id) }]
     .filter((row) => row.ids.some((id) => byId.has(id)));
   return blocks(`**Or browse by topic** · "${n(Object.keys(index.topics).length)} topics in ${index.categories.length} families, each with the passages that speak to it." The Topics page's own section rows, card for card:`,
-    table(["Section", "Families (topics in each)"], rows.map((row) => [row.title, row.ids.flatMap((id) => byId.get(id) ?? []).map((c) => `[${c.title}](https://bibleproject.io${categoryUrl(c.id)}) (${topicCount(c)})`).join(" · ")])));
+    table(["Section", "Families (topics in each)"], rows.map((row) => [row.title, row.ids.flatMap((id) => byId.get(id) ?? []).map((c) => `[${c.title}](https://bibleguide.io${categoryUrl(c.id)}) (${topicCount(c)})`).join(" · ")])));
 }
 
 async function landing(versions: number, pack: Pack | null, index: TopicIndex): Promise<string> {

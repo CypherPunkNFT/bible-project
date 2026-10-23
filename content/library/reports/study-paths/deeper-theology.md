@@ -14,7 +14,7 @@ Read Scripture first, then the assigned sermon selection and substantial reading
 
 Establish whose work bears the weight of reconciliation.
 
-**Scripture:** [2 Corinthians 5:14–21](https://bibleproject.io/read/kjv/2CO/5?v=14). Read verse 21 within Paul’s ministry-of-reconciliation argument.
+**Scripture:** [2 Corinthians 5:14–21](https://bibleguide.io/read/kjv/2CO/5?v=14). Read verse 21 within Paul’s ministry-of-reconciliation argument.
 
 **Sermon:** Charles Haddon Spurgeon, [Christ Our Substitute](https://www.spurgeongems.org/sermon/chs310.pdf#page=2). Sermon excerpt, PDF pages 2–3.
 
@@ -36,7 +36,7 @@ Supplies a longer exegetical argument after the sermon’s explanation.
 
 Clarify a change in standing before God and a change within the believer.
 
-**Scripture:** [Romans 4:1–8](https://bibleproject.io/read/kjv/ROM/4?v=1). Examine Paul’s use of Abraham, faith and the forgiveness of sins.
+**Scripture:** [Romans 4:1–8](https://bibleguide.io/read/kjv/ROM/4?v=1). Examine Paul’s use of Abraham, faith and the forgiveness of sins.
 
 **Sermon:** Charles Haddon Spurgeon, [Justification by Grace](https://www.spurgeongems.org/sermon/chs126.pdf#page=4). Sermon excerpt, PDF page 4.
 
@@ -58,7 +58,7 @@ Explains the declarative character of justification while distinguishing it from
 
 Test whether your account can take James’s warning seriously.
 
-**Scripture:** [James 2:14–26](https://bibleproject.io/read/kjv/JAS/2?v=14). Follow James’s examples and his contrast between dead and living faith.
+**Scripture:** [James 2:14–26](https://bibleguide.io/read/kjv/JAS/2?v=14). Follow James’s examples and his contrast between dead and living faith.
 
 **Sermon:** Charles Haddon Spurgeon, [Faith and Repentance Inseparable](https://www.spurgeongems.org/sermon/chs460.pdf#page=1). Sermon excerpt, PDF pages 1–2.
 

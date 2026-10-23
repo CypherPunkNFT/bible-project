@@ -71,7 +71,7 @@ export default function ParablesPage() {
   const matches = searchParables(query);
   const visible = matches.filter(p=>room==='all'||p.room===room);
   const outsideCount = matches.length-visible.length;
-  useEffect(()=>{ document.title='The parables of Christ · Bible Project'; },[]);
+  useEffect(()=>{ document.title='The parables of Christ · Bible Guide'; },[]);
   function selectStory(id: string, scroll = true) {
     const matchedPassage = findSearchPassage(PARABLES.find(p=>p.id===id)!,query);
     updateLocation({parable:id,passage:matchedPassage?accountKey(matchedPassage):null,moment:null});

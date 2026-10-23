@@ -8,7 +8,7 @@ import type { Catalog } from "../../src/lib/types";
 
 export const WEBSITE = path.resolve(import.meta.dirname, "..", "..");
 export const SRC = path.join(WEBSITE, "src");
-export const SITE = "https://bibleproject.io";
+export const SITE = "https://bibleguide.io";
 
 export type Span = [number, number];
 

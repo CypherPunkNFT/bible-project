@@ -66,7 +66,7 @@ function useStationFigures(): [string, string | number][] {
 }
 
 function Station() {
-  useEffect(() => { document.title = "Resources · Bible Project"; return () => { document.title = "Bible Project"; }; }, []);
+  useEffect(() => { document.title = "Resources · Bible Guide"; return () => { document.title = "Bible Guide"; }; }, []);
   return <div className="st-page mx-auto max-w-7xl px-4 sm:px-6">
     <header className="st-hero">
       <div><p className="st-kick">Resources</p><h1>Help for the road,<br /><span>close at hand.</span></h1></div>

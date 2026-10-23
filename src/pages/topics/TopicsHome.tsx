@@ -110,7 +110,7 @@ export function TopicsHome({ index }: { index: TopicIndex }) {
           </section>
         )}
 
-        <div className="topics-note"><span><BookOpen size={16} aria-hidden />Topics, points and references: R. A. Torrey, The New Topical Textbook (1897), and Orville J. Nave, Nave's Topical Bible (1896/1903); articles: M. G. Easton, Illustrated Bible Dictionary (1897); all public domain. Families and groups by the Bible Project.</span><Link to="/search">Search everything <ArrowUpRight size={14} aria-hidden /></Link></div>
+        <div className="topics-note"><span><BookOpen size={16} aria-hidden />Topics, points and references: R. A. Torrey, The New Topical Textbook (1897), and Orville J. Nave, Nave's Topical Bible (1896/1903); articles: M. G. Easton, Illustrated Bible Dictionary (1897); all public domain. Families and groups by the Bible Guide.</span><Link to="/search">Search everything <ArrowUpRight size={14} aria-hidden /></Link></div>
       </div>
     </div>
   );

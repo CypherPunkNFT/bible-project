@@ -40,7 +40,7 @@ export default function TeacherList({ info }: { info: SectionInfo }) {
   const [shown, setShown] = useState({ key: filterKey, count: PAGE });
   const count = shown.key === filterKey ? shown.count : PAGE;
   const [open, setOpen] = useState<string[]>([]);
-  useEffect(() => { document.title = `${info.title} · Teachers · Bible Project`; return () => { document.title = "Bible Project"; }; }, [info.title]);
+  useEffect(() => { document.title = `${info.title} · Teachers · Bible Guide`; return () => { document.title = "Bible Guide"; }; }, [info.title]);
   const change = (key: string, value: string) => { const next = new URLSearchParams(params); if (value && value !== "all") next.set(key, value); else next.delete(key); setParams(next, { replace: true }); };
   const toggle = (id: string) => setOpen((ids) => (ids.includes(id) ? ids.filter((x) => x !== id) : [...ids, id]));
   const traditions = [...new Set(people.flatMap((t) => t.traditions))].sort((a, b) => labels.traditions[a].localeCompare(labels.traditions[b]));

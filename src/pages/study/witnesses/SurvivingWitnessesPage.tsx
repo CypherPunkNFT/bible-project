@@ -44,7 +44,7 @@ export default function SurvivingWitnessesPage() {
   const index = useMemo(() => (collection.status === 'ready' ? buildIndex(collection.value) : null), [collection]);
   const image = index?.data.images[witness.qid];
   const record = index?.byId.get(witness.qid);
-  useEffect(() => { const previous = document.title; document.title = 'The surviving witnesses · Bible Project'; return () => { document.title = previous; }; }, []);
+  useEffect(() => { const previous = document.title; document.title = 'The surviving witnesses · Bible Guide'; return () => { document.title = previous; }; }, []);
   const select = (id: string) => { const next = new URLSearchParams(params); next.set('witness', id); setParams(next, { replace: true, preventScrollReset: true }); };
   const transition = { duration: reduced ? 0 : .25, ease: 'easeOut' as const };
   return <div className="sw-study study-frame">

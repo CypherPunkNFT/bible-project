@@ -36,7 +36,7 @@ export default function CirclesPage() {
       controller.abort(); dispose?.(); observer.disconnect(); themeObserver.disconnect();
       document.body.style.overflow = oldOverflow;
       document.documentElement.style.scrollbarGutter = oldGutter;
-      root.replaceChildren(); document.title = 'Bible Project';
+      root.replaceChildren(); document.title = 'Bible Guide';
     };
   }, [leaderId]);
   return <>{error && <p role="alert" className="mx-auto max-w-7xl p-6">{error}</p>}<div ref={host} data-circles-experience="approved" /></>;

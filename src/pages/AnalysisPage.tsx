@@ -44,11 +44,11 @@ export default function AnalysisPage() {
   const [sort, setSort] = useState('name');
   const deferredQuery = useDeferredValue(query.trim().toLocaleLowerCase());
   useEffect(() => {
-    document.title = 'Analysis · The catalogue · Bible Project';
+    document.title = 'Analysis · The catalogue · Bible Guide';
     let live = true;
     loadAnalysisList().then(value => { if (live) setSnapshot(value); })
       .catch(reason => { if (live) setError(reason.message); });
-    return () => { live = false; document.title = 'Bible Project'; };
+    return () => { live = false; document.title = 'Bible Guide'; };
   }, []);
   const entries = useMemo(() => {
     const matches = (snapshot?.entries ?? []).filter(p => !deferredQuery ||

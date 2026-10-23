@@ -24,8 +24,8 @@ export default function LearningTitlePage({ data }: { data: LearningData }) {
   const t: Title | undefined = division.title[titleId];
   const [viewer, setViewer] = useState<number | null>(null);
   useEffect(() => {
-    if (t) document.title = `${t.title} · Learning materials · Bible Project`;
-    return () => { document.title = "Bible Project"; };
+    if (t) document.title = `${t.title} · Learning materials · Bible Guide`;
+    return () => { document.title = "Bible Guide"; };
   }, [t]);
   if (!t) return <Navigate replace to="/resources/learning" />;
 

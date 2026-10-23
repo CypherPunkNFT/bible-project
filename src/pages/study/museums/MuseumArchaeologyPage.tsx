@@ -58,7 +58,7 @@ export default function MuseumArchaeologyPage() {
   const [showOthers, setShowOthers] = useState(false);
   useEffect(() => {
     const old = document.title;
-    document.title = "Museum-Grade Archaeology · Bible Project";
+    document.title = "Museum-Grade Archaeology · Bible Guide";
     return () => {
       document.title = old;
     };

@@ -51,7 +51,7 @@ export default function LibraryWorkPage({ workId, embedded = false, fallbackReco
     return () => abort.abort();
   }, [id, record, readable, page]);
   useEffect(() => { setPageInput(String(page + 1)); setInputError(""); }, [id, page, requestedPage]);
-  useEffect(() => { if (embedded) return; document.title = record ? `${record.title} · Bible Project` : "Acquired library · Bible Project"; return () => { document.title = "Bible Project"; }; }, [record, embedded]);
+  useEffect(() => { if (embedded) return; document.title = record ? `${record.title} · Bible Guide` : "Acquired library · Bible Guide"; return () => { document.title = "Bible Guide"; }; }, [record, embedded]);
   function goToPage(nextPage: number) {
     if (!id || !record || !readable || nextPage < 0 || nextPage >= record.pages) return;
     setInputError("");

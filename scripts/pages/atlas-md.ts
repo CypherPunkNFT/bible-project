@@ -13,7 +13,7 @@ export const count = (n: number) => n.toLocaleString("en-US");
 export const codeLink = (file: string, depth: number) => `[${file.split("/").pop()}](${"../".repeat(depth + 1)}Website/${file})`;
 
 /** A site address as a link to the live site. */
-export const siteLink = (address: string) => `[${address}](https://bibleproject.io${address})`;
+export const siteLink = (address: string) => `[${address}](https://bibleguide.io${address})`;
 
 /** "Fixed wording" sections: the words written into the named components, one bullet list per file. */
 export async function wordingSection(sources: { file: string; functions?: string[] }[], depth: number): Promise<string> {

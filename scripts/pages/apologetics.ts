@@ -28,7 +28,7 @@ function areaPage(data: ApologeticsData): string {
   const reviewKinds = [...new Set(lastReviews)].sort().map((kind) => `${lastReviews.filter((k) => k === kind).length} ${kind}`).join(", ");
   const byKind = [...data.documents].sort((a, b) => a.kind.localeCompare(b.kind, "en") || a.order - b.order || a.id.localeCompare(b.id, "en"));
   return lines(
-    `Address: [bibleproject.io/apologetics](${BASE}). The pages' own content is in the eight folders beside this file.`,
+    `Address: [bibleguide.io/apologetics](${BASE}). The pages' own content is in the eight folders beside this file.`,
     "",
     `**Documents in content/apologetics:** ${data.documents.length} (${counts}); ${drafts} draft(s), which the site leaves out. **Historic reading library:** ${data.library.works.length} works by ${data.library.authors.length} authors, ${data.libraryReview}.`,
     "",

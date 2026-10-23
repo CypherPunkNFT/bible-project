@@ -84,7 +84,7 @@ function Elsewhere({ title }: { title: string }) {
   if (!persons.length && !spots.length) return null;
   return (
     <section aria-labelledby="topic-elsewhere" className="mt-10">
-      <div className="topics-section-heading"><h2 id="topic-elsewhere">Elsewhere in the Bible Project</h2><span>The same name in People and the Atlas</span></div>
+      <div className="topics-section-heading"><h2 id="topic-elsewhere">Elsewhere in the Bible Guide</h2><span>The same name in People and the Atlas</span></div>
       <ul className="topics-group-grid">
         {persons.slice(0, 8).map((p) => <li key={p.id}><Link to={`/study/people/${p.id}`} className="topics-compact-card"><Network size={26} strokeWidth={1.35} aria-hidden /><span><strong>{p.n}</strong><small>{p.b} · family and passages</small></span><ArrowUpRight size={15} aria-hidden /></Link></li>)}
         {spots.slice(0, 4).map((p) => <li key={p.id}><Link to={`/study/atlas/map?place=${p.id}`} className="topics-compact-card"><MapPin size={26} strokeWidth={1.35} aria-hidden /><span><strong>{p.name}</strong><small>{p.type} · on the atlas map</small></span><ArrowUpRight size={15} aria-hidden /></Link></li>)}

@@ -35,7 +35,7 @@ function CrisisStrip({ groups }: { groups: LifeData["groups"] }) {
 
 export default function LifePage({ data }: { data: LifeData }) {
   const info = sectionBySlug("life");
-  useEffect(() => { document.title = `${info.title} · Resources · Bible Project`; return () => { document.title = "Bible Project"; }; }, [info.title]);
+  useEffect(() => { document.title = `${info.title} · Resources · Bible Guide`; return () => { document.title = "Bible Guide"; }; }, [info.title]);
   const groups = data.groups.map((g) => (g.id === "crisis" ? { ...g, entries: g.entries.filter((e) => e.id !== IN_STRIP.danger && e.id !== IN_STRIP.crisis) } : g));
   const national = data.groups.reduce((n, g) => n + g.entries.length, 0);
   // Only verified cities, and only once their map and facts have been built (scripts/build-city-maps.py).

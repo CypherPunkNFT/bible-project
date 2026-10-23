@@ -55,7 +55,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <div className="site-header-row mx-auto flex max-w-7xl items-center gap-2 px-4 sm:px-6">
           <Link to="/" className="mr-2 flex items-center gap-2 font-serif text-lg font-semibold tracking-tight">
             <img src="/favicon.svg" alt="" className="h-7 w-7" />
-            <span className="hidden xs:inline">Bible Project</span>
+            <span className="hidden xs:inline">Bible Guide</span>
           </Link>
           <nav aria-label="Main" className="site-navigation no-scrollbar hidden min-w-0 flex-1 items-center gap-0.5 overflow-x-auto sm:flex">
             {NAV.map(({ to, label, icon: Icon, end }) => (

@@ -2,7 +2,7 @@
 // pages at desktop and phone width, points at every pointable thing (bars, dots, lines, pins, links in figures) and
 // reports any hover line whose height changes, plus any hover line not built on StableTip (src/components/StableTip.tsx).
 //   node scripts/check-hover-lines.mjs                 # against the local preview (http://127.0.0.1:8931)
-//   BASE=https://bibleproject.io node scripts/check-hover-lines.mjs
+//   BASE=https://bibleguide.io node scripts/check-hover-lines.mjs
 //   ONLY=nebuchadnezzar node scripts/check-hover-lines.mjs   # pages whose address contains this text
 // Exit code 1 when any page jumps. About 15 minutes for all ~400 page views.
 import { chromium } from "playwright";

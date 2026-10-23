@@ -8,7 +8,7 @@ import { prepareReadingLibrary } from "../content/reading-library.ts";
 import type { Block, Citation, ContentDocument, DocumentKind } from "../content/model.ts";
 import type { ReadingLibrary } from "../../src/data/reading-library-types.ts";
 
-export const SITE = "https://bibleproject.io";
+export const SITE = "https://bibleguide.io";
 export const BASE = SITE + "/apologetics";
 
 export type Doc<K extends DocumentKind> = ContentDocument<K>;

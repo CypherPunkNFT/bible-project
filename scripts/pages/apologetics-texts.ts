@@ -36,7 +36,7 @@ function workEntry(work: ReadingWork, data: ApologeticsData): string {
 export function historicTextsPage(data: ApologeticsData): string {
   const library = data.library, eras = [...new Set(library.works.map((work) => work.era))];
   return lines(
-    `Address: [bibleproject.io/apologetics/texts](${BASE}/texts) (filters live in the address: ?q=, ?author=, ?era=, ?subject=, ?depth=, ?language=, ?view=authors, ?page=). The source room, [bibleproject.io/apologetics/sources](${BASE}/sources), is documented in the second half of this file.`,
+    `Address: [bibleguide.io/apologetics/texts](${BASE}/texts) (filters live in the address: ?q=, ?author=, ?era=, ?subject=, ?depth=, ?language=, ?view=authors, ?page=). The source room, [bibleguide.io/apologetics/sources](${BASE}/sources), is documented in the second half of this file.`,
     "",
     "## Part 1: The historic reading library",
     "",

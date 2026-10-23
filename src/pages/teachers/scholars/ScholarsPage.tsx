@@ -26,7 +26,7 @@ export default function ScholarsPage() {
   // The landing frame uses the Preachers geometry. Load it before mounting the
   // page so the chart never paints a guessed height while that import is pending.
   const { data: graphPeople, error: graphError } = usePeopleData();
-  useEffect(() => { document.title = "Scholars · Teachers · Bible Project"; return () => { document.title = "Bible Project"; }; }, []);
+  useEffect(() => { document.title = "Scholars · Teachers · Bible Guide"; return () => { document.title = "Bible Guide"; }; }, []);
   return data && graphPeople ? <Loaded data={data} /> : <PageStatus error={error ?? graphError} />;
 }
 

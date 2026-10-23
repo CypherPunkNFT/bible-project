@@ -12,7 +12,7 @@ export function SiteFooter() {
     <div className="mx-auto max-w-7xl px-4 pt-12 sm:px-6 sm:pt-14">
       <div className="grid gap-x-12 gap-y-10 lg:grid-cols-[1.25fr_1fr]">
         <div className="max-w-lg">
-          <Link to="/" className="inline-flex items-center gap-3 font-serif text-xl"><img src="/favicon.svg" alt="" className="h-8 w-8" />Bible Project</Link>
+          <Link to="/" className="inline-flex items-center gap-3 font-serif text-xl"><img src="/favicon.svg" alt="" className="h-8 w-8" />Bible Guide</Link>
           <h2 className="mt-6 font-serif text-3xl leading-tight sm:text-4xl">Rooted in Scripture.<br /><em className="font-normal text-accent">Open for discovery.</em></h2>
           <p className="mt-4 max-w-md text-sm leading-7 text-muted">A place to read slowly, ask deeply, and follow the connections. Scripture, study and the voices of Christian history, brought together for a lifetime of learning.</p>
           <Link to="/read" className="mt-6 inline-flex items-center gap-3 rounded-full border border-accent/40 px-5 py-2.5 text-sm text-accent transition-colors hover:bg-accent/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"><BookOpen className="h-4 w-4" aria-hidden />Return to the Word<ArrowRight className="h-4 w-4" aria-hidden /></Link>

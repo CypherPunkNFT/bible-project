@@ -10,7 +10,7 @@ import type { TopicCategory, TopicIndex, TopicSubcategory } from "../../src/lib/
 import type { Catalog } from "../../src/lib/types";
 import { slugify, type Extractor, type PageContent } from "./types";
 
-const SITE = "https://bibleproject.io";
+const SITE = "https://bibleguide.io";
 /** Groups with more topics than this list them A to Z on the site (LARGE_GROUP in src/pages/TopicCategoryPage.tsx). */
 const LARGE_GROUP = 48;
 const SOURCE_NAMES: Record<string, string> = { t: "Torrey", n: "Nave's", e: "Easton's" };

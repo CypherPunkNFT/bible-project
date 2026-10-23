@@ -36,7 +36,7 @@ export default function MosesPage({ person }: { person: Person }) {
     const from: unknown = (state as { from?: unknown } | null)?.from;
     const back = isCameFrom(from) ? from : { path: "/study/people", label: "People & genealogies" };
     const oldTitle = document.title;
-    document.title = "Moses · Bible Project";
+    document.title = "Moses · Bible Guide";
     const dispose = mountMoses(surface, {
       person, back, personPath,
       refHref: (span) => studyRefLink(catalog, span),

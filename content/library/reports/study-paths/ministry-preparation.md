@@ -14,7 +14,7 @@ Read Scripture first, then the assigned sermon selection and substantial reading
 
 Begin with the person who serves rather than a collection of methods.
 
-**Scripture:** [1 Timothy 4:6–16](https://bibleproject.io/read/kjv/1TI/4?v=6). Hold example, doctrine, public reading and perseverance together.
+**Scripture:** [1 Timothy 4:6–16](https://bibleguide.io/read/kjv/1TI/4?v=6). Hold example, doctrine, public reading and perseverance together.
 
 **Sermon:** Charles Haddon Spurgeon, [The Parent's and Pastor's Joy](https://www.spurgeongems.org/sermon/chs1148.pdf#page=1). Sermon excerpt, PDF pages 1–2.
 
@@ -36,7 +36,7 @@ Explains why the minister’s inward life belongs to the work itself.
 
 Learn to explain a passage and address real hearers responsibly.
 
-**Scripture:** [2 Timothy 4:1–5](https://bibleproject.io/read/kjv/2TI/4?v=1). Read the charge to preach alongside patience, teaching and endurance.
+**Scripture:** [2 Timothy 4:1–5](https://bibleguide.io/read/kjv/2TI/4?v=1). Read the charge to preach alongside patience, teaching and endurance.
 
 **Sermon:** Charles Haddon Spurgeon, [How to Read the Bible](https://www.spurgeongems.org/sermon/chs1503.pdf#page=1). Sermon excerpt, PDF pages 1–2.
 
@@ -58,7 +58,7 @@ Shows how application takes account of hearers while preserving the relation of 
 
 Let preparation lead to faithful witness in cooperation with others.
 
-**Scripture:** [Matthew 28:16–20](https://bibleproject.io/read/kjv/MAT/28?v=16). Read disciple-making under Christ’s authority and promised presence.
+**Scripture:** [Matthew 28:16–20](https://bibleguide.io/read/kjv/MAT/28?v=16). Read disciple-making under Christ’s authority and promised presence.
 
 **Sermon:** Charles Haddon Spurgeon, [The Soul-Winner](https://www.spurgeongems.org/sermon/chs1292.pdf#page=1). Sermon excerpt, PDF pages 1–2.
 

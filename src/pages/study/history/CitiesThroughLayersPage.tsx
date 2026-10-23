@@ -14,7 +14,7 @@ import './cities-desk.css';
 function SourceNote() { return <a className="cl-reference" href="https://doi.org/10.1017/S0033822200030666" target="_blank" rel="noopener noreferrer">Bruins & van der Plicht (1995), pp. 213–220 ↗<span className="sr-only"> (opens in a new tab)</span></a>; }
 export default function CitiesThroughLayersPage() {
   const [answer,setAnswer] = useState<string | null>(null);
-  useEffect(() => { const old = document.title; document.title = 'Cities through their layers · Bible Project'; return () => { document.title = old; }; }, []);
+  useEffect(() => { const old = document.title; document.title = 'Cities through their layers · Bible Guide'; return () => { document.title = old; }; }, []);
   return <div className="ha-study ha-cities study-frame">
     <header className="ct-opening"><div><StudyTrail area="history"/><p className="ha-kicker">Buildings change. Evidence remains.</p><h1>Cities through<br/><em>their layers.</em></h1></div><div className="ct-invitation"><p className="ct-lead">A city is more than<br/>the moment it fell.</p><p>Explore a place through its rebuilding, ordinary life and surviving traces. Begin with what was found. Then ask what it can tell us.</p><a href="#section-explorer">Read a city from the ground up <ArrowDown size={17}/></a></div></header>
     <CitiesDesk/>

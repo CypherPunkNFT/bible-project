@@ -178,7 +178,7 @@ export default function MuseumPage() {
   const name = museum.status === "ready" ? museum.value.name : "A museum";
   useEffect(() => {
     const old = document.title;
-    document.title = `${name} · Museum-Grade Archaeology · Bible Project`;
+    document.title = `${name} · Museum-Grade Archaeology · Bible Guide`;
     return () => {
       document.title = old;
     };

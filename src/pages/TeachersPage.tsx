@@ -40,7 +40,7 @@ export default function TeachersPage() {
 }
 
 function Station() {
-  useEffect(() => { document.title = "Teachers · Bible Project"; return () => { document.title = "Bible Project"; }; }, []);
+  useEffect(() => { document.title = "Teachers · Bible Guide"; return () => { document.title = "Bible Guide"; }; }, []);
   return <div className="st-page mx-auto max-w-7xl px-4 sm:px-6">
     <header className="st-hero">
       <div><p className="st-kick">Teachers</p><h1>Learn from those<br /><span>who taught the Word.</span></h1></div>

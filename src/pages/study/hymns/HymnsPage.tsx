@@ -17,8 +17,8 @@ import "./hymns.css";
 export default function HymnsPage() {
   const collection = useAsync(loadHymnCollection, "hymns/collection");
   useEffect(() => {
-    document.title = "Hymns · Study · Bible Project";
-    return () => { document.title = "Bible Project"; };
+    document.title = "Hymns · Study · Bible Guide";
+    return () => { document.title = "Bible Guide"; };
   }, []);
   if (collection.status !== "ready") return <PageStatus error={collection.status === "error" ? collection.error as Error : null} />;
   const data = collection.value;

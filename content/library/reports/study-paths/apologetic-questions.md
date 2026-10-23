@@ -10,13 +10,13 @@ Three stages, usually one stage per week; take longer where useful. This is a su
 
 Read Scripture first, then the assigned sermon selection and substantial reading. Annotations and exercises are this library’s editorial guidance. Sources open at their hosts; page references distinguish assigned excerpts from whole works.
 
-Begin with [1 Peter 3:15–16](https://bibleproject.io/read/kjv/1PE/3?v=15). Sets a posture of gentleness and respect for answering questions.
+Begin with [1 Peter 3:15–16](https://bibleguide.io/read/kjv/1PE/3?v=15). Sets a posture of gentleness and respect for answering questions.
 
 ## 1 What does inspiration mean
 
 Understand the doctrine before deciding whether an argument supports it.
 
-**Scripture:** [2 Timothy 3:14–17](https://bibleproject.io/read/kjv/2TI/3?v=14). Locate inspiration within the passage’s emphasis on salvation, teaching and formation.
+**Scripture:** [2 Timothy 3:14–17](https://bibleguide.io/read/kjv/2TI/3?v=14). Locate inspiration within the passage’s emphasis on salvation, teaching and formation.
 
 **Sermon:** Charles Haddon Spurgeon, [The Bible](https://www.spurgeongems.org/sermon/chs15.pdf#page=1). Sermon excerpt, PDF pages 1–2.
 
@@ -38,7 +38,7 @@ Clarifies terms that are easily confused in conversations about the Bible.
 
 Separate a philosophical objection from a historical investigation.
 
-**Scripture:** [Acts 26:1–8](https://bibleproject.io/read/kjv/ACT/26?v=1). Read Paul’s resurrection question within his defense before Agrippa.
+**Scripture:** [Acts 26:1–8](https://bibleguide.io/read/kjv/ACT/26?v=1). Read Paul’s resurrection question within his defense before Agrippa.
 
 **Sermon:** Charles Haddon Spurgeon, [The Resurrection Credible](https://www.spurgeongems.org/sermon/chs1067.pdf#page=5). Sermon excerpt, PDF page 5.
 
@@ -60,7 +60,7 @@ Alexander argues that revelation and divine intervention are reasonable if God e
 
 Examine a historical argument without confusing theological importance with proof.
 
-**Scripture:** [1 Corinthians 15:1–19](https://bibleproject.io/read/kjv/1CO/15?v=1). Read Paul’s report, named appearances and reasoning about the consequences of denial.
+**Scripture:** [1 Corinthians 15:1–19](https://bibleguide.io/read/kjv/1CO/15?v=1). Read Paul’s report, named appearances and reasoning about the consequences of denial.
 
 **Sermon:** Charles Haddon Spurgeon, [The Resurrection of Our Lord Jesus](https://www.spurgeongems.org/sermon/chs1653.pdf#page=1). Sermon excerpt, PDF pages 1–2.
 

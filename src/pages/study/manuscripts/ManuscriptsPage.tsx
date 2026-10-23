@@ -22,8 +22,8 @@ import "./manuscripts.css";
 export default function ManuscriptsPage() {
   const collection = useAsync(loadManuscripts, "manuscripts/collection");
   useEffect(() => {
-    document.title = "Manuscripts · Study · Bible Project";
-    return () => { document.title = "Bible Project"; };
+    document.title = "Manuscripts · Study · Bible Guide";
+    return () => { document.title = "Bible Guide"; };
   }, []);
   if (collection.status !== "ready") return <PageStatus error={collection.status === "error" ? collection.error as Error : null} />;
   return <Page data={collection.value} />;

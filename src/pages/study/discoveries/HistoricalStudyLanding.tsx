@@ -13,6 +13,6 @@ const EYEBROW: Record<DiscoveryStudyId, string> = {
 
 export default function HistoricalStudyLanding({study}:{study:DiscoveryStudyId}) {
   const item=discoveryStudies.find(s=>s.id===study)!;
-  useEffect(()=>{const old=document.title;document.title=item.title+' · Bible Project';return()=>{document.title=old;};},[item.title]);
+  useEffect(()=>{const old=document.title;document.title=item.title+' · Bible Guide';return()=>{document.title=old;};},[item.title]);
   return <main className={'dh-landing study-frame dh-'+study}><header className="dh-opening"><div><StudyTrail area="history" parent={{to:"/study/from-discovery-to-history",label:"From discovery to history"}}/><p className="dh-eyebrow">{EYEBROW[study]}</p><h1>{item.first}<br/><em>{item.emphasis}</em></h1></div><HistoricalLandingArt kind={study}/></header></main>;
 }

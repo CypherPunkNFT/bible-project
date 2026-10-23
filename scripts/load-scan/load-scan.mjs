@@ -1,7 +1,7 @@
 // Load scan: opens every page of the site in a real browser and records what each one downloads, then flags pages and
 // files over the limits in thresholds.json. It also scans the build for large data files and lists the code that fetches
 // them, and every background preload. Usage (from Website/):
-//   node scripts/load-scan/load-scan.mjs [--base https://bibleproject.io] [--max-pages 150] [--label before]
+//   node scripts/load-scan/load-scan.mjs [--base https://bibleguide.io] [--max-pages 150] [--label before]
 // Writes .load-scan/<date>-<label>.json and .md, and prints the worst offenders.
 import fs from 'node:fs';
 import path from 'node:path';

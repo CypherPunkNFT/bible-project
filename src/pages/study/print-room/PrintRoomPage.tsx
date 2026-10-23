@@ -31,7 +31,7 @@ function PressExercise() {
 export default function PrintRoomPage() {
   const [params,setParams] = useSearchParams();
   const edition = editions.find(e=>e.id===params.get('edition')) ?? editions[0];
-  useEffect(()=>{const previous=document.title;document.title='From manuscript to printed Bible · Bible Project';return()=>{document.title=previous;};},[]);
+  useEffect(()=>{const previous=document.title;document.title='From manuscript to printed Bible · Bible Guide';return()=>{document.title=previous;};},[]);
   const choose=(id:string)=>{const next=new URLSearchParams(params);next.set('edition',id);setParams(next,{replace:true,preventScrollReset:true});};
   return <div className="pr-study study-frame">
     <Opening/>

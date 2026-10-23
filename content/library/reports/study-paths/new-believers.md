@@ -14,7 +14,7 @@ Read Scripture first, then the assigned sermon selection and substantial reading
 
 Begin with what God gives before asking what you must achieve.
 
-**Scripture:** [Romans 3:21–31](https://bibleproject.io/read/kjv/ROM/3?v=21). Places faith, Christ’s redemption and boasting within Paul’s argument.
+**Scripture:** [Romans 3:21–31](https://bibleguide.io/read/kjv/ROM/3?v=21). Places faith, Christ’s redemption and boasting within Paul’s argument.
 
 **Sermon:** Charles Haddon Spurgeon, [Justification by Grace](https://www.spurgeongems.org/sermon/chs126.pdf#page=4). Sermon excerpt, PDF page 4.
 
@@ -36,7 +36,7 @@ A complete chapter addresses the fear that an unworthy person cannot come to Chr
 
 Consider how turning to Christ changes your relation to sin.
 
-**Scripture:** [Mark 1:14–15](https://bibleproject.io/read/kjv/MRK/1?v=14). Read Jesus’ call in the setting of his announcement of God’s kingdom.
+**Scripture:** [Mark 1:14–15](https://bibleguide.io/read/kjv/MRK/1?v=14). Read Jesus’ call in the setting of his announcement of God’s kingdom.
 
 **Sermon:** Charles Haddon Spurgeon, [Faith and Repentance Inseparable](https://www.spurgeongems.org/sermon/chs460.pdf#page=1). Sermon excerpt, PDF pages 1–2.
 
@@ -58,9 +58,9 @@ Shows why forgiveness and repentance belong together without treating repentance
 
 Move from an isolated decision toward dependence on the Spirit and mutual care.
 
-**Scripture:** [John 3:1–21](https://bibleproject.io/read/kjv/JHN/3?v=1). Read new birth and believing together within Jesus’ conversation.
+**Scripture:** [John 3:1–21](https://bibleguide.io/read/kjv/JHN/3?v=1). Read new birth and believing together within Jesus’ conversation.
 
-**Scripture:** [Hebrews 10:19–25](https://bibleproject.io/read/kjv/HEB/10?v=19). Connect access to God with drawing near, hope and encouragement.
+**Scripture:** [Hebrews 10:19–25](https://bibleguide.io/read/kjv/HEB/10?v=19). Connect access to God with drawing near, hope and encouragement.
 
 **Sermon:** John Piper, [Small Group Life in the Power of God’s Promises](https://www.desiringgod.org/messages/small-group-life-in-the-power-of-gods-promises). Written sermon sections on mutual encouragement and the dynamics of group ministry.
 

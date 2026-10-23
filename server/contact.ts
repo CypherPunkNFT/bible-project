@@ -82,7 +82,7 @@ export async function handleContact(request: Request, env: ContactEnv): Promise<
   try {
     const socket = connect({ hostname: host, port: 465 }, { secureTransport: "on", allowHalfOpen: false });
     await sendMail(socket, { user: env.CONTACT_SMTP_USER, password: env.CONTACT_SMTP_PASSWORD }, {
-      from: `"Bible Project ${isCorrection ? "corrections" : "contact form"}" <${env.CONTACT_SMTP_USER}>`,
+      from: `"Bible Guide ${isCorrection ? "corrections" : "contact form"}" <${env.CONTACT_SMTP_USER}>`,
       to: env.CONTACT_SMTP_USER,
       replyTo: email ? (safeName ? `"${safeName}" <${email}>` : email) : undefined,
       ...mail,

@@ -15,9 +15,9 @@ describe("corrections", () => {
   });
 
   it("writes the subject as Content correction and the page as its own line", () => {
-    const mail = composeCorrection(complete, "https://bibleproject.io");
+    const mail = composeCorrection(complete, "https://bibleguide.io");
     expect(mail.subject).toBe("Content correction: Wrong fact or date");
-    expect(mail.text).toContain("Page: https://bibleproject.io/library?part=history#parts");
+    expect(mail.text).toContain("Page: https://bibleguide.io/library?part=history#parts");
     expect(mail.text).toContain("Nehemiah is c. 430 BC.");
     expect(mail.text).toContain("Email: (none given)");
   });

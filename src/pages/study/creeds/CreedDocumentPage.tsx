@@ -204,9 +204,9 @@ export default function CreedDocumentPage() {
 
   useEffect(() => {
     if (!loaded) return;
-    document.title = `${loaded.title} · Catechisms & Creeds · Bible Project`;
+    document.title = `${loaded.title} · Catechisms & Creeds · Bible Guide`;
     return () => {
-      document.title = "Bible Project";
+      document.title = "Bible Guide";
     };
   }, [loaded]);
 

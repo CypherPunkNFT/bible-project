@@ -14,7 +14,7 @@ Read Scripture first, then the assigned sermon selection and substantial reading
 
 Attend to grief before reaching for an explanation of another person’s experience.
 
-**Scripture:** [Ruth 1:1–22](https://bibleproject.io/read/kjv/RUT/1?v=1). Notice bereavement, Naomi’s words and Ruth’s companionship before the later resolution.
+**Scripture:** [Ruth 1:1–22](https://bibleguide.io/read/kjv/RUT/1?v=1). Notice bereavement, Naomi’s words and Ruth’s companionship before the later resolution.
 
 **Sermon:** John Piper, [Ruth: Sweet and Bitter Providence](https://www.desiringgod.org/messages/ruth-sweet-and-bitter-providence). Written sermon, focusing on Naomi’s misery, Ruth’s faithfulness and the signs of mercy.
 
@@ -36,7 +36,7 @@ An experienced preacher’s admission of weakness resists the assumption that us
 
 Consider assurance without requiring an unwavering emotional state.
 
-**Scripture:** [1 John 5:1–21](https://bibleproject.io/read/kjv/1JN/5?v=1). Read the testimony to the Son, the purpose of assurance, and Newton’s main text in context.
+**Scripture:** [1 John 5:1–21](https://bibleguide.io/read/kjv/1JN/5?v=1). Read the testimony to the Son, the purpose of assurance, and Newton’s main text in context.
 
 **Sermon:** John Newton, [Of the Assurance of Faith](https://archive.org/details/worksrevjohnne02newt/page/n596/mode/2up). Of the Assurance of Faith, opening and first proposition; printed pp. 583–586, PDF pp. 597–600.
 
@@ -58,7 +58,7 @@ Directs hope toward God’s faithfulness and union with Christ.
 
 Move from general concern to sustained household practices.
 
-**Scripture:** [Joshua 24:14–24](https://bibleproject.io/read/kjv/JOS/24?v=14). Read the household declaration within covenant commitment and the people’s response.
+**Scripture:** [Joshua 24:14–24](https://bibleguide.io/read/kjv/JOS/24?v=14). Read the household declaration within covenant commitment and the people’s response.
 
 **Sermon:** George Whitefield, [The Great Duty of Family-Religion](https://archive.org/details/worksofreverendg05whit/page/n61/mode/2up). The Great Duty of Family-Religion, opening; printed pp. 52–54, PDF pp. 62–64.
 

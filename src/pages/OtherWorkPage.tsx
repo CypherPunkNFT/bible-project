@@ -20,7 +20,7 @@ function Heart() {
 }
 
 // RedeemerForge and ChurchFamily are worded as on the CypherPunk site's Faith page ("Faith in tech"); CypherPunkNFT takes
-// Bible Project's place there. Each picture keeps its project's own colours and logo.
+// Bible Guide's place there. Each picture keeps its project's own colours and logo.
 const WORKS: Work[] = [
   {
     id: "redeemerforge", side: "left",
@@ -86,7 +86,7 @@ export default function OtherWorkPage() {
       <header className="ow-head">
         <p className="ow-kicker">Lucas Campbell Saint Laurent · other work</p>
         <h1>The rest of<em>the work.</em></h1>
-        <p>Besides Bible Project, Lucas builds and leads these: a youth programme, a way for a church to care for its own, and his art.</p>
+        <p>Besides Bible Guide, Lucas builds and leads these: a youth programme, a way for a church to care for its own, and his art.</p>
       </header>
       {WORKS.map((work) => <Band key={work.id} work={work} />)}
     </div>

@@ -24,7 +24,7 @@ export default function LearningPage({ data }: { data: LearningData }) {
   const [kind, setKind] = useState<string | null>(null);
   const [shown, setShown] = useState(age !== null);
 
-  useEffect(() => { document.title = "Learning materials · Resources · Bible Project"; return () => { document.title = "Bible Project"; }; }, []);
+  useEffect(() => { document.title = "Learning materials · Resources · Bible Guide"; return () => { document.title = "Bible Guide"; }; }, []);
 
   // Another door clears the kind lit in the last one (owner, 2026-10-08); the open door again closes it.
   const choose = useCallback((id: string) => { setKind(null); setAge((open) => (open === id ? null : id)); }, []);

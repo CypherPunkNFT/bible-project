@@ -11,7 +11,7 @@ import type { MapPlace } from "./projection";
  * so there the map reads from the real domain, which honours them (measured 2026-10-06; CORS in public/_headers).
  */
 export function tilesBase(): string {
-  const base = window.location.hostname.endsWith(".pages.dev") ? "https://bibleproject.io/atlas-tiles" : "/atlas-tiles";
+  const base = window.location.hostname.endsWith(".pages.dev") ? "https://bibleguide.io/atlas-tiles" : "/atlas-tiles";
   return new URL(base, window.location.href).href.replace(/\/$/, "");
 }
 /** Key the page's PMTiles reader is registered under (ChunkedSource.getKey). */

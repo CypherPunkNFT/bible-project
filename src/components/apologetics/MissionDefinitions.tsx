@@ -32,7 +32,7 @@ export default function MissionDefinitions() {
       <section className="mw-definition-row"><span className="mw-definition-absence" aria-hidden="true"><Church /><CircleSlash /></span><div><h3>Unengaged</h3><p>No known effort toward that goal. The table uses reported church-planting activity over the past two years.</p></div></section>
       <p className="mw-definition-takeaway">Engaged can still mean unreached.</p>
       <footer className="mw-definition-footer"><p>“No longer unreached” means 2% or more.<br />It does not mean everyone is Christian. These labels describe people groups, rather than whole countries.</p><a href="https://peoplegroups.org/definitions/" target="_blank" rel="noreferrer">IMB definitions ↗</a></footer>
-      <div className="mw-definition-credit"><span>Country aggregates by Bible Project · <a href={snapshot.sources.imb.url} target="_blank" rel="noreferrer">IMB Global Research</a> · {snapshot.snapshotDate} · <a href={snapshot.sources.imb.licenseUrl} target="_blank" rel="noreferrer">CC BY-NC 4.0</a></span><a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noreferrer">Boundaries: Natural Earth ↗</a></div>
+      <div className="mw-definition-credit"><span>Country aggregates by Bible Guide · <a href={snapshot.sources.imb.url} target="_blank" rel="noreferrer">IMB Global Research</a> · {snapshot.snapshotDate} · <a href={snapshot.sources.imb.licenseUrl} target="_blank" rel="noreferrer">CC BY-NC 4.0</a></span><a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noreferrer">Boundaries: Natural Earth ↗</a></div>
     </dialog>
   </div>;
 }
