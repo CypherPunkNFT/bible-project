@@ -5,11 +5,13 @@ tools; never written to here) and keeps only questions that are ready to show as
 than machine-read scans, with an answer, from a bank listed in BANKS below. Duplicates across banks are kept
 once. Every question keeps the credit its source asks for.
 
-Writes three files:
+Writes four files:
   content/questions/question-bank.json   the official record, committed: every question with its full
                                          licence and credit, plus what was left out and why
   content/questions/question-table.csv   the same questions as one table, for checking in a spreadsheet
   data/questions/bank.json               the copy the Questions page loads (generated, not committed)
+  .local/question-explorer/questions.json  the local data hub's question explorer (/data_questions/, never
+                                         released; scripts/question_explorer.py)
 
     python scripts/build-question-bank.py
 """
@@ -27,6 +29,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from bible.books import BOOKS  # noqa: E402
 from question_audit import apply_audit  # noqa: E402
 from question_choices import add_choices  # noqa: E402
+from question_explorer import write_explorer  # noqa: E402
 from question_grounding import apply_grounding, write_table  # noqa: E402
 from question_mining import mined_records  # noqa: E402
 from question_model_tags import add_model_tags  # noqa: E402
@@ -38,6 +41,7 @@ CORPUS = WEBSITE.parent / "Research" / "BibleQuizCorpus" / "normalized"
 OFFICIAL = WEBSITE / "content" / "questions" / "question-bank.json"
 SITE = WEBSITE / "data" / "questions" / "bank.json"
 TABLE = WEBSITE / "content" / "questions" / "question-table.csv"
+EXPLORER = WEBSITE / ".local" / "question-explorer" / "questions.json"
 
 SCHEMA = "bibleproject.question-bank/v2"
 
@@ -278,6 +282,7 @@ def main() -> None:
     write(OFFICIAL, official)
     write(SITE, site_copy(questions))
     write_table(questions, TABLE)
+    write_explorer(questions, EXPLORER)
     print(json.dumps(official["counts"], indent=1))
     for row in excluded:
         print(f"  left out {row['count']:>6}  {row['bank_id']}: {row['reason'][:70]}")

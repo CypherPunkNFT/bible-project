@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Questions · Data · Bible Project</title><link rel="stylesheet" href="/data_intake/intake.css"><link rel="stylesheet" href="/data_analysis/desk.css"><link rel="stylesheet" href="/data_questions/questions.css"><script src="/data_questions/questions.js" defer></script></head>
+<body data-page="questions"><header class="sitebar"><a href="/" class="brand"><span class="brand-mark">B</span> Bible Project</a><nav><a href="/data/">Data</a><button id="theme" type="button" aria-label="Switch colour theme">◐ Theme</button></nav></header>
+<main class="data-main qx-main">
+<div class="heading"><div><p class="eyebrow"><a href="/data/">THE LIBRARY</a> <span>/</span> <a href="/data/">DATA</a> <span>/</span> QUESTIONS</p><h1>Questions<span class="gold">.</span></h1><p class="lead">Every quiz question, what the check against the BSB changed, and a rapid test run of whatever the filters leave.</p></div><span class="local-label"><i></i> Local research desk</span></div>
+<p id="load-state" class="quiet">Loading the questions…</p>
+<div id="explorer" class="qx" hidden>
+ <aside class="qx-rail" aria-label="Filters">
+  <button id="rail-toggle" class="qx-rail-toggle" type="button" aria-expanded="false">Filters <span id="rail-active"></span></button>
+  <div id="rail-body" class="qx-rail-body"><div id="facets"></div></div>
+ </aside>
+ <section class="qx-work" aria-label="Questions">
+  <div class="qx-toolbar">
+   <label class="qx-search"><span class="sr">Search question, answer and choices</span><input id="search" type="search" placeholder="Search question, answer, choices…" autocomplete="off" spellcheck="false"></label>
+   <p class="qx-count" aria-live="polite"><strong id="match-count">0</strong> <span id="match-of">of 0 match</span></p>
+   <button id="clear" type="button" class="qx-ghost">Clear filters</button>
+   <button id="simulate" type="button" class="qx-primary">Simulate <span aria-hidden="true">→</span></button>
+  </div>
+  <div class="qx-table" role="table" aria-label="Questions" aria-rowcount="0" id="table">
+   <div class="qx-scroll" id="scroll"><div class="qx-head qx-cols" role="row" id="table-head"></div><div class="qx-sizer" id="sizer"><div class="qx-rows" id="rows" role="rowgroup"></div></div></div>
+  </div>
+  <p class="desk-foot">Built from the question bank by <code>scripts/build-question-bank.py</code>, so it is as current as the last build. <span id="built"></span></p>
+ </section>
+</div>
+</main>
+<div id="detail" class="qx-drawer" role="dialog" aria-modal="true" aria-labelledby="detail-title" hidden><div class="qx-drawer-card"><div class="qx-drawer-head"><p class="eyebrow" id="detail-eyebrow"></p><button id="detail-close" type="button" class="qx-x" aria-label="Close">×</button></div><h2 id="detail-title"></h2><div id="detail-body"></div></div></div>
+<div id="sim" class="qx-modal" role="dialog" aria-modal="true" aria-labelledby="sim-question" hidden><div class="qx-modal-card">
+ <div class="qx-sim-top"><p class="eyebrow" id="sim-counter"></p><p class="qx-score" id="sim-score"></p><button id="sim-close" type="button" class="qx-x" aria-label="Close the test">×</button></div>
+ <div class="qx-progress" aria-hidden="true"><i id="sim-bar"></i></div>
+ <div id="sim-body"></div>
+</div></div>
+</body></html>

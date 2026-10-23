@@ -11,6 +11,7 @@ import { designReviewPlugin } from "./scripts/design-review/vite-plugin";
 import { localLibraryPlugin } from "./scripts/local-library-vite";
 import { dataIntakePlugin } from "./scripts/data-intake-vite";
 import { dataAnalysisPlugin } from "./scripts/data-analysis-vite";
+import { dataQuestionsPlugin } from "./scripts/data-questions-vite";
 
 // The CypherPunk NFT site's toolchain. Local only: dev on 8930, the always-on preview
 // (scripts/start-preview.ps1) on 8931; browser checks start their own preview on 8932.
@@ -152,7 +153,7 @@ export default defineConfig({
   // server to ~10 GB and it never served a page. Vite adds these to its own defaults (.git, node_modules).
   server: { host: "127.0.0.1", port: 8930, strictPort: true, watch: { ignored: ["**/.local/**", "**/.release/**", "**/.output/**", "**/.wrangler/**"] } },
   preview: { host: "127.0.0.1", port: 8931, strictPort: true },
-  plugins: [studyContentPlugin(), react(), dataAnalysisPlugin(__dirname), dataPlugin, mockupsPlugin, dataIntakePlugin(__dirname), atlasTilesPlugin(), designReviewPlugin(), testimonyApiPlugin(), localLibraryPlugin(__dirname), dropUnusedOrtEngine, preloadPageFonts],
+  plugins: [studyContentPlugin(), react(), dataAnalysisPlugin(__dirname), dataPlugin, mockupsPlugin, dataIntakePlugin(__dirname), dataQuestionsPlugin(__dirname), atlasTilesPlugin(), designReviewPlugin(), testimonyApiPlugin(), localLibraryPlugin(__dirname), dropUnusedOrtEngine, preloadPageFonts],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
   },

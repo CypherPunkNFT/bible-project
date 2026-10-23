@@ -175,6 +175,20 @@ outside (231 the Bible as a book, 162 church teaching, 29 history, 21 language a
 with its wording, choices, reference, basis, verses, note, doubt, the audit's verdict, faults and reason, and which
 model did each part. It opens in Excel.
 
+## The question explorer (local only)
+
+http://127.0.0.1:8931/data_questions/ (the third card on the local data hub, `/data/`) shows all 6,467 questions in
+one table: filters with counts, sorting, and each question's before and after wording, faults, reason, verses, basis
+note, doubt, models and source. **Simulate** shuffles whatever the filters leave and runs it as a quiz (keys 1–4,
+Enter for next). Its data, `.local/question-explorer/questions.json`, is written by every build
+([question_explorer.py](../../scripts/question_explorer.py)); it is never in `data/`, which is released with the site.
+The page and its endpoint are [analysis-desk/questions.*](../../analysis-desk/) and
+[data-questions-vite.ts](../../scripts/data-questions-vite.ts); none of it is deployed.
+
+**[flags.json](flags.json) holds the questions the owner flagged while test-taking**, keyed by id, each with the note
+and the wording as it was shown. A chat that fixes one fixes it at its source (audit, choices or the corpus), rebuilds,
+and removes the flag (the page's "Remove flag" or by editing the file).
+
 ## New questions from sources that could not be used as they were
 
 [question_mining.py](../../scripts/question_mining.py) makes three more sources usable with Claude Haiku (owner, 22
