@@ -28,7 +28,7 @@
 
 /* 01 redone: one row per colour (a long section in two), the ring of spokes at the right (BookRing.tsx). */
 /* The rows take only the width their tiles need; the ring fills the rest, as large as the margins allow. */
-.qx-books-layout{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:40px;align-items:center}
+.qx-books-layout{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:28px;align-items:center}
 .qx-rows{display:grid;gap:5px}
 .qx-row-wrap .qp-book-label{display:block;margin:10px 0 6px}
 .qx-row-wrap:first-child .qp-book-label{margin-top:0}
