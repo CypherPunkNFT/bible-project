@@ -216,30 +216,46 @@ Passed questions go to [written.json](written.json) as the bank "Written for the
 section, cited verses and the full review history; rejected ones are kept there too, with the stage and the reason.
 Nothing reaches the bank until a run is published.
 
-## Codex (ChatGPT) as a second, independent reviewer
+## Codex (ChatGPT) on the owner's subscription
 
-Owner, 23 October 2026: can Codex run on a subscription too? **Yes.** Codex is installed on this PC (the OpenAI
-extension in VS Code, `codex-cli 0.162`) and signed in with the owner's ChatGPT account, not an API key, so its work
-counts against the ChatGPT plan's usage limits rather than costing dollars. Its program runs one call at a time with
-no chat window (`codex exec`), and these options keep each call minimal, as BatchRunner does for Claude:
+Owner, 23 October 2026: can Codex run on a subscription too? **Yes, measured the same day** with 14 small calls:
 
-- `--ignore-user-config --ignore-rules`: no settings, rules or connected servers;
-- `--ephemeral`: no saved session;
-- `-s read-only`: it cannot change files;
-- `--output-schema FILE -o OUT.json`: a JSON reply in the same shape BatchRunner's replies have.
+- **Signed in with ChatGPT, not an API key.** Codex is the OpenAI extension in VS Code (`codex-cli 0.162`). The plan
+  is ChatGPT Pro, with a weekly Codex allowance: 3% used at the time, resetting 29 October 2026 at 16:05. The account
+  has no paid credits, so reaching the limit stops the work; it never buys more.
+- **Runs headless,** one call at a time with no chat window (`codex exec`).
+- **Minimal calls.** Codex always sends its own instructions and tools: 14,479 tokens for a one-word prompt. These
+  options bring it to its floor:
+  - `--ignore-user-config --ignore-rules --ephemeral -s read-only --skip-git-repo-check`;
+  - every optional feature off (`--disable` each one `codex features list` shows on);
+  - `-c model_instructions_file=TASK` replaces Codex's own instructions with the task, as BatchRunner's
+    `--system-prompt` does;
+  - `-c include_permissions_instructions=false -c include_environment_context=false -c include_apply_patch_tool=false
+    -c web_search="disabled"`.
+  The floor is about 4,500 tokens of Codex's own besides the task and item, against under 1,000 for Claude through
+  BatchRunner; most of it is cached between calls.
+- **Models:** GPT-6-Luna ("fast and affordable", like Haiku), GPT-6.1-Sol (the workhorse, like Sonnet), GPT-6-Astra
+  (the frontier model). Set with `-m`, effort with `-c model_reasoning_effort=low|medium|high`.
+- **The site's reply format works** (`--output-schema` with the writers' schema.json, `-o` for the reply).
+- **Four calls at once** ran in 4 seconds.
+- **The plan's usage can be read** after each saved call: its session log carries `rate_limits` (percent used, window,
+  reset time), so a runner can stop before the limit.
+
+**The real job, once.** Each model was given the writers' exact instructions and the pilot section "Rebekah Is
+Chosen" (Genesis 24:15-61), and its reply went through the site's script checks (`.local/question-writing/codex-test/`,
+`score.py`):
+- GPT-6-Luna, 6 seconds: 4 of 4 passed. One has a wrong choice he also did later ("bowed down and worshiped"), which
+  the blind quizzes are there to catch.
+- GPT-6.1-Sol, 31 seconds: 3 of 4 passed and read well ("From which people had Abraham forbidden his servant to
+  choose a wife for Isaac?" The Canaanites). The fourth was rightly refused: "She agreed to go" is not in the verse,
+  which says "I will go".
 
 **Why it matters here:** every reviewer of a written question so far is a Claude model checking another Claude
-model. A GPT model taking the blind quizzes (checks 2 and 3 above) would be truly independent: a different model
-family is less likely to share the writer's blind spots.
+model. A GPT model taking the blind quizzes (checks 2 and 3 above) would be truly independent, and would run on the
+ChatGPT plan instead of the Claude one.
 
-**Status:** nothing built yet.
-1. The owner gives Codex the real writing job by hand: the exact instructions and reply format Claude's writers get,
-   and the pilot section "Rebekah Is Chosen" (Genesis 24:15-61), in `.local/question-writing/codex-test/`. Its reply
-   goes through the same script checks, and is compared with Claude's questions for the same section from the pilot.
-2. If Codex does well, add a small runner for `codex exec` beside BatchRunner (one call per item, a resume after a
-   stop, a cap on calls). Then the open and closed quizzes can run on Codex while the writing and the BSB audit stay
-   on Claude.
-The ChatGPT plan's limits are not measured yet: the first runs must be small.
+**Next:** a runner for `codex exec` beside BatchRunner: one call per item with the options above, several at once,
+resume after a stop, and a stop when the weekly allowance nears its limit.
 
 ## The table
 
