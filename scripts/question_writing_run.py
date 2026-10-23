@@ -33,6 +33,7 @@ MODEL_OF = {"write": WRITER, "open": QUIZ, "closed": QUIZ, "check": CHECKER}
 HAIKU_OVERPRICE = 50
 WRITE_ATTEMPTS, REVIEW_PASSES = 3, 8
 OK_EXITS = {0, 1}  # 1: finished, some items failed; a question with no answer waits for the next pass
+BUDGET_USED_UP, BUDGET_ROUNDS = 5, 3  # BatchRunner's exit code when a run's own budget is spent
 NOTHING_LEFT = ("No items left to run after the pilot.", "Nothing to pilot")
 
 
@@ -62,13 +63,20 @@ class Driver:
         return sum(self.folder_spent(path) for path in WORK.glob("full-w*/*/out/_runner/status.json"))
 
     def batch(self, folder: Path, model: str) -> None:
+        for _attempt in range(BUDGET_ROUNDS):  # a projection that falls short: priced again from what is left
+            if self.batch_once(folder, model) != BUDGET_USED_UP:
+                return
+            self.log(f"{folder.name}: the projected budget fell short; pricing what is left and carrying on")
+        raise SystemExit(f"{folder.name}: budget used up {BUDGET_ROUNDS} times; see {folder / 'out' / '_runner'}")
+
+    def batch_once(self, folder: Path, model: str) -> int:
         base = [PYTHON, str(RUNNER), "--task", str(folder / "task.txt"), "--items", str(folder / "items"),
                 "--out", str(folder / "out"), "--schema", str(folder / "schema.json"), "--model", model,
                 "--parallel", str(self.parallel)]
         for _attempt in range(2):  # a pilot call can fail once for no lasting reason
             pilot = self.call([*base, "--pilot", "3"], folder)
             if any(text in pilot for text in NOTHING_LEFT):
-                return
+                return 0
             found = re.search(r"suggested --budget-usd ([\d.]+)", pilot)
             if found:
                 break
@@ -81,18 +89,21 @@ class Driver:
         if self.spent() + more > self.cap:
             raise SystemExit(f"{folder.name}: ${self.spent():.2f} spent + up to ${more:.2f} would pass the "
                              f"${self.cap:.2f} cap; stopped before the full run")
-        self.call([*base, "--budget-usd", f"{budget:.2f}"], folder)
+        return self.call([*base, "--budget-usd", f"{budget:.2f}"], folder, full=True)
 
-    def call(self, command: list[str], folder: Path) -> str:
-        mode = "pilot" if "--pilot" in command else "full"
+    def call(self, command: list[str], folder: Path, full: bool = False) -> str | int:
+        """A pilot's console text, or a full run's exit code (0, 1, or BUDGET_USED_UP)."""
+        mode = "full" if full else "pilot"
         self.log(f"{folder.name}: {mode} run starts")
         done = subprocess.run(command, capture_output=True, text=True, encoding="utf-8", errors="replace", check=False)
         tail = "\n".join(done.stdout.strip().splitlines()[-4:])
         self.log(f"{folder.name}: {mode} run exit {done.returncode}; spent so far ${self.spent():.2f}\n{tail}")
+        if full and done.returncode == BUDGET_USED_UP:
+            return done.returncode
         if done.returncode not in OK_EXITS:
             raise SystemExit(f"{folder.name}: BatchRunner stopped (exit {done.returncode}); see "
                              f"{folder / 'out' / '_runner' / 'log.txt'}\n{done.stderr[-2000:]}")
-        return done.stdout
+        return done.returncode if full else done.stdout
 
     def unapplied(self, stage: str) -> Path | None:
         """The latest folder of a stage if it was prepared but never applied (the driver stopped in between)."""
