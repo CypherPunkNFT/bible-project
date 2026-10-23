@@ -95,11 +95,12 @@ def gate(text: dict, section: dict, asked: list[str]) -> str | None:
     before, after = context_lines(section)
     whole = plain(" ".join([*(line.split(" ", 1)[1] for line in before + after),
                             *(verses[k] for k in sorted(verses) if section["start"] <= k <= tuple(section["end"]))]))
-    for part in [question, answer, *wrong]:
-        if any(plain(quote) not in whole for quote in quotations(part)):
-            return "a quotation not word for word in the BSB text"
-        if KING_JAMES.search(part):
-            return "King James wording"
+    # A wrong choice to "what did they say?" is a made-up saying by design, so only the question and the answer
+    # must quote the BSB word for word; no part may use King James wording.
+    if any(plain(quote) not in whole for part in (question, answer) for quote in quotations(part)):
+        return "a quotation not word for word in the BSB text"
+    if any(KING_JAMES.search(part) for part in [question, answer, *wrong]):
+        return "King James wording"
     if LEANS.search(question):
         return "does not stand alone"
     if contains(norm(question), norm(answer)):

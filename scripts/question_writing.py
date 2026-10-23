@@ -389,7 +389,9 @@ def apply_write(run: str, by: str) -> None:
         for text in reply["questions"][:section["target"]]:
             qid = f"written:{section['id']}:{next_number(section['id'], taken)}"
             taken.append(qid)
-            why = gate(text, section, asked)
+            extra = text["wrong"][3:]  # a writer that gives a fourth wrong choice: the first three are used
+            text = {**text, "wrong": text["wrong"][:3], **({"extra_wrong": extra} if extra else {})}
+            why = gate({k: v for k, v in text.items() if k != "extra_wrong"}, section, asked)
             asked.append(text["question"])
             data["questions"][qid] = {"section": section["id"], "section_info": info["section"], "round": 1,
                                       "status": "rejected" if why else "review", "text": text, "by": by,

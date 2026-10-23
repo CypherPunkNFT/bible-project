@@ -95,6 +95,14 @@ def test_the_gate_rejects(change: dict, why: str) -> None:
     assert gate({**GOOD, **change}, GEN_12, []) == why
 
 
+def test_a_made_up_saying_as_a_wrong_choice_is_not_a_misquote() -> None:
+    text = {**GOOD, "question": "When the LORD called Abram, what did He tell him to leave?",
+            "answer": "Your country, your kindred, and your father's household",
+            "wrong": ['"Stay in Haran with your father Terah and his house"', "Your tents, your flocks, and your herds",
+                      "Ur of the Chaldeans and the house of Nahor"], "verses": ["12:1"]}
+    assert gate(text, GEN_12, []) is None
+
+
 def test_the_gate_rejects_a_question_already_asked() -> None:
     assert gate(GOOD, GEN_12, ["When Abram left Haran, how old was he?"]) == "already asked"
 
