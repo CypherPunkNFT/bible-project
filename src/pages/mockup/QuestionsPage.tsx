@@ -75,7 +75,7 @@ function ListBody({ bank }: { bank: QuestionBank }) {
     <BookRing books={bank.books} counts={bookCounts} selected={choice.book}
       onChoose={(code) => { write({ ...filters, book: code }, ""); if (code) reveal(); }} />
     <section className="qp-section" aria-labelledby="qp-themes-title">
-      <SectionHead n="02" id="qp-themes-title" title={<>Choose a <em>theme</em></>}
+      <SectionHead n="02" id="qp-themes-title" title={<>Or choose a <em>theme</em></>}
         lead="Questions gathered by what they are about, the same themes as the test page. Choose a shelf, then a group, then a theme." />
       <ThemeShelves counts={themeCounts} selected={choice.theme} record={record}
         onChoose={(id) => { write({ ...filters, book: "" }, id); if (id) reveal(); }} />
