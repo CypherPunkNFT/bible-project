@@ -1,9 +1,9 @@
-// The questions page's header: the title, a paragraph, where the questions come from in three words and the two ways on, beside the line drawing
+// The questions page's header: the title, a paragraph, where the questions come from in three words and one way on, beside the line drawing
 // (QuestionsArt.tsx), which replaced the "Try one" question (owner, 2026-10-22). Under it, the bank's figures run in a
-// bar across the page, its foot the line above 01 (StatsBar).
-import { ArrowDown, ArrowRight } from "lucide-react";
+// bar across the page, its foot the line above 01 (StatsBar). The one way on is the pill "Browse questions", down to 03
+// (owner, 2026-10-23: "just shows browse questions, with a down arrow… just one option"); the test is offered under the list.
+import { ArrowDown } from "lucide-react";
 import type { ReactNode } from "react";
-import { Link } from "react-router-dom";
 import type { QuestionBank } from "@/lib/data";
 import { QuestionsArt } from "./QuestionsArt";
 
@@ -36,8 +36,7 @@ export function QuestionsHero() {
       <p className="qp-lead">For more than four hundred years, churches have taught the faith by asking questions. Parents put them to their children at home, Sunday school teachers to their classes, pastors to those about to join the church. Here they are gathered in one place, from the Heidelberg Catechism of 1563 to Bible quizzes written this year, each with the answer its source printed and many tied to the verse they ask about.</p>
       <Themes />
       <div className="qp-hero-go">
-        <Link className="qp-hero-test" to="/study/questions/test">Take a test<ArrowRight size={16} strokeWidth={1.7} aria-hidden /></Link>
-        <button type="button" className="qp-hero-browse" onClick={toList}>Browse every question<ArrowDown size={15} strokeWidth={1.7} aria-hidden /></button>
+        <button type="button" className="qp-hero-test" onClick={toList}>Browse questions<ArrowDown size={16} strokeWidth={1.7} aria-hidden /></button>
       </div>
     </div>
     <QuestionsArt />

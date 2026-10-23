@@ -7,7 +7,7 @@
 // The shelf and group of the chosen test open on their own. The three rows sit in one bordered box, sharing their
 // borders (owner, 2026-10-23, version B of /themes_mockup; theme-box.css). Only the tests, the endpoints, are numbered
 // (owner: numbers on the shelves and groups made them look like units).
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowDown, ArrowRight, Check, X } from "lucide-react";
 import { useState, type CSSProperties, type ReactNode } from "react";
 import type { TestRecord } from "./record";
 import { chosenIn, homeOf, iconOf, plural, shelfMeta, shownShelves, toneOf, type Counted } from "./shelf-model";
@@ -42,18 +42,22 @@ export function ThemeShelves({ counts, selected, onChoose, record }: Props) {
 
 interface CellProps { id: string; n?: number; title: string; line: string; meta: ReactNode; chosen?: string; open: string; on: boolean; onClick: () => void; style?: CSSProperties; press?: boolean }
 
-/** One cell of the library grid, for a shelf and, smaller, for a group or a test (`press`: it is chosen, not opened). */
+/** One cell of the library grid, for a shelf and, smaller, for a group or a test (`press`: it is chosen, not opened).
+ * A test shows at its top right a down arrow (choosing it leads down to its questions) or, once chosen, an X (choosing
+ * it again takes it away), and its number at the bottom right (owner, 2026-10-23: "not obvious… should have an X"). */
 function Cell({ id, n, title, line, meta, chosen, open, on, onClick, style, press }: CellProps) {
   const Icon = iconOf(id);
   return <li style={style}>
     <button type="button" className={on ? "is-open" : undefined} aria-expanded={press ? undefined : on} aria-pressed={press ? on : undefined} onClick={onClick}>
-      {press ? <><span className="th-shelf-top"><span className="th-shelf-icon"><Icon size={24} strokeWidth={1.4} aria-hidden /></span>{n !== undefined && <span>{String(n + 1).padStart(2, "0")}</span>}</span>
+      {press ? <><span className="th-shelf-top"><span className="th-shelf-icon"><Icon size={24} strokeWidth={1.4} aria-hidden /></span>
+        <span className="th-test-mark">{on ? <X size={15} strokeWidth={1.9} aria-hidden /> : <ArrowDown size={15} strokeWidth={1.7} aria-hidden />}</span></span>
         <strong>{title}</strong></>
         : <span className="th-shelf-top is-side"><span className="th-shelf-icon"><Icon size={24} strokeWidth={1.4} aria-hidden /></span><strong>{title}</strong></span>}
       <span className="th-shelf-line">{line}</span>
       <span className="th-shelf-meta">{meta}</span>
       {chosen && <span className="th-shelf-chosen"><Check size={13} strokeWidth={2} aria-hidden />{chosen}</span>}
-      <span className="th-shelf-open">{open} <ArrowRight size={14} aria-hidden /></span>
+      {press ? <span className="th-shelf-foot"><span className="th-shelf-open">{open}</span>{n !== undefined && <span className="th-test-n">{String(n + 1).padStart(2, "0")}</span>}</span>
+        : <span className="th-shelf-open">{open} <ArrowRight size={14} aria-hidden /></span>}
     </button>
   </li>;
 }

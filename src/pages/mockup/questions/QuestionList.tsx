@@ -22,9 +22,9 @@ export function SearchField({ search, update }: { search: string; update: (patch
 
 /** How many questions, and Clear all when anything is chosen. What is chosen shows where it was chosen (the book tile,
  *  the theme card, the gold row in the rail) and in words under 03's title, never as pills (owner, 2026-10-22). */
-export function ResultsBar({ count, filtered, clear }: { count: number; filtered: boolean; clear: () => void }) {
+export function ResultsBar({ count, filtered, clear, chosen }: { count: number; filtered: boolean; clear: () => void; chosen?: string }) {
   return <div className="qp-results-head">
-    <p><strong>{count.toLocaleString()}</strong> {count === 1 ? "question" : "questions"}</p>
+    <p><strong>{count.toLocaleString()}</strong> {count === 1 ? "question" : "questions"}{chosen && <span className="qp-results-chosen"> · {chosen}</span>}</p>
     {filtered && <button type="button" className="qp-clear" onClick={clear}>Clear all</button>}
   </div>;
 }

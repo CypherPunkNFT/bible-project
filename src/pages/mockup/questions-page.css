@@ -20,10 +20,8 @@
 .qp-themes strong{font:italic 400 24px/1.1 var(--serif);letter-spacing:-.02em;color:var(--ink)}
 .qp-themes span{font-size:12.5px;line-height:1.5;color:var(--muted)}
 .qp-hero-go{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-top:30px}
-.qp-hero-test{display:inline-flex;align-items:center;gap:12px;padding:13px 22px;border-radius:999px;background:var(--ink);color:var(--page);font-size:14px;font-weight:600;transition:gap .25s,background .2s}
-.qp-hero-test:hover{gap:18px;background:var(--accent)}
-.qp-hero-browse{display:inline-flex;align-items:center;gap:8px;padding:0;border:0;background:none;font-size:14px;font-weight:550;color:var(--ink);border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
-.qp-hero-browse:hover{color:var(--accent);border-color:currentColor}
+.qp .qp-hero-test{display:inline-flex;align-items:center;gap:12px;padding:13px 22px;border:0;border-radius:999px;background:var(--ink);color:var(--page);font-size:14px;font-weight:600;transition:gap .25s,background .2s}
+.qp .qp-hero-test:hover{gap:18px;background:var(--accent)}
 .qp-hero-go :focus-visible{outline:none}
 /* The bank's figures in one bar across the page; its foot is 01's own top line (.qp-section's border). */
 .qp-statbar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin:0;border-top:1px solid var(--line)}
@@ -120,6 +118,7 @@
 .qp-results-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;padding-bottom:10px;font-size:13px;color:var(--muted)}
 .qp-results-head p{margin-right:6px}
 .qp-results-head strong{font:450 20px var(--serif);color:var(--ink)}
+.qp-results-chosen{color:var(--ink)}
 .qp-clear{background:none;border:0;font-size:11px;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 .qp-list-viewport{height:min(76vh,860px);overflow-y:auto;scrollbar-width:none;border-top:1px solid var(--ink)}
 .qp-list-viewport::-webkit-scrollbar{display:none}

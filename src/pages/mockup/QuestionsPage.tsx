@@ -82,12 +82,12 @@ function ListBody({ bank }: { bank: QuestionBank }) {
     </section>
     <section className="qp-section qp-explore" id="qp-explore" aria-labelledby="qp-explore-title">
       <SectionHead n="03" id="qp-explore-title" title={<>Every <em>question</em></>}
-        lead={chosen.length ? `Showing ${chosen.join(" · ")}.` : `All ${bank.questions.length.toLocaleString()} in one list, by book or theme, or search for a word.`}
+        lead={chosen.length ? "Every question in one list, by book or theme, or search for a word." : `All ${bank.questions.length.toLocaleString()} in one list, by book or theme, or search for a word.`}
         aside={<div className="qp-find"><SearchField search={filters.search} update={update} /><EyeToggle testMode={testMode} setTestMode={setTestMode} /></div>} />
       <div className="qp-explore-grid">
         <ListRail bank={bank} facets={all} filters={filters} choice={choice} members={members} update={update} choose={choose} />
         <QuestionList bank={bank} rows={all.rows} filters={filters} clear={clear} testMode={testMode} bookNames={bookNames}
-          bar={<ResultsBar count={all.rows.length} filtered={isFiltered(filters) || Boolean(choice.theme)} clear={clear} />} />
+          bar={<ResultsBar count={all.rows.length} filtered={isFiltered(filters) || Boolean(choice.theme)} clear={clear} chosen={chosen.join(" · ")} />} />
       </div>
     </section>
     <TestBanner bank={bank} filters={filters} theme={theme} bookNames={bookNames} />
