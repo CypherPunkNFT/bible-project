@@ -26,16 +26,17 @@
 .tb-go:not([data-open]){pointer-events:none}
 .tb-go small{font-size:12px;color:var(--muted)}
 
-/* 1 and 2 · the theme boxes: the theme shelves' hairline grid (test-options.css .th-shelves), the setting's name in
-   the first column; each box with its mark in a soft round tint, a faint square glow and a line across the top when
-   pointed at or chosen. With data-middle the button has a column of its own between the words and the boxes. */
-.tb-banner[data-middle]{grid-template-columns:minmax(0,1fr) auto minmax(0,1.35fr);gap:36px}
-.tb-middle{align-self:center;display:flex;justify-content:center}
-.tb-middle .tb-go>div{flex-direction:column;gap:8px;text-align:center}
-.tb-banner:not([data-middle]) .tb-go>div{justify-content:center}
-.tb-grid{--tone:var(--accent);border-top:1px solid var(--line)}
-.tb-grid-row{display:grid;grid-template-columns:88px repeat(3,minmax(0,1fr));border-bottom:1px solid var(--line)}
+/* 1 · the theme boxes: the theme shelves' hairline grid (test-options.css .th-shelves), the setting's name in the first
+   column with no line under it; each box with its mark in a soft round tint, a faint square glow and a line across the
+   top when pointed at or chosen. With data-left the button comes out under the words. */
+.tb-go[data-place=left]{margin-top:24px}
+.tb-go[data-place=phone]{display:none}
+@media(max-width:900px){.tb-go[data-place=left]{display:none}.tb-go[data-place=phone]{display:grid}}
+.tb-grid{--tone:var(--accent)}
+.tb-grid-row{display:grid;grid-template-columns:88px repeat(3,minmax(0,1fr))}
 .tb-grid-row>*+*{border-left:1px solid var(--line)}
+.tb-grid-row>.tb-cell{border-bottom:1px solid var(--line)}
+.tb-grid-row:first-child>.tb-cell{border-top:1px solid var(--line)}
 .tb-grid-name{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .tb-grid-name svg{color:var(--tone)}
 .tb-cell{position:relative;display:flex;align-items:center;gap:10px;min-width:0;padding:12px 12px 12px 10px;text-align:left;transition:background .3s,box-shadow .3s}
@@ -52,7 +53,6 @@
 .tb-cell strong{font:500 15px/1.2 var(--serif);letter-spacing:-.01em;white-space:nowrap}
 .tb-cell small{overflow:hidden;font-size:11px;line-height:1.35;color:var(--muted);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 .tb-cell[aria-pressed="true"] strong{color:color-mix(in srgb,var(--tone) 80%,var(--ink))}
-@media(max-width:1100px){.tb-banner[data-middle]{grid-template-columns:1fr}.tb-middle{order:3}}
 
 /* 4 · the sentence */
 .tb-sentence{font:450 clamp(24px,2.3vw,30px)/1.6 var(--serif);letter-spacing:-.02em}
