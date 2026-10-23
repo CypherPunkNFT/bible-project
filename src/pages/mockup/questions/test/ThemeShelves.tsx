@@ -1,15 +1,15 @@
 // 01 Choose a theme, in three levels (owner, 2026-10-22: "when we click it, below it, a secondary number of rows, not
 // that it gets replaced… subcategories and subcategories"). The four shelves keep the homepage's "How the library is
-// organised" grid, a little smaller, with a square glow when pointed at; choosing one adds a row of its groups below
-// (patriarchs, rulers, prophets, women of faith…), and choosing a group a row of its tests, each with its number of
-// questions and the reader's best score so far. The shelf and group of the chosen test open on their own.
+// organised" grid, a little smaller, with a square glow when pointed at; choosing one adds a row of its groups below in
+// the same cells, smaller (owner: "the secondary options… in the same format as the super category"), and choosing a
+// group a row of its tests, each with its number of questions and the reader's best score so far. The shelf and group of the chosen test open on their own.
 import {
   ArrowRight, BookMarked, Castle, Check, Crown, Cross, Fish, Flame, Flower2, Footprints, HandHeart, Hash, Hourglass, Landmark,
   Library, MessageCircle, Music, Scale, ScrollText, Shield, Ship, Sparkles, Sprout, Sun, Tent, Users, Waves, type LucideIcon,
 } from "lucide-react";
 import { useState, type CSSProperties } from "react";
 import type { TestRecord } from "./record";
-import { MIN_THEME, SHELVES, type Group, type Theme } from "./themes";
+import { MIN_THEME, SHELVES, type Theme } from "./themes";
 
 interface Props { counts: Map<string, number>; selected: string; onChoose: (id: string) => void; record: TestRecord }
 type Counted = { theme: Theme; n: number };
@@ -40,40 +40,40 @@ export function ThemeShelves({ counts, selected, onChoose, record }: Props) {
   const [open, setOpen] = useState({ shelf: home?.s.id ?? "", group: home?.g.id ?? "" });
   const openShelf = shelves.find(({ shelf }) => shelf.id === open.shelf);
   const openGroup = openShelf?.groups.find(({ group }) => group.id === open.group);
+  const chosenIn = (groups: { themes: Counted[] }[]) => groups.flatMap(({ themes }) => themes).find(({ theme }) => theme.id === selected)?.theme.title;
   return <div className="th">
     <ul className="th-shelves">{shelves.map(({ shelf, groups }, i) => {
-      const Icon = iconOf(shelf.id), on = shelf.id === open.shelf;
-      const tests = groups.reduce((sum, { themes }) => sum + themes.length, 0);
-      const chosen = groups.flatMap(({ themes }) => themes).find(({ theme }) => theme.id === selected)?.theme.title;
-      return <li key={shelf.id} style={toneOf(shelf.tone)}>
-        <button type="button" className={on ? "is-open" : undefined} aria-expanded={on} onClick={() => setOpen({ shelf: on ? "" : shelf.id, group: "" })}>
-          <span className="th-shelf-top"><span className="th-shelf-icon"><Icon size={24} strokeWidth={1.4} aria-hidden /></span><span>{String(i + 1).padStart(2, "0")}</span></span>
-          <strong>{shelf.title}</strong>
-          <span className="th-shelf-line">{shelf.line}</span>
-          <span className="th-shelf-meta">{plural(groups.length, "group")} · {plural(tests, "test")}</span>
-          {chosen && <span className="th-shelf-chosen"><Check size={13} strokeWidth={2} aria-hidden />{chosen}</span>}
-          <span className="th-shelf-open">Open the shelf <ArrowRight size={14} aria-hidden /></span>
-        </button>
-      </li>;
+      const on = shelf.id === open.shelf;
+      return <Cell key={shelf.id} id={shelf.id} n={i} title={shelf.title} line={shelf.line} on={on} open="Open the shelf" style={toneOf(shelf.tone)}
+        meta={`${plural(groups.length, "group")} · ${plural(groups.reduce((sum, { themes }) => sum + themes.length, 0), "test")}`} chosen={chosenIn(groups)}
+        onClick={() => setOpen({ shelf: on ? "" : shelf.id, group: "" })} />;
     })}</ul>
     {openShelf && <div className="th-rows" key={openShelf.shelf.id} style={toneOf(openShelf.shelf.tone)}>
-      <GroupRow groups={openShelf.groups} open={open.group} selected={selected} onOpen={(group) => setOpen({ ...open, group: group === open.group ? "" : group })} />
+      <ul className="th-shelves is-small th-groups" style={{ "--cols": openShelf.groups.length } as CSSProperties}>{openShelf.groups.map(({ group, themes }, i) => {
+        const on = group.id === open.group;
+        return <Cell key={group.id} id={group.id} n={i} title={group.title} line={group.line} on={on} open="Open the group" meta={plural(themes.length, "test")}
+          chosen={chosenIn([{ themes }])} onClick={() => setOpen({ ...open, group: on ? "" : group.id })} />;
+      })}</ul>
       {openGroup && <TestRow key={openGroup.group.id} themes={openGroup.themes} selected={selected} onChoose={onChoose} record={record} />}
     </div>}
   </div>;
 }
 
-/** The second row: an open shelf's groups. */
-function GroupRow({ groups, open, selected, onOpen }: { groups: { group: Group; themes: Counted[] }[]; open: string; selected: string; onOpen: (id: string) => void }) {
-  return <div className="th-cards th-groups">{groups.map(({ group, themes }) => {
-    const Icon = iconOf(group.id), on = group.id === open, chosen = themes.some(({ theme }) => theme.id === selected);
-    return <button key={group.id} type="button" className={`th-card th-group${on ? " is-on" : ""}`} aria-expanded={on} onClick={() => onOpen(group.id)}>
-      <Icon className="th-group-icon" size={20} strokeWidth={1.5} aria-hidden />
-      <span className="th-card-text"><strong className="th-title">{group.title}</strong>
-        <span className="th-card-meta">{plural(themes.length, "test")}{chosen ? " · your test is here" : ""}</span></span>
-      <ArrowRight className="th-card-mark" size={15} strokeWidth={1.7} aria-hidden />
-    </button>;
-  })}</div>;
+interface CellProps { id: string; n: number; title: string; line: string; meta: string; chosen?: string; open: string; on: boolean; onClick: () => void; style?: CSSProperties }
+
+/** One cell of the library grid, for a shelf and, smaller, for a group. */
+function Cell({ id, n, title, line, meta, chosen, open, on, onClick, style }: CellProps) {
+  const Icon = iconOf(id);
+  return <li style={style}>
+    <button type="button" className={on ? "is-open" : undefined} aria-expanded={on} onClick={onClick}>
+      <span className="th-shelf-top"><span className="th-shelf-icon"><Icon size={24} strokeWidth={1.4} aria-hidden /></span><span>{String(n + 1).padStart(2, "0")}</span></span>
+      <strong>{title}</strong>
+      <span className="th-shelf-line">{line}</span>
+      <span className="th-shelf-meta">{meta}</span>
+      {chosen && <span className="th-shelf-chosen"><Check size={13} strokeWidth={2} aria-hidden />{chosen}</span>}
+      <span className="th-shelf-open">{open} <ArrowRight size={14} aria-hidden /></span>
+    </button>
+  </li>;
 }
 
 interface TestRowProps { themes: Counted[]; selected: string; onChoose: (id: string) => void; record: TestRecord }

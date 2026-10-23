@@ -27,7 +27,7 @@
    glow when pointed at and no rule under it; under it a row of the open shelf's groups, then a row of a group's tests */
 @keyframes th-in{from{opacity:0;transform:translateY(-8px)}}
 .th-shelves{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
-.th-shelves li:not(:nth-child(4n+1)){border-left:1px solid var(--line)}
+.th-shelves li+li{border-left:1px solid var(--line)}
 .th-shelves button{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:7px;width:100%;height:100%;padding:18px clamp(14px,1.5vw,22px) 20px;text-align:left;transition:background .3s,box-shadow .3s}
 .th-shelves button::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--tone);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
 .th-shelves button:hover,.th-shelves button.is-open{z-index:1;background:color-mix(in srgb,var(--tone) 5%,var(--page));box-shadow:0 0 0 1px color-mix(in srgb,var(--tone) 45%,transparent),0 0 34px -4px color-mix(in srgb,var(--tone) 45%,transparent)}
@@ -42,13 +42,18 @@
 .th-shelf-open{display:inline-flex;align-items:center;gap:6px;margin-top:4px;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--tone)}
 .th-shelf-open svg{transition:transform .3s}
 .th-shelves button:hover .th-shelf-open svg{transform:translateX(4px)}
-.th-rows{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+/* The open shelf's groups: the same cells, smaller, one per column */
+.th-rows{display:flex;flex-direction:column;gap:18px;margin-top:20px}
 .th-groups,.th-tests{animation:th-in .3s ease}
-.th-cards.th-groups{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
-.th-group{align-items:center}
-.th-group-icon{flex-shrink:0;color:var(--tone)}
-.th-group .th-title{font-size:16px}
-.th-group .th-card-mark{align-self:center}
+.th-shelves.is-small{grid-template-columns:repeat(var(--cols),minmax(0,1fr))}
+.th-shelves.is-small button{gap:5px;padding:14px clamp(10px,1.1vw,16px) 16px}
+.th-shelves.is-small .th-shelf-icon{width:36px;height:36px}
+.th-shelves.is-small .th-shelf-icon svg{width:19px;height:19px}
+.th-shelves.is-small strong{margin-top:2px;font-size:17px}
+.th-shelves.is-small .th-shelf-line{font-size:12px;line-height:1.5}
+.th-shelves.is-small .th-shelf-meta{font-size:11.5px}
+.th-shelves.is-small .th-shelf-chosen{padding:2px 8px 2px 6px;font-size:11.5px}
+.th-shelves.is-small .th-shelf-open{margin-top:2px;font-size:9px}
 /* No rule between the shelves and 02 (owner: "take away the line underneath it"). */
 .qp-section.oc-where{border-top:0}
 .th-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
@@ -118,8 +123,8 @@
 .oc-band .qp-section-head h2{color:var(--ink)}
 
 @media(max-width:900px){
-  .th-shelves{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .th-shelves li:not(:nth-child(4n+1)){border-left:0}.th-shelves li:nth-child(even){border-left:1px solid var(--line)}.th-shelves li:nth-child(n+3){border-top:1px solid var(--line)}
+  .th-shelves,.th-shelves.is-small{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .th-shelves li:nth-child(odd){border-left:0}.th-shelves li:nth-child(n+3){border-top:1px solid var(--line)}
   .ts-ready{grid-template-columns:1fr 150px}.ts-kinds{grid-column:1/-1;grid-row:2}.ts-ready-go{grid-column:1/-1;justify-content:flex-end}
   .bb-testaments{flex-direction:column;gap:26px}
   .bb-column{height:130px}
@@ -131,8 +136,9 @@
   .bb-name{font-size:8px;letter-spacing:0}
   .bb-chapter-bars{gap:1px}
   .bb-chapters{padding:16px 12px 12px}
-  .th-cards,.th-cards.th-tests{grid-template-columns:1fr}.th-cards.th-groups{grid-template-columns:1fr 1fr}.th-group{padding:10px}.th-group .th-title{font-size:14px}.th-group .th-card-mark{display:none}
-  .th-shelves{grid-template-columns:1fr}.th-shelves li:nth-child(even){border-left:0}.th-shelves li+li{border-top:1px solid var(--line)}
+  .th-cards{grid-template-columns:1fr}
+  .th-shelves:not(.is-small){grid-template-columns:1fr}.th-shelves:not(.is-small) li{border-left:0}.th-shelves:not(.is-small) li+li{border-top:1px solid var(--line)}
+  .th-shelves.is-small button{padding:12px 10px 14px}
   .th-shelves button{gap:5px;padding:14px 4px 16px}.th-shelf-icon{width:40px;height:40px}.th-shelves strong{margin-top:0;font-size:19px}
   .ts-float{display:grid;grid-template-columns:1fr 1fr;row-gap:8px;border-radius:16px;padding:12px 4px}
   .ts-float span{padding:2px 14px}.ts-float span:nth-child(3){border-left:0}
