@@ -2,9 +2,10 @@
 // need a way to review all the questions before. Parents need to be able to go through the curriculum… at the bottom
 // of the pages. Make it nice"). Every lesson in course order down the side, by part; the chosen one beside it as a
 // sheet: what to read first, then each question with its answer, the other choices and its verse. On a phone the
-// list becomes one drop-down. "Start with your child" opens the lesson panel as the rest of the page does.
-import { ArrowLeft, ArrowRight, BookOpen, Check } from "lucide-react";
-import { useRef, useState } from "react";
+// list becomes one drop-down. "Start with your child" opens the lesson panel as the rest of the page does. Collapsed
+// until the round arrow beside the counts, or a lesson's "See all the questions", opens it (owner, 2026-10-24).
+import { ArrowLeft, ArrowRight, BookOpen, Check, ChevronDown } from "lucide-react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { rightChoice } from "@/lib/data";
 import { verseOf } from "../questions/test/engine";
@@ -12,28 +13,33 @@ import { nextLesson, passageLabel, readerUrl, toneStyle, type Lesson, type PartL
 import type { Progress } from "./progress";
 import "./parent-guide.css";
 
-interface Props { lessons: Lesson[]; groups: PartLessons[]; progress: Progress; bookNames: Record<string, string>; onOpen: (lesson: Lesson) => void }
+interface Props {
+  lessons: Lesson[]; groups: PartLessons[]; progress: Progress; bookNames: Record<string, string>; onOpen: (lesson: Lesson) => void;
+  expanded: boolean; onExpand: (expanded: boolean) => void; chosenId: string | null; onChoose: (id: string) => void;
+}
 
-export function ParentGuide({ lessons, groups, progress, bookNames, onOpen }: Props) {
-  const [chosenId, setChosenId] = useState(() => nextLesson(lessons, progress).id);
-  const chosen = lessons.find((l) => l.id === chosenId) ?? lessons[0];
+export function ParentGuide({ lessons, groups, progress, bookNames, onOpen, expanded, onExpand, chosenId, onChoose }: Props) {
+  const chosen = lessons.find((l) => l.id === chosenId) ?? nextLesson(lessons, progress);
   const sheet = useRef<HTMLDivElement>(null);
   const at = lessons.indexOf(chosen);
   const total = lessons.reduce((n, l) => n + l.questions.length, 0);
   const choose = (lesson: Lesson) => {
-    setChosenId(lesson.id);
+    onChoose(lesson.id);
     // On a phone the sheet sits under the list: bring its top into view.
     if (sheet.current && sheet.current.getBoundingClientRect().top < 0) sheet.current.scrollIntoView({ behavior: "smooth", block: "start" });
   };
   return <section className="ck-wrap pg" aria-labelledby="pg-title">
     <header className="pg-head">
-      <p className="ck-eyebrow">For parents and teachers</p>
       <h2 id="pg-title">The whole course, <em>answers included</em></h2>
       <p className="ck-lead">Look over a lesson before you sit down together: the passage to read first, every question,
         the right answer and the other choices your child will see.</p>
-      <p className="pg-count"><b>{lessons.length}</b> lessons<span aria-hidden>·</span><b>{total.toLocaleString()}</b> questions</p>
+      <div className="pg-bar">
+        <p className="pg-count"><b>{lessons.length}</b> lessons<span aria-hidden>·</span><b>{total.toLocaleString()}</b> questions</p>
+        <button type="button" className="pg-toggle" aria-expanded={expanded} aria-controls="pg-course" onClick={() => onExpand(!expanded)}
+          aria-label={expanded ? "Close the course" : "Open the whole course"}><ChevronDown size={20} strokeWidth={1.8} aria-hidden /></button>
+      </div>
     </header>
-    <div className="pg-grid">
+    {expanded && <div className="pg-grid" id="pg-course">
       <nav className="pg-rail" aria-label="Every lesson">
         {groups.map(({ part, lessons: ls }) => <div key={part.id} className="pg-part" style={toneStyle(part.tone)}>
           <p className="pg-part-name"><i aria-hidden />{part.title}<small>{ls.length}</small></p>
@@ -60,7 +66,7 @@ export function ParentGuide({ lessons, groups, progress, bookNames, onOpen }: Pr
           {at < lessons.length - 1 && <button type="button" className="pg-next" onClick={() => choose(lessons[at + 1])}><span><small>Next</small>{lessons[at + 1].title}</span><ArrowRight size={16} aria-hidden /></button>}
         </footer>
       </div>
-    </div>
+    </div>}
   </section>;
 }
 

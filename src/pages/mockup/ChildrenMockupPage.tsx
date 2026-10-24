@@ -46,14 +46,23 @@ function ChildrenBody({ bank }: { bank: QuestionBank }) {
   const [open, setOpen] = useState<Lesson | null>(null);
   const close = useCallback(() => setOpen(null), []);
   const props = { lessons, groups, progress, openId: open?.id ?? null, onOpen: setOpen };
+  // The course for parents below: collapsed until opened; "See all the questions" opens it at that lesson.
+  const [guideOpen, setGuideOpen] = useState(false);
+  const [guideId, setGuideId] = useState<string | null>(null);
+  const [reveal, setReveal] = useState(0);
+  useEffect(() => {
+    if (reveal) document.getElementById("pg-course")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [reveal]);
+  const showGuide = (lesson: Lesson) => { setGuideId(lesson.id); setGuideOpen(true); setReveal((n) => n + 1); };
   const next = open ? lessons[lessons.indexOf(open) + 1] ?? null : null;
   return <div className="ck" data-open={open ? "" : undefined}>
-    {version === "e" && <MixedView {...props} bookNames={bookNames} />}
+    {version === "e" && <MixedView {...props} bookNames={bookNames} onGuide={showGuide} />}
     {version === "a" && <PathView {...props} />}
     {version === "b" && <CabinetView {...props} />}
     {version === "c" && <SundayView {...props} bookNames={bookNames} />}
     {version === "d" && <ShelvesView {...props} />}
-    <ParentGuide lessons={lessons} groups={groups} progress={progress} bookNames={bookNames} onOpen={setOpen} />
+    <ParentGuide lessons={lessons} groups={groups} progress={progress} bookNames={bookNames} onOpen={setOpen}
+      expanded={guideOpen} onExpand={setGuideOpen} chosenId={guideId} onChoose={setGuideId} />
     {open && <LessonPanel lesson={open} bookNames={bookNames} next={next} onClose={close} onOpen={setOpen}
       onFinish={(right, total) => save(open.id, right, total)} />}
     <nav className="to-pill" aria-label="Mock-up: five versions of the children's page">
