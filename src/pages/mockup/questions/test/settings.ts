@@ -10,10 +10,11 @@ export const LEVELS = [
 ];
 export const DEFAULT_LEVEL = 2;
 
-export const AGES: { id: string; label: string; line: string; Icon: LucideIcon }[] = [
-  { id: "children", label: "Children", line: "Ages about 6 to 11", Icon: Blocks },
-  { id: "teens", label: "Teens", line: "Ages about 12 to 17", Icon: Backpack },
-  { id: "adults", label: "Adults", line: "Everything in the bank", Icon: UserRound },
+/** Each age group with its three test lengths, short to long (owner, 2026-10-23). */
+export const AGES: { id: string; label: string; line: string; Icon: LucideIcon; lengths: number[] }[] = [
+  { id: "children", label: "Children", line: "Ages about 6 to 11", Icon: Blocks, lengths: [10, 20, 30] },
+  { id: "teens", label: "Teens", line: "Ages about 12 to 17", Icon: Backpack, lengths: [15, 30, 45] },
+  { id: "adults", label: "Adults", line: "Everything in the bank", Icon: UserRound, lengths: [25, 50, 75] },
 ];
 export const DEFAULT_AGE = "adults";
 

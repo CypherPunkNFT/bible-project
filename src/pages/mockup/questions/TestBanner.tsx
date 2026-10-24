@@ -1,6 +1,7 @@
 // The banner between 02 and 03 that leads to the test page. It carries whatever is chosen on this page (a book from
 // 01, a theme from 02, a topic or Testament from 03), so "Take a test on David" opens a test already set to David, and
-// the three settings chosen in it: how many questions, how hard and who for. Since 2026-10-23 it is version 1 of the
+// the three settings chosen in it: who for, how hard and how many questions (owner, 2026-10-23: who for at the top,
+// how many at the bottom, and each age group with its own three lengths). Since 2026-10-23 it is version 1 of the
 // test banner mock-up (/test_banner_mockup, owner: "place the version 1 on the page"): the settings in the theme
 // shelves' boxes on the right, all unchosen, and under the words a pill asking for them that becomes the button once
 // all three are chosen. Styles: test-banner.css.
@@ -9,8 +10,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import type { QuestionBank } from "@/lib/data";
 import { writeFilters, type Filters } from "./model";
-import { DEFAULT_LENGTH, LENGTHS } from "./test/engine";
-import { AGES, LEVELS, ageOf, minutesFor, writeSettings } from "./test/settings";
+import { DEFAULT_LENGTH } from "./test/engine";
+import { AGES, DEFAULT_AGE, LEVELS, ageOf, minutesFor, writeSettings } from "./test/settings";
 import { Pips } from "./test/Pips";
 import type { Theme } from "./test/themes";
 import "../test-setup.css";
@@ -19,14 +20,19 @@ import "./test-banner.css";
 // The row of marks drawn beside the words: a test part-way through, right, wrong and still to come.
 const MARKS = ["right", "right", "wrong", "right", "now", "", "", "", "", ""];
 
-/** The three settings in the order they are asked, each choice with its note. */
-const SETTINGS = [
-  { key: "length", label: "Questions", items: LENGTHS.map((n) => ({ id: n as number | string, label: String(n), note: minutesFor(n) })) },
-  { key: "level", label: "How hard", items: LEVELS.map((l) => ({ id: l.id as number | string, label: l.label, note: l.line })) },
-  { key: "age", label: "For", items: AGES.map((a) => ({ id: a.id as number | string, label: a.label, note: a.line })) },
-] as const;
-type Key = (typeof SETTINGS)[number]["key"];
+type Key = "age" | "level" | "length";
 type Picks = Record<Key, number | string | null>;
+interface Choice { id: number | string; label: string; note: string }
+
+/** The three settings in the order they are asked, each choice with its note. How many is picked as short, middle or
+ * long (0 to 2), and shows the counts of the age group chosen, the adults' until one is. */
+function settingsFor(age: string): { key: Key; label: string; items: Choice[] }[] {
+  return [
+    { key: "age", label: "For", items: AGES.map((a) => ({ id: a.id, label: a.label, note: a.line })) },
+    { key: "level", label: "How hard", items: LEVELS.map((l) => ({ id: l.id, label: l.label, note: l.line })) },
+    { key: "length", label: "Questions", items: ageOf(age).lengths.map((n, slot) => ({ id: slot, label: String(n), note: minutesFor(n) })) },
+  ];
+}
 
 interface Props { bank: QuestionBank; filters: Filters; theme: Theme | null; bookNames: Record<string, string> }
 
@@ -36,9 +42,11 @@ export function TestBanner({ bank, filters, theme, bookNames }: Props) {
   const subject = theme && bookName ? `${theme.title} in ${bookName}` : theme?.title ?? bookName ?? topic ?? (filters.kind ? bank.kinds[filters.kind] : null);
   const [picks, setPicks] = useState<Picks>({ length: null, level: null, age: null });
   const done = picks.length !== null && picks.level !== null && picks.age !== null;
+  const settings = settingsFor(String(picks.age ?? DEFAULT_AGE));
+  const length = picks.length === null ? null : ageOf(String(picks.age ?? DEFAULT_AGE)).lengths[Number(picks.length)];
   const params = writeFilters(filters);
   if (theme) params.set("theme", theme.id);
-  if (done && Number(picks.length) !== DEFAULT_LENGTH) params.set("n", String(picks.length));
+  if (done && length !== DEFAULT_LENGTH) params.set("n", String(length));
   if (done) writeSettings(params, Number(picks.level), String(picks.age));
   const query = params.toString();
   // The pill under the words; on a phone, where the words sit above the boxes, it stands under the boxes instead.
@@ -56,12 +64,12 @@ export function TestBanner({ bank, filters, theme, bookNames }: Props) {
       {go("left")}
     </div>
     <div className="qp-test-action">
-      <div className="qp-test-grid">{SETTINGS.map(({ key, label, items }) =>
+      <div className="qp-test-grid">{settings.map(({ key, label, items }) =>
         <div key={key} className="qp-test-row" role="group" aria-label={label}>
           <span className="qp-test-name">{label}{picks[key] !== null && <Check size={12} strokeWidth={2.2} aria-hidden />}</span>
           {items.map((item) => <button key={item.id} type="button" className="qp-test-cell" aria-pressed={picks[key] === item.id}
             onClick={() => setPicks((now) => ({ ...now, [key]: item.id }))}>
-            <i className="qp-test-cell-icon"><Mark setting={key} id={item.id} /></i>
+            <i className="qp-test-cell-icon"><Mark setting={key} id={item.id} label={item.label} /></i>
             <span><strong>{key === "length" ? "questions" : item.label}</strong><small>{item.note}</small></span>
           </button>)}
         </div>)}</div>
@@ -71,8 +79,8 @@ export function TestBanner({ bank, filters, theme, bookNames }: Props) {
 }
 
 /** The mark in a box: the number, the rising bars, or the age group's icon. */
-function Mark({ setting, id }: { setting: Key; id: number | string }) {
+function Mark({ setting, id, label }: { setting: Key; id: number | string; label: string }) {
   if (setting === "level") return <Pips level={Number(id)} />;
   if (setting === "age") { const { Icon } = ageOf(String(id)); return <Icon size={18} strokeWidth={1.6} aria-hidden />; }
-  return <b>{id}</b>;
+  return <b>{label}</b>;
 }
