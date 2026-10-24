@@ -2,7 +2,8 @@
 // first, then one big question at a time. A question with choices shows them as four large buttons and tapping one
 // tells right or not; a question without them has "Show answer", then the grown-up marks "We got it" or "Not yet".
 // Every answer can open its verse. At the end, how many they knew, kept in this browser (progress.ts). The panel
-// slides in beside the page and closes the same way.
+// slides in beside the page and closes the same way. With `stage` (E, owner 2026-10-24) it is the whole screen instead,
+// opened out of the lesson's circle (LessonStage.tsx): the questions straight away, Next, and Back to the lessons.
 import { ArrowRight, BookOpen, Check, RotateCcw, X } from "lucide-react";
 import { useEffect, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
@@ -11,14 +12,15 @@ import { QuizScene } from "../QuizScenes";
 import { verseOf } from "../questions/test/engine";
 import { passageLabel, readerUrl, type Lesson } from "./data";
 
-interface Props { lesson: Lesson; bookNames: Record<string, string>; next: Lesson | null; onClose: () => void; onOpen: (lesson: Lesson) => void; onFinish: (right: number, total: number) => void }
+interface Props { lesson: Lesson; bookNames: Record<string, string>; next: Lesson | null; onClose: () => void; onOpen: (lesson: Lesson) => void; onFinish: (right: number, total: number) => void; stage?: boolean }
 
-export function LessonPanel({ lesson, bookNames, next, onClose, onOpen, onFinish }: Props) {
-  const [index, setIndex] = useState(-1);
+export function LessonPanel({ lesson, bookNames, next, onClose, onOpen, onFinish, stage }: Props) {
+  const first = stage ? 0 : -1;
+  const [index, setIndex] = useState(first);
   const [marks, setMarks] = useState<(boolean | undefined)[]>([]);
   const [picked, setPicked] = useState<string | null>(null);
   const [shown, setShown] = useState(false);
-  useEffect(() => { setIndex(-1); setMarks([]); setPicked(null); setShown(false); }, [lesson.id]);
+  useEffect(() => { setIndex(first); setMarks([]); setPicked(null); setShown(false); }, [lesson.id, first]);
   useEffect(() => {
     const close = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); };
     window.addEventListener("keydown", close);
@@ -31,11 +33,16 @@ export function LessonPanel({ lesson, bookNames, next, onClose, onOpen, onFinish
     setPicked(null); setShown(false); setIndex(to);
     if (to === total) onFinish(marks.filter(Boolean).length, total);
   };
-  return <aside className="ck-panel" style={{ "--tone": `var(--${lesson.part.tone})` } as CSSProperties} aria-label={`Lesson ${lesson.n}: ${lesson.title}`}>
+  return <aside className={stage ? "ck-panel ck-panel-stage" : "ck-panel"} style={{ "--tone": `var(--${lesson.part.tone})` } as CSSProperties} aria-label={`Lesson ${lesson.n}: ${lesson.title}`}>
     <header className="ck-panel-top">
       <span className="ck-eyebrow">{lesson.part.title} · Lesson {lesson.n}</span>
-      <button type="button" className="ck-close" onClick={onClose} aria-label="Close the lesson"><X size={20} strokeWidth={1.6} /></button>
+      {stage ? <button type="button" className="ck-stage-back" onClick={onClose}>Back to the lessons<X size={18} strokeWidth={1.7} aria-hidden /></button>
+        : <button type="button" className="ck-close" onClick={onClose} aria-label="Close the lesson"><X size={20} strokeWidth={1.6} /></button>}
     </header>
+    {stage && <div className="ck-stage-head">
+      <h1>{lesson.title}</h1>
+      {lesson.passage && <p>Read <Link to={readerUrl(lesson.passage.book, lesson.passage.from)}>{passageLabel(lesson.passage, bookNames)}</Link> together first.</p>}
+    </div>}
     {index < 0 && <Start lesson={lesson} bookNames={bookNames} onBegin={() => go(0)} />}
     {index >= 0 && index < total && <>
       <ol className="ck-dots" aria-label={`Question ${index + 1} of ${total}`}>{lesson.questions.map((_, i) =>

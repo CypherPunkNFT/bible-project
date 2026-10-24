@@ -56,7 +56,7 @@ function ChildrenBody({ bank }: { bank: QuestionBank }) {
   const showGuide = (lesson: Lesson) => { setGuideId(lesson.id); setGuideOpen(true); setReveal((n) => n + 1); };
   const next = open ? lessons[lessons.indexOf(open) + 1] ?? null : null;
   return <div className="ck" data-open={open ? "" : undefined}>
-    {version === "e" && <MixedView {...props} bookNames={bookNames} onGuide={showGuide} />}
+    {version === "e" && <MixedView {...props} bookNames={bookNames} onGuide={showGuide} onFinish={(lesson, right, total) => save(lesson.id, right, total)} />}
     {version === "a" && <PathView {...props} />}
     {version === "b" && <CabinetView {...props} />}
     {version === "c" && <SundayView {...props} bookNames={bookNames} />}

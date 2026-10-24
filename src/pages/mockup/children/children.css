@@ -35,8 +35,8 @@
 .ck-path-part h2{font:450 clamp(30px,3.2vw,44px)/1.1 var(--serif);letter-spacing:-.04em;margin:0;color:var(--tone)}
 .ck-path-part>p{margin:6px 0 10px;color:var(--muted)}
 .ck-path{position:relative;width:100%}
-.ck-path svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.ck-path path{fill:none;stroke:color-mix(in srgb,var(--tone) 45%,var(--line));stroke-width:3;stroke-dasharray:2 10;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.ck-path>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ck-path>svg path{fill:none;stroke:color-mix(in srgb,var(--tone) 45%,var(--line));stroke-width:3;stroke-dasharray:2 10;stroke-linecap:round;vector-effect:non-scaling-stroke}
 .ck-path ol{list-style:none;margin:0;padding:0}
 .ck-path li{position:absolute;transform:translate(-50%,-28px);width:clamp(96px,14%,150px)}
 .ck-path li button{display:grid;justify-items:center;gap:8px;width:100%;border:0;background:none;cursor:pointer;text-align:center}
@@ -142,6 +142,24 @@
 .ck-course small,.ck-course svg{margin-left:auto;flex:none;color:var(--muted)}
 
 /* E, the mix: the parts row joined to the big lesson card, the path below */
+.ck:has(.ck-stage){overflow-x:clip}
+.ck-mix-path[data-zooming]{position:relative;z-index:5;background:var(--page)}
+.ck-mix-path>h2,.ck-mix-path>p{transition:opacity .3s}
+.ck-mix-path[data-zooming]>h2,.ck-mix-path[data-zooming]>p{opacity:0}
+.ck-node-wrap{position:relative;display:block}
+.ck-node-icon svg{display:block}
+.ck-node-n{position:absolute;top:-4px;left:-20px;font:500 14px/1 var(--serif);color:var(--tone)}
+/* The quiz opened out of a circle (LessonStage.tsx): the whole screen, the questions only */
+.ck-stage{position:fixed;inset:0;z-index:1000;visibility:hidden;clip-path:circle(0 at 50% 50%);overflow-y:auto;overscroll-behavior:contain;background:radial-gradient(900px 500px at 50% -10%,color-mix(in srgb,var(--tone) 14%,transparent),transparent 70%),color-mix(in srgb,var(--tone) 5%,var(--page))}
+.ck .ck-panel-stage{position:static;width:min(860px,100%);min-height:100%;margin:0 auto;padding:calc(28px + env(safe-area-inset-top,0px)) 24px calc(48px + env(safe-area-inset-bottom,0px));border:0;background:none;box-shadow:none;overflow:visible;animation:none;opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .4s ease}
+.ck-stage[data-ready] .ck-panel-stage{opacity:1;transform:none}
+.ck-stage-back{display:inline-flex;flex:none;align-items:center;gap:8px;white-space:nowrap;padding:9px 16px;border:1px solid var(--line);border-radius:999px;background:var(--page);font-size:14px !important;font-weight:600 !important;cursor:pointer;transition:border-color .2s,color .2s}
+.ck-stage-back:hover{border-color:var(--tone);color:var(--tone) !important}
+.ck-stage-head h1{font:450 clamp(30px,3.4vw,46px)/1.08 var(--serif);letter-spacing:-.04em;margin:26px 0 6px}
+.ck-stage-head p{margin:0 0 6px;color:var(--muted)}
+.ck-stage-head a{color:var(--tone);font-weight:600}
+.ck-panel-stage .ck-q-text{font-size:clamp(30px,3.4vw,50px)}
+@media (min-width:760px){.ck-panel-stage .ck-choices{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .ck-mix-join .ck-parts{margin-bottom:0}
 .ck-mix-join .ck-sunday{border-top:0}
 .ck-go-outline{margin-left:10px;border:1px solid var(--tone);background:none;color:var(--tone) !important}

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { QuizScene } from "../QuizScenes";
 import { nextLesson, toneStyle, type Lesson, type PartLessons } from "./data";
+import { lessonIcon } from "./icons";
 import type { Progress } from "./progress";
 
 export interface ViewProps { lessons: Lesson[]; groups: PartLessons[]; progress: Progress; openId: string | null; onOpen: (lesson: Lesson) => void }
@@ -65,8 +66,9 @@ export function PathView({ lessons, groups, progress, openId, onOpen }: ViewProp
   </div>;
 }
 
-/** The lessons snaking left to right, then right to left, joined by one curving line. */
-export function Path({ lessons, progress, next, openId, onOpen }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void }) {
+/** The lessons snaking left to right, then right to left, joined by one curving line. With `icons` (E) each circle holds
+ * the lesson's icon and its number sits just outside it. */
+export function Path({ lessons, progress, next, openId, onOpen, icons }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void; icons?: boolean }) {
   const { perRow, row: rowHeight, inset } = usePerRow();
   const rows = Math.ceil(lessons.length / perRow);
   const height = rows * rowHeight;
@@ -86,10 +88,12 @@ export function Path({ lessons, progress, next, openId, onOpen }: { lessons: Les
     <svg viewBox={`0 0 1000 ${height}`} preserveAspectRatio="none" aria-hidden="true"><path d={d} /></svg>
     <ol>{lessons.map((lesson, i) => {
       const done = progress[lesson.id];
+      const Icon = lessonIcon(lesson);
       return <li key={lesson.id} style={{ left: `${points[i].x / 10}%`, top: `${(points[i].y / height) * 100}%` }}>
-        <button type="button" data-done={done ? "" : undefined} data-next={lesson.id === next.id ? "" : undefined} aria-pressed={lesson.id === openId}
+        <button type="button" data-lesson={lesson.id} data-done={done ? "" : undefined} data-next={lesson.id === next.id ? "" : undefined} aria-pressed={lesson.id === openId}
           onClick={() => onOpen(lesson)} aria-label={`Lesson ${lesson.n}: ${lesson.title}${done ? `, ${done.right} of ${done.total} right` : ""}`}>
-          <span className="ck-node">{done ? <Check size={20} strokeWidth={2.2} aria-hidden /> : lesson.n}</span>
+          {icons ? <span className="ck-node-wrap"><span className="ck-node ck-node-icon"><Icon size={24} strokeWidth={1.6} aria-hidden /></span><span className="ck-node-n" aria-hidden>{lesson.n}</span></span>
+            : <span className="ck-node">{done ? <Check size={20} strokeWidth={2.2} aria-hidden /> : lesson.n}</span>}
           <span className="ck-node-title">{lesson.title}</span>
         </button>
       </li>;
