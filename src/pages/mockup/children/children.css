@@ -18,6 +18,10 @@
 .ck-back:hover{color:var(--ink)}
 .ck-top .ck-eyebrow{margin-top:28px}
 .ck-top h1{font:450 clamp(42px,5vw,68px)/1.05 var(--serif);letter-spacing:-.045em;margin:12px 0 16px}
+.ck-top-beside{display:grid;grid-template-columns:auto minmax(0,420px);column-gap:56px;align-items:end}
+.ck-top-beside>.ck-back,.ck-top-beside>.ck-eyebrow{grid-column:1/-1;justify-self:start}
+.ck-top-beside h1{margin-bottom:0}
+.ck-top-beside .ck-lead{padding-bottom:8px}
 
 /* A, the path */
 .ck-parts{list-style:none;margin:0 0 40px;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
@@ -163,6 +167,8 @@
   .ck-wrap{padding-inline:16px}
   .ck-cab-intro,.ck-sunday{grid-template-columns:1fr;gap:24px}
   .ck-go-outline{margin:10px 0 0}
+  .ck-top-beside{grid-template-columns:minmax(0,1fr)}
+  .ck-top-beside h1{margin-bottom:16px}
   .ck-sunday{padding:24px 16px}
   .ck-panel{padding-inline:18px}
   .ck-path li{width:104px}

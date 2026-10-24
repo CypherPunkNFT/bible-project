@@ -11,11 +11,12 @@ import type { Progress } from "./progress";
 export interface ViewProps { lessons: Lesson[]; groups: PartLessons[]; progress: Progress; openId: string | null; onOpen: (lesson: Lesson) => void }
 
 
-export function Top({ lead }: { lead?: string }) {
-  return <header className="ck-top">
+/** The page's top; `beside` sets the lead to the right of the title instead of under it (E). */
+export function Top({ lead, beside }: { lead?: string; beside?: boolean }) {
+  return <header className={beside ? "ck-top ck-top-beside" : "ck-top"}>
     <Link className="ck-back" to="/study/questions"><ArrowLeft size={15} strokeWidth={1.6} aria-hidden />Back to the questions</Link>
     <p className="ck-eyebrow">Children's tests</p>
-    <h1>Bible lessons <em>for children</em></h1>
+    <h1>Bible questions <em>for children</em></h1>
     <p className="ck-lead">{lead ?? "Eighty-eight lessons through the whole Bible, from the garden to Paul in Rome, and the first questions of what we believe. Read the passage together, then ask the questions one at a time."}</p>
   </header>;
 }

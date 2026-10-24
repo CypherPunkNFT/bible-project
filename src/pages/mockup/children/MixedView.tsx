@@ -3,7 +3,7 @@
 // lessons on A's path. Choosing a part puts its next lesson in the card; choosing a lesson on the path puts that one in.
 // The parts row sits directly on the card, with no gap (owner, 2026-10-24: "connect them"); beside Start, an outline
 // button opens every question with its answer in the course below.
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { useState } from "react";
 import { QuizScene } from "../QuizScenes";
 import { nextLesson, passageLabel, toneStyle, type Lesson } from "./data";
@@ -26,7 +26,7 @@ export function MixedView({ lessons, groups, progress, onOpen, bookNames, onGuid
     if (g) setChosenId(firstToDo(g.lessons, progress).id);
   };
   return <div className="ck-wrap">
-    <Top lead="Choose a part of the Bible, then a lesson: read the passage together, then ask the questions one at a time." />
+    <Top beside lead="Choose a part of the Bible, then a lesson. Read the passage together and ask the questions one at a time." />
     <div className="ck-mix-join">
     <PartRow groups={groups} progress={progress} partId={group.part.id} onChoose={choosePart} />
     <section className="ck-sunday" style={toneStyle(chosen.part.tone)} aria-labelledby="ck-mix-title" aria-live="polite">
@@ -36,8 +36,8 @@ export function MixedView({ lessons, groups, progress, onOpen, bookNames, onGuid
         <h2 id="ck-mix-title">{chosen.title}</h2>
         <p>{chosen.passage ? <>Read <b>{passageLabel(chosen.passage, bookNames)}</b> together, then </> : "Learn together, then "}answer {chosen.questions.length} questions.
           {progress[chosen.id] && ` Last time: ${progress[chosen.id].right} of ${progress[chosen.id].total} right.`}</p>
-        <button type="button" className="ck-go" onClick={() => onOpen(chosen)}>{progress[chosen.id] ? "Do this lesson again" : "Start this lesson"}<ArrowRight size={18} aria-hidden /></button>
-        <button type="button" className="ck-go ck-go-outline" onClick={() => onGuide(chosen)}>See all the questions<ArrowDown size={18} aria-hidden /></button>
+        <button type="button" className="ck-go" onClick={() => onOpen(chosen)}>{progress[chosen.id] ? "Start the quiz again" : "Start the quiz"}<ArrowDown size={18} aria-hidden /></button>
+        <button type="button" className="ck-go ck-go-outline" onClick={() => onGuide(chosen)}>See all the questions</button>
         {after.length > 0 && <p className="ck-after">After that: {after.map((l, i) => <span key={l.id}>{i > 0 && " · "}<button type="button" onClick={() => setChosenId(l.id)}>{l.title}</button></span>)}</p>}
       </div>
     </section>
