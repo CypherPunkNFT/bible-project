@@ -147,13 +147,13 @@ are left off the pages and listed for the owner, never corrected by hand.
 ## Question Bank — registered 22 October 2026 (local preview only; nothing published)
 
 The twelve sources behind the site's official Question Bank, shown at `/study/questions` (local preview only until
-approved). The corpus is `Research/BibleQuizCorpus/` (Fortress jobs 64bc483e and b88ef04a, 16–17 October 2026); the bank
-is generated from its normalized files by `scripts/build-question-bank.py` into `content/questions/question-bank.json`
+approved). The corpus is [content/questions/sources/](content/questions/sources/README.md) (moved there from `Research/BibleQuizCorpus/` on 24 October 2026; Fortress jobs 64bc483e and b88ef04a, 16–17 October 2026); the bank
+is generated from its normalized files by `scripts/build-question-bank.py` into [content/questions/bank/question-bank.json](content/questions/bank/README.md)
 (the official record, every question carrying its own licence and credit line) and `data/questions/bank.json` (the
-page's copy). Nothing in `Research/` is written to by the build. Publishability follows the owner's rule of 17 October
-2026, recorded in `Research/BibleQuizCorpus/MANIFEST.md`; the page lists every source's credit under the table.
+page's copy). Nothing in the sources folder is written to by the build. Publishability follows the owner's rule of 17 October
+2026, recorded in [content/questions/sources/MANIFEST.md](content/questions/sources/MANIFEST.md); the page lists every source's credit under the table.
 
-The corpus manifest records every file's size and SHA-256: `Research/BibleQuizCorpus/manifest.json`. The checksum below
+The corpus manifest records every file's size and SHA-256: [content/questions/sources/manifest.json](content/questions/sources/manifest.json). The checksum below
 is the first 16 hex of a SHA-256 over that source's sorted `path sha256` lines. "Questions" is how many of the bank's
 4,962 questions are credited to that source after duplicates are folded together.
 
@@ -181,7 +181,7 @@ the Roman Catholic Baltimore catechisms and the Seventh-day Adventist *Bible Rea
 from the BSB") takes no outside source. Each question is written by Claude from one section of the Berean Standard
 Bible (public domain; the project's own `data/text/bsb/` copy, the one every page reads), and its record names the
 section, the cited verses and every model that reviewed it. Written by `scripts/question_writing.py` into
-`content/questions/written.json`; see the question bank's README.
+[content/questions/written/written.json](content/questions/written/README.md); see its README.
 
 ## Catechisms & Creeds — published 17 October 2026
 

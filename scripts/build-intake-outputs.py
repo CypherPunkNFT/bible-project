@@ -4,7 +4,7 @@ The data intake page (scripts/build-data-intake.py) files output/<source>.csv un
 the same name and shows it as a table. Plain reshaping, no model calls: each table is read from the job's
 own prepared data (normalized/, chapter-index.json) where it made some, else from the raw files.
 <intake>/output/_status.json records each table's row count and unit, and how it was made.
-Bible questions has its own builder (Research/BibleQuizCorpus/tools/build_output.py), run from here too.
+Bible questions has its own builder (Website/content/questions/sources/tools/build_output.py), run from here too.
 Run: py -3.12 scripts/build-intake-outputs.py
 """
 from __future__ import annotations
@@ -421,8 +421,8 @@ def main() -> None:
     run("Audio", audio())
     run("OpenBibleData", open_bible_data())
     run("Reference books", reference_library(), REFERENCE_LIBRARY)
-    quiz = RESEARCH / "BibleQuizCorpus/tools/build_output.py"
-    print("BibleQuizCorpus")
+    quiz = PROJECT / "Website/content/questions/sources/tools/build_output.py"
+    print("Bible question sources")
     subprocess.run([sys.executable, str(quiz)], check=True)
 
 

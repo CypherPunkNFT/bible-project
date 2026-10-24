@@ -25,7 +25,7 @@ OUT = SITE / "intake"
 
 # Every intake, the folder it lives in, and the orchestrator jobs that filled it.
 INTAKES = [
-    {"slug": "bible_questions", "title": "Bible questions", "folder": "Research/BibleQuizCorpus", "jobs": [411, 412, 413]},
+    {"slug": "bible_questions", "title": "Bible questions", "folder": "Website/content/questions/sources", "jobs": [411, 412, 413]},
     {"slug": "open_bible_data", "title": "Open Bible data", "folder": "Research/OpenBibleData", "jobs": [413]},
     {"slug": "creeds", "title": "Creeds & confessions", "folder": "Research/Creeds", "jobs": [415]},
     {"slug": "hymns", "title": "Hymns", "folder": "Research/Hymns", "jobs": [416]},
@@ -199,7 +199,7 @@ def group_of(relative: Path, source_dirs: tuple[str, ...] = ()) -> tuple[str, st
     if parts[0] in source_dirs and len(parts) > 1:
         name = parts[1] if len(parts) > 2 else relative.stem
         return f"source/{name}", name, True
-    # output/<source>.csv is that source's finished question list (BibleQuizCorpus/tools/build_output.py).
+    # output/<source>.csv is that source's finished question list (content/questions/sources/tools/build_output.py).
     if parts[0] == "output" and len(parts) == 2 and relative.suffix == ".csv":
         if relative.stem in ("images", "raw"):  # a flat images/ or raw/ folder is its own group
             return relative.stem, relative.stem, True

@@ -13,7 +13,7 @@ How a repeat is found:
      look-alike templates ("the book after Exodus" / "after Leviticus") score as high as true repeats. The test is
      whether the two answers could swap; the first, looser test ("answering one in effect answers the other") also
      merged questions asked the other way round, so its "same" verdicts below RECHECK_BELOW are asked again (recheck).
-Every decision is kept in content/questions/repeats.json, so a rebuild never asks again about a pair already decided.
+Every decision is kept in content/questions/checks/repeats.json, so a rebuild never asks again about a pair already decided.
 
     python scripts/question_repeats.py prepare           # embed, find candidates among the questions still shown,
                                                          # write BatchRunner items (plus a sample just below the floor)
@@ -36,8 +36,8 @@ import urllib.request
 from pathlib import Path
 
 WEBSITE = Path(__file__).resolve().parent.parent
-BANK = WEBSITE / "content" / "questions" / "question-bank.json"
-REPEATS = WEBSITE / "content" / "questions" / "repeats.json"
+BANK = WEBSITE / "content" / "questions" / "bank" / "question-bank.json"
+REPEATS = WEBSITE / "content" / "questions" / "checks" / "repeats.json"
 WORK = WEBSITE / ".local" / "question-repeats"
 EMBED_URL = "http://127.0.0.1:8798/embed"
 

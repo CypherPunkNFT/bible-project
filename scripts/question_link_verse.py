@@ -5,7 +5,7 @@
 The site opens a question's first reference. When the answer's words are not in or near that verse (its tagged
 passage is not "matched", scripts/question_model_tags.py), Claude Opus is shown every verse the question cites or was
 grounded in (scripts/question_grounding.py), each with its BSB text, and picks the one that shows the answer, or none.
-The choice is kept in content/questions/link-verse.json by question id, with a fingerprint of the question, answer
+The choice is kept in content/questions/checks/link-verse.json by question id, with a fingerprint of the question, answer
 and reference, so a reworded question is asked again; the build opens the chosen verse instead of the first one.
 
     python scripts/question_link_verse.py prepare           # BatchRunner items for links not yet checked
@@ -25,8 +25,8 @@ from question_audit import parse_spans
 from question_model_tags import bible_book
 
 WEBSITE = Path(__file__).resolve().parent.parent
-BANK = WEBSITE / "content" / "questions" / "question-bank.json"
-CHOICES = WEBSITE / "content" / "questions" / "link-verse.json"
+BANK = WEBSITE / "content" / "questions" / "bank" / "question-bank.json"
+CHOICES = WEBSITE / "content" / "questions" / "checks" / "link-verse.json"
 WORK = WEBSITE / ".local" / "question-link-verse"
 
 QUESTIONS_PER_CALL = 20

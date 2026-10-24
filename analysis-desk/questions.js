@@ -1,5 +1,5 @@
 /* The question explorer. Data comes from the question bank build (scripts/question_explorer.py); flags are saved
-   through /data_questions/api/flag into content/questions/flags.json. Text from the data is never set as HTML. */
+   through /data_questions/api/flag into content/questions/checks/flags.json. Text from the data is never set as HTML. */
 const $=id=>document.getElementById(id);
 const node=(tag,text,cls)=>{const e=document.createElement(tag);if(text!=null)e.textContent=text;if(cls)e.className=cls;return e;};
 const fmt=n=>Number(n).toLocaleString('en-US');

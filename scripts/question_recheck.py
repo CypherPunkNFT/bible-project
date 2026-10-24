@@ -11,7 +11,7 @@ missing from the saved audit prompts for the wording the audit record starts fro
 the sample runs count: their records were carried into audit.json). A verse counts as seen only if every such prompt held it,
 or the newest recheck prompt did. A question whose prompt cannot be found is sent too.
 
-What is kept, in content/questions/audit.json:
+What is kept, in content/questions/checks/audit.json:
   keep  the record stays as it was (an earlier fix stays applied), with `rechecked` added;
   fix   `after` becomes the new wording, `before` stays the source's wording (so the build still matches it), the new
         faults are added to the earlier ones, and `why` gives both reasons;

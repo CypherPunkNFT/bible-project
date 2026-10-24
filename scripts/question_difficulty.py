@@ -3,7 +3,7 @@ suits children.
 
 Claude Opus reads every shown question, 40 to a call through BatchRunner, with its answer and choices but no Bible
 text: how well known a fact is does not depend on the verse's wording, and leaving the text out keeps each call
-small. Every rating is kept in content/questions/difficulty.json by question id, so a rebuild never asks again about
+small. Every rating is kept in content/questions/checks/difficulty.json by question id, so a rebuild never asks again about
 a question already rated; a question reworded since is rated again.
 
     python scripts/question_difficulty.py prepare           # write BatchRunner items for shown questions not yet rated
@@ -20,8 +20,8 @@ import sys
 from pathlib import Path
 
 WEBSITE = Path(__file__).resolve().parent.parent
-BANK = WEBSITE / "content" / "questions" / "question-bank.json"
-RATINGS = WEBSITE / "content" / "questions" / "difficulty.json"
+BANK = WEBSITE / "content" / "questions" / "bank" / "question-bank.json"
+RATINGS = WEBSITE / "content" / "questions" / "checks" / "difficulty.json"
 WORK = WEBSITE / ".local" / "question-difficulty"
 
 QUESTIONS_PER_CALL = 40

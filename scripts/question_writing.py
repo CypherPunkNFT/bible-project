@@ -17,7 +17,7 @@ Each written question then passes, or is rejected (never patched here):
   closed   the same with no text at all: is the question clear alone, and is any other choice right anywhere in the Bible;
   check    a fresh Sonnet call runs the site's BSB audit (question_audit.TASK) on it. A "fix" goes through every stage
            once more as round 2; a second fault rejects it.
-`publish` puts the passed questions into content/questions/written.json (read by build-question-bank.py as the bank
+`publish` puts the passed questions into content/questions/written/written.json (read by build-question-bank.py as the bank
 "written-bsb"), with an audit.json record and a model-tags.json record, so the build treats them like any other
 checked question. A run never touches content/ until it is published.
 
@@ -46,10 +46,10 @@ from question_audit import WEBSITE, label, parse_spans, save_json  # noqa: E402
 from question_writing_gate import context_lines, gate, verse_lines  # noqa: E402
 
 BSB = WEBSITE / "data" / "text" / "bsb"
-BANK = WEBSITE / "content" / "questions" / "question-bank.json"
-GROUNDING = WEBSITE / "content" / "questions" / "grounding.json"
-MAP = WEBSITE / "content" / "questions" / "writing-map.json"
-WRITTEN = WEBSITE / "content" / "questions" / "written.json"
+BANK = WEBSITE / "content" / "questions" / "bank" / "question-bank.json"
+GROUNDING = WEBSITE / "content" / "questions" / "checks" / "grounding.json"
+MAP = WEBSITE / "content" / "questions" / "written" / "writing-map.json"
+WRITTEN = WEBSITE / "content" / "questions" / "written" / "written.json"
 WORK = WEBSITE / ".local" / "question-writing"
 
 ORDER = {code: n for n, (code, *_rest) in enumerate(BOOKS)}

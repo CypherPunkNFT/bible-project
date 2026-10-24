@@ -5,7 +5,7 @@ The children's page asks Hurlbut's Bible Lessons for Boys and Girls (1903) and A
 check against the BSB (question_audit.py) reworded about half of Hurlbut's questions in the BSB's own grown-up words.
 Claude Opus now writes each one again for a child of about 6 to 11: from the 1903 wording, the checked wording, the
 reason it was changed and the BSB verses, so it stays as right as the checked one. Kept in
-content/questions/children-wording.json by question id with a fingerprint of the checked wording; the build adds it to
+content/questions/children/children-wording.json by question id with a fingerprint of the checked wording; the build adds it to
 the question as `child`, and the children's page asks that.
 
     python scripts/question_children_wording.py prepare           # BatchRunner items for questions not yet worded
@@ -30,8 +30,8 @@ from question_link_verse import candidate_verses
 from question_model_tags import bible_book
 
 WEBSITE = Path(__file__).resolve().parent.parent
-BANK = WEBSITE / "content" / "questions" / "question-bank.json"
-WORDING = WEBSITE / "content" / "questions" / "children-wording.json"
+BANK = WEBSITE / "content" / "questions" / "bank" / "question-bank.json"
+WORDING = WEBSITE / "content" / "questions" / "children" / "children-wording.json"
 WORK = WEBSITE / ".local" / "question-children-wording"
 
 COLLECTIONS = ("Hurlbut's Bible Lessons for Boys and Girls (1903)", "A Catechism for Young Children")

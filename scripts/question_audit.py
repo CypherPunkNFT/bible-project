@@ -12,7 +12,7 @@ model-tags.json found for it), and comes back as keep, fix or hide, with what wa
 A reference in brackets at the end of a printed answer ("Creation (Gen 1 - 2)") is moved into the reference here
 before the call, by rule, so the model sees its text and the choice no longer gives itself away.
 
-Every reply is checked here before it is kept, and every decision is kept in content/questions/audit.json by question
+Every reply is checked here before it is kept, and every decision is kept in content/questions/checks/audit.json by question
 id with the question as it was (`before`) and as it is shown now (`after`), so nothing is asked twice and nothing is
 lost. build-question-bank.py applies it: a fix replaces the wording and choices, a hide sets `hidden` (the question
 stays in the official bank, the page never shows it). A hidden question that was the one shown for a group of repeats
@@ -24,7 +24,7 @@ hands that place to the best of the rest.
     python scripts/question_audit.py report [--audit-file F]
     (then python scripts/build-question-bank.py)
 RUN is a folder name under .local/question-audit/; OUT is BatchRunner's results folder for it. A pilot is applied with
---audit-file into its run folder, so only the full run reaches content/questions/audit.json.
+--audit-file into its run folder, so only the full run reaches content/questions/checks/audit.json.
 """
 
 from __future__ import annotations
@@ -48,9 +48,9 @@ from question_model_tags import bible_book, check_passage  # noqa: E402
 from question_tags import books_of, link_of, testament_of, topic_of  # noqa: E402
 
 WEBSITE = Path(__file__).resolve().parent.parent
-BANK = WEBSITE / "content" / "questions" / "question-bank.json"
-AUDIT = WEBSITE / "content" / "questions" / "audit.json"
-GROUNDING = WEBSITE / "content" / "questions" / "grounding.json"
+BANK = WEBSITE / "content" / "questions" / "bank" / "question-bank.json"
+AUDIT = WEBSITE / "content" / "questions" / "checks" / "audit.json"
+GROUNDING = WEBSITE / "content" / "questions" / "checks" / "grounding.json"
 WORK = WEBSITE / ".local" / "question-audit"
 
 NEARBY = 2  # verses either side of a cited verse

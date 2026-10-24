@@ -2,7 +2,7 @@
 //   /data_questions/                    the page            (analysis-desk/questions.html, .css, .js)
 //   /data_questions/api/questions.json  the questions       (.local/question-explorer/questions.json, written by
 //                                                             scripts/build-question-bank.py)
-//   /data_questions/api/flags           the owner's flags   (content/questions/flags.json, for the next chat to fix)
+//   /data_questions/api/flags           the owner's flags   (content/questions/checks/flags.json, for the next chat to fix)
 //   POST /data_questions/api/flag       save or remove one flag {id, note, remove?}
 // Like /data_analysis/, none of this is in dist/ or the deployed site.
 import fs from 'node:fs';
@@ -37,7 +37,7 @@ export function dataQuestionsPlugin(siteRoot: string): Plugin {
   const site = path.resolve(siteRoot);
   const pages = path.join(site, 'analysis-desk');
   const dataFile = path.join(site, '.local', 'question-explorer', 'questions.json');
-  const flagsFile = path.join(site, 'content', 'questions', 'flags.json');
+  const flagsFile = path.join(site, 'content', 'questions', 'checks', 'flags.json');
   let cache: { stamp: number; byId: Map<string, Snapshot> } | undefined;
   let writing = false;
 
@@ -70,6 +70,7 @@ export function dataQuestionsPlugin(siteRoot: string): Plugin {
 
   function writeFlags(data: Flags): void {
     const temporary = `${flagsFile}.${process.pid}.tmp`;
+    fs.mkdirSync(path.dirname(flagsFile), { recursive: true });
     fs.writeFileSync(temporary, JSON.stringify(data, null, 1) + '\n', 'utf8');
     try { fs.renameSync(temporary, flagsFile); } catch (error) { fs.rmSync(temporary, { force: true }); throw error; }
   }

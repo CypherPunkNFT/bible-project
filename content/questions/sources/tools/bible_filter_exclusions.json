@@ -1,0 +1,704 @@
+{
+ "purpose": "Questions that a Bible keyword matched but that a human reviewer read and ruled are not about the Bible. Applied by tools/extract_trivia.py. Only the three general-knowledge trivia sources are filtered; the Bible-specific sources are taken whole.",
+ "reviewed": "2026-10-17",
+ "reviewed_by": "Fortress Orchestrator job 64bc483e847d44aa803bc16626ca772c",
+ "method": "Every strong-tier match was screened for non-biblical context and every medium- and weak-tier match was read in full. Broad false-positive families (Abraham Lincoln, Raiders of the Lost Ark, Scientology, the modern state of Israel, Catholic devotion to later saints, post-biblical Jewish practice) are handled by the veto rules in extract_trivia.py instead, so this file holds only the individual stragglers.",
+ "excluded": {
+  "uberspot-opentriviaqa": [
+   {
+    "question": "He was the first Jewish Commodore in the US Navy. He ended the practice of flogging which used to be an accepted form of punishment in the US Navy.",
+    "reason": "US naval history",
+    "matched_on": "first Jewish Commodore"
+   },
+   {
+    "question": "Which of these books doesnt belong with the others?",
+    "reason": "unanswerable without the option list",
+    "matched_on": "Which of these books doesnt belong"
+   },
+   {
+    "question": "When Michelangelo was still an apprentice, he made an imitation of a famous Roman statue that was sold in Rome as an ancient Roman original. What was the name of the original statue?",
+    "reason": "art history",
+    "matched_on": "When Michelangelo was still an apprentice"
+   },
+   {
+    "question": "What does the number 613 refer to in Judaism?",
+    "reason": "rabbinic enumeration of the commandments, not a biblical fact",
+    "matched_on": "number 613 refer to in Judaism"
+   },
+   {
+    "question": "Who was Ilon Ramon?",
+    "reason": "Israeli astronaut",
+    "matched_on": "Who was Ilon Ramon"
+   },
+   {
+    "question": "Who was the first Jew to serve as a diplomat for the USA?",
+    "reason": "US diplomatic history",
+    "matched_on": "first Jew to serve as a diplomat"
+   },
+   {
+    "question": "At Passover, Jews eat a special meal done in a special order. What is that meal called?",
+    "reason": "the Seder, post-biblical Jewish practice",
+    "matched_on": "special meal done in a special order"
+   },
+   {
+    "question": "Which of these holidays does not have a fast associated with it?",
+    "reason": "Jewish liturgical calendar",
+    "matched_on": "holidays does not have a fast"
+   },
+   {
+    "question": "What is Yichuss?",
+    "reason": "Jewish genealogical custom",
+    "matched_on": "What is Yichuss"
+   },
+   {
+    "question": "What message am I conveying, if I say I dont know him from Adam?",
+    "reason": "English idiom, not the Genesis Adam",
+    "matched_on": "dont know him from Adam"
+   },
+   {
+    "question": "Nicknamed Black Angel, he was a prominent commander in the Chechen separatist movement against Russia.",
+    "reason": "Chechen military history",
+    "matched_on": "Black Angel"
+   },
+   {
+    "question": "Vladimir the Great converted to Christianity and baptised all of Kievan Rus.",
+    "reason": "church history",
+    "matched_on": "Vladimir the Great"
+   },
+   {
+    "question": "What religious article must every unmarried Jewish woman wear?",
+    "reason": "Jewish practice",
+    "matched_on": "religious article must every unmarried Jewish woman"
+   },
+   {
+    "question": "What is Victor David Brenner remembered for?",
+    "reason": "US coin designer",
+    "matched_on": "Victor David Brenner"
+   },
+   {
+    "question": "Arthur Loomis Harmon, who helped design the Empire State Building, designed what building in Jerusalem?",
+    "reason": "architecture",
+    "matched_on": "Arthur Loomis Harmon"
+   },
+   {
+    "question": "In Jewish traditions, what is the ceremony for the naming of a female baby on the evening of her fifth day?",
+    "reason": "Jewish naming custom",
+    "matched_on": "naming of a female baby"
+   },
+   {
+    "question": "It is considered that the Jewish Golden Age occurred in this country.",
+    "reason": "medieval Jewish history",
+    "matched_on": "Jewish Golden Age"
+   },
+   {
+    "question": "Which settlement is famous as the location of one of the most spectacular craters in Israel?",
+    "reason": "modern geography",
+    "matched_on": "most spectacular craters in Israel"
+   },
+   {
+    "question": "What is strange about the edible vegetable Salicornia, which Israel exports to Europe?",
+    "reason": "modern agriculture",
+    "matched_on": "edible vegetable Salicornia"
+   },
+   {
+    "question": "What term is used to describe a persons return to live in Israel?",
+    "reason": "modern immigration, aliyah",
+    "matched_on": "persons return to live in Israel"
+   },
+   {
+    "question": "What is the name of the organization that promotes a return to Israel?",
+    "reason": "modern Zionist organisation",
+    "matched_on": "organization that promotes a return to Israel"
+   },
+   {
+    "question": "Which part of Israel is famous fro producing wine?",
+    "reason": "modern agriculture",
+    "matched_on": "Which part of Israel is famous fro producing wine"
+   },
+   {
+    "question": "Megiddo church, one of the oldest church buildings discovered by archaeologists, is located in Israel.",
+    "reason": "archaeology and church history",
+    "matched_on": "Megiddo church"
+   },
+   {
+    "question": "After the Arabic-Israeli War (1948-1949) Jerusalem was divided between Israel (West part) and Jordan (East part).",
+    "reason": "20th-century politics",
+    "matched_on": "Arabic-Israeli War"
+   },
+   {
+    "question": "The Temple Mount, the Church of Holy Sepulchre and the Western Wall are landmarks found in this city.",
+    "reason": "modern landmarks",
+    "matched_on": "Church of Holy Sepulchre and the Western Wall"
+   },
+   {
+    "question": "What type of stone was used to build the Western or Wailing Wall in Jerusalem?",
+    "reason": "architecture of a post-biblical structure",
+    "matched_on": "Western or Wailing Wall"
+   },
+   {
+    "question": "On Columbus first trip to the new world, many Jews were employed by Columbus. What was the highest job held by a Jew?",
+    "reason": "age of exploration",
+    "matched_on": "Columbus first trip"
+   },
+   {
+    "question": "In what business did John M. Brunswick and his two half brothers, David and Emmanuel, make their fortune?",
+    "reason": "US business history",
+    "matched_on": "John M. Brunswick"
+   },
+   {
+    "question": "Who was the first Jew to serve as US Minister to The Hague?",
+    "reason": "US diplomatic history",
+    "matched_on": "US Minister to The Hague"
+   },
+   {
+    "question": "Who is given credit for reviving the Hebrew language?",
+    "reason": "modern linguistics",
+    "matched_on": "reviving the Hebrew language"
+   },
+   {
+    "question": "Who was the first Jew to be offered a position on the US Supreme Court?",
+    "reason": "US legal history",
+    "matched_on": "offered a position on the US Supreme Court"
+   },
+   {
+    "question": "His name means King of Kings and he ruled the Malian Empire for over twenty years.",
+    "reason": "African history",
+    "matched_on": "ruled the Malian Empire"
+   },
+   {
+    "question": "What does the sentence Ann was the apple of Marks eye tell us about the relation between those two?",
+    "reason": "English idiom",
+    "matched_on": "apple of Marks eye"
+   },
+   {
+    "question": "You can go snow skiing in the area of which Israeli mountain?",
+    "reason": "modern tourism",
+    "matched_on": "snow skiing in the area of which Israeli mountain"
+   },
+   {
+    "question": "He is considered to be the first Jew to set foot on land that would become part of the USA.",
+    "reason": "US history",
+    "matched_on": "first Jew to set foot on land that would become part of the USA"
+   },
+   {
+    "question": "In 1649 he was warned out of trying to settle in Boston.",
+    "reason": "US colonial history",
+    "matched_on": "warned out of trying to settle in Boston"
+   },
+   {
+    "question": "He is considered the first Jew on American land to get the right to serve in a militia.",
+    "reason": "US history",
+    "matched_on": "first Jew on American land to get the right to serve in a militia"
+   },
+   {
+    "question": "On front of the home of every Jew, there is a special decoration or religious symbol. It is also found inside the home at very doorpost and every gate. In each one, there are three sections of the (Old) Testament. What do we call these religious objects?",
+    "reason": "the mezuzah, Jewish practice",
+    "matched_on": "special decoration or religious symbol"
+   },
+   {
+    "question": "Which saint is referred to as the patron of fishermen?",
+    "reason": "Catholic devotion to a later saint",
+    "matched_on": "patron of fishermen"
+   },
+   {
+    "question": "Where is The Milk Grotto Church of Virgin Mary located?",
+    "reason": "church building",
+    "matched_on": "Milk Grotto Church"
+   },
+   {
+    "question": "In Bethlehem, Christmas ceremonies are held on three different dates.",
+    "reason": "liturgical calendar",
+    "matched_on": "Christmas ceremonies are held on three different dates"
+   },
+   {
+    "question": "The Church of the Annunciation was built in Nazareth.",
+    "reason": "church building",
+    "matched_on": "Church of the Annunciation was built"
+   },
+   {
+    "question": "On September 8 or September 21, Eastern Orthodox Christians celebrate the birth of this important biblical figure to parents Joachim and Anna.",
+    "reason": "Eastern Orthodox liturgical calendar",
+    "matched_on": "September 8 or September 21"
+   }
+  ],
+  "opentdb-api": [
+   {
+    "question": "This Ghanaian entrepreneur is a pioneer of microlending.",
+    "reason": "microfinance",
+    "matched_on": "Ghanaian entrepreneur"
+   },
+   {
+    "question": "What is the name of the main Character from the Series: Dead Space?",
+    "reason": "video game",
+    "matched_on": "Dead Space"
+   },
+   {
+    "question": "Who played General Aladeen in The Dictator?",
+    "reason": "film",
+    "matched_on": "General Aladeen"
+   },
+   {
+    "question": "In ancient Greece, if your job were a \"hippeus\" which of these would you own?",
+    "reason": "ancient Greece",
+    "matched_on": "hippeus"
+   },
+   {
+    "question": "Who invented the first ever chocolate bar, in 1847?",
+    "reason": "industrial history",
+    "matched_on": "first ever chocolate bar"
+   },
+   {
+    "question": "What name represents the letter \"M\" in the NATO phonetic alphabet?",
+    "reason": "military communication",
+    "matched_on": "NATO phonetic alphabet"
+   },
+   {
+    "question": "The buried remains of which English explorer of Australia were found in London in January 2019?",
+    "reason": "exploration, Matthew Flinders",
+    "matched_on": "English explorer of Australia"
+   },
+   {
+    "question": "Which of the three astronauts of the Apollo 11 spaceflight did NOT walk on the moon?",
+    "reason": "spaceflight, Michael Collins",
+    "matched_on": "Apollo 11 spaceflight"
+   },
+   {
+    "question": "Which is the second largest native language spoken in Spain by numbers of speakers?",
+    "reason": "linguistics",
+    "matched_on": "native language spoken in Spain"
+   },
+   {
+    "question": "Which of the following card games revolves around numbers and basic math?",
+    "reason": "card games",
+    "matched_on": "card games revolves around numbers"
+   },
+   {
+    "question": "Which of the following is not the host of a program on NPR?",
+    "reason": "broadcasting",
+    "matched_on": "host of a program on NPR"
+   },
+   {
+    "question": "Which canal connects the Mediterranean Sea with the Red Sea?",
+    "reason": "modern engineering, the Suez Canal",
+    "matched_on": "Mediterranean Sea with the Red Sea"
+   }
+  ],
+  "el-cms-open-trivia-database": [
+   {
+    "question": "In ancient Egypt which animal was considered sacred ?",
+    "reason": "Egyptian religion",
+    "matched_on": "In ancient Egypt which animal was considered sacred"
+   },
+   {
+    "question": "Name UK General who defeated Montcalm on Plains Abraham",
+    "reason": "Seven Years' War, the Plains of Abraham",
+    "matched_on": "Montcalm"
+   },
+   {
+    "question": "Which 60's folk artist sang the lyrics \"god told abraham kill me your son. abe said man you must be puttin me on\"\"",
+    "reason": "Bob Dylan lyric",
+    "matched_on": "60's folk artist sang the lyrics"
+   },
+   {
+    "question": "Who sang 'god told abraham kill me your son. abe said man you must be puttin' me on'",
+    "reason": "Bob Dylan lyric",
+    "matched_on": "Who sang 'god told abraham"
+   },
+   {
+    "question": "Thomas Caneery writer Schlinders Ark comes from what country",
+    "reason": "Thomas Keneally's novel",
+    "matched_on": "Schlinders Ark"
+   },
+   {
+    "question": "In which Shakespeare play would you find the lines: 'This royal throne of kings, this sceptred isle, this earth of 'majesty, this other Eden'",
+    "reason": "Shakespeare",
+    "matched_on": "royal throne of kings"
+   },
+   {
+    "question": "The Selenas Valley was the rejected title what Steinbeck book",
+    "reason": "Steinbeck, East of Eden",
+    "matched_on": "Selenas Valley"
+   },
+   {
+    "question": "Who portrayed Jeannie in \"I Dream Of Jeannie\"\"",
+    "reason": "television, Barbara Eden",
+    "matched_on": "I Dream Of Jeannie"
+   },
+   {
+    "question": "Who wrote 'the dragons of eden'",
+    "reason": "Carl Sagan",
+    "matched_on": "dragons of eden"
+   },
+   {
+    "question": "Who wrote the fantasies \"Popcorn\" and \"This Other Eden\"\"",
+    "reason": "fiction titles",
+    "matched_on": "This Other Eden"
+   },
+   {
+    "question": "What did Elisha Otis invent in 1852",
+    "reason": "industrial history",
+    "matched_on": "Elisha Otis invent"
+   },
+   {
+    "question": "Who didn't invent the passenger lift in 1852 but did invent a safety device which made them safe enough for general use",
+    "reason": "industrial history",
+    "matched_on": "passenger lift in 1852"
+   },
+   {
+    "question": "Christian sacrement in which bread and wine are consecrated and consummed",
+    "reason": "sacramental doctrine rather than a biblical fact",
+    "matched_on": "bread and wine are consecrated"
+   },
+   {
+    "question": "Gabriel Fallopius is credited with inventing what",
+    "reason": "anatomy",
+    "matched_on": "Gabriel Fallopius"
+   },
+   {
+    "question": "In A 2007 Poll What Music Video Was Voted The Best Video Of All Time",
+    "reason": "music video poll, Peter Gabriel",
+    "matched_on": "Best Video Of All Time"
+   },
+   {
+    "question": "What did Gabriel Fahrenheit invent",
+    "reason": "physics",
+    "matched_on": "Gabriel Fahrenheit"
+   },
+   {
+    "question": "Which singer had top ten hits in the 1980s with Sledgehammer and Games Without Frontiers",
+    "reason": "pop music, Peter Gabriel",
+    "matched_on": "Sledgehammer"
+   },
+   {
+    "question": "Who dictated the Koran to Mohamed",
+    "reason": "Islam",
+    "matched_on": "dictated the Koran"
+   },
+   {
+    "question": "In a church what is a galilee",
+    "reason": "church architecture",
+    "matched_on": "In a church what is a galilee"
+   },
+   {
+    "question": "Isaiah Sellers did it before Samuel Clements - did what",
+    "reason": "Mark Twain's pen name",
+    "matched_on": "Isaiah Sellers"
+   },
+   {
+    "question": "How one would describe Jeremiah Peabody's pills",
+    "reason": "pop song",
+    "matched_on": "Jeremiah Peabody"
+   },
+   {
+    "question": "Who was a bullfrog and a great friend of mine",
+    "reason": "pop song, Three Dog Night",
+    "matched_on": "bullfrog and a great friend of mine"
+   },
+   {
+    "question": "Which city, capital of the Assyrian Empire, was destroyed by fire in 612 B.C.",
+    "reason": "ancient history question, not drawn from the biblical text",
+    "matched_on": "capital of the Assyrian Empire"
+   },
+   {
+    "question": "What is the first name of webster, the man who published a dictionary still used today",
+    "reason": "Noah Webster, lexicography",
+    "matched_on": "first name of webster"
+   },
+   {
+    "question": "Who was responsible for the American style of spelling ?",
+    "reason": "Noah Webster, lexicography",
+    "matched_on": "American style of spelling"
+   },
+   {
+    "question": "What is the name given originally by Greek rhetoricians to a literary illustration",
+    "reason": "rhetoric, the word 'parable'",
+    "matched_on": "Greek rhetoricians to a literary illustration"
+   },
+   {
+    "question": "What is the name of the crispbread traditionally eaten by Jews at Passover",
+    "reason": "matzo, Jewish practice",
+    "matched_on": "crispbread traditionally eaten by Jews"
+   },
+   {
+    "question": "What Jewish festival takes place near Easter?",
+    "reason": "liturgical calendar",
+    "matched_on": "Jewish festival takes place near Easter"
+   },
+   {
+    "question": "Catholic calendar what is the 50 days following Easter called",
+    "reason": "liturgical calendar",
+    "matched_on": "50 days following Easter"
+   },
+   {
+    "question": "In the Christian calendar, what is the alternative name for the Feast of Pentecost",
+    "reason": "liturgical calendar",
+    "matched_on": "alternative name for the Feast of Pentecost"
+   },
+   {
+    "question": "After who is the 'Ramses' brand condom named",
+    "reason": "brand naming",
+    "matched_on": "'Ramses' brand condom"
+   },
+   {
+    "question": "After who is the 'Ramses' brand condom named?",
+    "reason": "brand naming",
+    "matched_on": "'Ramses' brand condom"
+   },
+   {
+    "question": "The pharaoh hound is the only dog that does what",
+    "reason": "dog breeds",
+    "matched_on": "pharaoh hound"
+   },
+   {
+    "question": "What is a king of egypt",
+    "reason": "definition of the word pharaoh",
+    "matched_on": "What is a king of egypt"
+   },
+   {
+    "question": "What is a pharaoh",
+    "reason": "definition of the word pharaoh",
+    "matched_on": "What is a pharaoh"
+   },
+   {
+    "question": "What is the literal meaning of the word 'Pharaoh'",
+    "reason": "etymology",
+    "matched_on": "literal meaning of the word 'Pharaoh'"
+   },
+   {
+    "question": "What was an Egyptian king called",
+    "reason": "definition of the word pharaoh",
+    "matched_on": "What was an Egyptian king called"
+   },
+   {
+    "question": "Where could you see a likeness of Pharaoh Khafres head",
+    "reason": "Egyptology, the Sphinx",
+    "matched_on": "Pharaoh Khafres head"
+   },
+   {
+    "question": "Homonyms: To burn or char/a prophet or diviner. (answer in the form of word1/word2)",
+    "reason": "homonym word puzzle",
+    "matched_on": "To burn or char"
+   },
+   {
+    "question": "If you committed Vaticide who would you have killed",
+    "reason": "etymology",
+    "matched_on": "Vaticide"
+   },
+   {
+    "question": "Religious phenomenon in which a message is sent by God (or by a god) to human beings through an intermediary, or prophet",
+    "reason": "definition of prophecy",
+    "matched_on": "message is sent by God (or by a god) to human beings"
+   },
+   {
+    "question": "Way Religious phenomenon in which a message is sent by God (or by a god) to human beings through an intermediary, or prophet",
+    "reason": "definition of prophecy",
+    "matched_on": "message is sent by God (or by a god) to human beings"
+   },
+   {
+    "question": "Which composer's second symphony was called the Resurrection, his tenth was unfinished",
+    "reason": "Mahler",
+    "matched_on": "second symphony was called the Resurrection"
+   },
+   {
+    "question": "Who painted \"Resurrection: Cookham\"\"",
+    "reason": "Spencer's painting",
+    "matched_on": "Resurrection: Cookham"
+   },
+   {
+    "question": "On which day of the week is the Moslem Sabbath",
+    "reason": "Islam",
+    "matched_on": "Moslem Sabbath"
+   },
+   {
+    "question": "What pop group said \"Were only in it for the volume\"\"",
+    "reason": "pop music, Black Sabbath",
+    "matched_on": "only in it for the volume"
+   },
+   {
+    "question": "Who began his professional career with black sabbath",
+    "reason": "pop music",
+    "matched_on": "professional career with black sabbath"
+   },
+   {
+    "question": "Who wrote the epic poem Samson Agonites",
+    "reason": "Milton",
+    "matched_on": "Samson Agonites"
+   },
+   {
+    "question": "Lord Harry, Old Billy, Queed, Skipper, Toast nicknames for who",
+    "reason": "nicknames quiz",
+    "matched_on": "Lord Harry, Old Billy"
+   },
+   {
+    "question": "Satanophobia is the fear of",
+    "reason": "phobia names",
+    "matched_on": "Satanophobia"
+   },
+   {
+    "question": "The pop group Satan's Jesters found fame under what name",
+    "reason": "pop music",
+    "matched_on": "Satan's Jesters"
+   },
+   {
+    "question": "What is the fear of satan known as",
+    "reason": "phobia names",
+    "matched_on": "fear of satan known as"
+   },
+   {
+    "question": "In WW1 what were Lucifer's",
+    "reason": "military slang",
+    "matched_on": "WW1 what were Lucifer's"
+   },
+   {
+    "question": "What Planet Is Sometimes Refered To As Lucifer",
+    "reason": "astronomy, Venus",
+    "matched_on": "Planet Is Sometimes Refered To As Lucifer"
+   },
+   {
+    "question": "Anna Mary Robinson - famous American painter - what name",
+    "reason": "Grandma Moses, painting",
+    "matched_on": "Anna Mary Robinson"
+   },
+   {
+    "question": "Ed Moses won the 400 metre hurdle title in which year",
+    "reason": "athletics",
+    "matched_on": "Ed Moses won the 400 metre hurdle"
+   },
+   {
+    "question": "Name the raven in George Orwell's Animal Farm",
+    "reason": "fiction",
+    "matched_on": "raven in George Orwell's Animal Farm"
+   },
+   {
+    "question": "In what city was Handel's Messiah first performed",
+    "reason": "music history",
+    "matched_on": "Handel's Messiah first performed"
+   },
+   {
+    "question": "Who composed \"Messiah\"\"",
+    "reason": "music history",
+    "matched_on": "Who composed \"Messiah"
+   },
+   {
+    "question": "Who wrote the choral work the Messiah",
+    "reason": "music history",
+    "matched_on": "choral work the Messiah"
+   },
+   {
+    "question": "Why did Handel compose The Messiah",
+    "reason": "music history",
+    "matched_on": "Why did Handel compose"
+   },
+   {
+    "question": "A painting of which famous Old Testament ruling, completed in 1495, is one of the earliest works by the artist Giorgione",
+    "reason": "Renaissance painting",
+    "matched_on": "Old Testament ruling, completed in 1495"
+   },
+   {
+    "question": "Deuteronomy what is the capital of illinois",
+    "reason": "US geography; the word is a mis-keyed category label",
+    "matched_on": "Deuteronomy what is the capital of illinois"
+   },
+   {
+    "question": "In Christian tradition what Saint is the Virgin Mary's mother",
+    "reason": "extra-biblical tradition, Saint Anne",
+    "matched_on": "Saint is the Virgin Mary's mother"
+   },
+   {
+    "question": "In what 1998 did film David Bowie play Pontius Pilot",
+    "reason": "film",
+    "matched_on": "David Bowie play Pontius Pilot"
+   },
+   {
+    "question": "Mary magdalene is the patron saint of ______",
+    "reason": "Catholic devotion",
+    "matched_on": "Mary magdalene is the patron saint"
+   },
+   {
+    "question": "The Dove awards are presented annually for what",
+    "reason": "gospel music industry",
+    "matched_on": "Dove awards"
+   },
+   {
+    "question": "Town in the west bank, near Jerusalem, controlled since 1967 by Israel though administered since 1995 by the Palestinian authority",
+    "reason": "modern politics",
+    "matched_on": "Town in the west bank"
+   },
+   {
+    "question": "What is the capital of the state of Minnesota",
+    "reason": "US geography, St. Paul",
+    "matched_on": "capital of the state of Minnesota"
+   },
+   {
+    "question": "What saint offerred jesus a handkerchief",
+    "reason": "extra-biblical tradition, Veronica",
+    "matched_on": "saint offerred jesus a handkerchief"
+   },
+   {
+    "question": "What was in Catherine's crucifix in the movie Cruel Intentions?",
+    "reason": "film",
+    "matched_on": "Catherine's crucifix in the movie"
+   },
+   {
+    "question": "What Was The Very First Andrew Lloyd Webber Musical To Be Filmed",
+    "reason": "musical theatre",
+    "matched_on": "Andrew Lloyd Webber Musical"
+   },
+   {
+    "question": "Where is saint paul's cathedral",
+    "reason": "architecture",
+    "matched_on": "Where is saint paul's cathedral"
+   },
+   {
+    "question": "Which book of The Bible is also a title of a Bob Marley album",
+    "reason": "reggae music",
+    "matched_on": "title of a Bob Marley album"
+   },
+   {
+    "question": "Which opera, composed by Saint-Saens, and first performed in 1877, is set in Palestine",
+    "reason": "opera",
+    "matched_on": "composed by Saint-Saens"
+   },
+   {
+    "question": "Which Oxford College's Chapel is also Oxford's Cathedral",
+    "reason": "architecture, Christ Church",
+    "matched_on": "Oxford College's Chapel"
+   },
+   {
+    "question": "Which Saint translated the Vulgate bible",
+    "reason": "church history, Jerome",
+    "matched_on": "Saint translated the Vulgate"
+   },
+   {
+    "question": "Who is the Patron Saint of authors",
+    "reason": "Catholic devotion",
+    "matched_on": "Patron Saint of authors"
+   },
+   {
+    "question": "Who recorded such popular songs as 'policy of truth' and 'personal jesus'",
+    "reason": "pop music, Depeche Mode",
+    "matched_on": "policy of truth"
+   },
+   {
+    "question": "Who was the first person to be buried in London's St. Paul's Cathedral",
+    "reason": "architecture",
+    "matched_on": "buried in London's St. Paul's Cathedral"
+   },
+   {
+    "question": "Who wrote the opera 'samson and delilah'",
+    "reason": "opera",
+    "matched_on": "opera 'samson and delilah'"
+   },
+   {
+    "question": "Why do Christians fast during the 40 days of Lent leading up to Easter",
+    "reason": "liturgical practice",
+    "matched_on": "40 days of Lent"
+   },
+   {
+    "question": "Why is St. Paul's cathedral unique amongst English cathedrals",
+    "reason": "architecture",
+    "matched_on": "St. Paul's cathedral unique"
+   }
+  ]
+ }
+}

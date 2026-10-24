@@ -6,7 +6,7 @@ is not told which choice is meant to be right, and judges each of the four on it
 answer the source printed. A set fails when the checker finds a correct choice besides the intended one, or finds that
 the intended one does not say what the source's answer says.
 
-Results go into each record in content/questions/choices.json as "check"; nothing here changes the choices. Only a
+Results go into each record in content/questions/checks/choices.json as "check"; nothing here changes the choices. Only a
 108-set pilot ran (5 failed): question_audit.py (owner-approved 2026-10-22) now checks every shown question against the
 BSB and makes the fixes, so the full run and a redo were dropped, and audited ids are skipped.
 
@@ -25,14 +25,14 @@ from pathlib import Path
 from question_choices import load_choices, save_choices
 
 WEBSITE = Path(__file__).resolve().parent.parent
-BANK = WEBSITE / "content" / "questions" / "question-bank.json"
+BANK = WEBSITE / "content" / "questions" / "bank" / "question-bank.json"
 WORK = WEBSITE / ".local" / "question-choice-check"
 
 QUESTIONS_PER_CALL = 50
 # Audited line by line against the BSB by scripts/question_audit.py, whose fixes are tied to the current options: a
 # check (or a redo) here would make them stale and put the old versions back (other chat's request, 2026-10-22).
 AUDITED_ELSEWHERE = ("liaaron1-bible-trivia-alpaca:",)
-AUDIT = WEBSITE / "content" / "questions" / "audit.json"  # since 2026-10-22 the audit covers every collection
+AUDIT = WEBSITE / "content" / "questions" / "checks" / "audit.json"  # since 2026-10-22 the audit covers every collection
 LETTERS = "ABCD"
 
 TASK = """You are a strict fact-checker for a Bible quiz. The answer choices below were written quickly by someone else

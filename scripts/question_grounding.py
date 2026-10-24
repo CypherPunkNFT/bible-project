@@ -11,7 +11,7 @@ If the verse that holds the answer was not among those shown, the model names it
 sent again with that passage, so every verse recorded was read. A model that thinks the printed answer is wrong
 says so in "doubt"; nothing is rewritten here, it is listed for the audit.
 
-Every decision is kept in content/questions/grounding.json by question id, with what was shown and why, so it can be
+Every decision is kept in content/questions/checks/grounding.json by question id, with what was shown and why, so it can be
 checked again later. The build attaches it to each question and writes the table question-table.csv.
 
     python scripts/question_grounding.py index            # embed every BSB verse once (local, $0, ~35 min)
@@ -36,7 +36,7 @@ from question_repeats import embed  # noqa: E402
 from question_tags import books_of, link_of, testament_of  # noqa: E402
 
 WEBSITE = Path(__file__).resolve().parent.parent
-GROUNDING = WEBSITE / "content" / "questions" / "grounding.json"
+GROUNDING = WEBSITE / "content" / "questions" / "checks" / "grounding.json"
 WORK = WEBSITE / ".local" / "question-grounding"
 VERSES = WORK / "bsb-verses.npz"
 SEARCHED = 8  # verses found by meaning, each shown with the verse either side

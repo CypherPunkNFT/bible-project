@@ -7,7 +7,7 @@ Which questions: shown (not a repeat) and without choices of their own. Each get
     right choice is the answer as printed when it is LONG_ANSWER_WORDS words or fewer; a longer answer (mostly
     catechism) is shown as Haiku's short, faithful version, and the full printed answer still follows it on the page.
 Every set is checked here before it is kept: three distinct wrong choices, none the same as the right one, and no "all
-of the above". Choices are kept in content/questions/choices.json by question id, never mixed into the sources.
+of the above". Choices are kept in content/questions/checks/choices.json by question id, never mixed into the sources.
 
 Two-part questions (owner: "I like two-part questions"). A question the builder marks as leaning on the one before it
 ("What were their names?") is sent with up to EARLIER questions before it in its book. Haiku says whether it truly
@@ -35,9 +35,9 @@ import sys
 from pathlib import Path
 
 WEBSITE = Path(__file__).resolve().parent.parent
-BANK = WEBSITE / "content" / "questions" / "question-bank.json"
-TAGS = WEBSITE / "content" / "questions" / "model-tags.json"
-CHOICES = WEBSITE / "content" / "questions" / "choices.json"
+BANK = WEBSITE / "content" / "questions" / "bank" / "question-bank.json"
+TAGS = WEBSITE / "content" / "questions" / "checks" / "model-tags.json"
+CHOICES = WEBSITE / "content" / "questions" / "checks" / "choices.json"
 WORK = WEBSITE / ".local" / "question-choices"
 KEEP_RIGHT = WORK / "keep-right.json"  # the right choice of each question being rebalanced
 

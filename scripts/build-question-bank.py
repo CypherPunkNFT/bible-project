@@ -1,14 +1,14 @@
 """Build the Question Bank: the site's official list of production-ready Bible questions.
 
-Reads the quiz corpus's common-format files (Research/BibleQuizCorpus/normalized/, built by the corpus's own
+Reads the quiz corpus's common-format files (content/questions/sources/normalized/, built by the corpus's own
 tools; never written to here) and keeps only questions that are ready to show as they are: typed text rather
 than machine-read scans, with an answer, from a bank listed in BANKS below. Duplicates across banks are kept
 once. Every question keeps the credit its source asks for.
 
 Writes four files:
-  content/questions/question-bank.json   the official record, committed: every question with its full
+  content/questions/bank/question-bank.json   the official record, committed: every question with its full
                                          licence and credit, plus what was left out and why
-  content/questions/question-table.csv   the same questions as one table, for checking in a spreadsheet
+  content/questions/bank/question-table.csv   the same questions as one table, for checking in a spreadsheet
   data/questions/bank.json               the copy the Questions page loads (generated, not committed)
   .local/question-explorer/questions.json  the local data hub's question explorer (/data_questions/, never
                                          released; scripts/question_explorer.py)
@@ -41,10 +41,10 @@ from question_writing import written_records  # noqa: E402
 from question_tags import CANON, OLD_TESTAMENT, TOPICS, books_of, link_of, testament_of, topic_of  # noqa: E402
 
 WEBSITE = Path(__file__).resolve().parent.parent
-CORPUS = WEBSITE.parent / "Research" / "BibleQuizCorpus" / "normalized"
-OFFICIAL = WEBSITE / "content" / "questions" / "question-bank.json"
+CORPUS = WEBSITE / "content" / "questions" / "sources" / "normalized"
+OFFICIAL = WEBSITE / "content" / "questions" / "bank" / "question-bank.json"
 SITE = WEBSITE / "data" / "questions" / "bank.json"
-TABLE = WEBSITE / "content" / "questions" / "question-table.csv"
+TABLE = WEBSITE / "content" / "questions" / "bank" / "question-table.csv"
 EXPLORER = WEBSITE / ".local" / "question-explorer" / "questions.json"
 
 SCHEMA = "bibleproject.question-bank/v2"
@@ -81,7 +81,7 @@ BANKS: dict[str, tuple[str, str, str | None]] = {
     "catechism_for_young_children": ("A Catechism for Young Children", "catechism", "Reformed"),
     "pg13274": ("John Mason's Little Catechism (1692)", "catechism", "Puritan"),
     "pg36081": ("Luther's Small Catechism Explained (Sverdrup, 1900)", "catechism", "Lutheran"),
-    # Made usable by scripts/question_mining.py (content/questions/mined.json), each record saying how.
+    # Made usable by scripts/question_mining.py (content/questions/mined/mined.json), each record saying how.
     "mined-bibleqa": ("Bible quiz, reworded (facts from BibleQA)", "trivia", None),
     "mined-bibledata": ("Bible people and places (from BibleData)", "trivia", None),
     "mined-pg9912": ("Stump's Explanation of Luther's Small Catechism (1910)", "catechism", "Lutheran"),
@@ -276,7 +276,7 @@ def main() -> None:
     official = {
         "schema": SCHEMA,
         "about": "The site's official, production-ready Bible questions. Built by scripts/build-question-bank.py from "
-                 "Research/BibleQuizCorpus/normalized/; answers are as the sources printed them and are not yet fact-checked.",
+                 "content/questions/sources/normalized/; answers are as the sources printed them and are not yet fact-checked.",
         "counts": {"questions": len(questions), "by_kind": {KINDS[k]: counts[k] for k in KINDS},
                    "with_choices": sum(1 for q in questions if q["options"]),
                    "with_reference": sum(1 for q in questions if q["reference"]),

@@ -1,5 +1,5 @@
 // The questions page, /study/questions (a live route, App.tsx): every question in the Question Bank
-// (content/questions/question-bank.json, built by scripts/build-question-bank.py). The mock-up at /questions_mockup
+// (content/questions/bank/question-bank.json, built by scripts/build-question-bank.py). The mock-up at /questions_mockup
 // shows this same file until the next change is tried there; the version before this one is in
 // ARCHIVE/mockups/QuestionsPage-2026-10-23b.tsx. The owner, 2026-10-23: "I don't like the expanding section… take
 // those away… when you click a theme endpoint or a chapter, shouldn't it go down there? And shouldn't that be open…

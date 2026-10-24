@@ -25,7 +25,7 @@ async function fixture(t,{built=true}={}){
   handler(req,res,()=>{resolve({next:true});});req.end(options.body??'');
  });
  const post=(body,headers={})=>request('/data_questions/api/flag',{method:'POST',body:JSON.stringify(body),headers:{origin:'http://127.0.0.1:8931','content-type':'application/json',...headers}});
- const flags=async()=>JSON.parse(await fs.readFile(path.join(website,'content/questions/flags.json'),'utf8'));
+ const flags=async()=>JSON.parse(await fs.readFile(path.join(website,'content/questions/checks/flags.json'),'utf8'));
  return {request,post,flags,website};
 }
 
@@ -64,7 +64,7 @@ test('refuses flags that are not from this page, not JSON, unknown or malformed'
  assert.equal((await post({id:'q:1',note:'x'.repeat(1001)})).status,400);
  assert.equal((await post({id:'q:1',note:'x',path:'../../x'})).status,400);
  assert.equal((await post(['q:1'])).status,400);
- await assert.rejects(fs.access(path.join(website,'content/questions/flags.json')));
+ await assert.rejects(fs.access(path.join(website,'content/questions/checks/flags.json')));
 });
 
 test('says the questions are not built instead of failing',async t=>{

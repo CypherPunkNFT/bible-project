@@ -8,7 +8,7 @@ against the BSB text (data/plain/bsb/<BOOK>.json), with no model involved:
   - a passage that exists is "matched" when a telling word of the answer (of the question instead, less its book names,
     when the answer is only a book: "Which epistle warns of scoffers?" "2 Peter") is in its text, give or take two verses (a whole chapter for a chapter-only passage), allowing an old spelling
     ("Phebe" for "Phoebe"), and "exists" when it is not.
-Every tag is kept in content/questions/model-tags.json by question id, so a rebuild never asks again about a question
+Every tag is kept in content/questions/checks/model-tags.json by question id, so a rebuild never asks again about a question
 already tagged.
 
     python scripts/question_model_tags.py prepare           # write BatchRunner items for shown questions not yet tagged
@@ -16,7 +16,7 @@ already tagged.
     (then python scripts/build-question-bank.py)
 
 --records <file.json> tags the questions in another file of the same shape instead of the shown questions (the
-children's sources not yet on the site, Research/BibleQuizCorpus/normalized/children-batch4.json); its work goes to
+children's sources not yet on the site, content/questions/children/children-batch4.json); its work goes to
 .local/question-model-tags/<file name>/.
 """
 
@@ -34,8 +34,8 @@ from bible.books import BOOKS
 from question_tags import CANON
 
 WEBSITE = Path(__file__).resolve().parent.parent
-BANK = WEBSITE / "content" / "questions" / "question-bank.json"
-TAGS = WEBSITE / "content" / "questions" / "model-tags.json"
+BANK = WEBSITE / "content" / "questions" / "bank" / "question-bank.json"
+TAGS = WEBSITE / "content" / "questions" / "checks" / "model-tags.json"
 BSB = WEBSITE / "data" / "plain" / "bsb"
 WORK = WEBSITE / ".local" / "question-model-tags"
 

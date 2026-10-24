@@ -15,7 +15,7 @@ Every kept question also gets three wrong choices, a passage, people, places and
 must exist in the BSB; for a Bible fact its text must hold the answer's words (question_model_tags.check_passage), or
 the question is dropped.
 
-Results go to content/questions/mined.json as corpus records, which build-question-bank.py takes in like any bank.
+Results go to content/questions/mined/mined.json as corpus records, which build-question-bank.py takes in like any bank.
 Anything already asked is caught afterwards by question_repeats.py, which judges every new close pair and hides the
 mined question of a repeat, never the one already shown.
 
@@ -41,9 +41,9 @@ from question_choices import norm, shuffled
 from question_model_tags import check_passage, load_tags, save_tags
 
 WEBSITE = Path(__file__).resolve().parent.parent
-CORPUS = WEBSITE.parent / "Research" / "BibleQuizCorpus"
-BANK = WEBSITE / "content" / "questions" / "question-bank.json"
-MINED = WEBSITE / "content" / "questions" / "mined.json"
+CORPUS = WEBSITE / "content" / "questions" / "sources"
+BANK = WEBSITE / "content" / "questions" / "bank" / "question-bank.json"
+MINED = WEBSITE / "content" / "questions" / "mined" / "mined.json"
 WORK = WEBSITE / ".local" / "question-mining"
 
 ALREADY_ASKED = 0.85  # embedding score at which a source question is taken as already on the site
