@@ -22,6 +22,8 @@
 .qp-hero-go{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-top:30px}
 .qp .qp-hero-test{display:inline-flex;align-items:center;gap:12px;padding:13px 22px;border:0;border-radius:999px;background:var(--ink);color:var(--page);font-size:14px;font-weight:600;transition:gap .25s,background .2s}
 .qp .qp-hero-test:hover{gap:18px;background:var(--accent)}
+.qp .qp-hero-children{background:none;color:var(--ink);text-decoration:none;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink) 35%,transparent)}
+.qp .qp-hero-children:hover{background:none;color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
 .qp-hero-go :focus-visible{outline:none}
 /* The bank's figures in one bar across the page; its foot is 01's own top line (.qp-section's border). */
 .qp-statbar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin:0;border-top:1px solid var(--line)}
