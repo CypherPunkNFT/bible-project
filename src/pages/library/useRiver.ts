@@ -3,7 +3,7 @@ import type { Bar, Library, Metric } from "./model";
 import { PART_BY_ID } from "./model";
 import type { PartId } from "./part-content";
 
-// The zoomable river: every chapter as one bar. The wheel zooms around the pointer, dragging pans, the overview strip
+// The zoomable river: every chapter as one bar. The wheel or a pinch zooms around the pointer, dragging pans, the overview strip
 // below moves the window, and clicking a part or book label flies to it. Drawn straight into the SVG (1,189 bars),
 // outside React, so zooming never re-renders the page.
 
@@ -207,11 +207,41 @@ export function useRiver(library: Library | null, elements: RiverElements, callb
     };
 
     let drag: { x: number; start: number; end: number; moved: boolean; target: EventTarget | null } | null = null;
+    // Two fingers pinch: the chapter under the point between them stays there while the view grows or shrinks.
+    const pointers = new Map<number, { x: number; y: number }>();
+    let pinch: { distance: number; anchor: number; size: number } | null = null;
+    const fingers = () => {
+      const [a, b] = [...pointers.values()];
+      return { distance: Math.max(1, Math.hypot(a.x - b.x, a.y - b.y)), middle: (a.x + b.x) / 2 };
+    };
+    const startPinch = () => {
+      const { distance, middle } = fingers();
+      const rect = box.getBoundingClientRect();
+      cancelAnimationFrame(state.animation);
+      drag = null;
+      pinch = { distance, anchor: state.start + ((middle - rect.left) / rect.width) * span(), size: span() };
+    };
+    const endPinch = () => {
+      pinch = null;
+      // the finger still down carries on as a drag, without counting as a click when it lifts
+      const [rest] = [...pointers.values()];
+      drag = rest ? { x: rest.x, start: state.start, end: state.end, moved: true, target: null } : null;
+    };
     const onDown = (event: PointerEvent) => {
-      drag = { x: event.clientX, start: state.start, end: state.end, moved: false, target: event.target };
+      pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
       box.setPointerCapture(event.pointerId);
+      if (pointers.size === 2) return startPinch();
+      if (pointers.size > 2) return;
+      drag = { x: event.clientX, start: state.start, end: state.end, moved: false, target: event.target };
     };
     const onMove = (event: PointerEvent) => {
+      if (pointers.has(event.pointerId)) pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+      if (pinch && pointers.size >= 2) {
+        const { distance, middle } = fingers();
+        const rect = box.getBoundingClientRect(), fraction = (middle - rect.left) / rect.width;
+        const size = (pinch.size * pinch.distance) / distance;
+        return setView(pinch.anchor - fraction * size, pinch.anchor - fraction * size + size);
+      }
       if (drag) {
         const dx = event.clientX - drag.x;
         if (Math.abs(dx) > 3) drag.moved = true;
@@ -226,6 +256,11 @@ export function useRiver(library: Library | null, elements: RiverElements, callb
       if (i >= 0 && i < total) setHover(i);
     };
     const onUp = (event: PointerEvent) => {
+      pointers.delete(event.pointerId);
+      if (pinch) {
+        if (pointers.size < 2) endPinch();
+        return;
+      }
       if (drag && !drag.moved) {
         const target = drag.target instanceof Element ? drag.target : null;
         const section = target?.closest<SVGElement>("[data-fly-section]")?.dataset.flySection as PartId | undefined;
@@ -239,8 +274,16 @@ export function useRiver(library: Library | null, elements: RiverElements, callb
       }
       drag = null;
     };
-    const onCancel = () => (drag = null);
+    const onCancel = (event: PointerEvent) => {
+      pointers.delete(event.pointerId);
+      pinch = null;
+      drag = null;
+    };
     const onLeave = () => !drag && setHover(-1);
+    // Phones would otherwise zoom the whole page on a pinch (Safari ignores touch-action for it).
+    const blockPageZoom = (event: Event) => {
+      if (event.type === "gesturestart" || (event as TouchEvent).touches.length > 1) event.preventDefault();
+    };
 
     let brush: { x: number; start: number; end: number } | null = null;
     const onOverviewDown = (event: PointerEvent) => {
@@ -261,8 +304,10 @@ export function useRiver(library: Library | null, elements: RiverElements, callb
       [box, "pointerdown", onDown as EventListener],
       [box, "pointermove", onMove as EventListener],
       [box, "pointerup", onUp as EventListener],
-      [box, "pointercancel", onCancel],
+      [box, "pointercancel", onCancel as EventListener],
       [box, "pointerleave", onLeave],
+      [box, "touchmove", blockPageZoom, { passive: false }],
+      [box, "gesturestart", blockPageZoom, { passive: false }],
       [overviewBox, "pointerdown", onOverviewDown as EventListener],
       [overviewBox, "pointermove", onOverviewMove as EventListener],
       [overviewBox, "pointerup", onOverviewUp],

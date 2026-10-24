@@ -85,7 +85,7 @@ export function River({ library, selection, onSelect, handle, titleOf }: Props) 
           " "
         )}
       </p>
-      <div ref={box} className="lib-river" tabIndex={0} aria-label="The Bible, chapter by chapter. Scroll to zoom, drag to move, arrow keys to step through chapters.">
+      <div ref={box} className="lib-river" tabIndex={0} aria-label="The Bible, chapter by chapter. Scroll or pinch to zoom, drag to move, arrow keys to step through chapters.">
         <svg ref={svg} className="lib-river-svg" aria-hidden="true" />
         {!library && <div className="lib-river-loading" />}
       </div>
@@ -94,7 +94,7 @@ export function River({ library, selection, onSelect, handle, titleOf }: Props) 
       </div>
       <div className="lib-controls-line">
         <span className="lib-legend">
-          <b>Scroll</b> to zoom <i /> <b>Drag</b> to move <i /> <b>← →</b> one chapter at a time <i /> Click a part or a book to fly to it
+          <b>Scroll</b> or <b>pinch</b> to zoom <i /> <b>Drag</b> to move <i /> <b>← →</b> one chapter at a time <i /> Click a part or a book to fly to it
         </span>
         <button type="button" className="lib-link-button" onClick={() => api.current?.reset()}>
           Whole Bible
