@@ -160,6 +160,11 @@
 @media (max-width:760px){
   .lib{padding:0 16px}
   .lib-intro-grid,.lib-part-body{grid-template-columns:1fr;gap:22px}
+  /* the five figures as a tidy grid: books · chapters · verses, then words · versions */
+  .lib-stats{display:grid;grid-template-columns:repeat(6,1fr)}
+  .lib-stats div{grid-column:span 2;margin:0;padding:14px 0 14px 14px;border-right:0;border-left:1px solid var(--line)}
+  .lib-stats div:nth-child(n+4),.lib-stats div:last-child{grid-column:span 3;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .lib-stats div:nth-child(1),.lib-stats div:nth-child(4){padding-left:0;border-left:0}
   .lib-section-head{grid-template-columns:1fr}
   .lib-num{padding:0}
   .lib-toggle{overflow-x:auto;max-width:100%}
