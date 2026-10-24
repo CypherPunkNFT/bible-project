@@ -19,6 +19,12 @@ describe("pageHead", () => {
     expect(pageHead("/people/moses-exo-2-10", { heading: "Moses" }).title).toBe("Moses · People · Bible Guide");
     expect(pageHead("/nowhere", {}).title).toBe("Bible Guide");
   });
+  it("names a ruler, prophet or apostle page from its opening line", () => {
+    const david = pageHead("/people/david-rut-4-17/rule", { subheading: "David. Seven years in Hebron, thirty-three in Jerusalem.", paragraph: "ON THE WORLD STAGE: The Philistines · Aram · Hamath" });
+    expect(david.title).toBe("David: the Reign · Bible Guide");
+    expect(david.description).toBe("David. Seven years in Hebron, thirty-three in Jerusalem.");
+    expect(pageHead("/people/elijah-1ki-17-1/word", { subheading: "Elijah. The Tishbite who shut the heaven" }).title).toBe("Elijah: the Prophet · Bible Guide");
+  });
   it("shortens long descriptions at a word", () => {
     const text = shorten("word ".repeat(60));
     expect(text.length).toBeLessThanOrEqual(156);

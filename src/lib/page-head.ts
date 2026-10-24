@@ -50,7 +50,7 @@ const ROUTE_TITLES: Record<string, string> = {
   "/teachers/scholars": "Bible Scholars",
   "/resources": "Free Bible Study Resources",
   "/testimonies": "Christian Testimonies",
-  "/contact": "Contact Bible Guide",
+  "/contact": "Contact",
   "/search": "Search the Bible",
   "/search/meaning": "Search the Bible by Meaning",
   "/sources": "Sources and Bible Versions",
@@ -63,7 +63,11 @@ const SECTIONS: Record<string, string> = {
   resources: "Resources", testimonies: "Testimonies", sources: "Sources", listen: "Listen", library: "Library",
 };
 
+// A person's ruler, prophet and apostle pages open with "<Name>. <one line>" as their first subheading.
+const PERSON_ASPECTS: Record<string, string> = { rule: "the Reign", word: "the Prophet", mission: "the Mission" };
+
 export interface PageHead { title: string; description: string; canonical: string }
+export interface PageShown { heading?: string; subheading?: string; paragraph?: string }
 
 const clean = (text: string) => text.replace(/\s+/g, " ").trim();
 
@@ -82,9 +86,10 @@ export function normalizePath(pathname: string): string {
 
 /**
  * The head for a page, from its address and what it shows: `heading` is the page's main heading as read (line breaks
- * become spaces), `paragraph` its first real paragraph. A page that names itself (document.title) keeps its own name.
+ * become spaces), `subheading` its first h2, `paragraph` its first real paragraph. A page that names itself
+ * (document.title) keeps its own name; that choice is the caller's (isUnnamed).
  */
-export function pageHead(pathname: string, shown: { heading?: string; paragraph?: string }): PageHead {
+export function pageHead(pathname: string, shown: PageShown): PageHead {
   const path = normalizePath(pathname);
   const canonical = SITE_ORIGIN + (path === "/" ? "/" : path);
   if (path === "/") return { title: HOME_TITLE, description: HOME_DESCRIPTION, canonical };
@@ -92,13 +97,16 @@ export function pageHead(pathname: string, shown: { heading?: string; paragraph?
   const paragraph = clean(shown.paragraph ?? "");
   const segments = path.split("/").filter(Boolean);
   let name = ROUTE_TITLES[path];
+  const aspect = segments[0] === "people" && segments.length === 3 ? PERSON_ASPECTS[segments[2]] : undefined;
+  const person = clean(shown.subheading ?? "").split(". ")[0].replace(/\.$/, "");
+  if (!name && aspect && person) name = `${person}: ${aspect}`;
   if (!name && segments[0] === "read" && segments.length === 4 && heading) name = `${heading} (${segments[1].toUpperCase()})`;
   if (!name && heading) {
     const section = SECTIONS[segments[0]];
     name = section && segments.length > 1 && !heading.includes(section) ? `${heading} · ${section}` : heading;
   }
   const title = name ? `${name} · ${SITE_NAME}` : DEFAULT_TITLE;
-  const description = paragraph ? shorten(paragraph) : name ? shorten(`${name}, on ${SITE_NAME}: the whole Bible free, with studies, an atlas and topics.`) : HOME_DESCRIPTION;
+  const description = aspect && person ? shorten(clean(shown.subheading ?? "")) : paragraph ? shorten(paragraph) : name ? shorten(`${name}, on ${SITE_NAME}: the whole Bible free, with studies, an atlas and topics.`) : HOME_DESCRIPTION;
   return { title, description, canonical };
 }
 

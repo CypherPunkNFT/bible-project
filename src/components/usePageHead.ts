@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { isUnnamed, pageHead } from "@/lib/page-head";
 
@@ -20,19 +20,21 @@ function setMeta(selector: string, create: () => HTMLElement, attribute: string,
 function shownOnPage() {
   const main = document.getElementById("main");
   const heading = main?.querySelector("h1")?.innerText ?? "";
+  const subheading = main?.querySelector("h2")?.innerText ?? "";
   const paragraph = [...(main?.querySelectorAll("p") ?? [])].map((p) => p.innerText.trim()).find((text) => text.length >= 60) ?? "";
-  return { heading, paragraph };
+  return { heading, subheading, paragraph };
 }
 
 export function usePageHead() {
   const { pathname } = useLocation();
+  // The last title this hook set, on any page: a page that names nothing must not keep the previous page's name.
+  const named = useRef("");
   useEffect(() => {
-    let named = "";
     const apply = () => {
       const head = pageHead(pathname, shownOnPage());
-      if (isUnnamed(document.title) || document.title === named) {
+      if (isUnnamed(document.title) || document.title === named.current) {
         document.title = head.title;
-        named = head.title;
+        named.current = head.title;
       }
       setMeta('meta[name="description"]', () => Object.assign(document.createElement("meta"), { name: "description" }), "content", head.description);
       setMeta('link[rel="canonical"]', () => Object.assign(document.createElement("link"), { rel: "canonical" }), "href", head.canonical);

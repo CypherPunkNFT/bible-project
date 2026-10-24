@@ -1,7 +1,7 @@
 // Every public page address, from the same inventory the design review board uses (scripts/design-review/site-map-*.ts),
 // so a new page type added there reaches the sitemap by itself. Addresses are paths without their query: a query is a
 // view of a page (a place on the map, a group on a card), and the page's official address is its path.
-import type { TemplateDef } from "../design-review/model.ts";
+import { readJson, type TemplateDef } from "../design-review/model.ts";
 import { atlasTemplates } from "../design-review/site-map-atlas.ts";
 import { peopleTemplates } from "../design-review/site-map-people.ts";
 import { restTemplates } from "../design-review/site-map-rest.ts";
@@ -34,15 +34,21 @@ export async function sitePages(): Promise<SitePage[]> {
     ...(await restTemplates()).templates,
     ...teacherReadingTemplates().templates,
   ];
+  // A person with a readable address (/people/peter) is moved there by the app, and so is an apostle's mission page
+  // (the readable page is the mission page): list that address, with a ready-made copy, since these are the main people.
+  const readable = new Map(Object.entries(readJson<{ slugs: Record<string, string> }>("src/data/people-slugs.json").slugs).map(([slug, id]) => [id, slug]));
   const pages = new Map<string, SitePage>();
   for (const def of defs) {
     if (LEFT_OUT.has(def.id)) continue;
     for (const variant of def.variants) {
       const url = variant.url as (record: unknown) => string;
       for (const record of variant.records as unknown[]) {
-        const path = new URL(url(record), "https://bibleguide.io").pathname.replace(/\/+$/, "") || "/";
+        let path = new URL(url(record), "https://bibleguide.io").pathname.replace(/\/+$/, "") || "/";
+        const segments = path.split("/");
+        const person = def.id === "person" || def.id === "apostle" ? readable.get(segments[2]) : undefined;
+        if (person) path = `/people/${person}`;
         if (!SAFE_PATH.test(path) || PRIVATE.some((rule) => rule.test(path)) || pages.has(path)) continue;
-        pages.set(path, { path, template: def.id, prerender: !SITEMAP_ONLY.has(def.id) });
+        pages.set(path, { path, template: def.id, prerender: Boolean(person) || !SITEMAP_ONLY.has(def.id) });
       }
     }
   }
