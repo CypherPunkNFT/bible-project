@@ -53,9 +53,9 @@ export function Layout({ children }: { children: ReactNode }) {
       <header data-site-header className="sticky top-0 z-40 border-b border-line bg-page/85 backdrop-blur-md" style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}>
         <SectionStrip className="h-1" />
         <div className="site-header-row mx-auto flex max-w-7xl items-center gap-2 px-4 sm:px-6">
-          <Link to="/" className="mr-2 flex items-center gap-2 font-serif text-lg font-semibold tracking-tight">
+          <Link to="/" className="mr-auto flex shrink-0 items-center gap-2 whitespace-nowrap font-serif text-lg font-semibold tracking-tight sm:mr-2">
             <img src="/favicon.svg" alt="" className="h-7 w-7" />
-            <span className="hidden xs:inline">Bible Guide</span>
+            <span>Bible Guide</span>
           </Link>
           <nav aria-label="Main" className="site-navigation no-scrollbar hidden min-w-0 flex-1 items-center gap-0.5 overflow-x-auto sm:flex">
             {NAV.map(({ to, label, icon: Icon, end }) => (
@@ -153,7 +153,7 @@ export function Layout({ children }: { children: ReactNode }) {
         </div>
         {menuOpen && (
           <nav id="mobile-nav-menu" aria-label="Mobile" className="border-t border-line bg-page sm:hidden">
-            <ul className="mx-auto grid max-w-7xl grid-cols-2 gap-1 px-4 py-3 sm:px-6">
+            <ul className="mx-auto grid max-w-7xl grid-cols-1 gap-1 px-4 py-3 sm:px-6">
               {MOBILE_MENU_LINKS.map(({ to, label, icon: Icon, end }) => (
                 <li key={to}>
                   <NavLink
@@ -171,7 +171,7 @@ export function Layout({ children }: { children: ReactNode }) {
                   </NavLink>
                 </li>
               ))}
-              <li className="col-span-2">
+              <li>
                 <a
                   href="https://churchfamily.io"
                   target="_blank"
