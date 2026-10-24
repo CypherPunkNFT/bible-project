@@ -10,9 +10,33 @@ import type { City, CityMap as CityMapData } from "@/data/resources";
 import { centreLabel, centreWords, compass, kindOf, LIFE_WORDS, miles, tone, type CityWords } from "./format";
 import { ZoomButtons } from "./ZoomButtons";
 import { LifeRow } from "./Row";
-import { attachZoom, placeMarks, type Zoom } from "./zoom";
+import { attachZoom, placeMarks, type View as ZoomView, type Zoom } from "./zoom";
 
 const PIN = 10.5;
+
+/** Pushes pins (screen pixels) apart until none are closer than `need`, in rounds, every pair in order. A pair further
+ *  apart than `need` across or down is passed over before its distance is worked out: the same result to the last digit
+ *  as working every distance out (measured on Atlanta, Jacksonville and Charlotte at four zooms) in a third to a seventh
+ *  of the time, so the scroll zoom keeps up (owner, 2026-10-23: "seems a little laggy"). */
+function pushApart(pos: number[][], need: number) {
+  for (let round = 0; round < 60; round++) {
+    let moved = false;
+    for (let i = 0; i < pos.length; i++) {
+      const pi = pos[i];
+      for (let j = i + 1; j < pos.length; j++) {
+        const pj = pos[j], dx = pj[0] - pi[0];
+        if (dx >= need || dx <= -need) continue;
+        const dy = pj[1] - pi[1];
+        if (dy >= need || dy <= -need) continue;
+        const d = Math.hypot(dx, dy);
+        if (d >= need) continue;
+        const push = (need - d) / 2, ux = d > 0.01 ? dx / d : Math.cos(i + j), uy = d > 0.01 ? dy / d : Math.sin(i + j);
+        pi[0] -= ux * push; pi[1] -= uy * push; pj[0] += ux * push; pj[1] += uy * push; moved = true;
+      }
+    }
+    if (!moved) break;
+  }
+}
 type View = "county" | "downtown" | null;
 
 const waterName = (s: string) => s.replace(/\bRiv\b/, "River").replace(/\bLk\b/, "Lake").replace(/^St /, "St. ");
@@ -72,6 +96,19 @@ function glideToRow(box: HTMLElement, row: HTMLElement): () => void {
   return stop;
 }
 
+/** The view that holds the whole map and every place with a margin round it (a bigger one at the top, under the kind
+ *  buttons), in the map's shape. The map's own box when every place already has that room. */
+function roomFor(places: { at: [number, number] }[], width: number, height: number): ZoomView {
+  const side = width * 0.035, top = height * 0.09, xs = places.map((q) => q.at[0]), ys = places.map((q) => q.at[1]);
+  const x0 = Math.min(0, Math.min(...xs) - side), x1 = Math.max(width, Math.max(...xs) + side);
+  const y0 = Math.min(0, Math.min(...ys) - top), y1 = Math.max(height, Math.max(...ys) + side);
+  const w = Math.max(x1 - x0, ((y1 - y0) * width) / height), h = (w * height) / width;
+  return { x: (x0 + x1) / 2 - w / 2, y: (y0 + y1) / 2 - h / 2, w, h };
+}
+
+/** The map starts just far enough out that every place has room around it, clear of the kind buttons over its top (owner,
+ *  2026-10-23: "zoom out a little bit more… some options are right at the edge"), and redraws at most once a frame while
+ *  the hand zooms or drags it (zoom.ts: batch). */
 export function CityMap({ city, map, kinds, words = LIFE_WORDS }: { city: City; map: CityMapData; kinds: [string, number][]; words?: CityWords }) {
   const P = map.projection;
   const project = useCallback((lon: number, lat: number): [number, number] => [(lon - P.west) * P.cos * P.k, (P.north - lat) * P.k], [P]);
@@ -101,16 +138,7 @@ export function CityMap({ city, map, kinds, words = LIFE_WORDS }: { city: City; 
     const live = [...el.querySelectorAll<SVGGElement>(".lf-pin")].filter((p) => shownRef.current.has(p.dataset.cat ?? ""));
     const at = live.map((p) => [Number(p.dataset.x) / px, Number(p.dataset.y) / px]);
     const pos = at.map(([x, y]) => [x, y]);
-    for (let round = 0; round < 60; round++) {
-      let moved = false;
-      for (let i = 0; i < pos.length; i++) for (let j = i + 1; j < pos.length; j++) {
-        const dx = pos[j][0] - pos[i][0], dy = pos[j][1] - pos[i][1], d = Math.hypot(dx, dy), need = PIN * 2 + 2;
-        if (d >= need) continue;
-        const push = (need - d) / 2, ux = d > 0.01 ? dx / d : Math.cos(i + j), uy = d > 0.01 ? dy / d : Math.sin(i + j);
-        pos[i][0] -= ux * push; pos[i][1] -= uy * push; pos[j][0] += ux * push; pos[j][1] += uy * push; moved = true;
-      }
-      if (!moved) break;
-    }
+    pushApart(pos, PIN * 2 + 2);
     const marks: SVGElement[] = [];
     const svgEl = <K extends "line" | "circle">(name: K, attrs: Record<string, string>, c: string) => {
       const node = document.createElementNS("http://www.w3.org/2000/svg", name);
@@ -130,7 +158,7 @@ export function CityMap({ city, map, kinds, words = LIFE_WORDS }: { city: City; 
     const el = svg.current;
     if (!el) return;
     const redraw = () => { placeMarks(el, map.width); layoutPins(); };
-    zoom.current = attachZoom(el, { width: map.width, height: map.height, max: 14, onChange: (z) => { el.dataset.z = z > 2.2 ? "near" : "far"; redraw(); } });
+    zoom.current = attachZoom(el, { width: map.width, height: map.height, max: 14, home: roomFor(places, map.width, map.height), batch: true, onChange: (z) => { el.dataset.z = z > 2.2 ? "near" : "far"; redraw(); } });
     const resize = new ResizeObserver(redraw);
     resize.observe(el);
     // On a phone the whole county is too small to read: start on the places themselves.
