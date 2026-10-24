@@ -1,8 +1,9 @@
 # Questions — handoff
 
-**State last verified: 2026-10-24**, by reading the built bank and the explorer: 13,137 questions in the bank, 11,030
-shown (6,414 of them written for the site); every shown question has four choices, is grounded and is rated; 716 carry
-the children's wording; no open flags from the owner; the question explorer answers on the local preview.
+**State last verified: 2026-10-24**, by reading the built bank and the explorer: 20,326 questions in the bank, 14,916
+shown (6,391 written for the site, 3,928 from the seven children's sources); every shown question has four choices, is
+grounded and is rated; no open flags from the owner; the question explorer answers on the local preview with all
+20,326 rows.
 
 The map of this folder is [README.md](README.md); each folder's README has the detail. This file is only the state and
 what comes next.
@@ -13,8 +14,10 @@ what comes next.
   easy/medium/hard and for children, and opens the verse that holds its answer ([checks/](checks/README.md)).
 - **Done:** 716 children's questions reworded for a child and checked, used by the children's page mock-up
   ([children/](children/README.md)).
-- **Done, not on the site:** 7,326 questions from seven children's sources, extracted and tagged
-  ([children/children-batch4.json](children/README.md#the-childrens-sources-batch-4-extracted-and-tagged)).
+- **Done 2026-10-24:** the seven children's sources are in the bank: 7,326 questions reworded to the BSB and for a
+  child, four choices, checked against the BSB; 367 dropped as unfit; 3,928 shown, the rest repeats of questions
+  already shown ([children/](children/README.md#the-childrens-sources-in-the-bank-24-october-2026)). A children's
+  question never pushes a site question off the page. About $160 at API list price.
 - **Done 2026-10-24:** the two question chats were merged into one and every question file brought under this folder.
   The sources came from `Research/BibleQuizCorpus/` and the tests plan from `Plans/TESTS.md`; both old places hold a
   pointer. Every script and document now points here.
@@ -30,11 +33,9 @@ what comes next.
 ## Next, in order
 
 1. **Fix anything the owner flags**, at its source, then rebuild and remove the flag.
-2. **The children's sources toward the site**, in the order the children's curriculum needs
-   ([tests/README.md](tests/README.md), Part B): first the BSB's words, then a child's words, then four choices (the
-   choices come last, so they are not written twice), then the site's checks, then listed in the bank build and on
-   [SOURCES.md](../../SOURCES.md). The Baptist *A Catechism for Little Children* replaces the Presbyterian catechism
-   the children's page asks today.
+2. **The children's page on the new questions**, for the children's page chat: the Baptist *A Catechism for Little
+   Children* (bank `children-little`, 89 shown) is ready to replace the Presbyterian catechism the page asks today;
+   which other sources the lessons use belongs to the curriculum ([tests/README.md](tests/README.md), Part B).
 3. **A runner for Codex (ChatGPT)** beside BatchRunner, so a GPT model can take the blind quizzes on written questions
    and be a truly independent reviewer ([written/README.md](written/README.md#codex-chatgpt-on-the-owners-subscription)).
 

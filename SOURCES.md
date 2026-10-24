@@ -183,6 +183,26 @@ Bible (public domain; the project's own `data/text/bsb/` copy, the one every pag
 section, the cited verses and every model that reviewed it. Written by `scripts/question_writing.py` into
 [content/questions/written/written.json](content/questions/written/README.md); see its README.
 
+**Children's sources (registered 24 October 2026, local preview only; nothing published):** seven sources written for
+children, banks `children-assu`, `children-boston`, `children-manly`, `children-little`, `children-boyce`,
+`children-mtc` and `children-uw`. Their questions were extracted on 23 October 2026 into
+[content/questions/children/children-batch4.json](content/questions/children/README.md) and, on 24 October 2026,
+reworded by Claude Opus to the BSB and for a child of about 6 to 11, with four choices, then checked against the BSB
+by a second Opus call (`scripts/question_children_sources.py`). Each question's record keeps the source's own wording
+beside the new one. The checksum is worked out as for the table above, over the files in the folder named.
+"In the bank" counts questions after exact duplicates are folded together; "shown" leaves out repeats of other
+questions and the questions dropped as unfit for children.
+
+| Source | In the bank / shown | Licence and credit owed | Folder (under `content/questions/sources/raw/`) / files / bytes | Checksum |
+|---|---:|---|---|---|
+| [Ministry-to-Children Sunday school lessons](https://ministry-to-children.com/), review questions from 768 lessons, retrieved 2026-10-23 | 2,478 / 1,427 | CC BY-SA 4.0. Required: credit Ministry-To-Children.com (Tony Kummer) and license any adaptation under the same or a compatible licence. The lessons quote Bible versions whose own terms the CC licence does not cover; the site's questions are reworded to the BSB. | `ministry-to-children-lessons` / 1,531 / 201,019,614 | `89785b883bb39e8f` |
+| [*The Child's Scripture Question-Book* (American Sunday-School Union, 1907)](https://archive.org/details/childsscriptureq00amer), retrieved 2026-10-17 | 2,146 / 1,188 | Public domain in the United States: published before 1929. | `internet-archive-sunday-school-question-books/childsscriptureq00amer` / 3 / 7,462,038 | `1aa2a107cf4f9ad1` |
+| [*The Child's Bible Question Book* (Massachusetts Sabbath School Society, Boston, 1880)](https://archive.org/details/childsbiblequest00bost), retrieved 2026-10-23 | 1,067 / 514 | Public domain in the United States: published before 1929. | `internet-archive-sunday-school-question-books/childsbiblequest00bost` / 3 / 7,186,359 | `9f1f8628aa8a4e1d` |
+| [unfoldingWord *Open Bible Stories* translation questions](https://git.door43.org/unfoldingWord/en_tq), retrieved 2026-10-23 | 658 / 261 | CC BY-SA 4.0. Required: credit unfoldingWord (Open Bible Stories translation questions) and license any adaptation under the same or a compatible licence. | `unfoldingword-obs-tq` / 6 / 93,837 | `9e72265330e3c77e` |
+| [Manly, *The Child's Question Book on the Four Gospels* (Southern Baptist Sunday School Board, 1864)](https://archive.org/details/childsquestionbo11manl), retrieved 2026-10-17 | 498 / 325 | Public domain in the United States: published before 1929. | `internet-archive-sunday-school-question-books/childsquestionbo11manl` / 3 / 1,847,493 | `a7509110771ccee2` |
+| [*A Catechism for Little Children* (Baptist State Convention of North Carolina, 1864)](https://archive.org/details/catechismforlitt01bapt), retrieved 2026-10-23 | 181 / 89 | Public domain in the United States: published before 1929. | `internet-archive-sunday-school-question-books/catechismforlitt01bapt` / 3 / 1,213,625 | `b884d664787117e7` |
+| [Boyce, *A Brief Catechism of Bible Doctrine* (1885)](https://repository.sbts.edu/handle/10392/5301), retrieved 2026-10-23 | 161 / 124 | Public domain in the United States: published before 1929. | `baptist-childrens-catechisms` / 5 / 1,050,259 | `fcbee6232799c663` |
+
 ## Catechisms & Creeds — published 17 October 2026
 
 The 66 creeds, confessions and catechisms behind [/study/creeds](https://bibleproject.io/study/creeds). Every document

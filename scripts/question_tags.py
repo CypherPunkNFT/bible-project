@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import re
 
-from bible.books import BOOKS
+from bible.books import BOOKS, ONE_CHAPTER_BOOKS
 from bible.study_refs import RefError, normalise_book
 
 CANON = [code for code, _name, section, _osis in BOOKS if section != "apocrypha"]
@@ -119,7 +119,10 @@ def parse_reference(text: str | None) -> list[tuple[str, int, int | None]]:
         except RefError:
             continue
         if book in SECTION and SECTION[book] != "apocrypha":
-            found.append((book, int(match.group(2)), int(match.group(3)) if match.group(3) else None))
+            chapter, verse = int(match.group(2)), int(match.group(3)) if match.group(3) else None
+            if verse is None and book in ONE_CHAPTER_BOOKS:
+                chapter, verse = 1, chapter  # "Philemon 13": a one-chapter book is cited by verse alone
+            found.append((book, chapter, verse))
     return found
 
 

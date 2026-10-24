@@ -5,9 +5,10 @@ questions page (`/study/questions`), the children's page, and later the home pag
 section and any quiz. Every build writes it, together with [question-table.csv](question-table.csv) and the site's
 own copy, `data/questions/bank.json`, **the only question file released with the site**.
 
-**13,137 questions** (built 2026-10-24): 9,913 Bible quiz, 902 Sunday school lesson and 2,322 catechism questions.
-**11,030 are shown**, 6,414 of them written for the site ([../written/](../written/README.md)); the rest are repeats or
-hidden. Roman Catholic and Seventh-day Adventist books are left out as outside the site's doctrinal scope (owner,
+**20,326 questions** (built 2026-10-24): 9,913 Bible quiz, 7,749 Sunday school lesson and 2,664 catechism questions.
+**14,916 are shown**, 6,391 of them written for the site ([../written/](../written/README.md)) and 3,928 from the
+seven children's sources ([../children/](../children/README.md#the-childrens-sources-in-the-bank-24-october-2026));
+the rest are repeats or hidden. Roman Catholic and Seventh-day Adventist books are left out as outside the site's doctrinal scope (owner,
 2026-10-22); they stay in [../sources/](../sources/README.md) to mine for content later.
 
 ## What "production-ready" means here
@@ -54,7 +55,7 @@ in Excel.
 
 ## The question explorer (local only)
 
-http://127.0.0.1:8931/data_questions/ (the third card on the local data hub, `/data/`) shows all 13,137 questions in
+http://127.0.0.1:8931/data_questions/ (the third card on the local data hub, `/data/`) shows all 20,326 questions in
 one table: filters with counts, sorting, and each question's before and after wording, faults, reason, verses, basis
 note, doubt, level, models and source. **Simulate** shuffles whatever the filters leave and runs it as a quiz (keys
 1–4, Enter for next). Its data, `.local/question-explorer/questions.json`, is written by every build

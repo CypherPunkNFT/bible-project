@@ -28,6 +28,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from bible.books import BOOKS  # noqa: E402
 from question_audit import apply_audit  # noqa: E402
+from question_children_sources import children_records  # noqa: E402
 from question_children_wording import add_children_wording  # noqa: E402
 from question_choices import add_choices  # noqa: E402
 from question_difficulty import add_difficulty  # noqa: E402
@@ -88,6 +89,14 @@ BANKS: dict[str, tuple[str, str, str | None]] = {
     "mined-pg53465": ("Mezger's Lessons in the Small Catechism (1923)", "catechism", "Lutheran"),
     # Written for the site one BSB section at a time and passed by every review (scripts/question_writing.py).
     "written-bsb": ("Written for the site from the BSB", "trivia", None),
+    # The children's sources, reworded for the BSB and for children and checked (scripts/question_children_sources.py).
+    "children-assu": ("The Child's Scripture Question-Book (American Sunday-School Union, 1907)", "lesson", None),
+    "children-boston": ("The Child's Bible Question Book (Boston, 1880)", "lesson", None),
+    "children-manly": ("Manly, The Child's Question Book on the Four Gospels (1864)", "lesson", "Baptist"),
+    "children-little": ("A Catechism for Little Children (1864)", "catechism", "Baptist"),
+    "children-boyce": ("Boyce, A Brief Catechism of Bible Doctrine (1885)", "catechism", "Baptist"),
+    "children-mtc": ("Ministry-to-Children Sunday school lessons", "lesson", None),
+    "children-uw": ("unfoldingWord Open Bible Stories questions", "lesson", None),
 }
 
 # Outside the site's close-to-Baptist scope (owner 2026-10-22): kept in the corpus to mine for content later, never
@@ -120,7 +129,7 @@ LEANS_ON_CONTEXT = re.compile(r"\b(this|these|those|they|them|their|he|him|she|h
 def load_corpus() -> list[dict]:
     batch2 = json.loads((CORPUS / "all-questions.json").read_text(encoding="utf-8"))["questions"]
     batch3 = json.loads((CORPUS / "all-questions-batch3.json").read_text(encoding="utf-8"))["questions"]
-    return batch2 + batch3 + mined_records() + written_records()
+    return batch2 + batch3 + mined_records() + written_records() + children_records()
 
 
 def reason_left_out(record: dict) -> str | None:
@@ -146,9 +155,12 @@ def dedupe_key(record: dict) -> str:
 
 def better(a: dict, b: dict) -> bool:
     """Whether a should be kept over its duplicate b: choices first, then a scripture reference, then the original
-    over a copy (244 Hugging Face trivia records copy ministry-to-children.com, which then keeps the credit)."""
-    def rank(q: dict) -> tuple[bool, bool, bool]:
-        return bool(q.get("options")), bool(q.get("reference")), q["source_id"] == q.get("attribution_source_id")
+    over a copy (244 Hugging Face trivia records copy ministry-to-children.com, which then keeps the credit). A
+    children's source question reworded to match one already on the site never takes its place: the site's one is
+    already checked and grounded, and its repeats point to it."""
+    def rank(q: dict) -> tuple[bool, bool, bool, bool]:
+        return (not q["id"].startswith("children-batch4:"), bool(q.get("options")), bool(q.get("reference")),
+                q["source_id"] == q.get("attribution_source_id"))
     return rank(a) > rank(b)
 
 
@@ -174,8 +186,9 @@ def to_entry(record: dict) -> dict:
         "testament": testament_of(kind, books, topic),
         "topic": topic,
         "link": link_of(record.get("reference")),
-        # A mined question was reworded to stand alone (question_mining.py).
-        "standalone": record["id"].startswith("mined:") or kind == "trivia" or not LEANS_ON_CONTEXT.search(record["question"]),
+        # A mined or children's source question was reworded to stand alone (question_mining.py,
+        # question_children_sources.py).
+        "standalone": record["id"].startswith(("mined:", "children-batch4:")) or kind == "trivia" or not LEANS_ON_CONTEXT.search(record["question"]),
         "question_origin": record["question_origin"],
         "licence": record["licence"],
         "licence_class": record["licence_class"],

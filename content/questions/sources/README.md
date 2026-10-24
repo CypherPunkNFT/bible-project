@@ -30,7 +30,7 @@ reads this folder, and the local preview server does not watch it.
 | 1 | 2026-10-16 | Open Biblical Dataset, BibleQA, BibleData | BibleQA and BibleData mined into new questions ([../mined/](../mined/README.md)); the Open Biblical Dataset is pastoral answers, not quiz questions |
 | 2 | 2026-10-17 | Twelve quiz banks and catechisms (trivia sets, Baptist and Reformed catechisms, the Baltimore Catechism) | In the bank where publishable and in the site's doctrinal scope; Roman Catholic left out (owner, 2026-10-22) |
 | 3 | 2026-10-17 | 75 Sunday school question books before 1929 (Internet Archive scans, Project Gutenberg texts) | Typed texts in the bank (Hurlbut, Mezger, Stump); scans held back, as machine-read text needs proofreading |
-| 4 | 2026-10-23 | **Children's sources**: Ministry-to-Children lessons, unfoldingWord Open Bible Stories, the Boston *Child's Bible Question Book* (1880), *A Catechism for Little Children* (1864), Boyce's catechism (1885), plus Manly (1864) and the Sunday-School Union book from batch 3 | **Extracted and tagged, 7,326 questions** in [../children/children-batch4.json](../children/README.md); not on the site yet |
+| 4 | 2026-10-23 | **Children's sources**: Ministry-to-Children lessons, unfoldingWord Open Bible Stories, the Boston *Child's Bible Question Book* (1880), *A Catechism for Little Children* (1864), Boyce's catechism (1885), plus Manly (1864) and the Sunday-School Union book from batch 3 | **Extracted and tagged, 7,326 questions** in [../children/children-batch4.json](../children/README.md); in the bank since 2026-10-24, reworded for children (3,928 shown) |
 
 Each batch has its own section in [MANIFEST.md](MANIFEST.md), with its findings on licences.
 

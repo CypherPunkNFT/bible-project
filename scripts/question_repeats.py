@@ -109,7 +109,8 @@ def mark_repeats(questions: list[dict]) -> int:
     source (written-answer choices are added after this), then from a Baptist collection (the site's own tradition),
     then with a reference, then the original over a copy.
 
-    A mined or written question (question_mining.py, question_writing.py) never joins two groups of the bank's own
+    A mined, written or reworded children's source question (question_mining.py, question_writing.py,
+    question_children_sources.py) never joins two groups of the bank's own
     questions, and never displaces one: such a group that repeats a bank question is hidden behind that question's
     group. A mined and a written question that repeat each other are one group like any other pair."""
     by_id = {q["id"]: q for q in questions}
@@ -122,7 +123,8 @@ def mark_repeats(questions: list[dict]) -> int:
         return x
 
     def mined(qid: str) -> bool:
-        return qid.startswith(("mined:", "written:"))  # made for the site: question_mining.py, question_writing.py
+        # made for the site: question_mining.py, question_writing.py, question_children_sources.py
+        return qid.startswith(("mined:", "written:", "children-batch4:"))
 
     crossing = []
     for decision in load_repeats()["pairs"].values():
@@ -142,7 +144,9 @@ def mark_repeats(questions: list[dict]) -> int:
     order = {q["id"]: n for n, q in enumerate(questions)}
 
     def rank(q: dict) -> tuple:
-        return (bool(q.get("options")), q.get("tradition") == "Baptist", bool(q.get("reference")),
+        # A reworded children's source question never displaces a written or mined one already checked and grounded.
+        return (not q["id"].startswith("children-batch4:"), bool(q.get("options")), q.get("tradition") == "Baptist",
+                bool(q.get("reference")),
                 q["source_id"] == q.get("attribution_source_id"), -order[q["id"]])
 
     keeper = {group: max(members, key=rank) for group, members in groups.items()}

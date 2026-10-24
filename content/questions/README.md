@@ -9,13 +9,15 @@ of this folder is released, so adding to it never adds to what the site sends.
 
 ## Where things stand (2026-10-24)
 
-- **13,137 questions in the bank, 11,030 shown**: 9,913 Bible quiz, 902 Sunday school lesson and 2,322 catechism
-  questions, 6,414 of the shown written for the site. The rest are repeats or hidden.
+- **20,326 questions in the bank, 14,916 shown**: 9,913 Bible quiz, 7,749 Sunday school lesson and 2,664 catechism
+  questions; of the shown, 6,391 are written for the site and 3,928 come from the children's sources. The rest are
+  repeats or hidden.
 - Every shown question is **multiple choice, checked against the BSB, grounded** (the verses that hold its answer, or
   why it is answered from outside the Bible), **tagged** by book, theme, people and places, and **rated** easy, medium
   or hard, and whether it suits children.
 - **716 children's questions** are reworded in a child's words for the children's page.
-- **7,326 more children's questions** are extracted from seven children's sources and tagged, not on the site yet.
+- **The seven children's sources are in the bank** (7,326 questions, 2026-10-24): reworded to the BSB and for a child,
+  four choices, checked; 3,928 shown, the rest repeats of questions already shown or dropped as unfit.
 - The questions page and the children's page are still local mock-ups; nothing about questions is on the live site
   until the owner approves a release.
 

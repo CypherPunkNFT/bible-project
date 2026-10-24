@@ -98,6 +98,9 @@ BOOKS = [
 # Front matter, introductions, glossaries and back matter: skipped on purpose.
 SKIPPED_CODES = {"FRT", "INT", "BAK", "OTH", "GLO", "XXA", "XXB", "XXC"}
 
+# Books of one chapter, often cited by verse alone ("Philemon 13" is Philemon 1:13).
+ONE_CHAPTER_BOOKS = {"OBA", "PHM", "2JN", "3JN", "JUD"}
+
 # When a version lacks a book, the reader may offer this stand-in (Brenton's Greek Daniel and Esther).
 EQUIVALENT = {"DAN": "DAG", "DAG": "DAN", "EST": "ESG", "ESG": "EST"}
 

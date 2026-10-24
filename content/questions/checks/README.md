@@ -84,7 +84,8 @@ reference, its tagged passages, and the eight verses closest in meaning, from a 
 (Qwen3-Embedding-4B on this PC, $0; `.local/question-grounding/`). A verse it names that was not shown is refused.
 The model also says when the printed answer looks wrong by the verses (`doubt`); Bible quiz doubts were audited again,
 catechism doubts are kept as the catechisms' own teaching. A question with no reference gets the verses read as its
-reference. As of 23 October 2026, **all 11,030 shown questions are grounded**.
+reference. As of 24 October 2026, **all 14,916 shown questions are grounded** (the 3,928 from the children's sources
+by Claude Haiku that day, $2.55).
 
 ## Tags
 
@@ -105,15 +106,22 @@ Every shown question has two ratings, set by Claude Opus (owner, 23 October 2026
 - **`children`:** true when a Sunday-school child of about 6 to 11 could answer it and it suits that age.
 
 Opus reads 40 questions to a call, with answer, choices and reference but no Bible text, at low effort. As of 23
-October 2026, all 11,030 are rated ($16.92): 2,516 easy, 5,233 medium, 3,281 hard; 2,727 suit children. The tests draw
-by level and by children.
+October 2026, all 11,030 are rated ($16.92): 2,516 easy, 5,233 medium, 3,281 hard; 2,727 suit children. On 24 October
+the 3,928 from the children's sources were rated the same way ($5.24): 2,240 easy, 1,442 medium, 246 hard; 3,135 suit
+children. All 14,916 shown: 4,734 easy, 6,655 medium, 3,527 hard; 5,838 suit children. The tests draw by level and by
+children.
 
 ## The verse "Read the verse" opens
 
 Owner, 24 October 2026: "How can you glorify God?" opened 1 Corinthians 10:31, which says to do all for God's glory
 but not how; the answer is in 1 John 5:3. Where a question's first reference does not hold the answer's words (its
 passage is not "matched"), Claude Opus is shown every verse the question cites or was grounded in and picks the one
-that shows the answer, or none. 826 questions were checked; **397 now open a different verse**.
+that shows the answer, or none. 826 questions were checked; **397 now open a different verse**. On 24 October 470
+more were checked, mostly from the children's sources ($1.51); 530 shown questions now open a different verse.
+
+A book of one chapter (Obadiah, Philemon, 2 and 3 John, Jude) is often cited by verse alone: "Philemon 13" is read as
+Philemon 1:13, both when the verses are checked and for the link (fixed 24 October 2026; it had opened a chapter 13
+that does not exist).
 
 ## Flags from the owner
 

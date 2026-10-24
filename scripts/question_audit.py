@@ -41,7 +41,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from bible.books import BOOKS  # noqa: E402
+from bible.books import BOOKS, ONE_CHAPTER_BOOKS  # noqa: E402
 from bible.study_refs import RefError, normalise_book  # noqa: E402
 from question_choices import FILLER, norm, shuffled, word_count  # noqa: E402
 from question_model_tags import bible_book, check_passage  # noqa: E402
@@ -158,6 +158,8 @@ def parse_spans(reference: str | None) -> list[dict] | None:
                 first = (chapter, first[0])  # "Gen 27:1-3,23": 23 is a verse of chapter 27
             if book is None:
                 return None
+            if first[1] is None and book in ONE_CHAPTER_BOOKS:
+                first = (1, first[0])  # "Philemon 13": a one-chapter book is cited by verse alone
             chapter = first[0]
             if match["bc"] is None:
                 spans.append({"book": book, "start": first, "end": first})

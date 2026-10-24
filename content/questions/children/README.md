@@ -24,13 +24,15 @@ the BSB verses. Each record is tied to the checked wording by a fingerprint; the
 `child`, and the children's page asks that. Script: [question_children_wording.py](../../../scripts/question_children_wording.py).
 
 **Every shown question is also rated for children** (`children`: true or false, [../checks/README.md](../checks/README.md#how-hard-each-question-is)):
-2,727 of the 11,030 suit a child of about 6 to 11. That covers the whole site, not only the children's collections.
+5,838 of the 14,916 suit a child of about 6 to 11 (24 October 2026). That covers the whole site, not only the
+children's collections.
 
 ## The children's sources (batch 4), extracted and tagged
 
 [children-batch4.json](children-batch4.json): **7,326 questions with answers** from seven children's sources, pulled
 out of the downloads in [../sources/](../sources/README.md) on 2026-10-23 by
-[children_batch4.py](../sources/tools/children_batch4.py). **None of it is on the site yet.**
+[children_batch4.py](../sources/tools/children_batch4.py). Since 24 October they are in the bank in new wording
+([below](#the-childrens-sources-in-the-bank-24-october-2026)).
 
 | Source | Questions | Written for | Licence |
 |---|---|---|---|
@@ -61,16 +63,37 @@ licence and credit, and the same tags as the site's questions:
 
 6,844 of the 7,326 are tied to a Bible book; most of the rest are doctrine questions ("Who is God?").
 
-**They are not multiple choice**: every source printed a question and its answer only.
+## The children's sources in the bank (24 October 2026)
 
-## What still has to happen before they reach the site
+Every source printed a question and its answer only, most in King James wording. All seven are now in the bank
+(banks `children-assu`, `-boston`, `-manly`, `-little`, `-boyce`, `-mtc`, `-uw`; listed on
+[SOURCES.md](../../../SOURCES.md) with the credit each licence asks), each question in the BSB's sense, in a child's
+words, with four choices. Script: [question_children_sources.py](../../../scripts/question_children_sources.py); the
+new wording is [children-batch4-wording.json](children-batch4-wording.json), tied to each source question by a
+fingerprint, so a change at the source sends it round again.
 
-1. **The BSB's words.** The old books are in King James wording; each question is checked against the BSB and fixed
-   (the site's rule: fix a question to what the BSB says, hide only as a last resort).
-2. **A child's words**, as was done for the 716 above.
-3. **Four choices**, written after the wording is settled (wrong choices written before it would have to be redone).
-4. **The site's checks**: the repeat check against the whole bank, grounding, the difficulty rating.
-5. **Listed** in the bank build's `BANKS` and on [SOURCES.md](../../../SOURCES.md), with the credit each licence asks.
+1. **Reworded** (Claude Opus, 15 questions to a call, with the BSB verses of each and the two questions before it in
+   its lesson): the BSB's sense, plain words a 7-year-old knows, a short answer and three wrong choices a child can
+   tell apart. **367 were dropped** and stay hidden, each with its reason in the record: most ask what no Bible
+   passage says (history, maps, the names and order of the books, old words such as "charger"), the rest are
+   discussion prompts, the child's own opinion or life, or lean on a lesson's story the question does not give.
+   One the owner may want back: *A Catechism for Little Children* asks "What then must we say of those who have had
+   water only sprinkled or poured upon them?" ("That they are not baptized", `little:154`), dropped as "a ruling on
+   other churches that no passage of the Bible states". The question before it ("Are there different ways to
+   baptize?") is kept, reworded to what the BSB says: "How many baptisms does Paul say there are?" (One).
+2. **Checked** against the BSB verses by a second Opus call: kept, or fixed with a reason.
+3. **Choices balanced.** In 25% of the questions the right choice was plainly the longest (two words longer than every
+   wrong one, or 15% longer). Opus rewrote the choices of those 3,046 questions; 2,438 came back balanced and were
+   checked against the BSB again (131 fixed). 664 of the 6,959 still have the longest right choice, mostly an answer
+   that is a list or a verse.
+4. **The site's checks**, as for every shown question: repeats against the whole bank (Claude Haiku), grounding
+   (Haiku), the difficulty rating (Opus), the verse "Read the verse" opens (Opus).
 
-Which of the seven to use, and in what order, belongs to the children's curriculum
+**Result:** 6,959 reworded and checked; 7,189 records in the bank after exact duplicates fold into the site's own
+questions; **3,928 shown**, the rest being repeats of a question already shown. A children's question never pushes a
+site question off the page: among copies or repeats the site's own written, mined and bank questions are shown first.
+Total cost about $160 at API list price (the Max plan, not billed): rewording $49, checks $77, balancing $24, the
+site's checks $10.
+
+Which of the seven the children's page uses, and in what order, belongs to the children's curriculum
 ([../tests/README.md](../tests/README.md), Part B).
