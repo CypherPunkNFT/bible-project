@@ -149,9 +149,19 @@
 .ck-mix-all:hover{background:color-mix(in srgb,var(--tone) 8%,transparent)}
 .ck-node-wrap{position:relative;display:block}
 .ck-node-icon svg{display:block}
+/* E's circles: none shows a highlighted inside; the one under the pointer grows and glows (and keeps that while its
+   lesson is open, LessonStage.tsx), so the zoom starts from it */
+.ck-path button[data-next] .ck-node-icon{width:56px;height:56px;box-shadow:none}
+.ck-path button[aria-pressed="true"] .ck-node-icon{background:var(--surface)}
+.ck-node-icon{transition:transform .2s,box-shadow .2s}
+.ck-path button:hover .ck-node-icon,.ck-node-icon[data-zoomed]{transform:scale(1.08);box-shadow:0 0 0 6px color-mix(in srgb,var(--tone) 16%,transparent),0 0 32px color-mix(in srgb,var(--tone) 45%,transparent)}
 .ck-path button[data-done] .ck-node-icon{background:var(--surface);color:var(--tone)}
 .ck-node-n{position:absolute;top:-4px;left:-20px;font:500 14px/1 var(--serif);color:var(--tone)}
 .ck-node-check{position:absolute;right:-6px;bottom:-2px;padding:2px;border-radius:50%;background:var(--tone);color:var(--page)}
+/* The zoom (LessonStage.tsx): only --ck-zoom is animated, so the page is drawn anew at each size and stays sharp */
+@property --ck-zoom{syntax:"<number>";inherits:false;initial-value:0}
+.ck-wrap[data-zoom]{transform:translate(calc(var(--ck-dx) * var(--ck-zoom)),calc(var(--ck-dy) * var(--ck-zoom))) scale(pow(var(--ck-scale),var(--ck-zoom)))}
+.ck:has(.ck-wrap[data-zoom]){overflow:clip}
 /* The quiz, zoomed into its circle (LessonStage.tsx): the whole screen, in the circle's own colour, the questions only */
 .ck-stage{position:fixed;inset:0;z-index:1000;overflow-y:auto;overscroll-behavior:contain;background:var(--fill,var(--page));opacity:0;pointer-events:none}
 .ck-stage[data-open]{pointer-events:auto}
