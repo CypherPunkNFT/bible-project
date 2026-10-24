@@ -133,3 +133,5 @@
   .ts-ready-go{justify-content:space-between}
 }
 @media(prefers-reduced-motion:reduce){.th-groups,.th-tests{animation:none}}
+/* The level and age a test was drawn at, under the test page's line (settings.ts). */
+.ts-head>p.ts-level{margin-top:10px;font-size:11px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}

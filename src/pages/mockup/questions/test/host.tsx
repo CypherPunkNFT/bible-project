@@ -5,6 +5,7 @@ import { useTestKeys, useTestStage } from "./controls";
 import type { Facets, Filters } from "../model";
 import { useRun, type Item, type Result, type Run, type TestQuestion } from "./engine";
 import { TestResults } from "./TestResults";
+import type { readSettings } from "./settings";
 
 export interface ViewProps { run: Run; bookNames: Record<string, string>; kinds: Record<string, string> }
 
@@ -22,6 +23,8 @@ export interface OptionProps {
   bookFacets: Facets;
   /** The questions each theme could draw on: the kind and other settings, without the book, chapter or theme. */
   themeRows: number[];
+  /** How hard and who for, from the address (settings.ts); not every caller has them. */
+  settings?: ReturnType<typeof readSettings>;
   theme: string;
   setTheme: (id: string) => void;
   chapter: number | null;

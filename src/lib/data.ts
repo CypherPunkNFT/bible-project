@@ -178,6 +178,9 @@ export interface BankQuestion {
   options_by?: string | null;
   /** A two-part question's first part: the question just before it in its book, with its printed answer. */
   lead_in?: { question: string; answer: string } | null;
+  /** How hard for teens and adults, and whether it suits children of about 6 to 11 (scripts/question_difficulty.py). */
+  level?: "easy" | "medium" | "hard" | null;
+  children?: boolean | null;
 }
 /** The option to mark right; falls back to the printed answer for a copy of the bank built before answer_choice. */
 export const rightChoice = (q: BankQuestion) => q.answer_choice ?? q.answer;

@@ -29,6 +29,11 @@ export function TestPage(props: OptionProps) {
         <BackLink to={props.backTo} />
         <h1>Test <em>yourself</em></h1>
         <p>One question at a time, and every answer opens the verse it comes from.</p>
+        {props.settings && (props.settings.level || props.settings.children) && <p className="ts-level">
+          {[props.filters.book && bookNames[props.filters.book],
+            props.settings.level && `${props.settings.level.label}: ${props.settings.level.rating} questions only`,
+            props.settings.children && "Questions that suit children"].filter(Boolean).join(" · ")}
+          {` · ${facets.rows.length.toLocaleString()} to draw from`}</p>}
       </header>
     </div>
     <div className="tp-dusk oc-band">
