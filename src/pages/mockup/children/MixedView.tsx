@@ -4,6 +4,8 @@
 // The parts row sits directly on the card, with no gap (owner, 2026-10-24: "connect them"); beside Start, an outline
 // button opens every question with its answer in the course below. Start the quiz goes down to the path and zooms into
 // the lesson's circle, and so does choosing a circle: the quiz then fills the screen (LessonStage.tsx; owner, 2026-10-24).
+// The path's section is a screen tall, so the course below stays out of sight; a small See all questions at its foot
+// goes down to it.
 import { ArrowDown } from "lucide-react";
 import { useCallback, useRef, useState } from "react";
 import { QuizScene } from "../QuizScenes";
@@ -17,11 +19,11 @@ const firstToDo = (lessons: Lesson[], progress: Progress) => lessons.find((l) =>
 
 type Props = ViewProps & { bookNames: Record<string, string>; onGuide: (lesson: Lesson) => void; onFinish: (lesson: Lesson, right: number, total: number) => void };
 
-/** Scrolls `el` to the middle of the screen unless it is already well in view; resolves when the scroll has ended. */
-function bringIntoView(el: HTMLElement) {
-  const r = el.getBoundingClientRect();
-  if (r.top > 90 && r.bottom < window.innerHeight - 90) return Promise.resolve();
-  el.scrollIntoView({ behavior: "smooth", block: "center" });
+/** Scrolls the path's section to the top of the screen (under the site's bar) unless it is there already; resolves
+ *  when the scroll has ended. */
+function bringToTop(el: HTMLElement) {
+  if (Math.abs(el.getBoundingClientRect().top - parseFloat(getComputedStyle(el).scrollMarginTop || "0")) < 4) return Promise.resolve();
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
   return new Promise<void>((done) => {
     const timer = window.setTimeout(done, 1000);
     window.addEventListener("scrollend", () => { window.clearTimeout(timer); done(); }, { once: true });
@@ -35,22 +37,23 @@ export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFin
   const group = groups.find((g) => g.part.id === chosen.part.id) ?? groups[0];
   const after = group.lessons.slice(group.lessons.indexOf(chosen) + 1, group.lessons.indexOf(chosen) + 4);
   const pathSection = useRef<HTMLElement>(null);
+  const scene = useRef<HTMLDivElement>(null);
   const [playing, setPlaying] = useState<Lesson | null>(null);
   const circleOf = useCallback((id: string) => pathSection.current?.querySelector<HTMLElement>(`[data-lesson="${id}"] .ck-node`) ?? null, []);
   const closeStage = useCallback(() => setPlaying(null), []);
-  const sectionOf = useCallback(() => pathSection.current, []);
+  const sceneOf = useCallback(() => scene.current, []);
   const play = async (lesson: Lesson) => {
     if (playing) return;
     setChosenId(lesson.id);
-    const circle = circleOf(lesson.id);
-    if (circle) await bringIntoView(circle);
+    if (pathSection.current) await bringToTop(pathSection.current);
     setPlaying(lesson);
   };
   const choosePart = (id: string) => {
     const g = groups.find((x) => x.part.id === id);
     if (g) setChosenId(firstToDo(g.lessons, progress).id);
   };
-  return <div className="ck-wrap">
+  // The quiz sits outside the zoomed page, so the zoom does not carry it.
+  return <><div className="ck-wrap" ref={scene}>
     <Top beside lead="Choose a part of the Bible, then a lesson. Read the passage together and ask the questions one at a time." />
     <div className="ck-mix-join">
     <PartRow groups={groups} progress={progress} partId={group.part.id} onChoose={choosePart} />
@@ -71,9 +74,11 @@ export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFin
       <h2 id="ck-mix-path-title">All {group.lessons.length} lessons in {group.part.title}</h2>
       <p>{group.part.line}. Choose one to start its quiz.</p>
       <Path lessons={group.lessons} progress={progress} next={next} openId={chosen.id} onOpen={(l) => void play(l)} icons />
+      <button type="button" className="ck-mix-all" onClick={() => onGuide(chosen)}>See all questions<ArrowDown size={14} aria-hidden /></button>
     </section>
+  </div>
     {playing && <LessonStage lesson={playing} next={lessons[lessons.indexOf(playing) + 1] ?? null} bookNames={bookNames}
-      sectionOf={sectionOf} circleOf={circleOf} onFinish={onFinish} onClosed={closeStage}
+      sceneOf={sceneOf} circleOf={circleOf} onFinish={onFinish} onClosed={closeStage}
       onOpen={(l) => { setPlaying(l); setChosenId(l.id); }} />}
-  </div>;
+  </>;
 }

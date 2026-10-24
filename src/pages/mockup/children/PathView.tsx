@@ -92,7 +92,7 @@ export function Path({ lessons, progress, next, openId, onOpen, icons }: { lesso
       return <li key={lesson.id} style={{ left: `${points[i].x / 10}%`, top: `${(points[i].y / height) * 100}%` }}>
         <button type="button" data-lesson={lesson.id} data-done={done ? "" : undefined} data-next={lesson.id === next.id ? "" : undefined} aria-pressed={lesson.id === openId}
           onClick={() => onOpen(lesson)} aria-label={`Lesson ${lesson.n}: ${lesson.title}${done ? `, ${done.right} of ${done.total} right` : ""}`}>
-          {icons ? <span className="ck-node-wrap"><span className="ck-node ck-node-icon"><Icon size={24} strokeWidth={1.6} aria-hidden /></span><span className="ck-node-n" aria-hidden>{lesson.n}</span></span>
+          {icons ? <span className="ck-node-wrap"><span className="ck-node ck-node-icon"><Icon size={24} strokeWidth={1.6} aria-hidden /></span><span className="ck-node-n" aria-hidden>{lesson.n}</span>{done && <Check className="ck-node-check" size={14} strokeWidth={2.6} aria-hidden />}</span>
             : <span className="ck-node">{done ? <Check size={20} strokeWidth={2.2} aria-hidden /> : lesson.n}</span>}
           <span className="ck-node-title">{lesson.title}</span>
         </button>

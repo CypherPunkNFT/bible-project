@@ -142,17 +142,19 @@
 .ck-course small,.ck-course svg{margin-left:auto;flex:none;color:var(--muted)}
 
 /* E, the mix: the parts row joined to the big lesson card, the path below */
-.ck:has(.ck-stage){overflow-x:clip}
-.ck-mix-path[data-zooming]{position:relative;z-index:5;background:var(--page)}
-.ck-mix-path>h2,.ck-mix-path>p{transition:opacity .3s}
-.ck-mix-path[data-zooming]>h2,.ck-mix-path[data-zooming]>p{opacity:0}
+.ck-mix-path{display:flex;flex-direction:column;min-height:calc(100svh - 64px);scroll-margin-top:64px;padding-top:28px}
+.ck-mix-path .ck-path{flex:none}
+.ck-mix-all{align-self:flex-end;display:inline-flex;align-items:center;gap:6px;margin-top:auto;padding:6px 12px;border:1px solid color-mix(in srgb,var(--tone) 50%,transparent);border-radius:999px;background:none;font-size:12px !important;font-weight:600 !important;color:var(--tone) !important;cursor:pointer;transition:background .2s}
+.ck-mix-all:hover{background:color-mix(in srgb,var(--tone) 8%,transparent)}
 .ck-node-wrap{position:relative;display:block}
 .ck-node-icon svg{display:block}
+.ck-path button[data-done] .ck-node-icon{background:var(--surface);color:var(--tone)}
 .ck-node-n{position:absolute;top:-4px;left:-20px;font:500 14px/1 var(--serif);color:var(--tone)}
-/* The quiz opened out of a circle (LessonStage.tsx): the whole screen, the questions only */
-.ck-stage{position:fixed;inset:0;z-index:1000;visibility:hidden;clip-path:circle(0 at 50% 50%);overflow-y:auto;overscroll-behavior:contain;background:radial-gradient(900px 500px at 50% -10%,color-mix(in srgb,var(--tone) 14%,transparent),transparent 70%),color-mix(in srgb,var(--tone) 5%,var(--page))}
-.ck .ck-panel-stage{position:static;width:min(860px,100%);min-height:100%;margin:0 auto;padding:calc(28px + env(safe-area-inset-top,0px)) 24px calc(48px + env(safe-area-inset-bottom,0px));border:0;background:none;box-shadow:none;overflow:visible;animation:none;opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .4s ease}
-.ck-stage[data-ready] .ck-panel-stage{opacity:1;transform:none}
+.ck-node-check{position:absolute;right:-6px;bottom:-2px;padding:2px;border-radius:50%;background:var(--tone);color:var(--page)}
+/* The quiz, zoomed into its circle (LessonStage.tsx): the whole screen, in the circle's own colour, the questions only */
+.ck-stage{position:fixed;inset:0;z-index:1000;overflow-y:auto;overscroll-behavior:contain;background:var(--fill,var(--page));opacity:0;visibility:hidden;transition:opacity .3s ease,visibility 0s .3s}
+.ck-stage[data-open]{opacity:1;visibility:visible;transition:opacity .3s ease}
+.ck .ck-panel-stage{position:static;width:min(860px,100%);min-height:100%;margin:0 auto;padding:calc(28px + env(safe-area-inset-top,0px)) 24px calc(48px + env(safe-area-inset-bottom,0px));border:0;background:none;box-shadow:none;overflow:visible;animation:none}
 .ck-stage-back{display:inline-flex;flex:none;align-items:center;gap:8px;white-space:nowrap;padding:9px 16px;border:1px solid var(--line);border-radius:999px;background:var(--page);font-size:14px !important;font-weight:600 !important;cursor:pointer;transition:border-color .2s,color .2s}
 .ck-stage-back:hover{border-color:var(--tone);color:var(--tone) !important}
 .ck-stage-head h1{font:450 clamp(30px,3.4vw,46px)/1.08 var(--serif);letter-spacing:-.04em;margin:26px 0 6px}
