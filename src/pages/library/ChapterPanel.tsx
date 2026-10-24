@@ -78,6 +78,7 @@ export const ChapterPanel = forwardRef<HTMLElement, Props>(function ChapterPanel
           </div>
         </div>
         <div className="lib-chapter-summary">
+          <p className="lib-small-caps lib-summary-label">Summary</p>
           {summary.status === "loading" ? (
             <p className="lib-muted">Loading the summary…</p>
           ) : text ? (
