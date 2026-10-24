@@ -3,8 +3,8 @@
 [question-bank.json](question-bank.json) is the one list of **production-ready** questions the site draws on: the
 questions page (`/study/questions`), and later the home page's "How well do you know the Bible?" section and any quiz.
 
-**6,511 questions** (built 2026-10-23, the new questions below included): 3,287 Bible quiz, 902 Sunday school lesson
-and 2,322 catechism questions. **4,667 are shown**; the rest are repeats or hidden. Roman Catholic and Seventh-day Adventist books are
+**13,137 questions** (built 2026-10-23, the new questions below included): 9,913 Bible quiz, 902 Sunday school lesson
+and 2,322 catechism questions. **11,030 are shown**, 6,414 of them written for the site; the rest are repeats or hidden. Roman Catholic and Seventh-day Adventist books are
 left out as outside the site's doctrinal scope (owner, 2026-10-22); they stay in the corpus to mine for content later.
 
 ## What "production-ready" means here
@@ -137,7 +137,7 @@ October (owner's yes). As of 23 October 2026, all **4,847** questions that were 
 - The repeat check was run again on the new wording: fixes that put several collections' questions into the BSB's
   words made 210 more of them repeats.
 
-The page shows **4,667** questions.
+The page shows **11,030** questions.
 
 ## Where each answer comes from
 
@@ -156,7 +156,7 @@ local index of all 31,086 BSB verses (Qwen3-Embedding-4B on this PC, $0; `.local
 among them ("missing") is sent again with that passage. Each record keeps which passages were shown and why, the
 wording it judged (a later change makes the record stale), the model and the date.
 
-As of 23 October 2026: **all 4,667 shown questions grounded**, the 44 written ones below included (all 44 scripture).
+As of 23 October 2026: **all 11,030 shown questions grounded**, the 6,414 written ones below included (all scripture).
 Of the first 4,629: 4,179 scripture (2,579 stated, 1,600 taught) and 450
 outside (231 the Bible as a book, 162 church teaching, 29 history, 21 language and manuscripts, 7 other or nature).
 - Claude Sonnet judged a random 100 again: the same basis in 97, and the three others were catechism answers on the
@@ -224,6 +224,25 @@ Sonnet wrote 54 questions; **44 passed every check** and are shown. The script's
 choice was plainly the longest, 2 because the answer's words were not in the cited verses. The two blind quizzes (Claude
 Haiku) failed none, and the BSB check sent one back with a fix, which then passed. All 44 were grounded in Scripture and
 none is a repeat. The writing cost $0.31 at list price.
+
+**The full run, 23 October 2026** (owner: "do a good job and fill everything out", then "no caps"). Every BSB
+section with something to write, in five waves, run unattended by
+[question_writing_run.py](../../scripts/question_writing_run.py) (`.local/question-writing/full-w1` to `full-w5`):
+- **8,020 written** with the pilot, **6,670 passed every check**, 1,350 rejected (kept in written.json with the stage
+  and reason). Wave 1 shows the pattern: of 6,271 written, the script's rules rejected 778 (an answer over 12 words
+  334, the right choice plainly the longest 265, the answer's words not in the cited verses 149), the blind quiz with
+  the text 208, the blind quiz without it 68, and the BSB check 11; the BSB check fixed 404, of which 380 passed again.
+- The repeat check then hid 242 written questions as repeats, and grounding hid 7 whose answer it doubted.
+- **A second check by Claude Opus at high effort** of all 6,425 shown written questions (`.local/question-audit/
+  opus-written/`). Effort was chosen by a test on 100 questions: low fixed 3, high fixed 5 (the same 3 and 2 real ones
+  low missed), at no more cost. Opus kept 6,125 and fixed 300: a wrong choice also right 158, other 88 (mostly a
+  question giving its answer away), a misquote 43, other translation's wording 28, the reference 4, an imprecise
+  answer 3. It found no answer that was simply wrong. Every fix was run through the writing rules again; 7 failed them
+  and were hidden. The 128 reworded questions were grounded again, all in Scripture, and the repeat check re-run.
+- Cost at list price on the Max plan: writing and reviews $254.90, the Opus check $119 (with the test and a stopped
+  first try), follow-ups about $10.
+
+**6,414 written questions are shown**, every one checked against the BSB twice (Sonnet, then Opus) and grounded.
 
 ## Codex (ChatGPT) on the owner's subscription
 
