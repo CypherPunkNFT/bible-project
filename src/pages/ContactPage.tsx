@@ -4,7 +4,7 @@ import { AboutProject, FounderLetter } from "@/pages/contact/AboutSections";
 import { EpistleArt } from "@/pages/contact/EpistleArt";
 import "@/pages/contact/contact.css";
 
-const CONTACT_ADDRESS = "amen@bibleproject.io";
+const CONTACT_ADDRESS = "amen@bibleguide.io";
 
 type Status = { state: "idle" | "sending" | "sent" } | { state: "error"; message: string };
 

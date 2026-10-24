@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { CORRECTION_LABELS, CORRECTION_SUBJECT, composeCorrection, type Correction } from "@/lib/corrections";
 import "./correction.css";
 
-const CONTACT_ADDRESS = "amen@bibleproject.io";
+const CONTACT_ADDRESS = "amen@bibleguide.io";
 
 type Status = { state: "idle" | "sending" | "sent" } | { state: "error"; message: string };
 
