@@ -1,12 +1,14 @@
-// The test's settings beside how many: how hard and who for. Set on the questions page's
-// banner (../TestBanner.tsx), which carries them to the test page in the address (?level=, ?age=).
+// The test's settings beside how many: how hard and who for. How hard is set on the questions page's banner
+// (../TestBanner.tsx; who for moved to a children's page of its own, owner 2026-10-23), which carries them to the test page in the address (?level=, ?age=).
 // The bank does not yet record how hard a question is or what age it suits, so both change nothing in the draw yet.
 import { Backpack, Blocks, UserRound, type LucideIcon } from "lucide-react";
 
+/** Each level with its three test lengths, short to long: the lengths the owner gave children, teens and adults
+ * (2026-10-23), carried over when children moved to a page of their own and the tests here went by level. */
 export const LEVELS = [
-  { id: 1, label: "Gentle", line: "The best-known stories and names" },
-  { id: 2, label: "Steady", line: "A mix, with some details" },
-  { id: 3, label: "Deep", line: "Small details and lesser-known books" },
+  { id: 1, label: "Gentle", line: "The best-known stories and names", lengths: [10, 20, 30] },
+  { id: 2, label: "Steady", line: "A mix, with some details", lengths: [15, 30, 45] },
+  { id: 3, label: "Deep", line: "Small details and lesser-known books", lengths: [25, 50, 75] },
 ];
 export const DEFAULT_LEVEL = 2;
 
