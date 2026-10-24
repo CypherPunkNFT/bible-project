@@ -28,9 +28,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from bible.books import BOOKS  # noqa: E402
 from question_audit import apply_audit  # noqa: E402
+from question_children_wording import add_children_wording  # noqa: E402
 from question_choices import add_choices  # noqa: E402
 from question_difficulty import add_difficulty  # noqa: E402
 from question_explorer import write_explorer  # noqa: E402
+from question_link_verse import apply_link_verses  # noqa: E402
 from question_grounding import apply_grounding, write_table  # noqa: E402
 from question_mining import mined_records  # noqa: E402
 from question_model_tags import add_model_tags  # noqa: E402
@@ -238,7 +240,7 @@ def site_copy(questions: list[dict]) -> dict:
     without repeats and questions the audit hid, which the site never shows (scripts/question_repeats.py,
     scripts/question_audit.py)."""
     keep = ("question", "answer", "options", "reference", "kind", "tradition", "collection", "lesson", "books",
-            "testament", "topic", "link", "standalone", "passages", "people", "places", "subjects", "answer_choice", "options_by", "lead_in", "level", "children")
+            "testament", "topic", "link", "standalone", "passages", "people", "places", "subjects", "answer_choice", "options_by", "lead_in", "level", "children", "child")
     shown = [q for q in questions if not q["repeat_of"] and not q["hidden"]]
     return {"schema": SCHEMA, "kinds": KINDS, "topics": topics_meta(), "books": books_meta(),
             "collections": collections_of(shown), "questions": [{k: q[k] for k in keep} for q in shown]}
@@ -268,6 +270,8 @@ def main() -> None:
     grounded = apply_grounding(questions)
     grounded["written, hidden by grounding"] = hide_doubted_written(questions)
     rated = add_difficulty(questions)  # after the audit: a rating is for the wording shown
+    relinked = apply_link_verses(questions)  # after the audit, which sets the link from the reference
+    child_worded = add_children_wording(questions)
     counts = Counter(q["kind"] for q in questions)
     official = {
         "schema": SCHEMA,
@@ -284,6 +288,8 @@ def main() -> None:
                    "choices_added": model_choices,
                    "with_passage": sum(1 for q in questions if q["passages"]),
                    "rated": rated,
+                   "links_moved_to_answer_verse": relinked,
+                   "children_wording": child_worded,
                    "audit": audited,
                    "hidden_by_audit": sum(1 for q in questions if q["hidden"]),
                    "grounding": grounded,

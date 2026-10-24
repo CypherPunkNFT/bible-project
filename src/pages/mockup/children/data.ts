@@ -59,8 +59,13 @@ function passageOf(questions: TestQuestion[], book: string | null): Passage | nu
   return { book, from: Math.min(...chapters), to: Math.max(...chapters) };
 }
 
+/** The question in its children's wording, where it has one (scripts/question_children_wording.py). */
+const forChildren = (q: TestQuestion): TestQuestion => (q.child
+  ? { ...q, question: q.child.question, answer: q.child.answer, answer_choice: q.child.answer, options: q.child.options, lead_in: null }
+  : q);
+
 export function buildLessons(bank: QuestionBank): Lesson[] {
-  const questions = bank.questions as TestQuestion[];
+  const questions = (bank.questions as TestQuestion[]).map(forChildren);
   const byLesson = new Map<string, TestQuestion[]>();
   for (const q of questions) if (q.collection === HURLBUT && q.lesson) byLesson.set(q.lesson, [...(byLesson.get(q.lesson) ?? []), q]);
   let testament: "OT" | "NT" = "OT";
