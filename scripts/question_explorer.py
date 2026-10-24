@@ -35,7 +35,7 @@ QUESTION_FAULTS = {"misquote", "other_translation", "other"}
 COLUMNS = ["id", "status", "collection", "kind", "tradition", "question", "answer", "right", "options", "reference",
            "refBooks", "leadIn", "basis", "category", "strength", "outside", "verses", "verseKeys", "moreVerses", "note", "doubt",
            "groundedBy", "verdict", "faults", "why", "auditedBy", "recheck", "optionsBy", "repeatOf", "hidden", "sourceUrl",
-           "problems", "before", "wrong"]
+           "problems", "before", "wrong", "level", "children"]
 
 
 def wrong_groups(record: dict) -> list[str]:
@@ -104,7 +104,8 @@ def explorer_row(q: dict, audit: dict | None, grounding_record: dict | None, ver
         "auditedBy": a.get("by"), "recheck": ((audit or {}).get("rechecked") or {}).get("verdict"), "optionsBy": q.get("options_by"), "repeatOf": q.get("repeat_of"),
         "hidden": q.get("hidden"), "sourceUrl": q.get("source_url"),
         "problems": [[p["kind"], p["detail"]] for p in audit["problems"]] if audit else [],
-        "before": before, "wrong": wrong_groups(audit) if audit else [],
+        "before": before, "wrong": wrong_groups(audit) if audit else [], "level": q.get("level"),
+        "children": q.get("children"),
     }
     return [row[c] for c in COLUMNS]
 

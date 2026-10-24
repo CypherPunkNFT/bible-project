@@ -15,6 +15,7 @@ let ROWS=[],VERSES={},BOOKS={},WRONG={},CATEGORIES={},filtered=[],flags={};
 const state={selected:{},search:'',terms:[],sort:{key:null,dir:1}};
 
 // Each filter: its title, the values a row has for it (several for some), and how a value reads.
+const LEVELS={easy:'Easy',medium:'Medium',hard:'Hard',none:'Not rated'},LEVEL_ORDER=['easy','medium','hard'];
 const FACETS=[
  {key:'status',title:'Status',values:r=>[r.status],label:v=>({shown:'Shown',repeat:'Repeat',hidden:'Hidden'}[v])},
  {key:'verdict',title:"The check's verdict",values:r=>[r.verdict??'none'],label:v=>VERDICTS[v]},
@@ -22,6 +23,8 @@ const FACETS=[
  {key:'wrong',title:'Type of wrong',values:r=>r.wrong.length?r.wrong:['none'],label:v=>v==='none'?'Nothing found':WRONG[v]},
  {key:'doubt',title:'Doubt',values:r=>[r.doubt?'has':'none'],label:v=>v==='has'?'Has a doubt':'No doubt'},
  {key:'kind',title:'Kind',values:r=>[r.kind],label:v=>KINDS[v]??v},
+ {key:'level',title:'Level (teens and adults)',values:r=>[r.level??'none'],label:v=>LEVELS[v]},
+ {key:'children',title:'For children',values:r=>[r.children==null?'none':r.children?'yes':'no'],label:v=>({yes:'Suits children',no:'Not for children',none:'Not rated'}[v])},
  {key:'tradition',title:'Tradition',values:r=>[r.tradition??'none'],label:v=>v==='none'?'None (quiz)':v},
  {key:'category',title:'Where the answer comes from',values:r=>[r.category??'none'],label:v=>CATEGORIES[v]??'Not grounded'},
  {key:'basis',title:'Basis',values:r=>[r.basis??'none'],label:v=>({scripture:'Scripture',outside:'Outside the Bible',none:'Not grounded'}[v])},
@@ -35,6 +38,7 @@ const COLS=[
  {key:'status',title:'Status',cell:r=>tag(r.status,r.status)},
  {key:'collection',title:'Collection',cell:r=>clip(r.collection,'muted')},
  {key:'kind',title:'Kind',cell:r=>clip(KINDS[r.kind]??r.kind,'muted')},
+ {key:'level',title:'Level',cell:r=>clip(r.level?LEVELS[r.level]+(r.children?' · Kids':''):'—','muted')},
  {key:'question',title:'Question',cell:r=>clip(r.question)},
  {key:'answer',title:'Answer',cell:r=>clip(r.right??r.answer)},
  {key:'reference',title:'Reference',cell:r=>clip(r.reference??'—','muted')},
@@ -60,6 +64,7 @@ async function load(){
 
 /* ---- filtering ---- */
 function sortValue(r,key){
+ if(key==='level')return String(LEVEL_ORDER.indexOf(r.level)+1||9)+(r.children?'0':'1');
  if(key==='wrong')return (flags[r.id]?'0':'1')+r.wrong.join(',');
  if(key==='answer')return String(r.right??r.answer).toLowerCase();
  return String(r[key]??'￿').toLowerCase();
@@ -115,7 +120,7 @@ const orders={};
 function orderOf(f){ // a filter's values in a fixed order: as listed in the labels, then as first met
  if(orders[f.key])return orders[f.key];
  const fixed={status:['shown','repeat','hidden'],verdict:['fix','keep','hide','none'],recheck:['fix','keep','hide','none'],wrong:[...Object.keys(WRONG),'none'],doubt:['has','none'],
-  kind:Object.keys(KINDS),basis:['scripture','outside','none'],strength:['stated','taught','none'],flagged:['yes','no'],category:[...Object.keys(CATEGORIES),'none'],book:[...Object.keys(BOOKS),'none']}[f.key]??[];
+  kind:Object.keys(KINDS),basis:['scripture','outside','none'],strength:['stated','taught','none'],flagged:['yes','no'],level:[...LEVEL_ORDER,'none'],children:['yes','no','none'],category:[...Object.keys(CATEGORIES),'none'],book:[...Object.keys(BOOKS),'none']}[f.key]??[];
  const seen=[...fixed];for(const r of ROWS)for(const v of f.values(r))if(!seen.includes(v))seen.push(v);
  return orders[f.key]=seen;
 }
@@ -174,7 +179,7 @@ function compare(r){
 }
 function openDetail(r){
  openId=r.id;drawRows(true);
- $('detail-eyebrow').textContent=`${r.collection} · ${KINDS[r.kind]??r.kind}`;
+ $('detail-eyebrow').textContent=`${r.collection} · ${KINDS[r.kind]??r.kind}`+(r.level?` · ${LEVELS[r.level]}${r.children?', suits children':''}`:'');
  $('detail-title').textContent=r.question;
  const body=$('detail-body');body.replaceChildren();
  const tags=node('div',null,'d-tags');tags.append(tag(r.status,r.status));if(r.verdict)tags.append(tag(VERDICTS[r.verdict],r.verdict));for(const w of r.wrong)tags.append(tag(WRONG[w],''));if(flags[r.id])tags.append(tag('Flagged','flag'));

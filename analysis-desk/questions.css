@@ -37,7 +37,7 @@ html body *:focus,html body *:focus-visible,html body :is(a,button,input,select,
 /* table: the header sticks inside the scroller, so both scroll sideways together */
 .qx-table{border:1px solid var(--line);border-radius:10px;background:var(--surface);box-shadow:var(--shadow);overflow:hidden}
 .qx-scroll{height:max(440px,calc(100vh - 250px));overflow:auto;overscroll-behavior:contain;position:relative}
-.qx-cols{display:grid;grid-template-columns:76px minmax(130px,.8fr) 92px minmax(240px,2.2fr) minmax(140px,1fr) 104px 124px 72px 196px;min-width:1150px}
+.qx-cols{display:grid;grid-template-columns:76px minmax(130px,.8fr) 92px 104px minmax(240px,2.2fr) minmax(140px,1fr) 104px 124px 72px 196px;min-width:1254px}
 .qx-head{position:sticky;top:0;z-index:2;background:var(--surface);border-bottom:1px solid var(--line)}
 .qx-head button{border:0;border-radius:0;background:none;text-align:left;padding:12px 12px 11px;font-size:9px;letter-spacing:1.1px;text-transform:uppercase;color:var(--muted);white-space:nowrap}
 .qx-head button:hover{color:var(--ink)}.qx-head button[aria-sort=ascending],.qx-head button[aria-sort=descending]{color:var(--gold)}

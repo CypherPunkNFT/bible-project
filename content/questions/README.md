@@ -285,6 +285,23 @@ ChatGPT plan instead of the Claude one.
 **Next:** a runner for `codex exec` beside BatchRunner: one call per item with the options above, several at once,
 resume after a stop, and a stop when the weekly allowance nears its limit.
 
+## How hard each question is
+
+Every shown question has two ratings, set by Claude Opus (owner, 23 October 2026):
+[question_difficulty.py](../../scripts/question_difficulty.py), kept in [difficulty.json](difficulty.json).
+- **`level`, for teens and adults:** `easy` (most churchgoers would know it), `medium` (a regular Bible reader would)
+  or `hard` (it takes close knowledge of that passage). Choices count: plainly wrong choices make a question easier.
+- **`children`:** true when a Sunday-school child of about 6 to 11 could answer it and it suits that age.
+
+Opus reads 40 questions to a call, with answer, choices and reference but no Bible text, at low effort. Each rating
+records a fingerprint of the question, answer and choices it was given for, so a question reworded later shows as
+unrated until `prepare` and `apply` are run again for it. The page's copy carries both fields; the explorer filters
+and sorts by them.
+
+As of 23 October 2026, all 11,030 shown questions are rated ($16.92 at list price for 276 calls): 2,516 easy, 5,233
+medium, 3,281 hard; 2,727 suit children. Of the 6,414 written for the site: 728 easy, 3,115 medium, 2,571 hard, 790
+for children.
+
 ## The table
 
 [question-table.csv](question-table.csv) is written by every build: one row per question, shown, repeat or hidden,
