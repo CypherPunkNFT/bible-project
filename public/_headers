@@ -37,3 +37,8 @@
 /search-model/meaning.json
   ! Cache-Control
   Cache-Control: public, max-age=300
+# The Cloudflare preview addresses are copies of the site: only bibleguide.io may appear in search results.
+https://bible-project-4af.pages.dev/*
+  X-Robots-Tag: noindex
+https://:alias.bible-project-4af.pages.dev/*
+  X-Robots-Tag: noindex

@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import "./site-navigation.css";
 import "./site-page-transitions.css";
 import { usePageArrival } from "@/components/usePageArrival";
+import { usePageHead } from "@/components/usePageHead";
 import { useLongMemoryTransition } from "@/components/people-pages/useLongMemoryTransition";
 
 const COMMUNITY = { to: "/testimonies", label: "Testimonies", icon: GitBranch, end: false };
@@ -30,6 +31,7 @@ export function Layout({ children }: { children: ReactNode }) {
   const location = useLocation();
   const memoryTransition = useLongMemoryTransition();
   usePageArrival();
+  usePageHead();
 
   useEffect(() => {
     window.scrollTo({ top: 0 });

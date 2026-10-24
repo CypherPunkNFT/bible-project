@@ -1,0 +1,11 @@
+# Bible Guide. Every page is open to search engines except the local-only review and mock-up pages and the API.
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /review
+Disallow: /mockups
+Disallow: /mock/
+Disallow: /testimonies/access
+Disallow: /testimonies/design
+
+Sitemap: https://bibleguide.io/sitemap.xml

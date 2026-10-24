@@ -4,7 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="description" content="Read the Bible in every free version, in sixteen languages — with charts, graphs and an atlas of the whole Bible." />
+    <meta name="description" content="Bible Guide is a free Bible website: read the whole Bible in 37 free versions and 17 languages, with study guides, an atlas of every Bible place, 5,603 topics, apologetics, hymns and teachers." />
+    <!-- Tells search engines the site's name (shown above results) and who makes it. Page titles, descriptions and the
+         official address of each page: src/lib/page-head.ts. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://bibleguide.io/#website",
+            "name": "Bible Guide",
+            "alternateName": ["BibleGuide", "bibleguide.io"],
+            "url": "https://bibleguide.io/",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://bibleguide.io/#organization" },
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": { "@type": "EntryPoint", "urlTemplate": "https://bibleguide.io/search?q={search_term_string}" },
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://bibleguide.io/#organization",
+            "name": "Bible Guide",
+            "url": "https://bibleguide.io/",
+            "logo": "https://bibleguide.io/favicon.svg",
+            "description": "A free Bible website: the whole Bible in every free version, with study guides, an atlas, topics, apologetics and hymns.",
+            "founder": { "@type": "Person", "name": "Lucas Campbell Saint Laurent" },
+            "sameAs": ["https://github.com/CypherPunkNFT/bible-project"]
+          }
+        ]
+      }
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- Link previews (texts, social apps). A new picture gets a NEW file name: apps remember previews by address.
          Made by scripts/og-image.mjs from src/dev/og/ (design "free-open"). -->

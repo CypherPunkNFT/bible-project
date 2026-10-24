@@ -45,6 +45,10 @@ for (const part of ["bible-atlas.json", atlasManifest.version, "fonts", "sprites
 const meaning = process.env.MEANING_PACK_DIR ?? path.resolve(import.meta.dirname, "../../MeaningPack/site");
 const meaningManifest = JSON.parse(await readFile(path.join(meaning, "meaning.json"), "utf8")) as { version: string };
 for (const part of ["meaning.json", meaningManifest.version]) await cp(path.join(meaning, part), path.join(site, "search-model", part), { recursive: true, dereference: true });
+// Search engines (scripts/seo/build.ts): the sitemap, and ready-made copies of the main pages. Last, so it counts every
+// other file against the 20,000 limit. Runs under bun because the page inventory it reads does.
+const seo = spawnSync("bun", ["scripts/seo/build.ts", JSON.stringify(site)], { stdio: "inherit", shell: true });
+if (seo.status !== 0) throw new Error("The search-engine step failed (bun scripts/seo/build.ts).");
 const files = await readdir(site, { recursive: true, withFileTypes: true });
 if (files.some((entry) => entry.isSymbolicLink())) throw new Error("The release contains a link instead of files; copy with dereference.");
 if (files.filter((entry) => entry.isFile()).length > 20000) throw new Error("The release exceeds the project's 20,000-file limit.");
