@@ -11,6 +11,7 @@ import { rightChoice } from "@/lib/data";
 import { QuizScene } from "../QuizScenes";
 import { verseOf } from "../questions/test/engine";
 import { passageLabel, readerUrl, type Lesson } from "./data";
+import { lessonIcon } from "./icons";
 
 interface Props { lesson: Lesson; bookNames: Record<string, string>; next: Lesson | null; onClose: () => void; onOpen: (lesson: Lesson) => void; onFinish: (right: number, total: number) => void; stage?: boolean }
 
@@ -40,7 +41,7 @@ export function LessonPanel({ lesson, bookNames, next, onClose, onOpen, onFinish
         : <button type="button" className="ck-close" onClick={onClose} aria-label="Close the lesson"><X size={20} strokeWidth={1.6} /></button>}
     </header>
     {stage && <div className="ck-stage-head">
-      <h1>{lesson.title}</h1>
+      <div className="ck-stage-title"><h1>{lesson.title}</h1><StageIcon lesson={lesson} /></div>
       {lesson.passage && <p>Read <Link to={readerUrl(lesson.passage.book, lesson.passage.from)}>{passageLabel(lesson.passage, bookNames)}</Link> together first.</p>}
     </div>}
     {index < 0 && <Start lesson={lesson} bookNames={bookNames} onBegin={() => go(0)} />}
@@ -65,6 +66,12 @@ export function LessonPanel({ lesson, bookNames, next, onClose, onOpen, onFinish
       </div>
     </div>}
   </aside>;
+}
+
+/** The lesson's icon beside its title on the whole-screen quiz, where the icon flying out of the circle lands. */
+function StageIcon({ lesson }: { lesson: Lesson }) {
+  const Icon = lessonIcon(lesson);
+  return <Icon className="ck-stage-icon" strokeWidth={1.6} aria-hidden />;
 }
 
 function Start({ lesson, bookNames, onBegin }: { lesson: Lesson; bookNames: Record<string, string>; onBegin: () => void }) {

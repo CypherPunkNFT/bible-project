@@ -13,6 +13,7 @@ import { MixedView } from "./children/MixedView";
 import { PathView } from "./children/PathView";
 import { useProgress } from "./children/progress";
 import { CabinetView, ShelvesView, SundayView } from "./children/Views";
+import { ZoomTicker } from "./children/ZoomTicker";
 import "./home-quiz.css";
 import "./test-options.css";
 import "./children/children.css";
@@ -65,6 +66,7 @@ function ChildrenBody({ bank }: { bank: QuestionBank }) {
       expanded={guideOpen} onExpand={setGuideOpen} chosenId={guideId} onChoose={setGuideId} />
     {open && <LessonPanel lesson={open} bookNames={bookNames} next={next} onClose={close} onOpen={setOpen}
       onFinish={(right, total) => save(open.id, right, total)} />}
+    {version === "e" && <ZoomTicker />}
     <nav className="to-pill" aria-label="Mock-up: five versions of the children's page">
       <span className="to-pill-label">Mock-up</span>
       {VERSIONS.map((v) => <button key={v.id} type="button" aria-pressed={v.id === version} onClick={() => setParams({ v: v.id }, { replace: true, preventScrollReset: true })}>
