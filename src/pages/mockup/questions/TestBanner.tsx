@@ -11,7 +11,7 @@ import type { QuestionBank } from "@/lib/data";
 import { writeFilters, type Filters } from "./model";
 import { DEFAULT_LENGTH, LENGTHS } from "./test/engine";
 import { AGES, LEVELS, ageOf, minutesFor, writeSettings } from "./test/settings";
-import { Pips } from "./test/SetupBars";
+import { Pips } from "./test/Pips";
 import type { Theme } from "./test/themes";
 import "../test-setup.css";
 import "./test-banner.css";

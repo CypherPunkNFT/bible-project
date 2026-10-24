@@ -1,5 +1,5 @@
-// The test's settings beside how many: how hard and who for. Shared by the test page's setup bars (SetupBars.tsx) and
-// the questions page's banner (../TestBanner.tsx), which carries them to the test page in the address (?level=, ?age=).
+// The test's settings beside how many: how hard and who for. Set on the questions page's
+// banner (../TestBanner.tsx), which carries them to the test page in the address (?level=, ?age=).
 // The bank does not yet record how hard a question is or what age it suits, so both change nothing in the draw yet.
 import { Backpack, Blocks, UserRound, type LucideIcon } from "lucide-react";
 

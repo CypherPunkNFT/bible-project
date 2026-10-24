@@ -12,7 +12,7 @@ import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { DEFAULT_LENGTH, LENGTHS } from "./test/engine";
 import { AGES, LEVELS, ageOf, levelOf, minutesFor, writeSettings } from "./test/settings";
-import { Pips } from "./test/SetupBars";
+import { Pips } from "./test/Pips";
 
 // The mock shows the banner as it reads with David chosen on the page.
 const SUBJECT = { id: "david", title: "David" };
