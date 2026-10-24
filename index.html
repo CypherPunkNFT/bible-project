@@ -58,13 +58,14 @@
     <meta name="twitter:image:alt" content="Bible Guide: a radiant sun with the Trinity triangle between two crosses and stars, and the words The whole Bible, free and open to all." />
     <title>Bible Guide</title>
     <script>
-      // Apply the saved theme before first paint so the page never flashes the wrong one.
+      // Apply the theme before first paint so the page never flashes the wrong one: dark unless this browser chose light.
+      let theme = "dark";
       try {
-        const saved = localStorage.getItem("bp-theme");
-        if (saved === "dark" || saved === "light") document.documentElement.dataset.theme = saved;
+        if (localStorage.getItem("bp-theme") === "light") theme = "light";
       } catch (error) {
         console.warn("theme: localStorage unavailable", error);
       }
+      document.documentElement.dataset.theme = theme;
     </script>
   </head>
   <body>

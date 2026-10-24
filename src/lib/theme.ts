@@ -3,10 +3,6 @@ import { revealTheme } from "./theme-transition";
 
 export type Theme = "light" | "dark";
 
-function systemTheme(): Theme {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
-
 function savedTheme(): Theme | null {
   try {
     const value = localStorage.getItem("bp-theme");
@@ -17,9 +13,9 @@ function savedTheme(): Theme | null {
   }
 }
 
-/** Current theme plus a toggle; the choice is remembered on this browser only. */
+/** Current theme plus a toggle; dark unless this browser chose light. The choice is remembered on this browser only. */
 export function useTheme(): [Theme, (event?: MouseEvent<HTMLButtonElement>) => void] {
-  const [theme, setTheme] = useState<Theme>(() => savedTheme() ?? systemTheme());
+  const [theme, setTheme] = useState<Theme>(() => savedTheme() ?? "dark");
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     window.dispatchEvent(new Event("bp-theme"));
