@@ -14,6 +14,10 @@ already tagged.
     python scripts/question_model_tags.py prepare           # write BatchRunner items for shown questions not yet tagged
     python scripts/question_model_tags.py apply <out-dir>   # read BatchRunner's answers, check every passage, record them
     (then python scripts/build-question-bank.py)
+
+--records <file.json> tags the questions in another file of the same shape instead of the shown questions (the
+children's sources not yet on the site, Research/BibleQuizCorpus/normalized/children-batch4.json); its work goes to
+.local/question-model-tags/<file name>/.
 """
 
 from __future__ import annotations
@@ -112,11 +116,16 @@ def add_model_tags(questions: list[dict]) -> int:
 
 # --- prepare ---------------------------------------------------------------------------------------------------------
 
-def prepare() -> None:
+def work_of(records: Path | None) -> Path:
+    return WORK / records.stem if records else WORK
+
+
+def prepare(records: Path | None) -> None:
     tagged = load_tags()["questions"]
-    questions = [q for q in json.loads(BANK.read_text(encoding="utf-8"))["questions"]
+    questions = [q for q in json.loads((records or BANK).read_text(encoding="utf-8"))["questions"]
                  if not q.get("repeat_of") and not q.get("hidden") and q["id"] not in tagged]
-    items = WORK / "items"
+    work = work_of(records)
+    items = work / "items"
     items.mkdir(parents=True, exist_ok=True)
     for old in items.glob("*.txt"):
         old.unlink()
@@ -134,10 +143,10 @@ def prepare() -> None:
             lines.append("")
         (items / f"{name}.txt").write_text("\n".join(lines), encoding="utf-8", newline="\n")
         index[name] = [q["id"] for q in chunk]
-    (WORK / "items-index.json").write_text(json.dumps(index, indent=1), encoding="utf-8", newline="\n")
-    (WORK / "task.txt").write_text(TASK, encoding="utf-8", newline="\n")
-    (WORK / "schema.json").write_text(json.dumps(SCHEMA), encoding="utf-8", newline="\n")
-    print(f"questions shown and not yet tagged: {len(questions)}; wrote {len(index)} BatchRunner items to {items}")
+    (work / "items-index.json").write_text(json.dumps(index, indent=1), encoding="utf-8", newline="\n")
+    (work / "task.txt").write_text(TASK, encoding="utf-8", newline="\n")
+    (work / "schema.json").write_text(json.dumps(SCHEMA), encoding="utf-8", newline="\n")
+    print(f"questions not yet tagged: {len(questions)}; wrote {len(index)} BatchRunner items to {items}")
 
 
 # --- apply: check every passage against the BSB text ----------------------------------------------------------------
@@ -195,9 +204,9 @@ def topics_of(topics: list[str]) -> list[str]:
     return [t for t in clean_names([t.lower() for t in topics]) if t not in book_names][:3]
 
 
-def apply(out_dir: Path) -> None:
-    index = json.loads((WORK / "items-index.json").read_text(encoding="utf-8"))
-    by_id = {q["id"]: q for q in json.loads(BANK.read_text(encoding="utf-8"))["questions"]}
+def apply(out_dir: Path, records: Path | None) -> None:
+    index = json.loads((work_of(records) / "items-index.json").read_text(encoding="utf-8"))
+    by_id = {q["id"]: q for q in json.loads((records or BANK).read_text(encoding="utf-8"))["questions"]}
     data = load_tags()
     added, missing, checks = 0, [], {"matched": 0, "exists": 0, "dropped": 0}
     for name, ids in index.items():
@@ -229,14 +238,17 @@ def apply(out_dir: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = parser.add_subparsers(dest="command", required=True)
-    sub.add_parser("prepare")
+    prepare_parser = sub.add_parser("prepare")
     apply_parser = sub.add_parser("apply")
     apply_parser.add_argument("out_dir", type=Path)
+    for command_parser in (prepare_parser, apply_parser):
+        command_parser.add_argument("--records", type=Path, help="tag the questions in this file, not the shown ones")
     args = parser.parse_args()
+    records = args.records.resolve() if args.records else None
     if args.command == "prepare":
-        prepare()
+        prepare(records)
     else:
-        apply(args.out_dir.resolve())
+        apply(args.out_dir.resolve(), records)
 
 
 if __name__ == "__main__":
