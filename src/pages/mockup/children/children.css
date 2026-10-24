@@ -137,6 +137,9 @@
 .ck-course-n{flex:none;width:22px;font-variant-numeric:tabular-nums;color:var(--muted)}
 .ck-course small,.ck-course svg{margin-left:auto;flex:none;color:var(--muted)}
 
+/* E, the mix */
+.ck-mix-path{margin-top:48px}
+
 /* D, two shelves */
 .ck-shelf{margin-bottom:48px}
 .ck-shelf h2{font:450 clamp(30px,3vw,40px)/1.1 var(--serif);letter-spacing:-.035em;margin:0 0 16px}

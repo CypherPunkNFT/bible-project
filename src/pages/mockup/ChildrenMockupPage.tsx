@@ -1,12 +1,15 @@
 // MOCK-UP: the children's tests page in four directions, at /children_mockup on this computer's preview only (owner,
-// 2026-10-23: a parent or teacher at the screen with the child). A the path, B the cabinet, C this Sunday, D two
-// shelves; a pill at the bottom swaps them, kept in the address (?v=b). Every direction opens the same lesson panel.
+// 2026-10-23: a parent or teacher at the screen with the child). E the mix the owner chose on 2026-10-24 (A's parts,
+// C's big lesson, A's path), then A the path, B the cabinet, C this Sunday, D two shelves; a pill at the bottom swaps
+// them, kept in the address (?v=b). Every direction opens the same lesson panel.
 // The lessons come from the bank as it is: Hurlbut's 88 lessons and A Catechism for Young Children. Parts: children/.
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { loadQuestionBank, type QuestionBank } from "@/lib/data";
 import { buildLessons, byPart, type Lesson } from "./children/data";
 import { LessonPanel } from "./children/LessonPanel";
+import { ParentGuide } from "./children/ParentGuide";
+import { MixedView } from "./children/MixedView";
 import { PathView } from "./children/PathView";
 import { useProgress } from "./children/progress";
 import { CabinetView, ShelvesView, SundayView } from "./children/Views";
@@ -15,6 +18,7 @@ import "./test-options.css";
 import "./children/children.css";
 
 const VERSIONS = [
+  { id: "e", name: "The mix" },
   { id: "a", name: "The path" },
   { id: "b", name: "The cabinet" },
   { id: "c", name: "This Sunday" },
@@ -34,7 +38,7 @@ export default function ChildrenMockupPage() {
 
 function ChildrenBody({ bank }: { bank: QuestionBank }) {
   const [params, setParams] = useSearchParams();
-  const version = VERSIONS.find((v) => v.id === params.get("v"))?.id ?? "a";
+  const version = VERSIONS.find((v) => v.id === params.get("v"))?.id ?? "e";
   const lessons = useMemo(() => buildLessons(bank), [bank]);
   const groups = useMemo(() => byPart(lessons), [lessons]);
   const bookNames = useMemo(() => Object.fromEntries(bank.books.map((b) => [b.code, b.name])), [bank]);
@@ -44,13 +48,15 @@ function ChildrenBody({ bank }: { bank: QuestionBank }) {
   const props = { lessons, groups, progress, openId: open?.id ?? null, onOpen: setOpen };
   const next = open ? lessons[lessons.indexOf(open) + 1] ?? null : null;
   return <div className="ck" data-open={open ? "" : undefined}>
+    {version === "e" && <MixedView {...props} bookNames={bookNames} />}
     {version === "a" && <PathView {...props} />}
     {version === "b" && <CabinetView {...props} />}
     {version === "c" && <SundayView {...props} bookNames={bookNames} />}
     {version === "d" && <ShelvesView {...props} />}
+    <ParentGuide lessons={lessons} groups={groups} progress={progress} bookNames={bookNames} onOpen={setOpen} />
     {open && <LessonPanel lesson={open} bookNames={bookNames} next={next} onClose={close} onOpen={setOpen}
       onFinish={(right, total) => save(open.id, right, total)} />}
-    <nav className="to-pill" aria-label="Mock-up: four versions of the children's page">
+    <nav className="to-pill" aria-label="Mock-up: five versions of the children's page">
       <span className="to-pill-label">Mock-up</span>
       {VERSIONS.map((v) => <button key={v.id} type="button" aria-pressed={v.id === version} onClick={() => setParams({ v: v.id }, { replace: true, preventScrollReset: true })}>
         <b>{v.id.toUpperCase()}</b><span>{v.name}</span>

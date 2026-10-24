@@ -35,22 +35,27 @@ function usePerRow() {
   return narrow ? { perRow: 3, row: 440, inset: 150 } : { perRow: 6, row: 170, inset: 80 };
 }
 
+/** The parts of the Bible as a row of drawings, the chosen one pressed. */
+export function PartRow({ groups, progress, partId, onChoose }: { groups: PartLessons[]; progress: Progress; partId: string; onChoose: (id: string) => void }) {
+  return <ul className="ck-parts" aria-label="Parts of the Bible">{groups.map(({ part, lessons: ls }) => {
+    const done = ls.filter((l) => progress[l.id]).length;
+    return <li key={part.id} style={toneStyle(part.tone)}>
+      <button type="button" aria-pressed={part.id === partId} onClick={() => onChoose(part.id)}>
+        <span className="ck-part-art"><QuizScene scene={part.scene} /></span>
+        <strong>{part.title}</strong>
+        <small>{done ? `${done} of ${ls.length} done` : `${ls.length} lessons`}</small>
+      </button>
+    </li>;
+  })}</ul>;
+}
+
 export function PathView({ lessons, groups, progress, openId, onOpen }: ViewProps) {
   const next = nextLesson(lessons, progress);
   const [partId, setPartId] = useState(next.part.id);
   const group = groups.find((g) => g.part.id === partId) ?? groups[0];
   return <div className="ck-wrap">
     <Top />
-    <ul className="ck-parts" aria-label="Parts of the Bible">{groups.map(({ part, lessons: ls }) => {
-      const done = ls.filter((l) => progress[l.id]).length;
-      return <li key={part.id} style={toneStyle(part.tone)}>
-        <button type="button" aria-pressed={part.id === group.part.id} onClick={() => setPartId(part.id)}>
-          <span className="ck-part-art"><QuizScene scene={part.scene} /></span>
-          <strong>{part.title}</strong>
-          <small>{done ? `${done} of ${ls.length} done` : `${ls.length} lessons`}</small>
-        </button>
-      </li>;
-    })}</ul>
+    <PartRow groups={groups} progress={progress} partId={group.part.id} onChoose={setPartId} />
     <section className="ck-path-part" style={toneStyle(group.part.tone)} aria-labelledby="ck-path-title">
       <h2 id="ck-path-title">{group.part.title}</h2>
       <p>{group.part.line}</p>
@@ -60,7 +65,7 @@ export function PathView({ lessons, groups, progress, openId, onOpen }: ViewProp
 }
 
 /** The lessons snaking left to right, then right to left, joined by one curving line. */
-function Path({ lessons, progress, next, openId, onOpen }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void }) {
+export function Path({ lessons, progress, next, openId, onOpen }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void }) {
   const { perRow, row: rowHeight, inset } = usePerRow();
   const rows = Math.ceil(lessons.length / perRow);
   const height = rows * rowHeight;
