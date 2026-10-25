@@ -1,7 +1,7 @@
 // 02's filters: the side rail (topic, Testament, collection, and the multiple-choice switch); the four kinds of
 // question were removed (owner, 2026-10-22). Every count is what that choice would give with the other filters kept.
-import { X } from "lucide-react";
-import type { CSSProperties, ReactNode } from "react";
+import { ChevronDown, X } from "lucide-react";
+import { useState, type CSSProperties, type ReactNode } from "react";
 import type { BankTopic, QuestionBank } from "@/lib/data";
 import type { Facets, Filters } from "./model";
 
@@ -52,8 +52,14 @@ function TopicList({ topics, counts, selected, onChoose }: { topics: BankTopic[]
   })}</>;
 }
 
+/** A rail category: a gold tab that folds its group shut and open again, open to begin with (owner, 2026-10-24). */
 export function RailGroup({ title, children }: { title: string; children: ReactNode }) {
-  return <div className="qp-rail-group"><h3>{title}</h3>{children}</div>;
+  const [open, setOpen] = useState(true);
+  return <div className={`qp-rail-group${open ? " is-open" : ""}`}>
+    <h3><button type="button" className="qp-rail-tab" aria-expanded={open} onClick={() => setOpen(!open)}>
+      {title}<ChevronDown size={14} strokeWidth={2} aria-hidden /></button></h3>
+    {open && <div className="qp-rail-body">{children}</div>}
+  </div>;
 }
 
 export function Switch({ on, onChange, children }: { on: boolean; onChange: (on: boolean) => void; children: ReactNode }) {

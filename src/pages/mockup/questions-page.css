@@ -86,7 +86,13 @@
 /* 02 Rail */
 .qp-explore-grid{display:grid;grid-template-columns:270px minmax(0,1fr);gap:40px;align-items:start}
 .qp-rail{position:sticky;top:84px;display:flex;flex-direction:column;gap:24px}
-.qp-rail-group h3{font-size:10px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-bottom:9px;border-bottom:1px solid var(--line);margin-bottom:6px}
+/* Each rail category is a gold tab that folds its group (owner, 2026-10-24); a tinted gold, so it never reads as a chosen row (solid gold). */
+.qp-rail-group h3{margin-bottom:6px}
+.qp .qp-rail-tab{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;height:32px;padding:0 10px 0 12px;border-radius:6px;border:1px solid color-mix(in srgb,var(--accent) 60%,var(--line));background:color-mix(in srgb,var(--accent) 22%,var(--surface));color:var(--accent);font-size:10px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;outline:0;transition:background .2s,border-color .2s}
+.qp .qp-rail-tab:hover{background:color-mix(in srgb,var(--accent) 32%,var(--surface));border-color:var(--accent)}
+.qp-rail-tab svg{flex:none;transition:transform .25s}
+.qp-rail-group:not(.is-open) .qp-rail-tab svg{transform:rotate(-90deg)}
+.qp-rail-body{animation:qx-open .25s ease-out}
 .qp-topics{list-style:none;margin:0;padding:0}
 .qp-topics button{position:relative;display:flex;justify-content:space-between;gap:10px;width:100%;padding:7px 0 9px;background:none;border:0;text-align:left;font-size:13px}
 .qp-topics button::after{content:"";position:absolute;left:0;bottom:3px;height:2px;width:var(--share);border-radius:2px;background:color-mix(in srgb,var(--accent) 30%,transparent);transition:width .35s,background .2s}
