@@ -70,7 +70,7 @@
 .qp-book-row{display:grid;gap:6px;margin-bottom:22px}
 .qp-book-label{margin-bottom:4px;font-size:10.5px;font-weight:650;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
 .qp-book-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(54px,1fr));gap:5px}
-.qp-book{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;height:52px;padding:7px 8px;border:1px solid color-mix(in srgb,var(--tone) 30%,var(--line));border-radius:6px;background:color-mix(in srgb,var(--tone) var(--heat),var(--surface));transition:transform .2s,box-shadow .2s,border-color .2s}
+.qp-book{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;height:52px;padding:7px 8px;border:1px solid color-mix(in srgb,var(--tone) 30%,var(--line));border-radius:3px;background:color-mix(in srgb,var(--tone) var(--heat),var(--surface));transition:transform .2s,box-shadow .2s,border-color .2s}
 .qp-book span{font-size:12px;font-weight:600;letter-spacing:-.01em}
 .qp-book small{font-size:10px;opacity:.75}
 .qp-book.is-deep{color:var(--page)}
