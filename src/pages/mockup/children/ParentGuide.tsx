@@ -5,7 +5,7 @@
 // list becomes one drop-down. "Start with your child" opens the lesson panel as the rest of the page does. Collapsed
 // until "Open the whole course", a part at the top, or a lesson's "See all the questions" opens it (owner, 2026-10-24).
 import { ArrowLeft, ArrowRight, BookOpen, Check, ChevronDown } from "lucide-react";
-import { useRef } from "react";
+import { useId, useRef, type ComponentType } from "react";
 import { Link } from "react-router-dom";
 import { rightChoice } from "@/lib/data";
 import { QuizScene } from "../QuizScenes";
@@ -14,27 +14,34 @@ import { nextLesson, passageLabel, readerUrl, toneStyle, type Lesson, type PartL
 import type { Progress } from "./progress";
 import "./parent-guide.css";
 
+/** What a version of the section's top is given (the page's own below; the mock-up's four, CourseHeads.tsx). */
+export interface CourseHeadProps {
+  lessons: Lesson[]; groups: PartLessons[]; total: number; expanded: boolean; onExpand: (expanded: boolean) => void;
+  /** Opens the course at this lesson. */
+  onPick: (lesson: Lesson) => void; titleId: string; courseId: string;
+}
+
 interface Props {
   lessons: Lesson[]; groups: PartLessons[]; progress: Progress; bookNames: Record<string, string>; onOpen: (lesson: Lesson) => void;
   expanded: boolean; onExpand: (expanded: boolean) => void; chosenId: string | null; onChoose: (id: string) => void;
+  /** Another top for the section (the mock-up's versions); the course under it is the same. */
+  Head?: ComponentType<CourseHeadProps>;
 }
 
 /** The top, "the course at a glance" (owner picked it from four, 2026-10-25): the title with the figures above the
  *  button beside it, then the eight parts as columns with their drawings, each opening the course at its first lesson. */
-function CourseHead({ lessons, groups, total, expanded, onExpand, onPick }: {
-  lessons: Lesson[]; groups: PartLessons[]; total: number; expanded: boolean; onExpand: (expanded: boolean) => void; onPick: (lesson: Lesson) => void;
-}) {
+export function CourseHead({ lessons, groups, total, expanded, onExpand, onPick, titleId, courseId }: CourseHeadProps) {
   return <header className="pg-head">
     <div className="pg-head-top">
       <div className="pg-head-words">
         <p className="ck-eyebrow">For parents and teachers</p>
-        <h2 id="pg-title">The whole course,<br /><em>answers included</em></h2>
+        <h2 id={titleId}>The whole course,<br /><em>answers included</em></h2>
         <p className="ck-lead">Look over a lesson before you sit down together: the passage to read first, every question,
           the right answer and the other choices your child will see.</p>
       </div>
       <div className="pg-head-side">
         <p className="pg-count"><b>{lessons.length}</b> lessons<span aria-hidden>·</span><b>{total.toLocaleString()}</b> questions</p>
-        <button type="button" className="pg-open" aria-expanded={expanded} aria-controls="pg-course" onClick={() => onExpand(!expanded)}>
+        <button type="button" className="pg-open" aria-expanded={expanded} aria-controls={courseId} onClick={() => onExpand(!expanded)}>
           {expanded ? "Close the course" : "Open the whole course"}<ChevronDown size={18} strokeWidth={1.8} aria-hidden /></button>
       </div>
     </div>
@@ -47,7 +54,7 @@ function CourseHead({ lessons, groups, total, expanded, onExpand, onPick }: {
   </header>;
 }
 
-export function ParentGuide({ lessons, groups, progress, bookNames, onOpen, expanded, onExpand, chosenId, onChoose }: Props) {
+export function ParentGuide({ lessons, groups, progress, bookNames, onOpen, expanded, onExpand, chosenId, onChoose, Head = CourseHead }: Props) {
   const chosen = lessons.find((l) => l.id === chosenId) ?? nextLesson(lessons, progress);
   const sheet = useRef<HTMLDivElement>(null);
   const at = lessons.indexOf(chosen);
@@ -57,10 +64,13 @@ export function ParentGuide({ lessons, groups, progress, bookNames, onOpen, expa
     // On a phone the sheet sits under the list: bring its top into view.
     if (sheet.current && sheet.current.getBoundingClientRect().top < 0) sheet.current.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+  const uid = useId();
+  // The page's own course keeps the address "See all the questions" scrolls to; the mock-up's copies get their own.
+  const courseId = Head === CourseHead ? "pg-course" : `pg-course${uid}`, titleId = `pg-title${uid}`;
   const pick = (lesson: Lesson) => { onChoose(lesson.id); onExpand(true); };
-  return <section className="ck-wrap pg" aria-labelledby="pg-title">
-    <CourseHead lessons={lessons} groups={groups} total={total} expanded={expanded} onExpand={onExpand} onPick={pick} />
-    {expanded && <div className="pg-grid" id="pg-course">
+  return <section className="ck-wrap pg" aria-labelledby={titleId}>
+    <Head lessons={lessons} groups={groups} total={total} expanded={expanded} onExpand={onExpand} onPick={pick} titleId={titleId} courseId={courseId} />
+    {expanded && <div className="pg-grid" id={courseId}>
       <nav className="pg-rail" aria-label="Every lesson">
         {groups.map(({ part, lessons: ls }) => <div key={part.id} className="pg-part" style={toneStyle(part.tone)}>
           <p className="pg-part-name"><i aria-hidden />{part.title}<small>{ls.length}</small></p>

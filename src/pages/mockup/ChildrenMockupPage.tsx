@@ -4,8 +4,10 @@
 // the pill that swapped them are gone (the cabinet, This Sunday and two shelves: ARCHIVE/mockups/children-Views-2026-10-25.tsx).
 // The lessons come from the bank as it is: Hurlbut's 88 lessons and A Catechism for Young Children. Parts: children/.
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { loadQuestionBank, type QuestionBank } from "@/lib/data";
 import { buildLessons, byPart, type Lesson } from "./children/data";
+import { CourseHeadsPage } from "./children/CourseHeads";
 import { LessonPanel } from "./children/LessonPanel";
 import { ParentGuide } from "./children/ParentGuide";
 import { MixedView } from "./children/MixedView";
@@ -31,6 +33,9 @@ function ChildrenBody({ bank }: { bank: QuestionBank }) {
   const groups = useMemo(() => byPart(lessons), [lessons]);
   const bookNames = useMemo(() => Object.fromEntries(bank.books.map((b) => [b.code, b.name])), [bank]);
   const { progress, save } = useProgress();
+  // ?course=versions: the four tops for the parents' course, one to a row, in place of the page (owner, 2026-10-25).
+  const [search] = useSearchParams();
+  const versions = search.get("course") === "versions";
   const [open, setOpen] = useState<Lesson | null>(null);
   const close = useCallback(() => setOpen(null), []);
   const props = { lessons, groups, progress, openId: open?.id ?? null, onOpen: setOpen };
@@ -44,11 +49,13 @@ function ChildrenBody({ bank }: { bank: QuestionBank }) {
   const showGuide = (lesson: Lesson) => { setGuideId(lesson.id); setGuideOpen(true); setReveal((n) => n + 1); };
   const next = open ? lessons[lessons.indexOf(open) + 1] ?? null : null;
   return <div className="ck" data-open={open ? "" : undefined}>
-    <MixedView {...props} bookNames={bookNames} onGuide={showGuide} onFinish={(lesson, right, total) => save(lesson.id, right, total)} />
-    <ParentGuide lessons={lessons} groups={groups} progress={progress} bookNames={bookNames} onOpen={setOpen}
-      expanded={guideOpen} onExpand={setGuideOpen} chosenId={guideId} onChoose={setGuideId} />
+    {versions ? <CourseHeadsPage lessons={lessons} groups={groups} progress={progress} bookNames={bookNames} onOpen={setOpen} /> : <>
+      <MixedView {...props} bookNames={bookNames} onGuide={showGuide} onFinish={(lesson, right, total) => save(lesson.id, right, total)} />
+      <ParentGuide lessons={lessons} groups={groups} progress={progress} bookNames={bookNames} onOpen={setOpen}
+        expanded={guideOpen} onExpand={setGuideOpen} chosenId={guideId} onChoose={setGuideId} />
+    </>}
     {open && <LessonPanel lesson={open} bookNames={bookNames} next={next} onClose={close} onOpen={setOpen}
       onFinish={(right, total) => save(open.id, right, total)} />}
-    <ZoomTicker />
+    {!versions && <ZoomTicker />}
   </div>;
 }
