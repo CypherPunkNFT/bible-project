@@ -14,8 +14,8 @@ import { loadQuestionBank, type QuestionBank } from "@/lib/data";
 import { BookRing } from "./questions/BookRing";
 import { listFacets, ListRail, type ListChoice } from "./questions/ListRail";
 import { QuestionsHero, StatsBar } from "./questions/Hero";
-import { facetsOf, haystackOf, isFiltered, readFilters, writeFilters, type Filters } from "./questions/model";
-import { choiceInWords, EyeToggle, QuestionList, ResultsBar, SearchField } from "./questions/QuestionList";
+import { facetsOf, haystackOf, readFilters, writeFilters, type Filters } from "./questions/model";
+import { choiceInWords, EyeToggle, QuestionList, ResultsBar, SearchField, type Chosen } from "./questions/QuestionList";
 import { SectionHead } from "./questions/shared";
 import { TestBanner } from "./questions/TestBanner";
 import type { TestQuestion } from "./questions/test/engine";
@@ -68,6 +68,9 @@ function ListBody({ bank }: { bank: QuestionBank }) {
   // 03 comes into view once the page has redrawn with the new choice.
   const reveal = () => window.setTimeout(() => document.getElementById("qp-explore")?.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
   const chosen = choiceInWords(filters, bank, bookNames, theme?.title);
+  const remove = (key: Chosen["key"]) => (key === "theme" ? write(filters, "") : update({ [key]: key === "choices" ? false : "" } as Partial<Filters>));
+  // The Study page's difficulty bar links to #qp-explore (owner, 2026-10-24); 03 comes into view once the bank has loaded.
+  useEffect(() => { if (window.location.hash === "#qp-explore") reveal(); }, []);
 
   return <>
     <QuestionsHero />
@@ -87,7 +90,7 @@ function ListBody({ bank }: { bank: QuestionBank }) {
       <div className="qp-explore-grid">
         <ListRail bank={bank} facets={all} filters={filters} choice={choice} members={members} update={update} choose={choose} />
         <QuestionList bank={bank} rows={all.rows} filters={filters} clear={clear} testMode={testMode} bookNames={bookNames}
-          bar={<ResultsBar count={all.rows.length} filtered={isFiltered(filters) || Boolean(choice.theme)} clear={clear} chosen={chosen.join(" · ")} />} />
+          bar={<ResultsBar count={all.rows.length} chips={chosen} remove={remove} clear={clear} />} />
       </div>
     </section>
     <TestBanner bank={bank} filters={filters} theme={theme} bookNames={bookNames} />

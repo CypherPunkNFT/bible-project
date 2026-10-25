@@ -45,6 +45,6 @@ export function ExplorePanel({ id, bank, haystacks, bookNames, title, line, base
       </div>
     </div>
     <QuestionList bank={bank} rows={rows} filters={filters} clear={() => setSearch("")} testMode={testMode} bookNames={bookNames}
-      bar={<ResultsBar count={rows.length} filtered={Boolean(search)} clear={() => setSearch("")} />} />
+      bar={<ResultsBar count={rows.length} chips={search ? [{ key: "search", label: `“${search}”` }] : []} remove={() => setSearch("")} clear={() => setSearch("")} />} />
   </div>;
 }

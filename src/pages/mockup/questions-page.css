@@ -118,12 +118,16 @@
 .qp-search input{flex:1;min-width:0;height:100%;border:0;outline:0;background:transparent;color:var(--ink);font:14px var(--sans)}
 .qp-search input::-webkit-search-cancel-button{-webkit-appearance:none}
 .qp-search button{display:flex;background:none;border:0;color:var(--muted)}
-/* The count sits just above the list's top line, at its left. */
-.qp-results-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;padding-bottom:10px;font-size:13px;color:var(--muted)}
-.qp-results-head p{margin-right:6px}
+/* The count sits just above the list's top line, at its left; the chosen filters are rounded-square chips at the far
+   right, gold, with Clear all in grey (owner, 2026-10-24). The bar keeps one height with or without chips. */
+.qp-results-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;min-height:38px;padding-bottom:10px;font-size:13px;color:var(--muted)}
 .qp-results-head strong{font:450 20px var(--serif);color:var(--ink)}
-.qp-results-chosen{color:var(--ink)}
-.qp-clear{background:none;border:0;font-size:11px;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.qp-chips{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;margin-left:auto}
+.qp-chip{display:inline-flex;align-items:center;gap:7px;height:28px;padding:0 10px;border-radius:6px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));background:color-mix(in srgb,var(--accent) 14%,var(--surface));color:var(--ink);font-size:12px;white-space:nowrap;transition:background .2s,border-color .2s}
+.qp-chip svg{color:var(--accent);flex-shrink:0}
+.qp-chip:hover{background:color-mix(in srgb,var(--accent) 24%,var(--surface));border-color:var(--accent)}
+.qp-chip-clear{border-color:var(--line);background:color-mix(in srgb,var(--muted) 10%,var(--surface));color:var(--muted)}
+.qp-chip-clear:hover{background:color-mix(in srgb,var(--muted) 18%,var(--surface));border-color:var(--muted);color:var(--ink)}
 .qp-list-viewport{height:max(420px,calc(100vh - 244px));overflow-y:auto;scrollbar-width:none;border-top:1px solid var(--ink)}
 .qp-list-viewport::-webkit-scrollbar{display:none}
 /* The scroll pills (list and rail) in a bright gold (owner, 2026-10-23). */

@@ -2,14 +2,15 @@
 // open like drawers. "By the book": Law, History, Poetry & wisdom, Prophets, Gospels & Acts, Epistles and Revelation,
 // each opening to its books. "By theme": the test page's four shelves (Lives, Stories, Teaching, Know your Bible), each
 // opening to its groups and themes. One book and one theme can be chosen together; every count is what choosing it
-// would give with the other choices kept. The multiple-choice switch stays; the collection list went (owner, 2026-10-23). The topic list and
+// would give with the other choices kept. "By difficulty" (Easy, Medium, Hard) joins them the same way (owner,
+// 2026-10-24). The multiple-choice switch stays; the collection list went (owner, 2026-10-23). The topic list and
 // the Testament switch of FilterRail.tsx are not used here (the book drawers cover both Testaments).
 import { ChevronDown, X } from "lucide-react";
 import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import PillScroll from "@/components/apologetics/PillScroll";
 import type { BankBook, QuestionBank } from "@/lib/data";
 import { RailGroup, Switch } from "./FilterRail";
-import { facetsOf, type Filters } from "./model";
+import { DIFFICULTIES, facetsOf, type Filters } from "./model";
 import { MIN_THEME, SHELVES } from "./test/themes";
 
 export const BOOK_SECTIONS = [
@@ -34,7 +35,7 @@ export function listFacets(bank: QuestionBank, haystacks: string[], filters: Fil
   const anyTheme = inTheme ? facetsOf(bank.questions, haystacks, { ...base, book: choice.book }).rows : chosen.rows;
   const themeCount = new Map<string, number>();
   for (const [id, set] of members) themeCount.set(id, anyTheme.reduce((n, i) => n + (set.has(i) ? 1 : 0), 0));
-  return { rows: chosen.rows, bookCount: chosen.counts.book, collectionCount: chosen.counts.collection, anyBook, anyTheme, themeCount };
+  return { rows: chosen.rows, bookCount: chosen.counts.book, collectionCount: chosen.counts.collection, difficultyCount: chosen.counts.difficulty, anyBook, anyTheme, themeCount };
 }
 
 type Facets = ReturnType<typeof listFacets>;
@@ -89,6 +90,10 @@ export function ListRail({ bank, facets, filters, choice, members, update, choos
         })}
       </Drawer>;
     })}</RailGroup>
+    {/* How hard, chosen with a book and a theme like the rest (owner, 2026-10-24); the Study page's bar links here. */}
+    <RailGroup title="By difficulty">
+      <ChoiceList items={DIFFICULTIES.map(([id, title]) => ({ id, title, n: facets.difficultyCount.get(id) ?? 0 }))} selected={filters.difficulty} onChoose={(difficulty) => update({ difficulty })} />
+    </RailGroup>
     <RailGroup title="Show">
       <Switch on={filters.choices} onChange={(choices) => update({ choices })}>Multiple choice only</Switch>
     </RailGroup>

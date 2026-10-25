@@ -1,11 +1,11 @@
-// 03's results: the count (ResultsBar, just above the list's top line at its left, owner 2026-10-23), the one eye
+// 03's results: the count and the chosen filters (ResultsBar, just above the list's top line, owner 2026-10-23/24), the one eye
 // beside the search, and the questions in a scroll pane (with
 // the pill-only scrollbar the owner chose for result lists), loading more as the pane reaches its end.
 import { Eye, EyeOff, Search, X } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import PillScroll from "@/components/apologetics/PillScroll";
 import { rightChoice, type BankQuestion, type QuestionBank } from "@/lib/data";
-import { kindTone, LETTERS, searchTerms, type Filters } from "./model";
+import { DIFFICULTIES, kindTone, LETTERS, searchTerms, type Filters } from "./model";
 import { Highlight, ReadLink } from "./shared";
 
 const STEP = 40;
@@ -20,12 +20,16 @@ export function SearchField({ search, update }: { search: string; update: (patch
   </label>;
 }
 
-/** How many questions, and Clear all when anything is chosen. What is chosen shows where it was chosen (the book tile,
- *  the theme card, the gold row in the rail) and in words under 03's title, never as pills (owner, 2026-10-22). */
-export function ResultsBar({ count, filtered, clear, chosen }: { count: number; filtered: boolean; clear: () => void; chosen?: string }) {
+/** How many questions at the left; at the far right, each choice as a gold rounded-square chip that removes it, then
+ *  Clear all in grey (owner, 2026-10-24, replacing the choices in words after the count). */
+export function ResultsBar({ count, chips, remove, clear }: { count: number; chips: Chosen[]; remove: (key: Chosen["key"]) => void; clear: () => void }) {
   return <div className="qp-results-head">
-    <p><strong>{count.toLocaleString()}</strong> {count === 1 ? "question" : "questions"}{chosen && <span className="qp-results-chosen"> · {chosen}</span>}</p>
-    {filtered && <button type="button" className="qp-clear" onClick={clear}>Clear all</button>}
+    <p><strong>{count.toLocaleString()}</strong> {count === 1 ? "question" : "questions"}</p>
+    {chips.length > 0 && <div className="qp-chips" aria-label="Chosen filters">
+      {chips.map((chip) => <button key={chip.key} type="button" className="qp-chip" aria-label={`Remove ${chip.label}`} onClick={() => remove(chip.key)}>
+        {chip.label}<X size={12} strokeWidth={2.2} aria-hidden /></button>)}
+      <button type="button" className="qp-chip qp-chip-clear" onClick={clear}>Clear all</button>
+    </div>}
   </div>;
 }
 
@@ -37,11 +41,17 @@ export function EyeToggle({ testMode, setTestMode }: { testMode: boolean; setTes
   </button>;
 }
 
-/** What the list is narrowed to, in words: the theme or book, then the rail's choices and the search. */
-export function choiceInWords(f: Filters, bank: QuestionBank, bookNames: Record<string, string>, themeTitle?: string): string[] {
+/** One thing the list is narrowed to: which filter (or the theme), and it in words. */
+export interface Chosen { key: keyof Filters | "theme"; label: string }
+
+/** What the list is narrowed to: the theme or book, then the rail's choices and the search. */
+export function choiceInWords(f: Filters, bank: QuestionBank, bookNames: Record<string, string>, themeTitle?: string): Chosen[] {
   const topic = f.topic === "none" ? "Other questions" : bank.topics.find((t) => t.id === f.topic)?.title;
-  return [themeTitle, f.book && (bookNames[f.book] ?? f.book), f.topic && topic, f.testament && (f.testament === "OT" ? "Old Testament" : "New Testament"),
-    f.collection, f.choices && "multiple choice only", f.search.trim() && `matching “${f.search.trim()}”`].filter((part): part is string => Boolean(part));
+  const parts: [Chosen["key"], string | false | undefined][] = [["theme", themeTitle], ["book", f.book && (bookNames[f.book] ?? f.book)], ["topic", f.topic && topic],
+    ["testament", f.testament && (f.testament === "OT" ? "Old Testament" : "New Testament")], ["collection", f.collection],
+    ["difficulty", f.difficulty && DIFFICULTIES.find(([id]) => id === f.difficulty)?.[1]], ["choices", f.choices && "Multiple choice only"],
+    ["search", f.search.trim() && `“${f.search.trim()}”`]];
+  return parts.flatMap(([key, label]) => (label ? [{ key, label }] : []));
 }
 
 interface Props { bank: QuestionBank; rows: number[]; filters: Filters; clear: () => void; testMode: boolean; bookNames: Record<string, string>; bar: ReactNode }

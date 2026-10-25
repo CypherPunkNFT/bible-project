@@ -44,7 +44,8 @@ export function TestBanner({ bank, filters, theme, bookNames }: Props) {
   const level = Number(picks.level ?? DEFAULT_LEVEL);
   const settings = settingsFor(level);
   const length = picks.length === null ? null : levelOf(level).lengths[Number(picks.length)];
-  const params = writeFilters(filters);
+  // The list's difficulty (?d=) is not carried: the banner's own "How hard" sets the test's level.
+  const params = writeFilters({ ...filters, difficulty: "" });
   if (theme) params.set("theme", theme.id);
   if (done && length !== DEFAULT_LENGTH) params.set("n", String(length));
   if (done) writeSettings(params, level, DEFAULT_AGE);

@@ -4,14 +4,15 @@
 import { CircleHelp, LayoutGrid, School, ScrollText, type LucideIcon } from "lucide-react";
 import type { BankQuestion } from "@/lib/data";
 
-export interface Filters { kind: string; topic: string; testament: string; book: string; collection: string; search: string; choices: boolean }
-export type Facet = "kind" | "topic" | "testament" | "book" | "collection";
-const FACETS: Facet[] = ["kind", "topic", "testament", "book", "collection"];
-const PARAMS: Record<Facet | "search", string> = { kind: "kind", topic: "topic", testament: "t", book: "book", collection: "c", search: "q" };
+export interface Filters { kind: string; topic: string; testament: string; book: string; collection: string; difficulty: string; search: string; choices: boolean }
+export type Facet = "kind" | "topic" | "testament" | "book" | "collection" | "difficulty";
+const FACETS: Facet[] = ["kind", "topic", "testament", "book", "collection", "difficulty"];
+// How hard is ?d=, since the test page's own ?level= (test/settings.ts) is its Gentle, Steady or Deep setting.
+const PARAMS: Record<Facet | "search", string> = { kind: "kind", topic: "topic", testament: "t", book: "book", collection: "c", difficulty: "d", search: "q" };
 
 export function readFilters(params: URLSearchParams): Filters {
   const get = (key: string) => params.get(key) ?? "";
-  return { kind: get("kind"), topic: get("topic"), testament: get("t"), book: get("book"), collection: get("c"), search: get("q"), choices: params.get("mc") === "1" };
+  return { kind: get("kind"), topic: get("topic"), testament: get("t"), book: get("book"), collection: get("c"), difficulty: get("d"), search: get("q"), choices: params.get("mc") === "1" };
 }
 
 export function writeFilters(filters: Filters): URLSearchParams {
@@ -21,7 +22,7 @@ export function writeFilters(filters: Filters): URLSearchParams {
   return params;
 }
 
-export const isFiltered = (f: Filters) => Boolean(f.kind || f.topic || f.testament || f.book || f.collection || f.search || f.choices);
+export const isFiltered = (f: Filters) => Boolean(f.kind || f.topic || f.testament || f.book || f.collection || f.difficulty || f.search || f.choices);
 
 /** One lower-case string per question for search: question, answer, choices, reference, lesson and collection. */
 export const haystackOf = (q: BankQuestion) =>
@@ -35,7 +36,12 @@ const keysOf: Record<Facet, (q: BankQuestion) => string[]> = {
   testament: (q) => [q.testament ?? "none"],
   book: (q) => q.books,
   collection: (q) => [q.collection],
+  difficulty: (q) => [q.level ?? "none"],
 };
+
+/** How hard a question is, as the bank rates it (scripts/question_difficulty.py): the list's "By difficulty" and the
+ *  Study page's bar (QuizDoor.tsx), which links to the list with ?d= set. */
+export const DIFFICULTIES = [["easy", "Easy"], ["medium", "Medium"], ["hard", "Hard"]] as const;
 
 export interface Facets { rows: number[]; counts: Record<Facet, Map<string, number>> }
 
