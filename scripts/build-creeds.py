@@ -339,10 +339,12 @@ def reference_label(ref: dict) -> str:
     if not end:
         return head
     end_name = end.get("book_name") or end.get("book")
+    # A chapter range ("Genesis 1–2") has no end verse.
+    end_place = ":".join(str(part) for part in (end.get("chapter"), end.get("verse")) if part)
     if end_name and end_name != name:
-        return f"{head} – {end_name} {end.get('chapter')}:{end.get('verse')}"
+        return f"{head} – {end_name} {end_place}".rstrip()
     if end.get("chapter") and end.get("chapter") != chapter:
-        return f"{head}–{end['chapter']}:{end.get('verse')}"
+        return f"{head}–{end_place}"
     if end.get("verse") and end.get("verse") != verse:
         return f"{head}–{end['verse']}"
     return head
