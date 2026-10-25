@@ -1,0 +1,78 @@
+/* The answer pictures: the Resources card scenes' standard (resources-card-directions/morning.css), drawn larger. */
+#main{width:min(1320px,100%);margin:auto;padding:30px 28px 72px}
+.back{font-size:12px;color:var(--muted)}
+.intro{display:flex;align-items:end;justify-content:space-between;gap:40px;margin:28px 0 40px}
+.eyebrow,.number,.kind,.label{font:10px/1.5 var(--mono);letter-spacing:.13em;text-transform:uppercase}
+.eyebrow{color:var(--accent);margin-bottom:12px}
+h1{font:400 clamp(34px,4.4vw,58px)/1.12 var(--serif);letter-spacing:-.04em}
+h1 em{color:var(--accent);font-weight:400}
+.intro>p{max-width:380px;color:var(--muted);font-size:13px;line-height:1.75}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.card{--tone:var(--history);border:1px solid var(--line);border-radius:7px;background:var(--surface);padding:22px 26px 24px;transition:border-color .3s}
+.card:nth-child(4n+2){--tone:var(--gospels)}.card:nth-child(4n+3){--tone:var(--prophets)}.card:nth-child(4n){--tone:var(--epistles)}
+.card:hover{border-color:var(--tone)}
+.number{display:flex;justify-content:space-between;gap:16px;color:var(--tone)}
+.number span:last-child{text-align:right}
+.drawing{position:relative;aspect-ratio:4/3;margin:14px -8px 18px}
+.drawing svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.question{margin:0 0 6px;color:var(--muted);font-size:14px;line-height:1.6}
+.card h2{font:400 clamp(24px,2.3vw,32px)/1.22 var(--serif);letter-spacing:-.025em;margin:0}
+.verse{margin:16px 0 4px;font:italic 400 14px/1.7 var(--serif);color:var(--ink)}
+.ref{font-size:11px;color:var(--tone)}
+.idea{border-top:1px solid var(--line);margin-top:18px;padding-top:14px;display:grid;gap:6px}
+.label{color:var(--muted)}
+.idea p{margin:0;font-size:13px;line-height:1.65;color:var(--muted)}
+.idea code{font:11px var(--mono);color:var(--tone)}
+
+/* The drawing: lines only, paper-filled shapes, fine detail, one gold accent; slow motion that never stops */
+.ap-art{--land:#776d56;--leaf:#778167;--gold:#ab7035;--flower:#9e654d;--water:#6f8693;fill:none;stroke:var(--land);stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round}
+:root[data-theme=dark] .ap-art{--land:#bcb29d;--leaf:#a5b394;--gold:#e4b268;--flower:#dba584;--water:#9db4c0}
+.ap-art .mask{fill:var(--surface);stroke:none}
+.ap-art .land{opacity:.92}
+.ap-art .far{stroke-width:.9;opacity:.48}
+.ap-art .fine{stroke-width:.65;opacity:.6}
+.ap-art .line{stroke-width:1.1}
+.ap-art .paper-line{fill:var(--surface);stroke-width:1.15}
+.ap-art .disc{fill:color-mix(in srgb,var(--gold) 7%,var(--surface));stroke:var(--gold);stroke-width:1.6}
+.ap-art .ray{stroke:var(--gold);stroke-width:1.1;opacity:.85}
+.ap-art .gold{stroke:var(--gold);stroke-width:1.1}
+.ap-art .gold-thin{stroke:var(--gold);stroke-width:.8;fill:color-mix(in srgb,var(--gold) 14%,var(--surface))}
+.ap-art .gold-thick{stroke:var(--gold);stroke-width:2}
+.ap-art .gold-fill{stroke:var(--gold);stroke-width:1.2;fill:color-mix(in srgb,var(--gold) 20%,var(--surface))}
+.ap-art .gold-glint{stroke:var(--gold);stroke-width:.85;opacity:.75}
+.ap-art .gold-dots{stroke:var(--gold);stroke-width:1;stroke-dasharray:1.5 5;opacity:.85;animation:ap-flow 14s linear infinite}
+.ap-art .rose{stroke:var(--flower);stroke-width:1.4;opacity:.85}
+.ap-art .rose-thick{stroke:var(--flower);stroke-width:2}
+.ap-art .leaf-line{stroke:var(--leaf);stroke-width:1.1}
+.ap-art .leaf-thick{stroke:var(--leaf);stroke-width:2}
+.ap-art .crown{fill:var(--surface);stroke:var(--leaf);stroke-width:1.15}
+.ap-art .trunk{stroke:var(--land);stroke-width:1.3}
+.ap-art .leaf{stroke:var(--leaf);stroke-width:.7;opacity:.75}
+.ap-art .stem{stroke:var(--leaf);stroke-width:.8}
+.ap-art .petal{stroke:var(--flower);stroke-width:.7;fill:var(--surface)}
+.ap-art .core{stroke:var(--gold);stroke-width:.65;fill:color-mix(in srgb,var(--gold) 20%,var(--surface))}
+.ap-art .bird{stroke-width:1;opacity:.85}
+.ap-art .cloud{fill:var(--surface);stroke-width:.95;opacity:.8}
+.ap-art .water{stroke:var(--water);stroke-width:.85;opacity:.75}
+.ap-art .flow{stroke-width:.8;opacity:.5;stroke-dasharray:3 8;animation:ap-flow 16s linear infinite}
+.ap-art .turn{transform-origin:0 0;animation:ap-turn 100s linear infinite}
+.ap-art .breathe{animation:ap-breathe 9s ease-in-out infinite}
+.ap-art .breathe-strong{animation:ap-breathe-strong 6s ease-in-out infinite}
+.ap-art .drift{animation:ap-drift 18s ease-in-out infinite}
+.ap-art .float{animation:ap-float 24s ease-in-out infinite}
+.ap-art .ripple{transform-box:fill-box;transform-origin:center;animation:ap-ripple 8s ease-in-out infinite}
+.ap-art .sway{transform-box:fill-box;transform-origin:bottom center;animation:ap-sway 9s ease-in-out infinite}
+.ap-art .flame{transform-box:fill-box;transform-origin:50% 100%;animation:ap-flame 3.6s ease-in-out infinite}
+.ap-art .page{transform-box:fill-box;transform-origin:left center;animation:ap-page 10s ease-in-out infinite}
+@keyframes ap-turn{to{transform:rotate(360deg)}}
+@keyframes ap-breathe{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes ap-breathe-strong{0%,100%{opacity:.75}50%{opacity:1}}
+@keyframes ap-drift{50%{translate:8px -3px}}
+@keyframes ap-float{50%{translate:10px 0}}
+@keyframes ap-ripple{50%{translate:4px 0}}
+@keyframes ap-sway{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(2deg)}}
+@keyframes ap-flame{50%{transform:scaleX(.8) scaleY(1.1)}}
+@keyframes ap-page{50%{transform:skewY(-3deg)}}
+@keyframes ap-flow{to{stroke-dashoffset:-120}}
+@media(max-width:900px){#main{padding-inline:18px}.cards{grid-template-columns:1fr}.intro{display:block}.intro>p{margin-top:18px}}
+@media(prefers-reduced-motion:reduce){.ap-art *{animation:none!important}}
