@@ -54,7 +54,7 @@ export function Timeline({ part, onChoose }: { part: PartId; onChoose: (id: Part
         <span>
           {pointed ? (
             <>
-              <b style={{ color: `var(--${pointed.id})` }}>{pointed.name}</b> tells of {pointed.coversText}. Written {pointed.writtenText}.
+              <b style={{ color: `var(--${pointed.id})` }}>{pointed.name}</b> · Tells of: {pointed.coversText}. Written: {pointed.writtenText}.
             </>
           ) : (
             RESTING
