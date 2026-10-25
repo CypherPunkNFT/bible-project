@@ -344,6 +344,9 @@ def reference_label(ref: dict) -> str:
     if end_name and end_name != name:
         return f"{head} – {end_name} {end_place}".rstrip()
     if end.get("chapter") and end.get("chapter") != chapter:
+        # "Romans 1:18–2" would read as verses 18 to 2 of chapter 1; the span runs to the end of chapter 2.
+        if verse and not end.get("verse"):
+            return f"{head} to the end of chapter {end['chapter']}"
         return f"{head}–{end_place}"
     if end.get("verse") and end.get("verse") != verse:
         return f"{head}–{end['verse']}"
