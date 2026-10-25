@@ -1,5 +1,6 @@
 // /connections_mockup/:kind/:id (local preview only): one person, place or topic at the centre of its connections.
-import { useEffect, useMemo, useRef, useState } from "react";
+// A person's field is also their own page's sub-page (PersonConnectionsMockup.tsx), with a trail back to them.
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useCatalog } from "@/lib/catalog";
@@ -12,8 +13,15 @@ import "./connections.css";
 type Scope = "other" | "all";
 const FILTERS: (Ring | "all")[] = ["all", "fam", "p", "l", "t", "x"];
 
+const ALL = <Link to="/connections_mockup"><ArrowLeft size={13} aria-hidden />All connections</Link>;
+
 export default function ConnectionsEntityMockup() {
   const { kind, id = "" } = useParams();
+  return <ConnectionsField kind={kind} id={id} back={ALL} />;
+}
+
+/** `back`: the way out (the person's page, or the hub), shown in the trail and under an error. */
+export function ConnectionsField({ kind, id, back }: { kind: string | undefined; id: string; back: ReactNode }) {
   const catalog = useCatalog();
   const navigate = useNavigate();
   const [data, setData] = useState<{ entity?: Entity; index?: GraphIndex; error?: string }>({});
@@ -39,7 +47,7 @@ export default function ConnectionsEntityMockup() {
   const passages = useMemo(() => (entity ? (scope === "other" ? entity.xo : entity.x) : []), [entity, scope]);
   const points = useMemo(() => (entity ? layoutPoints(entity, catalog, passages) : []), [entity, catalog, passages]);
 
-  if (data.error) return <main className="cn-page study-frame"><p className="cn-plain">{data.error}</p><Link to="/connections_mockup">All connections</Link></main>;
+  if (data.error) return <main className="cn-page study-frame"><p className="cn-plain">{data.error}</p>{back}</main>;
   if (!entity || !index) return <main className="cn-page study-frame"><p className="cn-plain" role="status">Opening the connections…</p></main>;
 
   const point = points.find((p) => p.key === chosen);
@@ -58,7 +66,7 @@ export default function ConnectionsEntityMockup() {
     <main className="cn-page study-frame">
       <header className="cn-hero">
         <div>
-          <nav className="cn-trail" aria-label="Connections"><Link to="/connections_mockup"><ArrowLeft size={13} aria-hidden />All connections</Link><span aria-hidden>/</span><span>{KIND_NAME[entity.k]}</span></nav>
+          <nav className="cn-trail" aria-label="Connections">{back}<span aria-hidden>/</span><span>{entity.k === "p" ? "Connected in Scripture" : KIND_NAME[entity.k]}</span></nav>
           <p className="cn-eyebrow">{entity.e || KIND_NAME[entity.k]} · {entity.v.toLocaleString()} verses</p>
           <h1>{entity.n}, <em>connected.</em></h1>
           {entity.d && <p className="cn-lead">{entity.d}</p>}

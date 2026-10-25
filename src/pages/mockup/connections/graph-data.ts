@@ -62,4 +62,6 @@ export function pageHref(kind: Kind, id: string): string {
   return `/topics/${id}`;
 }
 
-export const fieldHref = (kind: Kind, id: string) => `/connections_mockup/${kind}/${id}`;
+/** A person's connections hang off their own page (/people_mockup/:id/connections, owner 2026-10-25); places and
+ *  topics keep the stand-alone field until their own pages exist. */
+export const fieldHref = (kind: Kind, id: string) => (kind === "p" ? `/people_mockup/${slugOf(id) ?? id}/connections` : `/connections_mockup/${kind}/${id}`);
