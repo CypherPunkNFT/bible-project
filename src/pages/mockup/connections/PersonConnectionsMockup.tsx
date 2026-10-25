@@ -1,6 +1,6 @@
 // /people_mockup/:id/connections (local preview only): a person's connections as a sub-page of their own page, beside
-// the ruler, apostle and prophet pages. The trail leads back to the person; Moses's goes to his mock-up page, which
-// holds the "Connected in Scripture" section that opens this one.
+// the ruler, apostle and prophet pages. The trail leads back to the person; Moses's goes to his mock-up page, whose
+// section 03 "Around him" shows the same connections by category and relationship.
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { personIdOf, slugOf } from "@/lib/people-slugs";

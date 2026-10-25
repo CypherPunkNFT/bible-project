@@ -1,36 +1,16 @@
 // The panel beside the field: the centre's summary, or the chosen point with the verses that join it to the centre.
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Waypoints } from "lucide-react";
-import { loadPlain } from "@/lib/data";
 import { formatRange, splitId, bookByNum } from "@/lib/refs";
 import type { Catalog } from "@/lib/types";
 import { cameFrom } from "@/lib/came-from";
 import { RING_NAME, chapterName, type Point } from "./field-layout";
+import { useVerseTexts } from "./verse-texts";
 import { KIND_NAME, fieldHref, pageHref, type Entity, type GraphIndex, type Kind, type LinkedChapter } from "./graph-data";
 
 const RELATION: Record<string, string> = { parent: "Parent", child: "Child", spouse: "Husband or wife", sibling: "Brother or sister" };
 
-/** The Berean Standard Bible's words for each verse, loaded a book at a time. */
-function useVerseTexts(catalog: Catalog, verses: number[]): Record<number, string> {
-  const [texts, setTexts] = useState<Record<number, string>>({});
-  const wanted = verses.join(",");
-  useEffect(() => {
-    let live = true;
-    const ids = wanted ? wanted.split(",").map(Number) : [];
-    Promise.all(ids.map(async (id) => {
-      const { num, chapter, verse } = splitId(id);
-      const code = bookByNum(catalog, num)?.code;
-      if (!code) return [id, ""] as const;
-      const book = await loadPlain("bsb", code).catch((reason: unknown) => { console.error(`connections: BSB ${code} did not load`, reason); return {}; });
-      return [id, (book as Record<string, string>)[`${chapter}:${verse}`] ?? ""] as const;
-    })).then((pairs) => { if (live) setTexts(Object.fromEntries(pairs)); });
-    return () => { live = false; };
-  }, [catalog, wanted]);
-  return texts;
-}
-
-function Verse({ catalog, id, text, other }: { catalog: Catalog; id: number; text?: string; other?: string }) {
+export function Verse({ catalog, id, text, other }: { catalog: Catalog; id: number; text?: string; other?: string }) {
   const { num, chapter, verse } = splitId(id);
   const code = bookByNum(catalog, num)?.code ?? "GEN";
   return <li><Link to={`/read/bsb/${code}/${chapter}?hl=${verse}`} state={cameFrom(`Connections: ${other ?? ""}`)}>{formatRange(catalog, id, id)}</Link>

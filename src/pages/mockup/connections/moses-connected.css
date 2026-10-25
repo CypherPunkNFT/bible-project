@@ -1,40 +1,44 @@
-/* "Connected in Scripture" inside Moses's page (MosesConnectedMockup.tsx). Loaded into the page's shadow root, so it
-   uses the Moses design's own tokens (--ink, --muted, --line, --accent, the section colours) and its .mx/.wrap frame. */
-.cx { --cx-p: var(--history); --cx-l: var(--poetry); --cx-t: var(--prophets); --cx-x: var(--accent); padding-block: 3rem 1rem; }
-.cx .is-p { --cx-tone: var(--cx-p); } .cx .is-l { --cx-tone: var(--cx-l); } .cx .is-t { --cx-tone: var(--cx-t); } .cx .is-x { --cx-tone: var(--cx-x); }
-.cx a { color: inherit; text-decoration: none; }
-.cx a:is(:focus, :focus-visible) { outline: none; }
-.cx-wait { min-height: 22rem; }
+/* Section 03 "Around him" inside Moses's page (MosesAround.tsx). Loaded into the page's shadow root after
+   connections.css, so the field and panel keep the connections look while the frame, heading and tokens are the Moses
+   design's own (--ink, --muted, --line, --accent, the section colours). */
+.ar { --font-sans: var(--sans); --font-serif: var(--serif); }
+.ar :is(a, button, [tabindex]):is(:focus, :focus-visible) { outline: none; }
+.ar button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+.ar a { color: inherit; }
+.ar-wait { min-height: 40rem; }
 
-/* Room on the right for the page's fixed column of section dots. */
-.cx-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.6rem 2.2rem; padding-right: 1.75rem; }
-.cx-col h3 { display: flex; align-items: baseline; justify-content: space-between; gap: .6rem; margin: 0 0 .7rem; padding-bottom: .55rem;
-  border-bottom: 2px solid var(--cx-tone); font: 600 .74rem/1.3 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--cx-tone); }
-.cx-col h3 small { font: 500 .78rem var(--sans); letter-spacing: 0; color: var(--muted); }
-.cx-col ol { margin: 0; padding: 0; list-style: none; }
-.cx-col li { display: flex; align-items: baseline; justify-content: space-between; gap: .8rem; padding: .42rem 0; border-bottom: 1px solid var(--line); }
-.cx-col li a { font: 500 1.02rem/1.35 var(--serif); }
-.cx-col li a:hover { color: var(--cx-tone); }
-.cx-col li span { font: 500 .78rem var(--sans); font-variant-numeric: tabular-nums; color: var(--muted); }
+/* Category pills, then the relationship pills of the chosen category */
+.ar-cats { display: inline-flex; flex-wrap: wrap; gap: 3px; padding: 4px; border-radius: 999px; background: var(--surface-2); }
+.ar-cats button { display: inline-flex; align-items: baseline; gap: .45rem; padding: .55rem 1.15rem; border-radius: 999px; font: 600 .9rem var(--sans); color: var(--muted); transition: background .2s, color .2s; }
+.ar-cats button small { font-weight: 500; font-size: .74rem; color: var(--muted); }
+.ar-cats button[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgb(0 0 0 / 12%); }
+.ar-rings { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
+.ar-rings button { display: inline-flex; align-items: center; gap: .45rem; padding: .32rem .8rem; border: 1px solid var(--line); border-radius: 999px; font: 500 .8rem var(--sans); color: var(--muted); transition: border-color .2s, color .2s, background .2s; }
+.ar-rings button i { width: .55rem; height: .55rem; border-radius: 50%; background: var(--cn-tone); }
+.ar-rings button:hover { color: var(--ink); }
+.ar-rings button[aria-pressed="true"] { border-color: var(--cn-tone, var(--ink)); color: var(--ink); background: color-mix(in srgb, var(--cn-tone, var(--ink)) 12%, transparent); }
 
-.cx-go { display: flex; align-items: center; gap: 1.6rem; margin-top: 2.2rem; padding: 1.2rem 1.6rem; border: 1px solid var(--line); border-radius: 16px;
-  background: radial-gradient(ellipse at 0% 50%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 60%), var(--surface); transition: border-color .2s; }
-.cx-go:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
-.cx-art { flex: none; width: 7.5rem; height: 7.5rem; }
-.cx-ring { fill: none; stroke: var(--line); stroke-width: 1; }
-.cx-dot { fill: var(--cx-tone); opacity: .85; }
-.cx-core { fill: var(--accent); }
-.cx-go:hover .cx-dot { opacity: 1; }
-.cx-go-text { display: grid; gap: .35rem; }
-.cx-go-text strong { font: 500 clamp(1.4rem, 2.4vw, 1.9rem)/1.1 var(--serif); letter-spacing: -.02em; }
-.cx-go-text strong::after { content: " →"; color: var(--accent); }
-.cx-go-text small { max-width: 40rem; font-size: .9rem; line-height: 1.55; color: var(--muted); }
-.cx-source { margin: .9rem 0 0; font-size: .74rem; color: var(--muted); }
+/* The field: one colour per ring, set on each point */
+.ar-svg .cn-node { opacity: 1; }
+.ar-svg .cn-node.is-dim { opacity: .1; pointer-events: none; }
+.ar-svg .cn-dot.is-filled { fill: color-mix(in srgb, var(--cn-tone) 14%, var(--surface)); }
+.ar-svg .cn-links path { stroke-width: 1.5; }
+.ar .cn-panel { top: 76px; }
+.ar-ringrow .cn-starts button { border-bottom-color: var(--cn-tone); }
+.ar-ringrow .cn-small { color: var(--cn-tone); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: .66rem; }
+.ar-kicker { color: var(--cn-tone, var(--accent)); }
+.ar-quote { margin: .8rem 0; padding-left: .9rem; border-left: 2px solid var(--cn-tone, var(--accent)); font: italic 400 1rem/1.6 var(--serif); }
 
-@media (max-width: 1000px) { .cx-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) {
-  .cx-cols { grid-template-columns: 1fr; }
-  .cx-col li:nth-child(n + 5) { display: none; }
-  .cx-go { flex-direction: column; align-items: flex-start; gap: .8rem; padding: 1rem; }
-  .cx-art { width: 5.5rem; height: 5.5rem; }
+/* The list under the field */
+.ar-list { margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.ar .cn-cols[data-count="5"] { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.ar .cn-cols[data-count="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ar .cn-col li span { font-size: .78rem; }
+
+@media (max-width: 1100px) { .ar .cn-cols[data-count] { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) {
+  .ar .cn-cols[data-count] { grid-template-columns: minmax(0, 1fr); }
+  .ar-cats { display: flex; }
+  .ar-cats button { flex: 1; justify-content: center; padding-inline: .5rem; font-size: .82rem; }
+  .ar-cats button small { display: none; }
 }
