@@ -1,3 +1,43 @@
+## Bible Guide phone app — registered 2026-10-24 (on the PC and the test emulator only; nothing published)
+
+The app in [App/](../App/DESIGN.md) ships its own copy of six Bible texts, built from this site's generated
+`data/text/` by `App/scripts/build-bible-db.py` into `App/assets/bible/bible.db`. Each text is already registered
+below in the build source checksum registry. The app adds no new text and shows the same words as the site.
+
+| Version in the app | Source file (registry row below) | Licence | Checksum |
+|---|---|---|---|
+| Berean Standard Bible (BSB, the default) | [engbsb](sources/ebible/engbsb/) | **Public domain** (dedicated 2023). Courtesy credit: *Berean Standard Bible, berean.bible* | `b77cc2d5161b0361…` |
+| King James Version (KJV), with the Apocrypha | [eng-kjv](sources/ebible/eng-kjv/) | **Public domain** (in the US) | `0e0359e9e488582a…` |
+| World English Bible (WEB) | [engwebp](sources/ebible/engwebp/) | **Public domain** | `99ea438ef8a6a20a…` |
+| American Standard Version (ASV) | [eng-asv](sources/ebible/eng-asv/) | **Public domain** (1901) | `a9420074e1d96f87…` |
+| Young's Literal Translation (YLT) | [engylt](sources/ebible/engylt/) | **Public domain** (1898) | `e50e55320bd5352e…` |
+| Majority Standard Bible (MSB) | [engmsb](sources/ebible/engmsb/) | **Public domain** (dedicated 2023) | `fdaab9c32190ba0b…` |
+
+What the app adds, all free to use and ship inside an app:
+
+| What | Used for | Licence |
+|---|---|---|
+| **Literata** reading font (Type Together for Google), through `@expo-google-fonts/literata` 0.4.3 | The Bible text, as on the site | Font: **SIL Open Font License 1.1** (font may be bundled; credit shown in the app's Settings). Package code: MIT |
+| Expo SDK 58 (`expo` 58.0.19, `expo-router` 58.0.26, `expo-sqlite` 58.0.14, `expo-font`, `expo-splash-screen`) | The app framework, pages, on-phone databases | MIT. SQLite itself is public domain |
+| React 19.3 and React Native 0.88 | Drawing the app | MIT |
+| Uniwind 1.13 and Tailwind CSS 4.3 | The site's palette and styling classes | MIT |
+| Zustand 5.0 | Remembering the reading place and settings | MIT |
+| `react-native-svg` 15.16.0, `@expo/vector-icons` 15.1.1 (Feather and Material Community icons) | Library charts, Home card art, icons | MIT |
+| `expo-audio` 58.0.10, `@react-native-community/slider` 5.2.1 | Playing the ASV recording, with its seek bar | MIT |
+| `react-native-webview` 14.0.1 | Showing the Streetlights videos through YouTube's privacy-enhanced embed, as the site does | MIT |
+
+Second round (2026-10-24): the Library, the reader's extras and Listen use the site's own registered data
+(chapter figures, AI chapter summaries, OpenBible.info cross-references, places, topics, hymns, who ruled),
+copied into the app's Bible database. Listen also uses two outside sources, the same ones the site's `/listen` uses:
+
+| What | How the app uses it | Licence / terms |
+|---|---|---|
+| Complete ASV read by Ron Altman, LibriVox (`bible_asv_complete_2112_librivox`), 129 MP3 files | Streamed from archive.org when the listener presses play; nothing downloaded or bundled | **Public domain** (LibriVox recordings are dedicated to the public domain). Credit: *Ron Altman, LibriVox* |
+| Streetlights videos on YouTube (the owner's selections, as on the site) | Played in YouTube's own embedded player; the app stores only video ids and playlist links | YouTube's embed terms; the videos remain Streetlights'. Credit shown beside the player |
+
+Reading, search, the Library and everything you save work fully offline and send nothing anywhere. Only Listen
+needs a connection, and it contacts only YouTube and archive.org, when you press play.
+
 ## Old maps — registered 19 October 2026 (local only; nothing published)
 
 The Atlas home's ninth card ("Old maps", `/study/atlas/old-maps`) and its Study card in History & archaeology. The counts on the
