@@ -53,11 +53,15 @@
 .pg-questions>li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 14px;padding:24px 0;border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
 .pg-qn{display:grid;place-items:center;width:34px;height:34px;border:1.5px solid var(--tone);border-radius:50%;font:500 15px/1 var(--serif);color:var(--tone)}
 .pg-q{margin:4px 0 12px;font:450 clamp(19px,1.7vw,22px)/1.35 var(--serif);letter-spacing:-.015em;color:var(--ink)}
-.pg-label{margin-right:10px;font-size:10px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.pg-a{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px;margin:0;font-size:16px;font-weight:600;color:var(--tone)}
-.pg-a svg{align-self:center}
-.pg-a .pg-label{color:var(--tone)}
-.pg-others{margin:8px 0 0;font-size:14px;line-height:1.6;color:var(--muted)}
+/* The choices lettered and revealed as on the questions page (questions-page.css .qp-q-options), the right one green (owner, 2026-10-25). */
+.pg-choices{display:flex;flex-wrap:wrap;gap:6px 18px;list-style:none;margin:0;padding:0}
+.pg-choices>li{display:flex;align-items:center;gap:8px;padding:3px 0;font-size:14px;color:var(--ink)}
+.pg-letter{flex:none;display:grid;place-items:center;width:22px;height:22px;border:1px solid var(--line);border-radius:50%;font-size:10px;font-weight:600;color:var(--muted)}
+.pg-choices>.is-answer{color:var(--poetry);font-weight:600}
+.pg-choices>.is-answer .pg-letter{background:var(--poetry);border-color:var(--poetry);color:var(--page)}
+.pg-choices-one{display:flex;align-items:center;gap:8px;margin:0;font-size:14px;font-weight:600;color:var(--poetry)}
+.pg-full{margin:8px 0 0;padding-left:14px;border-left:1px solid var(--poetry);font-size:14px;line-height:1.7;color:var(--ink)}
+.pg-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .pg-verse{display:inline-flex;align-items:center;gap:7px;margin-top:12px;font-size:13px;font-weight:550;color:var(--muted);text-decoration:none}
 .pg-verse:hover{color:var(--tone)}
 

@@ -9,6 +9,7 @@ import { useId, useRef, type ComponentType } from "react";
 import { Link } from "react-router-dom";
 import { rightChoice } from "@/lib/data";
 import { QuizScene } from "../QuizScenes";
+import { LETTERS } from "../questions/model";
 import { verseOf } from "../questions/test/engine";
 import { nextLesson, passageLabel, readerUrl, toneStyle, type Lesson, type PartLessons } from "./data";
 import type { Progress } from "./progress";
@@ -142,14 +143,17 @@ function Sheet({ lesson, bookNames, progress, onOpen }: { lesson: Lesson; bookNa
     </header>
     <ol className="pg-questions">{lesson.questions.map((q, i) => {
       const answer = rightChoice(q);
-      const others = (q.options ?? []).filter((o) => o !== answer);
       const ref = verseOf(q);
+      // The four choices lettered as on the questions page with its answers shown, the right one in green (owner, 2026-10-25).
       return <li key={i}>
         <span className="pg-qn" aria-hidden>{i + 1}</span>
         <div>
           <p className="pg-q">{q.question}</p>
-          <p className="pg-a"><Check size={16} strokeWidth={2.4} aria-hidden /><span className="pg-label">Answer</span>{answer}</p>
-          {others.length > 0 && <p className="pg-others"><span className="pg-label">Other choices</span>{others.join(" · ")}</p>}
+          {q.options?.length ? <ol className="pg-choices">{q.options.map((option, n) => <li key={option} className={option === answer ? "is-answer" : undefined}>
+            <span className="pg-letter">{LETTERS[n]}</span><span>{option}</span>{option === answer && <span className="pg-sr">, the answer</span>}
+          </li>)}</ol>
+            : <p className="pg-choices-one"><Check size={16} strokeWidth={2.4} aria-hidden />{answer}</p>}
+          {q.options?.length && answer !== q.answer ? <p className="pg-full">{q.answer}</p> : null}
           {ref && <Link className="pg-verse" to={readerUrl(ref.book, ref.chapter, ref.verse)}><BookOpen size={14} strokeWidth={1.6} aria-hidden />
             {bookNames[ref.book] ?? ref.book} {ref.chapter}{ref.verse ? `:${ref.verse}` : ""}</Link>}
         </div>
