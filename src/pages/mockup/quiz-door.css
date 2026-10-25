@@ -11,8 +11,11 @@
 .study-experience .quiz-mark{fill:currentColor;font:400 46px var(--serif)}
 .study-experience .quiz-q{fill:currentColor;font:italic 400 15px var(--serif)}
 .study-experience .quiz-tile-mark{fill:currentColor;font:400 17px var(--serif)}
-.study-experience .quiz-cards{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.study-experience .quiz-feature:hover .quiz-cards{transform:translateY(-4px) rotate(-1deg);transform-origin:294px 122px}
+/* The turning point stays put on and off hover (set only on hover, it snapped back on leaving: the jolt). On hover the
+   drawing lifts and leans toward the pointer, its side rising: --quiz-lean, -1 at the drawing's left edge to 1 at the right,
+   is set by QuizDoor.tsx; up to 1.5deg either way. */
+.study-experience .quiz-cards{transform-origin:294px 122px;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.study-experience .quiz-feature .quiz-art:hover .quiz-cards{transform:translateY(-4px) rotate(calc(var(--quiz-lean,0) * -1.5deg))}
 /* The two doors at the top get the same square corners as the Writers of Scripture and Scholars cards and the Atlas
    (owner, 2026-10-24); this copy of the page only. */
 .study-experience.study-mockup .study-door{border-radius:4px}
@@ -90,3 +93,6 @@
 .study-experience .quiz-feature .quiz-readers>li{grid-template-columns:28px minmax(0,1fr);align-items:center}
 .study-experience .quiz-feature .quiz-readers svg{margin-top:0}
 .study-experience .quiz-feature .quiz-readers strong b{font:inherit;color:var(--tone);text-align:left}
+/* Only the drawing's own box answers the pointer (owner, 2026-10-24): it sits above the card's whole-card link layer
+   and is itself a link to the questions, so a click on it still goes there. */
+.study-experience .quiz-feature .quiz-art{display:block;position:relative;z-index:2}
