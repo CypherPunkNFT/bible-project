@@ -65,6 +65,62 @@ Each policy record includes existing work/edition IDs, allowed sections, role, t
 
 Apply eligibility **before candidate retrieval, context expansion, graph traversal and caching**. Post-filtering alone can lose permitted results or expose private snippets. Prevent restricted neighboring sections and graph nodes from entering results. Preserve all holdings unchanged.
 
+## Prepared question directory and conversation branches
+
+**Additional owner direction, 25 October:** prepare the substantive answers ahead of time, especially in apologetics; connect questions and topics so an inexpensive model can navigate them. For example, a question about God's existence may lead into doubts associated with suffering or injustice. Include inexpensive speech-to-text as a possible input method.
+
+This prepared question graph is part of the initial design. It differs from the optional corpus-derived evidence graph: the first maps reviewed questions, answers and conversational next steps; the second describes supported relationships among sources. The question graph does not require broad corpus mining.
+
+The repository already has an authoring foundation in [the apologetics handbook](../../content/apologetics/README.md): structured studies, topics, sources, paths and practice conversations with stable block IDs, citations and review fingerprints. Extend those owners and their schema/compiler where appropriate; do not create another independent collection of doctrinal answers or generate edits directly into React components.
+
+### Logical records and a small starting map
+
+| Record | Contents |
+| --- | --- |
+| Question | Stable ID, canonical wording, paraphrases, topic IDs, question type, ambiguity/clarification hints, language |
+| Answer binding | Existing study/block IDs, concise answer variant, expanded answer blocks, Scripture, source citations, qualifications and actual review state |
+| Conversation edge | From/to question IDs, typed relationship, suggested prompt, reason, optional user-intent condition and review/version |
+| Release | Included IDs, source-policy version, content/review dependency hashes, search index, adjacency data and public eligibility |
+| Match result | Question IDs, retrieval scores, matched wording, confidence basis and unresolved ambiguity |
+
+A proposed pilot map, not approved theological content:
+
+- **Does God exist?** → reasons for belief; what counts as evidence; whether the real concern is intellectual, personal or both.
+- **Why would a good God allow suffering?** → moral versus natural suffering; freedom and responsibility; biblical lament; the cross; limits of a particular explanation.
+- **Why is there injustice?** → moral obligation; human wrongdoing; judgment and hope; practical care for a person harmed.
+- **Can I trust the Bible?** → manuscripts; canon; apparent contradictions; how to read a passage in context.
+- **Who is Jesus?** → historical claims; resurrection; his identity; the significance of the gospel.
+
+Use distinct edge types such as `clarifies`, `related_concern`, `objection_to`, `response_to`, `biblical_context` and `next_study`. Cycles are allowed but traversal has a depth/visit cap. An edge from existence to suffering means a potentially relevant conversational connection, not that every doubter has that motive or that the philosophical questions are identical. Ask an optional short clarification when the distinction materially changes the answer. Never force a bereaved person into a debate path.
+
+### Offline preparation, then a cheap live navigator
+
+1. Inventory existing published questions/answers, identify coverage gaps and preserve existing IDs. Start with approximately 30 canonical questions across five topic families; use aliases for wording variations instead of multiplying near-duplicate answers.
+2. Prepare citation-backed answers using approved Bible passages and selected works. Haiku can draft variants, propose edges and flag gaps in bounded offline batches; all outputs remain drafts until their applicable content/source reviews pass. Record model/prompt versions and meter preparation separately.
+3. Attach short and expanded variants to existing source blocks. Validate quotations, source roles and Scripture endpoints. Do not have the model invent missing doctrinal source support.
+4. Compile a public, immutable release of approved question records, answer bindings and typed adjacency. Export only approved content; use the existing content compiler and public-export conventions. Rebuild affected nodes when source or answer fingerprints change.
+5. At runtime, match the question through lexical aliases and optional measured semantic matching, fetch the best answer packet and only its directly relevant neighbors. Send that compact packet to Haiku once to adapt wording and follow-up context.
+6. Preserve citations and qualifications in adapted answers. If the question is a close canonical match, offer the prepared answer directly with **zero generation calls**. If evidence is insufficient or the question is new, explain the gap, offer relevant prepared paths or use bounded approved-source retrieval. Do not turn a weak match into a confident answer.
+
+Expose a small read-only API such as `find_questions(text, limit)`, `get_answer_packet(question_id, release)` and `get_related_questions(question_id, relation_types, limit)`. Internally, retrieval resolves these before the default single model call. Cap related nodes at five and default traversal at one hop; exclude already-visited suggestions unless the user asks to revisit. A “go deeper” mode may crawl at most two hops under the same source and cost controls.
+
+Carry only the current question IDs, visited branches, selected passages and a bounded recent dialogue. Show two or three optional follow-up questions, not a mandatory funnel. Display the source answer and evidence separately from conversational adaptation. Provide a visible route back to ordinary Bible reading.
+
+Evaluate paraphrase matching, wrong-branch selection, follow-up continuity, unsupported answer blending, prompt injection and emotionally inappropriate branches. Frozen canonical questions should receive their intended packet; ambiguous cases must clarify or expose alternatives. Prepared content reduces live work but cannot guarantee the adapter will never hallucinate. Include held-out free-form prompts and human review of adapted answers.
+
+### Speech input without Claude audio expenditure
+
+Treat speech recognition as an independent adapter: microphone → transcription → editable text → the same question matcher and Haiku text endpoint. The Claude request contains text; no Claude audio service is part of this proposal. Start with push-to-talk, visible recording state, transcript correction and immediate microphone release on stop. Text input always works.
+
+Compare three options during implementation:
+
+- Browser-provided speech recognition where supported. This may avoid a separate site-paid transcription API, but support, processing location and service terms vary. Do not describe it as universally free, offline or private.
+- On-device transcription where a measured model download, mobile CPU/memory and accuracy are acceptable. No per-minute hosted recognition bill, but device cost and startup delay can be significant.
+- An opt-in inexpensive hosted recognizer for unsupported devices, with a separate per-minute price table and hard budget. Claude credits do not fund this service.
+
+Do not select a paid provider or claim a current speech price without a provider comparison. Pilot accents, biblical names, punctuation and poor microphones. Limit clip length, cancel unused uploads and avoid retaining raw audio by default. Corrected transcripts are the submitted question. Speech output is optional later work: browser text-to-speech could be evaluated, but is not required for conversational text or voice input.
+
+
 ## Runtime architecture
 
 ```mermaid
