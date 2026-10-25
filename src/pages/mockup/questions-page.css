@@ -50,6 +50,8 @@
 /* Brought into view, 03's line hides behind the site's header and its heading sits just under it; the rail and the list
    then end at the foot of the screen (owner, 2026-10-23: "what's the point of a scroll if it's not contained"). */
 .qp-explore{scroll-margin-top:32px}
+/* No line between 02 and 03 (owner, 2026-10-24). */
+.qp-section.qp-explore{border-top:0}
 .qp-section-head{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;margin-bottom:30px}
 .qp-section-n{font:400 46px/1 var(--serif);color:var(--accent);opacity:.75;letter-spacing:-.04em}
 .qp-section-head h2{font:450 clamp(28px,2.8vw,38px)/1.2 var(--serif);letter-spacing:-.035em}
@@ -86,10 +88,10 @@
 /* 02 Rail */
 .qp-explore-grid{display:grid;grid-template-columns:270px minmax(0,1fr);gap:40px;align-items:start}
 .qp-rail{position:sticky;top:84px;display:flex;flex-direction:column;gap:24px}
-/* Each rail category is a gold tab that folds its group (owner, 2026-10-24); a tinted gold, so it never reads as a chosen row (solid gold). */
+/* Each rail category is a solid gold tab that folds its group, its corners those of 02's theme box as they read (owner, 2026-10-24). */
 .qp-rail-group h3{margin-bottom:6px}
-.qp .qp-rail-tab{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;height:32px;padding:0 10px 0 12px;border-radius:6px;border:1px solid color-mix(in srgb,var(--accent) 60%,var(--line));background:color-mix(in srgb,var(--accent) 22%,var(--surface));color:var(--accent);font-size:10px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;outline:0;transition:background .2s,border-color .2s}
-.qp .qp-rail-tab:hover{background:color-mix(in srgb,var(--accent) 32%,var(--surface));border-color:var(--accent)}
+.qp .qp-rail-tab{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;height:32px;padding:0 10px 0 12px;border-radius:3px;border:0;background:var(--accent);color:var(--page);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;outline:0;transition:background .2s}
+.qp .qp-rail-tab:hover{background:color-mix(in srgb,var(--accent) 86%,var(--ink))}
 .qp-rail-tab svg{flex:none;transition:transform .25s}
 .qp-rail-group:not(.is-open) .qp-rail-tab svg{transform:rotate(-90deg)}
 .qp-rail-body{animation:qx-open .25s ease-out}
