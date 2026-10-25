@@ -8,6 +8,14 @@ echo Getting the latest work from GitHub...
 git pull
 if errorlevel 1 echo Could not get the latest from GitHub. Showing the copy already on this PC.
 
+rem Already running (8930 is the dev port in vite.config.ts): show it instead of starting a second copy.
+netstat -ano | findstr /c:"127.0.0.1:8930 " | findstr LISTENING >nul && (
+  echo.
+  echo The site is already running. Opening it in the browser.
+  start "" http://127.0.0.1:8930/
+  exit /b 0
+)
+
 echo.
 echo Checking the site's building blocks...
 call bun install
