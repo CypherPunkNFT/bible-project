@@ -24,6 +24,15 @@ h1 em{color:var(--accent);font-weight:400}
 .idea p{margin:0;font-size:13px;line-height:1.65;color:var(--muted)}
 .idea code{font:11px var(--mono);color:var(--tone)}
 
+/* The reference drawings (references.js): each in its own shadow root, three to a row */
+.jump{display:flex;flex-wrap:wrap;gap:10px;margin:-14px 0 30px}.jump a{padding:7px 12px;border:1px solid var(--line);border-radius:3px;color:var(--muted);font-size:11px}.jump a:hover{color:var(--accent);border-color:var(--accent)}
+.row-label{display:flex;gap:18px;align-items:center;margin:40px 0 6px;color:var(--muted);font:10px/1.5 var(--mono);letter-spacing:.13em;text-transform:uppercase}.row-label:after{content:'';height:1px;background:var(--line);flex:1}
+.ref-line{margin:0 0 18px;color:var(--muted);font-size:13px}
+.ref-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 26px;align-items:start}
+.ref{min-width:0}.ref-error{color:var(--history)}
+section[id]{scroll-margin-top:90px}
+@media(max-width:1000px){.ref-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.ref-grid{grid-template-columns:1fr}}
+
 /* The drawing: lines only, paper-filled shapes, fine detail, one gold accent; slow motion that never stops */
 .ap-art{--land:#776d56;--leaf:#778167;--gold:#ab7035;--flower:#9e654d;--water:#6f8693;fill:none;stroke:var(--land);stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round}
 :root[data-theme=dark] .ap-art{--land:#bcb29d;--leaf:#a5b394;--gold:#e4b268;--flower:#dba584;--water:#9db4c0}
