@@ -1,12 +1,18 @@
-/* MOCK-UP: the study hub's 03 door (QuizDoor.tsx). Card, type and arrow come from hub.css; this file only lays it out wide. */
-.study-experience .quiz-door-section{padding:24px 0 22px}
-.study-experience .study-door.quiz-door{--tone:var(--gospels)}
-.study-experience .quiz-door-body{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;flex:1}
-.study-experience .quiz-door .quiz-art{margin:8px -10px}
-.study-experience .quiz-door-words{display:flex;flex-direction:column;min-width:0}
-.study-experience .quiz-door .door-copy{padding-top:6px}
+/* MOCK-UP: the study hub's 03 section (QuizDoor.tsx). Heading, card, type and link come from hub.css (section-heading,
+   people-feature); this file only lays the card out wide and draws in gold. */
+.study-experience .quiz-feature{--art-ground:color-mix(in srgb,var(--tone) 3%,var(--surface))}
+.study-experience .quiz-feature-body{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.study-experience .quiz-feature-words{min-width:0}
+.study-experience .quiz-feature-words>p{color:var(--muted);font-size:12px;line-height:1.85;max-width:480px}
+.study-experience .quiz-feature .feature-kicker,.study-experience .quiz-feature-words>h3,.study-experience .quiz-feature-words>p{position:relative;z-index:1;pointer-events:none}
+.study-experience .quiz-art{height:250px;margin:8px -10px 14px;color:var(--tone)}
+.study-experience .quiz-art svg{width:100%;height:100%;overflow:visible}
+.study-experience .quiz-feature .door-subjects{margin:0}
 .study-experience .quiz-mark{fill:currentColor;font:400 46px var(--serif)}
 .study-experience .quiz-cards{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.study-experience .quiz-door:hover .quiz-cards{transform:translateY(-4px) rotate(-1deg);transform-origin:294px 122px}
-@media(max-width:820px){.study-experience .quiz-door-body{grid-template-columns:1fr;gap:0}}
+.study-experience .quiz-feature:hover .quiz-cards{transform:translateY(-4px) rotate(-1deg);transform-origin:294px 122px}
+/* The two doors at the top get the same square corners as the Writers of Scripture and Scholars cards and the Atlas
+   (owner, 2026-10-24); this copy of the page only. */
+.study-experience.study-mockup .study-door{border-radius:4px}
+@media(max-width:820px){.study-experience .quiz-feature-body{grid-template-columns:1fr;gap:0}.study-experience .quiz-art{height:200px}}
 @media(prefers-reduced-motion:reduce){.study-experience .quiz-cards{transition:none}}

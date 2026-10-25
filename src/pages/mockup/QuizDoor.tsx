@@ -1,22 +1,28 @@
-// MOCK-UP: the study hub's third door, "03 / Test what you know", leading to the questions page (/study/questions).
-// It takes the place of the hub's closing "Begin with a question" section in StudyHubMockup.tsx. Drawn in the same
-// family as doors 01 and 02 (hub.css), laid out wide: the drawing on the left, the words on the right.
+// MOCK-UP: the study hub's third section, "03 / Test what you know", leading to the questions page (/study/questions).
+// It takes the place of the hub's closing "Begin with a question" section in StudyHubMockup.tsx. Built like sections
+// 01 and 02 (owner, 2026-10-24: "a section just like 01 and 02, white and yellow … the same format as all the rest"):
+// the same heading, then one card made like the Writers of Scripture card (hub.css's people-feature), laid out wide
+// with the words on the left and the drawing on the right.
 import { Icon, StudyLink } from "@/pages/study/hub/shared";
 import "./quiz-door.css";
 
 export function QuizDoor() {
-  return <section className="quiz-door-section" aria-label="Questions">
-    <StudyLink className="study-door quiz-door" to="/study/questions" aria-labelledby="quiz-title">
-      <div className="door-top"><span>03 / Test what you know</span><Icon name="search"/></div>
-      <div className="quiz-door-body">
-        <div className="door-art quiz-art" aria-hidden="true"><QuizArt /></div>
-        <div className="quiz-door-words">
-          <div className="door-copy"><p className="door-question">How well do you know the Bible?</p><h2 id="quiz-title">Questions <span>&amp; Answers</span></h2><p>Thousands of questions asked in Sunday schools, catechism classes and Bible quizzes, each with its answer and the passage behind it.</p></div>
-          <ul className="door-subjects"><li>Bible quizzes</li><li>Sunday school lessons</li><li>Catechisms</li></ul>
-          <div className="door-action"><span>Explore the questions</span><span className="door-arrow"><Icon name="arrow"/></span></div>
+  return <section className="hub-section quiz-section" id="questions" aria-labelledby="questions-title">
+    <div className="section-heading"><div><p className="eyebrow">03 / Test what you know</p><h2 id="questions-title">How well do you<br /><em>know the Bible?</em></h2></div><p>Ask a question, find its answer, then remember the passage behind it.</p></div>
+    <article className="people-feature quiz-feature">
+      <div className="feature-kicker"><span>Questions &amp; answers</span><span>Ask → Answer → Remember</span></div>
+      <div className="quiz-feature-body">
+        <div className="quiz-feature-words">
+          <h3>Questions &amp; Answers</h3>
+          <p>Thousands of questions asked in Sunday schools, catechism classes and Bible quizzes, each with its answer and the passage behind it.</p>
         </div>
+        <div className="quiz-art" aria-hidden="true"><QuizArt /></div>
       </div>
-    </StudyLink>
+      <div className="people-footer">
+        <ul className="door-subjects"><li>Bible quizzes</li><li>Sunday school lessons</li><li>Catechisms</li></ul>
+        <StudyLink className="feature-link" to="/study/questions"><span>Explore the questions</span><span className="door-arrow"><Icon name="arrow"/></span></StudyLink>
+      </div>
+    </article>
   </section>;
 }
 

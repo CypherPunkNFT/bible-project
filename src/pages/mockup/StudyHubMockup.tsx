@@ -1,6 +1,7 @@
 // MOCK-UP COPY of study/hub/StudyHub.tsx, opened at /study_mockup on this computer's preview only (see mockup-routes.tsx);
 // never on the live site. Differs from StudyHub.tsx: the closing "Begin with a question" section (with its "Explore the
-// surviving texts" link) is replaced by the 03 door into the questions (QuizDoor.tsx).
+// surviving texts" link) is replaced by the 03 section into the questions (QuizDoor.tsx), and the two doors at the top
+// have square corners like the cards below them (quiz-door.css).
 import { lazy, Suspense } from "react";
 import { Icon, StudyLink } from "@/pages/study/hub/shared";
 import { HubSearch } from "@/pages/study/hub/HubSearch";
@@ -9,7 +10,7 @@ import "@/pages/study/hub/hub.css";
 import { QuizDoor } from "./QuizDoor";
 const AtlasWindow = lazy(() => import("@/pages/study/hub/AtlasWindow"));
 export default function StudyHubMockup() {
-    return <div className="study-experience">
+    return <div className="study-experience study-mockup">
   <div className="hub">
     <header className="hub-intro">
       <div className="intro-copy">
