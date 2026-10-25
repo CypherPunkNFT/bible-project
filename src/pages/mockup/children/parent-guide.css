@@ -1,7 +1,8 @@
 /* The course for parents and teachers (ParentGuide.tsx), at the foot of the children's page. Lines rather than boxes:
    the list down the side, the chosen lesson as one sheet of paper; the part's colour (--tone) marks the chosen lesson,
    the numbers and the answers. No focus rings: the chosen lesson shows by its own bar. */
-.pg{padding-top:56px;border-top:1px solid var(--line)}
+/* .ck-wrap's own padding (children.css, loaded later) used to wipe out this top space; the doubled class keeps it */
+.ck-wrap.pg{padding-top:88px;border-top:1px solid var(--line)}
 .ck-wrap:has(+ .pg){padding-bottom:56px}
 .pg:not(:has(.pg-grid)){padding-bottom:72px}
 .pg-head:last-child{margin-bottom:0}
@@ -57,7 +58,7 @@
 .pg-steps .pg-next{text-align:right}
 
 @media (max-width:900px){
-  .pg{padding-top:52px}
+  .ck-wrap.pg{padding-top:64px}
   .pg-grid{grid-template-columns:minmax(0,1fr);border-top:0}
   .pg-rail{display:none}
   .pg-select{display:grid;gap:6px;margin-bottom:8px}
