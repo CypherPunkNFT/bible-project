@@ -156,6 +156,9 @@
 .ck-node-icon{transition:transform .2s,box-shadow .2s}
 .ck-path button:hover .ck-node-icon,.ck-node-icon[data-zoomed]{transform:scale(1.08);box-shadow:0 0 0 6px color-mix(in srgb,var(--tone) 16%,transparent),0 0 32px color-mix(in srgb,var(--tone) 45%,transparent)}
 .ck-path button[data-done] .ck-node-icon{background:var(--surface);color:var(--tone)}
+/* Start the quiz lights the lesson's circle for two seconds, the same grow and glow as a hover (MixedView.tsx) */
+.ck-node-icon[data-flash]{animation:ck-flash 2s ease-in-out}
+@keyframes ck-flash{0%,100%{transform:none;box-shadow:none}15%,80%{transform:scale(1.08);box-shadow:0 0 0 6px color-mix(in srgb,var(--tone) 16%,transparent),0 0 32px color-mix(in srgb,var(--tone) 45%,transparent)}}
 .ck-node-n{position:absolute;top:-4px;left:-20px;font:500 14px/1 var(--serif);color:var(--tone)}
 .ck-node-check{position:absolute;right:-6px;bottom:-2px;padding:2px;border-radius:50%;background:var(--tone);color:var(--page)}
 /* The zoom (LessonStage.tsx): only --ck-zoom is animated, so the page is drawn anew at each size and stays sharp */

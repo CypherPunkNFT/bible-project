@@ -2,8 +2,9 @@
 // the parts of the Bible as A's row of drawings, then C's big lesson card for the chosen lesson, then the chosen part's
 // lessons on A's path. Choosing a part puts its next lesson in the card; choosing a lesson on the path puts that one in.
 // The parts row sits directly on the card, with no gap (owner, 2026-10-24: "connect them"); beside Start, an outline
-// button opens every question with its answer in the course below. Start the quiz goes down to the path and zooms into
-// the lesson's circle, and so does choosing a circle: the quiz then fills the screen (LessonStage.tsx; owner, 2026-10-24).
+// button opens every question with its answer in the course below. Start the quiz only goes down to the path and lights
+// the lesson's circle for two seconds, as a hover would; it opens nothing (owner, 2026-10-24). Choosing a circle zooms
+// into it and the quiz then fills the screen (LessonStage.tsx; owner, 2026-10-24).
 // The path's section is a screen tall, so the course below stays out of sight; a small See all questions at its foot
 // goes down to it.
 import { ArrowDown } from "lucide-react";
@@ -48,6 +49,15 @@ export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFin
     if (pathSection.current) await bringToTop(pathSection.current);
     setPlaying(lesson);
   };
+  const showOnPath = async (lesson: Lesson) => {
+    if (pathSection.current) await bringToTop(pathSection.current);
+    const circle = circleOf(lesson.id);
+    if (!circle) return;
+    circle.removeAttribute("data-flash");
+    void circle.offsetWidth; // restarts the light if pressed again while it is on
+    circle.setAttribute("data-flash", "");
+    circle.addEventListener("animationend", () => circle.removeAttribute("data-flash"), { once: true });
+  };
   const choosePart = (id: string) => {
     const g = groups.find((x) => x.part.id === id);
     if (g) setChosenId(firstToDo(g.lessons, progress).id);
@@ -64,7 +74,7 @@ export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFin
         <h2 id="ck-mix-title">{chosen.title}</h2>
         <p>{chosen.passage ? <>Read <b>{passageLabel(chosen.passage, bookNames)}</b> together, then </> : "Learn together, then "}answer {chosen.questions.length} questions.
           {progress[chosen.id] && ` Last time: ${progress[chosen.id].right} of ${progress[chosen.id].total} right.`}</p>
-        <button type="button" className="ck-go" onClick={() => void play(chosen)}>{progress[chosen.id] ? "Start the quiz again" : "Start the quiz"}<ArrowDown size={18} aria-hidden /></button>
+        <button type="button" className="ck-go" onClick={() => void showOnPath(chosen)}>{progress[chosen.id] ? "Start the quiz again" : "Start the quiz"}<ArrowDown size={18} aria-hidden /></button>
         <button type="button" className="ck-go ck-go-outline" onClick={() => onGuide(chosen)}>See all the questions</button>
         {after.length > 0 && <p className="ck-after">After that: {after.map((l, i) => <span key={l.id}>{i > 0 && " · "}<button type="button" onClick={() => setChosenId(l.id)}>{l.title}</button></span>)}</p>}
       </div>
