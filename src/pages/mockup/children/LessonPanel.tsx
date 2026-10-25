@@ -11,7 +11,7 @@ import { rightChoice } from "@/lib/data";
 import { QuizScene } from "../QuizScenes";
 import { verseOf } from "../questions/test/engine";
 import { passageLabel, readerUrl, type Lesson } from "./data";
-import { lessonIcon } from "./icons";
+import { LessonArt } from "./lesson-art";
 
 interface Props { lesson: Lesson; bookNames: Record<string, string>; next: Lesson | null; onClose: () => void; onOpen: (lesson: Lesson) => void; onFinish: (right: number, total: number) => void; stage?: boolean }
 
@@ -68,10 +68,9 @@ export function LessonPanel({ lesson, bookNames, next, onClose, onOpen, onFinish
   </aside>;
 }
 
-/** The lesson's icon beside its title on the whole-screen quiz, where the icon flying out of the circle lands. */
+/** The lesson's drawing beside its title on the whole-screen quiz, where the drawing flying out of the circle lands. */
 function StageIcon({ lesson }: { lesson: Lesson }) {
-  const Icon = lessonIcon(lesson);
-  return <Icon className="ck-stage-icon" strokeWidth={1.6} aria-hidden />;
+  return <LessonArt lesson={lesson} className="ck-stage-icon" />;
 }
 
 function Start({ lesson, bookNames, onBegin }: { lesson: Lesson; bookNames: Record<string, string>; onBegin: () => void }) {

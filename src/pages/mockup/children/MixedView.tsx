@@ -84,7 +84,7 @@ export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFin
       <h2 id="ck-mix-path-title">All {group.lessons.length} lessons in {group.part.title}</h2>
       <p>{group.part.line}. Choose one to start its quiz.</p>
       <div className="ck-mix-path-body">
-        <Path lessons={group.lessons} progress={progress} next={next} openId={chosen.id} onOpen={(l) => void play(l)} icons />
+        <Path lessons={group.lessons} progress={progress} next={next} openId={chosen.id} onOpen={(l) => void play(l)} art />
       </div>
       <button type="button" className="ck-mix-all" onClick={() => onGuide(chosen)}>See all questions<ArrowDown size={14} aria-hidden /></button>
     </section>

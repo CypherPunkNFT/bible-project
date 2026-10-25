@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { QuizScene } from "../QuizScenes";
 import { nextLesson, toneStyle, type Lesson, type PartLessons } from "./data";
-import { lessonIcon } from "./icons";
+import { LessonArt } from "./lesson-art";
 import type { Progress } from "./progress";
 
 export interface ViewProps { lessons: Lesson[]; groups: PartLessons[]; progress: Progress; openId: string | null; onOpen: (lesson: Lesson) => void }
@@ -25,8 +25,10 @@ export function Top({ lead, beside }: { lead?: string; beside?: boolean }) {
 const NARROW = "(max-width: 760px)";
 
 /** Six lessons to a row, three on a phone, where each row is taller for the narrower width (the path's units are
- * a thousandth of its width). */
-function usePerRow() {
+ * a thousandth of its width). With `art` (E) the circles are three times the size, so a row holds at most four, and
+ * never more than a third of the part's lessons, so the path always winds through at least two bends (owner,
+ * 2026-10-25); two to a row on a phone. */
+function usePerRow(count: number, art?: boolean) {
   const [narrow, setNarrow] = useState(() => window.matchMedia(NARROW).matches);
   useEffect(() => {
     const query = window.matchMedia(NARROW);
@@ -34,7 +36,8 @@ function usePerRow() {
     query.addEventListener("change", change);
     return () => query.removeEventListener("change", change);
   }, []);
-  return narrow ? { perRow: 3, row: 440, inset: 150 } : { perRow: 6, row: 170, inset: 80 };
+  if (art) return narrow ? { perRow: 2, row: 560, inset: 230, sway: 40 } : { perRow: Math.max(2, Math.min(4, Math.ceil(count / 3))), row: 250, inset: 120, sway: 30 };
+  return narrow ? { perRow: 3, row: 440, inset: 150, sway: 22 } : { perRow: 6, row: 170, inset: 80, sway: 22 };
 }
 
 /** The parts of the Bible as a row of drawings, the chosen one pressed. */
@@ -66,33 +69,32 @@ export function PathView({ lessons, groups, progress, openId, onOpen }: ViewProp
   </div>;
 }
 
-/** The lessons snaking left to right, then right to left, joined by one curving line. With `icons` (E) each circle holds
- * the lesson's icon and its number sits just outside it. */
-export function Path({ lessons, progress, next, openId, onOpen, icons }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void; icons?: boolean }) {
-  const { perRow, row: rowHeight, inset } = usePerRow();
+/** The lessons snaking left to right, then right to left, joined by one curving line. With `art` (E) each circle holds
+ * the lesson's line drawing and its number sits just outside it. */
+export function Path({ lessons, progress, next, openId, onOpen, art }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void; art?: boolean }) {
+  const { perRow, row: rowHeight, inset, sway } = usePerRow(lessons.length, art);
   const rows = Math.ceil(lessons.length / perRow);
   const height = rows * rowHeight;
   const points = lessons.map((_, i) => {
     const row = Math.floor(i / perRow), col = i % perRow;
     const x = inset + (row % 2 ? perRow - 1 - col : col) * ((1000 - 2 * inset) / (perRow - 1));
-    return { x, y: rowHeight / 2 + row * rowHeight + (col % 2 ? 22 : -22) };
+    return { x, y: rowHeight / 2 + row * rowHeight + (col % 2 ? sway : -sway) };
   });
   const d = points.map((p, i) => {
     if (!i) return `M${p.x} ${p.y}`;
     const a = points[i - 1];
     const turn = Math.floor(i / perRow) !== Math.floor((i - 1) / perRow);
-    const out = a.x > 500 ? 70 : -70;
+    const out = (a.x > 500 ? 1 : -1) * (art ? inset * 0.8 : 70);
     return turn ? `C${a.x + out} ${a.y} ${p.x + out} ${p.y} ${p.x} ${p.y}` : `C${(a.x + p.x) / 2} ${a.y} ${(a.x + p.x) / 2} ${p.y} ${p.x} ${p.y}`;
   }).join(" ");
-  return <div className="ck-path" style={{ aspectRatio: `1000 / ${height}` }}>
+  return <div className={art ? "ck-path ck-path-art" : "ck-path"} style={{ aspectRatio: `1000 / ${height}` }}>
     <svg viewBox={`0 0 1000 ${height}`} preserveAspectRatio="none" aria-hidden="true"><path d={d} /></svg>
     <ol>{lessons.map((lesson, i) => {
       const done = progress[lesson.id];
-      const Icon = lessonIcon(lesson);
       return <li key={lesson.id} style={{ left: `${points[i].x / 10}%`, top: `${(points[i].y / height) * 100}%` }}>
         <button type="button" data-lesson={lesson.id} data-done={done ? "" : undefined} data-next={lesson.id === next.id ? "" : undefined} aria-pressed={lesson.id === openId}
           onClick={() => onOpen(lesson)} aria-label={`Lesson ${lesson.n}: ${lesson.title}${done ? `, ${done.right} of ${done.total} right` : ""}`}>
-          {icons ? <span className="ck-node-wrap"><span className="ck-node ck-node-icon"><Icon size={24} strokeWidth={1.6} aria-hidden /></span><span className="ck-node-n" aria-hidden>{lesson.n}</span>{done && <Check className="ck-node-check" size={14} strokeWidth={2.6} aria-hidden />}</span>
+          {art ? <span className="ck-node-wrap"><span className="ck-node ck-node-icon"><LessonArt lesson={lesson} /></span><span className="ck-node-n" aria-hidden>{lesson.n}</span>{done && <Check className="ck-node-check" size={20} strokeWidth={2.6} aria-hidden />}</span>
             : <span className="ck-node">{done ? <Check size={20} strokeWidth={2.2} aria-hidden /> : lesson.n}</span>}
           <span className="ck-node-title">{lesson.title}</span>
         </button>
