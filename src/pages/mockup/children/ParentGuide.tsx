@@ -13,6 +13,7 @@ import { verseOf } from "../questions/test/engine";
 import { nextLesson, passageLabel, readerUrl, toneStyle, type Lesson, type PartLessons } from "./data";
 import type { Progress } from "./progress";
 import "./parent-guide.css";
+import "./course-heads.css";
 
 /** What a version of the section's top is given (the page's own below; the mock-up's four, CourseHeads.tsx). */
 export interface CourseHeadProps {
@@ -28,9 +29,33 @@ interface Props {
   Head?: ComponentType<CourseHeadProps>;
 }
 
-/** The top, "the course at a glance" (owner picked it from four, 2026-10-25): the title with the figures above the
- *  button beside it, then the eight parts as columns with their drawings, each opening the course at its first lesson. */
+/** The page's top, "contents beside it" (the owner's pick from four, 2026-10-25, the design captioned "Version 3" on the
+ *  versions page: "should be number 3. You put in number 4"): the words and the button on the left, the eight parts as a
+ *  ruled list in their colours on the right, each opening the course at its first lesson. Styles: course-heads.css. */
 export function CourseHead({ lessons, groups, total, expanded, onExpand, onPick, titleId, courseId }: CourseHeadProps) {
+  return <header className="ch ch-contents">
+    <div className="ch-words">
+      <p className="ck-eyebrow">For parents and teachers</p>
+      <h2 id={titleId}>The whole course, <em>answers included</em></h2>
+      <p className="ck-lead">Look over a lesson before you sit down together: the passage to read first, every question,
+        the right answer and the other choices your child will see.</p>
+      {/* The course's figures under the words, above the button; each part's own under its name, in two columns (owner, 2026-10-25). */}
+      <p className="ch-total"><b>{lessons.length}</b> lessons<span aria-hidden>·</span><b>{total.toLocaleString()}</b> questions</p>
+      <button type="button" className="ch-open ch-open-solid" aria-expanded={expanded} aria-controls={courseId} onClick={() => onExpand(!expanded)}>
+        {expanded ? "Close the course" : "Open the whole course"}<ChevronDown size={18} strokeWidth={1.8} aria-hidden /></button>
+    </div>
+    <div className="ch-list">
+      <ol>{groups.map(({ part, lessons: ls }) => <li key={part.id} style={toneStyle(part.tone)}>
+        <button type="button" onClick={() => onPick(ls[0])}><i aria-hidden /><span className="ch-part"><strong>{part.title}</strong>
+          <small>{ls.length} lessons · {ls.reduce((n, l) => n + l.questions.length, 0)} questions</small></span><ArrowRight size={15} aria-hidden /></button>
+      </li>)}</ol>
+    </div>
+  </header>;
+}
+
+/** "The course at a glance", the page's top until 2026-10-25 and now one of the versions (CourseHeads.tsx): the title
+ *  with the figures above the button beside it, then the eight parts as columns with their drawings. */
+export function GlanceHead({ lessons, groups, total, expanded, onExpand, onPick, titleId, courseId }: CourseHeadProps) {
   return <header className="pg-head">
     <div className="pg-head-top">
       <div className="pg-head-words">
