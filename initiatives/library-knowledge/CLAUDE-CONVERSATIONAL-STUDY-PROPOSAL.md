@@ -4,6 +4,18 @@
 
 This document proposes a public consumer of the existing library-knowledge system. It does not authorize deployment, API expenditure, private-source publication, corpus repair, background jobs or graph mining. Implementation tasks should enter the existing [TODO](TODO.md) when selected, rather than form a competing execution backlog.
 
+## Owner priority: speed and cost
+
+**Confirmed 25 October 2026:** prioritize speed and cost. Default to one model call, lexical/reference retrieval, compact evidence and short answers. Evaluate Haiku 5.5 as the default generation candidate; model availability and supported exact ID must be verified at implementation. Human-reviewed citation/interpretation quality remains a launch condition. If the cheaper model fails that condition, narrow supported tasks or compare a qualified alternative within the same budget.
+
+Initial fast-mode envelope: at most 6,000 input tokens and 700 output tokens per turn; normally 3–5 evidence excerpts, with exact Bible context taking priority. Retrieve and resolve passages server-side before generation, with no model-based query planner or reranker. No automatic model escalation, graph traversal or extra agent loop in default mode. A user-selected “Go deeper” action can later use Sonnet with an explicit separate reservation and bounded context.
+
+At the checked Haiku 5.5 standard short-context rates ($0.10/million input, $0.50/million output), a ten-turn session totalling 60,000 input and 7,000 output tokens costs approximately **$0.0095** before retries, caching, hosting or other services. Thus 100 such sessions cost about **$0.95** in generation. This is a token-envelope calculation, not a measured quality or capacity promise. Keep the $200 budget as a ceiling, not a spending target.
+
+Proposed performance targets: warm retrieval p95 below 500 ms and first visible generated text p95 below 3 seconds; measure end-to-end on the hosted pilot, including cold starts and provider latency. Stream the short answer and offer source expansion separately. Cache shared passage evidence by edition, question scope, source-policy and release versions; never share private conversation context or personalized answers. Use deterministic verse lookup and existing summaries without a model call when the user requests only those resources. Assess prompt caching only when measured reuse offsets creation costs.
+
+The Sonnet scenarios below remain comparison estimates for optional deeper study. Fast mode supersedes the earlier Sonnet-first recommendation and multi-call allowances for the default experience.
+
 ## Product and editorial position
 
 Offer “Ask about this passage” from the Bible reader and existing chapter summaries, plus an optional standalone study conversation. Summaries are available for every Bible chapter; they are editorial aids, not Scripture or a substitute for retrieving the passage.
@@ -99,7 +111,7 @@ For graph-assisted retrieval, start with one hop and at most 20 additional candi
 
 ## Claude integration and answer contract
 
-Use the server-side Messages API with an explicitly configured supported model ID, token limit, timeout and streaming. Pin and evaluate model changes. Sonnet is the initial quality baseline; evaluate Haiku for simpler requests before routing public doctrinal answers to it.
+Use the server-side Messages API with an explicitly configured supported model ID, token limit, timeout and streaming. Pin and evaluate model changes. Haiku is the initial speed/cost candidate, subject to the same evaluation gates; Sonnet is a comparison baseline and optional deeper-study candidate.
 
 Supply a stable editorial instruction, selected passage/edition, bounded recent conversation, and separately delimited source blocks with opaque citation IDs. Source and user text are untrusted instructions: they cannot alter tool permissions, source policy or budgets.
 
