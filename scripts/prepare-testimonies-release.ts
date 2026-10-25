@@ -24,7 +24,9 @@ await cp("dist", site, { recursive: true });
 await preparePopulationHosting(path.join(site,'content/scholar-population'),{omitOriginals:true});
 console.log('Release build assets:',await pruneReleaseAssets(site));
 // dereference: follow links/junctions (a clean release worktree links data/ in), never ship a link.
-await cp("data", path.join(site, "data"), { recursive: true, dereference: true });
+// data/graph (scripts/build-graph.py) feeds only the local connections mock-up; it stays out until the owner approves it.
+const graphData = path.resolve("data", "graph");
+await cp("data", path.join(site, "data"), { recursive: true, dereference: true, filter: (source) => path.resolve(source) !== graphData });
 // One file per person would push the release past 20,000 files; the release copy gets packs instead.
 console.log("Person packs:", await packPersonFiles(site));
 // After the person packs, so the content stamp covers them. Only for a front end that reads the grouped layout.
