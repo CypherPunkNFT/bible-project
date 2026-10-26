@@ -6,6 +6,8 @@ const paths = [
   { title: "Follow your questions", links: [["Study collections", "/study"], ["People & places", "/study/atlas"], ["Faith & apologetics", "/apologetics"], ["Stories of faith", "/testimonies"]] },
 ];
 
+const legal = [["Privacy", "/privacy"], ["Support", "/support"], ["Contact", "/contact"]];
+
 export function SiteFooter() {
   return <footer className="relative isolate mt-10 overflow-hidden border-t border-line bg-surface" style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}>
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_left,rgba(202,161,82,0.10),transparent_60%)]" />
@@ -32,6 +34,10 @@ export function SiteFooter() {
         <div><h3 className="font-serif text-xl">Download the code.</h3><p className="mt-1 text-sm leading-relaxed text-muted">Open source on GitHub.</p></div>
         <ArrowUpRight className="h-4 w-4 text-accent transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" aria-hidden />
       </a>
+      </div>
+      <div className="flex flex-col gap-3 border-t border-line py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+        <p>Bible Guide is a program of Redeemer Forge, Inc.</p>
+        <nav aria-label="Site information" className="flex gap-6">{legal.map(([label, to]) => <Link key={to} to={to} className="py-1 transition-colors hover:text-ink">{label}</Link>)}</nav>
       </div>
     </div>
   </footer>;

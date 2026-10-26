@@ -99,7 +99,7 @@ export function TopicFamilyPage({ index }: { index: TopicIndex }) {
         <div>
           <p className="topics-kicker">{sectionOf(family.id)?.title ?? "Topics"} · {topicCount(family)} topics</p>
           <h1>{family.title}</h1>
-          <p>{family.description} {family.subcategories.length} groups; open one to see its topics.</p>
+          <p>{family.description} {family.subcategories.length} {family.subcategories.length === 1 ? "group" : "groups"}; open one to see its topics.</p>
         </div>
         <TopicsArtwork kind={family.id} words={familyWords(family, index)} />
       </header>
