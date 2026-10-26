@@ -161,9 +161,10 @@ export default function AudioBiblePage() {
   }
 
   function selectBook(next: number, autoplay = true) { loadPart(next, 0, 0, autoplay); }
+  // Starting playback opens the text beside it; moving on to the next recording by itself does not reopen a closed panel.
   function togglePlay() {
     if (!audio.current) return;
-    if (audio.current.paused) playAudio(); else audio.current.pause();
+    if (audio.current.paused) { setReading(true); playAudio(); } else audio.current.pause();
   }
 
   function advance(direction: 1 | -1, ended = false) {
@@ -250,7 +251,7 @@ export default function AudioBiblePage() {
         <div ref={trackList} className="asv-track-list" role="list" aria-label="Bible books">{visible.map(item => {
           const Icon = AUDIO_ICONS[item.category];
           const active = item.index === index;
-          return <div role="listitem" key={item.code}><button type="button" className={`asv-track${active ? ' is-current' : ''}`} style={{'--track-tone':`var(--${item.category})`} as CSSProperties} aria-label={`Play ${item.title}`} aria-current={active ? 'true' : undefined} onClick={() => active ? togglePlay() : selectBook(item.index)}><span className="asv-track-number">{String(item.index + 1).padStart(2,'0')}</span><span className="asv-track-art"><Icon size={21} strokeWidth={1.3}/></span><span className="asv-track-copy"><strong>{item.title}</strong><small>{AUDIO_CATEGORIES.find(category => category.id === item.category)?.fullLabel}</small></span><span className="asv-track-duration">{formatAudioTime(item.duration)}</span><span className="asv-track-action">{active && playing ? <Pause size={15} fill="currentColor"/> : <Play size={15}/>}</span></button></div>;
+          return <div role="listitem" key={item.code}><button type="button" className={`asv-track${active ? ' is-current' : ''}`} style={{'--track-tone':`var(--${item.category})`} as CSSProperties} aria-label={`Play ${item.title}`} aria-current={active ? 'true' : undefined} onClick={() => { if (active) togglePlay(); else { setReading(true); selectBook(item.index); } }}><span className="asv-track-number">{String(item.index + 1).padStart(2,'0')}</span><span className="asv-track-art"><Icon size={21} strokeWidth={1.3}/></span><span className="asv-track-copy"><strong>{item.title}</strong><small>{AUDIO_CATEGORIES.find(category => category.id === item.category)?.fullLabel}</small></span><span className="asv-track-duration">{formatAudioTime(item.duration)}</span><span className="asv-track-action">{active && playing ? <Pause size={15} fill="currentColor"/> : <Play size={15}/>}</span></button></div>;
         })}</div>
       </div></section>
     </div>
