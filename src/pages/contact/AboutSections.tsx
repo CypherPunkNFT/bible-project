@@ -5,8 +5,8 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-// Lucas's faith page is not live yet, so its link goes nowhere until it is filled in.
-const FAITH_PAGE_URL = "#";
+// The letter's two buttons: Redeemer Forge, Inc., which runs Bible Guide, and Lucas's own story at the root of the testimony tree.
+const REDEEMER_FORGE_URL = "https://redeemerforge.com";
 const FOUNDER = { name: "Lucas Campbell Saint Laurent", first: "Lucas", role: "Founder and sole developer", place: "Jacksonville, Florida" };
 
 const ART = {
@@ -103,8 +103,8 @@ export function FounderLetter() {
           </footer>
         </div>
         <div className="lt-links">
-          <Link to="/contact/other-work">See my other work<ArrowRight className="h-[15px] w-[15px]" aria-hidden /></Link>
-          <a href={FAITH_PAGE_URL}>Read about my faith<ArrowRight className="h-[15px] w-[15px]" aria-hidden /></a>
+          <a href={REDEEMER_FORGE_URL} target="_blank" rel="noopener">Visit Redeemer Forge<ArrowRight className="h-[15px] w-[15px]" aria-hidden /></a>
+          <Link to="/testimonies">Read about my faith<ArrowRight className="h-[15px] w-[15px]" aria-hidden /></Link>
         </div>
         <span className="lt-wax" aria-hidden="true">
           <svg viewBox="0 0 64 64"><path d="M32 4c6 2 9-1 14 3s3 8 7 12 1 9 3 14-2 8-4 13-7 5-11 9-9 1-14 3-8-2-13-4-5-7-9-11-1-9-3-14 2-8 4-13 7-5 11-9 9-1 15-3Z" /><path className="lt-wax-cross" d="M32 18V46M23 28H41" /></svg>
