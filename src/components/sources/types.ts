@@ -1,7 +1,10 @@
 export type SourceLink = { url: string; sourceId: string; name?: string; held?: boolean; format?: string; edition?: string; acquired?: string };
 /** A page of this site that cites the work (content/feature-citations.json). */
 export type CitedOn = { feature: string; page: string; address: string };
-export type SourceEntry = { id: string; title: string; author: string; categories: string[]; kind: string; status: string; role: string; held?: boolean; basis?: string; citedOn?: CitedOn[]; links: SourceLink[] };
+export type SourceAuthorMetadata = { id: string; name: string; traditions: string[]; era: string | null; born: number | null; died: number | null; approximate: boolean; dateStatus: string; dateBasis: string; sourceConflict: boolean; evidence: string[] };
+export type SourceMetadata = { authors: SourceAuthorMetadata[]; traditions: string[]; eras: string[]; basis: string; caution?: string };
+export type SourceFacetSnapshot = { schemaVersion: number; entriesSha256: string; populationBuiltAt: string; records: Record<string, SourceMetadata> };
+export type SourceEntry = { id: string; title: string; author: string; categories: string[]; kind: string; status: string; role: string; held?: boolean; basis?: string; citedOn?: CitedOn[]; links: SourceLink[]; metadata?: SourceMetadata };
 export interface CollectionCounts { records: number; authors: number }
 export type SourceProfile = {
   id: string; name: string; url?: string; category: "library" | "data" | "software";

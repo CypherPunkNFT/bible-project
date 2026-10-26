@@ -1,0 +1,314 @@
+{
+  "checkedAt": "2026-10-22T04:10:48.867Z",
+  "scope": "Local Sources dashboard; catalogue organization and read-only gap browsing",
+  "url": "http://127.0.0.1:8931/sources",
+  "delivered": [
+    "Seven dashboard views: overview, catalogue, collections, Bible editions, providers, review/gaps, credits",
+    "Existing dated public catalogue; lazy-loaded records; exact-title-first lexical search; pagination and combined collection/holdings/review filters",
+    "Explicit missing-attribution, missing-source-link and unassigned-collection filters; source/context quality remains unassessed where no record-level evidence is linked",
+    "Local-only navigation to existing guarded intake, analysis and candidate tools; no new APIs or private payload publication"
+  ],
+  "browserChecks": {
+    "attributionQueue": 701,
+    "hodgeHeldRecords": 2,
+    "hodgeExactTitlesFirst": true,
+    "pagination": true,
+    "providerSearch": "CCEL: 1 source",
+    "readLinks": 37,
+    "downloadControls": 37,
+    "credits": true,
+    "localDataHub": true,
+    "responsiveWidths": [
+      320,
+      390
+    ],
+    "horizontalDocumentOverflow": false,
+    "darkTheme": true
+  },
+  "validation": {
+    "focusedTests": 8,
+    "focusedTestsExit": 0,
+    "editorialSourcePolicyExit": 0,
+    "frontendBuildExit": 0,
+    "typecheck": {
+      "state": "complete",
+      "output": "src/pages/study/hub/StudyBranch.tsx(23,12): error TS6133: 'hover' is declared but its value is never read.\r\n",
+      "code": 2
+    }
+  },
+  "preservedByScope": [
+    "Homepage source section",
+    "Source originals and editions",
+    "Catalogue and reader indexes",
+    "Curation ledger and decisions",
+    "Corpus/vector/index stores and background owners",
+    "Scheduler and retry budgets"
+  ],
+  "limitations": [
+    "Public snapshot dates differ by dataset; no current-source audit or readiness claim",
+    "Review flags are metadata gaps, not corruption or truth verdicts",
+    "Record-level quality evidence and reversible use dispositions remain to be linked",
+    "No corpus job, mining, repair, approval, deletion, integration or deployment"
+  ],
+  "proof": ".local/sources-dashboard-20261022/dashboard.png",
+  "nextTask": "Bind the existing Hodge readiness evidence to exact catalogue work/edition/asset identities, preserving hashes and separate text, attribution, context, reader and use findings; explicitly report unmatched dependencies.",
+  "cardsRevision": {
+    "checkedAt": "2026-10-22T04:32:57.965Z",
+    "url": "http://127.0.0.1:8931/sources#bibliography",
+    "reference": "Scholars catalogue expanded facets and card grid",
+    "cardsPerPage": 24,
+    "wideScreenColumns": 4,
+    "dropdowns": 0,
+    "focusedTests": 10,
+    "testsExit": 0,
+    "buildExit": 0,
+    "typecheckExit": 2,
+    "typecheckMessage": "src/pages/study/hub/StudyBranch.tsx(23,12): error TS6133: 'hover' is declared but its value is never read.\r\n",
+    "checks": [
+      "Search and exact-title priority",
+      "Combined facets; 701 acquired attribution gaps",
+      "Contextual facet counts",
+      "Pagination 25–48 of 701",
+      "Two distinct Hodge records",
+      "1877 edition source links in modal",
+      "Escape and close restore card focus; body scrolling restored",
+      "No-result state and clear reset",
+      "320/390px no horizontal document overflow",
+      "Phone-width native modal"
+    ],
+    "proof": ".local/sources-dashboard-20261022/catalogue-cards.png"
+  },
+  "viewportRefinement": {
+    "checkedAt": "2026-10-22T04:43:52.310Z",
+    "filterTop": 80,
+    "cardRegionBottom": 900,
+    "viewportHeight": 900,
+    "fadePixels": 56,
+    "trailingPaddingPixels": 72,
+    "lastRowClearsFade": true,
+    "tallViewport": {
+      "height": 1100,
+      "stageHeight": 1020
+    },
+    "mobile": {
+      "viewportWidth": 390,
+      "documentWidth": 375
+    },
+    "proof": ".local/sources-dashboard-20261022/catalogue-viewport-fade.png",
+    "previewAsset": "VersionsPage-C3awhXYn.css"
+  },
+  "collapsibleFacets": {
+    "date": "2026-10-22",
+    "groups": [
+      "Collection",
+      "Tradition",
+      "Author era",
+      "Holdings",
+      "Source format",
+      "Source host",
+      "Use on this site",
+      "Review queue"
+    ],
+    "records": 16884,
+    "traditionCoverage": 930,
+    "eraCoverage": 945,
+    "metadataJoin": "Exact work/author IDs plus existing Scholars sourceCredits crosswalk",
+    "unknown": "Retained as Unrecorded / unresolved; overlapping author categories allowed",
+    "eraBasis": "Eligible recorded birth year: <500, 500–1499, 1500–1799, >=1800",
+    "dependencyBinding": "SHA-256 of source entries; population and work-input hashes recorded; mismatches disable author facets",
+    "validation": {
+      "focusedTests": 14,
+      "metadataBuilderTests": 1,
+      "frontendBuild": "passed; no prebuild or emptyOutDir",
+      "appTypecheck": "pre-existing StudyBranch.tsx unused hover only",
+      "browser": [
+        "Baptist + Catholic = 103",
+        "plus Modern = 86",
+        "PDF + archive.org = 50",
+        "native disclosure keyboard support",
+        "collapsed groups retain selections",
+        "390px no horizontal overflow",
+        "Aquinas caution and date basis retained"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "filterTop": 80,
+        "cardBottom": 900
+      },
+      "screenshot": ".local/sources-dashboard-20261022/catalogue-collapsible-facets.png"
+    },
+    "scope": "Local navigation and metadata projection only; no source originals, candidate states, corpus jobs or publication changed",
+    "next": "Existing bounded Hodge evidence-to-record binding"
+  },
+  "ownerCopyCleanup": {
+    "date": "2026-10-22",
+    "removed": [
+      "File acquisition is separate from text quality and permission to publish. Counts refer to records, not unique books.",
+      "Choose several traditions, eras, formats or hosts to include any of them. Different groups narrow the results together. Counts reflect the other active filters."
+    ]
+  },
+  "dashboardBoards": {
+    "date": "2026-10-22",
+    "views": [
+      "collections",
+      "repositories",
+      "quality"
+    ],
+    "credits": "unchanged",
+    "collections": {
+      "cards": 10,
+      "subjectCollections": 8,
+      "organizationViews": 2,
+      "search": true
+    },
+    "providers": {
+      "total": 61,
+      "library": 47,
+      "data": 9,
+      "software": 5,
+      "pageSize": 24,
+      "details": "Native modal with full recorded terms and credits"
+    },
+    "review": {
+      "queueCards": 3,
+      "preparationCards": 3,
+      "assessmentDimensions": 6,
+      "reports": 18,
+      "processing": "Dated receipts only; no new readiness claim"
+    },
+    "validation": {
+      "focusedTests": 14,
+      "editorialSourceCheck": "passed",
+      "build": "frontend-only passed",
+      "appTypecheck": "Only existing unused hover in StudyBranch.tsx:23",
+      "browser": [
+        "Theology opens 181 records",
+        "Attribution opens 701 acquired records",
+        "Provider page 2 shows records 25–47",
+        "Provider drawer preserves terms and Escape returns focus",
+        "Empty provider search resets",
+        "390px width: no page overflow in all three views"
+      ]
+    },
+    "proof": [
+      ".local/sources-dashboard-20261022/collections-cards.png",
+      ".local/sources-dashboard-20261022/providers-cards.png",
+      ".local/sources-dashboard-20261022/review-cards.png"
+    ],
+    "next": "Existing bounded Hodge evidence-to-record binding"
+  },
+  "illustratedShelves": {
+    "date": "2026-10-22T13:06:41.670Z",
+    "supersedes": "dashboardBoards.collections.cards geometry only; original receipt retained",
+    "collections": {
+      "rows": 10,
+      "previewsPerRow": 3,
+      "selection": "Exact existing record IDs and collection membership; no title fallback or source-quality ranking",
+      "controls": "Search and group filters alongside title; browse and expandable record preview"
+    },
+    "providers": "Header-aligned controls, no Holdings header label, faded category stamps; recorded holdings remain in cards and drawer",
+    "review": "Header-aligned view filters and faded colored stamps",
+    "credits": "unchanged",
+    "validation": {
+      "exactIdAndMembershipChecks": 30,
+      "focusedTests": 14,
+      "editorial": "passed",
+      "frontendBuild": "passed, 22.84s; preserved dist data and originals",
+      "appTypecheck": "Existing StudyBranch.tsx:23 unused hover only",
+      "browser": [
+        "Source drawer opens work-spurgeon-sermon-3479",
+        "Escape restores preview source-button focus",
+        "Enter expands on phone",
+        "Theology search yields two subjects; Browse opens 181 records",
+        "Provider search remains operational",
+        "Collections, Providers, Review: 390px viewport, 375px document, no horizontal overflow"
+      ]
+    },
+    "proof": [
+      ".local/sources-dashboard-20261022/collections-shelves.png",
+      ".local/sources-dashboard-20261022/providers-stamps.png",
+      ".local/sources-dashboard-20261022/review-stamps.png"
+    ],
+    "next": "Existing bounded Hodge evidence-to-exact-record binding",
+    "scope": "Local UI refinement only; no deployment or data repair"
+  },
+  "overviewAndPageFlow": {
+    "date": "2026-10-22T13:24:19.203Z",
+    "overview": "Compact shared collection drawings and palette, colored snapshot icons, stamped attention panels; same catalogue and review destinations",
+    "collections": {
+      "rows": 10,
+      "overflow": "visible",
+      "mask": "none",
+      "expandedClientHeight": 1846,
+      "expandedScrollHeight": 1846
+    },
+    "providers": {
+      "defaultMatchingCards": 47,
+      "allMatchingCards": 61,
+      "pagination": false,
+      "overflow": "visible",
+      "mask": "none",
+      "clientHeight": 3478,
+      "scrollHeight": 3478,
+      "drawer": "Internet Archive terms, recorded measurements, Escape and focus return verified"
+    },
+    "validation": {
+      "build": "Frontend-only passed, 25.72s",
+      "focusedTests": 14,
+      "editorial": "passed",
+      "appTypecheck": "Existing StudyBranch.tsx:23 unused hover only",
+      "browser": [
+        "Theology 181 records",
+        "Attribution 701 acquired records",
+        "390px: all three views document width 375px",
+        "900px Overview document width 885px",
+        "1440px desktop visual inspection"
+      ]
+    },
+    "proof": ".local/sources-dashboard-20261022/overview-illustrated.png",
+    "scope": "Local UI only; Credits unchanged; no source or curation mutation or publication",
+    "next": "Existing bounded Hodge evidence-to-exact-record binding"
+  },
+  "overviewRoundedCards": {
+    "date": "2026-10-22T14:28:23.624Z",
+    "change": "All ten Browse the library entries have complete 1px borders, matching 0.7rem radii, tinted card surfaces and row gaps",
+    "validation": {
+      "build": "Frontend-only passed, 20.59s",
+      "desktop": "1440px visual check; all ten cards retain drawings and counts",
+      "mobile": "390px viewport, 375px document; one column, no horizontal overflow"
+    },
+    "proof": ".local/sources-dashboard-20261022/overview-rounded.png",
+    "scope": "CSS-only local preview; source data, navigation and page scrolling unchanged"
+  },
+  "homeMockupLibrary": {
+    "date": "2026-10-22T20:14:26.008Z",
+    "route": "/home_mockup2",
+    "section": "How the library is organised",
+    "drawings": 8,
+    "palette": "Shared CollectionArt / collectionTones",
+    "style": "Original joined grid with shared thin dividers; eight colored drawings and matching links; scoped to inset homepage mockup",
+    "build": "Frontend-only passed 21.34s",
+    "verification": "Desktop four columns, tablet two columns, phone one column; eight drawings; no horizontal overflow",
+    "proof": ".local/sources-dashboard-20261022/home-library-colored-grid.png",
+    "scope": "Homepage library UI only; no questions-page source edited; no deployment"
+  },
+  "searchBelowTabs": {
+    "views": [
+      "overview",
+      "scriptures",
+      "foundations"
+    ],
+    "desktop": "All seven tabs top 218.984px and height 47.766px",
+    "mobile": "390px: same menu position and height across checked views, no overflow",
+    "build": "Frontend-only passed 21.88s",
+    "proof": ".local/sources-dashboard-20261022/sources-search-below-tabs.png"
+  },
+  "overviewCardAlignment": {
+    "removed": "Recorded gaps invite inspection; they are not automatic reasons to discard a source.",
+    "layout": "Shared heading and card rows; equal-height attention cards",
+    "verification": "Zero top/bottom edge difference at 1440px and 1000px; mobile no overflow",
+    "build": "Frontend-only passed 20.64s",
+    "proof": ".local/sources-dashboard-20261022/overview-aligned-cards.png"
+  }
+}

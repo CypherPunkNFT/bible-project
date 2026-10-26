@@ -16,7 +16,9 @@ Implementation lives beside the local search system in `Website/knowledge/`; run
 
 The existing implementation provides SQLite/FTS5, LanceDB embeddings, original verse records, basic recorded cross-references, person relationships and document-to-verse links. These are useful inputs, but do not constitute the richer analytical layers described here. Completion of the initial embeddings and ingestion of the newer library bodies remain separate baseline tasks. Catalog descriptions and source links must not be mistaken for indexed book bodies.
 
-Earlier project notes deferred interconnected analysis under Phase 4. The owner's 2026-10-05 direction now establishes this analytical roadmap. Treat the earlier deferral as historical context for this planning work; the implementation tasks below remain unchecked. Existing source preservation, attribution, numbering and theological editorial rules still apply. Public study trails and website integration retain their own delivery scope.
+Earlier project notes deferred interconnected analysis under the 2026-10-03 phase-4 rule. The owner's 2026-10-05 direction now establishes this analytical roadmap. Treat the earlier deferral as historical context for this planning work; the implementation tasks below remain unchecked. Existing source preservation, attribution, numbering and theological editorial rules still apply. Public study trails and website integration retain their own delivery scope.
+
+**Update 2026-10-23:** the owner partly lifted the 2026-10-03 rule. The first three stages of [Plans/KNOWLEDGE-GRAPH.md](../../Plans/KNOWLEDGE-GRAPH.md) are approved to start — joining the connection data already on disk, with no AI model, no money and no new licence obligation. Model passes, the Theographic events-and-dates import and curated or interpretive themes all remain deferred until he says otherwise. That approval covers the site's own graph plan; it does not change this roadmap's own unchecked status.
 
 ## Analytical layers and questions
 

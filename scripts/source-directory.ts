@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { buildSourceFacets } from "./build-source-facets.mjs";
 import path from "node:path";
 import { readFeatureCitations, type CitedOn } from "./feature-citations.ts";
 
@@ -142,4 +143,5 @@ export function buildSourceDirectory(root: string) {
   }
   fs.mkdirSync(path.join(root, "public/content/sources"), { recursive: true });
   fs.writeFileSync(path.join(root, "public/content/sources/directory.json"), JSON.stringify(result));
+  buildSourceFacets(root, entries);
 }

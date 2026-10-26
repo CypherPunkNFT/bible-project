@@ -26,11 +26,11 @@ export default function VersionsPage() {
   const grouped = groupVersions(catalog.translations);
   const shown = grouped.filter((g) => filter === "all" || g.group.id === filter);
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
+    <div className="mx-auto max-w-[1440px] px-4 pb-16 sm:px-6">
       <SourceDirectory scriptureCount={catalog.translations.length}>
-      <header id="scriptures" className="scroll-mt-24 pb-6 pt-10">
+      <header id="scriptures" className="scroll-mt-24 pb-6 pt-2">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Versions & sources</p>
-        <h2 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">{catalog.translations.length} scriptures, all free to read and download.</h2>
+        <h2 className="mt-1 font-serif text-3xl font-semibold tracking-tight">{catalog.translations.length} Bible editions to read and download.</h2>
         <p className="mt-3 max-w-2xl text-muted">
           Every text below is in the public domain except one: the Hindi Indian Revised Version, which its publisher shares under an open licence (CC BY-SA 4.0).
           Each was downloaded from eBible.org and is shown as published there, without the book introductions some of them carry.
@@ -117,7 +117,6 @@ export default function VersionsPage() {
         </table>
       </div>
 
-      </SourceDirectory>
 
       <section className="mt-10 grid gap-6 md:grid-cols-2">
         <div className="rounded-2xl border border-line bg-surface p-5">
@@ -164,6 +163,7 @@ export default function VersionsPage() {
           </ul>
         </div>
       </section>
+      </SourceDirectory>
     </div>
   );
 }

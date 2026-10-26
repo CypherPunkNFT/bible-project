@@ -1,10 +1,16 @@
-import { ArrowDown, ArrowUpRight, BookOpen, Search } from "lucide-react";
+import { ArrowUpRight, Search } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
-import { Link } from "react-router-dom";
-import { cn } from "@/lib/utils";
-import { CorpusDashboard, AcquisitionLinks } from "./sources/CorpusDashboard";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { SourceCatalogue } from "./sources/SourceCatalogue";
 import { SourceProviders } from "./sources/SourceProviders";
 import { useSourceDirectory } from "./sources/useSourceDirectory";
+
+import { LibraryOverview, snapshotDate } from './sources/LibraryOverview';
+import { matchesCatalogue, titleMatchRank, sourceView, sourceViews, type ExtraFacet, type ReviewFilter } from './sources/dashboard-model';
+import './sources/dashboard.css';
+import './sources/source-boards.css';
+import { SourceCollections } from './sources/SourceCollections';
+import { SourceReview } from './sources/SourceReview';
 
 const foundational = [
   ["eBible.org", "Scripture editions", "The source editions behind the reader, with their own language, book coverage and verse numbering.", "https://ebible.org/"],
@@ -43,67 +49,48 @@ const research = [
   ["Ready-text completion", "ready-text-completion"], ["Acquisition gap batch", "text-gap-batch"],
 ];
 const repo = "https://github.com/CypherPunkNFT/bible-project/blob/main/";
-const PAGE_SIZE = 12;
 
 export function SourceDirectory({ scriptureCount, children }: { scriptureCount: number; children: ReactNode }) {
-  const { directory, entries, failed, marker, want } = useSourceDirectory();
-  const [category, setCategory] = useState("all");
+  const { directory, entries, failed, marker, want, facetState } = useSourceDirectory();
+  // ?collection=<id>#bibliography opens the catalogue on one collection (the homepage links each collection this way).
+  const [category, setCategory] = useState(() => new URLSearchParams(window.location.search).get("collection") ?? "all");
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(0);
   const [holdings, setHoldings] = useState("all");
-  useEffect(() => {
-    if (directory && window.location.hash) document.getElementById(window.location.hash.slice(1))?.scrollIntoView();
-  }, [directory]);
-  // The records lengthen the sections that need them, so a link into those sections is followed again once they arrive.
-  useEffect(() => {
-    const target = entries && window.location.hash ? document.getElementById(window.location.hash.slice(1)) : null;
-    if (target && marker.current?.contains(target)) target.scrollIntoView();
-  }, [entries, marker]);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const view = sourceView(location.hash);
+  const [facets, setFacets] = useState<Partial<Record<ExtraFacet, string[]>>>({});
+  const [review, setReview] = useState<ReviewFilter>('all');
+  const local = ['127.0.0.1', 'localhost', '[::1]'].includes(window.location.hostname);
+  useEffect(() => { if (view === 'bibliography' || view === 'quality' || view === 'collections') want(); }, [view, want]);
+  const openCatalogue = (id = 'all', flag: ReviewFilter = 'all') => {
+    setFacets({}); setCategory(id); setReview(flag); setHoldings(flag === 'identity' ? 'held' : 'all'); setQuery(''); setPage(0); navigate('#bibliography');
+  };
   if (!directory) return <><section className="py-12"><h1 className="font-serif text-4xl">Sources & references</h1><p className="mt-4 text-muted" role="status">{failed === "summary" ? "The directory could not load. Reload to try again; the Scripture editions remain available below." : "Opening the source directory…"}</p></section>{children}</>;
-  const terms = query.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
-  const matches = (entries ?? []).filter(entry => (category === "all" || entry.categories.includes(category)) && (holdings === "all" || (holdings === "held" ? entry.held : !entry.held)) && terms.every(term => `${entry.title} ${entry.author} ${entry.kind} ${entry.links.map(link => (link.name || "") + " " + link.url).join(" ")}`.toLocaleLowerCase().includes(term)));
-  const shown = matches.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
-  const choose = (id: string) => { setCategory(id); setPage(0); };
-  return <>
-    <header className="relative border-b border-line pb-10 pt-12 sm:pb-14 sm:pt-16">
-      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">Sources & references</p>
-      <div className="mt-5 grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-end">
-        <div><h1 className="max-w-3xl font-serif text-5xl leading-[1.08] tracking-tight sm:text-6xl">Scripture at the centre.<br /><em className="font-normal text-accent">Sources in the open.</em></h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">Every translation has a history. Every commentary has an author. Every connection deserves a source. This is the reference desk behind Bible Project: the Scriptures we read, the voices we consult, and the evidence we return to.</p></div>
-        <div className="border-l border-accent/40 pl-6"><BookOpen className="mb-4 h-7 w-7 text-accent" aria-hidden /><p className="font-serif text-xl leading-relaxed">Read the passage. Follow the reference. Weigh the interpretation.</p><p className="mt-3 text-sm leading-relaxed text-muted">Scripture is the foundation; sermons, histories and theological works are witnesses to how it has been understood. Listing a source identifies its contribution—it does not give every author or claim the same authority.</p></div>
-      </div>
-      <div className="mt-9 flex flex-wrap gap-x-8 gap-y-3 text-sm"><a href="#scriptures" className="hover:text-accent"><strong className="text-accent">{scriptureCount}</strong> scriptures <ArrowDown className="inline h-3 w-3" /></a><a href="#collections" className="hover:text-accent"><strong className="text-accent">8</strong> library collections</a><a href="#bibliography" className="hover:text-accent"><strong className="text-accent">{(entries?.length ?? directory.split?.records ?? 0).toLocaleString()}</strong> reference records</a><a href="#repositories" className="hover:text-accent">Libraries & ministries</a></div>
-    </header>
-
-    <nav aria-label="Source directory" className="my-7 flex flex-wrap gap-2 text-sm">
-      {[["scriptures", "Scriptures"], ["collections", "Collections"], ["foundations", "Study & atlas"], ["reference-library", "Reference library"], ["bibliography", "Bibliography"], ["research", "Research guides"], ["repositories", "Libraries & ministries"]].map(([id, label]) => <a key={id} href={`#${id}`} className="rounded-full border border-line px-4 py-2 hover:border-accent hover:text-accent">{label}</a>)}
-    </nav>
-
-    {children}
-
-    <div ref={marker}>
-    <CorpusDashboard directory={directory} entries={entries} failed={failed === "records"} />
-
+  const filters = { category, holdings, review, query, facets };
+  const matches = (entries ?? []).filter(entry => matchesCatalogue(entry, filters));
+  if (query.trim()) matches.sort((a, b) => titleMatchRank(b, query) - titleMatchRank(a, query));
+  return <div className="source-dashboard">
+    <header className="source-header"><div><p className="source-eyebrow">Sources & library</p><h1>Library dashboard</h1><p>Find a source. Understand its place. See what still needs checking.</p></div><span className="source-snapshot-badge">Catalogue snapshot · {snapshotDate(directory.corpus.bibliographyUpdatedAt)}</span></header>
+    <nav className="source-nav" aria-label="Library dashboard">{sourceViews.map(([id,label])=><Link key={id} to={'#'+id} aria-current={view===id?'page':undefined}>{label}</Link>)}</nav>
+    {!['bibliography','collections','repositories','quality'].includes(view) && <form className="source-global-search" onSubmit={e=>{e.preventDefault(); setFacets({});setCategory('all');setHoldings('all');setReview('all');setPage(0);want();navigate('#bibliography');}}><Search size={20} aria-hidden/><label className="sr-only" htmlFor="source-search">Search the library catalogue</label><input id="source-search" value={query} onChange={e=>{setQuery(e.target.value);setPage(0);}} placeholder="Search title, author or source…"/><button type="submit">Search catalogue <ArrowUpRight size={15}/></button></form>}
+    <div className="source-workspace" key={view}>
+    {view === 'overview' && <LibraryOverview directory={directory} entries={entries} scriptureCount={scriptureCount} openCatalogue={openCatalogue}/>}
+    {view === 'collections' && <SourceCollections directory={directory} entries={entries} failed={!!failed} openCatalogue={openCatalogue}/>}
+    {view === 'scriptures' && children}
+    {view === 'quality' && <SourceReview directory={directory} entries={entries} openCatalogue={openCatalogue} reports={research} repo={repo} showReports={location.hash === '#research'}/>}
+    {view === 'foundations' && <>
     <section id="foundations" className="scroll-mt-24 py-8"><h2 className="font-serif text-3xl">Behind the reader, study tables & atlas.</h2><div className="mt-6 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">{foundational.map(([name, kind, description, url]) => <article key={name} className="border-t border-line py-5"><p className="text-[11px] uppercase tracking-widest text-accent">{kind}</p><h3 className="mt-2 font-serif text-xl"><a href={url} className="hover:underline">{name} <ArrowUpRight className="inline h-3.5 w-3.5" aria-hidden /></a></h3><p className="mt-2 text-sm leading-relaxed text-muted">{description}</p></article>)}</div><p className="text-sm text-muted">The Gospel portraits, reading-chart groupings and approved Names of God selection also include original editorial work by this project. <a href={`${repo}SOURCES.md`} className="text-accent underline">Detailed credits, editions & source ledger</a></p></section>
 
     <section id="reference-library" className="scroll-mt-24 py-8"><h2 className="font-serif text-3xl">The reference library.</h2><p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">Respected reference works gathered for the person, place, topic and word pages to come. Each is held as downloaded, with its licence and checksum in the source ledger, and will be credited on every page that uses it.</p><div className="mt-6 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">{referenceLibrary.map(([name, kind, use, licence, url]) => <article key={kind} className="border-t border-line py-5"><p className="text-[11px] uppercase tracking-widest text-accent">{kind}</p><h3 className="mt-2 font-serif text-xl"><a href={url} className="hover:underline">{name} <ArrowUpRight className="inline h-3.5 w-3.5" aria-hidden /></a></h3><p className="mt-2 text-sm leading-relaxed text-muted">{use}</p><p className="mt-2 text-xs text-muted">{licence}</p></article>)}</div><p className="text-sm text-muted">Planned, not yet shown on the site. <a href={`${repo}SOURCES.md`} className="text-accent underline">Source ledger: editions, licences & checksums</a></p></section>
 
-    <section id="bibliography" className="scroll-mt-24 py-8">
-      <div className="flex flex-wrap items-baseline justify-between gap-3"><h2 className="font-serif text-3xl">The bibliography.</h2>{entries && <span className="text-sm text-muted">{matches.length.toLocaleString()} matching records</span>}</div>
-      <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">The complete reconciled work catalogue, verified acquisition records and published study citations. Search every author, title and acquisition source here, or browse authors within a collection above. Acquired means a source file was verified on disk at the snapshot date; catalogue-only records retain their reading links. Missing attribution is labelled explicitly.</p>
-      <label className="mt-5 flex items-center gap-3 rounded-xl border border-line bg-surface px-4 py-3"><Search className="h-4 w-4 shrink-0 text-muted" aria-hidden /><span className="sr-only">Search references</span><input value={query} onFocus={want} onChange={e => { setQuery(e.target.value); setPage(0); }} placeholder="Find an author, title, topic word or source…" className="min-w-0 flex-1 bg-transparent outline-none" /></label>
-      <div role="group" aria-label="Reference collection" className="my-4 flex flex-wrap gap-2">{[{ id: "all", label: "All collections" }, ...directory.collections].map(c => <button key={c.id} type="button" aria-pressed={category === c.id} onClick={() => choose(c.id)} className={cn("rounded-full border px-3 py-1.5 text-xs", category === c.id ? "border-accent bg-accent text-page" : "border-line hover:bg-surface-2")}>{c.label}</button>)}</div>
-      <div role="group" aria-label="Reference holdings" className="mb-4 flex flex-wrap gap-2">{[["all", "All records"], ["held", "Acquired files"], ["catalog", "Catalogue & citations"]].map(([id, label]) => <button key={id} type="button" aria-pressed={holdings === id} onClick={() => { setHoldings(id); setPage(0); }} className={cn("rounded-full border px-3 py-1.5 text-xs", holdings === id ? "border-accent text-accent" : "border-line text-muted")}>{label}</button>)}</div>
-      <div className="overflow-hidden rounded-2xl border border-line bg-surface"><div className="divide-y divide-line">{shown.map(entry => <article key={entry.id} className="px-5 py-4"><div className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] uppercase tracking-wider text-muted"><span>{entry.kind}</span><span>· {entry.status}</span></div><h3 className="mt-1 break-words font-serif text-lg">{entry.title}</h3>{entry.author && <p className="mt-1 text-sm text-accent">{entry.author}</p>}<p className="mt-1 text-xs text-muted">{entry.role}</p>{entry.basis && <p className="mt-1 text-xs text-muted">{entry.basis}</p>}{entry.citedOn?.length ? <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs"><span className="text-muted">Cited on</span>{entry.citedOn.map(c => <Link key={c.feature + c.page} to={c.address} className="text-accent hover:underline">{c.feature} → {c.page}</Link>)}</p> : null}<AcquisitionLinks entry={entry} /></article>)}</div>{!entries ? <p role="status" className="p-8 text-muted">{failed === "records" ? "The bibliography could not load. Reload to try again." : "Opening the bibliography…"}</p> : !shown.length && <p className="p-8 text-muted">No references match. Try another word or select All collections.</p>}</div>
-      <div className="mt-4 flex items-center justify-between gap-3 text-sm" aria-live="polite"><button disabled={page === 0} onClick={() => setPage(p => p - 1)} className="rounded-full border border-line px-4 py-2 disabled:opacity-30">Previous</button><span className="text-muted">{matches.length ? page * PAGE_SIZE + 1 : 0}–{Math.min((page + 1) * PAGE_SIZE, matches.length)} of {matches.length.toLocaleString()}</span><button disabled={(page + 1) * PAGE_SIZE >= matches.length} onClick={() => setPage(p => p + 1)} className="rounded-full border border-line px-4 py-2 disabled:opacity-30">Next</button></div>
-    </section>
+    </>}
+    {view === 'bibliography' && <div ref={marker}><SourceCatalogue directory={directory} entries={entries} matches={matches} failed={failed === 'records'} facetState={facetState} filters={filters} page={page} onPage={setPage} onFilters={next => { setFacets(next.facets ?? {}); setCategory(next.category); setHoldings(next.holdings); setReview(next.review); setQuery(next.query); setPage(0); }}/></div>}
+    {view === 'repositories' && <SourceProviders directory={directory} />}
 
-    <section id="research" className="scroll-mt-24 py-8"><h2 className="font-serif text-3xl">Follow the research.</h2><p className="mt-2 text-muted">Collection reports record the scope, editions, findings and remaining gaps behind each strand of research.</p><div className="mt-5 grid gap-x-8 sm:grid-cols-2">{research.map(([label, folder]) => <a key={folder} href={`${repo}content/library/reports/${folder}/REPORT.md`} className="flex items-center justify-between gap-4 border-b border-line py-4 text-sm hover:text-accent">{label}<ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden /></a>)}</div><a href={`${repo}content/library/BACKLOG.md`} className="mt-5 inline-block text-sm text-accent underline">Full collection scope & outstanding research</a></section>
-
-
-    <SourceProviders directory={directory} />
-
-    <aside className="my-8 rounded-2xl border border-accent/30 bg-surface p-6"><h2 className="font-serif text-2xl">An open reference desk, an honest record.</h2><p className="mt-3 max-w-4xl text-sm leading-relaxed text-muted">Historical texts, modern editions, translations and digital files can carry different permissions. A source link does not grant permission to republish its contents. Our library has a substantial Reformed and Protestant emphasis; comparative sources are identified by their role. Cataloguing, acquiring, reviewing and publishing are distinct steps. This directory joins the project’s work and edition catalogues, acquisition manifests, inventories and on-disk provenance. Work IDs, asset IDs and exact source URLs connect records; matching titles alone do not merge editions. Metadata and evidence files are distinguished from reading texts. Source dates and unresolved attribution stay visible.</p></aside>
+    {view === 'foundations' && <aside className="my-8 rounded-2xl border border-accent/30 bg-surface p-6"><h2 className="font-serif text-2xl">An open reference desk, an honest record.</h2><p className="mt-3 max-w-4xl text-sm leading-relaxed text-muted">Historical texts, modern editions, translations and digital files can carry different permissions. A source link does not grant permission to republish its contents. Our library has a substantial Reformed and Protestant emphasis; comparative sources are identified by their role. Cataloguing, acquiring, reviewing and publishing are distinct steps. This directory joins the project’s work and edition catalogues, acquisition manifests, inventories and on-disk provenance. Work IDs, asset IDs and exact source URLs connect records; matching titles alone do not merge editions. Metadata and evidence files are distinguished from reading texts. Source dates and unresolved attribution stay visible.</p></aside>}
     </div>
-  </>;
+    {local && <aside className="source-local-tools"><div><strong>Local library workspace</strong><p>Open the existing tools to inspect holdings and evidence. Decisions stay in their original ledgers.</p></div><nav aria-label="Local library tools"><a href="/data/">Data hub ↗</a><a href="/data_intake/">Holdings & intake ↗</a><a href="/data_analysis/">Analysis desks ↗</a><a href="/data_analysis/candidates/">Candidate review ↗</a></nav></aside>}
+  </div>;
 }
