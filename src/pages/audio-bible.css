@@ -71,6 +71,11 @@
 @media(prefers-reduced-motion:reduce){.asv-readalong-scrim,.asv-readalong-panel {animation:none;}}
 .asv-readalong-body {position:relative;}
 .asv-readalong-body.is-timed [data-verse] {cursor:pointer;}
-.asv-readalong-body .verse-highlight {transition:background-color .35s;}
+/* In the panel the verse being read gets a soft tint that fades in and out, instead of the reader's opaque gold that
+   also flips the text colour; the text keeps its own colours. */
+.asv-readalong-body [data-verse] {transition:background-color .7s ease,box-shadow .7s ease;border-radius:4px;}
+.asv-readalong-body .verse-highlight {--accent:inherit;--muted:inherit;--red-letter:inherit;--surface-2:inherit;color:inherit;
+  background-color:color-mix(in srgb,#ebc55e 20%,transparent);box-shadow:0 0 0 3px color-mix(in srgb,#ebc55e 20%,transparent);}
+@media(prefers-reduced-motion:reduce){.asv-readalong-body [data-verse] {transition:none;}}
 .asv-readalong-return {position:absolute;left:50%;bottom:calc(4.6rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;align-items:center;gap:.45rem;padding:.65rem 1.1rem;border-radius:999px;background:var(--audio-tone);color:var(--paper);font-size:.74rem;font-weight:600;box-shadow:0 8px 24px #0006;}
 .asv-readalong-return:hover {filter:brightness(1.08);}

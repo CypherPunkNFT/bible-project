@@ -1,17 +1,14 @@
 // Direction A, the path: the parts of the Bible as a row of drawings, and the chosen part's lessons on one winding line,
 // lesson by lesson. A finished lesson is filled in its part's colour; the next one to do carries the page's one glow.
-// Also the plain top shared by directions A, C and D.
+// Also the page's plain top. Direction A's own page: ARCHIVE/mockups/children-PathView-2026-10-25.tsx.
 import { ArrowLeft, Check } from "lucide-react";
-import { useMemo, useRef, useState, type CSSProperties } from "react";
+import { useMemo, useRef, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { PartArt } from "./part-art";
-import { nextLesson, toneStyle, type Lesson, type Part, type PartLessons } from "./data";
+import { toneStyle, type Lesson, type Part, type PartLessons } from "./data";
 import { LessonArt } from "./lesson-art";
 import type { Progress } from "./progress";
 import { layRoad, useRoad, useTraveller } from "./road";
-
-export interface ViewProps { lessons: Lesson[]; groups: PartLessons[]; progress: Progress; openId: string | null; onOpen: (lesson: Lesson) => void }
-
 
 /** The page's top; `beside` sets the lead to the right of the title instead of under it (E). */
 export function Top({ lead, beside }: { lead?: string; beside?: boolean }) {
@@ -35,21 +32,6 @@ export function PartRow({ groups, progress, partId, onChoose }: { groups: PartLe
       </button>
     </li>;
   })}</ul>;
-}
-
-export function PathView({ lessons, groups, progress, openId, onOpen }: ViewProps) {
-  const next = nextLesson(lessons, progress);
-  const [partId, setPartId] = useState(next.part.id);
-  const group = groups.find((g) => g.part.id === partId) ?? groups[0];
-  return <div className="ck-wrap">
-    <Top />
-    <PartRow groups={groups} progress={progress} partId={group.part.id} onChoose={setPartId} />
-    <section className="ck-path-part" style={toneStyle(group.part.tone)} aria-labelledby="ck-path-title">
-      <h2 id="ck-path-title">{group.part.title}</h2>
-      <p>{group.part.line}</p>
-      <Path lessons={group.lessons} progress={progress} next={next} openId={openId} onOpen={onOpen} />
-    </section>
-  </div>;
 }
 
 /** Where a part's road leads when it ends: the next part, and what choosing it does. */

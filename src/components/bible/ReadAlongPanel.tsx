@@ -48,12 +48,14 @@ export function ReadAlongPanel({ book, time, playing, onTogglePlay, onPlayFrom, 
   const text = useAsync(() => loadChapter('asv', book.code, labels, chapter), `${book.code}:${chapter}`);
   const body = useRef<HTMLDivElement>(null);
   const closeButton = useRef<HTMLButtonElement>(null);
-  useEffect(() => { body.current?.scrollTo({ top: 0 }); }, [book.code, chapter]);
+  const gliding = useRef(0);
+  useEffect(() => { cancelAnimationFrame(gliding.current); body.current?.scrollTo({ top: 0 }); }, [book.code, chapter]);
   useEffect(() => {
     if (!following || !highlighted || text.status !== 'ready' || !body.current) return;
     const verse = body.current.querySelector<HTMLElement>(`[data-verse="${CSS.escape(highlighted)}"]`);
-    if (verse) body.current.scrollTo({ top: Math.max(0, verse.offsetTop - body.current.clientHeight * 0.3), behavior: 'smooth' });
+    if (verse) glide(body.current, verse.offsetTop - body.current.clientHeight * 0.3, gliding);
   }, [following, highlighted, chapter, text.status]);
+  useEffect(() => () => cancelAnimationFrame(gliding.current), []);
   useEffect(() => {
     closeButton.current?.focus();
     const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') onClose(); };
@@ -65,7 +67,7 @@ export function ReadAlongPanel({ book, time, playing, onTogglePlay, onPlayFrom, 
   const previous = position > 0 ? labels[position - 1] : null;
   const next = position >= 0 && position < labels.length - 1 ? labels[position + 1] : null;
   const browse = (target: string) => { setOwnChapter(target); setFollowing(false); };
-  const stopFollowing = () => { if (following) { setOwnChapter(chapter); setFollowing(false); } };
+  const stopFollowing = () => { cancelAnimationFrame(gliding.current); if (following) { setOwnChapter(chapter); setFollowing(false); } };
   const playVerse = (verse: string) => {
     const found = verses && findVerse(book, verses, Number(chapter), verse);
     if (!found) return;
@@ -96,6 +98,24 @@ export function ReadAlongPanel({ book, time, playing, onTogglePlay, onPlayFrom, 
       </footer>
     </aside>
   </div>;
+}
+
+/** Ease the text to a new scroll position: slow at both ends, longer for longer moves, instant when motion is reduced. */
+function glide(element: HTMLElement, target: number, frame: { current: number }) {
+  cancelAnimationFrame(frame.current);
+  const from = element.scrollTop;
+  const to = Math.max(0, Math.min(target, element.scrollHeight - element.clientHeight));
+  const distance = to - from;
+  if (Math.abs(distance) < 2) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { element.scrollTop = to; return; }
+  const duration = Math.min(1600, 900 + Math.abs(distance) * 0.6);
+  const started = performance.now();
+  const step = (now: number) => {
+    const progress = Math.min(1, (now - started) / duration);
+    element.scrollTop = from + distance * (1 - Math.cos(Math.PI * progress)) / 2;
+    if (progress < 1) frame.current = requestAnimationFrame(step);
+  };
+  frame.current = requestAnimationFrame(step);
 }
 
 /** The verse whose start has passed (verses are in time order); null during the LibriVox opening. */
