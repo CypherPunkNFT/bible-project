@@ -6,8 +6,8 @@ import { ArrowRight, X } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import type { QuestionBank } from "@/lib/data";
-import { facetsOf, type Filters } from "./model";
-import { EyeToggle, QuestionList, ResultsBar, SearchField } from "./QuestionList";
+import { facetsOf, type Filters } from "../../questions/model";
+import { EyeToggle, QuestionList, ResultsBar, SearchField } from "../../questions/QuestionList";
 
 interface Props {
   id: string;

@@ -31,7 +31,7 @@ Asked for by the owner on 2026-10-23:
   says "Test yourself · One question at a time, and every answer opens the verse it comes from", whatever the test is.
 - **What can be tested today:**
   - 59 themed tests on four shelves (Lives, Stories, Teaching, Know your Bible), defined in
-    [themes.ts](../../../src/pages/mockup/questions/test/themes.ts). Smallest: Noah and the flood, 47 questions.
+    [themes.ts](../../../src/pages/questions/test/themes.ts). Smallest: Noah and the flood, 47 questions.
     Median 182, largest 1,033. 54 of the 59 have 75 or more.
   - 66 book tests. Smallest: 2 John (10), 3 John (11), Philemon and Jude (17). Hebrews has 189. 42 books have 75 or more.
   - Chapter tests: 1,182 chapters have a question, but only 437 have 10 or more, 27 have 25 or more and 3 have 50.

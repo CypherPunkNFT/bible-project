@@ -1,4 +1,4 @@
-/* MOCK-UP: the questions page (QuestionsPage.tsx and questions/). House style: parchment ground, serif titles with one
+/* The questions page (QuestionsPage.tsx and questions/). House style: parchment ground, serif titles with one
    italic accent word, numbered sections, figures in a quiet row, words on lines rather than boxes. */
 .qp{--serif:var(--font-serif);--sans:var(--font-sans);max-width:var(--site-content-width);margin:0 auto;padding:0 24px 56px;color:var(--ink);font-family:var(--sans)}
 .qp-status{padding:80px 0;color:var(--muted)}

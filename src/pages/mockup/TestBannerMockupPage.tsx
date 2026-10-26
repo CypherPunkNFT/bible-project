@@ -3,9 +3,9 @@
 // 2026-10-23). The versions live in questions/BannerVersions.tsx. Styles: test-banner-mockup.css.
 import type { ComponentType } from "react";
 import { GridBanner, SentenceBanner } from "./questions/BannerVersions";
-import "./questions-page.css";
-import "./questions/test-banner.css";
-import "./test-setup.css";
+import "../questions-page.css";
+import "../questions/test-banner.css";
+import "../test-setup.css";
 import "./test-banner-mockup.css";
 
 const VERSIONS: { name: string; note: string; Version: ComponentType }[] = [

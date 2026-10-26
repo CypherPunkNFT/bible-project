@@ -1,7 +1,7 @@
 // MOCK-UP: the pill at the bottom of the Privacy and Support mock-ups that swaps between their versions in place, kept
 // in the address (?v=b). Looks: test-options.css (.to-pill), shared with the other version mock-ups.
 import { useSearchParams } from "react-router-dom";
-import "../test-options.css";
+import "../../test-options.css";
 
 export function VersionPill<T extends string>({ label, versions, current }: { label: string; versions: { id: T; name: string }[]; current: T }) {
   const [, setParams] = useSearchParams();

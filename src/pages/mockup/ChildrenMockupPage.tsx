@@ -3,7 +3,7 @@
 // page (children/ChildrenTests.tsx) with the zoom's ticker, and the four tops for the parents' course at ?course=versions.
 // It is direction E, the mix, the one the owner kept on 2026-10-25; the other four directions are in
 // ARCHIVE/mockups/children-Views-2026-10-25.tsx. Parts: children/.
-import { ChildrenTests } from "./children/ChildrenTests";
+import { ChildrenTests } from "../children/ChildrenTests";
 
 export default function ChildrenMockupPage() {
   return <ChildrenTests mockup />;

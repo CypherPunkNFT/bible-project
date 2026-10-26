@@ -2,7 +2,7 @@
 // owner can try each and choose. The versions: QuizVersions.tsx.
 import type { ComponentType } from "react";
 import "@/components/home/home-hub.css";
-import "./home-quiz.css";
+import "../home-quiz.css";
 import "./quiz-versions.css";
 import { QuizBoard, QuizCard, QuizSpotlight, QuizStage } from "./QuizVersions";
 

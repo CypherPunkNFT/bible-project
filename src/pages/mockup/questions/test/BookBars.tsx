@@ -5,7 +5,7 @@
 import { useState, type CSSProperties } from "react";
 import { useCatalog } from "@/lib/catalog";
 import type { BankBook } from "@/lib/data";
-import { chaptersOf, type TestQuestion } from "./engine";
+import { chaptersOf, type TestQuestion } from "../../../questions/test/engine";
 
 const SECTION_NAMES: Record<string, string> = { history: "Law & history", poetry: "Poetry & wisdom", prophets: "Prophets",
   gospels: "Gospels & Acts", epistles: "Letters", revelation: "Revelation" };

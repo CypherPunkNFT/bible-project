@@ -32,7 +32,7 @@ const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
 const HomeMockupsPage = lazy(() => import("@/pages/HomeMockupsPage"));
 const EmblemMockupsPage = lazy(() => import("@/pages/EmblemMockupsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
-// The children's tests, a real page since 2026-10-26; its parts stay in pages/mockup/children/.
+// The children's tests, a real page since 2026-10-26; its parts are in pages/children/.
 const ChildrenTestsPage = lazy(() => import("@/pages/ChildrenTestsPage"));
 const SurvivingWitnessesPage = lazy(() => import("@/pages/study/witnesses/SurvivingWitnessesPage"));
 const PassageManuscriptsPage = lazy(() => import("@/pages/study/passages/PassageManuscriptsPage"));

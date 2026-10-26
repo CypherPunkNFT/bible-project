@@ -31,25 +31,25 @@ what comes next.
   **not committed**, because those two files also hold the Study chat's unsaved edits; commit them with that work.
   The rail's four categories (By the book, By theme, By difficulty, Show) are solid gold tabs (3 px corners, to read
   like 02's theme box; the owner turned down a soft tint as "a new standard") that fold their group shut and open, open
-  to begin with ([FilterRail.tsx](../../src/pages/mockup/questions/FilterRail.tsx) `RailGroup`). No line between 02 and 03.
+  to begin with ([FilterRail.tsx](../../src/pages/questions/FilterRail.tsx) `RailGroup`). No line between 02 and 03.
   01's book tiles (both Testaments) have the same 3 px corners.
 - **Done 2026-10-25 (children's page mock-up):** the top of "The whole course, answers included" is **"Contents
   beside it"**, the owner's real pick (they read each version's label on `/children_mockup?course=versions` as a
   caption under the design above it, so "number 3" meant the list, not the columns). The eight parts sit in two
   columns, each with its lessons and questions under its name; the 100 lessons · 716 questions sit under the words,
-  above the button ([ParentGuide.tsx](../../src/pages/mockup/children/ParentGuide.tsx) `CourseHead`; the columns
+  above the button ([ParentGuide.tsx](../../src/pages/children/ParentGuide.tsx) `CourseHead`; the columns
   design is `GlanceHead`, version 3 on the versions page, which stays). Website commit `f700ed5b6`. Inside the course,
   each question shows its four choices lettered A–D and already revealed, the right one filled in green, as on the
   questions page with answers shown (the "Answer" and "Other choices" lines went).
   The parts are now named Creation, Exodus and Kingdom (the rest unchanged). Exodus and "The cross and the empty
   tomb" have their own drawings, the sea parted with the fire going before and three crosses, because the quiz's
   drawings they used belonged to other questions (Elijah's chariot of fire, the tear of "Jesus wept")
-  ([part-art.tsx](../../src/pages/mockup/children/part-art.tsx)). The lessons in a part sit on one smooth winding road,
+  ([part-art.tsx](../../src/pages/children/part-art.tsx)). The lessons in a part sit on one smooth winding road,
   level across with a wide round turn at each side, never two stacked; each part's road is its own (turns reach out
   and sweeps drop by their own amounts, the same on every visit), and the road is one solid line along which a wave
   (a swell on both sides of the line) flows at one steady speed as the page scrolls, lighting each lesson it passes
   through as under the pointer
-  ([road.ts](../../src/pages/mockup/children/road.ts) `layRoad`, `useTraveller`). Website commits `53aa005c3`,
+  ([road.ts](../../src/pages/children/road.ts) `layRoad`, `useTraveller`). Website commits `53aa005c3`,
   `d484feea7`, `79e01bb84`, `7223bc6c0`.
   Each road but the last part's ends in a hexagon in the next part's colour, holding its drawing ("Next part"); choosing
   it brings that part in and goes up to the start of its road, which comes in with its line fading in and its lessons
@@ -72,18 +72,26 @@ what comes next.
   that circle, so the view zooms out onto it with the wave still there.
 - **2026-10-26: the children's page is a real page** at `/study/questions/children` (owner: "make it a real page now"),
   opened by the questions page's "Children's tests" button on every host. Its body is
-  [ChildrenTests.tsx](../../src/pages/mockup/children/ChildrenTests.tsx); `/children_mockup` stays as its local copy for
+  [ChildrenTests.tsx](../../src/pages/children/ChildrenTests.tsx); `/children_mockup` stays as its local copy for
   trying changes, with the zoom's ticker and `?course=versions`. In git, `src/App.tsx` carries only this route: the
   questions pages' own routes and the mock-up routes are still another chat's uncommitted edits in that file.
-- **Nothing about questions is on the live site yet.** The questions page and the children's page are real pages on the
-  local preview only, until the owner approves a release.
+- **Live (checked 2026-10-26 on bibleguide.io):** the questions page, its test and the children's page are all live,
+  released by another chat after commit `7224fc8b3`; the live children's page draws its lessons, and the question bank
+  is served at `/data/questions/bank.json` (about 17 MB).
+- **2026-10-26: the files left `src/pages/mockup/`.** The questions page, its test, the children's page and the 60 files
+  they use now sit at `src/pages/` in the same layout (`QuestionsPage.tsx`, `QuestionsTestPage.tsx`, `questions/`,
+  `children/`, the shared quiz files and styles); four mock-up-only files stay in `mockup/questions/` (`BannerVersions`,
+  `ExplorePanel`, `test/BookBars`, `test/ThemeMenu`). The mock-ups that use them had their links updated.
+- **Still to tidy (tech debt):** the homepage's quiz, guide, "more" and "nearby" pieces and the Study page's quiz door
+  are also real-site code left in `src/pages/mockup/` (about 29 files), most of them another chat's unsaved work that
+  was never committed, so git alone cannot rebuild the live homepage. The routes for the questions pages and every
+  mock-up are likewise unsaved edits in `src/App.tsx`, and `mockup-routes.tsx` is kept out of git on purpose.
 
 ## Waiting on the owner
 
 1. **Look over the questions** in the explorer, http://127.0.0.1:8931/data_questions/, flagging any that are wrong
    (the flags land in [checks/flags.json](checks/README.md#flags-from-the-owner) for this chat to fix).
-2. **Approve a release** of the questions pages to bibleguide.io. Release only on that approval, and check what is live
-   right before releasing (other chats release too).
+2. ~~Approve a release of the questions pages~~: they went live (released by another chat), see above.
 
 ## Next, in order
 
