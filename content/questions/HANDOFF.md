@@ -51,6 +51,12 @@ what comes next.
   through as under the pointer
   ([road.ts](../../src/pages/mockup/children/road.ts) `layRoad`, `useTraveller`). Website commits `53aa005c3`,
   `d484feea7`, `79e01bb84`, `7223bc6c0`.
+  Each road but the last part's ends in a hexagon in the next part's colour, holding its drawing ("Next part"); choosing
+  it brings that part in and goes up to the start of its road, which comes in with its line fading in and its lessons
+  rising one after another. This move is a first take: the owner said "we need to think about how we're gonna do that",
+  so ask before building more. The small See all questions under the road is gone. The course's top shows the part
+  being looked at above as chosen, and its button reads "Open the Creation course" (and so on), opening at the lesson
+  in the card above. Website commit `c68de2546`.
 - **Nothing about questions is on the live site.** The questions page and the children's page are local mock-ups.
 
 ## Waiting on the owner
