@@ -53,10 +53,14 @@ const SAMPLES = 200;
  * every turn reaches out its own way, every sweep drops (never less than `bend`, so the lessons keep their spacing)
  * and runs level its own way. Sweep k goes from turn a to turn b
  * as x = (a + b)/2 − (b − a)/2 · cos φ, y = drop/π · (φ + level/2 · sin 2φ) for φ from 0 to π, upright at both turns,
- * so the sweeps join smoothly. The lessons stand evenly along each sweep, one on every turn. */
-export function layRoad(count: number, { swing, wobble, bend, flat, perSweep, top, bottom }: Road, seed: string): LaidRoad {
+ * so the sweeps join smoothly. The lessons stand evenly along each sweep, one on every turn. With `end` the last stop
+ * is the road's end, the hexagon for the next part: `end` times the usual gap past the lesson before it, and with
+ * more room below for its larger size (owner, 2026-10-25: "more distance than in between the normal links"). The road
+ * stops there; nothing on it runs past. */
+export function layRoad(count: number, { swing, wobble, bend, flat, perSweep, top, bottom }: Road, seed: string, end = 1): LaidRoad {
   const random = seeded(seed);
-  const sweeps = Math.max(1, Math.ceil((count - 1) / perSweep));
+  // With a longer last gap, one more stop's worth of road to lay it on.
+  const sweeps = Math.max(1, Math.ceil((count - (end > 1 ? 0 : 1)) / perSweep));
   const reach = Array.from({ length: sweeps + 1 }, (_, k) => 500 + (k % 2 ? 1 : -1) * (swing - random() * wobble));
   const samples: Spot[] = [{ x: reach[0], y: top, along: 0 }];
   const stops: number[] = [];
@@ -73,17 +77,20 @@ export function layRoad(count: number, { swing, wobble, bend, flat, perSweep, to
     for (let j = 0; j < perSweep; j++) stops.push(start + ((end - start) * j) / perSweep);
     y0 += drop;
   }
-  stops.push(samples[samples.length - 1].along);
+  const laid = samples[samples.length - 1].along;
+  stops.push(laid);
   stops.length = Math.max(1, count);
-  const pointAt = (along: number): Spot => {
-    let low = 0, high = samples.length - 1;
-    while (high - low > 1) { const mid = (low + high) >> 1; if (samples[mid].along <= along) low = mid; else high = mid; }
-    const p = samples[low], q = samples[high], f = q.along > p.along ? Math.min(1, Math.max(0, (along - p.along) / (q.along - p.along))) : 0;
-    return { x: p.x + (q.x - p.x) * f, y: p.y + (q.y - p.y) * f, along };
-  };
+  if (end > 1 && count > 1) stops[count - 1] = Math.min(laid, stops[count - 2] + end * (stops[count - 1] - stops[count - 2]));
   const finish = stops[stops.length - 1];
+  const pointAt = (along: number): Spot => {
+    const at = Math.min(finish, Math.max(0, along));
+    let low = 0, high = samples.length - 1;
+    while (high - low > 1) { const mid = (low + high) >> 1; if (samples[mid].along <= at) low = mid; else high = mid; }
+    const p = samples[low], q = samples[high], f = q.along > p.along ? Math.min(1, Math.max(0, (at - p.along) / (q.along - p.along))) : 0;
+    return { x: p.x + (q.x - p.x) * f, y: p.y + (q.y - p.y) * f, along: at };
+  };
   const line = samples.filter((s) => s.along < finish).concat(pointAt(finish)).map((s) => `${s.x.toFixed(1)} ${s.y.toFixed(1)}`);
-  return { points: stops.map(pointAt), d: `M${line.join("L")}`, height: pointAt(finish).y + bottom, pointAt };
+  return { points: stops.map(pointAt), d: `M${line.join("L")}`, height: pointAt(finish).y + bottom * (end > 1 ? 1.35 : 1), pointAt };
 }
 
 /** The outline of a swell on the road centred `along` it: `length` long, as wide as `width` either side at its middle
@@ -113,21 +120,23 @@ export function useTraveller(box: RefObject<HTMLElement>, wave: RefObject<SVGPat
     const glide = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 1 : 0.1;
     let frame = 0, shown = Number.NaN;
     // The window's middle, from the first lesson down to the last, as the same share of the whole road: one steady
-    // speed all the way, never racing along a level stretch.
-    const target = (rect: DOMRect) => {
+    // speed all the way, never racing along a level stretch. It runs on past the road's end by `beyond`, so the wave
+    // goes wholly into the last stop and is gone there, rather than resting half outside it (owner, 2026-10-25: "it
+    // shouldn't trail at the end of the hexagon").
+    const target = (rect: DOMRect, beyond: number) => {
       const { points } = road, first = points[0], last = points[points.length - 1];
       const y = ((window.innerHeight * 0.55 - rect.top) / rect.width) * 1000;
-      return last.y > first.y ? Math.min(1, Math.max(0, (y - first.y) / (last.y - first.y))) * last.along : 0;
+      return last.y > first.y ? Math.min(1, Math.max(0, (y - first.y) / (last.y - first.y))) * (last.along + beyond) : 0;
     };
     const step = () => {
       frame = 0;
       const area = box.current, core = wave.current, glow = halo.current;
       if (!area || !core || !glow || !road.points.length) return;
-      const rect = area.getBoundingClientRect(), goal = target(rect);
+      // Sizes in pixels, turned into the road's units (a thousandth of the path's width).
+      const rect = area.getBoundingClientRect(), unit = 1000 / rect.width, length = Math.min(240, rect.width * 0.45) * unit;
+      const goal = target(rect, length * 0.62);
       shown = Number.isNaN(shown) ? goal : shown + (goal - shown) * glide;
       if (Math.abs(goal - shown) < 0.5) shown = goal;
-      // Sizes in pixels, turned into the road's units (a thousandth of the path's width).
-      const unit = 1000 / rect.width, length = Math.min(240, rect.width * 0.45) * unit;
       core.setAttribute("d", swell(road, shown, length, 5 * unit));
       glow.setAttribute("d", swell(road, shown, length * 1.2, 13 * unit));
       const circle = ((area.querySelector(".ck-node")?.getBoundingClientRect().width ?? 0) / 2) * unit;

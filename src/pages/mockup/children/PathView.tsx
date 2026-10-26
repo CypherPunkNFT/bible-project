@@ -62,7 +62,8 @@ export interface Onward { part: Part; onGo: () => void }
 export function Path({ lessons, progress, next, openId, onOpen, art, onward }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void; art?: boolean; onward?: Onward }) {
   const stops = lessons.length + (onward ? 1 : 0);
   const shape = useRoad(stops, art), seed = lessons[0]?.id ?? "";
-  const road = useMemo(() => layRoad(stops, shape, seed), [stops, shape, seed]);
+  const ending = onward ? 1.6 : 1;
+  const road = useMemo(() => layRoad(stops, shape, seed, ending), [stops, shape, seed, ending]);
   const { points, d, height } = road;
   const box = useRef<HTMLDivElement>(null), wave = useRef<SVGPathElement>(null), halo = useRef<SVGPathElement>(null);
   const near = useTraveller(box, wave, halo, road);
