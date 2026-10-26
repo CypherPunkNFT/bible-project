@@ -1,6 +1,6 @@
 // The road a part's lessons stand on (PathView.tsx Path), and the dot that travels it as the page scrolls.
 // Units are a thousandth of the path's width, x across and y down.
-import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
+import { useEffect, useMemo, useRef, useState, type MutableRefObject, type RefObject } from "react";
 import { CLICK_MS, ms, zoomClock } from "./zoom-clock";
 
 const NARROW = "(max-width: 760px)";
@@ -117,8 +117,11 @@ function swell(road: LaidRoad, along: number, length: number, width: number): st
  * at one steady speed with the scroll, and glides to each new place rather than jumping. With `hold` (a stop's index)
  * the wave goes to that stop instead, over the circle's press when it is chosen, on the zoom's clock (zoom-clock.ts) so
  * the ticker slows and steps it with the rest, and stays there while its lesson is open (owner, 2026-10-25: "the wave
- * position should come to it as it's kind of doing its clicking animation"). */
-export function useTraveller(box: RefObject<HTMLElement>, wave: RefObject<SVGPathElement>, halo: RefObject<SVGPathElement>, road: LaidRoad, hold = -1): number {
+ * position should come to it as it's kind of doing its clicking animation"). `settle` is given a way to scroll the
+ * page to where the scroll itself puts the wave on a stop, for the way back out of a lesson, so the wave is still on
+ * its circle afterwards rather than going back to where it was (owner, 2026-10-25). */
+export function useTraveller(box: RefObject<HTMLElement>, wave: RefObject<SVGPathElement>, halo: RefObject<SVGPathElement>, road: LaidRoad, hold = -1,
+  settle?: MutableRefObject<((index: number) => void) | null>): number {
   const [near, setNear] = useState(-1);
   // Where the wave is along the road, kept across a change of `hold`.
   const placed = useRef(Number.NaN);
@@ -143,6 +146,8 @@ export function useTraveller(box: RefObject<HTMLElement>, wave: RefObject<SVGPat
       const start = under + (rect.top - section.getBoundingClientRect().top) + (road.points[0].y * rect.width) / 1000;
       return Math.min(window.innerHeight * 0.55, start);
     };
+    /** The wave's length along the road, in its units. */
+    const lengthOf = (rect: DOMRect) => Math.min(240, rect.width * 0.45) * (1000 / rect.width);
     const target = (area: HTMLElement, rect: DOMRect, beyond: number) => {
       const { points } = road, first = points[0], last = points[points.length - 1];
       const y = ((line(area, rect) - rect.top) / rect.width) * 1000;
@@ -153,7 +158,7 @@ export function useTraveller(box: RefObject<HTMLElement>, wave: RefObject<SVGPat
       const area = box.current, core = wave.current, glow = halo.current;
       if (!area || !core || !glow || !road.points.length) return;
       // Sizes in pixels, turned into the road's units (a thousandth of the path's width).
-      const rect = area.getBoundingClientRect(), unit = 1000 / rect.width, length = Math.min(240, rect.width * 0.45) * unit;
+      const rect = area.getBoundingClientRect(), unit = 1000 / rect.width, length = lengthOf(rect);
       let goal = target(area, rect, length * 0.62), moving: boolean;
       if (toHold) {
         goal = road.points[hold].along;
@@ -173,10 +178,19 @@ export function useTraveller(box: RefObject<HTMLElement>, wave: RefObject<SVGPat
       if (moving) frame = requestAnimationFrame(step);
     };
     const ask = () => { if (!frame) frame = requestAnimationFrame(step); };
+    // The other way round from `target`: the scroll at which the window's line puts the wave on stop `index`.
+    if (settle) settle.current = (index) => {
+      const area = box.current, { points } = road, first = points[0], last = points[points.length - 1];
+      if (!area || !points[index] || last.y <= first.y) return;
+      const rect = area.getBoundingClientRect();
+      const share = points[index].along / (last.along + lengthOf(rect) * 0.62);
+      const top = line(area, rect) - ((first.y + share * (last.y - first.y)) * rect.width) / 1000;
+      window.scrollTo({ top: window.scrollY + rect.top - top, behavior: "instant" });
+    };
     step();
     window.addEventListener("scroll", ask, { passive: true });
     window.addEventListener("resize", ask);
-    return () => { cancelAnimationFrame(frame); toHold?.timer.cancel(); window.removeEventListener("scroll", ask); window.removeEventListener("resize", ask); };
-  }, [box, wave, halo, road, hold]);
+    return () => { cancelAnimationFrame(frame); toHold?.timer.cancel(); if (settle) settle.current = null; window.removeEventListener("scroll", ask); window.removeEventListener("resize", ask); };
+  }, [box, wave, halo, road, hold, settle]);
   return near;
 }

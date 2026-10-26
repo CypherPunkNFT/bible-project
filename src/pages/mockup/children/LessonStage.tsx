@@ -22,6 +22,8 @@ interface Props {
   lesson: Lesson; next: Lesson | null; bookNames: Record<string, string>;
   /** The page being zoomed, and a way to find a lesson's circle on it. */
   sceneOf: () => HTMLElement | null; circleOf: (lessonId: string) => HTMLElement | null;
+  /** Scrolls the page (as it is, not zoomed) so the road's wave sits on a lesson's circle. */
+  settleOn: (lessonId: string) => void;
   onOpen: (lesson: Lesson) => void; onFinish: (lesson: Lesson, right: number, total: number) => void; onClosed: () => void;
 }
 
@@ -49,7 +51,7 @@ function unzoom(scene: HTMLElement) {
 const zoom = (scene: HTMLElement, from: number, to: number, timing: KeyframeAnimationOptions) =>
   scene.animate([{ "--ck-zoom": from }, { "--ck-zoom": to }], { easing: EASE, fill: "both", ...timing });
 
-export function LessonStage({ lesson, next, bookNames, sceneOf, circleOf, onOpen, onFinish, onClosed }: Props) {
+export function LessonStage({ lesson, next, bookNames, sceneOf, circleOf, settleOn, onOpen, onFinish, onClosed }: Props) {
   const stage = useRef<HTMLDivElement>(null);
   /** The zoom holding the page at its end, and the lesson it is on. */
   const held = useRef<Animation | null>(null);
@@ -116,13 +118,14 @@ export function LessonStage({ lesson, next, bookNames, sceneOf, circleOf, onOpen
   const close = useCallback(async () => {
     if (busy.current) return;
     busy.current = true;
-    // After Next lesson the view moves, unseen behind the questions, onto the circle of the lesson showing now.
-    if (zoomedOn.current !== lessonId.current) {
-      const scene = aim(lessonId.current);
-      if (scene) held.current = zoom(scene, 1, 1, { duration: 0 });
-    }
-    // The page may scroll again; its scrollbar comes back while the questions still cover it.
+    // The page may scroll again; its scrollbar comes back while the questions still cover it. Then, unseen behind them,
+    // the page is scrolled to where the wave sits on the circle of the lesson showing now (after Next lesson, another
+    // one), and the view moves onto that circle, so the way out ends with the wave on it (owner, 2026-10-25).
     document.documentElement.style.overflow = "";
+    held.current?.cancel();
+    settleOn(lessonId.current);
+    const aimed = aim(lessonId.current);
+    if (aimed) held.current = zoom(aimed, 1, 1, { duration: 0 });
     setOpen(false);
     const scene = sceneOf();
     const done = zoomClock.start("Back to the lessons", ms(FADE_MS) + ms(ZOOM_MS) + ms(CLICK_MS));
@@ -140,7 +143,7 @@ export function LessonStage({ lesson, next, bookNames, sceneOf, circleOf, onOpen
     if (scene) unzoom(scene);
     zoomClock.end();
     onClosed();
-  }, [aim, onClosed, sceneOf]);
+  }, [aim, onClosed, sceneOf, settleOn]);
 
   const tone = { ...toneStyle(lesson.part.tone), "--fill": fill } as CSSProperties;
   return <div ref={stage} className="ck-stage" data-open={open ? "" : undefined} style={tone}>

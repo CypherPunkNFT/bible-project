@@ -68,6 +68,8 @@ what comes next.
   circle zooms from where it is, with no scroll up to the road's start first (`2c70a6dd1`).
   As the circle is pressed, the road's wave glides from wherever it was to that circle, on the zoom's clock (so the
   ticker slows it too), and stays there while the lesson is open.
+  On the way back out, the page is scrolled (unseen, behind the questions) to where the scroll itself puts the wave on
+  that circle, so the view zooms out onto it with the wave still there.
 - **Nothing about questions is on the live site.** The questions page and the children's page are local mock-ups.
 
 ## Waiting on the owner

@@ -47,6 +47,9 @@ export function MixedView({ lessons, groups, progress, bookNames, chosen, onChoo
   const circleOf = useCallback((id: string) => pathSection.current?.querySelector<HTMLElement>(`[data-lesson="${id}"] .ck-node`) ?? null, []);
   const closeStage = useCallback(() => setPlaying(null), []);
   const sceneOf = useCallback(() => scene.current, []);
+  // The path's way to scroll so the wave sits on a lesson, used on the way back out of it.
+  const settle = useRef<((index: number) => void) | null>(null);
+  const settleOn = useCallback((id: string) => settle.current?.(group.lessons.findIndex((l) => l.id === id)), [group]);
   // The zoom starts from the circle where it is on the screen, with no scroll to the road's start first (owner,
   // 2026-10-25: "it goes up to the first lesson and then it goes down to the one I clicked and zooms in").
   const play = (lesson: Lesson) => {
@@ -95,12 +98,12 @@ export function MixedView({ lessons, groups, progress, bookNames, chosen, onChoo
       <h2 id="ck-mix-path-title">All {group.lessons.length} lessons in {group.part.title}</h2>
       <p>{group.part.line}. Choose one to start its quiz.</p>
       <div className="ck-mix-path-body">
-        <Path key={group.part.id} lessons={group.lessons} progress={progress} next={next} openId={chosen.id} onOpen={play} art onward={onward} holdId={playing?.id} />
+        <Path key={group.part.id} lessons={group.lessons} progress={progress} next={next} openId={chosen.id} onOpen={play} art onward={onward} holdId={playing?.id} settle={settle} />
       </div>
     </section>
   </div>
     {playing && <LessonStage lesson={playing} next={lessons[lessons.indexOf(playing) + 1] ?? null} bookNames={bookNames}
-      sceneOf={sceneOf} circleOf={circleOf} onFinish={onFinish} onClosed={closeStage}
+      sceneOf={sceneOf} circleOf={circleOf} settleOn={settleOn} onFinish={onFinish} onClosed={closeStage}
       onOpen={(l) => { setPlaying(l); setChosenId(l.id); }} />}
   </>;
 }
