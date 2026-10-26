@@ -43,6 +43,7 @@ const ROUTE_TITLES: Record<string, string> = {
   "/study/museum-archaeology": "Biblical Archaeology in the World's Museums",
   "/study/theology": "Christian Theology",
   "/study/questions": "Bible Quiz Questions",
+  "/study/questions/children": "Bible Questions for Children",
   "/topics": "Bible Topics: Every Subject, Every Verse",
   "/apologetics": "Christian Apologetics: A Reason for the Hope",
   "/teachers": "Bible Teachers: Preachers, Authors and Scholars",
