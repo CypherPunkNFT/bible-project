@@ -86,38 +86,59 @@ export function layRoad(count: number, { swing, wobble, bend, flat, perSweep, to
   return { points: stops.map(pointAt), d: `M${line.join("L")}`, height: pointAt(finish).y + bottom, pointAt };
 }
 
-/** Where the window's middle falls on the road as the page scrolls: the dot is moved to that place, and the lesson it
- * rests in is returned, to light as if pointed at (owner, 2026-10-25: "a dot that travels. And then hovers selections
- * when it gets to the destination, and it keeps going"). Between two lessons the dot waits in each for a fifth of the
- * scroll and eases along the road for the rest. */
-export function useTraveller(box: RefObject<HTMLElement>, dot: RefObject<HTMLElement>, road: LaidRoad): number {
+/** The outline of a swell on the road centred `along` it: `length` long, as wide as `width` either side at its middle
+ * and narrowing smoothly to nothing at both ends. */
+function swell(road: LaidRoad, along: number, length: number, width: number): string {
+  const STEPS = 32, left: string[] = [], right: string[] = [];
+  let nx = 0, ny = -1;
+  for (let i = 0; i <= STEPS; i++) {
+    const s = -length / 2 + (length * i) / STEPS, p = road.pointAt(along + s), a = road.pointAt(along + s - 1), b = road.pointAt(along + s + 1);
+    const dx = b.x - a.x, dy = b.y - a.y, run = Math.hypot(dx, dy);
+    if (run > 0) { nx = -dy / run; ny = dx / run; }
+    const w = width * Math.cos((Math.PI * s) / length) ** 2;
+    left.push(`${(p.x + nx * w).toFixed(1)} ${(p.y + ny * w).toFixed(1)}`);
+    right.unshift(`${(p.x - nx * w).toFixed(1)} ${(p.y - ny * w).toFixed(1)}`);
+  }
+  return `M${left.join("L")}L${right.join("L")}Z`;
+}
+
+/** A wave that flows along the road as the page scrolls, a swell on both sides of the line, at the place the window's
+ * middle has reached; the lesson it is passing through is returned, to light as if pointed at (owner, 2026-10-25: "a
+ * dot that travels. And then hovers selections when it gets to the destination, and it keeps going", then "the
+ * traveling dot is speeding like a little bullet … a double-sided wave. Flowing through rather than a dot"). It moves
+ * at one steady speed with the scroll, and glides to each new place rather than jumping. */
+export function useTraveller(box: RefObject<HTMLElement>, wave: RefObject<SVGPathElement>, halo: RefObject<SVGPathElement>, road: LaidRoad): number {
   const [near, setNear] = useState(-1);
   useEffect(() => {
-    let frame = 0;
-    const place = () => {
-      frame = 0;
-      const area = box.current, mark = dot.current, { points } = road;
-      if (!area || !mark || !points.length) return;
-      const rect = area.getBoundingClientRect();
+    const glide = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 1 : 0.1;
+    let frame = 0, shown = Number.NaN;
+    // The window's middle, from the first lesson down to the last, as the same share of the whole road: one steady
+    // speed all the way, never racing along a level stretch.
+    const target = (rect: DOMRect) => {
+      const { points } = road, first = points[0], last = points[points.length - 1];
       const y = ((window.innerHeight * 0.55 - rect.top) / rect.width) * 1000;
-      let i = 0;
-      while (i < points.length - 1 && points[i + 1].y <= y) i++;
-      let along = points[i].along, resting = y >= points[0].y && y <= points[points.length - 1].y ? i : -1;
-      if (i < points.length - 1 && y > points[i].y) {
-        const t = Math.min(1, Math.max(0, ((y - points[i].y) / (points[i + 1].y - points[i].y) - 0.2) / 0.6));
-        along += t * t * (3 - 2 * t) * (points[i + 1].along - points[i].along);
-        resting = t === 0 ? i : t === 1 ? i + 1 : -1;
-      }
-      const p = road.pointAt(along);
-      mark.style.left = `${p.x / 10}%`;
-      mark.style.top = `${(p.y / road.height) * 100}%`;
-      setNear(resting);
+      return last.y > first.y ? Math.min(1, Math.max(0, (y - first.y) / (last.y - first.y))) * last.along : 0;
     };
-    const ask = () => { if (!frame) frame = requestAnimationFrame(place); };
-    place();
+    const step = () => {
+      frame = 0;
+      const area = box.current, core = wave.current, glow = halo.current;
+      if (!area || !core || !glow || !road.points.length) return;
+      const rect = area.getBoundingClientRect(), goal = target(rect);
+      shown = Number.isNaN(shown) ? goal : shown + (goal - shown) * glide;
+      if (Math.abs(goal - shown) < 0.5) shown = goal;
+      // Sizes in pixels, turned into the road's units (a thousandth of the path's width).
+      const unit = 1000 / rect.width, length = Math.min(240, rect.width * 0.45) * unit;
+      core.setAttribute("d", swell(road, shown, length, 5 * unit));
+      glow.setAttribute("d", swell(road, shown, length * 1.2, 13 * unit));
+      const circle = ((area.querySelector(".ck-node")?.getBoundingClientRect().width ?? 0) / 2) * unit;
+      setNear(road.points.findIndex((p) => Math.abs(p.along - shown) < circle + length * 0.3));
+      if (shown !== goal) frame = requestAnimationFrame(step);
+    };
+    const ask = () => { if (!frame) frame = requestAnimationFrame(step); };
+    step();
     window.addEventListener("scroll", ask, { passive: true });
     window.addEventListener("resize", ask);
     return () => { cancelAnimationFrame(frame); window.removeEventListener("scroll", ask); window.removeEventListener("resize", ask); };
-  }, [box, dot, road]);
+  }, [box, wave, halo, road]);
   return near;
 }

@@ -52,19 +52,20 @@ export function PathView({ lessons, groups, progress, openId, onOpen }: ViewProp
   </div>;
 }
 
-/** The lessons along one winding road, its own for each part (road.ts), with a dot that travels it as the page scrolls
- * and lights each lesson it rests in. With `art` (E) each circle holds the lesson's line drawing and its number sits
+/** The lessons along one winding road, its own for each part (road.ts), with a wave that flows along it as the page
+ * scrolls and lights each lesson it passes through. With `art` (E) each circle holds the lesson's line drawing and its number sits
  * just outside it. */
 export function Path({ lessons, progress, next, openId, onOpen, art }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void; art?: boolean }) {
   const shape = useRoad(lessons.length, art), seed = lessons[0]?.id ?? "";
   const road = useMemo(() => layRoad(lessons.length, shape, seed), [lessons.length, shape, seed]);
   const { points, d, height } = road;
-  const box = useRef<HTMLDivElement>(null), dot = useRef<HTMLSpanElement>(null);
-  const near = useTraveller(box, dot, road);
+  const box = useRef<HTMLDivElement>(null), wave = useRef<SVGPathElement>(null), halo = useRef<SVGPathElement>(null);
+  const near = useTraveller(box, wave, halo, road);
   return <div ref={box} className={art ? "ck-path ck-path-art" : "ck-path"} style={{ aspectRatio: `1000 / ${height}` }}>
-    <svg viewBox={`0 0 1000 ${height}`} preserveAspectRatio="none" aria-hidden="true"><path d={d} /></svg>
-    {/* Before the lessons, so a circle hides the dot while it rests inside. */}
-    <span ref={dot} className="ck-dot" aria-hidden />
+    {/* Before the lessons, so a circle hides the wave while it passes through. */}
+    <svg viewBox={`0 0 1000 ${height}`} preserveAspectRatio="none" aria-hidden="true">
+      <path d={d} /><path ref={halo} className="ck-wave-halo" /><path ref={wave} className="ck-wave" />
+    </svg>
     <ol>{lessons.map((lesson, i) => {
       const done = progress[lesson.id];
       return <li key={lesson.id} style={{ left: `${points[i].x / 10}%`, top: `${(points[i].y / height) * 100}%` }}>
