@@ -59,6 +59,9 @@ what comes next.
   in the card above. Website commit `c68de2546`. The hexagon is a third larger than a lesson's circle and stands 1.6
   times the usual gap past the last lesson; the wave runs wholly into it and ends there (`c0aa0eabe`). When a road is brought to the top (the hexagon),
   the wave starts on its first lesson (`abaa80c4e`).
+  In the course's top the chosen part has no arrow, even under the pointer; the others' arrow points down. Once the
+  course is open its top marks the part the course is at, and its list of lessons shows only that part, the others
+  folded to their names (choosing one opens it at its first lesson) (`819737998`).
 - **Nothing about questions is on the live site.** The questions page and the children's page are local mock-ups.
 
 ## Waiting on the owner
