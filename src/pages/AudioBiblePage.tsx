@@ -5,6 +5,7 @@ import recording from '@/data/listen/asv.json';
 import { AUDIO_CATEGORIES, audioPartSource, formatAudioTime, groupAudioBooks, locateBookTime, shuffleQueue, type RepeatMode } from '@/lib/audio-playlist';
 import { AudioBibleCover } from '@/components/bible/AudioBibleCover';
 import { AllDownloads, PlayerActions } from '@/components/bible/AudioDownloads';
+import { ReadAlongPanel } from '@/components/bible/ReadAlongPanel';
 import { AUDIO_ICONS } from '@/components/bible/audio-category-icons';
 import './audio-bible.css';
 
@@ -31,6 +32,8 @@ export default function AudioBiblePage() {
   const [initial] = useState(readPosition);
   const [index, setIndex] = useState(initial.index);
   const [playing, setPlaying] = useState(false);
+  const [reading, setReading] = useState(false);
+  const closeReading = useCallback(() => setReading(false), []);
   const [time, setTime] = useState(initial.time);
   const [category, setCategory] = useState('all');
   const [shuffle, setShuffle] = useState(false);
@@ -215,7 +218,7 @@ export default function AudioBiblePage() {
           <div className="asv-controls"><button type="button" className={shuffle ? 'is-active' : ''} aria-label="Shuffle" aria-pressed={shuffle} title="Shuffle books" onClick={() => setShuffle(!shuffle)}><Shuffle size={18}/></button><button type="button" aria-label="Previous book" disabled={previousDisabled} onClick={() => advance(-1)}><SkipBack size={22} fill="currentColor"/></button><button type="button" className="asv-play" aria-label={playing ? 'Pause book' : 'Play book'} onClick={togglePlay}>{playing ? <Pause size={25} fill="currentColor"/> : <Play size={25} fill="currentColor"/>}</button><button type="button" aria-label="Next book" disabled={nextDisabled} onClick={() => advance(1)}><SkipForward size={22} fill="currentColor"/></button><button type="button" className={repeat !== 'off' ? 'is-active' : ''} aria-label={repeatLabel} aria-pressed={repeat !== 'off'} title={`${repeatLabel} · click to change`} onClick={() => setRepeat(repeat === 'off' ? 'all' : repeat === 'all' ? 'one' : 'off')}><RepeatIcon size={19}/></button></div>
           <div className="asv-secondary"><label className="asv-volume"><Volume2 size={16}/><span className="sr-only">Volume</span><input type="range" min="0" max="1" step=".05" value={volume} onChange={event => { const value = Number(event.target.value); setVolume(value); if (audio.current) audio.current.volume = value; }}/></label><label className="asv-speed"><span className="sr-only">Playback speed</span><select value={speed} onChange={event => { const value = Number(event.target.value); setSpeed(value); if (audio.current) audio.current.playbackRate = value; }}>{[.75,1,1.25,1.5,2].map(value => <option value={value} key={value}>{value}× speed</option>)}</select><ChevronDown size={12}/></label></div>
           {error && <div className="asv-error" role="alert"><p>{error}</p><button type="button" onClick={playAudio}><RotateCcw size={14}/>Try again</button></div>}
-          <PlayerActions book={book} readTo={`/read/asv/${book.code}/${book.parts[currentPart.current].firstChapter}`}/>
+          <PlayerActions book={book} reading={reading} onRead={() => setReading(true)}/>
         </div>
       </section>
       <section className="asv-playlist" aria-labelledby="asv-playlist-title"><div className="asv-playlist-content"><header className="asv-playlist-heading"><div><p className="asv-eyebrow">Your listening queue</p><h2 id="asv-playlist-title">From Genesis to Revelation</h2></div><span>{visible.length} {visible.length === 1 ? 'book' : 'books'}</span></header>
@@ -228,6 +231,7 @@ export default function AudioBiblePage() {
       </div></section>
     </div>
     <AllDownloads books={BOOKS}/>
+    {reading && <ReadAlongPanel bookCode={book.code} bookTitle={book.title} partChapter={book.parts[currentPart.current].firstChapter} playing={playing} onTogglePlay={togglePlay} onClose={closeReading}/>}
     <footer className="asv-credits"><div><p className="asv-eyebrow">Freely given. Freely heard.</p><h2>With gratitude to LibriVox<br/>and Ron Altman.</h2></div><div><p>The American Standard Version (1901), read in full by Ron Altman. The text and this LibriVox recording are in the public domain.</p><a href={recording.sourceUrl} target="_blank" rel="noopener noreferrer">Original LibriVox recording<ArrowUpRight size={14}/></a><a href={recording.archiveUrl} target="_blank" rel="noopener noreferrer">Internet Archive collection<ArrowUpRight size={14}/></a></div></footer>
     <div className="asv-mobile-player" aria-label="Quick playback controls"><span className="asv-mobile-art"><CategoryIcon size={21}/></span><div><strong>{book.title}</strong><span>{playing ? 'Now playing' : 'Ready to listen'} · Ron Altman</span></div><button type="button" aria-label={playing ? 'Pause audio' : 'Play audio'} onClick={togglePlay}>{playing ? <Pause size={22} fill="currentColor"/> : <Play size={22} fill="currentColor"/>}</button><button type="button" disabled={nextDisabled} aria-label="Next audio" onClick={() => advance(1)}><SkipForward size={20}/></button><i style={{width:`${Math.min(100,time/duration*100)}%`}}/></div>
   </div>;

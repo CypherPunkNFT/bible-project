@@ -1,6 +1,5 @@
 import { BookOpen, Download } from 'lucide-react';
 import { useEffect, useState, type CSSProperties } from 'react';
-import { Link } from 'react-router-dom';
 import type { AudioBook } from '@/lib/audio-playlist';
 
 /** "18 MB", "4.2 MB", "1.4 GB" — sizes as a download dialog shows them. */
@@ -22,15 +21,15 @@ function ActionLabel({ title, detail }: { title: string; detail: string }) {
   return <span className="asv-action-copy"><strong>{title}</strong><small>{detail}</small></span>;
 }
 
-/** Under the player, side by side: read the text that is playing, and download the book (a book with several parts opens its file list below the row). */
-export function PlayerActions({ book, readTo }: { book: AudioBook; readTo: string }) {
+/** Under the player, side by side: open the text beside the player, and download the book (a book with several parts opens its file list below the row). */
+export function PlayerActions({ book, reading, onRead }: { book: AudioBook; reading: boolean; onRead: () => void }) {
   const [partsOpen, setPartsOpen] = useState(false);
   useEffect(() => setPartsOpen(false), [book.code]);
   const single = book.parts.length === 1;
   const detail = `${book.title} · ${formatBytes(bookBytes(book))}`;
   const icon = <span className="asv-action-icon" aria-hidden><Download size={24}/></span>;
   return <div className="asv-actions">
-    <Link className="asv-action" to={readTo}><span className="asv-action-icon" aria-hidden><BookOpen size={24}/></span><ActionLabel title="Read alongside" detail="Open the ASV text"/></Link>
+    <button type="button" className="asv-action" aria-haspopup="dialog" aria-expanded={reading} onClick={onRead}><span className="asv-action-icon" aria-hidden><BookOpen size={24}/></span><ActionLabel title="Read alongside" detail="Follow the text here"/></button>
     {single
       ? <a className="asv-action" href={book.parts[0].download.url} download>{icon}<ActionLabel title="Download" detail={detail}/></a>
       : <button type="button" className="asv-action" aria-expanded={partsOpen} aria-controls="asv-book-parts" onClick={() => setPartsOpen(!partsOpen)}>{icon}<ActionLabel title="Download" detail={detail}/></button>}
