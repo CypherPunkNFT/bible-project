@@ -1,5 +1,6 @@
-import { Download } from 'lucide-react';
-import type { CSSProperties } from 'react';
+import { BookOpen, Download } from 'lucide-react';
+import { useEffect, useState, type CSSProperties } from 'react';
+import { Link } from 'react-router-dom';
 import type { AudioBook } from '@/lib/audio-playlist';
 
 /** "18 MB", "4.2 MB", "1.4 GB" — sizes as a download dialog shows them. */
@@ -17,16 +18,24 @@ function PartLinks({ book }: { book: AudioBook }) {
   </li>)}</ul>;
 }
 
-/** Under the player: the book that is playing, one link per recorded part. */
-export function BookDownload({ book }: { book: AudioBook }) {
-  if (book.parts.length === 1) {
-    const part = book.parts[0];
-    return <a className="asv-download-book" href={part.download.url} download><Download size={15} aria-hidden/>Download {book.title}<span>{formatBytes(part.download.bytes)}</span></a>;
-  }
-  return <details className="asv-download-book">
-    <summary><Download size={15} aria-hidden/>Download {book.title}<span>{book.parts.length} files · {formatBytes(bookBytes(book))}</span></summary>
-    <PartLinks book={book}/>
-  </details>;
+function ActionLabel({ title, detail }: { title: string; detail: string }) {
+  return <span className="asv-action-copy"><strong>{title}</strong><small>{detail}</small></span>;
+}
+
+/** Under the player, side by side: read the text that is playing, and download the book (a book with several parts opens its file list below the row). */
+export function PlayerActions({ book, readTo }: { book: AudioBook; readTo: string }) {
+  const [partsOpen, setPartsOpen] = useState(false);
+  useEffect(() => setPartsOpen(false), [book.code]);
+  const single = book.parts.length === 1;
+  const detail = `${book.title} · ${formatBytes(bookBytes(book))}`;
+  const icon = <span className="asv-action-icon" aria-hidden><Download size={24}/></span>;
+  return <div className="asv-actions">
+    <Link className="asv-action" to={readTo}><span className="asv-action-icon" aria-hidden><BookOpen size={24}/></span><ActionLabel title="Read alongside" detail="Open the ASV text"/></Link>
+    {single
+      ? <a className="asv-action" href={book.parts[0].download.url} download>{icon}<ActionLabel title="Download" detail={detail}/></a>
+      : <button type="button" className="asv-action" aria-expanded={partsOpen} aria-controls="asv-book-parts" onClick={() => setPartsOpen(!partsOpen)}>{icon}<ActionLabel title="Download" detail={detail}/></button>}
+    {!single && partsOpen && <div id="asv-book-parts" className="asv-action-parts"><PartLinks book={book}/></div>}
+  </div>;
 }
 
 /** Above the credits: every book, so the whole Bible can be taken offline. */
