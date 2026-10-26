@@ -41,7 +41,9 @@
 .ck-path li{position:absolute;transform:translate(-50%,-28px);width:clamp(96px,14%,150px)}
 .ck-path li button{display:grid;justify-items:center;gap:8px;width:100%;border:0;background:none;cursor:pointer;text-align:center}
 .ck-node{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;border:2px solid var(--tone);background:var(--surface);font:500 20px/1 var(--serif);color:var(--tone);transition:transform .2s,background .2s}
-.ck-path button:hover .ck-node{transform:scale(1.08)}
+.ck-path button:hover .ck-node,.ck-path button[data-near] .ck-node{transform:scale(1.08)}
+/* The dot that travels the road as the page scrolls (road.ts useTraveller); the lesson it rests in lights as if pointed at */
+.ck-dot{position:absolute;left:0;top:0;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--tone);box-shadow:0 0 0 5px color-mix(in srgb,var(--tone) 22%,transparent),0 0 22px var(--tone);pointer-events:none}
 .ck-path button[data-done] .ck-node{background:var(--tone);color:var(--page)}
 .ck-path button[data-next] .ck-node{width:64px;height:64px;box-shadow:0 0 0 6px color-mix(in srgb,var(--tone) 16%,transparent),0 0 32px color-mix(in srgb,var(--tone) 45%,transparent)}
 .ck-path button[aria-pressed="true"] .ck-node{background:color-mix(in srgb,var(--tone) 18%,var(--surface))}
@@ -155,7 +157,7 @@
 .ck-path button[data-next] .ck-node-icon{width:56px;height:56px;box-shadow:none}
 .ck-path button[aria-pressed="true"] .ck-node-icon{background:var(--surface)}
 .ck-node-icon{transition:transform .2s,box-shadow .2s}
-.ck-path button:hover .ck-node-icon,.ck-node-icon[data-zoomed]{transform:scale(1.08);box-shadow:0 0 0 6px color-mix(in srgb,var(--tone) 16%,transparent),0 0 32px color-mix(in srgb,var(--tone) 45%,transparent)}
+.ck-path button:hover .ck-node-icon,.ck-path button[data-near] .ck-node-icon,.ck-node-icon[data-zoomed]{transform:scale(1.08);box-shadow:0 0 0 6px color-mix(in srgb,var(--tone) 16%,transparent),0 0 32px color-mix(in srgb,var(--tone) 45%,transparent)}
 .ck-path button[data-done] .ck-node-icon{background:var(--surface);color:var(--tone)}
 /* Start the quiz lights the lesson's circle for two seconds, the same grow and glow as a hover (MixedView.tsx) */
 .ck-node-icon[data-flash]{animation:ck-flash 2s ease-in-out}
@@ -163,7 +165,7 @@
 .ck-node-n{position:absolute;top:-4px;left:-20px;font:500 14px/1 var(--serif);color:var(--tone)}
 .ck-node-check{position:absolute;right:-6px;bottom:-2px;padding:2px;border-radius:50%;background:var(--tone);color:var(--page)}
 /* E's circles hold the lesson's line drawing and are three times the first size (owner, 2026-10-25), shrinking with
-   the screen so the rows keep their spacing (PathView.tsx usePerRow) */
+   the screen so the road keeps its spacing (road.ts useRoad) */
 .ck-path-art{--ck-node:clamp(104px,11.5vw,168px)}
 .ck-path.ck-path-art li{width:calc(var(--ck-node) + 72px);transform:translate(-50%,calc(var(--ck-node) / -2))}
 .ck-path.ck-path-art button .ck-node-icon{width:var(--ck-node);height:var(--ck-node)}
