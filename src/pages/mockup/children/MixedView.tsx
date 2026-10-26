@@ -95,7 +95,7 @@ export function MixedView({ lessons, groups, progress, bookNames, chosen, onChoo
       <h2 id="ck-mix-path-title">All {group.lessons.length} lessons in {group.part.title}</h2>
       <p>{group.part.line}. Choose one to start its quiz.</p>
       <div className="ck-mix-path-body">
-        <Path key={group.part.id} lessons={group.lessons} progress={progress} next={next} openId={chosen.id} onOpen={play} art onward={onward} />
+        <Path key={group.part.id} lessons={group.lessons} progress={progress} next={next} openId={chosen.id} onOpen={play} art onward={onward} holdId={playing?.id} />
       </div>
     </section>
   </div>

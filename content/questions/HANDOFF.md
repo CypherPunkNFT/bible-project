@@ -66,6 +66,8 @@ what comes next.
   goes up to it, and is not shown for the lesson already there; the panel that slid in beside the page is gone, with
   its styles and the unused direction A page (archived in `BibleProject/ARCHIVE/mockups/`). Choosing a lesson's
   circle zooms from where it is, with no scroll up to the road's start first (`2c70a6dd1`).
+  As the circle is pressed, the road's wave glides from wherever it was to that circle, on the zoom's clock (so the
+  ticker slows it too), and stays there while the lesson is open.
 - **Nothing about questions is on the live site.** The questions page and the children's page are local mock-ups.
 
 ## Waiting on the owner

@@ -4,6 +4,11 @@
 // pausing, slowing, stepping and seeking act on the whole move at once, as on the home page map's ticker.
 export const TICKS = 20;
 export const SLOWER = [1, 5, 10] as const;
+/** How long a lesson's circle takes to be pressed, before the zoom (LessonStage.tsx); the road's wave comes to it meanwhile. */
+export const CLICK_MS = 250;
+
+/** How long a part takes: nothing when the visitor asks for less motion. */
+export const ms = (time: number) => (window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : time);
 
 export interface ClockState {
   open: boolean; slow: number; paused: boolean;

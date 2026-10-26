@@ -10,9 +10,8 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import { toneStyle, type Lesson } from "./data";
 import { LessonPanel } from "./LessonPanel";
-import { zoomClock } from "./zoom-clock";
+import { CLICK_MS, ms, zoomClock } from "./zoom-clock";
 
-const CLICK_MS = 250;
 const ZOOM_MS = 800;
 const FADE_MS = 300;
 const EASE = "cubic-bezier(.45,0,.35,1)";
@@ -25,9 +24,6 @@ interface Props {
   sceneOf: () => HTMLElement | null; circleOf: (lessonId: string) => HTMLElement | null;
   onOpen: (lesson: Lesson) => void; onFinish: (lesson: Lesson, right: number, total: number) => void; onClosed: () => void;
 }
-
-/** How long a part takes: nothing when the visitor asks for less motion. */
-const ms = (time: number) => (window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : time);
 
 /** Sets the page up to zoom onto `circle`: where it scales from, and how far it moves and grows for the inside of the
  *  circle to fill the screen with the circle's middle at the screen's middle (read by the stylesheet's transform). */

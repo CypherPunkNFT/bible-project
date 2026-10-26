@@ -40,15 +40,16 @@ export interface Onward { part: Part; onGo: () => void }
 /** The lessons along one winding road, its own for each part (road.ts), with a wave that flows along it as the page
  * scrolls and lights each lesson it passes through. With `art` (E) each circle holds the lesson's line drawing and its number sits
  * just outside it. With `onward` the road ends in a hexagon in the next part's colour, holding its drawing (owner,
- * 2026-10-25: "a final circle or something else than a circle. Maybe a hexagon … for the next lesson"). */
-export function Path({ lessons, progress, next, openId, onOpen, art, onward }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void; art?: boolean; onward?: Onward }) {
+ * 2026-10-25: "a final circle or something else than a circle. Maybe a hexagon … for the next lesson"). `holdId` is the
+ * lesson being opened: the wave goes to its circle as it is pressed and stays there. */
+export function Path({ lessons, progress, next, openId, onOpen, art, onward, holdId }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void; art?: boolean; onward?: Onward; holdId?: string }) {
   const stops = lessons.length + (onward ? 1 : 0);
   const shape = useRoad(stops, art), seed = lessons[0]?.id ?? "";
   const ending = onward ? 1.6 : 1;
   const road = useMemo(() => layRoad(stops, shape, seed, ending), [stops, shape, seed, ending]);
   const { points, d, height } = road;
   const box = useRef<HTMLDivElement>(null), wave = useRef<SVGPathElement>(null), halo = useRef<SVGPathElement>(null);
-  const near = useTraveller(box, wave, halo, road);
+  const near = useTraveller(box, wave, halo, road, lessons.findIndex((l) => l.id === holdId));
   return <div ref={box} className={art ? "ck-path ck-path-art" : "ck-path"} style={{ aspectRatio: `1000 / ${height}` }}>
     {/* Before the lessons, so a circle hides the wave while it passes through. */}
     <svg viewBox={`0 0 1000 ${height}`} preserveAspectRatio="none" aria-hidden="true">
