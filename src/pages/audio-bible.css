@@ -16,3 +16,25 @@
 .asv-layout {align-items:stretch;}.asv-player {position:relative;top:auto;align-self:start;}.asv-playlist {position:relative;min-height:0;}.asv-playlist-content {position:absolute;inset:0;display:flex;flex-direction:column;min-height:0;}.asv-playlist-heading,.asv-categories {flex-shrink:0;}.asv-track-list {flex:1;min-height:0;max-height:none;}
 @media(max-width:767px){.asv-playlist-content {position:static;}.asv-track-list {flex:initial;max-height:590px;}}
 .asv-track-list {padding-bottom:64px;scroll-padding-block:16px 72px;-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 56px),transparent);mask-image:linear-gradient(to bottom,#000 calc(100% - 56px),transparent);}
+
+/* Downloads: the book that is playing (under the player) and every book (above the credits). */
+.asv-download-book {display:block;border-top:1px solid var(--line);font-size:.7rem;color:var(--audio-tone);}
+a.asv-download-book,.asv-download-book summary {display:flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 0;cursor:pointer;list-style:none;}
+.asv-download-book summary::-webkit-details-marker,.asv-download-grid summary::-webkit-details-marker {display:none;}
+.asv-download-book span,.asv-download-grid summary span {color:var(--muted);font-size:.62rem;}
+.asv-download-book .asv-download-parts {padding:0 0 .9rem;}
+.asv-download-parts {display:grid;gap:.15rem;}
+.asv-download-parts a {display:flex;align-items:center;gap:.55rem;padding:.5rem .6rem;border-radius:.5rem;font-size:.7rem;color:var(--ink);}
+.asv-download-parts a:hover {background:color-mix(in srgb,var(--audio-tone) 10%,transparent);}
+.asv-download-parts a svg {color:var(--audio-tone);flex-shrink:0;}
+.asv-download-parts a span {margin-left:auto;color:var(--muted);font-size:.62rem;}
+.asv-downloads {margin-top:3rem;border-top:1px solid var(--line);padding-top:2rem;}
+.asv-downloads h2 {font-family:var(--font-serif);font-size:1.6rem;font-weight:400;line-height:1.4;letter-spacing:-.025em;margin-top:.65rem;}
+.asv-downloads header > p:not(.asv-eyebrow) {max-width:40rem;margin-top:.4rem;font-size:.78rem;line-height:1.9;color:var(--muted);}
+.asv-download-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.5rem;margin-top:1.4rem;align-items:start;}
+.asv-download-grid details {border:1px solid var(--line);border-radius:.75rem;background:var(--surface);}
+.asv-download-grid details[open] {border-color:color-mix(in srgb,var(--track-tone) 45%,var(--line));}
+.asv-download-grid summary {display:flex;align-items:center;gap:.6rem;padding:.75rem .9rem;font-size:.75rem;cursor:pointer;list-style:none;}
+.asv-download-grid summary i {width:.45rem;height:.45rem;border-radius:50%;background:var(--track-tone);flex-shrink:0;}
+.asv-download-grid summary span {margin-left:auto;}
+.asv-download-grid .asv-download-parts {padding:0 .35rem .5rem;}
