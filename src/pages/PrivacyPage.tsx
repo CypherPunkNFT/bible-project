@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
-const CONTACT_ADDRESS = "amen@bibleguide.io";
-const UPDATED = "25 October 2026";
+export const CONTACT_ADDRESS = "amen@bibleguide.io";
+export const UPDATED = "25 October 2026";
 
 const mail = <a href={`mailto:${CONTACT_ADDRESS}`} className="text-accent underline-offset-4 hover:underline">{CONTACT_ADDRESS}</a>;
 
-const SUMMARY = [
+export const SUMMARY = [
   "You need no account to read, study or listen.",
   "No ads, no analytics and no tracking. Nothing is sold or shared for marketing.",
   "Your settings and progress stay in your browser or on your phone.",
@@ -14,7 +14,7 @@ const SUMMARY = [
 ];
 
 /** Every claim here was checked against the code on 2026-10-25 (server/contact.ts, server/testimonies.ts, the browser-storage keys, App/src/lib/site-content.ts); change the text when the behaviour changes. */
-const SECTIONS: { title: string; body: ReactNode[] }[] = [
+export const SECTIONS: { title: string; body: ReactNode[] }[] = [
   { title: "Who we are", body: [
     <>Bible Guide is a program of Redeemer Forge, Inc., a Florida not-for-profit corporation, which is responsible for the personal information described here. Write to us about privacy at {mail}.</>,
   ] },

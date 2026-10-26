@@ -6,7 +6,7 @@ const CONTACT_ADDRESS = "amen@bibleguide.io";
 
 const link = (to: string, label: string) => <Link to={to} className="text-accent underline-offset-4 hover:underline">{label}</Link>;
 
-const QUESTIONS: { question: string; answer: ReactNode }[] = [
+export const QUESTIONS: { question: string; answer: ReactNode }[] = [
   { question: "Is Bible Guide free?", answer: "Yes. The website and the app are free, with no ads, no subscription and no account." },
   { question: "I found a mistake. How do I report it?", answer: <>Press "Suggest a correction" on that page and describe what is wrong; the page address is sent with it. Or write to us with the page address.</> },
   { question: "Does the app work without internet?", answer: "The Bible itself does, in every version the app carries. Study pages download the first time you open them and then work offline. Listen needs a connection." },
