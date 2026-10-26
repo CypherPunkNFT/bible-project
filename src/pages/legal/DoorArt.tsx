@@ -1,7 +1,7 @@
-// MOCK-UP drawings for the Privacy and Support pages (2026-10-25): two doors. Privacy is the inner room with its door
+// Drawings for the Privacy and Support pages (2026-10-25): two doors. Privacy is the inner room with its door
 // shut (Matthew 6:6), a lamp burning on the table beside an open Bible; Support is the door opened to whoever knocks
 // (Matthew 7:7), light spilling onto the path. A lighthouse marks the Help for life band. Every drawing loops slowly
-// (the flame, the motes, the beam). Styles: legal-mockup.css (.lg-art, .lg-*).
+// (the flame, the motes, the beam). Styles: legal.css (.lg-art, .lg-*).
 
 const MOTES = [[0, 0], [14, -22], [-12, -40], [8, -58], [-6, -76]];
 const STARS: [number, number, number][] = [[112, 150, 0], [146, 172, 1.2], [128, 200, 2.4]];
