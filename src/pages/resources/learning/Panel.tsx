@@ -1,14 +1,30 @@
 // The panel beside a door's stack (mock-up A): the title pointed at (or the one clicked) with its cover, its facts, and,
 // when it is ready, four real pages that open the page viewer, both downloads and what was checked. A planned title
-// says so and offers nothing to download.
+// says so and offers nothing to download. A workbook by someone else shows who made it, its licence and the credit
+// line to print with it, and its files.
 import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import type { Division, Title } from "@/data/resources/learning-catalogue";
 import { type Back, plural, samplePages, titleUrl, toneOf } from "./model";
-import { Cover, Downloads, SourceLink, Status } from "./parts";
+import { Cover, Downloads, OpenFacts, SourceLink, Status } from "./parts";
+
+/** The panel for a workbook by someone else: its cover, who made it, its terms and the credit to print, and its files. */
+function OpenPanel({ title: t, division, back }: { title: Title; division: Division; back: Back }) {
+  const a = division.audience[t.audience], k = division.kind[t.kind], track = division.track[t.track];
+  return <div className="lm-pn" style={toneOf(a)}>
+    <div className="lm-pn-top">
+      <div className="lm-pn-cover"><Cover title={t} division={division} /></div>
+      <div><p className="lm-kicker">{k.name} · {track.short}</p><h3>{t.title}</h3><p className="lm-pn-sub">{t.sub}</p></div>
+    </div>
+    <OpenFacts title={t} division={division} className="lm-pn-facts" />
+    <Downloads title={t} />
+    <Link className="lm-pn-open" to={titleUrl(t.id)} state={{ from: back }}>Open the title <ArrowRight size={14} aria-hidden="true" /></Link>
+  </div>;
+}
 
 export function Panel({ title: t, division, back, onPage }: { title: Title; division: Division; back: Back; onPage: (page: number) => void }) {
+  if (t.open) return <OpenPanel title={t} division={division} back={back} />;
   const a = division.audience[t.audience], k = division.kind[t.kind], track = division.track[t.track], r = t.record;
   const series = t.series.length ? t.series.map((s) => <span key={s.id} className="lm-record-line">{division.seriesById[s.id].name} <span className="muted">· {s.step} of {division.inSeries(s.id).length}</span></span>)
     : <span className="muted">None</span>;

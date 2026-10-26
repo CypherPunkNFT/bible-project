@@ -6,7 +6,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { PATHS, STUDIES } from "@/generated/apologetics";
 import type { LearningData } from "./index";
-import { CATALOGUE, buildDivision, divisionCounts } from "./learning-catalogue";
+import { CATALOGUE, buildDivision, buildShelf, divisionCounts, shelfCounts, type OpenWork } from "./learning-catalogue";
 
 const SITE = path.resolve(__dirname, "../../..");
 const read = (file: string) => fs.readFileSync(path.join(SITE, file), "utf8");
@@ -114,5 +114,16 @@ describe("ready only when built", () => {
     expect(buildDivision(CATALOGUE, []).ready).toHaveLength(0);
     expect(division.forAudience("leaders").length).toBe(15);
     expect(divisionCounts()).toEqual({ ready: division.ready.length, planned: division.planned.length, readers: 7 });
+  });
+
+  it("puts only what we have on the shelf: our ready titles and the downloaded open workbooks, each behind its doors", () => {
+    const open = JSON.parse(read("src/data/resources/open-workbooks.json")) as OpenWork[];
+    const shelf = buildShelf(CATALOGUE, learning.items, open);
+    expect(shelf.planned).toHaveLength(0);
+    for (const t of shelf.titles) expect(t.record ?? t.open?.files[0], t.id).toBeDefined();
+    expect(shelf.titles.filter((t) => t.open).length).toBe(open.filter((w) => w.files.length > 0).length);
+    for (const w of open.filter((x) => x.files.length > 0)) for (const door of w.doors) expect(shelf.forAudience(door).some((t) => t.id === w.id), `${w.id} behind ${door}`).toBe(true);
+    for (const s of shelf.series) expect(shelf.inSeries(s.id).length, s.id).toBeGreaterThan(1);
+    expect(shelfCounts()).toEqual({ titles: shelf.titles.length, readers: 7 });
   });
 });

@@ -8,7 +8,7 @@ import { lazy, Suspense, useEffect, type ComponentType } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { StationDoor, StationStats } from "@/components/stations/Station";
 import { loadResource, useResource, type FellowshipsData, type LearningData, type LifeData } from "@/data/resources";
-import { divisionCounts } from "@/data/resources/learning-catalogue";
+import { shelfCounts } from "@/data/resources/learning-catalogue";
 import { RESOURCE_SECTIONS, sectionReady } from "./resources/sections";
 import { Loading } from "./resources/Shell";
 
@@ -45,20 +45,20 @@ function Section<K extends keyof Data>({ name, Page }: { name: K; Page: Componen
   return <Suspense fallback={<Loading />}><Page data={data as Data[K]} /><span hidden data-resource-ready={name} /></Suspense>;
 }
 
-/** "1 ready · 40 planned · 7 readers": the Learning division at a glance (learning-catalogue.json). */
+/** "81 titles to download · 7 readers": the Learning shelf at a glance (ours, plus the open workbooks downloaded). */
 function learningNote() {
-  const { ready, planned, readers } = divisionCounts();
-  return `${ready} ready · ${planned} planned · ${readers} readers`;
+  const { titles, readers } = shelfCounts();
+  return `${titles} titles to download · ${readers} readers`;
 }
 
 /** What the three sections hold, counted from their data; a figure reads "…" until its file has loaded. */
 function useStationFigures(): [string, string | number][] {
   const fellowships = useResource("fellowships");
   const life = useResource("life");
-  const { ready, planned } = divisionCounts();
+  const { titles } = shelfCounts();
   const cities = typeof life === "object" ? life.cities.filter((c) => c.verified === true && c.entries.length > 0) : null;
   return [
-    ["Learning titles", ready + planned],
+    ["Learning titles", titles],
     ["Fellowships", typeof fellowships === "object" ? fellowships.groups.reduce((n, g) => n + g.entries.length, 0) : "…"],
     ["Cities with local help", cities ? cities.length : "…"],
     ["Local places & lines", cities ? cities.reduce((n, c) => n + c.entries.length + (c.lines?.length ?? 0), 0) : "…"],

@@ -2,21 +2,23 @@
 // 2026-10-08; plan: Research/Resources/LEARNING.md section 6). "Choose a door." on top; a door opens that reader's stack
 // beneath it (the books lying flat, grouped by subject, with the panel beside them) and, under the stack, what its
 // titles are built from. ?for=<reader> opens that door; the address follows the open door without redrawing the page.
-// Below: every subject through every door, the series that cross the ages, and how a title reaches the shelf.
-// A title is ready only when scripts/build-learning.mjs has built it (learning.json); every other title is planned.
+// Below: every subject through every door, and any series that still joins two titles.
+// Only what we have is shown (owner, 24 October 2026): our built workbooks (learning.json) and the workbooks by others
+// that have been downloaded (open-workbooks.json, from Research/Resources/OpenWorkbooks), with their makers' credit.
+// No planned titles; the page as it was, planned titles and all, is kept at /learning_mockup.
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { LearningData } from "@/data/resources";
-import { CATALOGUE, buildDivision } from "@/data/resources/learning-catalogue";
+import { CATALOGUE, buildShelf, type OpenWork } from "@/data/resources/learning-catalogue";
+import OPEN from "@/data/resources/open-workbooks.json";
 import { Doors } from "./learning/Doors";
 import { Drawer } from "./learning/Drawer";
 import { SeriesBlocks } from "./learning/SeriesBlocks";
-import { Steps } from "./learning/Steps";
 import { SubjectLanes } from "./learning/SubjectLanes";
 import { ResourceCrumbs } from "./Shell";
 import "./learning/learning.css";
 
 export default function LearningPage({ data }: { data: LearningData }) {
-  const division = useMemo(() => buildDivision(CATALOGUE, data.items), [data]);
+  const division = useMemo(() => buildShelf(CATALOGUE, data.items, OPEN as OpenWork[]), [data]);
   const [age, setAge] = useState<string | null>(() => {
     const asked = new URLSearchParams(window.location.search).get("for");
     return asked && division.audience[asked] ? asked : null;
@@ -51,15 +53,16 @@ export default function LearningPage({ data }: { data: LearningData }) {
     return () => removeEventListener("keydown", key);
   }, [age, choose, division]);
 
-  // Section numbers follow what is open: 01 and 02 belong to the open stack, the rest count on from there.
-  const num = (n: number) => String(n + (shown ? 2 : 0)).padStart(2, "0");
+  // Section numbers follow what is open: 01 (and 02, where the door has titles of our own) belong to the open stack,
+  // the rest count on from there.
+  const opened = shown && age ? (division.forAudience(age).some((t) => t.builtFrom.length > 0) ? 2 : 1) : 0;
+  const num = (n: number) => String(n + opened).padStart(2, "0");
   const back = { path: `/resources/learning${age ? `?for=${age}` : ""}`, label: "Learning materials" };
   return <div className="lm tl-page mx-auto max-w-7xl px-4 sm:px-6">
     <ResourceCrumbs slug="learning" />
     <Doors division={division} age={age} onChoose={choose} />
     <Drawer division={division} age={age} kind={kind} onKind={setKind} onShown={setShown} />
     <SubjectLanes division={division} num={num(1)} back={back} />
-    <SeriesBlocks division={division} num={num(2)} back={back} />
-    <Steps num={num(3)} />
+    {division.series.length > 0 && <SeriesBlocks division={division} num={num(2)} back={back} />}
   </div>;
 }

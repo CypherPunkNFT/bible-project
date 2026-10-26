@@ -3,6 +3,7 @@
 // workbooks scripts/build-learning.mjs has actually built (learning.json). A title is "ready" only when its built record
 // exists; everything else is "planned": a title and its sources, never a download, a page count or sample pages.
 import CATALOGUE_JSON from "./learning-catalogue.json";
+import OPEN_COUNT from "./open-workbooks-count.json";
 import type { Workbook } from "./index";
 
 export interface Audience { id: string; name: string; age: string; how: string; art: string; tone: string; setting?: boolean; line: string }
@@ -25,6 +26,17 @@ export interface Title extends Omit<CatalogueItem, "status" | "series"> {
   record?: Workbook;
   /** Only for a ready title: what was checked, and when. */
   review?: string;
+  /** Only for a workbook made by someone else that anyone may share: who made it, its terms and its files. */
+  open?: OpenWork;
+}
+
+/** One file of an open workbook: on this site, or (over the 25 MiB hosting limit) at its maker's own address. */
+export interface OpenFile { href: string; label: string; bytes: number; kind: string; external?: boolean }
+/** A workbook by someone else whose terms let anyone share it (Research/Resources/OpenWorkbooks; open-workbooks.json). */
+export interface OpenWork {
+  id: string; title: string; author?: string | null; publisher?: string | null; doors: string[]; ages?: string | null; kind: string;
+  subjects: string[]; description?: string | null; pages?: number | null; sourcePage: string; files: OpenFile[]; linkOnly?: string;
+  rights: { basis: string; licence: string; licenceUrl?: string | null; creditLine?: string | null; conditions?: string | null };
 }
 
 export interface Division {
@@ -66,6 +78,38 @@ export function buildDivision(catalogue: Catalogue, built: Workbook[]): Division
     forAudience: (id) => titles.filter((t) => t.audience === id || (id === "leaders" && t.guide === true)),
     inSeries: (sid) => titles.filter((t) => t.series.some((s) => s.id === sid)).sort((a, b) => step(a, sid) - step(b, sid)),
   };
+}
+
+/**
+ * The page as the owner asked for it on 24 October 2026: only what we have. Our own built workbooks, plus every open
+ * workbook by someone else that has been downloaded, each behind every door it serves; no planned titles, and only the
+ * series that still join two titles or more.
+ */
+export function buildShelf(catalogue: Catalogue, built: Workbook[], open: OpenWork[]): Division {
+  const ours = buildDivision(catalogue, built).ready;
+  const tracks = new Set(catalogue.tracks.map((t) => t.id));
+  const others: Title[] = open.filter((w) => w.files.length > 0).map((w) => ({
+    id: w.id, status: "ready", title: w.title, sub: w.description ?? "", audience: w.doors[0], kind: w.kind,
+    track: w.subjects.find((s) => tracks.has(s)) ?? "life", series: [], builtFrom: [], open: w,
+  }));
+  // A series keeps its place only while two of its titles are here; a title forgets the series that are gone.
+  const series = catalogue.series.filter((s) => ours.filter((t) => t.series.some((x) => x.id === s.id)).length > 1);
+  const kept = new Set(series.map((s) => s.id));
+  const titles = [...ours.map((t) => ({ ...t, series: t.series.filter((s) => kept.has(s.id)) })), ...others];
+  const step = (t: Title, sid: string) => t.series.find((s) => s.id === sid)?.step ?? 0;
+  const inSeries = (sid: string) => titles.filter((t) => t.series.some((s) => s.id === sid)).sort((a, b) => step(a, sid) - step(b, sid));
+  return {
+    audiences: catalogue.audiences, kinds: catalogue.kinds, tracks: catalogue.tracks, series, titles,
+    audience: byId(catalogue.audiences), kind: byId(catalogue.kinds), track: byId(catalogue.tracks), seriesById: byId(series), title: byId(titles),
+    ready: titles, planned: [],
+    forAudience: (id) => titles.filter((t) => (t.open ? t.open.doors.includes(id) : t.audience === id || (id === "leaders" && t.guide === true))),
+    inSeries,
+  };
+}
+
+/** What the shelf holds without loading it: our ready titles, plus the downloaded open workbooks (a unit test keeps it equal). */
+export function shelfCounts(catalogue: Catalogue = CATALOGUE) {
+  return { titles: divisionCounts(catalogue).ready + OPEN_COUNT.titles, readers: catalogue.audiences.length };
 }
 
 /** The station's line for the division, from the catalogue's own status (a unit test keeps it equal to what is built). */

@@ -40,7 +40,8 @@ export function CitySection({ city, cities, onPick, leaving, checked, words = LI
   </section>;
 }
 
-function UsaMap({ states, city, cities, onPick }: { states: UsStates; city: City; cities: City[]; onPick: (id: string) => void }) {
+/** `onOpen`, when given, is what a click on any dot does, the chosen one included (the homepage's map zooms into the city). */
+export function UsaMap({ states, city, cities, onPick, onOpen }: { states: UsStates; city: City; cities: City[]; onPick: (id: string) => void; onOpen?: (id: string) => void }) {
   const svg = useRef<SVGSVGElement>(null), zoom = useRef<Zoom | null>(null);
   const project = useMemo(() => geoAlbersUsa().scale(states.scale).translate(states.translate), [states]);
   const at = useMemo(() => project([city.lon, city.lat]), [project, city]);
@@ -63,8 +64,8 @@ function UsaMap({ states, city, cities, onPick }: { states: UsStates; city: City
       {/* Every city is a small dot that shows its name on hover; the chosen one is drawn last, with its ring and name always on. A click on another dot chooses it. */}
       {[...dots].sort((a, b) => Number(a.c.id === city.id) - Number(b.c.id === city.id)).map(({ c, xy }) => {
         const on = c.id === city.id, label = c.name.split(",")[0];
-        return <g key={c.id} className="lf-us-city lf-mark" data-x={xy[0]} data-y={xy[1]} data-on={on || undefined} role="button" tabIndex={0} aria-label={on ? `${label}, chosen; zoom to it` : `Show ${c.name}`}
-          onClick={() => (on ? focus() : onPick(c.id))} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); if (on) focus(); else onPick(c.id); } }}>
+        return <g key={c.id} className="lf-us-city lf-mark" data-id={c.id} data-x={xy[0]} data-y={xy[1]} data-on={on || undefined} role="button" tabIndex={0} aria-label={onOpen ? `Open the map of ${c.name}` : on ? `${label}, chosen; zoom to it` : `Show ${c.name}`}
+          onClick={() => (onOpen ? onOpen(c.id) : on ? focus() : onPick(c.id))} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); if (onOpen) onOpen(c.id); else if (on) focus(); else onPick(c.id); } }}>
           <circle className="lf-hit" r={11} /><circle className="lf-ring" r={9} /><circle className="lf-dot" r={on ? 4 : 2.6} /><text x={-12} y={-8} textAnchor="end">{label}</text>
         </g>;
       })}
@@ -91,7 +92,7 @@ function Local211({ city }: { city: City }) {
   </dd></div>;
 }
 
-function CityInfo({ city, facts, kinds, checked, leaving, words }: { city: City; facts: CityFacts | null; kinds: [string, number][]; checked: string; leaving?: boolean; words: CityWords }) {
+export function CityInfo({ city, facts, kinds, checked, leaving, words }: { city: City; facts: CityFacts | null; kinds: [string, number][]; checked: string; leaving?: boolean; words: CityWords }) {
   const f = Object.fromEntries((facts?.facts ?? []).map((x) => [x.id, x]));
   const n = (v: string | number) => v.toLocaleString("en-US");
   const [place, region] = [city.name.split(",")[0], city.name.split(",").slice(1).join(",").trim()];

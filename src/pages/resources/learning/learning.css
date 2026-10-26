@@ -357,3 +357,28 @@
 @media (prefers-reduced-motion: reduce) {
   .lm *, .lm *::before, .lm *::after, .lm-viewer * { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }
 }
+
+/* A workbook by someone else (parts.tsx): its cover is drawn solid, not dashed, since it is here to download; a title
+   that comes as many files lists them under one line. */
+.lm-sketch.open { border-style: solid; }
+.lm-dl-many { margin-top: 1rem; }
+/* The lanes on the shelf (SubjectLanes, class "shelf"): a wider subject column so every name fits on one line; one
+   rule under each subject running the full width and nothing else drawn across the grid; a cell's points in centred
+   lines, split evenly by SubjectLanes (as many across as the column holds, at most six). */
+.lm-lanes.shelf { grid-template-columns: 14.5rem repeat(7, minmax(4.6rem, 1fr)); }
+.lm-lanes.shelf .rowh { height: auto; min-height: 3.1rem; white-space: nowrap; }
+.lm-lanes.shelf .rowh, .lm-lanes.shelf .cell { border-bottom: 1px solid var(--line); }
+.lm-lanes.shelf .cell::before { content: none; }
+.lm-lanes.shelf .colh.setting, .lm-lanes.shelf .cell.setting { border-left: 0; }
+.lm-lanes.shelf .cell { flex-direction: column; gap: 5px; height: auto; min-height: 3.1rem; padding: .6rem .4rem; }
+.lm-pt-line { display: flex; gap: 4px; }
+/* The last subject's own rule closes the grid, so the line beneath has no rule of its own. */
+.lm-hint.lm-lanes-hint { border-top: 0; }
+.lm-pt-line .lm-pt { flex: none; }
+.lm-lanes.shelf .lm-corner { border-bottom: 1px solid var(--line); }
+@media (max-width: 640px) {
+  .lm-lanes.shelf { grid-template-columns: 9rem repeat(7, 5.6rem); }
+  .lm-lanes.shelf .rowh { white-space: normal; }
+}
+.lm-dl-many summary { cursor: pointer; color: var(--accent); font-size: .84rem; }
+.lm-dl-many ol { max-height: 18rem; margin-top: .5rem; padding-left: 1.6rem; overflow-y: auto; list-style: decimal; font-size: .78rem; line-height: 1.8; }

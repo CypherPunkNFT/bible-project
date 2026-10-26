@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { StableTip } from "@/components/StableTip";
 import type { Audience, Division } from "@/data/resources/learning-catalogue";
 import { AudienceArt } from "./Art";
-import { doorUrl, plural, toneOf } from "./model";
+import { doorUrl, makerOf, plural, toneOf } from "./model";
 
 /** An arch for an age, a lintel doorway for a setting. viewBox 100 x 160, stretched to the door. */
 function DoorFrame({ setting }: { setting?: boolean }) {
@@ -59,21 +59,22 @@ export function Doors({ division, age, onChoose }: { division: Division; age: st
     el.scrollTo({ left: el.scrollLeft + shift - (el.clientWidth - door.offsetWidth) / 2, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   }, [age]);
 
+  const makers = new Set(division.titles.map((t) => (t.open ? makerOf(t.open) : "Bible Guide"))).size;
   const ages = division.audiences.filter((a) => !a.setting), settings = division.audiences.filter((a) => a.setting);
   return <section className={`lm-land${age ? " is-open" : ""}`} aria-labelledby="lm-land-title">
     <div className="lm-sky" aria-hidden="true" />
     <div className="lm-land-head">
       <p className="lm-kicker">Resources · Learning materials</p>
       <h1 id="lm-land-title">Choose <em>a door.</em></h1>
-      <p>Five doors by age and two for those who use them together. Open one to see its stack, every title written from the site’s reviewed pages.</p>
+      <p>Five doors by age and two for those who use them together. Open one to see its stack: every title ready to download, with the credit its maker asks for.</p>
     </div>
     <div className={`lm-doors${age ? " has-chosen" : ""}`} ref={row} role="group" aria-label="Choose a reader">
       {[...ages, ...settings].map((a) => <Door key={a.id} audience={a} count={division.forAudience(a.id).length} chosen={a.id === age} onChoose={onChoose} onPoint={setPointed} />)}
     </div>
     <StableTip className="lm-hint lm-door-hint" options={options} show={show} />
     <div className="lm-bar">
-      <div><b>{division.ready.length}</b><span>Ready to print</span></div><div><b>{division.planned.length}</b><span>Planned</span></div>
-      <div><b>{division.tracks.length}</b><span>Subjects</span></div><div><b>{division.series.length}</b><span>Series</span></div><div><b>2</b><span>Paper sizes</span></div>
+      <div><b>{division.ready.length}</b><span>Ready to download</span></div><div><b>{makers}</b><span>Makers credited</span></div>
+      <div><b>{division.tracks.length}</b><span>Subjects</span></div><div><b>{division.audiences.length}</b><span>Readers</span></div>
     </div>
   </section>;
 }

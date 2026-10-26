@@ -1,26 +1,28 @@
 // /resources/learning/<title>: one title's page (mock-up A's item page, as E links to it). A ready workbook shows its
 // cover with two real pages fanned behind it, both downloads, its record, real pages that open the page viewer, and its
-// sessions (choose one for its summary, a key verse, its questions and the page it opens on). A planned title shows
-// only what it will be written from and its series: no download, no page count, no sample pages. The way back names
-// where the visitor came from (the door they opened, by default).
+// sessions (choose one for its summary, a key verse, its questions and the page it opens on). A workbook by someone
+// else shows its maker's own words, its files, and its record with the licence and the credit to print with it. Only
+// what is on the shelf has a page; any other address goes back to the shelf. The way back names where the visitor came
+// from (the door they opened, by default).
 import { useEffect, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { BackLink } from "@/components/BackLink";
 import type { LearningData, WorkbookSession } from "@/data/resources";
-import { CATALOGUE, buildDivision, type Title } from "@/data/resources/learning-catalogue";
+import { CATALOGUE, buildShelf, type Division, type OpenWork, type Title } from "@/data/resources/learning-catalogue";
+import OPEN from "@/data/resources/open-workbooks.json";
 import { ResourceCrumbs } from "../Shell";
 import { SessionArt } from "./Art";
 import { PageViewer } from "./PageViewer";
 import { SeriesBlock } from "./SeriesBlocks";
-import { doorUrl, splitTitle, titleUrl, toneOf } from "./model";
-import { Cover, Downloads, Record, SecHead, SourceLink } from "./parts";
+import { doorUrl, makerOf, splitTitle, titleUrl, toneOf } from "./model";
+import { Cover, Downloads, OpenFacts, Record, SecHead } from "./parts";
 import "./learning.css";
 
 const WORDS = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
 
 export default function LearningTitlePage({ data }: { data: LearningData }) {
   const { titleId = "" } = useParams();
-  const division = useMemo(() => buildDivision(CATALOGUE, data.items), [data]);
+  const division = useMemo(() => buildShelf(CATALOGUE, data.items, OPEN as OpenWork[]), [data]);
   const t: Title | undefined = division.title[titleId];
   const [viewer, setViewer] = useState<number | null>(null);
   useEffect(() => {
@@ -28,6 +30,7 @@ export default function LearningTitlePage({ data }: { data: LearningData }) {
     return () => { document.title = "Bible Guide"; };
   }, [t]);
   if (!t) return <Navigate replace to="/resources/learning" />;
+  if (t.open) return <OpenTitle title={t} work={t.open} division={division} />;
 
   const a = division.audience[t.audience], r = t.record, [name, rest] = splitTitle(t.title);
   const back = { path: titleUrl(t.id), label: t.title };
@@ -48,8 +51,8 @@ export default function LearningTitlePage({ data }: { data: LearningData }) {
       <div>
         <p className="lm-kicker rule">{division.kind[t.kind].name} · {a.name}</p>
         <h1 id="lm-title">{name}{rest && <em>{rest}</em>}</h1>
-        <p className="sum">{r ? r.summary : `${t.sub}. This title is planned: it has a place on the shelf and the pages it will be written from, but nothing has been written yet.`}</p>
-        {r ? <Downloads title={t} /> : <div className="lm-gap" />}
+        <p className="sum">{r?.summary ?? t.sub}</p>
+        <Downloads title={t} />
         <Record title={t} division={division} back={back} />
       </div>
     </section>
@@ -64,11 +67,7 @@ export default function LearningTitlePage({ data }: { data: LearningData }) {
           </button>)}</div>
       </section>
       <Sessions sessions={r.outline.sessions} outline={r.outline} num={next()} rest={rest || name} images={images} onPage={setViewer} />
-    </> : <section className="lm-sec" aria-labelledby="lm-from">
-      <SecHead num={next()} id="lm-from" title={<>What it will be <em>written from</em></>}
-        lead="Every planned title names its sources before a word is written, so the shelf shows only what the site can stand behind." />
-      <ul className="lm-steps lm-from-list">{t.builtFrom.map((b, i) => <li key={b.path}><span>0{i + 1}</span><b><SourceLink path={b.path} title={b.title} back={back} /></b><p>{b.path}</p></li>)}</ul>
-    </section>}
+    </> : null}
 
     {t.series.length > 0 && <section className="lm-sec" aria-labelledby="lm-in-series">
       <SecHead num={next()} id="lm-in-series" title={<>In <em>{t.series.length > 1 ? `${WORDS[t.series.length].toLowerCase()} series` : "a series"}</em></>} />
@@ -76,6 +75,26 @@ export default function LearningTitlePage({ data }: { data: LearningData }) {
     </section>}
 
     {viewer !== null && images.length > 0 && <PageViewer title={t.title} images={images} start={viewer} onClose={() => setViewer(null)} />}
+  </div>;
+}
+
+/** A workbook by someone else: its cover, its maker's description, its files, and its record ending in the credit. */
+function OpenTitle({ title: t, work: w, division }: { title: Title; work: OpenWork; division: Division }) {
+  const a = division.audience[t.audience], [name, rest] = splitTitle(t.title);
+  return <div className="lm lm-title-page tl-page mx-auto max-w-7xl px-4 sm:px-6" style={toneOf(a)}>
+    <ResourceCrumbs slug="learning" />
+    <div className="lm-back"><BackLink fallback={{ path: doorUrl(a.id), label: `the ${a.name.toLowerCase()} door` }} /></div>
+    <section className="lm-item" aria-labelledby="lm-title">
+      <div className="lm-stand"><div className="front"><Cover title={t} division={division} /></div></div>
+      <div>
+        <p className="lm-kicker rule">{division.kind[t.kind].name} · {makerOf(w)}</p>
+        <h1 id="lm-title">{name}{rest && <em>{rest}</em>}</h1>
+        {w.description && <p className="sum">{w.description}</p>}
+        <Downloads title={t} />
+        <OpenFacts title={t} division={division} className="lm-record" />
+        {w.rights.conditions && <p className="lm-pn-note">{w.rights.conditions}</p>}
+      </div>
+    </section>
   </div>;
 }
 

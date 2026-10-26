@@ -65,3 +65,7 @@ __pycache__/
 /content/questions/sources/output/
 /content/questions/sources/work/
 /content/questions/sources/tools/__pycache__/
+
+# The learning shelf's open workbooks (about 550 MB of PDFs, EPUBs and maps), fetched by scripts/fetch-open-workbooks.py
+# and released from disk with the site, like the other large public data folders above.
+/public/learning/open/

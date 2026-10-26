@@ -24,6 +24,7 @@ function bookShape(t: Title, kindName: string) {
   const [base, width] = SHAPE[t.kind] ?? [30, 84];
   let thick = base;
   if (t.record) thick = Math.round(17 + t.record.pages * 0.5);
+  else if (t.open?.pages) thick = Math.round(17 + Math.min(t.open.pages, 42) * 0.5);
   else if (t.sessions) thick = Math.min(37, Math.round(22 + t.sessions * 1.15));
   // Never narrower than its title needs (about 520 px of stack at full width).
   const need = (t.title.length * 7.4 + kindName.length * 6.4 + 150) / 5.2;

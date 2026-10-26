@@ -1,7 +1,7 @@
 // The drawer beneath the doors (mock-up E). Choosing a door opens it: the drawer grows from nothing while the stack
 // rises a little into place. Choosing another door slides the open stack out and the next one in, from the side the
 // door is on; choosing the open door again closes it. Inside, one reader's view: the stack and its panel (01), then
-// what its titles are built from (02). Motion is Web Animations (slides, no fades); reduced motion jumps straight there.
+// what our own titles are built from (02, only where the door has any). Motion is Web Animations (slides, no fades); reduced motion jumps straight there.
 import { useLayoutEffect, useRef, useState } from "react";
 import type { Audience, Division } from "@/data/resources/learning-catalogue";
 import { BuiltFromRing } from "./BuiltFromRing";
@@ -16,15 +16,17 @@ const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 interface ViewProps { division: Division; audience: Audience; kind: string | null; onKind: (kind: string | null) => void; settled: number }
 
 function AgeView({ division, audience: a, kind, onKind, settled }: ViewProps) {
-  const items = division.forAudience(a.id), ready = items.filter((t) => t.status === "ready").length;
+  const items = division.forAudience(a.id);
   const back = doorBack(a);
   // Only the kinds this door has: one quiet row, with no "None here" chips.
   const kinds = division.kinds.map((k) => [k, items.filter((t) => t.kind === k.id).length] as const).filter(([, n]) => n > 0);
-  const sources = new Set(items.flatMap((t) => t.builtFrom.map((b) => b.path))).size;
+  // The ring shows the titles written from this site's own pages; a door with none of them has no 02.
+  const built = items.filter((t) => t.builtFrom.length > 0);
+  const sources = new Set(built.flatMap((t) => t.builtFrom.map((b) => b.path))).size;
   return <>
     <section className="lm-sec lm-view-sec" aria-labelledby={`lm-stack-${a.id}`}>
       <SecHead num="01" id={`lm-stack-${a.id}`} title={<>{a.name}: <em>the stack behind the door</em></>}
-        lead={`${a.line} ${plural(items.length, "title")}, ${ready ? `${ready} ready` : "none ready yet"}, in ${plural(groupsFor(division, a.id).length, "subject")}. Solid books are ready to download, outlines are planned; point at one to read about it.`} />
+        lead={`${a.line} ${plural(items.length, "title")} in ${plural(groupsFor(division, a.id).length, "subject")}, every one ready to download. Point at a book to see who made it and the credit to give with it.`} />
       <div className="lm-kinds" role="group" aria-label="Light one kind">
         {kinds.map(([k, n]) => <button key={k.id} type="button" className="lm-kind" aria-pressed={kind === k.id} onClick={() => onKind(kind === k.id ? null : k.id)}>
           <Glyph name={k.glyph} size={20} strokeWidth={1.25} /><span><b>{k.plural}</b><small>{n} here</small></span>
@@ -32,11 +34,11 @@ function AgeView({ division, audience: a, kind, onKind, settled }: ViewProps) {
       </div>
       <Stack division={division} audience={a} kind={kind} back={back} reflow={settled} />
     </section>
-    <section className="lm-sec" aria-labelledby={`lm-ring-${a.id}`}>
-      <SecHead num="02" id={`lm-ring-${a.id}`} title={<>What it is <em>built from</em></>}
-        lead={`The ${plural(items.length, "title")} behind the ${a.name.toLowerCase()} door on the inner ring; the ${plural(sources, "page")} of the site they are written from on the outer ring.`} />
-      <BuiltFromRing division={division} audience={a} items={items} back={back} />
-    </section>
+    {built.length > 0 && <section className="lm-sec" aria-labelledby={`lm-ring-${a.id}`}>
+      <SecHead num="02" id={`lm-ring-${a.id}`} title={<>What our own <em>are built from</em></>}
+        lead={`The ${plural(built.length, "title")} behind the ${a.name.toLowerCase()} door written from this site on the inner ring; the ${plural(sources, "page")} of the site they are written from on the outer ring.`} />
+      <BuiltFromRing division={division} audience={a} items={built} back={back} />
+    </section>}
   </>;
 }
 

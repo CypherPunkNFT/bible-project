@@ -52,6 +52,138 @@ copied into the app's Bible database. Listen also uses two outside sources, the 
 Reading, search, the Library and everything you save work fully offline and send nothing anywhere. Only Listen
 needs a connection, and it contacts only YouTube and archive.org, when you press play.
 
+<!-- open-workbooks:start -->
+## Open workbooks — registered 2026-10-24 (local preview only; nothing published)
+
+Free study materials made by other people whose own terms let anyone share them, handed out on the learning page's doors with their makers' credit. The table, with the exact wording that allows sharing, is `Research/Resources/OpenWorkbooks/open-workbooks.json`; files are held in `Research/Resources/OpenWorkbooks/files/` (manifest.json there has every file's URL, size and SHA-256), fetched by `scripts/fetch-open-workbooks.py` and placed by `scripts/publish-open-workbooks.mjs`. Checksum: the first 16 hex of a SHA-256 over that title's sorted `name sha256` lines.
+
+| Title | By | Licence | Files / bytes | Checksum |
+|---|---|---|---|---|
+| [Open Bible Stories (50 illustrated stories, Creation to Revelation)](https://www.openbiblestories.org/l/en/) | unfoldingWord / Door43 World Missions Community | CC BY-SA 4.0 (text); illustrations CC BY-SA 3.0 (Sweet Publishing) | 1 / 28,188,819 | 9dd072bdd08046e5 |
+| [Open Bible Stories Study Questions](https://git.door43.org/unfoldingWord/en_obs-sq) | unfoldingWord / Door43 World Missions Community | CC BY-SA 4.0 | 1 / 53,842 | 5fb2fd31a1bfedf5 |
+| [Sweet Publishing Bible Illustrations (Read'n Grow Picture Bible art)](https://unfoldingword.org/sweet-publishing/) | Jim Padgett (illustrator) | CC BY-SA 3.0 Unported | 1 / 464,738,208 | a3e853bf5faae179 |
+| [Bible for Children — illustrated Bible story booklets (66 stories)](https://bibleforchildren.org/languages/english/stories.php) | Edward Hughes (writer); Byron Unger, Lazarus and others (illustrators) | Publisher permission | 66 / 21,410,377 | 03e78174e6745788 |
+| [Bible for Children — colouring books (one per story)](https://bibleforchildren.org/languages/english/stories.php) | Edward Hughes (writer); Bible for Children illustrators | Publisher permission | 60 / 22,814,238 | 3508ba6398be778b |
+| [100 Short Bible Memory Verses for Kids (BSB) — cut-apart cards and 52-week plan](https://ministry-to-children.com/bible-memory-verses/) | Ministry-to-Children (Tony Kummer) | CC BY-SA 4.0 (Scripture text BSB, public domain) | 1 / 1,224,886 | b0659d3b4941afe4 |
+| [Books of the Bible colouring pages: New Testament (27 books)](https://kids-bible-lessons.org/old-testament-coloring-pages/) | Ministry-to-Children / Kids Bible Lessons (Tony Kummer) | CC BY-SA 4.0 | 1 / 2,934,535 | 9129221f8c32f284 |
+| [A Catechism for Boys and Girls](https://www.chapellibrary.org/book/cfba/catechism-for-boys-and-girls-a-hulseerroll) | Erroll Hulse (simplified from the Baptist / Keach catechism line) | Publisher permission | 1 / 410,308 | 81db8d63c45afb93 |
+| [Spurgeon's Catechism (A Puritan Catechism, 1855)](https://www.chapellibrary.org/book/scat/spurgeons-catechism-spurgeoncharlesh) | Charles H. Spurgeon | Public domain text (UK, 1855); Chapel Library edition by publisher permission | 1 / 174,606 | f10e17e70c2eea92 |
+| [Watts' First Catechism (for a young child of three or four) and Second Catechism](https://archive.org/details/bim_eighteenth-century_the-first-catechism-of-t_watts-isaac_1788) | Isaac Watts | Public domain (1788) | 1 / 19,246,980 | fe5925d1d5c5791f |
+| [The Peep of Day](https://www.gutenberg.org/ebooks/53894) | Favell Lee Mortimer | Public domain (first published 1833) | 2 / 2,714,884 | 2a43304aa6ac33e1 |
+| [Line upon Line (second series of the earliest religious instruction)](https://archive.org/details/lineuponline00mortuoft) | Favell Lee Mortimer | Public domain (first published 1837) | 1 / 9,616,119 | 7ca41c14c5135df6 |
+| [First Steps for Little Feet in Gospel Paths](https://archive.org/details/firststepsforlit00fost) | Charles Foster | Public domain (US, 1882) | 1 / 13,689,668 | cbcf8425d8f9b989 |
+| [The Story of the Bible from Genesis to Revelation](https://archive.org/details/storyofbiblefrom00fost_1) | Charles Foster | Public domain (US, 1884/1901) | 1 / 64,351,828 | 248d8bfa217c43d3 |
+| [Hurlbut's Story of the Bible (168 stories)](https://archive.org/details/cihm_76911) | Jesse Lyman Hurlbut | Public domain (US, 1904) | 1 / 32,141,522 | 8291a61a48587216 |
+| [Hurlbut's Bible Lessons for Boys and Girls](https://www.gutenberg.org/ebooks/29067) | Jesse Lyman Hurlbut | Public domain (US, 1907) | 2 / 19,394,973 | 45d5e52750252a22 |
+| [Hurlbut's Life of Christ for Young and Old](https://www.gutenberg.org/ebooks/40460) | Jesse Lyman Hurlbut | Public domain (US, 1915) | 2 / 31,437,405 | 329882d51e51ca92 |
+| [Child's Story of the Bible](https://www.gutenberg.org/ebooks/25309) | Mary A. Lathbury | Public domain (US, 1898) | 2 / 58,518,273 | 1e5ad152568352aa |
+| [The Boyhood of Jesus](https://www.gutenberg.org/ebooks/44531) | Anonymous (poem by Lillian Payson) | Public domain (US, 1905) | 2 / 2,140,126 | 9c45979d8fb3460c |
+| [Divine Songs Attempted in Easy Language for the Use of Children](https://www.gutenberg.org/ebooks/13439) | Isaac Watts | Public domain (first published 1715) | 2 / 199,724 | 067f4f5f58ae7b9e |
+| [The Pilgrim's Progress in Words of One Syllable](https://www.gutenberg.org/ebooks/7088) | Mary Godolphin (Lucy Aikin), after John Bunyan | Public domain (19th century) | 2 / 280,796 | 41e415864500677e |
+| [Methods of Bible Study, Part 1 (Course MB1)](https://www.chapellibrary.org/pdf/forms/courses/mzbi-course-catalog.pdf) | Chapel Library (compiled) | Publisher permission (Chapel Library reprint notice) | 1 / 471,361 | 632a0ba86c0b899a |
+| [The London Confession of Faith of 1689 (Course LBC)](https://www.chapellibrary.org/pdf/forms/courses/mzbi-course-catalog.pdf) | Chapel Library (text: 1689 Second London Baptist Confession) | Publisher permission (Chapel Library reprint notice) | 1 / 877,143 | 251730d4161d2fa3 |
+| [Church Officers (Course COF)](https://www.chapellibrary.org/pdf/forms/courses/mzbi-course-catalog.pdf) | Nehemiah Coxe (d. 1688); questions by Chapel Library | Publisher permission (Chapel Library reprint notice) | 1 / 625,277 | 9ec8e10cf11fbf85 |
+| [Guide to Bible Study (Course GBS)](https://www.chapellibrary.org/pdf/forms/courses/mzbi-course-catalog.pdf) | Harvey Newcomb (1803-1863); questions by Chapel Library | Publisher permission (Chapel Library reprint notice) | 1 / 465,750 | c7b01b06e59997b9 |
+| [Minister's Self-Watch (Course MSW)](https://www.chapellibrary.org/pdf/forms/courses/mzbi-course-catalog.pdf) | C. H. Spurgeon (1834-1892); questions by Chapel Library | Publisher permission (Chapel Library reprint notice) | 1 / 578,953 | 0c155f239d34f772 |
+| [Spiritual Foundations of Ministry (Course SFM)](https://www.chapellibrary.org/pdf/forms/courses/mzbi-course-catalog.pdf) | Horatius Bonar (1866 text 'Words to Winners of Souls'); guide by Chapel Library | Publisher permission (Chapel Library reprint notice) | 1 / 391,508 | 6d77f0bd71efea59 |
+| [The New Covenant in Christ: A Survey of the New Testament (Course NT1)](https://www.chapellibrary.org/pdf/forms/courses/mzbi-course-catalog.pdf) | Stanford E. Murrell | Publisher permission (Chapel Library reprint notice) | 1 / 346,985 | 2e6fa6e10c43ef82 |
+| [The Attributes of God (Course ATR)](https://www.chapellibrary.org/pdf/forms/courses/mzbi-course-catalog.pdf) | A. W. Pink (1886-1952); guide by Chapel Library | Publisher permission (Chapel Library reprint notice) | 1 / 374,639 | 945399794fcb0d08 |
+| [You Can Understand the Bible! Study Guide Commentary Series](https://www.freebiblecommentary.org/) | Dr. Bob Utley | Publisher permission (copyright notice in each volume) | 13 / 16,820,048 | 8a6105022981f348 |
+| [unfoldingWord Translation Words](https://git.door43.org/unfoldingWord/en_tw/releases) | unfoldingWord contributors | CC BY-SA 4.0 | 1 / 10,249,111 | 854bd0075ad181aa |
+| [Convention Normal Manual for Sunday-School Workers (Baptist First Standard Course)](https://archive.org/details/conventionnormal01spil) | B. W. Spilman, L. P. Leavell and H. C. Moore | Public domain (US, 1909) | 1 / 17,888,972 | e97084b1505c9be2 |
+| [The Seven Laws of Teaching](https://archive.org/details/sevenlawsofteach00gregrich) | John Milton Gregory | Public domain (US, 1886) | 1 / 6,291,544 | 12622bae299a6115 |
+| [Teaching and Teachers: The Sunday-School Teacher's Teaching Work](https://archive.org/details/teachingandteac00trumgoog) | H. Clay Trumbull | Public domain (US, 1884) | 1 / 15,468,219 | 5cdadbc870aac2ae |
+| [Syllabus for New Testament Study: A Guide for Lessons in the Class-room](https://archive.org/details/syllabusfornewte00robe) | A. T. Robertson | Public domain (US, 1915) | 1 / 7,621,622 | b36802e82f1b5925 |
+| [Synthetic Bible Studies](https://archive.org/details/syntheticbiblest00gray) | James M. Gray | Public domain (US, 1906) | 1 / 19,844,846 | adac59e384ea56a5 |
+| [How to Master the English Bible](https://www.gutenberg.org/ebooks/41900) | James M. Gray | Public domain (US, c.1904-1907) | 2 / 226,908 | f19647bc0b17ad26 |
+| [How to Bring Men to Christ](https://archive.org/details/howtobringmentoc00torrrich) | R. A. Torrey | Public domain (US, 1893) | 1 / 5,352,417 | d622c61cc6413e28 |
+| [What the Bible Teaches](https://archive.org/details/whatthebibletea00torruoft) | R. A. Torrey | Public domain (US, 1898) | 1 / 39,967,498 | db2200379c46f315 |
+| [Lectures to My Students](https://archive.org/details/lecturestomystu00spuruoft) | C. H. Spurgeon | Public domain (US, 1875) | 1 / 13,602,350 | 7efe8bacac2566a5 |
+| [A Treatise on the Preparation and Delivery of Sermons](https://archive.org/details/treatiseonprepar00broa) | John A. Broadus | Public domain (US, 1870) | 1 / 38,056,011 | 0f228dae220565a2 |
+| [Abstract of Systematic Theology](https://archive.org/details/abstractofsystem00boyc_0) | James P. Boyce | Public domain (US, 1887) | 1 / 41,033,402 | 2e68a291b0180aaf |
+| [The Great Doctrines of the Bible](https://www.gutenberg.org/ebooks/6038) | William Evans | Public domain (US, 1912) | 2 / 521,393 | 83ff4f4eae1b408d |
+| [The Scofield Bible Correspondence School Course of Study, Vol. 1: The Old Testament](https://archive.org/details/scofieldbiblecor00scof) | C. I. Scofield | Public domain (US, 1907) | 1 / 15,838,271 | 95c6adb15d24df68 |
+| [Thoughts on Family-Worship](https://archive.org/details/thoughtsonfami00alex) | James W. Alexander | Public domain (US, 1847) | 1 / 13,233,410 | 4a4bac07adcaae6a |
+| [A Church in the House: or, Family Religion](https://archive.org/details/churchinhouseorf00henr) | Matthew Henry | Public domain (sermon 1704; this edition US 1824) | 1 / 2,837,164 | 2e81528bc50ae0b1 |
+| [Family Worship](https://www.chapellibrary.org/) | J. H. Merle d'Aubigné | Publisher permission (Chapel Library; underlying 19th-c. text public domain) | 1 / 208,697 | 6f9b4fca1cc3978f |
+| [A Book for Boys and Girls; or, Temporal Things Spiritualized](http://www.chapellibrary.org/book/bubfba) | John Bunyan | Public domain (England 1686/1701; author died 1688) | 1 / 122,855 | 86098ebe38cbfeff |
+| [A Puritan Catechism, with Proofs](https://www.philmorgan.org/wp-content/uploads/2012/09/APuritanCatechism.pdf) | C. H. Spurgeon | Public domain (UK 1855; author died 1892) | 1 / 455,726 | 6a574581dc5ac80b |
+| [The Baptist Catechism (Keach's Catechism)](https://archive.org/details/MN40248ucmf_4) | Attributed to Benjamin Keach and William Collins | Public domain (1693; American reprints 18th-19th c.) | 1 / 793,360 | b2584b63e17efc90 |
+| [M'Cheyne Bible Reading Calendar (one-page and two-page printables, bookmarks)](http://www.edginet.org/mcheyne/printables.html) | Robert Murray M'Cheyne (plan, 1842); formatted by Ben Edgington; bookmarks by Dru Martin | CC0 1.0 (Ben Edgington's formatting); underlying 1842 plan public domain | 1 / 14,384 | 91afa7185fca5f7e |
+| [Navigators Bible Reading Plan](https://www.ligonier.org/posts/bible-reading-plans) | The Navigators (adapted from the Discipleship Journal plan) | Publisher permission (The Navigators) | 1 / 463,212 | 320736c2839b9b47 |
+| [Navigators Book-at-a-Time Bible Reading Plan](https://www.ligonier.org/posts/bible-reading-plans) | The Navigators | Publisher permission (The Navigators) | 1 / 250,106 | b901c5ea0ed5e3a0 |
+| [Navigators 5x5x5 New Testament Bible Reading Plan](https://www.ligonier.org/posts/bible-reading-plans) | The Navigators (adapted from Discipleship Journal) | Publisher permission (The Navigators) | 1 / 499,862 | 68a886f306fc345d |
+| [The Beginners Family Worship Handbook](https://ministry-to-children.com/family-worship/) | Tony Kummer | CC BY-SA 4.0 (site-wide) plus explicit permission in the PDF | 1 / 206,104 | 634b712a59409166 |
+| [Kids Can! Devotions (six months of daily devotions)](https://ministry-to-children.com/kids-can-devotion-1/) | Ministry-To-Children.com writers | CC BY-SA 4.0 | 2 / 137,466 | 547de975d94589d3 |
+| [Printable Bible Reading Chart for Kids](https://ministry-to-children.com/printable-bible-reading-chart-for-kids/) | Felicia Mollohan | CC BY-SA 4.0 (site-wide footer) | 1 / 142,769 | 5da5b2a7be22bd28 |
+| [Morning and Evening: Daily Readings](https://www.ccel.org/ccel/spurgeon/morneve.html) | C. H. Spurgeon | Public domain (19th c.; author died 1892) | 1 / 4,757,810 | dcdb5b5869fa6445 |
+| [Daily Light on the Daily Path](https://ccel.org/ccel/anonymous/daily_light) | Jonathan Bagster and family (Samuel Bagster & Sons) | Public domain (UK c.1875; US edition 1875; 1901 edition scanned) | 1 / 5,478,950 | 5ae19c214611abcd |
+| [The Duties of Parents](https://www.monergism.com/thethreshold/sdg/dutiesofparents.html) | J. C. Ryle | Public domain (UK 1888; author died 1900) | 1 / 302,955 | f8be9486bebe56e9 |
+| [Bible Mapper, Jr. (maps and map lessons for kids)](https://biblemapper.com/jr/maplist/) | David P. Barrett | Publisher permission (non-commercial) | 11 / 172,397,301 | 3ebc7614eb53cab8 |
+| [Bible Atlas: A Manual of Biblical Geography and History](https://www.gutenberg.org/ebooks/41140) | Jesse Lyman Hurlbut (introduction by John H. Vincent) | Public domain (US, 1910 and earlier) | 1 / 18,954,981 | a0aaf539a8a24cbe |
+| [Thoughts for Young Men (Course TYM)](https://www.chapellibrary.org/course/tym) | J. C. Ryle (1816-1900) | Publisher permission (notice printed inside the PDF) - Copyright 2006 Chapel Library: annotations, questions | 1 / 608,800 | d7e88862578a3391 |
+| [Thoughts for Young Men (Christian Classic Series booklet)](https://www.chapellibrary.org/book/tfym) | J. C. Ryle (1816-1900) | Publisher permission (notice printed inside the PDF) - Copyright 2006 Chapel Library | 1 / 463,984 | fac078cca01ca1d9 |
+| [All of Grace (Course AOG) - study guide](https://www.chapellibrary.org/course/aog) | Charles H. Spurgeon (1834-1892) | Publisher permission (notice printed inside the PDF) - Copyright 2000 Chapel Library | 1 / 383,549 | 5af002e67b291f58 |
+| [Life of Jesus Christ - complete (Course LC3)](https://www.chapellibrary.org/course/lc3) | Chapel Library (compiled; Gospel readings) | Publisher permission (notice printed inside the PDF) - Copyright 2001 Chapel Library | 1 / 753,579 | 1a768191e9016aa4 |
+| [What Is a Biblical Christian? (Course WBC)](https://www.chapellibrary.org/course/wbc) | Albert N. Martin (1934-2026) | Publisher permission (notice printed inside the PDF) - Copyright 2015 Chapel Library | 1 / 476,776 | a78df9dca6b17bb6 |
+| [The Deity of Christ (Course DOC)](https://www.chapellibrary.org/course/doc) | William S. Plumer (1802-1880) | Publisher permission (notice printed inside the PDF) - Copyright 2015 Chapel Library: annotations, questions | 1 / 529,687 | 8321f5b4638f7117 |
+| [Look to Jesus (Course LTJ)](https://www.chapellibrary.org/course/ltj) | William Reid (1822-1881) | Publisher permission (notice printed inside the PDF) - Copyright 1999 Chapel Library: annotations, questions | 1 / 819,785 | b5b89c21b533aa9e |
+| [The Pilgrim's Progress (Course PL1P) - study guide](https://www.chapellibrary.org/course/pl1p) | John Bunyan (1628-1688) | Publisher permission (notice printed inside the PDF) - Copyright 2001 Chapel Library | 1 / 518,085 | a50dcde6311545cf |
+| [Seek the Lord Early](https://www.chapellibrary.org/book/stle) | J. C. Ryle (1816-1900) | Publisher permission (notice printed inside the PDF) - Copyright 2018 Chapel Library: annotations (original text public domain) | 1 / 239,733 | cb6567086bb7186f |
+| [How to Study the Bible for Greatest Profit](https://archive.org/details/howtostudybiblef00torr) | R. A. Torrey | Public domain (US, published 1896) | 1 / 8,952,639 | 510b50ce0695e2c0 |
+| [How to Succeed in the Christian Life](https://www.gutenberg.org/ebooks/55743) | R. A. Torrey | Public domain (US, published 1906) | 2 / 236,269 | 7d1b92654cd77aa1 |
+| [How to Pray](https://archive.org/details/howtopray00torr) | R. A. Torrey | Public domain (US, published 1900) | 1 / 5,460,741 | 1a3f65a18984c962 |
+| [The Way of Life](https://archive.org/details/wayoflife00hodg) | Charles Hodge | Public domain (US, published 1841) | 1 / 14,994,828 | 26bd8c8e291ce338 |
+| [The Life of Jesus Christ](https://archive.org/details/lifeofjesuschri00stal) | James Stalker | Public domain (US, published 1880) | 1 / 9,565,981 | 83791662e52f4fee |
+| [The Life of St. Paul](https://www.gutenberg.org/ebooks/21828) | James Stalker | Public domain (US, published 1884) | 2 / 1,868,004 | 3ead1d38b7ceb74a |
+| [The Pleasantness of a Religious Life](https://archive.org/details/pleasantnessare00henrgoog) | Matthew Henry | Public domain (US, published 1714) | 1 / 2,933,056 | 0fce6676aec48328 |
+| [The Young Man from Home](https://archive.org/details/theyoungmanfromh00jameuoft) | John Angell James | Public domain (US, published 1844) | 1 / 7,692,135 | c5d547ab70434685 |
+| [The Way to God and How to Find It](https://archive.org/details/waytogodhowtofin00mood) | D. L. Moody | Public domain (US, published 1884) | 1 / 7,728,949 | f56251fbe85dd8c3 |
+
+<!-- open-workbooks:end -->
+
+## Theology articles — registered 23 October 2026 (local only; nothing published)
+
+The new Theology section (`/study/theology-articles`) and its first article, *The Trinity*
+(`/study/theology-articles/the-trinity`), with its Study card in God & Christian Faith. **Built and
+checked on the local preview only. Nothing here has been deployed.**
+
+**No files were added to the repository for this.** Every quotation is typed into the article modules
+under `src/pages/study/theology-articles/articles/`, each one carrying the work, the author, the
+translation it was read in, a locator precise enough to look up, and a link to the edition. The
+section's whole source register is the `SOURCES` array in
+`src/pages/study/theology-articles/model.ts`, and it is shown to the reader at the foot of both the
+landing and the article.
+
+| Source | What was taken | Licence | Read in / checked against | Checksum |
+|---|---|---|---|---|
+| Augustine, *On the Trinity*, tr. Arthur West Haddan, Nicene and Post-Nicene Fathers (NPNF) first series vol. 3 | Five short extracts: V.9.10, VIII.10.14, X.11.18, XV.23.43, XV.28.51 | Translation published 1887, **public domain** | This project's held CCEL text export, `sources/library/source-patristic-ccel/npnf103.txt` (3,357,503 bytes) | `cc8d3ff7ce4d4ba2…` |
+| Socrates Scholasticus, *Ecclesiastical History*, NPNF second series vol. 2 | The creed and anathemas of Nicaea 325 and Eusebius's report of them (I.8); the hundred and fifty bishops at Constantinople 381 (V.8) | Translation published 1890, **public domain** | `sources/library/source-patristic-ccel/npnf202.txt` (3,002,300 bytes) | `b78d178bd79b6264…` |
+| Gregory of Nyssa, *On "Not Three Gods", to Ablabius*, tr. H. A. Wilson, NPNF second series vol. 5 | Four short extracts, including Ablabius's objection and the one-operation argument | Translation published 1893, **public domain** | `sources/library/source-patristic-ccel/npnf205.txt` (3,490,499 bytes) | `cef974043e48a52d…` |
+| Gregory of Nazianzus, *Oration 31* (the fifth Theological Oration), tr. Browne and Swallow, NPNF second series vol. 7 | Five short extracts: §30, and §§31–33 rejecting the spring/fountain/river and sun/ray/light pictures | Translation published 1894, **public domain** | `sources/library/source-patristic-ccel/npnf207.txt` (3,388,014 bytes) | `56d84cfa94dee313…` |
+| Basil of Caesarea, *On the Holy Spirit* and *Letter 236*, tr. Blomfield Jackson, NPNF second series vol. 8 | Two short extracts: 18.44–45 on not counting by addition, and Letter 236.6 on essence and hypostasis | Translation published 1895, **public domain** | `sources/library/source-patristic-ccel/npnf208.txt` (2,645,735 bytes) | `4f21a589be54f0c1…` |
+| Thomas Aquinas, *Summa Theologiae*, First Part, tr. the Fathers of the English Dominican Province | Four short extracts: q. 27 a. 1 and a. 3 on the two processions; q. 32 a. 1 and its reply to objection 2 on what reason cannot prove | Translation second edition 1920, **public domain** | The published edition at [newadvent.org/summa/1027.htm](https://www.newadvent.org/summa/1027.htm) and `1032.htm` | — |
+| Philip Schaff, *The Creeds of Christendom* | The Latin of the creed of 381 (Dionysius Exiguus) and Schaff's note on verse 4 of the Athanasian Creed | Published 1877, **public domain** | This site's own creeds collection, which already holds both pages: `/study/creeds/nicene-creed-381-schaff` and `/study/creeds/athanasian-creed-quicunque-schaff` | registered with the creeds collection |
+| The Athanasian Creed and the Niceno-Constantinopolitan Creed | §§3–4 of the former; the article on the Holy Spirit from the latter | **Public domain** | This site's own copies, `/study/creeds/athanasian-creed-800` and `/study/creeds/nicene-creed-381` | registered with the creeds collection |
+| *The Holy Bible, Berean Standard Bible* | 13 passages, quoted in full | **Public domain**, dedicated 2023 | This site's own `data/plain/bsb/`, re-checked verse by verse on every test run by `src/pages/study/theology-articles/theology.test.ts` | registered with the Bible data |
+| C. S. Lewis, *Mere Christianity*, Book IV ("Beyond Personality") | **Nothing.** Three passages of his argument are described in our own words, labelled on the page as our summary, and cited by book and chapter | **Still in copyright** — described and cited, never reproduced | The published edition, cited for the reader to open | — |
+
+**The CCEL question, stated plainly.** The five volumes above are this project's held text exports
+from the Christian Classics Ethereal Library, whose own entry in this register records
+personal/educational/non-profit electronic-edition terms and says that "public publication requires a
+separate decision". What is published on the page is not CCEL's electronic edition: it is short
+extracts of the underlying NPNF translations, every one of them published between 1887 and 1895 and so
+in the public domain in their own right, with the translator named beside each quotation exactly as
+that entry requires. The CCEL files were used to verify wording, and the link offered to the reader is
+to ccel.org. The same corpus already supplies the published creeds collection on this site. **This is
+the owner's call to confirm before anything is deployed, and nothing has been.**
+
+**Copyright is enforced in code, not by good intentions.** Each source in `model.ts` carries a
+`checked` field: `corpus` (verified against our held copy of the named edition), `edition` (verified
+against the published edition linked) or `none` (in copyright — described, never reproduced). A test
+asserts that no source marked `none` is ever used by a quotation block, and that any source so marked
+appears only as a labelled summary. Adding a quotation from a work in copyright fails the suite.
+
 ## Old maps — registered 19 October 2026 (local only; nothing published)
 
 The Atlas home's ninth card ("Old maps", `/study/atlas/old-maps`) and its Study card in History & archaeology. The counts on the

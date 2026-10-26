@@ -1,6 +1,6 @@
 // Plain helpers the Learning division's components share: addresses, colours, counts and layouts (no components here).
 import type { CSSProperties } from "react";
-import type { Audience, Division, Title } from "@/data/resources/learning-catalogue";
+import type { Audience, Division, OpenWork, Title } from "@/data/resources/learning-catalogue";
 
 /** Where a link came from, carried in router state so the next page can name the way back (src/lib/came-from.ts). */
 export interface Back { path: string; label: string }
@@ -9,6 +9,9 @@ export const plural = (n: number, one: string, many = `${one}s`) => `${n} ${n ==
 
 /** The CSS colours of a reader's door, from the site's section palette (light and dark come with the tokens). */
 export const toneOf = (a: Audience) => ({ "--tone": `var(--${a.tone})`, "--tone-solid": `var(--${a.tone}-tab)`, "--tone-ink": `var(--${a.tone}-tab-ink)` }) as CSSProperties;
+
+/** "John Bunyan" or "Chapel Library": the name a reader would know the maker of an open workbook by. */
+export const makerOf = (w: OpenWork) => (w.author || w.publisher || "").split(/[;(]/)[0].trim();
 
 export const titleUrl = (id: string) => `/resources/learning/${id}`;
 export const doorUrl = (audience: string) => `/resources/learning?for=${audience}`;
