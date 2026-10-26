@@ -9,6 +9,7 @@ import type { StudyCollectionId } from "@/data/study-collections";
 import { categoryStyle } from "@/lib/topic-style";
 import { TopicsArtwork } from "@/pages/topics/TopicsArtwork";
 import { HymnsCardArt } from "./HymnsCardArt";
+import { TheologyCardArt } from "./theology-articles/TheologyCardArt";
 import "./study.css";
 
 type ResourceProps = {
@@ -151,12 +152,13 @@ const RESOURCE_CARDS = {
   letters: <Resource to="/study/letters" title="Letters & their message" description="Explore all 21 New Testament letters: who wrote them, who received them, and how each message unfolds, section by section." source="Westcott, Lightfoot, Ramsay & other public-domain scholars" number="08" category="Letters to the church" color="epistles"><LettersPreview /></Resource>,
   atlas: <Resource to="/study/atlas" title="Places & journeys" description="Find 1,252 biblical places on a map of the ancient world. Explore the settings of the story, compare places by book, and open their passages." source="OpenBible.info · OpenStreetMap" number="09" category="The world of the Bible" color="poetry" className="study-map-feature"><PlacesPreview /></Resource>,
   creeds: <Resource to="/study/creeds" title="Catechisms & Creeds" description="What has the church actually confessed? 66 creeds, confessions and catechisms in full, from Israel's own creed to the First Vatican Council, with every Scripture quotation shown in the Berean Standard Bible." source="12 traditions · 11,375 questions & sections · Creeds.json, Schaff & Project Gutenberg" number="" category="The faith, said out loud" color="revelation" className="study-creeds-resource"><CreedsPreview /></Resource>,
+  "theology-articles": <Resource to="/study/theology-articles" title="Theology" description="The faith, thought through. Long-form articles on Christian doctrine: what the church actually confesses, where the words came from, and what the explanations cannot do. The Trinity opens the section, with every analogy placed beside the limit its own author set on it." source="Augustine, Aquinas, the Cappadocians & two councils · Nicene and Post-Nicene Fathers" number="" category="Doctrine, taken slowly" color="gospels" className="study-theology-resource study-wide"><TheologyCardArt /></Resource>,
   hymns: <Resource to="/study/hymns" title="Hymns" description="1,228 hymns whose words we hold, from Isaac Watts's psalms and hymns to the Olney Hymns of John Newton and William Cowper, each beside the chapter it was written on. Amazing Grace opens with every verse its lines echo." source="Watts, Newton & Cowper · CCEL & Project Gutenberg" number="" category="The faith, sung" color="poetry" className="study-hymns-resource study-wide"><HymnsCardArt /></Resource>,
   versions: <Resource to="/study/versions" title="Versions & languages" description="Which edition are you reading? Place the library's versions in time, compare their actual book collections, and choose one to read." source="Edition timeline · Book coverage · Library" number="10" category="Editions & contents" color="acts" className="study-wide"><ChartPreview kind="versions" note="The texts in your hands" /></Resource>,
 };
 
 export type StudyResourceId = keyof typeof RESOURCE_CARDS;
-export const STUDY_RESOURCE_IDS = Object.keys(RESOURCE_CARDS).filter(id => id !== "parables" && id !== "memory" && id !== "creeds" && id !== "hymns") as StudyResourceId[];
+export const STUDY_RESOURCE_IDS = Object.keys(RESOURCE_CARDS).filter(id => id !== "parables" && id !== "memory" && id !== "creeds" && id !== "hymns" && id !== "theology-articles") as StudyResourceId[];
 
 /** The original Study2 cards, shared intact with the organized Theology collections. */
 export function StudyResourceCards({ ids = STUDY_RESOURCE_IDS, className = "", label = "Study resources" }: {

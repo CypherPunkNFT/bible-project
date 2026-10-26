@@ -1,0 +1,13 @@
+/* The Theology card's drawing on Study. Sized like the creeds card's vignettes (hub/creeds-card.css)
+   so the two sit level in the same grid. */
+.study-theology-art{height:265px;margin:.8rem .8rem 0;color:var(--resource-color);display:flex;align-items:center;justify-content:center}
+.study-theology-art svg{width:100%;height:100%;max-width:560px;transition:transform .4s ease}
+.study-theology-resource .study-resource-link:hover .study-theology-art svg{transform:translateY(-3px)}
+.study-theology-art text{text-anchor:middle}
+.study-theology-art .th-card-node text{font-family:var(--font-serif);font-size:9px;letter-spacing:.5px}
+.study-theology-art .th-card-edge text{font-size:7.5px;letter-spacing:1.1px;opacity:.8}
+.study-theology-art .th-card-caption text{font-size:8px;letter-spacing:1.8px;opacity:.65}
+/* The card carries its own drawing, so the numbered eyebrow is dropped, as on the creeds card. */
+.study-theology-resource .study-card-number{display:none}
+@media(max-width:639px){.study-theology-art{height:225px}}
+@media(prefers-reduced-motion:reduce){.study-theology-art svg{transition:none!important;transform:none!important}}

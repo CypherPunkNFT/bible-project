@@ -1,0 +1,183 @@
+/* The Theology section: the landing and the article reader. Built on the same visual system as the
+   creeds collection (creeds-collection.css) — the eyebrow, the serif display line with its italic
+   second half, the ruled figures row, the sources footer — with a reading column added for the
+   article itself. The `th-` prefix is this section's; `theology-*` already belongs to the Study hub. */
+.theology-section{--th-paper:var(--surface);--th-tone:var(--accent);--th-measure:37rem;color:var(--ink)}
+.th-container{max-width:1280px;margin:auto;padding:0 24px 70px}
+.theology-section em{color:var(--th-tone);font-weight:400;font-style:italic}
+
+/* ── the hero, shared by the landing and the article ─────────────────────────────────────────── */
+.th-hero{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:40px;padding:38px 0 32px}
+.th-hero .eyebrow{display:block;margin:35px 0 18px}
+.th-hero h1{font-family:var(--font-serif);font-size:clamp(2.9rem,5.4vw,4.8rem);font-weight:500;letter-spacing:-.045em;line-height:1.05;margin:0}
+.th-lead{max-width:500px;color:var(--muted);font-size:1rem;line-height:1.85;margin:25px 0}
+.th-hero-art{width:100%;max-width:470px;justify-self:end;color:var(--th-tone)}
+.th-jumps{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}
+.th-jumps a{display:inline-flex;align-items:center;gap:10px;padding:9px 13px;border:1px solid var(--line);border-radius:30px;font-size:.72rem;color:var(--muted);transition:border-color .2s,color .2s}
+.th-jumps a:hover{color:var(--th-tone);border-color:var(--th-tone)}
+
+/* ── the figures row ─────────────────────────────────────────────────────────────────────────── */
+.th-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:25px 0;margin:0}
+.th-stats>div{border-left:1px solid var(--line);padding-left:30px;display:flex;align-items:baseline;gap:13px}
+.th-stats>div:first-child{border:0;padding-left:0}
+.th-stats dd{font:400 2rem var(--font-serif);color:var(--th-tone);margin:0}
+.th-stats dt{font-size:.69rem;color:var(--muted);max-width:110px;line-height:1.5}
+
+/* ── landing sections ────────────────────────────────────────────────────────────────────────── */
+.th-section{padding-top:68px;scroll-margin-top:100px}
+.th-heading{margin-bottom:28px}
+.th-heading h2,.th-sources h2{font:500 clamp(1.9rem,3.1vw,2.7rem)/1.14 var(--font-serif);letter-spacing:-.028em;margin:12px 0}
+.th-heading p{font-size:.88rem;line-height:1.8;color:var(--muted);max-width:680px;margin:14px 0 0}
+
+/* The article list is an auto-fit grid, so one article fills the row as a single wide card and a
+   second one later splits it, with no change here. */
+.th-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px;list-style:none;padding:0;margin:0}
+.th-card{border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--th-tone) 2.5%,transparent);transition:border-color .2s,transform .2s}
+.th-card:hover{border-color:color-mix(in srgb,var(--th-tone) 60%,var(--line));transform:translateY(-3px)}
+.th-card>a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:0;height:100%}
+.th-card-copy{padding:30px 32px;display:flex;flex-direction:column;min-width:0}
+.th-card-copy .th-small-label{color:var(--th-tone)}
+.th-card-copy h3{font:500 clamp(1.8rem,2.6vw,2.4rem)/1.1 var(--font-serif);letter-spacing:-.03em;margin:12px 0 0}
+.th-card-copy h3 em{display:block;font-size:.55em;letter-spacing:-.015em;margin-top:8px}
+.th-card-question{font-family:var(--font-serif);font-size:1rem;line-height:1.6;color:var(--ink);margin:20px 0 0}
+.th-card-copy>p{font-size:.78rem;line-height:1.8;color:var(--muted);margin:16px 0 24px}
+.th-card-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:.7rem;color:var(--th-tone)}
+.th-card-foot>span:first-child{color:var(--muted)}
+.th-card-parts{border-left:1px solid var(--line);padding:30px 28px;background:color-mix(in srgb,var(--th-tone) 3.5%,transparent);border-radius:0 12px 12px 0}
+.th-card-parts ol{list-style:none;counter-reset:th-part;margin:14px 0 0;padding:0}
+.th-card-parts li{counter-increment:th-part;position:relative;padding:0 0 15px 34px;font-size:.73rem;line-height:1.6;color:var(--muted)}
+.th-card-parts li:before{content:counter(th-part,decimal-leading-zero);position:absolute;left:0;top:0;font:400 .72rem var(--font-serif);color:var(--th-tone)}
+.th-card-parts li>strong{display:block;color:var(--ink);font-weight:500;font-size:.8rem;margin-bottom:4px}
+.th-card-parts li:last-child{padding-bottom:0}
+
+/* ── the article reader ──────────────────────────────────────────────────────────────────────── */
+.th-article-meta{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 0}
+.th-article-meta span{padding:7px 12px;border:1px solid var(--line);border-radius:30px;font-size:.68rem;color:var(--muted)}
+.th-question{font:400 clamp(1.1rem,1.7vw,1.35rem)/1.6 var(--font-serif);color:var(--ink);max-width:560px;margin:26px 0 0}
+.th-toc{padding-top:46px}
+.th-toc ol{list-style:none;counter-reset:th-toc;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:18px 0 0;padding:0}
+.th-toc li{counter-increment:th-toc;background:var(--th-paper)}
+.th-toc a{display:block;padding:20px 22px;height:100%}
+.th-toc a:before{content:counter(th-toc,decimal-leading-zero);display:block;font:400 .72rem var(--font-serif);color:var(--th-tone);margin-bottom:10px}
+.th-toc strong{display:block;font:500 1.05rem/1.3 var(--font-serif);letter-spacing:-.015em;margin-bottom:8px}
+.th-toc span{font-size:.68rem;line-height:1.65;color:var(--muted)}
+.th-toc li:hover{background:color-mix(in srgb,var(--th-tone) 5%,var(--th-paper))}
+
+.th-part{padding-top:78px;scroll-margin-top:100px}
+.th-part-head{max-width:var(--th-measure);padding-bottom:10px;border-bottom:1px solid var(--line)}
+.th-part-head .eyebrow{display:block}
+.th-part-head h2{font:500 clamp(1.9rem,3.1vw,2.7rem)/1.14 var(--font-serif);letter-spacing:-.028em;margin:12px 0}
+.th-lede{font-size:.95rem;line-height:1.8;color:var(--muted);margin:14px 0 22px;font-family:var(--font-serif)}
+.th-body{max-width:var(--th-measure)}
+.th-p{font-size:.95rem;line-height:1.95;margin:0 0 1.35em}
+.th-h{font:500 1.3rem/1.35 var(--font-serif);letter-spacing:-.015em;margin:2.4em 0 1em;padding-top:.2em}
+.th-h:first-child{margin-top:1.2em}
+.th-small-label{display:block;font-size:.58rem;line-height:1.6;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.th-failed{font-size:.85rem;color:var(--muted);padding:22px 0}
+
+/* Scripture: the Berean wording, with the reader one tap away at the quoted verses. */
+.th-scripture{margin:0 0 1.6em;padding:22px 26px;border-left:2px solid var(--th-tone);background:color-mix(in srgb,var(--th-tone) 4%,transparent);border-radius:0 10px 10px 0}
+.th-scripture blockquote{margin:0}
+.th-scripture blockquote p{font:400 1.08rem/1.75 var(--font-serif);margin:0}
+.th-scripture figcaption{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-top:16px}
+.th-scripture figcaption a{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;color:var(--th-tone)}
+.th-version{font-size:.58rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.th-note{flex-basis:100%;font-size:.68rem;line-height:1.7;color:var(--muted)}
+
+/* A source's own words. */
+.th-quote{margin:0 0 1.6em;padding:4px 0 0 24px;border-left:1px solid var(--line)}
+.th-quote blockquote{margin:0}
+.th-quote blockquote p{font:400 1rem/1.8 var(--font-serif);font-style:italic;margin:0}
+.th-quote figcaption{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-top:14px;font-size:.68rem;color:var(--muted)}
+.th-speaker{color:var(--ink);font-size:.72rem}
+.th-locator{color:var(--muted)}
+
+/* A work still in copyright: our summary of it, labelled as ours. */
+.th-summary{margin:0 0 1.6em;padding:20px 24px;border:1px dashed var(--line);border-radius:10px;background:color-mix(in srgb,var(--muted) 4%,transparent)}
+.th-summary>p{font-size:.92rem;line-height:1.9;margin:12px 0 0}
+.th-summary footer{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:.68rem}
+
+.th-terms{margin:0 0 1.8em;padding:22px 24px;border:1px solid var(--line);border-radius:10px}
+.th-method{max-width:var(--th-measure);margin-bottom:0}
+.th-terms dl{margin:16px 0 0}
+.th-terms dl>div+div{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.th-terms dt{font:500 .95rem var(--font-serif);color:var(--th-tone);margin-bottom:6px}
+.th-terms dd{margin:0;font-size:.85rem;line-height:1.8;color:var(--muted)}
+
+/* What an analogy cannot do, beside the analogy itself. */
+.th-caution{margin:0 0 1.8em;padding:20px 24px;border:1px solid color-mix(in srgb,var(--prophets) 45%,var(--line));border-radius:10px;background:color-mix(in srgb,var(--prophets) 5%,transparent)}
+.th-caution h4{display:flex;align-items:center;gap:9px;font:500 .95rem var(--font-serif);margin:0;color:color-mix(in srgb,var(--prophets) 72%,var(--ink))}
+.th-caution h4 svg{flex-shrink:0}
+.th-caution p{font-size:.88rem;line-height:1.85;margin:12px 0 0}
+
+/* ── related reading and the sources footer ──────────────────────────────────────────────────── */
+.th-related{margin-top:78px;padding-top:46px;border-top:1px solid var(--line)}
+.th-related-title{font:500 clamp(1.7rem,2.7vw,2.3rem)/1.15 var(--font-serif);letter-spacing:-.028em;margin:12px 0 0}
+.th-related ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin:22px 0 0;padding:0}
+.th-related li{border:1px solid var(--line);border-radius:10px;transition:border-color .2s}
+.th-related li:hover{border-color:color-mix(in srgb,var(--th-tone) 55%,var(--line))}
+.th-related a{display:block;padding:20px 22px;height:100%}
+.th-related strong{display:block;font:500 1.02rem/1.35 var(--font-serif);margin-bottom:9px}
+.th-related span{font-size:.69rem;line-height:1.7;color:var(--muted)}
+
+.th-sources{margin-top:76px;padding-top:48px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1.4fr;gap:80px}
+.th-sources>div>p{font-size:.8rem;line-height:1.85;color:var(--muted);max-width:360px}
+.th-sources h3{font:500 1.3rem var(--font-serif);margin:0 0 20px}
+.th-sources-list{list-style:none;margin:0;padding:0}
+.th-sources-list li{border-bottom:1px solid var(--line);padding:14px 0}
+.th-sources-list li:first-child{padding-top:0}
+.th-src-link{display:inline-flex;align-items:center;gap:8px;font-size:.8rem}
+.th-src-link:hover{color:var(--th-tone)}
+.th-src-meta{display:block;color:var(--muted);font-size:.66rem;line-height:1.7;margin-top:5px}
+.th-sources details{margin-top:22px;color:var(--muted);font-size:.75rem;line-height:1.85}
+.th-sources summary{cursor:pointer;color:var(--th-tone)}
+
+/* An address that names no article we hold. */
+.th-missing{max-width:var(--th-measure);padding:60px 0 20px}
+.th-missing h1{font:500 clamp(2.2rem,4vw,3.2rem)/1.1 var(--font-serif);letter-spacing:-.04em;margin:18px 0}
+.th-missing p{font-size:.92rem;line-height:1.9;color:var(--muted)}
+.th-missing a{color:var(--th-tone)}
+.th-missing ul{list-style:none;margin:18px 0;padding:0}
+.th-missing li{border-top:1px solid var(--line);padding:13px 0;font-size:.85rem;color:var(--muted)}
+
+/* The site forces `outline:none` on every focusable element (src/index.css), so the visible focus
+   ring has to be a shadow — the creeds collection does the same. */
+.theology-section :is(a,button,summary):focus-visible{box-shadow:0 0 0 2px var(--th-tone)}
+
+@media(max-width:1100px){
+  .th-sources{gap:44px}
+  .th-stats>div{padding-left:20px;gap:10px}
+  .th-card>a{grid-template-columns:1fr}
+  .th-card-parts{border-left:0;border-top:1px solid var(--line);border-radius:0 0 12px 12px}
+}
+@media(max-width:760px){
+  .th-container{padding:0 20px 45px}
+  .th-hero{grid-template-columns:1fr;gap:0;padding-top:24px}
+  .th-hero .eyebrow{margin-top:27px}
+  .th-hero h1{font-size:3.1rem}
+  .th-hero-art{max-width:340px;justify-self:center;margin:0 0 16px}
+  .th-stats{row-gap:24px}
+  .th-section,.th-part{padding-top:48px}
+  .th-card-copy,.th-card-parts{padding:24px}
+  .th-sources{grid-template-columns:1fr;gap:30px;margin-top:45px;padding-top:30px}
+  .th-sources>div>p{max-width:520px}
+  .th-related{margin-top:52px;padding-top:34px}
+  .th-scripture{padding:18px 20px}
+  .th-quote{padding-left:18px}
+}
+@media(max-width:520px){
+  .th-container{padding-left:17px;padding-right:17px}
+  .th-hero h1{font-size:2.6rem}
+  .th-lead{font-size:.9rem;margin-top:20px}
+  .th-stats{grid-template-columns:repeat(2,1fr)}
+  .th-stats>div:nth-child(odd){border:0;padding-left:0}
+  .th-stats dd{font-size:1.7rem}
+  .th-p{font-size:.9rem;line-height:1.9}
+  .th-scripture blockquote p{font-size:1rem}
+  .th-terms,.th-caution,.th-summary{padding:16px 18px}
+}
+@media(prefers-reduced-motion:reduce){
+  .theology-section *{scroll-behavior:auto!important}
+  .th-card,.th-jumps a,.th-related li{transition:none}
+  .th-card:hover{transform:none}
+}

@@ -187,7 +187,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
             },
             {
                 "id": "doctrine",
-                "cards": ["topics", "names", "creeds"],
+                "cards": ["topics", "names", "theology-articles", "creeds"],
                 "title": "God & Christian Faith",
                 "titleLines": ["God &", "Christian Faith"],
                 "short": "Trace what Scripture teaches",
