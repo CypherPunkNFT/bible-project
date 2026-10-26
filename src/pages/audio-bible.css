@@ -69,3 +69,8 @@
 @keyframes asv-slide {from {transform:translateX(100%);}}
 @keyframes asv-fade {from {opacity:0;}}
 @media(prefers-reduced-motion:reduce){.asv-readalong-scrim,.asv-readalong-panel {animation:none;}}
+.asv-readalong-body {position:relative;}
+.asv-readalong-body.is-timed [data-verse] {cursor:pointer;}
+.asv-readalong-body .verse-highlight {transition:background-color .35s;}
+.asv-readalong-return {position:absolute;left:50%;bottom:calc(4.6rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;align-items:center;gap:.45rem;padding:.65rem 1.1rem;border-radius:999px;background:var(--audio-tone);color:var(--paper);font-size:.74rem;font-weight:600;box-shadow:0 8px 24px #0006;}
+.asv-readalong-return:hover {filter:brightness(1.08);}
