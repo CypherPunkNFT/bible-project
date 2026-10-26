@@ -24,11 +24,18 @@ export function Top({ lead, beside }: { lead?: string; beside?: boolean }) {
 
 const NARROW = "(max-width: 760px)";
 
-/** Six lessons to a row, three on a phone, where each row is taller for the narrower width (the path's units are
- * a thousandth of its width). With `art` (E) the circles are three times the size, so a row holds at most four, and
- * never more than a third of the part's lessons, so the path always winds through at least two bends (owner,
- * 2026-10-25); two to a row on a phone. */
-function usePerRow(count: number, art?: boolean) {
+/** The road's shape, in the path's units (a thousandth of its width): `swing` is how far it reaches either side of the
+ * middle, `bend` how far down one sweep across goes, `flat` (0 to 1) how level the middle of a sweep runs and so how
+ * round its turns are, `perSweep` how many lessons stand on each sweep, and `top` and `bottom` keep the first circle
+ * and the last title inside. */
+interface Road { swing: number; bend: number; flat: number; perSweep: number; top: number; bottom: number }
+
+/** A road winding down the page like a board game's: nearly level across, then a wide round turn at each side, with
+ * no row ends and no two lessons stacked (owner, 2026-10-25: "really smooth, long winding things … like the game of
+ * life. Nice and easy. Turns"). With `art` (E) a sweep holds at most three and never more than a third of the part's
+ * lessons, so the road always winds through at least two bends; two on a phone, where the circles fill more of the
+ * width. */
+function useRoad(count: number, art?: boolean): Road {
   const [narrow, setNarrow] = useState(() => window.matchMedia(NARROW).matches);
   useEffect(() => {
     const query = window.matchMedia(NARROW);
@@ -36,8 +43,34 @@ function usePerRow(count: number, art?: boolean) {
     query.addEventListener("change", change);
     return () => query.removeEventListener("change", change);
   }, []);
-  if (art) return narrow ? { perRow: 2, row: 560, inset: 230, sway: 40 } : { perRow: Math.max(2, Math.min(4, Math.ceil(count / 3))), row: 250, inset: 120, sway: 30 };
-  return narrow ? { perRow: 3, row: 440, inset: 150, sway: 22 } : { perRow: 6, row: 170, inset: 80, sway: 22 };
+  if (art) return narrow ? { swing: 250, bend: 1150, flat: 0.3, perSweep: 2, top: 190, bottom: 340 }
+    : { swing: 360, bend: 600, flat: 0.6, perSweep: Math.max(2, Math.min(3, Math.ceil(count / 3))), top: 90, bottom: 150 };
+  return narrow ? { swing: 300, bend: 700, flat: 0.4, perSweep: 3, top: 120, bottom: 260 }
+    : { swing: 400, bend: 340, flat: 0.6, perSweep: 6, top: 60, bottom: 110 };
+}
+
+/** The lessons evenly spaced along the road, the first on its top-left turn and every `perSweep`-th on a turn, and the
+ * road itself as a line through them. The road is x = 500 − swing·cos θ, y = bend/π · (θ + flat/2 · sin 2θ): one
+ * sweep across for each half turn of θ, steepest at the turns and most level in the middle. */
+function layRoad(count: number, { swing, bend, flat, perSweep, top, bottom }: Road) {
+  const at = (t: number) => ({ x: 500 - swing * Math.cos(t), y: top + (bend / Math.PI) * (t + (flat / 2) * Math.sin(2 * t)) });
+  const STEP = 0.001;
+  const length = (t: number) => { const a = at(t - STEP), b = at(t); return Math.hypot(b.x - a.x, b.y - a.y); };
+  let sweep = 0;
+  for (let t = STEP; t <= Math.PI; t += STEP) sweep += length(t);
+  const spacing = sweep / perSweep;
+  const points = [at(0)];
+  let along = 0, t = 0;
+  while (points.length < count) {
+    t += STEP;
+    along += length(t);
+    if (along >= points.length * spacing - 0.5) points.push(at(t));
+  }
+  const road = [];
+  for (let u = 0; u < t; u += 0.02) { const p = at(u); road.push(`${p.x.toFixed(1)} ${p.y.toFixed(1)}`); }
+  const end = at(t);
+  road.push(`${end.x.toFixed(1)} ${end.y.toFixed(1)}`);
+  return { points, d: `M${road.join("L")}`, height: end.y + bottom };
 }
 
 /** The parts of the Bible as a row of drawings, the chosen one pressed. */
@@ -69,24 +102,10 @@ export function PathView({ lessons, groups, progress, openId, onOpen }: ViewProp
   </div>;
 }
 
-/** The lessons snaking left to right, then right to left, joined by one curving line. With `art` (E) each circle holds
+/** The lessons along one winding road (useRoad). With `art` (E) each circle holds
  * the lesson's line drawing and its number sits just outside it. */
 export function Path({ lessons, progress, next, openId, onOpen, art }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void; art?: boolean }) {
-  const { perRow, row: rowHeight, inset, sway } = usePerRow(lessons.length, art);
-  const rows = Math.ceil(lessons.length / perRow);
-  const height = rows * rowHeight;
-  const points = lessons.map((_, i) => {
-    const row = Math.floor(i / perRow), col = i % perRow;
-    const x = inset + (row % 2 ? perRow - 1 - col : col) * ((1000 - 2 * inset) / (perRow - 1));
-    return { x, y: rowHeight / 2 + row * rowHeight + (col % 2 ? sway : -sway) };
-  });
-  const d = points.map((p, i) => {
-    if (!i) return `M${p.x} ${p.y}`;
-    const a = points[i - 1];
-    const turn = Math.floor(i / perRow) !== Math.floor((i - 1) / perRow);
-    const out = (a.x > 500 ? 1 : -1) * (art ? inset * 0.8 : 70);
-    return turn ? `C${a.x + out} ${a.y} ${p.x + out} ${p.y} ${p.x} ${p.y}` : `C${(a.x + p.x) / 2} ${a.y} ${(a.x + p.x) / 2} ${p.y} ${p.x} ${p.y}`;
-  }).join(" ");
+  const { points, d, height } = layRoad(lessons.length, useRoad(lessons.length, art));
   return <div className={art ? "ck-path ck-path-art" : "ck-path"} style={{ aspectRatio: `1000 / ${height}` }}>
     <svg viewBox={`0 0 1000 ${height}`} preserveAspectRatio="none" aria-hidden="true"><path d={d} /></svg>
     <ol>{lessons.map((lesson, i) => {
