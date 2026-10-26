@@ -1,7 +1,7 @@
 // MOCK-UP (quiz_mockup): the state the four versions of the quiz share: the answer picked for each of the twelve
 // questions, which question is open (VERDICT once all are answered and the reader asks how they did), and the score.
 import { useState } from "react";
-import { QUESTIONS, VERDICTS } from "./quiz-data";
+import { QUESTIONS, VERDICTS } from "../quiz-data";
 
 export type Picked = (number | null)[];
 export type Answer = "right" | "wrong" | undefined;

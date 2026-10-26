@@ -1,4 +1,4 @@
-/* MOCK-UP: the test page (QuestionsTestPage.tsx and questions/test/): the look bar, the setup and results screens, and
+/* The test page (QuestionsTestPage.tsx and questions/test/): the look bar, the setup and results screens, and
    the pieces every look shares. Each look's own arrangement is in test-looks.css. House style: parchment ground, serif
    titles with one italic accent word, words on lines rather than in boxes. */
 .tp{--serif:var(--font-serif);--sans:var(--font-sans);--right:var(--poetry);--wrong:var(--revelation);color:var(--ink);font-family:var(--sans)}

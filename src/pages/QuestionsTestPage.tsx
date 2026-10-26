@@ -1,4 +1,4 @@
-// MOCK-UP: the test page the questions page's banner opens, at /study/questions/test on this computer's preview only.
+// The test page the questions page's banner opens, at /study/questions/test.
 // One page: the header and the test (questions/test/TestPage.tsx), drawn from what the address carries
 // (questions/test/selection.ts). The parts live in questions/test/.
 import { useEffect, useMemo, useState } from "react";

@@ -2,7 +2,7 @@
 // Bible, the chosen lesson's big card and its part's lessons on a winding road (MixedView.tsx), then the whole course
 // with every answer for the parents (ParentGuide.tsx). The lessons come from the bank as it is: Hurlbut's 88 lessons
 // and A Catechism for Young Children. The real page at /study/questions/children since 2026-10-26 (owner: "make it a
-// real page now"); with `mockup`, the copy at /children_mockup adds the zoom's ticker and, at ?course=versions, the four
+// real page now"; its files left pages/mockup/ the same day); with `mockup`, the copy at /children_mockup adds the zoom's ticker and, at ?course=versions, the four
 // tops for the parents' course, one to a row, in place of the page.
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";

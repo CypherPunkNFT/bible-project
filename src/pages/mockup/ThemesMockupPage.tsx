@@ -5,13 +5,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { loadQuestionBank, type QuestionBank } from "@/lib/data";
-import { SectionHead } from "./questions/shared";
-import type { TestQuestion } from "./questions/test/engine";
-import { useRecord } from "./questions/test/record";
+import { SectionHead } from "../questions/shared";
+import type { TestQuestion } from "../questions/test/engine";
+import { useRecord } from "../questions/test/record";
 import { ThemeMenu, type MenuVersion } from "./questions/test/ThemeMenu";
-import { inTheme, THEMES } from "./questions/test/themes";
-import "./questions-page.css";
-import "./test-options.css";
+import { inTheme, THEMES } from "../questions/test/themes";
+import "../questions-page.css";
+import "../test-options.css";
 import "./themes-mockup.css";
 
 const VERSIONS: { id: MenuVersion; name: string }[] = [

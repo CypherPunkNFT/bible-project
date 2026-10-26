@@ -1,4 +1,4 @@
-/* MOCK-UP: the children's tests page (/children_mockup), all four directions and the lesson panel. Warm paper, the
+/* The children's tests page (/study/questions/children, and its copy /children_mockup) and its quiz. Warm paper, the
    book map's colour for each part (--tone), large type for the questions; glow only on the next lesson. No focus rings
    (owner): a control shows it is chosen by its own border. */
 .ck{--serif:var(--font-serif);--sans:var(--font-sans);color:var(--ink);font-family:var(--sans);background:radial-gradient(1200px 520px at 15% -10%,color-mix(in srgb,var(--accent) 9%,transparent),transparent 70%),var(--page);min-height:100vh}

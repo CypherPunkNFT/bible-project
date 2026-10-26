@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { Tally } from "./QuizParts";
 import { CardDeck, Tiles } from "./QuizVersions";
 import { useQuiz } from "./quiz-state";
-import "./home-quiz.css";
+import "../home-quiz.css";
 import "./quiz-versions.css";
 
 export function HomeQuiz() {

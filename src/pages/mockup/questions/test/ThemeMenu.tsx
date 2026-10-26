@@ -7,8 +7,8 @@
 import { ArrowRight, Check } from "lucide-react";
 import { LayoutGroup, motion, MotionConfig, type Transition } from "framer-motion";
 import { useState, type CSSProperties, type ReactNode } from "react";
-import type { TestRecord } from "./record";
-import { chosenIn, homeOf, iconOf, plural, shelfMeta, shownShelves, toneOf } from "./shelf-model";
+import type { TestRecord } from "../../../questions/test/record";
+import { chosenIn, homeOf, iconOf, plural, shelfMeta, shownShelves, toneOf } from "../../../questions/test/shelf-model";
 
 export type MenuVersion = "a" | "b" | "c";
 interface Props { version: MenuVersion; counts: Map<string, number>; selected: string; onChoose: (id: string) => void; record: TestRecord }

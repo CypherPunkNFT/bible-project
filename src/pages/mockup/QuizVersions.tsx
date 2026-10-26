@@ -5,9 +5,9 @@
 // quiz (HomeQuiz.tsx). Shared parts: QuizParts.tsx; styles: quiz-versions.css.
 import { ArrowLeft, ArrowRight, LayoutGrid } from "lucide-react";
 import { useState, type CSSProperties } from "react";
-import { QUESTIONS } from "./quiz-data";
+import { QUESTIONS } from "../quiz-data";
 import { Options, Reveal, Steps, Tally, Verdict } from "./QuizParts";
-import { QuizScene } from "./QuizScenes";
+import { QuizScene } from "../QuizScenes";
 import { VERDICT, pad, useQuiz, type Quiz } from "./quiz-state";
 
 const TOTAL = QUESTIONS.length;

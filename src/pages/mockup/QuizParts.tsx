@@ -2,7 +2,7 @@
 // picked, the closing verdict and the twelve steps. Each version styles them under its own class (quiz-versions.css).
 import { ArrowRight, ArrowUpRight, Check, RotateCcw, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import { QUESTIONS } from "./quiz-data";
+import { QUESTIONS } from "../quiz-data";
 import { LETTERS, chapterOf, type Quiz } from "./quiz-state";
 
 export function Tally({ quiz }: { quiz: Quiz }) {

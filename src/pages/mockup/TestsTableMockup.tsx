@@ -7,10 +7,10 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { loadQuestionBank, type BankQuestion, type QuestionBank } from "@/lib/data";
-import { DEFAULT_LENGTH } from "./questions/test/engine";
-import { LEVELS } from "./questions/test/settings";
-import { inTheme, SHELVES } from "./questions/test/themes";
-import "./questions-page.css";
+import { DEFAULT_LENGTH } from "../questions/test/engine";
+import { LEVELS } from "../questions/test/settings";
+import { inTheme, SHELVES } from "../questions/test/themes";
+import "../questions-page.css";
 import "./tests-table.css";
 
 const LENGTHS = [10, 25, 50];

@@ -1,4 +1,4 @@
-// MOCK-UP: the clock of the children's page zoom (LessonStage.tsx) and the state of its ticker (ZoomTicker.tsx; owner,
+// The clock of the children's page zoom (LessonStage.tsx) and the state of its ticker (ZoomTicker.tsx; owner,
 // 2026-10-24: "bring the ticker and the animation thing back"). One move (zooming into a lesson, or back out) runs on
 // one clock: an empty animation whose time every part follows. Each part is a real animation started on it, so
 // pausing, slowing, stepping and seeking act on the whole move at once, as on the home page map's ticker.
