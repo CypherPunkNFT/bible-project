@@ -21,6 +21,32 @@ what comes next.
 - **Done 2026-10-24:** the two question chats were merged into one and every question file brought under this folder.
   The sources came from `Research/BibleQuizCorpus/` and the tests plan from `Plans/TESTS.md`; both old places hold a
   pointer. Every script and document now points here.
+- **Done 2026-10-24 (page, not questions):** the questions page's "Every question" rail has **By difficulty** (Easy,
+  Medium, Hard), crossed with book, theme and search; its address key is `?d=` because `?level=` is the test page's own
+  setting, and the test banner does not carry it. The chosen filters are gold rounded-square chips at the far right
+  of the results bar, each removing itself, then a grey Clear all (Website commit `8b1759f69`). On the Study page's
+  Questions & Answers card the two gold counts are 1.3× their line, and each part of the difficulty bar lights with
+  its name and opens the list at that difficulty
+  ([QuizDoor.tsx](../../src/pages/mockup/QuizDoor.tsx), [quiz-door.css](../../src/pages/mockup/quiz-door.css)):
+  **not committed**, because those two files also hold the Study chat's unsaved edits; commit them with that work.
+  The rail's four categories (By the book, By theme, By difficulty, Show) are solid gold tabs (3 px corners, to read
+  like 02's theme box; the owner turned down a soft tint as "a new standard") that fold their group shut and open, open
+  to begin with ([FilterRail.tsx](../../src/pages/mockup/questions/FilterRail.tsx) `RailGroup`). No line between 02 and 03.
+  01's book tiles (both Testaments) have the same 3 px corners.
+- **Done 2026-10-25 (children's page mock-up):** the top of "The whole course, answers included" is **"Contents
+  beside it"**, the owner's real pick (they read each version's label on `/children_mockup?course=versions` as a
+  caption under the design above it, so "number 3" meant the list, not the columns). The eight parts sit in two
+  columns, each with its lessons and questions under its name; the 100 lessons · 716 questions sit under the words,
+  above the button ([ParentGuide.tsx](../../src/pages/mockup/children/ParentGuide.tsx) `CourseHead`; the columns
+  design is `GlanceHead`, version 3 on the versions page, which stays). Website commit `f700ed5b6`. Inside the course,
+  each question shows its four choices lettered A–D and already revealed, the right one filled in green, as on the
+  questions page with answers shown (the "Answer" and "Other choices" lines went).
+  The parts are now named Creation, Exodus and Kingdom (the rest unchanged). Exodus and "The cross and the empty
+  tomb" have their own drawings, the sea parted with the fire going before and three crosses, because the quiz's
+  drawings they used belonged to other questions (Elijah's chariot of fire, the tear of "Jesus wept")
+  ([part-art.tsx](../../src/pages/mockup/children/part-art.tsx)). The lessons in a part sit on one smooth winding road,
+  level across with a wide round turn at each side, never two stacked
+  ([PathView.tsx](../../src/pages/mockup/children/PathView.tsx) `layRoad`). Website commits `53aa005c3`, `d484feea7`.
 - **Nothing about questions is on the live site.** The questions page and the children's page are local mock-ups.
 
 ## Waiting on the owner
