@@ -5,7 +5,8 @@ import { C, short } from "./field-layout";
 import type { CategoryKey, RingDef } from "./around-data";
 import { joinedTo, type Placed } from "./ring-layout";
 
-interface Props { name: string; kind: CategoryKey; rings: RingDef[]; points: Placed[]; only: string; chosen?: string; onChoose: (key: string | undefined) => void }
+/** `onCore`: what choosing the centre does (Moses's section opens his full connections); without it, it clears the choice. */
+interface Props { name: string; kind: CategoryKey; rings: RingDef[]; points: Placed[]; only: string; chosen?: string; onChoose: (key: string | undefined) => void; onCore?: () => void }
 
 function Mark({ kind, label }: { kind: CategoryKey; label: string }) {
   if (kind === "l") return <rect className="cn-dot" x={-6} y={-6} width={12} height={12} rx={2} transform="rotate(45)" />;
@@ -14,7 +15,7 @@ function Mark({ kind, label }: { kind: CategoryKey; label: string }) {
   return <><circle className="cn-dot is-filled" r={10} /><text className="cn-initial" y={4}>{label[0]}</text></>;
 }
 
-export function RingField({ name, kind, rings, points, only, chosen, onChoose }: Props) {
+export function RingField({ name, kind, rings, points, only, chosen, onChoose, onCore }: Props) {
   const radii = useMemo(() => {
     const seen = new Map<string, number>();
     for (const p of points) if (!seen.has(p.ring)) seen.set(p.ring, Math.hypot(p.x - C, p.y - C));
@@ -47,7 +48,8 @@ export function RingField({ name, kind, rings, points, only, chosen, onChoose }:
             </g>
           </g>);
       })}</g>
-      <g className="cn-core" role="button" tabIndex={0} aria-label={`Back to ${name}`} onClick={() => onChoose(undefined)} onKeyDown={(e) => press(e, "")}>
+      <g className="cn-core" role="button" tabIndex={0} aria-label={onCore ? `Open all of ${name}'s connections` : `Back to ${name}`}
+        onClick={() => (onCore ? onCore() : onChoose(undefined))} onKeyDown={(e) => { if (onCore && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); onCore(); } else press(e, ""); }}>
         <circle className="cn-core-ring" cx={C} cy={C} r={64} /><circle cx={C} cy={C} r={50} />
         <text x={C} y={C + 7}>{short(name, 14)}</text>
       </g>

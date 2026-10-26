@@ -1,4 +1,4 @@
-/* Section 03 "Around him" inside Moses's page (MosesAround.tsx). Loaded into the page's shadow root after
+/* Section 03's category pills and its places, topics and passages fields, inside Moses's page (MosesAround.tsx). Loaded into the page's shadow root after
    connections.css, so the field and panel keep the connections look while the frame, heading and tokens are the Moses
    design's own (--ink, --muted, --line, --accent, the section colours). */
 .ar { --font-sans: var(--sans); --font-serif: var(--serif); }
@@ -7,16 +7,16 @@
 .ar a { color: inherit; }
 .ar-wait { min-height: 40rem; }
 
-/* Category pills, then the relationship pills of the chosen category */
+/* Category pills under the heading, and the way into the full connections page */
+.ar-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .8rem 1.2rem; margin: -.4rem 0 1.4rem; }
 .ar-cats { display: inline-flex; flex-wrap: wrap; gap: 3px; padding: 4px; border-radius: 999px; background: var(--surface-2); }
 .ar-cats button { display: inline-flex; align-items: baseline; gap: .45rem; padding: .55rem 1.15rem; border-radius: 999px; font: 600 .9rem var(--sans); color: var(--muted); transition: background .2s, color .2s; }
 .ar-cats button small { font-weight: 500; font-size: .74rem; color: var(--muted); }
 .ar-cats button[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgb(0 0 0 / 12%); }
-.ar-rings { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
-.ar-rings button { display: inline-flex; align-items: center; gap: .45rem; padding: .32rem .8rem; border: 1px solid var(--line); border-radius: 999px; font: 500 .8rem var(--sans); color: var(--muted); transition: border-color .2s, color .2s, background .2s; }
-.ar-rings button i { width: .55rem; height: .55rem; border-radius: 50%; background: var(--cn-tone); }
-.ar-rings button:hover { color: var(--ink); }
-.ar-rings button[aria-pressed="true"] { border-color: var(--cn-tone, var(--ink)); color: var(--ink); background: color-mix(in srgb, var(--cn-tone, var(--ink)) 12%, transparent); }
+.ar-open { font: 600 .86rem var(--sans); color: var(--accent); }
+.ar-open:hover { text-decoration: underline; }
+/* Moses at the centre of the page's own field opens his connections */
+.cs-core { cursor: pointer; }
 
 /* The field: one colour per ring, set on each point */
 .ar-svg .cn-node { opacity: 1; }
@@ -29,15 +29,7 @@
 .ar-kicker { color: var(--cn-tone, var(--accent)); }
 .ar-quote { margin: .8rem 0; padding-left: .9rem; border-left: 2px solid var(--cn-tone, var(--accent)); font: italic 400 1rem/1.6 var(--serif); }
 
-/* The list under the field */
-.ar-list { margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
-.ar .cn-cols[data-count="5"] { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-.ar .cn-cols[data-count="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.ar .cn-col li span { font-size: .78rem; }
-
-@media (max-width: 1100px) { .ar .cn-cols[data-count] { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) {
-  .ar .cn-cols[data-count] { grid-template-columns: minmax(0, 1fr); }
   .ar-cats { display: flex; }
   .ar-cats button { flex: 1; justify-content: center; padding-inline: .5rem; font-size: .82rem; }
   .ar-cats button small { display: none; }
