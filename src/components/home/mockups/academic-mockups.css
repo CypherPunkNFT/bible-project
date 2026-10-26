@@ -1,3 +1,113 @@
-/* Placeholder (2026-10-21): AcademicMockups.tsx imports this file, but writing its styles was cancelled at 09:06 and the
-   chat stopped there, so the site could not build. Empty, the four Academic mock-ups on /mockups show without their motion
-   and styling. Replace with the real styles when that mock-up is finished. */
+/* Mock-up drawings for "Academic Studies" (AcademicMockups.tsx). Same rules as home-features.css: loops run only while
+   on screen, layers part on hover with their pivots set at rest, everything holds still under reduced motion. */
+
+/* ---- Shared: labels, leaders, paper, script ---- */
+.ma-label { fill: var(--muted); font: 600 7.5px Archivo, sans-serif; letter-spacing: .16em; }
+.ma-name { fill: var(--ink); }
+.ma-date { fill: currentColor; }
+.ma-head { fill: currentColor; }
+.ma-leader { stroke: currentColor; stroke-width: .9; opacity: .45; }
+.ma-dot { fill: var(--surface); stroke: currentColor; stroke-width: 1; }
+.ma-page { fill: color-mix(in srgb, currentColor 3%, var(--surface)); stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.ma-under { fill: color-mix(in srgb, currentColor 7%, var(--surface)); stroke: currentColor; stroke-width: 1; stroke-opacity: .5; stroke-linejoin: round; }
+.ma-rule { stroke: currentColor; stroke-width: .8; opacity: .4; }
+.ma-gutter { stroke: currentColor; opacity: .5; }
+.ma-ink { stroke: var(--ink); stroke-width: 1; opacity: .42; }
+.ma-fine { stroke-width: .75; }
+.ma-uncial { stroke-dasharray: 2.2 .9; }
+.ma-hebrew { stroke-dasharray: 3 1 1 1; }
+.ma-print { stroke-dasharray: 1.6 .6 3 .9; stroke-width: 1.15; }
+.ma-masora { stroke: currentColor; stroke-dasharray: 1 2.4; opacity: .55; }
+.ma-hi { stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; opacity: .6; }
+.ma-verse { fill: var(--ink); font: italic 400 16px Literata, Georgia, serif; }
+.ma-ref { fill: currentColor; font: 600 7.5px Archivo, sans-serif; letter-spacing: .2em; }
+
+/* ---- The Long Copy ---- */
+.ma-thread { stroke: currentColor; stroke-width: 1; stroke-dasharray: 2 4; opacity: .55; animation: ma-flow 2.8s linear infinite; }
+.ma-roller { fill: color-mix(in srgb, currentColor 16%, var(--surface)); stroke: currentColor; stroke-width: 1.1; }
+.ma-copy-scene .ma-hi { animation: ma-hi 14s linear infinite; }
+.ma-traveller { fill: currentColor; filter: drop-shadow(0 0 4px currentColor); animation: ma-travel 14s linear infinite; }
+.ma-axis { stroke: currentColor; opacity: .4; }
+.ma-copy { transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+.ma-copy:nth-child(2) { transition-delay: .06s; }
+.ma-copy:nth-child(3) { transition-delay: .12s; }
+.ma-copy:nth-child(4) { transition-delay: .18s; }
+.hf-layer-verse { transform-origin: 300px 96px; }
+.hf-art:hover .ma-copy { transform: translateY(-9px); }
+.hf-art:hover .hf-layer-verse { transform: translateY(-6px); }
+.hf-art:hover .ma-thread { opacity: .9; }
+
+/* ---- Four Witnesses ---- */
+.ma-frame { fill: color-mix(in srgb, currentColor 3%, var(--surface)); stroke: color-mix(in srgb, currentColor 45%, var(--line)); stroke-width: 1.1; }
+.ma-frame-inner { stroke: currentColor; stroke-width: .8; opacity: .25; }
+.ma-papyrus { fill: color-mix(in srgb, var(--history) 16%, var(--surface)); stroke: currentColor; stroke-width: 1.1; stroke-linejoin: round; }
+.ma-fibre { stroke: currentColor; stroke-width: .8; opacity: .14; }
+.ma-fibre-v { opacity: .08; }
+.ma-scale { stroke: currentColor; stroke-width: .8; opacity: .5; }
+.ma-stone { fill: color-mix(in srgb, currentColor 7%, var(--surface)); stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.ma-stone-top { fill: color-mix(in srgb, currentColor 3%, var(--surface)); }
+.ma-stone-side { fill: color-mix(in srgb, currentColor 17%, var(--surface)); }
+.ma-inscription { fill: var(--ink); fill-opacity: .78; font: 500 6.5px Literata, Georgia, serif; letter-spacing: .1em; }
+.ma-ghost { fill-opacity: .32; }
+.ma-hi-text { fill: currentColor; fill-opacity: 1; font-weight: 700; }
+.ma-spoke { stroke: currentColor; stroke-width: 1; stroke-dasharray: 2 4; opacity: .6; animation: ma-flow 2.4s linear infinite reverse; }
+.ma-end { fill: currentColor; transform-box: fill-box; transform-origin: center; animation: ma-beat 6s ease-in-out infinite; }
+.ma-ring { stroke: currentColor; stroke-dasharray: 2 4; opacity: .5; animation: ma-flow 3s linear infinite; }
+.ma-seal { fill: var(--surface); stroke: currentColor; stroke-width: 1.3; }
+.ma-seal-inner { stroke: currentColor; opacity: .3; }
+.ma-seal-text { fill: var(--ink); font: italic 400 10.5px Literata, Georgia, serif; }
+.ma-panel { transition: transform .9s cubic-bezier(.2, .7, .2, 1); }
+.hf-layer-seal { transform-origin: 300px 206px; }
+.hf-art:hover .ma-panel-0 { transform: translate(-6px, -5px); }
+.hf-art:hover .ma-panel-1 { transform: translate(6px, -5px); }
+.hf-art:hover .ma-panel-2 { transform: translate(-6px, 5px); }
+.hf-art:hover .ma-panel-3 { transform: translate(6px, 5px); }
+.hf-art:hover .hf-layer-seal { transform: scale(1.08); }
+
+/* ---- The Tell ---- */
+.ma-stratum { stroke: currentColor; stroke-width: 1; stroke-opacity: .5; stroke-linejoin: round; }
+.ma-grain { stroke: currentColor; stroke-width: .8; opacity: .35; }
+.ma-grain-dot { fill: currentColor; opacity: .4; }
+.ma-object { fill: var(--surface); stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.ma-halo { fill: currentColor; opacity: 0; animation: ma-glint 8s ease-in-out infinite; }
+.ma-tuft { stroke: currentColor; stroke-linecap: round; opacity: .5; }
+.ma-stake { stroke: var(--ink); stroke-width: 1.2; stroke-linecap: round; opacity: .7; }
+.ma-flag { fill: var(--accent); }
+.ma-probe { stroke: var(--ink); stroke-width: 1.2; stroke-dasharray: 3 3; opacity: .4; animation: ma-flow 2s linear infinite; }
+.ma-stratum-layer { transition: transform .9s cubic-bezier(.2, .7, .2, 1); }
+.hf-art:hover .ma-stratum-layer { transform: translateY(calc((var(--i) - 1.5) * 8px)); }
+
+/* ---- One Stroke ---- */
+.ma-letters ellipse, .ma-letters path { stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; }
+.ma-letters .ma-stroke, .ma-letters .ma-stroke-fixed { stroke: currentColor; stroke-width: 1.9; }
+.ma-letters .ma-stroke { animation: ma-stroke 7s ease-in-out infinite; }
+.ma-glass { fill: color-mix(in srgb, currentColor 5%, var(--surface)); }
+.ma-lens-ring { stroke: var(--ink); stroke-width: 1.5; }
+.ma-lens-rim { stroke: currentColor; opacity: .4; }
+.ma-handle { stroke: var(--ink); stroke-width: 7; stroke-linecap: round; }
+.ma-handle-core { stroke: var(--surface); stroke-width: 1.5; stroke-linecap: round; opacity: .45; }
+.ma-magnified { fill: var(--ink); fill-opacity: .8; font: 400 21px Literata, Georgia, serif; letter-spacing: .06em; }
+.ma-faint { fill-opacity: .28; font-size: 16px; }
+.ma-card { fill: var(--surface); stroke: currentColor; stroke-width: 1.1; }
+.ma-card-under { fill: color-mix(in srgb, currentColor 8%, var(--surface)); stroke: currentColor; stroke-opacity: .4; }
+.ma-card-inner { stroke: currentColor; opacity: .25; }
+.ma-lens-bob { animation: ma-bob 9s ease-in-out infinite; }
+.hf-layer-lens { transform-origin: 262px 214px; }
+.hf-art:hover .hf-layer-lens { transform: translate(-3px, -6px) scale(1.05); }
+.hf-art:hover .hf-layer-card-a { transform: translate(7px, -6px); }
+.hf-art:hover .hf-layer-card-b { transform: translate(7px, 6px); }
+
+@keyframes ma-flow { to { stroke-dashoffset: -12; } }
+@keyframes ma-travel { 0% { transform: translateX(36px); opacity: 0; } 4%, 96% { opacity: 1; } 100% { transform: translateX(564px); opacity: 0; } }
+@keyframes ma-hi { 0%, 18%, 100% { opacity: .5; } 5% { opacity: 1; } }
+@keyframes ma-beat { 0%, 25%, 100% { transform: scale(1); opacity: .7; } 10% { transform: scale(1.6); opacity: 1; } }
+@keyframes ma-glint { 0%, 30%, 100% { opacity: 0; } 12% { opacity: .14; } }
+@keyframes ma-stroke { 0%, 35%, 100% { opacity: 0; } 50%, 85% { opacity: 1; } }
+@keyframes ma-bob { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-3px, -2px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ma-traveller { display: none; }
+  .ma-letters .ma-stroke { opacity: .55; }
+  .ma-copy, .ma-panel, .ma-stratum-layer { transition: none; }
+  .hf-art:hover .ma-copy, .hf-art:hover .ma-panel, .hf-art:hover .ma-stratum-layer { transform: none; }
+}

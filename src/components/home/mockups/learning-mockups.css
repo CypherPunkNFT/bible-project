@@ -1,82 +1,113 @@
-/* Mock-up drawings for the homepage Learning materials block (LearningMockups.tsx). Same rules as home-features.css:
-   loops run only while on screen, layers part on hover with their pivots set at rest, all still under reduced motion. */
+/* Mock-up drawings for the homepage Learning materials block (LearningMockups.tsx): an exploded workbook, a study desk
+   and a type case. Same rules as home-features.css: loops run only while on screen, layers part on hover with their
+   pivots set at rest, all still under reduced motion. */
+
+/* ---- Shared: labels, verse, paper, ink, engraving, the light ---- */
 .ml-label { fill: var(--muted); font: 600 7.5px Archivo, sans-serif; letter-spacing: .16em; }
-.ml-tiny { fill: var(--muted); font: 600 6.5px Archivo, sans-serif; letter-spacing: .1em; }
-.ml-shape { fill: var(--surface); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
-.ml-page { fill: var(--surface); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
-.ml-print path { stroke: var(--ink); stroke-dasharray: 6 2 3 1.5; opacity: .4; }
-.ml-rule { stroke: currentColor; opacity: .35; }
-.ml-verse { fill: var(--ink); font: italic 400 10.5px Literata, Georgia, serif; }
-.ml-verse-sm { font-size: 9.5px; }
-.ml-title { fill: var(--ink); font: 400 16px Literata, Georgia, serif; }
-.ml-question { fill: var(--ink); font: italic 400 9.5px Literata, Georgia, serif; opacity: .85; }
+.ml-name { fill: var(--ink); }
+.ml-detail { fill: currentColor; }
+.ml-tiny { fill: var(--muted); font: 600 6.5px Archivo, sans-serif; letter-spacing: .12em; }
+.ml-verse { fill: var(--ink); font: italic 400 15px Literata, Georgia, serif; }
+.ml-ref { fill: currentColor; font: 600 6.5px Archivo, sans-serif; letter-spacing: .2em; }
+.ml-verse + .ml-ref { font-size: 7.5px; }
+.ml-leader { stroke: currentColor; stroke-width: .9; opacity: .5; }
+.ml-dot { fill: var(--surface); stroke: currentColor; stroke-width: 1; }
+.ml-page { fill: color-mix(in srgb, currentColor 3%, var(--surface)); stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.ml-under { fill: color-mix(in srgb, currentColor 8%, var(--surface)); stroke: currentColor; stroke-width: 1; stroke-opacity: .45; stroke-linejoin: round; }
+.ml-neat { stroke: currentColor; stroke-width: .7; opacity: .5; }
+.ml-rule { stroke: currentColor; stroke-width: .7; opacity: .4; }
+.ml-ink { stroke: var(--ink); stroke-width: .9; opacity: .4; stroke-dasharray: 2.4 .8 1.2 .8; }
+.ml-hatch { stroke: currentColor; stroke-width: .55; opacity: .5; stroke-linecap: round; }
+.ml-solid { fill: color-mix(in srgb, currentColor 10%, var(--surface)); stroke: currentColor; stroke-width: .8; stroke-linejoin: round; }
+.ml-col { stroke: currentColor; stroke-width: 1.6; opacity: .7; }
+.ml-pic { fill: var(--surface); stroke: currentColor; stroke-width: .8; }
+.ml-sun { fill: var(--accent); opacity: .85; }
+.ml-flame { fill: color-mix(in srgb, var(--accent) 70%, var(--surface)); stroke: var(--accent); stroke-width: .6; transform-box: fill-box; transform-origin: 50% 100%; animation: ml-flicker 2.8s ease-in-out infinite; }
+.ml-cloud { stroke: currentColor; stroke-width: .9; opacity: .7; stroke-linecap: round; }
+.ml-key { fill: color-mix(in srgb, currentColor 10%, var(--surface)); stroke: currentColor; stroke-width: .6; stroke-opacity: .6; }
+.ml-band { fill: color-mix(in srgb, currentColor 50%, var(--surface)); stroke: currentColor; stroke-width: .7; }
+.ml-plane-title { fill: var(--ink); font: italic 400 15px Literata, Georgia, serif; }
+.ml-plane-sub { fill: var(--ink); font: italic 400 7px Literata, Georgia, serif; opacity: .8; }
+.ml-card-text { fill: var(--ink); font: italic 400 8px Literata, Georgia, serif; }
+.ml-check { fill: var(--surface); stroke: currentColor; stroke-width: .7; }
+.ml-tick { stroke: var(--accent); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
+.ml-answer { stroke: var(--ink); stroke-width: 1; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: .8; animation: ml-write 8s ease-in-out infinite; }
+.ml-halo { fill: var(--accent); opacity: 0; animation: ml-reach 14s linear infinite; }
+.ml-glow { stroke: var(--accent); stroke-width: 4.5; stroke-linecap: round; stroke-dasharray: .1 300; filter: drop-shadow(0 0 4px var(--accent)); animation: ml-travel 14s linear infinite; }
+.ml-wood { fill: color-mix(in srgb, var(--history) 9%, var(--surface)); stroke: color-mix(in srgb, var(--history) 50%, var(--line)); stroke-width: 1; }
+.ml-grain { stroke: var(--history); stroke-width: .55; opacity: .22; stroke-dasharray: 60 4 22 3; }
 
-/* ---- 1. Kitchen table ---- */
-.ml-window rect, .ml-window path { stroke: var(--line); stroke-width: 1.2; }
-.ml-window rect { fill: color-mix(in srgb, currentColor 4%, var(--surface)); }
-.ml-cord { stroke: currentColor; opacity: .6; }
-.ml-bulb { fill: var(--accent); }
-.ml-glow { fill: var(--accent); opacity: .08; transition: opacity .6s; animation: ml-breathe 7s ease-in-out infinite; }
-.ml-coat { fill: color-mix(in srgb, var(--gospels) 16%, var(--surface)); }
-.ml-coat-child { fill: color-mix(in srgb, var(--history) 20%, var(--surface)); }
-.ml-arm { stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; }
-.ml-follow { stroke: var(--accent); stroke-width: 2.4; stroke-linecap: round; opacity: .55; animation: ml-follow 7s steps(1) infinite; }
-.ml-answer { stroke: var(--ink); stroke-width: 1.2; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: ml-write 7s ease-in-out infinite; }
-.ml-pencil { animation: ml-pencil 7s ease-in-out infinite; }
-.ml-pencil path { fill: color-mix(in srgb, var(--accent) 30%, var(--surface)); stroke: var(--ink); stroke-width: 1; stroke-linejoin: round; }
-.ml-pencil .ml-pencil-tip { fill: var(--ink); }
-.ml-table path { fill: color-mix(in srgb, currentColor 10%, var(--surface)); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
-.ml-mug rect { fill: color-mix(in srgb, var(--history) 18%, var(--surface)); stroke: currentColor; stroke-width: 1.2; }
-.ml-mug path { stroke: currentColor; stroke-width: 1.2; }
-.ml-mug .ml-steam { stroke: var(--muted); stroke-linecap: round; opacity: .5; animation: ml-steam 4s ease-in-out infinite; }
-.ml-card { animation: hf-drift 10s ease-in-out infinite; }
-.ml-card rect { fill: var(--surface); stroke: currentColor; stroke-width: 1.2; }
-.hf-layer-parent { transform-origin: 164px 258px; }
-.hf-layer-child { transform-origin: 436px 258px; }
-.hf-layer-card { transform-origin: 476px 86px; }
-.hf-art:hover .ml-glow { opacity: .2; }
-.hf-art:hover .hf-layer-parent { transform: rotate(4deg); }
-.hf-art:hover .hf-layer-child { transform: rotate(-5deg); }
-.hf-art:hover .hf-layer-book { transform: translateY(-5px); }
-.hf-art:hover .hf-layer-card { transform: translateY(-8px) rotate(2deg); }
+/* ---- The Exploded Workbook ---- */
+.ml-assembly { stroke: currentColor; stroke-width: .8; stroke-dasharray: 4 2 1 2; opacity: .45; }
+.ml-grid { fill: currentColor; opacity: .45; }
+.ml-found { stroke: var(--accent); stroke-width: 1.1; fill: color-mix(in srgb, var(--accent) 14%, var(--surface)); }
+.ml-exploded .hf-layer-sheet, .ml-exploded .hf-layer-card { transform-origin: 300px 220px; }
+.hf-art:hover .ml-exploded .hf-layer-sheet, .hf-art:hover .ml-exploded .hf-layer-card { transform: translate(calc(var(--k) * 3px), calc(var(--k) * -2.5px)); }
 
-/* ---- 2. Off the printer ---- */
-.ml-sheet-out { animation: ml-feed 9s cubic-bezier(.45, 0, .55, 1) infinite; }
-.ml-forty { fill: color-mix(in srgb, var(--tone) 55%, var(--surface)); stroke: var(--tone); stroke-width: 1; animation: ml-forty 9s ease-in-out infinite; }
-.ml-machine path { fill: color-mix(in srgb, currentColor 9%, var(--surface)); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
-.ml-machine .ml-slot { stroke: currentColor; opacity: .55; fill: none; }
-.ml-status { fill: var(--accent); animation: ml-blink 1.6s ease-in-out infinite; }
-.ml-size { fill: var(--surface); stroke: currentColor; stroke-width: 1.2; stroke-dasharray: 3 3; transform-box: fill-box; transform-origin: 50% 100%; transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
-.ml-stack-sheet { fill: var(--surface); stroke: currentColor; stroke-width: 1.1; transition: transform .8s cubic-bezier(.2, .7, .2, 1); transition-delay: calc(var(--i) * 35ms); }
-.hf-art:hover .hf-layer-page { transform: translateY(-14px); }
-.hf-art:hover .ml-size { transform: rotate(-6deg); }
-.hf-art:hover .ml-size-letter { transform: rotate(5deg); }
-.hf-art:hover .ml-stack-sheet { transform: translate(calc(var(--i) * 2.5px), calc(var(--i) * -2.5px)); }
+/* ---- The Study Desk ---- */
+.ml-pool { transform-box: fill-box; transform-origin: center; animation: ml-drift 18s ease-in-out infinite; transition: opacity .6s; }
+.ml-cord { stroke: currentColor; stroke-width: 1.4; opacity: .5; stroke-linecap: round; }
+.ml-shade { fill: color-mix(in srgb, var(--accent) 22%, var(--surface)); stroke: var(--accent); stroke-width: 1.2; }
+.ml-shade-ring { stroke: var(--accent); stroke-width: .7; opacity: .6; }
+.ml-bulb { fill: var(--accent); filter: drop-shadow(0 0 5px var(--accent)); animation: ml-breathe 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.ml-gutter { stroke: currentColor; opacity: .5; }
+.ml-keybar { stroke: var(--accent); stroke-width: 2.4; }
+.ml-folio { fill: var(--muted); font: 400 7px Literata, Georgia, serif; }
+.ml-heading { fill: var(--ink); font: italic 400 12px Literata, Georgia, serif; }
+.ml-num { fill: color-mix(in srgb, currentColor 14%, var(--surface)); stroke: currentColor; stroke-width: .8; }
+.ml-num-text { fill: var(--ink); font: 700 5.5px Archivo, sans-serif; }
+.ml-pencil { animation: ml-pencil 8s ease-in-out infinite; }
+.ml-pencil-body { fill: color-mix(in srgb, var(--accent) 30%, var(--surface)); stroke: var(--ink); stroke-width: .9; stroke-linejoin: round; }
+.ml-pencil-tip { fill: var(--ink); }
+.ml-rubber { fill: color-mix(in srgb, var(--prophets) 40%, var(--surface)); stroke: var(--ink); stroke-width: .9; stroke-linejoin: round; }
+.ml-ribbon { fill: color-mix(in srgb, var(--accent) 55%, var(--surface)); stroke: var(--accent); stroke-width: .8; stroke-linejoin: round; }
+.ml-tab-shape { fill: color-mix(in srgb, currentColor 35%, var(--surface)); stroke: currentColor; stroke-width: 1; stroke-linejoin: round; }
+.ml-tab { transition: transform .8s cubic-bezier(.2, .7, .2, 1); transition-delay: calc(var(--k) * 40ms); }
+.ml-clip { stroke: var(--muted); stroke-width: 1.2; stroke-linecap: round; opacity: .8; }
+.ml-fan { transform-box: view-box; transform-origin: 86px 300px; transform: rotate(calc(var(--r) * 1deg)); transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+.ml-desk .hf-layer-book { transform-origin: 290px 220px; }
+.ml-desk .hf-layer-lamp { transform-origin: 78px 146px; }
+.hf-art:hover .ml-desk .ml-tab { transform: translateX(calc(var(--k) * 1.2px + 3px)); }
+.hf-art:hover .ml-desk .ml-fan { transform: rotate(calc(var(--r) * 1.6deg)); }
+.hf-art:hover .ml-desk .hf-layer-book { transform: translateY(-3px); }
+.hf-art:hover .ml-desk .hf-layer-lamp { transform: scale(1.05); }
 
-/* ---- 3. The reader's file ---- */
-.ml-card-body { fill: color-mix(in srgb, var(--tone) 6%, var(--surface)); stroke: color-mix(in srgb, var(--tone) 70%, var(--line)); stroke-width: 1.2; }
-.ml-tab { fill: color-mix(in srgb, var(--tone) 22%, var(--surface)); stroke: var(--tone); stroke-width: 1.2; stroke-linejoin: round; }
-.ml-tab-text { fill: var(--ink); }
-.ml-divider { transition: transform .9s cubic-bezier(.2, .7, .2, 1); transition-delay: calc((6 - var(--k)) * 45ms); }
-.ml-divider-lift { animation: ml-lift 14s ease-in-out infinite; }
-.ml-box { fill: color-mix(in srgb, currentColor 10%, var(--surface)); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
-.hf-art:hover .ml-divider { transform: translateY(calc((6 - var(--k)) * -6px)); }
-.hf-art:hover .hf-layer-box { transform: translateY(6px); }
+/* ---- The Type Case ---- */
+.ml-frame { fill: color-mix(in srgb, var(--history) 16%, var(--surface)); stroke-width: 1.2; }
+.ml-bed { fill: color-mix(in srgb, var(--history) 5%, var(--surface)); }
+.ml-divider { stroke: color-mix(in srgb, var(--history) 55%, var(--line)); stroke-width: 1.4; }
+.ml-neat-frame { stroke: color-mix(in srgb, var(--history) 65%, var(--line)); stroke-width: 1.2; }
+.ml-empty { fill: none; }
+.ml-spine { fill: color-mix(in srgb, currentColor 32%, var(--surface)); stroke: currentColor; stroke-width: .8; }
+.ml-ghost { stroke: var(--accent); stroke-width: .8; stroke-dasharray: 1.5 1.2; }
+.ml-cell-glow { transform-box: fill-box; transform-origin: center; animation: ml-breathe 5s ease-in-out infinite; }
+.ml-holder { fill: color-mix(in srgb, var(--accent) 18%, var(--surface)); stroke: var(--accent); stroke-width: .9; }
+.ml-holder-text { fill: var(--ink); font-size: 5.5px; }
+.ml-pull { stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; }
+.ml-route { stroke: var(--ink); stroke-width: 1; stroke-dasharray: 2 4; stroke-linecap: round; opacity: .45; animation: hf-flow 3.4s linear infinite; }
+.ml-halo-cover { animation-name: ml-cover; }
+.ml-stamp { fill: var(--accent); }
+.ml-case .hf-layer-cover { transform-origin: 518px 220px; }
+.ml-case .hf-layer-case { transform-origin: 263px 247px; }
+.hf-art:hover .ml-case .hf-layer-cover { transform: translateY(-8px); }
+.hf-art:hover .ml-case .hf-layer-case { transform: translateY(2px); }
 
-@keyframes ml-breathe { 0%, 100% { opacity: .07; } 50% { opacity: .13; } }
-@keyframes ml-follow { 0% { transform: translateY(0); } 20% { transform: translateY(7px); } 40% { transform: translateY(14px); } 60% { transform: translateY(21px); } 80% { transform: translateY(28px); } }
+.ml-desk .hf-layer-verse, .ml-case .hf-layer-verse, .ml-exploded .hf-layer-verse { transform-origin: 300px 60px; }
+
+@keyframes ml-travel { 0% { stroke-dashoffset: 0; opacity: 0; } 4%, 92% { opacity: 1; } 100% { stroke-dashoffset: -100; opacity: 0; } }
+@keyframes ml-reach { 0%, 14%, 100% { opacity: 0; } 5% { opacity: .3; } }
+@keyframes ml-cover { 0%, 82%, 100% { opacity: 0; } 92% { opacity: .22; } }
 @keyframes ml-write { 0%, 10% { stroke-dashoffset: 1; } 55%, 85% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 0; opacity: 0; } }
-@keyframes ml-pencil { 0%, 10% { transform: translate(311px, 223px); } 55%, 85% { transform: translate(351px, 222px); } 100% { transform: translate(311px, 223px); } }
-@keyframes ml-steam { 0%, 100% { opacity: .15; transform: translateY(2px); } 50% { opacity: .6; transform: translateY(-3px); } }
-@keyframes ml-feed { 0% { transform: translateY(218px); opacity: 1; } 60%, 88% { transform: translateY(0); opacity: 1; } 96% { transform: translateY(0); opacity: 0; } 100% { transform: translateY(218px); opacity: 0; } }
-@keyframes ml-forty { 0%, 55% { opacity: .35; } 70%, 90% { opacity: 1; } 100% { opacity: .35; } }
-@keyframes ml-blink { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
-@keyframes ml-lift { 0%, 3%, 14%, 100% { transform: translateY(0); } 7%, 10% { transform: translateY(-12px); } }
+@keyframes ml-pencil { 0%, 10% { transform: translate(304px, 176px); } 55%, 85% { transform: translate(364px, 175px); } 100% { transform: translate(304px, 176px); } }
+@keyframes ml-drift { 0%, 100% { transform: translate(-50px, -6px); } 50% { transform: translate(50px, 6px); } }
+@keyframes ml-breathe { 0%, 100% { transform: scale(1); opacity: .8; } 50% { transform: scale(1.08); opacity: 1; } }
+@keyframes ml-flicker { 0%, 100% { transform: scale(1, 1); } 40% { transform: scale(.9, 1.1); } 70% { transform: scale(1.06, .94); } }
 
 @media (prefers-reduced-motion: reduce) {
+  .ml-glow { display: none; }
   .ml-answer { stroke-dashoffset: 0; }
-  .ml-pencil { transform: translate(351px, 222px); }
-  .ml-sheet-out { transform: none; opacity: 1; }
-  .ml-size, .ml-stack-sheet, .ml-divider { transition: none; }
-  .hf-art:hover .ml-size, .hf-art:hover .ml-stack-sheet, .hf-art:hover .ml-divider { transform: none; }
+  .ml-pencil { transform: translate(364px, 175px); }
+  .ml-tab, .ml-fan { transition: none; }
+  .hf-art:hover .ml-desk .ml-tab { transform: none; }
+  .hf-art:hover .ml-desk .ml-fan { transform: rotate(calc(var(--r) * 1deg)); }
 }

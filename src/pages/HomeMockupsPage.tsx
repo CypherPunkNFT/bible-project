@@ -2,6 +2,7 @@
 // Not linked from the site; reached only at /mockups. Each drawing runs live and opens up on hover like the homepage.
 import type { CSSProperties } from "react";
 import { MOCKUPS as OVERVIEW } from "@/components/home/mockups/OverviewMockups";
+import { MOCKUPS as OVERVIEW_MORE } from "@/components/home/mockups/OverviewMockupsMore";
 import { MOCKUPS as LEARNING } from "@/components/home/mockups/LearningMockups";
 import { MOCKUPS as LIFE } from "@/components/home/mockups/LifeMockups";
 import { MOCKUPS as ACADEMIC } from "@/components/home/mockups/AcademicMockups";
@@ -14,6 +15,7 @@ import "./home-mockups.css";
 const GROUPS: Array<{ title: string; line: string; tone: string; items: Mockup[] }> = [
   { title: "Academic Studies: enter the world, weigh the evidence", line: "Surviving witnesses, manuscripts, and a passage carried through them", tone: "history", items: ACADEMIC },
   { title: "Resources: the top drawing", line: "Learning, fellowship and help for life, in one picture", tone: "resource-life", items: OVERVIEW },
+  { title: "Resources: new directions", line: "The same detail, new ideas", tone: "resource-life", items: OVERVIEW_MORE },
   { title: "Learning materials: Study it together", line: "Workbooks, lessons and activity pages for every reader", tone: "epistles", items: LEARNING },
   { title: "Help for life: the hardest moments", line: "Help right now, and close to home", tone: "resource-life", items: LIFE },
 ];

@@ -18,12 +18,8 @@ const SCENES: Record<Scene, ReactNode> = {
   waters: <>
     <g className="qs-twinkle qs-faint"><circle cx="58" cy="44" r="1.4" /><circle cx="112" cy="28" r="1" /><circle cx="214" cy="36" r="1.4" /><circle cx="262" cy="62" r="1" /><circle cx="84" cy="88" r="1" /><circle cx="286" cy="24" r="1.2" /></g>
     <g className="qs-float"><path className="qs-accent" d="M136 96Q148 82 160 94Q172 82 184 96" strokeWidth="1.8" /></g>
-    <g className="qs-drift">
-      <path d="M-20 160Q0 150 20 160T60 160T100 160T140 160T180 160T220 160T260 160T300 160T340 160" />
-      <path className="qs-faint" d="M-20 178Q0 168 20 178T60 178T100 178T140 178T180 178T220 178T260 178T300 178T340 178" />
-      <path d="M-20 196Q0 186 20 196T60 196T100 196T140 196T180 196T220 196T260 196T300 196T340 196" />
-      <path className="qs-faint" d="M-20 214Q0 204 20 214T60 214T100 214T140 214T180 214T220 214T260 214T300 214T340 214" />
-    </g>
+    <g className="qs-swell qs-sway-x"><path d="M14 160Q31 150 48 160T82 160T116 160T150 160T184 160T218 160T252 160T286 160" /><path className="qs-faint" d="M14 178Q31 168 48 178T82 178T116 178T150 178T184 178T218 178T252 178T286 178" /></g>
+    <g className="qs-swell qs-sway-x" style={{ animationDelay: "-2.2s" }}><path d="M14 196Q31 186 48 196T82 196T116 196T150 196T184 196T218 196T252 196T286 196" /><path className="qs-faint" d="M14 214Q31 204 48 214T82 214T116 214T150 214T184 214T218 214T252 214T286 214" /></g>
   </>,
   hourglass: <>
     <path d="M106 36H214M106 204H214M114 36V204M206 36V204" strokeWidth="2" />
@@ -34,24 +30,38 @@ const SCENES: Record<Scene, ReactNode> = {
     <path className="qs-faint" d="M70 120H96M224 120H250M82 90L98 100M238 100L254 90M82 150L98 140M238 140L254 150" />
   </>,
   tents: <>
-    <path d="M20 200H300" />
-    <path className="qs-faint" d="M30 214Q90 204 150 214T290 212M40 186Q70 180 98 186" />
-    <path className="qs-paper" d="M48 200L86 140L124 200Z" /><path d="M86 140L80 200M74 200L86 176L96 200" />
-    <path className="qs-paper" d="M132 200L164 152L196 200Z" /><path d="M164 152L158 200" />
-    <path className="qs-paper" d="M200 200L226 162L252 200Z" />
-    <g className="qs-float">
-      <path className="qs-paper" d="M232 112Q220 100 232 90Q232 72 252 74Q264 62 278 74Q296 76 292 94Q302 106 288 114Z" />
-      <path className="qs-faint" d="M246 114Q244 140 256 160M268 114Q272 138 262 162" />
-    </g>
-    <g className="qs-twinkle qs-faint"><circle cx="60" cy="50" r="1.2" /><circle cx="110" cy="34" r="1" /><circle cx="170" cy="58" r="1.2" /><circle cx="40" cy="96" r="1" /></g>
+    <g className="qs-twinkle"><circle className="qs-faint" cx="250" cy="52" r="11" /></g>
+    <path className="qs-faint" d="M20 110C28.5 109.4 53.2 106.1 71.2 106.5C89.1 107 110.2 113.1 127.8 112.9C145.5 112.7 160 105.3 176.9 105.6C193.7 105.9 212.7 114.6 229 114.8C245.3 114.9 262.9 108 274.8 106.6C286.6 105.2 295.8 106.6 300 106.6" />
+    <path className="qs-faint" d="M60 108L60 101.5M60 102.6L56.1 97.6M60 102L63.9 97.1" /><path className="qs-paper qs-faint" d="M49 97.6C51.8 92.1 67.7 91.6 71.5 97.1C64.4 99.3 55.6 99.3 49 97.6Z" />
+    <path className="qs-faint" d="M226 115.7L226 111.2" /><path className="qs-paper qs-faint" d="M219.5 110.7C217 107.7 220 103.7 223.5 104.7C225 101.2 230 101.7 230.5 105.2C234 105.2 234.5 109.7 232 110.7Z" />
+    <path className="qs-faint" d="M20 136C30 137 58.9 142.8 80.1 141.9C101.4 141 125.6 131 147.6 130.6C169.6 130.2 189.6 139.3 211.9 139.5C234.3 139.6 267.2 133 281.8 131.7C296.5 130.4 297 131.7 300 131.7" />
+    <path className="qs-faint" d="M34 137.8L34 131.9" /><path className="qs-paper qs-faint" d="M24.9 131.2C21.4 127 25.6 121.4 30.5 122.8C32.6 117.9 39.6 118.6 40.3 123.5C45.2 123.5 45.9 129.8 42.4 131.2Z" />
+    <path className="qs-faint" d="M280 132.7L280 124.2M280 125.7L274.8 119M280 125L285.2 118.2" /><path className="qs-paper qs-faint" d="M265 119C268.8 111.5 290.5 110.7 295.8 118.2C286 121.2 274 121.2 265 119Z" />
+    <path className="qs-faint" d="M20 166C30.6 166.9 62.5 172.6 83.5 171.5C104.5 170.4 124.3 159.4 145.8 159.4C167.3 159.4 186.6 169.3 212.3 171.2C238 173.2 285.4 171.2 300 171.2" />
+    <path d="M128.6 187C130.3 162.2 128.6 141.8 135.4 124.8M135.4 187C137.1 162.2 135.4 141.8 140.5 124.8" /><g className="qs-sway" style={{ transformOrigin: "137.9px 124.8px", animationDelay: "-1s" }}><path className="qs-accent" d="M137.9 124.8Q124.3 114.6 110.7 124.8M137.9 124.8Q131.1 107.8 117.5 104.4M137.9 124.8Q144.8 107.8 158.3 104.4M137.9 124.8Q151.5 114.6 166.8 126.5" /></g>
+    <path d="M145.8 187C147.9 156.6 145.8 131.4 154.2 110.4M154.2 187C156.3 156.6 154.2 131.4 160.5 110.4" /><g className="qs-sway" style={{ transformOrigin: "157.3px 110.4px", animationDelay: "0s" }}><path className="qs-accent" d="M157.3 110.4Q140.5 97.8 123.8 110.4M157.3 110.4Q148.9 89.4 132.1 85.2M157.3 110.4Q165.8 89.4 182.6 85.2M157.3 110.4Q174.2 97.8 193.1 112.5" /></g>
+    <path d="M181 187C182.5 165 181 147 187 132M187 187C188.5 165 187 147 191.5 132" /><g className="qs-sway" style={{ transformOrigin: "189.2px 132px", animationDelay: "-2s" }}><path className="qs-accent" d="M189.2 132Q177.2 123 165.2 132M189.2 132Q183.2 117 171.2 114M189.2 132Q195.2 117 207.2 114M189.2 132Q201.2 123 214.8 133.5" /></g>
+    <ellipse className="qs-paper" cx="160" cy="187" rx="30" ry="5" />
+    <g className="qs-ripple" style={{ transformOrigin: "160px 187px" }}><ellipse className="qs-faint" cx="160" cy="187" rx="16" ry="2.4" /></g>
+    <path d="M20 204C37.9 204.9 89.8 210.6 127.4 209.2C164.9 207.8 216.5 198 245.3 195.7C274.1 193.4 290.9 195.7 300 195.7" />
+    <path  d="M54 206.2L54 192.7M54 195.2L45.2 184M54 194L62.8 182.7" /><path className="qs-paper" d="M29 184C35.2 171.5 71.5 170.2 80.2 182.7C64 187.7 44 187.7 29 184Z" />
+    <path d="M262 196.7L262 188" /><path className="qs-paper" d="M247.7 186.9C242.2 180.3 248.8 171.5 256.5 173.7C259.8 166 270.8 167.1 271.9 174.8C279.6 174.8 280.7 184.7 275.2 186.9Z" />
+    <path className="qs-faint" d="M44 222Q58 218 72 222M150 226Q166 222 182 226M236 220Q250 216 264 220" />
   </>,
   whirlwind: <>
-    <path d="M14 204L96 128L140 162L196 112L306 204" />
-    <path className="qs-faint" d="M70 160L96 128L112 146M180 128L196 112L216 134" />
-    <g className="qs-spin" style={{ transformOrigin: "214px 66px" }}>
-      <path className="qs-accent" d="M170 30Q214 20 258 30M178 46Q214 38 250 46M188 62Q214 56 240 62M196 78Q214 74 232 78M204 94Q214 91 224 94M210 108Q214 106 218 108" />
+    <path className="qs-paper" d="M70 50Q66 30 88 30Q96 14 118 20Q134 6 156 16Q178 4 200 18Q224 12 234 32Q256 32 252 50Z" />
+    <path className="qs-faint" d="M96 40Q118 33 140 39M176 35Q198 30 220 39" />
+    <g className="qs-swirl" style={{ transformOrigin: "160px 120px" }}><path className="qs-accent qs-long" d="M98 58C98 69 222 69 222 58C222 47 110 60 110 74C110 83 221 83 221 74C221 64 116 77 116 89C116 97 214 97 214 89C214 81 117 94 117 104C117 112 201 112 201 104C201 97 119 112 119 120C119 126 190 126 190 120C190 114 127 129 127 136C127 140 185 140 185 136C185 131 139 146 139 151C139 155 184 155 184 151C184 147 150 163 150 166C150 169 182 169 182 166C182 164 154 179 154 182C154 184 173 184 173 182" /></g>
+    <path className="qs-faint" d="M30 120Q50 112 70 118M250 92Q270 86 292 92M262 108Q278 104 296 108" />
+    <path d="M20 206Q160 196 300 206" />
+    <path className="qs-faint" d="M132 200Q146 190 160 197Q174 190 188 200M120 206Q130 200 140 204" />
+    <g className="qs-rise">
+      <g className="qs-flicker" style={{ transformOrigin: "246px 132px" }}><path className="qs-accent" d="M232 134C226 118 236 108 240 96C244 108 248 112 250 120C254 108 260 104 262 92C270 108 272 124 262 136Z" /></g>
+      <path className="qs-paper" d="M222 158L226 134Q244 126 262 134L264 158Z" />
+      <path className="qs-faint" d="M232 142H256" />
+      <circle className="qs-paper" cx="244" cy="166" r="16" /><circle cx="244" cy="166" r="3" /><path d="M244 150V182M228 166H260M233 155L255 177M255 155L233 177" />
+      <path className="qs-accent" d="M264 150Q280 146 290 136M264 158Q284 158 296 150" />
     </g>
-    <g className="qs-fall"><path className="qs-paper" d="M122 120Q132 112 144 118L150 142Q136 150 122 144Z" /><path className="qs-faint" d="M128 124L132 144M138 120L142 144" /></g>
   </>,
   crown: <>
     <path className="qs-paper" d="M76 190Q160 168 244 190Q160 214 76 190Z" />
@@ -89,12 +99,17 @@ const SCENES: Record<Scene, ReactNode> = {
     <path className="qs-faint" d="M40 212H300" />
   </>,
   tomb: <>
-    <path className="qs-paper" d="M24 204Q52 112 160 102Q268 112 296 204Z" />
-    <path d="M128 204V166A32 32 0 0 1 192 166V204" />
-    <path className="qs-faint" d="M70 150Q90 140 104 150M222 140Q238 132 256 142M136 204V170A24 24 0 0 1 184 170V204" />
-    <circle className="qs-paper" cx="228" cy="178" r="26" /><path className="qs-faint" d="M216 168Q228 160 240 170" />
-    <path className="qs-faint" d="M40 210L44 200M52 210L50 198M276 210L280 198M288 210L286 200" />
-    <g className="qs-drip"><path className="qs-accent" d="M160 30C154 42 152 48 160 52C168 48 166 42 160 30Z" /></g>
+    <path className="qs-faint" d="M176 198L186 188L192 178L204 172L210 160L224 154L236 142L252 138L262 130L280 128L294 120L312 118" />
+    <path className="qs-faint" d="M206 186L222 182M226 168L240 164M268 148L286 146M298 136L310 134M290 172L306 170" />
+    <path className="qs-tearfill" d="M236 198C236 184 242 172 252 170C262 168 272 176 274 190L276 198Z" />
+    <circle className="qs-paper" cx="288" cy="186" r="13" />
+    <path className="qs-faint" d="M20 198H312" />
+    <g className="qs-ripple" style={{ transformOrigin: "110px 198px" }}><ellipse className="qs-faint" cx="110" cy="198" rx="34" ry="5" /></g>
+    <g className="qs-ripple" style={{ transformOrigin: "110px 198px", animationDelay: "-1.3s" }}><ellipse cx="110" cy="198" rx="20" ry="3" /></g>
+    <g className="qs-tear">
+      <path className="qs-tearfill" d="M110 44C98 70 86 88 86 106C86 121 97 132 110 132C123 132 134 121 134 106C134 88 122 70 110 44Z" />
+      <path className="qs-faint" d="M98 102C98 112 102 118 109 121" />
+    </g>
   </>,
   colonnade: <>
     <path d="M40 204H280M50 196H270M60 188H260" />

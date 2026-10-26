@@ -14,9 +14,11 @@ const ART = {
   bowl: <><path d="M22 52H98Q94 76 60 78Q26 76 22 52Z" /><path className="cv-accent" d="M60 46C52 38 56 28 60 20C64 28 68 38 60 46Z" /><path className="cv-faint" d="M40 34L46 40M80 34L74 40M60 10V14" /><path className="cv-faint" d="M34 84H86" /></>,
   door: <><path d="M34 84V36A26 26 0 0 1 86 36V84" /><path className="cv-faint" d="M60 14V84" /><path className="cv-paper" d="M60 84L82 78V40Q80 22 62 14" /><path className="cv-accent" d="M38 84L18 88M86 84L104 88" /><circle className="cv-dot" cx="76" cy="54" r="2" /></>,
   books: <><path d="M18 84H102" /><path d="M24 84V30H38V84M38 84V22H52V84" /><path className="cv-paper" d="M56 84L66 26L80 28L70 86" /><path d="M84 84V44Q92 38 100 44V84" /><path className="cv-faint" d="M28 40H34M42 34H48M28 48H34" /><path className="cv-accent" d="M66 40L76 42" /></>,
+  // Homepage mock-up only: three books upright on an unbroken shelf, a stack of three lying beside them.
+  shelf: <><path d="M14 84H106" /><path className="cv-paper" d="M22 84V30H34V84M34 84V22H48V84M48 84V36H58V84" /><path className="cv-paper" d="M62 84V74H104V84M66 74V65H100V74M64 65V57H96V65H64Z" /><path className="cv-faint" d="M25 40H31M25 74H31M37 30H45M37 74H45M51 46H55M68 79H84M70 69.5H82M68 61H80" /><path className="cv-accent" d="M37 38H45" /></>,
 };
 
-const CONVICTIONS: { numeral: string; title: string; text: string; verse: string; reference: string; art: keyof typeof ART }[] = [
+export const CONVICTIONS: { numeral: string; title: string; text: string; verse: string; reference: string; art: keyof typeof ART }[] = [
   { numeral: "I", title: "For the glory of God.", text: "Not for attention, and not for a name. Every page is offered back to the One it is about.", verse: "Whatsoever ye do, do all to the glory of God.", reference: "1 Corinthians 10:31", art: "cross" },
   { numeral: "II", title: "Free, always.", text: "There is no subscription and nothing to buy. What the Church received as a gift should be passed on as one.", verse: "Freely ye have received, freely give.", reference: "Matthew 10:8", art: "bowl" },
   { numeral: "III", title: "Open to everyone.", text: "Believer or skeptic, scholar or simply curious: the door is open to anyone who wants to come in.", verse: "Ho, every one that thirsteth, come ye to the waters.", reference: "Isaiah 55:1", art: "door" },
@@ -25,6 +27,26 @@ const CONVICTIONS: { numeral: string; title: string; text: string; verse: string
 
 function Eyebrow({ number, children, id }: { number: string; children: string; id?: string }) {
   return <p className="cv-eyebrow" id={id}><span>{number}</span> · {children}</p>;
+}
+
+/** The four convictions under giant numerals, each with its drawing and verse; also shown on the homepage mock-up, which
+ *  passes `firstText` (its own words for the first conviction) and `shelf` (the shelf drawing in place of the books). */
+export function ConvictionList({ firstText, shelf }: { firstText?: string; shelf?: boolean }) {
+  return (
+  <ol className="cv-list">
+    {CONVICTIONS.map((item, index) => (
+      <li key={item.numeral}>
+        <span className="cv-numeral" aria-hidden="true">{item.numeral}</span>
+        <div className="cv-art">
+          <svg viewBox="0 0 120 92" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{ART[shelf && item.art === "books" ? "shelf" : item.art]}</svg>
+        </div>
+        <h3>{item.title}</h3>
+        <p>{index === 0 && firstText ? firstText : item.text}</p>
+        <blockquote>“{item.verse}”<cite>{item.reference}</cite></blockquote>
+      </li>
+    ))}
+  </ol>
+  );
 }
 
 export function AboutProject() {
@@ -36,22 +58,10 @@ export function AboutProject() {
         <p className="cv-text">
           For two thousand years believers have copied the Scriptures, confessed the creeds, preached, argued and prayed. Most of
           that inheritance survives, but it is scattered across libraries and archives, in books long out of print, and much of it
-          behind a paywall. Bible Project gathers it into one source and gives it away, for the glory of God.
+          behind a paywall. Bible Guide gathers it into one source and gives it away, for the glory of God.
         </p>
       </header>
-      <ol className="cv-list">
-        {CONVICTIONS.map((item) => (
-          <li key={item.numeral}>
-            <span className="cv-numeral" aria-hidden="true">{item.numeral}</span>
-            <div className="cv-art">
-              <svg viewBox="0 0 120 92" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{ART[item.art]}</svg>
-            </div>
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
-            <blockquote>“{item.verse}”<cite>{item.reference}</cite></blockquote>
-          </li>
-        ))}
-      </ol>
+      <ConvictionList />
     </section>
   );
 }
@@ -74,12 +84,12 @@ export function FounderLetter() {
       <Eyebrow number="02" id="founder-letter">Who builds it · a letter from the founder</Eyebrow>
       <article className="lt-letter">
         <div className="lt-ruled">
-          <header><span>Bible Project</span><span>{FOUNDER.place}</span></header>
+          <header><span>Bible Guide</span><span>{FOUNDER.place}</span></header>
           <p className="lt-dear">Dear reader,</p>
           <div className="lt-body">
             <p>
               Thank you for stopping here. I wanted you to know who is on the other side of this page. My name is {FOUNDER.first}, and I
-              build Bible Project by myself.
+              build Bible Guide by myself.
             </p>
             <MarginNote side="right" text="Whatsoever ye do, do all to the glory of God." reference="1 Corinthians 10:31" />
             <p>
@@ -94,7 +104,7 @@ export function FounderLetter() {
           <footer>
             <p className="lt-close">Grace and peace,</p>
             <p className="lt-sign">{FOUNDER.name}</p>
-            <p className="lt-role">{FOUNDER.role}, Bible Project</p>
+            <p className="lt-role">{FOUNDER.role}, Bible Guide</p>
             <p className="lt-ps">
               <b>P.S.</b> When I'm not building this, I'm working on <a href="https://redeemerpathways.org" target="_blank" rel="noopener">redeemerpathways.org</a>,
               a faith-based program for foster youth, and <a href="https://churchfamily.io" target="_blank" rel="noopener">ChurchFamily.io</a>, a community

@@ -45,12 +45,12 @@ const LINE = 214; // the row that carries the verse in every copy
 /** Each copy's line brightens as the travelling light (14s from x 36 to 564) reaches it. */
 const reach = (x: number) => delay(((x - 36) / 528) * 14 - 0.7 - 14);
 
-function LongCopyScene() {
+export function LongCopyScene() {
   const shade = `ma-shade-${useUid()}`;
   const book = "M452 166Q478 158 504 166Q530 158 556 166V272Q530 264 504 272Q478 264 452 272Z";
   return <svg className="hf-scene ma-copy-scene" viewBox="0 20 600 400" fill="none" aria-hidden="true">
     <defs><Shade id={shade} /></defs>
-    <ellipse className="hf-orbit" cx="300" cy="216" rx="282" ry="128" />
+    <ellipse className="hf-orbit" cx="300" cy="204" rx="286" ry="92" />
     <g className="hf-layer-verse">
       <text className="ma-verse" x="300" y="86" textAnchor="middle">“The word of our God shall stand for ever.”</text>
       <text className="ma-ref" x="300" y="108" textAnchor="middle">ISAIAH 40:8</text>
@@ -186,7 +186,7 @@ const LAYERS = [
 
 function Find({ i }: { i: number }) {
   if (i === 0) return <><circle className="ma-object" r="8" /><circle className="ma-rule" r="5.5" /><path className="ma-ink" d="M-2 -3q3 -1 3 2q0 2 -2 3" /></>;
-  if (i === 1) return <><path className="ma-object" d="M-4 -18h8v5q10 4 10 14q0 11 -14 17q-14 -6 -14 -17q0 -10 10 -14Z" /><path className="ma-rule" d="M-4 -12q-9 1 -9 8M4 -12q9 1 9 8" /><circle className="ma-object" cx="8" cy="-4" r="1.6" /></>;
+  if (i === 1) return <><path className="ma-object" d="M-3 -21h6v6C11 -13 11 3 4 13L0 21L-4 13C-11 3 -11 -13 -3 -15Z" /><path className="ma-object" style={{ fill: "none" }} d="M-3 -19q-9 0 -9 7v3M3 -19q9 0 9 7v3" /><circle className="ma-rule" cx="0" cy="-6" r="2.2" /></>;
   if (i === 2) return <><path className="ma-object" d="M-16 -10L12 -14L20 -2L10 14L-12 12L-20 0Z" /><path className="ma-ink ma-hebrew" d={rows(-12, -5, 24, 3, 6)} /></>;
   return <><rect className="ma-object" x="-16" y="-13" width="32" height="26" rx="4" />
     <path className="ma-ink" d={Array.from({ length: 15 }, (_, k) => `M${-11 + (k % 5) * 5.5} ${-7 + Math.floor(k / 5) * 7}l2.5 1.5l-2.5 1.5m0 -3v3`).join("")} /></>;

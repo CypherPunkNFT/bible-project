@@ -1,3 +1,7 @@
+// The homepage. Approved by the owner on 2026-10-22 (and again with the numbered lower sections and the new "Close to home"
+// opening on 2026-10-24) from the mock-up at /home_mockup2 (HomePageMockup2.tsx, kept as the
+// place to try further changes first): five doorways, the guide, the four parts under pointed banners that open and
+// close, then the quiz, the sources and a closing blessing (HomeMore). Those sections still live in pages/mockup/.
 import { ArrowRight, ArrowUpRight, BookMarked, BookOpen, GitBranch, Globe, Headphones, Landmark, LayoutGrid, LifeBuoy, Map, MessageCircle, NotebookPen, Pause, Play, Users } from "lucide-react";
 import { useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
 import { Link, useSearchParams } from "react-router-dom";
@@ -6,13 +10,29 @@ import { lastReadPath } from "@/lib/last-read";
 import { CollectionArtwork, HomeArtwork, OpenBible, QuestionOrbit } from "@/components/home/HomeArtwork";
 import { BibleScene, FeatureBlock, StudyScene } from "@/components/home/HomeFeatureArt";
 import { CHAPTER_COUNT, ChaptersScene, ListenScene } from "@/components/home/HomeBibleScenes";
-import { AtlasScene, ResourcesScene, ScholarlyScene, TheologyScene } from "@/components/home/HomeStudyScenes";
+import { AtlasScene, TheologyScene } from "@/components/home/HomeStudyScenes";
+import { LongCopyScene } from "@/components/home/mockups/AcademicMockups";
 import { SectionBanner } from "@/components/home/HomeBanner";
-import { FellowshipScene, LearningScene, LifeScene } from "@/components/home/HomeResourceScenes";
+import { FellowshipScene } from "@/components/home/HomeResourceScenes";
+import { LancetsScene } from "@/components/home/mockups/OverviewMockupsMore";
+import { DeskScene } from "@/components/home/mockups/LearningMockups";
+import { WayfinderScene } from "@/components/home/mockups/LifeMockups";
 import { DebateScene, FieldArt, WorldviewsScene } from "@/components/home/HomeApologeticsScenes";
-import { HOME_FIELDS, HOME_PATHS, HOME_PREVIEWS, HOME_STUDIES, HOME_TOPICS } from "@/components/home/collection-data";
+import { HOME_FIELDS, HOME_PREVIEWS, HOME_STUDIES, HOME_TOPICS } from "@/components/home/collection-data";
 import "@/components/home/home-hub.css";
 import "@/components/home/home-landing-options.css";
+import "./mockup/home-mockup.css";
+import { HomeGuide } from "./mockup/HomeGuide";
+import { HomeMore } from "./mockup/HomeMore";
+
+/** The five doorways are the site's five parts; Topics lives inside Study, and Resources joins. */
+const HOME_PATHS = [
+  { title: "Bible", to: "/bible", subtitle: "Read & compare", color: "epistles" },
+  { title: "Study", to: "/study", subtitle: "See the connections", color: "gospels" },
+  { title: "Apologetics", to: "/apologetics", subtitle: "Explore the questions", color: "history" },
+  { title: "Atlas", to: "/study/atlas", subtitle: "Enter the world", color: "poetry" },
+  { title: "Resources", to: "/resources", subtitle: "Study, gather, find help", color: "resource-life" },
+] as const;
 
 const tint = (color: string) => ({ "--home-color": `var(--${color})` } as CSSProperties);
 
@@ -93,6 +113,20 @@ function PreviewMarquee() {
 }
 
 export default function HomePage() {
+  const [open, setOpen] = useState([false, false, false, false]);
+  // Each banner's pointed ends run at 45 degrees, so their depth is half the banner's height: kept current as it resizes.
+  useLayoutEffect(() => {
+    const shapes = [...document.querySelectorAll<HTMLElement>(".home-banner-shape")];
+    const observer = new ResizeObserver(() => shapes.forEach((shape) => shape.style.setProperty("--tip", `${(shape.firstElementChild as HTMLElement).offsetHeight / 2}px`)));
+    shapes.forEach((shape) => observer.observe(shape));
+    return () => observer.disconnect();
+  }, []);
+  const toggle = (part: number) => setOpen((now) => now.map((value, i) => (i === part ? !value : value)));
+  // The guide's answers glide the page down to that part, then open it once the banner has arrived.
+  const choose = (part: number) => {
+    document.getElementById(`home-part-${part + 1}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => setOpen((now) => now.map((value, i) => (i === part ? true : value))), 650);
+  };
   const [searchParams, setSearchParams] = useSearchParams();
   const requestedLanding = searchParams.get("landing");
   const landingOptions = ["outline", "gallery", "rail"] as const;
@@ -117,7 +151,7 @@ export default function HomePage() {
   const resumeLabel = version ? `Continue: ${book?.name ?? code} ${chapter}` : "Begin with John 1";
   const languages = new Set(catalog.translations.map((item) => item.lang)).size;
 
-  return <div className="home-hub" data-landing={landing}>
+  return <div className="home-hub" data-landing={landing} data-banners="inset" data-shape="point">
     <div className="home-opening" ref={opening}>
     {comparing && <nav className="home-landing-options home-wrap" aria-label="Landing designs">
       {landingOptions.map((option, index) => <button key={option} type="button" aria-pressed={landing === option} onClick={() => setSearchParams((current) => { const next = new URLSearchParams(current); next.set("landing", option); return next; }, { preventScrollReset: true })}><span>0{index + 1}</span>{option === "outline" ? "Outlined boxes" : option === "gallery" ? "Open gallery" : "Illustrated rail"}</button>)}
@@ -131,12 +165,14 @@ export default function HomePage() {
       </div>
     </section>
 
-    <nav id="explore" className="home-doorways home-wrap" aria-label="Explore the five collections">{HOME_PATHS.map((item) => <Link to={item.to} key={item.title} style={tint(item.color)}><div className="home-doorway-art"><CollectionArtwork kind={item.title} /></div><div className="home-doorway-copy"><span><strong>{item.title}</strong><small>{item.subtitle}</small></span><ArrowUpRight size={16} aria-hidden /></div></Link>)}</nav>
+    <nav id="explore" className="home-doorways home-wrap home-doorways-even" aria-label="Explore the five collections">{HOME_PATHS.map((item) => <Link to={item.to} key={item.title} style={tint(item.color)}><div className="home-doorway-art"><CollectionArtwork kind={item.title} /></div><div className="home-doorway-copy"><span><strong>{item.title}</strong><small>{item.subtitle}</small></span><ArrowUpRight size={16} aria-hidden /></div></Link>)}</nav>
     </div>
     <PreviewMarquee />
+    <HomeGuide onChoose={choose} layout="side" boxed contactList number="01" />
 
-    <SectionBanner number="01" name="The Bible" line="One Word, read, heard and explored" tone="epistles" verse="“The grass withereth, the flower fadeth: but the word of our God shall stand for ever.”" reference="Isaiah 40:8" to="/read/kjv/ISA/40?hl=8" page="/bible" emblem="word" glint={["read", "heard", "explored"]} />
+    <div className="home-banner-shape" id="home-part-1" style={{ "--home-color": "var(--epistles)" } as CSSProperties}><SectionBanner ringOnce number="01" name="The Bible" line="One Word, read, heard and explored" tone="epistles" verse="“The grass withereth, the flower fadeth: but the word of our God shall stand for ever.”" reference="Isaiah 40:8" to="/read/kjv/ISA/40?hl=8" page="/bible" emblem="word" glint={["read", "heard", "explored"]} open={open[0]} onToggle={() => toggle(0)} flip={false} terms={[{ items: ["Law", "History", "Poetry", "Prophets", "Gospels", "Epistles", "Revelation"] }]} /></div>
 
+    <div className="home-collapse" data-open={open[0] || undefined}><div>
     <div className="home-wrap">
       <section className="home-section" aria-label="Bible preview" style={tint("epistles")}>
         <FeatureBlock kicker={<><span>01</span>The Bible</>} title={<>It begins with <em>the Word.</em></>}
@@ -164,9 +200,11 @@ export default function HomePage() {
         </FeatureBlock>
       </section>
     </div>
+    </div></div>
 
-    <SectionBanner number="02" name="Study" line="The passage, and the world behind it" tone="gospels" verse="“Search the scriptures… they are they which testify of me.”" reference="John 5:39" to="/read/kjv/JHN/5?hl=39" page="/study" emblem="lens" />
+    <div className="home-banner-shape" id="home-part-2" style={{ "--home-color": "var(--gospels)" } as CSSProperties}><SectionBanner ringOnce number="02" name="Study" line="The passage, and the world behind it" tone="gospels" verse="“Search the scriptures… they are they which testify of me.”" reference="John 5:39" to="/read/kjv/JHN/5?hl=39" page="/study" emblem="lens" open={open[1]} onToggle={() => toggle(1)} flip={true} terms={[{ items: ["Theological", "Scholarly", "World atlas", "Topics"] }]} /></div>
 
+    <div className="home-collapse" data-open={open[1] || undefined}><div>
     <div className="home-wrap">
       <section className="home-section" aria-label="Study preview" style={tint("gospels")}>
         <FeatureBlock kicker={<><span>02</span>Study</>} title={<>There is more <em>to see.</em></>} art={<StudyScene />} artTo="/study" artLabel="Explore every study"
@@ -183,7 +221,7 @@ export default function HomePage() {
           <p>Each subject gathers its passages, guided studies and charts in one place, from the parables and miracles to the creeds and hymns the church has confessed and sung for centuries, so a question you bring to one verse can be followed through the whole of Scripture.</p>
         </FeatureBlock>
         <FeatureBlock tone="history" level="h3" kicker="Academic Studies" title={<>Enter the world. <em>Weigh the evidence.</em></>}
-          art={<ScholarlyScene />} artTo="/study/academic" artLabel="Explore the academic studies"
+          art={<LongCopyScene />} artTo="/study/academic" artLabel="Explore the academic studies"
           facts={["History & archaeology", "Manuscripts & canon", "Languages & translation", "Ancient cultures", "Church history"]}
           cta={{ to: "/study/academic", label: "Explore the evidence", note: "Follow the sources", icon: <Landmark size={22} strokeWidth={1.4} aria-hidden />, bookmark: true }}>
           <p>Behind every passage stands a real world. The scholarly side of Study examines it: the history and archaeology of the lands of the Bible, the manuscripts through which its words have come down to us, the languages it was written in and the choices translators make, and the daily life of the people who first heard it.</p>
@@ -203,9 +241,11 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    </div></div>
 
-    <SectionBanner number="03" name="Apologetics" line="Faith seeking understanding" tone="accent" verse="“Be ready always to give an answer to every man that asketh you a reason of the hope that is in you.”" reference="1 Peter 3:15" to="/read/kjv/1PE/3?hl=15" page="/apologetics" emblem="scales" />
+    <div className="home-banner-shape" id="home-part-3" style={{ "--home-color": "var(--prophets)" } as CSSProperties}><SectionBanner ringOnce number="03" name="Apologetics" line="Faith seeking understanding" tone="prophets" verse={"“Be ready always to give an answer\nto every man that asketh you a reason\nof the hope that is in you.”"} reference="1 Peter 3:15" to="/read/kjv/1PE/3?hl=15" page="/apologetics" emblem="scales" open={open[2]} onToggle={() => toggle(2)} flip={false} terms={[{ items: ["Worldviews", "Debates", "Evidence", "Historic texts"] }]} /></div>
 
+    <div className="home-collapse" data-open={open[2] || undefined}><div>
     <div className="home-wrap">
       <section className="home-section home-apologetics" aria-label="Apologetics preview" style={tint("accent")}>
         <div><p className="home-eyebrow"><span>03</span>Apologetics</p><h2>Bring your<br /><em>hardest questions.</em></h2><p>Faith invites careful thought. Explore the reasons for Christian hope, read historic voices, and learn to speak with conviction and gentleness.</p><Link className="home-button" to="/apologetics">A reason for the hope<ArrowUpRight size={17} /></Link><div className="home-question-links"><Link to="/apologetics/topics/jesus">Who is Jesus?<ArrowUpRight size={14} /></Link><Link to="/apologetics/topics/bible">Can I trust Scripture?<ArrowUpRight size={14} /></Link><Link to="/apologetics/topics/doubt">What do I do with doubt?<ArrowUpRight size={14} /></Link></div></div>
@@ -230,19 +270,21 @@ export default function HomePage() {
         </FeatureBlock>
       </div>
     </div>
+    </div></div>
 
-    <SectionBanner number="04" name="Resources" line="Help for the road" tone="resource-life" verse="“Bear ye one another’s burdens, and so fulfil the law of Christ.”" reference="Galatians 6:2" to="/read/kjv/GAL/6?hl=2" page="/resources" emblem="lamp" />
+    <div className="home-banner-shape" id="home-part-4" style={{ "--home-color": "var(--resource-life)" } as CSSProperties}><SectionBanner ringOnce number="04" name="Resources" line="Help for the road" tone="resource-life" verse={"“Bear ye one another’s burdens,\nand so fulfil the law of Christ.”"} reference="Galatians 6:2" to="/read/kjv/GAL/6?hl=2" page="/resources" emblem="lamp" open={open[3]} onToggle={() => toggle(3)} flip={true} terms={[{ items: ["Learning materials", "Fellowship", "Help for life"] }]} /></div>
 
+    <div className="home-collapse" data-open={open[3] || undefined}><div>
     <div className="home-wrap">
       <section className="home-section" aria-label="Resources preview" style={tint("resource-life")}>
         <FeatureBlock kicker={<><span>04</span>Resources</>} title={<>Help for the road, <em>close at hand.</em></>}
-          art={<ResourcesScene />} artTo="/resources" artLabel="Explore the resources"
+          art={<LancetsScene />} artTo="/resources" artLabel="Explore the resources"
           facts={["Learning materials", "Fellowships", "Help for life"]}>
           <p>Some help is meant to be held. Resources gathers what the site offers beyond the page: workbooks, lessons and activity pages to study with, for every reader from little ones to leaders; free national fellowships that gather believers to pray and study the word together; and help for the hardest moments of life.</p>
           <p className="hf-why"><strong>Why it matters.</strong> Scripture is meant to be lived among others. A workbook gives a group somewhere to begin, a fellowship gives it company, and in a hard season a hotline, food, pregnancy care or grief care close by can be the first step toward help.</p>
         </FeatureBlock>
         <FeatureBlock reverse tone="epistles" level="h3" kicker="Learning materials" title={<>Study it <em>together.</em></>}
-          art={<LearningScene />} artTo="/resources/learning" artLabel="Browse the learning materials"
+          art={<DeskScene />} artTo="/resources/learning" artLabel="Browse the learning materials"
           facts={["7 audiences", "9 kinds of material", "A4 & US Letter PDFs"]}
           cta={{ to: "/resources/learning", label: "Browse learning materials", note: "From little ones to leaders", icon: <NotebookPen size={22} strokeWidth={1.4} aria-hidden />, bookmark: true }}>
           <p>Workbooks, lessons and activity pages for every reader, from little ones to leaders, written from the site’s reviewed pages. Each one follows the shape Scripture itself gives its story, with the passage to read, its key verses in the King James Version, and questions with room to write.</p>
@@ -256,15 +298,17 @@ export default function HomePage() {
           <p>If you are looking for a congregation, it also points to church directories, among them 9Marks and The Gospel Coalition, to help you find a local church. Every listing was last checked in October 2026.</p>
         </FeatureBlock>
         <FeatureBlock reverse tone="resource-life" level="h3" kicker="Help for life" title={<>Help for <em>the hardest moments.</em></>}
-          art={<LifeScene />} artTo="/resources/life" artLabel="Find help for life"
-          facts={["Crisis help", "Pregnancy & healing", "Food & families", "Grief & recovery", "14 city maps"]}
+          art={<WayfinderScene />} artTo="/resources/life" artLabel="Find help for life"
+          facts={["Crisis help", "Pregnancy & healing", "Food & families", "Grief & recovery", "15 city maps"]}
           cta={{ to: "/resources/life", label: "Find help", note: "Right now, and close to home", icon: <LifeBuoy size={22} strokeWidth={1.4} aria-hidden />, bookmark: true }}>
           <p>When life breaks open, help should be easy to find. Help for life gathers national hotlines and services for the moments that matter most: crisis help right now, pregnancy help, healing after an abortion, support for babies, children and families, food, grief care, and addiction and recovery.</p>
-          <p>Beside the national lines, local maps show places in fourteen cities, from Miami and Atlanta to Dallas and Oklahoma City, so help can be found close to home. We would rather leave a place out than list one that is no longer open.</p>
+          <p>Beside the national lines, local maps show places in fifteen cities, from Miami and Atlanta to Dallas and Oklahoma City, so help can be found close to home. We would rather leave a place out than list one that is no longer open.</p>
         </FeatureBlock>
       </section>
       <section id="about" className="home-about-band" aria-label="An open invitation"><div><p className="home-eyebrow">An open invitation</p><h2>A lifetime of discovery.<br /><em>Freely shared.</em></h2><p>Scripture to read. Questions to explore. Sources you can follow. Built so anyone can begin, and keep going.</p><div className="home-about-links"><Link to="/sources">Sources & references<ArrowUpRight size={14} /></Link><a href="https://github.com/CypherPunkNFT/bible-project" target="_blank" rel="noreferrer">Open source<ArrowUpRight size={14} /></a></div></div><Link className="home-testimonies" to="/testimonies"><GitBranch size={28} strokeWidth={1.3} /><span className="home-eyebrow">Testimonies</span><h3>The story continues<br />in ordinary lives.</h3><p>Explore the testimony collection and the invitation to share your story.</p><span className="home-card-action">Explore testimonies<ArrowRight size={16} /></span></Link></section>
       <div className="home-final"><BookOpen size={22} strokeWidth={1.2} aria-hidden /><p>“Thy word is a lamp unto my feet,<br />and a light unto my path.”</p><Link to="/read/kjv/PSA/119?hl=105">Psalm 119:105<ArrowUpRight size={12} /></Link></div>
     </div>
+    </div></div>
+    <HomeMore resourcesTab numbered />
   </div>;
 }

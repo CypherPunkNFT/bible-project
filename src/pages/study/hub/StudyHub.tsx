@@ -3,9 +3,13 @@ import { Icon, StudyLink } from "./shared";
 import { HubSearch } from "./HubSearch";
 import { PeopleCards } from "./PeopleCards";
 import "./hub.css";
+// The 03 section into the questions, carried over from the mock-up /study_mockup on the owner's word (2026-10-24:
+// "release it to the actual study page"); it replaces the closing "Begin with a question". Its files stay in
+// pages/mockup/, as the homepage's sections do.
+import { QuizDoor } from "@/pages/mockup/QuizDoor";
 const AtlasWindow = lazy(() => import("./AtlasWindow"));
 export default function StudyHub() {
-    return <div className="study-experience">
+    return <div className="study-experience study-hub-page">
   <div className="hub">
     <header className="hub-intro">
       <div className="intro-copy">
@@ -78,6 +82,6 @@ export default function StudyHub() {
       </StudyLink>
     </section>
 
-    <PeopleCards /><Suspense fallback={<p className="atlas-loading">Loading the Atlas…</p>}><AtlasWindow /></Suspense><section className="hub-closing"><p className="eyebrow">One collection. Many connections.</p><h2>Begin with a question.<br /><em>See where it leads.</em></h2><div><StudyLink to="/study/theology/?area=jesus">Read the Gospels together <Icon name="arrowUp"/></StudyLink><StudyLink to="/study/academic/?area=texts">Explore the surviving texts <Icon name="arrowUp"/></StudyLink></div></section>
+    <PeopleCards /><Suspense fallback={<p className="atlas-loading">Loading the Atlas…</p>}><AtlasWindow /></Suspense><QuizDoor />
     </div></div>;
 }

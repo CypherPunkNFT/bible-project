@@ -1,0 +1,71 @@
+/* Mock-up homepage only. The doorway frame sat on the page wrapper, so the wrapper's side gutter showed as empty space
+   inside the frame at both ends and the first and last doorways looked pushed in. The gutter now sits outside the frame. */
+.home-doorways.home-doorways-even { padding-inline: 0; width: calc(100% - 2 * var(--site-gutter)); max-width: calc(var(--site-content-width) - 2 * var(--site-gutter)); }
+
+/* Banner verses break where the mock-up says (a new line after a comma, or lines of even length) instead of leaving
+   one or two words alone on the last line. */
+.home-banner blockquote p { white-space: pre-line; }
+
+/* home_mockup2: the section banners stop at the page margins (the width of the doorway row above) instead of running edge to edge. */
+.home-hub[data-banners="inset"] .home-banner { width: calc(100% - 2 * var(--site-gutter)); max-width: calc(var(--site-content-width) - 2 * var(--site-gutter)); margin-inline: auto; border-inline: 1px solid color-mix(in srgb, var(--home-color) 38%, var(--line)); }
+/* Opening a section grows its banner smoothly out to the screen edges; closing it shrinks back to the margins in step with the section folding away. */
+.home-hub[data-banners="inset"] .home-banner { transition: width .6s cubic-bezier(.2, .7, .2, 1), max-width .6s cubic-bezier(.2, .7, .2, 1), border-color .4s; }
+.home-hub[data-banners="inset"] .home-banner[data-open] { width: 100%; max-width: 100%; }
+@media (prefers-reduced-motion: reduce) { .home-hub[data-banners="inset"] .home-banner { transition: none; } }
+/* home_mockup2: a rectangle at the page margins with a 45-degree point sticking out past each end, one shape with an outer
+   outline and, 9px inside it, a second thin edge that follows the same shape. The banner box always spans the full width and
+   never moves; only the shape changes, so words, lines and hatching stay still. --half is half the rectangle's width (animated,
+   hence registered), --tip the points' depth (half the banner's height, set by HomePageMockup2.tsx). Opened, the rectangle
+   widens from the centre until the points are past the screen edges. */
+@property --half { syntax: "<length-percentage>"; inherits: true; initial-value: 0px; }
+.home-banner-shape { --tip: 118px; --line-c: color-mix(in srgb, var(--home-color) 45%, var(--line));
+  --edge: clamp(14px, 1.8vw, 28px); /* the gap between each point's tip and the screen edge */
+  --rest-half: min(calc(50% - var(--tip) - var(--edge)), calc(var(--site-content-width) / 2 - var(--site-gutter)));
+  filter: drop-shadow(1px 0 0 var(--line-c)) drop-shadow(-1px 0 0 var(--line-c)) drop-shadow(0 1px 0 var(--line-c)) drop-shadow(0 -1px 0 var(--line-c)); }
+.home-hub[data-banners="inset"] .home-banner-shape .home-banner { --half: var(--rest-half); --hatch: 135deg;
+  --fill: repeating-linear-gradient(var(--hatch), color-mix(in srgb, var(--home-color) 4.5%, transparent) 0 1px, transparent 1px 11px),
+    linear-gradient(100deg, color-mix(in srgb, var(--home-color) 13%, var(--page)), color-mix(in srgb, var(--home-color) 5%, var(--page)) 55%, color-mix(in srgb, var(--home-color) 11%, var(--page)));
+  width: 100%; max-width: none; margin-inline: 0; border: 0; box-shadow: none; background: var(--fill);
+  clip-path: polygon(calc(50% - var(--half)) 0, calc(50% + var(--half)) 0, calc(50% + var(--half) + var(--tip)) 50%, calc(50% + var(--half)) 100%, calc(50% - var(--half)) 100%, calc(50% - var(--half) - var(--tip)) 50%); transition: --half .6s cubic-bezier(.2, .7, .2, 1), border-color .4s; }
+.home-hub[data-banners="inset"] .home-banner-shape .home-banner[data-flip] { --hatch: 45deg; }
+.home-hub[data-banners="inset"] .home-banner-shape .home-banner[data-open] { --half: calc(50% + var(--tip)); }
+/* The inner edge: a line-coloured copy of the shape 9px in, covered by a fill-coloured copy 10px in, leaving a 1px line. */
+.home-banner-shape .home-banner::before { display: block; inset: 0; border: 0; background: color-mix(in srgb, var(--home-color) 30%, var(--page)); clip-path: polygon(calc(50% - var(--half) + 9px * .4142) 9px, calc(50% + var(--half) - 9px * .4142) 9px, calc(50% + var(--half) + var(--tip) - 9px * 1.4142) 50%, calc(50% + var(--half) - 9px * .4142) calc(100% - 9px), calc(50% - var(--half) + 9px * .4142) calc(100% - 9px), calc(50% - var(--half) - var(--tip) + 9px * 1.4142) 50%); }
+.home-banner-shape .home-banner::after { inset: 0; opacity: 1; animation: none; background: var(--fill); clip-path: polygon(calc(50% - var(--half) + 10px * .4142) 10px, calc(50% + var(--half) - 10px * .4142) 10px, calc(50% + var(--half) + var(--tip) - 10px * 1.4142) 50%, calc(50% + var(--half) - 10px * .4142) calc(100% - 10px), calc(50% - var(--half) + 10px * .4142) calc(100% - 10px), calc(50% - var(--half) - var(--tip) + 10px * 1.4142) 50%); }
+.home-banner-shape .home-banner-inner { max-width: min(1400px, calc(2 * var(--rest-half))); }
+.home-banner-shape { scroll-margin-top: 96px; }
+@media (prefers-reduced-motion: reduce) { .home-hub[data-banners="inset"] .home-banner-shape .home-banner { transition: none; } }
+.home-banner-shape:not(#home-part-1) { margin-top: 24px; }
+.home-hub[data-banners="inset"] { padding-bottom: 2px; } /* the homepage clips its overflow; this room keeps the last pointed banner's bottom outline */
+/* Hovering a banner (inside its shape, not the empty page beside it) widens it slightly from the centre and deepens its outer
+   outline; --line-c is registered so the outline colour fades rather than jumps. On screens narrow enough that the points
+   already sit near the screen edges, the growth stops halfway into the margin rather than reaching the edge. */
+@property --line-c { syntax: "<color>"; inherits: true; initial-value: transparent; }
+.home-banner-shape { transition: --line-c .4s; }
+.home-banner-shape:has(.home-banner:hover) { --line-c: color-mix(in srgb, var(--home-color) 75%, var(--line)); }
+.home-hub[data-banners="inset"] .home-banner-shape .home-banner:not([data-open]):hover { --half: min(calc(var(--rest-half) + 8px), calc(50% - var(--tip) - var(--edge) / 2)); }
+@media (prefers-reduced-motion: reduce) { .home-banner-shape { transition: none; } }
+/* Hovering a banner also fills its number with the colour its edge lines turn to. The fill is its own registered colour,
+   fading between two fixed values in step with the edges (following --line-c mid-fade made it lurch). */
+@property --num-fill { syntax: "<color>"; inherits: true; initial-value: transparent; }
+.home-banner-shape .home-banner-number { --num-fill: color-mix(in srgb, var(--home-color) 10%, transparent); color: var(--num-fill); transition: opacity .4s ease, --num-fill .4s ease; }
+.home-banner-shape .home-banner:hover .home-banner-number { --num-fill: color-mix(in srgb, var(--home-color) 75%, var(--line)); }
+@media (prefers-reduced-motion: reduce) { .home-banner-shape .home-banner-number { transition: none; } }
+/* The words stay inside the straight part of the banner, never in its points (the [data-terms] grid's own 1400px cap had
+   overridden this). On narrower screens the banner tightens to fit: the verse wraps to more, shorter lines, the gaps and
+   the type shrink a little, and the banner gets shorter, which also shortens its points. Below 1200px, where the terms
+   hide, the name and the emblem never shrink below their own widths. */
+.home-hub[data-banners="inset"] .home-banner-shape .home-banner-inner { max-width: min(1400px, calc(2 * var(--rest-half))); }
+@media (max-width: 1500px) and (min-width: 901px) {
+  .home-banner-shape .home-banner[data-terms] .home-banner-inner { min-height: 0; padding-block: 26px; gap: 22px; grid-template-columns: minmax(0, 1fr) minmax(0, 17rem) minmax(0, 1fr); }
+  .home-banner-shape .home-banner-title { gap: 20px; }
+  .home-banner-shape .home-banner-name strong { font-size: clamp(32px, 3.2vw, 54px); }
+  .home-banner-shape .home-banner-number { font-size: calc((38px + clamp(32px, 3.2vw, 54px)) / .7); }
+  .home-banner-shape .home-banner-name span { text-wrap: balance; }
+  .home-banner-shape .home-banner blockquote { padding-left: 22px; }
+  .home-banner-shape .home-banner blockquote p { font-size: clamp(17px, 1.45vw, 21px); text-wrap: pretty; }
+  .home-banner-shape .home-banner blockquote p { white-space: normal; }
+}
+@media (max-width: 1200px) and (min-width: 901px) {
+  .home-banner-shape .home-banner[data-terms] .home-banner-inner { grid-template-columns: minmax(max-content, 1fr) minmax(0, 17rem) minmax(max-content, 1fr); }
+}

@@ -7,9 +7,15 @@
   box-shadow: 0 0 7px color-mix(in srgb, var(--home-color) 16%, transparent), inset 0 0 7px color-mix(in srgb, var(--home-color) 16%, transparent); }
 .home-banner::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, currentColor 0 1px, transparent 1px 11px); opacity: .045; pointer-events: none;
   animation: home-banner-drift 22s ease-in-out infinite alternate; }
-.home-banner-inner { position: relative; z-index: 1; display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1.25fr) auto; align-items: center; gap: clamp(24px, 3.4vw, 56px); min-height: 236px; padding-block: 40px; }
-.home-banner-number, .home-banner-name { align-self: last baseline; }
-.home-banner-number { font: 400 clamp(92px, 9vw, 148px)/.85 Literata, Georgia, serif; letter-spacing: -.05em; color: color-mix(in srgb, var(--home-color) 10%, transparent); -webkit-text-stroke: 1.2px var(--home-color); opacity: .8; }
+/* Three columns, all centred on one line: the number with the name, the verse close beside it, and the emblem. The first
+   column has the same width on every banner (wide enough for the longest name), so the verses line up down the page. The
+   emblem sits under the header's search button, whose centre is always 226px in from the content's right edge. */
+.home-banner-inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(max-content, clamp(400px, 31vw, 500px)) minmax(0, 34rem) minmax(0, 1fr); align-items: center; gap: clamp(24px, 3.4vw, 56px); min-height: 236px; padding-block: 40px; }
+.home-banner-title { display: flex; align-items: last baseline; gap: clamp(24px, 3vw, 48px); }
+.home-banner-emblem-link { justify-self: end; margin-right: calc(226px - clamp(124px, 11vw, 166px) / 2); }
+/* The numeral spans the name block, from the top of "Part 0X" to the foot of the line under the name: that block is the
+   name's size plus about 38px (label, gaps and line), and Literata's lining figures stand .7 of the font size. */
+.home-banner-number { font: 400 calc((38px + clamp(36px, 3.6vw, 54px)) / .7)/.85 Literata, Georgia, serif; font-variant-numeric: lining-nums; letter-spacing: -.05em; color: color-mix(in srgb, var(--home-color) 10%, transparent); -webkit-text-stroke: 1.2px var(--home-color); opacity: .8; }
 .home-banner-name { display: flex; flex-direction: column; gap: 8px; margin: 0; }
 .home-banner-name small { font: 600 10px Archivo, sans-serif; letter-spacing: .26em; text-transform: uppercase; }
 .home-banner-name strong { font: 500 clamp(36px, 3.6vw, 54px)/1 Literata, Georgia, serif; letter-spacing: -.04em; color: var(--ink); }
@@ -18,6 +24,30 @@
 .home-banner blockquote p { margin: 0; color: var(--ink); font: italic 400 clamp(18px, 1.6vw, 23px)/1.5 Literata, Georgia, serif; letter-spacing: -.01em; }
 .home-banner blockquote a { display: inline-flex; align-items: center; gap: 5px; margin-top: 14px; color: var(--home-color); font: 600 10px Archivo, sans-serif; letter-spacing: .2em; text-transform: uppercase; }
 .home-banner-emblem { width: clamp(118px, 10.5vw, 158px); height: auto; }
+/* While the emblem is hovered, the quote makes way for the verse around the emblem's ring (HomeBanner.tsx RingVerse): the
+   Hebrew first, then the English (BSB) wiping in over it from the left as the Hebrew goes. Both lines fill the column, so
+   the two edges of the wipe move together. */
+.home-banner blockquote { display: grid; }
+.home-banner-quote, .home-banner-ring-verse { grid-area: 1 / 1; transition: opacity .4s; }
+.home-banner-ring-verse { display: grid; align-content: center; opacity: 0; }
+.home-banner blockquote :is(.home-banner-ring-hebrew, .home-banner-ring-english) { grid-area: 1 / 1; transition: clip-path 1.2s ease-in-out; }
+.home-banner blockquote .home-banner-ring-hebrew { color: var(--home-color); font: 500 clamp(26px, 2.4vw, 34px)/1.4 "Times New Roman", "SBL Hebrew", "Ezra SIL", David, serif; font-style: normal; text-align: left; clip-path: inset(0 0 0 0); }
+.home-banner blockquote .home-banner-ring-english { clip-path: inset(0 100% 0 0); }
+.home-banner-ring-verse span { margin-top: 14px; color: var(--home-color); font: 600 10px Archivo, sans-serif; letter-spacing: .2em; text-transform: uppercase; }
+.home-banner-inner:not([data-ring-once]):has(.home-banner-emblem-link:is(:hover, :focus-visible)) .home-banner-quote { opacity: 0; }
+.home-banner-inner:not([data-ring-once]):has(.home-banner-emblem-link:is(:hover, :focus-visible)) .home-banner-ring-verse { opacity: 1; }
+.home-banner-inner:not([data-ring-once]):has(.home-banner-emblem-link:is(:hover, :focus-visible)) .home-banner-ring-hebrew { clip-path: inset(0 0 0 100%); transition-delay: 1s; }
+.home-banner-inner:not([data-ring-once]):has(.home-banner-emblem-link:is(:hover, :focus-visible)) .home-banner-ring-english { clip-path: inset(0 0 0 0); transition-delay: 1s; }
+/* `ringOnce` (mock-ups): hovering the emblem starts the verse once and it runs its course whatever the pointer does: the
+   Hebrew comes up, the English wipes in over it, holds, then fades and the quote returns (6 s, HomeBanner.tsx). */
+.home-banner-inner[data-ring-play] .home-banner-quote { animation: home-ring-quote 6s ease-in-out both; }
+.home-banner-inner[data-ring-play] .home-banner-ring-verse { animation: home-ring-verse 6s ease-in-out both; }
+.home-banner-inner[data-ring-play] .home-banner-ring-hebrew { animation: home-ring-hebrew 6s ease-in-out both; }
+.home-banner-inner[data-ring-play] .home-banner-ring-english { animation: home-ring-english 6s ease-in-out both; }
+@keyframes home-ring-quote { 0% { opacity: 1; } 7%, 88% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes home-ring-verse { 0% { opacity: 0; } 7%, 88% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes home-ring-hebrew { 0%, 17% { clip-path: inset(0 0 0 0); } 37%, 100% { clip-path: inset(0 0 0 100%); } }
+@keyframes home-ring-english { 0%, 17% { clip-path: inset(0 100% 0 0); } 37%, 100% { clip-path: inset(0 0 0 0); } }
 
 /* The whole band is a link to the part's page; only the verse reference keeps its own link, to the reader. */
 .home-banner { cursor: pointer; transition: border-color .4s; }
@@ -42,9 +72,8 @@
 @media (max-width: 900px) {
   .home-banner + .home-wrap > .home-apologetics { padding-top: 56px; }
   .home-banner { margin-top: 80px; }
-  .home-banner-inner { grid-template-columns: auto minmax(0, 1fr); row-gap: 22px; min-height: 0; padding-block: 34px; }
-  .home-banner blockquote { grid-column: 1 / -1; }
-  .home-banner-emblem { display: none; }
+  .home-banner-inner { grid-template-columns: minmax(0, 1fr); row-gap: 22px; min-height: 0; padding-block: 34px; }
+  .home-banner-emblem-link { display: none; }
 }
 
 /* The preview strip above the first banner can be dragged with the mouse (HomePage.tsx PreviewMarquee). */
@@ -53,3 +82,53 @@
 .home-marquee[data-dragging] .home-marquee-track { animation-play-state: paused; }
 .home-marquee img, .home-marquee a { -webkit-user-drag: none; }
 .home-preview-strip + .home-banner { margin-top: 64px; }
+
+/* Collapsible bands (mock-up homepage): the band opens the section beneath it; a right arrow shows on hover and turns down
+   when open. Stacked bands sit close together and alternate sides. */
+.home-banner[data-collapsible] { margin-top: 14px; }
+.home-preview-strip + .home-banner[data-collapsible] { margin-top: 64px; }
+.home-banner-toggle { border: 0; background: none; padding: 0; cursor: pointer; font: inherit; color: inherit; }
+.home-banner-toggle:focus-visible { outline: none; }
+/* The open/close arrow: large, under the band's number, pointing down; it turns up while the section is open. */
+.home-banner[data-collapsible] .home-banner-number { position: relative; }
+.home-banner-chevron { position: absolute; left: 50%; top: 100%; translate: -50% -2px; pointer-events: none; color: var(--home-color); -webkit-text-stroke: 0; opacity: 0; transition: opacity .35s, transform .45s cubic-bezier(.2, .7, .2, 1); }
+.home-banner:hover .home-banner-chevron { opacity: 1; transform: translateY(4px); }
+.home-banner[data-open] .home-banner-chevron { transform: rotate(180deg); }
+.home-banner[data-open]:hover .home-banner-chevron { transform: rotate(180deg) translateY(-4px); }
+/* Stacked bands share one symmetric grid, so the quote and its rule sit at the same place in every band, mirrored or not. */
+/* Stacked bands: number and title, verse, emblem, packed together with equal gaps and centred as one group. */
+.home-banner[data-collapsible] .home-banner-inner { display: flex; justify-content: center; align-items: center; gap: clamp(36px, 4.5vw, 72px); }
+.home-banner[data-collapsible] blockquote { flex: 0 1 28rem; }
+.home-banner[data-collapsible] .home-banner-title, .home-banner[data-collapsible] .home-banner-emblem-link { flex: none; justify-self: auto; }
+/* Each emblem sits flush with the band's outer edge, where the number sits in the band above or below it. */
+.home-banner[data-collapsible] .home-banner-emblem-link { justify-self: end; margin: 0; }
+.home-banner[data-flip] .home-banner-title { order: 3; flex-direction: row-reverse; justify-self: end; text-align: right; }
+.home-banner[data-flip] .home-banner-name { align-items: flex-end; }
+.home-banner[data-flip] blockquote { order: 2; }
+.home-banner[data-flip] .home-banner-emblem-link { order: 1; justify-self: start; }
+/* home_mockup2: the earlier symmetric grid, with small stacked terms in the space between the verse and the emblem. */
+.home-banner[data-terms] .home-banner-inner { display: grid; max-width: 1400px; margin-inline: auto; grid-template-columns: minmax(0, 1fr) minmax(0, 28rem) minmax(0, 1fr); gap: 32px; }
+.home-banner[data-terms] .home-banner-inner > * { grid-row: 1; }
+.home-banner[data-terms] .home-banner-title { grid-column: 1; }
+.home-banner[data-terms] blockquote { grid-column: 2; }
+.home-banner[data-terms] .home-banner-emblem-link, .home-banner[data-terms] .home-banner-terms { grid-column: 3; }
+.home-banner[data-terms][data-flip] .home-banner-title { grid-column: 3; }
+.home-banner[data-terms][data-flip] .home-banner-emblem-link, .home-banner[data-terms][data-flip] .home-banner-terms { grid-column: 1; }
+.home-banner-terms { justify-self: start; align-self: center; display: flex; gap: 28px; padding-left: 8px; }
+.home-banner[data-flip] .home-banner-terms { justify-self: end; padding: 0 8px 0 0; text-align: right; }
+.home-banner-terms ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; align-content: center; }
+.home-banner-terms li { color: var(--muted); font: 600 10px Archivo, sans-serif; letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; }
+.home-banner-terms li::before { content: ""; display: inline-block; width: 5px; height: 5px; margin: 0 9px 1px 0; border-radius: 50%; background: var(--home-color); opacity: .7; }
+.home-banner[data-flip] .home-banner-terms li::before { display: none; }
+.home-banner[data-flip] .home-banner-terms li::after { content: ""; display: inline-block; width: 5px; height: 5px; margin: 0 0 1px 9px; border-radius: 50%; background: var(--home-color); opacity: .7; }
+.home-banner-terms .home-banner-terms-head { color: var(--home-color); margin-bottom: 3px; }
+.home-banner-terms .home-banner-terms-head::before, .home-banner[data-flip] .home-banner-terms .home-banner-terms-head::after { display: none; }
+/* Unflipped bands: the terms sit centred in the gap between the verse and the emblem. */
+.home-banner[data-terms]:not([data-flip]) .home-banner-terms { justify-self: stretch; justify-content: center; padding: 0 clamp(118px, 10.5vw, 158px) 0 0; }
+@media (max-width: 1200px) { .home-banner-terms { display: none; } }
+.home-collapse { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .6s cubic-bezier(.2, .7, .2, 1); }
+.home-collapse[data-open] { grid-template-rows: 1fr; }
+.home-collapse > div { overflow: hidden; min-height: 0; }
+.home-collapse:not([data-open]) > div { visibility: hidden; transition: visibility 0s .6s; }
+@media (max-width: 900px) { .home-banner[data-flip] .home-banner-title { order: 0; flex-direction: row; justify-self: start; text-align: left; } .home-banner[data-flip] .home-banner-name { align-items: flex-start; } }
+@media (prefers-reduced-motion: reduce) { .home-collapse, .home-banner-chevron { transition: none; } }

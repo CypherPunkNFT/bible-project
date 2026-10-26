@@ -1,75 +1,140 @@
-/* Mock-up drawings for the top of the homepage Resources section (OverviewMockups.tsx). Same rules as home-features.css:
-   loops run only while on screen, layers part on hover with their pivots set at rest, still under reduced motion. */
+/* Mock-up drawings for the top of the homepage Resources section (OverviewMockups.tsx): three folded maps. Same rules as
+   home-features.css: loops run only while on screen, layers part on hover with their pivots set at rest, still under
+   reduced motion. */
+
+/* ---- Shared: labels, verse, paper, ink, the trail and its light ---- */
 .mo-label { fill: var(--muted); font: 600 7.5px Archivo, sans-serif; letter-spacing: .16em; }
-.mo-ink { color: var(--tone); }
-.mo-ink path, .mo-ink rect, .mo-ink circle, .mo-ink ellipse { stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; stroke-linecap: round; }
-.mo-ink rect:not(.mo-fill) { fill: color-mix(in srgb, currentColor 22%, var(--surface)); }
-.mo-fill { fill: var(--surface); }
-.mo-pin { fill: color-mix(in srgb, currentColor 45%, var(--surface)); }
-.mo-wall { fill: var(--surface); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
+.mo-name { fill: var(--ink); }
+.mo-detail { fill: currentColor; }
+.mo-window-tag { font-size: 10px; letter-spacing: .14em; }
+.mo-verse { fill: var(--ink); font: italic 400 15px Literata, Georgia, serif; }
+.mo-ref { fill: currentColor; font: 600 7.5px Archivo, sans-serif; letter-spacing: .2em; }
+.mo-leader { stroke: currentColor; stroke-width: .9; opacity: .5; }
+.mo-dot { fill: var(--surface); stroke: currentColor; stroke-width: 1; }
+.mo-paper { fill: color-mix(in srgb, currentColor 3%, var(--surface)); stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.mo-under { fill: color-mix(in srgb, currentColor 8%, var(--surface)); stroke: currentColor; stroke-width: 1; stroke-opacity: .45; stroke-linejoin: round; }
+.mo-page { fill: color-mix(in srgb, currentColor 3%, var(--surface)); stroke: currentColor; stroke-width: 1; stroke-linejoin: round; }
+.mo-fill { fill: var(--surface); stroke: currentColor; stroke-width: 1.1; stroke-linejoin: round; }
+.mo-rule { stroke: currentColor; stroke-width: .8; opacity: .45; }
+.mo-ink { stroke: var(--ink); stroke-width: .9; opacity: .4; stroke-dasharray: 2.4 .8 1.2 .8; }
+.mo-neat { stroke: currentColor; stroke-width: .8; opacity: .55; }
+.mo-contour { stroke: currentColor; stroke-width: .7; opacity: .5; }
+.mo-hachure { stroke: currentColor; stroke-width: .7; opacity: .45; stroke-linecap: round; }
+.mo-shore { stroke: currentColor; stroke-width: .7; stroke-dasharray: 1.5 2; opacity: .45; }
+.mo-water { stroke: currentColor; stroke-width: .7; opacity: .5; }
+.mo-mark { fill: color-mix(in srgb, currentColor 30%, var(--surface)); stroke: currentColor; stroke-width: 1.1; stroke-linejoin: round; }
+.mo-mark-dot { fill: currentColor; }
+.mo-pin { fill: color-mix(in srgb, currentColor 45%, var(--surface)); stroke: currentColor; stroke-width: .8; stroke-linejoin: round; }
+.mo-halo { fill: var(--accent); opacity: 0; animation: mo-reach 16s linear infinite; }
+.mo-trail { stroke: var(--ink); stroke-width: 1.2; stroke-dasharray: 2 4; stroke-linecap: round; opacity: .5; animation: hf-flow 3.4s linear infinite; }
+.mo-glow { stroke: var(--accent); stroke-width: 4.5; stroke-linecap: round; stroke-dasharray: .1 300; filter: drop-shadow(0 0 4px var(--accent)); animation: mo-travel 16s linear infinite; }
 
-/* ---- The open house ---- */
-.mo-roof { fill: color-mix(in srgb, currentColor 12%, var(--surface)); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
-.mo-attic { fill: color-mix(in srgb, var(--accent) 22%, var(--surface)); stroke: currentColor; }
-.mo-window { fill: color-mix(in srgb, var(--tone) 10%, var(--surface)); stroke: currentColor; stroke-width: 1.3; }
-.mo-window-glow { fill: var(--accent); opacity: .05; animation: mo-glow 4s ease-in-out infinite; transition: opacity .6s; }
-.mo-sill { stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; opacity: .6; }
-.mo-room .mo-label { fill: color-mix(in srgb, var(--tone) 60%, var(--muted)); }
-.mo-guest { transform-box: fill-box; transform-origin: 50% 100%; animation: mo-nod 5s ease-in-out infinite; }
-.mo-lamp-glow { fill: var(--accent); stroke: none !important; opacity: .18; transform-box: fill-box; transform-origin: center; animation: mo-breathe 4s ease-in-out infinite; }
-.mo-spill { fill: var(--accent); opacity: .08; transition: opacity .8s; }
-.mo-door { fill: color-mix(in srgb, currentColor 18%, var(--surface)); stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
-.hf-layer-door { transform-origin: 284px 304px; }
-.mo-smoke circle { stroke: currentColor; opacity: 0; transform-box: fill-box; transform-origin: center; animation: mo-smoke 4.8s ease-out infinite; }
-.hf-art:hover .hf-layer-roof { transform: translateY(-10px); }
-.hf-art:hover .hf-layer-rooms { transform: translateY(-3px); }
-.hf-art:hover .mo-window-glow { opacity: .22; }
-.hf-art:hover .hf-layer-door { transform: scaleX(.45); }
-.hf-art:hover .mo-spill { opacity: .2; }
+/* ---- The Surveyor's Map ---- */
+.mo-grat { stroke: currentColor; stroke-width: .6; stroke-dasharray: 1 3; opacity: .35; }
+.mo-keys { fill: color-mix(in srgb, currentColor 24%, var(--surface)); }
+.mo-rose-ring { stroke: currentColor; stroke-width: .9; opacity: .7; }
+.mo-rose-dash { stroke-dasharray: 1 2; opacity: .5; }
+.mo-rose-tick { stroke: currentColor; stroke-width: .7; opacity: .6; }
+.mo-rose-dark { fill: color-mix(in srgb, currentColor 60%, var(--surface)); stroke: currentColor; stroke-width: .6; stroke-linejoin: round; }
+.mo-rose-light { fill: var(--surface); stroke: currentColor; stroke-width: .6; stroke-linejoin: round; }
+.mo-rose { transform-box: view-box; transform-origin: 130px 138px; animation: mo-sway 9s ease-in-out infinite; }
+.mo-tree { stroke: currentColor; stroke-width: .8; opacity: .6; }
+.mo-tree-top { fill: color-mix(in srgb, currentColor 14%, var(--surface)); stroke: currentColor; stroke-width: .7; }
+.mo-cartouche { fill: var(--surface); stroke: currentColor; stroke-width: 1.1; }
+.mo-curl { stroke: currentColor; stroke-width: .9; opacity: .7; stroke-linecap: round; }
+.mo-cart-title { fill: var(--ink); font: italic 400 10.5px Literata, Georgia, serif; }
+.mo-river { stroke: currentColor; stroke-width: 3.4; opacity: .55; stroke-linecap: round; }
+.mo-river-core { stroke: var(--surface); stroke-width: 1.4; stroke-linecap: round; }
+.mo-house { fill: color-mix(in srgb, currentColor 22%, var(--surface)); stroke: currentColor; stroke-width: .8; stroke-linejoin: round; }
+.mo-field { fill: color-mix(in srgb, currentColor 6%, var(--surface)); stroke: currentColor; stroke-width: .7; opacity: .8; }
+.mo-lane { stroke: currentColor; stroke-width: .6; stroke-dasharray: 2 1.6; opacity: .45; }
+.mo-mount { fill: var(--surface); stroke: currentColor; stroke-width: .9; stroke-linejoin: round; }
+.mo-pane { fill: color-mix(in srgb, var(--accent) 10%, var(--surface)); stroke: currentColor; stroke-width: .8; opacity: .7; }
+.mo-legend { fill: var(--surface); stroke: currentColor; stroke-width: 1; }
+.mo-legend-inner { stroke: currentColor; stroke-width: .7; opacity: .35; }
+.mo-town { fill: color-mix(in srgb, currentColor 40%, var(--surface)); stroke: currentColor; stroke-width: .8; animation: mo-twinkle 6s ease-in-out infinite; }
+.mo-survey .hf-layer-p0, .mo-survey .hf-layer-p1, .mo-survey .hf-layer-p2 { transform-origin: 300px 205px; }
+.hf-art:hover .mo-survey .hf-layer-p0 { transform: translate(-7px, 2px); }
+.hf-art:hover .mo-survey .hf-layer-p1 { transform: translateY(-4px); }
+.hf-art:hover .mo-survey .hf-layer-p2 { transform: translate(7px, 2px); }
+.hf-art:hover .mo-rose { animation-duration: 3s; }
 
-/* ---- The table set ---- */
-.mo-tabletop { fill: color-mix(in srgb, currentColor 9%, var(--surface)); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
-.mo-frame { fill: var(--surface); stroke: currentColor; stroke-width: 1.2; stroke-dasharray: 1 0; }
-.mo-verse { fill: var(--ink); font: italic 400 11.5px Literata, Georgia, serif; }
-.mo-print path { stroke: var(--ink); stroke-dasharray: 6 2 3 1.5; opacity: .4; stroke-width: 1; }
-.mo-ribbon { stroke: var(--history) !important; stroke-width: 2 !important; }
-.mo-steam path { stroke: var(--muted); stroke-linecap: round; opacity: 0; animation: mo-steam 4s ease-in-out infinite; }
-.mo-teapot { transform-box: view-box; transform-origin: 344px 290px; transition: transform .9s cubic-bezier(.2, .7, .2, 1); }
-.mo-glass { fill: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
-.mo-flame { fill: var(--accent); stroke: none !important; transform-box: fill-box; transform-origin: 50% 100%; animation: mo-flicker 2.6s ease-in-out infinite; }
-.mo-halo { fill: var(--accent); opacity: .07; transform-box: fill-box; transform-origin: center; animation: mo-breathe 6s ease-in-out infinite; transition: opacity .6s; }
-.hf-layer-lamp { transform-origin: 456px 290px; }
-.hf-art:hover .mo-teapot { transform: rotate(-14deg); }
-.hf-art:hover .hf-layer-verse { transform: translateY(-8px); }
-.hf-art:hover .hf-layer-lamp { transform: translateY(-4px); }
-.hf-art:hover .mo-halo { opacity: .16; }
-.hf-art:hover .mo-steam path { animation-duration: 2.4s; }
+/* ---- The Lamplit Map ---- */
+.mo-table { fill: color-mix(in srgb, var(--history) 9%, var(--surface)); }
+.mo-grain { stroke: var(--history); stroke-width: .55; opacity: .22; stroke-dasharray: 60 4 22 3; }
+.mo-table-edge { fill: color-mix(in srgb, var(--history) 22%, var(--surface)); stroke: var(--history); stroke-width: .8; stroke-opacity: .5; }
+.mo-cast { fill: color-mix(in srgb, var(--ink) 9%, var(--surface)); opacity: .8; transition: opacity .8s; }
+.mo-grid { stroke: currentColor; stroke-width: .5; opacity: .28; }
+.mo-crease { stroke: currentColor; stroke-width: 1; opacity: .6; }
+.mo-lake { fill: color-mix(in srgb, currentColor 6%, var(--surface)); stroke: currentColor; stroke-width: .8; }
+.mo-road { stroke: var(--muted); stroke-width: .8; stroke-dasharray: 3 2; opacity: .6; }
+.mo-city { transform-box: fill-box; transform-origin: 50% 100%; animation: mo-twinkle 6s ease-in-out infinite; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+.mo-pool { animation: mo-breathe 7s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.mo-lamp-halo { transform-box: fill-box; transform-origin: center; animation: mo-breathe 4s ease-in-out infinite; transition: opacity .6s; }
+.mo-brass { fill: color-mix(in srgb, var(--accent) 22%, var(--surface)); stroke: var(--accent); stroke-width: 1.1; stroke-linejoin: round; }
+.mo-chimney { fill: color-mix(in srgb, var(--accent) 8%, var(--surface)); stroke: var(--accent); stroke-width: 1; stroke-linejoin: round; }
+.mo-flame { fill: var(--accent); transform-box: fill-box; transform-origin: 50% 100%; animation: mo-flicker 2.6s ease-in-out infinite; }
+.mo-handle { stroke: var(--accent); stroke-width: 2.2; stroke-linecap: round; }
+.mo-pencil-tip { fill: var(--surface); stroke: var(--accent); stroke-width: 1; stroke-linejoin: round; }
+.mo-lamplight { stroke: color-mix(in srgb, var(--accent) 24%, var(--surface)); stroke-width: 40; stroke-linecap: round; stroke-dasharray: .1 300; opacity: .9; filter: blur(9px); animation: mo-travel 16s linear infinite; }
+.mo-lamplit .hf-layer-lift { transform-origin: 358px 250px; }
+.mo-lamplit .hf-layer-lamp { transform-origin: 50px 330px; }
+.hf-art:hover .mo-lamplit .hf-layer-lift { transform: translate(5px, -5px); }
+.hf-art:hover .mo-lamplit .hf-layer-flat { transform: translateY(-2px); }
+.hf-art:hover .mo-lamplit .mo-cast { opacity: 1; }
+.hf-art:hover .mo-lamplit .hf-layer-lamp { transform: translateY(-3px); }
+.hf-art:hover .mo-city { transform: translateY(-2px) scale(1.2); }
 
-/* ---- The folded map ---- */
-.mo-paper { fill: var(--surface); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
-.mo-paper-shade { fill: color-mix(in srgb, currentColor 7%, var(--surface)); }
-.mo-street { stroke: var(--line) !important; stroke-dasharray: 3 3; fill: none; }
-.mo-city { transform-box: fill-box; transform-origin: 50% 100%; animation: mo-pin 5.4s ease-in-out infinite; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
-.mo-trail { stroke: var(--ink); stroke-width: 1.2; stroke-dasharray: 2 5; stroke-linecap: round; opacity: .45; animation: hf-flow 3.4s linear infinite; pointer-events: none; }
-.mo-compass { fill: var(--surface); stroke: currentColor; stroke-dasharray: 2 3; }
-.mo-needle { fill: color-mix(in srgb, var(--accent) 50%, var(--surface)); stroke: var(--ink); stroke-linejoin: round; transform-box: view-box; transform-origin: 540px 80px; animation: mo-needle 6s ease-in-out infinite; }
-.hf-art:hover .hf-layer-panel0 { transform: translate(-12px, -4px); }
-.hf-art:hover .hf-layer-panel1 { transform: translateY(-8px); }
-.hf-art:hover .hf-layer-panel2 { transform: translate(12px, -4px); }
-.hf-art:hover .mo-city { transform: translateY(-4px) scale(1.15); }
-.hf-art:hover .hf-layer-compass { transform: translateY(-6px); }
+/* ---- Three Windows ---- */
+.mo-band { stroke: currentColor; stroke-width: .6; opacity: .25; }
+.mo-frame { fill: color-mix(in srgb, currentColor 4%, var(--surface)); stroke: color-mix(in srgb, currentColor 55%, var(--line)); stroke-width: 1.1; }
+.mo-frame-inner { stroke: currentColor; stroke-width: .7; opacity: .3; }
+.mo-vtitle { fill: var(--ink); font: italic 400 8.5px Literata, Georgia, serif; }
+.mo-head-bar { stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; opacity: .7; }
+.mo-gutter { stroke: currentColor; opacity: .5; }
+.mo-pic { fill: var(--surface); stroke: currentColor; stroke-width: .8; }
+.mo-mountain { fill: color-mix(in srgb, currentColor 22%, var(--surface)); stroke: currentColor; stroke-width: .8; stroke-linejoin: round; }
+.mo-sun { fill: var(--accent); opacity: .8; }
+.mo-check { fill: var(--surface); stroke: currentColor; stroke-width: .8; }
+.mo-tick { stroke: var(--accent); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
+.mo-ribbon { stroke: var(--history); stroke-width: 2; stroke-linecap: round; }
+.mo-book { transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+.mo-shade-lamp { fill: color-mix(in srgb, var(--accent) 25%, var(--surface)); stroke: currentColor; stroke-width: .9; stroke-linejoin: round; }
+.mo-bulb { fill: var(--accent); }
+.mo-roomglow { transform-box: fill-box; transform-origin: center; animation: mo-breathe 5s ease-in-out infinite; }
+.mo-person { transform-box: fill-box; transform-origin: 50% 100%; animation: mo-nod 6s ease-in-out infinite; }
+.mo-wall { stroke: currentColor; stroke-width: .8; opacity: .4; }
+.mo-doorlight { fill: color-mix(in srgb, var(--accent) 24%, var(--surface)); animation: mo-doorglow 5s ease-in-out infinite; }
+.mo-arch { stroke: currentColor; stroke-width: 2; stroke-linejoin: round; }
+.mo-door-leaf { fill: color-mix(in srgb, currentColor 22%, var(--surface)); stroke: currentColor; stroke-width: 1; stroke-linejoin: round; transform-box: fill-box; transform-origin: 0 50%; transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+.mo-spill { fill: var(--accent); opacity: .22; }
+.mo-street { stroke: currentColor; stroke-width: .6; stroke-dasharray: 2 1.5; opacity: .4; }
+.mo-avenue { stroke: currentColor; stroke-width: 1.4; opacity: .3; }
+.mo-glow-third { animation-name: mo-third; animation-duration: 12s; }
+.mo-halo-third { animation-name: mo-third-reach; animation-duration: 12s; }
+.mo-windows .hf-layer-w0, .mo-windows .hf-layer-w1, .mo-windows .hf-layer-w2 { transform-origin: 300px 220px; }
+.hf-art:hover .mo-windows .hf-layer-w0 { transform: translate(-8px, 0); }
+.hf-art:hover .mo-windows .hf-layer-w1 { transform: translateY(-6px); }
+.hf-art:hover .mo-windows .hf-layer-w2 { transform: translate(8px, 0); }
+.hf-art:hover .mo-door-leaf { transform: scaleX(.55); }
+.hf-art:hover .mo-book { transform: translateY(-3px); }
 
-@keyframes mo-glow { 0%, 100% { opacity: .04; } 50% { opacity: .16; } }
-@keyframes mo-nod { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1.5px); } }
-@keyframes mo-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
-@keyframes mo-smoke { 0% { opacity: 0; transform: translate(0, 0) scale(.6); } 25% { opacity: .5; } 100% { opacity: 0; transform: translate(14px, -40px) scale(1.6); } }
-@keyframes mo-steam { 0% { opacity: 0; transform: translateY(4px); } 40% { opacity: .6; } 100% { opacity: 0; transform: translateY(-14px); } }
+.hf-art:hover .hf-layer-verse { transform: translateY(-5px); }
+.hf-layer-verse { transform-origin: 300px 60px; }
+
+@keyframes mo-travel { 0% { stroke-dashoffset: 0; opacity: 0; } 4%, 94% { opacity: 1; } 100% { stroke-dashoffset: -100; opacity: 0; } }
+@keyframes mo-third { 0% { stroke-dashoffset: 0; opacity: 0; } 3%, 30% { opacity: 1; } 33.3%, 100% { stroke-dashoffset: -100; opacity: 0; } }
+@keyframes mo-reach { 0%, 12%, 100% { opacity: 0; } 4% { opacity: .35; } }
+@keyframes mo-third-reach { 0%, 30%, 100% { opacity: 0; } 12% { opacity: .35; } }
+@keyframes mo-sway { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+@keyframes mo-twinkle { 0%, 70%, 100% { opacity: .8; } 82% { opacity: 1; filter: drop-shadow(0 0 2.5px var(--accent)); } }
+@keyframes mo-breathe { 0%, 100% { transform: scale(1); opacity: .85; } 50% { transform: scale(1.08); opacity: 1; } }
 @keyframes mo-flicker { 0%, 100% { transform: scale(1, 1); } 40% { transform: scale(.9, 1.1); } 70% { transform: scale(1.06, .94); } }
-@keyframes mo-pin { 0%, 70%, 100% { opacity: .85; } 80% { opacity: 1; filter: drop-shadow(0 0 3px var(--accent)); } }
-@keyframes mo-needle { 0%, 100% { transform: rotate(-10deg); } 50% { transform: rotate(12deg); } }
+@keyframes mo-nod { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1.2px); } }
+@keyframes mo-doorglow { 0%, 100% { fill: color-mix(in srgb, var(--accent) 18%, var(--surface)); } 50% { fill: color-mix(in srgb, var(--accent) 34%, var(--surface)); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .mo-steam path { opacity: .4; }
-  .mo-teapot, .mo-city { transition: none; }
-  .hf-art:hover .mo-teapot, .hf-art:hover .mo-city { transform: none; }
+  .mo-glow, .mo-lamplight { display: none; }
+  .mo-city, .mo-book, .mo-door-leaf { transition: none; }
+  .hf-art:hover .mo-city, .hf-art:hover .mo-book, .hf-art:hover .mo-door-leaf { transform: none; }
 }

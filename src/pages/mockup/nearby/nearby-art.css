@@ -1,0 +1,44 @@
+/* MOCK-UP: the "Close to home" drawings (NearbyArt.tsx), our own parts beside the Help for life morning's
+   (approved-resource-art.css supplies the palette: --land, --leaf, --gold, --flower, --surface), and their 2 × 2 page
+   (NearbyArtMockupPage.tsx). */
+.resource-approved .morning-art .na-building { fill: var(--surface); stroke: var(--land); stroke-width: 1.15; }
+.resource-approved .morning-art .na-gold { stroke: var(--gold); stroke-width: 1.3; }
+.resource-approved .morning-art .na-light { fill: color-mix(in srgb, var(--gold) 34%, var(--surface)); stroke: var(--gold); stroke-width: .9; animation: morning-light 6s ease-in-out infinite; }
+.resource-approved .morning-art .na-smoke { stroke: var(--land); stroke-width: .8; opacity: .5; animation: na-smoke 7s ease-in-out infinite; }
+.resource-approved .morning-art .na-rail { stroke: var(--land); stroke-width: 1; }
+.resource-approved .morning-art .na-person { fill: var(--surface); stroke: var(--land); stroke-width: 1.1; }
+.resource-approved .morning-art .na-blanket { fill: color-mix(in srgb, var(--flower) 12%, var(--surface)); stroke: var(--flower); stroke-width: .9; }
+.resource-approved .morning-art .na-glow { fill: color-mix(in srgb, var(--gold) 10%, transparent); stroke: none; animation: morning-light 4s ease-in-out infinite; }
+.resource-approved .morning-art .na-flame { transform-box: fill-box; transform-origin: bottom center; animation: na-flicker 1.6s ease-in-out infinite; }
+.resource-approved .morning-art .na-spark { fill: var(--gold); stroke: none; animation: na-spark 3s ease-out infinite; }
+.resource-approved .morning-art .na-walk { animation: na-step 1.4s ease-in-out infinite; }
+.resource-approved .morning-art .na-kite { transform-box: fill-box; transform-origin: right bottom; animation: na-swing 5s ease-in-out infinite; }
+@keyframes na-flicker { 0%, 100% { transform: scale(1, 1); } 30% { transform: scale(.92, 1.08); } 60% { transform: scale(1.05, .94); } }
+@keyframes na-spark { 0% { opacity: 0; translate: 0 8px; } 20% { opacity: 1; } 100% { opacity: 0; translate: 3px -18px; } }
+@keyframes na-step { 50% { translate: 0 -0.8px; } }
+@keyframes na-smoke { 0%, 100% { opacity: .25; translate: 0 0; } 50% { opacity: .6; translate: 2px -2px; } }
+@keyframes na-swing { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@media (prefers-reduced-motion: reduce) { .resource-approved .morning-art :is(.na-light, .na-smoke, .na-glow, .na-flame, .na-spark, .na-walk, .na-kite) { animation: none !important; } }
+
+/* The 2 × 2 page. */
+.nam { padding-block: 72px 120px; }
+.nam-head { max-width: 760px; margin-bottom: 48px; }
+.nam-head h1 { font: 400 clamp(32px, 3.6vw, 52px)/1.1 var(--font-serif); letter-spacing: -.02em; margin: 16px 0 0; }
+.nam-head h1 em { color: var(--accent); }
+.nam-head > p:last-child { margin: 18px 0 0; color: var(--muted); font-size: 14.5px; line-height: 1.85; }
+.nam-pick { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: 16px 40px; align-items: center; margin-bottom: 56px; }
+.nam-pick .resource-approved { width: 100%; }
+.nam-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.nam-grid li { display: grid; gap: 22px; align-content: start; padding: 36px 32px 40px; border-bottom: 1px solid var(--line); }
+.nam-grid li:nth-child(odd) { border-right: 1px solid var(--line); padding-left: 0; }
+.nam-grid li:nth-child(even) { padding-right: 0; }
+.nam-frame { display: grid; place-items: center; min-height: 300px; }
+.nam-frame .resource-approved { width: min(100%, 440px); }
+.nam-label { display: grid; gap: 6px; }
+.nam-label span { font: 600 10px var(--font-sans); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.nam-label strong { font: 500 22px/1.25 var(--font-serif); letter-spacing: -.01em; color: var(--ink); }
+.nam-label p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.65; }
+@media (max-width: 860px) {
+  .nam-grid, .nam-pick { grid-template-columns: minmax(0, 1fr); }
+  .nam-grid li, .nam-grid li:nth-child(odd), .nam-grid li:nth-child(even) { border-right: 0; padding-inline: 0; }
+}

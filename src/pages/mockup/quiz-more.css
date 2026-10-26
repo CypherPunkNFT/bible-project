@@ -1,0 +1,55 @@
+/* MOCK-UP (/quiz_more_mockup, QuizMoreMockupPage.tsx): four versions of the way on to the test page under the homepage quiz. */
+
+/* Only the board's last row shows above each version (six tiles wide, four on tablets, two on phones). */
+.qm-board-foot .qv-tiles li:nth-child(-n+6) { display: none; }
+.qm-board-foot .qv-tile { cursor: default; }
+.qv-version > .hq { margin-top: 0; } /* the homepage quiz's own top margin is not wanted under each version's label */
+
+.qm { margin-top: 40px; }
+.qm a { text-decoration: none; }
+.qm .home-eyebrow { margin: 0; }
+/* Shared buttons: solid gold, gold outline, and a plain gold text link. */
+.qm-solid, .qm-outline { display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px; border-radius: 14px; font: 600 14px var(--font-sans); transition: gap .25s, background .25s, box-shadow .25s; }
+.qm-solid { background: var(--accent); color: var(--page); box-shadow: 0 14px 30px -18px color-mix(in srgb, var(--accent) 80%, transparent); }
+.qm-solid:hover { gap: 14px; box-shadow: 0 18px 34px -16px color-mix(in srgb, var(--accent) 90%, transparent); }
+.qm-outline { border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent); color: var(--accent); }
+.qm-outline:hover { gap: 14px; background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.qm-text { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font: 600 13.5px var(--font-sans); transition: gap .25s; }
+.qm-text:hover { gap: 10px; }
+
+/* 1 The gold button. */
+.qm-button { display: grid; justify-items: center; gap: 22px; text-align: center; }
+.qm-button p { display: grid; gap: 10px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.qm-button > div { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 18px 30px; }
+.qm-large { padding: 17px 34px; border-radius: 16px; font-size: 16px; }
+
+/* 2 The gold box. */
+.qm-box { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 22px 40px; padding: 26px clamp(22px, 3vw, 36px); border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent); background: color-mix(in srgb, var(--accent) 9%, var(--surface)); }
+.qm-box h3 { min-height: 0; margin: 10px 0 0; font-size: clamp(24px, 2vw, 30px); }
+.qm-box p:not(.home-eyebrow) { margin: 6px 0 0; color: var(--muted); font-size: 14.5px; line-height: 1.6; }
+.qm-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* 3 The gold banner. */
+.qm-banner { display: flex; align-items: stretch; border-radius: 18px; overflow: hidden; background: var(--accent); color: var(--page); }
+.qm-banner-main { flex: 1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; padding: 24px clamp(22px, 3vw, 36px); color: inherit; transition: background .25s; }
+.qm-banner-main:hover { background: color-mix(in srgb, var(--page) 8%, transparent); }
+.qm-banner-eyebrow { font: 600 10px var(--font-sans); letter-spacing: .2em; text-transform: uppercase; opacity: .75; }
+.qm-banner-main strong { font: 400 clamp(22px, 2vw, 28px)/1.1 var(--font-serif); letter-spacing: -.01em; }
+.qm-banner-lead { font-size: 14px; opacity: .8; }
+.qm-banner-arrow { align-self: center; margin-left: auto; transition: transform .25s; }
+.qm-banner-main:hover .qm-banner-arrow { transform: translateX(4px); }
+.qm-banner-list { display: flex; align-items: center; gap: 6px; padding: 0 clamp(22px, 3vw, 36px); border-left: 1px solid color-mix(in srgb, var(--page) 30%, transparent); color: inherit; font: 600 13.5px var(--font-sans); white-space: nowrap; transition: background .25s; }
+.qm-banner-list:hover { background: color-mix(in srgb, var(--page) 8%, transparent); }
+
+@media (max-width: 1100px) {
+  .qm-board-foot .qv-tiles li:nth-child(-n+8) { display: none; }
+}
+@media (max-width: 640px) {
+  .qm-board-foot .qv-tiles li:nth-child(-n+10) { display: none; }
+  .qm-banner { flex-direction: column; }
+  .qm-banner-list { padding: 16px 22px; border-left: 0; border-top: 1px solid color-mix(in srgb, var(--page) 30%, transparent); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qm-solid, .qm-outline, .qm-text, .qm-banner-main, .qm-banner-arrow, .qm-banner-list { transition: none; }
+}

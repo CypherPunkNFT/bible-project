@@ -16,15 +16,20 @@
 .he-ticks { opacity: .45; stroke-width: .6; }
 .he-figure { opacity: .5; }
 circle.he-dot:not(.he-ring) { fill: currentColor; stroke: none; opacity: .6; }
-.he-hebrew { fill: currentColor; stroke: none; font: 500 6.8px "Times New Roman", "SBL Hebrew", "Ezra SIL", David, serif; opacity: .8; }
+.he-hebrew { fill: currentColor; stroke: none; font: 500 6.8px "Times New Roman", "SBL Hebrew", "Ezra SIL", David, serif; }
 .he-hub { fill: color-mix(in srgb, var(--home-color) 9%, var(--page)); stroke: currentColor; stroke-width: .9; opacity: .95; }
 .he-centre { stroke-width: 1.15; }
 .he-letter { fill: currentColor; stroke: none; font: 600 17px "Times New Roman", "SBL Hebrew", David, serif; }
 .he-mark { stroke: currentColor; }
 .he-star { fill: currentColor; stroke: none; font-size: 19px; }
-.he-emblem :is(.he-ring, .he-figure, .he-hebrew, .he-ticks) { transition: opacity .6s; }
-.home-banner:hover .he-emblem :is(.he-ring, .he-figure, .he-ticks) { opacity: .8; }
-.home-banner:hover .he-hebrew { opacity: 1; }
+.he-emblem :is(.he-ring, .he-figure, .he-hebrew, .he-ticks) { transition: opacity .5s; }
+/* The emblem is its own link, to the verse around its ring. Hovering it strengthens the ring's letters one after another, in
+   reading order, the way a click strengthens the lines; leaving lets them all settle back together. */
+.home-banner-emblem-link { pointer-events: auto; display: block; border-radius: 50%; cursor: pointer; }
+.home-banner-emblem-link:focus-visible { outline: none; }
+.he-ch { fill-opacity: .75; stroke: currentColor; stroke-width: 0; transition: fill-opacity .4s, stroke-width .4s; }
+.home-banner-emblem-link:is(:hover, :focus-visible) .he-ch { fill-opacity: 1; stroke-width: .35; transition-delay: calc(var(--i) * var(--step)); }
+.home-banner-emblem-link.is-reading .he-emblem :is(.he-ring, .he-figure, .he-ticks) { opacity: 1; }
 @keyframes he-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .he-turn { animation: none; } }
 
@@ -38,4 +43,8 @@ circle.he-dot:not(.he-ring) { fill: currentColor; stroke: none; opacity: .6; }
 .hm-banner-option + .hm-banner-option { margin-top: 36px; }
 .hm-banner-label { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; margin: 0 auto 12px; font-size: 13px; color: var(--muted); }
 .hm-banner-label strong { color: var(--ink); font: 500 18px Literata, Georgia, serif; }
-.hm-banner-option .home-banner { margin-top: 0; }
+.hm-banner-part .home-banner { margin-top: 0; }
+.home-banner-emblem[data-large] { width: clamp(124px, 11vw, 166px); }
+.hm-emblem-pair { display: flex; align-items: flex-end; gap: clamp(16px, 2vw, 32px); }
+.hm-emblem-pair figure { display: grid; justify-items: center; gap: 10px; margin: 0; }
+.hm-emblem-pair figcaption { color: var(--home-color); font: 600 13px Archivo, sans-serif; letter-spacing: .2em; }

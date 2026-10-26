@@ -1,0 +1,75 @@
+/* MOCK-UP: the openings of "Close to home" (NearbyIntro.tsx) and the floating pill that switches them. The space before
+   the line above the map is the wrapper's padding, so the switch keeps that line in place when reading the map. */
+.ni-wrap { padding-bottom: 72px; overflow-anchor: none; }
+.ni h2 { font: 400 clamp(32px, 3.4vw, 50px)/1.1 var(--font-serif); letter-spacing: -.02em; margin: 16px 0 0; }
+.ni h2 em { color: var(--accent); }
+.ni-about { margin: 18px 0 0; max-width: 620px; color: var(--muted); font-size: 14.5px; line-height: 1.85; }
+
+/* 1 Figures: the words, Resources as a tall box beside them, the live figures as a bar below. */
+.ni-figures-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 300px); gap: 40px clamp(48px, 8vw, 140px); align-items: center; }
+.ni-box { position: relative; display: flex; flex-direction: column; gap: 18px; min-height: 330px; padding: 30px 28px 28px; border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent 62%); color: inherit; text-decoration: none;
+  transition: border-color .3s, transform .3s, box-shadow .3s; }
+.ni-box::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(.2, .7, .2, 1); }
+.ni-box:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); transform: translateY(-3px); box-shadow: 0 24px 50px -30px rgb(0 0 0 / .7); }
+.ni-box:hover::before { transform: scaleX(1); }
+.ni-box > svg { color: var(--accent); }
+.ni-box-copy { display: grid; gap: 10px; }
+.ni-box-copy strong { font: 500 28px/1.2 var(--font-serif); letter-spacing: -.01em; color: var(--ink); }
+.ni-box-copy span { color: var(--muted); font-size: 13.5px; line-height: 1.65; }
+.ni-box .hn-way-open { margin-top: auto; }
+.ni-box .hn-way-open svg { transition: transform .3s; }
+.ni-box:hover .hn-way-open svg { transform: translateX(4px); }
+.ni-box:focus-visible { outline: none; }
+.ni-bar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 56px 0 0; border: 1px solid var(--line); border-radius: 16px; background: color-mix(in srgb, var(--ink) 3%, transparent); }
+.ni-bar div { display: flex; flex-direction: row-reverse; justify-content: flex-end; align-items: baseline; gap: 14px; padding: 22px 28px; }
+.ni-bar div + div { border-left: 1px solid var(--line); }
+.ni-bar dd { margin: 0; font: 400 clamp(30px, 2.8vw, 42px)/1 var(--font-serif); letter-spacing: -.02em; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+.ni-bar div:first-child dd { color: var(--accent); }
+.ni-bar dt { font: 600 10px/1.5 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+
+/* 2 Centered: the lighthouse on the left, the village on the right; one Resources button. */
+.ni-centered { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 620px) minmax(0, 1fr); gap: 14px; align-items: center; }
+.ni-center { display: grid; justify-items: center; text-align: center; }
+.ni-centered h2 { font-size: clamp(36px, 4.2vw, 62px); text-wrap: balance; }
+.ni-side { display: grid; }
+.ni-side:first-child { justify-items: end; }
+.ni-side:last-child { justify-items: start; }
+.ni-side > * { width: 100%; max-width: 440px; }
+.ni-pill { display: inline-flex; align-items: center; gap: 9px; margin-top: 34px; padding: 13px 24px; border-radius: 999px; background: var(--accent); color: var(--page); text-decoration: none; font: 600 14px var(--font-sans);
+  transition: transform .25s, box-shadow .25s; }
+.ni-pill:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -18px rgb(60 40 10 / .6); }
+.ni-pill:focus-visible { outline: none; }
+
+/* The switch: a pill floating at the foot of the screen while the section is in view. */
+.ni-switch { position: fixed; left: 50%; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); z-index: 80; display: flex; gap: 4px; padding: 5px; border: 1px solid var(--line); border-radius: 999px;
+  background: color-mix(in srgb, var(--page) 82%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 18px 40px -20px rgb(0 0 0 / .6);
+  transform: translateX(-50%); transition: opacity .3s, transform .3s; }
+.ni-switch[data-hidden] { opacity: 0; transform: translate(-50%, 16px); pointer-events: none; }
+.ni-switch button { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 0; border-radius: 999px; background: none; color: var(--muted); font: 500 13px var(--font-sans); white-space: nowrap; cursor: pointer;
+  transition: background .25s, color .25s; }
+.ni-switch button:hover { color: var(--ink); }
+.ni-switch button span { font: 600 10px var(--font-sans); letter-spacing: .12em; color: var(--accent); }
+.ni-switch button b { font-weight: 500; }
+.ni-switch button[aria-pressed="true"] { background: var(--accent); color: var(--page); }
+.ni-switch button[aria-pressed="true"] span { color: inherit; }
+.ni-switch button:focus-visible { outline: none; }
+
+/* The map below (resourcesTab only): no credit line and no zoom buttons; scrolling and pinching still zoom. */
+.hn.hn-one :is(.lf-usa figcaption, .lf-zoom) { display: none; }
+
+@media (max-width: 1100px) {
+  .ni-centered { grid-template-columns: minmax(0, 1fr); }
+  .ni-side { display: none; }
+}
+@media (max-width: 860px) {
+  .ni-wrap { padding-bottom: 56px; }
+  .ni-figures-top { grid-template-columns: minmax(0, 1fr); }
+  .ni-box { min-height: 0; }
+  .ni-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 40px; }
+  .ni-bar div { flex-direction: column-reverse; gap: 8px; padding: 18px 20px; }
+  .ni-bar div:nth-child(3) { border-left: 0; }
+  .ni-bar div:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .ni-switch button { gap: 6px; padding: 8px 11px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .ni-box, .ni-box::before, .ni-pill, .ni-switch, .ni-switch button { transition: none; } }

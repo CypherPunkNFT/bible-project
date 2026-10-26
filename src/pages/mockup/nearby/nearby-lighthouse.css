@@ -1,0 +1,23 @@
+/* MOCK-UP: the lighthouse drawing (LighthouseArt.tsx), styled and moving as it did in
+   design/help-for-life-drawings/drawings.css: one line colour, the prophets blue as its tone. */
+.la-art { --c: var(--prophets); display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; overflow: visible; color: color-mix(in srgb, var(--ink) 66%, var(--page)); }
+.la-art .t { stroke: var(--c); }
+.la-art .f { opacity: .42; }
+.la-art .ft { stroke: var(--c); opacity: .5; }
+.la-art .pf { fill: var(--page); stroke: none; }
+.la-art .la-star { fill: currentColor; stroke: none; opacity: .5; animation: la-twinkle 5.5s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -1.3s); }
+.la-art .la-tuft { transform-box: fill-box; transform-origin: 50% 100%; animation: la-sway 6s ease-in-out infinite alternate; }
+.la-art .la-ripple { animation: la-drift 9s ease-in-out infinite alternate; }
+.la-art .la-ripple:nth-child(odd) { animation-duration: 11.5s; animation-delay: -4s; }
+.la-art .la-beam { transform-origin: 222px 58px; animation: la-sweep 9s ease-in-out infinite alternate; }
+.la-art .la-lamp { fill: var(--c); animation: la-soft 4.5s ease-in-out infinite alternate; }
+.la-art .la-surf { animation: la-soft 4s ease-in-out infinite alternate; }
+.la-art .la-boat { transform-box: fill-box; transform-origin: 50% 100%; animation: la-ride 4.4s ease-in-out infinite alternate; }
+.la-art .la-gull { --dx: 46px; animation: la-drift 20s ease-in-out infinite alternate; }
+@keyframes la-twinkle { from { opacity: .15; } to { opacity: .7; } }
+@keyframes la-sway { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
+@keyframes la-drift { from { transform: translateX(0); } to { transform: translateX(var(--dx, 24px)); } }
+@keyframes la-sweep { 0% { transform: rotate(-7deg); opacity: .4; } 50% { opacity: 1; } 100% { transform: rotate(7deg); opacity: .4; } }
+@keyframes la-soft { from { opacity: .4; } to { opacity: 1; } }
+@keyframes la-ride { from { transform: translateY(0) rotate(-2.5deg); } to { transform: translateY(-2px) rotate(2.5deg); } }
+@media (prefers-reduced-motion: reduce) { .la-art * { animation: none !important; } }

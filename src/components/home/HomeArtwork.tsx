@@ -10,6 +10,14 @@ export function CollectionArtwork({ kind }: { kind: string }) {
     {([[103, 48, "GRACE"], [377, 48, "FAITH"], [103, 140, "PRAYER"], [377, 140, "HOPE"]] as const).map(([x, y, label]) => <g key={label}><rect x={x - 45} y={y - 14} width="90" height="28" rx="5" fill="var(--surface)" stroke="currentColor" strokeOpacity=".6" /><text x={x} y={y + 4} textAnchor="middle" fontSize="10" letterSpacing="1.4" fill="currentColor">{label}</text></g>)}
     <circle cx="240" cy="94" r="35" fill="var(--surface)" stroke="currentColor" /><circle cx="240" cy="94" r="28" stroke="currentColor" opacity=".25" /><path d="M222 105V81Q231 77 240 82Q249 77 258 81V105Q249 101 240 106Q231 101 222 105ZM240 83V105" stroke="currentColor" strokeWidth="1.5" />
   </svg>;
+  if (kind === "Resources") return <svg viewBox="0 0 480 185" fill="none" aria-hidden="true">
+    <ellipse cx="240" cy="94" rx="162" ry="62" stroke="currentColor" opacity=".25" />
+    <path d="M240 112C214 92 206 74 220 64C230 57 240 64 240 72C240 64 250 57 260 64C274 74 266 92 240 112Z" fill="currentColor" fillOpacity=".12" stroke="currentColor" strokeWidth="1.4" />
+    <path d="M150 100Q146 88 156 87Q166 89 172 112Q190 138 240 140Q290 138 308 112Q314 89 324 87Q334 88 330 100Q322 132 290 148Q240 160 190 148Q158 132 150 100Z" fill="var(--surface)" stroke="currentColor" strokeWidth="1.4" />
+    <path d="M172 112Q200 128 240 128Q280 128 308 112" stroke="currentColor" opacity=".4" />
+    {[[78, 94], [240, 32], [402, 94]].map(([x, y]) => <g key={x}><circle cx={x} cy={y} r="8" fill="var(--surface)" stroke="currentColor" /><circle cx={x} cy={y} r="2.5" fill="currentColor" /></g>)}
+    <text x="240" y="178" fontSize="9" letterSpacing="1.5" fill="currentColor" textAnchor="middle">LEARN · GATHER · HELP</text>
+  </svg>;
   if (kind === "Apologetics") return <svg viewBox="0 0 480 185" fill="none" aria-hidden="true">
     <circle cx="240" cy="94" r="65" stroke="currentColor" opacity=".35" /><circle cx="240" cy="94" r="44" stroke="currentColor" strokeDasharray="2 5" opacity=".5" /><ellipse cx="240" cy="94" rx="152" ry="44" transform="rotate(-16 240 94)" stroke="currentColor" opacity=".5" />
     <path d="M240 20V48M119 130L200 107M356 130L280 107" stroke="currentColor" opacity=".4" /><path d="M226 78H254M240 66V110" stroke="currentColor" strokeWidth="2" />

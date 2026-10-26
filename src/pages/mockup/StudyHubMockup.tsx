@@ -10,7 +10,7 @@ import "@/pages/study/hub/hub.css";
 import { QuizDoor } from "./QuizDoor";
 const AtlasWindow = lazy(() => import("@/pages/study/hub/AtlasWindow"));
 export default function StudyHubMockup() {
-    return <div className="study-experience study-mockup">
+    return <div className="study-experience study-hub-page">
   <div className="hub">
     <header className="hub-intro">
       <div className="intro-copy">

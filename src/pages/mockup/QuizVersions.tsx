@@ -3,7 +3,7 @@
 // a card on a deck; answering turns its picture over to the verse. 3 The dark stage: a dark band, story-style steps.
 // 4 The twelve: every question on a board, open any. The board (Tiles) and the card (CardDeck) also make the homepage's
 // quiz (HomeQuiz.tsx). Shared parts: QuizParts.tsx; styles: quiz-versions.css.
-import { ArrowLeft, ArrowRight, LayoutGrid } from "lucide-react";
+import { ArrowLeft, ArrowRight, LayoutGrid, X } from "lucide-react";
 import { useState, type CSSProperties } from "react";
 import { QUESTIONS } from "../quiz-data";
 import { Options, Reveal, Steps, Tally, Verdict } from "./QuizParts";
@@ -42,7 +42,8 @@ export function QuizCard() {
 }
 
 /** One question as a card on a deck that thins as the questions are answered; answering turns its picture over to the
- *  verse. The twelve steps run along its top. `onBoard` adds a way back to the board of tiles. */
+ *  verse. The twelve steps run along its top. `onBoard` adds a way back to the board of tiles: the count moves to the
+ *  left of the steps and an X closes the card (owner, 2026-10-22). */
 export function CardDeck({ quiz, onBoard }: { quiz: Quiz; onBoard?: () => void }) {
   const { question } = quiz;
   const turned = Boolean(question && quiz.choice !== null);
@@ -51,8 +52,11 @@ export function CardDeck({ quiz, onBoard }: { quiz: Quiz; onBoard?: () => void }
       <span className="qv-deck-sheet" aria-hidden="true" /><span className="qv-deck-sheet" aria-hidden="true" />
       <article className="qv-card">
         <div className="qv-card-top">
-          {onBoard && <button type="button" className="qv-card-back" onClick={onBoard}><LayoutGrid size={14} aria-hidden />All twelve</button>}
-          <Steps quiz={quiz} /><span>{question ? `${pad(quiz.current + 1)} / ${TOTAL}` : "All done"}</span>
+          {onBoard ? <>
+            <span className="qv-card-count">{question ? `${pad(quiz.current + 1)} / ${TOTAL}` : "All done"}</span>
+            <Steps quiz={quiz} />
+            <button type="button" className="qv-card-close" aria-label="Close, back to all twelve questions" onClick={onBoard}><X size={17} strokeWidth={1.6} /></button>
+          </> : <><Steps quiz={quiz} /><span>{question ? `${pad(quiz.current + 1)} / ${TOTAL}` : "All done"}</span></>}
         </div>
         <div className="qv-card-body" key={quiz.current}>
           <div className="qv-flip" data-turned={turned || undefined}>

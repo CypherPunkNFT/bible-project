@@ -2,45 +2,80 @@
 // It takes the place of the hub's closing "Begin with a question" section in StudyHubMockup.tsx. Built like sections
 // 01 and 02 (owner, 2026-10-24: "a section just like 01 and 02, white and yellow … the same format as all the rest"):
 // the same heading, then one card made like the Writers of Scripture card (hub.css's people-feature), laid out wide
-// with the words on the left and the drawing on the right.
+// with the words on the left and the drawing on the right. Filled out on the owner's word (2026-10-24: "looking super
+// bare … we've got kids, we've got adults, we've got tons of stuff"): who the questions are for, how they are split by
+// difficulty, and the bank's figures along the foot instead of three subject words. The figures come from
+// src/data/question-summary.json (scripts/question-summary.mjs), so the page never loads the 16 MB bank.
+import { Backpack, Users, type LucideIcon } from "lucide-react";
+import { useState, type ComponentType } from "react";
 import { Icon, StudyLink } from "@/pages/study/hub/shared";
+import SUMMARY from "@/data/question-summary.json";
+import { BibleBoardArt } from "./QuizDoorArt";
 import "./quiz-door.css";
 
-export function QuizDoor() {
-  return <section className="hub-section quiz-section" id="questions" aria-labelledby="questions-title">
-    <div className="section-heading"><div><p className="eyebrow">03 / Test what you know</p><h2 id="questions-title">How well do you<br /><em>know the Bible?</em></h2></div><p>Ask a question, find its answer, then remember the passage behind it.</p></div>
+const n = (value: number) => value.toLocaleString("en-US");
+const S = SUMMARY;
+
+/** Who the questions are for: children, and everyone else. One line each: an icon, the title running into its words,
+ *  the count first, in gold, as part of the title (owner, 2026-10-24: "all one line, it's all one margin"; the count
+ *  "before the for children in gold, same font, same size", and bigger icons). */
+const READERS: [LucideIcon, string, string, string][] = [
+  [Backpack, "For children", n(S.children), "Questions from the old Sunday-school question books, catechisms for little children and quizzes for kids; " + n(S.reworded) + " of them reworded in plain words for young readers."],
+  [Users, "For adults and families", n(S.questions - S.children), `From the Heidelberg and Westminster catechisms to quizzes on all ${S.books} books, for a family at the table or a class on a Sunday.`],
+];
+
+/** Under the drawing, the whole bank split by how hard a question is. The split by kind of source ("Where they come
+ *  from") was taken out to give the drawing more room (owner, 2026-10-24: "not really that helpful"). */
+const SPLITS: { title: string; parts: [number, string, string][] }[] = [
+  { title: "How hard they are", parts: [[S.levels.easy, "Easy", "easy"], [S.levels.medium, "Medium", "medium"], [S.levels.hard, "Hard", "hard"]] },
+];
+
+/** One split: a bar in three shades of gold, each part as wide as its share, with its figure and name beneath. Each
+ *  part and its name light up together when pointed at and open the questions page's "Every question" list at that
+ *  difficulty (owner, 2026-10-24). */
+function Split({ title, parts }: (typeof SPLITS)[number]) {
+  const [lit, setLit] = useState<string | null>(null);
+  const hover = (id: string) => ({ onMouseEnter: () => setLit(id), onMouseLeave: () => setLit(null), onFocus: () => setLit(id), onBlur: () => setLit(null) });
+  const to = (id: string) => `/study/questions?d=${id}#qp-explore`;
+  return <div className="quiz-kinds" data-lit={lit ?? undefined}>
+    <p>{title}</p>
+    <div className="quiz-kinds-bar" aria-hidden="true">{parts.map(([count, , id], i) =>
+      <StudyLink key={id} to={to(id)} tabIndex={-1} className={`k-${i}${lit === id ? " is-lit" : ""}`} style={{ flexGrow: count }} {...hover(id)} />)}</div>
+    <ul>{parts.map(([count, label, id], i) => <li key={label} className={`k-${i}${lit === id ? " is-lit" : ""}`}>
+      <StudyLink to={to(id)} aria-label={`${n(count)} ${label.toLowerCase()} questions`} {...hover(id)}><b>{n(count)}</b>{label}</StudyLink>
+    </li>)}</ul>
+  </div>;
+}
+
+/** The bank's figures along the foot of the card. */
+const FIGURES: [string, string][] = [
+  [n(S.questions), "Questions"], [n(S.linked), "Tied to a verse"], [String(S.books), "Books of the Bible"],
+  [n(S.people), "People"], [n(S.places), "Places"], [`AD ${S.oldest.year}`, "Oldest source"],
+];
+
+/** The section, with the open Bible and board drawing by default (owner, 2026-10-24); /quiz_door_mockup shows it once per drawing, each with its own id. */
+export function QuizDoor({ Art = BibleBoardArt, id = "questions" }: { Art?: ComponentType; id?: string }) {
+  return <section className="hub-section quiz-section" id={id} aria-labelledby={`${id}-title`}>
+    <div className="section-heading"><div><p className="eyebrow">03 / Test what you know</p><h2 id={`${id}-title`}>How well do you <em>know the Bible?</em></h2></div><p>Ask a question, find its answer, then remember the passage behind it.</p></div>
     <article className="people-feature quiz-feature">
       <div className="feature-kicker"><span>Questions &amp; answers</span><span>Ask → Answer → Remember</span></div>
       <div className="quiz-feature-body">
         <div className="quiz-feature-words">
           <h3>Questions &amp; Answers</h3>
-          <p>Thousands of questions asked in Sunday schools, catechism classes and Bible quizzes, each with its answer and the passage behind it.</p>
+          <p>For more than four hundred years churches have taught the faith by asking questions: parents at home, teachers in Sunday school, pastors to those about to join the church. Here are {n(S.questions)} of them from {S.collections} collections and five traditions ({S.traditions.join(", ")}), each with the answer its source printed, four choices to pick from, and nearly every one tied to the verse it asks about.</p>
+          <ul className="quiz-readers">{READERS.map(([ReaderIcon, label, figure, line]) => <li key={label}>
+            <ReaderIcon size={28} strokeWidth={1.3} aria-hidden="true" /><p><strong><b>{figure}</b> {label.toLowerCase()}.</strong> {line}</p>
+          </li>)}</ul>
         </div>
-        <div className="quiz-art" aria-hidden="true"><QuizArt /></div>
+        <div className="quiz-feature-side">
+          <StudyLink className="quiz-art" to="/study/questions" tabIndex={-1} aria-hidden="true"><Art /></StudyLink>
+          {SPLITS.map((split) => <Split key={split.title} {...split} />)}
+        </div>
       </div>
-      <div className="people-footer">
-        <ul className="door-subjects"><li>Bible quizzes</li><li>Sunday school lessons</li><li>Catechisms</li></ul>
+      <div className="people-footer quiz-footer">
+        <dl className="quiz-figures">{FIGURES.map(([figure, label]) => <div key={label}><dd>{figure}</dd><dt>{label}</dt></div>)}</dl>
         <StudyLink className="feature-link" to="/study/questions"><span>Explore the questions</span><span className="door-arrow"><Icon name="arrow"/></span></StudyLink>
       </div>
     </article>
   </section>;
-}
-
-function QuizArt() {
-  return <svg viewBox="0 0 580 250" fill="none">
-    <ellipse cx="290" cy="132" rx="215" ry="88" stroke="currentColor" opacity=".08"/>
-    <path d="M88 204H492" stroke="currentColor" opacity=".18"/>
-    <g className="quiz-cards">
-      <rect x="196" y="52" width="196" height="140" rx="9" transform="rotate(-7 294 122)" fill="var(--art-ground)" stroke="currentColor" opacity=".35"/>
-      <rect x="196" y="52" width="196" height="140" rx="9" transform="rotate(4 294 122)" fill="var(--art-ground)" stroke="currentColor" opacity=".5"/>
-      <g className="quiz-front">
-        <rect x="190" y="46" width="208" height="150" rx="10" fill="var(--art-ground)" stroke="currentColor" strokeWidth="1.3"/>
-        <text x="214" y="98" className="quiz-mark">?</text>
-        <g stroke="currentColor" opacity=".45"><path d="M252 72H372"/><path d="M252 82H352"/><path d="M252 92H330"/></g>
-        <g stroke="currentColor"><circle cx="220" cy="125" r="6" opacity=".45"/><path d="M234 125H330" opacity=".3"/><circle cx="220" cy="148" r="6" fill="currentColor" fillOpacity=".16"/><path d="M216.5 148l2.5 2.5 5-5" strokeWidth="1.4"/><path d="M234 148H352" opacity=".6"/><circle cx="220" cy="171" r="6" opacity=".45"/><path d="M234 171H318" opacity=".3"/></g>
-      </g>
-    </g>
-    <g stroke="currentColor" opacity=".4"><path d="M106 70H168M412 92H468M294 212V228"/><circle cx="106" cy="70" r="3" fill="var(--art-ground)"/><circle cx="468" cy="92" r="3" fill="var(--art-ground)"/><circle cx="294" cy="229" r="3" fill="var(--art-ground)"/></g>
-    <text x="74" y="56" className="art-label">ASK</text><text x="440" y="78" className="art-label">ANSWER</text><text x="294" y="249" textAnchor="middle" className="art-label">REMEMBER</text>
-  </svg>;
 }

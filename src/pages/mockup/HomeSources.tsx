@@ -50,10 +50,10 @@ function CountUp({ value, decimals = 0 }: { value: number; decimals?: number }) 
   return <span ref={element}>{shown.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}</span>;
 }
 
-export function HomeSources() {
+export function HomeSources({ number, foot = true }: { number?: string; foot?: boolean }) {
   return <section className="hs home-wrap" aria-labelledby="hs-title">
     <header className="hs-head">
-      <div><p className="home-eyebrow">Sources & references</p>
+      <div><p className="home-eyebrow">{number && <span className="home-number">{number}</span>}Sources & references</p>
         <h2 id="hs-title">Every word, <em>traced to its source.</em></h2></div>
       <p>Nothing here is anonymous. Every edition, book, sermon and map layer is held as it was downloaded, with its licence and its
         origin on record, and credited where it is used. When a source is uncertain, or a place is disputed, we say so.</p>
@@ -72,7 +72,7 @@ export function HomeSources() {
         </Link></li>)}</ul>
     </div>
 
-    <p className="hs-foot"><span>Figures from the dated snapshot of 7 October 2026, not live counters.</span>
-      <Link to="/sources">Explore every source <ArrowUpRight size={15} aria-hidden /></Link></p>
+    {foot && <p className="hs-foot"><span>Figures from the dated snapshot of 7 October 2026, not live counters.</span>
+      <Link to="/sources">Explore every source <ArrowUpRight size={15} aria-hidden /></Link></p>}
   </section>;
 }

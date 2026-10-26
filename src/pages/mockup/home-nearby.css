@@ -1,0 +1,106 @@
+/* MOCK-UP (home_mockup, home_mockup2): "Close to home" (HomeNearby.tsx, NearbyStage.tsx). The heading, with the church
+   and the help as two hairline rows in the standard of the sources section; then the stage that zooms from the USA map
+   into a city's own map, styled by the shared life.css. */
+.hn { margin-top: 150px; }
+.hn-head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 28px clamp(40px, 6vw, 96px); align-items: center; margin-bottom: 56px; }
+.hn-head h2 { font: 400 clamp(32px, 3.4vw, 50px)/1.1 var(--font-serif); letter-spacing: -.02em; margin: 16px 0 0; }
+.hn-head h2 em { color: var(--accent); }
+.hn-head > div > p:last-child { margin: 18px 0 0; max-width: 520px; color: var(--muted); font-size: 14.5px; line-height: 1.85; }
+
+/* The two ways: no boxes, a hairline above and below each, the gold line drawn across the top on hover. */
+.hn-ways { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.hn-ways li { border-bottom: 1px solid var(--line); }
+.hn-ways a { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 18px; padding: 24px 8px 22px 4px; color: inherit; text-decoration: none; transition: background .3s; }
+.hn-ways a::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(.2, .7, .2, 1); }
+.hn-ways a:hover { background: color-mix(in srgb, var(--accent) 5%, transparent); }
+.hn-ways a:hover::before { transform: scaleX(1); }
+.hn-way-top { display: grid; justify-items: center; align-content: start; gap: 10px; padding-top: 3px; color: var(--accent); }
+.hn-way-top span { font: 600 10px var(--font-sans); letter-spacing: .16em; color: var(--muted); }
+.hn-way-copy { display: grid; gap: 7px; }
+.hn-way-copy strong { font: 500 21px/1.25 var(--font-serif); letter-spacing: -.01em; color: var(--ink); }
+.hn-way-copy > span:not(.hn-way-open) { color: var(--muted); font-size: 13.5px; line-height: 1.65; }
+.hn-way-open { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font: 600 10px var(--font-sans); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.hn-way-open svg { transition: transform .3s; }
+.hn-ways a:hover .hn-way-open svg { transform: translateX(4px); }
+.hn-ways a:focus-visible { outline: none; }
+
+/* The stage: the two views share one place; the one leaving lies over it while the zoom runs. */
+.hn-stage { position: relative; display: grid; padding-top: 2.4rem; border-top: 1px solid var(--line); scroll-margin-top: 90px; }
+/* While it moves, nothing in it answers the pointer, so a wheel turn cannot fight the flight. */
+.hn-stage:not([data-phase="usa"]):not([data-phase="city"]) { overflow: clip; pointer-events: none; }
+.hn-layer { grid-area: 1 / 1; min-width: 0; }
+/* Laid out in the stage's one grid cell (its containing block, below the padding), so inset 0 puts it exactly where the
+   view in flow sits; 2.4rem here once put a waiting city map 38px low, and the zoom landed there. */
+.hn-layer[data-under] { position: absolute; inset: 0 0 auto; pointer-events: none; }
+/* A waiting view is kept painted but see-through (not visibility: hidden), so showing it costs no first paint mid-move;
+   inert keeps it out of reach. */
+.hn-layer[data-hidden] { position: absolute; inset: 0 0 auto; opacity: .001; pointer-events: none; }
+.hn-layer { will-change: opacity; }
+.hn-usa .lf-usa { overflow: clip; }
+.hn-info { display: grid; gap: 22px; justify-items: start; }
+.hn-open { display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; border: 0; border-radius: 999px; background: var(--accent); color: var(--page); font: 600 14px var(--font-sans); cursor: pointer;
+  transition: transform .25s, box-shadow .25s; }
+.hn-open:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -18px rgb(60 40 10 / .6); }
+.hn-open:focus-visible, .hn-bar button:focus-visible { outline: none; }
+
+/* The city view's bar: the way back, and where we are. */
+.hn-bar { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px 24px; margin-bottom: 1.4rem; }
+.hn-bar button { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: none; color: var(--accent); font: 600 11px var(--font-sans); letter-spacing: .16em; text-transform: uppercase; cursor: pointer; }
+.hn-bar button svg { transition: transform .3s; }
+.hn-bar button:hover svg { transform: translateX(-4px); }
+.hn-bar p { margin: 0; font: 400 clamp(22px, 2.2vw, 30px)/1.2 var(--font-serif); letter-spacing: -.015em; color: var(--muted); }
+.hn-bar strong { font-weight: 400; color: var(--ink); }
+.hn-bar span { margin-left: 14px; font: 500 13px var(--font-sans); letter-spacing: 0; }
+
+@media (max-width: 860px) {
+  .hn { margin-top: 100px; }
+  .hn-head { grid-template-columns: minmax(0, 1fr); }
+  .hn-bar span { display: block; margin: 4px 0 0; }
+}
+@media (prefers-reduced-motion: reduce) { .hn-ways a::before, .hn-way-open svg, .hn-open, .hn-bar button svg { transition: none; } }
+
+/* The USA view: the map as wide as leaves the facts readable (NearbyStage.tsx, fitBeside), and its block as tall as the
+   facts, so its credit line and zoom buttons sit level with the "Open the map" button (owner, 2026-10-23). */
+@media (min-width: 901px) {
+  .hn-usa .lf-city-top > .lf-usa { align-self: stretch; display: flex; flex-direction: column; }
+  .hn-usa .lf-usa .lf-stage { flex: 1; }
+  /* The zoom buttons end on the block's last line, level with the button's bottom (the credit line is .55rem + 2.4rem). */
+  .hn-usa .lf-usa .lf-zoom { top: auto; bottom: -2.95rem; }
+}
+
+/* Loading a city's files before its zoom: a ring turning on its dot (placed by NearbyStage.tsx) and on the button. The
+   ring is turned by a transform, which keeps turning on its own layer while the page is busy drawing the city's map. */
+.hn-loading { position: absolute; z-index: 3; width: 0; height: 0; pointer-events: none; animation: hn-in .3s ease-out both; }
+.hn-loading i { position: absolute; left: -17px; top: -17px; width: 34px; height: 34px; border-radius: 50%; border: 2px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  border-top-color: var(--accent); animation: hn-turn .8s linear infinite; will-change: transform; }
+.hn-loading span { position: absolute; top: 24px; left: 0; transform: translateX(-50%); padding: 3px 9px; border-radius: 999px; background: color-mix(in srgb, var(--page) 88%, transparent);
+  white-space: nowrap; font: 600 11px var(--font-sans); letter-spacing: .04em; color: var(--ink); }
+.hn-open[aria-busy] { cursor: progress; }
+.hn-open i { width: 14px; height: 14px; border-radius: 50%; border: 2px solid color-mix(in srgb, var(--page) 35%, transparent); border-top-color: var(--page); animation: hn-turn .8s linear infinite; }
+@keyframes hn-turn { to { transform: rotate(1turn); } }
+@keyframes hn-in { from { opacity: 0; } }
+
+/* The list of places: a place out of sight in the list is not laid out until it scrolls near, so drawing a city's map
+   and showing it at the end of the zoom stay quick (measured, 2026-10-23: laying out all 245 rows of Jacksonville took
+   about 200ms of the 360ms that drawing its map stalled the page). */
+.hn-city .lf-city-list .lf-row { content-visibility: auto; contain-intrinsic-size: auto 190px; }
+
+/* The city view: its bar at the top of the right-hand column (where the USA view has the city's name), so both maps
+   start on the same line and the map does not drop as it opens (owner, 2026-10-23); the places panel below the bar,
+   ending with the map. CityMap's own grid is dissolved into this one. */
+@media (min-width: 901px) {
+  .hn-city { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); column-gap: 2.6rem; }
+  .hn-city .lf-city-main { display: contents; }
+  .hn-city .lf-city-main > .lf-mapframe { display: block; grid-column: 1; grid-row: 1 / 3; }
+  .hn-city .hn-bar { grid-column: 2; grid-row: 1; flex-direction: column; align-items: flex-start; gap: .7rem; }
+  .hn-city .lf-places { grid-column: 2; grid-row: 2; }
+}
+
+/* While a move runs the USA map is laid over the city map's frame too (NearbyStage.tsx, spread): its figure must not
+   clip it, and its zoom buttons and credit line step aside. */
+.hn-stage:is([data-phase="opening"], [data-phase="closing"]) .hn-usa .lf-usa { overflow: visible; }
+.hn-usa :is(figcaption, .lf-zoom) { transition: opacity .3s; }
+.hn-stage:not([data-phase="usa"]) .hn-usa :is(figcaption, .lf-zoom) { opacity: 0; }
+
+/* The zoom ticker (mock-up only, NearbyTicker.tsx): the Atlas ticker's look, plus a second row of choices. */
+.hn-ticker .transition-ticker-speed + .transition-ticker-speed { margin-top: 6px; }

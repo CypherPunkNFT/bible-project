@@ -44,10 +44,10 @@
 .study-experience .quiz-kinds+.quiz-kinds{margin-top:30px}
 .study-experience .quiz-kinds>p{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
 .study-experience .quiz-kinds-bar{display:flex;gap:3px;height:8px}
-.study-experience .quiz-kinds-bar>span{border-radius:1px;background:var(--tone)}
+.study-experience .quiz-kinds-bar>*{display:block;border-radius:1px;background:var(--tone)}
 .study-experience .quiz-kinds .k-1{--k:color-mix(in srgb,var(--tone) 62%,var(--surface))}
 .study-experience .quiz-kinds .k-2{--k:color-mix(in srgb,var(--tone) 32%,var(--surface))}
-.study-experience .quiz-kinds-bar>span.k-1,.study-experience .quiz-kinds-bar>span.k-2{background:var(--k)}
+.study-experience .quiz-kinds-bar>.k-1,.study-experience .quiz-kinds-bar>.k-2{background:var(--k)}
 .study-experience .quiz-kinds ul{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:12px;font-size:11px;color:var(--muted)}
 .study-experience .quiz-kinds li{display:flex;align-items:baseline;gap:7px}
 .study-experience .quiz-kinds li::before{content:"";width:8px;height:8px;border-radius:1px;background:var(--k,var(--tone));align-self:center}
@@ -101,3 +101,15 @@
 .study-experience .quiz-lead-stretch{transform-box:fill-box;transform-origin:50% 100%;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
 .study-experience .quiz-feature:hover .quiz-lead-stretch{transform:scaleY(calc(1 + 10 / var(--lead-length)))}
 @media(prefers-reduced-motion:reduce){.study-experience .quiz-lead-stretch{transition:none}}
+/* The difficulty bar opens the questions list at that level (owner, 2026-10-24): it sits above the card's whole-card link
+   layer; pointing at a part or its name lights both (the bar grows from its middle line, so nothing moves) and dims the rest. */
+.study-experience .quiz-feature .quiz-kinds{pointer-events:auto;z-index:2}
+.study-experience .quiz-feature .quiz-kinds-bar>*{transition:opacity .2s,transform .2s;cursor:pointer}
+.study-experience .quiz-feature .quiz-kinds li{transition:opacity .2s}
+.study-experience .quiz-feature .quiz-kinds li>a{display:flex;align-items:baseline;gap:7px;color:inherit;transition:color .2s}
+.study-experience .quiz-feature .quiz-kinds[data-lit] .quiz-kinds-bar>:not(.is-lit),.study-experience .quiz-feature .quiz-kinds[data-lit] li:not(.is-lit){opacity:.35}
+.study-experience .quiz-feature .quiz-kinds .quiz-kinds-bar>.is-lit{transform:scaleY(1.6)}
+.study-experience .quiz-feature .quiz-kinds li.is-lit>a{color:var(--ink)}
+.study-experience .quiz-feature .quiz-kinds li.is-lit b{color:var(--tone)}
+/* The two gold counts, children's and adults', a little larger than the words they lead (owner, 2026-10-24). */
+.study-experience .quiz-feature .quiz-readers strong b{font-size:1.3em;line-height:1}

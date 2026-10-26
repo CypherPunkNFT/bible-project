@@ -56,16 +56,27 @@
 .hq-verdict-title { font-size: clamp(34px, 3.4vw, 52px) !important; }
 
 /* The drawings: drawn in, then one part keeps moving. */
-.qs-scene :is(path, rect, circle) { stroke-dasharray: 900; stroke-dashoffset: 900; animation: qs-draw 1.8s cubic-bezier(.4, .1, .2, 1) forwards; }
+.qs-scene :is(path, rect, circle, ellipse) { stroke-dasharray: 900; stroke-dashoffset: 900; animation: qs-draw 1.8s cubic-bezier(.4, .1, .2, 1) forwards; }
 .qs-scene .qs-faint { color: var(--muted); opacity: .55; }
 .qs-scene .qs-paper { fill: var(--surface, #fff); }
 .qs-scene .qs-sand { fill: color-mix(in srgb, var(--accent) 30%, transparent); stroke: none; }
+/* A line longer than the usual dash (the whirlwind's coil) draws in over its whole length. */
+.qs-scene .qs-long { stroke-dasharray: 3200; stroke-dashoffset: 3200; animation-duration: 2.6s; }
 .qs-scene .qs-dots { stroke-dasharray: 2 4; stroke-dashoffset: 0; animation: none; }
 .qs-scene .qs-stream { stroke-dasharray: 3 6; stroke-dashoffset: 0; animation: qs-stream .9s linear infinite; }
 .qs-scene circle.qs-accent { fill: var(--accent); }
 .qs-sway { animation: qs-sway 5s ease-in-out infinite; }
 .qs-float { animation: qs-float 6s ease-in-out infinite; }
 .qs-drift { animation: qs-drift 7s ease-in-out infinite; }
+.qs-swell { animation: qs-swell 4.4s ease-in-out infinite; }
+.qs-wind { animation: qs-wind 5s ease-in-out infinite; }
+.qs-swirl { animation: qs-swirl 3s ease-in-out infinite; }
+.qs-turn { animation: qs-turn 6s linear infinite; }
+.qs-rise { animation: qs-rise 5s ease-in-out infinite; }
+.qs-sway-x { animation: qs-swell 4.4s ease-in-out infinite, qs-sway-x 7s ease-in-out infinite; }
+.qs-ripple { animation: qs-ripple 2.6s ease-out infinite; }
+.qs-tear { animation: qs-tear 2.6s ease-in infinite; }
+.qs-scene .qs-tearfill { fill: color-mix(in srgb, var(--accent) 16%, transparent); }
 .qs-twinkle { animation: qs-twinkle 3.2s ease-in-out infinite; }
 .qs-spin { animation: qs-spin 4s ease-in-out infinite; }
 .qs-fall { animation: qs-fall 6s ease-in-out infinite; }
@@ -86,14 +97,23 @@
 @keyframes qs-write { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-30px, 2px); } }
 @keyframes qs-wiggle { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
 @keyframes qs-drip { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 75% { opacity: 1; } 100% { transform: translateY(70px); opacity: 0; } }
-@keyframes qs-fly { from { transform: translateX(-60px); } to { transform: translateX(360px); } }
+/* Every movement stays inside the drawing's own frame, so nothing crosses the edge of a card (owner, 2026-10-22). */
+@keyframes qs-fly { 0% { transform: translateX(0); opacity: 0; } 12% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateX(220px); opacity: 0; } }
+@keyframes qs-swell { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes qs-wind { 0%, 100% { transform: translateX(0); opacity: .2; } 50% { transform: translateX(16px); opacity: 1; } }
+@keyframes qs-swirl { 0%, 100% { transform: translateX(-4px) skewX(3deg); } 50% { transform: translateX(4px) skewX(-3deg); } }
+@keyframes qs-turn { to { transform: rotate(360deg); } }
+@keyframes qs-sway-x { 0%, 100% { translate: -5px 0; } 50% { translate: 5px 0; } }
+@keyframes qs-ripple { 0% { transform: scale(.4); opacity: 0; } 30% { opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
+@keyframes qs-tear { 0% { transform: translateY(-6px); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(46px); opacity: 0; } }
+@keyframes qs-rise { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-4px, -10px); } }
 @keyframes hq-in { from { opacity: 0; transform: translateY(10px); } }
 @keyframes hq-numeral { from { opacity: 0; transform: translateY(-50%) scale(.94); } }
 
 @media (max-width: 1100px) { .hq-stage { grid-template-columns: minmax(0, 1fr); padding-block: 32px; } .hq-scene { min-height: 280px; } }
 @media (max-width: 640px) { .hq-options { grid-template-columns: minmax(0, 1fr); } .hq-tally { gap: 22px; } .hq-tally strong { font-size: 36px; } }
 @media (prefers-reduced-motion: reduce) {
-  .qs-scene :is(path, rect, circle) { animation: none; stroke-dashoffset: 0; }
+  .qs-scene :is(path, rect, circle, ellipse) { animation: none; stroke-dashoffset: 0; }
   .qs-scene *, .hq-numeral, .hq-body, .hq-reveal { animation: none !important; }
   .hq-options button, .hq-options button::after, .hq-next { transition: none; }
 }
