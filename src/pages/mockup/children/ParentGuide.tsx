@@ -4,7 +4,7 @@
 // sheet: what to read first, then each question with its answer, the other choices and its verse. On a phone the
 // list becomes one drop-down. "Start with your child" opens the lesson panel as the rest of the page does. Collapsed
 // until "Open the whole course", a part at the top, or a lesson's "See all the questions" opens it (owner, 2026-10-24).
-import { ArrowLeft, ArrowRight, BookOpen, Check, ChevronDown } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, BookOpen, Check, ChevronDown } from "lucide-react";
 import { useId, useRef, type ComponentType } from "react";
 import { Link } from "react-router-dom";
 import { rightChoice } from "@/lib/data";
@@ -57,7 +57,7 @@ export function CourseHead({ lessons, groups, total, expanded, onExpand, onPick,
     <div className="ch-list">
       <ol>{groups.map(({ part, lessons: ls }) => <li key={part.id} style={toneStyle(part.tone)}>
         <button type="button" aria-current={part.id === here?.id ? "true" : undefined} onClick={() => onPick(part.id === here?.id && current ? current : ls[0])}><i aria-hidden /><span className="ch-part"><strong>{part.title}</strong>
-          <small>{ls.length} lessons · {ls.reduce((n, l) => n + l.questions.length, 0)} questions</small></span><ArrowRight size={15} aria-hidden /></button>
+          <small>{ls.length} lessons · {ls.reduce((n, l) => n + l.questions.length, 0)} questions</small></span><ArrowDown size={15} aria-hidden /></button>
       </li>)}</ol>
     </div>
   </header>;
@@ -104,18 +104,27 @@ export function ParentGuide({ lessons, groups, progress, bookNames, onOpen, expa
   const courseId = Head === CourseHead ? "pg-course" : `pg-course${uid}`, titleId = `pg-title${uid}`;
   const pick = (lesson: Lesson) => { onChoose(lesson.id); onExpand(true); };
   return <section className="ck-wrap pg" aria-labelledby={titleId}>
-    <Head lessons={lessons} groups={groups} total={total} expanded={expanded} onExpand={onExpand} onPick={pick} titleId={titleId} courseId={courseId} current={current} />
+    {/* Once the course is open, its top marks the part the course is at; before, the part being looked at above. */}
+    <Head lessons={lessons} groups={groups} total={total} expanded={expanded} onExpand={onExpand} onPick={pick} titleId={titleId} courseId={courseId} current={expanded ? chosen : current} />
     {expanded && <div className="pg-grid" id={courseId}>
       <nav className="pg-rail" aria-label="Every lesson">
-        {groups.map(({ part, lessons: ls }) => <div key={part.id} className="pg-part" style={toneStyle(part.tone)}>
-          <p className="pg-part-name"><i aria-hidden />{part.title}<small>{ls.length}</small></p>
-          <ol>{ls.map((l) => <li key={l.id}>
-            <button type="button" aria-current={l.id === chosen.id ? "true" : undefined} onClick={() => choose(l)}>
-              <span className="pg-n">{l.n}</span><span className="pg-title">{l.title}</span>
-              {progress[l.id] && <Check size={14} strokeWidth={2.2} aria-label="done" />}
-            </button>
-          </li>)}</ol>
-        </div>)}
+        {/* Only the part the course is at shows its lessons; the others fold to their names, and choosing one opens it
+            at its first lesson (owner, 2026-10-25: "whichever we're on should be expanded, all the other sections
+            should be collapsed"). */}
+        {groups.map(({ part, lessons: ls }) => part.id === chosen.part.id
+          ? <div key={part.id} className="pg-part" style={toneStyle(part.tone)}>
+            <p className="pg-part-name"><i aria-hidden />{part.title}<small>{ls.length}</small><ChevronDown className="pg-part-spacer" size={14} aria-hidden /></p>
+            <ol>{ls.map((l) => <li key={l.id}>
+              <button type="button" aria-current={l.id === chosen.id ? "true" : undefined} onClick={() => choose(l)}>
+                <span className="pg-n">{l.n}</span><span className="pg-title">{l.title}</span>
+                {progress[l.id] && <Check size={14} strokeWidth={2.2} aria-label="done" />}
+              </button>
+            </li>)}</ol>
+          </div>
+          : <div key={part.id} className="pg-part pg-part-folded" style={toneStyle(part.tone)}>
+            <button type="button" className="pg-part-name" aria-expanded={false} onClick={() => choose(ls[0])}>
+              <i aria-hidden />{part.title}<small>{ls.length}</small><ChevronDown size={14} strokeWidth={2} aria-hidden /></button>
+          </div>)}
       </nav>
       <label className="pg-select">
         <span>Lesson</span>
