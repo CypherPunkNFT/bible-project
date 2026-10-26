@@ -1,3 +1,17 @@
+## Audio Bible verse timings — registered 25 October 2026 (local preview only; nothing published)
+
+The Read alongside panel on `/listen/asv` highlights the verse being read. The verse start times were worked out
+once, on this PC, from the public-domain LibriVox ASV recording and the public-domain ASV text already listed here.
+The tools below made them and are not part of the site; only the resulting times
+(`src/data/listen/asv-timing/`, about 400 KB) are. How: [Plans/AUDIO-FOLLOW-ALONG.md](../Plans/AUDIO-FOLLOW-ALONG.md).
+
+| What | How it was used | Licence / terms |
+|---|---|---|
+| Qwen3-ASR-1.7B (Alibaba Qwen, Hugging Face `Qwen/Qwen3-ASR-1.7B`, revision `7278e1e70fe2`) | Speech-to-text of the recording, run locally | **Apache 2.0** |
+| Qwen3-ForcedAligner-0.6B (`Qwen/Qwen3-ForcedAligner-0.6B`, revision `c7cbfc2048c4`) | The time of every spoken word, run locally | **Apache 2.0** |
+| `qwen-asr` 0.0.6 (Python package from QwenLM) | Runs the two models | **Apache 2.0** |
+| Whisper large-v3 (OpenAI) through `faster-whisper` 1.2.1 | An independent check of sampled verse starts | **MIT** (model and package) |
+
 ## Bible Guide phone app — registered 2026-10-24 (on the PC and the test emulator only; nothing published)
 
 The app in [App/](../App/DESIGN.md) ships its own copy of six Bible texts, built from this site's generated
