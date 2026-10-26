@@ -151,8 +151,21 @@
 .ck-mix-path{display:flex;flex-direction:column;min-height:calc(100svh - 64px);scroll-margin-top:64px;padding-block:28px 32px}
 .ck-mix-path-body{flex:1;display:flex;flex-direction:column;justify-content:flex-start;padding-block:28px 40px}
 .ck-mix-path .ck-path{flex:none}
-.ck-mix-all{align-self:flex-end;margin-top:auto;display:inline-flex;align-items:center;gap:6px;margin-right:72px;padding:6px 12px;border:1px solid color-mix(in srgb,var(--tone) 50%,transparent);border-radius:999px;background:none;font-size:12px !important;font-weight:600 !important;color:var(--tone) !important;cursor:pointer;transition:background .2s}
-.ck-mix-all:hover{background:color-mix(in srgb,var(--tone) 8%,transparent)}
+/* The road's end: a hexagon in the next part's colour holding its drawing; choosing it brings that part in (PathView.tsx) */
+.ck-hex{position:relative;display:block;width:var(--ck-node,56px);height:var(--ck-node,56px);transition:transform .2s,filter .2s}
+.ck-hex>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ck-hex polygon{fill:var(--surface);stroke:var(--tone);stroke-width:2;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.ck-hex-art{position:absolute;inset:24% 18%;display:grid;place-items:center;color:var(--tone)}
+.ck-hex-art svg{width:100%;height:auto;stroke-width:3.4}
+.ck-path button:hover .ck-hex,.ck-path button[data-near] .ck-hex{transform:scale(1.08);filter:drop-shadow(0 0 18px color-mix(in srgb,var(--tone) 55%,transparent))}
+.ck-onward .ck-node-title small{display:block;font-size:11px;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:var(--tone)}
+/* A part's road coming in (it is drawn anew when the part changes): the line fades in and the stops rise in one after
+   another, the first eight a beat apart */
+.ck-path>svg{animation:ck-road-in .9s ease both}
+.ck-path li>button{animation:ck-stop-in .55s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(min(var(--i,0),8) * 80ms)}
+@keyframes ck-road-in{from{opacity:0}}
+@keyframes ck-stop-in{from{opacity:0;transform:translateY(14px) scale(.9)}}
+@media (prefers-reduced-motion:reduce){.ck-path>svg,.ck-path li>button{animation:none}}
 .ck-node-wrap{position:relative;display:block}
 .ck-node-icon svg{display:block}
 /* E's circles: none shows a highlighted inside; the one under the pointer grows and glows (and keeps that while its

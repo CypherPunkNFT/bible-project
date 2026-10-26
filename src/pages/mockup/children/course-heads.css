@@ -55,6 +55,10 @@
 .ch-list small{font:500 12px/1 var(--sans,inherit);letter-spacing:.02em;color:var(--muted)}
 .ch-list button svg{color:var(--tone);opacity:0;transform:translateX(-4px);transition:opacity .2s,transform .2s}
 .ch-list button:hover svg{opacity:1;transform:none}
+/* The part being looked at above, chosen (ParentGuide.tsx CourseHead) */
+.ch-list button[aria-current]{padding-left:12px;background:linear-gradient(90deg,color-mix(in srgb,var(--tone) 16%,transparent),transparent)}
+.ch-list button[aria-current] strong{color:var(--tone)}
+.ch-list button[aria-current] svg{opacity:1;transform:none}
 
 /* 4. A sheet from the course, tilted, fading at its foot */
 .ch-sheet{position:relative;display:block;justify-self:center;width:min(100%,460px);padding:0;border:0;background:none;text-align:left;color:var(--ink);cursor:pointer}

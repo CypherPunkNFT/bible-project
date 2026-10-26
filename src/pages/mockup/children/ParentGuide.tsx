@@ -21,19 +21,28 @@ export interface CourseHeadProps {
   lessons: Lesson[]; groups: PartLessons[]; total: number; expanded: boolean; onExpand: (expanded: boolean) => void;
   /** Opens the course at this lesson. */
   onPick: (lesson: Lesson) => void; titleId: string; courseId: string;
+  /** The lesson being looked at above, if any: its part shows chosen, and the button opens the course at it. */
+  current?: Lesson | null;
 }
+
+/** "Open the Creation course", "Open the church course". */
+const openLabel = (title: string) => `Open the ${title.replace(/^The /, "")} course`;
 
 interface Props {
   lessons: Lesson[]; groups: PartLessons[]; progress: Progress; bookNames: Record<string, string>; onOpen: (lesson: Lesson) => void;
   expanded: boolean; onExpand: (expanded: boolean) => void; chosenId: string | null; onChoose: (id: string) => void;
   /** Another top for the section (the mock-up's versions); the course under it is the same. */
   Head?: ComponentType<CourseHeadProps>;
+  current?: Lesson | null;
 }
 
 /** The page's top, "contents beside it" (the owner's pick from four, 2026-10-25, the design captioned "Version 3" on the
  *  versions page: "should be number 3. You put in number 4"): the words and the button on the left, the eight parts as a
  *  ruled list in their colours on the right, each opening the course at its first lesson. Styles: course-heads.css. */
-export function CourseHead({ lessons, groups, total, expanded, onExpand, onPick, titleId, courseId }: CourseHeadProps) {
+export function CourseHead({ lessons, groups, total, expanded, onExpand, onPick, titleId, courseId, current }: CourseHeadProps) {
+  // The part being looked at above is chosen in the list, and the button opens its course (owner, 2026-10-25: "if
+  // we're on creation … that needs to be selected … instead of open the whole course, it should be open creation course").
+  const here = current?.part;
   return <header className="ch ch-contents">
     <div className="ch-words">
       <p className="ck-eyebrow">For parents and teachers</p>
@@ -42,12 +51,12 @@ export function CourseHead({ lessons, groups, total, expanded, onExpand, onPick,
         the right answer and the other choices your child will see.</p>
       {/* The course's figures under the words, above the button; each part's own under its name, in two columns (owner, 2026-10-25). */}
       <p className="ch-total"><b>{lessons.length}</b> lessons<span aria-hidden>·</span><b>{total.toLocaleString()}</b> questions</p>
-      <button type="button" className="ch-open ch-open-solid" aria-expanded={expanded} aria-controls={courseId} onClick={() => onExpand(!expanded)}>
-        {expanded ? "Close the course" : "Open the whole course"}<ChevronDown size={18} strokeWidth={1.8} aria-hidden /></button>
+      <button type="button" className="ch-open ch-open-solid" aria-expanded={expanded} aria-controls={courseId} onClick={() => (expanded || !current ? onExpand(!expanded) : onPick(current))}>
+        {expanded ? "Close the course" : here ? openLabel(here.title) : "Open the whole course"}<ChevronDown size={18} strokeWidth={1.8} aria-hidden /></button>
     </div>
     <div className="ch-list">
       <ol>{groups.map(({ part, lessons: ls }) => <li key={part.id} style={toneStyle(part.tone)}>
-        <button type="button" onClick={() => onPick(ls[0])}><i aria-hidden /><span className="ch-part"><strong>{part.title}</strong>
+        <button type="button" aria-current={part.id === here?.id ? "true" : undefined} onClick={() => onPick(part.id === here?.id && current ? current : ls[0])}><i aria-hidden /><span className="ch-part"><strong>{part.title}</strong>
           <small>{ls.length} lessons · {ls.reduce((n, l) => n + l.questions.length, 0)} questions</small></span><ArrowRight size={15} aria-hidden /></button>
       </li>)}</ol>
     </div>
@@ -80,7 +89,7 @@ export function GlanceHead({ lessons, groups, total, expanded, onExpand, onPick,
   </header>;
 }
 
-export function ParentGuide({ lessons, groups, progress, bookNames, onOpen, expanded, onExpand, chosenId, onChoose, Head = CourseHead }: Props) {
+export function ParentGuide({ lessons, groups, progress, bookNames, onOpen, expanded, onExpand, chosenId, onChoose, Head = CourseHead, current }: Props) {
   const chosen = lessons.find((l) => l.id === chosenId) ?? nextLesson(lessons, progress);
   const sheet = useRef<HTMLDivElement>(null);
   const at = lessons.indexOf(chosen);
@@ -95,7 +104,7 @@ export function ParentGuide({ lessons, groups, progress, bookNames, onOpen, expa
   const courseId = Head === CourseHead ? "pg-course" : `pg-course${uid}`, titleId = `pg-title${uid}`;
   const pick = (lesson: Lesson) => { onChoose(lesson.id); onExpand(true); };
   return <section className="ck-wrap pg" aria-labelledby={titleId}>
-    <Head lessons={lessons} groups={groups} total={total} expanded={expanded} onExpand={onExpand} onPick={pick} titleId={titleId} courseId={courseId} />
+    <Head lessons={lessons} groups={groups} total={total} expanded={expanded} onExpand={onExpand} onPick={pick} titleId={titleId} courseId={courseId} current={current} />
     {expanded && <div className="pg-grid" id={courseId}>
       <nav className="pg-rail" aria-label="Every lesson">
         {groups.map(({ part, lessons: ls }) => <div key={part.id} className="pg-part" style={toneStyle(part.tone)}>

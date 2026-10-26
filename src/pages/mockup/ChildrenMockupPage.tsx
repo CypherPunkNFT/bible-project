@@ -47,12 +47,14 @@ function ChildrenBody({ bank }: { bank: QuestionBank }) {
     if (reveal) document.getElementById("pg-course")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [reveal]);
   const showGuide = (lesson: Lesson) => { setGuideId(lesson.id); setGuideOpen(true); setReveal((n) => n + 1); };
+  // The lesson in the card above, so the course's top shows its part chosen and opens at it.
+  const [current, setCurrent] = useState<Lesson | null>(null);
   const next = open ? lessons[lessons.indexOf(open) + 1] ?? null : null;
   return <div className="ck" data-open={open ? "" : undefined}>
     {versions ? <CourseHeadsPage lessons={lessons} groups={groups} progress={progress} bookNames={bookNames} onOpen={setOpen} /> : <>
-      <MixedView {...props} bookNames={bookNames} onGuide={showGuide} onFinish={(lesson, right, total) => save(lesson.id, right, total)} />
+      <MixedView {...props} bookNames={bookNames} onGuide={showGuide} onFinish={(lesson, right, total) => save(lesson.id, right, total)} onChosen={setCurrent} />
       <ParentGuide lessons={lessons} groups={groups} progress={progress} bookNames={bookNames} onOpen={setOpen}
-        expanded={guideOpen} onExpand={setGuideOpen} chosenId={guideId} onChoose={setGuideId} />
+        expanded={guideOpen} onExpand={setGuideOpen} chosenId={guideId} onChoose={setGuideId} current={current} />
     </>}
     {open && <LessonPanel lesson={open} bookNames={bookNames} next={next} onClose={close} onOpen={setOpen}
       onFinish={(right, total) => save(open.id, right, total)} />}

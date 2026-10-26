@@ -2,10 +2,10 @@
 // lesson by lesson. A finished lesson is filled in its part's colour; the next one to do carries the page's one glow.
 // Also the plain top shared by directions A, C and D.
 import { ArrowLeft, Check } from "lucide-react";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { PartArt } from "./part-art";
-import { nextLesson, toneStyle, type Lesson, type PartLessons } from "./data";
+import { nextLesson, toneStyle, type Lesson, type Part, type PartLessons } from "./data";
 import { LessonArt } from "./lesson-art";
 import type { Progress } from "./progress";
 import { layRoad, useRoad, useTraveller } from "./road";
@@ -52,12 +52,17 @@ export function PathView({ lessons, groups, progress, openId, onOpen }: ViewProp
   </div>;
 }
 
+/** Where a part's road leads when it ends: the next part, and what choosing it does. */
+export interface Onward { part: Part; onGo: () => void }
+
 /** The lessons along one winding road, its own for each part (road.ts), with a wave that flows along it as the page
  * scrolls and lights each lesson it passes through. With `art` (E) each circle holds the lesson's line drawing and its number sits
- * just outside it. */
-export function Path({ lessons, progress, next, openId, onOpen, art }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void; art?: boolean }) {
-  const shape = useRoad(lessons.length, art), seed = lessons[0]?.id ?? "";
-  const road = useMemo(() => layRoad(lessons.length, shape, seed), [lessons.length, shape, seed]);
+ * just outside it. With `onward` the road ends in a hexagon in the next part's colour, holding its drawing (owner,
+ * 2026-10-25: "a final circle or something else than a circle. Maybe a hexagon … for the next lesson"). */
+export function Path({ lessons, progress, next, openId, onOpen, art, onward }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void; art?: boolean; onward?: Onward }) {
+  const stops = lessons.length + (onward ? 1 : 0);
+  const shape = useRoad(stops, art), seed = lessons[0]?.id ?? "";
+  const road = useMemo(() => layRoad(stops, shape, seed), [stops, shape, seed]);
   const { points, d, height } = road;
   const box = useRef<HTMLDivElement>(null), wave = useRef<SVGPathElement>(null), halo = useRef<SVGPathElement>(null);
   const near = useTraveller(box, wave, halo, road);
@@ -68,7 +73,7 @@ export function Path({ lessons, progress, next, openId, onOpen, art }: { lessons
     </svg>
     <ol>{lessons.map((lesson, i) => {
       const done = progress[lesson.id];
-      return <li key={lesson.id} style={{ left: `${points[i].x / 10}%`, top: `${(points[i].y / height) * 100}%` }}>
+      return <li key={lesson.id} style={{ left: `${points[i].x / 10}%`, top: `${(points[i].y / height) * 100}%`, "--i": i } as CSSProperties}>
         <button type="button" data-lesson={lesson.id} data-done={done ? "" : undefined} data-next={lesson.id === next.id ? "" : undefined} data-near={i === near ? "" : undefined} aria-pressed={lesson.id === openId}
           onClick={() => onOpen(lesson)} aria-label={`Lesson ${lesson.n}: ${lesson.title}${done ? `, ${done.right} of ${done.total} right` : ""}`}>
           {art ? <span className="ck-node-wrap"><span className="ck-node ck-node-icon"><LessonArt lesson={lesson} /></span><span className="ck-node-n" aria-hidden>{lesson.n}</span>{done && <Check className="ck-node-check" size={20} strokeWidth={2.6} aria-hidden />}</span>
@@ -76,6 +81,13 @@ export function Path({ lessons, progress, next, openId, onOpen, art }: { lessons
           <span className="ck-node-title">{lesson.title}</span>
         </button>
       </li>;
-    })}</ol>
+    })}
+    {onward && <li className="ck-onward" style={{ ...toneStyle(onward.part.tone), left: `${points[lessons.length].x / 10}%`, top: `${(points[lessons.length].y / height) * 100}%`, "--i": lessons.length } as CSSProperties}>
+      <button type="button" data-near={near === lessons.length ? "" : undefined} onClick={onward.onGo} aria-label={`Next part: ${onward.part.title}`}>
+        <span className="ck-hex"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="50 1 92.4 25.5 92.4 74.5 50 99 7.6 74.5 7.6 25.5" /></svg>
+          <span className="ck-hex-art"><PartArt part={onward.part} /></span></span>
+        <span className="ck-node-title"><small>Next part</small>{onward.part.title}</span>
+      </button>
+    </li>}</ol>
   </div>;
 }

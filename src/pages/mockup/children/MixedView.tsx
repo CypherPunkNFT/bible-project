@@ -5,10 +5,11 @@
 // button opens every question with its answer in the course below. Start the quiz only goes down to the path and lights
 // the lesson's circle for two seconds, as a hover would; it opens nothing (owner, 2026-10-24). Choosing a circle zooms
 // into it and the quiz then fills the screen (LessonStage.tsx; owner, 2026-10-24).
-// The path's section is a screen tall, so the course below stays out of sight; a small See all questions at its foot
-// goes down to it.
+// The path's section is a screen tall, so the course below stays out of sight. The road ends in a hexagon for the next
+// part: choosing it brings that part in, its road coming in from the top (owner, 2026-10-25). The lesson in the card is
+// reported up, so the parents' course below can open at its part.
 import { ArrowDown } from "lucide-react";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { PartArt } from "./part-art";
 import { nextLesson, passageLabel, toneStyle, type Lesson } from "./data";
 import { LessonStage } from "./LessonStage";
@@ -18,7 +19,7 @@ import type { Progress } from "./progress";
 /** The first lesson of a part not yet done, or its first. */
 const firstToDo = (lessons: Lesson[], progress: Progress) => lessons.find((l) => !progress[l.id]) ?? lessons[0];
 
-type Props = ViewProps & { bookNames: Record<string, string>; onGuide: (lesson: Lesson) => void; onFinish: (lesson: Lesson, right: number, total: number) => void };
+type Props = ViewProps & { bookNames: Record<string, string>; onGuide: (lesson: Lesson) => void; onFinish: (lesson: Lesson, right: number, total: number) => void; onChosen: (lesson: Lesson) => void };
 
 /** Scrolls the path's section to the top of the screen (under the site's bar) unless it is there already; resolves
  *  when the scroll has ended. */
@@ -31,7 +32,7 @@ function bringToTop(el: HTMLElement) {
   });
 }
 
-export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFinish }: Props) {
+export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFinish, onChosen }: Props) {
   const next = nextLesson(lessons, progress);
   const [chosenId, setChosenId] = useState(next.id);
   const chosen = lessons.find((l) => l.id === chosenId) ?? next;
@@ -62,6 +63,13 @@ export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFin
     const g = groups.find((x) => x.part.id === id);
     if (g) setChosenId(firstToDo(g.lessons, progress).id);
   };
+  useEffect(() => onChosen(chosen), [chosen, onChosen]);
+  // The hexagon at the road's end: the next part comes in and the page goes up to the start of its road.
+  const following = groups[groups.indexOf(group) + 1];
+  const onward = following && { part: following.part, onGo: () => {
+    choosePart(following.part.id);
+    requestAnimationFrame(() => { if (pathSection.current) void bringToTop(pathSection.current); });
+  } };
   // The quiz sits outside the zoomed page, so the zoom does not carry it.
   return <><div className="ck-wrap" ref={scene}>
     <Top beside lead="Choose a part of the Bible, then a lesson. Read the passage together and ask the questions one at a time." />
@@ -84,9 +92,8 @@ export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFin
       <h2 id="ck-mix-path-title">All {group.lessons.length} lessons in {group.part.title}</h2>
       <p>{group.part.line}. Choose one to start its quiz.</p>
       <div className="ck-mix-path-body">
-        <Path lessons={group.lessons} progress={progress} next={next} openId={chosen.id} onOpen={(l) => void play(l)} art />
+        <Path key={group.part.id} lessons={group.lessons} progress={progress} next={next} openId={chosen.id} onOpen={(l) => void play(l)} art onward={onward} />
       </div>
-      <button type="button" className="ck-mix-all" onClick={() => onGuide(chosen)}>See all questions<ArrowDown size={14} aria-hidden /></button>
     </section>
   </div>
     {playing && <LessonStage lesson={playing} next={lessons[lessons.indexOf(playing) + 1] ?? null} bookNames={bookNames}
