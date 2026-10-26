@@ -62,6 +62,10 @@ what comes next.
   In the course's top the chosen part has no arrow, even under the pointer; the others' arrow points down. Once the
   course is open its top marks the part the course is at, and its list of lessons shows only that part, the others
   folded to their names (choosing one opens it at its first lesson) (`819737998`).
+  There are no side pages any more: "Start with your child" in the course puts its lesson in the card at the top and
+  goes up to it, and is not shown for the lesson already there; the panel that slid in beside the page is gone, with
+  its styles and the unused direction A page (archived in `BibleProject/ARCHIVE/mockups/`). Choosing a lesson's
+  circle zooms from where it is, with no scroll up to the road's start first (`2c70a6dd1`).
 - **Nothing about questions is on the live site.** The questions page and the children's page are local mock-ups.
 
 ## Waiting on the owner
