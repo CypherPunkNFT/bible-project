@@ -225,7 +225,10 @@ def main() -> None:
     files = [p for p in OUT.rglob("*") if p.is_file()]
     size_mb = sum(p.stat().st_size for p in files) / 1e6
     print(f"warnings: {len(warnings)}", *warnings[:20], sep="\n  ")
+    kept = keep_other_builds()
     swap_into_place()
+    if kept:
+        print("kept from the other build scripts:", ", ".join(kept))
     print(f"wrote {len(files)} files, {size_mb:.1f} MB in {time.time() - started:.0f}s")
     if study_failed:
         raise SystemExit(f"the Bible data was rebuilt, but the Study data failed and the previous Study files were "
@@ -268,6 +271,23 @@ def carry_over_other_versions(built: list[dict]) -> list[dict]:
             shutil.copytree(OUT_FINAL / kind / entry["slug"], OUT / kind / entry["slug"])
     by_slug = {t["slug"]: t for t in previous} | {t["slug"]: t for t in built}
     return [by_slug[m["abbr"].lower()] for m in as_dicts() if m["abbr"].lower() in by_slug]
+
+
+def keep_other_builds() -> list[str]:
+    """data/ also holds what other scripts build (topics, hymns, summaries, creeds, questions, graph, ...). The swap
+    replaces the whole folder, so copy each of those across first; a run once deleted them all (2026-10-26)."""
+    if not OUT_FINAL.exists():
+        return []
+    kept = []
+    for entry in sorted(OUT_FINAL.iterdir()):
+        if (OUT / entry.name).exists():
+            continue
+        if entry.is_dir():
+            shutil.copytree(entry, OUT / entry.name)
+        else:
+            shutil.copy2(entry, OUT / entry.name)
+        kept.append(entry.name)
+    return kept
 
 
 def swap_into_place() -> None:

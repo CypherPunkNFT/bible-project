@@ -56,6 +56,20 @@ def test_poetry_break_mid_verse():
     assert runs[0] == {"b": "q1"} and {"b": "q2"} in runs
 
 
+def test_centred_line_with_words_is_a_stanza_heading():
+    data = parse("\\qc א ALEPH.\n\\q1\n\\v 1 Blessed are they,\n\\q1 Who walk.\n\\qc ב BETH.\n\\q1\n\\v 2 Wherewith")
+    first, second = data["chapters"][0]["v"]
+    assert first["h"] == [["qa", "א ALEPH."]]
+    assert plain_text(first["r"]) == "Blessed are they, Who walk."
+    assert second["h"] == [["qa", "ב BETH."]]
+
+
+def test_empty_centred_line_stays_a_poetry_line():
+    data = parse("\\v 19 Amen.\n\\qc\n\\v 20 The prayers of David are ended.")
+    last = data["chapters"][0]["v"][1]
+    assert "h" not in last and last["r"][0] == {"b": "q1"}
+
+
 def test_psalm_title_becomes_chapter_title():
     chapter = parse("\\d A Psalm of David.\n\\q1\n\\v 1 LORD, how")["chapters"][0]
     assert plain_text(chapter["t"]) == "A Psalm of David."

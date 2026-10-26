@@ -173,6 +173,12 @@ class _Book:
         if bare == "vp":
             self.mode, self.vp_return = "vp", self.mode
             return _drop_delimiter(rest)
+        if bare == "qc" and rest.strip():
+            # A centred line with words of its own is a stanza heading: the ASV's Psalm 119 letters ("\qc ב BETH."),
+            # which otherwise ran onto the verse before. An empty \qc only centres the verse after it (Arabic Ps 72:20).
+            self.close_heading()
+            self.mode, self.heading = "heading", ["qa", ""]
+            return _drop_delimiter(rest)
         if bare in BREAKS:
             self.close_heading()
             self.stack = []
