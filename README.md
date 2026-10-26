@@ -82,7 +82,7 @@ build on.
 - **Atlas**: 1,252 places of the Bible on NASA satellite imagery, each with the verses that name it.
 - **Search**: any word or phrase in any version, with a chart of where it falls.
 - **Testimonies**: written stories connected by personal invitations, with QR links, private author access,
-  editing, withdrawal and an invitation tree at `/testimonies`.
+  editing, deleting a story for good and an invitation tree at `/testimonies`.
 - **Apologetics**: 21 connected guides, learning paths, worldview comparisons, debate records and conversation
   practice, with Scripture and source citations beside substantive explanations.
 
@@ -246,7 +246,7 @@ service has been built or enabled. Anonymous reports and owner hide/resolve cont
 
 Checks: `bun run typecheck`, `bun run lint`, `bun run test`, `bun run test:api`, `bun run build`, then
 `bunx playwright test -c e2e/testimonies.config.ts`. The browser suite creates its own database on port 8934.
-Runtime checks cover simultaneous claims, retries, permissions, expiry/revocation, edits, withdrawal,
+Runtime checks cover simultaneous claims, retries, permissions, expiry/revocation, edits, deleting a story for good (with empty links for invitees),
 moderation, private access rotation, public projections and persistence across runtime restart.
 
 ## Releasing testimonies on the existing Pages site

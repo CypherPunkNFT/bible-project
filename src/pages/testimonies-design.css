@@ -157,6 +157,8 @@
 .testimony-account-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin: 1rem 0 1.5rem; }
 .testimony-withdraw { display: flex; align-items: center; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: .65rem; }
 .testimony-withdraw p { flex: 1 1 16rem; font-size: .75rem; line-height: 1.8; color: var(--muted); }
+.testimony-withdraw .testimony-delete { border-color: var(--revelation); color: var(--revelation); }
+.testimony-withdraw .testimony-error { flex-basis: 100%; }
 .testimony-invitation-history { margin-top: 2rem; }
 .testimony-invitation-history h2 { margin-bottom: 1rem; }
 .testimony-invitation-history li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--line); font-size: .75rem; }

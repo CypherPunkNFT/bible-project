@@ -2,7 +2,7 @@
 // door (Matthew 7:7) in the hero, three ways to reach us in one quiet row, 01 the common questions in three layouts
 // (A tiles that open their answer beneath, B a search over the list, C a question menu beside the answer), switched by
 // the pill (?v=a|b|c), and the Help for life band with its lighthouse. All answers come from SupportPage.tsx.
-import { ArrowRight, Bookmark, Flag, Gift, Mail, MessageSquareText, PencilLine, Search, ShieldCheck, WifiOff, X, type LucideIcon } from "lucide-react";
+import { ArrowRight, Bookmark, Gift, LifeBuoy, Mail, MessageSquareText, PencilLine, Phone, Search, ShieldCheck, Trash2, WifiOff, X, type LucideIcon } from "lucide-react";
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { CONTACT_ADDRESS } from "@/pages/PrivacyPage";
@@ -17,10 +17,10 @@ type SupportVersion = "a" | "b" | "c";
 const META: { icon: LucideIcon; label: string; words: string }[] = [
   { icon: Gift, label: "Is it free?", words: "free cost price subscription ads account pay" },
   { icon: PencilLine, label: "Report a mistake", words: "mistake error typo wrong report correction fix" },
-  { icon: WifiOff, label: "Offline in the app", words: "offline internet app connection download listen phone" },
+  { icon: WifiOff, label: "Offline in the app", words: "offline internet app connection download listen audio phone" },
   { icon: Bookmark, label: "Bookmarks and notes", words: "bookmarks notes saved device sync lost phone browser" },
-  { icon: Flag, label: "Remove a testimony", words: "testimony story remove withdraw delete link" },
-  { icon: ShieldCheck, label: "What you collect", words: "privacy collect data information tracking" },
+  { icon: Trash2, label: "Delete a testimony", words: "testimony story remove withdraw delete link" },
+  { icon: ShieldCheck, label: "Information we collect", words: "privacy collect data information tracking" },
 ];
 
 const VERSIONS: { id: SupportVersion; name: string }[] = [
@@ -109,10 +109,13 @@ export default function SupportMockup() {
           <p className="lg-eyebrow">Help for life</p>
           <p className="lg-help-verse">“God is our refuge and strength, an ever-present help in times of trouble.” <span>Psalm 46:1</span></p>
           <p className="lg-help-text">In danger now? Call <b>911</b>. Thinking of suicide or in crisis? Call or text <b>988</b>.</p>
-          <Link to="/resources/life">More free help lines and places →</Link>
+          <div className="lg-help-actions">
+            <Link className="lg-help-go" to="/resources/life"><LifeBuoy aria-hidden />Find free help<ArrowRight aria-hidden /></Link>
+            <a className="lg-help-call" href="tel:988"><Phone aria-hidden />Call or text 988</a>
+            <a className="lg-help-call" href="tel:911"><Phone aria-hidden />Call 911</a>
+          </div>
         </div>
       </aside>
-      <p className="lg-foot">How we handle your information: <Link to="/privacy_mockup">Privacy Policy</Link>.</p>
       <VersionPill label="Questions layout" versions={VERSIONS} current={version} />
     </div>
   );

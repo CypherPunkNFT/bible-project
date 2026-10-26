@@ -60,8 +60,9 @@ test("invitation publishes once, survives reload and grants private access on an
   await expect(page.getByRole("img", { name: "QR code for your testimony invitation" })).toHaveAttribute("src", /^data:image\/png;base64,/);
   await expect(page.getByLabel("Invitation link", { exact: true })).toHaveValue(/^https:\/\/bible-project-4af.pages.dev\/testimonies\/join#code=/);
   await page.getByRole("button", { name: "My testimony", exact: true }).click();
-  await page.getByRole("button", { name: "Withdraw my testimony" }).click();
-  await expect(page.getByText("Your story is not currently public.", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Delete my testimony" }).click();
+  await page.getByRole("button", { name: "Delete for good" }).click();
+  await expect(page.getByText("Your testimony has been deleted.", { exact: true })).toBeVisible();
   await request.dispose();
 });
 

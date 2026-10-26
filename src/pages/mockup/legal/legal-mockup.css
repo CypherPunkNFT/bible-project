@@ -65,7 +65,7 @@
 .lg-section h2 em { font-style: italic; color: var(--accent); }
 .lg-text { margin-top: 12px; max-width: 44rem; line-height: 1.75; color: var(--muted); }
 .lg-band { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 56px; padding: 22px 0; border-block: 1px solid var(--line); font: 18px/1.5 var(--font-serif); }
-.lg-band a, .lg-help a, .lg-foot a, .sp-none a { color: var(--accent); text-underline-offset: 3px; }
+.lg-band a, .lg-foot a, .sp-none a { color: var(--accent); text-underline-offset: 3px; }
 .lg-foot { margin-top: 28px; font-size: 13px; color: var(--muted); }
 
 /* 01 What leaves your device? */
@@ -178,9 +178,17 @@
 .sp-none { padding: 20px 0; color: var(--muted); }
 
 /* The Help for life band, with its lighthouse. */
-.lg-help { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 36px; align-items: center; margin-top: 64px; padding: 30px 0; border-block: 1px solid var(--line); }
+.lg-help { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 36px; align-items: center; margin-top: 64px; padding: 34px 36px; border-radius: 24px; background: linear-gradient(100deg, color-mix(in srgb, var(--accent) 13%, var(--surface)), color-mix(in srgb, var(--accent) 4%, var(--surface)) 70%); }
 .lg-help-verse { margin-top: 10px; font: italic 400 clamp(20px, 2.2vw, 26px)/1.4 var(--font-serif); }
 .lg-help-verse span { display: block; margin-top: 4px; font: normal 13px var(--font-sans); color: var(--muted); }
 .lg-help-text { margin: 14px 0 10px; line-height: 1.7; color: var(--muted); }
 .lg-help-text b { color: var(--ink); font-weight: 650; }
-@media (max-width: 640px) { .lg-help { grid-template-columns: 1fr; gap: 10px; } .lg-light { max-width: 160px; } }
+.lg-help-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.lg-help-actions a { display: inline-flex; align-items: center; gap: 9px; padding: 12px 20px; border-radius: 999px; font: 600 14.5px var(--font-sans); text-decoration: none; transition: transform .2s, background .2s; }
+.lg-help-actions svg { width: 18px; height: 18px; stroke-width: 1.8; }
+.lg-help-go { background: var(--accent); color: var(--page) !important; box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 30%, transparent); }
+.lg-help-go:hover { transform: translateY(-1px); } .lg-help-go svg:last-child { transition: transform .2s; } .lg-help-go:hover svg:last-child { transform: translateX(3px); }
+.lg-help-call { border: 1.5px solid color-mix(in srgb, var(--accent) 60%, transparent); color: var(--ink) !important; }
+.lg-help-call:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.lg-help-call svg { color: var(--accent); }
+@media (max-width: 640px) { .lg-help { grid-template-columns: 1fr; gap: 10px; padding: 26px 20px; } .lg-light { max-width: 160px; } .lg-help-actions a { flex: 1 1 100%; justify-content: center; } }

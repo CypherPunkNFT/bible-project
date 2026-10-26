@@ -94,14 +94,48 @@ try {
   assert.equal((await call<{ name: string }>("stories/" + root.data.personId)).data.name, "Runtime root");
   passed("edits enforce ownership and revision versions and preserve the original shared date");
 
-  await call("withdraw", "POST", {}, child.cookie);
-  assert.equal((await call("stories/" + child.data.personId)).status, 404);
-  const hidden = (await call<TestimonyBranch>("branches?root=" + root.data.personId)).data;
-  assert.equal(hidden.nodes.find((n) => n.id === child.data.personId)?.name, "Story unavailable");
-  assert.equal(hidden.nodes.find((n) => n.id === child.data.personId)?.theme, "");
-  assert.ok(hidden.nodes.some((n) => n.id === grand.data.personId && n.available));
-  assert.equal((await call("my-story", "POST", { ...value("Updated child"), version: updated.version }, child.cookie)).status, 200);
-  passed("withdrawal removes identity and text while descendants remain connected; authors can republish");
+  const count = async (sql: string, ...values: string[]) => (await db.prepare(sql).bind(...values).first<{ count: number }>())?.count;
+  assert.equal((await call("my-story", "DELETE", undefined, root.cookie)).status, 403);
+  await assert.rejects(db.prepare("DELETE FROM testimony_people WHERE id=?").bind(child.data.personId).run());
+  passed("the site owner's story cannot be deleted, and the test database enforces its links");
+
+  const leafSubmission = payload((await newInvite(root.cookie)).token, "Leaf writer");
+  const leaf = await call<{ personId: string }>("submissions", "POST", leafSubmission); assert.equal(leaf.status, 201);
+  assert.equal((await call("my-story", "POST", { ...value("Leaf writer"), version: 1 }, leaf.cookie)).status, 200);
+  assert.equal((await call("reports", "POST", { personId: leaf.data.personId, reason: "Automated leaf report" })).status, 201);
+  assert.equal(await count("SELECT count(*) AS count FROM testimony_locations WHERE person_id=?", leaf.data.personId), 1);
+  const leafUnused = await newInvite(leaf.cookie);
+  const gone = await call("my-story", "DELETE", undefined, leaf.cookie);
+  assert.equal(gone.status, 200); assert.match(gone.headers.get("Set-Cookie")!, /Max-Age=0/);
+  for (const [table, column] of [["testimony_people", "id"], ["testimony_stories", "person_id"], ["testimony_locations", "person_id"], ["testimony_reports", "person_id"], ["testimony_receipts", "person_id"], ["testimony_connections", "child_id"], ["testimony_invitations", "redeemed_by"], ["testimony_invitations", "inviter_id"]]) {
+    assert.equal(await count(`SELECT count(*) AS count FROM ${table} WHERE ${column}=?`, leaf.data.personId), 0, table);
+  }
+  assert.equal(await count("SELECT count(*) AS count FROM testimony_revisions WHERE story_id NOT IN (SELECT id FROM testimony_stories)"), 0);
+  assert.equal(await count("SELECT count(*) AS count FROM testimony_decisions WHERE revision_id NOT IN (SELECT id FROM testimony_revisions)"), 0);
+  assert.equal(await count("SELECT count(*) AS count FROM testimony_accounts a WHERE NOT EXISTS(SELECT 1 FROM testimony_people p WHERE p.account_id=a.id)"), 0);
+  assert.equal((await call("me", "GET", undefined, leaf.cookie)).data, null);
+  assert.equal((await call("session", "POST", { token: leafSubmission.accessToken })).status, 401);
+  assert.equal((await call("invitations/inspect", "POST", { token: leafUnused.token })).status, 410);
+  assert.equal((await call("stories/" + leaf.data.personId)).status, 404);
+  passed("deleting a story removes the person, every version, report, place, link and invitation; old access stops working");
+
+  const parentSubmission = payload((await newInvite(root.cookie)).token, "Parent writer");
+  const parent = await call<{ personId: string }>("submissions", "POST", parentSubmission); assert.equal(parent.status, 201);
+  const kid = await call<{ personId: string }>("submissions", "POST", payload((await newInvite(parent.cookie)).token, "Kid writer")); assert.equal(kid.status, 201);
+  assert.equal((await call("my-story", "DELETE", undefined, parent.cookie)).status, 200);
+  const afterParent = (await call<TestimonyBranch>("branches?root=" + root.data.personId)).data;
+  assert.equal(afterParent.nodes.find((n) => n.id === parent.data.personId)?.name, "Story unavailable");
+  assert.ok(afterParent.nodes.some((n) => n.id === kid.data.personId && n.available));
+  for (const route of ["branches?root=" + root.data.personId, "branches?root=" + kid.data.personId, "map", "stories/" + kid.data.personId]) assert.ok(!JSON.stringify((await call(route)).data).includes("Parent writer"), route);
+  assert.equal(await count("SELECT count(*) AS count FROM testimony_people WHERE id=? AND name='Removed'", parent.data.personId), 1);
+  for (const table of ["testimony_stories", "testimony_receipts", "testimony_locations", "testimony_reports"]) assert.equal(await count(`SELECT count(*) AS count FROM ${table} WHERE person_id=?`, parent.data.personId), 0, table);
+  assert.equal((await call("me", "GET", undefined, parent.cookie)).data, null);
+  assert.equal((await call("session", "POST", { token: parentSubmission.accessToken })).status, 401);
+  passed("a story with invitees leaves only an empty link that no one can sign in to; their stories stay connected");
+
+  assert.equal((await call("my-story", "DELETE", undefined, kid.cookie)).status, 200);
+  assert.equal(await count("SELECT count(*) AS count FROM testimony_people WHERE id IN (?,?)", parent.data.personId, kid.data.personId), 0);
+  passed("when the last story under an empty link is deleted, the empty link goes too");
 
   assert.equal((await call("reports", "POST", { personId: child.data.personId, reason: "Automated test report" })).status, 201);
   assert.equal((await call("reports", "GET", undefined, child.cookie)).status, 404);

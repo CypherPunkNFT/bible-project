@@ -15,7 +15,7 @@ const MOMENTS: Moment[] = [
   { id: "video", label: "Watching a video", icon: CirclePlay, lines: ["dev-cf", "dev-yt"], nodes: ["cloudflare", "youtube"],
     text: "Videos play from YouTube in its privacy-enhanced mode. When you open a page with a video, YouTube (Google) receives your internet address, and Google's privacy policy applies." },
   { id: "listen", label: "Listening", icon: Headphones, lines: ["dev-cf", "dev-ar"], nodes: ["cloudflare", "archive"],
-    text: "The audio Bible, read by LibriVox volunteers, streams from the Internet Archive when you press play. Where you stopped is saved in your browser." },
+    text: "The audio Bible, read by LibriVox volunteers, streams from the Internet Archive when you press play; copies you download come from our own files on Cloudflare. Where you stopped is saved in your browser." },
   { id: "message", label: "Sending a message", icon: Send, lines: ["dev-cf", "cf-zoho"], nodes: ["cloudflare", "zoho"],
     text: "Your message, with your name and email if you give them, goes to our mailbox at Zoho. A one-way code counts messages per hour to stop abuse, and is deleted when it expires." },
   { id: "testimony", label: "Sharing a testimony", icon: Feather, lines: ["dev-cf", "cf-map"], nodes: ["cloudflare", "map"],

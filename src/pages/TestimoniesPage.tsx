@@ -38,6 +38,7 @@ export default function TestimoniesPage() {
   const [story, setStory] = useState<TestimonyNode | null>(null), [storyError, setStoryError] = useState("");
   const [display, setDisplay] = useState<"tree" | "map" | "list">("tree"), [loading, setLoading] = useState(true);
   const [pins, setPins] = useState<TestimonyPin[] | null>(null), [pinsError, setPinsError] = useState("");
+  const [pinsVersion, setPinsVersion] = useState(0);
   const [error, setError] = useState(""), [notice, setNotice] = useState("");
   const [me, setMe] = useState<TestimonyAccount | null>(null), [siteUrl, setSiteUrl] = useState("");
   const [welcome, setWelcome] = useState<InvitationWelcome | null>(null), [invitationToken, setInvitationToken] = useState("");
@@ -90,7 +91,7 @@ export default function TestimoniesPage() {
     const controller = new AbortController(); setPinsError("");
     void testimonyApi<TestimonyPin[]>("map", "GET", undefined, controller.signal).then(setPins).catch((cause) => { if (!controller.signal.aborted) setPinsError(message(cause)); });
     return () => controller.abort();
-  }, [display]);
+  }, [display, pinsVersion]);
 
   const selected = branch.nodes.find((n) => n.id === selectedId);
   useEffect(() => {
@@ -175,7 +176,7 @@ export default function TestimoniesPage() {
       <header><div><p className="testimony-kicker">Your testimony</p><h2>{me.person.name}</h2><p>{me.state === "public" ? "Your story is public." : "Your story is not currently public."}</p></div><button className="testimony-secondary" onClick={async () => { await signOut(); setMode("explore"); }}>Sign out</button></header>
       <div className="testimony-account-actions"><button className="testimony-secondary" onClick={() => openExplore(me.person.id)}>View my branch</button><button className="testimony-secondary" onClick={async () => { try { const result = await testimonyApi<{ url: string }>("access-link", "POST", {}); setAccessUrl(result.url); saveTestimonyValue("testimony-private-url", result.url); setNotice("Your new private access link replaces the previous one."); } catch (cause) { setError(message(cause)); } }}>Replace private access link</button>{siteUrl && <a className="testimony-secondary" href={siteUrl + "/testimonies?branch=" + me.person.id}>Public story link <ArrowRight size={14} /></a>}</div>
       {me.blocked ? <p className="testimony-empty">This story has been hidden by the site owner and cannot be republished.</p> : <TestimonyForm key={me.person.id + ":" + me.version} existing={me} onBack={() => openExplore(me.person.id)} onSubmit={async (value) => { await testimonyApi("my-story", "POST", { ...value, version: me.version }); await refreshMe(); await loadBranch(me.person.id); setNotice("Your testimony has been published with your changes."); }} />}
-      {me.state === "public" && <div className="testimony-withdraw"><p>Withdraw your story to remove its name and text from public view. Existing branches stay connected anonymously.</p><button className="testimony-secondary" onClick={async () => { try { await testimonyApi("withdraw", "POST", {}); await refreshMe(); await loadBranch(me.person.id); setNotice("Your story is no longer public. Unused invitations have been revoked."); } catch (cause) { setError(message(cause)); } }}>Withdraw my testimony</button></div>}
+      {!me.owner && <DeleteStory onDeleted={() => { ++meRequest.current; setMe(null); setAccessUrl(""); saveTestimonyValue("testimony-private-url", null); setPins(null); setPinsVersion((v) => v + 1); openExplore(); setNotice("Your testimony has been deleted."); }} />}
       <InvitationHistory key={me.state} />
       {me.owner && <ReportsInbox />}
     </section>}
@@ -183,6 +184,20 @@ export default function TestimoniesPage() {
   </div>;
 }
 
+/** Deletes the signed-in person's story for good, after a second press; the server signs them out. */
+function DeleteStory({ onDeleted }: { onDeleted: () => void }) {
+  const [asking, setAsking] = useState(false), [busy, setBusy] = useState(false), [error, setError] = useState("");
+  async function remove() {
+    setBusy(true); setError("");
+    try { await testimonyApi("my-story", "DELETE"); onDeleted(); } catch (cause) { setError(message(cause)); setBusy(false); }
+  }
+  return <div className="testimony-withdraw">
+    <p>{asking ? "This deletes your name, your story, its earlier versions and its place on the map for good. It cannot be undone." : "Delete your testimony and everything saved with it. If you invited others, their stories stay connected without yours."}</p>
+    {asking ? <><button type="button" className="testimony-secondary" disabled={busy} onClick={() => setAsking(false)}>Keep it</button><button type="button" className="testimony-secondary testimony-delete" disabled={busy} onClick={remove}>{busy ? "Deleting…" : "Delete for good"}</button></>
+      : <button type="button" className="testimony-secondary" onClick={() => setAsking(true)}>Delete my testimony</button>}
+    {error && <p role="alert" className="testimony-error">{error}</p>}
+  </div>;
+}
 function PrivateAccessLink({ url, onSaved }: { url: string; onSaved: () => void }) {
   return <section className="testimony-private-link"><h2>Keep your private access link.</h2><p>This lets you return to edit your testimony and invite others, including on another device. Anyone with this link can manage your story. Keep it private.</p><CopyableLink url={url} label="Private access link" /><button type="button" className="testimony-secondary" onClick={onSaved}>I've saved my link <Check size={15} /></button></section>;
 }

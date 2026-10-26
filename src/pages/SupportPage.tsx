@@ -9,10 +9,10 @@ const link = (to: string, label: string) => <Link to={to} className="text-accent
 export const QUESTIONS: { question: string; answer: ReactNode }[] = [
   { question: "Is Bible Guide free?", answer: "Yes. The website and the app are free, with no ads, no subscription and no account." },
   { question: "I found a mistake. How do I report it?", answer: <>Press "Suggest a correction" on that page and describe what is wrong; the page address is sent with it. Or write to us with the page address.</> },
-  { question: "Does the app work without internet?", answer: "The Bible itself does, in every version the app carries. Study pages download the first time you open them and then work offline. Listen needs a connection." },
+  { question: "Does the app work without internet?", answer: "The Bible itself does, in every version the app carries. Study pages download the first time you open them and then work offline. The audio Bible can be downloaded book by book from its page on bibleguide.io and played without a connection; videos need one." },
   { question: "Where are my bookmarks and notes?", answer: "On your own device. They are not shared between devices, and deleting the app or clearing your browser removes them." },
-  { question: "How do I remove my testimony?", answer: "Open your private access link and choose Withdraw. To have it deleted entirely, email us." },
-  { question: "What do you collect about me?", answer: <>Very little, and nothing for advertising. The {link("/privacy", "Privacy Policy")} says exactly what and why.</> },
+  { question: "How do I delete my testimony?", answer: "Open your private access link and choose Delete my testimony. Your name, story, its earlier versions and its place on the map are deleted for good." },
+  { question: "What information do we collect?", answer: <>Very little, and nothing for advertising. The {link("/privacy", "Privacy Policy")} says exactly what and why.</> },
 ];
 
 export default function SupportPage() {

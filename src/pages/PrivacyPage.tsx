@@ -29,7 +29,7 @@ export const SECTIONS: { title: string; body: ReactNode[] }[] = [
   ] },
   { title: "Videos and recordings", body: [
     "Pages with videos show them from YouTube in its privacy-enhanced mode. When you open such a page, YouTube (Google) receives your internet address, and Google's privacy policy applies.",
-    "The audio Bible, read by LibriVox volunteers, streams from the Internet Archive (archive.org) when you press play, and its privacy policy applies. Links to other websites lead to sites with their own policies.",
+    "The audio Bible, read by LibriVox volunteers, streams from the Internet Archive (archive.org) when you press play, and its privacy policy applies. Copies you download come from our own files, delivered by Cloudflare. Links to other websites lead to sites with their own policies.",
   ] },
   { title: "Messages and corrections", body: [
     "The contact form sends your message, with your name and email address if you give them, to our mailbox, which Zoho Mail hosts. The \"Suggest a correction\" button sends your note, the page it is about, and your email address if you give it.",
@@ -38,8 +38,8 @@ export const SECTIONS: { title: string; body: ReactNode[] }[] = [
   ] },
   { title: "Testimonies", body: [
     "Testimonies are shared by invitation. You choose the name, title and story you publish, and they appear publicly as soon as you share them. Your approximate town, region and country, worked out from your internet connection and rounded to about 10 kilometres, are kept with your story and place it on the public map.",
-    "We do not keep your internet address, email address or device details. Your private access link signs you in with a cookie that lasts 30 days and is removed when you sign out. When you edit your story, its earlier versions are kept.",
-    "You can withdraw your story at any time. Your name, text and place on the map leave public view, and your spot in the chain of invitations shows only \"Story unavailable\". To have your story, its earlier versions and its location deleted entirely, email us. We keep stories until you ask us to delete them.",
+    "We do not keep your internet address, email address or device details. Your private access link signs you in with a cookie that lasts 30 days and is removed when you sign out. When you edit your story, its earlier versions are kept until you delete it.",
+    "You can delete your story yourself at any time from your private access link. Your name, your story, its earlier versions and its place on the map are deleted for good. If you invited others, an empty link marked \"Story unavailable\" stays in your place so that their stories stay connected; it holds nothing about you. We keep stories until you delete them.",
     "Anyone can report a published story. A report holds only the reason given, and we use reports to review stories and, where needed, hide them.",
   ] },
   { title: "The Bible Guide app", body: [
@@ -54,7 +54,7 @@ export const SECTIONS: { title: string; body: ReactNode[] }[] = [
     "We do not sell or rent personal information, and we do not share it for advertising. The only companies that handle it are the services that run Bible Guide: Cloudflare (hosting and the testimony database) and Zoho (email). They process it on our behalf and are bound to protect it, and they may store it in the United States and other countries. We also share it where the law requires us to.",
   ] },
   { title: "Your choices", body: [
-    <>Email {mail} to ask what we hold about you, to correct it, or to delete it. You can withdraw a testimony yourself at any time, and clear what your browser saved in its settings.</>,
+    <>Email {mail} to ask what we hold about you, to correct it, or to delete it. You can delete a testimony yourself at any time, and clear what your browser saved in its settings.</>,
   ] },
   { title: "Changes to this policy", body: [
     "If what we collect changes, we will update this page and the date at the top.",

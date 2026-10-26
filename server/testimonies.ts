@@ -64,7 +64,7 @@ async function limited(env: Env, request: Request, action: string, count: number
 function sessionToken(request: Request) { return request.headers.get("Cookie")?.split(";").map((s) => s.trim()).find((s) => s.startsWith(COOKIE + "="))?.slice(COOKIE.length + 1) ?? ""; }
 async function account(env: Env, request: Request, required = true): Promise<Account | null> {
   const token = sessionToken(request);
-  const result = TOKEN.test(token) ? await env.DB.prepare(`SELECT a.id,p.id AS person_id,a.role FROM testimony_sessions s JOIN testimony_accounts a ON a.id=s.account_id JOIN testimony_people p ON p.account_id=a.id WHERE s.token_digest=? AND s.expires_at>?`).bind(await digest(token), now()).first<Account>() : null;
+  const result = TOKEN.test(token) ? await env.DB.prepare(`SELECT a.id,p.id AS person_id,a.role FROM testimony_sessions s JOIN testimony_accounts a ON a.id=s.account_id JOIN testimony_people p ON p.account_id=a.id JOIN testimony_stories st ON st.person_id=p.id WHERE s.token_digest=? AND s.expires_at>?`).bind(await digest(token), now()).first<Account>() : null;
   if (!result && required) throw new HttpError(401, "Open your private access link to continue."); return result;
 }
 function cookie(request: Request, token: string, age = 2592000) {
@@ -140,6 +140,45 @@ async function submit(env: Env, request: Request, input: Record<string, unknown>
   try { await env.DB.batch(statements); } catch { throw new HttpError(409, "The invitation could not be claimed. It may have just been used; your text remains in the form."); }
   return json({ personId, accessUrl: `${site}/testimonies/access#key=${access}` }, 201, { "Set-Cookie": await newSession(env, request, accountId) });
 }
+/** Deletes one person's story for good: the name, every version, its publication records, reports, map place, sessions and
+ *  unused invitations. Someone who invited others stays as an empty link (no story, a placeholder name, an access key no
+ *  one holds) so the branches under them stay connected; an empty link left with no one under it goes too. */
+async function deletionStatements(env: Env, owner: Account) {
+  const person = owner.person_id;
+  const statements = [
+    env.DB.prepare("DELETE FROM testimony_sessions WHERE account_id=?").bind(owner.id),
+    env.DB.prepare("DELETE FROM testimony_reports WHERE person_id=?").bind(person),
+    env.DB.prepare("DELETE FROM testimony_locations WHERE person_id=?").bind(person),
+    env.DB.prepare("UPDATE testimony_stories SET state='withdrawn',published_revision_id=NULL WHERE person_id=?").bind(person),
+    env.DB.prepare("DELETE FROM testimony_decisions WHERE revision_id IN (SELECT r.id FROM testimony_revisions r JOIN testimony_stories s ON s.id=r.story_id WHERE s.person_id=?)").bind(person),
+    env.DB.prepare("DELETE FROM testimony_revisions WHERE story_id IN (SELECT id FROM testimony_stories WHERE person_id=?)").bind(person),
+    env.DB.prepare("DELETE FROM testimony_stories WHERE person_id=?").bind(person),
+    env.DB.prepare("DELETE FROM testimony_invitations WHERE inviter_id=? AND redeemed_by IS NULL").bind(person),
+    env.DB.prepare("DELETE FROM testimony_receipts WHERE person_id=?").bind(person),
+  ];
+  if (await env.DB.prepare("SELECT 1 FROM testimony_connections WHERE parent_id=? LIMIT 1").bind(person).first()) {
+    return [...statements, env.DB.prepare("UPDATE testimony_people SET name='Removed' WHERE id=?").bind(person),
+      env.DB.prepare("UPDATE testimony_accounts SET access_digest=? WHERE id=?").bind(await digest(randomToken()), owner.id)];
+  }
+  const remove = (id: string, accountId: string) => [
+    env.DB.prepare("DELETE FROM testimony_sessions WHERE account_id=?").bind(accountId),
+    env.DB.prepare("DELETE FROM testimony_receipts WHERE person_id=?").bind(id),
+    env.DB.prepare("DELETE FROM testimony_invitations WHERE inviter_id=? AND redeemed_by IS NULL").bind(id),
+    env.DB.prepare("DELETE FROM testimony_connections WHERE child_id=?").bind(id),
+    env.DB.prepare("DELETE FROM testimony_invitations WHERE redeemed_by=?").bind(id),
+    env.DB.prepare("DELETE FROM testimony_people WHERE id=?").bind(id),
+    env.DB.prepare("DELETE FROM testimony_accounts WHERE id=?").bind(accountId),
+  ];
+  statements.push(...remove(person, owner.id));
+  for (let child = person, depth = 0; depth < 50; depth++) {
+    const empty = await env.DB.prepare(`SELECT p.id,p.account_id FROM testimony_connections c JOIN testimony_people p ON p.id=c.parent_id JOIN testimony_accounts a ON a.id=p.account_id
+      WHERE c.child_id=? AND a.role<>'owner' AND NOT EXISTS(SELECT 1 FROM testimony_stories s WHERE s.person_id=p.id)
+      AND NOT EXISTS(SELECT 1 FROM testimony_connections o WHERE o.parent_id=p.id AND o.child_id<>?)`).bind(child, child).first<{ id: string; account_id: string }>();
+    if (!empty) break;
+    statements.push(...remove(empty.id, empty.account_id)); child = empty.id;
+  }
+  return statements;
+}
 async function branch(env: Env, url: URL) {
   let root = url.searchParams.get("root");
   if (root && !ID.test(root)) throw new HttpError(400, "Unknown branch.");
@@ -179,7 +218,8 @@ export async function handleTestimonies(request: Request, env: Env): Promise<Res
     if (method === "POST" && path === "session") {
       await limited(env, request, "access", 30); const token = text(await body(request), "token", 43);
       if (!TOKEN.test(token)) throw new HttpError(401, "That private access link is invalid.");
-      const owner = await env.DB.prepare("SELECT id FROM testimony_accounts WHERE access_digest=?").bind(await digest(token)).first<{ id: string }>();
+      // An empty link left by a deleted story has no story row, so it can never sign in.
+      const owner = await env.DB.prepare("SELECT a.id FROM testimony_accounts a JOIN testimony_people p ON p.account_id=a.id JOIN testimony_stories s ON s.person_id=p.id WHERE a.access_digest=?").bind(await digest(token)).first<{ id: string }>();
       if (!owner) throw new HttpError(401, "That private access link is invalid or has been replaced.");
       return json({ signedIn: true }, 200, { "Set-Cookie": await newSession(env, request, owner.id) });
     }
@@ -223,9 +263,18 @@ export async function handleTestimonies(request: Request, env: Env): Promise<Res
       try { await env.DB.batch(writes); } catch { throw new HttpError(409, "Your story changed in another window. Reload before editing."); }
       return json({ personId: owner.person_id });
     }
-    if (method === "POST" && path === "withdraw") {
-      await env.DB.batch([env.DB.prepare("UPDATE testimony_stories SET state='withdrawn' WHERE person_id=?").bind(owner.person_id), env.DB.prepare("UPDATE testimony_invitations SET revoked_at=unixepoch() WHERE inviter_id=? AND redeemed_by IS NULL").bind(owner.person_id)]);
-      return json({ withdrawn: true });
+    if (method === "DELETE" && path === "my-story") {
+      if (owner.role === "owner") throw new HttpError(403, "The site owner's story cannot be deleted here.");
+      await limited(env, request, "delete", 10, owner.id);
+      // A child accepting an invitation between the plan and the batch aborts it; the second plan keeps an empty link.
+      for (let attempt = 0; ; attempt++) {
+        try { await env.DB.batch(await deletionStatements(env, owner)); break; } catch (error) {
+          if (!attempt) continue;
+          console.error(JSON.stringify({ event: "testimony_delete_failed", requestId, error: error instanceof Error ? error.name : "unknown" }));
+          throw new HttpError(409, "Your story could not be deleted just now. Please try again.");
+        }
+      }
+      return json({ deleted: true }, 200, { "Set-Cookie": cookie(request, "", 0) });
     }
     if (owner.role === "owner" && method === "GET" && path === "reports") {
       const rows = await env.DB.prepare("SELECT r.id,r.person_id,r.reason,r.created_at,p.name,COALESCE(v.title,'Story unavailable') AS title FROM testimony_reports r JOIN testimony_people p ON p.id=r.person_id LEFT JOIN testimony_public_stories v ON v.id=r.person_id WHERE r.resolved_at IS NULL ORDER BY r.created_at LIMIT 50").all<{ id: string; person_id: string; reason: string; created_at: number; name: string; title: string }>();
