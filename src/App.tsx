@@ -8,6 +8,7 @@ import { Layout } from "@/components/Layout";
 import { PageErrorBoundary } from "@/components/PageErrorBoundary";
 import { CatalogProvider } from "@/lib/catalog-context";
 import HomePage from "@/pages/HomePage";
+import { mockupRoutes } from "@/pages/mockup/mockup-routes";
 
 const LibraryPage = lazy(() => import("@/pages/LibraryPage"));
 const BiblePage = lazy(() => import("@/pages/BiblePage"));
@@ -29,11 +30,13 @@ const TeachersPage = lazy(() => import("@/pages/TeachersPage"));
 const AnalysisPage = lazy(() => import("@/pages/AnalysisPage"));
 const ResourcesPage = lazy(() => import("@/pages/ResourcesPage"));
 const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
-const HomeMockupsPage = lazy(() => import("@/pages/HomeMockupsPage"));
 const EmblemMockupsPage = lazy(() => import("@/pages/EmblemMockupsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
 // The children's tests, a real page since 2026-10-26; its parts are in pages/children/.
 const ChildrenTestsPage = lazy(() => import("@/pages/ChildrenTestsPage"));
+// The questions page and its test, real pages since the homepage quiz leads to them (2026-10-22); their files moved out of pages/mockup/ on 2026-10-26.
+const QuestionsPage = lazy(() => import("@/pages/QuestionsPage"));
+const QuestionsTestPage = lazy(() => import("@/pages/QuestionsTestPage"));
 const SurvivingWitnessesPage = lazy(() => import("@/pages/study/witnesses/SurvivingWitnessesPage"));
 const PassageManuscriptsPage = lazy(() => import("@/pages/study/passages/PassageManuscriptsPage"));
 const IsraelEmpiresPage = lazy(() => import("@/pages/study/empires/IsraelEmpiresPage"));
@@ -50,6 +53,8 @@ const CreedsPage = lazy(() => import("@/pages/study/creeds/CreedsPage"));
 const CreedDocumentPage = lazy(() => import("@/pages/study/creeds/CreedDocumentPage"));
 const HymnsPage = lazy(() => import("@/pages/study/hymns/HymnsPage"));
 const HymnPage = lazy(() => import("@/pages/study/hymns/HymnPage"));
+const TheologyPage = lazy(() => import("@/pages/study/theology-articles/TheologyPage"));
+const TheologyArticlePage = lazy(() => import("@/pages/study/theology-articles/TheologyArticlePage"));
 const ManuscriptsPage = lazy(() => import("@/pages/study/manuscripts/ManuscriptsPage"));
 const StudyBranch = lazy(() => import("@/pages/study/hub/StudyBranch"));
 const StudyPage = lazy(() => import("@/pages/study/StudyPage"));
@@ -105,6 +110,9 @@ export default function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/study/questions/children" element={<ChildrenTestsPage />} />
+              {mockupRoutes()}
+              <Route path="/study/questions" element={<QuestionsPage />} />
+              <Route path="/study/questions/test" element={<QuestionsTestPage />} />
               <Route path="/library" element={<LibraryPage />} />
               <Route path="/bible" element={<BiblePage />} />
               <Route path="/listen" element={<ListenPage />} />
@@ -132,7 +140,6 @@ export default function App() {
               <Route path="/analysis" element={<AnalysisPage />} />
               <Route path="/teachers/collections/:leaderId" element={<CirclesPage />} />
               <Route path="/resources/*" element={<ResourcesPage />} />
-              <Route path="/mockups" element={<HomeMockupsPage />} />
               <Route path="/banner-emblems" element={<EmblemMockupsPage />} />
               <Route path="/versions" element={<VersionsPage />} />
               <Route path="/sources" element={<VersionsPage />} />
@@ -144,6 +151,10 @@ export default function App() {
               <Route path="/study/creeds/:id" element={<CreedDocumentPage />} />
               <Route path="/study/hymns" element={<HymnsPage />} />
               <Route path="/study/hymns/:id" element={<HymnPage />} />
+              {/* Articles on doctrine. The address is not /study/theology, because that one is
+                  already the Scripture & Theology branch hub, routed above. */}
+              <Route path="/study/theology-articles" element={<TheologyPage />} />
+              <Route path="/study/theology-articles/:id" element={<TheologyArticlePage />} />
               <Route path="/study/manuscripts" element={<ManuscriptsPage />} />
               <Route path="/study/surviving-witnesses" element={<SurvivingWitnessesPage />} />
               <Route path="/study/passage-through-manuscripts" element={<PassageManuscriptsPage />} />
