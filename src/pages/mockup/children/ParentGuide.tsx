@@ -8,7 +8,7 @@ import { ArrowLeft, ArrowRight, BookOpen, Check, ChevronDown } from "lucide-reac
 import { useId, useRef, type ComponentType } from "react";
 import { Link } from "react-router-dom";
 import { rightChoice } from "@/lib/data";
-import { QuizScene } from "../QuizScenes";
+import { PartArt } from "./part-art";
 import { LETTERS } from "../questions/model";
 import { verseOf } from "../questions/test/engine";
 import { nextLesson, passageLabel, readerUrl, toneStyle, type Lesson, type PartLessons } from "./data";
@@ -73,7 +73,7 @@ export function GlanceHead({ lessons, groups, total, expanded, onExpand, onPick,
     </div>
     <ol className="pg-parts">{groups.map(({ part, lessons: ls }) => <li key={part.id} style={toneStyle(part.tone)}>
       <button type="button" onClick={() => onPick(ls[0])}>
-        <span className="pg-part-art"><QuizScene scene={part.scene} /></span>
+        <span className="pg-part-art"><PartArt part={part} /></span>
         <strong>{part.title}</strong><small>{ls.length} lessons</small>
       </button>
     </li>)}</ol>

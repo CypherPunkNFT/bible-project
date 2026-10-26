@@ -4,7 +4,7 @@
 import { ArrowLeft, Check } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { QuizScene } from "../QuizScenes";
+import { PartArt } from "./part-art";
 import { nextLesson, toneStyle, type Lesson, type PartLessons } from "./data";
 import { LessonArt } from "./lesson-art";
 import type { Progress } from "./progress";
@@ -46,7 +46,7 @@ export function PartRow({ groups, progress, partId, onChoose }: { groups: PartLe
     const done = ls.filter((l) => progress[l.id]).length;
     return <li key={part.id} style={toneStyle(part.tone)}>
       <button type="button" aria-pressed={part.id === partId} onClick={() => onChoose(part.id)}>
-        <span className="ck-part-art"><QuizScene scene={part.scene} /></span>
+        <span className="ck-part-art"><PartArt part={part} /></span>
         <strong>{part.title}</strong>
         <small>{done ? `${done} of ${ls.length} done` : `${ls.length} lessons`}</small>
       </button>

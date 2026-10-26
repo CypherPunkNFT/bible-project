@@ -8,7 +8,7 @@ import { ArrowRight, BookOpen, Check, RotateCcw, X } from "lucide-react";
 import { useEffect, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { rightChoice } from "@/lib/data";
-import { QuizScene } from "../QuizScenes";
+import { PartArt } from "./part-art";
 import { verseOf } from "../questions/test/engine";
 import { passageLabel, readerUrl, type Lesson } from "./data";
 import { LessonArt } from "./lesson-art";
@@ -75,7 +75,7 @@ function StageIcon({ lesson }: { lesson: Lesson }) {
 
 function Start({ lesson, bookNames, onBegin }: { lesson: Lesson; bookNames: Record<string, string>; onBegin: () => void }) {
   return <div className="ck-start">
-    <div className="ck-start-art"><QuizScene scene={lesson.part.scene} /></div>
+    <div className="ck-start-art"><PartArt part={lesson.part} /></div>
     <h2>{lesson.title}</h2>
     {lesson.passage ? <p>First, read <Link to={readerUrl(lesson.passage.book, lesson.passage.from)}>{passageLabel(lesson.passage, bookNames)}</Link> together. Then answer {lesson.questions.length} questions, one at a time.</p>
       : <p>{lesson.questions.length} questions and answers to learn together, one at a time.</p>}

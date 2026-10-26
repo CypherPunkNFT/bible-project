@@ -15,9 +15,9 @@ export interface Lesson { id: string; n: number; title: string; part: Part; ques
 export interface PartLessons { part: Part; lessons: Lesson[] }
 
 export const PARTS: Part[] = [
-  { id: "beginnings", title: "Beginnings", line: "The garden, Abraham, Jacob and Joseph", tone: "history", scene: "tents", track: "stories" },
-  { id: "egypt", title: "Out of Egypt", line: "Moses, the sea and the long walk home", tone: "history", scene: "whirlwind", track: "stories" },
-  { id: "kings", title: "Judges and kings", line: "Gideon, Samuel, David and Solomon", tone: "history", scene: "crown", track: "stories" },
+  { id: "beginnings", title: "Creation", line: "The garden, Abraham, Jacob and Joseph", tone: "history", scene: "tents", track: "stories" },
+  { id: "egypt", title: "Exodus", line: "Moses, the sea and the long walk home", tone: "history", scene: "whirlwind", track: "stories" },
+  { id: "kings", title: "Kingdom", line: "Gideon, Samuel, David and Solomon", tone: "history", scene: "crown", track: "stories" },
   { id: "prophets", title: "Prophets and exile", line: "Elijah, Daniel and the way back", tone: "prophets", scene: "scroll", track: "stories" },
   { id: "jesus", title: "Jesus", line: "His birth, his miracles and his stories", tone: "gospels", scene: "loaves", track: "stories" },
   { id: "cross", title: "The cross and the empty tomb", line: "The last supper to the risen Lord", tone: "gospels", scene: "tomb", track: "stories" },

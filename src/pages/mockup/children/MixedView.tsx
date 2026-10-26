@@ -9,7 +9,7 @@
 // goes down to it.
 import { ArrowDown } from "lucide-react";
 import { useCallback, useRef, useState } from "react";
-import { QuizScene } from "../QuizScenes";
+import { PartArt } from "./part-art";
 import { nextLesson, passageLabel, toneStyle, type Lesson } from "./data";
 import { LessonStage } from "./LessonStage";
 import { Path, PartRow, Top, type ViewProps } from "./PathView";
@@ -68,7 +68,7 @@ export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFin
     <div className="ck-mix-join">
     <PartRow groups={groups} progress={progress} partId={group.part.id} onChoose={choosePart} />
     <section className="ck-sunday" style={toneStyle(chosen.part.tone)} aria-labelledby="ck-mix-title" aria-live="polite">
-      <div className="ck-sunday-art"><QuizScene scene={chosen.part.scene} /></div>
+      <div className="ck-sunday-art"><PartArt part={chosen.part} /></div>
       <div>
         <p className="ck-eyebrow">{chosen.id === next.id ? "Up next · " : ""}{chosen.part.title} · Lesson {chosen.n}</p>
         <h2 id="ck-mix-title">{chosen.title}</h2>
