@@ -96,8 +96,9 @@ export function FounderLetter() {
             <p className="lt-sign">{FOUNDER.name}</p>
             <p className="lt-role">{FOUNDER.role}, Bible Project</p>
             <p className="lt-ps">
-              <b>P.S.</b> When I'm not building this, I serve on the greet team at my church and lead RedeemerForge, a faith-based
-              program for young people.
+              <b>P.S.</b> When I'm not building this, I'm working on <a href="https://redeemerpathways.org" target="_blank" rel="noopener">redeemerpathways.org</a>,
+              a faith-based program for foster youth, and <a href="https://churchfamily.io" target="_blank" rel="noopener">ChurchFamily.io</a>, a community
+              platform for churches to serve one another in love.
             </p>
           </footer>
         </div>
