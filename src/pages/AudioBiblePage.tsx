@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, BookOpen, ChevronDown, Headphones, ListMusic, 
 import recording from '@/data/listen/asv.json';
 import { AUDIO_CATEGORIES, audioPartSource, formatAudioTime, groupAudioBooks, locateBookTime, shuffleQueue, type RepeatMode } from '@/lib/audio-playlist';
 import { AudioBibleCover } from '@/components/bible/AudioBibleCover';
+import { AllDownloads, BookDownload } from '@/components/bible/AudioDownloads';
 import { AUDIO_ICONS } from '@/components/bible/audio-category-icons';
 import './audio-bible.css';
 
@@ -215,6 +216,7 @@ export default function AudioBiblePage() {
           <div className="asv-secondary"><label className="asv-volume"><Volume2 size={16}/><span className="sr-only">Volume</span><input type="range" min="0" max="1" step=".05" value={volume} onChange={event => { const value = Number(event.target.value); setVolume(value); if (audio.current) audio.current.volume = value; }}/></label><label className="asv-speed"><span className="sr-only">Playback speed</span><select value={speed} onChange={event => { const value = Number(event.target.value); setSpeed(value); if (audio.current) audio.current.playbackRate = value; }}>{[.75,1,1.25,1.5,2].map(value => <option value={value} key={value}>{value}× speed</option>)}</select><ChevronDown size={12}/></label></div>
           {error && <div className="asv-error" role="alert"><p>{error}</p><button type="button" onClick={playAudio}><RotateCcw size={14}/>Try again</button></div>}
           <Link className="asv-read" to={`/read/asv/${book.code}/${book.parts[currentPart.current].firstChapter}`}><BookOpen size={15}/>Read alongside<ArrowUpRight size={14}/></Link>
+          <BookDownload book={book}/>
         </div>
         <p className="asv-range-note">Your place in the book is saved on this device.</p>
       </section>
@@ -227,6 +229,7 @@ export default function AudioBiblePage() {
         })}</div>
       </div></section>
     </div>
+    <AllDownloads books={BOOKS}/>
     <footer className="asv-credits"><div><p className="asv-eyebrow">Freely given. Freely heard.</p><h2>With gratitude to LibriVox<br/>and Ron Altman.</h2></div><div><p>The American Standard Version (1901), read in full by Ron Altman. The text and this LibriVox recording are in the public domain.</p><a href={recording.sourceUrl} target="_blank" rel="noopener noreferrer">Original LibriVox recording<ArrowUpRight size={14}/></a><a href={recording.archiveUrl} target="_blank" rel="noopener noreferrer">Internet Archive collection<ArrowUpRight size={14}/></a></div></footer>
     <div className="asv-mobile-player" aria-label="Quick playback controls"><span className="asv-mobile-art"><CategoryIcon size={21}/></span><div><strong>{book.title}</strong><span>{playing ? 'Now playing' : 'Ready to listen'} · Ron Altman</span></div><button type="button" aria-label={playing ? 'Pause audio' : 'Play audio'} onClick={togglePlay}>{playing ? <Pause size={22} fill="currentColor"/> : <Play size={22} fill="currentColor"/>}</button><button type="button" disabled={nextDisabled} aria-label="Next audio" onClick={() => advance(1)}><SkipForward size={20}/></button><i style={{width:`${Math.min(100,time/duration*100)}%`}}/></div>
   </div>;

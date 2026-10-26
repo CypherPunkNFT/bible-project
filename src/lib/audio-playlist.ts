@@ -21,6 +21,8 @@ export interface AudioPart {
   src: string;
   publicSrc: string;
   fallbackSrc: string;
+  /** The small 32 kbps AAC copy on the download site. */
+  download: { url: string; bytes: number };
 }
 
 export interface AudioBook {
