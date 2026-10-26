@@ -1,6 +1,7 @@
 // The road a part's lessons stand on (PathView.tsx Path), and the dot that travels it as the page scrolls.
 // Units are a thousandth of the path's width, x across and y down.
-import { useEffect, useMemo, useState, type RefObject } from "react";
+import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
+import { CLICK_MS, ms, zoomClock } from "./zoom-clock";
 
 const NARROW = "(max-width: 760px)";
 
@@ -113,12 +114,21 @@ function swell(road: LaidRoad, along: number, length: number, width: number): st
  * middle has reached; the lesson it is passing through is returned, to light as if pointed at (owner, 2026-10-25: "a
  * dot that travels. And then hovers selections when it gets to the destination, and it keeps going", then "the
  * traveling dot is speeding like a little bullet … a double-sided wave. Flowing through rather than a dot"). It moves
- * at one steady speed with the scroll, and glides to each new place rather than jumping. */
-export function useTraveller(box: RefObject<HTMLElement>, wave: RefObject<SVGPathElement>, halo: RefObject<SVGPathElement>, road: LaidRoad): number {
+ * at one steady speed with the scroll, and glides to each new place rather than jumping. With `hold` (a stop's index)
+ * the wave goes to that stop instead, over the circle's press when it is chosen, on the zoom's clock (zoom-clock.ts) so
+ * the ticker slows and steps it with the rest, and stays there while its lesson is open (owner, 2026-10-25: "the wave
+ * position should come to it as it's kind of doing its clicking animation"). */
+export function useTraveller(box: RefObject<HTMLElement>, wave: RefObject<SVGPathElement>, halo: RefObject<SVGPathElement>, road: LaidRoad, hold = -1): number {
   const [near, setNear] = useState(-1);
+  // Where the wave is along the road, kept across a change of `hold`.
+  const placed = useRef(Number.NaN);
   useEffect(() => {
     const glide = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 1 : 0.1;
-    let frame = 0, shown = Number.NaN;
+    let frame = 0, shown = placed.current;
+    // The move onto the held stop: from where the wave is, eased over the press.
+    const toHold = hold >= 0 && road.points[hold] && box.current
+      ? { from: shown, timer: zoomClock.add(box.current.animate(null, { duration: ms(CLICK_MS), easing: "ease-out", fill: "forwards" }), "The wave comes to the circle") }
+      : null;
     // The window's middle, from the first lesson down to the last, as the same share of the whole road: one steady
     // speed all the way, never racing along a level stretch. It runs on past the road's end by `beyond`, so the wave
     // goes wholly into the last stop and is gone there, rather than resting half outside it (owner, 2026-10-25: "it
@@ -144,20 +154,29 @@ export function useTraveller(box: RefObject<HTMLElement>, wave: RefObject<SVGPat
       if (!area || !core || !glow || !road.points.length) return;
       // Sizes in pixels, turned into the road's units (a thousandth of the path's width).
       const rect = area.getBoundingClientRect(), unit = 1000 / rect.width, length = Math.min(240, rect.width * 0.45) * unit;
-      const goal = target(area, rect, length * 0.62);
-      shown = Number.isNaN(shown) ? goal : shown + (goal - shown) * glide;
-      if (Math.abs(goal - shown) < 0.5) shown = goal;
+      let goal = target(area, rect, length * 0.62), moving: boolean;
+      if (toHold) {
+        goal = road.points[hold].along;
+        const progress = Number(toHold.timer.effect?.getComputedTiming().progress ?? 1);
+        shown = Number.isNaN(toHold.from) ? goal : toHold.from + (goal - toHold.from) * progress;
+        moving = toHold.timer.playState !== "finished";
+      } else {
+        shown = Number.isNaN(shown) ? goal : shown + (goal - shown) * glide;
+        if (Math.abs(goal - shown) < 0.5) shown = goal;
+        moving = shown !== goal;
+      }
+      placed.current = shown;
       core.setAttribute("d", swell(road, shown, length, 5 * unit));
       glow.setAttribute("d", swell(road, shown, length * 1.2, 13 * unit));
       const circle = ((area.querySelector(".ck-node")?.getBoundingClientRect().width ?? 0) / 2) * unit;
       setNear(road.points.findIndex((p) => Math.abs(p.along - shown) < circle + length * 0.3));
-      if (shown !== goal) frame = requestAnimationFrame(step);
+      if (moving) frame = requestAnimationFrame(step);
     };
     const ask = () => { if (!frame) frame = requestAnimationFrame(step); };
     step();
     window.addEventListener("scroll", ask, { passive: true });
     window.addEventListener("resize", ask);
-    return () => { cancelAnimationFrame(frame); window.removeEventListener("scroll", ask); window.removeEventListener("resize", ask); };
-  }, [box, wave, halo, road]);
+    return () => { cancelAnimationFrame(frame); toHold?.timer.cancel(); window.removeEventListener("scroll", ask); window.removeEventListener("resize", ask); };
+  }, [box, wave, halo, road, hold]);
   return near;
 }
