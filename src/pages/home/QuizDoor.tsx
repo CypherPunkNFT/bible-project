@@ -1,4 +1,4 @@
-// MOCK-UP: the study hub's third section, "03 / Test what you know", leading to the questions page (/study/questions).
+// Study page (live): the study hub's third section, "03 / Test what you know", leading to the questions page (/study/questions).
 // It takes the place of the hub's closing "Begin with a question" section in StudyHubMockup.tsx. Built like sections
 // 01 and 02 (owner, 2026-10-24: "a section just like 01 and 02, white and yellow … the same format as all the rest"):
 // the same heading, then one card made like the Writers of Scripture card (hub.css's people-feature), laid out wide

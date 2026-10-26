@@ -1,11 +1,11 @@
-// MOCK-UP (home_mockup, home_mockup2): the geometry of the "Close to home" zoom (NearbyStage.tsx). The USA map is flown
+// Homepage (live; first tried on home_mockup, home_mockup2): the geometry of the "Close to home" zoom (NearbyStage.tsx). The USA map is flown
 // by its own viewBox, so its lines stay fine and its dots keep their size (placeMarks); the city's map is only ever
 // revealed in a circle, never scaled, because its pins size themselves from its size on screen. For the hand-over to be
 // seamless (owner, 2026-10-23: the circle opened away from the dot), the flight ends with the USA map at the city map's
 // own scale and the city's dot exactly on the city map's centre point, its window grown to the city map's frame; the
 // circle then opens from that point.
 import { geoAlbersUsa } from "d3-geo";
-import type { City, CityMap, UsStates } from "@/data/resources";
+import type { City, CityMap, UsStates } from "@/data/resources/index";
 import { placeMarks } from "@/pages/resources/life/zoom";
 
 export interface View { x: number; y: number; w: number; h: number }

@@ -1,4 +1,4 @@
-// MOCK-UP: the lighthouse drawing ("The rock higher than I", Psalm 61:2) from the Help for life drawings mock-up of
+// Homepage (live): the lighthouse drawing ("The rock higher than I", Psalm 61:2) from the Help for life drawings mock-up of
 // 2026-10-08 (design/help-for-life-drawings/art.js, drawing 6), carried into React unchanged for the left of the centred
 // "Close to home" opening (owner, 2026-10-23: "ligthouse to the left"). Its tone is the prophets blue it was drawn in;
 // the beam sweeps, the sea runs, the surf breathes, the boat rides the swell, the gulls glide (nearby-lighthouse.css).

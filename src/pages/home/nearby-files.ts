@@ -1,11 +1,11 @@
-// MOCK-UP (home_mockup, home_mockup2): which cities' files the "Close to home" map (NearbyStage.tsx) already has. A city
+// Homepage (live; first tried on home_mockup, home_mockup2): which cities' files the "Close to home" map (NearbyStage.tsx) already has. A city
 // opens in three steps, each with one job (owner, 2026-10-23: "loading" must mean the information is not here yet):
 // 1. its two files (facts and map) are read: here, for every city in the background once the section comes near;
 // 2. its map is drawn, hidden, when the visitor shows they may open it (NearbyStage.tsx);
 // 3. the zoom.
 // The ring on a dot shows only while step 1 is still running for the city clicked. While the ticker simulates a slow
 // connection every city's files take SLOW_NET_MS to arrive, and what was read before is forgotten, as on a first visit.
-import { loadResource } from "@/data/resources";
+import { loadResource } from "@/data/resources/index";
 import { CITY_FILES } from "@/pages/resources/life/format";
 import { SLOW_NET_MS, zoomClock } from "./nearby-clock";
 

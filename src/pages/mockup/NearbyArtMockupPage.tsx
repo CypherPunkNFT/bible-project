@@ -1,7 +1,7 @@
 // MOCK-UP (/close_to_home_mockup, local preview only): drawings for the left of the homepage's centred "Close to home"
 // opening, two by two, to choose one (owner, 2026-10-23), with the owner's pick so far above them. The drawings:
 // nearby/NearbyArt.tsx (parts: nearby/art-parts.tsx); styles: nearby/nearby-art.css.
-import { NEARBY_ART, PICKED } from "./nearby/NearbyArt";
+import { NEARBY_ART, PICKED } from "../home/nearby/NearbyArt";
 
 export default function NearbyArtMockupPage() {
   return <div className="nam home-wrap">

@@ -1,4 +1,4 @@
-/* MOCK-UP (home_mockup2): the closing blessing under the quiz and the sources (HomeMore.tsx); the page's quiet last word
+/* Homepage (live; first tried on home_mockup2): the closing blessing under the quiz and the sources (HomeMore.tsx); the page's quiet last word
    before the footer. */
 .hm-blessing { display: grid; justify-items: center; text-align: center; padding-block: 150px 130px; }
 .hm-blessing-rule { width: 1px; height: 64px; background: linear-gradient(transparent, var(--accent, #8a5a14)); margin-bottom: 40px; opacity: .6; }

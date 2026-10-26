@@ -21,9 +21,9 @@ import { DebateScene, FieldArt, WorldviewsScene } from "@/components/home/HomeAp
 import { HOME_FIELDS, HOME_PREVIEWS, HOME_STUDIES, HOME_TOPICS } from "@/components/home/collection-data";
 import "@/components/home/home-hub.css";
 import "@/components/home/home-landing-options.css";
-import "./home-mockup.css";
-import { HomeGuide } from "./HomeGuide";
-import { HomeMore } from "./HomeMore";
+import "../home/home-mockup.css";
+import { HomeGuide } from "../home/HomeGuide";
+import { HomeMore } from "../home/HomeMore";
 
 /** Mock-up: the five doorways are the site's five parts; Topics lives inside Study, and Resources joins. */
 const HOME_PATHS = [

@@ -1,4 +1,4 @@
-// MOCK-UP (home_mockup, home_mockup2): "How well do you know the Bible?", twelve questions. They open as a board of tiles,
+// Homepage (live; first tried on home_mockup, home_mockup2): "How well do you know the Bible?", twelve questions. They open as a board of tiles,
 // one per question with its drawing; choosing one opens it as a card on a deck, whose picture turns over to the verse
 // once answered, with the twelve steps along its top (gold for right, red for missed). "All twelve" returns to the board.
 // Beneath, two doors: a full test (the questions page, where the test now lives) and the learning materials (owner, 2026-10-23). The owner's choice from /quiz_mockup

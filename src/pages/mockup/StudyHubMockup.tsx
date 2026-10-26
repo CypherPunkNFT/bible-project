@@ -7,7 +7,7 @@ import { Icon, StudyLink } from "@/pages/study/hub/shared";
 import { HubSearch } from "@/pages/study/hub/HubSearch";
 import { PeopleCards } from "@/pages/study/hub/PeopleCards";
 import "@/pages/study/hub/hub.css";
-import { QuizDoor } from "./QuizDoor";
+import { QuizDoor } from "../home/QuizDoor";
 const AtlasWindow = lazy(() => import("@/pages/study/hub/AtlasWindow"));
 export default function StudyHubMockup() {
     return <div className="study-experience study-hub-page">

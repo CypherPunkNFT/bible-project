@@ -1,4 +1,4 @@
-/* MOCK-UP: the "Close to home" drawings (NearbyArt.tsx), our own parts beside the Help for life morning's
+/* Homepage (live): the "Close to home" drawings (NearbyArt.tsx), our own parts beside the Help for life morning's
    (approved-resource-art.css supplies the palette: --land, --leaf, --gold, --flower, --surface), and their 2 × 2 page
    (NearbyArtMockupPage.tsx). */
 .resource-approved .morning-art .na-building { fill: var(--surface); stroke: var(--land); stroke-width: 1.15; }

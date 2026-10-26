@@ -1,4 +1,4 @@
-// MOCK-UP: the parts the "Close to home" drawings are built from (NearbyArt.tsx). The trees, clouds, flock, ripples,
+// Homepage (live): the parts the "Close to home" drawings are built from (NearbyArt.tsx). The trees, clouds, flock, ripples,
 // flowers and grass are copied from the approved Help for life morning (resource-artwork.data.ts) and use its classes
 // (approved-resource-art.css); the people, fire and buildings are ours, styled in nearby-art.css.
 import type { CSSProperties, ReactNode } from "react";

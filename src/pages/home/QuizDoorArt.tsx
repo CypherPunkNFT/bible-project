@@ -1,4 +1,4 @@
-// MOCK-UP: four drawings for the Study page's Questions & Answers card (QuizDoor.tsx), each a 580 × 250 line drawing in
+// Study page (live): four drawings for the Study page's Questions & Answers card (QuizDoor.tsx), each a 580 × 250 line drawing in
 // the card's gold, labelled like the other cards' drawings. The card shows the first; /quiz_door_mockup
 // (QuizDoorMockupPage.tsx) shows all four in a 2 × 2 grid for the owner to choose (owner, 2026-10-24: "a two-by-two grid … focusing on the drawing").
 // Styles: quiz-door.css (quiz-mark, quiz-q, quiz-tile-mark) and hub.css (art-label).

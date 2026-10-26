@@ -1,4 +1,4 @@
-/* MOCK-UP: the openings of "Close to home" (NearbyIntro.tsx) and the floating pill that switches them. The space before
+/* Homepage (live): the openings of "Close to home" (NearbyIntro.tsx) and the floating pill that switches them. The space before
    the line above the map is the wrapper's padding, so the switch keeps that line in place when reading the map. */
 .ni-wrap { padding-bottom: 72px; overflow-anchor: none; }
 .ni h2 { font: 400 clamp(32px, 3.4vw, 50px)/1.1 var(--font-serif); letter-spacing: -.02em; margin: 16px 0 0; }

@@ -1,4 +1,4 @@
-// MOCK-UP (home_mockup, home_mockup2): the clock of the "Close to home" zoom (NearbyStage.tsx) and the state of its
+// Homepage (live; first tried on home_mockup, home_mockup2): the clock of the "Close to home" zoom (NearbyStage.tsx) and the state of its
 // ticker (NearbyTicker.tsx). One move (opening a city, or going back to all cities) runs on one clock: an empty
 // animation on the stage whose time every other part follows. The parts are real animations started in step with it,
 // and the USA map's flight is drawn from its time each frame, so pausing, stepping and seeking act on the whole move at

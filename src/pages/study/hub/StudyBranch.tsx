@@ -20,7 +20,7 @@ export default function StudyBranch({ branch }: {
 }) {
     const b = STUDY_BRANCHES[branch], [params, setParams] = useSearchParams(), location = useLocation();
     const asked = params.get('area'), a = b.areas.find(a => a.id === asked) ?? b.areas[0], e = a.featured;
-    const [hover, setHover] = useState<string | null>(null), doors = useRef<(HTMLAnchorElement | null)[]>([]), collection = useRef<HTMLElement>(null);
+    const [, setHover] = useState<string | null>(null), doors = useRef<(HTMLAnchorElement | null)[]>([]), collection = useRef<HTMLElement>(null);
     useEffect(() => { if (location.hash === '#writer-preview')
         document.getElementById('writer-preview')?.scrollIntoView({ block: 'start' }); }, [location.hash, a.id]);
     useEffect(() => { if (!matchMedia('(prefers-reduced-motion: reduce)').matches)

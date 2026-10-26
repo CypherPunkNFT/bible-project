@@ -1,4 +1,4 @@
-// MOCK-UP (/close_to_home_mockup): drawings for the left of the centred "Close to home" opening, beside the approved Help
+// Homepage (live; first tried on /close_to_home_mockup): drawings for the left of the centred "Close to home" opening, beside the approved Help
 // for life morning on the right (owner, 2026-10-23: "2x2 grid of something that looks great just like the help for life
 // right drawing"). From the first four the owner chose the village; the second four are in its spirit with no chapel
 // ("lets do another set of 4 but no chapels now"), then four about community rather than buildings ("focused on community not buidings"). Built from the morning's own parts (art-parts.tsx), so they share its

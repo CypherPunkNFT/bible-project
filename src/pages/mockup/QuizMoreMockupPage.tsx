@@ -8,11 +8,11 @@ import type { ComponentType } from "react";
 import { Link } from "react-router-dom";
 import "@/components/home/home-hub.css";
 import "../home-quiz.css";
-import "./quiz-versions.css";
+import "../home/quiz-versions.css";
 import "./quiz-more.css";
-import { QuizDoors } from "./HomeQuiz";
-import { Tiles } from "./QuizVersions";
-import { useQuiz } from "./quiz-state";
+import { QuizDoors } from "../home/HomeQuiz";
+import { Tiles } from "../home/QuizVersions";
+import { useQuiz } from "../home/quiz-state";
 
 const LEAD = "Thousands more questions from Sunday schools, catechisms and Bible quizzes.";
 const TEST = "/study/questions/test";

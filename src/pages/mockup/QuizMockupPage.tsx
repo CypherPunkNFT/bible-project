@@ -3,8 +3,8 @@
 import type { ComponentType } from "react";
 import "@/components/home/home-hub.css";
 import "../home-quiz.css";
-import "./quiz-versions.css";
-import { QuizBoard, QuizCard, QuizSpotlight, QuizStage } from "./QuizVersions";
+import "../home/quiz-versions.css";
+import { QuizBoard, QuizCard, QuizSpotlight, QuizStage } from "../home/QuizVersions";
 
 const VERSIONS: { name: string; note: string; Version: ComponentType }[] = [
   { name: "Spotlight", note: "One question in the middle of the page, its drawing above it and the four answers in a row. Calm and centred.", Version: QuizSpotlight },

@@ -1,4 +1,4 @@
-// MOCK-UP (home_mockup2): "Every word, traced to its source." The figures (from the dated snapshot on /sources, 7 October
+// Homepage (live; first tried on home_mockup2): "Every word, traced to its source." The figures (from the dated snapshot on /sources, 7 October
 // 2026) count up once in view; each of the eight collections opens the /sources catalogue on that collection (?collection=<id>).
 // Styles: home-sources.css.
 import { ArrowRight, ArrowUpRight, BookMarked, BookOpen, HeartHandshake, Library, Mic, ScrollText, Shield, Users, type LucideIcon } from "lucide-react";

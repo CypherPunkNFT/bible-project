@@ -1,4 +1,4 @@
-// MOCK-UP (home_mockup, home_mockup2): the ticker of the "Close to home" zoom, for checking it (owner, 2026-10-23: "have
+// Homepage (live; first tried on home_mockup, home_mockup2): the ticker of the "Close to home" zoom, for checking it (owner, 2026-10-23: "have
 // the ticker so we can show where in the animation we are and a pause button, so I can screenshot"). Speed, a simulated
 // slow connection, a 20-tick track to click, pause and one-tick steps, and what is moving at this moment. Pausing before
 // choosing a city starts the move paused on tick 0. Styled like the Atlas transition ticker (transition-ticker.css).

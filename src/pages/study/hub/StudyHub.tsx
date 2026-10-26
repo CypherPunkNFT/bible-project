@@ -6,7 +6,7 @@ import "./hub.css";
 // The 03 section into the questions, carried over from the mock-up /study_mockup on the owner's word (2026-10-24:
 // "release it to the actual study page"); it replaces the closing "Begin with a question". Its files stay in
 // pages/mockup/, as the homepage's sections do.
-import { QuizDoor } from "@/pages/mockup/QuizDoor";
+import { QuizDoor } from "@/pages/home/QuizDoor";
 const AtlasWindow = lazy(() => import("./AtlasWindow"));
 export default function StudyHub() {
     return <div className="study-experience study-hub-page">

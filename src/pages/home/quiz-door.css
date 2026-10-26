@@ -1,4 +1,4 @@
-/* MOCK-UP: the study hub's 03 section (QuizDoor.tsx). Heading, card, type and link come from hub.css (section-heading,
+/* Study page (live): the study hub's 03 section (QuizDoor.tsx). Heading, card, type and link come from hub.css (section-heading,
    people-feature); this file only lays the card out wide and draws in gold. */
 .study-experience .quiz-feature{--art-ground:color-mix(in srgb,var(--tone) 3%,var(--surface))}
 .study-experience .quiz-feature-body{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}

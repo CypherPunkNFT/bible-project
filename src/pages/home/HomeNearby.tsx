@@ -1,4 +1,4 @@
-// MOCK-UP (home_mockup, home_mockup2): "Close to home", the section above the blessing (owner, 2026-10-23: "the map about
+// Homepage (live; first tried on home_mockup, home_mockup2): "Close to home", the section above the blessing (owner, 2026-10-23: "the map about
 // where to find churches and help"). One city map holding both sets of places the site has researched: the help places
 // of /resources/life (life.json) and the churches and groups of /resources/fellowships (fellowship-cities.json), each
 // pinned in its own kind's colour, with the map's kind chips to show some kinds only. The heading says the two apart
@@ -9,7 +9,7 @@
 import { ArrowRight, Church, LifeBuoy, type LucideIcon } from "lucide-react";
 import { useMemo, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import { useResource, type City, type FellowshipCities, type FellowshipsData, type LifeData } from "@/data/resources";
+import { useResource, type City, type FellowshipCities, type FellowshipsData, type LifeData } from "@/data/resources/index";
 import { hasCityFiles, kindOf, plural } from "@/pages/resources/life/format";
 import { shortName, toCity } from "@/pages/resources/fellowships/format";
 import { NearbyStage, type Place } from "./NearbyStage";

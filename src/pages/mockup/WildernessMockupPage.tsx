@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import "@/components/home/home-hub.css";
 import "../home-quiz.css";
-import "./quiz-versions.css";
+import "../home/quiz-versions.css";
 import { QUESTIONS } from "../quiz-data";
 import { QuizScene } from "../QuizScenes";
 

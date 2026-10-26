@@ -1,4 +1,4 @@
-// MOCK-UP (home_mockup, home_mockup2): the map of "Close to home" (HomeNearby.tsx) as one stage with two views (owner,
+// Homepage (live; first tried on home_mockup, home_mockup2): the map of "Close to home" (HomeNearby.tsx) as one stage with two views (owner,
 // 2026-10-23). First the USA map with the chosen city's facts beside it; choosing a city (any dot, or the button under the
 // facts) flies the USA map down onto it and opens the city's own map out of its dot in a widening circle.
 // - Seamless (owner, 2026-10-23): the flight ends with the USA map at the city map's own scale, its window grown to the
@@ -17,7 +17,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { startTransition, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore, type SyntheticEvent } from "react";
 import { flushSync } from "react-dom";
 import { useLocation } from "react-router-dom";
-import { loadResource, useResource, type City, type CityMap as CityMapData, type UsStates } from "@/data/resources";
+import { loadResource, useResource, type City, type CityMap as CityMapData, type UsStates } from "@/data/resources/index";
 import { CityInfo, UsaMap } from "@/pages/resources/life/CitySection";
 import { CityMap } from "@/pages/resources/life/CityMap";
 import { CITY_FILES, hasCityFiles, kindsIn, plural, type CityWords } from "@/pages/resources/life/format";

@@ -1,4 +1,4 @@
-// MOCK-UP (quiz_mockup): four versions of the homepage's question section, each a working quiz over the same twelve
+// Homepage (live; first tried on quiz_mockup): four versions of the homepage's question section, each a working quiz over the same twelve
 // questions and drawings (quiz-data.ts, QuizScenes.tsx). 1 Spotlight: one question centred, drawing above. 2 The card:
 // a card on a deck; answering turns its picture over to the verse. 3 The dark stage: a dark band, story-style steps.
 // 4 The twelve: every question on a board, open any. The board (Tiles) and the card (CardDeck) also make the homepage's

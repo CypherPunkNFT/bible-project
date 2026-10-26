@@ -1,4 +1,4 @@
-/* MOCK-UP (home_mockup2): the sources (HomeSources.tsx). A statement, a band of figures, then the eight collections and the
+/* Homepage (live; first tried on home_mockup2): the sources (HomeSources.tsx). A statement, a band of figures, then the eight collections and the
    parts of the site as shared-hairline grids whose every cell is a link. */
 .hs { margin-top: 150px; }
 .hs-head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(40px, 6vw, 96px); align-items: end; }

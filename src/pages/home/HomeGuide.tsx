@@ -1,4 +1,4 @@
-// MOCK-UP (home_mockup2): the section under the row of studies. First what the project is (the About content of the contact
+// Homepage (live; first tried on home_mockup2): the section under the row of studies. First what the project is (the About content of the contact
 // page, its four convictions shared from AboutSections.tsx), then "Where are you starting from?": each answer glides the page
 // down to that numbered part and opens it. Styles: home-guide.css.
 // Two layouts: "columns" (home_mockup2: story in columns, then the four answers in a row) and "side" (home_mockup: the story

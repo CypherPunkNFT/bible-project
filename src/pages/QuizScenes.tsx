@@ -1,4 +1,4 @@
-// MOCK-UP (home_mockup2): one line drawing per quiz question, in the convictions' style (gold line, paper fill, faint
+// Homepage quiz and question pages (live; first tried on home_mockup2): one line drawing per quiz question, in the convictions' style (gold line, paper fill, faint
 // detail). Each draws itself in, then one part keeps moving (a swaying book, drifting cloud, falling sand, a flame). None
 // gives the answer away. Styles: home-quiz.css (.qs-*).
 import type { ReactNode } from "react";

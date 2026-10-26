@@ -1,4 +1,4 @@
-// MOCK-UP (quiz_mockup): the pieces the four versions of the quiz share: the score, the answers, what shows once one is
+// Homepage (live; first tried on quiz_mockup): the pieces the four versions of the quiz share: the score, the answers, what shows once one is
 // picked, the closing verdict and the twelve steps. Each version styles them under its own class (quiz-versions.css).
 import { ArrowRight, ArrowUpRight, Check, RotateCcw, X } from "lucide-react";
 import { Link } from "react-router-dom";

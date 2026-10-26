@@ -1,4 +1,4 @@
-/* MOCK-UP: the lighthouse drawing (LighthouseArt.tsx), styled and moving as it did in
+/* Homepage (live): the lighthouse drawing (LighthouseArt.tsx), styled and moving as it did in
    design/help-for-life-drawings/drawings.css: one line colour, the prophets blue as its tone. */
 .la-art { --c: var(--prophets); display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; overflow: visible; color: color-mix(in srgb, var(--ink) 66%, var(--page)); }
 .la-art .t { stroke: var(--c); }

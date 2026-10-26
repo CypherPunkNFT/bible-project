@@ -4,9 +4,9 @@
 // ("merge OpenBible and the board. Maybe a 2x2 next to it"). Tell the number of the one to keep; it goes on the card at /study_mockup.
 import type { ComponentType } from "react";
 import "@/pages/study/hub/hub.css";
-import { BibleBoardArt, BoardArt, CardsArt, CatechismArt, OpenBibleArt } from "./QuizDoorArt";
-import { QuizDoor } from "./QuizDoor";
-import "./quiz-door.css";
+import { BibleBoardArt, BoardArt, CardsArt, CatechismArt, OpenBibleArt } from "../home/QuizDoorArt";
+import { QuizDoor } from "../home/QuizDoor";
+import "../home/quiz-door.css";
 
 const DRAWINGS: { name: string; note: string; Art: ComponentType }[] = [
   { name: "The cards", note: "On the card now. A question card resting on two others, three choices with the right one ticked: ask, answer, remember.", Art: CardsArt },

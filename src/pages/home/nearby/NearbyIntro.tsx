@@ -1,4 +1,4 @@
-// MOCK-UP (home_mockup2 "Close to home", owner 2026-10-23: "lets mock this section do 3 floating pill switch and when we
+// Homepage (live; first tried on home_mockup2 "Close to home", owner 2026-10-23: "lets mock this section do 3 floating pill switch and when we
 // switch it stays in the relative location"): ways to open the section, switched by a pill floating at the foot of the
 // screen while the section is in view. 1 the words with Resources as a tall box beside them and the live figures as a
 // bar below; 2 everything centred with one Resources button, the Help for life lighthouse on the left and the chosen
