@@ -34,6 +34,8 @@ async function underLimit(env: ContactEnv, request: Request): Promise<boolean> {
   const visitor = request.headers.get("CF-Connecting-IP") ?? "local";
   const bytes = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(`contact:${visitor}:${window}`));
   const key = [...new Uint8Array(bytes)].map((b) => b.toString(16).padStart(2, "0")).join("");
+  // The privacy policy says these counting codes are deleted once they expire.
+  await env.DB.prepare("DELETE FROM testimony_limits WHERE expires_at<?").bind(now).run();
   const row = await env.DB.prepare("INSERT INTO testimony_limits(key,count,expires_at) VALUES (?,1,?) ON CONFLICT(key) DO UPDATE SET count=count+1 RETURNING count")
     .bind(key, (window + 1) * 3600).first<{ count: number }>();
   return Boolean(row && row.count <= SENDS_PER_HOUR);

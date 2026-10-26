@@ -51,6 +51,8 @@ const ROUTE_TITLES: Record<string, string> = {
   "/resources": "Free Bible Study Resources",
   "/testimonies": "Christian Testimonies",
   "/contact": "Contact",
+  "/privacy": "Privacy Policy",
+  "/support": "Support",
   "/search": "Search the Bible",
   "/search/meaning": "Search the Bible by Meaning",
   "/sources": "Sources and Bible Versions",
