@@ -45,8 +45,11 @@ what comes next.
   tomb" have their own drawings, the sea parted with the fire going before and three crosses, because the quiz's
   drawings they used belonged to other questions (Elijah's chariot of fire, the tear of "Jesus wept")
   ([part-art.tsx](../../src/pages/mockup/children/part-art.tsx)). The lessons in a part sit on one smooth winding road,
-  level across with a wide round turn at each side, never two stacked
-  ([PathView.tsx](../../src/pages/mockup/children/PathView.tsx) `layRoad`). Website commits `53aa005c3`, `d484feea7`.
+  level across with a wide round turn at each side, never two stacked; each part's road is its own (turns reach out
+  and sweeps drop by their own amounts, the same on every visit), and a glowing dot travels it as the page scrolls,
+  following the window's middle, resting in each lesson it reaches, which lights as under the pointer
+  ([road.ts](../../src/pages/mockup/children/road.ts) `layRoad`, `useTraveller`). Website commits `53aa005c3`,
+  `d484feea7`, `79e01bb84`.
 - **Nothing about questions is on the live site.** The questions page and the children's page are local mock-ups.
 
 ## Waiting on the owner
