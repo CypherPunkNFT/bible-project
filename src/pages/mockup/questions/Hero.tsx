@@ -2,8 +2,7 @@
 // (QuestionsArt.tsx), which replaced the "Try one" question (owner, 2026-10-22). Under it, the bank's figures run in a
 // bar across the page, its foot the line above 01 (StatsBar). The one way on is the pill "Browse questions", down to 03
 // (owner, 2026-10-23: "just shows browse questions, with a down arrow… just one option"); the test is offered under the list.
-// Beside it, "Children's tests" opens the children's page (owner, 2026-10-24); that page is still a mock-up on this
-// computer's preview, so the button shows only here until the page goes live.
+// Beside it, "Children's tests" opens the children's page (owner, 2026-10-24), a real page since 2026-10-26.
 import { ArrowDown, ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
@@ -21,8 +20,6 @@ const THEMES: { word: string; line: string; icon: ReactNode }[] = [
     <circle cx="20" cy="20" r="13" /><path d="M16 16.5C16 13.5 18 12 20 12S24 13.5 24 16.5C24 19.5 20 20 20 23.5" /><circle cx="20" cy="27.5" r="1" fill="currentColor" /></> },
 ];
 
-/** The children's page is a mock-up, opened only on this computer's preview. */
-const CHILDREN_PAGE = typeof window !== "undefined" && ["127.0.0.1", "localhost"].includes(window.location.hostname) ? "/children_mockup" : null;
 
 function Themes() {
   return <ul className="qp-themes" aria-label="Where the questions come from">
@@ -43,7 +40,7 @@ export function QuestionsHero() {
       <Themes />
       <div className="qp-hero-go">
         <button type="button" className="qp-hero-test" onClick={toList}>Browse questions<ArrowDown size={16} strokeWidth={1.7} aria-hidden /></button>
-        {CHILDREN_PAGE && <Link className="qp-hero-test qp-hero-children" to={CHILDREN_PAGE}>Children's tests<ArrowRight size={16} strokeWidth={1.7} aria-hidden /></Link>}
+        <Link className="qp-hero-test qp-hero-children" to="/study/questions/children">Children's tests<ArrowRight size={16} strokeWidth={1.7} aria-hidden /></Link>
       </div>
     </div>
     <QuestionsArt />

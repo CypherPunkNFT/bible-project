@@ -70,7 +70,13 @@ what comes next.
   ticker slows it too), and stays there while the lesson is open.
   On the way back out, the page is scrolled (unseen, behind the questions) to where the scroll itself puts the wave on
   that circle, so the view zooms out onto it with the wave still there.
-- **Nothing about questions is on the live site.** The questions page and the children's page are local mock-ups.
+- **2026-10-26: the children's page is a real page** at `/study/questions/children` (owner: "make it a real page now"),
+  opened by the questions page's "Children's tests" button on every host. Its body is
+  [ChildrenTests.tsx](../../src/pages/mockup/children/ChildrenTests.tsx); `/children_mockup` stays as its local copy for
+  trying changes, with the zoom's ticker and `?course=versions`. In git, `src/App.tsx` carries only this route: the
+  questions pages' own routes and the mock-up routes are still another chat's uncommitted edits in that file.
+- **Nothing about questions is on the live site yet.** The questions page and the children's page are real pages on the
+  local preview only, until the owner approves a release.
 
 ## Waiting on the owner
 
