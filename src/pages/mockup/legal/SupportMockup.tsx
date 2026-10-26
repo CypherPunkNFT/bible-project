@@ -1,48 +1,22 @@
-// MOCK-UP: the Support page redesigned (owner, 2026-10-25), at /support_mockup on this computer's preview only. The open
-// door (Matthew 7:7) in the hero, three ways to reach us in one quiet row, 01 the common questions in three layouts
-// (A tiles that open their answer beneath, B a search over the list, C a question menu beside the answer), switched by
-// the pill (?v=a|b|c), and the Help for life band with its lighthouse. All answers come from SupportPage.tsx.
-import { ArrowRight, Bookmark, Gift, LifeBuoy, Mail, MessageSquareText, PencilLine, Phone, Search, ShieldCheck, Trash2, WifiOff, X, type LucideIcon } from "lucide-react";
+// MOCK-UP: the Support page's three question layouts, at /support_mockup on this computer's preview only (A tiles that
+// open their answer beneath, B a search over the list, C a question menu beside the answer), switched by the pill
+// (?v=a|b|c). The owner chose A, Tiles, for /support (2026-10-25); the page itself is legal/SupportView.tsx.
+import { Search, X } from "lucide-react";
 import { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import { CONTACT_ADDRESS } from "@/pages/PrivacyPage";
-import { QUESTIONS } from "@/pages/SupportPage";
-import { LighthouseArt, OpenDoorArt } from "./DoorArt";
+import { useSearchParams } from "react-router-dom";
+import { CONTACT_ADDRESS } from "@/pages/legal/privacy-content";
+import { META, QUESTIONS } from "@/pages/legal/support-content";
+import { Answer, Tiles } from "@/pages/legal/SupportQuestions";
+import { SupportView } from "@/pages/legal/SupportView";
 import { VersionPill } from "./VersionPill";
-import "./legal-mockup.css";
 
 type SupportVersion = "a" | "b" | "c";
-
-/** One entry per QUESTIONS item, in the same order: its icon, a short tile label and words a search should find. */
-const META: { icon: LucideIcon; label: string; words: string }[] = [
-  { icon: Gift, label: "Is it free?", words: "free cost price subscription ads account pay" },
-  { icon: PencilLine, label: "Report a mistake", words: "mistake error typo wrong report correction fix" },
-  { icon: WifiOff, label: "Offline in the app", words: "offline internet app connection download listen audio phone" },
-  { icon: Bookmark, label: "Bookmarks and notes", words: "bookmarks notes saved device sync lost phone browser" },
-  { icon: Trash2, label: "Delete a testimony", words: "testimony story remove withdraw delete link" },
-  { icon: ShieldCheck, label: "Information we collect", words: "privacy collect data information tracking" },
-];
 
 const VERSIONS: { id: SupportVersion; name: string }[] = [
   { id: "a", name: "Tiles" },
   { id: "b", name: "Search" },
   { id: "c", name: "Menu" },
 ];
-
-function Answer({ index }: { index: number }) {
-  const Icon = META[index].icon;
-  return <div className="sp-answer" aria-live="polite"><Icon aria-hidden /><div><h3>{QUESTIONS[index].question}</h3><p>{QUESTIONS[index].answer}</p></div></div>;
-}
-
-function Tiles() {
-  const [open, setOpen] = useState(0);
-  return <>
-    <div className="sp-tiles">{META.map((m, i) => <button key={m.label} type="button" aria-pressed={i === open} onClick={() => setOpen(i)}>
-      <m.icon aria-hidden /><span>{m.label}</span>
-    </button>)}</div>
-    <Answer index={open} />
-  </>;
-}
 
 function SearchList() {
   const [query, setQuery] = useState("");
@@ -74,49 +48,12 @@ function Menu() {
   </div>;
 }
 
-const WAYS = [
-  { icon: Mail, title: "Email us", line: CONTACT_ADDRESS, href: `mailto:${CONTACT_ADDRESS}` },
-  { icon: MessageSquareText, title: "The contact form", line: "Write from the site", to: "/contact" },
-  { icon: PencilLine, title: "Suggest a correction", line: "The button on every page sends the page with your note" },
-];
-
 export default function SupportMockup() {
   const [params] = useSearchParams();
   const version = VERSIONS.find((v) => v.id === params.get("v"))?.id ?? "a";
   return (
-    <div className="lg-page">
-      <section className="lg-hero">
-        <div>
-          <p className="lg-eyebrow">Support · questions · help</p>
-          <h1>How can we<em>help?</em></h1>
-          <p className="lg-sub">Ask, and it will be given to you;<br />seek, and you will find.</p>
-          <p className="lg-lead">Help with the Bible Guide website and app. If your question is not answered here, write to us.</p>
-        </div>
-        <OpenDoorArt />
-      </section>
-      <ul className="lg-ways">{WAYS.map((w) => {
-        const inner = <><w.icon aria-hidden /><b>{w.title}</b><span>{w.line}</span>{(w.href || w.to) && <ArrowRight className="lg-ways-go" aria-hidden />}</>;
-        return <li key={w.title}>{w.href ? <a href={w.href}>{inner}</a> : w.to ? <Link to={w.to}>{inner}</Link> : <div>{inner}</div>}</li>;
-      })}</ul>
-      <section className="lg-section">
-        <p className="lg-eyebrow"><span>01</span> · Six answers</p>
-        <h2>Common <em>questions.</em></h2>
-        {version === "b" ? <SearchList /> : version === "c" ? <Menu /> : <Tiles />}
-      </section>
-      <aside className="lg-help">
-        <LighthouseArt />
-        <div>
-          <p className="lg-eyebrow">Help for life</p>
-          <p className="lg-help-verse">“God is our refuge and strength, an ever-present help in times of trouble.” <span>Psalm 46:1</span></p>
-          <p className="lg-help-text">In danger now? Call <b>911</b>. Thinking of suicide or in crisis? Call or text <b>988</b>.</p>
-          <div className="lg-help-actions">
-            <Link className="lg-help-go" to="/resources/life"><LifeBuoy aria-hidden />Find free help<ArrowRight aria-hidden /></Link>
-            <a className="lg-help-call" href="tel:988"><Phone aria-hidden />Call or text 988</a>
-            <a className="lg-help-call" href="tel:911"><Phone aria-hidden />Call 911</a>
-          </div>
-        </div>
-      </aside>
+    <SupportView questions={version === "b" ? <SearchList /> : version === "c" ? <Menu /> : <Tiles />}>
       <VersionPill label="Questions layout" versions={VERSIONS} current={version} />
-    </div>
+    </SupportView>
   );
 }

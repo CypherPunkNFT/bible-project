@@ -1,6 +1,6 @@
-/* MOCK-UP: the Privacy and Support pages redesigned (2026-10-25). Page frame and hero (.lg-*) after the contact page's
+/* The Privacy and Support pages (redesigned 2026-10-25; the owner chose Codex and Tiles). Page frame and hero (.lg-*) after the contact page's
    "Grace to you" hero; drawings (DoorArt.tsx), the moment map (.fm-*, FlowMap.tsx), the policy layouts (.pv-*,
-   PolicyViews.tsx) and the support questions (.sp-*, SupportMockup.tsx). Quiet: thin lines, no glowing boxes. */
+   PolicyViews.tsx) and the support questions (.sp-*, SupportQuestions.tsx and the mock-up's other layouts). Quiet: thin lines, no glowing boxes. */
 .lg-page { max-width: 80rem; margin: 0 auto; padding: 0 1rem 7rem; }
 @media (min-width: 640px) { .lg-page { padding-inline: 1.5rem; } }
 .lg-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }

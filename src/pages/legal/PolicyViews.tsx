@@ -1,9 +1,10 @@
-// MOCK-UP: the full Privacy Policy text (SECTIONS from PrivacyPage.tsx, word for word) in three layouts. A "Codex": a
+// The full Privacy Policy text (SECTIONS from privacy-content.tsx, word for word) in three layouts. A "Codex": a
 // big-icon menu beside one section at a time. B "Rail": every section in full, the menu kept beside it and lit for the
-// section being read. C "Folded": one row per section, opening in place. Styles: legal-mockup.css (.pv-*).
+// section being read. C "Folded": one row per section, opening in place. The real page uses A (owner, 2026-10-25); B and
+// C stay for /privacy_mockup. Styles: legal.css (.pv-*).
 import { Baby, ChevronDown, Globe, HardDrive, HeartHandshake, History, Landmark, MailOpen, CirclePlay, Handshake, SlidersHorizontal, Smartphone, type LucideIcon } from "lucide-react";
 import { useEffect, useState } from "react";
-import { SECTIONS } from "@/pages/PrivacyPage";
+import { SECTIONS } from "./privacy-content";
 
 export type PolicyVersion = "a" | "b" | "c";
 
