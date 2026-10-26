@@ -1,6 +1,8 @@
 # Bible Guide (formerly Bible Project)
 
-**Chapter summaries and local Qwen work — 13 October 2026:** [Documentation and locations](initiatives/chapter-summaries/README.md) · [Handoff](initiatives/chapter-summaries/HANDOFF.md) · [Architecture](initiatives/chapter-summaries/ARCHITECTURE.md) · [Runbook](initiatives/chapter-summaries/RUNBOOK.md) · [Trial results](initiatives/chapter-summaries/RESULTS.md). The Python studio is on localhost:8947; the main Bible preview remains 8931. Three evidence-first trial rounds are complete, the full Bible run remains paused for quality, and all prior drafts/archives are preserved locally. Trial outputs have not been approved or published.
+**Chapter summaries:** Summaries are available for every chapter of the Bible.
+
+**Local Qwen trial archive — 13 October 2026:** [Documentation and locations](initiatives/chapter-summaries/README.md) · [Handoff](initiatives/chapter-summaries/HANDOFF.md) · [Architecture](initiatives/chapter-summaries/ARCHITECTURE.md) · [Runbook](initiatives/chapter-summaries/RUNBOOK.md) · [Trial results](initiatives/chapter-summaries/RESULTS.md). These links document the historical local Qwen trials and preserved drafts/archives.
 
 **Library knowledge initiative — updated 14 October 2026:** [Start here](initiatives/library-knowledge/README.md) · [System design](initiatives/library-knowledge/DESIGN.md) · [Execution backlog](initiatives/library-knowledge/TODO.md) · [Handoff protocol](initiatives/library-knowledge/HANDOFF.md) · [Sufficiency review](initiatives/library-knowledge/REVIEW-2026-10-13.md).
 
