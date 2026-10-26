@@ -56,7 +56,8 @@ what comes next.
   rising one after another. This move is a first take: the owner said "we need to think about how we're gonna do that",
   so ask before building more. The small See all questions under the road is gone. The course's top shows the part
   being looked at above as chosen, and its button reads "Open the Creation course" (and so on), opening at the lesson
-  in the card above. Website commit `c68de2546`.
+  in the card above. Website commit `c68de2546`. The hexagon is a third larger than a lesson's circle and stands 1.6
+  times the usual gap past the last lesson; the wave runs wholly into it and ends there (`c0aa0eabe`).
 - **Nothing about questions is on the live site.** The questions page and the children's page are local mock-ups.
 
 ## Waiting on the owner
