@@ -123,9 +123,19 @@ export function useTraveller(box: RefObject<HTMLElement>, wave: RefObject<SVGPat
     // speed all the way, never racing along a level stretch. It runs on past the road's end by `beyond`, so the wave
     // goes wholly into the last stop and is gone there, rather than resting half outside it (owner, 2026-10-25: "it
     // shouldn't trail at the end of the hexagon").
-    const target = (rect: DOMRect, beyond: number) => {
+    // The line on the screen it follows is the window's middle, or higher: where the first lesson stands when its
+    // section is brought to the top (the hexagon, Start the quiz), so the wave is then on the first lesson, not the
+    // second (owner, 2026-10-25).
+    const line = (area: HTMLElement, rect: DOMRect) => {
+      const section = area.closest("section");
+      if (!section) return window.innerHeight * 0.55;
+      const under = parseFloat(getComputedStyle(section).scrollMarginTop) || 0;
+      const start = under + (rect.top - section.getBoundingClientRect().top) + (road.points[0].y * rect.width) / 1000;
+      return Math.min(window.innerHeight * 0.55, start);
+    };
+    const target = (area: HTMLElement, rect: DOMRect, beyond: number) => {
       const { points } = road, first = points[0], last = points[points.length - 1];
-      const y = ((window.innerHeight * 0.55 - rect.top) / rect.width) * 1000;
+      const y = ((line(area, rect) - rect.top) / rect.width) * 1000;
       return last.y > first.y ? Math.min(1, Math.max(0, (y - first.y) / (last.y - first.y))) * (last.along + beyond) : 0;
     };
     const step = () => {
@@ -134,7 +144,7 @@ export function useTraveller(box: RefObject<HTMLElement>, wave: RefObject<SVGPat
       if (!area || !core || !glow || !road.points.length) return;
       // Sizes in pixels, turned into the road's units (a thousandth of the path's width).
       const rect = area.getBoundingClientRect(), unit = 1000 / rect.width, length = Math.min(240, rect.width * 0.45) * unit;
-      const goal = target(rect, length * 0.62);
+      const goal = target(area, rect, length * 0.62);
       shown = Number.isNaN(shown) ? goal : shown + (goal - shown) * glide;
       if (Math.abs(goal - shown) < 0.5) shown = goal;
       core.setAttribute("d", swell(road, shown, length, 5 * unit));
