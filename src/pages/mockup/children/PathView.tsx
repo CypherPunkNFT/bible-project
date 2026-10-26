@@ -2,7 +2,7 @@
 // lesson by lesson. A finished lesson is filled in its part's colour; the next one to do carries the page's one glow.
 // Also the page's plain top. Direction A's own page: ARCHIVE/mockups/children-PathView-2026-10-25.tsx.
 import { ArrowLeft, Check } from "lucide-react";
-import { useMemo, useRef, type CSSProperties } from "react";
+import { useMemo, useRef, type CSSProperties, type MutableRefObject } from "react";
 import { Link } from "react-router-dom";
 import { PartArt } from "./part-art";
 import { toneStyle, type Lesson, type Part, type PartLessons } from "./data";
@@ -41,15 +41,16 @@ export interface Onward { part: Part; onGo: () => void }
  * scrolls and lights each lesson it passes through. With `art` (E) each circle holds the lesson's line drawing and its number sits
  * just outside it. With `onward` the road ends in a hexagon in the next part's colour, holding its drawing (owner,
  * 2026-10-25: "a final circle or something else than a circle. Maybe a hexagon … for the next lesson"). `holdId` is the
- * lesson being opened: the wave goes to its circle as it is pressed and stays there. */
-export function Path({ lessons, progress, next, openId, onOpen, art, onward, holdId }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void; art?: boolean; onward?: Onward; holdId?: string }) {
+ * lesson being opened: the wave goes to its circle as it is pressed and stays there. `settle` gets a way to scroll the
+ * page so the wave stays on a lesson's circle once the lesson is left. */
+export function Path({ lessons, progress, next, openId, onOpen, art, onward, holdId, settle }: { lessons: Lesson[]; progress: Progress; next: Lesson; openId: string | null; onOpen: (lesson: Lesson) => void; art?: boolean; onward?: Onward; holdId?: string; settle?: MutableRefObject<((index: number) => void) | null> }) {
   const stops = lessons.length + (onward ? 1 : 0);
   const shape = useRoad(stops, art), seed = lessons[0]?.id ?? "";
   const ending = onward ? 1.6 : 1;
   const road = useMemo(() => layRoad(stops, shape, seed, ending), [stops, shape, seed, ending]);
   const { points, d, height } = road;
   const box = useRef<HTMLDivElement>(null), wave = useRef<SVGPathElement>(null), halo = useRef<SVGPathElement>(null);
-  const near = useTraveller(box, wave, halo, road, lessons.findIndex((l) => l.id === holdId));
+  const near = useTraveller(box, wave, halo, road, lessons.findIndex((l) => l.id === holdId), settle);
   return <div ref={box} className={art ? "ck-path ck-path-art" : "ck-path"} style={{ aspectRatio: `1000 / ${height}` }}>
     {/* Before the lessons, so a circle hides the wave while it passes through. */}
     <svg viewBox={`0 0 1000 ${height}`} preserveAspectRatio="none" aria-hidden="true">
