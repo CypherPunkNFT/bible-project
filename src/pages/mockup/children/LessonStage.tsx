@@ -148,7 +148,7 @@ export function LessonStage({ lesson, next, bookNames, sceneOf, circleOf, onOpen
 
   const tone = { ...toneStyle(lesson.part.tone), "--fill": fill } as CSSProperties;
   return <div ref={stage} className="ck-stage" data-open={open ? "" : undefined} style={tone}>
-    <LessonPanel stage lesson={lesson} bookNames={bookNames} next={next} onClose={close} onOpen={onOpen}
+    <LessonPanel lesson={lesson} bookNames={bookNames} next={next} onClose={close} onOpen={onOpen}
       onFinish={(right, total) => onFinish(lesson, right, total)} />
   </div>;
 }

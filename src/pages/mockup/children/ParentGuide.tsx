@@ -4,7 +4,7 @@
 // sheet: what to read first, then each question with its answer, the other choices and its verse. On a phone the
 // list becomes one drop-down. "Start with your child" opens the lesson panel as the rest of the page does. Collapsed
 // until "Open the whole course", a part at the top, or a lesson's "See all the questions" opens it (owner, 2026-10-24).
-import { ArrowDown, ArrowLeft, ArrowRight, BookOpen, Check, ChevronDown } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp, BookOpen, Check, ChevronDown } from "lucide-react";
 import { useId, useRef, type ComponentType } from "react";
 import { Link } from "react-router-dom";
 import { rightChoice } from "@/lib/data";
@@ -29,7 +29,9 @@ export interface CourseHeadProps {
 const openLabel = (title: string) => `Open the ${title.replace(/^The /, "")} course`;
 
 interface Props {
-  lessons: Lesson[]; groups: PartLessons[]; progress: Progress; bookNames: Record<string, string>; onOpen: (lesson: Lesson) => void;
+  lessons: Lesson[]; groups: PartLessons[]; progress: Progress; bookNames: Record<string, string>;
+  /** Puts a lesson in the card at the top of the page and goes up to it; without it there is no Start button. */
+  onStart?: (lesson: Lesson) => void;
   expanded: boolean; onExpand: (expanded: boolean) => void; chosenId: string | null; onChoose: (id: string) => void;
   /** Another top for the section (the mock-up's versions); the course under it is the same. */
   Head?: ComponentType<CourseHeadProps>;
@@ -89,7 +91,7 @@ export function GlanceHead({ lessons, groups, total, expanded, onExpand, onPick,
   </header>;
 }
 
-export function ParentGuide({ lessons, groups, progress, bookNames, onOpen, expanded, onExpand, chosenId, onChoose, Head = CourseHead, current }: Props) {
+export function ParentGuide({ lessons, groups, progress, bookNames, onStart, expanded, onExpand, chosenId, onChoose, Head = CourseHead, current }: Props) {
   const chosen = lessons.find((l) => l.id === chosenId) ?? nextLesson(lessons, progress);
   const sheet = useRef<HTMLDivElement>(null);
   const at = lessons.indexOf(chosen);
@@ -135,7 +137,8 @@ export function ParentGuide({ lessons, groups, progress, bookNames, onOpen, expa
         </select>
       </label>
       <div className="pg-sheet" ref={sheet} style={toneStyle(chosen.part.tone)} aria-live="polite">
-        <Sheet lesson={chosen} bookNames={bookNames} progress={progress} onOpen={onOpen} />
+        {/* No Start with your child for the lesson already in the card at the top (owner, 2026-10-25). */}
+        <Sheet lesson={chosen} bookNames={bookNames} progress={progress} onStart={chosen.id === current?.id ? undefined : onStart} />
         <footer className="pg-steps">
           {at > 0 ? <button type="button" onClick={() => choose(lessons[at - 1])}><ArrowLeft size={16} aria-hidden /><span><small>Before</small>{lessons[at - 1].title}</span></button> : <span />}
           {at < lessons.length - 1 && <button type="button" className="pg-next" onClick={() => choose(lessons[at + 1])}><span><small>Next</small>{lessons[at + 1].title}</span><ArrowRight size={16} aria-hidden /></button>}
@@ -145,7 +148,7 @@ export function ParentGuide({ lessons, groups, progress, bookNames, onOpen, expa
   </section>;
 }
 
-function Sheet({ lesson, bookNames, progress, onOpen }: { lesson: Lesson; bookNames: Record<string, string>; progress: Progress; onOpen: (lesson: Lesson) => void }) {
+function Sheet({ lesson, bookNames, progress, onStart }: { lesson: Lesson; bookNames: Record<string, string>; progress: Progress; onStart?: (lesson: Lesson) => void }) {
   const done = progress[lesson.id];
   return <article>
     <header className="pg-sheet-head">
@@ -157,7 +160,7 @@ function Sheet({ lesson, bookNames, progress, onOpen }: { lesson: Lesson; bookNa
           : <>{lesson.questions.length} questions and answers to learn together.</>}</span>
         {done && <span className="pg-done"><Check size={14} strokeWidth={2.2} aria-hidden />Done: {done.right} of {done.total} right</span>}
       </p>
-      <button type="button" className="ck-go" onClick={() => onOpen(lesson)}>Start with your child<ArrowRight size={18} aria-hidden /></button>
+      {onStart && <button type="button" className="ck-go" onClick={() => onStart(lesson)}>Start with your child<ArrowUp size={18} aria-hidden /></button>}
     </header>
     <ol className="pg-questions">{lesson.questions.map((q, i) => {
       const answer = rightChoice(q);

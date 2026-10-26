@@ -69,7 +69,7 @@ const VERSIONS: { name: string; note: string; Head: ComponentType<CourseHeadProp
   { name: "A page from the course", note: "The words on the left; on the right, the first lesson's sheet as it looks inside, questions and answers, so a parent sees what they are opening.", Head: Preview },
 ];
 
-interface PageProps { lessons: Lesson[]; groups: PartLessons[]; progress: Progress; bookNames: Record<string, string>; onOpen: (lesson: Lesson) => void }
+interface PageProps { lessons: Lesson[]; groups: PartLessons[]; progress: Progress; bookNames: Record<string, string> }
 
 /** One row: the real section with this version's top, opening and closing on its own. */
 function Row({ Head, ...props }: PageProps & { Head: ComponentType<CourseHeadProps> }) {

@@ -7,19 +7,24 @@
 // into it and the quiz then fills the screen (LessonStage.tsx; owner, 2026-10-24).
 // The path's section is a screen tall, so the course below stays out of sight. The road ends in a hexagon for the next
 // part: choosing it brings that part in, its road coming in from the top (owner, 2026-10-25). The lesson in the card is
-// reported up, so the parents' course below can open at its part.
+// the page's, so the parents' course below can open at its part and put a lesson in it.
 import { ArrowDown } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { PartArt } from "./part-art";
-import { nextLesson, passageLabel, toneStyle, type Lesson } from "./data";
+import { nextLesson, passageLabel, toneStyle, type Lesson, type PartLessons } from "./data";
 import { LessonStage } from "./LessonStage";
-import { Path, PartRow, Top, type ViewProps } from "./PathView";
+import { Path, PartRow, Top } from "./PathView";
 import type { Progress } from "./progress";
 
 /** The first lesson of a part not yet done, or its first. */
 const firstToDo = (lessons: Lesson[], progress: Progress) => lessons.find((l) => !progress[l.id]) ?? lessons[0];
 
-type Props = ViewProps & { bookNames: Record<string, string>; onGuide: (lesson: Lesson) => void; onFinish: (lesson: Lesson, right: number, total: number) => void; onChosen: (lesson: Lesson) => void };
+interface Props {
+  lessons: Lesson[]; groups: PartLessons[]; progress: Progress; bookNames: Record<string, string>;
+  /** The lesson in the card, and choosing another. */
+  chosen: Lesson; onChoose: (id: string) => void;
+  onGuide: (lesson: Lesson) => void; onFinish: (lesson: Lesson, right: number, total: number) => void;
+}
 
 /** Scrolls the path's section to the top of the screen (under the site's bar) unless it is there already; resolves
  *  when the scroll has ended. */
@@ -32,10 +37,8 @@ function bringToTop(el: HTMLElement) {
   });
 }
 
-export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFinish, onChosen }: Props) {
+export function MixedView({ lessons, groups, progress, bookNames, chosen, onChoose: setChosenId, onGuide, onFinish }: Props) {
   const next = nextLesson(lessons, progress);
-  const [chosenId, setChosenId] = useState(next.id);
-  const chosen = lessons.find((l) => l.id === chosenId) ?? next;
   const group = groups.find((g) => g.part.id === chosen.part.id) ?? groups[0];
   const after = group.lessons.slice(group.lessons.indexOf(chosen) + 1, group.lessons.indexOf(chosen) + 4);
   const pathSection = useRef<HTMLElement>(null);
@@ -44,10 +47,11 @@ export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFin
   const circleOf = useCallback((id: string) => pathSection.current?.querySelector<HTMLElement>(`[data-lesson="${id}"] .ck-node`) ?? null, []);
   const closeStage = useCallback(() => setPlaying(null), []);
   const sceneOf = useCallback(() => scene.current, []);
-  const play = async (lesson: Lesson) => {
+  // The zoom starts from the circle where it is on the screen, with no scroll to the road's start first (owner,
+  // 2026-10-25: "it goes up to the first lesson and then it goes down to the one I clicked and zooms in").
+  const play = (lesson: Lesson) => {
     if (playing) return;
     setChosenId(lesson.id);
-    if (pathSection.current) await bringToTop(pathSection.current);
     setPlaying(lesson);
   };
   const showOnPath = async (lesson: Lesson) => {
@@ -63,7 +67,6 @@ export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFin
     const g = groups.find((x) => x.part.id === id);
     if (g) setChosenId(firstToDo(g.lessons, progress).id);
   };
-  useEffect(() => onChosen(chosen), [chosen, onChosen]);
   // The hexagon at the road's end: the next part comes in and the page goes up to the start of its road.
   const following = groups[groups.indexOf(group) + 1];
   const onward = following && { part: following.part, onGo: () => {
@@ -73,7 +76,7 @@ export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFin
   // The quiz sits outside the zoomed page, so the zoom does not carry it.
   return <><div className="ck-wrap" ref={scene}>
     <Top beside lead="Choose a part of the Bible, then a lesson. Read the passage together and ask the questions one at a time." />
-    <div className="ck-mix-join">
+    <div className="ck-mix-join" id="ck-lesson-card">
     <PartRow groups={groups} progress={progress} partId={group.part.id} onChoose={choosePart} />
     <section className="ck-sunday" style={toneStyle(chosen.part.tone)} aria-labelledby="ck-mix-title" aria-live="polite">
       <div className="ck-sunday-art"><PartArt part={chosen.part} /></div>
@@ -92,7 +95,7 @@ export function MixedView({ lessons, groups, progress, bookNames, onGuide, onFin
       <h2 id="ck-mix-path-title">All {group.lessons.length} lessons in {group.part.title}</h2>
       <p>{group.part.line}. Choose one to start its quiz.</p>
       <div className="ck-mix-path-body">
-        <Path key={group.part.id} lessons={group.lessons} progress={progress} next={next} openId={chosen.id} onOpen={(l) => void play(l)} art onward={onward} />
+        <Path key={group.part.id} lessons={group.lessons} progress={progress} next={next} openId={chosen.id} onOpen={play} art onward={onward} />
       </div>
     </section>
   </div>
