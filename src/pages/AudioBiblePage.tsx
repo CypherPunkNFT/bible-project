@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties }
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, BookOpen, ChevronDown, Headphones, ListMusic, Pause, Play, Repeat, Repeat1, RotateCcw, Shuffle, SkipBack, SkipForward, Volume2 } from 'lucide-react';
 import recording from '@/data/listen/asv.json';
-import { AUDIO_CATEGORIES, audioPartSource, formatAudioTime, groupAudioBooks, locateBookTime, shuffleQueue, type RepeatMode } from '@/lib/audio-playlist';
+import { AUDIO_CATEGORIES, audioPartSource, audioSources, formatAudioTime, groupAudioBooks, locateBookTime, shuffleQueue, type AudioPart, type RepeatMode } from '@/lib/audio-playlist';
 import { AudioBibleCover } from '@/components/bible/AudioBibleCover';
 import { AllDownloads, PlayerActions } from '@/components/bible/AudioDownloads';
 import { ReadAlongPanel } from '@/components/bible/ReadAlongPanel';
@@ -11,6 +11,11 @@ import './audio-bible.css';
 
 const BOOKS = groupAudioBooks(recording.tracks);
 const SAVE_KEY = 'bp-asv-audio-position';
+const LOAD_TIMEOUT_MS = 12000;
+/** Set once both archive.org addresses have failed: the rest of this visit plays our own copies, without waiting again. */
+let archiveDown = false;
+/** The first source for a part: the local file on a preview, otherwise archive.org, or our copy once archive.org is down. */
+const startSource = (part: AudioPart) => audioPartSource(part, location.hostname) === part.src ? part.src : audioSources(part)[archiveDown ? 2 : 0];
 function readPosition() {
   try {
     const saved = JSON.parse(localStorage.getItem(SAVE_KEY) ?? 'null');
@@ -47,11 +52,11 @@ export default function AudioBiblePage() {
   const currentPart = useRef(locateBookTime(BOOKS[initial.index], initial.time).index);
   const pendingSeek = useRef<number | null>(locateBookTime(BOOKS[initial.index], initial.time).time);
   const lastSaved = useRef(0);
-  const fallbackUsed = useRef(false);
+  const loadTimer = useRef<number | undefined>(undefined);
   const bindAudio = useCallback((element: HTMLAudioElement | null) => {
     audio.current = element;
     // Set the initial source during commit, before an immediate Play/resume interaction.
-    if (element) element.src = audioPartSource(BOOKS[initial.index].parts[currentPart.current], location.hostname);
+    if (element) element.src = startSource(BOOKS[initial.index].parts[currentPart.current]);
   }, [initial]);
   const [queue, setQueue] = useState<number[]>(() => BOOKS.map((_, index) => index));
   const book = BOOKS[index];
@@ -90,7 +95,7 @@ export default function AudioBiblePage() {
       try { localStorage.setItem(SAVE_KEY, JSON.stringify({ book: book.code, time: book.offsets[currentPart.current] + (pendingSeek.current ?? element.currentTime) })); } catch { /* Storage may be unavailable. */ }
     };
     window.addEventListener('pagehide', save);
-    return () => { save(); element.pause(); window.removeEventListener('pagehide', save); };
+    return () => { save(); element.pause(); window.clearTimeout(loadTimer.current); window.removeEventListener('pagehide', save); };
   }, [initial]);
 
   function playAudio() {
@@ -98,6 +103,8 @@ export default function AudioBiblePage() {
     if (!element) return;
     setError('');
     const requested = element.src;
+    const part = BOOKS[currentIndex.current].parts[currentPart.current];
+    if (audioPartSource(part, location.hostname) !== part.src) watchLoad();
     if (element.error) element.load();
     void element.play().catch((reason: Error) => {
       if (reason.name !== 'AbortError' && requested === element.src) {
@@ -109,18 +116,36 @@ export default function AudioBiblePage() {
 
   function recoverAudio() {
     const element = audio.current;
-    if (!element?.error) return;
-    const part = BOOKS[currentIndex.current].parts[currentPart.current];
-    const remote = audioPartSource(part, location.hostname) !== part.src;
-    if (remote && !fallbackUsed.current) {
-      fallbackUsed.current = true;
+    if (element?.error) nextSource(element.src);
+  }
+
+  /** archive.org can also hang without an error, so a source that has not started within the time limit counts as failed. */
+  function watchLoad() {
+    const element = audio.current;
+    window.clearTimeout(loadTimer.current);
+    if (!element) return;
+    const requested = element.src;
+    loadTimer.current = window.setTimeout(() => {
+      if (element.src === requested && element.readyState < HTMLMediaElement.HAVE_METADATA && !element.paused) nextSource(requested);
+    }, LOAD_TIMEOUT_MS);
+  }
+
+  /** Moves to the next source after `failed`; a late or repeated failure of a source already replaced is ignored. */
+  function nextSource(failed: string) {
+    const element = audio.current;
+    if (!element || element.src !== failed) return;
+    const sources = audioSources(BOOKS[currentIndex.current].parts[currentPart.current]);
+    const step = sources.findIndex(source => new URL(source, location.href).href === failed);
+    if (step >= 0 && step < sources.length - 1) {
+      if (step + 1 === sources.length - 1) archiveDown = true;
       pendingSeek.current = pendingSeek.current ?? element.currentTime;
-      element.src = part.fallbackSrc;
+      element.src = sources[step + 1];
       element.load();
       element.playbackRate = speed;
       playAudio();
       return;
     }
+    window.clearTimeout(loadTimer.current);
     setPlaying(false);
     setError('This audio is unavailable right now. Try again or choose another book.');
   }
@@ -129,9 +154,8 @@ export default function AudioBiblePage() {
     const element = audio.current;
     if (!element || !BOOKS[nextBook]?.parts[nextPart]) return;
     currentIndex.current = nextBook; currentPart.current = nextPart; pendingSeek.current = localTime;
-    fallbackUsed.current = false;
     setIndex(nextBook); setTime(BOOKS[nextBook].offsets[nextPart] + localTime); setError('');
-    element.src = audioPartSource(BOOKS[nextBook].parts[nextPart], location.hostname);
+    element.src = startSource(BOOKS[nextBook].parts[nextPart]);
     element.playbackRate = speed;
     if (autoplay) playAudio(); else element.load();
   }
@@ -206,7 +230,7 @@ export default function AudioBiblePage() {
   return <div className="asv-page mx-auto max-w-7xl px-4 sm:px-6" style={tone}>
     <audio ref={bindAudio} preload="none" onPlay={() => setPlaying(true)} onPause={() => { setPlaying(false); savePosition(); }} onEnded={finishPart}
       onError={recoverAudio}
-      onLoadedMetadata={() => { const element = audio.current!; element.playbackRate = speed; if (pendingSeek.current !== null) { element.currentTime = Math.min(pendingSeek.current, Math.max(0, element.duration - .01)); pendingSeek.current = null; } }}
+      onLoadedMetadata={() => { window.clearTimeout(loadTimer.current); const element = audio.current!; element.playbackRate = speed; if (pendingSeek.current !== null) { element.currentTime = Math.min(pendingSeek.current, Math.max(0, element.duration - .01)); pendingSeek.current = null; } }}
       onTimeUpdate={() => { setTime(bookPosition()); if (Date.now() - lastSaved.current > 5000) { savePosition(); lastSaved.current = Date.now(); } }}/>
     <nav className="asv-breadcrumb" aria-label="Breadcrumb"><Link to="/listen"><ArrowLeft size={14}/>Listen</Link><span>/</span><span>ASV audio Bible</span></nav>
     <header className="asv-heading"><div><p className="asv-eyebrow">The complete audio Bible</p><h1>The whole Bible.<br/><em>One quiet voice.</em></h1><p>American Standard Version · Read by Ron Altman</p></div><div className="asv-collection-meta"><span><BookOpen size={16}/>66 books</span><span><ListMusic size={16}/>One complete playlist</span><span><Headphones size={16}/>104 hours of Scripture</span></div></header>
@@ -231,7 +255,7 @@ export default function AudioBiblePage() {
       </div></section>
     </div>
     <AllDownloads books={BOOKS}/>
-    {reading && <ReadAlongPanel bookCode={book.code} bookTitle={book.title} partChapter={book.parts[currentPart.current].firstChapter} playing={playing} onTogglePlay={togglePlay} onClose={closeReading}/>}
+    {reading && <ReadAlongPanel book={book} time={time} playing={playing} onTogglePlay={togglePlay} onPlayFrom={seconds => { seek(seconds); if (audio.current?.paused) playAudio(); }} onClose={closeReading}/>}
     <footer className="asv-credits"><div><p className="asv-eyebrow">Freely given. Freely heard.</p><h2>With gratitude to LibriVox<br/>and Ron Altman.</h2></div><div><p>The American Standard Version (1901), read in full by Ron Altman. The text and this LibriVox recording are in the public domain.</p><a href={recording.sourceUrl} target="_blank" rel="noopener noreferrer">Original LibriVox recording<ArrowUpRight size={14}/></a><a href={recording.archiveUrl} target="_blank" rel="noopener noreferrer">Internet Archive collection<ArrowUpRight size={14}/></a></div></footer>
     <div className="asv-mobile-player" aria-label="Quick playback controls"><span className="asv-mobile-art"><CategoryIcon size={21}/></span><div><strong>{book.title}</strong><span>{playing ? 'Now playing' : 'Ready to listen'} · Ron Altman</span></div><button type="button" aria-label={playing ? 'Pause audio' : 'Play audio'} onClick={togglePlay}>{playing ? <Pause size={22} fill="currentColor"/> : <Play size={22} fill="currentColor"/>}</button><button type="button" disabled={nextDisabled} aria-label="Next audio" onClick={() => advance(1)}><SkipForward size={20}/></button><i style={{width:`${Math.min(100,time/duration*100)}%`}}/></div>
   </div>;
