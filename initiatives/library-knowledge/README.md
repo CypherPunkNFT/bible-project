@@ -1,5 +1,9 @@
 # Library Knowledge Initiative
 
+**Conversational study proposal · 25 October 2026:** [Claude, prepared question branches and budget design](CLAUDE-CONVERSATIONAL-STUDY-PROPOSAL.md). Owner priorities: speed and cost, Bible-first answers, selected respected works, prepared apologetics questions/answers and connected follow-up topics. Proposes Haiku-first adaptation, direct prepared-answer reuse, a $200 credit ceiling and separate inexpensive speech recognition. Design only; no runtime implementation, source approval, paid calls or deployment.
+
+
+
 **Latest Sources refinement · 22 October:** [Overview](http://127.0.0.1:8931/sources#overview) now carries compact collection drawings, coordinated snapshot icons and stamped attention panels. Collections and Providers use normal page scrolling; Providers lists all filtered matches without pagination. Verification and the unchanged bounded source-quality next task are recorded in TODO/HANDOFF.
 
 **Latest Sources design refinement · 22 October:** Collections now has illustrated expandable shelves with exact-record previews; heading-band filters and faded icon stamps refine Providers and Review. Credits stays unchanged. See current TODO/HANDOFF and the existing dashboard receipt. Preview: http://127.0.0.1:8931/sources#collections
