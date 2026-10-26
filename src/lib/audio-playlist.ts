@@ -34,6 +34,11 @@ export interface AudioBook {
   offsets: number[];
 }
 
+/** Where a published page plays a part from, in order: archive.org, archive.org's own server, then our copy on Cloudflare. */
+export function audioSources(part: AudioPart): string[] {
+  return [part.publicSrc, part.fallbackSrc, part.download.url];
+}
+
 /** Local previews use the verified downloads; published pages use the original public MP3s. */
 export function audioPartSource(part: AudioPart, hostname: string): string {
   return ['127.0.0.1', 'localhost', '[::1]'].includes(hostname) ? part.src : part.publicSrc;
