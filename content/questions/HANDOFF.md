@@ -82,10 +82,15 @@ what comes next.
   they use now sit at `src/pages/` in the same layout (`QuestionsPage.tsx`, `QuestionsTestPage.tsx`, `questions/`,
   `children/`, the shared quiz files and styles); four mock-up-only files stay in `mockup/questions/` (`BannerVersions`,
   `ExplorePanel`, `test/BookBars`, `test/ThemeMenu`). The mock-ups that use them had their links updated.
-- **Still to tidy (tech debt):** the homepage's quiz, guide, "more" and "nearby" pieces and the Study page's quiz door
-  are also real-site code left in `src/pages/mockup/` (about 29 files), most of them another chat's unsaved work that
-  was never committed, so git alone cannot rebuild the live homepage. The routes for the questions pages and every
-  mock-up are likewise unsaved edits in `src/App.tsx`, and `mockup-routes.tsx` is kept out of git on purpose.
+- **Tech debt cleared, 2026-10-26 (owner: "I approve all the moves here", every website chat idle):** all 150 unsaved
+  files were saved in five commits by area (sources dashboard, learning shelf, theology articles, homepage, routes,
+  with `mockup-routes.tsx` now tracked); clutter (screenshots, a one-off script) went to `BibleProject/ARCHIVE/
+  website-scratch-2026-10-26/`; the learning shelf's 550 MB of open workbooks stay out of git (`.gitignore`, released
+  from disk like the other big data folders). Local `main` was merged with GitHub normally and pushed; the two match.
+  The 29 live homepage and Study files moved to `src/pages/home/`, so `src/pages/mockup/` now holds only mock-ups.
+  A clean copy of git, after `npm run content:build`, type-checks with **zero errors** (website commit `db1dde341`).
+  What git still does not hold, by design: the generated and downloaded data under `public/` (atlas, library,
+  workbooks) and `src/generated/`, rebuilt by the site's scripts.
 
 ## Waiting on the owner
 
