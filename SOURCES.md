@@ -39,6 +39,7 @@ What the app adds, all free to use and ship inside an app:
 | `react-native-svg` 15.16.0, `@expo/vector-icons` 15.1.1 (Feather and Material Community icons) | Library charts, Home card art, icons | MIT |
 | `expo-audio` 58.0.10, `@react-native-community/slider` 5.2.1 | Playing the ASV recording, with its seek bar | MIT |
 | `react-native-webview` 14.0.1 | Showing the Streetlights videos through YouTube's privacy-enhanced embed, as the site does | MIT |
+| `expo-file-system` 58.0.12, `expo-sharing` 58.0.20 | Saving the Scholars page's source index as a CSV file and handing it to the phone's share sheet, where the site downloads it | MIT |
 
 Second round (2026-10-24): the Library, the reader's extras and Listen use the site's own registered data
 (chapter figures, AI chapter summaries, OpenBible.info cross-references, places, topics, hymns, who ruled),
