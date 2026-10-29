@@ -1,5 +1,6 @@
 import type { ScholarsData } from '@/data/teachers/pages-types';
 import { getAcquired, localLibraryEnabled, workUrl } from '../shared/acquired';
+import { knownLength, readWithProgress } from '@/lib/fetch-progress';
 import type { FieldEntry } from './field-library';
 import type { ContributorFact, ContributorFacts } from './facts';
 import type { LibraryPerson } from './catalogue/library';
@@ -82,17 +83,36 @@ interface PopulationHosting {shelves:Record<string,string[]>;zipParts:{file:stri
 let hosting:Promise<PopulationHosting>|undefined;
 const getHosting=()=>hosting??(hosting=getAcquired<PopulationHosting>(`${POPULATION_BASE}/hosting.json`).catch(():PopulationHosting=>({shelves:{},zipParts:[],zipBytes:0})));
 export async function getUnattributedPage(page:number,signal?:AbortSignal):Promise<PopulationRecord[]>{const manifest=await getHosting(),file=manifest.unattributedPages?.[page];if(!file)return getAcquired(`${POPULATION_BASE}/unattributed/${page}.json`,signal);const rows=await getAcquired<Record<string,PopulationRecord[]>>(`${POPULATION_BASE}/${file}`,signal);if(!rows[page])throw Error('Unattributed page is absent from the snapshot.');return rows[page];}
-export async function downloadPopulationExport(){
+/** A part of the complete export that is not the file the release recorded (length or SHA-256). */
+export class ExportIntegrityError extends Error {}
+let exportRun:Promise<void>|undefined;
+/** Fetch the complete export (its release parts, each checked against the recorded length and SHA-256), hand it to
+ *  the browser as scholars-library-export.zip, and report progress as a fraction (null while the size is unknown).
+ *  Callers asking while one runs share it. */
+export function downloadPopulationExport(onProgress?:(fraction:number|null)=>void):Promise<void>{
+ return exportRun??=fetchPopulationExport(onProgress??(()=>{})).finally(()=>{exportRun=undefined;});
+}
+async function fetchPopulationExport(onProgress:(fraction:number|null)=>void){
  const manifest=await getHosting();
  const pieces:BlobPart[]=[];
  if(manifest.zipParts.length){
+  if(!globalThis.crypto?.subtle)throw Error('This browser cannot check the export here.');
+  const total=manifest.zipBytes>0?manifest.zipBytes:manifest.zipParts.reduce((sum,part)=>sum+part.bytes,0);
+  let before=0;
   for(const part of manifest.zipParts){
-   const response=await fetch(`${POPULATION_BASE}/${part.file}`);if(!response.ok)throw Error('The complete export could not be loaded.');
-   const buffer=await response.arrayBuffer(),hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',buffer))).map(b=>b.toString(16).padStart(2,'0')).join('');
-   if(buffer.byteLength!==part.bytes||hash!==part.sha256)throw Error('Export integrity check failed.');pieces.push(buffer);
+   const response=await fetch(`${POPULATION_BASE}/${part.file}`);if(!response.ok)throw Error(`The complete export could not be loaded (part ${part.file}: HTTP ${response.status}).`);
+   const bytes=await readWithProgress(response,received=>onProgress(total>0?(before+received)/total:null),part.bytes);
+   const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))).map(b=>b.toString(16).padStart(2,'0')).join('');
+   if(bytes.byteLength!==part.bytes||hash!==part.sha256)throw new ExportIntegrityError(`Export integrity check failed for ${part.file}.`);
+   pieces.push(bytes);before+=part.bytes;
   }
- }else{const response=await fetch(`${POPULATION_BASE}/scholars-library-export.zip`);if(!response.ok)throw Error('The complete export could not be loaded.');pieces.push(await response.arrayBuffer());}
- const blob=new Blob(pieces,{type:'application/zip'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='scholars-library-export.zip';link.click();setTimeout(()=>URL.revokeObjectURL(url),60000);
+ }else{
+  const response=await fetch(`${POPULATION_BASE}/scholars-library-export.zip`);if(!response.ok)throw Error(`The complete export could not be loaded (HTTP ${response.status}).`);
+  const length=knownLength(response);
+  pieces.push(await readWithProgress(response,received=>onProgress(length?received/length:null)));
+ }
+ const blob=new Blob(pieces,{type:'application/zip'});pieces.length=0;
+ const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='scholars-library-export.zip';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);
 }
 export async function getPopulationShelf(id: string): Promise<PopulationWork[]> {
   let pending=shelfCache.get(id);

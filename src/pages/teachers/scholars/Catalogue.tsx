@@ -10,6 +10,7 @@ import { VirtualCards } from "./catalogue/VirtualCards";
 import { ContributorTable } from './catalogue/ContributorTable';
 import { PopulationCoverage } from './catalogue/PopulationCoverage';
 import { POPULATION_BASE } from './population';
+import { onExportLinkClick } from './catalogue/export-download';
 import './catalogue/population.css';
 import "./Catalogue.css";
 import "./Fields.css";
@@ -20,7 +21,7 @@ const EMPTY: never[] = [];
 export function Catalogue() {
   const { data, library, libraryError, profile, cataloguePeople:visible, catalogueOptions:options, setCatalogueOptions:setOptions, catalogueSort:sort, setCatalogueSort:setSort, filters, filterCatalogue, openProfile } = useScholars();
   const people = library ?? EMPTY;
-  const [view,setView]=useState<'table'|'cards'>('cards');
+  const [view,setView]=useState<'table'|'cards'>('cards'); const [exportError, setExportError] = useState('');
   const [loaded, setLoaded] = useState(BATCH_SIZE), [shelf, setShelf] = useState<string | null>(null);
   const scroll = useRef<HTMLDivElement | null>(null), [scroller, setScroller] = useState<HTMLDivElement | null>(null);
   const scrollRef = useCallback((el: HTMLDivElement | null) => { scroll.current = el; setScroller(el); }, []);
@@ -65,7 +66,7 @@ export function Catalogue() {
     <span id="acquired" /><span id="fields" />
     <SectionHead section="catalogue" kicker="The catalogue" title={<>Every contributor, <em>one place</em></>}
       line={<>Explore authors, translators and their works across the full library. Open a documented profile or browse a contributor’s works.</>} />
-    <p className="cat-coverage">{data.scholars.length} documented scholar profiles{library && <> · {library.length.toLocaleString()} contributor entries</>}<Link className="cat-download" to="/analysis">Full-page list</Link><a className="cat-download" href={`${POPULATION_BASE}/scholars-library-export.zip`} download>Download complete catalogue</a></p>
+    <p className="cat-coverage">{data.scholars.length} documented scholar profiles{library && <> · {library.length.toLocaleString()} contributor entries</>}<Link className="cat-download" to="/analysis">Full-page list</Link><a className="cat-download" href={`${POPULATION_BASE}/scholars-library-export.zip`} download onClick={e => onExportLinkClick(e, setExportError)}>Download complete catalogue</a>{exportError && <span role="alert"> {exportError}</span>}</p>
     {libraryError && <p role="alert">The full library could not load: {libraryError}. Reload to try again.</p>}
     <div className="cat-layout">
       <Facets view={view} data={data} filters={filters} people={people} options={options} onOptions={setOptions} text={text} onText={search}

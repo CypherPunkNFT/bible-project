@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useScholars } from '../context';
-import { POPULATION_BASE, downloadPopulationExport, getUnattributedPage, type PopulationRecord } from '../population';
+import { POPULATION_BASE, getUnattributedPage, type PopulationRecord } from '../population';
+import { downloadCompleteCatalogue } from './export-download';
+import { useDownloadBusy } from '@/components/download/download';
 import { PopulationRecordRow } from './PopulationWorks';
 
 function Unattributed({total}:{total:number}) {
@@ -15,12 +17,12 @@ function Unattributed({total}:{total:number}) {
 }
 export function PopulationCoverage() {
   const {population}=useScholars();const [unknown,setUnknown]=useState(false);
-  const [downloading,setDownloading]=useState(false),[downloadError,setDownloadError]=useState('');
-  const download=async()=>{setDownloading(true);setDownloadError('');try{await downloadPopulationExport();}catch(error){setDownloadError(error instanceof Error?error.message:'The complete export could not be loaded.');}finally{setDownloading(false);}};
+  const [downloading,setDownloading]=useState(false),[downloadError,setDownloadError]=useState('');const busy=useDownloadBusy();
+  const download=async()=>{setDownloading(true);setDownloadError('');try{setDownloadError(await downloadCompleteCatalogue());}finally{setDownloading(false);}};
   if(!population)return null;
   const {summary:s,reconciliation:r}=population;
   return <div className="pop-coverage">
-    <div className="pop-export"><span>Reconciled {new Date(population.builtAt).toLocaleString('en-US',{timeZone:'America/New_York',dateStyle:'medium',timeStyle:'short'})} ET</span><button type="button" disabled={downloading} onClick={download}>{downloading?"Preparing complete export…":"Download complete table & works (ZIP / CSV)"}</button>{downloadError&&<span role="alert">{downloadError}</span>}<a href={`${POPULATION_BASE}/reconciliation.json`} download>Reconciliation JSON</a></div>
+    <div className="pop-export"><span>Reconciled {new Date(population.builtAt).toLocaleString('en-US',{timeZone:'America/New_York',dateStyle:'medium',timeStyle:'short'})} ET</span><button type="button" disabled={downloading||busy} onClick={download}>{downloading?"Preparing complete export…":"Download complete table & works (ZIP / CSV)"}</button>{downloadError&&<span role="alert">{downloadError}</span>}<a href={`${POPULATION_BASE}/reconciliation.json`} download>Reconciliation JSON</a></div>
     <details><summary>Population, source coverage and count reconciliation</summary>
       <p>{s.contributors.toLocaleString()} entries = {s.baselineMergedEntries.toLocaleString()} existing merged entries + {s.registryAdditions} registry entries + {s.intakeCreditAdditions} additional intake credits + {s.featureCreditAdditions} source-use credits. Its baseline uses {r.baselineMerge.fieldEntries.toLocaleString()} field entries plus {r.baselineMerge.fallbackEntries.toLocaleString()} fallback entries. {r.baselineMerge.entriesWithoutSourceIds} field entries have no source contributor ID; {r.baselineMerge.groupsWithMultipleSourceIds} groups contain multiple explicitly reconciled IDs. The existing merge represents all {s.sourceContributors.toLocaleString()} packaged contributor IDs, including {s.sourceAuthorEntries.toLocaleString()} with an author role. {s.documentedProfiles} entries have curated Scholars profiles; {s.documentedTeacherProfiles} have existing teacher profiles.</p>
       <p>{s.canonicalWorks.toLocaleString()} canonical work IDs · {s.canonicalEditions.toLocaleString()} canonical edition IDs · {s.publicRecords.toLocaleString()} packaged records · {s.localReadingCopies.toLocaleString()} local reader copies · {s.intakeMetadataRecords.toLocaleString()} additional intake metadata records · {s.siteSourceRecords.toLocaleString()} feature source records. These units overlap and do not represent distinct books. The {s.publicRecords.toLocaleString()} packaged records comprise {s.publicHeldRecords.toLocaleString()} held representations and {s.catalogueOnlyPublicRecords.toLocaleString()} catalogue-only records; {s.publicReadingRecords.toLocaleString()} have public reading text.</p>

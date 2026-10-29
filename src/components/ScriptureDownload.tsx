@@ -1,6 +1,7 @@
 import { Download } from "lucide-react";
 import { useState } from "react";
 import { prepareScriptureDownload } from "@/lib/scripture-download";
+import { runDownload } from "@/components/download/download";
 import type { Catalog, Translation } from "@/lib/types";
 
 export function ScriptureDownload({ catalog, version }: { catalog: Catalog; version: Translation }) {
@@ -14,16 +15,22 @@ export function ScriptureDownload({ catalog, version }: { catalog: Catalog; vers
     setFailed(false);
     setStatus("Preparing download…");
     try {
-      const blob = await prepareScriptureDownload(catalog, version, (done, total) => setStatus(`Preparing ${done} of ${total} books…`));
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `${version.slug}-bible.txt`;
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      window.setTimeout(() => URL.revokeObjectURL(url), 60_000);
-      setStatus("Download ready · TXT");
+      // The shared download panel (book loader, percentage, then "Done") shows if this takes more than a moment.
+      const ran = await runDownload(`Downloading the ${version.name}`, async report => {
+        const blob = await prepareScriptureDownload(catalog, version, (done, total) => {
+          setStatus(`Preparing ${done} of ${total} books…`);
+          report(total > 0 ? done / total : null);
+        });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `${version.slug}-bible.txt`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 60_000);
+      });
+      setStatus(ran ? "Download ready · TXT" : "Another download is in progress. Try again when it is done.");
     } catch {
       setFailed(true);
       setStatus("Download failed. Please try again.");
