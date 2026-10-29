@@ -12,8 +12,8 @@ const place = (year: number, width: number) => PAD + (year - START) / (END - STA
 
 /** The editions on a timeline or as a list, each opening to read. A page that filters by version group itself passes
  *  `group`, and the chart's own group menu goes; `fit` stretches the timeline to its container (never under 1000px, so
- *  a phone still scrolls it). */
-export function VersionsTimeline({ group: shared, fit = false }: { group?: string; fit?: boolean } = {}) {
+ *  a phone still scrolls it); `plain` moves the group legend up to the right of the controls and leaves out the note of editions older than the axis. */
+export function VersionsTimeline({ group: shared, fit = false, plain = false }: { group?: string; fit?: boolean; plain?: boolean } = {}) {
   const catalog = useCatalog();
   const [own, setGroup] = useState("");
   const group = shared ?? own;
@@ -42,6 +42,8 @@ export function VersionsTimeline({ group: shared, fit = false }: { group?: strin
     return "/read/" + t.slug + "/" + book + "/" + t.books[book][0];
   };
 
+  const legend = <div className={"chart-legend" + (plain ? " chart-legend-inline" : "")}>{VERSION_GROUPS.map((g) => <span key={g.id}><i style={{ background: GROUP_COLOR[g.id] }} />{g.title}</span>)}</div>;
+
   return <div>
     <div className="chart-controls">
       <div role="group" aria-label="Timeline display" className="inline-flex rounded-full bg-surface-2 p-0.5">
@@ -49,6 +51,7 @@ export function VersionsTimeline({ group: shared, fit = false }: { group?: strin
       </div>
       {shared === undefined && <label>Versions<select value={group} onChange={(event) => setGroup(event.target.value)}><option value="">All groups</option>{VERSION_GROUPS.map((g) => <option key={g.id} value={g.id}>{g.title}</option>)}</select></label>}
       <span className="chart-hint">{sorted.length} editions</span>
+      {plain && legend}
     </div>
     {mode === "timeline" ? <>
       <div ref={region} className="slim-scroll relative overflow-x-auto rounded-lg border border-line bg-page py-4" tabIndex={0} role="region" aria-label="Edition timeline; scroll horizontally on smaller screens">
@@ -59,8 +62,8 @@ export function VersionsTimeline({ group: shared, fit = false }: { group?: strin
             style={{ left: x(t.year), top: i * 38 + 4 }}><span className="h-2 w-2 shrink-0 rounded-full" style={{ background: GROUP_COLOR[groupOf(t.lang).id] }} /><strong>{t.abbr}</strong><span className="text-muted">{t.year}</span></Link>))}
         </div>
       </div>
-      {early.map((t) => <p key={t.slug} className="chart-hint mt-3">Earlier than this axis: <Link className="underline" to={reader(t)}>{t.name} · {t.year} AD</Link></p>)}
+      {!plain && early.map((t) => <p key={t.slug} className="chart-hint mt-3">Earlier than this axis: <Link className="underline" to={reader(t)}>{t.name} · {t.year} AD</Link></p>)}
     </> : <ol className="timeline-editions">{sorted.map((t) => <li key={t.slug}><Link to={reader(t)}><span className="timeline-year" style={{ color: GROUP_COLOR[groupOf(t.lang).id] }}>{t.year}</span><span><strong>{t.abbr}</strong><small>{t.name}</small></span><span aria-hidden="true">↗</span></Link></li>)}</ol>}
-    <div className="chart-legend">{VERSION_GROUPS.map((g) => <span key={g.id}><i style={{ background: GROUP_COLOR[g.id] }} />{g.title}</span>)}</div>
+    {!plain && legend}
   </div>;
 }

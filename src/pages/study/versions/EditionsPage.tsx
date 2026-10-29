@@ -50,12 +50,12 @@ export default function EditionsPage() {
       <div className="ed-groups" role="group" aria-label="Show editions in the timeline and the contents">
         {choices.map((choice) => <button type="button" key={choice.id} aria-pressed={group === choice.id} onClick={() => setGroup(choice.id)}>{choice.title}<span>{choice.count}</span></button>)}
       </div>
-      <VersionsTimeline group={group} fit />
+      <VersionsTimeline group={group} fit plain />
     </section>
 
-    <section className="ed-section" aria-labelledby="ed-books-title">
-      <SectionHead number="03" id="ed-books-title" title="Which books each holds">Old Testament, New Testament and Apocrypha, square by square, for the editions chosen above. Hover a square for its chapters, or choose a book to see which editions include it.</SectionHead>
-      <CoverageMatrix group={group} />
+    <section className="ed-section ed-books" aria-labelledby="ed-books-title">
+      <SectionHead number="03" id="ed-books-title" title="Which books each holds">Old Testament, New Testament and Apocrypha, square by square, for the editions chosen above. Hover a square for its chapters, or choose a grey square along the top to see which editions include that book.</SectionHead>
+      <CoverageMatrix group={group} bookStrip plain />
     </section>
 
     <footer className="ed-source"><span>Edition years from the version catalogue · Coverage from each version's own book list</span><Link to="/library">Browse the library by language</Link></footer>

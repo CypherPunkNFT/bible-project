@@ -17,6 +17,7 @@
 /* Each section under a numbered heading, divided by one thin line. */
 .ed-section { margin-top: 3.25rem; padding-top: 2.25rem; border-top: 1px solid var(--line); }
 .ed-first { margin-top: 2.5rem; padding-top: 0; border-top: 0; }
+.ed-books { padding-top: 0; border-top: 0; }
 .ed-section-head { display: flex; align-items: baseline; gap: .9rem; margin-bottom: 1.75rem; }
 .ed-section-head > span { font-size: .7rem; font-weight: 600; letter-spacing: .18em; color: var(--accent); }
 .ed-section-head h2 { font: 400 clamp(1.5rem, 2.4vw, 2rem)/1.2 var(--font-serif); letter-spacing: -.02em; color: var(--ink); }
@@ -57,11 +58,12 @@
 .ed-groups button[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); }
 .ed-groups button[aria-pressed="true"] span { color: var(--accent); }
 .ed-page .chart-controls { padding: 0; border: 0; border-radius: 0; background: none; gap: 1rem 1.5rem; }
-.ed-time [role="region"] { border-width: 1px 0; border-radius: 0; background: none; }
+.ed-time [role="region"] { border-width: 1px 0 0; border-radius: 0; background: none; }
 .ed-page .timeline-editions a { border-width: 0 0 1px; border-radius: 0; }
 .ed-page .timeline-editions a:hover { background: none; border-color: var(--accent); }
 
-.ed-source { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .7rem; color: var(--muted); }
+/* The sources sit straight under the contents table, with no line of their own. */
+.ed-source { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; margin-top: .75rem; font-size: .7rem; color: var(--muted); }
 .ed-source a { color: var(--accent); }
 
 @media (max-width: 1100px) {
