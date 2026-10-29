@@ -6,7 +6,7 @@ import { StudyBackLink } from "@/components/study/StudyBackLink";
 import { useCatalog } from "@/lib/catalog";
 import { groupOf, VERSION_GROUPS } from "@/lib/languages";
 import { EditionsArt } from "./EditionsArt";
-import { LanguageShelf } from "./LanguageShelf";
+import { LanguageShelf, LibraryFigures } from "./LanguageShelf";
 import "@/pages/charts.css";
 import "./editions.css";
 
@@ -15,7 +15,7 @@ function SectionHead({ number, id, title, children }: { number: string; id: stri
 }
 
 /** /study/versions_mockup: Versions & languages as one page (owner, 2026-10-29). The heading with its shelf drawing,
- *  then the languages with every edition to open beside a column of figures, then the timeline and the books each
+ *  the figures as one bar, then the languages with every edition to open, then the timeline and the books each
  *  edition holds, both following one group filter. No contents cards and no "Choose an edition" card: the languages
  *  and the timeline already are the ways to choose one. */
 export default function EditionsPage() {
@@ -38,10 +38,11 @@ export default function EditionsPage() {
       </div>
       <EditionsArt />
     </header>
+    <LibraryFigures editions={editions} books={books} />
 
     <section className="ed-section ed-first" aria-labelledby="ed-languages-title">
       <SectionHead number="01" id="ed-languages-title" title="The languages">Each language by its own name, with every edition in it. Choose one to open it at its first chapter.</SectionHead>
-      <LanguageShelf editions={editions} books={books} />
+      <LanguageShelf editions={editions} />
     </section>
 
     <section className="ed-section ed-time" aria-labelledby="ed-time-title">

@@ -16,15 +16,15 @@
 
 /* Each section under a numbered heading, divided by one thin line. */
 .ed-section { margin-top: 3.25rem; padding-top: 2.25rem; border-top: 1px solid var(--line); }
-.ed-first { margin-top: 3rem; }
+.ed-first { margin-top: 2.5rem; padding-top: 0; border-top: 0; }
 .ed-section-head { display: flex; align-items: baseline; gap: .9rem; margin-bottom: 1.75rem; }
 .ed-section-head > span { font-size: .7rem; font-weight: 600; letter-spacing: .18em; color: var(--accent); }
 .ed-section-head h2 { font: 400 clamp(1.5rem, 2.4vw, 2rem)/1.2 var(--font-serif); letter-spacing: -.02em; color: var(--ink); }
 .ed-section-head p { max-width: 44rem; margin-top: .45rem; font-size: .85rem; line-height: 1.7; color: var(--muted); }
 
-/* 01 The languages: the figures in one row, then the languages as straight-edged boxes, two across, each with its
-   group's colour down the whole left side. */
-.ed-facts { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-block: 1px solid var(--line); }
+/* The figures in one row under the heading: their top and bottom lines are the divider before 01, so that section has
+   no line of its own. */
+.ed-facts { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); margin-top: 3rem; border-block: 1px solid var(--line); }
 /* Each figure reads number, label, detail: the label comes first in the markup for screen readers. */
 .ed-facts > div { display: flex; flex-direction: column; gap: .2rem; padding: 1.1rem 1.1rem 1.2rem; }
 .ed-facts > div:first-child { padding-left: 0; }
@@ -33,7 +33,8 @@
 .ed-facts dt { font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .ed-facts dd.ed-fact-detail { order: 1; font: .72rem/1.5 var(--font-sans); color: var(--muted); }
 
-.ed-languages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; margin-top: 1.75rem; }
+/* 01 The languages: straight-edged boxes, two across, each with its group's colour down the whole left side. */
+.ed-languages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
 .ed-languages > li { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 1rem; align-items: start; padding: .95rem 1rem .95rem 1.1rem; border: 1px solid var(--line); border-left: 4px solid var(--group); border-radius: 0; }
 /* align-items keeps a right-to-left name (Hebrew, Arabic, Persian) at the start of its box. */
 .ed-language-name { display: flex; flex-direction: column; align-items: flex-start; gap: .15rem; }

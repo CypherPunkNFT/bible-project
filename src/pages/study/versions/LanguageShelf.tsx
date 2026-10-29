@@ -19,15 +19,8 @@ const readerPath = (t: Translation) => {
   return `/read/${t.slug}/${book}/${t.books[book][0]}`;
 };
 
-/** Figures about the whole library in one row, then its languages, each with its editions to open. */
-export function LanguageShelf({ editions, books }: { editions: Translation[]; books: BookInfo[] }) {
-  const languages = useMemo(() => VERSION_GROUPS.flatMap((group) => {
-    const members = editions.filter((t) => groupOf(t.lang).id === group.id);
-    const codes = [...group.langs, ...new Set(members.map((t) => t.lang).filter((code) => !group.langs.includes(code)))];
-    return codes.map((code) => ({ code, group, versions: members.filter((t) => t.lang === code).sort((a, b) => a.year - b.year) }))
-      .filter((language) => language.versions.length);
-  }), [editions]);
-
+/** Figures about the whole library in one row, the divider between the heading and the languages. */
+export function LibraryFigures({ editions, books }: { editions: Translation[]; books: BookInfo[] }) {
   const figures = useMemo(() => {
     if (!editions.length) return [];
     const byYear = [...editions].sort((a, b) => a.year - b.year);
@@ -39,17 +32,25 @@ export function LanguageShelf({ editions, books }: { editions: Translation[]; bo
     const fullest = Math.max(...editions.map((t) => Object.keys(t.books).length));
     return [
       [String(editions.length), "editions to read", VERSION_GROUPS.map((g) => `${editions.filter((t) => groupOf(t.lang).id === g.id).length} ${GROUP_WORDS[g.id]}`).join(" · ")],
-      [String(languages.length), "languages", "from the Hebrew and Greek first written to the languages of today's readers"],
+      [String(new Set(editions.map((t) => t.lang)).size), "languages", "from the Hebrew and Greek first written to the languages of today's readers"],
       [String(oldest.year), "the oldest edition", oldest.name],
       [String(newest.year), "the newest", newest.name],
       [String(rtl.length), "read right to left", [...new Set(rtl.map((t) => languageName(t.lang)))].join(", ")],
       [String(withApocrypha.length), "include the Apocrypha", `up to ${fullest} books in one edition`],
     ] as const;
-  }, [editions, books, languages.length]);
+  }, [editions, books]);
+  return <dl className="ed-facts">{figures.map(([value, label, detail]) => <div key={label}><dt>{label}</dt><dd>{value}</dd><dd className="ed-fact-detail">{detail}</dd></div>)}</dl>;
+}
 
-  return <div className="ed-shelf">
-    <dl className="ed-facts">{figures.map(([value, label, detail]) => <div key={label}><dt>{label}</dt><dd>{value}</dd><dd className="ed-fact-detail">{detail}</dd></div>)}</dl>
-    <ul className="ed-languages">
+/** The library's languages, each by its own name with its editions to open. */
+export function LanguageShelf({ editions }: { editions: Translation[] }) {
+  const languages = useMemo(() => VERSION_GROUPS.flatMap((group) => {
+    const members = editions.filter((t) => groupOf(t.lang).id === group.id);
+    const codes = [...group.langs, ...new Set(members.map((t) => t.lang).filter((code) => !group.langs.includes(code)))];
+    return codes.map((code) => ({ code, group, versions: members.filter((t) => t.lang === code).sort((a, b) => a.year - b.year) }))
+      .filter((language) => language.versions.length);
+  }), [editions]);
+  return <ul className="ed-languages">
       {languages.map(({ code, group, versions }) => <li key={code} style={{ "--group": GROUP_COLOR[group.id] } as CSSProperties}>
         <div className="ed-language-name">
           <strong lang={code} dir="auto">{NATIVE[code] ?? languageName(code)}</strong>
@@ -57,6 +58,5 @@ export function LanguageShelf({ editions, books }: { editions: Translation[]; bo
         </div>
         <div className="ed-language-editions">{versions.map((t) => <Link key={t.slug} to={readerPath(t)} title={`${t.name} (${t.year}). Read this edition.`}><b>{t.abbr}</b><span>{t.year}</span></Link>)}</div>
       </li>)}
-    </ul>
-  </div>;
+  </ul>;
 }
