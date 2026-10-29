@@ -5,7 +5,7 @@ import type { BookInfo, Translation } from "@/lib/types";
 
 /** Each language's own name for itself, shown above its English name. */
 const NATIVE: Record<string, string> = {
-  en: "English", enm: "Englisch", he: "עברית", grc: "Ἑλληνική", la: "Latina", es: "Español", ar: "العربية",
+  en: "English", he: "עברית", grc: "Ἑλληνική", la: "Latina", es: "Español", ar: "العربية",
   "zh-Hans": "中文", fr: "Français", de: "Deutsch", hi: "हिन्दी", pt: "Português", ru: "Русский", ja: "日本語",
   vi: "Tiếng Việt", fa: "فارسی", it: "Italiano",
 };
@@ -42,21 +42,45 @@ export function LibraryFigures({ editions, books }: { editions: Translation[]; b
   return <dl className="ed-facts">{figures.map(([value, label, detail]) => <div key={label}><dt>{label}</dt><dd>{value}</dd><dd className="ed-fact-detail">{detail}</dd></div>)}</dl>;
 }
 
-/** The library's languages, each by its own name with its editions to open. */
+/** Languages shown inside another's box, after its own editions: Middle English (Wycliffe) is listed as English. */
+const SHOWN_AS: Record<string, string> = { enm: "en" };
+
+/** A language's editions as rows: four to six go in two rows, the longer first (five as three, then two). */
+const chipRows = (versions: Translation[]) => {
+  if (versions.length < 4 || versions.length > 6) return [versions];
+  const first = Math.ceil(versions.length / 2);
+  return [versions.slice(0, first), versions.slice(first)];
+};
+
+/** The line under a language's own name: its English name when that differs, and the count only when above one. */
+const subtext = (code: string, count: number) => {
+  const english = NATIVE[code] !== languageName(code) ? languageName(code) : "";
+  const editions = count > 1 ? `${count} editions` : "";
+  return [english, editions].filter(Boolean).join(" · ");
+};
+
+/** The library's languages, most editions first (catalogue order between equals), each by its own name with its
+ *  editions to open, oldest first. */
 export function LanguageShelf({ editions }: { editions: Translation[] }) {
-  const languages = useMemo(() => VERSION_GROUPS.flatMap((group) => {
-    const members = editions.filter((t) => groupOf(t.lang).id === group.id);
-    const codes = [...group.langs, ...new Set(members.map((t) => t.lang).filter((code) => !group.langs.includes(code)))];
-    return codes.map((code) => ({ code, group, versions: members.filter((t) => t.lang === code).sort((a, b) => a.year - b.year) }))
-      .filter((language) => language.versions.length);
-  }), [editions]);
+  const languages = useMemo(() => {
+    const listed = VERSION_GROUPS.flatMap((group) => {
+      const members = editions.filter((t) => groupOf(t.lang).id === group.id);
+      const codes = [...group.langs, ...new Set(members.map((t) => t.lang).filter((code) => !group.langs.includes(code)))].filter((code) => !SHOWN_AS[code]);
+      return codes.map((code) => {
+        const own = members.filter((t) => t.lang === code).sort((a, b) => a.year - b.year);
+        const added = members.filter((t) => SHOWN_AS[t.lang] === code).sort((a, b) => a.year - b.year);
+        return { code, group, versions: [...own, ...added] };
+      });
+    }).filter((language) => language.versions.length);
+    return listed.sort((a, b) => b.versions.length - a.versions.length);
+  }, [editions]);
   return <ul className="ed-languages">
-      {languages.map(({ code, group, versions }) => <li key={code} style={{ "--group": GROUP_COLOR[group.id] } as CSSProperties}>
-        <div className="ed-language-name">
-          <strong lang={code} dir="auto">{NATIVE[code] ?? languageName(code)}</strong>
-          <span>{NATIVE[code] && NATIVE[code] !== languageName(code) ? `${languageName(code)} · ` : ""}{versions.length} {versions.length === 1 ? "edition" : "editions"}</span>
-        </div>
-        <div className="ed-language-editions">{versions.map((t) => <Link key={t.slug} to={readerPath(t)} title={`${t.name} (${t.year}). Read this edition.`}><b>{t.abbr}</b><span>{t.year}</span></Link>)}</div>
-      </li>)}
+    {languages.map(({ code, group, versions }) => <li key={code} style={{ "--group": GROUP_COLOR[group.id] } as CSSProperties}>
+      <div className="ed-language-name">
+        <strong lang={code} dir="auto">{NATIVE[code] ?? languageName(code)}</strong>
+        <span>{subtext(code, versions.length)}</span>
+      </div>
+      <div className="ed-language-editions">{chipRows(versions).map((row, i) => <div key={i}>{row.map((t) => <Link key={t.slug} to={readerPath(t)} title={`${t.name} (${t.year}). Read this edition.`}><b>{t.abbr}</b><span>{t.year}</span></Link>)}</div>)}</div>
+    </li>)}
   </ul>;
 }
