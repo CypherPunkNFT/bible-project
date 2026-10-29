@@ -16,7 +16,7 @@ export const HOME_PREVIEWS = [
 ] as const;
 export const HOME_STUDIES = [
   { title: "Jesus & the Gospels", text: "Compare four accounts of one life. Read the teaching in its setting.", to: "/study/gospels", art: "gospels", color: "gospels", note: "Gospel harmony · Teaching · Words of Jesus" },
-  { title: "Connections in Scripture", text: "Follow a reference. See how one passage opens another.", to: "/study/references", art: "connections", color: "poetry", note: "Cross-references · Book-to-book connections" },
+  { title: "Connections in Scripture", text: "Follow a reference. See how one passage opens another.", to: "/study/connections", art: "connections", color: "poetry", note: "Cross-references · Book-to-book connections" },
   { title: "The shape of the Bible", text: "Explore its books, chapters and literary forms at a glance.", to: "/study/structure", art: "structure", color: "history", note: "Books · Chapters · Literary forms" },
   { title: "His names", text: "Father, Son and Holy Spirit. Explore the names and their passages.", to: "/study/names", art: "god", color: "epistles", note: "Names · Character · Scripture" },
 ] as const;

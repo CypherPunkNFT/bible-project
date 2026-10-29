@@ -1,6 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
 
-const CHART_PATHS = { references: "/study/references", structure: "/study/structure", words: "/study/gospels", "words-of-jesus": "/study/gospels", versions: "/study/versions" };
+const CHART_PATHS = { references: "/study/connections", structure: "/study/structure", words: "/study/gospels", "words-of-jesus": "/study/gospels", versions: "/study/versions" };
 const ANCHORS = { references: "references", structure: "structure", words: "words", versions: "versions", arcs: "references", matrix: "references", sections: "structure", sizes: "structure", chapters: "structure", jesus: "words", speech: "words", timeline: "versions", coverage: "versions" } as const;
 
 export default function StudyRedirect() {

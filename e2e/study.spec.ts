@@ -6,7 +6,7 @@ test.skip(!existsSync("data/study/index.json"), "study data not built — run sc
 
 const TRANSLATION_LANGUAGES = ["Spanish", "Arabic", "Chinese", "French", "German", "Hindi", "Portuguese", "Russian", "Japanese", "Vietnamese", "Persian", "Italian"];
 
-const PAGES = ["/study", "/study/gospels", "/study/references", "/study/structure", "/study/versions", "/study/atlas", "/study/harmony", "/study/miracles", "/study/letters", "/study/people", "/study/people/elijah-1ki-17-1", "/study/prophets", "/study/names"];
+const PAGES = ["/study", "/study/gospels", "/study/connections", "/study/structure", "/study/versions", "/study/atlas", "/study/harmony", "/study/miracles", "/study/letters", "/study/people", "/study/people/elijah-1ki-17-1", "/study/prophets", "/study/names"];
 
 test("study: teaching, speech and harmony each keep their state while the cards switch between them", async ({ page }) => {
   await page.goto("/study/gospels");

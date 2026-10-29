@@ -174,7 +174,8 @@ export default function App() {
               <Route path="/study/lachish-under-siege" element={<HistoricalStudyLanding study="lachish" />} />
               <Route path="/study/cyrus-restoration-and-return" element={<HistoricalStudyLanding study="cyrus" />} />
               <Route path="/study/academic" element={<StudyBranch branch="academic" />} />
-              <Route path="/study/references" element={<ChartsPage />} />
+              <Route path="/study/connections" element={<ChartsPage />} />
+              <Route path="/study/references" element={<StudyRedirect />} />
               <Route path="/study/structure" element={<ChartsPage />} />
               <Route path="/study/gospels" element={<ChartsPage />} />
               <Route path="/study/versions" element={<ChartsPage />} />

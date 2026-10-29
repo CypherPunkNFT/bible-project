@@ -12,7 +12,8 @@ import "@/pages/study/study.css";
 export function StudyContents({ selectedId, onSelect, bare = false }: { selectedId?: string; onSelect?: (id: string) => void; bare?: boolean } = {}) {
   const location = useLocation();
   const slug = location.pathname.split("/")[2];
-  const collection = STUDY_COLLECTIONS.find((item) => item.id === (slug === "prophets" || slug === "rulers" || slug === "apostles" ? "people" : slug)) ?? STUDY_COLLECTIONS[0];
+  // Connections in Scripture keeps its older id, "references", behind its /study/connections address.
+  const collection = STUDY_COLLECTIONS.find((item) => item.id === (slug === "prophets" || slug === "rulers" || slug === "apostles" ? "people" : slug === "connections" ? "references" : slug)) ?? STUDY_COLLECTIONS[0];
   const sections = STUDY_SECTIONS[collection.id];
   // Without a page-supplied selection, the study shows one of its own sections at a time.
   const tabs = studyTabs(collection.id);

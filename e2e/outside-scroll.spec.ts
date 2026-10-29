@@ -156,7 +156,7 @@ for (const view of ["verse references", "every version", "chapter references"]) 
 }
 
 test("outside scroll: book-pair rankings keep their scrollbar outside and selections working", async ({ page }) => {
-  await page.goto("/study/references#matrix");
+  await page.goto("/study/connections#matrix");
   const viewport = page.getByRole("region", { name: "Most cross-referenced book pairs" });
   await checkScroll(page, viewport);
   const pair = viewport.getByRole("button").last();

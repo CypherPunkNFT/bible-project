@@ -36,7 +36,7 @@ const ROUTE_TITLES: Record<string, string> = {
   "/study/names": "Names and Descriptions of God",
   "/study/versions": "Bible Versions and Languages",
   "/study/structure": "The Shape of the Bible",
-  "/study/references": "Bible Cross-References",
+  "/study/connections": "Bible Cross-References",
   "/study/hymns": "Hymns: The Faith, Sung",
   "/study/creeds": "Christian Creeds and Confessions",
   "/study/manuscripts": "Bible Manuscripts",

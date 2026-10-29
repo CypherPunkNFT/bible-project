@@ -38,7 +38,7 @@ test("study: complete collections and old links resolve to their canonical Study
 
 test("study: contents cards navigate within each collection and chart controls survive the return", async ({ page }) => {
   for (const [slug, cards] of [
-    ["references", [["Cross-reference arcs", "arcs"], ["Book to book", "matrix"]]],
+    ["connections", [["Cross-reference arcs", "arcs"], ["Book to book", "matrix"]]],
     ["structure", [["Sections & measures", "sections"], ["Book lengths", "sizes"], ["Chapter atlas", "chapters"]]],
     ["gospels", [["Teaching journeys", "jesus"], ["Where he speaks", "speech"], ["Gospel harmony", "harmony"]]],
     ["versions", [["Versions through time", "timeline"], ["Version coverage", "coverage"]]],
@@ -53,7 +53,7 @@ test("study: contents cards navigate within each collection and chart controls s
       await expect(page.locator("#collection-contents-title")).toBeInViewport();
     }
   }
-  await page.goto("/study/references");
+  await page.goto("/study/connections");
   await page.getByLabel("Light up one book:").selectOption("DAN");
   await page.getByRole("navigation", { name: "Collection contents" }).getByRole("link", { name: "Book to book", exact: true }).click();
   await page.locator("#matrix").getByRole("link", { name: "Back to contents" }).click();

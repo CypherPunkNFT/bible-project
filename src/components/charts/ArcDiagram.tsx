@@ -1,19 +1,23 @@
 import { RotateCcw } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useCatalog } from "@/lib/catalog";
 import { resolvedSectionColors, SECTIONS } from "@/lib/sections";
 import { useThemeVersion } from "@/lib/theme";
 import type { ArcData } from "@/lib/types";
 import { formatNumber } from "@/lib/utils";
 
-/** Indexed book views and a small canvas cache keep exploration off the full 140,000-arc drawing path. */
-export function ArcDiagram({ data }: { data: ArcData }) {
+/** Indexed book views and a small canvas cache keep exploration off the full 140,000-arc drawing path.
+ *  `focus` + `onFocusChange` let a page own the lit book (Connections in Scripture shares it with Book to book);
+ *  `picker` replaces the book list in the controls. */
+export function ArcDiagram({ data, focus: litBook, onFocusChange, picker }: { data: ArcData; focus?: string; onFocusChange?: (code: string) => void; picker?: ReactNode }) {
   const catalog = useCatalog();
   const canvas = useRef<HTMLCanvasElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
   const cache = useRef(new Map<string, HTMLCanvasElement>());
   const [width, setWidth] = useState(0);
-  const [focus, setFocus] = useState("");
+  const [ownFocus, setOwnFocus] = useState("");
+  const focus = litBook ?? ownFocus;
+  const setFocus = onFocusChange ?? setOwnFocus;
   const [hover, setHover] = useState("");
   const themeVersion = useThemeVersion();
   const prepared = useMemo(() => {
@@ -126,10 +130,10 @@ export function ArcDiagram({ data }: { data: ArcData }) {
   return (
     <div>
       <div className="chart-controls">
-        <label><span>Light up one book:</span><select value={focus} onChange={(event) => { setFocus(event.target.value); setHover(""); }}>
+        {picker ?? <label><span>Light up one book:</span><select value={focus} onChange={(event) => { setFocus(event.target.value); setHover(""); }}>
           <option value="">All books</option>
           {prepared.books.map((b) => <option key={b.code} value={b.code}>{b.name}</option>)}
-        </select></label>
+        </select></label>}
         {focus && <button type="button" className="chart-control-reset" onClick={() => { setFocus(""); setHover(""); }}><RotateCcw size={13} aria-hidden="true" /> Reset view</button>}
         <span className="chart-hint">{focus ? "Book pinned. Reset to explore the whole Bible." : "Hover to explore · Click or tap to pin a book"}</span>
       </div>
@@ -142,7 +146,7 @@ export function ArcDiagram({ data }: { data: ArcData }) {
           aria-label="Arc diagram: every cross-reference between two chapters of the Bible drawn as an arc above a bar of all chapters, coloured by section"
           onPointerMove={(event) => { if (event.pointerType !== "touch" && !focus) setHover(pickAt(event.clientX)); }}
           onPointerLeave={() => setHover("")}
-          onClick={(event) => { const code = pickAt(event.clientX); setFocus((current) => code === current ? "" : code); setHover(""); }} />
+          onClick={(event) => { const code = pickAt(event.clientX); setFocus(code === focus ? "" : code); setHover(""); }} />
       </div>
       <div className="arc-bookmark"><span>Genesis</span><span>Revelation</span></div>
       <div className="chart-legend">

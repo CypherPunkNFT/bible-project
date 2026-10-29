@@ -4,8 +4,8 @@ import { STUDY_BRANCHES } from "./collections";
 import places from "./atlas-places.json";
 describe("Study navigation preservation", () => {
     it("keeps the theological collections reachable without unpublished review routes", () => {
-        const paths = [...STUDY_BRANCHES.theology.areas.flatMap(a => [a.featured.href, ...a.items.map(i => i.href), ...a.support.map(s => s[1]), ...(a.cards ?? []).map(id => id === 'topics' ? '/topics' : '/study/' + id)])];
-        for (const url of ['/study/structure', '/study/letters', '/study/references', '/study/gospels', '/study/miracles', '/study/names', '/topics', '/study/people', '/study/versions'])
+        const paths = [...STUDY_BRANCHES.theology.areas.flatMap(a => [a.featured.href, ...a.items.map(i => i.href), ...a.support.map(s => s[1]), ...(a.cards ?? []).map(id => id === 'topics' ? '/topics' : id === 'references' ? '/study/connections' : '/study/' + id)])];
+        for (const url of ['/study/structure', '/study/letters', '/study/connections', '/study/gospels', '/study/miracles', '/study/names', '/topics', '/study/people', '/study/versions'])
             expect(paths.some(p => p.split(/[?#]/)[0] === url)).toBe(true);
         expect(paths.every(p => !p.startsWith('/review/') && !p.startsWith('/mockups/'))).toBe(true);
     });

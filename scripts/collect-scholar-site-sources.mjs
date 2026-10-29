@@ -82,7 +82,7 @@ for(const [id,label,address,page,files]of definitions){
 // Source data feeding live charts, as opposed to books merely held in the library.
 const direct=[
  ['bible-texts','Bible reader · text editions','/bible','eBible.org','Scripture text distributions used by the reader','https://ebible.org/Scriptures/','scripts/build-data.py','build_translation','Reader editions imported from the registered eBible translation distributions; edition-specific credits remain in Versions & sources.'],
- ['cross-references','Scripture cross-references','/study/references','OpenBible.info','Bible cross-reference dataset','https://www.openbible.info/labs/cross-references/','scripts/build-data.py','read_cross_references','Cross-reference edges generated from the OpenBible dataset.'],
+ ['cross-references','Scripture cross-references','/study/connections','OpenBible.info','Bible cross-reference dataset','https://www.openbible.info/labs/cross-references/','scripts/build-data.py','read_cross_references','Cross-reference edges generated from the OpenBible dataset.'],
  ['atlas','Atlas and biblical places','/study/atlas/map','OpenBible.info','Bible Geocoding Data','https://github.com/openbibleinfo/Bible-Geocoding-Data','scripts/build-data.py','read_places','Place records and coordinates loaded by the atlas.'],
 ];
 for(const[id,label,address,author,title,url,file,verify,locator]of direct){const raw=hash(file);if(!raw.includes(verify))throw Error(`Missing ${verify}`);features.push({id,label,address,rows:[{author,title,year:'',url,evidence:file,verify,locator}]});}

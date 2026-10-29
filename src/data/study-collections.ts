@@ -2,7 +2,7 @@ import { BookOpen, Crown, Layers, Mail, Map, Network, Quote, Sparkles, Users } f
 
 export const STUDY_COLLECTIONS = [
   { id: "gospels", path: "/study/gospels", label: "Jesus & the Gospels", lens: "Life & teaching", color: "gospels", icon: Quote, related: ["gospels", "miracles", "references", "people"] },
-  { id: "references", path: "/study/references", label: "Connections in Scripture", lens: "Passages in conversation", color: "poetry", icon: Network, related: ["references", "structure", "gospels", "names"] },
+  { id: "references", path: "/study/connections", label: "Connections in Scripture", lens: "Passages in conversation", color: "poetry", icon: Network, related: ["references", "structure", "gospels", "names"] },
   { id: "structure", path: "/study/structure", label: "The shape of the Bible", lens: "Books & literary forms", color: "history", icon: BookOpen, related: ["structure", "letters", "versions", "references"] },
   { id: "people", path: "/study/people", label: "People & genealogies", lens: "Lives & lineages", color: "history", icon: Users, related: ["people", "places", "gospels", "letters"] },
   { id: "places", path: "/study/atlas", label: "Places & journeys", lens: "The world of the Bible", color: "poetry", icon: Map, related: ["places", "people", "gospels", "references"] },

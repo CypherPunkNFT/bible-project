@@ -28,6 +28,8 @@ function Result<T>({ state, children }: { state: AsyncState<T>; children: (value
   if (state.status === "error") return <div className="charts-error" role="alert"><p>This chart could not be loaded.</p><button type="button" onClick={() => window.location.reload()}>Try again</button></div>;
   return <>{children(state.value)}</>;
 }
+/** The study a /study/<slug> address shows: Connections in Scripture keeps its older id, "references". */
+const collectionOf = (slug: string) => (slug === "connections" ? "references" : slug) as StudyCollectionId;
 function ArcsView() { const arcs = useAsync(loadArcs, "arcs"); return <Result state={arcs}>{(data) => <ArcDiagram data={data} />}</Result>; }
 function MatrixView() { const pairs = useAsync(loadBookPairs, "pairs"); return <Result state={pairs}>{(data) => <BookMatrix pairs={data} />}</Result>; }
 
@@ -35,7 +37,7 @@ function MatrixView() { const pairs = useAsync(loadBookPairs, "pairs"); return <
  *  chosen and then stays mounted while hidden, so it keeps the reader's selections when they come back to it. */
 function ChartPanel({ id, title, lead, source, children }: { id: string; title: string; lead: string; source: ReactNode; children: ReactNode }) {
   const location = useLocation();
-  const collection = location.pathname.split("/")[2] as StudyCollectionId;
+  const collection = collectionOf(location.pathname.split("/")[2]);
   const sections = STUDY_SECTIONS[collection];
   const position = sections.findIndex((item) => item.id === id);
   const view = useStudyView(collection);
@@ -54,7 +56,7 @@ export default function ChartsPage() {
   const stats = useAsync(loadStats, "stats");
   const location = useLocation();
   const [section, setSection] = useState<SectionFilter>("");
-  const routeSlug = location.pathname.split("/")[2];
+  const routeSlug = collectionOf(location.pathname.split("/")[2]);
   const activeId = routeSlug === "gospels" ? "words" : routeSlug;
   const shown = (id: string) => activeId === id;
   useLayoutEffect(() => {

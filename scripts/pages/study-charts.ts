@@ -1,4 +1,4 @@
-// CONTENT for the Study pages built on ChartsPage: Connections in Scripture (/study/references), The shape of the
+// CONTENT for the Study pages built on ChartsPage: Connections in Scripture (/study/connections), The shape of the
 // Bible (/study/structure) and Versions & languages (/study/versions). Jesus & the Gospels shares the page frame
 // (chartArea) and lives in study-gospels.ts.
 import { PROPHECY_PASSAGES, SECTION_INSIGHTS } from "../../src/data/chart-insights";

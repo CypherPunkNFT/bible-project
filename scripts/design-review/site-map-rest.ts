@@ -240,7 +240,7 @@ function studyAndSiteTemplates(): TemplateDef[] {
       ...["theology", "academic"].flatMap(branch => (branch === "theology" ? ["books", "jesus", "doctrine", "life", "people"] : ["history", "texts", "languages", "culture", "church"]).map(area => single(`${branch}-${area}`, `${branch}: ${area}`, "A selected subject and its readings.", `/study/${branch}?area=${area}`))),
     ]),
     one("study-charts", "study", "Study chart pages", "/study/<study>", "The four chart studies: connections, the shape of the Bible, Jesus & the Gospels, versions.", ["src/pages/ChartsPage.tsx"], ["src/pages/ChartsPage.tsx", "src/components/charts/"], [
-      single("references", "Connections in Scripture", "Cross-reference arcs and the matrix.", "/study/references"),
+      single("references", "Connections in Scripture", "Cross-reference arcs and the matrix.", "/study/connections"),
       single("structure", "The shape of the Bible", "Sections, sizes and chapters.", "/study/structure"),
       single("gospels", "Jesus & the Gospels", "Portraits, words of Jesus, the harmony.", "/study/gospels"),
       single("versions", "Versions & languages", "The timeline and coverage.", "/study/versions"),

@@ -25,6 +25,7 @@ const ConnectionsEntityMockup = lazy(() => import("./connections/ConnectionsEnti
 const MosesConnectedMockup = lazy(() => import("./connections/MosesConnectedMockup"));
 const PersonConnectionsMockup = lazy(() => import("./connections/PersonConnectionsMockup"));
 const PrivacyMockup = lazy(() => import("./legal/PrivacyMockup"));
+const StudyConnectionsMockup = lazy(() => import("@/pages/study/connections/ConnectionsPage"));
 const SupportMockup = lazy(() => import("./legal/SupportMockup"));
 
 const StructureMockup = lazy(() => import("./structure/StructureMockup"));
@@ -64,6 +65,9 @@ export function mockupRoutes() {
     // section, and every person's full connections as a sub-page of their page.
     <Route key="moses-connected" path="/people_mockup/moses" element={<><MockupTag /><MosesConnectedMockup /></>} />,
     <Route key="person-connections" path="/people_mockup/:id/connections" element={<><MockupTag /><PersonConnectionsMockup /></>} />,
+    // Connections in Scripture as one page, without the two chart cards (owner, 2026-10-29). No MOCK-UP tag: a mock-up shows only
+    // what the real page would (owner, 2026-10-28).
+    <Route key="study-connections" path="/study/connections_mockup" element={<StudyConnectionsMockup />} />,
     <Route key="privacy" path="/privacy_mockup" element={<><MockupTag /><PrivacyMockup /></>} />,
     <Route key="support" path="/support_mockup" element={<><MockupTag /><SupportMockup /></>} />,
     <Route key="gallery" path="/mockups" element={<HomeMockupsPage />} />,
