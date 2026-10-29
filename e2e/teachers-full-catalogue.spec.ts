@@ -6,28 +6,31 @@ test.beforeEach(async ({ page }) => {
   await page.goto('/teachers/scholars#catalogue');
   await expect(page.locator('.cat-count')).toContainText(`${total.toLocaleString()} of ${total.toLocaleString()}`);
 });
+// The card view draws a window of rows (the rows on screen plus 50 above and below; e2e/virtual-lists.spec.ts checks
+// the window itself), so every contributor is reachable by scrolling without the whole list being drawn at once.
 test('all contributors are reachable with bounded cards, unclassified names and preserved profiles', async ({ page }) => {
-  await expect(page.locator('.cat-grid .cat-card')).toHaveCount(48);
+  const cards = page.locator('.cat-grid .cat-card');
+  await expect(cards.first()).toBeVisible();
+  expect(await cards.count()).toBeLessThan(total);
   await expect(page.getByRole('navigation', { name: 'Catalogue pages' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: /Show more contributors/ })).toHaveCount(0);
   const scroller = page.locator('.cat-scroll');
   await scroller.scrollIntoViewIfNeeded();
-  const first = await page.locator('.cat-grid .cat-card').first().elementHandle();
+  const first = await cards.first().elementHandle();
   const windowY = await page.evaluate(() => scrollY);
-  await scroller.evaluate(async e => {
-    e.scrollTop = (e.scrollHeight - e.clientHeight) * .2;
+  const position = await scroller.evaluate(async e => {
+    e.scrollTop = (e.scrollHeight - e.clientHeight) * .41;
     await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+    return e.scrollTop;
   });
-  await expect(page.locator('.cat-grid .cat-card')).toHaveCount(48);
-  const position = await scroller.evaluate(e => { e.scrollTop = (e.scrollHeight - e.clientHeight) * .41; return e.scrollTop; });
-  await expect(page.locator('.cat-grid .cat-card')).toHaveCount(96);
-  expect(await scroller.evaluate(e => e.scrollTop)).toBe(position);
+  // Far down the list the first cards are released, the page itself does not scroll, and the place holds.
+  await expect.poll(() => first!.evaluate(e => e.isConnected)).toBe(false);
+  expect(Math.abs(await scroller.evaluate(e => e.scrollTop) - position)).toBeLessThan(400);
   expect(await page.evaluate(() => scrollY)).toBe(windowY);
-  expect(await first!.evaluate(e => e.isConnected)).toBe(true);
-  await scroller.evaluate(e => { e.scrollTop = (e.scrollHeight - e.clientHeight) * .41; });
-  await expect(page.locator('.cat-grid .cat-card')).toHaveCount(144);
+  expect(await cards.count()).toBeLessThan(total);
   await page.getByLabel('No assigned field', { exact: true }).check();
   await expect(page.locator('.cat-count')).toContainText(index.coverage.withoutSubjectMatch.toLocaleString());
-  await expect(page.locator('.cat-grid .cat-card')).toHaveCount(48);
+  await expect(cards.first()).toBeVisible();
   expect(await scroller.evaluate(e => e.scrollTop)).toBe(0);
   const unknown = page.locator('.cat-library-card').first();
   await expect(unknown).toContainText('Field unassigned');
@@ -45,11 +48,18 @@ test('all contributors are reachable with bounded cards, unclassified names and 
 test('every Latin Fathers contributor and CCEL contributor is present in the unified catalogue', async ({ page }) => {
   await page.getByRole('combobox', { name: 'Collection', exact: true }).selectOption('latin-fathers');
   await expect(page.locator('.cat-count')).toContainText(`${index.coverage.collections['latin-fathers']} of`);
-  for (let loaded = 48; loaded < index.coverage.collections['latin-fathers']; loaded += 48) {
-    await page.locator('.cat-scroll').evaluate(e => { e.scrollTop = (e.scrollHeight - e.clientHeight) * .41; });
-    await expect(page.locator('.cat-grid [data-id]')).toHaveCount(Math.min(loaded + 48, index.coverage.collections['latin-fathers']));
+  // Scroll the whole list, collecting every card drawn on the way (rows far from the view are released).
+  const seen = new Set<string>();
+  for (let step = 0; step < 200; step++) {
+    (await page.locator('.cat-grid > [data-id]').evaluateAll(es => es.map(e => e.getAttribute('data-id')!))).forEach(id => seen.add(id));
+    const end = await page.locator('.cat-scroll').evaluate(async e => {
+      const atEnd = e.scrollTop + e.clientHeight >= e.scrollHeight - 1;
+      e.scrollTop += e.clientHeight;
+      await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+      return atEnd;
+    });
+    if (end) break;
   }
-  const seen = new Set(await page.locator('.cat-grid [data-id]').evaluateAll(es => es.map(e => e.getAttribute('data-id')!)));
   expect(seen.size).toBe(index.coverage.collections['latin-fathers']);
   await page.getByRole('combobox', { name: 'Collection', exact: true }).selectOption('ccel');
   await expect(page.locator('.cat-count')).toContainText(`${index.coverage.collections.ccel} of`);

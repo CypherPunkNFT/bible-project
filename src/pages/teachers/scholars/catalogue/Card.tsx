@@ -1,17 +1,19 @@
 // One catalogue card: the scholar's mark, site badge, name, years and place, field and faith, key work and their life on
 // a line from year 0 to today. The whole card is one button that opens the profile, grown out of the card.
-import { memo } from "react";
+import { memo, type CSSProperties } from "react";
 import type { Scholar, ScholarsData } from "@/data/teachers/pages-types";
 import { NOW, yearPct, years } from "../marks/facts";
 import { Mark } from "../marks/Mark";
 import { toneStyle } from "../marks/shapes";
 
-interface CardProps { data: ScholarsData; s: Scholar; order: number | undefined; onOpen: (id: string, origin: Element | null) => void; cardRef: (el: HTMLElement | null) => void }
+// `row` and `pinned` serve the virtualized catalogue (Catalogue.tsx): its row number, and the place of a card kept
+// drawn outside the drawn rows because it holds focus.
+interface CardProps { data: ScholarsData; s: Scholar; order: number | undefined; onOpen: (id: string, origin: Element | null) => void; cardRef: (el: HTMLElement | null) => void; row?: number; pinned?: CSSProperties }
 
-export const Card = memo(function Card({ data, s, order, onOpen, cardRef }: CardProps) {
+export const Card = memo(function Card({ data, s, order, onOpen, cardRef, row, pinned }: CardProps) {
   const [title, year] = s.works[0] ?? ["", 0];
-  return <article ref={cardRef} className="cat-card" data-id={s.id} hidden={order === undefined}
-    style={{ ...toneStyle(s.field), order: order ?? 0 }}>
+  return <article ref={cardRef} className="cat-card" data-id={s.id} data-row={row} data-pinned={pinned ? "" : undefined} hidden={order === undefined}
+    style={{ ...toneStyle(s.field), order: order ?? 0, ...pinned }}>
     <div className="cat-card-top"><Mark scholar={s} size={54} className="cat-mark" />
       {s.site && (s.site.status === "in-use" ? <span className="cat-badge cat-badge-used"><i />Used on this site</span> : <span className="cat-badge cat-badge-held">In the library</span>)}</div>
     <h3 className="cat-card-name">{s.name}</h3>

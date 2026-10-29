@@ -186,3 +186,9 @@
 .tp-scholars .cat-filter-dropdown .cat-opt { width: 100%; border-radius: .45rem; font-size: .76rem; }
 @media(max-width:900px){.tp-scholars .cat-evidence-filters{grid-column:1/-1}}
 @media(max-width:640px){.tp-scholars .cat-tools{justify-content:flex-start;gap:.45rem}.tp-scholars .cat-download{margin-left:.7rem}}
+
+/* The card view draws a window of rows (catalogue/VirtualCards.tsx) and corrects the scroll position itself when a
+   row turns out taller or shorter than estimated; the browser's own scroll anchoring would correct it twice.
+   The spacers are padding, which must change at once: the reduced-motion rule (index.css) gives every property a
+   transition, so none here. */
+.tp-scholars .cat-grid { overflow-anchor: none; transition-property: none; }

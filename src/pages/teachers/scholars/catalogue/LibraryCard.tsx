@@ -4,10 +4,10 @@ import { toneStyle } from '../marks/shapes';
 import { FIELD_COLLECTIONS } from '../field-library';
 import type { LibraryPerson } from './library';
 
-export function LibraryCard({ person: p, data, onOpen }: { person: LibraryPerson; data: ScholarsData; onOpen: () => void }) {
+export function LibraryCard({ person: p, data, onOpen, row, pinned }: { person: LibraryPerson; data: ScholarsData; onOpen: () => void; row?: number; pinned?: React.CSSProperties }) {
   const fields = Object.keys(p.fields) as Field[], first = fields[0];
   const example = Object.values(p.fields).find(f => f?.example)?.example;
-  return <article className="cat-card cat-library-card" data-id={p.id} style={first ? toneStyle(first) : { '--tone': 'var(--muted)' } as React.CSSProperties}>
+  return <article className="cat-card cat-library-card" data-id={p.id} data-row={row} data-pinned={pinned ? '' : undefined} style={{ ...(first ? toneStyle(first) : { '--tone': 'var(--muted)' } as React.CSSProperties), ...pinned }}>
     <div className="cat-card-top">{first ? <Mark scholar={{ name: p.name, field: first }} size={54} className="cat-mark" /> : <span className="cat-neutral-mark cat-mark" aria-hidden="true">{p.name.split(/\s+/).slice(0, 2).map(w => w[0]).join('')}</span>}<span className="cat-badge">Library entry</span></div>
     <h3 className="cat-card-name">{p.name}</h3>
     <p className="cat-card-meta">{p.roles.join(' · ') || 'Recorded contributor'}</p>
