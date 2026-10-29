@@ -1,0 +1,38 @@
+/* /study/theology_cards_mockup: the cards sit in the Theology page's own grid (hub.css .theology-original-cards). */
+.tc-page { padding-block: 1rem 4rem; }
+.tc-section { margin-top: 3rem; }
+.tc-head { display: grid; grid-template-columns: auto 1fr; align-items: start; gap: 1.6rem; margin: 0 0 1.75rem; }
+.tc-head > span { font: 400 2.9rem/1 var(--font-serif); letter-spacing: -.04em; color: var(--accent); opacity: .75; }
+.tc-head h2 { margin: 0; font: 450 clamp(1.6rem, 2.6vw, 2.2rem)/1.2 var(--font-serif); letter-spacing: -.035em; }
+.tc-head h2 em { font-weight: 400; color: var(--accent); }
+.tc-head p { max-width: 41rem; margin: .6rem 0 0; font-size: .875rem; line-height: 1.8; color: var(--muted); }
+
+.tc-art { padding: 0 0 1.75rem; }
+.study-art.tc-art svg { display: block; width: 100%; height: 170px; }
+.tc-art svg text { fill: var(--ink); font-family: var(--font-sans); text-anchor: middle; }
+.tc-art svg text.tc-spine { font-size: 8.5px; font-weight: 600; letter-spacing: .14em; fill: color-mix(in srgb, var(--resource-color) 70%, var(--ink)); }
+.tc-art svg text.tc-phrase { font: 400 13px var(--font-serif); }
+.tc-art svg text.tc-language { font-size: 7.5px; font-weight: 600; letter-spacing: .16em; fill: var(--muted); }
+.tc-art svg text.tc-autonym { font: 400 12px var(--font-serif); fill: color-mix(in srgb, var(--resource-color) 55%, var(--ink)); }
+
+/* Books: the newest edition lifts off the stack and settles. */
+.tc-stack-top { animation: tc-lift 5s ease-in-out infinite; }
+@keyframes tc-lift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+/* Open books: each lights in turn. */
+.tc-open { animation: tc-light 4.8s ease-in-out infinite; opacity: .6; }
+@keyframes tc-light { 0%, 100% { opacity: .6; } 15%, 35% { opacity: 1; } }
+/* Languages: the names in the arc light in turn. */
+.tc-arc { animation: tc-arc 7.2s ease-in-out infinite; opacity: .45; }
+@keyframes tc-arc { 0%, 100% { opacity: .45; } 8%, 20% { opacity: 1; } }
+
+/* Languages: "In the beginning" in the middle, the other sixteen drifting faintly round it (the Topics card's drift). */
+.tc-beginnings > strong { position: absolute; left: 50%; top: 44%; transform: translate(-50%, -50%); font: 400 clamp(1.6rem, 3vw, 2.2rem)/1 var(--font-serif); letter-spacing: -.02em; color: var(--ink); white-space: nowrap; }
+.tc-beginning { position: absolute; font: italic 400 .85rem var(--font-serif); white-space: nowrap; color: var(--resource-color); opacity: .5; animation: study-topics-drift 9s ease-in-out infinite alternate, study-topics-lit 5s ease-in-out infinite alternate; }
+
+@media (max-width: 639px) {
+  .tc-head { gap: .9rem; }
+  .tc-head > span { font-size: 2.1rem; }
+  .tc-beginning { font-size: .64rem; }
+  .tc-beginnings > strong { font-size: 1.3rem; }
+}
+@media (prefers-reduced-motion: reduce) { .tc-stack-top, .tc-open, .tc-arc, .tc-beginning { animation: none; } }
