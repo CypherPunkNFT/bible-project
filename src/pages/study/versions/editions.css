@@ -35,12 +35,13 @@
 
 /* 01 The languages: straight-edged boxes, two across, each with its group's colour down the whole left side. */
 .ed-languages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
-.ed-languages > li { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 1rem; align-items: start; padding: .95rem 1rem .95rem 1.1rem; border: 1px solid var(--line); border-left: 4px solid var(--group); border-radius: 0; }
-/* align-items keeps a right-to-left name (Hebrew, Arabic, Persian) at the start of its box. */
-.ed-language-name { display: flex; flex-direction: column; align-items: flex-start; gap: .15rem; }
+/* Everything in a box is centred: the name over its editions, and the whole in the middle of a box made taller by
+   its neighbour. */
+.ed-languages > li { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: .8rem; padding: 1.1rem 1.1rem 1.2rem; text-align: center; border: 1px solid var(--line); border-left: 4px solid var(--group); border-radius: 0; }
+.ed-language-name { display: flex; flex-direction: column; align-items: center; gap: .15rem; }
 .ed-language-name strong { font: 400 1.2rem/1.2 var(--font-serif); color: var(--ink); }
 .ed-language-name span { font-size: .68rem; color: var(--muted); }
-.ed-language-editions { display: flex; flex-wrap: wrap; gap: .35rem; }
+.ed-language-editions { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem; }
 .ed-language-editions a { display: inline-flex; align-items: baseline; gap: .35rem; padding: .3rem .65rem; border: 1px solid var(--line); border-radius: 999px; font-size: .7rem; transition: border-color .2s, color .2s; }
 .ed-language-editions a b { font-weight: 600; color: var(--ink); }
 .ed-language-editions a span { color: var(--muted); font-variant-numeric: tabular-nums; }
@@ -78,6 +79,5 @@
 @media (max-width: 767px) {
   .ed-heading { display: block; }
   .ed-art { display: block; width: min(100%, 17rem); margin: 1.5rem auto -1rem; }
-  .ed-languages > li { grid-template-columns: minmax(0, 1fr); gap: .6rem; }
 }
 @media (prefers-reduced-motion: reduce) { .ed-art-spine { animation: none; } }
