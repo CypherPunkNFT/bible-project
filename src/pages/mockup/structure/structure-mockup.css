@@ -47,8 +47,8 @@
 .shape-works span { display: inline-flex; align-items: baseline; gap: .3rem; font: 400 1rem/1.35 var(--font-serif); color: var(--ink); }
 .shape-works a:hover span { color: var(--tone); }
 .shape-works small { display: block; margin-top: .1rem; font-size: .72rem; color: var(--muted); }
-.shape-more a { font-size: .8rem; color: var(--muted); }
-.shape-more a:hover { color: var(--ink); }
+.shape-scroll { max-height: 23.5rem; } /* six rows whole, half of a seventh showing there is more */
+.shape-scroll > .outside-scrollbar { right: -1rem; }
 .shape-studies { padding: 1.4rem 0 0; border-top: 1px solid var(--line); }
 .shape-studies dl { margin: 0; }
 .shape-studies dl > div { display: grid; grid-template-columns: 10rem 1fr; gap: 1rem; padding: .65rem 0; border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }

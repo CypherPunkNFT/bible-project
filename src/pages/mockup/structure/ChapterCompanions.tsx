@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
+import { OutsideScroll } from "@/components/OutsideScroll";
 import { loadChapterTopics, loadHymnsByChapter } from "@/lib/data";
 import type { HymnsByChapter } from "@/lib/hymn-pages";
 import { loadHarmony, loadLetters, loadMiracles, loadNames, loadProphets } from "@/lib/study";
@@ -9,7 +10,6 @@ import { useAsync } from "@/lib/useAsync";
 import { usePeopleData } from "@/pages/teachers/shared/data";
 import { studiesFor, type StudyData } from "./chapter-studies";
 
-const SHOWN = 6;
 const TOPICS_SHOWN = 12;
 const NO_HYMNS: HymnsByChapter = {};
 const NO_TOPICS: ChapterTopics = { chapters: {}, names: {} };
@@ -38,20 +38,18 @@ export function ChapterCompanions({ code, bookNumber, chapter, name }: { code: s
       <div className="shape-companion-columns">
         <section aria-labelledby="shape-hymns">
           <p id="shape-hymns" className="lib-small-caps">Hymns on this chapter{songs.length ? ` · ${songs.length}` : ""}</p>
-          {hymns.status === "loading" ? <p className="lib-muted">…</p> : songs.length ? <ul className="shape-works">
-            {songs.slice(0, SHOWN).map((h) => <li key={h.id}><Link to={`/study/hymns/${h.id}`}><span>{h.t.replace(/[,;:]$/, "")}</span><small>{h.a} · {h.y} · {h.r}</small></Link></li>)}
-            {songs.length > SHOWN && <li className="shape-more"><Link to="/study/hymns">+{songs.length - SHOWN} more in the hymns collection</Link></li>}
-          </ul> : <p className="lib-muted">No hymn in our collection is written on {name}.</p>}
+          {hymns.status === "loading" ? <p className="lib-muted">…</p> : songs.length ? <OutsideScroll label={`Hymns on ${name}`} className="shape-scroll" resetKey={name}><ul className="shape-works">
+            {songs.map((h) => <li key={h.id}><Link to={`/study/hymns/${h.id}`}><span>{h.t.replace(/[,;:]$/, "")}</span><small>{h.a} · {h.y} · {h.r}</small></Link></li>)}
+          </ul></OutsideScroll> : <p className="lib-muted">No hymn in our collection is written on {name}.</p>}
         </section>
         <section aria-labelledby="shape-teachers">
           <p id="shape-teachers" className="lib-small-caps">Teachers who preached it{works.length ? ` · ${works.length}` : ""}</p>
-          {!people.data && !people.error ? <p className="lib-muted">…</p> : works.length ? <ul className="shape-works">
-            {works.slice(0, SHOWN).map(({ person, work }, i) => <li key={`${person.id}-${i}`}>
+          {!people.data && !people.error ? <p className="lib-muted">…</p> : works.length ? <OutsideScroll label={`Teachers' works on ${name}`} className="shape-scroll" resetKey={name}><ul className="shape-works">
+            {works.map(({ person, work }, i) => <li key={`${person.id}-${i}`}>
               {work.u ? <a href={work.u} target="_blank" rel="noreferrer"><span>{work.t}<ArrowUpRight size={12} aria-hidden="true" /></span><small>{person.short} · {work.r}{work.d ? ` · ${work.d.slice(0, 4)}` : ""}</small></a>
                 : <div><span>{work.t}</span><small>{person.short} · {work.r}</small></div>}
             </li>)}
-            {works.length > SHOWN && <li className="shape-more"><Link to="/teachers">+{works.length - SHOWN} more on the Teachers page</Link></li>}
-          </ul> : <p className="lib-muted">None of our teachers' works takes {name} as its main text yet.</p>}
+          </ul></OutsideScroll> :<p className="lib-muted">None of our teachers' works takes {name} as its main text yet.</p>}
         </section>
       </div>
       <section className="shape-studies" aria-labelledby="shape-studies">
