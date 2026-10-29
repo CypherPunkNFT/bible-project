@@ -8,7 +8,7 @@
 // The pill is for trying the openings on /home_mockup2 only (trial); the real homepage shows Figures with no pill (owner,
 // 2026-10-24: "take away the figures and centered pill option").
 // Styles: nearby-intro.css.
-import { ArrowRight, HandHeart } from "lucide-react";
+import { ArrowRight, HandHeart, LifeBuoy } from "lucide-react";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { LighthouseArt } from "./LighthouseArt";
@@ -37,7 +37,8 @@ function Heading({ number }: { number?: string }) {
 function FiguresLayout({ figures, number }: { figures: Figures; number?: string }) {
   const rows: [number, string][] = [[figures.cities, "Cities on the map"], [figures.places, "Places, each checked"], [figures.churches, "Churches & Bible studies"], [figures.help, "Places of help"]];
   return <header className="ni ni-figures">
-    <div className="ni-figures-top"><div><Heading number={number} /><p className="ni-about">{ABOUT}</p></div>
+    <div className="ni-figures-top"><div><Heading number={number} /><p className="ni-about">{ABOUT}</p>
+      <Link className="ni-cta" to="/resources/life"><LifeBuoy size={17} strokeWidth={1.6} aria-hidden />Help for life<ArrowRight size={15} aria-hidden /></Link></div>
       <dl className="ni-bar">{rows.map(([n, label]) => <div key={label}><dt>{label}</dt><dd>{n.toLocaleString("en-US")}</dd></div>)}</dl></div>
   </header>;
 }
