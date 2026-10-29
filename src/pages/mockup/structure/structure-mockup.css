@@ -1,0 +1,44 @@
+/* /study/structure_mockup: the one-section Structure page. Book rows follow charts.css .size-bars; the open book's
+   chapter card is the Library page's own .lib-chapter (library.css). */
+.shape-panel { margin-top: 1.5rem; }
+.shape-step { display: flex; align-items: baseline; gap: .75rem; margin: 2.25rem 0 1rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+.shape-step span { font-size: .68rem; font-weight: 600; letter-spacing: .18em; color: var(--chart-color); }
+.shape-step h3 { margin: 0; font: 400 1.35rem var(--font-serif); }
+.shape-hint { margin-left: auto; color: var(--muted); }
+
+.shape-books { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .25rem 2rem; }
+.shape-books > li > button { width: 100%; display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 3.5rem; align-items: center; gap: .6rem; padding: .4rem 0; font-size: .7rem; text-align: left; }
+.shape-books > li > button:hover, .shape-books > li > button.on { color: var(--accent); }
+.shape-open button:focus, .shape-open button:focus-visible, .shape-books > li > button:focus, .shape-books > li > button:focus-visible, .shape-strip button:focus, .shape-strip button:focus-visible { outline: none; }
+
+.shape-open { grid-column: 1 / -1; margin: .75rem 0 1.25rem; padding: 1.5rem 0 0; border-top: 1px solid var(--line); }
+.shape-open .lib-chapter { margin-top: 1.25rem; border-bottom: 0; padding-bottom: 0; }
+.shape-open .lib-strip-block { display: none; }
+
+.shape-book-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.shape-book-head h3 { margin: 0; font: 400 1.6rem var(--font-serif); color: var(--tone); }
+.shape-book-head p { margin: .25rem 0 0; font-size: .75rem; color: var(--muted); }
+.shape-book-head button { display: grid; place-items: center; width: 2rem; height: 2rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+.shape-book-head button:hover { color: var(--ink); }
+.shape-book-detail { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem .8rem; min-height: 1.8rem; margin: 1rem 0 .5rem; font-size: .75rem; color: var(--muted); }
+.shape-book-detail strong { font: 500 1rem var(--font-serif); color: var(--ink); }
+.shape-book-detail em { font: italic 400 1rem var(--font-serif); color: var(--tone); }
+.shape-book-detail span { margin-left: auto; font-variant-numeric: tabular-nums; }
+
+.shape-strip { display: flex; align-items: stretch; gap: var(--gap, 4px); height: 6.5rem; }
+.shape-strip button { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: .3rem; cursor: pointer; }
+.shape-strip i { display: block; width: 100%; border-radius: 2px 2px 0 0; background: color-mix(in srgb, var(--tone) 30%, transparent); transition: background .12s; }
+.shape-strip button:hover i, .shape-strip button:focus-visible i { background: color-mix(in srgb, var(--tone) 65%, transparent); }
+.shape-strip button.on i { background: var(--tone); }
+.shape-strip span { height: .9rem; font-size: .6rem; line-height: .9rem; text-align: center; color: var(--muted); font-variant-numeric: tabular-nums; overflow: visible; white-space: nowrap; }
+.shape-strip button.on span { color: var(--tone); font-weight: 600; }
+.shape-strip button:first-child span { text-align: left; }
+.shape-strip button:last-child span { text-align: right; direction: rtl; } /* a label wider than its bar overflows leftwards */
+
+@media (max-width: 767px) {
+  .shape-books { grid-template-columns: minmax(0, 1fr); }
+  .shape-books > li > button { grid-template-columns: 6.4rem minmax(0, 1fr) 3rem; gap: .35rem; }
+  .shape-hint { margin-left: 0; flex-basis: 100%; }
+  .shape-strip { height: 5rem; }
+  .shape-book-detail span { margin-left: 0; flex-basis: 100%; }
+}
