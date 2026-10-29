@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ACQUIRED_BASE, getAcquired, getContributorShelf, workUrl, languageLabel, sourceLabel, type AcquiredCatalogue as Catalogue, type AcquiredContributor, type AcquiredWork } from "./acquired";
+import { ACQUIRED_BASE, getAcquired, getContributorShelf, workUrl, languageCodes, languageLabel, sourceLabel, type AcquiredCatalogue as Catalogue, type AcquiredContributor, type AcquiredWork } from "./acquired";
 import { SectionHead } from "./Frame";
 import "./acquired.css";
 
@@ -23,7 +23,7 @@ export function ContributorWorks({ contributor, onOpenWork }: { contributor: Pic
     getContributorShelf(contributor.id,abort.signal).then(data => { if (!abort.signal.aborted) setRows(data); }).catch(error => { if (!abort.signal.aborted) setError(error.message); });
     return () => abort.abort();
   }, [contributor.id]);
-  const found = useMemo(() => rows.filter(w => `${w.title} ${w.source} ${w.language}`.toLowerCase().includes(query.toLowerCase())), [rows, query]);
+  const found = useMemo(() => rows.filter(w => `${w.title} ${w.source} ${languageCodes(w.language).join(" ")} ${languageLabel(w.language)}`.toLowerCase().includes(query.toLowerCase())), [rows, query]);
   return <div className="acq-works">
     <label>Find a work<input value={query} onChange={e => { setQuery(e.target.value); setPage(0); }} placeholder="Title, source or language" /></label>
     <p className="acq-caption">{found.length.toLocaleString()} text representations. Editions and formats can overlap; this is not a count of distinct books.</p>

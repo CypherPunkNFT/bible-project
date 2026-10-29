@@ -5,13 +5,15 @@ import { ACQUIRED_BASE, getAcquired, languageLabel, sourceLabel, workUrl, type A
 
 // The library's front page list (/teachers/works, "Browse by collection"). One long list drawn a window of rows at a
 // time (owner, 2026-10-29): the rows on screen plus 50 above and 50 below, released further out and drawn again on the
-// way back (src/lib/useRowWindow.ts). Rows arrive a collection file (1,000 rows) at a time; the next file is fetched
-// by itself as the reader nears the end of what has arrived, with a small loading line meanwhile. No page buttons.
+// way back (src/lib/useRowWindow.ts). Rows arrive a collection file (500 rows, owner 2026-10-29) at a time; the next
+// file is fetched by itself as the reader nears the end of what has arrived, with a small loading line meanwhile. No
+// page buttons. The rows per file are part of the folder name (<view>-500/), so a page still running an older build
+// keeps reading the folder it knows and never mistakes a 500-row file for the last of 1,000-row ones.
 interface Collection { id: string; source: string; records: number; readable: number; anonymous: number }
 type Row = AcquiredWork & { authors: string[] };
 interface Loaded { key: string; rows: Row[]; nextFile: number; done: boolean }
 
-const FILE_ROWS = 1000;
+const FILE_ROWS = 500; // scripts/pack-teacher-library.py COLLECTION_ROWS
 const ROW_ESTIMATE = 72;
 const NOTHING: Loaded = { key: "", rows: [], nextFile: 0, done: true };
 
@@ -56,7 +58,7 @@ export function CollectionBrowser() {
     if (!selected || list.done || fetching === listKey || request.current) return;
     const key = listKey, file = list.nextFile, abort = new AbortController();
     request.current = abort; setFetching(key); setMoreError(null);
-    getAcquired<unknown>(`${ACQUIRED_BASE}/collections/${selected.id}/${view}/${file}.json`, abort.signal).then(data => {
+    getAcquired<unknown>(`${ACQUIRED_BASE}/collections/${selected.id}/${view}-${FILE_ROWS}/${file}.json`, abort.signal).then(data => {
       if (abort.signal.aborted) return;
       if (!Array.isArray(data)) throw new Error(`The collection file ${file + 1} is not a list of works.`);
       const fresh = (data as Row[]).filter(w => typeof w?.id === "string" && typeof w.title === "string" && !seen.current.has(w.id));

@@ -2,11 +2,12 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getPopulationShelf, readingLink, type PopulationRecord, type PopulationWork } from '../population';
 import type { LibraryPerson } from './library';
+import { languageCodes } from '../../shared/acquired';
 
 export function PopulationRecordRow({ record: r }: { record: PopulationRecord }) {
   const link=readingLink(r);
   return <li className="pop-record">
-    <div><strong>{r.title}</strong> <span>{r.origin} · {r.language} · {r.availability}</span></div>
+    <div><strong>{r.title}</strong> <span>{r.origin} · {languageCodes(r.language).join(', ') || 'und'} · {r.availability}</span></div>
     <code>{r.id}</code>
     <p>Work ID: <code>{r.workId ?? 'unrecorded'}</code> · Edition ID: <code>{r.editionId ?? 'unrecorded'}</code></p>
     {r.intakeWorkIds?.length ? <p>Additional intake work IDs (not substituted): {r.intakeWorkIds.join(', ')}</p> : null}

@@ -178,4 +178,10 @@ describe("manual reading positions", () => {
     expect(mockPage).not.toHaveBeenCalled();
     expect(screen.queryByRole("navigation",{name:"Reading pages"})).not.toBeInTheDocument();
   });
+
+  it("shows a record whose language is stored as a list (3,769 campaign records)", async () => {
+    mockRecord.mockResolvedValue(record("heidelberg",{language:["en"],availability:"permission-required",localCopy:false,pages:0}));
+    open("/teachers/works/heidelberg");
+    expect(await screen.findByText("Theology · English")).toBeVisible();
+  });
 });

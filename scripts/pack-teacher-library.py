@@ -2,6 +2,8 @@
 
 Bundles are bounded, content-addressed JSON. Only pages referenced by the public
 catalogue are included. Originals and the unpacked extraction cache are retained.
+A record's `language` is copied as found: one code ("en") or a list (["en"]); the
+site reads both (src/pages/teachers/shared/acquired.ts, languageCodes).
 """
 from pathlib import Path
 from collections import defaultdict
@@ -15,6 +17,10 @@ SITE = Path(__file__).resolve().parents[1]
 RAW = SITE / '.local/teacher-library-unpacked'
 OUT = SITE / 'public/content/teacher-library'
 LIMIT = 2 * 1024 * 1024
+# Rows per collection file, fetched one file at a time by the library list
+# (src/pages/teachers/shared/CollectionBrowser.tsx FILE_ROWS). The folder is named
+# for it (<view>-500/), so a page from an older build never reads the new files.
+COLLECTION_ROWS = 500
 
 
 def read(path):
@@ -104,10 +110,10 @@ def main():
         collection_index.append({'id': ident, 'source': source, 'records': len(rows),
                                  'readable': len(readable), 'anonymous': sum(not r['authors'] for r in rows)})
         for view, selection in [('all', rows), ('readable', readable)]:
-            for start in range(0, len(selection), 1000):
-                write(stage / 'collections' / ident / view / f'{start // 1000}.json',
+            for start in range(0, len(selection), COLLECTION_ROWS):
+                write(stage / 'collections' / ident / f'{view}-{COLLECTION_ROWS}' / f'{start // COLLECTION_ROWS}.json',
                       [{k: r[k] for k in ['id', 'title', 'authors', 'language', 'source', 'availability', 'genre']}
-                       for r in selection[start:start + 1000]])
+                       for r in selection[start:start + COLLECTION_ROWS]])
     write(stage / 'collections/index.json', collection_index)
     assets = list(stage.rglob('*.json'))
     report = {'records': len(records), 'publicReadingCopies': catalogue['onSiteTexts'],

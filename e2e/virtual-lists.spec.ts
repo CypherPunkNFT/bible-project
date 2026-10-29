@@ -139,10 +139,10 @@ test.describe("Scholars catalogue card view", () => {
 });
 
 test.describe("Library collection list", () => {
-  test("draws a window of rows and fetches the next 1,000 by itself near the end, with a loading line", async ({ page }) => {
+  test("draws a window of rows and fetches the next 500 by itself near the end, with a loading line", async ({ page }) => {
     let release: () => void = () => {};
     const held = new Promise<void>(r => { release = r; });
-    await page.route(`**/content/teacher-library/collections/${TCP.id}/readable/1.json`, async route => { await held; await route.continue(); });
+    await page.route(`**/content/teacher-library/collections/${TCP.id}/readable-500/1.json`, async route => { await held; await route.continue(); });
     await page.goto(`/teachers/works?collection=${TCP.id}&page=3`);
     await expect(page).not.toHaveURL(/[?&]page=/); // addresses from the paged list start at the top
     const rowsList = page.locator(".acq-collection-rows");
@@ -155,21 +155,21 @@ test.describe("Library collection list", () => {
     await frames(page);
     let w = await listWindow(page);
     expect(w.start).toBe(0);
-    expectBuffer(w, 1000);
+    expectBuffer(w, 500);
     expect(w.items).toBeLessThan(200);
 
-    // To the end of the first 1,000: the next file is asked for by itself and the loading line shows meanwhile.
+    // To the end of the first 500: the next file is asked for by itself and the loading line shows meanwhile.
     for (let i = 0; i < 3; i++) { await page.evaluate(() => scrollTo(0, document.documentElement.scrollHeight)); await frames(page); }
     const loading = page.getByRole("status").filter({ hasText: "Loading more works…" });
     await expect(loading).toBeVisible();
     await expect(loading.locator(".acq-spinner")).toHaveCount(1);
     release();
     await expect(loading).toBeHidden();
-    await expect(rowsList.locator('li[data-row="1000"]')).toBeAttached();
-    await expect(rowsList.locator('li[aria-posinset="1001"]')).toBeAttached();
+    await expect(rowsList.locator('li[data-row="500"]')).toBeAttached();
+    await expect(rowsList.locator('li[aria-posinset="501"]')).toBeAttached();
     await frames(page);
     w = await listWindow(page);
-    expectBuffer(w, 2000);
+    expectBuffer(w, 1000);
     await expect(rowsList.locator('li[data-row="0"]')).toHaveCount(0); // released
 
     await page.evaluate(() => scrollTo(0, 0));

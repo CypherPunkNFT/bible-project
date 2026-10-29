@@ -1,5 +1,5 @@
 import type { ScholarsData } from '@/data/teachers/pages-types';
-import { getAcquired, localLibraryEnabled, workUrl } from '../shared/acquired';
+import { getAcquired, localLibraryEnabled, workUrl, type LanguageField } from '../shared/acquired';
 import { knownLength, readWithProgress } from '@/lib/fetch-progress';
 import type { FieldEntry } from './field-library';
 import type { ContributorFact, ContributorFacts } from './facts';
@@ -44,7 +44,7 @@ export interface PopulationSnapshot {
 export interface PopulationCredit { role: string; basis: string; editionId?: string }
 export interface PopulationRecord {
   id: string; title: string; workId: string | null; editionId: string | null; source: string;
-  sourceUrl: string | null; language: string; availability: string; origin: string;
+  sourceUrl: string | null; language: LanguageField; availability: string; origin: string;
   publicReadable: boolean; localReadable: boolean; localRecordId?: string;
   provenance: string[]; reviewWarning: string | null; credits?: PopulationCredit[];
   intakeStatus?: string; intakeWorkIds?: string[]; intakeEditionIds?: string[];

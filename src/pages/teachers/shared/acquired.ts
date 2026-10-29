@@ -8,7 +8,7 @@ export interface AcquiredCatalogue {
   contributors: AcquiredContributor[]; unknownAuthorRecords: number; workRecordCount: number;
 }
 export interface AcquiredWork {
-  id: string; title: string; language: string; source: string; availability: string; genre: string;
+  id: string; title: string; language: LanguageField; source: string; availability: string; genre: string;
   localReadable?: boolean;
 }
 export interface ReadingRecord extends AcquiredWork {
@@ -80,11 +80,17 @@ export async function getReadingPage(record: ReadingRecord, page: number, signal
   return result;
 }
 
-export function languageLabel(value: string): string {
-  const code=(value??'').trim().toLowerCase();
-  if (!code || code === "und") return "Language unrecorded";
-  const names: Record<string,string> = { lat: "Latin", grc: "Ancient Greek", eng: "English", en: "English", es: "Spanish", spa: "Spanish", ko: "Korean", kor: "Korean", heb: "Hebrew", deu: "German", ger: "German", de: "German", fra: "French", fr: "French", pt: "Portuguese", por: "Portuguese" };
-  return names[code] ?? value;
+// A work's language arrives as one code ("en") or, for 3,769 campaign records, a list (["en"]); read both everywhere.
+export type LanguageField = string | readonly string[] | null | undefined;
+const LANGUAGE_NAMES = new Map(Object.entries({ lat: "Latin", grc: "Ancient Greek", eng: "English", en: "English", es: "Spanish", spa: "Spanish", ko: "Korean", kor: "Korean", heb: "Hebrew", deu: "German", ger: "German", de: "German", fra: "French", fr: "French", pt: "Portuguese", por: "Portuguese" }));
+/** The recorded codes, trimmed, without blanks, repeats or non-text members. */
+export function languageCodes(value: LanguageField): string[] {
+  const list: unknown[] = Array.isArray(value) ? value : [value];
+  return [...new Set(list.filter((code): code is string => typeof code === "string").map(code => code.trim()).filter(Boolean))];
+}
+export function languageLabel(value: LanguageField): string {
+  const names = languageCodes(value).filter(code => code.toLowerCase() !== "und").map(code => LANGUAGE_NAMES.get(code.toLowerCase()) ?? code);
+  return names.length ? [...new Set(names)].join(", ") : "Language unrecorded";
 }
 export function sourceLabel(value: string): string {
   const names: Record<string,string> = { "source-criswell": "Criswell sermons", "source-billy-graham": "Billy Graham collection", first1k: "First 1,000 Years of Greek", pta: "Patristic Text Archive", catenae: "Open Greek and Latin catenae", ia: "Internet Archive", tcp: "Text Creation Partnership", "private-biblical-history": "Biblical history datasets" };
