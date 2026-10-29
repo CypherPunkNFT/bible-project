@@ -11,7 +11,7 @@
 .shape-books > li > button:hover, .shape-books > li > button.on { color: var(--accent); }
 .shape-open button:focus, .shape-open button:focus-visible, .shape-books > li > button:focus, .shape-books > li > button:focus-visible, .shape-strip button:focus, .shape-strip button:focus-visible { outline: none; }
 
-.shape-open { grid-column: 1 / -1; margin: .75rem 0 1.25rem; padding: 1.5rem 0 0; border-top: 1px solid var(--line); }
+.shape-open { margin: 1.5rem 0 0; padding: 1.5rem 0 0; border-top: 1px solid var(--line); scroll-margin-top: 5rem; }
 .shape-open .lib-chapter { margin-top: 1.25rem; border-bottom: 0; padding-bottom: 0; }
 .shape-open .lib-strip-block { display: none; }
 

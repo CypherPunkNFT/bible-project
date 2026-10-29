@@ -1,11 +1,10 @@
 import { X } from "lucide-react";
-import { Fragment, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import type { SectionFilter } from "@/components/charts/SectionGuide";
 import { useCatalog } from "@/lib/catalog";
 import { loadChapterSummaries, type ChapterSummary } from "@/lib/data";
 import { lastReadPath } from "@/lib/last-read";
 import { sectionColor } from "@/lib/sections";
-import { useMediaQuery } from "@/lib/useMediaQuery";
 import { cn, formatNumber } from "@/lib/utils";
 import { ChapterPanel, type SummaryState } from "@/pages/library/ChapterPanel";
 import { minutesToRead, type Bar, type BookSpan, type Library } from "@/pages/library/model";
@@ -15,16 +14,15 @@ type Metric = "words" | "verses" | "chapters";
 const METRICS: Metric[] = ["words", "verses", "chapters"];
 type BookSummaries = Record<string, { status: "loading" } | { status: "ready"; chapters: Record<string, ChapterSummary> } | { status: "missing" }>;
 
-/** The book lengths, where a book opens in place: its chapters as a strip, then the chosen chapter's AI summary card
- *  (the Library page's own ChapterPanel). Replaces the separate Book lengths and Chapter atlas charts. */
+/** The book lengths; the chosen book opens below the whole list: its chapters as a strip, then the chosen chapter's AI
+ *  summary card (the Library page's own ChapterPanel). Replaces the separate Book lengths and Chapter atlas charts. */
 export function BookChapters({ library, section }: { library: Library; section: SectionFilter }) {
   const catalog = useCatalog();
   const [metric, setMetric] = useState<Metric>("words");
   const [order, setOrder] = useState<"canon" | "longest">("canon");
   const [chosen, setChosen] = useState(0); // a chapter index into library.bars; -1 = no book open
   const [summaries, setSummaries] = useState<BookSummaries>({});
-  const twoColumns = useMediaQuery("(min-width: 768px)");
-  const opened = useRef<HTMLLIElement>(null);
+  const opened = useRef<HTMLDivElement>(null);
 
   const verses = useMemo(() => library.books.map((b) => library.bars.slice(b.start, b.start + b.count).reduce((n, bar) => n + bar.verses, 0)), [library]);
   const value = (b: BookSpan) => (metric === "words" ? b.words : metric === "verses" ? verses[b.index] : b.count);
@@ -33,9 +31,7 @@ export function BookChapters({ library, section }: { library: Library; section: 
   const max = Math.max(1, ...books.map(value));
 
   const bar: Bar | undefined = chosen >= 0 ? library.bars[chosen] : undefined;
-  const position = bar ? books.findIndex((b) => b.index === bar.book) : -1;
-  // The open book spans the whole row after its pair of bars, so it never splits the two columns.
-  const openAfter = position < 0 ? -1 : twoColumns ? Math.min(position | 1, books.length - 1) : position;
+  const shownBook = bar && books.some((b) => b.index === bar.book);
 
   const code = bar?.code;
   useEffect(() => {
@@ -49,9 +45,13 @@ export function BookChapters({ library, section }: { library: Library; section: 
       });
   }, [code, summaries]);
 
-  // Stepping past a book's last chapter moves the open book; keep it on screen.
+  // The open book sits below the whole list: choosing a book brings it into view (not on first load, Genesis by default).
   const openBook = bar?.book;
-  useEffect(() => { opened.current?.scrollIntoView({ block: "nearest", behavior: "smooth" }); }, [openBook]);
+  const firstRun = useRef(true);
+  useEffect(() => {
+    if (firstRun.current) { firstRun.current = false; return; }
+    opened.current?.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }, [openBook]);
 
   const summaryOf = (b: Bar): SummaryState => {
     const book = summaries[b.code];
@@ -77,25 +77,23 @@ export function BookChapters({ library, section }: { library: Library; section: 
         <span className="shape-hint">Choose a book to open its chapters and their summaries.</span>
       </div>
       <ol className="shape-books">
-        {books.map((b, i) => (
-          <Fragment key={b.code}>
-            <li>
-              <button type="button" aria-expanded={bar?.book === b.index} className={bar?.book === b.index ? "on" : undefined} onClick={() => toggle(b)}
-                aria-label={`${b.name}: ${formatNumber(value(b))} ${metric}. ${bar?.book === b.index ? "Close" : "Open"} its chapters.`}>
-                <span className="truncate text-right">{b.name}</span>
-                <span className="size-bar-track"><span style={{ width: Math.max(0.5, (value(b) / max) * 100) + "%", background: sectionColor(b.section) }} /></span>
-                <span className="text-right tabular-nums text-muted">{formatNumber(value(b))}</span>
-              </button>
-            </li>
-            {i === openAfter && bar && (
-              <li ref={opened} className="shape-open">
-                <OpenBook library={library} bar={bar} summaries={summaries} onSelect={setChosen} onClose={() => setChosen(-1)} />
-                <ChapterPanel library={library} index={chosen} summary={summaryOf(bar)} readHref={readHref(bar)} onSelect={setChosen} />
-              </li>
-            )}
-          </Fragment>
+        {books.map((b) => (
+          <li key={b.code}>
+            <button type="button" aria-expanded={bar?.book === b.index} className={bar?.book === b.index ? "on" : undefined} onClick={() => toggle(b)}
+              aria-label={`${b.name}: ${formatNumber(value(b))} ${metric}. ${bar?.book === b.index ? "Close" : "Open"} its chapters.`}>
+              <span className="truncate text-right">{b.name}</span>
+              <span className="size-bar-track"><span style={{ width: Math.max(0.5, (value(b) / max) * 100) + "%", background: sectionColor(b.section) }} /></span>
+              <span className="text-right tabular-nums text-muted">{formatNumber(value(b))}</span>
+            </button>
+          </li>
         ))}
       </ol>
+      {bar && shownBook && (
+        <div ref={opened} className="shape-open">
+          <OpenBook library={library} bar={bar} summaries={summaries} onSelect={setChosen} onClose={() => setChosen(-1)} />
+          <ChapterPanel library={library} index={chosen} summary={summaryOf(bar)} readHref={readHref(bar)} onSelect={setChosen} />
+        </div>
+      )}
     </div>
   );
 }
