@@ -50,7 +50,7 @@ export function CoverageMatrix({ group: shared, bookStrip = false, plain = false
       {!bookStrip && <label>Inspect a book<select value={selected} onChange={(event) => { setSelected(event.target.value); setHover(""); }}><option value="">All books</option>{books.map((b) => <option value={b.code} key={b.code}>{b.name}</option>)}</select></label>}
     </div>}
     <p className="chart-live-detail" aria-live="polite">{hover || (selected ? selectedName + " is included in " + versions.filter((t) => t.books[selected]).length + " of these " + versions.length + " versions." : "Filled = included. Hover to inspect a square, or choose a book " + (bookStrip ? "from the grey squares along the top." : "above."))}</p>
-    <div className={"slim-scroll relative overflow-x-auto pb-3" + (bookStrip ? " pt-9" : "")} tabIndex={0} role="region" aria-label="Version coverage table; scroll horizontally to see more books" onMouseLeave={() => setHover("")}>{table}</div>
+    <div className={"slim-scroll relative overflow-x-auto pb-3" + (bookStrip ? " pt-8" : "")} tabIndex={0} role="region" aria-label="Version coverage table; scroll horizontally to see more books" onMouseLeave={() => setHover("")}>{table}</div>
     {!plain && <p className="chart-hint mt-3">Books run from Genesis to Revelation, followed by the Apocrypha. The total at right is the number of books in that version. Select a version’s abbreviation to start reading.</p>}
   </div>;
 }
