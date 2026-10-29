@@ -1,10 +1,22 @@
-/* /study/structure_mockup: the one-section Structure page. Book rows follow charts.css .size-bars; the open book's
-   chapter card is the Library page's own .lib-chapter (library.css). */
-.shape-panel { margin-top: 1.5rem; }
-.shape-step { display: flex; align-items: baseline; gap: .75rem; margin: 2.25rem 0 1rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
-.shape-step span { font-size: .68rem; font-weight: 600; letter-spacing: .18em; color: var(--chart-color); }
-.shape-step h3 { margin: 0; font: 400 1.35rem var(--font-serif); }
+/* /study/structure_mockup: two sections, each titled above its own container. Book rows follow charts.css .size-bars;
+   the open book's chapter card is the Library page's own .lib-chapter (library.css). */
+.shape-section { margin-top: 2.75rem; }
+.shape-section-head { display: flex; align-items: baseline; gap: .9rem; margin: 0 0 1rem; }
+.shape-section-head > span { font-size: .7rem; font-weight: 600; letter-spacing: .18em; color: var(--chart-color); }
+.shape-section-head h2 { margin: 0; font: 400 clamp(1.4rem, 2.2vw, 1.8rem)/1.2 var(--font-serif); letter-spacing: -.02em; }
+.shape-section-head p { max-width: 44rem; margin: .4rem 0 0; font-size: .85rem; line-height: 1.7; color: var(--muted); }
+.shape-card .charts-stage { padding-top: 1.75rem; }
 .shape-hint { margin-left: auto; color: var(--muted); }
+.shape-hint button { color: var(--accent); }
+.shape-hint button:hover { text-decoration: underline; }
+
+/* The heading drawing: an open book whose right page becomes chapter bars, rising and settling on a slow loop. */
+.chart-area-heading > svg.shape-art { width: 15rem; height: auto; margin-top: .25rem; stroke-width: 1; }
+.shape-art-bars rect { transform-box: fill-box; transform-origin: 50% 100%; animation: shape-art-rise 6s ease-in-out infinite; opacity: .85; }
+.shape-art-ribbon { transform-box: fill-box; transform-origin: 50% 0; animation: shape-art-sway 7s ease-in-out infinite; }
+@keyframes shape-art-rise { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.55); } }
+@keyframes shape-art-sway { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg); } }
+@media (prefers-reduced-motion: reduce) { .shape-art-bars rect, .shape-art-ribbon { animation: none; } }
 
 .shape-books { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .125rem 2rem; }
 .shape-books > li > button { width: 100%; display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 3.5rem; align-items: center; gap: .6rem; padding: .2rem 0; font-size: .7rem; text-align: left; }

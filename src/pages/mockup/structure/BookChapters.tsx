@@ -4,7 +4,7 @@ import type { SectionFilter } from "@/components/charts/SectionGuide";
 import { useCatalog } from "@/lib/catalog";
 import { loadChapterSummaries, type ChapterSummary } from "@/lib/data";
 import { lastReadPath } from "@/lib/last-read";
-import { sectionColor } from "@/lib/sections";
+import { SECTION_BY_ID, sectionColor } from "@/lib/sections";
 import { cn, formatNumber } from "@/lib/utils";
 import { ChapterPanel, type SummaryState } from "@/pages/library/ChapterPanel";
 import { minutesToRead, type Bar, type BookSpan, type Library } from "@/pages/library/model";
@@ -17,7 +17,7 @@ type BookSummaries = Record<string, { status: "loading" } | { status: "ready"; c
 
 /** The book lengths; the chosen book opens below the whole list: its chapters as a strip, then the chosen chapter's AI
  *  summary card (the Library page's own ChapterPanel). Replaces the separate Book lengths and Chapter atlas charts. */
-export function BookChapters({ library, section }: { library: Library; section: SectionFilter }) {
+export function BookChapters({ library, section, onClearSection }: { library: Library; section: SectionFilter; onClearSection: () => void }) {
   const catalog = useCatalog();
   const [metric, setMetric] = useState<Metric>("words");
   const [order, setOrder] = useState<"canon" | "longest">("canon");
@@ -75,7 +75,8 @@ export function BookChapters({ library, section }: { library: Library; section: 
             className={cn("rounded-full px-3 py-1.5 capitalize", metric === m ? "bg-ink text-page" : "text-muted hover:text-ink")}>{m}</button>)}
         </div>
         <label>Order<select aria-label="Order" value={order} onChange={(event) => setOrder(event.target.value as "canon" | "longest")}><option value="canon">Bible order</option><option value="longest">Longest first</option></select></label>
-        <span className="shape-hint">Choose a book to open its chapters and their summaries.</span>
+        {section ? <span className="shape-hint">Showing the {SECTION_BY_ID[section].name} books · <button type="button" onClick={onClearSection}>Show all 66</button></span>
+          : <span className="shape-hint">Choose a book to open its chapters and their summaries.</span>}
       </div>
       <ol className="shape-books">
         {books.map((b) => (
