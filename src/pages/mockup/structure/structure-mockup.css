@@ -6,6 +6,14 @@
 .shape-section-head h2 { margin: 0; font: 400 clamp(1.4rem, 2.2vw, 1.8rem)/1.2 var(--font-serif); letter-spacing: -.02em; }
 .shape-section-head p { max-width: 44rem; margin: .4rem 0 0; font-size: .85rem; line-height: 1.7; color: var(--muted); }
 .shape-card .charts-stage { padding-top: 1.75rem; }
+/* Box 01's two filter rows read as the box's header: a brighter band edge to edge, a line between the rows and under them. */
+.shape-parts .charts-stage { padding-top: 0; }
+.shape-parts .section-filters, .shape-parts .measure-picker { align-items: center; margin: 0 -2rem; padding: .8rem 2rem; background: color-mix(in srgb, var(--chart-color) 5%, var(--surface-2)); border-bottom: 1px solid var(--line); }
+.shape-parts .section-filters { border-radius: calc(1rem - 1px) calc(1rem - 1px) 0 0; }
+.shape-parts .measure-picker { margin-bottom: 1rem; }
+.shape-parts .section-filters::before, .shape-parts .measure-picker > span { width: 6.5rem; margin-right: 0; font-size: .65rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.shape-parts .section-filters::before { content: "Part"; }
+.shape-parts .section-guide { margin-top: 1.5rem; }
 .shape-hint { margin-left: auto; color: var(--muted); }
 .shape-hint button { color: var(--accent); }
 .shape-hint button:hover { text-decoration: underline; }
@@ -87,6 +95,9 @@
   .shape-companion-columns > section + section { border-top: 1px solid var(--line); }
   .shape-studies dl > div { grid-template-columns: 1fr; gap: .35rem; }
   .shape-topics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .shape-parts .section-filters, .shape-parts .measure-picker { margin: 0 -1.25rem; padding: .75rem 1.25rem; }
+  .shape-parts .measure-picker { margin-bottom: 1rem; }
+  .shape-parts .section-filters::before, .shape-parts .measure-picker > span { width: 100%; margin-bottom: .1rem; }
   .shape-topic-scroll { max-height: 35rem; } /* two columns of twenty: still 40 */
   .shape-books { grid-template-columns: minmax(0, 1fr); }
   .shape-books > li > button { grid-template-columns: 6.4rem minmax(0, 1fr) 3rem; gap: .35rem; }
