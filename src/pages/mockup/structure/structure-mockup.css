@@ -58,12 +58,20 @@
 .shape-studies dd a { font: 400 .98rem/1.45 var(--font-serif); color: var(--ink); }
 .shape-studies dd a:hover { color: var(--tone); }
 .shape-studies dd small { font: .72rem var(--font-sans); color: var(--muted); }
+/* Topics: four columns of ten rows show the first 40; the rest scroll. */
+.shape-studies dd.shape-topics-cell { display: block; }
+.shape-topic-scroll { max-height: 17.5rem; }
+.shape-topic-scroll > .outside-scrollbar { right: -1rem; }
+.shape-topics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 1.75rem; column-gap: 1.25rem; }
+.shape-topics li { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 
 @media (max-width: 767px) {
   .shape-companion-columns { grid-template-columns: 1fr; }
   .shape-companion-columns > section, .shape-companion-columns > section + section { padding: 1.2rem 0; border-left: 0; }
   .shape-companion-columns > section + section { border-top: 1px solid var(--line); }
   .shape-studies dl > div { grid-template-columns: 1fr; gap: .35rem; }
+  .shape-topics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .shape-topic-scroll { max-height: 35rem; } /* two columns of twenty: still 40 */
   .shape-books { grid-template-columns: minmax(0, 1fr); }
   .shape-books > li > button { grid-template-columns: 6.4rem minmax(0, 1fr) 3rem; gap: .35rem; }
   .shape-hint { margin-left: 0; flex-basis: 100%; }

@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { OutsideScroll } from "@/components/OutsideScroll";
-import { loadChapterTopics, loadHymnsByChapter } from "@/lib/data";
+import { loadChapterTopics, loadHymnsByChapter, loadTopicIndex } from "@/lib/data";
 import type { HymnsByChapter } from "@/lib/hymn-pages";
 import { loadHarmony, loadLetters, loadMiracles, loadNames, loadProphets } from "@/lib/study";
 import { topicUrl, type ChapterTopics } from "@/lib/topics";
@@ -10,7 +10,6 @@ import { useAsync } from "@/lib/useAsync";
 import { usePeopleData } from "@/pages/teachers/shared/data";
 import { studiesFor, type StudyData } from "./chapter-studies";
 
-const TOPICS_SHOWN = 12;
 const NO_HYMNS: HymnsByChapter = {};
 const NO_TOPICS: ChapterTopics = { chapters: {}, names: {} };
 const loadStudies = (): Promise<StudyData> =>
@@ -32,6 +31,9 @@ export function ChapterCompanions({ code, bookNumber, chapter, name }: { code: s
   const groups = studies.status === "ready" ? studiesFor(studies.value, code, bookNumber, chapter) : [];
   const chapterTopics = topics.status === "ready" ? topics.value.chapters[String(chapter)] ?? [] : [];
   const topicNames = topics.status === "ready" ? topics.value.names : {};
+  // The chapter files name only their first 12 topics; the site's topic index names every one.
+  const index = useAsync(loadTopicIndex, "topic-index");
+  const topicIndex = index.status === "ready" ? index.value : undefined;
 
   return (
     <div className="shape-companions">
@@ -59,9 +61,10 @@ export function ChapterCompanions({ code, bookNumber, chapter, name }: { code: s
             {group.links.slice(0, 10).map((link, i) => <Link key={i} to={link.href}>{link.title}{link.note && <small> · {link.note}</small>}</Link>)}
             {group.links.length > 10 && <span className="lib-muted">+{group.links.length - 10} more</span>}
           </dd></div>)}
-          {chapterTopics.length > 0 && <div><dt>Topics</dt><dd>
-            {chapterTopics.slice(0, TOPICS_SHOWN).map(([id]) => <Link key={id} to={topicUrl(id)}>{topicNames[id] ?? id}</Link>)}
-            {chapterTopics.length > TOPICS_SHOWN && <Link className="lib-muted" to="/topics">+{chapterTopics.length - TOPICS_SHOWN} more</Link>}
+          {chapterTopics.length > 0 && <div><dt>Topics · {chapterTopics.length}</dt><dd className="shape-topics-cell">
+            <OutsideScroll label={`Topics in ${name}`} className="shape-topic-scroll" resetKey={name}><ul className="shape-topics">
+              {chapterTopics.map(([id]) => { const title = topicNames[id] ?? topicIndex?.topics[id]?.title ?? id; return <li key={id}><Link to={topicUrl(id)} title={title}>{title}</Link></li>; })}
+            </ul></OutsideScroll>
           </dd></div>}
           {!groups.length && !chapterTopics.length && <p className="lib-muted">No study on the site is connected to {name} yet.</p>}
         </dl>}
