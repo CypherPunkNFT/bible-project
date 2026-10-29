@@ -4,10 +4,13 @@ import { useCatalog } from "@/lib/catalog";
 import { groupOf, VERSION_GROUPS } from "@/lib/languages";
 import { sectionColor } from "@/lib/sections";
 
-export function CoverageMatrix() {
+/** Which books each edition includes. A page that filters by version group itself passes `group`, and the chart's own
+ *  group menu goes. */
+export function CoverageMatrix({ group: shared }: { group?: string } = {}) {
   const catalog = useCatalog();
   const [hover, setHover] = useState("");
-  const [group, setGroup] = useState("");
+  const [own, setGroup] = useState("");
+  const group = shared ?? own;
   const [selected, setSelected] = useState("");
   const books = useMemo(() => catalog.books.filter((b) => catalog.translations.some((t) => t.books[b.code])), [catalog]);
   const versions = useMemo(() => catalog.translations.filter((t) => !group || groupOf(t.lang).id === group), [catalog.translations, group]);
@@ -29,7 +32,7 @@ export function CoverageMatrix() {
 
   return <div>
     <div className="chart-controls">
-      <label>Versions<select value={group} onChange={(event) => { setGroup(event.target.value); setHover(""); }}><option value="">All groups</option>{VERSION_GROUPS.map((g) => <option key={g.id} value={g.id}>{g.title}</option>)}</select></label>
+      {shared === undefined && <label>Versions<select value={group} onChange={(event) => { setGroup(event.target.value); setHover(""); }}><option value="">All groups</option>{VERSION_GROUPS.map((g) => <option key={g.id} value={g.id}>{g.title}</option>)}</select></label>}
       <label>Inspect a book<select value={selected} onChange={(event) => { setSelected(event.target.value); setHover(""); }}><option value="">All books</option>{books.map((b) => <option value={b.code} key={b.code}>{b.name}</option>)}</select></label>
     </div>
     <p className="chart-live-detail" aria-live="polite">{hover || (selected ? selectedName + " is included in " + versions.filter((t) => t.books[selected]).length + " of these " + versions.length + " versions." : "Filled = included. Hover to inspect a square, or choose a book above.")}</p>

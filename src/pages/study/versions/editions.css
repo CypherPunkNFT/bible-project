@@ -1,0 +1,19 @@
+/* Versions & languages as one page: the Connections heading (connections.css), then a group filter shared by both
+   charts, and the two charts on thin lines instead of in boxes. */
+
+/* The group filter: one row of thin pills under the figures; the chosen one takes the gold border. */
+.ed-groups { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2.25rem; }
+.ed-groups button { display: inline-flex; align-items: baseline; gap: .55rem; padding: .5rem .95rem; border: 1px solid var(--line); border-radius: 999px; font-size: .78rem; color: var(--muted); transition: border-color .2s, color .2s; }
+.ed-groups button span { font-size: .68rem; font-variant-numeric: tabular-nums; color: var(--muted); }
+.ed-groups button:hover { color: var(--ink); }
+.ed-groups button[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); }
+.ed-groups button[aria-pressed="true"] span { color: var(--accent); }
+
+/* Each chart under its own heading, divided by one thin line, with its controls floating rather than boxed. */
+.ed-section { margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+.ed-section-lead { max-width: 44rem; margin-top: .7rem; font-size: .88rem; line-height: 1.7; color: var(--muted); }
+.ed-section > .cx-section-head { margin-bottom: 1.75rem; }
+.ed-page .chart-controls { padding: 0; border: 0; border-radius: 0; background: none; gap: 1rem 1.5rem; }
+.ed-time [role="region"] { border-width: 1px 0; border-radius: 0; background: none; }
+.ed-page .timeline-editions a { border-width: 0 0 1px; border-radius: 0; }
+.ed-page .timeline-editions a:hover { background: none; border-color: var(--accent); }

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { groupOf, VERSION_GROUPS } from "@/lib/languages";
@@ -9,13 +9,27 @@ const START = 1350;
 const END = 2030;
 const WIDTH = 1000;
 const PAD = 64;
-const x = (year: number) => PAD + (year - START) / (END - START) * (WIDTH - PAD * 2);
+const place = (year: number, width: number) => PAD + (year - START) / (END - START) * (width - PAD * 2);
 
-export function VersionsTimeline() {
+/** The editions on a timeline or as a list, each opening to read. A page that filters by version group itself passes
+ *  `group`, and the chart's own group menu goes; `fit` stretches the timeline to its container (never under 1000px, so
+ *  a phone still scrolls it). */
+export function VersionsTimeline({ group: shared, fit = false }: { group?: string; fit?: boolean } = {}) {
   const catalog = useCatalog();
-  const [group, setGroup] = useState("");
+  const [own, setGroup] = useState("");
+  const group = shared ?? own;
+  const region = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(WIDTH);
+  const x = (year: number) => place(year, width);
   const [mode, setMode] = useState(() => window.matchMedia("(max-width: 767px)").matches ? "list" : "timeline");
   const sorted = useMemo(() => catalog.translations.filter((t) => !group || groupOf(t.lang).id === group).sort((a, b) => a.year - b.year), [catalog.translations, group]);
+  useLayoutEffect(() => {
+    const element = region.current;
+    if (!fit || !element) return;
+    const observer = new ResizeObserver(() => setWidth(Math.max(WIDTH, Math.floor(element.clientWidth))));
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [fit, mode]);
   const early = sorted.filter((t) => t.year < START);
   const rows: Translation[][] = [];
   // Reserve the full badge width, rather than a fixed number of years, to avoid overlapping labels.
@@ -34,12 +48,12 @@ export function VersionsTimeline() {
       <div role="group" aria-label="Timeline display" className="inline-flex rounded-full bg-surface-2 p-0.5">
         {["timeline", "list"].map((value) => <button type="button" key={value} aria-pressed={mode === value} onClick={() => setMode(value)} className={"rounded-full px-3 py-1.5 capitalize " + (mode === value ? "bg-ink text-page" : "text-muted")}>{value === "list" ? "Chronological list" : "Timeline"}</button>)}
       </div>
-      <label>Versions<select value={group} onChange={(event) => setGroup(event.target.value)}><option value="">All groups</option>{VERSION_GROUPS.map((g) => <option key={g.id} value={g.id}>{g.title}</option>)}</select></label>
+      {shared === undefined && <label>Versions<select value={group} onChange={(event) => setGroup(event.target.value)}><option value="">All groups</option>{VERSION_GROUPS.map((g) => <option key={g.id} value={g.id}>{g.title}</option>)}</select></label>}
       <span className="chart-hint">{sorted.length} editions</span>
     </div>
     {mode === "timeline" ? <>
-      <div className="slim-scroll relative overflow-x-auto rounded-lg border border-line bg-page py-4" tabIndex={0} role="region" aria-label="Edition timeline; scroll horizontally on smaller screens">
-        <div className="relative" style={{ width: WIDTH, height: rows.length * 38 + 40 }}>
+      <div ref={region} className="slim-scroll relative overflow-x-auto rounded-lg border border-line bg-page py-4" tabIndex={0} role="region" aria-label="Edition timeline; scroll horizontally on smaller screens">
+        <div className="relative" style={{ width, height: rows.length * 38 + 40 }}>
           {[1400, 1500, 1600, 1700, 1800, 1900, 2000].map((year) => <div key={year} className="absolute bottom-0 top-0 border-l border-dashed border-line" style={{ left: x(year) }}><span className="absolute bottom-0 -translate-x-1/2 text-[11px] text-muted">{year}</span></div>)}
           {rows.map((row, i) => row.map((t) => <Link key={t.slug} to={reader(t)} aria-label={t.name + " (" + t.year + "). Read this version."} title={t.name}
             className="absolute flex w-[104px] -translate-x-1/2 items-center justify-center gap-1.5 rounded-full border border-line bg-surface px-2 py-1.5 text-xs shadow-sm transition-colors hover:border-ink hover:z-10 focus-visible:z-10"

@@ -26,6 +26,7 @@ const MosesConnectedMockup = lazy(() => import("./connections/MosesConnectedMock
 const PersonConnectionsMockup = lazy(() => import("./connections/PersonConnectionsMockup"));
 const PrivacyMockup = lazy(() => import("./legal/PrivacyMockup"));
 const StudyConnectionsMockup = lazy(() => import("@/pages/study/connections/ConnectionsPage"));
+const StudyVersionsMockup = lazy(() => import("@/pages/study/versions/EditionsPage"));
 const SupportMockup = lazy(() => import("./legal/SupportMockup"));
 const StructureMockup = lazy(() => import("./structure/StructureMockup"));
 
@@ -68,6 +69,8 @@ export function mockupRoutes() {
     // Connections in Scripture as one page, without the two chart cards (owner, 2026-10-29). No MOCK-UP tag: a mock-up shows only
     // what the real page would (owner, 2026-10-28).
     <Route key="study-connections" path="/study/connections_mockup" element={<StudyConnectionsMockup />} />,
+    // Versions & languages as one page: timeline, then coverage, no cards and no "Choose an edition" (owner, 2026-10-29).
+    <Route key="study-versions" path="/study/versions_mockup" element={<StudyVersionsMockup />} />,
     <Route key="privacy" path="/privacy_mockup" element={<><MockupTag /><PrivacyMockup /></>} />,
     <Route key="support" path="/support_mockup" element={<><MockupTag /><SupportMockup /></>} />,
     // The Structure collection as one section: parts, then books that open to their chapters and AI summaries, in
