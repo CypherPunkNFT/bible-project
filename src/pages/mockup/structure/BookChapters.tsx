@@ -9,6 +9,7 @@ import { cn, formatNumber } from "@/lib/utils";
 import { ChapterPanel, type SummaryState } from "@/pages/library/ChapterPanel";
 import { minutesToRead, type Bar, type BookSpan, type Library } from "@/pages/library/model";
 import "@/pages/library/library.css";
+import { ChapterCompanions } from "./ChapterCompanions";
 
 type Metric = "words" | "verses" | "chapters";
 const METRICS: Metric[] = ["words", "verses", "chapters"];
@@ -89,9 +90,10 @@ export function BookChapters({ library, section }: { library: Library; section: 
         ))}
       </ol>
       {bar && shownBook && (
-        <div ref={opened} className="shape-open">
+        <div ref={opened} className="shape-open" style={{ "--tone": `var(--${bar.section})` } as CSSProperties}>
           <OpenBook library={library} bar={bar} summaries={summaries} onSelect={setChosen} onClose={() => setChosen(-1)} />
           <ChapterPanel library={library} index={chosen} summary={summaryOf(bar)} readHref={readHref(bar)} onSelect={setChosen} />
+          <ChapterCompanions code={bar.code} bookNumber={bar.book + 1} chapter={bar.chapter} name={`${bar.name} ${bar.chapter}`} />
         </div>
       )}
     </div>
