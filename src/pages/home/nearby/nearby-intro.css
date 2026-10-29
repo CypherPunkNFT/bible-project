@@ -5,25 +5,12 @@
 .ni h2 em { color: var(--accent); }
 .ni-about { margin: 18px 0 0; max-width: 620px; color: var(--muted); font-size: 14.5px; line-height: 1.85; }
 
-/* 1 Figures: the words, Resources as a tall box beside them, the live figures as a bar below. */
-.ni-figures-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 300px); gap: 40px clamp(48px, 8vw, 140px); align-items: center; }
-.ni-box { position: relative; display: flex; flex-direction: column; gap: 18px; min-height: 330px; padding: 30px 28px 28px; border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
-  background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent 62%); color: inherit; text-decoration: none;
-  transition: border-color .3s, transform .3s, box-shadow .3s; }
-.ni-box::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(.2, .7, .2, 1); }
-.ni-box:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); transform: translateY(-3px); box-shadow: 0 24px 50px -30px rgb(0 0 0 / .7); }
-.ni-box:hover::before { transform: scaleX(1); }
-.ni-box > svg { color: var(--accent); }
-.ni-box-copy { display: grid; gap: 10px; }
-.ni-box-copy strong { font: 500 28px/1.2 var(--font-serif); letter-spacing: -.01em; color: var(--ink); }
-.ni-box-copy span { color: var(--muted); font-size: 13.5px; line-height: 1.65; }
-.ni-box .hn-way-open { margin-top: auto; }
-.ni-box .hn-way-open svg { transition: transform .3s; }
-.ni-box:hover .hn-way-open svg { transform: translateX(4px); }
-.ni-box:focus-visible { outline: none; }
-.ni-bar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 56px 0 0; border: 1px solid var(--line); border-radius: 16px; background: color-mix(in srgb, var(--ink) 3%, transparent); }
-.ni-bar div { display: flex; flex-direction: row-reverse; justify-content: flex-end; align-items: baseline; gap: 14px; padding: 22px 28px; }
-.ni-bar div + div { border-left: 1px solid var(--line); }
+/* 1 Figures: the words, the live figures beside them as a 2 x 2 grid with square corners (owner, 2026-10-28). */
+.ni-figures-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 460px); gap: 40px clamp(48px, 7vw, 120px); align-items: center; }
+.ni-bar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; border: 1px solid var(--line); background: color-mix(in srgb, var(--ink) 3%, transparent); }
+.ni-bar div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 10px; padding: 26px 28px; }
+.ni-bar div:nth-child(even) { border-left: 1px solid var(--line); }
+.ni-bar div:nth-child(n + 3) { border-top: 1px solid var(--line); }
 .ni-bar dd { margin: 0; font: 400 clamp(30px, 2.8vw, 42px)/1 var(--font-serif); letter-spacing: -.02em; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
 .ni-bar div:first-child dd { color: var(--accent); }
 .ni-bar dt { font: 600 10px/1.5 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
@@ -55,8 +42,10 @@
 .ni-switch button[aria-pressed="true"] span { color: inherit; }
 .ni-switch button:focus-visible { outline: none; }
 
-/* The map below (resourcesTab only): no credit line and no zoom buttons; scrolling and pinching still zoom. */
+/* The map below (resourcesTab only): no credit line and no zoom buttons; scrolling and pinching still zoom; no line above it
+   (owner, 2026-10-28). */
 .hn.hn-one :is(.lf-usa figcaption, .lf-zoom) { display: none; }
+.hn.hn-one .hn-stage { border-top: 0; }
 
 @media (max-width: 1100px) {
   .ni-centered { grid-template-columns: minmax(0, 1fr); }
@@ -65,11 +54,7 @@
 @media (max-width: 860px) {
   .ni-wrap { padding-bottom: 56px; }
   .ni-figures-top { grid-template-columns: minmax(0, 1fr); }
-  .ni-box { min-height: 0; }
-  .ni-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 40px; }
-  .ni-bar div { flex-direction: column-reverse; gap: 8px; padding: 18px 20px; }
-  .ni-bar div:nth-child(3) { border-left: 0; }
-  .ni-bar div:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .ni-bar div { gap: 8px; padding: 18px 20px; }
   .ni-switch button { gap: 6px; padding: 8px 11px; font-size: 12px; }
 }
-@media (prefers-reduced-motion: reduce) { .ni-box, .ni-box::before, .ni-pill, .ni-switch, .ni-switch button { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .ni-pill, .ni-switch, .ni-switch button { transition: none; } }

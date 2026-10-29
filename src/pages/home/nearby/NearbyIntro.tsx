@@ -1,7 +1,7 @@
 // Homepage (live; first tried on home_mockup2 "Close to home", owner 2026-10-23: "lets mock this section do 3 floating pill switch and when we
 // switch it stays in the relative location"): ways to open the section, switched by a pill floating at the foot of the
-// screen while the section is in view. 1 the words with Resources as a tall box beside them and the live figures as a
-// bar below; 2 everything centred with one Resources button, the Help for life lighthouse on the left and the chosen
+// screen while the section is in view. 1 the words with the live figures beside them as a square-cornered 2 x 2 grid (owner,
+// 2026-10-28: in place of the Resources box and the bar below); 2 everything centred with one Resources button, the Help for life lighthouse on the left and the chosen
 // village on the right (owner, 2026-10-23; a third opening, a large title beside the words, was dropped by the owner). Switching keeps the reader's place: the
 // opening's top stays put while it is on screen, the line above the map once the opening has scrolled away, the point at
 // the middle of the screen in between, so the page does not jump though the openings differ in height.
@@ -34,20 +34,11 @@ function Heading({ number }: { number?: string }) {
   return <><p className="home-eyebrow">{number && <span className="home-number">{number}</span>}Close to home</p><h2 id="hn-title">Find your way, <em>close to home.</em></h2></>;
 }
 
-/** The way to the Resources page as a tall box, with the menu's Resources icon. */
-function ResourcesBox() {
-  return <Link className="ni-box" to="/resources">
-    <HandHeart size={30} strokeWidth={1.4} aria-hidden />
-    <span className="ni-box-copy"><strong>Resources</strong><span>A church to belong to, and help for the hardest days, city by city.</span></span>
-    <span className="hn-way-open">Open resources<ArrowRight size={14} aria-hidden /></span>
-  </Link>;
-}
-
 function FiguresLayout({ figures, number }: { figures: Figures; number?: string }) {
   const rows: [number, string][] = [[figures.cities, "Cities on the map"], [figures.places, "Places, each checked"], [figures.churches, "Churches & Bible studies"], [figures.help, "Places of help"]];
   return <header className="ni ni-figures">
-    <div className="ni-figures-top"><div><Heading number={number} /><p className="ni-about">{ABOUT}</p></div><ResourcesBox /></div>
-    <dl className="ni-bar">{rows.map(([n, label]) => <div key={label}><dt>{label}</dt><dd>{n.toLocaleString("en-US")}</dd></div>)}</dl>
+    <div className="ni-figures-top"><div><Heading number={number} /><p className="ni-about">{ABOUT}</p></div>
+      <dl className="ni-bar">{rows.map(([n, label]) => <div key={label}><dt>{label}</dt><dd>{n.toLocaleString("en-US")}</dd></div>)}</dl></div>
   </header>;
 }
 
