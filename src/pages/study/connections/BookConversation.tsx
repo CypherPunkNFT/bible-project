@@ -5,13 +5,15 @@ import { resolvedSectionColors } from "@/lib/sections";
 import { useThemeVersion } from "@/lib/theme";
 import type { BookInfo } from "@/lib/types";
 import { formatNumber } from "@/lib/utils";
+import { VerseLinks } from "./VerseLinks";
 
 type Pair = [number, number];
 const GRID = 68; // 66 books plus two cells for the section strips along the top and left edges
 const same = (a: Pair | null, b: Pair | null) => a?.[0] === b?.[0] && a?.[1] === b?.[1];
 
 /** Book to book, led by the book lit in the arcs above: the grid shows its row and column, the list beside it its
- *  strongest partners in both directions. With no book lit, the list shows the strongest pairs in the whole Bible. */
+ *  strongest partners in both directions. With no book lit, the list shows the strongest pairs in the whole Bible.
+ *  Choosing a pair (a square or a row) opens its specific verse-to-verse cross-references in place of the list. */
 export function BookConversation({ books, pairs, book }: { books: BookInfo[]; pairs: [string, string, number][]; book: string }) {
   const model = useMemo(() => {
     const index = new Map(books.map((b, i) => [b.code, i]));
@@ -93,16 +95,17 @@ export function BookConversation({ books, pairs, book }: { books: BookInfo[]; pa
     </div>
 
     <div className="cx-partners">
+      {pinned ? <VerseLinks key={pinned.join("-")} pair={[books[pinned[0]], books[pinned[1]]]} counts={[count(pinned[0], pinned[1]), count(pinned[1], pinned[0])]} onReverse={() => setPinned([pinned[1], pinned[0]])} onBack={() => setPinned(null)} backLabel={litBook ? `All of ${litBook.name}’s partners` : "The strongest pairs"} /> : <>
       <div className="cx-pair-detail" aria-live="polite">
         {active ? <>
           <h3>{books[active[0]].name} <ArrowRight size={18} aria-hidden="true" /> {books[active[1]].name}</h3>
-          <p><strong>{formatNumber(count(active[0], active[1]))}</strong> cross-references this way{active[0] !== active[1] && <> · <strong>{formatNumber(count(active[1], active[0]))}</strong> back</>}</p>
+          <p><strong>{formatNumber(count(active[0], active[1]))}</strong> cross-references this way{active[0] !== active[1] && <> · <strong>{formatNumber(count(active[1], active[0]))}</strong> back</>}<span className="block">Choose it to read the cross-references.</span></p>
         </> : litBook ? <>
           <h3>{litBook.name} in conversation</h3>
-          <p>The books it shares the most cross-references with, counted both ways. Choose one to see each direction.</p>
+          <p>The books it shares the most cross-references with, counted both ways. Choose one to read its cross-references.</p>
         </> : <>
           <h3>The strongest conversations</h3>
-          <p>The book pairs joined by the most cross-references. Light up a book above to follow its own.</p>
+          <p>The book pairs joined by the most cross-references. Choose one to read them, or light up a book above to follow its own.</p>
         </>}
       </div>
       <ol className="cx-list">
@@ -117,6 +120,7 @@ export function BookConversation({ books, pairs, book }: { books: BookInfo[]; pa
       </ol>
       {litBook && <p className="cx-list-key"><span><i /> {litBook.name} refers to it</span><span><i className="cx-back" /> it refers to {litBook.name}</span></p>}
       {litBook && <Link className="cx-read" to={`/read/kjv/${litBook.code}/1`}>Open {litBook.name} in the reader <ArrowRight size={14} aria-hidden="true" /></Link>}
+      </>}
     </div>
   </div>;
 }
