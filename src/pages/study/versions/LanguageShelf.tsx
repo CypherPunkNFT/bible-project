@@ -19,7 +19,7 @@ const readerPath = (t: Translation) => {
   return `/read/${t.slug}/${book}/${t.books[book][0]}`;
 };
 
-/** The languages of the library, each with its editions to open, beside a column of figures about the whole. */
+/** Figures about the whole library in one row, then its languages, each with its editions to open. */
 export function LanguageShelf({ editions, books }: { editions: Translation[]; books: BookInfo[] }) {
   const languages = useMemo(() => VERSION_GROUPS.flatMap((group) => {
     const members = editions.filter((t) => groupOf(t.lang).id === group.id);
