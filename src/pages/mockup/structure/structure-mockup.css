@@ -6,8 +6,8 @@
 .shape-step h3 { margin: 0; font: 400 1.35rem var(--font-serif); }
 .shape-hint { margin-left: auto; color: var(--muted); }
 
-.shape-books { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .25rem 2rem; }
-.shape-books > li > button { width: 100%; display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 3.5rem; align-items: center; gap: .6rem; padding: .4rem 0; font-size: .7rem; text-align: left; }
+.shape-books { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .125rem 2rem; }
+.shape-books > li > button { width: 100%; display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 3.5rem; align-items: center; gap: .6rem; padding: .2rem 0; font-size: .7rem; text-align: left; }
 .shape-books > li > button:hover, .shape-books > li > button.on { color: var(--accent); }
 .shape-open button:focus, .shape-open button:focus-visible, .shape-books > li > button:focus, .shape-books > li > button:focus-visible, .shape-strip button:focus, .shape-strip button:focus-visible { outline: none; }
 

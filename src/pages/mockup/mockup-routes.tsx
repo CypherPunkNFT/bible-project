@@ -27,8 +27,8 @@ const PersonConnectionsMockup = lazy(() => import("./connections/PersonConnectio
 const PrivacyMockup = lazy(() => import("./legal/PrivacyMockup"));
 const StudyConnectionsMockup = lazy(() => import("@/pages/study/connections/ConnectionsPage"));
 const SupportMockup = lazy(() => import("./legal/SupportMockup"));
-
 const StructureMockup = lazy(() => import("./structure/StructureMockup"));
+
 const LOCAL_HOSTS = new Set(["127.0.0.1", "localhost"]);
 export const MOCKUPS_ENABLED = typeof window !== "undefined" && LOCAL_HOSTS.has(window.location.hostname);
 
@@ -70,13 +70,13 @@ export function mockupRoutes() {
     <Route key="study-connections" path="/study/connections_mockup" element={<StudyConnectionsMockup />} />,
     <Route key="privacy" path="/privacy_mockup" element={<><MockupTag /><PrivacyMockup /></>} />,
     <Route key="support" path="/support_mockup" element={<><MockupTag /><SupportMockup /></>} />,
+    // The Structure collection as one section: parts, then books that open to their chapters and AI summaries, in
+    // place of the Chapter atlas (owner, 2026-10-29). No MOCK-UP tag: a mock-up shows only the real page (owner, 2026-10-28).
+    <Route key="structure" path="/study/structure_mockup" element={<StructureMockup />} />,
     <Route key="gallery" path="/mockups" element={<HomeMockupsPage />} />,
   ];
 }
 
-    // The Structure collection as one section: parts, then books that open to their chapters and AI summaries, in
-    // place of the Chapter atlas (owner, 2026-10-29). No MOCK-UP tag: a mock-up shows only the real page (owner, 2026-10-28).
-    <Route key="structure" path="/study/structure_mockup" element={<StructureMockup />} />,
 function MockupTag() {
   return <div role="note" style={{ position: "fixed", left: 16, bottom: 16, zIndex: 9999, padding: "6px 12px", borderRadius: 999, background: "var(--accent)", color: "var(--page)", font: "600 11px Archivo, sans-serif", letterSpacing: ".18em", pointerEvents: "none" }}>MOCK-UP</div>;
 }
