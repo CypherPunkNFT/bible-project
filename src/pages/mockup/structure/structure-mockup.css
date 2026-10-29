@@ -11,8 +11,10 @@
 .shape-hint button:hover { text-decoration: underline; }
 
 /* The heading drawing: an open book whose right page becomes chapter bars, rising and settling on a slow loop. */
-.shape-heading { display: grid; grid-template-columns: minmax(0, 47rem) minmax(0, 1fr); align-items: center; }
-.chart-area-heading > svg.shape-art { width: min(100%, 24rem); height: auto; margin: 0; justify-self: center; stroke-width: 1; }
+.shape-heading { display: grid; grid-template-columns: minmax(0, 47rem) minmax(0, 1fr); align-items: center; margin-bottom: 0; }
+.shape-heading + .shape-section { margin-top: .5rem; }
+/* The drawing hangs over the empty space above and below, so the text alone sets the heading's height. */
+.chart-area-heading > svg.shape-art { width: min(100%, 24rem); height: auto; margin: -2rem 0 -3.5rem; justify-self: center; stroke-width: 1; }
 @media (max-width: 767px) { .shape-heading { display: block; } }
 .shape-art-bars rect { transform-box: fill-box; transform-origin: 50% 100%; animation: shape-art-rise 6s ease-in-out infinite; opacity: .85; }
 .shape-art-ribbon { transform-box: fill-box; transform-origin: 50% 0; animation: shape-art-sway 7s ease-in-out infinite; }
