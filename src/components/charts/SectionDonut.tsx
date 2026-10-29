@@ -11,7 +11,8 @@ import { useAsync } from "@/lib/useAsync";
 import { formatNumber } from "@/lib/utils";
 import type { SectionFilter } from "./SectionGuide";
 
-interface Props { stats: Stats; section: SectionFilter; onSection: (section: SectionFilter) => void }
+/** `plain` leaves out the note under the chart on how the chosen measure is counted. */
+interface Props { stats: Stats; section: SectionFilter; onSection: (section: SectionFilter) => void; plain?: boolean }
 export function SectionDonut(props: Props) {
   const [measure, setMeasure] = useState<Measure>("words");
   const study = STUDY_MEASURES.find((m) => m.id === measure);
@@ -30,7 +31,7 @@ function StudyChart(props: Props & { measure: StudyMeasure }) {
   return <SectionChart {...props} entries={state.value[props.measure]} />;
 }
 
-function SectionChart({ stats, section, onSection, measure, entries }: Props & { measure: Measure; entries?: PassageEntry[] }) {
+function SectionChart({ stats, section, onSection, plain, measure, entries }: Props & { measure: Measure; entries?: PassageEntry[] }) {
   const catalog = useCatalog();
   const grouped = useMemo(() => entriesBySection(entries ?? [], catalog.books), [entries, catalog.books]);
   const label = [...TEXT_MEASURES, ...STUDY_MEASURES].find((m) => m.id === measure)!.label;
@@ -69,7 +70,7 @@ function SectionChart({ stats, section, onSection, measure, entries }: Props & {
         <span className="h-3 w-3 rounded-full" style={{ background: sectionColor(r.id) }} /><span><strong>{r.name}</strong><small>{formatNumber(r.value)} {entries ? r.value === 1 ? "entry" : "entries" : label.toLowerCase()}</small><span className="section-mini-bar"><i style={{ width: share(r.value) + "%", background: sectionColor(r.id) }} /></span></span><span className="section-share" style={{ color: sectionColor(r.id) }}>{share(r.value)}%</span>
       </button></li>)}</ul>
     </div>
-    <p className="chart-measure-note">{entries ? <>{STUDY_MEASURES.find((m) => m.id === measure)?.note} Each entry counts once in every section cited; percentages compare those section placements. Open the source passages below.</> : measure === "red" ? "Words marked as Jesus speaking in this KJV edition. Editorial red-letter boundaries may differ between editions." : "Counts from the KJV text, excluding the Apocrypha. Chapter and verse divisions are reading aids, not measures of importance."}</p>
+    {!plain && <p className="chart-measure-note">{entries ? <>{STUDY_MEASURES.find((m) => m.id === measure)?.note} Each entry counts once in every section cited; percentages compare those section placements. Open the source passages below.</> : measure === "red" ? "Words marked as Jesus speaking in this KJV edition. Editorial red-letter boundaries may differ between editions." : "Counts from the KJV text, excluding the Apocrypha. Chapter and verse divisions are reading aids, not measures of importance."}</p>}
     {entries && <details className="measure-evidence" open={!!section}><summary>Explore the passages · {detail.length} {section ? "entries here" : "source entries"}</summary><OutsideScroll label="Source passages for the selected measure" className="measure-evidence-scroll" resetKey={`${measure}:${section}`}><ol>{detail.map((entry, i) => <li key={i}><strong>{entry.title}</strong><div>{entry.refs.map((ref, j) => <RefLink key={j} span={ref} />)}</div></li>)}</ol></OutsideScroll>{detail.length === 0 && <p>No entries in this selection. Try another section or measure.</p>}</details>}
   </>;
 }

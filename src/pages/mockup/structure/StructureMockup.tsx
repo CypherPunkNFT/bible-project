@@ -32,11 +32,10 @@ export default function StructureMockup() {
           <div className="charts-stage">
             {stats.status === "loading" ? <Loading /> : stats.status === "error" ? failed : <>
               <SectionFilters value={section} onChange={setSection} />
-              {section && <SectionGuide section={section} />}
-              <SectionDonut stats={stats.value} section={section} onSection={setSection} />
+              <SectionGuide section={section} />
+              <SectionDonut stats={stats.value} section={section} onSection={setSection} plain />
             </>}
           </div>
-          <footer className="charts-panel-footer"><span>KJV text measures · Study selections explain their sources and counting rules.</span></footer>
         </div>
       </section>
 
