@@ -10,14 +10,10 @@
 .tc-art { padding: 0 0 1.75rem; }
 .study-art.tc-art svg { display: block; width: 100%; height: 170px; }
 .tc-art svg text { fill: var(--ink); font-family: var(--font-sans); text-anchor: middle; }
-.tc-art svg text.tc-spine { font-size: 8.5px; font-weight: 600; letter-spacing: .14em; fill: color-mix(in srgb, var(--resource-color) 70%, var(--ink)); }
 .tc-art svg text.tc-phrase { font: 400 13px var(--font-serif); }
 .tc-art svg text.tc-language { font-size: 7.5px; font-weight: 600; letter-spacing: .16em; fill: var(--muted); }
 .tc-art svg text.tc-autonym { font: 400 12px var(--font-serif); fill: color-mix(in srgb, var(--resource-color) 55%, var(--ink)); }
 
-/* Books: the newest edition lifts off the stack and settles. */
-.tc-stack-top { animation: tc-lift 5s ease-in-out infinite; }
-@keyframes tc-lift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 /* Open books: each lights in turn. */
 .tc-open { animation: tc-light 4.8s ease-in-out infinite; opacity: .6; }
 @keyframes tc-light { 0%, 100% { opacity: .6; } 15%, 35% { opacity: 1; } }
@@ -35,4 +31,4 @@
   .tc-beginning { font-size: .64rem; }
   .tc-beginnings > strong { font-size: 1.3rem; }
 }
-@media (prefers-reduced-motion: reduce) { .tc-stack-top, .tc-open, .tc-arc, .tc-beginning { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .tc-open, .tc-arc, .tc-beginning { animation: none; } }

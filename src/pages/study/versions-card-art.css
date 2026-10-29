@@ -1,0 +1,7 @@
+/* The Versions & languages card's stack of editions (VersionsCardArt.tsx). */
+.versions-stack-art { padding: 0 0 1.75rem; }
+.study-art.versions-stack-art svg { display: block; width: 100%; height: 170px; }
+.versions-stack-art svg text { font: 600 8.5px var(--font-sans); letter-spacing: .14em; text-anchor: middle; fill: color-mix(in srgb, var(--resource-color) 70%, var(--ink)); }
+.versions-stack-top { animation: versions-stack-lift 5s ease-in-out infinite; }
+@keyframes versions-stack-lift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@media (prefers-reduced-motion: reduce) { .versions-stack-top { animation: none; } }
