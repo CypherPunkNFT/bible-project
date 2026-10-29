@@ -1,10 +1,9 @@
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
-import { groupOf, VERSION_GROUPS } from "@/lib/languages";
+import { GROUP_COLOR, groupOf, VERSION_GROUPS } from "@/lib/languages";
 import type { Translation } from "@/lib/types";
 
-const GROUP_COLOR: Record<string, string> = { english: "var(--history)", original: "var(--prophets)", translations: "var(--gospels)" };
 const START = 1350;
 const END = 2030;
 const WIDTH = 1000;

@@ -1,19 +1,73 @@
-/* Versions & languages as one page: the Connections heading (connections.css), then a group filter shared by both
-   charts, and the two charts on thin lines instead of in boxes. */
+/* Versions & languages as one page: a heading with its shelf drawing, then three numbered sections on thin lines
+   instead of in boxes (the languages, through time, which books each holds). */
+.ed-page { padding-bottom: 3rem; }
+.ed-page :is(button, a):is(:focus, :focus-visible) { outline: none; }
 
-/* The group filter: one row of thin pills under the figures; the chosen one takes the gold border. */
-.ed-groups { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2.25rem; }
+/* The heading: words, title and two lines of lead on the left, the drawing on the right. */
+.ed-heading { display: grid; grid-template-columns: minmax(0, 47rem) minmax(0, 1fr); align-items: center; gap: 2rem; padding-top: 1rem; }
+.ed-words { font-size: .66rem; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; color: var(--accent); }
+.ed-heading h1 { margin-top: .6rem; font: 400 clamp(2.2rem, 4.6vw, 3.6rem)/1.08 var(--font-serif); letter-spacing: -.02em; color: var(--ink); }
+.ed-heading h1 em { color: var(--accent); }
+.ed-lead { max-width: 44rem; margin-top: 1rem; font-size: .92rem; line-height: 1.75; color: var(--muted); }
+/* The drawing hangs over the space above and below, so the text alone sets the heading's height. */
+.ed-art { width: min(100%, 22rem); height: auto; margin: -2rem 0 -2.5rem; justify-self: center; color: var(--chart-color); }
+.ed-art-spine { animation: ed-art-lift 9s ease-in-out infinite; }
+@keyframes ed-art-lift { 0%, 12%, 100% { transform: translateY(0); } 5% { transform: translateY(-7px); } }
+
+/* Each section under a numbered heading, divided by one thin line. */
+.ed-section { margin-top: 3.25rem; padding-top: 2.25rem; border-top: 1px solid var(--line); }
+.ed-first { margin-top: 3rem; }
+.ed-section-head { display: flex; align-items: baseline; gap: .9rem; margin-bottom: 1.75rem; }
+.ed-section-head > span { font-size: .7rem; font-weight: 600; letter-spacing: .18em; color: var(--accent); }
+.ed-section-head h2 { font: 400 clamp(1.5rem, 2.4vw, 2rem)/1.2 var(--font-serif); letter-spacing: -.02em; color: var(--ink); }
+.ed-section-head p { max-width: 44rem; margin-top: .45rem; font-size: .85rem; line-height: 1.7; color: var(--muted); }
+
+/* 01 The languages: a column of figures beside the languages in two columns. */
+.ed-shelf { display: grid; grid-template-columns: minmax(13rem, 17rem) minmax(0, 1fr); gap: 3rem; align-items: start; }
+/* Each figure reads number, label, detail: the label comes first in the markup for screen readers. */
+.ed-facts > div { display: flex; flex-direction: column; gap: .2rem; padding: .95rem 0; border-bottom: 1px solid var(--line); }
+.ed-facts > div:first-child { padding-top: 0; }
+.ed-facts dd { order: -1; font: 400 1.7rem/1.1 var(--font-serif); color: var(--ink); font-variant-numeric: tabular-nums; }
+.ed-facts dt { font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.ed-facts dd.ed-fact-detail { order: 1; font: .74rem/1.5 var(--font-sans); color: var(--muted); }
+
+.ed-languages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.5rem; }
+.ed-languages > li { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 1rem; align-items: start; padding: .85rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
+/* align-items keeps a right-to-left name (Hebrew, Arabic, Persian) at the start, beside its colour line. */
+.ed-language-name { display: flex; flex-direction: column; align-items: flex-start; gap: .15rem; padding-left: .7rem; border-left: 2px solid var(--group); }
+.ed-language-name strong { font: 400 1.2rem/1.2 var(--font-serif); color: var(--ink); }
+.ed-language-name span { font-size: .68rem; color: var(--muted); }
+.ed-language-editions { display: flex; flex-wrap: wrap; gap: .35rem; }
+.ed-language-editions a { display: inline-flex; align-items: baseline; gap: .35rem; padding: .3rem .65rem; border: 1px solid var(--line); border-radius: 999px; font-size: .7rem; transition: border-color .2s, color .2s; }
+.ed-language-editions a b { font-weight: 600; color: var(--ink); }
+.ed-language-editions a span { color: var(--muted); font-variant-numeric: tabular-nums; }
+.ed-language-editions a:hover { border-color: var(--accent); }
+.ed-language-editions a:hover b { color: var(--accent); }
+
+/* 02 and 03: the group filter as thin pills, the chosen one in gold, and the charts' controls floating, not boxed. */
+.ed-groups { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.25rem; }
 .ed-groups button { display: inline-flex; align-items: baseline; gap: .55rem; padding: .5rem .95rem; border: 1px solid var(--line); border-radius: 999px; font-size: .78rem; color: var(--muted); transition: border-color .2s, color .2s; }
-.ed-groups button span { font-size: .68rem; font-variant-numeric: tabular-nums; color: var(--muted); }
+.ed-groups button span { font-size: .68rem; font-variant-numeric: tabular-nums; }
 .ed-groups button:hover { color: var(--ink); }
 .ed-groups button[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); }
 .ed-groups button[aria-pressed="true"] span { color: var(--accent); }
-
-/* Each chart under its own heading, divided by one thin line, with its controls floating rather than boxed. */
-.ed-section { margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
-.ed-section-lead { max-width: 44rem; margin-top: .7rem; font-size: .88rem; line-height: 1.7; color: var(--muted); }
-.ed-section > .cx-section-head { margin-bottom: 1.75rem; }
 .ed-page .chart-controls { padding: 0; border: 0; border-radius: 0; background: none; gap: 1rem 1.5rem; }
 .ed-time [role="region"] { border-width: 1px 0; border-radius: 0; background: none; }
 .ed-page .timeline-editions a { border-width: 0 0 1px; border-radius: 0; }
 .ed-page .timeline-editions a:hover { background: none; border-color: var(--accent); }
+
+.ed-source { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .7rem; color: var(--muted); }
+.ed-source a { color: var(--accent); }
+
+@media (max-width: 1100px) { .ed-languages { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 860px) {
+  .ed-shelf { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .ed-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1.5rem; }
+  .ed-facts > div:first-child { padding-top: .95rem; }
+}
+@media (max-width: 767px) {
+  .ed-heading { display: block; }
+  .ed-art { display: block; width: min(100%, 17rem); margin: 1.5rem auto -1rem; }
+  .ed-languages > li { grid-template-columns: minmax(0, 1fr); gap: .6rem; }
+}
+@media (prefers-reduced-motion: reduce) { .ed-art-spine { animation: none; } }

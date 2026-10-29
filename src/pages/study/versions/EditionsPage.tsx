@@ -1,70 +1,62 @@
-import { useMemo, useState, type CSSProperties } from "react";
+import { useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { CoverageMatrix } from "@/components/charts/CoverageMatrix";
 import { VersionsTimeline } from "@/components/charts/VersionsTimeline";
 import { StudyBackLink } from "@/components/study/StudyBackLink";
 import { useCatalog } from "@/lib/catalog";
 import { groupOf, VERSION_GROUPS } from "@/lib/languages";
+import { EditionsArt } from "./EditionsArt";
+import { LanguageShelf } from "./LanguageShelf";
 import "@/pages/charts.css";
-import "@/pages/study/connections/connections.css";
 import "./editions.css";
 
-/** /study/versions_mockup: Versions & languages as one page (owner, 2026-10-29). The timeline, where every edition
- *  opens to read, then the books each edition holds, both following one group filter. No contents cards and no
- *  "Choose an edition" card: the timeline already is the way to choose one. Shares the heading and section styles of
- *  Connections in Scripture (connections.css). */
+function SectionHead({ number, id, title, children }: { number: string; id: string; title: ReactNode; children: ReactNode }) {
+  return <header className="ed-section-head"><span>{number}</span><div><h2 id={id}>{title}</h2><p>{children}</p></div></header>;
+}
+
+/** /study/versions_mockup: Versions & languages as one page (owner, 2026-10-29). The heading with its shelf drawing,
+ *  then the languages with every edition to open beside a column of figures, then the timeline and the books each
+ *  edition holds, both following one group filter. No contents cards and no "Choose an edition" card: the languages
+ *  and the timeline already are the ways to choose one. */
 export default function EditionsPage() {
   const catalog = useCatalog();
   const [group, setGroup] = useState("");
   const editions = catalog.translations;
-  const figures = useMemo(() => {
-    const years = editions.map((t) => t.year);
-    return [
-      [String(editions.length), "editions to read"],
-      [String(new Set(editions.map((t) => t.lang)).size), "languages"],
-      [editions.length ? `${Math.min(...years)}–${Math.max(...years)}` : "—", "years of the editions"],
-      [String(Math.max(0, ...editions.map((t) => Object.keys(t.books).length))), "books in the fullest edition"],
-    ] as const;
-  }, [editions]);
-  const counts = useMemo(() => {
-    const map = new Map<string, number>();
-    for (const t of editions) map.set(groupOf(t.lang).id, (map.get(groupOf(t.lang).id) ?? 0) + 1);
-    return map;
-  }, [editions]);
-  const choices = [{ id: "", title: "All editions", count: editions.length }, ...VERSION_GROUPS.map((g) => ({ id: g.id, title: g.title, count: counts.get(g.id) ?? 0 }))];
+  const books = useMemo(() => catalog.books.filter((b) => editions.some((t) => t.books[b.code])), [catalog.books, editions]);
+  const languageCount = new Set(editions.map((t) => t.lang)).size;
+  const years = editions.map((t) => t.year);
+  const choices = [{ id: "", title: "All editions", count: editions.length }, ...VERSION_GROUPS.map((g) => ({ id: g.id, title: g.title, count: editions.filter((t) => groupOf(t.lang).id === g.id).length }))];
 
-  return <div className="cx-page ed-page charts-hub mx-auto max-w-7xl px-4 sm:px-6" style={{ "--chart-color": "var(--acts)" } as CSSProperties}>
+  return <div className="ed-page charts-hub mx-auto max-w-7xl px-4 sm:px-6" style={{ "--chart-color": "var(--acts)" } as CSSProperties}>
     <div className="chart-collection-breadcrumb"><StudyBackLink /><strong>Versions & languages</strong></div>
 
-    <header className="cx-hero">
-      <p className="cx-words">Editions · Languages · Contents</p>
-      <h1>Know the edition <em>you are reading</em>.</h1>
-      <p className="cx-lead">Every edition in this library, placed by its year. Choose one to start reading it, then see which books each edition holds, from Genesis to the Apocrypha.</p>
-      <dl className="cx-figures">{figures.map(([value, label]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
+    <header className="ed-heading">
+      <div>
+        <p className="ed-words">Editions · Languages · Contents</p>
+        <h1>Know the edition <em>you are reading</em>.</h1>
+        <p className="ed-lead">{editions.length} editions in {languageCount} languages, from {years.length ? Math.min(...years) : "—"} to {years.length ? Math.max(...years) : "—"}. Find one by its language or its year and open it to read, then see which books each one holds.</p>
+      </div>
+      <EditionsArt />
     </header>
 
-    <div className="ed-groups" role="group" aria-label="Show editions">
-      {choices.map((choice) => <button type="button" key={choice.id} aria-pressed={group === choice.id} onClick={() => setGroup(choice.id)}>{choice.title}<span>{choice.count}</span></button>)}
-    </div>
+    <section className="ed-section ed-first" aria-labelledby="ed-languages-title">
+      <SectionHead number="01" id="ed-languages-title" title="The languages">Each language by its own name, with every edition in it. Choose one to open it at its first chapter.</SectionHead>
+      <LanguageShelf editions={editions} books={books} />
+    </section>
 
     <section className="ed-section ed-time" aria-labelledby="ed-time-title">
-      <header className="cx-section-head">
-        <p className="cx-words">Through time</p>
-        <h2 id="ed-time-title">Every edition, <em>by its year</em>.</h2>
-        <p className="ed-section-lead">The years belong to these editions, not to the writing of the books themselves. Choose an edition to open it at its first chapter.</p>
-      </header>
+      <SectionHead number="02" id="ed-time-title" title="Through time">The years belong to these editions, not to the writing of the books themselves.</SectionHead>
+      <div className="ed-groups" role="group" aria-label="Show editions in the timeline and the contents">
+        {choices.map((choice) => <button type="button" key={choice.id} aria-pressed={group === choice.id} onClick={() => setGroup(choice.id)}>{choice.title}<span>{choice.count}</span></button>)}
+      </div>
       <VersionsTimeline group={group} fit />
     </section>
 
     <section className="ed-section" aria-labelledby="ed-books-title">
-      <header className="cx-section-head">
-        <p className="cx-words">Contents</p>
-        <h2 id="ed-books-title">Which books <em>each edition holds</em>.</h2>
-        <p className="ed-section-lead">Old Testament, New Testament and Apocrypha, square by square. Hover a square for its chapters, or choose a book to see which editions include it.</p>
-      </header>
+      <SectionHead number="03" id="ed-books-title" title="Which books each holds">Old Testament, New Testament and Apocrypha, square by square, for the editions chosen above. Hover a square for its chapters, or choose a book to see which editions include it.</SectionHead>
       <CoverageMatrix group={group} />
     </section>
 
-    <footer className="cx-source"><span>Edition years from the version catalogue · Coverage from each version's own book list</span><Link to="/library">Browse the library by language</Link></footer>
+    <footer className="ed-source"><span>Edition years from the version catalogue · Coverage from each version's own book list</span><Link to="/library">Browse the library by language</Link></footer>
   </div>;
 }

@@ -42,6 +42,9 @@ export const VERSION_GROUPS: VersionGroup[] = [
 
 export const languageName = (code: string): string => LANGUAGE[code] ?? code;
 
+/** Each version group's colour: the versions timeline, its legend and the Versions page's language list. */
+export const GROUP_COLOR: Record<VersionGroup["id"], string> = { english: "var(--history)", original: "var(--prophets)", translations: "var(--gospels)" };
+
 /** A language the table does not know yet counts as a translation, so a new version is never hidden. */
 export const groupOf = (lang: string): VersionGroup =>
   VERSION_GROUPS.find((g) => g.langs.includes(lang)) ?? VERSION_GROUPS[VERSION_GROUPS.length - 1];
