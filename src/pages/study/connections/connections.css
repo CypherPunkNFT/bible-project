@@ -74,6 +74,13 @@
 .cx-verses-note { margin-top: .8rem; font-size: .72rem; color: var(--muted); }
 .cx-verses-note button { color: var(--accent); }
 .cx-verses-list { max-height: 34rem; margin-top: .6rem; overflow-y: auto; overscroll-behavior: contain; padding-right: .5rem; }
+/* The page's scroll boxes: a thin gold pill, no track and no arrows. Chromium and Safari use the ::-webkit-scrollbar
+   rules (and ignore them once scrollbar-color is set, hence the @supports); Firefox draws thin bars without arrows. */
+.cx-verses-list::-webkit-scrollbar, .cx-atlas-body::-webkit-scrollbar { width: 6px; height: 6px; background: transparent; }
+.cx-verses-list::-webkit-scrollbar-track, .cx-atlas-body::-webkit-scrollbar-track, .cx-verses-list::-webkit-scrollbar-corner, .cx-atlas-body::-webkit-scrollbar-corner { background: transparent; }
+.cx-verses-list::-webkit-scrollbar-button, .cx-atlas-body::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+.cx-verses-list::-webkit-scrollbar-thumb, .cx-atlas-body::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 999px; }
+@supports not selector(::-webkit-scrollbar) { .cx-verses-list, .cx-atlas-body { scrollbar-width: thin; scrollbar-color: var(--accent) transparent; } }
 .cx-verses-list li { padding: .9rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
 .cx-verses-refs { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; font-size: .8rem; color: var(--muted); }
 .cx-ref { font-weight: 600; color: var(--ink); }
