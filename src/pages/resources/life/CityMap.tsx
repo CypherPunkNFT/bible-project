@@ -231,7 +231,7 @@ export function CityMap({ city, map, kinds, words = LIFE_WORDS }: { city: City; 
   const ordered = selected ? [...places.filter((q) => q.e.id !== selected), ...places.filter((q) => q.e.id === selected)] : places;
   const lines = city.lines ?? [];
   return <div className="lf-city-main">
-    <figure className="lf-mapframe lf-jax"><div className="lf-stage">
+    <figure className="lf-mapframe lf-jax" style={{ "--lf-ratio": map.width / map.height } as CSSProperties}><div className="lf-stage">
       <div className="lf-map-filter lf-fade" role="group" aria-label="Show on the map">{kinds.map(([k, c]) => <button key={k} type="button" aria-pressed={shown.has(k)} style={{ "--c": tone(k) } as CSSProperties} onClick={() => filter(k)}><i />{kindOf(k).short}<b>{c}</b></button>)}</div>
       <svg ref={svg} className="lf-fade" viewBox={`0 0 ${map.width} ${map.height}`} style={{ aspectRatio: `${map.width} / ${map.height}` }} role="group" aria-label={`Map of ${city.name.split(",")[0]} and ${map.about.split(",")[0]} with the ${city.entries.length} places`}>
         <Layers map={map} hall={hall} hallName={centreLabel(city)} />

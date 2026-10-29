@@ -89,11 +89,19 @@
    start on the same line and the map does not drop as it opens (owner, 2026-10-23); the places panel below the bar,
    ending with the map. CityMap's own grid is dissolved into this one. */
 @media (min-width: 901px) {
-  .hn-city { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); column-gap: 2.6rem; }
+  .hn-city { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); column-gap: 2.6rem; container-type: inline-size; }
   .hn-city .lf-city-main { display: contents; }
   .hn-city .lf-city-main > .lf-mapframe { display: block; grid-column: 1; grid-row: 1 / 3; }
   .hn-city .hn-bar { grid-column: 2; grid-row: 1; flex-direction: column; align-items: flex-start; gap: .7rem; }
   .hn-city .lf-places { grid-column: 2; grid-row: 2; }
+}
+
+/* The city map is never taller than the window below the site header (owner, 2026-10-28): its frame is narrowed to the
+   width at which the map's own shape (--lf-ratio, set by CityMap.tsx) fits that height, and the places beside it take
+   the room it leaves; at most it is the 1.4 : 1 share of the row it had before. */
+.hn-city .lf-city-main > .lf-mapframe { width: 100%; max-width: calc((100svh - 56px - 3rem) * var(--lf-ratio, 1)); }
+@media (min-width: 901px) {
+  .hn-city .lf-city-main > .lf-mapframe { width: min(calc((100cqw - 2.6rem) * 1.4 / 2.4), calc((100svh - 56px - 3rem) * var(--lf-ratio, 1))); max-width: none; }
 }
 
 /* While a move runs the USA map is laid over the city map's frame too (NearbyStage.tsx, spread): its figure must not
