@@ -21,6 +21,7 @@
 /* Tighter between the heading, the hover line and the grey squares (whose top padding holds the bubble). */
 .ed-books > .ed-section-head { margin-bottom: 1rem; }
 .ed-books .chart-live-detail { min-height: 1.5rem; margin: 0; }
+.ed-books-fit { width: fit-content; max-width: 100%; }
 .ed-section-head { display: flex; align-items: baseline; gap: .9rem; margin-bottom: 1.75rem; }
 .ed-section-head > span { font-size: .7rem; font-weight: 600; letter-spacing: .18em; color: var(--accent); }
 .ed-section-head h2 { font: 400 clamp(1.5rem, 2.4vw, 2rem)/1.2 var(--font-serif); letter-spacing: -.02em; color: var(--ink); }

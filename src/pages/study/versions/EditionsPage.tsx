@@ -55,9 +55,12 @@ export default function EditionsPage() {
 
     <section className="ed-section ed-books" aria-labelledby="ed-books-title">
       <SectionHead number="03" id="ed-books-title" title="Which books each holds">Old Testament, New Testament and Apocrypha, square by square, for the editions chosen above. Hover a square for its chapters, or choose a grey square along the top to see which editions include that book.</SectionHead>
-      <CoverageMatrix group={group} bookStrip plain />
+      {/* As wide as the table, so the sources line ends where the table does. */}
+      <div className="ed-books-fit">
+        <CoverageMatrix group={group} bookStrip plain />
+        <footer className="ed-source"><span>Edition years from the version catalogue · Coverage from each version's own book list</span><Link to="/library">Browse the library by language</Link></footer>
+      </div>
     </section>
 
-    <footer className="ed-source"><span>Edition years from the version catalogue · Coverage from each version's own book list</span><Link to="/library">Browse the library by language</Link></footer>
   </div>;
 }
