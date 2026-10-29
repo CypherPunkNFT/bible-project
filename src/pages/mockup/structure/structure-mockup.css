@@ -9,21 +9,6 @@
 /* Both boxes as the Questions page's theme grid: near-square corners, hairlines in the box's own edge colour. */
 .shape-card { --edge: color-mix(in srgb, var(--chart-color) 25%, var(--line)); border-radius: .375rem; }
 .shape-card .charts-stage { padding-top: 1.75rem; }
-/* Box 01's two filter rows are its double header: one row of cells each, divided by hairlines, the chosen cell outlined
-   in its colour (the Questions page's theme shelves, test-options.css .th-shelves). */
-.shape-parts .charts-stage { padding-top: 0; }
-.shape-parts .section-filters, .shape-parts .measure-picker { display: grid; gap: 0; margin: 0 -2rem; padding: 0; background: color-mix(in srgb, var(--chart-color) 5%, var(--surface-2)); border-bottom: 1px solid var(--edge); }
-.shape-parts .section-filters { grid-template-columns: 9rem repeat(7, minmax(0, 1fr)); border-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0; }
-.shape-parts .measure-picker { grid-template-columns: 9rem repeat(9, minmax(0, 1fr)); margin-bottom: 1rem; }
-.shape-parts .section-filters::before, .shape-parts .measure-picker > span { align-self: center; margin: 0; padding: 0 1rem 0 2rem; white-space: nowrap; font-size: .62rem; font-weight: 600; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); }
-.shape-parts .section-filters::before { content: "Part"; }
-.shape-parts .section-filters button, .shape-parts .measure-picker button { position: relative; justify-content: flex-start; min-width: 0; height: 100%; padding: 1.05rem 1rem; border: 0; border-left: 1px solid var(--edge); border-radius: 0; background: transparent; font-size: .74rem; color: var(--muted); text-align: left; transition: background .25s, color .25s, box-shadow .25s; }
-.shape-parts .section-filters button { font: 500 .95rem/1.2 var(--font-serif); color: var(--ink); }
-.shape-parts .measure-picker button { --section-color: var(--accent); }
-.shape-parts .section-filters button:hover, .shape-parts .measure-picker button:hover { color: var(--ink); background: color-mix(in srgb, var(--section-color) 5%, transparent); }
-.shape-parts .section-filters button[aria-pressed="true"], .shape-parts .measure-picker button[aria-pressed="true"] { z-index: 1; color: var(--ink); background: color-mix(in srgb, var(--section-color) 9%, var(--surface)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--section-color) 70%, transparent); }
-.shape-parts .section-filters button:focus, .shape-parts .measure-picker button:focus { outline: none; }
-.shape-parts .section-guide { margin-top: 1.5rem; }
 .shape-hint { margin-left: auto; color: var(--muted); }
 .shape-hint button { color: var(--accent); }
 .shape-hint button:hover { text-decoration: underline; }
@@ -107,11 +92,6 @@
   .shape-topics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .shape-section-head { gap: .9rem; }
   .shape-section-head > span { font-size: 2.1rem; }
-  .shape-parts .section-filters, .shape-parts .measure-picker { grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0 -1.25rem; }
-  .shape-parts .measure-picker { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 1rem; }
-  .shape-parts .section-filters::before, .shape-parts .measure-picker > span { grid-column: 1 / -1; padding: .8rem 1.25rem .5rem; }
-  .shape-parts .section-filters button, .shape-parts .measure-picker button { padding: .8rem 1rem; border-left: 0; border-top: 1px solid var(--edge); }
-  .shape-parts .section-filters button:nth-of-type(even), .shape-parts .measure-picker button:not(:nth-of-type(3n + 1)) { border-left: 1px solid var(--edge); }
   .shape-topic-scroll { max-height: 35rem; } /* two columns of twenty: still 40 */
   .shape-books { grid-template-columns: minmax(0, 1fr); }
   .shape-books > li > button { grid-template-columns: 6.4rem minmax(0, 1fr) 3rem; gap: .35rem; }

@@ -28,12 +28,12 @@ export default function StructureMockup() {
 
       <section aria-labelledby="parts-title" className="shape-section">
         <header className="shape-section-head"><span>01</span><div><h2 id="parts-title">The <em>parts</em></h2><p>Choose a part to see its share of the whole, by any of nine measures. The part you choose also narrows the books below.</p></div></header>
-        <div className="charts-explorer shape-card shape-parts">
+        <div className="charts-explorer shape-card">
           <div className="charts-stage">
             {stats.status === "loading" ? <Loading /> : stats.status === "error" ? failed : <>
               <SectionFilters value={section} onChange={setSection} />
-              <SectionDonut stats={stats.value} section={section} onSection={setSection} />
               {section && <SectionGuide section={section} />}
+              <SectionDonut stats={stats.value} section={section} onSection={setSection} />
             </>}
           </div>
           <footer className="charts-panel-footer"><span>KJV text measures · Study selections explain their sources and counting rules.</span></footer>
