@@ -11,7 +11,9 @@
 .shape-hint button:hover { text-decoration: underline; }
 
 /* The heading drawing: an open book whose right page becomes chapter bars, rising and settling on a slow loop. */
-.chart-area-heading > svg.shape-art { width: 15rem; height: auto; margin-top: .25rem; stroke-width: 1; }
+.shape-heading { display: grid; grid-template-columns: minmax(0, 47rem) minmax(0, 1fr); align-items: center; }
+.chart-area-heading > svg.shape-art { width: min(100%, 24rem); height: auto; margin: 0; justify-self: center; stroke-width: 1; }
+@media (max-width: 767px) { .shape-heading { display: block; } }
 .shape-art-bars rect { transform-box: fill-box; transform-origin: 50% 100%; animation: shape-art-rise 6s ease-in-out infinite; opacity: .85; }
 .shape-art-ribbon { transform-box: fill-box; transform-origin: 50% 0; animation: shape-art-sway 7s ease-in-out infinite; }
 @keyframes shape-art-rise { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.55); } }
