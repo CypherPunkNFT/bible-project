@@ -27,7 +27,7 @@ export default function StructureMockup() {
       <header className="chart-area-heading shape-heading"><div><p className="charts-panel-kicker">Composition · Bible structure</p><h1 id="structure-title">The whole, the books, the chapters.</h1><p>Sixty-six books, written by many hands across many centuries, come to 1,189 chapters. Begin with the six parts and how much of the Bible each one holds, then compare the books themselves. Open any book to walk through its chapters one by one: a short summary of each, the hymns written on it, the sermons preached from it, and the studies on this site that take it up.</p></div><ShapeBookArt /></header>
 
       <section aria-labelledby="parts-title" className="shape-section">
-        <header className="shape-section-head"><span>01</span><div><h2 id="parts-title">The parts</h2><p>Choose a part to see its share of the whole, by any of nine measures. The part you choose also narrows the books below.</p></div></header>
+        <header className="shape-section-head"><span>01</span><div><h2 id="parts-title">The <em>parts</em></h2><p>Choose a part to see its share of the whole, by any of nine measures. The part you choose also narrows the books below.</p></div></header>
         <div className="charts-explorer shape-card shape-parts">
           <div className="charts-stage">
             {stats.status === "loading" ? <Loading /> : stats.status === "error" ? failed : <>
@@ -41,7 +41,7 @@ export default function StructureMockup() {
       </section>
 
       <section aria-labelledby="books-title" className="shape-section">
-        <header className="shape-section-head"><span>02</span><div><h2 id="books-title">The books and their chapters</h2><p>Every book by its length. Open one to walk through its chapters, with a summary of each and what the site holds on it.</p></div></header>
+        <header className="shape-section-head"><span>02</span><div><h2 id="books-title">The books and their <em>chapters</em></h2><p>Every book by its length. Open one to walk through its chapters, with a summary of each and what the site holds on it.</p></div></header>
         <div className="charts-explorer shape-card">
           <div className="charts-stage">
             {stats.status === "loading" ? <Loading /> : stats.status === "error" ? failed : library && <BookChapters library={library} section={section} onClearSection={() => setSection("")} />}
