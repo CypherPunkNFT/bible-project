@@ -158,10 +158,26 @@ def build_cross_references(chapter_order: list[tuple[str, str]]) -> dict:
         prefix = f"{chapter}:"
         write_json(OUT / "xref" / book / f"{chapter}.json",
                    {k: sorted(v, key=lambda r: -r[2]) for k, v in verses.items() if k.startswith(prefix)})
+    write_book_links(edges, OUT)
     write_json(OUT / "xref-books.json", [[a, b, n] for (a, b), n in sorted(book_pairs.items())])
     write_json(OUT / "xref-arcs.json", {"chapters": [f"{code} {c}" for code, c in chapter_order],
                                          "arcs": [[a, b, n] for (a, b), n in sorted(arcs.items())]})
     return {"edges": len(edges), "bookPairs": len(book_pairs), "arcs": len(arcs)}
+
+
+def write_book_links(edges: list, out: Path) -> int:
+    """xref-links/<BOOK>.json: one book's cross-references grouped by the book they land in, the most-voted first, as
+    [from chapter*1000+verse, to chapter*1000+verse, to-end verse id or 0, votes] (the end is a full id: 18 ranges run
+    into the next book). Connections in Scripture opens a book pair with this one file instead of a file per chapter
+    (150 for Psalms). Counts match xref-books.json, which is counted from the same edges."""
+    code_of = {number: code for code, number in BOOK_NUMBER.items()}
+    links: dict[str, dict[str, list]] = defaultdict(lambda: defaultdict(list))
+    for from_start, _from_end, to_start, to_end, votes in edges:
+        target = links[code_of[from_start // 1_000_000]][code_of[to_start // 1_000_000]]
+        target.append([from_start % 1_000_000, to_start % 1_000_000, to_end if to_end != to_start else 0, votes])
+    for book, targets in links.items():
+        write_json(out / "xref-links" / f"{book}.json", {code: sorted(rows, key=lambda r: (-r[3], r[0], r[1])) for code, rows in targets.items()})
+    return len(links)
 
 
 def write_places_by_book(places: list[dict]) -> None:
@@ -195,7 +211,13 @@ def catalog(entries: list[dict], stamp: str) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--only", help="build just this version (lower-case abbreviation) plus shared files")
+    parser.add_argument("--xref-links", action="store_true", help="write only data/xref-links/ (Connections in Scripture), in place")
     args = parser.parse_args()
+    if args.xref_links:
+        check_source("openbible", SOURCES / "openbible" / "cross-references.zip", recorded_checksums())
+        books = write_book_links(read_cross_references(SOURCES / "openbible" / "cross_references.txt"), OUT_FINAL)
+        print(f"xref-links: {books} books written to {OUT_FINAL / 'xref-links'}")
+        return
     started = time.time()
     if OUT.exists():
         shutil.rmtree(OUT)

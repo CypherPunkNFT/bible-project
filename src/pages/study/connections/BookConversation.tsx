@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
+import { loadBookLinks } from "@/lib/data";
 import { resolvedSectionColors } from "@/lib/sections";
 import { useThemeVersion } from "@/lib/theme";
 import type { BookInfo } from "@/lib/types";
@@ -33,6 +34,10 @@ export function BookConversation({ books, pairs, book }: { books: BookInfo[]; pa
   const [hover, setHover] = useState<Pair | null>(null);
   const [pinned, setPinned] = useState<Pair | null>(null);
   useEffect(() => { setPinned(null); setHover(null); }, [book]);
+  // Fetch a book's cross-references while the reader looks (the lit book, or a pair under the pointer), so choosing a
+  // pair opens at once. A failed prefetch is only logged: the list itself loads and reports its own error.
+  const prefetch = (code: string) => { loadBookLinks(code).catch((error: unknown) => console.warn(`prefetch of ${code} cross-references failed`, error)); };
+  useEffect(() => { if (book) prefetch(book); }, [book]);
   const active = pinned ?? hover;
   const pin = (pair: Pair) => { setPinned((current) => same(current, pair) ? null : pair); setHover(null); };
 
@@ -113,7 +118,7 @@ export function BookConversation({ books, pairs, book }: { books: BookInfo[]; pa
           <span className="cx-list-name">{books[j].name}</span><span className="cx-list-count">{formatNumber(out + back)}</span>
           <span className="cx-list-line" aria-hidden="true"><i style={{ width: (out / partnerMax) * 100 + "%" }} /><i className="cx-back" style={{ width: (back / partnerMax) * 100 + "%" }} /></span>
         </button></li>)
-          : model.top.map(([a, b, n]) => <li key={a + "-" + b}><button type="button" aria-pressed={same(pinned, [a, b])} onClick={() => pin([a, b])} style={{ "--cx-tone": `var(--${books[a].section})` } as CSSProperties}>
+          : model.top.map(([a, b, n]) => <li key={a + "-" + b}><button type="button" aria-pressed={same(pinned, [a, b])} onClick={() => pin([a, b])} onPointerEnter={() => prefetch(books[a].code)} style={{ "--cx-tone": `var(--${books[a].section})` } as CSSProperties}>
             <span className="cx-list-name">{books[a].name} <ArrowRight size={12} aria-hidden="true" /> {books[b].name}</span><span className="cx-list-count">{formatNumber(n)}</span>
             <span className="cx-list-line" aria-hidden="true"><i style={{ width: (n / pairMax) * 100 + "%" }} /></span>
           </button></li>)}

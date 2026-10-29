@@ -57,7 +57,7 @@ export default function ConnectionsPage() {
 
     <section className="cx-arcs" aria-labelledby="cx-arcs-title">
       <h2 id="cx-arcs-title" className="sr-only">Cross-reference arcs</h2>
-      <Result state={arcs}>{(data) => <ArcDiagram data={data} focus={book} onFocusChange={setBook} picker={atlasButton} />}</Result>
+      <Result state={arcs}>{(data) => <ArcDiagram data={data} focus={book} onFocusChange={setBook} picker={atlasButton} prebuilt />}</Result>
     </section>
 
     <section className="cx-books" aria-labelledby="cx-books-title">

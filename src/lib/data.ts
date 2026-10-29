@@ -236,6 +236,10 @@ export const loadArcs = () => load<ArcData>("xref-arcs.json", (v) => isObject(v)
 
 export const loadBookPairs = () => load<[string, string, number][]>("xref-books.json", Array.isArray);
 
+/** One book's cross-references by the book they land in, most-voted first: [from chapter*1000+verse, to chapter*1000+verse,
+ *  to-end verse id or 0, votes] (scripts/build-data.py write_book_links). Connections in Scripture opens a pair with it. */
+export const loadBookLinks = (code: string) => load<Record<string, [number, number, number, number][]>>(`xref-links/${code}.json`, isObject);
+
 export const loadPlaces = () => load<Place[]>("places.json", Array.isArray);
 
 /** Topics: Torrey's New Topical Textbook in a two-level taxonomy (scripts/build-topics.py). */

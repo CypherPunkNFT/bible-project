@@ -1,0 +1,519 @@
+{
+  "chapters": 1189,
+  "arcs": 141709,
+  "references": 328458,
+  "images": [
+    {
+      "file": "whole-bible-dark-340@1x.webp",
+      "width": 340,
+      "ratio": 1,
+      "base": 157,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-400@1x.webp",
+      "width": 400,
+      "ratio": 1,
+      "base": 184,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-560@1x.webp",
+      "width": 560,
+      "ratio": 1,
+      "base": 256,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-720@1x.webp",
+      "width": 720,
+      "ratio": 1,
+      "base": 328,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-880@1x.webp",
+      "width": 880,
+      "ratio": 1,
+      "base": 400,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-1040@1x.webp",
+      "width": 1040,
+      "ratio": 1,
+      "base": 434,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-1232@1x.webp",
+      "width": 1232,
+      "ratio": 1,
+      "base": 434,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-1424@1x.webp",
+      "width": 1424,
+      "ratio": 1,
+      "base": 434,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-340@2x.webp",
+      "width": 340,
+      "ratio": 2,
+      "base": 157,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-400@2x.webp",
+      "width": 400,
+      "ratio": 2,
+      "base": 184,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-560@2x.webp",
+      "width": 560,
+      "ratio": 2,
+      "base": 256,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-720@2x.webp",
+      "width": 720,
+      "ratio": 2,
+      "base": 328,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-880@2x.webp",
+      "width": 880,
+      "ratio": 2,
+      "base": 400,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-1040@2x.webp",
+      "width": 1040,
+      "ratio": 2,
+      "base": 434,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-1232@2x.webp",
+      "width": 1232,
+      "ratio": 2,
+      "base": 434,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-dark-1424@2x.webp",
+      "width": 1424,
+      "ratio": 2,
+      "base": 434,
+      "background": "#12110f",
+      "colors": {
+        "history": "#ec9670",
+        "poetry": "#5fc6ba",
+        "prophets": "#86b1ee",
+        "gospels": "#bb9bee",
+        "epistles": "#ebc55e",
+        "revelation": "#f27d8f",
+        "apocrypha": "#c3c8ce"
+      }
+    },
+    {
+      "file": "whole-bible-light-340@1x.webp",
+      "width": 340,
+      "ratio": 1,
+      "base": 157,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-400@1x.webp",
+      "width": 400,
+      "ratio": 1,
+      "base": 184,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-560@1x.webp",
+      "width": 560,
+      "ratio": 1,
+      "base": 256,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-720@1x.webp",
+      "width": 720,
+      "ratio": 1,
+      "base": 328,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-880@1x.webp",
+      "width": 880,
+      "ratio": 1,
+      "base": 400,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-1040@1x.webp",
+      "width": 1040,
+      "ratio": 1,
+      "base": 434,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-1232@1x.webp",
+      "width": 1232,
+      "ratio": 1,
+      "base": 434,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-1424@1x.webp",
+      "width": 1424,
+      "ratio": 1,
+      "base": 434,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-340@2x.webp",
+      "width": 340,
+      "ratio": 2,
+      "base": 157,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-400@2x.webp",
+      "width": 400,
+      "ratio": 2,
+      "base": 184,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-560@2x.webp",
+      "width": 560,
+      "ratio": 2,
+      "base": 256,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-720@2x.webp",
+      "width": 720,
+      "ratio": 2,
+      "base": 328,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-880@2x.webp",
+      "width": 880,
+      "ratio": 2,
+      "base": 400,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-1040@2x.webp",
+      "width": 1040,
+      "ratio": 2,
+      "base": 434,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-1232@2x.webp",
+      "width": 1232,
+      "ratio": 2,
+      "base": 434,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    },
+    {
+      "file": "whole-bible-light-1424@2x.webp",
+      "width": 1424,
+      "ratio": 2,
+      "base": 434,
+      "background": "#f6f1e7",
+      "colors": {
+        "history": "#a14d28",
+        "poetry": "#18716a",
+        "prophets": "#22599f",
+        "gospels": "#6b38a3",
+        "epistles": "#87610a",
+        "revelation": "#b3263c",
+        "apocrypha": "#5f6670"
+      }
+    }
+  ]
+}

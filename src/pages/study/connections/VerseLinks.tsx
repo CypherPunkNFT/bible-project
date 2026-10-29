@@ -2,8 +2,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Loading } from "@/components/charts/ChartCard";
 import { PassageText, RefLink } from "@/components/study/StudyParts";
-import { useCatalog } from "@/lib/catalog";
-import { loadCrossRefs } from "@/lib/data";
+import { loadBookLinks } from "@/lib/data";
 import type { BookInfo } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
 import { formatNumber } from "@/lib/utils";
@@ -13,29 +12,23 @@ const PAGE = 20;
 /** One cross-reference: a verse of the "from" book, the passage it points to, and its OpenBible reader votes. */
 interface VerseLink { from: number; to: [number, number]; votes: number }
 
-/** Every cross-reference from one book into another, strongest first. Reads the "from" book's chapter files (a few
- *  grouped files on the live site) and keeps the references that land in the other book. */
-async function loadVerseLinks(from: BookInfo, chapters: string[], to: BookInfo): Promise<VerseLink[]> {
-  const files = await Promise.all(chapters.map((chapter) => loadCrossRefs(from.code, chapter)));
-  const links: VerseLink[] = [];
-  for (const file of files) for (const [key, refs] of Object.entries(file)) {
-    const [chapter, verse] = key.split(":").map(Number);
-    const id = from.num * 1_000_000 + chapter * 1000 + verse;
-    for (const [start, end, votes] of refs) if (Math.floor(start / 1_000_000) === to.num) links.push({ from: id, to: [start, end || start], votes });
-  }
-  return links.sort((a, b) => b.votes - a.votes || a.from - b.from);
+/** Every cross-reference from one book into another, strongest first, from the "from" book's one prepared file. */
+async function loadVerseLinks(from: BookInfo, to: BookInfo): Promise<VerseLink[]> {
+  const rows = (await loadBookLinks(from.code))[to.code] ?? [];
+  return rows.map(([verse, target, end, votes]) => {
+    const start = to.num * 1_000_000 + target;
+    return { from: from.num * 1_000_000 + verse, to: [start, end || start], votes };
+  });
 }
 
 /** The specific cross-references behind one square of the grid (`pair` = [from, to]), each with both passages. The
  *  direction buttons ask the parent to choose the opposite square; it keys this by the square, so each starts afresh. */
 export function VerseLinks({ pair, counts, onReverse, onBack, backLabel }: { pair: [BookInfo, BookInfo]; counts: [number, number]; onReverse: () => void; onBack: () => void; backLabel: string }) {
-  const catalog = useCatalog();
   const [shown, setShown] = useState(PAGE);
   const [from, to] = pair;
   // Both directions, always in Bible order, so the buttons keep their places when the direction changes.
   const ways = [[from, to, counts[0]] as const, [to, from, counts[1]] as const].sort((a, b) => a[0].num - b[0].num);
-  const chapters = catalog.translations.find((t) => t.slug === "kjv")?.books[from.code] ?? [];
-  const links = useAsync(() => loadVerseLinks(from, chapters, to), `verse-links:${from.code}:${to.code}`);
+  const links = useAsync(() => loadVerseLinks(from, to), `verse-links:${from.code}:${to.code}`);
   const total = links.status === "ready" ? links.value.length : 0;
 
   return <div className="cx-verses">

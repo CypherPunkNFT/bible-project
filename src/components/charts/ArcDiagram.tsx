@@ -5,11 +5,14 @@ import { resolvedSectionColors, SECTIONS } from "@/lib/sections";
 import { useThemeVersion } from "@/lib/theme";
 import type { ArcData } from "@/lib/types";
 import { formatNumber } from "@/lib/utils";
+import { loadOverview } from "./arc-overview";
+import { arcBase, arcHeight, arcPainter } from "./arc-paint";
 
 /** Indexed book views and a small canvas cache keep exploration off the full 140,000-arc drawing path.
  *  `focus` + `onFocusChange` let a page own the lit book (Connections in Scripture shares it with Book to book);
- *  `picker` replaces the book list in the controls. */
-export function ArcDiagram({ data, focus: litBook, onFocusChange, picker }: { data: ArcData; focus?: string; onFocusChange?: (code: string) => void; picker?: ReactNode }) {
+ *  `picker` replaces the book list in the controls; `prebuilt` shows the whole Bible from a picture drawn ahead on the
+ *  page colour, so only a chart that sits on the page itself should set it. */
+export function ArcDiagram({ data, focus: litBook, onFocusChange, picker, prebuilt = false }: { data: ArcData; focus?: string; onFocusChange?: (code: string) => void; picker?: ReactNode; prebuilt?: boolean }) {
   const catalog = useCatalog();
   const canvas = useRef<HTMLCanvasElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
@@ -39,7 +42,7 @@ export function ArcDiagram({ data, focus: litBook, onFocusChange, picker }: { da
     return { bookOf, books, arcs, byBook, counts, total, sections: bookOf.map((code) => byCode.get(code)?.section ?? "apocrypha") };
   }, [data, catalog.books]);
   const active = focus || hover;
-  const height = Math.round(Math.min(430, width * .45)) + 26;
+  const height = arcHeight(width);
 
   useEffect(() => {
     const element = wrap.current;
@@ -69,8 +72,6 @@ export function ArcDiagram({ data, focus: litBook, onFocusChange, picker }: { da
       frame = requestAnimationFrame(() => show(cached));
       return () => cancelAnimationFrame(frame);
     }
-    // The whole-Bible view is ~140,000 strokes (~0.6 s): drawn in ~8 ms slices, in the same order, so the page
-    // never freezes and the finished image is unchanged. It is shown and cached only once complete.
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
     const surface = document.createElement("canvas");
     surface.width = Math.round(width * ratio);
@@ -79,34 +80,10 @@ export function ArcDiagram({ data, focus: litBook, onFocusChange, picker }: { da
     if (!paint) return;
     paint.setTransform(ratio, 0, 0, ratio, 0, 0);
     const colors = resolvedSectionColors();
-    const n = data.chapters.length;
-    const base = height - 22;
-    const x = (i: number) => ((i + .5) / n) * width;
-    const verticalScale = (height - 28) / (width / 2);
-    paint.lineWidth = active ? .8 : .55;
-    const arcs = active ? prepared.byBook.get(active) ?? [] : prepared.arcs;
-    let next = 0;
-    const drawSlice = () => {
-      const stopAt = performance.now() + 8;
-      while (next < arcs.length) {
-        const [a, b, count] = arcs[next++];
-        const x1 = x(a);
-        const radius = Math.abs(x(b) - x1) / 2;
-        if (radius !== 0) {
-          paint.beginPath();
-          paint.ellipse(x1 + radius, base, radius, radius * verticalScale, 0, Math.PI, 0);
-          const other = active && prepared.bookOf[a] === active ? b : a;
-          paint.strokeStyle = colors[prepared.sections[other]];
-          paint.globalAlpha = Math.min(active ? .9 : .35, (active ? .12 : .018) * (1 + Math.log2(count)));
-          paint.stroke();
-        }
-        if ((next & 255) === 0 && performance.now() > stopAt) { frame = requestAnimationFrame(drawSlice); return; }
-      }
-      for (let i = 0; i < n; i++) {
-        paint.fillStyle = colors[prepared.sections[i]];
-        paint.globalAlpha = active && prepared.bookOf[i] !== active ? .25 : 1;
-        paint.fillRect((i / n) * width, base + 3, width / n + .4, 12);
-      }
+    const painter = arcPainter(paint, prepared, { width, height, colors, active });
+    let cancelled = false;
+    const finish = () => {
+      painter.bar();
       // Keep the overview plus the three most recent book views (bounded memory).
       if (cache.current.size >= 4) {
         const oldest = [...cache.current.keys()].find((key) => key !== "");
@@ -115,9 +92,39 @@ export function ArcDiagram({ data, focus: litBook, onFocusChange, picker }: { da
       cache.current.set(active, surface);
       show(surface);
     };
-    frame = requestAnimationFrame(drawSlice);
-    return () => cancelAnimationFrame(frame);
-  }, [active, data, prepared, width, height, themeVersion]);
+    // A book view, or the whole Bible without a matching picture: drawn in ~8 ms slices, in the same order, so the page
+    // never freezes and the finished image is unchanged (the whole Bible is ~140,000 strokes, ~0.85 s here and ~5 s on
+    // a slow phone). It is shown and cached only once complete.
+    const drawLive = () => {
+      const arcs = active ? prepared.byBook.get(active) ?? [] : prepared.arcs;
+      let next = 0;
+      const drawSlice = () => {
+        const stopAt = performance.now() + 8;
+        while (next < arcs.length) {
+          painter.arc(arcs[next++]);
+          if ((next & 255) === 0 && performance.now() > stopAt) { frame = requestAnimationFrame(drawSlice); return; }
+        }
+        finish();
+      };
+      frame = requestAnimationFrame(drawSlice);
+    };
+    if (active || !prebuilt) drawLive();
+    else {
+      // The whole Bible comes from a picture drawn ahead by the same code (scripts/build-arc-images.mjs), stretched from
+      // its baseline to this one; the chapter bar is drawn here, so it keeps its exact size.
+      loadOverview(width, ratio, getComputedStyle(document.documentElement).getPropertyValue("--page").trim(), colors, { chapters: data.chapters.length, arcs: data.arcs.length, references: prepared.total }).then((overview) => {
+        if (cancelled) return;
+        if (!overview) { drawLive(); return; }
+        const { image, width: drawnWidth, base } = overview;
+        // The picture is `drawnWidth` CSS pixels wide and reaches just below its baseline `base`: scale it so that
+        // baseline lands on this chart's.
+        const drawnHeight = image.naturalHeight * (drawnWidth / image.naturalWidth);
+        paint.drawImage(image, 0, 0, width, drawnHeight * (arcBase(height) / base));
+        finish();
+      });
+    }
+    return () => { cancelled = true; cancelAnimationFrame(frame); };
+  }, [active, data, prepared, width, height, themeVersion, prebuilt]);
 
   const pickAt = (clientX: number) => {
     const rect = canvas.current?.getBoundingClientRect();
