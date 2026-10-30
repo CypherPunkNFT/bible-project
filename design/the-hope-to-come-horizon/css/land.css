@@ -1,0 +1,202 @@
+/* The hope to come: one horizon. Sky is what is promised, haze is what is left open, ground is what is asked now.
+   Colours come from the site frame's variables, so both themes follow. No outline on anything: a keyboard user gets a colour
+   and an underline from :focus-visible instead. */
+:root {
+  --hz-gutter: max(1rem, calc((100vw - 90rem) / 2));
+  --hz-sky-low: color-mix(in srgb, var(--accent) 15%, var(--page));
+  --hz-haze: color-mix(in srgb, var(--accent) 24%, var(--page));
+  --hz-ground: color-mix(in srgb, #5c4017 17%, var(--page));
+  --hz-ground-line: color-mix(in srgb, #5c4017 30%, var(--page));
+  --hz-deep: color-mix(in srgb, #5c4017 7%, var(--page));
+}
+:root[data-theme="dark"] {
+  --hz-sky-low: color-mix(in srgb, var(--accent) 11%, var(--page));
+  --hz-haze: color-mix(in srgb, var(--accent) 19%, var(--page));
+  --hz-ground: color-mix(in srgb, #b08a4e 13%, var(--page));
+  --hz-ground-line: color-mix(in srgb, #b08a4e 27%, var(--page));
+  --hz-deep: color-mix(in srgb, #b08a4e 5%, var(--page));
+}
+:where(.hz-page) button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+.hz-page a, .hz-sheet a { color: inherit; }
+.hz-page { overflow-x: clip; }
+
+/* ── Reference links and shared small text ── */
+.hz-ref { color: var(--accent) !important; font-weight: 500; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+.hz-ref:hover, .hz-ref:focus-visible { border-bottom-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.hz-kind { font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.hz-kind b { color: var(--accent); font-weight: 600; }
+.hz-note { max-width: 92ch; font-size: .78rem; line-height: 1.6; color: var(--muted); }
+.hz-note b { color: var(--ink); font-weight: 600; }
+
+/* ── The heading, in the sky ── */
+.hz-hero { display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr) minmax(0, 25rem); gap: 1rem 2.6rem; align-items: end; padding: 1.1rem var(--hz-gutter) .5rem; }
+.hz-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
+.hz-trail a { border-bottom: 1px solid transparent; }
+.hz-trail a:hover, .hz-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.hz-here { color: var(--ink); }
+.hz-concepts { margin-top: .9rem; font-size: .68rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.hz-hero h1 { margin-block: .5rem .7rem; font: 500 clamp(2.6rem, 5.6vw, 4.6rem)/1.02 var(--serif); letter-spacing: -.045em; }
+.hz-hero h1 em { display: block; margin-top: .25rem; color: var(--accent); font-weight: 400; font-size: .6em; letter-spacing: -.03em; }
+.hz-lede { max-width: 62ch; color: var(--muted); font-size: .9rem; line-height: 1.6; }
+.hz-hero-strip { display: none; }
+.hz-opening { margin: 0; }
+.hz-opening blockquote { margin: 0; font: 400 1.04rem/1.45 var(--serif); }
+.hz-opening figcaption { margin-top: .3rem; font-size: .76rem; color: var(--muted); }
+.hz-motto { margin-top: .55rem; font-size: .66rem; font-weight: 600; letter-spacing: .17em; line-height: 1.8; text-transform: uppercase; color: var(--muted); }
+.hz-motto span { display: block; color: var(--accent); }
+
+.hz-head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .1rem 1.1rem; align-items: baseline; }
+.hz-num { font: 400 .95rem/1 var(--serif); color: var(--accent); }
+.hz-head h2 { font: 500 clamp(1.45rem, 2.5vw, 2rem)/1.15 var(--serif); letter-spacing: -.025em; }
+.hz-head h2 em { color: var(--accent); font-weight: 400; }
+.hz-head p { margin-top: .4rem; max-width: 92ch; font-size: .88rem; line-height: 1.6; color: var(--muted); }
+.hz-land-head { padding: .7rem var(--hz-gutter) .9rem; }
+.hz-land-head .hz-head { grid-template-columns: auto minmax(0, auto) minmax(0, 1fr); column-gap: 1.1rem; }
+.hz-land-head .hz-head > div { display: contents; }
+.hz-land-head .hz-head h2 { white-space: nowrap; }
+.hz-land-head .hz-head p { margin: 0 0 0 1.4rem; align-self: center; font-size: .8rem; line-height: 1.45; max-width: none; }
+
+/* ── The land ── */
+.hz-scroller { overflow-x: hidden; }
+.hz-scene { --cols: repeat(6, minmax(0, 1fr)); position: relative; display: grid; grid-template-columns: 6.6rem var(--cols); grid-template-rows: auto auto auto auto auto; column-gap: 1.25rem; padding-inline: var(--hz-gutter); }
+.hz-band-sky, .hz-band-haze, .hz-band-ground, .hz-horizon { grid-column: 1 / -1; margin-inline: calc(var(--hz-gutter) * -1); }
+.hz-band-sky { grid-row: 1 / 3; position: relative; background: linear-gradient(to bottom, var(--page), var(--hz-sky-low)); }
+.hz-skylines { position: absolute; inset: 0; pointer-events: none; }
+.hz-skylines svg, .hz-furrows svg { display: block; width: 100%; height: 100%; fill: none; }
+.hz-skylines path { stroke: color-mix(in srgb, var(--accent) 11%, transparent); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.hz-band-haze { grid-row: 3; position: relative; background: linear-gradient(to bottom, var(--hz-sky-low), var(--hz-haze)); }
+.hz-ridge { position: absolute; inset: auto 0 0 0; height: 62%; pointer-events: none; }
+.hz-ridge svg { display: block; width: 100%; height: 100%; }
+.hz-ridge path { fill: color-mix(in srgb, var(--accent) 12%, transparent); }
+.hz-band-ground { grid-row: 4 / 6; position: relative; background: var(--hz-ground); }
+.hz-furrows { position: absolute; inset: 0; pointer-events: none; }
+.hz-furrows path { stroke: var(--hz-ground-line); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.hz-horizon { grid-row: 3; align-self: end; height: 2px; background: var(--accent); z-index: 1; view-transition-name: hz-horizon; }
+::view-transition-group(hz-horizon) { animation-duration: .4s; }
+
+/* The three ways of looking sit in the land, each beside its own band */
+.hz-page .hz-gaze { position: relative; z-index: 1; display: block; align-self: center; padding-block: .5rem; border-bottom: 1px solid transparent; }
+.hz-gaze b { display: block; font: 500 .98rem/1.2 var(--serif); }
+.hz-gaze span { display: block; margin-top: .1rem; font-size: .68rem; line-height: 1.3; color: var(--muted); }
+.hz-gaze:hover b, .hz-gaze:focus-visible b { color: var(--accent); }
+.hz-gaze:focus-visible { border-bottom-color: var(--accent); }
+.hz-gaze[aria-pressed="true"] b { color: var(--accent); }
+.hz-gaze[aria-pressed="true"] span { color: var(--ink); }
+.hz-row-sky { grid-column: 1; grid-row: 2; }
+.hz-row-haze { grid-column: 1; grid-row: 3; }
+.hz-row-ground { grid-column: 1; grid-row: 4; }
+.hz-gaze-row { display: none; }
+.hz-pan-hint { display: none; }
+.hz-scroller:focus-visible + .hz-pan-hint { color: var(--accent); text-decoration: underline; }
+
+.hz-column { position: relative; z-index: 1; grid-column: calc(var(--i) + 2); grid-row: 1 / 6; display: grid; grid-template-rows: subgrid; min-width: 0; }
+.hz-column.is-on::before { content: ""; position: absolute; top: .2rem; bottom: 0; left: -.65rem; width: 2px; background: var(--accent); }
+.hz-column-head { grid-row: 1; padding-block: .2rem .55rem; }
+.hz-column-head h3 { margin-top: .25rem; font: 500 1.1rem/1.2 var(--serif); letter-spacing: -.015em; }
+.hz-cell-label { display: none; }
+.hz-cell p { margin: 0; }
+.hz-cell-sky { grid-row: 2; align-self: end; padding-block: .3rem 1rem; font: 400 1rem/1.4 var(--serif); }
+.hz-cell-haze { grid-row: 3; padding-block: .6rem .8rem; font: italic 400 .84rem/1.4 var(--serif); }
+.hz-cell-ground { grid-row: 4; padding-block: .9rem .5rem; font-size: .86rem; line-height: 1.5; font-weight: 500; }
+.hz-hook { margin: 0 0 .15rem; font-size: .8rem; line-height: 1.42; color: var(--ink); }
+.hz-column-foot { grid-row: 5; display: flex; flex-direction: column; gap: .25rem; padding-block: .3rem 1rem; font-size: .72rem; line-height: 1.4; color: var(--muted); }
+.hz-open { align-self: flex-start; color: var(--accent); font-weight: 600; font-size: .78rem; border-bottom: 1px solid transparent; }
+.hz-open:hover, .hz-open:focus-visible { border-bottom-color: var(--accent); }
+.hz-column.is-on .hz-open { color: var(--ink); border-bottom-color: var(--accent); }
+
+/* Lifting or lowering your eyes: the band you look at fills the view and the others shrink to a strip */
+.hz-scene[data-look="up"] .hz-cell-haze, .hz-scene[data-look="up"] .hz-cell-ground,
+.hz-scene[data-look="out"] .hz-cell-sky, .hz-scene[data-look="out"] .hz-cell-ground,
+.hz-scene[data-look="down"] .hz-cell-sky, .hz-scene[data-look="down"] .hz-cell-haze { display: none; }
+.hz-scene[data-look="up"] .hz-cell-sky { padding-block: 2.6rem 3rem; font-size: 1.22rem; line-height: 1.42; }
+.hz-scene[data-look="out"] .hz-cell-haze { grid-row: 3; padding-block: 2.6rem 3rem; font-size: 1.14rem; line-height: 1.5; }
+.hz-scene[data-look="down"] .hz-cell-ground { grid-row: 4; padding-block: 2.4rem 3rem; font-size: 1.12rem; line-height: 1.45; }
+
+/* ── A reading: below ground, with its shaft ── */
+.hz-dig { position: relative; scroll-margin-top: 4.5rem; background: var(--hz-deep); border-bottom: 1px solid var(--line); }
+.hz-dig::before { content: ""; position: absolute; top: 0; height: 1.5rem; left: calc(var(--shaft, 0px) - .68rem); width: 2px; background: var(--accent); }
+.hz-dig-inner { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 1rem 2.4rem; padding: 1.7rem var(--hz-gutter) 2rem; }
+.hz-dig-head { position: relative; align-self: start; }
+.hz-dig-head h3 { margin-top: .3rem; font: 500 1.65rem/1.15 var(--serif); letter-spacing: -.025em; }
+.hz-dig-read, .hz-dig-setting { margin-top: .7rem; font-size: .84rem; line-height: 1.55; }
+.hz-dig-read > span, .hz-dig-setting > span { display: block; font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.hz-dig-close { position: absolute; top: 0; right: 0; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: var(--muted); }
+.hz-dig-close:hover, .hz-dig-close:focus-visible { color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.hz-dig-text { min-width: 0; padding-right: 21rem; }
+.hz-part h4 { margin: 0 0 .5rem; font: 500 1.2rem/1.25 var(--serif); letter-spacing: -.015em; }
+.hz-part + .hz-part { margin-top: 1.5rem; }
+.hz-part h3 { margin: 0 0 .5rem; font: 500 1.2rem/1.25 var(--serif); letter-spacing: -.015em; }
+.hz-p { margin: 0 0 .75rem; font-size: .96rem; line-height: 1.68; max-width: 76ch; }
+.hz-quote { margin: .3rem 0 .95rem; max-width: 66ch; }
+.hz-quote blockquote { margin: 0; font: 400 1.14rem/1.5 var(--serif); }
+.hz-quote blockquote em { font-style: normal; color: var(--accent); }
+.hz-quote figcaption { margin-top: .2rem; font-size: .74rem; color: var(--muted); }
+/* Asides stand in the margin, level with what they answer; they stay in reading order on a narrow screen */
+.hz-aside { float: right; clear: right; width: 19rem; margin: .1rem -21rem .9rem 0; font-size: .82rem; line-height: 1.55; }
+.hz-aside p { margin: .15rem 0 0; }
+.hz-aside small { display: block; margin-top: .3rem; font-size: .7rem; line-height: 1.45; color: var(--muted); }
+.hz-aside small a { color: var(--accent); }
+.hz-aside-label { font-size: .6rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.hz-aside-source .hz-aside-label, .hz-aside-other .hz-aside-label { color: var(--muted); }
+.hz-aside-open .hz-aside-label::before { content: "≈ "; }
+.hz-aside-band { clear: both; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem 1.8rem; margin: .5rem -21rem 1.1rem 0; }
+.hz-aside-band .hz-aside { float: none; width: auto; margin: 0; }
+.hz-aside-band-one { max-width: 44rem; margin-right: 0; }
+.hz-pairs { clear: left; margin: .4rem 0 1.2rem; max-width: 40rem; }
+.hz-pairs-row { display: grid; grid-template-columns: 3.4rem repeat(4, minmax(0, 1fr)); gap: .5rem; align-items: baseline; padding-block: .35rem; font: 400 .95rem/1.25 var(--serif); }
+.hz-pairs-row b { font-weight: 500; color: var(--accent); }
+.hz-pairs-sown { border-top: 2px solid var(--accent); color: var(--muted); }
+.hz-pairs-label { font: 600 .6rem/1 var(--sans); letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
+.hz-pairs figcaption { margin-top: .1rem; font-size: .74rem; color: var(--muted); }
+.hz-prompts { clear: both; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2rem; margin-top: 1.5rem; margin-right: -21rem; padding-top: .9rem; border-top: 1px solid var(--line); }
+.hz-prompts h4 { margin: 0 0 .25rem; font-size: .62rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); }
+.hz-prompts p { margin: 0; font: 400 1rem/1.5 var(--serif); }
+.hz-dig-foot { display: flex; flex-wrap: wrap; gap: .5rem 1.6rem; margin-top: 1rem; margin-right: -21rem; }
+.hz-page .hz-dig-foot button { min-height: 44px; color: var(--accent); font-weight: 600; font-size: .84rem; border-bottom: 1px solid transparent; }
+.hz-dig-foot button:hover, .hz-dig-foot button:focus-visible { border-bottom-color: var(--accent); }
+
+/* ── Under the land: the figures and the notes ── */
+.hz-under { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 1rem 3rem; padding: 1.3rem var(--hz-gutter) 1.5rem; background: var(--hz-deep); }
+.hz-figures { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .8rem 1.2rem; margin: 0; align-self: start; }
+.hz-figures dt { font-size: .58rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
+.hz-figures dd { margin: .1rem 0 0; font: 500 1.75rem/1.1 var(--serif); }
+.hz-figures small { display: block; margin-top: .1rem; font-size: .72rem; line-height: 1.4; color: var(--muted); }
+.hz-under-notes { display: grid; gap: .6rem; }
+
+/* ── Narrow: the land is walked sideways, and the three ways of looking move above it ── */
+@media (max-width: 1099px) {
+  .hz-scroller { overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: 1rem; scrollbar-width: thin; }
+  .hz-scene { width: max-content; min-width: 100%; grid-template-columns: repeat(6, min(76vw, 19rem)); column-gap: 1.6rem; padding-inline: 1.3rem 1.3rem; --hz-gutter: 1.3rem; }
+  .hz-scene > .hz-gaze { display: none; }
+  .hz-gaze-row { display: flex; gap: .4rem 1.3rem; flex-wrap: wrap; padding: 0 1rem .7rem; }
+  .hz-gaze-row .hz-gaze { min-height: 44px; }
+  .hz-column { grid-column: calc(var(--i) + 1); scroll-snap-align: start; }
+  .hz-cell-label { display: block; margin-bottom: .2rem; font: 600 .58rem/1.2 var(--sans); letter-spacing: .13em; text-transform: uppercase; color: var(--muted); font-style: normal; }
+  .hz-pan-hint { display: block; padding: .5rem 1rem 0; font-size: .72rem; color: var(--muted); background: var(--hz-ground); }
+  .hz-open { min-height: 44px; display: inline-flex; align-items: center; }
+  .hz-dig-inner { grid-template-columns: minmax(0, 1fr); }
+  .hz-under { grid-template-columns: minmax(0, 1fr); }
+  .hz-dig-text { padding-right: 0; }
+  .hz-aside { float: none; width: auto; max-width: 66ch; margin: .3rem 0 1rem; padding-left: .8rem; border-left: 2px solid color-mix(in srgb, var(--accent) 40%, transparent); }
+  .hz-prompts, .hz-dig-foot { margin-right: 0; }
+  .hz-aside-band { display: block; margin: .3rem 0 1rem; }
+  .hz-aside-band .hz-aside { margin: .3rem 0 1rem; }
+}
+@media (max-width: 1099px) {
+  .hz-hero { grid-template-columns: minmax(0, auto) minmax(0, 1fr); }
+  .hz-hero-side { grid-column: 1 / -1; }
+  .hz-hero { background: linear-gradient(to bottom, var(--page), var(--hz-sky-low) 11rem, var(--page) 15rem); row-gap: .8rem; }
+  .hz-hero-strip { display: block; position: relative; grid-column: 1 / -1; order: 0; height: 3.6rem; margin-inline: calc(var(--hz-gutter) * -1); margin-top: -.6rem; }
+  .hz-hero-strip .hz-ridge { inset: 0 0 auto 0; height: 1.4rem; background: none; }
+  .hz-hero-strip .hz-furrows { inset: 1.4rem 0 0 0; border-top: 2px solid var(--accent); background: var(--hz-ground); }
+  .hz-land-head .hz-head { grid-template-columns: auto minmax(0, 1fr); }
+  .hz-land-head .hz-head p { grid-column: 2; margin: .3rem 0 0; }
+  .hz-land-head .hz-head h2 { white-space: normal; }
+}
+@media (max-width: 860px) {
+  .hz-hero { grid-template-columns: minmax(0, 1fr); }
+  .hz-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hz-prompts { grid-template-columns: minmax(0, 1fr); }
+  .hz-pairs-row { font-size: .84rem; grid-template-columns: 2.8rem repeat(4, minmax(0, 1fr)); gap: .3rem; }
+}
+@media (prefers-reduced-motion: reduce) { ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; } }
