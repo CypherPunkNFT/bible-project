@@ -51,7 +51,7 @@
       const angle = Math.PI + (Math.PI * i) / 40, edge = 1 / Math.hypot(Math.cos(angle) / 560, Math.sin(angle) / 250), reach = i % 2 ? edge * .72 : edge;
       rays.push(`M${(800 + Math.cos(angle) * 96).toFixed(1)} ${(190 + Math.sin(angle) * 96).toFixed(1)}L${(800 + Math.cos(angle) * reach).toFixed(1)} ${(190 + Math.sin(angle) * reach).toFixed(1)}`);
     }
-    const seat = `<path class="sc-rays" d="${rays.join("")}"/><g class="sc-white" transform="translate(800 216) scale(.82) translate(-800 -216)"><path d="M756 170V54H768V36H784V20H816V36H832V54H844V170Z"/><rect x="726" y="140" width="18" height="76"/><rect x="718" y="130" width="38" height="10"/><rect x="856" y="140" width="18" height="76"/><rect x="844" y="130" width="38" height="10"/><rect x="744" y="170" width="112" height="16"/><rect x="752" y="186" width="96" height="30"/></g>`;
+    const seat = `<path class="sc-rays" d="${rays.join("")}"/><g class="sc-white" transform="translate(800 216) scale(.82) translate(-800 -216)"><path d="M756 170V20H844V170Z"/><rect x="726" y="140" width="18" height="76"/><rect x="718" y="130" width="38" height="10"/><rect x="856" y="140" width="18" height="76"/><rect x="844" y="130" width="38" height="10"/><rect x="744" y="170" width="112" height="16"/><rect x="752" y="186" width="96" height="30"/></g>`;
     const steps = `<g class="sc-near-strong"><rect x="680" y="216" width="240" height="22"/><rect x="630" y="238" width="340" height="26"/><rect x="570" y="264" width="460" height="36"/></g>`;
     return svg(`${seat}${hill(286)}${steps}${book(690, 256)}${book(910, 256)}<g class="sc-near-strong">${crowd.join("")}</g>`);
   }
