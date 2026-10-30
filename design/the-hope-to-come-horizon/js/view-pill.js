@@ -33,5 +33,7 @@
     HZ.setView({ at });
     const view = document.querySelector(`.hz-stop[data-at="${at}"] .hz-view`);
     HZ.pill(param, Object.keys(views), (key) => { view.innerHTML = views[key]; });
+    const pill = document.querySelector(".hz-pill");
+    HZ.onView(() => { pill.hidden = HZ.currentStop() !== at; });
   };
 })();

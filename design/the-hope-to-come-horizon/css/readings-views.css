@@ -1,5 +1,6 @@
 /* Four new ways to move through the six readings (js/readings-views.js). Everything stays inside the page's margins. */
 .hz-readings[data-layout] .hz-rail-bar { display: none; }
+.hz-readings[data-layout] .hz-roman { left: auto; right: var(--hz-gutter); }
 .hz-alt-nav { z-index: 6; }
 .hz-alt-nav ol { display: flex; margin: 0; padding: 0; list-style: none; }
 .hz-page .hz-alt-nav button { cursor: pointer; color: var(--muted); transition: color .2s, border-color .2s, background .2s; }

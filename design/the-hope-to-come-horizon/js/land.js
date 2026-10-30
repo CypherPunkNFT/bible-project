@@ -92,12 +92,10 @@
   const rail = h("nav", { class: "hz-rail", "aria-label": "The six readings" }, [...railButtons.values()]);
   const panel = h("section", { class: "hz-dig", id: "hz-reading", hidden: true });
   const currentStop = () => state.reading ?? state.at ?? study.readings[0].slug;
-  // The arrows at each end of the bar, which stays in sight while a reading is scrolled.
   const slugs = study.readings.map((reading) => reading.slug);
   const stepBy = (step) => moveTo(slugs[slugs.indexOf(currentStop()) + step]);
-  const previousStep = h("button", { type: "button", class: "hz-slide-arrow", onclick: () => stepBy(-1) }, h("span", { "aria-hidden": "true" }, "←"));
-  const nextStep = h("button", { type: "button", class: "hz-slide-arrow", onclick: () => stepBy(1) }, h("span", { "aria-hidden": "true" }, "→"));
-  const railBar = h("div", { class: "hz-rail-bar" }, previousStep, rail, nextStep);
+  // The bar floats with no band behind it and stays in sight while a reading is scrolled.
+  const railBar = h("div", { class: "hz-rail-bar" }, rail);
   let readingsBar = railBar;
   // After a move from further down a reading, the new reading starts at its top, just under the bar.
   function moveTo(slug) {
@@ -196,10 +194,6 @@
   let drawnReading = null;
   function syncStage() {
     const at = currentStop(), place = slugs.indexOf(at);
-    previousStep.disabled = place === 0;
-    nextStep.disabled = place === slugs.length - 1;
-    previousStep.setAttribute("aria-label", place ? `Previous reading: ${study.readings[place - 1].title}` : "Previous reading");
-    nextStep.setAttribute("aria-label", place < slugs.length - 1 ? `Next reading: ${study.readings[place + 1].title}` : "Next reading");
     for (const [slug, { stop, open }] of stops) {
       const here = slug === at, reading = slug === state.reading;
       stop.classList.toggle("is-here", here);
