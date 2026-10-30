@@ -92,4 +92,32 @@
   }
   HZ.SCENES = { return: graves(), raised: grain(), judgment: throne(), creation: tree(), new: city(), waiting: road() };
   HZ.HILLS = svg(hill(272));
+
+  // The heading's line drawing, the study's motto left to right: a tomb with its stone rolled away, a throne with no figure on it,
+  // a tree with its fruit, a city with its gates open, and a gold thread from the door of the one to the gate of the other.
+  const rays = [];
+  for (let degrees = -160; degrees <= -20; degrees += 20) {
+    const angle = (degrees * Math.PI) / 180, from = [256 + Math.cos(angle) * 52, 172 + Math.sin(angle) * 52], to = [256 + Math.cos(angle) * 68, 172 + Math.sin(angle) * 68];
+    rays.push(`M${from[0].toFixed(1)} ${from[1].toFixed(1)}L${to[0].toFixed(1)} ${to[1].toFixed(1)}`);
+  }
+  HZ.LINE_ART = `<svg viewBox="0 0 520 340" aria-hidden="true">
+    <ellipse class="ln-orbit" cx="260" cy="176" rx="248" ry="136"/><ellipse class="ln-orbit ln-orbit-2" cx="260" cy="176" rx="196" ry="158" transform="rotate(-16 260 176)"/>
+    <circle class="ln-halo" cx="256" cy="172" r="132"/>
+    <path d="M24 280H496"/><path class="ln-faint" d="M56 290H210M244 290H300M336 290H470"/>
+    <g><path class="ln-wash" d="M36 280C36 222 56 176 98 174C138 172 156 222 158 280Z"/><path d="M36 280C36 222 56 176 98 174C138 172 156 222 158 280"/>
+      <path d="M74 280V240a22 22 0 0 1 44 0V280"/><path d="M82 280V242a14 14 0 0 1 28 0V280"/><path class="ln-light" d="M96 280 110 242V280Z"/>
+      <path class="ln-faint" d="M50 238c8-4 12-2 16 0M128 214c6-3 10-2 14 1M60 206c5-3 9-3 13-1"/>
+      <circle cx="178" cy="258" r="22"/><circle class="ln-faint" cx="178" cy="258" r="15"/></g>
+    <g><path class="ln-wash ln-gold" d="M236 212V154h6V144h8V134h12v10h8v10h6V212Z"/><path class="ln-gold" d="M236 212V154h6V144h8V134h12v10h8v10h6V212"/>
+      <path d="M226 258V206M286 258V206M220 206H236M276 206H292M226 220H286M230 230H282M236 230V258M276 230V258"/>
+      <path d="M214 258H298V268H214ZM204 268H308V280H204Z"/><path class="ln-gold ln-faint" d="${rays.join("")}"/></g>
+    <g><path d="M350 280C352 258 350 244 346 230M362 280C360 260 362 246 368 232M346 230C338 220 330 214 320 212M348 234C346 216 344 204 340 192M368 232C372 218 378 212 390 208M364 238C364 220 366 206 370 190M358 222C358 206 358 190 358 176"/>
+      <path class="ln-faint" d="M314 214C302 198 312 176 330 176C330 158 352 152 362 164C378 156 396 172 390 190C402 202 394 220 380 220"/>
+      <g class="ln-gold"><circle cx="320" cy="212" r="3"/><circle cx="340" cy="192" r="3"/><circle cx="390" cy="208" r="3"/><circle cx="370" cy="190" r="3"/><circle cx="358" cy="176" r="3"/></g></g>
+    <g><path class="ln-faint" d="M424 216V180a10 10 0 0 1 20 0V216M448 216V156a12 12 0 0 1 24 0V216M476 216V176a10 10 0 0 1 20 0V216"/>
+      <path class="ln-wash" d="M412 280V222H500V280Z"/><path d="M412 280V222h8v-6h8v6h8v-6h8v6h8v-6h8v6h8v-6h8v6h8v-6h8v6h8V280"/>
+      <path class="ln-wash ln-gold" d="M444 280V256a12 12 0 0 1 24 0V280Z"/><path class="ln-gold" d="M444 280V256a12 12 0 0 1 24 0V280M420 280V262a7 7 0 0 1 14 0V280M478 280V262a7 7 0 0 1 14 0V280"/></g>
+    <path class="ln-thread" d="M110 274C180 318 380 322 456 276"/>
+    <path class="ln-mark" d="M26 74h10m-5-5v10M494 92h10m-5-5v10M462 34h8m-4-4v8M60 316h8m-4-4v8"/>
+  </svg>`;
 })();

@@ -35,7 +35,21 @@
 .hz-note b { color: var(--ink); font-weight: 600; }
 
 /* ── The heading: sky, hills, ground ── */
-.hz-hero-sky { padding: 1.4rem var(--hz-gutter) clamp(2.5rem, 7vh, 5rem); background: linear-gradient(to bottom, var(--page), var(--hz-sky-low)); }
+.hz-hero-sky { display: grid; grid-template-columns: minmax(max-content, 1fr) minmax(0, 38rem); column-gap: clamp(1.5rem, 4vw, 4rem); align-items: end; padding: 1.4rem var(--hz-gutter) clamp(2.5rem, 7vh, 5rem); background: linear-gradient(to bottom, var(--page), var(--hz-sky-low)); }
+.hz-trail { grid-column: 1 / -1; }
+/* The line drawing, in the hand of the other study pages: one thin stroke, round caps, a faint wash, gold for what is lit */
+.hz-hero-art { display: block; min-width: 0; color: var(--muted); }
+.hz-hero-art svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.ln-gold { stroke: var(--accent); }
+.ln-faint { opacity: .5; }
+.ln-wash { fill: color-mix(in srgb, var(--ink) 4%, transparent); stroke: none; }
+.ln-wash.ln-gold { fill: color-mix(in srgb, var(--accent) 12%, transparent); stroke: none; }
+.ln-light { fill: color-mix(in srgb, var(--accent) 24%, transparent); stroke: none; }
+.ln-orbit { stroke-width: 1; stroke-dasharray: 2 6; opacity: .22; }
+.ln-orbit-2 { opacity: .14; }
+.ln-halo { stroke-width: 1; opacity: .16; }
+.ln-thread { stroke: var(--accent); stroke-dasharray: 2 5; opacity: .75; }
+.ln-mark { opacity: .5; }
 .hz-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .84rem; color: var(--muted); }
 .hz-trail a { border-bottom: 1px solid transparent; }
 .hz-trail a:hover, .hz-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
@@ -176,6 +190,8 @@
 .hz-under-notes b { color: var(--ink); font-weight: 600; }
 
 @media (max-width: 899px) {
+  .hz-hero-sky { grid-template-columns: minmax(0, 1fr); row-gap: 2rem; }
+  .hz-hero-art { max-width: 30rem; }
   .hz-hero-ground, .hz-stop-sky, .hz-stop-ground, .hz-dig-head, .hz-prompts { grid-template-columns: minmax(0, 1fr); }
   .hz-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hz-asks li { grid-template-columns: minmax(0, 1fr); }

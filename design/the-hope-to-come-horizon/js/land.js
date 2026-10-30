@@ -2,7 +2,7 @@
 // leaves open, the hills are that reading's own view, and the ground is what it asks now. A reading opens below, in one column.
 (() => {
   if (!window.HZ) return;
-  const { h, art, refLink, runs, plain, state, setView, onView, page, sectionHead, blockView, reducedMotion, SCENES, HILLS } = HZ;
+  const { h, art, refLink, runs, plain, state, setView, onView, page, sectionHead, blockView, reducedMotion, SCENES, HILLS, LINE_ART } = HZ;
   const { study, passages, numbers } = HP;
   const QUESTIONS = [
     ["up", "Look up", "What is promised", "promised"],
@@ -18,8 +18,10 @@
   const hero = h("header", { class: "hz-hero", id: "top" },
     h("div", { class: "hz-hero-sky" },
       h("nav", { class: "hz-trail", "aria-label": "Study trail" }, h("a", { href: "/study" }, "Study"), h("span", { "aria-hidden": "true" }, "/"), h("a", { href: "/study/theology?area=doctrine" }, "God & Christian Faith"), h("span", { "aria-hidden": "true" }, "/"), h("span", { class: "hz-here", "aria-current": "page" }, study.title)),
-      h("p", { class: "hz-concepts" }, plain(study.concepts)),
-      h("h1", {}, "The hope", h("em", {}, "to come"))),
+      h("div", { class: "hz-hero-title" },
+        h("p", { class: "hz-concepts" }, plain(study.concepts)),
+        h("h1", {}, "The hope", h("em", {}, "to come"))),
+      art(LINE_ART, "hz-hero-art")),
     h("div", { class: "hz-hero-far" }, art(HILLS, "hz-hills"), h("p", { class: "hz-motto" }, motto[0], h("span", {}, motto[1]))),
     h("div", { class: "hz-hero-ground" },
       h("p", { class: "hz-lede" }, runs(study.lead)),

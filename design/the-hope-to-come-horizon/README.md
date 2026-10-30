@@ -21,7 +21,7 @@ paragraphs side by side, all in small type. The closing section was the part tha
 
 ## Each section's form, and why
 
-- **Heading.** Sky with the very large title, hills with the motto, ground with the lead and the opening verse: the same
+- **Heading.** Sky with the very large title and, to its right, a line drawing in the hand of the Faith in daily life page: the motto left to right, a tomb with its stone rolled away, a throne with no figure on it, a tree with its fruit, a city with its gates open, and a gold thread from tomb to city. Unlike that page it does not move, because this page's brief rules out decorative motion. Then hills with the motto, ground with the lead and the opening verse: the same
   three bands as the close, so the page opens and ends on one land.
 - **01 Six readings ([land.js](js/land.js), [scenes.js](js/scenes.js)).** One reading at a time and large, chosen from a
   rail of six stops. Each stands on the same far hills with its own drawn view: the graves of the people they buried, grain
