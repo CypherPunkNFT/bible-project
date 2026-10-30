@@ -64,14 +64,17 @@
 
   // ── The six stops along the horizon ──
   const stops = new Map();
+  const ROMAN = ["I", "II", "III", "IV", "V", "VI"];
+  const romanOf = (reading) => ROMAN[Number(reading.n) - 1];
   const question = (label, runList, kind) => h("div", { class: `hz-q hz-q-${kind}` }, h("span", { class: "hz-q-label" }, label), h("p", {}, runs(runList)));
   const stageStops = study.readings.map((reading) => {
     const parts = reading.read.map((id) => passages[id].label);
     const open = h("a", { class: "hz-open", href: `?reading=${reading.slug}`, "data-reading": reading.slug, "aria-expanded": "false", "aria-controls": "hz-reading" }, h("span", { class: "hz-open-text" }, "Open the reading"), h("span", { "aria-hidden": "true" }, " ↓"));
     const stop = h("article", { class: "hz-stop", "data-at": reading.slug },
+      h("div", { class: "hz-roman", "aria-hidden": "true" }, romanOf(reading)),
       h("div", { class: "hz-stop-sky" },
         h("header", {},
-          h("p", { class: "hz-kind" }, "Reading ", h("b", {}, `${reading.n} / ${String(study.readings.length).padStart(2, "0")}`)),
+          h("p", { class: "hz-kind" }, "Reading ", h("b", {}, romanOf(reading))),
           h("h3", {}, titleOf(reading))),
         h("div", { class: "hz-stop-questions" }, question(PROMISED, reading.promised, "sky"), question(LEFT_OPEN, reading.open, "haze"))),
       art(SCENES[reading.slug], "hz-view"),
@@ -85,11 +88,22 @@
     return stop;
   });
   const railButtons = new Map(study.readings.map((reading) => [reading.slug,
-    h("button", { type: "button", class: "hz-rail-stop", "aria-pressed": "false", onclick: () => moveTo(reading.slug) }, h("span", { class: "hz-rail-n" }, reading.n), h("span", { class: "hz-rail-name" }, titleParts(reading)[0]))]));
+    h("button", { type: "button", class: "hz-rail-stop", "aria-pressed": "false", onclick: () => moveTo(reading.slug) }, h("span", { class: "hz-rail-n" }, romanOf(reading)), h("span", { class: "hz-rail-name" }, titleParts(reading)[0]))]));
   const rail = h("nav", { class: "hz-rail", "aria-label": "The six readings" }, [...railButtons.values()]);
   const panel = h("section", { class: "hz-dig", id: "hz-reading", hidden: true });
   const currentStop = () => state.reading ?? state.at ?? study.readings[0].slug;
-  function moveTo(slug) { setView({ at: slug, reading: state.reading ? slug : null }); }
+  // The arrows at each end of the bar, which stays in sight while a reading is scrolled.
+  const slugs = study.readings.map((reading) => reading.slug);
+  const stepBy = (step) => moveTo(slugs[slugs.indexOf(currentStop()) + step]);
+  const previousStep = h("button", { type: "button", class: "hz-slide-arrow", onclick: () => stepBy(-1) }, h("span", { "aria-hidden": "true" }, "←"));
+  const nextStep = h("button", { type: "button", class: "hz-slide-arrow", onclick: () => stepBy(1) }, h("span", { "aria-hidden": "true" }, "→"));
+  const railBar = h("div", { class: "hz-rail-bar" }, previousStep, rail, nextStep);
+  // After a move from further down a reading, the new reading starts at its top, just under the bar.
+  function moveTo(slug) {
+    setView({ at: slug, reading: state.reading ? slug : null });
+    const gap = document.querySelector(".hz-stage").getBoundingClientRect().top - railBar.getBoundingClientRect().bottom;
+    if (gap < 0) scrollBy(0, gap);
+  }
 
   // ── One question asked of all six ──
   const askButtons = QUESTIONS.map(([key, verb, words]) => h("button", { type: "button", class: "hz-ask", "aria-pressed": "false", "data-look": key, onclick: () => setView({ look: key }) }, h("b", {}, verb), h("span", {}, words)));
@@ -102,7 +116,7 @@
     const current = QUESTIONS.find(([key]) => key === (state.look ?? "up"));
     askBand.dataset.look = current[0];
     askButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.look === current[0])));
-    askList.replaceChildren(...study.readings.map((reading) => h("li", {}, h("span", { class: "hz-asks-who" }, h("b", {}, reading.n), titleParts(reading)[0]), h("p", {}, runs(reading[current[3]])))));
+    askList.replaceChildren(...study.readings.map((reading) => h("li", {}, h("span", { class: "hz-asks-who" }, h("b", {}, romanOf(reading)), titleParts(reading)[0]), h("p", {}, runs(reading[current[3]])))));
   }
 
   // The sun rising behind the section's opening words, drawn like the one behind the city in the heading.
@@ -129,8 +143,7 @@
         h("span", { class: "hz-num", "aria-hidden": "true" }, "01"),
         h("h2", {}, "A bright and shining hope.", " ", h("em", {}, "The promise of an eternal King.")),
         h("p", {}, "The King is coming back. The grave will give up its dead. Everything wrong will be put right, and God will live with His people. Six passages, taken one at a time, show what that hope is and what it asks of you today."))),
-    rail,
-    h("div", { class: "hz-stage" }, stageStops),
+    h("div", { class: "hz-slider" }, railBar, h("div", { class: "hz-stage" }, stageStops)),
     panel,
     askBand,
     h("div", { class: "hz-under" },
@@ -164,7 +177,7 @@
     panel.replaceChildren(
       h("header", { class: "hz-dig-head" },
         h("div", {},
-          h("p", { class: "hz-kind" }, "Reading ", h("b", {}, reading.n)),
+          h("p", { class: "hz-kind" }, "Reading ", h("b", {}, romanOf(reading))),
           h("h3", { tabindex: "-1", id: "hz-reading-title" }, titleOf(reading))),
         h("div", { class: "hz-dig-begin" },
           h("p", {}, h("span", {}, "Begin with the passage: "), reading.read.flatMap((id, i) => [i ? " · " : null, refLink(id, passages[id].label)])),
@@ -180,10 +193,15 @@
   }
   let drawnReading = null;
   function syncStage() {
-    const at = currentStop();
+    const at = currentStop(), place = slugs.indexOf(at);
+    previousStep.disabled = place === 0;
+    nextStep.disabled = place === slugs.length - 1;
+    previousStep.setAttribute("aria-label", place ? `Previous reading: ${study.readings[place - 1].title}` : "Previous reading");
+    nextStep.setAttribute("aria-label", place < slugs.length - 1 ? `Next reading: ${study.readings[place + 1].title}` : "Next reading");
     for (const [slug, { stop, open }] of stops) {
       const here = slug === at, reading = slug === state.reading;
       stop.classList.toggle("is-here", here);
+      stop.style.setProperty("--slide", slugs.indexOf(slug) - place);
       railButtons.get(slug).setAttribute("aria-pressed", String(here));
       open.setAttribute("aria-expanded", String(reading));
       open.querySelector(".hz-open-text").textContent = reading ? "Reading now · close" : "Open the reading";
@@ -216,6 +234,16 @@
     event.preventDefault();
     setReading(state.reading === link.dataset.reading ? null : link.dataset.reading, true);
   });
+  // A sideways swipe on a phone moves between readings; an up-and-down one still scrolls the page.
+  let swipeFrom = null;
+  const stage = document.querySelector(".hz-stage");
+  stage.addEventListener("touchstart", ({ touches }) => { swipeFrom = touches.length === 1 ? touches[0] : null; }, { passive: true });
+  stage.addEventListener("touchend", ({ changedTouches: [end] }) => {
+    if (!swipeFrom) return;
+    const across = end.clientX - swipeFrom.clientX, down = end.clientY - swipeFrom.clientY, place = slugs.indexOf(currentStop()) + (across < 0 ? 1 : -1);
+    swipeFrom = null;
+    if (Math.abs(across) > 60 && Math.abs(across) > Math.abs(down) * 1.5 && slugs[place]) moveTo(slugs[place]);
+  }, { passive: true });
   addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !state.sheet && state.reading && panel.contains(document.activeElement)) { event.preventDefault(); setReading(null, true); }
   });

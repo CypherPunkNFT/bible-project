@@ -4,7 +4,7 @@
 (() => {
   if (!window.HZ) return;
   const { h, refLink, state, setView, onView, page, sectionHead } = HZ;
-  const { passages, therefore, noCall, bookends, numbers } = HP;
+  const { passages, therefore, bookends, numbers } = HP;
 
   // ── 02 The promise, then the therefore ──
   const saysTherefore = (row) => row.link.toLowerCase() === "therefore";
@@ -52,21 +52,12 @@
         h("div", { class: "hz-bow-call", style: `grid-row:${i + 1}` }, litVerse(verses.call, row.callText, row.link, row.id), refLink(row.call, row.callLabel, "hz-row-ref")));
     })));
   }
-  // The two passages the page names as having no call: the thread stops, and nothing comes out the other side.
-  const stubs = h("div", { class: "hz-bow hz-bow-stops" }, h("ol", {}, noCall.map((item, i) => h("li", {},
-    h("div", { class: "hz-bow-promise", style: `grid-row:${i + 1}` }, refLink(item.r, item.label, "hz-row-ref")),
-    h("div", { class: "hz-bow-stop", style: `grid-row:${i + 1}`, "aria-hidden": "true" }),
-    h("div", { class: "hz-bow-call", style: `grid-row:${i + 1}` }, h("span", { class: "hz-phrase" }, item.why))))));
   page.append(h("section", { class: "hz-sec", id: "therefore" },
     sectionHead("02", "The promise.", "Then the therefore.", "Does hope about the end make people passive? Read what comes straight after the promise. The joining word in the middle is in the verse."),
     h("p", { class: "hz-reads" }, `Here are ${numbers.rows} places where a promise about the end is tied to something to do now, and ${numbers.saysTherefore} of them use the word therefore.`),
     h("p", { class: "hz-bow-key" }, h("span", {}, "The promise"), h("span", {}, "The word that joins them"), h("span", {}, "The call")),
     rowsOf(therefore.filter(saysTherefore)),
-    rowsOf(therefore.filter((row) => !saysTherefore(row))),
-    stubs,
-    h("p", { class: "hz-note" }, `These ${numbers.rows} were chosen because they show the pattern, so they cannot prove it is everywhere. It is not: `,
-      noCall.flatMap((item, i) => [i ? "; " : null, refLink(item.r, item.label), `, ${item.why}`]),
-      ". In some rows the joining word is the verse's own therefore; in others it is a smaller word, and a reader may weigh those less. Where a row runs from one verse to the next, the verse division is the translators', not the author's.")));
+    rowsOf(therefore.filter((row) => !saysTherefore(row)))));
 
   // ── 03 What was lost, what Revelation answers ──
   const kindLabel = (row) => (row.kind === "shares" ? `Both verses say: ${row.word}` : "This study's matching, and nothing more");

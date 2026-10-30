@@ -170,12 +170,6 @@
 .hz-bow-link b { display: block; font: italic 400 clamp(1.2rem, 1.7vw, 1.5rem)/1.15 var(--serif); color: var(--accent); white-space: nowrap; }
 .hz-bow-link small { display: block; margin-top: .25rem; font-size: .74rem; color: var(--muted); white-space: nowrap; }
 /* No call: the thread stops at an open ring */
-.hz-bow-stops .hz-bow-promise { font-size: 1rem; }
-.hz-bow-stops .hz-bow-call { font-style: italic; }
-.hz-bow-stops .hz-bow-call::before { display: none; }
-.hz-bow-stop { grid-column: 2; position: relative; }
-.hz-bow-stop::before { content: ""; position: absolute; left: 0; width: 50%; top: 50%; border-top: 1.4px dashed var(--muted); }
-.hz-bow-stop::after { content: ""; position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; border: 1.4px solid var(--muted); border-radius: 50%; background: var(--page); }
 @media (max-width: 899px) {
   .hz-bow-key { display: none; }
   .hz-bow { display: block; padding-left: 1.1rem; border-left: 1.5px solid var(--accent); }
@@ -188,6 +182,4 @@
   .hz-bow-link::before, .hz-bow-link::after { display: none; }
   .hz-bow-link p { text-align: left; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 .6rem; }
   .hz-bow-link small { margin-top: 0; }
-  .hz-bow-stops { border-left-style: dashed; border-left-color: var(--muted); }
-  .hz-bow-stop { display: none; }
 }
