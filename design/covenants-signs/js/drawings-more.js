@@ -18,8 +18,8 @@
     return `<path class="cl-gold" d="${strong}"/><path class="cl-gold cl-ray" d="${fine}"/>`;
   }
 
-  // 2. Count the stars: the sky wheels over Abram's tents, and the fire passes between the pieces.
-  function stars() {
+  // The wheeling sky of Count the stars, shared with the versions in drawings-stars.js.
+  function starSky() {
     const random = seeded(5003), cx = 380, cy = 236;
     let trails = "", gold = "", dots = "";
     for (let i = 0; i < 210; i++) {
@@ -28,14 +28,19 @@
       if (i % 6 === 0) gold += part; else trails += part;
     }
     for (let i = 0; i < 150; i++) dots += `<circle cx="${fixed(random() * 780 - 10)}" cy="${fixed(random() * 470)}" r="${fixed(0.5 + random())}"/>`;
+    return `<defs><clipPath id="cl-above"><rect width="760" height="470"/></clipPath></defs>
+      <g clip-path="url(#cl-above)"><path class="cl-trail" d="${trails}"/><path class="cl-gold cl-trail-gold" d="${gold}"/><g class="cl-stars">${dots}</g></g>
+      <g class="cl-gold cl-star">${star(cx, cy, 24)}${star(196, 120, 14)}${star(586, 92, 17)}${star(650, 300, 11)}${star(108, 330, 11)}${star(470, 372, 9)}${star(286, 330, 8)}</g>`;
+  }
+
+  // 2. Count the stars: the sky wheels over Abram's tents, and the fire passes between the pieces.
+  function stars() {
     const tent = (x, y, s) => `<path class="cl-cover" d="M${x - 40 * s} ${y}L${x} ${y - 34 * s}L${x + 40 * s} ${y}Z"/><path d="M${x - 40 * s} ${y}L${x} ${y - 34 * s}L${x + 40 * s} ${y}ZM${x} ${y - 34 * s}V${y}M${x - 8 * s} ${y}L${x} ${y - 20 * s}L${x + 8 * s} ${y}"/>`;
     const pieces = [[530, 16], [556, 24], [586, 34]].map(([y, half]) => [-1, 1].map((side) => {
       const x = 590 + side * (half + 18), tall = half * 0.5;
       return `<path d="M${x - half} ${y}q${half} -${fixed(tall * 1.6)} ${half * 2} 0q-${half} ${fixed(tall * 1.3)} -${half * 2} 0Z"/>`;
     }).join("")).join("");
-    return svg(`<defs><clipPath id="cl-above"><rect width="760" height="470"/></clipPath></defs>
-      <g clip-path="url(#cl-above)"><path class="cl-trail" d="${trails}"/><path class="cl-gold cl-trail-gold" d="${gold}"/><g class="cl-stars">${dots}</g></g>
-      <g class="cl-gold cl-star">${star(cx, cy, 24)}${star(196, 120, 14)}${star(586, 92, 17)}${star(650, 300, 11)}${star(108, 330, 11)}${star(470, 372, 9)}${star(286, 330, 8)}</g>
+    return svg(`${starSky()}
       <path class="cl-cover" d="M-40 470C120 444 260 462 380 474S640 456 800 470V640H-40Z"/>
       <path d="M-40 470C120 444 260 462 380 474S640 456 800 470"/>
       <path class="cl-line-soft" d="M-40 512C100 494 240 510 360 522M-40 566C90 552 200 562 300 576M620 500c60-8 120-6 180 4"/>
@@ -123,4 +128,5 @@
   }
 
   list.push(stars(), mountain(), cup());
+  CovDrawings.starSky = starSky;
 })();

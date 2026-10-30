@@ -47,6 +47,16 @@
 .cl-fruit { fill: var(--accent); stroke: none; }
 .cl-trunk { stroke: var(--ink); opacity: .72; }
 .cl-leaf { stroke-width: .7; opacity: .7; }
+.cl-oak { stroke: var(--ink); opacity: .72; }
+.cl-sand { fill: var(--ink); stroke: none; opacity: .5; }
+.cl-steps { opacity: .4; }
+
+/* The floating version pill */
+.cl-pill { position: fixed; z-index: 50; left: 50%; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); display: flex; gap: .15rem; padding: .25rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); box-shadow: 0 10px 28px -14px #000; }
+.cv-page .cl-pill button { width: 2.6rem; height: 2.6rem; border-radius: 50%; text-align: center; font-size: .92rem; font-weight: 600; color: var(--muted); outline: none; transition: background .15s, color .15s; }
+.cv-page .cl-pill button:hover, .cv-page .cl-pill button:focus-visible { background: var(--surface-2); color: var(--ink); }
+.cv-page .cl-pill button[aria-pressed="true"] { background: var(--ink); color: var(--page); }
+
 @keyframes cl-twinkle { 0%, 100% { opacity: .2; } 50% { opacity: .95; } }
 
 @media (max-width: 860px) {
