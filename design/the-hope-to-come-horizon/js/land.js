@@ -41,6 +41,27 @@
         h("p", { class: "hz-motto" }, motto[0], h("span", {}, motto[1])))),
     marquee());
 
+  // The lead fills the land from just under the hill's edge to just above the marquee: the largest size that fits, then its lines spaced to fill the rest.
+  const lede = hero.querySelector(".hz-lede"), lay = lede.parentElement;
+  function spreadLede() {
+    lede.style.fontSize = lede.style.lineHeight = "";
+    if (getComputedStyle(lay).flexDirection === "column") return;
+    lede.style.fontSize = "15px";
+    lede.style.lineHeight = "1.2";
+    const style = getComputedStyle(lede), room = lay.clientHeight - parseFloat(getComputedStyle(lay).paddingTop) - parseFloat(style.marginTop) - parseFloat(style.marginBottom);
+    let size = 21.6;
+    for (; size > 15; size -= .4) {
+      lede.style.fontSize = `${size}px`;
+      lede.style.lineHeight = `${size * 1.6}px`;
+      if (lede.offsetHeight <= room) break;
+    }
+    const lines = Math.round(lede.offsetHeight / (size * 1.6));
+    lede.style.lineHeight = `${Math.min(room / lines, size * 2.3)}px`;
+  }
+  requestAnimationFrame(spreadLede);
+  document.fonts?.ready.then(spreadLede);
+  addEventListener("resize", spreadLede);
+
   // ── The six stops along the horizon ──
   const stops = new Map();
   const question = (label, runList, kind) => h("div", { class: `hz-q hz-q-${kind}` }, h("span", { class: "hz-q-label" }, label), h("p", {}, runs(runList)));
@@ -84,14 +105,15 @@
     askList.replaceChildren(...study.readings.map((reading) => h("li", {}, h("span", { class: "hz-asks-who" }, h("b", {}, reading.n), titleParts(reading)[0]), h("p", {}, runs(reading[current[3]])))));
   }
 
-  // Light rising behind the section's opening words.
-  const RISING_RAYS = (() => {
-    const rays = [];
-    for (let i = 0; i <= 72; i += 1) {
-      const angle = Math.PI + (Math.PI * i) / 72, reach = i % 6 === 0 ? 1000 : i % 3 === 0 ? 760 : i % 2 === 0 ? 560 : 420;
-      rays.push(`M${(800 + Math.cos(angle) * 150).toFixed(1)} ${(600 + Math.sin(angle) * 150).toFixed(1)}L${(800 + Math.cos(angle) * reach).toFixed(1)} ${(600 + Math.sin(angle) * reach).toFixed(1)}`);
+  // The sun rising behind the section's opening words, drawn like the one behind the city in the heading.
+  const RISING_SUN = (() => {
+    const [cx, cy] = [800, 600], rays = [[], []], circle = (name, r) => `<circle class="${name}" cx="${cx}" cy="${cy}" r="${r}"/>`;
+    for (let i = 0; i < 96; i += 1) {
+      const angle = (i * Math.PI * 2) / 96, cos = Math.cos(angle), sin = Math.sin(angle);
+      const edge = 1 / Math.hypot(cos / 780, sin / 470), reach = Math.min(edge, i % 8 === 0 ? 900 : i % 4 === 0 ? 700 : i % 2 === 0 ? 420 : 270);
+      rays[i % 4 === 0 ? 0 : 1].push(`M${(cx + cos * 131).toFixed(1)} ${(cy + sin * 131).toFixed(1)}L${(cx + cos * reach).toFixed(1)} ${(cy + sin * reach).toFixed(1)}`);
     }
-    return `<svg viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path d="${rays.join("")}"/></svg>`;
+    return `<svg viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path class="ln-gold hz-rise-long" d="${rays[0].join("")}"/><path class="ln-gold hz-rise-fine" d="${rays[1].join("")}"/>${circle("ln-sun", 110)}${circle("ln-gold", 110)}${circle("ln-gold ln-faint", 122)}${circle("ln-ring", 175)}${circle("ln-ring", 244)}${circle("ln-ring", 315)}</svg>`;
   })();
   const figures = [
     ["Readings", numbers.readings, "each opens where it sits, and each starts with its passage"],
@@ -102,7 +124,7 @@
   ];
   page.append(hero, h("section", { class: "hz-readings", id: "readings" },
     h("header", { class: "hz-rise" },
-      art(RISING_RAYS, "hz-rise-rays"),
+      art(RISING_SUN, "hz-rise-rays"),
       h("div", { class: "hz-rise-words" },
         h("span", { class: "hz-num", "aria-hidden": "true" }, "01"),
         h("h2", {}, "A bright and shining hope.", " ", h("em", {}, "The promise of an eternal King.")),

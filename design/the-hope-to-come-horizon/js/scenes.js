@@ -44,13 +44,14 @@
       const tall = 18 + random() * 32, base = 300, wide = tall * .3;
       crowd.push(`<circle cx="${x.toFixed(1)}" cy="${(base - tall - wide * .62).toFixed(1)}" r="${(wide * .62).toFixed(1)}"/><path d="M${(x - wide / 2).toFixed(1)} ${base}V${(base - tall + wide / 2).toFixed(1)}a${(wide / 2).toFixed(1)} ${(wide / 2).toFixed(1)} 0 0 1 ${wide.toFixed(1)} 0V${base}z"/>`);
     }
-    const book = (x, y) => `<path class="sc-gold" d="M${x - 46} ${y}Q${x - 22} ${y - 10} ${x} ${y}Q${x + 22} ${y - 10} ${x + 46} ${y}V${y + 8}Q${x + 22} ${y - 2} ${x} ${y + 8}Q${x - 22} ${y - 2} ${x - 46} ${y + 8}Z"/>`;
+    const book = (x, y) => `<path class="sc-gold" d="M${x - 34} ${y}Q${x - 17} ${y - 10} ${x} ${y}Q${x + 17} ${y - 10} ${x + 34} ${y}V${y + 8}Q${x + 17} ${y - 2} ${x} ${y + 8}Q${x - 17} ${y - 2} ${x - 34} ${y + 8}Z"/>`;
     const rays = [];
     for (let i = 0; i <= 40; i += 1) {
-      const angle = Math.PI + (Math.PI * i) / 40, reach = i % 2 ? 300 : 430;
+      // The rays end on a shallow curve, and the longest rise a little past the top of the view.
+      const angle = Math.PI + (Math.PI * i) / 40, edge = 1 / Math.hypot(Math.cos(angle) / 560, Math.sin(angle) / 250), reach = i % 2 ? edge * .72 : edge;
       rays.push(`M${(800 + Math.cos(angle) * 96).toFixed(1)} ${(190 + Math.sin(angle) * 96).toFixed(1)}L${(800 + Math.cos(angle) * reach).toFixed(1)} ${(190 + Math.sin(angle) * reach).toFixed(1)}`);
     }
-    const seat = `<path class="sc-rays" d="${rays.join("")}"/><g class="sc-white" transform="translate(800 216) scale(.82) translate(-800 -216)"><path d="M756 170V32H768V14H784V-2H816V14H832V32H844V170Z"/><rect x="726" y="140" width="18" height="76"/><rect x="718" y="130" width="38" height="10"/><rect x="856" y="140" width="18" height="76"/><rect x="844" y="130" width="38" height="10"/><rect x="744" y="170" width="112" height="16"/><rect x="752" y="186" width="96" height="30"/></g>`;
+    const seat = `<path class="sc-rays" d="${rays.join("")}"/><g class="sc-white" transform="translate(800 216) scale(.82) translate(-800 -216)"><path d="M756 170V54H768V36H784V20H816V36H832V54H844V170Z"/><rect x="726" y="140" width="18" height="76"/><rect x="718" y="130" width="38" height="10"/><rect x="856" y="140" width="18" height="76"/><rect x="844" y="130" width="38" height="10"/><rect x="744" y="170" width="112" height="16"/><rect x="752" y="186" width="96" height="30"/></g>`;
     const steps = `<g class="sc-near-strong"><rect x="680" y="216" width="240" height="22"/><rect x="630" y="238" width="340" height="26"/><rect x="570" y="264" width="460" height="36"/></g>`;
     return svg(`${seat}${hill(286)}${steps}${book(690, 256)}${book(910, 256)}<g class="sc-near-strong">${crowd.join("")}</g>`);
   }

@@ -74,9 +74,9 @@
 .hz-hills { position: absolute; inset: 0 0 auto; height: var(--hz-far-height); z-index: 2; }
 .hz-hills svg { display: block; width: 100%; height: 100%; }
 .hz-hills .sc-near { fill: var(--hz-hill-near); }
-/* The lead sits halfway between the hill's edge, where the road meets it, and the marquee. */
+/* The lead runs from just under the hill's edge to just above the marquee; land.js sets its size and line spacing. */
 .hz-hero-lay { position: relative; z-index: 3; flex: 1; display: flex; justify-content: space-between; align-items: center; gap: 1rem 4rem; padding: var(--hz-hero-crest) var(--hz-gutter) 0; }
-.hz-hero-lay .hz-lede { margin-block: 1.1rem; }
+.hz-hero-lay .hz-lede { max-width: 58ch; margin-block: 1.1rem; }
 .hz-hero-lay .hz-motto { flex: none; align-self: flex-end; margin: 0 0 1.1rem; text-align: right; color: var(--ink); }
 .hz-hero-lay .hz-motto span { color: inherit; }
 /* The filled band that ends the first screen. It stops for anyone who asks for less motion. */
@@ -120,7 +120,7 @@
 .hz-stage { display: grid; background: linear-gradient(to bottom, var(--page), var(--hz-sky-low) 55%); }
 .hz-stop { grid-area: 1 / 1; display: grid; grid-template-rows: 1fr auto auto; min-width: 0; opacity: 0; visibility: hidden; transition: opacity .35s, visibility 0s .35s; }
 .hz-stop.is-here { opacity: 1; visibility: visible; transition: opacity .35s; }
-.hz-stop-sky { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 2rem 5rem; align-items: start; padding: clamp(2rem, 4vw, 3.5rem) var(--hz-gutter) clamp(1.5rem, 3vw, 2.5rem); }
+.hz-stop-sky { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 2rem 5rem; align-items: start; padding: clamp(2rem, 4vw, 3.5rem) var(--hz-gutter) clamp(1.5rem, 3vw, 2.5rem); }
 .hz-stop h3 { margin-top: .9rem; font: 500 clamp(2.1rem, 4.2vw, 3.6rem)/1.06 var(--serif); letter-spacing: -.03em; }
 .hz-stop h3 em, .hz-dig-head h3 em { display: block; color: var(--accent); font-weight: 400; }
 .hz-q-label { display: block; margin-bottom: .55rem; font: 600 .72rem/1.3 var(--sans); letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
@@ -131,6 +131,9 @@
 .hz-q-ground p { font: 500 clamp(1.25rem, 1.9vw, 1.65rem)/1.38 var(--serif); }
 .hz-view { display: block; height: clamp(10rem, 19vw, 23rem); border-bottom: 2px solid var(--accent); }
 .hz-view svg { display: block; width: 100%; height: 100%; }
+/* The rays behind the throne may rise past the view, into the words above it. */
+.hz-stop[data-at="judgment"] .hz-view { overflow-x: clip; overflow-y: visible; }
+.hz-stop[data-at="judgment"] .hz-view svg { overflow: visible; pointer-events: none; }
 .sc-far { fill: var(--hz-hill-far); }
 .sc-mid { fill: var(--hz-hill-mid); }
 .sc-near { fill: var(--hz-ground); }
@@ -154,13 +157,16 @@
 @keyframes hz-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .hz-stop.is-here .sc-spin { animation: none; } }
 /* Section 01's opening: the words stand in light rising from the line of readings below them. */
-.hz-rise { position: relative; overflow: hidden; display: grid; justify-items: center; padding: clamp(4.5rem, 10vw, 8rem) var(--hz-gutter) clamp(4rem, 8vw, 6.5rem); text-align: center; background: radial-gradient(70% 90% at 50% 100%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 75%); }
+.hz-rise { position: relative; overflow: hidden; display: grid; justify-items: center; padding: clamp(4.5rem, 10vw, 8rem) var(--hz-gutter) clamp(5rem, 9vw, 8.5rem); text-align: center; background: radial-gradient(70% 90% at 50% 100%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 75%); }
 .hz-rise-rays { position: absolute; inset: 0; }
-.hz-rise-rays svg { display: block; width: 100%; height: 100%; fill: none; stroke: var(--accent); stroke-width: 1; opacity: .22; }
-.hz-rise-words { position: relative; display: grid; justify-items: center; gap: 1.1rem; max-width: 62rem; }
-.hz-rise h2 { margin: 0; font: 500 clamp(2.5rem, 6.2vw, 5.6rem)/1.03 var(--serif); letter-spacing: -.035em; }
+.hz-rise-rays svg { display: block; width: 100%; height: 100%; fill: none; stroke-width: 1.2; }
+.hz-rise-long { opacity: .5; }
+.hz-rise-fine { stroke-width: .8; opacity: .3; }
+.hz-rise-words { position: relative; display: grid; justify-items: center; gap: 1.1rem; }
+.hz-rise h2 { margin: 0; font: 500 min(5.6rem, 6.4vw)/1.03 var(--serif); letter-spacing: -.035em; white-space: nowrap; }
 .hz-rise h2 em { display: block; margin-top: .12em; font-size: .72em; font-weight: 400; color: var(--accent); }
-.hz-rise p { max-width: 58ch; margin: .4rem 0 0; font: 400 clamp(1.08rem, 1.5vw, 1.3rem)/1.55 var(--serif); }
+.hz-rise p { max-width: 78ch; margin: .4rem 0 0; font: 400 clamp(1.08rem, 1.5vw, 1.3rem)/1.55 var(--serif); text-wrap: balance; }
+@media (max-width: 700px) { .hz-rise h2 { font-size: 2.5rem; white-space: normal; } }
 /* The floating A, B, C, D pill on the reading 04 comparison */
 .hz-pill { position: fixed; z-index: 50; left: 50%; bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); display: flex; gap: .25rem; padding: .35rem; border-radius: 999px; background: var(--ink); box-shadow: 0 .5rem 1.8rem rgb(0 0 0 / .35); }
 .hz-pill button { width: 2.75rem; height: 2.75rem; border: 0; border-radius: 50%; background: none; color: var(--page); font: 600 1rem/1 var(--sans); cursor: pointer; }
