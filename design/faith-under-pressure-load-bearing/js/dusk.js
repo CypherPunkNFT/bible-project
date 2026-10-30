@@ -120,5 +120,11 @@ window.Dusk = (() => {
       <path class="art-ground" d="M-30 ${GROUND}H670"/>${footings()}`;
     return svg;
   }
-  return { draw };
+  // The layers of ground under the wall, as wide as the page. The ground line above them stays level: this is a cut, not a view.
+  function strata() {
+    const svg = s("svg", { viewBox: "0 0 1600 300", preserveAspectRatio: "none", class: "head-strata", "aria-hidden": "true" });
+    svg.innerHTML = `<path class="st-3" d="M0 0H1600V258C1280 276 1000 222 760 244S240 268 0 236Z"/><path class="st-2" d="M0 0H1600V170C1300 210 1060 130 780 158S260 186 0 150Z"/><path class="st-1" d="M0 0H1600V78C1320 112 1100 58 800 72S280 108 0 66Z"/>`;
+    return svg;
+  }
+  return { draw, strata };
 })();

@@ -22,17 +22,24 @@
 
   // ── Heading ──
   const motto = plain(study.motto).split(" / ");
+  // The six calls, one to a reading, in the verses' own words; the band says each once and stays still.
+  const CALLS = ["he should ask God", "flee from idolatry", "present your requests to God", "respond with gentleness and respect", "encourage one another", "learned to be content"];
+  const marked = strips.flatMap((strip) => strip.cells).flatMap((cell) => cell.segs).filter((seg) => seg.k.includes("C")).map((seg) => seg.t).join(" | ");
+  for (const call of CALLS) if (!marked.includes(call)) console.error(`Faith under pressure: the call "${call}" is not among the marked phrases`);
   const head = h("section", { class: "head", id: "top" },
-    h("div", { class: "head-sky" }, h("div", { class: "wrap head-grid" }, h("div", { class: "head-title" },
+    h("div", { class: "head-sky" },
       h("nav", { class: "trail", "aria-label": "Study trail" }, h("a", { href: "/study" }, "Study"), h("span", { "aria-hidden": "true" }, "/"), h("a", { href: "/study/theology?area=life" }, "Living the Christian Life"), h("span", { "aria-hidden": "true" }, "/"), h("span", { class: "here", "aria-current": "page" }, study.title)),
-      h("p", { class: "concepts" }, plain(study.concepts)),
-      h("h1", {}, "Faith", h("em", {}, "under pressure"))),
-      h("div", { class: "head-art" }, Dusk.draw()))),
-    h("div", { class: "head-earth" }, h("div", { class: "wrap head-ground" },
-      h("div", {},
-        h("p", { class: "lede" }, runs(study.lead)),
+      h("div", { class: "head-title" },
+        h("p", { class: "concepts" }, plain(study.concepts)),
+        h("h1", {}, "Faith", h("em", {}, "under pressure")),
         h("figure", { class: "opening" }, h("blockquote", {}, study.opening.t), h("figcaption", {}, refLink(study.opening.r, study.opening.label), " · Berean Standard Bible"))),
-      h("p", { class: "head-motto" }, motto[0], h("span", {}, motto[1])))));
+      h("div", { class: "head-art" }, Dusk.draw())),
+    h("div", { class: "head-earth" },
+      Dusk.strata(),
+      h("div", { class: "head-lay" },
+        h("p", { class: "lede" }, runs(study.lead)),
+        h("p", { class: "head-motto" }, motto[0], h("span", {}, motto[1]))),
+      h("div", { class: "head-band", "aria-hidden": "true" }, CALLS.map((call) => h("span", {}, call)))));
 
   // ── 01 The six piers ──
   const bays = new Map();

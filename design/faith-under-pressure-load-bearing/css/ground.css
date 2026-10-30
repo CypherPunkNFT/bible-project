@@ -23,26 +23,31 @@ main .wrap { padding-bottom: 0; }
 h2 { font: 500 clamp(1.7rem, 3.2vw, 2.6rem)/1.15 var(--serif); letter-spacing: -.015em; }
 h2 em { color: var(--accent); }
 
-/* Heading: sky and drawing above, earth below. The drawing's ground line is 356 of 440 tall and 640 wide, so the part under it is
-   .13125 of the drawing's width; the earth band rises by that much to meet the line exactly. */
-.head { container-type: inline-size; background: linear-gradient(var(--page), color-mix(in srgb, var(--accent) 13%, var(--page))); }
-.head-sky { position: relative; z-index: 2; --art-w: calc(100cqw - 2rem); }
-.head-earth { position: relative; z-index: 1; --art-w: calc(100cqw - 2rem); margin-top: calc(var(--art-w) * -.13125); border-top: 2px solid var(--accent); background: linear-gradient(var(--earth), var(--earth-deep)); }
-@media (min-width: 640px) { .head-sky, .head-earth { --art-w: calc(100cqw - 3rem); } }
-@media (min-width: 1000px) { .head-sky, .head-earth { --art-w: min(46rem, 56cqw); } }
-.head-grid { display: grid; gap: 1.6rem 2rem; padding-block: 1.4rem 0; }
-@media (min-width: 1000px) { .head-grid { grid-template-columns: minmax(0, 1fr) var(--art-w); align-items: end; } .head-title { align-self: start; padding-bottom: calc(var(--art-w) * .13125 + 1.6rem); } }
+/* Heading: sky and drawing above, layers of earth below, closed by one gold band, filling the first screen. The drawing's ground line
+   is 356 of 440 tall and 640 wide, so the part under it is .13125 of its width; the earth rises by that much to meet the line exactly. */
+.head { container-type: inline-size; display: flex; flex-direction: column; min-height: calc(100svh - var(--header)); background: linear-gradient(var(--page), color-mix(in srgb, var(--accent) 12%, var(--page)) 62%); --st-1: color-mix(in srgb, var(--accent) 24%, var(--page)); --st-2: color-mix(in srgb, #5c4017 26%, var(--page)); --st-3: color-mix(in srgb, #5c4017 16%, var(--page)); --st-4: color-mix(in srgb, #5c4017 8%, var(--page)); }
+:root[data-theme="dark"] .head { --st-1: color-mix(in srgb, var(--accent) 22%, var(--page)); --st-2: color-mix(in srgb, #b08a4e 20%, var(--page)); --st-3: color-mix(in srgb, #b08a4e 11%, var(--page)); --st-4: color-mix(in srgb, #b08a4e 5%, var(--page)); }
+.head-sky, .head-earth { --gutter: max(1.25rem, 5cqw, calc((100cqw - 90rem) / 2)); --art-w: calc(100cqw - 2 * var(--gutter)); }
+@media (min-width: 1000px) { .head-sky, .head-earth { --art-w: min(46rem, 54cqw, max(26rem, (100svh - 370px) * 1.4545)); } }
+.head-sky { position: relative; z-index: 2; display: grid; gap: 1.2rem 2.5rem; padding: 1.4rem var(--gutter) 0; }
+@media (min-width: 1000px) { .head-sky { grid-template-columns: minmax(0, 1fr) var(--art-w); align-items: end; } .head-sky .trail { grid-column: 1 / -1; } .head-title { align-self: start; padding-bottom: calc(var(--art-w) * .13125 + 1.2rem); } }
+.head-earth { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; margin-top: calc(var(--art-w) * -.13125); padding-top: calc(var(--art-w) * .13125); border-top: 2px solid var(--accent); background: var(--st-4); }
+.head-strata { position: absolute; inset: 0 0 auto; width: 100%; height: 100%; max-height: 24rem; }
+.st-1 { fill: var(--st-1); } .st-2 { fill: var(--st-2); } .st-3 { fill: var(--st-3); }
 .trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
 .trail a:hover, .trail a:focus-visible { color: var(--ink); text-decoration: underline; }
 .here { color: var(--ink); }
-.concepts { margin-top: 1.2rem; font-size: .68rem; font-weight: 600; letter-spacing: .18em; line-height: 1.7; text-transform: uppercase; color: var(--accent); }
-h1 { margin-top: .6rem; font: 500 clamp(3.2rem, 7.2vw, 7.4rem)/.98 var(--serif); letter-spacing: -.045em; color: var(--ink); }
-h1 em { display: block; width: min-content; margin-top: .06em; font-weight: 400; letter-spacing: -.035em; color: var(--accent); }
+.concepts { font-size: .7rem; font-weight: 600; letter-spacing: .18em; line-height: 1.7; text-transform: uppercase; color: var(--accent); }
+h1 { margin-top: .6rem; font: 500 clamp(3.2rem, 5.6vw, 6.4rem)/.98 var(--serif); letter-spacing: -.045em; color: var(--ink); }
+h1 em { display: block; margin-top: .04em; font-weight: 400; letter-spacing: -.035em; color: var(--accent); }
+.opening { margin: clamp(1.2rem, 3vh, 2rem) 0 0; max-width: 36rem; }
+.opening blockquote { margin: 0; font: 400 clamp(1.1rem, 1.5vw, 1.3rem)/1.5 var(--serif); color: var(--accent); }
+.opening figcaption { margin-top: .6rem; font-size: .8rem; color: var(--muted); }
 .head-art { min-width: 0; color: var(--muted); }
 .head-svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
 .head-svg .art-stone { fill: color-mix(in srgb, var(--muted) 7%, transparent); }
 .head-svg .art-gold { stroke: var(--accent); fill: color-mix(in srgb, var(--accent) 20%, transparent); }
-.head-svg .art-under { opacity: .55; }
+.head-svg .art-under { opacity: .7; }
 .head-svg .art-niche { fill: var(--niche); stroke: var(--accent); }
 .head-svg .art-ray { stroke: var(--accent); stroke-width: .7; opacity: .55; }
 .head-svg .art-press { stroke: var(--p-fill); }
@@ -53,14 +58,17 @@ h1 em { display: block; width: min-content; margin-top: .06em; font-weight: 400;
 .head-svg .art-faint { opacity: .5; }
 .head-svg .art-limbs path { stroke: var(--ink); opacity: .75; }
 .head-svg .art-ground { stroke: var(--accent); stroke-width: 1.4; }
-.head-ground { display: grid; gap: 1.2rem 4rem; padding-block: calc(var(--art-w) * .13125 + 1.4rem) 2.6rem; }
-@media (min-width: 1000px) { .head-ground { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); padding-block: 2.2rem 2.6rem; } .head-motto { padding-top: calc(var(--art-w) * .13125 - 1rem); text-align: right; } }
-.lede { max-width: 58ch; font-size: 1.04rem; line-height: 1.68; color: var(--ink); }
-.opening { margin: 1.1rem 0 0; padding-left: 1rem; border-left: 2px solid var(--accent); max-width: 58ch; }
-.opening blockquote { margin: 0; font: 400 1.18rem/1.5 var(--serif); }
-.opening figcaption { margin-top: .35rem; font-size: .76rem; color: var(--muted); }
-.head-motto { font-size: .68rem; font-weight: 600; letter-spacing: .18em; line-height: 1.8; text-transform: uppercase; color: var(--muted); }
+.head-lay { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 1.2rem 4rem; padding: 2.4rem var(--gutter) 1.4rem; }
+@media (min-width: 1000px) { .head-lay { flex-direction: row; align-items: flex-end; justify-content: space-between; } }
+.lede { max-width: 66ch; font: 400 clamp(1rem, 1.15vw, 1.08rem)/1.55 var(--serif); color: var(--ink); }
+.head-motto { flex: none; font-size: .68rem; font-weight: 600; letter-spacing: .17em; line-height: 1.8; text-transform: uppercase; color: var(--muted); }
+@media (min-width: 1000px) { .head-motto { text-align: right; } }
 .head-motto span { display: block; color: var(--accent); }
+.head-band { position: relative; display: flex; flex-wrap: wrap; justify-content: center; gap: .1rem 0; padding: .6rem var(--gutter); background: var(--accent); color: var(--page); }
+.head-band span { display: block; font-size: .9rem; font-weight: 600; white-space: nowrap; }
+.head-band span::first-letter { text-transform: uppercase; }
+.head-band span:not(:last-child)::after { content: "\2726"; margin-inline: 1.1rem; font-size: .7em; opacity: .7; }
+@media (max-width: 560px) { .head-band { justify-content: flex-start; } .head-band span { white-space: normal; } }
 .lamp-svg { overflow: visible; }
 
 /* The stones, shared by every drawing */
