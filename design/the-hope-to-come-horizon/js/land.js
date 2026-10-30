@@ -13,7 +13,16 @@
   const titleParts = (reading) => reading.title.split(": ");
   const titleOf = (reading) => { const [first, turn] = titleParts(reading); return [`${first}: `, h("em", {}, turn)]; };
 
-  // ── The heading: sky, hills, ground, as at the close ──
+  // The band at the foot of the first screen. Every phrase is the verses' own wording, checked below; all of it is also in section 02.
+  const MARQUEE = ["You also must be ready", "Keep watch", "Always excel in the work of the Lord", "Stand firm in the Lord", "Encourage one another", "Make every effort to be found at peace", "Be patient and strengthen your hearts", "We will always be with the Lord", "We will be like Him", "A new heaven and a new earth", "Behold, I make all things new"];
+  function marquee() {
+    const said = [study.opening.t, ...HP.therefore.flatMap((row) => [row.callText, row.promiseText])].join(" | ").toLowerCase();
+    MARQUEE.filter((words) => !said.includes(words.toLowerCase())).forEach((words) => console.error(`The hope to come: marquee phrase not in the verses: "${words}"`));
+    const run = () => h("div", { class: "hz-marquee-run" }, MARQUEE.map((words) => h("span", {}, words)));
+    return h("div", { class: "hz-marquee", "aria-hidden": "true" }, h("div", { class: "hz-marquee-track" }, run(), run()));
+  }
+
+  // ── The heading: sky, then the land down to the foot of the screen ──
   const motto = plain(study.motto).split(" / ");
   const hero = h("header", { class: "hz-hero", id: "top" },
     h("div", { class: "hz-hero-sky" },
@@ -25,9 +34,12 @@
           h("blockquote", {}, study.opening.t),
           h("figcaption", {}, refLink(study.opening.r, study.opening.label), " · Berean Standard Bible"))),
       art(LINE_ART, "hz-hero-art")),
-    h("div", { class: "hz-hero-far" }, art(HILLS, "hz-hills"), h("p", { class: "hz-motto" }, motto[0], h("span", {}, motto[1]))),
-    h("div", { class: "hz-hero-ground" },
-      h("p", { class: "hz-lede" }, runs(study.lead))));
+    h("div", { class: "hz-hero-far" },
+      art(HILLS, "hz-hills"),
+      h("div", { class: "hz-hero-lay" },
+        h("p", { class: "hz-lede" }, runs(study.lead)),
+        h("p", { class: "hz-motto" }, motto[0], h("span", {}, motto[1])))),
+    marquee());
 
   // ── The six stops along the horizon ──
   const stops = new Map();
