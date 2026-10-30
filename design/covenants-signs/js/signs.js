@@ -88,22 +88,6 @@ window.CovSigns = (() => {
       <path class="cv-bind" d="M288 216l14-10M294 224l14-10M300 232l14-10"/>`);
   }
 
-  // The heading's line drawing: the motto's five things in one scene, under the bow.
-  const hero = `<svg viewBox="0 0 420 330" aria-hidden="true">
-    <ellipse class="ms-orbit" cx="210" cy="170" rx="196" ry="128"/>
-    <ellipse class="ms-orbit ms-orbit-2" cx="210" cy="170" rx="160" ry="150" transform="rotate(-18 210 170)"/>
-    <path class="cv-art-faint" d="M44 268H376M70 278H240M270 278H350"/>
-    <path class="cv-art-gold" d="M70 268a140 140 0 0 1 280 0"/><path d="M84 268a126 126 0 0 1 252 0"/><path class="cv-art-faint" d="M98 268a112 112 0 0 1 224 0"/>
-    <path class="cv-art-wash" d="M122 268v-58a14 14 0 0 1 28 0v58ZM152 268v-58a14 14 0 0 1 28 0v58Z"/>
-    <path d="M122 268v-58a14 14 0 0 1 28 0v58M152 268v-58a14 14 0 0 1 28 0v58"/>
-    <path class="cv-art-faint" d="M129 216h14M129 228h14M129 240h14M159 216h14M159 228h14M159 240h14"/>
-    <path d="M188 192v-22l11 11 11-17 11 17 11-11v22ZM188 198h44"/>
-    <path class="cv-art-wash cv-art-gold" d="M250 204h44c0 14-10 24-22 24s-22-10-22-24Z"/>
-    <path class="cv-art-gold" d="M246 186h52c2 26-10 42-26 42s-28-16-26-42ZM272 228v32M256 268c2-5 8-8 16-8s14 3 16 8"/>
-    <path class="cv-art-gold cv-art-star" d="M330 50l5 15 15 5-15 5-5 15-5-15-15-5 15-5Z"/>
-    <path class="ms-mark" d="M32 66h10m-5-5v10M382 262h10m-5-5v10M292 42h8m-4-4v8M366 106h8m-4-4v8"/>
-  </svg>`;
-
   // Small versions, for the row of worlds and the maps. They sit around 0,0 in a box about 44 wide.
   const mini = {
     noah: `<path d="M-20 12a20 20 0 0 1 40 0M-13 12a13 13 0 0 1 26 0M-6 12a6 6 0 0 1 12 0"/>`,
@@ -113,5 +97,5 @@ window.CovSigns = (() => {
     new: `<path d="M-15-18h30c1 15-6 24-15 24s-16-9-15-24ZM0 6v11M-10 18h20"/><path d="M-14-8h28"/>`,
     heirs: `<path d="M0 18V-2M0 4c-5-2-10-6-14-13M0 0c4-3 8-7 13-14M0-4c0-5 0-9 1-14"/><circle cx="-14" cy="-10" r="3"/><circle cx="13" cy="-15" r="3"/><circle cx="1" cy="-18" r="3"/>`,
   };
-  return { hero, large: { noah: noah(), abraham: abraham(), sinai: sinai(), david: david(), new: cup(), heirs: olive() }, mini, LABEL };
+  return { large: { noah: noah(), abraham: abraham(), sinai: sinai(), david: david(), new: cup(), heirs: olive() }, mini, LABEL };
 })();

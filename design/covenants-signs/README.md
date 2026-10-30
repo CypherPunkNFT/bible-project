@@ -6,6 +6,7 @@ A second, wholly different page for the Covenants and promises study. The first 
 
 The idea comes from the study's own motto: "A bow. Stars. Stone. A crown. A cup."
 
+- **Landing ([landing.js](js/landing.js)):** a night landscape holding every covenant at once under one bow, with the title, hills and ground. Its size and structure follow the Hope to come landing; the scene is this study's own.
 - **Stage ([stage.js](js/stage.js), drawings in [signs.js](js/signs.js)):** each covenant is a full-width world, and its sign holds the five questions. Noah's five bands of the bow, Abraham's stars, Sinai's carved lines, David's jewels (the one for the sign is hollow, because 2 Samuel 7 names none), the cup that fills, and the heirs' tree with one grafted branch.
 - **Side by side:** one question asked of all five covenants at once.
 - **Disc ([disc.js](js/disc.js)):** the whole Bible as rings, Genesis at the centre and Revelation at the rim, with the 48 later verses rippling out from where each covenant was spoken. A plain list gives the same verses.

@@ -1,7 +1,7 @@
 // Puts the page together: the site frame, the heading, the stage, the disc, the maps and the close, plus the full reading
 // and the verse sheet that open over them.
 (() => {
-  const { h, art, runs, plain, refLink, study, passages, numbers, sources, QUESTIONS, readings, worldName } = Cov;
+  const { h, art, runs, refLink, study, passages, numbers, sources, QUESTIONS, readings, worldName } = Cov;
 
   // ── Frame ──
   const header = Frame.header, footer = Frame.footer;
@@ -18,7 +18,6 @@
   main.classList.add("cv-page");
 
   // ── Heading ──
-  const motto = plain(study.motto).split(" / ");
   const figures = [
     ["Covenants", numbers.covenants, `each walked where it was first spoken, in ${numbers.readings} readings with the letters`],
     ["Verses walked", numbers.verses, "each counted once, in the Berean"],
@@ -26,17 +25,7 @@
     ["In the New Testament", numbers.reachNT, `of those ${numbers.lines} lines end there`],
     ["The word covenant", numbers.wordVerses, `verses, in ${numbers.wordBooks} of ${numbers.totalBooks} books. A count of the word, not the idea`],
   ];
-  const top = h("div", { class: "wrap t-page ms-page cv-top" },
-    h("section", { class: "t-sec-landing hc-intro cv-hero", id: "top" },
-      h("div", {},
-        h("nav", { class: "cv-trail", "aria-label": "Study trail" }, h("a", { href: "/study" }, "Study"), h("span", { "aria-hidden": "true" }, "/"), h("a", { href: "/study/theology?area=doctrine" }, "God & Christian Faith"), h("span", { "aria-hidden": "true" }, "/"), h("span", { class: "cv-here", "aria-current": "page" }, study.title)),
-        h("p", { class: "cv-concepts" }, plain(study.concepts)),
-        h("h1", {}, "Covenants", h("em", {}, "and promises")),
-        h("p", { class: "hc-lede" }, runs(study.lead)),
-        h("figure", { class: "cv-opening" }, h("blockquote", {}, study.opening.t), h("figcaption", {}, refLink(study.opening.r, study.opening.label), " · Berean Standard Bible"))),
-      h("figure", { class: "ms-hero-art cv-hero-art" },
-        art(CovSigns.hero),
-        h("span", { class: "ms-art-note" }, h("i"), motto[0], h("br"), h("span", {}, motto[1])))));
+  const top = Cov.drawLanding();
   const under = h("div", { class: "wrap cv-under" },
     h("header", { class: "cv-head" }, h("h2", {}, "Five covenants, one set of heirs. ", h("em", {}, "Read where they were spoken.")), h("p", {}, runs(study.frame))));
   const stage = Cov.drawStage();

@@ -1,0 +1,84 @@
+/* The landing: a night sky, hills, then the ground with the words. Colours come from the frame, tinted toward night blue,
+   so both themes follow. */
+:root {
+  --cl-gutter: max(1.25rem, 5vw, calc((100vw - 96rem) / 2));
+  --cl-sky-top: var(--page);
+  --cl-sky-low: color-mix(in srgb, var(--accent) 13%, var(--page));
+  --cl-far: color-mix(in srgb, var(--accent) 20%, var(--page));
+  --cl-hill-far: color-mix(in srgb, var(--accent) 30%, var(--page));
+  --cl-hill-mid: color-mix(in srgb, #5c4a2c 34%, var(--page));
+  --cl-hill-near: color-mix(in srgb, #5c4a2c 48%, var(--page));
+  --cl-ground: color-mix(in srgb, #5c4a2c 16%, var(--page));
+  --cl-far-height: clamp(7rem, 20vh, 12rem);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --cl-sky-top: color-mix(in srgb, #1c2860 22%, var(--page));
+  --cl-sky-low: color-mix(in srgb, #2a3a86 34%, var(--page));
+  --cl-far: color-mix(in srgb, #2a3a86 42%, var(--page));
+  --cl-hill-far: color-mix(in srgb, #2a3a86 30%, var(--page));
+  --cl-hill-mid: color-mix(in srgb, #b08a4e 18%, var(--page));
+  --cl-hill-near: color-mix(in srgb, #b08a4e 12%, var(--page));
+  --cl-ground: color-mix(in srgb, #b08a4e 10%, var(--page));
+} }
+:root[data-theme="dark"] {
+  --cl-sky-top: color-mix(in srgb, #1c2860 22%, var(--page));
+  --cl-sky-low: color-mix(in srgb, #2a3a86 34%, var(--page));
+  --cl-far: color-mix(in srgb, #2a3a86 42%, var(--page));
+  --cl-hill-far: color-mix(in srgb, #2a3a86 30%, var(--page));
+  --cl-hill-mid: color-mix(in srgb, #b08a4e 18%, var(--page));
+  --cl-hill-near: color-mix(in srgb, #b08a4e 12%, var(--page));
+  --cl-ground: color-mix(in srgb, #b08a4e 10%, var(--page));
+}
+.cl-sky { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); column-gap: clamp(1rem, 3vw, 3rem); padding: 1.3rem var(--cl-gutter) 0; background: linear-gradient(to bottom, var(--cl-sky-top), var(--cl-sky-low)); }
+.cl-sky .cv-trail { grid-column: 1 / -1; }
+.cl-title { align-self: start; padding-top: clamp(.8rem, 7vh, 4.6rem); }
+.cl-title .cv-concepts { margin-top: 0; }
+.cl-hero h1 { margin-block: .7rem 0; font: 500 clamp(3rem, 6.8vw, 6.6rem)/.98 var(--serif); letter-spacing: -.05em; }
+.cl-hero h1 em { display: block; margin-top: .06em; font-size: .78em; white-space: nowrap; font-weight: 400; color: var(--accent); letter-spacing: -.035em; }
+.cl-art { display: block; min-width: 0; width: 100%; max-width: 54rem; justify-self: end; margin-block: -1.2rem calc(-.42 * var(--cl-far-height)); color: var(--muted); }
+.cl-art svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.cl-far { position: relative; height: var(--cl-far-height); background: linear-gradient(to bottom, var(--cl-sky-low), var(--cl-far)); border-bottom: 2px solid var(--accent); }
+.cl-hills { position: absolute; inset: 0; }
+.cl-hills svg { display: block; width: 100%; height: 100%; }
+.cl-hill-far { fill: var(--cl-hill-far); } .cl-hill-mid { fill: var(--cl-hill-mid); } .cl-hill-near { fill: var(--cl-hill-near); }
+.cl-motto { position: absolute; z-index: 2; left: var(--cl-gutter); bottom: .7rem; margin: 0; font-size: .72rem; font-weight: 600; letter-spacing: .17em; line-height: 1.8; text-transform: uppercase; color: var(--ink); }
+.cl-motto span { display: block; color: var(--accent); }
+.cl-ground { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.6rem clamp(2rem, 6vw, 6rem); padding: clamp(2.2rem, 5vh, 3.6rem) var(--cl-gutter) clamp(2.4rem, 6vh, 4rem); background: var(--cl-ground); }
+.cl-lede { margin: 0; font: 400 clamp(1.12rem, 1.6vw, 1.34rem)/1.6 var(--serif); }
+.cl-opening { margin: 0; }
+.cl-opening blockquote { margin: 0; font: 400 clamp(1.12rem, 1.6vw, 1.34rem)/1.55 var(--serif); color: var(--accent); }
+.cl-opening figcaption { margin-top: .6rem; font-size: .84rem; color: var(--muted); }
+
+/* The drawing */
+.cl-gold { stroke: var(--accent); }
+.cl-bold { stroke-width: 1.7; }
+.cl-faint { opacity: .5; }
+.cl-tick { stroke: var(--accent); stroke-width: .7; opacity: .4; }
+.cl-band { stroke-width: 11.200; opacity: .62; }
+.cl-bole { stroke-width: 3; }
+.cl-ring { stroke: var(--accent); stroke-dasharray: 2 6; opacity: .4; }
+.cl-ray { stroke-width: .9; opacity: .75; }
+.cl-road { stroke-dasharray: 2 6; opacity: .75; }
+.cl-line-soft { opacity: .45; }
+.cl-stars { fill: var(--ink); stroke: none; opacity: .62; }
+.cl-twinkle { opacity: 1; }
+.cl-twinkle circle { animation: cl-twinkle 8s ease-in-out infinite; }
+.cl-star { fill: color-mix(in srgb, var(--accent) 45%, transparent); }
+.cl-cover { fill: var(--cl-sky-low); stroke: none; }
+.cl-wash-gold { fill: color-mix(in srgb, var(--accent) 18%, transparent); stroke: none; }
+.cl-wine { fill: color-mix(in srgb, #b3283f 62%, transparent); stroke: none; }
+.cl-flame { fill: color-mix(in srgb, var(--accent) 40%, transparent); }
+.cl-fruit { fill: var(--accent); stroke: none; }
+.cl-trunk { stroke: var(--ink); opacity: .72; }
+.cl-leaf { stroke-width: .7; opacity: .7; }
+.cl-glow-in { stop-color: var(--accent); stop-opacity: .22; }
+.cl-glow-out { stop-color: var(--accent); stop-opacity: 0; }
+@keyframes cl-twinkle { 0%, 100% { opacity: .2; } 50% { opacity: .95; } }
+
+@media (max-width: 860px) {
+  .cl-sky { grid-template-columns: minmax(0, 1fr); row-gap: 1rem; }
+  .cl-art { justify-self: center; margin-block: .4rem calc(-.42 * var(--cl-far-height)); }
+  .cl-ground { grid-template-columns: minmax(0, 1fr); }
+  .cl-motto { font-size: .62rem; letter-spacing: .14em; }
+}
+@media (prefers-reduced-motion: reduce) { .cl-twinkle circle { animation: none; opacity: .7; } }
