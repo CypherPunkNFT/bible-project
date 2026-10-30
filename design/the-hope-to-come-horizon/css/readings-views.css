@@ -1,0 +1,69 @@
+/* Four new ways to move through the six readings (js/readings-views.js). Everything stays inside the page's margins. */
+.hz-readings[data-layout] .hz-rail-bar { display: none; }
+.hz-alt-nav { z-index: 6; }
+.hz-alt-nav ol { display: flex; margin: 0; padding: 0; list-style: none; }
+.hz-page .hz-alt-nav button { cursor: pointer; color: var(--muted); transition: color .2s, border-color .2s, background .2s; }
+.hz-page .hz-alt-nav button:hover:not(:disabled) { color: var(--ink); }
+.hz-page .hz-alt-nav button[aria-current] { color: var(--accent); }
+.hz-page .hz-alt-nav button:focus { outline: none; }
+.hz-alt-nav b { font-weight: 400; }
+.hz-page .hz-alt-arrow { display: grid; place-items: center; flex: none; width: 2.75rem; height: 2.75rem; padding: 0; border: 1px solid var(--line); border-radius: 50%; color: var(--accent); font: 500 1.1rem/1 var(--sans); }
+.hz-page .hz-alt-arrow:hover:not(:disabled) { color: var(--accent); border-color: var(--accent); }
+.hz-page .hz-alt-arrow:disabled { color: var(--line); cursor: default; }
+
+/* A: breadcrumbs, each with its numeral on the left, and the big faded numeral on the left of the reading */
+.hz-alt-a, .hz-alt-c, .hz-alt-d { position: sticky; top: 59px; margin-top: clamp(1.5rem, 3vw, 2.5rem); padding: .55rem var(--hz-gutter); background: var(--page); border-block: 1px solid var(--line); }
+.hz-alt-a { display: flex; align-items: center; justify-content: space-between; gap: .5rem 2rem; }
+.hz-alt-a ol { flex-wrap: wrap; align-items: center; gap: 0 .35rem; }
+.hz-alt-a li { display: flex; align-items: center; gap: .35rem; }
+.hz-alt-a li:not(:last-child)::after { content: "/"; color: var(--muted); opacity: .6; }
+.hz-page .hz-alt-a li button { display: flex; align-items: baseline; gap: .45rem; min-height: 44px; padding: .65rem .35rem; font: 500 clamp(.95rem, 1.15vw, 1.08rem)/1.2 var(--serif); }
+.hz-alt-a b { color: var(--accent); }
+.hz-alt-arrows { display: flex; flex: none; gap: .5rem; }
+.hz-readings[data-layout="a"] .hz-roman { left: var(--hz-gutter); right: auto; }
+
+/* B: just vertical. The list runs down the left margin and the readings move up and down beside it */
+.hz-readings[data-layout="b"] .hz-slider { display: grid; grid-template-columns: clamp(11rem, 15vw, 14rem) minmax(0, 1fr); gap: clamp(1.5rem, 3vw, 3rem); align-items: start; margin: clamp(1.5rem, 3vw, 2.5rem) var(--hz-gutter) 0; }
+.hz-alt-b { position: sticky; top: 76px; }
+.hz-alt-b ol { flex-direction: column; }
+.hz-page .hz-alt-b button { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); align-items: baseline; width: 100%; min-height: 44px; padding: .85rem 0 .85rem 1rem; border-left: 2px solid var(--line); text-align: left; font: 500 clamp(1rem, 1.25vw, 1.15rem)/1.25 var(--serif); }
+.hz-page .hz-alt-b button[aria-current] { border-left-color: var(--accent); }
+.hz-alt-b b { color: var(--accent); }
+.hz-readings[data-layout="b"] .hz-stage { overflow: clip; border-radius: 6px; }
+.hz-readings[data-layout="b"] .hz-stop { transform: translateY(calc(var(--slide, 0) * 100%)); }
+.hz-readings[data-layout="b"] .hz-stop-sky { gap: 2rem 3rem; padding-inline: clamp(1rem, 2vw, 2rem); }
+.hz-readings[data-layout="b"] .hz-stop-ground { gap: 2rem 3rem; padding-inline: clamp(1rem, 2vw, 2rem); }
+.hz-readings[data-layout="b"] .hz-roman { right: clamp(1rem, 2vw, 2rem); font-size: 26vw; }
+@media (max-width: 1300px) {
+  .hz-readings[data-layout="b"] :is(.hz-stop-sky, .hz-stop-ground) { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* C: a pager, as under the Moses chapters: arrows, one dash for each reading, and where you are */
+.hz-alt-c { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .9rem; }
+.hz-alt-dashes { display: flex; align-items: center; gap: .4rem; }
+.hz-page .hz-alt-dashes button { width: 2rem; height: 44px; padding: 0; background: linear-gradient(currentColor, currentColor) center / 100% 3px no-repeat; color: var(--line); transition: width .4s cubic-bezier(.16, 1, .3, 1), color .3s; }
+.hz-page .hz-alt-dashes button[aria-current] { width: 4rem; }
+.hz-alt-count { display: flex; align-items: baseline; gap: .7rem; margin: 0 0 0 auto; font: 500 clamp(1.05rem, 1.5vw, 1.3rem)/1.2 var(--serif); }
+.hz-alt-count b { color: var(--accent); }
+
+/* D: the numerals alone, large, with a name only on the current one or the one pointed at */
+.hz-alt-d { padding-block: .9rem .5rem; }
+.hz-alt-d ol { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.hz-page .hz-alt-d button { display: grid; justify-items: center; gap: .2rem; width: 100%; min-height: 44px; padding: 0 .2rem .35rem; }
+.hz-alt-d b { font: 400 clamp(1.7rem, 4.6vw, 4.2rem)/1 var(--serif); letter-spacing: -.02em; }
+.hz-alt-d span { font: 500 clamp(.72rem, 1vw, .95rem)/1.25 var(--serif); opacity: 0; transition: opacity .2s; text-align: center; }
+.hz-alt-d button:hover span, .hz-alt-d button[aria-current] span { opacity: 1; }
+.hz-readings[data-layout="d"] .hz-roman { display: none; }
+
+@media (max-width: 900px) {
+  .hz-alt-a, .hz-alt-c, .hz-alt-d { position: static; }
+  .hz-alt-a { flex-wrap: wrap; }
+  .hz-alt-count { flex: 1 0 100%; margin-left: 0; }
+  .hz-page .hz-alt-dashes button { width: 1.5rem; }
+  .hz-page .hz-alt-dashes button[aria-current] { width: 2.4rem; }
+  .hz-readings[data-layout="b"] .hz-slider { grid-template-columns: minmax(0, 1fr); }
+  .hz-alt-b { position: static; }
+  .hz-readings[data-layout="b"] .hz-stage { margin-inline: calc(-1 * var(--hz-gutter)); border-radius: 0; }
+  .hz-readings[data-layout="b"] .hz-stop-sky, .hz-readings[data-layout="b"] .hz-stop-ground { padding-inline: var(--hz-gutter); }
+  .hz-readings[data-layout="b"] .hz-roman { right: var(--hz-gutter); }
+}

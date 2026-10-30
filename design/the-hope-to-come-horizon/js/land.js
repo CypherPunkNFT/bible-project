@@ -98,12 +98,14 @@
   const previousStep = h("button", { type: "button", class: "hz-slide-arrow", onclick: () => stepBy(-1) }, h("span", { "aria-hidden": "true" }, "←"));
   const nextStep = h("button", { type: "button", class: "hz-slide-arrow", onclick: () => stepBy(1) }, h("span", { "aria-hidden": "true" }, "→"));
   const railBar = h("div", { class: "hz-rail-bar" }, previousStep, rail, nextStep);
+  let readingsBar = railBar;
   // After a move from further down a reading, the new reading starts at its top, just under the bar.
   function moveTo(slug) {
     setView({ at: slug, reading: state.reading ? slug : null });
-    const gap = document.querySelector(".hz-stage").getBoundingClientRect().top - railBar.getBoundingClientRect().bottom;
+    const gap = document.querySelector(".hz-stage").getBoundingClientRect().top - (readingsBar ? readingsBar.getBoundingClientRect().bottom : 76);
     if (gap < 0) scrollBy(0, gap);
   }
+  Object.assign(HZ, { romanOf, moveTo, stepBy, currentStop, setReadingsBar: (bar) => { readingsBar = bar; } });
 
   // ── One question asked of all six ──
   const askButtons = QUESTIONS.map(([key, verb, words]) => h("button", { type: "button", class: "hz-ask", "aria-pressed": "false", "data-look": key, onclick: () => setView({ look: key }) }, h("b", {}, verb), h("span", {}, words)));

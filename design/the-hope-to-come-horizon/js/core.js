@@ -54,6 +54,8 @@ window.HZ = (() => {
   }
   function addressFor(view) {
     const params = new URLSearchParams();
+    const current = new URLSearchParams(location.search);
+    ["creation-view", "new-view", "readings-view"].forEach((name) => { if (current.has(name)) params.set(name, current.get(name)); });
     if (view.look) params.set("look", view.look);
     if (view.reading) params.set("reading", view.reading);
     else if (view.at) params.set("at", view.at);
