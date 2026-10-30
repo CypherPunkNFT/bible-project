@@ -22,14 +22,17 @@
 
   // ── Heading ──
   const motto = plain(study.motto).split(" / ");
-  const head = h("section", { class: "head wrap", id: "top" },
-    h("div", { class: "head-title" },
+  const head = h("section", { class: "head", id: "top" },
+    h("div", { class: "head-sky" }, h("div", { class: "wrap head-grid" }, h("div", { class: "head-title" },
       h("nav", { class: "trail", "aria-label": "Study trail" }, h("a", { href: "/study" }, "Study"), h("span", { "aria-hidden": "true" }, "/"), h("a", { href: "/study/theology?area=life" }, "Living the Christian Life"), h("span", { "aria-hidden": "true" }, "/"), h("span", { class: "here", "aria-current": "page" }, study.title)),
       h("p", { class: "concepts" }, plain(study.concepts)),
-      h("h1", {}, "Faith", h("em", {}, "under pressure")),
-      h("p", { class: "lede" }, runs(study.lead)),
-      h("figure", { class: "opening" }, h("blockquote", {}, study.opening.t), h("figcaption", {}, refLink(study.opening.r, study.opening.label), " · Berean Standard Bible"))),
-    h("figure", { class: "head-art" }, Stones.headArt(), h("figcaption", {}, motto[0], h("br"), h("span", {}, motto[1]))));
+      h("h1", {}, "Faith", h("em", {}, "under pressure"))),
+      h("div", { class: "head-art" }, Dusk.draw()))),
+    h("div", { class: "head-earth" }, h("div", { class: "wrap head-ground" },
+      h("div", {},
+        h("p", { class: "lede" }, runs(study.lead)),
+        h("figure", { class: "opening" }, h("blockquote", {}, study.opening.t), h("figcaption", {}, refLink(study.opening.r, study.opening.label), " · Berean Standard Bible"))),
+      h("p", { class: "head-motto" }, motto[0], h("span", {}, motto[1])))));
 
   // ── 01 The six piers ──
   const bays = new Map();

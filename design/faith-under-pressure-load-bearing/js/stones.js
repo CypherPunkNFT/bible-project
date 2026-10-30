@@ -157,34 +157,6 @@ window.Stones = (() => {
   }
 
   // Two curved runs of stone that nearly meet around one small flame: the study's motto, a small light and two hands.
-  // The heading's line drawing: the page's wall, its small light and what presses on it. A negative width leaves room for the niche.
-  function headArt() {
-    const svg = s("svg", { viewBox: "0 0 420 330", class: "head-svg", "aria-hidden": "true" });
-    const rnd = random(11);
-    const courses = [[[44], [62], [40, "gold"], [54]], [[58], [46, "gold"], [52], [44]], [[30], [44], [-52], [34, "gold"], [40]], [[38, "gold"], [36], [-52], [40], [34]]];
-    let stones = "";
-    courses.forEach((course, row) => {
-      let x = 110;
-      const y = 124 + row * 36;
-      for (const [width, kind] of course) {
-        if (width > 0) {
-          const j = () => f((rnd() - 0.5) * 3);
-          stones += `<path class="${kind === "gold" ? "art-gold" : ""}" d="M${x + 2} ${y + 2 + +j()}L${x + width - 2} ${y + 2 + +j()}L${x + width - 2} ${y + 33 + +j()}L${x + 2} ${y + 33 + +j()}Z"/>`;
-        }
-        x += Math.abs(width);
-      }
-    });
-    const arrows = [[132, 34, 1], [164, 66, 1.5], [196, 24, 1], [230, 78, 1.8], [270, 44, 1.2]].map(([x, length, weight]) =>
-      `<path class="art-press" stroke-width="${weight}" d="M${x} ${112 - length}V112M${x - 5} 106l5 6 5-6"/>`).join("");
-    svg.innerHTML = `<ellipse class="art-ring" cx="210" cy="178" rx="198" ry="146"/><ellipse class="art-ring" cx="210" cy="178" rx="162" ry="118"/>
-      <path class="art-faint" d="M34 62h10m-5-5v10M396 300h10m-5-5v10M372 54h8m-4-4v8"/>
-      ${stones}${arrows}
-      <path d="M186 268V222a24 24 0 0 1 48 0v46"/><path d="M30 268H390"/>
-      <path class="art-faint" d="M116 278h60v16h-60ZM184 278h44v16h-44ZM236 278h66v16h-66Z"/>
-      ${flame(210, 262, 0.9)}`;
-    return svg;
-  }
-
   function lamp() {
     const svg = s("svg", { viewBox: "0 0 240 210", class: "lamp-svg", "aria-hidden": "true" });
     const rnd = random(7);
@@ -214,5 +186,5 @@ window.Stones = (() => {
     svg.innerHTML = `<defs><pattern id="earth-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><path d="M0 0V9" class="hatch-line"/></pattern></defs>`;
     return svg;
   };
-  return { pier, lamp, headArt, defs };
+  return { pier, lamp, defs, s, random, f, flame };
 })();

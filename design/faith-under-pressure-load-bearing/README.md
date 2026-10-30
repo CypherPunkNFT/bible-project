@@ -22,7 +22,7 @@ The motto, "A small light. Two hands. Held, not explained.", is the two curved r
 
 ## Section by section
 
-- **Heading:** laid out as on Faith in daily life, at the owner's request (2026-10-30): trail, gold page words, title, lead and opening verse on the left, one line drawing of the wall and its small light on the right, with the motto under it.
+- **Heading:** built to the scale of the Hope to come landing, at the owner's request (2026-10-30). Sky above with the trail, gold page words and a large title beside a full line drawing: the whole dry-stone wall in the rain, arrows of different weights, a bare thorn, a prop, and an arch of two curved runs of stone around the small light. The drawing's footings go below one full-width ground line into a band of earth, which holds the lead, the opening verse and the motto. The drawing is fixed and does not move.
 - **Six piers:** the way into the readings, standing on one shared ground line. Choosing one is the page's only motion: its load lands and the wall takes it. Nothing moves at rest, and reduced motion removes it.
 - **A reading:** opens under the wall. Its pier is drawn large, with verse numbers on the stones, each linked to its verse. The pressure, the call, the ground and what is not promised sit at the heights where the drawing shows them. Under the ground, dashed stones stand for what the passage does not promise. In the text, cautions and sources stand in the margin level with the sentence they qualify.
 - **Name the pressure, find the ground:** all 76 verses as one wall, with the marked phrases cut into their stones in the three colours. Choosing a kind leaves only those stones standing and the rest as outlines. "The six calls" sets each reading's one word as large as the width allows.
@@ -48,14 +48,15 @@ Only these are new, and all are interface or explanation:
 ## Honest limits of the drawing
 
 - It draws no storm clearing, no summit and no pier growing. The anxiety pier keeps lighter arrows after the cast, because the study gives no date on which the feeling will stop.
-- God is not pictured: the cast load simply leaves the frame.
+- God is not pictured: the cast load simply leaves the frame, and the heading's "two hands" are two runs of stone, not a figure.
+- The heading's rain does not stop and its sky does not clear, because the study gives no such promise.
 - Grief's pier is the smallest because the passage has six verses, and the page says height is not a measure of hardship.
 - Grief's gap and the arrows are this site's picture and are labelled as such. The sorting of phrases into three kinds is this site's reading, as the page already says.
 - The study takes no side on the timing of the meeting in the air or on whether a believer can finally fall away beyond what its text says, and nothing drawn here touches either.
 
 ## How it is built
 
-[index.html](index.html) loads the old folder's data.js and the site frame. [js/stones.js](js/stones.js) lays the stones and holds the loads. [js/core.js](js/core.js) has helpers and the address, [js/page.js](js/page.js) the page, [js/reading.js](js/reading.js) one reading, [js/wall.js](js/wall.js) the verse wall and footings, [js/sheet.js](js/sheet.js) the passage sheet. CSS is in [css/](css/). The study kit, other studies and the visual inventory were not used.
+[index.html](index.html) loads the old folder's data.js and the site frame. [js/stones.js](js/stones.js) lays the stones and holds the loads. [js/dusk.js](js/dusk.js) draws the heading. [js/core.js](js/core.js) has helpers and the address, [js/page.js](js/page.js) the page, [js/reading.js](js/reading.js) one reading, [js/wall.js](js/wall.js) the verse wall and footings, [js/sheet.js](js/sheet.js) the passage sheet. CSS is in [css/](css/). The study kit, other studies and the visual inventory were not used.
 
 ## What was checked, 2026-10-30
 
