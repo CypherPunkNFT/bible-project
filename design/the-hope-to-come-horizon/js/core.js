@@ -42,11 +42,12 @@ window.HZ = (() => {
   // ── Address: every view on the page can be shared ──
   function readAddress() {
     const params = new URLSearchParams(location.search);
-    const look = params.get("look"), reading = params.get("reading");
+    const look = params.get("look"), reading = params.get("reading"), at = params.get("at");
     const sheet = (params.get("sheet") ?? "").replaceAll("–", "-");
     return {
       look: LOOKS.has(look) ? look : null,
       reading: readingSlugs.has(reading) ? reading : null,
+      at: readingSlugs.has(at) ? at : null,
       sheet: Object.hasOwn(passages, sheet) ? sheet : null,
       therefore: params.get("weigh") === "therefore",
       shares: params.get("weigh-ends") === "shares",
@@ -56,6 +57,7 @@ window.HZ = (() => {
     const params = new URLSearchParams();
     if (view.look) params.set("look", view.look);
     if (view.reading) params.set("reading", view.reading);
+    else if (view.at) params.set("at", view.at);
     if (view.therefore) params.set("weigh", "therefore");
     if (view.shares) params.set("weigh-ends", "shares");
     if (view.sheet) params.set("sheet", view.sheet);
@@ -90,7 +92,7 @@ window.HZ = (() => {
     h("span", { class: "hz-num", "aria-hidden": "true" }, number),
     h("div", {}, h("h2", {}, title, " ", h("em", {}, turn)), lead.length ? h("p", {}, ...lead) : null));
 
-  // ── Study text blocks: asides leave the reading line and stand in the margin ──
+  // ── Study text blocks ──
   const sourceNote = (id) => {
     const source = sourceIds.get(id);
     if (!id || !source) return null;
