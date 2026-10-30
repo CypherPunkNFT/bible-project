@@ -54,7 +54,7 @@ window.Cov = (() => {
     stone: (v) => v in data.covenants,
     later: (v) => v === "disc" || v === "list",
     map: (v) => /^[0-3]$/.test(v),
-    drawing: (v) => /^[1-4a-d]$/.test(v),
+    drawing: (v) => /^[1-4a-i]$/.test(v),
   };
   function readAddress() {
     const params = new URLSearchParams(location.search);

@@ -122,5 +122,6 @@
       <g class="cl-sand">${sand}</g><g class="cl-sand cl-steps">${steps}</g>${man(476, 584, 1.05)}`;
   }
 
+  CovDrawings.starKit = { picture, shape, man };
   CovDrawings.stars = { a: picture(dunes()), b: picture(oaks()), c: picture(land()), d: picture(seashore()) };
 })();

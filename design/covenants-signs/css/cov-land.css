@@ -56,6 +56,13 @@
 .cv-page .cl-pill button { width: 2.6rem; height: 2.6rem; border-radius: 50%; text-align: center; font-size: .92rem; font-weight: 600; color: var(--muted); outline: none; transition: background .15s, color .15s; }
 .cv-page .cl-pill button:hover, .cv-page .cl-pill button:focus-visible { background: var(--surface-2); color: var(--ink); }
 .cv-page .cl-pill button[aria-pressed="true"] { background: var(--ink); color: var(--page); }
+.cl-mirror { opacity: .8; }
+.cl-stone { stroke-width: .8; }
+.cl-straw { stroke-width: .9; opacity: .6; }
+.cl-grain { stroke-width: .7; }
+.cl-awn { stroke-width: .5; opacity: .7; }
+.cl-reed { fill: currentColor; stroke: none; opacity: .6; }
+@media (max-width: 480px) { .cl-pill { gap: 0; padding: .2rem; } .cv-page .cl-pill button { width: 1.95rem; height: 2.3rem; font-size: .8rem; } }
 
 @keyframes cl-twinkle { 0%, 100% { opacity: .2; } 50% { opacity: .95; } }
 

@@ -9,8 +9,8 @@ Cov.drawLanding = () => {
   const drawingFor = (key) => CovDrawings.stars[key] ?? CovDrawings.list[Number(key) - 1];
   const artHolder = art(drawingFor(Cov.state.drawing), "cl-art");
 
-  // The floating A B C D pill: changes the drawing in place, with no new page.
-  const pillButtons = ["a", "b", "c", "d"].map((key) => h("button", { type: "button", "aria-label": `Version ${key.toUpperCase()}`, onclick: () => Cov.set({ drawing: key }) }, key.toUpperCase()));
+  // The floating version pill: changes the drawing in place, with no new page.
+  const pillButtons = ["a", "b", "c", "d", "e", "f", "g", "h", "i"].map((key) => h("button", { type: "button", "aria-label": `Version ${key.toUpperCase()}`, onclick: () => Cov.set({ drawing: key }) }, key.toUpperCase()));
   const pill = h("div", { class: "cl-pill", role: "group", "aria-label": "Versions of the drawing" }, pillButtons);
   const syncPill = (key) => pillButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.textContent.toLowerCase() === key)));
   syncPill(Cov.state.drawing);
