@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-11T02:29:22.396Z",
- "commit": "c3cdf66d",
+ "generatedAt": "2026-10-30T23:54:53.398Z",
+ "commit": "f4199766",
  "areas": [
   {
    "id": "people",
@@ -53,7 +53,7 @@
     "src/components/study/PersonProfile.tsx",
     "src/pages/PersonPage.tsx"
    ],
-   "sourceHash": "b491f4d194db1ec0",
+   "sourceHash": "8f3ac50d18a8d82b",
    "signature": null,
    "variants": [
     {
@@ -259,7 +259,7 @@
     "src/components/people-pages/usePeoplePageSlide.ts",
     "src/components/stable-tip.css"
    ],
-   "sourceHash": "5dbf210183e35a49",
+   "sourceHash": "99a27e1b1816f670",
    "signature": {
     "selector": ".pp-strip-frame",
     "label": "The succession strip"
@@ -427,25 +427,25 @@
      "id": "foreign-dated",
      "name": "Foreign king with dates",
      "what": "Egypt, Aram, Assyria, Babylon, Persia: the world-first order.",
-     "instances": 22,
+     "instances": 21,
      "samples": [
       {
        "id": "typical",
        "label": "Typical",
-       "url": "/people/evil-merodach-2ki-25-27/rule",
-       "why": "typical: Evil-merodach, in the middle of all of them by how many sections the page has"
-      },
-      {
-       "id": "longest-name",
-       "label": "Longest name",
        "url": "/people/merodach-baladan-2ki-20-12/rule",
-       "why": "longest name: \"Merodach-baladan\" (16 characters)"
+       "why": "typical: Merodach-baladan, in the middle of all of them by how many sections the page has"
       },
       {
        "id": "longest-title",
        "label": "Longest title",
        "url": "/people/darius-dan-5-31/rule",
        "why": "longest title: \"King over the realm of the Chaldeans (Daniel)\" (45 characters)"
+      },
+      {
+       "id": "most-events",
+       "label": "Most events",
+       "url": "/people/nebuchadnezzar-2ki-24-1/rule",
+       "why": "most events in the reign: Nebuchadnezzar (20)"
       }
      ]
     },
@@ -453,7 +453,7 @@
      "id": "foreign-undated",
      "name": "Foreign king without dates",
      "what": "Unnamed Pharaohs and kings Scripture does not date.",
-     "instances": 8,
+     "instances": 9,
      "samples": [
       {
        "id": "typical",
@@ -504,8 +504,8 @@
       {
        "id": "typical",
        "label": "Typical",
-       "url": "/people/herod-mat-2-1/rule",
-       "why": "typical: Herod the Great, in the middle of all of them by how many sections the page has"
+       "url": "/people/agrippa-act-25-13/rule",
+       "why": "typical: Agrippa II, in the middle of all of them by how many sections the page has"
       },
       {
        "id": "longest-name",
@@ -524,8 +524,8 @@
       {
        "id": "typical",
        "label": "Typical",
-       "url": "/people/quirinius-luk-2-2/rule",
-       "why": "typical: Quirinius, in the middle of all of them by how many sections the page has"
+       "url": "/people/sergius-paulus-act-13-7/rule",
+       "why": "typical: Sergius Paulus, in the middle of all of them by how many sections the page has"
       },
       {
        "id": "longest-name",
@@ -569,7 +569,7 @@
     "src/components/people-pages/usePeoplePageSlide.ts",
     "src/components/stable-tip.css"
    ],
-   "sourceHash": "1fdb9af35fcad96a",
+   "sourceHash": "affc02e440b37141",
    "signature": {
     "selector": ".pp-hero",
     "label": "The opening card"
@@ -685,7 +685,7 @@
     "src/components/people-pages/usePeoplePageSlide.ts",
     "src/components/stable-tip.css"
    ],
-   "sourceHash": "29499edd1673ef54",
+   "sourceHash": "790fd5ed3951fa7e",
    "signature": {
     "selector": ".pp-hero",
     "label": "The opening card"
@@ -836,7 +836,7 @@
     "src/pages/study/PeoplePage.tsx",
     "src/pages/study/ProphetsPage.tsx"
    ],
-   "sourceHash": "4b78325178ea7a32",
+   "sourceHash": "5cf68ef03c9213ca",
    "signature": null,
    "variants": [
     {
@@ -926,6 +926,831 @@
    ]
   },
   {
+   "id": "study-parables",
+   "area": "study",
+   "name": "The parables of Christ",
+   "what": "57 passage-grounded studies with compact thematic icon filters, story moments and Gospel comparisons.",
+   "address": "/study/gospels?guide=parables",
+   "instances": 57,
+   "sources": [
+    "src/data/parables-additions.ts",
+    "src/data/parables-deep-reading.ts",
+    "src/data/parables-expanded.ts",
+    "src/data/parables-page-copy.ts",
+    "src/data/parables.ts",
+    "src/pages/study/parables/LearningToListen.tsx",
+    "src/pages/study/parables/ParableArt.tsx",
+    "src/pages/study/parables/ParableScope.tsx",
+    "src/pages/study/parables/ParableSelector.tsx",
+    "src/pages/study/parables/ParablesPage.tsx",
+    "src/pages/study/parables/parables.css",
+    "src/pages/study/parables/search.ts",
+    "src/pages/study/parables/typography.css"
+   ],
+   "sourceHash": "54d695ff8f12e0ab",
+   "signature": null,
+   "variants": [
+    {
+     "id": "sower",
+     "name": "The sower & the soils",
+     "what": "The same seed. Why such different harvests?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=sower",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "mustard",
+     "name": "The mustard seed",
+     "what": "How can so small a seed become a place of shelter?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=mustard",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "leaven",
+     "name": "The leaven in the dough",
+     "what": "What changes before anyone can see it?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=leaven",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "weeds",
+     "name": "The wheat & the weeds",
+     "what": "Why does the owner tell the workers to wait?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=weeds",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sheep",
+     "name": "The lost sheep",
+     "what": "Whose joy is at the centre of the search?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=sheep",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "coin",
+     "name": "The lost coin",
+     "what": "What does a careful search say about what is missing?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=coin",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sons",
+     "name": "A father & two sons",
+     "what": "One son comes home. Will the other come in?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=sons",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "samaritan",
+     "name": "The neighbour on the road",
+     "what": "From “Who is my neighbour?” to “Who became a neighbour?”",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=samaritan",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "treasure",
+     "name": "Treasure in a field",
+     "what": "What could make a costly surrender a joyful one?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=treasure",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "pearl",
+     "name": "The pearl of great price",
+     "what": "What happens when a search finds its one thing?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=pearl",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "rich-fool",
+     "name": "The rich fool",
+     "what": "What if the future you stored up never arrives?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=rich-fool",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "workers",
+     "name": "Workers in the vineyard",
+     "what": "Why can another person’s generosity feel unfair?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=workers",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "builders",
+     "name": "The two builders",
+     "what": "What holds when the storm reveals the foundation?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=builders",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "debtor",
+     "name": "The unforgiving servant",
+     "what": "Can mercy received become mercy withheld?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=debtor",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "bridesmaids",
+     "name": "The ten bridesmaids",
+     "what": "What cannot be prepared at the last moment?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=bridesmaids",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "prayers",
+     "name": "Two men at prayer",
+     "what": "Who goes home justified?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=prayers",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "growing-seed",
+     "name": "The seed growing secretly",
+     "what": "What happens while the farmer sleeps?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=growing-seed",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "net",
+     "name": "The net & the catch",
+     "what": "What happens when the full net reaches shore?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=net",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "obedient-sons",
+     "name": "The two sons & the vineyard",
+     "what": "Which answer becomes obedience?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=obedient-sons",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "tenants",
+     "name": "The tenants & the beloved son",
+     "what": "What do the tenants do with what was entrusted to them?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=tenants",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "wedding-feast",
+     "name": "The king’s wedding feast",
+     "what": "How will the invitation be received?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=wedding-feast",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "talents",
+     "name": "The entrusted talents",
+     "what": "What does faithfulness do with an entrusted responsibility?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=talents",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "two-debtors",
+     "name": "The two debtors",
+     "what": "Who will love the creditor more?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=two-debtors",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "midnight-friend",
+     "name": "The friend at midnight",
+     "what": "Can you bring a pressing need to the closed door?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=midnight-friend",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "barren-fig",
+     "name": "The barren fig tree",
+     "what": "What is an extra season for?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=barren-fig",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "great-supper",
+     "name": "The great supper",
+     "what": "Who comes when the invited guests make excuses?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=great-supper",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "shrewd-manager",
+     "name": "The shrewd manager",
+     "what": "What can a dishonest manager teach about urgency?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=shrewd-manager",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "lazarus",
+     "name": "The rich man & Lazarus",
+     "what": "What was ignored at the gate?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=lazarus",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "servants-duty",
+     "name": "The servant’s duty",
+     "what": "Does obedience put the master in your debt?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=servants-duty",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "persistent-widow",
+     "name": "The persistent widow",
+     "what": "What sustains prayer when justice seems delayed?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=persistent-widow",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "minas",
+     "name": "The ten minas",
+     "what": "What does service look like while the king is away?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=minas",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "lowest-place",
+     "name": "The lowest place at the feast",
+     "what": "What happens when honour is assigned rather than seized?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=lowest-place",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "watchful-servants",
+     "name": "The servants ready to welcome",
+     "what": "Who serves whom when the master returns?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=watchful-servants",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "faithful-servant",
+     "name": "The faithful & unfaithful servant",
+     "what": "What does authority become during the master’s absence?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=faithful-servant",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "tower",
+     "name": "The unfinished tower",
+     "what": "Have you reckoned with what beginning will require?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=tower",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "king-war",
+     "name": "The king weighing a conflict",
+     "what": "What must be faced before the armies meet?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=king-war",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "budding-fig",
+     "name": "The budding fig tree",
+     "what": "What can a branch teach about attention?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=budding-fig",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "doorkeeper",
+     "name": "The absent master & the doorkeeper",
+     "what": "Who knows when the master will return?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=doorkeeper",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "lamp",
+     "name": "The lamp on its stand",
+     "what": "Why light a lamp only to cover it?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=lamp",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "patch",
+     "name": "The new patch & the old garment",
+     "what": "Can a repair make the tear worse?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=patch",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "wineskins",
+     "name": "New wine & old wineskins",
+     "what": "What can receive the new wine?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=wineskins",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "marketplace",
+     "name": "The children in the marketplace",
+     "what": "What response would satisfy these critics?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=marketplace",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "strong-man",
+     "name": "The strong man’s house",
+     "what": "What must happen before the strong man’s goods can be taken?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=strong-man",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "blind-guides",
+     "name": "The blind leading the blind",
+     "what": "Where does guidance without sight lead?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=blind-guides",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "speck-log",
+     "name": "The speck & the beam",
+     "what": "What prevents the helper from seeing clearly?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=speck-log",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "tree-fruit",
+     "name": "The tree & its fruit",
+     "what": "How is a tree recognised by what it bears?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=tree-fruit",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "householder-treasures",
+     "name": "The householder’s new & old treasures",
+     "what": "What does a well-taught keeper bring out?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=householder-treasures",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "returning-spirit",
+     "name": "The returning unclean spirit",
+     "what": "What does the returning spirit reveal about an apparent recovery?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=returning-spirit",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "thief",
+     "name": "The householder & the thief",
+     "what": "What changes when the hour is unknown?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=thief",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "settle-dispute",
+     "name": "The dispute on the way to court",
+     "what": "What can still be put right before judgment?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=settle-dispute",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sheep-goats",
+     "name": "The sheep & the goats",
+     "what": "When did we see the King?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=sheep-goats",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "salt",
+     "name": "Salt that loses its savour",
+     "what": "What happens when salt no longer seasons?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=salt",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "bridegroom",
+     "name": "The bridegroom & the guests",
+     "what": "Why would wedding guests be mourning?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=bridegroom",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "divided-kingdom",
+     "name": "A kingdom divided",
+     "what": "How could a kingdom survive by attacking itself?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=divided-kingdom",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "eye-lamp",
+     "name": "The eye & the light",
+     "what": "What if the light within you is darkness?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=eye-lamp",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "father-gifts",
+     "name": "A father’s good gifts",
+     "what": "If imperfect parents give good gifts, how much more the Father?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=father-gifts",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "measure",
+     "name": "The measure you use",
+     "what": "What measure do you bring to hearing and to other people?",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels?guide=parables&parable=measure",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "study-hub",
    "area": "study",
    "name": "Study hub",
@@ -941,10 +1766,11 @@
     "src/pages/study/hub/atlas-places.json",
     "src/pages/study/hub/collections.ts",
     "src/pages/study/hub/hub.css",
+    "src/pages/study/hub/scholar-preview.json",
     "src/pages/study/hub/shared.tsx",
     "src/pages/study/hub/writers.ts"
    ],
-   "sourceHash": "e5800a0115df01a7",
+   "sourceHash": "b301fedf57531eb2",
    "signature": null,
    "variants": [
     {
@@ -975,7 +1801,7 @@
     "src/pages/study/StudyResourceCards.tsx",
     "src/pages/study/study.css"
    ],
-   "sourceHash": "30b45289b7312cbd",
+   "sourceHash": "751b2d2701230049",
    "signature": null,
    "variants": [
     {
@@ -1003,15 +1829,22 @@
    "instances": 10,
    "sources": [
     "src/pages/study/StudyResourceCards.tsx",
+    "src/pages/study/hub/AcademicCards.tsx",
     "src/pages/study/hub/Artwork.tsx",
+    "src/pages/study/hub/CreedsCard.tsx",
+    "src/pages/study/hub/ParablesCard.tsx",
     "src/pages/study/hub/StudyBranch.tsx",
+    "src/pages/study/hub/academic-cards.css",
+    "src/pages/study/hub/branch-sides.css",
     "src/pages/study/hub/collections.ts",
+    "src/pages/study/hub/creeds-card.css",
     "src/pages/study/hub/hub.css",
+    "src/pages/study/hub/parables-card.css",
     "src/pages/study/hub/shared.tsx",
     "src/pages/study/hub/writers.ts",
     "src/pages/study/study.css"
    ],
-   "sourceHash": "c344be78c8e5d86f",
+   "sourceHash": "914d057305eb66ce",
    "signature": null,
    "variants": [
     {
@@ -1174,9 +2007,11 @@
     "src/components/charts/SectionGuide.tsx",
     "src/components/charts/VersionsTimeline.tsx",
     "src/components/charts/WordsOfJesus.tsx",
+    "src/components/charts/arc-overview.ts",
+    "src/components/charts/arc-paint.ts",
     "src/pages/ChartsPage.tsx"
    ],
-   "sourceHash": "67a3a41b828700b1",
+   "sourceHash": "de8abdcdf46ae789",
    "signature": null,
    "variants": [
     {
@@ -1188,7 +2023,7 @@
       {
        "id": "page",
        "label": "The page",
-       "url": "/study/references",
+       "url": "/study/connections",
        "why": "the only page of this design"
       }
      ]
@@ -1296,6 +2131,662 @@
    ]
   },
   {
+   "id": "creeds-home",
+   "area": "study",
+   "name": "Catechisms & Creeds",
+   "what": "66 creeds, confessions and catechisms in twelve traditions, on a time rail and in shelves that open in place.",
+   "address": "/study/creeds",
+   "instances": 13,
+   "sources": [
+    "src/lib/creeds.ts",
+    "src/pages/study/creeds/CreedsArt.tsx",
+    "src/pages/study/creeds/CreedsPage.tsx",
+    "src/pages/study/creeds/creeds-collection.css",
+    "src/pages/study/creeds/creeds.css"
+   ],
+   "sourceHash": "cc1b3a855a104d14",
+   "signature": null,
+   "variants": [
+    {
+     "id": "home",
+     "name": "The collection",
+     "what": "The time rail and the first shelf.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/creeds",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "scripture",
+     "name": "Scripture's own confessions",
+     "what": "The Scripture's own confessions shelf, opened.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/creeds?family=scripture",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "rule-of-faith",
+     "name": "The early church's rule of faith",
+     "what": "The The early church's rule of faith shelf, opened.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/creeds?family=rule-of-faith",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "ancient-creeds",
+     "name": "The ancient creeds",
+     "what": "The The ancient creeds shelf, opened.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/creeds?family=ancient-creeds",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "medieval-west",
+     "name": "The medieval West",
+     "what": "The The medieval West shelf, opened.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/creeds?family=medieval-west",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "lutheran",
+     "name": "Lutheran",
+     "what": "The Lutheran shelf, opened.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/creeds?family=lutheran",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "swiss-continental",
+     "name": "The Swiss and continental Reformation",
+     "what": "The The Swiss and continental Reformation shelf, opened.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/creeds?family=swiss-continental",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "british-reformed",
+     "name": "Westminster and the British Reformed",
+     "what": "The Westminster and the British Reformed shelf, opened.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/creeds?family=british-reformed",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "anglican",
+     "name": "Anglican",
+     "what": "The Anglican shelf, opened.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/creeds?family=anglican",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "baptist",
+     "name": "Baptist",
+     "what": "The Baptist shelf, opened.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/creeds?family=baptist",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "methodist-arminian",
+     "name": "Methodist and Arminian",
+     "what": "The Methodist and Arminian shelf, opened.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/creeds?family=methodist-arminian",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "roman-catholic",
+     "name": "Roman Catholic",
+     "what": "The Roman Catholic shelf, opened.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/creeds?family=roman-catholic",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "orthodox",
+     "name": "Eastern Orthodox",
+     "what": "The Eastern Orthodox shelf, opened.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/creeds?family=orthodox",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "creed-document",
+   "area": "study",
+   "name": "A creed, confession or catechism",
+   "what": "The full text by section, its date, tradition and source, and its proof-texts in the Berean Standard Bible.",
+   "address": "/study/creeds/<document>",
+   "instances": 66,
+   "sources": [
+    "src/lib/creeds.ts",
+    "src/pages/study/creeds/CreedDocumentPage.tsx",
+    "src/pages/study/creeds/creeds.css"
+   ],
+   "sourceHash": "bd6b2e64d4aa7fa3",
+   "signature": null,
+   "variants": [
+    {
+     "id": "catechism",
+     "name": "A catechism",
+     "what": "Questions and answers, in ranges of twenty-five.",
+     "instances": 15,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/creeds/orthodox-confession-of-the-eastern-church-1643",
+       "why": "typical: The Orthodox Confession of the Eastern Church (Peter Mogila) (1643), in the middle of all of them by sections"
+      },
+      {
+       "id": "most-sections",
+       "label": "Longest",
+       "url": "/study/creeds/the-assembly-s-shorter-catechism-explained-1765",
+       "why": "most sections: The Assembly's Shorter Catechism Explained (1765) (3,938)"
+      },
+      {
+       "id": "most-proofs",
+       "label": "Most proof-texts",
+       "url": "/study/creeds/westminster-larger-catechism-1647",
+       "why": "most proof-texts: Westminster Larger Catechism (1647) (2,636)"
+      }
+     ]
+    },
+    {
+     "id": "confession",
+     "name": "A confession",
+     "what": "Chapters and numbered sections.",
+     "instances": 16,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/creeds/tetrapolitan-confession-1530",
+       "why": "typical: Tetrapolitan Confession (1530), in the middle of all of them by sections"
+      },
+      {
+       "id": "most-sections",
+       "label": "Longest",
+       "url": "/study/creeds/second-helvetic-confession-1562",
+       "why": "most sections: Second Helvetic Confession (1562) (278)"
+      },
+      {
+       "id": "most-proofs",
+       "label": "Most proof-texts",
+       "url": "/study/creeds/westminster-confession-of-faith-1647",
+       "why": "most proof-texts: Westminster Confession of Faith (1647) (1,850)"
+      }
+     ]
+    },
+    {
+     "id": "creed",
+     "name": "A creed",
+     "what": "A short text, often with its Latin or Greek beside it.",
+     "instances": 15,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/creeds/chalcedonian-definition-451",
+       "why": "typical: Chalcedonian Definition (451), in the middle of all of them by sections"
+      },
+      {
+       "id": "most-sections",
+       "label": "Longest",
+       "url": "/study/creeds/athanasian-creed-quicunque-schaff",
+       "why": "most sections: The Athanasian Creed (Symbolum Quicunque) (500) (30)"
+      },
+      {
+       "id": "most-proofs",
+       "label": "Most proof-texts",
+       "url": "/study/creeds/confession-of-peter-30",
+       "why": "most proof-texts: Confession of Peter (AD 30) (8)"
+      }
+     ]
+    },
+    {
+     "id": "articles",
+     "name": "Articles of religion",
+     "what": "Numbered articles.",
+     "instances": 11,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/creeds/smalcald-articles-1537",
+       "why": "typical: The Smalcald Articles (1537), in the middle of all of them by sections"
+      },
+      {
+       "id": "most-sections",
+       "label": "Longest",
+       "url": "/study/creeds/irish-articles-of-religion-1615",
+       "why": "most sections: The Irish Articles of Religion (1615) (103)"
+      }
+     ]
+    },
+    {
+     "id": "canons",
+     "name": "Canons and decrees",
+     "what": "A council's canons.",
+     "instances": 4,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/creeds/council-of-trent-canons-and-decrees-1563",
+       "why": "typical: The Canons and Dogmatic Decrees of the Council of Trent (1563), in the middle of all of them by sections"
+      },
+      {
+       "id": "most-sections",
+       "label": "Longest",
+       "url": "/study/creeds/canons-of-dort-1619",
+       "why": "most sections: Canons of Dort (1619) (93)"
+      }
+     ]
+    },
+    {
+     "id": "rule-of-faith",
+     "name": "A rule of faith",
+     "what": "An early teacher's summary, a few sentences long.",
+     "instances": 4,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/creeds/tertullian-s-rule-of-faith-200",
+       "why": "typical: Tertullian's Rule of Faith (c. 200), in the middle of all of them by sections"
+      },
+      {
+       "id": "most-sections",
+       "label": "Longest",
+       "url": "/study/creeds/gregory-s-declaration-of-faith-265",
+       "why": "most sections: Gregory's Declaration of Faith (265) (1)"
+      }
+     ]
+    },
+    {
+     "id": "declaration",
+     "name": "A declaration",
+     "what": "The Savoy Declaration's own shape.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/creeds/savoy-declaration-1658",
+       "why": "typical: The Savoy Declaration of the Congregational Churches (1658), in the middle of all of them by sections"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "museums-home",
+   "area": "study",
+   "name": "Museum-Grade Archaeology",
+   "what": "39 museums, archives and catalogues, a cabinet of 79 openly licensed photographs, and the institutions the records name as holders.",
+   "address": "/study/museum-archaeology",
+   "instances": 3,
+   "sources": [
+    "src/lib/museums.ts",
+    "src/pages/study/museums/MuseumArchaeologyPage.tsx",
+    "src/pages/study/museums/MuseumEmblems.tsx",
+    "src/pages/study/museums/museums.css"
+   ],
+   "sourceHash": "184faba8d63d44dc",
+   "signature": null,
+   "variants": [
+    {
+     "id": "home",
+     "name": "Every collection",
+     "what": "The cabinet and the full grid.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/museum-archaeology",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "collections",
+     "name": "The open collections",
+     "what": "Only what we fetched from.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/museum-archaeology?group=collections",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "holders",
+     "name": "The holding institutions",
+     "what": "Only who has the objects.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/museum-archaeology?group=holders",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "museum",
+   "area": "study",
+   "name": "One museum",
+   "what": "What we hold for one collection: objects with their dates, culture, findspot, openly licensed photographs with credit, and the archaeology catalogue rows they match.",
+   "address": "/study/museum-archaeology/<museum>",
+   "instances": 39,
+   "sources": [
+    "src/lib/museums.ts",
+    "src/pages/study/museums/MuseumEmblems.tsx",
+    "src/pages/study/museums/MuseumPage.tsx",
+    "src/pages/study/museums/museums.css"
+   ],
+   "sourceHash": "15cac71cd419f7e4",
+   "signature": null,
+   "variants": [
+    {
+     "id": "collection",
+     "name": "An open collection",
+     "what": "A collection publishing its own catalogue.",
+     "instances": 8,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/museum-archaeology/cleveland-museum-of-art",
+       "why": "typical: The Cleveland Museum of Art, Cleveland, Ohio, in the middle of all of them by records"
+      },
+      {
+       "id": "most-records",
+       "label": "The largest",
+       "url": "/study/museum-archaeology/metropolitan-museum-of-art",
+       "why": "most records: The Metropolitan Museum of Art, New York (35,920)"
+      },
+      {
+       "id": "most-photographs",
+       "label": "Most photographed",
+       "url": "/study/museum-archaeology/wikidata-and-wikimedia-commons",
+       "why": "most photographs: Wikidata & Wikimedia Commons (43)"
+      }
+     ]
+    },
+    {
+     "id": "holder",
+     "name": "A holding institution",
+     "what": "Named as the holder inside other collections' records.",
+     "instances": 30,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/museum-archaeology/columbia-university-library",
+       "why": "typical: Columbia University Library, New York, in the middle of all of them by records"
+      },
+      {
+       "id": "most-records",
+       "label": "The largest",
+       "url": "/study/museum-archaeology/british-museum",
+       "why": "most records: The British Museum, London (2,727)"
+      },
+      {
+       "id": "most-photographs",
+       "label": "Most photographed",
+       "url": "/study/museum-archaeology/holder-not-recorded",
+       "why": "most photographs: Holding institution not recorded (19)"
+      }
+     ]
+    },
+    {
+     "id": "coming-soon",
+     "name": "Coming soon",
+     "what": "A museum we hold nothing from, and why.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/museum-archaeology/rijksmuseum",
+       "why": "typical: The Rijksmuseum, Amsterdam, in the middle of all of them by records"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hymn",
+   "area": "study",
+   "name": "One hymn",
+   "what": "A hymn's words with the verses its lines echo (Berean text), the verse its author printed above it, its place in its book, and where hymnals place it.",
+   "address": "/study/hymns/<hymn>",
+   "instances": 1169,
+   "sources": [
+    "src/lib/hymn-pages.ts",
+    "src/pages/study/hymns/page/HymnFullPage.tsx",
+    "src/pages/study/hymns/page/StanzaPager.tsx",
+    "src/pages/study/hymns/page/page.css",
+    "src/pages/study/hymns/page/sections.tsx",
+    "src/pages/study/hymns/song/Constellation.tsx",
+    "src/pages/study/hymns/song/Echoes.tsx",
+    "src/pages/study/hymns/song/Sections.tsx",
+    "src/pages/study/hymns/song/parts.tsx",
+    "src/pages/study/hymns/song/song.css"
+   ],
+   "sourceHash": "eaf5c96c0556e989",
+   "signature": null,
+   "variants": [
+    {
+     "id": "psalm",
+     "name": "A psalm setting with echoes",
+     "what": "Watts's psalm paraphrases: lines matched to the psalm's verses.",
+     "instances": 367,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/hymns/ccel-watts-psalms-hymns-ps-202-o-god-to-whom-revenge-belongs",
+       "why": "typical: O God, to whom revenge belongs (Isaac Watts), in the middle of all of them by lines"
+      },
+      {
+       "id": "most-echoes",
+       "label": "Most echoes",
+       "url": "/study/hymns/gutenberg-watts-psalms-104-my-soul-thy-great-creator-praise",
+       "why": "most echoes: My soul, thy great Creator praise (Isaac Watts) (29)"
+      }
+     ]
+    },
+    {
+     "id": "echoes",
+     "name": "A hymn with echoes",
+     "what": "The margin of verses and, across two books or more, the constellation.",
+     "instances": 743,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/hymns/ccel-olney-hymns-28-when-paul-was-parted-from-his-friends",
+       "why": "typical: When Paul was parted from his friends (John Newton), in the middle of all of them by lines"
+      },
+      {
+       "id": "most-echoes",
+       "label": "Most echoes",
+       "url": "/study/hymns/ccel-olney-hymns-139-thus-saith-the-holy-one-and-true",
+       "why": "most echoes: Thus saith the holy One, and true (John Newton) (14)"
+      },
+      {
+       "id": "longest",
+       "label": "Longest",
+       "url": "/study/hymns/gutenberg-watts-hymns-1-150-join-all-the-glorious-names",
+       "why": "most lines: Join all the glorious names (Isaac Watts) (96)"
+      }
+     ]
+    },
+    {
+     "id": "heading",
+     "name": "A heading, no echoes",
+     "what": "The words, where the author found it, its place in the book.",
+     "instances": 12,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/hymns/ccel-olney-hymns-76-son-of-god-thy-peoples-shield",
+       "why": "typical: Son of God! thy people’s shield! (John Newton), in the middle of all of them by lines"
+      },
+      {
+       "id": "most-echoes",
+       "label": "Most echoes",
+       "url": "/study/hymns/ccel-olney-hymns-22-jesus-whose-blood-so-freely-streamed",
+       "why": "most echoes: Jesus, whose blood so freely streamed (William Cowper) (0)"
+      },
+      {
+       "id": "longest",
+       "label": "Longest",
+       "url": "/study/hymns/ccel-olney-hymns-121-lord-thou-hast-won-at-length-i-yield",
+       "why": "most lines: Lord, thou hast won, at length I yield (John Newton) (42)"
+      }
+     ]
+    },
+    {
+     "id": "main",
+     "name": "No heading, a main passage",
+     "what": "The passage it draws on most, labelled as the checks' choice.",
+     "instances": 18,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/hymns/ccel-watts-divine-songs-h1-how-glorious-is-our-heavenly-king",
+       "why": "typical: How glorious is our heavenly King (Isaac Watts), in the middle of all of them by lines"
+      },
+      {
+       "id": "most-echoes",
+       "label": "Most echoes",
+       "url": "/study/hymns/ccel-olney-hymns-63-sin-enslaved-me-many-years",
+       "why": "most echoes: Sin enslaved me many years (William Cowper) (0)"
+      },
+      {
+       "id": "longest",
+       "label": "Longest",
+       "url": "/study/hymns/ccel-olney-hymns-69-wearied-by-day-with-toils-and-cares",
+       "why": "most lines: Wearied by day with toils and cares (John Newton) (32)"
+      }
+     ]
+    },
+    {
+     "id": "words",
+     "name": "Words and book only",
+     "what": "No heading and no echoes: the words, the book and its place in it.",
+     "instances": 29,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/hymns/ccel-olney-hymns-80-of-all-the-gifts-thine-hand-bestows",
+       "why": "typical: Of all the gifts thine hand bestows (William Cowper), in the middle of all of them by lines"
+      },
+      {
+       "id": "longest",
+       "label": "Longest",
+       "url": "/study/hymns/ccel-olney-hymns-76-sin-when-viewed-by-scripture-light",
+       "why": "most lines: Sin, when viewed by scripture light (John Newton) (32)"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "research-lesson",
    "area": "study",
    "name": "Scripture-led research lessons",
@@ -1311,7 +2802,7 @@
     "src/pages/research/model.ts",
     "src/pages/research/research.css"
    ],
-   "sourceHash": "d8cdfc5c2487f49a",
+   "sourceHash": "6b8b922359de73b0",
    "signature": {
     "selector": ".rs-passage",
     "label": "Begin with Scripture"
@@ -1346,7 +2837,7 @@
     "src/pages/places/layer-stack-data.ts",
     "src/pages/places/places-collection.css"
    ],
-   "sourceHash": "c0e7ac35e185df4d",
+   "sourceHash": "66882c5b7e1a1171",
    "signature": null,
    "variants": [
     {
@@ -1373,9 +2864,11 @@
    "address": "/study/atlas/map?place=<place>",
    "instances": 1253,
    "sources": [
+    "src/components/atlas/OldMapsFold.tsx",
     "src/components/atlas/PlacePanel.tsx",
     "src/components/atlas/StreetAtlasMap.tsx",
     "src/components/atlas/chunked-source.ts",
+    "src/components/atlas/old-maps-by-place.json",
     "src/components/atlas/projection.ts",
     "src/components/atlas/route-animation.ts",
     "src/components/atlas/street-atlas.css",
@@ -1407,13 +2900,27 @@
     "src/pages/places/journey.css",
     "src/pages/places/journeys-pilgrim.css",
     "src/pages/places/layer-stack-data.ts",
+    "src/pages/places/old-maps-collection/OldMapsCollection.tsx",
+    "src/pages/places/old-maps-collection/art.js",
+    "src/pages/places/old-maps-collection/common.js",
+    "src/pages/places/old-maps-collection/data.js",
+    "src/pages/places/old-maps-collection/dir-a.js",
+    "src/pages/places/old-maps-collection/dir-b.js",
+    "src/pages/places/old-maps-collection/dir-c.js",
+    "src/pages/places/old-maps-collection/icons.js",
+    "src/pages/places/old-maps-collection/index.js",
+    "src/pages/places/old-maps-collection/old-maps-collection.css",
+    "src/pages/places/old-maps-collection/viewer.js",
+    "src/pages/places/old-maps-summary.json",
+    "src/pages/places/old-maps.css",
+    "src/pages/places/old-maps.tsx",
     "src/pages/places/paul-journey.ts",
     "src/pages/places/places-collection.css",
     "src/pages/places/routes.ts",
     "src/pages/places/tradition-experience.css",
     "src/pages/places/usePlacesPageSlide.ts"
    ],
-   "sourceHash": "78101950281f043d",
+   "sourceHash": "2a2b8043e8e59f58",
    "signature": {
     "selector": ".maplibregl-map",
     "label": "The map"
@@ -1469,9 +2976,11 @@
    "address": "/study/atlas/cities?collection=<collection>",
    "instances": 12,
    "sources": [
+    "src/components/atlas/OldMapsFold.tsx",
     "src/components/atlas/PlacePanel.tsx",
     "src/components/atlas/StreetAtlasMap.tsx",
     "src/components/atlas/chunked-source.ts",
+    "src/components/atlas/old-maps-by-place.json",
     "src/components/atlas/projection.ts",
     "src/components/atlas/route-animation.ts",
     "src/components/atlas/street-atlas.css",
@@ -1502,13 +3011,27 @@
     "src/pages/places/journey.css",
     "src/pages/places/journeys-pilgrim.css",
     "src/pages/places/layer-stack-data.ts",
+    "src/pages/places/old-maps-collection/OldMapsCollection.tsx",
+    "src/pages/places/old-maps-collection/art.js",
+    "src/pages/places/old-maps-collection/common.js",
+    "src/pages/places/old-maps-collection/data.js",
+    "src/pages/places/old-maps-collection/dir-a.js",
+    "src/pages/places/old-maps-collection/dir-b.js",
+    "src/pages/places/old-maps-collection/dir-c.js",
+    "src/pages/places/old-maps-collection/icons.js",
+    "src/pages/places/old-maps-collection/index.js",
+    "src/pages/places/old-maps-collection/old-maps-collection.css",
+    "src/pages/places/old-maps-collection/viewer.js",
+    "src/pages/places/old-maps-summary.json",
+    "src/pages/places/old-maps.css",
+    "src/pages/places/old-maps.tsx",
     "src/pages/places/paul-journey.ts",
     "src/pages/places/places-collection.css",
     "src/pages/places/routes.ts",
     "src/pages/places/tradition-experience.css",
     "src/pages/places/usePlacesPageSlide.ts"
    ],
-   "sourceHash": "e4aa0f850609be96",
+   "sourceHash": "ec9f39ad125d67e1",
    "signature": null,
    "variants": [
     {
@@ -1561,9 +3084,11 @@
    "address": "/study/atlas/cities?collection=<c>&focus=<city>&view=city",
    "instances": 74,
    "sources": [
+    "src/components/atlas/OldMapsFold.tsx",
     "src/components/atlas/PlacePanel.tsx",
     "src/components/atlas/StreetAtlasMap.tsx",
     "src/components/atlas/chunked-source.ts",
+    "src/components/atlas/old-maps-by-place.json",
     "src/components/atlas/projection.ts",
     "src/components/atlas/route-animation.ts",
     "src/components/atlas/street-atlas.css",
@@ -1594,13 +3119,27 @@
     "src/pages/places/journey.css",
     "src/pages/places/journeys-pilgrim.css",
     "src/pages/places/layer-stack-data.ts",
+    "src/pages/places/old-maps-collection/OldMapsCollection.tsx",
+    "src/pages/places/old-maps-collection/art.js",
+    "src/pages/places/old-maps-collection/common.js",
+    "src/pages/places/old-maps-collection/data.js",
+    "src/pages/places/old-maps-collection/dir-a.js",
+    "src/pages/places/old-maps-collection/dir-b.js",
+    "src/pages/places/old-maps-collection/dir-c.js",
+    "src/pages/places/old-maps-collection/icons.js",
+    "src/pages/places/old-maps-collection/index.js",
+    "src/pages/places/old-maps-collection/old-maps-collection.css",
+    "src/pages/places/old-maps-collection/viewer.js",
+    "src/pages/places/old-maps-summary.json",
+    "src/pages/places/old-maps.css",
+    "src/pages/places/old-maps.tsx",
     "src/pages/places/paul-journey.ts",
     "src/pages/places/places-collection.css",
     "src/pages/places/routes.ts",
     "src/pages/places/tradition-experience.css",
     "src/pages/places/usePlacesPageSlide.ts"
    ],
-   "sourceHash": "e4aa0f850609be96",
+   "sourceHash": "ec9f39ad125d67e1",
    "signature": null,
    "variants": [
     {
@@ -1659,9 +3198,11 @@
    "address": "/study/atlas/cities/find?page=<n>",
    "instances": 34,
    "sources": [
+    "src/components/atlas/OldMapsFold.tsx",
     "src/components/atlas/PlacePanel.tsx",
     "src/components/atlas/StreetAtlasMap.tsx",
     "src/components/atlas/chunked-source.ts",
+    "src/components/atlas/old-maps-by-place.json",
     "src/components/atlas/projection.ts",
     "src/components/atlas/route-animation.ts",
     "src/components/atlas/street-atlas.css",
@@ -1692,13 +3233,27 @@
     "src/pages/places/journey.css",
     "src/pages/places/journeys-pilgrim.css",
     "src/pages/places/layer-stack-data.ts",
+    "src/pages/places/old-maps-collection/OldMapsCollection.tsx",
+    "src/pages/places/old-maps-collection/art.js",
+    "src/pages/places/old-maps-collection/common.js",
+    "src/pages/places/old-maps-collection/data.js",
+    "src/pages/places/old-maps-collection/dir-a.js",
+    "src/pages/places/old-maps-collection/dir-b.js",
+    "src/pages/places/old-maps-collection/dir-c.js",
+    "src/pages/places/old-maps-collection/icons.js",
+    "src/pages/places/old-maps-collection/index.js",
+    "src/pages/places/old-maps-collection/old-maps-collection.css",
+    "src/pages/places/old-maps-collection/viewer.js",
+    "src/pages/places/old-maps-summary.json",
+    "src/pages/places/old-maps.css",
+    "src/pages/places/old-maps.tsx",
     "src/pages/places/paul-journey.ts",
     "src/pages/places/places-collection.css",
     "src/pages/places/routes.ts",
     "src/pages/places/tradition-experience.css",
     "src/pages/places/usePlacesPageSlide.ts"
    ],
-   "sourceHash": "e4aa0f850609be96",
+   "sourceHash": "ec9f39ad125d67e1",
    "signature": null,
    "variants": [
     {
@@ -1761,7 +3316,7 @@
     "src/pages/places/paul-journey.ts",
     "src/pages/places/routes.ts"
    ],
-   "sourceHash": "44d66594d254ba17",
+   "sourceHash": "18e181e2fd95ebf6",
    "signature": null,
    "variants": [
     {
@@ -1831,7 +3386,7 @@
     "src/pages/places/AtlasCollection.tsx",
     "src/pages/places/places-collection.css"
    ],
-   "sourceHash": "31709ab97e6566d5",
+   "sourceHash": "7a546a49bab141e5",
    "signature": null,
    "variants": [
     {
@@ -1864,9 +3419,11 @@
    "address": "/study/atlas/<collection>?topic=<topic>",
    "instances": 21,
    "sources": [
+    "src/components/atlas/OldMapsFold.tsx",
     "src/components/atlas/PlacePanel.tsx",
     "src/components/atlas/StreetAtlasMap.tsx",
     "src/components/atlas/chunked-source.ts",
+    "src/components/atlas/old-maps-by-place.json",
     "src/components/atlas/projection.ts",
     "src/components/atlas/route-animation.ts",
     "src/components/atlas/street-atlas.css",
@@ -1897,13 +3454,27 @@
     "src/pages/places/journey.css",
     "src/pages/places/journeys-pilgrim.css",
     "src/pages/places/layer-stack-data.ts",
+    "src/pages/places/old-maps-collection/OldMapsCollection.tsx",
+    "src/pages/places/old-maps-collection/art.js",
+    "src/pages/places/old-maps-collection/common.js",
+    "src/pages/places/old-maps-collection/data.js",
+    "src/pages/places/old-maps-collection/dir-a.js",
+    "src/pages/places/old-maps-collection/dir-b.js",
+    "src/pages/places/old-maps-collection/dir-c.js",
+    "src/pages/places/old-maps-collection/icons.js",
+    "src/pages/places/old-maps-collection/index.js",
+    "src/pages/places/old-maps-collection/old-maps-collection.css",
+    "src/pages/places/old-maps-collection/viewer.js",
+    "src/pages/places/old-maps-summary.json",
+    "src/pages/places/old-maps.css",
+    "src/pages/places/old-maps.tsx",
     "src/pages/places/paul-journey.ts",
     "src/pages/places/places-collection.css",
     "src/pages/places/routes.ts",
     "src/pages/places/tradition-experience.css",
     "src/pages/places/usePlacesPageSlide.ts"
    ],
-   "sourceHash": "e4aa0f850609be96",
+   "sourceHash": "ec9f39ad125d67e1",
    "signature": null,
    "variants": [
     {
@@ -1991,7 +3562,7 @@
     "src/pages/topics/topics-shared.ts",
     "src/pages/topics/useEqualCardHeights.ts"
    ],
-   "sourceHash": "f96bf7898a05f855",
+   "sourceHash": "7fba7c6aa5fba72f",
    "signature": null,
    "variants": [
     {
@@ -2023,7 +3594,7 @@
     "src/pages/topics/TopicsShell.tsx",
     "src/pages/topics/topics-shared.ts"
    ],
-   "sourceHash": "d54a23043498b7a8",
+   "sourceHash": "892f325af785c77f",
    "signature": null,
    "variants": [
     {
@@ -2107,7 +3678,7 @@
     "src/pages/topics/TopicsShell.tsx",
     "src/pages/topics/topics-shared.ts"
    ],
-   "sourceHash": "c325ceb211c15e2b",
+   "sourceHash": "b55f638edd7b2402",
    "signature": null,
    "variants": [
     {
@@ -2304,7 +3875,7 @@
    "sources": [
     "src/pages/BiblePage.tsx"
    ],
-   "sourceHash": "df7d3e71e8f8ecae",
+   "sourceHash": "43689ac38312cc21",
    "signature": null,
    "variants": [
     {
@@ -2333,6 +3904,7 @@
    "sources": [
     "src/components/reader/BookPicker.tsx",
     "src/components/reader/ChapterCrossRefs.tsx",
+    "src/components/reader/ChapterHymns.tsx",
     "src/components/reader/ChapterPlaces.tsx",
     "src/components/reader/ChapterText.tsx",
     "src/components/reader/ChapterTopics.tsx",
@@ -2347,10 +3919,11 @@
     "src/components/reader/reference-panel.css",
     "src/components/reader/settings.ts",
     "src/components/reader/useChapterCrossRefs.ts",
+    "src/components/reader/useSwipeNavigation.ts",
     "src/components/reader/who-ruled.css",
     "src/pages/ReaderPage.tsx"
    ],
-   "sourceHash": "1cf9fa7f86f76792",
+   "sourceHash": "b71f20fc3c3b5b55",
    "signature": null,
    "variants": [
     {
@@ -2588,7 +4161,7 @@
     "src/pages/islam-guide.css",
     "src/pages/worldviews.css"
    ],
-   "sourceHash": "89cabc1620bf7a2e",
+   "sourceHash": "22d8b25e1d364d47",
    "signature": null,
    "variants": [
     {
@@ -2759,7 +4332,7 @@
     "src/pages/ApologeticsPage.tsx",
     "src/pages/apologetics.css"
    ],
-   "sourceHash": "24c53bacb6649423",
+   "sourceHash": "3644627918e675e5",
    "signature": null,
    "variants": [
     {
@@ -2810,7 +4383,7 @@
     "src/pages/ApologeticsPage.tsx",
     "src/pages/apologetics.css"
    ],
-   "sourceHash": "24c53bacb6649423",
+   "sourceHash": "3644627918e675e5",
    "signature": null,
    "variants": [
     {
@@ -2853,7 +4426,7 @@
     "src/pages/ApologeticsPage.tsx",
     "src/pages/apologetics.css"
    ],
-   "sourceHash": "24c53bacb6649423",
+   "sourceHash": "3644627918e675e5",
    "signature": null,
    "variants": [
     {
@@ -2908,7 +4481,7 @@
     "src/pages/WorldviewsPage.tsx",
     "src/pages/worldviews.css"
    ],
-   "sourceHash": "60dfa33a9c740e87",
+   "sourceHash": "36266fc2607c27d4",
    "signature": {
     "selector": "#muslim-world",
     "label": "Muslim-world country explorer"
@@ -3256,20 +4829,20 @@
    "name": "Debate study",
    "what": "A recorded debate to study, with the questions underneath.",
    "address": "/apologetics/debates/<debate>",
-   "instances": 3,
+   "instances": 9,
    "sources": [
     "src/components/ApologeticsParts.tsx",
     "src/pages/ApologeticsPage.tsx",
     "src/pages/apologetics.css"
    ],
-   "sourceHash": "24c53bacb6649423",
+   "sourceHash": "3644627918e675e5",
    "signature": null,
    "variants": [
     {
      "id": "page",
      "name": "Debate study",
      "what": "A recorded debate to study, with the questions underneath.",
-     "instances": 3,
+     "instances": 9,
      "samples": [
       {
        "id": "first",
@@ -3280,8 +4853,8 @@
       {
        "id": "longest-title",
        "label": "Longest title",
-       "url": "/apologetics/debates/craig-ally-god",
-       "why": "longest title: \"The concept of God\" (18 characters)"
+       "url": "/apologetics/debates/craig-ehrman",
+       "why": "longest title: \"Historical evidence for the resurrection\" (40 characters)"
       }
      ]
     }
@@ -3299,7 +4872,7 @@
     "src/pages/ApologeticsPage.tsx",
     "src/pages/apologetics.css"
    ],
-   "sourceHash": "24c53bacb6649423",
+   "sourceHash": "3644627918e675e5",
    "signature": null,
    "variants": [
     {
@@ -3340,7 +4913,7 @@
     "src/pages/research/model.ts",
     "src/pages/research/research.css"
    ],
-   "sourceHash": "d8cdfc5c2487f49a",
+   "sourceHash": "6b8b922359de73b0",
    "signature": {
     "selector": ".rs-answer",
     "label": "The question and answer"
@@ -3386,7 +4959,7 @@
    "sources": [
     "src/pages/TestimoniesPage.tsx"
    ],
-   "sourceHash": "4e7cc3a51ef0f67b",
+   "sourceHash": "b9cda4e6ab540ea9",
    "signature": null,
    "variants": [
     {
@@ -3441,13 +5014,36 @@
    "address": "/",
    "instances": 1,
    "sources": [
+    "src/components/home/HomeApologeticsScenes.tsx",
     "src/components/home/HomeArtwork.tsx",
+    "src/components/home/HomeBanner.tsx",
+    "src/components/home/HomeBibleScenes.tsx",
+    "src/components/home/HomeEmblems.tsx",
+    "src/components/home/HomeFeatureArt.tsx",
+    "src/components/home/HomeResourceScenes.tsx",
+    "src/components/home/HomeStudyScenes.tsx",
     "src/components/home/collection-data.ts",
+    "src/components/home/emblem-designs.tsx",
+    "src/components/home/home-apologetics.css",
+    "src/components/home/home-banner.css",
+    "src/components/home/home-emblems.css",
+    "src/components/home/home-features.css",
     "src/components/home/home-hub.css",
     "src/components/home/home-landing-options.css",
+    "src/components/home/home-resources.css",
+    "src/components/home/home-study.css",
+    "src/components/home/mockups/AcademicMockups.tsx",
+    "src/components/home/mockups/LearningMockups.tsx",
+    "src/components/home/mockups/LifeMockups.tsx",
+    "src/components/home/mockups/OverviewMockupsMore.tsx",
+    "src/components/home/mockups/academic-mockups.css",
+    "src/components/home/mockups/learning-mockups.css",
+    "src/components/home/mockups/life-mockups.css",
+    "src/components/home/mockups/overview-more.css",
+    "src/components/home/mockups/types.ts",
     "src/pages/HomePage.tsx"
    ],
-   "sourceHash": "0728f4a82d917302",
+   "sourceHash": "759c2d51c30995d9",
    "signature": null,
    "variants": [
     {
@@ -3570,12 +5166,24 @@
    "instances": 1,
    "sources": [
     "src/components/SourceDirectory.tsx",
+    "src/components/sources/CollectionArt.tsx",
     "src/components/sources/CorpusDashboard.tsx",
+    "src/components/sources/LibraryOverview.tsx",
+    "src/components/sources/SourceCatalogue.tsx",
+    "src/components/sources/SourceCollections.tsx",
     "src/components/sources/SourceProviders.tsx",
+    "src/components/sources/SourceReview.tsx",
+    "src/components/sources/collection-previews.ts",
+    "src/components/sources/dashboard-model.ts",
+    "src/components/sources/dashboard.css",
+    "src/components/sources/source-boards.css",
+    "src/components/sources/source-catalogue.css",
+    "src/components/sources/source-overview.css",
     "src/components/sources/types.ts",
+    "src/components/sources/useSourceDirectory.ts",
     "src/pages/VersionsPage.tsx"
    ],
-   "sourceHash": "c9fe08bb11c8f55e",
+   "sourceHash": "f67733b739f6b6a4",
    "signature": null,
    "variants": [
     {
@@ -3604,7 +5212,7 @@
    "sources": [
     "src/pages/LibraryPage.tsx"
    ],
-   "sourceHash": "4e846b9499207072",
+   "sourceHash": "05256b1394f081ac",
    "signature": null,
    "variants": [
     {
@@ -3698,7 +5306,7 @@
     "src/pages/research/model.ts",
     "src/pages/research/research.css"
    ],
-   "sourceHash": "d8cdfc5c2487f49a",
+   "sourceHash": "6b8b922359de73b0",
    "signature": {
     "selector": ".rs-card-grid",
     "label": "Reading paths"
@@ -3764,7 +5372,7 @@
     "src/pages/research/model.ts",
     "src/pages/research/research.css"
    ],
-   "sourceHash": "d8cdfc5c2487f49a",
+   "sourceHash": "6b8b922359de73b0",
    "signature": {
     "selector": ".rs-source-grid",
     "label": "Source editions"
@@ -3802,7 +5410,7 @@
     "src/pages/research/model.ts",
     "src/pages/research/research.css"
    ],
-   "sourceHash": "d8cdfc5c2487f49a",
+   "sourceHash": "6b8b922359de73b0",
    "signature": {
     "selector": ".rs-source-layout",
     "label": "Edition and source context"
@@ -3866,7 +5474,7 @@
     "src/pages/research/model.ts",
     "src/pages/research/research.css"
    ],
-   "sourceHash": "d8cdfc5c2487f49a",
+   "sourceHash": "6b8b922359de73b0",
    "signature": {
     "selector": ".rs-source-grid",
     "label": "Attributed editions"
@@ -3895,6 +5503,149 @@
    ]
   },
   {
+   "id": "scholars",
+   "area": "site",
+   "name": "Scholars directory",
+   "what": "Scholars, living and historical, with subject labels and source collections.",
+   "address": "/teachers/scholars",
+   "instances": 1,
+   "sources": [
+    "content/teachers/field-featured.json",
+    "content/teachers/field-shelves.json",
+    "public/content/teacher-library/catalogue.json",
+    "src/data/teachers/pages-types.ts",
+    "src/pages/teachers/scholars/Built.css",
+    "src/pages/teachers/scholars/Built.tsx",
+    "src/pages/teachers/scholars/Catalogue.css",
+    "src/pages/teachers/scholars/Catalogue.tsx",
+    "src/pages/teachers/scholars/Connections.tsx",
+    "src/pages/teachers/scholars/Directory.css",
+    "src/pages/teachers/scholars/Directory.tsx",
+    "src/pages/teachers/scholars/Discoveries.css",
+    "src/pages/teachers/scholars/Discoveries.tsx",
+    "src/pages/teachers/scholars/FieldWorks.tsx",
+    "src/pages/teachers/scholars/Fields.css",
+    "src/pages/teachers/scholars/Landing.css",
+    "src/pages/teachers/scholars/Landing.tsx",
+    "src/pages/teachers/scholars/Named.css",
+    "src/pages/teachers/scholars/Named.tsx",
+    "src/pages/teachers/scholars/Numbers.css",
+    "src/pages/teachers/scholars/Numbers.tsx",
+    "src/pages/teachers/scholars/Profile.css",
+    "src/pages/teachers/scholars/Profile.tsx",
+    "src/pages/teachers/scholars/ScholarsPage.tsx",
+    "src/pages/teachers/scholars/SectionHead.tsx",
+    "src/pages/teachers/scholars/built/SourceDetails.tsx",
+    "src/pages/teachers/scholars/built/Stack.tsx",
+    "src/pages/teachers/scholars/built/Stage.tsx",
+    "src/pages/teachers/scholars/built/export.ts",
+    "src/pages/teachers/scholars/built/labels.ts",
+    "src/pages/teachers/scholars/built/model.ts",
+    "src/pages/teachers/scholars/catalogue/Card.tsx",
+    "src/pages/teachers/scholars/catalogue/ContributorDetails.tsx",
+    "src/pages/teachers/scholars/catalogue/ContributorTable.tsx",
+    "src/pages/teachers/scholars/catalogue/Facets.tsx",
+    "src/pages/teachers/scholars/catalogue/LibraryCard.tsx",
+    "src/pages/teachers/scholars/catalogue/PopulationCoverage.tsx",
+    "src/pages/teachers/scholars/catalogue/PopulationWorks.tsx",
+    "src/pages/teachers/scholars/catalogue/VirtualCards.tsx",
+    "src/pages/teachers/scholars/catalogue/export-download.ts",
+    "src/pages/teachers/scholars/catalogue/filtering.ts",
+    "src/pages/teachers/scholars/catalogue/library.ts",
+    "src/pages/teachers/scholars/catalogue/population.css",
+    "src/pages/teachers/scholars/catalogue/useLibrary.ts",
+    "src/pages/teachers/scholars/context.ts",
+    "src/pages/teachers/scholars/directory/Rows.tsx",
+    "src/pages/teachers/scholars/directory/groups.ts",
+    "src/pages/teachers/scholars/discoveries/Cards.tsx",
+    "src/pages/teachers/scholars/discoveries/MapCard.tsx",
+    "src/pages/teachers/scholars/discoveries/model.ts",
+    "src/pages/teachers/scholars/discoveries/projection.ts",
+    "src/pages/teachers/scholars/discoveries/stage.ts",
+    "src/pages/teachers/scholars/discoveries/useDiscoveryMap.ts",
+    "src/pages/teachers/scholars/facts.ts",
+    "src/pages/teachers/scholars/field-library.ts",
+    "src/pages/teachers/scholars/landing/Constellation.tsx",
+    "src/pages/teachers/scholars/landing/FocusTimeline.tsx",
+    "src/pages/teachers/scholars/landing/IdeaLineage.tsx",
+    "src/pages/teachers/scholars/landing/ScholarTimeline.tsx",
+    "src/pages/teachers/scholars/landing/focus-timeline.css",
+    "src/pages/teachers/scholars/landing/focus-timeline.ts",
+    "src/pages/teachers/scholars/landing/idea-chains.ts",
+    "src/pages/teachers/scholars/landing/idea-lineage.css",
+    "src/pages/teachers/scholars/landing/lineage-population.ts",
+    "src/pages/teachers/scholars/landing/scholar-timeline.css",
+    "src/pages/teachers/scholars/marks/Mark.tsx",
+    "src/pages/teachers/scholars/marks/dom.ts",
+    "src/pages/teachers/scholars/marks/facts.ts",
+    "src/pages/teachers/scholars/marks/marks.css",
+    "src/pages/teachers/scholars/marks/shapes.ts",
+    "src/pages/teachers/scholars/named/Row.tsx",
+    "src/pages/teachers/scholars/named/model.ts",
+    "src/pages/teachers/scholars/population.ts",
+    "src/pages/teachers/scholars/profile/Content.tsx",
+    "src/pages/teachers/scholars/profile/ProfileMap.tsx",
+    "src/pages/teachers/scholars/profile/motion.ts",
+    "src/pages/teachers/scholars/sections.ts",
+    "src/pages/teachers/scholars/site-evidence.ts"
+   ],
+   "sourceHash": "04bf97b8cc207f01",
+   "signature": {
+    "selector": "#catalogue",
+    "label": "Scholars catalogue"
+   },
+   "variants": [
+    {
+     "id": "directory",
+     "name": "Directory",
+     "what": "Browse and open a scholar profile.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/teachers/scholars",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "scholar-writings",
+   "area": "site",
+   "name": "Scholar writings",
+   "what": "An authorâ€™s source catalogue, shared with Apologetics materials.",
+   "address": "/teachers/scholars/<id>/writings",
+   "instances": 1,
+   "sources": [
+    "content/teachers/writings/william-lane-craig.json",
+    "src/pages/teachers/ScholarWritingsPage.tsx",
+    "src/pages/teachers/scholar-writings.css"
+   ],
+   "sourceHash": "1c88805cac3cba97",
+   "signature": {
+    "selector": ".sw-filters",
+    "label": "Search and category filters"
+   },
+   "variants": [
+    {
+     "id": "catalogue",
+     "name": "Writings catalogue",
+     "what": "Original article and PDF links with subject filters.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/teachers/scholars/william-lane-craig/writings",
+       "why": "the first example: William Lane Craig"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "teacher-holdings",
    "area": "site",
    "name": "Teachers acquired shelves",
@@ -3909,9 +5660,10 @@
     "src/pages/teachers/shared/acquired.css",
     "src/pages/teachers/shared/acquired.ts",
     "src/pages/teachers/shared/frame.css",
+    "src/pages/teachers/shared/reading-position.ts",
     "src/pages/teachers/shared/sides.ts"
    ],
-   "sourceHash": "bcd5f601a5718719",
+   "sourceHash": "d2086beae0228911",
    "signature": {
     "selector": ".acq-catalogue",
     "label": "Acquired contributors"
@@ -3962,9 +5714,10 @@
     "src/pages/teachers/shared/acquired.css",
     "src/pages/teachers/shared/acquired.ts",
     "src/pages/teachers/shared/frame.css",
+    "src/pages/teachers/shared/reading-position.ts",
     "src/pages/teachers/shared/sides.ts"
    ],
-   "sourceHash": "bcd5f601a5718719",
+   "sourceHash": "d2086beae0228911",
    "signature": {
     "selector": ".acq-collections",
     "label": "Collections"
@@ -4001,9 +5754,10 @@
     "src/pages/teachers/shared/acquired.css",
     "src/pages/teachers/shared/acquired.ts",
     "src/pages/teachers/shared/frame.css",
+    "src/pages/teachers/shared/reading-position.ts",
     "src/pages/teachers/shared/sides.ts"
    ],
-   "sourceHash": "bcd5f601a5718719",
+   "sourceHash": "d2086beae0228911",
    "signature": {
     "selector": ".acq-reader",
     "label": "Reading and provenance"
@@ -4083,7 +5837,7 @@
     "src/pages/teachers/shared/acquired.css",
     "src/pages/teachers/shared/acquired.ts"
    ],
-   "sourceHash": "0af68c60771927c5",
+   "sourceHash": "a13f2bdf93d57d53",
    "signature": {
     "selector": ".acq-reader",
     "label": "Source and edition"

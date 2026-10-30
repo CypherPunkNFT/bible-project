@@ -24,7 +24,6 @@ export async function readerPage(): Promise<PageContent> {
   const catalog = await loadCatalog();
   const languages = new Set(catalog.translations.map((version) => version.lang)).size;
   const bible = (await readableText(BIBLE)).map((line) => (line.startsWith("… versions") ? fill(line, catalog.translations.length, languages) : line));
-  const shelves = await looseConstant<string[]>(BIBLE, "SHELVES");
   const toggles = await looseConstant<string[][]>("src/components/reader/ReaderToolbar.tsx", "TOGGLES");
   const sideBySide = await looseConstant<number>("src/components/reader/VersionMenu.tsx", "MAX_SIDE_BY_SIDE");
   const parts = await Promise.all(PARTS.map(async ([file, title]) => blocks(`### ${title}`, file.endsWith("VersionMenu.tsx") ? fill(await wordingList(file), sideBySide) : await wordingList(file))));
@@ -38,7 +37,7 @@ export async function readerPage(): Promise<PageContent> {
     `**Addresses:** ${link("/bible")} (the "Bible" item in the site's main menu) · ${link("/read")} (opens the chapter this browser last read, else Genesis 1 in the KJV) · /read/<version>/<book>/<chapter>, e.g. ${link("/read/kjv/JHN/3")}; ?v=<verse> marks a verse.`,
     "## The Bible (/bible)",
     bible.map((line) => `- ${line}`).join("\n"),
-    `The "Library" card shows a shelf of book spines: ${shelves.join(" · ")}, and opens ${link("/library")}. The "Read" card shows an open book at John 1 and opens the chapter last read (its foot names it, e.g. "Romans 8 · KJV"), or the reader at Genesis 1.`,
+    `The "Read" card shows an open book at John 1 and opens the chapter last read (its foot names it, e.g. "Romans 8 · KJV"), or ${link("/read")}. The "Listen" card opens ${link("/listen")}. The "Library" card shows a shelf of book spines and opens ${link("/library")}.`,
     "## The reader (/read/…)",
     "One chapter of one version, with the previous and next chapter on arrows at either side (across books, within the books that version has), a \"Mark read\" box that feeds the Library's reading chart, and, on wide screens, a cross-references panel beside the text. The chapter read last is remembered in this browser.",
     `Reading options (kept in this browser): text size from 85% to 150% in steps of 10%, and switches ${toggles.map((toggle) => `"${toggle[1]}"`).join(", ")} (all on except one verse per line).`,
