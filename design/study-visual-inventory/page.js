@@ -41,7 +41,7 @@
     h("header", { class: "vi-hero" },
       h("p", { class: "vi-concepts" }, "Cards · Switches · Explorers · Graphics"),
       h("h1", {}, "What a study ", h("em", {}, "is made of")),
-      h("p", { class: "vi-lede" }, `Every visual tool on the eleven studies the standard rates best, cut from the pages themselves: what each tool holds, how a reader uses it, when it fits, and where to see it. Use it with the rules in the study standard before designing any study.`),
+      h("p", { class: "vi-lede" }, `Every visual tool on the eleven studies the standard rates best, cut from the pages themselves: what each tool holds, how a reader uses it, when it fits, and where to see it. This is a record, not a menu: find a study's own shape from its material first, then use this to check it has not repeated a sibling.`),
       h("dl", { class: "vi-figures" },
         [["Visual tools", tools.length, "found on the eleven pages"], ["Studies cut", 11, "theology and academic"], ["In the two Faith mock-ups", count("yes"), `and ${count("partial")} more in a thin version, before their rebuild`], ["Missing from them", count("none"), `of ${tools.length}, on 2026-10-30`]]
           .map(([label, value, note]) => h("div", {}, h("dt", {}, label), h("dd", {}, String(value)), h("small", {}, note))))),
