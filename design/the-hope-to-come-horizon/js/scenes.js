@@ -55,18 +55,48 @@
     const steps = `<g class="sc-near-strong"><rect x="680" y="216" width="240" height="22"/><rect x="630" y="238" width="340" height="26"/><rect x="570" y="264" width="460" height="36"/></g>`;
     return svg(`${seat}${hill(286)}${steps}${book(690, 256)}${book(910, 256)}<g class="sc-near-strong">${crowd.join("")}</g>`);
   }
-  // 04: a bare tree, still in bondage to decay, with the first buds on it.
-  function tree() {
-    const random = seeded(53), limbs = [], buds = [];
-    (function grow(x, y, angle, length, width) {
-      const endX = x + Math.cos(angle) * length, endY = y + Math.sin(angle) * length;
-      limbs.push(`<path d="M${x.toFixed(1)} ${y.toFixed(1)}L${endX.toFixed(1)} ${endY.toFixed(1)}" stroke-width="${width.toFixed(1)}"/>`);
-      if (width < 1.3) { if (random() < .42) buds.push(`<circle cx="${endX.toFixed(1)}" cy="${endY.toFixed(1)}" r="${(1.8 + random() * 1.8).toFixed(1)}"/>`); return; }
-      const fork = .3 + random() * .32;
-      grow(endX, endY, angle - fork, length * (.72 + random() * .12), width * .68);
-      grow(endX, endY, angle + fork * (.8 + random() * .5), length * (.68 + random() * .14), width * .68);
-    })(800, 300, -Math.PI / 2 + .04, 70, 20);
-    return svg(`${hill(280)}<g class="sc-limbs">${limbs.join("")}</g><g class="sc-gold">${buds.join("")}</g>`);
+  // 04: "set free from its bondage": the chain across green hills, broken where the light comes through. Links alternate face-on and
+  // edge-on along each sagging length, and the last link on each side is sprung open.
+  function chain() {
+    const random = seeded(53), n = (value) => value.toFixed(1), faces = [], edges = [], rays = [], grass = [], blooms = [], trees = [];
+    const place = (x, y, turn, shape) => `<g transform="translate(${n(x)} ${n(y)}) rotate(${n(turn)})">${shape}</g>`;
+    const FACE = `<ellipse class="sc-chain" rx="31" ry="13"/><ellipse class="sc-chain-lit" rx="31" ry="13" pathLength="100" stroke-dasharray="26 74" stroke-dashoffset="56"/>`;
+    const EDGE = `<rect class="sc-chain-fill" x="-23" y="-4.5" width="46" height="9" rx="4.5"/><path class="sc-chain-lit" d="M-17 -1.8H17"/>`;
+    const SPRUNG = `<path class="sc-chain" d="M12 -12.5C-10 -15 -31 -11 -31 0S-10 15 12 12.5C20 11.6 25 9 28 6"/><path class="sc-chain-lit" d="M-4 -12.5C-16 -12 -27 -8 -29 -2"/>`;
+    [-1, 1].forEach((side) => {
+      // From beyond the edge of the view, sagging, up to the break beside the sun.
+      const from = [800 + side * 850, side < 0 ? 66 : 54], bend = [800 + side * 430, 196], to = [800 + side * 112, 146];
+      const point = (at) => [0, 1].map((i) => (1 - at) * (1 - at) * from[i] + 2 * at * (1 - at) * bend[i] + at * at * to[i]);
+      const steps = [];
+      let last = point(1), walked = 0;
+      for (let at = 1; at >= 0; at -= .001) {
+        const here = point(at);
+        walked += Math.hypot(here[0] - last[0], here[1] - last[1]);
+        last = here;
+        if (walked >= 45 * steps.length) steps.push({ at, here });
+      }
+      steps.forEach(({ at, here }, i) => {
+        const before = point(Math.max(0, at - .01)), after = point(Math.min(1, at + .01));
+        const turn = Math.atan2(after[1] - before[1], after[0] - before[0]) * 180 / Math.PI;
+        if (i === 0) faces.push(place(here[0], here[1], turn, side < 0 ? SPRUNG : `<g transform="scale(-1 1)">${SPRUNG}</g>`));
+        else if (i % 2) edges.push(place(here[0], here[1], turn, EDGE));
+        else faces.push(place(here[0], here[1], turn, FACE));
+      });
+    });
+    for (let i = 0; i < 48; i += 1) {
+      const angle = (i * Math.PI * 2) / 48, reach = i % 2 ? 150 : 250;
+      rays.push(`M${n(800 + Math.cos(angle) * 64)} ${n(146 + Math.sin(angle) * 64)}L${n(800 + Math.cos(angle) * reach)} ${n(146 + Math.sin(angle) * reach)}`);
+    }
+    // Life on the land: trees along the hills, grass and flowers in front.
+    [[120, 228, 13], [212, 226, 17], [430, 216, 12], [530, 216, 15], [1090, 232, 14], [1190, 226, 12], [1370, 216, 17], [1480, 218, 13]].forEach(([x, base, size]) => {
+      trees.push(`<rect x="${x - 2}" y="${base - size}" width="4" height="${size + 8}"/><circle cx="${x}" cy="${n(base - size * 1.5)}" r="${size}"/><circle cx="${n(x - size * .7)}" cy="${n(base - size)}" r="${n(size * .66)}"/><circle cx="${n(x + size * .7)}" cy="${n(base - size)}" r="${n(size * .66)}"/>`);
+    });
+    for (let x = 4; x < 1600; x += 5 + random() * 8) {
+      const tall = 7 + random() * 18, lean = (random() - .5) * 8;
+      grass.push(`M${n(x)} 300Q${n(x)} ${n(300 - tall * .6)} ${n(x + lean)} ${n(300 - tall)}`);
+      if (random() < .2) blooms.push(`<circle cx="${n(x + lean)}" cy="${n(300 - tall)}" r="${n(1.8 + random() * 2)}"/>`);
+    }
+    return svg(`<circle class="sc-gold" cx="800" cy="146" r="46"/><path class="sc-rays" d="${rays.join("")}"/><g class="sc-leaf">${trees.join("")}</g>${hill(258)}<g class="sc-chains">${faces.join("")}${edges.join("")}</g><path class="sc-grass" d="${grass.join("")}"/><g class="sc-gold">${blooms.join("")}</g>`);
   }
   // 05: the wall and its open gates, the river out of the city, and a tree on each bank. No temple is drawn: John says there is none.
   function city() {
@@ -85,13 +115,13 @@
   }
   // 06: the sun turning beyond the hills, and the road winding towards it with the milestones going on ahead.
   function road() {
-    const SUN = [800, 166], beams = [];
+    const SUN = [800, 178], beams = [];
     for (let i = 0; i < 36; i += 1) {
-      const angle = (i * Math.PI * 2) / 36, side = Math.PI / 36 * .34, reach = i % 3 === 0 ? 300 : i % 3 === 1 ? 190 : 138;
+      const angle = (i * Math.PI * 2) / 36, side = Math.PI / 36 * .34, reach = i % 3 === 0 ? 215 : i % 3 === 1 ? 190 : 138;
       const point = (turn, far) => `${(SUN[0] + Math.cos(turn) * far).toFixed(1)} ${(SUN[1] + Math.sin(turn) * far).toFixed(1)}`;
-      beams.push(`M${point(angle - side, 84)}L${point(angle, reach)}L${point(angle + side, 84)}Z`);
+      beams.push(`M${point(angle - side, 74)}L${point(angle, reach)}L${point(angle + side, 74)}Z`);
     }
-    const sun = `<g class="sc-spin" style="transform-origin:${SUN[0]}px ${SUN[1]}px"><path class="sc-beam" d="${beams.join("")}"/></g><circle class="sc-gold" cx="${SUN[0]}" cy="${SUN[1]}" r="72"/>`;
+    const sun = `<g class="sc-spin" style="transform-origin:${SUN[0]}px ${SUN[1]}px"><path class="sc-beam" d="${beams.join("")}"/></g><circle class="sc-gold" cx="${SUN[0]}" cy="${SUN[1]}" r="62"/>`;
     // The road's centre swings left, then right, and it widens as it nears the reader.
     const at = (depth) => ({ x: 800 + Math.sin(depth * Math.PI * 1.7) * (34 + depth * 150), y: 196 + Math.pow(depth, 1.3) * 106, half: 4 + Math.pow(depth, 1.55) * 250 });
     const left = [], right = [], dashes = [], stones = [];
@@ -111,7 +141,7 @@
     return svg(`<path class="sc-near" d="M0 300V216C300 200 560 196 800 194S1300 200 1600 216V300Z"/><path class="sc-road" d="M${left.join("L")}L${right.join("L")}Z"/><path class="sc-edge" d="M${left.join("L")}"/><path class="sc-edge" d="M${right.join("L")}"/><g class="sc-dash">${dashes.join("")}</g><g class="sc-near-strong">${stones.join("")}</g>`, sun);
   }
   HZ.SCENE_PARTS = { svg, hill, seeded };
-  HZ.SCENES = { return: graves(), raised: grain(), judgment: throne(), creation: tree(), new: city(), waiting: road() };
+  HZ.SCENES = { return: graves(), raised: grain(), judgment: throne(), creation: chain(), new: city(), waiting: road() };
   // The heading's last arch: lower and flatter than the readings' own hill.
   HZ.HILLS = svg(`<path class="sc-near" d="M0 300V298C260 290 520 286 800 284S1340 288 1600 297V300Z"/>`);
 

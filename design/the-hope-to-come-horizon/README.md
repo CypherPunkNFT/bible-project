@@ -55,6 +55,7 @@ Everything else is the data, or the first mock-up's own labels.
 - Controls: "Look up", "Look out", "Look down", "Weigh only the 6 that share a word", "Show all 11 again".
 - Section 01: "Ask one question of all six."; the short rail names, which are the part of each reading's title before the colon.
 - Section 01 heading and its paragraph: "A bright and shining hope.", "The promise of an eternal King." and the sentences under them, which are this page's own.
+- Reading 05's four comparison views under `?new-view=a` are drawn from Revelation 21 and 22 but are this page's own pictures.
 - Section 02: under each joining word, "same verse", "next verse", "two verses on", "the verse before" or "next chapter".
 - Section 03: "The first pages", "The last pages".
 - The marquee's phrases are the verses' own words, capitalised; a check at load reports any that are not in the study's verses.

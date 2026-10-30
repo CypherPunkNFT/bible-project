@@ -1,31 +1,10 @@
-// Four versions of reading 04's view (Romans 8:18-25), for the owner to compare. Only runs with ?creation-view=a in the address, which
-// shows that reading with a floating A, B, C, D pill; without it the page is untouched. Delete this file once one is chosen.
+// The four versions of reading 04's view (Romans 8:18-25) that the owner compared, kept under ?creation-view=a. The owner chose A, the
+// chain, which is now the page's own view in scenes.js; without that address the page is untouched.
 (() => {
-  if (!window.HZ || !HZ.SCENES) return;
-  const start = new URLSearchParams(location.search).get("creation-view");
-  if (!start) return;
+  if (!window.HZ || !HZ.viewPill) return;
   const { svg, hill, seeded } = HZ.SCENE_PARTS;
   const n = (value) => value.toFixed(1);
 
-  // A: the chain across the land, broken where the light comes through.
-  function chain() {
-    const links = [];
-    for (let x = 30; x < 1600; x += 58) {
-      if (x > 690 && x < 910) continue;
-      const sag = 148 + Math.pow(Math.abs(x - 800) / 800, 1.6) * -44 + (x < 800 ? (x - 800) * -.01 : 0);
-      const tilt = x < 800 ? 10 : -10;
-      links.push(x % 116 < 58
-        ? `<ellipse cx="${x}" cy="${n(sag)}" rx="36" ry="15" transform="rotate(${tilt} ${x} ${n(sag)})"/>`
-        : `<ellipse cx="${x}" cy="${n(sag)}" rx="32" ry="5" transform="rotate(${tilt} ${x} ${n(sag)})"/>`);
-    }
-    const rays = [];
-    for (let i = 0; i < 48; i += 1) {
-      const angle = (i * Math.PI * 2) / 48, reach = i % 2 ? 150 : 250;
-      rays.push(`M${n(800 + Math.cos(angle) * 64)} ${n(146 + Math.sin(angle) * 64)}L${n(800 + Math.cos(angle) * reach)} ${n(146 + Math.sin(angle) * reach)}`);
-    }
-    const broken = `<path d="M676 150c14 -22 34 -14 26 2l-8 14M924 142c-14 -22 -34 -14 -26 2l8 14"/>`;
-    return svg(`<circle class="sc-gold" cx="800" cy="146" r="46"/><path class="sc-rays" d="${rays.join("")}"/><g class="sc-chain">${links.join("")}${broken}</g>${hill(276)}`);
-  }
   // B: one land, cracked and thorned where the light has not yet come, in flower where it has.
   function greening() {
     const random = seeded(211), cracks = [], thorns = [], stems = [], blooms = [], crowns = [];
@@ -80,29 +59,5 @@
     return svg(`${hill(276)}<g class="sc-limbs">${limbs.join("")}</g><path class="sc-gold" d="${flock.join("")}"/>`, `<circle class="sc-gold" cx="1240" cy="170" r="70"/>`);
   }
 
-  const VIEWS = { a: chain(), b: greening(), c: halfTree(), d: birds() };
-  const view = document.querySelector('.hz-stop[data-at="creation"] .hz-view');
-  const buttons = new Map();
-  function choose(key) {
-    view.innerHTML = VIEWS[key];
-    buttons.forEach((button, name) => button.setAttribute("aria-pressed", String(name === key)));
-    const params = new URLSearchParams(location.search);
-    params.set("creation-view", key);
-    history.replaceState(history.state, "", `?${params}`);
-  }
-  const pill = document.createElement("div");
-  pill.className = "hz-pill";
-  Object.keys(VIEWS).forEach((key) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.textContent = key.toUpperCase();
-    button.addEventListener("click", () => choose(key));
-    buttons.set(key, button);
-    pill.append(button);
-  });
-  document.body.append(pill);
-  HZ.setView?.({ at: "creation" });
-  choose(VIEWS[start] ? start : "a");
-  const rail = document.querySelector(".hz-rail");
-  window.scrollTo(0, rail.getBoundingClientRect().top + scrollY - 76);
+  HZ.viewPill("creation-view", "creation", { a: HZ.SCENES.creation, b: greening(), c: halfTree(), d: birds() });
 })();
