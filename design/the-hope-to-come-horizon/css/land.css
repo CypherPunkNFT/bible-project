@@ -35,7 +35,7 @@
 .hz-note b { color: var(--ink); font-weight: 600; }
 
 /* ── The heading: sky, hills, ground ── */
-.hz-hero-sky { display: grid; grid-template-columns: minmax(max-content, 1fr) minmax(0, 38rem); column-gap: clamp(1.5rem, 4vw, 4rem); align-items: end; padding: 1.4rem var(--hz-gutter) clamp(2.5rem, 7vh, 5rem); background: linear-gradient(to bottom, var(--page), var(--hz-sky-low)); }
+.hz-hero-sky { display: grid; grid-template-columns: minmax(max-content, 1fr) minmax(0, 46rem); column-gap: clamp(1.5rem, 4vw, 4rem); align-items: end; padding: 1.4rem var(--hz-gutter) clamp(2.5rem, 7vh, 5rem); background: linear-gradient(to bottom, var(--page), var(--hz-sky-low)); }
 .hz-trail { grid-column: 1 / -1; }
 /* The line drawing, in the hand of the other study pages: one thin stroke, round caps, a faint wash, gold for what is lit */
 .hz-hero-art { display: block; min-width: 0; color: var(--muted); }
@@ -45,10 +45,17 @@
 .ln-wash { fill: color-mix(in srgb, var(--ink) 4%, transparent); stroke: none; }
 .ln-wash.ln-gold { fill: color-mix(in srgb, var(--accent) 12%, transparent); stroke: none; }
 .ln-light { fill: color-mix(in srgb, var(--accent) 24%, transparent); stroke: none; }
-.ln-orbit { stroke-width: 1; stroke-dasharray: 2 6; opacity: .22; }
-.ln-orbit-2 { opacity: .14; }
-.ln-halo { stroke-width: 1; opacity: .16; }
-.ln-thread { stroke: var(--accent); stroke-dasharray: 2 5; opacity: .75; }
+.ln-ray { stroke-width: .8; opacity: .55; }
+.ln-sun { fill: color-mix(in srgb, var(--accent) 22%, transparent); stroke: none; }
+.ln-ring { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 2 6; opacity: .4; }
+.ln-glow-in { stop-color: var(--accent); stop-opacity: .34; }
+.ln-glow-mid { stop-color: var(--accent); stop-opacity: .14; }
+.ln-glow-out { stop-color: var(--accent); stop-opacity: 0; }
+.ln-limbs { stroke: var(--ink); opacity: .72; }
+.ln-leaves { stroke-width: .8; opacity: .6; }
+.ln-fruit { fill: var(--accent); stroke: none; }
+.ln-road { stroke-dasharray: 2 5; opacity: .55; }
+.ln-city-wash { fill: color-mix(in srgb, var(--accent) 16%, var(--hz-sky-low)); stroke: none; }
 .ln-mark { opacity: .5; }
 .hz-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .84rem; color: var(--muted); }
 .hz-trail a { border-bottom: 1px solid transparent; }
@@ -191,7 +198,7 @@
 
 @media (max-width: 899px) {
   .hz-hero-sky { grid-template-columns: minmax(0, 1fr); row-gap: 2rem; }
-  .hz-hero-art { max-width: 30rem; }
+  .hz-hero-art { max-width: 36rem; }
   .hz-hero-ground, .hz-stop-sky, .hz-stop-ground, .hz-dig-head, .hz-prompts { grid-template-columns: minmax(0, 1fr); }
   .hz-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hz-asks li { grid-template-columns: minmax(0, 1fr); }

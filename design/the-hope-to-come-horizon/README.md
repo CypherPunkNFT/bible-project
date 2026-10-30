@@ -21,7 +21,7 @@ paragraphs side by side, all in small type. The closing section was the part tha
 
 ## Each section's form, and why
 
-- **Heading.** Sky with the very large title and, to its right, a line drawing in the hand of the Faith in daily life page: the motto left to right, a tomb with its stone rolled away, a throne with no figure on it, a tree with its fruit, a city with its gates open, and a gold thread from tomb to city. Unlike that page it does not move, because this page's brief rules out decorative motion. Then hills with the motto, ground with the lead and the opening verse: the same
+- **Heading.** Sky with the very large title and, to its right, a line drawing in the hand of the Faith in daily life page: the sun of righteousness rising on a renewed earth (Malachi 4:2). The owner rejected a smaller first drawing (tomb, throne, tree, city on one line) as too small an idea. Four versions now wait for a choice at [drawings.html](drawings.html): the city at sunrise ([dawn.js](js/dawn.js)), and over the whole world, healing what is wrong, and the river from the sun ([dawn-options.js](js/dawn-options.js)). `?drawing=2`, `3` or `4` shows a version in place; the first is the default. Unlike that page it does not move, because this page's brief rules out decorative motion. Then hills with the motto, ground with the lead and the opening verse: the same
   three bands as the close, so the page opens and ends on one land.
 - **01 Six readings ([land.js](js/land.js), [scenes.js](js/scenes.js)).** One reading at a time and large, chosen from a
   rail of six stops. Each stands on the same far hills with its own drawn view: the graves of the people they buried, grain
@@ -62,6 +62,7 @@ Everything else is the data, or the first mock-up's own labels.
 - Reading 02: "Raised", "Sown", "the four pairs, as Paul sets them".
 - Sources: "Scripture", "Read directly, in part", "Reached through a tool or a reprint".
 - Screen-reader labels on the rail, the question band and each map's list.
+- The four drawing names on [drawings.html](drawings.html), a comparison page for the owner, not part of the study.
 
 **Changed:** section 02's lead said "The joining word in the middle column is in the verse." There is no middle column now, so it says "on the line". The reading links point down (↓), not across (→). **Shown in full:** the closing passage, Revelation 22:20, whose text the first page only linked to; it comes from the data.
 
