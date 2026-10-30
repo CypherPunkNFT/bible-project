@@ -1,5 +1,5 @@
-// Sections 02 and 03. 02: promises on the left, calls on the right. Ten threads run through one word and back out to their own call;
-// the other seven each pass through a word of their own. 03: two facing pages
+// Sections 02 and 03. 02: each promise on the left in its whole verse, its call on the right, its own joining word between them,
+// the therefores together and the others together. 03: two facing pages
 // across a dusk that turns to dawn, what the first pages lost on the left and what the last pages answer on the right.
 (() => {
   if (!window.HZ) return;
@@ -8,57 +8,52 @@
 
   // ── 02 The promise, then the therefore ──
   const saysTherefore = (row) => row.link.toLowerCase() === "therefore";
-  const NS = "http://www.w3.org/2000/svg";
-  const promiseCell = (row, line) => h("div", { class: "hz-bow-promise", style: `grid-row:${line}` }, h("span", { class: "hz-phrase" }, row.promiseText), refLink(row.promise, row.promiseLabel, "hz-row-ref"));
-  const callCell = (row, line) => h("div", { class: "hz-bow-call", style: `grid-row:${line}` }, h("span", { class: "hz-phrase" }, row.callText), refLink(row.call, row.callLabel, "hz-row-ref"));
-  // Reading one row lights its own thread and quiets the others.
-  function lightable(item, group, threads) {
-    const set = (on) => {
-      group.classList.toggle("has-lit", on);
-      item.classList.toggle("is-lit", on);
-      threads.forEach((thread) => thread.classList.toggle("is-lit", on));
-    };
-    item.addEventListener("mouseover", () => set(true));
-    item.addEventListener("mouseout", () => set(false));
-    item.addEventListener("focusin", () => set(true));
-    item.addEventListener("focusout", () => set(false));
-    return item;
+  const straight = (text) => text.replace(/\u2019/g, "'");
+  const verseText = (verses) => verses.map((verse) => verse.t).join(" ");
+  const sameVerse = (one, two) => one.c === two.c && one.v === two.v;
+  // The whole verse on each side. Where promise and call share a verse, it is cut after whichever comes first, so nothing shows twice.
+  function versesOf(row) {
+    const promise = passages[row.promise].verses, promiseVerse = promise[promise.length - 1];
+    const call = passages[row.call].verses.filter((verse) => !sameVerse(verse, promiseVerse));
+    if (call.length) return { promise: verseText(promise), call: verseText(call), callVerse: call[0], promiseVerse };
+    const text = verseText(promise), plainText = straight(text);
+    const promiseAt = plainText.indexOf(straight(row.promiseText)), callAt = plainText.indexOf(straight(row.callText));
+    const firstEnd = promiseAt < callAt ? promiseAt + row.promiseText.length : callAt + row.callText.length;
+    const cut = text.indexOf(" ", firstEnd);
+    const [first, second] = [text.slice(0, cut), text.slice(cut + 1)];
+    return { promise: promiseAt < callAt ? first : second, call: promiseAt < callAt ? second : first, callVerse: promiseVerse, promiseVerse };
   }
-  // The threads are stretched to the rows, which all share one height, so each ends level with its text at any width.
-  function thread(d, kind) {
-    const path = document.createElementNS(NS, "path");
-    path.setAttribute("d", d);
-    path.setAttribute("class", `hz-thread hz-thread-${kind}`);
-    path.setAttribute("vector-effect", "non-scaling-stroke");
-    return path;
+  // The verse with its phrase lit and the joining word in gold, where the word falls on this side.
+  function litVerse(text, phrase, word, rowId) {
+    const plainText = straight(text), at = plainText.indexOf(straight(phrase));
+    if (at < 0) console.error(`The hope to come: "${phrase}" is not in its verse (${rowId})`);
+    const marks = [{ at, end: at + phrase.length, node: h("mark", { class: "hz-lit" }, phrase) }];
+    const wordAt = plainText.toLowerCase().indexOf(word.toLowerCase());
+    if (wordAt >= 0 && (wordAt + word.length <= at || wordAt >= at + phrase.length)) marks.push({ at: wordAt, end: wordAt + word.length, node: h("mark", { class: "hz-said" }, text.slice(wordAt, wordAt + word.length)) });
+    marks.sort((one, two) => one.at - two.at);
+    const parts = [];
+    let from = 0;
+    marks.forEach((mark) => { parts.push(text.slice(from, mark.at), mark.node); from = mark.end; });
+    parts.push(text.slice(from));
+    return h("span", { class: "hz-phrase" }, parts);
   }
-  function oneWord(rows) {
-    const list = h("ol", {}), lines = document.createElementNS(NS, "svg"), mid = rows.length * 50;
-    lines.setAttribute("viewBox", `0 0 1000 ${rows.length * 100}`);
-    lines.setAttribute("preserveAspectRatio", "none");
-    lines.setAttribute("aria-hidden", "true");
-    const group = h("div", { class: "hz-bow hz-bow-one", style: `--rows:${rows.length}` },
-      h("div", { class: "hz-bow-lines" }, lines),
-      h("p", { class: "hz-bow-hub" }, h("b", {}, rows[0].link)),
-      list);
-    rows.forEach((row, i) => {
-      const y = i * 100 + 50;
-      const threads = [thread(`M0 ${y}C130 ${y} 130 ${mid} 250 ${mid}`, "in"), thread(`M750 ${mid}C870 ${mid} 870 ${y} 1000 ${y}`, "out")];
-      lines.append(...threads);
-      list.append(lightable(h("li", {}, promiseCell(row, i + 1), callCell(row, i + 1)), group, threads));
-    });
-    return group;
+  // How far apart the promise and its call stand, counted from the verse numbers.
+  function apart({ promiseVerse, callVerse }) {
+    if (promiseVerse.c !== callVerse.c) return "next chapter";
+    const gap = callVerse.v - promiseVerse.v;
+    return { 0: "same verse", 1: "next verse", 2: "two verses on", "-1": "the verse before" }[gap];
   }
-  function ownWords(rows) {
-    const list = h("ol", {}), group = h("div", { class: "hz-bow hz-bow-own", style: `--rows:${rows.length}` }, list);
-    rows.forEach((row, i) => list.append(lightable(h("li", {},
-      promiseCell(row, i + 1),
-      h("div", { class: "hz-bow-link", style: `grid-row:${i + 1}` }, h("b", {}, row.link)),
-      callCell(row, i + 1)), group, [])));
-    return group;
+  function rowsOf(rows) {
+    return h("div", { class: "hz-bow" }, h("ol", {}, rows.map((row, i) => {
+      const verses = versesOf(row);
+      return h("li", {},
+        h("div", { class: "hz-bow-promise", style: `grid-row:${i + 1}` }, litVerse(verses.promise, row.promiseText, row.link, row.id), refLink(row.promise, row.promiseLabel, "hz-row-ref")),
+        h("div", { class: "hz-bow-link", style: `grid-row:${i + 1}` }, h("p", {}, h("b", {}, row.link), h("small", {}, apart(verses)))),
+        h("div", { class: "hz-bow-call", style: `grid-row:${i + 1}` }, litVerse(verses.call, row.callText, row.link, row.id), refLink(row.call, row.callLabel, "hz-row-ref")));
+    })));
   }
   // The two passages the page names as having no call: the thread stops, and nothing comes out the other side.
-  const stubs = h("div", { class: "hz-bow hz-bow-stops", style: `--rows:${noCall.length}` }, h("ol", {}, noCall.map((item, i) => h("li", {},
+  const stubs = h("div", { class: "hz-bow hz-bow-stops" }, h("ol", {}, noCall.map((item, i) => h("li", {},
     h("div", { class: "hz-bow-promise", style: `grid-row:${i + 1}` }, refLink(item.r, item.label, "hz-row-ref")),
     h("div", { class: "hz-bow-stop", style: `grid-row:${i + 1}`, "aria-hidden": "true" }),
     h("div", { class: "hz-bow-call", style: `grid-row:${i + 1}` }, h("span", { class: "hz-phrase" }, item.why))))));
@@ -66,8 +61,8 @@
     sectionHead("02", "The promise.", "Then the therefore.", "Does hope about the end make people passive? Read what comes straight after the promise. The joining word in the middle is in the verse."),
     h("p", { class: "hz-reads" }, `Here are ${numbers.rows} places where a promise about the end is tied to something to do now, and ${numbers.saysTherefore} of them use the word therefore.`),
     h("p", { class: "hz-bow-key" }, h("span", {}, "The promise"), h("span", {}, "The word that joins them"), h("span", {}, "The call")),
-    oneWord(therefore.filter(saysTherefore)),
-    ownWords(therefore.filter((row) => !saysTherefore(row))),
+    rowsOf(therefore.filter(saysTherefore)),
+    rowsOf(therefore.filter((row) => !saysTherefore(row))),
     stubs,
     h("p", { class: "hz-note" }, `These ${numbers.rows} were chosen because they show the pattern, so they cannot prove it is everywhere. It is not: `,
       noCall.flatMap((item, i) => [i ? "; " : null, refLink(item.r, item.label), `, ${item.why}`]),

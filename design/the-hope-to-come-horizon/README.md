@@ -21,7 +21,7 @@ paragraphs side by side, all in small type. The closing section was the part tha
 
 ## Each section's form, and why
 
-- **Heading.** Sky with the very large title and, to its right, a line drawing in the hand of the Faith in daily life page: the sun of righteousness rising on a renewed earth (Malachi 4:2). The owner rejected a smaller first drawing (tomb, throne, tree, city on one line) as too small an idea. **The owner chose the city at sunrise ([dawn.js](js/dawn.js)), 2026-10-30.** All four versions stay at [drawings.html](drawings.html), with over the whole world, healing what is wrong, and the river from the sun in [dawn-options.js](js/dawn-options.js). `?drawing=2`, `3` or `4` shows one of the others in place. Unlike that page it does not move, because this page's brief rules out decorative motion. Then hills with the motto, ground with the lead and the opening verse: the same
+- **Heading.** Sky with the very large title and, to its right, a line drawing in the hand of the Faith in daily life page: the sun of righteousness rising on a renewed earth (Malachi 4:2). The owner rejected a smaller first drawing (tomb, throne, tree, city on one line) as too small an idea. **The owner chose the city at sunrise ([dawn.js](js/dawn.js)), 2026-10-30.** All four versions stay at [drawings.html](drawings.html), with over the whole world, healing what is wrong, and the river from the sun in [dawn-options.js](js/dawn-options.js). `?drawing=2`, `3` or `4` shows one of the others in place. Unlike that page it does not move, because this page's brief rules out decorative motion. The owner asked for a smaller title close to the trail with the opening verse under it, so the verse now sits there. Then hills with the motto, ground with the lead: the same
   three bands as the close, so the page opens and ends on one land.
 - **01 Six readings ([land.js](js/land.js), [scenes.js](js/scenes.js)).** One reading at a time and large, chosen from a
   rail of six stops. Each stands on the same far hills with its own drawn view: the graves of the people they buried, grain
@@ -29,7 +29,7 @@ paragraphs side by side, all in small type. The closing section was the part tha
   buds, the city with open gates and the river, and a road running to the horizon. The stage keeps one height, so the page
   does not jump. A reading opens below in one column. Then one question can be asked of all six as a plain list, and the
   band turns to the part of the land it asks about. The five figures and the two notes follow, large and in one column.
-- **02 The promise, then the therefore ([lines.js](js/lines.js)).** Its own drawing, not the land. The owner found the first version's boxes and its louder therefores unneeded. Promises stand on the left and calls on the right, level with each other. The ten that say therefore run as threads into that one word and fan back out to their own calls, so many promises visibly pass through one hinge. The other seven sit below in the same style, each through its own word. The two passages the study says carry no call stop at an open ring, with nothing on the other side. Pointing at a row lights its thread. On a phone it becomes one rail with the word above the promises.
+- **02 The promise, then the therefore ([lines.js](js/lines.js)).** Its own drawing, not the land. Each row runs promise, joining word, call, on one thread, and all the joining words look alike. The ten that say therefore stand together and the other seven below them. The owner turned down a version with one shared "Therefore" hub because it collapsed the sentences into a switchboard, so each row keeps its own word. Each side shows its whole verse from the data, with the row's phrase bright and the joining word in gold where it falls. Where promise and call share a verse it is cut after whichever comes first, so nothing shows twice (Titus 2:12-13 shows verse 12 on the call side for the same reason). Under each word a note counts how far apart the two sides stand, from the verse numbers. The two passages the study says carry no call stop at an open ring. On a phone it becomes one rail.
 - **03 What was lost, what Revelation answers ([lines.js](js/lines.js)).** Two facing pages across a dusk that turns to
   dawn. The first pages stand on the left, the last on the right, and the prophets between, under a solid or dotted line.
   The rows keep the study's order, which ends at the face, set largest. The reader can weigh only the rows that share a word.
@@ -54,6 +54,7 @@ Everything else is the data, or the first mock-up's own labels.
 
 - Controls: "Look up", "Look out", "Look down", "Weigh only the 6 that share a word", "Show all 11 again".
 - Section 01: "Ask one question of all six."; the short rail names, which are the part of each reading's title before the colon.
+- Section 02: under each joining word, "same verse", "next verse", "two verses on", "the verse before" or "next chapter".
 - Section 03: "The first pages", "The last pages".
 - Section 04: "Before", "The return", "After", "Who holds this map, and why".
 - Reading 02: "Raised", "Sown", "the four pairs, as Paul sets them".

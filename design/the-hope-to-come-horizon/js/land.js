@@ -20,14 +20,14 @@
       h("nav", { class: "hz-trail", "aria-label": "Study trail" }, h("a", { href: "/study" }, "Study"), h("span", { "aria-hidden": "true" }, "/"), h("a", { href: "/study/theology?area=doctrine" }, "God & Christian Faith"), h("span", { "aria-hidden": "true" }, "/"), h("span", { class: "hz-here", "aria-current": "page" }, study.title)),
       h("div", { class: "hz-hero-title" },
         h("p", { class: "hz-concepts" }, plain(study.concepts)),
-        h("h1", {}, "The hope", h("em", {}, "to come"))),
+        h("h1", {}, "The hope", h("em", {}, "to come")),
+        h("figure", { class: "hz-opening" },
+          h("blockquote", {}, study.opening.t),
+          h("figcaption", {}, refLink(study.opening.r, study.opening.label), " · Berean Standard Bible"))),
       art(LINE_ART, "hz-hero-art")),
     h("div", { class: "hz-hero-far" }, art(HILLS, "hz-hills"), h("p", { class: "hz-motto" }, motto[0], h("span", {}, motto[1]))),
     h("div", { class: "hz-hero-ground" },
-      h("p", { class: "hz-lede" }, runs(study.lead)),
-      h("figure", { class: "hz-opening" },
-        h("blockquote", {}, study.opening.t),
-        h("figcaption", {}, refLink(study.opening.r, study.opening.label), " · Berean Standard Bible"))));
+      h("p", { class: "hz-lede" }, runs(study.lead))));
 
   // ── The six stops along the horizon ──
   const stops = new Map();
