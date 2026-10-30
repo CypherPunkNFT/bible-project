@@ -27,15 +27,16 @@
     ["The word covenant", numbers.wordVerses, `verses, in ${numbers.wordBooks} of ${numbers.totalBooks} books. A count of the word, not the idea`],
   ];
   const top = h("div", { class: "wrap t-page ms-page cv-top" },
-    h("section", { class: "t-sec-landing cv-hero", id: "top" },
+    h("section", { class: "t-sec-landing hc-intro cv-hero", id: "top" },
       h("div", {},
         h("nav", { class: "cv-trail", "aria-label": "Study trail" }, h("a", { href: "/study" }, "Study"), h("span", { "aria-hidden": "true" }, "/"), h("a", { href: "/study/theology?area=doctrine" }, "God & Christian Faith"), h("span", { "aria-hidden": "true" }, "/"), h("span", { class: "cv-here", "aria-current": "page" }, study.title)),
         h("p", { class: "cv-concepts" }, plain(study.concepts)),
         h("h1", {}, "Covenants", h("em", {}, "and promises")),
-        h("p", { class: "cv-lede" }, runs(study.lead))),
-      h("div", { class: "cv-hero-side" },
-        h("figure", { class: "cv-opening" }, h("blockquote", {}, study.opening.t), h("figcaption", {}, refLink(study.opening.r, study.opening.label), " · Berean Standard Bible")),
-        h("p", { class: "cv-motto" }, motto[0], h("br"), h("span", {}, motto[1])))));
+        h("p", { class: "hc-lede" }, runs(study.lead)),
+        h("figure", { class: "cv-opening" }, h("blockquote", {}, study.opening.t), h("figcaption", {}, refLink(study.opening.r, study.opening.label), " · Berean Standard Bible"))),
+      h("figure", { class: "ms-hero-art cv-hero-art" },
+        art(CovSigns.hero),
+        h("span", { class: "ms-art-note" }, h("i"), motto[0], h("br"), h("span", {}, motto[1])))));
   const under = h("div", { class: "wrap cv-under" },
     h("header", { class: "cv-head" }, h("h2", {}, "Five covenants, one set of heirs. ", h("em", {}, "Read where they were spoken.")), h("p", {}, runs(study.frame))));
   const stage = Cov.drawStage();
