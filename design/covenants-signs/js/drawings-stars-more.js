@@ -49,7 +49,7 @@
     return `<path class="cl-cover" d="${skyLine(far)}V650H-40Z"/><path d="${skyLine(far)}"/><path class="cl-line-soft" d="${skyLine(near)}"/><path class="cl-tick" d="${tufts}"/>` + wall.slice(0, wall.length / 2) + inside + animals + wall.slice(wall.length / 2) + man(168, 596, 1.15);
   }
 
-  // F. The caravan: camels and riders in one long line along a bare ridge, with stones and thorn in the foreground.
+  // F. The caravan: camels and three riders in one long line along a bare ridge, low dunes below them, and stones and thorn in the foreground.
   function caravan() {
     const random = seeded(7717);
     const ridge = (x) => 512 - 20 * Math.sin(x / 300 + 0.4) + 2.5 * Math.sin(x / 41);
@@ -76,6 +76,19 @@
       }
       return `<path d="${d}"/>`;
     };
+    // Low dunes for depth: each runs only part of the way across and tapers into the ground, so they never read as bands.
+    const lowDunes = () => {
+      const shade = seeded(5519);
+      return [[-60, 548, 500, 590, 300, 526], [190, 606, 830, 562, 568, 540]].map(([from, startY, to, endY, peak, peakY]) => {
+        const line = `M${from} ${startY}C${fixed(from + (peak - from) * 0.5)} ${startY - 2} ${fixed(peak - (peak - from) * 0.24)} ${peakY} ${peak} ${peakY}C${fixed(peak + (to - peak) * 0.22)} ${peakY} ${fixed(peak + (to - peak) * 0.5)} ${endY - 2} ${to} ${endY}`;
+        let hatch = "";
+        for (let x = peak + 4; x < peak + (to - peak) * 0.6; x += 4 + shade() * 6) {
+          const fall = (x - peak) / ((to - peak) * 0.6);
+          hatch += `M${fixed(x)} ${fixed(peakY + (endY - peakY) * fall * fall * 0.75 + 2)}l${fixed(-2 - shade() * 3)} ${fixed(4 + shade() * (11 * (1 - fall)))}`;
+        }
+        return `<path class="cl-cover" d="${line}V650H${from}Z"/><path class="cl-tick" d="${hatch}"/><path d="${line}"/>`;
+      }).join("");
+    };
     let stones = "";
     for (let i = 0; i < 26; i++) {
       const x = random() * 760, y = front(x) + 4 + random() * 34, w = 6 + random() * 22, tall = 3 + random() * 8;
@@ -83,7 +96,7 @@
       stones += shape(d);
     }
     return `<path class="cl-cover" d="${skyLine(ridge)}V650H-40Z"/><path class="cl-bold" d="${skyLine(ridge)}"/><path class="cl-tick" d="${tracks}"/>` + camels.join("") +
-      man(696, ridge(696), 0.62) +
+      lowDunes() +
       `<path class="cl-cover" d="${skyLine(front)}V650H-40Z"/><path d="${skyLine(front)}"/>` + stones + thorn(96, front(96) + 8, 1) + thorn(612, front(612) + 18, 1.3) + thorn(330, front(330) + 26, 0.7);
   }
 

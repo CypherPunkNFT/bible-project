@@ -29,6 +29,14 @@
   const under = h("div", { class: "wrap cv-under" },
     h("header", { class: "cv-head" }, h("h2", {}, "Five covenants, one set of heirs. ", h("em", {}, "Read where they were spoken.")), h("p", {}, runs(study.frame))));
   const stage = Cov.drawStage();
+  const heirs = readings.get("heirs");
+  const heirsSection = h("section", { class: "wrap cv-heirs", "aria-label": heirs.title },
+    Cov.miniSign("heirs", 54),
+    h("div", {},
+      h("p", { class: "cv-kind" }, "Reading ", h("b", {}, `${heirs.n} / ${String(study.readings.length).padStart(2, "0")}`)),
+      h("h3", { class: "cv-title" }, heirs.title),
+      h("p", { class: "cv-hook" }, runs(heirs.hook)),
+      h("button", { type: "button", class: "cv-open", onclick: (event) => Cov.openReading("heirs", event.currentTarget) }, "Read it where it was spoken →")));
   const key = h("div", { class: "wrap cv-after" },
     h("dl", { class: "cv-figures" }, figures.map(([label, value, note]) => h("div", {}, h("dd", {}, String(value)), h("dt", {}, label), h("small", {}, note)))),
     h("p", { class: "cv-small" }, h("b", {}, "How to read this page: "), "gold-referenced lines set apart are Scripture, in the Berean. Plain text is written by this site from Scripture. Outside sources are named, with what was read. An application is called an application. The numbers mark the order of the Bible's story, not levels of difficulty."),
@@ -150,7 +158,7 @@
         h("summary", {}, `Sources · ${sources.length} · what was read, and how far`),
         h("ul", {}, sources.map((source) => h("li", {}, h("a", { href: source.href, rel: "noopener noreferrer", target: "_blank" }, source.name), h("span", {}, source.note)))),
         h("p", { class: "cv-small" }, "Not read for this page, so not shown: other Baptist accounts of the covenants, such as New Covenant Theology. Scripture references and the Calvin, Maclaren and confession quotations were checked by script: that proves the words are there, not that the reading is right."))));
-  main.append(top, under, stage, key, disc, maps, close);
+  main.append(top, under, stage, heirsSection, key, disc, maps, close);
   document.body.append(readingEl, sheetEl);
   Cov.onChange((state, before) => { syncReading(state, before); syncSheet(state, before); });
   syncReading(Cov.state, {});
