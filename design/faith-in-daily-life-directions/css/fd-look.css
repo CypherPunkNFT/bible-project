@@ -1,0 +1,59 @@
+/* Faith in daily life's own look: daylight, rooms, soft filled shapes. Loaded after the kit. Its subject is ordinary places,
+   so sections are warm filled rooms, two across, with no rules along their tops. */
+.fd-page { --room: color-mix(in srgb, var(--epistles) 13%, var(--surface)); }
+
+/* Figures: small warm tiles */
+.fd-page .fd-figures { gap: .6rem; border: 0; }
+.fd-page .fd-figures > div, .fd-page .fd-figures > div:first-child { padding: .8rem 1rem; border: 0; border-radius: 16px; background: var(--room); }
+.fd-page .fd-figures dd { font-size: 2.1rem; color: var(--accent); }
+
+/* Section heads: the number sits in a round door-knob */
+.fd-page .t-head .t-num { display: inline-grid; place-items: center; width: auto; padding: .35rem .7rem; border-radius: 999px; background: var(--room); }
+
+/* The six places: rooms with the drawing on the right, two across */
+.fd-page .fd-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; }
+.fd-page .sk-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); grid-template-rows: auto auto auto 1fr auto; column-gap: 1.2rem; padding: 1.2rem 1.3rem; border: 0; border-radius: 24px; background: var(--room); }
+.fd-page .sk-card:hover, .fd-page .sk-card:focus-visible { background: color-mix(in srgb, var(--epistles) 22%, var(--surface)); box-shadow: none; }
+.fd-page .sk-card.is-on { background: color-mix(in srgb, var(--epistles) 30%, var(--surface)); }
+.fd-page .sk-card > * { grid-column: 1; }
+.fd-page .sk-card > .sk-scene { grid-column: 2; grid-row: 1 / -1; align-self: center; margin: 0; }
+.fd-page .sk-card-top { grid-row: 1; }
+.fd-page .sk-card-top .sk-arrow { display: none; }
+.fd-page .sk-card-title { grid-row: 2; margin-top: .6rem; font-size: 1.55rem; }
+.fd-page .sk-card-hook { grid-row: 3; }
+.fd-page .sk-card-parts { grid-row: 4; align-self: end; }
+.fd-page .sk-card-parts > span { border-top: 0; padding-top: .3rem; }
+.fd-page .sk-action { grid-row: 5; }
+.fd-page .sk-scene svg { stroke-width: 1.5; }
+.fd-page .sk-wash { fill: color-mix(in srgb, var(--surface) 75%, transparent); }
+
+/* How-to-read: a plain line of words, not a box */
+.fd-page .sk-key { padding: 0; border: 0; background: none; }
+
+/* Reasons: the two-sided figure sits on a room, its verse beside it */
+.fd-page .sk-figure-main, .fd-page .sk-side { border: 0 !important; border-radius: 24px; background: var(--room); }
+.fd-page .sk-figure.is-text .sk-figure-main { background: none; }
+
+/* The four questions: four steps along one line */
+.fd-page .fd-way { gap: 0; }
+.fd-page .fd-way li { position: relative; padding: .4rem 1.2rem .4rem 0; border: 0; border-radius: 0; background: none; }
+.fd-page .fd-way li::before { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; margin-bottom: .6rem; border-radius: 50%; background: var(--room); font: 500 1.05rem var(--serif); color: var(--accent); }
+.fd-page .fd-way li:not(:last-child)::after { content: ""; position: absolute; top: 1.7rem; left: 2.6rem; right: 0; border-top: 1px dashed var(--line); }
+
+/* The reading: one room, the list of places down its side */
+.fd-page .sk-reader { border: 0; border-radius: 24px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+.fd-page .sk-list-item.is-on { border-color: transparent; background: var(--room); }
+
+/* The close: a room of its own */
+.fd-page .sk-carry { border: 0; border-radius: 24px; background: var(--room); }
+
+@media (max-width: 1100px) {
+  .fd-page .fd-cards { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .fd-page .sk-card { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  .fd-page .sk-card > .sk-scene { grid-column: 1; grid-row: auto; order: 1; margin-block: .6rem; }
+  .fd-page .sk-card-title { order: 2; } .fd-page .sk-card-hook { order: 3; } .fd-page .sk-card-parts { order: 4; } .fd-page .sk-action { order: 5; }
+  .fd-page .sk-card-top, .fd-page .sk-card-title, .fd-page .sk-card-hook, .fd-page .sk-card-parts, .fd-page .sk-action { grid-row: auto; }
+  .fd-page .fd-way li:not(:last-child)::after { display: none; }
+}

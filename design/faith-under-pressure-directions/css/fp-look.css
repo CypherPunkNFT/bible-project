@@ -1,0 +1,112 @@
+/* Faith under pressure's own look: evening, layers of ground, thin lines and hard edges. Loaded after the kit. Its subject is
+   what a person stands on, so the six pressures stack as layers on a dusk band and the older words lie underneath the letters. */
+.fp-page { --page-ink: var(--ink); --page-muted: var(--muted); --page-line: var(--line); --page-surface: var(--surface); --page-accent: var(--accent); --page-ground: var(--page); }
+.fp-page .fp-cards, .fp-page .fp-carry-band { --ink: #f3ecdf; --muted: #b9b0a1; --line: #3f382d; --surface: #2a251e; --accent: #e3b35c; background: #1d1a15; color: var(--ink); }
+
+/* Hero: the drawing is a window onto evening */
+.fp-page .fp-hero-art svg { box-sizing: border-box; padding: 3%; border-radius: 6px; background: #1d1a15; color: #b9b0a1; }
+.fp-page .fp-hero-art .ms-art-note { position: static; margin-top: .7rem; }
+
+/* Figures: large numbers on hard rules */
+.fp-page .fp-figures { border-block-width: 2px; border-color: var(--ink); }
+.fp-page .fp-figures dd { font-size: 2.6rem; }
+
+/* Section heads: a long rule from the number */
+.fp-page .t-head .t-num { display: flex; align-items: center; gap: .8rem; }
+.fp-page .t-head .t-num::after { content: ""; flex: 1; border-top: 1px solid var(--line); }
+
+/* Jump links: words on a line, not pills */
+.fp-page .sk-jump { gap: .3rem 1.6rem; }
+.fp-page .sk-jump a { padding: 0; border: 0; border-radius: 0; background: none; }
+
+/* How-to-read: a plain note under a rule */
+.fp-page .sk-key { padding: .7rem 0; border: 0; border-block: 1px solid var(--line); border-radius: 0; background: none; }
+
+/* The six pressures: stacked layers on the dusk band, each a row with the drawing at its left */
+.fp-page .fp-cards { grid-template-columns: minmax(0, 1fr); gap: 0; padding: .4rem 1.6rem; border-radius: 6px; }
+.fp-page .sk-card { display: grid; grid-template-columns: 5rem minmax(0, 19rem) minmax(0, 1fr) auto; grid-template-rows: auto auto 1fr; column-gap: 1.8rem; padding: 1rem 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: none; }
+.fp-page .sk-card:last-of-type { border-bottom: 0; }
+.fp-page .sk-card:hover, .fp-page .sk-card:focus-visible { transform: none; border-color: var(--line); box-shadow: none; background: color-mix(in srgb, var(--accent) 7%, transparent); }
+.fp-page .sk-card.is-on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.fp-page .sk-card-top { grid-column: 1; grid-row: 1 / -1; align-self: center; display: block; font-size: .6rem; letter-spacing: .1em; }
+.fp-page .sk-card-top b { display: block; margin-top: .2rem; font: 500 1.5rem/1.1 var(--serif); letter-spacing: 0; white-space: nowrap; }
+.fp-page .sk-card-top .sk-arrow { display: none; }
+.fp-page .sk-card > .sk-scene { grid-column: 2; grid-row: 1 / -1; align-self: center; margin: 0; color: var(--muted); }
+.fp-page .sk-card-title { grid-column: 3; grid-row: 1; font-size: 1.7rem; }
+.fp-page .sk-card-hook { grid-column: 3; grid-row: 2; }
+.fp-page .sk-card-parts { grid-column: 3; grid-row: 3; margin: 0; padding-top: .4rem; }
+.fp-page .sk-card-parts > span { padding: 0; border: 0; }
+.fp-page .sk-action { grid-column: 4; grid-row: 1 / -1; align-self: center; margin: 0; white-space: nowrap; }
+.fp-page .sk-scene svg { stroke-width: 1; }
+
+/* The open reading goes back to the page's own colours, full width, with the six as tabs along its top */
+.fp-page .fp-panel { --ink: var(--page-ink); --muted: var(--page-muted); --line: var(--page-line); --surface: var(--page-surface); --accent: var(--page-accent); color: var(--ink); display: block; margin: .8rem -1.6rem; padding: 0 !important; background: var(--page-ground); }
+.fp-page .sk-list { position: static; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; border-bottom: 2px solid var(--line); }
+.fp-page .sk-list-item { padding: .7rem .6rem; border: 0; border-bottom: 2px solid transparent; border-radius: 0; margin-bottom: -2px; }
+.fp-page .sk-list-item:hover, .fp-page .sk-list-item:focus-visible { border-color: transparent; border-bottom-color: var(--line); }
+.fp-page .sk-list-item.is-on { border-color: transparent; border-bottom-color: var(--accent); background: none; }
+.fp-page .sk-list-item b { font-size: .92rem; }
+.fp-page .sk-reader { padding: 1.3rem 1.6rem; border: 0; border-radius: 0; background: none; }
+.fp-page .sk-begin { border-radius: 0; border-left: 2px solid var(--accent); background: none; }
+
+/* Name the pressure: the verse held in a band above the full-width field */
+.fp-page .sk-figure { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.fp-page .sk-figure-main { padding: .6rem 0 0; border: 0; border-radius: 0; background: none; }
+.fp-page .sk-side { z-index: 2; min-height: 7.6rem; padding: .8rem 1.1rem !important; border: 0 !important; border-left: 3px solid var(--epistles) !important; border-radius: 0; background: var(--surface); box-shadow: 0 8px 14px -14px color-mix(in srgb, var(--ink) 60%, transparent); }
+.fp-page .fp-row-name span { font-size: 1.15rem; }
+.fp-page .sk-chip { min-height: 38px; border: 0; border-bottom: 2px solid var(--line); border-radius: 0; background: none; }
+.fp-page .sk-chip[aria-pressed="true"] { border-color: var(--epistles); background: none; }
+.fp-page .sk-pills { border-radius: 4px; }
+.fp-page .sk-pill { border-radius: 3px; }
+
+/* The six calls: six words along one line */
+.fp-page .fp-calls { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; border-block: 2px solid var(--ink); }
+.fp-page .fp-call { padding: 1rem .9rem; border: 0; border-left: 1px solid var(--line); border-radius: 0; background: none; }
+.fp-page .fp-call:first-child { border-left: 0; }
+
+/* The four questions: a descending ladder of rules */
+.fp-page .fp-way { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.fp-page .fp-way li { display: flex; align-items: baseline; gap: 1.2rem; padding: .6rem 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: none; font-size: 1.2rem; }
+.fp-page .fp-way li::before { flex: none; width: 2.4rem; margin: 0; font-size: 1.2rem; }
+
+/* Older words: the letters above, the older passages literally underneath */
+.fp-page .sk-threads.is-across { display: block; }
+.fp-page .sk-threads.is-across .sk-threads-col { grid-template-rows: auto; grid-template-columns: repeat(var(--rows), minmax(0, 1fr)); }
+.fp-page .sk-threads.is-across .sk-threads-lines { display: block; height: 130px; }
+.fp-page .sk-threads.is-across .sk-thread-end { flex-direction: column-reverse; justify-content: flex-end; gap: .3rem; height: auto; min-height: 56px; text-align: center; }
+.fp-page .sk-threads.is-across .sk-threads-right .sk-thread-end { justify-content: flex-start; }
+.fp-page .sk-threads.is-across b { font: 500 .78rem/1.2 var(--sans); }
+.fp-page .sk-threads.is-across small { display: none; }
+
+/* The close: back to the dusk band */
+.fp-page .sk-carry { --ink: #f3ecdf; --muted: #b9b0a1; --line: #3f382d; --accent: #e3b35c; padding: 1.6rem 1.8rem; border: 0; border-radius: 6px; background: #1d1a15; color: var(--ink); }
+
+@media (min-width: 1101px) {
+  .fp-page .sk-side { top: 64px; order: -1; margin-bottom: .6rem !important; }
+  .fp-page .sk-threads ~ .sk-threads-key { justify-content: center; }
+}
+@media (max-width: 1100px) {
+  .fp-page .sk-card { grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); column-gap: 1.2rem; }
+  .fp-page .sk-card-top { grid-column: 2; grid-row: auto; }
+  .fp-page .sk-card-top b { display: inline; margin-left: .3rem; font-size: .9rem; }
+  .fp-page .sk-card > .sk-scene { grid-column: 1; }
+  .fp-page .sk-card-title, .fp-page .sk-card-hook, .fp-page .sk-card-parts, .fp-page .sk-action { grid-column: 2; grid-row: auto; }
+  .fp-page .sk-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .fp-page .fp-calls { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .fp-page .fp-call:nth-child(3n + 1) { border-left: 0; }
+}
+@media (max-width: 640px) {
+  .fp-page .fp-cards { padding: .2rem 1rem; }
+  .fp-page .sk-card { grid-template-columns: minmax(0, 1fr); }
+  .fp-page .sk-card > * , .fp-page .sk-card > .sk-scene { grid-column: 1; grid-row: auto; }
+  .fp-page .sk-card > .sk-scene { margin-block: .4rem; }
+  .fp-page .sk-action { margin-top: .4rem; }
+  .fp-page .fp-panel { margin-inline: -1rem; }
+  .fp-page .sk-list { display: flex; overflow-x: auto; scrollbar-width: none; }
+  .fp-page .sk-list-item { flex: none; width: auto; max-width: 11rem; }
+  .fp-page .sk-reader { padding: 1rem; }
+  .fp-page .fp-calls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fp-page .fp-call:nth-child(3n + 1) { border-left: 1px solid var(--line); }
+  .fp-page .fp-call:nth-child(odd) { border-left: 0; }
+  .fp-page .fp-figures dd { font-size: 2rem; }
+}

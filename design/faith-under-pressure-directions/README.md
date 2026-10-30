@@ -9,10 +9,11 @@ A Scripture & Theology study. Its one new move: **name the pressure, find the gr
 
 The owner found the first build visually bare, and asked for more life and an interactive mode switch with no change to the content. It was rebuilt from the [visual inventory](../study-visual-inventory/) using the shared [study kit](../study-kit/kit.js):
 
-- **Six scene cards** with a large drawing each. None shows a storm clearing or a summit reached, because the study promises neither.
-- **Verse section:** a switch between every verse and the six one-word calls, plus filters by kind of mark with their counts, and a side panel for the verse.
-- **Older words section:** a switch between joined threads (retellings dashed) and the list.
-- **Each reading:** a list of the six readings beside a raised card, and a switch between the whole reading, step by step, and Scripture only.
+- **Its own look** ([css/fp-look.css](css/fp-look.css)), after the owner found the first rebuild identical to Faith in daily life: evening, layers and hard rules, because its subject is what a person stands on.
+- **Six stacked layers** on a dusk band, each with a large drawing. None shows a storm clearing or a summit reached, because the study promises neither.
+- **Verse section:** a switch between every verse and the six one-word calls, plus filters by kind of mark with their counts. The verse is held in a band above the full-width field.
+- **Older words section:** a switch between joined threads (retellings dashed) and the list. On wide screens the letters sit on top and the older passages literally underneath.
+- **Each reading:** full width, with the six readings as tabs along its top, and a switch between the whole reading, step by step, and Scripture only.
 - **Every choice is in the address,** so a shared link opens the same view.
 
 Only interface labels were added. A script compared the page's wording with the earlier version: nothing was lost, and data.js and build-data.py were not touched. The earlier look is kept as pictures in [the inventory's shots](../study-visual-inventory/shots/) (`pressure-*`). The "words and fine rules" note under rule 21 no longer holds: this page now has cards and panels, because the owner asked for them, kept to where the rated studies use them. No swaying or glow beyond one focal point.

@@ -1,5 +1,6 @@
-/* Shared look for study mock-ups, taken from the visual inventory (design/study-visual-inventory/). Loaded last, so it sets
-   the surfaces and leaves each study's own sheet the type. --tone is the study's colour. No ring on a clicked control. */
+/* Base rules for the study kit's parts, from the visual inventory (design/study-visual-inventory/). Not a look to reuse: two
+   studies in one category must never match, so each page loads its own css/<study>-look.css after this and takes its shape
+   from its own material. --tone is the study's colour. No ring on a clicked control. */
 
 /* A view that is switched off stays off, whatever its own display rule says. */
 .sk-page [hidden] { display: none !important; }

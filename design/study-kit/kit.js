@@ -115,13 +115,12 @@ window.StudyKit = (() => {
   const BOOKS = "GEN EXO LEV NUM DEU JOS JDG RUT 1SA 2SA 1KI 2KI 1CH 2CH EZR NEH EST JOB PSA PRO ECC SNG ISA JER LAM EZK DAN HOS JOL AMO OBA JON MIC NAM HAB ZEP HAG ZEC MAL MAT MRK LUK JHN ACT ROM 1CO 2CO GAL EPH PHP COL 1TH 2TH 1TI 2TI TIT PHM HEB JAS 1PE 2PE 1JN 2JN 3JN JUD REV".split(" ");
   const canonKey = (id) => { const [book, chapter, verse] = id.split("."); return BOOKS.indexOf(book) * 1e6 + Number(chapter) * 1e3 + Number.parseInt(verse, 10); };
   const SVG = "http://www.w3.org/2000/svg";
-  function threads({ pairs, label, onShow, describe, isDashed = () => false }) {
+  function threads({ pairs, label, onShow, describe, isDashed = () => false, acrossFrom = 0 }) {
     const left = [...pairs].sort((a, b) => canonKey(a.older) - canonKey(b.older));
     const right = [...pairs].sort((a, b) => canonKey(a.letter) - canonKey(b.letter));
     const ROW = 40;
     const height = pairs.length * ROW;
     const svg = document.createElementNS(SVG, "svg");
-    svg.setAttribute("viewBox", `0 0 100 ${height}`);
     svg.setAttribute("preserveAspectRatio", "none");
     svg.setAttribute("aria-hidden", "true");
     svg.setAttribute("class", "sk-threads-lines");
@@ -137,11 +136,9 @@ window.StudyKit = (() => {
       item.addEventListener("pointerenter", (event) => { if (event.pointerType === "mouse") activate(pair, false); });
       item.addEventListener("focus", () => activate(pair, true));
     };
-    const y = (index) => index * ROW + ROW / 2;
     for (const pair of pairs) {
-      const from = y(left.indexOf(pair)), to = y(right.indexOf(pair));
       const path = document.createElementNS(SVG, "path");
-      path.setAttribute("d", `M0 ${from}C50 ${from} 50 ${to} 100 ${to}`);
+      path.dataset.from = left.indexOf(pair); path.dataset.to = right.indexOf(pair);
       path.setAttribute("vector-effect", "non-scaling-stroke");
       path.setAttribute("class", `sk-thread sk-sec-${pair.section}${isDashed(pair) ? " is-dashed" : ""}`);
       path.dataset.sheet = pair.id;
@@ -161,6 +158,21 @@ window.StudyKit = (() => {
       return button;
     }));
     element.append(leftColumn, svg, rightColumn);
+    // Across: the letters on top and the older passages underneath. Down: older on the left, letters on the right.
+    const wide = acrossFrom ? matchMedia(`(min-width: ${acrossFrom}px)`) : null;
+    function layOut() {
+      const across = Boolean(wide?.matches);
+      element.classList.toggle("is-across", across);
+      if (across) element.prepend(rightColumn, svg); else element.prepend(leftColumn, svg);
+      element.append(across ? leftColumn : rightColumn);
+      svg.setAttribute("viewBox", across ? `0 0 ${pairs.length} 100` : `0 0 100 ${height}`);
+      for (const path of svg.children) {
+        const from = Number(path.dataset.from) + .5, to = Number(path.dataset.to) + .5;
+        path.setAttribute("d", across ? `M${to} 0C${to} 50 ${from} 50 ${from} 100` : `M0 ${from * ROW}C50 ${from * ROW} 50 ${to * ROW} 100 ${to * ROW}`);
+      }
+    }
+    layOut();
+    wide?.addEventListener("change", layOut);
     element.show = (pair) => activate(pair, false);
     return element;
   }

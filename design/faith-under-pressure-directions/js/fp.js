@@ -310,7 +310,7 @@
     return row;
   };
   const pairGroup = (kind, title) => [h("h3", { class: "fp-pairs-title" }, title), h("div", { class: "fp-pairs" }, pairs.filter((p) => p.kind === kind).map(pairRow))];
-  const threadFigure = threads({ pairs, label: "Each older passage joined to the letter that quotes or retells it. Choose one to open both.", onShow: showPair, isDashed: (pair) => pair.kind === "retold", describe: (pair) => `${pair.olderLabel}, ${pair.sectionName}, ${pair.kind} in ${pair.letterLabel}. Open both.` });
+  const threadFigure = threads({ pairs, label: "Each older passage joined to the letter that quotes or retells it. Choose one to open both.", onShow: showPair, isDashed: (pair) => pair.kind === "retold", acrossFrom: 1101, describe: (pair) => `${pair.olderLabel}, ${pair.sectionName}, ${pair.kind} in ${pair.letterLabel}. Open both.` });
   threadFigure.show(pairs[0]);
   const threadKey = h("p", { class: "sk-threads-key" }, h("span", {}, h("i"), "Quoted, with quotation marks in the Berean"), h("span", {}, h("i", { class: "is-dashed" }), "Retold, in Paul's own words"));
   const pairList = h("div", {}, pairGroup("quoted", "Quoted, with quotation marks in the Berean"), pairGroup("retold", "Retold, in Paul's own words"));

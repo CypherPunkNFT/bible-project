@@ -9,7 +9,8 @@ A Scripture & Theology study. Its one new move: **ask the sentence why**, six ev
 
 The owner found the first build visually bare, and asked for more life and an interactive mode switch with no change to the content. It was rebuilt from the [visual inventory](../study-visual-inventory/) using the shared [study kit](../study-kit/kit.js):
 
-- **Six scene cards** with a large drawing each, in place of a top line and a small sketch.
+- **Its own look** ([css/fd-look.css](css/fd-look.css)), after the owner found the first rebuild identical to Faith under pressure: daylight and soft filled rooms, because its subject is ordinary places.
+- **Six rooms,** two across, each with a large drawing, in place of a top line and a small sketch.
 - **Reasons section:** a switch between the marks and every sentence, plus filters by direction with their counts, and a side panel for the verse.
 - **Older words section:** a switch between joined threads and the list.
 - **Each reading:** a list of the six readings beside a raised card, and a switch between the whole reading, step by step, and Scripture only.
