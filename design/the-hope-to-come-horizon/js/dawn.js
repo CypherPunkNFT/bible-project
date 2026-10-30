@@ -12,7 +12,7 @@
   const TOWERS = [[250, 20, 204], [274, 16, 182], [296, 18, 168], [320, 22, 150], [344, 18, 168], [366, 16, 182], [390, 20, 204]];
   const towerPaths = TOWERS.map(([x, wide, top]) => `M${x - wide / 2} 226V${top + wide / 2}a${wide / 2} ${wide / 2} 0 0 1 ${wide} 0V226`);
   const MOUNTAINS = "M112 280 146 238 160 250 186 196 204 226 214 216 226 266M528 280 494 238 480 250 454 196 436 226 426 216 414 266";
-  const WALL = (() => { let d = "M214 262V226"; for (let i = 0; i < 13; i += 1) d += "h8v-6h8v6"; return `${d}h4V262`; })();
+  const WALL = (() => { let d = "M214 274V226"; for (let i = 0; i < 13; i += 1) d += "h8v-6h8v6"; return `${d}h4V274`; })();
   const LAND = `M-40 300Q320 216 680 300V${TALL + 20}H-40Z`;
 
   function sun() {
@@ -47,17 +47,17 @@
     return `<g class="ln-limbs">${limbs.join("")}</g><g class="ln-leaves">${leaves.join("")}</g><g class="ln-gold ln-fruit">${fruit.join("")}</g>`;
   }
   function river() {
-    const left = "M316 262C322 276 332 282 328 292C322 306 288 312 290 328C294 350 330 356 320 380C312 402 268 418 230 440";
-    const right = "M324 262C332 274 348 282 346 296C342 310 322 318 326 332C332 352 386 360 384 386C382 410 360 426 350 440";
-    const reversed = "L350 440C360 426 382 410 384 386C386 360 332 352 326 332C322 318 342 310 346 296C348 282 332 274 324 262Z";
-    const ripples = "M330 274h6M322 296h14M302 322h14M304 344h20M328 366h26M312 392h40M284 416h48";
+    const left = "M309 274C314 284 330 284 328 292C322 306 288 312 290 328C294 350 330 356 320 380C312 402 268 418 230 440";
+    const right = "M331 274C336 282 348 284 346 296C342 310 322 318 326 332C332 352 386 360 384 386C382 410 360 426 350 440";
+    const reversed = "L350 440C360 426 382 410 384 386C386 360 332 352 326 332C322 318 342 310 346 296C348 284 336 282 331 274Z";
+    const ripples = "M322 296h14M302 322h14M304 344h20M328 366h26M312 392h40M284 416h48";
     return `<path class="ln-wash ln-gold" d="${left}${reversed}"/><path class="ln-gold" d="${left}"/><path class="ln-gold" d="${right}"/><path class="ln-gold ln-faint" d="${ripples}"/>`;
   }
   function city() {
-    const gate = (x, wide, tall) => `M${x} 262V${262 - tall + wide / 2}a${wide / 2} ${wide / 2} 0 0 1 ${wide} 0V262`;
+    const gate = (x, wide, tall) => `M${x} 274V${262 - tall + wide / 2}a${wide / 2} ${wide / 2} 0 0 1 ${wide} 0V274`;
     const gates = [gate(248, 18, 26), gate(308, 24, 32), gate(374, 18, 26)];
     return `<path class="ln-city-wash" d="${WALL}Z"/><path class="ln-city-wash" d="${towerPaths.join("")}Z"/><path d="${towerPaths.join("")}"/>
-      <path d="${WALL}"/><path class="ln-faint" d="M214 256H426M214 251H426"/>
+      <path d="${WALL}"/><path class="ln-faint" d="${[268, 263].map((y) => `M214 ${y}H248M266 ${y}H308M332 ${y}H374M392 ${y}H426`).join("")}"/>
       <path class="ln-wash ln-gold" d="${gates.join("")}"/><path class="ln-gold" d="${gates.join("")}"/>`;
   }
   function meadow() {
@@ -70,7 +70,8 @@
       stems.push(`M${n(x)} ${n(y)}v${n(-tall)}`);
       blooms.push(`<circle cx="${n(x)}" cy="${n(y - tall)}" r="${n(1 + scale * .9)}"/>`);
     }
-    const stump = `<path d="M196 424V402M222 424V402M190 426c10 -3 26 -3 38 0"/><ellipse cx="209" cy="402" rx="13" ry="4"/><path class="ln-faint" d="M203 402a6 2 0 0 1 12 0"/><path class="ln-gold" d="M209 400C208 388 212 382 208 372"/><path class="ln-gold" d="M208 386c-6 -1 -9 -5 -9 -9c5 0 9 3 9 7M209 380c5 -1 8 -5 8 -9c-5 0 -8 3 -8 7"/>`;
+    // Raised clear of the hill that crosses the foot of the drawing on the page.
+    const stump = `<g transform="translate(0 -32)"><path d="M196 424V402M222 424V402M190 426c10 -3 26 -3 38 0"/><ellipse cx="209" cy="402" rx="13" ry="4"/><path class="ln-faint" d="M203 402a6 2 0 0 1 12 0"/><path class="ln-gold" d="M209 400C208 388 212 382 208 372"/><path class="ln-gold" d="M208 386c-6 -1 -9 -5 -9 -9c5 0 9 3 9 7M209 380c5 -1 8 -5 8 -9c-5 0 -8 3 -8 7"/></g>`;
     return `<path class="ln-faint" d="${stems.join("")}"/><g class="ln-gold ln-fruit">${blooms.join("")}</g>${stump}`;
   }
   const CONTOURS = "M-20 322Q140 298 270 306M370 306Q500 298 660 322M-20 354Q120 330 268 346M392 346Q520 330 660 354";
