@@ -84,6 +84,15 @@
     askList.replaceChildren(...study.readings.map((reading) => h("li", {}, h("span", { class: "hz-asks-who" }, h("b", {}, reading.n), titleParts(reading)[0]), h("p", {}, runs(reading[current[3]])))));
   }
 
+  // Light rising behind the section's opening words.
+  const RISING_RAYS = (() => {
+    const rays = [];
+    for (let i = 0; i <= 72; i += 1) {
+      const angle = Math.PI + (Math.PI * i) / 72, reach = i % 6 === 0 ? 1000 : i % 3 === 0 ? 760 : i % 2 === 0 ? 560 : 420;
+      rays.push(`M${(800 + Math.cos(angle) * 150).toFixed(1)} ${(600 + Math.sin(angle) * 150).toFixed(1)}L${(800 + Math.cos(angle) * reach).toFixed(1)} ${(600 + Math.sin(angle) * reach).toFixed(1)}`);
+    }
+    return `<svg viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path d="${rays.join("")}"/></svg>`;
+  })();
   const figures = [
     ["Readings", numbers.readings, "each opens where it sits, and each starts with its passage"],
     ["Verses walked", numbers.verses, "each counted once, in the Berean"],
@@ -92,7 +101,12 @@
     ["The thousand years", numbers.thousandVerses, "verses, all in Revelation 20, the only place the Bible ties those years to a reign"],
   ];
   page.append(hero, h("section", { class: "hz-readings", id: "readings" },
-    h("div", { class: "hz-sec hz-sec-tight" }, sectionHead("01", "Six readings.", "Three questions each.", runs(study.frame))),
+    h("header", { class: "hz-rise" },
+      art(RISING_RAYS, "hz-rise-rays"),
+      h("div", { class: "hz-rise-words" },
+        h("span", { class: "hz-num", "aria-hidden": "true" }, "01"),
+        h("h2", {}, "A bright and shining hope.", " ", h("em", {}, "The promise of an eternal King.")),
+        h("p", {}, "The King is coming back. The grave will give up its dead. Everything wrong will be put right, and God will live with His people. Six passages, taken one at a time, show what that hope is and what it asks of you today."))),
     rail,
     h("div", { class: "hz-stage" }, stageStops),
     panel,
@@ -101,6 +115,7 @@
       h("dl", { class: "hz-figures" }, figures.map(([label, value, note]) => h("div", {}, h("dt", {}, label), h("dd", {}, String(value)), h("small", {}, note)))),
       h("div", { class: "hz-under-notes" },
         h("p", {}, h("b", {}, "How to read this page: "), "gold-referenced lines set apart are Scripture, in the Berean. Plain text is written by this site from Scripture. Outside sources are named, with what was read. An application is called an application. The numbers mark the order of the readings, not levels of difficulty."),
+        h("p", {}, runs(study.frame)),
         h("p", {}, runs(study.selection))))));
 
   // ── A reading, in one column ──

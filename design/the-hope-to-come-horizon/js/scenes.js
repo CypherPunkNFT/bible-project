@@ -6,7 +6,8 @@
   const seeded = (seed) => () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
   const FAR = `<path class="sc-far" d="M0 300V168C90 150 170 176 270 150S430 112 540 146 700 182 820 150 1010 104 1140 140 1330 182 1440 152 1560 138 1600 150V300Z"/>`;
   const MID = `<path class="sc-mid" d="M0 300V232C120 214 240 244 380 226S620 198 780 228 1040 256 1180 228 1460 206 1600 230V300Z"/>`;
-  const svg = (body) => `<svg viewBox="0 0 ${WIDE} ${TALL}" preserveAspectRatio="xMidYMax slice" aria-hidden="true">${FAR}${MID}${body}</svg>`;
+  // `behind` stands beyond the hills, `body` in front of them.
+  const svg = (body, behind = "") => `<svg viewBox="0 0 ${WIDE} ${TALL}" preserveAspectRatio="xMidYMax slice" aria-hidden="true">${behind}${FAR}${MID}${body}</svg>`;
   const hill = (top) => `<path class="sc-near" d="M0 300V${top + 26}C260 ${top + 6} 520 ${top + 2} 800 ${top}S1340 ${top + 8} 1600 ${top + 24}V300Z"/>`;
 
   // 01: the people they have buried, and the cloud of Acts 1:9 lifting.
@@ -24,7 +25,7 @@
   function grain() {
     const random = seeded(23), stalks = [];
     for (let x = 180; x < 1440; x += 15 + random() * 7) {
-      const progress = (x - 180) / 1260, tall = 14 + Math.pow(progress, 1.5) * 196 + random() * 12, lean = (random() - .5) * 18;
+      const progress = (x - 180) / 1260, tall = 14 + Math.pow(progress, 1.5) * 118 + random() * 12, lean = (random() - .5) * 18;
       const topX = x + lean, topY = 300 - tall;
       let ear = "";
       if (tall > 46) for (let k = 0; k < 6; k += 1) {
@@ -49,7 +50,7 @@
       const angle = Math.PI + (Math.PI * i) / 40, reach = i % 2 ? 300 : 430;
       rays.push(`M${(800 + Math.cos(angle) * 96).toFixed(1)} ${(190 + Math.sin(angle) * 96).toFixed(1)}L${(800 + Math.cos(angle) * reach).toFixed(1)} ${(190 + Math.sin(angle) * reach).toFixed(1)}`);
     }
-    const seat = `<path class="sc-rays" d="${rays.join("")}"/><g class="sc-white"><path d="M756 170V56H768V38H784V22H816V38H832V56H844V170Z"/><rect x="726" y="140" width="18" height="76"/><rect x="718" y="130" width="38" height="10"/><rect x="856" y="140" width="18" height="76"/><rect x="844" y="130" width="38" height="10"/><rect x="744" y="170" width="112" height="16"/><rect x="752" y="186" width="96" height="30"/></g>`;
+    const seat = `<path class="sc-rays" d="${rays.join("")}"/><g class="sc-white" transform="translate(800 216) scale(.82) translate(-800 -216)"><path d="M756 170V32H768V14H784V-2H816V14H832V32H844V170Z"/><rect x="726" y="140" width="18" height="76"/><rect x="718" y="130" width="38" height="10"/><rect x="856" y="140" width="18" height="76"/><rect x="844" y="130" width="38" height="10"/><rect x="744" y="170" width="112" height="16"/><rect x="752" y="186" width="96" height="30"/></g>`;
     const steps = `<g class="sc-near-strong"><rect x="680" y="216" width="240" height="22"/><rect x="630" y="238" width="340" height="26"/><rect x="570" y="264" width="460" height="36"/></g>`;
     return svg(`${seat}${hill(286)}${steps}${book(690, 256)}${book(910, 256)}<g class="sc-near-strong">${crowd.join("")}</g>`);
   }
@@ -81,15 +82,34 @@
     const river = `<path class="sc-gold" d="M782 262H818C826 278 860 292 930 300H670C740 292 774 278 782 262Z"/>`;
     return svg(`<g class="sc-tower">${towers.join("")}</g><path class="sc-near-strong" d="${wall}"/>${hill(260)}${gate(500, 40, 72)}${gate(776, 48, 96)}${gate(1060, 40, 72)}${river}${crown(650)}${crown(950)}`);
   }
-  // 06: a road to the horizon, with the milestones going on ahead.
+  // 06: the sun turning beyond the hills, and the road winding towards it with the milestones going on ahead.
   function road() {
-    const stones = [];
-    for (let i = 0; i < 7; i += 1) {
-      const depth = Math.pow(i / 6, 1.7), y = 196 + depth * 104, half = 10 + depth * 300, tall = 3 + depth * 22, wide = 2 + depth * 11;
-      [800 - half - wide * 2, 800 + half + wide].forEach((x) => stones.push(`<path d="M${x.toFixed(1)} ${y.toFixed(1)}v${(-tall).toFixed(1)}a${(wide / 2).toFixed(1)} ${(wide / 2).toFixed(1)} 0 0 1 ${wide.toFixed(1)} 0v${tall.toFixed(1)}z"/>`));
+    const SUN = [800, 166], beams = [];
+    for (let i = 0; i < 36; i += 1) {
+      const angle = (i * Math.PI * 2) / 36, side = Math.PI / 36 * .34, reach = i % 3 === 0 ? 300 : i % 3 === 1 ? 190 : 138;
+      const point = (turn, far) => `${(SUN[0] + Math.cos(turn) * far).toFixed(1)} ${(SUN[1] + Math.sin(turn) * far).toFixed(1)}`;
+      beams.push(`M${point(angle - side, 84)}L${point(angle, reach)}L${point(angle + side, 84)}Z`);
     }
-    return svg(`<path class="sc-near" d="M0 300V216C300 200 560 196 800 194S1300 200 1600 216V300Z"/><path class="sc-road" d="M794 194H806L1110 300H490Z"/><path class="sc-gold" d="M799 196H801L806 300H794Z"/><g class="sc-near-strong">${stones.join("")}</g>`);
+    const sun = `<g class="sc-spin" style="transform-origin:${SUN[0]}px ${SUN[1]}px"><path class="sc-beam" d="${beams.join("")}"/></g><circle class="sc-gold" cx="${SUN[0]}" cy="${SUN[1]}" r="72"/>`;
+    // The road's centre swings left, then right, and it widens as it nears the reader.
+    const at = (depth) => ({ x: 800 + Math.sin(depth * Math.PI * 1.7) * (34 + depth * 150), y: 196 + Math.pow(depth, 1.3) * 106, half: 4 + Math.pow(depth, 1.55) * 250 });
+    const left = [], right = [], dashes = [], stones = [];
+    for (let i = 0; i <= 40; i += 1) {
+      const { x, y, half } = at(i / 40);
+      left.push(`${(x - half).toFixed(1)} ${y.toFixed(1)}`);
+      right.unshift(`${(x + half).toFixed(1)} ${y.toFixed(1)}`);
+    }
+    for (let depth = .05; depth < .98; depth += .035 + depth * .05) {
+      const from = at(depth), to = at(depth + .02 + depth * .03);
+      dashes.push(`<path d="M${from.x.toFixed(1)} ${from.y.toFixed(1)}L${to.x.toFixed(1)} ${to.y.toFixed(1)}" stroke-width="${(1 + depth * 6).toFixed(1)}"/>`);
+    }
+    [.16, .3, .46, .64, .84].forEach((depth) => {
+      const { x, y, half } = at(depth), tall = 4 + depth * 26, wide = 3 + depth * 13;
+      [x - half - wide * 2.2, x + half + wide * 1.2].forEach((spot) => stones.push(`<path d="M${spot.toFixed(1)} ${y.toFixed(1)}v${(-tall).toFixed(1)}a${(wide / 2).toFixed(1)} ${(wide / 2).toFixed(1)} 0 0 1 ${wide.toFixed(1)} 0v${tall.toFixed(1)}z"/>`));
+    });
+    return svg(`<path class="sc-near" d="M0 300V216C300 200 560 196 800 194S1300 200 1600 216V300Z"/><path class="sc-road" d="M${left.join("L")}L${right.join("L")}Z"/><path class="sc-edge" d="M${left.join("L")}"/><path class="sc-edge" d="M${right.join("L")}"/><g class="sc-dash">${dashes.join("")}</g><g class="sc-near-strong">${stones.join("")}</g>`, sun);
   }
+  HZ.SCENE_PARTS = { svg, hill, seeded };
   HZ.SCENES = { return: graves(), raised: grain(), judgment: throne(), creation: tree(), new: city(), waiting: road() };
   // The heading's last arch: lower and flatter than the readings' own hill.
   HZ.HILLS = svg(`<path class="sc-near" d="M0 300V298C260 290 520 286 800 284S1340 288 1600 297V300Z"/>`);
