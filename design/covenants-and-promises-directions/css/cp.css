@@ -1,0 +1,238 @@
+/* Covenants and promises mock-up. Frame from the Authors mock-ups, hero and sheet from the Manuscripts mock-up. The study's
+   colour is the site's gold, because it spans the whole Bible: the section colours are kept for the later-Scripture chart.
+   No focus ring on a click: a keyboard user gets a colour and an underline or border from :focus-visible instead. */
+.cp-page { --tone: var(--accent); --gold-ink: var(--accent); }
+.cp-page button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+:where(.cp-page, .cp-sheet) :is(a, button, summary, [tabindex]):focus { outline: none; }
+:where(.cp-page, .cp-sheet) a { color: inherit; }
+
+/* ── Reference links ── */
+.cp-ref { color: var(--gold-ink) !important; font-weight: 500; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent) !important; }
+.cp-ref:hover, .cp-ref:focus-visible { border-bottom-color: var(--accent) !important; background: color-mix(in srgb, var(--accent) 12%, transparent) !important; }
+
+/* ── Hero ── */
+.cp-hero { padding-bottom: .4rem; }
+.cp-intro { align-items: center; padding-block: 1.6rem 1rem; }
+.cp-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
+.cp-trail a { text-decoration: none; border-bottom: 1px solid transparent; }
+.cp-trail a:hover, .cp-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.cp-here { color: var(--ink); }
+.cp-concepts { margin-top: 1rem; font-size: .68rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.cp-intro h1 { margin-block: .55rem .8rem; }
+.cp-opening { margin: 1.1rem 0 0; padding-left: 1rem; border-left: 2px solid var(--tone); max-width: 58ch; }
+.cp-opening blockquote { margin: 0; font: 400 1.14rem/1.5 var(--serif); }
+.cp-opening figcaption { margin-top: .35rem; font-size: .76rem; color: var(--muted); }
+.cp-hero-art { color: var(--muted); }
+.cp-hero-art svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.cp-hero-art .ms-art-note { bottom: -2%; }
+.cp-gold { stroke: var(--tone); }
+.cp-faint { opacity: .5; }
+.cp-wash { fill: color-mix(in srgb, var(--ink) 4%, transparent); stroke: none; }
+.cp-wash.cp-gold { fill: color-mix(in srgb, var(--tone) 12%, transparent); stroke: none; }
+.cp-halo { stroke-width: 1; opacity: .16; }
+.cp-wine { fill: color-mix(in srgb, var(--tone) 22%, transparent); }
+.cp-thread { animation: cp-thread 22s linear infinite; }
+.cp-glow { fill: color-mix(in srgb, var(--tone) 14%, transparent); stroke: none; animation: cp-light 9s ease-in-out infinite; }
+.cp-flame { fill: color-mix(in srgb, var(--tone) 18%, transparent); }
+.cp-gold-line { stroke: var(--tone); }
+.cp-spark { animation: cp-twinkle 8s ease-in-out infinite; }
+@keyframes cp-light { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+@keyframes cp-thread { to { stroke-dashoffset: -70; } }
+@keyframes cp-twinkle { 0%, 100% { opacity: .25; } 50% { opacity: .7; } }
+
+.cp-figures { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 1rem 0 0; border-block: 1px solid var(--line); }
+.cp-figures > div { padding: .8rem 1rem; border-left: 1px solid var(--line); min-width: 0; }
+.cp-figures > div:first-child { border-left: 0; padding-left: 0; }
+.cp-figures dt { font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.cp-figures dd { margin: .2rem 0 0; font: 500 1.7rem/1.15 var(--serif); }
+.cp-figures small { display: block; margin-top: .1rem; font-size: .74rem; line-height: 1.4; color: var(--muted); }
+
+/* ── Small shared text ── */
+.cp-note { margin-top: .9rem; max-width: 92ch; font-size: .78rem; line-height: 1.6; color: var(--muted); }
+.cp-key { max-width: 92ch; margin-bottom: 1.1rem; font-size: .8rem; line-height: 1.6; color: var(--muted); }
+.cp-key b { color: var(--ink); font-weight: 600; }
+.cp-reads { margin-bottom: 1rem; max-width: 70ch; font: 400 1.08rem/1.5 var(--serif); }
+.cp-kind { font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.cp-kind b { color: var(--accent); font-weight: 600; }
+
+/* ── The six cards: one anatomy, a rule above and below rather than a box ── */
+.cp-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem 1.8rem; }
+.cp-card { display: flex; flex-direction: column; gap: .3rem; padding-top: .8rem; border-top: 1px solid var(--line); color: inherit; text-decoration: none; transition: border-color .25s; }
+.cp-card:hover, .cp-card:focus-visible, .cp-card.is-on { border-top-color: var(--tone); }
+.cp-mini-wrap { display: block; color: var(--muted); margin-block: .35rem .2rem; }
+.cp-mini { display: block; width: 96px; height: 64px; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.cp-card-title { font: 500 1.28rem/1.25 var(--serif); }
+.cp-card-hook { font-size: .88rem; line-height: 1.5; color: var(--muted); }
+.cp-card-parts { margin-top: .45rem; padding-top: .45rem; border-top: 1px solid var(--line); font-size: .72rem; line-height: 1.45; color: var(--muted); }
+.cp-action { margin-top: .3rem; font-size: .8rem; font-weight: 600; color: var(--accent); }
+.cp-card:hover .cp-action-text, .cp-card:focus-visible .cp-action-text { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── The open reading: fine rules and labels, no boxes ── */
+.cp-panel { grid-column: 1 / -1; padding: 1.2rem 0 1.4rem; border-block: 1px solid var(--tone); scroll-margin-top: 84px; animation: cp-fade .28s ease-out; }
+@keyframes cp-fade { from { opacity: 0; } to { opacity: 1; } }
+.cp-panel-head { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; }
+.cp-panel h3 { margin-top: .2rem; font: 500 clamp(1.6rem, 3vw, 2.1rem)/1.15 var(--serif); letter-spacing: -.02em; }
+.cp-panel h3:focus { outline: none; }
+.cp-hook { margin-top: .25rem; font: italic 400 1.1rem/1.45 var(--serif); color: var(--accent); }
+.cp-read { margin-top: .5rem; font-size: .84rem; line-height: 1.7; }
+.cp-read > span { color: var(--muted); }
+.cp-close { flex-shrink: 0; display: grid !important; place-items: center; width: 44px; height: 44px; border-radius: 50% !important; border: 1px solid var(--line) !important; }
+.cp-close:hover, .cp-close:focus-visible { border-color: var(--accent) !important; color: var(--accent); }
+.cp-close span { display: grid; }
+.cp-strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 1rem 0 0; border-block: 1px solid var(--line); }
+.cp-strip > div { padding: .75rem 1rem; border-left: 1px solid var(--line); min-width: 0; }
+.cp-strip > div:first-child { padding-left: 0; border-left: 0; }
+.cp-strip dt { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.cp-strip dd { margin: .3rem 0 0; font-size: .88rem; line-height: 1.55; }
+.cp-parts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem 2.6rem; margin-top: 1.2rem; align-items: start; }
+.cp-part { min-width: 0; }
+.cp-part h4, .cp-prompts h4 { font: 500 1.14rem/1.3 var(--serif); }
+.cp-part > p, .cp-flag p { margin-top: .6rem; max-width: 66ch; font-size: .92rem; line-height: 1.68; }
+.cp-quote { margin: .8rem 0; padding-left: .9rem; border-left: 2px solid var(--tone); }
+.cp-quote blockquote { margin: 0; font: 400 1.04rem/1.55 var(--serif); }
+.cp-quote figcaption { margin-top: .25rem; font-size: .74rem; color: var(--muted); }
+.cp-flag { margin-top: .9rem; padding-top: .55rem; border-top: 1px solid var(--line); }
+.cp-flag-label { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.cp-flag-care .cp-flag-label { color: var(--accent); }
+.cp-flag-open .cp-flag-label { color: var(--prophets); }
+.cp-flag p { margin-top: .3rem; }
+.cp-flag small { display: block; margin-top: .3rem; font-size: .72rem; line-height: 1.5; color: var(--muted); }
+.cp-prompts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2.6rem; margin-top: 1.2rem; padding-top: .9rem; border-top: 1px solid var(--line); }
+.cp-prompts p { margin-top: .35rem; max-width: 66ch; font-size: .92rem; line-height: 1.65; }
+.cp-panel-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem 1.4rem; margin-top: 1.1rem; }
+.cp-next { min-height: 44px; font-size: .84rem; font-weight: 600; color: var(--accent) !important; }
+.cp-next:hover, .cp-next:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+.cp-setting { margin-top: .3rem; max-width: 80ch; font-size: .84rem; line-height: 1.6; }
+.cp-setting > span { color: var(--muted); }
+/* ── The close ── */
+.cp-closing { padding-bottom: 0; }
+.cp-close-text { max-width: 66ch; }
+.cp-close-text > p:not(.cp-concepts) { margin-top: .7rem; line-height: 1.68; }
+.cp-question { font: 500 clamp(1.3rem, 2.8vw, 1.8rem)/1.3 var(--serif) !important; letter-spacing: -.01em; }
+.cp-again { font-style: italic; color: var(--muted); }
+.cp-links { display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; margin-top: 1.1rem; font-size: .86rem; font-weight: 600; color: var(--accent); }
+.cp-links a { text-decoration: none; min-height: 28px; }
+.cp-links a:hover, .cp-links a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.cp-land { display: block; margin-top: 1.2rem; color: var(--muted); }
+.cp-land svg { display: block; width: 100%; height: clamp(90px, 14vw, 170px); fill: none; stroke: currentColor; stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
+.cp-road { animation: cp-thread 18s linear infinite; }
+.cp-sky { fill: currentColor; stroke: none; opacity: .4; }
+.cp-sources { margin-top: 1rem; padding-block: .7rem; border-top: 1px solid var(--line); font-size: .84rem; }
+.cp-sources summary { cursor: pointer; font-weight: 600; min-height: 28px; }
+.cp-sources summary:focus-visible { color: var(--accent); }
+.cp-sources ul { margin: .6rem 0 0; padding: 0; list-style: none; }
+.cp-sources li { padding-block: .45rem; border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.cp-sources a { color: var(--accent); }
+.cp-sources li span { display: block; margin-top: .1rem; font-size: .76rem; line-height: 1.5; color: var(--muted); }
+
+/* ── The record sheet ── */
+.cp-sheet .cp-kind { margin-right: 2.6rem; }
+.cp-sheet .ms-sheet-close { width: 44px; height: 44px; }
+.cp-sheet h3 { margin-top: .9rem; font: 500 1.35rem/1.25 var(--serif); }
+.cp-sheet-text { margin-top: .5rem; font: 400 1rem/1.7 var(--serif); }
+.cp-sheet-text sup { margin-right: .15em; font: 600 .62rem var(--sans); color: var(--accent); }
+.cp-sheet-ch { display: block; margin-block: .5rem .1rem; font: 600 .62rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.cp-sheet-links { display: grid; gap: .3rem; margin-top: .6rem; font-size: .84rem; font-weight: 600; }
+.cp-sheet-links a { color: var(--accent); }
+.cp-sheet-links a:focus-visible, .ms-sheet-close:focus-visible { text-decoration: underline; color: var(--accent); }
+
+/* ── Widths ── */
+@media (max-width: 1100px) {
+  .cp-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cp-figures { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cp-figures > div { border-left: 0; padding-left: 0; }
+  .cp-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cp-strip > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+}
+@media (max-width: 860px) {
+  .cp-parts, .cp-prompts { grid-template-columns: minmax(0, 1fr); }
+  .cp-strip { grid-template-columns: minmax(0, 1fr); }
+  .cp-strip > div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .cp-strip > div:first-child { border-top: 0; }
+}
+@media (max-width: 640px) {
+  .cp-cards { grid-template-columns: minmax(0, 1fr); }
+  .cp-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cp-thread, .cp-spark, .cp-road, .cp-panel { animation: none; }
+  .cp-card, .ms-sheet { transition: none !important; }
+}
+
+/* ── 02 The table: fine rules, no boxes. On a phone each row stacks and each cell says its question ── */
+.cp-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.cp-table-wrap { margin-top: .4rem; }
+.cp-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.cp-table th, .cp-table td { padding: .7rem .9rem .7rem 0; border-top: 1px solid var(--line); vertical-align: top; text-align: left; }
+.cp-table thead th { border-top: 0; font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.cp-table thead th:first-child { width: 11%; }
+.cp-table tbody th { font: 500 1.08rem/1.25 var(--serif); }
+.cp-table tbody th a { text-decoration: none; border-bottom: 1px solid transparent; }
+.cp-table tbody th a:hover, .cp-table tbody th a:focus-visible { color: var(--accent); border-bottom-color: var(--accent); }
+.cp-table td { font-size: .86rem; line-height: 1.55; overflow-wrap: anywhere; }
+
+/* ── 03 The whole Bible as one line. Colour is where the later verse sits; the dash carries the kind ── */
+.cp-sec-history { --sec: var(--history); } .cp-sec-poetry { --sec: var(--poetry); } .cp-sec-prophets { --sec: var(--prophets); }
+.cp-sec-gospels { --sec: var(--gospels); } .cp-sec-epistles { --sec: var(--epistles); } .cp-sec-revelation { --sec: var(--revelation); }
+.cp-chooser { display: flex; flex-wrap: wrap; gap: .3rem .5rem; margin-bottom: .6rem; }
+.cp-page .cp-choose { min-height: 44px; padding-inline: .8rem; border-radius: 22px; border: 1px solid var(--line); font-size: .84rem; }
+.cp-choose small { color: var(--muted); font-size: .72rem; margin-left: .15rem; }
+.cp-page .cp-choose:hover, .cp-page .cp-choose:focus-visible { border-color: var(--accent); }
+.cp-page .cp-choose[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); font-weight: 600; }
+.cp-chart { margin: 0; }
+.cp-arcs { display: block; width: 100%; aspect-ratio: 1000 / 340; overflow: visible; }
+.cp-axis { stroke: var(--sec); stroke-width: 3; }
+.cp-axis-name { fill: var(--sec); font: 600 13px var(--sans); }
+.cp-origin { stroke: var(--ink); stroke-width: 2; }
+.cp-arc { fill: none; stroke: var(--sec); stroke-width: 1.3; opacity: .72; pointer-events: none; transition: opacity .2s, stroke-width .2s; }
+.cp-kind-names { stroke-dasharray: 6 4; }
+.cp-kind-recalls { stroke-dasharray: 1.5 4; stroke-linecap: round; }
+.cp-arc.is-dim { opacity: .16; }
+.cp-arc.is-on { opacity: 1; stroke-width: 2.6; }
+.cp-arc-hit { fill: none; stroke: transparent; stroke-width: 11; pointer-events: stroke; cursor: pointer; }
+.cp-legend { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; padding-block: .55rem; font-size: .72rem; color: var(--muted); border-bottom: 1px solid var(--line); }
+.cp-legend br { flex-basis: 100%; height: 0; content: ""; }
+.cp-swatch { display: inline-block; width: 9px; height: 9px; margin-right: .35rem; background: var(--sec); }
+.cp-dash { display: inline-block; flex: none; width: 24px; height: 0; margin-right: .45rem; vertical-align: middle; border-top: 2px solid var(--sec, var(--muted)); }
+.cp-dash-names { border-top-style: dashed; }
+.cp-dash-recalls { border-top-style: dotted; }
+.cp-pairs-title { margin-block: .9rem .35rem; font: 600 .66rem var(--sans); letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
+.cp-lines { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 1.8rem; border-top: 1px solid var(--line); }
+.cp-page .cp-line { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0 .1rem; align-items: center; min-height: 44px; padding-block: .35rem; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.cp-line-refs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 .45rem; min-width: 0; }
+.cp-line-refs b { font: 500 .96rem/1.3 var(--serif); }
+.cp-line-refs small { font-size: .7rem; color: var(--muted); }
+.cp-line-kind { grid-column: 2; font-size: .7rem; color: var(--muted); }
+.cp-line:hover .cp-line-refs b, .cp-line:focus-visible .cp-line-refs b, .cp-line.is-on .cp-line-refs b { color: var(--accent); }
+.cp-line.is-on { background: color-mix(in srgb, var(--sec) 9%, transparent); }
+.cp-readout { margin-top: .8rem; padding-top: .7rem; border-top: 1px solid var(--line); min-height: 5.4rem; }
+.cp-lines > .cp-readout { grid-column: 1 / -1; margin-top: 0; padding-block: .6rem; border-top: 0; border-bottom: 1px solid var(--line); }
+.cp-readout-meta { margin-top: .3rem; font-size: .78rem; color: var(--muted); }
+.cp-pair-read { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem 2.4rem; }
+.cp-pair-head { font-size: .64rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
+.cp-pair-read p { margin-top: .2rem; font: 400 .98rem/1.5 var(--serif); }
+
+/* ── 04 The maps ── */
+.cp-map-title { font: 500 1.14rem/1.3 var(--serif); }
+.cp-maps .cp-part:last-child { grid-column: 1 / -1; max-width: 80ch; }
+
+@media (max-width: 1100px) { .cp-lines { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 860px) {
+  .cp-axis-name { display: none; }
+  .cp-arcs { aspect-ratio: auto; height: 200px; }
+  .cp-table, .cp-table tbody, .cp-table tr, .cp-table td, .cp-table tbody th { display: block; width: auto; }
+  .cp-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .cp-table tr { padding-block: .6rem; border-top: 1px solid var(--line); }
+  .cp-table tbody th { padding: 0 0 .3rem; border: 0; }
+  .cp-table td { padding: .3rem 0; border: 0; }
+  .cp-table td::before { content: attr(data-label); display: block; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+  .cp-pair-read { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .cp-lines { grid-template-columns: minmax(0, 1fr); }
+  .cp-group:not(.is-chosen) { display: none; }
+  .cp-arc-hit { pointer-events: none; }
+}
+@media (prefers-reduced-motion: reduce) { .cp-arc { transition: none; } }
