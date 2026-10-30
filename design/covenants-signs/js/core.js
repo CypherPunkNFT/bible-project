@@ -44,7 +44,7 @@ window.Cov = (() => {
   const worldName = (slug) => data.covenants[slug] ?? "Heirs";
 
   // ── The address holds every choice, so a shared link opens the same view ──
-  const DEFAULTS = { world: data.study.readings[0].slug, q: "sign", view: "one", reading: null, sheet: null, stone: null, later: "disc", map: "0" };
+  const DEFAULTS = { world: data.study.readings[0].slug, q: "sign", view: "one", reading: null, sheet: null, stone: null, later: "disc", map: "0", drawing: "1" };
   const allowed = {
     world: (v) => readings.has(v),
     q: (v) => QUESTIONS.some(([key]) => key === v),
@@ -54,6 +54,7 @@ window.Cov = (() => {
     stone: (v) => v in data.covenants,
     later: (v) => v === "disc" || v === "list",
     map: (v) => /^[0-3]$/.test(v),
+    drawing: (v) => /^[1-4]$/.test(v),
   };
   function readAddress() {
     const params = new URLSearchParams(location.search);
