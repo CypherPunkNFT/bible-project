@@ -3,6 +3,8 @@
 Every mock-up lives in a folder here and has a card in [catalog.json](catalog.json). The gallery is at
 http://127.0.0.1:8931/mockups/ ([index.html](index.html)).
 
+**Designing a study?** Start from the [visual inventory](study-visual-inventory/) (http://127.0.0.1:8931/mockups/study-visual-inventory/): 43 visual tools cut from the eleven rated studies, each with what it holds, how a reader uses it and when it fits. Its pictures are retaken by [study-inventory-capture.mjs](../scripts/study-inventory-capture.mjs). The [study kit](study-kit/kit.js) holds the shared pieces (scene cards, switches, side panel, threads, reading panel); it is a helper, not a mock-up, so it has no card.
+
 ## The style benchmark: the Authors mock-ups (owner, 2026-10-08)
 
 The Authors directions are the model for **how a page should feel**:

@@ -1,0 +1,73 @@
+/* The study visual inventory. A reference page in the site's own frame. */
+.vi-page { --tone: var(--epistles); padding-top: 1.6rem; }
+.vi-page button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+.vi-page :is(a, button):focus { outline: none; }
+.vi-page a { color: var(--accent); text-decoration: none; }
+.vi-page a:hover, .vi-page a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+.vi-concepts { font-size: .68rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.vi-hero h1 { margin-top: .5rem; font: 500 clamp(2.4rem, 5.5vw, 4rem)/1.05 var(--serif); letter-spacing: -.03em; }
+.vi-hero h1 em { color: var(--accent); font-weight: 400; }
+.vi-lede { margin-top: .8rem; max-width: 66ch; color: var(--muted); line-height: 1.65; }
+.vi-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1.2rem 0 0; border-block: 1px solid var(--line); }
+.vi-figures > div { padding: .8rem 1rem; border-left: 1px solid var(--line); min-width: 0; }
+.vi-figures > div:first-child { border-left: 0; padding-left: 0; }
+.vi-figures dt { font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.vi-figures dd { margin: .2rem 0 0; font: 500 1.9rem/1.15 var(--serif); }
+.vi-figures small { display: block; font-size: .74rem; line-height: 1.4; color: var(--muted); }
+
+.vi-compare, .vi-approved { margin-top: 2.4rem; }
+.vi-compare h2, .vi-approved h2, .vi-family > header h2 { font: 500 clamp(1.5rem, 2.8vw, 2rem)/1.2 var(--serif); letter-spacing: -.02em; }
+.vi-compare > p, .vi-approved > p, .vi-family > header p { margin-top: .3rem; color: var(--muted); font-size: .92rem; }
+.vi-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+.vi-shot { display: block; width: 100%; max-height: 22rem; overflow: hidden; border: 1px solid var(--line) !important; border-radius: 10px; background: var(--surface) !important; }
+.vi-shot img { display: block; width: 100%; height: auto; }
+.vi-shot:hover, .vi-shot:focus-visible { border-color: var(--accent) !important; }
+figure { margin: 0; }
+figcaption { margin-top: .35rem; font-size: .76rem; line-height: 1.45; color: var(--muted); }
+
+.vi-chips { position: sticky; top: 64px; z-index: 5; display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 2.4rem; padding-block: .6rem; background: var(--page); border-bottom: 1px solid var(--line); }
+.vi-chip { display: inline-flex !important; align-items: center; gap: .5rem; min-height: 38px; padding: .3rem .85rem !important; border: 1px solid var(--line) !important; border-radius: 999px; font-size: .82rem !important; }
+.vi-chip b { font-weight: 600; font-size: .72rem; color: var(--muted); }
+.vi-chip:hover, .vi-chip:focus-visible { border-color: var(--accent) !important; }
+.vi-chip[aria-pressed="true"] { background: var(--ink) !important; color: var(--page) !important; border-color: var(--ink) !important; }
+.vi-chip[aria-pressed="true"] b { color: inherit; }
+
+.vi-family { margin-top: 2.4rem; }
+.vi-tool { display: grid; grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: 1rem 2rem; padding-block: 1.4rem; border-top: 1px solid var(--line); scroll-margin-top: 130px; }
+.vi-family > header { margin-bottom: 1rem; }
+.vi-tool h3 { font: 500 1.3rem/1.25 var(--serif); }
+.vi-tool dl { margin: .6rem 0 0; }
+.vi-tool dt { margin-top: .55rem; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.vi-tool dd { margin: .12rem 0 0; font-size: .88rem; line-height: 1.55; }
+.vi-status { display: inline-block; margin-top: .8rem; padding: .15rem .6rem; border: 1px solid var(--line); border-radius: 999px; font-size: .72rem; font-weight: 600; color: var(--muted); }
+.vi-status-none { color: var(--revelation); border-color: color-mix(in srgb, var(--revelation) 40%, transparent); }
+.vi-status-partial { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, transparent); }
+.vi-status-yes { color: var(--poetry); border-color: color-mix(in srgb, var(--poetry) 40%, transparent); }
+.vi-gap { margin-top: .5rem; font-size: .84rem; line-height: 1.55; color: var(--muted); }
+.vi-shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-content: start; min-width: 0; }
+
+.vi-approved-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+.vi-approved-card { display: flex; flex-direction: column; gap: .25rem; color: inherit !important; }
+.vi-approved-card img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; margin-bottom: .3rem; }
+.vi-approved-card b { font: 500 1rem/1.3 var(--serif); }
+.vi-approved-card span { font-size: .8rem; line-height: 1.45; color: var(--muted); }
+
+.vi-sheet { position: fixed; inset: 0 0 0 auto; width: min(64rem, 100%); height: 100dvh; max-height: none; margin: 0; padding: 1rem; overflow-y: auto; background: var(--surface); color: var(--ink); border: 0; border-left: 1px solid var(--line); }
+.vi-sheet::backdrop { background: color-mix(in srgb, #000 40%, transparent); }
+.vi-sheet form { display: flex; justify-content: space-between; align-items: center; margin-bottom: .6rem; }
+.vi-sheet-title { font: 500 1.1rem var(--serif); }
+.vi-sheet-close { width: 44px; height: 44px; font-size: 1.5rem; line-height: 1; background: none; border: 1px solid var(--line); border-radius: 50%; color: inherit; cursor: pointer; }
+.vi-sheet-close:focus { outline: none; }
+.vi-sheet-close:focus-visible, .vi-sheet-close:hover { border-color: var(--accent); color: var(--accent); }
+.vi-sheet img { display: block; width: 100%; height: auto; }
+
+@media (max-width: 860px) {
+  .vi-tool { grid-template-columns: minmax(0, 1fr); }
+  .vi-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vi-figures > div { border-left: 0; padding-left: 0; }
+}
+@media (max-width: 640px) {
+  .vi-pair, .vi-shots { grid-template-columns: minmax(0, 1fr); }
+  .vi-chips { position: static; }
+}

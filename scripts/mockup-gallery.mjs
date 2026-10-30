@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const design = path.join(root, "design");
 const base = process.env.BASE ?? "http://127.0.0.1:8931";
-const SHARED = new Set(["_gallery", "letters-shared"]); // helpers used by mock-ups, not mock-ups themselves
+const SHARED = new Set(["_gallery", "letters-shared", "study-kit"]); // helpers used by mock-ups, not mock-ups themselves
 
 const catalog = JSON.parse(await readFile(path.join(design, "catalog.json"), "utf8"));
 const cards = catalog.sections.flatMap((section) => section.cards);
