@@ -22,6 +22,7 @@ The motto, "A small light. Two hands. Held, not explained.", is the two curved r
 
 ## Section by section
 
+- **Heading:** laid out as on Faith in daily life, at the owner's request (2026-10-30): trail, gold page words, title, lead and opening verse on the left, one line drawing of the wall and its small light on the right, with the motto under it.
 - **Six piers:** the way into the readings, standing on one shared ground line. Choosing one is the page's only motion: its load lands and the wall takes it. Nothing moves at rest, and reduced motion removes it.
 - **A reading:** opens under the wall. Its pier is drawn large, with verse numbers on the stones, each linked to its verse. The pressure, the call, the ground and what is not promised sit at the heights where the drawing shows them. Under the ground, dashed stones stand for what the passage does not promise. In the text, cautions and sources stand in the margin level with the sentence they qualify.
 - **Name the pressure, find the ground:** all 76 verses as one wall, with the marked phrases cut into their stones in the three colours. Choosing a kind leaves only those stones standing and the rest as outlines. "The six calls" sets each reading's one word as large as the width allows.

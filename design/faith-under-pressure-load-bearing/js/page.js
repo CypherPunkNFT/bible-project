@@ -26,11 +26,10 @@
     h("div", { class: "head-title" },
       h("nav", { class: "trail", "aria-label": "Study trail" }, h("a", { href: "/study" }, "Study"), h("span", { "aria-hidden": "true" }, "/"), h("a", { href: "/study/theology?area=life" }, "Living the Christian Life"), h("span", { "aria-hidden": "true" }, "/"), h("span", { class: "here", "aria-current": "page" }, study.title)),
       h("p", { class: "concepts" }, plain(study.concepts)),
-      h("h1", {}, "Faith", h("em", {}, "under pressure"))),
-    h("div", { class: "head-lead" },
+      h("h1", {}, "Faith", h("em", {}, "under pressure")),
       h("p", { class: "lede" }, runs(study.lead)),
       h("figure", { class: "opening" }, h("blockquote", {}, study.opening.t), h("figcaption", {}, refLink(study.opening.r, study.opening.label), " · Berean Standard Bible"))),
-    h("figure", { class: "head-lamp" }, Stones.lamp(), h("figcaption", {}, motto[0], h("br"), h("span", {}, motto[1]))));
+    h("figure", { class: "head-art" }, Stones.headArt(), h("figcaption", {}, motto[0], h("br"), h("span", {}, motto[1]))));
 
   // ── 01 The six piers ──
   const bays = new Map();
