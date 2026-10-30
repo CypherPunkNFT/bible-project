@@ -1,0 +1,95 @@
+/* 02 every verse as a built wall, the marked words cut in the stones. 03 letters above the ground line, older Scripture below. */
+.stratum { padding: 2.6rem max(1rem, calc((100vw - 80rem) / 2 + 1.5rem)) 1.5rem; }
+.s-head { display: grid; gap: .45rem; }
+.s-head p { max-width: 72ch; line-height: 1.6; }
+.s-reads { font-weight: 600; }
+.questions { display: flex; flex-wrap: wrap; gap: .5rem 1.8rem; margin: 1.1rem 0 .3rem; padding: 0; list-style: none; font: 500 .98rem/1.3 var(--serif); }
+.questions li { display: flex; align-items: center; gap: .5rem; }
+.questions li::before { content: ""; flex: none; width: 1.5rem; height: .85rem; border-radius: 4px 7px 5px 3px; background: var(--q); }
+.q-P { --q: var(--p-fill); } .q-C { --q: var(--c-fill); } .q-G { --q: var(--g-fill); }
+.q-N { --q: transparent; } .questions .q-N::before { border: 1px dashed var(--muted); }
+.wall-controls { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .2rem 1.5rem; margin-top: .7rem; }
+.wall-controls.is-end { justify-content: flex-end; }
+.filters { display: flex; flex-wrap: wrap; gap: .1rem 1.1rem; }
+.filter { display: inline-flex; align-items: center; gap: .4rem; min-height: 2.75rem; padding: 0; border: 0; border-bottom: 2px solid transparent; background: none; font-size: .84rem; color: var(--muted); }
+.filter i { width: .85rem; height: .62rem; border-radius: 3px 5px 4px 2px; background: var(--stone-1); }
+.filter.f-P i { background: var(--p-fill); } .filter.f-C i { background: var(--c-fill); } .filter.f-G i { background: var(--g-fill); }
+.filter b { color: var(--ink); }
+.filter:hover, .filter:focus-visible { color: var(--ink); border-bottom-color: var(--line); }
+.filter[aria-pressed="true"] { color: var(--ink); font-weight: 600; border-bottom-color: var(--accent); }
+
+/* The verse held above the wall; on phones it moves to just under the tapped course */
+.inscription { min-height: 6.4rem; padding: .7rem 0 .8rem; background: var(--page); border-block: 1px solid var(--ink); }
+@media (min-width: 721px) { #ground .inscription { position: sticky; top: var(--header); z-index: 5; } }
+.inscription-text { max-width: 86ch; font: 400 clamp(1rem, 1.5vw, 1.18rem)/1.5 var(--serif); }
+.inscription-meta { margin-top: .25rem; font-size: .76rem; color: var(--muted); }
+.wall { display: grid; gap: .9rem; margin-top: .9rem; }
+.course { display: grid; gap: .3rem 1.2rem; }
+@media (min-width: 900px) { .course { grid-template-columns: 9.5rem minmax(0, 1fr); } }
+.course-name span { font: 500 1.02rem/1.2 var(--serif); }
+.course-name small { display: block; font-size: .74rem; color: var(--muted); }
+.course-stones { display: grid; gap: .4rem; min-width: 0; }
+.stretch-label { font-size: .7rem; }
+.stretch-stones { display: flex; flex-wrap: wrap; gap: 3px; margin-top: .1rem; }
+.stone-btn { position: relative; display: flex; flex: 1 1 auto; flex-wrap: nowrap; align-items: stretch; min-width: 2.75rem; min-height: 2.75rem; max-width: 100%; padding: 0; overflow: hidden; border: 0; background: var(--stone-1); color: var(--ink); text-align: left; transition: background .15s; }
+.stretch-stones .stone-btn:nth-child(3n) { background: var(--stone-2); }
+.stretch-stones .stone-btn:nth-child(3n+1) { background: var(--stone-3); }
+.stone-v { flex: none; display: grid; place-items: center; min-width: 1.7rem; padding-inline: .3rem; font-size: .68rem; font-weight: 600; }
+.stone-btn.is-plain { max-width: 7.5rem; }
+.is-plain .stone-v { flex: 1; }
+.face { flex: 1 1 auto; display: flex; align-items: center; min-width: 0; padding: .35rem .6rem .35rem .3rem; font: 500 .84rem/1.25 var(--serif); }
+.stone-btn:has(.f-P:first-of-type) { background: var(--p-fill); color: var(--p-text); }
+.stone-btn:has(.f-C:first-of-type) { background: var(--c-fill); color: var(--c-text); }
+.stone-btn:has(.f-G:first-of-type) { background: var(--g-fill); color: var(--g-text); }
+.face.f-P { background: var(--p-fill); color: var(--p-text); } .face.f-C { background: var(--c-fill); color: var(--c-text); } .face.f-G { background: var(--g-fill); color: var(--g-text); }
+/* A pressure named inside a call: "Cast all [your anxiety] on Him" stays one phrase with the pressure showing in it. */
+.face.is-nested { flex: 0 0 auto; padding-inline: .3rem; }
+.face.f-C.f-P { background: var(--p-fill); color: var(--p-text); }
+.wall[data-only="C"] .face.f-C.f-P { background: var(--c-fill); color: var(--c-text); }
+.stone-btn.is-on, .stone-btn:hover { box-shadow: inset 0 0 0 2px var(--ink); }
+.stone-btn.is-on .face, .stone-btn:hover .face { box-shadow: inset 0 2px 0 var(--ink), inset 0 -2px 0 var(--ink); }
+/* Choosing a kind leaves only its stones standing; the rest of the wall stays as an outline */
+.wall:not([data-only="all"]) .stone-btn { background: none; color: var(--muted); box-shadow: inset 0 0 0 1px var(--line); }
+.wall:not([data-only="all"]) .stone-btn.is-on, .wall:not([data-only="all"]) .stone-btn:hover { box-shadow: inset 0 0 0 2px var(--ink); }
+.wall[data-only="P"] .face:not(.f-P), .wall[data-only="C"] .face:not(.f-C), .wall[data-only="G"] .face:not(.f-G) { background: none; color: transparent; }
+
+/* The six calls, each one word, cut as large as the width allows */
+.calls { margin-top: .8rem; border-top: 2px solid var(--ink); }
+.call { display: grid; grid-template-columns: minmax(0, 1fr); align-items: baseline; padding-block: .35rem .5rem; border-bottom: 1px solid var(--line); }
+@media (min-width: 760px) { .call { grid-template-columns: 11rem minmax(0, 1fr) auto; gap: 1rem; } }
+.call-name { font-size: .8rem; color: var(--muted); }
+.call-word { font: 500 clamp(2.6rem, 8.6vw, 7rem)/1.02 var(--serif); letter-spacing: -.03em; }
+.call .ref { justify-self: start; font-size: .84rem; }
+
+/* 03 The footings */
+.stratum-deep { margin-top: 1.5rem; background: var(--earth); }
+.stratum-deep .inscription { background: var(--earth); }
+.inscription-pair { display: grid; gap: .6rem 2.5rem; margin-top: .4rem; }
+@media (min-width: 760px) { .inscription-pair { grid-template-columns: 1fr 1fr; } }
+.pair-head { display: block; font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.inscription-pair p { margin-top: .15rem; font: 400 .98rem/1.5 var(--serif); }
+.footings { display: flex; flex-wrap: wrap; gap: 1.1rem .6rem; margin-top: 1rem; }
+.footing-group { flex: 1 1 11rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(var(--column), 100%), 1fr)); gap: .8rem 0; min-width: 0; }
+.footing { display: grid; grid-template-rows: auto 1.4rem auto; padding: 0 2px; border: 0; background: none; color: var(--ink); text-align: left; }
+.foot-letter { display: grid; align-items: center; min-height: 3.1rem; padding: .35rem .5rem; background: var(--ink); color: var(--page); font-size: .72rem; font-weight: 600; line-height: 1.2; }
+.foot-joint { position: relative; }
+.foot-joint::before { content: ""; position: absolute; left: -2px; right: -2px; top: 50%; border-top: 2px solid var(--ink); }
+.foot-joint::after { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; border-left: 3px solid var(--tone); }
+.is-retold .foot-joint::after { border-left-style: dashed; border-left-width: 2px; }
+.foot-older { display: grid; align-content: center; gap: .1rem; min-height: 4.3rem; padding: .4rem .5rem; background: var(--tone); color: var(--tone-text); }
+.foot-older b { font: 600 .84rem/1.2 var(--serif); }
+.foot-older small { font-size: .62rem; line-height: 1.2; }
+.is-retold .foot-older { background: none; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--tone); }
+.sec-history { --tone: var(--history); --tone-text: #17120d; } .sec-poetry { --tone: var(--poetry); --tone-text: #0c1716; } .sec-prophets { --tone: var(--prophets); --tone-text: #0d1320; }
+:root:not([data-theme="dark"]) .sec-poetry, :root:not([data-theme="dark"]) .sec-prophets { --tone-text: #fff; }
+.footing:hover .foot-letter, .footing:focus-visible .foot-letter { background: var(--accent); color: var(--page); }
+.footing:hover .foot-older, .footing:focus-visible .foot-older { box-shadow: inset 0 0 0 2px var(--ink); }
+.footing-key { display: flex; flex-wrap: wrap; gap: .3rem 1.6rem; margin-top: .8rem; font-size: .78rem; color: var(--muted); }
+.footing-key span { display: inline-flex; align-items: center; gap: .45rem; }
+.footing-key i { width: 1.6rem; border-top: 3px solid var(--history); } .footing-key i.is-dashed { border-top: 2px dashed var(--history); }
+.older-list h3 { margin-top: 1.1rem; font: 500 1.05rem var(--serif); }
+.older-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .1rem 1rem; width: 100%; min-height: 2.75rem; padding: .45rem 0; border: 0; border-bottom: 1px solid var(--line); background: none; text-align: left; }
+@media (min-width: 640px) { .older-row { grid-template-columns: 2fr 1.4fr 2fr; } }
+.older-row b { font: 600 .92rem var(--serif); } .older-row small { color: var(--muted); } .older-row span { color: var(--accent); }
+.older-row:hover, .older-row:focus-visible { background: var(--earth-deep); }
+.stratum .note { margin-top: 1rem; }
