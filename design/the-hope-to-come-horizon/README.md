@@ -29,9 +29,7 @@ paragraphs side by side, all in small type. The closing section was the part tha
   buds, the city with open gates and the river, and a road running to the horizon. The stage keeps one height, so the page
   does not jump. A reading opens below in one column. Then one question can be asked of all six as a plain list, and the
   band turns to the part of the land it asks about. The five figures and the two notes follow, large and in one column.
-- **02 The promise, then the therefore ([lines.js](js/lines.js)).** A wall of small horizons, at most four across. Each
-  promise stands above a gold line, its joining word sits on the line, and its call stands below. The two passages the
-  study says carry no call have a dashed line and no ground. The reader can weigh only the rows that say therefore.
+- **02 The promise, then the therefore ([lines.js](js/lines.js)).** Its own drawing, not the land. The owner found the first version's boxes and its louder therefores unneeded. Promises stand on the left and calls on the right, level with each other. The ten that say therefore run as threads into that one word and fan back out to their own calls, so many promises visibly pass through one hinge. The other seven sit below in the same style, each through its own word. The two passages the study says carry no call stop at an open ring, with nothing on the other side. Pointing at a row lights its thread. On a phone it becomes one rail with the word above the promises.
 - **03 What was lost, what Revelation answers ([lines.js](js/lines.js)).** Two facing pages across a dusk that turns to
   dawn. The first pages stand on the left, the last on the right, and the prophets between, under a solid or dotted line.
   The rows keep the study's order, which ends at the face, set largest. The reader can weigh only the rows that share a word.
@@ -54,9 +52,8 @@ paragraphs side by side, all in small type. The closing section was the part tha
 
 Everything else is the data, or the first mock-up's own labels.
 
-- Controls: "Look up", "Look out", "Look down", "Weigh only the 10 that say therefore", "Weigh only the 6 that share a word", "Show all 17 again", "Show all 11 again".
+- Controls: "Look up", "Look out", "Look down", "Weigh only the 6 that share a word", "Show all 11 again".
 - Section 01: "Ask one question of all six."; the short rail names, which are the part of each reading's title before the colon.
-- Section 02 key: "Above the line:", "On the line:", "Below the line:", around the first mock-up's three column labels.
 - Section 03: "The first pages", "The last pages".
 - Section 04: "Before", "The return", "After", "Who holds this map, and why".
 - Reading 02: "Raised", "Sown", "the four pairs, as Paul sets them".
@@ -64,7 +61,7 @@ Everything else is the data, or the first mock-up's own labels.
 - Screen-reader labels on the rail, the question band and each map's list.
 - The four drawing names on [drawings.html](drawings.html), a comparison page for the owner, not part of the study.
 
-**Changed:** section 02's lead said "The joining word in the middle column is in the verse." There is no middle column now, so it says "on the line". The reading links point down (↓), not across (→). **Shown in full:** the closing passage, Revelation 22:20, whose text the first page only linked to; it comes from the data.
+**Changed:** section 02's lead said "The joining word in the middle column is in the verse." It now says "in the middle", which holds on a phone too. The reading links point down (↓), not across (→). **Shown in full:** the closing passage, Revelation 22:20, whose text the first page only linked to; it comes from the data.
 
 ## What was checked
 
