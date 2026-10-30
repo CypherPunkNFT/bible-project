@@ -91,6 +91,7 @@
     return svg(`<path class="sc-near" d="M0 300V216C300 200 560 196 800 194S1300 200 1600 216V300Z"/><path class="sc-road" d="M794 194H806L1110 300H490Z"/><path class="sc-gold" d="M799 196H801L806 300H794Z"/><g class="sc-near-strong">${stones.join("")}</g>`);
   }
   HZ.SCENES = { return: graves(), raised: grain(), judgment: throne(), creation: tree(), new: city(), waiting: road() };
-  HZ.HILLS = svg(hill(272));
+  // The heading's last arch: lower and flatter than the readings' own hill.
+  HZ.HILLS = svg(`<path class="sc-near" d="M0 300V298C260 290 520 286 800 284S1340 288 1600 297V300Z"/>`);
 
 })();

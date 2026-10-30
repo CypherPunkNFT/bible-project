@@ -70,12 +70,13 @@
 .hz-concepts { margin-top: clamp(.8rem, 2.5vh, 1.5rem); font-size: .74rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
 .hz-hero h1 { margin-block: .6rem 0; font: 500 clamp(3.2rem, 7.4vw, 7rem)/.96 var(--serif); letter-spacing: -.05em; }
 .hz-hero h1 em { display: block; margin-top: .04em; color: var(--accent); font-weight: 400; letter-spacing: -.035em; }
-.hz-hero-far { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to bottom, var(--hz-sky-low), var(--hz-haze) var(--hz-far-height), var(--hz-deep) var(--hz-far-height)); }
+.hz-hero-far { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to bottom, var(--hz-sky-low), var(--hz-haze) var(--hz-far-height), var(--hz-ground) var(--hz-far-height)); }
 .hz-hills { position: absolute; inset: 0 0 auto; height: var(--hz-far-height); z-index: 2; }
 .hz-hills svg { display: block; width: 100%; height: 100%; }
-.hz-hills .sc-near { fill: var(--hz-deep); }
-.hz-hero-lay { position: relative; z-index: 3; display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem 4rem; padding: calc(var(--hz-far-height) * .42) var(--hz-gutter) 1.1rem; }
-.hz-hero-lay .hz-motto { flex: none; margin: 0; text-align: right; }
+/* The lead sits halfway between the hill's edge, where the road meets it, and the marquee. */
+.hz-hero-lay { position: relative; z-index: 3; flex: 1; display: flex; justify-content: space-between; align-items: center; gap: 1rem 4rem; padding: var(--hz-hero-crest) var(--hz-gutter) 0; }
+.hz-hero-lay .hz-lede { margin-block: 1.1rem; }
+.hz-hero-lay .hz-motto { flex: none; align-self: flex-end; margin: 0 0 1.1rem; text-align: right; }
 /* The filled band that ends the first screen. It stops for anyone who asks for less motion. */
 .hz-marquee { position: relative; z-index: 3; overflow: hidden; background: var(--accent); color: var(--page); }
 .hz-marquee-track { display: flex; width: max-content; animation: hz-marquee 90s linear infinite; }
@@ -221,8 +222,8 @@
 }
 @media (max-width: 719px) {
   .hz-rail { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: .6rem; }
-  .hz-hero-lay { flex-direction: column; align-items: flex-start; }
-  .hz-hero-lay .hz-motto { font-size: .62rem; letter-spacing: .14em; text-align: left; }
+  .hz-hero-lay { flex-direction: column; justify-content: center; align-items: flex-start; }
+  .hz-hero-lay .hz-motto { align-self: flex-start; font-size: .62rem; letter-spacing: .14em; text-align: left; }
   .hz-pairs-row { font-size: .92rem; grid-template-columns: 2.8rem repeat(4, minmax(0, 1fr)); gap: .35rem; }
   .hz-pairs-label { font-size: .56rem; letter-spacing: .08em; }
 }
