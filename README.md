@@ -16,7 +16,7 @@ All accumulated site and library changes are published at https://bibleproject.i
 
 Types, content tests, recovery tests, on-site reading tests and selected page-review checks passed. The previously documented genealogy-routing assertion remains the sole unit-test failure (277/278 passed). Production testimony health, both deployment and canonical-domain main pages, the exact final bundle, and on-site reading text were verified.
 
-For large prepared Pages releases, run `node <Website>/scripts/deploy-pages-resumable.mjs pages deploy site --project-name bible-project --branch main --commit-hash <built-commit>` from the release directory containing its production `wrangler.jsonc`. This uses a guarded copy of installed Wrangler, 4 MiB batches and checkpoints of confirmed uploaded hashes. It preserves the original tool and stops if its expected uploader code changes. The standard 40 MiB upload repeatedly failed with connection resets; the smaller checkpointed upload completed. Private originals, local databases, private catalogues and generated caches remain local.
+For the old Pages host (until go-live on Cloudflare Workers, see [HANDOFF](../HANDOFF.md)), run `node <Website>/scripts/deploy-pages-resumable.mjs pages deploy site --project-name bible-project --branch main --commit-hash <built-commit>` from the release directory containing its production `wrangler.jsonc`. This uses a guarded copy of installed Wrangler, 4 MiB batches and checkpoints of confirmed uploaded hashes. It preserves the original tool and stops if its expected uploader code changes. The standard 40 MiB upload repeatedly failed with connection resets; the smaller checkpointed upload completed. Private originals, local databases, private catalogues and generated caches remain local.
 
 <!-- BULK intake -->
 ## Same-day private intake and bulk harvest
@@ -265,7 +265,7 @@ Its adjacent SQL has already been applied. No story was published during deploym
 
 1. Build and run the checks above. Run `bun run testimonies:prepare` to verify the complete package locally.
    It creates a fresh `.release/testimonies-*/site/` containing the frontend, Bible data, compiled Pages
-   Worker, API-only routing and cache/security headers. It refuses more than 20,000 files.
+   Worker, API-only routing and cache/security headers. It refuses more than 100,000 files.
 2. Set `TESTIMONY_D1_ID` to the existing production database ID above. For a new installation only,
    create the free-plan D1 database with `bunx wrangler d1 create bible-testimonies`.
    Set the returned UUID as `TESTIMONY_D1_ID` (PowerShell: `$env:TESTIMONY_D1_ID = '<uuid>'`).
@@ -280,7 +280,7 @@ Its adjacent SQL has already been applied. No story was published during deploym
    in `.local/production-owner-*/`, without contacting Cloudflare. From the release directory, apply that
    exact file with `wrangler d1 execute bible-testimonies --remote --file <absolute-owner.sql>`.
    It inserts only into an empty collection; an existing root invitation is never replaced. Apply once.
-6. From the release directory run `wrangler pages deploy site --project-name bible-project --branch main`.
+6. From the release directory run `node <Website>/scripts/deploy-worker.mjs` (Cloudflare Workers; about 14 minutes for a full upload).
    Its configuration binds `DB` and sets the canonical website origin. Verify `/api/testimonies/health`,
    `/testimonies`, a Bible chapter, and the private owner invitation on the actual website. Then publish the
    owner's real story, save its private access link, and verify an invitation from a second device.

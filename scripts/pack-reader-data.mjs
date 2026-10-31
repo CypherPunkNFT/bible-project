@@ -1,4 +1,4 @@
-// Release only: groups the reader's chapter files so the release stays well inside Cloudflare Pages' 20,000-file limit
+// Release only: groups the reader's chapter files so the release stays well inside Cloudflare Workers' 100,000-file limit
 // (17,949 files before this, 2026-10-20), and stamps the data with a hash of its contents so browsers may keep it.
 //   text/<slug>/<book>/<k>.json    five chapters each (scripts/build-data.py)  ->  c10-<k>.json, ten chapters each
 //   xref/<book>/<chapter>.json     one chapter each                             ->  g<k>.json, ten chapters each

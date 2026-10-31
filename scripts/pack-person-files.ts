@@ -4,7 +4,7 @@ import { personPack, personPackPath } from "../src/lib/person-pack.ts";
 import { assertFrontEndReadsPersonPacks } from "./person-packs-guard.mjs";
 
 // Release only: replaces data/study/people/<id>.json (one file per person, 3,133 of them) with a few packs, so the
-// release fits Cloudflare Pages' 20,000-file limit. Works on the release COPY; the shared data folder, which local
+// release stays well inside Cloudflare Workers' 100,000-file limit. Works on the release COPY; the shared data folder, which local
 // preview and the Python builds read, keeps its per-person files. The site reads packs only when the study index says
 // "personPacks" (src/lib/study.ts loadPersonDetail).
 
