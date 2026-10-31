@@ -5,6 +5,7 @@
 // phone view (owner, same day: "You don't have to make it a mobile view"), so the page is shown as itself, not in frames.
 import { useSearchParams } from "react-router-dom";
 import HomePage from "@/pages/HomePage";
+import { FilledCity } from "./home-openings/HomeOpenings6Chapters";
 import { VersionPill } from "./legal/VersionPill";
 import "./home-openings/home-mockup9.css";
 
@@ -14,14 +15,21 @@ const PHONES = [
   { id: "c", name: "Squares under" },
   { id: "d", name: "One screen" },
   { id: "e", name: "Words first" },
+  { id: "f", name: "Filled, edge to edge" },
+  { id: "g", name: "Filled box" },
+  { id: "h", name: "Filled, bigger stones" },
 ] as const;
+/** F to H are E with the city filled with stones and no wall, towers or gates; the number is a course's depth (owner,
+ *  2026-10-31: "a hybrid between B and E ... no gates, no pearls, no outer squares, just the little containers filled
+ *  end-to-end. Maybe not even end-to-end, just the whole box itself"). */
+const FILLED: Partial<Record<string, number>> = { f: 10, g: 10, h: 22 };
 type PhoneId = (typeof PHONES)[number]["id"];
 
 export default function HomePageMockup9() {
   const [params] = useSearchParams();
-  const current = PHONES.find((item) => item.id === (params.get("v") ?? params.get("m")))?.id ?? ("a" as PhoneId);
+  const current = PHONES.find((item) => item.id === (params.get("v") ?? params.get("m")))?.id ?? ("f" as PhoneId);
   return <div className="hm9" data-phone={current}>
-    <HomePage />
+    <FilledCity.Provider value={FILLED[current] ?? 0}><HomePage /></FilledCity.Provider>
     <VersionPill<PhoneId> label="Phone" versions={[...PHONES]} current={current} />
   </div>;
 }
