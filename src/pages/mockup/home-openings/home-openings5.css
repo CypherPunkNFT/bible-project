@@ -2,6 +2,9 @@
 .home-opening.hm5-first { padding-bottom: 0; }
 .hm5-page .home-doorways { margin-top: 26px; }
 .hm5-page .to-pill { bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
+/* F: the doorways end the first screen. The extra room below them is only for this mock-up's version pill, so it never covers them. */
+.home-opening.hm5-first[data-doorways] { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+.hm5-page:has(.hm5-first[data-doorways]) .to-pill { bottom: calc(18px + env(safe-area-inset-bottom, 0px)); }
 
 .hm5-f .home-eyebrow, .hm5-f .home-hero-actions { justify-content: center; }
 .hm5-f h1 { font-size: clamp(54px, 8svh, 80px); line-height: 1.1; letter-spacing: -.06em; margin-block: 20px; }

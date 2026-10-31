@@ -152,16 +152,20 @@ export default function HomePageMockup5() {
   const resumeLabel = version ? `Continue: ${book?.name ?? code} ${chapter}` : "Begin with John 1";
   const languages = new Set(catalog.translations.map((item) => item.lang)).size;
   const openingVersion = OPENINGS_5.find((item) => item.id === searchParams.get("v"))?.id ?? ("b" as Opening5Id);
+  // The word wall ends its first screen with the five doorways, where the marquee was (owner, 2026-10-30).
+  const wallDoorways = openingVersion === "f";
+  const doorways = <nav id="explore" className="home-doorways home-wrap home-doorways-even" aria-label="Explore the five collections">{HOME_PATHS.map((item) => <Link to={item.to} key={item.title} style={tint(item.color)}><div className="home-doorway-art"><CollectionArtwork kind={item.title} /></div><div className="home-doorway-copy"><span><strong>{item.title}</strong><small>{item.subtitle}</small></span><ArrowUpRight size={16} aria-hidden /></div></Link>)}</nav>;
 
   return <div className="home-hub hm5-page" data-landing={landing} data-banners="inset" data-shape="point">
-    <div className="home-opening hm5-first" ref={opening}>
+    <div className="home-opening hm5-first" data-doorways={wallDoorways || undefined} ref={opening}>
     {comparing && <nav className="home-landing-options home-wrap" aria-label="Landing designs">
       {landingOptions.map((option, index) => <button key={option} type="button" aria-pressed={landing === option} onClick={() => setSearchParams((current) => { const next = new URLSearchParams(current); next.set("landing", option); return next; }, { preventScrollReset: true })}><span>0{index + 1}</span>{option === "outline" ? "Outlined boxes" : option === "gallery" ? "Open gallery" : "Illustrated rail"}</button>)}
     </nav>}
     <Opening5 version={openingVersion} resume={resume} resumeLabel={resumeLabel} versions={catalog.translations.length} languages={languages} />
+    {wallDoorways && doorways}
     </div>
 
-    <nav id="explore" className="home-doorways home-wrap home-doorways-even" aria-label="Explore the five collections">{HOME_PATHS.map((item) => <Link to={item.to} key={item.title} style={tint(item.color)}><div className="home-doorway-art"><CollectionArtwork kind={item.title} /></div><div className="home-doorway-copy"><span><strong>{item.title}</strong><small>{item.subtitle}</small></span><ArrowUpRight size={16} aria-hidden /></div></Link>)}</nav>
+    {!wallDoorways && doorways}
     <PreviewMarquee />
     <HomeGuide onChoose={choose} layout="side" boxed contactList number="01" />
 

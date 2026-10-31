@@ -3,7 +3,7 @@
 // as first shown; a copy of the four removed openings is in design/home-openings-5-removed/. Every English phrase is the
 // Berean Standard Bible's own wording.
 import type { CSSProperties } from "react";
-import { GoldMarquee, MARQUEE, OpeningCopy, type OpeningProps } from "./HomeOpenings";
+import { MARQUEE, OpeningCopy, type OpeningProps } from "./HomeOpenings";
 import { RoseWindow } from "./HomeOpenings5Art";
 import "./home-openings5.css";
 
@@ -39,7 +39,8 @@ function WordWall() {
 
 const VIEWS: Record<Opening5Id, (props: OpeningProps) => JSX.Element> = {
   b: (props) => <section className="home-hero home-wrap hm5-row" aria-labelledby="home-title"><OpeningCopy {...props} /><RoseWindow /></section>,
-  f: (props) => <><section className="hm5-f" aria-labelledby="home-title"><WordWall /><OpeningCopy {...props} /></section><GoldMarquee /></>,
+  // No marquee under the word wall: the five doorways end its first screen instead (owner, 2026-10-30).
+  f: (props) => <section className="hm5-f" aria-labelledby="home-title"><WordWall /><OpeningCopy {...props} /></section>,
 };
 
 export function Opening5({ version, ...props }: OpeningProps & { version: Opening5Id }) {
