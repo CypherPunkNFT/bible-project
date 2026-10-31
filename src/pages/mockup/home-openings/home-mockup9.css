@@ -1,6 +1,8 @@
-/* MOCK-UP: five phone layouts of the homepage's opening, /home_mobile_mockups?v=a to e (owner, 2026-10-31). Phones only; the
+/* MOCK-UP: three phone layouts of the homepage's opening, /home_mobile_mockups?v=a, b or e (owner, 2026-10-31). Phones only; the
    wrapper leaves the page's own layout alone. On phones the stage becomes a six-column grid, so the six doorway squares
-   (title only) can sit three or two to a row; everything else spans the full width. */
+   (title only) can sit three to a row; everything else spans the full width. The chapters inside the wall are laid as bricks
+   (BrickCity in HomeOpenings6Chapters.tsx); the bricks left over at the row ends are plain. */
+.hm9 .hm6-brick-plain { fill: color-mix(in srgb, var(--accent) 12%, var(--page)); stroke: var(--page); stroke-width: 1.2; }
 .hm9 { display: contents; }
 /* The "Close to home" map's zoom ticker opens on every mock-up address; here it would cover the phone's first screen. */
 .hm9 .hn-ticker, .hm9 .transition-ticker-unfold { display: none; }
@@ -12,12 +14,12 @@
   .hm9 .hm6-stage.hm6-i .hm6-art { justify-self: center; }
   .hm9 .hm6-stage.hm6-i .home-hero-copy { padding-bottom: 1.2rem; }
 
-  /* The six squares, shown on phones in C, D and E: both columns open into the grid, after the opening's words. */
-  .hm9:is([data-phone="c"], [data-phone="d"], [data-phone="e"], [data-phone="f"], [data-phone="g"], [data-phone="h"]) .hm6-stage.hm6-i .hm6-squares { display: contents; }
+  /* The six squares, shown on phones in E: both columns open into the grid, after the opening's words. */
+  .hm9[data-phone="e"] .hm6-stage.hm6-i .hm6-squares { display: contents; }
   .hm9 .hm6-page .hm6-stage.hm6-i .hm6-squares > a { order: 4; grid-column: span 2; position: relative; margin: 0 0 8px; padding: 8px 8px 9px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 0 14px 6px var(--page); }
   /* The homepage's old phone rule laid the last square of a row on its side; each column's last square is an ordinary one here. */
   .hm9 .hm6-page .hm6-stage.hm6-i .hm6-squares > a:last-child { display: flex; flex-direction: column; align-items: stretch; grid-column: span 2; gap: 0; padding-block: 8px 9px; }
-  .hm9:not([data-phone="d"]) .hm6-stage .hm6-squares > a:last-child .home-doorway-copy { padding-top: 7px; border-top: 1px solid color-mix(in srgb, var(--home-color) 20%, transparent); }
+  .hm9 .hm6-stage .hm6-squares > a:last-child .home-doorway-copy { padding-top: 7px; border-top: 1px solid color-mix(in srgb, var(--home-color) 20%, transparent); }
   .hm9 .hm6-stage .hm6-squares .home-doorway-art, .hm9 .hm6-stage .hm6-squares > a:last-child .home-doorway-art { height: 44px; }
   .hm9 .hm6-stage .hm6-squares .home-doorway-copy { padding-top: 7px; justify-content: center; }
   .hm9 .hm6-stage .hm6-squares .home-doorway-copy strong { font-size: 14px; }
@@ -33,38 +35,12 @@
   .hm9[data-phone="b"] .hm6-stage.hm6-i { align-content: center; padding-bottom: 1rem; }
   .hm9[data-phone="b"] .hm6-stage.hm6-i .hm6-art { position: absolute; top: 0; left: 50%; right: auto; justify-self: start; width: auto; height: 100%; max-height: none; aspect-ratio: 1; margin: 0; translate: -50% 0; }
   .hm9[data-phone="b"] .hm6-stage.hm6-i .home-hero-copy { order: 1; padding-bottom: .8rem; }
-  .hm9[data-phone="b"] .hm6-stage.hm6-i .hm6-note { order: 2; background: none; box-shadow: none; }
-  .hm9[data-phone="b"] .hm6-i .home-hero-copy > * { background: none; box-shadow: none; }
-
-  /* C, doorways under the button: as now, a calmer wall, and the six squares three to a row under the opening's words. */
-  .hm9[data-phone="c"] .hm5-wall, .hm9[data-phone="c"] .hm6-hebrew-row { opacity: .4; }
-  .hm9[data-phone="c"] .hm6-stage.hm6-i .hm6-art { max-height: clamp(8rem, calc(100svh - var(--home-header-height, 60px) - 33rem), 18rem); margin-top: .3rem; }
-  .hm9[data-phone="c"] .hm6-stage.hm6-i .home-hero-copy { padding-bottom: .9rem; }
-  .hm9[data-phone="c"] .hm6-stage.hm6-i .home-hero-lead { display: none; }
-
-  /* D, one screen: a smaller city, the title and button, and the six doorways as a list of names, two to a row, each
-     marked with its colour; no drawings, no lead lines, a faint wall. */
-  .hm9[data-phone="d"] .hm5-wall, .hm9[data-phone="d"] .hm6-hebrew-row { opacity: .25; }
-  .hm9[data-phone="d"] .hm6-stage.hm6-i .hm6-art { width: 58%; max-height: none; margin-top: .4rem; }
-  .hm9[data-phone="d"] .hm6-stage.hm6-i h1 { font-size: 38px; margin-block: 10px; }
-  .hm9[data-phone="d"] .hm6-stage.hm6-i .home-hero-lead { display: none; }
-  .hm9[data-phone="d"] .hm6-stage.hm6-i .home-hero-copy { padding-bottom: 1rem; }
-  .hm9[data-phone="d"] .hm6-page .hm6-stage.hm6-i .hm6-squares > a { grid-column: span 3; padding: 11px 13px; border-left: 3px solid var(--home-color); border-radius: 4px; }
-  .hm9[data-phone="d"] .hm6-stage .hm6-squares .home-doorway-art { display: none; }
-  .hm9[data-phone="d"] .hm6-stage .hm6-squares .home-doorway-copy { padding-top: 0; border: 0; justify-content: space-between; }
-  .hm9[data-phone="d"] .hm6-stage .hm6-squares .home-doorway-copy strong { font-size: 17px; }
-  .hm9[data-phone="d"] .hm6-stage .hm6-squares .home-doorway-copy > svg { display: block; }
+  .hm9[data-phone="b"] .hm6-stage.hm6-i .hm6-note { order: 2; }
 
   /* E, words first: the title and button at the top, the city under them with its chapter, then the six squares. */
-  .hm9:is([data-phone="e"], [data-phone="f"], [data-phone="g"], [data-phone="h"]) .hm5-wall, .hm9:is([data-phone="e"], [data-phone="f"], [data-phone="g"], [data-phone="h"]) .hm6-hebrew-row { opacity: .35; }
-  .hm9:is([data-phone="e"], [data-phone="f"], [data-phone="g"], [data-phone="h"]) .hm6-stage.hm6-i .home-hero-copy { order: 1; padding-block: .4rem 0; }
-  .hm9:is([data-phone="e"], [data-phone="f"], [data-phone="g"], [data-phone="h"]) .hm6-stage.hm6-i .hm6-art { order: 2; width: min(100%, 22rem); max-height: none; margin-top: 1.2rem; }
-  .hm9:is([data-phone="e"], [data-phone="f"], [data-phone="g"], [data-phone="h"]) .hm6-stage.hm6-i .hm6-note { order: 3; margin-bottom: 1rem; }
+  .hm9[data-phone="e"] .hm5-wall, .hm9[data-phone="e"] .hm6-hebrew-row { opacity: .35; }
+  .hm9[data-phone="e"] .hm6-stage.hm6-i .home-hero-copy { order: 1; padding-block: .4rem 0; }
+  .hm9[data-phone="e"] .hm6-stage.hm6-i .hm6-art { order: 2; width: min(100%, 22rem); max-height: none; margin-top: 1.2rem; }
+  .hm9[data-phone="e"] .hm6-stage.hm6-i .hm6-note { order: 3; margin-bottom: 1rem; }
 
-  /* F to H, E with the city filled (owner, 2026-10-31: "a hybrid between B and E"): no wall, towers or gates, the chapter
-     stones filling the whole square. F runs from one edge of the screen to the other, G keeps the page's margins, H is F
-     with deeper courses, so bigger stones, as B's close view showed them. */
-  .hm9:is([data-phone="f"], [data-phone="g"], [data-phone="h"]) .hm6-stage.hm6-i .hm6-art { width: 100%; aspect-ratio: 1; margin-top: 2.6rem; filter: none; }
-  .hm9:is([data-phone="f"], [data-phone="h"]) .hm6-stage.hm6-i .hm6-art { width: calc(100% + 2 * var(--site-gutter)); max-width: none; margin-inline: calc(-1 * var(--site-gutter)); justify-self: stretch; }
-  .hm9[data-phone="g"] .hm6-stage.hm6-i .hm6-art { clip-path: inset(0 round 6px); }
 }

@@ -18,28 +18,53 @@ import { SquareColumn, useSquareRoom } from "./HomeOpenings6Squares";
 /** Nine courses, each 10 units deep with 2 between, from just inside the outer wall. */
 const COURSES = Array.from({ length: 9 }, (_, course) => ({ outer: 84 + course * 12, inner: 94 + course * 12 }));
 const perimeter = (inset: number) => 4 * (1000 - inset * 2);
-/** A mock-up can fill the whole square with courses, with no wall, towers or gates (/home_mobile_mockups F to H, owner,
- *  2026-10-31: "no gates, no pearls, no outer squares, just the little containers filled"). The value is one course's depth;
- *  0, everywhere else, keeps the walled city. */
-export const FilledCity = createContext(0);
-const fillCourses = (depth: number) => Array.from({ length: Math.floor(430 / (depth + 2)) }, (_, course) => ({ outer: 70 + course * (depth + 2), inner: 70 + course * (depth + 2) + depth }));
+/** A mock-up can lay the chapters inside the wall as a brick wall instead of courses round it (/home_mobile_mockups, owner,
+ *  2026-10-31: "they can just be stacked like bricks ... inside of the twelve pearl gates square"). False everywhere else. */
+export const BrickCity = createContext(false);
+/** The bricks: rows 25 bricks across inside the wall, every other row set half a brick over with a plain half brick at each
+ *  end, as a wall is laid; the chapters run left to right, top to bottom, and any bricks left over in the last row are plain. */
+const BRICKS = { left: 84, size: 832, per: 25 };
+function brickRows(count: number) {
+  const { left, size, per } = BRICKS, width = size / per;
+  let rows = 0;
+  for (let slots = 0; slots < count; rows++) slots += rows % 2 ? per - 1 : per;
+  const height = size / rows, bricks: { x: number; y: number; w: number; row: number; plain: boolean }[] = [];
+  let taken = 0;
+  for (let row = 0; row < rows; row++) {
+    const y = left + row * height, shift = row % 2 ? width / 2 : 0;
+    if (shift) bricks.push({ x: left, y, w: shift, row, plain: true });
+    for (let i = 0; i < (shift ? per - 1 : per); i++) bricks.push({ x: left + shift + i * width, y, w: width, row, plain: taken++ >= count });
+    if (shift) bricks.push({ x: left + size - shift, y, w: shift, row, plain: true });
+  }
+  const box = (x: number, y: number, w: number) => `M${x.toFixed(1)} ${y.toFixed(1)}h${w.toFixed(1)}v${height.toFixed(1)}h${(-w).toFixed(1)}Z`;
+  return {
+    rows,
+    places: bricks.filter((brick) => !brick.plain).map((brick) => ({ row: brick.row, d: box(brick.x, brick.y, brick.w) })),
+    plain: bricks.filter((brick) => brick.plain).map((brick) => box(brick.x, brick.y, brick.w)).join(""),
+  };
+}
 
 interface Chapter { code: string; name: string; section: string; chapter: number }
 
-/** Every chapter in order, shared out among the courses by their length, so the stones are near enough one size. */
-function useStones(courses: typeof COURSES) {
+/** Every chapter in order, shared out among the courses by their length, so the stones are near enough one size; or laid as
+ *  bricks. `delay` brings the courses in from the outside, the bricks from the top. */
+function useStones(bricks: boolean) {
   const books = useBooks();
   return useMemo(() => {
     const chapters: Chapter[] = books.flatMap((book) => Array.from({ length: book.chapters }, (_, index) => ({ code: book.code, name: book.name, section: book.section, chapter: index + 1 })));
-    const lengths = courses.map((course) => perimeter((course.outer + course.inner) / 2)), total = lengths.reduce((sum, length) => sum + length, 0);
+    if (bricks) {
+      const { rows, places, plain } = brickRows(chapters.length);
+      return { plain, stones: chapters.map((chapter, index) => ({ ...chapter, d: places[index].d, delay: (places[index].row * 630) / rows })) };
+    }
+    const lengths = COURSES.map((course) => perimeter((course.outer + course.inner) / 2)), total = lengths.reduce((sum, length) => sum + length, 0);
     let before = 0, taken = 0;
-    return courses.flatMap((course, index) => {
+    return { plain: "", stones: COURSES.flatMap((course, index) => {
       before += lengths[index];
       const until = Math.round((chapters.length * before) / total), here = chapters.slice(taken, until);
       taken = until;
-      return here.map((chapter, place) => ({ ...chapter, course: index, d: stone(place / here.length, (place + 1) / here.length, course.outer, course.inner) }));
-    });
-  }, [books, courses]);
+      return here.map((chapter, place) => ({ ...chapter, delay: index * 70, d: stone(place / here.length, (place + 1) / here.length, course.outer, course.inner) }));
+    }) };
+  }, [books, bricks]);
 }
 
 /** Version G's two columns beside the city (owner, 2026-10-31: "Bible study apologetics on one side, and Atlas resources and
@@ -101,9 +126,7 @@ function WingColumn({ side }: { side: "left" | "right" }) {
 /** `wings` adds G's two columns of links beside the city; `squares` adds H's doorway squares instead; `wall` sets I's moving
  *  word wall behind it all. */
 export function CityOfChapters({ wings = false, squares = false, wall = false, ...props }: OpeningProps & { wings?: boolean; squares?: boolean; wall?: boolean }) {
-  const depth = useContext(FilledCity);
-  const courses = useMemo(() => (depth ? fillCourses(depth) : COURSES), [depth]);
-  const stones = useStones(courses);
+  const { stones, plain } = useStones(useContext(BrickCity));
   const stage = useRef<HTMLElement>(null);
   useSquareRoom(stage, squares);
   const [picked, setPicked] = useState(-1);
@@ -124,21 +147,21 @@ export function CityOfChapters({ wings = false, squares = false, wall = false, .
     {wall && <><WordWall rows={WALL_ROWS_I} pools={{ chinese: CHINESE, latin: LATIN, arabic: ARABIC }} /><ScriptRow /></>}
     {wings && <><WingColumn side="left" /><WingColumn side="right" /></>}
     {squares && <><SquareColumn side="left" /><SquareColumn side="right" /></>}
-    <svg className="hm6-art hm6-city hm6-chapters" viewBox={depth ? "70 70 860 860" : "0 0 1000 1000"} aria-hidden="true">
+    <svg className="hm6-art hm6-city hm6-chapters" viewBox="0 0 1000 1000" aria-hidden="true">
       <defs><radialGradient id="hm6-chapters-lamp"><stop offset="0" stopColor="var(--accent)" stopOpacity=".2" /><stop offset="1" stopColor="var(--accent)" stopOpacity="0" /></radialGradient></defs>
-      {!depth && <><rect className="hm6-city-ground" x="70" y="70" width="860" height="860" />
-      <circle cx="500" cy="500" r="330" fill="url(#hm6-chapters-lamp)" /></>}
-      {depth > 0 && <rect x="70" y="70" width="860" height="860" fill="var(--page)" />}
+      <rect className="hm6-city-ground" x="70" y="70" width="860" height="860" />
+      <circle cx="500" cy="500" r="330" fill="url(#hm6-chapters-lamp)" />
+      {plain && <path className="hm6-brick-plain" d={plain} />}
       <g className="hm6-chapter-stones" onClick={choose}>
-        {stones.map((item, index) => <path className={index === picked ? "is-picked" : undefined} d={item.d} style={{ ...tone(item.section), animationDelay: `${(item.course * 630) / courses.length}ms` } as CSSProperties} data-stone={index} key={`${item.code}-${item.chapter}`}><title>{`${item.name} ${item.chapter}`}</title></path>)}
+        {stones.map((item, index) => <path className={index === picked ? "is-picked" : undefined} d={item.d} style={{ ...tone(item.section), animationDelay: `${item.delay}ms` } as CSSProperties} data-stone={index} key={`${item.code}-${item.chapter}`}><title>{`${item.name} ${item.chapter}`}</title></path>)}
       </g>
       {chosen && <path className="hm6-chapter-ring" d={chosen.d} style={tone(chosen.section) as CSSProperties} />}
-      {!depth && <><rect className="hm6-wall" x="70" y="70" width="860" height="860" />
+      <rect className="hm6-wall" x="70" y="70" width="860" height="860" />
       {[[70, 70], [930, 70], [70, 930], [930, 930]].map(([x, y]) => <rect className="hm6-tower" x={x - 16} y={y - 16} width="32" height="32" key={`${x}-${y}`} />)}
-      {GATES.map(([x, y]) => <circle className="hm6-pearl" cx={x} cy={y} r="17" key={`${x}-${y}`} />)}</>}
+      {GATES.map(([x, y]) => <circle className="hm6-pearl" cx={x} cy={y} r="17" key={`${x}-${y}`} />)}
     </svg>
     {/* The pearls again, over the squares, which tuck in behind them (owner, 2026-10-31: "the boxes are below"). */}
-    {squares && !depth && <svg className="hm6-art hm6-pearls-over" viewBox="0 0 1000 1000" aria-hidden="true">
+    {squares && <svg className="hm6-art hm6-pearls-over" viewBox="0 0 1000 1000" aria-hidden="true">
       {GATES.map(([x, y]) => <circle className="hm6-pearl" cx={x} cy={y} r="17" key={`${x}-${y}`} />)}
     </svg>}
     {wall ? <StandsForeverCopy {...copy} /> : <OpeningCopy {...copy} />}
