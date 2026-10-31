@@ -69,6 +69,9 @@
   .hm6-squares-right { left: calc(50% + var(--hm6-square) / 2 + 2.5rem); }
   .hm6-squares a:focus { outline: none; }
 }
+/* The strip's dividers run between the squares; stacked, they run across (owner, 2026-10-31). */
+.hm6-page[data-landing="outline"] .hm6-stage .hm6-squares > a { border-right: 0; border-bottom: 1px solid var(--line); }
+.hm6-page[data-landing="outline"] .hm6-stage .hm6-squares > a:last-child { border-bottom: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   .hm6-book, .hm6-chapter-stones path, .hm6-wing, .hm6-squares { animation: none; }
