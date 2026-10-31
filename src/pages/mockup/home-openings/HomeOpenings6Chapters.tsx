@@ -12,6 +12,7 @@ import { HOME_PATHS } from "@/components/home/collection-data";
 import { OpeningCopy, type OpeningProps } from "./HomeOpenings";
 import { useBooks } from "./HomeOpenings5Art";
 import { GATES, SECTION_NAMES, stone, tone } from "./HomeOpenings6City";
+import { SquareColumn } from "./HomeOpenings6Squares";
 
 /** Nine courses, each 10 units deep with 2 between, from just inside the outer wall. */
 const COURSES = Array.from({ length: 9 }, (_, course) => ({ outer: 84 + course * 12, inner: 94 + course * 12 }));
@@ -58,7 +59,8 @@ function WingColumn({ side }: { side: "left" | "right" }) {
   </nav>;
 }
 
-export function CityOfChapters({ wings = false, ...props }: OpeningProps & { wings?: boolean }) {
+/** `wings` adds G's two columns of links beside the city; `squares` adds H's doorway squares instead. */
+export function CityOfChapters({ wings = false, squares = false, ...props }: OpeningProps & { wings?: boolean; squares?: boolean }) {
   const stones = useStones();
   const [picked, setPicked] = useState(-1);
   const chosen = stones[picked];
@@ -66,6 +68,7 @@ export function CityOfChapters({ wings = false, ...props }: OpeningProps & { win
   const copy = chosen ? { ...props, resume: `/read/bsb/${chosen.code}/${chosen.chapter}`, resumeLabel: `Continue: ${chosen.name} ${chosen.chapter}` } : props;
   return <section className={`hm6-stage hm6-f${wings ? " hm6-g" : ""}`} aria-labelledby="home-title">
     {wings && <><WingColumn side="left" /><WingColumn side="right" /></>}
+    {squares && <><SquareColumn side="left" /><SquareColumn side="right" /></>}
     <svg className="hm6-art hm6-city hm6-chapters" viewBox="0 0 1000 1000" aria-hidden="true">
       <defs><radialGradient id="hm6-chapters-lamp"><stop offset="0" stopColor="var(--accent)" stopOpacity=".2" /><stop offset="1" stopColor="var(--accent)" stopOpacity="0" /></radialGradient></defs>
       <rect className="hm6-city-ground" x="70" y="70" width="860" height="860" />
