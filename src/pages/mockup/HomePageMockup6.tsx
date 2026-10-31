@@ -151,7 +151,7 @@ export default function HomePageMockup6() {
   const resume = version && last ? last : "/read/kjv/JHN/1";
   const resumeLabel = version ? `Continue: ${book?.name ?? code} ${chapter}` : "Begin with John 1";
   const languages = new Set(catalog.translations.map((item) => item.lang)).size;
-  const openingVersion = OPENINGS_6.find((item) => item.id === searchParams.get("v"))?.id ?? ("b" as Opening6Id);
+  const openingVersion = OPENINGS_6.find((item) => item.id === searchParams.get("v"))?.id ?? ("e" as Opening6Id);
 
   return <div className="home-hub hm6-page" data-landing={landing} data-banners="inset" data-shape="point">
     <div className="home-opening hm6-first" ref={opening}>

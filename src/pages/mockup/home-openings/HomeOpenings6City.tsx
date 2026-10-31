@@ -43,7 +43,7 @@ export function CityOfBooks(props: OpeningProps) {
   const chosen = books.find((book) => book.code === picked);
   const choose = (code: string) => setPicked((now) => (now === code ? "" : code));
   const press = (code: string) => (event: KeyboardEvent) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); choose(code); } };
-  return <section className="hm6-stage hm6-d hm6-e" aria-labelledby="home-title">
+  return <section className="hm6-stage hm6-e" aria-labelledby="home-title">
     <svg className="hm6-art hm6-city hm6-books" viewBox="0 0 1000 1000">
       <defs><radialGradient id="hm6-books-lamp"><stop offset="0" stopColor="var(--accent)" stopOpacity=".2" /><stop offset="1" stopColor="var(--accent)" stopOpacity="0" /></radialGradient></defs>
       <rect className="hm6-city-ground" x="70" y="70" width="860" height="860" />

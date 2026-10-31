@@ -39,7 +39,7 @@ export function CityOfChapters(props: OpeningProps) {
   const chosen = stones[picked];
   const choose = (event: MouseEvent) => { const index = Number((event.target as Element).getAttribute("data-stone") ?? -1); if (index >= 0) setPicked((now) => (now === index ? -1 : index)); };
   const copy = chosen ? { ...props, resume: `/read/bsb/${chosen.code}/${chosen.chapter}`, resumeLabel: `Continue: ${chosen.name} ${chosen.chapter}` } : props;
-  return <section className="hm6-stage hm6-d hm6-e hm6-f" aria-labelledby="home-title">
+  return <section className="hm6-stage hm6-f" aria-labelledby="home-title">
     <svg className="hm6-art hm6-city hm6-chapters" viewBox="0 0 1000 1000" aria-hidden="true">
       <defs><radialGradient id="hm6-chapters-lamp"><stop offset="0" stopColor="var(--accent)" stopOpacity=".2" /><stop offset="1" stopColor="var(--accent)" stopOpacity="0" /></radialGradient></defs>
       <rect className="hm6-city-ground" x="70" y="70" width="860" height="860" />
