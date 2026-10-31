@@ -26,6 +26,10 @@ import { ScrollBlessing } from "./home-openings/HomeOpenings6Blessing";
 import { VersionPill } from "./legal/VersionPill";
 import { HomeGuide } from "../home/HomeGuide";
 import { HomeMore } from "../home/HomeMore";
+import { HomeNearby } from "../home/HomeNearby";
+import { HomeQuiz } from "../home/HomeQuiz";
+import { HomeSources } from "../home/HomeSources";
+import { GoldMarquee } from "./home-openings/HomeOpenings";
 
 /** The five doorways are the site's five parts; Topics lives inside Study, and Resources joins. */
 const HOME_PATHS = [
@@ -162,7 +166,7 @@ export default function HomePageMockup6() {
     <Opening6 version={openingVersion} resume={resume} resumeLabel={resumeLabel} versions={catalog.translations.length} languages={languages} />
     </div>
 
-    <nav id="explore" className="home-doorways home-wrap home-doorways-even" aria-label="Explore the five collections">{HOME_PATHS.map((item) => <Link to={item.to} key={item.title} style={tint(item.color)}><div className="home-doorway-art"><CollectionArtwork kind={item.title} /></div><div className="home-doorway-copy"><span><strong>{item.title}</strong><small>{item.subtitle}</small></span><ArrowUpRight size={16} aria-hidden /></div></Link>)}</nav>
+    {/* The row of five doorways under the opening was taken out on the owner's word, 2026-10-31. */}
     <PreviewMarquee />
     <HomeGuide onChoose={choose} layout="side" boxed contactList number="01" />
 
@@ -305,8 +309,11 @@ export default function HomePageMockup6() {
       <div className="home-final"><BookOpen size={22} strokeWidth={1.2} aria-hidden /><p>“Thy word is a lamp unto my feet,<br />and a light unto my path.”</p><Link to="/read/kjv/PSA/119?hl=105">Psalm 119:105<ArrowUpRight size={12} /></Link></div>
     </div>
     </div></div>
-    <HomeMore resourcesTab numbered />
-    {openingVersion === "i" && <ScrollBlessing />}
+    {/* I: the gold marquee runs between the questions (02) and the sources (03), and Scroll A's blessing ends the page in
+        place of the short one (owner, 2026-10-31). */}
+    {openingVersion === "i"
+      ? <><HomeQuiz number="02" /><GoldMarquee /><HomeSources number="03" foot={false} /><HomeNearby resourcesTab number="04" /><ScrollBlessing /></>
+      : <HomeMore resourcesTab numbered />}
     <VersionPill<Opening6Id> label="Opening" versions={[...OPENINGS_6]} current={openingVersion} />
   </div>;
 }
