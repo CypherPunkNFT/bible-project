@@ -137,6 +137,10 @@ export function CityOfChapters({ wings = false, squares = false, wall = false, .
       {[[70, 70], [930, 70], [70, 930], [930, 930]].map(([x, y]) => <rect className="hm6-tower" x={x - 16} y={y - 16} width="32" height="32" key={`${x}-${y}`} />)}
       {GATES.map(([x, y]) => <circle className="hm6-pearl" cx={x} cy={y} r="17" key={`${x}-${y}`} />)}</>}
     </svg>
+    {/* The pearls again, over the squares, which tuck in behind them (owner, 2026-10-31: "the boxes are below"). */}
+    {squares && !depth && <svg className="hm6-art hm6-pearls-over" viewBox="0 0 1000 1000" aria-hidden="true">
+      {GATES.map(([x, y]) => <circle className="hm6-pearl" cx={x} cy={y} r="17" key={`${x}-${y}`} />)}
+    </svg>}
     {wall ? <StandsForeverCopy {...copy} /> : <OpeningCopy {...copy} />}
     {wall ? <div className="hm6-note-frame">{note}</div> : note}
   </section>;

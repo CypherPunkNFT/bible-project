@@ -42,21 +42,24 @@ function SourcesArtwork() {
 
 /** The squares stay as long as there is room beside the city (owner, 2026-10-31: "the margins to the left and right can be
  *  reduced completely ... these could potentially squeeze to the edge of the yellow line"). As the screen narrows, the
- *  margin at the screen's edge and the gap to the wall shrink together, the gap only to just clear the pearls; then the
- *  squares narrow; below the narrowest square they are left out. Measured from the drawn wall, so it holds at any height.
- *  Sets --hm6-square (the wall's width), --hm6-gap and --hm6-column on the stage, and data-squares="fit" when they fit. */
-const COLUMN_WIDEST = 240, COLUMN_NARROWEST = 176, GAP_WIDEST = 40, EDGE_WIDEST = 32, PEARL_CLEARANCE = 8;
+ *  margin at the screen's edge and the gap to the wall shrink together; the squares tuck in almost to the wall's gold line,
+ *  under the pearls, so a margin is kept at the screen's edge (owner, same day: "It's fine if we almost touch the yellow
+ *  line as long as we're behind the pearls"). Then the squares narrow; below the narrowest square they are left out.
+ *  Measured from the drawn wall, so it holds at any height. Sets --hm6-square (the wall's width), --hm6-gap and
+ *  --hm6-column on the stage, and data-squares="fit" when they fit. */
+const COLUMN_WIDEST = 240, COLUMN_NARROWEST = 176, GAP_WIDEST = 40, GAP_NARROWEST = 6, EDGE_WIDEST = 32, EDGE_NARROWEST = 16;
 export function useSquareRoom(stage: RefObject<HTMLElement>, on: boolean) {
   useLayoutEffect(() => {
     const section = stage.current;
     if (!on || !section) return;
     const place = () => {
-      const wall = section.querySelector(".hm6-wall")?.getBoundingClientRect(), pearl = section.querySelector(".hm6-pearl")?.getBoundingClientRect();
-      if (!wall || !pearl || innerWidth <= 860) { section.dataset.squares = "none"; return; }
-      const room = wall.left - section.getBoundingClientRect().left, narrowestGap = pearl.width / 2 + PEARL_CLEARANCE;
-      const spare = room - COLUMN_WIDEST;
-      const share = Math.min(1, Math.max(0, (spare - narrowestGap) / (GAP_WIDEST - narrowestGap + EDGE_WIDEST)));
-      const gap = narrowestGap + (GAP_WIDEST - narrowestGap) * share, column = Math.min(COLUMN_WIDEST, room - gap - EDGE_WIDEST * share);
+      const wall = section.querySelector(".hm6-wall")?.getBoundingClientRect();
+      if (!wall || innerWidth <= 860) { section.dataset.squares = "none"; return; }
+      const room = wall.left - section.getBoundingClientRect().left, spare = room - COLUMN_WIDEST;
+      const least = GAP_NARROWEST + EDGE_NARROWEST, most = GAP_WIDEST + EDGE_WIDEST;
+      const share = Math.min(1, Math.max(0, (spare - least) / (most - least)));
+      const gap = GAP_NARROWEST + (GAP_WIDEST - GAP_NARROWEST) * share, edge = EDGE_NARROWEST + (EDGE_WIDEST - EDGE_NARROWEST) * share;
+      const column = Math.min(COLUMN_WIDEST, room - gap - edge);
       section.style.setProperty("--hm6-square", `${wall.width}px`);
       section.style.setProperty("--hm6-gap", `${gap}px`);
       section.style.setProperty("--hm6-column", `${column}px`);

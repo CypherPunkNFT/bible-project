@@ -65,7 +65,10 @@
   .hm6-squares-left { right: calc(50% + var(--hm6-square) / 2 + var(--hm6-gap)); }
   .hm6-squares-right { left: calc(50% + var(--hm6-square) / 2 + var(--hm6-gap)); }
   .hm6-squares a:focus { outline: none; }
+  /* The pearls drawn a second time, above the squares, so the squares pass under them. */
+  .hm6-stage[data-squares="fit"] .hm6-pearls-over { display: block; z-index: 3; filter: none; }
 }
+.hm6-pearls-over { display: none; }
 /* The strip's dividers run between the squares; stacked, they run across (owner, 2026-10-31). */
 .hm6-page[data-landing="outline"] .hm6-stage .hm6-squares > a { border-right: 0; border-bottom: 1px solid var(--line); }
 .hm6-page[data-landing="outline"] .hm6-stage .hm6-squares > a:last-child { border-bottom: 0; }
