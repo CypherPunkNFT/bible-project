@@ -3,7 +3,8 @@
 // that stone should update the continue button, and hitting that should take us there"). The wall is laid in nine courses of
 // small stones, one for each of the Bible's 1,189 chapters, in reading order: clockwise from the north-west tower round the
 // outer course, then on into the next. Each stone takes its book's section colour, so the parts of the Bible run round the
-// wall in bands. Clicking a stone makes the centre button "Continue" to that chapter in the Berean Standard Bible.
+// wall in bands. Clicking a stone makes the centre button "Continue" to that chapter in the Berean Standard Bible. The courses
+// appear from the outside in, as the foundations of the city (D) do (owner, 2026-10-31).
 import { useMemo, useState, type CSSProperties, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import { OpeningCopy, type OpeningProps } from "./HomeOpenings";
@@ -27,7 +28,7 @@ function useStones() {
       before += lengths[index];
       const until = Math.round((chapters.length * before) / total), here = chapters.slice(taken, until);
       taken = until;
-      return here.map((chapter, place) => ({ ...chapter, d: stone(place / here.length, (place + 1) / here.length, course.outer, course.inner) }));
+      return here.map((chapter, place) => ({ ...chapter, course: index, d: stone(place / here.length, (place + 1) / here.length, course.outer, course.inner) }));
     });
   }, [books]);
 }
@@ -44,7 +45,7 @@ export function CityOfChapters(props: OpeningProps) {
       <rect className="hm6-city-ground" x="70" y="70" width="860" height="860" />
       <circle cx="500" cy="500" r="330" fill="url(#hm6-chapters-lamp)" />
       <g className="hm6-chapter-stones" onClick={choose}>
-        {stones.map((item, index) => <path className={index === picked ? "is-picked" : undefined} d={item.d} style={tone(item.section) as CSSProperties} data-stone={index} key={`${item.code}-${item.chapter}`}><title>{`${item.name} ${item.chapter}`}</title></path>)}
+        {stones.map((item, index) => <path className={index === picked ? "is-picked" : undefined} d={item.d} style={{ ...tone(item.section), animationDelay: `${item.course * 70}ms` } as CSSProperties} data-stone={index} key={`${item.code}-${item.chapter}`}><title>{`${item.name} ${item.chapter}`}</title></path>)}
       </g>
       {chosen && <path className="hm6-chapter-ring" d={chosen.d} style={tone(chosen.section) as CSSProperties} />}
       <rect className="hm6-wall" x="70" y="70" width="860" height="860" />
