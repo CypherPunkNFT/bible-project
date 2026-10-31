@@ -32,13 +32,16 @@
   .home-hub[data-phone="e"] .hm6-stage.hm6-i .home-hero-copy { order: 1; padding-block: 3.4rem 0; }
   /* The soft cover round the button and the line under it would dim the top of the city, which sits close under them. */
   .home-hub[data-phone="e"] .hm6-stage.hm6-i .home-hero-actions, .home-hub[data-phone="e"] .hm6-stage.hm6-i .home-hero-foot { box-shadow: none; }
-  /* The city takes the height left once the words and the first row of squares are placed, so the first screen ends on that
-     row and the second waits below the fold, inviting a scroll (owner, 2026-10-31: "make only one row visible in the first
-     screen, then stretch the bricks a bit"). On shorter phones it keeps a floor and the squares go below the fold. The drawing
-     has blank space round the wall, taken back by the margins. */
-  .home-hub[data-phone="e"] .hm6-stage.hm6-i .hm6-art { order: 2; width: min(100%, max(20rem, calc(100svh - 630px))); max-height: none; margin-block: -18px -22px; }
-  .home-hub[data-phone="e"] .hm6-stage.hm6-i .hm6-note { order: 3; margin-bottom: .7rem; }
-  .home-hub[data-phone="e"] .hm6-stage.hm6-i { padding-bottom: .4rem; }
+  /* No city on phones: the title and button, then the six cards, two to a row, sharing out the rest of the first screen
+     between their three rows, each drawing growing to fill its card (owner, 2026-10-31: "we do without the bricks completely
+     and have the title and the 6 cards"; tried on /home_mobile_mockups, then "looks alright for now lets publish"). */
+  .home-hub[data-phone="e"] .hm6-stage.hm6-i .hm6-art, .home-hub[data-phone="e"] .hm6-stage.hm6-i .hm6-note { display: none; }
+  .home-hub[data-phone="e"] .hm6-stage.hm6-i { grid-template-rows: auto repeat(3, auto); align-content: stretch; row-gap: 12px; padding-bottom: 14px; }
+  .home-hub[data-phone="e"] .hm6-stage.hm6-i .home-hero-copy { padding-bottom: 1.6rem; }
+  .home-hub[data-phone="e"].hm6-page .hm6-stage.hm6-i .hm6-squares > a, .home-hub[data-phone="e"].hm6-page .hm6-stage.hm6-i .hm6-squares > a:last-child { grid-column: span 3; margin: 0; padding: 14px 14px 13px; }
+  .home-hub[data-phone="e"].hm6-page .hm6-stage .hm6-squares .home-doorway-art, .home-hub[data-phone="e"].hm6-page .hm6-stage .hm6-squares > a:last-child .home-doorway-art { flex: 1; min-height: 5rem; height: auto; aspect-ratio: auto; }
+  .home-hub[data-phone="e"].hm6-page .hm6-stage .hm6-squares .home-doorway-copy, .home-hub[data-phone="e"].hm6-page .hm6-stage .hm6-squares > a:last-child .home-doorway-copy { padding-top: 10px; margin-top: 8px; border-top: 1px solid color-mix(in srgb, var(--home-color) 20%, transparent); }
+  .home-hub[data-phone="e"].hm6-page .hm6-stage .hm6-squares .home-doorway-copy strong { font-size: 17px; }
 
   /* Tighter gaps between the sections: the desktop's spacing left a phone's screen looking empty. */
   .home-hub.hm6-page .home-guide { margin-block: 80px; }
