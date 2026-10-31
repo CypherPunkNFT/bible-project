@@ -1,0 +1,26 @@
+{
+  "state": "finished",
+  "pid": 80420,
+  "started": "2026-10-31 11:22:49",
+  "exit_code": 0,
+  "reason": null,
+  "mode": "full",
+  "resume_command": "D:\\Python\\python.exe D:\\FortressOfSolitude\\Jarvis\\Tools\\BatchRunner\\batch_runner.py --task D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\translation\\pilot\\task-judge.txt --items D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\translation\\pilot\\judge-items --out D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\translation\\pilot\\judge --model opus --schema D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\translation\\pilot\\judge-schema.json --max-output 16000 --budget-usd 6.12 --detach",
+  "updated": "2026-10-31 11:26:49",
+  "counts": {
+    "ok": 97
+  },
+  "queued": 0,
+  "spent_usd": 3.7595,
+  "budget_usd": 6.12,
+  "parallelism": 4,
+  "eta_minutes": null,
+  "child_pids": [],
+  "item_states": {
+    "done": 100
+  },
+  "last_canary": {
+    "status": "passed",
+    "time": "2026-10-31 11:26:49"
+  }
+}

@@ -1,0 +1,18 @@
+{
+ "result": "{\n  \"question\": \"Como Jesus se sentiu quando se ajoelhou e orou no jardim?\",\n  \"answer\": \"Profundamente angustiado e em agonia\",\n  \"option1\": \"Irritado com seu Pai\",\n  \"option2\": \"Sonolento e entediado\",\n  \"option3\": \"Profundamente angustiado e em agonia\",\n  \"option4\": \"Feliz e calmo\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 687,
+  "total_tokens": 790,
+  "completion_tokens": 103,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 15.5
+}

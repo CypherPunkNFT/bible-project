@@ -1,0 +1,18 @@
+{
+ "result": "{\n \"1.text\": \"pero para nosotros hay un solo Dios, el Padre, de quien proceden todas las cosas y por quien existimos; y un solo Señor, Jesucristo, por quien son todas las cosas y por quien existimos.\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 664,
+  "total_tokens": 720,
+  "completion_tokens": 56,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 15.4
+}

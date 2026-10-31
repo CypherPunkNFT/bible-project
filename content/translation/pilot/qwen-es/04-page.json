@@ -1,0 +1,18 @@
+{
+ "result": "{\n \"s1\": \"Siglo de nacimiento\",\n \"s2\": \"Todos los siglos de nacimiento\",\n \"s3\": \"Todos los temas\",\n \"s4\": \"Ningún año de nacimiento compatible coincide con esta selección.\",\n \"s5\": \"Cargando la población total de colaboradores…\",\n \"s6\": \"Temas de los colaboradores\",\n \"s7\": \"Tema de la línea de tiempo\",\n \"s8\": \"Lote de la línea de tiempo\",\n \"s9\": \"Colaboradores a lo largo del tiempo\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 707,
+  "total_tokens": 833,
+  "completion_tokens": 126,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 42.1
+}

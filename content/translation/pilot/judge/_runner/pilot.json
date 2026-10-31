@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "at": "2026-10-31 11:22:34",
+  "fingerprint": {
+    "task_sha256": "c237aee096dffff8575db911f3921bd99dc9f8718c6d738c7c6a9df320f0a2eb",
+    "model": "opus",
+    "effort": null,
+    "schema_sha256": "e3a78aa2f14f7f6c5381c5ce4fca599b09cedba041cfe38a33f5e3c082db33c1"
+  },
+  "cli_version": "2.1.296 (Claude Code)",
+  "model_ids": [
+    "claude-opus-5-5"
+  ],
+  "ratio": 0.2839619088610319,
+  "canary_task_baseline": 3757,
+  "canary_cost": 0.004504,
+  "fit": [
+    0.01758357189390141,
+    5.246269757548331e-06
+  ],
+  "dollars_per_token": 9.190370170224265e-06,
+  "max_cost": 0.11456260000000001,
+  "max_output": 2611,
+  "stop_reasons": [
+    "tool_use"
+  ],
+  "auth_fields": {
+    "loggedIn": true,
+    "authMethod": "claude.ai",
+    "apiProvider": "firstParty",
+    "subscriptionType": "max"
+  }
+}

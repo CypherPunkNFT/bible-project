@@ -1,0 +1,23 @@
+2026-10-31 10:23:25  Mode shared, plan max, model haiku, effort CLI default, 50 item(s).
+2026-10-31 10:23:25  0 done, 50 to run
+2026-10-31 10:23:25  Pilot items (chosen by size): 37-creed (207 B), 22-summary (926 B), 40-creed (5,942 B)
+2026-10-31 10:23:27    canary: passed (582 input tokens)
+2026-10-31 10:23:40  
+item                   input  cache_read  cache_write  total_in  output      cost  status
+2026-10-31 10:23:40  37-creed                   2         961          600      1563      97    0.0002  ok
+2026-10-31 10:23:40  22-summary                 2         961          822      1785     397    0.0004  ok
+2026-10-31 10:23:40  40-creed                   2         961         2529      3492    2502    0.0018  ok
+2026-10-31 10:23:40  
+Projection for the 47 item(s) still to run (fitted on item size: $0.0001 + $0.0003 per KB):
+2026-10-31 10:23:40    about 86,011 input tokens, about $0.02 at API list price (the Max plan is not billed this; it is the yardstick for plan share)
+2026-10-31 10:23:40    suggested --budget-usd 0.07 = $0.00 already spent in this folder + $0.02 projection with 20% margin + $0.05 headroom for calls in flight (reserved, then released)
+2026-10-31 10:23:40  
+Pilot passed. Give the owner the projection as a plan share before the full run.
+2026-10-31 10:23:40  Exit code 0.
+2026-10-31 10:24:20  Mode shared, plan max, model haiku, effort CLI default, 50 item(s).
+2026-10-31 10:24:20  3 done, 47 to run
+2026-10-31 10:24:22    canary: passed (581 input tokens)
+2026-10-31 10:25:09    canary: passed (581 input tokens)
+2026-10-31 10:25:09  
+This run: {'ok': 47}; charged $0.02 of $0.50
+2026-10-31 10:25:09  Exit code 0.

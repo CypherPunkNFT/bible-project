@@ -1,0 +1,18 @@
+{
+ "result": "{\n  \"question\": \"En el canto de David, ¿a qué animal compara David sus pies cuando Dios lo coloca en las alturas?\",\n  \"answer\": \"Un ciervo\",\n  \"option1\": \"Un águila\",\n  \"option2\": \"Un león\",\n  \"option3\": \"Un ciervo\",\n  \"option4\": \"Un buey salvaje\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 685,
+  "total_tokens": 776,
+  "completion_tokens": 91,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 14.4
+}

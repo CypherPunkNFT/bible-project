@@ -1,0 +1,18 @@
+{
+ "result": "{\n  \"s1\": \"Para pais e professores\",\n  \"s2\": \"O curso completo,\",\n  \"s3\": \"respostas incluídas\",\n  \"s4\": \"Partes da Bíblia\",\n  \"s5\": \"A página infantil · sua última seção\",\n  \"s6\": \"Quatro maneiras de exibir\",\n  \"s7\": \"o curso completo\",\n  \"s8\": \"As versões\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 696,
+  "total_tokens": 799,
+  "completion_tokens": 103,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 38.8
+}

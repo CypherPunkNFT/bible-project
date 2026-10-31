@@ -1,0 +1,18 @@
+{
+ "result": "{\n \"s1\": \"Cada himno,\",\n \"s2\": \"un lugar\",\n \"s3\": \"Borrar todo\",\n \"s4\": \"Ningún himno coincide con estos filtros.\",\n \"s5\": \"Cargar más\",\n \"s6\": \"Busca por la primera línea, el tema o el pasaje, o acorta por libro de himnos, parte de la Biblia y métrica. Una tarjeta abre el himno.\",\n \"s7\": \"Filtrar los himnos\",\n \"s8\": \"Buscar himnos\",\n \"s9\": \"Ordenar himnos\",\n \"s10\": \"Tarjetas de himnos\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 743,
+  "total_tokens": 894,
+  "completion_tokens": 151,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 46.3
+}

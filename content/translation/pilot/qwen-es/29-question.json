@@ -1,0 +1,18 @@
+{
+ "result": "{\n \"question\": \"Después de que Pablo y Silas pasaron por Anfípolis y Apolonia, ¿a qué ciudad llegaron, donde había una sinagoga judía?\",\n \"answer\": \"Tesalónica\",\n \"option1\": \"Berrea\",\n \"option2\": \"Atenas\",\n \"option3\": \"Corinto\",\n \"option4\": \"Tesalónica\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 696,
+  "total_tokens": 785,
+  "completion_tokens": 89,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 34.6
+}

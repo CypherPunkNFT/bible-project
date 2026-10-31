@@ -1,0 +1,12 @@
+Mode shared, plan max, model opus, effort CLI default, 100 item(s).
+3 done, 97 to run
+  canary: passed (556 input tokens)
+  09-person-es read 8,196 tokens, over its limit 7,438: checking the setup with a canary
+  10-person-es read 7,479 tokens, over its limit 7,340: checking the setup with a canary
+  canary: passed (556 input tokens)
+  outlier accepted: tokens-per-byte line raised to 1.125
+  outlier accepted: tokens-per-byte line raised to 1.125
+  canary: passed (556 input tokens)
+
+This run: {'ok': 97}; charged $3.76 of $6.12
+Exit code 0.

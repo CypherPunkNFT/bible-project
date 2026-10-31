@@ -1,0 +1,23 @@
+{
+  "task_sha256": "ba6908c29a875f6fb80ffdfe59d2b90b3b91513c14c7a347741e583a82c4c4fe",
+  "model": "haiku",
+  "effort": null,
+  "schema_sha256": null,
+  "accounts": {
+    "shared": "999c6b99ac25357a"
+  },
+  "auth_fields": {
+    "shared": {
+      "loggedIn": true,
+      "authMethod": "claude.ai",
+      "apiProvider": "firstParty",
+      "subscriptionType": "max"
+    }
+  },
+  "items_dir": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\translation\\pilot\\items",
+  "max_output": 16000,
+  "model_ids": [
+    "claude-haiku-5-5"
+  ],
+  "budget_usd": 0.5
+}

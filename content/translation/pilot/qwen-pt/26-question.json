@@ -1,0 +1,18 @@
+{
+ "result": "{\n  \"question\": \"Na canção de Davi, a que animal Davi compara seus pés quando Deus o estabelece nas alturas?\",\n  \"answer\": \"Um cervo\",\n  \"option1\": \"Uma águia\",\n  \"option2\": \"Um leão\",\n  \"option3\": \"Um cervo\",\n  \"option4\": \"Um boi selvagem\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 681,
+  "total_tokens": 771,
+  "completion_tokens": 90,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 14.1
+}

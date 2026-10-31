@@ -1,0 +1,18 @@
+{
+ "result": "{\n \"s1\": \"Cinco formas de\",\n \"s2\": \"estudiar la Biblia\",\n \"s3\": \"Todas las colecciones\",\n \"s4\": \"Destacados primero\",\n \"s5\": \"Más tenidos\",\n \"s6\": \"A–Z\",\n \"s7\": \"Cargando el índice completo de temas…\",\n \"s8\": \"No hay nombres ni obras que coincidan. Prueba con otra búsqueda o colección.\",\n \"s9\": \"Perfiles en el catálogo\",\n \"s10\": \"Los campos siguen los temas de las obras tenidas y pueden solaparse. Los autores, editores y colecciones con nombre conservan sus créditos de origen.\",\n \"s11\": \"Explora a todos los colaboradores adquiridos\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 754,
+  "total_tokens": 932,
+  "completion_tokens": 178,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 60.0
+}

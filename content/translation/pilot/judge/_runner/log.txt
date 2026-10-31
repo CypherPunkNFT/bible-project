@@ -1,0 +1,28 @@
+2026-10-31 11:22:03  Mode shared, plan max, model opus, effort CLI default, 100 item(s).
+2026-10-31 11:22:03  0 done, 100 to run
+2026-10-31 11:22:03  Pilot items (chosen by size): 37-creed-pt (727 B), 23-summary-es (3,048 B), 40-creed-es (18,587 B)
+2026-10-31 11:22:04    canary: passed (554 input tokens)
+2026-10-31 11:22:34  
+item                   input  cache_read  cache_write  total_in  output      cost  status
+2026-10-31 11:22:34  37-creed-pt                2        1273          863      2138     533    0.0178  ok  stop_reason=tool_use
+2026-10-31 11:22:34  23-summary-es              2        1273         1737      3012    1176    0.0377  ok  stop_reason=tool_use
+2026-10-31 11:22:34  40-creed-es                2        1273         7760      9035    2611    0.1146  ok  stop_reason=tool_use
+2026-10-31 11:22:34  
+Projection for the 97 item(s) still to run (fitted on item size: $0.0176 + $0.0052 per KB):
+2026-10-31 11:22:34    about 454,764 input tokens, about $3.39 at API list price (the Max plan is not billed this; it is the yardstick for plan share)
+2026-10-31 11:22:34    suggested --budget-usd 6.12 = $0.20 already spent in this folder + $4.07 projection with 20% margin + $1.85 headroom for calls in flight (reserved, then released)
+2026-10-31 11:22:34  
+Pilot passed. Give the owner the projection as a plan share before the full run.
+2026-10-31 11:22:34  Exit code 0.
+2026-10-31 11:22:49  Mode shared, plan max, model opus, effort CLI default, 100 item(s).
+2026-10-31 11:22:49  3 done, 97 to run
+2026-10-31 11:22:50    canary: passed (556 input tokens)
+2026-10-31 11:23:28    09-person-es read 8,196 tokens, over its limit 7,438: checking the setup with a canary
+2026-10-31 11:23:28    10-person-es read 7,479 tokens, over its limit 7,340: checking the setup with a canary
+2026-10-31 11:23:36    canary: passed (556 input tokens)
+2026-10-31 11:23:36    outlier accepted: tokens-per-byte line raised to 1.125
+2026-10-31 11:23:36    outlier accepted: tokens-per-byte line raised to 1.125
+2026-10-31 11:26:49    canary: passed (556 input tokens)
+2026-10-31 11:26:49  
+This run: {'ok': 97}; charged $3.76 of $6.12
+2026-10-31 11:26:49  Exit code 0.

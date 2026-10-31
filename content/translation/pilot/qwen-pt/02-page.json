@@ -1,0 +1,18 @@
+{
+ "result": "{\n \"s1\": \"Cada hino,\",\n \"s2\": \"um lugar\",\n \"s3\": \"Limpar tudo\",\n \"s4\": \"Nenhum hino corresponde a esses filtros.\",\n \"s5\": \"Carregar mais\",\n \"s6\": \"Busque pela primeira linha, tema ou passagem, ou filtre por hinário, parte da Bíblia e métrica. Um cartão abre o hino.\",\n \"s7\": \"Filtrar os hinos\",\n \"s8\": \"Buscar hinos\",\n \"s9\": \"Ordenar hinos\",\n \"s10\": \"Cartões de hinos\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 739,
+  "total_tokens": 882,
+  "completion_tokens": 143,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 44.7
+}

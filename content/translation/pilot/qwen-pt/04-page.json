@@ -1,0 +1,18 @@
+{
+ "result": "{\n \"s1\": \"Século de nascimento\",\n \"s2\": \"Todos os séculos de nascimento\",\n \"s3\": \"Todos os assuntos\",\n \"s4\": \"Nenhum ano de nascimento suportado corresponde a esta seleção.\",\n \"s5\": \"Carregando a população completa de contribuidores…\",\n \"s6\": \"Assuntos dos contribuidores\",\n \"s7\": \"Assunto da linha do tempo\",\n \"s8\": \"Lote da linha do tempo\",\n \"s9\": \"Contribuidores ao longo do tempo\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 703,
+  "total_tokens": 832,
+  "completion_tokens": 129,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 42.9
+}

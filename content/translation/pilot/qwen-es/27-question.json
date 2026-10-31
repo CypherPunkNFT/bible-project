@@ -1,0 +1,18 @@
+{
+ "result": "{\n  \"question\": \"¿Cómo se sentía Jesús cuando se arrodilló y oró en el huerto?\",\n  \"answer\": \"Profundamente angustiado y con gran dolor\",\n  \"option1\": \"Enojado con su Padre\",\n  \"option2\": \"Somnoliento y aburrido\",\n  \"option3\": \"Profundamente angustiado y con gran dolor\",\n  \"option4\": \"Feliz y en calma\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 691,
+  "total_tokens": 799,
+  "completion_tokens": 108,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 21.3
+}

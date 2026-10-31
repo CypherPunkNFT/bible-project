@@ -1,0 +1,18 @@
+{
+ "result": "{\n  \"question\": \"Según Proverbios 13:20, ¿qué le sucede al que camina con los sabios?\",\n  \"answer\": \"Se volverá sabio\",\n  \"option1\": \"Será librado de toda aflicción\",\n  \"option2\": \"Será honrado por los reyes\",\n  \"option3\": \"Se volverá sabio\",\n  \"option4\": \"Se volverá rico\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 699,
+  "total_tokens": 804,
+  "completion_tokens": 105,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 31.7
+}

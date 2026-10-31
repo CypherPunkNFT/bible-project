@@ -1,0 +1,18 @@
+{
+ "result": "{\n \"s1\": \"Explorar por colección\",\n \"s2\": \"Explora textos, inscripciones y conjuntos de datos, incluidos registros sin autor con nombre.\",\n \"s3\": \"Elige una colección\",\n \"s4\": \"Disponibilidad de lectura\",\n \"s5\": \"Leer en este sitio\",\n \"s6\": \"Todos los registros del catálogo\",\n \"s7\": \"Cargando colección…\",\n \"s8\": \"Aún no hay textos de esta colección autorizados para lectura pública. Selecciona todos los registros del catálogo para inspeccionar los fondos.\",\n \"s9\": \"Cargando más obras…\",\n \"s10\": \"Intentar de nuevo\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 743,
+  "total_tokens": 901,
+  "completion_tokens": 158,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 57.4
+}

@@ -1,0 +1,26 @@
+{
+  "state": "finished",
+  "pid": 47604,
+  "started": "2026-10-31 10:26:21",
+  "exit_code": 0,
+  "reason": null,
+  "mode": "full",
+  "resume_command": "D:\\Python\\python.exe D:\\FortressOfSolitude\\Jarvis\\Tools\\BatchRunner\\batch_runner.py --task D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\translation\\pilot\\task-pt.txt --items D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\translation\\pilot\\items --out D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\translation\\pilot\\haiku-pt --model haiku --max-output 16000 --budget-usd 0.5 --detach",
+  "updated": "2026-10-31 10:27:10",
+  "counts": {
+    "ok": 47
+  },
+  "queued": 0,
+  "spent_usd": 0.0246,
+  "budget_usd": 0.5,
+  "parallelism": 4,
+  "eta_minutes": null,
+  "child_pids": [],
+  "item_states": {
+    "done": 50
+  },
+  "last_canary": {
+    "status": "passed",
+    "time": "2026-10-31 10:27:10"
+  }
+}

@@ -1,0 +1,18 @@
+{
+ "result": "{\n \"s1\": \"Para padres y maestros\",\n \"s2\": \"El curso completo,\",\n \"s3\": \"con respuestas incluidas\",\n \"s4\": \"Partes de la Biblia\",\n \"s5\": \"La página para niños · su última sección\",\n \"s6\": \"Cuatro formas de mostrar\",\n \"s7\": \"el curso completo\",\n \"s8\": \"Las versiones\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 700,
+  "total_tokens": 793,
+  "completion_tokens": 93,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 38.8
+}

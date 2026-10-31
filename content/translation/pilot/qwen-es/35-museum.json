@@ -1,0 +1,18 @@
+{
+ "result": "{\n \"name\": \"Rijksmuseum van Oudheden\",\n \"place\": \"Leiden\",\n \"wikidata-notables-Q1474863-6a31fdd3.id\": \"wikidata-notables-Q1474863-6a31fdd3\",\n \"wikidata-notables-Q1474863-6a31fdd3.description\": \"papiro jerático egipcio antiguo realizado durante la dinastía XIX\",\n \"wikidata-notables-Q1474863-6a31fdd3.basis_label\": \"Coincide con una línea del catálogo de arqueología de este proyecto\",\n \"wikidata-notables-Q1474863-6a31fdd3.licence\": \"CC0 (datos estructurados de Wikidata)\",\n \"wikidata-notables-Q1474863-6a31fdd3.why\": \"Lamento egipcio que a veces se afirma como un registro de las plagas del Éxodo.\",\n \"cdli-P530256-d732c664.id\": \"cdli-P530256-d732c664\",\n \"cdli-P530256-d732c664.recorded_as\": \"Rijksmuseum van Oudheden, Leiden, Holanda\",\n \"cdli-P530256-d732c664.credit\": \"Cuneiform Digital Library Initiative\",\n \"cdli-P530256-d732c664.basis_label\": \"No se registra ningún vínculo bíblico\",\n \"cdli-P530256-d732c664.licence\": \"CC BY-SA 4.0 (tal como lo establece el proyecto CDLI para sus datos públicos)\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1013,
+  "total_tokens": 1434,
+  "completion_tokens": 421,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 800,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 87.3
+}

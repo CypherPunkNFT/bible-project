@@ -1,0 +1,18 @@
+{
+ "result": "{\n \"sermons.label\": \"Sermones y exposición\",\n \"scripture.label\": \"Comprensión de las Escrituras\",\n \"theology.label\": \"Teología y doctrina\",\n \"apologetics.label\": \"Apologetica y otras creencias\",\n \"christian-life.label\": \"Vida cristiana y devoción\",\n \"ministry.label\": \"Iglesia y ministerio\",\n \"history.label\": \"Historia y vidas\",\n \"standards.label\": \"Confesiones y referencia\",\n \"research.label\": \"Pendiente de asignación a colección\",\n \"cited.label\": \"Citado en nuestras páginas\",\n \"sermons.definition\": \"Sermones y series completos, con índice de texto principal y exposición.\",\n \"scripture.definition\": \"Comentarios, interpretación, teología bíblica y ayuda con el lenguaje.\",\n \"theology.definition\": \"Tratamientos doctrinales sistemáticos y particulares.\",\n \"apologetics.definition\": \"Preguntas, argumentos, objeciones, debates y comparaciones con fuentes.\",\n \"christian-life.definition\": \"Oración, santidad y asuntos espirituales o pastorales.\",\n \"ministry.definition\": \"Predicación, cuidado pastoral, discipulado, adoración y misiones.\",\n \"history.definition\": \"Obras históricas, biografías, cartas y registros en primera persona.\",\n \"standards.definition\": \"Confesiones, catecismos, diccionarios y bibliografías identificadas.\",\n \"research.definition\": \"Títulos adicionales adquiridos cuya ubicación en la colección aún no se ha ajustado.\",\n \"cited.definition\": \"Obras que las páginas de estudio citan, cada una con las páginas que la citan y su base de dominio público.\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 933,
+  "total_tokens": 1311,
+  "completion_tokens": 378,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 800,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 74.5
+}

@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "at": "2026-10-31 10:24:06",
+  "fingerprint": {
+    "task_sha256": "ba6908c29a875f6fb80ffdfe59d2b90b3b91513c14c7a347741e583a82c4c4fe",
+    "model": "haiku",
+    "effort": null,
+    "schema_sha256": null
+  },
+  "cli_version": "2.1.296 (Claude Code)",
+  "model_ids": [
+    "claude-haiku-5-5"
+  ],
+  "ratio": 0.33473577919892294,
+  "canary_task_baseline": 1497,
+  "canary_cost": 0.00011779999999999999,
+  "fit": [
+    6.41639136952578e-05,
+    5.556633581504208e-07
+  ],
+  "dollars_per_token": 3.06990992332316e-07,
+  "max_cost": 0.00339117,
+  "max_output": 5752,
+  "stop_reasons": [],
+  "auth_fields": {
+    "loggedIn": true,
+    "authMethod": "claude.ai",
+    "apiProvider": "firstParty",
+    "subscriptionType": "max"
+  }
+}

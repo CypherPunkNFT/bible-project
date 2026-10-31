@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["a", "b", "better", "reason"],
+  "properties": {
+    "a": {"$ref": "#/$defs/score"},
+    "b": {"$ref": "#/$defs/score"},
+    "better": {"type": "string", "enum": ["A", "B", "tie"]},
+    "reason": {"type": "string"}
+  },
+  "$defs": {
+    "score": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["accuracy", "fluency", "terminology", "errors"],
+      "properties": {
+        "accuracy": {"type": "integer", "minimum": 1, "maximum": 10},
+        "fluency": {"type": "integer", "minimum": 1, "maximum": 10},
+        "terminology": {"type": "integer", "minimum": 1, "maximum": 10},
+        "errors": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

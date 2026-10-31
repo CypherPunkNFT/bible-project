@@ -1,0 +1,18 @@
+{
+ "result": "{\n  \"question\": \"Quando Esdras leu a Lei de Deus, quem ajudou o povo a compreendê-la?\",\n  \"answer\": \"Os levitas\",\n  \"option1\": \"Os soldados\",\n  \"option2\": \"Os servos do rei\",\n  \"option3\": \"Os levitas\",\n  \"option4\": \"Os agricultores\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 677,
+  "total_tokens": 764,
+  "completion_tokens": 87,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 14.5
+}

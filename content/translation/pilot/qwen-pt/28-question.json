@@ -1,0 +1,18 @@
+{
+ "result": "{\n  \"question\": \"De acordo com Provérbios 13:20, o que acontece com aquele que anda com os sábios?\",\n  \"answer\": \"Ele se tornará sábio\",\n  \"option1\": \"Ele será poupado de todo problema\",\n  \"option2\": \"Ele será honrado pelos reis\",\n  \"option3\": \"Ele se tornará sábio\",\n  \"option4\": \"Ele se tornará rico\"\n}",
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 695,
+  "total_tokens": 800,
+  "completion_tokens": 105,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "created_cache_tokens": 0,
+   "multimodal_tokens": null
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  }
+ },
+ "seconds": 20.9
+}
