@@ -18,6 +18,10 @@
 .home-text-link:hover { color: var(--home-color); }
 .home-hero-foot { margin-top: 28px; font-size: 11px; line-height: 1.9; color: var(--muted); }
 .home-hero-foot span { display: block; color: var(--accent); }
+/* The counts open the Bible versions tab of /sources (owner, 2026-10-31). */
+.home-hero-foot a { color: inherit; text-decoration: underline transparent; text-underline-offset: 3px; transition: text-decoration-color .2s; }
+.home-hero-foot a:hover { text-decoration-color: currentColor; }
+.home-hero-foot a:focus { outline: none; }
 .home-hero-art { height: 500px; position: relative; isolation: isolate; }
 .home-hero-art::before { content: ''; position: absolute; inset: 5%; background: radial-gradient(ellipse, color-mix(in srgb, var(--accent) 10%, transparent), transparent 68%); z-index: -1; }
 .home-art-orbit { position: absolute; border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent); border-radius: 50%; pointer-events: none; }

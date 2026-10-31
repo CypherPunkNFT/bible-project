@@ -113,7 +113,7 @@ function StandsForeverCopy({ resume, resumeLabel, versions, languages }: Opening
     <h1 id="home-title">God’s Word<br /><em>Stands Forever.</em></h1>
     <p className="home-hero-lead">Written over fifteen centuries by ~40 authors.<br />Carried through persecution and fire.</p>
     <div className="home-hero-actions"><Link className="home-button" to={resume}><BookOpen size={17} aria-hidden />{resumeLabel}<ArrowRight size={17} aria-hidden /></Link></div>
-    <p className="home-hero-foot"><span className="hm6-foot-lines">Read the Scriptures. Follow the connections.</span><span>{versions} Bible versions · {languages} languages</span></p>
+    <p className="home-hero-foot"><span className="hm6-foot-lines">Read the Scriptures. Follow the connections.</span><span><Link to="/sources#scriptures">{versions} Bible versions · {languages} languages</Link></span></p>
   </div>;
 }
 

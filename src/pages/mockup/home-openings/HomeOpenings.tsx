@@ -123,7 +123,7 @@ export function OpeningCopy({ resume, resumeLabel, versions, languages }: Openin
     <h1 id="home-title">One Word.<br /><em>A world to<br className="home-hero-break" /> discover.</em></h1>
     <p className="home-hero-lead">Read the Scriptures. Follow the connections.<br />Bring your questions. See the bigger story.</p>
     <div className="home-hero-actions"><Link className="home-button" to={resume}><BookOpen size={17} aria-hidden />{resumeLabel}<ArrowRight size={17} aria-hidden /></Link></div>
-    <p className="home-hero-foot">Free to explore. Open to everyone.<span>{versions} Bible versions · {languages} languages</span></p>
+    <p className="home-hero-foot">Free to explore. Open to everyone.<span><Link to="/sources#scriptures">{versions} Bible versions · {languages} languages</Link></span></p>
   </div>;
 }
 
