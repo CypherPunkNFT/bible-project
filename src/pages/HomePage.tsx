@@ -1,7 +1,7 @@
 // The homepage. Approved by the owner on 2026-10-31 ("Make this the new home page") from version I of the mock-up at
 // /home_mockup6 (HomePageMockup6.tsx, kept as the place to try further changes first): the city of chapters on the moving
 // word wall with the six doorway squares beside it, the guide, the four parts under pointed banners, the questions, the gold
-// marquee, the sources, Close to home, and Scroll A's blessing before the footer. Earlier homepage: approved 2026-10-22 from
+// marquee, the sources, Close to home, and Scroll A's blessing before the footer. The city's corners have no towers (from /home_mockup8, owner, 2026-10-31). Earlier homepage: approved 2026-10-22 from
 // /home_mockup2. The opening and the closing scroll live in pages/mockup/home-openings/.
 import { ArrowRight, ArrowUpRight, BookMarked, BookOpen, GitBranch, Globe, Headphones, Landmark, LayoutGrid, LifeBuoy, Map, MessageCircle, NotebookPen, Pause, Play, Users } from "lucide-react";
 import { useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
@@ -157,7 +157,7 @@ export default function HomePage() {
   const resumeLabel = version ? `Continue: ${book?.name ?? code} ${chapter}` : "Begin with John 1";
   const languages = new Set(catalog.translations.map((item) => item.lang)).size;
 
-  return <div className="home-hub hm6-page" data-landing={landing} data-banners="inset" data-shape="point">
+  return <div className="home-hub hm6-page hm6-plain-corners" data-landing={landing} data-banners="inset" data-shape="point">
     <div className="home-opening hm6-first" ref={opening}>
     {comparing && <nav className="home-landing-options home-wrap" aria-label="Landing designs">
       {landingOptions.map((option, index) => <button key={option} type="button" aria-pressed={landing === option} onClick={() => setSearchParams((current) => { const next = new URLSearchParams(current); next.set("landing", option); return next; }, { preventScrollReset: true })}><span>0{index + 1}</span>{option === "outline" ? "Outlined boxes" : option === "gallery" ? "Open gallery" : "Illustrated rail"}</button>)}

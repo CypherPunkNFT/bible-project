@@ -155,7 +155,7 @@ export default function HomePageMockup8() {
   const resumeLabel = version ? `Continue: ${book?.name ?? code} ${chapter}` : "Begin with John 1";
   const languages = new Set(catalog.translations.map((item) => item.lang)).size;
 
-  return <div className="home-hub hm6-page hm8-page" data-landing={landing} data-banners="inset" data-shape="point">
+  return <div className="home-hub hm6-page hm6-plain-corners" data-landing={landing} data-banners="inset" data-shape="point">
     <div className="home-opening hm6-first" ref={opening}>
     {comparing && <nav className="home-landing-options home-wrap" aria-label="Landing designs">
       {landingOptions.map((option, index) => <button key={option} type="button" aria-pressed={landing === option} onClick={() => setSearchParams((current) => { const next = new URLSearchParams(current); next.set("landing", option); return next; }, { preventScrollReset: true })}><span>0{index + 1}</span>{option === "outline" ? "Outlined boxes" : option === "gallery" ? "Open gallery" : "Illustrated rail"}</button>)}

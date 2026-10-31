@@ -23,8 +23,9 @@
 .hm6-wall { fill: none; stroke: var(--accent); stroke-width: 2; }
 .hm6-tower { fill: var(--page); stroke: var(--accent); stroke-width: 2; }
 .hm6-pearl { fill: color-mix(in srgb, #fff 82%, var(--accent)); stroke: var(--accent); stroke-width: 1.5; }
-/* /home_mockup8: no square towers on the corners; the wall's lines simply meet (owner, 2026-10-31). */
-.hm8-page .hm6-tower { display: none; }
+/* The homepage and /home_mockup8: no square towers on the corners; the wall's lines simply meet (owner, 2026-10-31,
+   tried on /home_mockup8, then "make the edit on the home, it looks better like that"). */
+.hm6-plain-corners .hm6-tower { display: none; }
 
 /* The city of chapters, one small stone for each chapter, appearing from the outside in */
 .hm6-chapter-stones { pointer-events: auto; cursor: pointer; }
