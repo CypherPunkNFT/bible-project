@@ -1,0 +1,86 @@
+/* MOCK-UP: the four homepage openings of /home_mockup3. Colours come from the site's own variables, so both themes follow. */
+.home-opening { --hm3-witness-gold: #876120; --hm3-witness-blue: #366c98; --hm3-far: color-mix(in srgb, var(--accent) 30%, var(--page)); --hm3-mid: color-mix(in srgb, #5c4017 34%, var(--page)); --hm3-ground: color-mix(in srgb, #5c4017 17%, var(--page)); }
+:root[data-theme="dark"] .home-opening { --hm3-witness-gold: #d4b477; --hm3-witness-blue: #96b8d8; --hm3-far: color-mix(in srgb, var(--accent) 22%, var(--page)); --hm3-mid: color-mix(in srgb, #b08a4e 22%, var(--page)); --hm3-ground: color-mix(in srgb, #b08a4e 13%, var(--page)); }
+
+/* The gold marquee, as on The hope to come */
+.hm3-marquee { position: relative; z-index: 3; flex: none; overflow: hidden; background: var(--accent); color: var(--page); }
+.hm3-marquee-track { display: flex; width: max-content; animation: hm3-marquee 90s linear infinite; }
+.hm3-marquee:hover .hm3-marquee-track { animation-play-state: paused; }
+.hm3-marquee-run { display: flex; flex: none; }
+.hm3-marquee-run span { display: flex; align-items: center; padding-block: .72rem; font-size: .95rem; font-weight: 600; white-space: nowrap; }
+.hm3-marquee-run span::after { content: "\2726"; margin-inline: 1.4rem; font-size: .7em; opacity: .7; }
+@keyframes hm3-marquee { to { transform: translateX(-50%); } }
+
+/* The line sun */
+.hm3-line-sun { position: absolute; inset: 0; display: block; width: 100%; height: 100%; fill: none; stroke-width: 1.2; pointer-events: none; }
+.hm3-ray-long, .hm3-ray-fine, .hm3-sun-line { stroke: var(--accent); }
+.hm3-ray-long { opacity: .5; }
+.hm3-ray-fine { stroke-width: .8; opacity: .3; }
+.hm3-sun-fill { fill: color-mix(in srgb, var(--accent) 22%, transparent); }
+.hm3-faint { opacity: .5; }
+.hm3-ring { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 2 6; opacity: .4; }
+
+/* A: the sunrise */
+.home-opening .hm3-a { position: relative; flex: 1; display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center; align-content: start; gap: 0; min-height: clamp(30rem, 56svh, 44rem); padding: clamp(1.25rem, 3.5svh, 3rem) var(--site-gutter) clamp(7rem, 17svh, 12rem); overflow: hidden; text-align: center; background: radial-gradient(70% 90% at 50% 100%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 72%); }
+.hm3-a .home-eyebrow { justify-content: center; }
+.hm3-a .home-hero-break { display: none; }
+.hm3-a .home-hero-actions { justify-content: center; }
+.hm3-a .home-hero-foot { text-shadow: 0 0 6px var(--page), 0 0 10px var(--page), 0 0 14px var(--page); }
+
+/* B: the road */
+.home-opening .hm3-b { display: flex; flex-direction: column; flex: 1; gap: 0; padding: 0; }
+.hm3-b-sky { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: 2rem 4rem; padding-block: clamp(1.25rem, 3.5svh, 2.75rem) 0; }
+.hm3-b .home-hero-break { display: none; }
+.hm3-verse { margin: 3.2rem 0 0; max-width: 34rem; justify-self: end; }
+.hm3-verse blockquote { margin: 0; font: 400 clamp(1.35rem, 2.1vw, 1.85rem)/1.35 var(--font-serif); letter-spacing: -.015em; color: var(--ink); }
+.hm3-verse figcaption { margin-top: .85rem; font-size: 12px; color: var(--muted); }
+.hm3-verse a { color: var(--accent); font-weight: 500; }
+.hm3-road-scene { display: block; flex: 1 0 auto; width: 100%; height: clamp(13rem, 33svh, 24rem); margin-top: clamp(-5rem, -6svh, -1rem); overflow: visible; pointer-events: none; }
+.hm3-far { fill: var(--hm3-far); }
+.hm3-mid { fill: var(--hm3-mid); }
+.hm3-near { fill: var(--hm3-ground); }
+.hm3-road { fill: color-mix(in srgb, var(--accent) 26%, var(--hm3-ground)); }
+.hm3-edge { fill: none; stroke: var(--accent); stroke-width: 1.2; opacity: .8; }
+.hm3-dash { fill: none; stroke: var(--accent); stroke-linecap: round; opacity: .75; }
+.hm3-stones { fill: color-mix(in srgb, var(--accent) 34%, var(--hm3-ground)); }
+.hm3-beam { fill: var(--accent); opacity: .55; }
+.hm3-sun-solid { fill: var(--accent); }
+.hm3-spin { transform-box: view-box; transform-origin: 800px 178px; animation: hm3-spin 80s linear infinite; }
+@keyframes hm3-spin { to { transform: rotate(360deg); } }
+
+/* C: the surviving witness, in the home page's own two columns */
+.hm3-witness { position: relative; width: 100%; height: clamp(290px, 50svh, 490px); color: var(--hm3-witness-gold); background: radial-gradient(ellipse at 48% 50%, color-mix(in srgb, var(--hm3-witness-gold) 10%, transparent), transparent 65%); }
+.hm3-orbit { position: absolute; left: 50%; top: 50%; border: 1px solid color-mix(in srgb, var(--hm3-witness-gold) 13%, transparent); border-radius: 50%; transform: translate(-50%, -50%) rotate(-25deg); }
+.hm3-orbit-one { width: 83%; height: 83%; }
+.hm3-orbit-two { width: 65%; height: 65%; border-style: dashed; }
+.hm3-sheet { position: absolute; top: 2%; left: 50%; height: 96%; aspect-ratio: 31 / 30; translate: -50% 0; transition: transform 1s cubic-bezier(.2, .7, .2, 1); }
+.hm3-sheet-back { transform: rotate(-12deg) translate(-27px, -10px); opacity: .55; color: var(--hm3-witness-blue); }
+.hm3-sheet-front { transform: rotate(13deg) translate(24px, 20px); }
+.hm3-witness:hover .hm3-sheet-back { transform: rotate(-16deg) translate(-39px, -15px); }
+.hm3-witness:hover .hm3-sheet-front { transform: rotate(8deg) translate(32px, 12px); }
+.hm3-folio { display: block; width: 100%; height: 100%; filter: drop-shadow(0 12px 16px #0002); }
+.hm3-witness-label { position: absolute; top: 0; left: 13%; font-size: .58rem; letter-spacing: .22em; color: var(--muted); }
+.hm3-witness-note { position: absolute; right: 0; bottom: 24%; font: 400 1.2rem/1.5 var(--font-serif); }
+.hm3-witness-note > span { color: var(--muted); }
+.hm3-witness-note i { display: block; width: 40px; margin-bottom: .8rem; border-top: 1px solid var(--hm3-witness-gold); }
+.hm3-witness small { position: absolute; left: 0; right: 0; bottom: 0; text-align: center; font-size: .59rem; color: var(--muted); }
+
+/* D: the page in the dawn */
+.hm3-d { position: relative; flex: 1; display: flex; overflow: hidden; background: radial-gradient(52% 88% at 74% 100%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 72%); }
+.hm3-d-sun { position: absolute; inset: 0 -26% 0 24%; pointer-events: none; }
+.home-opening .hm3-d-row { position: relative; align-items: center; }
+.hm3-d-art.ms-root { background: none; overflow: visible; width: 100%; max-width: 40rem; justify-self: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hm3-marquee-track, .hm3-spin { animation: none; }
+  .hm3-sheet { transition: none; }
+}
+@media (max-width: 860px) {
+  .hm3-b-sky { grid-template-columns: minmax(0, 1fr); }
+  .hm3-verse { margin-top: 0; justify-self: start; }
+  .hm3-road-scene { margin-top: 0; }
+  .hm3-witness { height: 320px; margin-top: 1.5rem; }
+  .hm3-witness-note { right: 0; bottom: 9%; font-size: .95rem; }
+  .hm3-d-sun { inset: 34% -60% 0 -60%; }
+  .hm3-d-art.ms-root { margin-top: 1.5rem; }
+}
