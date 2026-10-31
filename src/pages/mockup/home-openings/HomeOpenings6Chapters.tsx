@@ -10,7 +10,7 @@ import { useMemo, useState, type CSSProperties, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import { HOME_PATHS } from "@/components/home/collection-data";
 import { OpeningCopy, type OpeningProps } from "./HomeOpenings";
-import { WordWall } from "./HomeOpenings5";
+import { HEBREW, WordWall } from "./HomeOpenings5";
 import { useBooks } from "./HomeOpenings5Art";
 import { GATES, SECTION_NAMES, stone, tone } from "./HomeOpenings6City";
 import { SquareColumn } from "./HomeOpenings6Squares";
@@ -54,6 +54,14 @@ const WINGS: Record<"left" | "right", Wing[]> = {
   ],
 };
 
+/** I's small row of Hebrew, sliding where the gold marquee runs on G and H (owner, 2026-10-31). */
+function HebrewRow() {
+  const words = [...HEBREW, ...HEBREW];
+  return <div className="hm5-wall-row hm5-wall-hebrew hm6-hebrew-row" style={{ "--speed": "160s" } as CSSProperties} aria-hidden="true">
+    <div className="hm5-wall-track">{["first", "second"].map((copy) => <span key={copy}>{words.map((phrase, place) => <b dir="rtl" key={`${place}-${phrase}`}>{phrase}</b>)}</span>)}</div>
+  </div>;
+}
+
 function WingColumn({ side }: { side: "left" | "right" }) {
   return <nav className={`hm6-wing hm6-wing-${side}`} aria-label={side === "left" ? "Read and study" : "Explore"}>
     {WINGS[side].map(({ title, to, line, icon: Icon }) => <Link to={to} key={title}><Icon size={20} strokeWidth={1.5} aria-hidden /><strong>{title}</strong><span>{line}</span></Link>)}
@@ -69,7 +77,7 @@ export function CityOfChapters({ wings = false, squares = false, wall = false, .
   const choose = (event: MouseEvent) => { const index = Number((event.target as Element).getAttribute("data-stone") ?? -1); if (index >= 0) setPicked((now) => (now === index ? -1 : index)); };
   const copy = chosen ? { ...props, resume: `/read/bsb/${chosen.code}/${chosen.chapter}`, resumeLabel: `Continue: ${chosen.name} ${chosen.chapter}` } : props;
   return <section className={`hm6-stage hm6-f${wings ? " hm6-g" : ""}${wall ? " hm6-i" : ""}`} aria-labelledby="home-title">
-    {wall && <WordWall />}
+    {wall && <><WordWall /><HebrewRow /></>}
     {wings && <><WingColumn side="left" /><WingColumn side="right" /></>}
     {squares && <><SquareColumn side="left" /><SquareColumn side="right" /></>}
     <svg className="hm6-art hm6-city hm6-chapters" viewBox="0 0 1000 1000" aria-hidden="true">

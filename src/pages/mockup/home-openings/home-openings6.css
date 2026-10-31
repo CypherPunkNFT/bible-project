@@ -53,10 +53,10 @@
 }
 
 /* H: the home page's doorway squares, three down each side of the city. A square needs more room than G's links, so they
-   show only on screens at least half again as wide as they are tall. */
+   show only on screens at least half again as wide as they are tall. They stand from the start, like the gates (owner, 2026-10-31). */
 .hm6-squares { display: none; }
 @media (min-width: 1100px) and (min-aspect-ratio: 3/2) {
-  .hm6-stage .hm6-squares { --hm6-square: calc((100svh - var(--home-header-height, 60px) - 46px) * .86); position: absolute; top: 50%; z-index: 2; display: grid; grid-template-columns: 1fr; gap: 14px; width: min(15rem, calc((100% - var(--hm6-square)) / 2 - 4.5rem)); margin: 0; text-align: left; transform: translateY(-50%); animation: hm6-fade 1.2s .5s ease-out both; }
+  .hm6-stage .hm6-squares { --hm6-square: calc((100svh - var(--home-header-height, 60px) - 46px) * .86); position: absolute; top: 50%; z-index: 2; display: grid; grid-template-columns: 1fr; gap: 14px; width: min(15rem, calc((100% - var(--hm6-square)) / 2 - 4.5rem)); margin: 0; text-align: left; transform: translateY(-50%); }
   .hm6-squares-left { right: calc(50% + var(--hm6-square) / 2 + 2.5rem); }
   .hm6-squares-right { left: calc(50% + var(--hm6-square) / 2 + 2.5rem); }
   .hm6-squares a:focus { outline: none; }
@@ -69,17 +69,30 @@
    cover of the page colour, as does the verse under the city (owner, 2026-10-31). */
 .hm6-i .hm6-art { filter: drop-shadow(0 0 10px var(--page)) drop-shadow(0 0 6px var(--page)); }
 .hm6-stage.hm6-i .hm6-squares { background: var(--surface); box-shadow: 0 0 20px 12px var(--page); }
+/* The squares' edges, round them and between them, are the city wall's gold line (owner, 2026-10-31). */
+.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares { border: 1.5px solid var(--accent); }
+.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a { border-bottom: 1.5px solid var(--accent); }
+.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a:last-child { border-bottom: 0; }
+/* I has no gold marquee: its last 45.8px (the marquee's height) hold a small row of Hebrew instead, so the city, squares and verse keep H's sizes and
+   places above it (owner, 2026-10-31). */
+.hm6-stage.hm6-i { padding-bottom: calc(1rem + 45.8px); }
+.hm6-i .hm5-wall { bottom: 45.8px; }
+.hm6-i .hm6-art { height: calc(100% - 45.8px); }
+.hm6-stage.hm6-i .hm6-squares { top: calc(50% - 22.9px); }
+.hm6-i .hm6-note { bottom: calc(.9rem + 45.8px); }
+.hm6-i .hm6-hebrew-row { position: absolute; left: 0; right: 0; bottom: 0; height: 45.8px; display: flex; align-items: center; font-size: 1.3rem; pointer-events: none; }
 .hm6-i .hm6-note { width: fit-content; margin-inline: auto; background: var(--page); box-shadow: 0 0 16px 10px var(--page); }
 
 @media (prefers-reduced-motion: reduce) {
-  .hm6-chapter-stones path, .hm6-wing, .hm6-squares { animation: none; }
+  .hm6-chapter-stones path, .hm6-wing { animation: none; }
 }
 @media (max-width: 860px) {
   .hm6-stage { display: flex; flex-direction: column; justify-content: flex-start; padding-top: 1.2rem; }
   .hm6-stage h1 { font-size: clamp(39px, 10.5vw, 64px); }
   .hm6-stage .home-hero-copy { order: 2; padding-bottom: 3.6rem; }
   .hm6-i .hm6-art, .hm6-i .hm6-note { position: relative; }
-  .hm6-i .hm6-note { box-shadow: 0 0 6px 3px var(--page); }
+  .hm6-i .hm6-art { height: auto; }
+  .hm6-i .hm6-note { bottom: auto; z-index: 3; box-shadow: 0 0 6px 3px var(--page); }
   .hm6-i .home-hero-copy > * { width: fit-content; max-width: 100%; margin-inline: auto; background: var(--page); box-shadow: 0 0 38px 32px var(--page); }
   .hm6-art { position: static; width: 100%; height: auto; max-height: clamp(8rem, calc(100svh - var(--home-header-height, 60px) - 31rem), 26rem); margin-top: auto; }
   .hm6-note { position: static; order: 1; margin-block: .2rem .6rem; font-size: .8rem; }
