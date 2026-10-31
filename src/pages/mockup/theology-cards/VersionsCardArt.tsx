@@ -3,7 +3,7 @@
 // reduced motion (theology-cards.css).
 import type { CSSProperties } from "react";
 
-/** "In the beginning" in each of the library's 17 languages: the phrase, its language, its edition, and where it floats. */
+/** "In the beginning" in 17 of the library's 140 languages: the phrase, its language, its edition, and where it floats. */
 const BEGINNINGS: { text: string; lang: string; edition: string; left: number; top: number }[] = [
   { text: "בְּרֵאשִׁית", lang: "he", edition: "WLC", left: 6, top: 4 },
   { text: "Ἐν ἀρχῇ", lang: "grc", edition: "LXX", left: 28, top: 3 },
@@ -61,7 +61,7 @@ export function BeginningsArt() {
   return <div className="study-art tc-art tc-beginnings" aria-hidden="true">
     {BEGINNINGS.map((b, i) => <span key={b.edition} lang={b.lang} className="tc-beginning" style={{ ...(b.left >= 70 ? { right: `${Math.max(2, 84 - b.left)}%` } : { left: `${b.left}%` }), top: `${b.top}%`, animationDelay: `-${(i * 1.7) % 9}s, -${(i * 1.1) % 5}s` }}>{b.text}</span>)}
     <strong lang="en">In the beginning</strong>
-    <span className="study-art-note">Genesis 1:1 in all 17 of the library’s languages</span>
+    <span className="study-art-note">Genesis 1:1 in 17 of the library’s 140 languages</span>
   </div>;
 }
 

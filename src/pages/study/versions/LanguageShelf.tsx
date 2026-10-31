@@ -10,7 +10,7 @@ const NATIVE: Record<string, string> = {
   vi: "Tiếng Việt", fa: "فارسی", it: "Italiano",
 };
 
-/** How the first figure names each group: "17 English · 7 original & ancient · 13 translations". */
+/** How the first figure names each group: "17 English · 7 original & ancient · 136 translations". */
 const GROUP_WORDS = { english: "English", original: "original & ancient", translations: "translations" };
 
 /** Where an edition opens: its first book at its first chapter. */
