@@ -3,7 +3,7 @@
 // ones under the opening, unchanged: the same card, artwork, colour and line. Sources had no square, so it gets one in the
 // same style, with a shelf of books drawn like the others' miniatures.
 import { ArrowUpRight } from "lucide-react";
-import { createContext, useContext, type CSSProperties, type ReactElement } from "react";
+import { createContext, useContext, useLayoutEffect, type CSSProperties, type ReactElement, type RefObject } from "react";
 import { Link } from "react-router-dom";
 import { CollectionArtwork } from "@/components/home/HomeArtwork";
 
@@ -38,6 +38,35 @@ function SourcesArtwork() {
     <path d="M120 150H372" stroke="currentColor" strokeWidth="1.6" />
     {[[78, 94], [402, 94]].map(([x, y]) => <g key={x}><circle cx={x} cy={y} r="8" fill="var(--surface)" stroke="currentColor" /><circle cx={x} cy={y} r="2.5" fill="currentColor" /></g>)}
   </svg>;
+}
+
+/** The squares stay as long as there is room beside the city (owner, 2026-10-31: "the margins to the left and right can be
+ *  reduced completely ... these could potentially squeeze to the edge of the yellow line"). As the screen narrows, the
+ *  margin at the screen's edge and the gap to the wall shrink together, the gap only to just clear the pearls; then the
+ *  squares narrow; below the narrowest square they are left out. Measured from the drawn wall, so it holds at any height.
+ *  Sets --hm6-square (the wall's width), --hm6-gap and --hm6-column on the stage, and data-squares="fit" when they fit. */
+const COLUMN_WIDEST = 240, COLUMN_NARROWEST = 176, GAP_WIDEST = 40, EDGE_WIDEST = 32, PEARL_CLEARANCE = 8;
+export function useSquareRoom(stage: RefObject<HTMLElement>, on: boolean) {
+  useLayoutEffect(() => {
+    const section = stage.current;
+    if (!on || !section) return;
+    const place = () => {
+      const wall = section.querySelector(".hm6-wall")?.getBoundingClientRect(), pearl = section.querySelector(".hm6-pearl")?.getBoundingClientRect();
+      if (!wall || !pearl || innerWidth <= 860) { section.dataset.squares = "none"; return; }
+      const room = wall.left - section.getBoundingClientRect().left, narrowestGap = pearl.width / 2 + PEARL_CLEARANCE;
+      const spare = room - COLUMN_WIDEST;
+      const share = Math.min(1, Math.max(0, (spare - narrowestGap) / (GAP_WIDEST - narrowestGap + EDGE_WIDEST)));
+      const gap = narrowestGap + (GAP_WIDEST - narrowestGap) * share, column = Math.min(COLUMN_WIDEST, room - gap - EDGE_WIDEST * share);
+      section.style.setProperty("--hm6-square", `${wall.width}px`);
+      section.style.setProperty("--hm6-gap", `${gap}px`);
+      section.style.setProperty("--hm6-column", `${column}px`);
+      section.dataset.squares = column >= COLUMN_NARROWEST ? "fit" : "none";
+    };
+    place();
+    const observer = new ResizeObserver(place);
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [stage, on]);
 }
 
 /** A mock-up can hand the squares other drawings, by title, without touching the homepage (/home_mockup10, owner,

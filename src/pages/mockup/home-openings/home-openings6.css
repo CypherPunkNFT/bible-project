@@ -55,13 +55,15 @@
   .hm6-wing a:hover strong { color: var(--accent); }
 }
 
-/* H: the home page's doorway squares, three down each side of the city. A square needs more room than G's links, so they
-   show only on screens at least half again as wide as they are tall. They stand from the start, like the gates (owner, 2026-10-31). */
+/* H: the home page's doorway squares, three down each side of the city. They stand from the start, like the gates (owner,
+   2026-10-31). They show whenever there is room beside the city: useSquareRoom (HomeOpenings6Squares.tsx) measures the wall
+   and sets the wall's width, the gap to it and the squares' width, and data-squares="fit" when they fit (owner, 2026-10-31:
+   the margins "can be reduced completely", the squares "squeeze to the edge of the yellow line"). */
 .hm6-squares { display: none; }
-@media (min-width: 1100px) and (min-aspect-ratio: 3/2) {
-  .hm6-stage .hm6-squares { --hm6-square: calc((100svh - var(--home-header-height, 60px) - 46px) * .86); position: absolute; top: 50%; z-index: 2; display: grid; grid-template-columns: 1fr; gap: 14px; width: min(15rem, calc((100% - var(--hm6-square)) / 2 - 4.5rem)); margin: 0; text-align: left; transform: translateY(-50%); }
-  .hm6-squares-left { right: calc(50% + var(--hm6-square) / 2 + 2.5rem); }
-  .hm6-squares-right { left: calc(50% + var(--hm6-square) / 2 + 2.5rem); }
+@media (min-width: 861px) {
+  .hm6-stage[data-squares="fit"] .hm6-squares { position: absolute; top: 50%; z-index: 2; display: grid; grid-template-columns: 1fr; gap: 14px; width: var(--hm6-column); margin: 0; text-align: left; transform: translateY(-50%); }
+  .hm6-squares-left { right: calc(50% + var(--hm6-square) / 2 + var(--hm6-gap)); }
+  .hm6-squares-right { left: calc(50% + var(--hm6-square) / 2 + var(--hm6-gap)); }
   .hm6-squares a:focus { outline: none; }
 }
 /* The strip's dividers run between the squares; stacked, they run across (owner, 2026-10-31). */
@@ -72,7 +74,8 @@
    cover of the page colour, as does the verse under the city (owner, 2026-10-31). */
 /* The covers a little thicker and wider than first set (owner, 2026-10-31). */
 .hm6-i .hm6-art { filter: drop-shadow(0 0 16px var(--page)) drop-shadow(0 0 10px var(--page)); }
-.hm6-stage.hm6-i .hm6-squares { background: var(--surface); box-shadow: 0 0 30px 20px var(--page); }
+/* The squares' cover thins as they close on the wall, so it never reaches the wall's gold line. */
+.hm6-stage.hm6-i .hm6-squares { background: var(--surface); box-shadow: 0 0 min(30px, var(--hm6-gap, 40px) * .75) min(20px, var(--hm6-gap, 40px) * .5) var(--page); }
 /* The squares' edges, round them and between them, are the questions page's hairline (test-options.css, .th-shelves), with
    its motion on pointing, the same values: a faint wash of the square's colour, a coloured ring with a soft glow, its colour
    sweeping in along the top, and the arrow stepping on (owner, 2026-10-31). Each square has its own line, laid over its
