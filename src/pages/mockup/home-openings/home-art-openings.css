@@ -1,0 +1,72 @@
+/* MOCK-UP: the newly drawn openings of /home_mockup4. The scrolls fill the first screen; the manuscript's ends in the marquee. */
+.home-opening.hm4-first { padding-bottom: 0; }
+.hm4-page .home-doorways { margin-top: 26px; }
+.hm4-page .to-pill { bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
+
+.hm4-sun-disc { fill: color-mix(in srgb, var(--accent) 24%, var(--page)); stroke: var(--accent); stroke-width: 1.2; }
+.hm4-sun-solid { fill: var(--accent); stroke: none; }
+.hm4-sun-outline { fill: none; stroke: var(--accent); stroke-width: 1; opacity: .5; }
+
+/* A and B: the scroll */
+.hm4-b h1 { font-size: clamp(54px, 8svh, 80px); line-height: 1.1; letter-spacing: -.06em; margin-block: 20px; }
+.hm4-b .home-hero-break { display: none; }
+.hm4-b { position: relative; flex: 1; display: flex; overflow: hidden; padding-block: clamp(1rem, 3svh, 2.5rem) clamp(12rem, 29svh, 16rem); }
+.hm4-b > .home-wrap { position: relative; width: 100%; }
+.hm4-b .home-hero-copy { max-width: 42rem; }
+.hm4-scroll-art { --hm4-scroll-margin: max(var(--site-gutter), 4vw); position: absolute; left: var(--hm4-scroll-margin); bottom: 0; width: calc(100% - 2 * var(--hm4-scroll-margin)); height: min(78%, 560px); overflow: visible; pointer-events: none; }
+/* A: edge to edge, as the scroll was first drawn */
+.hm4-scroll-edge { left: 0; width: 100%; height: 78%; }
+.hm4-sheet-writing { fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 26 7 12 7 40 8 18 7 30 9; opacity: .45; }
+.hm4-sheet-script { fill: var(--accent); opacity: .55; }
+.hm4-script-he { font: 400 17px "Times New Roman", "David", serif; }
+.hm4-script-grc { font: 400 14px "Times New Roman", Georgia, serif; letter-spacing: .16em; }
+.hm4-script-en { font: italic 400 17px Georgia, "Times New Roman", serif; opacity: .72; }
+.hm4-scroll-ring { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 26 7 12 7 40 8 18 7 30 9; transform-box: view-box; transform-origin: 1300px 262px; animation: hm4-turn 160s linear infinite; }
+.hm4-scroll-ring-1 { animation-direction: reverse; }
+@keyframes hm4-turn { to { transform: rotate(360deg); } }
+.hm4-sheet-far .hm4-sheet-fill { fill: var(--hm3-far); }
+.hm4-sheet-mid .hm4-sheet-fill { fill: var(--hm3-mid); }
+.hm4-sheet-near .hm4-sheet-fill { fill: var(--hm3-ground); }
+.hm4-sheet-edge { fill: none; stroke: var(--accent); stroke-width: 1.3; }
+/* The scroll's ends: flat fills and gold line, like the hills */
+.hm4-roll-fill { fill: var(--hm3-ground); stroke: var(--accent); stroke-width: 1.3; stroke-linejoin: round; }
+.hm4-roll-cap { fill: var(--hm3-mid); stroke: var(--accent); stroke-width: 1.3; }
+.hm4-roll-line { fill: none; stroke: var(--accent); stroke-width: 1; stroke-linejoin: round; }
+.hm4-roll-hatch { fill: none; stroke: var(--accent); stroke-width: .9; opacity: .5; }
+.hm4-roll-writing { fill: none; stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 7 3 3 3 10 3; opacity: .42; }
+
+/* C: the manuscript, copy beside the drawing */
+.home-opening .hm4-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); padding-block: clamp(.75rem, 2svh, 1.5rem); gap: clamp(1rem, 3vw, 3rem); }
+.home-opening .hm4-row-flip { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+.hm4-pieces { margin: 0; min-width: 0; text-align: center; }
+.hm4-pieces svg { display: block; width: 100%; height: auto; max-height: calc(100svh - var(--home-header-height, 60px) - 8.5rem); margin-inline: auto; overflow: visible; }
+.hm4-pieces figcaption { margin: .4rem auto 0; max-width: 32rem; font-size: 12px; line-height: 1.5; color: var(--muted); }
+.hm4-pieces figcaption { font: 400 1.05rem/1.4 var(--font-serif); color: var(--ink); }
+
+.hm4-leaf { stroke: var(--accent); stroke-width: 1.1; }
+.hm4-leaf-ring-0 { fill: color-mix(in srgb, var(--accent) 52%, var(--page)); }
+.hm4-leaf-ring-1 { fill: color-mix(in srgb, var(--accent) 30%, var(--page)); }
+.hm4-leaf-ring-2 { fill: color-mix(in srgb, var(--accent) 14%, var(--page)); }
+.hm4-leaf-line { fill: none; stroke: var(--ink); stroke-width: 1.2; opacity: .42; }
+.hm4-leaf-place { fill: none; stroke: var(--accent); stroke-width: 1; stroke-dasharray: 2 6; opacity: .55; }
+.hm4-leaf-settle { transform-box: view-box; transform-origin: 450px 400px; animation: hm4-leaf-settle 1.5s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes hm4-leaf-settle { from { transform: translate(var(--dx), var(--dy)) rotate(var(--turn)); opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hm4-scroll-ring, .hm4-leaf-settle { animation: none; }
+}
+@media (max-width: 860px) {
+  .hm4-b h1 { font-size: clamp(39px, 10.5vw, 64px); margin-block: 16px; }
+  .hm4-b { padding-bottom: clamp(8rem, 28svh, 15rem); }
+  .hm4-scroll-art { height: clamp(11rem, 38svh, 21rem); }
+  .home-opening .hm4-row, .home-opening .hm4-row-flip { grid-template-columns: minmax(0, 1fr); }
+  .hm4-row-flip .hm4-pieces { order: 2; }
+  .hm4-pieces svg { max-height: clamp(9rem, 26svh, 15rem); }
+  .hm4-pieces { margin-bottom: 3rem; }
+  .hm4-page .to-pill { bottom: calc(52px + env(safe-area-inset-bottom, 0px)); }
+}
+@media (max-width: 860px) and (max-height: 760px) {
+  .hm4-pieces figcaption { display: none; }
+  .hm4-pieces svg { max-height: 20svh; }
+  .home-opening .hm4-row .home-hero-foot { margin-top: 10px; }
+}

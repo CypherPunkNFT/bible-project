@@ -1,0 +1,104 @@
+/* MOCK-UP: the four openings of /home_mockup7. The first screen ends in the gold marquee; the doorways come after it. */
+.home-opening.hm7-first { padding-bottom: 0; }
+.hm7-page .home-doorways { margin-top: 26px; }
+.hm7-page .to-pill { bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
+
+.hm7-stage { position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; overflow: hidden; padding-top: clamp(1rem, 3svh, 2.5rem); text-align: center; }
+.hm7-stage .home-hero-copy { position: relative; z-index: 2; padding-inline: var(--site-gutter); }
+.hm7-stage .home-eyebrow, .hm7-stage .home-hero-actions { justify-content: center; }
+.hm7-stage h1 { font-size: clamp(48px, 7svh, 76px); line-height: 1.1; letter-spacing: -.06em; margin-block: 18px; }
+.hm7-stage .home-hero-break { display: none; }
+.hm7-stage .home-hero-lead, .hm7-stage .home-hero-foot { text-shadow: 0 0 6px var(--page), 0 0 12px var(--page), 0 0 18px var(--page); }
+.hm7-stage figure, .hm7-plan { margin: 0; }
+.hm7-stage figcaption, .hm7-plan figcaption { font: italic 400 .95rem/1.4 var(--font-serif); color: var(--muted); }
+.hm7-stage figcaption a { font: 600 12px var(--font-sans); color: var(--accent); }
+@keyframes hm7-fade { from { opacity: 0; } }
+@keyframes hm7-draw { to { stroke-dashoffset: 0; } }
+
+/* A: the tabernacle */
+.home-opening .hm7-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding-block: clamp(.5rem, 1.5svh, 1rem) 3.8rem; gap: clamp(1rem, 3vw, 3rem); }
+.hm7-plan { min-width: 0; text-align: center; }
+.hm7-plan svg { display: block; width: 100%; height: auto; max-height: calc(100svh - var(--home-header-height, 60px) - 9.4rem); margin-inline: auto; }
+.hm7-plan figcaption { margin-top: .3rem; font-size: .85rem; }
+.hm7-court { fill: color-mix(in srgb, var(--accent) 6%, var(--page)); }
+.hm7-dimension { fill: none; stroke: var(--muted); stroke-width: 1; }
+.hm7-label { fill: var(--muted); font: 600 9.5px var(--font-sans); letter-spacing: .14em; }
+.hm7-label-centre { text-anchor: middle; }
+.hm7-linen { fill: none; stroke: color-mix(in srgb, var(--ink) 70%, var(--page)); stroke-width: 3; stroke-dasharray: 9 3; }
+.hm7-yarn { fill: none; stroke-width: 3; }
+.hm7-yarn-blue { stroke: #2f5fa7; }
+.hm7-yarn-purple { stroke: #7a3fa8; }
+.hm7-yarn-scarlet { stroke: #c2283a; }
+.hm7-post { fill: #b07a3c; stroke: var(--accent); stroke-width: 1; animation: hm7-fade .5s ease-out both; }
+.hm7-tent { animation: hm7-fade 1.2s .9s ease-out both; }
+.hm7-tent-cloth { fill: color-mix(in srgb, var(--accent) 34%, var(--page)); stroke: var(--accent); stroke-width: 1.5; }
+.hm7-gold { fill: var(--accent); }
+.hm7-gold-line { fill: var(--accent); stroke: var(--accent); }
+.hm7-gold-line path { fill: none; stroke-width: 1.4; }
+.hm7-basin { fill: color-mix(in srgb, #2f5fa7 30%, var(--page)); stroke: #b07a3c; stroke-width: 4; }
+.hm7-altar rect { fill: color-mix(in srgb, #b07a3c 40%, var(--page)); stroke: #b07a3c; stroke-width: 2; }
+.hm7-altar path { stroke: #b07a3c; stroke-width: 1; opacity: .7; }
+.hm7-altar .hm7-horn { fill: #b07a3c; }
+.hm7-callout path { fill: none; stroke: var(--muted); stroke-width: .8; stroke-dasharray: 2 3; }
+
+/* B: the lampstand */
+.hm7-lampstand { display: flex; flex-direction: column; flex: 1; width: 100%; min-height: 0; }
+.hm7-lampstand svg { flex: none; width: 100%; height: clamp(10rem, calc(100svh - var(--home-header-height, 60px) - 33rem), 36rem); margin-top: clamp(-3rem, -4svh, -1rem); animation: hm7-fade 1.4s ease-out both; }
+.hm7-lampstand figcaption { padding-bottom: 3.9rem; }
+.hm7-branch { fill: none; stroke: url(#hm7-gold); stroke-width: 13; stroke-linecap: round; }
+.hm7-shaft { stroke-width: 17; }
+.hm7-base { fill: url(#hm7-gold); }
+.hm7-cup { fill: url(#hm7-gold); stroke: #8a5f14; stroke-width: 1; }
+.hm7-knop { fill: #e7bf68; stroke: #8a5f14; stroke-width: 1; }
+.hm7-lamp-bowl { fill: url(#hm7-gold); stroke: #8a5f14; stroke-width: 1; }
+.hm7-flame { fill: #ffd27a; stroke: #f39b2c; stroke-width: 1.5; transform-box: fill-box; transform-origin: 50% 100%; animation: hm7-flicker 2.6s ease-in-out infinite; }
+@keyframes hm7-flicker { 0%, 100% { transform: scale(1, 1); } 35% { transform: scale(.92, 1.08) rotate(-3deg); } 65% { transform: scale(1.05, .94) rotate(3deg); } }
+
+/* C: the vine */
+.hm7-c { justify-content: center; }
+.hm7-vine { position: absolute; inset: 0; }
+.hm7-vine svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hm7-vine figcaption { position: absolute; left: 0; right: 0; top: .6rem; }
+.hm7-stem { fill: none; stroke: color-mix(in srgb, var(--history) 70%, var(--accent)); stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: hm7-draw 1.8s cubic-bezier(.3, .6, .2, 1) forwards; }
+.hm7-tendril { fill: none; stroke: color-mix(in srgb, var(--history) 60%, var(--accent)); stroke-width: 1.6; stroke-linecap: round; animation: hm7-fade 1s 1.4s both; }
+.hm7-leaf { fill: color-mix(in srgb, var(--poetry) 50%, var(--page)); stroke: var(--poetry); stroke-width: 1.2; animation: hm7-leaf .7s cubic-bezier(.2, .8, .3, 1.3) both; }
+.hm7-vein { fill: none; stroke: var(--poetry); stroke-width: 1; opacity: .7; }
+@keyframes hm7-leaf { from { transform: scale(0); } }
+.hm7-grapes circle { fill: color-mix(in srgb, var(--gospels) 80%, var(--page)); stroke: var(--gospels); stroke-width: 1; }
+.hm7-grapes { animation: hm7-fade 1s 1.6s both; }
+
+/* D: the two pillars */
+.hm7-d { justify-content: center; }
+.hm7-pillars { position: absolute; inset: 0; }
+.hm7-pillars svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hm7-pillars figcaption { position: absolute; left: 0; right: 0; bottom: 4rem; z-index: 2; padding-inline: 22%; }
+.hm7-porch { fill: none; stroke: var(--accent); stroke-width: 1.2; opacity: .3; }
+.hm7-step { fill: color-mix(in srgb, var(--accent) 10%, var(--page)); stroke: color-mix(in srgb, var(--accent) 50%, transparent); }
+.hm7-pillar { animation: hm7-rise 1.2s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes hm7-rise { from { opacity: 0; transform: translateY(40px); } }
+.hm7-plinth { fill: color-mix(in srgb, #a8763f 40%, var(--page)); stroke: #a8763f; stroke-width: 1.5; }
+.hm7-pillar-name { fill: var(--ink); font: 600 15px var(--font-sans); letter-spacing: .4em; text-anchor: middle; }
+.hm7-astragal { fill: #e3b675; }
+.hm7-network path { fill: none; stroke: #4e331c; stroke-width: 1.2; opacity: .55; }
+.hm7-chain { fill: none; stroke: #f0c88a; stroke-width: 3; stroke-dasharray: 2 4; stroke-linecap: round; }
+.hm7-pomegranate { fill: color-mix(in srgb, #b3263c 55%, #a8763f); stroke: #5a3c22; stroke-width: .8; }
+.hm7-abacus { fill: #c8955a; stroke: #5a3c22; }
+.hm7-lily { fill: #d9aa6a; stroke: #5a3c22; stroke-width: 1.2; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hm7-post, .hm7-tent, .hm7-lampstand svg, .hm7-flame, .hm7-tendril, .hm7-leaf, .hm7-grapes, .hm7-pillar { animation: none; }
+  .hm7-stem { animation: none; stroke-dashoffset: 0; }
+}
+@media (max-width: 860px) {
+  .hm7-stage h1 { font-size: clamp(39px, 10.5vw, 64px); margin-block: 16px; }
+  .home-opening .hm7-row { grid-template-columns: minmax(0, 1fr); padding-bottom: 3.6rem; }
+  .hm7-plan svg { max-height: clamp(9rem, calc(100svh - var(--home-header-height, 60px) - 29rem), 26rem); }
+  .hm7-plan figcaption { display: none; }
+  .hm7-lampstand svg { margin-top: 0; }
+  .hm7-lampstand figcaption, .hm7-vine figcaption, .hm7-pillars figcaption { font-size: .8rem; }
+  .hm7-c, .hm7-d { justify-content: flex-start; }
+  .hm7-vine, .hm7-pillars { position: relative; inset: auto; flex: 1; width: 100%; min-height: 9rem; }
+  .hm7-vine figcaption { top: auto; bottom: 3.6rem; }
+  .hm7-pillars figcaption { bottom: 3.6rem; padding-inline: 12%; }
+  .hm7-page .to-pill { bottom: calc(52px + env(safe-area-inset-bottom, 0px)); }
+}

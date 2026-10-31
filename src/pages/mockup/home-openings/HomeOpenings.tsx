@@ -16,7 +16,7 @@ export const OPENINGS = [
 ] as const;
 export type OpeningId = (typeof OPENINGS)[number]["id"];
 
-interface OpeningProps {
+export interface OpeningProps {
   resume: string;
   resumeLabel: string;
   versions: number;
@@ -24,9 +24,9 @@ interface OpeningProps {
 }
 
 // Every phrase is the Berean Standard Bible's own wording.
-const MARQUEE = ["In the beginning was the Word", "The Word became flesh", "Come and see", "Your word is a lamp to my feet", "Taste and see that the LORD is good", "The truth will set you free", "All Scripture is God-breathed", "Your word is truth", "Faith comes by hearing", "Always be prepared to give a defense", "Carry one another's burdens", "The word of our God stands forever", "Behold, I make all things new"];
+export const MARQUEE = ["In the beginning was the Word", "The Word became flesh", "Come and see", "Your word is a lamp to my feet", "Taste and see that the LORD is good", "The truth will set you free", "All Scripture is God-breathed", "Your word is truth", "Faith comes by hearing", "Always be prepared to give a defense", "Carry one another's burdens", "The word of our God stands forever", "Behold, I make all things new"];
 
-function GoldMarquee() {
+export function GoldMarquee() {
   const run = (key: string) => <div className="hm3-marquee-run" key={key}>{MARQUEE.map((words) => <span key={words}>{words}</span>)}</div>;
   return <div className="hm3-marquee" aria-hidden="true"><div className="hm3-marquee-track">{run("first")}{run("second")}</div></div>;
 }
@@ -117,7 +117,7 @@ function WitnessArt() {
   </div>;
 }
 
-function OpeningCopy({ resume, resumeLabel, versions, languages }: OpeningProps) {
+export function OpeningCopy({ resume, resumeLabel, versions, languages }: OpeningProps) {
   return <div className="home-hero-copy">
     <p className="home-eyebrow"><span className="home-live-dot" />The Bible, open to you</p>
     <h1 id="home-title">One Word.<br /><em>A world to<br className="home-hero-break" /> discover.</em></h1>

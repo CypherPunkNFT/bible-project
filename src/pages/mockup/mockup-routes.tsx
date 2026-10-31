@@ -7,6 +7,10 @@ import { Navigate, Route } from "react-router-dom";
 const HomePageMockup = lazy(() => import("./HomePageMockup"));
 const HomePageMockup2 = lazy(() => import("./HomePageMockup2"));
 const HomePageMockup3 = lazy(() => import("./HomePageMockup3"));
+const HomePageMockup4 = lazy(() => import("./HomePageMockup4"));
+const HomePageMockup5 = lazy(() => import("./HomePageMockup5"));
+const HomePageMockup6 = lazy(() => import("./HomePageMockup6"));
+const HomePageMockup7 = lazy(() => import("./HomePageMockup7"));
 const HomeMockupsPage = lazy(() => import("@/pages/HomeMockupsPage"));
 const StudyHubMockup = lazy(() => import("./StudyHubMockup"));
 const QuizMockupPage = lazy(() => import("./QuizMockupPage"));
@@ -42,6 +46,14 @@ export function mockupRoutes() {
     <Route key="home2" path="/home_mockup2" element={<><MockupTag /><HomePageMockup2 /></>} />,
     // Four openings on a floating pill, with the sun, the manuscript art and the gold marquee (owner, 2026-10-30). No MOCK-UP tag: a mock-up shows only the real page (owner, 2026-10-28).
     <Route key="home3" path="/home_mockup3" element={<HomePageMockup3 />} />,
+    // Newly drawn openings with the marquee at the very bottom of the screen (owner, 2026-10-30).
+    <Route key="home4" path="/home_mockup4" element={<HomePageMockup4 />} />,
+    // Six more openings with new drawings; the marquee takes a different shape in each (owner, 2026-10-30: "lets get very creative").
+    <Route key="home5" path="/home_mockup5" element={<HomePageMockup5 />} />,
+    // Four symmetrical openings in one gold-line look: ring, gate, four corners, the city (owner, 2026-10-30).
+    <Route key="home6" path="/home_mockup6" element={<HomePageMockup6 />} />,
+    // Four openings drawn from Scripture: the tabernacle, the lampstand, the vine, two pillars (owner, 2026-10-30).
+    <Route key="home7" path="/home_mockup7" element={<HomePageMockup7 />} />,
     <Route key="study" path="/study_mockup" element={<><MockupTag /><StudyHubMockup /></>} />,
     <Route key="quiz" path="/quiz_mockup" element={<><MockupTag /><QuizMockupPage /></>} />,
     <Route key="wilderness" path="/wilderness_mockup" element={<><MockupTag /><WildernessMockupPage /></>} />,
