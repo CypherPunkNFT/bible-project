@@ -11,20 +11,20 @@ import { OpeningCopy, type OpeningProps } from "./HomeOpenings";
 import { useBooks } from "./HomeOpenings5Art";
 
 const fixed = (value: number) => value.toFixed(1);
-const tone = (section: string) => ({ "--tone": `var(--${section})` } as CSSProperties);
-const SECTION_NAMES: Record<string, string> = { history: "Law & history", poetry: "Poetry & wisdom", prophets: "Prophets", gospels: "Gospels & Acts", epistles: "Letters", revelation: "Revelation" };
-const GATES = [250, 500, 750].flatMap((along) => [[along, 70], [along, 930], [70, along], [930, along]]);
+export const tone = (section: string) => ({ "--tone": `var(--${section})` } as CSSProperties);
+export const SECTION_NAMES: Record<string, string> = { history: "Law & history", poetry: "Poetry & wisdom", prophets: "Prophets", gospels: "Gospels & Acts", epistles: "Letters", revelation: "Revelation" };
+export const GATES = [250, 500, 750].flatMap((along) => [[along, 70], [along, 930], [70, along], [930, along]]);
 /** The two courses of the wall, as distances in from the city's edge. */
 const COURSES = [{ first: 1, last: 39, outer: 84, inner: 134 }, { first: 40, last: 66, outer: 142, inner: 184 }];
 
 /** A point on the square `inset` in from the city's edge, `share` of the way round clockwise from the north-west corner. */
-function onWall(share: number, inset: number): [number, number] {
+export function onWall(share: number, inset: number): [number, number] {
   const length = 1000 - inset * 2, side = Math.min(3, Math.floor(share * 4)), along = (share * 4 - side) * length;
   return ([[inset + along, inset], [1000 - inset, inset + along], [1000 - inset - along, 1000 - inset], [inset, 1000 - inset - along]] as [number, number][])[side];
 }
 
 /** One book's stretch of wall between two shares of the way round, turning any corner it meets. */
-function stone(start: number, end: number, outer: number, inner: number) {
+export function stone(start: number, end: number, outer: number, inner: number) {
   const shares = [start, ...[0.25, 0.5, 0.75].filter((corner) => corner > start && corner < end), end];
   const edge = (inset: number) => shares.map((share) => onWall(share, inset));
   return `M${[...edge(outer), ...edge(inner).reverse()].map(([x, y]) => `${fixed(x)} ${fixed(y)}`).join("L")}Z`;

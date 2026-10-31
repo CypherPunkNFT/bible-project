@@ -6,6 +6,7 @@
 import { useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { GoldMarquee, MARQUEE, OpeningCopy, type OpeningProps } from "./HomeOpenings";
+import { CityOfChapters } from "./HomeOpenings6Chapters";
 import { CityOfBooks } from "./HomeOpenings6City";
 import "./home-openings6.css";
 
@@ -13,6 +14,7 @@ export const OPENINGS_6 = [
   { id: "b", name: "The gate" },
   { id: "d", name: "The city" },
   { id: "e", name: "City of books" },
+  { id: "f", name: "City of chapters" },
 ] as const;
 export type Opening6Id = (typeof OPENINGS_6)[number]["id"];
 
@@ -72,6 +74,7 @@ const VIEWS: Record<Opening6Id, (props: OpeningProps) => JSX.Element> = {
   b: (props) => <section className="hm6-stage hm6-b" aria-labelledby="home-title"><GateArt /><OpeningCopy {...props} /><p className="hm6-note">“I am the gate.” · <Link to="/read/bsb/JHN/10?hl=9">John 10:9</Link></p></section>,
   d: (props) => <><section className="hm6-stage hm6-d" aria-labelledby="home-title"><CityArt /><OpeningCopy {...props} /><p className="hm6-note">“the twelve gates were twelve pearls” · <Link to="/read/bsb/REV/21?hl=21">Revelation 21:21</Link></p></section><GoldMarquee /></>,
   e: (props) => <><CityOfBooks {...props} /><GoldMarquee /></>,
+  f: (props) => <><CityOfChapters {...props} /><GoldMarquee /></>,
 };
 
 export function Opening6({ version, ...props }: OpeningProps & { version: Opening6Id }) {

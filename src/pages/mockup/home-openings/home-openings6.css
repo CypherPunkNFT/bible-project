@@ -44,6 +44,11 @@
 .hm6-book.is-picked path { stroke: var(--ink); stroke-width: 3; }
 .hm6-book text { fill: var(--page); font: 700 13px var(--font-sans); letter-spacing: .06em; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
 .hm6-e .hm6-note { top: .5rem; bottom: auto; }
+/* F: the city of chapters, one small stone for each chapter */
+.hm6-chapter-stones { pointer-events: auto; cursor: pointer; animation: hm6-fade 1.2s ease-out both; }
+.hm6-chapter-stones path { fill: color-mix(in srgb, var(--tone) 78%, var(--page)); stroke: var(--page); stroke-width: 1.2; transition: fill .15s; }
+.hm6-chapter-stones path:hover, .hm6-chapter-stones path.is-picked { fill: var(--tone); }
+.hm6-chapter-ring { fill: var(--tone); stroke: var(--ink); stroke-width: 2.5; pointer-events: none; }
 .hm6-e .hm6-note strong { color: var(--tone); font-weight: 600; }
 
 @media (prefers-reduced-motion: reduce) {
