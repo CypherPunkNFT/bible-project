@@ -62,7 +62,10 @@ const WINGS: Record<"left" | "right", Wing[]> = {
 const ARABIC = ["في البدء كان الكلمة", "والكلمة صار جسدا", "والنور يضيء في الظلمة", "لأنه هكذا أحب الله العالم", "والحق يحرركم", "وأما كلمة الرب فتثبت إلى الأبد", "ولكن كلامي لا يزول"];
 const JAPANESE = ["初めに言があった", "あなたのみ言葉はわが足のともしび、わが道の光です", "われわれの神の言葉はとこしえに変ることはない", "神はそのひとり子を賜わったほどに、この世を愛して下さった", "主はわたしの牧者であって、わたしには乏しいことがない", "真理はあなたがたに自由を得させるであろう", "わたしの言葉は滅びることがない"];
 const CHINESE = ["起初，神创造天地", "你的话是我脚前的灯，是我路上的光", "惟有我们神的话必永远立定", "诸天述说神的荣耀", "耶和华是我的牧者，我必不致缺乏", "神爱世人"];
-const WALL_ROWS_I = WALL_ROWS.map(([kind, seconds], row) => [row === WALL_ROWS.length - 2 ? "chinese" : row === WALL_ROWS.length - 1 ? "arabic" : kind, seconds] as const);
+/** Latin, the Vulgate (Clementine, public domain), one more row near the bottom (owner, 2026-10-31): John 1:1, Psalm 119:105,
+ *  Isaiah 40:8, Genesis 1:1, John 3:16, Psalm 19:1, John 8:32, Psalm 23:1, Matthew 24:35 (the Vulgate numbers the psalms one lower). */
+const LATIN = ["In principio erat Verbum", "Lucerna pedibus meis verbum tuum, et lumen semitis meis", "verbum autem Domini nostri manet in aeternum", "In principio creavit Deus caelum et terram", "Sic enim Deus dilexit mundum", "Caeli enarrant gloriam Dei", "et veritas liberabit vos", "Dominus regit me, et nihil mihi deerit", "verba autem mea non praeteribunt"];
+const WALL_ROWS_I = [...WALL_ROWS.slice(0, -2), ["chinese", WALL_ROWS[WALL_ROWS.length - 2][1]], ["latin", 165], ["arabic", WALL_ROWS[WALL_ROWS.length - 1][1]]] as const;
 
 /** I's small row of Japanese, sliding where the gold marquee runs on G and H (owner, 2026-10-31). */
 function ScriptRow() {
@@ -109,7 +112,7 @@ export function CityOfChapters({ wings = false, squares = false, wall = false, .
     ? <><strong style={tone(chosen.section)}>{chosen.name} {chosen.chapter}</strong> · {SECTION_NAMES[chosen.section] ?? chosen.section}</>
     : <>“the twelve gates were twelve pearls” · <Link to="/read/bsb/REV/21?hl=21">Revelation 21:21</Link> · {stones.length.toLocaleString("en")} chapters in the wall</>}</p>;
   return <section className={`hm6-stage hm6-f${wings ? " hm6-g" : ""}${wall ? " hm6-i" : ""}`} aria-labelledby="home-title">
-    {wall && <><WordWall rows={WALL_ROWS_I} pools={{ chinese: CHINESE, arabic: ARABIC }} /><ScriptRow /></>}
+    {wall && <><WordWall rows={WALL_ROWS_I} pools={{ chinese: CHINESE, latin: LATIN, arabic: ARABIC }} /><ScriptRow /></>}
     {wings && <><WingColumn side="left" /><WingColumn side="right" /></>}
     {squares && <><SquareColumn side="left" /><SquareColumn side="right" /></>}
     <svg className="hm6-art hm6-city hm6-chapters" viewBox="0 0 1000 1000" aria-hidden="true">

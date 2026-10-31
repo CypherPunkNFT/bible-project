@@ -1,13 +1,14 @@
-// The homepage. Approved by the owner on 2026-10-22 (and again with the numbered lower sections and the new "Close to home"
-// opening on 2026-10-24) from the mock-up at /home_mockup2 (HomePageMockup2.tsx, kept as the
-// place to try further changes first): five doorways, the guide, the four parts under pointed banners that open and
-// close, then the quiz, the sources and a closing blessing (HomeMore). Those sections still live in pages/mockup/.
+// The homepage. Approved by the owner on 2026-10-31 ("Make this the new home page") from version I of the mock-up at
+// /home_mockup6 (HomePageMockup6.tsx, kept as the place to try further changes first): the city of chapters on the moving
+// word wall with the six doorway squares beside it, the guide, the four parts under pointed banners, the questions, the gold
+// marquee, the sources, Close to home, and Scroll A's blessing before the footer. Earlier homepage: approved 2026-10-22 from
+// /home_mockup2. The opening and the closing scroll live in pages/mockup/home-openings/.
 import { ArrowRight, ArrowUpRight, BookMarked, BookOpen, GitBranch, Globe, Headphones, Landmark, LayoutGrid, LifeBuoy, Map, MessageCircle, NotebookPen, Pause, Play, Users } from "lucide-react";
 import { useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { lastReadPath } from "@/lib/last-read";
-import { CollectionArtwork, HomeArtwork, OpenBible, QuestionOrbit } from "@/components/home/HomeArtwork";
+import { CollectionArtwork, HomeArtwork, QuestionOrbit } from "@/components/home/HomeArtwork";
 import { BibleScene, FeatureBlock, StudyScene } from "@/components/home/HomeFeatureArt";
 import { CHAPTER_COUNT, ChaptersScene, ListenScene } from "@/components/home/HomeBibleScenes";
 import { AtlasScene, TheologyScene } from "@/components/home/HomeStudyScenes";
@@ -22,8 +23,13 @@ import { HOME_FIELDS, HOME_PREVIEWS, HOME_STUDIES, HOME_TOPICS } from "@/compone
 import "@/components/home/home-hub.css";
 import "@/components/home/home-landing-options.css";
 import "./home/home-mockup.css";
+import { Opening6 } from "./mockup/home-openings/HomeOpenings6";
+import { ScrollBlessing } from "./mockup/home-openings/HomeOpenings6Blessing";
 import { HomeGuide } from "./home/HomeGuide";
-import { HomeMore } from "./home/HomeMore";
+import { HomeNearby } from "./home/HomeNearby";
+import { HomeQuiz } from "./home/HomeQuiz";
+import { HomeSources } from "./home/HomeSources";
+import { GoldMarquee } from "./mockup/home-openings/HomeOpenings";
 
 /** The five doorways are the site's five parts; Topics lives inside Study, and Resources joins. */
 const HOME_PATHS = [
@@ -151,22 +157,15 @@ export default function HomePage() {
   const resumeLabel = version ? `Continue: ${book?.name ?? code} ${chapter}` : "Begin with John 1";
   const languages = new Set(catalog.translations.map((item) => item.lang)).size;
 
-  return <div className="home-hub" data-landing={landing} data-banners="inset" data-shape="point">
-    <div className="home-opening" ref={opening}>
+  return <div className="home-hub hm6-page" data-landing={landing} data-banners="inset" data-shape="point">
+    <div className="home-opening hm6-first" ref={opening}>
     {comparing && <nav className="home-landing-options home-wrap" aria-label="Landing designs">
       {landingOptions.map((option, index) => <button key={option} type="button" aria-pressed={landing === option} onClick={() => setSearchParams((current) => { const next = new URLSearchParams(current); next.set("landing", option); return next; }, { preventScrollReset: true })}><span>0{index + 1}</span>{option === "outline" ? "Outlined boxes" : option === "gallery" ? "Open gallery" : "Illustrated rail"}</button>)}
     </nav>}
-    <section className="home-hero home-wrap" aria-labelledby="home-title">
-      <div className="home-hero-copy"><p className="home-eyebrow"><span className="home-live-dot" />The Bible, open to you</p><h1 id="home-title">One Word.<br /><em>A world to<br className="home-hero-break" /> discover.</em></h1><p className="home-hero-lead">Read the Scriptures. Follow the connections.<br />Bring your questions. See the bigger story.</p><div className="home-hero-actions"><Link className="home-button" to={resume}><BookOpen size={17} aria-hidden />{resumeLabel}<ArrowRight size={17} aria-hidden /></Link></div><p className="home-hero-foot">Free to explore. Open to everyone.<span>{catalog.translations.length} Bible versions · {languages} languages</span></p></div>
-      <div className="home-hero-art" aria-label="Scripture at the heart of the collection">
-        <div className="home-art-orbit home-art-orbit-one" aria-hidden /><div className="home-art-orbit home-art-orbit-two" aria-hidden /><div className="home-art-crosshair" aria-hidden />
-        <Link to="/bible" className="home-hero-book" aria-label="Explore the Bible"><OpenBible /></Link>
-        <span className="home-hero-coordinate home-coordinate-top" aria-hidden>READ · UNDERSTAND · EXPLORE</span><span className="home-hero-coordinate home-coordinate-bottom" aria-hidden>ONE WORD. MANY WAYS IN.</span>
-      </div>
-    </section>
-
-    <nav id="explore" className="home-doorways home-wrap home-doorways-even" aria-label="Explore the five collections">{HOME_PATHS.map((item) => <Link to={item.to} key={item.title} style={tint(item.color)}><div className="home-doorway-art"><CollectionArtwork kind={item.title} /></div><div className="home-doorway-copy"><span><strong>{item.title}</strong><small>{item.subtitle}</small></span><ArrowUpRight size={16} aria-hidden /></div></Link>)}</nav>
+    <Opening6 version="i" resume={resume} resumeLabel={resumeLabel} versions={catalog.translations.length} languages={languages} />
     </div>
+
+    {/* The row of five doorways under the opening was taken out on the owner's word, 2026-10-31. */}
     <PreviewMarquee />
     <HomeGuide onChoose={choose} layout="side" boxed contactList number="01" />
 
@@ -309,6 +308,7 @@ export default function HomePage() {
       <div className="home-final"><BookOpen size={22} strokeWidth={1.2} aria-hidden /><p>“Thy word is a lamp unto my feet,<br />and a light unto my path.”</p><Link to="/read/kjv/PSA/119?hl=105">Psalm 119:105<ArrowUpRight size={12} /></Link></div>
     </div>
     </div></div>
-    <HomeMore resourcesTab numbered />
+    {/* The gold marquee runs between the questions (02) and the sources (03), and Scroll A's blessing ends the page. */}
+    <HomeQuiz number="02" /><GoldMarquee /><div className="hm6-sources-band"><HomeSources number="03" foot={false} /></div><HomeNearby resourcesTab number="04" /><ScrollBlessing />
   </div>;
 }
