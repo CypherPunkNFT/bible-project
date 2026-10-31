@@ -1,6 +1,7 @@
 import { BookOpen, Church, GitBranch, GraduationCap, HandHeart, Mail, Menu, Moon, Search, ShieldCheck, Sun, UsersRound, X } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { LanguageMenu } from "@/components/LanguageMenu";
 import { SectionStrip } from "@/components/SectionStrip";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useTheme } from "@/lib/theme";
@@ -107,6 +108,7 @@ export function Layout({ children }: { children: ReactNode }) {
           >
             <Mail className="h-4 w-4" aria-hidden />
           </NavLink>
+          <LanguageMenu />
           <NavLink
             to="/search"
             aria-label="Search"
