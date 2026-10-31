@@ -6,11 +6,11 @@
 // wall in bands. Clicking a stone makes the centre button "Continue" to that chapter in the Berean Standard Bible. The courses
 // appear from the outside in, as the foundations of the city (D) do (owner, 2026-10-31).
 import { ArrowRight, BookOpen, GraduationCap, HandHeart, Library, Map as MapIcon, ShieldCheck, type LucideIcon } from "lucide-react";
-import { useMemo, useState, type CSSProperties, type MouseEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import { HOME_PATHS } from "@/components/home/collection-data";
 import { OpeningCopy, type OpeningProps } from "./HomeOpenings";
-import { HEBREW, WordWall } from "./HomeOpenings5";
+import { WALL_ROWS, WordWall } from "./HomeOpenings5";
 import { useBooks } from "./HomeOpenings5Art";
 import { GATES, SECTION_NAMES, stone, tone } from "./HomeOpenings6City";
 import { SquareColumn } from "./HomeOpenings6Squares";
@@ -54,11 +54,21 @@ const WINGS: Record<"left" | "right", Wing[]> = {
   ],
 };
 
-/** I's small row of Hebrew, sliding where the gold marquee runs on G and H (owner, 2026-10-31). */
-function HebrewRow() {
-  const words = [...HEBREW, ...HEBREW];
-  return <div className="hm5-wall-row hm5-wall-hebrew hm6-hebrew-row" style={{ "--speed": "160s" } as CSSProperties} aria-hidden="true">
-    <div className="hm5-wall-track">{["first", "second"].map((copy) => <span key={copy}>{words.map((phrase, place) => <b dir="rtl" key={`${place}-${phrase}`}>{phrase}</b>)}</span>)}</div>
+/** I's word wall, with its last two rows in Arabic and Japanese in place of Greek and English, and the small row under it in
+ *  Chinese in place of Hebrew (owner, 2026-10-31). Each is a public-domain Bible: the Chinese Union Version (1919, simplified
+ *  characters), the Van Dyck Arabic (1865) and the Japanese Colloquial (1955). Arabic: John 1:1, 1:14, 1:5, 3:16, 8:32,
+ *  1 Peter 1:25, Matthew 24:35, as the Greek row was. Japanese and Chinese: the English and Hebrew rows' verses, John 1:1,
+ *  Psalm 119:105, Isaiah 40:8, John 3:16, Psalm 23:1, John 8:32, Matthew 24:35, Genesis 1:1, Psalm 19:1. */
+const ARABIC = ["في البدء كان الكلمة", "والكلمة صار جسدا", "والنور يضيء في الظلمة", "لأنه هكذا أحب الله العالم", "والحق يحرركم", "وأما كلمة الرب فتثبت إلى الأبد", "ولكن كلامي لا يزول"];
+const JAPANESE = ["初めに言があった", "あなたのみ言葉はわが足のともしび、わが道の光です", "われわれの神の言葉はとこしえに変ることはない", "神はそのひとり子を賜わったほどに、この世を愛して下さった", "主はわたしの牧者であって、わたしには乏しいことがない", "真理はあなたがたに自由を得させるであろう", "わたしの言葉は滅びることがない"];
+const CHINESE = ["起初，神创造天地", "你的话是我脚前的灯，是我路上的光", "惟有我们神的话必永远立定", "诸天述说神的荣耀", "耶和华是我的牧者，我必不致缺乏", "神爱世人"];
+const WALL_ROWS_I = WALL_ROWS.map(([kind, seconds], row) => [row === WALL_ROWS.length - 2 ? "japanese" : row === WALL_ROWS.length - 1 ? "arabic" : kind, seconds] as const);
+
+/** I's small row of Chinese, sliding where the gold marquee runs on G and H (owner, 2026-10-31). */
+function ScriptRow() {
+  const words = [...CHINESE, ...CHINESE];
+  return <div className="hm5-wall-row hm6-wall-chinese hm6-hebrew-row" lang="zh-Hans" style={{ "--speed": "160s" } as CSSProperties} aria-hidden="true">
+    <div className="hm5-wall-track">{["first", "second"].map((copy) => <span key={copy}>{words.map((phrase, place) => <b key={`${place}-${phrase}`}>{phrase}</b>)}</span>)}</div>
   </div>;
 }
 
@@ -68,9 +78,9 @@ function StandsForeverCopy({ resume, resumeLabel, versions, languages }: Opening
   return <div className="home-hero-copy">
     <p className="home-eyebrow"><span className="home-live-dot" />The Bible, open to you</p>
     <h1 id="home-title">God’s Word<br /><em>Stands Forever.</em></h1>
-    <p className="home-hero-lead">Written over fifteen centuries.<br />Carried through persecution and fire.</p>
+    <p className="home-hero-lead">Written over fifteen centuries by ~40 authors.<br />Carried through persecution and fire.</p>
     <div className="home-hero-actions"><Link className="home-button" to={resume}><BookOpen size={17} aria-hidden />{resumeLabel}<ArrowRight size={17} aria-hidden /></Link></div>
-    <p className="home-hero-foot"><span className="hm6-foot-lines">Read the Scriptures. Follow the connections.<br />Bring your questions. See the bigger story.</span><span>{versions} Bible versions · {languages} languages</span></p>
+    <p className="home-hero-foot"><span className="hm6-foot-lines">Read the Scriptures. Follow the connections.</span><span>{versions} Bible versions · {languages} languages</span></p>
   </div>;
 }
 
@@ -87,9 +97,19 @@ export function CityOfChapters({ wings = false, squares = false, wall = false, .
   const [picked, setPicked] = useState(-1);
   const chosen = stones[picked];
   const choose = (event: MouseEvent) => { const index = Number((event.target as Element).getAttribute("data-stone") ?? -1); if (index >= 0) setPicked((now) => (now === index ? -1 : index)); };
+  // I opens on a chapter picked at random, a new one on each visit (owner, 2026-10-31).
+  const seeded = useRef(false);
+  useEffect(() => {
+    if (!wall || seeded.current || !stones.length) return;
+    seeded.current = true;
+    setPicked(Math.floor(Math.random() * stones.length));
+  }, [wall, stones.length]);
   const copy = chosen ? { ...props, resume: `/read/bsb/${chosen.code}/${chosen.chapter}`, resumeLabel: `Continue: ${chosen.name} ${chosen.chapter}` } : props;
+  const note = <p className="hm6-note" aria-live="polite">{chosen
+    ? <><strong style={tone(chosen.section)}>{chosen.name} {chosen.chapter}</strong> · {SECTION_NAMES[chosen.section] ?? chosen.section}</>
+    : <>“the twelve gates were twelve pearls” · <Link to="/read/bsb/REV/21?hl=21">Revelation 21:21</Link> · {stones.length.toLocaleString("en")} chapters in the wall</>}</p>;
   return <section className={`hm6-stage hm6-f${wings ? " hm6-g" : ""}${wall ? " hm6-i" : ""}`} aria-labelledby="home-title">
-    {wall && <><WordWall /><HebrewRow /></>}
+    {wall && <><WordWall rows={WALL_ROWS_I} pools={{ japanese: JAPANESE, arabic: ARABIC }} /><ScriptRow /></>}
     {wings && <><WingColumn side="left" /><WingColumn side="right" /></>}
     {squares && <><SquareColumn side="left" /><SquareColumn side="right" /></>}
     <svg className="hm6-art hm6-city hm6-chapters" viewBox="0 0 1000 1000" aria-hidden="true">
@@ -105,8 +125,6 @@ export function CityOfChapters({ wings = false, squares = false, wall = false, .
       {GATES.map(([x, y]) => <circle className="hm6-pearl" cx={x} cy={y} r="17" key={`${x}-${y}`} />)}
     </svg>
     {wall ? <StandsForeverCopy {...copy} /> : <OpeningCopy {...copy} />}
-    <p className="hm6-note" aria-live="polite">{chosen
-      ? <><strong style={tone(chosen.section)}>{chosen.name} {chosen.chapter}</strong> · {SECTION_NAMES[chosen.section] ?? chosen.section}</>
-      : <>“the twelve gates were twelve pearls” · <Link to="/read/bsb/REV/21?hl=21">Revelation 21:21</Link> · {stones.length.toLocaleString("en")} chapters in the wall</>}</p>
+    {wall ? <div className="hm6-note-frame">{note}</div> : note}
   </section>;
 }

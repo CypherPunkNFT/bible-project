@@ -312,7 +312,7 @@ export default function HomePageMockup6() {
     {/* I: the gold marquee runs between the questions (02) and the sources (03), and Scroll A's blessing ends the page in
         place of the short one (owner, 2026-10-31). */}
     {openingVersion === "i"
-      ? <><HomeQuiz number="02" /><GoldMarquee /><HomeSources number="03" foot={false} /><HomeNearby resourcesTab number="04" /><ScrollBlessing /></>
+      ? <><HomeQuiz number="02" /><GoldMarquee /><div className="hm6-sources-band"><HomeSources number="03" foot={false} /></div><HomeNearby resourcesTab number="04" /><ScrollBlessing /></>
       : <HomeMore resourcesTab numbered />}
     <VersionPill<Opening6Id> label="Opening" versions={[...OPENINGS_6]} current={openingVersion} />
   </div>;

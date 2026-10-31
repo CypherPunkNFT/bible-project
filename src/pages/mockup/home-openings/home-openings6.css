@@ -67,20 +67,20 @@
 
 /* I: mock-up 5's word wall moving behind everything. The city and the six squares are solid, and each wears a small soft
    cover of the page colour, as does the verse under the city (owner, 2026-10-31). */
-.hm6-i .hm6-art { filter: drop-shadow(0 0 10px var(--page)) drop-shadow(0 0 6px var(--page)); }
-.hm6-stage.hm6-i .hm6-squares { background: var(--surface); box-shadow: 0 0 20px 12px var(--page); }
-/* The squares' edges, round them and between them, are a fine gold line like the city wall's (owner, 2026-10-31). On
-   pointing, Scroll B's motion on mock-up 4 (home-art-openings.css, .hm4-doors), the same values: a faint wash of the square's
-   colour, its colour sweeping in along the top, a soft glow and the arrow stepping on. Where Scroll B adds a coloured ring,
-   the square's own gold line takes its colour instead, so there is never a second line. Each square has its own line, laid
-   over its neighbour's, so all four of its sides can turn. */
+/* The covers a little thicker and wider than first set (owner, 2026-10-31). */
+.hm6-i .hm6-art { filter: drop-shadow(0 0 16px var(--page)) drop-shadow(0 0 10px var(--page)); }
+.hm6-stage.hm6-i .hm6-squares { background: var(--surface); box-shadow: 0 0 30px 20px var(--page); }
+/* The squares' edges, round them and between them, are the questions page's hairline (test-options.css, .th-shelves), with
+   its motion on pointing, the same values: a faint wash of the square's colour, a coloured ring with a soft glow, its colour
+   sweeping in along the top, and the arrow stepping on (owner, 2026-10-31). Each square has its own line, laid over its
+   neighbour's. */
 .hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares { border: 0; border-radius: 5px; }
-.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a { position: relative; border: 1px solid var(--accent); border-radius: 0; transition: background .3s, box-shadow .3s, border-color .3s; }
+.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a { position: relative; border: 1px solid var(--line); border-radius: 0; transition: background .3s, box-shadow .3s; }
 .hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a + a { margin-top: -1px; }
 .hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a:first-child { border-radius: 5px 5px 0 0; }
 .hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a:last-child { border-radius: 0 0 5px 5px; }
 .hm6-i .hm6-squares > a::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: var(--home-color); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; pointer-events: none; }
-.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a:hover { z-index: 1; outline: none; border-color: var(--home-color); background: color-mix(in srgb, var(--home-color) 5%, var(--page)); box-shadow: 0 0 12px -4px color-mix(in srgb, var(--home-color) 18%, transparent); }
+.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a:hover { z-index: 1; outline: none; background: color-mix(in srgb, var(--home-color) 5%, var(--page)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--home-color) 35%, transparent), 0 0 12px -4px color-mix(in srgb, var(--home-color) 18%, transparent); }
 .hm6-i .hm6-squares > a:hover::before { transform: scaleX(1); }
 .hm6-i .hm6-squares .home-doorway-copy svg { transition: transform .3s; }
 .hm6-i .hm6-squares > a:hover .home-doorway-copy svg { transform: translateX(4px); }
@@ -94,8 +94,10 @@
    rollers' feet hang down over it. */
 .hm6-page:has(.hm6-blessing) { overflow-y: visible; }
 .home-opening.hm6-last { position: relative; z-index: 1; padding-bottom: 0; margin-bottom: calc(-2.5rem - 2px); }
-/* A little smaller than first set (owner, 2026-10-31). */
-.hm6-blessing blockquote { margin: 0; font: 400 clamp(28px, 4.2svh, 46px)/1.18 var(--font-serif); letter-spacing: -.035em; color: var(--ink); }
+/* Smaller than first set, twice, a lighter weight, and wrapping at the width the owner marked, clear of the sun (owner,
+   2026-10-31). */
+.hm6-blessing .home-hero-copy { max-width: 35rem; }
+.hm6-blessing blockquote { margin: 0; font: 300 clamp(24px, 3.6svh, 40px)/1.18 var(--font-serif); letter-spacing: -.035em; color: var(--ink); }
 .hm6-blessing blockquote em { color: var(--accent); }
 .hm6-blessing-cite + blockquote { margin-top: 2.2rem; }
 .hm6-blessing-cite { margin-top: 1.1rem; font: 500 13px var(--font-sans); color: var(--muted); }
@@ -106,12 +108,33 @@
 .hm6-i .hm5-wall { bottom: 45.8px; }
 .hm6-i .hm6-art { height: calc(100% - 45.8px); }
 .hm6-stage.hm6-i .hm6-squares { top: calc(50% - 22.9px); }
-.hm6-i .hm6-note { bottom: calc(.9rem + 45.8px); }
+/* I's verse, or the chosen chapter, sits inside the city at its foot, between the opening's last line and the inner course of
+   stones (owner, 2026-10-31). The frame is the drawing's box; the drawing is a square centred in it, and its inner course ends
+   31% of the square's side below the centre. */
+.hm6-note-frame { position: absolute; inset: 0 0 45.8px; z-index: 2; container-type: size; pointer-events: none; }
+.hm6-note-frame .hm6-note { top: calc(50cqh + .31 * min(100cqw, 100cqh) - 1.75rem); bottom: auto; pointer-events: auto; }
+/* On short screens there is no room for it under the counts, so the line above them is left out there. */
+@media (min-width: 861px) and (max-height: 820px) { .hm6-i .home-hero-foot .hm6-foot-lines { display: none; } }
+/* I's word wall: the large rows a little smaller than mock-up 5's, and its last two rows and the small row under it in
+   Japanese, Arabic and Chinese (owner, 2026-10-31), each in the style of the row it replaced. */
+.hm6-i .hm5-wall-serif { font-size: clamp(1.75rem, 4.3svh, 3.1rem); }
+.hm6-i .hm5-wall-hebrew { font-size: clamp(1.75rem, 4.6svh, 3.3rem); }
+.hm6-i .hm5-wall-greek { font-size: clamp(1.65rem, 4.3svh, 2.9rem); }
+.hm6-i .hm5-wall-gold { font-size: clamp(1.55rem, 3.8svh, 2.6rem); }
+.hm6-i .hm5-wall-japanese { font: 400 clamp(1.5rem, 4.2svh, 3rem)/1.25 "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", "MS Mincho", serif; color: color-mix(in srgb, var(--accent) 34%, transparent); }
+.hm6-i .hm5-wall-arabic { font: 400 clamp(1.65rem, 4.4svh, 3rem)/1.3 "Amiri", "Traditional Arabic", "Noto Naskh Arabic", "Times New Roman", serif; color: color-mix(in srgb, var(--accent) 46%, transparent); }
+.hm6-wall-chinese { font-family: "SimSun", "Songti SC", "Noto Serif SC", serif; color: color-mix(in srgb, var(--ink) 26%, transparent); }
 .hm6-i .hm6-hebrew-row { position: absolute; left: 0; right: 0; bottom: 0; height: 45.8px; display: flex; align-items: center; font-size: 1.3rem; pointer-events: none; }
 /* I's lines under the button are just smaller than the two under the title (owner, 2026-10-31). */
 .hm6-stage.hm6-i .home-hero-foot { font-size: 14.5px; line-height: 1.7; }
 .hm6-i .home-hero-foot .hm6-foot-lines { color: var(--muted); }
-.hm6-i .hm6-note { width: fit-content; margin-inline: auto; background: var(--page); box-shadow: 0 0 16px 10px var(--page); }
+.hm6-i .hm6-note { width: fit-content; margin-inline: auto; }
+
+/* I's sources (03) on a slightly lighter ground, so the section under it starts with a clear break, and the sides of its two
+   grids closed with an upright line (owner, 2026-10-31). */
+.hm6-sources-band { padding-block: 96px 104px; background: var(--surface); }
+.hm6-sources-band .hs { margin-top: 0; }
+.hm6-sources-band .hs-figures, .hm6-sources-band .hs-collections { border-inline: 1px solid var(--line); }
 
 @media (prefers-reduced-motion: reduce) {
   .hm6-i .hm6-squares > a, .hm6-i .hm6-squares > a::before, .hm6-i .hm6-squares .home-doorway-copy svg { transition: none; }
@@ -129,7 +152,8 @@
   /* What does not fit on a phone is left out there (owner, 2026-10-31). */
   .hm6-i .home-hero-foot .hm6-foot-lines { display: none; }
   .hm6-page:has(.hm6-i) .to-pill { bottom: calc(6px + env(safe-area-inset-bottom, 0px)); }
-  .hm6-i .hm6-note { bottom: auto; z-index: 3; box-shadow: 0 0 6px 3px var(--page); }
+  .hm6-note-frame { display: contents; }
+  .hm6-i .hm6-note { top: auto; bottom: auto; z-index: 3; background: var(--page); box-shadow: 0 0 10px 6px var(--page); }
   .hm6-i .home-hero-copy > * { width: fit-content; max-width: 100%; margin-inline: auto; background: var(--page); box-shadow: 0 0 38px 32px var(--page); }
   .hm6-art { position: static; width: 100%; height: auto; max-height: clamp(8rem, calc(100svh - var(--home-header-height, 60px) - 31rem), 26rem); margin-top: auto; }
   .hm6-note { position: static; order: 1; margin-block: .2rem .6rem; font-size: .8rem; }

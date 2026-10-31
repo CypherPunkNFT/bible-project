@@ -19,19 +19,19 @@ const WALL = ["The heavens declare the glory of God", "Your word is a lamp to my
 // 3:16, 8:32, 1 Peter 1:25, Matthew 24:35.
 export const HEBREW = ["בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ", "נֵר־לְרַגְלִי דְבָרֶךָ וְאוֹר לִנְתִיבָתִי", "וּדְבַר־אֱלֹהֵינוּ יָקוּם לְעוֹלָם", "הַשָּׁמַיִם מְסַפְּרִים כְּבוֹד־אֵל", "שְׁמַע יִשְׂרָאֵל יְהוָה אֱלֹהֵינוּ יְהוָה אֶחָד", "יְהוָה רֹעִי לֹא אֶחְסָר"];
 const GREEK = ["Ἐν ἀρχῇ ἦν ὁ λόγος", "Καὶ ὁ λόγος σὰρξ ἐγένετο", "καὶ τὸ φῶς ἐν τῇ σκοτίᾳ φαίνει", "Οὕτω γὰρ ἠγάπησεν ὁ Θεὸς τὸν κόσμον", "καὶ ἡ ἀλήθεια ἐλευθερώσει ὑμᾶς", "τὸ δὲ ῥῆμα Κυρίου μένει εἰς τὸν αἰῶνα", "οἱ δὲ λόγοι μου οὐ μὴ παρέλθωσι"];
-const WALL_ROWS = [["serif", 150], ["caps", 90], ["hebrew", 170], ["sans", 120], ["greek", 160], ["gold", 150], ["caps", 100], ["hebrew", 180], ["upright", 140], ["greek", 175]] as const;
-const wordsFor = (kind: string, row: number) => {
-  const pool = kind === "hebrew" ? HEBREW : kind === "greek" ? GREEK : WALL;
-  return Array.from({ length: 8 }, (_, step) => pool[(row * 5 + step) % pool.length]);
-};
+export const WALL_ROWS: readonly (readonly [string, number])[] = [["serif", 150], ["caps", 90], ["hebrew", 170], ["sans", 120], ["greek", 160], ["gold", 150], ["caps", 100], ["hebrew", 180], ["upright", 140], ["greek", 175]];
+const POOLS: Record<string, string[]> = { hebrew: HEBREW, greek: GREEK };
+const RIGHT_TO_LEFT = new Set(["hebrew", "arabic"]);
+const wordsFor = (pool: string[], row: number) => Array.from({ length: 8 }, (_, step) => pool[(row * 5 + step) % pool.length]);
 
-/** The marquee multiplied into a wall: rows of Scripture in English, Hebrew and Greek sliding both ways behind the title. */
-export function WordWall() {
+/** The marquee multiplied into a wall: rows of Scripture in English, Hebrew and Greek sliding both ways behind the title.
+ *  `rows` and `pools` let a version swap a row's language: a row's kind names its style and, if listed, its words. */
+export function WordWall({ rows = WALL_ROWS, pools = {} }: { rows?: readonly (readonly [string, number])[]; pools?: Record<string, string[]> }) {
   return <div className="hm5-wall" aria-hidden="true">
-    {WALL_ROWS.map(([kind, seconds], row) => {
-      const words = wordsFor(kind, row);
+    {rows.map(([kind, seconds], row) => {
+      const words = wordsFor(pools[kind] ?? POOLS[kind] ?? WALL, row);
       return <div className={`hm5-wall-row hm5-wall-${kind}`} style={{ "--speed": `${seconds}s` } as CSSProperties} data-reverse={row % 2 ? true : undefined} key={row}>
-        <div className="hm5-wall-track">{["first", "second"].map((copy) => <span key={copy}>{words.map((phrase, place) => <b dir={kind === "hebrew" ? "rtl" : undefined} key={`${place}-${phrase}`}>{phrase}</b>)}</span>)}</div>
+        <div className="hm5-wall-track">{["first", "second"].map((copy) => <span key={copy}>{words.map((phrase, place) => <b dir={RIGHT_TO_LEFT.has(kind) ? "rtl" : undefined} key={`${place}-${phrase}`}>{phrase}</b>)}</span>)}</div>
       </div>;
     })}
   </div>;
