@@ -11,6 +11,7 @@ const HomePageMockup4 = lazy(() => import("./HomePageMockup4"));
 const HomePageMockup5 = lazy(() => import("./HomePageMockup5"));
 const HomePageMockup6 = lazy(() => import("./HomePageMockup6"));
 const HomePageMockup7 = lazy(() => import("./HomePageMockup7"));
+const HomePageMockup8 = lazy(() => import("./HomePageMockup8"));
 const HomeMockupsPage = lazy(() => import("@/pages/HomeMockupsPage"));
 const StudyHubMockup = lazy(() => import("./StudyHubMockup"));
 const QuizMockupPage = lazy(() => import("./QuizMockupPage"));
@@ -54,6 +55,7 @@ export function mockupRoutes() {
     <Route key="home6" path="/home_mockup6" element={<HomePageMockup6 />} />,
     // Four openings drawn from Scripture: the tabernacle, the lampstand, the vine, two pillars (owner, 2026-10-30).
     <Route key="home7" path="/home_mockup7" element={<HomePageMockup7 />} />,
+    <Route key="home8" path="/home_mockup8" element={<HomePageMockup8 />} />,
     <Route key="study" path="/study_mockup" element={<><MockupTag /><StudyHubMockup /></>} />,
     <Route key="quiz" path="/quiz_mockup" element={<><MockupTag /><QuizMockupPage /></>} />,
     <Route key="wilderness" path="/wilderness_mockup" element={<><MockupTag /><WildernessMockupPage /></>} />,
