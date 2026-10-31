@@ -1,0 +1,6 @@
+/* MOCK-UP: /home_mockup10, the homepage with the picked doorway drawings (owner, 2026-10-31). The wrapper leaves the page's
+   layout alone. The squares' drawings get the room the lines under their titles took, so each square stays the height it was. */
+.hm10 { display: contents; }
+.hm10 .hm6-squares .home-doorway-art { height: clamp(84px, 13.2svh, 128px); }
+/* The "Close to home" map's zoom ticker opens on every mock-up address; it would sit on top of the version pill. */
+.hm10 .hn-ticker, .hm10 .transition-ticker-unfold { display: none; }

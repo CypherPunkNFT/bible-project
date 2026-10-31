@@ -3,7 +3,7 @@
 // ones under the opening, unchanged: the same card, artwork, colour and line. Sources had no square, so it gets one in the
 // same style, with a shelf of books drawn like the others' miniatures.
 import { ArrowUpRight } from "lucide-react";
-import type { CSSProperties } from "react";
+import { createContext, useContext, type CSSProperties, type ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { CollectionArtwork } from "@/components/home/HomeArtwork";
 
@@ -40,11 +40,16 @@ function SourcesArtwork() {
   </svg>;
 }
 
+/** A mock-up can hand the squares other drawings, by title, without touching the homepage (/home_mockup10, owner,
+ *  2026-10-31). Empty everywhere else, so the squares keep their own. */
+export const DoorwayArt = createContext<Partial<Record<string, () => ReactElement>>>({});
+
 export function SquareColumn({ side }: { side: "left" | "right" }) {
+  const swapped = useContext(DoorwayArt);
   return <nav className={`home-doorways hm6-squares hm6-squares-${side}`} aria-label={side === "left" ? "Read and study" : "Explore"}>
-    {SQUARES[side].map((item) => <Link to={item.to} key={item.title} style={{ "--home-color": `var(--${item.color})` } as CSSProperties}>
-      <div className="home-doorway-art">{item.title === "Sources" ? <SourcesArtwork /> : <CollectionArtwork kind={item.title} />}</div>
+    {SQUARES[side].map((item) => { const Swap = swapped[item.title]; return <Link to={item.to} key={item.title} style={{ "--home-color": `var(--${item.color})` } as CSSProperties}>
+      <div className="home-doorway-art">{Swap ? <Swap /> : item.title === "Sources" ? <SourcesArtwork /> : <CollectionArtwork kind={item.title} />}</div>
       <div className="home-doorway-copy"><strong>{item.title}</strong><ArrowUpRight size={16} aria-hidden /></div>
-    </Link>)}
+    </Link>; })}
   </nav>;
 }

@@ -60,7 +60,7 @@ function TableSet() {
     <path d="M118 121L130 101Q146 95 160 101Q174 95 190 101L202 121Q182 116 160 121Q138 116 118 121Z" fill="var(--surface)" stroke="currentColor" strokeWidth="1.4" />
     <path d="M160 101V121" stroke="currentColor" opacity=".5" />
     <g stroke="currentColor" opacity=".4">{[0, 1, 2].map((row) => <path key={row} d={`M${134 - row * 2} ${106 + row * 4}Q147 ${102 + row * 4} 156 ${106 + row * 4}M164 ${106 + row * 4}Q173 ${102 + row * 4} ${186 + row * 2} ${106 + row * 4}`} />)}</g>
-    <path d="M226 90H250Q250 106 238 108V117M229 119H247" stroke="currentColor" strokeWidth="1.4" /><path d="M226 90H250Q250 106 238 108Q226 106 226 90Z" fill="currentColor" fillOpacity=".1" />
+    <path d="M226 90H250Q250 106 238 108Q226 106 226 90ZM238 108V117M229 119H247" stroke="currentColor" strokeWidth="1.4" /><path d="M226 90H250Q250 106 238 108Q226 106 226 90Z" fill="currentColor" fillOpacity=".1" />
     <path d="M262 119V96Q262 86 270 84V78H280V84Q288 86 288 96V119Z" fill="var(--surface)" stroke="currentColor" strokeWidth="1.4" /><path d="M288 94Q298 96 296 106Q294 112 288 112" stroke="currentColor" strokeWidth="1.3" />
   </svg>;
 }
