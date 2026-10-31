@@ -1,47 +1,21 @@
 // MOCK-UP: four openings for /home_mockup6 (owner, 2026-10-30: "wildly different but cohesive and visually beautiful - think
-// symmetry and simplicity with complexity and beauty"). One language for all four: the title on the centre line, fine gold
-// lines, perfect symmetry, and each drawing made by repeating one simple rule until it becomes intricate. The ring: wavy
-// circles, turned a little each time. The gate: arches nested inside one another, the marquee running over the outermost.
-// Four corners: straight lines only, whose crossings draw the curves. The city: Revelation 21's foursquare plan.
+// symmetry and simplicity with complexity and beauty"). One language for both: the title on the centre line, fine gold lines,
+// perfect symmetry, and each drawing made by repeating one simple rule until it becomes intricate. The gate: arches nested
+// inside one another, the marquee running over the outermost. The city: Revelation 21's foursquare plan. The ring (A) and four
+// corners (C) were taken out on the owner's word, 2026-10-30; a copy of all four is in design/home-openings-6-removed/.
 import { useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { GoldMarquee, MARQUEE, OpeningCopy, type OpeningProps } from "./HomeOpenings";
 import "./home-openings6.css";
 
 export const OPENINGS_6 = [
-  { id: "a", name: "The ring" },
   { id: "b", name: "The gate" },
-  { id: "c", name: "Four corners" },
   { id: "d", name: "The city" },
 ] as const;
 export type Opening6Id = (typeof OPENINGS_6)[number]["id"];
 
 const fixed = (value: number) => value.toFixed(1);
 const stillMotion = () => typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-/** One wavy circle, `copies` times, each turned by a fraction of a wave: the turned copies weave into a band. */
-function wovenBand(radius: number, depth: number, waves: number, copies: number) {
-  return Array.from({ length: copies }, (_, copy) => {
-    const turn = (copy / copies) * ((Math.PI * 2) / waves), points: string[] = [];
-    for (let step = 0; step < 720; step += 1) {
-      const angle = (step / 720) * Math.PI * 2, reach = radius + depth * Math.sin(waves * angle + turn * waves);
-      points.push(`${fixed(400 + Math.cos(angle) * reach)} ${fixed(400 + Math.sin(angle) * reach)}`);
-    }
-    return `M${points.join("L")}Z`;
-  });
-}
-const BANDS = [
-  { name: "inner", paths: wovenBand(304, 16, 18, 14) },
-  { name: "middle", paths: wovenBand(338, 30, 9, 28) },
-  { name: "outer", paths: wovenBand(378, 9, 36, 10) },
-];
-
-function RingArt() {
-  return <svg className="hm6-art hm6-ring" viewBox="0 0 800 800" aria-hidden="true">
-    <circle className="hm6-hair" cx="400" cy="400" r="284" /><circle className="hm6-hair" cx="400" cy="400" r="392" />
-    {BANDS.map((band) => <g className={`hm6-band hm6-band-${band.name}`} key={band.name}>{band.paths.map((d) => <path d={d} key={d.slice(0, 24)} />)}</g>)}
-  </svg>;
-}
 
 /** A pointed arch of span `span`, its arcs struck from radius 0.62 of the span; also points along it for beads. */
 function arch(span: number, spring: number, bottom: number) {
@@ -75,23 +49,6 @@ function GateArt() {
   </svg>;
 }
 
-/** From each corner, straight lines join a point on one edge to a point on the other; together they bend into curves. */
-const CORNER_LINES = (() => {
-  const lines: { x1: number; y1: number; x2: number; y2: number; faint: boolean; order: number }[] = [];
-  const steps = 40, reach = 560;
-  [[0, 0, 1, 1], [1000, 0, -1, 1], [0, 1000, 1, -1], [1000, 1000, -1, -1]].forEach(([x, y, across, down]) => {
-    for (let i = 0; i <= steps; i += 1) lines.push({ x1: x, y1: y + down * reach * (1 - i / steps), x2: x + across * reach * (i / steps), y2: y, faint: i % 2 === 1, order: i });
-  });
-  return lines;
-})();
-
-function CornersArt() {
-  return <svg className="hm6-art hm6-corners" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
-    {CORNER_LINES.map((line, index) => <line className={line.faint ? "is-faint" : undefined} x1={line.x1} y1={fixed(line.y1)} x2={fixed(line.x2)} y2={line.y2} pathLength={1} style={{ animationDelay: `${line.order * 35}ms` }} key={index} />)}
-    <path className="hm6-corner-axis" d="M500 0V90M500 910V1000M0 500H60M940 500H1000" />
-  </svg>;
-}
-
 // Revelation 21:19-20, first foundation outermost.
 const FOUNDATIONS = [["jasper", "#6f9a7e"], ["sapphire", "#2f5fa7"], ["chalcedony", "#8fb0c4"], ["emerald", "#2e8b57"], ["sardonyx", "#b5654a"], ["carnelian", "#b23a2e"], ["chrysolite", "#bcb441"], ["beryl", "#5fb4b4"], ["topaz", "#dfa636"], ["chrysoprase", "#5aa86a"], ["jacinth", "#d0703a"], ["amethyst", "#8b5fb5"]];
 const GATES = [250, 500, 750].flatMap((along) => [[along, 70], [along, 930], [70, along], [930, along]]);
@@ -110,9 +67,7 @@ function CityArt() {
 }
 
 const VIEWS: Record<Opening6Id, (props: OpeningProps) => JSX.Element> = {
-  a: (props) => <><section className="hm6-stage hm6-a" aria-labelledby="home-title"><RingArt /><OpeningCopy {...props} /></section><GoldMarquee /></>,
   b: (props) => <section className="hm6-stage hm6-b" aria-labelledby="home-title"><GateArt /><OpeningCopy {...props} /><p className="hm6-note">“I am the gate.” · <Link to="/read/bsb/JHN/10?hl=9">John 10:9</Link></p></section>,
-  c: (props) => <><section className="hm6-stage hm6-c" aria-labelledby="home-title"><CornersArt /><OpeningCopy {...props} /></section><GoldMarquee /></>,
   d: (props) => <><section className="hm6-stage hm6-d" aria-labelledby="home-title"><CityArt /><OpeningCopy {...props} /><p className="hm6-note">“the twelve gates were twelve pearls” · <Link to="/read/bsb/REV/21?hl=21">Revelation 21:21</Link></p></section><GoldMarquee /></>,
 };
 

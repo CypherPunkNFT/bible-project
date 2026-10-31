@@ -1,4 +1,4 @@
-/* MOCK-UP: the four openings of /home_mockup6. One look: the title on the centre line, fine gold lines, perfect symmetry. */
+/* MOCK-UP: the two openings of /home_mockup6. One look: the title on the centre line, fine gold lines, perfect symmetry. */
 .home-opening.hm6-first { padding-bottom: 0; }
 .hm6-page .home-doorways { margin-top: 26px; }
 .hm6-page .to-pill { bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
@@ -7,22 +7,12 @@
 .hm6-stage .home-hero-copy { position: relative; z-index: 2; }
 .hm6-stage .home-eyebrow, .hm6-stage .home-hero-actions { justify-content: center; }
 .hm6-stage h1 { font-size: clamp(44px, 6.4svh, 66px); line-height: 1.1; letter-spacing: -.06em; margin-block: 16px; }
-.hm6-c h1 { font-size: clamp(54px, 8svh, 80px); margin-block: 20px; }
 .hm6-stage .home-hero-break { display: none; }
 .hm6-stage .home-hero-lead, .hm6-stage .home-hero-foot { text-shadow: 0 0 6px var(--page), 0 0 12px var(--page), 0 0 18px var(--page); }
 .hm6-art { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .hm6-note { position: absolute; left: 0; right: 0; bottom: .9rem; z-index: 2; margin: 0; font: italic 400 .95rem/1.4 var(--font-serif); color: var(--muted); }
 .hm6-note a { font: 600 12px var(--font-sans); color: var(--accent); }
 
-/* A: the ring */
-.hm6-hair { fill: none; stroke: var(--accent); stroke-width: .8; opacity: .45; }
-.hm6-band path { fill: none; stroke: var(--accent); stroke-width: .7; }
-.hm6-band-inner { opacity: .5; }
-.hm6-band-middle { opacity: .62; }
-.hm6-band-outer { opacity: .4; }
-.hm6-band { transform-box: view-box; transform-origin: 400px 400px; animation: hm6-turn 240s linear infinite, hm6-fade 1.6s ease-out both; }
-.hm6-band-middle { animation-direction: reverse, normal; }
-@keyframes hm6-turn { to { transform: rotate(360deg); } }
 @keyframes hm6-fade { from { opacity: 0; } }
 
 /* B: the gate */
@@ -38,12 +28,6 @@
 .hm6-arch-dots path { stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 0 9; }
 .hm6-gate-text { fill: var(--accent); font: 600 15px var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
 
-/* C: four corners */
-.hm6-corners line { stroke: var(--accent); stroke-width: .9px; vector-effect: non-scaling-stroke; opacity: .7; stroke-dasharray: 1; stroke-dashoffset: 1; animation: hm6-draw 1.4s cubic-bezier(.3, .6, .2, 1) forwards; }
-.hm6-corners line.is-faint { opacity: .3; }
-@keyframes hm6-draw { to { stroke-dashoffset: 0; } }
-.hm6-corner-axis { fill: none; stroke: var(--accent); stroke-width: 1px; vector-effect: non-scaling-stroke; opacity: .6; }
-
 /* D: the city */
 .hm6-city-ground { fill: color-mix(in srgb, var(--accent) 4%, var(--page)); }
 .hm6-foundation { fill: none; stroke-width: 6; opacity: .82; animation: hm6-fade 1.2s ease-out both; }
@@ -53,12 +37,10 @@
 .hm6-pearl { fill: color-mix(in srgb, #fff 82%, var(--accent)); stroke: var(--accent); stroke-width: 1.5; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hm6-band, .hm6-arch, .hm6-foundation { animation: none; }
-  .hm6-corners line { animation: none; stroke-dashoffset: 0; }
+  .hm6-arch, .hm6-foundation { animation: none; }
 }
 @media (max-width: 860px) {
-  .hm6-stage h1, .hm6-c h1 { font-size: clamp(39px, 10.5vw, 64px); }
-  .hm6-a .hm6-ring { opacity: .55; }
+  .hm6-stage h1 { font-size: clamp(39px, 10.5vw, 64px); }
   .hm6-b, .hm6-d { display: flex; flex-direction: column; justify-content: flex-start; padding-top: 1.2rem; }
   .hm6-b .home-hero-copy { margin-top: 0; }
   .hm6-b .hm6-art, .hm6-d .hm6-art { position: static; width: 100%; height: auto; max-height: clamp(8rem, calc(100svh - var(--home-header-height, 60px) - 29rem), 26rem); margin-top: auto; }
