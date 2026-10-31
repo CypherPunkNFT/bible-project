@@ -1,0 +1,25 @@
+/* MOCK-UP: /doorways_mockup, the doorway squares' design sheet. The cards wear the homepage squares' hairline edge and motion,
+   title only, with a taller drawing (owner, 2026-10-31). */
+.dw-sheet { padding: 2rem var(--site-gutter, 16px) 4rem; }
+.dw-sheet > h1 { margin: 0; font: 400 2rem/1.2 var(--font-serif); }
+.dw-sheet > p { margin: .4rem 0 2rem; color: var(--muted); }
+.dw-sheet section { margin-bottom: 2.6rem; }
+.dw-sheet header { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem 1rem; margin-bottom: .9rem; padding-bottom: .5rem; border-bottom: 1px solid var(--line); }
+.dw-sheet h2 { margin: 0; font: 400 1.4rem var(--font-serif); color: var(--home-color); }
+.dw-sheet header p { margin: 0; font-size: 13px; color: var(--muted); }
+.dw-row { display: grid; grid-template-columns: repeat(5, 272px); gap: 1.4rem; overflow-x: auto; padding: 6px 4px 8px; }
+.dw-row figure { margin: 0; }
+.dw-card { position: relative; display: flex; flex-direction: column; padding: 14px 18px 15px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); color: var(--ink); text-decoration: none; transition: background .3s, box-shadow .3s; }
+.dw-card:focus { outline: none; }
+.dw-card::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: var(--home-color); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; pointer-events: none; }
+.dw-card:hover { background: color-mix(in srgb, var(--home-color) 5%, var(--page)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--home-color) 35%, transparent), 0 0 12px -4px color-mix(in srgb, var(--home-color) 18%, transparent); }
+.dw-card:hover::before { transform: scaleX(1); }
+.dw-art { height: 133px; color: var(--home-color); }
+.dw-art > svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.dw-copy { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; padding-top: 11px; border-top: 1px solid color-mix(in srgb, var(--home-color) 20%, transparent); }
+.dw-copy strong { font: 500 20px var(--font-serif); letter-spacing: -.035em; }
+.dw-copy svg { color: var(--home-color); transition: transform .3s; }
+.dw-card:hover .dw-copy svg { transform: translateX(4px); }
+.dw-row figcaption { margin-top: .55rem; font-size: 12.5px; color: var(--muted); }
+.dw-row figcaption span { margin-right: .45rem; font-weight: 600; color: var(--home-color); }
+@media (prefers-reduced-motion: reduce) { .dw-card, .dw-card::before, .dw-copy svg { transition: none; } }

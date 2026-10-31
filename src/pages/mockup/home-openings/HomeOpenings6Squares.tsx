@@ -7,17 +7,19 @@ import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { CollectionArtwork } from "@/components/home/HomeArtwork";
 
-interface Square { title: string; to: string; subtitle: string; color: string }
+/** Title only, no line under it (owner, 2026-10-31: "take away the read and compare, enter the world, the subtext ... Just
+ *  have the title"). */
+interface Square { title: string; to: string; color: string }
 const SQUARES: Record<"left" | "right", Square[]> = {
   left: [
-    { title: "Bible", to: "/bible", subtitle: "Read & compare", color: "epistles" },
-    { title: "Study", to: "/study", subtitle: "See the connections", color: "gospels" },
-    { title: "Apologetics", to: "/apologetics", subtitle: "Explore the questions", color: "history" },
+    { title: "Bible", to: "/bible", color: "epistles" },
+    { title: "Study", to: "/study", color: "gospels" },
+    { title: "Apologetics", to: "/apologetics", color: "history" },
   ],
   right: [
-    { title: "Atlas", to: "/study/atlas", subtitle: "Enter the world", color: "poetry" },
-    { title: "Resources", to: "/resources", subtitle: "Study, gather, find help", color: "resource-life" },
-    { title: "Sources", to: "/sources", subtitle: "Explore every source", color: "prophets" },
+    { title: "Atlas", to: "/study/atlas", color: "poetry" },
+    { title: "Resources", to: "/resources", color: "resource-life" },
+    { title: "Sources", to: "/sources", color: "prophets" },
   ],
 };
 
@@ -42,7 +44,7 @@ export function SquareColumn({ side }: { side: "left" | "right" }) {
   return <nav className={`home-doorways hm6-squares hm6-squares-${side}`} aria-label={side === "left" ? "Read and study" : "Explore"}>
     {SQUARES[side].map((item) => <Link to={item.to} key={item.title} style={{ "--home-color": `var(--${item.color})` } as CSSProperties}>
       <div className="home-doorway-art">{item.title === "Sources" ? <SourcesArtwork /> : <CollectionArtwork kind={item.title} />}</div>
-      <div className="home-doorway-copy"><span><strong>{item.title}</strong><small>{item.subtitle}</small></span><ArrowUpRight size={16} aria-hidden /></div>
+      <div className="home-doorway-copy"><strong>{item.title}</strong><ArrowUpRight size={16} aria-hidden /></div>
     </Link>)}
   </nav>;
 }
