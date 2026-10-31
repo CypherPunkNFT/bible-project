@@ -20,7 +20,8 @@
   /* The homepage's old phone rule laid the last square of a row on its side; each column's last square is an ordinary one here. */
   .hm9 .hm6-page .hm6-stage.hm6-i .hm6-squares > a:last-child { display: flex; flex-direction: column; align-items: stretch; grid-column: span 2; gap: 0; padding-block: 8px 9px; }
   .hm9 .hm6-stage .hm6-squares > a:last-child .home-doorway-copy { padding-top: 7px; border-top: 1px solid color-mix(in srgb, var(--home-color) 20%, transparent); }
-  .hm9 .hm6-stage .hm6-squares .home-doorway-art, .hm9 .hm6-stage .hm6-squares > a:last-child .home-doorway-art { height: 44px; }
+  /* Each drawing keeps its own proportions and height, so the title sits under it and never on it. */
+  .hm9 .hm6-stage .hm6-squares .home-doorway-art, .hm9 .hm6-stage .hm6-squares > a:last-child .home-doorway-art { height: auto; aspect-ratio: 480 / 185; }
   .hm9 .hm6-stage .hm6-squares .home-doorway-copy { padding-top: 7px; justify-content: center; }
   .hm9 .hm6-stage .hm6-squares .home-doorway-copy strong { font-size: 14px; }
   .hm9 .hm6-stage .hm6-squares .home-doorway-copy > svg { display: none; }
@@ -38,10 +39,16 @@
   .hm9[data-phone="b"] .hm6-stage.hm6-i .hm6-note { order: 2; }
 
   /* E, words first: the title and button at the top, the city under them with its chapter, then the six squares. */
-  .hm9[data-phone="e"] .hm5-wall, .hm9[data-phone="e"] .hm6-hebrew-row { opacity: .35; }
+  .hm9[data-phone="e"] .hm5-wall { opacity: .35; bottom: 76px; }
+  /* The small last row of the word wall is left out, and the wall stops above the pill, so nothing runs under it. */
+  .hm9[data-phone="e"] .hm6-hebrew-row { display: none; }
   .hm9[data-phone="e"] .hm6-stage.hm6-i .home-hero-copy { order: 1; padding-block: .4rem 0; }
-  .hm9[data-phone="e"] .hm6-stage.hm6-i .hm6-art { order: 2; width: min(100%, 22rem); max-height: none; margin-top: 1.2rem; }
-  .hm9[data-phone="e"] .hm6-stage.hm6-i .hm6-note { order: 3; margin-bottom: 1rem; }
+  /* The soft cover round the button and the line under it would dim the top of the city, which sits close under them. */
+  .hm9[data-phone="e"] .hm6-stage.hm6-i .home-hero-actions, .hm9[data-phone="e"] .hm6-stage.hm6-i .home-hero-foot { box-shadow: none; }
+  /* The city takes the height left once the words and squares are placed, so the first screen is full; on shorter phones it
+     keeps a floor and the squares go below the fold. The drawing has blank space round the wall, taken back by the margins. */
+  .hm9[data-phone="e"] .hm6-stage.hm6-i .hm6-art { order: 2; width: min(100%, max(20rem, calc(100svh - 805px))); max-height: none; margin-block: -18px -22px; }
+  .hm9[data-phone="e"] .hm6-stage.hm6-i .hm6-note { order: 3; margin-bottom: .7rem; }
 
 }
 
