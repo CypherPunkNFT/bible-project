@@ -65,7 +65,9 @@ for (const entry of files.filter((entry) => entry.isFile())) {
 const routes = JSON.parse(await readFile("public/_routes.json", "utf8")) as { include: string[] };
 if (databaseId) {
   const config = {
-    name: "bible-project", main: "./worker/site-worker.mjs", compatibility_date: "2026-10-04", compatibility_flags: ["nodejs_compat"], workers_dev: true,
+    name: "bible-project", main: "./worker/site-worker.mjs", compatibility_date: "2026-10-04", compatibility_flags: ["nodejs_compat"],
+    // The live address is a route, not a Worker custom domain: bibleguide.io keeps its DNS record, which a custom domain would refuse.
+    ...(siteUrl.hostname === "bibleguide.io" ? { workers_dev: false, preview_urls: false, routes: [{ pattern: "bibleguide.io/*", zone_name: "bibleguide.io" }] } : { workers_dev: true }),
     assets: { directory: "./site", binding: "ASSETS", not_found_handling: "single-page-application", html_handling: "auto-trailing-slash", run_worker_first: [...routes.include, "/atlas-tiles/*", "/circles/*"] },
     vars: { PUBLIC_SITE_URL: siteUrl.origin },
     d1_databases: [{ binding: "DB", database_name: "bible-testimonies", database_id: databaseId, migrations_dir: "./migrations" }],
