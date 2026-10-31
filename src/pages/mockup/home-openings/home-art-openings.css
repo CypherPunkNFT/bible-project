@@ -5,7 +5,7 @@
 
 .hm4-sun-disc { fill: color-mix(in srgb, var(--accent) 24%, var(--page)); stroke: var(--accent); stroke-width: 1.2; }
 .hm4-sun-solid { fill: var(--accent); stroke: none; }
-.hm4-sun-cross { fill: var(--page); }
+.hm4-sun-cross { fill: #fffdf6; }
 .hm4-sun-outline { fill: none; stroke: var(--accent); stroke-width: 1; opacity: .5; }
 
 /* A and B: the scroll */

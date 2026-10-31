@@ -1,6 +1,6 @@
 // MOCK-UP: three openings on /home_mockup4 with newly drawn art (owner, 2026-10-30: "Something new for the artworks").
-// A and B are the scroll whose sheets are the hills, carrying Isaiah 40:6-8 in Hebrew, Greek and English: A centres the title
-// with the sun rising over the middle, B keeps the title left and the sun right. C, Manuscript, is a sun pieced together from
+// A and B are the scroll whose sheets are the hills, carrying verses of praise in Hebrew, Greek and English: A runs edge to
+// edge under the marquee, B is framed. The sun, with a cross in it, sits right of the title. C, Manuscript, is a sun pieced together from
 // torn leaves, with the gold marquee under it. The open Word and the sixty-six rays were taken out (owner, 2026-10-30).
 import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { GoldMarquee, OpeningCopy, type OpeningProps } from "./HomeOpenings";
@@ -29,26 +29,41 @@ const trace = (base: number, phase: number, length: number) => {
 };
 /** The scroll's height in drawing units; the sheets fill the lower half. */
 const HEIGHT = 560;
-/** Isaiah 40:6-8, a verse to a line, from the site's own texts: the Hebrew (WLC, unpointed, as on the old scrolls), the Greek
- *  (LXX, in capitals, as in the old codices) and the Berean Standard Bible (its quotation marks left off). Each line repeats its
- *  verse along the sheet. Two lines were added to each sheet and the Hebrew made large (owner, 2026-10-30). */
+/** The verses that give God the most glory, from the site's own texts: the Hebrew (WLC, unpointed, as on the old scrolls),
+ *  the Greek (Textus Receptus, in capitals without accents, as in the old codices) and the Berean Standard Bible (its
+ *  quotation marks left off). Each line runs several verses, and no verse appears twice in a language (owner, 2026-10-30:
+ *  "none of these lines are repeats"; "pick all the best verses which give the most glory to God"). */
+// Hebrew: ISA 6:3, 1CH 29:11, PSA 145:3, EXO 15:11, PSA 8:2 | PSA 148:13, PSA 72:19, PSA 57:12, PSA 113:4, DEU 10:17, PSA 86:10 | PSA 150:6, NEH 9:6, PSA 115:1, JER 10:6, PSA 29:2.
+// Greek: REV 4:11, 1TI 1:17, ROM 11:36 | REV 5:12, REV 5:13 | REV 7:12, JUD 1:25, ROM 11:33 | REV 15:3, REV 15:4.
+// English: REV 4:11, ISA 6:3, 1TI 1:17, ROM 11:36 | 1CH 29:11, REV 5:12, PSA 145:3 | REV 5:13, EXO 15:11, JUD 1:25 | PSA 8:1, REV 7:12, ROM 11:33, REV 15:3.
 const VERSES = {
-  he: ["קול אמר קרא ואמר מה אקרא כל־הבשר חציר וכל־חסדו כציץ השדה׃", "יבש חציר נבל ציץ כי רוח יהוה נשבה בו אכן חציר העם׃", "יבש חציר נבל ציץ ודבר־אלהינו יקום לעולם׃"],
-  grc: ["ΦΩΝΗ ΛΕΓΟΝΤΟΣ ΒΟΗΣΟΝ ΚΑΙ ΕΙΠΑ ΤΙ ΒΟΗΣΩ ΠΑΣΑ ΣΑΡΞ ΧΟΡΤΟΣ ΚΑΙ ΠΑΣΑ ΔΟΞΑ ΑΝΘΡΩΠΟΥ ΩΣ ΑΝΘΟΣ ΧΟΡΤΟΥ", "ΕΞΗΡΑΝΘΗ Ο ΧΟΡΤΟΣ ΚΑΙ ΤΟ ΑΝΘΟΣ ΕΞΕΠΕΣΕ", "ΤΟ ΔΕ ΡΗΜΑ ΤΟΥ ΘΕΟΥ ΗΜΩΝ ΜΕΝΕΙ ΕΙΣ ΤΟΝ ΑΙΩΝΑ"],
-  en: ["A voice says, Cry out! And I asked, What should I cry out? All flesh is like grass, and all its glory like the flowers of the field.", "The grass withers and the flowers fall when the breath of the LORD blows on them; indeed, the people are grass.", "The grass withers and the flowers fall, but the word of our God stands forever.", "The grass withers and the flowers fall, but the word of our God stands forever."],
+  he: [
+    ["וקרא זה אל־זה ואמר קדוש קדוש קדוש יהוה צבאות מלא כל־הארץ כבודו׃", "לך יהוה הגדלה והגבורה והתפארת והנצח וההוד כי־כל בשמים ובארץ לך יהוה הממלכה והמתנשא לכל לראש׃", "גדול יהוה ומהלל מאד ולגדלתו אין חקר׃", "מי־כמכה באלם יהוה מי כמכה נאדר בקדש נורא תהלת עשה פלא׃", "יהוה אדנינו מה־אדיר שמך בכל־הארץ אשר תנה הודך על־השמים׃"],
+    ["יהללו את־שם יהוה כי־נשגב שמו לבדו הודו על־ארץ ושמים׃", "וברוך שם כבודו לעולם וימלא כבודו את־כל הארץ אמן ואמן׃", "רומה על־שמים אלהים על כל־הארץ כבודך׃", "רם על־כל־גוים יהוה על השמים כבודו׃", "כי יהוה אלהיכם הוא אלהי האלהים ואדני האדנים האל הגדל הגבר והנורא אשר לא־ישא פנים ולא יקח שחד׃", "כי־גדול אתה ועשה נפלאות אתה אלהים לבדך׃"],
+    ["כל הנשמה תהלל יה הללו־יה׃", "אתה־הוא יהוה לבדך את עשית את־השמים שמי השמים וכל־צבאם הארץ וכל־אשר עליה הימים וכל־אשר בהם ואתה מחיה את־כלם וצבא השמים לך משתחוים׃", "לא לנו יהוה לא לנו כי־לשמך תן כבוד על־חסדך על־אמתך׃", "מאין כמוך יהוה גדול אתה וגדול שמך בגבורה׃", "הבו ליהוה כבוד שמו השתחוו ליהוה בהדרת־קדש׃"],
+  ],
+  grc: [
+    ["ΑΞΙΟΣ ΕΙ ΚΥΡΙΕ ΛΑΒΕΙΝ ΤΗΝ ΔΟΞΑΝ ΚΑΙ ΤΗΝ ΤΙΜΗΝ ΚΑΙ ΤΗΝ ΔΥΝΑΜΙΝ ΟΤΙ ΣΥ ΕΚΤΙΣΑΣ ΤΑ ΠΑΝΤΑ ΚΑΙ ΔΙΑ ΤΟ ΘΕΛΗΜΑ ΣΟΥ ΕΙΣΙ ΚΑΙ ΕΚΤΙΣΘΗΣΑΝ", "ΤΩ ΔΕ ΒΑΣΙΛΕΙ ΤΩΝ ΑΙΩΝΩΝ ΑΦΘΑΡΤΩ ΑΟΡΑΤΩ ΜΟΝΩ ΣΟΦΩ ΘΕΩ ΤΙΜΗ ΚΑΙ ΔΟΞΑ ΕΙΣ ΤΟΥΣ ΑΙΩΝΑΣ ΤΩΝ ΑΙΩΝΩΝ ΑΜΗΝ", "ΟΤΙ ΕΞ ΑΥΤΟΥ ΚΑΙ ΔΙ᾿ ΑΥΤΟΥ ΚΑΙ ΕΙΣ ΑΥΤΟΝ ΤΑ ΠΑΝΤΑ ΑΥΤΩ Η ΔΟΞΑ ΕΙΣ ΤΟΥΣ ΑΙΩΝΑΣ ΑΜΗΝ"],
+    ["ΛΕΓΟΝΤΕΣ ΦΩΝΗ ΜΕΓΑΛΗ ΑΞΙΟΝ ΕΣΤΙ ΤΟ ΑΡΝΙΟΝ ΤΟ ΕΣΦΑΓΜΕΝΟΝ ΛΑΒΕΙΝ ΤΗΝ ΔΥΝΑΜΙΝ ΚΑΙ ΠΛΟΥΤΟΝ ΚΑΙ ΣΟΦΙΑΝ ΚΑΙ ΙΣΧΥΝ ΚΑΙ ΤΙΜΗΝ ΚΑΙ ΔΟΞΑΝ ΚΑΙ ΕΥΛΟΓΙΑΝ", "ΚΑΙ ΠΑΝ ΚΤΙΣΜΑ Ο ΕΣΤΙΝ ΕΝ ΤΩ ΟΥΡΑΝΩ ΚΑΙ ΕΝ ΤΗ ΓΗ ΚΑΙ ΥΠΟΚΑΤΩ ΤΗΣ ΓΗΣ ΚΑΙ ΕΠΙ ΤΗΣ ΘΑΛΑΣΣΗΣ Α ΕΣΤΙ ΚΑΙ ΤΑ ΕΝ ΑΥΤΟΙΣ ΠΑΝΤΑ ΗΚΟΥΣΑ ΛΕΓΟΝΤΑΣ ΤΩ ΚΑΘΗΜΕΝΩ ΕΠΙ ΤΟΥ ΘΡΟΝΟΥ ΚΑΙ ΤΩ ΑΡΝΙΩ Η ΕΥΛΟΓΙΑ ΚΑΙ Η ΤΙΜΗ ΚΑΙ Η ΔΟΞΑ ΚΑΙ ΤΟ ΚΡΑΤΟΣ ΕΙΣ ΤΟΥΣ ΑΙΩΝΑΣ ΤΩΝ ΑΙΩΝΩΝ"],
+    ["ΛΕΓΟΝΤΕΣ ΑΜΗΝ Η ΕΥΛΟΓΙΑ ΚΑΙ Η ΔΟΞΑ ΚΑΙ Η ΣΟΦΙΑ ΚΑΙ Η ΕΥΧΑΡΙΣΤΙΑ ΚΑΙ Η ΤΙΜΗ ΚΑΙ Η ΔΥΝΑΜΙΣ ΚΑΙ Η ΙΣΧΥΣ ΤΩ ΘΕΩ ΗΜΩΝ ΕΙΣ ΤΟΥΣ ΑΙΩΝΑΣ ΤΩΝ ΑΙΩΝΩΝ ΑΜΗΝ", "ΜΟΝΩ ΣΟΦΩ ΘΕΩ ΣΩΤΗΡΙ ΗΜΩΝ ΔΟΞΑ ΚΑΙ ΜΕΓΑΛΩΣΥΝΗ ΚΡΑΤΟΣ ΚΑΙ ΕΞΟΥΣΙΑ ΚΑΙ ΝΥΝ ΚΑΙ ΕΙΣ ΠΑΝΤΑΣ ΤΟΥΣ ΑΙΩΝΑΣ ΑΜΗΝ", "Ω ΒΑΘΟΣ ΠΛΟΥΤΟΥ ΚΑΙ ΣΟΦΙΑΣ ΚΑΙ ΓΝΩΣΕΩΣ ΘΕΟΥ ΩΣ ΑΝΕΞΕΡΕΥΝΗΤΑ ΤΑ ΚΡΙΜΑΤΑ ΑΥΤΟΥ ΚΑΙ ΑΝΕΞΙΧΝΙΑΣΤΟΙ ΑΙ ΟΔΟΙ ΑΥΤΟΥ"],
+    ["ΚΑΙ ΑΔΟΥΣΙ ΤΗΝ ΩΔΗΝ ΜΩΣΕΩΣ ΔΟΥΛΟΥ ΤΟΥ ΘΕΟΥ ΚΑΙ ΤΗΝ ΩΔΗΝ ΤΟΥ ΑΡΝΙΟΥ ΛΕΓΟΝΤΕΣ ΜΕΓΑΛΑ ΚΑΙ ΘΑΥΜΑΣΤΑ ΤΑ ΕΡΓΑ ΣΟΥ ΚΥΡΙΕ Ο ΘΕΟΣ Ο ΠΑΝΤΟΚΡΑΤΩΡ ΔΙΚΑΙΑΙ ΚΑΙ ΑΛΗΘΙΝΑΙ ΑΙ ΟΔΟΙ ΣΟΥ Ο ΒΑΣΙΛΕΥΣ ΤΩΝ ΑΓΙΩΝ", "ΤΙΣ ΟΥ ΜΗ ΦΟΒΗΘΗ ΣΕ ΚΥΡΙΕ ΚΑΙ ΔΟΞΑΣΗ ΤΟ ΟΝΟΜΑ ΣΟΥ ΟΤΙ ΜΟΝΟΣ ΟΣΙΟΣ ΟΤΙ ΠΑΝΤΑ ΤΑ ΕΘΝΗ ΗΞΟΥΣΙ ΚΑΙ ΠΡΟΣΚΥΝΗΣΟΥΣΙΝ ΕΝΩΠΙΟΝ ΣΟΥ ΟΤΙ ΤΑ ΔΙΚΑΙΩΜΑΤΑ ΣΟΥ ΕΦΑΝΕΡΩΘΗΣΑΝ"],
+  ],
+  en: [
+    ["Worthy are You, our Lord and God, to receive glory and honor and power, for You created all things; by Your will they exist and came to be.", "And they were calling out to one another: Holy, holy, holy is the LORD of Hosts; all the earth is full of His glory.", "Now to the King eternal, immortal, and invisible, the only God, be honor and glory forever and ever. Amen.", "For from Him and through Him and to Him are all things. To Him be the glory forever! Amen."],
+    ["Yours, O LORD, is the greatness and the power and the glory and the splendor and the majesty, for everything in heaven and on earth belongs to You. Yours, O LORD, is the kingdom, and You are exalted as head over all.", "In a loud voice they were saying: Worthy is the Lamb, who was slain, to receive power and riches and wisdom and strength and honor and glory and blessing!", "Great is the LORD and greatly to be praised; His greatness is unsearchable."],
+    ["And I heard every creature in heaven and on earth and under the earth and in the sea, and all that is in them, saying: To Him who sits on the throne and to the Lamb be praise and honor and glory and power forever and ever!", "Who among the gods is like You, O LORD? Who is like You—majestic in holiness, revered with praises, performing wonders?", "to the only God our Savior be glory, majesty, dominion, and authority through Jesus Christ our Lord before all time, and now, and for all eternity. Amen."],
+    ["O LORD, our Lord, how majestic is Your name in all the earth! You have set Your glory above the heavens.", "saying, Amen! Blessing and glory and wisdom and thanks and honor and power and strength be to our God forever and ever! Amen.", "O, the depth of the riches of the wisdom and knowledge of God! How unsearchable are His judgments, and untraceable His ways!", "and they sang the song of God’s servant Moses and of the Lamb: Great and wonderful are Your works, O Lord God Almighty! Just and true are Your ways, O King of the nations!"],
+  ],
 };
-/** Enough repeats of a verse to run the longest scroll: [characters needed, separator] for each script. */
-const RUNS = { he: [220, "   "], grc: [240, "  ·  "], en: [380, "  ·  "] } as const;
-const INSCRIPTIONS = Object.fromEntries(Object.entries(VERSES).map(([script, verses]) => {
-  const [needed, separator] = RUNS[script as keyof typeof RUNS];
-  return [script, verses.map((verse) => Array(Math.ceil(needed / verse.length) + 1).fill(verse).join(separator))];
-})) as Record<keyof typeof VERSES, string[]>;
+const SEPARATOR = { he: "   ", grc: "  ·  ", en: "  ·  " } as const;
+const INSCRIPTIONS = Object.fromEntries(Object.entries(VERSES).map(([script, lines]) =>
+  [script, lines.map((verses) => verses.join(SEPARATOR[script as keyof typeof SEPARATOR]))])) as Record<keyof typeof VERSES, string[]>;
 /** Each sheet: two dotted lines under its edge, then its inscription below them, a verse to a line (owner, 2026-10-30). The
  *  sheets keep their first-drawn places; only the writing changed, so the lines sit close (owner: "I did not ask you to change
  *  anything about the scrolls. Except for the words in them"). */
 const SHEETS = [
   { name: "far", base: 340, phase: 0.6, dots: [14, 27], words: [54, 76, 98], script: "he" as const },
-  { name: "mid", base: 402, phase: 2.4, dots: [14, 27], words: [50, 66, 82], script: "grc" as const },
+  { name: "mid", base: 402, phase: 2.4, dots: [14, 27], words: [50, 66, 82, 98], script: "grc" as const },
   { name: "near", base: 470, phase: 4.1, dots: [14, 27], words: [54, 74, 94, 114], script: "en" as const },
 ];
 const LINE_STARTS = [24, 90, 50, 130];
@@ -147,8 +162,8 @@ function ScrollArt({ fit }: { fit: "edge" | "framed" }) {
     </defs>
     {RINGS.map((radius, ring) => <circle className={`hm4-scroll-ring hm4-scroll-ring-${ring % 2}`} cx={sun} cy={sunY} r={radius} style={{ opacity: 0.62 - ring * 0.1, transformOrigin: `${sun}px ${sunY}px` }} key={radius} />)}
     <circle className="hm4-sun-disc hm4-sun-solid" cx={sun} cy={sunY} r="82" />
-    {/* A cross in the sun, cut out in the page's colour (owner, 2026-10-30); set high, as the hills cover the sun's foot. */}
-    <path className="hm4-sun-cross" d={`M${fixed(sun - 6)} ${sunY - 58}h12v22h20v12h-20v50h-12v-50h-20v-12h20Z`} />
+    {/* A white cross in the sun, not a dark cut-out (owner, 2026-10-30); its foot stays clear of the hills. */}
+    <path className="hm4-sun-cross" d={`M${fixed(sun - 6)} ${sunY - 44}h12v20h20v12h-20v58h-12v-58h-20v-12h20Z`} />
     {sheets.map((sheet) => <g className={`hm4-sheet hm4-sheet-${sheet.name}`} key={sheet.name}>
       <path className="hm4-sheet-fill" d={`${sheet.edge}L${length} ${HEIGHT}L0 ${HEIGHT}Z`} /><path className="hm4-sheet-edge" d={sheet.edge} />
       {sheet.dotted.map((d) => <path className="hm4-sheet-writing" d={d} key={d} />)}
