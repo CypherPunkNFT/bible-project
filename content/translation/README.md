@@ -6,6 +6,16 @@ publish **without a native-speaker review**, and show **no machine-translation n
 header between Contact and Search ([LanguageMenu.tsx](../../src/components/LanguageMenu.tsx)); it shows only on this
 computer's preview until a translation is published.
 
+## The full run (from 2026-10-31)
+
+Haiku translates the site in Claude Code cloud sessions, paid from the owner's cloud credit, in its own private
+repository: [CypherPunkNFT/site-translation](https://github.com/CypherPunkNFT/site-translation), checked out at
+[SiteTranslation/](../../../SiteTranslation/). [extract.py](extract.py) writes the English into it: 819 chunks, 3.0
+million words, every unique string once per kind of content. Its `SOURCES` list says which fields of which data files
+are translated. Scripture quotations are left out (each language's Bible fills them by reference), and so are book
+titles, authors, licences and catalogue metadata. Not in yet: text written into the page code, which first has to move
+into string files. The import step will walk the same `SOURCES` and swap each English string for its translation.
+
 ## The pilot (2026-10-31)
 
 [pilot/](pilot/) compared Haiku with the local model (HyperQwen) on 50 real items from every part of the site, in both
