@@ -47,9 +47,9 @@ const INSCRIPTIONS = Object.fromEntries(Object.entries(VERSES).map(([script, ver
  *  sheets keep their first-drawn places; only the writing changed, so the lines sit close (owner: "I did not ask you to change
  *  anything about the scrolls. Except for the words in them"). */
 const SHEETS = [
-  { name: "far", base: 340, phase: 0.6, dots: [14, 27], words: [46, 68, 90], script: "he" as const },
-  { name: "mid", base: 402, phase: 2.4, dots: [14, 27], words: [42, 58, 74], script: "grc" as const },
-  { name: "near", base: 470, phase: 4.1, dots: [14, 27], words: [46, 66, 86, 106], script: "en" as const },
+  { name: "far", base: 340, phase: 0.6, dots: [14, 27], words: [54, 76, 98], script: "he" as const },
+  { name: "mid", base: 402, phase: 2.4, dots: [14, 27], words: [50, 66, 82], script: "grc" as const },
+  { name: "near", base: 470, phase: 4.1, dots: [14, 27], words: [54, 74, 94, 114], script: "en" as const },
 ];
 const LINE_STARTS = [24, 90, 50, 130];
 const drawSheets = (length: number) => SHEETS.map((sheet) => ({
@@ -89,30 +89,66 @@ function Roller({ cx, inward }: { cx: number; inward: 1 | -1 }) {
   </g>;
 }
 
+const SUN_Y = 262, RINGS = [104, 132, 162, 196, 234];
+/** Screen pixels kept between the sun's outer ring and the title or the copy under it. */
+const RING_GAP = 28;
+/** Where the sun sits, in drawing units: its outer ring on the header's right margin, moved back right only as far as it must
+ *  to clear the title and the copy (owner, 2026-10-30: "put it to the left so it can be within the header margins as much as
+ *  possible without touching the title"). Never further right than it was first drawn. */
+function placeSun(svg: SVGSVGElement, length: number, scale: number, drawnLeft: number, drawnTop: number) {
+  const first = length - 300;
+  const wrap = svg.parentElement?.querySelector<HTMLElement>(".home-wrap");
+  const copy = wrap?.querySelector(".home-hero-copy");
+  if (!wrap || !copy) return first;
+  const wrapBox = wrap.getBoundingClientRect();
+  const marginRight = wrapBox.right - parseFloat(getComputedStyle(wrap).paddingRight);
+  // The words themselves, not their full-width blocks.
+  const words = [...copy.children].map((child) => { const range = document.createRange(); range.selectNodeContents(child); return range.getBoundingClientRect(); }).filter((box) => box.width);
+  const radius = (RINGS[RINGS.length - 1] + 1) * scale, middleY = drawnTop + SUN_Y * scale;
+  const clears = (x: number) => words.every((box) => Math.hypot(Math.max(box.left - x, 0, x - box.right), Math.max(box.top - middleY, 0, middleY - box.bottom)) >= radius + RING_GAP);
+  let x = marginRight - radius;
+  const furthest = drawnLeft + first * scale;
+  while (!clears(x) && x < furthest) x += 4;
+  return Math.min(first, (x - drawnLeft) / scale);
+}
+
 /** "edge" runs the scroll from one side of the screen to the other, cropped from the left on narrow screens (Scroll A).
  *  "framed" sets it inside margins and lets its length follow the shape of its space, so it fills a phone and a wide screen
  *  alike instead of shrinking to a strip (Scroll B). */
 function ScrollArt({ fit }: { fit: "edge" | "framed" }) {
   const frame = useRef<SVGSVGElement>(null);
   const [length, setLength] = useState(1600);
+  const [sun, setSun] = useState(1300);
   useLayoutEffect(() => {
     const svg = frame.current;
-    if (!svg || fit === "edge") return;
-    const measure = () => { const box = svg.getBoundingClientRect(); if (box.height) setLength(Math.round(Math.min(2200, Math.max(640, (HEIGHT * box.width) / box.height)))); };
+    if (!svg) return;
+    const measure = () => {
+      const box = svg.getBoundingClientRect();
+      if (!box.height) return;
+      const drawn = fit === "edge" ? 1600 : Math.round(Math.min(2200, Math.max(640, (HEIGHT * box.width) / box.height)));
+      // The same fitting as preserveAspectRatio below: "xMaxYMax slice" for edge, "xMidYMax meet" for framed.
+      const scale = fit === "edge" ? Math.max(box.width / drawn, box.height / HEIGHT) : Math.min(box.width / drawn, box.height / HEIGHT);
+      const drawnLeft = box.left + (fit === "edge" ? box.width - drawn * scale : (box.width - drawn * scale) / 2);
+      setLength(drawn);
+      setSun(placeSun(svg, drawn, scale, drawnLeft, box.bottom - HEIGHT * scale));
+    };
     measure();
+    document.fonts?.ready.then(measure);
     const observer = new ResizeObserver(measure);
     observer.observe(svg);
     return () => observer.disconnect();
   }, [fit]);
   const sheets = useMemo(() => drawSheets(length), [length]);
-  const sun = length - 300, sunY = 262;
+  const sunY = SUN_Y;
   return <svg ref={frame} className={`hm4-scroll-art hm4-scroll-${fit}`} viewBox={`0 0 ${length} ${HEIGHT}`} preserveAspectRatio={fit === "edge" ? "xMaxYMax slice" : "xMidYMax meet"} aria-hidden="true">
     <defs>
       {sheets.flatMap((sheet) => sheet.writing.map((d, line) => <path id={`hm4-line-${sheet.name}-${line}`} d={d} key={`${sheet.name}-${line}`} />))}
       <clipPath id="hm4-between-rollers"><rect x="22" y="0" width={length - 44} height={HEIGHT} /></clipPath>
     </defs>
-    {[104, 132, 162, 196, 234].map((radius, ring) => <circle className={`hm4-scroll-ring hm4-scroll-ring-${ring % 2}`} cx={sun} cy={sunY} r={radius} style={{ opacity: 0.62 - ring * 0.1, transformOrigin: `${sun}px ${sunY}px` }} key={radius} />)}
+    {RINGS.map((radius, ring) => <circle className={`hm4-scroll-ring hm4-scroll-ring-${ring % 2}`} cx={sun} cy={sunY} r={radius} style={{ opacity: 0.62 - ring * 0.1, transformOrigin: `${sun}px ${sunY}px` }} key={radius} />)}
     <circle className="hm4-sun-disc hm4-sun-solid" cx={sun} cy={sunY} r="82" />
+    {/* A cross in the sun, cut out in the page's colour (owner, 2026-10-30); set high, as the hills cover the sun's foot. */}
+    <path className="hm4-sun-cross" d={`M${fixed(sun - 6)} ${sunY - 58}h12v22h20v12h-20v50h-12v-50h-20v-12h20Z`} />
     {sheets.map((sheet) => <g className={`hm4-sheet hm4-sheet-${sheet.name}`} key={sheet.name}>
       <path className="hm4-sheet-fill" d={`${sheet.edge}L${length} ${HEIGHT}L0 ${HEIGHT}Z`} /><path className="hm4-sheet-edge" d={sheet.edge} />
       {sheet.dotted.map((d) => <path className="hm4-sheet-writing" d={d} key={d} />)}
