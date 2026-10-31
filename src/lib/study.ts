@@ -1,5 +1,5 @@
 import { DataUnavailable } from "./data";
-import { translatedDataPath } from "./language";
+import { onLanguageChange, translatedDataPath } from "./language";
 import { lastReadPath } from "./last-read";
 import { personPack, personPackPath } from "./person-pack";
 import { bookByNum, splitId } from "./refs";
@@ -102,6 +102,7 @@ export interface StudyIndex {
 }
 
 const cache = new Map<string, Promise<unknown>>();
+onLanguageChange(() => cache.clear());
 let indexPromise: Promise<StudyIndex> | null = null;
 
 async function getJson<T>(path: string, stamp: string): Promise<T> {

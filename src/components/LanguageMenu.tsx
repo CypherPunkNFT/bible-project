@@ -3,12 +3,13 @@
 // so a release cannot put a menu of languages the site does not have yet on bibleguide.io.
 import { Check, Languages } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { chooseSiteLanguage, LANGUAGES, PREVIEW_ONLY, siteLanguage, type LanguageCode } from "@/lib/language";
+import { LANGUAGES, PREVIEW_ONLY, useSiteLanguage, type LanguageCode } from "@/lib/language";
+import { chooseSiteLanguage } from "@/lib/page-translator";
 import { cn } from "@/lib/utils";
 
 export function LanguageMenu() {
   const [open, setOpen] = useState(false);
-  const current = siteLanguage();
+  const current = useSiteLanguage();
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!open) return;
@@ -21,7 +22,7 @@ export function LanguageMenu() {
   if (!PREVIEW_ONLY) return null;
   const choose = (code: LanguageCode) => {
     setOpen(false);
-    if (code !== current) chooseSiteLanguage(code);
+    if (code !== current) void chooseSiteLanguage(code);
   };
   return (
     <div ref={root} className="relative shrink-0">

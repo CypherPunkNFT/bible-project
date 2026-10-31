@@ -5,7 +5,7 @@ import { isMuseumSlug, type Museum, type MuseumIndex } from "./museums";
 import type { ManuscriptCollection } from "./manuscripts";
 import type { HymnPageData, HymnPagesIndex, HymnsByChapter } from "./hymn-pages";
 import type { ChapterTopics, LibraryBook, Topic, TopicIndex } from "./topics";
-import { translatedDataPath } from "./language";
+import { onLanguageChange, translatedDataPath } from "./language";
 
 /** A data file that is missing or malformed. The reader turns this into "not in this version". */
 export class DataUnavailable extends Error {
@@ -19,6 +19,8 @@ export class DataUnavailable extends Error {
 }
 
 const cache = new Map<string, Promise<unknown>>();
+// Files read later come in the new language; what is on screen is swapped in place (page-translator.ts).
+onLanguageChange(() => cache.clear());
 let stamp = "";
 let layout: DataLayout | undefined;
 
