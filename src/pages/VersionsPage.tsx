@@ -32,8 +32,8 @@ export default function VersionsPage() {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Versions & sources</p>
         <h2 className="mt-1 font-serif text-3xl font-semibold tracking-tight">{catalog.translations.length} Bible editions to read and download.</h2>
         <p className="mt-3 max-w-2xl text-muted">
-          Every text below is in the public domain except one: the Hindi Indian Revised Version, which its publisher shares under an open licence (CC BY-SA 4.0).
-          Each was downloaded from eBible.org and is shown as published there, without the book introductions some of them carry.
+          Every text below is in the public domain or shared by its publisher under a free-to-use licence, credited wherever that text is read.
+          Each is shown as published, without the book introductions some of them carry.
         </p>
         <p className="mt-2 max-w-2xl text-sm text-muted">Download any edition as a free text file (.txt) for offline reading, with book and verse references and source credits. Downloads contain verse text without headings or footnotes.</p>
       </header>

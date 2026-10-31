@@ -8,7 +8,7 @@ export const SITE_ORIGIN = "https://bibleguide.io";
 export const DEFAULT_TITLE = SITE_NAME;
 export const HOME_TITLE = "Bible Guide: Read the Whole Bible Free, with Studies, an Atlas and Topics";
 export const HOME_DESCRIPTION =
-  "Bible Guide is a free Bible website: read the whole Bible in 37 free versions and 17 languages, with study guides, an atlas of every Bible place, 5,603 topics, apologetics, hymns and teachers.";
+  "Bible Guide is a free Bible website: read the whole Bible in 160 free versions and 140 languages, with study guides, an atlas of every Bible place, 5,603 topics, apologetics, hymns and teachers.";
 
 // The main pages, named the way people search for them. Every other page is named from its own heading.
 const ROUTE_TITLES: Record<string, string> = {

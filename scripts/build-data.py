@@ -24,6 +24,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from bible.books import BOOK_NUMBER, BOOKS, EQUIVALENT, SKIPPED_CODES  # noqa: E402
 from bible.opendata import read_cross_references, read_places  # noqa: E402
+from bible.other_sources import OTHER_SOURCES  # noqa: E402
 from bible.paths import SOURCES  # noqa: E402
 from bible.translations import CREDITS, PLAIN_ITALIC, as_dicts  # noqa: E402
 from bible.usfm import parse_book, plain_text  # noqa: E402
@@ -66,8 +67,12 @@ def check_source(folder: str, zip_path: Path, recorded: dict[str, str]) -> None:
 
 
 def build_translation(meta: dict, recorded: dict[str, str], warnings: list[str]) -> dict:
-    folder = SOURCES / "ebible" / meta["id"]
-    check_source(meta["id"], folder / f"{meta['id']}_usfm.zip", recorded)
+    if meta["id"] in OTHER_SOURCES:  # the USFM here comes from scripts/convert-other-bibles.py
+        folder = SOURCES / "converted" / meta["id"]
+        check_source(meta["id"], folder / OTHER_SOURCES[meta["id"]][1].rsplit("/", 1)[-1], recorded)
+    else:
+        folder = SOURCES / "ebible" / meta["id"]
+        check_source(meta["id"], folder / f"{meta['id']}_usfm.zip", recorded)
     slug = meta["abbr"].lower()
     books: dict[str, dict] = {}
     for path in sorted(folder.glob("*.usfm")):

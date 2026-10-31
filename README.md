@@ -75,7 +75,7 @@ build on.
 
 ## What is in it
 
-- **Library**: the reading chart (every chapter, mark what you have read) and all 24 versions.
+- **Library**: the reading chart (every chapter, mark what you have read) and all 160 versions.
 - **Reader**: up to three versions side by side, including the Hebrew (right to left), Greek and Latin;
   red letters, footnotes, and each verse's cross-references.
 - **Study**: nine illustrated collections covering Jesus and the Gospels, connected passages, Bible structure,

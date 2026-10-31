@@ -34,10 +34,12 @@ const bundles = (await readdir(path.join(site, "assets"))).filter((name) => name
 if (!(await Promise.all(bundles.map((name) => readFile(path.join(site, "assets", name), "utf8")))).some((code) => code.includes("xrefChunk"))) throw new Error("This build cannot read grouped chapter files (no xrefChunk in its scripts); rebuild before preparing a release.");
 console.log("Reader packs:", packReaderData(site));
 await cp("migrations", path.join(directory, "migrations"), { recursive: true });
-const compiler = spawnSync(process.execPath, ["node_modules/wrangler/bin/wrangler.js", "pages", "functions", "build", "--outdir", path.join(site, "_worker.js")], { stdio: "inherit" });
+// The Worker's code sits beside the site folder, so it is never served as a file.
+const worker = path.join(directory, "worker");
+const compiler = spawnSync(process.execPath, ["node_modules/wrangler/bin/wrangler.js", "pages", "functions", "build", "--outdir", path.join(worker, "functions")], { stdio: "inherit" });
 if (compiler.status !== 0) throw new Error("Pages Function compilation failed.");
+for (const file of ["site-worker.mjs", "byte-ranges.mjs"]) await cp(path.join("server", file), path.join(worker, file));
 await cp("public/_headers", path.join(site, "_headers"));
-await cp("public/_routes.json", path.join(site, "_routes.json"));
 // The atlas map (STREET_ATLAS.md): its manifest, the current version's 24 MiB pieces, label fonts and icons.
 // Lives on F: via the AtlasTiles junction; ATLAS_TILES_DIR overrides (e.g. when preparing from a clean worktree).
 const atlas = process.env.ATLAS_TILES_DIR ?? path.resolve(import.meta.dirname, "../../AtlasTiles/site");
@@ -53,15 +55,21 @@ const seo = spawnSync("bun", ["scripts/seo/build.ts", JSON.stringify(site)], { s
 if (seo.status !== 0) throw new Error("The search-engine step failed (bun scripts/seo/build.ts).");
 const files = await readdir(site, { recursive: true, withFileTypes: true });
 if (files.some((entry) => entry.isSymbolicLink())) throw new Error("The release contains a link instead of files; copy with dereference.");
-if (files.filter((entry) => entry.isFile()).length > 20000) throw new Error("The release exceeds the project's 20,000-file limit.");
+if (files.filter((entry) => entry.isFile()).length > 100000) throw new Error("The release exceeds Cloudflare Workers' 100,000-file limit.");
 for (const entry of files.filter((entry) => entry.isFile())) {
   const file = path.join(entry.parentPath, entry.name);
-  if ((await stat(file)).size > 25 * 1024 * 1024) throw new Error(`Cloudflare Pages refuses files over 25 MiB: ${file}`);
+  if ((await stat(file)).size > 25 * 1024 * 1024) throw new Error(`Cloudflare Workers refuses files over 25 MiB: ${file}`);
 }
+const routes = JSON.parse(await readFile("public/_routes.json", "utf8")) as { include: string[] };
 if (databaseId) {
-  const config = { name: "bible-project", pages_build_output_dir: "./site", compatibility_date: "2026-10-04", compatibility_flags: ["nodejs_compat"], vars: { PUBLIC_SITE_URL: siteUrl.origin }, d1_databases: [{ binding: "DB", database_name: "bible-testimonies", database_id: databaseId, migrations_dir: "./migrations" }] };
+  const config = {
+    name: "bible-project", main: "./worker/site-worker.mjs", compatibility_date: "2026-10-04", compatibility_flags: ["nodejs_compat"], workers_dev: true,
+    assets: { directory: "./site", binding: "ASSETS", not_found_handling: "single-page-application", html_handling: "auto-trailing-slash", run_worker_first: [...routes.include, "/atlas-tiles/*", "/circles/*"] },
+    vars: { PUBLIC_SITE_URL: siteUrl.origin },
+    d1_databases: [{ binding: "DB", database_name: "bible-testimonies", database_id: databaseId, migrations_dir: "./migrations" }],
+  };
   await writeFile(path.join(directory, "wrangler.jsonc"), JSON.stringify(config, null, 2) + "\n");
 }
-await writeFile(path.join(directory, "release.json"), JSON.stringify({ siteUrl: siteUrl.origin, databaseConfigured: Boolean(databaseId), apologeticsContentHash, files: files.filter((entry) => entry.isFile()).length, routes: JSON.parse(await readFile("public/_routes.json", "utf8")) }, null, 2) + "\n");
+await writeFile(path.join(directory, "release.json"), JSON.stringify({ siteUrl: siteUrl.origin, databaseConfigured: Boolean(databaseId), apologeticsContentHash, files: files.filter((entry) => entry.isFile()).length, routes }, null, 2) + "\n");
 console.log("Release prepared at " + directory);
 console.log(databaseId ? "Database configured. Apply migrations and deploy this directory using the README launch steps." : "No cloud database is configured. Set TESTIMONY_D1_ID and prepare again before deployment; this package is for local verification only.");

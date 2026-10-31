@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { SectionDot } from "@/components/SectionStrip";
 import { useCatalog } from "@/lib/catalog";
 import { loadCrossRefs } from "@/lib/data";
+import { VERSION_GROUPS } from "@/lib/languages";
 import { NUMBERING_LABEL } from "@/lib/numbering";
 import { bookByNum, formatRange, sectionOfNum, splitId } from "@/lib/refs";
 import type { CrossRefBook, Translation } from "@/lib/types";
@@ -87,7 +88,7 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
         </p>
       }
     >
-      {compare && <EveryVersion bookCode={bookCode} chapter={Number(chapter)} verse={verse} />}
+      {compare && <EveryVersion current={translation} bookCode={bookCode} chapter={Number(chapter)} verse={verse} />}
 
       {/* Stays at the top of the scrolling list once the versions above it have scrolled away. */}
       <h3 className="sticky top-0 z-10 -mx-4 mb-1 flex items-center gap-2 bg-surface px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
@@ -151,19 +152,30 @@ function CrossRef({ start, end, votes, translation }: { start: number; end: numb
   );
 }
 
-function EveryVersion({ bookCode, chapter, verse }: { bookCode: string; chapter: number; verse: number }) {
+function EveryVersion({ current, bookCode, chapter, verse }: { current: Translation; bookCode: string; chapter: number; verse: number }) {
   const catalog = useCatalog();
+  const [everyLanguage, setEveryLanguage] = useState(false);
   // A version without this book may carry its Greek twin (Brenton's DAG for Daniel, ESG for Esther).
   const twin = catalog.equivalent[bookCode];
   const versions = catalog.translations
     .map((t) => ({ t, code: t.books[bookCode] ? bookCode : twin && t.books[twin] ? twin : null }))
     .filter((v): v is { t: Translation; code: string } => v.code !== null);
+  // Each line fetches a file, so the long list of further languages loads only when asked for.
+  const first = versions.filter(({ t }) => t.slug === current.slug || VERSION_GROUPS.some((group) => group.langs.includes(t.lang)));
+  const shown = everyLanguage ? versions : first;
   return (
-    <ul className="mb-5 divide-y divide-line">
-      {versions.map(({ t, code }) => (
-        <VersionLine key={t.slug} translation={t} bookCode={code} chapter={chapter} verse={verse} />
-      ))}
-    </ul>
+    <>
+      <ul className="mb-3 divide-y divide-line">
+        {shown.map(({ t, code }) => (
+          <VersionLine key={t.slug} translation={t} bookCode={code} chapter={chapter} verse={verse} />
+        ))}
+      </ul>
+      {shown.length < versions.length && (
+        <button type="button" onClick={() => setEveryLanguage(true)} className="mb-5 w-full rounded-lg border border-line px-3 py-2 text-sm hover:bg-surface-2">
+          Show {versions.length - shown.length} more languages
+        </button>
+      )}
+    </>
   );
 }
 

@@ -4,7 +4,7 @@ import { expect, test } from "@playwright/test";
 test("every scripture has a download beside Read, and KJV saves a complete text file", async ({ page }) => {
   await page.goto("/sources#scriptures");
   const downloads = page.getByRole("button", { name: /^Download .* as text$/ });
-  await expect(downloads).toHaveCount(37);
+  await expect(downloads).toHaveCount(160);
   const button = page.getByRole("button", { name: "Download King James Version as text", exact: true });
   await expect(button.locator("xpath=ancestor::td").getByRole("link", { name: "Read", exact: true })).toBeVisible();
   const pending = page.waitForEvent("download");

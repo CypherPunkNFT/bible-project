@@ -9,6 +9,8 @@ cross-references and reading progress for that version.
 strongs: keep Strong's numbers from this source (only where they are reliable and licence-clean).
 """
 
+from bible.languages_added import ADDED_CREDITS, ADDED_TRANSLATIONS
+
 TRANSLATIONS = [
     # id,          abbr,    name,                                         year, lang,  dir,   numbering, strongs
     ("eng-kjv",     "KJV",   "King James Version",                          1611, "en",  "ltr", "english", True),
@@ -53,10 +55,12 @@ TRANSLATIONS = [
     ("vie1934",     "BTT",   "Vietnamese Bible 1923 (Vietnamese)",          1923, "vi",  "ltr", "english", False),
     ("pesOPV",      "OPV",   "Old Persian Version (Persian)",               1895, "fa",  "rtl", "english", False),
     ("ita1927",     "RIV",   "Riveduta 1927 (Italian)",                     1927, "it",  "ltr", "english", False),
+    *ADDED_TRANSLATIONS,
 ]
 
 # Versions whose \it marks the phrase a study note comments on, not emphasis: shown as ordinary text.
-PLAIN_ITALIC = {"hin2017"}
+# The Hindi IRV and the other Indian Revised Versions from the same publisher.
+PLAIN_ITALIC = {"hin2017", "asmfb", "benirv", "guj2017", "kanirv", "mal", "mar", "ory", "pan", "tam2017", "tel2017"}
 
 # Versions that are not public domain: the credit their licence asks for, shown wherever the text is read.
 CREDITS = {
@@ -67,6 +71,7 @@ CREDITS = {
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
         "changes": "Converted to this site's format; book introductions omitted; the Bible text is otherwise unchanged.",
     },
+    **ADDED_CREDITS,
 }
 
 FIELDS = ("id", "abbr", "name", "year", "lang", "dir", "numbering", "strongs")

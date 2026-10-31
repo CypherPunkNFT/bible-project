@@ -8,7 +8,7 @@ import { CollectionArt, collectionTones } from "@/components/sources/CollectionA
 import "./home-sources.css";
 
 const FIGURES = [
-  { value: 37, label: "Bible editions, free to read and download" },
+  { value: 160, label: "Bible editions, free to read and download" },
   { value: 39179, label: "texts extracted and searchable" },
   { value: 11.6, decimals: 1, unit: "million", label: "searchable passages" },
   { value: 8, label: "collections, each traced to its sources" },

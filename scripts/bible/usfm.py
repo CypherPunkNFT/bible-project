@@ -31,19 +31,26 @@ BREAKS = {
     "p": "p", "m": "p", "nb": "p", "pmo": "p", "mi": "p", "pc": "p", "pi1": "p", "pi": "p", "tr": "p",
     "q1": "q1", "q": "q1", "qr": "q1", "qc": "q1", "q2": "q2", "q3": "q3",
     "li1": "l1", "li": "l1", "li2": "l2", "b": "b",
+    # Added for the whole Bibles in other languages (2026-10-31): deeper indents show at the deepest level the site has.
+    "pm": "p", "pmc": "p", "pmr": "p", "po": "p", "pr": "p", "pb": "p", "pi2": "p", "pi3": "p", "lh": "p", "lf": "p",
+    "q4": "q3", "qm": "q1", "qm1": "q1", "qm2": "q2", "qm3": "q3", "li3": "l2", "li4": "l2", "lim1": "l1",
 }
-HEADINGS = {"s1": "s", "s": "s", "s2": "s2", "ms1": "ms", "ms": "ms", "ms2": "ms", "mr": "r", "sp": "sp",
-            "r": "r", "qa": "qa"}
+HEADINGS = {"s1": "s", "s": "s", "s2": "s2", "s3": "s2", "s4": "s2", "cd": "s2", "ms1": "ms", "ms": "ms", "ms2": "ms",
+            "mr": "r", "sr": "r", "sp": "sp", "r": "r", "qa": "qa"}
 IGNORED_TEXT = {"id", "ide", "h", "toc1", "toc2", "toc3", "mt1", "mt2", "mt3", "mt4", "mt", "imt1", "ip", "im",
                 "ib", "is1", "is2", "ili", "ili1", "cl", "cp", "rem", "sts", "usfm",
                 # Book introductions (e.g. Louis Segond 1910): titles, indented paragraphs, outline lines, end.
-                "imt2", "imt3", "ipi", "io1", "io2", "io3", "ie", "iot"}
-CELLS = {"tc1", "tc2", "tc3", "tc4", "th1", "th2", "th3"}
+                "imt2", "imt3", "ipi", "io1", "io2", "io3", "ie", "iot",
+                "iq1", "iq2", "iqt", "imq", "imi", "iex", "ipq", "ipr", "imte1", "imte2", "periph"}
+CELLS = {"tc1", "tc2", "tc3", "tc4", "tc5", "tcr1", "tcr2", "tcr3", "th1", "th2", "th3", "th4", "th5"}
 CHAR_FLAGS = {"wj": "j", "add": "a", "nd": "n", "qs": "s", "it": "i", "bdit": "i", "tl": "i", "bk": "i",
               "em": "i", "sls": "i", "bd": "b", "sc": "c", "sup": "u"}
-PLAIN_CHARS = {"w", "k", "pn", "qt", "ord", "no", "wh", "png", "addpn", "wg", "wa", "dc", "fig", "jmp", "rb",
+PLAIN_CHARS = {"w", "k", "pn", "qt", "ord", "no", "wh", "png", "addpn", "wg", "wa", "dc", "jmp", "rb",
+               "sig", "fm",  # "fm" outside a note is a mark between two notes: its comma is part of the verse
                "ior"}  # "ior" = an outline's reference, only ever inside a skipped introduction
-NOTE_PARTS = {"fr", "fk", "fq", "fqa", "fl", "ft", "fv", "fp", "fw", "fdc", "fm", "xo", "xt", "xq", "xta", "xk", "xdc"}
+NOTE_PARTS = {"fr", "fk", "fq", "fqa", "fl", "ft", "fv", "fp", "fw", "fdc", "fm", "xo", "xt", "xq", "xta", "xk", "xdc", "rq"}
+# A cross-reference typed outside a note: kept in a reference heading, left out of the verse (as notes' are).
+LOOSE_REFERENCES = {"xt", "rq"}
 
 
 class UsfmError(ValueError):
@@ -164,14 +171,21 @@ class _Book:
         if bare in ("f", "fe", "x", "ef", "ex"):
             self.note = {"kind": bare[-1], "part": "ft", "text": [], "first": True}
             return _drop_delimiter(rest)
-        if self.note is not None and bare in CHAR_FLAGS.keys() | PLAIN_CHARS:
+        if self.note is not None and bare in CHAR_FLAGS.keys() | PLAIN_CHARS | {"fig"}:
             return _drop_delimiter(rest)  # styling inside a note: keep only the words
+        if bare == "fig":  # a picture: its caption and file details are not Scripture
+            self.mode, self.vp_return = "vp", self.mode
+            return _drop_delimiter(rest)
         if bare == "c":
             return self.start_chapter(rest)
         if bare == "v":
             return self.start_verse(rest)
         if bare == "vp":
             self.mode, self.vp_return = "vp", self.mode
+            return _drop_delimiter(rest)
+        if bare in LOOSE_REFERENCES:
+            if self.mode != "heading":
+                self.mode, self.vp_return = "vp", self.mode
             return _drop_delimiter(rest)
         if bare == "qc" and rest.strip():
             # A centred line with words of its own is a stanza heading: the ASV's Psalm 119 letters ("\qc ב BETH."),
@@ -227,8 +241,12 @@ class _Book:
             return
         if self.note is not None:
             return  # \fk* etc. inside a note
-        if bare == "vp":
+        if bare in ("vp", "fig"):
             self.mode = getattr(self, "vp_return", "verse")
+            return
+        if bare in LOOSE_REFERENCES:
+            if self.mode == "vp":
+                self.mode = getattr(self, "vp_return", "verse")
             return
         for index in range(len(self.stack) - 1, -1, -1):
             if self.stack[index]["name"] == bare:

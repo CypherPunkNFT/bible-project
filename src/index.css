@@ -170,14 +170,19 @@ body {
 .scripture [lang="ar"],
 .scripture:lang(ar),
 .scripture [lang="fa"],
-.scripture:lang(fa) {
+.scripture:lang(fa),
+.scripture:is(:lang(ckb), :lang(ur), :lang(ug)),
+.scripture :is([lang="ckb"], [lang="ur"], [lang="ug"]) {
   font-size: 1.3em;
   line-height: 2;
 }
 /* Typefaces apply everywhere a verse is shown (reader, side by side, search results, verse panel). Persian is
-   written in the Arabic script, and Naskh faces carry its extra letters. */
+   written in the Arabic script, and Naskh faces carry its extra letters. So is Kurdish, Urdu and Uyghur. */
 [lang="ar"],
-[lang="fa"] {
+[lang="fa"],
+[lang="ckb"],
+[lang="ur"],
+[lang="ug"] {
   font-family: "Noto Naskh Arabic", "Amiri", "Traditional Arabic", "Arabic Typesetting", "Segoe UI", "Geeza Pro", serif;
 }
 [lang="zh-Hans"] {
@@ -186,15 +191,37 @@ body {
 [lang="ja"] {
   font-family: "Noto Serif JP", "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "MS Mincho", serif;
 }
-[lang="hi"] {
+[lang="hi"],
+[lang="mr"],
+[lang="ne"],
+[lang="hne"],
+[lang="suz"],
+[lang="kfx"] {
   font-family: "Noto Serif Devanagari", "Nirmala UI", "Kohinoor Devanagari", "Mangal", serif;
 }
+/* The other Indian scripts, Southeast Asian and Tibetan and Ethiopic: the reader's system fonts, as above, without
+   Literata's Latin punctuation and digits beside them. Stacked letters need the same room as Hindi. */
+:is([lang="as"], [lang="bn"], [lang="gu"], [lang="pa"], [lang="or"], [lang="ta"], [lang="te"], [lang="kn"], [lang="ml"],
+    [lang="my"], [lang="th"], [lang="lo"], [lang="bo"], [lang="gmv"], [lang="gof"], [lang="dwr"], [lang="mdy"]) {
+  font-family: "Nirmala UI", "Noto Sans", "Leelawadee UI", "Myanmar Text", "Microsoft Himalaya", "Ebrima", "Kohinoor Bangla", system-ui, serif;
+}
 .scripture [lang="hi"],
-.scripture:lang(hi) {
+.scripture:lang(hi),
+.scripture:is(:lang(mr), :lang(ne), :lang(hne), :lang(suz), :lang(kfx), :lang(as), :lang(bn), :lang(gu), :lang(pa), :lang(or), :lang(ta), :lang(te), :lang(kn), :lang(ml), :lang(my), :lang(th), :lang(lo), :lang(bo)),
+.scripture :is([lang="mr"], [lang="ne"], [lang="hne"], [lang="suz"], [lang="kfx"], [lang="as"], [lang="bn"], [lang="gu"], [lang="pa"], [lang="or"], [lang="ta"], [lang="te"], [lang="kn"], [lang="ml"], [lang="my"], [lang="th"], [lang="lo"], [lang="bo"]) {
   line-height: 2;
 }
+/* Tibetan letters sit small on the line and stack deep; its fonts have no bold, and a faked one smudges them. */
+.scripture:lang(bo),
+.scripture [lang="bo"] {
+  font-size: 1.3em;
+  line-height: 2.2;
+}
+[lang="bo"] {
+  font-synthesis: none;
+}
 /* These scripts have no true italic; a browser would only slant them. Psalm titles and styled words stay upright. */
-.italic:is(:lang(ar), :lang(fa), :lang(hi), :lang(ja), :lang(zh)) {
+.italic:is(:lang(ar), :lang(fa), :lang(hi), :lang(ja), :lang(zh), :lang(ckb), :lang(ur), :lang(ug), :lang(mr), :lang(ne), :lang(hne), :lang(suz), :lang(kfx), :lang(as), :lang(bn), :lang(gu), :lang(pa), :lang(or), :lang(ta), :lang(te), :lang(kn), :lang(ml), :lang(my), :lang(th), :lang(lo), :lang(bo), :lang(gmv), :lang(gof), :lang(dwr), :lang(mdy)) {
   font-style: normal;
 }
 

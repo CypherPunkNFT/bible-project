@@ -6,14 +6,14 @@
 //                                    page's text and links inside #root (replaced by the app as soon as it starts)
 //   home.html + _redirects           the home page's copy; index.html itself stays the plain shell, because Cloudflare
 //                                    serves it for every address without a file of its own
-// Cloudflare refuses a release over 20,000 files, so copies stop at FILE_BUDGET and the step says how many were left out.
+// Cloudflare Workers refuses a release over 100,000 files, so copies stop at FILE_BUDGET and the step says how many were left out.
 import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { isUnnamed, pageHead, SITE_ORIGIN } from "../../src/lib/page-head.ts";
 import type { Block, Capture } from "./capture.ts";
 import { sitePages } from "./pages.ts";
 
-const FILE_BUDGET = 19500;
+const FILE_BUDGET = 99500;
 const SITEMAP_SIZE = 40000;
 const CAPTURES = path.resolve(import.meta.dirname, "../../content/seo/pages");
 const HIDDEN = "position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);border:0";
