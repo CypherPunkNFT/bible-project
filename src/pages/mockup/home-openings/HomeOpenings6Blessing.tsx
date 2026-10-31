@@ -4,6 +4,7 @@
 // it (owner, same day); it is the last thing before the footer.
 import { Link } from "react-router-dom";
 import { ScrollArt } from "./HomeArtOpenings";
+import { Caravan } from "./HomeOpenings6Caravan";
 
 export function ScrollBlessing() {
   return <div className="home-opening hm6-last">
@@ -13,6 +14,7 @@ export function ScrollBlessing() {
         <p className="hm6-blessing-cite"><Link to="/read/bsb/NUM/6?hl=24">Numbers 6:24–25</Link> · Berean Standard Bible</p>
         <blockquote>“Be strong and courageous. Do not be afraid; do not be discouraged, <em>for the LORD your God is with you wherever you go.</em>”</blockquote>
         <p className="hm6-blessing-cite"><Link to="/read/bsb/JOS/1?hl=9">Joshua 1:9</Link> · Berean Standard Bible</p>
+        <Caravan />
       </div></div>
     </section>
   </div>;
