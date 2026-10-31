@@ -18,7 +18,7 @@
 .hm4-scroll-edge { left: 0; width: 100%; height: 78%; }
 .hm4-sheet-writing { fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 26 7 12 7 40 8 18 7 30 9; opacity: .45; }
 .hm4-sheet-script { fill: var(--accent); opacity: .55; }
-.hm4-script-he { font: 400 17px "Times New Roman", "David", serif; }
+.hm4-script-he { font: 400 22px "Times New Roman", "David", serif; }
 .hm4-script-grc { font: 400 14px "Times New Roman", Georgia, serif; letter-spacing: .16em; }
 .hm4-script-en { font: italic 400 17px Georgia, "Times New Roman", serif; opacity: .72; }
 .hm4-scroll-ring { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 26 7 12 7 40 8 18 7 30 9; transform-box: view-box; transform-origin: 1300px 262px; animation: hm4-turn 160s linear infinite; }

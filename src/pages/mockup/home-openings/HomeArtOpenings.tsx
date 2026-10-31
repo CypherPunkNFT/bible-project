@@ -1,5 +1,5 @@
 // MOCK-UP: three openings on /home_mockup4 with newly drawn art (owner, 2026-10-30: "Something new for the artworks").
-// A and B are the scroll whose sheets are the hills, carrying Isaiah 40:8 in Hebrew, Greek and English: A centres the title
+// A and B are the scroll whose sheets are the hills, carrying Isaiah 40:6-8 in Hebrew, Greek and English: A centres the title
 // with the sun rising over the middle, B keeps the title left and the sun right. C, Manuscript, is a sun pieced together from
 // torn leaves, with the gold marquee under it. The open Word and the sixty-six rays were taken out (owner, 2026-10-30).
 import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
@@ -27,19 +27,31 @@ const trace = (base: number, phase: number, length: number) => {
   points.push(`${length} ${fixed(contour(length, base, phase))}`);
   return `M${points.join("L")}`;
 };
-/** Isaiah 40:8 on every sheet, from the site's own texts: the Hebrew (WLC, unpointed, as on the old scrolls), the Greek (LXX, in
- *  capitals, as in the old codices) and the Berean Standard Bible. */
-const INSCRIPTIONS = {
-  he: Array(8).fill("יבש חציר נבל ציץ ודבר־אלהינו יקום לעולם׃").join("   "),
-  grc: Array(8).fill("ΤΟ ΔΕ ΡΗΜΑ ΤΟΥ ΘΕΟΥ ΗΜΩΝ ΜΕΝΕΙ ΕΙΣ ΤΟΝ ΑΙΩΝΑ").join("  ·  "),
-  en: Array(6).fill("The grass withers and the flowers fall, but the word of our God stands forever.").join("  ·  "),
+/** The scroll's height in drawing units; the sheets fill the lower half. */
+const HEIGHT = 560;
+/** Isaiah 40:6-8, a verse to a line, from the site's own texts: the Hebrew (WLC, unpointed, as on the old scrolls), the Greek
+ *  (LXX, in capitals, as in the old codices) and the Berean Standard Bible (its quotation marks left off). Each line repeats its
+ *  verse along the sheet. Two lines were added to each sheet and the Hebrew made large (owner, 2026-10-30). */
+const VERSES = {
+  he: ["קול אמר קרא ואמר מה אקרא כל־הבשר חציר וכל־חסדו כציץ השדה׃", "יבש חציר נבל ציץ כי רוח יהוה נשבה בו אכן חציר העם׃", "יבש חציר נבל ציץ ודבר־אלהינו יקום לעולם׃"],
+  grc: ["ΦΩΝΗ ΛΕΓΟΝΤΟΣ ΒΟΗΣΟΝ ΚΑΙ ΕΙΠΑ ΤΙ ΒΟΗΣΩ ΠΑΣΑ ΣΑΡΞ ΧΟΡΤΟΣ ΚΑΙ ΠΑΣΑ ΔΟΞΑ ΑΝΘΡΩΠΟΥ ΩΣ ΑΝΘΟΣ ΧΟΡΤΟΥ", "ΕΞΗΡΑΝΘΗ Ο ΧΟΡΤΟΣ ΚΑΙ ΤΟ ΑΝΘΟΣ ΕΞΕΠΕΣΕ", "ΤΟ ΔΕ ΡΗΜΑ ΤΟΥ ΘΕΟΥ ΗΜΩΝ ΜΕΝΕΙ ΕΙΣ ΤΟΝ ΑΙΩΝΑ"],
+  en: ["A voice says, Cry out! And I asked, What should I cry out? All flesh is like grass, and all its glory like the flowers of the field.", "The grass withers and the flowers fall when the breath of the LORD blows on them; indeed, the people are grass.", "The grass withers and the flowers fall, but the word of our God stands forever.", "The grass withers and the flowers fall, but the word of our God stands forever."],
 };
-/** Each sheet: two dotted lines under its edge, then its inscription below them (owner, 2026-10-30). */
+/** Enough repeats of a verse to run the longest scroll: [characters needed, separator] for each script. */
+const RUNS = { he: [220, "   "], grc: [240, "  ·  "], en: [380, "  ·  "] } as const;
+const INSCRIPTIONS = Object.fromEntries(Object.entries(VERSES).map(([script, verses]) => {
+  const [needed, separator] = RUNS[script as keyof typeof RUNS];
+  return [script, verses.map((verse) => Array(Math.ceil(needed / verse.length) + 1).fill(verse).join(separator))];
+})) as Record<keyof typeof VERSES, string[]>;
+/** Each sheet: two dotted lines under its edge, then its inscription below them, a verse to a line (owner, 2026-10-30). The
+ *  sheets keep their first-drawn places; only the writing changed, so the lines sit close (owner: "I did not ask you to change
+ *  anything about the scrolls. Except for the words in them"). */
 const SHEETS = [
-  { name: "far", base: 340, phase: 0.6, dots: [14, 27], words: [46], script: "he" as const },
-  { name: "mid", base: 402, phase: 2.4, dots: [14, 27], words: [45], script: "grc" as const },
-  { name: "near", base: 470, phase: 4.1, dots: [14, 27], words: [50, 75], script: "en" as const },
+  { name: "far", base: 340, phase: 0.6, dots: [14, 27], words: [46, 68, 90], script: "he" as const },
+  { name: "mid", base: 402, phase: 2.4, dots: [14, 27], words: [42, 58, 74], script: "grc" as const },
+  { name: "near", base: 470, phase: 4.1, dots: [14, 27], words: [46, 66, 86, 106], script: "en" as const },
 ];
+const LINE_STARTS = [24, 90, 50, 130];
 const drawSheets = (length: number) => SHEETS.map((sheet) => ({
   ...sheet,
   edge: trace(sheet.base, sheet.phase, length),
@@ -55,7 +67,7 @@ const frontArc = (cx: number, y: number, half: number) => `M${fixed(cx - half)} 
 /** One end of the scroll, in the same flat line art as the hills: roundness comes only from lines. The wound sheet shows as a
  *  spiral on top, its writing curves round the roll, hatching darkens the side away from the sun, and the handle is turned wood. */
 function Roller({ cx, inward }: { cx: number; inward: 1 | -1 }) {
-  const top = 296, bottom = 560, half = 20, wrap = cx + inward * (half + 3);
+  const top = 296, bottom = HEIGHT, half = 20, wrap = cx + inward * (half + 3);
   const outline = [...HANDLE.map(([up, width]) => `${fixed(cx - width)} ${top - up}`), ...[...HANDLE].reverse().map(([up, width]) => `${fixed(cx + width)} ${top - up}`)];
   const spiral = Array.from({ length: 97 }, (_, step) => { const turn = (step / 96) * Math.PI * 8, radius = 2.5 + (16.5 * step) / 96; return `${fixed(cx + Math.cos(turn) * radius)} ${fixed(top + Math.sin(turn) * radius * 0.3)}`; });
   const hatch = [0.4, 0.6, 0.74, 0.84, 0.91, 0.96].map((across) => { const x = cx - inward * half * across; return `M${fixed(x)} ${fixed(top + 6 * Math.sqrt(1 - across * across))}V${bottom}`; });
@@ -86,7 +98,7 @@ function ScrollArt({ fit }: { fit: "edge" | "framed" }) {
   useLayoutEffect(() => {
     const svg = frame.current;
     if (!svg || fit === "edge") return;
-    const measure = () => { const box = svg.getBoundingClientRect(); if (box.height) setLength(Math.round(Math.min(2200, Math.max(640, (560 * box.width) / box.height)))); };
+    const measure = () => { const box = svg.getBoundingClientRect(); if (box.height) setLength(Math.round(Math.min(2200, Math.max(640, (HEIGHT * box.width) / box.height)))); };
     measure();
     const observer = new ResizeObserver(measure);
     observer.observe(svg);
@@ -94,17 +106,17 @@ function ScrollArt({ fit }: { fit: "edge" | "framed" }) {
   }, [fit]);
   const sheets = useMemo(() => drawSheets(length), [length]);
   const sun = length - 300, sunY = 262;
-  return <svg ref={frame} className={`hm4-scroll-art hm4-scroll-${fit}`} viewBox={`0 0 ${length} 560`} preserveAspectRatio={fit === "edge" ? "xMaxYMax slice" : "xMidYMax meet"} aria-hidden="true">
+  return <svg ref={frame} className={`hm4-scroll-art hm4-scroll-${fit}`} viewBox={`0 0 ${length} ${HEIGHT}`} preserveAspectRatio={fit === "edge" ? "xMaxYMax slice" : "xMidYMax meet"} aria-hidden="true">
     <defs>
       {sheets.flatMap((sheet) => sheet.writing.map((d, line) => <path id={`hm4-line-${sheet.name}-${line}`} d={d} key={`${sheet.name}-${line}`} />))}
-      <clipPath id="hm4-between-rollers"><rect x="22" y="0" width={length - 44} height="560" /></clipPath>
+      <clipPath id="hm4-between-rollers"><rect x="22" y="0" width={length - 44} height={HEIGHT} /></clipPath>
     </defs>
     {[104, 132, 162, 196, 234].map((radius, ring) => <circle className={`hm4-scroll-ring hm4-scroll-ring-${ring % 2}`} cx={sun} cy={sunY} r={radius} style={{ opacity: 0.62 - ring * 0.1, transformOrigin: `${sun}px ${sunY}px` }} key={radius} />)}
     <circle className="hm4-sun-disc hm4-sun-solid" cx={sun} cy={sunY} r="82" />
     {sheets.map((sheet) => <g className={`hm4-sheet hm4-sheet-${sheet.name}`} key={sheet.name}>
-      <path className="hm4-sheet-fill" d={`${sheet.edge}L${length} 560L0 560Z`} /><path className="hm4-sheet-edge" d={sheet.edge} />
+      <path className="hm4-sheet-fill" d={`${sheet.edge}L${length} ${HEIGHT}L0 ${HEIGHT}Z`} /><path className="hm4-sheet-edge" d={sheet.edge} />
       {sheet.dotted.map((d) => <path className="hm4-sheet-writing" d={d} key={d} />)}
-      {sheet.writing.map((d, line) => <text className={`hm4-sheet-script hm4-script-${sheet.script}`} clipPath="url(#hm4-between-rollers)" key={d}><textPath href={`#hm4-line-${sheet.name}-${line}`} startOffset={line ? 70 : 24}>{INSCRIPTIONS[sheet.script]}</textPath></text>)}
+      {sheet.writing.map((d, line) => <text className={`hm4-sheet-script hm4-script-${sheet.script}`} clipPath="url(#hm4-between-rollers)" key={d}><textPath href={`#hm4-line-${sheet.name}-${line}`} startOffset={LINE_STARTS[line]}>{INSCRIPTIONS[sheet.script][line]}</textPath></text>)}
     </g>)}
     <Roller cx={22} inward={1} /><Roller cx={length - 22} inward={-1} />
   </svg>;
