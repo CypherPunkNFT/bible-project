@@ -1,6 +1,7 @@
 // MOCK-UP: three openings on /home_mockup4 with newly drawn art (owner, 2026-10-30: "Something new for the artworks").
 // A and B are the scroll whose sheets are the hills, carrying verses of praise in Hebrew, Greek and English: A runs edge to
-// edge under the marquee, B is framed. The sun, with a cross in it, sits right of the title. C, Manuscript, is a sun pieced together from
+// edge under the marquee, A2 is A with a rayed sun and a gray cross, B is framed. The sun, with a cross in it, sits right of
+// the title. C, Manuscript, is a sun pieced together from
 // torn leaves, with the gold marquee under it. The open Word and the sixty-six rays were taken out (owner, 2026-10-30).
 import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { GoldMarquee, OpeningCopy, type OpeningProps } from "./HomeOpenings";
@@ -8,6 +9,7 @@ import "./home-art-openings.css";
 
 export const ART_OPENINGS = [
   { id: "a", name: "Scroll A" },
+  { id: "a2", name: "Scroll A2" },
   { id: "b", name: "Scroll B" },
   { id: "c", name: "Manuscript" },
 ] as const;
@@ -105,6 +107,14 @@ function Roller({ cx, inward }: { cx: number; inward: 1 | -1 }) {
 }
 
 const SUN_Y = 262, RINGS = [104, 132, 162, 196, 234];
+/** Scroll A2's sun: slender tapering rays in place of the rings, long and short in turn (owner's picture, 2026-10-30). The
+ *  longest reaches the outer ring's radius, so the sun is placed the same way. */
+const RAY_LENGTHS = [234, 150, 196, 128, 218, 162, 180, 140];
+const sunRays = (x: number, y: number) => Array.from({ length: 40 }, (_, ray) => {
+  const turn = (ray / 40) * Math.PI * 2 - Math.PI / 2, inner = 102, outer = RAY_LENGTHS[ray % RAY_LENGTHS.length], half = 4.5;
+  const [along, across] = [[Math.cos(turn), Math.sin(turn)], [-Math.sin(turn), Math.cos(turn)]];
+  return `M${fixed(x + along[0] * inner + across[0] * half)} ${fixed(y + along[1] * inner + across[1] * half)}L${fixed(x + along[0] * outer)} ${fixed(y + along[1] * outer)}L${fixed(x + along[0] * inner - across[0] * half)} ${fixed(y + along[1] * inner - across[1] * half)}Z`;
+}).join("");
 /** Screen pixels kept between the sun's outer ring and the title or the copy under it. */
 const RING_GAP = 28;
 /** Where the sun sits, in drawing units: its outer ring on the header's right margin, moved back right only as far as it must
@@ -129,8 +139,8 @@ function placeSun(svg: SVGSVGElement, length: number, scale: number, drawnLeft: 
 
 /** "edge" runs the scroll from one side of the screen to the other, cropped from the left on narrow screens (Scroll A).
  *  "framed" sets it inside margins and lets its length follow the shape of its space, so it fills a phone and a wide screen
- *  alike instead of shrinking to a strip (Scroll B). */
-function ScrollArt({ fit }: { fit: "edge" | "framed" }) {
+ *  alike instead of shrinking to a strip (Scroll B). "rays" gives the sun rays instead of rings, with a gray cross (Scroll A2). */
+function ScrollArt({ fit, rays = false }: { fit: "edge" | "framed"; rays?: boolean }) {
   const frame = useRef<SVGSVGElement>(null);
   const [length, setLength] = useState(1600);
   const [sun, setSun] = useState(1300);
@@ -160,10 +170,11 @@ function ScrollArt({ fit }: { fit: "edge" | "framed" }) {
       {sheets.flatMap((sheet) => sheet.writing.map((d, line) => <path id={`hm4-line-${sheet.name}-${line}`} d={d} key={`${sheet.name}-${line}`} />))}
       <clipPath id="hm4-between-rollers"><rect x="22" y="0" width={length - 44} height={HEIGHT} /></clipPath>
     </defs>
-    {RINGS.map((radius, ring) => <circle className={`hm4-scroll-ring hm4-scroll-ring-${ring % 2}`} cx={sun} cy={sunY} r={radius} style={{ opacity: 0.62 - ring * 0.1, transformOrigin: `${sun}px ${sunY}px` }} key={radius} />)}
+    {rays ? <path className="hm4-sun-rays" d={sunRays(sun, sunY)} />
+      : RINGS.map((radius, ring) => <circle className={`hm4-scroll-ring hm4-scroll-ring-${ring % 2}`} cx={sun} cy={sunY} r={radius} style={{ opacity: 0.62 - ring * 0.1, transformOrigin: `${sun}px ${sunY}px` }} key={radius} />)}
     <circle className="hm4-sun-disc hm4-sun-solid" cx={sun} cy={sunY} r="82" />
-    {/* A white cross in the sun, not a dark cut-out (owner, 2026-10-30); its foot stays clear of the hills. */}
-    <path className="hm4-sun-cross" d={`M${fixed(sun - 6)} ${sunY - 44}h12v20h20v12h-20v58h-12v-58h-20v-12h20Z`} />
+    {/* A cross in the sun, white (gray on A2), not a dark cut-out; set low, its foot going down behind the scroll (owner, 2026-10-30). */}
+    <path className={`hm4-sun-cross${rays ? " hm4-sun-cross-gray" : ""}`} d={`M${fixed(sun - 6)} ${sunY - 24}h12v20h20v12h-20v62h-12v-62h-20v-12h20Z`} />
     {sheets.map((sheet) => <g className={`hm4-sheet hm4-sheet-${sheet.name}`} key={sheet.name}>
       <path className="hm4-sheet-fill" d={`${sheet.edge}L${length} ${HEIGHT}L0 ${HEIGHT}Z`} /><path className="hm4-sheet-edge" d={sheet.edge} />
       {sheet.dotted.map((d) => <path className="hm4-sheet-writing" d={d} key={d} />)}
@@ -214,6 +225,10 @@ function ScrollEdgeOpening(props: OpeningProps) {
   return <section className="hm4-b" aria-labelledby="home-title"><ScrollArt fit="edge" /><div className="home-wrap"><OpeningCopy {...props} /></div></section>;
 }
 
+function ScrollRaysOpening(props: OpeningProps) {
+  return <section className="hm4-b" aria-labelledby="home-title"><ScrollArt fit="edge" rays /><div className="home-wrap"><OpeningCopy {...props} /></div></section>;
+}
+
 function ScrollFramedOpening(props: OpeningProps) {
   return <section className="hm4-b" aria-labelledby="home-title"><ScrollArt fit="framed" /><div className="home-wrap"><OpeningCopy {...props} /></div></section>;
 }
@@ -222,7 +237,7 @@ function ManuscriptOpening(props: OpeningProps) {
   return <section className="home-hero home-wrap hm4-row hm4-row-flip" aria-labelledby="home-title"><ManyPiecesArt /><OpeningCopy {...props} /></section>;
 }
 
-const VIEWS: Record<ArtOpeningId, (props: OpeningProps) => JSX.Element> = { a: ScrollEdgeOpening, b: ScrollFramedOpening, c: ManuscriptOpening };
+const VIEWS: Record<ArtOpeningId, (props: OpeningProps) => JSX.Element> = { a: ScrollEdgeOpening, a2: ScrollRaysOpening, b: ScrollFramedOpening, c: ManuscriptOpening };
 
 export function ArtOpening({ version, ...props }: OpeningProps & { version: ArtOpeningId }) {
   const View = VIEWS[version];
