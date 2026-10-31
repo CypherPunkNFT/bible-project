@@ -3,3 +3,15 @@
 .hm9 { display: contents; }
 /* The "Close to home" map's zoom ticker opens on every mock-up address; here it would cover the phone's first screen. */
 .hm9 .hn-ticker, .hm9 .transition-ticker-unfold { display: none; }
+
+/* No city on phones: the title and button, then the six cards, two to a row, sharing out the rest of the first screen
+   between their three rows (owner, 2026-10-31: "we do without the bricks completely and have the title and the 6 cards"). */
+@media (max-width: 860px) {
+  .hm9 .home-hub .hm6-stage.hm6-i .hm6-art, .hm9 .home-hub .hm6-stage.hm6-i .hm6-note { display: none; }
+  .hm9 .home-hub[data-phone="e"] .hm6-stage.hm6-i { grid-template-rows: auto repeat(3, auto); align-content: stretch; row-gap: 12px; padding-bottom: 14px; }
+  .hm9 .home-hub[data-phone="e"] .hm6-stage.hm6-i .home-hero-copy { padding-bottom: 1.6rem; }
+  .hm9 .home-hub.hm6-page .hm6-stage.hm6-i .hm6-squares > a, .hm9 .home-hub.hm6-page .hm6-stage.hm6-i .hm6-squares > a:last-child { grid-column: span 3; margin: 0; padding: 14px 14px 13px; }
+  .hm9 .home-hub.hm6-page .hm6-stage .hm6-squares .home-doorway-art, .hm9 .home-hub.hm6-page .hm6-stage .hm6-squares > a:last-child .home-doorway-art { flex: 1; min-height: 5rem; height: auto; aspect-ratio: auto; }
+  .hm9 .home-hub.hm6-page .hm6-stage .hm6-squares .home-doorway-copy, .hm9 .home-hub.hm6-page .hm6-stage .hm6-squares > a:last-child .home-doorway-copy { padding-top: 10px; margin-top: 8px; border-top: 1px solid color-mix(in srgb, var(--home-color) 20%, transparent); }
+  .hm9 .home-hub.hm6-page .hm6-stage .hm6-squares .home-doorway-copy strong { font-size: 17px; }
+}
