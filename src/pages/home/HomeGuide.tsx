@@ -29,7 +29,7 @@ function Story() {
     <p>For two thousand years believers have copied the Scriptures, confessed the creeds, preached, argued and prayed. Most of
       that inheritance survives, but it is scattered across libraries and archives, in books long out of print, and much of it
       behind a paywall. Bible Guide gathers it into one source and gives it away, for the glory of God.</p>
-    <p>Here you can read the Bible in 37 versions across 17 languages, set two side by side line by line, and follow the 343,545
+    <p>Here you can read the Bible in 160 versions across 140 languages, set two side by side line by line, and follow the 343,545
       cross-references that tie one passage to another. Behind the text stand the places on the map, the creeds and
       confessions, the teachers of the Church across the centuries, and the questions people have always asked.</p>
     <p>Whether you are opening a Bible for the first time or have read it all your life, there is a way in for you, and nothing
@@ -37,7 +37,7 @@ function Story() {
   </div>;
 }
 
-const FACTS = [["66", "books"], ["37", "versions"], ["17", "languages"], ["343,545", "cross-references"]];
+const FACTS = [["66", "books"], ["160", "versions"], ["140", "languages"], ["343,545", "cross-references"]];
 
 /** The "side" layout's story: short blocks under small headings, with the collection's numbers in the middle. */
 function SideStory() {

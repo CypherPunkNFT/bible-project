@@ -17,6 +17,7 @@ import hashlib
 import os
 import re
 import shutil
+import subprocess
 import sys
 import urllib.parse
 import urllib.request
@@ -24,6 +25,7 @@ import zipfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from bible.other_sources import OTHER_SOURCES  # noqa: E402
 from bible.paths import SITE  # noqa: E402
 from bible.translations import TRANSLATIONS  # noqa: E402
 
@@ -43,7 +45,9 @@ def stepbible(path: str) -> str:
 # (checksum key in SOURCES.md, url, path under sources/, folder to unzip into or None)
 DOWNLOADS = [
     (tid, f"https://ebible.org/Scriptures/{tid}_usfm.zip", f"ebible/{tid}/{tid}_usfm.zip", f"ebible/{tid}")
-    for tid, *_ in TRANSLATIONS
+    for tid, *_ in TRANSLATIONS if tid not in OTHER_SOURCES
+] + [
+    (tid, url, f"converted/{tid}/{url.rsplit('/', 1)[-1]}", None) for tid, (_format, url) in OTHER_SOURCES.items()
 ] + [
     ("openbible", "https://a.openbible.info/data/cross-references.zip", "openbible/cross-references.zip", "openbible"),
     ("openbible-geo", "https://github.com/openbibleinfo/Bible-Geocoding-Data/archive/refs/heads/main.zip",
@@ -165,6 +169,7 @@ def main() -> None:
         shutil.copyfile(source, root / relative)
         if checksum(root / relative) != recorded.get(key):
             changed.append(key)
+    subprocess.run([sys.executable, str(Path(__file__).with_name("convert-other-bibles.py"))], check=True)
     print(f"sources ready in {root}")
     if changed:
         print(f"{len(changed)} file(s) differ from the copies this site was built from (the publisher updated them): {', '.join(changed)}")

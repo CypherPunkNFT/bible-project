@@ -1,4 +1,4 @@
-// The lower half of the Sources & versions page (/sources, /versions): "37 scriptures, all free to read", the table
+// The lower half of the Sources & versions page (/sources, /versions): "160 scriptures, all free to read", the table
 // of every version, the seven colours and the sources and credits. Read from VersionsPage.tsx and data/catalog.json.
 import { groupVersions, VERSION_GROUPS } from "../../src/lib/languages";
 import { NUMBERING_LABEL } from "../../src/lib/numbering";
