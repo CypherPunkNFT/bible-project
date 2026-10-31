@@ -22,6 +22,7 @@ import "@/components/home/home-hub.css";
 import "@/components/home/home-landing-options.css";
 import "../home/home-mockup.css";
 import { Opening6, OPENINGS_6, type Opening6Id } from "./home-openings/HomeOpenings6";
+import { ScrollBlessing } from "./home-openings/HomeOpenings6Blessing";
 import { VersionPill } from "./legal/VersionPill";
 import { HomeGuide } from "../home/HomeGuide";
 import { HomeMore } from "../home/HomeMore";
@@ -305,6 +306,7 @@ export default function HomePageMockup6() {
     </div>
     </div></div>
     <HomeMore resourcesTab numbered />
+    {openingVersion === "i" && <ScrollBlessing />}
     <VersionPill<Opening6Id> label="Opening" versions={[...OPENINGS_6]} current={openingVersion} />
   </div>;
 }

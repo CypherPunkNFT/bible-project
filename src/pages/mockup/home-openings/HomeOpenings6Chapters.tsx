@@ -5,7 +5,7 @@
 // outer course, then on into the next. Each stone takes its book's section colour, so the parts of the Bible run round the
 // wall in bands. Clicking a stone makes the centre button "Continue" to that chapter in the Berean Standard Bible. The courses
 // appear from the outside in, as the foundations of the city (D) do (owner, 2026-10-31).
-import { BookOpen, GraduationCap, HandHeart, Library, Map as MapIcon, ShieldCheck, type LucideIcon } from "lucide-react";
+import { ArrowRight, BookOpen, GraduationCap, HandHeart, Library, Map as MapIcon, ShieldCheck, type LucideIcon } from "lucide-react";
 import { useMemo, useState, type CSSProperties, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import { HOME_PATHS } from "@/components/home/collection-data";
@@ -62,6 +62,18 @@ function HebrewRow() {
   </div>;
 }
 
+/** I's own words, in the opening's places (owner, 2026-10-31): the title, two lines under it, the button, and the opening's
+ *  usual lead and counts under that. */
+function StandsForeverCopy({ resume, resumeLabel, versions, languages }: OpeningProps) {
+  return <div className="home-hero-copy">
+    <p className="home-eyebrow"><span className="home-live-dot" />The Bible, open to you</p>
+    <h1 id="home-title">God’s Word<br /><em>Stands Forever.</em></h1>
+    <p className="home-hero-lead">Written over fifteen centuries.<br />Carried through persecution and fire.</p>
+    <div className="home-hero-actions"><Link className="home-button" to={resume}><BookOpen size={17} aria-hidden />{resumeLabel}<ArrowRight size={17} aria-hidden /></Link></div>
+    <p className="home-hero-foot">Read the Scriptures. Follow the connections.<br />Bring your questions. See the bigger story.<span>{versions} Bible versions · {languages} languages</span></p>
+  </div>;
+}
+
 function WingColumn({ side }: { side: "left" | "right" }) {
   return <nav className={`hm6-wing hm6-wing-${side}`} aria-label={side === "left" ? "Read and study" : "Explore"}>
     {WINGS[side].map(({ title, to, line, icon: Icon }) => <Link to={to} key={title}><Icon size={20} strokeWidth={1.5} aria-hidden /><strong>{title}</strong><span>{line}</span></Link>)}
@@ -92,7 +104,7 @@ export function CityOfChapters({ wings = false, squares = false, wall = false, .
       {[[70, 70], [930, 70], [70, 930], [930, 930]].map(([x, y]) => <rect className="hm6-tower" x={x - 16} y={y - 16} width="32" height="32" key={`${x}-${y}`} />)}
       {GATES.map(([x, y]) => <circle className="hm6-pearl" cx={x} cy={y} r="17" key={`${x}-${y}`} />)}
     </svg>
-    <OpeningCopy {...copy} />
+    {wall ? <StandsForeverCopy {...copy} /> : <OpeningCopy {...copy} />}
     <p className="hm6-note" aria-live="polite">{chosen
       ? <><strong style={tone(chosen.section)}>{chosen.name} {chosen.chapter}</strong> · {SECTION_NAMES[chosen.section] ?? chosen.section}</>
       : <>“the twelve gates were twelve pearls” · <Link to="/read/bsb/REV/21?hl=21">Revelation 21:21</Link> · {stones.length.toLocaleString("en")} chapters in the wall</>}</p>

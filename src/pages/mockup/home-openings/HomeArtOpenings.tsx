@@ -190,7 +190,7 @@ const FOOT = 80;
  *  drawing at the very same size and place, only starting and stopping at the page's own margins (where the header and the
  *  text start and stop) with its handles there (owner, 2026-10-31: "I don't see why it has to change at all, except for the
  *  place that it starts and stops"). */
-function ScrollArt({ fit }: { fit: "edge" | "margins" }) {
+export function ScrollArt({ fit }: { fit: "edge" | "margins" }) {
   const frame = useRef<SVGSVGElement>(null);
   // The part of the drawing shown (from `start`, `length` long) and, for Scroll B, where on the screen it sits.
   const [view, setView] = useState({ start: 0, length: LENGTH, left: 0, width: 0 });

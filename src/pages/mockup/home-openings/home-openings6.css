@@ -69,10 +69,32 @@
    cover of the page colour, as does the verse under the city (owner, 2026-10-31). */
 .hm6-i .hm6-art { filter: drop-shadow(0 0 10px var(--page)) drop-shadow(0 0 6px var(--page)); }
 .hm6-stage.hm6-i .hm6-squares { background: var(--surface); box-shadow: 0 0 20px 12px var(--page); }
-/* The squares' edges, round them and between them, are the city wall's gold line (owner, 2026-10-31). */
-.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares { border: 1.5px solid var(--accent); }
-.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a { border-bottom: 1.5px solid var(--accent); }
-.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a:last-child { border-bottom: 0; }
+/* The squares' edges, round them and between them, are a fine gold line like the city wall's (owner, 2026-10-31). Each
+   square has its own line, laid over its neighbour's, so on pointing that line itself takes the square's colour, sweeping in
+   from the left, with no second line inside it. The rest is Scroll B's motion on mock-up 4: a faint wash of the square's
+   colour, a soft glow and the arrow stepping on. */
+.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares { border: 0; border-radius: 5px; }
+.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a { position: relative; border: 1px solid var(--accent); border-radius: 0; transition: background .3s, box-shadow .3s; }
+.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a + a { margin-top: -1px; }
+.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a:first-child { border-radius: 5px 5px 0 0; }
+.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a:last-child { border-radius: 0 0 5px 5px; }
+.hm6-i .hm6-squares > a::before { content: ""; position: absolute; inset: -1px; border: 1px solid var(--home-color); border-radius: inherit; clip-path: inset(0 100% 0 0); transition: clip-path .4s ease; pointer-events: none; }
+.hm6-page[data-landing="outline"] .hm6-stage.hm6-i .hm6-squares > a:hover { z-index: 1; outline: none; border-color: var(--accent); background: color-mix(in srgb, var(--home-color) 5%, var(--page)); box-shadow: 0 0 12px -4px color-mix(in srgb, var(--home-color) 18%, transparent); }
+.hm6-i .hm6-squares > a:hover::before { clip-path: inset(0 0 0 0); }
+.hm6-i .hm6-squares .home-doorway-copy svg { transition: transform .3s; }
+.hm6-i .hm6-squares > a:hover .home-doorway-copy svg { transform: translateX(4px); }
+
+/* I ends with mock-up 4's Scroll A carrying the blessing, in place of the page's short blessing; its rollers' feet hang down
+   into the footer (owner, 2026-10-31). */
+.hm6-page:has(.hm6-blessing) .hm-blessing { display: none; }
+/* The footer starts where the scroll stops (the layout's 2.5rem gap and the page's 2px are taken back), and the page lets the
+   rollers' feet hang down over it. */
+.hm6-page:has(.hm6-blessing) { overflow-y: visible; }
+.home-opening.hm6-last { position: relative; z-index: 1; padding-bottom: 0; margin-bottom: calc(-2.5rem - 2px); }
+.hm6-blessing blockquote { margin: 0; font: 400 clamp(32px, 4.8svh, 52px)/1.18 var(--font-serif); letter-spacing: -.035em; color: var(--ink); }
+.hm6-blessing blockquote em { color: var(--accent); }
+.hm6-blessing-cite { margin-top: 1.1rem; font: 500 13px var(--font-sans); color: var(--muted); }
+.hm6-blessing-cite a { color: var(--accent); font-weight: 600; }
 /* I has no gold marquee: its last 45.8px (the marquee's height) hold a small row of Hebrew instead, so the city, squares and verse keep H's sizes and
    places above it (owner, 2026-10-31). */
 .hm6-stage.hm6-i { padding-bottom: calc(1rem + 45.8px); }
@@ -84,6 +106,7 @@
 .hm6-i .hm6-note { width: fit-content; margin-inline: auto; background: var(--page); box-shadow: 0 0 16px 10px var(--page); }
 
 @media (prefers-reduced-motion: reduce) {
+  .hm6-i .hm6-squares > a, .hm6-i .hm6-squares > a::before, .hm6-i .hm6-squares .home-doorway-copy svg { transition: none; }
   .hm6-chapter-stones path, .hm6-wing { animation: none; }
 }
 @media (max-width: 860px) {
@@ -92,6 +115,9 @@
   .hm6-stage .home-hero-copy { order: 2; padding-bottom: 3.6rem; }
   .hm6-i .hm6-art, .hm6-i .hm6-note { position: relative; }
   .hm6-i .hm6-art { height: auto; }
+  /* I's longer words need the room the version pill kept; on I the pill rides on the Hebrew row instead, as on wide screens. */
+  .hm6-i .home-hero-copy { padding-bottom: 2.4rem; }
+  .hm6-page:has(.hm6-i) .to-pill { bottom: calc(6px + env(safe-area-inset-bottom, 0px)); }
   .hm6-i .hm6-note { bottom: auto; z-index: 3; box-shadow: 0 0 6px 3px var(--page); }
   .hm6-i .home-hero-copy > * { width: fit-content; max-width: 100%; margin-inline: auto; background: var(--page); box-shadow: 0 0 38px 32px var(--page); }
   .hm6-art { position: static; width: 100%; height: auto; max-height: clamp(8rem, calc(100svh - var(--home-header-height, 60px) - 31rem), 26rem); margin-top: auto; }
