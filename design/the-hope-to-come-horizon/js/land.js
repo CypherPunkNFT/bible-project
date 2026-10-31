@@ -37,30 +37,8 @@
     h("div", { class: "hz-hero-far" },
       art(HILLS, "hz-hills"),
       h("div", { class: "hz-hero-lay" },
-        h("p", { class: "hz-lede" }, runs(study.lead)),
         h("p", { class: "hz-motto" }, motto[0], h("span", {}, motto[1])))),
     marquee());
-
-  // The lead fills the land from just under the hill's edge to just above the marquee: the largest size that fits, then its lines spaced to fill the rest.
-  const lede = hero.querySelector(".hz-lede"), lay = lede.parentElement;
-  function spreadLede() {
-    lede.style.fontSize = lede.style.lineHeight = "";
-    if (getComputedStyle(lay).flexDirection === "column") return;
-    lede.style.fontSize = "15px";
-    lede.style.lineHeight = "1.2";
-    const style = getComputedStyle(lede), room = lay.clientHeight - parseFloat(getComputedStyle(lay).paddingTop) - parseFloat(style.marginTop) - parseFloat(style.marginBottom);
-    let size = 21.6;
-    for (; size > 15; size -= .4) {
-      lede.style.fontSize = `${size}px`;
-      lede.style.lineHeight = `${size * 1.6}px`;
-      if (lede.offsetHeight <= room) break;
-    }
-    const lines = Math.round(lede.offsetHeight / (size * 1.6));
-    lede.style.lineHeight = `${Math.min(room / lines, size * 2.3)}px`;
-  }
-  requestAnimationFrame(spreadLede);
-  document.fonts?.ready.then(spreadLede);
-  addEventListener("resize", spreadLede);
 
   // ── The six stops along the horizon ──
   const stops = new Map();
@@ -119,12 +97,12 @@
     askList.replaceChildren(...study.readings.map((reading) => h("li", {}, h("span", { class: "hz-asks-who" }, h("b", {}, romanOf(reading)), titleParts(reading)[0]), h("p", {}, runs(reading[current[3]])))));
   }
 
-  // The sun rising behind the section's opening words, drawn like the one behind the city in the heading.
+  // The sun rising at the foot of the section's first screen, drawn like the one behind the city in the heading.
   const RISING_SUN = (() => {
     const [cx, cy] = [800, 600], rays = [[], []], circle = (name, r) => `<circle class="${name}" cx="${cx}" cy="${cy}" r="${r}"/>`;
     for (let i = 0; i < 96; i += 1) {
       const angle = (i * Math.PI * 2) / 96, cos = Math.cos(angle), sin = Math.sin(angle);
-      const edge = 1 / Math.hypot(cos / 780, sin / 470), reach = Math.min(edge, i % 8 === 0 ? 900 : i % 4 === 0 ? 700 : i % 2 === 0 ? 420 : 270);
+      const edge = 1 / Math.hypot(cos / 780, sin / 270), reach = Math.min(edge, i % 8 === 0 ? 900 : i % 4 === 0 ? 700 : i % 2 === 0 ? 420 : 270);
       rays[i % 4 === 0 ? 0 : 1].push(`M${(cx + cos * 131).toFixed(1)} ${(cy + sin * 131).toFixed(1)}L${(cx + cos * reach).toFixed(1)} ${(cy + sin * reach).toFixed(1)}`);
     }
     return `<svg viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path class="ln-gold hz-rise-long" d="${rays[0].join("")}"/><path class="ln-gold hz-rise-fine" d="${rays[1].join("")}"/>${circle("ln-sun", 110)}${circle("ln-gold", 110)}${circle("ln-gold ln-faint", 122)}${circle("ln-ring", 175)}${circle("ln-ring", 244)}${circle("ln-ring", 315)}</svg>`;
@@ -142,7 +120,7 @@
       h("div", { class: "hz-rise-words" },
         h("span", { class: "hz-num", "aria-hidden": "true" }, "01"),
         h("h2", {}, "A bright and shining hope.", " ", h("em", {}, "The promise of an eternal King.")),
-        h("p", {}, "The King is coming back. The grave will give up its dead. Everything wrong will be put right, and God will live with His people. Six passages, taken one at a time, show what that hope is and what it asks of you today."))),
+        h("p", {}, runs(study.lead)))),
     h("div", { class: "hz-slider" }, railBar, h("div", { class: "hz-stage" }, stageStops)),
     panel,
     askBand,

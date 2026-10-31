@@ -56,6 +56,7 @@ Everything else is the data, or the first mock-up's own labels.
 - Section 01: "Ask one question of all six."; the short rail names, which are the part of each reading's title before the colon.
 - Section 01 heading and its paragraph: "A bright and shining hope.", "The promise of an eternal King." and the sentences under them, which are this page's own.
 - Reading 05's four comparison views under `?new-view=a` are drawn from Revelation 21 and 22 but are this page's own pictures.
+- The owner moved the study's lead paragraph out of the heading and into section 01, to the right of its title, with the sun at the foot of the screen. It replaces the shorter paragraph written there earlier ("The King is coming back...").
 - The owner chose version A of the readings bar, then asked for it with no arrows and no band, floating, with light gold dots between the readings. That is now the page's own bar, and the big numeral sits on the left. The versions as they were compared stay here: `?readings-view=a` compares four other ways through the six readings, from [readings-views.js](js/readings-views.js) and [readings-views.css](css/readings-views.css): A breadcrumbs with the numeral on the left, B vertical, C a pager, D the numerals alone. They reuse the readings' existing names and add no wording.
 - Section 02: under each joining word, "same verse", "next verse", "two verses on", "the verse before" or "next chapter".
 - Section 03: "The first pages", "The last pages".

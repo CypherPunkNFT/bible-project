@@ -83,8 +83,7 @@
 .hz-hills svg { display: block; width: 100%; height: 100%; }
 .hz-hills .sc-near { fill: var(--hz-hill-near); }
 /* The lead runs from just under the hill's edge to just above the marquee; land.js sets its size and line spacing. */
-.hz-hero-lay { position: relative; z-index: 3; flex: 1; display: flex; justify-content: space-between; align-items: center; gap: 1rem 4rem; padding: var(--hz-hero-crest) var(--hz-gutter) 0; }
-.hz-hero-lay .hz-lede { max-width: 58ch; margin-block: 1.1rem; }
+.hz-hero-lay { position: relative; z-index: 3; flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 1rem 4rem; padding: var(--hz-hero-crest) var(--hz-gutter) 0; }
 .hz-hero-lay .hz-motto { flex: none; align-self: flex-end; margin: 0 0 1.1rem; text-align: right; color: var(--ink); }
 .hz-hero-lay .hz-motto span { color: inherit; }
 /* The filled band that ends the first screen. It stops for anyone who asks for less motion. */
@@ -96,7 +95,6 @@
 .hz-marquee-run span::after { content: "\2726"; margin-inline: 1.4rem; font-size: .7em; opacity: .7; }
 @keyframes hz-marquee { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .hz-marquee-track { animation: none; } }
-.hz-lede { max-width: 66ch; margin: 0; font: 400 clamp(.96rem, 1.1vw, 1.06rem)/1.55 var(--serif); }
 .hz-opening { margin: clamp(1.2rem, 3vh, 2rem) 0 0; max-width: 36rem; }
 .hz-opening blockquote { margin: 0; font: 400 clamp(1.1rem, 1.5vw, 1.3rem)/1.5 var(--serif); color: var(--accent); }
 .hz-opening figcaption { margin-top: .7rem; font-size: .88rem; color: var(--muted); }
@@ -178,16 +176,18 @@
 @keyframes hz-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .hz-stop.is-here .sc-spin { animation: none; } }
 /* Section 01's opening: the words stand in light rising from the line of readings below them. */
-.hz-rise { position: relative; overflow: hidden; display: grid; justify-items: center; padding: clamp(4.5rem, 10vw, 8rem) var(--hz-gutter) clamp(5rem, 9vw, 8.5rem); text-align: center; background: radial-gradient(70% 90% at 50% 100%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 75%); }
+/* The first screen under the marquee, exactly: the sun stands on the screen's foot, the title on the left and the words on the right. */
+.hz-rise { position: relative; overflow: hidden; display: grid; align-content: start; min-height: calc(100svh - 3.7rem); padding: clamp(2.5rem, 9vh, 6rem) var(--hz-gutter) max(22svh, 9vw); background: radial-gradient(70% 90% at 50% 100%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 75%); }
 .hz-rise-rays { position: absolute; inset: 0; }
 .hz-rise-rays svg { display: block; width: 100%; height: 100%; fill: none; stroke-width: 1.2; }
 .hz-rise-long { opacity: .5; }
 .hz-rise-fine { stroke-width: .8; opacity: .3; }
-.hz-rise-words { position: relative; display: grid; justify-items: center; gap: 1.1rem; }
-.hz-rise h2 { margin: 0; font: 500 min(5.6rem, 6.4vw)/1.03 var(--serif); letter-spacing: -.035em; white-space: nowrap; }
+.hz-rise-words { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 1.1rem 5rem; align-items: start; }
+.hz-rise-words .hz-num { grid-column: 1 / -1; }
+.hz-rise h2 { margin: 0; font: 500 clamp(2.5rem, 4.7vw, 5.4rem)/1.03 var(--serif); letter-spacing: -.035em; }
 .hz-rise h2 em { display: block; margin-top: .12em; font-size: .72em; font-weight: 400; color: var(--accent); }
-.hz-rise p { max-width: 78ch; margin: .4rem 0 0; font: 400 clamp(1.08rem, 1.5vw, 1.3rem)/1.55 var(--serif); text-wrap: balance; }
-@media (max-width: 700px) { .hz-rise h2 { font-size: 2.5rem; white-space: normal; } }
+.hz-rise p { margin: 0; padding-top: .4rem; font: 400 clamp(1.08rem, 1.5vw, 1.3rem)/1.6 var(--serif); }
+@media (max-width: 900px) { .hz-rise-words { grid-template-columns: minmax(0, 1fr); } }
 /* The floating A, B, C, D pill on the reading 04 comparison */
 .hz-pill { position: fixed; z-index: 50; left: 50%; bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); display: flex; gap: .25rem; padding: .35rem; border-radius: 999px; background: var(--ink); box-shadow: 0 .5rem 1.8rem rgb(0 0 0 / .35); }
 .hz-pill[hidden] { display: none; }
