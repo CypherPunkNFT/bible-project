@@ -26,7 +26,7 @@ const wordsFor = (kind: string, row: number) => {
 };
 
 /** The marquee multiplied into a wall: rows of Scripture in English, Hebrew and Greek sliding both ways behind the title. */
-function WordWall() {
+export function WordWall() {
   return <div className="hm5-wall" aria-hidden="true">
     {WALL_ROWS.map(([kind, seconds], row) => {
       const words = wordsFor(kind, row);

@@ -1,4 +1,4 @@
-/* MOCK-UP: the two openings of /home_mockup6, both the foursquare city. The title on the centre line, fine gold lines, symmetry. */
+/* MOCK-UP: the three openings of /home_mockup6, all the foursquare city. The title on the centre line, fine gold lines, symmetry. */
 .home-opening.hm6-first { padding-bottom: 0; }
 .hm6-page .home-doorways { margin-top: 26px; }
 /* The mock-up's version pill rides on the gold band, so it leaves the verse under the city in view (owner, 2026-10-31). */
@@ -24,15 +24,7 @@
 .hm6-tower { fill: var(--page); stroke: var(--accent); stroke-width: 2; }
 .hm6-pearl { fill: color-mix(in srgb, #fff 82%, var(--accent)); stroke: var(--accent); stroke-width: 1.5; }
 
-/* E: the city of books, its wall coloured by the Bible's sections */
-.hm6-book { cursor: pointer; pointer-events: auto; animation: hm6-fade 1s ease-out both; }
-.hm6-book:focus { outline: none; }
-.hm6-book path { fill: color-mix(in srgb, var(--tone) 72%, var(--page)); stroke: var(--accent); stroke-width: 1.5; stroke-linejoin: round; transition: fill .2s; }
-.hm6-book:hover path, .hm6-book.is-picked path { fill: var(--tone); }
-.hm6-book.is-picked path { stroke: var(--ink); stroke-width: 3; }
-.hm6-book text { fill: var(--page); font: 700 13px var(--font-sans); letter-spacing: .06em; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
-
-/* F: the city of chapters, one small stone for each chapter, appearing from the outside in */
+/* The city of chapters, one small stone for each chapter, appearing from the outside in */
 .hm6-chapter-stones { pointer-events: auto; cursor: pointer; }
 .hm6-chapter-stones path { fill: color-mix(in srgb, var(--tone) 78%, var(--page)); stroke: var(--page); stroke-width: 1.2; transition: fill .15s; animation: hm6-fade 1.2s ease-out both; }
 .hm6-chapter-stones path:hover, .hm6-chapter-stones path.is-picked { fill: var(--tone); }
@@ -73,14 +65,22 @@
 .hm6-page[data-landing="outline"] .hm6-stage .hm6-squares > a { border-right: 0; border-bottom: 1px solid var(--line); }
 .hm6-page[data-landing="outline"] .hm6-stage .hm6-squares > a:last-child { border-bottom: 0; }
 
+/* I: mock-up 5's word wall moving behind everything. The city and the six squares are solid, and each wears a small soft
+   cover of the page colour, as does the verse under the city (owner, 2026-10-31). */
+.hm6-i .hm6-art { filter: drop-shadow(0 0 10px var(--page)) drop-shadow(0 0 6px var(--page)); }
+.hm6-stage.hm6-i .hm6-squares { background: var(--surface); box-shadow: 0 0 20px 12px var(--page); }
+.hm6-i .hm6-note { width: fit-content; margin-inline: auto; background: var(--page); box-shadow: 0 0 16px 10px var(--page); }
+
 @media (prefers-reduced-motion: reduce) {
-  .hm6-book, .hm6-chapter-stones path, .hm6-wing, .hm6-squares { animation: none; }
+  .hm6-chapter-stones path, .hm6-wing, .hm6-squares { animation: none; }
 }
 @media (max-width: 860px) {
   .hm6-stage { display: flex; flex-direction: column; justify-content: flex-start; padding-top: 1.2rem; }
   .hm6-stage h1 { font-size: clamp(39px, 10.5vw, 64px); }
   .hm6-stage .home-hero-copy { order: 2; padding-bottom: 3.6rem; }
-  .hm6-book text { display: none; }
+  .hm6-i .hm6-art, .hm6-i .hm6-note { position: relative; }
+  .hm6-i .hm6-note { box-shadow: 0 0 6px 3px var(--page); }
+  .hm6-i .home-hero-copy > * { width: fit-content; max-width: 100%; margin-inline: auto; background: var(--page); box-shadow: 0 0 38px 32px var(--page); }
   .hm6-art { position: static; width: 100%; height: auto; max-height: clamp(8rem, calc(100svh - var(--home-header-height, 60px) - 31rem), 26rem); margin-top: auto; }
   .hm6-note { position: static; order: 1; margin-block: .2rem .6rem; font-size: .8rem; }
   .hm6-page .to-pill { bottom: calc(52px + env(safe-area-inset-bottom, 0px)); }
