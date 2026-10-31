@@ -173,8 +173,9 @@ function ScrollArt({ fit, rays = false }: { fit: "edge" | "framed"; rays?: boole
     {rays ? <path className="hm4-sun-rays" d={sunRays(sun, sunY)} />
       : RINGS.map((radius, ring) => <circle className={`hm4-scroll-ring hm4-scroll-ring-${ring % 2}`} cx={sun} cy={sunY} r={radius} style={{ opacity: 0.62 - ring * 0.1, transformOrigin: `${sun}px ${sunY}px` }} key={radius} />)}
     <circle className="hm4-sun-disc hm4-sun-solid" cx={sun} cy={sunY} r="82" />
-    {/* A cross in the sun, white (gray on A2), not a dark cut-out; set low, its foot going down behind the scroll (owner, 2026-10-30). */}
-    <path className={`hm4-sun-cross${rays ? " hm4-sun-cross-gray" : ""}`} d={`M${fixed(sun - 6)} ${sunY - 24}h12v20h20v12h-20v62h-12v-62h-20v-12h20Z`} />
+    {/* A cross in the sun, white (gray on A2), not a dark cut-out; set low, its foot going down behind the scroll (owner, 2026-10-30).
+        On Scrolls A and A2 it was raised back halfway, to 34 above the sun's centre (owner, 2026-10-31). */}
+    <path className={`hm4-sun-cross${rays ? " hm4-sun-cross-gray" : ""}`} d={`M${fixed(sun - 6)} ${sunY - (fit === "edge" ? 34 : 24)}h12v20h20v12h-20v62h-12v-62h-20v-12h20Z`} />
     {sheets.map((sheet) => <g className={`hm4-sheet hm4-sheet-${sheet.name}`} key={sheet.name}>
       <path className="hm4-sheet-fill" d={`${sheet.edge}L${length} ${HEIGHT}L0 ${HEIGHT}Z`} /><path className="hm4-sheet-edge" d={sheet.edge} />
       {sheet.dotted.map((d) => <path className="hm4-sheet-writing" d={d} key={d} />)}
