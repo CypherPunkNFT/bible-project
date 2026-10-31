@@ -1,19 +1,10 @@
-/* MOCK-UP: five phone layouts of the homepage's opening, /home_mockup9?m=a to e (owner, 2026-10-31). Phones only; the
+/* MOCK-UP: five phone layouts of the homepage's opening, /home_mobile_mockups?v=a to e (owner, 2026-10-31). Phones only; the
    wrapper leaves the page's own layout alone. On phones the stage becomes a six-column grid, so the six doorway squares
    (title only) can sit three or two to a row; everything else spans the full width. */
 .hm9 { display: contents; }
 /* The "Close to home" map's zoom ticker opens on every mock-up address; here it would cover the phone's first screen. */
 .hm9 .hn-ticker, .hm9 .transition-ticker-unfold { display: none; }
 
-/* /home_mobile_mockups: the phone frames side by side. */
-.hm9-phones { padding: 2rem var(--site-gutter, 16px) 3rem; }
-.hm9-phones h1 { margin: 0; font: 400 2rem/1.2 var(--font-serif); }
-.hm9-phones > p { margin: .4rem 0 1.6rem; color: var(--muted); }
-.hm9-phones > div { display: flex; flex-wrap: wrap; gap: 2rem 1.6rem; }
-.hm9-phones figure { margin: 0; width: 390px; max-width: 100%; }
-.hm9-phones iframe { display: block; width: 390px; max-width: 100%; height: 844px; border: 1px solid var(--line); border-radius: 22px; background: var(--page); }
-.hm9-phones figcaption { margin-top: .7rem; font-size: 13px; color: var(--muted); }
-.hm9-phones figcaption strong { display: block; margin-bottom: .15rem; font: 500 1.05rem var(--font-serif); color: var(--ink); }
 
 @media (max-width: 860px) {
   .hm9 .hm6-stage.hm6-i { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); align-content: start; column-gap: 8px; place-items: stretch; }
@@ -24,7 +15,10 @@
   /* The six squares, shown on phones in C, D and E: both columns open into the grid, after the opening's words. */
   .hm9:is([data-phone="c"], [data-phone="d"], [data-phone="e"]) .hm6-stage.hm6-i .hm6-squares { display: contents; }
   .hm9 .hm6-page .hm6-stage.hm6-i .hm6-squares > a { order: 4; grid-column: span 2; position: relative; margin: 0 0 8px; padding: 8px 8px 9px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 0 14px 6px var(--page); }
-  .hm9 .hm6-stage .hm6-squares .home-doorway-art { height: 44px; }
+  /* The homepage's old phone rule laid the last square of a row on its side; each column's last square is an ordinary one here. */
+  .hm9 .hm6-page .hm6-stage.hm6-i .hm6-squares > a:last-child { display: flex; flex-direction: column; align-items: stretch; grid-column: span 2; gap: 0; padding-block: 8px 9px; }
+  .hm9:not([data-phone="d"]) .hm6-stage .hm6-squares > a:last-child .home-doorway-copy { padding-top: 7px; border-top: 1px solid color-mix(in srgb, var(--home-color) 20%, transparent); }
+  .hm9 .hm6-stage .hm6-squares .home-doorway-art, .hm9 .hm6-stage .hm6-squares > a:last-child .home-doorway-art { height: 44px; }
   .hm9 .hm6-stage .hm6-squares .home-doorway-copy { padding-top: 7px; justify-content: center; }
   .hm9 .hm6-stage .hm6-squares .home-doorway-copy strong { font-size: 14px; }
   .hm9 .hm6-stage .hm6-squares .home-doorway-copy > svg { display: none; }
