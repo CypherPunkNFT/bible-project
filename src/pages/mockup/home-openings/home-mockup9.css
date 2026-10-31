@@ -44,3 +44,23 @@
   .hm9[data-phone="e"] .hm6-stage.hm6-i .hm6-note { order: 3; margin-bottom: 1rem; }
 
 }
+
+/* Phones: each section banner a plain rectangle from one edge of the screen to the other, no points, its thin inner line 9px
+   in all round; the words get the whole width (owner, 2026-10-31: "the mobile should just go end to end. No tips, just
+   rectangle end to end"). */
+@media (max-width: 900px) {
+  .hm9 .home-hub[data-banners="inset"] .home-banner-shape .home-banner, .hm9 .home-hub[data-banners="inset"] .home-banner-shape .home-banner:not([data-open]):hover, .hm9 .home-hub[data-banners="inset"] .home-banner-shape .home-banner[data-open] { --tip: 0px; --half: 50%; clip-path: none; }
+  .hm9 .home-banner-shape .home-banner::before { clip-path: inset(9px 9px); }
+  .hm9 .home-banner-shape .home-banner::after { clip-path: inset(10px 10px); }
+  .hm9 .home-hub[data-banners="inset"] .home-banner-shape .home-banner-inner { max-width: none; padding-inline: calc(var(--site-gutter) + 12px); }
+  /* The banners' wide three-column layout (number and name, verse, terms) left the outer columns no width on a phone, so the
+     name and the verse fell on top of each other; here they stack, the name first. */
+  .hm9 .home-banner-shape .home-banner[data-terms] .home-banner-inner { grid-template-columns: minmax(0, 1fr); row-gap: 18px; }
+  .hm9 .home-banner-shape .home-banner[data-terms] .home-banner-inner > * { grid-column: 1; grid-row: auto; }
+  .hm9 .home-banner-shape .home-banner .home-banner-title { justify-self: start; }
+  /* The closing blessing smaller, with room at the sides (owner, same day: "the quotes are way too large. They're almost end
+     to end themselves"). */
+  .hm9 .hm6-blessing blockquote { font-size: 21px; line-height: 1.25; }
+  .hm9 .hm4-b.hm6-blessing .home-hero-copy { max-width: 19rem; margin-inline: auto; }
+  .hm9 .hm6-blessing-cite { font-size: 12px; }
+}
