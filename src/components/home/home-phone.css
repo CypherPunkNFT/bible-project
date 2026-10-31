@@ -27,12 +27,16 @@
   /* The word wall fainter; its small last row, and the row that would run behind the versions line, are left out. */
   .home-hub[data-phone="e"] .hm5-wall { opacity: .35; }
   .home-hub[data-phone="e"] .hm6-hebrew-row, .home-hub[data-phone="e"] .hm5-wall > :nth-child(4) { display: none; }
-  .home-hub[data-phone="e"] .hm6-stage.hm6-i .home-hero-copy { order: 1; padding-block: .4rem 0; }
+  /* The words start lower, a little way under the header (owner, 2026-10-31: "shift the header and bricks down a little, it
+     should start lower"). */
+  .home-hub[data-phone="e"] .hm6-stage.hm6-i .home-hero-copy { order: 1; padding-block: 3.4rem 0; }
   /* The soft cover round the button and the line under it would dim the top of the city, which sits close under them. */
   .home-hub[data-phone="e"] .hm6-stage.hm6-i .home-hero-actions, .home-hub[data-phone="e"] .hm6-stage.hm6-i .home-hero-foot { box-shadow: none; }
-  /* The city takes the height left once the words and squares are placed, so the first screen is full; on shorter phones it
-     keeps a floor and the squares go below the fold. The drawing has blank space round the wall, taken back by the margins. */
-  .home-hub[data-phone="e"] .hm6-stage.hm6-i .hm6-art { order: 2; width: min(100%, max(20rem, calc(100svh - 745px))); max-height: none; margin-block: -18px -22px; }
+  /* The city takes the height left once the words and the first row of squares are placed, so the first screen ends on that
+     row and the second waits below the fold, inviting a scroll (owner, 2026-10-31: "make only one row visible in the first
+     screen, then stretch the bricks a bit"). On shorter phones it keeps a floor and the squares go below the fold. The drawing
+     has blank space round the wall, taken back by the margins. */
+  .home-hub[data-phone="e"] .hm6-stage.hm6-i .hm6-art { order: 2; width: min(100%, max(20rem, calc(100svh - 630px))); max-height: none; margin-block: -18px -22px; }
   .home-hub[data-phone="e"] .hm6-stage.hm6-i .hm6-note { order: 3; margin-bottom: .7rem; }
   .home-hub[data-phone="e"] .hm6-stage.hm6-i { padding-bottom: .4rem; }
 

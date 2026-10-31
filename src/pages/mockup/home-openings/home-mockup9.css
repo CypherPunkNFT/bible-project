@@ -1,24 +1,5 @@
-/* MOCK-UP: three phone layouts of the homepage's opening, /home_mobile_mockups?v=a, b or e (owner, 2026-10-31). E is now the real
-   homepage's phone layout and lives in components/home/home-phone.css, with everything the three share; only what differs from
-   it is here. Kept so the versions can still be compared. */
+/* MOCK-UP: /home_mobile_mockups, the homepage on phones (owner, 2026-10-31). Layout E is now the homepage's own phone layout
+   (components/home/home-phone.css) and the other layouts were taken out, so only this is left. */
 .hm9 { display: contents; }
 /* The "Close to home" map's zoom ticker opens on every mock-up address; here it would cover the phone's first screen. */
 .hm9 .hn-ticker, .hm9 .transition-ticker-unfold { display: none; }
-
-@media (max-width: 860px) {
-  /* A, calm: the word wall far fainter, and the city given more of the screen. */
-  .hm9[data-phone="a"] .hm5-wall, .hm9[data-phone="a"] .hm6-hebrew-row { opacity: .3; }
-  .hm9[data-phone="a"] .hm6-stage.hm6-i .hm6-art { width: min(100%, 23rem); max-height: none; margin-top: .4rem; }
-
-  /* B, inside the city: the city fills the whole first screen behind the words, its sides past the screen's edges, so the
-     coloured courses run across the top and the foot; no word wall. */
-  .hm9[data-phone="b"] .hm5-wall, .hm9[data-phone="b"] .hm6-hebrew-row { display: none; }
-  .hm9[data-phone="b"] .hm6-stage.hm6-i { align-content: center; padding-bottom: 1rem; }
-  .hm9[data-phone="b"] .hm6-stage.hm6-i .hm6-art { position: absolute; top: 0; left: 50%; right: auto; justify-self: start; width: auto; height: 100%; max-height: none; aspect-ratio: 1; margin: 0; translate: -50% 0; }
-  .hm9[data-phone="b"] .hm6-stage.hm6-i .home-hero-copy { order: 1; padding-bottom: .8rem; }
-  .hm9[data-phone="b"] .hm6-stage.hm6-i .hm6-note { order: 2; }
-
-  /* E with the pill over it: the word wall stops above the pill, and the city gives up that height, so nothing runs under it. */
-  .hm9[data-phone="e"] .home-hub .hm5-wall { bottom: 76px; }
-  .hm9[data-phone="e"] .home-hub .hm6-stage.hm6-i .hm6-art { width: min(100%, max(20rem, calc(100svh - 805px))); }
-}

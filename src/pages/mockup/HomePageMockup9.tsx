@@ -1,28 +1,11 @@
-// MOCK-UP of the homepage's opening on phones, opened at /home_mobile_mockups (and /home_mockup9) on this computer's preview
-// only (see mockup-routes.tsx); never on the live site (owner, 2026-10-31: "phone opening looks not that great, lets get
-// mobile_mockups to see what we can do here"). It is the real HomePage, unchanged, inside a wrapper whose letter picks one of
-// three phone layouts in home-mockup9.css; the pill at the bottom swaps them (?v=b). The owner looks at it in the browser's own
-// phone view (owner, same day: "You don't have to make it a mobile view"), so the page is shown as itself, not in frames.
-import { useSearchParams } from "react-router-dom";
+// MOCK-UP of the homepage on phones, opened at /home_mobile_mockups (and /home_mockup9) on this computer's preview only (see
+// mockup-routes.tsx); never on the live site (owner, 2026-10-31: "phone opening looks not that great, lets get mobile_mockups
+// to see what we can do here"). Layout E won and is now the homepage's own phone layout (components/home/home-phone.css), so
+// the other layouts and the pill that switched them were taken out (owner, same day: "Take away the others, its Just E so
+// then take away the pill switch"). The page is the homepage itself, looked at in the browser's own phone view.
 import HomePage from "@/pages/HomePage";
-import { BrickCity } from "./home-openings/HomeOpenings6Chapters";
-import { VersionPill } from "./legal/VersionPill";
 import "./home-openings/home-mockup9.css";
 
-const PHONES = [
-  { id: "a", name: "Calm" },
-  { id: "b", name: "Inside the city" },
-  { id: "e", name: "Words first" },
-] as const;
-type PhoneId = (typeof PHONES)[number]["id"];
-
 export default function HomePageMockup9() {
-  const [params] = useSearchParams();
-  const current = PHONES.find((item) => item.id === (params.get("v") ?? params.get("m")))?.id ?? ("e" as PhoneId);
-  // C, D and the filled cities F to H were taken out, and the three left lay the chapters inside the pearl gates as bricks
-  // (owner, 2026-10-31).
-  return <div className="hm9" data-phone={current}>
-    <BrickCity.Provider value><HomePage phoneLayout={current} /></BrickCity.Provider>
-    <VersionPill<PhoneId> label="Phone" versions={[...PHONES]} current={current} />
-  </div>;
+  return <div className="hm9"><HomePage /></div>;
 }
