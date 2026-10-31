@@ -29,7 +29,7 @@ function Actions({ quiz, read, label }: { quiz: Quiz; read: string; label: strin
     {quiz.question
       ? <button type="button" className="qv-next" onClick={quiz.next}>{quiz.finished ? "See how you did" : "Next question"}<ArrowRight size={15} aria-hidden /></button>
       : <button type="button" className="qv-next" onClick={quiz.restart}><RotateCcw size={15} aria-hidden />Try again</button>}
-    <Link to={`/read/kjv/${read}`}>Read {label}<ArrowUpRight size={15} aria-hidden /></Link>
+    <Link to={`/read/bsb/${read}`}>Read {label}<ArrowUpRight size={15} aria-hidden /></Link>
   </div>;
 }
 

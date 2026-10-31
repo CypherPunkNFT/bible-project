@@ -22,7 +22,7 @@ export default function HomePageMockup9() {
   // C, D and the filled cities F to H were taken out, and the three left lay the chapters inside the pearl gates as bricks
   // (owner, 2026-10-31).
   return <div className="hm9" data-phone={current}>
-    <BrickCity.Provider value><HomePage /></BrickCity.Provider>
+    <BrickCity.Provider value><HomePage phoneLayout={current} /></BrickCity.Provider>
     <VersionPill<PhoneId> label="Phone" versions={[...PHONES]} current={current} />
   </div>;
 }

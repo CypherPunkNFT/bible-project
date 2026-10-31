@@ -4,10 +4,11 @@
 // marquee, the sources, Close to home, and Scroll A's blessing before the footer. The city's corners have no towers (from /home_mockup8, owner, 2026-10-31). Earlier homepage: approved 2026-10-22 from
 // /home_mockup2. The opening and the closing scroll live in pages/mockup/home-openings/.
 import { ArrowRight, ArrowUpRight, BookMarked, BookOpen, GitBranch, Globe, Headphones, Landmark, LayoutGrid, LifeBuoy, Map, MessageCircle, NotebookPen, Pause, Play, Users } from "lucide-react";
-import { useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
+import { useContext, useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { lastReadPath } from "@/lib/last-read";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 import { CollectionArtwork, HomeArtwork, QuestionOrbit } from "@/components/home/HomeArtwork";
 import { BibleScene, FeatureBlock, StudyScene } from "@/components/home/HomeFeatureArt";
 import { CHAPTER_COUNT, ChaptersScene, ListenScene } from "@/components/home/HomeBibleScenes";
@@ -30,6 +31,8 @@ import { HomeNearby } from "./home/HomeNearby";
 import { HomeQuiz } from "./home/HomeQuiz";
 import { HomeSources } from "./home/HomeSources";
 import { GoldMarquee } from "./mockup/home-openings/HomeOpenings";
+import { BrickCity } from "./mockup/home-openings/HomeOpenings6Chapters";
+import "@/components/home/home-phone.css";
 
 /** The five doorways are the site's five parts; Topics lives inside Study, and Resources joins. */
 const HOME_PATHS = [
@@ -118,7 +121,10 @@ function PreviewMarquee() {
   </section>;
 }
 
-export default function HomePage() {
+/** phoneLayout: which phone layout the page wears (home-phone.css). The homepage is "e"; only /home_mobile_mockups passes another. */
+export default function HomePage({ phoneLayout = "e" }: { phoneLayout?: string }) {
+  // On phones the city's chapters are laid as bricks; the desktop keeps its rings of stones. A mock-up can ask for bricks at any width.
+  const bricks = useContext(BrickCity), phone = useMediaQuery("(max-width: 860px)");
   const [open, setOpen] = useState([false, false, false, false]);
   // Each banner's pointed ends run at 45 degrees, so their depth is half the banner's height: kept current as it resizes.
   useLayoutEffect(() => {
@@ -157,19 +163,19 @@ export default function HomePage() {
   const resumeLabel = version ? `Continue: ${book?.name ?? code} ${chapter}` : "Begin with John 1";
   const languages = new Set(catalog.translations.map((item) => item.lang)).size;
 
-  return <div className="home-hub hm6-page hm6-plain-corners" data-landing={landing} data-banners="inset" data-shape="point">
+  return <div className="home-hub hm6-page hm6-plain-corners" data-landing={landing} data-banners="inset" data-shape="point" data-phone={phoneLayout}>
     <div className="home-opening hm6-first" ref={opening}>
     {comparing && <nav className="home-landing-options home-wrap" aria-label="Landing designs">
       {landingOptions.map((option, index) => <button key={option} type="button" aria-pressed={landing === option} onClick={() => setSearchParams((current) => { const next = new URLSearchParams(current); next.set("landing", option); return next; }, { preventScrollReset: true })}><span>0{index + 1}</span>{option === "outline" ? "Outlined boxes" : option === "gallery" ? "Open gallery" : "Illustrated rail"}</button>)}
     </nav>}
-    <Opening6 version="i" resume={resume} resumeLabel={resumeLabel} versions={catalog.translations.length} languages={languages} />
+    <BrickCity.Provider value={bricks || phone}><Opening6 version="i" resume={resume} resumeLabel={resumeLabel} versions={catalog.translations.length} languages={languages} /></BrickCity.Provider>
     </div>
 
     {/* The row of five doorways under the opening was taken out on the owner's word, 2026-10-31. */}
     <PreviewMarquee />
     <HomeGuide onChoose={choose} layout="side" boxed contactList number="01" />
 
-    <div className="home-banner-shape" id="home-part-1" style={{ "--home-color": "var(--epistles)" } as CSSProperties}><SectionBanner ringOnce number="01" name="The Bible" line="One Word, read, heard and explored" tone="epistles" verse="“The grass withereth, the flower fadeth: but the word of our God shall stand for ever.”" reference="Isaiah 40:8" to="/read/kjv/ISA/40?hl=8" page="/bible" emblem="word" glint={["read", "heard", "explored"]} open={open[0]} onToggle={() => toggle(0)} flip={false} terms={[{ items: ["Law", "History", "Poetry", "Prophets", "Gospels", "Epistles", "Revelation"] }]} /></div>
+    <div className="home-banner-shape" id="home-part-1" style={{ "--home-color": "var(--epistles)" } as CSSProperties}><SectionBanner ringOnce number="01" name="The Bible" line="One Word, read, heard and explored" tone="epistles" verse="“The grass withers and the flowers fall, but the word of our God stands forever.”" reference="Isaiah 40:8" to="/read/bsb/ISA/40?hl=8" page="/bible" emblem="word" glint={["read", "heard", "explored"]} open={open[0]} onToggle={() => toggle(0)} flip={false} terms={[{ items: ["Law", "History", "Poetry", "Prophets", "Gospels", "Epistles", "Revelation"] }]} /></div>
 
     <div className="home-collapse" data-open={open[0] || undefined}><div>
     <div className="home-wrap">
@@ -201,7 +207,7 @@ export default function HomePage() {
     </div>
     </div></div>
 
-    <div className="home-banner-shape" id="home-part-2" style={{ "--home-color": "var(--gospels)" } as CSSProperties}><SectionBanner ringOnce number="02" name="Study" line="The passage, and the world behind it" tone="gospels" verse="“Search the scriptures… they are they which testify of me.”" reference="John 5:39" to="/read/kjv/JHN/5?hl=39" page="/study" emblem="lens" open={open[1]} onToggle={() => toggle(1)} flip={true} terms={[{ items: ["Theological", "Scholarly", "World atlas", "Topics"] }]} /></div>
+    <div className="home-banner-shape" id="home-part-2" style={{ "--home-color": "var(--gospels)" } as CSSProperties}><SectionBanner ringOnce number="02" name="Study" line="The passage, and the world behind it" tone="gospels" verse="“You pore over the Scriptures… These are the very words that testify about Me.”" reference="John 5:39" to="/read/bsb/JHN/5?hl=39" page="/study" emblem="lens" open={open[1]} onToggle={() => toggle(1)} flip={true} terms={[{ items: ["Theological", "Scholarly", "World atlas", "Topics"] }]} /></div>
 
     <div className="home-collapse" data-open={open[1] || undefined}><div>
     <div className="home-wrap">
@@ -242,7 +248,7 @@ export default function HomePage() {
     </div>
     </div></div>
 
-    <div className="home-banner-shape" id="home-part-3" style={{ "--home-color": "var(--prophets)" } as CSSProperties}><SectionBanner ringOnce number="03" name="Apologetics" line="Faith seeking understanding" tone="prophets" verse={"“Be ready always to give an answer\nto every man that asketh you a reason\nof the hope that is in you.”"} reference="1 Peter 3:15" to="/read/kjv/1PE/3?hl=15" page="/apologetics" emblem="scales" open={open[2]} onToggle={() => toggle(2)} flip={false} terms={[{ items: ["Worldviews", "Debates", "Evidence", "Historic texts"] }]} /></div>
+    <div className="home-banner-shape" id="home-part-3" style={{ "--home-color": "var(--prophets)" } as CSSProperties}><SectionBanner ringOnce number="03" name="Apologetics" line="Faith seeking understanding" tone="prophets" verse={"“Always be prepared to give a defense\nto everyone who asks you the reason\nfor the hope that is in you.”"} reference="1 Peter 3:15" to="/read/bsb/1PE/3?hl=15" page="/apologetics" emblem="scales" open={open[2]} onToggle={() => toggle(2)} flip={false} terms={[{ items: ["Worldviews", "Debates", "Evidence", "Historic texts"] }]} /></div>
 
     <div className="home-collapse" data-open={open[2] || undefined}><div>
     <div className="home-wrap">
@@ -271,7 +277,7 @@ export default function HomePage() {
     </div>
     </div></div>
 
-    <div className="home-banner-shape" id="home-part-4" style={{ "--home-color": "var(--resource-life)" } as CSSProperties}><SectionBanner ringOnce number="04" name="Resources" line="Help for the road" tone="resource-life" verse={"“Bear ye one another’s burdens,\nand so fulfil the law of Christ.”"} reference="Galatians 6:2" to="/read/kjv/GAL/6?hl=2" page="/resources" emblem="lamp" open={open[3]} onToggle={() => toggle(3)} flip={true} terms={[{ items: ["Learning materials", "Fellowship", "Help for life"] }]} /></div>
+    <div className="home-banner-shape" id="home-part-4" style={{ "--home-color": "var(--resource-life)" } as CSSProperties}><SectionBanner ringOnce number="04" name="Resources" line="Help for the road" tone="resource-life" verse={"“Carry one another’s burdens,\nand in this way you will fulfill the law of Christ.”"} reference="Galatians 6:2" to="/read/bsb/GAL/6?hl=2" page="/resources" emblem="lamp" open={open[3]} onToggle={() => toggle(3)} flip={true} terms={[{ items: ["Learning materials", "Fellowship", "Help for life"] }]} /></div>
 
     <div className="home-collapse" data-open={open[3] || undefined}><div>
     <div className="home-wrap">
@@ -305,7 +311,7 @@ export default function HomePage() {
         </FeatureBlock>
       </section>
       <section id="about" className="home-about-band" aria-label="An open invitation"><div><p className="home-eyebrow">An open invitation</p><h2>A lifetime of discovery.<br /><em>Freely shared.</em></h2><p>Scripture to read. Questions to explore. Sources you can follow. Built so anyone can begin, and keep going.</p><div className="home-about-links"><Link to="/sources">Sources & references<ArrowUpRight size={14} /></Link><a href="https://github.com/CypherPunkNFT/bible-project" target="_blank" rel="noreferrer">Open source<ArrowUpRight size={14} /></a></div></div><Link className="home-testimonies" to="/testimonies"><GitBranch size={28} strokeWidth={1.3} /><span className="home-eyebrow">Testimonies</span><h3>The story continues<br />in ordinary lives.</h3><p>Explore the testimony collection and the invitation to share your story.</p><span className="home-card-action">Explore testimonies<ArrowRight size={16} /></span></Link></section>
-      <div className="home-final"><BookOpen size={22} strokeWidth={1.2} aria-hidden /><p>“Thy word is a lamp unto my feet,<br />and a light unto my path.”</p><Link to="/read/kjv/PSA/119?hl=105">Psalm 119:105<ArrowUpRight size={12} /></Link></div>
+      <div className="home-final"><BookOpen size={22} strokeWidth={1.2} aria-hidden /><p>“Your word is a lamp to my feet<br />and a light to my path.”</p><Link to="/read/bsb/PSA/119?hl=105">Psalm 119:105<ArrowUpRight size={12} /></Link></div>
     </div>
     </div></div>
     {/* The gold marquee runs between the questions (02) and the sources (03), and Scroll A's blessing ends the page. */}

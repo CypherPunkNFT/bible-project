@@ -1,0 +1,78 @@
+/* The homepage on phones, carried over from /home_mobile_mockups' layout E (owner, 2026-10-31: "go now"). The title and button
+   first, the city under them with its chapters laid as bricks (HomePage.tsx turns BrickCity on at this width), then the six
+   doorway squares; plain edge-to-edge banners, and a closing blessing that follows straight on. Nothing here reaches the desktop.
+   data-phone is "e" on the homepage; the mock-up page can set it to its other layouts, which home-mockup9.css styles. */
+.home-hub.hm6-page .hm6-brick-plain { fill: color-mix(in srgb, var(--accent) 12%, var(--page)); stroke: var(--page); stroke-width: 1.2; }
+
+@media (max-width: 860px) {
+  .home-hub.hm6-page .hm6-stage.hm6-i { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); align-content: start; column-gap: 8px; place-items: stretch; }
+  .home-hub.hm6-page .hm6-stage.hm6-i > *, .home-hub.hm6-page .hm6-stage.hm6-i .hm6-note { grid-column: 1 / -1; }
+  .home-hub.hm6-page .hm6-stage.hm6-i .hm6-art { justify-self: center; }
+  .home-hub.hm6-page .hm6-stage.hm6-i .home-hero-copy { padding-bottom: 1.2rem; }
+  /* The word wall runs to the screen's edges: a place in the grid would hold it inside the page's side margins. */
+  .home-hub.hm6-page .hm6-stage.hm6-i > :is(.hm5-wall, .hm6-hebrew-row) { grid-column: auto; }
+
+  /* The six squares: both columns open into the grid, after the opening's words, three to a row. */
+  .home-hub[data-phone="e"] .hm6-stage.hm6-i .hm6-squares { display: contents; }
+  .home-hub.hm6-page .hm6-stage.hm6-i .hm6-squares > a { order: 4; grid-column: span 2; position: relative; margin: 0 0 8px; padding: 8px 8px 9px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 0 14px 6px var(--page); }
+  /* The homepage's old phone rule laid the last square of a row on its side; each column's last square is an ordinary one here. */
+  .home-hub.hm6-page .hm6-stage.hm6-i .hm6-squares > a:last-child { display: flex; flex-direction: column; align-items: stretch; grid-column: span 2; gap: 0; padding-block: 8px 9px; }
+  .home-hub.hm6-page .hm6-stage .hm6-squares > a:last-child .home-doorway-copy { padding-top: 7px; border-top: 1px solid color-mix(in srgb, var(--home-color) 20%, transparent); }
+  /* Each drawing keeps its own proportions and height, so the title sits under it and never on it. */
+  .home-hub.hm6-page .hm6-stage .hm6-squares .home-doorway-art, .home-hub.hm6-page .hm6-stage .hm6-squares > a:last-child .home-doorway-art { height: auto; aspect-ratio: 480 / 185; }
+  .home-hub.hm6-page .hm6-stage .hm6-squares .home-doorway-copy { padding-top: 7px; justify-content: center; }
+  .home-hub.hm6-page .hm6-stage .hm6-squares .home-doorway-copy strong { font-size: 14px; }
+  .home-hub.hm6-page .hm6-stage .hm6-squares .home-doorway-copy > svg { display: none; }
+
+  /* The word wall fainter; its small last row, and the row that would run behind the versions line, are left out. */
+  .home-hub[data-phone="e"] .hm5-wall { opacity: .35; }
+  .home-hub[data-phone="e"] .hm6-hebrew-row, .home-hub[data-phone="e"] .hm5-wall > :nth-child(4) { display: none; }
+  .home-hub[data-phone="e"] .hm6-stage.hm6-i .home-hero-copy { order: 1; padding-block: .4rem 0; }
+  /* The soft cover round the button and the line under it would dim the top of the city, which sits close under them. */
+  .home-hub[data-phone="e"] .hm6-stage.hm6-i .home-hero-actions, .home-hub[data-phone="e"] .hm6-stage.hm6-i .home-hero-foot { box-shadow: none; }
+  /* The city takes the height left once the words and squares are placed, so the first screen is full; on shorter phones it
+     keeps a floor and the squares go below the fold. The drawing has blank space round the wall, taken back by the margins. */
+  .home-hub[data-phone="e"] .hm6-stage.hm6-i .hm6-art { order: 2; width: min(100%, max(20rem, calc(100svh - 745px))); max-height: none; margin-block: -18px -22px; }
+  .home-hub[data-phone="e"] .hm6-stage.hm6-i .hm6-note { order: 3; margin-bottom: .7rem; }
+  .home-hub[data-phone="e"] .hm6-stage.hm6-i { padding-bottom: .4rem; }
+
+  /* Tighter gaps between the sections: the desktop's spacing left a phone's screen looking empty. */
+  .home-hub.hm6-page .home-guide { margin-block: 80px; }
+  .home-hub.hm6-page .qv-home { margin-top: 80px; }
+  .home-hub.hm6-page .hm6-sources-band { padding-block: 72px; }
+  .home-hub.hm6-page .hn { margin-top: 72px; }
+
+  /* The closing blessing follows straight on from Close to home: no full screen of its own, and the sunrise close under the words. */
+  .home-hub.hm6-page .home-opening.hm6-last { min-height: 0; }
+  .home-hub.hm6-page .hm4-b.hm6-blessing { flex: none; padding-bottom: calc(clamp(11rem, 38svh, 21rem) + 60px); }
+  /* One roller at the screen's edge looked like a mistake, so the scroll just runs off both sides. */
+  .home-hub.hm6-page .hm6-blessing .hm4-roller { display: none; }
+
+  /* The two doors under the questions: their icons had no room left and shrank to specks. */
+  .home-hub.hm6-page .qv-door > svg:not(.qv-door-arrow) { display: none; }
+  /* Close to home: the map's button the same plain shape as Help for life; the facts' sources stay on the city's own page. */
+  .home-hub.hm6-page .hn-open { border-radius: 0; }
+  .home-hub.hm6-page .hn-info a.lf-src { display: none; }
+}
+
+/* Each section banner a plain rectangle from one edge of the screen to the other, no points, its thin inner line 9px in all
+   round; the words get the whole width (owner, 2026-10-31: "the mobile should just go end to end. No tips, just rectangle end
+   to end"). */
+@media (max-width: 900px) {
+  .hm6-page.home-hub[data-banners="inset"] .home-banner-shape .home-banner, .hm6-page.home-hub[data-banners="inset"] .home-banner-shape .home-banner:not([data-open]):hover, .hm6-page.home-hub[data-banners="inset"] .home-banner-shape .home-banner[data-open] { --tip: 0px; --half: 50%; clip-path: none; }
+  .home-hub.hm6-page .home-banner-shape .home-banner::before { clip-path: inset(9px 9px); }
+  .home-hub.hm6-page .home-banner-shape .home-banner::after { clip-path: inset(10px 10px); }
+  .hm6-page.home-hub[data-banners="inset"] .home-banner-shape .home-banner-inner { max-width: none; padding-inline: calc(var(--site-gutter) + 12px); }
+  /* The banners' wide three-column layout (number and name, verse, terms) left the outer columns no width on a phone, so the
+     name and the verse fell on top of each other; here they stack, the name first. */
+  .home-hub.hm6-page .home-banner-shape .home-banner[data-terms] .home-banner-inner { grid-template-columns: minmax(0, 1fr); row-gap: 18px; }
+  .home-hub.hm6-page .home-banner-shape .home-banner[data-terms] .home-banner-inner > * { grid-column: 1; grid-row: auto; }
+  .home-hub.hm6-page .home-banner-shape .home-banner .home-banner-title { justify-self: start; }
+  /* The verses' line breaks suit the desktop's narrow column; here all four run the same way across the width. */
+  .home-hub.hm6-page .home-banner-quote p { white-space: normal; }
+  /* The closing blessing smaller, with room at the sides (owner, same day: "the quotes are way too large. They're almost end
+     to end themselves"). */
+  .home-hub.hm6-page .hm6-blessing blockquote { font-size: 21px; line-height: 1.25; }
+  .home-hub.hm6-page .hm4-b.hm6-blessing .home-hero-copy { max-width: 19rem; margin-inline: auto; }
+  .home-hub.hm6-page .hm6-blessing-cite { font-size: 12px; }
+}
