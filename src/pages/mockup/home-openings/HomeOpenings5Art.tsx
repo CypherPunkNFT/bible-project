@@ -10,7 +10,7 @@ const fixed = (value: number) => value.toFixed(1);
 const tone = (section: string) => ({ "--tone": `var(--${section})` } as CSSProperties);
 
 /** The 66 books in order, with their chapter counts in the Berean Standard Bible. */
-function useBooks() {
+export function useBooks() {
   const catalog = useCatalog();
   return useMemo(() => {
     const bible = catalog.translations.find((item) => item.slug === "bsb");

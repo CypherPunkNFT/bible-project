@@ -36,11 +36,23 @@
 .hm6-tower { fill: var(--page); stroke: var(--accent); stroke-width: 2; }
 .hm6-pearl { fill: color-mix(in srgb, #fff 82%, var(--accent)); stroke: var(--accent); stroke-width: 1.5; }
 
+/* E: the city of books, its wall coloured by the Bible's sections */
+.hm6-book { cursor: pointer; pointer-events: auto; animation: hm6-fade 1s ease-out both; }
+.hm6-book:focus { outline: none; }
+.hm6-book path { fill: color-mix(in srgb, var(--tone) 72%, var(--page)); stroke: var(--accent); stroke-width: 1.5; stroke-linejoin: round; transition: fill .2s; }
+.hm6-book:hover path, .hm6-book.is-picked path { fill: var(--tone); }
+.hm6-book.is-picked path { stroke: var(--ink); stroke-width: 3; }
+.hm6-book text { fill: var(--page); font: 700 13px var(--font-sans); letter-spacing: .06em; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+.hm6-e .hm6-note { top: .5rem; bottom: auto; }
+.hm6-e .hm6-note strong { color: var(--tone); font-weight: 600; }
+
 @media (prefers-reduced-motion: reduce) {
-  .hm6-arch, .hm6-foundation { animation: none; }
+  .hm6-arch, .hm6-foundation, .hm6-book { animation: none; }
 }
 @media (max-width: 860px) {
   .hm6-stage h1 { font-size: clamp(39px, 10.5vw, 64px); }
+  .hm6-book text { display: none; }
+  .hm6-d.hm6-e .hm6-art { max-height: clamp(8rem, calc(100svh - var(--home-header-height, 60px) - 31rem), 26rem); }
   .hm6-b, .hm6-d { display: flex; flex-direction: column; justify-content: flex-start; padding-top: 1.2rem; }
   .hm6-b .home-hero-copy { margin-top: 0; }
   .hm6-b .hm6-art, .hm6-d .hm6-art { position: static; width: 100%; height: auto; max-height: clamp(8rem, calc(100svh - var(--home-header-height, 60px) - 29rem), 26rem); margin-top: auto; }
