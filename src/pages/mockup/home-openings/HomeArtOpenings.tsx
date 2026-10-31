@@ -1,16 +1,17 @@
-// MOCK-UP: five openings on /home_mockup4 with newly drawn art (owner, 2026-10-30: "Something new for the artworks").
-// A, A2, A3 and B are the scroll whose sheets are the hills, carrying verses of praise in Hebrew, Greek and English. A runs
-// edge to edge under the marquee; A2 and A3 are A with its sun as a glory of rings and rays (A2 with a ring of beads and a
-// gray cross, A3 without the beads and with a white cross); B is framed. The sun, with a cross in it, sits right of the
-// title. C, Manuscript, is a sun pieced together from torn leaves, with the gold marquee under it. The open Word and the sixty-six rays were taken out (owner, 2026-10-30).
-import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+// MOCK-UP: three openings on /home_mockup4 with newly drawn art (owner, 2026-10-30: "Something new for the artworks").
+// A and B are the scroll whose sheets are the hills, carrying verses of praise in Hebrew, Greek and English, under a sun
+// drawn as a glory with a white cross, right of the title. A runs edge to edge; B is the same scroll at the same size,
+// stopping at the page's margins, with six doorways left of it. Neither has the marquee. C, Manuscript, is a sun pieced together from torn leaves,
+// with the gold marquee under it. The open Word and the sixty-six rays were taken out (owner, 2026-10-30).
+import { ArrowUpRight } from "lucide-react";
+import { useLayoutEffect, useRef, useState, type CSSProperties } from "react";
+import { Link } from "react-router-dom";
+import { CollectionArtwork } from "@/components/home/HomeArtwork";
 import { GoldMarquee, OpeningCopy, type OpeningProps } from "./HomeOpenings";
 import "./home-art-openings.css";
 
 export const ART_OPENINGS = [
   { id: "a", name: "Scroll A" },
-  { id: "a2", name: "Scroll A2" },
-  { id: "a3", name: "Scroll A3" },
   { id: "b", name: "Scroll B" },
   { id: "c", name: "Manuscript" },
 ] as const;
@@ -77,6 +78,8 @@ const drawSheets = (length: number) => SHEETS.map((sheet) => ({
   writing: sheet.words.map((line) => trace(sheet.base + line, sheet.phase, length)),
 }));
 
+/** Where each roll's top sits, in drawing units. */
+const ROLL_TOP = 296;
 /** The turned handle's outline, top down: [height above the roll, half its width]. A groove is drawn at each step. */
 const HANDLE: [number, number][] = [[78, 0], [77, 2.6], [75, 4.4], [72, 5.2], [69, 4.4], [67, 2.8], [65, 2.8], [63, 4], [60, 6.2], [56, 8.6], [51, 9.8], [46, 9.6], [41, 8], [37, 5.4], [34, 4], [31, 4], [30, 7], [27, 7], [26, 4], [15, 4]];
 const HANDLE_GROOVES = [65, 63, 34, 30, 27];
@@ -85,14 +88,22 @@ const frontArc = (cx: number, y: number, half: number) => `M${fixed(cx - half)} 
 /** One end of the scroll, in the same flat line art as the hills: roundness comes only from lines. The wound sheet shows as a
  *  spiral on top, its writing curves round the roll, hatching darkens the side away from the sun, and the handle is turned wood. */
 function Roller({ cx, inward }: { cx: number; inward: 1 | -1 }) {
-  const top = 296, bottom = HEIGHT, half = 20, wrap = cx + inward * (half + 3);
-  const outline = [...HANDLE.map(([up, width]) => `${fixed(cx - width)} ${top - up}`), ...[...HANDLE].reverse().map(([up, width]) => `${fixed(cx + width)} ${top - up}`)];
+  const top = ROLL_TOP, bottom = HEIGHT, half = 20, wrap = cx + inward * (half + 3);
+  // The handle's outline at `y`, running up (-1) from the top of the roll or down (1) from its foot.
+  const handle = (y: number, way: 1 | -1) => `M${[...HANDLE.map(([up, width]) => `${fixed(cx - width)} ${y + way * up}`), ...[...HANDLE].reverse().map(([up, width]) => `${fixed(cx + width)} ${y + way * up}`)].join("L")}Z`;
+  const grooves = (y: number, way: 1 | -1) => HANDLE_GROOVES.map((up) => frontArc(cx, y + way * up, HANDLE.find(([height]) => height === up)?.[1] ?? 4)).join("");
   const spiral = Array.from({ length: 97 }, (_, step) => { const turn = (step / 96) * Math.PI * 8, radius = 2.5 + (16.5 * step) / 96; return `${fixed(cx + Math.cos(turn) * radius)} ${fixed(top + Math.sin(turn) * radius * 0.3)}`; });
   const hatch = [0.4, 0.6, 0.74, 0.84, 0.91, 0.96].map((across) => { const x = cx - inward * half * across; return `M${fixed(x)} ${fixed(top + 6 * Math.sqrt(1 - across * across))}V${bottom}`; });
   const bulbHatch = [0.5, 0.78].map((across) => `M${fixed(cx - inward * 8.6 * across)} ${top - 57}Q${fixed(cx - inward * 9.8 * across * 1.02)} ${top - 49} ${fixed(cx - inward * 8 * across)} ${top - 41}`);
   return <g className="hm4-roller">
+    {/* The foot: the same turned handle, pointing down below the roll, under its collar (owner, 2026-10-31). */}
+    <path className="hm4-roll-fill" d={handle(bottom, 1)} />
+    <path className="hm4-roll-line" d={grooves(bottom, 1)} />
+    <rect className="hm4-roll-fill" x={cx - 4} y={bottom} width="8" height="12" />
+    <path className="hm4-roll-fill" d={`M${cx - 23} ${bottom + 10}V${bottom + 15}A23 5 0 0 0 ${cx + 23} ${bottom + 15}V${bottom + 10}Z`} />
+    <ellipse className="hm4-roll-cap" cx={cx} cy={bottom + 10} rx="23" ry="5" />
     <path className="hm4-roll-line" d={`M${wrap} ${fixed(contour(wrap, SHEETS[0].base, SHEETS[0].phase))}V${bottom}`} />
-    <path className="hm4-roll-fill" d={`M${cx - half} ${top}V${bottom}H${cx + half}V${top}Z`} />
+    <path className="hm4-roll-fill" d={`M${cx - half} ${top}V${bottom}A${half} 6 0 0 0 ${cx + half} ${bottom}V${top}Z`} />
     {Array.from({ length: 16 }, (_, row) => <path className="hm4-roll-writing" d={frontArc(cx, top + 22 + row * 16, half - 3)} key={row} />)}
     <path className="hm4-roll-hatch" d={hatch.join("")} />
     <ellipse className="hm4-roll-cap" cx={cx} cy={top} rx={half} ry="6" />
@@ -101,8 +112,8 @@ function Roller({ cx, inward }: { cx: number; inward: 1 | -1 }) {
     <path className="hm4-roll-fill" d={`M${cx - 23} ${top - 15}V${top - 10}A23 5 0 0 0 ${cx + 23} ${top - 10}V${top - 15}Z`} />
     <ellipse className="hm4-roll-cap" cx={cx} cy={top - 15} rx="23" ry="5" />
     <ellipse className="hm4-roll-line" cx={cx} cy={top - 15} rx="12" ry="3" />
-    <path className="hm4-roll-fill" d={`M${outline.join("L")}Z`} />
-    <path className="hm4-roll-line" d={HANDLE_GROOVES.map((up) => frontArc(cx, top - up, HANDLE.find(([height]) => height === up)?.[1] ?? 4)).join("")} />
+    <path className="hm4-roll-fill" d={handle(top, -1)} />
+    <path className="hm4-roll-line" d={grooves(top, -1)} />
     <path className="hm4-roll-hatch" d={bulbHatch.join("")} />
   </g>;
 }
@@ -116,12 +127,11 @@ const wedge = (x: number, y: number, turn: number, inner: number, outer: number,
   return `M${fixed(x + cos * inner - sin * half)} ${fixed(y + sin * inner + cos * half)}L${fixed(x + cos * outer)} ${fixed(y + sin * outer)}L${fixed(x + cos * inner + sin * half)} ${fixed(y + sin * inner - cos * half)}Z`;
 };
 
-/** The sun of Scrolls A2 and A3: the rings and the rays together as a glory, the sunburst of a monstrance (owner, 2026-10-31:
- *  "merge both ray types into something MAGNIFICENT"). The turning dashed rings lie behind; over them, solid straight rays
- *  long and short in turn, rising from the fine halo line just outside the sun, with a wavy flame between each pair that
- *  slowly glints, and a point of light beyond each longest ray. A2 also keeps a ring of beads round the sun; A3 leaves it out
- *  (owner: "I'm not sure that the dotted line should be there"). Nothing reaches past the outer ring, so the sun is placed as
- *  on the other scrolls. */
+/** The scroll's sun: the rings and the rays together as a glory, the sunburst of a monstrance (owner, 2026-10-31: "merge
+ *  both ray types into something MAGNIFICENT"; first tried as A3, then made Scroll A and B's sun). The turning dashed rings lie
+ *  behind; over them, solid straight rays long and short in turn, rising from the fine halo line just outside the sun, with a
+ *  wavy flame between each pair that slowly glints, and a point of light beyond each longest ray. No ring of beads (owner:
+ *  "I'm not sure that the dotted line should be there"). Nothing reaches past the outer ring, which the sun's placing uses. */
 const HALO = 88;
 const GLORY_LENGTHS = [226, 168, 204, 168];
 const flame = (x: number, y: number, turn: number) => {
@@ -132,14 +142,13 @@ const flame = (x: number, y: number, turn: number) => {
   }
   return `M${points.join("L")}`;
 };
-function Glory({ x, y, beads }: { x: number; y: number; beads: boolean }) {
+function Glory({ x, y }: { x: number; y: number }) {
   const turns = Array.from({ length: 24 }, (_, ray) => rayTurn(ray, 24));
   return <g className="hm4-glory">
     {RINGS.map((radius, ring) => <circle className={`hm4-scroll-ring hm4-scroll-ring-${ring % 2}`} cx={x} cy={y} r={radius} style={{ opacity: 0.42 - ring * 0.06, transformOrigin: `${x}px ${y}px` }} key={radius} />)}
     {turns.map((turn, ray) => <path className="hm4-glory-flame" d={flame(x, y, turn + Math.PI / 24)} style={{ animationDelay: `${(ray % 6) * -0.9}s` }} key={ray} />)}
     <path className="hm4-glory-ray" d={turns.map((turn, ray) => wedge(x, y, turn, HALO, GLORY_LENGTHS[ray % 4], ray % 2 ? 4 : 6)).join("")} />
     {turns.filter((_, ray) => ray % 4 === 0).map((turn) => <circle className="hm4-glory-tip" cx={fixed(x + Math.cos(turn) * 234)} cy={fixed(y + Math.sin(turn) * 234)} r="3.2" key={turn} />)}
-    {beads && <circle className="hm4-glory-beads" cx={x} cy={y} r="96" pathLength="64" />}
     <circle className="hm4-glory-halo" cx={x} cy={y} r={HALO} />
   </g>;
 }
@@ -148,15 +157,17 @@ const RING_GAP = 28;
 /** Where the sun sits, in drawing units: its outer ring on the header's right margin, moved back right only as far as it must
  *  to clear the title and the copy (owner, 2026-10-30: "put it to the left so it can be within the header margins as much as
  *  possible without touching the title"). Never further right than it was first drawn. */
+/** The boxes of the opening's words themselves, not their full-width blocks, and Scroll B's doorways under them. */
+const copyWords = (wrap: HTMLElement) => [...(wrap.querySelector(".home-hero-copy")?.children ?? [])]
+  .map((child) => { const range = document.createRange(); range.selectNodeContents(child); return range.getBoundingClientRect(); })
+  .concat([...wrap.querySelectorAll(".hm4-doors")].map((doors) => doors.getBoundingClientRect())).filter((box) => box.width);
 function placeSun(svg: SVGSVGElement, length: number, scale: number, drawnLeft: number, drawnTop: number) {
   const first = length - 300;
   const wrap = svg.parentElement?.querySelector<HTMLElement>(".home-wrap");
-  const copy = wrap?.querySelector(".home-hero-copy");
-  if (!wrap || !copy) return first;
+  if (!wrap) return first;
   const wrapBox = wrap.getBoundingClientRect();
   const marginRight = wrapBox.right - parseFloat(getComputedStyle(wrap).paddingRight);
-  // The words themselves, not their full-width blocks.
-  const words = [...copy.children].map((child) => { const range = document.createRange(); range.selectNodeContents(child); return range.getBoundingClientRect(); }).filter((box) => box.width);
+  const words = copyWords(wrap);
   const radius = (RINGS[RINGS.length - 1] + 1) * scale, middleY = drawnTop + SUN_Y * scale;
   const clears = (x: number) => words.every((box) => Math.hypot(Math.max(box.left - x, 0, x - box.right), Math.max(box.top - middleY, 0, middleY - box.bottom)) >= radius + RING_GAP);
   let x = marginRight - radius;
@@ -165,52 +176,74 @@ function placeSun(svg: SVGSVGElement, length: number, scale: number, drawnLeft: 
   return Math.min(first, (x - drawnLeft) / scale);
 }
 
-/** "edge" runs the scroll from one side of the screen to the other, cropped from the left on narrow screens (Scroll A).
- *  "framed" sets it inside margins and lets its length follow the shape of its space, so it fills a phone and a wide screen
- *  alike instead of shrinking to a strip (Scroll B). The sun wears rings (A, B), or a glory with a ring of beads and a gray
- *  cross (A2), or a glory alone (A3). */
-function ScrollArt({ fit, sunStyle = "rings" }: { fit: "edge" | "framed"; sunStyle?: "rings" | "glory-beads" | "glory" }) {
+/** The scroll's full length in drawing units. Scroll A shows all of it from one side of the screen to the other, cropped
+ *  from the left on narrow screens. */
+const LENGTH = 1600;
+const SHEETS_DRAWN = drawSheets(LENGTH);
+/** Screen pixels kept between Scroll B's left handle and the words. */
+const HANDLE_GAP = 16;
+/** How far the rollers' feet hang below the bottom of the drawing, in drawing units. They hang past the first screen, seen
+ *  on scrolling down, and the page below starts after them (owner, 2026-10-31). */
+const FOOT = 80;
+
+/** "edge" is Scroll A, the whole scroll from one side of the screen to the other. "margins" is Scroll B: the very same
+ *  drawing at the very same size and place, only starting and stopping at the page's own margins (where the header and the
+ *  text start and stop) with its handles there (owner, 2026-10-31: "I don't see why it has to change at all, except for the
+ *  place that it starts and stops"). */
+function ScrollArt({ fit }: { fit: "edge" | "margins" }) {
   const frame = useRef<SVGSVGElement>(null);
-  const [length, setLength] = useState(1600);
+  // The part of the drawing shown (from `start`, `length` long) and, for Scroll B, where on the screen it sits.
+  const [view, setView] = useState({ start: 0, length: LENGTH, left: 0, width: 0 });
   const [sun, setSun] = useState(1300);
   useLayoutEffect(() => {
-    const svg = frame.current;
-    if (!svg) return;
+    const svg = frame.current, section = svg?.parentElement;
+    if (!svg || !section) return;
     const measure = () => {
-      const box = svg.getBoundingClientRect();
+      const area = section.getBoundingClientRect(), box = svg.getBoundingClientRect();
       if (!box.height) return;
-      const drawn = fit === "edge" ? 1600 : Math.round(Math.min(2200, Math.max(640, (HEIGHT * box.width) / box.height)));
-      // The same fitting as preserveAspectRatio below: "xMaxYMax slice" for edge, "xMidYMax meet" for framed.
-      const scale = fit === "edge" ? Math.max(box.width / drawn, box.height / HEIGHT) : Math.min(box.width / drawn, box.height / HEIGHT);
-      const drawnLeft = box.left + (fit === "edge" ? box.width - drawn * scale : (box.width - drawn * scale) / 2);
-      setLength(drawn);
-      setSun(placeSun(svg, drawn, scale, drawnLeft, box.bottom - HEIGHT * scale));
+      // Scroll A's fitting, "xMaxYMax slice" across the whole width; Scroll B takes the same scale and the same place.
+      const scale = Math.max(area.width / LENGTH, box.height / HEIGHT), drawnLeft = area.right - LENGTH * scale;
+      const wrap = section.querySelector<HTMLElement>(".home-wrap");
+      if (fit === "margins" && wrap) {
+        const wrapBox = wrap.getBoundingClientRect(), style = getComputedStyle(wrap);
+        const right = wrapBox.right - parseFloat(style.paddingRight);
+        // The left end stands on the page margin, unless its handle would rise into the words above it (short, very wide
+        // windows); then it moves right just past them.
+        const handleTop = box.bottom - (HEIGHT - ROLL_TOP + HANDLE[0][0]) * scale - HANDLE_GAP;
+        const left = Math.max(wrapBox.left + parseFloat(style.paddingLeft), ...copyWords(wrap).filter((word) => word.bottom > handleTop).map((word) => word.right + HANDLE_GAP));
+        setView({ start: (left - drawnLeft) / scale, length: (right - left) / scale, left: left - area.left, width: right - left });
+      }
+      setSun(placeSun(svg, LENGTH, scale, drawnLeft, box.bottom - HEIGHT * scale));
+      section.parentElement?.style.setProperty("--hm4-foot", `${Math.ceil(FOOT * scale)}px`);
     };
     measure();
     document.fonts?.ready.then(measure);
     const observer = new ResizeObserver(measure);
-    observer.observe(svg);
-    return () => observer.disconnect();
+    observer.observe(section);
+    return () => { observer.disconnect(); section.parentElement?.style.removeProperty("--hm4-foot"); };
   }, [fit]);
-  const sheets = useMemo(() => drawSheets(length), [length]);
-  const sunY = SUN_Y;
-  return <svg ref={frame} className={`hm4-scroll-art hm4-scroll-${fit}`} viewBox={`0 0 ${length} ${HEIGHT}`} preserveAspectRatio={fit === "edge" ? "xMaxYMax slice" : "xMidYMax meet"} aria-hidden="true">
+  const { start, length } = view, end = start + length, sunY = SUN_Y;
+  return <svg ref={frame} className={`hm4-scroll-art hm4-scroll-${fit}`} style={fit === "margins" ? { left: view.left, width: view.width } : undefined}
+    viewBox={`${fixed(start)} 0 ${fixed(length)} ${HEIGHT}`} preserveAspectRatio={fit === "edge" ? "xMaxYMax slice" : "xMinYMax slice"} aria-hidden="true">
     <defs>
-      {sheets.flatMap((sheet) => sheet.writing.map((d, line) => <path id={`hm4-line-${sheet.name}-${line}`} d={d} key={`${sheet.name}-${line}`} />))}
-      <clipPath id="hm4-between-rollers"><rect x="22" y="0" width={length - 44} height={HEIGHT} /></clipPath>
+      {SHEETS_DRAWN.flatMap((sheet) => sheet.writing.map((d, line) => <path id={`hm4-line-${sheet.name}-${line}`} d={d} key={`${sheet.name}-${line}`} />))}
+      <clipPath id={`hm4-between-rollers-${fit}`}><rect x={fixed(start + 22)} y="0" width={fixed(length - 44)} height={HEIGHT} /></clipPath>
+      {/* Scroll B's drawing stops at its handles; only its height may run past the frame, as Scroll A's does. */}
+      <clipPath id={`hm4-ends-${fit}`}><rect x={fixed(start)} y={-HEIGHT} width={fixed(length)} height={HEIGHT * 3} /></clipPath>
     </defs>
-    {sunStyle !== "rings" ? <Glory x={sun} y={sunY} beads={sunStyle === "glory-beads"} />
-      : RINGS.map((radius, ring) => <circle className={`hm4-scroll-ring hm4-scroll-ring-${ring % 2}`} cx={sun} cy={sunY} r={radius} style={{ opacity: 0.62 - ring * 0.1, transformOrigin: `${sun}px ${sunY}px` }} key={radius} />)}
+    <g clipPath={`url(#hm4-ends-${fit})`}>
+    <Glory x={sun} y={sunY} />
     <circle className="hm4-sun-disc hm4-sun-solid" cx={sun} cy={sunY} r="82" />
-    {/* A cross in the sun, white (gray on A2), not a dark cut-out; set low, its foot going down behind the scroll (owner, 2026-10-30).
-        On Scrolls A and A2 it was raised back halfway, to 34 above the sun's centre (owner, 2026-10-31). */}
-    <path className={`hm4-sun-cross${sunStyle === "glory-beads" ? " hm4-sun-cross-gray" : ""}`} d={`M${fixed(sun - 6)} ${sunY - (fit === "edge" ? 34 : 24)}h12v20h20v12h-20v62h-12v-62h-20v-12h20Z`} />
-    {sheets.map((sheet) => <g className={`hm4-sheet hm4-sheet-${sheet.name}`} key={sheet.name}>
-      <path className="hm4-sheet-fill" d={`${sheet.edge}L${length} ${HEIGHT}L0 ${HEIGHT}Z`} /><path className="hm4-sheet-edge" d={sheet.edge} />
+    {/* A white cross in the sun, not a dark cut-out; its foot goes a little way down behind the scroll (owner, 2026-10-30/31). */}
+    <path className="hm4-sun-cross" d={`M${fixed(sun - 6)} ${sunY - 34}h12v20h20v12h-20v62h-12v-62h-20v-12h20Z`} />
+    {SHEETS_DRAWN.map((sheet) => <g className={`hm4-sheet hm4-sheet-${sheet.name}`} key={sheet.name}>
+      <path className="hm4-sheet-fill" d={`${sheet.edge}L${LENGTH} ${HEIGHT}L0 ${HEIGHT}Z`} /><path className="hm4-sheet-edge" d={sheet.edge} />
       {sheet.dotted.map((d) => <path className="hm4-sheet-writing" d={d} key={d} />)}
-      {sheet.writing.map((d, line) => <text className={`hm4-sheet-script hm4-script-${sheet.script}`} clipPath="url(#hm4-between-rollers)" key={d}><textPath href={`#hm4-line-${sheet.name}-${line}`} startOffset={LINE_STARTS[line]}>{INSCRIPTIONS[sheet.script][line]}</textPath></text>)}
+      {sheet.writing.map((d, line) => <text className={`hm4-sheet-script hm4-script-${sheet.script}`} clipPath={`url(#hm4-between-rollers-${fit})`} key={d}><textPath href={`#hm4-line-${sheet.name}-${line}`} startOffset={LINE_STARTS[line]}>{INSCRIPTIONS[sheet.script][line]}</textPath></text>)}
     </g>)}
-    <Roller cx={22} inward={1} /><Roller cx={length - 22} inward={-1} />
+    <path className="hm4-sheet-edge" d={`M${fixed(start + 22)} ${HEIGHT}H${fixed(end - 22)}`} />
+    <Roller cx={start + 22} inward={1} /><Roller cx={end - 22} inward={-1} />
+    </g>
   </svg>;
 }
 
@@ -255,26 +288,46 @@ function ScrollEdgeOpening(props: OpeningProps) {
   return <section className="hm4-b" aria-labelledby="home-title"><ScrollArt fit="edge" /><div className="home-wrap"><OpeningCopy {...props} /></div></section>;
 }
 
-function ScrollGloryBeadsOpening(props: OpeningProps) {
-  return <section className="hm4-b" aria-labelledby="home-title"><ScrollArt fit="edge" sunStyle="glory-beads" /><div className="home-wrap"><OpeningCopy {...props} /></div></section>;
+/** A page of text whose notes each lead to the book they come from. */
+function SourcesArtwork() {
+  return <svg viewBox="0 0 480 185" fill="none" aria-hidden="true">
+    <path d="M130 30H232L260 58V158H130Z" fill="var(--surface)" stroke="currentColor" strokeWidth="1.4" /><path d="M232 30V58H260" stroke="currentColor" opacity=".5" />
+    {[70, 84, 98, 112, 126, 140].map((y) => <path d={`M146 ${y}H${y === 140 ? 206 : 240}`} stroke="currentColor" opacity=".45" key={y} />)}
+    {([[70, 42], [98, 94], [126, 146]] as const).map(([from, to], note) => <g key={to}>
+      <circle cx="249" cy={from} r="3" fill="currentColor" /><path d={`M253 ${from}Q296 ${from} 330 ${to}`} stroke="currentColor" strokeDasharray="2 4" opacity=".6" />
+      <rect x="330" y={to - 12} width="72" height="24" rx="3" fill="var(--surface)" stroke="currentColor" /><text x="342" y={to + 4} fontSize="11" fill="currentColor">{note + 1}</text><path d={`M356 ${to}H390`} stroke="currentColor" opacity=".5" />
+    </g>)}
+    <text x="240" y="180" fontSize="9" letterSpacing="1.5" fill="currentColor" textAnchor="middle">CITED · CHECKED</text>
+  </svg>;
+}
+/** Scroll B's six doorways, three rows of two: the five collections and the sources (owner, 2026-10-31). */
+const DOORS = [
+  { title: "Bible", to: "/bible", subtitle: "Read & compare", color: "epistles" },
+  { title: "Study", to: "/study", subtitle: "See the connections", color: "gospels" },
+  { title: "Apologetics", to: "/apologetics", subtitle: "Explore the questions", color: "history" },
+  { title: "Atlas", to: "/study/atlas", subtitle: "Enter the world", color: "poetry" },
+  { title: "Resources", to: "/resources", subtitle: "Study, gather, find help", color: "resource-life" },
+  { title: "Sources", to: "/sources", subtitle: "Follow every reference", color: "prophets" },
+] as const;
+function Doorways() {
+  return <nav id="explore" className="hm4-doors" aria-label="Explore the collections">{DOORS.map((door) => <Link to={door.to} key={door.title} style={{ "--home-color": `var(--${door.color})` } as CSSProperties}>
+    <div className="home-doorway-art">{door.title === "Sources" ? <SourcesArtwork /> : <CollectionArtwork kind={door.title} />}</div>
+    <div className="home-doorway-copy"><span><strong>{door.title}</strong><small>{door.subtitle}</small></span><ArrowUpRight size={16} aria-hidden /></div>
+  </Link>)}</nav>;
 }
 
-function ScrollGloryOpening(props: OpeningProps) {
-  return <section className="hm4-b" aria-labelledby="home-title"><ScrollArt fit="edge" sunStyle="glory" /><div className="home-wrap"><OpeningCopy {...props} /></div></section>;
-}
-
-function ScrollFramedOpening(props: OpeningProps) {
-  return <section className="hm4-b" aria-labelledby="home-title"><ScrollArt fit="framed" /><div className="home-wrap"><OpeningCopy {...props} /></div></section>;
+function ScrollMarginsOpening(props: OpeningProps) {
+  return <section className="hm4-b hm4-b-margins" aria-labelledby="home-title"><ScrollArt fit="margins" /><div className="home-wrap"><OpeningCopy {...props} /><Doorways /></div></section>;
 }
 
 function ManuscriptOpening(props: OpeningProps) {
   return <section className="home-hero home-wrap hm4-row hm4-row-flip" aria-labelledby="home-title"><ManyPiecesArt /><OpeningCopy {...props} /></section>;
 }
 
-const VIEWS: Record<ArtOpeningId, (props: OpeningProps) => JSX.Element> = { a: ScrollEdgeOpening, a2: ScrollGloryBeadsOpening, a3: ScrollGloryOpening, b: ScrollFramedOpening, c: ManuscriptOpening };
+const VIEWS: Record<ArtOpeningId, (props: OpeningProps) => JSX.Element> = { a: ScrollEdgeOpening, b: ScrollMarginsOpening, c: ManuscriptOpening };
 
 export function ArtOpening({ version, ...props }: OpeningProps & { version: ArtOpeningId }) {
   const View = VIEWS[version];
-  // Scroll B stands alone; Scroll A keeps the marquee it was first made with, and so does the manuscript (owner, 2026-10-30).
-  return <><View {...props} />{version !== "b" && <GoldMarquee />}</>;
+  // Only the manuscript keeps the marquee; both scrolls stand alone (owner, 2026-10-30/31).
+  return <><View {...props} />{version === "c" && <GoldMarquee />}</>;
 }

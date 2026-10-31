@@ -161,7 +161,8 @@ export default function HomePageMockup4() {
     <ArtOpening version={openingVersion} resume={resume} resumeLabel={resumeLabel} versions={catalog.translations.length} languages={languages} />
     </div>
 
-    <nav id="explore" className="home-doorways home-wrap home-doorways-even" aria-label="Explore the five collections">{HOME_PATHS.map((item) => <Link to={item.to} key={item.title} style={tint(item.color)}><div className="home-doorway-art"><CollectionArtwork kind={item.title} /></div><div className="home-doorway-copy"><span><strong>{item.title}</strong><small>{item.subtitle}</small></span><ArrowUpRight size={16} aria-hidden /></div></Link>)}</nav>
+    {/* Scroll B carries its own six doorways beside the scroll, so the row is not shown twice. */}
+    {openingVersion !== "b" && <nav id="explore" className="home-doorways home-wrap home-doorways-even" aria-label="Explore the five collections">{HOME_PATHS.map((item) => <Link to={item.to} key={item.title} style={tint(item.color)}><div className="home-doorway-art"><CollectionArtwork kind={item.title} /></div><div className="home-doorway-copy"><span><strong>{item.title}</strong><small>{item.subtitle}</small></span><ArrowUpRight size={16} aria-hidden /></div></Link>)}</nav>}
     <PreviewMarquee />
     <HomeGuide onChoose={choose} layout="side" boxed contactList number="01" />
 

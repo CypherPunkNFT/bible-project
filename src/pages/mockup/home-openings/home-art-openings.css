@@ -6,25 +6,53 @@
 .hm4-sun-disc { fill: color-mix(in srgb, var(--accent) 24%, var(--page)); stroke: var(--accent); stroke-width: 1.2; }
 .hm4-sun-solid { fill: var(--accent); stroke: none; }
 .hm4-sun-cross { fill: #fffdf6; }
-.hm4-sun-cross-gray { fill: #8d8a84; }
-/* A2 and A3: the glory. Its straight rays are solid, not see-through (owner, 2026-10-31). */
+/* The glory round the sun. Its straight rays are solid, not see-through (owner, 2026-10-31). */
 .hm4-glory-ray { fill: var(--accent); }
 .hm4-glory-flame { fill: none; stroke: var(--accent); stroke-width: 1.3; stroke-linecap: round; opacity: .55; animation: hm4-glint 4.5s ease-in-out infinite alternate; }
 @keyframes hm4-glint { from { opacity: .22; } to { opacity: .8; } }
 .hm4-glory-tip { fill: var(--accent); }
-.hm4-glory-beads { fill: none; stroke: var(--accent); stroke-width: 3.4; stroke-linecap: round; stroke-dasharray: 0 1; opacity: .7; }
 .hm4-glory-halo { fill: none; stroke: var(--accent); stroke-width: 1.4; opacity: .8; }
 .hm4-sun-outline { fill: none; stroke: var(--accent); stroke-width: 1; opacity: .5; }
 
 /* A and B: the scroll */
 .hm4-b h1 { font-size: clamp(54px, 8svh, 80px); line-height: 1.1; letter-spacing: -.06em; margin-block: 20px; }
 .hm4-b .home-hero-break { display: none; }
-.hm4-b { position: relative; flex: 1; display: flex; overflow: hidden; padding-block: clamp(1rem, 3svh, 2.5rem) clamp(12rem, 29svh, 16rem); }
+/* The scroll's sides are cut at the screen's edges, but the rollers' feet hang below the first screen, and the page below
+   starts after them (--hm4-foot, set in script). */
+.hm4-b { position: relative; flex: 1; display: flex; overflow-x: clip; overflow-y: visible; padding-block: clamp(1rem, 3svh, 2.5rem) clamp(12rem, 29svh, 16rem); }
+.home-opening.hm4-first { margin-bottom: calc(var(--hm4-foot, 0px) + 26px); }
 .hm4-b > .home-wrap { position: relative; width: 100%; }
 .hm4-b .home-hero-copy { max-width: 42rem; }
-.hm4-scroll-art { --hm4-scroll-margin: max(var(--site-gutter), 4vw); position: absolute; left: var(--hm4-scroll-margin); bottom: 0; width: calc(100% - 2 * var(--hm4-scroll-margin)); height: min(78%, 560px); overflow: visible; pointer-events: none; }
-/* A: edge to edge, as the scroll was first drawn */
-.hm4-scroll-edge { left: 0; width: 100%; height: 78%; }
+/* The size the scroll had when a marquee (2.865rem) ran under it, moved down into the marquee's place (owner, 2026-10-31).
+   Scroll B's left and width are set in script. */
+.hm4-scroll-art { position: absolute; left: 0; bottom: 0; width: 100%; height: calc(.78 * (100% - 2.865rem)); overflow: visible; pointer-events: none; }
+/* B: the six doorways under the copy, three rows of two, left of the scroll (the scroll's left end moves right to clear them).
+   One outlined panel on the surface ground with the word wall's motion (home-openings5.css): on pointing, a faint wash of
+   the box's colour, a ring with a soft glow, its colour sweeping in along the top and the arrow stepping on. */
+.hm4-doors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(36rem, 100%); margin-top: clamp(1rem, 3svh, 2rem); border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.hm4-doors > a { position: relative; display: flex; flex-direction: column; min-width: 0; padding: 10px 16px 12px; transition: background .3s, box-shadow .3s; }
+.hm4-doors > a:nth-child(odd) { border-right: 1px solid var(--line); }
+.hm4-doors > a:nth-child(-n + 4) { border-bottom: 1px solid var(--line); }
+.hm4-doors > a::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: var(--home-color); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
+.hm4-doors > a:hover { z-index: 1; background: color-mix(in srgb, var(--home-color) 5%, var(--page)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--home-color) 35%, transparent), 0 0 12px -4px color-mix(in srgb, var(--home-color) 18%, transparent); }
+.hm4-doors > a:hover::before { transform: scaleX(1); }
+.hm4-doors > a:focus { outline: none; }
+.hm4-doors .home-doorway-art { height: 43px; }
+.hm4-doors .home-doorway-copy { padding-top: 8px; }
+.hm4-doors .home-doorway-copy svg { transition: transform .3s; }
+.hm4-doors > a:hover .home-doorway-copy svg { transform: translateX(4px); }
+/* Beside the scroll, the doorways take whatever room is left under the copy, so the first screen never grows: each box's
+   picture shrinks to fit and is left out when the box is too short for it, keeping only the names. */
+@media (min-width: 861px) {
+  .hm4-b-margins { padding-bottom: clamp(1rem, 3svh, 2.5rem); }
+  .hm4-b-margins > .home-wrap { display: flex; flex-direction: column; }
+  .hm4-doors { flex: 1 1 0; height: 0; min-height: 10.5rem; max-height: 32rem; grid-template-rows: repeat(3, minmax(0, 1fr)); }
+  .hm4-doors > a { container-type: size; }
+  .hm4-doors .home-doorway-art { position: relative; flex: 1 1 0; min-height: 0; height: auto; }
+  .hm4-doors .home-doorway-art > svg { position: absolute; inset: 0; }
+  .hm4-doors .home-doorway-copy { margin-top: auto; }
+}
+@container (max-height: 80px) { .hm4-doors .home-doorway-art { display: none; } }
 .hm4-sheet-writing { fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 26 7 12 7 40 8 18 7 30 9; opacity: .45; }
 .hm4-sheet-script { fill: var(--accent); opacity: .55; }
 .hm4-script-he { font: 400 22px "Times New Roman", "David", serif; }
@@ -63,6 +91,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hm4-scroll-ring, .hm4-leaf-settle, .hm4-glory-flame { animation: none; }
+  .hm4-doors > a, .hm4-doors > a::before, .hm4-doors .home-doorway-copy svg { transition: none; }
 }
 @media (max-width: 860px) {
   .hm4-b h1 { font-size: clamp(39px, 10.5vw, 64px); margin-block: 16px; }
