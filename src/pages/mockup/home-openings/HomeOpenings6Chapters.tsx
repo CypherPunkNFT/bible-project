@@ -5,8 +5,10 @@
 // outer course, then on into the next. Each stone takes its book's section colour, so the parts of the Bible run round the
 // wall in bands. Clicking a stone makes the centre button "Continue" to that chapter in the Berean Standard Bible. The courses
 // appear from the outside in, as the foundations of the city (D) do (owner, 2026-10-31).
+import { BookOpen, GraduationCap, HandHeart, Library, Map as MapIcon, ShieldCheck, type LucideIcon } from "lucide-react";
 import { useMemo, useState, type CSSProperties, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
+import { HOME_PATHS } from "@/components/home/collection-data";
 import { OpeningCopy, type OpeningProps } from "./HomeOpenings";
 import { useBooks } from "./HomeOpenings5Art";
 import { GATES, SECTION_NAMES, stone, tone } from "./HomeOpenings6City";
@@ -33,13 +35,37 @@ function useStones() {
   }, [books]);
 }
 
-export function CityOfChapters(props: OpeningProps) {
+/** Version G's two columns beside the city (owner, 2026-10-31: "Bible study apologetics on one side, and Atlas resources and
+ *  ... sources on the right side, vertical"). Icons are the header's; the short lines are the home page's own. */
+const path = (title: string) => HOME_PATHS.find((item) => item.title === title);
+interface Wing { title: string; to: string; line: string; icon: LucideIcon }
+const WINGS: Record<"left" | "right", Wing[]> = {
+  left: [
+    { title: "Bible", to: "/bible", line: path("Bible")?.subtitle ?? "", icon: BookOpen },
+    { title: "Study", to: "/study", line: path("Study")?.subtitle ?? "", icon: GraduationCap },
+    { title: "Apologetics", to: "/apologetics", line: path("Apologetics")?.subtitle ?? "", icon: ShieldCheck },
+  ],
+  right: [
+    { title: "Atlas", to: path("Atlas")?.to ?? "/study/atlas", line: path("Atlas")?.subtitle ?? "", icon: MapIcon },
+    { title: "Resources", to: "/resources", line: "Help for the road", icon: HandHeart },
+    { title: "Sources", to: "/sources", line: "Explore every source", icon: Library },
+  ],
+};
+
+function WingColumn({ side }: { side: "left" | "right" }) {
+  return <nav className={`hm6-wing hm6-wing-${side}`} aria-label={side === "left" ? "Read and study" : "Explore"}>
+    {WINGS[side].map(({ title, to, line, icon: Icon }) => <Link to={to} key={title}><Icon size={20} strokeWidth={1.5} aria-hidden /><strong>{title}</strong><span>{line}</span></Link>)}
+  </nav>;
+}
+
+export function CityOfChapters({ wings = false, ...props }: OpeningProps & { wings?: boolean }) {
   const stones = useStones();
   const [picked, setPicked] = useState(-1);
   const chosen = stones[picked];
   const choose = (event: MouseEvent) => { const index = Number((event.target as Element).getAttribute("data-stone") ?? -1); if (index >= 0) setPicked((now) => (now === index ? -1 : index)); };
   const copy = chosen ? { ...props, resume: `/read/bsb/${chosen.code}/${chosen.chapter}`, resumeLabel: `Continue: ${chosen.name} ${chosen.chapter}` } : props;
-  return <section className="hm6-stage hm6-f" aria-labelledby="home-title">
+  return <section className={`hm6-stage hm6-f${wings ? " hm6-g" : ""}`} aria-labelledby="home-title">
+    {wings && <><WingColumn side="left" /><WingColumn side="right" /></>}
     <svg className="hm6-art hm6-city hm6-chapters" viewBox="0 0 1000 1000" aria-hidden="true">
       <defs><radialGradient id="hm6-chapters-lamp"><stop offset="0" stopColor="var(--accent)" stopOpacity=".2" /><stop offset="1" stopColor="var(--accent)" stopOpacity="0" /></radialGradient></defs>
       <rect className="hm6-city-ground" x="70" y="70" width="860" height="860" />
