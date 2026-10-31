@@ -1,8 +1,8 @@
-// MOCK-UP: three openings on /home_mockup4 with newly drawn art (owner, 2026-10-30: "Something new for the artworks").
-// A and B are the scroll whose sheets are the hills, carrying verses of praise in Hebrew, Greek and English: A runs edge to
-// edge under the marquee, A2 is A with a rayed sun and a gray cross, A3 is A with rings and rays merged into a glory, B is framed. The sun, with a cross in it, sits right of
-// the title. C, Manuscript, is a sun pieced together from
-// torn leaves, with the gold marquee under it. The open Word and the sixty-six rays were taken out (owner, 2026-10-30).
+// MOCK-UP: five openings on /home_mockup4 with newly drawn art (owner, 2026-10-30: "Something new for the artworks").
+// A, A2, A3 and B are the scroll whose sheets are the hills, carrying verses of praise in Hebrew, Greek and English. A runs
+// edge to edge under the marquee; A2 and A3 are A with its sun as a glory of rings and rays (A2 with a ring of beads and a
+// gray cross, A3 without the beads and with a white cross); B is framed. The sun, with a cross in it, sits right of the
+// title. C, Manuscript, is a sun pieced together from torn leaves, with the gold marquee under it. The open Word and the sixty-six rays were taken out (owner, 2026-10-30).
 import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { GoldMarquee, OpeningCopy, type OpeningProps } from "./HomeOpenings";
 import "./home-art-openings.css";
@@ -108,9 +108,6 @@ function Roller({ cx, inward }: { cx: number; inward: 1 | -1 }) {
 }
 
 const SUN_Y = 262, RINGS = [104, 132, 162, 196, 234];
-/** Scroll A2's sun: slender tapering rays in place of the rings, long and short in turn (owner's picture, 2026-10-30). The
- *  longest reaches the outer ring's radius, so the sun is placed the same way. */
-const RAY_LENGTHS = [234, 150, 196, 128, 218, 162, 180, 140];
 /** The angle of ray number `ray` of `count`, starting straight up. */
 const rayTurn = (ray: number, count: number) => (ray / count) * Math.PI * 2 - Math.PI / 2;
 /** One slender ray: a wedge `half` wide at `inner`, coming to a point at `outer`. */
@@ -118,12 +115,14 @@ const wedge = (x: number, y: number, turn: number, inner: number, outer: number,
   const [cos, sin] = [Math.cos(turn), Math.sin(turn)];
   return `M${fixed(x + cos * inner - sin * half)} ${fixed(y + sin * inner + cos * half)}L${fixed(x + cos * outer)} ${fixed(y + sin * outer)}L${fixed(x + cos * inner + sin * half)} ${fixed(y + sin * inner - cos * half)}Z`;
 };
-const sunRays = (x: number, y: number) => Array.from({ length: 40 }, (_, ray) => wedge(x, y, rayTurn(ray, 40), 102, RAY_LENGTHS[ray % RAY_LENGTHS.length], 4.5)).join("");
 
-/** Scroll A3's sun: the rings and the rays together as a glory, the sunburst of a monstrance (owner, 2026-10-31: "merge both
- *  ray types into something MAGNIFICENT"). The turning dashed rings lie behind; over them, straight rays long and short in
- *  turn, with a wavy flame between each pair that slowly glints; a point of light beyond each longest ray; a fine halo and a
- *  ring of beads close round the sun. Nothing reaches past the outer ring, so the sun is placed as on the other scrolls. */
+/** The sun of Scrolls A2 and A3: the rings and the rays together as a glory, the sunburst of a monstrance (owner, 2026-10-31:
+ *  "merge both ray types into something MAGNIFICENT"). The turning dashed rings lie behind; over them, solid straight rays
+ *  long and short in turn, rising from the fine halo line just outside the sun, with a wavy flame between each pair that
+ *  slowly glints, and a point of light beyond each longest ray. A2 also keeps a ring of beads round the sun; A3 leaves it out
+ *  (owner: "I'm not sure that the dotted line should be there"). Nothing reaches past the outer ring, so the sun is placed as
+ *  on the other scrolls. */
+const HALO = 88;
 const GLORY_LENGTHS = [226, 168, 204, 168];
 const flame = (x: number, y: number, turn: number) => {
   const [cos, sin] = [Math.cos(turn), Math.sin(turn)], points: string[] = [];
@@ -133,15 +132,15 @@ const flame = (x: number, y: number, turn: number) => {
   }
   return `M${points.join("L")}`;
 };
-function Glory({ x, y }: { x: number; y: number }) {
+function Glory({ x, y, beads }: { x: number; y: number; beads: boolean }) {
   const turns = Array.from({ length: 24 }, (_, ray) => rayTurn(ray, 24));
   return <g className="hm4-glory">
     {RINGS.map((radius, ring) => <circle className={`hm4-scroll-ring hm4-scroll-ring-${ring % 2}`} cx={x} cy={y} r={radius} style={{ opacity: 0.42 - ring * 0.06, transformOrigin: `${x}px ${y}px` }} key={radius} />)}
     {turns.map((turn, ray) => <path className="hm4-glory-flame" d={flame(x, y, turn + Math.PI / 24)} style={{ animationDelay: `${(ray % 6) * -0.9}s` }} key={ray} />)}
-    <path className="hm4-glory-ray" d={turns.map((turn, ray) => wedge(x, y, turn, 100, GLORY_LENGTHS[ray % 4], ray % 2 ? 4 : 6)).join("")} />
+    <path className="hm4-glory-ray" d={turns.map((turn, ray) => wedge(x, y, turn, HALO, GLORY_LENGTHS[ray % 4], ray % 2 ? 4 : 6)).join("")} />
     {turns.filter((_, ray) => ray % 4 === 0).map((turn) => <circle className="hm4-glory-tip" cx={fixed(x + Math.cos(turn) * 234)} cy={fixed(y + Math.sin(turn) * 234)} r="3.2" key={turn} />)}
-    <circle className="hm4-glory-beads" cx={x} cy={y} r="96" pathLength="64" />
-    <circle className="hm4-glory-halo" cx={x} cy={y} r="88" />
+    {beads && <circle className="hm4-glory-beads" cx={x} cy={y} r="96" pathLength="64" />}
+    <circle className="hm4-glory-halo" cx={x} cy={y} r={HALO} />
   </g>;
 }
 /** Screen pixels kept between the sun's outer ring and the title or the copy under it. */
@@ -168,9 +167,9 @@ function placeSun(svg: SVGSVGElement, length: number, scale: number, drawnLeft: 
 
 /** "edge" runs the scroll from one side of the screen to the other, cropped from the left on narrow screens (Scroll A).
  *  "framed" sets it inside margins and lets its length follow the shape of its space, so it fills a phone and a wide screen
- *  alike instead of shrinking to a strip (Scroll B). The sun wears rings (A, B), rays with a gray cross (A2), or both as a
- *  glory (A3). */
-function ScrollArt({ fit, sunStyle = "rings" }: { fit: "edge" | "framed"; sunStyle?: "rings" | "rays" | "glory" }) {
+ *  alike instead of shrinking to a strip (Scroll B). The sun wears rings (A, B), or a glory with a ring of beads and a gray
+ *  cross (A2), or a glory alone (A3). */
+function ScrollArt({ fit, sunStyle = "rings" }: { fit: "edge" | "framed"; sunStyle?: "rings" | "glory-beads" | "glory" }) {
   const frame = useRef<SVGSVGElement>(null);
   const [length, setLength] = useState(1600);
   const [sun, setSun] = useState(1300);
@@ -200,12 +199,12 @@ function ScrollArt({ fit, sunStyle = "rings" }: { fit: "edge" | "framed"; sunSty
       {sheets.flatMap((sheet) => sheet.writing.map((d, line) => <path id={`hm4-line-${sheet.name}-${line}`} d={d} key={`${sheet.name}-${line}`} />))}
       <clipPath id="hm4-between-rollers"><rect x="22" y="0" width={length - 44} height={HEIGHT} /></clipPath>
     </defs>
-    {sunStyle === "glory" ? <Glory x={sun} y={sunY} /> : sunStyle === "rays" ? <path className="hm4-sun-rays" d={sunRays(sun, sunY)} />
+    {sunStyle !== "rings" ? <Glory x={sun} y={sunY} beads={sunStyle === "glory-beads"} />
       : RINGS.map((radius, ring) => <circle className={`hm4-scroll-ring hm4-scroll-ring-${ring % 2}`} cx={sun} cy={sunY} r={radius} style={{ opacity: 0.62 - ring * 0.1, transformOrigin: `${sun}px ${sunY}px` }} key={radius} />)}
     <circle className="hm4-sun-disc hm4-sun-solid" cx={sun} cy={sunY} r="82" />
     {/* A cross in the sun, white (gray on A2), not a dark cut-out; set low, its foot going down behind the scroll (owner, 2026-10-30).
         On Scrolls A and A2 it was raised back halfway, to 34 above the sun's centre (owner, 2026-10-31). */}
-    <path className={`hm4-sun-cross${sunStyle === "rays" ? " hm4-sun-cross-gray" : ""}`} d={`M${fixed(sun - 6)} ${sunY - (fit === "edge" ? 34 : 24)}h12v20h20v12h-20v62h-12v-62h-20v-12h20Z`} />
+    <path className={`hm4-sun-cross${sunStyle === "glory-beads" ? " hm4-sun-cross-gray" : ""}`} d={`M${fixed(sun - 6)} ${sunY - (fit === "edge" ? 34 : 24)}h12v20h20v12h-20v62h-12v-62h-20v-12h20Z`} />
     {sheets.map((sheet) => <g className={`hm4-sheet hm4-sheet-${sheet.name}`} key={sheet.name}>
       <path className="hm4-sheet-fill" d={`${sheet.edge}L${length} ${HEIGHT}L0 ${HEIGHT}Z`} /><path className="hm4-sheet-edge" d={sheet.edge} />
       {sheet.dotted.map((d) => <path className="hm4-sheet-writing" d={d} key={d} />)}
@@ -256,8 +255,8 @@ function ScrollEdgeOpening(props: OpeningProps) {
   return <section className="hm4-b" aria-labelledby="home-title"><ScrollArt fit="edge" /><div className="home-wrap"><OpeningCopy {...props} /></div></section>;
 }
 
-function ScrollRaysOpening(props: OpeningProps) {
-  return <section className="hm4-b" aria-labelledby="home-title"><ScrollArt fit="edge" sunStyle="rays" /><div className="home-wrap"><OpeningCopy {...props} /></div></section>;
+function ScrollGloryBeadsOpening(props: OpeningProps) {
+  return <section className="hm4-b" aria-labelledby="home-title"><ScrollArt fit="edge" sunStyle="glory-beads" /><div className="home-wrap"><OpeningCopy {...props} /></div></section>;
 }
 
 function ScrollGloryOpening(props: OpeningProps) {
@@ -272,7 +271,7 @@ function ManuscriptOpening(props: OpeningProps) {
   return <section className="home-hero home-wrap hm4-row hm4-row-flip" aria-labelledby="home-title"><ManyPiecesArt /><OpeningCopy {...props} /></section>;
 }
 
-const VIEWS: Record<ArtOpeningId, (props: OpeningProps) => JSX.Element> = { a: ScrollEdgeOpening, a2: ScrollRaysOpening, a3: ScrollGloryOpening, b: ScrollFramedOpening, c: ManuscriptOpening };
+const VIEWS: Record<ArtOpeningId, (props: OpeningProps) => JSX.Element> = { a: ScrollEdgeOpening, a2: ScrollGloryBeadsOpening, a3: ScrollGloryOpening, b: ScrollFramedOpening, c: ManuscriptOpening };
 
 export function ArtOpening({ version, ...props }: OpeningProps & { version: ArtOpeningId }) {
   const View = VIEWS[version];

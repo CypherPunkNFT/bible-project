@@ -7,9 +7,8 @@
 .hm4-sun-solid { fill: var(--accent); stroke: none; }
 .hm4-sun-cross { fill: #fffdf6; }
 .hm4-sun-cross-gray { fill: #8d8a84; }
-.hm4-sun-rays { fill: var(--accent); opacity: .62; }
-/* A3: the glory */
-.hm4-glory-ray { fill: var(--accent); opacity: .74; }
+/* A2 and A3: the glory. Its straight rays are solid, not see-through (owner, 2026-10-31). */
+.hm4-glory-ray { fill: var(--accent); }
 .hm4-glory-flame { fill: none; stroke: var(--accent); stroke-width: 1.3; stroke-linecap: round; opacity: .55; animation: hm4-glint 4.5s ease-in-out infinite alternate; }
 @keyframes hm4-glint { from { opacity: .22; } to { opacity: .8; } }
 .hm4-glory-tip { fill: var(--accent); }
