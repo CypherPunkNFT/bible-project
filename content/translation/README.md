@@ -13,8 +13,19 @@ repository: [CypherPunkNFT/site-translation](https://github.com/CypherPunkNFT/si
 [SiteTranslation/](../../../SiteTranslation/). [extract.py](extract.py) writes the English into it: 819 chunks, 3.0
 million words, every unique string once per kind of content. Its `SOURCES` list says which fields of which data files
 are translated. Scripture quotations are left out (each language's Bible fills them by reference), and so are book
-titles, authors, licences and catalogue metadata. Not in yet: text written into the page code, which first has to move
-into string files. The import step will walk the same `SOURCES` and swap each English string for its translation.
+titles, authors, licences and catalogue metadata. `python extract.py --pages` adds the text written into the page code
+(headings, buttons, labels) as chunks of kind `page` after the last chunk (0820–0850 so far), and is safe to rerun.
+
+## Seeing it on the site
+
+`python apply.py` writes the translated copies: every data file in `SOURCES` with its English swapped for the
+translations done so far, into `data/i18n/es/` and `data/i18n/pt/` (git-ignored like the rest of `data/`, so rerun it
+after new chunks or a data rebuild), plus `ui.json`, the page-code strings. [seed/](seed/) holds the header and footer,
+translated by hand so they switch before the page chunks are done. Picking a language in the header saves it and reloads
+the page: [language.ts](../../src/lib/language.ts) sends content-file requests to the translated copy (falling back to
+English when there is none), and [page-translator.ts](../../src/lib/page-translator.ts) swaps the page code's text on
+screen. Files under `public/` (apologetics, the sources directory) are not applied yet. A release leaves `data/i18n/`
+out until a language is published.
 
 ## The pilot (2026-10-31)
 

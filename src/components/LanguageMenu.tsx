@@ -3,30 +3,12 @@
 // so a release cannot put a menu of languages the site does not have yet on bibleguide.io.
 import { Check, Languages } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { chooseSiteLanguage, LANGUAGES, PREVIEW_ONLY, siteLanguage, type LanguageCode } from "@/lib/language";
 import { cn } from "@/lib/utils";
-
-const LANGUAGES = [
-  { code: "en", name: "English" },
-  { code: "es", name: "Español" },
-  { code: "pt-BR", name: "Português (Brasil)" },
-] as const;
-type LanguageCode = (typeof LANGUAGES)[number]["code"];
-
-const STORAGE_KEY = "bp-language";
-const PREVIEW_ONLY = typeof window !== "undefined" && ["127.0.0.1", "localhost"].includes(window.location.hostname);
-
-function storedLanguage(): LanguageCode {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    return LANGUAGES.find((language) => language.code === saved)?.code ?? "en";
-  } catch {
-    return "en";
-  }
-}
 
 export function LanguageMenu() {
   const [open, setOpen] = useState(false);
-  const [current, setCurrent] = useState<LanguageCode>(storedLanguage);
+  const current = siteLanguage();
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!open) return;
@@ -38,9 +20,8 @@ export function LanguageMenu() {
   }, [open]);
   if (!PREVIEW_ONLY) return null;
   const choose = (code: LanguageCode) => {
-    setCurrent(code);
     setOpen(false);
-    try { localStorage.setItem(STORAGE_KEY, code); } catch { /* private window: the choice lasts this visit only */ }
+    if (code !== current) chooseSiteLanguage(code);
   };
   return (
     <div ref={root} className="relative shrink-0">
@@ -67,6 +48,7 @@ export function LanguageMenu() {
               role="menuitemradio"
               aria-checked={current === language.code}
               lang={language.code}
+              translate="no"
               onClick={() => choose(language.code)}
               className={cn(
                 "flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2 text-left text-sm transition-colors focus:outline-none",

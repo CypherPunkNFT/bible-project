@@ -77,6 +77,48 @@ SOURCES = [
 ]
 MARKDOWN = ("apologetics", "public/content/apologetics/*.md")
 
+# Text written into the page code: JSX text between tags, label-like attributes, and prose string literals. The site
+# swaps each on screen for its translation (src/components/PageTranslator.tsx), matching the text exactly as shown.
+PAGE_KIND = "page"
+JSX_TEXT = re.compile(r"(?<![=\-])>([^<>{}]{1,600})<")
+PAGE_ATTRIBUTE = re.compile(r'\b(?:aria-label|title|placeholder|alt|label)="([^"\n]{1,300})"')
+# One-word labels in data written into the code ({ label: "Study" }), which PAGE_LITERAL's two-word floor skips.
+PAGE_PROPERTY = re.compile(r'\b(?:label|title|heading|subtitle|name|text|caption|description|short|kicker|eyebrow)\s*:\s*"([^"\\\n]{2,300})"')
+PAGE_LITERAL = re.compile(r'"([^"\\\n]{3,400})"|' + r"'([^'\\\n]{3,400})'|" + r"`([^`$\\\n]{3,400})`")
+CODE_LIKE = re.compile(r"[;=]|=>|&&|\|\||^\W|\.(tsx?|css|json|svg|png|jpe?g|md)\b|^[\w./@-]+$|\b(?:px|rem|var\(|rgba?\(|hsl)\b")
+
+
+def class_like(text: str) -> bool:
+    tokens = text.split()
+    return sum(bool(re.search(r"[-:\[\]/]|^\d", token)) for token in tokens) >= max(1, len(tokens) // 2)
+
+
+def page_strings() -> list[str]:
+    files = [p for p in sorted((SITE / "src").rglob("*.ts*"))
+             if not {"generated", "mockup", "dev", "test"} & set(p.parts) and ".test." not in p.name]
+    found: dict[str, None] = {}
+    for path in files:
+        source = path.read_text("utf-8")
+        for match in JSX_TEXT.finditer(source):
+            text = " ".join(match.group(1).split())
+            if translatable(text) and not CODE_LIKE.search(text):
+                found.setdefault(text)
+        for match in PAGE_ATTRIBUTE.finditer(source):
+            text = " ".join(match.group(1).split())
+            if translatable(text):
+                found.setdefault(text)
+        for match in PAGE_PROPERTY.finditer(source):
+            text = " ".join(match.group(1).split())
+            one_word = re.fullmatch(r"[A-Z][a-z'’]+", text)
+            if one_word or (re.match(r"[A-Z]", text) and not CODE_LIKE.search(text) and not class_like(text)):
+                found.setdefault(text)
+        for match in PAGE_LITERAL.finditer(source):
+            text = " ".join(next(group for group in match.groups() if group is not None).split())
+            if (len(WORD.findall(text)) >= 2 and re.search(r"[A-Z]|[.?!,]", text)
+                    and not CODE_LIKE.search(text) and not class_like(text)):
+                found.setdefault(text)
+    return list(found)
+
 
 def translatable(text: str) -> bool:
     text = text.strip()
@@ -96,28 +138,51 @@ def mixed_text(paragraph: list) -> str | None:
     return text if translatable(text) else None
 
 
-def walk(value, path: str, spec: tuple, found: list, depth: int = 0) -> None:
+MARKER = re.compile(r"\{\{(\d+)\}\}")
+
+
+def rebuild_mixed(paragraph: list, translated: str) -> list:
+    """The translated text split back around its {{n}} markers, with the original references put back in place."""
+    references = [piece for piece in paragraph if not isinstance(piece, str)]
+    parts = MARKER.split(translated)
+    numbers = [int(n) for n in parts[1::2]]
+    if sorted(numbers) != list(range(1, len(references) + 1)):
+        return paragraph
+    rebuilt = [parts[0]]
+    for number, text in zip(numbers, parts[2::2]):
+        rebuilt += [references[number - 1], text]
+    return [piece for piece in rebuilt if piece != ""]
+
+
+def walk(value, path: str, spec: tuple, visit, depth: int = 0):
+    """Returns `value` with every translatable string passed through visit(text), which returns the replacement or
+    None to keep the English. Extraction visits without replacing; the import replaces."""
     _, _, record_map, wild_parents, plain, stanzas, mixed = spec
     if isinstance(value, dict):
         parent = path.rsplit(".", 1)[-1]
+        out = {}
         for key, child in value.items():
             wild = key.isdigit() or (record_map and depth == 0) or parent in wild_parents
-            walk(child, f"{path}.{'*' if wild else key}", spec, found, depth + 1)
-    elif isinstance(value, list):
+            out[key] = walk(child, f"{path}.{'*' if wild else key}", spec, visit, depth + 1)
+        return out
+    if isinstance(value, list):
         item_path = path + "[]"
+        out = []
         for item in value:
             if item_path in stanzas and isinstance(item, list) and all(isinstance(line, str) for line in item):
                 text = "\n".join(item)
-                if translatable(text):
-                    found.append(text)
+                new = visit(text) if translatable(text) else None
+                out.append(new.split("\n") if new and new.count("\n") == text.count("\n") else item)
             elif item_path in mixed and isinstance(item, list):
                 text = mixed_text(item)
-                if text:
-                    found.append(text)
+                new = visit(text) if text else None
+                out.append(rebuild_mixed(item, new) if new else item)
             else:
-                walk(item, item_path, spec, found, depth + 1)
-    elif isinstance(value, str) and path in plain and translatable(value):
-        found.append(value)
+                out.append(walk(item, item_path, spec, visit, depth + 1))
+        return out
+    if isinstance(value, str) and path in plain and translatable(value):
+        return visit(value) or value
+    return value
 
 
 def markdown_paragraphs(text: str) -> list[str]:
@@ -138,10 +203,8 @@ def collect() -> dict[str, dict[str, str]]:
             raise SystemExit(f"no files match {pattern}: the site's data layout changed, update SOURCES")
         strings = by_kind.setdefault(kind, {})
         for path in files:
-            found: list[str] = []
-            walk(json.loads(path.read_text("utf-8")), "", spec, found)
-            for text in found:
-                strings.setdefault(string_id(kind, text), text)
+            walk(json.loads(path.read_text("utf-8")), "", spec,
+                 lambda text: strings.setdefault(string_id(kind, text), text) and None)
     kind, pattern = MARKDOWN
     for path in sorted(SITE.glob(pattern)):
         for text in markdown_paragraphs(path.read_text("utf-8")):
@@ -166,10 +229,34 @@ def chunks(by_kind: dict[str, dict[str, str]]):
             yield kind, current, total
 
 
+def append_pages(out: Path) -> None:
+    """Adds the page text not yet in any chunk as new chunks after the last one, so earlier chunk numbers (and their
+    translations) never move. Safe to rerun after the pages change."""
+    index = json.loads((out / "chunks.json").read_text("utf-8"))
+    known = set()
+    for entry in index:
+        if entry["kind"] == PAGE_KIND:
+            known.update(json.loads((out / "in" / f"{entry['chunk']}.json").read_text("utf-8"))["strings"])
+    fresh = {key: text for text in page_strings() if (key := string_id(PAGE_KIND, text)) not in known}
+    number = int(index[-1]["chunk"])
+    for kind, strings, total in chunks({PAGE_KIND: fresh}):
+        number += 1
+        name = f"{number:04d}"
+        body = {"kind": kind, "strings": strings}
+        (out / "in" / f"{name}.json").write_text(json.dumps(body, ensure_ascii=False, indent=1) + "\n", "utf-8", newline="\n")
+        index.append({"chunk": name, "kind": kind, "strings": len(strings), "words": total})
+    (out / "chunks.json").write_text(json.dumps(index, indent=1) + "\n", "utf-8", newline="\n")
+    print(f"{len(fresh)} new page strings, {sum(words(t) for t in fresh.values())} words; chunks now end at {index[-1]['chunk']}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT, help="the site-translation repository folder")
+    parser.add_argument("--pages", action="store_true", help="append the page code's text as new chunks")
     args = parser.parse_args()
+    if args.pages:
+        append_pages(args.out)
+        return
     target = args.out / "in"
     if target.exists() and any(target.iterdir()):
         raise SystemExit(f"{target} already holds chunks; translations are keyed to them, so move it aside first")

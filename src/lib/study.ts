@@ -1,4 +1,5 @@
 import { DataUnavailable } from "./data";
+import { translatedDataPath } from "./language";
 import { lastReadPath } from "./last-read";
 import { personPack, personPackPath } from "./person-pack";
 import { bookByNum, splitId } from "./refs";
@@ -104,9 +105,22 @@ const cache = new Map<string, Promise<unknown>>();
 let indexPromise: Promise<StudyIndex> | null = null;
 
 async function getJson<T>(path: string, stamp: string): Promise<T> {
-  const response = await fetch(`/data/study/${path}?v=${stamp}`);
-  if (!response.ok) throw new DataUnavailable(`study/${path}`, `HTTP ${response.status}`);
-  if (!(response.headers.get("content-type") ?? "").includes("json")) throw new DataUnavailable(`study/${path}`, "not JSON");
+  const translated = translatedDataPath(`study/${path}`);
+  if (translated) {
+    try {
+      return await getFile<T>(translated, stamp);
+    } catch (error) {
+      if (!(error instanceof DataUnavailable)) throw error;
+      console.warn(`${error.message}; showing the English`);
+    }
+  }
+  return getFile<T>(`study/${path}`, stamp);
+}
+
+async function getFile<T>(path: string, stamp: string): Promise<T> {
+  const response = await fetch(`/data/${path}?v=${stamp}`);
+  if (!response.ok) throw new DataUnavailable(path, `HTTP ${response.status}`);
+  if (!(response.headers.get("content-type") ?? "").includes("json")) throw new DataUnavailable(path, "not JSON");
   return (await response.json()) as T;
 }
 

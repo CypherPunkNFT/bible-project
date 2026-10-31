@@ -5,6 +5,7 @@ import { isMuseumSlug, type Museum, type MuseumIndex } from "./museums";
 import type { ManuscriptCollection } from "./manuscripts";
 import type { HymnPageData, HymnPagesIndex, HymnsByChapter } from "./hymn-pages";
 import type { ChapterTopics, LibraryBook, Topic, TopicIndex } from "./topics";
+import { translatedDataPath } from "./language";
 
 /** A data file that is missing or malformed. The reader turns this into "not in this version". */
 export class DataUnavailable extends Error {
@@ -40,6 +41,19 @@ const SAFE_PATH = /^[A-Za-z0-9_\-/.]+$/;
  * whose stamp would otherwise let a browser keep an old copy for an hour. */
 async function fetchJson(path: string, check: (value: unknown) => boolean, revalidate = false): Promise<unknown> {
   if (!SAFE_PATH.test(path) || path.includes("..")) throw new DataUnavailable(path, "unsafe path");
+  const translated = translatedDataPath(path);
+  if (translated) {
+    try {
+      return await fetchFile(translated, check, revalidate);
+    } catch (error) {
+      if (!(error instanceof DataUnavailable)) throw error;
+      console.warn(`${error.message}; showing the English`);
+    }
+  }
+  return fetchFile(path, check, revalidate);
+}
+
+async function fetchFile(path: string, check: (value: unknown) => boolean, revalidate: boolean): Promise<unknown> {
   const url = `/data/${path}${stamp ? `?v=${stamp}` : ""}`;
   const response = await fetch(url, { cache: stamp && !revalidate ? "default" : "no-cache" });
   if (!response.ok) throw new DataUnavailable(path, `HTTP ${response.status}`);
