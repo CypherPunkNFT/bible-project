@@ -133,8 +133,13 @@ function Landscape() {
   </svg>;
 }
 
+/** I: B with the numerals under it, for anyone who would not guess that it scrolls sideways. */
+export function ConvictionsLongDrawingWithMenu() {
+  return <ConvictionsLongDrawing menu />;
+}
+
 /** B: one long drawing behind all four. Swiping walks along it; the stars drift slower than the land, the numerals at their own pace. */
-export function ConvictionsLongDrawing() {
+export function ConvictionsLongDrawing({ menu = false }: { menu?: boolean }) {
   const { track, active, goTo } = useSideways();
   return <section className="cvm cvm-long" aria-label="Our four convictions">
     <ol className="cvm-track" ref={track} tabIndex={0}>
@@ -147,7 +152,7 @@ export function ConvictionsLongDrawing() {
         <Words item={item} />
       </li>)}
     </ol>
-    <NumeralRail active={active} goTo={goTo} />
+    {menu && <NumeralRail active={active} goTo={goTo} />}
   </section>;
 }
 
