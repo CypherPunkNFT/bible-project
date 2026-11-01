@@ -132,6 +132,8 @@
 .study-experience .atlas-go>span{display:flex}.study-experience .atlas-go:hover,.study-experience .atlas-go:focus-visible{background:color-mix(in srgb,var(--accent) 12%,var(--surface));border-color:var(--accent)}
 .study-experience .atlas-all{align-items:center;padding:17px 19px;min-height:57px;border:1px solid var(--accent);border-radius:3px;background:var(--accent);color:var(--page);font-size:13px;font-weight:600;box-shadow:0 5px 20px color-mix(in srgb,var(--accent) 10%,transparent)}
 .study-experience .atlas-all{justify-content:center}.study-experience .atlas-all>span{display:flex}.study-experience .atlas-all:hover,.study-experience .atlas-all:focus-visible{background:var(--ink);border-color:var(--ink);color:var(--page)}
+.study-experience .atlas-all>svg:last-child{transition:transform .3s}.study-experience .atlas-all:hover>svg:last-child,.study-experience .atlas-all:focus-visible>svg:last-child{transform:rotate(-35deg)}
+@media(prefers-reduced-motion:reduce){.study-experience .atlas-all>svg:last-child{transition:none}}
 .study-experience .map-route-credit{bottom:15px;left:18px;right:18px;font-size:9px;pointer-events:none}
 .study-experience .writer-still-life{stroke:currentColor;stroke-width:1.25;stroke-linejoin:round;stroke-linecap:round;fill:none;opacity:.8}
 .study-experience .writers-art .writer-book{font-size:17px}.study-experience .writers-art .writer-label{font-size:8px;letter-spacing:1px;opacity:.65}

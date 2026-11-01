@@ -74,7 +74,7 @@ export function QuizDoor({ Art = BibleBoardArt, id = "questions" }: { Art?: Comp
       </div>
       <div className="people-footer quiz-footer">
         <dl className="quiz-figures">{FIGURES.map(([figure, label]) => <div key={label}><dd>{figure}</dd><dt>{label}</dt></div>)}</dl>
-        <StudyLink className="feature-link" to="/study/questions"><span>Explore the questions</span><span className="door-arrow"><Icon name="arrow"/></span></StudyLink>
+        <StudyLink className="atlas-all" to="/study/questions"><Icon name="question"/><span>Explore the questions</span><Icon name="arrow"/></StudyLink>
       </div>
     </article>
   </section>;

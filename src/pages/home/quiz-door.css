@@ -53,6 +53,10 @@
 .study-experience .quiz-kinds li::before{content:"";width:8px;height:8px;border-radius:1px;background:var(--k,var(--tone));align-self:center}
 .study-experience .quiz-kinds li b{font:500 15px var(--serif);color:var(--ink)}
 .study-experience .quiz-footer{margin-top:0}
+/* The way in is the same big gold button as "Enter the full Atlas" (hub.css's atlas-all; owner, 2026-10-31); the whole card still opens it. */
+.study-experience .quiz-footer .atlas-all{margin-top:0;align-self:center;white-space:nowrap}
+.study-experience .quiz-footer .atlas-all::after{content:"";position:absolute;inset:0;z-index:1;border-radius:12px;cursor:pointer}
+.study-experience .quiz-feature:has(.atlas-all:focus-visible){border-color:var(--tone)}
 .study-experience .quiz-figures{display:flex;flex-wrap:wrap;gap:12px 0}
 .study-experience .quiz-figures>div{display:flex;flex-direction:column;gap:3px;padding:0 26px;border-left:1px solid var(--line)}
 .study-experience .quiz-figures>div:first-child{padding-left:0;border-left:0}
