@@ -84,8 +84,12 @@
   .home-hub.hm6-page .home-banner-shape .home-banner .home-banner-title { justify-self: start; }
   /* The verses' line breaks suit the desktop's narrow column; here all four run the same way across the width. */
   .home-hub.hm6-page .home-banner-quote p { white-space: normal; }
-  /* The arrow in the banner's bottom right corner, just inside its thin line (owner, 2026-10-31). */
-  .home-hub.hm6-page .home-banner-quote a svg { position: absolute; right: 24px; bottom: 24px; width: 18px; height: 18px; }
+  /* The banner's bottom right corner is its open and close arrow: down when closed, up when open. The whole band opens and
+     closes; the verse reference only opens the verse, so it carries no arrow of its own (owner, 2026-10-31). */
+  .home-hub.hm6-page .home-banner-quote a svg { display: none; }
+  .home-hub.hm6-page .home-banner-shape .home-banner[data-collapsible] .home-banner-number { position: static; }
+  .home-hub.hm6-page .home-banner-shape .home-banner .home-banner-chevron, .home-hub.hm6-page .home-banner-shape .home-banner:hover .home-banner-chevron { left: auto; top: auto; right: 24px; bottom: 24px; width: 26px; height: 26px; translate: none; stroke-width: 1.5; opacity: 1; transform: none; }
+  .home-hub.hm6-page .home-banner-shape .home-banner[data-open] .home-banner-chevron, .home-hub.hm6-page .home-banner-shape .home-banner[data-open]:hover .home-banner-chevron { transform: rotate(180deg); }
   /* The closing blessing smaller (owner, same day: "the quotes are way too large"). */
   .home-hub.hm6-page .hm6-blessing blockquote { font-size: 21px; line-height: 1.25; }
   /* The two quotes on the same left margin as the boxes above them (owner, 2026-10-31). */
