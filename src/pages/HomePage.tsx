@@ -3,6 +3,7 @@
 // word wall with the six doorway squares beside it, the guide, the four parts under pointed banners, the questions, the gold
 // marquee, the sources, Close to home, and Scroll A's blessing before the footer. The city's corners have no towers (from /home_mockup8, owner, 2026-10-31). Earlier homepage: approved 2026-10-22 from
 // /home_mockup2. The opening and the closing scroll live in pages/mockup/home-openings/.
+import { BannerVerse } from "@/components/home/banner-verses";
 import { Verse } from "@/components/Verse";
 import { ArrowRight, ArrowUpRight, BookMarked, BookOpen, GitBranch, Globe, Headphones, Landmark, LayoutGrid, LifeBuoy, Map, MessageCircle, NotebookPen, Pause, Play, Users } from "lucide-react";
 import { useContext, useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
@@ -176,7 +177,7 @@ export default function HomePage({ phoneLayout = "e" }: { phoneLayout?: string }
     <PreviewMarquee />
     <HomeGuide onChoose={choose} layout="side" boxed contactList number="01" />
 
-    <div className="home-banner-shape" id="home-part-1" style={{ "--home-color": "var(--epistles)" } as CSSProperties}><SectionBanner ringOnce number="01" name="The Bible" line="One Word, read, heard and explored" tone="epistles" verse={<>“<Verse id={23040008} unquoted />”</>} reference="Isaiah 40:8" to="/read/bsb/ISA/40?hl=8" page="/bible" emblem="word" glint={["read", "heard", "explored"]} open={open[0]} onToggle={() => toggle(0)} flip={false} terms={[{ items: ["Law", "History", "Poetry", "Prophets", "Gospels", "Epistles", "Revelation"] }]} /></div>
+    <div className="home-banner-shape" id="home-part-1" style={{ "--home-color": "var(--epistles)" } as CSSProperties}><SectionBanner ringOnce number="01" name="The Bible" line="One Word, read, heard and explored" tone="epistles" verse={<BannerVerse name="isaiah" />} reference="Isaiah 40:8" to="/read/bsb/ISA/40?hl=8" page="/bible" emblem="word" glint={["read", "heard", "explored"]} open={open[0]} onToggle={() => toggle(0)} flip={false} terms={[{ items: ["Law", "History", "Poetry", "Prophets", "Gospels", "Epistles", "Revelation"] }]} /></div>
 
     <div className="home-collapse" data-open={open[0] || undefined}><div>
     <div className="home-wrap">
@@ -208,7 +209,7 @@ export default function HomePage({ phoneLayout = "e" }: { phoneLayout?: string }
     </div>
     </div></div>
 
-    <div className="home-banner-shape" id="home-part-2" style={{ "--home-color": "var(--gospels)" } as CSSProperties}><SectionBanner ringOnce number="02" name="Study" line="The passage, and the world behind it" tone="gospels" verse={<>“<Verse id={43005039} unquoted />”</>} reference="John 5:39" to="/read/bsb/JHN/5?hl=39" page="/study" emblem="lens" open={open[1]} onToggle={() => toggle(1)} flip={true} terms={[{ items: ["Theological", "Scholarly", "World atlas", "Topics"] }]} /></div>
+    <div className="home-banner-shape" id="home-part-2" style={{ "--home-color": "var(--gospels)" } as CSSProperties}><SectionBanner ringOnce number="02" name="Study" line="The passage, and the world behind it" tone="gospels" verse={<BannerVerse name="john" />} reference="John 5:39" to="/read/bsb/JHN/5?hl=39" page="/study" emblem="lens" open={open[1]} onToggle={() => toggle(1)} flip={true} terms={[{ items: ["Theological", "Scholarly", "World atlas", "Topics"] }]} /></div>
 
     <div className="home-collapse" data-open={open[1] || undefined}><div>
     <div className="home-wrap">
@@ -249,7 +250,7 @@ export default function HomePage({ phoneLayout = "e" }: { phoneLayout?: string }
     </div>
     </div></div>
 
-    <div className="home-banner-shape" id="home-part-3" style={{ "--home-color": "var(--prophets)" } as CSSProperties}><SectionBanner ringOnce number="03" name="Apologetics" line="Faith seeking understanding" tone="prophets" verse={<>“<Verse id={60003015} unquoted />”</>} reference="1 Peter 3:15" to="/read/bsb/1PE/3?hl=15" page="/apologetics" emblem="scales" open={open[2]} onToggle={() => toggle(2)} flip={false} terms={[{ items: ["Worldviews", "Debates", "Evidence", "Historic texts"] }]} /></div>
+    <div className="home-banner-shape" id="home-part-3" style={{ "--home-color": "var(--prophets)" } as CSSProperties}><SectionBanner ringOnce number="03" name="Apologetics" line="Faith seeking understanding" tone="prophets" verse={<BannerVerse name="peter" />} reference="1 Peter 3:15" to="/read/bsb/1PE/3?hl=15" page="/apologetics" emblem="scales" open={open[2]} onToggle={() => toggle(2)} flip={false} terms={[{ items: ["Worldviews", "Debates", "Evidence", "Historic texts"] }]} /></div>
 
     <div className="home-collapse" data-open={open[2] || undefined}><div>
     <div className="home-wrap">
@@ -278,7 +279,7 @@ export default function HomePage({ phoneLayout = "e" }: { phoneLayout?: string }
     </div>
     </div></div>
 
-    <div className="home-banner-shape" id="home-part-4" style={{ "--home-color": "var(--resource-life)" } as CSSProperties}><SectionBanner ringOnce number="04" name="Resources" line="Help for the road" tone="resource-life" verse={<>“<Verse id={48006002} unquoted />”</>} reference="Galatians 6:2" to="/read/bsb/GAL/6?hl=2" page="/resources" emblem="lamp" open={open[3]} onToggle={() => toggle(3)} flip={true} terms={[{ items: ["Learning materials", "Fellowship", "Help for life"] }]} /></div>
+    <div className="home-banner-shape" id="home-part-4" style={{ "--home-color": "var(--resource-life)" } as CSSProperties}><SectionBanner ringOnce number="04" name="Resources" line="Help for the road" tone="resource-life" verse={<BannerVerse name="galatians" />} reference="Galatians 6:2" to="/read/bsb/GAL/6?hl=2" page="/resources" emblem="lamp" open={open[3]} onToggle={() => toggle(3)} flip={true} terms={[{ items: ["Learning materials", "Fellowship", "Help for life"] }]} /></div>
 
     <div className="home-collapse" data-open={open[3] || undefined}><div>
     <div className="home-wrap">

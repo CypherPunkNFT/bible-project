@@ -33,7 +33,7 @@
 .home-banner blockquote :is(.home-banner-ring-hebrew, .home-banner-ring-english) { grid-area: 1 / 1; transition: clip-path 1.2s ease-in-out; }
 .home-banner blockquote .home-banner-ring-hebrew { color: var(--home-color); font: 500 clamp(26px, 2.4vw, 34px)/1.4 "Times New Roman", "SBL Hebrew", "Ezra SIL", David, serif; font-style: normal; text-align: left; clip-path: inset(0 0 0 0); }
 .home-banner blockquote .home-banner-ring-english { clip-path: inset(0 100% 0 0); }
-.home-banner-ring-verse span { margin-top: 14px; color: var(--home-color); font: 600 10px Archivo, sans-serif; letter-spacing: .2em; text-transform: uppercase; }
+.home-banner-ring-verse > span { margin-top: 14px; color: var(--home-color); font: 600 10px Archivo, sans-serif; letter-spacing: .2em; text-transform: uppercase; }
 .home-banner-inner:not([data-ring-once]):has(.home-banner-emblem-link:is(:hover, :focus-visible)) .home-banner-quote { opacity: 0; }
 .home-banner-inner:not([data-ring-once]):has(.home-banner-emblem-link:is(:hover, :focus-visible)) .home-banner-ring-verse { opacity: 1; }
 .home-banner-inner:not([data-ring-once]):has(.home-banner-emblem-link:is(:hover, :focus-visible)) .home-banner-ring-hebrew { clip-path: inset(0 0 0 100%); transition-delay: 1s; }

@@ -21,7 +21,8 @@ WEBSITE = Path(__file__).resolve().parents[1]
 BIBLES = ("bsb", "kjv", "web", "asv")
 ROOTS = ("src", "data")
 EXTENSIONS = {".json", ".ts", ".tsx", ".js", ".jsx", ".mjs", ".html", ".txt", ".md"}
-# The Bibles themselves and what is made from them for the reader and for search; historic documents, which quote in
+# The Bibles themselves and what is made from them for the reader and for search; the home page banners' own short
+# wording in each language; historic documents, which quote in
 # their own words; the translation table, whose keys are English the code once held; the question bank, whose quiz sets
 # are drawn elsewhere; design mock-ups, which are never released; tests.
 ALLOWED = re.compile(
@@ -30,6 +31,7 @@ ALLOWED = re.compile(
     r"|data/i18n/[^/]+/(creeds/doc/|ui\.json)"
     r"|src/data/teachers/"
     r"|src/generated/"
+    r"|src/components/home/(banner-verses|emblem-designs)\.tsx"
     r"|src/pages/mockup/"
     r"|src/components/home/mockups/"
     r"|src/pages/EmblemMockupsPage)"
