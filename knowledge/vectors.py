@@ -3,10 +3,12 @@ import json
 import math
 import os
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from .encoder import request_vectors, GPUUnavailable
 from .settings import write_json
 from .store import connect
+
+VERSION_CLEANUP_EVERY = 1000
 
 
 def table(config, create=False):
@@ -211,10 +213,10 @@ def _embed_all(config, limit, batch_size):
         "indexed": initial, "remaining": total-initial, "stale_remaining": 0})
     print("Fetching only missing passages by indexed ID; saved vectors and their text are skipped", flush=True)
     cursor = missing_rows(db, active-present, batch_size)
-    completed, started, buffer = 0, time.monotonic(), []
+    completed, started, buffer, writes = 0, time.monotonic(), [], 0
 
     def flush():
-        nonlocal completed, buffer
+        nonlocal completed, buffer, writes
         if not buffer:
             return
         check_test_scope(initial+completed)
@@ -232,6 +234,10 @@ def _embed_all(config, limit, batch_size):
         check_test_scope(initial+completed)
         values = [{key: row[key] for key in ("id", "kind", "edition", "language", "book")} | {"vector": vector} for row, vector in zip(buffer, embeddings)]
         vectors.add(values)
+        writes += 1
+        # Every add saves a whole new version record, about 7 MB at full size: 192,544 of them reached 1.3 TB (2026-11-01).
+        if writes % VERSION_CLEANUP_EVERY == 0:
+            vectors.to_lance().cleanup_old_versions(older_than=timedelta(hours=1))
         completed += len(buffer)
         elapsed = time.monotonic()-started
         report = {"state": "running", "updated_at": datetime.now(timezone.utc).isoformat(), "pid": os.getpid(),
