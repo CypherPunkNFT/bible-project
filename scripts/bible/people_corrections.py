@@ -7,6 +7,8 @@ Every correction names why it was made and the verse that shows it. A correction
 (a newer TIPNR) stops the build rather than being skipped, so nothing is silently lost or applied twice.
 """
 
+import re
+
 from .study_refs import RefError, Verses, parse_refs
 
 TEXT_FIELDS = ("brief", "short", "article", "description")
@@ -73,6 +75,36 @@ def _mark(person: dict, field: str) -> None:
     fx = person.setdefault("fx", [])
     if field not in fx:
         fx.append(field)
+
+
+# TIPNR's text sometimes writes a book twice: "Psalm Num.106.17", "1 Chronicles Gen.1.5-6". The name it spells out is the
+# right book (the chapter and verse are that book's); the tag beside it is wrong. Each becomes one tag of the right book.
+DOUBLED_BOOKS = {"Psalm": "Psa", "1 Chronicles": "1Ch", "2 Chronicles": "2Ch", "1 Chr.": "1Ch", "2 Kings": "2Ki",
+                 "Matt.": "Mat", "Heb.": "Heb", "Gen.": "Gen", "Jer.": "Jer", "Deut.": "Deu", "Col.": "Col", "Phm.": "Phm",
+                 "1Co.": "1Co", "Neh.": "Neh"}
+DOUBLED_CITATION = re.compile(r"(?<![\w.])(" + "|".join(re.escape(name) for name in DOUBLED_BOOKS)
+                              + r") [1-3]?[A-Z][a-z]{1,2}\.(\d+)\.(\d+)((?:-\d+(?:\.\d+)?)?)")
+
+
+def _repair_doubled_citations(person: dict, verses: Verses) -> int:
+    repaired = 0
+
+    def one_tag(match: re.Match) -> str:
+        nonlocal repaired
+        book, chapter, verse, rest = DOUBLED_BOOKS[match[1]], match[2], match[3], match[4]
+        try:
+            parse_refs(f"{book} {chapter}:{verse}", verses)
+        except RefError as error:
+            raise CorrectionError(f"people {person['id']}: {match[0]!r} is not a verse in {match[1]} ({error})") from error
+        repaired += 1
+        return f"{book}.{chapter}.{verse}{rest}"
+
+    for field in TEXT_FIELDS:
+        text = person.get(field)
+        if text and DOUBLED_CITATION.search(text):
+            person[field] = DOUBLED_CITATION.sub(one_tag, text)
+            _mark(person, field)
+    return repaired
 
 
 def _edit_family(person: dict, family: dict, by_id: dict[str, dict], where: str) -> None:
@@ -182,4 +214,5 @@ def apply_people_corrections(people: list[dict], corrections: dict, verses: Vers
         raise CorrectionError(f"people fixes: {len(missing)} ids are not people, e.g. {missing[:3]}")
     for person_id, fix in fixes.items():
         _apply_fix(by_id[person_id], fix, by_id, verses)
-    return {"added": len(added), "fixed": len(fixes), "marked": sum(1 for p in people if p.get("fx"))}
+    citations = sum(_repair_doubled_citations(person, verses) for person in people)
+    return {"added": len(added), "fixed": len(fixes), "citations": citations, "marked": sum(1 for p in people if p.get("fx"))}

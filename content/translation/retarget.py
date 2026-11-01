@@ -3,7 +3,7 @@
 String ids are sha1(kind + text), so correcting a typo gives the string a new id. A full re-extract would also renumber
 the chunks and pick up whatever else changed in the site since, so this changes only what the correction changed:
 
-  python retarget.py build-map --old-creeds DIR --old-hymns DIR --old-extract FILE
+  python retarget.py build-map --old-creeds DIR --old-hymns DIR --old-people DIR --old-extract FILE
       Pairs the site's data as it was (DIR, copies of data/creeds and data/hymns made before the rebuild) with the data
       now, position by position, and writes source-fixes.json beside this file. Reads nothing from the translations.
 
@@ -19,6 +19,7 @@ import importlib.util
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -58,6 +59,8 @@ REFERENCE_FIXES = [
 RETRANSLATED_FILE = HERE / "source-fixes-retranslated.json"
 TOKEN = re.compile(r"[^\W\d_]+|\d+")
 CITATION = re.compile(r"(?<!\d)(\d+):(\d+)(?!\d)")
+# A citation as the people pages write it: Psa.106.17, 1Ch.1.5-6.
+BOOK_TAG = re.compile(r"(?<![\w.])[1-3]?[A-Z][a-z]{1,2}\.\d+\.\d+(?:-\d+(?:\.\d+)?)?")
 
 
 def spec_of(pattern: str) -> tuple:
@@ -119,11 +122,27 @@ def hymn_pairs(old_root: Path, new_root: Path) -> list[tuple[str, str]]:
     return pairs
 
 
+def person_pairs(old_root: Path, new_root: Path) -> list[tuple[str, str]]:
+    pairs: list[tuple[str, str]] = []
+    spec = spec_of("data/study/people/*.json")
+    for old_path in sorted(old_root.glob("*.json")):
+        new_path = new_root / old_path.name
+        if not new_path.exists():
+            raise SystemExit(f"person file {old_path.name} is no longer built")
+        before, after = walked(old_path, spec), walked(new_path, spec)
+        if len(before) != len(after):
+            raise SystemExit(f"{old_path.name}: {len(before)} strings before, {len(after)} now")
+        pairs += zip(before, after)
+    return pairs
+
+
 def change_class(old: str, new: str) -> str:
     """punctuation: same words and numbers. reference: only numbers or a citation changed. wording: anything else."""
     old_tokens, new_tokens = TOKEN.findall(old.lower()), TOKEN.findall(new.lower())
     if old_tokens == new_tokens:
         return "punctuation"
+    if re.sub(r"\d", "", old) == re.sub(r"\d", "", new):
+        return "reference"
     letters = lambda tokens: [t for t in tokens if not t.isdigit()]  # noqa: E731
     if letters(old_tokens) == letters(new_tokens) or any(key in old for key, _ in REFERENCE_FIXES) and (
             len(old_tokens) == len(new_tokens)
@@ -159,7 +178,8 @@ def removed_page_strings(old_extract: Path) -> list[dict]:
 def build_map(args: argparse.Namespace) -> None:
     by_old: dict[tuple[str, str], list[str]] = {}
     for kind, pairs in (("creed", creed_pairs(args.old_creeds, ex.SITE / "data/creeds")),
-                        ("hymn", hymn_pairs(args.old_hymns, ex.SITE / "data/hymns"))):
+                        ("hymn", hymn_pairs(args.old_hymns, ex.SITE / "data/hymns")),
+                        ("person", person_pairs(args.old_people, ex.SITE / "data/study/people"))):
         for old, new in pairs:
             if old != new:
                 news = by_old.setdefault((kind, old), [])
@@ -191,7 +211,37 @@ def save(path: Path, value: dict) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False, indent=1) + "\n", "utf-8", newline="\n")
 
 
+def strip_footnote_marks(old_english: str, new_english: str, translation: str) -> str:
+    """A footnote number stuck to a word left the English, so it leaves the translation too.
+    Numbers beside a colon or dash belong to a citation and stay."""
+    if CITATION.findall(old_english) != CITATION.findall(new_english):
+        return translation
+    number = re.compile(r"(?<!\d)\d+(?!\d)")
+    gone = Counter(number.findall(old_english)) - Counter(number.findall(new_english))
+    for mark, count in gone.items():
+        if not re.search(rf"[A-Za-z][.,;:?!'\")&]{{0,3}}{mark}(?![\d:])", old_english):
+            continue
+        pattern = rf"(?<![\d:：\-–]) ?(?<!\d)(?<!\d\.){mark}(?![\d:：\-–]|\.\d)"
+        translation = re.sub(pattern, "", translation, count=count)
+    return translation
+
+
+def fix_doubled_citations(old_english: str, new_english: str, translation: str) -> str:
+    """"Psalm Num.106.17" became "Psa.106.17" in the English. The whole phrase if the translator kept it, else the tag."""
+    before, after = BOOK_TAG.findall(old_english), BOOK_TAG.findall(new_english)
+    if len(before) != len(after):
+        return translation
+    for old_tag, new_tag in zip(before, after):
+        match = re.search(rf"(?:[1-3] )?[^\s(]+ {re.escape(old_tag)}", old_english)
+        if match and match[0] not in new_english:
+            translation = translation.replace(match[0], new_tag)
+        translation = translation.replace(old_tag, new_tag)
+    return translation
+
+
 def fix_reference(lang: str, old_english: str, new_english: str, translation: str) -> str:
+    translation = strip_footnote_marks(old_english, new_english, translation)
+    translation = fix_doubled_citations(old_english, new_english, translation)
     for key, by_language in REFERENCE_FIXES:
         if key in old_english:
             pattern, replacement = by_language.get(lang) or by_language["*"]
@@ -229,7 +279,7 @@ def review_flags(lang: str, change: dict, new: dict, translated: str) -> list[di
         flags.append({"id": new["id"], "type": "english-corrected", "by": "source fix", "serious": False,
                       "problem": f"The English was corrected from: {change['old']!r}. Check this translation against the new English.",
                       "fix": ""})
-    gone = set(ex.re.findall(r"\b\d+\b", change["old"])) - set(ex.re.findall(r"\b\d+\b", new["text"]))
+    gone = set(re.findall(r"\b\d+\b", change["old"])) - set(re.findall(r"(?<!\d)\d+(?!\d)", new["text"]))
     stale = sorted(number for number in gone if re.search(rf"(?<!\d){number}(?!\d)", translated))
     if stale:
         flags.append({"id": new["id"], "type": "stale-number", "by": "source fix", "serious": True,
@@ -276,7 +326,9 @@ def apply(args: argparse.Namespace) -> None:
 
             save(path, renamed(translated, changes, in_use, removed, carried))
             if flags:
-                save(root / "review" / lang / "source-fixes" / f"{name}.json", {"flags": flags})
+                filed = root / "review" / lang / "source-fixes" / f"{name}.json"
+                earlier = read(filed)["flags"] if filed.exists() else []
+                save(filed, {"flags": earlier + flags})
                 flags_total += len(flags)
     (root / "chunks.json").write_text(json.dumps(index, indent=1) + "\n", "utf-8", newline="\n")
     in_use.update(new["id"] for c in plan["changes"] for new in c["new"])
@@ -305,6 +357,7 @@ def main() -> None:
     build = commands.add_parser("build-map")
     build.add_argument("--old-creeds", type=Path, required=True)
     build.add_argument("--old-hymns", type=Path, required=True)
+    build.add_argument("--old-people", type=Path, required=True)
     build.add_argument("--old-extract", type=Path, required=True)
     run = commands.add_parser("apply")
     run.add_argument("--root", type=Path, default=ex.DEFAULT_OUT)
