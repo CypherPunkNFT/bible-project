@@ -68,8 +68,9 @@ export function firstSentence(text = "") {
 }
 export const restOf = (text = "") => (firstSentence(text) === text ? "" : text.slice(firstSentence(text).length).trim());
 
-const shortHours = (h?: string) => (!h ? "" : /24\s*[/-]?\s*7|24-hour|24 hours/i.test(h) && h.length < 26 ? h.replace(/ helpline| hotline/i, "") : /^Office /.test(h) ? "" : h.length <= 28 ? h : "");
-const answersAlways = (e: Help) => /24\s*\/\s*7|24-hour|answered 24/i.test(`${e.hours ?? ""} ${e.contact.map((c) => c.note ?? "").join(" ")}`);
+// The hours and notes may be in Spanish or Portuguese (the translated copies): "24 horas", "Oficina", "Escritório".
+const shortHours = (h?: string) => (!h ? "" : /24\s*[/-]?\s*7|24-hour|24 hours|24 horas/i.test(h) && h.length < 26 ? h.replace(/ helpline| hotline/i, "") : /^(Office|Oficina|Escritório) /.test(h) ? "" : h.length <= 28 ? h : "");
+const answersAlways = (e: Help) => /24\s*\/\s*7|24-hour|answered 24|24 horas/i.test(`${e.hours ?? ""} ${e.contact.map((c) => c.note ?? "").join(" ")}`);
 
 /** The ways a line can be reached, in a fixed order: call, text, chat, website, email. */
 export const waysOf = (entry: Help) => [...new Set(entry.contact.map((c) => wayOf(c.kind)).filter((w) => w in WAY_WORD))].sort((a, b) => WAY_ORDER.indexOf(a) - WAY_ORDER.indexOf(b));

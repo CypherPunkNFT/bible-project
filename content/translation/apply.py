@@ -3,7 +3,8 @@
 For each language, every data file named in extract.SOURCES is walked exactly as extract.py walked it, each English
 string swapped for its translation, and the copy written to data/i18n/<lang>/<same path under data/>. The page
 code's own text goes to data/i18n/<lang>/ui.json as {English: translation}, which the site swaps on screen
-(src/lib/page-translator.ts); seed/<lang>.json fills page strings the chunks have not translated yet.
+(src/lib/page-translator.ts); seed/<lang>.json fills page strings the chunks have not translated yet. The Resources
+files bundled with the code (extract.RESOURCES, src/data/resources/) get copies in data/i18n/<lang>/resources/.
 A string with no translation stays English. data/ is git-ignored, so rerun this after a data rebuild or new chunks.
 Files under public/ are not translated yet. Usage: python apply.py [--repo DIR] [es pt ...]
 """
@@ -12,7 +13,7 @@ import json
 import sys
 from pathlib import Path
 
-from extract import DEFAULT_OUT, PAGE_KIND, SITE, SOURCES, string_id, walk
+from extract import DEFAULT_OUT, PAGE_KIND, RESOURCES, SITE, SOURCES, string_id, walk
 
 sys.stdout.reconfigure(encoding="utf-8")
 SEED = Path(__file__).resolve().parent / "seed"
@@ -43,10 +44,12 @@ def apply(repo: Path, lang: str) -> None:
     by_kind = translations(repo, lang)
     target = SITE / "data" / "i18n" / lang
     files = swapped = kept = 0
-    for spec in SOURCES:
+    # Each spec with the folder its files' copies are placed relative to: data/x -> i18n/<lang>/x,
+    # src/data/resources/x -> i18n/<lang>/resources/x.
+    specs = [(spec, SITE / "data") for spec in SOURCES if spec[1].startswith("data/")]
+    specs += [(spec, SITE / "src" / "data") for spec in RESOURCES]
+    for spec, home in specs:
         kind, pattern = spec[0], spec[1]
-        if not pattern.startswith("data/"):
-            continue
         known = by_kind.get(kind, {})
 
         def visit(text: str) -> str | None:
@@ -57,7 +60,7 @@ def apply(repo: Path, lang: str) -> None:
 
         for path in sorted(SITE.glob(pattern)):
             copy = walk(json.loads(path.read_text("utf-8")), "", spec, visit)
-            out = target / path.relative_to(SITE / "data")
+            out = target / path.relative_to(home)
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_text(json.dumps(copy, ensure_ascii=False, separators=(",", ":")), "utf-8")
             files += 1

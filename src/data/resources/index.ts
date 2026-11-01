@@ -1,7 +1,9 @@
 /// <reference types="vite/client" /> // for import.meta.glob below
 // The Resources data files (learning.json, fellowships.json, life.json, us-states.json, and each city's <code>-map.json and <code>-facts.json), loaded on demand through a glob
 // so a section whose file has not been written yet simply reports "not ready" instead of breaking the build.
+// In another language the translated copy (content/translation/apply.py, data/i18n/<folder>/resources/) is read instead.
 import { useEffect, useState } from "react";
+import { languageFolder, useSiteLanguage } from "@/lib/language";
 
 export interface Workbook {
   id: string; title: string; kind: string; sessions: number; pages: number; summary: string;
@@ -84,27 +86,46 @@ const path = (name: ResourceFile) => `/src/data/resources/${name}.json`;
 
 export const hasResource = (name: ResourceFile) => path(name) in FILES;
 
-/** Files already read: a second ask (a city chosen again, or one preloaded during a fade) is answered at once, so a screen never shows "loading" for data it has. */
-const loaded = new Map<ResourceFile, unknown>();
+/** Files already read, per language: a second ask (a city chosen again, or one preloaded during a fade) is answered at once, so a screen never shows "loading" for data it has. */
+const loaded = new Map<string, unknown>();
+// The files with translated copies (extract.py RESOURCES); maps, states and outlines read the same in every language.
+const TRANSLATED = new Set<string>(["life", "fellowships", "fellowship-cities", "learning"]);
+const translatedFolder = (name: ResourceFile) => (TRANSLATED.has(name) || name.endsWith("-facts") ? languageFolder() : null);
+const cacheKey = (name: ResourceFile) => `${translatedFolder(name) ?? "en"} ${name}`;
+
+/** The translated copy, or null (and the English is shown) when it cannot be read. */
+async function readTranslated(folder: string, name: ResourceFile): Promise<unknown> {
+  try {
+    const response = await fetch(`/data/i18n/${folder}/resources/${name}.json`, { cache: "no-cache" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return await response.json();
+  } catch (error) {
+    console.warn(`resources: could not read the ${folder} copy of ${name}.json (${String(error)}); showing the English`);
+    return null;
+  }
+}
 
 export async function loadResource<K extends ResourceFile>(name: K): Promise<Files[K] | null> {
   const load = FILES[path(name)];
   if (!load) return null;
-  const value = (await load()).default as Files[K];
-  loaded.set(name, value);
+  const key = cacheKey(name), folder = translatedFolder(name);
+  const value = ((folder ? await readTranslated(folder, name) : null) ?? (await load()).default) as Files[K];
+  loaded.set(key, value);
   return value;
 }
 
-/** "loading", the data, or "missing" when the file has not been written. A failed import is thrown to the error boundary. */
+/** "loading", the data, or "missing" when the file has not been written. A failed import is thrown to the error boundary.
+ *  When the language changes, the file already shown stays up until its other copy is read, then only its words change. */
 export function useResource<K extends ResourceFile>(name: K): Files[K] | "loading" | "missing" {
-  const known = loaded.get(name) as Files[K] | undefined;
+  const language = useSiteLanguage();
+  const known = loaded.get(cacheKey(name)) as Files[K] | undefined;
   const [state, setState] = useState<{ name: K; value: Files[K] | "loading" | "missing" }>({ name, value: known ?? "loading" });
   const [error, setError] = useState<unknown>(null);
   useEffect(() => {
     let live = true;
     loadResource(name).then((value) => { if (live) setState({ name, value: value ?? "missing" }); }, (e: unknown) => { if (live) setError(e); });
     return () => { live = false; };
-  }, [name]);
+  }, [name, language]);
   if (error) throw error instanceof Error ? error : new Error(`resources: could not load ${name}.json: ${String(error)}`);
   return state.name === name ? state.value : known ?? "loading";
 }

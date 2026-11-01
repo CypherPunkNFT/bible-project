@@ -86,8 +86,17 @@ function withNumbers(key: string): string | null {
   return template.replace(/\{n\}/g, () => numbers[index++] ?? "");
 }
 
+/** A known label written with a small first letter or a closing stop: "for adults and families." */
+function withCase(key: string): string | null {
+  const [, body, end] = /^(.*?)([.:,;!?]*)$/.exec(key)!;
+  const label = body.charAt(0).toUpperCase() + body.slice(1);
+  const value = label && label !== key ? lookup(label) ?? withNumbers(label) : null;
+  if (!value) return null;
+  return (body.charAt(0) === label.charAt(0) ? value : value.charAt(0).toLowerCase() + value.slice(1)) + end;
+}
+
 function translatedPiece(key: string): string | null {
-  const whole = lookup(key) ?? withNumbers(key);
+  const whole = lookup(key) ?? withNumbers(key) ?? withCase(key);
   if (whole) return whole;
   const parts = NAME_AND_NUMBER.exec(key);
   const name = parts && lookup(parts[1]);

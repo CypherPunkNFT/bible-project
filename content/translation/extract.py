@@ -3,8 +3,8 @@ site-translation repository (../../../SiteTranslation) for the cloud translation
 
 Which fields are translated is decided by SOURCES below, one entry per kind of content file. Scripture quotations are
 left out on purpose (each language's own Bible fills them by reference), and so are book titles, authors, licences
-and catalogue metadata. Text written into the page code is not here yet: it needs the page code moved into string
-files first.
+and catalogue metadata. The page code's own text (--pages) and the Resources files bundled with the code (--resources)
+are added later as new chunks after the last one.
 
 Each unique English string of a kind gets one id, sha1(kind + text)[:12], so a repeated label is translated once and
 the later import can match translations back by walking the same SOURCES. Usage: python extract.py [--out DIR]
@@ -77,10 +77,47 @@ SOURCES = [
 ]
 MARKDOWN = ("apologetics", "public/content/apologetics/*.md")
 
+# The Resources files bundled with the code (src/data/resources/): help places, phone lines, churches and groups, city
+# facts, workbooks. Appended as new chunks (--resources); apply.py writes their translated copies to
+# data/i18n/<lang>/resources/, which src/data/resources/index.ts reads. Names, addresses, ids and categories stay
+# English: the code keys on them ("No walk-in" addresses go to the page text instead, see resource_page_strings).
+RESOURCE_KIND = "resource"
+RESOURCES = [
+    (RESOURCE_KIND, "src/data/resources/life.json", False, (), {
+        ".groups[].title", ".groups[].entries[].summary", ".groups[].entries[].contact[].note",
+        ".groups[].entries[].hours", ".groups[].entries[].cost", ".cities[].entries[].summary",
+        ".cities[].entries[].contact[].note", ".cities[].entries[].hours", ".cities[].entries[].cost",
+        ".cities[].lines[].summary", ".cities[].lines[].contact[].note", ".cities[].lines[].hours",
+        ".cities[].lines[].cost"}, set(), set()),
+    (RESOURCE_KIND, "src/data/resources/fellowships.json", False, (), {
+        ".groups[].title", ".groups[].entries[].summary", ".groups[].entries[].cost",
+        ".groups[].entries[].jacksonville"}, set(), set()),
+    (RESOURCE_KIND, "src/data/resources/fellowship-cities.json", False, (), {
+        ".cities[].places[].name", ".cities[].places[].when", ".cities[].nearby[].name", ".cities[].nearby[].when"},
+     set(), set()),
+    (RESOURCE_KIND, "src/data/resources/*-facts.json", False, (), {".facts[].label", ".facts[].note", ".facts[].unit"},
+     set(), set()),
+    (RESOURCE_KIND, "src/data/resources/learning.json", False, (), {
+        ".items[].title", ".items[].summary", ".items[].outline.intro", ".items[].outline.parts[].label",
+        ".items[].outline.parts[].place", ".items[].outline.sessions[].title", ".items[].outline.sessions[].brief"},
+     set(), set()),
+]
+
 # Text written into the page code: JSX text between tags, label-like attributes, and prose string literals. The site
 # swaps each on screen for its translation (src/components/PageTranslator.tsx), matching the text exactly as shown.
 PAGE_KIND = "page"
 JSX_TEXT = re.compile(r"(?<![=\-])>([^<>{}]{1,600})<")
+# JSX text touching an expression on one side: "}start anywhere<", ">Open the map of {", "} answered<". In plain code
+# the same shape catches statements, so EDGE_CODE throws those out.
+JSX_EDGE = re.compile(r"(?:\}|(?<![=\-])>)([^<>{}]{1,600})(?=[<{])")
+# Also thrown out: the pieces of a template string around its ${...} (one text node on screen, never these pieces),
+# and SVG path data ("M0,0 L-4,13 Z").
+EDGE_CODE = re.compile(r"[;`]|\(\)|\$$|\$\{|^[MmLlHhVvCcSsQqTtAaZz\d\s.,-]*\d[MmLlHhVvCcSsQqTtAaZz\d\s.,-]*$|^(?:export|function|const|let|var|return|else|if|import|interface|type|case|default|"
+                       r"async|await|for|while|try|catch|finally|throw|new|typeof|extends|class|as|satisfies)\b")
+# A template string with values in it: each ${...} becomes "{n}", the form the site matches counts by ("{n} scholars").
+TEMPLATE = re.compile(r"`([^`\\\n]*\$\{[^`\\\n]*)`")
+TEMPLATE_VALUE = re.compile(r"\$\{[^{}]*\}")
+IMPORT = re.compile(r"""\bfrom\s+["'](@/|\.{1,2}/)([^"']+)["']""")
 PAGE_ATTRIBUTE = re.compile(r'\b(?:aria-label|title|placeholder|alt|label)="([^"\n]{1,300})"')
 # One-word labels in data written into the code ({ label: "Study" }), which PAGE_LITERAL's two-word floor skips.
 PAGE_PROPERTY = re.compile(r'\b(?:label|title|heading|subtitle|name|text|caption|description|short|kicker|eyebrow)\s*:\s*"([^"\\\n]{2,300})"')
@@ -125,15 +162,70 @@ def without_comments(source: str) -> str:
     return "".join(out)
 
 
+def imported_file(source: Path, prefix: str, name: str) -> Path | None:
+    base = SITE / "src" / name if prefix == "@/" else source.parent / (prefix + name)
+    for candidate in (Path(f"{base}.tsx"), Path(f"{base}.ts"), base / "index.tsx", base / "index.ts", base):
+        if candidate.suffix in {".ts", ".tsx"} and candidate.is_file():
+            return candidate.resolve()
+    return None
+
+
+def page_files() -> list[Path]:
+    """The page code: every source file outside mock-ups, tests and generated code, and the mock-up files a real page
+    imports (the homepage's opening lives in pages/mockup/home-openings/)."""
+    def skipped(path: Path) -> bool:
+        return bool({"generated", "dev", "test"} & set(path.parts)) or ".test." in path.name
+
+    files = [p.resolve() for p in sorted((SITE / "src").rglob("*.ts*")) if not skipped(p) and "mockup" not in p.parts]
+    seen, queue, borrowed = set(files), list(files), []
+    while queue:
+        path = queue.pop()
+        for prefix, name in IMPORT.findall(path.read_text("utf-8")):
+            found = imported_file(path, prefix, name)
+            if found and found not in seen and not skipped(found):
+                seen.add(found)
+                queue.append(found)
+                borrowed.append(found)
+    return files + sorted(borrowed)
+
+
+def balanced(text: str) -> bool:
+    return text.count("(") == text.count(")") and text.count("[") == text.count("]")
+
+
+def jsx_prose(text: str) -> bool:
+    """JSX text between tags; a semicolon is allowed in a sentence of five words or more ("...be read; every...")."""
+    if not translatable(text):
+        return False
+    if not CODE_LIKE.search(text):
+        return True
+    return (len(WORD.findall(text)) >= 5 and bool(re.match(r"[A-Z“‘\"(]", text))
+            and not CODE_LIKE.search(text.replace(";", ",")))
+
+
+def template_text(literal: str) -> str | None:
+    text = " ".join(TEMPLATE_VALUE.sub("{n}", literal).split())
+    rest = " ".join(text.replace("{n}", " ").split())
+    if "$" in rest or "{" in rest or not re.search(r"[A-Za-z]{3}", rest) or EDGE_CODE.search(text.replace("{n}", "0")):
+        return None
+    one_word = re.fullmatch(r"[A-Za-z]{3,}", rest) and " " in text  # "{n} scholars", not "{n}px"
+    return None if (CODE_LIKE.search(rest) and not one_word) or class_like(rest) else text
+
+
 def page_strings() -> list[str]:
-    files = [p for p in sorted((SITE / "src").rglob("*.ts*"))
-             if not {"generated", "mockup", "dev", "test"} & set(p.parts) and ".test." not in p.name]
     found: dict[str, None] = {}
-    for path in files:
+    for path in page_files():
         source = without_comments(path.read_text("utf-8"))
         for match in JSX_TEXT.finditer(source):
             text = " ".join(match.group(1).split())
-            if translatable(text) and not CODE_LIKE.search(text):
+            if jsx_prose(text):
+                found.setdefault(text)
+        for match in TEMPLATE.finditer(source):
+            if text := template_text(match.group(1)):
+                found.setdefault(text)
+        for match in JSX_EDGE.finditer(source):
+            text = " ".join(match.group(1).split())
+            if translatable(text) and balanced(text) and not CODE_LIKE.search(text) and not EDGE_CODE.search(text):
                 found.setdefault(text)
         for match in PAGE_ATTRIBUTE.finditer(source):
             text = " ".join(match.group(1).split())
@@ -262,33 +354,55 @@ def chunks(by_kind: dict[str, dict[str, str]]):
             yield kind, current, total
 
 
-def append_pages(out: Path) -> None:
-    """Adds the page text not yet in any chunk as new chunks after the last one, so earlier chunk numbers (and their
-    translations) never move. Safe to rerun after the pages change."""
+def resource_strings() -> list[str]:
+    found: dict[str, None] = {}
+    for spec in RESOURCES:
+        files = sorted(SITE.glob(spec[1]))
+        if not files:
+            raise SystemExit(f"no files match {spec[1]}: the Resources data layout changed, update RESOURCES")
+        for path in files:
+            walk(json.loads(path.read_text("utf-8")), "", spec, lambda text: found.setdefault(text))
+    return list(found)
+
+
+def resource_page_strings() -> list[str]:
+    """The help lines' "No walk-in address listed (...)": the code reads the English, so the screen swaps it instead."""
+    life = json.loads((SITE / "src/data/resources/life.json").read_text("utf-8"))
+    lines = [line for city in life["cities"] for line in city.get("lines", [])]
+    return list(dict.fromkeys(line["address"] for line in lines if line.get("address", "").startswith("No walk-in")))
+
+
+def append(out: Path, kind: str, texts: list[str]) -> None:
+    """Adds the strings of a kind not yet in any chunk as new chunks after the last one, so earlier chunk numbers (and
+    their translations) never move. Safe to rerun after the sources change."""
     index = json.loads((out / "chunks.json").read_text("utf-8"))
     known = set()
     for entry in index:
-        if entry["kind"] == PAGE_KIND:
+        if entry["kind"] == kind:
             known.update(json.loads((out / "in" / f"{entry['chunk']}.json").read_text("utf-8"))["strings"])
-    fresh = {key: text for text in page_strings() if (key := string_id(PAGE_KIND, text)) not in known}
+    fresh = {key: text for text in texts if (key := string_id(kind, text)) not in known}
     number = int(index[-1]["chunk"])
-    for kind, strings, total in chunks({PAGE_KIND: fresh}):
+    for kind, strings, total in chunks({kind: fresh}):
         number += 1
         name = f"{number:04d}"
         body = {"kind": kind, "strings": strings}
         (out / "in" / f"{name}.json").write_text(json.dumps(body, ensure_ascii=False, indent=1) + "\n", "utf-8", newline="\n")
         index.append({"chunk": name, "kind": kind, "strings": len(strings), "words": total})
     (out / "chunks.json").write_text(json.dumps(index, indent=1) + "\n", "utf-8", newline="\n")
-    print(f"{len(fresh)} new page strings, {sum(words(t) for t in fresh.values())} words; chunks now end at {index[-1]['chunk']}")
+    print(f"{len(fresh)} new {kind} strings, {sum(words(t) for t in fresh.values())} words; chunks now end at {index[-1]['chunk']}")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT, help="the site-translation repository folder")
     parser.add_argument("--pages", action="store_true", help="append the page code's text as new chunks")
+    parser.add_argument("--resources", action="store_true", help="append the Resources files' text as new chunks")
     args = parser.parse_args()
     if args.pages:
-        append_pages(args.out)
+        append(args.out, PAGE_KIND, page_strings() + resource_page_strings())
+    if args.resources:
+        append(args.out, RESOURCE_KIND, resource_strings())
+    if args.pages or args.resources:
         return
     target = args.out / "in"
     if target.exists() and any(target.iterdir()):
