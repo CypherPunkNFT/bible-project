@@ -18,6 +18,12 @@ import { SquareColumn, useSquareRoom } from "./HomeOpenings6Squares";
 /** Nine courses, each 10 units deep with 2 between, from just inside the outer wall. */
 const COURSES = Array.from({ length: 9 }, (_, course) => ({ outer: 84 + course * 12, inner: 94 + course * 12 }));
 const perimeter = (inset: number) => 4 * (1000 - inset * 2);
+/** The wall, its towers and its pearls stand 10 units further out than the city's (60 in from the edge, not 70), so the
+ *  pearls (radius 17) are clear of the first course of stones (owner, 2026-10-31: "I don't want them touching at all ...
+ *  It's better to shift the pearls and the line out a little bit more"). */
+const WALL = 60, WALL_SIDE = 1000 - WALL * 2;
+const outward = (at: number) => (at === 70 ? WALL : at === 930 ? 1000 - WALL : at);
+const PEARLS = GATES.map(([x, y]) => [outward(x), outward(y)]);
 /** A mock-up can lay the chapters inside the wall as a brick wall instead of courses round it (/home_mobile_mockups, owner,
  *  2026-10-31: "they can just be stacked like bricks ... inside of the twelve pearl gates square"). False everywhere else. */
 export const BrickCity = createContext(false);
@@ -149,20 +155,20 @@ export function CityOfChapters({ wings = false, squares = false, wall = false, .
     {squares && <><SquareColumn side="left" /><SquareColumn side="right" /></>}
     <svg className="hm6-art hm6-city hm6-chapters" viewBox="0 0 1000 1000" aria-hidden="true">
       <defs><radialGradient id="hm6-chapters-lamp"><stop offset="0" stopColor="var(--accent)" stopOpacity=".2" /><stop offset="1" stopColor="var(--accent)" stopOpacity="0" /></radialGradient></defs>
-      <rect className="hm6-city-ground" x="70" y="70" width="860" height="860" />
+      <rect className="hm6-city-ground" x={WALL} y={WALL} width={WALL_SIDE} height={WALL_SIDE} />
       <circle cx="500" cy="500" r="330" fill="url(#hm6-chapters-lamp)" />
       {plain && <path className="hm6-brick-plain" d={plain} />}
       <g className="hm6-chapter-stones" onClick={choose}>
         {stones.map((item, index) => <path className={index === picked ? "is-picked" : undefined} d={item.d} style={{ ...tone(item.section), animationDelay: `${item.delay}ms` } as CSSProperties} data-stone={index} key={`${item.code}-${item.chapter}`}><title>{`${item.name} ${item.chapter}`}</title></path>)}
       </g>
       {chosen && <path className="hm6-chapter-ring" d={chosen.d} style={tone(chosen.section) as CSSProperties} />}
-      <rect className="hm6-wall" x="70" y="70" width="860" height="860" />
-      {[[70, 70], [930, 70], [70, 930], [930, 930]].map(([x, y]) => <rect className="hm6-tower" x={x - 16} y={y - 16} width="32" height="32" key={`${x}-${y}`} />)}
-      {GATES.map(([x, y]) => <circle className="hm6-pearl" cx={x} cy={y} r="17" key={`${x}-${y}`} />)}
+      <rect className="hm6-wall" x={WALL} y={WALL} width={WALL_SIDE} height={WALL_SIDE} />
+      {[[WALL, WALL], [1000 - WALL, WALL], [WALL, 1000 - WALL], [1000 - WALL, 1000 - WALL]].map(([x, y]) => <rect className="hm6-tower" x={x - 16} y={y - 16} width="32" height="32" key={`${x}-${y}`} />)}
+      {PEARLS.map(([x, y]) => <circle className="hm6-pearl" cx={x} cy={y} r="17" key={`${x}-${y}`} />)}
     </svg>
     {/* The pearls again, over the squares, which tuck in behind them (owner, 2026-10-31: "the boxes are below"). */}
     {squares && <svg className="hm6-art hm6-pearls-over" viewBox="0 0 1000 1000" aria-hidden="true">
-      {GATES.map(([x, y]) => <circle className="hm6-pearl" cx={x} cy={y} r="17" key={`${x}-${y}`} />)}
+      {PEARLS.map(([x, y]) => <circle className="hm6-pearl" cx={x} cy={y} r="17" key={`${x}-${y}`} />)}
     </svg>}
     {wall ? <StandsForeverCopy {...copy} /> : <OpeningCopy {...copy} />}
     {wall ? <div className="hm6-note-frame">{note}</div> : note}
