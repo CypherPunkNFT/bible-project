@@ -9,6 +9,7 @@ Every correction names why it was made and the verse that shows it. A correction
 
 import re
 
+from .english_spelling import correct_text
 from .study_refs import RefError, Verses, parse_refs
 
 TEXT_FIELDS = ("brief", "short", "article", "description")
@@ -215,4 +216,9 @@ def apply_people_corrections(people: list[dict], corrections: dict, verses: Vers
     for person_id, fix in fixes.items():
         _apply_fix(by_id[person_id], fix, by_id, verses)
     citations = sum(_repair_doubled_citations(person, verses) for person in people)
+    for person in people:
+        for field in TEXT_FIELDS:
+            if person.get(field) and correct_text(person[field]) != person[field]:
+                person[field] = correct_text(person[field])
+                _mark(person, field)
     return {"added": len(added), "fixed": len(fixes), "citations": citations, "marked": sum(1 for p in people if p.get("fx"))}

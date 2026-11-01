@@ -59,6 +59,7 @@ REFERENCE_FIXES = [
 RETRANSLATED_FILE = HERE / "source-fixes-retranslated.json"
 TOKEN = re.compile(r"[^\W\d_]+|\d+")
 CITATION = re.compile(r"(?<!\d)(\d+):(\d+)(?!\d)")
+MISSPELLED = set(json.loads((HERE / "english-spelling.json").read_text("utf-8"))["words"])
 # A citation as the people pages write it: Psa.106.17, 1Ch.1.5-6.
 BOOK_TAG = re.compile(r"(?<![\w.])[1-3]?[A-Z][a-z]{1,2}\.\d+\.\d+(?:-\d+(?:\.\d+)?)?")
 
@@ -136,6 +137,22 @@ def person_pairs(old_root: Path, new_root: Path) -> list[tuple[str, str]]:
     return pairs
 
 
+def topic_pairs(current: set[str]) -> list[tuple[str, str]]:
+    """Topic text changes only through english-spelling.json, so its old text is what the chunks hold."""
+    sys.path.insert(0, str(ex.SITE / "scripts"))
+    from bible.english_spelling import correct_text
+
+    pairs = []
+    for path in sorted((ex.DEFAULT_OUT / "in").glob("*.json")):
+        chunk = read(path)
+        if chunk["kind"] == "topic":
+            for text in chunk["strings"].values():
+                corrected = correct_text(text)
+                if corrected != text and ex.string_id("topic", corrected) in current:
+                    pairs.append((text, corrected))
+    return pairs
+
+
 def change_class(old: str, new: str) -> str:
     """punctuation: same words and numbers. reference: only numbers or a citation changed. wording: anything else."""
     old_tokens, new_tokens = TOKEN.findall(old.lower()), TOKEN.findall(new.lower())
@@ -143,6 +160,9 @@ def change_class(old: str, new: str) -> str:
         return "punctuation"
     if re.sub(r"\d", "", old) == re.sub(r"\d", "", new):
         return "reference"
+    # A plain misspelling corrected (english-spelling.json): the translator read through it, so no review entry.
+    if len(old_tokens) == len(new_tokens) and all(a == b or a in MISSPELLED for a, b in zip(old_tokens, new_tokens)):
+        return "spelling"
     letters = lambda tokens: [t for t in tokens if not t.isdigit()]  # noqa: E731
     if letters(old_tokens) == letters(new_tokens) or any(key in old for key, _ in REFERENCE_FIXES) and (
             len(old_tokens) == len(new_tokens)
@@ -177,15 +197,16 @@ def removed_page_strings(old_extract: Path) -> list[dict]:
 
 def build_map(args: argparse.Namespace) -> None:
     by_old: dict[tuple[str, str], list[str]] = {}
+    current = ex.collect()
     for kind, pairs in (("creed", creed_pairs(args.old_creeds, ex.SITE / "data/creeds")),
                         ("hymn", hymn_pairs(args.old_hymns, ex.SITE / "data/hymns")),
-                        ("person", person_pairs(args.old_people, ex.SITE / "data/study/people"))):
+                        ("person", person_pairs(args.old_people, ex.SITE / "data/study/people")),
+                        ("topic", topic_pairs(set(current["topic"])))):
         for old, new in pairs:
             if old != new:
                 news = by_old.setdefault((kind, old), [])
                 if new not in news:
                     news.append(new)
-    current = ex.collect()
     changes = []
     for (kind, old), news in by_old.items():
         old_id = ex.string_id(kind, old)

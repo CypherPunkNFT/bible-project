@@ -27,8 +27,10 @@ import easton  # noqa: E402
 import naves  # noqa: E402
 import topic_extras  # noqa: E402
 from bible.books import BOOKS  # noqa: E402
+from bible.english_spelling import PHRASES, correct_tree  # noqa: E402
 
 TORREY = WEBSITE.parent / "sources" / "ccel" / "ttt.xml"
+ID_KEYS = frozenset({"id", "f", "s", "see", "refs", "category", "subcategory", "topics", "relatedStudies", "parts"})
 TAXONOMY = WEBSITE / "content" / "topics" / "taxonomy.json"
 NAVE_PLACEMENT = WEBSITE / "content" / "topics" / "naves-placement.json"  # Nave entry id -> group id, reviewed by hand
 STUDIES = WEBSITE / "content" / "apologetics" / "studies"
@@ -347,6 +349,19 @@ def attach_dictionary(topics: list[dict], articles: dict) -> int:
 SHARDS = 256  # topics are bundled (Cloudflare Pages allows 20,000 files a release; one file per topic would pass it)
 
 
+def without_josephus(value):
+    """The site's rule (scripts/check-editorial-sources.mjs): Josephus appears only under Scholars, not in reading pages.
+    Nave's one clause goes; any other paragraph that rests on him goes whole."""
+    if isinstance(value, str):
+        return value.replace(", (Josephus confirmed this)", "")
+    if isinstance(value, dict):
+        return {key: without_josephus(child) for key, child in value.items()}
+    if isinstance(value, list):
+        clean = lambda item: json.dumps(item, ensure_ascii=False).replace(", (Josephus confirmed this)", "")  # noqa: E731
+        return [without_josephus(item) for item in value if "josephus" not in clean(item).lower()]
+    return value
+
+
 def build() -> None:
     topics = parse_torrey()
     resolve_see(topics)
@@ -409,6 +424,14 @@ def build() -> None:
         summary[topic["id"]] = {"title": topic["title"], "points": len(points), "refs": refs, "f": shard, "s": source + ("e" if topic.get("dictionary") else "")}
         if topic.get("parts"):  # a contents page ("Family") lists its parts: the group lists say so instead of "Dictionary article"
             summary[topic["id"]]["parts"] = len(topic["parts"])
+    # Misspellings in the sources, corrected last so ids and links built from them keep working.
+    found: set[str] = set()
+    shards = without_josephus(correct_tree(shards, ID_KEYS, found))
+    summary = correct_tree(summary, ID_KEYS, found)
+    taxonomy = correct_tree(taxonomy, ID_KEYS, found)
+    stale_phrases = [wrong for wrong, _ in PHRASES if wrong not in found]
+    if stale_phrases:
+        raise SystemExit(f"english-spelling.json: these phrases are no longer in the topics: {stale_phrases}")
     (OUT / "t").mkdir(exist_ok=True)
     for stale in (OUT / "t").glob("*.json"):
         stale.unlink()
