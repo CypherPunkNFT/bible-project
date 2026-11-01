@@ -34,7 +34,7 @@
   .cvm-track:focus { outline: none; }
   .cvm-track > li { position: relative; scroll-snap-align: start; scroll-snap-stop: always; }
   .cvm-rail { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 22px; border-bottom: 1px solid var(--line); }
-  .cvm-rail button { min-height: 48px; padding: 0; border: 0; background: none; color: var(--muted); font: 500 20px/1 var(--font-serif); transition: color .3s; }
+  .cvm-rail button { min-height: 64px; padding: 0; border: 0; background: none; color: var(--muted); font: 500 30px/1 var(--font-serif); transition: color .3s; }
   .cvm-rail button[aria-current="true"] { color: var(--accent); }
   .cvm-rail-line { position: absolute; left: 0; bottom: -1px; width: 25%; height: 2px; background: var(--accent); transform: translateX(calc(var(--p, 0) * 100%)); }
 
@@ -73,7 +73,7 @@
   .cvm-dial-dash { stroke: color-mix(in srgb, var(--accent) 30%, transparent); stroke-width: 1; stroke-dasharray: 1 7; transform-origin: 50% 50%; animation: cvm-spin 120s linear infinite; }
   .cvm-dial-fixed { z-index: 1; pointer-events: none; }
   /* Each numeral stands on the ring (radius 43.125% of the dial) and turns back the other way, so it always reads upright. */
-  .cvm-dial-turning button { position: absolute; left: 50%; top: 50%; z-index: 2; width: 48px; height: 48px; margin: -24px 0 0 -24px; padding: 0; border: 0; border-radius: 50%; background: var(--page); color: var(--muted); font: 500 21px/1 var(--font-serif); cursor: pointer;
+  .cvm-dial-turning button { position: absolute; left: 50%; top: 50%; z-index: 2; width: 60px; height: 60px; margin: -30px 0 0 -30px; padding: 0; border: 0; border-radius: 50%; background: var(--page); color: var(--muted); font: 500 30px/1 var(--font-serif); cursor: pointer;
     transform: rotate(calc(var(--i) * 90deg)) translateY(-43.125cqw) rotate(calc(var(--i) * -90deg)) rotate(calc(-1 * var(--turn))); transition: transform .9s var(--cvm-ease), color .3s; }
   .cvm-dial-turning button[aria-selected="true"] { color: var(--accent); }
   .cvm-dial-art { position: absolute; inset: 27%; color: var(--accent); display: grid; align-items: center; }
@@ -93,6 +93,50 @@
   .cvm-cross-grid [data-active="true"] .cvm-art { color: var(--accent); opacity: 1; }
   .cvm-cross-grid [data-active="true"] .cvm-cross-title { color: var(--ink); }
   .cvm-cross .cvm-text { margin-top: 0; }
+
+  /* The version switcher, much larger for a real phone: all the way across, two rows of big buttons with their names. */
+  .hm11 .to-pill { left: 8px; right: 8px; bottom: calc(8px + env(safe-area-inset-bottom, 0px)); transform: none; max-width: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; padding: 6px; border-radius: 18px; }
+  .hm11 .to-pill .to-pill-label { display: none; }
+  .hm11 .to-pill button { display: grid; justify-items: center; gap: 2px; min-height: 58px; padding: 6px 2px; border-radius: 12px; }
+  .hm11 .to-pill b { width: auto; height: auto; border: 0; font-size: 21px; line-height: 1; }
+  .hm11 .to-pill button span { display: block; font-size: 10px; line-height: 1.15; white-space: normal; text-align: center; }
+  /* The floating pencil would sit under the switcher. */
+  body:has(.hm11) .correction-button { display: none; }
+
+  /* F: the open book. */
+  .cvm-book { touch-action: pan-y; }
+  .cvm-book-pages { display: grid; perspective: 1300px; }
+  .cvm-book-pages article { position: relative; grid-area: 1 / 1; overflow: hidden; padding: 20px 20px 20px 26px; background: var(--surface); border: 1px solid var(--line); border-left: 2px solid var(--accent); border-radius: 0 8px 8px 0; transform-origin: left center; backface-visibility: hidden; transition: transform .9s cubic-bezier(.45, .05, .35, 1), visibility 0s; }
+  .cvm-book-pages article[data-turned="true"] { transform: rotateY(-115deg); visibility: hidden; transition: transform .9s cubic-bezier(.45, .05, .35, 1), visibility 0s .6s; }
+  .cvm-book .cvm-numeral { right: 8px; top: -6px; }
+  .cvm-book .cvm-art { position: relative; width: 108px; }
+  .cvm-book .cvm-title { position: relative; margin-top: 12px; }
+  .cvm-book .cvm-text, .cvm-book .cvm-verse { position: relative; }
+  .cvm-book .cvm-rail-line { transition: transform .85s var(--cvm-ease); }
+
+  /* G: giant numerals, outlined and racing past. */
+  .cvm-giant .cvm-track > li { flex: 0 0 100%; box-sizing: border-box; overflow: hidden; padding: 4px var(--site-gutter) 6px; }
+  .cvm-giant-stage { position: relative; height: min(60vw, 250px); margin-bottom: 8px; }
+  .cvm-giant-numeral { position: absolute; left: 50%; top: 50%; font: 500 min(58vw, 240px)/1 var(--font-serif); color: color-mix(in srgb, var(--accent) 8%, transparent); -webkit-text-stroke: 1.5px var(--accent); white-space: nowrap; pointer-events: none; user-select: none; transform: translate(calc(-50% + (var(--p, 0) - var(--i)) * -170px), -50%); }
+  .cvm-giant .cvm-art { position: absolute; right: 0; bottom: 0; width: 130px; padding: 6px 0 0 8px; }
+  .cvm-giant .cvm-art svg { filter: drop-shadow(0 0 10px var(--page)); }
+
+  /* H: the window. */
+  .cvm-window-frame { position: relative; width: min(100%, 340px); margin: 0 auto 22px; }
+  .cvm-window-frame svg { display: block; width: 100%; overflow: visible; }
+  .cvm-window-frame [role="tablist"] { position: absolute; inset: 0; }
+  .cvm-window-frame button { position: absolute; padding: 0; border: 0; background: none; cursor: pointer; }
+  .cvm-window-arch { stroke: var(--accent); stroke-width: 1.4; }
+  .cvm-window-sill { stroke: color-mix(in srgb, var(--accent) 50%, transparent); stroke-width: 1; }
+  .cvm-window-lead { stroke: color-mix(in srgb, var(--accent) 16%, transparent); stroke-width: 1; }
+  .cvm-window-pane { stroke: color-mix(in srgb, var(--accent) 70%, transparent); stroke-width: 1; }
+  .cvm-window-light { fill: color-mix(in srgb, var(--accent) 0%, transparent); transition: fill .5s; }
+  .cvm-window [data-active="true"] > .cvm-window-light { fill: color-mix(in srgb, var(--accent) 22%, transparent); }
+  .cvm-window-art { color: var(--muted); transition: color .4s; }
+  .cvm-window-art[data-active="true"] { color: var(--accent); }
+  .cvm-window-art[data-active="true"] path { stroke-dasharray: 400; animation: cvm-draw 1.5s var(--cvm-ease) both; }
+  .cvm-window-numeral { fill: var(--muted); font: 500 24px var(--font-serif); transition: fill .4s; }
+  .cvm-window [data-active="true"] > .cvm-window-numeral { fill: var(--ink); }
 
   /* E: folding rows. */
   .cvm-fold ol { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
