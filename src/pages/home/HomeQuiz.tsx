@@ -19,11 +19,12 @@ export function HomeQuiz({ number }: { number?: string }) {
   const quiz = useQuiz();
   const [board, setBoard] = useState(true);
   const box = useRef<HTMLDivElement>(null);
-  // Phones slide through the questions four at a time; the desktop keeps its grid of tiles.
+  // Phones slide through the questions three at a time, two on a narrow one; the desktop keeps its grid of tiles.
   const phone = useMediaQuery("(max-width: 860px)");
+  const narrow = useMediaQuery("(max-width: 560px)");
   const frame = useRef<HTMLDivElement>(null);
-  // Back on the board, the slider opens on the four holding the question just left.
-  const { page, go, track } = useQuizPages(frame, board ? Math.floor(Math.max(0, quiz.current) / 4) : 0);
+  // Back on the board, the slider opens on the page holding the question just left.
+  const { page, pages, go, track } = useQuizPages(frame, board ? Math.max(0, quiz.current) : 0, narrow ? 2 : 3);
   // Switching views keeps the top of the quiz in sight when the reader had scrolled past it.
   const show = (onBoard: boolean) => {
     setBoard(onBoard);
@@ -37,7 +38,7 @@ export function HomeQuiz({ number }: { number?: string }) {
       <div><p className="home-eyebrow">{number && <span className="home-number">{number}</span>}Twelve questions · start anywhere</p><h2 id="hq-title">How well do you know <em>the Bible?</em></h2></div>
       {!phone && <Tally quiz={quiz} />}
     </header>
-    {phone && <QuizBar quiz={quiz} page={page} go={go} nav={board} />}
+    {phone && <QuizBar quiz={quiz} page={page} pages={pages} go={go} nav={board} />}
     <div className="qv-board" ref={box}>
       {board ? (phone ? <QuizSlider frame={frame} go={go} track={track}>{tiles}</QuizSlider> : tiles) : <CardDeck quiz={quiz} onBoard={() => show(true)} />}
     </div>
