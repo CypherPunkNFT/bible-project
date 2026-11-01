@@ -61,6 +61,11 @@
   .home-hub.hm6-page .qv-door > svg:not(.qv-door-arrow) { display: none; }
   /* Close to home: the map's button the same plain shape as Help for life; the facts' sources stay on the city's own page. */
   .home-hub.hm6-page .hn-open { border-radius: 0; }
+  /* Help for life: wide and centred, the same as the Study page's "Enter the full Atlas" (owner, 2026-10-31). */
+  .home-hub.hm6-page .ni-cta { display: flex; justify-content: center; gap: 12px; min-height: 57px; box-sizing: border-box; padding: 17px; border: 1px solid var(--accent); border-radius: 3px; background: var(--accent); color: var(--page); font-size: 13px; box-shadow: 0 5px 20px color-mix(in srgb, var(--accent) 10%, transparent); transition: none; }
+  .home-hub.hm6-page .ni-cta svg { width: 18px; height: 18px; }
+  .home-hub.hm6-page .ni-cta:hover, .home-hub.hm6-page .ni-cta:focus-visible { transform: none; background: var(--ink); border-color: var(--ink); box-shadow: 0 5px 20px color-mix(in srgb, var(--accent) 10%, transparent); }
+  .home-hub.hm6-page .ni-cta:hover svg:last-child, .home-hub.hm6-page .ni-cta:focus-visible svg:last-child { transform: rotate(-35deg); }
   .home-hub.hm6-page .hn-info a.lf-src { display: none; }
 }
 
