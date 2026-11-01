@@ -22,11 +22,11 @@ export interface WhoRuler {
 }
 
 /** A dating statement in Scripture's words; `why` says how far it reaches, `note` anything a reader should know. */
-export interface Statement { span?: Span; quote: string; why?: string; note?: string; title?: boolean }
+export interface Statement { span?: Span; quote?: string; why?: string; note?: string; title?: boolean }
 interface ChapterRulerRow { id: string; named?: number[]; dated?: Statement[]; title?: Statement[]; account?: Span }
 interface ChapterProphetRow { id: string; named?: number[] }
-export interface BookHeading { span: Span; quote: string; rulers?: string[]; prophet?: string; note?: string }
-export interface BookRelated { span: Span; quote: string; rulers?: string[]; note?: string }
+export interface BookHeading { span: Span; rulers?: string[]; prophet?: string; note?: string }
+export interface BookRelated { span: Span; rulers?: string[]; note?: string }
 
 export interface WhoRuledBook {
   book: string;
@@ -43,7 +43,7 @@ export interface WhoRuledBook {
 }
 
 export type Reason =
-  | { kind: "dated"; span: Span; quote: string; why?: string; note?: string }
+  | { kind: "dated"; span: Span; why?: string; note?: string }
   | { kind: "title"; quote: string; note?: string }
   | { kind: "named"; verses: number[] }
   | { kind: "during"; span: Span }
@@ -114,8 +114,8 @@ export function chapterWho(book: WhoRuledBook, chapter: number): ChapterWho {
   let era: string | undefined;
   for (const row of rows.rulers ?? []) {
     const it = item(book, row.id);
-    for (const d of row.dated ?? []) if (d.span) it.reasons.push({ kind: "dated", span: d.span, quote: d.quote, why: d.why, note: d.note });
-    for (const t of row.title ?? []) it.reasons.push({ kind: "title", quote: t.quote, note: t.note });
+    for (const d of row.dated ?? []) if (d.span) it.reasons.push({ kind: "dated", span: d.span, why: d.why, note: d.note });
+    for (const t of row.title ?? []) it.reasons.push({ kind: "title", quote: t.quote ?? "", note: t.note });
     if (row.named?.length) it.reasons.push({ kind: "named", verses: row.named });
     if (row.account && !row.named?.length && !row.dated?.length) it.reasons.push({ kind: "during", span: row.account });
     it.inTime = !!(row.dated?.length || row.title?.length || row.account);

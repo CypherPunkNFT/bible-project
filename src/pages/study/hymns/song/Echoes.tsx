@@ -3,7 +3,7 @@
 // (approved mock-up: design/hymn-directions/shared/echoes.js, shown in its "compare" form).
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import type { SongEcho } from "@/lib/hymns";
-import { ROMAN, numeralStyle, type OpenPassage } from "./parts";
+import { EchoWords, ROMAN, numeralStyle, type OpenPassage } from "./parts";
 
 /** What the echoes need of a hymn. `kind` (on the generated hymn pages) tags how an echo was found. */
 export interface EchoesHymn { stanzas: string[][]; echoes: (SongEcho & { kind?: "shared" | "echo" })[] }
@@ -69,12 +69,12 @@ export function Echoes({ song, open, closedAt, stanzaOffset = 0, showKey = true 
           if (!ids.length) return <span key={l} className="line"><span className="t">{text}</span></span>;
           return <span key={l} className={`line echo${ids.some(on) ? " on" : ""}`} onMouseEnter={() => setFocus(ids)} onMouseLeave={() => setFocus([])} onClick={() => openEcho(ids[0])}>
             <span className="t" ref={(el) => { for (const i of ids) lineRefs.current[i] = el; }}>{text}</span>
-            {ids.map((i) => <span key={i} className="inline-note"><b>{song.echoes[i].ref}</b>{song.echoes[i].words}</span>)}</span>;
+            {ids.map((i) => <span key={i} className="inline-note"><b>{song.echoes[i].ref}</b><EchoWords echo={song.echoes[i]} /></span>)}</span>;
         })}</div>)}</div>
       <div className="margin" ref={margin} style={{ minHeight: joins.height || undefined }}>{song.echoes.map((e, i) =>
         <button key={i} type="button" ref={(el) => { noteRefs.current[i] = el; }} className={`note${on(i) ? " on" : ""}`} style={{ top: joins.tops[i] ?? 0 }}
           onMouseEnter={() => setFocus([i])} onMouseLeave={() => setFocus([])} onClick={() => openEcho(i)}>
-          <span className="ref">{e.ref}{e.kind && <i className="kind">{KIND_LABEL[e.kind]}</i>}</span><span className="w">“{e.words}”</span></button>)}</div>
+          <span className="ref">{e.ref}{e.kind && <i className="kind">{KIND_LABEL[e.kind]}</i>}</span><span className="w">“<EchoWords echo={e} />”</span></button>)}</div>
     </div>
     {showKey && <p className="ec-key">{song.echoes.length} echoes in {song.stanzas.reduce((n, s) => n + s.length, 0)} lines.</p>}
   </>;

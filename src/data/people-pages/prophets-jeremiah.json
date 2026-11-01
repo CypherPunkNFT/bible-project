@@ -139,18 +139,18 @@
           },
           "quotes": [
             {
-              "text": "The great day of the LORD is near, it is near, and hasteth greatly",
               "span": [
                 36001014,
                 36001014
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "That day is a day of wrath, a day of trouble and distress",
               "span": [
                 36001015,
                 36001015
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -172,11 +172,11 @@
           },
           "quotes": [
             {
-              "text": "I will search Jerusalem with candles, and punish the men that are settled on their lees: that say in their heart, The LORD will not do good, neither will he do evil.",
               "span": [
                 36001012,
                 36001012
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -194,11 +194,11 @@
           },
           "quotes": [
             {
-              "text": "Seek ye the LORD, all ye meek of the earth, which have wrought his judgment; seek righteousness, seek meekness: it may be ye shall be hid in the day of the LORD’s anger.",
               "span": [
                 36002003,
                 36002003
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -246,11 +246,11 @@
           },
           "quotes": [
             {
-              "text": "The LORD thy God in the midst of thee is mighty; he will save, he will rejoice over thee with joy; he will rest in his love, he will joy over thee with singing.",
               "span": [
                 36003017,
                 36003017
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -260,66 +260,66 @@
           "to": "Judah and Jerusalem",
           "placeId": "a15257a",
           "quote": {
-            "text": "I will also stretch out mine hand upon Judah, and upon all the inhabitants of Jerusalem",
             "span": [
               36001004,
               36001004
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "The Philistines",
           "placeId": "ac71e65",
           "quote": {
-            "text": "Woe unto the inhabitants of the sea coast, the nation of the Cherethites!",
             "span": [
               36002005,
               36002005
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Moab and Ammon",
           "placeId": "aa0b1d6",
           "quote": {
-            "text": "Surely Moab shall be as Sodom, and the children of Ammon as Gomorrah",
             "span": [
               36002009,
               36002009
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "The Ethiopians",
           "placeId": "ab45bd3",
           "quote": {
-            "text": "Ye Ethiopians also, ye shall be slain by my sword.",
             "span": [
               36002012,
               36002012
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Assyria and Nineveh",
           "placeId": "a70fd5d",
           "quote": {
-            "text": "This is the rejoicing city that dwelt carelessly, that said in her heart, I am, and there is none beside me",
             "span": [
               36002015,
               36002015
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "The daughter of Zion",
           "placeId": "abd9596",
           "quote": {
-            "text": "Sing, O daughter of Zion; shout, O Israel; be glad and rejoice with all the heart, O daughter of Jerusalem.",
             "span": [
               36003014,
               36003014
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -565,11 +565,11 @@
             ]
           },
           "quote": {
-            "text": "He judged the cause of the poor and needy; then it was well with him: was not this to know me? saith the LORD.",
             "span": [
               24022016,
               24022016
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -592,11 +592,11 @@
             ]
           },
           "quote": {
-            "text": "weep sore for him that goeth away: for he shall return no more, nor see his native country",
             "span": [
               24022010,
               24022010
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -623,11 +623,11 @@
             ]
           },
           "quote": {
-            "text": "He shall have none to sit upon the throne of David: and his dead body shall be cast out in the day to the heat, and in the night to the frost.",
             "span": [
               24036030,
               24036030
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -658,11 +658,11 @@
             ]
           },
           "quote": {
-            "text": "Write ye this man childless, a man that shall not prosper in his days: for no man of his seed shall prosper, sitting upon the throne of David, and ruling any more in Judah.",
             "span": [
               24022030,
               24022030
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -705,11 +705,11 @@
             ]
           },
           "quote": {
-            "text": "If thou wilt assuredly go forth unto the king of Babylon’s princes, then thy soul shall live, and this city shall not be burned with fire",
             "span": [
               24038017,
               24038017
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -740,11 +740,11 @@
             ]
           },
           "quote": {
-            "text": "Take him, and look well to him, and do him no harm; but do unto him even as he shall say unto thee.",
             "span": [
               24039012,
               24039012
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -772,11 +772,11 @@
         {
           "label": "The call (Jeremiah 1)",
           "quote": {
-            "text": "Before I formed thee in the belly I knew thee; and before thou camest forth out of the womb I sanctified thee, and I ordained thee a prophet unto the nations.",
             "span": [
               24001005,
               24001005
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "The word came “in the thirteenth year” of Josiah. Jeremiah answered, “Ah, Lord GOD! behold, I cannot speak: for I am a child.” The LORD told him not to say so, nor to be afraid of their faces, touched his mouth and said, “Behold, I have put my words in thy mouth,” and set him “over the nations and over the kingdoms, to root out, and to pull down, and to destroy, and to throw down, to build, and to plant.”",
@@ -796,11 +796,11 @@
         {
           "label": "Two sights and a charge (Jeremiah 1)",
           "quote": {
-            "text": "For, behold, I have made thee this day a defenced city, and an iron pillar, and brasen walls against the whole land",
             "span": [
               24001018,
               24001018
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "The call goes on with two things the LORD showed him, a rod of an almond tree and a seething pot facing from the north, and a charge: “Thou therefore gird up thy loins, and arise, and speak unto them all that I command thee.” Kings, princes, priests and people would fight against him, “but they shall not prevail against thee”.",
@@ -1005,11 +1005,11 @@
           },
           "quotes": [
             {
-              "text": "For my people have committed two evils; they have forsaken me the fountain of living waters, and hewed them out cisterns, broken cisterns, that can hold no water.",
               "span": [
                 24002013,
                 24002013
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -1035,18 +1035,18 @@
           },
           "quotes": [
             {
-              "text": "Trust ye not in lying words, saying, The temple of the LORD, The temple of the LORD, The temple of the LORD, are these.",
               "span": [
                 24007004,
                 24007004
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "Is this house, which is called by my name, become a den of robbers in your eyes?",
               "span": [
                 24007011,
                 24007011
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -1080,11 +1080,11 @@
           },
           "quotes": [
             {
-              "text": "Woe unto him that buildeth his house by unrighteousness, and his chambers by wrong; that useth his neighbour’s service without wages, and giveth him not for his work",
               "span": [
                 24022013,
                 24022013
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -1106,18 +1106,18 @@
           },
           "quotes": [
             {
-              "text": "The heart is deceitful above all things, and desperately wicked: who can know it?",
               "span": [
                 24017009,
                 24017009
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "Blessed is the man that trusteth in the LORD, and whose hope the LORD is.",
               "span": [
                 24017007,
                 24017007
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -1151,18 +1151,18 @@
           },
           "quotes": [
             {
-              "text": "Behold, I set before you the way of life, and the way of death.",
               "span": [
                 24021008,
                 24021008
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "Bring your necks under the yoke of the king of Babylon, and serve him and his people, and live.",
               "span": [
                 24027012,
                 24027012
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -1196,25 +1196,25 @@
           },
           "quotes": [
             {
-              "text": "They have healed also the hurt of the daughter of my people slightly, saying, Peace, peace; when there is no peace.",
               "span": [
                 24006014,
                 24006014
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "I have not sent these prophets, yet they ran: I have not spoken to them, yet they prophesied.",
               "span": [
                 24023021,
                 24023021
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "Is not my word like as a fire? saith the LORD; and like a hammer that breaketh the rock in pieces?",
               "span": [
                 24023029,
                 24023029
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -1240,25 +1240,25 @@
           },
           "quotes": [
             {
-              "text": "these nations shall serve the king of Babylon seventy years",
               "span": [
                 24025011,
                 24025011
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "That after seventy years be accomplished at Babylon I will visit you, and perform my good word toward you, in causing you to return to this place.",
               "span": [
                 24029010,
                 24029010
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "And seek the peace of the city whither I have caused you to be carried away captives, and pray unto the LORD for it: for in the peace thereof shall ye have peace.",
               "span": [
                 24029007,
                 24029007
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -1296,25 +1296,25 @@
           },
           "quotes": [
             {
-              "text": "Behold, the days come, saith the LORD, that I will make a new covenant with the house of Israel, and with the house of Judah",
               "span": [
                 24031031,
                 24031031
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "I will put my law in their inward parts, and write it in their hearts; and will be their God, and they shall be my people.",
               "span": [
                 24031033,
                 24031033
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "for I will forgive their iniquity, and I will remember their sin no more.",
               "span": [
                 24031034,
                 24031034
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -1348,11 +1348,11 @@
           },
           "quotes": [
             {
-              "text": "Take the wine cup of this fury at my hand, and cause all the nations, to whom I send thee, to drink it.",
               "span": [
                 24025015,
                 24025015
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -1386,25 +1386,25 @@
           },
           "quotes": [
             {
-              "text": "Oh that my head were waters, and mine eyes a fountain of tears, that I might weep day and night for the slain of the daughter of my people!",
               "span": [
                 24009001,
                 24009001
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "Is there no balm in Gilead; is there no physician there?",
               "span": [
                 24008022,
                 24008022
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "Cursed be the day wherein I was born",
               "span": [
                 24020014,
                 24020014
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -1417,11 +1417,11 @@
             "personId": "pashhur-jer-20-1"
           },
           "quote": {
-            "text": "The LORD hath not called thy name Pashur, but Magor-missabib.",
             "span": [
               24020003,
               24020003
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Said the morning after Pashur had him beaten and put in the stocks. Pashur and his house would go to Babylon and die there, with the friends to whom he had “prophesied lies”.",
@@ -1441,11 +1441,11 @@
             "personId": "hananiah-jer-28-1"
           },
           "quote": {
-            "text": "Hear now, Hananiah; The LORD hath not sent thee; but thou makest this people to trust in a lie.",
             "span": [
               24028015,
               24028015
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -1455,11 +1455,11 @@
             "personId": "jehoiakim-2ki-23-34"
           },
           "quote": {
-            "text": "Thou hast burned this roll",
             "span": [
               24036029,
               24036029
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Sent after the king burned the scroll: none of his line would sit on David's throne, and his body would be cast out.",
@@ -1479,11 +1479,11 @@
             "personId": "jehoiachin-2ki-24-6"
           },
           "quote": {
-            "text": "O earth, earth, earth, hear the word of the LORD.",
             "span": [
               24022029,
               24022029
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -1493,11 +1493,11 @@
             "personId": "zedekiah-2ki-24-17"
           },
           "quote": {
-            "text": "Thou shalt not die by the sword: But thou shalt die in peace",
             "span": [
               24034004,
               24034005
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "In the same message: the city would be burned, and Zedekiah would see the king of Babylon's eyes and go to Babylon.",
@@ -1514,11 +1514,11 @@
           "to": "The captives in Babylon",
           "placeId": "a217d18",
           "quote": {
-            "text": "Build ye houses, and dwell in them; and plant gardens, and eat the fruit of them",
             "span": [
               24029005,
               24029005
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "A letter sent from Jerusalem by the hand of Elasah and Gemariah.",
@@ -1538,11 +1538,11 @@
             "personId": "jaazaniah-jer-35-3"
           },
           "quote": {
-            "text": "Jonadab the son of Rechab shall not want a man to stand before me for ever.",
             "span": [
               24035019,
               24035019
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -1552,11 +1552,11 @@
             "personId": "baruch-jer-32-12"
           },
           "quote": {
-            "text": "And seekest thou great things for thyself? seek them not",
             "span": [
               24045005,
               24045005
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Baruch had said, “Woe is me now!” The answer: his life would be given him “for a prey in all places whither thou goest”.",
@@ -1576,22 +1576,22 @@
             "personId": "ebed-melech-jer-38-7"
           },
           "quote": {
-            "text": "thou shalt not fall by the sword, but thy life shall be for a prey unto thee: because thou hast put thy trust in me",
             "span": [
               24039018,
               24039018
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "The remnant at Geruth Chimham, by Bethlehem",
           "placeId": "a1c28f1",
           "quote": {
-            "text": "Go ye not into Egypt",
             "span": [
               24042019,
               24042019
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "The answer they had asked him to seek, given after ten days: stay in the land and be built up; go to Egypt and die there by sword, famine and pestilence.",
@@ -1608,11 +1608,11 @@
           "to": "The Jews in Egypt",
           "placeId": "aab30ec",
           "quote": {
-            "text": "all the remnant of Judah, that are gone into the land of Egypt to sojourn there, shall know whose words shall stand, mine, or theirs.",
             "span": [
               24044028,
               24044028
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Spoken to the Jews at Migdol, Tahpanhes, Noph and Pathros, who answered that they would go on burning incense to the queen of heaven.",
@@ -1636,11 +1636,11 @@
             "personId": "hophra-jer-37-5"
           },
           "quote": {
-            "text": "Behold, I will give Pharaoh-hophra king of Egypt into the hand of his enemies",
             "span": [
               24044030,
               24044030
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Given as “a sign unto you” to the Jews in Egypt.",
@@ -1657,110 +1657,110 @@
           "to": "Egypt",
           "placeId": "af301ca",
           "quote": {
-            "text": "Against Egypt, against the army of Pharaoh-necho king of Egypt, which was by the river Euphrates in Carchemish",
             "span": [
               24046002,
               24046002
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "The Philistines",
           "placeId": "ac71e65",
           "quote": {
-            "text": "The word of the LORD that came to Jeremiah the prophet against the Philistines, before that Pharaoh smote Gaza.",
             "span": [
               24047001,
               24047001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Moab",
           "placeId": "aa0b1d6",
           "quote": {
-            "text": "Woe unto Nebo! for it is spoiled",
             "span": [
               24048001,
               24048001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Ammon",
           "placeId": "a6046fa",
           "quote": {
-            "text": "Hath Israel no sons? hath he no heir?",
             "span": [
               24049001,
               24049001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Edom",
           "placeId": "a2735ff",
           "quote": {
-            "text": "Is wisdom no more in Teman? is counsel perished from the prudent?",
             "span": [
               24049007,
               24049007
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Damascus",
           "placeId": "a69c1d4",
           "quote": {
-            "text": "Concerning Damascus. Hamath is confounded, and Arpad: for they have heard evil tidings",
             "span": [
               24049023,
               24049023
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Kedar and the kingdoms of Hazor",
           "placeId": "a68d1a9",
           "quote": {
-            "text": "Arise ye, go up to Kedar, and spoil the men of the east.",
             "span": [
               24049028,
               24049028
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Elam",
           "placeId": "a7e3a59",
           "quote": {
-            "text": "The word of the LORD that came to Jeremiah the prophet against Elam in the beginning of the reign of Zedekiah",
             "span": [
               24049034,
               24049034
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Babylon",
           "placeId": "a217d18",
           "quote": {
-            "text": "Thus shall Babylon sink, and shall not rise from the evil that I will bring upon her",
             "span": [
               24051064,
               24051064
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "The men of Anathoth",
           "placeId": "ab34789",
           "quote": {
-            "text": "I will bring evil upon the men of Anathoth, even the year of their visitation.",
             "span": [
               24011023,
               24011023
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "His own townsmen had said, “Prophesy not in the name of the LORD, that thou die not by our hand”.",
@@ -1974,24 +1974,34 @@
       "fulfilment": [
         {
           "word": {
-            "text": "“Behold, Hanameel the son of Shallum thine uncle shall come unto thee, saying, Buy thee my field that is in Anathoth”.",
             "layer": "scripture",
             "refs": [
               [
                 24032006,
                 24032007
               ]
-            ]
+            ],
+            "span": [
+              24032006,
+              24032007
+            ],
+            "quoted": true,
+            "marks": true
           },
           "reported": {
-            "text": "“So Hanameel mine uncle’s son came to me in the court of the prison according to the word of the LORD … Then I knew that this was the word of the LORD.”",
             "layer": "scripture",
             "refs": [
               [
                 24032008,
                 24032008
               ]
-            ]
+            ],
+            "span": [
+              24032008,
+              24032008
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -2006,14 +2016,19 @@
             ]
           },
           "reported": {
-            "text": "“So Hananiah the prophet died the same year in the seventh month.”",
             "layer": "scripture",
             "refs": [
               [
                 24028017,
                 24028017
               ]
-            ]
+            ],
+            "span": [
+              24028017,
+              24028017
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -2082,14 +2097,19 @@
         },
         {
           "word": {
-            "text": "“A voice was heard in Ramah, lamentation, and bitter weeping; Rahel weeping for her children refused to be comforted for her children, because they were not.”",
             "layer": "scripture",
             "refs": [
               [
                 24031015,
                 24031015
               ]
-            ]
+            ],
+            "span": [
+              24031015,
+              24031015
+            ],
+            "quoted": true,
+            "marks": true
           },
           "reported": {
             "text": "After Herod killed the children of Bethlehem, Matthew writes: “Then was fulfilled that which was spoken by Jeremy the prophet”.",
@@ -2482,14 +2502,19 @@
             "personId": "ahikam-2ki-22-12"
           },
           "claim": {
-            "text": "“The hand of Ahikam the son of Shaphan was with Jeremiah, that they should not give him into the hand of the people to put him to death.”",
             "layer": "scripture",
             "refs": [
               [
                 24026024,
                 24026024
               ]
-            ]
+            ],
+            "span": [
+              24026024,
+              24026024
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -3482,11 +3507,11 @@
           },
           "quotes": [
             {
-              "text": "Thus speaketh the LORD of hosts, the God of Israel, saying, I have broken the yoke of the king of Babylon.",
               "span": [
                 24028002,
                 24028002
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -3504,11 +3529,11 @@
           },
           "quotes": [
             {
-              "text": "Within two full years will I bring again into this place all the vessels of the LORD’s house",
               "span": [
                 24028003,
                 24028003
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -3518,11 +3543,11 @@
           "to": "All the people, in the temple",
           "placeId": "a15257a",
           "quote": {
-            "text": "Even so will I break the yoke of Nebuchadnezzar king of Babylon from the neck of all nations within the space of two full years.",
             "span": [
               24028011,
               24028011
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -3531,14 +3556,19 @@
           "label": "The yoke broken",
           "kind": "sign-act",
           "claim": {
-            "text": "“Then Hananiah the prophet took the yoke from off the prophet Jeremiah’s neck, and brake it.”",
             "layer": "scripture",
             "refs": [
               [
                 24028010,
                 24028010
               ]
-            ]
+            ],
+            "span": [
+              24028010,
+              24028010
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],
@@ -3581,14 +3611,19 @@
             ]
           },
           "reported": {
-            "text": "“So Hananiah the prophet died the same year in the seventh month.”",
             "layer": "scripture",
             "refs": [
               [
                 24028017,
                 24028017
               ]
-            ]
+            ],
+            "span": [
+              24028017,
+              24028017
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],
@@ -3616,14 +3651,19 @@
             "personId": "azzur-jer-28-1"
           },
           "claim": {
-            "text": "“Hananiah the son of Azur the prophet, which was of Gibeon”.",
             "layer": "scripture",
             "refs": [
               [
                 24028001,
                 24028001
               ]
-            ]
+            ],
+            "span": [
+              24028001,
+              24028001
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],
@@ -3773,11 +3813,11 @@
           },
           "quotes": [
             {
-              "text": "Thus saith the LORD of hosts, the God of Israel, of Ahab the son of Kolaiah, and of Zedekiah the son of Maaseiah, which prophesy a lie unto you in my name",
               "span": [
                 24029021,
                 24029021
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -3787,11 +3827,11 @@
           "to": "The captives in Babylon",
           "placeId": "a217d18",
           "quote": {
-            "text": "Because they have committed villany in Israel, and have committed adultery with their neighbours’ wives, and have spoken lying words in my name, which I have not commanded them; even I know, and am a witness, saith the LORD.",
             "span": [
               24029023,
               24029023
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Jeremiah's letter, spoken about him and his companion to all the captivity.",
@@ -3854,14 +3894,19 @@
             "personId": "kolaiah-jer-29-21"
           },
           "claim": {
-            "text": "“Ahab the son of Kolaiah”.",
             "layer": "scripture",
             "refs": [
               [
                 24029021,
                 24029021
               ]
-            ]
+            ],
+            "span": [
+              24029021,
+              24029021
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -4032,11 +4077,11 @@
           },
           "quotes": [
             {
-              "text": "Thus saith the LORD of hosts, the God of Israel, of Ahab the son of Kolaiah, and of Zedekiah the son of Maaseiah, which prophesy a lie unto you in my name",
               "span": [
                 24029021,
                 24029021
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -4046,11 +4091,11 @@
           "to": "The captives in Babylon",
           "placeId": "a217d18",
           "quote": {
-            "text": "Because they have committed villany in Israel, and have committed adultery with their neighbours’ wives, and have spoken lying words in my name, which I have not commanded them; even I know, and am a witness, saith the LORD.",
             "span": [
               24029023,
               24029023
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Jeremiah's letter, spoken about him and his companion to all the captivity.",
@@ -4113,14 +4158,19 @@
             "personId": "maaseiah-jer-29-21"
           },
           "claim": {
-            "text": "“Zedekiah the son of Maaseiah”.",
             "layer": "scripture",
             "refs": [
               [
                 24029021,
                 24029021
               ]
-            ]
+            ],
+            "span": [
+              24029021,
+              24029021
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -4292,18 +4342,18 @@
           },
           "quotes": [
             {
-              "text": "Now therefore why hast thou not reproved Jeremiah of Anathoth, which maketh himself a prophet to you?",
               "span": [
                 24029027,
                 24029027
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "This captivity is long: build ye houses, and dwell in them",
               "span": [
                 24029028,
                 24029028
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -4313,11 +4363,11 @@
           "to": "All the captivity, concerning Shemaiah",
           "placeId": "a217d18",
           "quote": {
-            "text": "Because that Shemaiah hath prophesied unto you, and I sent him not, and he caused you to trust in a lie",
             "span": [
               24029031,
               24029031
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -4463,18 +4513,18 @@
           },
           "quotes": [
             {
-              "text": "The pride of thine heart hath deceived thee, thou that dwellest in the clefts of the rock",
               "span": [
                 31001003,
                 31001003
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "Though thou exalt thyself as the eagle, and though thou set thy nest among the stars, thence will I bring thee down, saith the LORD.",
               "span": [
                 31001004,
                 31001004
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -4492,11 +4542,11 @@
           },
           "quotes": [
             {
-              "text": "For thy violence against thy brother Jacob shame shall cover thee, and thou shalt be cut off for ever.",
               "span": [
                 31001010,
                 31001010
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -4514,11 +4564,11 @@
           },
           "quotes": [
             {
-              "text": "as thou hast done, it shall be done unto thee: thy reward shall return upon thine own head.",
               "span": [
                 31001015,
                 31001015
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -4536,11 +4586,11 @@
           },
           "quotes": [
             {
-              "text": "And saviours shall come up on mount Zion to judge the mount of Esau; and the kingdom shall be the LORD’s.",
               "span": [
                 31001021,
                 31001021
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -4550,11 +4600,11 @@
           "to": "Edom",
           "placeId": "a2735ff",
           "quote": {
-            "text": "Thou shouldest not have entered into the gate of my people in the day of their calamity",
             "span": [
               31001013,
               31001013
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -4864,18 +4914,18 @@
           },
           "quotes": [
             {
-              "text": "The LORD is slow to anger, and great in power, and will not at all acquit the wicked",
               "span": [
                 34001003,
                 34001003
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "The LORD is good, a strong hold in the day of trouble; and he knoweth them that trust in him.",
               "span": [
                 34001007,
                 34001007
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -4893,11 +4943,11 @@
           },
           "quotes": [
             {
-              "text": "Behold upon the mountains the feet of him that bringeth good tidings, that publisheth peace!",
               "span": [
                 34001015,
                 34001015
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -4915,18 +4965,18 @@
           },
           "quotes": [
             {
-              "text": "Woe to the bloody city! it is all full of lies and robbery",
               "span": [
                 34003001,
                 34003001
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "Nineveh is laid waste: who will bemoan her?",
               "span": [
                 34003007,
                 34003007
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -4949,32 +4999,32 @@
           "to": "Nineveh",
           "placeId": "a70fd5d",
           "quote": {
-            "text": "Behold, I am against thee, saith the LORD of hosts",
             "span": [
               34002013,
               34002013
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Judah",
           "placeId": "a15257a",
           "quote": {
-            "text": "O Judah, keep thy solemn feasts, perform thy vows: for the wicked shall no more pass through thee",
             "span": [
               34001015,
               34001015
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "The king of Assyria",
           "quote": {
-            "text": "Thy shepherds slumber, O king of Assyria: thy nobles shall dwell in the dust",
             "span": [
               34003018,
               34003018
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -5318,11 +5368,11 @@
           },
           "quotes": [
             {
-              "text": "O LORD, how long shall I cry, and thou wilt not hear!",
               "span": [
                 35001002,
                 35001002
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -5340,11 +5390,11 @@
           },
           "quotes": [
             {
-              "text": "For, lo, I raise up the Chaldeans, that bitter and hasty nation",
               "span": [
                 35001006,
                 35001006
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -5375,18 +5425,18 @@
           },
           "quotes": [
             {
-              "text": "though it tarry, wait for it; because it will surely come, it will not tarry.",
               "span": [
                 35002003,
                 35002003
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "but the just shall live by his faith.",
               "span": [
                 35002004,
                 35002004
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -5404,18 +5454,18 @@
           },
           "quotes": [
             {
-              "text": "For the earth shall be filled with the knowledge of the glory of the LORD, as the waters cover the sea.",
               "span": [
                 35002014,
                 35002014
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "But the LORD is in his holy temple: let all the earth keep silence before him.",
               "span": [
                 35002020,
                 35002020
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -5433,18 +5483,18 @@
           },
           "quotes": [
             {
-              "text": "Although the fig tree shall not blossom, neither shall fruit be in the vines",
               "span": [
                 35003017,
                 35003017
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "Yet I will rejoice in the LORD, I will joy in the God of my salvation.",
               "span": [
                 35003018,
                 35003018
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -5454,11 +5504,11 @@
           "to": "The Chaldean",
           "placeId": "a32a4f8",
           "quote": {
-            "text": "Because thou hast spoiled many nations, all the remnant of the people shall spoil thee",
             "span": [
               35002008,
               35002008
-            ]
+            ],
+            "quoted": true
           }
         }
       ],

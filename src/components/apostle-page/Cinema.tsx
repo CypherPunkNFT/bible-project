@@ -1,3 +1,4 @@
+import { BibleAbbr } from "@/components/Verse";
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { F, hills, P, stars, svg, walls, water } from "./art/kit";
 import { scene } from "./art/scenes-2";
@@ -36,7 +37,7 @@ function Slide({ d, entry, art, v, play }: { d: Apostle; entry: string; art: str
   return <div className="cn-slide">
     <div className="cn-text"><p className="kicker"><Icon name={e.icon} size={14} />{LAYER[e.layer ?? ""] ?? ""}{e.refs[0] ? ` · ${refText(e.refs[0])}` : ""}</p>
       <h3 className="cn-title">{e.title}</h3>
-      {v && text && <blockquote className="cn-verse"><p><Marked text={text} names={d.names} /></p><footer><RefLink r={[v, v]} /> · KJV</footer></blockquote>}
+      {v && text && <blockquote className="cn-verse"><p><Marked text={text} names={d.names} /></p><footer><RefLink r={[v, v]} /> · <BibleAbbr /></footer></blockquote>}
       {e.text && e.text !== e.title && <p className="cn-what">{e.text}</p>}
       <Facts d={d} e={e} />
       <div className="cn-actions"><button type="button" className="cn-more" onClick={() => sheet.openEntry(e)}><Icon name="layers" size={15} />Read it all<small>{e.refs.length ? plural(e.refs.length, "passage") : "with its sources"}</small></button></div></div>

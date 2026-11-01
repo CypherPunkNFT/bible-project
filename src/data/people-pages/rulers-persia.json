@@ -264,14 +264,19 @@
           ]
         },
         {
-          "text": "\"So this Daniel prospered in the reign of Darius, and in the reign of Cyrus the Persian.\"",
           "layer": "scripture",
           "refs": [
             [
               27006028,
               27006028
             ]
-          ]
+          ],
+          "span": [
+            27006028,
+            27006028
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "The angel who speaks to Daniel says: \"in the first year of Darius the Mede, even I, stood to confirm and to strengthen him.\"",
@@ -466,11 +471,11 @@
             ]
           },
           "quote": {
-            "text": "My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me",
             "span": [
               27006022,
               27006022
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -812,14 +817,19 @@
           ]
         },
         {
-          "text": "\"He shall build my city, and he shall let go my captives, not for price nor reward, saith the LORD of hosts.\"",
           "layer": "scripture",
           "refs": [
             [
               23045013,
               23045013
             ]
-          ]
+          ],
+          "span": [
+            23045013,
+            23045013
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "\"The LORD stirred up the spirit of Cyrus king of Persia\", that the word spoken by Jeremiah might be fulfilled.",
@@ -948,14 +958,19 @@
           "label": "Daniel continues",
           "kind": "other",
           "claim": {
-            "text": "\"And Daniel continued even unto the first year of king Cyrus.\"",
             "layer": "scripture",
             "refs": [
               [
                 27001021,
                 27001021
               ]
-            ]
+            ],
+            "span": [
+              27001021,
+              27001021
+            ],
+            "quoted": true,
+            "marks": true
           },
           "year": 1
         },
@@ -963,14 +978,19 @@
           "label": "Daniel's last vision",
           "kind": "prophecy",
           "claim": {
-            "text": "\"In the third year of Cyrus king of Persia a thing was revealed unto Daniel.\"",
             "layer": "scripture",
             "refs": [
               [
                 27010001,
                 27010001
               ]
-            ]
+            ],
+            "span": [
+              27010001,
+              27010001
+            ],
+            "quoted": true,
+            "marks": true
           },
           "year": 3
         }
@@ -1028,14 +1048,19 @@
         ],
         "people": [
           {
-            "text": "\"Who is there among you of all his people? his God be with him, and let him go up to Jerusalem.\"",
             "layer": "scripture",
             "refs": [
               [
                 15001003,
                 15001003
               ]
-            ]
+            ],
+            "span": [
+              15001003,
+              15001003
+            ],
+            "quoted": true,
+            "marks": true
           },
           {
             "text": "Chronicles says the exiles served the king of Babylon \"until the reign of the kingdom of Persia\".",
@@ -1070,11 +1095,11 @@
             ]
           },
           "quote": {
-            "text": "He is my shepherd, and shall perform all my pleasure",
             "span": [
               23044028,
               23044028
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -1121,11 +1146,11 @@
             ]
           },
           "quote": {
-            "text": "In the third year of Cyrus king of Persia a thing was revealed unto Daniel",
             "span": [
               27010001,
               27010001
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -1607,24 +1632,34 @@
           ]
         },
         {
-          "text": "\"Yet now be strong, O Zerubbabel, saith the LORD.\"",
           "layer": "scripture",
           "refs": [
             [
               37002004,
               37002004
             ]
-          ]
+          ],
+          "span": [
+            37002004,
+            37002004
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "\"In that day, saith the LORD of hosts, will I take thee, O Zerubbabel, my servant, the son of Shealtiel, saith the LORD, and will make thee as a signet: for I have chosen thee\"",
           "layer": "scripture",
           "refs": [
             [
               37002023,
               37002023
             ]
-          ]
+          ],
+          "span": [
+            37002023,
+            37002023
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "\"Not by might, nor by power, but by my spirit, saith the LORD of hosts\"; \"The hands of Zerubbabel have laid the foundation of this house; his hands shall also finish it.\"",
@@ -1644,31 +1679,31 @@
       "synchronisms": [
         {
           "quote": {
-            "text": "In the second year of Darius the king, in the sixth month, in the first day of the month, came the word of the LORD by Haggai the prophet unto Zerubbabel the son of Shealtiel, governor of Judah",
             "span": [
               37001001,
               37001001
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "darius-ezr-4-5"
         },
         {
           "quote": {
-            "text": "In the four and twentieth day of the sixth month, in the second year of Darius the king",
             "span": [
               37001015,
               37001015
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "darius-ezr-4-5"
         },
         {
           "quote": {
-            "text": "And this house was finished on the third day of the month Adar, which was in the sixth year of the reign of Darius the king",
             "span": [
               15006015,
               15006015
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "darius-ezr-4-5"
         }
@@ -1919,14 +1954,19 @@
         ],
         "people": [
           {
-            "text": "\"All Israel in the days of Zerubbabel, and in the days of Nehemiah, gave the portions of the singers and the porters.\"",
             "layer": "scripture",
             "refs": [
               [
                 16012047,
                 16012047
               ]
-            ]
+            ],
+            "span": [
+              16012047,
+              16012047
+            ],
+            "quoted": true,
+            "marks": true
           }
         ]
       },
@@ -1955,11 +1995,11 @@
             ]
           },
           "quote": {
-            "text": "will I take thee, O Zerubbabel, my servant, the son of Shealtiel, saith the LORD, and will make thee as a signet",
             "span": [
               37002023,
               37002023
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -1978,11 +2018,11 @@
             ]
           },
           "quote": {
-            "text": "Not by might, nor by power, but by my spirit, saith the LORD of hosts",
             "span": [
               38004006,
               38004006
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -2420,14 +2460,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"Let the work of this house of God alone; let the governor of the Jews and the elders of the Jews build this house of God in his place.\"",
           "layer": "scripture",
           "refs": [
             [
               15006007,
               15006007
             ]
-          ]
+          ],
+          "span": [
+            15006007,
+            15006007
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "He ordered the costs paid from \"the tribute beyond the river\", and sacrifices supplied, \"that they may offer sacrifices of sweet savours unto the God of heaven, and pray for the life of the king, and of his sons\".",
@@ -2440,14 +2485,19 @@
           ]
         },
         {
-          "text": "\"And the God that hath caused his name to dwell there destroy all kings and people, that shall put to their hand to alter and to destroy this house of God which is at Jerusalem. I Darius have made a decree; let it be done with speed.\"",
           "layer": "scripture",
           "refs": [
             [
               15006012,
               15006012
             ]
-          ]
+          ],
+          "span": [
+            15006012,
+            15006012
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "After the Passover Ezra says the LORD had \"turned the heart of the king of Assyria unto them, to strengthen their hands in the work of the house of God\".",
@@ -2463,11 +2513,11 @@
       "synchronisms": [
         {
           "quote": {
-            "text": "In the second year of Darius the king, in the sixth month, in the first day of the month, came the word of the LORD by Haggai the prophet unto Zerubbabel",
             "span": [
               37001001,
               37001001
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "zerubbabel-1ch-3-19"
         }
@@ -2574,14 +2624,19 @@
           "label": "The temple finished",
           "kind": "building",
           "claim": {
-            "text": "\"And this house was finished on the third day of the month Adar, which was in the sixth year of the reign of Darius the king.\"",
             "layer": "scripture",
             "refs": [
               [
                 15006015,
                 15006015
               ]
-            ]
+            ],
+            "span": [
+              15006015,
+              15006015
+            ],
+            "quoted": true,
+            "marks": true
           },
           "year": 6,
           "placeId": "a15257a"
@@ -2640,14 +2695,19 @@
         ],
         "people": [
           {
-            "text": "\"And the elders of the Jews builded, and they prospered through the prophesying of Haggai the prophet and Zechariah the son of Iddo.\"",
             "layer": "scripture",
             "refs": [
               [
                 15006014,
                 15006014
               ]
-            ]
+            ],
+            "span": [
+              15006014,
+              15006014
+            ],
+            "quoted": true,
+            "marks": true
           }
         ]
       },
@@ -2672,11 +2732,11 @@
             ]
           },
           "quote": {
-            "text": "Is it time for you, O ye, to dwell in your cieled houses, and this house lie waste?",
             "span": [
               37001004,
               37001004
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -2703,11 +2763,11 @@
             ]
           },
           "quote": {
-            "text": "In the eighth month, in the second year of Darius, came the word of the LORD unto Zechariah",
             "span": [
               38001001,
               38001001
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -3061,14 +3121,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"This is Ahasuerus which reigned, from India even unto Ethiopia, over an hundred and seven and twenty provinces.\"",
           "layer": "scripture",
           "refs": [
             [
               17001001,
               17001001
             ]
-          ]
+          ],
+          "span": [
+            17001001,
+            17001001
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "He \"set the royal crown upon her head, and made her queen instead of Vashti\".",
@@ -3336,14 +3401,19 @@
             ]
           },
           {
-            "text": "\"Mordecai the Jew was next unto king Ahasuerus, and great among the Jews.\"",
             "layer": "scripture",
             "refs": [
               [
                 17010003,
                 17010003
               ]
-            ]
+            ],
+            "span": [
+              17010003,
+              17010003
+            ],
+            "quoted": true,
+            "marks": true
           }
         ]
       },
@@ -3691,14 +3761,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"Also Vashti the queen made a feast for the women in the royal house which belonged to king Ahasuerus.\"",
           "layer": "scripture",
           "refs": [
             [
               17001009,
               17001009
             ]
-          ]
+          ],
+          "span": [
+            17001009,
+            17001009
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "The king sent seven chamberlains \"to bring Vashti the queen before the king with the crown royal, to shew the people and the princes her beauty: for she was fair to look on\".",
@@ -3711,14 +3786,19 @@
           ]
         },
         {
-          "text": "\"But the queen Vashti refused to come at the king’s commandment by his chamberlains: therefore was the king very wroth.\"",
           "layer": "scripture",
           "refs": [
             [
               17001012,
               17001012
             ]
-          ]
+          ],
+          "span": [
+            17001012,
+            17001012
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "The decree: \"That Vashti come no more before king Ahasuerus; and let the king give her royal estate unto another that is better than she.\"",
@@ -4049,24 +4129,34 @@
           ]
         },
         {
-          "text": "\"And so will I go in unto the king, which is not according to the law: and if I perish, I perish.\"",
           "layer": "scripture",
           "refs": [
             [
               17004016,
               17004016
             ]
-          ]
+          ],
+          "span": [
+            17004016,
+            17004016
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "\"Let my life be given me at my petition, and my people at my request.\"",
           "layer": "scripture",
           "refs": [
             [
               17007003,
               17007003
             ]
-          ]
+          ],
+          "span": [
+            17007003,
+            17007003
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "\"Then Esther the queen, the daughter of Abihail, and Mordecai the Jew, wrote with all authority, to confirm this second letter of Purim\"; \"the decree of Esther confirmed these matters of Purim; and it was written in the book.\"",
@@ -4599,31 +4689,31 @@
       "synchronisms": [
         {
           "quote": {
-            "text": "in the month Nisan, in the twentieth year of Artaxerxes the king",
             "span": [
               16002001,
               16002001
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "nehemiah-neh-1-1"
         },
         {
           "quote": {
-            "text": "from the twentieth year even unto the two and thirtieth year of Artaxerxes the king, that is, twelve years",
             "span": [
               16005014,
               16005014
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "nehemiah-neh-1-1"
         },
         {
           "quote": {
-            "text": "in the two and thirtieth year of Artaxerxes king of Babylon came I unto the king",
             "span": [
               16013006,
               16013006
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "nehemiah-neh-1-1"
         }
@@ -5173,44 +5263,64 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"The former governors that had been before me were chargeable unto the people… but so did not I, because of the fear of God.\"",
           "layer": "scripture",
           "refs": [
             [
               16005015,
               16005015
             ]
-          ]
+          ],
+          "span": [
+            16005015,
+            16005015
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "\"Think upon me, my God, for good, according to all that I have done for this people.\"",
           "layer": "scripture",
           "refs": [
             [
               16005019,
               16005019
             ]
-          ]
+          ],
+          "span": [
+            16005019,
+            16005019
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "\"Should such a man as I flee? and who is there, that, being as I am, would go into the temple to save his life? I will not go in.\"",
           "layer": "scripture",
           "refs": [
             [
               16006011,
               16006011
             ]
-          ]
+          ],
+          "span": [
+            16006011,
+            16006011
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "\"These were in the days of Joiakim the son of Jeshua… and in the days of Nehemiah the governor, and of Ezra the priest, the scribe.\"",
           "layer": "scripture",
           "refs": [
             [
               16012026,
               16012026
             ]
-          ]
+          ],
+          "span": [
+            16012026,
+            16012026
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "His last words in the book: \"Remember me, O my God, for good.\"",
@@ -5226,31 +5336,31 @@
       "synchronisms": [
         {
           "quote": {
-            "text": "And it came to pass in the month Nisan, in the twentieth year of Artaxerxes the king",
             "span": [
               16002001,
               16002001
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "artaxerxes-ezr-4-7"
         },
         {
           "quote": {
-            "text": "from the twentieth year even unto the two and thirtieth year of Artaxerxes the king",
             "span": [
               16005014,
               16005014
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "artaxerxes-ezr-4-7"
         },
         {
           "quote": {
-            "text": "for in the two and thirtieth year of Artaxerxes king of Babylon came I unto the king",
             "span": [
               16013006,
               16013006
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "artaxerxes-ezr-4-7"
         }
@@ -5429,14 +5539,19 @@
           "label": "The wall finished",
           "kind": "building",
           "claim": {
-            "text": "\"So the wall was finished in the twenty and fifth day of the month Elul, in fifty and two days.\"",
             "layer": "scripture",
             "refs": [
               [
                 16006015,
                 16006015
               ]
-            ]
+            ],
+            "span": [
+              16006015,
+              16006015
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -5698,11 +5813,11 @@
             ]
           },
           "quote": {
-            "text": "God had not sent him; but that he pronounced this prophecy against me: for Tobiah and Sanballat had hired him",
             "span": [
               16006012,
               16006012
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -5711,14 +5826,19 @@
             "personId": "noadiah-neh-6-14"
           },
           "claim": {
-            "text": "\"The prophetess Noadiah, and the rest of the prophets, that would have put me in fear.\"",
             "layer": "scripture",
             "refs": [
               [
                 16006014,
                 16006014
               ]
-            ]
+            ],
+            "span": [
+              16006014,
+              16006014
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],
@@ -6025,14 +6145,19 @@
           ]
         },
         {
-          "text": "\"As for me, behold, I will dwell at Mizpah to serve the Chaldeans, which will come unto us: but ye, gather ye wine, and summer fruits, and oil.\"",
           "layer": "scripture",
           "refs": [
             [
               24040010,
               24040010
             ]
-          ]
+          ],
+          "span": [
+            24040010,
+            24040010
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Warned that Ishmael meant to kill him, \"Gedaliah the son of Ahikam believed them not\", and forbade Johanan to strike first: \"thou speakest falsely of Ishmael\".",
@@ -6058,11 +6183,11 @@
       "synchronisms": [
         {
           "quote": {
-            "text": "which is the nineteenth year of king Nebuchadnezzar king of Babylon",
             "span": [
               12025008,
               12025008
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "nebuchadnezzar-2ki-24-1"
         }
@@ -6310,11 +6435,11 @@
             ]
           },
           "quote": {
-            "text": "O ye remnant of Judah; Go ye not into Egypt",
             "span": [
               24042019,
               24042019
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -6328,7 +6453,6 @@
             }
           ],
           "claim": {
-            "text": "\"The king of Babylon had made Gedaliah governor\".",
             "layer": "scripture",
             "refs": [
               [
@@ -6339,7 +6463,13 @@
                 24040007,
                 24040007
               ]
-            ]
+            ],
+            "span": [
+              12025023,
+              12025023
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {

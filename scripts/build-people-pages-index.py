@@ -45,14 +45,15 @@ def main_dates(dates: list[dict]) -> dict | None:
     return out
 
 
-def first_verdict(ruler: dict) -> str | None:
-    for record in ruler.get("records") or []:
-        if record.get("verdict", {}).get("text"):
-            return short(record["verdict"]["text"], VERDICT_CHARS)
-    for said in ruler.get("scriptureSays") or []:
+def first_verdict(ruler: dict) -> tuple[str | None, list[int] | None]:
+    """The sentence the site wrote, or the verse the card shows in the reader's Bible."""
+    saying = [record.get("verdict") or {} for record in ruler.get("records") or []] + list(ruler.get("scriptureSays") or [])
+    for said in saying:
+        if said.get("quoted"):
+            return None, said.get("span") or said.get("ref")
         if said.get("text"):
-            return short(said["text"], VERDICT_CHARS)
-    return None
+            return short(said["text"], VERDICT_CHARS), None
+    return None, None
 
 
 def sex_of(person_id: str) -> str:
@@ -107,7 +108,7 @@ def ruler_summary(ruler: dict, group: str) -> dict:
     optional = {
         "personIds": ruler.get("personIds") or None, "otherNames": ruler.get("otherNames") or None,
         "years": reign.get("years"), "months": reign.get("months"), "days": reign.get("days"),
-        "dates": main_dates(ruler.get("dates") or []), "verdict": first_verdict(ruler),
+        "dates": main_dates(ruler.get("dates") or []), "verdict": first_verdict(ruler)[0], "verdictSpan": first_verdict(ruler)[1],
         "predecessor": ruler.get("predecessor"), "successor": ruler.get("successor"), "house": ruler.get("house"),
         "tribe": ruler.get("tribe"), "capital": (ruler.get("capital") or {}).get("name"),
     }

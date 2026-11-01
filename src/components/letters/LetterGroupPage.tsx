@@ -1,4 +1,5 @@
 /// <reference types="vite/client" /> // for import.meta.glob below
+import { Verse } from "@/components/Verse";
 import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
@@ -116,7 +117,7 @@ function LetterCard({ group, code }: { group: LetterGroup; code: string }) {
     <div className="lg-fact" style={{ marginTop: "1rem", borderRadius: 14, border: "1px solid var(--lg-line)" }}><dt>Why it was written</dt><dd><ClaimText claim={letter.occasion} as="span" /></dd></div>
     <div className="lg-two">
       <div><p className="lg-subhead">Key verses</p><ul className="lg-list">{letter.keyVerses.map((k) => <li key={k.span.join("-")}>
-        <Link to={studyRefLink(catalog, k.span)} style={{ color: "var(--lg)", fontWeight: 600 }}>{formatRange(catalog, k.span[0], k.span[1])}</Link> <span className="lg-muted">— {k.why}</span></li>)}</ul></div>
+        <Link to={studyRefLink(catalog, k.span)} style={{ color: "var(--lg)", fontWeight: 600 }}>{formatRange(catalog, k.span[0], k.span[1])}</Link> <span className="lg-muted">— {k.why || <Verse from={k.span[0]} to={k.span[1]} />}</span></li>)}</ul></div>
       <div><p className="lg-subhead">Themes</p><ul className="lg-list">{letter.themes.map((t, i) => <li key={i}><ClaimText claim={t} as="span" /></li>)}</ul></div>
     </div>
   </Section>;

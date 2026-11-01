@@ -397,11 +397,11 @@
             ]
           },
           "quote": {
-            "text": "And thou Bethlehem, in the land of Juda, art not the least among the princes of Juda: for out of thee shall come a Governor, that shall rule my people Israel.",
             "span": [
               40002006,
               40002006
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -420,11 +420,11 @@
             ]
           },
           "quote": {
-            "text": "In Rama was there a voice heard, lamentation, and weeping, and great mourning, Rachel weeping for her children, and would not be comforted, because they are not.",
             "span": [
               40002018,
               40002018
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -1239,11 +1239,11 @@
             ]
           },
           "quote": {
-            "text": "It is not lawful for thee to have her.",
             "span": [
               40014004,
               40014004
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -1840,14 +1840,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"Herod the king stretched forth his hands to vex certain of the church. And he killed James the brother of John with the sword.\"",
           "layer": "scripture",
           "refs": [
             [
               44012001,
               44012002
             ]
-          ]
+          ],
+          "span": [
+            44012001,
+            44012002
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "\"Because he saw it pleased the Jews, he proceeded further to take Peter also\", in \"the days of unleavened bread\". He set four quaternions of soldiers to guard him, \"intending after Easter to bring him forth to the people\".",
@@ -1914,14 +1919,19 @@
           ]
         },
         {
-          "text": "\"But the word of God grew and multiplied.\"",
           "layer": "scripture",
           "refs": [
             [
               44012024,
               44012024
             ]
-          ]
+          ],
+          "span": [
+            44012024,
+            44012024
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "accession": [],
@@ -2284,14 +2294,19 @@
           ]
         },
         {
-          "text": "\"King Agrippa, believest thou the prophets? I know that thou believest. Then Agrippa said unto Paul, Almost thou persuadest me to be a Christian.\"",
           "layer": "scripture",
           "refs": [
             [
               44026027,
               44026028
             ]
-          ]
+          ],
+          "span": [
+            44026027,
+            44026028
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Rising with the governor and Bernice, they agreed, \"This man doeth nothing worthy of death or of bonds\", and Agrippa said to Festus, \"This man might have been set at liberty, if he had not appealed unto Caesar.\"",

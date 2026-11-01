@@ -1,3 +1,4 @@
+import { BibleAbbr, Verse } from "@/components/Verse";
 import { createContext, useContext, useMemo, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { CitationProvider, CiteMarks, Refs } from "@/components/letters/LetterParts";
@@ -47,13 +48,13 @@ export function ClaimList({ claims, empty }: { claims?: Claim[]; empty?: string 
   return <ul className="pp-claims">{claims.map((c, i) => <EvidenceClaim key={i} claim={c} as="li" />)}</ul>;
 }
 
-/** A word-for-word KJV quotation, linked into the reader. */
+/** A verse in the reader's Bible, linked into the reader. */
 export function QuoteText({ quote, className }: { quote?: Quote; className?: string }) {
   const catalog = useCatalog();
   if (!quote?.text) return null;
   return <figure className={`pp-quote ${className ?? ""}`}>
-    <blockquote>“{quote.text}”</blockquote>
-    <figcaption><Link to={studyRefLink(catalog, quote.span)}>{formatRange(catalog, quote.span[0], quote.span[1])} (KJV) →</Link></figcaption>
+    <blockquote>“<Verse from={quote.span[0]} to={quote.span[1]} unquoted />”</blockquote>
+    <figcaption><Link to={studyRefLink(catalog, quote.span)}>{formatRange(catalog, quote.span[0], quote.span[1])} (<BibleAbbr />) →</Link></figcaption>
   </figure>;
 }
 

@@ -42,7 +42,7 @@
           44007023,
           44007023
         ],
-        "text": "And when he was full forty years old, it came into his heart to visit his brethren the children of Israel."
+        "quoted": true
       }
     },
     {
@@ -56,7 +56,7 @@
           44007030,
           44007030
         ],
-        "text": "And when forty years were expired, there appeared to him in the wilderness of mount Sina an angel of the Lord in a flame of fire in a bush."
+        "quoted": true
       }
     },
     {
@@ -70,7 +70,7 @@
           44007036,
           44007036
         ],
-        "text": "He brought them out, after that he had shewed wonders and signs in the land of Egypt, and in the Red sea, and in the wilderness forty years."
+        "quoted": true
       }
     }
   ],
@@ -79,7 +79,7 @@
       5034007,
       5034007
     ],
-    "text": "And Moses was an hundred and twenty years old when he died: his eye was not dim, nor his natural force abated."
+    "quoted": true
   },
   "story": [
     {
@@ -401,11 +401,11 @@
         ]
       },
       "quote": {
-        "text": "Thus saith the LORD God of Israel, Let my people go, that they may hold a feast unto me in the wilderness.",
         "span": [
           2005001,
           2005001
-        ]
+        ],
+        "quoted": true
       }
     },
     {
@@ -502,11 +502,11 @@
         ]
       },
       "quote": {
-        "text": "See, I have made thee a god to Pharaoh: and Aaron thy brother shall be thy prophet.",
         "span": [
           2007001,
           2007001
-        ]
+        ],
+        "quoted": true
       }
     },
     {
@@ -559,7 +559,7 @@
           2002010,
           2002010
         ],
-        "text": "And the child grew, and she brought him unto Pharaoh’s daughter, and he became her son. And she called his name Moses: and she said, Because I drew him out of the water."
+        "quoted": true
       },
       "lines": [
         {
@@ -598,7 +598,7 @@
           2002014,
           2002014
         ],
-        "text": "And he said, Who made thee a prince and a judge over us? intendest thou to kill me, as thou killedst the Egyptian? And Moses feared, and said, Surely this thing is known."
+        "quoted": true
       },
       "lines": [
         {
@@ -644,7 +644,7 @@
           2002022,
           2002022
         ],
-        "text": "And she bare him a son, and he called his name Gershom: for he said, I have been a stranger in a strange land."
+        "quoted": true
       },
       "lines": [
         {
@@ -671,14 +671,14 @@
           2003002,
           2003002
         ],
-        "text": "And the angel of the LORD appeared unto him in a flame of fire out of the midst of a bush: and he looked, and, behold, the bush burned with fire, and the bush was not consumed."
+        "quoted": true
       },
       "quote": {
-        "text": "God called unto him out of the midst of the bush, and said, Moses, Moses. And he said, Here am I.",
         "span": [
           2003004,
           2003004
-        ]
+        ],
+        "quoted": true
       },
       "lines": [
         {
@@ -719,11 +719,11 @@
           ],
           "quotes": [
             {
-              "text": "I AM THAT I AM: and he said, Thus shalt thou say unto the children of Israel, I AM hath sent me unto you.",
               "span": [
                 2003014,
                 2003014
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -755,14 +755,14 @@
           2004012,
           2004012
         ],
-        "text": "Now therefore go, and I will be with thy mouth, and teach thee what thou shalt say."
+        "quoted": true
       },
       "quote": {
-        "text": "Now therefore go, and I will be with thy mouth, and teach thee what thou shalt say.",
         "span": [
           2004012,
           2004012
-        ]
+        ],
+        "quoted": true
       },
       "lines": [
         {
@@ -850,14 +850,14 @@
           2005001,
           2005001
         ],
-        "text": "And afterward Moses and Aaron went in, and told Pharaoh, Thus saith the LORD God of Israel, Let my people go, that they may hold a feast unto me in the wilderness."
+        "quoted": true
       },
       "quote": {
-        "text": "Thus saith the LORD God of Israel, Let my people go, that they may hold a feast unto me in the wilderness.",
         "span": [
           2005001,
           2005001
-        ]
+        ],
+        "quoted": true
       },
       "lines": [
         {
@@ -981,7 +981,7 @@
           2014021,
           2014022
         ],
-        "text": "And Moses stretched out his hand over the sea; and the LORD caused the sea to go back by a strong east wind all that night, and made the sea dry land, and the waters were divided. And the children of Israel went into the midst of the sea upon the dry ground: and the waters were a wall unto them on their right hand, and on their left."
+        "quoted": true
       },
       "lines": [
         {
@@ -1064,7 +1064,7 @@
           2017006,
           2017006
         ],
-        "text": "Behold, I will stand before thee there upon the rock in Horeb; and thou shalt smite the rock, and there shall come water out of it, that the people may drink. And Moses did so in the sight of the elders of Israel."
+        "quoted": true
       },
       "lines": [
         {
@@ -1127,7 +1127,7 @@
           2019020,
           2019020
         ],
-        "text": "And the LORD came down upon mount Sinai, on the top of the mount: and the LORD called Moses up to the top of the mount; and Moses went up."
+        "quoted": true
       },
       "lines": [
         {
@@ -1226,7 +1226,7 @@
           2040034,
           2040034
         ],
-        "text": "Then a cloud covered the tent of the congregation, and the glory of the LORD filled the tabernacle."
+        "quoted": true
       },
       "lines": [
         {
@@ -1317,7 +1317,7 @@
           4014033,
           4014033
         ],
-        "text": "And your children shall wander in the wilderness forty years, and bear your whoredoms, until your carcases be wasted in the wilderness."
+        "quoted": true
       },
       "lines": [
         {
@@ -1361,14 +1361,19 @@
           ]
         },
         {
-          "text": "\"It came to pass, as he had made an end of speaking all these words, that the ground clave asunder that was under them\".",
           "layer": "scripture",
           "refs": [
             [
               4016031,
               4016033
             ]
-          ]
+          ],
+          "span": [
+            4016031,
+            4016033
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Moses struck the rock twice and was told he would not bring the people into the land.",
@@ -1526,14 +1531,14 @@
           5034001,
           5034001
         ],
-        "text": "And Moses went up from the plains of Moab unto the mountain of Nebo, to the top of Pisgah, that is over against Jericho. And the LORD shewed him all the land of Gilead, unto Dan,"
+        "quoted": true
       },
       "verse2": {
         "ref": [
           5034004,
           5034004
         ],
-        "text": "And the LORD said unto him, This is the land which I sware unto Abraham, unto Isaac, and unto Jacob, saying, I will give it unto thy seed: I have caused thee to see it with thine eyes, but thou shalt not go over thither."
+        "quoted": true
       },
       "lines": [
         {
@@ -1653,14 +1658,19 @@
           ]
         },
         {
-          "text": "\"There arose not a prophet since in Israel like unto Moses, whom the LORD knew face to face.\"",
           "layer": "scripture",
           "refs": [
             [
               5034010,
               5034012
             ]
-          ]
+          ],
+          "span": [
+            5034010,
+            5034012
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "tradition": [
@@ -1675,11 +1685,11 @@
         }
       ],
       "burial": {
-        "text": "And he buried him in a valley in the land of Moab, over against Beth-peor: but no man knoweth of his sepulchre unto this day.",
         "span": [
           5034006,
           5034006
-        ]
+        ],
+        "quoted": true
       },
       "placeName": "Mount Nebo"
     }
@@ -1693,7 +1703,7 @@
           2007020,
           2007020
         ],
-        "text": "And Moses and Aaron did so, as the LORD commanded; and he lifted up the rod, and smote the waters that were in the river, in the sight of Pharaoh, and in the sight of his servants; and all the waters that were in the river were turned to blood."
+        "quoted": true
       }
     },
     {
@@ -1704,7 +1714,7 @@
           2008006,
           2008006
         ],
-        "text": "And Aaron stretched out his hand over the waters of Egypt; and the frogs came up, and covered the land of Egypt."
+        "quoted": true
       }
     },
     {
@@ -1715,7 +1725,7 @@
           2008017,
           2008017
         ],
-        "text": "And they did so; for Aaron stretched out his hand with his rod, and smote the dust of the earth, and it became lice in man, and in beast; all the dust of the land became lice throughout all the land of Egypt."
+        "quoted": true
       }
     },
     {
@@ -1726,7 +1736,7 @@
           2008024,
           2008024
         ],
-        "text": "And the LORD did so; and there came a grievous swarm of flies into the house of Pharaoh, and into his servants’ houses, and into all the land of Egypt: the land was corrupted by reason of the swarm of flies."
+        "quoted": true
       }
     },
     {
@@ -1737,7 +1747,7 @@
           2009003,
           2009003
         ],
-        "text": "Behold, the hand of the LORD is upon thy cattle which is in the field, upon the horses, upon the asses, upon the camels, upon the oxen, and upon the sheep: there shall be a very grievous murrain."
+        "quoted": true
       }
     },
     {
@@ -1748,7 +1758,7 @@
           2009010,
           2009010
         ],
-        "text": "And they took ashes of the furnace, and stood before Pharaoh; and Moses sprinkled it up toward heaven; and it became a boil breaking forth with blains upon man, and upon beast."
+        "quoted": true
       }
     },
     {
@@ -1759,7 +1769,7 @@
           2009023,
           2009023
         ],
-        "text": "And Moses stretched forth his rod toward heaven: and the LORD sent thunder and hail, and the fire ran along upon the ground; and the LORD rained hail upon the land of Egypt."
+        "quoted": true
       }
     },
     {
@@ -1770,7 +1780,7 @@
           2010013,
           2010013
         ],
-        "text": "And Moses stretched forth his rod over the land of Egypt, and the LORD brought an east wind upon the land all that day, and all that night; and when it was morning, the east wind brought the locusts."
+        "quoted": true
       }
     },
     {
@@ -1781,7 +1791,7 @@
           2010022,
           2010022
         ],
-        "text": "And Moses stretched forth his hand toward heaven; and there was a thick darkness in all the land of Egypt three days:"
+        "quoted": true
       }
     },
     {
@@ -1792,7 +1802,7 @@
           2012029,
           2012029
         ],
-        "text": "And it came to pass, that at midnight the LORD smote all the firstborn in the land of Egypt, from the firstborn of Pharaoh that sat on his throne unto the firstborn of the captive that was in the dungeon; and all the firstborn of cattle."
+        "quoted": true
       }
     }
   ],
@@ -1801,11 +1811,11 @@
       {
         "label": "Exodus 3 · The bush at Horeb",
         "quote": {
-          "text": "God called unto him out of the midst of the bush, and said, Moses, Moses. And he said, Here am I.",
           "span": [
             2003004,
             2003004
-          ]
+          ],
+          "quoted": true
         },
         "claim": {
           "text": "While Moses kept Jethro’s flock at Horeb, the angel of the LORD appeared to him in a bush that burned and was not consumed. God named himself the God of Abraham, Isaac and Jacob, and sent him: \"I will send thee unto Pharaoh, that thou mayest bring forth my people\".",
@@ -1822,11 +1832,11 @@
       {
         "label": "Exodus 3–4 · Questions, signs and a mouth",
         "quote": {
-          "text": "Now therefore go, and I will be with thy mouth, and teach thee what thou shalt say.",
           "span": [
             2004012,
             2004012
-          ]
+          ],
+          "quoted": true
         },
         "claim": {
           "text": "Moses asked \"Who am I\", asked God’s name and was told \"I AM THAT I AM\", said the people would not believe him, and said he was \"slow of speech\". God gave him three signs, promised to be with his mouth, and, when Moses still asked to be excused, gave him Aaron as spokesman.",
@@ -1846,11 +1856,11 @@
       {
         "label": "Exodus 6–7 · Sent again in Egypt",
         "quote": {
-          "text": "I am the LORD: speak thou unto Pharaoh king of Egypt all that I say unto thee.",
           "span": [
             2006029,
             2006029
-          ]
+          ],
+          "quoted": true
         },
         "claim": {
           "text": "In Egypt the LORD sent Moses to Pharaoh again. Moses answered that he was \"of uncircumcised lips\"; the LORD said, \"See, I have made thee a god to Pharaoh: and Aaron thy brother shall be thy prophet.\"",
@@ -1867,11 +1877,11 @@
       {
         "label": "Acts 7 · Stephen’s telling",
         "quote": {
-          "text": "And now come, I will send thee into Egypt.",
           "span": [
             44007034,
             44007034
-          ]
+          ],
+          "quoted": true
         },
         "claim": {
           "text": "Stephen tells the call as happening \"when forty years were expired\", in \"the wilderness of mount Sina\", where Exodus says Horeb. He gives the words from the bush and the sending in his own order.",
@@ -2032,11 +2042,11 @@
         },
         "quotes": [
           {
-            "text": "I AM THAT I AM: and he said, Thus shalt thou say unto the children of Israel, I AM hath sent me unto you.",
             "span": [
               2003014,
               2003014
-            ]
+            ],
+            "quoted": true
           }
         ]
       },
@@ -2058,11 +2068,11 @@
         },
         "quotes": [
           {
-            "text": "Israel is my son, even my firstborn",
             "span": [
               2004022,
               2004022
-            ]
+            ],
+            "quoted": true
           }
         ]
       },
@@ -2084,11 +2094,11 @@
         },
         "quotes": [
           {
-            "text": "Hear, O Israel: The LORD our God is one LORD: And thou shalt love the LORD thy God with all thine heart, and with all thy soul, and with all thy might.",
             "span": [
               5006004,
               5006005
-            ]
+            ],
+            "quoted": true
           }
         ]
       },
@@ -2118,11 +2128,11 @@
         },
         "quotes": [
           {
-            "text": "I have set before you life and death, blessing and cursing: therefore choose life, that both thou and thy seed may live",
             "span": [
               5030019,
               5030019
-            ]
+            ],
+            "quoted": true
           }
         ]
       },
@@ -2140,18 +2150,18 @@
         },
         "quotes": [
           {
-            "text": "The LORD thy God will raise up unto thee a Prophet from the midst of thee, of thy brethren, like unto me; unto him ye shall hearken",
             "span": [
               5018015,
               5018015
-            ]
+            ],
+            "quoted": true
           },
           {
-            "text": "When a prophet speaketh in the name of the LORD, if the thing follow not, nor come to pass, that is the thing which the LORD hath not spoken",
             "span": [
               5018022,
               5018022
-            ]
+            ],
+            "quoted": true
           }
         ]
       },
@@ -2169,11 +2179,11 @@
         },
         "quotes": [
           {
-            "text": "would God that all the LORD’s people were prophets, and that the LORD would put his spirit upon them!",
             "span": [
               4011029,
               4011029
-            ]
+            ],
+            "quoted": true
           }
         ]
       }
@@ -2187,11 +2197,11 @@
         },
         "placeId": "af301ca",
         "quote": {
-          "text": "Thus saith the LORD, About midnight will I go out into the midst of Egypt: And all the firstborn in the land of Egypt shall die",
           "span": [
             2011004,
             2011005
-          ]
+          ],
+          "quoted": true
         },
         "claim": {
           "text": "Moses went out from Pharaoh \"in a great anger\" after giving this word.",
@@ -2211,11 +2221,11 @@
           "personId": "korah-exo-6-21"
         },
         "quote": {
-          "text": "Hereby ye shall know that the LORD hath sent me to do all these works; for I have not done them of mine own mind.",
           "span": [
             4016028,
             4016028
-          ]
+          ],
+          "quoted": true
         },
         "claim": {
           "text": "Moses said that if the men died a common death, \"then the LORD hath not sent me\"; but if the earth swallowed them, the people would know these men had provoked the LORD.",
@@ -2235,22 +2245,22 @@
           "personId": "joshua-exo-17-9"
         },
         "quote": {
-          "text": "Enviest thou for my sake?",
           "span": [
             4011029,
             4011029
-          ]
+          ],
+          "quoted": true
         }
       },
       {
         "to": "Israel at Meribah",
         "placeId": "a505743",
         "quote": {
-          "text": "Hear now, ye rebels; must we fetch you water out of this rock?",
           "span": [
             4020010,
             4020010
-          ]
+          ],
+          "quoted": true
         },
         "claim": {
           "text": "The LORD told Moses and Aaron they would not bring the congregation into the land, \"because ye believed me not\"; a psalm says Moses \"spake unadvisedly with his lips\".",
@@ -2271,11 +2281,11 @@
         "to": "The tribes of Israel",
         "placeId": "aca767b",
         "quote": {
-          "text": "Happy art thou, O Israel: who is like unto thee, O people saved by the LORD",
           "span": [
             5033029,
             5033029
-          ]
+          ],
+          "quoted": true
         },
         "claim": {
           "text": "Deuteronomy 33 is \"the blessing, wherewith Moses the man of God blessed the children of Israel before his death\", tribe by tribe.",
@@ -2446,14 +2456,19 @@
           ]
         },
         "reported": {
-          "text": "\"It came to pass, as he had made an end of speaking all these words, that the ground clave asunder that was under them\".",
           "layer": "scripture",
           "refs": [
             [
               4016031,
               4016033
             ]
-          ]
+          ],
+          "span": [
+            4016031,
+            4016033
+          ],
+          "quoted": true,
+          "marks": true
         }
       },
       {
@@ -2606,14 +2621,19 @@
         ]
       },
       {
-        "text": "\"Now the man Moses was very meek, above all the men which were upon the face of the earth.\"",
         "layer": "scripture",
         "refs": [
           [
             4012003,
             4012003
           ]
-        ]
+        ],
+        "span": [
+          4012003,
+          4012003
+        ],
+        "quoted": true,
+        "marks": true
       },
       {
         "text": "God speaks with Moses \"mouth to mouth\", and calls him faithful \"in all mine house\".",
@@ -2630,14 +2650,19 @@
         ]
       },
       {
-        "text": "\"There arose not a prophet since in Israel like unto Moses, whom the LORD knew face to face.\"",
         "layer": "scripture",
         "refs": [
           [
             5034010,
             5034012
           ]
-        ]
+        ],
+        "span": [
+          5034010,
+          5034012
+        ],
+        "quoted": true,
+        "marks": true
       },
       {
         "text": "Moses stood \"in the breach\" to turn God's wrath from the people.",
@@ -2668,14 +2693,19 @@
         ]
       },
       {
-        "text": "\"The law was given by Moses.\"",
         "layer": "scripture",
         "refs": [
           [
             43001017,
             43001017
           ]
-        ]
+        ],
+        "span": [
+          43001017,
+          43001017
+        ],
+        "quoted": true,
+        "marks": true
       }
     ],
     "accession": [
@@ -3444,11 +3474,11 @@
         ]
       },
       "burial": {
-        "text": "And he buried him in a valley in the land of Moab, over against Beth-peor: but no man knoweth of his sepulchre unto this day.",
         "span": [
           5034006,
           5034006
-        ]
+        ],
+        "quoted": true
       }
     }
   },
@@ -4022,7 +4052,7 @@
             2002003,
             2002003
           ],
-          "text": "And when she could not longer hide him, she took for him an ark of bulrushes, and daubed it with slime and with pitch, and put the child therein; and she laid it in the flags by the river’s brink."
+          "quoted": true
         }
       },
       {
@@ -4042,7 +4072,7 @@
             2002015,
             2002015
           ],
-          "text": "Now when Pharaoh heard this thing, he sought to slay Moses. But Moses fled from the face of Pharaoh, and dwelt in the land of Midian: and he sat down by a well."
+          "quoted": true
         }
       },
       {
@@ -4062,7 +4092,7 @@
             2003001,
             2003001
           ],
-          "text": "Now Moses kept the flock of Jethro his father in law, the priest of Midian: and he led the flock to the backside of the desert, and came to the mountain of God, even to Horeb."
+          "quoted": true
         }
       },
       {
@@ -4082,7 +4112,7 @@
             2004020,
             2004020
           ],
-          "text": "And Moses took his wife and his sons, and set them upon an ass, and he returned to the land of Egypt: and Moses took the rod of God in his hand."
+          "quoted": true
         }
       },
       {
@@ -4102,7 +4132,7 @@
             2012037,
             2012037
           ],
-          "text": "And the children of Israel journeyed from Rameses to Succoth, about six hundred thousand on foot that were men, beside children."
+          "quoted": true
         }
       },
       {
@@ -4122,7 +4152,7 @@
             2012037,
             2012037
           ],
-          "text": "And the children of Israel journeyed from Rameses to Succoth, about six hundred thousand on foot that were men, beside children."
+          "quoted": true
         }
       },
       {
@@ -4142,7 +4172,7 @@
             2013020,
             2013020
           ],
-          "text": "And they took their journey from Succoth, and encamped in Etham, in the edge of the wilderness."
+          "quoted": true
         }
       },
       {
@@ -4162,7 +4192,7 @@
             2014002,
             2014002
           ],
-          "text": "Speak unto the children of Israel, that they turn and encamp before Pi-hahiroth, between Migdol and the sea, over against Baal-zephon: before it shall ye encamp by the sea."
+          "quoted": true
         }
       },
       {
@@ -4182,7 +4212,7 @@
             2015023,
             2015023
           ],
-          "text": "And when they came to Marah, they could not drink of the waters of Marah, for they were bitter: therefore the name of it was called Marah."
+          "quoted": true
         }
       },
       {
@@ -4202,7 +4232,7 @@
             2015027,
             2015027
           ],
-          "text": "And they came to Elim, where were twelve wells of water, and threescore and ten palm trees: and they encamped there by the waters."
+          "quoted": true
         }
       },
       {
@@ -4222,7 +4252,7 @@
             2017001,
             2017001
           ],
-          "text": "And all the congregation of the children of Israel journeyed from the wilderness of Sin, after their journeys, according to the commandment of the LORD, and pitched in Rephidim: and there was no water for the people to drink."
+          "quoted": true
         }
       },
       {
@@ -4242,7 +4272,7 @@
             2019002,
             2019002
           ],
-          "text": "For they were departed from Rephidim, and were come to the desert of Sinai, and had pitched in the wilderness; and there Israel camped before the mount."
+          "quoted": true
         }
       },
       {
@@ -4262,7 +4292,7 @@
             4013026,
             4013026
           ],
-          "text": "And they went and came to Moses, and to Aaron, and to all the congregation of the children of Israel, unto the wilderness of Paran, to Kadesh; and brought back word unto them, and unto all the congregation, and shewed them the fruit of the land."
+          "quoted": true
         }
       },
       {
@@ -4282,7 +4312,7 @@
             4020013,
             4020013
           ],
-          "text": "This is the water of Meribah; because the children of Israel strove with the LORD, and he was sanctified in them."
+          "quoted": true
         }
       },
       {
@@ -4302,7 +4332,7 @@
             4022001,
             4022001
           ],
-          "text": "And the children of Israel set forward, and pitched in the plains of Moab on this side Jordan by Jericho."
+          "quoted": true
         }
       },
       {
@@ -4322,7 +4352,7 @@
             5034001,
             5034001
           ],
-          "text": "And Moses went up from the plains of Moab unto the mountain of Nebo, to the top of Pisgah, that is over against Jericho. And the LORD shewed him all the land of Gilead, unto Dan,"
+          "quoted": true
         }
       }
     ],
@@ -4344,7 +4374,7 @@
             2015004,
             2015004
           ],
-          "text": "Pharaoh’s chariots and his host hath he cast into the sea: his chosen captains also are drowned in the Red sea."
+          "quoted": true
         }
       },
       {
@@ -4808,49 +4838,49 @@
       "name": "Daniel (Greek)"
     }
   },
-  "verses": {
-    "2002003": "And when she could not longer hide him, she took for him an ark of bulrushes, and daubed it with slime and with pitch, and put the child therein; and she laid it in the flags by the river’s brink.",
-    "2002010": "And the child grew, and she brought him unto Pharaoh’s daughter, and he became her son. And she called his name Moses: and she said, Because I drew him out of the water.",
-    "2002014": "And he said, Who made thee a prince and a judge over us? intendest thou to kill me, as thou killedst the Egyptian? And Moses feared, and said, Surely this thing is known.",
-    "2002015": "Now when Pharaoh heard this thing, he sought to slay Moses. But Moses fled from the face of Pharaoh, and dwelt in the land of Midian: and he sat down by a well.",
-    "2002022": "And she bare him a son, and he called his name Gershom: for he said, I have been a stranger in a strange land.",
-    "2003001": "Now Moses kept the flock of Jethro his father in law, the priest of Midian: and he led the flock to the backside of the desert, and came to the mountain of God, even to Horeb.",
-    "2003002": "And the angel of the LORD appeared unto him in a flame of fire out of the midst of a bush: and he looked, and, behold, the bush burned with fire, and the bush was not consumed.",
-    "2004012": "Now therefore go, and I will be with thy mouth, and teach thee what thou shalt say.",
-    "2004020": "And Moses took his wife and his sons, and set them upon an ass, and he returned to the land of Egypt: and Moses took the rod of God in his hand.",
-    "2005001": "And afterward Moses and Aaron went in, and told Pharaoh, Thus saith the LORD God of Israel, Let my people go, that they may hold a feast unto me in the wilderness.",
-    "2007020": "And Moses and Aaron did so, as the LORD commanded; and he lifted up the rod, and smote the waters that were in the river, in the sight of Pharaoh, and in the sight of his servants; and all the waters that were in the river were turned to blood.",
-    "2008006": "And Aaron stretched out his hand over the waters of Egypt; and the frogs came up, and covered the land of Egypt.",
-    "2008017": "And they did so; for Aaron stretched out his hand with his rod, and smote the dust of the earth, and it became lice in man, and in beast; all the dust of the land became lice throughout all the land of Egypt.",
-    "2008024": "And the LORD did so; and there came a grievous swarm of flies into the house of Pharaoh, and into his servants’ houses, and into all the land of Egypt: the land was corrupted by reason of the swarm of flies.",
-    "2009003": "Behold, the hand of the LORD is upon thy cattle which is in the field, upon the horses, upon the asses, upon the camels, upon the oxen, and upon the sheep: there shall be a very grievous murrain.",
-    "2009010": "And they took ashes of the furnace, and stood before Pharaoh; and Moses sprinkled it up toward heaven; and it became a boil breaking forth with blains upon man, and upon beast.",
-    "2009023": "And Moses stretched forth his rod toward heaven: and the LORD sent thunder and hail, and the fire ran along upon the ground; and the LORD rained hail upon the land of Egypt.",
-    "2010013": "And Moses stretched forth his rod over the land of Egypt, and the LORD brought an east wind upon the land all that day, and all that night; and when it was morning, the east wind brought the locusts.",
-    "2010022": "And Moses stretched forth his hand toward heaven; and there was a thick darkness in all the land of Egypt three days:",
-    "2012029": "And it came to pass, that at midnight the LORD smote all the firstborn in the land of Egypt, from the firstborn of Pharaoh that sat on his throne unto the firstborn of the captive that was in the dungeon; and all the firstborn of cattle.",
-    "2012037": "And the children of Israel journeyed from Rameses to Succoth, about six hundred thousand on foot that were men, beside children.",
-    "2013020": "And they took their journey from Succoth, and encamped in Etham, in the edge of the wilderness.",
-    "2014002": "Speak unto the children of Israel, that they turn and encamp before Pi-hahiroth, between Migdol and the sea, over against Baal-zephon: before it shall ye encamp by the sea.",
-    "2014021": "And Moses stretched out his hand over the sea; and the LORD caused the sea to go back by a strong east wind all that night, and made the sea dry land, and the waters were divided.",
-    "2014022": "And the children of Israel went into the midst of the sea upon the dry ground: and the waters were a wall unto them on their right hand, and on their left.",
-    "2015004": "Pharaoh’s chariots and his host hath he cast into the sea: his chosen captains also are drowned in the Red sea.",
-    "2015023": "And when they came to Marah, they could not drink of the waters of Marah, for they were bitter: therefore the name of it was called Marah.",
-    "2015027": "And they came to Elim, where were twelve wells of water, and threescore and ten palm trees: and they encamped there by the waters.",
-    "2017001": "And all the congregation of the children of Israel journeyed from the wilderness of Sin, after their journeys, according to the commandment of the LORD, and pitched in Rephidim: and there was no water for the people to drink.",
-    "2017006": "Behold, I will stand before thee there upon the rock in Horeb; and thou shalt smite the rock, and there shall come water out of it, that the people may drink. And Moses did so in the sight of the elders of Israel.",
-    "2019002": "For they were departed from Rephidim, and were come to the desert of Sinai, and had pitched in the wilderness; and there Israel camped before the mount.",
-    "2019020": "And the LORD came down upon mount Sinai, on the top of the mount: and the LORD called Moses up to the top of the mount; and Moses went up.",
-    "2040034": "Then a cloud covered the tent of the congregation, and the glory of the LORD filled the tabernacle.",
-    "4013026": "And they went and came to Moses, and to Aaron, and to all the congregation of the children of Israel, unto the wilderness of Paran, to Kadesh; and brought back word unto them, and unto all the congregation, and shewed them the fruit of the land.",
-    "4014033": "And your children shall wander in the wilderness forty years, and bear your whoredoms, until your carcases be wasted in the wilderness.",
-    "4020013": "This is the water of Meribah; because the children of Israel strove with the LORD, and he was sanctified in them.",
-    "4022001": "And the children of Israel set forward, and pitched in the plains of Moab on this side Jordan by Jericho.",
-    "5034001": "And Moses went up from the plains of Moab unto the mountain of Nebo, to the top of Pisgah, that is over against Jericho. And the LORD shewed him all the land of Gilead, unto Dan,",
-    "5034004": "And the LORD said unto him, This is the land which I sware unto Abraham, unto Isaac, and unto Jacob, saying, I will give it unto thy seed: I have caused thee to see it with thine eyes, but thou shalt not go over thither.",
-    "5034007": "And Moses was an hundred and twenty years old when he died: his eye was not dim, nor his natural force abated.",
-    "44007023": "And when he was full forty years old, it came into his heart to visit his brethren the children of Israel.",
-    "44007030": "And when forty years were expired, there appeared to him in the wilderness of mount Sina an angel of the Lord in a flame of fire in a bush.",
-    "44007036": "He brought them out, after that he had shewed wonders and signs in the land of Egypt, and in the Red sea, and in the wilderness forty years."
-  }
+  "verses": [
+    "2002003",
+    "2002010",
+    "2002014",
+    "2002015",
+    "2002022",
+    "2003001",
+    "2003002",
+    "2004012",
+    "2004020",
+    "2005001",
+    "2007020",
+    "2008006",
+    "2008017",
+    "2008024",
+    "2009003",
+    "2009010",
+    "2009023",
+    "2010013",
+    "2010022",
+    "2012029",
+    "2012037",
+    "2013020",
+    "2014002",
+    "2014021",
+    "2014022",
+    "2015004",
+    "2015023",
+    "2015027",
+    "2017001",
+    "2017006",
+    "2019002",
+    "2019020",
+    "2040034",
+    "4013026",
+    "4014033",
+    "4020013",
+    "4022001",
+    "44007023",
+    "44007030",
+    "44007036",
+    "5034001",
+    "5034004",
+    "5034007"
+  ]
 }

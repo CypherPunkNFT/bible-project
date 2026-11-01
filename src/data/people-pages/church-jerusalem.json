@@ -1536,11 +1536,11 @@
         {
           "label": "Acts 6",
           "quote": {
-            "text": "they chose Stephen, a man full of faith and of the Holy Ghost, and Philip, and Prochorus, and Nicanor, and Timon, and Parmenas, and Nicolas a proselyte of Antioch",
             "span": [
               44006005,
               44006005
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "a15257a",
           "claim": {
@@ -1907,14 +1907,19 @@
             ]
           },
           {
-            "text": "“Devout men carried Stephen to his burial, and made great lamentation over him.”",
             "layer": "scripture",
             "refs": [
               [
                 44008002,
                 44008002
               ]
-            ]
+            ],
+            "span": [
+              44008002,
+              44008002
+            ],
+            "quoted": true,
+            "marks": true
           },
           {
             "text": "His is the first killing of a disciple for his witness that Acts records, and the only death of anyone on these six pages that Scripture tells.",
@@ -2156,14 +2161,19 @@
       },
       "family": [
         {
-          "text": "“The same man had four daughters, virgins, which did prophesy.”",
           "layer": "scripture",
           "refs": [
             [
               44021009,
               44021009
             ]
-          ]
+          ],
+          "span": [
+            44021009,
+            44021009
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Scripture names no wife, parents or home town, and does not give the daughters' names.",
@@ -2252,11 +2262,11 @@
         {
           "label": "Acts 6",
           "quote": {
-            "text": "they chose Stephen, a man full of faith and of the Holy Ghost, and Philip",
             "span": [
               44006005,
               44006005
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "a15257a",
           "claim": {
@@ -2273,11 +2283,11 @@
         {
           "label": "Acts 8",
           "quote": {
-            "text": "Then Philip went down to the city of Samaria, and preached Christ unto them.",
             "span": [
               44008005,
               44008005
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "a282dce",
           "claim": {
@@ -2942,11 +2952,11 @@
         {
           "label": "Acts 11",
           "quote": {
-            "text": "they sent forth Barnabas, that he should go as far as Antioch.",
             "span": [
               44011022,
               44011022
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "ae41ab4",
           "claim": {
@@ -2963,11 +2973,11 @@
         {
           "label": "Acts 13",
           "quote": {
-            "text": "Separate me Barnabas and Saul for the work whereunto I have called them.",
             "span": [
               44013002,
               44013002
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "ae41ab4",
           "claim": {
@@ -3968,11 +3978,11 @@
         {
           "label": "Acts 12",
           "quote": {
-            "text": "took with them John, whose surname was Mark.",
             "span": [
               44012025,
               44012025
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "ae41ab4",
           "claim": {
@@ -3993,11 +4003,11 @@
         {
           "label": "Acts 13",
           "quote": {
-            "text": "and they had also John to their minister.",
             "span": [
               44013005,
               44013005
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "afa863b",
           "claim": {

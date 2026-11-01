@@ -1,3 +1,4 @@
+import { Verse } from "@/components/Verse";
 // Drawings for the Privacy and Support pages (2026-10-25): two doors. Privacy is the inner room with its door
 // shut (Matthew 6:6), a lamp burning on the table beside an open Bible; Support is the door opened to whoever knocks
 // (Matthew 7:7), light spilling onto the path. A lighthouse marks the Help for life band. Every drawing loops slowly
@@ -73,7 +74,7 @@ export function OpenDoorArt() {
         <path className="lg-faint" d="M36 346H204M316 346H484" />
         {[[252, 364, 14], [244, 378, 17], [256, 394, 20]].map(([x, y, r]) => <ellipse key={y} className="lg-faint" cx={x} cy={y} rx={r} ry={r / 4} />)}
       </svg>
-      <figcaption><span aria-hidden="true" /><b>“Knock, and the door will be opened to you.”</b>Matthew 7:7</figcaption>
+      <figcaption><span aria-hidden="true" /><b>“<Verse id={40007007} unquoted />”</b>Matthew 7:7</figcaption>
     </figure>
   );
 }

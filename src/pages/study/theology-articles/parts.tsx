@@ -1,6 +1,9 @@
 // The pieces an article is drawn from. Each block kind in model.ts gets one component here, and
 // nothing in this file holds prose: the words all come from the article modules, so an editor can
 // change them without opening React and theology.test.ts can check them without rendering anything.
+import { Verse } from "@/components/Verse";
+import { useCatalog } from "@/lib/catalog";
+import { bibleName, useCurrentBible, verseIdOf } from "@/lib/verses";
 import { Component, type ErrorInfo, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, BookOpen, TriangleAlert } from "lucide-react";
@@ -15,12 +18,15 @@ function SourceLink({ source, children }: { source: Source; children: ReactNode 
 }
 
 function Scripture({ block }: { block: Extract<Body, { kind: "scripture" }> }) {
+  const catalog = useCatalog();
+  const bible = useCurrentBible();
+  const at = (verse: number) => verseIdOf(catalog, block.book, block.chapter, verse);
   return <figure className="th-scripture">
-    <blockquote><p>{block.text}</p></blockquote>
+    <blockquote><p><Verse from={at(block.verses[0])} to={at(block.verses[block.verses.length - 1])} /></p></blockquote>
     <figcaption>
       <Link to={readerHref(block.book, block.chapter, block.verses)}>
         <BookOpen size={13} aria-hidden="true" />{block.reference}
-        <span className="th-version">Berean Standard Bible</span>
+        <span className="th-version">{bibleName(bible)}</span>
       </Link>
       {block.note && <span className="th-note">{block.note}</span>}
     </figcaption>

@@ -1,3 +1,5 @@
+import { BibleAbbr, Verse } from "@/components/Verse";
+import { firstWords } from "@/lib/verses";
 import { useEffect, useMemo, useState } from "react";
 import { BackLink } from "@/components/BackLink";
 import { APOSTLES_GUIDE } from "@/components/people-pages/links";
@@ -20,7 +22,7 @@ function useNarrow(width = 760) {
 }
 
 /**
- * The full-screen landing, unique for each apostle: his own drawing across the whole first screen, the name, one KJV
+ * The full-screen landing, unique for each apostle: his own drawing across the whole first screen, the name, one Scripture
  * line (the verse the drawing shows), and the key figures as one thin bar beneath. The way back sits at the top left (this is the
  * person's one page: no person | mission switch); the counter (Counter.tsx) floats at the top right.
  */
@@ -43,8 +45,8 @@ export function Landing({ d, draw }: { d: Apostle; draw: Draw }) {
     <div className="land-text">
       <p className="kicker rule">{d.title}</p>
       <h1 className={d.short.length > 7 ? "long" : undefined}>{d.short}{d.epithet && <em>{d.epithet}</em>}</h1>
-      <blockquote className="land-line"><p>“{line.t}”</p>
-        <footer><RefLink r={[line.v, line.v]} /> · KJV{also && <span className="land-also"> · “{also.t}” <RefLink r={[also.v, also.v]} /></span>}</footer></blockquote>
+      <blockquote className="land-line"><p>“<Verse id={line.v} unquoted render={(text) => firstWords(text, 110)} />”</p>
+        <footer><RefLink r={[line.v, line.v]} /> · <BibleAbbr />{also && <span className="land-also"> · “<Verse id={also.v} unquoted render={(text) => firstWords(text, 80)} />” <RefLink r={[also.v, also.v]} /></span>}</footer></blockquote>
       {note && <p className="land-note">{note}</p>}
       <p className="aka">{d.otherNames.length ? `Also called ${d.otherNames.join(" · ")}` : d.tagline}</p>
     </div>

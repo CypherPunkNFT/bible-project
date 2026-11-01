@@ -1,3 +1,4 @@
+import { BibleName, Verse } from "@/components/Verse";
 import { TopicsArtwork } from "@/pages/topics/TopicsArtwork";
 import { PlacesArtwork } from "@/pages/places/PlacesArtwork";
 
@@ -41,7 +42,7 @@ export function HomeArtwork({ kind }: { kind: string }) {
 /** An illustrated book, with the actual opening of John in the KJV. */
 export function OpenBible() {
   return <div className="home-open-bible" aria-hidden="true">
-    <div className="home-book-left"><small>THE GOSPEL ACCORDING TO</small><b>John</b><span>1</span><p>In the beginning was the Word, and the Word was with God, and the Word was God.</p><i /><i /><i /><small className="home-book-ref">JOHN 1:1 · KING JAMES VERSION</small></div>
+    <div className="home-book-left"><small>THE GOSPEL ACCORDING TO</small><b>John</b><span>1</span><p><Verse id={43001001} /></p><i /><i /><i /><small className="home-book-ref">JOHN 1:1 · <span style={{ textTransform: "uppercase" }}><BibleName /></span></small></div>
     <div className="home-book-right"><span className="home-ribbon" /><small>THE WORD MADE FLESH</small><i /><i /><i /><i /><i /><i /><i /><i /><i /><div className="home-book-seal">α <span>✦</span> ω</div></div>
   </div>;
 }

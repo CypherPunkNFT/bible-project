@@ -2,6 +2,7 @@
 // section with preamble): three great words — ABBA FATHER, JESUS CHRIST, HOLY SPIRIT — each filled with the names,
 // which unfold into a field of names; pick a name to read its Scripture. One change: "Read in context" opens this
 // site's own reader instead of an outside site.
+import { BibleAbbr, Verse } from "@/components/Verse";
 import { ArrowLeft, ArrowRight, ArrowUpRight, X } from "lucide-react";
 import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
@@ -34,7 +35,7 @@ function ScriptureReading({ entry, onClose }: { entry: NameEntry; onClose: () =>
   return (
     <article className="word-scripture-content" tabIndex={-1} aria-label={`${entry.name} Scripture`} data-reading-content>
       <header>
-        <p>Scripture / {reading.reference} · KJV</p>
+        <p>Scripture / {reading.reference} · <BibleAbbr /></p>
         <button type="button" onClick={onClose} aria-label="Back to names">
           <X size={18} aria-hidden="true" />
         </button>
@@ -42,7 +43,7 @@ function ScriptureReading({ entry, onClose }: { entry: NameEntry; onClose: () =>
       <h3>{entry.name}</h3>
       <div className="word-scripture-verse" aria-live="polite" aria-atomic="true">
         <blockquote>
-          <sup>{reading.number}</sup> {reading.text}
+          <sup>{reading.number}</sup> <Verse id={reading.id} />
         </blockquote>
       </div>
       <footer>

@@ -128,7 +128,6 @@ export interface CreedBundle {
   id: string;
   bundle: string;
   sections: CreedSection[];
-  verses: Record<string, string>;
 }
 
 /** "catechism" -> "Catechism", for the eyebrow line above a document's title. */

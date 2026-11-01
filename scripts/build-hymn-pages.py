@@ -30,6 +30,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "hymns"))
 
+sys.path.insert(0, str(Path(__file__).resolve().parent / "bible"))
+
+from verse_wording import strip_hymn  # noqa: E402
 from hymns_common import CHECKED_FILE, CORPUS, HYMNS_FILE, NAME_OF, OSIS_TO_CODE, SECTION_OF, STOP, WEBSITE, read_json, ref_label, stems, verse_text, write_json  # noqa: E402
 
 sys.stdout.reconfigure(encoding="utf-8")
@@ -262,6 +265,9 @@ def build(checked_file: Path) -> dict[str, object]:
 
 
 def text_of(data: object) -> str:
+    for hymn in data.values() if isinstance(data, dict) else []:
+        if isinstance(hymn, dict) and "stanzas" in hymn:
+            strip_hymn(hymn)
     return json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n"
 
 

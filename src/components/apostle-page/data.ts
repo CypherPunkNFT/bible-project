@@ -1,5 +1,7 @@
 /// <reference types="vite/client" /> // for import.meta.glob below
 import { useEffect, useState } from "react";
+import { loadCatalog } from "@/lib/data";
+import { currentBibleSlug, fillVerses } from "@/lib/verses";
 import booksJson from "@/data/apostle-pages/books.json";
 import indexJson from "@/data/apostle-pages/index.json";
 import type { Landing } from "./art/landing/shared";
@@ -26,6 +28,8 @@ export const isApostlePage = (id: string) => whoById.has(id);
 
 interface Loaded { apostle: Apostle; draw: Landing }
 const loaded = new Map<string, Loaded>();
+/** The words are the reader's Bible's, so a loaded page belongs to that Bible. */
+const loadKey = (id: string) => `${currentBibleSlug()}:${id}`;
 const pending = new Map<string, Promise<Loaded>>();
 
 function prepare(d: ApostleView): Apostle {
@@ -41,19 +45,20 @@ function prepare(d: ApostleView): Apostle {
 
 /** An apostle's data and drawing, loaded once. */
 export function loadApostle(id: string): Promise<Loaded> {
-  const done = loaded.get(id);
+  const key = loadKey(id);
+  const done = loaded.get(key);
   if (done) return Promise.resolve(done);
-  let promise = pending.get(id);
+  let promise = pending.get(key);
   if (!promise) {
     const who = whoById.get(id), file = FILES[`/src/data/apostle-pages/${id}.json`];
     if (!who || !file) return Promise.reject(new Error(`apostle page: no data file for ${id} (expected src/data/apostle-pages/${id}.json)`));
-    promise = Promise.all([file(), LANDINGS[who.key]()]).then(([data, art]) => {
-      const value = { apostle: prepare(data.default), draw: art.draw };
-      loaded.set(id, value);
+    promise = Promise.all([file(), LANDINGS[who.key](), loadCatalog()]).then(async ([data, art, catalog]) => {
+      const value = { apostle: prepare(await fillVerses(data.default, catalog)), draw: art.draw };
+      loaded.set(key, value);
       return value;
     });
-    promise.catch((error: unknown) => { console.error(`apostle page: could not load ${id}`, error); pending.delete(id); });
-    pending.set(id, promise);
+    promise.catch((error: unknown) => { console.error(`apostle page: could not load ${id}`, error); pending.delete(key); });
+    pending.set(key, promise);
   }
   return promise;
 }
@@ -64,13 +69,13 @@ export type ApostleState = { status: "loading" } | { status: "error"; message: s
 export function useApostleData(id: string): ApostleState {
   const [state, setState] = useState<{ id: string; value: ApostleState }>({ id, value: { status: "loading" } });
   useEffect(() => {
-    if (loaded.has(id)) return;
+    if (loaded.has(loadKey(id))) return;
     let live = true;
     loadApostle(id).then((value) => { if (live) setState({ id, value: { status: "ready", value } }); })
       .catch((error: unknown) => { if (live) setState({ id, value: { status: "error", message: error instanceof Error ? error.message : String(error) } }); });
     return () => { live = false; };
   }, [id]);
-  const ready = loaded.get(id);
+  const ready = loaded.get(loadKey(id));
   if (ready) return { status: "ready", value: ready };
   return state.id === id ? state.value : { status: "loading" };
 }

@@ -2,7 +2,8 @@
 // (approved mock-up: design/hymn-directions/shared/sections.js).
 import { useMemo, useState, type CSSProperties, type MouseEvent } from "react";
 import type { HymnSong, SongPlacedRef } from "@/lib/hymns";
-import { ROMAN, placedUrl, type OpenPassage } from "./parts";
+import { PassageVerses, ROMAN, placedUrl, type OpenPassage } from "./parts";
+import { BibleName } from "@/components/Verse";
 
 const tone = (token: string) => ({ "--tone": `var(--${token})` }) as CSSProperties;
 
@@ -12,12 +13,12 @@ export function Head({ num, title, children }: { num: string; title: JSX.Element
 
 /** 02 · Where Newton found it: his heading verse beside his line. */
 export function Found({ song }: { song: HymnSong }) {
-  const verse = song.heading.passage.verses[0].text, phrase = "that You have brought me this far";
-  const at = verse.indexOf(phrase);
+  const { code, chapter, verses } = song.heading.passage, phrase = "that You have brought me this far";
+  const mark = (verse: string) => { const at = verse.indexOf(phrase); return at < 0 ? verse : <>{verse.slice(0, at)}<b>{phrase}</b>{verse.slice(at + phrase.length)}</>; };
   return <section className="hy-sec" id="found">
     <Head num="02" title={<>Where Newton <em>found it</em></>}>He printed the hymn under David's prayer after God's promise of a lasting house. David asks why God has brought him "this far"; the hymn answers that grace has brought me "safe thus far".</Head>
     <div className="hy-found">
-      <blockquote>{at < 0 ? verse : <>{verse.slice(0, at)}<b>{phrase}</b>{verse.slice(at + phrase.length)}</>}<cite>1 Chronicles 17:16 · Berean Standard Bible</cite></blockquote>
+      <blockquote><PassageVerses p={{ code, chapter, verses: verses.slice(0, 1) }} render={mark} /><cite>1 Chronicles 17:16 · <BibleName /></cite></blockquote>
       <span className="join" aria-hidden="true" />
       <blockquote>Through many dangers, toils and snares, I have already come; <b>’Tis grace has brought me safe thus far</b>, and grace will lead me home.<cite>Stanza III</cite></blockquote>
     </div>
@@ -68,7 +69,7 @@ export function PlacedSquares({ song, open, num = "04" }: { song: Pick<HymnSong,
           onMouseEnter={() => setShown(k)} onFocus={() => setShown(k)} onClick={(e) => onClick(e, k)} />; })}</div></div>)}</div>
     {r && <div className="hy-placed-read" aria-live="polite" style={tone(r.tone)}>
       <p className="ref">{r.label}{r.whole ? " · the whole chapter" : ""}{r.echoes.length > 0 && <em>echoed in stanza {[...new Set(r.echoes.map((e) => ROMAN[e.stanza]))].join(", ")}</em>}</p>
-      <p className="txt">{r.verses.map((v) => <span key={v.n}><sup>{v.n}</sup>{v.text} </span>)}{r.count > r.verses.length && <span className="more">… {r.count - r.verses.length} more verses</span>}</p></div>}
+      <p className="txt"><PassageVerses p={r} numbered />{" "}{r.count > r.verses.length && <span className="more">… {r.count - r.verses.length} more verses</span>}</p></div>}
     <p className="hy-placed-key"><span><i className="k-sq" />a passage hymnals tie it to</span><span><i className="k-sq echo" />one its lines echo ({echoed})</span></p>
   </section>;
 }

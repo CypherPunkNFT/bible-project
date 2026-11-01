@@ -2,6 +2,7 @@
 // hanging over one long table, seven people around it, an open Bible in the lamp's light with a page that turns, bread
 // and a cup whose steam rises, the moon and stars in the window and a verse on the wall. 320 × 240. Styles in
 // fellowships.css (.fw-table); every motion loops slowly and holds still for anyone who asks for reduced motion.
+import { Verse } from "@/components/Verse";
 import type { CSSProperties } from "react";
 
 const BEHIND = [96, 128, 160, 192, 224];
@@ -62,6 +63,6 @@ export function TableArt() {
       <path className="fwt-steam" style={i(0)} d="M205 130c-3-4 3-6 0-10" />
       <path className="fwt-steam" style={i(1)} d="M210 130c-3-4 3-6 0-10" />
     </svg>
-    <figcaption>“And they continued stedfastly in the apostles’ doctrine and fellowship, and in breaking of bread, and in prayers.”<cite>Acts 2:42</cite></figcaption>
+    <figcaption>“<Verse id={44002042} unquoted />”<cite>Acts 2:42</cite></figcaption>
   </figure>;
 }

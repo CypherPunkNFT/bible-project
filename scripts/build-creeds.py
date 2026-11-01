@@ -527,11 +527,8 @@ def build_document(path: Path, bsb: Bsb) -> dict:
                 verses, cut = bsb.verses(code, first, last)
                 entry["span"] = span
                 if verses:
-                    # The words go into the document's own verse table, so a verse cited twenty times
-                    # is stored once; the reference keeps only its verse ids.
+                    # Ids only: the page looks the words up in the reader's Bible.
                     entry["verses"] = [verse["id"] for verse in verses]
-                    for verse in verses:
-                        verse_table.setdefault(str(verse["id"]), verse["text"])
                     if cut:
                         entry["more"] = True
                 else:
@@ -606,7 +603,6 @@ def build_document(path: Path, bsb: Bsb) -> dict:
     }
     document["_bundles"] = bundles
     document["_sections"] = sections
-    document["_verses"] = verse_table
     for key, field in (
         ("alternativeTitles", "alternative_titles"),
         ("authors", "authors"),
@@ -711,16 +707,10 @@ def render(index: dict, documents: list[dict]) -> dict[Path, str]:
     for document in documents:
         bundles = document.pop("_bundles")
         sections = document.pop("_sections")
-        verses = document.pop("_verses")
         for bundle in bundles:
             slice_ = sections[bundle["from"]:bundle["to"] + 1]
-            used = {str(verse_id): verses[str(verse_id)]
-                    for section in slice_
-                    for proof in section.get("proofs") or []
-                    for reference in proof["references"]
-                    for verse_id in reference.get("verses") or []}
             path = OUT / "doc" / f"{document['id']}.{bundle['id']}.json"
-            payload = {"id": document["id"], "bundle": bundle["id"], "sections": slice_, "verses": used}
+            payload = {"id": document["id"], "bundle": bundle["id"], "sections": slice_}
             files[path] = json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n"
         files[OUT / "doc" / f"{document['id']}.json"] = json.dumps(document, ensure_ascii=False, separators=(",", ":")) + "\n"
     files[OUT / "index.json"] = json.dumps(index, ensure_ascii=False, indent=1) + "\n"

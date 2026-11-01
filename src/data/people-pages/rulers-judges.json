@@ -178,11 +178,11 @@
             ]
           },
           "burial": {
-            "text": "And he buried him in a valley in the land of Moab, over against Beth-peor: but no man knoweth of his sepulchre unto this day.",
             "span": [
               5034006,
               5034006
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -267,14 +267,19 @@
           ]
         },
         {
-          "text": "\"Now the man Moses was very meek, above all the men which were upon the face of the earth.\"",
           "layer": "scripture",
           "refs": [
             [
               4012003,
               4012003
             ]
-          ]
+          ],
+          "span": [
+            4012003,
+            4012003
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "God speaks with Moses \"mouth to mouth\", and calls him faithful \"in all mine house\".",
@@ -291,14 +296,19 @@
           ]
         },
         {
-          "text": "\"There arose not a prophet since in Israel like unto Moses, whom the LORD knew face to face.\"",
           "layer": "scripture",
           "refs": [
             [
               5034010,
               5034012
             ]
-          ]
+          ],
+          "span": [
+            5034010,
+            5034012
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Moses stood \"in the breach\" to turn God's wrath from the people.",
@@ -329,14 +339,19 @@
           ]
         },
         {
-          "text": "\"The law was given by Moses.\"",
           "layer": "scripture",
           "refs": [
             [
               43001017,
               43001017
             ]
-          ]
+          ],
+          "span": [
+            43001017,
+            43001017
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "accession": [
@@ -919,11 +934,11 @@
             ]
           },
           "quote": {
-            "text": "See, I have made thee a god to Pharaoh: and Aaron thy brother shall be thy prophet.",
             "span": [
               2007001,
               2007001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -1507,11 +1522,11 @@
             ]
           },
           "burial": {
-            "text": "And they buried him in the border of his inheritance in Timnath-serah, which is in mount Ephraim, on the north side of the hill of Gaash.",
             "span": [
               6024030,
               6024030
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -1588,14 +1603,19 @@
           ]
         },
         {
-          "text": "\"So the LORD was with Joshua; and his fame was noised throughout all the country.\"",
           "layer": "scripture",
           "refs": [
             [
               6006027,
               6006027
             ]
-          ]
+          ],
+          "span": [
+            6006027,
+            6006027
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "\"Israel served the LORD all the days of Joshua\", and of the elders who outlived him.",
@@ -2179,14 +2199,19 @@
             ]
           },
           {
-            "text": "\"Israel served the LORD all the days of Joshua.\"",
             "layer": "scripture",
             "refs": [
               [
                 6024031,
                 6024031
               ]
-            ]
+            ],
+            "span": [
+              6024031,
+              6024031
+            ],
+            "quoted": true,
+            "marks": true
           }
         ],
         "building": [
@@ -2402,14 +2427,19 @@
         {
           "topic": "How much of the land was taken",
           "first": {
-            "text": "\"So Joshua took the whole land ... And the land rested from war.\"",
             "layer": "scripture",
             "refs": [
               [
                 6011023,
                 6011023
               ]
-            ]
+            ],
+            "span": [
+              6011023,
+              6011023
+            ],
+            "quoted": true,
+            "marks": true
           },
           "second": {
             "text": "\"Thou art old and stricken in years, and there remaineth yet very much land to be possessed.\"",
@@ -2877,24 +2907,34 @@
           ]
         },
         {
-          "text": "\"The LORD raised up a deliverer to the children of Israel, who delivered them, even Othniel the son of Kenaz, Caleb's younger brother.\"",
           "layer": "scripture",
           "refs": [
             [
               7003009,
               7003009
             ]
-          ]
+          ],
+          "span": [
+            7003009,
+            7003009
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "\"The Spirit of the LORD came upon him, and he judged Israel, and went out to war.\"",
           "layer": "scripture",
           "refs": [
             [
               7003010,
               7003010
             ]
-          ]
+          ],
+          "span": [
+            7003010,
+            7003010
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "In David's time the captain for the twelfth month was \"Heldai the Netophathite, of Othniel\".",
@@ -2934,14 +2974,19 @@
           }
         },
         "cry": {
-          "text": "\"The children of Israel cried unto the LORD.\"",
           "layer": "scripture",
           "refs": [
             [
               7003009,
               7003009
             ]
-          ]
+          ],
+          "span": [
+            7003009,
+            7003009
+          ],
+          "quoted": true,
+          "marks": true
         },
         "deliverance": {
           "text": "Othniel went out to war and \"his hand prevailed against Chushan-rishathaim\".",
@@ -3266,14 +3311,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"The LORD raised them up a deliverer, Ehud the son of Gera, a Benjamite, a man lefthanded.\"",
           "layer": "scripture",
           "refs": [
             [
               7003015,
               7003015
             ]
-          ]
+          ],
+          "span": [
+            7003015,
+            7003015
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "To Eglon he said: \"I have a message from God unto thee.\"",
@@ -3296,26 +3346,36 @@
           ]
         },
         {
-          "text": "\"So Moab was subdued that day under the hand of Israel.\"",
           "layer": "scripture",
           "refs": [
             [
               7003030,
               7003030
             ]
-          ]
+          ],
+          "span": [
+            7003030,
+            7003030
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "cycle": {
         "sin": {
-          "text": "\"The children of Israel did evil again in the sight of the LORD.\"",
           "layer": "scripture",
           "refs": [
             [
               7003012,
               7003012
             ]
-          ]
+          ],
+          "span": [
+            7003012,
+            7003012
+          ],
+          "quoted": true,
+          "marks": true
         },
         "oppressor": {
           "name": "Eglon, king of Moab",
@@ -3333,14 +3393,19 @@
           }
         },
         "cry": {
-          "text": "\"When the children of Israel cried unto the LORD, the LORD raised them up a deliverer.\"",
           "layer": "scripture",
           "refs": [
             [
               7003015,
               7003015
             ]
-          ]
+          ],
+          "span": [
+            7003015,
+            7003015
+          ],
+          "quoted": true,
+          "marks": true
         },
         "deliverance": {
           "text": "Ehud killed Eglon, then led Israel down from mount Ephraim, held the fords of the Jordan and killed about ten thousand Moabites.",
@@ -3423,14 +3488,19 @@
           "label": "Eighty years of rest",
           "kind": "other",
           "claim": {
-            "text": "\"The land had rest fourscore years.\"",
             "layer": "scripture",
             "refs": [
               [
                 7003030,
                 7003030
               ]
-            ]
+            ],
+            "span": [
+              7003030,
+              7003030
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],
@@ -3578,14 +3648,19 @@
       "tribe": "Not stated (she lived in mount Ephraim)",
       "identifications": [
         {
-          "text": "\"Deborah, a prophetess, the wife of Lapidoth, she judged Israel at that time.\"",
           "layer": "scripture",
           "refs": [
             [
               7004004,
               7004004
             ]
-          ]
+          ],
+          "span": [
+            7004004,
+            7004004
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "records": [],
@@ -3612,14 +3687,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"She dwelt under the palm tree of Deborah between Ramah and Beth-el in mount Ephraim: and the children of Israel came up to her for judgment.\"",
           "layer": "scripture",
           "refs": [
             [
               7004005,
               7004005
             ]
-          ]
+          ],
+          "span": [
+            7004005,
+            7004005
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "She called Barak and gave him the LORD's command to go to mount Tabor; when he would not go without her, she went, saying the LORD would \"sell Sisera into the hand of a woman\".",
@@ -3632,14 +3712,19 @@
           ]
         },
         {
-          "text": "\"Up; for this is the day in which the LORD hath delivered Sisera into thine hand.\"",
           "layer": "scripture",
           "refs": [
             [
               7004014,
               7004014
             ]
-          ]
+          ],
+          "span": [
+            7004014,
+            7004014
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "In the song: \"until that I Deborah arose, that I arose a mother in Israel\".",
@@ -3654,14 +3739,19 @@
       ],
       "cycle": {
         "sin": {
-          "text": "\"The children of Israel again did evil in the sight of the LORD, when Ehud was dead.\"",
           "layer": "scripture",
           "refs": [
             [
               7004001,
               7004001
             ]
-          ]
+          ],
+          "span": [
+            7004001,
+            7004001
+          ],
+          "quoted": true,
+          "marks": true
         },
         "oppressor": {
           "name": "Jabin, king of Canaan, who reigned in Hazor",
@@ -3679,14 +3769,19 @@
           }
         },
         "cry": {
-          "text": "\"The children of Israel cried unto the LORD.\"",
           "layer": "scripture",
           "refs": [
             [
               7004003,
               7004003
             ]
-          ]
+          ],
+          "span": [
+            7004003,
+            7004003
+          ],
+          "quoted": true,
+          "marks": true
         },
         "deliverance": {
           "text": "The LORD routed Sisera before Barak at the Kishon; Jael killed Sisera; Israel prevailed until Jabin was destroyed.",
@@ -3818,28 +3913,38 @@
           "label": "Forty years of rest",
           "kind": "other",
           "claim": {
-            "text": "\"And the land had rest forty years.\"",
             "layer": "scripture",
             "refs": [
               [
                 7005031,
                 7005031
               ]
-            ]
+            ],
+            "span": [
+              7005031,
+              7005031
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],
       "nation": {
         "worship": [
           {
-            "text": "\"They chose new gods; then was war in the gates.\"",
             "layer": "scripture",
             "refs": [
               [
                 7005008,
                 7005008
               ]
-            ]
+            ],
+            "span": [
+              7005008,
+              7005008
+            ],
+            "quoted": true,
+            "marks": true
           }
         ],
         "building": [],
@@ -3907,11 +4012,11 @@
             ]
           },
           "quote": {
-            "text": "Hath not the LORD God of Israel commanded, saying, Go and draw toward mount Tabor, and take with thee ten thousand men of the children of Naphtali and of the children of Zebulun?",
             "span": [
               7004006,
               7004006
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -4279,21 +4384,26 @@
         {
           "book": "other",
           "death": {
-            "text": "\"Gideon the son of Joash died in a good old age.\"",
             "layer": "scripture",
             "refs": [
               [
                 7008032,
                 7008032
               ]
-            ]
-          },
-          "burial": {
-            "text": "was buried in the sepulchre of Joash his father, in Ophrah of the Abi-ezrites",
+            ],
             "span": [
               7008032,
               7008032
-            ]
+            ],
+            "quoted": true,
+            "marks": true
+          },
+          "burial": {
+            "span": [
+              7008032,
+              7008032
+            ],
+            "quoted": true
           }
         }
       ],
@@ -4358,14 +4468,19 @@
           ]
         },
         {
-          "text": "\"The Spirit of the LORD came upon Gideon, and he blew a trumpet.\"",
           "layer": "scripture",
           "refs": [
             [
               7006034,
               7006034
             ]
-          ]
+          ],
+          "span": [
+            7006034,
+            7006034
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Offered a dynasty, he said: \"I will not rule over you, neither shall my son rule over you: the LORD shall rule over you.\"",
@@ -4412,14 +4527,19 @@
       ],
       "cycle": {
         "sin": {
-          "text": "\"The children of Israel did evil in the sight of the LORD.\"",
           "layer": "scripture",
           "refs": [
             [
               7006001,
               7006001
             ]
-          ]
+          ],
+          "span": [
+            7006001,
+            7006001
+          ],
+          "quoted": true,
+          "marks": true
         },
         "oppressor": {
           "name": "Midian, with the Amalekites and \"the children of the east\"",
@@ -4436,14 +4556,19 @@
           }
         },
         "cry": {
-          "text": "\"Israel was greatly impoverished because of the Midianites; and the children of Israel cried unto the LORD.\"",
           "layer": "scripture",
           "refs": [
             [
               7006006,
               7006007
             ]
-          ]
+          ],
+          "span": [
+            7006006,
+            7006007
+          ],
+          "quoted": true,
+          "marks": true
         },
         "deliverance": {
           "text": "With three hundred men, trumpets and lamps in pitchers, Gideon routed Midian; he then captured its kings beyond the Jordan.",
@@ -4675,14 +4800,19 @@
           "label": "The crown refused",
           "kind": "other",
           "claim": {
-            "text": "\"The LORD shall rule over you.\"",
             "layer": "scripture",
             "refs": [
               [
                 7008022,
                 7008023
               ]
-            ]
+            ],
+            "span": [
+              7008022,
+              7008023
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -4833,11 +4963,11 @@
             ]
           },
           "quote": {
-            "text": "I am the LORD your God; fear not the gods of the Amorites, in whose land ye dwell: but ye have not obeyed my voice.",
             "span": [
               7006010,
               7006010
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -5143,11 +5273,11 @@
             ]
           },
           "burial": {
-            "text": "was buried in Shamir",
             "span": [
               7010002,
               7010002
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -5181,26 +5311,36 @@
           ]
         },
         {
-          "text": "\"He judged Israel twenty and three years, and died.\"",
           "layer": "scripture",
           "refs": [
             [
               7010002,
               7010002
             ]
-          ]
+          ],
+          "span": [
+            7010002,
+            7010002
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "cycle": {
         "deliverance": {
-          "text": "\"After Abimelech there arose to defend Israel Tola the son of Puah, the son of Dodo, a man of Issachar.\"",
           "layer": "scripture",
           "refs": [
             [
               7010001,
               7010001
             ]
-          ]
+          ],
+          "span": [
+            7010001,
+            7010001
+          ],
+          "quoted": true,
+          "marks": true
         },
         "judged": {
           "years": 23,
@@ -5215,14 +5355,19 @@
           "label": "Judged Israel 23 years",
           "kind": "other",
           "claim": {
-            "text": "\"After Abimelech there arose to defend Israel Tola the son of Puah, the son of Dodo, a man of Issachar.\"",
             "layer": "scripture",
             "refs": [
               [
                 7010001,
                 7010001
               ]
-            ]
+            ],
+            "span": [
+              7010001,
+              7010001
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -5393,11 +5538,11 @@
             ]
           },
           "burial": {
-            "text": "And Jair died, and was buried in Camon.",
             "span": [
               7010005,
               7010005
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -5421,26 +5566,36 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"He had thirty sons that rode on thirty ass colts, and they had thirty cities, which are called Havoth-jair unto this day.\"",
           "layer": "scripture",
           "refs": [
             [
               7010004,
               7010004
             ]
-          ]
+          ],
+          "span": [
+            7010004,
+            7010004
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "cycle": {
         "deliverance": {
-          "text": "\"After him arose Jair, a Gileadite, and judged Israel twenty and two years.\"",
           "layer": "scripture",
           "refs": [
             [
               7010003,
               7010003
             ]
-          ]
+          ],
+          "span": [
+            7010003,
+            7010003
+          ],
+          "quoted": true,
+          "marks": true
         },
         "judged": {
           "years": 22,
@@ -5455,14 +5610,19 @@
           "label": "Judged Israel 22 years",
           "kind": "other",
           "claim": {
-            "text": "\"After him arose Jair, a Gileadite, and judged Israel twenty and two years.\"",
             "layer": "scripture",
             "refs": [
               [
                 7010003,
                 7010003
               ]
-            ]
+            ],
+            "span": [
+              7010003,
+              7010003
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -5677,14 +5837,19 @@
       "tribe": "Not stated (a Gileadite)",
       "identifications": [
         {
-          "text": "\"Jephthah the Gileadite was a mighty man of valour, and he was the son of an harlot: and Gilead begat Jephthah.\"",
           "layer": "scripture",
           "refs": [
             [
               7011001,
               7011001
             ]
-          ]
+          ],
+          "span": [
+            7011001,
+            7011001
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "records": [
@@ -5708,23 +5873,28 @@
             ]
           },
           "burial": {
-            "text": "Then died Jephthah the Gileadite, and was buried in one of the cities of Gilead.",
             "span": [
               7012007,
               7012007
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
       "reign": {
         "years": 6,
-        "text": "\"Jephthah judged Israel six years\"",
         "refs": [
           [
             7012007,
             7012007
           ]
-        ]
+        ],
+        "span": [
+          7012007,
+          7012007
+        ],
+        "quoted": true,
+        "marks": true
       },
       "dates": [
         {
@@ -5736,14 +5906,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"Then the Spirit of the LORD came upon Jephthah.\"",
           "layer": "scripture",
           "refs": [
             [
               7011029,
               7011029
             ]
-          ]
+          ],
+          "span": [
+            7011029,
+            7011029
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "He laid Israel's case before the king of Ammon: \"the LORD the Judge be judge this day between the children of Israel and the children of Ammon\".",
@@ -6272,11 +6447,11 @@
             ]
           },
           "burial": {
-            "text": "Then died Ibzan, and was buried at Beth-lehem.",
             "span": [
               7012010,
               7012010
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -6300,26 +6475,36 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"He had thirty sons, and thirty daughters, whom he sent abroad, and took in thirty daughters from abroad for his sons.\"",
           "layer": "scripture",
           "refs": [
             [
               7012009,
               7012009
             ]
-          ]
+          ],
+          "span": [
+            7012009,
+            7012009
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "cycle": {
         "deliverance": {
-          "text": "\"And after him Ibzan of Beth-lehem judged Israel.\"",
           "layer": "scripture",
           "refs": [
             [
               7012008,
               7012008
             ]
-          ]
+          ],
+          "span": [
+            7012008,
+            7012008
+          ],
+          "quoted": true,
+          "marks": true
         },
         "judged": {
           "years": 7,
@@ -6334,14 +6519,19 @@
           "label": "Judged Israel 7 years",
           "kind": "other",
           "claim": {
-            "text": "\"And after him Ibzan of Beth-lehem judged Israel.\"",
             "layer": "scripture",
             "refs": [
               [
                 7012008,
                 7012008
               ]
-            ]
+            ],
+            "span": [
+              7012008,
+              7012008
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -6529,11 +6719,11 @@
             ]
           },
           "burial": {
-            "text": "was buried in Aijalon in the country of Zebulun",
             "span": [
               7012012,
               7012012
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -6557,26 +6747,36 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"Elon, a Zebulonite, judged Israel; and he judged Israel ten years.\"",
           "layer": "scripture",
           "refs": [
             [
               7012011,
               7012011
             ]
-          ]
+          ],
+          "span": [
+            7012011,
+            7012011
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "cycle": {
         "deliverance": {
-          "text": "\"And after him Elon, a Zebulonite, judged Israel; and he judged Israel ten years.\"",
           "layer": "scripture",
           "refs": [
             [
               7012011,
               7012011
             ]
-          ]
+          ],
+          "span": [
+            7012011,
+            7012011
+          ],
+          "quoted": true,
+          "marks": true
         },
         "judged": {
           "years": 10,
@@ -6591,14 +6791,19 @@
           "label": "Judged Israel 10 years",
           "kind": "other",
           "claim": {
-            "text": "\"And after him Elon, a Zebulonite, judged Israel; and he judged Israel ten years.\"",
             "layer": "scripture",
             "refs": [
               [
                 7012011,
                 7012011
               ]
-            ]
+            ],
+            "span": [
+              7012011,
+              7012011
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -6753,11 +6958,11 @@
             ]
           },
           "burial": {
-            "text": "was buried in Pirathon in the land of Ephraim, in the mount of the Amalekites",
             "span": [
               7012015,
               7012015
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -6781,26 +6986,36 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"He had forty sons and thirty nephews, that rode on threescore and ten ass colts: and he judged Israel eight years.\"",
           "layer": "scripture",
           "refs": [
             [
               7012014,
               7012014
             ]
-          ]
+          ],
+          "span": [
+            7012014,
+            7012014
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "cycle": {
         "deliverance": {
-          "text": "\"And after him Abdon the son of Hillel, a Pirathonite, judged Israel.\"",
           "layer": "scripture",
           "refs": [
             [
               7012013,
               7012013
             ]
-          ]
+          ],
+          "span": [
+            7012013,
+            7012013
+          ],
+          "quoted": true,
+          "marks": true
         },
         "judged": {
           "years": 8,
@@ -6815,14 +7030,19 @@
           "label": "Judged Israel 8 years",
           "kind": "other",
           "claim": {
-            "text": "\"And after him Abdon the son of Hillel, a Pirathonite, judged Israel.\"",
             "layer": "scripture",
             "refs": [
               [
                 7012013,
                 7012013
               ]
-            ]
+            ],
+            "span": [
+              7012013,
+              7012013
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -7043,17 +7263,16 @@
             ]
           },
           "burial": {
-            "text": "buried him between Zorah and Eshtaol in the buryingplace of Manoah his father",
             "span": [
               7016031,
               7016031
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
       "reign": {
         "years": 20,
-        "text": "\"He judged Israel in the days of the Philistines twenty years\"",
         "refs": [
           [
             7015020,
@@ -7063,7 +7282,13 @@
             7016031,
             7016031
           ]
-        ]
+        ],
+        "span": [
+          7015020,
+          7015020
+        ],
+        "quoted": true,
+        "marks": true
       },
       "dates": [
         {
@@ -7075,14 +7300,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"The child shall be a Nazarite unto God from the womb: and he shall begin to deliver Israel out of the hand of the Philistines.\"",
           "layer": "scripture",
           "refs": [
             [
               7013005,
               7013005
             ]
-          ]
+          ],
+          "span": [
+            7013005,
+            7013005
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "The Spirit of the LORD came upon him again and again.",
@@ -7127,14 +7357,19 @@
           ]
         },
         {
-          "text": "\"The dead which he slew at his death were more than they which he slew in his life.\"",
           "layer": "scripture",
           "refs": [
             [
               7016030,
               7016030
             ]
-          ]
+          ],
+          "span": [
+            7016030,
+            7016030
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Hebrews names him among those who acted by faith.",
@@ -7149,27 +7384,37 @@
       ],
       "cycle": {
         "sin": {
-          "text": "\"The children of Israel did evil again in the sight of the LORD.\"",
           "layer": "scripture",
           "refs": [
             [
               7013001,
               7013001
             ]
-          ]
+          ],
+          "span": [
+            7013001,
+            7013001
+          ],
+          "quoted": true,
+          "marks": true
         },
         "oppressor": {
           "name": "The Philistines",
           "years": 40,
           "claim": {
-            "text": "\"The LORD delivered them into the hand of the Philistines forty years.\"",
             "layer": "scripture",
             "refs": [
               [
                 7013001,
                 7013001
               ]
-            ]
+            ],
+            "span": [
+              7013001,
+              7013001
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         "deliverance": {
@@ -7407,14 +7652,19 @@
         "building": [],
         "alliances": [
           {
-            "text": "\"At that time the Philistines had dominion over Israel.\"",
             "layer": "scripture",
             "refs": [
               [
                 7014004,
                 7014004
               ]
-            ]
+            ],
+            "span": [
+              7014004,
+              7014004
+            ],
+            "quoted": true,
+            "marks": true
           }
         ],
         "people": [
@@ -7720,13 +7970,18 @@
       ],
       "reign": {
         "years": 40,
-        "text": "\"He had judged Israel forty years\" (the Greek text reads twenty)",
         "refs": [
           [
             9004018,
             9004018
           ]
-        ]
+        ],
+        "span": [
+          9004018,
+          9004018
+        ],
+        "quoted": true,
+        "marks": true
       },
       "dates": [
         {
@@ -7760,14 +8015,19 @@
       ],
       "scriptureSays": [
         {
-          "text": "\"Eli the priest sat upon a seat by a post of the temple of the LORD.\"",
           "layer": "scripture",
           "refs": [
             [
               9001009,
               9001009
             ]
-          ]
+          ],
+          "span": [
+            9001009,
+            9001009
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "He blessed Hannah: \"the God of Israel grant thee thy petition\".",
@@ -7810,14 +8070,19 @@
           ]
         },
         {
-          "text": "\"His heart trembled for the ark of God.\"",
           "layer": "scripture",
           "refs": [
             [
               9004013,
               9004013
             ]
-          ]
+          ],
+          "span": [
+            9004013,
+            9004013
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "events": [
@@ -7934,14 +8199,19 @@
             ]
           },
           {
-            "text": "\"The word of the LORD was precious in those days; there was no open vision.\"",
             "layer": "scripture",
             "refs": [
               [
                 9003001,
                 9003001
               ]
-            ]
+            ],
+            "span": [
+              9003001,
+              9003001
+            ],
+            "quoted": true,
+            "marks": true
           },
           {
             "text": "The elders fetched the ark into battle, hoping \"it may save us\".",
@@ -7989,11 +8259,11 @@
             ]
           },
           "quote": {
-            "text": "them that honour me I will honour, and they that despise me shall be lightly esteemed",
             "span": [
               9002030,
               9002030
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -8012,11 +8282,11 @@
             ]
           },
           "quote": {
-            "text": "Behold, I will do a thing in Israel, at which both the ears of every one that heareth it shall tingle.",
             "span": [
               9003011,
               9003011
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -8206,21 +8476,26 @@
         {
           "book": "samuel",
           "death": {
-            "text": "\"Samuel died; and all the Israelites were gathered together, and lamented him.\"",
             "layer": "scripture",
             "refs": [
               [
                 9025001,
                 9025001
               ]
-            ]
-          },
-          "burial": {
-            "text": "buried him in his house at Ramah",
+            ],
             "span": [
               9025001,
               9025001
-            ]
+            ],
+            "quoted": true,
+            "marks": true
+          },
+          "burial": {
+            "span": [
+              9025001,
+              9025001
+            ],
+            "quoted": true
           }
         }
       ],
@@ -8285,14 +8560,19 @@
           ]
         },
         {
-          "text": "\"God forbid that I should sin against the LORD in ceasing to pray for you.\"",
           "layer": "scripture",
           "refs": [
             [
               9012023,
               9012023
             ]
-          ]
+          ],
+          "span": [
+            9012023,
+            9012023
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Later Scripture sets him beside Moses as one who called on the LORD and stood before him.",
@@ -8323,14 +8603,19 @@
           ]
         },
         {
-          "text": "\"The acts of David the king ... are written in the book of Samuel the seer.\"",
           "layer": "scripture",
           "refs": [
             [
               13029029,
               13029029
             ]
-          ]
+          ],
+          "span": [
+            13029029,
+            13029029
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "cycle": {
@@ -8406,7 +8691,6 @@
           ]
         },
         {
-          "text": "\"The child did minister unto the LORD before Eli the priest.\"",
           "layer": "scripture",
           "refs": [
             [
@@ -8417,7 +8701,13 @@
               9002018,
               9002018
             ]
-          ]
+          ],
+          "span": [
+            9002011,
+            9002011
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "The LORD called him by night: \"Speak; for thy servant heareth.\"",
@@ -8430,14 +8720,19 @@
           ]
         },
         {
-          "text": "\"The word of Samuel came to all Israel.\"",
           "layer": "scripture",
           "refs": [
             [
               9004001,
               9004001
             ]
-          ]
+          ],
+          "span": [
+            9004001,
+            9004001
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "events": [
@@ -8750,14 +9045,19 @@
         ],
         "alliances": [
           {
-            "text": "\"There was peace between Israel and the Amorites.\"",
             "layer": "scripture",
             "refs": [
               [
                 9007014,
                 9007014
               ]
-            ]
+            ],
+            "span": [
+              9007014,
+              9007014
+            ],
+            "quoted": true,
+            "marks": true
           }
         ],
         "people": [
@@ -8804,11 +9104,11 @@
             ]
           },
           "quote": {
-            "text": "And all Israel from Dan even to Beer-sheba knew that Samuel was established to be a prophet of the LORD.",
             "span": [
               9003020,
               9003020
-            ]
+            ],
+            "quoted": true
           }
         },
         {

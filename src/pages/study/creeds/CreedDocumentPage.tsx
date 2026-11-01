@@ -14,12 +14,13 @@ import {
   type CreedPart,
   type CreedReference,
   type CreedSection, yearWithEra } from "@/lib/creeds";
+import { BibleName, Verse } from "@/components/Verse";
 import { studyRefLink } from "@/lib/study";
 import { useAsync } from "@/lib/useAsync";
 import "./creeds.css";
 
-/** A reference, its Berean words where the Berean text has them, and a way into the reader. */
-function Reference({ reference, verses, open }: { reference: CreedReference; verses: Record<string, string>; open: boolean }) {
+/** A reference, its words where the reader's Bible has them, and a way into the reader. */
+function Reference({ reference, open }: { reference: CreedReference; open: boolean }) {
   const catalog = useCatalog();
   const link = reference.span ? studyRefLink(catalog, reference.span) : undefined;
   return (
@@ -33,7 +34,7 @@ function Reference({ reference, verses, open }: { reference: CreedReference; ver
           {reference.verses.map((id) => (
             <span key={id}>
               <sup>{verseLabel(id, reference.span)}</sup>
-              {verses[String(id)] ?? ""}{" "}
+              <Verse id={id} />{" "}
             </span>
           ))}
           {reference.more && link ? (
@@ -49,12 +50,10 @@ function Reference({ reference, verses, open }: { reference: CreedReference; ver
 
 function Section({
   section,
-  verses,
   showScripture,
   documentType,
 }: {
   section: CreedSection;
-  verses: Record<string, string>;
   showScripture: boolean;
   documentType: string | null;
 }) {
@@ -131,7 +130,6 @@ function Section({
                         <Reference
                           key={`${reference.osis}-${reference.reference}`}
                           reference={reference}
-                          verses={verses}
                           open={shown}
                         />
                       ))}
@@ -350,10 +348,10 @@ export default function CreedDocumentPage() {
             ) : found.counts.unrestated > 0 ? (
               <p>
                 This document's quotations are left in its own older wording — {found.counts.unrestated.toLocaleString("en-US")}{" "}
-                of them, each marked where it stands. Its proof-text references are shown in the Berean Standard Bible.
+                of them, each marked where it stands. Its proof-text references are shown in the <BibleName />.
               </p>
             ) : (
-              <p>This document states its doctrine rather than quoting verses; its references are shown in the Berean Standard Bible.</p>
+              <p>This document states its doctrine rather than quoting verses; its references are shown in the <BibleName />.</p>
             )}
           </div>
         </header>
@@ -370,7 +368,6 @@ export default function CreedDocumentPage() {
               <Section
                 key={section.id}
                 section={section}
-                verses={text.verses}
                 showScripture={showScripture}
                 documentType={found.documentType}
               />
@@ -421,7 +418,7 @@ export default function CreedDocumentPage() {
           </ul>
           <p>
             The document's own wording is unchanged apart from the quoted verses described above. Its proof-text
-            references were resolved against this site's own copy of the Berean Standard Bible; the{" "}
+            references were resolved against this site's own copy of the <BibleName />; the{" "}
             {found.counts.referenceOnly > 0
               ? `${found.counts.referenceOnly} reference${found.counts.referenceOnly === 1 ? "" : "s"} the Berean text does not carry are shown as references with no verse words`
               : "references it does not carry would be shown as references with no verse words"}

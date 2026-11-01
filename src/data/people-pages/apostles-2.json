@@ -247,22 +247,22 @@
         {
           "label": "Matthew 9",
           "quote": {
-            "text": "he saw a man, named Matthew, sitting at the receipt of custom: and he saith unto him, Follow me. And he arose, and followed him.",
             "span": [
               40009009,
               40009009
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "label": "Mark 2",
           "placeId": "af2161c",
           "quote": {
-            "text": "he saw Levi the son of Alphæus sitting at the receipt of custom, and said unto him, Follow me. And he arose and followed him.",
             "span": [
               41002014,
               41002014
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Mark sets the scene by the sea, after Jesus had come back to Capernaum.",
@@ -282,11 +282,11 @@
         {
           "label": "Luke 5",
           "quote": {
-            "text": "And he left all, rose up, and followed him.",
             "span": [
               42005028,
               42005028
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Luke calls him “a publican, named Levi”, and adds that he “left all” and then “made him a great feast in his own house”.",
@@ -836,11 +836,11 @@
         {
           "label": "Mark 3",
           "quote": {
-            "text": "And he ordained twelve, that they should be with him, and that he might send them forth to preach,",
             "span": [
               41003014,
               41003014
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "No Gospel tells how he was first called. He appears when Jesus chooses the Twelve.",
@@ -860,11 +860,11 @@
         {
           "label": "Luke 6",
           "quote": {
-            "text": "of them he chose twelve, whom also he named apostles",
             "span": [
               42006013,
               42006013
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Luke says Jesus spent the night before in prayer on a mountain.",
@@ -1289,11 +1289,11 @@
         {
           "label": "Mark 3",
           "quote": {
-            "text": "And he ordained twelve, that they should be with him, and that he might send them forth to preach,",
             "span": [
               41003014,
               41003014
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "No Gospel tells how he was first called. He appears when Jesus chooses the Twelve.",
@@ -1313,11 +1313,11 @@
         {
           "label": "Luke 6",
           "quote": {
-            "text": "of them he chose twelve, whom also he named apostles",
             "span": [
               42006013,
               42006013
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Luke says Jesus spent the night before in prayer on a mountain.",
@@ -1800,11 +1800,11 @@
         {
           "label": "Mark 3",
           "quote": {
-            "text": "And he ordained twelve, that they should be with him, and that he might send them forth to preach,",
             "span": [
               41003014,
               41003014
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "No Gospel tells how he was first called. He appears when Jesus chooses the Twelve.",
@@ -1824,11 +1824,11 @@
         {
           "label": "Luke 6",
           "quote": {
-            "text": "of them he chose twelve, whom also he named apostles",
             "span": [
               42006013,
               42006013
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Luke says Jesus spent the night before in prayer on a mountain.",
@@ -2210,11 +2210,11 @@
         {
           "label": "Luke 6",
           "quote": {
-            "text": "of them he chose twelve, whom also he named apostles",
             "span": [
               42006013,
               42006013
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Luke names him last: “Judas Iscariot, which also was the traitor”.",
@@ -2231,11 +2231,11 @@
           "label": "John 6",
           "placeId": "af2161c",
           "quote": {
-            "text": "Have not I chosen you twelve, and one of you is a devil?",
             "span": [
               43006070,
               43006070
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "John adds: “He spake of Judas Iscariot the son of Simon: for he it was that should betray him, being one of the twelve.”",
@@ -2818,11 +2818,11 @@
           "label": "Acts 1",
           "placeId": "a15257a",
           "quote": {
-            "text": "And they gave forth their lots; and the lot fell upon Matthias; and he was numbered with the eleven apostles.",
             "span": [
               44001026,
               44001026
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Peter set the condition: one of the men who had been with them “all the time that the Lord Jesus went in and out among us, Beginning from the baptism of John”, to be “a witness with us of his resurrection”. Two were put forward, Joseph called Barsabas, surnamed Justus, and Matthias. The apostles prayed and cast lots.",
@@ -3076,14 +3076,19 @@
           ]
         },
         {
-          "text": "“I am a Pharisee, the son of a Pharisee.”",
           "layer": "scripture",
           "refs": [
             [
               44023006,
               44023006
             ]
-          ]
+          ],
+          "span": [
+            44023006,
+            44023006
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "A Roman citizen from birth: “But I was free born.”",
@@ -3177,11 +3182,11 @@
           "label": "Acts 9: Luke's account",
           "placeId": "a69c1d4",
           "quote": {
-            "text": "And he fell to the earth, and heard a voice saying unto him, Saul, Saul, why persecutest thou me?",
             "span": [
               44009004,
               44009004
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Near Damascus a light from heaven shone round him and the voice said, “I am Jesus whom thou persecutest”. Blind for three days, he was baptized after Ananias laid his hands on him; the Lord told Ananias that Saul was “a chosen vessel unto me, to bear my name before the Gentiles, and kings, and the children of Israel”.",
@@ -3198,11 +3203,11 @@
           "label": "Acts 22: Paul to the crowd in Jerusalem",
           "placeId": "a69c1d4",
           "quote": {
-            "text": "as I made my journey, and was come nigh unto Damascus about noon, suddenly there shone from heaven a great light round about me.",
             "span": [
               44022006,
               44022006
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Speaking “in the Hebrew tongue” from the castle stairs, Paul says the voice named itself “Jesus of Nazareth”, and that Ananias told him, “arise, and be baptized, and wash away thy sins”.",
@@ -3223,11 +3228,11 @@
           "label": "Acts 26: Paul before King Agrippa",
           "placeId": "a69c1d4",
           "quote": {
-            "text": "for I have appeared unto thee for this purpose, to make thee a minister and a witness",
             "span": [
               44026016,
               44026016
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Here the voice speaks “in the Hebrew tongue”, and Jesus gives the commission himself: Paul is sent to the Gentiles “To open their eyes, and to turn them from darkness to light”.",
@@ -3243,11 +3248,11 @@
         {
           "label": "Galatians 1: in his own words",
           "quote": {
-            "text": "But when it pleased God, who separated me from my mother’s womb, and called me by his grace,",
             "span": [
               48001015,
               48001015
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "He writes that God was pleased “To reveal his Son in me, that I might preach him among the heathen”, and that he did not then go up to Jerusalem but into Arabia.",
@@ -4265,7 +4270,6 @@
             "personId": "onesimus-col-4-9"
           },
           "claim": {
-            "text": "“whom I have begotten in my bonds”.",
             "layer": "scripture",
             "refs": [
               [
@@ -4276,7 +4280,13 @@
                 51004009,
                 51004009
               ]
-            ]
+            ],
+            "span": [
+              57001010,
+              57001010
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {

@@ -235,7 +235,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
   loadMoses = async () => {
     const res = { ok: true, json: async () => structuredClone((await import("./data/moses.json")).default) };
     if (!res.ok) throw new Error(`moses.json: expected 200, got ${res.status}`);
-    M = await res.json();
+    M = await options.fillVerses(await res.json());
     M.story = options.person.story.paragraphs; M.person.short = options.person.story.short;
     M.person.verseCount = options.person.refs.length;
     M.sceneById = Object.fromEntries(M.scenes.map((s) => [s.id, s]));
@@ -269,9 +269,9 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
       <footer>${c.layer ? chip(c.layer) : '<span class="layer" data-layer="story">Written by this site from Scripture</span>'}${who}<span class="refs">${refList(c.refs)}${c.cites ? cites(c.cites) : ""}</span></footer></div>`;
   };
   // A quotation stored with its span ({ text, span }).
-  quoteSpan = (q, cls = "") => q ? `<blockquote class="q ${cls}"><p>${esc(q.text)}</p><footer>${refLink(q.span)} · KJV</footer></blockquote>` : "";
-  // A KJV verse pulled from the text files ({ ref, text }), with "read the passage".
-  kjv = (v, cls = "") => v ? `<blockquote class="kjv ${cls}"><p>${esc(v.text)}</p><footer><span>${esc(refText(v.ref))} · KJV</span><a class="read" href="${refHref(v.ref)}">${icon("open", 14)}Read the passage</a></footer></blockquote>` : "";
+  quoteSpan = (q, cls = "") => q ? `<blockquote class="q ${cls}"><p>${esc(q.text)}</p><footer>${refLink(q.span)} · ${options.bibleAbbr}</footer></blockquote>` : "";
+  // A verse in the reader's Bible ({ ref, text }), with "read the passage".
+  kjv = (v, cls = "") => v ? `<blockquote class="kjv ${cls}"><p>${esc(v.text)}</p><footer><span>${esc(refText(v.ref))} · ${options.bibleAbbr}</span><a class="read" href="${refHref(v.ref)}">${icon("open", 14)}Read the passage</a></footer></blockquote>` : "";
 
   // Expand in place: any [data-xp] button toggles its nearest .xp (a CSS grid-row transition, no fade of the page).
   root.addEventListener("click", (e) => {
@@ -307,7 +307,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
   // The three forties and the end of the life (Acts 7:23, 7:30, 7:36; Deuteronomy 34:7).
   fortiesCards = (cls = "") => M.forties.map((f) => `<article class="forty ${cls}" style="--tone:${ACT_TONE[f.act]}" data-act="${f.act}">
       <div class="forty-top"><span class="forty-n">${f.act === 1 ? "I" : f.act === 2 ? "II" : "III"}</span><span class="forty-years">${f.from}–${f.to}</span></div>
-      <h3>${esc(f.name)}</h3><p>${esc(f.verse.text)}</p><footer>${refLink(f.verse.ref)} · KJV</footer></article>`).join("");
+      <h3>${esc(f.name)}</h3><p>${esc(f.verse.text)}</p><footer>${refLink(f.verse.ref)} · ${options.bibleAbbr}</footer></article>`).join("");
 
   // The ten plagues: a grid of glyphs; a tile opens in place to its verse.
   plaguesGrid = (cls = "") => `<div class="plagues ${cls}">${M.plagues.map((p) => `<div class="plague xp" data-n="${p.n}">
@@ -386,7 +386,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
 
   // A scene's own content: the key verse, the few lines, and the full sourced detail one click away.
   sceneMore = (s) => {
-    const extra = [...s.more.map((c) => claim(c)), s.burial ? `<blockquote class="q"><p>${esc(s.burial.text)}</p><footer>${refLink(s.burial.span)} · KJV</footer></blockquote>` : "",
+    const extra = [...s.more.map((c) => claim(c)), s.burial ? `<blockquote class="q"><p>${esc(s.burial.text)}</p><footer>${refLink(s.burial.span)} · ${options.bibleAbbr}</footer></blockquote>` : "",
       ...(s.tradition ?? []).map((c) => claim(c))].join("");
     return extra ? expander(null, extra, { closed: `The full detail · ${s.more.length + (s.tradition?.length ?? 0) + (s.burial ? 1 : 0)} sourced notes`, opened: "Show less" }) : "";
   };
@@ -596,7 +596,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
       <div class="tf-tile-body"><div class="tf-tile-top"><span class="badge">${icon(SCENE_ICON[s.art] ?? "sparkle", 28, 1.4)}</span><div><span class="kicker">${esc(s.placeName)}</span><h3>${esc(s.title)}</h3></div></div>
         ${kjv(s.verse, "kjv-sm")}
         <button type="button" class="tf-open" data-xp aria-expanded="false" data-open="Close" data-closed="Open the scene"><span class="xp-label">Open the scene</span>${icon("expand", 14)}</button></div>
-      <div class="xp-body"><div class="xp-inner tf-deep">${s.verse2 ? kjv(s.verse2, "kjv-sm") : ""}${sceneLines(s)}${[...s.more.map((c) => claim(c)), s.burial ? `<blockquote class="q"><p>${esc(s.burial.text)}</p><footer>${refLink(s.burial.span)} · KJV</footer></blockquote>` : "", ...(s.tradition ?? []).map((c) => claim(c))].join("")}</div></div></article>`;
+      <div class="xp-body"><div class="xp-inner tf-deep">${s.verse2 ? kjv(s.verse2, "kjv-sm") : ""}${sceneLines(s)}${[...s.more.map((c) => claim(c)), s.burial ? `<blockquote class="q"><p>${esc(s.burial.text)}</p><footer>${refLink(s.burial.span)} · ${options.bibleAbbr}</footer></blockquote>` : "", ...(s.tradition ?? []).map((c) => claim(c))].join("")}</div></div></article>`;
   const peopleTile = (a) => {
     const all = peopleList(), list = ACT[a].people.map((id) => all.find((p) => p.id === id)).filter(Boolean);
     return `<article class="tf-tile tf-people glass t-mid" style="--tone:${ACT_TONE[a]};--k:8"><div class="tf-tile-body"><div class="tf-tile-top"><span class="badge">${icon("users", 28, 1.4)}</span><div><span class="kicker">People in this act</span><h3>${list.length} people</h3></div></div>
@@ -614,7 +614,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
     return `<article class="tf-tile tf-words glass ${a === 3 ? "t-mid" : "t-mid"}" style="--tone:${ACT_TONE[a]};--k:10"><div class="tf-tile-body"><div class="tf-tile-top"><span class="badge">${icon(a === 2 ? "flame" : "message", 28, 1.4)}</span><div><span class="kicker">${a === 2 ? "The call" : a === 1 ? "Refused" : "His words"}</span><h3>${a === 2 ? "Sent from the bush" : a === 1 ? "\"Who made thee a prince?\"" : "Words to people"}</h3></div></div>${body}</div></article>`;
   };
   const verseTile = (f) => `<article class="tf-tile tf-verse glass t-wide" style="--tone:${ACT_TONE[f.act]};--k:0"><div class="tf-tile-body"><span class="tf-roman">${["I", "II", "III"][f.act - 1]}</span>
-      <div><span class="kicker">Act ${f.act} · years ${f.from}–${f.to} · ${esc(f.name)}</span><p class="tf-acts">${esc(f.verse.text)}</p><footer>${refLink(f.verse.ref)} · KJV · Stephen's telling of the life</footer></div></div></article>`;
+      <div><span class="kicker">Act ${f.act} · years ${f.from}–${f.to} · ${esc(f.name)}</span><p class="tf-acts">${esc(f.verse.text)}</p><footer>${refLink(f.verse.ref)} · ${options.bibleAbbr} · Stephen's telling of the life</footer></div></div></article>`;
   const bento = (a) => {
     const f = actOf(a), scenes = M.scenes.filter((s) => s.act === a);
     const extra = a === 3 ? `<article class="tf-tile tf-plagues glass t-full" style="--tone:var(--midian);--k:2"><div class="tf-tile-body"><div class="tf-tile-top"><span class="badge">${icon("darkness", 28, 1.4)}</span><div><span class="kicker">Exodus 7–12</span><h3>The ten plagues</h3></div></div>${plaguesGrid()}</div></article>` : "";
@@ -837,7 +837,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
 // (or a named speaker nearby) support them.
 (() => {
   let G = null;
-  const load = async () => { if (G) return G; const res = { ok: true, json: async () => structuredClone((await import("./data/memory.json")).default) }; if (!res.ok) throw new Error(`memory.json: expected 200, got ${res.status}`); G = await res.json(); prep(); return G; };
+  const load = async () => { if (G) return G; const res = { ok: true, json: async () => structuredClone((await import("./data/memory.json")).default) }; if (!res.ok) throw new Error(`memory.json: expected 200, got ${res.status}`); G = await options.fillVerses(await res.json()); prep(); return G; };
   const TAG_TONE = { law: "var(--prophets)", servant: "var(--poetry)", prophet: "var(--gospels)", pleads: "var(--revelation)", led: "var(--history)", spoke: "var(--gm-gold)" };
   const WHO_TONE = { jesus: "var(--revelation)", narrator: "var(--gm-dim)", god: "var(--gm-gold)", people: "var(--history)", joshua: "var(--history)", caleb: "var(--history)", samuel: "var(--history)",
     kings: "var(--epistles)", psalmist: "var(--poetry)", moses: "var(--gm-gold)", prophets: "var(--prophets)", peter: "var(--poetry)", opponents: "var(--gm-dim2)", stephen: "var(--acts)",
@@ -1097,7 +1097,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
   plagueDots = () => `<div class="mg-plagues" role="group" aria-label="The ten plagues: choose one to read its verse">
       ${M.plagues.map((p) => `<button type="button" class="mg-pl" data-plague="${p.n}" aria-pressed="false" style="--k:${p.n - 1}"><span class="mg-pl-art">${dots(p.word, p.n)}${glyph(p.word, 30, 1.3)}</span><span class="mg-pl-n">${p.n}</span><b>${esc(p.word)}</b></button>`).join("")}
     </div><p class="mg-pl-line" data-plline aria-live="polite"><span class="mg-pl-hint">Exodus 7–12 · choose a plague to read its verse</span></p>`;
-  plagueLine = (n) => { const p = M.plagues[n - 1]; return `<span class="mg-pl-ref">${p.n} of 10 · <b>${esc(p.word)}</b> · ${refLink(p.verse.ref)} · KJV</span><span class="mg-pl-text">“${esc(p.verse.text)}”</span>`; };
+  plagueLine = (n) => { const p = M.plagues[n - 1]; return `<span class="mg-pl-ref">${p.n} of 10 · <b>${esc(p.word)}</b> · ${refLink(p.verse.ref)} · ${options.bibleAbbr}</span><span class="mg-pl-text">“${esc(p.verse.text)}”</span>`; };
 })();
 
 
@@ -1187,11 +1187,11 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
 // H · the dense part of each Roman-numeral chapter, under its sideways scenes: every event of the period in order, each
 // with its verse, then the people, signs, words, what came of the word, the world stage, outside records and the dates,
 // as typographic columns (no boxes). What goes in each chapter is listed in data/merged.json (chapters[]), as keys into
-// data/moses.json; the verse texts come from the KJV files through merged.json (kjv).
+// data/moses.json; the verse texts come from the reader's Bible (fillVerses).
 (() => {
   const SIGN_GLYPH = ["staff", "darkness", "waves", "drop", "sun", "staff"];
   const vtext = (X, ref) => X.kjv[ref[0] === ref[1] ? String(ref[0]) : `${ref[0]}-${ref[1]}`] ?? "";
-  const src = (ref, extra = "") => `<span class="lg-src">${refLink(ref)}<span class="lg-kjv">KJV</span>${extra}</span>`;
+  const src = (ref, extra = "") => `<span class="lg-src">${refLink(ref)}<span class="lg-kjv">${options.bibleAbbr}</span>${extra}</span>`;
   const head = (title, g, note = "") => `<h4 class="lg-h">${g ? glyph(g, 22, 1.2) : ""}<span>${esc(title)}</span>${note ? `<small>${esc(note)}</small>` : ""}</h4>`;
   const block = (title, g, body, cls = "") => body ? `<section class="lg-b ${cls}">${head(title, g)}${body}</section>` : "";
 
@@ -1323,7 +1323,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
 // mouth", the prophet "like unto me" and its use in Acts), and the people around him (the shared constellation field).
 (() => {
   const vtext = (X, ref) => X.kjv[ref[0] === ref[1] ? String(ref[0]) : `${ref[0]}-${ref[1]}`] ?? "";
-  const kv = (X, ref, cls = "") => `<blockquote class="mx-v ${cls}"><p>${esc(vtext(X, ref))}</p><footer>${refLink(ref)} · KJV</footer></blockquote>`;
+  const kv = (X, ref, cls = "") => `<blockquote class="mx-v ${cls}"><p>${esc(vtext(X, ref))}</p><footer>${refLink(ref)} · ${options.bibleAbbr}</footer></blockquote>`;
   const secHead = (n, kick, title, lead) => `<header class="mx-head"><div class="mx-section-label"><span class="mx-n">${n}</span><span class="mg-kick">${esc(kick)}</span></div><h2>${title}</h2>${lead ? `<p>${esc(lead)}</p>` : ""}</header>`;
 
   // ── The Atlas ──
@@ -1415,9 +1415,9 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
     const W = X.word, fl = M.word.fulfilment[4];
     return `<section class="mx mx-word" id="mg-word" data-sec="word" aria-label="The word">
       <div class="wrap">${secHead("04", "The word", "A prophet spoken with <em>mouth to mouth</em>", M.person.prophetTagline)}
-        <figure class="mx-mouth"><blockquote><p>“${esc(vtext(X, W.mouth))}”</p></blockquote><figcaption>${refLink(W.mouth)} · KJV · the LORD, to Aaron and Miriam</figcaption></figure>
+        <figure class="mx-mouth"><blockquote><p>“${esc(vtext(X, W.mouth))}”</p></blockquote><figcaption>${refLink(W.mouth)} · ${options.bibleAbbr} · the LORD, to Aaron and Miriam</figcaption></figure>
         <div class="mx-word-cols">
-          <div><h4 class="lg-h">${glyph("flame", 22, 1.2)}<span>The call</span><small>${M.word.call.length} tellings</small></h4>${M.word.call.map((s, k) => `<div class="lg-call"><span>${k + 1}</span><div><b>${esc(s.label)}</b><blockquote>“${esc(s.quote.text)}”</blockquote><span class="lg-src">${refLink(s.quote.span)}<span class="lg-kjv">KJV</span></span>${claim(s.claim)}</div></div>`).join("")}</div>
+          <div><h4 class="lg-h">${glyph("flame", 22, 1.2)}<span>The call</span><small>${M.word.call.length} tellings</small></h4>${M.word.call.map((s, k) => `<div class="lg-call"><span>${k + 1}</span><div><b>${esc(s.label)}</b><blockquote>“${esc(s.quote.text)}”</blockquote><span class="lg-src">${refLink(s.quote.span)}<span class="lg-kjv">${options.bibleAbbr}</span></span>${claim(s.claim)}</div></div>`).join("")}</div>
           <div><h4 class="lg-h">${glyph("message", 22, 1.2)}<span>How the word came</span></h4>${M.word.how.map((c) => claim(c)).join("")}</div>
           <div><h4 class="lg-h">${glyph("scroll", 22, 1.2)}<span>The message</span><small>${M.word.message.length} themes</small></h4>${M.word.message.map((m) => claim({ theme: m.theme, ...m.claim, quotes: m.quotes })).join("")}</div>
           <div class="word-speaking-source">${M.word.speaking.map((item) => claim(item)).join("")}</div>
@@ -1429,7 +1429,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
             <li><span class="mx-dot"></span><small>Stephen, before the council</small>${kv(X, W.nt[1])}</li>
           </ol>
           <div class="mx-like-foot">${claim(fl.reported)}<a class="mg-link" href="#mg-ask" data-askq="moses-prophet-like-me">${icon("help", 15)}Who is the prophet? Three views, with who holds them</a></div></div>
-        <div class="mx-close"><figure class="mx-mouth is-end"><blockquote><p>“${esc(vtext(X, W.none))}”</p></blockquote><figcaption>${refLink(W.none)} · KJV</figcaption></figure>
+        <div class="mx-close"><figure class="mx-mouth is-end"><blockquote><p>“${esc(vtext(X, W.none))}”</p></blockquote><figcaption>${refLink(W.none)} · ${options.bibleAbbr}</figcaption></figure>
           <ul class="lg-not">${[4, 6].map((i) => `<li>${esc(M.notSaid[i])}</li>`).join("")}</ul></div>
       </div></section>`;
   }
@@ -1449,7 +1449,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
     const ringName = n.ring === "speak" ? "Who speaks of him" : n.ring === "family" ? "Family" : n.ring === "with" ? "Beside him" : "Against him";
     return `<span class="mg-kick">${esc(ringName)}${n.role.toLowerCase() === ringName.toLowerCase() ? "" : ` · ${esc(n.role)}`}</span><h3>${esc(n.label)}</h3>
       ${n.claims.map((c) => claim(c)).join("")}${n.quote ? quoteSpan(n.quote) : ""}
-      ${verses.map((v) => `<blockquote class="mx-v is-sm"><p>${esc(v.text ?? vtextCache(v.ref))}</p><footer>${refLink(v.ref)} · KJV${v.basis ? ` · <span class="lg-muted">${esc(v.basis)}</span>` : ""}</footer></blockquote>`).join("")}
+      ${verses.map((v) => `<blockquote class="mx-v is-sm"><p>${esc(v.text ?? vtextCache(v.ref))}</p><footer>${refLink(v.ref)} · ${options.bibleAbbr}${v.basis ? ` · <span class="lg-muted">${esc(v.basis)}</span>` : ""}</footer></blockquote>`).join("")}
       ${n.ring === "speak" ? `<p class="lg-muted">${n.count} verse${n.count === 1 ? "" : "s"} in all; the long memory lists every one.</p>` : ""}
       ${n.linked.length ? `<p class="mx-rel"><small>Their words name</small>${n.linked.map((m) => `<button type="button" data-pnode="${esc(m.id)}" style="--tone:${m.tone}">${esc(m.label)}</button>`).join("")}</p>` : ""}`;
   };
@@ -1521,7 +1521,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
 (() => {
   const ROMAN = ["", "I", "II", "III"];
   let X = null; // data/merged.json
-  const loadX = async () => { if (X) return X; const res = { ok: true, json: async () => structuredClone((await import("./data/merged.json")).default) }; if (!res.ok) throw new Error(`merged.json: expected 200, got ${res.status}`); X = await res.json(); return X; };
+  const loadX = async () => { if (X) return X; const res = { ok: true, json: async () => structuredClone((await import("./data/merged.json")).default) }; if (!res.ok) throw new Error(`merged.json: expected 200, got ${res.status}`); X = await options.fillVerses(await res.json()); return X; };
   const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
   const toneVar = (t) => `var(--${t})`;
   const drawerFor = {};
@@ -1532,7 +1532,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
     const notes = s.more.length + s.lines.length + (s.tradition?.length ?? 0);
     return `<div class="mg-slide ${s.plagues ? "has-plagues" : ""}" data-id="${s.id}" style="--tone:${toneVar(c.tone)}">
       <div class="mg-text"><span class="mg-kick">${icon("map", 13)}${esc(s.placeName)}</span><h3 class="mg-title">${esc(s.title)}</h3>
-        <blockquote class="mg-verse"><p>${esc(s.verse.text)}</p><footer>${refLink(s.verse.ref)} · KJV</footer></blockquote>
+        <blockquote class="mg-verse"><p>${esc(s.verse.text)}</p><footer>${refLink(s.verse.ref)} · ${options.bibleAbbr}</footer></blockquote>
         <div class="mg-line">${claim(s.lines[0])}</div>
         <div class="mg-actions"><button type="button" class="mg-link" data-drawer="${s.id}">${icon("layers", 15)}The full detail <small>${notes} sourced notes</small></button>
           <button type="button" class="mg-link" data-map="${c.id}">${icon("map", 15)}See the map</button></div></div>
@@ -1551,7 +1551,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
     const f = actOf(c.act), list = c.scenes.map((id) => M.sceneById[id]);
     return `<div class="mg-slide mg-slide-title" data-id="${c.id}" style="--tone:${toneVar(c.tone)}">
       <div class="mg-text"><span class="mg-kick">Chapter ${ROMAN[c.n]} · ${esc(c.years)}</span><h2 class="mg-title mg-title-xl">${esc(c.title)}</h2>
-        <blockquote class="mg-verse"><p>${esc(f.verse.text)}</p><footer>${refLink(f.verse.ref)} · KJV · Stephen's telling</footer></blockquote>
+        <blockquote class="mg-verse"><p>${esc(f.verse.text)}</p><footer>${refLink(f.verse.ref)} · ${options.bibleAbbr} · Stephen's telling</footer></blockquote>
         ${chapterIntro(c)}
       </div>
       <ol class="mg-index">${list.map((s, i) => `<li><button type="button" data-go="${i + 1}"><span>${String(i + 1).padStart(2, "0")}</span><b>${esc(s.title)}</b><small>${esc(refText(s.verse.ref))}</small><i class="mg-index-arrow" aria-hidden="true">${icon("arrowRight", 18)}</i></button></li>`).join("")}</ol></div>`;

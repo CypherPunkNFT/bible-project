@@ -2,10 +2,10 @@
  * One hymn's page data, as written by scripts/build-hymn-pages.py (data/hymns/pages/, in bundles of 25 hymns, and
  * data/hymns/by-book/ for the reader's "Sung on this chapter" card).
  *
- * Every verse is the Berean Standard Bible's text. The echoes were found in the King James wording the authors read
+ * The echoes were found in the King James wording the authors read
  * (scripts/hymns/: a word matcher, one AI model choosing or proposing, a script proving any proposed verse's words, and
- * a second model checking every pair); only those that passed every check are here. `words` is cut by script from the
- * BSB verse itself.
+ * a second model checking every pair); only those that passed every check are here. The files hold verse numbers; the
+ * words come from the reader's Bible (src/lib/verses.ts). `cut` marks the short quotation within the BSB verse.
  */
 import type { SongPassage, SongPlacedBook } from "./hymns";
 
@@ -14,7 +14,8 @@ export interface PagePassage extends SongPassage { whole: boolean; count: number
 export interface PageEcho extends SongPassage {
   stanza: number;
   line: number;
-  words: string;
+  cut?: [number, number][];
+  cutMore?: boolean;
   /** "shared": the script found the shared wording; "echo": an AI model proposed it and both checks agreed. */
   kind: "shared" | "echo";
 }

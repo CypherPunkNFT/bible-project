@@ -1,6 +1,9 @@
 // The two pages actually draw, and the things the owner asked for are on screen: the Berean wording
 // with a link into the reader, a disclaimer beside each analogy, and C. S. Lewis described rather
 // than quoted.
+import { readFileSync } from "node:fs";
+import { CatalogContext } from "@/lib/catalog";
+import type { Catalog } from "@/lib/types";
 import { afterEach, describe, expect, it } from "vitest";
 import { cleanup, render, within } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
@@ -11,10 +14,13 @@ import TheologyArticlePage from "./TheologyArticlePage";
 afterEach(cleanup);
 
 const article = ARTICLES[0];
+const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8")) as Catalog;
 const openArticle = (id: string) => render(
-  <MemoryRouter initialEntries={[`/study/theology-articles/${id}`]}>
-    <Routes><Route path="/study/theology-articles/:id" element={<TheologyArticlePage />} /></Routes>
-  </MemoryRouter>,
+  <CatalogContext.Provider value={catalog}>
+    <MemoryRouter initialEntries={[`/study/theology-articles/${id}`]}>
+      <Routes><Route path="/study/theology-articles/:id" element={<TheologyArticlePage />} /></Routes>
+    </MemoryRouter>
+  </CatalogContext.Provider>,
 );
 
 describe("the Theology landing", () => {

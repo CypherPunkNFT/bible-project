@@ -3,6 +3,7 @@ import { PassageText } from "@/components/study/StudyParts";
 import { loadLetters } from "@/lib/study";
 import { useAsync } from "@/lib/useAsync";
 import type { Letter, Named } from "@/data/letters/types";
+import { BibleAbbr } from "@/components/Verse";
 import { useKeep, useSpanLabel, useVerseIndex, useWordVerses } from "../letter-hooks";
 import { ClaimText, KeepX, Refs } from "../LetterParts";
 import { kindTone } from "./builders";
@@ -38,7 +39,7 @@ export function Glance({ letter }: { letter: Letter }) {
       </div>
       <div className="lb-panel"><p className="lb-panel-label">Key verses</p>
         <div className="lb-tabs">{letter.keyVerses.map((k, i) => <button key={k.span.join("-")} type="button" className="lb-tab" aria-pressed={k === v} onClick={() => setVerse(i)}>{label(k.span).replace(`${letter.name} `, "")}</button>)}</div>
-        {v && <blockquote className="lb-quote"><PassageText span={v.span} /><cite>{label(v.span)} · KJV</cite></blockquote>}
+        {v && <blockquote className="lb-quote"><PassageText span={v.span} /><cite>{label(v.span)} · <BibleAbbr /></cite></blockquote>}
         {v && <p className="lb-fact" style={{ marginTop: ".6rem" }}>{v.why}</p>}
       </div>
     </div>

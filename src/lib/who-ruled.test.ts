@@ -71,7 +71,7 @@ describe("who ruled when, per chapter", () => {
   it("a dating statement that names no king is kept without a ruler (Ezekiel 8)", () => {
     const w = who("EZK", 8);
     expect(w.statements.length).toBeGreaterThan(0);
-    expect(w.statements.every((s) => s.quote)).toBe(true);
+    expect(w.statements.every((s) => s.quote || s.span)).toBe(true);
   });
 
   it("one person with two records shows once (Shallum = Jehoahaz in 1 Chronicles 3:15)", () => {

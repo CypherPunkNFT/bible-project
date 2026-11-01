@@ -1,13 +1,13 @@
+import { Verse } from "@/components/Verse";
 import { Search } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { StudyContents } from "./StudyContents";
 import { StudyBackLink } from "./StudyBackLink";
 import { useCatalog } from "@/lib/catalog";
-import { loadChapterPlain } from "@/lib/data";
-import { bookByNum, formatRange, plainLookup, splitId } from "@/lib/refs";
+import { formatRange, splitId } from "@/lib/refs";
+import { useVerses } from "@/lib/verses";
 import { studyRefLink, type Span } from "@/lib/study";
-import { useAsync } from "@/lib/useAsync";
 
 /** `compact` (People & genealogies): Back to Study sits small at the right of the eyebrow line, and the header is tighter. */
 export function StudyHeader({ eyebrow, title, lead, children, titleId, contents, compact = false }: { eyebrow: string; title: string; lead: ReactNode; children?: ReactNode; titleId?: string; contents?: ReactNode; compact?: boolean }) {
@@ -59,58 +59,19 @@ export function RefLink({ span, label, className }: { span: Span; label?: string
   );
 }
 
-interface Passage {
-  lines: { label: string; text: string }[];
-  truncated: boolean;
-}
-
-/** A passage's KJV verses, one chapter file at a time, stopping as soon as `max` verses are collected. */
-async function loadPassage(chapters: string[], code: string, span: Span, max: number): Promise<Passage> {
-  const a = splitId(span[0]);
-  const b = splitId(span[1]);
-  const lines: Passage["lines"] = [];
-  let truncated = false;
-  for (let chapter = a.chapter; chapter <= b.chapter && !truncated; chapter++) {
-    if (!chapters.includes(String(chapter))) break;
-    const plain = await loadChapterPlain("kjv", code, chapters, String(chapter));
-    const from = chapter === a.chapter ? a.verse : 1;
-    const to = chapter === b.chapter ? b.verse : 200;
-    for (let verse = from; verse <= to; verse++) {
-      if (lines.length >= max) {
-        truncated = true;
-        break;
-      }
-      const text = plainLookup(plain, chapter, verse);
-      if (text === undefined) {
-        if (chapter !== b.chapter) break;
-        continue;
-      }
-      lines.push({ label: chapter === a.chapter && a.chapter === b.chapter ? String(verse) : `${chapter}:${verse}`, text: text.replace(/^¶\s*/, "") });
-    }
-  }
-  return { lines, truncated };
-}
-
-/** The KJV words of a passage, verse by verse (capped), for opened rows. */
+/** The words of a passage in the reader's Bible, verse by verse (capped), for opened rows. */
 export function PassageText({ span, max = 40 }: { span: Span; max?: number }) {
-  const catalog = useCatalog();
-  const code = bookByNum(catalog, splitId(span[0]).num)?.code ?? "GEN";
-  const chapters = catalog.translations.find((t) => t.slug === "kjv")?.books[code] ?? [];
-  const passage = useAsync(() => loadPassage(chapters, code, span, max), `passage:kjv:${span[0]}:${span[1]}:${max}`);
-  if (passage.status === "loading") return <p className="animate-pulse text-sm text-muted">Loading…</p>;
-  if (passage.status === "error") return <p className="text-sm text-muted">The text could not be loaded.</p>;
-  const { lines, truncated } = passage.value;
+  const state = useVerses({ from: span[0], to: span[1] }, { max });
+  if (state.status === "loading") return <p className="animate-pulse text-sm text-muted">Loading…</p>;
+  if (state.status === "error") return <p className="text-sm text-muted">The text could not be loaded.</p>;
+  const { truncated } = state.value;
+  const crossesChapters = splitId(span[0]).chapter !== splitId(span[1]).chapter;
   return (
     <div className="font-serif text-[0.95rem] leading-relaxed">
-      {lines.map((line) => (
-        <span key={line.label}>
-          <sup className="me-0.5 font-sans text-[0.65em] font-semibold text-muted">{line.label}</sup>
-          {line.text}{" "}
-        </span>
-      ))}
+      <Verse from={span[0]} to={span[1]} max={max} numbered={crossesChapters ? "chapter" : true} />
       {truncated && (
         <span className="font-sans text-xs text-muted">
-          … <RefLink span={span} label="read on" />
+          {" "}<RefLink span={span} label="read on" />
         </span>
       )}
     </div>

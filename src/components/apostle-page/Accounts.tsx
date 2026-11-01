@@ -1,3 +1,5 @@
+import { BibleAbbr } from "@/components/Verse";
+import { bibleName, useCurrentBible } from "@/lib/verses";
 import { Fragment, useState, type CSSProperties, type ReactNode } from "react";
 import { BOOK_TONE, bookName, chapterOf, markRuns, plural } from "./data";
 import type { Apostle } from "./types";
@@ -29,18 +31,18 @@ function VerseText({ text, names, unique }: { text: string; names: string[]; uni
 }
 
 export function AccountsSection({ d }: { d: Apostle }) {
-  const [cur, setCur] = useState(0), [only, setOnly] = useState(false);
+  const [cur, setCur] = useState(0), [only, setOnly] = useState(false), bible = useCurrentBible();
   if (!d.accounts.length) {
     const v = d.landing.line.v;
     return <section className="sec" data-sec="accounts">
       <SecHead num="04" kicker="Side by side" title="One moment, " em="several accounts" sub={`No moment of ${d.short}'s story is told by more than one book: Acts alone tells how he was chosen.`} />
-      <div className="acc-one"><blockquote><p><Marked text={d.verses[v] ?? ""} names={d.names} /></p><footer><RefLink r={[v, v]} /> · KJV, the only account</footer></blockquote></div>
+      <div className="acc-one"><blockquote><p><Marked text={d.verses[v] ?? ""} names={d.names} /></p><footer><RefLink r={[v, v]} /> · <BibleAbbr />, the only account</footer></blockquote></div>
     </section>;
   }
   const a = d.accounts[cur], sets = a.cols.map((c) => new Set(c.verses.flatMap((v) => words(v.text))));
   return <section className="sec" data-sec="accounts">
     <SecHead num="04" kicker="Side by side" title="One moment, " em="several accounts"
-      sub={`${plural(d.accounts.length, "moment")} of his story told by more than one book, each in its own words in the King James Version. His names are marked; switch on "only here" to underline the words that just one account has.`} />
+      sub={`${plural(d.accounts.length, "moment")} of his story told by more than one book, each in its own words in the ${bibleName(bible)}. His names are marked; switch on "only here" to underline the words that just one account has.`} />
     <div className="acc-tools"><div className="seg acc-pick" role="group" aria-label="Moment">{d.accounts.map((x, i) =>
       <button key={x.id} type="button" aria-pressed={i === cur} onClick={() => setCur(i)}>{x.title}<small>{x.cols.length}</small></button>)}</div>
       <label className="acc-only"><input type="checkbox" checked={only} onChange={(e) => setOnly(e.target.checked)} /> Only here</label></div>

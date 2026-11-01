@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Verse } from "@/components/Verse";
+import { firstWords } from "@/lib/verses";
 import { Link } from "react-router-dom";
 import { StableTip } from "@/components/StableTip";
 import type { Ruler } from "@/data/people-pages/types";
@@ -27,7 +29,9 @@ export function RulerHero({ ruler, summary }: { ruler: Ruler; summary: RulerSumm
   const tone = VERDICT[ruler.verdictTone];
   const capitalHref = atlasCityHref(ruler.capital?.name);
   const length = reignLength(ruler.reign);
-  const said = summary.verdict?.replace(/^["“]+|["”]+$/g, "");
+  const said = summary.verdictSpan
+    ? <Verse from={summary.verdictSpan[0]} to={summary.verdictSpan[1]} unquoted render={(text) => firstWords(text, 110)} />
+    : summary.verdict?.replace(/^["“]+|["”]+$/g, "");
   return <section className="lg-glass lg-hero pp-hero" aria-labelledby="pp-hero-title">
     <div className="pp-hero-head">
       <p className="lg-kicker">{ruler.title}{era ? ` · ${era.label}` : ` · ${REALM_LABEL[ruler.realm]}`}</p>
@@ -60,7 +64,7 @@ export function RulerHero({ ruler, summary }: { ruler: Ruler; summary: RulerSumm
       </div>
       <div className="pp-stat" data-wide="">
         <dt>{ruler.verdictTone === "none" ? "Scripture says" : "Verdict"}</dt>
-        <dd>{ruler.verdictTone === "none" ? <small className="pp-said">{said ? `“${said}”` : "No verdict formula"}</small> : <><span aria-hidden>{tone.symbol} </span>{tone.label}{said && <small>“{said}”</small>}</>}</dd>
+        <dd>{ruler.verdictTone === "none" ? <small className="pp-said">{said ? <>“{said}”</> : "No verdict formula"}</small> : <><span aria-hidden>{tone.symbol} </span>{tone.label}{said && <small>“{said}”</small>}</>}</dd>
       </div>
       <div className="pp-stat">
         <dt>Prophets</dt>

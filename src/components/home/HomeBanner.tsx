@@ -2,6 +2,7 @@
 // says what the part is for. The whole band opens the part's own page; the verse reference still opens the reader.
 // The emblem opens the verse written around its ring; hovering it puts that verse in the quote's place, Hebrew turning into English. Its motion is kept faint: the emblem's rings turn in place, the engraved hatch drifts a few pixels to and fro, the edge
 // rules carry a soft glow, and chosen words in the line catch the light in turn.
+import { BibleAbbr, Verse } from "@/components/Verse";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties, type MouseEvent, type ReactNode } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,7 +11,7 @@ import { Emblem, type EmblemKind } from "./HomeEmblems";
 import "./home-banner.css";
 
 type BannerProps = {
-  number: string; name: string; line: string; tone: string; verse: string; reference: string; to: string; page: string; emblem: EmblemKind;
+  number: string; name: string; line: string; tone: string; verse: ReactNode; reference: string; to: string; page: string; emblem: EmblemKind;
   /** Words of the line that catch the light one after another. */
   glint?: string[];
   /** Which of the part's emblem designs to show (emblem-designs.tsx); the homepage uses the chosen one. */
@@ -60,8 +61,8 @@ function useRingOnce(enabled?: boolean) {
 function RingVerse({ design }: { design: Design }) {
   return <div className="home-banner-ring-verse" aria-hidden="true">
     <p className="home-banner-ring-hebrew" lang="he" dir="rtl">{design.hebrew}</p>
-    <p className="home-banner-ring-english">“{design.english[0].toUpperCase() + design.english.slice(1)}”</p>
-    <span>{design.source.split(",")[0]} · BSB</span>
+    <p className="home-banner-ring-english">“<Verse id={design.verse} unquoted />”</p>
+    <span>{design.source} · <BibleAbbr /></span>
   </div>;
 }
 

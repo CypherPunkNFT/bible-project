@@ -1,5 +1,6 @@
 // Homepage (live; first tried on home_mockup2): the four sections under the four parts: the quiz (HomeQuiz.tsx), the sources (HomeSources.tsx),
 // churches and help close to home (HomeNearby.tsx) and a closing blessing (Numbers 6:24-26, Berean Standard Bible). Styles for the blessing: home-more.css.
+import { BibleAbbr, Verse } from "@/components/Verse";
 import { HomeNearby } from "./HomeNearby";
 import { HomeQuiz } from "./HomeQuiz";
 import { HomeSources } from "./HomeSources";
@@ -9,8 +10,8 @@ function Blessing() {
   return <section className="hm-blessing home-wrap" aria-label="A blessing">
     <span className="hm-blessing-rule" aria-hidden="true" />
     <blockquote>
-      <p>May the LORD bless you and keep you;<br />may the LORD cause His face to shine upon you and be gracious to you;<br />may the LORD lift up His countenance toward you and give you peace.</p>
-      <cite>Numbers 6:24–26 · BSB</cite>
+      <p><Verse from={4006024} to={4006026} /></p>
+      <cite>Numbers 6:24–26 · <BibleAbbr /></cite>
     </blockquote>
   </section>;
 }

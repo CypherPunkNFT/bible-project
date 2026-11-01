@@ -63,9 +63,10 @@ export interface HymnText {
   source: { title: string; url: string; licence: string };
 }
 
-export interface SongVerse { n: number; text: string }
+export interface SongVerse { n: number }
 export interface SongPassage { ref: string; code: string; chapter: number; verses: SongVerse[] }
-export interface SongEcho extends SongPassage { stanza: number; line: number; words: string }
+/** `cut`: where the short quotation stands in the verse, as [first word, word count] runs of the Berean Standard Bible. */
+export interface SongEcho extends SongPassage { stanza: number; line: number; cut?: [number, number][]; cutMore?: boolean }
 export interface SongPlacedRef { ref: string; label: string; code: string; chapter: number; first: number; whole: boolean; count: number; verses: SongVerse[] }
 export interface SongPlacedBook { book: string; code: string; tone: string; refs: SongPlacedRef[] }
 

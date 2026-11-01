@@ -26,6 +26,7 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8")
 SITE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SITE / "scripts"))
+from bible.verse_wording import strip_apostle  # noqa: E402
 from bible.apostle_parts import Kjv, build_accounts, build_questions, read  # noqa: E402
 
 OUT = SITE / "src" / "data" / "apostle-pages"
@@ -314,7 +315,7 @@ def build(problems: list[str]) -> dict[str, str]:
             problems.append(f"{key}: no apostle record {pid}")
             continue
         out = build_one(ctx, key, *found[pid])
-        files[f"{pid}.json"] = json.dumps(out, ensure_ascii=False, separators=(",", ":")) + "\n"
+        files[f"{pid}.json"] = json.dumps(strip_apostle(out), ensure_ascii=False, separators=(",", ":")) + "\n"
         index.append({"key": key, "id": pid, "name": ctx.people[key][1], "short": out["short"]})
     books = [[b["num"], b["code"], b["name"]] for b in sorted(ctx.kjv.books.values(), key=lambda b: b["num"])]
     files["books.json"] = json.dumps(books, ensure_ascii=False, separators=(",", ":")) + "\n"

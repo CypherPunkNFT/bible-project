@@ -144,14 +144,19 @@
         ],
         "people": [
           {
-            "text": "\"All went to be taxed, every one into his own city.\"",
             "layer": "scripture",
             "refs": [
               [
                 42002003,
                 42002003
               ]
-            ]
+            ],
+            "span": [
+              42002003,
+              42002003
+            ],
+            "quoted": true,
+            "marks": true
           }
         ]
       },
@@ -351,14 +356,19 @@
       ],
       "scriptureSays": [
         {
-          "text": "\"There went out a decree from Cæsar Augustus, that all the world should be taxed.\"",
           "layer": "scripture",
           "refs": [
             [
               42002001,
               42002001
             ]
-          ]
+          ],
+          "span": [
+            42002001,
+            42002001
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Under that decree \"all went to be taxed, every one into his own city\", and Joseph went up from Nazareth to Bethlehem with Mary, where Jesus was born.",
@@ -598,14 +608,19 @@
       ],
       "scriptureSays": [
         {
-          "text": "\"(And this taxing was first made when Cyrenius was governor of Syria.)\"",
           "layer": "scripture",
           "refs": [
             [
               42002002,
               42002002
             ]
-          ]
+          ],
+          "span": [
+            42002002,
+            42002002
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Luke ties this to \"a decree from Cæsar Augustus, that all the world should be taxed\", which took Joseph and Mary to Bethlehem.",
@@ -732,11 +747,11 @@
             ]
           },
           "quote": {
-            "text": "the word of God came unto John the son of Zacharias in the wilderness.",
             "span": [
               42003002,
               42003002
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -1010,14 +1025,19 @@
       ],
       "scriptureSays": [
         {
-          "text": "\"Now in the fifteenth year of the reign of Tiberius Cæsar ... the word of God came unto John the son of Zacharias in the wilderness.\"",
           "layer": "scripture",
           "refs": [
             [
               42003001,
               42003002
             ]
-          ]
+          ],
+          "span": [
+            42003001,
+            42003002
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Luke sets beside him Pontius Pilate governing Judaea, Herod tetrarch of Galilee, Philip tetrarch of Ituraea and Trachonitis, and Lysanias tetrarch of Abilene.",
@@ -1302,14 +1322,19 @@
         "building": [],
         "alliances": [
           {
-            "text": "\"The same day Pilate and Herod were made friends together: for before they were at enmity between themselves.\"",
             "layer": "scripture",
             "refs": [
               [
                 42023012,
                 42023012
               ]
-            ]
+            ],
+            "span": [
+              42023012,
+              42023012
+            ],
+            "quoted": true,
+            "marks": true
           }
         ],
         "people": [
@@ -2123,11 +2148,11 @@
             ]
           },
           "quote": {
-            "text": "there should be great dearth throughout all the world",
             "span": [
               44011028,
               44011028
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -2802,14 +2827,19 @@
       ],
       "scriptureSays": [
         {
-          "text": "\"The deputy of the country, Sergius Paulus, a prudent man; who called for Barnabas and Saul, and desired to hear the word of God.\"",
           "layer": "scripture",
           "refs": [
             [
               44013007,
               44013007
             ]
-          ]
+          ],
+          "span": [
+            44013007,
+            44013007
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Elymas the sorcerer withstood them, \"seeking to turn away the deputy from the faith\".",
@@ -2822,14 +2852,19 @@
           ]
         },
         {
-          "text": "\"Then the deputy, when he saw what was done, believed, being astonished at the doctrine of the Lord.\"",
           "layer": "scripture",
           "refs": [
             [
               44013012,
               44013012
             ]
-          ]
+          ],
+          "span": [
+            44013012,
+            44013012
+          ],
+          "quoted": true,
+          "marks": true
         }
       ]
     },
@@ -3115,14 +3150,19 @@
       ],
       "scriptureSays": [
         {
-          "text": "\"When Gallio was the deputy of Achaia, the Jews made insurrection with one accord against Paul, and brought him to the judgment seat.\"",
           "layer": "scripture",
           "refs": [
             [
               44018012,
               44018012
             ]
-          ]
+          ],
+          "span": [
+            44018012,
+            44018012
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Gallio: \"if it be a question of words and names, and of your law, look ye to it; for I will be no judge of such matters.\" \"And he drave them from the judgment seat.\"",
@@ -3135,14 +3175,19 @@
           ]
         },
         {
-          "text": "\"Then all the Greeks took Sosthenes, the chief ruler of the synagogue, and beat him before the judgment seat. And Gallio cared for none of those things.\"",
           "layer": "scripture",
           "refs": [
             [
               44018017,
               44018017
             ]
-          ]
+          ],
+          "span": [
+            44018017,
+            44018017
+          ],
+          "quoted": true,
+          "marks": true
         }
       ]
     },
@@ -3400,34 +3445,49 @@
           ]
         },
         {
-          "text": "\"As he reasoned of righteousness, temperance, and judgment to come, Felix trembled.\"",
           "layer": "scripture",
           "refs": [
             [
               44024025,
               44024025
             ]
-          ]
+          ],
+          "span": [
+            44024025,
+            44024025
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "\"He hoped also that money should have been given him of Paul, that he might loose him.\"",
           "layer": "scripture",
           "refs": [
             [
               44024026,
               44024026
             ]
-          ]
+          ],
+          "span": [
+            44024026,
+            44024026
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "\"Felix, willing to shew the Jews a pleasure, left Paul bound.\"",
           "layer": "scripture",
           "refs": [
             [
               44024027,
               44024027
             ]
-          ]
+          ],
+          "span": [
+            44024027,
+            44024027
+          ],
+          "quoted": true,
+          "marks": true
         }
       ]
     },
@@ -3957,14 +4017,19 @@
         "building": [],
         "alliances": [
           {
-            "text": "\"King Agrippa and Bernice came unto Cæsarea to salute Festus.\"",
             "layer": "scripture",
             "refs": [
               [
                 44025013,
                 44025013
               ]
-            ]
+            ],
+            "span": [
+              44025013,
+              44025013
+            ],
+            "quoted": true,
+            "marks": true
           }
         ],
         "people": [
@@ -4137,14 +4202,19 @@
           ]
         },
         {
-          "text": "\"Paul, thou art beside thyself; much learning doth make thee mad.\"",
           "layer": "scripture",
           "refs": [
             [
               44026024,
               44026024
             ]
-          ]
+          ],
+          "span": [
+            44026024,
+            44026024
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "He, Agrippa, Bernice and those who sat with them agreed: \"This man doeth nothing worthy of death or of bonds.\"",

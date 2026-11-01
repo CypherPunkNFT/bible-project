@@ -7,7 +7,7 @@ import type { HymnSong, SongEcho } from "@/lib/hymns";
 
 /** What the constellation needs of a hymn: its stanzas and echoes, and the books on the outer ring. */
 export interface ConstellationHymn { stanzas: HymnSong["stanzas"]; echoes: HymnSong["echoes"]; placed: HymnSong["placed"]; author: string; year: number }
-import { ROMAN, placedUrl, type OpenPassage } from "./parts";
+import { EchoWords, ROMAN, placedUrl, type OpenPassage } from "./parts";
 
 // Geometry: a 600 × 600 stage. Books on an outer ring in Bible order, Old Testament down the left side from the top,
 // New Testament down the right; stanzas on a small inner ring.
@@ -51,7 +51,7 @@ export function Constellation({ song, open, title = "Amazing grace", ringLabel =
     reading = <><p className="k">Stanza {ROMAN[stanzaPicked]}</p><h3>{song.stanzas[stanzaPicked][0].replace(/[,;!]$/, "")}</h3>
       <div className="st">{song.stanzas[stanzaPicked].map((line, l) => { const e = mine.find((m) => m.line === l);
         return e ? <p key={l} className="e" onClick={() => openEcho(e.i)}>{line}</p> : <p key={l}>{line}</p>; })}</div>
-      {mine.length ? <div className="cn-echoes">{mine.map((e) => <button key={e.i} type="button" onClick={() => openEcho(e.i)}><b>{e.ref}</b><span>“{e.words}”</span></button>)}</div>
+      {mine.length ? <div className="cn-echoes">{mine.map((e) => <button key={e.i} type="button" onClick={() => openEcho(e.i)}><b>{e.ref}</b><span>“<EchoWords echo={e} />”</span></button>)}</div>
         : <p className="cn-hint">No line of this stanza quotes a verse closely; it is the hymn's own confession.</p>}{steps}</>;
   } else {
     const b = books.find((x) => x.book === bookPicked);

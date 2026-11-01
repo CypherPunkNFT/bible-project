@@ -1,6 +1,5 @@
 // Part one of the Trinity article: what the doctrine actually says, and the passages it was built to
-// account for. Every Scripture block is the Berean Standard Bible, complete verses, copied from this
-// site's own data/plain/bsb/ files and checked again by theology.test.ts.
+// account for. Every Scripture block names complete verses; the words are the reader's Bible's.
 import type { ArticleSection } from "../model";
 
 export const CONFESSION: ArticleSection = {
@@ -28,7 +27,6 @@ export const CONFESSION: ArticleSection = {
       chapter: 6,
       verses: [4],
       reference: "Deuteronomy 6:4",
-      text: "Hear, O Israel: The LORD our God, the LORD is One.",
       note: "The Shema. This site holds it in the creeds collection as Israel’s own confession.",
     },
     {
@@ -37,7 +35,6 @@ export const CONFESSION: ArticleSection = {
       chapter: 43,
       verses: [10],
       reference: "Isaiah 43:10",
-      text: "“You are My witnesses,” declares the LORD, “and My servant whom I have chosen, so that you may consider and believe Me and understand that I am He. Before Me no god was formed, and after Me none will come.",
     },
     {
       kind: "p",
@@ -49,7 +46,6 @@ export const CONFESSION: ArticleSection = {
       chapter: 8,
       verses: [6],
       reference: "1 Corinthians 8:6",
-      text: "yet for us there is but one God, the Father, from whom all things came and for whom we exist. And there is but one Lord, Jesus Christ, through whom all things came and through whom we exist.",
     },
     {
       kind: "p",
@@ -66,7 +62,6 @@ export const CONFESSION: ArticleSection = {
       chapter: 3,
       verses: [16, 17],
       reference: "Matthew 3:16–17",
-      text: "As soon as Jesus was baptized, He went up out of the water. Suddenly the heavens were opened, and He saw the Spirit of God descending like a dove and resting on Him. And a voice from heaven said, “This is My beloved Son, in whom I am well pleased!”",
     },
     {
       kind: "p",
@@ -83,7 +78,6 @@ export const CONFESSION: ArticleSection = {
       chapter: 28,
       verses: [19, 20],
       reference: "Matthew 28:19–20",
-      text: "Therefore go and make disciples of all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Spirit, and teaching them to obey all that I have commanded you. And surely I am with you always, even to the end of the age.”",
     },
     {
       kind: "p",
@@ -99,7 +93,6 @@ export const CONFESSION: ArticleSection = {
       chapter: 13,
       verses: [14],
       reference: "2 Corinthians 13:14",
-      text: "The grace of the Lord Jesus Christ, and the love of God, and the fellowship of the Holy Spirit be with all of you.",
     },
     {
       kind: "scripture",
@@ -107,7 +100,6 @@ export const CONFESSION: ArticleSection = {
       chapter: 4,
       verses: [4, 5, 6],
       reference: "Ephesians 4:4–6",
-      text: "There is one body and one Spirit, just as you were called to one hope when you were called; one Lord, one faith, one baptism; one God and Father of all, who is over all and through all and in all.",
     },
     { kind: "h", text: "Before the world existed" },
     {
@@ -120,7 +112,6 @@ export const CONFESSION: ArticleSection = {
       chapter: 1,
       verses: [1],
       reference: "John 1:1",
-      text: "In the beginning was the Word, and the Word was with God, and the Word was God.",
     },
     {
       kind: "p",
@@ -132,7 +123,6 @@ export const CONFESSION: ArticleSection = {
       chapter: 1,
       verses: [18],
       reference: "John 1:18",
-      text: "No one has ever seen God, but the one and only Son, who is Himself God and is at the Father’s side, has made Him known.",
     },
     { kind: "h", text: "John 17: God addressing God" },
     {
@@ -145,7 +135,6 @@ export const CONFESSION: ArticleSection = {
       chapter: 17,
       verses: [5],
       reference: "John 17:5",
-      text: "And now, Father, glorify Me in Your presence with the glory I had with You before the world existed.",
     },
     {
       kind: "scripture",
@@ -153,7 +142,6 @@ export const CONFESSION: ArticleSection = {
       chapter: 17,
       verses: [21],
       reference: "John 17:21",
-      text: "that all of them may be one, as You, Father, are in Me, and I am in You. May they also be in Us, so that the world may believe that You sent Me.",
     },
     {
       kind: "p",
@@ -165,7 +153,6 @@ export const CONFESSION: ArticleSection = {
       chapter: 15,
       verses: [26],
       reference: "John 15:26",
-      text: "When the Advocate comes, whom I will send to you from the Father—the Spirit of truth who proceeds from the Father—He will testify about Me.",
     },
     {
       kind: "p",
@@ -177,7 +164,6 @@ export const CONFESSION: ArticleSection = {
       chapter: 5,
       verses: [3, 4],
       reference: "Acts 5:3–4",
-      text: "Then Peter said, “Ananias, how is it that Satan has filled your heart to lie to the Holy Spirit and withhold some of the proceeds from the land? Did it not belong to you before it was sold? And after it was sold, was it not at your disposal? How could you conceive such a deed in your heart? You have not lied to men, but to God!”",
     },
     { kind: "h", text: "The four words the church settled on" },
     {

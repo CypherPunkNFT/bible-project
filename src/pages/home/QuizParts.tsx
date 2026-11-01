@@ -1,5 +1,6 @@
 // Homepage (live; first tried on quiz_mockup): the pieces the four versions of the quiz share: the score, the answers, what shows once one is
 // picked, the closing verdict and the twelve steps. Each version styles them under its own class (quiz-versions.css).
+import { Verse } from "@/components/Verse";
 import { ArrowRight, ArrowUpRight, Check, RotateCcw, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { QUESTIONS } from "../quiz-data";
@@ -41,7 +42,7 @@ export function Reveal({ quiz, verse = true }: { quiz: Quiz; verse?: boolean }) 
   const right = choice === question.answer;
   return <div className="qv-reveal" data-shown aria-live="polite">
     <p className="qv-result" data-right={right || undefined}>{right ? "Right." : `Not quite: ${question.options[question.answer].replace(/[“”.]/g, "")}.`} <span>{question.why}</span></p>
-    {verse && <blockquote>“{question.verse}”<cite>{question.ref}</cite></blockquote>}
+    {verse && <blockquote>“<Verse id={question.verse} unquoted />”<cite>{question.ref}</cite></blockquote>}
     <Actions quiz={quiz} read={question.read} label={chapterOf(question.ref)} />
   </div>;
 }
@@ -51,7 +52,7 @@ export function Verdict({ quiz }: { quiz: Quiz }) {
   return <div className="qv-verdict">
     <p className="qv-meta"><span>All twelve answered</span><span>{quiz.right} of {QUESTIONS.length} right</span></p>
     <h3>{verdict.title}</h3>
-    <blockquote>“{verdict.verse}”<cite>{verdict.ref}</cite></blockquote>
+    <blockquote>“<Verse id={verdict.verse} unquoted />”<cite>{verdict.ref}</cite></blockquote>
     <Actions quiz={quiz} read={verdict.read} label={chapterOf(verdict.ref)} />
   </div>;
 }

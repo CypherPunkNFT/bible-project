@@ -34,6 +34,7 @@ export interface RulerSummary {
    */
   near?: number;
   verdict?: string;
+  verdictSpan?: [number, number];
   predecessor?: string;
   successor?: string;
   house?: string;

@@ -1,7 +1,7 @@
 // What this section promises a reader, checked mechanically: the Berean wording is the Berean
 // wording, every quotation names a source we hold, nothing still in copyright is reproduced, every
 // analogy carries the disclaimer its author wrote, and every link lands on a route this app declares.
-import { existsSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { parseHighlight } from "@/lib/refs";
 import { ARTICLES, SECTION_BASE, SOURCES, articleHref, findArticle, findSource, readerHref, sectionFigures, type Body } from "./model";
 
@@ -124,30 +124,8 @@ describe("the Scripture quotations", () => {
     }
   });
 
-  // The owner's brief: modern English, not the King James. A quotation that drifted back to an older
-  // version would also fail the wording check below, but only where the Bible data has been built.
-  it("uses no archaic forms", () => {
-    for (const block of scriptures) expect(block.text, block.reference).not.toMatch(/\b(thou|thee|thy|thine|ye|unto|saith|hath|doth|shalt|cometh|believeth)\b/i);
-  });
 });
 
-// The Bible text is built by `npm run data` into the git-ignored data/ folder, like all this site's
-// data, so the wording check is skipped where it is absent (the same gate as hymns.test.ts).
-const bsbBuilt = existsSync("data/plain/bsb/JHN.json");
-describe.runIf(bsbBuilt)("the Berean wording", () => {
-  const chapter = (book: string) => JSON.parse(readFileSync(`data/plain/bsb/${book}.json`, "utf8")) as Record<string, string>;
-  it("matches this site's own copy of the Berean Standard Bible, verse for verse", () => {
-    for (const block of scriptures) {
-      const verses = chapter(block.book);
-      const expected = block.verses.map((verse) => {
-        const text = verses[`${block.chapter}:${verse}`];
-        expect(text, `${block.book} ${block.chapter}:${verse} is not in the Berean data`).toBeDefined();
-        return text;
-      }).join(" ");
-      expect(block.text, block.reference).toBe(expected);
-    }
-  });
-});
 
 describe("the disclaimers", () => {
   it("marks where each popular picture breaks", () => {
@@ -197,7 +175,7 @@ describe("the prose itself", () => {
           expect(item.term.trim().length, block.label).toBeGreaterThan(0);
           expect(item.text.trim().length, item.term).toBeGreaterThan(0);
         }
-      } else if (block.kind !== "caution") {
+      } else if (block.kind !== "caution" && block.kind !== "scripture") {
         expect(block.text.trim().length, block.kind).toBeGreaterThan(0);
       }
     }
@@ -217,7 +195,7 @@ describe("the prose itself", () => {
   it("states a reading time the article's own length supports", () => {
     for (const article of ARTICLES) {
       const words = article.sections.flatMap((section) => [section.lede, ...section.body.flatMap((block) =>
-        block.kind === "list" ? block.items.flatMap((item) => [item.term, item.text]) : block.kind === "caution" ? [block.title, block.text] : [block.text])])
+        block.kind === "list" ? block.items.flatMap((item) => [item.term, item.text]) : block.kind === "caution" ? [block.title, block.text] : block.kind === "scripture" ? [] : [block.text])])
         .join(" ").split(/\s+/).filter(Boolean).length;
       expect(article.minutes, `${article.id}: ${words} words`).toBeGreaterThanOrEqual(Math.floor(words / 300));
       expect(article.minutes, `${article.id}: ${words} words`).toBeLessThanOrEqual(Math.ceil(words / 160));

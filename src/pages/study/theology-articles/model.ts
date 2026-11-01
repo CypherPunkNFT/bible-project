@@ -40,7 +40,7 @@ export type Body =
   /** Scripture in the Berean Standard Bible. `book` is a USFM code in data/plain/bsb/, `chapter` the
    *  bare chapter number and `verses` consecutive verse numbers; theology.test.ts rebuilds `text`
    *  from that data, so a drifted quotation fails the suite instead of reaching a reader. */
-  | { kind: "scripture"; book: string; chapter: number; verses: number[]; reference: string; text: string; note?: string }
+  | { kind: "scripture"; book: string; chapter: number; verses: number[]; reference: string; note?: string }
   /** A source's own words. Only a source whose `checked` is not `none` may be quoted. */
   | { kind: "quote"; source: string; locator: string; text: string; speaker?: string }
   /** A source still in copyright: its argument in our words, with the place to read it. */

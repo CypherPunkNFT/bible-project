@@ -10,6 +10,7 @@ import { loadPeople } from "@/lib/study";
 import { categoryStyle, groupIcon } from "@/lib/topic-style";
 import { categoryUrl, placeOf, pointsAndPassages, topicUrl, type ArticleParagraph, type Topic, type TopicIndex, type TopicItem, type TopicPoint } from "@/lib/topics";
 import { useAsync } from "@/lib/useAsync";
+import { BibleName, Verse } from "@/components/Verse";
 import { TopicsArtwork } from "@/pages/topics/TopicsArtwork";
 import { TopicsShell } from "@/pages/topics/TopicsShell";
 import { familyWords } from "@/pages/topics/topics-shared";
@@ -175,12 +176,12 @@ export function TopicPage({ index }: { index: TopicIndex }) {
 
       {t.keyVerses.length > 0 && (
         <section aria-labelledby="key-verses">
-          <div className="topics-section-heading"><h2 id="key-verses">Key verses</h2><span>Chosen by meaning from the topic’s references · World English Bible</span></div>
+          <div className="topics-section-heading"><h2 id="key-verses">Key verses</h2><span>Chosen by meaning from the topic’s references · <BibleName /></span></div>
           <ul className="grid gap-3 sm:grid-cols-2">
             {t.keyVerses.map((verse, i) => (
               <li key={i} className="topics-group-detail">
                 <p className="topics-kicker">{verse.point}</p>
-                <blockquote className="mt-2 font-serif text-xl leading-snug">“{verse.text.replace(/^[“"‘']+/, "").replace(/[”"’']+(\s…)?$/, "$1")}”</blockquote>
+                <blockquote className="mt-2 font-serif text-xl leading-snug">“<Verse id={verse.span[0]} unquoted />{verse.span[1] !== verse.span[0] && " …"}”</blockquote>
                 <p className="mt-3 text-sm"><RefLink span={verse.span} /></p>
               </li>
             ))}

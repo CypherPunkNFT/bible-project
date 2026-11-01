@@ -19,6 +19,7 @@ from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from bible.verse_wording import strip_home
 from bible.paths import SOURCES  # noqa: E402
 from bible.study_harmony import describe, parse_harmony, parse_miracles  # noqa: E402
 from bible.study_home import build_home  # noqa: E402
@@ -160,7 +161,7 @@ def build(data_root: Path, out: Path) -> dict:
         "people.json": write_json(out / "people.json", rows),
         "prophets.json": write_json(out / "prophets.json", prophets),
         "names.json": write_json(out / "names.json", names),
-        "home.json": write_json(out / "home.json", home),
+        "home.json": write_json(out / "home.json", strip_home(home)),
     }
     for person_id, record in detail.items():
         sizes[f"people/{person_id}.json"] = write_json(out / "people" / f"{person_id}.json", record)

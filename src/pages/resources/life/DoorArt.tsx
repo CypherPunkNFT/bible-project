@@ -4,6 +4,7 @@
 // low hills meeting the walls, a tree in front of the house's right side, grass and swaying flowers. 320 × 240.
 // Generated from design/help-for-life-drawings-2 (scenes.js, ART.doorSolid) as static markup; styles in life.css (.lf-door).
 // Every motion loops slowly and stops for anyone who asks for reduced motion.
+import { Verse } from "@/components/Verse";
 import type { CSSProperties } from "react";
 
 export function DoorArt() {
@@ -166,6 +167,6 @@ export function DoorArt() {
       <circle className="lfd-heart" cx={289} cy={220} r={1} />
     </g>
     </svg>
-    <figcaption>“Come unto me, all ye that labour and are heavy laden, and I will give you rest.” <cite>Matthew 11:28</cite></figcaption>
+    <figcaption>“<Verse id={40011028} unquoted />” <cite>Matthew 11:28</cite></figcaption>
   </figure>;
 }

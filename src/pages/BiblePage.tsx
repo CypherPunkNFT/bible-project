@@ -1,3 +1,4 @@
+import { Verse } from "@/components/Verse";
 import { ArrowUpRight, BookOpen, Headphones, Library } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
@@ -19,7 +20,7 @@ export default function BiblePage() {
     <div className="bible-paths">
       <Link to={resume} className="bible-path bible-reading" aria-labelledby="bible-reading-title">
         <div className="bible-path-top"><BookOpen size={20} aria-hidden="true" /><span>Spend time in Scripture</span><ArrowUpRight size={22} aria-hidden="true" /></div>
-        <div className="bible-open-book" aria-hidden="true"><div><small>THE GOSPEL ACCORDING TO</small><b>John</b><span>1</span><p>In the beginning was the Word, and the Word was with God, and the Word was God.</p><i /><i /></div><div><i /><i /><i /><i /><i /><i /><i /><i /><span className="bible-bookmark" /></div></div>
+        <div className="bible-open-book" aria-hidden="true"><div><small>THE GOSPEL ACCORDING TO</small><b>John</b><span>1</span><p><Verse id={43001001} /></p><i /><i /></div><div><i /><i /><i /><i /><i /><i /><i /><i /><span className="bible-bookmark" /></div></div>
         <div className="bible-path-copy"><h2 id="bible-reading-title">Read</h2><p>Spend time in Scripture, compare versions, and pick up where you left off.</p><div className="bible-path-foot"><span>{version ? `${book?.name ?? code} ${chapter} · ${version.abbr}` : "Begin with Genesis 1"}</span><strong>{version ? "Continue reading" : "Open the reader"} <ArrowUpRight size={16} aria-hidden="true" /></strong></div></div>
       </Link>
       <Link to="/listen" className="bible-path bible-listening" aria-labelledby="bible-listening-title">

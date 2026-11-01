@@ -26,7 +26,7 @@ export function VerdictCard({ ruler, possessive }: { ruler: Ruler; possessive: s
       {ruler.verdictNotes?.length ? <><div className="pp-divider" /><ClaimList claims={ruler.verdictNotes} /></> : null}
     </Section>;
   }
-  return <Section id="pp-verdict" kicker="The verdict" title="How Scripture judges the reign" lead="Quoted word for word from the King James text. The page states the Bible's verdict and adds none of its own.">
+  return <Section id="pp-verdict" kicker="The verdict" title="How Scripture judges the reign" lead="Quoted from the Bible you are reading. The page states the Bible's verdict and adds none of its own.">
     <QuoteText quote={primary.verdict} />
     {primary.comparison && <QuoteText quote={primary.comparison} className="pp-quote-small" />}
     {(ruler.verdictNotes?.length || chronicles) && <div className="pp-divider" />}

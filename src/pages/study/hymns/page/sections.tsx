@@ -6,14 +6,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import type { BookTick, HymnPageData, PagePassage } from "@/lib/hymn-pages";
 import { Head } from "../song/Sections";
-import { ROMAN, type OpenPassage } from "../song/parts";
+import { PassageVerses, ROMAN, type OpenPassage } from "../song/parts";
+import { BibleName } from "@/components/Verse";
 
 const tone = (token: string) => ({ "--tone": `var(--${token || "accent"})` }) as CSSProperties;
 const readHref = (p: PagePassage) =>
   `/read/bsb/${p.code}/${p.chapter}${p.whole ? "" : `?hl=${p.verses[0].n}${p.verses.length > 1 ? `-${p.verses[p.verses.length - 1].n}` : ""}`}`;
 
 function Verses({ p }: { p: PagePassage }) {
-  return <>{p.verses.map((v) => <span key={v.n}>{p.verses.length > 1 && <sup>{v.n}</sup>}{v.text} </span>)}
+  return <><PassageVerses p={p} numbered={p.verses.length > 1} />{" "}
     {p.count > p.verses.length && <span className="hf-more">… {p.count - p.verses.length} more verses</span>}</>;
 }
 
@@ -28,7 +29,7 @@ export function Found({ num, page, who }: { num: string; page: HymnPageData; who
         : `${who} printed the hymn under ${h.label}.`}
       {stanza ? " The line that comes closest to it is marked." : ""}</Head>
     <div className={`hy-found${stanza ? "" : " hf-single"}`}>
-      <blockquote><Verses p={p} /><cite>{h.label}{p.whole ? " · its first verses" : ""} · Berean Standard Bible</cite>
+      <blockquote><Verses p={p} /><cite>{h.label}{p.whole ? " · its first verses" : ""} · <BibleName /></cite>
         <Link className="hf-read" to={readHref(p)}>Read {p.ref.split(":")[0]}<ArrowRight size={14} strokeWidth={1.5} aria-hidden /></Link></blockquote>
       {stanza && h.line && <><span className="join" aria-hidden="true" />
         <blockquote>{stanza.map((line, l) => <span key={l}>{l === h.line!.line ? <b>{line}</b> : line} </span>)}<cite>Stanza {ROMAN[h.line.stanza] ?? h.line.stanza + 1}</cite></blockquote></>}
@@ -43,7 +44,7 @@ export function MainPassage({ num, page, open }: { num: string; page: HymnPageDa
     <Head num={num} title={<>The passage <em>it draws on most</em></>}>Its book prints no verse above this hymn. Of the verses its lines share most
       wording with, this is the one the whole hymn draws on, chosen by an AI model from those the word matching found. Not the author's own heading.</Head>
     <div className="hy-found hf-single">
-      <blockquote><Verses p={m.passage} /><cite>{m.label} · Berean Standard Bible</cite>
+      <blockquote><Verses p={m.passage} /><cite>{m.label} · <BibleName /></cite>
         <button type="button" className="hf-read" onClick={() => open({ passage: m.passage, kicker: "The passage it draws on most" })}>Open it beside the page
           <ArrowRight size={14} strokeWidth={1.5} aria-hidden /></button></blockquote>
     </div>
@@ -97,7 +98,7 @@ export function PageSources({ page }: { page: HymnPageData }) {
     page.placed.length > 0 || page.hymnals ? <li key="hymnary"><b>Where hymnals place it.</b> Hymnary.org's catalogue
       {page.hymnary && <> (<a href={page.hymnary} target="_blank" rel="noreferrer">hymnary.org</a>)</>}: the passages hymnal editors attach to it and the number of
       hymnals that print it. No words were taken from Hymnary.</li> : null,
-    <li key="verses"><b>The verses.</b> Shown in the Berean Standard Bible, from this site's own Bible text. The verse printed above the hymn is the
+    <li key="verses"><b>The verses.</b> Shown in the <BibleName />, from this site's own Bible text. The verse printed above the hymn is the
       author's. The verses beside its lines were found in the King James wording the author read: by matching the words, or proposed by an AI model, and
       kept only when the verse's words were proved to be there and a separate check agreed. The words beside each verse are cut from the verse itself.</li>,
   ].filter(Boolean);

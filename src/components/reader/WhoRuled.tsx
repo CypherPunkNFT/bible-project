@@ -1,3 +1,4 @@
+import { Verse } from "@/components/Verse";
 import { ArrowUpRight, BookOpen, CalendarDays, Crown, Hourglass, ScrollText, TextQuote, Users } from "lucide-react";
 import { useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
@@ -169,7 +170,7 @@ export function WhoRuledCard({ translation, bookCode, bookNum, bookName, chapter
       {statementsOf(who).map((s, i) => (
         <p key={i} className="wr-heading">
           <CalendarDays className="me-1.5 inline h-3.5 w-3.5 align-[-2px] text-[var(--wr)]" aria-hidden />
-          {s.title ? `Psalm ${chapter}'s title` : "Dated by Scripture"}: <q>{s.quote}</q>
+          {s.title ? `Psalm ${chapter}'s title` : "Dated by Scripture"}: <q>{s.span ? <Verse from={s.span[0]} to={s.span[1]} /> : s.quote}</q>
           {s.span && !s.title && <> ({ref(s.span)})</>}
           {s.why && <span className="wr-note">{s.why}</span>}
           {s.note && <span className="wr-note">{s.note}</span>}
@@ -178,7 +179,7 @@ export function WhoRuledCard({ translation, bookCode, bookNum, bookName, chapter
       {who.headings.map((h, i) => (
         <p key={i} className="wr-heading">
           <BookOpen className="me-1.5 inline h-3.5 w-3.5 align-[-2px] text-[var(--wr)]" aria-hidden />
-          {opens}: <q>{h.quote}</q> ({ref(h.span)})
+          {opens}: <q><Verse from={h.span[0]} to={h.span[1]} /></q> ({ref(h.span)})
           {h.note && <span className="wr-note">{h.note}</span>}
         </p>
       ))}
@@ -207,7 +208,7 @@ export function WhoRuledCard({ translation, bookCode, bookNum, bookName, chapter
       )}
       {who.related.map((r, i) => (
         <p key={i} className="wr-quiet">
-          Elsewhere: <q>{r.quote}</q> ({ref(r.span)}){r.note && <> {r.note}</>}
+          Elsewhere: <q><Verse from={r.span[0]} to={r.span[1]} /></q> ({ref(r.span)}){r.note && <> {r.note}</>}
         </p>
       ))}
       <div className="wr-foot">
@@ -225,10 +226,10 @@ function statementsOf(who: ChapterWho): Statement[] {
   const seen = new Map<string, Statement>();
   for (const item of who.rulers)
     for (const r of item.reasons) {
-      if (r.kind === "dated" && !seen.has(r.quote)) seen.set(r.quote, { span: r.span, quote: r.quote, why: r.why, note: r.note });
+      if (r.kind === "dated" && !seen.has(r.span.join())) seen.set(r.span.join(), { span: r.span, why: r.why, note: r.note });
       if (r.kind === "title" && !seen.has(r.quote)) seen.set(r.quote, { quote: r.quote, note: r.note, title: true });
     }
-  for (const s of who.statements) if (!seen.has(s.quote)) seen.set(s.quote, s);
+  for (const s of who.statements) { const key = s.span?.join() ?? s.quote ?? ""; if (!seen.has(key)) seen.set(key, s); }
   return [...seen.values()];
 }
 

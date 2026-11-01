@@ -1,6 +1,7 @@
 import { useState, type CSSProperties } from "react";
 import { PassageText } from "@/components/study/StudyParts";
 import type { Letter, Network, Parallel } from "@/data/letters/types";
+import { BibleAbbr, Verse } from "@/components/Verse";
 import { useKeep, useSpanLabel, useVerseIndex } from "../letter-hooks";
 import { KeepX, Refs } from "../LetterParts";
 import { ParallelRibbon } from "../ParallelRibbon";
@@ -32,7 +33,7 @@ export function LetterWordsChooser({ data }: { data: LettersData }) {
 export function KeyVerses({ data }: { data: LettersData }) {
   const [code, setCode] = useState("ROM"), label = useSpanLabel(), l = data.letter(code);
   return <><LetterRow data={data} code={code} choose={setCode} /><div className="lb-panel"><div className="lb-verse-cards">{l.keyVerses.map((v) => <blockquote key={v.span[0]} className="lb-quote">
-    <PassageText span={v.span} /><cite>{label(v.span)} · KJV</cite><small>{v.why}</small></blockquote>)}</div></div></>;
+    <PassageText span={v.span} /><cite>{label(v.span)} · <BibleAbbr /></cite><small>{v.why}</small></blockquote>)}</div></div></>;
 }
 export function OnlyHere({ data }: { data: LettersData }) {
   const [code, setCode] = useState("HEB"), list = data.browse.onlyHere[code] ?? [];
@@ -43,9 +44,9 @@ export function OnlyHere({ data }: { data: LettersData }) {
     <p className="lb-caption">Counted in the Byzantine Greek text by Strong's number: a word counts as "only here" when no other New Testament book uses that number.</p></div></>;
 }
 export function Translations({ data }: { data: LettersData }) {
-  const [code, setCode] = useState("ROM"), label = useSpanLabel(), list = data.browse.translations.filter((t) => t.verses[code]);
+  const [code, setCode] = useState("ROM"), label = useSpanLabel(), list = data.browse.translations.filter((t) => t.books.includes(code)), span = data.letter(code).keyVerses[0].span;
   return <><LetterRow data={data} code={code} choose={setCode} /><div className="lb-panel"><p className="lb-panel-label">{label(data.letter(code).keyVerses[0].span)} in {list.length} of the site's translations</p>
-    <div className="lb-translations">{list.map((t) => <div key={t.slug}><p className="t-name"><b>{t.abbr}</b> {t.name}{t.year ? ` · ${t.year}` : ""} <span>{t.lang}</span></p><p dir={t.dir} lang={t.lang}>{t.verses[code]}</p></div>)}</div></div></>;
+    <div className="lb-translations">{list.map((t) => <div key={t.slug}><p className="t-name"><b>{t.abbr}</b> {t.name}{t.year ? ` · ${t.year}` : ""} <span>{t.lang}</span></p><p dir={t.dir} lang={t.lang}><Verse from={span[0]} to={span[1]} bible={t.slug} /></p></div>)}</div></div></>;
 }
 
 /** Every pair of letters, shaded by how many cross-references join them. */

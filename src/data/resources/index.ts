@@ -14,7 +14,7 @@ export interface Workbook {
 export type ArtShape = [string, Record<string, string>];
 export interface WorkbookSession {
   n: number; part: number; art: string; title: string; read: string; page: number; end: number; questionsPage: number;
-  brief: string; briefRefs: string; key: { ref: string; text: string };
+  brief: string; briefRefs: string; key: { ref: string; id: number };
   questions: { observe: number; interpret: number; reflect: number }; keyVerses: number;
 }
 /** What the site shows of a built workbook besides its files: parts, sessions and the pages they open on, and counts. */

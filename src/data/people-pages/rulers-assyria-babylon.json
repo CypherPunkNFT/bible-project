@@ -316,14 +316,19 @@
           "label": "Damascus taken, Rezin slain",
           "kind": "battle",
           "claim": {
-            "text": "\"The king of Assyria went up against Damascus, and took it, and carried the people of it captive to Kir, and slew Rezin.\"",
             "layer": "scripture",
             "refs": [
               [
                 12016009,
                 12016009
               ]
-            ]
+            ],
+            "span": [
+              12016009,
+              12016009
+            ],
+            "quoted": true,
+            "marks": true
           },
           "placeId": "a69c1d4"
         },
@@ -490,11 +495,11 @@
             ]
           },
           "quote": {
-            "text": "the riches of Damascus and the spoil of Samaria shall be taken away before the king of Assyria",
             "span": [
               23008004,
               23008004
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -517,11 +522,11 @@
             ]
           },
           "quote": {
-            "text": "then went Ephraim to the Assyrian, and sent to king Jareb: yet could he not heal you, nor cure you of your wound.",
             "span": [
               28005013,
               28005013
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -1183,14 +1188,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"Against him came up Shalmaneser king of Assyria; and Hoshea became his servant, and gave him presents.\"",
           "layer": "scripture",
           "refs": [
             [
               12017003,
               12017003
             ]
-          ]
+          ],
+          "span": [
+            12017003,
+            12017003
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "When Hoshea sent messengers to So king of Egypt and brought no present \"as he had done year by year\", \"the king of Assyria shut him up, and bound him in prison\".",
@@ -1203,14 +1213,19 @@
           ]
         },
         {
-          "text": "\"Shalmaneser king of Assyria came up against Samaria, and besieged it. And at the end of three years they took it.\"",
           "layer": "scripture",
           "refs": [
             [
               12018009,
               12018010
             ]
-          ]
+          ],
+          "span": [
+            12018009,
+            12018010
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Kings does not name the king who took Samaria: 2 Kings 17:6 says \"the king of Assyria took Samaria\", and 2 Kings 18:10 \"they took it\".",
@@ -1230,11 +1245,11 @@
       "synchronisms": [
         {
           "quote": {
-            "text": "in the fourth year of king Hezekiah, which was the seventh year of Hoshea son of Elah king of Israel, that Shalmaneser king of Assyria came up against Samaria, and besieged it.",
             "span": [
               12018009,
               12018009
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "hezekiah-2ki-16-20"
         }
@@ -1377,11 +1392,11 @@
             ]
           },
           "quote": {
-            "text": "all thy fortresses shall be spoiled, as Shalman spoiled Beth-arbel in the day of battle",
             "span": [
               28010014,
               28010014
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -1815,14 +1830,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"In the year that Tartan came unto Ashdod, (when Sargon the king of Assyria sent him,) and fought against Ashdod, and took it\".",
           "layer": "scripture",
           "refs": [
             [
               23020001,
               23020001
             ]
-          ]
+          ],
+          "span": [
+            23020001,
+            23020001
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "At that time the LORD told Isaiah to loose the sackcloth from his loins and put off his shoes, \"walking naked and barefoot\", as a sign that \"the king of Assyria\" would lead the Egyptians and the Ethiopians away captive.",
@@ -1900,11 +1920,11 @@
             ]
           },
           "quote": {
-            "text": "So shall the king of Assyria lead away the Egyptians prisoners, and the Ethiopians captives, young and old, naked and barefoot",
             "span": [
               23020004,
               23020004
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -2105,14 +2125,19 @@
               "label": "Isaiah: Sargon sent the Tartan",
               "holders": "Isaiah 20:1",
               "argument": {
-                "text": "\"Tartan came unto Ashdod, (when Sargon the king of Assyria sent him,)\".",
                 "layer": "scripture",
                 "refs": [
                   [
                     23020001,
                     23020001
                   ]
-                ]
+                ],
+                "span": [
+                  23020001,
+                  23020001
+                ],
+                "quoted": true,
+                "marks": true
               }
             },
             {
@@ -2259,14 +2284,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"Now in the fourteenth year of king Hezekiah did Sennacherib king of Assyria come up against all the fenced cities of Judah, and took them.\"",
           "layer": "scripture",
           "refs": [
             [
               12018013,
               12018013
             ]
-          ]
+          ],
+          "span": [
+            12018013,
+            12018013
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "At Lachish he appointed Hezekiah \"three hundred talents of silver and thirty talents of gold\".",
@@ -2326,11 +2356,11 @@
       "synchronisms": [
         {
           "quote": {
-            "text": "Now in the fourteenth year of king Hezekiah did Sennacherib king of Assyria come up against all the fenced cities of Judah, and took them.",
             "span": [
               12018013,
               12018013
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "hezekiah-2ki-16-20"
         }
@@ -2588,11 +2618,11 @@
             ]
           },
           "quote": {
-            "text": "He shall not come into this city, nor shoot an arrow there, nor come before it with shield, nor cast a bank against it.",
             "span": [
               12019032,
               12019032
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -2977,7 +3007,6 @@
               "label": "Two of his sons",
               "holders": "2 Kings 19:37; Isaiah 37:38",
               "argument": {
-                "text": "\"Adrammelech and Sharezer his sons smote him with the sword\".",
                 "layer": "scripture",
                 "refs": [
                   [
@@ -2988,7 +3017,13 @@
                     23037038,
                     23037038
                   ]
-                ]
+                ],
+                "span": [
+                  12019037,
+                  12019037
+                ],
+                "quoted": true,
+                "marks": true
               }
             },
             {
@@ -3218,7 +3253,6 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"And Esar-haddon his son reigned in his stead.\"",
           "layer": "scripture",
           "refs": [
             [
@@ -3229,7 +3263,13 @@
               23037038,
               23037038
             ]
-          ]
+          ],
+          "span": [
+            12019037,
+            12019037
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "The adversaries of Judah and Benjamin told Zerubbabel: \"we do sacrifice unto him since the days of Esar-haddon king of Assur, which brought us up hither.\"",
@@ -3459,14 +3499,19 @@
               "label": "Chronicles names none",
               "holders": "2 Chronicles 33:11",
               "argument": {
-                "text": "\"The captains of the host of the king of Assyria, which took Manasseh among the thorns, and bound him with fetters, and carried him to Babylon.\"",
                 "layer": "scripture",
                 "refs": [
                   [
                     14033011,
                     14033011
                   ]
-                ]
+                ],
+                "span": [
+                  14033011,
+                  14033011
+                ],
+                "quoted": true,
+                "marks": true
               }
             },
             {
@@ -3677,14 +3722,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"At that time Berodach-baladan, the son of Baladan, king of Babylon, sent letters and a present unto Hezekiah: for he had heard that Hezekiah had been sick.\"",
           "layer": "scripture",
           "refs": [
             [
               12020012,
               12020012
             ]
-          ]
+          ],
+          "span": [
+            12020012,
+            12020012
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Isaiah's account: \"he had heard that he had been sick, and was recovered\".",
@@ -3829,11 +3879,11 @@
             ]
           },
           "quote": {
-            "text": "all that is in thine house, and that which thy fathers have laid up in store unto this day, shall be carried into Babylon: nothing shall be left, saith the LORD.",
             "span": [
               12020017,
               12020017
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -4087,28 +4137,38 @@
               "label": "To greet him after his sickness",
               "holders": "2 Kings 20:12; Isaiah 39:1",
               "argument": {
-                "text": "\"For he had heard that Hezekiah had been sick.\"",
                 "layer": "scripture",
                 "refs": [
                   [
                     12020012,
                     12020012
                   ]
-                ]
+                ],
+                "span": [
+                  12020012,
+                  12020012
+                ],
+                "quoted": true,
+                "marks": true
               }
             },
             {
               "label": "To ask about the sign",
               "holders": "2 Chronicles 32:31",
               "argument": {
-                "text": "\"To enquire of the wonder that was done in the land.\"",
                 "layer": "scripture",
                 "refs": [
                   [
                     14032031,
                     14032031
                   ]
-                ]
+                ],
+                "span": [
+                  14032031,
+                  14032031
+                ],
+                "quoted": true,
+                "marks": true
               }
             }
           ]
@@ -4371,31 +4431,31 @@
       "synchronisms": [
         {
           "quote": {
-            "text": "in the fourth year of Jehoiakim the son of Josiah king of Judah, that was the first year of Nebuchadrezzar king of Babylon",
             "span": [
               24025001,
               24025001
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "jehoiakim-2ki-23-34"
         },
         {
           "quote": {
-            "text": "and the king of Babylon took him in the eighth year of his reign",
             "span": [
               12024012,
               12024012
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "jehoiachin-2ki-24-6"
         },
         {
           "quote": {
-            "text": "in the tenth year of Zedekiah king of Judah, which was the eighteenth year of Nebuchadrezzar",
             "span": [
               24032001,
               24032001
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "zedekiah-2ki-24-17"
         }
@@ -4473,14 +4533,19 @@
           "label": "Egypt shut out of Syria",
           "kind": "battle",
           "claim": {
-            "text": "\"The king of Egypt came not again any more out of his land: for the king of Babylon had taken from the river of Egypt unto the river Euphrates all that pertained to the king of Egypt.\"",
             "layer": "scripture",
             "refs": [
               [
                 12024007,
                 12024007
               ]
-            ]
+            ],
+            "span": [
+              12024007,
+              12024007
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -4501,14 +4566,19 @@
           "label": "3,023 carried away",
           "kind": "other",
           "claim": {
-            "text": "\"In the seventh year three thousand Jews and three and twenty.\"",
             "layer": "scripture",
             "refs": [
               [
                 24052028,
                 24052028
               ]
-            ]
+            ],
+            "span": [
+              24052028,
+              24052028
+            ],
+            "quoted": true,
+            "marks": true
           },
           "year": 7
         },
@@ -4569,14 +4639,19 @@
           "label": "832 carried away",
           "kind": "other",
           "claim": {
-            "text": "\"In the eighteenth year of Nebuchadrezzar he carried away captive from Jerusalem eight hundred thirty and two persons.\"",
             "layer": "scripture",
             "refs": [
               [
                 24052029,
                 24052029
               ]
-            ]
+            ],
+            "span": [
+              24052029,
+              24052029
+            ],
+            "quoted": true,
+            "marks": true
           },
           "year": 18
         },
@@ -4648,14 +4723,19 @@
           "label": "745 carried away",
           "kind": "other",
           "claim": {
-            "text": "\"In the three and twentieth year of Nebuchadrezzar Nebuzar-adan the captain of the guard carried away captive of the Jews seven hundred forty and five persons.\"",
             "layer": "scripture",
             "refs": [
               [
                 24052030,
                 24052030
               ]
-            ]
+            ],
+            "span": [
+              24052030,
+              24052030
+            ],
+            "quoted": true,
+            "marks": true
           },
           "year": 23
         },
@@ -4766,14 +4846,19 @@
         ],
         "building": [
           {
-            "text": "\"Is not this great Babylon, that I have built for the house of the kingdom by the might of my power\".",
             "layer": "scripture",
             "refs": [
               [
                 27004030,
                 27004030
               ]
-            ]
+            ],
+            "span": [
+              27004030,
+              27004030
+            ],
+            "quoted": true,
+            "marks": true
           }
         ],
         "alliances": [
@@ -4896,11 +4981,11 @@
             ]
           },
           "quote": {
-            "text": "And now have I given all these lands into the hand of Nebuchadnezzar the king of Babylon, my servant",
             "span": [
               24027006,
               24027006
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -4927,11 +5012,11 @@
             ]
           },
           "quote": {
-            "text": "Behold, I will give the land of Egypt unto Nebuchadrezzar king of Babylon",
             "span": [
               26029019,
               26029019
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -4954,11 +5039,11 @@
             ]
           },
           "quote": {
-            "text": "Thou art this head of gold.",
             "span": [
               27002038,
               27002038
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -4981,11 +5066,11 @@
             ]
           },
           "quote": {
-            "text": "Even so will I break the yoke of Nebuchadnezzar king of Babylon from the neck of all nations within the space of two full years.",
             "span": [
               24028011,
               24028011
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -5783,24 +5868,34 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "\"Evil-merodach king of Babylon in the year that he began to reign did lift up the head of Jehoiachin king of Judah out of prison\".",
           "layer": "scripture",
           "refs": [
             [
               12025027,
               12025027
             ]
-          ]
+          ],
+          "span": [
+            12025027,
+            12025027
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "\"He spake kindly to him, and set his throne above the throne of the kings that were with him in Babylon\".",
           "layer": "scripture",
           "refs": [
             [
               12025028,
               12025028
             ]
-          ]
+          ],
+          "span": [
+            12025028,
+            12025028
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Jehoiachin changed his prison garments and ate bread before him \"all the days of his life\", with a daily allowance from the king.",
@@ -5820,11 +5915,11 @@
       "synchronisms": [
         {
           "quote": {
-            "text": "in the seven and thirtieth year of the captivity of Jehoiachin king of Judah",
             "span": [
               12025027,
               12025027
-            ]
+            ],
+            "quoted": true
           },
           "otherRulerId": "jehoiachin-2ki-24-6"
         }
@@ -6178,24 +6273,34 @@
           ]
         },
         {
-          "text": "\"TEKEL; Thou art weighed in the balances, and art found wanting.\"",
           "layer": "scripture",
           "refs": [
             [
               27005027,
               27005027
             ]
-          ]
+          ],
+          "span": [
+            27005027,
+            27005027
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "\"In that night was Belshazzar the king of the Chaldeans slain.\"",
           "layer": "scripture",
           "refs": [
             [
               27005030,
               27005030
             ]
-          ]
+          ],
+          "span": [
+            27005030,
+            27005030
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "events": [
@@ -6274,14 +6379,19 @@
           "label": "Slain that night",
           "kind": "personal",
           "claim": {
-            "text": "\"In that night was Belshazzar the king of the Chaldeans slain. And Darius the Median took the kingdom\".",
             "layer": "scripture",
             "refs": [
               [
                 27005030,
                 27005031
               ]
-            ]
+            ],
+            "span": [
+              27005030,
+              27005031
+            ],
+            "quoted": true,
+            "marks": true
           },
           "placeId": "a217d18"
         },
@@ -6389,11 +6499,11 @@
             ]
           },
           "quote": {
-            "text": "TEKEL; Thou art weighed in the balances, and art found wanting.",
             "span": [
               27005027,
               27005027
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -6407,14 +6517,19 @@
             }
           ],
           "claim": {
-            "text": "\"Darius the Median took the kingdom, being about threescore and two years old.\"",
             "layer": "scripture",
             "refs": [
               [
                 27005031,
                 27005031
               ]
-            ]
+            ],
+            "span": [
+              27005031,
+              27005031
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {

@@ -210,7 +210,7 @@ def build_book(num: int, people: People, passages: dict, prophets: list[str], da
     statements = [(e, range(e["covers"][0], e["covers"][1] + 1), "dated") for e in dating["dated"]]
     statements += [(e, range(e["chapter"], e["chapter"] + 1), "title") for e in dating["titles"]]
     for entry, keys, kind in statements:
-        why = {k: entry[k] for k in ("span", "quote", "why", "note") if entry.get(k)}
+        why = {k: entry[k] for k in ("span", "quote", "why", "note") if entry.get(k) and not (k == "quote" and entry.get("span"))}
         for key in keys:
             if key // 1000 != num:
                 continue
@@ -262,9 +262,9 @@ def build_book(num: int, people: People, passages: dict, prophets: list[str], da
             out_chapters[str(ch)] = shown
 
     book: dict = {"book": code}
-    headings = [{k: e[k] for k in ("span", "quote", "rulers", "prophet", "note") if e.get(k)} for e in dating["headings"] if book_num(e["book"]) == num]
+    headings = [{k: e[k] for k in ("span", "rulers", "prophet", "note") if e.get(k)} for e in dating["headings"] if book_num(e["book"]) == num]
     none = [{k: e[k] for k in ("prophet", "note") if e.get(k)} for e in dating["none"] if book_num(e["book"]) == num]
-    related = [{k: e[k] for k in ("span", "quote", "rulers", "note") if e.get(k)} for e in dating["related"] if book_num(e["book"]) == num]
+    related = [{k: e[k] for k in ("span", "rulers", "note") if e.get(k)} for e in dating["related"] if book_num(e["book"]) == num]
     if headings:
         book["headings"] = headings
     if none:

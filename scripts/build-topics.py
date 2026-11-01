@@ -221,7 +221,7 @@ def verse_parts(verse: int) -> tuple[str, int, int]:
 
 
 def key_verses(topics: list[dict], model) -> None:
-    """Up to four verses per topic quoted in full (World English Bible). For each early point, the meaning model picks, among
+    """Up to four verses per topic, as ids (the page looks up the words in the reader's Bible; the World English Bible here is only what the meaning model reads). For each early point, the meaning model picks, among
     Torrey's verses for it, the one that best fits "<topic>: <point>" (so "The Love of God: is a part of his character" gets
     1 John 4:8, "God is love", not simply the first reference listed)."""
     books: dict[str, dict] = {}
@@ -255,8 +255,8 @@ def key_verses(topics: list[dict], model) -> None:
                 continue
             best = max(mine, key=lambda k: float(verses[k] @ query))
             used.add(candidates[best][1][0])
-            _, ref, text = candidates[best]
-            chosen.append({"span": ref, "text": text + (" …" if ref[1] != ref[0] else ""), "point": points_all[point_index]["text"]})
+            _, ref, _ = candidates[best]
+            chosen.append({"span": ref, "point": points_all[point_index]["text"]})
         topic["keyVerses"] = chosen
 
 

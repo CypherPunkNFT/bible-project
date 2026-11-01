@@ -18,7 +18,7 @@ async function point(id) {
   const text = plain.get(b)[`${c}:${v}`];
   if (!text) throw new Error(`Missing KJV verse: ${id}`);
   const n = Object.keys(plain.get(b)).filter(key => key.startsWith(`${c}:`)).length;
-  return {id,b,c,v,n,text:text.replace(/^¶\s*/, '')};
+  return {id,b,c,v,n};
 }
 const out = path.join(root, 'src/data/long-memory');
 await fs.mkdir(out,{recursive:true});

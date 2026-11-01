@@ -21,7 +21,7 @@ export interface Browse {
   grid: Record<string, number>; // "ROM|COL" → cross-references between the two, both directions
   gospels: Record<string, Record<string, number>>;
   gospelNames: Record<string, string>;
-  translations: { slug: string; abbr: string; name: string; year?: number; lang: string; dir: string; verses: Record<string, string> }[];
+  translations: { slug: string; abbr: string; name: string; year?: number; lang: string; dir: string; books: string[] }[];
 }
 
 export interface LettersData {

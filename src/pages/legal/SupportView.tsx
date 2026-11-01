@@ -1,6 +1,7 @@
 // The Support page (redesigned 2026-10-25). The open door (Matthew 7:7) in the hero, three ways to reach us in one quiet
 // row, 01 the common questions, and the Help for life band with its lighthouse. /support passes the Tiles layout;
 // /support_mockup passes its other layouts and adds its version pill as children.
+import { Verse } from "@/components/Verse";
 import { ArrowRight, LifeBuoy, Mail, MessageSquareText, PencilLine, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
@@ -21,7 +22,7 @@ export function SupportView({ questions, children }: { questions: ReactNode; chi
         <div>
           <p className="lg-eyebrow">Support · questions · help</p>
           <h1>How can we<em>help?</em></h1>
-          <p className="lg-sub">Ask, and it will be given to you;<br />seek, and you will find.</p>
+          <p className="lg-sub"><Verse id={40007007} /></p>
           <p className="lg-lead">Help with the Bible Guide website and app. If your question is not answered here, write to us.</p>
         </div>
         <OpenDoorArt />
@@ -39,7 +40,7 @@ export function SupportView({ questions, children }: { questions: ReactNode; chi
         <LighthouseArt />
         <div>
           <p className="lg-eyebrow">Help for life</p>
-          <p className="lg-help-verse">“God is our refuge and strength, an ever-present help in times of trouble.” <span>Psalm 46:1</span></p>
+          <p className="lg-help-verse">“<Verse id={19046001} unquoted />” <span>Psalm 46:1</span></p>
           <p className="lg-help-text">In danger now? Call <b>911</b>. Thinking of suicide or in crisis? Call or text <b>988</b>.</p>
           <div className="lg-help-actions">
             <Link className="lg-help-go" to="/resources/life"><LifeBuoy aria-hidden />Find free help<ArrowRight aria-hidden /></Link>

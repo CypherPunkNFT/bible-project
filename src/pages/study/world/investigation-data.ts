@@ -17,8 +17,8 @@ export const layers = [
 ];
 
 export const mealClauses = [
-  { verse: '11:18', quote: 'I hear that divisions exist among you, and I partly believe it.', title: 'A report filtered through a letter', note: 'Paul is responding to information and evaluating it. We hear his intervention, not a transcript from every participant. The recipients’ own explanations do not survive in this passage.' },
-  { verse: '11:21', quote: 'One is hungry, and another is drunken.', title: 'An unequal meal is the firm starting point', note: 'The contrast concerns access to food and drink within a gathering. It warrants asking about resources and conduct. It supplies neither a membership census nor the dimensions of a dining room.' },
-  { verse: '11:22', quote: 'put them to shame who don’t have enough', title: 'Food has become a question of dignity', note: 'Paul connects material lack with humiliation. Calling the gathering a household does not make it egalitarian. But the verse does not identify each participant’s income, occupation or legal status.' },
-  { verse: '11:33', quote: 'when you come together to eat, wait for one another.', title: 'An instruction is not an observed outcome', note: 'The remedy addresses how they gather. It makes timing worth investigating, without proving a complete schedule of work and arrival. Paul’s command does not tell us whether the community obeyed.' },
+  { verse: '11:18', id: 46011018, title: 'A report filtered through a letter', note: 'Paul is responding to information and evaluating it. We hear his intervention, not a transcript from every participant. The recipients’ own explanations do not survive in this passage.' },
+  { verse: '11:21', id: 46011021, title: 'An unequal meal is the firm starting point', note: 'The contrast concerns access to food and drink within a gathering. It warrants asking about resources and conduct. It supplies neither a membership census nor the dimensions of a dining room.' },
+  { verse: '11:22', id: 46011022, title: 'Food has become a question of dignity', note: 'Paul connects material lack with humiliation. Calling the gathering a household does not make it egalitarian. But the verse does not identify each participant’s income, occupation or legal status.' },
+  { verse: '11:33', id: 46011033, title: 'An instruction is not an observed outcome', note: 'The remedy addresses how they gather. It makes timing worth investigating, without proving a complete schedule of work and arrival. Paul’s command does not tell us whether the community obeyed.' },
 ];

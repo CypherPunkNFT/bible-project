@@ -73,7 +73,7 @@ export const FRAMES: Record<FrameKind, { rim: number; hebrewOuter: number; hebre
   open: { rim: 60.5, hebrewOuter: 52, hebrewInner: 33, baseline: 37.8, size: 10.5 },
 };
 
-export type Design = { hebrew: string; english: string; source: string; to: string; frame: FrameKind; outer: ReactElement; figure: ReactElement; inner: ReactElement; centre: ReactElement };
+export type Design = { hebrew: string; verse: number; source: string; to: string; frame: FrameKind; outer: ReactElement; figure: ReactElement; inner: ReactElement; centre: ReactElement };
 
 const ISAIAH_40_8 = "דבר אלהינו יקום לעולם";
 const ISAIAH_40_8_FULL = "יבש חציר נבל ציץ ודבר אלהינו יקום לעולם";
@@ -86,10 +86,10 @@ const LEVITICUS_19_18 = "ואהבת לרעך כמוך";
 /** The marks between the rim and the Hebrew band; `o` shifts them out by 2 for the larger frames. */
 const outerTicks = (o: number, count: number, major = 0) => ticks({ inner: 52 + o, outer: 56.5 + o, count, major });
 
-const BIBLE = { hebrew: ISAIAH_40_8, english: "the word of our God stands forever", source: "Isaiah 40:8, “the word of our God shall stand for ever”", to: "/read/kjv/ISA/40?hl=8&with=wlc", inner: ticks({ inner: 17.5, outer: 20.5, count: 16, major: 2 }), centre: MARKS.book };
-const STUDY = { hebrew: PSALM_119_18, english: "Open my eyes that I may see wondrous things", source: "Psalm 119:18, “Open thou mine eyes, that I may behold wondrous things”", to: "/read/kjv/PSA/119?hl=18&with=wlc", inner: dots({ r: 19, count: 24, size: 0.7 }), centre: MARKS.scroll };
-const APOLOGETICS = { hebrew: PSALM_18_3, english: "my rock, my fortress, and my deliverer", source: "Psalm 18:2, “my rock, and my fortress, and my deliverer”", to: "/read/kjv/PSA/18?hl=2&with=wlc", inner: dots({ r: 19, count: 12, size: 0.8 }), centre: MARKS.shield };
-const RESOURCES = { hebrew: LEVITICUS_19_18, english: "love your neighbor as yourself", source: "Leviticus 19:18, “thou shalt love thy neighbour as thyself”", to: "/read/kjv/LEV/19?hl=18&with=wlc", inner: ring({ r: 19, look: "dot" }), centre: MARKS.heart };
+const BIBLE = { hebrew: ISAIAH_40_8, verse: 23040008, source: "Isaiah 40:8", to: "/read/kjv/ISA/40?hl=8&with=wlc", inner: ticks({ inner: 17.5, outer: 20.5, count: 16, major: 2 }), centre: MARKS.book };
+const STUDY = { hebrew: PSALM_119_18, verse: 19119018, source: "Psalm 119:18", to: "/read/kjv/PSA/119?hl=18&with=wlc", inner: dots({ r: 19, count: 24, size: 0.7 }), centre: MARKS.scroll };
+const APOLOGETICS = { hebrew: PSALM_18_3, verse: 19018002, source: "Psalm 18:2", to: "/read/kjv/PSA/18?hl=2&with=wlc", inner: dots({ r: 19, count: 12, size: 0.8 }), centre: MARKS.shield };
+const RESOURCES = { hebrew: LEVITICUS_19_18, verse: 3019018, source: "Leviticus 19:18", to: "/read/kjv/LEV/19?hl=18&with=wlc", inner: ring({ r: 19, look: "dot" }), centre: MARKS.heart };
 
 /** Each part: 1, the owner's first pick; 2, the same in the large frame; 3, the large frame with a simpler figure ("open").
  *  The owner chose 2 for every part (2026-10-21); the homepage shows CHOSEN_DESIGN. */
@@ -101,13 +101,13 @@ export const DESIGNS: Record<EmblemKind, Design[]> = {
   word: [
     { ...BIBLE, frame: "normal", outer: outerTicks(0, 72, 6), figure: starOutline({ r: 38.5, notch: 24, points: 8 }) },
     { ...BIBLE, frame: "large", outer: outerTicks(2, 72, 6), figure: starOutline({ r: 36, notch: 23.5, points: 8 }) },
-    { ...BIBLE, frame: "open", hebrew: ISAIAH_40_8_FULL, english: "The grass withers and the flowers fall, but the word of our God stands forever", source: "Isaiah 40:8 in full, “The grass withereth, the flower fadeth: but the word of our God shall stand for ever”",
+    { ...BIBLE, frame: "open", hebrew: ISAIAH_40_8_FULL, source: "Isaiah 40:8 in full",
       outer: outerTicks(2, 72, 6), figure: starOutline({ r: 31.5, notch: 23.5, points: 8 }) },
   ],
   lens: [
     { ...STUDY, frame: "normal", outer: outerTicks(0, 120, 10), figure: <>{figure({ r: 38.5, points: 6 })}{ring({ r: 33.3 })}{ring({ r: 28, look: "dash" })}</> },
     { ...STUDY, frame: "large", outer: outerTicks(2, 120, 10), figure: <>{figure({ r: 36, points: 6 })}{ring({ r: 31.2 })}{ring({ r: 26.5, look: "dash" })}</> },
-    { ...STUDY, frame: "open", hebrew: PSALM_119_18_FULL, english: "Open my eyes that I may see wondrous things from Your law", source: "Psalm 119:18 in full, “Open thou mine eyes, that I may behold wondrous things out of thy law”",
+    { ...STUDY, frame: "open", hebrew: PSALM_119_18_FULL, source: "Psalm 119:18 in full",
       outer: outerTicks(2, 120, 10), figure: figure({ r: 31.5, points: 6 }) },
   ],
   scales: [
@@ -116,7 +116,7 @@ export const DESIGNS: Record<EmblemKind, Design[]> = {
     // The one with the most circles: the larger frames drop the faint circle outside the writing.
     { ...APOLOGETICS, frame: "large", outer: dots({ r: 56.3, count: 36, size: 0.9 }),
       figure: <>{ring({ r: 35.5 })}{ring({ r: 31.5, look: "dash" })}{ring({ r: 27.5 })}{ticks({ inner: 23.5, outer: 26.5, count: 24 })}</> },
-    { ...APOLOGETICS, frame: "open", hebrew: PSALM_18_3_FULL, english: "my rock, my fortress, and my deliverer, my God, my rock, in whom I take refuge", source: "Psalm 18:2, “my rock, and my fortress, and my deliverer; my God, my strength, in whom I will trust”",
+    { ...APOLOGETICS, frame: "open", hebrew: PSALM_18_3_FULL, source: "Psalm 18:2",
       outer: dots({ r: 56.3, count: 36, size: 0.9 }), figure: <>{ring({ r: 29.5 })}{ticks({ inner: 24, outer: 27.5, count: 24 })}</> },
   ],
   lamp: [

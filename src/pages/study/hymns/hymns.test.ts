@@ -52,12 +52,12 @@ describe.runIf(built)("the built hymn data", () => {
     for (const e of song.echoes) expect(song.stanzas[e.stanza]?.[e.line]).toBeTruthy();
   });
 
-  it("shows Amazing Grace's verses in the BSB, each echo's quotation inside its verse (owner: Scripture shown in the BSB)", () => {
-    const song = read<HymnSong & { translation?: string }>(`songs/${AMAZING_GRACE}.json`);
-    expect(song.translation).toBe("BSB");
+  it("keeps verse numbers and no wording: the words come from the reader's Bible", () => {
+    const song = read<HymnSong>(`songs/${AMAZING_GRACE}.json`);
     for (const e of song.echoes) {
-      const text = e.verses.map((v) => v.text).join(" ");
-      for (const part of e.words.split(" … ")) expect(text).toContain(part);
+      expect(e.verses.length).toBeGreaterThan(0);
+      for (const v of e.verses) expect(Object.keys(v)).toEqual(["n"]);
+      expect(e).not.toHaveProperty("words");
     }
   });
 });

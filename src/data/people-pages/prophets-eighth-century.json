@@ -116,11 +116,11 @@
             ]
           },
           "quote": {
-            "text": "I will rise against the house of Jeroboam with the sword",
             "span": [
               30007009,
               30007009
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -129,11 +129,11 @@
           "label": "Taken from the flock (Amos 7:14–15)",
           "placeId": "a2e3aa0",
           "quote": {
-            "text": "And the LORD took me as I followed the flock, and the LORD said unto me, Go, prophesy unto my people Israel",
             "span": [
               30007015,
               30007015
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Answering Amaziah, Amos says, “I was no prophet, neither was I a prophet's son; but I was an herdman, and a gatherer of sycomore fruit.” The heading calls him one “among the herdmen of Tekoa”.",
@@ -224,11 +224,11 @@
           },
           "quotes": [
             {
-              "text": "The LORD will roar from Zion, and utter his voice from Jerusalem",
               "span": [
                 30001002,
                 30001002
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -254,11 +254,11 @@
           },
           "quotes": [
             {
-              "text": "they sold the righteous for silver, and the poor for a pair of shoes",
               "span": [
                 30002006,
                 30002006
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -276,11 +276,11 @@
           },
           "quotes": [
             {
-              "text": "But let judgment run down as waters, and righteousness as a mighty stream",
               "span": [
                 30005024,
                 30005024
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -302,11 +302,11 @@
           },
           "quotes": [
             {
-              "text": "Seek good, and not evil, that ye may live",
               "span": [
                 30005014,
                 30005014
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -324,11 +324,11 @@
           },
           "quotes": [
             {
-              "text": "Woe unto you that desire the day of the LORD! to what end is it for you? the day of the LORD is darkness, and not light",
               "span": [
                 30005018,
                 30005018
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -350,11 +350,11 @@
           },
           "quotes": [
             {
-              "text": "prepare to meet thy God, O Israel",
               "span": [
                 30004012,
                 30004012
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -372,11 +372,11 @@
           },
           "quotes": [
             {
-              "text": "In that day will I raise up the tabernacle of David that is fallen",
               "span": [
                 30009011,
                 30009011
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -386,99 +386,99 @@
           "to": "Damascus",
           "placeId": "a69c1d4",
           "quote": {
-            "text": "because they have threshed Gilead with threshing instruments of iron",
             "span": [
               30001003,
               30001003
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Gaza",
           "placeId": "aa8edd2",
           "quote": {
-            "text": "because they carried away captive the whole captivity, to deliver them up to Edom",
             "span": [
               30001006,
               30001006
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Tyre",
           "placeId": "a160272",
           "quote": {
-            "text": "because they delivered up the whole captivity to Edom, and remembered not the brotherly covenant",
             "span": [
               30001009,
               30001009
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Edom",
           "placeId": "a2735ff",
           "quote": {
-            "text": "because he did pursue his brother with the sword, and did cast off all pity",
             "span": [
               30001011,
               30001011
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Ammon",
           "placeId": "a6046fa",
           "quote": {
-            "text": "because they have ripped up the women with child of Gilead, that they might enlarge their border",
             "span": [
               30001013,
               30001013
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Moab",
           "placeId": "aa0b1d6",
           "quote": {
-            "text": "because he burned the bones of the king of Edom into lime",
             "span": [
               30002001,
               30002001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Judah",
           "placeId": "a15257a",
           "quote": {
-            "text": "because they have despised the law of the LORD, and have not kept his commandments",
             "span": [
               30002004,
               30002004
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Israel",
           "placeId": "a041bb3",
           "quote": {
-            "text": "because they sold the righteous for silver, and the poor for a pair of shoes",
             "span": [
               30002006,
               30002006
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "“Ye kine of Bashan” in the mountain of Samaria",
           "placeId": "a041bb3",
           "quote": {
-            "text": "Hear this word, ye kine of Bashan, that are in the mountain of Samaria, which oppress the poor, which crush the needy",
             "span": [
               30004001,
               30004001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -489,11 +489,11 @@
           },
           "placeId": "a64f355",
           "quote": {
-            "text": "Thy wife shall be an harlot in the city, and thy sons and thy daughters shall fall by the sword",
             "span": [
               30007017,
               30007017
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -544,14 +544,19 @@
           "label": "A basket of summer fruit",
           "kind": "vision",
           "claim": {
-            "text": "“The end is come upon my people of Israel.”",
             "layer": "scripture",
             "refs": [
               [
                 30008001,
                 30008003
               ]
-            ]
+            ],
+            "span": [
+              30008001,
+              30008003
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -983,11 +988,11 @@
         {
           "label": "“The beginning of the word of the LORD by Hosea”",
           "quote": {
-            "text": "Go, take unto thee a wife of whoredoms and children of whoredoms: for the land hath committed great whoredom, departing from the LORD",
             "span": [
               28001002,
               28001002
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "The book's first command to Hosea is to marry; the marriage itself is the beginning of his word.",
@@ -1003,14 +1008,19 @@
       ],
       "how": [
         {
-          "text": "“The word of the LORD that came unto Hosea”.",
           "layer": "scripture",
           "refs": [
             [
               28001001,
               28001001
             ]
-          ]
+          ],
+          "span": [
+            28001001,
+            28001001
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "His marriage and his children's names are part of the message.",
@@ -1052,11 +1062,11 @@
           },
           "quotes": [
             {
-              "text": "For she did not know that I gave her corn, and wine, and oil, and multiplied her silver and gold, which they prepared for Baal",
               "span": [
                 28002008,
                 28002008
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -1074,18 +1084,18 @@
           },
           "quotes": [
             {
-              "text": "My people are destroyed for lack of knowledge",
               "span": [
                 28004006,
                 28004006
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "For I desired mercy, and not sacrifice; and the knowledge of God more than burnt offerings",
               "span": [
                 28006006,
                 28006006
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -1111,11 +1121,11 @@
           },
           "quotes": [
             {
-              "text": "For they have sown the wind, and they shall reap the whirlwind",
               "span": [
                 28008007,
                 28008007
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -1137,11 +1147,11 @@
           },
           "quotes": [
             {
-              "text": "the calf of Samaria shall be broken in pieces",
               "span": [
                 28008006,
                 28008006
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -1159,11 +1169,11 @@
           },
           "quotes": [
             {
-              "text": "How shall I give thee up, Ephraim? how shall I deliver thee, Israel?",
               "span": [
                 28011008,
                 28011008
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -1181,11 +1191,11 @@
           },
           "quotes": [
             {
-              "text": "O Israel, return unto the LORD thy God; for thou hast fallen by thine iniquity",
               "span": [
                 28014001,
                 28014001
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -1195,42 +1205,42 @@
           "to": "Israel",
           "placeId": "a041bb3",
           "quote": {
-            "text": "Hear the word of the LORD, ye children of Israel: for the LORD hath a controversy with the inhabitants of the land",
             "span": [
               28004001,
               28004001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Ephraim and Judah",
           "quote": {
-            "text": "O Ephraim, what shall I do unto thee? O Judah, what shall I do unto thee? for your goodness is as a morning cloud",
             "span": [
               28006004,
               28006004
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Samaria",
           "placeId": "a041bb3",
           "quote": {
-            "text": "Thy calf, O Samaria, hath cast thee off",
             "span": [
               28008005,
               28008005
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Judah, as a warning",
           "quote": {
-            "text": "Though thou, Israel, play the harlot, yet let not Judah offend; and come not ye unto Gilgal, neither go ye up to Beth-aven",
             "span": [
               28004015,
               28004015
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -1282,14 +1292,19 @@
       "fulfilment": [
         {
           "word": {
-            "text": "“When Israel was a child, then I loved him, and called my son out of Egypt.”",
             "layer": "scripture",
             "refs": [
               [
                 28011001,
                 28011001
               ]
-            ]
+            ],
+            "span": [
+              28011001,
+              28011001
+            ],
+            "quoted": true,
+            "marks": true
           },
           "reported": {
             "text": "Matthew says the child Jesus stayed in Egypt until Herod's death, “that it might be fulfilled which was spoken of the Lord by the prophet, saying, Out of Egypt have I called my son.”",
@@ -1786,11 +1801,11 @@
             ]
           },
           "quote": {
-            "text": "In the year that king Uzziah died I saw also the Lord sitting upon a throne, high and lifted up",
             "span": [
               23006001,
               23006001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -1833,11 +1848,11 @@
             ]
           },
           "quote": {
-            "text": "Take heed, and be quiet; fear not, neither be fainthearted for the two tails of these smoking firebrands",
             "span": [
               23007004,
               23007004
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -1865,11 +1880,11 @@
             ]
           },
           "quote": {
-            "text": "He shall not come into this city, nor shoot an arrow there, nor come before it with shield, nor cast a bank against it",
             "span": [
               12019032,
               12019032
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -1897,11 +1912,11 @@
             ]
           },
           "quote": {
-            "text": "Set thine house in order; for thou shalt die, and not live",
             "span": [
               12020001,
               12020001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -1929,11 +1944,11 @@
             ]
           },
           "quote": {
-            "text": "Hear the word of the LORD of hosts",
             "span": [
               23039005,
               23039005
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -1975,11 +1990,11 @@
         {
           "label": "The vision in the temple (Isaiah 6)",
           "quote": {
-            "text": "Whom shall I send, and who will go for us? Then said I, Here am I; send me",
             "span": [
               23006008,
               23006008
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "In the year Uzziah died Isaiah saw the Lord on a throne, with seraphims crying “Holy, holy, holy, is the LORD of hosts”. He cried “Woe is me! for I am undone”, and a seraph touched his lips with a live coal from the altar. Then he answered the Lord's call and was sent to a people who would hear but not understand, “Until the cities be wasted without inhabitant”.",
@@ -2164,11 +2179,11 @@
           },
           "quotes": [
             {
-              "text": "Holy, holy, holy, is the LORD of hosts: the whole earth is full of his glory",
               "span": [
                 23006003,
                 23006003
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -2190,11 +2205,11 @@
           },
           "quotes": [
             {
-              "text": "Come now, and let us reason together, saith the LORD: though your sins be as scarlet, they shall be as white as snow",
               "span": [
                 23001018,
                 23001018
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -2220,11 +2235,11 @@
           },
           "quotes": [
             {
-              "text": "In returning and rest shall ye be saved; in quietness and in confidence shall be your strength: and ye would not",
               "span": [
                 23030015,
                 23030015
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -2250,11 +2265,11 @@
           },
           "quotes": [
             {
-              "text": "O Assyrian, the rod of mine anger",
               "span": [
                 23010005,
                 23010005
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -2276,18 +2291,18 @@
           },
           "quotes": [
             {
-              "text": "For unto us a child is born, unto us a son is given: and the government shall be upon his shoulder",
               "span": [
                 23009006,
                 23009006
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "And there shall come forth a rod out of the stem of Jesse, and a Branch shall grow out of his roots",
               "span": [
                 23011001,
                 23011001
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -2309,11 +2324,11 @@
           },
           "quotes": [
             {
-              "text": "they shall beat their swords into plowshares, and their spears into pruninghooks",
               "span": [
                 23002004,
                 23002004
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -2347,18 +2362,18 @@
           },
           "quotes": [
             {
-              "text": "Comfort ye, comfort ye my people, saith your God",
               "span": [
                 23040001,
                 23040001
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "Look unto me, and be ye saved, all the ends of the earth: for I am God, and there is none else",
               "span": [
                 23045022,
                 23045022
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -2388,11 +2403,11 @@
           },
           "quotes": [
             {
-              "text": "But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed",
               "span": [
                 23053005,
                 23053005
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -2414,11 +2429,11 @@
           },
           "quotes": [
             {
-              "text": "For, behold, I create new heavens and a new earth",
               "span": [
                 23065017,
                 23065017
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -2431,21 +2446,21 @@
             "personId": "ahaz-2ki-15-38"
           },
           "quote": {
-            "text": "If ye will not believe, surely ye shall not be established",
             "span": [
               23007009,
               23007009
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "The house of David",
           "quote": {
-            "text": "Behold, a virgin shall conceive, and bear a son, and shall call his name Immanuel",
             "span": [
               23007014,
               23007014
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Spoken to Ahaz as “O house of David” after he refused to ask a sign.",
@@ -2466,11 +2481,11 @@
           },
           "placeId": "a15257a",
           "quote": {
-            "text": "What hast thou here? and whom hast thou here, that thou hast hewed thee out a sepulchre here",
             "span": [
               23022016,
               23022016
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Isaiah is sent to “this treasurer, even unto Shebna, which is over the house”, and told that Eliakim son of Hilkiah will be given his office.",
@@ -2486,11 +2501,11 @@
         {
           "to": "Hezekiah's servants, about Rabshakeh",
           "quote": {
-            "text": "Be not afraid of the words that thou hast heard",
             "span": [
               23037006,
               23037006
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -2501,11 +2516,11 @@
           },
           "placeId": "a70fd5d",
           "quote": {
-            "text": "The virgin, the daughter of Zion, hath despised thee, and laughed thee to scorn",
             "span": [
               23037022,
               23037022
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -2515,11 +2530,11 @@
             "personId": "hezekiah-2ki-16-20"
           },
           "quote": {
-            "text": "I have heard thy prayer, I have seen thy tears: behold, I will add unto thy days fifteen years",
             "span": [
               23038005,
               23038005
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -2530,109 +2545,109 @@
           },
           "placeId": "a217d18",
           "quote": {
-            "text": "all that is in thine house, and that which thy fathers have laid up in store until this day, shall be carried to Babylon",
             "span": [
               23039006,
               23039006
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "The rulers and people of Jerusalem",
           "placeId": "a15257a",
           "quote": {
-            "text": "Hear the word of the LORD, ye rulers of Sodom; give ear unto the law of our God, ye people of Gomorrah",
             "span": [
               23001010,
               23001010
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Babylon",
           "placeId": "a217d18",
           "quote": {
-            "text": "And Babylon, the glory of kingdoms, the beauty of the Chaldees' excellency, shall be as when God overthrew Sodom and Gomorrah",
             "span": [
               23013019,
               23013019
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Philistia",
           "placeId": "ac71e65",
           "quote": {
-            "text": "Rejoice not thou, whole Palestina, because the rod of him that smote thee is broken",
             "span": [
               23014029,
               23014029
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Moab",
           "placeId": "aa0b1d6",
           "quote": {
-            "text": "The burden of Moab",
             "span": [
               23015001,
               23015001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Damascus",
           "placeId": "a69c1d4",
           "quote": {
-            "text": "Behold, Damascus is taken away from being a city, and it shall be a ruinous heap",
             "span": [
               23017001,
               23017001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Egypt",
           "placeId": "af301ca",
           "quote": {
-            "text": "Behold, the LORD rideth upon a swift cloud, and shall come into Egypt",
             "span": [
               23019001,
               23019001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Egypt and Ethiopia (by a sign)",
           "placeId": "ac5a1ec",
           "quote": {
-            "text": "my servant Isaiah hath walked naked and barefoot three years for a sign and wonder upon Egypt and upon Ethiopia",
             "span": [
               23020003,
               23020003
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Tyre",
           "placeId": "a160272",
           "quote": {
-            "text": "Howl, ye ships of Tarshish; for it is laid waste",
             "span": [
               23023001,
               23023001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Cyrus",
           "quote": {
-            "text": "Thus saith the LORD to his anointed, to Cyrus, whose right hand I have holden",
             "span": [
               23045001,
               23045001
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -2684,14 +2699,19 @@
           "label": "Children for signs",
           "kind": "sign-act",
           "claim": {
-            "text": "“Behold, I and the children whom the LORD hath given me are for signs and for wonders in Israel.”",
             "layer": "scripture",
             "refs": [
               [
                 23008018,
                 23008018
               ]
-            ]
+            ],
+            "span": [
+              23008018,
+              23008018
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -2767,14 +2787,19 @@
       "fulfilment": [
         {
           "word": {
-            "text": "“Behold, a virgin shall conceive, and bear a son, and shall call his name Immanuel.”",
             "layer": "scripture",
             "refs": [
               [
                 23007014,
                 23007014
               ]
-            ]
+            ],
+            "span": [
+              23007014,
+              23007014
+            ],
+            "quoted": true,
+            "marks": true
           },
           "reported": {
             "text": "Matthew, telling of Jesus' birth: “Now all this was done, that it might be fulfilled which was spoken of the Lord by the prophet”, then the words, with “God with us”.",
@@ -2811,14 +2836,19 @@
         },
         {
           "word": {
-            "text": "“he hath borne our griefs, and carried our sorrows”",
             "layer": "scripture",
             "refs": [
               [
                 23053004,
                 23053004
               ]
-            ]
+            ],
+            "span": [
+              23053004,
+              23053004
+            ],
+            "quoted": true,
+            "marks": true
           },
           "reported": {
             "text": "After Jesus healed the sick at evening, Matthew says it was “That it might be fulfilled which was spoken by Esaias the prophet, saying, Himself took our infirmities, and bare our sicknesses.”",
@@ -2855,14 +2885,19 @@
         },
         {
           "word": {
-            "text": "“Hear ye indeed, but understand not; and see ye indeed, but perceive not.”",
             "layer": "scripture",
             "refs": [
               [
                 23006009,
                 23006010
               ]
-            ]
+            ],
+            "span": [
+              23006009,
+              23006010
+            ],
+            "quoted": true,
+            "marks": true
           },
           "reported": {
             "text": "Jesus says of those who heard his parables, “in them is fulfilled the prophecy of Esaias”.",
@@ -2877,14 +2912,19 @@
         },
         {
           "word": {
-            "text": "“The voice of him that crieth in the wilderness, Prepare ye the way of the LORD.”",
             "layer": "scripture",
             "refs": [
               [
                 23040003,
                 23040003
               ]
-            ]
+            ],
+            "span": [
+              23040003,
+              23040003
+            ],
+            "quoted": true,
+            "marks": true
           },
           "reported": {
             "text": "Of John the Baptist Matthew says, “this is he that was spoken of by the prophet Esaias”, and John himself says, “I am the voice of one crying in the wilderness ... as said the prophet Esaias”.",
@@ -2903,14 +2943,19 @@
         },
         {
           "word": {
-            "text": "“The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek.”",
             "layer": "scripture",
             "refs": [
               [
                 23061001,
                 23061002
               ]
-            ]
+            ],
+            "span": [
+              23061001,
+              23061002
+            ],
+            "quoted": true,
+            "marks": true
           },
           "reported": {
             "text": "Jesus read the place in the synagogue at Nazareth and said, “This day is this scripture fulfilled in your ears.”",
@@ -2925,14 +2970,19 @@
         },
         {
           "word": {
-            "text": "“Who hath believed our report?”",
             "layer": "scripture",
             "refs": [
               [
                 23053001,
                 23053001
               ]
-            ]
+            ],
+            "span": [
+              23053001,
+              23053001
+            ],
+            "quoted": true,
+            "marks": true
           },
           "reported": {
             "text": "John: they did not believe on him, “That the saying of Esaias the prophet might be fulfilled”; and “These things said Esaias, when he saw his glory, and spake of him.”",
@@ -2947,14 +2997,19 @@
         },
         {
           "word": {
-            "text": "“He was numbered with the transgressors.”",
             "layer": "scripture",
             "refs": [
               [
                 23053012,
                 23053012
               ]
-            ]
+            ],
+            "span": [
+              23053012,
+              23053012
+            ],
+            "quoted": true,
+            "marks": true
           },
           "reported": {
             "text": "Jesus at the supper: “this that is written must yet be accomplished in me, And he was reckoned among the transgressors”. Mark's account of the crucifixion in the King James text has “the scripture was fulfilled, which saith, And he was numbered with the transgressors” (a verse many Greek texts lack).",
@@ -2973,14 +3028,19 @@
         },
         {
           "word": {
-            "text": "“He will swallow up death in victory.”",
             "layer": "scripture",
             "refs": [
               [
                 23025008,
                 23025008
               ]
-            ]
+            ],
+            "span": [
+              23025008,
+              23025008
+            ],
+            "quoted": true,
+            "marks": true
           },
           "reported": {
             "text": "Paul says that at the resurrection “then shall be brought to pass the saying that is written, Death is swallowed up in victory”: something still to come when he wrote.",
@@ -4612,25 +4672,30 @@
             ]
           },
           "quote": {
-            "text": "Did Hezekiah king of Judah and all Judah put him at all to death?",
             "span": [
               24026019,
               24026019
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
       "call": [],
       "how": [
         {
-          "text": "“The word of the LORD that came to Micah the Morasthite ... which he saw concerning Samaria and Jerusalem.”",
           "layer": "scripture",
           "refs": [
             [
               33001001,
               33001001
             ]
-          ]
+          ],
+          "span": [
+            33001001,
+            33001001
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Against prophets who cry “Peace” for food, he says, “But truly I am full of power by the spirit of the LORD”.",
@@ -4668,11 +4733,11 @@
           },
           "quotes": [
             {
-              "text": "Therefore shall Zion for your sake be plowed as a field, and Jerusalem shall become heaps",
               "span": [
                 33003012,
                 33003012
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -4698,11 +4763,11 @@
           },
           "quotes": [
             {
-              "text": "They build up Zion with blood, and Jerusalem with iniquity",
               "span": [
                 33003010,
                 33003010
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -4728,11 +4793,11 @@
           },
           "quotes": [
             {
-              "text": "Thus saith the LORD concerning the prophets that make my people err, that bite with their teeth, and cry, Peace",
               "span": [
                 33003005,
                 33003005
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -4754,11 +4819,11 @@
           },
           "quotes": [
             {
-              "text": "nation shall not lift up a sword against nation, neither shall they learn war any more",
               "span": [
                 33004003,
                 33004003
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -4776,11 +4841,11 @@
           },
           "quotes": [
             {
-              "text": "But thou, Beth-lehem Ephratah, though thou be little among the thousands of Judah, yet out of thee shall he come forth unto me that is to be ruler in Israel",
               "span": [
                 33005002,
                 33005002
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -4798,11 +4863,11 @@
           },
           "quotes": [
             {
-              "text": "He hath shewed thee, O man, what is good; and what doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?",
               "span": [
                 33006008,
                 33006008
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -4820,11 +4885,11 @@
           },
           "quotes": [
             {
-              "text": "Who is a God like unto thee, that pardoneth iniquity",
               "span": [
                 33007018,
                 33007018
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -4834,54 +4899,54 @@
           "to": "Samaria",
           "placeId": "a041bb3",
           "quote": {
-            "text": "Therefore I will make Samaria as an heap of the field, and as plantings of a vineyard",
             "span": [
               33001006,
               33001006
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Lachish",
           "placeId": "a3cc590",
           "quote": {
-            "text": "O thou inhabitant of Lachish, bind the chariot to the swift beast",
             "span": [
               33001013,
               33001013
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "The heads of Jacob and princes of Israel",
           "quote": {
-            "text": "Hear, I pray you, O heads of Jacob, and ye princes of the house of Israel; Is it not for you to know judgment?",
             "span": [
               33003001,
               33003001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Jerusalem",
           "placeId": "a15257a",
           "quote": {
-            "text": "Therefore shall Zion for your sake be plowed as a field",
             "span": [
               33003012,
               33003012
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Bethlehem Ephratah",
           "placeId": "a112427",
           "quote": {
-            "text": "But thou, Beth-lehem Ephratah, though thou be little among the thousands of Judah",
             "span": [
               33005002,
               33005002
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -4904,7 +4969,6 @@
       "fulfilment": [
         {
           "word": {
-            "text": "“Zion shall be plowed like a field, and Jerusalem shall become heaps.”",
             "layer": "scripture",
             "refs": [
               [
@@ -4915,7 +4979,13 @@
                 24026018,
                 24026018
               ]
-            ]
+            ],
+            "span": [
+              24026018,
+              24026018
+            ],
+            "quoted": true,
+            "marks": true
           },
           "reported": {
             "text": "The elders say that Hezekiah did not put Micah to death but feared the LORD, “and the LORD repented him of the evil which he had pronounced against them”. They said this in Jeremiah's defence, and the chapter ends with Jeremiah not given “into the hand of the people to put him to death”.",
@@ -5267,11 +5337,11 @@
           },
           "quotes": [
             {
-              "text": "Tell ye your children of it, and let your children tell their children, and their children another generation",
               "span": [
                 29001003,
                 29001003
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -5293,11 +5363,11 @@
           },
           "quotes": [
             {
-              "text": "for the day of the LORD is great and very terrible; and who can abide it?",
               "span": [
                 29002011,
                 29002011
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -5315,11 +5385,11 @@
           },
           "quotes": [
             {
-              "text": "And rend your heart, and not your garments, and turn unto the LORD your God",
               "span": [
                 29002013,
                 29002013
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -5337,11 +5407,11 @@
           },
           "quotes": [
             {
-              "text": "And I will restore to you the years that the locust hath eaten",
               "span": [
                 29002025,
                 29002025
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -5359,11 +5429,11 @@
           },
           "quotes": [
             {
-              "text": "I will pour out my spirit upon all flesh; and your sons and your daughters shall prophesy",
               "span": [
                 29002028,
                 29002028
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -5381,11 +5451,11 @@
           },
           "quotes": [
             {
-              "text": "Multitudes, multitudes in the valley of decision: for the day of the LORD is near in the valley of decision",
               "span": [
                 29003014,
                 29003014
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -5394,33 +5464,33 @@
         {
           "to": "The priests",
           "quote": {
-            "text": "Gird yourselves, and lament, ye priests: howl, ye ministers of the altar",
             "span": [
               29001013,
               29001013
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Tyre, Zidon and Philistia",
           "placeId": "a160272",
           "quote": {
-            "text": "Yea, and what have ye to do with me, O Tyre, and Zidon, and all the coasts of Palestine?",
             "span": [
               29003004,
               29003004
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "Egypt and Edom",
           "placeId": "af301ca",
           "quote": {
-            "text": "Egypt shall be a desolation, and Edom shall be a desolate wilderness",
             "span": [
               29003019,
               29003019
-            ]
+            ],
+            "quoted": true
           }
         }
       ],

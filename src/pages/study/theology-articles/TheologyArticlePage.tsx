@@ -1,5 +1,6 @@
 // One article, read straight through. Each part keeps its own failure, so a block that cannot be
 // drawn costs the reader that part and not the page.
+import { bibleName, useCurrentBible } from "@/lib/verses";
 import { useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { StudyBackLink } from "@/components/study/StudyBackLink";
@@ -53,6 +54,7 @@ export default function TheologyArticlePage() {
 
   if (!article) return <NotInSection id={id} />;
 
+  const bible = useCurrentBible();
   const scripture = article.sections.flatMap((section) => section.body).filter((block) => block.kind === "scripture").length;
   return <div className="theology-section"><div className="th-container">
     <header className="th-hero">
@@ -65,7 +67,7 @@ export default function TheologyArticlePage() {
         <div className="th-article-meta">
           <span>{article.minutes} min read</span>
           <span>{article.sections.length} parts</span>
-          <span>{scripture} passages, Berean Standard Bible</span>
+          <span>{scripture} passages, {bibleName(bible)}</span>
           <span>{article.sourceIds.length} sources</span>
         </div>
       </div>

@@ -1,3 +1,5 @@
+import { fillVerses } from "@/lib/verses";
+import { loadCatalog } from "@/lib/data";
 import { DataUnavailable } from "./data";
 import { onLanguageChange, translatedDataPath } from "./language";
 import { lastReadPath } from "./last-read";
@@ -198,4 +200,4 @@ export interface HomeData {
   movements: (HomeVerse & { key: string; title: string; line: string })[];
 }
 /** The home page's verses (scripts/bible/study_home.py): ~4 KB, built from our KJV text. */
-export const loadHome = () => loadStudy<HomeData>("home.json");
+export const loadHome = () => Promise.all([loadStudy<HomeData>("home.json"), loadCatalog()]).then(([home, catalog]) => fillVerses(home, catalog));

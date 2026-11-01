@@ -1,10 +1,14 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { layoutStrip, placeUndated } from "@/components/people-pages/strip-layout";
 import { accountsHeading, laneOf } from "@/components/people-pages/kinds";
 import { ribbonLayout } from "@/components/people-pages/ribbon-layout";
 import { ERAS, eraScale, formatYears } from "./eras";
 import { loadPeopleGroup, peekPeopleGroup } from "./people-pages";
 import { PEOPLE_PAGES, apostleFor, inLineOrder, rulerFor, rulerHref, rulersOfRealm, type RulerSummary } from "./people-pages-index";
+
+// The page's verses are filled from the reader's Bible on the site; here only the loading is under test.
+vi.mock("@/lib/data", async (original) => ({ ...await original<object>(), loadCatalog: async () => ({ translations: [], books: [] }) }));
+vi.mock("@/lib/verses", async (original) => ({ ...await original<object>(), fillVerses: async <T,>(data: T) => data }));
 
 const TONES = ["right", "evil", "mixed", "none"];
 

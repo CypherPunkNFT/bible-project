@@ -1,3 +1,4 @@
+import { BibleName } from "@/components/Verse";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { readyKey } from "@/components/people-pages/usePeoplePageSlide";
 import { AccountsSection } from "./Accounts";
@@ -33,7 +34,7 @@ export function ApostleMissionPage({ id }: { id: string }) {
 function Sources({ d }: { d: Apostle }) {
   return <details className="sources"><summary>Sources · {plural(d.citations.length, "work")} cited on this page</summary>
     <ul>{d.citations.map((c) => <li key={c.id}><a href={c.url ?? "#"} target="_blank" rel="noreferrer">{c.author}</a>, <i>{c.title}</i>{c.year ? ` (${c.year})` : ""}{c.where ? `, ${c.where}` : ""}</li>)}</ul>
-    <p className="plain-line">Scripture is quoted from the King James Version as held on this site. Places from OpenBible.info (CC BY); the land outline is the Atlas's own (Natural Earth).</p></details>;
+    <p className="plain-line">Scripture is quoted from the <BibleName /> as held on this site. Places from OpenBible.info (CC BY); the land outline is the Atlas's own (Natural Earth).</p></details>;
 }
 
 function ApostleMission({ id }: { id: string }) {

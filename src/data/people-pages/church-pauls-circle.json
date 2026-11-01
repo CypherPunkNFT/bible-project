@@ -205,11 +205,11 @@
           "label": "Acts 15: sent from Jerusalem",
           "placeId": "a15257a",
           "quote": {
-            "text": "Then pleased it the apostles and elders, with the whole church, to send chosen men of their own company to Antioch with Paul and Barnabas; namely, Judas surnamed Barsabas, and Silas, chief men among the brethren:",
             "span": [
               44015022,
               44015022
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "With Judas Barsabas he carried the council's letter to the Gentile believers of Antioch, Syria and Cilicia, to “tell you the same things by mouth”; at Antioch the two, “being prophets also themselves”, exhorted and strengthened the brethren.",
@@ -226,11 +226,11 @@
           "label": "Acts 15: Paul's choice",
           "placeId": "ae41ab4",
           "quote": {
-            "text": "And Paul chose Silas, and departed, being recommended by the brethren unto the grace of God.",
             "span": [
               44015040,
               44015040
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "After Paul and Barnabas parted over John Mark, Paul chose Silas and went through Syria and Cilicia, confirming the churches.",
@@ -927,14 +927,19 @@
           ]
         },
         {
-          "text": "“From a child thou hast known the holy scriptures.”",
           "layer": "scripture",
           "refs": [
             [
               55003015,
               55003015
             ]
-          ]
+          ],
+          "span": [
+            55003015,
+            55003015
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Paul calls him “my beloved son, and faithful in the Lord”, “my own son in the faith” and “my dearly beloved son”.",
@@ -1032,11 +1037,11 @@
         {
           "label": "Acts 16: Paul takes him",
           "quote": {
-            "text": "Him would Paul have to go forth with him; and took and circumcised him because of the Jews which were in those quarters: for they knew all that his father was a Greek.",
             "span": [
               44016003,
               44016003
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Found at Derbe and Lystra and well spoken of by the brethren, he set out with Paul and Silas as they delivered the decrees of the apostles and elders to the churches.",
@@ -1052,11 +1057,11 @@
         {
           "label": "1 and 2 Timothy: hands laid on him",
           "quote": {
-            "text": "Neglect not the gift that is in thee, which was given thee by prophecy, with the laying on of the hands of the presbytery.",
             "span": [
               54004014,
               54004014
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Paul recalls “the prophecies which went before on thee” and “the gift of God, which is in thee by the putting on of my hands”.",
@@ -1873,14 +1878,19 @@
       "order": 23,
       "family": [
         {
-          "text": "“Titus, who was with me, being a Greek”.",
           "layer": "scripture",
           "refs": [
             [
               48002003,
               48002003
             ]
-          ]
+          ],
+          "span": [
+            48002003,
+            48002003
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Paul calls him “mine own son after the common faith” and “Titus my brother”.",
@@ -1954,11 +1964,11 @@
           "label": "Galatians 2: taken to Jerusalem",
           "placeId": "a15257a",
           "quote": {
-            "text": "Then fourteen years after I went up again to Jerusalem with Barnabas, and took Titus with me also.",
             "span": [
               48002001,
               48002001
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Paul took him to Jerusalem, and “neither Titus, who was with me, being a Greek, was compelled to be circumcised”.",
@@ -1975,11 +1985,11 @@
           "label": "2 Corinthians 8: sent to Corinth",
           "placeId": "a6f437a",
           "quote": {
-            "text": "Whether any do enquire of Titus, he is my partner and fellowhelper concerning you:",
             "span": [
               47008023,
               47008023
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Paul “desired Titus, that as he had begun, so he would also finish in you the same grace”, and Titus went “of his own accord”.",
@@ -2048,14 +2058,19 @@
           ]
         },
         {
-          "text": "“Did Titus make a gain of you? walked we not in the same spirit?”",
           "layer": "scripture",
           "refs": [
             [
               47012017,
               47012018
             ]
-          ]
+          ],
+          "span": [
+            47012017,
+            47012018
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "The letter to him says: “For this cause left I thee in Crete, that thou shouldest set in order the things that are wanting, and ordain elders in every city”.",
@@ -3389,14 +3404,19 @@
       "tagline": "A Jew of Alexandria who watered what Paul had planted at Corinth.",
       "order": 25,
       "home": {
-        "text": "“A certain Jew named Apollos, born at Alexandria”.",
         "layer": "scripture",
         "refs": [
           [
             44018024,
             44018024
           ]
-        ]
+        ],
+        "span": [
+          44018024,
+          44018024
+        ],
+        "quoted": true,
+        "marks": true
       },
       "family": [],
       "identifications": [
@@ -3453,11 +3473,11 @@
           "label": "Acts 18: taught, then sent to Achaia",
           "placeId": "a5feb15",
           "quote": {
-            "text": "And when he was disposed to pass into Achaia, the brethren wrote, exhorting the disciples to receive him: who, when he was come, helped them much which had believed through grace:",
             "span": [
               44018027,
               44018027
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "At Ephesus he spoke boldly in the synagogue; Aquila and Priscilla “took him unto them, and expounded unto him the way of God more perfectly”, and the brethren commended him to Achaia.",
@@ -3528,14 +3548,19 @@
           ]
         },
         {
-          "text": "“As touching our brother Apollos, I greatly desired him to come unto you with the brethren: but his will was not at all to come at this time; but he will come when he shall have convenient time.”",
           "layer": "scripture",
           "refs": [
             [
               46016012,
               46016012
             ]
-          ]
+          ],
+          "span": [
+            46016012,
+            46016012
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Later Paul asks Titus to “Bring Zenas the lawyer and Apollos on their journey diligently, that nothing be wanting unto them”.",
@@ -3973,11 +3998,11 @@
           "label": "Acts 18: Paul finds them at Corinth",
           "placeId": "a6f437a",
           "quote": {
-            "text": "And because he was of the same craft, he abode with them, and wrought: for by their occupation they were tentmakers.",
             "span": [
               44018003,
               44018003
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Paul came to Corinth from Athens and “found a certain Jew named Aquila”; he lodged and worked with the couple. Acts does not say when they became believers.",

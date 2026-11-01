@@ -4,6 +4,7 @@
 // else shows its maker's own words, its files, and its record with the licence and the credit to print with it. Only
 // what is on the shelf has a page; any other address goes back to the shelf. The way back names where the visitor came
 // from (the door they opened, by default).
+import { BibleAbbr, Verse } from "@/components/Verse";
 import { useEffect, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { BackLink } from "@/components/BackLink";
@@ -116,7 +117,7 @@ function Sessions({ sessions, outline, num, rest, images, onPage }: SessionsProp
         <span className="lm-kicker">Session {s.n} · {part(s)?.label} · {part(s)?.place}</span>
         <h3>{s.title}</h3>
         <p className="brief">{s.brief} <span className="refs">({s.briefRefs})</span></p>
-        <blockquote>{s.key.text}<small>{s.key.ref} · KJV</small></blockquote>
+        <blockquote><Verse id={s.key.id} /><small>{s.key.ref} · <BibleAbbr /></small></blockquote>
         <p className="qk"><span><b>{s.questions.observe}</b>observe</span><span><b>{s.questions.interpret}</b>interpret</span><span><b>{s.questions.reflect}</b>reflect</span><span><b>{s.keyVerses}</b>key verses</span></p>
       </div>
       <button type="button" onClick={() => onPage(s.page)}><img src={images[s.page - 1]} alt={`The page where session ${s.n} opens`} width={1000} height={1414} /><small>Pages {s.page}–{s.end}</small></button>

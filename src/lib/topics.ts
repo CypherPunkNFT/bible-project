@@ -13,7 +13,7 @@ export interface TopicIndex { source: string; categories: TopicCategory[]; topic
 
 export interface TopicItem { text: string; refs: Span[] }
 export interface TopicPoint extends TopicItem { see: string[]; items?: TopicItem[] }
-export interface KeyVerse { span: Span; text: string; point: string }
+export interface KeyVerse { span: Span; point: string }
 /** One paragraph of a dictionary article: text, and verse references as [start id, end id, label]. */
 export type ArticleParagraph = (string | [number, number, string])[];
 /** points: Torrey's; nave: Nave's; dictionary: Easton's article. */

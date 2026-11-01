@@ -19,6 +19,9 @@ import runpy
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent / "bible"))
+from verse_wording import strip_hymn  # noqa: E402
+
 sys.stdout.reconfigure(encoding="utf-8")
 SITE = Path(__file__).resolve().parents[1]
 DESIGN = SITE / "design/hymn-directions"
@@ -85,8 +88,7 @@ def to_bsb(song: dict) -> dict:
             if part not in text:
                 raise ValueError(f"echo {e['ref']}: {part!r} is not in its BSB text: {text!r}")
         e["words"] = words
-    song["translation"] = "BSB"
-    return song
+    return strip_hymn(song)
 
 
 def words_of(hymn: dict) -> dict:

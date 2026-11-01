@@ -151,7 +151,7 @@ def translations() -> list[dict]:
                 if text:
                     verses[code] = text
         if verses:
-            out.append({"slug": t["slug"], "abbr": t["abbr"], "name": t["name"], "year": t.get("year"), "lang": t["lang"], "dir": t.get("dir", "ltr"), "verses": verses})
+            out.append({"slug": t["slug"], "abbr": t["abbr"], "name": t["name"], "year": t.get("year"), "lang": t["lang"], "dir": t.get("dir", "ltr"), "books": sorted(verses)})
     return out
 
 

@@ -1,6 +1,7 @@
 // The two sections under the contact form (approved mock-up F, 2026-10-20): 01 About the project, with four convictions
 // (glory, free, open, gathered) under giant numerals, and 02 a short letter from the founder on a ruled sheet.
 // Verses are the King James Version. Styles: contact.css (.cv-* and .lt-*).
+import { Verse } from "@/components/Verse";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -18,11 +19,11 @@ export const ART = {
   shelf: <><path d="M14 84H106" /><path className="cv-paper" d="M22 84V30H34V84M34 84V22H48V84M48 84V36H58V84" /><path className="cv-paper" d="M62 84V74H104V84M66 74V65H100V74M64 65V57H96V65H64Z" /><path className="cv-faint" d="M25 40H31M25 74H31M37 30H45M37 74H45M51 46H55M68 79H84M70 69.5H82M68 61H80" /><path className="cv-accent" d="M37 38H45" /></>,
 };
 
-export const CONVICTIONS: { numeral: string; title: string; text: string; verse: string; reference: string; art: keyof typeof ART }[] = [
-  { numeral: "I", title: "For the glory of God.", text: "Not for attention, and not for a name. Every page is offered back to the One it is about.", verse: "So whether you eat or drink or whatever you do, do it all to the glory of God.", reference: "1 Corinthians 10:31", art: "cross" },
-  { numeral: "II", title: "Free, always.", text: "There is no subscription and nothing to buy. What the Church received as a gift should be passed on as one.", verse: "Freely you have received; freely give.", reference: "Matthew 10:8", art: "bowl" },
-  { numeral: "III", title: "Open to everyone.", text: "Believer or skeptic, scholar or simply curious: the door is open to anyone who wants to come in.", verse: "Come, all you who are thirsty, come to the waters.", reference: "Isaiah 55:1", art: "door" },
-  { numeral: "IV", title: "Gathered in one place.", text: "Scripture, the creeds, the teachers and the hard questions, scattered for centuries, brought into one source and linked together.", verse: "Wisdom is supreme; so acquire wisdom.", reference: "Proverbs 4:7", art: "books" },
+export const CONVICTIONS: { numeral: string; title: string; text: string; verse: number; reference: string; art: keyof typeof ART }[] = [
+  { numeral: "I", title: "For the glory of God.", text: "Not for attention, and not for a name. Every page is offered back to the One it is about.", verse: 46010031, reference: "1 Corinthians 10:31", art: "cross" },
+  { numeral: "II", title: "Free, always.", text: "There is no subscription and nothing to buy. What the Church received as a gift should be passed on as one.", verse: 40010008, reference: "Matthew 10:8", art: "bowl" },
+  { numeral: "III", title: "Open to everyone.", text: "Believer or skeptic, scholar or simply curious: the door is open to anyone who wants to come in.", verse: 23055001, reference: "Isaiah 55:1", art: "door" },
+  { numeral: "IV", title: "Gathered in one place.", text: "Scripture, the creeds, the teachers and the hard questions, scattered for centuries, brought into one source and linked together.", verse: 20004007, reference: "Proverbs 4:7", art: "books" },
 ];
 
 function Eyebrow({ number, children, id }: { number: string; children: string; id?: string }) {
@@ -42,7 +43,7 @@ export function ConvictionList({ firstText, shelf }: { firstText?: string; shelf
         </div>
         <h3>{item.title}</h3>
         <p>{index === 0 && firstText ? firstText : item.text}</p>
-        <blockquote>“{item.verse}”<cite>{item.reference}</cite></blockquote>
+        <blockquote>“<Verse id={item.verse} unquoted />”<cite>{item.reference}</cite></blockquote>
       </li>
     ))}
   </ol>
@@ -66,8 +67,8 @@ export function AboutProject() {
   );
 }
 
-function MarginNote({ side, text, reference }: { side: "left" | "right"; text: string; reference: string }) {
-  return <aside className={`lt-note lt-note-${side}`}><p>{text}</p><cite>{reference}</cite></aside>;
+function MarginNote({ side, verse, reference }: { side: "left" | "right"; verse: number; reference: string }) {
+  return <aside className={`lt-note lt-note-${side}`}><p><Verse id={verse} /></p><cite>{reference}</cite></aside>;
 }
 
 export function FounderLetter() {
@@ -91,7 +92,7 @@ export function FounderLetter() {
               Thank you for stopping here. I wanted you to know who is on the other side of this page. My name is {FOUNDER.first}, and I
               build Bible Guide by myself.
             </p>
-            <MarginNote side="right" text="So whether you eat or drink or whatever you do, do it all to the glory of God." reference="1 Corinthians 10:31" />
+            <MarginNote side="right" verse={46010031} reference="1 Corinthians 10:31" />
             <p>
               I do it because I believe what these pages hold. The faith came to me through people who copied, preached and prayed
               long before I was born. I want to pass it on the way it came to me: freely, and for the glory of God.

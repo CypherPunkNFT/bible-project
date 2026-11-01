@@ -3,6 +3,7 @@
 // a card on a deck; answering turns its picture over to the verse. 3 The dark stage: a dark band, story-style steps.
 // 4 The twelve: every question on a board, open any. The board (Tiles) and the card (CardDeck) also make the homepage's
 // quiz (HomeQuiz.tsx). Shared parts: QuizParts.tsx; styles: quiz-versions.css.
+import { Verse } from "@/components/Verse";
 import { ArrowLeft, ArrowRight, LayoutGrid, X } from "lucide-react";
 import { useState, type CSSProperties } from "react";
 import { QUESTIONS } from "../quiz-data";
@@ -61,7 +62,7 @@ export function CardDeck({ quiz, onBoard }: { quiz: Quiz; onBoard?: () => void }
         <div className="qv-card-body" key={quiz.current}>
           <div className="qv-flip" data-turned={turned || undefined}>
             <div className="qv-flip-face qv-flip-front"><span className="qv-card-num" aria-hidden="true">{question ? pad(quiz.current + 1) : quiz.right}</span><QuizScene scene={question?.scene ?? "verdict"} /></div>
-            <div className="qv-flip-face qv-flip-back">{question && <blockquote>“{question.verse}”<cite>{question.ref}</cite></blockquote>}</div>
+            <div className="qv-flip-face qv-flip-back">{question && <blockquote>“<Verse id={question.verse} unquoted />”<cite>{question.ref}</cite></blockquote>}</div>
           </div>
           <div className="qv-card-main">{question ? <><Meta quiz={quiz} /><h3>{question.ask}</h3><Options quiz={quiz} /><Reveal quiz={quiz} verse={false} /></> : <Verdict quiz={quiz} />}</div>
         </div>

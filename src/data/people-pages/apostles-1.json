@@ -236,11 +236,11 @@
         {
           "label": "John 1 · Brought by Andrew",
           "quote": {
-            "text": "He first findeth his own brother Simon, and saith unto him, We have found the Messias, which is, being interpreted, the Christ. And he brought him to Jesus. And when Jesus beheld him, he said, Thou art Simon the son of Jona: thou shalt be called Cephas, which is by interpretation, A stone.",
             "span": [
               43001041,
               43001042
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "John’s Gospel tells this first meeting in Judea, the day after John the Baptist pointed out Jesus (John 1:35–42). Robertson’s harmony puts it before the call by the lake (sections 28 and 41).",
@@ -259,33 +259,33 @@
         {
           "label": "Matthew 4 · By the sea of Galilee",
           "quote": {
-            "text": "And Jesus, walking by the sea of Galilee, saw two brethren, Simon called Peter, and Andrew his brother, casting a net into the sea: for they were fishers. And he saith unto them, Follow me, and I will make you fishers of men. And they straightway left their nets, and followed him.",
             "span": [
               40004018,
               40004020
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "a562fcc"
         },
         {
           "label": "Mark 1 · By the sea of Galilee",
           "quote": {
-            "text": "Now as he walked by the sea of Galilee, he saw Simon and Andrew his brother casting a net into the sea: for they were fishers. And Jesus said unto them, Come ye after me, and I will make you to become fishers of men. And straightway they forsook their nets, and followed him.",
             "span": [
               41001016,
               41001018
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "a562fcc"
         },
         {
           "label": "Luke 5 · The great catch",
           "quote": {
-            "text": "When Simon Peter saw it, he fell down at Jesus’ knees, saying, Depart from me; for I am a sinful man, O Lord. For he was astonished, and all that were with him, at the draught of the fishes which they had taken: And so was also James, and John, the sons of Zebedee, which were partners with Simon. And Jesus said unto Simon, Fear not; from henceforth thou shalt catch men. And when they had brought their ships to land, they forsook all, and followed him.",
             "span": [
               42005008,
               42005011
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "a562fcc",
           "claim": {
@@ -1866,11 +1866,11 @@
         {
           "label": "John 1 · From John the Baptist",
           "quote": {
-            "text": "And the two disciples heard him speak, and they followed Jesus. Then Jesus turned, and saw them following, and saith unto them, What seek ye? They said unto him, Rabbi, (which is to say, being interpreted, Master,) where dwellest thou? He saith unto them, Come and see. They came and saw where he dwelt, and abode with him that day: for it was about the tenth hour. One of the two which heard John speak, and followed him, was Andrew, Simon Peter’s brother. He first findeth his own brother Simon, and saith unto him, We have found the Messias, which is, being interpreted, the Christ.",
             "span": [
               43001037,
               43001041
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Robertson’s harmony puts this meeting in Judea before the call by the lake (sections 28 and 41).",
@@ -1889,22 +1889,22 @@
         {
           "label": "Matthew 4 · By the sea of Galilee",
           "quote": {
-            "text": "And Jesus, walking by the sea of Galilee, saw two brethren, Simon called Peter, and Andrew his brother, casting a net into the sea: for they were fishers. And he saith unto them, Follow me, and I will make you fishers of men. And they straightway left their nets, and followed him.",
             "span": [
               40004018,
               40004020
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "a562fcc"
         },
         {
           "label": "Mark 1 · By the sea of Galilee",
           "quote": {
-            "text": "Now as he walked by the sea of Galilee, he saw Simon and Andrew his brother casting a net into the sea: for they were fishers. And Jesus said unto them, Come ye after me, and I will make you to become fishers of men. And straightway they forsook their nets, and followed him.",
             "span": [
               41001016,
               41001018
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "a562fcc"
         }
@@ -2080,14 +2080,19 @@
             "personId": "peter-mat-4-18"
           },
           "claim": {
-            "text": "“He first findeth his own brother Simon, and saith unto him, We have found the Messias” (John 1:41).",
             "layer": "scripture",
             "refs": [
               [
                 43001041,
                 43001041
               ]
-            ]
+            ],
+            "span": [
+              43001041,
+              43001041
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -2508,33 +2513,33 @@
         {
           "label": "Matthew 4 · In the boat with Zebedee",
           "quote": {
-            "text": "And going on from thence, he saw other two brethren, James the son of Zebedee, and John his brother, in a ship with Zebedee their father, mending their nets; and he called them. And they immediately left the ship and their father, and followed him.",
             "span": [
               40004021,
               40004022
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "a562fcc"
         },
         {
           "label": "Mark 1 · Leaving the hired servants",
           "quote": {
-            "text": "And when he had gone a little further thence, he saw James the son of Zebedee, and John his brother, who also were in the ship mending their nets. And straightway he called them: and they left their father Zebedee in the ship with the hired servants, and went after him.",
             "span": [
               41001019,
               41001020
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "a562fcc"
         },
         {
           "label": "Luke 5 · Simon’s partners",
           "quote": {
-            "text": "And so was also James, and John, the sons of Zebedee, which were partners with Simon. And Jesus said unto Simon, Fear not; from henceforth thou shalt catch men. And when they had brought their ships to land, they forsook all, and followed him.",
             "span": [
               42005010,
               42005011
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "a562fcc",
           "claim": {
@@ -3298,44 +3303,44 @@
         {
           "label": "Matthew 4 · In the boat with Zebedee",
           "quote": {
-            "text": "And going on from thence, he saw other two brethren, James the son of Zebedee, and John his brother, in a ship with Zebedee their father, mending their nets; and he called them. And they immediately left the ship and their father, and followed him.",
             "span": [
               40004021,
               40004022
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "a562fcc"
         },
         {
           "label": "Mark 1 · Leaving the hired servants",
           "quote": {
-            "text": "And when he had gone a little further thence, he saw James the son of Zebedee, and John his brother, who also were in the ship mending their nets. And straightway he called them: and they left their father Zebedee in the ship with the hired servants, and went after him.",
             "span": [
               41001019,
               41001020
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "a562fcc"
         },
         {
           "label": "Luke 5 · Simon’s partners",
           "quote": {
-            "text": "And so was also James, and John, the sons of Zebedee, which were partners with Simon. And Jesus said unto Simon, Fear not; from henceforth thou shalt catch men. And when they had brought their ships to land, they forsook all, and followed him.",
             "span": [
               42005010,
               42005011
-            ]
+            ],
+            "quoted": true
           },
           "placeId": "a562fcc"
         },
         {
           "label": "John 1 · Perhaps the unnamed disciple",
           "quote": {
-            "text": "And the two disciples heard him speak, and they followed Jesus. Then Jesus turned, and saw them following, and saith unto them, What seek ye? They said unto him, Rabbi, (which is to say, being interpreted, Master,) where dwellest thou? He saith unto them, Come and see. They came and saw where he dwelt, and abode with him that day: for it was about the tenth hour. One of the two which heard John speak, and followed him, was Andrew, Simon Peter’s brother.",
             "span": [
               43001037,
               43001040
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "John’s Gospel names only Andrew; that the other was John comes from later writers such as Ishodad of Merv (about 850).",
@@ -4313,11 +4318,11 @@
         {
           "label": "John 1 · “Follow me”",
           "quote": {
-            "text": "The day following Jesus would go forth into Galilee, and findeth Philip, and saith unto him, Follow me. Now Philip was of Bethsaida, the city of Andrew and Peter.",
             "span": [
               43001043,
               43001044
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "In John 1 he is the only one Jesus himself finds and calls with “Follow me” (John 1:43); Andrew and the other disciple follow at the Baptist’s word, Peter is brought by Andrew, and Nathanael by Philip. Matthew, Mark and Luke name Philip only in the lists of the Twelve.",
@@ -4485,14 +4490,19 @@
             "personId": "nathanael-jhn-1-45"
           },
           "claim": {
-            "text": "“Philip findeth Nathanael, and saith unto him, We have found him, of whom Moses in the law, and the prophets, did write” (John 1:45).",
             "layer": "scripture",
             "refs": [
               [
                 43001045,
                 43001046
               ]
-            ]
+            ],
+            "span": [
+              43001045,
+              43001046
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -4789,11 +4799,11 @@
         {
           "label": "Luke 6 · Chosen as one of the Twelve",
           "quote": {
-            "text": "And when it was day, he called unto him his disciples: and of them he chose twelve, whom also he named apostles;",
             "span": [
               42006013,
               42006013
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Bartholomew is named among the twelve chosen (Luke 6:14). No calling of Bartholomew by that name is told.",
@@ -4809,11 +4819,11 @@
         {
           "label": "John 1 · Nathanael, if he is Bartholomew",
           "quote": {
-            "text": "Philip findeth Nathanael, and saith unto him, We have found him, of whom Moses in the law, and the prophets, did write, Jesus of Nazareth, the son of Joseph. And Nathanael said unto him, Can there any good thing come out of Nazareth? Philip saith unto him, Come and see. Jesus saw Nathanael coming to him, and saith of him, Behold an Israelite indeed, in whom is no guile! Nathanael saith unto him, Whence knowest thou me? Jesus answered and said unto him, Before that Philip called thee, when thou wast under the fig tree, I saw thee. Nathanael answered and saith unto him, Rabbi, thou art the Son of God; thou art the King of Israel.",
             "span": [
               43001045,
               43001049
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Jesus answers Nathanael, “thou shalt see greater things than these” (John 1:50).",
@@ -5206,11 +5216,11 @@
         {
           "label": "Luke 6 · Chosen as one of the Twelve",
           "quote": {
-            "text": "And when it was day, he called unto him his disciples: and of them he chose twelve, whom also he named apostles;",
             "span": [
               42006013,
               42006013
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Thomas is named among the twelve chosen (Luke 6:15). No account of his calling is given.",
@@ -5377,14 +5387,19 @@
             "name": "The other disciples"
           },
           "claim": {
-            "text": "“The other disciples therefore said unto him, We have seen the Lord” (John 20:25).",
             "layer": "scripture",
             "refs": [
               [
                 43020025,
                 43020025
               ]
-            ]
+            ],
+            "span": [
+              43020025,
+              43020025
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {

@@ -5,6 +5,8 @@ export function mountMoses(root: HTMLElement, options: {
   person: Person;
   back: { path: string; label: string };
   personPath: (id: string, aspect?: Aspect) => string;
+  fillVerses: <T>(data: T) => Promise<T>;
+  bibleAbbr: string;
   refHref: (span: Span) => string;
   navigate: (href: string) => void;
   onReady: () => void;

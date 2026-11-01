@@ -480,11 +480,11 @@
             ]
           },
           "quote": {
-            "text": "Because thou hast relied on the king of Syria, and not relied on the LORD thy God, therefore is the host of the king of Syria escaped out of thine hand",
             "span": [
               14016007,
               14016007
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -539,11 +539,11 @@
             ]
           },
           "quote": {
-            "text": "Because thou hast let go out of thy hand a man whom I appointed to utter destruction, therefore thy life shall go for his life",
             "span": [
               11020042,
               11020042
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -562,11 +562,11 @@
             ]
           },
           "quote": {
-            "text": "it shall consume the palaces of Ben-hadad",
             "span": [
               24049027,
               24049027
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -995,14 +995,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "“Ben-hadad king of Syria gathered all his host, and went up, and besieged Samaria.”",
           "layer": "scripture",
           "refs": [
             [
               12006024,
               12006024
             ]
-          ]
+          ],
+          "span": [
+            12006024,
+            12006024
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "The siege brought a famine in which “an ass’s head was sold for fourscore pieces of silver”.",
@@ -1045,14 +1050,19 @@
           ]
         },
         {
-          "text": "“On the morrow, that he took a thick cloth, and dipped it in water, and spread it on his face, so that he died: and Hazael reigned in his stead.”",
           "layer": "scripture",
           "refs": [
             [
               12008015,
               12008015
             ]
-          ]
+          ],
+          "span": [
+            12008015,
+            12008015
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "events": [
@@ -1218,11 +1228,11 @@
             ]
           },
           "quote": {
-            "text": "Go, say unto him, Thou mayest certainly recover: howbeit the LORD hath shewed me that he shall surely die",
             "span": [
               12008010,
               12008010
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -1267,14 +1277,19 @@
             }
           ],
           "claim": {
-            "text": "“Hazael reigned in his stead.”",
             "layer": "scripture",
             "refs": [
               [
                 12008015,
                 12008015
               ]
-            ]
+            ],
+            "span": [
+              12008015,
+              12008015
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],
@@ -1569,14 +1584,19 @@
           ]
         },
         {
-          "text": "“Him that escapeth the sword of Hazael shall Jehu slay.”",
           "layer": "scripture",
           "refs": [
             [
               11019017,
               11019017
             ]
-          ]
+          ],
+          "span": [
+            11019017,
+            11019017
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Elisha wept and told him: “I know the evil that thou wilt do unto the children of Israel: their strong holds wilt thou set on fire, and their young men wilt thou slay with the sword, and wilt dash their children, and rip up their women with child.”",
@@ -1599,14 +1619,19 @@
           ]
         },
         {
-          "text": "“In those days the LORD began to cut Israel short: and Hazael smote them in all the coasts of Israel.”",
           "layer": "scripture",
           "refs": [
             [
               12010032,
               12010032
             ]
-          ]
+          ],
+          "span": [
+            12010032,
+            12010032
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "The LORD “delivered them into the hand of Hazael king of Syria, and into the hand of Ben-hadad the son of Hazael, all their days”.",
@@ -1619,14 +1644,19 @@
           ]
         },
         {
-          "text": "“So Hazael king of Syria died; and Ben-hadad his son reigned in his stead.”",
           "layer": "scripture",
           "refs": [
             [
               12013024,
               12013024
             ]
-          ]
+          ],
+          "span": [
+            12013024,
+            12013024
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "events": [
@@ -1708,14 +1738,19 @@
           "label": "Ramoth-gilead held against him",
           "kind": "battle",
           "claim": {
-            "text": "“Joram had kept Ramoth-gilead, he and all Israel, because of Hazael king of Syria.”",
             "layer": "scripture",
             "refs": [
               [
                 12009014,
                 12009015
               ]
-            ]
+            ],
+            "span": [
+              12009014,
+              12009015
+            ],
+            "quoted": true,
+            "marks": true
           },
           "placeId": "a2fe63c"
         },
@@ -1738,14 +1773,19 @@
           "label": "Gath taken",
           "kind": "battle",
           "claim": {
-            "text": "“Hazael king of Syria went up, and fought against Gath, and took it.”",
             "layer": "scripture",
             "refs": [
               [
                 12012017,
                 12012017
               ]
-            ]
+            ],
+            "span": [
+              12012017,
+              12012017
+            ],
+            "quoted": true,
+            "marks": true
           },
           "placeId": "a18873f"
         },
@@ -1782,14 +1822,19 @@
           "label": "Death",
           "kind": "personal",
           "claim": {
-            "text": "“So Hazael king of Syria died; and Ben-hadad his son reigned in his stead.”",
             "layer": "scripture",
             "refs": [
               [
                 12013024,
                 12013024
               ]
-            ]
+            ],
+            "span": [
+              12013024,
+              12013024
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],
@@ -1831,14 +1876,19 @@
             ]
           },
           {
-            "text": "“Hazael king of Syria oppressed Israel all the days of Jehoahaz.”",
             "layer": "scripture",
             "refs": [
               [
                 12013022,
                 12013022
               ]
-            ]
+            ],
+            "span": [
+              12013022,
+              12013022
+            ],
+            "quoted": true,
+            "marks": true
           },
           {
             "text": "Jehoahaz “besought the LORD”, and “the LORD gave Israel a saviour, so that they went out from under the hand of the Syrians”.",
@@ -1879,11 +1929,11 @@
             ]
           },
           "quote": {
-            "text": "anoint Hazael to be king over Syria",
             "span": [
               11019015,
               11019015
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -1902,11 +1952,11 @@
             ]
           },
           "quote": {
-            "text": "The LORD hath shewed me that thou shalt be king over Syria",
             "span": [
               12008013,
               12008013
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -1925,11 +1975,11 @@
             ]
           },
           "quote": {
-            "text": "I will send a fire into the house of Hazael, which shall devour the palaces of Ben-hadad",
             "span": [
               30001004,
               30001004
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -2351,24 +2401,34 @@
           ]
         },
         {
-          "text": "“So Hazael king of Syria died; and Ben-hadad his son reigned in his stead.”",
           "layer": "scripture",
           "refs": [
             [
               12013024,
               12013024
             ]
-          ]
+          ],
+          "span": [
+            12013024,
+            12013024
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "“Jehoash the son of Jehoahaz took again out of the hand of Ben-hadad the son of Hazael the cities, which he had taken out of the hand of Jehoahaz his father by war. Three times did Joash beat him.”",
           "layer": "scripture",
           "refs": [
             [
               12013025,
               12013025
             ]
-          ]
+          ],
+          "span": [
+            12013025,
+            12013025
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Amos: “I will send a fire into the house of Hazael, which shall devour the palaces of Ben-hadad.”",
@@ -2415,14 +2475,19 @@
           "label": "Becomes king",
           "kind": "personal",
           "claim": {
-            "text": "“Ben-hadad his son reigned in his stead.”",
             "layer": "scripture",
             "refs": [
               [
                 12013024,
                 12013024
               ]
-            ]
+            ],
+            "span": [
+              12013024,
+              12013024
+            ],
+            "quoted": true,
+            "marks": true
           },
           "placeId": "a69c1d4"
         },
@@ -2430,14 +2495,19 @@
           "label": "Three defeats",
           "kind": "battle",
           "claim": {
-            "text": "“Three times did Joash beat him, and recovered the cities of Israel.”",
             "layer": "scripture",
             "refs": [
               [
                 12013025,
                 12013025
               ]
-            ]
+            ],
+            "span": [
+              12013025,
+              12013025
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],
@@ -2457,14 +2527,19 @@
             ]
           },
           {
-            "text": "“The children of Israel dwelt in their tents, as beforetime.”",
             "layer": "scripture",
             "refs": [
               [
                 12013005,
                 12013005
               ]
-            ]
+            ],
+            "span": [
+              12013005,
+              12013005
+            ],
+            "quoted": true,
+            "marks": true
           }
         ]
       },
@@ -2485,11 +2560,11 @@
             ]
           },
           "quote": {
-            "text": "thou shalt smite Syria but thrice",
             "span": [
               12013019,
               12013019
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -2508,11 +2583,11 @@
             ]
           },
           "quote": {
-            "text": "which shall devour the palaces of Ben-hadad",
             "span": [
               30001004,
               30001004
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -2781,14 +2856,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "“In those days the LORD began to send against Judah Rezin the king of Syria, and Pekah the son of Remaliah.”",
           "layer": "scripture",
           "refs": [
             [
               12015037,
               12015037
             ]
-          ]
+          ],
+          "span": [
+            12015037,
+            12015037
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "With Pekah he besieged Ahaz in Jerusalem, “but could not overcome him”.",
@@ -2801,14 +2881,19 @@
           ]
         },
         {
-          "text": "“Rezin king of Syria recovered Elath to Syria, and drave the Jews from Elath.”",
           "layer": "scripture",
           "refs": [
             [
               12016006,
               12016006
             ]
-          ]
+          ],
+          "span": [
+            12016006,
+            12016006
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Isaiah to Ahaz: “fear not … for the two tails of these smoking firebrands, for the fierce anger of Rezin with Syria, and of the son of Remaliah”.",
@@ -2821,24 +2906,34 @@
           ]
         },
         {
-          "text": "“For the head of Syria is Damascus, and the head of Damascus is Rezin.”",
           "layer": "scripture",
           "refs": [
             [
               23007008,
               23007008
             ]
-          ]
+          ],
+          "span": [
+            23007008,
+            23007008
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "“The king of Assyria went up against Damascus, and took it, and carried the people of it captive to Kir, and slew Rezin.”",
           "layer": "scripture",
           "refs": [
             [
               12016009,
               12016009
             ]
-          ]
+          ],
+          "span": [
+            12016009,
+            12016009
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "events": [
@@ -3028,11 +3123,11 @@
             ]
           },
           "quote": {
-            "text": "For the head of Syria is Damascus, and the head of Damascus is Rezin",
             "span": [
               23007008,
               23007008
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -3388,14 +3483,19 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "“Hiram king of Tyre sent messengers to David, and cedar trees, and carpenters, and masons: and they built David an house.”",
           "layer": "scripture",
           "refs": [
             [
               10005011,
               10005011
             ]
-          ]
+          ],
+          "span": [
+            10005011,
+            10005011
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "He sent his servants to Solomon at his anointing, “for Hiram was ever a lover of David”.",
@@ -3418,14 +3518,19 @@
           ]
         },
         {
-          "text": "“There was peace between Hiram and Solomon; and they two made a league together.”",
           "layer": "scripture",
           "refs": [
             [
               11005012,
               11005012
             ]
-          ]
+          ],
+          "span": [
+            11005012,
+            11005012
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Of the twenty cities Solomon gave him: “What cities are these which thou hast given me, my brother?”",
@@ -3520,42 +3625,57 @@
           "label": "Wheat and oil every year",
           "kind": "alliance",
           "claim": {
-            "text": "“Solomon gave Hiram twenty thousand measures of wheat for food to his household, and twenty measures of pure oil: thus gave Solomon to Hiram year by year.”",
             "layer": "scripture",
             "refs": [
               [
                 11005011,
                 11005011
               ]
-            ]
+            ],
+            "span": [
+              11005011,
+              11005011
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
           "label": "A league",
           "kind": "alliance",
           "claim": {
-            "text": "“They two made a league together.”",
             "layer": "scripture",
             "refs": [
               [
                 11005012,
                 11005012
               ]
-            ]
+            ],
+            "span": [
+              11005012,
+              11005012
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
           "label": "Builders together",
           "kind": "building",
           "claim": {
-            "text": "“Solomon’s builders and Hiram’s builders did hew them, and the stonesquarers: so they prepared timber and stones to build the house.”",
             "layer": "scripture",
             "refs": [
               [
                 11005018,
                 11005018
               ]
-            ]
+            ],
+            "span": [
+              11005018,
+              11005018
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -3577,14 +3697,19 @@
           "label": "Gold to Solomon",
           "kind": "alliance",
           "claim": {
-            "text": "“And Hiram sent to the king sixscore talents of gold.”",
             "layer": "scripture",
             "refs": [
               [
                 11009014,
                 11009014
               ]
-            ]
+            ],
+            "span": [
+              11009014,
+              11009014
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -4151,44 +4276,64 @@
           ]
         },
         {
-          "text": "“She communed with him of all that was in her heart. And Solomon told her all her questions.”",
           "layer": "scripture",
           "refs": [
             [
               11010002,
               11010003
             ]
-          ]
+          ],
+          "span": [
+            11010002,
+            11010003
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "“It was a true report that I heard in mine own land of thy acts and of thy wisdom. Howbeit I believed not the words, until I came, and mine eyes had seen it: and, behold, the half was not told me.”",
           "layer": "scripture",
           "refs": [
             [
               11010006,
               11010007
             ]
-          ]
+          ],
+          "span": [
+            11010006,
+            11010007
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "“Blessed be the LORD thy God, which delighted in thee, to set thee on the throne of Israel.”",
           "layer": "scripture",
           "refs": [
             [
               11010009,
               11010009
             ]
-          ]
+          ],
+          "span": [
+            11010009,
+            11010009
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "“So she turned and went to her own country, she and her servants.”",
           "layer": "scripture",
           "refs": [
             [
               11010013,
               11010013
             ]
-          ]
+          ],
+          "span": [
+            11010013,
+            11010013
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Jesus: “The queen of the south shall rise up in the judgment with this generation, and shall condemn it … and, behold, a greater than Solomon is here.”",
@@ -4269,14 +4414,19 @@
           "label": "Her blessing",
           "kind": "worship",
           "claim": {
-            "text": "“Because the LORD loved Israel for ever, therefore made he thee king, to do judgment and justice.”",
             "layer": "scripture",
             "refs": [
               [
                 11010009,
                 11010009
               ]
-            ]
+            ],
+            "span": [
+              11010009,
+              11010009
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -4393,24 +4543,34 @@
         ],
         "people": [
           {
-            "text": "“Happy are thy men, happy are these thy servants, which stand continually before thee.”",
             "layer": "scripture",
             "refs": [
               [
                 11010008,
                 11010008
               ]
-            ]
+            ],
+            "span": [
+              11010008,
+              11010008
+            ],
+            "quoted": true,
+            "marks": true
           },
           {
-            "text": "“There came no more such abundance of spices as these which the queen of Sheba gave to king Solomon.”",
             "layer": "scripture",
             "refs": [
               [
                 11010010,
                 11010010
               ]
-            ]
+            ],
+            "span": [
+              11010010,
+              11010010
+            ],
+            "quoted": true,
+            "marks": true
           }
         ]
       },
@@ -4738,17 +4898,21 @@
       "verdictTone": "none",
       "scriptureSays": [
         {
-          "text": "“Mesha king of Moab was a sheepmaster, and rendered unto the king of Israel an hundred thousand lambs, and an hundred thousand rams, with the wool.”",
           "layer": "scripture",
           "refs": [
             [
               12003004,
               12003004
             ]
-          ]
+          ],
+          "span": [
+            12003004,
+            12003004
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
-          "text": "“When Ahab was dead … the king of Moab rebelled against the king of Israel.”",
           "layer": "scripture",
           "refs": [
             [
@@ -4759,7 +4923,13 @@
               12001001,
               12001001
             ]
-          ]
+          ],
+          "span": [
+            12003005,
+            12003005
+          ],
+          "quoted": true,
+          "marks": true
         },
         {
           "text": "Besieged, “he took with him seven hundred men that drew swords, to break through even unto the king of Edom: but they could not”.",
@@ -4772,14 +4942,19 @@
           ]
         },
         {
-          "text": "“Then he took his eldest son that should have reigned in his stead, and offered him for a burnt offering upon the wall. And there was great indignation against Israel: and they departed from him, and returned to their own land.”",
           "layer": "scripture",
           "refs": [
             [
               12003027,
               12003027
             ]
-          ]
+          ],
+          "span": [
+            12003027,
+            12003027
+          ],
+          "quoted": true,
+          "marks": true
         }
       ],
       "events": [
@@ -4801,7 +4976,6 @@
           "label": "Revolt",
           "kind": "other",
           "claim": {
-            "text": "“Then Moab rebelled against Israel after the death of Ahab.”",
             "layer": "scripture",
             "refs": [
               [
@@ -4812,7 +4986,13 @@
                 12003005,
                 12003005
               ]
-            ]
+            ],
+            "span": [
+              12001001,
+              12001001
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -4876,14 +5056,19 @@
           "label": "Siege of Kir-haraseth",
           "kind": "battle",
           "claim": {
-            "text": "“Only in Kir-haraseth left they the stones thereof; howbeit the slingers went about it, and smote it.”",
             "layer": "scripture",
             "refs": [
               [
                 12003025,
                 12003025
               ]
-            ]
+            ],
+            "span": [
+              12003025,
+              12003025
+            ],
+            "quoted": true,
+            "marks": true
           },
           "placeId": "ab55371"
         },
@@ -4921,14 +5106,19 @@
           "label": "Israel withdraws",
           "kind": "other",
           "claim": {
-            "text": "“There was great indignation against Israel: and they departed from him, and returned to their own land.”",
             "layer": "scripture",
             "refs": [
               [
                 12003027,
                 12003027
               ]
-            ]
+            ],
+            "span": [
+              12003027,
+              12003027
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],
@@ -4985,14 +5175,19 @@
         ],
         "people": [
           {
-            "text": "“They gathered all that were able to put on armour, and upward, and stood in the border.”",
             "layer": "scripture",
             "refs": [
               [
                 12003021,
                 12003021
               ]
-            ]
+            ],
+            "span": [
+              12003021,
+              12003021
+            ],
+            "quoted": true,
+            "marks": true
           },
           {
             "text": "The allies were told to “mar every good piece of land with stones”, and did so.",
@@ -5027,11 +5222,11 @@
             ]
           },
           "quote": {
-            "text": "he will deliver the Moabites also into your hand",
             "span": [
               12003018,
               12003018
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -5592,14 +5787,19 @@
           "label": "Home rejoicing",
           "kind": "other",
           "claim": {
-            "text": "“He went on his way rejoicing.”",
             "layer": "scripture",
             "refs": [
               [
                 44008039,
                 44008039
               ]
-            ]
+            ],
+            "span": [
+              44008039,
+              44008039
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],

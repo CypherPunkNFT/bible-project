@@ -1,5 +1,8 @@
 /// <reference types="vite/client" /> // for import.meta.glob below
 import { useEffect, useState } from "react";
+import { loadCatalog } from "@/lib/data";
+import { onLanguageChange, useSiteLanguage } from "@/lib/language";
+import { fillVerses } from "@/lib/verses";
 import type { Apostle, ApostleGroup, Prophet, ProphetGroup, Ruler, RulerGroup } from "@/data/people-pages/types";
 import { apostleFor, prophetFor, rulerFor, type Aspect } from "@/lib/people-pages-index";
 
@@ -13,6 +16,8 @@ export type PeopleGroup = Partial<RulerGroup> & Partial<ApostleGroup> & Partial<
 
 const loaded = new Map<string, PeopleGroup>();
 const pending = new Map<string, Promise<PeopleGroup | undefined>>();
+// The groups carry the reader's Bible's words (fillVerses); another language means another Bible.
+onLanguageChange(() => { loaded.clear(); pending.clear(); });
 
 /** A group file by its id (the file name without .json); undefined when there is no such file. */
 export function loadPeopleGroup(id: string): Promise<PeopleGroup | undefined> {
@@ -22,8 +27,8 @@ export function loadPeopleGroup(id: string): Promise<PeopleGroup | undefined> {
   if (!load) return Promise.resolve(undefined);
   let promise = pending.get(id);
   if (!promise) {
-    promise = load().then((module) => {
-      const group = module.default as PeopleGroup;
+    promise = Promise.all([load(), loadCatalog()]).then(async ([module, catalog]) => {
+      const group = await fillVerses(module.default as PeopleGroup, catalog);
       loaded.set(id, group);
       return group;
     });
@@ -47,16 +52,17 @@ function useGroupItem<T>(groupId: string | undefined, pick: (group: PeopleGroup)
     const item = group && pick(group);
     return group ? (item ? { status: "ready", group, item } : { status: "missing" }) : groupId ? { status: "loading" } : { status: "missing" };
   };
-  const [state, setState] = useState<{ key: string; value: GroupState<T> }>(() => ({ key: groupId ?? "", value: read() }));
+  const language = useSiteLanguage(); // a change of Bible empties the cache, so the page loads its words again
+  const [state, setState] = useState<{ key: string; value: GroupState<T> }>(() => ({ key: `${language}:${groupId ?? ""}`, value: read() }));
   useEffect(() => {
     if (!groupId || peekPeopleGroup(groupId)) return;
     let live = true;
-    void loadPeopleGroup(groupId).then(() => { if (live) setState({ key: groupId, value: read() }); }).catch(() => { if (live) setState({ key: groupId, value: { status: "missing" } }); });
+    void loadPeopleGroup(groupId).then(() => { if (live) setState({ key: `${language}:${groupId}`, value: read() }); }).catch(() => { if (live) setState({ key: `${language}:${groupId}`, value: { status: "missing" } }); });
     return () => { live = false; };
   // eslint-disable-next-line react-hooks/exhaustive-deps -- `read` depends only on groupId and the item picked by it
-  }, [groupId]);
+  }, [groupId, language]);
   // A group loaded since (or for another page) is read straight from the cache, so a page never flashes "loading".
-  return state.key === (groupId ?? "") && state.value.status !== "loading" ? state.value : read();
+  return state.key === `${language}:${groupId ?? ""}` && state.value.status !== "loading" ? state.value : read();
 }
 
 /** The ruler page's full data: the group file named in the index, then the ruler in it. */

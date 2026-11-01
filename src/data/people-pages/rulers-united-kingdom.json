@@ -114,11 +114,11 @@
             ]
           },
           "verdict": {
-            "text": "the LORD hath rejected thee from being king over Israel",
             "span": [
               9015026,
               9015026
-            ]
+            ],
+            "quoted": true
           },
           "death": {
             "text": "Badly wounded by the archers on mount Gilboa, Saul fell on his own sword. Three of his sons died the same day.",
@@ -131,21 +131,21 @@
             ]
           },
           "burial": {
-            "text": "they took their bones, and buried them under a tree at Jabesh, and fasted seven days",
             "span": [
               9031013,
               9031013
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "book": "chronicles",
           "verdict": {
-            "text": "So Saul died for his transgression which he committed against the LORD",
             "span": [
               13010013,
               13010013
-            ]
+            ],
+            "quoted": true
           },
           "death": {
             "text": "Chronicles tells the same death in nearly the same words, then gives the reason: he did not keep the word of the LORD, asked counsel of a medium, and did not enquire of the LORD.",
@@ -162,11 +162,11 @@
             ]
           },
           "burial": {
-            "text": "buried their bones under the oak in Jabesh, and fasted seven days",
             "span": [
               13010012,
               13010012
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -459,14 +459,19 @@
           "label": "Saul's first altar",
           "kind": "worship",
           "claim": {
-            "text": "“the same was the first altar that he built unto the LORD”",
             "layer": "scripture",
             "refs": [
               [
                 9014035,
                 9014035
               ]
-            ]
+            ],
+            "span": [
+              9014035,
+              9014035
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -813,11 +818,11 @@
             ]
           },
           "quote": {
-            "text": "to obey is better than sacrifice, and to hearken than the fat of rams",
             "span": [
               9015022,
               9015022
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -1520,11 +1525,11 @@
             ]
           },
           "burial": {
-            "text": "they took the head of Ish-bosheth, and buried it in the sepulchre of Abner in Hebron",
             "span": [
               10004012,
               10004012
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -1688,14 +1693,19 @@
           "label": "The long war",
           "kind": "battle",
           "claim": {
-            "text": "“there was long war between the house of Saul and the house of David: but David waxed stronger and stronger, and the house of Saul waxed weaker and weaker.”",
             "layer": "scripture",
             "refs": [
               [
                 10003001,
                 10003001
               ]
-            ]
+            ],
+            "span": [
+              10003001,
+              10003001
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -2179,11 +2189,11 @@
             ]
           },
           "verdict": {
-            "text": "David did that which was right in the eyes of the LORD, and turned not aside from any thing that he commanded him all the days of his life, save only in the matter of Uriah the Hittite",
             "span": [
               11015005,
               11015005
-            ]
+            ],
+            "quoted": true
           },
           "death": {
             "text": "He gave Solomon his last charge and “slept with his fathers”.",
@@ -2196,11 +2206,11 @@
             ]
           },
           "burial": {
-            "text": "was buried in the city of David",
             "span": [
               11002010,
               11002010
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -2223,11 +2233,11 @@
             ]
           },
           "sourcesCited": {
-            "text": "the acts of David the king, first and last, behold, they are written in the book of Samuel the seer, and in the book of Nathan the prophet, and in the book of Gad the seer",
             "span": [
               13029029,
               13029029
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -2622,14 +2632,19 @@
           "label": "Garrisons in Edom",
           "kind": "battle",
           "claim": {
-            "text": "“all they of Edom became David's servants.”",
             "layer": "scripture",
             "refs": [
               [
                 10008013,
                 10008014
               ]
-            ]
+            ],
+            "span": [
+              10008013,
+              10008014
+            ],
+            "quoted": true,
+            "marks": true
           },
           "placeId": "a2735ff"
         },
@@ -3164,14 +3179,19 @@
         ],
         "people": [
           {
-            "text": "“David executed judgment and justice unto all his people.”",
             "layer": "scripture",
             "refs": [
               [
                 10008015,
                 10008015
               ]
-            ]
+            ],
+            "span": [
+              10008015,
+              10008015
+            ],
+            "quoted": true,
+            "marks": true
           },
           {
             "text": "His officers: Joab over the host, Jehoshaphat recorder, Seraiah scribe (Sheva in the later list), Benaiah over the Cherethites and Pelethites, Adoram over the tribute.",
@@ -3238,11 +3258,11 @@
             ]
           },
           "quote": {
-            "text": "man looketh on the outward appearance, but the LORD looketh on the heart",
             "span": [
               9016007,
               9016007
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -3269,11 +3289,11 @@
             ]
           },
           "quote": {
-            "text": "Shall seven years of famine come unto thee in thy land",
             "span": [
               10024013,
               10024013
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -3304,11 +3324,11 @@
             ]
           },
           "quote": {
-            "text": "Thou art the man",
             "span": [
               10012007,
               10012007
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -4413,25 +4433,25 @@
             ]
           },
           "verdict": {
-            "text": "Solomon did evil in the sight of the LORD, and went not fully after the LORD, as did David his father",
             "span": [
               11011006,
               11011006
-            ]
+            ],
+            "quoted": true
           },
           "comparison": {
-            "text": "Solomon loved the LORD, walking in the statutes of David his father: only he sacrificed and burnt incense in high places",
             "span": [
               11003003,
               11003003
-            ]
+            ],
+            "quoted": true
           },
           "sourcesCited": {
-            "text": "the rest of the acts of Solomon, and all that he did, and his wisdom, are they not written in the book of the acts of Solomon",
             "span": [
               11011041,
               11011041
-            ]
+            ],
+            "quoted": true
           },
           "death": {
             "text": "“Solomon slept with his fathers”, and Rehoboam his son reigned in his place.",
@@ -4444,11 +4464,11 @@
             ]
           },
           "burial": {
-            "text": "was buried in the city of David his father",
             "span": [
               11011043,
               11011043
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -4476,11 +4496,11 @@
             ]
           },
           "sourcesCited": {
-            "text": "the rest of the acts of Solomon, first and last, are they not written in the book of Nathan the prophet, and in the prophecy of Ahijah the Shilonite, and in the visions of Iddo the seer against Jeroboam the son of Nebat",
             "span": [
               14009029,
               14009029
-            ]
+            ],
+            "quoted": true
           },
           "death": {
             "text": "“Solomon slept with his fathers”, and Rehoboam reigned in his place. Chronicles gives no verdict.",
@@ -4493,11 +4513,11 @@
             ]
           },
           "burial": {
-            "text": "he was buried in the city of David his father",
             "span": [
               14009031,
               14009031
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -4727,14 +4747,19 @@
           "label": "Marriage alliance with Pharaoh",
           "kind": "alliance",
           "claim": {
-            "text": "“Solomon made affinity with Pharaoh king of Egypt, and took Pharaoh's daughter”.",
             "layer": "scripture",
             "refs": [
               [
                 11003001,
                 11003001
               ]
-            ]
+            ],
+            "span": [
+              11003001,
+              11003001
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -4838,14 +4863,19 @@
           "label": "Temple finished",
           "kind": "building",
           "claim": {
-            "text": "“in the eleventh year, in the month Bul … So was he seven years in building it.”",
             "layer": "scripture",
             "refs": [
               [
                 11006038,
                 11006038
               ]
-            ]
+            ],
+            "span": [
+              11006038,
+              11006038
+            ],
+            "quoted": true,
+            "marks": true
           },
           "year": 11,
           "placeId": "a15257a"
@@ -5049,14 +5079,19 @@
           "label": "Death",
           "kind": "personal",
           "claim": {
-            "text": "“the time that Solomon reigned in Jerusalem over all Israel was forty years. And Solomon slept with his fathers”.",
             "layer": "scripture",
             "refs": [
               [
                 11011042,
                 11011043
               ]
-            ]
+            ],
+            "span": [
+              11011042,
+              11011043
+            ],
+            "quoted": true,
+            "marks": true
           },
           "year": 40
         }
@@ -5350,11 +5385,11 @@
             ]
           },
           "quote": {
-            "text": "I will rend the kingdom out of the hand of Solomon, and will give ten tribes to thee",
             "span": [
               11011031,
               11011031
-            ]
+            ],
+            "quoted": true
           }
         },
         {

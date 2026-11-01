@@ -134,11 +134,11 @@
             ]
           },
           "quote": {
-            "text": "There was in the days of Herod, the king of Judæa, a certain priest named Zacharias",
             "span": [
               42001005,
               42001005
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -157,11 +157,11 @@
             ]
           },
           "quote": {
-            "text": "Now in the fifteenth year of the reign of Tiberius Cæsar",
             "span": [
               42003001,
               42003001
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -236,11 +236,11 @@
             ]
           },
           "quote": {
-            "text": "It is not lawful for thee to have her.",
             "span": [
               40014004,
               40014004
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -248,11 +248,11 @@
         {
           "label": "Luke 1 · Promised before his birth",
           "quote": {
-            "text": "thy wife Elisabeth shall bear thee a son, and thou shalt call his name John.",
             "span": [
               42001013,
               42001013
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "As Zacharias burned incense in the temple, the angel Gabriel told him that the child would be “filled with the Holy Ghost, even from his mother’s womb”, and would “go before him in the spirit and power of Elias … to make ready a people prepared for the Lord.”",
@@ -269,11 +269,11 @@
         {
           "label": "Luke 1 · His father’s song",
           "quote": {
-            "text": "And thou, child, shalt be called the prophet of the Highest: for thou shalt go before the face of the Lord to prepare his ways;",
             "span": [
               42001076,
               42001076
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "When the child was named John, his father Zacharias “was filled with the Holy Ghost, and prophesied”; the song ends with these words to his son.",
@@ -289,11 +289,11 @@
         {
           "label": "Luke 3 · The word of God comes",
           "quote": {
-            "text": "the word of God came unto John the son of Zacharias in the wilderness.",
             "span": [
               42003002,
               42003002
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Then John “came into all the country about Jordan, preaching the baptism of repentance for the remission of sins”.",
@@ -309,11 +309,11 @@
         {
           "label": "John 1 · A man sent from God",
           "quote": {
-            "text": "There was a man sent from God, whose name was John.",
             "span": [
               43001006,
               43001006
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "John’s Gospel tells no scene of calling. John himself says that “he that sent me to baptize with water” told him the sign by which he would know the one who “baptizeth with the Holy Ghost”.",
@@ -514,18 +514,18 @@
           },
           "quotes": [
             {
-              "text": "Repent ye: for the kingdom of heaven is at hand.",
               "span": [
                 40003002,
                 40003002
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "he that cometh after me is mightier than I, whose shoes I am not worthy to bear:",
               "span": [
                 40003011,
                 40003011
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -543,11 +543,11 @@
           },
           "quotes": [
             {
-              "text": "There cometh one mightier than I after me, the latchet of whose shoes I am not worthy to stoop down and unloose.",
               "span": [
                 41001007,
                 41001007
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -565,11 +565,11 @@
           },
           "quotes": [
             {
-              "text": "He that hath two coats, let him impart to him that hath none; and he that hath meat, let him do likewise.",
               "span": [
                 42003011,
                 42003011
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -591,18 +591,18 @@
           },
           "quotes": [
             {
-              "text": "Behold the Lamb of God, which taketh away the sin of the world.",
               "span": [
                 43001029,
                 43001029
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "He must increase, but I must decrease.",
               "span": [
                 43003030,
                 43003030
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -649,11 +649,11 @@
           "to": "The Pharisees and Sadducees (Matthew); the multitude (Luke)",
           "placeId": "ae686c9",
           "quote": {
-            "text": "O generation of vipers, who hath warned you to flee from the wrath to come?",
             "span": [
               40003007,
               40003007
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Matthew says he spoke this when he saw many of the Pharisees and Sadducees come to his baptism; Luke gives the same words “to the multitude that came forth to be baptized of him”.",
@@ -673,21 +673,21 @@
         {
           "to": "The publicans",
           "quote": {
-            "text": "Exact no more than that which is appointed you.",
             "span": [
               42003013,
               42003013
-            ]
+            ],
+            "quoted": true
           }
         },
         {
           "to": "The soldiers",
           "quote": {
-            "text": "Do violence to no man, neither accuse any falsely; and be content with your wages.",
             "span": [
               42003014,
               42003014
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -698,11 +698,11 @@
           },
           "placeId": "ae686c9",
           "quote": {
-            "text": "I have need to be baptized of thee, and comest thou to me?",
             "span": [
               40003014,
               40003014
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Only Matthew tells that John “forbad him” at first; Jesus answered, “Suffer it to be so now”.",
@@ -719,11 +719,11 @@
           "to": "The priests and Levites sent from Jerusalem",
           "placeId": "a6e060d",
           "quote": {
-            "text": "I am the voice of one crying in the wilderness, Make straight the way of the Lord, as said the prophet Esaias.",
             "span": [
               43001023,
               43001023
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Asked “Who art thou?”, he “confessed, I am not the Christ”, and said he was not Elias and not “that prophet”. These things were done “in Bethabara beyond Jordan”.",
@@ -743,11 +743,11 @@
             "personId": "andrew-mat-4-18"
           },
           "quote": {
-            "text": "Behold the Lamb of God!",
             "span": [
               43001036,
               43001036
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "The two heard him and followed Jesus; one of them was Andrew, Simon Peter’s brother.",
@@ -764,11 +764,11 @@
           "to": "His disciples, at Ænon",
           "placeId": "a112fe3",
           "quote": {
-            "text": "He must increase, but I must decrease.",
             "span": [
               43003030,
               43003030
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "John was then baptizing in Ænon near to Salim; his disciples had told him that all men were going to Jesus.",
@@ -788,11 +788,11 @@
             "personId": "herod-mat-14-1"
           },
           "quote": {
-            "text": "It is not lawful for thee to have her.",
             "span": [
               40014004,
               40014004
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Mark gives it as “It is not lawful for thee to have thy brother’s wife.”",
@@ -812,11 +812,11 @@
             "personId": "jesus-isa-7-14"
           },
           "quote": {
-            "text": "Art thou he that should come, or do we look for another?",
             "span": [
               40011003,
               40011003
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "He sent two of his disciples with the question; Luke gives it as “Art thou he that should come? or look we for another?” Jesus sent back word of what they had seen and heard.",
@@ -1936,11 +1936,11 @@
         {
           "label": "Luke 2 · The promise",
           "quote": {
-            "text": "And it was revealed unto him by the Holy Ghost, that he should not see death, before he had seen the Lord’s Christ.",
             "span": [
               42002026,
               42002026
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Luke tells no call. He says only that Simeon was “waiting for the consolation of Israel”, that the Holy Ghost was upon him, and that this had been revealed to him.",
@@ -2006,18 +2006,18 @@
           },
           "quotes": [
             {
-              "text": "For mine eyes have seen thy salvation,",
               "span": [
                 42002030,
                 42002030
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "A light to lighten the Gentiles, and the glory of thy people Israel.",
               "span": [
                 42002032,
                 42002032
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -2035,18 +2035,18 @@
           },
           "quotes": [
             {
-              "text": "Behold, this child is set for the fall and rising again of many in Israel; and for a sign which shall be spoken against;",
               "span": [
                 42002034,
                 42002034
-              ]
+              ],
+              "quoted": true
             },
             {
-              "text": "Yea, a sword shall pierce through thy own soul also,",
               "span": [
                 42002035,
                 42002035
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -2056,11 +2056,11 @@
           "to": "God",
           "placeId": "a15257a",
           "quote": {
-            "text": "Lord, now lettest thou thy servant depart in peace, according to thy word:",
             "span": [
               42002029,
               42002029
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -2070,11 +2070,11 @@
             "personId": "mary-mat-1-16"
           },
           "quote": {
-            "text": "Behold, this child is set for the fall and rising again of many in Israel; and for a sign which shall be spoken against;",
             "span": [
               42002034,
               42002034
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "He “blessed them”, then spoke to Mary.",
@@ -2092,14 +2092,19 @@
       "fulfilment": [
         {
           "word": {
-            "text": "“It was revealed unto him by the Holy Ghost, that he should not see death, before he had seen the Lord’s Christ.”",
             "layer": "scripture",
             "refs": [
               [
                 42002026,
                 42002026
               ]
-            ]
+            ],
+            "span": [
+              42002026,
+              42002026
+            ],
+            "quoted": true,
+            "marks": true
           },
           "reported": {
             "text": "Simeon himself says it has come to pass: “Lord, now lettest thou thy servant depart in peace, according to thy word: For mine eyes have seen thy salvation”.",
@@ -2435,11 +2440,11 @@
           },
           "quotes": [
             {
-              "text": "spake of him to all them that looked for redemption in Jerusalem.",
               "span": [
                 42002038,
                 42002038
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -2449,11 +2454,11 @@
           "to": "All who looked for redemption in Jerusalem",
           "placeId": "a15257a",
           "quote": {
-            "text": "spake of him to all them that looked for redemption in Jerusalem.",
             "span": [
               42002038,
               42002038
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Luke does not record what she said.",
@@ -2477,14 +2482,19 @@
             "personId": "phanuel-luk-2-36"
           },
           "claim": {
-            "text": "“The daughter of Phanuel, of the tribe of Aser”.",
             "layer": "scripture",
             "refs": [
               [
                 42002036,
                 42002036
               ]
-            ]
+            ],
+            "span": [
+              42002036,
+              42002036
+            ],
+            "quoted": true,
+            "marks": true
           }
         },
         {
@@ -2647,11 +2657,11 @@
             ]
           },
           "quote": {
-            "text": "which came to pass in the days of Claudius Cæsar.",
             "span": [
               44011028,
               44011028
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -2707,11 +2717,11 @@
           },
           "quotes": [
             {
-              "text": "there should be great dearth throughout all the world:",
               "span": [
                 44011028,
                 44011028
-              ]
+              ],
+              "quoted": true
             }
           ]
         },
@@ -2729,11 +2739,11 @@
           },
           "quotes": [
             {
-              "text": "Thus saith the Holy Ghost, So shall the Jews at Jerusalem bind the man that owneth this girdle, and shall deliver him into the hands of the Gentiles.",
               "span": [
                 44021011,
                 44021011
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -2743,11 +2753,11 @@
           "to": "The church at Antioch",
           "placeId": "ae41ab4",
           "quote": {
-            "text": "there should be great dearth throughout all the world:",
             "span": [
               44011028,
               44011028
-            ]
+            ],
+            "quoted": true
           }
         },
         {
@@ -2758,11 +2768,11 @@
           },
           "placeId": "a58735e",
           "quote": {
-            "text": "So shall the Jews at Jerusalem bind the man that owneth this girdle, and shall deliver him into the hands of the Gentiles.",
             "span": [
               44021011,
               44021011
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -3120,11 +3130,11 @@
           },
           "quotes": [
             {
-              "text": "Separate me Barnabas and Saul for the work whereunto I have called them.",
               "span": [
                 44013002,
                 44013002
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -3136,14 +3146,19 @@
           "kind": "other",
           "placeId": "ae41ab4",
           "claim": {
-            "text": "“When they had fasted and prayed, and laid their hands on them, they sent them away.”",
             "layer": "scripture",
             "refs": [
               [
                 44013003,
                 44013003
               ]
-            ]
+            ],
+            "span": [
+              44013003,
+              44013003
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],
@@ -3435,11 +3450,11 @@
           },
           "quotes": [
             {
-              "text": "Separate me Barnabas and Saul for the work whereunto I have called them.",
               "span": [
                 44013002,
                 44013002
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -3451,14 +3466,19 @@
           "kind": "other",
           "placeId": "ae41ab4",
           "claim": {
-            "text": "“When they had fasted and prayed, and laid their hands on them, they sent them away.”",
             "layer": "scripture",
             "refs": [
               [
                 44013003,
                 44013003
               ]
-            ]
+            ],
+            "span": [
+              44013003,
+              44013003
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],
@@ -3818,11 +3838,11 @@
             ]
           },
           "quote": {
-            "text": "Manaen, which had been brought up with Herod the tetrarch,",
             "span": [
               44013001,
               44013001
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -3854,11 +3874,11 @@
           },
           "quotes": [
             {
-              "text": "Separate me Barnabas and Saul for the work whereunto I have called them.",
               "span": [
                 44013002,
                 44013002
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -3870,14 +3890,19 @@
           "kind": "other",
           "placeId": "ae41ab4",
           "claim": {
-            "text": "“When they had fasted and prayed, and laid their hands on them, they sent them away.”",
             "layer": "scripture",
             "refs": [
               [
                 44013003,
                 44013003
               ]
-            ]
+            ],
+            "span": [
+              44013003,
+              44013003
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],
@@ -4134,11 +4159,11 @@
             ]
           },
           "quote": {
-            "text": "Which was with the deputy of the country, Sergius Paulus, a prudent man;",
             "span": [
               44013007,
               44013007
-            ]
+            ],
+            "quoted": true
           }
         }
       ],
@@ -4225,14 +4250,19 @@
             "personId": "sergius-paulus-act-13-7"
           },
           "claim": {
-            "text": "“Then the deputy, when he saw what was done, believed, being astonished at the doctrine of the Lord.”",
             "layer": "scripture",
             "refs": [
               [
                 44013012,
                 44013012
               ]
-            ]
+            ],
+            "span": [
+              44013012,
+              44013012
+            ],
+            "quoted": true,
+            "marks": true
           }
         }
       ],
@@ -4389,11 +4419,11 @@
           "label": "Acts 15 · Chosen and sent",
           "placeId": "a15257a",
           "quote": {
-            "text": "Judas surnamed Barsabas, and Silas, chief men among the brethren:",
             "span": [
               44015022,
               44015022
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "The apostles and elders, with the whole church, chose him and Silas “of their own company” to go to Antioch with Paul and Barnabas.",
@@ -4444,11 +4474,11 @@
           },
           "quotes": [
             {
-              "text": "For it seemed good to the Holy Ghost, and to us, to lay upon you no greater burden than these necessary things;",
               "span": [
                 44015028,
                 44015028
-              ]
+              ],
+              "quoted": true
             }
           ]
         }
@@ -4458,11 +4488,11 @@
           "to": "The brethren at Antioch",
           "placeId": "ae41ab4",
           "quote": {
-            "text": "exhorted the brethren with many words, and confirmed them.",
             "span": [
               44015032,
               44015032
-            ]
+            ],
+            "quoted": true
           },
           "claim": {
             "text": "Acts does not record his words.",

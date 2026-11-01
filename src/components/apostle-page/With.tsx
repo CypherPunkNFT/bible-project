@@ -1,3 +1,4 @@
+import { BibleAbbr } from "@/components/Verse";
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { PERIOD_TONE, personHref, plural, refText, ROMAN } from "./data";
@@ -125,7 +126,7 @@ function NowPanel({ d, now }: { d: Apostle; now: Now }) {
   if (now.kind === "entry") {
     const e = now.e, names = Object.entries(e.with ?? {});
     return <><p className="kicker">{ROMAN[e.period]} · {d.periods[e.period - 1].title}</p><h3>{e.title}</h3>
-      {e.lead && <blockquote><p><Marked text={d.verses[e.lead] ?? ""} names={d.names} /></p><footer><RefLink r={[e.lead, e.lead]} /> · KJV</footer></blockquote>}
+      {e.lead && <blockquote><p><Marked text={d.verses[e.lead] ?? ""} names={d.names} /></p><footer><RefLink r={[e.lead, e.lead]} /> · <BibleAbbr /></footer></blockquote>}
       {names.length ? <><p className="kicker">Named with him here</p><ul className="named">{names.map(([k, vs]) => <li key={k}><b>{d.rowByKey[k]?.name ?? k}</b> <RefLink r={[vs[0], vs[0]]} /></li>)}</ul></>
         : <p className="plain-line">No companion is named in these verses.</p>}
       <button type="button" className="a-read" onClick={() => sheet.openEntry(e)}>Read it all</button></>;

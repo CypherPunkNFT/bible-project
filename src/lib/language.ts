@@ -9,7 +9,15 @@ export const LANGUAGES = [
   { code: "es", name: "Español", folder: "es" },
   { code: "pt-BR", name: "Português (Brasil)", folder: "pt" },
 ] as const;
-export type LanguageCode = (typeof LANGUAGES)[number]["code"];
+// Languages the site quotes its Bible in but has no translated pages for yet: not on the menu, reachable on the preview
+// only by a stored choice, and their pages stay in English around the verses.
+const BIBLE_ONLY = [
+  { code: "zh-Hans", name: "中文", folder: null },
+  { code: "ar", name: "العربية", folder: null },
+  { code: "hi", name: "हिन्दी", folder: null },
+] as const;
+const ALL_LANGUAGES = [...LANGUAGES, ...BIBLE_ONLY];
+export type LanguageCode = (typeof ALL_LANGUAGES)[number]["code"];
 
 const STORAGE_KEY = "bp-language";
 export const PREVIEW_ONLY = typeof window !== "undefined" && ["127.0.0.1", "localhost"].includes(window.location.hostname);
@@ -21,7 +29,7 @@ function storedLanguage(): LanguageCode {
   if (!PREVIEW_ONLY) return "en";
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    return LANGUAGES.find((language) => language.code === saved)?.code ?? "en";
+    return ALL_LANGUAGES.find((language) => language.code === saved)?.code ?? "en";
   } catch {
     return "en";
   }
@@ -53,7 +61,7 @@ export function onLanguageChange(listener: () => void): () => void {
 export const useSiteLanguage = (): LanguageCode => useSyncExternalStore(onLanguageChange, siteLanguage);
 
 export function languageFolder(code: LanguageCode = current): string | null {
-  return LANGUAGES.find((language) => language.code === code)?.folder ?? null;
+  return ALL_LANGUAGES.find((language) => language.code === code)?.folder ?? null;
 }
 
 export const isTranslatedData = (path: string): boolean => TRANSLATED_DATA.some((prefix) => path.startsWith(prefix));

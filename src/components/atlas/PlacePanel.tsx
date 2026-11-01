@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { bookByNum, formatRange, splitId } from "@/lib/refs";
 import { sectionColor } from "@/lib/sections";
-import { useVerseText } from "@/lib/useVerseText";
+import { BibleAbbr, Verse } from "@/components/Verse";
+import { useCurrentBible } from "@/lib/verses";
 import type { MapPlace } from "./projection";
 import { OutsideScroll } from "@/components/OutsideScroll";
 import { OldMapsFold } from "./OldMapsFold";
@@ -75,7 +76,7 @@ export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClo
         })}
       </ul>
 
-      <h3 className="mb-2 mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-muted">The verses (KJV)</h3>
+      <h3 className="mb-2 mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-muted">The verses (<BibleAbbr />)</h3>
       <ol className="space-y-2">
         {place.verses.slice(0, shown).map((id) => (
           <PlaceVerse key={id} id={id} />
@@ -98,13 +99,13 @@ function PlaceVerse({ id }: { id: number }) {
   const { num, chapter, verse } = splitId(id);
   const book = bookByNum(catalog, num);
   const code = book?.code ?? "GEN";
-  const { loading, text } = useVerseText(catalog.translations.find((t) => t.slug === "kjv"), code, chapter, verse);
+  const bible = useCurrentBible();
   return (
     <li>
-      <Link to={`/read/kjv/${code}/${chapter}?v=${verse}`} className="block rounded-lg p-2 hover:bg-surface-2">
+      <Link to={`/read/${bible.slug}/${code}/${chapter}?v=${verse}`} className="block rounded-lg p-2 hover:bg-surface-2">
         <span className="text-sm font-semibold">{formatRange(catalog, id, id)}</span>
         <span className="mt-0.5 line-clamp-2 block font-serif text-sm text-ink/85">
-          {loading ? "…" : text ?? ""}
+          <Verse id={id} />
         </span>
       </Link>
     </li>
