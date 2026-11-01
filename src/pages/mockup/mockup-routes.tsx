@@ -45,7 +45,9 @@ const LOCAL_HOSTS = new Set(["127.0.0.1", "localhost"]);
 export const MOCKUPS_ENABLED = typeof window !== "undefined" && LOCAL_HOSTS.has(window.location.hostname);
 
 export function mockupRoutes() {
-  if (!MOCKUPS_ENABLED) return null;
+  // The one mock-up the live site opens, so the owner can judge it on a real phone (owner, 2026-11-01: "deploy it to
+  // /home_mockup11 so i can see it on my phone"). Hidden from search engines by robots.txt and the page's own noindex.
+  if (!MOCKUPS_ENABLED) return [<Route key="home11" path="/home_mockup11" element={<HomePageMockup11 />} />];
   return [
     <Route key="home" path="/home_mockup" element={<><MockupTag /><HomePageMockup /></>} />,
     <Route key="home2" path="/home_mockup2" element={<><MockupTag /><HomePageMockup2 /></>} />,
