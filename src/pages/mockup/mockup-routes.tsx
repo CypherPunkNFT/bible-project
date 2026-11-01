@@ -14,6 +14,7 @@ const HomePageMockup7 = lazy(() => import("./HomePageMockup7"));
 const HomePageMockup8 = lazy(() => import("./HomePageMockup8"));
 const HomePageMockup9 = lazy(() => import("./HomePageMockup9"));
 const HomePageMockup10 = lazy(() => import("./HomePageMockup10"));
+const HomePageMockup11 = lazy(() => import("./HomePageMockup11"));
 const DoorwaysMockupPage = lazy(() => import("./doorways/DoorwaysMockupPage"));
 const HomeMockupsPage = lazy(() => import("@/pages/HomeMockupsPage"));
 const StudyHubMockup = lazy(() => import("./StudyHubMockup"));
@@ -63,6 +64,8 @@ export function mockupRoutes() {
     <Route key="home9" path="/home_mockup9" element={<HomePageMockup9 />} />,
     // The homepage with the doorway drawings picked from /doorways_mockup, four versions on a pill (owner, 2026-10-31).
     <Route key="home10" path="/home_mockup10" element={<HomePageMockup10 />} />,
+    // The four Roman-numeral convictions pulled together on phones, five ways on a pill (owner, 2026-11-01).
+    <Route key="home11" path="/home_mockup11" element={<HomePageMockup11 />} />,
     <Route key="home-mobile" path="/home_mobile_mockups" element={<HomePageMockup9 />} />,
     // The six doorway squares' drawings, five of each, title only (owner, 2026-10-31).
     <Route key="doorways" path="/doorways_mockup" element={<DoorwaysMockupPage />} />,

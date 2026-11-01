@@ -9,7 +9,7 @@ import { Link, useLocation } from "react-router-dom";
 const REDEEMER_FORGE_URL = "https://redeemerforge.com";
 const FOUNDER = { name: "Lucas Campbell Saint Laurent", first: "Lucas", role: "Founder and sole developer", place: "Jacksonville, Florida" };
 
-const ART = {
+export const ART = {
   cross: <><path d="M60 16V84M44 34H76" strokeWidth="2" /><path className="cv-accent" d="M60 6V10M30 20L34 24M90 20L86 24M22 44H28M92 44H98M30 66L34 62M90 66L86 62" /><path className="cv-faint" d="M36 84H84" /></>,
   bowl: <><path d="M22 52H98Q94 76 60 78Q26 76 22 52Z" /><path className="cv-accent" d="M60 46C52 38 56 28 60 20C64 28 68 38 60 46Z" /><path className="cv-faint" d="M40 34L46 40M80 34L74 40M60 10V14" /><path className="cv-faint" d="M34 84H86" /></>,
   door: <><path d="M34 84V36A26 26 0 0 1 86 36V84" /><path className="cv-faint" d="M60 14V84" /><path className="cv-paper" d="M60 84L82 78V40Q80 22 62 14" /><path className="cv-accent" d="M38 84L18 88M86 84L104 88" /><circle className="cv-dot" cx="76" cy="54" r="2" /></>,
