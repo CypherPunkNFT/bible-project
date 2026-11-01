@@ -190,7 +190,9 @@ const FOOT = 80;
  *  drawing at the very same size and place, only starting and stopping at the page's own margins (where the header and the
  *  text start and stop) with its handles there (owner, 2026-10-31: "I don't see why it has to change at all, except for the
  *  place that it starts and stops"). */
-export function ScrollArt({ fit }: { fit: "edge" | "margins" }) {
+export function ScrollArt({ fit, below = 0 }: { fit: "edge" | "margins"; below?: number }) {
+  // `below`: drawing units of sheet and writing kept past the usual foot, for a page that lifts the scroll to show them.
+  const foot = HEIGHT + below;
   const frame = useRef<SVGSVGElement>(null);
   // The part of the drawing shown (from `start`, `length` long) and, for Scroll B, where on the screen it sits.
   const [view, setView] = useState({ start: 0, length: LENGTH, left: 0, width: 0 });
@@ -227,7 +229,7 @@ export function ScrollArt({ fit }: { fit: "edge" | "margins" }) {
     viewBox={`${fixed(start)} 0 ${fixed(length)} ${HEIGHT}`} preserveAspectRatio={fit === "edge" ? "xMaxYMax slice" : "xMinYMax slice"} aria-hidden="true">
     <defs>
       {SHEETS_DRAWN.flatMap((sheet) => sheet.writing.map((d, line) => <path id={`hm4-line-${sheet.name}-${line}`} d={d} key={`${sheet.name}-${line}`} />))}
-      <clipPath id={`hm4-between-rollers-${fit}`}><rect x={fixed(start + 22)} y="0" width={fixed(length - 44)} height={HEIGHT} /></clipPath>
+      <clipPath id={`hm4-between-rollers-${fit}`}><rect x={fixed(start + 22)} y="0" width={fixed(length - 44)} height={foot} /></clipPath>
       {/* Scroll B's drawing stops at its handles; only its height may run past the frame, as Scroll A's does. */}
       <clipPath id={`hm4-ends-${fit}`}><rect x={fixed(start)} y={-HEIGHT} width={fixed(length)} height={HEIGHT * 3} /></clipPath>
     </defs>
@@ -237,11 +239,11 @@ export function ScrollArt({ fit }: { fit: "edge" | "margins" }) {
     {/* A white cross in the sun, not a dark cut-out; its foot goes a little way down behind the scroll (owner, 2026-10-30/31). */}
     <path className="hm4-sun-cross" d={`M${fixed(sun - 6)} ${sunY - 34}h12v20h20v12h-20v62h-12v-62h-20v-12h20Z`} />
     {SHEETS_DRAWN.map((sheet) => <g className={`hm4-sheet hm4-sheet-${sheet.name}`} key={sheet.name}>
-      <path className="hm4-sheet-fill" d={`${sheet.edge}L${LENGTH} ${HEIGHT}L0 ${HEIGHT}Z`} /><path className="hm4-sheet-edge" d={sheet.edge} />
+      <path className="hm4-sheet-fill" d={`${sheet.edge}L${LENGTH} ${foot}L0 ${foot}Z`} /><path className="hm4-sheet-edge" d={sheet.edge} />
       {sheet.dotted.map((d) => <path className="hm4-sheet-writing" d={d} key={d} />)}
       {sheet.writing.map((d, line) => <text className={`hm4-sheet-script hm4-script-${sheet.script}`} clipPath={`url(#hm4-between-rollers-${fit})`} key={d}><textPath href={`#hm4-line-${sheet.name}-${line}`} startOffset={LINE_STARTS[line]}>{INSCRIPTIONS[sheet.script][line]}</textPath></text>)}
     </g>)}
-    <path className="hm4-sheet-edge" d={`M${fixed(start + 22)} ${HEIGHT}H${fixed(end - 22)}`} />
+    <path className="hm4-sheet-edge" d={`M${fixed(start + 22)} ${foot}H${fixed(end - 22)}`} />
     <Roller cx={start + 22} inward={1} /><Roller cx={end - 22} inward={-1} />
     </g>
   </svg>;

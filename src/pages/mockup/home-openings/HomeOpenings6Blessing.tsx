@@ -4,12 +4,15 @@
 // it (owner, same day); it is the last thing before the footer. The three wise men walk along the scroll's top
 // (HomeOpenings6Caravan.tsx).
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 import { ScrollArt } from "./HomeArtOpenings";
 import { ScrollCaravan } from "./HomeOpenings6Caravan";
 
 export function ScrollBlessing() {
+  // On phones the scroll is raised to show more of its English rows (owner, 2026-10-31); home-phone.css lifts it by the same amount.
+  const phone = useMediaQuery("(max-width: 860px)");
   return <div className="home-opening hm6-last">
-    <section className="hm4-b hm6-blessing" aria-label="A blessing"><ScrollArt fit="edge" /><ScrollCaravan />
+    <section className="hm4-b hm6-blessing" aria-label="A blessing"><ScrollArt fit="edge" below={phone ? 64 : 0} /><ScrollCaravan />
       <div className="home-wrap"><div className="home-hero-copy">
         <blockquote>“May the LORD bless you and keep you; <em>may the LORD cause His face to shine upon you and be gracious to you.</em>”</blockquote>
         <p className="hm6-blessing-cite"><Link to="/read/bsb/NUM/6?hl=24">Numbers 6:24–25</Link> · Berean Standard Bible</p>

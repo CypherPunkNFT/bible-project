@@ -51,7 +51,9 @@
 
   /* The closing blessing follows straight on from Close to home: no full screen of its own, and the sunrise close under the words. */
   .home-hub.hm6-page .home-opening.hm6-last { min-height: 0; }
-  .home-hub.hm6-page .hm4-b.hm6-blessing { flex: none; padding-bottom: calc(clamp(11rem, 38svh, 21rem) + 60px); }
+  /* The scroll raised by the 64 of its 560 drawing units kept below its usual foot (ScrollBlessing), so more of the English shows. */
+  .home-hub.hm6-page .hm4-b.hm6-blessing { --hm6-scroll-lift: calc(clamp(11rem, 38svh, 21rem) * 64 / 560); flex: none; padding-bottom: calc(clamp(11rem, 38svh, 21rem) + var(--hm6-scroll-lift) + 60px); }
+  .home-hub.hm6-page .hm6-blessing .hm4-scroll-art { bottom: var(--hm6-scroll-lift); }
   /* One roller at the screen's edge looked like a mistake, so the scroll just runs off both sides. */
   .home-hub.hm6-page .hm6-blessing .hm4-roller { display: none; }
 
@@ -77,6 +79,8 @@
   .home-hub.hm6-page .home-banner-shape .home-banner .home-banner-title { justify-self: start; }
   /* The verses' line breaks suit the desktop's narrow column; here all four run the same way across the width. */
   .home-hub.hm6-page .home-banner-quote p { white-space: normal; }
+  /* The arrow in the banner's bottom right corner, just inside its thin line (owner, 2026-10-31). */
+  .home-hub.hm6-page .home-banner-quote a svg { position: absolute; right: 24px; bottom: 24px; width: 18px; height: 18px; }
   /* The closing blessing smaller, with room at the sides (owner, same day: "the quotes are way too large. They're almost end
      to end themselves"). */
   .home-hub.hm6-page .hm6-blessing blockquote { font-size: 21px; line-height: 1.25; }
