@@ -18,7 +18,7 @@ export function ResourceShell({ slug, lead, stats, note, top, children }: ShellP
     {top}
     <ResourceCrumbs slug={slug} />
     <header className="st-hero tl-hero">
-      <div><p className="st-kick">Resources · {String(RESOURCE_SECTIONS.indexOf(info) + 1).padStart(2, "0")}</p><div className="tl-title-row"><h1>{info.title}</h1><span className="tl-hero-art"><StationArt kind={info.art} /></span></div></div>
+      <div><p className="st-kick">{`Resources · ${String(RESOURCE_SECTIONS.indexOf(info) + 1).padStart(2, "0")}`}</p><div className="tl-title-row"><h1>{info.title}</h1><span className="tl-hero-art"><StationArt kind={info.art} /></span></div></div>
       <div className="st-side"><p>{lead}</p>{stats && <StationStats items={stats} />}{note && <p className="tl-rule">{note}</p>}</div>
     </header>
     {children}

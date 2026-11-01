@@ -24,7 +24,9 @@ export function QuickButtons({ entry, max }: { entry: Help; max: number }) {
   if (!quick.length) return null;
   return <div className="lf-quick-row">{quick.map((q) => {
     const Icon = q.way === "call" ? Phone : MessageSquareText;
-    return <a key={q.href} className="lf-quick" data-way={q.way} href={q.href}><Icon size={16} strokeWidth={STROKE} aria-hidden="true" /><span>{q.label}</span></a>;
+    // In pieces, so the page translator swaps "Call", ", then" and "to" and leaves the numbers and keywords alone.
+    return <a key={q.href} className="lf-quick" data-way={q.way} href={q.href}><Icon size={16} strokeWidth={STROKE} aria-hidden="true" />
+      <span>{q.way === "call" ? "Call" : "Text"} <bdi translate="no">{q.value}</bdi>{q.press && <>, then <bdi translate="no">{q.press}</bdi></>}{q.to && <> to <bdi translate="no">{q.to}</bdi></>}</span></a>;
   })}</div>;
 }
 

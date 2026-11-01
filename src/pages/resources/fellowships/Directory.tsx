@@ -5,7 +5,7 @@
 import { ChevronDown, MapPin, Search } from "lucide-react";
 import { memo, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import type { Fellowship, FellowshipsData } from "@/data/resources";
-import { firstSentence, hostOf, kindOf, plural, restOf, tone } from "../life/format";
+import { commaParts, firstSentence, hostOf, kindOf, plural, restOf, tone } from "../life/format";
 import { ContactLink } from "../life/Row";
 import { AUDIENCES, sentence, shortCost } from "./format";
 
@@ -34,7 +34,8 @@ export function FellowshipDirectory({ data, mapped, mapCities }: { data: Fellows
         return <button key={g.id} type="button" className="lf-kind" data-g={g.id} aria-pressed={g.id === chosen} style={{ "--c": tone(g.id) } as CSSProperties} onClick={() => setChosen(g.id)}>
           <span className="lf-kind-disc"><Icon size={18} strokeWidth={STROKE} aria-hidden="true" /></span><span className="lf-t">{g.title}</span>
           <span className="lf-n">{shown.length}</span>
-          <span className="lf-w">{plural(finders, "group finder")}{onMap ? ` · ${onMap} on the map` : ""}</span>
+          {/* The count apart from its words: "{n} group finder" is already a finder's name ("BSF group finder") to the page translator. */}
+          <span className="lf-w">{finders} {finders === 1 ? "group finder" : "group finders"}{onMap > 0 && <>{" · "}{`${onMap} on the map`}</>}</span>
         </button>;
       })}</div>
       <div className="lf-list">{data.groups.map((g) => {
@@ -73,8 +74,8 @@ const FellowshipRow = memo(function FellowshipRow({ fellowship: f, kind, mapped,
     <div className="lf-body" ref={body}><div>
       {rest && <p className="lf-rest">{rest}</p>}
       <dl className="fw-facts">
-        <div><dt>Who it is for</dt><dd>{f.for.map(sentence).join(", ")}</dd></div>
-        <div><dt>How it meets</dt><dd>{f.meets.map(sentence).join(", ")}</dd></div>
+        <div><dt>Who it is for</dt><dd>{commaParts(f.for.map(sentence))}</dd></div>
+        <div><dt>How it meets</dt><dd>{commaParts(f.meets.map(sentence))}</dd></div>
         {f.cost && <div><dt>Cost</dt><dd>{f.cost}</dd></div>}
         {f.jacksonville && <div><dt>Near Jacksonville, {f.checked}</dt><dd>{f.jacksonville}</dd></div>}
       </dl>

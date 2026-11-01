@@ -51,7 +51,7 @@ export function gatheringWords(fellowshipOf: (placeId: string) => string): CityW
   return {
     kick: "02 · Where they meet",
     lead: (places) => `${plural(places, "place")} where these fellowships meet, each listed by the fellowship’s own finder and found on the map by its street address.`,
-    title: (place) => `Gather in ${place}`,
+    title: "Gather in",
     count: (places) => `${plural(places, "place")} on the map · tap a pin or a row`,
     tag: (e) => fellowshipOf(e.id) || kindOf(e.category).short,
   };

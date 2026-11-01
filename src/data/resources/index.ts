@@ -50,7 +50,8 @@ export interface FellowshipCity {
 }
 export interface FellowshipCities { checked: string; cities: FellowshipCity[] }
 
-export interface Contact { kind: string; value: string; note?: string }
+/** `english`: in a translated copy, the note as written in English (apply.py), which the page reads its buttons from. */
+export interface Contact { kind: string; value: string; note?: string; english?: string }
 export interface Help {
   id: string; name: string; summary: string; faith?: boolean | null; contact: Contact[]; hours?: string; cost?: string; locator?: string;
   source: string; checked: string;

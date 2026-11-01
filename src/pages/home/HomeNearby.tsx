@@ -49,7 +49,7 @@ export function HomeNearby({ resourcesTab = false, number, trial = false }: { re
   const words = useMemo(() => ({
     kick: `${merged?.cities.length ?? 0} cities on the map`,
     lead: (places: number, lines: number) => `${plural(places, "place")}${lines ? ` and ${plural(lines, "phone line")}` : ""}: churches and Bible studies, and help for hard times, each checked on its own page.`,
-    title: (place: string) => `Near you in ${place}`,
+    title: "Near you in",
     count: (places: number, lines: number) => `${plural(places, "place")} on the map${lines > 0 ? ` · ${plural(lines, "phone line")} below` : ""}`,
     tag: (e: City["entries"][number]) => merged?.fellowshipOf.get(e.id) || kindOf(e.category).short,
   }), [merged]);

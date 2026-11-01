@@ -7,6 +7,10 @@ import { dialable, wayOf as baseWay } from "../contact-links";
 
 export const plural = (n: number, one: string, many = `${one}s`) => `${n.toLocaleString("en-US")} ${n === 1 ? one : many}`;
 export const listOf = (words: string[]) => (words.length < 2 ? words.join("") : `${words.slice(0, -1).join(", ")} and ${words[words.length - 1]}`);
+/** listOf as separate pieces for the page, so the page translator can swap the "and" and each word on its own. */
+export const listParts = (words: string[]) => words.flatMap((word, i) => (i === 0 ? [word] : [i === words.length - 1 ? " and " : ", ", word]));
+/** The same with commas only: "In person, Online". */
+export const commaParts = (words: string[]) => words.flatMap((word, i) => (i === 0 ? [word] : [", ", word]));
 
 interface Kind { short: string; color: string; Icon: LucideIcon }
 /** One colour per kind of help, from the site's book colours; used for the kind's disc, its pins and its row marker. */
@@ -34,9 +38,12 @@ export const wayOf = (kind: string): Way => (/chat/i.test(kind) ? "chat" : baseW
 export const WAY_WORD: Partial<Record<Way, string>> = { call: "Call", text: "Text", chat: "Chat", web: "Website", email: "Email" };
 const WAY_ORDER = Object.keys(WAY_WORD);
 
+/** A contact's note in English, which the buttons are read from; in Spanish or Portuguese it sits beside the translation. */
+const noteOf = (c: Contact) => c.english ?? c.note ?? "";
+
 /** The keyword a text line asks for ("HOME", "GO", "START"), from its value or its note. */
 function keywordOf(c: Contact): string | undefined {
-  return (`${c.value} ${c.note ?? ""}`.match(/text\s+["“]?([A-Za-z]+)["”]?(?:\s+to|\s*$|["”])/i) ?? [])[1] ?? (c.value.match(/^\s*["“]?([A-Za-z]+)["”]?\s+to\s+/i) ?? [])[1];
+  return (`${c.value} ${noteOf(c)}`.match(/text\s+["“]?([A-Za-z]+)["”]?(?:\s+to|\s*$|["”])/i) ?? [])[1] ?? (c.value.match(/^\s*["“]?([A-Za-z]+)["”]?\s+to\s+/i) ?? [])[1];
 }
 const usableKeyword = (key: string | undefined) => (key && !/zip/i.test(key) ? key.toUpperCase() : undefined);
 
@@ -70,26 +77,26 @@ export const restOf = (text = "") => (firstSentence(text) === text ? "" : text.s
 
 // The hours and notes may be in Spanish or Portuguese (the translated copies): "24 horas", "Oficina", "Escritório".
 const shortHours = (h?: string) => (!h ? "" : /24\s*[/-]?\s*7|24-hour|24 hours|24 horas/i.test(h) && h.length < 26 ? h.replace(/ helpline| hotline/i, "") : /^(Office|Oficina|Escritório) /.test(h) ? "" : h.length <= 28 ? h : "");
-const answersAlways = (e: Help) => /24\s*\/\s*7|24-hour|answered 24|24 horas/i.test(`${e.hours ?? ""} ${e.contact.map((c) => c.note ?? "").join(" ")}`);
+const answersAlways = (e: Help) => /24\s*\/\s*7|24-hour|answered 24|24 horas/i.test(`${e.hours ?? ""} ${e.contact.map(noteOf).join(" ")}`);
 
 /** The ways a line can be reached, in a fixed order: call, text, chat, website, email. */
 export const waysOf = (entry: Help) => [...new Set(entry.contact.map((c) => wayOf(c.kind)).filter((w) => w in WAY_WORD))].sort((a, b) => WAY_ORDER.indexOf(a) - WAY_ORDER.indexOf(b));
 /** "Call · Text · Chat  ·  24/7". */
 export const subtitle = (entry: Help) => [waysOf(entry).map((w) => WAY_WORD[w]).join(" · "), shortHours(entry.hours)].filter(Boolean).join("  ·  ");
 
-export interface Quick { way: "call" | "text"; href: string; label: string }
+/** "Call 988, then 1" / "Text HOME to 741741", in pieces: the word, the number or keyword, and what follows it. */
+export interface Quick { way: "call" | "text"; href: string; value: string; press?: string; to?: string }
 /** The tap-to-call and tap-to-text buttons a row shows while it is still closed (never a TTY, office or admin number). */
 export function quickActions(entry: Help, max = 2): Quick[] {
   const out: Quick[] = [];
   for (const c of entry.contact) {
     const way = wayOf(c.kind), href = hrefOf(c);
     if (!href || (way !== "call" && way !== "text")) continue;
-    if (/tty|non-urgent|administ|office|headquarters/i.test(c.note ?? "")) continue;
+    if (/tty|non-urgent|administ|office|headquarters/i.test(noteOf(c))) continue;
     if (out.some((o) => o.way === way)) continue;
-    const press = (c.note ?? "").match(/press (\d)/i);
+    const press = noteOf(c).match(/press (\d)/i);
     const key = way === "text" ? usableKeyword(keywordOf(c)) : undefined;
-    const label = way === "call" ? `Call ${c.value}${press ? `, then ${press[1]}` : ""}` : key ? `Text ${key} to ${c.value.replace(/^.*\bto\b\s*/i, "")}` : `Text ${c.value}`;
-    out.push({ way, href, label });
+    out.push(way === "call" ? { way, href, value: c.value, press: press?.[1] } : key ? { way, href, value: key, to: c.value.replace(/^.*\bto\b\s*/i, "") } : { way, href, value: c.value });
     if (out.length >= max) break;
   }
   return out;
@@ -120,8 +127,8 @@ export function compass(a: { lat: number; lon: number }, b: { lat: number; lon: 
 export interface CityWords {
   kick: string;
   lead: (places: number, lines: number) => string;
-  /** The places panel's heading, "Help in Jacksonville". */
-  title: (place: string) => string;
+  /** The places panel's heading before the place's name: "Help in" Jacksonville (kept apart so it can be translated). */
+  title: string;
   count: (places: number, lines: number) => string;
   /** The word before a place's distance on its row: its kind of help. */
   tag: (e: LocalHelp) => string;
@@ -129,7 +136,7 @@ export interface CityWords {
 export const LIFE_WORDS: CityWords = {
   kick: "02 · Local help",
   lead: (places, lines) => `${plural(places, "place")} you can walk into and ${plural(lines, "phone line")}, each checked on the organisation’s own page.`,
-  title: (place) => `Help in ${place}`,
+  title: "Help in",
   count: (places, lines) => `${plural(places, "place")} you can walk into${lines > 0 ? ` · ${plural(lines, "phone line")} below` : ""}`,
   tag: (e) => kindOf(e.category).short,
 };

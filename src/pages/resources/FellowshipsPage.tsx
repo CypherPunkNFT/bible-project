@@ -8,7 +8,7 @@ import { useResource, type FellowshipsData } from "@/data/resources";
 import { FellowshipDirectory } from "./fellowships/Directory";
 import { Gatherings } from "./fellowships/Gatherings";
 import { TableArt } from "./fellowships/TableArt";
-import { hasCityFiles, listOf } from "./life/format";
+import { hasCityFiles, listParts } from "./life/format";
 import { RESOURCE_SECTIONS, sectionBySlug } from "./sections";
 import "./life/life.css";
 import "./fellowships/fellowships.css";
@@ -31,9 +31,10 @@ export default function FellowshipsPage({ data }: { data: FellowshipsData }) {
   return <div className="lf-page fw-page mx-auto max-w-7xl px-4 sm:px-6" style={{ "--door": "var(--accent)" } as CSSProperties}>
     <header className="lf-hero">
       <div>
-        <p className="lf-kick">Resources · {String(RESOURCE_SECTIONS.indexOf(info) + 1).padStart(2, "0")}</p>
+        <p className="lf-kick">{`Resources · ${String(RESOURCE_SECTIONS.indexOf(info) + 1).padStart(2, "0")}`}</p>
         <h1>{info.title} <em>around the Word, together</em></h1>
-        <p className="lf-lead">National fellowships that gather believers to pray and to study the word together, across the country and online. Each says who it is for, how it meets and what it costs, and has its own group finder{cities.length ? `. In ${listOf(cities.map((c) => c.name.split(",")[0]))}, a map shows the groups and churches those finders list, street by street` : ""}.</p>
+        {/* In pieces (the cities one by one), so the page translator can swap each part. */}
+        <p className="lf-lead">National fellowships that gather believers to pray and to study the word together, across the country and online. Each says who it is for, how it meets and what it costs, and has its own group finder{cities.length > 0 && <>. In {listParts(cities.map((c) => c.name.split(",")[0]))}, a map shows the groups and churches those finders list, street by street</>}.</p>
         <dl className="lf-stats">{stats.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{typeof value === "number" ? value.toLocaleString("en-US") : value}</dd></div>)}</dl>
       </div>
       <TableArt />

@@ -6,7 +6,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef, type CSSProperties } from 
 import { useResource, type City, type CityFact, type CityFacts, type UsStates } from "@/data/resources";
 import { dialable } from "../contact-links";
 import { CityMap } from "./CityMap";
-import { CITY_FILES, hostOf, kindOf, kindsIn, LIFE_WORDS, listOf, plural, tone, wayOf, type CityWords } from "./format";
+import { CITY_FILES, hostOf, kindOf, kindsIn, LIFE_WORDS, listParts, plural, tone, wayOf, type CityWords } from "./format";
 import { attachZoom, placeMarks, type Zoom } from "./zoom";
 import { ZoomButtons } from "./ZoomButtons";
 
@@ -84,10 +84,12 @@ function Local211({ city }: { city: City }) {
   if (!line) return null;
   const phones = line.contact.filter((c) => wayOf(c.kind) === "call" && dialable(c.value) !== "211").map((c) => c.value);
   const texts = line.contact.filter((c) => wayOf(c.kind) === "text").map((c) => (c.note ? c.note.charAt(0).toLowerCase() + c.note.slice(1) : `text ${c.value}`));
-  const also = [phones.length ? `also ${listOf(phones)}` : "", texts.length ? `or ${texts.join(", ")}` : ""].filter(Boolean).join(", ");
+  // In pieces ("also", the numbers, "or", the text line), so the page translator can swap the words on their own.
   return <div><dt>Local 211</dt><dd>
     <strong><a href="tel:211">211</a></strong>
-    <span>{[line.name.replace(/\s*\((.*)\)/, " of $1"), line.hours, line.cost].filter(Boolean).join(" · ")}{also && `; ${also}`}</span>
+    <span>{[line.name.replace(/\s*\((.*)\)/, " of $1"), line.hours, line.cost].filter(Boolean).join(" · ")}
+      {phones.length > 0 && <>; also {listParts(phones)}</>}
+      {texts.length > 0 && <>{phones.length > 0 ? ", " : "; "}or {texts.join(", ")}</>}</span>
     <a className="lf-src" href={line.source} target="_blank" rel="noreferrer">{hostOf(line.source)} · checked {line.checked}</a>
   </dd></div>;
 }

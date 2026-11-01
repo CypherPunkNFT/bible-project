@@ -245,12 +245,12 @@ export function CityMap({ city, map, kinds, words = LIFE_WORDS }: { city: City; 
     {/* Pointing at a pin only lights it; the list scrolls when a pin is clicked (owner, 2026-10-08). The places in a panel as tall as the map: a header, then the list scrolling with the pill outside the edge. */}
     <div className="lf-places">
       <header className="lf-places-head">
-        <h3 className="lf-fade">{words.title(city.name.split(",")[0])}</h3>
+        <h3 className="lf-fade">{words.title} {city.name.split(",")[0]}</h3>
         <p className="lf-fade">{words.count(city.entries.length, lines.length)}</p>
       </header>
-      <OutsideScroll className="lf-places-scroll lf-fade" viewportClassName="lf-city-list" label={words.title(city.name)} resetKey={city.id}>
+      <OutsideScroll className="lf-places-scroll lf-fade" viewportClassName="lf-city-list" label={`${words.title} ${city.name}`} resetKey={city.id}>
       <div ref={list} onPointerMove={(e) => { overList.current = [e.clientX, e.clientY]; }} onPointerLeave={() => { overList.current = null; }}>
-      <ol aria-label={words.title(city.name)}>{places.map(({ e, n }) => <LifeRow key={e.id} entry={e} kind={e.category} layout="stack" n={n} quick={1} address
+      <ol aria-label={`${words.title} ${city.name}`}>{places.map(({ e, n }) => <LifeRow key={e.id} entry={e} kind={e.category} layout="stack" n={n} quick={1} address
         sub={subs.get(e.id)} open={open.has(e.id)} onToggle={toggle} lit={lit === e.id} selected={selected === e.id}
         hidden={!shown.has(e.category)} onLit={lightRow} />)}</ol>
       {lines.length > 0 && <>

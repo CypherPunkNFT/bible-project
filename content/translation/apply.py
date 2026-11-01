@@ -40,6 +40,20 @@ def page_strings(repo: Path, lang: str, translated: dict[str, str]) -> dict[str,
     return strings
 
 
+def keep_english_notes(english: object, copy: object) -> None:
+    """Puts a contact's English note beside its translation as "english": the Help for life page reads "press 1",
+    "Office" and "text HOME" from it (src/pages/resources/life/format.ts), so its buttons stay right in every language."""
+    if isinstance(english, dict) and isinstance(copy, dict):
+        if "value" in english and isinstance(english.get("note"), str) and copy.get("note") != english["note"]:
+            copy["english"] = english["note"]
+        for key, value in english.items():
+            if key in copy:
+                keep_english_notes(value, copy[key])
+    elif isinstance(english, list) and isinstance(copy, list):
+        for item, copied in zip(english, copy):
+            keep_english_notes(item, copied)
+
+
 def apply(repo: Path, lang: str) -> None:
     by_kind = translations(repo, lang)
     target = SITE / "data" / "i18n" / lang
@@ -59,7 +73,10 @@ def apply(repo: Path, lang: str) -> None:
             return found
 
         for path in sorted(SITE.glob(pattern)):
-            copy = walk(json.loads(path.read_text("utf-8")), "", spec, visit)
+            text = path.read_text("utf-8")
+            copy = walk(json.loads(text), "", spec, visit)
+            if spec in RESOURCES:
+                keep_english_notes(json.loads(text), copy)
             out = target / path.relative_to(home)
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_text(json.dumps(copy, ensure_ascii=False, separators=(",", ":")), "utf-8")

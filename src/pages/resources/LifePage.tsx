@@ -7,7 +7,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { loadResource, type Help, type LifeData } from "@/data/resources";
 import { dialable, smsHref } from "./contact-links";
 import { CitySection } from "./life/CitySection";
-import { CITY_FILES, hasCityFiles, kindOf, kindsIn, listOf, wayOf } from "./life/format";
+import { CITY_FILES, hasCityFiles, kindOf, kindsIn, listParts, wayOf } from "./life/format";
 import { NationalLines } from "./life/NationalLines";
 import { DoorArt } from "./life/DoorArt";
 import { RESOURCE_SECTIONS, sectionBySlug } from "./sections";
@@ -56,7 +56,7 @@ export default function LifePage({ data }: { data: LifeData }) {
     timer.current = window.setTimeout(() => { void ready.then(() => { if (gone.current) return; setChosenId(id); setLeaving(false); }); }, 220);
   };
   const places = cities.reduce((n, c) => n + c.entries.length, 0), lines = cities.reduce((n, c) => n + (c.lines?.length ?? 0), 0);
-  const helpsWith = listOf([...new Set(cities.flatMap((c) => kindsIn(c).map(([k]) => kindOf(k).short.toLowerCase())))]);
+  const helpsWith = [...new Set(cities.flatMap((c) => kindsIn(c).map(([k]) => kindOf(k).short.toLowerCase())))];
   const stats: [string, string | number][] = [["National lines", national], ...(cities.length ? [["Places", places], ["Local lines", lines]] as [string, number][] : []), ["Checked", data.checked]];
   // "Help" plain, "for life" set apart in the page's title colour (owner, 2026-10-08).
   const titleWords = info.title.split(" "), lastWords = titleWords.splice(1).join(" ");
@@ -64,9 +64,10 @@ export default function LifePage({ data }: { data: LifeData }) {
     <CrisisStrip groups={data.groups} />
     <header className="lf-hero">
       <div>
-        <p className="lf-kick">Resources · {String(RESOURCE_SECTIONS.indexOf(info) + 1).padStart(2, "0")}</p>
+        <p className="lf-kick">{`Resources · ${String(RESOURCE_SECTIONS.indexOf(info) + 1).padStart(2, "0")}`}</p>
         <h1>{titleWords.join(" ")} <em>{lastWords}</em></h1>
-        <p className="lf-lead">Free national lines for the hardest moments{cities.length ? `, and places in ${listOf(cities.map((c) => c.name))} that help with ${helpsWith}` : ""}. Every number can be tapped to call or text.</p>
+        {/* In pieces (the cities and kinds one by one), so the page translator can swap each part. */}
+        <p className="lf-lead">Free national lines for the hardest moments{cities.length > 0 && <>, and places in {listParts(cities.map((c) => c.name))} that help with {listParts(helpsWith)}</>}. Every number can be tapped to call or text.</p>
         <dl className="lf-stats">{stats.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{typeof value === "number" ? value.toLocaleString("en-US") : value}</dd></div>)}</dl>
       </div>
       <DoorArt />
