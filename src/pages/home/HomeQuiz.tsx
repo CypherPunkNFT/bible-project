@@ -7,7 +7,9 @@
 import { ArrowRight, ArrowUpRight, GraduationCap, PenLine } from "lucide-react";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 import { Tally } from "./QuizParts";
+import { QuizBar, QuizSlider, useQuizPages } from "./QuizSlider";
 import { CardDeck, Tiles } from "./QuizVersions";
 import { useQuiz } from "./quiz-state";
 import "../home-quiz.css";
@@ -17,19 +19,27 @@ export function HomeQuiz({ number }: { number?: string }) {
   const quiz = useQuiz();
   const [board, setBoard] = useState(true);
   const box = useRef<HTMLDivElement>(null);
+  // Phones slide through the questions four at a time; the desktop keeps its grid of tiles.
+  const phone = useMediaQuery("(max-width: 860px)");
+  const frame = useRef<HTMLDivElement>(null);
+  // Back on the board, the slider opens on the four holding the question just left.
+  const { page, go, track } = useQuizPages(frame, board ? Math.floor(Math.max(0, quiz.current) / 4) : 0);
   // Switching views keeps the top of the quiz in sight when the reader had scrolled past it.
   const show = (onBoard: boolean) => {
     setBoard(onBoard);
     if (box.current && box.current.getBoundingClientRect().top < 0) box.current.scrollIntoView({ block: "start", behavior: "smooth" });
   };
 
+  const tiles = <Tiles quiz={quiz} onOpen={(i) => { quiz.open(i); show(false); }} />;
+
   return <section className="qv qv-cardset qv-home hq home-wrap" aria-labelledby="hq-title">
     <header className="qv-cardset-head">
       <div><p className="home-eyebrow">{number && <span className="home-number">{number}</span>}Twelve questions · start anywhere</p><h2 id="hq-title">How well do you know <em>the Bible?</em></h2></div>
-      <Tally quiz={quiz} />
+      {!phone && <Tally quiz={quiz} />}
     </header>
+    {phone && <QuizBar quiz={quiz} page={page} go={go} nav={board} />}
     <div className="qv-board" ref={box}>
-      {board ? <Tiles quiz={quiz} onOpen={(i) => { quiz.open(i); show(false); }} /> : <CardDeck quiz={quiz} onBoard={() => show(true)} />}
+      {board ? (phone ? <QuizSlider frame={frame} go={go} track={track}>{tiles}</QuizSlider> : tiles) : <CardDeck quiz={quiz} onBoard={() => show(true)} />}
     </div>
     <QuizDoors />
   </section>;

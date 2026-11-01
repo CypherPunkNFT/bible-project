@@ -81,9 +81,9 @@
   .home-hub.hm6-page .home-banner-quote p { white-space: normal; }
   /* The arrow in the banner's bottom right corner, just inside its thin line (owner, 2026-10-31). */
   .home-hub.hm6-page .home-banner-quote a svg { position: absolute; right: 24px; bottom: 24px; width: 18px; height: 18px; }
-  /* The closing blessing smaller, with room at the sides (owner, same day: "the quotes are way too large. They're almost end
-     to end themselves"). */
+  /* The closing blessing smaller (owner, same day: "the quotes are way too large"). */
   .home-hub.hm6-page .hm6-blessing blockquote { font-size: 21px; line-height: 1.25; }
-  .home-hub.hm6-page .hm4-b.hm6-blessing .home-hero-copy { max-width: 19rem; margin-inline: auto; }
+  /* The two quotes on the same left margin as the boxes above them (owner, 2026-10-31). */
+  .home-hub.hm6-page .hm4-b.hm6-blessing .home-hero-copy { max-width: none; margin-inline: 0; }
   .home-hub.hm6-page .hm6-blessing-cite { font-size: 12px; }
 }
