@@ -288,9 +288,9 @@
 .study-experience .people-feature:is(.writers,.scholars){border-color:color-mix(in srgb,var(--tone) 35%,var(--line))}
 .study-experience .people-feature:is(.writers,.scholars):hover{border-color:var(--tone)}
 /* Meet the writers: its words under the title, and in their place the way to Circles of study, the size of "Enter the full Atlas",
-   a solid gray block with black words and no line (owner, 2026-10-31). */
+   a solid dark gray block with gold words and no line, the same in both themes (owner, 2026-10-31). */
 .study-experience .section-heading .voices-about{max-width:520px;margin-top:14px;font-size:var(--body-text,13px);line-height:var(--body-leading,1.85);color:var(--muted)}
-.study-experience .circles-go{flex:0 0 max(300px,calc(100% / 2.8 - 64px));box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:12px;min-height:57px;padding:12px 17px;border-radius:3px;background:#a3a3a3;color:#111;transition:background .2s,color .2s}
+.study-experience .circles-go{flex:0 0 max(300px,calc(100% / 2.8 - 64px));box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:12px;min-height:57px;padding:12px 17px;border-radius:3px;background:#2e2e2e;color:#e0b25c;transition:background .2s,color .2s}
 .study-experience .circles-go>span{display:flex;flex-direction:column;gap:2px}
 .study-experience .circles-go strong{font-size:13px;font-weight:600;line-height:1.25}
 .study-experience .circles-go small{font-size:11px;line-height:1.25}
