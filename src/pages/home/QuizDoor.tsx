@@ -20,7 +20,7 @@ const S = SUMMARY;
  *  the count first, in gold, as part of the title (owner, 2026-10-24: "all one line, it's all one margin"; the count
  *  "before the for children in gold, same font, same size", and bigger icons). */
 const READERS: [LucideIcon, string, string, string][] = [
-  [Backpack, "For children", n(S.children), "Questions from the old Sunday-school question books, catechisms for little children and quizzes for kids; " + n(S.reworded) + " of them reworded in plain words for young readers."],
+  [Backpack, "For children", n(S.children), `Questions from the old Sunday-school question books, catechisms for little children and quizzes for kids; ${n(S.reworded)} of them reworded in plain words for young readers.`],
   [Users, "For adults and families", n(S.questions - S.children), `From the Heidelberg and Westminster catechisms to quizzes on all ${S.books} books, for a family at the table or a class on a Sunday.`],
 ];
 
