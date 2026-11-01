@@ -1,6 +1,6 @@
-import { ArrowRight, ArrowUpRight, BookOpen, Church, CircleHelp, GitBranch, GraduationCap, Map, Search, Users, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookOpen, Church, CircleDot, CircleHelp, GitBranch, GraduationCap, Map, Search, Users, X } from "lucide-react";
 import { Link, useLocation, type LinkProps } from "react-router-dom";
-const icons = { arrow: ArrowRight, arrowUp: ArrowUpRight, book: BookOpen, church: Church, branch: GitBranch, graduation: GraduationCap, map: Map, people: Users, question: CircleHelp, search: Search, x: X };
+const icons = { arrow: ArrowRight, arrowUp: ArrowUpRight, book: BookOpen, church: Church, circles: CircleDot, branch: GitBranch, graduation: GraduationCap, map: Map, people: Users, question: CircleHelp, search: Search, x: X };
 export function Icon({ name }: {
     name: keyof typeof icons;
 }) { const Component = icons[name]; return <Component size={18} strokeWidth={1.5} aria-hidden/>; }

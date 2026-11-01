@@ -287,6 +287,19 @@
 /* The writers and scholars cards have the same edge as the two doors above them, tinted with the card's own colour (owner, 2026-10-31). */
 .study-experience .people-feature:is(.writers,.scholars){border-color:color-mix(in srgb,var(--tone) 35%,var(--line))}
 .study-experience .people-feature:is(.writers,.scholars):hover{border-color:var(--tone)}
+/* Meet the writers: its words under the title, and in their place the way to Circles of study, the size of "Enter the full Atlas"
+   with an orange edge and no fill (owner, 2026-10-31). */
+.study-experience .section-heading .voices-about{max-width:520px;margin-top:14px;font-size:var(--body-text,13px);line-height:var(--body-leading,1.85);color:var(--muted)}
+.study-experience .circles-go{--tone:var(--history);flex:0 0 max(300px,calc(100% / 2.8 - 64px));box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:12px;min-height:57px;padding:11px 17px;border:1px solid var(--tone);border-radius:3px;color:var(--ink);transition:background .2s,color .2s}
+.study-experience .circles-go>span{display:flex;flex-direction:column;gap:2px}
+.study-experience .circles-go strong{font-size:13px;font-weight:600;line-height:1.25}
+.study-experience .circles-go small{font-size:11px;line-height:1.25;color:var(--muted);transition:color .2s}
+.study-experience .circles-go>svg:last-child{transition:transform .3s}
+.study-experience .circles-go:is(:hover,:focus-visible){background:var(--tone);color:var(--page);outline:none}
+.study-experience .circles-go:is(:hover,:focus-visible) small{color:inherit}
+.study-experience .circles-go:is(:hover,:focus-visible)>svg:last-child{transform:rotate(-35deg)}
+@media(max-width:800px){.study-experience .circles-go{margin-top:20px}}
+@media(prefers-reduced-motion:reduce){.study-experience .circles-go,.study-experience .circles-go small,.study-experience .circles-go>svg:last-child{transition:none}}
 /* The writers' and fields' choosers: square corners like the buttons and cards around them, and bigger, at every width (owner, 2026-10-31). */
 .study-experience .people-footer .writer-tabs button,.study-experience .people-footer .scholar-fields button{min-height:50px;padding:10px 12px;border-radius:3px;font-size:14px}
 .study-experience .people-feature .people-footer .writer-tabs{max-width:300px;gap:8px}

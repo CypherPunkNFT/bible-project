@@ -18,7 +18,7 @@ export default function StudyHub() {
         <p className="intro-lead">Begin with Scripture and its teaching, or explore the history,<br className="wide-break"/> texts and people that illuminate it.</p>
       </div>
     <HubSearch /></header>
-    <div className="section-rule"><span>Choose your way in</span><StudyLink to="/study/circles">Circles of study · Explore the works behind each subject <Icon name="arrowUp"/></StudyLink></div>
+    <div className="section-rule"><span>Choose your way in</span></div>
     <section className="study-doors" aria-label="Study collections">
       <StudyLink className="study-door scripture-door" to="/study/theology/" aria-labelledby="scripture-title">
         <div className="door-top"><span>01 / Begin with the passage</span><Icon name="book"/></div>
