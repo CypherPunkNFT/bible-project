@@ -1,3 +1,4 @@
+import { useSiteLanguage, type LanguageCode } from "@/lib/language";
 import { ArrowLeft, ArrowRight, CheckSquare, ChevronLeft, ChevronRight, Square } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Link, Navigate, useNavigate, useParams, useSearchParams } from "react-router-dom";
@@ -280,9 +281,13 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
   );
 }
 
+// "Read" here means "already read", which the page translator would turn into the verb on the Bible page's card.
+const CHAPTER_READ: Record<LanguageCode, string> = { en: "Read", es: "Leído", "pt-BR": "Lido", "zh-Hans": "已读", ar: "مقروء", hi: "पढ़ लिया" };
+
 /** Tick this chapter on the reading chart (KJV chapter numbering only, so it can never mark the wrong one). */
 function MarkRead({ code, chapter }: { code: string; chapter: string }) {
   const progress = useProgress();
+  const language = useSiteLanguage();
   const read = progress.isRead(code, chapter);
   return (
     <button
@@ -292,7 +297,7 @@ function MarkRead({ code, chapter }: { code: string; chapter: string }) {
       className={cn("flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm transition", read ? "border-transparent bg-ink text-page" : "border-line hover:bg-surface-2")}
     >
       {read ? <CheckSquare className="h-4 w-4" aria-hidden /> : <Square className="h-4 w-4" aria-hidden />}
-      {read ? "Read" : "Mark read"}
+      {read ? <span translate="no">{CHAPTER_READ[language]}</span> : "Mark read"}
     </button>
   );
 }

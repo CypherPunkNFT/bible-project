@@ -197,7 +197,7 @@ def jsx_prose(text: str) -> bool:
     """JSX text between tags; a semicolon is allowed in a sentence of five words or more ("...be read; every...")."""
     if not translatable(text):
         return False
-    if not CODE_LIKE.search(text):
+    if not CODE_LIKE.search(text) or re.fullmatch(r"[A-Z][a-z'’-]+", text):  # a one-word label: <h2>Read</h2>, <th>Date</th>
         return True
     return (len(WORD.findall(text)) >= 5 and bool(re.match(r"[A-Z“‘\"(]", text))
             and not CODE_LIKE.search(text.replace(";", ",")))

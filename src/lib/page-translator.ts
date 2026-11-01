@@ -122,10 +122,14 @@ function translated(text: string): string | null {
 const leftAlone = (element: Element | null) =>
   !element || SKIP.has(element.tagName) || element.closest("[translate='no']:not(html)") !== null;
 
+// A Bible's own words are never page text: the reader sets some of them a word to a node, so "of" would become "de".
+// Anything marked with its own language is such a text already in the language it means to be.
+const isScripture = (element: Element | null) => element?.closest(".scripture, [lang]:not(html)") != null;
+
 function translateText(node: Text): void {
   const raw = node.nodeValue ?? "";
   const value = translated(raw);
-  if (value && !leftAlone(node.parentElement)) node.nodeValue = raw.match(/^\s*/)![0] + value + raw.match(/\s*$/)![0];
+  if (value && !leftAlone(node.parentElement) && !isScripture(node.parentElement)) node.nodeValue = raw.match(/^\s*/)![0] + value + raw.match(/\s*$/)![0];
 }
 
 function translateAttribute(element: Element, name: string): void {
