@@ -284,11 +284,15 @@
 /* The turning Psalter on the Hymns card (study.css): its quotation marks as CSS escapes. study.css keeps getting rewritten
    with "\201C" read as an escape inside a script string (the byte 0x81, then a plain C), which shows a box and a C. */
 .study-experience .study-hymns-read q{quotes:"\201C" "\201D"}
-/* On phones the ways into the two doors and the two people cards are the same big gold button as "Enter the full Atlas" and
-   "Explore the questions" (owner, 2026-10-31). The desktop keeps their plain line and round arrow. */
+/* The writers and scholars cards have the same edge as the two doors above them, tinted with the card's own colour (owner, 2026-10-31). */
+.study-experience .people-feature:is(.writers,.scholars){border-color:color-mix(in srgb,var(--tone) 35%,var(--line))}
+.study-experience .people-feature:is(.writers,.scholars):hover{border-color:var(--tone)}
+/* On phones the ways into the two doors and the two people cards are the same big button as "Enter the full Atlas" and
+   "Explore the questions", each in its own card's colour: gold for Scripture, orange for Academic (owner, 2026-10-31). The
+   desktop keeps their plain line and round arrow. */
 .study-experience .hub-go-icon,.study-experience .feature-link>.hub-go-icon{display:none}
 @media(max-width:860px){
-  .study-experience .study-door .door-action,.study-experience .people-footer .feature-link{justify-self:stretch;align-self:auto;display:flex;align-items:center;justify-content:center;gap:12px;width:auto;min-height:57px;margin:auto 0 0;padding:17px;border:1px solid var(--accent);border-radius:3px;background:var(--accent);color:var(--page);font-size:13px;font-weight:600;box-shadow:0 5px 20px color-mix(in srgb,var(--accent) 10%,transparent)}
+  .study-experience .study-door .door-action,.study-experience .people-footer .feature-link{justify-self:stretch;align-self:auto;display:flex;align-items:center;justify-content:center;gap:12px;width:auto;min-height:57px;margin:auto 0 0;padding:17px;border:1px solid var(--tone);border-radius:3px;background:var(--tone);color:var(--page);font-size:13px;font-weight:600;box-shadow:0 5px 20px color-mix(in srgb,var(--tone) 10%,transparent)}
   .study-experience .study-door:hover .door-action,.study-experience .people-footer .feature-link:hover,.study-experience .people-footer .feature-link:focus-visible{background:var(--ink);border-color:var(--ink);color:var(--page)}
   .study-experience .hub-go-icon,.study-experience .feature-link>.hub-go-icon{display:flex}
   .study-experience .people-footer .feature-action-label{text-align:center;white-space:normal}
