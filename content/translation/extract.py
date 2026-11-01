@@ -89,7 +89,7 @@ PAGE_PROPERTY = re.compile(r'\b(?:label|title|heading|subtitle|name|text|caption
 # then skips those outside PAGE_LITERAL_LENGTH.
 PAGE_LITERAL = re.compile(r'"([^"\\\n]*)"|' + r"(?<![\w'’])'([^'\\\n]*)'(?!\w)|" + r"`([^`$\\\n]*)`")
 PAGE_LITERAL_LENGTH = range(3, 401)
-CODE_LIKE = re.compile(r"[;=]|=>|&&|\|\||^\W|\.(tsx?|css|json|svg|png|jpe?g|md)\b|^[\w./@-]+$|\b(?:px|rem|var\(|rgba?\(|hsl)\b"
+CODE_LIKE = re.compile(r"[;=]|=>|&&|\|\||^\W|\",\w+:|\.(tsx?|css|json|svg|png|jpe?g|md)\b|^[\w./@-]+$|\b(?:px|rem|var\(|rgba?\(|hsl)\b"
                        r"|\.\d+m?s\b|\bxM[a-z]+Y[A-Z]|\b(?:translate|scale|rotate)\(|\bMath\.|\bmain h1\b|#root\b")
 
 

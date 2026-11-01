@@ -37,6 +37,12 @@ REFERENCE_FIXES = [
     ("John 19:13", {"*": (rf"\b19{SEP}13\b", r"14\g<1>13")}),
     ("Revelation 3:18. Because", {"*": (rf"\b3{SEP}18\b", r"3\g<1>17")}),
     ("Eph. 2:810", {"*": (rf"\b2{SEP}810\b", r"2\g<1>8-10")}),
+    ("Deut. 30:1518", {"*": (rf"\b30{SEP}1518\b", r"30\g<1>16-18")}),
+    ("Luke 16:19-28", {"*": (rf"\b16{SEP}19(\s*[–-]\s*)28\b", r"16\g<1>19\g<2>27")}),
+    ("that knowledge; 1 Peter 1:10", {
+        "es": (r"1 Pedro(\s*1:10)", r"2 Pedro\1"), "pt": (r"1 Pedro(\s*1:10)", r"2 Pedro\1"),
+        "zh": (r"(?:彼得前书|1\s*彼得书)(\s*1:10)", r"彼得后书\1"), "ar": (r"بطرس الأولى(\s*1:10)", r"بطرس الثانية\1"),
+        "hi": (r"1 पतरस(\s*1:10)", r"2 पतरस\1")}),
     ("1 Cor. 15:2 2", {"*": (rf"\b15{SEP}2\s?2\b", r"15\g<1>22")}),
     ("to behold iniquity, Heb. 1:13", {
         "es": (r"Hebreos\s*(1:13)", r"Habacuc \1"), "pt": (r"Hebreus\s*(1:13)", r"Habacuque \1"),
