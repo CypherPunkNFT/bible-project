@@ -51,6 +51,7 @@ REFERENCE_FIXES = [
 # no reference fix can restore it. Translated afresh by the briefs; each still goes to the Opus check.
 RETRANSLATED_FILE = HERE / "source-fixes-retranslated.json"
 TOKEN = re.compile(r"[^\W\d_]+|\d+")
+CITATION = re.compile(r"(?<!\d)(\d+):(\d+)(?!\d)")
 
 
 def spec_of(pattern: str) -> tuple:
@@ -184,11 +185,17 @@ def save(path: Path, value: dict) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False, indent=1) + "\n", "utf-8", newline="\n")
 
 
-def fix_reference(lang: str, old_english: str, translation: str) -> str:
+def fix_reference(lang: str, old_english: str, new_english: str, translation: str) -> str:
     for key, by_language in REFERENCE_FIXES:
         if key in old_english:
             pattern, replacement = by_language.get(lang) or by_language["*"]
             translation = re.sub(pattern, replacement, translation)
+    # Any other corrected verse number: the citations stand in the same order in both Englishes.
+    before, after = CITATION.findall(old_english), CITATION.findall(new_english)
+    if len(before) == len(after):
+        for (old_chapter, old_verse), (chapter, verse) in zip(before, after):
+            if (old_chapter, old_verse) != (chapter, verse):
+                translation = re.sub(rf"(?<!\d){old_chapter}{SEP}{old_verse}(?!\d)", rf"{chapter}\g<1>{verse}", translation)
     return translation
 
 
@@ -257,7 +264,7 @@ def apply(args: argparse.Namespace) -> None:
 
             def carried(value: str, new: dict, lang: str = lang, flags: list = flags) -> str:
                 change = next(c for c in plan["changes"] if any(n["id"] == new["id"] for n in c["new"]) and c["old_id"] in translated)
-                value = retranslated.get(new["id"], {}).get(lang) or fix_reference(lang, change["old"], value)
+                value = retranslated.get(new["id"], {}).get(lang) or fix_reference(lang, change["old"], new["text"], value)
                 flags.extend(review_flags(lang, change, new, value))
                 return value
 
