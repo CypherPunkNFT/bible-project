@@ -159,25 +159,46 @@
     }
   },
   "fixes": {
-    "put-gen-10-6": {
-      "why": "Owner's rule of 2026-10-13: Josephus appears only in Scholars (docs/editorial-sources.md). STEP's text cites him, so this keeps what Scripture says.",
-      "evidence": "Genesis 10:6",
-      "article": "Put was one of the sons of Ham and a brother of Cush, Mizraim and Canaan (Genesis 10:6; 1 Chronicles 1:8)."
-    },
-    "drusilla-act-24-24": {
-      "why": "Owner's rule of 2026-10-13: Josephus appears only in Scholars (docs/editorial-sources.md). STEP's text cites him, so this keeps what Scripture says.",
-      "evidence": "Acts 24:24",
-      "article": "Drusilla was the wife of Felix and a Jewess. She was with Felix when he sent for Paul and heard him speak about faith in Christ (Acts 24:24)."
-    },
-    "jaddua-neh-12-11": {
-      "why": "Owner's rule of 2026-10-13: Josephus appears only in Scholars (docs/editorial-sources.md). STEP's text cites him, so this keeps what Scripture says.",
-      "evidence": "Nehemiah 12:11",
-      "article": "Jaddua is named as the son of Jonathan in the priestly genealogy of Nehemiah 12:11. Nehemiah 12:22 names him among the high priests during whose days the heads of the Levite families were recorded, in the reign of Darius the Persian."
-    },
     "philip-luk-3-1": {
-      "why": "Owner's rule of 2026-10-13: Josephus appears only in Scholars (docs/editorial-sources.md). STEP's text cites him, so this keeps what Scripture says.",
+      "why": "The restored text puts Philip's tetrarchy in Galilee; Luke 3:1 gives him Ituraea and Trachonitis, and Galilee to Herod Antipas.",
       "evidence": "Luke 3:1",
-      "article": "Luke 3:1 names Philip as tetrarch of Ituraea and the region of Trachonitis, and as the brother of Herod the tetrarch of Galilee. His rule is mentioned in the setting of John the Baptist’s ministry. Scripture gives no dates for the beginning or end of his rule."
+      "article": [
+        [
+          "over the regions of Western Galilee - Iturea and Traconitis",
+          "over the regions of Iturea and Traconitis"
+        ],
+        [
+          "who ruled East Galilee and Perea",
+          "who ruled Galilee and Perea"
+        ]
+      ]
+    },
+    "put-gen-10-6": {
+      "why": "Nahum 3:9 names Put among the allies of Thebes against Assyria, not in the Assyrian army.",
+      "evidence": "Nahum 3:9",
+      "article": [
+        [
+          "nations that had trade relations with Tyre or were part of the Assyrian army",
+          "the soldiers who served Tyre or the allies of Egypt against Assyria"
+        ]
+      ]
+    },
+    "tikvah-2ki-22-14": {
+      "why": "STEP's text puts Shallum in the delegation Josiah sent; 2 Kings 22:12 and 14 name the men, and Shallum, the husband of Huldah, is not one of them.",
+      "evidence": "2 Kings 22:12",
+      "article": [
+        [
+          "Josiah then sent a delegation, including Shallum, to consult Huldah",
+          "Josiah then sent a delegation to consult Huldah"
+        ]
+      ]
+    },
+    "harhas-2ki-22-14": {
+      "why": "STEP's text calls Harhas the father of Shallum's wife and puts Shallum in Josiah's delegation; the verse makes Harhas the father of Tikvah and the grandfather of Shallum, and names Huldah as Shallum's wife.",
+      "evidence": "2 Kings 22:14",
+      "brief": "Father of Tikvah and grandfather of Shallum, the husband of Huldah",
+      "short": "Harhas or Hasrah was the father of Tikvah and the grandfather of Shallum, the husband of the prophetess Huldah.",
+      "article": "Harhas, also known as Hasrah, was the father of Tikvah and the grandfather of Shallum. Shallum was the keeper of the wardrobe during the reign of King Josiah of Judah. When Hilkiah the high priest found the Book of the Law in the temple, King Josiah sent a delegation to consult the prophetess Huldah, who was Shallum's wife. No other information is provided about Harhas in the Bible. (2Ki.22.14; 2Ch.34.22)."
     },
     "jabesh-2ki-15-10": {
       "why": "STEP's text makes Jabesh the killer of Zechariah and king for a month; Scripture names him only as the father of Shallum, who did that.",

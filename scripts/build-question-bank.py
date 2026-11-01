@@ -26,6 +26,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from bible.english_spelling import correct_tree  # noqa: E402
 from bible.books import BOOKS  # noqa: E402
 from question_audit import apply_audit  # noqa: E402
 from question_children_sources import children_records  # noqa: E402
@@ -248,6 +249,16 @@ def collections_of(questions: list[dict]) -> list[dict]:
     return list(seen.values())
 
 
+def correct_spelling(questions: list[dict]) -> None:
+    """What readers see, after the audit and the wording steps. The records of why a question changed keep their quotes."""
+    shown = ("question", "answer", "options", "answer_choice", "lesson", "people", "places", "subjects", "lead_in", "child")
+    found: set[str] = set()
+    for question in questions:
+        for field in shown:
+            if question.get(field):
+                question[field] = correct_tree(question[field], frozenset(), found)
+
+
 def site_copy(questions: list[dict]) -> dict:
     """The page's copy: the questions without the licence wording, which the collection list carries once, and
     without repeats and questions the audit hid, which the site never shows (scripts/question_repeats.py,
@@ -285,6 +296,7 @@ def main() -> None:
     rated = add_difficulty(questions)  # after the audit: a rating is for the wording shown
     relinked = apply_link_verses(questions)  # after the audit, which sets the link from the reference
     child_worded = add_children_wording(questions)
+    correct_spelling(questions)
     counts = Counter(q["kind"] for q in questions)
     official = {
         "schema": SCHEMA,

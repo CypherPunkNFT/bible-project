@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "Source directories imported by live pages, plus verified chart data inputs. Institution labels identify source providers when no named author is recorded. Bibliographic access limits are retained; holdings and incidental name mentions are excluded.",
   "inputs": {
-    "scripts/collect-scholar-site-sources.mjs": "4d893084f5187a6a5d1b5890cfbb572f24f98d43a47774793ec8303d0de796e8",
+    "scripts/collect-scholar-site-sources.mjs": "8ead6885cd745ba1bc9bae521ecab2728dc33c1b43eb6eaac9ce3b781638ac13",
     "src/pages/study/witnesses/SurvivingWitnessesPage.tsx": "e9d8cb7f63b3ef9a0ad380d1c35de5914f52fd2bece71ce5260eef2246877dc3",
     "src/pages/study/witnesses/witnesses.ts": "394cf7181781c5844207f3637fade7d76195eae5e22eb11c689d20c33f5e4ef3",
     "src/pages/study/passages/PassageManuscriptsPage.tsx": "5e46704bee3b6fe913a3abf6c2caf2eb676bfdf15fb16da08c75f669d55724e1",
@@ -22,7 +22,7 @@
     "src/pages/study/history/cities-research.ts": "4d052cfcffcd089a77fd0fb848f34059552ad8220b6d087ac2057e716a544793",
     "src/pages/study/world/MergedWorldPage.tsx": "41cd4d1750cae559fdccd9a0473db3e2320969591b01824b1614db23a22c394e",
     "src/pages/study/world/world-data.ts": "9b7427d8651acbf480932aa2b80dd5ecb2209799f2aebd3aa6b38f8b288c5893",
-    "src/pages/study/world/investigation-data.ts": "334b98d41b2f4a8104e9b84fa4333127c8e816f37add0172045a542577fdf718",
+    "src/pages/study/world/investigation-data.ts": "c0ac12dc347af05e93e79357f60f0fa68ac80d53c8f3c108f440818cd411e415",
     "src/pages/study/world/merged-data.ts": "814524e28e6020d8a811c851fa6513e04b2f5bf5d9fa68dcbd5dcadc7bac128e",
     "src/pages/study/parables/ParablesPage.tsx": "69d588f88bae9e0dd6fdc80732aa7b4d1a10fcef057e1966c2b08cf9613de4ee",
     "src/data/parables-deep-reading.ts": "a0388cfff87afe6c2a33abe6d78e05f144f8ab726a2dfab25e118857a5eb42f7",
@@ -32,7 +32,7 @@
     "node_modules/react/cjs/react.development.js": "1ff3a1d9861a87984329584fa1172aea920855d79eb57dae0d1cebe54093d7e3",
     "node_modules/react/index.js": "a216c390bf956cbb906c66d29fdb2e2ad6999464a5ca83e476533a6f25ad0ef3",
     "node_modules/lucide-react/dist/cjs/lucide-react.js": "798654fc7b8693a24c573dfd45cc76941c7721d5f40ff17b17f025781566922d",
-    "scripts/build-data.py": "725aaba2f500a980ef25e84026efe8d6727653d0f2cee3bc2917ccff69b31d35"
+    "scripts/build-data.py": "bce22d3c42a0c37dd6379c4f79b82758bd2c94e8f3cc2600e5d5aa7d6661cc0b"
   },
   "features": [
     {
@@ -3233,7 +3233,7 @@
     {
       "id": "cross-references",
       "label": "Scripture cross-references",
-      "address": "/study/references",
+      "address": "/study/connections",
       "rows": [
         {
           "author": "OpenBible.info",

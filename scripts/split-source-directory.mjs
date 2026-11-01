@@ -8,8 +8,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// Same policy as isScholarsOnlySource() in src/lib/editorial-sources.ts, so the counts match the records shown.
-const scholarsOnly = (entry) => /\bjosephus\b|gutenberg\.org\/ebooks\/2848\b/i.test(JSON.stringify(entry));
 
 export function splitSourceDirectory(dir) {
   const file = path.join(dir, 'directory.json');
@@ -17,7 +15,7 @@ export function splitSourceDirectory(dir) {
   if (directory.split) return { skipped: 'already split' };
   if (!Array.isArray(directory.entries) || !Array.isArray(directory.collections)) throw Error(`Unexpected source directory at ${file}: no entries or collections array`);
   const { entries, ...summary } = directory;
-  const shown = entries.filter((entry) => !scholarsOnly(entry));
+  const shown = entries;
   const collections = Object.fromEntries(directory.collections.map(({ id }) => {
     const members = shown.filter((entry) => entry.categories?.includes(id));
     return [id, { records: members.length, authors: new Set(members.map((entry) => entry.author)).size }];

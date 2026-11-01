@@ -1,9 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { isScholarsOnlySource } from "@/lib/editorial-sources";
 import type { Directory, SourceEntry, SourceFacetSnapshot } from "./types";
 
 const BASE = "/content/sources/";
-const general = <T,>(items: T[]) => items.filter(item => !isScholarsOnlySource(JSON.stringify(item)));
 
 async function getJson<T>(url: string, signal: AbortSignal): Promise<T> {
   const response = await fetch(url, { signal });
@@ -27,17 +25,17 @@ export function useSourceDirectory() {
       const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(records)));
       const hash = Array.from(new Uint8Array(digest), byte=>byte.toString(16).padStart(2,'0')).join('');
       if (signal.aborted) return;
-      if (snapshot.schemaVersion !== 1 || snapshot.entriesSha256 !== hash) { setEntries(general(records)); setFacetState('stale'); return; }
-      setEntries(general(records).map(entry=>({...entry,metadata:snapshot.records[entry.id]})));
+      if (snapshot.schemaVersion !== 1 || snapshot.entriesSha256 !== hash) { setEntries(records); setFacetState('stale'); return; }
+      setEntries(records.map(entry=>({...entry,metadata:snapshot.records[entry.id]})));
       setFacetState('ready');
-    } catch { if (!signal.aborted) { setEntries(general(records)); setFacetState('unavailable'); } }
+    } catch { if (!signal.aborted) { setEntries(records); setFacetState('unavailable'); } }
   }, []);
   const [wanted, setWanted] = useState(false);
   const marker = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const controller = new AbortController();
     getJson<Directory>(`${BASE}directory.json`, controller.signal).then(data => {
-      setDirectory({ ...data, sources: general(data.sources), sourceProfiles: data.sourceProfiles && general(data.sourceProfiles) });
+      setDirectory(data);
       if (data.entries) void enrich(data.entries, controller.signal);
     }).catch(error => { if (!controller.signal.aborted) { console.error(error); setFailed("summary"); } });
     return () => controller.abort();

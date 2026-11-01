@@ -36,6 +36,7 @@ const referenceLibrary = [
   ["James Strong", "Hebrew & Greek dictionaries", "Word studies keyed to the Strong's numbers in the King James text.", "Public domain · Open Scriptures edition", "https://github.com/openscriptures/strongs"],
   ["Brown, Driver & Briggs", "Hebrew and English Lexicon · 1906", "Hebrew word studies, keyed to Strong's numbers.", "Text public domain · edition CC BY 4.0, Open Scriptures", "https://github.com/openscriptures/HebrewLexicon"],
   ["Joseph Henry Thayer", "Greek-English Lexicon of the New Testament · 1889", "Greek word studies, once its scanned text is cleaned.", "Public domain · Internet Archive scan", "https://archive.org/details/thayer-lexicon"],
+  ["Flavius Josephus", "Antiquities · Wars · Life · Against Apion (tr. Whiston)", "First-century history beside person and place pages, labelled as history, not Scripture.", "Public domain in the US · Project Gutenberg", "https://www.gutenberg.org/ebooks/2848"],
 ];
 const research = [
   ["Spurgeon’s published sermons", "spurgeon"], ["Reformation & Puritan preaching", "puritan-sermons"],

@@ -948,6 +948,17 @@
             "text": "None of the sources used for this page cites an inscription or other record from Saul's time that names him.",
             "layer": "text"
           }
+        },
+        {
+          "name": "Josephus's retelling (Antiquities 6.14.9; 10.8.4)",
+          "date": "about AD 93",
+          "claim": {
+            "text": "Josephus retells Scripture and gives two lengths for the reign: “eighteen years while Samuel was alive, and after his death two [and twenty]” (the brackets are in Whiston's translation), and elsewhere “twenty years”. He is not an independent witness.",
+            "layer": "ancient-record",
+            "cites": [
+              "josephus-antiquities"
+            ]
+          }
         }
       ],
       "twoAccounts": [
@@ -1142,6 +1153,18 @@
                 "cites": [
                   "ussher-1658",
                   "mcfall-2010"
+                ]
+              }
+            },
+            {
+              "label": "About twenty years",
+              "holders": "Josephus, Antiquities 10.8.4; Keil and Delitzsch (tr. 1866)",
+              "argument": {
+                "text": "Josephus once gives Saul twenty years. Keil argued for twenty or twenty-two, and suggested the forty arose from making Saul's reign equal to David's and Solomon's.",
+                "layer": "scholars",
+                "cites": [
+                  "josephus-antiquities",
+                  "keil-samuel"
                 ]
               }
             },
@@ -3542,6 +3565,17 @@
           }
         },
         {
+          "name": "Nicolaus of Damascus, quoted by Josephus (Antiquities 7.5.2)",
+          "date": "first century BC; quoted about AD 93",
+          "claim": {
+            "text": "Josephus quotes Nicolaus of Damascus as writing that a king of Damascus named Hadad “made war against David, the king of Judea”, and was beaten “in the last battle at Euphrates”. Nicolaus wrote about nine centuries after David, and his source is not known.",
+            "layer": "ancient-record",
+            "cites": [
+              "josephus-antiquities"
+            ]
+          }
+        },
+        {
           "name": "Nothing from his lifetime",
           "date": "—",
           "claim": {
@@ -3970,6 +4004,17 @@
           "question": "Absalom's revolt came “after forty years” (2 Samuel 15:7). Forty years from what?",
           "views": [
             {
+              "label": "Read “four years”",
+              "holders": "Josephus, Antiquities 7.9.1; Whiston (1737), note 16",
+              "argument": {
+                "text": "Josephus gives “four years” after Absalom's reconciliation with his father. Whiston's note calls this one of the best corrections Josephus offers, and cites the copy of the Greek used by the Armenian translation.",
+                "layer": "scholars",
+                "cites": [
+                  "josephus-antiquities"
+                ]
+              }
+            },
+            {
               "label": "Forty years from Samuel's anointing of David",
               "holders": "Ussher (1658); McFall (2010)",
               "argument": {
@@ -3994,6 +4039,18 @@
           "question": "When did Hiram of Tyre build David's house?",
           "views": [
             {
+              "label": "A different, earlier Hiram",
+              "holders": "Thenius and Ewald, as reported by Keil (1866)",
+              "argument": {
+                "text": "Josephus's Tyrian figures seem to start Hiram's reign late in David's life, so Thenius suggested that Hiram's father Abibal is meant in David's story, and Ewald that Abibal's own father was also called Hiram.",
+                "layer": "scholars",
+                "cites": [
+                  "keil-samuel",
+                  "josephus-apion"
+                ]
+              }
+            },
+            {
               "label": "Samuel's order is by topic, not date",
               "holders": "Movers, as reported by Keil (1866)",
               "argument": {
@@ -4003,6 +4060,23 @@
                   [
                     10005011,
                     10005011
+                  ]
+                ],
+                "cites": [
+                  "keil-samuel"
+                ]
+              }
+            },
+            {
+              "label": "Josephus's dating is his own calculation",
+              "holders": "Keil and Delitzsch (tr. 1866)",
+              "argument": {
+                "text": "Keil notes that Scripture makes the same Hiram a friend of both kings, and argues that the temple-in-Hiram's-twelfth-year figure is Josephus's own reckoning, not Menander's, so Hiram may have reigned longer.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    11005001,
+                    11005001
                   ]
                 ],
                 "cites": [
@@ -5528,6 +5602,18 @@
       ],
       "outside": [
         {
+          "name": "The Tyrian histories, quoted by Josephus (Against Apion 1.17–18)",
+          "date": "Dius and Menander, Hellenistic writers; quoted about AD 95",
+          "claim": {
+            "text": "Josephus quotes two writers on Phoenician history. Both say that Hirom (Hiram) son of Abibalus cut timber on Lebanon for temples and that Solomon sent him problems to solve; Menander gives Hiram a reign of thirty-four years. Josephus himself adds that the temple was built in Hiram's twelfth year, 143 years and eight months before Carthage was founded (in Antiquities 8.3.1 he says the eleventh year).",
+            "layer": "ancient-record",
+            "cites": [
+              "josephus-apion",
+              "josephus-antiquities"
+            ]
+          }
+        },
+        {
           "name": "Nothing from his lifetime",
           "date": "—",
           "claim": {
@@ -5918,6 +6004,17 @@
                   "wellhausen-1885"
                 ]
               }
+            },
+            {
+              "label": "A different figure",
+              "holders": "Josephus, Antiquities 8.3.1",
+              "argument": {
+                "text": "Josephus puts the start of the temple 592 years after the Exodus.",
+                "layer": "ancient-record",
+                "cites": [
+                  "josephus-antiquities"
+                ]
+              }
             }
           ]
         },
@@ -5925,6 +6022,35 @@
           "id": "solomon-sheba",
           "question": "Where did the queen of Sheba come from?",
           "views": [
+            {
+              "label": "Egypt and Ethiopia",
+              "holders": "Josephus, Antiquities 8.6.5",
+              "argument": {
+                "text": "Josephus calls her “queen of Egypt and Ethiopia”.",
+                "layer": "ancient-record",
+                "cites": [
+                  "josephus-antiquities"
+                ]
+              }
+            },
+            {
+              "label": "South-west Arabia (Saba)",
+              "holders": "Whiston (1737), note 16 to Antiquities 8.6.5; Budge (1922)",
+              "argument": {
+                "text": "Whiston thought it “generally agreed” that she ruled Sabea in south Arabia, pointing to “the queen of the south” in Matthew 12:42. Budge judged a home in south-west Arabia “far more probable” than Ethiopia.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    40012042,
+                    40012042
+                  ]
+                ],
+                "cites": [
+                  "josephus-antiquities",
+                  "budge-1922"
+                ]
+              }
+            },
             {
               "label": "Ethiopia",
               "holders": "The Kebra Nagast (Arabic version AD 1314–1344)",
@@ -6318,6 +6444,22 @@
       "year": "1885",
       "where": "ch. VI, §I.1–3 (Chronicles on David's accession, the census, Solomon at Gibeon); ch. VI, §III.2 (480 years as twelve generations of forty); ch. VII, §II.1 (the numbers in 1 Sam 13:1 and 2 Sam 2:10)",
       "url": "https://www.gutenberg.org/ebooks/4732"
+    },
+    {
+      "id": "josephus-antiquities",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "6.14.9; 7.5.2; 7.9.1 (with Whiston's note 16); 8.3.1; 8.6.5 (with Whiston's note 16); 10.8.4",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "josephus-apion",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "Against Apion",
+      "year": "1737",
+      "where": "1.17–18 (Dius and Menander of Ephesus on Hiram of Tyre)",
+      "url": "https://www.gutenberg.org/ebooks/2849"
     },
     {
       "id": "biran-naveh-1993",

@@ -1678,6 +1678,15 @@
             "when": "about 200 BC on T. W. Davies's dating; scholars differ"
           },
           {
+            "text": "Josephus writes that at this time “Elijah disappeared from among men, and no one knows of his death to this very day”, and puts him beside Enoch.",
+            "layer": "tradition",
+            "cites": [
+              "josephus-ant"
+            ],
+            "who": "Josephus, Antiquities 9.2.2",
+            "when": "about AD 93"
+          },
+          {
             "text": "In Justin's Dialogue the Jewish speaker Trypho says, “we all expect ... that Elijah when he comes will anoint him”; Justin answers that Elijah will come before Christ's second coming, and that the Spirit of God who was in Elijah came as herald in John.",
             "layer": "tradition",
             "cites": [
@@ -1728,6 +1737,23 @@
                 "layer": "scholars",
                 "cites": [
                   "keil-kings"
+                ],
+                "refs": [
+                  [
+                    11017001,
+                    11017001
+                  ]
+                ]
+              }
+            },
+            {
+              "label": "Josephus's retelling: “of Thesbon, a country in Gilead”",
+              "holders": "Josephus, Antiquities 8.13.2 (about AD 93)",
+              "argument": {
+                "text": "Josephus calls Elijah “a prophet of God Almighty, of Thesbon, a country in Gilead”.",
+                "layer": "tradition",
+                "cites": [
+                  "josephus-ant"
                 ],
                 "refs": [
                   [
@@ -1900,6 +1926,23 @@
                   [
                     12009025,
                     12009026
+                  ]
+                ]
+              }
+            },
+            {
+              "label": "Josephus's retelling: the fountain of Jezreel",
+              "holders": "Josephus, Antiquities 8.15.6 (about AD 93)",
+              "argument": {
+                "text": "Josephus has the chariot washed “in the fountain of Jezreel”, says they then acknowledged “that the prophecy of Elijah was true”, and adds that Ahab still died at Ramoth, as Micaiah had said. Kings has “the pool of Samaria”.",
+                "layer": "tradition",
+                "cites": [
+                  "josephus-ant"
+                ],
+                "refs": [
+                  [
+                    11022038,
+                    11022038
                   ]
                 ]
               }
@@ -3815,6 +3858,15 @@
             "when": "about 200 BC on T. W. Davies's dating; scholars differ"
           },
           {
+            "text": "Josephus adds that Elisha “obtained a magnificent funeral”, and says that “certain robbers” cast a man they had slain into his grave.",
+            "layer": "tradition",
+            "cites": [
+              "josephus-ant"
+            ],
+            "who": "Josephus, Antiquities 9.8.6",
+            "when": "about AD 93"
+          },
+          {
             "text": "Jerome writes that at Samaria, renamed Sebaste, “There lie the prophets Elisha and Obadiah and John the Baptist”.",
             "layer": "tradition",
             "cites": [
@@ -4603,13 +4655,47 @@
             ]
           }
         ],
-        "tradition": []
+        "tradition": [
+          {
+            "text": "Josephus makes Micaiah the prophet who disguised himself and condemned Ahab for letting Ben-hadad go (1 Kings 20), and says Ahab already had him in prison for foretelling that he would be “overcome and slain by the king of Syria”.",
+            "layer": "tradition",
+            "cites": [
+              "josephus-ant"
+            ],
+            "refs": [
+              [
+                11020035,
+                11020043
+              ]
+            ],
+            "who": "Josephus, Antiquities 8.14.5 and 8.15.4",
+            "when": "about AD 93"
+          }
+        ]
       },
       "questions": [
         {
           "id": "q-micaiah-20",
           "question": "Is Micaiah the unnamed prophet who condemned Ahab after the war with Ben-hadad (1 Kings 20:35–43)?",
           "views": [
+            {
+              "label": "Yes",
+              "holders": "Josephus, Antiquities 8.14.5 (about AD 93); “the Rabbins” (as reported by Keil)",
+              "argument": {
+                "text": "Josephus names the disguised prophet of 1 Kings 20 Micaiah, and has Ahab put him in prison for it.",
+                "layer": "tradition",
+                "cites": [
+                  "josephus-ant",
+                  "keil-kings"
+                ],
+                "refs": [
+                  [
+                    11020035,
+                    11020043
+                  ]
+                ]
+              }
+            },
             {
               "label": "No ground for it",
               "holders": "C. F. Keil (tr. 1872), p. 274",
@@ -5000,7 +5086,17 @@
             ]
           }
         ],
-        "tradition": []
+        "tradition": [
+          {
+            "text": "Josephus gives Zedekiah a speech: Elijah, “a better prophet”, had said the dogs would lick Ahab's blood in Jezreel, so Micaiah, who said the king would be slain three days' journey away, must be lying; then he struck Micaiah, saying, “let him then hurt my hand”.",
+            "layer": "tradition",
+            "cites": [
+              "josephus-ant"
+            ],
+            "who": "Josephus, Antiquities 8.15.4",
+            "when": "about AD 93"
+          }
+        ]
       },
       "questions": [
         {
@@ -5814,6 +5910,15 @@
         ],
         "tradition": [
           {
+            "text": "Josephus retells the story, sends the ship to “Tarsus, in Cilicia”, says “it is also reported” that a whale vomited Jonah out “upon the Euxine Sea”, and gives his preaching as that Nineveh would “lose the dominion of Asia”.",
+            "layer": "tradition",
+            "cites": [
+              "josephus-ant"
+            ],
+            "who": "Josephus, Antiquities 9.10.2",
+            "when": "about AD 93"
+          },
+          {
             "text": "A Jewish tradition reported by Jerome made Jonah the son of the widow of Zarephath whom Elijah raised; Keil calls it “nothing more than a Jewish Hagada”.",
             "layer": "tradition",
             "cites": [
@@ -6173,6 +6278,14 @@
       "year": "1915",
       "where": "§VIII, Date (Davies: the Hebrew work about 200 BC; “scholars differ”); read in the archive.org scan text",
       "url": "https://archive.org/details/bibleencyclopedi04orruoft"
+    },
+    {
+      "id": "josephus-ant",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "8.13.2; 8.14.5; 8.15.4; 8.15.6; 9.2.2; 9.8.6; 9.10.1–2 (the project's Gutenberg text)",
+      "url": "https://www.gutenberg.org/ebooks/2848"
     },
     {
       "id": "justin-dial",

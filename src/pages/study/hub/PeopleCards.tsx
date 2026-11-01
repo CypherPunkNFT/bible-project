@@ -13,7 +13,7 @@ const previewSet = new Set(previewIds);
 const sky = buildSky({ ...catalogue, scholars: catalogue.scholars.filter(s => previewSet.has(s.id)) }, "wide");
 const fieldOffset = (field: string) => field === 'texts' ? [-28, 0] : field === 'theology' ? [26, -38] : [0, 0];
 const fields = [
-    { id: 'history', label: 'History', names: 'Tacitus · Eusebius' },
+    { id: 'history', label: 'History', names: 'Josephus · Tacitus · Eusebius' },
     { id: 'texts', label: 'Languages', names: 'Westcott · Lightfoot · A. T. Robertson' },
     { id: 'places', label: 'Archaeology', names: 'Ramsay · Robinson · Albright' },
     { id: 'reference', label: 'Reference', names: 'Strong · Easton · Torrey' },

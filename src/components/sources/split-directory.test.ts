@@ -6,7 +6,6 @@ import path from 'node:path';
 import { afterAll, expect, it } from 'vitest';
 // @ts-expect-error The build script is plain JavaScript without type declarations.
 import { splitSourceDirectory } from '../../../scripts/split-source-directory.mjs';
-import { isScholarsOnlySource } from '@/lib/editorial-sources';
 import type { Directory, SourceEntry } from './types';
 
 const source = 'public/content/sources/directory.json';
@@ -27,7 +26,7 @@ it('restores the original directory exactly from the summary and its records', (
 });
 
 it('carries the same counts the page computes from the records', () => {
-  const shown = original.entries.filter(entry => !isScholarsOnlySource(JSON.stringify(entry)));
+  const shown = original.entries;
   expect(summary.split?.records).toBe(shown.length);
   for (const { id } of original.collections) {
     const members = shown.filter(entry => entry.categories.includes(id));

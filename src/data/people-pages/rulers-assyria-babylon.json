@@ -4170,6 +4170,19 @@
                 "quoted": true,
                 "marks": true
               }
+            },
+            {
+              "label": "To seek an ally",
+              "holders": "Josephus (about AD 93), retelling the story; R. W. Rogers (1912); the Pulpit Commentary",
+              "argument": {
+                "text": "Josephus says Baladan \"desired he would be his ally and his friend\"; Rogers judged that \"the real motive was to stir up disaffection against Assyria\".",
+                "layer": "scholars",
+                "cites": [
+                  "jos-ant-10-2",
+                  "rogers-332",
+                  "pulpit-2ki-20-12"
+                ]
+              }
             }
           ]
         },
@@ -4319,6 +4332,14 @@
               24039005
             ]
           ]
+        },
+        {
+          "text": "Scripture does not name his father. His own building inscription begins \"Nebuchadrezzar, king of Babylon, … son of Nabopolassar, king of Babylon, am I\"; Berosus, quoted by Josephus, also makes him Nabopolassar's son.",
+          "layer": "ancient-record",
+          "cites": [
+            "rogers-368",
+            "jos-ap-1-19"
+          ]
         }
       ],
       "records": [],
@@ -4350,6 +4371,19 @@
           "system": "bible",
           "label": "Scripture's numbers",
           "note": "His first year = Jehoiakim's fourth (Jer 25:1); Jehoiachin taken in his eighth (2 Kgs 24:12); Zedekiah's tenth = his eighteenth (Jer 32:1); the temple burned in his nineteenth (2 Kgs 25:8); deportations in his 7th, 18th and 23rd (Jer 52:28–30)."
+        },
+        {
+          "system": "other",
+          "label": "Rogers (1912)",
+          "from": 604,
+          "to": 562,
+          "approx": true,
+          "note": "Ptolemy's canon gives him 43 years from 604 BC; Berosus also gives 43 years.",
+          "cites": [
+            "rogers-360",
+            "rogers-239",
+            "jos-ap-1-19"
+          ]
         },
         {
           "system": "other",
@@ -5242,6 +5276,34 @@
               "rogers-360"
             ]
           }
+        },
+        {
+          "name": "Berosus, quoted by Josephus",
+          "date": "Berosus wrote about 290 BC; Josephus about AD 95",
+          "claim": {
+            "text": "Berosus says that Nebuchadnezzar, sent as a young man against the rebel governor of Egypt and Phoenicia, heard of his father's death, hurried to Babylon across the desert and took the kingdom; that he rebuilt Babylon with three walls round the inner and outer city and built a new palace with a \"pensile paradise\" for his Median queen; and that he \"fell sick, and departed this life, when he had reigned forty-three years\".",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ap-1-19"
+            ]
+          }
+        },
+        {
+          "name": "The records of Tyre, quoted by Josephus",
+          "date": "Josephus about AD 95",
+          "claim": {
+            "text": "Josephus quotes the Phoenician records: \"Nabuchodonosor besieged Tyre for thirteen years in the days of Ithobal, their king\".",
+            "layer": "ancient-record",
+            "refs": [
+              [
+                26029018,
+                26029018
+              ]
+            ],
+            "cites": [
+              "jos-ap-1-19"
+            ]
+          }
         }
       ],
       "twoAccounts": [
@@ -5446,6 +5508,30 @@
                     27004033,
                     27004036
                   ]
+                ]
+              }
+            },
+            {
+              "label": "Josephus's retelling",
+              "holders": "Josephus (about AD 93)",
+              "argument": {
+                "text": "Josephus retells Daniel: the king lived in the desert seven years, and no one dared seize his kingdom. He adds no other source.",
+                "layer": "ancient-record",
+                "cites": [
+                  "jos-ant-10-10"
+                ]
+              }
+            },
+            {
+              "label": "Berosus is silent, or nearly",
+              "holders": "Ellicott's commentary (about 1880); S. R. Driver (1900)",
+              "argument": {
+                "text": "Berosus says only that he \"fell sick, and departed this life\". Ellicott's commentary says nothing of this sickness is recorded by Berosus \"unless the vague statement … be pressed\"; Driver judged it too vague to confirm Daniel, since it is a sickness he died of.",
+                "layer": "scholars",
+                "cites": [
+                  "jos-ap-1-19",
+                  "ellicott-dan-4-33",
+                  "driver-58"
                 ]
               }
             },
@@ -5822,7 +5908,16 @@
           ]
         ]
       },
-      "identifications": [],
+      "identifications": [
+        {
+          "text": "Scripture does not name his father. Berosus, quoted by Josephus, calls him Nebuchadnezzar's son; Rogers (1912) gives his Babylonian name as Amel-Marduk, \"Man (servant) of Marduk\".",
+          "layer": "scholars",
+          "cites": [
+            "jos-ap-1-19",
+            "rogers-371"
+          ]
+        }
+      ],
       "records": [],
       "reign": {
         "text": "Scripture gives no length for his reign. It dates his release of Jehoiachin to the year he began to reign, the 37th of Jehoiachin's captivity.",
@@ -5862,6 +5957,15 @@
           "note": "Ptolemy's canon: two years from 561 BC.",
           "cites": [
             "rogers-239"
+          ]
+        },
+        {
+          "system": "other",
+          "label": "Berosus and Josephus",
+          "note": "Berosus (quoted by Josephus) gives two years; Josephus's own Antiquities gives eighteen.",
+          "cites": [
+            "jos-ap-1-19",
+            "jos-ant-10-11"
           ]
         }
       ],
@@ -6049,6 +6153,17 @@
       ],
       "outside": [
         {
+          "name": "Berosus, quoted by Josephus",
+          "date": "Berosus wrote about 290 BC",
+          "claim": {
+            "text": "\"His son Evilmerodach obtained the kingdom. He governed public affairs after an illegal and impure manner, and had a plot laid against him by Neriglissoor, his sister's husband, and was slain by him when he had reigned but two years.\"",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ap-1-19"
+            ]
+          }
+        },
+        {
           "name": "Ptolemy's canon",
           "date": "Greek, 2nd century AD",
           "claim": {
@@ -6056,6 +6171,17 @@
             "layer": "ancient-record",
             "cites": [
               "rogers-239"
+            ]
+          }
+        },
+        {
+          "name": "Josephus's retelling",
+          "date": "about AD 93",
+          "claim": {
+            "text": "Josephus says Evil-Merodach \"immediately set Jeconiah at liberty, and esteemed him among his most intimate friends\", because his father \"had not kept his faith with Jeconiah\"; he gives him a reign of eighteen years.",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-10-11"
             ]
           }
         },
@@ -6125,7 +6251,39 @@
           }
         }
       ],
-      "questions": [],
+      "questions": [
+        {
+          "id": "reign-length",
+          "question": "How long did Evil-merodach reign?",
+          "views": [
+            {
+              "label": "Two years",
+              "holders": "Berosus (quoted by Josephus); Ptolemy's canon; R. P. Dougherty (1929)",
+              "argument": {
+                "text": "Berosus: slain \"when he had reigned but two years\"; Ptolemy's canon also gives two years; Dougherty, from the cuneiform texts, gives 562–560 BC.",
+                "layer": "ancient-record",
+                "cites": [
+                  "jos-ap-1-19",
+                  "rogers-239",
+                  "dougherty-kings"
+                ]
+              }
+            },
+            {
+              "label": "Eighteen years",
+              "holders": "Josephus, Antiquities 10.11.2",
+              "argument": {
+                "text": "In the Antiquities Josephus gives Evil-Merodach a reign of eighteen years; Dougherty calls this chronology inaccurate.",
+                "layer": "ancient-record",
+                "cites": [
+                  "jos-ant-10-11",
+                  "dougherty-kings"
+                ]
+              }
+            }
+          ]
+        }
+      ],
       "notSaid": [
         "Scripture does not say why he released Jehoiachin.",
         "Scripture does not call him Nebuchadnezzar's son, and does not say how his reign ended.",
@@ -6191,6 +6349,14 @@
               27005018,
               27005018
             ]
+          ]
+        },
+        {
+          "text": "He is the Bel-shar-usur of the Babylonian inscriptions, for whom Nabonidus prays as \"the first-born son, the issue of my body\". Rogers (1912) and Wilson (1915) hold the identification; Josephus, writing earlier, took Belshazzar to be Nabonidus himself (see below).",
+          "layer": "scholars",
+          "cites": [
+            "rogers-379",
+            "isbe-belshazzar"
           ]
         }
       ],
@@ -6621,6 +6787,17 @@
               "xenophon-7-5"
             ]
           }
+        },
+        {
+          "name": "Berosus, quoted by Josephus",
+          "date": "Berosus wrote about 290 BC",
+          "claim": {
+            "text": "Berosus says the last king, \"Nabonnedus\", was beaten in battle, shut himself in Borsippa and surrendered to Cyrus, who sent him to live in Carmania. He does not mention Belshazzar.",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ap-1-19"
+            ]
+          }
         }
       ],
       "twoAccounts": [],
@@ -6701,6 +6878,17 @@
                 "layer": "scholars",
                 "cites": [
                   "isbe-belshazzar"
+                ]
+              }
+            },
+            {
+              "label": "Belshazzar was Nabonidus himself",
+              "holders": "Josephus (about AD 93)",
+              "argument": {
+                "text": "Josephus says the kingdom came to \"Baltasar, who by the Babylonians was called Naboandelus\", and that Babylon was taken \"when he had reigned seventeen years\".",
+                "layer": "ancient-record",
+                "cites": [
+                  "jos-ant-10-11"
                 ]
               }
             }
@@ -6827,6 +7015,17 @@
                 ],
                 "cites": [
                   "dougherty-196"
+                ]
+              }
+            },
+            {
+              "label": "A third part of the kingdom",
+              "holders": "Josephus (about AD 93)",
+              "argument": {
+                "text": "Josephus has the king promise \"the third part of his own dominions\".",
+                "layer": "ancient-record",
+                "cites": [
+                  "jos-ant-10-11"
                 ]
               }
             }
@@ -7268,6 +7467,38 @@
       "year": "1939",
       "where": "pp. 923–935",
       "url": "https://search.worldcat.org/search?q=M%C3%A9langes+syriens+offerts+%C3%A0+Monsieur+Ren%C3%A9+Dussaud"
+    },
+    {
+      "id": "jos-ant-10-10",
+      "author": "Flavius Josephus, tr. W. Whiston",
+      "title": "Antiquities of the Jews",
+      "year": "1737",
+      "where": "Book 10, ch. 10, §6",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-10-11",
+      "author": "Flavius Josephus, tr. W. Whiston",
+      "title": "Antiquities of the Jews",
+      "year": "1737",
+      "where": "Book 10, ch. 11, §§1–4",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-10-2",
+      "author": "Flavius Josephus, tr. W. Whiston",
+      "title": "Antiquities of the Jews",
+      "year": "1737",
+      "where": "Book 10, ch. 2, §2",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ap-1-19",
+      "author": "Flavius Josephus, tr. W. Whiston",
+      "title": "Against Apion",
+      "year": "1737",
+      "where": "Book 1, §§19–21 (quoting Berosus)",
+      "url": "https://www.gutenberg.org/ebooks/2849"
     },
     {
       "id": "geneva-dan-5-2",

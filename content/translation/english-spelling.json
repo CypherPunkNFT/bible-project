@@ -1,5 +1,5 @@
 {
-  "_about": "Misspellings in the public-domain and CC BY text behind the topic and people pages. Applied by scripts/bible/english_spelling.py at build. 'words' are whole-word, keep the capitals as found, and are pure misspellings, so retarget.py files no review entry for them. 'phrases' change a real word into another (each must still be found), so they do get a review entry. Each was read in context on 2026-11-01. Old spellings on purpose (recompence, builded, armoury) and Hebrew words (bottim, abnet) are not here.",
+  "_about": "Misspellings in the public-domain and CC BY text behind the topic and people pages. Applied by scripts/bible/english_spelling.py at build. 'words' are whole-word, keep the capitals as found, and are pure misspellings, so retarget.py files no review entry for them. 'phrases' change a real word into another (each must still be found), so they do get a review entry. Each was read in context on 2026-11-01. Old spellings on purpose (recompence, builded, armoury) and Hebrew words (bottim, abnet) are not here. 'slips_elsewhere' are the same kind of slip corrected in the creed and hymn sources; retarget.py reads them only to file no review entry.",
   "words": {
     "abondoned": "abandoned", "acknowledment": "acknowledgment", "acquinted": "acquainted", "adminstration": "administration",
     "adultry": "adultery", "afficted": "afflicted", "affiction": "affliction", "alloted": "allotted", "ammonities": "Ammonites",
@@ -35,7 +35,8 @@
     "trigris": "Tigris", "virgns": "virgins", "visted": "visited", "wildernes": "wilderness", "wollen": "woollen", "wordly": "worldly",
     "worldy": "worldly", "absolom": "Absalom", "barnabus": "Barnabas", "descenced": "descended", "fatehr": "father", "fatther": "father",
     "gosple": "gospel", "gradson": "grandson", "grandon": "grandson", "greandson": "grandson", "necessray": "necessary",
-    "tetrach": "tetrarch", "rigteousness": "righteousness"
+    "tetrach": "tetrarch", "rigteousness": "righteousness",
+    "bärnabas": "Barnabas", "çyprus": "Cyprus", "cärmel": "Carmel", "märtha": "Martha"
   },
   "phrases": [
     ["lake of five", "lake of fire"],
@@ -65,6 +66,21 @@
     ["Parables of christ", "Parables of Christ"],
     ["Against the prophet Ahimelech", "Against the priest Ahimelech"],
     ["form its hidded", "from its hidded"],
-    ["R.V.,” coastland", "R.V., “coastland"]
-  ]
+    ["R.V.,” coastland", "R.V., “coastland"],
+    ["It was destroyed by Joshua (10:5, 6)", "It was destroyed by Joshua (10:34, 35)"],
+    ["To have the left shoulder of the ram", "To have the shoulder of the ram"],
+    ["during his third missionary journey along with Silas (18:23)", "during his third missionary journey (18:23)"],
+    ["was now at Gibeah", "was now at Gibeon"],
+    ["from the king of Asia", "from the king of Assyria"],
+    ["a country northwest of Persia", "a country northeast of Persia"],
+    ["while the latter has two layers (black and white) the former has three", "while the former has two layers (black and white) the latter has three"],
+    ["). perhaps these two", "). Perhaps these two"],
+    ["In R.V", "In R.V."],
+    ["his body, cf", "his body, cf."],
+    ["the expressions, where the word is used, means", "the expressions, where the word is used, mean"],
+    ["Alexander its last king", "Alexander its first king"],
+    ["Lentiles", "Lentils"],
+    ["eaten by, (Josephus confirmed this)", "eaten by (Josephus confirmed this)"]
+  ],
+  "slips_elsewhere": ["agaist", "begotte", "bodage", "childre", "churth", "comon", "comonly", "copelled", "cosciences", "cotent", "cotinue", "couqueror", "dauger", "defece", "demauded", "doninion", "ecause", "evidenty", "excellet", "experiece", "hasanna", "iforced", "infates", "inocent", "intrepretation", "jutsified", "mumuring", "nothig", "offece", "offiice", "opely", "ordinace", "perservering", "persistance", "persues", "ppower", "prudet", "sacrametal", "substace", "suffcient", "thakes", "thiges", "tie", "tothe", "tothem", "touchig", "trangress", "traslated", "trive", "woever", "xamine"]
 }

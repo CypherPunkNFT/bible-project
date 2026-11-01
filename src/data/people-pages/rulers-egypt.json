@@ -1230,6 +1230,23 @@
           "question": "Does \"a new king\" mean a new royal house?",
           "views": [
             {
+              "label": "Yes, the crown had passed to another family",
+              "holders": "Josephus (about AD 93)",
+              "argument": {
+                "text": "Josephus writes that the Egyptians forgot Joseph's benefits, \"particularly the crown being now come into another family\".",
+                "layer": "ancient-record",
+                "cites": [
+                  "josephus-ant"
+                ],
+                "refs": [
+                  [
+                    2001008,
+                    2001008
+                  ]
+                ]
+              }
+            },
+            {
               "label": "Another king, of another mind or family",
               "holders": "Matthew Poole (1683–85)",
               "argument": {
@@ -1252,6 +1269,23 @@
           "id": "oppression-daughter",
           "question": "Who was the daughter of Pharaoh who raised Moses?",
           "views": [
+            {
+              "label": "Thermuthis",
+              "holders": "Josephus (about AD 93)",
+              "argument": {
+                "text": "Josephus names her: \"Thermuthis was the king's daughter\".",
+                "layer": "ancient-record",
+                "cites": [
+                  "josephus-ant"
+                ],
+                "refs": [
+                  [
+                    2002005,
+                    2002005
+                  ]
+                ]
+              }
+            },
             {
               "label": "Hatasu (Hatshepsut)",
               "holders": "C. R. Conder (1915)",
@@ -1895,6 +1929,17 @@
               "breasted-iii"
             ]
           }
+        },
+        {
+          "name": "Manetho's tale, quoted by Josephus",
+          "date": "3rd century BC, quoted about AD 97",
+          "claim": {
+            "text": "Josephus quotes the Egyptian priest Manetho's story of unclean people sent to the quarries under a king Amenophis and led by Osarsiph, whom Manetho made Moses; Josephus rejects it as fable.",
+            "layer": "ancient-record",
+            "cites": [
+              "josephus-apion"
+            ]
+          }
         }
       ],
       "twoAccounts": [],
@@ -1903,6 +1948,17 @@
           "id": "exodus-date",
           "question": "When was the Exodus, and under which king?",
           "views": [
+            {
+              "label": "When the shepherds left under Tethmosis",
+              "holders": "Josephus (about AD 97), following Manetho",
+              "argument": {
+                "text": "Josephus argues that Manetho's \"shepherds\", who left Avaris by agreement with king Thummosis and built Jerusalem, \"were no other than our forefathers\".",
+                "layer": "ancient-record",
+                "cites": [
+                  "josephus-apion"
+                ]
+              }
+            },
             {
               "label": "Amenophis, son of Rameses Miamun",
               "holders": "James Ussher (1658)",
@@ -3108,6 +3164,23 @@
             "layer": "ancient-record",
             "cites": [
               "breasted-iv-shoshenq"
+            ]
+          }
+        },
+        {
+          "name": "Josephus's retelling",
+          "date": "about AD 93",
+          "claim": {
+            "text": "Josephus retells Kings and Chronicles, giving Shishak 400,000 footmen besides the chariots and horsemen, saying Herodotus wrongly credited his deeds to Sesostris, and that Rehoboam received him into the city without fighting.",
+            "layer": "ancient-record",
+            "cites": [
+              "josephus-ant"
+            ],
+            "refs": [
+              [
+                14012003,
+                14012003
+              ]
             ]
           }
         }
@@ -4947,6 +5020,23 @@
           "question": "Is Herodotus's battle at \"Magdolos\" Josiah's Megiddo, and is \"Cadytis\" Gaza?",
           "views": [
             {
+              "label": "Magdolos is Megiddo",
+              "holders": "John Hudson, as reported by William Whiston (1737)",
+              "argument": {
+                "text": "Whiston's note on Josiah's death: the battle \"is justly esteemed the very same that Herodotus ... mentions\", at \"Magdolum, [Megiddo,]\", \"as Dr. Hudson here observes\".",
+                "layer": "scholars",
+                "cites": [
+                  "josephus-ant"
+                ],
+                "refs": [
+                  [
+                    12023029,
+                    12023029
+                  ]
+                ]
+              }
+            },
+            {
               "label": "Cadytis is Gaza",
               "holders": "Hitzig, as reported in Ellicott's commentary; A. W. Streane (1881)",
               "argument": {
@@ -5623,6 +5713,17 @@
               "breasted-iv-amasis"
             ]
           }
+        },
+        {
+          "name": "Josephus's account",
+          "date": "about AD 93",
+          "claim": {
+            "text": "Josephus writes that in Nebuchadnezzar's twenty-third year he fell upon Egypt, \"slew the king that then reigned, and set up another\", naming neither. Whiston's note applies it to Hophra and observes that Herodotus has him slain by the Egyptians.",
+            "layer": "ancient-record",
+            "cites": [
+              "josephus-ant"
+            ]
+          }
         }
       ],
       "twoAccounts": [],
@@ -5650,6 +5751,17 @@
                 "layer": "ancient-record",
                 "cites": [
                   "breasted-iv-amasis"
+                ]
+              }
+            },
+            {
+              "label": "Slain by Nebuchadnezzar",
+              "holders": "Josephus (about AD 93)",
+              "argument": {
+                "text": "Josephus says Nebuchadnezzar slew \"the king that then reigned\" in Egypt; he does not name him.",
+                "layer": "ancient-record",
+                "cites": [
+                  "josephus-ant"
                 ]
               }
             }
@@ -6022,6 +6134,22 @@
       "year": "1911",
       "where": "Introduction §4, p. xxx; p. xlii, note 5",
       "url": "https://archive.org/details/bookofexodusinre00driv"
+    },
+    {
+      "id": "josephus-ant",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "2.9.1; 2.9.5; 8.10.2–3; 10.5.1 (with Whiston's note 9); 10.6.1; 10.9.7 (with Whiston's note 15)",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "josephus-apion",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "Against Apion",
+      "year": "1737",
+      "where": "1.14–16; 1.26",
+      "url": "https://www.gutenberg.org/ebooks/2849"
     },
     {
       "id": "herodotus-macaulay",

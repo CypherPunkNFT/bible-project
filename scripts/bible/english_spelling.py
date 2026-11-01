@@ -12,6 +12,9 @@ PHRASES: list[list[str]] = _LIST["phrases"]
 _WORD = re.compile(r"\b(?:" + "|".join(WORDS) + r")\b", re.IGNORECASE)
 _SPACED_APOSTROPHE = re.compile(r"(?<=\w)(['’]) ([sS])\b")
 _STRAY_POINT = re.compile(r"(?<= )\.(?=[A-Z][a-z])")
+_SPACED_ETC = re.compile(r"& c\b")
+# The dictionary closes this bracket too soon, between two links, so no one piece of text holds the slip.
+_ISLES_OPENING = "sometimes simply “isles” ("
 
 
 def _same_capitals(found: str, right: str) -> str:
@@ -29,7 +32,7 @@ def correct_text(text: str, used: set[str] | None = None) -> str:
                 used.add(wrong)
     text = _WORD.sub(lambda match: _same_capitals(match[0], WORDS[match[0].lower()]), text)
     text = _SPACED_APOSTROPHE.sub(r"\1\2", text)
-    return _STRAY_POINT.sub("", text)
+    return _SPACED_ETC.sub("&c", _STRAY_POINT.sub("", text))
 
 
 def correct_tree(value, skip_keys: frozenset[str], used: set[str]):
@@ -37,7 +40,11 @@ def correct_tree(value, skip_keys: frozenset[str], used: set[str]):
     if isinstance(value, str):
         return correct_text(value, used)
     if isinstance(value, list):
-        return [correct_tree(item, skip_keys, used) for item in value]
+        items = [correct_tree(item, skip_keys, used) for item in value]
+        for index, item in enumerate(items[:-2]):
+            if isinstance(item, str) and item.endswith(_ISLES_OPENING) and items[index + 2] == "); ":
+                items[index + 2] = "; "
+        return items
     if isinstance(value, dict):
         return {key: child if key in skip_keys else correct_tree(child, skip_keys, used) for key, child in value.items()}
     return value

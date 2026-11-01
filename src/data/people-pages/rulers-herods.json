@@ -34,7 +34,7 @@
       ]
     },
     {
-      "text": "Scripture states only three family links among them: Archelaus reigned \"in the room of his father Herod\"; Philip was the tetrarch's brother; and Herodias had been \"his brother Philip's wife\".",
+      "text": "Scripture states only three family links among them: Archelaus reigned \"in the room of his father Herod\"; Philip was the tetrarch's brother; and Herodias had been \"his brother Philip's wife\". The rest of the family tree comes from Josephus.",
       "layer": "text",
       "refs": [
         [
@@ -49,6 +49,13 @@
           41006017,
           41006017
         ]
+      ]
+    },
+    {
+      "text": "Josephus, a Jewish historian of the first century, is the main outside source. He wrote the Jewish War late in Vespasian's reign (AD 69–79) and finished the Antiquities in AD 93 or 94 (Schürer, 1890). He is quoted here in William Whiston's translation of 1737, with the book, chapter and section numbers of the project's copy.",
+      "layer": "scholars",
+      "cites": [
+        "schurer-1-83"
       ]
     },
     {
@@ -132,6 +139,38 @@
           ]
         },
         {
+          "text": "Luke's \"Herod, the king of Judaea\" is set before the births of John and Jesus. Schürer (1890) notes that Luke 1:5, like Matthew 2, assumes the birth fell in Herod's lifetime; Archelaus was not made king, and Agrippa I ruled Judaea only from AD 41.",
+          "layer": "scholars",
+          "refs": [
+            [
+              42001005,
+              42001005
+            ]
+          ],
+          "cites": [
+            "schurer-2-131",
+            "jos-ant-17-11-4",
+            "schurer-2-150"
+          ]
+        },
+        {
+          "text": "Josephus tells of Herod son of Antipater, whom Rome made king of Judaea and who left Judaea to his son Archelaus (Antiquities 14.14.4–5; 17.8.1; 17.11.4).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-14-14-4-5",
+            "jos-ant-17-8-1",
+            "jos-ant-17-11-4"
+          ]
+        },
+        {
+          "text": "Schürer (1890) notes that the name \"the Great\" is used by Josephus in a single passage (Antiquities 18.5.4); Scripture never uses it.",
+          "layer": "scholars",
+          "cites": [
+            "schurer-1-467",
+            "jos-ant-18-5-4"
+          ]
+        },
+        {
           "text": "\"Herod's judgment hall\" at Caesarea, where Paul was kept, is taken by commentators to be the palace Herod the Great had built there and the governors later used (Poole, 1683; Meyer, English translation 1877–1879; Vincent, 1887). Acts does not say which Herod built it.",
           "layer": "scholars",
           "refs": [
@@ -178,6 +217,15 @@
             "schurer-1-393",
             "schurer-1-400",
             "schurer-1-464"
+          ]
+        },
+        {
+          "system": "other",
+          "label": "Josephus's own count",
+          "note": "\"Having reigned, since he had procured Antigonus to be slain, thirty-four years; but since he had been declared king by the Romans, thirty-seven\" (Antiquities 17.8.1; also War 1.33.8).",
+          "cites": [
+            "jos-ant-17-8-1",
+            "jos-war-1-33-8"
           ]
         },
         {
@@ -276,9 +324,105 @@
           ]
         }
       ],
-      "accession": [],
+      "accession": [
+        {
+          "text": "Josephus says the Roman Senate, on the motion of Antony and with Octavian (\"Caesar\") in favour, decreed that Herod should be king, while Antigonus held Jerusalem with Parthian support (Antiquities 14.14.4).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-14-14-4-5"
+          ]
+        },
+        {
+          "text": "Schürer (1890) dates the appointment to the end of 40 BC, from the consuls Josephus names.",
+          "layer": "scholars",
+          "cites": [
+            "schurer-1-393"
+          ]
+        },
+        {
+          "text": "Herod and the Roman general Sosius took Jerusalem; Antigonus was sent in bonds to Antony, and Herod gave Antony money to have him slain, \"and thus did the government of the Asamoneans cease\" (Antiquities 14.16.4).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-14-16-4"
+          ]
+        },
+        {
+          "text": "Josephus reports that Antigonus, before the walls, called Herod \"a private man, and an Idumean, i.e. a half Jew\" (Antiquities 14.15.2).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-14-15-2"
+          ]
+        },
+        {
+          "text": "After Antony's defeat, Herod met Octavian, who \"restored him his diadem again\" (Antiquities 15.6.7).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-15-6-7"
+          ]
+        }
+      ],
       "synchronisms": [],
       "events": [
+        {
+          "label": "Made king by the Senate",
+          "kind": "alliance",
+          "claim": {
+            "text": "The Senate in Rome decreed Herod king of Judaea, and he went up to the Capitol between Antony and Octavian (Antiquities 14.14.4–5).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-14-14-4-5"
+            ]
+          },
+          "placeId": "afc8e7a"
+        },
+        {
+          "label": "Jerusalem taken",
+          "kind": "battle",
+          "claim": {
+            "text": "Herod and Sosius took Jerusalem; Antigonus was carried off to Antony (Antiquities 14.16.4).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-14-16-4"
+            ]
+          },
+          "placeId": "a15257a"
+        },
+        {
+          "label": "Caesarea built",
+          "kind": "building",
+          "claim": {
+            "text": "He built a harbour city at Strato's Tower and called it Caesarea; Josephus says it was finished in twelve years (Antiquities 15.9.6).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-15-9-6"
+            ]
+          },
+          "placeId": "a58735e"
+        },
+        {
+          "label": "The temple rebuilt",
+          "kind": "building",
+          "claim": {
+            "text": "He began to rebuild the temple, \"in the eighteenth year of his reign\" by the Antiquities (15.11.1), \"in the fifteenth year\" by the War (1.21.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-15-11-1",
+              "jos-war-1-21-1"
+            ]
+          },
+          "placeId": "a15257a"
+        },
+        {
+          "label": "Two sons executed",
+          "kind": "personal",
+          "claim": {
+            "text": "Alexander and Aristobulus, his sons by Mariamne, were strangled at Sebaste by their father's command (Antiquities 16.11.7).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-16-11-7"
+            ]
+          }
+        },
         {
           "label": "The wise men",
           "kind": "other",
@@ -308,6 +452,30 @@
             ]
           },
           "placeId": "a112427"
+        },
+        {
+          "label": "Antipater executed; Herod dies",
+          "kind": "personal",
+          "claim": {
+            "text": "At Jericho, near death, he had his son Antipater killed, and died five days later (Antiquities 17.7.1; 17.8.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-7-1",
+              "jos-ant-17-8-1"
+            ]
+          },
+          "placeId": "aaf03fa"
+        },
+        {
+          "label": "Burial at Herodium",
+          "kind": "personal",
+          "claim": {
+            "text": "His body was carried in procession toward Herodium, \"for there by his own command he was to be buried\" (Antiquities 17.8.3).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-8-3"
+            ]
+          }
         }
       ],
       "nation": {
@@ -348,6 +516,14 @@
         ],
         "building": [
           {
+            "text": "Josephus credits him with Caesarea's harbour, theatre and amphitheatre (Antiquities 15.9.6), the rebuilt temple and its cloisters, the fortress he named Antonia and a palace in the upper city (War 1.21.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-15-9-6",
+              "jos-war-1-21-1"
+            ]
+          },
+          {
             "text": "Schürer (1890) takes the Antiquities' eighteenth year, 20/19 BC, for the start of the temple work, and suggests the War's fifteenth year is wrong or counts the preparations.",
             "layer": "scholars",
             "cites": [
@@ -355,7 +531,23 @@
             ]
           }
         ],
-        "alliances": [],
+        "alliances": [
+          {
+            "text": "He held his kingdom from Rome: from Antony and the Senate first, then from Octavian, whom he supplied on the march to Egypt (Antiquities 14.14.4; 15.6.7).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-14-14-4-5",
+              "jos-ant-15-6-7"
+            ]
+          },
+          {
+            "text": "His will left gifts to Caesar and to Caesar's wife Julia (Antiquities 17.8.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-8-1"
+            ]
+          }
+        ],
         "people": [
           {
             "text": "\"All Jerusalem\" was troubled with him at the wise men's question.",
@@ -375,6 +567,14 @@
                 40002017,
                 40002018
               ]
+            ]
+          },
+          {
+            "text": "Josephus says that, dying at Jericho, he ordered the principal men of the nation shut in the hippodrome and killed at his death, so that the nation would mourn (Antiquities 17.6.5); his sister Salome released them instead (War 1.33.8).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-6-5",
+              "jos-war-1-33-8"
             ]
           }
         ]
@@ -428,8 +628,70 @@
           }
         }
       ],
-      "worldStage": [],
+      "worldStage": [
+        {
+          "power": "Rome",
+          "rulers": [
+            {
+              "name": "Augustus",
+              "personId": "augustus-luk-2-1"
+            },
+            {
+              "name": "Mark Antony"
+            }
+          ],
+          "claim": {
+            "text": "Herod was made king on Antony's motion with Octavian's support (Antiquities 14.14.4) and kept his crown under Octavian, \"Caesar\" in Josephus (Antiquities 15.6.7), who later took the name Augustus.",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-14-14-4-5",
+              "jos-ant-15-6-7"
+            ]
+          }
+        },
+        {
+          "power": "Parthia",
+          "rulers": [
+            {
+              "name": "Antigonus",
+              "note": "the last Hasmonean king, set up with Parthian help"
+            }
+          ],
+          "claim": {
+            "text": "Antigonus, whom Herod displaced, held the kingdom with Parthian backing; Josephus has him speak of being deprived of it \"as having received it from the Parthians\" (Antiquities 14.15.2).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-14-15-2"
+            ]
+          }
+        }
+      ],
       "outside": [
+        {
+          "name": "Josephus, Antiquities 14–17 and War 1",
+          "date": "War about AD 75–79; Antiquities AD 93/94",
+          "claim": {
+            "text": "Schürer (1890) names Josephus's Antiquities 15–17 and War 1 as the sources for Herod's reign; Josephus wrote the War late in Vespasian's reign and finished the Antiquities in AD 93 or 94. Josephus tells the reign at length but does not mention the wise men or the children of Bethlehem, a silence Barnes (1832) and Strauss (1846) both discuss.",
+            "layer": "scholars",
+            "cites": [
+              "schurer-1-83",
+              "schurer-1-400",
+              "barnes-mat-2-16",
+              "strauss-34"
+            ]
+          }
+        },
+        {
+          "name": "The eclipse before his death",
+          "date": "Antiquities 17.6.4",
+          "claim": {
+            "text": "Josephus notes that on the night Herod burned \"the other Matthias, who had raised the sedition, with his companions, alive\", \"there was an eclipse of the moon\" (Antiquities 17.6.4). Its date is discussed under the question of when Herod died.",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-6-4"
+            ]
+          }
+        },
         {
           "name": "Macrobius, Saturnalia 2.4.11",
           "date": "written about four centuries after Herod",
@@ -440,14 +702,80 @@
               "macrobius-2-4-11"
             ]
           }
+        },
+        {
+          "name": "Eusebius on Herod's death",
+          "date": "about AD 325",
+          "claim": {
+            "text": "Eusebius quotes Josephus's account of Herod's last illness and calls it \"a just punishment for his slaughter of the children of Bethlehem\" (Church History 1.8.16).",
+            "layer": "early-church",
+            "cites": [
+              "eusebius-1-8"
+            ]
+          }
         }
       ],
-      "twoAccounts": [],
+      "twoAccounts": [
+        {
+          "topic": "The temple: when the rebuilding began",
+          "first": {
+            "text": "The War: \"in the fifteenth year of his reign, Herod rebuilt the temple\" (1.21.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-war-1-21-1"
+            ]
+          },
+          "second": {
+            "text": "The Antiquities: \"in the eighteenth year of his reign\" (15.11.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-15-11-1"
+            ]
+          }
+        },
+        {
+          "topic": "His death",
+          "first": {
+            "text": "Matthew says only that Herod died while the family was in Egypt: \"But when Herod was dead\".",
+            "layer": "scripture",
+            "refs": [
+              [
+                40002015,
+                40002015
+              ],
+              [
+                40002019,
+                40002019
+              ]
+            ]
+          },
+          "second": {
+            "text": "Josephus tells a long illness, the baths at Callirrhoe, the killing of Antipater, and death at Jericho five days later (Antiquities 17.6.5; 17.7.1; 17.8.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-6-5",
+              "jos-ant-17-7-1",
+              "jos-ant-17-8-1"
+            ]
+          }
+        }
+      ],
       "questions": [
         {
           "id": "herod-death-year",
           "question": "When did Herod die?",
           "views": [
+            {
+              "label": "4 BC, shortly before the Passover",
+              "holders": "Schürer (1890), with Fréret, Sanclemente, Ideler, Wieseler and most scholars he lists",
+              "argument": {
+                "text": "Josephus counts 34 years from Jerusalem's capture (37 BC) and 37 from the appointment (40 BC), counting part-years as years; the eclipse of 12–13 March 4 BC precedes the death; and his sons' reigns count from 4 BC (Archelaus deposed in AD 6 in his tenth year; Antipas's coins reach his forty-third year in AD 39).",
+                "layer": "scholars",
+                "cites": [
+                  "schurer-1-464"
+                ]
+              }
+            },
             {
               "label": "3 BC",
               "holders": "Quandt and Kellner, as listed by Schürer (1890)",
@@ -517,6 +845,17 @@
           "question": "Why does no other ancient record tell of the children of Bethlehem?",
           "views": [
             {
+              "label": "Silence is no argument",
+              "holders": "Albert Barnes (1832)",
+              "argument": {
+                "text": "Barnes gives three reasons for Josephus's silence: a Jewish historian would not record what seemed to confirm Christianity; the deed was small beside Herod's other crimes, Bethlehem being a small village; and the order may have been secret.",
+                "layer": "scholars",
+                "cites": [
+                  "barnes-mat-2-16"
+                ]
+              }
+            },
+            {
               "label": "Macrobius remembers it",
               "holders": "John Gill (1746–1748); F. W. Farrar (1874, quoted in the Pulpit Commentary); W. M. Ramsay (1898)",
               "argument": {
@@ -526,6 +865,17 @@
                   "gill-mat-2-16",
                   "pulpit-mat-2-16",
                   "ramsay-1898"
+                ]
+              }
+            },
+            {
+              "label": "The silence counts against the story",
+              "holders": "D. F. Strauss (1835; English 1846)",
+              "argument": {
+                "text": "Strauss holds that so unprecedented a massacre would be noticed by Josephus and the rabbis, and that Macrobius's passage \"loses all credit\" by confusing the infants with Herod's grown son Antipater.",
+                "layer": "scholars",
+                "cites": [
+                  "strauss-34"
                 ]
               }
             }
@@ -592,6 +942,26 @@
             ]
           ],
           "note": "Named in the words of Jeremiah that Matthew quotes"
+        },
+        {
+          "name": "Jericho",
+          "placeId": "aaf03fa",
+          "note": "Where he died, by Josephus (Antiquities 17.6.5; 17.8.1)"
+        },
+        {
+          "name": "Caesarea",
+          "placeId": "a58735e",
+          "refs": [
+            [
+              44023035,
+              44023035
+            ]
+          ],
+          "note": "The city he built (Josephus); \"Herod's judgment hall\" there"
+        },
+        {
+          "name": "Herodium",
+          "note": "His burial place, by Josephus (Antiquities 17.8.3); not in the atlas"
         }
       ],
       "passages": [
@@ -618,11 +988,16 @@
       "name": "Archelaus",
       "kind": "herod",
       "realm": "rome",
-      "title": "Ruler of Judaea under Rome",
+      "title": "Ruler of Judaea under Rome (ethnarch, by Josephus)",
       "tagline": "The son whose rule in Judaea turned Joseph aside to Galilee.",
       "order": 2,
       "predecessor": "herod-mat-2-1",
       "house": "Herod's family",
+      "capital": {
+        "name": "Jerusalem",
+        "placeId": "a15257a",
+        "note": "Scripture names only Judaea (Matthew 2:22); Jerusalem by Josephus"
+      },
       "identifications": [
         {
           "text": "Matthew names him once, as son of Herod: \"Archelaus did reign in Judaea in the room of his father Herod\".",
@@ -632,6 +1007,14 @@
               40002022,
               40002022
             ]
+          ]
+        },
+        {
+          "text": "Josephus: Herod's last will made Archelaus king; Augustus made him instead \"ethnarch of the one half\" of Herod's kingdom, Judaea, Samaria and Idumaea, and promised him the royal dignity later if he governed well (Antiquities 17.8.1; 17.11.4).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-17-8-1",
+            "jos-ant-17-11-4"
           ]
         },
         {
@@ -668,6 +1051,16 @@
           "cites": [
             "schurer-2-38"
           ]
+        },
+        {
+          "system": "other",
+          "label": "Josephus's two counts",
+          "note": "Banished \"in the tenth year of Archelaus's government\" (Antiquities 17.13.2) or \"in the ninth year\" (War 2.7.3). Schürer takes the tenth, with Dio Cassius's date of AD 6.",
+          "cites": [
+            "jos-ant-17-13-2",
+            "jos-war-2-7-3",
+            "schurer-1-464"
+          ]
         }
       ],
       "verdictTone": "none",
@@ -703,9 +1096,73 @@
           ]
         }
       ],
-      "accession": [],
+      "accession": [
+        {
+          "text": "Herod's final will named Archelaus king and his brother Antipas tetrarch (Antiquities 17.8.1).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-17-8-1"
+          ]
+        },
+        {
+          "text": "Before sailing for Rome to have the will confirmed, Archelaus sent his army against a Passover crowd in the temple; Josephus says the horsemen \"slew three thousand men\" (Antiquities 17.9.3).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-17-9-3"
+          ]
+        },
+        {
+          "text": "In Rome an embassy of fifty Jews, joined by more than eight thousand Jews living there, asked Augustus to let them live by their own laws rather than under Archelaus (Antiquities 17.11.1).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-17-11-1"
+          ]
+        },
+        {
+          "text": "Augustus made him ethnarch, \"not indeed to be king of the whole country\", and divided the rest between Antipas and Philip (Antiquities 17.11.4).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-17-11-4"
+          ]
+        }
+      ],
       "synchronisms": [],
       "events": [
+        {
+          "label": "Passover slaughter",
+          "kind": "battle",
+          "claim": {
+            "text": "At the Passover his army fell on those gathered at the temple; his horsemen killed three thousand (Antiquities 17.9.3).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-9-3"
+            ]
+          },
+          "placeId": "a15257a"
+        },
+        {
+          "label": "Embassy against him in Rome",
+          "kind": "other",
+          "claim": {
+            "text": "Fifty envoys pleaded against him before Augustus (Antiquities 17.11.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-11-1"
+            ]
+          },
+          "placeId": "afc8e7a"
+        },
+        {
+          "label": "Made ethnarch",
+          "kind": "alliance",
+          "claim": {
+            "text": "Augustus gave him half of Herod's kingdom as ethnarch (Antiquities 17.11.4).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-11-4"
+            ]
+          }
+        },
         {
           "label": "Joseph turns aside to Galilee",
           "kind": "personal",
@@ -720,18 +1177,175 @@
             ]
           },
           "placeId": "af5884f"
+        },
+        {
+          "label": "Jericho palace rebuilt",
+          "kind": "building",
+          "claim": {
+            "text": "He rebuilt the royal palace at Jericho, watered new palm groves and founded a village he named Archelais (Antiquities 17.13.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-13-1"
+            ]
+          },
+          "placeId": "aaf03fa"
+        },
+        {
+          "label": "Deposed and banished",
+          "kind": "other",
+          "claim": {
+            "text": "Accused by \"both his brethren, and the principal men of Judea and Samaria\", he was banished by Caesar to Vienne in Gaul and his money taken (Antiquities 17.13.2).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-13-2"
+            ]
+          }
         }
       ],
       "nation": {
-        "worship": [],
-        "building": [],
-        "alliances": [],
-        "people": []
+        "worship": [
+          {
+            "text": "He removed and appointed high priests: Joazar, then his brother Eleazar, then Jesus son of Sie (Antiquities 17.13.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-13-1"
+            ]
+          },
+          {
+            "text": "Josephus says he \"transgressed the law of our fathers\" by marrying Glaphyra, the widow of his brother Alexander, who had children by her (Antiquities 17.13.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-13-1"
+            ]
+          }
+        ],
+        "building": [
+          {
+            "text": "The Jericho palace, the palm groves and the village of Archelais (Antiquities 17.13.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-13-1"
+            ]
+          }
+        ],
+        "alliances": [
+          {
+            "text": "He ruled only by Augustus's grant and was removed by Augustus (Antiquities 17.11.4; 17.13.2).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-11-4",
+              "jos-ant-17-13-2"
+            ]
+          }
+        ],
+        "people": [
+          {
+            "text": "Josephus says the Jews and Samaritans both sent ambassadors against him to Caesar (War 2.7.3).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-war-2-7-3"
+            ]
+          },
+          {
+            "text": "After his banishment his territory was added to the province of Syria, and Cyrenius came to take an account of the people's property (Antiquities 18.1.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-1-1"
+            ]
+          }
+        ]
       },
       "prophets": [],
-      "worldStage": [],
-      "outside": [],
-      "twoAccounts": [],
+      "worldStage": [
+        {
+          "power": "Rome",
+          "rulers": [
+            {
+              "name": "Augustus",
+              "personId": "augustus-luk-2-1"
+            }
+          ],
+          "claim": {
+            "text": "Augustus confirmed only part of Herod's will, made Archelaus ethnarch, and ten years later banished him (Antiquities 17.11.4; 17.13.2).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-11-4",
+              "jos-ant-17-13-2"
+            ]
+          }
+        },
+        {
+          "power": "Rome's province of Syria",
+          "rulers": [
+            {
+              "name": "Quirinius (Cyrenius)",
+              "personId": "quirinius-luk-2-2"
+            }
+          ],
+          "claim": {
+            "text": "When Archelaus was gone, his country \"was now added to the province of Syria\" and Cyrenius came to tax it (Antiquities 18.1.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-1-1"
+            ]
+          }
+        }
+      ],
+      "outside": [
+        {
+          "name": "Josephus, Antiquities 17 and War 2",
+          "date": "AD 75–94",
+          "claim": {
+            "text": "Josephus is the only full outside account of Archelaus: the Passover slaughter, the hearing before Augustus, the marriage to Glaphyra, a dream of nine ears of corn, and the banishment (Antiquities 17.9–13; War 2.7.3).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-9-3",
+              "jos-ant-17-13-2",
+              "jos-war-2-7-3"
+            ]
+          }
+        }
+      ],
+      "twoAccounts": [
+        {
+          "topic": "Did Archelaus reign as king?",
+          "first": {
+            "text": "Matthew: \"Archelaus did reign in Judaea in the room of his father Herod.\"",
+            "layer": "scripture",
+            "refs": [
+              [
+                40002022,
+                40002022
+              ]
+            ]
+          },
+          "second": {
+            "text": "Josephus: Augustus made him \"not indeed to be king of the whole country, but ethnarch of the one half\" (Antiquities 17.11.4); yet elsewhere Josephus himself calls him \"his son Archelaus, who was made king after him\" (Antiquities 18.4.3).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-11-4",
+              "jos-ant-18-4-3"
+            ]
+          }
+        },
+        {
+          "topic": "The year he was banished",
+          "first": {
+            "text": "War 2.7.3: \"in the ninth year of his government he was banished to Vienna, a city of Gaul\".",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-war-2-7-3"
+            ]
+          },
+          "second": {
+            "text": "Antiquities 17.13.2: \"in the tenth year of Archelaus's government\".",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-13-2"
+            ]
+          }
+        }
+      ],
       "questions": [
         {
           "id": "archelaus-parable",
@@ -820,6 +1434,20 @@
             ]
           ],
           "note": "Where the family settled"
+        },
+        {
+          "name": "Jerusalem",
+          "placeId": "a15257a",
+          "note": "The Passover slaughter in the temple, by Josephus (Antiquities 17.9.3)"
+        },
+        {
+          "name": "Jericho",
+          "placeId": "aaf03fa",
+          "note": "His rebuilt palace, by Josephus (Antiquities 17.13.1)"
+        },
+        {
+          "name": "Vienne, in Gaul",
+          "note": "His place of banishment, by Josephus (Antiquities 17.13.2); not in the atlas"
         }
       ],
       "passages": [
@@ -872,6 +1500,15 @@
           ]
         },
         {
+          "text": "Josephus calls Herod's son Antipas tetrarch of Galilee and Perea, and often names him, as the Gospels do, \"Herod the tetrarch\": the one who married Herodias and put John the Baptist to death (Antiquities 17.8.1; 18.2.3; 18.5.1–2).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-17-8-1",
+            "jos-ant-18-2-3",
+            "jos-ant-18-5-1-2"
+          ]
+        },
+        {
           "text": "Schürer (1890) notes that Antipas is the only man called Herod who bore the title of tetrarch (his brother Philip was also a tetrarch, but is never called Herod).",
           "layer": "scholars",
           "cites": [
@@ -917,6 +1554,24 @@
               44012001
             ]
           ]
+        },
+        {
+          "text": "The dancer is called only \"the daughter of Herodias\". Josephus names Herodias's daughter Salome, later the wife of Philip the tetrarch (Antiquities 18.5.4); Schürer (1890) takes her to be the dancer. The site's person record for her (Salome) rests on that identification.",
+          "layer": "scholars",
+          "refs": [
+            [
+              40014006,
+              40014006
+            ],
+            [
+              41006022,
+              41006022
+            ]
+          ],
+          "cites": [
+            "jos-ant-18-5-4",
+            "schurer-2-21"
+          ]
         }
       ],
       "records": [],
@@ -945,6 +1600,14 @@
           "cites": [
             "schurer-2-17",
             "schurer-2-32"
+          ]
+        },
+        {
+          "system": "other",
+          "label": "Josephus",
+          "note": "No length of rule. Gaius \"took away from him his tetrarchy\" and banished him to Lyons (Antiquities 18.7.2).",
+          "cites": [
+            "jos-ant-18-7-2"
           ]
         }
       ],
@@ -1077,9 +1740,47 @@
           ]
         }
       ],
-      "accession": [],
+      "accession": [
+        {
+          "text": "Herod's last will made Antipas \"tetrarch of Galilee and Perea\" (Antiquities 17.8.1).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-17-8-1"
+          ]
+        },
+        {
+          "text": "Augustus confirmed it: \"to him it was that Peres and Galilee paid their tribute, which amounted annually to two hundred talents\" (Antiquities 17.11.4).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-17-11-4"
+          ]
+        }
+      ],
       "synchronisms": [],
       "events": [
+        {
+          "label": "Sepphoris and Julias walled",
+          "kind": "building",
+          "claim": {
+            "text": "He walled Sepphoris, \"the security of all Galilee\", and Betharamphtha, which he named Julias after the emperor's wife (Antiquities 18.2.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-2-1"
+            ]
+          }
+        },
+        {
+          "label": "Tiberias founded",
+          "kind": "building",
+          "claim": {
+            "text": "He built Tiberias on the lake, \"in great favor with Tiberius\", on ground where graves had to be removed (Antiquities 18.2.3).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-2-3"
+            ]
+          },
+          "placeId": "ac9adc9"
+        },
         {
           "label": "Marriage to Herodias",
           "kind": "personal",
@@ -1173,6 +1874,28 @@
             ]
           },
           "placeId": "a15257a"
+        },
+        {
+          "label": "Defeat by Aretas",
+          "kind": "battle",
+          "claim": {
+            "text": "Aretas's daughter fled to her father on learning that Antipas meant to divorce her for Herodias; war followed over that and a border dispute, and \"all Herod's army was destroyed\" (Antiquities 18.5.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-5-1"
+            ]
+          }
+        },
+        {
+          "label": "Banished by Gaius",
+          "kind": "other",
+          "claim": {
+            "text": "Urged by Herodias to seek a royal title, he went to Gaius, was accused by Agrippa, lost his tetrarchy and was banished to Lyons; Herodias went with him (Antiquities 18.7.1–2).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-7-1-2"
+            ]
+          }
         }
       ],
       "nation": {
@@ -1190,10 +1913,33 @@
                 42023007
               ]
             ]
+          },
+          {
+            "text": "Josephus says that building Tiberias over graves was \"to transgress the Jewish ancient laws\", since such inhabitants were unclean for seven days (Antiquities 18.2.3).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-2-3"
+            ]
           }
         ],
-        "building": [],
+        "building": [
+          {
+            "text": "Sepphoris, Julias (Betharamphtha) and Tiberias (Antiquities 18.2.1; 18.2.3).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-2-1",
+              "jos-ant-18-2-3"
+            ]
+          }
+        ],
         "alliances": [
+          {
+            "text": "His first wife was the daughter of Aretas, king of Arabia; she fled to her father when she learned he had agreed to divorce her for Herodias, and Aretas made it \"the first occasion of his enmity\" (Antiquities 18.5.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-5-1"
+            ]
+          },
           {
             "text": "Before the trial Pilate and he \"were at enmity between themselves\"; that day they became friends.",
             "layer": "scripture",
@@ -1214,6 +1960,20 @@
                 41006021,
                 41006021
               ]
+            ]
+          },
+          {
+            "text": "Josephus: \"some of the Jews thought that the destruction of Herod's army came from God, and that very justly, as a punishment of what he did against John, that was called the Baptist\" (Antiquities 18.5.2).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-5-2"
+            ]
+          },
+          {
+            "text": "He peopled Tiberias partly by force: strangers, Galileans, poor people and freed slaves (Antiquities 18.2.3).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-2-3"
             ]
           }
         ]
@@ -1248,6 +2008,31 @@
         }
       ],
       "worldStage": [
+        {
+          "power": "Rome",
+          "rulers": [
+            {
+              "name": "Tiberius",
+              "personId": "tiberius-mat-22-17"
+            },
+            {
+              "name": "Augustus",
+              "personId": "augustus-luk-2-1"
+            },
+            {
+              "name": "Gaius (Caligula)"
+            }
+          ],
+          "claim": {
+            "text": "Augustus gave him Galilee and Perea (Antiquities 17.11.4); he named Tiberias for Tiberius, with whom he stood \"in great favor\" (18.2.3); Gaius banished him (18.7.2).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-11-4",
+              "jos-ant-18-2-3",
+              "jos-ant-18-7-1-2"
+            ]
+          }
+        },
         {
           "power": "Rome's governor of Judaea",
           "rulers": [
@@ -1294,6 +2079,28 @@
       ],
       "outside": [
         {
+          "name": "Josephus on John the Baptist",
+          "date": "Antiquities 18.5.2, AD 93/94",
+          "claim": {
+            "text": "Josephus calls John \"a good man\" who \"commanded the Jews to exercise virtue\" and \"to come to baptism\"; Herod, fearing \"lest the great influence John had over the people might put it into his power and inclination to raise a rebellion\", sent him prisoner to Macherus, \"and was there put to death\".",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-5-2"
+            ]
+          }
+        },
+        {
+          "name": "Whether the John passage is genuine",
+          "date": "Schürer, 1890",
+          "claim": {
+            "text": "Schürer (1890) uses the passage, \"if it really belongs originally to him\", but adds that, because other passages of Josephus were altered by Christian copyists, he cannot be \"perfectly confident regarding its genuineness\".",
+            "layer": "scholars",
+            "cites": [
+              "schurer-2-21"
+            ]
+          }
+        },
+        {
           "name": "His coins",
           "date": "years 33–43 of his rule",
           "claim": {
@@ -1307,6 +2114,55 @@
         }
       ],
       "twoAccounts": [
+        {
+          "topic": "Why John was killed",
+          "first": {
+            "text": "The Gospels: John had told Herod his marriage to his brother's wife was unlawful; Herodias's grudge and the birthday oath brought his death.",
+            "layer": "scripture",
+            "refs": [
+              [
+                41006017,
+                41006028
+              ],
+              [
+                40014003,
+                40014011
+              ]
+            ]
+          },
+          "second": {
+            "text": "Josephus: Herod feared John's influence might lead to a rebellion and put him to death at Macherus as a precaution (Antiquities 18.5.2).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-5-2"
+            ]
+          }
+        },
+        {
+          "topic": "Herodias's first husband",
+          "first": {
+            "text": "Mark and Matthew: Herodias was \"his brother Philip's wife\".",
+            "layer": "scripture",
+            "refs": [
+              [
+                41006017,
+                41006017
+              ],
+              [
+                40014003,
+                40014003
+              ]
+            ]
+          },
+          "second": {
+            "text": "Josephus: she was married to Herod, Herod the Great's son by Mariamne the high priest's daughter (Antiquities 18.5.1; 18.5.4). Whiston's translation adds \"[Philip]\" in brackets; the bracket is the translator's.",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-5-1",
+              "jos-ant-18-5-4"
+            ]
+          }
+        },
         {
           "topic": "Did Herod himself want John dead?",
           "first": {
@@ -1329,13 +2185,98 @@
               ]
             ]
           }
+        },
+        {
+          "topic": "Where he was banished",
+          "first": {
+            "text": "Antiquities 18.7.2: Gaius appointed \"Lyons, a city of Gaul, to be his place of habitation\".",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-7-1-2"
+            ]
+          },
+          "second": {
+            "text": "War 2.9.6: he was banished \"into Spain\", and \"Herod died in Spain, whither his wife had followed him\".",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-war-2-9-6"
+            ]
+          }
         }
       ],
       "questions": [
         {
+          "id": "antipas-herodias-husband",
+          "question": "Who was Herodias's first husband?",
+          "views": [
+            {
+              "label": "Herod Philip, a different man from Philip the tetrarch",
+              "holders": "Jamieson, Fausset and Brown (1871); G. F. Maclear (1877); H. A. W. Meyer (English 1880)",
+              "argument": {
+                "text": "They take Mark's \"Philip\" to be a son of Herod the Great, not the tetrarch, whom Josephus calls by the family name Herod. Jamieson, Fausset and Brown and Maclear call him \"Herod Philip\"; Meyer says Josephus's use of the name Herod \"does not necessitate the supposition of a confusion\".",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    41006017,
+                    41006017
+                  ]
+                ],
+                "cites": [
+                  "jfb-mrk-6-17",
+                  "maclear-mrk-6-17",
+                  "meyer-mrk-6-17"
+                ]
+              }
+            },
+            {
+              "label": "Mark and Matthew made a mistake",
+              "holders": "Schürer (1890), with Ewald, Keim and Volkmar",
+              "argument": {
+                "text": "Schürer holds that it would be strange for Josephus and the Gospels to choose different names for the same man, and for Herod to have two sons named Philip, and concludes that the two evangelists erred. He adds that the name in Luke 3:19, which the KJV's Greek text contains, ought to be struck out there.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    41006017,
+                    41006017
+                  ],
+                  [
+                    42003019,
+                    42003019
+                  ]
+                ],
+                "cites": [
+                  "schurer-2-21"
+                ]
+              }
+            }
+          ]
+        },
+        {
           "id": "antipas-john-place",
           "question": "Where were John's prison and Herod's banquet?",
           "views": [
+            {
+              "label": "Machaerus",
+              "holders": "Schürer (1890), following Josephus",
+              "argument": {
+                "text": "Josephus names Macherus as the prison; Matthew and Mark assume the banquet was where John lay; Herod the Great had built a palace in the fortress, so the banquet may have been held there.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    40014010,
+                    40014010
+                  ],
+                  [
+                    41006027,
+                    41006027
+                  ]
+                ],
+                "cites": [
+                  "schurer-2-21",
+                  "jos-ant-18-5-2"
+                ]
+              }
+            },
             {
               "label": "In Galilee, perhaps Tiberias",
               "holders": "Keim and Volkmar, as reported by Schürer (1890)",
@@ -1440,6 +2381,17 @@
           "note": "His tetrarchy"
         },
         {
+          "name": "Tiberias",
+          "placeId": "ac9adc9",
+          "refs": [
+            [
+              43006023,
+              43006023
+            ]
+          ],
+          "note": "The city he founded (Josephus)"
+        },
+        {
           "name": "Jerusalem",
           "placeId": "a15257a",
           "refs": [
@@ -1449,6 +2401,22 @@
             ]
           ],
           "note": "Where he questioned Jesus"
+        },
+        {
+          "name": "Perea",
+          "note": "The other half of his tetrarchy, by Josephus; Scripture says \"beyond Jordan\"; not in the atlas"
+        },
+        {
+          "name": "Machaerus",
+          "note": "John's prison and place of death, by Josephus (Antiquities 18.5.2); not in the atlas"
+        },
+        {
+          "name": "Sepphoris",
+          "note": "Walled by him, by Josephus (Antiquities 18.2.1); not in the atlas"
+        },
+        {
+          "name": "Lyons, in Gaul",
+          "note": "His place of banishment, by Josephus (Antiquities 18.7.2); not in the atlas"
         }
       ],
       "passages": [
@@ -1496,7 +2464,18 @@
           44013001,
           44013001
         ]
-      ]
+      ],
+      "capital": {
+        "name": "Tiberias",
+        "placeId": "ac9adc9",
+        "refs": [
+          [
+            43006023,
+            43006023
+          ]
+        ],
+        "note": "The city he built on the lake and named for Tiberius (Josephus, Antiquities 18.2.3)"
+      }
     },
     {
       "id": "philip-luk-3-1",
@@ -1509,6 +2488,21 @@
       "predecessor": "herod-mat-2-1",
       "successor": "herod-act-12-1",
       "house": "Herod's family",
+      "capital": {
+        "name": "Caesarea Philippi",
+        "placeId": "ab7bf48",
+        "refs": [
+          [
+            40016013,
+            40016013
+          ],
+          [
+            41008027,
+            41008027
+          ]
+        ],
+        "note": "The town at Paneas he enlarged and named Caesarea (Josephus, Antiquities 18.2.1)"
+      },
       "identifications": [
         {
           "text": "Luke names \"his brother Philip tetrarch of Ituraea and of the region of Trachonitis\", the brother of Herod the tetrarch of Galilee.",
@@ -1518,6 +2512,29 @@
               42003001,
               42003001
             ]
+          ]
+        },
+        {
+          "text": "Josephus: Herod's will gave \"Gaulonitis, and Trachonitis, and Paneas to Philip, who was his son\" as a tetrarchy (Antiquities 17.8.1), and Augustus confirmed him in Batanea, Trachonitis, Auranitis and part of the house of Zenodorus (17.11.4).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-17-8-1",
+            "jos-ant-17-11-4"
+          ]
+        },
+        {
+          "text": "He is a different man from the \"Philip\" whose wife Herodias had been (Mark 6:17): Josephus says Philip the tetrarch married Herodias's daughter Salome (Antiquities 18.5.4). Schürer (1890) and Jamieson, Fausset and Brown (1871) keep the two apart; the site has two person records.",
+          "layer": "scholars",
+          "refs": [
+            [
+              41006017,
+              41006017
+            ]
+          ],
+          "cites": [
+            "jos-ant-18-5-4",
+            "schurer-2-21",
+            "jfb-mrk-6-17"
           ]
         }
       ],
@@ -1547,6 +2564,14 @@
           "cites": [
             "schurer-2-10"
           ]
+        },
+        {
+          "system": "other",
+          "label": "Josephus",
+          "note": "He died \"in the twentieth year of the reign of Tiberius, after he had been tetrarch ... thirty-seven years\" (Antiquities 18.4.6).",
+          "cites": [
+            "jos-ant-18-4-6"
+          ]
         }
       ],
       "verdictTone": "none",
@@ -1572,9 +2597,52 @@
           ]
         }
       ],
-      "accession": [],
+      "accession": [
+        {
+          "text": "Herod's last will named Philip tetrarch (Antiquities 17.8.1); Augustus confirmed it, with a tribute of one hundred talents (Antiquities 17.11.4).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-17-8-1",
+            "jos-ant-17-11-4"
+          ]
+        }
+      ],
       "synchronisms": [],
       "events": [
+        {
+          "label": "Made tetrarch",
+          "kind": "alliance",
+          "claim": {
+            "text": "Augustus confirmed his tetrarchy in the north-east (Antiquities 17.11.4).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-11-4"
+            ]
+          }
+        },
+        {
+          "label": "Caesarea at Paneas",
+          "kind": "building",
+          "claim": {
+            "text": "\"When Philip also had built Paneas, a city at the fountains of Jordan, he named it Caesarea\" (Antiquities 18.2.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-2-1"
+            ]
+          },
+          "placeId": "ab7bf48"
+        },
+        {
+          "label": "Bethsaida made Julias",
+          "kind": "building",
+          "claim": {
+            "text": "He raised the village of Bethsaida on the lake to a city and named it Julias after Caesar's daughter (Antiquities 18.2.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-2-1"
+            ]
+          }
+        },
         {
           "label": "Named in Luke's dating",
           "kind": "other",
@@ -1586,6 +2654,17 @@
                 42003001,
                 42003001
               ]
+            ]
+          }
+        },
+        {
+          "label": "Death at Julias",
+          "kind": "personal",
+          "claim": {
+            "text": "He died at Julias and was buried \"with great pomp\" in a monument he had built; Tiberius added his principality to the province of Syria (Antiquities 18.4.6).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-4-6"
             ]
           }
         }
@@ -1600,9 +2679,32 @@
             ]
           }
         ],
-        "building": [],
-        "alliances": [],
+        "building": [
+          {
+            "text": "Caesarea at Paneas and Julias at Bethsaida (Antiquities 18.2.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-2-1"
+            ]
+          }
+        ],
+        "alliances": [
+          {
+            "text": "He named both cities for the imperial family: Caesarea for Caesar, Julias for Caesar's daughter (Antiquities 18.2.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-2-1"
+            ]
+          }
+        ],
         "people": [
+          {
+            "text": "Josephus: \"He had showed himself a person of moderation and quietness in the conduct of his life and government\"; his judgment seat went with him on his journeys, and he heard complaints wherever he was (Antiquities 18.4.6).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-4-6"
+            ]
+          },
           {
             "text": "Schürer (1890) describes the population of his tetrarchy as mixed, with the Syrian and Greek element prevailing.",
             "layer": "scholars",
@@ -1639,6 +2741,17 @@
         }
       ],
       "outside": [
+        {
+          "name": "Josephus, Antiquities 18.4.6",
+          "date": "AD 93/94",
+          "claim": {
+            "text": "Josephus gives Philip a short obituary: thirty-seven years as tetrarch, a mild and accessible judge, death at Julias, burial in his own monument, and his territory added to Syria because \"he left no sons behind him\".",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-4-6"
+            ]
+          }
+        },
         {
           "name": "Luke's \"Ituraea\"",
           "date": "Schürer, 1890",
@@ -1678,7 +2791,30 @@
           }
         }
       ],
-      "twoAccounts": [],
+      "twoAccounts": [
+        {
+          "topic": "The extent of his tetrarchy",
+          "first": {
+            "text": "Luke: \"tetrarch of Ituraea and of the region of Trachonitis\".",
+            "layer": "scripture",
+            "refs": [
+              [
+                42003001,
+                42003001
+              ]
+            ]
+          },
+          "second": {
+            "text": "Josephus: Gaulonitis, Trachonitis and Paneas (Antiquities 17.8.1); Batanea, Trachonitis, Auranitis and part of the house of Zenodorus (17.11.4); \"Trachonitis and Gaulanitis, and of the nation of the Bataneans\" (18.4.6). None of these lists names Ituraea.",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-17-8-1",
+              "jos-ant-17-11-4",
+              "jos-ant-18-4-6"
+            ]
+          }
+        }
+      ],
       "questions": [
         {
           "id": "philip-fifteenth-year",
@@ -1723,7 +2859,7 @@
       ],
       "notSaid": [
         "Only Luke 3:1 names him; Scripture records no word or deed of his.",
-        "Scripture does not say that Philip built Caesarea Philippi.",
+        "Scripture does not say that Philip built Caesarea Philippi; that is from Josephus.",
         "The \"Philip\" whose wife Herodias had been (Mark 6:17) is, on most views, a different man.",
         "Scripture does not say whether its Bethsaida is the town Philip renamed Julias."
       ],
@@ -1749,6 +2885,36 @@
             ]
           ],
           "note": "Named by Luke"
+        },
+        {
+          "name": "Caesarea Philippi",
+          "placeId": "ab7bf48",
+          "refs": [
+            [
+              40016013,
+              40016013
+            ],
+            [
+              41008027,
+              41008027
+            ]
+          ],
+          "note": "His city at Paneas (Josephus)"
+        },
+        {
+          "name": "Bethsaida",
+          "placeId": "a9fc13a",
+          "refs": [
+            [
+              41008022,
+              41008022
+            ],
+            [
+              42009010,
+              42009010
+            ]
+          ],
+          "note": "Philip's Julias, by Josephus; whether the same as the Gospels' Bethsaida is debated"
         }
       ],
       "passages": [
@@ -1762,7 +2928,8 @@
       "id": "herod-act-12-1",
       "name": "Herod Agrippa I",
       "otherNames": [
-        "Herod the king (Acts 12:1)"
+        "Herod the king (Acts 12:1)",
+        "Agrippa (Josephus)"
       ],
       "kind": "herod",
       "realm": "rome",
@@ -1785,6 +2952,34 @@
               44012019,
               44012023
             ]
+          ]
+        },
+        {
+          "text": "Josephus tells of Agrippa, Herod the Great's grandson, to whom Claudius added \"Judea and Samaria\" (Antiquities 19.5.1), and who died at Caesarea after his flatterers called him a god (19.8.2).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-19-5-1",
+            "jos-ant-19-8-2"
+          ]
+        },
+        {
+          "text": "Schürer (1890) finds the principal points common to Acts and Josephus: Caesarea as the scene, the brilliant robe, the flattering shout and the sudden death.",
+          "layer": "scholars",
+          "refs": [
+            [
+              44012019,
+              44012023
+            ]
+          ],
+          "cites": [
+            "schurer-2-150"
+          ]
+        },
+        {
+          "text": "Schürer (1890): \"The New Testament, Acts xii., names him simply as Herod. By Josephus, however, and on the coins, he is always designated Agrippa.\"",
+          "layer": "scholars",
+          "cites": [
+            "schurer-2-150"
           ]
         },
         {
@@ -1834,6 +3029,14 @@
           "note": "King of Philip's former tetrarchy from AD 37, of Antipas's from about AD 40, of Judaea and Samaria from AD 41; died at Caesarea in AD 44.",
           "cites": [
             "schurer-2-150"
+          ]
+        },
+        {
+          "system": "other",
+          "label": "Josephus",
+          "note": "He died \"in the fifty-fourth year of his age, and in the seventh year of his reign; for he reigned four years under Caius Caesar ... and he reigned, besides those, three years under the reign of Claudius Caesar\" (Antiquities 19.8.2).",
+          "cites": [
+            "jos-ant-19-8-2"
           ]
         }
       ],
@@ -1934,9 +3137,91 @@
           "marks": true
         }
       ],
-      "accession": [],
+      "accession": [
+        {
+          "text": "Imprisoned at Rome under Tiberius, he was freed by the new emperor Gaius, who \"put a diadem upon his head, and appointed him to be king of the tetrarchy of Philip. He also gave him the tetrarchy of Lysanias\" (Antiquities 18.6.10).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-18-6-10"
+          ]
+        },
+        {
+          "text": "Gaius later gave him the tetrarchy of Herod Antipas as well (Antiquities 18.7.2).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-18-7-1-2"
+          ]
+        },
+        {
+          "text": "Claudius confirmed his kingdom and added \"Judea and Samaria\", \"as due to his family\", with Abila of Lysanias (Antiquities 19.5.1).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-19-5-1"
+          ]
+        }
+      ],
       "synchronisms": [],
       "events": [
+        {
+          "label": "King of Philip's tetrarchy",
+          "kind": "alliance",
+          "claim": {
+            "text": "Gaius made him king of Philip's former tetrarchy and Lysanias's (Antiquities 18.6.10).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-6-10"
+            ]
+          },
+          "placeId": "a85a60a"
+        },
+        {
+          "label": "Antipas's tetrarchy added",
+          "kind": "alliance",
+          "claim": {
+            "text": "Gaius added the tetrarchy of Antipas after banishing him (Antiquities 18.7.2).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-7-1-2"
+            ]
+          },
+          "placeId": "a9cf1e8"
+        },
+        {
+          "label": "Judaea and Samaria added",
+          "kind": "alliance",
+          "claim": {
+            "text": "Claudius added Judaea and Samaria (Antiquities 19.5.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-19-5-1"
+            ]
+          },
+          "placeId": "a149f13"
+        },
+        {
+          "label": "The golden chain",
+          "kind": "worship",
+          "claim": {
+            "text": "He hung the golden chain Gaius had given him in the temple, over the treasury, as a memorial (Antiquities 19.6.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-19-6-1"
+            ]
+          },
+          "placeId": "a15257a"
+        },
+        {
+          "label": "The walls of Jerusalem",
+          "kind": "building",
+          "claim": {
+            "text": "He began to strengthen the walls of Jerusalem's new quarter until Claudius, warned by Marcus the governor of Syria, ordered him to stop (Antiquities 19.7.2).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-19-7-2"
+            ]
+          },
+          "placeId": "a15257a"
+        },
         {
           "label": "James killed",
           "kind": "personal",
@@ -2009,10 +3294,40 @@
                 44012003
               ]
             ]
+          },
+          {
+            "text": "Josephus: \"he loved to live continually at Jerusalem, and was exactly careful in the observance of the laws of his country\"; \"nor did any day pass over his head without its appointed sacrifice\" (Antiquities 19.7.3).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-19-7-3"
+            ]
+          },
+          {
+            "text": "On his return he offered all the sacrifices the law required and \"ordained that many of the Nazarites should have their heads shorn\" (Antiquities 19.6.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-19-6-1"
+            ]
           }
         ],
-        "building": [],
+        "building": [
+          {
+            "text": "The walls of Jerusalem's new quarter, halted by Claudius (Antiquities 19.7.2); at Berytus a theatre, amphitheatre, baths and porticoes (Antiquities 19.7.5).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-19-7-2",
+              "jos-ant-19-7-5"
+            ]
+          }
+        ],
         "alliances": [
+          {
+            "text": "He entertained five client kings at Tiberias until Marcus, the governor of Syria, sent them home (Antiquities 19.8.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-19-8-1"
+            ]
+          },
           {
             "text": "Tyre and Sidon depended on \"the king's country\" for food and sought peace with him.",
             "layer": "scripture",
@@ -2034,11 +3349,39 @@
                 44012022
               ]
             ]
+          },
+          {
+            "text": "Josephus says the multitude sat in sackcloth praying for him as he lay dying (Antiquities 19.8.2), but that at news of his death the people of Caesarea and Sebaste reviled him and feasted (Antiquities 19.9.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-19-8-2",
+              "jos-ant-19-9-1"
+            ]
           }
         ]
       },
       "prophets": [],
       "worldStage": [
+        {
+          "power": "Rome",
+          "rulers": [
+            {
+              "name": "Claudius",
+              "personId": "claudius-act-11-28"
+            },
+            {
+              "name": "Gaius (Caligula)"
+            }
+          ],
+          "claim": {
+            "text": "Gaius made him king (Antiquities 18.6.10) and Claudius added Judaea and Samaria (19.5.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-6-10",
+              "jos-ant-19-5-1"
+            ]
+          }
+        },
         {
           "power": "Rome, in Acts",
           "rulers": [
@@ -2083,13 +3426,115 @@
           }
         }
       ],
-      "outside": [],
-      "twoAccounts": [],
+      "outside": [
+        {
+          "name": "Josephus on his death",
+          "date": "Antiquities 19.8.2, AD 93/94",
+          "claim": {
+            "text": "At games in Caesarea for Caesar's safety, he entered the theatre on the second day wearing \"a garment made wholly of silver\"; flatterers called him a god and \"the king did neither rebuke them, nor reject their impious flattery\". He saw an owl above his head, was seized with pain in his belly, and died five days later.",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-19-8-2"
+            ]
+          }
+        },
+        {
+          "name": "The owl foretold",
+          "date": "Antiquities 18.6.7",
+          "claim": {
+            "text": "Josephus says that years before, when Agrippa stood chained at Rome, a German prisoner saw an owl settle on the tree he leaned on and foretold his rise, and his death when he should see the bird again (Antiquities 18.6.7).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-18-6-7"
+            ]
+          }
+        },
+        {
+          "name": "Eusebius quoting Josephus",
+          "date": "about AD 325",
+          "claim": {
+            "text": "Eusebius admires \"the account of Josephus for its agreement with the divine Scriptures\", but his quotation reads that the king \"saw an angel sitting above his head\" where our Josephus has an owl (Church History 2.10.2, 6).",
+            "layer": "early-church",
+            "cites": [
+              "eusebius-2-10",
+              "jos-ant-19-8-2"
+            ]
+          }
+        }
+      ],
+      "twoAccounts": [
+        {
+          "topic": "His death at Caesarea",
+          "first": {
+            "text": "Acts: on a set day, in royal apparel on his throne, he \"made an oration unto them\" (after the embassy from Tyre and Sidon); the people cried \"the voice of a god\"; \"immediately the angel of the Lord smote him, because he gave not God the glory: and he was eaten of worms\".",
+            "layer": "scripture",
+            "refs": [
+              [
+                44012020,
+                44012023
+              ]
+            ]
+          },
+          "second": {
+            "text": "Josephus: at games for Caesar, in a silver robe in the theatre, he let flatterers call him a god; he saw an owl, felt violent pains in his belly, and died after five days, aged fifty-four (Antiquities 19.8.2).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-19-8-2"
+            ]
+          }
+        }
+      ],
       "questions": [
+        {
+          "id": "agrippa1-owl-angel",
+          "question": "Why does Eusebius's quotation of Josephus have an angel where Josephus has an owl?",
+          "views": [
+            {
+              "label": "Eusebius altered the text to match Acts",
+              "holders": "\"most writers on Eusebius\", as reported by A. C. McGiffert (1890), who does not accept it",
+              "argument": {
+                "text": "McGiffert reports that many have accused Eusebius of wilfully changing Josephus's owl into an angel to confirm Acts.",
+                "layer": "scholars",
+                "cites": [
+                  "mcgiffert-2-10"
+                ]
+              }
+            },
+            {
+              "label": "Eusebius's copy of Josephus already read so",
+              "holders": "J. B. Lightfoot, as quoted by A. C. McGiffert (1890), who agrees",
+              "argument": {
+                "text": "Lightfoot argues that the Greek words for the owl and the rope had dropped out of some copies, leaving \"angel\" (the same Greek word as \"messenger\"), so the change need not be dishonest.",
+                "layer": "scholars",
+                "cites": [
+                  "mcgiffert-2-10"
+                ]
+              }
+            }
+          ]
+        },
         {
           "id": "agrippa1-death-date",
           "question": "When in AD 44 did he die?",
           "views": [
+            {
+              "label": "Spring of 44, at games for Claudius",
+              "holders": "Schürer (1890)",
+              "argument": {
+                "text": "Schürer reads Acts as placing his death soon after the Passover of Peter's arrest; Josephus's festival, \"celebrated to make vows for his safety\" (Caesar's), was, Schürer argues, a special one held in the provinces after Claudius's return from Britain in the spring of 44. The regular games at Caesarea fell in 43.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44012003,
+                    44012004
+                  ]
+                ],
+                "cites": [
+                  "schurer-2-150",
+                  "jos-ant-19-8-2"
+                ]
+              }
+            },
             {
               "label": "6 August 44, at the regular games founded by Herod",
               "holders": "Wieseler, followed by A. C. McGiffert (1890)",
@@ -2107,7 +3552,8 @@
       "notSaid": [
         "Acts never calls him Agrippa, and does not say whose son or grandson he was.",
         "Acts does not say why he was displeased with Tyre and Sidon.",
-        "Acts gives no year for his death."
+        "Acts gives no year for his death.",
+        "Josephus's account of him says nothing of James the brother of John, of Peter, or of the church."
       ],
       "places": [
         {
@@ -2120,6 +3566,17 @@
             ]
           ],
           "note": "Where he killed James and imprisoned Peter (Acts 12 does not name the city)"
+        },
+        {
+          "name": "Judaea",
+          "placeId": "a149f13",
+          "refs": [
+            [
+              44012019,
+              44012019
+            ]
+          ],
+          "note": "He went down \"from Judaea\" (Acts 12:19); his kingdom, by Josephus"
         },
         {
           "name": "Caesarea",
@@ -2153,6 +3610,33 @@
             ]
           ],
           "note": "Sought peace with him"
+        },
+        {
+          "name": "Trachonitis",
+          "placeId": "a85a60a",
+          "refs": [
+            [
+              42003001,
+              42003001
+            ]
+          ],
+          "note": "Part of Philip's former tetrarchy, his first kingdom (Josephus)"
+        },
+        {
+          "name": "Galilee",
+          "placeId": "a9cf1e8",
+          "note": "Antipas's former tetrarchy, added by Gaius (Josephus)"
+        },
+        {
+          "name": "Abilene",
+          "placeId": "a498faa",
+          "refs": [
+            [
+              42003001,
+              42003001
+            ]
+          ],
+          "note": "Lysanias's former tetrarchy, given to him (Josephus, Antiquities 18.6.10)"
         }
       ],
       "passages": [
@@ -2160,7 +3644,18 @@
           44012001,
           44012024
         ]
-      ]
+      ],
+      "capital": {
+        "name": "Jerusalem",
+        "placeId": "a15257a",
+        "refs": [
+          [
+            44012003,
+            44012005
+          ]
+        ],
+        "note": "Josephus says he \"loved to live continually at Jerusalem\" (Antiquities 19.7.3)"
+      }
     },
     {
       "id": "agrippa-act-25-13",
@@ -2196,6 +3691,16 @@
           ]
         },
         {
+          "text": "Josephus: Agrippa, son of King Agrippa, was seventeen when his father died (Antiquities 19.9.1); Claudius later gave him Philip's former tetrarchy (20.7.1); his sister Bernice, widowed by the death of her uncle and husband Herod, king of Chalcis, was the subject of a rumour about the two of them (20.7.3); and he was king while Festus was procurator (20.8.11).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-19-9-1",
+            "jos-ant-20-7-1",
+            "jos-ant-20-7-3",
+            "jos-ant-20-8-11"
+          ]
+        },
+        {
           "text": "Schürer (1890) places the visit of Acts 25:13 in AD 60, when Agrippa and Bernice came \"with great pomp\" to welcome the new procurator Festus.",
           "layer": "scholars",
           "refs": [
@@ -2210,6 +3715,21 @@
           ],
           "cites": [
             "schurer-2-191"
+          ]
+        },
+        {
+          "text": "Josephus names Bernice and Drusilla as daughters of Agrippa I (Antiquities 19.9.1), and says Drusilla, married to Azizus king of Emesa, left him to marry Felix (20.7.1–2): so the Drusilla of Acts 24:24, Felix's wife, was Agrippa II's sister.",
+          "layer": "ancient-record",
+          "refs": [
+            [
+              44024024,
+              44024024
+            ]
+          ],
+          "cites": [
+            "jos-ant-19-9-1",
+            "jos-ant-20-7-1",
+            "jos-ant-20-7-2"
           ]
         }
       ],
@@ -2238,6 +3758,18 @@
           "note": "King of Chalcis from about AD 50; of Philip's former tetrarchy from AD 53, with parts of Galilee and Perea added by Nero; died in the third year of Trajan, AD 100, by the report of Justus of Tiberias preserved by Photius.",
           "cites": [
             "schurer-2-191"
+          ]
+        },
+        {
+          "system": "other",
+          "label": "Earlier death (before AD 93/94)",
+          "from": -50,
+          "to": -93,
+          "approx": true,
+          "note": "Tillemont (1732), Grätz (1877) and others, as listed by Schürer, put his death before Josephus wrote his Life, which speaks of him as dead.",
+          "cites": [
+            "schurer-2-191",
+            "jos-life-65"
           ]
         }
       ],
@@ -2319,9 +3851,73 @@
           ]
         }
       ],
-      "accession": [],
+      "accession": [
+        {
+          "text": "Claudius meant to give him his father's kingdom, but his advisers said it was too great for so young a man (Antiquities 19.9.2).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-19-9-2"
+          ]
+        },
+        {
+          "text": "When his uncle Herod, king of Chalcis, died, \"Claudius Caesar bestowed his dominions on Agrippa, junior\" (Antiquities 20.5.2).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-20-5-2"
+          ]
+        },
+        {
+          "text": "Claudius then gave him \"the tetrarchy of Philip and Batanea, and added thereto Trachonites, with Abila\", taking Chalcis back (Antiquities 20.7.1).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-20-7-1"
+          ]
+        },
+        {
+          "text": "Nero added part of Galilee, Tiberias and Tarichae, and Julias in Perea with fourteen villages (Antiquities 20.8.4).",
+          "layer": "ancient-record",
+          "cites": [
+            "jos-ant-20-8-4"
+          ]
+        }
+      ],
       "synchronisms": [],
       "events": [
+        {
+          "label": "King of Chalcis",
+          "kind": "alliance",
+          "claim": {
+            "text": "Claudius gave him his uncle's kingdom of Chalcis (Antiquities 20.5.2).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-20-5-2"
+            ]
+          }
+        },
+        {
+          "label": "Philip's tetrarchy",
+          "kind": "alliance",
+          "claim": {
+            "text": "He exchanged Chalcis for Philip's former tetrarchy and Abila (Antiquities 20.7.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-20-7-1"
+            ]
+          },
+          "placeId": "a85a60a"
+        },
+        {
+          "label": "Nero's additions",
+          "kind": "alliance",
+          "claim": {
+            "text": "Nero gave him Tiberias, Tarichae and Julias (Antiquities 20.8.4).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-20-8-4"
+            ]
+          },
+          "placeId": "ac9adc9"
+        },
         {
           "label": "Paul before Agrippa",
           "kind": "other",
@@ -2336,11 +3932,84 @@
             ]
           },
           "placeId": "a58735e"
+        },
+        {
+          "label": "The temple wall",
+          "kind": "worship",
+          "claim": {
+            "text": "He built a dining room in the palace at Jerusalem overlooking the temple; the Jews built a wall to block the view, and Nero let it stand (Antiquities 20.8.11).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-20-8-11"
+            ]
+          },
+          "placeId": "a15257a"
+        },
+        {
+          "label": "Ananus deposed",
+          "kind": "worship",
+          "claim": {
+            "text": "When the high priest Ananus had James stoned, \"king Agrippa took the high priesthood from him\" (Antiquities 20.9.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-20-9-1"
+            ]
+          },
+          "placeId": "a15257a"
+        },
+        {
+          "label": "Caesarea Philippi becomes Neronias",
+          "kind": "building",
+          "claim": {
+            "text": "He enlarged Caesarea Philippi and named it Neronias in Nero's honour (Antiquities 20.9.4).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-20-9-4"
+            ]
+          },
+          "placeId": "ab7bf48"
+        },
+        {
+          "label": "Against the war",
+          "kind": "battle",
+          "claim": {
+            "text": "He urged the people of Jerusalem not to war with Rome; when the revolt came, the rebels burned \"the palaces of Agrippa and Bernice\" (War 2.16.4–5; 2.17.6).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-war-2-16-4-5",
+              "jos-war-2-17-6"
+            ]
+          },
+          "placeId": "a15257a"
         }
       ],
       "nation": {
-        "worship": [],
-        "building": [],
+        "worship": [
+          {
+            "text": "Schürer (1890): with Chalcis he received the oversight of the temple and the right to appoint the high priests, which he used repeatedly until the war (Antiquities 20.1.3; 20.8.11; 20.9.1).",
+            "layer": "scholars",
+            "cites": [
+              "schurer-2-191",
+              "jos-ant-20-1-3"
+            ]
+          },
+          {
+            "text": "Josephus reports that the high priest Ananus, between governors, had \"the brother of Jesus, who was called Christ, whose name was James\" stoned, and that Agrippa removed him after three months (Antiquities 20.9.1).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-20-9-1"
+            ]
+          }
+        ],
+        "building": [
+          {
+            "text": "Caesarea Philippi enlarged as Neronias; a theatre at Berytus with yearly shows (Antiquities 20.9.4).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-20-9-4"
+            ]
+          }
+        ],
         "alliances": [
           {
             "text": "He came to Caesarea to greet the new governor Festus, who consulted him about Paul.",
@@ -2376,6 +4045,13 @@
             ]
           },
           {
+            "text": "Josephus reports a rumour about Bernice and her brother, which she sought to disprove by marrying Polemon, king of Cilicia, a marriage that did not last (Antiquities 20.7.3).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-20-7-3"
+            ]
+          },
+          {
             "text": "Suetonius writes of Titus's \"notorious passion for queen Berenice, to whom it was even said that he promised marriage\", and that as emperor he sent her from Rome \"against her will and against his own\" (Titus 7).",
             "layer": "ancient-record",
             "cites": [
@@ -2386,6 +4062,30 @@
       },
       "prophets": [],
       "worldStage": [
+        {
+          "power": "Rome",
+          "rulers": [
+            {
+              "name": "Nero",
+              "personId": "nero-php-4-22",
+              "note": "never named in Scripture; by date, the \"Caesar\" and \"Augustus\" of Acts 25"
+            },
+            {
+              "name": "Claudius",
+              "personId": "claudius-act-11-28"
+            }
+          ],
+          "claim": {
+            "text": "Claudius gave him Chalcis and then Philip's former tetrarchy (Antiquities 20.5.2; 20.7.1). Nero, who had sent Festus to succeed Felix (20.8.9), added Tiberias, Tarichae and Julias (20.8.4).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-20-5-2",
+              "jos-ant-20-7-1",
+              "jos-ant-20-8-9",
+              "jos-ant-20-8-4"
+            ]
+          }
+        },
         {
           "power": "Rome's governor of Judaea",
           "rulers": [
@@ -2415,6 +4115,29 @@
         }
       ],
       "outside": [
+        {
+          "name": "Josephus, Life 65",
+          "date": "after AD 93/94",
+          "claim": {
+            "text": "Josephus says Agrippa read his history of the war and \"wrote me sixty-two letters, and attested to the truth of what I had therein delivered\" (Life 65).",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-life-65"
+            ]
+          }
+        },
+        {
+          "name": "The James passage in Josephus",
+          "date": "Antiquities 20.9.1",
+          "claim": {
+            "text": "Schürer (1890) notes that the genuineness of Josephus's sentence on James, \"the brother of Jesus, who was called Christ\", is seriously disputed.",
+            "layer": "scholars",
+            "cites": [
+              "schurer-2-148",
+              "jos-ant-20-9-1"
+            ]
+          }
+        },
         {
           "name": "His coins",
           "date": "reign years to 35",
@@ -2483,12 +4206,42 @@
               }
             }
           ]
+        },
+        {
+          "id": "agrippa2-death",
+          "question": "When did Agrippa II die?",
+          "views": [
+            {
+              "label": "AD 100",
+              "holders": "Justus of Tiberias (as summarised by Photius), followed by Schürer (1890)",
+              "argument": {
+                "text": "Justus put his death in the third year of Trajan; Schürer sees no reason to doubt it, since his coins show him alive at least in AD 95 and Josephus's Life need not have been written straight after the Antiquities.",
+                "layer": "scholars",
+                "cites": [
+                  "schurer-2-191"
+                ]
+              }
+            },
+            {
+              "label": "Before AD 93/94",
+              "holders": "Tillemont (1732), Jost, Brann (1871), Grätz (1877) and Brüll (1885), as listed by Schürer",
+              "argument": {
+                "text": "They reject or emend Justus's date because Josephus's Life, which speaks of Agrippa as dead, was taken to have been written right after the Antiquities in AD 93 or 94.",
+                "layer": "scholars",
+                "cites": [
+                  "schurer-2-191",
+                  "jos-life-65"
+                ]
+              }
+            }
+          ]
         }
       ],
       "notSaid": [
         "Acts never calls him Herod, and does not say whose son he was.",
-        "Acts does not say how Bernice was related to him.",
-        "Acts records his words to Paul but says nothing of his faith beyond them."
+        "Acts does not say how Bernice was related to him; Josephus calls her his sister.",
+        "Acts records his words to Paul but says nothing of his faith beyond them.",
+        "Josephus does not mention Paul."
       ],
       "places": [
         {
@@ -2505,6 +4258,43 @@
             ]
           ],
           "note": "Where he heard Paul"
+        },
+        {
+          "name": "Caesarea Philippi",
+          "placeId": "ab7bf48",
+          "note": "His capital, renamed Neronias (Josephus, Antiquities 20.9.4)"
+        },
+        {
+          "name": "Tiberias",
+          "placeId": "ac9adc9",
+          "note": "Given to him by Nero (Josephus, Antiquities 20.8.4)"
+        },
+        {
+          "name": "Jerusalem",
+          "placeId": "a15257a",
+          "note": "His palace overlooking the temple (Josephus, Antiquities 20.8.11)"
+        },
+        {
+          "name": "Trachonitis",
+          "placeId": "a85a60a",
+          "refs": [
+            [
+              42003001,
+              42003001
+            ]
+          ],
+          "note": "Part of Philip's former tetrarchy (Josephus, Antiquities 20.7.1)"
+        },
+        {
+          "name": "Abilene",
+          "placeId": "a498faa",
+          "refs": [
+            [
+              42003001,
+              42003001
+            ]
+          ],
+          "note": "Abila, given to him by Claudius (Josephus, Antiquities 20.7.1)"
         }
       ],
       "passages": [
@@ -2512,7 +4302,12 @@
           44025013,
           44026032
         ]
-      ]
+      ],
+      "capital": {
+        "name": "Caesarea Philippi",
+        "placeId": "ab7bf48",
+        "note": "Enlarged by him and renamed Neronias for Nero (Josephus, Antiquities 20.9.4); Schürer calls it his capital"
+      }
     }
   ],
   "citations": [
@@ -2533,6 +4328,14 @@
       "url": "https://archive.org/details/cu31924031002102"
     },
     {
+      "id": "barnes-mat-2-16",
+      "author": "Albert Barnes",
+      "title": "Notes on the New Testament: Matthew and Mark",
+      "year": "1832",
+      "where": "note on Matt 2:16 (read on Bible Hub)",
+      "url": "https://biblehub.com/commentaries/matthew/2-16.htm"
+    },
+    {
       "id": "ellicott-act-26-28",
       "author": "C. J. Ellicott (ed.)",
       "title": "A Bible Commentary for English Readers",
@@ -2547,6 +4350,14 @@
       "year": "c. 1878–1884",
       "where": "note on Luke 19:12 (read on Bible Hub)",
       "url": "https://biblehub.com/commentaries/luke/19-12.htm"
+    },
+    {
+      "id": "strauss-34",
+      "author": "D. F. Strauss, tr. George Eliot",
+      "title": "The Life of Jesus Critically Examined",
+      "year": "1846",
+      "where": "§34, pp. 167–168 (1902 printing)",
+      "url": "https://archive.org/details/lifeofjesuscriti00straiala"
     },
     {
       "id": "schurer-1-393",
@@ -2581,6 +4392,22 @@
       "url": "https://archive.org/details/s1historyofjewis01schuoft"
     },
     {
+      "id": "schurer-1-467",
+      "author": "E. Schürer",
+      "title": "A History of the Jewish People in the Time of Jesus Christ, Division I, vol. 1 (tr. J. Macpherson)",
+      "year": "1890",
+      "where": "§15, p. 467 and notes 166–167 (burial; 'the Great')",
+      "url": "https://archive.org/details/s1historyofjewis01schuoft"
+    },
+    {
+      "id": "schurer-1-83",
+      "author": "E. Schürer",
+      "title": "A History of the Jewish People in the Time of Jesus Christ, Division I, vol. 1 (tr. J. Macpherson)",
+      "year": "1890",
+      "where": "pp. 83–84 (when Josephus wrote the War and the Antiquities)",
+      "url": "https://archive.org/details/s1historyofjewis01schuoft"
+    },
+    {
       "id": "schurer-2-10",
       "author": "E. Schürer",
       "title": "A History of the Jewish People in the Time of Jesus Christ, Division I, vol. 2 (tr. J. Macpherson)",
@@ -2594,6 +4421,14 @@
       "title": "A History of the Jewish People in the Time of Jesus Christ, Division I, vol. 2 (tr. J. Macpherson)",
       "year": "1890",
       "where": "Excursus I, pp. 131–133 (the census and Herod's lifetime)",
+      "url": "https://archive.org/details/s1historyofjewis02schuoft"
+    },
+    {
+      "id": "schurer-2-148",
+      "author": "E. Schürer",
+      "title": "A History of the Jewish People in the Time of Jesus Christ, Division I, vol. 2 (tr. J. Macpherson)",
+      "year": "1890",
+      "where": "pp. 148–149 (the passage on James in Josephus)",
       "url": "https://archive.org/details/s1historyofjewis02schuoft"
     },
     {
@@ -2661,6 +4496,14 @@
       "url": "https://archive.org/details/s1historyofjewis02schuoft"
     },
     {
+      "id": "eusebius-1-8",
+      "author": "Eusebius, tr. A. C. McGiffert",
+      "title": "Church History (Nicene and Post-Nicene Fathers, series 2, vol. 1)",
+      "year": "1890",
+      "where": "1.8.1–16, pp. 94–95",
+      "url": "https://archive.org/details/cu31924031002102"
+    },
+    {
       "id": "eusebius-2-10",
       "author": "Eusebius, tr. A. C. McGiffert",
       "title": "Church History (Nicene and Post-Nicene Fathers, series 2, vol. 1)",
@@ -2675,6 +4518,462 @@
       "year": "1880",
       "where": "note on Luke 19:12 (read on Bible Hub)",
       "url": "https://biblehub.com/commentaries/luke/19-12.htm"
+    },
+    {
+      "id": "jos-ant-14-14-4-5",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 14.14.4–5",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-14-15-2",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 14.15.2",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-14-16-4",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 14.16.4",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-15-11-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 15.11.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-15-6-7",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 15.6.7",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-15-9-6",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 15.9.6",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-16-11-7",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 16.11.7",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-17-11-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 17.11.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-17-11-4",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 17.11.4",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-17-13-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 17.13.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-17-13-2",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 17.13.2",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-17-6-4",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 17.6.4",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-17-6-5",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 17.6.5",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-17-7-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 17.7.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-17-8-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 17.8.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-17-8-3",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 17.8.3",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-17-9-3",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 17.9.3",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-18-1-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 18.1.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-18-2-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 18.2.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-18-2-3",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 18.2.3",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-18-4-3",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 18.4.3",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-18-4-6",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 18.4.6",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-18-5-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 18.5.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-18-5-1-2",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 18.5.1–2",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-18-5-2",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 18.5.2",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-18-5-4",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 18.5.4",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-18-6-10",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 18.6.10",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-18-6-7",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 18.6.7",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-18-7-1-2",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 18.7.1–2",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-18-7-2",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 18.7.2",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-19-5-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 19.5.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-19-6-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 19.6.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-19-7-2",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 19.7.2",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-19-7-3",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 19.7.3",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-19-7-5",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 19.7.5",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-19-8-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 19.8.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-19-8-2",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 19.8.2",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-19-9-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 19.9.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-19-9-2",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 19.9.2",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-20-1-3",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 20.1.3",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-20-5-2",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 20.5.2",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-20-7-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 20.7.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-20-7-2",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 20.7.2",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-20-7-3",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 20.7.3",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-20-8-11",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 20.8.11",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-20-8-4",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 20.8.4",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-20-8-9",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 20.8.9",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-20-9-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 20.9.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-ant-20-9-4",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "Antiquities 20.9.4",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "jos-life-65",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Life of Flavius Josephus",
+      "year": "1737",
+      "where": "Life 65",
+      "url": "https://www.gutenberg.org/ebooks/2846"
+    },
+    {
+      "id": "jos-war-1-21-1",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Wars of the Jews",
+      "year": "1737",
+      "where": "War 1.21.1",
+      "url": "https://www.gutenberg.org/ebooks/2850"
+    },
+    {
+      "id": "jos-war-1-33-8",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Wars of the Jews",
+      "year": "1737",
+      "where": "War 1.33.8",
+      "url": "https://www.gutenberg.org/ebooks/2850"
+    },
+    {
+      "id": "jos-war-2-16-4-5",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Wars of the Jews",
+      "year": "1737",
+      "where": "War 2.16.4–5",
+      "url": "https://www.gutenberg.org/ebooks/2850"
+    },
+    {
+      "id": "jos-war-2-17-6",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Wars of the Jews",
+      "year": "1737",
+      "where": "War 2.17.6",
+      "url": "https://www.gutenberg.org/ebooks/2850"
+    },
+    {
+      "id": "jos-war-2-7-3",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Wars of the Jews",
+      "year": "1737",
+      "where": "War 2.7.3",
+      "url": "https://www.gutenberg.org/ebooks/2850"
+    },
+    {
+      "id": "jos-war-2-9-6",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Wars of the Jews",
+      "year": "1737",
+      "where": "War 2.9.6",
+      "url": "https://www.gutenberg.org/ebooks/2850"
+    },
+    {
+      "id": "maclear-mrk-6-17",
+      "author": "G. F. Maclear",
+      "title": "The Gospel according to St Mark (Cambridge Bible for Schools and Colleges)",
+      "year": "1877",
+      "where": "note on Mark 6:17 (read on Bible Hub)",
+      "url": "https://biblehub.com/commentaries/mark/6-17.htm"
     },
     {
       "id": "meyer-act-23-35",
@@ -2707,6 +5006,14 @@
       "year": "1880",
       "where": "note on Mark 6:14 (read on Bible Hub)",
       "url": "https://biblehub.com/commentaries/mark/6-14.htm"
+    },
+    {
+      "id": "meyer-mrk-6-17",
+      "author": "H. A. W. Meyer",
+      "title": "Critical and Exegetical Handbook to the Gospels of Mark and Luke (English translation)",
+      "year": "1880",
+      "where": "note on Mark 6:17–20 (read on Bible Hub)",
+      "url": "https://biblehub.com/commentaries/mark/6-17.htm"
     },
     {
       "id": "pulpit-mat-2-16",
@@ -2779,6 +5086,14 @@
       "year": "1871",
       "where": "note on Acts 26:28 (read on Bible Hub)",
       "url": "https://biblehub.com/commentaries/acts/26-28.htm"
+    },
+    {
+      "id": "jfb-mrk-6-17",
+      "author": "R. Jamieson, A. R. Fausset and D. Brown",
+      "title": "A Commentary, Critical and Explanatory, on the Whole Bible",
+      "year": "1871",
+      "where": "note on Mark 6:17 (read on Bible Hub)",
+      "url": "https://biblehub.com/commentaries/mark/6-17.htm"
     },
     {
       "id": "suetonius-titus-7",

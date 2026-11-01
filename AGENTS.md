@@ -62,7 +62,7 @@
 
 - Circles expansion correction (2026-10-13): the page keeps the 48-work prominent preview. Only the expanded view loads the complete collection and always uses the performance renderer, without count options. Expansion must visibly zoom out, draw more rings, and then reveal stationary work dots clockwise. Use a slow, steady zoom without radial scaling or waves. Keep phase labels outside the graph in the header legend. Collapse first smoothly recenters on the opening 48-work scene, then folds the expanded interface back into the page. Sermon selection must not have a rectangular outline; use the circle's stroke for keyboard focus. Do not put the complete collection into the inline graph.
 
-- Editorial source placement (2026-10-13): Josephus belongs only in Scholars. Do not restore his quotations, citations, retellings or explicitly dependent claims to general reading pages. Preserve the Scholars entry, original research archives and Bible text (including biblical names spelled Josephus). See `docs/editorial-sources.md`; run `node scripts/check-editorial-sources.mjs` after regeneration.
+- Josephus (2026-11-01): the owner lifted the 2026-10-13 rule that kept him to Scholars. He may be cited on any page, labelled as history, not Scripture. See `docs/editorial-sources.md`.
 
 - Preview launcher repair (2026-10-13): the `BibleProjectWebsite` scheduled task now runs `scripts/start-preview.mjs` directly through Node. Preserve this action; do not restore the recurring PowerShell wrapper. The original task XML is backed up in `.local/preview-task-backups/`. Port 8931 still serves the current working `dist/`.
 

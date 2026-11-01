@@ -53,13 +53,16 @@ REFERENCE_FIXES = [
     ("Articles P–23", {"*": (r"(?<![A-Za-z])P(\s*[–-]\s*23)", r"1\1")}),
     ("Articles I–24", {"*": (r"(?<![A-Za-z])I(\s*[–-]\s*24)", r"1\1")}),
     ("Articles 50–C", {"*": (r"(50\s*[–-]\s*)C(?![A-Za-z])", r"\g<1>67")}),
+    ("destroyed by Joshua (10:5, 6)", {"*": (rf"(?<!\d)10{SEP}5(\s*[,،、，]\s*)6(?!\d)", r"10\g<1>34\g<2>35")}),
+    ("simply “isles”", {"*": (r"(\{\{12\}\})\s*[)）]", r"\1")}),
 ]
 # The old swap had swallowed a citation or a paragraph break in these eight strings, so their translations lack it and
 # no reference fix can restore it. Translated afresh by the briefs; each still goes to the Opus check.
 RETRANSLATED_FILE = HERE / "source-fixes-retranslated.json"
 TOKEN = re.compile(r"[^\W\d_]+|\d+")
 CITATION = re.compile(r"(?<!\d)(\d+):(\d+)(?!\d)")
-MISSPELLED = set(json.loads((HERE / "english-spelling.json").read_text("utf-8"))["words"])
+_SPELLING = json.loads((HERE / "english-spelling.json").read_text("utf-8"))
+MISSPELLED = set(_SPELLING["words"]) | set(_SPELLING["slips_elsewhere"])
 # A citation as the people pages write it: Psa.106.17, 1Ch.1.5-6.
 BOOK_TAG = re.compile(r"(?<![\w.])[1-3]?[A-Z][a-z]{1,2}\.\d+\.\d+(?:-\d+(?:\.\d+)?)?")
 
@@ -137,18 +140,18 @@ def person_pairs(old_root: Path, new_root: Path) -> list[tuple[str, str]]:
     return pairs
 
 
-def topic_pairs(current: set[str]) -> list[tuple[str, str]]:
-    """Topic text changes only through english-spelling.json, so its old text is what the chunks hold."""
+def spelling_pairs(kind: str, current: set[str]) -> list[tuple[str, str]]:
+    """Topic and question text change only through english-spelling.json, so the old text is what the chunks hold."""
     sys.path.insert(0, str(ex.SITE / "scripts"))
     from bible.english_spelling import correct_text
 
     pairs = []
     for path in sorted((ex.DEFAULT_OUT / "in").glob("*.json")):
         chunk = read(path)
-        if chunk["kind"] == "topic":
+        if chunk["kind"] == kind:
             for text in chunk["strings"].values():
-                corrected = correct_text(text)
-                if corrected != text and ex.string_id("topic", corrected) in current:
+                corrected = correct_text(text).replace("“isles” ({{12}}); ", "“isles” ({{12}}; ")
+                if corrected != text and ex.string_id(kind, corrected) in current:
                     pairs.append((text, corrected))
     return pairs
 
@@ -201,7 +204,8 @@ def build_map(args: argparse.Namespace) -> None:
     for kind, pairs in (("creed", creed_pairs(args.old_creeds, ex.SITE / "data/creeds")),
                         ("hymn", hymn_pairs(args.old_hymns, ex.SITE / "data/hymns")),
                         ("person", person_pairs(args.old_people, ex.SITE / "data/study/people")),
-                        ("topic", topic_pairs(set(current["topic"])))):
+                        ("topic", spelling_pairs("topic", set(current["topic"]))),
+                        ("question", spelling_pairs("question", set(current["question"])))):
         for old, new in pairs:
             if old != new:
                 news = by_old.setdefault((kind, old), [])

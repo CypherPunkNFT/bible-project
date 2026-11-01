@@ -1086,7 +1086,19 @@
           }
         }
       ],
-      "outside": [],
+      "outside": [
+        {
+          "name": "Manetho, as quoted by Josephus",
+          "date": "Quoted by Josephus, late 1st century AD; Manetho was an Egyptian priest-historian",
+          "claim": {
+            "text": "Josephus quotes the Egyptian writer Manetho as reporting that the lawgiver of a band of outcasts was a priest of Heliopolis named Osarsiph, who \"was called Moses\". Josephus rejects the story as fable. It is a hostile Egyptian tradition known only through Josephus, not a record from Moses' time.",
+            "layer": "ancient-record",
+            "cites": [
+              "c-josephus-manetho"
+            ]
+          }
+        }
+      ],
       "twoAccounts": [
         {
           "topic": "How the judges under Moses were appointed",
@@ -1548,6 +1560,14 @@
           "system": "bible",
           "label": "Scripture's own numbers",
           "note": "Scripture gives no length for Joshua's leadership and no year BC. Caleb's ages imply about seven years of war before the land was divided (see the open question)."
+        },
+        {
+          "system": "other",
+          "label": "Josephus: commander for 25 years",
+          "note": "Josephus, retelling Scripture, gives Joshua 25 years as commander after Moses' death. This is not a BC date.",
+          "cites": [
+            "c-josephus-joshua"
+          ]
         }
       ],
       "verdictTone": "none",
@@ -2538,6 +2558,17 @@
               }
             },
             {
+              "label": "25 years as commander",
+              "holders": "Josephus (about AD 93)",
+              "argument": {
+                "text": "Josephus gives Joshua 25 years as commander after Moses' death.",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-joshua"
+                ]
+              }
+            },
+            {
               "label": "27 years",
               "holders": "Eusebius, as reported by Moore",
               "argument": {
@@ -3115,7 +3146,19 @@
           }
         }
       ],
-      "outside": [],
+      "outside": [
+        {
+          "name": "Josephus's retelling",
+          "date": "about AD 93",
+          "claim": {
+            "text": "Josephus, retelling Judges, calls the oppressors Assyrians, says Othniel drove them back over the Euphrates, and says he \"ruled over them forty years\" before he died.",
+            "layer": "ancient-record",
+            "cites": [
+              "c-josephus-othniel"
+            ]
+          }
+        }
+      ],
       "twoAccounts": [
         {
           "topic": "When Othniel took Debir",
@@ -3179,6 +3222,18 @@
           "id": "judges-chronology",
           "question": "How long was the time of the judges, and how do Scripture's numbers fit together?",
           "views": [
+            {
+              "label": "One after another, a long period",
+              "holders": "Josephus (about AD 93); the earlier chronologists who matched the sum to Acts 13:20, as reported by Keil",
+              "argument": {
+                "text": "Josephus counts 592 years from the Exodus to the temple, a figure Keil shows can be reached by adding Judges' numbers in sequence; earlier chronologists also read the KJV's \"four hundred and fifty years\" in Acts 13:20 as the judges' total.",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-592",
+                  "c-kd-judges-chronology"
+                ]
+              }
+            },
             {
               "label": "Some periods overlap",
               "holders": "Sebastian Schmid (1684), Keil (1865), Ewald and Hengstenberg, as listed by Moore; Mack in the ISBE (1915)",
@@ -3532,13 +3587,37 @@
           }
         }
       ],
-      "outside": [],
+      "outside": [
+        {
+          "name": "Josephus's retelling",
+          "date": "about AD 93",
+          "claim": {
+            "text": "Josephus, retelling Judges, says Ehud \"held the government eighty years\" and that Shamgar, elected after him, died in his first year. Neither detail is in Judges.",
+            "layer": "ancient-record",
+            "cites": [
+              "c-josephus-ehud"
+            ]
+          }
+        }
+      ],
       "twoAccounts": [],
       "questions": [
         {
           "id": "judges-chronology",
           "question": "How long was the time of the judges, and how do Scripture's numbers fit together?",
           "views": [
+            {
+              "label": "One after another, a long period",
+              "holders": "Josephus (about AD 93); the earlier chronologists who matched the sum to Acts 13:20, as reported by Keil",
+              "argument": {
+                "text": "Josephus counts 592 years from the Exodus to the temple, a figure Keil shows can be reached by adding Judges' numbers in sequence; earlier chronologists also read the KJV's \"four hundred and fifty years\" in Acts 13:20 as the judges' total.",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-592",
+                  "c-kd-judges-chronology"
+                ]
+              }
+            },
             {
               "label": "Some periods overlap",
               "holders": "Sebastian Schmid (1684), Keil (1865), Ewald and Hengstenberg, as listed by Moore; Mack in the ISBE (1915)",
@@ -5045,6 +5124,18 @@
           "question": "How long was the time of the judges, and how do Scripture's numbers fit together?",
           "views": [
             {
+              "label": "One after another, a long period",
+              "holders": "Josephus (about AD 93); the earlier chronologists who matched the sum to Acts 13:20, as reported by Keil",
+              "argument": {
+                "text": "Josephus counts 592 years from the Exodus to the temple, a figure Keil shows can be reached by adding Judges' numbers in sequence; earlier chronologists also read the KJV's \"four hundred and fifty years\" in Acts 13:20 as the judges' total.",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-592",
+                  "c-kd-judges-chronology"
+                ]
+              }
+            },
+            {
               "label": "Some periods overlap",
               "holders": "Sebastian Schmid (1684), Keil (1865), Ewald and Hengstenberg, as listed by Moore; Mack in the ISBE (1915)",
               "argument": {
@@ -5394,7 +5485,19 @@
       },
       "prophets": [],
       "worldStage": [],
-      "outside": [],
+      "outside": [
+        {
+          "name": "Josephus's retelling",
+          "date": "about AD 93",
+          "claim": {
+            "text": "Josephus's retelling of Judges passes from Abimelech straight to Jair and leaves Tola out.",
+            "layer": "ancient-record",
+            "cites": [
+              "c-josephus-tola"
+            ]
+          }
+        }
+      ],
       "twoAccounts": [],
       "questions": [
         {
@@ -5429,6 +5532,18 @@
           "id": "judges-chronology",
           "question": "How long was the time of the judges, and how do Scripture's numbers fit together?",
           "views": [
+            {
+              "label": "One after another, a long period",
+              "holders": "Josephus (about AD 93); the earlier chronologists who matched the sum to Acts 13:20, as reported by Keil",
+              "argument": {
+                "text": "Josephus counts 592 years from the Exodus to the temple, a figure Keil shows can be reached by adding Judges' numbers in sequence; earlier chronologists also read the KJV's \"four hundred and fifty years\" in Acts 13:20 as the judges' total.",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-592",
+                  "c-kd-judges-chronology"
+                ]
+              }
+            },
             {
               "label": "Some periods overlap",
               "holders": "Sebastian Schmid (1684), Keil (1865), Ewald and Hengstenberg, as listed by Moore; Mack in the ISBE (1915)",
@@ -5751,6 +5866,18 @@
           "id": "judges-chronology",
           "question": "How long was the time of the judges, and how do Scripture's numbers fit together?",
           "views": [
+            {
+              "label": "One after another, a long period",
+              "holders": "Josephus (about AD 93); the earlier chronologists who matched the sum to Acts 13:20, as reported by Keil",
+              "argument": {
+                "text": "Josephus counts 592 years from the Exodus to the temple, a figure Keil shows can be reached by adding Judges' numbers in sequence; earlier chronologists also read the KJV's \"four hundred and fifty years\" in Acts 13:20 as the judges' total.",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-592",
+                  "c-kd-judges-chronology"
+                ]
+              }
+            },
             {
               "label": "Some periods overlap",
               "holders": "Sebastian Schmid (1684), Keil (1865), Ewald and Hengstenberg, as listed by Moore; Mack in the ISBE (1915)",
@@ -6236,6 +6363,18 @@
           "question": "Did Jephthah offer his daughter as a burnt offering?",
           "views": [
             {
+              "label": "Yes, she was sacrificed",
+              "holders": "Josephus (about AD 93); the older Jewish and Christian interpreters, as listed by Moore; Moore (1895)",
+              "argument": {
+                "text": "Josephus says \"he sacrificed his daughter as a burnt-offering\", an offering \"neither conformable to the law nor acceptable to God\". Moore reports that early interpreters without exception read the text this way, and holds it himself.",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-jephthah",
+                  "c-moore-jephthah"
+                ]
+              }
+            },
+            {
               "label": "No, she was given to the LORD in lifelong virginity",
               "holders": "First found in the Kimchis (late 12th century), as reported by Moore; Keil (1865)",
               "argument": {
@@ -6281,6 +6420,18 @@
           "id": "judges-chronology",
           "question": "How long was the time of the judges, and how do Scripture's numbers fit together?",
           "views": [
+            {
+              "label": "One after another, a long period",
+              "holders": "Josephus (about AD 93); the earlier chronologists who matched the sum to Acts 13:20, as reported by Keil",
+              "argument": {
+                "text": "Josephus counts 592 years from the Exodus to the temple, a figure Keil shows can be reached by adding Judges' numbers in sequence; earlier chronologists also read the KJV's \"four hundred and fifty years\" in Acts 13:20 as the judges' total.",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-592",
+                  "c-kd-judges-chronology"
+                ]
+              }
+            },
             {
               "label": "Some periods overlap",
               "holders": "Sebastian Schmid (1684), Keil (1865), Ewald and Hengstenberg, as listed by Moore; Mack in the ISBE (1915)",
@@ -6615,6 +6766,17 @@
                   "c-moore-ibzan"
                 ]
               }
+            },
+            {
+              "label": "Bethlehem in Judah",
+              "holders": "Josephus (about AD 93)",
+              "argument": {
+                "text": "Josephus says Ibzan was \"of the tribe of Judah, and of the city of Bethlehem\".",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-ibzan"
+                ]
+              }
             }
           ]
         },
@@ -6622,6 +6784,18 @@
           "id": "judges-chronology",
           "question": "How long was the time of the judges, and how do Scripture's numbers fit together?",
           "views": [
+            {
+              "label": "One after another, a long period",
+              "holders": "Josephus (about AD 93); the earlier chronologists who matched the sum to Acts 13:20, as reported by Keil",
+              "argument": {
+                "text": "Josephus counts 592 years from the Exodus to the temple, a figure Keil shows can be reached by adding Judges' numbers in sequence; earlier chronologists also read the KJV's \"four hundred and fifty years\" in Acts 13:20 as the judges' total.",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-592",
+                  "c-kd-judges-chronology"
+                ]
+              }
+            },
             {
               "label": "Some periods overlap",
               "holders": "Sebastian Schmid (1684), Keil (1865), Ewald and Hengstenberg, as listed by Moore; Mack in the ISBE (1915)",
@@ -6865,6 +7039,18 @@
           "id": "judges-chronology",
           "question": "How long was the time of the judges, and how do Scripture's numbers fit together?",
           "views": [
+            {
+              "label": "One after another, a long period",
+              "holders": "Josephus (about AD 93); the earlier chronologists who matched the sum to Acts 13:20, as reported by Keil",
+              "argument": {
+                "text": "Josephus counts 592 years from the Exodus to the temple, a figure Keil shows can be reached by adding Judges' numbers in sequence; earlier chronologists also read the KJV's \"four hundred and fifty years\" in Acts 13:20 as the judges' total.",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-592",
+                  "c-kd-judges-chronology"
+                ]
+              }
+            },
             {
               "label": "Some periods overlap",
               "holders": "Sebastian Schmid (1684), Keil (1865), Ewald and Hengstenberg, as listed by Moore; Mack in the ISBE (1915)",
@@ -7166,6 +7352,18 @@
           "id": "judges-chronology",
           "question": "How long was the time of the judges, and how do Scripture's numbers fit together?",
           "views": [
+            {
+              "label": "One after another, a long period",
+              "holders": "Josephus (about AD 93); the earlier chronologists who matched the sum to Acts 13:20, as reported by Keil",
+              "argument": {
+                "text": "Josephus counts 592 years from the Exodus to the temple, a figure Keil shows can be reached by adding Judges' numbers in sequence; earlier chronologists also read the KJV's \"four hundred and fifty years\" in Acts 13:20 as the judges' total.",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-592",
+                  "c-kd-judges-chronology"
+                ]
+              }
+            },
             {
               "label": "Some periods overlap",
               "holders": "Sebastian Schmid (1684), Keil (1865), Ewald and Hengstenberg, as listed by Moore; Mack in the ISBE (1915)",
@@ -7723,6 +7921,17 @@
                   "c-moore-chronology"
                 ]
               }
+            },
+            {
+              "label": "Counted separately",
+              "holders": "The reckoning behind Josephus's 612 years, as worked out by Keil",
+              "argument": {
+                "text": "Keil shows that counting Samson's twenty years apart from the Philistines' forty gives 410 years for Judges, which with Josephus's other figures makes his total of 612 years from the Exodus to the temple (Antiquities 20.10); his other total, 592 years (Antiquities 8.3.1), fits 390, with Samson inside the forty.",
+                "layer": "scholars",
+                "cites": [
+                  "c-kd-judges-chronology"
+                ]
+              }
             }
           ]
         },
@@ -7730,6 +7939,18 @@
           "id": "judges-chronology",
           "question": "How long was the time of the judges, and how do Scripture's numbers fit together?",
           "views": [
+            {
+              "label": "One after another, a long period",
+              "holders": "Josephus (about AD 93); the earlier chronologists who matched the sum to Acts 13:20, as reported by Keil",
+              "argument": {
+                "text": "Josephus counts 592 years from the Exodus to the temple, a figure Keil shows can be reached by adding Judges' numbers in sequence; earlier chronologists also read the KJV's \"four hundred and fifty years\" in Acts 13:20 as the judges' total.",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-592",
+                  "c-kd-judges-chronology"
+                ]
+              }
+            },
             {
               "label": "Some periods overlap",
               "holders": "Sebastian Schmid (1684), Keil (1865), Ewald and Hengstenberg, as listed by Moore; Mack in the ISBE (1915)",
@@ -7943,6 +8164,13 @@
           ],
           "cites": [
             "c-kd-samuel-ithamar"
+          ]
+        },
+        {
+          "text": "Josephus, retelling Samuel, says Eli was the first of Ithamar's family to hold the high priesthood, after the line of Eleazar.",
+          "layer": "ancient-record",
+          "cites": [
+            "c-josephus-eli"
           ]
         }
       ],
@@ -8342,6 +8570,18 @@
           "question": "How long was the time of the judges, and how do Scripture's numbers fit together?",
           "views": [
             {
+              "label": "One after another, a long period",
+              "holders": "Josephus (about AD 93); the earlier chronologists who matched the sum to Acts 13:20, as reported by Keil",
+              "argument": {
+                "text": "Josephus counts 592 years from the Exodus to the temple, a figure Keil shows can be reached by adding Judges' numbers in sequence; earlier chronologists also read the KJV's \"four hundred and fifty years\" in Acts 13:20 as the judges' total.",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-592",
+                  "c-kd-judges-chronology"
+                ]
+              }
+            },
+            {
               "label": "Some periods overlap",
               "holders": "Sebastian Schmid (1684), Keil (1865), Ewald and Hengstenberg, as listed by Moore; Mack in the ISBE (1915)",
               "argument": {
@@ -8513,6 +8753,14 @@
           "system": "bible",
           "label": "Scripture's own numbers",
           "note": "Scripture gives no length for Samuel's judgeship and no year BC. Twenty years passed between the ark's return and the assembly at Mizpeh (1 Samuel 7:2)."
+        },
+        {
+          "system": "other",
+          "label": "Josephus: 12 years alone, 18 with Saul",
+          "note": "Josephus, retelling Samuel, says Samuel governed alone for twelve years after Eli's death and eighteen years together with Saul. This is not a BC date.",
+          "cites": [
+            "c-josephus-samuel"
+          ]
         }
       ],
       "verdictTone": "none",
@@ -9318,6 +9566,17 @@
               }
             },
             {
+              "label": "Twelve years alone, eighteen with Saul",
+              "holders": "Josephus (about AD 93)",
+              "argument": {
+                "text": "Josephus gives Samuel twelve years alone after Eli and eighteen together with Saul.",
+                "layer": "ancient-record",
+                "cites": [
+                  "c-josephus-samuel"
+                ]
+              }
+            },
+            {
               "label": "Forty years in the editor's scheme",
               "holders": "Moore (1895)",
               "argument": {
@@ -9857,6 +10116,86 @@
       "year": "1895",
       "where": "p. 311 (Judges 12:13–15, on 1 Samuel 12:11)",
       "url": "https://archive.org/details/criticalexegetic00moor"
+    },
+    {
+      "id": "c-josephus-joshua",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "5.1.29",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "c-josephus-othniel",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "5.3.3",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "c-josephus-ehud",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "5.4.3",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "c-josephus-tola",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "5.7.5–6",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "c-josephus-jephthah",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "5.7.10",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "c-josephus-ibzan",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "5.7.13",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "c-josephus-eli",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "5.11.3 and 5.11.5",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "c-josephus-samuel",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "6.13.5",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "c-josephus-592",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "where": "8.3.1",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "c-josephus-manetho",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "Against Apion",
+      "year": "1737",
+      "where": "1.26 and 1.31",
+      "url": "https://www.gutenberg.org/ebooks/2849"
     },
     {
       "id": "c-isbe-mack",

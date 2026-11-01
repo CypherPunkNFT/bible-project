@@ -434,6 +434,29 @@
                   "brenton"
                 ]
               }
+            },
+            {
+              "label": "Both are right: seven counts the famine already past",
+              "holders": "Geneva notes (1599); Matthew Poole (1683–1685); John Gill (1748–1763)",
+              "argument": {
+                "text": "Three years of famine had already come for Saul's sin (2 Samuel 21:1); the year of the census made a fourth, and three more would make seven. Poole also mentions the view that a copyist wrote seven for three; Gill reports that Josephus, the Targum, the Syriac and the Arabic have seven.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    10021001,
+                    10021001
+                  ],
+                  [
+                    10024013,
+                    10024013
+                  ]
+                ],
+                "cites": [
+                  "geneva-2sa-24-13",
+                  "poole-2sa-24-13",
+                  "gill-2sa-24-13"
+                ]
+              }
             }
           ]
         },
@@ -2726,13 +2749,56 @@
             ]
           }
         ],
-        "tradition": []
+        "tradition": [
+          {
+            "text": "Josephus calls the man of God who cried against Jeroboam's altar (1 Kings 13) “a prophet, whose name was Jadon”. The Jewish Encyclopedia takes this, and Jerome, as identifying him with Iddo; if so, Iddo is the man of God killed by a lion on his way home.",
+            "layer": "tradition",
+            "refs": [
+              [
+                11013001,
+                11013002
+              ],
+              [
+                11013024,
+                11013024
+              ]
+            ],
+            "cites": [
+              "josephus-ant-8",
+              "je-iddo"
+            ],
+            "who": "Josephus, Antiquities 8.8.5; Jerome, Hebrew Questions on Chronicles",
+            "when": "about AD 93; about AD 400"
+          }
+        ]
       },
       "questions": [
         {
           "id": "iddo-man-of-god",
           "question": "Is Iddo the unnamed “man of God out of Judah” of 1 Kings 13?",
           "views": [
+            {
+              "label": "Yes",
+              "holders": "Josephus (about AD 93) and Jerome (about AD 400), as read by the Jewish Encyclopedia (1904)",
+              "argument": {
+                "text": "Because Iddo's visions were “against Jeroboam”, he “has been identified” with the prophet who denounced Jeroboam's altar.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    14009029,
+                    14009029
+                  ],
+                  [
+                    11013001,
+                    11013002
+                  ]
+                ],
+                "cites": [
+                  "je-iddo",
+                  "josephus-ant-8"
+                ]
+              }
+            },
             {
               "label": "Scripture's account",
               "holders": "The text of 1 Kings 13",
@@ -3954,6 +4020,24 @@
                   ]
                 ],
                 "cites": [
+                  "keil-chr-2ch-15-3"
+                ]
+              }
+            },
+            {
+              "label": "The future",
+              "holders": "Luther, Clericus and Kimchi, as reported by Keil; William Whiston (1737)",
+              "argument": {
+                "text": "Whiston writes that the Hebrew text applies the words “to times past, and not to times future”, which he calls “a very great error”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    14015003,
+                    14015006
+                  ]
+                ],
+                "cites": [
+                  "josephus-ant-8-note",
                   "keil-chr-2ch-15-3"
                 ]
               }
@@ -5561,6 +5645,47 @@
                   "pulpit-mat-23-35"
                 ]
               }
+            },
+            {
+              "label": "No; the prophet Zechariah son of Berechiah",
+              "holders": "William Whiston (1737); “others”, as reported by Albert Barnes (1832)",
+              "argument": {
+                "text": "Whiston: “Zechariah the prophet was really ‘the son of Barachiah’”, and of how he died “we have no other account than that before us in St. Matthew”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    38001001,
+                    38001001
+                  ],
+                  [
+                    40023035,
+                    40023035
+                  ]
+                ],
+                "cites": [
+                  "josephus-war-4",
+                  "barnes-nt-mat-23-35"
+                ]
+              }
+            },
+            {
+              "label": "No; another Zacharias",
+              "holders": "“Some commentators”, reported by A. Carr (1878), the Pulpit Commentary and Whiston (Zacharias son of Baruch); a tradition reported by Origen, as the Pulpit Commentary notes (John the Baptist's father)",
+              "argument": {
+                "text": "Some took the words as foretelling the Zacharias son of Baruch whom zealots killed “in the middle of the temple” during the Jewish war (Josephus, War 4.5.4); Carr calls this “hardly probable”, and Whiston “a somewhat strange exposition”. Origen reported a tradition that it was John the Baptist's father, which the Pulpit Commentary says “looks as if it was made to relieve the difficulty”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    40023035,
+                    40023035
+                  ]
+                ],
+                "cites": [
+                  "carr-mat-23-35",
+                  "pulpit-mat-23-35",
+                  "josephus-war-4"
+                ]
+              }
             }
           ]
         }
@@ -6888,6 +7013,14 @@
       "url": "https://biblehub.com/commentaries/2_kings/22-14.htm"
     },
     {
+      "id": "geneva-2sa-24-13",
+      "author": "Geneva Bible translators",
+      "title": "Geneva Bible marginal notes",
+      "year": "1599",
+      "where": "note on 2 Sam 24:13 (read on Bible Hub)",
+      "url": "https://biblehub.com/commentaries/2_samuel/24-13.htm"
+    },
+    {
       "id": "geneva-mat-23-35",
       "author": "Geneva Bible translators",
       "title": "Geneva Bible marginal notes",
@@ -6990,6 +7123,14 @@
       "year": "1748–1763",
       "where": "note on 2 Kgs 22:20 (read on Bible Hub)",
       "url": "https://biblehub.com/commentaries/2_kings/22-20.htm"
+    },
+    {
+      "id": "gill-2sa-24-13",
+      "author": "John Gill",
+      "title": "An Exposition of the Old Testament",
+      "year": "1748–1763",
+      "where": "note on 2 Sam 24:13 (read on Bible Hub)",
+      "url": "https://biblehub.com/commentaries/2_samuel/24-13.htm"
     },
     {
       "id": "gill-2sa-7-14",
@@ -7150,6 +7291,30 @@
       "year": "1871",
       "where": "note on Ps 88:1 (read on Bible Hub)",
       "url": "https://biblehub.com/commentaries/psalms/88-1.htm"
+    },
+    {
+      "id": "josephus-ant-8",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "Antiquities of the Jews, book 8",
+      "year": "1737",
+      "where": "8.8.5 (the project's Gutenberg copy, sources/gutenberg/josephus-antiquities-2848.txt)",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "josephus-ant-8-note",
+      "author": "William Whiston",
+      "title": "Antiquities of the Jews, translator's notes to book 8",
+      "year": "1737",
+      "where": "note 31, on 2 Chr 15:3–6 (the project's Gutenberg copy)",
+      "url": "https://www.gutenberg.org/ebooks/2848"
+    },
+    {
+      "id": "josephus-war-4",
+      "author": "Flavius Josephus, tr. William Whiston, with Whiston's note 9",
+      "title": "The Wars of the Jews, book 4",
+      "year": "1737",
+      "where": "4.5.4 and the translator's note 9 (the project's Gutenberg copy, sources/gutenberg/josephus-wars-2850.txt)",
+      "url": "https://www.gutenberg.org/ebooks/2850"
     },
     {
       "id": "keil-chr-2ch-15-1",
@@ -7366,6 +7531,14 @@
       "year": "1683–1685",
       "where": "note on 2 Kgs 22:20 (read on Bible Hub)",
       "url": "https://biblehub.com/commentaries/2_kings/22-20.htm"
+    },
+    {
+      "id": "poole-2sa-24-13",
+      "author": "Matthew Poole",
+      "title": "Annotations upon the Holy Bible",
+      "year": "1683–1685",
+      "where": "note on 2 Sam 24:13 (read on Bible Hub)",
+      "url": "https://biblehub.com/commentaries/2_samuel/24-13.htm"
     },
     {
       "id": "poole-jer-26-20",
