@@ -57,6 +57,7 @@ __pycache__/
 # unapproved draft chapter summaries copied into the library mock-up (design/library-chapters/export-summaries.py)
 /design/library-chapters/summaries.local.json
 /.dist-*/
+/.dist-lock
 
 # the question sources' downloads and working files (content/questions/sources/README.md): 1.5 GB, kept out of git
 /content/questions/sources/raw/
