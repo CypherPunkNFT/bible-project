@@ -4,7 +4,7 @@
 // Two layouts: "columns" (home_mockup2: story in columns, then the four answers in a row) and "side" (home_mockup: the story
 // stacked on the left, the answers as rows on the right, the four convictions along the bottom).
 import { ArrowDown } from "lucide-react";
-import type { CSSProperties } from "react";
+import { createContext, useContext, type CSSProperties, type ReactNode } from "react";
 import { CONVICTIONS, ConvictionList } from "../contact/AboutSections";
 import "../contact/contact.css";
 import "./home-guide.css";
@@ -61,7 +61,7 @@ function SideStory() {
 }
 
 /** For the glory of God, said a little more fully than on the contact page, so it is not the shortest of the four. */
-const GLORY_TEXT = "Every page is offered back to the One it is about: the Almighty, the Alpha and Omega, the beginning and the ending, worthy of all praise.";
+export const GLORY_TEXT = "Every page is offered back to the One it is about: the Almighty, the Alpha and Omega, the beginning and the ending, worthy of all praise.";
 
 function Convictions() {
   return <ol className="home-guide-convictions">{CONVICTIONS.map((item) => <li key={item.numeral}>
@@ -79,9 +79,13 @@ function Paths({ onChoose, withSteps }: { onChoose: (part: number) => void; with
   </button>)}</div>;
 }
 
+/** Lets a mock-up (home_mockup11) add its own phone version of the convictions beside the list; the real homepage leaves it empty. */
+export const ConvictionsExtra = createContext<ReactNode>(null);
+
 /** contactList: show the convictions exactly as on the contact page (drawings, giant numerals) instead of this section's own.
  *  number: the section's number before its label (home_mockup2). */
 export function HomeGuide({ onChoose, layout = "columns", boxed = false, contactList = false, number }: { onChoose: (part: number) => void; layout?: "columns" | "side"; boxed?: boolean; contactList?: boolean; number?: string }) {
+  const convictionsExtra = useContext(ConvictionsExtra);
   const head = <header className="home-guide-head">
     <p className="home-eyebrow">{number && <span className="home-number">{number}</span>}About the project</p>
     <h2 id="home-guide-title">Two thousand years of faith, <em>gathered in one place.</em></h2>
@@ -91,7 +95,7 @@ export function HomeGuide({ onChoose, layout = "columns", boxed = false, contact
   if (layout === "side") return <section className="home-guide home-wrap" data-layout="side" data-boxed={boxed || undefined} aria-labelledby="home-guide-title">
     {head}
     <div className="home-guide-split"><SideStory /><div>{ask}<Paths onChoose={onChoose} withSteps={false} /></div></div>
-    {contactList ? <div className="home-guide-contact-list"><ConvictionList firstText={GLORY_TEXT} shelf /></div> : <Convictions />}
+    {contactList ? <div className="home-guide-contact-list"><ConvictionList firstText={GLORY_TEXT} shelf />{convictionsExtra}</div> : <Convictions />}
   </section>;
   return <section className="home-guide home-wrap" aria-labelledby="home-guide-title">
     {head}<Story /><Convictions />{ask}<Paths onChoose={onChoose} withSteps />

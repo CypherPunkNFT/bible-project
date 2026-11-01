@@ -1,0 +1,120 @@
+/* MOCK-UP (/home_mockup11): the five phone versions of the homepage's convictions, ConvictionsPhone.tsx. Phones only. */
+.cvm { display: none; }
+/* The "Close to home" map's zoom ticker opens on every mock-up address; here it would cover the section being judged. */
+.hm11 .hn-ticker, .hm11 .transition-ticker-unfold { display: none; }
+@media (max-width: 640px) {
+  .hm11 .home-guide-contact-list { margin-top: 56px; scroll-margin-top: 90px; }
+  .hm11 .home-guide-contact-list > .cv-list { display: none; }
+  .cvm { display: block; position: relative; --cvm-ease: cubic-bezier(.2, .7, .2, 1); }
+
+  /* The words, the same in all five. */
+  .cvm-title { margin: 0; font: 500 25px/1.15 var(--font-serif); letter-spacing: -.02em; color: var(--ink); }
+  .cvm-text { margin: 10px 0 0; color: var(--muted); font-size: 14.5px; line-height: 1.7; }
+  .hm11 .home-guide-contact-list blockquote.cvm-verse { margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--line); font: 400 15px/1.5 var(--font-sans); color: var(--ink); }
+  .cvm-verse cite { display: block; margin-top: 6px; font: normal 10px var(--font-sans); letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+  .cvm-numeral { position: absolute; font: 500 150px/1 var(--font-serif); color: color-mix(in srgb, var(--accent) 11%, transparent); pointer-events: none; user-select: none; }
+  .cvm-art { display: block; color: var(--accent); }
+  .cvm-art svg, .cvm-dial-art svg { display: block; width: 100%; overflow: visible; }
+  .cvm button { -webkit-tap-highlight-color: transparent; }
+  .cvm button:focus { outline: none; }
+
+  /* The line art: draws itself on arriving, its small lights keep breathing (the owner wants line art that loops, not plays once). */
+  .cvm [data-active="true"] .cvm-art svg path, .cvm [data-active="true"].cvm-art svg path, .cvm-dial-art [data-active="true"] path { stroke-dasharray: 400; animation: cvm-draw 1.5s var(--cvm-ease) both; }
+  .cvm .cv-accent, .cvm-land .cv-accent { animation: cvm-breathe 4.5s ease-in-out infinite; }
+  .cvm [data-active="true"] .cvm-art svg path.cv-accent, .cvm-dial-art [data-active="true"] path.cv-accent { animation: cvm-draw 1.5s var(--cvm-ease) both, cvm-breathe 4.5s ease-in-out 1.5s infinite; }
+
+  /* Words stacked in one spot, the chosen one showing. */
+  .cvm-stack { display: grid; }
+  .cvm-stack > div { grid-area: 1 / 1; opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .35s, transform .45s var(--cvm-ease), visibility 0s .35s; }
+  .cvm-stack > [data-active="true"] { opacity: 1; visibility: visible; transform: none; transition: opacity .45s .08s, transform .55s .08s var(--cvm-ease); }
+
+  /* The sideways scroller of A and B runs to both screen edges. */
+  .cvm-track { position: relative; display: flex; margin: 0 calc(-1 * var(--site-gutter)); padding: 0; list-style: none; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .cvm-track::-webkit-scrollbar { display: none; }
+  .cvm-track:focus { outline: none; }
+  .cvm-track > li { position: relative; scroll-snap-align: start; scroll-snap-stop: always; }
+  .cvm-rail { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 22px; border-bottom: 1px solid var(--line); }
+  .cvm-rail button { min-height: 48px; padding: 0; border: 0; background: none; color: var(--muted); font: 500 20px/1 var(--font-serif); transition: color .3s; }
+  .cvm-rail button[aria-current="true"] { color: var(--accent); }
+  .cvm-rail-line { position: absolute; left: 0; bottom: -1px; width: 25%; height: 2px; background: var(--accent); transform: translateX(calc(var(--p, 0) * 100%)); }
+
+  /* A: sideways panels. */
+  .cvm-panels .cvm-track { padding-inline: var(--site-gutter); scroll-padding-inline: var(--site-gutter); }
+  .cvm-panels .cvm-track > li { flex: 0 0 84%; box-sizing: border-box; overflow: hidden; padding: 20px 22px 8px 0; }
+  .cvm-panels .cvm-track > li + li { padding-left: 22px; border-left: 1px solid var(--line); }
+  .cvm-panels .cvm-numeral { top: -8px; right: 0; transform: translateX(calc((var(--p, 0) - var(--i)) * -70px)); }
+  .cvm-panels .cvm-art { position: relative; width: 112px; }
+  .cvm-panels .cvm-title { position: relative; margin-top: 14px; }
+  .cvm-panels .cvm-text, .cvm-panels .cvm-verse { position: relative; }
+
+  /* B: one long drawing, four screens wide, the words scrolling with it. */
+  .cvm-long .cvm-track > li { flex: 0 0 100%; box-sizing: border-box; overflow: hidden; padding: 62% var(--site-gutter) 6px; }
+  /* Clips the drifting stars, so they never add to how far the row can scroll. */
+  .cvm-long .cvm-track > .cvm-backdrop { position: absolute; left: 0; top: 0; z-index: 1; width: 400%; aspect-ratio: 1600 / 240; padding: 0; pointer-events: none; scroll-snap-align: none; }
+  .cvm-land, .cvm-stars { position: absolute; left: 0; top: 0; width: 100%; height: auto; }
+  .cvm-land { z-index: 1; color: var(--accent); }
+  .cvm-land g path[stroke-width] { stroke-width: 1.15; }
+  .cvm-stars { fill: var(--accent); width: 112.5%; left: -12.5%; transform: translateX(calc(var(--p, 0) * 12.5%)); }
+  .cvm-stars circle { opacity: .55; }
+  .cvm-stars [data-twinkle] { animation: cvm-twinkle 5s ease-in-out infinite; }
+  .cvm-stars [data-twinkle]:nth-child(3n) { animation-delay: -2s; }
+  .cvm-stars [data-twinkle]:nth-child(5n) { animation-delay: -3.4s; }
+  .cvm-long .cvm-numeral { top: 12px; right: 14px; transform: translateX(calc((var(--p, 0) - var(--i)) * -110px)); }
+  .cvm-long .cvm-title, .cvm-long .cvm-text, .cvm-long .cvm-verse { position: relative; z-index: 2; }
+
+  /* C: the ring. */
+  .cvm-ring { touch-action: pan-y; }
+  .cvm-dial { position: relative; container-type: inline-size; width: min(100%, 320px); aspect-ratio: 1; margin: 0 auto 22px; }
+  .cvm-dial svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .cvm-dial-turning { position: absolute; inset: 0; transform: rotate(var(--turn)); transition: transform .9s var(--cvm-ease); }
+  .cvm-dial-line { stroke: var(--line); stroke-width: 1; }
+  .cvm-dial-tick { stroke: color-mix(in srgb, var(--accent) 45%, transparent); stroke-width: 1; }
+  .cvm-dial-arc { stroke: var(--accent); stroke-width: 2; stroke-linecap: round; }
+  .cvm-dial-dash { stroke: color-mix(in srgb, var(--accent) 30%, transparent); stroke-width: 1; stroke-dasharray: 1 7; transform-origin: 50% 50%; animation: cvm-spin 120s linear infinite; }
+  .cvm-dial-fixed { z-index: 1; pointer-events: none; }
+  /* Each numeral stands on the ring (radius 43.125% of the dial) and turns back the other way, so it always reads upright. */
+  .cvm-dial-turning button { position: absolute; left: 50%; top: 50%; z-index: 2; width: 48px; height: 48px; margin: -24px 0 0 -24px; padding: 0; border: 0; border-radius: 50%; background: var(--page); color: var(--muted); font: 500 21px/1 var(--font-serif); cursor: pointer;
+    transform: rotate(calc(var(--i) * 90deg)) translateY(-43.125cqw) rotate(calc(var(--i) * -90deg)) rotate(calc(-1 * var(--turn))); transition: transform .9s var(--cvm-ease), color .3s; }
+  .cvm-dial-turning button[aria-selected="true"] { color: var(--accent); }
+  .cvm-dial-art { position: absolute; inset: 27%; color: var(--accent); display: grid; align-items: center; }
+  .cvm-dial-art > div { grid-area: 1 / 1; opacity: 0; transition: opacity .5s; }
+  .cvm-dial-art > [data-active="true"] { opacity: 1; }
+
+  /* D: the cross. The dividing lines, longer below than above, are the drawing. */
+  .cvm-cross-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 150px 158px; margin-block: 14px 64px; }
+  .cvm-cross-grid::before { content: ""; position: absolute; left: 50%; top: -14px; bottom: -46px; width: 1px; background: color-mix(in srgb, var(--accent) 65%, transparent); }
+  .cvm-cross-grid::after { content: ""; position: absolute; left: 0; right: 0; top: 150px; height: 1px; background: color-mix(in srgb, var(--accent) 65%, transparent); }
+  .cvm-cross-grid button { position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 8px; padding: 10px 10px 16px; border: 0; background: none; cursor: pointer; }
+  .cvm-cross-grid button:nth-child(n + 3) { justify-content: flex-start; padding-block: 22px 10px; }
+  .cvm-cross-grid .cvm-numeral { font-size: 90px; right: 6px; top: 0; color: color-mix(in srgb, var(--accent) 7%, transparent); transition: color .4s; }
+  .cvm-cross-grid .cvm-art { position: relative; width: 92px; color: var(--muted); opacity: .6; transition: color .4s, opacity .4s; }
+  .cvm-cross-title { position: relative; font: 500 15px/1.2 var(--font-serif); color: var(--muted); text-align: center; transition: color .4s; }
+  .cvm-cross-grid [data-active="true"] .cvm-numeral { color: color-mix(in srgb, var(--accent) 16%, transparent); }
+  .cvm-cross-grid [data-active="true"] .cvm-art { color: var(--accent); opacity: 1; }
+  .cvm-cross-grid [data-active="true"] .cvm-cross-title { color: var(--ink); }
+  .cvm-cross .cvm-text { margin-top: 0; }
+
+  /* E: folding rows. */
+  .cvm-fold ol { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .cvm-fold li { border-bottom: 1px solid var(--line); }
+  .cvm-fold h3 { margin: 0; }
+  .cvm-fold h3 button { display: grid; grid-template-columns: 44px minmax(0, 1fr) 62px; align-items: center; gap: 8px; width: 100%; min-height: 72px; padding: 6px 0; border: 0; background: none; color: inherit; text-align: left; cursor: pointer; }
+  .cvm-fold-numeral { font: 500 22px/1 var(--font-serif); color: var(--muted); transition: color .3s; }
+  .cvm-fold-title { font: 500 19px/1.2 var(--font-serif); letter-spacing: -.01em; color: var(--ink); }
+  .cvm-fold .cvm-art { opacity: .55; transition: opacity .3s; }
+  .cvm-fold [data-active="true"] .cvm-fold-numeral { color: var(--accent); }
+  .cvm-fold [data-active="true"] .cvm-art { opacity: 1; }
+  .cvm-fold-open { display: grid; grid-template-rows: 0fr; visibility: hidden; transition: grid-template-rows .55s var(--cvm-ease), visibility 0s .55s; }
+  .cvm-fold-open > div { position: relative; overflow: hidden; min-height: 0; }
+  .cvm-fold [data-active="true"] .cvm-fold-open { grid-template-rows: 1fr; visibility: visible; transition: grid-template-rows .55s var(--cvm-ease); }
+  .cvm-fold-open .cvm-numeral { right: -4px; top: -24px; }
+  .cvm-fold-open .cvm-text { position: relative; margin: 2px 0 0; }
+  .cvm-fold-open .cvm-verse { position: relative; margin-bottom: 20px; }
+}
+@keyframes cvm-draw { from { stroke-dashoffset: 400; } to { stroke-dashoffset: 0; } }
+@keyframes cvm-breathe { 50% { opacity: .35; } }
+@keyframes cvm-twinkle { 50% { opacity: .12; } }
+@keyframes cvm-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .cvm *, .cvm *::before, .cvm *::after { animation: none !important; transition: none !important; }
+}
