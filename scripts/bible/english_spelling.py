@@ -9,6 +9,7 @@ SPELLING_FILE = Path(__file__).resolve().parents[2] / "content" / "translation" 
 _LIST = json.loads(SPELLING_FILE.read_text(encoding="utf-8"))
 WORDS: dict[str, str] = _LIST["words"]
 PHRASES: list[list[str]] = _LIST["phrases"]
+WHOLE_STRINGS: dict[str, str] = _LIST["whole_strings"]
 _WORD = re.compile(r"\b(?:" + "|".join(WORDS) + r")\b", re.IGNORECASE)
 _SPACED_APOSTROPHE = re.compile(r"(?<=\w)(['’]) ([sS])\b")
 _STRAY_POINT = re.compile(r"(?<= )\.(?=[A-Z][a-z])")
@@ -25,6 +26,8 @@ def _same_capitals(found: str, right: str) -> str:
 
 def correct_text(text: str, used: set[str] | None = None) -> str:
     """The text with every listed slip corrected; `used` collects the phrases found, so a stale one can be reported."""
+    if text in WHOLE_STRINGS:
+        return WHOLE_STRINGS[text]
     for wrong, right in PHRASES:
         if wrong in text:
             text = text.replace(wrong, right)
