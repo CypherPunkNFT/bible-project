@@ -69,6 +69,8 @@
   .hm6-stage[data-squares="fit"] .hm6-pearls-over { display: block; z-index: 3; filter: none; }
 }
 .hm6-pearls-over { display: none; }
+/* With no line under the title, the drawing takes its room, so each square stays the height it was (owner, 2026-10-31). */
+.hm6-squares .home-doorway-art { height: clamp(84px, 13.2svh, 128px); }
 /* The strip's dividers run between the squares; stacked, they run across (owner, 2026-10-31). */
 .hm6-page[data-landing="outline"] .hm6-stage .hm6-squares > a { border-right: 0; border-bottom: 1px solid var(--line); }
 .hm6-page[data-landing="outline"] .hm6-stage .hm6-squares > a:last-child { border-bottom: 0; }
