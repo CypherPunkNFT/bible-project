@@ -1,5 +1,5 @@
 /* MOCK-UP (/home_mockup11): the five phone versions of the homepage's convictions, ConvictionsPhone.tsx. Phones only. */
-.cvm { display: none; }
+.cvm, .hm11 .to-pill { display: none; }
 /* The "Close to home" map's zoom ticker opens on every mock-up address; here it would cover the section being judged. */
 .hm11 .hn-ticker, .hm11 .transition-ticker-unfold { display: none; }
 @media (max-width: 640px) {
@@ -94,14 +94,12 @@
   .cvm-cross-grid [data-active="true"] .cvm-cross-title { color: var(--ink); }
   .cvm-cross .cvm-text { margin-top: 0; }
 
-  /* The version switcher, much larger for a real phone: all the way across, two rows of big buttons with their names. */
-  .hm11 .to-pill { left: 8px; right: 8px; bottom: calc(8px + env(safe-area-inset-bottom, 0px)); transform: none; max-width: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; padding: 6px; border-radius: 18px; }
+  /* The version switcher, much larger for a real phone: part of the page under the section, big buttons with their names. */
+  .hm11 .to-pill { position: static; margin-top: 28px; transform: none; max-width: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; padding: 6px; border-radius: 18px; box-shadow: none; }
   .hm11 .to-pill .to-pill-label { display: none; }
   .hm11 .to-pill button { display: grid; justify-items: center; gap: 2px; min-height: 58px; padding: 6px 2px; border-radius: 12px; }
   .hm11 .to-pill b { width: auto; height: auto; border: 0; font-size: 21px; line-height: 1; }
   .hm11 .to-pill button span { display: block; font-size: 10px; line-height: 1.15; white-space: normal; text-align: center; }
-  /* The floating pencil would sit under the switcher. */
-  body:has(.hm11) .correction-button { display: none; }
 
   /* F: the open book. */
   .cvm-book { touch-action: pan-y; }

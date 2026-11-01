@@ -66,7 +66,7 @@ export function mockupRoutes() {
     <Route key="home9" path="/home_mockup9" element={<HomePageMockup9 />} />,
     // The homepage with the doorway drawings picked from /doorways_mockup, four versions on a pill (owner, 2026-10-31).
     <Route key="home10" path="/home_mockup10" element={<HomePageMockup10 />} />,
-    // The four Roman-numeral convictions pulled together on phones, five ways on a pill (owner, 2026-11-01).
+    // The four Roman-numeral convictions pulled together on phones, with a switcher under the section (owner, 2026-11-01).
     <Route key="home11" path="/home_mockup11" element={<HomePageMockup11 />} />,
     <Route key="home-mobile" path="/home_mobile_mockups" element={<HomePageMockup9 />} />,
     // The six doorway squares' drawings, five of each, title only (owner, 2026-10-31).
