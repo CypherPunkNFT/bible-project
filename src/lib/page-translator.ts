@@ -3,7 +3,7 @@
 // {English: translation}, written by content/translation/apply.py from the "page" chunks; and, when the language
 // changes, each content file already read, fetched in English and in the old and new languages and paired string by
 // string. Every text is traced back to its English and then out to the chosen language, so it works in any direction.
-// A text matches only when it is exactly one of the known strings. React keeps whatever it rendered; when it writes a
+// A text matches when it is one of the known strings, or one with other numbers, or known pieces joined by " · ". React keeps whatever it rendered; when it writes a
 // text or label again, the observer swaps it again. Files read after the change come in the new language (data.ts).
 // Anything inside translate="no" is left alone.
 import { languageFolder, loadedData, setSiteLanguage, siteLanguage, type LanguageCode } from "./language";
@@ -50,7 +50,11 @@ async function loadStrings(folder: string, path: string | null): Promise<void> {
   try {
     if (path === null) {
       const strings = (await readJson(`/data/i18n/${folder}/ui.json`)) as Record<string, string>;
-      for (const [english, translated] of Object.entries(strings)) learn(folder, english, translated);
+      for (const [english, translated] of Object.entries(strings)) {
+        learn(folder, english, translated);
+        // Pages also type labels in capitals ("ISAIAH 40:8", "OLD TESTAMENT").
+        if (english !== english.toUpperCase()) learn(folder, english.toUpperCase(), translated.toUpperCase());
+      }
     } else {
       const [english, translated] = await Promise.all([readJson(`/data/${path}`), readJson(`/data/i18n/${folder}/${path}`)]);
       pair(folder, english, translated);
@@ -61,12 +65,49 @@ async function loadStrings(folder: string, path: string | null): Promise<void> {
   }
 }
 
-function translated(text: string): string | null {
-  const key = normal(text);
-  if (!key) return null;
+function lookup(key: string): string | null {
   const english = toEnglish.get(key) ?? key;
   const value = target ? fromEnglish.get(target)?.get(english) : english;
   return value && value !== key ? value : null;
+}
+
+// A known name or label followed only by numbers: "Isaiah 40:8 · RVR", "1 Peter 3:15", "Chapter 3", "Part 01".
+const NAME_AND_NUMBER = /^((?:[1-3] )?\D+?) (\d[\d:.,–-]*(?: ?[·|].*)?)$/;
+// Counts stand as "{n}" in the strings ("{n} versions", "{n} mi E of city hall"), so one entry serves every number.
+const NUMBER = /\d(?:[\d,.]*\d)?/g;
+// A line put together from pieces, each translated on its own: "Pregnancy · 3.3 mi E of city hall", "Continue: Psalms 105".
+const PIECES = /(\s+·\s+|\s+\|\s+|:\s+)/;
+
+function withNumbers(key: string): string | null {
+  const numbers = key.match(NUMBER);
+  const template = numbers && lookup(key.replace(NUMBER, "{n}"));
+  if (!template) return null;
+  let index = 0;
+  return template.replace(/\{n\}/g, () => numbers[index++] ?? "");
+}
+
+function translatedPiece(key: string): string | null {
+  const whole = lookup(key) ?? withNumbers(key);
+  if (whole) return whole;
+  const parts = NAME_AND_NUMBER.exec(key);
+  const name = parts && lookup(parts[1]);
+  return name ? `${name} ${parts[2]}` : null;
+}
+
+function translated(text: string): string | null {
+  const key = normal(text);
+  if (!key) return null;
+  const whole = translatedPiece(key);
+  if (whole) return whole;
+  const parts = key.split(PIECES);
+  if (parts.length < 3) return null;
+  let changed = false;
+  const joined = parts.map((part, index) => {
+    const value = index % 2 ? null : translatedPiece(part);
+    if (value) changed = true;
+    return value ?? part;
+  }).join("");
+  return changed ? joined : null;
 }
 
 const leftAlone = (element: Element | null) =>
