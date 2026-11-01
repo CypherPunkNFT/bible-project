@@ -413,8 +413,10 @@ def chunk_parts(sections: list[dict], size: int = 25) -> list[dict]:
         first, last = sections[start], sections[end]
         noun = {"question": "Questions", "sub-question": "Questions", "article": "Articles",
                 "canon": "Canons", "decree": "Decrees"}.get(str(first.get("kind")), "Sections")
-        if numbered and str(first["number"]) != str(last["number"]):
-            label = f"{noun} {first['number']}–{last['number']}"
+        # A preface or conclusion may carry a letter ("P", "C"); a range is named by its numbered sections.
+        counted = [str(s["number"]) for s in sections[start:end + 1] if str(s.get("number") or "")[:1].isdigit()]
+        if numbered and counted and counted[0] != counted[-1]:
+            label = f"{noun} {counted[0]}–{counted[-1]}"
         else:
             label = f"{noun} {start + 1}–{end + 1}" if end > start else f"{noun} {start + 1}"
         parts.append({"label": label, "from": start, "to": end})
@@ -703,10 +705,9 @@ def build() -> tuple[dict, list[dict]]:
     return index, documents
 
 
-def write(index: dict, documents: list[dict]) -> list[Path]:
-    OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "doc").mkdir(parents=True, exist_ok=True)
-    written = []
+def render(index: dict, documents: list[dict]) -> dict[Path, str]:
+    """Every file the build writes, with its exact contents."""
+    files: dict[Path, str] = {}
     for document in documents:
         bundles = document.pop("_bundles")
         sections = document.pop("_sections")
@@ -720,15 +721,24 @@ def write(index: dict, documents: list[dict]) -> list[Path]:
                     for verse_id in reference.get("verses") or []}
             path = OUT / "doc" / f"{document['id']}.{bundle['id']}.json"
             payload = {"id": document["id"], "bundle": bundle["id"], "sections": slice_, "verses": used}
-            path.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n", "utf-8")
-            written.append(path)
-        path = OUT / "doc" / f"{document['id']}.json"
-        path.write_text(json.dumps(document, ensure_ascii=False, separators=(",", ":")) + "\n", "utf-8")
-        written.append(path)
-    path = OUT / "index.json"
-    path.write_text(json.dumps(index, ensure_ascii=False, indent=1) + "\n", "utf-8")
-    written.append(path)
-    return written
+            files[path] = json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n"
+        files[OUT / "doc" / f"{document['id']}.json"] = json.dumps(document, ensure_ascii=False, separators=(",", ":")) + "\n"
+    files[OUT / "index.json"] = json.dumps(index, ensure_ascii=False, indent=1) + "\n"
+    return files
+
+
+def orphans(files: dict[Path, str]) -> list[Path]:
+    """Files left from an earlier build: a stale bundle would still be read by whatever globs this folder."""
+    return [path for path in sorted((OUT / "doc").glob("*.json")) if path not in files]
+
+
+def write(files: dict[Path, str]) -> list[Path]:
+    (OUT / "doc").mkdir(parents=True, exist_ok=True)
+    for path, text in files.items():
+        path.write_text(text, "utf-8")
+    for path in orphans(files):
+        path.unlink()
+    return list(files)
 
 
 def main() -> int:
@@ -737,24 +747,23 @@ def main() -> int:
     arguments = parser.parse_args()
 
     index, documents = build()
+    files = render(index, documents)
     if arguments.check:
         problems = []
-        if not (OUT / "index.json").is_file():
-            problems.append("data/creeds/index.json is missing")
-        else:
-            existing = json.loads((OUT / "index.json").read_text("utf-8"))
-            if existing.get("counts") != index["counts"]:
-                problems.append("data/creeds/index.json is stale")
-        for document in documents:
-            if not (OUT / "doc" / f"{document['id']}.json").is_file():
-                problems.append(f"data/creeds/doc/{document['id']}.json is missing")
+        for path, text in files.items():
+            name = path.relative_to(OUT.parent.parent).as_posix()
+            if not path.is_file():
+                problems.append(f"{name} is missing")
+            elif path.read_text("utf-8") != text:
+                problems.append(f"{name} is stale")
+        problems += [f"{path.relative_to(OUT.parent.parent).as_posix()} is left from an earlier build" for path in orphans(files)]
         if problems:
             print("\n".join(f"build-creeds: {problem}" for problem in problems), file=sys.stderr)
             return 1
         print(f"build-creeds: {len(documents)} documents up to date.")
         return 0
 
-    written = write(index, documents)
+    written = write(files)
     total = sum(path.stat().st_size for path in written)
     counts = index["counts"]
     print(

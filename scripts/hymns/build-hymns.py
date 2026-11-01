@@ -229,7 +229,8 @@ def main() -> None:
     olney = olney_books()
     by_first: dict[str, list[dict]] = {}
     for h in held:
-        by_first.setdefault(first_line_key(h["first_line"]), []).append(h)
+        # Keyed on the line as scanned: correcting a slip must not merge two pages that have stood apart under their own addresses.
+        by_first.setdefault(first_line_key(h.get("first_line_as_scanned") or h["first_line"]), []).append(h)
 
     hymns = []
     for copies in by_first.values():

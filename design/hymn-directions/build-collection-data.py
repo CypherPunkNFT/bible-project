@@ -83,7 +83,7 @@ held = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(HYMNS.glob("*.
 held = [h for h in held if h.get("text")]
 by_first: dict[str, list[dict]] = {}
 for h in held:
-    by_first.setdefault(first_line_key(h["first_line"]), []).append(h)
+    by_first.setdefault(first_line_key(h.get("first_line_as_scanned") or h["first_line"]), []).append(h)
 
 hymns = []
 for copies in by_first.values():

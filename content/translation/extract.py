@@ -84,8 +84,13 @@ JSX_TEXT = re.compile(r"(?<![=\-])>([^<>{}]{1,600})<")
 PAGE_ATTRIBUTE = re.compile(r'\b(?:aria-label|title|placeholder|alt|label)="([^"\n]{1,300})"')
 # One-word labels in data written into the code ({ label: "Study" }), which PAGE_LITERAL's two-word floor skips.
 PAGE_PROPERTY = re.compile(r'\b(?:label|title|heading|subtitle|name|text|caption|description|short|kicker|eyebrow)\s*:\s*"([^"\\\n]{2,300})"')
-PAGE_LITERAL = re.compile(r'"([^"\\\n]{3,400})"|' + r"'([^'\\\n]{3,400})'|" + r"`([^`$\\\n]{3,400})`")
-CODE_LIKE = re.compile(r"[;=]|=>|&&|\|\||^\W|\.(tsx?|css|json|svg|png|jpe?g|md)\b|^[\w./@-]+$|\b(?:px|rem|var\(|rgba?\(|hsl)\b")
+# A single quote touching a word is an apostrophe ("the letter's", "Hebrews'"), not the edge of a string.
+# Every string is matched, however short, so that a "nt" cannot put the following quotes out of step; page_strings
+# then skips those outside PAGE_LITERAL_LENGTH.
+PAGE_LITERAL = re.compile(r'"([^"\\\n]*)"|' + r"(?<![\w'’])'([^'\\\n]*)'(?!\w)|" + r"`([^`$\\\n]*)`")
+PAGE_LITERAL_LENGTH = range(3, 401)
+CODE_LIKE = re.compile(r"[;=]|=>|&&|\|\||^\W|\.(tsx?|css|json|svg|png|jpe?g|md)\b|^[\w./@-]+$|\b(?:px|rem|var\(|rgba?\(|hsl)\b"
+                       r"|\.\d+m?s\b|\bxM[a-z]+Y[A-Z]|\b(?:translate|scale|rotate)\(|\bMath\.|\bmain h1\b|#root\b")
 
 
 def class_like(text: str) -> bool:
@@ -93,12 +98,39 @@ def class_like(text: str) -> bool:
     return sum(bool(re.search(r"[-:\[\]/]|^\d", token)) for token in tokens) >= max(1, len(tokens) // 2)
 
 
+def without_comments(source: str) -> str:
+    """The code with its comments blanked, reading strings as strings so a "//" in an address survives. An apostrophe in
+    JSX text does not open a string, and a quote left open at the end of its line was not a string."""
+    out, position, size = [], 0, len(source)
+    while position < size:
+        char = source[position]
+        pair = source[position:position + 2]
+        if pair == "/*":
+            end = source.find("*/", position + 2)
+            position = size if end < 0 else end + 2
+        elif pair == "//" and source[position - 1:position] != ":":
+            end = source.find("\n", position)
+            position = size if end < 0 else end
+        elif char in "\"`" or (char == "'" and not re.match(r"[\w'’]", source[position - 1:position] or " ")):
+            end = position + 1
+            while end < size and source[end] != char and (char == "`" or source[end] != "\n"):
+                end += 2 if source[end] == "\\" else 1
+            closed = end < size and source[end] == char
+            stop = end + 1 if closed else position + 1
+            out.append(source[position:stop])
+            position = stop
+        else:
+            out.append(char)
+            position += 1
+    return "".join(out)
+
+
 def page_strings() -> list[str]:
     files = [p for p in sorted((SITE / "src").rglob("*.ts*"))
              if not {"generated", "mockup", "dev", "test"} & set(p.parts) and ".test." not in p.name]
     found: dict[str, None] = {}
     for path in files:
-        source = path.read_text("utf-8")
+        source = without_comments(path.read_text("utf-8"))
         for match in JSX_TEXT.finditer(source):
             text = " ".join(match.group(1).split())
             if translatable(text) and not CODE_LIKE.search(text):
@@ -113,8 +145,9 @@ def page_strings() -> list[str]:
             if one_word or (re.match(r"[A-Z]", text) and not CODE_LIKE.search(text) and not class_like(text)):
                 found.setdefault(text)
         for match in PAGE_LITERAL.finditer(source):
-            text = " ".join(next(group for group in match.groups() if group is not None).split())
-            if (len(WORD.findall(text)) >= 2 and re.search(r"[A-Z]|[.?!,]", text)
+            literal = next(group for group in match.groups() if group is not None)
+            text = " ".join(literal.split())
+            if (len(literal) in PAGE_LITERAL_LENGTH and len(WORD.findall(text)) >= 2 and re.search(r"[A-Z]|[.?!,]", text)
                     and not CODE_LIKE.search(text) and not class_like(text)):
                 found.setdefault(text)
     return list(found)
