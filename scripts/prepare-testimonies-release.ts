@@ -22,7 +22,9 @@ const oldCopies = (await readdir(".release")).filter((name) => /^testimonies-[A-
 if (oldCopies.length >= 3) console.warn(`Warning: ${oldCopies.length} earlier release copies in .release/ (about ${Math.round(oldCopies.length * 5.7)} GB). Ask the owner before deleting them.`);
 const directory = await mkdtemp(path.resolve(".release/testimonies-"));
 const site = path.join(directory, "site");
-await cp(built, site, { recursive: true });
+// data_acquisition: the local desk's files (scripts/data-intake-vite.ts), never published.
+const localDesk = path.resolve(built, "data_acquisition");
+await cp(built, site, { recursive: true, filter: (source) => path.resolve(source) !== localDesk });
 await preparePopulationHosting(path.join(site,'content/scholar-population'),{omitOriginals:true});
 console.log('Release build assets:',await pruneReleaseAssets(site));
 // dereference: follow links/junctions (a clean release worktree links data/ in), never ship a link.

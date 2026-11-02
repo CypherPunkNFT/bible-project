@@ -39,7 +39,7 @@ function body(capture: Capture): string {
   return `<div data-ready-made style="${HIDDEN}"><main>${out.join("")}</main><nav aria-label="Pages"><ul>${links}</ul></nav></div>`;
 }
 
-function readyMade(shell: string, capture: Capture): string {
+export function readyMade(shell: string, capture: Capture): string {
   const head = pageHead(capture.path, { ...capture, subheading: capture.blocks.find((block) => block.tag === "h2")?.text });
   const title = isUnnamed(capture.title) ? head.title : capture.title;
   let html = shell;
@@ -51,6 +51,8 @@ function readyMade(shell: string, capture: Capture): string {
   html = replaceOnce(html, /<\/head>/, `  <link rel="canonical" href="${escape(head.canonical)}" />\n  </head>`, "</head>");
   return replaceOnce(html, /<div id="root"><\/div>/, `<div id="root">${body(capture)}</div>`, "#root");
 }
+
+export const readyMadeFile = (site: string, pagePath: string) => pagePath === "/" ? path.join(site, "home.html") : path.join(site, ...pagePath.slice(1).split("/")) + ".html";
 
 function countFiles(directory: string): number {
   return readdirSync(directory, { recursive: true, withFileTypes: true }).filter((entry) => entry.isFile()).length;
@@ -85,7 +87,7 @@ export async function buildSeo(site: string) {
   for (const page of pages.filter((p) => p.prerender)) {
     const capture = captures.get(page.path);
     if (!capture) continue;
-    const file = page.path === "/" ? path.join(site, "home.html") : path.join(site, ...page.path.slice(1).split("/")) + ".html";
+    const file = readyMadeFile(site, page.path);
     if (existsSync(file) || existsSync(path.join(file.slice(0, -5), "index.html"))) { leftOut.push(`${page.path} (a real file is there)`); continue; }
     if (files >= FILE_BUDGET) { leftOut.push(`${page.path} (file budget)`); continue; }
     mkdirSync(path.dirname(file), { recursive: true });

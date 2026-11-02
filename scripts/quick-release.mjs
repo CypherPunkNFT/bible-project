@@ -186,12 +186,29 @@ async function verifyLive(entry, checks) {
   console.log(`Live: ${entry}; home, a ready-made page and ${checks.length} checked address(es) answer 200.`);
 }
 
+const deploy = (pkg, ...args) => spawnSync(process.execPath, [path.join(WEBSITE, 'scripts/deploy-worker.mjs'), ...args], { cwd: pkg, stdio: 'inherit' }).status;
+
+/** Search engines read each page's ready-made copy, so the checked pages get theirs refreshed. The release is already live, so a failure here only warns. */
+function refreshCopies(pkg, checks) {
+  if (!checks.length) return;
+  const refreshed = spawnSync('bun', ['scripts/seo/refresh-copies.ts', path.join(pkg, 'site'), ...checks], { cwd: WEBSITE, stdio: 'inherit', shell: true });
+  if (refreshed.status !== 0) return console.warn(`The page is live, but its copy for search engines was not refreshed (exit ${refreshed.status}).`);
+  if (!run('git', ['status', '--porcelain', '--', 'content/seo/pages'], WEBSITE)) return; // none of these pages has a copy
+  const status = deploy(pkg);
+  if (status !== 0) return console.warn(`The page is live, but its refreshed copy for search engines did not upload (exit ${status}). The next release carries it.`);
+  fs.writeFileSync(path.join(pkg, LIVE_VERSION), deployedVersion(pkg));
+  run('git', ['add', 'content/seo/pages'], WEBSITE);
+  run('git', ['commit', '-m', `Search copies: ${checks.join(' ')} as now live`, '--', 'content/seo/pages'], WEBSITE);
+}
+
 async function upload(pkg, entry, checks) {
-  const result = spawnSync(process.execPath, [path.join(WEBSITE, 'scripts/deploy-worker.mjs')], { cwd: pkg, stdio: 'inherit' });
-  if (result.status !== 0) throw new Error(`The upload failed (exit ${result.status}); the package is ready, so run this again with --resume.`);
+  const status = deploy(pkg);
+  if (status !== 0) throw new Error(`The upload failed (exit ${status}); the package is ready, so run this again with --resume.`);
   fs.writeFileSync(path.join(pkg, LIVE_VERSION), deployedVersion(pkg));
   fs.rmSync(path.join(pkg, PENDING), { force: true });
   await verifyLive(entry, checks);
+  stage('Uploaded and checked live');
+  refreshCopies(pkg, checks);
 }
 
 function parseArgs(argv) {
@@ -225,8 +242,8 @@ async function main() {
     if (dryRun) {
       undo();
       // The rehearsal must cross the same upload script as a release, or it can pass while a release fails.
-      const rehearsal = spawnSync(process.execPath, [path.join(WEBSITE, 'scripts/deploy-worker.mjs'), '--dry-run'], { cwd: pkg, stdio: 'inherit' });
-      if (rehearsal.status !== 0) throw new Error(`The upload rehearsal failed (exit ${rehearsal.status}), so a real release would fail too.`);
+      const status = deploy(pkg, '--dry-run');
+      if (status !== 0) throw new Error(`The upload rehearsal failed (exit ${status}), so a real release would fail too.`);
       stage('Upload rehearsed, nothing sent');
       return;
     }
@@ -243,7 +260,7 @@ async function main() {
   const entry = entryName(fs.readFileSync(path.join(site, 'index.html'), 'utf8'));
   stage('Package ready');
   await upload(pkg, entry, checks);
-  stage('Uploaded and checked live');
+  stage('Finished');
   const tag = `release-${new Date().toISOString().slice(0, 10)}-quick-${entry.replace(/^index-|\.js$/g, '')}`;
   run('git', ['tag', tag]);
   run('git', ['push', 'origin', tag]);

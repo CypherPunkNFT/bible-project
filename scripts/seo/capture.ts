@@ -61,7 +61,7 @@ function readPage() {
   };
 }
 
-async function capture(page: Page, pagePath: string): Promise<Capture | string> {
+export async function capture(page: Page, pagePath: string): Promise<Capture | string> {
   await page.goto(base + pagePath, { waitUntil: "load", timeout: 60000 });
   // Lazy pages show a loading screen first; wait for real text, then a moment for late sections.
   await page.waitForFunction(() => (document.getElementById("main")?.innerText.trim().length ?? 0) > 40 && !document.querySelector("[data-page-loading]"), null, { timeout: 30000 });
