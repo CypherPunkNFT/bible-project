@@ -8,6 +8,8 @@ import { packPersonFiles } from "./pack-person-files.ts";
 import { packReaderData } from "./pack-reader-data.mjs";
 
 // Produces a fresh deployable directory. Never creates a cloud resource or deploys it.
+const started = Date.now();
+const stage = (name: string) => console.log(`[${Math.round((Date.now() - started) / 1000)}s] ${name}`);
 const databaseId = process.env.TESTIMONY_D1_ID;
 const siteUrl = new URL(process.env.PUBLIC_SITE_URL ?? "https://bible-project-4af.pages.dev");
 if (siteUrl.protocol !== "https:" || siteUrl.username || siteUrl.password || /^(localhost|127\.|\[::1\])/.test(siteUrl.hostname)) throw new Error("PUBLIC_SITE_URL must be the HTTPS website origin.");
@@ -25,40 +27,50 @@ const site = path.join(directory, "site");
 // data_acquisition: the local desk's files (scripts/data-intake-vite.ts), never published.
 const localDesk = path.resolve(built, "data_acquisition");
 await cp(built, site, { recursive: true, filter: (source) => path.resolve(source) !== localDesk });
+stage("Build copied");
 await preparePopulationHosting(path.join(site,'content/scholar-population'),{omitOriginals:true});
+stage("Population hosting");
 console.log('Release build assets:',await pruneReleaseAssets(site));
+stage("Code files pruned");
 // dereference: follow links/junctions (a clean release worktree links data/ in), never ship a link.
 // data/graph (scripts/build-graph.py) feeds only the local connections mock-up; it stays out until the owner approves it.
 const graphData = path.resolve("data", "graph");
 // data/i18n (content/translation/apply.py): the translated copies, preview-only until a language is published.
 const translatedData = path.resolve("data", "i18n");
 await cp("data", path.join(site, "data"), { recursive: true, dereference: true, filter: (source) => ![graphData, translatedData].includes(path.resolve(source)) });
+stage("Data copied");
 // One file per person would push the release past 20,000 files; the release copy gets packs instead.
 console.log("Person packs:", await packPersonFiles(site));
+stage("Person packs");
 // After the person packs, so the content stamp covers them. Only for a front end that reads the grouped layout.
 const bundles = (await readdir(path.join(site, "assets"))).filter((name) => name.endsWith(".js"));
 if (!(await Promise.all(bundles.map((name) => readFile(path.join(site, "assets", name), "utf8")))).some((code) => code.includes("xrefChunk"))) throw new Error("This build cannot read grouped chapter files (no xrefChunk in its scripts); rebuild before preparing a release.");
 console.log("Reader packs:", packReaderData(site));
+stage("Reader packs");
 await cp("migrations", path.join(directory, "migrations"), { recursive: true });
 // The Worker's code sits beside the site folder, so it is never served as a file.
 const worker = path.join(directory, "worker");
 const compiler = spawnSync(process.execPath, ["node_modules/wrangler/bin/wrangler.js", "pages", "functions", "build", "--outdir", path.join(worker, "functions")], { stdio: "inherit" });
 if (compiler.status !== 0) throw new Error("Pages Function compilation failed.");
 for (const file of ["site-worker.mjs", "byte-ranges.mjs"]) await cp(path.join("server", file), path.join(worker, file));
+stage("Worker compiled");
 await cp("public/_headers", path.join(site, "_headers"));
 // The atlas map (STREET_ATLAS.md): its manifest, the current version's 24 MiB pieces, label fonts and icons.
 // Lives on F: via the AtlasTiles junction; ATLAS_TILES_DIR overrides (e.g. when preparing from a clean worktree).
 const atlas = process.env.ATLAS_TILES_DIR ?? path.resolve(import.meta.dirname, "../../AtlasTiles/site");
 const atlasManifest = JSON.parse(await readFile(path.join(atlas, "bible-atlas.json"), "utf8")) as { version: string; chunks: number };
 for (const part of ["bible-atlas.json", atlasManifest.version, "fonts", "sprites"]) await cp(path.join(atlas, part), path.join(site, "atlas-tiles", part), { recursive: true, dereference: true });
+stage("Atlas copied");
 // The meaning-search pack (MEANING_SEARCH.md): its manifest and the current version's files, built by scripts/build-meaning-pack.py.
 const meaning = process.env.MEANING_PACK_DIR ?? path.resolve(import.meta.dirname, "../../MeaningPack/site");
 const meaningManifest = JSON.parse(await readFile(path.join(meaning, "meaning.json"), "utf8")) as { version: string };
 for (const part of ["meaning.json", meaningManifest.version]) await cp(path.join(meaning, part), path.join(site, "search-model", part), { recursive: true, dereference: true });
+stage("Meaning search copied");
 // Search engines (scripts/seo/build.ts): the sitemap, and ready-made copies of the main pages. Last, so it counts every
 // other file against the 20,000 limit. Runs under bun because the page inventory it reads does.
 const seo = spawnSync("bun", ["scripts/seo/build.ts", JSON.stringify(site)], { stdio: "inherit", shell: true });
 if (seo.status !== 0) throw new Error("The search-engine step failed (bun scripts/seo/build.ts).");
+stage("Search-engine pages built");
 const files = await readdir(site, { recursive: true, withFileTypes: true });
 if (files.some((entry) => entry.isSymbolicLink())) throw new Error("The release contains a link instead of files; copy with dereference.");
 if (files.filter((entry) => entry.isFile()).length > 100000) throw new Error("The release exceeds Cloudflare Workers' 100,000-file limit.");
@@ -66,6 +78,7 @@ for (const entry of files.filter((entry) => entry.isFile())) {
   const file = path.join(entry.parentPath, entry.name);
   if ((await stat(file)).size > 25 * 1024 * 1024) throw new Error(`Cloudflare Workers refuses files over 25 MiB: ${file}`);
 }
+stage("Files checked");
 const routes = JSON.parse(await readFile("public/_routes.json", "utf8")) as { include: string[] };
 if (databaseId) {
   const config = {
@@ -80,4 +93,5 @@ if (databaseId) {
 }
 await writeFile(path.join(directory, "release.json"), JSON.stringify({ siteUrl: siteUrl.origin, databaseConfigured: Boolean(databaseId), apologeticsContentHash, files: files.filter((entry) => entry.isFile()).length, routes }, null, 2) + "\n");
 console.log("Release prepared at " + directory);
+stage("Finished");
 console.log(databaseId ? "Database configured. Apply migrations and deploy this directory using the README launch steps." : "No cloud database is configured. Set TESTIMONY_D1_ID and prepare again before deployment; this package is for local verification only.");
