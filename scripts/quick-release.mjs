@@ -202,6 +202,9 @@ function parseArgs(argv) {
 async function main() {
   const { commits, checks, dryRun, resume } = parseArgs(process.argv.slice(2));
   if (!resume && !commits.length && !dryRun) throw new Error('Give the commits to publish with --pick <commit>.');
+  // Git Bash turns a bare /path into C:/Program Files/Git/path; caught here, because after the upload it would skip the tag.
+  const badCheck = checks.find((check) => !check?.startsWith('/'));
+  if (badCheck !== undefined || checks.includes(undefined)) throw new Error(`--check needs an address starting with /, got "${badCheck}". From Git Bash, run with MSYS_NO_PATHCONV=1.`);
   const { pkg, liveEntry } = await findLivePackage();
   console.log(`Live ${liveEntry}, package ${path.basename(pkg)}`);
   const site = path.join(pkg, 'site');
