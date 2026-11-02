@@ -23,12 +23,15 @@ export function HomeQuiz({ number }: { number?: string }) {
   const phone = useMediaQuery("(max-width: 860px)");
   const narrow = useMediaQuery("(max-width: 560px)");
   const frame = useRef<HTMLDivElement>(null);
+  const bar = useRef<HTMLDivElement>(null);
   // Back on the board, the slider opens on the page holding the question just left.
   const { page, pages, go, track } = useQuizPages(frame, board ? Math.max(0, quiz.current) : 0, narrow ? 2 : 3);
   // Switching views keeps the top of the quiz in sight when the reader had scrolled past it.
   const show = (onBoard: boolean) => {
     setBoard(onBoard);
-    if (box.current && box.current.getBoundingClientRect().top < 0) box.current.scrollIntoView({ block: "start", behavior: "smooth" });
+    // On a phone an open question fills the screen from the bar down, so it goes to the top whichever way the reader came.
+    if (phone && !onBoard) bar.current?.scrollIntoView({ block: "start", behavior: "smooth" });
+    else if (box.current && box.current.getBoundingClientRect().top < 0) box.current.scrollIntoView({ block: "start", behavior: "smooth" });
   };
 
   const tiles = <Tiles quiz={quiz} onOpen={(i) => { quiz.open(i); show(false); }} />;
@@ -38,9 +41,9 @@ export function HomeQuiz({ number }: { number?: string }) {
       <div><p className="home-eyebrow">{number && <span className="home-number">{number}</span>}Twelve questions · start anywhere</p><h2 id="hq-title">How well do you know <em>the Bible?</em></h2></div>
       {!phone && <Tally quiz={quiz} />}
     </header>
-    {phone && <QuizBar quiz={quiz} page={page} pages={pages} go={go} nav={board} />}
+    {phone && <QuizBar quiz={quiz} page={page} pages={pages} go={go} nav={board} bar={bar} />}
     <div className="qv-board" ref={box}>
-      {board ? (phone ? <QuizSlider frame={frame} go={go} track={track}>{tiles}</QuizSlider> : tiles) : <CardDeck quiz={quiz} onBoard={() => show(true)} />}
+      {board ? (phone ? <QuizSlider frame={frame} go={go} track={track}>{tiles}</QuizSlider> : tiles) : <CardDeck quiz={quiz} onBoard={() => show(true)} compact={phone} />}
     </div>
     <QuizDoors />
   </section>;

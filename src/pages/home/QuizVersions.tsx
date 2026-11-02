@@ -44,25 +44,28 @@ export function QuizCard() {
 
 /** One question as a card on a deck that thins as the questions are answered; answering turns its picture over to the
  *  verse. The twelve steps run along its top. `onBoard` adds a way back to the board of tiles: the count moves to the
- *  left of the steps and an X closes the card (owner, 2026-10-22). */
-export function CardDeck({ quiz, onBoard }: { quiz: Quiz; onBoard?: () => void }) {
+ *  left of the steps and an X closes the card (owner, 2026-10-22). `compact` is the phone's: everything on one screen, so no
+ *  top row, the steps in the bar above the card and the X on the picture (owner, 2026-11-01). */
+export function CardDeck({ quiz, onBoard, compact = false }: { quiz: Quiz; onBoard?: () => void; compact?: boolean }) {
   const { question } = quiz;
   const turned = Boolean(question && quiz.choice !== null);
   const under = Math.min(2, TOTAL - quiz.answered - (turned ? 0 : 1));
-  return <div className="qv-deck" style={{ "--under": Math.max(0, under) } as CSSProperties}>
+  const close = onBoard && <button type="button" className="qv-card-close" aria-label="Close, back to all twelve questions" onClick={onBoard}><X size={17} strokeWidth={1.6} /></button>;
+  return <div className="qv-deck" data-compact={compact || undefined} style={{ "--under": Math.max(0, under) } as CSSProperties}>
       <span className="qv-deck-sheet" aria-hidden="true" /><span className="qv-deck-sheet" aria-hidden="true" />
       <article className="qv-card">
-        <div className="qv-card-top">
+        {!compact && <div className="qv-card-top">
           {onBoard ? <>
             <span className="qv-card-count">{question ? `${pad(quiz.current + 1)} / ${TOTAL}` : "All done"}</span>
             <Steps quiz={quiz} />
-            <button type="button" className="qv-card-close" aria-label="Close, back to all twelve questions" onClick={onBoard}><X size={17} strokeWidth={1.6} /></button>
+            {close}
           </> : <><Steps quiz={quiz} /><span>{question ? `${pad(quiz.current + 1)} / ${TOTAL}` : "All done"}</span></>}
-        </div>
+        </div>}
         <div className="qv-card-body" key={quiz.current}>
           <div className="qv-flip" data-turned={turned || undefined}>
             <div className="qv-flip-face qv-flip-front"><span className="qv-card-num" aria-hidden="true">{question ? pad(quiz.current + 1) : quiz.right}</span><QuizScene scene={question?.scene ?? "verdict"} /></div>
             <div className="qv-flip-face qv-flip-back">{question && <blockquote>“<Verse id={question.verse} unquoted />”<cite>{question.ref}</cite></blockquote>}</div>
+            {compact && close}
           </div>
           <div className="qv-card-main">{question ? <><Meta quiz={quiz} /><h3>{question.ask}</h3><Options quiz={quiz} /><Reveal quiz={quiz} verse={false} /></> : <Verdict quiz={quiz} />}</div>
         </div>
