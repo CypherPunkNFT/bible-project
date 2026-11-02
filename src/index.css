@@ -195,13 +195,9 @@ html[dir="rtl"] :is(.hm5-wall, .hm5-wall-row, .home-marquee-track) {
 html[dir="rtl"] .home-marquee-group > * {
   direction: rtl;
 }
-/* When the site's language changes the words dip out and back (page-translator.ts); the art and the word wall stay. */
-html[data-language-fade] :is(.site-navigation, footer, #main > :not(.home-hub), .home-hub > :not(.home-opening), .home-hero-copy, .hm6-note-frame, .home-doorway-copy, .home-doorway-art text) {
-  transition: opacity 220ms ease-out;
-}
-html[data-language-fade="out"] :is(.site-navigation, footer, #main > :not(.home-hub), .home-hub > :not(.home-opening), .home-hero-copy, .hm6-note-frame, .home-doorway-copy, .home-doorway-art text) {
-  opacity: 0 !important;
-  transition-duration: 130ms;
+/* The coloured line along the top of the header keeps its order. */
+html[dir="rtl"] header > .h-1 {
+  direction: ltr;
 }
 /* Typefaces apply everywhere a verse is shown (reader, side by side, search results, verse panel). Persian is
    written in the Arabic script, and Naskh faces carry its extra letters. So is Kurdish, Urdu and Uyghur. Not on the

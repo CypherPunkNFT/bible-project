@@ -45,13 +45,13 @@ export function LanguageMenu() {
         onClick={() => setOpen((now) => !now)}
         className={cn(
           "grid h-[34px] w-[34px] place-items-center rounded-full border transition-colors focus:outline-none",
-          open ? "border-ink bg-ink text-page" : "border-line text-muted hover:bg-surface-2 hover:text-ink",
+          open && !changingTo ? "border-ink bg-ink text-page" : "border-line text-muted hover:bg-surface-2 hover:text-ink",
         )}
       >
         <Languages className="h-4 w-4" aria-hidden />
       </button>
       {open && (
-        <div role="menu" aria-label="Language" className="absolute right-0 top-[calc(100%+8px)] z-50 min-w-[12rem] rounded-xl border border-line bg-page p-1.5 shadow-lg">
+        <div role="menu" aria-label="Language" className="language-menu-panel absolute right-0 top-[calc(100%+8px)] z-50 min-w-[12rem] rounded-xl border border-line bg-page p-1.5 shadow-lg">
           {LANGUAGES.map((language) => (
             <button
               key={language.code}
