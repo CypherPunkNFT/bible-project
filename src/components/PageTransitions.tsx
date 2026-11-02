@@ -3,7 +3,7 @@ import { flushSync } from "react-dom";
 import { UNSAFE_NavigationContext as NavigationContext, useLocation } from "react-router-dom";
 import "./site-page-transitions.css";
 
-const ownedFlags = ["apSectionSlide", "memoryPageSlide", "studySlide", "teacherSlide", "resourceSlide", "placesSlide", "peopleSlide", "topicsSlide"];
+const ownedFlags = ["languageFade", "apSectionSlide", "memoryPageSlide", "studySlide", "teacherSlide", "resourceSlide", "placesSlide", "peopleSlide", "topicsSlide"];
 type Transition = { finished: Promise<void>; skipTransition: () => void };
 type TransitionDocument = Document & { startViewTransition?: (update: () => Promise<void>) => Transition };
 

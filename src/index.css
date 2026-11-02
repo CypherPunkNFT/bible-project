@@ -189,16 +189,19 @@ html[dir="rtl"] body {
   overflow-x: clip;
 }
 /* A sliding strip runs off its own left edge, so it stays laid out from the left or a gap opens behind it; what is on it still reads right to left. */
-html[dir="rtl"] :is(.hm5-wall, .home-marquee-track) {
+html[dir="rtl"] :is(.hm5-wall, .hm5-wall-row, .home-marquee-track) {
   direction: ltr;
 }
 html[dir="rtl"] .home-marquee-group > * {
   direction: rtl;
 }
-/* The fade when the site's language changes: short, so it reads as the words changing and not as an effect. */
-html[data-language-fade]::view-transition-old(root),
-html[data-language-fade]::view-transition-new(root) {
-  animation-duration: 0.18s;
+/* When the site's language changes the words dip out and back (page-translator.ts); the art and the word wall stay. */
+html[data-language-fade] :is(.site-navigation, footer, #main > :not(.home-hub), .home-hub > :not(.home-opening), .home-hero-copy, .hm6-note-frame, .home-doorway-copy, .home-doorway-art text) {
+  transition: opacity 220ms ease-out;
+}
+html[data-language-fade="out"] :is(.site-navigation, footer, #main > :not(.home-hub), .home-hub > :not(.home-opening), .home-hero-copy, .hm6-note-frame, .home-doorway-copy, .home-doorway-art text) {
+  opacity: 0 !important;
+  transition-duration: 130ms;
 }
 /* Typefaces apply everywhere a verse is shown (reader, side by side, search results, verse panel). Persian is
    written in the Arabic script, and Naskh faces carry its extra letters. So is Kurdish, Urdu and Uyghur. Not on the

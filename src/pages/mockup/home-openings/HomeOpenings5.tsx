@@ -27,11 +27,10 @@ const wordsFor = (pool: string[], row: number) => Array.from({ length: 8 }, (_, 
 /** The marquee multiplied into a wall: rows of Scripture in English, Hebrew and Greek sliding both ways behind the title.
  *  `rows` and `pools` let a version swap a row's language: a row's kind names its style and, if listed, its words. */
 export function WordWall({ rows = WALL_ROWS, pools = {} }: { rows?: readonly (readonly [string, number])[]; pools?: Record<string, string[]> }) {
-  return <div className="hm5-wall" aria-hidden="true">
+  return <div className="hm5-wall" lang="en" translate="no" aria-hidden="true">
     {rows.map(([kind, seconds], row) => {
       const words = wordsFor(pools[kind] ?? POOLS[kind] ?? WALL, row);
-      // A row with its own words shows that language whatever the site's; only the plain English rows follow the site.
-      return <div className={`hm5-wall-row hm5-wall-${kind}`} translate={pools[kind] ?? POOLS[kind] ? "no" : undefined} style={{ "--speed": `${seconds}s` } as CSSProperties} data-reverse={row % 2 ? true : undefined} key={row}>
+      return <div className={`hm5-wall-row hm5-wall-${kind}`} style={{ "--speed": `${seconds}s` } as CSSProperties} data-reverse={row % 2 ? true : undefined} key={row}>
         <div className="hm5-wall-track">{["first", "second"].map((copy) => <span key={copy}>{words.map((phrase, place) => <b dir={RIGHT_TO_LEFT.has(kind) ? "rtl" : undefined} key={`${place}-${phrase}`}>{phrase}</b>)}</span>)}</div>
       </div>;
     })}

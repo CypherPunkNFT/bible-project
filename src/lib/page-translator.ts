@@ -19,6 +19,11 @@ let observer: MutationObserver | null = null;
 // What each text or label said before it was changed: it goes back to exactly that, however many languages came between.
 const originals = new WeakMap<Text | Attr, { source: string; written: string }>();
 
+const FADE_OUT_MS = 130; // both as in index.css
+const FADE_IN_MS = 220;
+const BIBLE_WAIT_MS = 800;
+const wait = (ms: number) => new Promise((done) => setTimeout(done, ms));
+
 const normal = (text: string) => text.replace(/\s+/g, " ").trim();
 
 function learn(folder: string, english: string, translated: string): void {
@@ -191,21 +196,12 @@ function markDocument(code: LanguageCode, folder: string | null): void {
   if (folder) document.head.append(Object.assign(document.createElement("meta"), { name: "google", content: "notranslate" }));
 }
 
-/** A sliding strip's place is a share of its width, so new words of another length would throw it far along. Keeps each where it is. */
-function holdStrips(): () => void {
-  const strips = [...document.querySelectorAll(".hm5-wall-track")].flatMap((track) => {
-    const slide = track.getAnimations()[0];
-    const timing = slide?.effect?.getComputedTiming();
-    if (!timing?.progress || typeof timing.duration !== "number") return [];
-    return [{ track, slide, duration: timing.duration, reversed: timing.direction === "reverse", shift: (timing.progress * track.getBoundingClientRect().width) / 2 }];
-  });
-  return () => {
-    for (const { track, slide, duration, reversed, shift } of strips) {
-      const loop = track.getBoundingClientRect().width / 2;
-      const progress = loop ? (shift % loop) / loop : 0;
-      slide.currentTime = (reversed ? 1 - progress : progress) * duration;
-    }
-  };
+/** A reader on screen moves to the new language's Bible just after the change: the words come back once its verses have arrived. */
+async function bibleInLanguage(code: LanguageCode): Promise<void> {
+  const start = performance.now();
+  const other = `.scripture:not(:lang(${code.split("-")[0]}))`;
+  do await wait(32);
+  while (document.querySelector(other) && performance.now() - start < BIBLE_WAIT_MS);
 }
 
 /** At startup: resolves once the page strings are read, so the first paint is already in the chosen language. */
@@ -231,24 +227,23 @@ export async function chooseSiteLanguage(code: LanguageCode): Promise<void> {
   const previous = languageFolder();
   const folder = languageFolder(code);
   const folders = [previous, folder].filter((name): name is string => name !== null);
-  await Promise.all(folders.flatMap((name) => [loadStrings(name, null), ...[...loadedData].map((path) => loadStrings(name, path))]));
-  const change = async () => {
-    const releaseStrips = holdStrips();
-    setSiteLanguage(code);
-    markDocument(code, folder);
-    target = folder;
-    watch();
-    translateTree(document.body);
-    await Promise.resolve(); // React's own changes to the new language land here
-    releaseStrips();
-  };
-  // The old words fade into the new, so nothing is seen moving while the page takes its new shape.
-  if (document.startViewTransition && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const root = document.documentElement;
-    root.toggleAttribute("data-language-fade", true);
-    const fade = document.startViewTransition(change);
-    fade.ready.catch(() => undefined); // the fade was cut short by the next one (the reader moving to its new Bible): the words have still changed
-    void fade.finished.finally(() => root.removeAttribute("data-language-fade"));
-    await fade.updateCallbackDone;
-  } else await change();
+  // Only the words dip out and back. The word wall stays out of this and keeps sliding, because it runs apart from the
+  // page's work; the reading and restyling happen while the words are out of sight.
+  const root = document.documentElement;
+  const fades = !window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  if (fades) root.dataset.languageFade = "out";
+  await Promise.all([
+    fades && wait(FADE_OUT_MS),
+    ...folders.flatMap((name) => [loadStrings(name, null), ...[...loadedData].map((path) => loadStrings(name, path))]),
+  ]);
+  setSiteLanguage(code);
+  markDocument(code, folder);
+  target = folder;
+  watch();
+  translateTree(document.body);
+  if (!fades) return;
+  await new Promise((painted) => requestAnimationFrame(() => setTimeout(painted)));
+  await bibleInLanguage(code);
+  root.dataset.languageFade = "in";
+  setTimeout(() => delete root.dataset.languageFade, FADE_IN_MS);
 }
