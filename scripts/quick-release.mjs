@@ -222,7 +222,14 @@ async function main() {
     stage('Code built');
     const renames = assetRenames(fs.readFileSync(path.join(site, 'index.html'), 'utf8'), fs.readFileSync(path.join(built, 'index.html'), 'utf8'));
     console.log(`Changes: ${renames.size} file(s) the pages name, ${publicFiles.length} public file(s).`, Object.fromEntries(renames));
-    if (dryRun) { undo(); return; }
+    if (dryRun) {
+      undo();
+      // The rehearsal must cross the same upload script as a release, or it can pass while a release fails.
+      const rehearsal = spawnSync(process.execPath, [path.join(WEBSITE, 'scripts/deploy-worker.mjs'), '--dry-run'], { cwd: pkg, stdio: 'inherit' });
+      if (rehearsal.status !== 0) throw new Error(`The upload rehearsal failed (exit ${rehearsal.status}), so a real release would fail too.`);
+      stage('Upload rehearsed, nothing sent');
+      return;
+    }
     applyToPackage(pkg, built, renames, publicFiles, liveEntry);
   } catch (error) {
     undo();

@@ -10,7 +10,8 @@ import { assertFrontEndReadsPersonPacks, sitePacksPeople } from './person-packs-
 if (!existsSync('wrangler.jsonc') || !existsSync('site/index.html')) throw new Error(`Run this from a prepared release directory (wrangler.jsonc and site/index.html); got ${process.cwd()}`);
 if (sitePacksPeople('site')) assertFrontEndReadsPersonPacks('site');
 const wrangler = fileURLToPath(new URL('../node_modules/wrangler/bin/wrangler.js', import.meta.url));
-const fastAssets = fileURLToPath(new URL('./wrangler-fast-assets.cjs', import.meta.url));
+// Forward slashes: NODE_OPTIONS treats a backslash as an escape, even inside quotes.
+const fastAssets = fileURLToPath(new URL('./wrangler-fast-assets.cjs', import.meta.url)).replaceAll('\\', '/');
 const result = spawnSync(process.execPath, [wrangler, 'deploy', ...process.argv.slice(2)], { stdio: 'inherit', env: { ...process.env, NODE_OPTIONS: `--require "${fastAssets}"` } });
 if (result.error) throw result.error;
 process.exitCode = result.status ?? 1;
