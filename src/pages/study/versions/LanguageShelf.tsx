@@ -1,3 +1,4 @@
+import { CHOSEN_BIBLE } from "@/lib/last-read";
 import { useMemo, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { GROUP_COLOR, groupOf, languageName, VERSION_GROUPS } from "@/lib/languages";
@@ -80,7 +81,7 @@ export function LanguageShelf({ editions }: { editions: Translation[] }) {
         <strong lang={code} dir="auto">{NATIVE[code] ?? languageName(code)}</strong>
         <span>{subtext(code, versions.length)}</span>
       </div>
-      <div className="ed-language-editions">{chipRows(versions).map((row, i) => <div key={i}>{row.map((t) => <Link key={t.slug} to={readerPath(t)} title={`${t.name} (${t.year}). Read this edition.`}><b>{t.abbr}</b><span>{t.year}</span></Link>)}</div>)}</div>
+      <div className="ed-language-editions">{chipRows(versions).map((row, i) => <div key={i}>{row.map((t) => <Link key={t.slug} to={readerPath(t)} state={CHOSEN_BIBLE} title={`${t.name} (${t.year}). Read this edition.`}><b>{t.abbr}</b><span>{t.year}</span></Link>)}</div>)}</div>
     </li>)}
   </ul>;
 }

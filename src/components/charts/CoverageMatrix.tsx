@@ -1,3 +1,4 @@
+import { CHOSEN_BIBLE } from "@/lib/last-read";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
@@ -32,7 +33,7 @@ export function CoverageMatrix({ group: shared, bookStrip = false, plain = false
     <tbody>
     {versions.map((t) => {
       const first = selected && t.books[selected] ? selected : Object.keys(t.books)[0];
-      return <tr key={t.slug}><th scope="row"><Link to={"/read/" + t.slug + "/" + first + "/" + t.books[first][0]} title={t.name}>{t.abbr}</Link></th>
+      return <tr key={t.slug}><th scope="row"><Link to={"/read/" + t.slug + "/" + first + "/" + t.books[first][0]} state={CHOSEN_BIBLE} title={t.name}>{t.abbr}</Link></th>
         {books.map((b) => {
           const has = !!t.books[b.code];
           return <td key={b.code} onMouseEnter={() => setHover(t.abbr + " — " + b.name + ": " + (has ? t.books[b.code].length + (t.books[b.code].length === 1 ? " chapter" : " chapters") : "not included"))}

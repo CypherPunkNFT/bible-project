@@ -1,3 +1,4 @@
+import { CHOSEN_BIBLE } from "@/lib/last-read";
 import { BookOpen } from "lucide-react";
 import { useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -109,7 +110,7 @@ export function VersionsList() {
                       const first = Object.keys(t.books)[0];
                       return (
                         <li key={t.slug} style={{ height: `${ROW_REM}rem` }}>
-                          <Link to={`/read/${t.slug}/${first}/${t.books[first][0]}`} className="group flex h-full items-center gap-4 px-4 hover:bg-surface-2/60">
+                          <Link to={`/read/${t.slug}/${first}/${t.books[first][0]}`} state={CHOSEN_BIBLE} className="group flex h-full items-center gap-4 px-4 hover:bg-surface-2/60">
                             <span className="w-14 shrink-0 font-semibold">{t.abbr}</span>
                             <span className="min-w-0 flex-1">
                               <span className="block truncate">{t.name}</span>

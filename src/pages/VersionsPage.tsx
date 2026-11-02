@@ -1,3 +1,4 @@
+import { CHOSEN_BIBLE } from "@/lib/last-read";
 import { BookOpen } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -102,7 +103,7 @@ export default function VersionsPage() {
                       <td className="px-3 py-3 text-muted">{NUMBERING_LABEL[t.numbering]}</td>
                       <td className="px-3 py-3">
                         <div className="flex items-start gap-2">
-                        <Link to={`/read/${t.slug}/${first}/${t.books[first][0]}`} className="inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-line px-2.5 py-1 hover:bg-surface-2">
+                        <Link to={`/read/${t.slug}/${first}/${t.books[first][0]}`} state={CHOSEN_BIBLE} className="inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-line px-2.5 py-1 hover:bg-surface-2">
                           <BookOpen className="h-3.5 w-3.5" aria-hidden /> Read
                         </Link>
                         <ScriptureDownload catalog={catalog} version={t} />

@@ -1,3 +1,4 @@
+import { CHOSEN_BIBLE } from "@/lib/last-read";
 import { ArrowRight, X } from "lucide-react";
 import { useMemo, useState, type CSSProperties, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
@@ -86,7 +87,7 @@ export function WordDistribution({ books, hits, selected, onSelect, slug }: {
           <ul className="mt-2 flex flex-wrap gap-1.5">
             {chapters.map(([chapter, { count, verse }], i) => (
               <li key={chapter} style={{ animationDelay: `${i * 25}ms` }}>
-                <Link to={`/read/${slug}/${chosen.code}/${chapter}?v=${verse}`} className="inline-flex items-center gap-1.5 rounded-full border border-line bg-page px-3 py-1 text-sm hover:border-current" style={{ color: sectionColor(chosen.section) }}>
+                <Link to={`/read/${slug}/${chosen.code}/${chapter}?v=${verse}`} state={CHOSEN_BIBLE} className="inline-flex items-center gap-1.5 rounded-full border border-line bg-page px-3 py-1 text-sm hover:border-current" style={{ color: sectionColor(chosen.section) }}>
                   <span className="text-ink">{chosen.name} {chapter}</span>{count > 1 && <span className="text-xs">×{count}</span>}<ArrowRight size={12} aria-hidden />
                 </Link>
               </li>

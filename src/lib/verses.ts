@@ -24,6 +24,12 @@ export function currentBibleSlug(language: LanguageCode = siteLanguage()): strin
   return DEFAULT_BIBLE[language];
 }
 
+/** The language's own Bible, when it has this chapter: where the reader opens. */
+export function languageBible(catalog: Catalog, language: LanguageCode, code: string, chapter: string): string | null {
+  const bible = catalog.translations.find((item) => item.slug === currentBibleSlug(language));
+  return bible?.books[code]?.includes(chapter) ? bible.slug : null;
+}
+
 export function findBible(catalog: Catalog, slug: string): Translation {
   const bible = catalog.translations.find((translation) => translation.slug === slug);
   if (!bible) throw new Error(`verses: no Bible "${slug}" in the catalogue (${catalog.translations.length} listed)`);

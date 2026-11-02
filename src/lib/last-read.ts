@@ -1,5 +1,8 @@
 const KEY = "bp-last-read";
 
+/** Router state on a link to one particular edition: the reader keeps it, instead of opening the language's Bible. */
+export const CHOSEN_BIBLE = { chosenBible: true };
+
 /** Remember the last chapter opened, on this browser only. */
 export function rememberRead(path: string): void {
   try {

@@ -1,3 +1,4 @@
+import { CHOSEN_BIBLE } from "@/lib/last-read";
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
@@ -57,13 +58,13 @@ export function VersionsTimeline({ group: shared, fit = false, plain = false }: 
       <div ref={region} className="slim-scroll relative overflow-x-auto rounded-lg border border-line bg-page py-4" tabIndex={0} role="region" aria-label="Edition timeline; scroll horizontally on smaller screens">
         <div className="relative" style={{ width, height: rows.length * 38 + 40 }}>
           {[1400, 1500, 1600, 1700, 1800, 1900, 2000].map((year) => <div key={year} className="absolute bottom-0 top-0 border-l border-dashed border-line" style={{ left: x(year) }}><span className="absolute bottom-0 -translate-x-1/2 text-[11px] text-muted">{year}</span></div>)}
-          {rows.map((row, i) => row.map((t) => <Link key={t.slug} to={reader(t)} aria-label={t.name + " (" + t.year + "). Read this version."} title={t.name}
+          {rows.map((row, i) => row.map((t) => <Link key={t.slug} to={reader(t)} state={CHOSEN_BIBLE} aria-label={t.name + " (" + t.year + "). Read this version."} title={t.name}
             className="absolute flex w-[104px] -translate-x-1/2 items-center justify-center gap-1.5 rounded-full border border-line bg-surface px-2 py-1.5 text-xs shadow-sm transition-colors hover:border-ink hover:z-10 focus-visible:z-10"
             style={{ left: x(t.year), top: i * 38 + 4 }}><span className="h-2 w-2 shrink-0 rounded-full" style={{ background: GROUP_COLOR[groupOf(t.lang).id] }} /><strong>{t.abbr}</strong><span className="text-muted">{t.year}</span></Link>))}
         </div>
       </div>
-      {!plain && early.map((t) => <p key={t.slug} className="chart-hint mt-3">Earlier than this axis: <Link className="underline" to={reader(t)}>{t.name} · {t.year} AD</Link></p>)}
-    </> : <ol className="timeline-editions">{sorted.map((t) => <li key={t.slug}><Link to={reader(t)}><span className="timeline-year" style={{ color: GROUP_COLOR[groupOf(t.lang).id] }}>{t.year}</span><span><strong>{t.abbr}</strong><small>{t.name}</small></span><span aria-hidden="true">↗</span></Link></li>)}</ol>}
+      {!plain && early.map((t) => <p key={t.slug} className="chart-hint mt-3">Earlier than this axis: <Link className="underline" to={reader(t)} state={CHOSEN_BIBLE}>{t.name} · {t.year} AD</Link></p>)}
+    </> : <ol className="timeline-editions">{sorted.map((t) => <li key={t.slug}><Link to={reader(t)} state={CHOSEN_BIBLE}><span className="timeline-year" style={{ color: GROUP_COLOR[groupOf(t.lang).id] }}>{t.year}</span><span><strong>{t.abbr}</strong><small>{t.name}</small></span><span aria-hidden="true">↗</span></Link></li>)}</ol>}
     {!plain && legend}
   </div>;
 }

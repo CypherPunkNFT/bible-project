@@ -1,3 +1,4 @@
+import { CHOSEN_BIBLE } from "@/lib/last-read";
 import { Search } from "lucide-react";
 import { SearchLanding } from "@/components/search/SearchLanding";
 import { WordDistribution } from "@/components/search/WordDistribution";
@@ -180,7 +181,7 @@ export default function SearchPage() {
               const book = catalog.books.find((b) => b.code === hit.code)!;
               return (
                 <li key={`${hit.code}${hit.chapter}:${hit.verse}`} className="py-3">
-                  <Link to={`/read/${resultTranslation.slug}/${hit.code}/${hit.chapter}?v=${hit.verse}`} className="group block">
+                  <Link to={`/read/${resultTranslation.slug}/${hit.code}/${hit.chapter}?v=${hit.verse}`} state={CHOSEN_BIBLE} className="group block">
                     <span className="flex items-center gap-2 text-sm font-semibold group-hover:text-accent">
                       <span className="h-2.5 w-2.5 rounded-full" style={{ background: sectionColor(book.section) }} aria-hidden />
                       {book.name} {hit.chapter}:{hit.verse}

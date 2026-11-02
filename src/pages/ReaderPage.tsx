@@ -1,7 +1,7 @@
 import { useSiteLanguage, type LanguageCode } from "@/lib/language";
 import { ArrowLeft, ArrowRight, CheckSquare, ChevronLeft, ChevronRight, Square } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { Link, Navigate, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate, useNavigationType, useParams, useSearchParams } from "react-router-dom";
 import { CreditLine } from "@/components/CreditLine";
 import { BookPicker } from "@/components/reader/BookPicker";
 import { ChapterPlaces } from "@/components/reader/ChapterPlaces";
@@ -18,6 +18,7 @@ import { ChapterCrossRefs } from "@/components/reader/ChapterCrossRefs";
 import { useChapterCrossRefs } from "@/components/reader/useChapterCrossRefs";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { useCatalog } from "@/lib/catalog";
+import { currentBibleSlug, languageBible } from "@/lib/verses";
 import { loadChapter } from "@/lib/data";
 import { rememberRead, lastReadPath } from "@/lib/last-read";
 import { useProgress } from "@/lib/progress";
@@ -34,14 +35,44 @@ function neighbours(catalog: Catalog, translation: Translation, code: string, ch
   return { prev: index > 0 ? order[index - 1] : null, next: index >= 0 && index < order.length - 1 ? order[index + 1] : null };
 }
 
+const ORIGINAL_LANGUAGES = new Set(["he", "hbo", "grc", "el"]);
+
 export default function ReaderPage() {
   const params = useParams();
-  if (!params.slug || !params.book || !params.chapter) return <Navigate to={lastReadPath() ?? "/read/kjv/GEN/1"} replace />;
+  const catalog = useCatalog();
+  const language = useSiteLanguage();
+  if (!params.slug || !params.book || !params.chapter) {
+    const [, , , code, chapter] = lastReadPath()?.split("/") ?? [];
+    const slug = code && languageBible(catalog, language, code, chapter);
+    return <Navigate to={slug ? `/read/${slug}/${code}/${chapter}` : `/read/${currentBibleSlug(language)}/GEN/1`} replace />;
+  }
   return <Reader slug={params.slug} code={params.book} chapter={params.chapter} />;
 }
 
 function Reader({ slug, code, chapter }: { slug: string; code: string; chapter: string }) {
   const catalog = useCatalog();
+  const language = useSiteLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const navigationType = useNavigationType();
+  const rest = location.search + location.hash;
+  // A link from elsewhere on the site opens the language's Bible (the Berean in English), whichever edition it names,
+  // unless it is a link to one chosen edition. Moving around inside the reader keeps this component, so the reader's
+  // own choice of Bible stands; so does an address typed or reloaded, and going back. A link to the Hebrew or Greek
+  // means those words themselves.
+  const cameByLink = useRef(navigationType === "PUSH" && !location.state?.chosenBible);
+  useEffect(() => { cameByLink.current = false; }, []);
+  // Changing the site's language changes the Bible too.
+  const shownLanguage = useRef(language);
+  useEffect(() => {
+    if (shownLanguage.current === language) return;
+    shownLanguage.current = language;
+    const target = languageBible(catalog, language, code, chapter);
+    if (target) navigate(`/read/${target}/${code}/${chapter}${rest}`, { replace: true });
+  }, [language, catalog, code, chapter, rest, navigate]);
+  const named = catalog.translations.find((t) => t.slug === slug);
+  const opening = cameByLink.current && !ORIGINAL_LANGUAGES.has(named?.lang ?? "") ? languageBible(catalog, language, code, chapter) : null;
+  if (opening && opening !== slug) return <Navigate to={`/read/${opening}/${code}/${chapter}${rest}`} replace />;
   const translation = catalog.translations.find((t) => t.slug === slug);
   const book = bookByCode(catalog, code);
   if (!translation || !book) return <Missing title="That version or book does not exist" />;
