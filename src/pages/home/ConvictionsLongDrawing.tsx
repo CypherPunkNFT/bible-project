@@ -2,6 +2,7 @@
 // wider screens. Native sideways scrolling, so it swipes and snaps like the phone expects. Owner's pick from /home_mockup11, 2026-11-01.
 // Styles: convictions-long-drawing.css (.cvm-*). The mock-up's other versions reuse the pieces exported here.
 import { useCallback, useEffect, useRef, useState, type ComponentType, type CSSProperties } from "react";
+import { Verse } from "@/components/Verse";
 import { ART, CONVICTIONS } from "@/pages/contact/AboutSections";
 import "./convictions-long-drawing.css";
 
@@ -10,13 +11,6 @@ export const GLORY_TEXT = "Every page is offered back to the One it is about: th
 
 export const ITEMS = CONVICTIONS.map((item, index) => ({ ...item, text: index === 0 ? GLORY_TEXT : item.text, drawing: ART[item.art === "books" ? "shelf" : item.art] }));
 export const COUNT = ITEMS.length;
-/** The verses' own words, held here because the shared list is moving from words to verse ids; the page must build either way. */
-const VERSE_WORDS: Record<string, string> = {
-  "1 Corinthians 10:31": "So whether you eat or drink or whatever you do, do it all to the glory of God.",
-  "Matthew 10:8": "Freely you have received; freely give.",
-  "Isaiah 55:1": "Come, all you who are thirsty, come to the waters.",
-  "Proverbs 4:7": "Wisdom is supreme; so acquire wisdom.",
-};
 export type Item = (typeof ITEMS)[number];
 export interface RailProps { active: number; goTo: (index: number) => void }
 
@@ -27,7 +21,7 @@ export function Words({ item, title = true }: { item: Item; title?: boolean }) {
   return <>
     {title && <h3 className="cvm-title">{item.title}</h3>}
     <p className="cvm-text">{item.text}</p>
-    <blockquote className="cvm-verse">“{VERSE_WORDS[item.reference]}”<cite>{item.reference}</cite></blockquote>
+    <blockquote className="cvm-verse">“<Verse id={item.verse} unquoted />”<cite>{item.reference}</cite></blockquote>
   </>;
 }
 
