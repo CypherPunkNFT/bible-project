@@ -1,8 +1,9 @@
 // Homepage: the twelve questions as a slider, three at a time (two on a narrow phone), in place of rows of tiles, under one bar with the score as
-// right / answered, a dot for each page and the left and right arrows (owner, 2026-10-31). It slides by swipe, or by dragging with a mouse.
-import { ArrowLeft, ArrowRight, RotateCcw } from "lucide-react";
+// right / answered and a dot for each page (owner, 2026-10-31). It slides by swipe, or by dragging with a mouse. With a question open, the bar holds the twelve steps in place of the dots.
+import { RotateCcw } from "lucide-react";
 import { useLayoutEffect, useRef, useState, type MouseEvent, type PointerEvent, type ReactNode, type RefObject, type TouchEvent } from "react";
 import { QUESTIONS } from "../quiz-data";
+import { Steps } from "./QuizParts";
 import type { Quiz } from "./quiz-state";
 
 /** A mouse has to move this far before a press counts as a drag and not a click on a tile. */
@@ -37,20 +38,16 @@ export function useQuizPages(frame: RefObject<HTMLDivElement>, question: number,
   return { page, pages, go, track };
 }
 
-export function QuizBar({ quiz, page, pages, go, nav }: { quiz: Quiz; page: number; pages: number; go: (next: number) => void; nav: boolean }) {
+export function QuizBar({ quiz, page, pages, go, nav, bar }: { quiz: Quiz; page: number; pages: number; go: (next: number) => void; nav: boolean; bar: RefObject<HTMLDivElement> }) {
   const perPage = QUESTIONS.length / pages;
-  return <div className="qv-bar">
+  return <div className="qv-bar" ref={bar}>
     <div className="qv-bar-score" aria-live="polite">
       <p aria-label={`${quiz.right} right of ${quiz.answered} answered`}><strong>{quiz.right}</strong>/{quiz.answered}</p>
       {quiz.answered > 0 && <button type="button" aria-label="Start again" onClick={quiz.restart}><RotateCcw size={13} aria-hidden /><span>Start again</span></button>}
     </div>
-    {nav && <>
-      <div className="qv-bar-dots">{Array.from({ length: pages }, (_, i) => <button type="button" key={i} aria-label={`Questions ${i * perPage + 1} to ${(i + 1) * perPage}`} aria-current={i === page || undefined} onClick={() => go(i)} />)}</div>
-      <div className="qv-bar-arrows">
-        <button type="button" aria-label="Earlier questions" disabled={page === 0} onClick={() => go(page - 1)}><ArrowLeft size={18} aria-hidden /></button>
-        <button type="button" aria-label="Later questions" disabled={page === pages - 1} onClick={() => go(page + 1)}><ArrowRight size={18} aria-hidden /></button>
-      </div>
-    </>}
+    {nav
+      ? <div className="qv-bar-dots">{Array.from({ length: pages }, (_, i) => <button type="button" key={i} aria-label={`Questions ${i * perPage + 1} to ${(i + 1) * perPage}`} aria-current={i === page || undefined} onClick={() => go(i)} />)}</div>
+      : <Steps quiz={quiz} />}
   </div>;
 }
 
