@@ -102,6 +102,13 @@ function NumeralRail({ active, goTo }: { active: number; goTo: (index: number) =
   </div>;
 }
 
+/** Dots over a sideways scroller: tapping one goes there; the gold one follows the finger. */
+function DotRail({ active, goTo }: { active: number; goTo: (index: number) => void }) {
+  return <div className="cvm-dots" role="group" aria-label="Choose a conviction">
+    {ITEMS.map((item, index) => <button key={item.numeral} type="button" aria-label={item.title} aria-current={index === active} onClick={() => goTo(index)}><span /></button>)}
+  </div>;
+}
+
 /** A: swipe panel to panel, the next one peeking in; each giant numeral slides at its own pace behind the words. */
 export function ConvictionsPanels() {
   const { track, active, goTo } = useSideways();
@@ -133,7 +140,7 @@ function Landscape() {
   </svg>;
 }
 
-/** I: B with the numerals under it, for anyone who would not guess that it scrolls sideways. */
+/** I: B with numerals over it instead of dots, for anyone who would not guess that it scrolls sideways. */
 export function ConvictionsLongDrawingWithMenu() {
   return <ConvictionsLongDrawing menu />;
 }
@@ -142,6 +149,7 @@ export function ConvictionsLongDrawingWithMenu() {
 export function ConvictionsLongDrawing({ menu = false }: { menu?: boolean }) {
   const { track, active, goTo } = useSideways();
   return <section className="cvm cvm-long" aria-label="Our four convictions">
+    {menu ? <NumeralRail active={active} goTo={goTo} /> : <DotRail active={active} goTo={goTo} />}
     <ol className="cvm-track" ref={track} tabIndex={0}>
       <li className="cvm-backdrop" aria-hidden="true">
         <svg className="cvm-stars" viewBox="0 0 1600 240">{STARS.map((star) => <circle key={star.x} cx={star.x} cy={star.y} r={star.r} data-twinkle={star.twinkle || undefined} />)}</svg>
@@ -152,7 +160,6 @@ export function ConvictionsLongDrawing({ menu = false }: { menu?: boolean }) {
         <Words item={item} />
       </li>)}
     </ol>
-    {menu && <NumeralRail active={active} goTo={goTo} />}
   </section>;
 }
 
