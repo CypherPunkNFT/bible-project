@@ -1,10 +1,10 @@
 {
  "path": "/",
- "capturedAt": "2026-10-24T18:14:36.456Z",
+ "capturedAt": "2026-11-02T18:46:38.148Z",
  "base": "https://bibleguide.io",
- "title": "Bible Guide",
- "heading": "One Word. A world to discover.",
- "paragraph": "Read the Scriptures. Follow the connections. Bring your questions. See the bigger story.",
+ "title": "Bible Guide: Read the Whole Bible Free, with Studies, an Atlas and Topics",
+ "heading": "God’s Word Stands Forever.",
+ "paragraph": "Written over fifteen centuries by ~40 authors. Carried through persecution and fire.",
  "blocks": [
   {
    "tag": "p",
@@ -12,15 +12,19 @@
   },
   {
    "tag": "h1",
-   "text": "One Word. A world to discover."
+   "text": "God’s Word Stands Forever."
   },
   {
    "tag": "p",
-   "text": "Read the Scriptures. Follow the connections. Bring your questions. See the bigger story."
+   "text": "Written over fifteen centuries by ~40 authors. Carried through persecution and fire."
   },
   {
    "tag": "p",
-   "text": "Free to explore. Open to everyone. 160 Bible versions · 140 languages"
+   "text": "Read the Scriptures. Follow the connections. 160 Bible versions · 140 languages"
+  },
+  {
+   "tag": "p",
+   "text": "Deuteronomy 2 · Law & history"
   },
   {
    "tag": "p",
@@ -80,7 +84,7 @@
   },
   {
    "tag": "p",
-   "text": "37"
+   "text": "160"
   },
   {
    "tag": "p",
@@ -88,7 +92,7 @@
   },
   {
    "tag": "p",
-   "text": "17"
+   "text": "140"
   },
   {
    "tag": "p",
@@ -136,7 +140,7 @@
   },
   {
    "tag": "p",
-   "text": "“Whatsoever ye do, do all to the glory of God.” 1 CORINTHIANS 10:31"
+   "text": "“So whether you eat or drink or whatever you do, do it all to the glory of God.” 1 CORINTHIANS 10:31"
   },
   {
    "tag": "h3",
@@ -148,7 +152,7 @@
   },
   {
    "tag": "p",
-   "text": "“Freely ye have received, freely give.” MATTHEW 10:8"
+   "text": "“Freely you have received; freely give.” MATTHEW 10:8"
   },
   {
    "tag": "h3",
@@ -160,7 +164,7 @@
   },
   {
    "tag": "p",
-   "text": "“Ho, every one that thirsteth, come ye to the waters.” ISAIAH 55:1"
+   "text": "“Come, all you who are thirsty, come to the waters.” ISAIAH 55:1"
   },
   {
    "tag": "h3",
@@ -172,7 +176,7 @@
   },
   {
    "tag": "p",
-   "text": "“Wisdom is the principal thing; therefore get wisdom.” PROVERBS 4:7"
+   "text": "“Wisdom is supreme; so acquire wisdom.” PROVERBS 4:7"
   },
   {
    "tag": "p",
@@ -180,7 +184,7 @@
   },
   {
    "tag": "p",
-   "text": "“The grass withereth, the flower fadeth: but the word of our God shall stand for ever.”"
+   "text": "“The grass withers and the flowers fall, but the word of our God stands forever.”"
   },
   {
    "tag": "p",
@@ -188,7 +192,7 @@
   },
   {
    "tag": "p",
-   "text": "“Search the scriptures… they are they which testify of me.”"
+   "text": "“You pore over the Scriptures… These are the very words that testify about Me.”"
   },
   {
    "tag": "p",
@@ -196,7 +200,7 @@
   },
   {
    "tag": "p",
-   "text": "“Be ready always to give an answer to every man that asketh you a reason of the hope that is in you.”"
+   "text": "“Always be prepared to give a defense to everyone who asks you the reason for the hope that is in you.”"
   },
   {
    "tag": "p",
@@ -204,7 +208,7 @@
   },
   {
    "tag": "p",
-   "text": "“Bear ye one another’s burdens, and so fulfil the law of Christ.”"
+   "text": "“Carry one another’s burdens, and in this way you will fulfill the law of Christ.”"
   },
   {
    "tag": "p",
@@ -260,7 +264,7 @@
   },
   {
    "tag": "li",
-   "text": "10 NEW TESTAMENT What is the shortest verse in the King James Bible?"
+   "text": "10 NEW TESTAMENT What is the shortest verse in the Berean Bible?"
   },
   {
    "tag": "li",
@@ -284,7 +288,7 @@
   },
   {
    "tag": "p",
-   "text": "37"
+   "text": "160"
   },
   {
    "tag": "p",
@@ -492,7 +496,19 @@
   },
   {
    "tag": "p",
-   "text": "May the LORD bless you and keep you; may the LORD cause His face to shine upon you and be gracious to you; may the LORD lift up His countenance toward you and give you peace."
+   "text": "“May the LORD bless you and keep you; may the LORD cause His face to shine upon you and be gracious to you.”"
+  },
+  {
+   "tag": "p",
+   "text": "Numbers 6:24–25 · Berean Standard Bible"
+  },
+  {
+   "tag": "p",
+   "text": "“Be strong and courageous. Do not be afraid; do not be discouraged, for the LORD your God is with you wherever you go.”"
+  },
+  {
+   "tag": "p",
+   "text": "Joshua 1:9 · Berean Standard Bible"
   },
   {
    "tag": "h2",
@@ -557,6 +573,10 @@
   {
    "tag": "p",
    "text": "Open source on GitHub."
+  },
+  {
+   "tag": "p",
+   "text": "Bible Guide is a program of Redeemer Forge, Inc."
   }
  ],
  "links": [
@@ -597,12 +617,16 @@
    "text": "Search"
   },
   {
-   "path": "/read/kjv/JHN/1",
-   "text": "Begin with John 1"
+   "path": "/study/atlas",
+   "text": "N N N N Atlas"
   },
   {
-   "path": "/study/atlas",
-   "text": "E EXPLORE Atlas Enter the world"
+   "path": "/sources",
+   "text": "Sources"
+  },
+  {
+   "path": "/read/bsb/DEU/2",
+   "text": "Continue: Deuteronomy 2"
   },
   {
    "path": "/study/gospels",
@@ -629,8 +653,12 @@
    "text": "Creation The world he made."
   },
   {
-   "path": "/read/kjv/ISA/40",
+   "path": "/read/bsb/ISA/40",
    "text": "ISAIAH 40:8"
+  },
+  {
+   "path": "/read/kjv/ISA/40",
+   "text": "דבר אלהינו יקום לעולם ✦ דבר אלהינו יקום לעולם ✦"
   },
   {
    "path": "/listen",
@@ -641,7 +669,7 @@
    "text": "Explore chapters"
   },
   {
-   "path": "/read/kjv/JHN/5",
+   "path": "/read/bsb/JHN/5",
    "text": "JOHN 5:39"
   },
   {
@@ -661,7 +689,7 @@
    "text": "Explore the map"
   },
   {
-   "path": "/read/kjv/1PE/3",
+   "path": "/read/bsb/1PE/3",
    "text": "1 PETER 3:15"
   },
   {
@@ -677,7 +705,7 @@
    "text": "Enter the debate room"
   },
   {
-   "path": "/read/kjv/GAL/6",
+   "path": "/read/bsb/GAL/6",
    "text": "GALATIANS 6:2"
   },
   {
@@ -701,8 +729,12 @@
    "text": "READY FOR MORE? Take a full test Thousands more questions from Sunday schools, catechisms and Bible quizzes. Choose the books and topics, then answer one at a t"
   },
   {
-   "path": "/sources",
-   "text": "01 Sermons & exposition Complete sermons and series, indexed by their text. OPEN THE COLLECTION"
+   "path": "/read/bsb/NUM/6",
+   "text": "Numbers 6:24–25"
+  },
+  {
+   "path": "/read/bsb/JOS/1",
+   "text": "Joshua 1:9"
   },
   {
    "path": "/read",
@@ -711,6 +743,14 @@
   {
    "path": "/study/versions",
    "text": "Compare Scripture editions"
+  },
+  {
+   "path": "/privacy",
+   "text": "Privacy"
+  },
+  {
+   "path": "/support",
+   "text": "Support"
   }
  ]
 }
