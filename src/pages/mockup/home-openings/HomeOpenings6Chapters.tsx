@@ -148,7 +148,7 @@ export function CityOfChapters({ wings = false, squares = false, wall = false, .
   const copy = chosen ? { ...props, resume: `/read/bsb/${chosen.code}/${chosen.chapter}`, resumeLabel: `Continue: ${chosen.name} ${chosen.chapter}` } : props;
   const note = <p className="hm6-note" aria-live="polite">{chosen
     ? <><strong style={tone(chosen.section)}>{chosen.name} {chosen.chapter}</strong> · {SECTION_NAMES[chosen.section] ?? chosen.section}</>
-    : <>“the twelve gates were twelve pearls” · <Link to="/read/bsb/REV/21?hl=21">Revelation 21:21</Link> · {stones.length.toLocaleString("en")} chapters in the wall</>}</p>;
+    : <>{stones.length.toLocaleString("en")} chapters in the wall</>}</p>;
   return <section ref={stage} className={`hm6-stage hm6-f${wings ? " hm6-g" : ""}${wall ? " hm6-i" : ""}`} aria-labelledby="home-title">
     {wall && <><WordWall rows={WALL_ROWS_I} pools={{ chinese: CHINESE, latin: LATIN, arabic: ARABIC }} /><ScriptRow /></>}
     {wings && <><WingColumn side="left" /><WingColumn side="right" /></>}
