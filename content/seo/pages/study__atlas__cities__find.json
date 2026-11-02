@@ -1,8 +1,8 @@
 {
  "path": "/study/atlas/cities/find",
- "capturedAt": "2026-10-24T18:14:18.647Z",
+ "capturedAt": "2026-11-02T18:56:02.247Z",
  "base": "https://bibleguide.io",
- "title": "Bible Guide",
+ "title": "Find your city. · Study · Bible Guide",
  "heading": "Find your city.",
  "paragraph": "Choose a city or settlement by name. Open its location and the passages that name it in the atlas.",
  "blocks": [
@@ -85,6 +85,10 @@
   {
    "tag": "p",
    "text": "Open source on GitHub."
+  },
+  {
+   "tag": "p",
+   "text": "Bible Guide is a program of Redeemer Forge, Inc."
   }
  ],
  "links": [
@@ -183,6 +187,14 @@
   {
    "path": "/sources",
    "text": "A library with a paper trail. Meet the authors. Explore the collection. Trace each work to its source. Sources & references"
+  },
+  {
+   "path": "/privacy",
+   "text": "Privacy"
+  },
+  {
+   "path": "/support",
+   "text": "Support"
   }
  ]
 }

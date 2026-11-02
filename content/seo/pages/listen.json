@@ -1,8 +1,8 @@
 {
  "path": "/listen",
- "capturedAt": "2026-10-24T18:15:13.016Z",
+ "capturedAt": "2026-11-02T18:53:50.260Z",
  "base": "https://bibleguide.io",
- "title": "Bible Guide",
+ "title": "Listen to the Bible · Bible Guide",
  "heading": "Make room. Listen to the Word.",
  "paragraph": "Listen to the complete Bible, or explore selected recordings from Streetlights.",
  "blocks": [
@@ -69,10 +69,6 @@
   {
    "tag": "p",
    "text": "Letters of faith, grace, and everyday discipleship. Take time to hear the whole book."
-  },
-  {
-   "tag": "p",
-   "text": "Full playlists include books beyond the selections above."
   },
   {
    "tag": "p",
@@ -153,6 +149,10 @@
   {
    "tag": "p",
    "text": "Open source on GitHub."
+  },
+  {
+   "tag": "p",
+   "text": "Bible Guide is a program of Redeemer Forge, Inc."
   }
  ],
  "links": [
@@ -201,10 +201,6 @@
    "text": "THE HOLY BIBLE 1901 ASV AMERICAN STANDARD VERSION FEATURED / THE COMPLETE AUDIO BIBLE The whole Word. At your own pace. The American Standard Version, read by R"
   },
   {
-   "path": "/read/kjv/COL/1",
-   "text": "Read alongside"
-  },
-  {
    "path": "/read",
    "text": "Return to the Word"
   },
@@ -223,6 +219,14 @@
   {
    "path": "/sources",
    "text": "A library with a paper trail. Meet the authors. Explore the collection. Trace each work to its source. Sources & references"
+  },
+  {
+   "path": "/privacy",
+   "text": "Privacy"
+  },
+  {
+   "path": "/support",
+   "text": "Support"
   }
  ]
 }

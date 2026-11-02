@@ -1,8 +1,8 @@
 {
  "path": "/sources",
- "capturedAt": "2026-10-24T18:17:01.219Z",
+ "capturedAt": "2026-11-02T18:55:58.070Z",
  "base": "https://bibleguide.io",
- "title": "Bible Guide",
+ "title": "Sources and Bible Versions · Bible Guide",
  "heading": "Library dashboard",
  "paragraph": "Find a source. Understand its place. See what still needs checking.",
  "blocks": [
@@ -48,7 +48,7 @@
   },
   {
    "tag": "p",
-   "text": "Holdings: Oct 7, 2026 · Catalogue: Oct 6, 2026. Dated snapshots with different scopes; file and catalogue totals are not interchangeable."
+   "text": "Holdings: Oct 6, 2026 · Catalogue: Oct 6, 2026. Dated snapshots with different scopes; file and catalogue totals are not interchangeable."
   },
   {
    "tag": "h2",
@@ -113,6 +113,10 @@
   {
    "tag": "p",
    "text": "Open source on GitHub."
+  },
+  {
+   "tag": "p",
+   "text": "Bible Guide is a program of Redeemer Forge, Inc."
   }
  ],
  "links": [
@@ -171,6 +175,14 @@
   {
    "path": "/study/atlas",
    "text": "People & places"
+  },
+  {
+   "path": "/privacy",
+   "text": "Privacy"
+  },
+  {
+   "path": "/support",
+   "text": "Support"
   }
  ]
 }

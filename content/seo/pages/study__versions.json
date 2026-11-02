@@ -1,8 +1,8 @@
 {
  "path": "/study/versions",
- "capturedAt": "2026-10-24T18:26:25.937Z",
+ "capturedAt": "2026-11-02T19:06:32.557Z",
  "base": "https://bibleguide.io",
- "title": "Bible Guide",
+ "title": "Bible Versions and Languages · Bible Guide",
  "heading": "Know the edition you are reading.",
  "paragraph": "Know the texts in your hands. Edition dates place the library in time; coverage shows which books each edition actually includes. The Library brings these editions together by language.",
  "blocks": [
@@ -125,6 +125,10 @@
   {
    "tag": "p",
    "text": "Open source on GitHub."
+  },
+  {
+   "tag": "p",
+   "text": "Bible Guide is a program of Redeemer Forge, Inc."
   }
  ],
  "links": [
@@ -181,6 +185,22 @@
    "text": "TNT 1534"
   },
   {
+   "path": "/read/fin/GEN/1",
+   "text": "FIN 1776"
+  },
+  {
+   "path": "/read/svd/GEN/1",
+   "text": "SVD 1865"
+  },
+  {
+   "path": "/read/nyn/GEN/1",
+   "text": "NYN 1964"
+  },
+  {
+   "path": "/read/vul/GEN/1",
+   "text": "VUL 1598"
+  },
+  {
    "path": "/read/wbt/GEN/1",
    "text": "WBT 1833"
   },
@@ -189,12 +209,28 @@
    "text": "BTT 1923"
   },
   {
+   "path": "/read/dwr/GEN/1",
+   "text": "DWR 2011"
+  },
+  {
+   "path": "/read/gnv/GEN/1",
+   "text": "GNV 1599"
+  },
+  {
+   "path": "/read/mya/GEN/1",
+   "text": "MYA 1840"
+  },
+  {
+   "path": "/read/nor/GEN/1",
+   "text": "NOR 1930"
+  },
+  {
    "path": "/read/byz/MAT/1",
    "text": "BYZ 2018"
   },
   {
-   "path": "/read/vul/GEN/1",
-   "text": "VUL 1598"
+   "path": "/read/kjv/GEN/1",
+   "text": "KJV 1611"
   },
   {
    "path": "/read/lxxe/GEN/1",
@@ -205,116 +241,576 @@
    "text": "BBE 1949"
   },
   {
-   "path": "/read/gnv/GEN/1",
-   "text": "GNV 1599"
+   "path": "/read/ces/GEN/1",
+   "text": "CES 1613"
   },
   {
    "path": "/read/lxx/GEN/1",
    "text": "LXX 1844"
   },
   {
-   "path": "/read/webc/GEN/1",
-   "text": "WEBC 2000"
+   "path": "/read/meu/GEN/1",
+   "text": "MEU 1973"
   },
   {
-   "path": "/read/kjv/GEN/1",
-   "text": "KJV 1611"
+   "path": "/read/ell/GEN/1",
+   "text": "ELL 1850"
   },
   {
-   "path": "/read/svd/GEN/1",
-   "text": "SVD 1865"
+   "path": "/read/ksd/GEN/1",
+   "text": "KSD 1983"
   },
   {
-   "path": "/read/irv/GEN/1",
-   "text": "IRV 2019"
+   "path": "/read/mlg/GEN/1",
+   "text": "MLG 1865"
+  },
+  {
+   "path": "/read/kij/GEN/1",
+   "text": "KIJ 1984"
+  },
+  {
+   "path": "/read/haw/GEN/1",
+   "text": "HAW 1868"
+  },
+  {
+   "path": "/read/hat/GEN/1",
+   "text": "HAT 1985"
+  },
+  {
+   "path": "/read/srp/GEN/1",
+   "text": "SRP 1868"
+  },
+  {
+   "path": "/read/hmo/GEN/1",
+   "text": "HMO 1994"
   },
   {
    "path": "/read/tis/MAT/1",
    "text": "TIS 1872"
   },
   {
-   "path": "/read/web/GEN/1",
-   "text": "WEB 2020"
+   "path": "/read/webc/GEN/1",
+   "text": "WEBC 2000"
   },
   {
    "path": "/read/syn/GEN/1",
    "text": "SYN 1876"
   },
   {
-   "path": "/read/bsb/GEN/1",
-   "text": "BSB 2023"
+   "path": "/read/beo/GEN/1",
+   "text": "BEO 2000"
   },
   {
    "path": "/read/dby/GEN/1",
    "text": "DBY 1890"
   },
   {
-   "path": "/read/msb/GEN/1",
-   "text": "MSB 2023"
+   "path": "/read/chk/GEN/1",
+   "text": "CHK 2001"
   },
   {
    "path": "/read/tr/MAT/1",
    "text": "TR 1894"
   },
   {
-   "path": "/read/wcb/GEN/1",
-   "text": "WCB 2026"
+   "path": "/read/mps/GEN/1",
+   "text": "MPS 2001"
   },
   {
    "path": "/read/rv/GEN/1",
    "text": "RV 1895"
   },
   {
-   "path": "/read/bpm/GEN/1",
-   "text": "BPM 2026"
+   "path": "/read/tbz/GEN/1",
+   "text": "TBZ 2001"
   },
   {
    "path": "/read/opv/GEN/1",
    "text": "OPV 1895"
   },
   {
-   "path": "/read/jfb/GEN/1",
-   "text": "JFB 2026"
+   "path": "/read/hui/GEN/1",
+   "text": "HUI 2002"
   },
   {
    "path": "/read/ylt/GEN/1",
    "text": "YLT 1898"
   },
   {
+   "path": "/read/gun/GEN/1",
+   "text": "GUN 2004"
+  },
+  {
+   "path": "/read/lav/GEN/1",
+   "text": "LAV 1898"
+  },
+  {
+   "path": "/read/nch/GEN/1",
+   "text": "NCH 2005"
+  },
+  {
    "path": "/read/dra/GEN/1",
    "text": "DRA 1899"
+  },
+  {
+   "path": "/read/nhe/GEN/1",
+   "text": "NHE 2005"
   },
   {
    "path": "/read/asv/GEN/1",
    "text": "ASV 1901"
   },
   {
+   "path": "/read/nhw/GEN/1",
+   "text": "NHW 2005"
+  },
+  {
    "path": "/read/pat/MAT/1",
    "text": "PAT 1904"
+  },
+  {
+   "path": "/read/pon/GEN/1",
+   "text": "PON 2006"
+  },
+  {
+   "path": "/read/ukr/GEN/1",
+   "text": "UKR 1905"
+  },
+  {
+   "path": "/read/cac/GEN/1",
+   "text": "CAC 2007"
+  },
+  {
+   "path": "/read/hun/GEN/1",
+   "text": "HUN 1908"
+  },
+  {
+   "path": "/read/gub/GEN/1",
+   "text": "GUB 2007"
   },
   {
    "path": "/read/rvr/GEN/1",
    "text": "RVR 1909"
   },
   {
+   "path": "/read/yap/GEN/1",
+   "text": "YAP 2007"
+  },
+  {
    "path": "/read/lsg/GEN/1",
    "text": "LSG 1910"
+  },
+  {
+   "path": "/read/mdy/GEN/1",
+   "text": "MDY 2008"
+  },
+  {
+   "path": "/read/epo/GEN/1",
+   "text": "EPO 1910"
+  },
+  {
+   "path": "/read/som/GEN/1",
+   "text": "SOM 2008"
   },
   {
    "path": "/read/lut/GEN/1",
    "text": "LUT 1912"
   },
   {
+   "path": "/read/azb/GEN/1",
+   "text": "AZB 2008"
+  },
+  {
    "path": "/read/jps/GEN/1",
    "text": "JPS 1917"
+  },
+  {
+   "path": "/read/tpi/GEN/1",
+   "text": "TPI 2008"
+  },
+  {
+   "path": "/read/nld/GEN/1",
+   "text": "NLD 1917"
+  },
+  {
+   "path": "/read/bqc/GEN/1",
+   "text": "BQC 2010"
+  },
+  {
+   "path": "/read/swe/GEN/1",
+   "text": "SWE 1917"
+  },
+  {
+   "path": "/read/uig/GEN/1",
+   "text": "UIG 2010"
   },
   {
    "path": "/read/cuv/GEN/1",
    "text": "CUV 1919"
   },
   {
+   "path": "/read/qub/GEN/1",
+   "text": "QUB 2011"
+  },
+  {
    "path": "/read/riv/GEN/1",
    "text": "RIV 1927"
+  },
+  {
+   "path": "/read/sus/GEN/1",
+   "text": "SUS 2015"
+  },
+  {
+   "path": "/read/suz/GEN/1",
+   "text": "SUZ 2011"
+  },
+  {
+   "path": "/read/mri/GEN/1",
+   "text": "MRI 2012"
+  },
+  {
+   "path": "/read/yal/GEN/1",
+   "text": "YAL 2012"
+  },
+  {
+   "path": "/read/bba/GEN/1",
+   "text": "BBA 2013"
+  },
+  {
+   "path": "/read/kik/GEN/1",
+   "text": "KIK 2013"
+  },
+  {
+   "path": "/read/ron/GEN/1",
+   "text": "RON 2013"
+  },
+  {
+   "path": "/read/kpg/GEN/1",
+   "text": "KPG 2014"
+  },
+  {
+   "path": "/read/lug/GEN/1",
+   "text": "LUG 2014"
+  },
+  {
+   "path": "/read/cuk/GEN/1",
+   "text": "CUK 2014"
+  },
+  {
+   "path": "/read/swh/GEN/1",
+   "text": "SWH 2015"
+  },
+  {
+   "path": "/read/nya/GEN/1",
+   "text": "NYA 2016"
+  },
+  {
+   "path": "/read/rug/GEN/1",
+   "text": "RUG 2016"
+  },
+  {
+   "path": "/read/yor/GEN/1",
+   "text": "YOR 2017"
+  },
+  {
+   "path": "/read/asm/GEN/1",
+   "text": "ASM 2018"
+  },
+  {
+   "path": "/read/rop/GEN/1",
+   "text": "ROP 2018"
+  },
+  {
+   "path": "/read/pol/GEN/1",
+   "text": "POL 2018"
+  },
+  {
+   "path": "/read/sna/GEN/1",
+   "text": "SNA 2018"
+  },
+  {
+   "path": "/read/tgl/GEN/1",
+   "text": "TGL 2018"
+  },
+  {
+   "path": "/read/irv/GEN/1",
+   "text": "IRV 2019"
+  },
+  {
+   "path": "/read/ben/GEN/1",
+   "text": "BEN 2019"
+  },
+  {
+   "path": "/read/rmc/GEN/1",
+   "text": "RMC 2019"
+  },
+  {
+   "path": "/read/ceb/GEN/1",
+   "text": "CEB 2019"
+  },
+  {
+   "path": "/read/cek/GEN/1",
+   "text": "CEK 2019"
+  },
+  {
+   "path": "/read/guj/GEN/1",
+   "text": "GUJ 2019"
+  },
+  {
+   "path": "/read/ilo/GEN/1",
+   "text": "ILO 2019"
+  },
+  {
+   "path": "/read/kan/GEN/1",
+   "text": "KAN 2019"
+  },
+  {
+   "path": "/read/mal/GEN/1",
+   "text": "MAL 2019"
+  },
+  {
+   "path": "/read/mar/GEN/1",
+   "text": "MAR 2019"
+  },
+  {
+   "path": "/read/hlt/GEN/1",
+   "text": "HLT 2019"
+  },
+  {
+   "path": "/read/pan/GEN/1",
+   "text": "PAN 2019"
+  },
+  {
+   "path": "/read/tam/GEN/1",
+   "text": "TAM 2019"
+  },
+  {
+   "path": "/read/tel/GEN/1",
+   "text": "TEL 2019"
+  },
+  {
+   "path": "/read/web/GEN/1",
+   "text": "WEB 2020"
+  },
+  {
+   "path": "/read/twi/GEN/1",
+   "text": "TWI 2020"
+  },
+  {
+   "path": "/read/msy/GEN/1",
+   "text": "MSY 2020"
+  },
+  {
+   "path": "/read/bis/GEN/1",
+   "text": "BIS 2020"
+  },
+  {
+   "path": "/read/ckb/GEN/1",
+   "text": "CKB 2020"
+  },
+  {
+   "path": "/read/hrv/GEN/1",
+   "text": "HRV 2020"
+  },
+  {
+   "path": "/read/ewe/GEN/1",
+   "text": "EWE 2020"
+  },
+  {
+   "path": "/read/cab/GEN/1",
+   "text": "CAB 2020"
+  },
+  {
+   "path": "/read/drs/GEN/1",
+   "text": "DRS 2020"
+  },
+  {
+   "path": "/read/hau/GEN/1",
+   "text": "HAU 2020"
+  },
+  {
+   "path": "/read/hch/GEN/1",
+   "text": "HCH 2020"
+  },
+  {
+   "path": "/read/ibb/GEN/1",
+   "text": "IBB 2020"
+  },
+  {
+   "path": "/read/ibo/GEN/1",
+   "text": "IBO 2020"
+  },
+  {
+   "path": "/read/kfx/GEN/1",
+   "text": "KFX 2020"
+  },
+  {
+   "path": "/read/lao/GEN/1",
+   "text": "LAO 2020"
+  },
+  {
+   "path": "/read/lin/GEN/1",
+   "text": "LIN 2020"
+  },
+  {
+   "path": "/read/luo/GEN/1",
+   "text": "LUO 2020"
+  },
+  {
+   "path": "/read/mam/GEN/1",
+   "text": "MAM 2020"
+  },
+  {
+   "path": "/read/mhr/GEN/1",
+   "text": "MHR 2020"
+  },
+  {
+   "path": "/read/nme/GEN/1",
+   "text": "NME 2020"
+  },
+  {
+   "path": "/read/poh/GEN/1",
+   "text": "POH 2020"
+  },
+  {
+   "path": "/read/run/GEN/1",
+   "text": "RUN 2020"
+  },
+  {
+   "path": "/read/rif/GEN/1",
+   "text": "RIF 2020"
+  },
+  {
+   "path": "/read/tcz/GEN/1",
+   "text": "TCZ 2020"
+  },
+  {
+   "path": "/read/cth/GEN/1",
+   "text": "CTH 2020"
+  },
+  {
+   "path": "/read/czt/GEN/1",
+   "text": "CZT 2020"
+  },
+  {
+   "path": "/read/ory/GEN/1",
+   "text": "ORY 2021"
+  },
+  {
+   "path": "/read/hil/GEN/1",
+   "text": "HIL 2022"
+  },
+  {
+   "path": "/read/kbq/GEN/1",
+   "text": "KBQ 2022"
+  },
+  {
+   "path": "/read/nde/GEN/1",
+   "text": "NDE 2022"
+  },
+  {
+   "path": "/read/gaz/GEN/1",
+   "text": "GAZ 2022"
+  },
+  {
+   "path": "/read/bsb/GEN/1",
+   "text": "BSB 2023"
+  },
+  {
+   "path": "/read/msb/GEN/1",
+   "text": "MSB 2023"
+  },
+  {
+   "path": "/read/bel/GEN/1",
+   "text": "BEL 2023"
+  },
+  {
+   "path": "/read/tdx/GEN/1",
+   "text": "TDX 2023"
+  },
+  {
+   "path": "/read/bod/GEN/1",
+   "text": "BOD 2023"
+  },
+  {
+   "path": "/read/tod/GEN/1",
+   "text": "TOD 2023"
+  },
+  {
+   "path": "/read/hne/GEN/1",
+   "text": "HNE 2024"
+  },
+  {
+   "path": "/read/gmv/GEN/1",
+   "text": "GMV 2024"
+  },
+  {
+   "path": "/read/gof/GEN/1",
+   "text": "GOF 2024"
+  },
+  {
+   "path": "/read/ind/GEN/1",
+   "text": "IND 2024"
+  },
+  {
+   "path": "/read/npi/GEN/1",
+   "text": "NPI 2024"
+  },
+  {
+   "path": "/read/shr/GEN/1",
+   "text": "SHR 2024"
+  },
+  {
+   "path": "/read/urd/GEN/1",
+   "text": "URD 2024"
+  },
+  {
+   "path": "/read/gax/GEN/1",
+   "text": "GAX 2025"
+  },
+  {
+   "path": "/read/mkw/GEN/1",
+   "text": "MKW 2025"
+  },
+  {
+   "path": "/read/kos/GEN/1",
+   "text": "KOS 2025"
+  },
+  {
+   "path": "/read/ton/GEN/1",
+   "text": "TON 2025"
+  },
+  {
+   "path": "/read/tur/GEN/1",
+   "text": "TUR 2025"
+  },
+  {
+   "path": "/read/wol/GEN/1",
+   "text": "WOL 2025"
+  },
+  {
+   "path": "/read/wcb/GEN/1",
+   "text": "WCB 2026"
+  },
+  {
+   "path": "/read/bpm/GEN/1",
+   "text": "BPM 2026"
+  },
+  {
+   "path": "/read/jfb/GEN/1",
+   "text": "JFB 2026"
+  },
+  {
+   "path": "/read/ach/GEN/1",
+   "text": "ACH 2026"
+  },
+  {
+   "path": "/read/sqi/GEN/1",
+   "text": "SQI 2026"
+  },
+  {
+   "path": "/read/tha/GEN/1",
+   "text": "THA 2026"
   },
   {
    "path": "/read/wlc/GEN/1",
@@ -331,6 +827,14 @@
   {
    "path": "/sources",
    "text": "A library with a paper trail. Meet the authors. Explore the collection. Trace each work to its source. Sources & references"
+  },
+  {
+   "path": "/privacy",
+   "text": "Privacy"
+  },
+  {
+   "path": "/support",
+   "text": "Support"
   }
  ]
 }

@@ -1,10 +1,10 @@
 {
  "path": "/listen/asv",
- "capturedAt": "2026-10-24T18:15:13.112Z",
+ "capturedAt": "2026-11-02T18:53:51.348Z",
  "base": "https://bibleguide.io",
- "title": "Bible Guide",
+ "title": "The whole Bible. One quiet voice. · Listen · Bible Guide",
  "heading": "The whole Bible. One quiet voice.",
- "paragraph": "The American Standard Version (1901), read in full by Ron Altman. The text and this LibriVox recording are in the public domain.",
+ "paragraph": "Every book as small audio files that play on any phone or computer, with no internet needed. 1.6 GB for the whole Bible. Free to keep and share.",
  "blocks": [
   {
    "tag": "p",
@@ -32,15 +32,23 @@
   },
   {
    "tag": "p",
-   "text": "Your place in the book is saved on this device."
-  },
-  {
-   "tag": "p",
    "text": "YOUR LISTENING QUEUE"
   },
   {
    "tag": "h2",
    "text": "From Genesis to Revelation"
+  },
+  {
+   "tag": "p",
+   "text": "TAKE IT WITH YOU"
+  },
+  {
+   "tag": "h2",
+   "text": "Download the audio Bible"
+  },
+  {
+   "tag": "p",
+   "text": "Every book as small audio files that play on any phone or computer, with no internet needed. 1.6 GB for the whole Bible. Free to keep and share."
   },
   {
    "tag": "p",
@@ -117,6 +125,10 @@
   {
    "tag": "p",
    "text": "Open source on GitHub."
+  },
+  {
+   "tag": "p",
+   "text": "Bible Guide is a program of Redeemer Forge, Inc."
   }
  ],
  "links": [
@@ -165,10 +177,6 @@
    "text": "Listen"
   },
   {
-   "path": "/read/asv/GEN/1",
-   "text": "Read alongside"
-  },
-  {
    "path": "/read",
    "text": "Return to the Word"
   },
@@ -187,6 +195,14 @@
   {
    "path": "/sources",
    "text": "A library with a paper trail. Meet the authors. Explore the collection. Trace each work to its source. Sources & references"
+  },
+  {
+   "path": "/privacy",
+   "text": "Privacy"
+  },
+  {
+   "path": "/support",
+   "text": "Support"
   }
  ]
 }

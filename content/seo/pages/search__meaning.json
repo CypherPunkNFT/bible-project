@@ -1,8 +1,8 @@
 {
  "path": "/search/meaning",
- "capturedAt": "2026-10-24T18:17:01.265Z",
+ "capturedAt": "2026-11-02T18:55:57.083Z",
  "base": "https://bibleguide.io",
- "title": "Bible Guide",
+ "title": "Search the Bible by Meaning · Bible Guide",
  "heading": "Search by what you mean.",
  "paragraph": "Not just the words you remember. A small model runs on your own device, so it’s free, private, and needs no internet to search.",
  "blocks": [
@@ -293,6 +293,10 @@
   {
    "tag": "p",
    "text": "Open source on GitHub."
+  },
+  {
+   "tag": "p",
+   "text": "Bible Guide is a program of Redeemer Forge, Inc."
   }
  ],
  "links": [
@@ -367,6 +371,14 @@
   {
    "path": "/sources",
    "text": "A library with a paper trail. Meet the authors. Explore the collection. Trace each work to its source. Sources & references"
+  },
+  {
+   "path": "/privacy",
+   "text": "Privacy"
+  },
+  {
+   "path": "/support",
+   "text": "Support"
   }
  ]
 }

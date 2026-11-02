@@ -1,8 +1,8 @@
 {
  "path": "/bible",
- "capturedAt": "2026-10-24T18:15:11.191Z",
+ "capturedAt": "2026-11-02T18:53:48.417Z",
  "base": "https://bibleguide.io",
- "title": "Bible Guide",
+ "title": "The Bible: Read Every Free Version · Bible Guide",
  "heading": "Find your place. Enter the Word.",
  "paragraph": "Read a passage, listen to Scripture, or explore the whole collection. One Bible. A lifetime of discovery.",
  "blocks": [
@@ -109,6 +109,10 @@
   {
    "tag": "p",
    "text": "Open source on GitHub."
+  },
+  {
+   "tag": "p",
+   "text": "Bible Guide is a program of Redeemer Forge, Inc."
   }
  ],
  "links": [
@@ -171,6 +175,14 @@
   {
    "path": "/sources",
    "text": "A library with a paper trail. Meet the authors. Explore the collection. Trace each work to its source. Sources & references"
+  },
+  {
+   "path": "/privacy",
+   "text": "Privacy"
+  },
+  {
+   "path": "/support",
+   "text": "Support"
   }
  ]
 }
