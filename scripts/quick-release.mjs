@@ -199,6 +199,9 @@ function parseArgs(argv) {
   return { commits: values('--pick'), checks: values('--check'), dryRun: argv.includes('--dry-run'), resume: argv.includes('--resume') };
 }
 
+const started = Date.now();
+const stage = (name) => console.log(`[${Math.round((Date.now() - started) / 1000)}s] ${name}`);
+
 async function main() {
   const { commits, checks, dryRun, resume } = parseArgs(process.argv.slice(2));
   if (!resume && !commits.length && !dryRun) throw new Error('Give the commits to publish with --pick <commit>.');
@@ -216,6 +219,7 @@ async function main() {
   let built;
   try {
     built = buildCode();
+    stage('Code built');
     const renames = assetRenames(fs.readFileSync(path.join(site, 'index.html'), 'utf8'), fs.readFileSync(path.join(built, 'index.html'), 'utf8'));
     console.log(`Changes: ${renames.size} file(s) the pages name, ${publicFiles.length} public file(s).`, Object.fromEntries(renames));
     if (dryRun) { undo(); return; }
@@ -230,7 +234,9 @@ async function main() {
   const missing = missingAssets(site);
   if (missing.length) throw new Error(`Pages name files that are not in the package:\n${missing.slice(0, 20).join('\n')}`);
   const entry = entryName(fs.readFileSync(path.join(site, 'index.html'), 'utf8'));
+  stage('Package ready');
   await upload(pkg, entry, checks);
+  stage('Uploaded and checked live');
   const tag = `release-${new Date().toISOString().slice(0, 10)}-quick-${entry.replace(/^index-|\.js$/g, '')}`;
   run('git', ['tag', tag]);
   run('git', ['push', 'origin', tag]);

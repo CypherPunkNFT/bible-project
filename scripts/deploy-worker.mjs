@@ -10,7 +10,8 @@ import { assertFrontEndReadsPersonPacks, sitePacksPeople } from './person-packs-
 if (!existsSync('wrangler.jsonc') || !existsSync('site/index.html')) throw new Error(`Run this from a prepared release directory (wrangler.jsonc and site/index.html); got ${process.cwd()}`);
 if (sitePacksPeople('site')) assertFrontEndReadsPersonPacks('site');
 const wrangler = fileURLToPath(new URL('../node_modules/wrangler/bin/wrangler.js', import.meta.url));
-const result = spawnSync(process.execPath, [wrangler, 'deploy', ...process.argv.slice(2)], { stdio: 'inherit' });
+const fastAssets = fileURLToPath(new URL('./wrangler-fast-assets.cjs', import.meta.url));
+const result = spawnSync(process.execPath, [wrangler, 'deploy', ...process.argv.slice(2)], { stdio: 'inherit', env: { ...process.env, NODE_OPTIONS: `--require "${fastAssets}"` } });
 if (result.error) throw result.error;
 process.exitCode = result.status ?? 1;
 if (result.status === 0 && !process.argv.includes('--dry-run')) archiveOlderPackages(process.cwd(), fileURLToPath(new URL('../../../../../ARCHIVE/release-copies/', import.meta.url)));
