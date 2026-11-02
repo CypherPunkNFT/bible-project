@@ -11,10 +11,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import random
 import re
 import sys
 from collections import Counter
+from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 
 WEBSITE = Path(__file__).resolve().parents[1]
@@ -43,6 +45,9 @@ OWN_SENTENCES = {"He killed James the brother of John with the sword."}
 WORD = re.compile(r"[^\W_]+")
 MINIMUM_WORDS = 10
 KEY_WORDS = 8
+SHORTEST_VERSE_TEXT = 2 * MINIMUM_WORDS - 1
+SCAN_WORKERS = 12
+_worker_index: dict[tuple[str, ...], list[tuple[str, list[str]]]] = {}
 
 
 def words_of(text: str) -> list[str]:
@@ -100,20 +105,33 @@ def strings_in(path: Path) -> list[str]:
 def whole_verses_in(path: Path, index: dict[tuple[str, ...], list[tuple[str, list[str]]]]) -> list[str]:
     hits: list[str] = []
     for text in strings_in(path):
+        # A text that is nothing but a verse starts with that verse's key, and ten words need at least 19 characters.
+        if len(text) < SHORTEST_VERSE_TEXT:
+            continue
         words = words_of(text)
-        for at in range(len(words) - KEY_WORDS + 1):
-            for name, verse in index.get(tuple(words[at:at + KEY_WORDS]), ()):
-                if words == verse:
-                    hits.append(name)
+        for name, verse in index.get(tuple(words[:KEY_WORDS]), ()):
+            if words == verse:
+                hits.append(name)
     return hits
 
 
+def _start_scan_worker() -> None:
+    global _worker_index
+    _worker_index = verse_index()
+
+
+def _verses_in_file(path: Path) -> list[str]:
+    return whole_verses_in(path, _worker_index)
+
+
 def check_all() -> int:
-    index = verse_index()
+    files = files_to_scan()
     counts: Counter[str] = Counter()
     example: dict[str, str] = {}
-    for path in files_to_scan():
-        hits = whole_verses_in(path, index)
+    # Reading 24,000 JSON files is pure computing, so it shares out among the processors. map keeps the files' order.
+    with ProcessPoolExecutor(max_workers=min(SCAN_WORKERS, os.cpu_count() or 1), initializer=_start_scan_worker) as pool:
+        results = list(pool.map(_verses_in_file, files, chunksize=64))
+    for path, hits in zip(files, results):
         if hits:
             where = path.relative_to(WEBSITE).as_posix()
             counts[where] = len(hits)

@@ -37,7 +37,9 @@ stage("Code files pruned");
 const graphData = path.resolve("data", "graph");
 // data/i18n (content/translation/apply.py): the translated copies, preview-only until a language is published.
 const translatedData = path.resolve("data", "i18n");
-await cp("data", path.join(site, "data"), { recursive: true, dereference: true, filter: (source) => ![graphData, translatedData].includes(path.resolve(source)) });
+// data/text and data/xref (42,000 files) are not copied: the reader packs below read them where they are and write only the groups.
+const packedData = [path.resolve("data", "text"), path.resolve("data", "xref")];
+await cp("data", path.join(site, "data"), { recursive: true, dereference: true, filter: (source) => ![graphData, translatedData, ...packedData].includes(path.resolve(source)) });
 stage("Data copied");
 // One file per person would push the release past 20,000 files; the release copy gets packs instead.
 console.log("Person packs:", await packPersonFiles(site));
@@ -45,7 +47,7 @@ stage("Person packs");
 // After the person packs, so the content stamp covers them. Only for a front end that reads the grouped layout.
 const bundles = (await readdir(path.join(site, "assets"))).filter((name) => name.endsWith(".js"));
 if (!(await Promise.all(bundles.map((name) => readFile(path.join(site, "assets", name), "utf8")))).some((code) => code.includes("xrefChunk"))) throw new Error("This build cannot read grouped chapter files (no xrefChunk in its scripts); rebuild before preparing a release.");
-console.log("Reader packs:", packReaderData(site));
+console.log("Reader packs:", await packReaderData(site, path.resolve("data")));
 stage("Reader packs");
 await cp("migrations", path.join(directory, "migrations"), { recursive: true });
 // The Worker's code sits beside the site folder, so it is never served as a file.
