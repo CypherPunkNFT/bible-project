@@ -1,0 +1,48 @@
+/* The homepage's four convictions on phones, ConvictionsLongDrawing.tsx. Wider screens keep the list. */
+.cvm { display: none; }
+@media (max-width: 640px) {
+  .home-guide-contact-list { margin-top: 56px; }
+  .home-guide-contact-list > .cv-list { display: none; }
+  .cvm { display: block; position: relative; --cvm-ease: cubic-bezier(.2, .7, .2, 1); }
+
+  /* The words. */
+  .cvm-title { margin: 0; font: 500 25px/1.15 var(--font-serif); letter-spacing: -.02em; color: var(--ink); }
+  .cvm-text { margin: 10px 0 0; color: var(--muted); font-size: 14.5px; line-height: 1.7; }
+  .home-guide-contact-list blockquote.cvm-verse { margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--line); font: 400 15px/1.5 var(--font-sans); color: var(--ink); }
+  .cvm-verse cite { display: block; margin-top: 6px; font: normal 10px var(--font-sans); letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+  .cvm-numeral { position: absolute; font: 500 150px/1 var(--font-serif); color: color-mix(in srgb, var(--accent) 11%, transparent); pointer-events: none; user-select: none; }
+  .cvm button { -webkit-tap-highlight-color: transparent; }
+  .cvm button:focus { outline: none; }
+  /* The drawing's small lights keep breathing (the owner wants line art that loops, not plays once). */
+  .cvm .cv-accent, .cvm-land .cv-accent { animation: cvm-breathe 4.5s ease-in-out infinite; }
+
+  /* The sideways scroller runs to both screen edges. */
+  .cvm-track { position: relative; display: flex; margin: 0 calc(-1 * var(--site-gutter)); padding: 0; list-style: none; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .cvm-track::-webkit-scrollbar { display: none; }
+  .cvm-track:focus { outline: none; }
+  .cvm-track > li { position: relative; scroll-snap-align: start; scroll-snap-stop: always; }
+
+  /* One long drawing, four screens wide, the words scrolling with it. */
+  .cvm-long .cvm-track > li { flex: 0 0 100%; box-sizing: border-box; overflow: hidden; padding: 62% var(--site-gutter) 6px; }
+  /* Clips the drifting stars, so they never add to how far the row can scroll. */
+  .cvm-long .cvm-track > .cvm-backdrop { position: absolute; left: 0; top: 0; z-index: 1; width: 400%; aspect-ratio: 1600 / 240; padding: 0; pointer-events: none; scroll-snap-align: none; }
+  .cvm-land, .cvm-stars { position: absolute; left: 0; top: 0; width: 100%; height: auto; }
+  .cvm-land { z-index: 1; color: var(--accent); }
+  .cvm-land g path[stroke-width] { stroke-width: 1.15; }
+  .cvm-stars { fill: var(--accent); width: 112.5%; left: -12.5%; transform: translateX(calc(var(--p, 0) * 12.5%)); }
+  .cvm-stars circle { opacity: .55; }
+  .cvm-stars [data-twinkle] { animation: cvm-twinkle 5s ease-in-out infinite; }
+  .cvm-stars [data-twinkle]:nth-child(3n) { animation-delay: -2s; }
+  .cvm-stars [data-twinkle]:nth-child(5n) { animation-delay: -3.4s; }
+  .cvm-dots { display: flex; justify-content: center; margin-bottom: 8px; }
+  .cvm-dots button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; background: none; }
+  .cvm-dots span { width: 8px; height: 8px; border-radius: 4px; background: var(--line); transition: background-color .3s, width .3s var(--cvm-ease); }
+  .cvm-dots [aria-current="true"] span { width: 26px; background: var(--accent); }
+  .cvm-long .cvm-numeral { top: 12px; right: 14px; transform: translateX(calc((var(--p, 0) - var(--i)) * -110px)); }
+  .cvm-long .cvm-title, .cvm-long .cvm-text, .cvm-long .cvm-verse { position: relative; z-index: 2; }
+}
+@keyframes cvm-breathe { 50% { opacity: .35; } }
+@keyframes cvm-twinkle { 50% { opacity: .12; } }
+@media (prefers-reduced-motion: reduce) {
+  .cvm *, .cvm *::before, .cvm *::after { animation: none !important; transition: none !important; }
+}

@@ -7,6 +7,7 @@ import { ArrowDown } from "lucide-react";
 import { createContext, useContext, type CSSProperties, type ReactNode } from "react";
 import { CONVICTIONS, ConvictionList } from "../contact/AboutSections";
 import "../contact/contact.css";
+import { ConvictionsLongDrawing, GLORY_TEXT } from "./ConvictionsLongDrawing";
 import "./home-guide.css";
 
 const PATHS = [
@@ -60,9 +61,6 @@ function SideStory() {
   </div>;
 }
 
-/** For the glory of God, said a little more fully than on the contact page, so it is not the shortest of the four. */
-export const GLORY_TEXT = "Every page is offered back to the One it is about: the Almighty, the Alpha and Omega, the beginning and the ending, worthy of all praise.";
-
 function Convictions() {
   return <ol className="home-guide-convictions">{CONVICTIONS.map((item) => <li key={item.numeral}>
     <span aria-hidden="true">{item.numeral}</span><h3>{item.title}</h3><p>{item.text}</p>
@@ -79,8 +77,8 @@ function Paths({ onChoose, withSteps }: { onChoose: (part: number) => void; with
   </button>)}</div>;
 }
 
-/** Lets a mock-up (home_mockup11) add its own phone version of the convictions beside the list; the real homepage leaves it empty. */
-export const ConvictionsExtra = createContext<ReactNode>(null);
+/** Lets a mock-up (home_mockup11) put another phone version of the convictions in place of the long drawing. */
+export const ConvictionsExtra = createContext<ReactNode>(undefined);
 
 /** contactList: show the convictions exactly as on the contact page (drawings, giant numerals) instead of this section's own.
  *  number: the section's number before its label (home_mockup2). */
@@ -95,7 +93,7 @@ export function HomeGuide({ onChoose, layout = "columns", boxed = false, contact
   if (layout === "side") return <section className="home-guide home-wrap" data-layout="side" data-boxed={boxed || undefined} aria-labelledby="home-guide-title">
     {head}
     <div className="home-guide-split"><SideStory /><div>{ask}<Paths onChoose={onChoose} withSteps={false} /></div></div>
-    {contactList ? <div className="home-guide-contact-list"><ConvictionList firstText={GLORY_TEXT} shelf />{convictionsExtra}</div> : <Convictions />}
+    {contactList ? <div className="home-guide-contact-list"><ConvictionList firstText={GLORY_TEXT} shelf />{convictionsExtra ?? <ConvictionsLongDrawing />}</div> : <Convictions />}
   </section>;
   return <section className="home-guide home-wrap" aria-labelledby="home-guide-title">
     {head}<Story /><Convictions />{ask}<Paths onChoose={onChoose} withSteps />

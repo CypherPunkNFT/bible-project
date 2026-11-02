@@ -1,34 +1,13 @@
 // MOCK-UP (/home_mockup11): eight phone versions of the homepage's four convictions, each far shorter than the stacked list.
-// A, B and G are native sideways scrolling, so they swipe and snap like the phone expects; the others are tabs or a swipe. Same words and
+// B is the homepage's own now (pages/home/ConvictionsLongDrawing.tsx); these stay to compare against. A, B and G are native sideways scrolling, so they swipe and snap like the phone expects; the others are tabs or a swipe. Same words and
 // drawings as the real list. Styles: convictions-phone.css (.cvm-*).
-import { useCallback, useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent, type ReactNode } from "react";
-import { ART, CONVICTIONS } from "@/pages/contact/AboutSections";
-import { GLORY_TEXT } from "@/pages/home/HomeGuide";
+import { useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent, type ReactNode } from "react";
+import { ConvictionsLongDrawing, COUNT, ITEMS, position, useSideways, Words, type Item, type RailProps } from "@/pages/home/ConvictionsLongDrawing";
 
-const ITEMS = CONVICTIONS.map((item, index) => ({ ...item, text: index === 0 ? GLORY_TEXT : item.text, drawing: ART[item.art === "books" ? "shelf" : item.art] }));
-const COUNT = ITEMS.length;
-/** The verses' own words, held here because the shared list is moving from words to verse ids; the page must build either way. */
-const VERSE_WORDS: Record<string, string> = {
-  "1 Corinthians 10:31": "So whether you eat or drink or whatever you do, do it all to the glory of God.",
-  "Matthew 10:8": "Freely you have received; freely give.",
-  "Isaiah 55:1": "Come, all you who are thirsty, come to the waters.",
-  "Proverbs 4:7": "Wisdom is supreme; so acquire wisdom.",
-};
-type Item = (typeof ITEMS)[number];
-
-const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const position = (index: number) => ({ "--i": index }) as CSSProperties;
+export { ConvictionsLongDrawing };
 
 function Drawing({ item }: { item: Item }) {
   return <svg viewBox="0 0 120 92" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{item.drawing}</svg>;
-}
-
-function Words({ item, title = true }: { item: Item; title?: boolean }) {
-  return <>
-    {title && <h3 className="cvm-title">{item.title}</h3>}
-    <p className="cvm-text">{item.text}</p>
-    <blockquote className="cvm-verse">“{VERSE_WORDS[item.reference]}”<cite>{item.reference}</cite></blockquote>
-  </>;
 }
 
 /** All the words stacked in one spot, so the section keeps the height of the longest and nothing jumps as they change. */
@@ -50,35 +29,6 @@ function arrowKeys(active: number, choose: (index: number) => void) {
   };
 }
 
-/** A native sideways scroller: reports the nearest item, and how far along it is as --p (0 to 3) for whatever moves with the finger. */
-function useSideways() {
-  const track = useRef<HTMLOListElement>(null);
-  const [active, setActive] = useState(0);
-  useEffect(() => {
-    const element = track.current;
-    if (!element) return;
-    let frame = 0;
-    const measure = () => {
-      frame = 0;
-      const room = element.scrollWidth - element.clientWidth;
-      const along = room > 0 ? (element.scrollLeft / room) * (COUNT - 1) : 0;
-      element.parentElement?.style.setProperty("--p", along.toFixed(3));
-      setActive(Math.round(along));
-    };
-    const onScroll = () => { if (!frame) frame = requestAnimationFrame(measure); };
-    element.addEventListener("scroll", onScroll, { passive: true });
-    measure();
-    return () => { element.removeEventListener("scroll", onScroll); cancelAnimationFrame(frame); };
-  }, []);
-  const goTo = useCallback((index: number) => {
-    const element = track.current;
-    const items = element?.querySelectorAll<HTMLElement>(":scope > li:not(.cvm-backdrop)");
-    if (!element || !items) return;
-    element.scrollTo({ left: items[index].offsetLeft - items[0].offsetLeft, behavior: reducedMotion() ? "auto" : "smooth" });
-  }, []);
-  return { track, active, goTo };
-}
-
 /** A sideways swipe anywhere on the element: step is +1 for the next one, -1 for the one before. */
 function useSwipe(onStep: (step: number) => void) {
   const start = useRef<number | null>(null);
@@ -95,17 +45,10 @@ function useSwipe(onStep: (step: number) => void) {
 }
 
 /** The numerals under a sideways scroller: tapping one goes there; the gold line under them follows the finger. */
-function NumeralRail({ active, goTo }: { active: number; goTo: (index: number) => void }) {
+function NumeralRail({ active, goTo }: RailProps) {
   return <div className="cvm-rail" role="group" aria-label="Choose a conviction">
     {ITEMS.map((item, index) => <button key={item.numeral} type="button" aria-label={item.title} aria-current={index === active} onClick={() => goTo(index)}>{item.numeral}</button>)}
     <span className="cvm-rail-line" aria-hidden="true" />
-  </div>;
-}
-
-/** Dots over a sideways scroller: tapping one goes there; the gold one follows the finger. */
-function DotRail({ active, goTo }: { active: number; goTo: (index: number) => void }) {
-  return <div className="cvm-dots" role="group" aria-label="Choose a conviction">
-    {ITEMS.map((item, index) => <button key={item.numeral} type="button" aria-label={item.title} aria-current={index === active} onClick={() => goTo(index)}><span /></button>)}
   </div>;
 }
 
@@ -124,43 +67,9 @@ export function ConvictionsPanels() {
   </section>;
 }
 
-const STARS = Array.from({ length: 70 }, (_, index) => ({ x: (index * 233) % 1600, y: 8 + ((index * 67) % 130), r: index % 5 === 0 ? 1.5 : 0.9, twinkle: index % 4 === 0 }));
-
-/** The four drawings standing on one unbroken line of land, each at the middle of its 400-wide stretch. */
-function Landscape() {
-  const place = (x: number, ground: number) => `translate(${x - 96} ${ground - 134.4}) scale(1.6)`;
-  return <svg className="cvm-land" viewBox="0 0 1600 240" fill="none" stroke="currentColor" strokeWidth="1.15" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path className="cv-faint" d="M0 190C120 150 240 196 360 172S560 130 700 170 900 196 1040 160 1240 140 1380 176 1540 190 1600 170" />
-    <path d="M0 214C90 214 130 178 200 178S310 214 400 214 520 206 600 206 720 214 800 214 920 210 1000 210 1120 214 1200 214 1320 206 1400 206 1530 214 1600 214" />
-    <path className="cv-faint" d="M40 226H110M300 228H420M520 224H560M700 230H840M940 226H1060M1180 230H1290M1450 226H1570" />
-    <g transform={place(200, 178)}>{ITEMS[0].drawing}</g>
-    <g transform={place(600, 206)}>{ITEMS[1].drawing}</g>
-    <g transform={place(1000, 210)}>{ITEMS[2].drawing}</g>
-    <g transform={place(1400, 206)}>{ITEMS[3].drawing}</g>
-  </svg>;
-}
-
 /** I: B with numerals over it instead of dots, for anyone who would not guess that it scrolls sideways. */
 export function ConvictionsLongDrawingWithMenu() {
-  return <ConvictionsLongDrawing menu />;
-}
-
-/** B: one long drawing behind all four. Swiping walks along it; the stars drift slower than the land, the numerals at their own pace. */
-export function ConvictionsLongDrawing({ menu = false }: { menu?: boolean }) {
-  const { track, active, goTo } = useSideways();
-  return <section className="cvm cvm-long" aria-label="Our four convictions">
-    {menu ? <NumeralRail active={active} goTo={goTo} /> : <DotRail active={active} goTo={goTo} />}
-    <ol className="cvm-track" ref={track} tabIndex={0}>
-      <li className="cvm-backdrop" aria-hidden="true">
-        <svg className="cvm-stars" viewBox="0 0 1600 240">{STARS.map((star) => <circle key={star.x} cx={star.x} cy={star.y} r={star.r} data-twinkle={star.twinkle || undefined} />)}</svg>
-        <Landscape />
-      </li>
-      {ITEMS.map((item, index) => <li key={item.numeral} style={position(index)} data-active={index === active}>
-        <span className="cvm-numeral" aria-hidden="true">{item.numeral}</span>
-        <Words item={item} />
-      </li>)}
-    </ol>
-  </section>;
+  return <ConvictionsLongDrawing Rail={NumeralRail} />;
 }
 
 const TICKS = Array.from({ length: 72 }, (_, index) => index * 5);
