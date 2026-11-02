@@ -3,7 +3,7 @@
 // word wall with the six doorway squares beside it, the guide, the four parts under pointed banners, the questions, the gold
 // marquee, the sources, Close to home, and Scroll A's blessing before the footer. The city's corners have no towers (from /home_mockup8, owner, 2026-10-31). Earlier homepage: approved 2026-10-22 from
 // /home_mockup2. The opening and the closing scroll live in pages/mockup/home-openings/.
-import { ArrowRight, ArrowUpRight, BookMarked, BookOpen, GitBranch, Globe, Headphones, Landmark, LayoutGrid, LifeBuoy, Map, MessageCircle, NotebookPen, Pause, Play, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookMarked, BookOpen, GitBranch, Globe, Headphones, Landmark, LayoutGrid, LifeBuoy, Map, MessageCircle, NotebookPen, Users } from "lucide-react";
 import { useContext, useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
@@ -106,13 +106,7 @@ function PreviewMarquee() {
     event.stopPropagation();
     dragged.current = false;
   };
-  const togglePaused = () => {
-    const next = !paused;
-    if (!next && viewport.current) viewport.current.scrollLeft = 0;
-    setPaused(next);
-  };
-  return <section className="home-preview-strip" aria-label="A glimpse of the collections">
-    <div className="home-strip-heading"><span>A glimpse of what awaits</span><button type="button" onClick={togglePaused} aria-pressed={paused} aria-label={paused ? "Play collection previews" : "Pause collection previews"}>{paused ? <Play size={13} /> : <Pause size={13} />}<span>{paused ? "Play" : "Pause"}</span></button></div>
+  return <section className="home-preview-strip" aria-label="The collections">
     <div className="home-marquee" ref={viewport} data-paused={paused} onTouchStart={() => setPaused(true)} onPointerDown={startDrag} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag} onClickCapture={swallowDragClick} onMouseDown={(event) => { if (event.button === 0) event.preventDefault(); }} onDragStart={(event) => event.preventDefault()}><div className="home-marquee-track">
       {Array.from({ length: copies }, (_, copy) => <div className="home-marquee-group" ref={copy === 0 ? firstGroup : undefined} key={copy} aria-hidden={copy > 0 ? true : undefined}>
         {HOME_PREVIEWS.map((item) => <Link key={item.to} to={item.to} tabIndex={copy ? -1 : undefined} className="home-preview" style={tint(item.color)} aria-label={item.label}><div><HomeArtwork kind={item.art} /></div><p>{item.label}<ArrowUpRight size={13} aria-hidden /></p><strong>{item.title}</strong></Link>)}
