@@ -78,6 +78,41 @@ export const RING_VERSES: Record<Exclude<LanguageCode, "en">, Record<string, str
   },
 };
 
+/** The blessing at the foot of the home page: each verse's lead-in and its gold ending, cut the same way. */
+export const BLESSING_VERSES: Record<LanguageCode, Record<"numbers" | "joshua", [string, string]>> = {
+  en: {
+    numbers: ["May the LORD bless you and keep you;", "may the LORD cause His face to shine upon you and be gracious to you."],
+    joshua: ["Be strong and courageous. Do not be afraid; do not be discouraged,", "for the LORD your God is with you wherever you go."],
+  },
+  es: {
+    numbers: ["Jehová te bendiga, y te guarde:", "Haga resplandecer Jehová su rostro sobre ti, y haya de ti misericordia."],
+    joshua: ["Mira que te mando que te esfuerces y seas valiente: no temas ni desmayes,", "porque Jehová tu Dios será contigo en donde quiera que fueres."],
+  },
+  "pt-BR": {
+    numbers: ["O SENHOR te abençoe e te guarde.", "O SENHOR faça resplandecer o seu rosto sobre ti, e tenha misericórdia de ti."],
+    joshua: ["Seja forte e corajoso. Não tenha medo. Não se apavore,", "pois o SENHOR, seu Deus, está com você por onde quer que você andar."],
+  },
+  "zh-Hans": {
+    numbers: ["愿耶和华赐福给你，保护你。", "愿耶和华使他的脸光照你，赐恩给你。"],
+    joshua: ["你当刚强壮胆！不要惧怕，也不要惊惶；", "因为你无论往哪里去，耶和华—你的 神必与你同在。"],
+  },
+  ar: {
+    numbers: ["يُبَارِكُكَ ٱلرَّبُّ وَيَحْرُسُكَ.", "يُضِيءُ ٱلرَّبُّ بِوَجْهِهِ عَلَيْكَ وَيَرْحَمُكَ."],
+    joshua: ["تَشَدَّدْ وَتَشَجَّعْ! لَا تَرْهَبْ وَلَا تَرْتَعِبْ", "لِأَنَّ ٱلرَّبَّ إِلَهَكَ مَعَكَ حَيْثُمَا تَذْهَبُ."],
+  },
+  hi: {
+    numbers: ["यहोवा तुझे आशीष दे और तेरी रक्षा करे:", "यहोवा तुझ पर अपने मुख का प्रकाश चमकाए, और तुझ पर अनुग्रह करे।"],
+    joshua: ["हियाव बाँधकर दृढ़ हो जा; भय न खा, और तेरा मन कच्चा न हो;", "क्योंकि जहाँ-जहाँ तू जाएगा वहाँ-वहाँ तेरा परमेश्वर यहोवा तेरे संग रहेगा।"],
+  },
+};
+
+/** What these Bibles are called in their own language, for readers of that language. */
+export const BIBLE_OWN_NAMES: Record<string, string> = {
+  cuv: "和合本",
+  svd: "ترجمة فان دايك",
+  irv: "इंडियन रिवाइज्ड वर्जन",
+};
+
 export function BannerVerse({ name }: { name: BannerVerseName }) {
   const language = useSiteLanguage();
   const bible = useCurrentBible();

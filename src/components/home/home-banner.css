@@ -121,6 +121,10 @@
 .home-banner-terms li::before { content: ""; display: inline-block; width: 5px; height: 5px; margin: 0 9px 1px 0; border-radius: 50%; background: var(--home-color); opacity: .7; }
 .home-banner[data-flip] .home-banner-terms li::before { display: none; }
 .home-banner[data-flip] .home-banner-terms li::after { content: ""; display: inline-block; width: 5px; height: 5px; margin: 0 0 1px 9px; border-radius: 50%; background: var(--home-color); opacity: .7; }
+/* Arabic: the dot comes first in the line, where reading starts, on either side of the banner. */
+html[dir="rtl"] .home-banner[data-flip] .home-banner-terms { text-align: start; }
+html[dir="rtl"] .home-banner[data-flip] .home-banner-terms li:not(.home-banner-terms-head)::before { display: inline-block; }
+html[dir="rtl"] .home-banner[data-flip] .home-banner-terms li::after { display: none; }
 .home-banner-terms .home-banner-terms-head { color: var(--home-color); margin-bottom: 3px; }
 .home-banner-terms .home-banner-terms-head::before, .home-banner[data-flip] .home-banner-terms .home-banner-terms-head::after { display: none; }
 /* Unflipped bands: the terms sit centred in the gap between the verse and the emblem. */

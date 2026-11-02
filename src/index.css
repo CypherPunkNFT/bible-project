@@ -189,10 +189,10 @@ html[dir="rtl"] body {
   overflow-x: clip;
 }
 /* A sliding strip runs off its own left edge, so it stays laid out from the left or a gap opens behind it; what is on it still reads right to left. */
-html[dir="rtl"] :is(.hm5-wall, .hm5-wall-row, .home-marquee-track) {
+html[dir="rtl"] :is(.hm5-wall, .hm5-wall-row, .home-marquee, .hm3-marquee, .hy-page .hc-row, .teacher-reading-window) {
   direction: ltr;
 }
-html[dir="rtl"] .home-marquee-group > * {
+html[dir="rtl"] :is(.home-marquee-group, .hm3-marquee-run, .hy-page .hc-track, .teacher-reading-group) > * {
   direction: rtl;
 }
 /* The coloured line along the top of the header keeps its order. */

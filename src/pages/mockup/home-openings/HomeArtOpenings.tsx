@@ -225,7 +225,7 @@ export function ScrollArt({ fit, below = 0 }: { fit: "edge" | "margins"; below?:
     return () => { observer.disconnect(); section.parentElement?.style.removeProperty("--hm4-foot"); };
   }, [fit]);
   const { start, length } = view, end = start + length, sunY = SUN_Y;
-  return <svg ref={frame} className={`hm4-scroll-art hm4-scroll-${fit}`} style={fit === "margins" ? { left: view.left, width: view.width } : undefined}
+  return <svg lang="en" translate="no" ref={frame} className={`hm4-scroll-art hm4-scroll-${fit}`} style={fit === "margins" ? { left: view.left, width: view.width } : undefined}
     viewBox={`${fixed(start)} 0 ${fixed(length)} ${HEIGHT}`} preserveAspectRatio={fit === "edge" ? "xMaxYMax slice" : "xMinYMax slice"} aria-hidden="true">
     <defs>
       {SHEETS_DRAWN.flatMap((sheet) => sheet.writing.map((d, line) => <path id={`hm4-line-${sheet.name}-${line}`} d={d} key={`${sheet.name}-${line}`} />))}

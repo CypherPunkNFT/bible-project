@@ -140,12 +140,16 @@ function translated(text: string): string | null {
   return changed ? joined : null;
 }
 
+// Arabic reads a verse range "6:24–25" as "25–6:24" unless the invisible marks around it hold it together, left to right.
+const VERSE_RANGE = /\d+:\d+[–-]\d+(?::\d+)?/g;
+const heldTogether = (value: string) => (target === "ar" ? value.replace(VERSE_RANGE, "\u2066$&\u2069") : value);
+
 function retranslate(node: Text | Attr): void {
   const raw = node.nodeValue ?? "";
   const original = originals.get(node);
   const source = original?.written === raw ? original.source : raw;
   const value = translated(source);
-  const next = value ? source.match(/^\s*/)![0] + value + source.match(/\s*$/)![0] : source;
+  const next = value ? source.match(/^\s*/)![0] + heldTogether(value) + source.match(/\s*$/)![0] : source;
   if (next === raw) return;
   originals.set(node, { source, written: next });
   node.nodeValue = next;

@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { DEFAULT_BIBLE } from "@/lib/verses";
 import type { LanguageCode } from "@/lib/language";
-import { BANNER_VERSES, RING_VERSES, type BannerVerseName } from "./banner-verses";
+import { BANNER_VERSES, BLESSING_VERSES, RING_VERSES, type BannerVerseName } from "./banner-verses";
 
 const SOURCE: Record<BannerVerseName, [string, string]> = { isaiah: ["ISA", "40:8"], john: ["JHN", "5:39"], peter: ["1PE", "3:15"], galatians: ["GAL", "6:2"] };
 const RING: Record<string, [string, string]> = {
@@ -24,6 +24,14 @@ describe("the home page banners' own wording", () => {
         const whole = verse(language, SOURCE[name]);
         for (const piece of pieces(BANNER_VERSES[language][name])) expect(whole, `${name}: ${piece}`).toContain(piece);
       }
+    });
+  }
+  for (const language of Object.keys(BLESSING_VERSES) as LanguageCode[]) {
+    it(`in ${language}, the blessing at the foot of the page is that language's Bible`, () => {
+      const { numbers, joshua } = BLESSING_VERSES[language];
+      expect(verse(language, ["NUM", "6:24"])).toContain(bare(numbers[0]));
+      expect(verse(language, ["NUM", "6:25"])).toContain(bare(numbers[1]));
+      expect(verse(language, ["JOS", "1:9"])).toContain(bare(joshua.join(" ")));
     });
   }
   for (const language of Object.keys(RING_VERSES) as Exclude<LanguageCode, "en">[]) {

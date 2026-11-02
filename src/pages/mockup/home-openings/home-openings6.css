@@ -110,6 +110,9 @@
 .hm4-b.hm6-blessing .home-hero-copy { max-width: 35rem; }
 .hm6-blessing blockquote { margin: 0; font: 300 clamp(24px, 3.6svh, 40px)/1.18 var(--font-serif); letter-spacing: -.035em; color: var(--ink); }
 .hm6-blessing blockquote em { color: var(--accent); }
+.hm6-blessing blockquote:is(:lang(ar), :lang(hi)) { letter-spacing: 0; line-height: 1.5; }
+/* Arabic: the words read from the right but stay where they are, clear of the sun. */
+html[dir="rtl"] .hm4-b.hm6-blessing .home-hero-copy { margin-inline-start: auto; }
 .hm6-blessing-cite + blockquote { margin-top: 2.2rem; }
 .hm6-blessing-cite { margin-top: 1.1rem; font: 500 13px var(--font-sans); color: var(--muted); }
 .hm6-blessing-cite a { color: var(--accent); font-weight: 600; }
