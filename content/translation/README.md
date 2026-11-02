@@ -15,6 +15,10 @@ million words, every unique string once per kind of content. Its `SOURCES` list 
 are translated. Scripture quotations are left out (each language's Bible fills them by reference), and so are book
 titles, authors, licences and catalogue metadata. `python extract.py --pages` adds the text written into the page code
 (headings, buttons, labels) as chunks of kind `page` after the last chunk (0820–0850 so far), and is safe to rerun.
+`python extract.py --documents` adds the debate transcripts (kind `transcript`, every spoken paragraph; paragraphs over
+300 words are cut at sentence ends) and the study pages' own text (kind `study`, the `content.md` of each study; Scripture
+blockquotes and the verse line under them are left out). Each chunk holds at most 100 strings and 4,000 words, so one
+translation call carries it. Chunks 0868–0912 are transcripts and 0913–0951 are study pages.
 
 ## Seeing it on the site
 

@@ -341,11 +341,11 @@ def words(text: str) -> int:
     return len(WORD.findall(text))
 
 
-def chunks(by_kind: dict[str, dict[str, str]]):
+def chunks(by_kind: dict[str, dict[str, str]], max_strings: int = CHUNK_STRINGS):
     for kind, strings in by_kind.items():
         current, total = {}, 0
         for key, text in strings.items():
-            if current and (total + words(text) > CHUNK_WORDS or len(current) >= CHUNK_STRINGS):
+            if current and (total + words(text) > CHUNK_WORDS or len(current) >= max_strings):
                 yield kind, current, total
                 current, total = {}, 0
             current[key] = text
@@ -372,7 +372,57 @@ def resource_page_strings() -> list[str]:
     return list(dict.fromkeys(line["address"] for line in lines if line.get("address", "").startswith("No walk-in")))
 
 
-def append(out: Path, kind: str, texts: list[str]) -> None:
+def not_scripture(text: str) -> bool:
+    """A study's blockquoted Scripture and the verse reference under it stay out, like every other Scripture quotation."""
+    return not text.startswith(">") and not VERSE_REFERENCE.fullmatch(text)
+
+
+# Long-form text added after the first extraction as new chunks (--documents), like the Resources above: the debate
+# transcripts' spoken paragraphs and the study pages' own text. Each chunk holds at most DOCUMENT_STRINGS strings and
+# CHUNK_WORDS words, so one translation call can carry it.
+DOCUMENTS = [
+    ("transcript", "content/apologetics/transcripts/*.txt", lambda text: True),
+    ("study", "content/studies/*/*/content.md", not_scripture),
+]
+DOCUMENT_STRINGS = 100
+LONG_PARAGRAPH_WORDS = 300
+SENTENCE_END = re.compile(r"(?<=[.!?])\s+")
+VERSE_REFERENCE = re.compile(r"\d?\s?[A-Za-z][A-Za-z ]*\s\d+:\d+[\d\s,–-]*(?:\s·\s[A-Z]{2,})?")
+
+
+def paragraphs(text: str) -> list[str]:
+    """The blocks of text between blank lines, each cut at sentence ends once it runs past LONG_PARAGRAPH_WORDS."""
+    found = []
+    for block in re.split(r"\n\s*\n", text):
+        block = block.strip()
+        if not translatable(block):
+            continue
+        if words(block) <= LONG_PARAGRAPH_WORDS:
+            found.append(block)
+            continue
+        current: list[str] = []
+        for sentence in SENTENCE_END.split(block):
+            if current and words(" ".join(current + [sentence])) > LONG_PARAGRAPH_WORDS:
+                found.append(" ".join(current))
+                current = []
+            current.append(sentence)
+        found.append(" ".join(current))
+    return found
+
+
+def document_strings(pattern: str, keep) -> list[str]:
+    files = sorted(SITE.glob(pattern))
+    if not files:
+        raise SystemExit(f"no files match {pattern}: the site's content layout changed, update DOCUMENTS")
+    found: dict[str, None] = {}
+    for path in files:
+        for text in paragraphs(path.read_text("utf-8")):
+            if keep(text):
+                found.setdefault(text)
+    return list(found)
+
+
+def append(out: Path, kind: str, texts: list[str], max_strings: int = CHUNK_STRINGS) -> None:
     """Adds the strings of a kind not yet in any chunk as new chunks after the last one, so earlier chunk numbers (and
     their translations) never move. Safe to rerun after the sources change."""
     index = json.loads((out / "chunks.json").read_text("utf-8"))
@@ -382,7 +432,7 @@ def append(out: Path, kind: str, texts: list[str]) -> None:
             known.update(json.loads((out / "in" / f"{entry['chunk']}.json").read_text("utf-8"))["strings"])
     fresh = {key: text for text in texts if (key := string_id(kind, text)) not in known}
     number = int(index[-1]["chunk"])
-    for kind, strings, total in chunks({kind: fresh}):
+    for kind, strings, total in chunks({kind: fresh}, max_strings):
         number += 1
         name = f"{number:04d}"
         body = {"kind": kind, "strings": strings}
@@ -397,12 +447,17 @@ def main() -> None:
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT, help="the site-translation repository folder")
     parser.add_argument("--pages", action="store_true", help="append the page code's text as new chunks")
     parser.add_argument("--resources", action="store_true", help="append the Resources files' text as new chunks")
+    parser.add_argument("--documents", action="store_true",
+                        help="append the debate transcripts and study pages as new chunks, at most DOCUMENT_STRINGS each")
     args = parser.parse_args()
     if args.pages:
         append(args.out, PAGE_KIND, page_strings() + resource_page_strings())
     if args.resources:
         append(args.out, RESOURCE_KIND, resource_strings())
-    if args.pages or args.resources:
+    if args.documents:
+        for kind, pattern, keep in DOCUMENTS:
+            append(args.out, kind, document_strings(pattern, keep), DOCUMENT_STRINGS)
+    if args.pages or args.resources or args.documents:
         return
     target = args.out / "in"
     if target.exists() and any(target.iterdir()):
