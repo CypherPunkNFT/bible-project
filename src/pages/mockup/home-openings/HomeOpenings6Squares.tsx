@@ -1,8 +1,8 @@
 // The doorway squares beside the city: three down each side, Bible to Sources, title only, each with a line drawing
 // (first version H of /home_mockup6, owner, 2026-10-31: "make a H where the same squares as existed before are there for
 // Bible - Sources"). The drawings are the ones the owner picked from the /doorways_mockup sheet, version A of
-// /home_mockup10 (owner, same day: "bring back the drawings I approved, version A. Make that the homepage"): Bible 2, Study 2,
-// Apologetics 2, Atlas 3, Resources 3, Sources 3.
+// /home_mockup10 (owner, same day: "bring back the drawings I approved, version A. Make that the homepage"): Bible 2, Study 5
+// (the Bible with the notepad and pencil; owner, 2026-11-01), Apologetics 2, Atlas 3, Resources 3, Sources 3.
 import { ArrowUpRight } from "lucide-react";
 import { createContext, useContext, useLayoutEffect, type CSSProperties, type ReactElement, type RefObject } from "react";
 import { Link } from "react-router-dom";
@@ -19,7 +19,7 @@ interface Square { title: string; to: string; color: string; Art: () => ReactEle
 const SQUARES: Record<"left" | "right", Square[]> = {
   left: [
     { title: "Bible", to: "/bible", color: "epistles", Art: BIBLE_DOORWAYS[1].Art },
-    { title: "Study", to: "/study", color: "gospels", Art: STUDY_DOORWAYS[1].Art },
+    { title: "Study", to: "/study", color: "gospels", Art: STUDY_DOORWAYS[4].Art },
     { title: "Apologetics", to: "/apologetics", color: "history", Art: APOLOGETICS_DOORWAYS[1].Art },
   ],
   right: [

@@ -40,7 +40,7 @@
   .home-hub[data-phone="e"] .hm6-stage.hm6-i .home-hero-copy { padding-bottom: 1.6rem; }
   .home-hub[data-phone="e"].hm6-page .hm6-stage.hm6-i .hm6-squares > a, .home-hub[data-phone="e"].hm6-page .hm6-stage.hm6-i .hm6-squares > a:last-child { grid-column: span 3; margin: 0; padding: 14px 14px 13px; }
   .home-hub[data-phone="e"].hm6-page .hm6-stage .hm6-squares .home-doorway-art, .home-hub[data-phone="e"].hm6-page .hm6-stage .hm6-squares > a:last-child .home-doorway-art { flex: 1; min-height: 5rem; height: auto; aspect-ratio: auto; }
-  .home-hub[data-phone="e"].hm6-page .hm6-stage .hm6-squares .home-doorway-copy, .home-hub[data-phone="e"].hm6-page .hm6-stage .hm6-squares > a:last-child .home-doorway-copy { padding-top: 10px; margin-top: 8px; border-top: 1px solid color-mix(in srgb, var(--home-color) 20%, transparent); }
+  .home-hub[data-phone="e"].hm6-page .hm6-stage .hm6-squares .home-doorway-copy, .home-hub[data-phone="e"].hm6-page .hm6-stage .hm6-squares > a:last-child .home-doorway-copy { padding-top: 6px; margin-top: 0; border-top: 0; }
   .home-hub[data-phone="e"].hm6-page .hm6-stage .hm6-squares .home-doorway-copy strong { font-size: 17px; }
 
   /* Tighter gaps between the sections: the desktop's spacing left a phone's screen looking empty. */
