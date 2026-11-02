@@ -13,7 +13,7 @@ const SKIP = new Set(["SCRIPT", "STYLE", "TEXTAREA", "CODE", "PRE"]);
 
 const toEnglish = new Map<string, string>();
 const fromEnglish = new Map<string, Map<string, string>>(); // folder -> English -> translation
-const loaded = new Set<string>(); // "folder ui" and "folder path" already read
+const loaded = new Map<string, Promise<void>>(); // "folder ui" and "folder path": read, or being read
 let target: string | null = null;
 let observer: MutationObserver | null = null;
 
@@ -45,9 +45,16 @@ async function readJson(url: string): Promise<unknown> {
   return response.json();
 }
 
-async function loadStrings(folder: string, path: string | null): Promise<void> {
+function loadStrings(folder: string, path: string | null): Promise<void> {
   const key = `${folder} ${path ?? "ui"}`;
-  if (loaded.has(key)) return;
+  const started = loaded.get(key);
+  if (started) return started;
+  const reading = readStrings(folder, path, key);
+  loaded.set(key, reading);
+  return reading;
+}
+
+async function readStrings(folder: string, path: string | null, key: string): Promise<void> {
   try {
     if (path === null) {
       const strings = (await readJson(`/data/i18n/${folder}/ui.json`)) as Record<string, string>;
@@ -60,8 +67,8 @@ async function loadStrings(folder: string, path: string | null): Promise<void> {
       const [english, translated] = await Promise.all([readJson(`/data/${path}`), readJson(`/data/i18n/${folder}/${path}`)]);
       pair(folder, english, translated);
     }
-    loaded.add(key);
   } catch (error) {
+    loaded.delete(key);
     console.warn(`page translation: could not read the ${folder} strings for ${path ?? "the page text"} (${String(error)}); that text keeps its current language`);
   }
 }
@@ -181,8 +188,16 @@ export async function startPageTranslator(): Promise<void> {
   watch();
 }
 
+/** A pointer resting on a language in the menu: its page words are read ahead, so choosing it has less to wait for. */
+export function prepareSiteLanguage(code: LanguageCode): void {
+  const folder = languageFolder(code);
+  if (folder) void loadStrings(folder, null);
+}
+
 /** The header's language menu: reads the new words for what is on screen, then changes them all at once. */
 export async function chooseSiteLanguage(code: LanguageCode): Promise<void> {
+  // Restyling a long page holds the browser for a moment, so the menu shows the choice first.
+  await new Promise((painted) => requestAnimationFrame(() => setTimeout(painted)));
   const previous = languageFolder();
   const folder = languageFolder(code);
   const folders = [previous, folder].filter((name): name is string => name !== null);

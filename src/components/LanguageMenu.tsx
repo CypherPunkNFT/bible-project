@@ -1,15 +1,17 @@
 // The header's language button, between Contact and Search (owner, 2026-10-31). The site is being translated, Spanish
 // and Brazilian Portuguese first; until a translation is published the button shows only on this computer's preview,
 // so a release cannot put a menu of languages the site does not have yet on bibleguide.io.
-import { Check, Languages } from "lucide-react";
+import { Check, Languages, LoaderCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { LANGUAGES, PREVIEW_ONLY, useSiteLanguage, type LanguageCode } from "@/lib/language";
-import { chooseSiteLanguage } from "@/lib/page-translator";
+import { chooseSiteLanguage, prepareSiteLanguage } from "@/lib/page-translator";
 import { cn } from "@/lib/utils";
 
 export function LanguageMenu() {
   const [open, setOpen] = useState(false);
-  const current = useSiteLanguage();
+  const applied = useSiteLanguage();
+  const [changingTo, setChangingTo] = useState<LanguageCode | null>(null);
+  const current = changingTo ?? applied;
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!open) return;
@@ -21,8 +23,16 @@ export function LanguageMenu() {
   }, [open]);
   if (!PREVIEW_ONLY) return null;
   const choose = (code: LanguageCode) => {
-    setOpen(false);
-    if (code !== current) void chooseSiteLanguage(code);
+    if (changingTo) return;
+    if (code === applied) {
+      setOpen(false);
+      return;
+    }
+    setChangingTo(code);
+    void chooseSiteLanguage(code).finally(() => {
+      setChangingTo(null);
+      setOpen(false);
+    });
   };
   return (
     <div ref={root} className="relative shrink-0">
@@ -51,13 +61,15 @@ export function LanguageMenu() {
               lang={language.code}
               translate="no"
               onClick={() => choose(language.code)}
+              onPointerEnter={() => prepareSiteLanguage(language.code)}
+              onFocus={() => prepareSiteLanguage(language.code)}
               className={cn(
                 "flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2 text-left text-sm transition-colors focus:outline-none",
                 current === language.code ? "text-accent" : "text-ink hover:bg-surface-2",
               )}
             >
               {language.name}
-              {current === language.code && <Check className="h-4 w-4" aria-hidden />}
+              {current === language.code && (changingTo === language.code ? <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden /> : <Check className="h-4 w-4" aria-hidden />)}
             </button>
           ))}
         </div>
