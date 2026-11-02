@@ -62,8 +62,8 @@
   .cvm-long .cvm-rail { margin: 0 0 14px; }
   .cvm-dots { display: flex; justify-content: center; margin-bottom: 8px; }
   .cvm-dots button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; background: none; }
-  .cvm-dots span { width: 9px; height: 9px; border-radius: 50%; background: var(--line); transition: background-color .3s, transform .3s var(--cvm-ease); }
-  .cvm-dots [aria-current="true"] span { background: var(--accent); transform: scale(1.25); }
+  .cvm-dots span { width: 8px; height: 8px; border-radius: 4px; background: var(--line); transition: background-color .3s, width .3s var(--cvm-ease); }
+  .cvm-dots [aria-current="true"] span { width: 26px; background: var(--accent); }
   .cvm-long .cvm-numeral { top: 12px; right: 14px; transform: translateX(calc((var(--p, 0) - var(--i)) * -110px)); }
   .cvm-long .cvm-title, .cvm-long .cvm-text, .cvm-long .cvm-verse { position: relative; z-index: 2; }
 
