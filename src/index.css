@@ -188,22 +188,35 @@ html[dir="rtl"] svg {
 html[dir="rtl"] body {
   overflow-x: clip;
 }
+/* A sliding strip runs off its own left edge, so it stays laid out from the left or a gap opens behind it; what is on it still reads right to left. */
+html[dir="rtl"] :is(.hm5-wall, .home-marquee-track) {
+  direction: ltr;
+}
+html[dir="rtl"] .home-marquee-group > * {
+  direction: rtl;
+}
+/* The fade when the site's language changes: short, so it reads as the words changing and not as an effect. */
+html[data-language-fade]::view-transition-old(root),
+html[data-language-fade]::view-transition-new(root) {
+  animation-duration: 0.18s;
+}
 /* Typefaces apply everywhere a verse is shown (reader, side by side, search results, verse panel). Persian is
-   written in the Arabic script, and Naskh faces carry its extra letters. So is Kurdish, Urdu and Uyghur. */
-[lang="ar"],
+   written in the Arabic script, and Naskh faces carry its extra letters. So is Kurdish, Urdu and Uyghur. Not on the
+   page itself when the site is in that language: its labels keep the site's typefaces, and Latin words stay as they are. */
+[lang="ar"]:not(html),
 [lang="fa"],
 [lang="ckb"],
 [lang="ur"],
 [lang="ug"] {
   font-family: "Noto Naskh Arabic", "Amiri", "Traditional Arabic", "Arabic Typesetting", "Segoe UI", "Geeza Pro", serif;
 }
-[lang="zh-Hans"] {
+[lang="zh-Hans"]:not(html) {
   font-family: "Noto Serif SC", "Songti SC", "SimSun", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", serif;
 }
 [lang="ja"] {
   font-family: "Noto Serif JP", "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "MS Mincho", serif;
 }
-[lang="hi"],
+[lang="hi"]:not(html),
 [lang="mr"],
 [lang="ne"],
 [lang="hne"],

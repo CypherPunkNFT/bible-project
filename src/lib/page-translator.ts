@@ -11,18 +11,20 @@ import { languageDirection, languageFolder, loadedData, setSiteLanguage, siteLan
 const ATTRIBUTES = ["aria-label", "title", "placeholder", "alt"];
 const SKIP = new Set(["SCRIPT", "STYLE", "TEXTAREA", "CODE", "PRE"]);
 
-const toEnglish = new Map<string, string>();
+const toEnglish = new Map<string, string>(); // for text first seen already translated; several English strings can share one translation, so the first stands
 const fromEnglish = new Map<string, Map<string, string>>(); // folder -> English -> translation
 const loaded = new Map<string, Promise<void>>(); // "folder ui" and "folder path": read, or being read
 let target: string | null = null;
 let observer: MutationObserver | null = null;
+// What each text or label said before it was changed: it goes back to exactly that, however many languages came between.
+const originals = new WeakMap<Text | Attr, { source: string; written: string }>();
 
 const normal = (text: string) => text.replace(/\s+/g, " ").trim();
 
 function learn(folder: string, english: string, translated: string): void {
   const [en, tr] = [normal(english), normal(translated)];
   if (!en || en === tr) return;
-  toEnglish.set(tr, en);
+  if (!toEnglish.has(tr)) toEnglish.set(tr, en);
   if (!fromEnglish.has(folder)) fromEnglish.set(folder, new Map());
   fromEnglish.get(folder)!.set(en, translated.trim());
 }
@@ -88,7 +90,9 @@ const PIECES = /(\s+·\s+|\s+\|\s+|:\s+)/;
 
 function withNumbers(key: string): string | null {
   const numbers = key.match(NUMBER);
-  const template = numbers && lookup(key.replace(NUMBER, "{n}"));
+  const shape = key.replace(NUMBER, "{n}");
+  // A number alone stays a number: "{n}" in the strings comes from phrases like "the {n}", which say nothing about a bare "6".
+  const template = numbers && shape !== "{n}" && lookup(shape);
   if (!template) return null;
   let index = 0;
   return template.replace(/\{n\}/g, () => numbers[index++] ?? "");
@@ -127,6 +131,17 @@ function translated(text: string): string | null {
   return changed ? joined : null;
 }
 
+function retranslate(node: Text | Attr): void {
+  const raw = node.nodeValue ?? "";
+  const original = originals.get(node);
+  const source = original?.written === raw ? original.source : raw;
+  const value = translated(source);
+  const next = value ? source.match(/^\s*/)![0] + value + source.match(/\s*$/)![0] : source;
+  if (next === raw) return;
+  originals.set(node, { source, written: next });
+  node.nodeValue = next;
+}
+
 const leftAlone = (element: Element | null) =>
   !element || SKIP.has(element.tagName) || element.closest("[translate='no']:not(html)") !== null;
 
@@ -135,14 +150,12 @@ const leftAlone = (element: Element | null) =>
 const isScripture = (element: Element | null) => element?.closest(".scripture, [lang]:not(html)") != null;
 
 function translateText(node: Text): void {
-  const raw = node.nodeValue ?? "";
-  const value = translated(raw);
-  if (value && !leftAlone(node.parentElement) && !isScripture(node.parentElement)) node.nodeValue = raw.match(/^\s*/)![0] + value + raw.match(/\s*$/)![0];
+  if (!leftAlone(node.parentElement) && !isScripture(node.parentElement)) retranslate(node);
 }
 
 function translateAttribute(element: Element, name: string): void {
-  const value = translated(element.getAttribute(name) ?? "");
-  if (value && !leftAlone(element)) element.setAttribute(name, value);
+  const attribute = element.getAttributeNode(name);
+  if (attribute && !leftAlone(element)) retranslate(attribute);
 }
 
 function translateTree(root: Node): void {
@@ -178,6 +191,23 @@ function markDocument(code: LanguageCode, folder: string | null): void {
   if (folder) document.head.append(Object.assign(document.createElement("meta"), { name: "google", content: "notranslate" }));
 }
 
+/** A sliding strip's place is a share of its width, so new words of another length would throw it far along. Keeps each where it is. */
+function holdStrips(): () => void {
+  const strips = [...document.querySelectorAll(".hm5-wall-track")].flatMap((track) => {
+    const slide = track.getAnimations()[0];
+    const timing = slide?.effect?.getComputedTiming();
+    if (!timing?.progress || typeof timing.duration !== "number") return [];
+    return [{ track, slide, duration: timing.duration, reversed: timing.direction === "reverse", shift: (timing.progress * track.getBoundingClientRect().width) / 2 }];
+  });
+  return () => {
+    for (const { track, slide, duration, reversed, shift } of strips) {
+      const loop = track.getBoundingClientRect().width / 2;
+      const progress = loop ? (shift % loop) / loop : 0;
+      slide.currentTime = (reversed ? 1 - progress : progress) * duration;
+    }
+  };
+}
+
 /** At startup: resolves once the page strings are read, so the first paint is already in the chosen language. */
 export async function startPageTranslator(): Promise<void> {
   const folder = languageFolder();
@@ -202,9 +232,23 @@ export async function chooseSiteLanguage(code: LanguageCode): Promise<void> {
   const folder = languageFolder(code);
   const folders = [previous, folder].filter((name): name is string => name !== null);
   await Promise.all(folders.flatMap((name) => [loadStrings(name, null), ...[...loadedData].map((path) => loadStrings(name, path))]));
-  setSiteLanguage(code);
-  markDocument(code, folder);
-  target = folder;
-  watch();
-  translateTree(document.body);
+  const change = async () => {
+    const releaseStrips = holdStrips();
+    setSiteLanguage(code);
+    markDocument(code, folder);
+    target = folder;
+    watch();
+    translateTree(document.body);
+    await Promise.resolve(); // React's own changes to the new language land here
+    releaseStrips();
+  };
+  // The old words fade into the new, so nothing is seen moving while the page takes its new shape.
+  if (document.startViewTransition && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const root = document.documentElement;
+    root.toggleAttribute("data-language-fade", true);
+    const fade = document.startViewTransition(change);
+    fade.ready.catch(() => undefined); // the fade was cut short by the next one (the reader moving to its new Bible): the words have still changed
+    void fade.finished.finally(() => root.removeAttribute("data-language-fade"));
+    await fade.updateCallbackDone;
+  } else await change();
 }

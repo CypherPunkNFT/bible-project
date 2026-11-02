@@ -30,7 +30,8 @@ export function WordWall({ rows = WALL_ROWS, pools = {} }: { rows?: readonly (re
   return <div className="hm5-wall" aria-hidden="true">
     {rows.map(([kind, seconds], row) => {
       const words = wordsFor(pools[kind] ?? POOLS[kind] ?? WALL, row);
-      return <div className={`hm5-wall-row hm5-wall-${kind}`} style={{ "--speed": `${seconds}s` } as CSSProperties} data-reverse={row % 2 ? true : undefined} key={row}>
+      // A row with its own words shows that language whatever the site's; only the plain English rows follow the site.
+      return <div className={`hm5-wall-row hm5-wall-${kind}`} translate={pools[kind] ?? POOLS[kind] ? "no" : undefined} style={{ "--speed": `${seconds}s` } as CSSProperties} data-reverse={row % 2 ? true : undefined} key={row}>
         <div className="hm5-wall-track">{["first", "second"].map((copy) => <span key={copy}>{words.map((phrase, place) => <b dir={RIGHT_TO_LEFT.has(kind) ? "rtl" : undefined} key={`${place}-${phrase}`}>{phrase}</b>)}</span>)}</div>
       </div>;
     })}

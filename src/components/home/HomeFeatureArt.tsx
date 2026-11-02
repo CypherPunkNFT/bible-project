@@ -62,7 +62,7 @@ const FIRST_WORDS = [
 
 /** John 1:1's opening words in six languages, spaced around the orbit; each drifts on its own beat. */
 function Languages() {
-  return <g className="hf-words">{FIRST_WORDS.map((word, i) => {
+  return <g className="hf-words" translate="no">{FIRST_WORDS.map((word, i) => {
     const x = 300 + 220 * Math.cos((word.angle * Math.PI) / 180);
     const y = 228 - 118 * Math.sin((word.angle * Math.PI) / 180);
     return <g key={word.text} className="hf-word" style={{ animationDelay: `${-i * 1.7}s` }}>
