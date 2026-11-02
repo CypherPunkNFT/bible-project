@@ -29,14 +29,6 @@ const ON_SWITCHER: VersionId[] = ["a", "b", "h", "i"];
 export default function HomePageMockup11() {
   const [params] = useSearchParams();
   const { Version, id } = VERSIONS.find((item) => item.id === params.get("v")) ?? VERSIONS[0];
-  // This page also opens on the live site; search engines must not list it.
-  useEffect(() => {
-    const robots = document.createElement("meta");
-    robots.name = "robots";
-    robots.content = "noindex";
-    document.head.append(robots);
-    return () => robots.remove();
-  }, []);
   // The layout scrolls every new page to the top first, so wait a moment before going to the section.
   useEffect(() => {
     if (!window.matchMedia("(max-width: 640px)").matches) return;

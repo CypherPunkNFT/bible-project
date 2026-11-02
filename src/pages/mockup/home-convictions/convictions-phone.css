@@ -1,26 +1,16 @@
-/* MOCK-UP (/home_mockup11): the five phone versions of the homepage's convictions, ConvictionsPhone.tsx. Phones only. */
-.cvm, .hm11 .to-pill { display: none; }
+/* MOCK-UP (/home_mockup11): the other phone versions of the homepage's convictions, ConvictionsPhone.tsx. Phones only.
+   Version B and what they share are the real page's: pages/home/convictions-long-drawing.css. */
+.hm11 .to-pill { display: none; }
 /* The "Close to home" map's zoom ticker opens on every mock-up address; here it would cover the section being judged. */
 .hm11 .hn-ticker, .hm11 .transition-ticker-unfold { display: none; }
 @media (max-width: 640px) {
-  .hm11 .home-guide-contact-list { margin-top: 56px; scroll-margin-top: 90px; }
-  .hm11 .home-guide-contact-list > .cv-list { display: none; }
-  .cvm { display: block; position: relative; --cvm-ease: cubic-bezier(.2, .7, .2, 1); }
+  .hm11 .home-guide-contact-list { scroll-margin-top: 90px; }
 
-  /* The words, the same in all five. */
-  .cvm-title { margin: 0; font: 500 25px/1.15 var(--font-serif); letter-spacing: -.02em; color: var(--ink); }
-  .cvm-text { margin: 10px 0 0; color: var(--muted); font-size: 14.5px; line-height: 1.7; }
-  .hm11 .home-guide-contact-list blockquote.cvm-verse { margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--line); font: 400 15px/1.5 var(--font-sans); color: var(--ink); }
-  .cvm-verse cite { display: block; margin-top: 6px; font: normal 10px var(--font-sans); letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
-  .cvm-numeral { position: absolute; font: 500 150px/1 var(--font-serif); color: color-mix(in srgb, var(--accent) 11%, transparent); pointer-events: none; user-select: none; }
   .cvm-art { display: block; color: var(--accent); }
   .cvm-art svg, .cvm-dial-art svg { display: block; width: 100%; overflow: visible; }
-  .cvm button { -webkit-tap-highlight-color: transparent; }
-  .cvm button:focus { outline: none; }
 
   /* The line art: draws itself on arriving, its small lights keep breathing (the owner wants line art that loops, not plays once). */
   .cvm [data-active="true"] .cvm-art svg path, .cvm [data-active="true"].cvm-art svg path, .cvm-dial-art [data-active="true"] path { stroke-dasharray: 400; animation: cvm-draw 1.5s var(--cvm-ease) both; }
-  .cvm .cv-accent, .cvm-land .cv-accent { animation: cvm-breathe 4.5s ease-in-out infinite; }
   .cvm [data-active="true"] .cvm-art svg path.cv-accent, .cvm-dial-art [data-active="true"] path.cv-accent { animation: cvm-draw 1.5s var(--cvm-ease) both, cvm-breathe 4.5s ease-in-out 1.5s infinite; }
 
   /* Words stacked in one spot, the chosen one showing. */
@@ -28,11 +18,6 @@
   .cvm-stack > div { grid-area: 1 / 1; opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .35s, transform .45s var(--cvm-ease), visibility 0s .35s; }
   .cvm-stack > [data-active="true"] { opacity: 1; visibility: visible; transform: none; transition: opacity .45s .08s, transform .55s .08s var(--cvm-ease); }
 
-  /* The sideways scroller of A and B runs to both screen edges. */
-  .cvm-track { position: relative; display: flex; margin: 0 calc(-1 * var(--site-gutter)); padding: 0; list-style: none; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
-  .cvm-track::-webkit-scrollbar { display: none; }
-  .cvm-track:focus { outline: none; }
-  .cvm-track > li { position: relative; scroll-snap-align: start; scroll-snap-stop: always; }
   .cvm-rail { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 22px; border-bottom: 1px solid var(--line); }
   .cvm-rail button { min-height: 64px; padding: 0; border: 0; background: none; color: var(--muted); font: 500 30px/1 var(--font-serif); transition: color .3s; }
   .cvm-rail button[aria-current="true"] { color: var(--accent); }
@@ -47,26 +32,8 @@
   .cvm-panels .cvm-title { position: relative; margin-top: 14px; }
   .cvm-panels .cvm-text, .cvm-panels .cvm-verse { position: relative; }
 
-  /* B: one long drawing, four screens wide, the words scrolling with it. */
-  .cvm-long .cvm-track > li { flex: 0 0 100%; box-sizing: border-box; overflow: hidden; padding: 62% var(--site-gutter) 6px; }
-  /* Clips the drifting stars, so they never add to how far the row can scroll. */
-  .cvm-long .cvm-track > .cvm-backdrop { position: absolute; left: 0; top: 0; z-index: 1; width: 400%; aspect-ratio: 1600 / 240; padding: 0; pointer-events: none; scroll-snap-align: none; }
-  .cvm-land, .cvm-stars { position: absolute; left: 0; top: 0; width: 100%; height: auto; }
-  .cvm-land { z-index: 1; color: var(--accent); }
-  .cvm-land g path[stroke-width] { stroke-width: 1.15; }
-  .cvm-stars { fill: var(--accent); width: 112.5%; left: -12.5%; transform: translateX(calc(var(--p, 0) * 12.5%)); }
-  .cvm-stars circle { opacity: .55; }
-  .cvm-stars [data-twinkle] { animation: cvm-twinkle 5s ease-in-out infinite; }
-  .cvm-stars [data-twinkle]:nth-child(3n) { animation-delay: -2s; }
-  .cvm-stars [data-twinkle]:nth-child(5n) { animation-delay: -3.4s; }
+  /* I: the long drawing with numerals. */
   .cvm-long .cvm-rail { margin: 0 0 14px; }
-  .cvm-dots { display: flex; justify-content: center; margin-bottom: 8px; }
-  .cvm-dots button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; background: none; }
-  .cvm-dots span { width: 8px; height: 8px; border-radius: 4px; background: var(--line); transition: background-color .3s, width .3s var(--cvm-ease); }
-  .cvm-dots [aria-current="true"] span { width: 26px; background: var(--accent); }
-  .cvm-long .cvm-numeral { top: 12px; right: 14px; transform: translateX(calc((var(--p, 0) - var(--i)) * -110px)); }
-  .cvm-long .cvm-title, .cvm-long .cvm-text, .cvm-long .cvm-verse { position: relative; z-index: 2; }
-
   /* C: the ring. */
   .cvm-ring { touch-action: pan-y; }
   .cvm-dial { position: relative; container-type: inline-size; width: min(100%, 320px); aspect-ratio: 1; margin: 0 auto 22px; }
@@ -159,9 +126,4 @@
   .cvm-fold-open .cvm-verse { position: relative; margin-bottom: 20px; }
 }
 @keyframes cvm-draw { from { stroke-dashoffset: 400; } to { stroke-dashoffset: 0; } }
-@keyframes cvm-breathe { 50% { opacity: .35; } }
-@keyframes cvm-twinkle { 50% { opacity: .12; } }
 @keyframes cvm-spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) {
-  .cvm *, .cvm *::before, .cvm *::after { animation: none !important; transition: none !important; }
-}
