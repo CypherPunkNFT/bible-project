@@ -66,6 +66,12 @@
         console.warn("theme: localStorage unavailable", error);
       }
       document.documentElement.dataset.theme = theme;
+      // Same for Arabic, which reads right to left, so a page does not flip after it has painted (src/lib/language.ts).
+      try {
+        if (["127.0.0.1", "localhost"].includes(location.hostname) && localStorage.getItem("bp-language") === "ar") document.documentElement.dir = "rtl";
+      } catch (error) {
+        console.warn("language: localStorage unavailable", error);
+      }
     </script>
   </head>
   <body>

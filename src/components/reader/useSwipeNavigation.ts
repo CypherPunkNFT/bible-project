@@ -31,7 +31,8 @@ export function useSwipeNavigation(ref: RefObject<HTMLElement | null>, onSwipeLe
       if (event.timeStamp - begin.time > MAX_DURATION) return;
       if (Math.abs(dx) < MIN_DISTANCE) return;
       if (Math.abs(dy) > Math.abs(dx) * MAX_VERTICAL_RATIO) return;
-      if (dx < 0) onSwipeLeft();
+      // A page that reads right to left turns the other way.
+      if (dx < 0 === (document.documentElement.dir !== "rtl")) onSwipeLeft();
       else onSwipeRight();
     };
 

@@ -6,7 +6,7 @@
 // A text matches when it is one of the known strings, or one with other numbers, or known pieces joined by " · ". React keeps whatever it rendered; when it writes a
 // text or label again, the observer swaps it again. Files read after the change come in the new language (data.ts).
 // Anything inside translate="no" is left alone.
-import { languageFolder, loadedData, setSiteLanguage, siteLanguage, type LanguageCode } from "./language";
+import { languageDirection, languageFolder, loadedData, setSiteLanguage, siteLanguage, type LanguageCode } from "./language";
 
 const ATTRIBUTES = ["aria-label", "title", "placeholder", "alt"];
 const SKIP = new Set(["SCRIPT", "STYLE", "TEXTAREA", "CODE", "PRE"]);
@@ -39,7 +39,8 @@ function pair(folder: string, english: unknown, translated: unknown): void {
 }
 
 async function readJson(url: string): Promise<unknown> {
-  const response = await fetch(url);
+  // A release replaces these files under the same address, and /data/ is stored for a long time: ask each time whether they changed.
+  const response = await fetch(url, { cache: "no-cache" });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   return response.json();
 }
@@ -162,6 +163,7 @@ function watch(): void {
 function markDocument(code: LanguageCode, folder: string | null): void {
   const root = document.documentElement;
   root.lang = code;
+  root.dir = languageDirection(code);
   // The reader chose this language here, so the browser's own "translate this page?" bar would only undo it.
   if (folder) root.setAttribute("translate", "no");
   else root.removeAttribute("translate");

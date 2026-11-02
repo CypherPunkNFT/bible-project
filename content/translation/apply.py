@@ -90,7 +90,7 @@ def apply(repo: Path, lang: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--repo", type=Path, default=DEFAULT_OUT, help="the site-translation repository folder")
-    parser.add_argument("languages", nargs="*", default=["es", "pt"])
+    parser.add_argument("languages", nargs="*", default=["es", "pt", "zh", "ar", "hi"])
     args = parser.parse_args()
     for lang in args.languages:
         apply(args.repo, lang)

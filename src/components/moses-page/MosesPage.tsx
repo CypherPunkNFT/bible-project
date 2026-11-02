@@ -52,6 +52,7 @@ export default function MosesPage({ person }: { person: Person }) {
   }, [person, catalog, bible, navigate, state]);
   return <>
     {error && <p role="alert" className="mx-auto max-w-7xl p-6">Moses’ page could not load. <Link className="underline" to="/study/people">Return to People & genealogies</Link>.</p>}
-    <div ref={host} className="people-page-slide" />
+    {/* The translator cannot reach inside this page's own drawing surface, so it stays English and reads left to right in every language. */}
+    <div ref={host} className="people-page-slide" lang="en" dir="ltr" />
   </>;
 }

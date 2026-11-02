@@ -176,6 +176,18 @@ body {
   font-size: 1.3em;
   line-height: 2;
 }
+/* On a page that reads right to left, "onward" points left. */
+:is(.lucide-arrow-left, .lucide-arrow-right, .lucide-arrow-up-right, .lucide-arrow-up-left, .lucide-chevron-left, .lucide-chevron-right, .lucide-chevrons-left, .lucide-chevrons-right):dir(rtl) {
+  scale: -1 1;
+}
+/* A drawing's labels are placed by its own numbers, and right-to-left would swing each one around its anchor. Art that
+   bleeds past the edge must not open a sideways scroll, which a right-to-left page shows at once. */
+html[dir="rtl"] svg {
+  direction: ltr;
+}
+html[dir="rtl"] body {
+  overflow-x: clip;
+}
 /* Typefaces apply everywhere a verse is shown (reader, side by side, search results, verse panel). Persian is
    written in the Arabic script, and Naskh faces carry its extra letters. So is Kurdish, Urdu and Uyghur. */
 [lang="ar"],

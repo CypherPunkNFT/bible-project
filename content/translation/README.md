@@ -23,13 +23,20 @@ translation call carries it. Chunks 0868–0912 are transcripts and 0913–0951 
 ## Seeing it on the site
 
 `python apply.py` writes the translated copies: every data file in `SOURCES` with its English swapped for the
-translations done so far, into `data/i18n/es/` and `data/i18n/pt/` (git-ignored like the rest of `data/`, so rerun it
-after new chunks or a data rebuild), plus `ui.json`, the page-code strings. [seed/](seed/) holds the header and footer,
-translated by hand so they switch before the page chunks are done. Picking a language in the header saves it and reloads
-the page: [language.ts](../../src/lib/language.ts) sends content-file requests to the translated copy (falling back to
-English when there is none), and [page-translator.ts](../../src/lib/page-translator.ts) swaps the page code's text on
-screen. Files under `public/` (apologetics, the sources directory) are not applied yet. A release leaves `data/i18n/`
-out until a language is published.
+translations done so far, into `data/i18n/<es, pt, zh, ar, hi>/` (git-ignored like the rest of `data/`, so rerun it
+after new chunks or a data rebuild), plus `ui.json`, the page-code strings. [seed/](seed/) holds page strings written by
+hand that the chunks lack: the header and footer, the 66 Bible book names in each Bible's own form, everyday labels. A
+chunk's translation wins over the seed. Picking a language in the header changes the words in place:
+[language.ts](../../src/lib/language.ts) sends content-file requests to the translated copy (falling back to English
+when there is none), and [page-translator.ts](../../src/lib/page-translator.ts) swaps the page code's text on screen.
+The reader moves to that language's Bible ([verses.ts](../../src/lib/verses.ts)). Files under `public/` (apologetics,
+the sources directory) and the pages drawn inside their own surface (Moses, Circles) are not translated yet. A release
+leaves `data/i18n/` out until the languages are published.
+
+Arabic reads right to left. `<html dir="rtl">` plus [logical-css.js](../../scripts/logical-css.js), a build step that
+writes every left and right style rule as start and end, mirrors the whole layout with no page written twice; left to
+right it is the same page. Drawings keep their own orientation (`svg { direction: ltr }` in `index.css`), and a page
+that stays English sets `dir="ltr"` on itself.
 
 ## The pilot (2026-10-31)
 

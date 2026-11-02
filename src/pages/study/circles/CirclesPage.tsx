@@ -39,5 +39,5 @@ export default function CirclesPage() {
       root.replaceChildren(); document.title = 'Bible Guide';
     };
   }, [leaderId]);
-  return <>{error && <p role="alert" className="mx-auto max-w-7xl p-6">{error}</p>}<div ref={host} data-circles-experience="approved" /></>;
+  return <>{error && <p role="alert" className="mx-auto max-w-7xl p-6">{error}</p>}<div ref={host} data-circles-experience="approved" lang="en" dir="ltr" /></>;
 }

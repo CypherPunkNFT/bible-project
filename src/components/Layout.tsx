@@ -126,6 +126,7 @@ export function Layout({ children }: { children: ReactNode }) {
             type="button"
             onClick={toggleTheme}
             className="theme-switch"
+            dir="ltr"
             role="switch"
             aria-checked={theme === "dark"}
             aria-label="Dark mode"

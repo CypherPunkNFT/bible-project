@@ -132,8 +132,9 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       if (isTyping(event.target) || event.altKey || event.ctrlKey || event.metaKey || picking) return;
-      if (event.key === "ArrowLeft") goTo(prev);
-      if (event.key === "ArrowRight") goTo(next);
+      const rightToLeft = document.documentElement.dir === "rtl";
+      if (event.key === "ArrowLeft") goTo(rightToLeft ? next : prev);
+      if (event.key === "ArrowRight") goTo(rightToLeft ? prev : next);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
