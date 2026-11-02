@@ -148,6 +148,10 @@
 .hm6-stage.hm6-i .home-hero-foot { font-size: 14.5px; line-height: 1.7; }
 .hm6-i .home-hero-foot .hm6-foot-lines { color: var(--muted); }
 .hm6-i .hm6-note { width: fit-content; margin-inline: auto; }
+/* The two lines under the title are white on wide screens (owner, 2026-11-01). */
+@media (min-width: 861px) {
+  .hm6-stage.hm6-i .home-hero-lead { color: var(--ink); }
+}
 
 /* I's sources (03) on a slightly lighter ground, so the section under it starts with a clear break, and the sides of its two
    grids closed with an upright line (owner, 2026-10-31). */
