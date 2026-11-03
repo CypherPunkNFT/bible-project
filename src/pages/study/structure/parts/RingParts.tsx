@@ -31,7 +31,7 @@ export function RingVariant({ view, measure, onMeasure, section, onSection }: Va
         <p>{view.insight}</p>
       </div>
       <ul className="spart-c-parts">{parts.map((p) => <li key={p.id}>
-        {section === p.id ? <button type="button" className="spart-c-clear" aria-label={`Clear ${p.name}`} onClick={() => onSection("")}><X size={13} aria-hidden="true" /></button> : <span className="spart-c-clear" aria-hidden="true" />}
+        {section === p.id && <button type="button" className="spart-c-clear" aria-label={`Clear ${p.name}`} onClick={() => onSection("")}><X size={13} aria-hidden="true" /></button>}
         <button type="button" className="spart-c-row" aria-pressed={section === p.id} style={toneStyle(p.id)} onClick={() => pick(section, onSection, p.id)}>
           <span className="spart-c-name"><i />{p.name}</span><span className="spart-c-share">{p.share}%</span>
           <span className="spart-c-bar"><b style={{ width: `${p.share}%` }} /></span><small>{formatNumber(p.value)} {unit} · {p.span}</small></button></li>)}</ul>
