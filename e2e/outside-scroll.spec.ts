@@ -167,7 +167,7 @@ test("outside scroll: book-pair rankings keep their scrollbar outside and select
 
 test("outside scroll: structure evidence stays outside its enclosing source box", async ({ page }) => {
   await page.goto("/study/structure#sections");
-  await page.getByRole("group", { name: "Measure the sections" }).getByRole("button", { name: "Miracles", exact: true }).click();
+  await page.getByRole("group", { name: "Found in the studies" }).getByRole("button", { name: "Miracles", exact: true }).click();
   await page.locator(".measure-evidence summary").click();
   const viewport = page.getByRole("region", { name: "Source passages for the selected measure" });
   await checkScroll(page, viewport, page.locator(".measure-evidence"));

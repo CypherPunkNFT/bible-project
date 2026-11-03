@@ -33,7 +33,7 @@ test("study: complete collections and old links resolve to their canonical Study
   await expect(page.getByLabel("Inspect a book")).toBeVisible();
   await page.goto("/charts?collection=structure#chapters");
   await expect(page).toHaveURL(new RegExp("/study/structure#chapters$"));
-  await expect(page.locator(".chapter-atlas")).toBeVisible();
+  await expect(page.locator(".shape-books")).toBeVisible();
 });
 
 test("study: contents cards navigate within each collection and chart controls survive the return", async ({ page }) => {

@@ -38,7 +38,8 @@ const PrivacyMockup = lazy(() => import("./legal/PrivacyMockup"));
 const StudyConnectionsMockup = lazy(() => import("@/pages/study/connections/ConnectionsPage"));
 const StudyVersionsMockup = lazy(() => import("@/pages/study/versions/EditionsPage"));
 const SupportMockup = lazy(() => import("./legal/SupportMockup"));
-const StructureMockup = lazy(() => import("./structure/StructureMockup"));
+const StructureMockup = lazy(() => import("@/pages/study/structure/StructurePage"));
+const PartsMockup = lazy(() => import("./structure-parts/PartsMockup"));
 const TheologyCardsMockup = lazy(() => import("./theology-cards/TheologyCardsMockup"));
 
 const LOCAL_HOSTS = new Set(["127.0.0.1", "localhost"]);
@@ -107,6 +108,8 @@ export function mockupRoutes() {
     // The Structure collection as one section: parts, then books that open to their chapters and AI summaries, in
     // place of the Chapter atlas (owner, 2026-10-29). No MOCK-UP tag: a mock-up shows only the real page (owner, 2026-10-28).
     <Route key="structure" path="/study/structure_mockup" element={<StructureMockup />} />,
+    // The Structure mock-up's parts container five ways, A the original, with a floating A-E pill (owner, 2026-11-03).
+    <Route key="structure-parts" path="/study/structure_parts_mockup" element={<PartsMockup />} />,
     // Two Scripture & Theology cards four ways each, as the real card: The shape of the Bible's titles, Versions &
     // languages' drawings (owner, 2026-10-29).
     <Route key="theology-cards" path="/study/theology_cards_mockup" element={<TheologyCardsMockup />} />,

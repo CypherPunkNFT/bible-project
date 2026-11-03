@@ -13,6 +13,8 @@ import { ChapterCompanions } from "./ChapterCompanions";
 
 type Metric = "words" | "verses" | "chapters";
 const METRICS: Metric[] = ["words", "verses", "chapters"];
+type Order = "canon" | "longest";
+const ORDERS: [Order, string][] = [["canon", "Bible order"], ["longest", "Longest first"]];
 type BookSummaries = Record<string, { status: "loading" } | { status: "ready"; chapters: Record<string, ChapterSummary> } | { status: "missing" }>;
 
 /** The book lengths; the chosen book opens below the whole list: its chapters as a strip, then the chosen chapter's AI
@@ -20,7 +22,7 @@ type BookSummaries = Record<string, { status: "loading" } | { status: "ready"; c
 export function BookChapters({ library, section, onClearSection }: { library: Library; section: SectionFilter; onClearSection: () => void }) {
   const catalog = useCatalog();
   const [metric, setMetric] = useState<Metric>("words");
-  const [order, setOrder] = useState<"canon" | "longest">("canon");
+  const [order, setOrder] = useState<Order>("canon");
   const [chosen, setChosen] = useState(0); // a chapter index into library.bars; -1 = no book open
   const [summaries, setSummaries] = useState<BookSummaries>({});
   const opened = useRef<HTMLDivElement>(null);
@@ -49,10 +51,22 @@ export function BookChapters({ library, section, onClearSection }: { library: Li
   // The open book sits below the whole list: choosing a book brings it into view (not on first load, Genesis by default).
   const openBook = bar?.book;
   const firstRun = useRef(true);
+  const fromSection = useRef(false);
   useEffect(() => {
     if (firstRun.current) { firstRun.current = false; return; }
+    if (fromSection.current) { fromSection.current = false; return; }
     opened.current?.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   }, [openBook]);
+
+  // Choosing a part while an open book belongs to another part would leave nothing open (and the chapter's hymns, teachers and
+  // studies hidden), so open that part's first book. The page does not scroll: the choice was made in the chart above.
+  useEffect(() => {
+    if (!section || chosen < 0 || library.books[library.bars[chosen].book].section === section) return;
+    const first = library.books.find((b) => b.section === section);
+    if (!first) return;
+    fromSection.current = true;
+    setChosen(first.start);
+  }, [section, chosen, library]);
 
   const summaryOf = (b: Bar): SummaryState => {
     const book = summaries[b.code];
@@ -74,7 +88,10 @@ export function BookChapters({ library, section, onClearSection }: { library: Li
           {METRICS.map((m) => <button key={m} type="button" aria-pressed={metric === m} onClick={() => setMetric(m)}
             className={cn("rounded-full px-3 py-1.5 capitalize", metric === m ? "bg-ink text-page" : "text-muted hover:text-ink")}>{m}</button>)}
         </div>
-        <label>Order<select aria-label="Order" value={order} onChange={(event) => setOrder(event.target.value as "canon" | "longest")}><option value="canon">Bible order</option><option value="longest">Longest first</option></select></label>
+        <div role="group" aria-label="Order" className="inline-flex rounded-full bg-surface-2 p-0.5">
+          {ORDERS.map(([id, label]) => <button key={id} type="button" aria-pressed={order === id} onClick={() => setOrder(id)}
+            className={cn("rounded-full px-3 py-1.5", order === id ? "bg-ink text-page" : "text-muted hover:text-ink")}>{label}</button>)}
+        </div>
         {section ? <span className="shape-hint">Showing the {SECTION_BY_ID[section].name} books · <button type="button" onClick={onClearSection}>Show all 66</button></span>
           : <span className="shape-hint">Choose a book to open its chapters and their summaries.</span>}
       </div>

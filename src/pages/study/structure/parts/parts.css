@@ -1,0 +1,46 @@
+/* The parts container of the shape-of-the-Bible page: the measures as a rail, one ring, the six parts. */
+.spart button { cursor: pointer; }
+/* Shared: grouped measure pills, the passages behind a study measure. */
+.spart-measures { display: flex; flex-wrap: wrap; gap: .8rem 2rem; }
+.spart-group { display: flex; align-items: center; flex-wrap: wrap; gap: .35rem .6rem; }
+.spart-group > span { font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.spart-group > div { display: flex; flex-wrap: wrap; gap: .35rem; }
+.spart-group button { border: 1px solid var(--line); border-radius: 2rem; padding: .5rem .8rem; font-size: .72rem; background: transparent; transition: background .15s, border-color .15s; }
+.spart-group button:hover { border-color: var(--muted); }
+.spart-group button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--page); }
+.spart .section-guide { margin: 1.6rem 0 0; }
+
+/* C · Ring and rail */
+.spart-c-grid { display: grid; grid-template-columns: 13rem minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+.spart-rail { flex-direction: column; gap: 1.6rem; }
+.spart-rail .spart-group { align-items: stretch; flex-direction: column; }
+.spart-rail .spart-group > div { flex-direction: column; gap: 0; }
+.spart-rail .spart-group button { border: 0; border-left: 2px solid var(--line); border-radius: 0; padding: .55rem .9rem; text-align: left; font-size: .8rem; color: var(--muted); }
+.spart-rail .spart-group button[aria-pressed="true"] { background: transparent; border-left-color: var(--accent); color: var(--ink); }
+.spart-c-ring { text-align: center; }
+.spart-c-ring svg { width: 100%; max-width: 23rem; }
+.spart-c-ring path { cursor: pointer; transition: opacity .2s; }
+.spart-ring-number { font: 400 30px var(--font-serif); fill: var(--ink); }
+.spart-ring-unit { font-size: 8px; fill: var(--muted); }
+.spart-c-ring p { max-width: 24rem; margin: 1rem auto 0; font-size: .82rem; line-height: 1.75; color: var(--muted); }
+.spart-c-parts { margin: 0; padding: 0; list-style: none; }
+.spart-c-parts li { display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); align-items: start; border-bottom: 1px solid var(--line); }
+.spart-c-parts .spart-c-row { display: grid; grid-template-columns: 1fr auto; gap: .2rem 1rem; width: 100%; padding: .95rem .75rem; text-align: left; }
+.spart-c-parts .spart-c-row:hover, .spart-c-parts .spart-c-row[aria-pressed="true"] { background: var(--surface-2); }
+.spart-c-name { display: flex; align-items: center; gap: .6rem; font-size: .85rem; }
+.spart-c-name i { width: .6rem; height: .6rem; border-radius: 50%; background: var(--tone); }
+.spart-c-share { font: 400 1.4rem/1 var(--font-serif); color: var(--tone); }
+.spart-c-clear { display: flex; align-items: center; justify-content: center; align-self: start; width: 1.5rem; height: 1.5rem; margin-top: .9rem; }
+button.spart-c-clear { border: 1px solid var(--muted); border-radius: 50%; color: var(--ink); transition: background .15s, color .15s; }
+button.spart-c-clear:hover { background: var(--ink); color: var(--page); }
+.spart-c-bar { grid-column: 1 / -1; height: 3px; background: var(--line); }
+.spart-c-bar b { display: block; height: 100%; background: var(--tone); transition: width .3s; }
+.spart-c-parts small { grid-column: 1 / -1; font-size: .65rem; color: var(--muted); }
+
+@media (max-width: 1000px) {
+  .spart-c-grid { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
+  .spart-rail { flex-direction: row; flex-wrap: wrap; }
+  .spart-rail .spart-group > div { flex-direction: row; flex-wrap: wrap; gap: .35rem; }
+  .spart-rail .spart-group button { border: 1px solid var(--line); border-radius: 2rem; }
+}
+@media (prefers-reduced-motion: reduce) { .spart * { transition: none !important; } }

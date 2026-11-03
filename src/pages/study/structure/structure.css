@@ -1,4 +1,4 @@
-/* /study/structure_mockup: two sections, each titled above its own container. Book rows follow charts.css .size-bars;
+/* /study/structure (and /study/structure_mockup): two sections, each titled above its own container. Book rows follow charts.css .size-bars;
    the open book's chapter card is the Library page's own .lib-chapter (library.css). */
 .shape-section { margin-top: 2.75rem; }
 .shape-section-head { display: grid; grid-template-columns: auto 1fr; align-items: start; gap: 1.6rem; margin: 0 0 1.75rem; }

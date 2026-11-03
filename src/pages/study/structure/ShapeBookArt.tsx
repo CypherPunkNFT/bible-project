@@ -1,6 +1,6 @@
 // The Structure page's heading drawing: an open Bible in line art whose right page turns into a row of chapter bars in
 // the six parts' colours, rising and settling on a slow loop, with a ribbon marker swaying beneath. Still under
-// reduced motion (structure-mockup.css).
+// reduced motion (structure.css).
 
 /** Bars in canon order, coloured by part: a small echo of the chapter strip below. */
 const BARS: { part: string; h: number }[] = [
