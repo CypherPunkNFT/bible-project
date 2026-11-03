@@ -28,3 +28,19 @@ export function transcriptTurns(text: string, record?: TranscriptRecord) {
     paragraphs: normalized.slice(label.index + label[0].length, labels[i + 1]?.index ?? normalized.length).trim().split(/\n\s*\n/),
   }));
 }
+
+/** The transcript in a translated language (data/i18n/<folder>/transcripts/<name>.json, written by
+ * content/translation/apply.py), or null when it is missing or its speaker turns no longer line up with the English
+ * ones; the viewer then stays in English rather than show a broken exchange. */
+export async function fetchTranslatedTranscript(folder: string, record: TranscriptRecord): Promise<string | null> {
+  try {
+    const response = await fetch(`/data/i18n/${folder}/transcripts/${record.file.replace(/\.txt$/, '.json')}`, { cache: 'no-cache' });
+    if (!response.ok || !(response.headers.get('content-type') ?? '').includes('json')) return null;
+    const text = ((await response.json()) as { text?: unknown }).text;
+    if (typeof text !== 'string') return null;
+    return transcriptTurns(text, record).length === record.turns ? text : null;
+  } catch (error) {
+    console.warn(`debate transcript: could not read the ${folder} translation of ${record.file} (${String(error)}); showing the English`);
+    return null;
+  }
+}

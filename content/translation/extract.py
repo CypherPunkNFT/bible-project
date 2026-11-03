@@ -422,6 +422,13 @@ def document_strings(pattern: str, keep) -> list[str]:
     return list(found)
 
 
+def debate_section_titles() -> list[str]:
+    """The debate viewer's section titles ("Craig: opening"), kept in the transcripts' index. They are page text, so they
+    are appended as page strings and swapped on screen through ui.json."""
+    index = json.loads((SITE / "content/apologetics/transcripts/index.json").read_text("utf-8"))
+    return list(dict.fromkeys(section["title"] for record in index.values() for section in record["sections"]))
+
+
 def append(out: Path, kind: str, texts: list[str], max_strings: int = CHUNK_STRINGS) -> None:
     """Adds the strings of a kind not yet in any chunk as new chunks after the last one, so earlier chunk numbers (and
     their translations) never move. Safe to rerun after the sources change."""
@@ -449,7 +456,10 @@ def main() -> None:
     parser.add_argument("--resources", action="store_true", help="append the Resources files' text as new chunks")
     parser.add_argument("--documents", action="store_true",
                         help="append the debate transcripts and study pages as new chunks, at most DOCUMENT_STRINGS each")
+    parser.add_argument("--sections", action="store_true", help="append the debate viewer's section titles as page chunks")
     args = parser.parse_args()
+    if args.sections:
+        append(args.out, PAGE_KIND, debate_section_titles())
     if args.pages:
         append(args.out, PAGE_KIND, page_strings() + resource_page_strings())
     if args.resources:
@@ -457,7 +467,7 @@ def main() -> None:
     if args.documents:
         for kind, pattern, keep in DOCUMENTS:
             append(args.out, kind, document_strings(pattern, keep), DOCUMENT_STRINGS)
-    if args.pages or args.resources or args.documents:
+    if args.sections or args.pages or args.resources or args.documents:
         return
     target = args.out / "in"
     if target.exists() and any(target.iterdir()):

@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import type { ApDebate } from '@/data/apologetics-types';
 import { studyById } from '@/data/apologetics-library';
 import type { ApNotebook } from '@/lib/apologetics-notebook';
-import { transcripts, transcriptTurns } from '@/lib/debate-transcripts';
+import { fetchTranslatedTranscript, transcripts, transcriptTurns } from '@/lib/debate-transcripts';
+import { languageDirection, languageFolder, useSiteLanguage } from '@/lib/language';
 import { apSourceUrl } from '@/lib/reading-sources';
 import { OutsideScroll } from '@/components/OutsideScroll';
 import { ApNote, StudyCard } from '@/components/ApologeticsParts';
@@ -20,13 +21,26 @@ export function DebateViewerPage({ debate, book, returnTo }: { debate: ApDebate;
   const videoId = debate.recording ? new URL(debate.recording.url).searchParams.get('v') : null;
   const [text, setText] = useState(''), [error, setError] = useState(false);
   const [active, setActive] = useState(0), [query, setQuery] = useState('');
+  const language = useSiteLanguage(), folder = languageFolder(language);
+  const [translated, setTranslated] = useState<{ folder: string; text: string } | null>(null);
   useEffect(() => {
     let live = true;
     setText(''); setError(false); setActive(0); setQuery('');
     if (file && bodies[file]) bodies[file]().then(body => { if (live) setText(body); }).catch(() => { if (live) setError(true); });
     return () => { live = false; };
   }, [file]);
-  const turns = useMemo(() => text ? transcriptTurns(text, record) : [], [text, record]);
+  // The reader's language: the English stays on screen until the translated text arrives.
+  useEffect(() => {
+    let live = true;
+    if (!folder || !record) { setTranslated(null); return; }
+    setTranslated(null);
+    fetchTranslatedTranscript(folder, record).then(body => { if (live && body) setTranslated({ folder, text: body }); });
+    return () => { live = false; };
+  }, [folder, record]);
+  const inLanguage = folder && translated?.folder === folder ? translated.text : null;
+  const shown = inLanguage ?? text;
+  const paragraphLanguage = inLanguage ? language : undefined;
+  const turns = useMemo(() => shown ? transcriptTurns(shown, record) : [], [shown, record]);
   const section = record?.sections[active], searching = Boolean(query.trim());
   const words = query.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
   const visible = searching ? turns.filter(turn => words.every(word => `${turn.speaker} ${turn.paragraphs.join(' ')}`.toLocaleLowerCase().includes(word))) :
@@ -43,7 +57,7 @@ export function DebateViewerPage({ debate, book, returnTo }: { debate: ApDebate;
           <p className="ap-eyebrow">{searching ? 'All transcript sections' : `Section ${active + 1}`}</p><h2>{searching ? 'Search results' : section.title}</h2><p className="ld-text-note">{record.segments ? 'Supplied text · Original source order' : 'Supplied transcript · Original speaking order'}</p>
           {!text && <p role={error ? 'alert' : 'status'}>{error ? 'The transcript could not load. Use Download text beside the video.' : 'Loading the transcript…'}</p>}
           {text && !visible.length && <p>No matching passages. Clear the search to return to the transcript.</p>}
-          {visible.map(turn => <article key={turn.number} data-turn={turn.number} data-kind={turn.kind} className={turn.speaker.includes('Lennox') ? 'ld-turn ld-lennox' : 'ld-turn'}><header><b className="ld-avatar">{initials(turn.speaker)}</b><span className="ld-speaker">{turn.speaker}</span><small>{turn.kind === 'reflection' ? 'Written reflection' : turn.kind === 'source' ? 'Source material' : record.unit ? `Passage ${turn.number}` : `Turn ${turn.number}`}</small></header>{turn.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}</article>)}
+          {visible.map(turn => <article key={turn.number} data-turn={turn.number} data-kind={turn.kind} className={turn.speaker.includes('Lennox') ? 'ld-turn ld-lennox' : 'ld-turn'}><header><b className="ld-avatar">{initials(turn.speaker)}</b><span className="ld-speaker">{turn.speaker}</span><small>{turn.kind === 'reflection' ? 'Written reflection' : turn.kind === 'source' ? 'Source material' : record.unit ? `Passage ${turn.number}` : `Turn ${turn.number}`}</small></header>{turn.paragraphs.map((paragraph, index) => <p key={index} lang={paragraphLanguage} dir={paragraphLanguage ? languageDirection(language) : undefined}>{paragraph}</p>)}</article>)}
         </OutsideScroll>
         <div className="ld-reading-footer"><button type="button" disabled={searching || active === 0} onClick={() => choose(active - 1)}><ArrowLeft size={12} /> Last segment</button><span aria-live="polite">{searching ? 'Search results' : `Segment ${active + 1} of ${record.sections.length}`}</span><button type="button" disabled={searching || active === record.sections.length - 1} onClick={() => choose(active + 1)}>Next segment <ArrowRight size={12} /></button></div>
       </div>

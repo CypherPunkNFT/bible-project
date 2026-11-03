@@ -6,14 +6,17 @@ code's own text goes to data/i18n/<lang>/ui.json as {English: translation}, whic
 (src/lib/page-translator.ts); seed/<lang>.json fills page strings the chunks have not translated yet. The Resources
 files bundled with the code (extract.RESOURCES, src/data/resources/) get copies in data/i18n/<lang>/resources/.
 A string with no translation stays English. data/ is git-ignored, so rerun this after a data rebuild or new chunks.
-Files under public/ are not translated yet. Usage: python apply.py [--repo DIR] [es pt ...]
+The debate transcripts (content/apologetics/transcripts/*.txt) get a translated copy of the whole text in
+data/i18n/<lang>/transcripts/<name>.json as {"text": ...}, which the debate viewer reads (src/lib/debate-transcripts.ts).
+Other files under public/ are not translated yet. Usage: python apply.py [--repo DIR] [es pt ...]
 """
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
-from extract import DEFAULT_OUT, PAGE_KIND, RESOURCES, SITE, SOURCES, string_id, walk
+from extract import DEFAULT_OUT, PAGE_KIND, RESOURCES, SITE, SOURCES, paragraphs, string_id, walk
 
 sys.stdout.reconfigure(encoding="utf-8")
 SEED = Path(__file__).resolve().parent / "seed"
@@ -38,6 +41,78 @@ def page_strings(repo: Path, lang: str, translated: dict[str, str]) -> dict[str,
         english = json.loads((repo / "in" / f"{entry['chunk']}.json").read_text("utf-8"))["strings"]
         strings.update({text: translated[key] for key, text in english.items() if key in translated})
     return strings
+
+
+TRANSCRIPT_KIND = "transcript"
+TRANSCRIPTS = SITE / "content" / "apologetics" / "transcripts"
+BLOCK_BREAK = re.compile(r"(\n\s*\n)")
+# The Lennox-Dawkins transcript has no line map: the viewer finds its turns by these labels (src/lib/debate-transcripts.ts),
+# so a translation that rewrote or dropped one gets the English label put back.
+SPEAKER_LABEL = re.compile(r"^(?:Larry Taunton|Bill Pryor|Richard Dawkins|John Lennox|Dr\. Lennox): ")
+
+
+def translated_transcript(text: str, known: dict[str, str]) -> tuple[str, int, int, int]:
+    """The transcript with every block of text between blank lines replaced by its translation, the blank lines kept.
+    Returns the text and how many blocks were translated, left in English, and kept English because the translation's
+    line count differed (the viewer finds speaker turns by line number, so a block must keep its lines)."""
+    parts = BLOCK_BREAK.split(text)
+    done = missing = reshaped = 0
+    for index in range(0, len(parts), 2):
+        block = parts[index].strip()
+        if not block:
+            continue
+        pieces = paragraphs(block)
+        if not pieces:
+            continue
+        found = [known.get(string_id(TRANSCRIPT_KIND, piece)) for piece in pieces]
+        if not all(found):
+            missing += 1
+            continue
+        joined = " ".join(found)
+        label = SPEAKER_LABEL.match(block)
+        if label and not joined.startswith(label.group()):
+            joined = label.group() + (joined.split(":", 1)[1].lstrip() if ":" in joined[:60] else joined)
+        if joined.count("\n") != block.count("\n") or BLOCK_BREAK.search(joined):
+            reshaped += 1
+            continue
+        lead = parts[index][: len(parts[index]) - len(parts[index].lstrip())]
+        trail = parts[index][len(parts[index].rstrip()):]
+        parts[index] = lead + joined + trail
+        done += 1
+    return "".join(parts), done, missing, reshaped
+
+
+def apply_transcripts(by_kind: dict[str, dict[str, str]], target: Path) -> str:
+    known = by_kind.get(TRANSCRIPT_KIND, {})
+    out = target / "transcripts"
+    out.mkdir(parents=True, exist_ok=True)
+    totals = [0, 0, 0]
+    for path in sorted(TRANSCRIPTS.glob("*.txt")):
+        text, *counts = translated_transcript(path.read_text("utf-8"), known)
+        (out / f"{path.stem}.json").write_text(json.dumps({"text": text}, ensure_ascii=False, separators=(",", ":")), "utf-8")
+        totals = [a + b for a, b in zip(totals, counts)]
+    return f"{totals[0]} transcript blocks translated, {totals[1]} left in English, {totals[2]} kept English for their line count"
+
+
+def apologetics_strings(by_kind: dict[str, dict[str, str]]) -> dict[str, str]:
+    """{English: translation} for the debate and study documents in public/content/apologetics/*.json. The Apologetics
+    pages show these words from code generated from the same documents (src/generated/apologetics.ts), so they are
+    swapped on screen like the page text, through ui.json."""
+    pairs: dict[str, str] = {}
+    for spec in SOURCES:
+        if not spec[1].startswith("public/content/apologetics/"):
+            continue
+        known = by_kind.get(spec[0], {})
+
+        def visit(text: str) -> str | None:
+            found = known.get(string_id(spec[0], text))
+            if found:
+                pairs[text] = found
+            return found
+
+        for path in sorted(SITE.glob(spec[1])):
+            walk(json.loads(path.read_text("utf-8")), "", spec, visit)
+    return pairs
 
 
 def keep_english_notes(english: object, copy: object) -> None:
@@ -82,9 +157,11 @@ def apply(repo: Path, lang: str) -> None:
             out.write_text(json.dumps(copy, ensure_ascii=False, separators=(",", ":")), "utf-8")
             files += 1
     ui = page_strings(repo, lang, by_kind.get(PAGE_KIND, {}))
+    ui.update({text: found for text, found in apologetics_strings(by_kind).items() if text not in ui})
     target.mkdir(parents=True, exist_ok=True)
     (target / "ui.json").write_text(json.dumps(ui, ensure_ascii=False, separators=(",", ":")), "utf-8")
-    print(f"{lang}: {files} files, {swapped} strings translated, {kept} left in English; {len(ui)} page strings")
+    transcripts = apply_transcripts(by_kind, target)
+    print(f"{lang}: {files} files, {swapped} strings translated, {kept} left in English; {len(ui)} page strings; {transcripts}")
 
 
 def main() -> None:
