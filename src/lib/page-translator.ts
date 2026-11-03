@@ -6,6 +6,7 @@
 // A text matches when it is one of the known strings, or one with other numbers, or known pieces joined by " · ". React keeps whatever it rendered; when it writes a
 // text or label again, the observer swaps it again. Files read after the change come in the new language (data.ts).
 // Anything inside translate="no" is left alone.
+import { fadeWordsIn, fadeWordsOut, holdNewWords } from "./language-fade";
 import { languageDirection, languageFolder, loadedData, setSiteLanguage, siteLanguage, type LanguageCode } from "./language";
 
 const ATTRIBUTES = ["aria-label", "title", "placeholder", "alt"];
@@ -19,13 +20,7 @@ let observer: MutationObserver | null = null;
 // What each text or label said before it was changed: it goes back to exactly that, however many languages came between.
 const originals = new WeakMap<Text | Attr, { source: string; written: string }>();
 
-const FADE_OUT_MS = 260;
-const FADE_IN_MS = 420;
 const BIBLE_WAIT_MS = 800;
-// What changes on a language change. The word wall and the drawings are not here: they stay on screen and keep moving.
-const FADED_WORDS = ".site-navigation, footer, #main:not(:has(.home-hub)), .home-hub > :not(.home-opening), .home-hero-copy, .hm6-note-frame, .home-doorway-copy, .home-doorway-art text, .language-menu-panel";
-// Going to or from a right-to-left language also moves these to the other side.
-const FADED_WHEN_MIRRORED = ".site-header-row, .home-doorways, .correction";
 const wait = (ms: number) => new Promise((done) => setTimeout(done, ms));
 
 const normal = (text: string) => text.replace(/\s+/g, " ").trim();
@@ -187,7 +182,10 @@ function watch(): void {
     for (const record of records) {
       if (record.type === "characterData") translateText(record.target as Text);
       else if (record.type === "attributes") translateAttribute(record.target as Element, record.attributeName!);
-      else record.addedNodes.forEach(translateTree);
+      else record.addedNodes.forEach((node) => {
+        translateTree(node);
+        holdNewWords(node);
+      });
     }
   });
   observer.observe(document.body, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ATTRIBUTES });
@@ -202,28 +200,6 @@ function markDocument(code: LanguageCode, folder: string | null): void {
   else root.removeAttribute("translate");
   document.querySelector("meta[name='google'][content='notranslate']")?.remove();
   if (folder) document.head.append(Object.assign(document.createElement("meta"), { name: "google", content: "notranslate" }));
-}
-
-/** Runs apart from the page's work, so it reaches the screen however busy the page is, and is finished before anything changes. */
-function fadeOut(mirrors: boolean): Animation[] {
-  const found = [...document.querySelectorAll(mirrors ? `${FADED_WORDS}, ${FADED_WHEN_MIRRORED}` : FADED_WORDS)];
-  // Further down the page nobody sees it, and a fade over all of it would itself hold the page up.
-  const near = (element: Element) => {
-    const box = element.getBoundingClientRect();
-    return box.bottom > -innerHeight / 2 && box.top < innerHeight * 1.5;
-  };
-  return found
-    .filter((element) => near(element) && !found.some((other) => other !== element && other.contains(element)))
-    .map((element) => element.animate({ opacity: 0 }, { duration: FADE_OUT_MS, easing: "ease-in-out", fill: "forwards" }));
-}
-
-function fadeBackIn(fading: Animation[]): Promise<unknown> {
-  return Promise.all(fading.map(async (fade) => {
-    fade.effect?.updateTiming({ duration: FADE_IN_MS });
-    fade.reverse();
-    await fade.finished;
-    fade.cancel();
-  }));
 }
 
 /** A reader on screen moves to the new language's Bible just after the change: the words come back once its verses have arrived. */
@@ -259,10 +235,10 @@ export async function chooseSiteLanguage(code: LanguageCode): Promise<void> {
   const folders = [previous, folder].filter((name): name is string => name !== null);
   const root = document.documentElement;
   const fades = typeof root.animate === "function" && !window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-  const fading = fades ? fadeOut(languageDirection(code) !== root.dir) : [];
+  const fadedOut = fades ? fadeWordsOut(languageDirection(code) !== root.dir) : null;
   if (fades) root.dataset.languageFade = "true"; // a language change is not a move to another page: no page slide (PageTransitions)
   await Promise.all([
-    ...fading.map((fade) => fade.finished),
+    fadedOut,
     ...folders.flatMap((name) => [loadStrings(name, null), ...[...loadedData].map((path) => loadStrings(name, path))]),
   ]);
   setSiteLanguage(code);
@@ -273,5 +249,5 @@ export async function chooseSiteLanguage(code: LanguageCode): Promise<void> {
   if (!fades) return;
   await new Promise((painted) => requestAnimationFrame(() => setTimeout(painted)));
   await bibleInLanguage(code);
-  void fadeBackIn(fading).finally(() => delete root.dataset.languageFade);
+  void fadeWordsIn().finally(() => delete root.dataset.languageFade);
 }
