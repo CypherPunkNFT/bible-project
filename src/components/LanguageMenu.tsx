@@ -1,9 +1,8 @@
-// The header's language button, between Contact and Search (owner, 2026-10-31). The site is being translated, Spanish
-// and Brazilian Portuguese first; until a translation is published the button shows only on this computer's preview,
-// so a release cannot put a menu of languages the site does not have yet on bibleguide.io.
+// The header's language button, between Contact and Search (owner, 2026-10-31). Published with five languages besides
+// English (owner, 2026-11-02).
 import { Check, Languages, LoaderCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { LANGUAGES, PREVIEW_ONLY, useSiteLanguage, type LanguageCode } from "@/lib/language";
+import { LANGUAGES, useSiteLanguage, type LanguageCode } from "@/lib/language";
 import { chooseSiteLanguage, prepareSiteLanguage } from "@/lib/page-translator";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +20,6 @@ export function LanguageMenu() {
     window.addEventListener("keydown", escape);
     return () => { document.removeEventListener("pointerdown", close); window.removeEventListener("keydown", escape); };
   }, [open]);
-  if (!PREVIEW_ONLY) return null;
   const choose = (code: LanguageCode) => {
     if (changingTo) return;
     if (code === applied) {

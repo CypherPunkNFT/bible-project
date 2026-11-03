@@ -6,6 +6,7 @@ import {preparePopulationHosting} from './prepare-population-hosting.mjs';
 import {pruneReleaseAssets} from './prune-release-assets.mjs';
 import { packPersonFiles } from "./pack-person-files.ts";
 import { packReaderData } from "./pack-reader-data.mjs";
+import { assertTranslationsComplete, packTranslatedPeople } from "./release-translations.ts";
 
 // Produces a fresh deployable directory. Never creates a cloud resource or deploys it.
 const started = Date.now();
@@ -35,14 +36,15 @@ stage("Code files pruned");
 // dereference: follow links/junctions (a clean release worktree links data/ in), never ship a link.
 // data/graph (scripts/build-graph.py) feeds only the local connections mock-up; it stays out until the owner approves it.
 const graphData = path.resolve("data", "graph");
-// data/i18n (content/translation/apply.py): the translated copies, preview-only until a language is published.
-const translatedData = path.resolve("data", "i18n");
+// data/i18n (content/translation/apply.py): the translated copies, published 2026-11-02; refused unless complete.
+console.log("Translations:", await assertTranslationsComplete(path.resolve("data")));
 // data/text and data/xref (42,000 files) are not copied: the reader packs below read them where they are and write only the groups.
 const packedData = [path.resolve("data", "text"), path.resolve("data", "xref")];
-await cp("data", path.join(site, "data"), { recursive: true, dereference: true, filter: (source) => ![graphData, translatedData, ...packedData].includes(path.resolve(source)) });
+await cp("data", path.join(site, "data"), { recursive: true, dereference: true, filter: (source) => ![graphData, ...packedData].includes(path.resolve(source)) });
 stage("Data copied");
 // One file per person would push the release past 20,000 files; the release copy gets packs instead.
 console.log("Person packs:", await packPersonFiles(site));
+console.log("Translated person packs:", await packTranslatedPeople(site));
 stage("Person packs");
 // After the person packs, so the content stamp covers them. Only for a front end that reads the grouped layout.
 const bundles = (await readdir(path.join(site, "assets"))).filter((name) => name.endsWith(".js"));

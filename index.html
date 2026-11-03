@@ -66,13 +66,21 @@
         console.warn("theme: localStorage unavailable", error);
       }
       document.documentElement.dataset.theme = theme;
-      // Same for Arabic, which reads right to left, so a page does not flip after it has painted (src/lib/language.ts).
+      // Same for a translated language (src/lib/language.ts): Arabic reads right to left, so a page does not flip after it has
+      // painted, and the ready-made English page stays hidden until the language's words have loaded (src/main.tsx shows it),
+      // or for 4 s at most should the code not arrive.
       try {
-        if (["127.0.0.1", "localhost"].includes(location.hostname) && localStorage.getItem("bp-language") === "ar") document.documentElement.dir = "rtl";
+        const language = localStorage.getItem("bp-language");
+        if (language === "ar") document.documentElement.dir = "rtl";
+        if (language && language !== "en") {
+          document.documentElement.dataset.languageLoading = "true";
+          setTimeout(() => delete document.documentElement.dataset.languageLoading, 4000);
+        }
       } catch (error) {
         console.warn("language: localStorage unavailable", error);
       }
     </script>
+    <style>html[data-language-loading] #root { visibility: hidden; }</style>
   </head>
   <body>
     <div id="root"></div>

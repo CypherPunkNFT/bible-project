@@ -8,10 +8,12 @@ const root = document.getElementById("root");
 if (!root) throw new Error("main: #root element missing from index.html");
 
 // English starts at once; a translated language waits for its page strings so the first paint is not English.
-void startPageTranslator().then(() =>
+void startPageTranslator().then(() => {
   createRoot(root).render(
     <StrictMode>
       <App />
     </StrictMode>,
-  ),
-);
+  );
+  // index.html hid the page while a translated language's words loaded; they have, and the first render is drawn.
+  requestAnimationFrame(() => setTimeout(() => delete document.documentElement.dataset.languageLoading));
+});
