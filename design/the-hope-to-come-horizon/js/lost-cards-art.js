@@ -40,8 +40,8 @@ window.LOST_ART = (() => {
     }
     return `<path d="M${n(x - size * .1)} ${base}C${n(x - size * .08)} ${n(base - size)} ${n(x - size * .05)} ${n(base - size * 1.3)} ${x} ${n(base - size * 1.6)}C${n(x + size * .05)} ${n(base - size * 1.3)} ${n(x + size * .08)} ${n(base - size)} ${n(x + size * .12)} ${base}Z" fill="${bark}"/>${blobs.join("")}${fruits.join("")}`;
   };
-  const meadow = (random, y0, y1, width, count) => repeat(count, () => {
-    const x = random() * width, y = y0 + random() * (y1 - y0), tall = 6 + random() * 10;
+  const meadow = (random, y0, y1, width, count, x0 = 0) => repeat(count, () => {
+    const x = x0 + random() * (width - x0), y = y0 + random() * (y1 - y0), tall = 6 + random() * 10;
     return random() < .3
       ? `<circle cx="${n(x)}" cy="${n(y - tall)}" r="${n(2 + random() * 2)}" fill="${random() < .5 ? "#f3d27a" : "#fff6e0"}"/><path d="M${n(x)} ${n(y)}V${n(y - tall)}" stroke="#2f6b3a" stroke-width="1.2"/>`
       : `<path d="M${n(x)} ${n(y)}q${n(-2 + random() * 4)} ${n(-tall / 2)} ${n(-3 + random() * 6)} ${n(-tall)}" stroke="#3d7a3f" stroke-width="1.3" fill="none"/>`;
@@ -68,6 +68,8 @@ window.LOST_ART = (() => {
 
   const person = (x, base, s, colour, raised) => `<path d="M${n(x - 14 * s)} ${base}C${n(x - 14 * s)} ${n(base - 22 * s)} ${n(x - 10 * s)} ${n(base - 30 * s)} ${n(x)} ${n(base - 30 * s)}C${n(x + 10 * s)} ${n(base - 30 * s)} ${n(x + 14 * s)} ${n(base - 22 * s)} ${n(x + 14 * s)} ${base}Z" fill="${colour}"/><circle cx="${n(x)}" cy="${n(base - 38 * s)}" r="${n(8 * s)}" fill="${colour}"/>${raised ? `<path d="M${n(x - 10 * s)} ${n(base - 26 * s)}L${n(x - 19 * s)} ${n(base - 54 * s)}M${n(x + 10 * s)} ${n(base - 26 * s)}L${n(x + 19 * s)} ${n(base - 54 * s)}" stroke="${colour}" stroke-width="${n(4.5 * s)}" stroke-linecap="round"/>` : ""}`;
   const deadBush = (random, x, y, r) => `<path d="${repeat(9, (i) => { const a = (i / 9) * Math.PI * 2 + random() * .4; return `M${x} ${y}L${n(x + Math.cos(a) * r)} ${n(y + Math.sin(a) * r)}M${n(x + Math.cos(a) * r * .6)} ${n(y + Math.sin(a) * r * .6)}l${n(Math.cos(a + .7) * r * .3)} ${n(Math.sin(a + .7) * r * .3)}`; })}" stroke="#55432f" stroke-width="1.8" stroke-linecap="round"/>`;
+  const PROFILE = "M0 100C0 80 -5 60 -5 45C-5 15 15 0 40 0C62 0 75 15 76 32L78 40L86 52L78 56L80 62L77 66L79 70L74 76C70 82 62 84 56 84L54 100Z";
+  const profile = (x, base, s, tilt, colour, lit, veiled) => `<g transform="translate(${x} ${base}) rotate(${tilt}) scale(${s}) translate(0 -100)"><path d="${PROFILE}" fill="${colour}"${lit ? ' stroke="#f6dc8c" stroke-width="1.6"' : ""}/>${veiled ? '<path d="M40 2C70 4 96 30 94 70C93 84 90 94 88 104H52C66 80 72 50 62 26C56 14 48 6 40 2Z" fill="#8a8378" opacity=".5"/>' : ""}</g>`;
   const RAINBOW = ["#e46a5a", "#f0a24a", "#f3d25a", "#7cc06a", "#5aa6d6", "#8a74c8"];
 
   // ── The rows, in the study's order ──
@@ -108,13 +110,12 @@ window.LOST_ART = (() => {
         return svg("0 0 800 300", `${back("lta", [[0, "#16131a"], [.6, "#4a2a24"], [1, "#7a3e26"]])}${stars(random, 30, 800, 90)}${moon(420, 60, 15, .6)}<circle cx="630" cy="236" r="48" fill="#d96b32"/><circle cx="630" cy="236" r="64" fill="#d96b32" opacity=".25"/><path d="M0 300V236C200 232 400 240 800 234V300Z" fill="#1c1513"/>${bareTree(520, 238, 18, 143, "#1c1513")}${bareTree(740, 236, 22, 145, "#1c1513")}`);
       },
       found: () => {
-        const random = seeded(147), STONES = ["#7fae8f", "#3d6fb5", "#b9c7d6", "#3f9a6a", "#c8735a", "#b8433a", "#d8c95a", "#6bb5b0", "#e3b54a", "#8fbf6a", "#d9783a", "#8a5bb0"];
+        const random = seeded(147);
         const rays = repeat(30, (i) => { const a = Math.PI + (i / 29) * Math.PI; return `M${n(615 + Math.cos(a) * 120)} ${n(190 + Math.sin(a) * 120)}L${n(615 + Math.cos(a) * 700)} ${n(190 + Math.sin(a) * 700)}`; });
         const crenel = (x0, x1, top) => repeat(Math.floor((x1 - x0) / 16), (i) => `<rect x="${x0 + i * 16 + 3}" y="${top - 8}" width="10" height="9" fill="url(#ltw)"/>`);
         const towers = [[440, 62], [525, 84], [600, 118], [690, 84], [770, 62]].map(([x, tall]) => `<rect x="${x}" y="${222 - tall}" width="32" height="${tall}" fill="url(#ltw)" stroke="#e3bc5c" stroke-width="1.2"/>${crenel(x - 3, x + 37, 222 - tall)}`).join("");
         const gates = [565, 615, 665].map((x) => `<circle cx="${x}" cy="206" r="16" fill="#ffffff" opacity=".55"/><path d="M${x - 10} 222V206a10 10 0 0 1 20 0V222Z" fill="#ffffff"/>`).join("");
-        const bands = STONES.map((colour, i) => `<rect x="${n(436 + i * 30.5)}" y="222" width="30.5" height="12" fill="${colour}"/>`).join("");
-        return svg("0 0 800 300", `${glow("ltg", [[0, "#ffffff"], [.3, "#fff4cc"], [1, "#f8ecc0", 0]])}${grad("ltw", [[0, "#fffaf0"], [1, "#f1cf72"]])}${back("ltb", [[0, "#fdf6dc"], [1, "#f3f3d0"]])}<ellipse cx="615" cy="190" rx="560" ry="300" fill="url(#ltg)"/><path d="${rays}" stroke="#f1d58a" stroke-width="2" opacity=".5"/><circle cx="615" cy="180" r="120" fill="#ffffff" opacity=".45"/><rect x="436" y="172" width="366" height="50" fill="url(#ltw)" stroke="#e3bc5c" stroke-width="1.2"/>${crenel(436, 802, 172)}${towers}${gates}${bands}<path d="M0 300V234C200 228 400 238 800 232V300Z" fill="#c6e3a0"/><path d="M606 234H624L690 300H540Z" fill="#fff4cf" opacity=".95"/>${crownTree(400, 266, 22, 151)}${meadow(random, 240, 300, 800, 160)}`);
+        return svg("0 0 800 300", `${glow("ltg", [[0, "#ffffff"], [.3, "#fff4cc"], [1, "#f8ecc0", 0]])}${grad("ltw", [[0, "#fffaf0"], [1, "#f1cf72"]])}${back("ltb", [[0, "#fdf6dc"], [1, "#f3f3d0"]])}<ellipse cx="615" cy="190" rx="560" ry="300" fill="url(#ltg)"/><path d="${rays}" stroke="#f1d58a" stroke-width="2" opacity=".5"/><circle cx="615" cy="180" r="120" fill="#ffffff" opacity=".45"/><rect x="436" y="172" width="366" height="50" fill="url(#ltw)" stroke="#e3bc5c" stroke-width="1.2"/>${crenel(436, 802, 172)}${towers}${gates}<path d="M0 300V234C200 228 400 238 800 232V300Z" fill="#c6e3a0"/><path d="M606 234H624L690 300H540Z" fill="#fff4cf" opacity=".95"/>${crownTree(400, 266, 22, 151)}${meadow(random, 240, 300, 800, 160)}`);
       },
     },
     "The river": {
@@ -128,7 +129,7 @@ window.LOST_ART = (() => {
       found: () => {
         const random = seeded(61), water = "M560 0C545 70 610 120 585 180S500 260 520 300H700C640 260 690 210 660 160S600 60 600 0Z";
         const glints = repeat(22, () => { const y = random() * 290, x = 570 + (y / 300) * 40 + random() * 40; return `M${n(x)} ${n(y)}h${n(6 + random() * 10)}`; });
-        return svg("0 0 800 300", `${back("rb", [[0, "#e8f2c9"], [1, "#a6cf84"]])}${meadow(random, 40, 300, 800, 160)}<path d="${water}" fill="#6fbccb"/><path d="${glints}" stroke="#e9fbff" stroke-width="1.6" stroke-linecap="round"/>${crownTree(500, 150, 26, 63)}${crownTree(735, 130, 30, 65)}${crownTree(470, 270, 22, 67)}${crownTree(760, 275, 24, 69)}`);
+        return svg("0 0 800 300", `${back("rb", [[0, "#e8f2c9"], [1, "#a6cf84"]])}${meadow(random, 40, 300, 800, 130, 520)}${meadow(random, 262, 300, 520, 30)}<path d="${water}" fill="#6fbccb"/><path d="${glints}" stroke="#e9fbff" stroke-width="1.6" stroke-linecap="round"/>${crownTree(548, 140, 24, 63)}${crownTree(735, 130, 30, 65)}${crownTree(470, 270, 22, 67)}${crownTree(760, 275, 24, 69)}`);
       },
     },
     "The tree": {
@@ -206,19 +207,61 @@ window.LOST_ART = (() => {
       },
     },
     "The face": {
-      line: "A cleft in the rock, with the light passing beyond the ridge; then a crowd looking up into the light, the emerald rainbow round it. No figure is drawn in the light.",
       wide: true,
-      lost: () => {
-        const random = seeded(221);
-        return svg("0 0 1400 300", `${glow("fca", [[0, "#f1c35a", .5], [1, "#f1c35a", 0]])}${back("fcb", [[0, "#07080b"], [1, "#1a1c22"]], 1400)}${stars(random, 70, 1400, 160)}<ellipse cx="1080" cy="60" rx="260" ry="120" fill="url(#fca)"/><path d="M640 300L760 170L860 130L960 80L1040 60L1120 80L1220 120L1320 180L1400 200V300Z" fill="#1b1d22"/><path d="M860 130L960 80L1040 60L1120 80L1220 120" stroke="#c9a65a" stroke-width="2" fill="none" opacity=".75"/><path d="M1010 300L1022 210L1030 150L1040 120L1046 160L1052 220L1060 300Z" fill="#050507"/><path d="M700 300L820 210L900 230L980 200V300ZM1120 300L1180 230L1280 250L1400 230V300Z" fill="#121318"/>`);
-      },
-      found: () => {
-        const random = seeded(231), cx = 1000, cy = 130, TONES = ["#5a4134", "#3f3a4e", "#34465a", "#6b5236", "#4a3a3a", "#3c4a3c"];
-        const rays = repeat(44, (i) => { const a = (i / 44) * Math.PI * 2; return `M${n(cx + Math.cos(a) * 90)} ${n(cy + Math.sin(a) * 90)}L${n(cx + Math.cos(a) * 800)} ${n(cy + Math.sin(a) * 800)}`; });
-        const bow = ["#2f8a5c", "#4fae7c", "#7fcf9e", "#b9ebcb"].map((colour, i) => `<path d="M${cx - 170 + i * 9} ${cy + 70}A${170 - i * 9} ${170 - i * 9} 0 0 1 ${cx + 170 - i * 9} ${cy + 70}" stroke="${colour}" stroke-width="9" fill="none" opacity=".7"/>`).join("");
-        const backRow = repeat(22, (i) => person(560 + i * 40 + random() * 10, 270, 1.15, TONES[i % TONES.length], random() < .35));
-        const frontRow = repeat(13, (i) => person(530 + i * 70 + random() * 12, 318, 1.8, TONES[(i + 3) % TONES.length], random() < .3));
-        return svg("0 0 1400 300", `${glow("fcc", [[0, "#ffffff"], [.22, "#fff8e2"], [.6, "#f8e8b8", .6], [1, "#f5e6b4", 0]])}${back("fcd", [[0, "#fdf3d6"], [1, "#f3efcf"]], 1400)}<path d="${rays}" stroke="#f1d58a" stroke-width="2.2" opacity=".5"/><ellipse cx="${cx}" cy="${cy}" rx="560" ry="300" fill="url(#fcc)"/>${bow}<circle cx="${cx}" cy="${cy}" r="110" fill="#ffffff" opacity=".35"/><circle cx="${cx}" cy="${cy}" r="70" fill="#ffffff" opacity=".7"/><circle cx="${cx}" cy="${cy}" r="40" fill="#ffffff"/><path d="${wave(256, 12, 1400, 235)}" fill="#bcdc98"/>${backRow}${frontRow}`);
+      versions: {
+        a: {
+          line: "A cleft in the rock, with the light passing beyond the ridge; then a crowd looking up into the light, the emerald rainbow round it. No figure is drawn in the light.",
+          lost: () => {
+            const random = seeded(221);
+            return svg("0 0 1400 300", `${glow("fca", [[0, "#f1c35a", .5], [1, "#f1c35a", 0]])}${back("fcb", [[0, "#07080b"], [1, "#1a1c22"]], 1400)}${stars(random, 70, 1400, 160)}<ellipse cx="1080" cy="60" rx="260" ry="120" fill="url(#fca)"/><path d="M640 300L760 170L860 130L960 80L1040 60L1120 80L1220 120L1320 180L1400 200V300Z" fill="#1b1d22"/><path d="M860 130L960 80L1040 60L1120 80L1220 120" stroke="#c9a65a" stroke-width="2" fill="none" opacity=".75"/><path d="M1010 300L1022 210L1030 150L1040 120L1046 160L1052 220L1060 300Z" fill="#050507"/><path d="M700 300L820 210L900 230L980 200V300ZM1120 300L1180 230L1280 250L1400 230V300Z" fill="#121318"/>`);
+          },
+          found: () => {
+            const random = seeded(231), cx = 1000, cy = 130, TONES = ["#5a4134", "#3f3a4e", "#34465a", "#6b5236", "#4a3a3a", "#3c4a3c"];
+            const rays = repeat(44, (i) => { const a = (i / 44) * Math.PI * 2; return `M${n(cx + Math.cos(a) * 90)} ${n(cy + Math.sin(a) * 90)}L${n(cx + Math.cos(a) * 800)} ${n(cy + Math.sin(a) * 800)}`; });
+            const bow = ["#2f8a5c", "#4fae7c", "#7fcf9e", "#b9ebcb"].map((colour, i) => `<path d="M${cx - 170 + i * 9} ${cy + 70}A${170 - i * 9} ${170 - i * 9} 0 0 1 ${cx + 170 - i * 9} ${cy + 70}" stroke="${colour}" stroke-width="9" fill="none" opacity=".7"/>`).join("");
+            const backRow = repeat(22, (i) => person(560 + i * 40 + random() * 10, 270, 1.15, TONES[i % TONES.length], random() < .35));
+            const frontRow = repeat(13, (i) => person(530 + i * 70 + random() * 12, 318, 1.8, TONES[(i + 3) % TONES.length], random() < .3));
+            return svg("0 0 1400 300", `${glow("fcc", [[0, "#ffffff"], [.22, "#fff8e2"], [.6, "#f8e8b8", .6], [1, "#f5e6b4", 0]])}${back("fcd", [[0, "#fdf3d6"], [1, "#f3efcf"]], 1400)}<path d="${rays}" stroke="#f1d58a" stroke-width="2.2" opacity=".5"/><ellipse cx="${cx}" cy="${cy}" rx="560" ry="300" fill="url(#fcc)"/>${bow}<circle cx="${cx}" cy="${cy}" r="110" fill="#ffffff" opacity=".35"/><circle cx="${cx}" cy="${cy}" r="70" fill="#ffffff" opacity=".7"/><circle cx="${cx}" cy="${cy}" r="40" fill="#ffffff"/><path d="${wave(256, 12, 1400, 235)}" fill="#bcdc98"/>${backRow}${frontRow}`);
+          },
+        },
+        b: {
+          line: "The veil hanging closed in the dark; then the veil torn in two from top to bottom, and the light pouring through.",
+          lost: () => {
+            const random = seeded(241), folds = repeat(30, (i) => `M${n(560 + i * 28)} 0C${n(552 + i * 28)} 100 ${n(566 + i * 28)} 200 ${n(558 + i * 28)} 300`);
+            return svg("0 0 1400 300", `${back("fva", [[0, "#0b0a0d"], [1, "#16131a"]], 1400)}<rect x="540" width="860" height="300" fill="#3a1d2c"/><path d="${folds}" stroke="#2a1420" stroke-width="5" fill="none"/><path d="M540 0H1400V14H540Z" fill="#c9a65a" opacity=".7"/><path d="M540 292H1400V300H540Z" fill="#f1c35a" opacity=".35"/><path d="M540 0V300" stroke="#f1c35a" stroke-width="2" opacity=".35"/>${stars(random, 20, 520, 300)}`);
+          },
+          found: () => {
+            const random = seeded(251), tear = "M960 0L948 40L972 80L952 130L968 180L950 230L962 300";
+            const leftFolds = repeat(12, (i) => `M${n(560 + i * 28)} 0C${n(552 + i * 28)} 100 ${n(566 + i * 28)} 200 ${n(558 + i * 28)} 300`);
+            const rightFolds = repeat(12, (i) => `M${n(1080 + i * 28)} 0C${n(1072 + i * 28)} 100 ${n(1086 + i * 28)} 200 ${n(1078 + i * 28)} 300`);
+            const rays = repeat(30, (i) => { const a = (i / 30) * Math.PI * 2; return `M${n(960 + Math.cos(a) * 60)} ${n(150 + Math.sin(a) * 60)}L${n(960 + Math.cos(a) * 700)} ${n(150 + Math.sin(a) * 700)}`; });
+            return svg("0 0 1400 300", `${glow("fvg", [[0, "#ffffff"], [.3, "#fff6d6"], [1, "#f6e3a0", 0]])}${back("fvb", [[0, "#fdf3d6"], [1, "#f3efcf"]], 1400)}<path d="${rays}" stroke="#f1d58a" stroke-width="2" opacity=".5"/><ellipse cx="960" cy="150" rx="420" ry="260" fill="url(#fvg)"/><path d="M540 0H880L852 40L880 90L850 150L874 210L848 300H540Z" fill="#6b2f45"/><path d="${leftFolds}" stroke="#55223a" stroke-width="5" fill="none"/><path d="M1040 0H1400V300H1076L1052 230L1068 180L1046 130L1066 80L1044 40Z" fill="#6b2f45"/><path d="${rightFolds}" stroke="#55223a" stroke-width="5" fill="none"/><path d="M540 0H1400V12H540Z" fill="#c9a65a"/><path d="M0 300V262C300 256 700 266 1400 258V300Z" fill="#bcdc98"/>${meadow(random, 266, 300, 1400, 200)}<path d="M920 300L948 262H972L1000 300Z" fill="#fff4cf"/>`);
+          },
+        },
+        c: {
+          line: "A lone road leading away from the garden into the night; then the road home, people walking up into the open gate full of light.",
+          lost: () => {
+            const random = seeded(261), road = "M760 300C820 250 900 220 960 190L980 190C960 220 920 260 900 300Z";
+            return svg("0 0 1400 300", `${glow("fwg", [[0, "#e2783a", .5], [1, "#e2783a", 0]])}${back("fwa", [[0, "#07080b"], [1, "#1a1c22"]], 1400)}${stars(random, 70, 1400, 160)}<path d="${wave(196, 20, 1400, 263)}" fill="#121318"/><ellipse cx="972" cy="176" rx="50" ry="40" fill="url(#fwg)"/><path d="M972 150V196" stroke="#f1c35a" stroke-width="2.5"/>${crownTree(900, 196, 22, 265, { fruit: [], leaf: DARK_LEAF, bark: "#14110e" })}${crownTree(1040, 196, 24, 267, { fruit: [], leaf: DARK_LEAF, bark: "#14110e" })}<path d="M0 300V214C400 208 900 216 1400 210V300Z" fill="#0e0f13"/><path d="${road}" fill="#26231f"/>${person(860, 262, .8, "#3a3530")}`);
+          },
+          found: () => {
+            const random = seeded(271), road = "M700 300C820 260 900 230 960 200H1000C1020 230 1060 260 1120 300Z";
+            const walkers = [[930, 300, 1.1], [990, 282, .85], [1050, 266, .7], [962, 250, .55], [1000, 236, .45], [975, 222, .35]].map(([x, base, s], i) => person(x, base, s, ["#5a4134", "#34465a", "#6b5236", "#3f3a4e", "#4a3a3a", "#3c4a3c"][i], i === 1)).join("");
+            return svg("0 0 1400 300", `${glow("fxg", [[0, "#ffffff"], [.35, "#fff4cc"], [1, "#f8ecc0", 0]])}${grad("fxw", [[0, "#fffaf0"], [1, "#f1cf72"]])}${back("fxb", [[0, "#fdf6dc"], [1, "#f3f3d0"]], 1400)}<ellipse cx="980" cy="150" rx="600" ry="300" fill="url(#fxg)"/><rect x="760" y="110" width="440" height="96" fill="url(#fxw)" stroke="#e3bc5c" stroke-width="1.4"/><rect x="760" y="84" width="40" height="122" fill="url(#fxw)" stroke="#e3bc5c" stroke-width="1.4"/><rect x="1160" y="84" width="40" height="122" fill="url(#fxw)" stroke="#e3bc5c" stroke-width="1.4"/><circle cx="980" cy="170" r="54" fill="#ffffff" opacity=".6"/><path d="M948 206V164a32 32 0 0 1 64 0V206Z" fill="#ffffff"/><path d="M0 300V206C400 200 900 210 1400 204V300Z" fill="#c6e3a0"/><path d="${road}" fill="#fff4cf"/>${meadow(random, 214, 300, 680, 70, 520)}${meadow(random, 214, 300, 1400, 90, 1140)}${walkers}`);
+          },
+        },
+        d: {
+          line: "A face veiled and bowed in the dark; then faces lifted and shining in the light, as the redeemed see Him.",
+          lost: () => {
+            const random = seeded(281);
+            return svg("0 0 1400 300", `${back("fya", [[0, "#07080b"], [1, "#16171c"]], 1400)}${stars(random, 50, 1400, 140)}<path d="M0 300V276C400 270 900 280 1400 272V300Z" fill="#101114"/>${profile(980, 262, 1.45, 22, "#3a342e", false, true)}`);
+          },
+          found: () => {
+            const random = seeded(291), rays = repeat(30, (i) => { const a = Math.PI + (i / 29) * Math.PI; return `M${n(1150 + Math.cos(a) * 80)} ${n(60 + Math.sin(a) * -80)}L${n(1150 + Math.cos(a) * 900)} ${n(60 - Math.sin(a) * 900)}`; });
+            const faces = [[720, 302, 1.3, -22, "#4a3a2e"], [870, 302, 1.6, -18, "#3f3a4e"], [1030, 302, 1.25, -26, "#5a4134"], [1170, 302, 1.5, -16, "#34465a"]].map(([x, base, s, tilt, colour]) => profile(x, base, s, tilt, colour, true)).join("");
+            return svg("0 0 1400 300", `${glow("fzg", [[0, "#ffffff"], [.3, "#fff4cc"], [1, "#f8ecc0", 0]])}${back("fzb", [[0, "#fdf6dc"], [1, "#f3efcf"]], 1400)}<ellipse cx="1150" cy="40" rx="700" ry="320" fill="url(#fzg)"/><path d="${rays}" stroke="#f1d58a" stroke-width="2" opacity=".45"/>${faces}`);
+          },
+        },
       },
     },
   };

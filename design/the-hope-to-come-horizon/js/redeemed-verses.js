@@ -162,3 +162,57 @@ HP.lostMiddle = {
   }
  ]
 };
+
+// Three rows of section 03 whose two ends did not read as loss and answer were given other words at the owner's request
+// (2026-11-03): the deceiver is thrown out, the corrupt earth is made new, the barred way becomes the right to the tree.
+// Copied from the same Berean text by script; both ends of each share the word given, and the cards check every phrase.
+Object.assign(HP.passages, {
+ "GEN.6.11": {
+  "label": "Genesis 6:11",
+  "code": "GEN",
+  "chapters": [
+   6
+  ],
+  "verses": [
+   {
+    "c": 6,
+    "v": 11,
+    "t": "Now the earth was corrupt in the sight of God, and full of violence."
+   }
+  ]
+ },
+ "REV.22.14": {
+  "label": "Revelation 22:14",
+  "code": "REV",
+  "chapters": [
+   22
+  ],
+  "verses": [
+   {
+    "c": 22,
+    "v": 14,
+    "t": "Blessed are those who wash their robes, so that they may have the right to the tree of life and may enter the city by its gates."
+   }
+  ]
+ }
+});
+HP.lostEnds = {
+ "The deceiver": {
+  "last": "REV.20.10",
+  "lastText": "the devil who had deceived them was thrown into the lake of fire",
+  "kind": "shares",
+  "word": "deceived"
+ },
+ "The sky": {
+  "start": "GEN.6.11",
+  "startText": "the earth was corrupt in the sight of God",
+  "kind": "shares",
+  "word": "earth"
+ },
+ "The tree": {
+  "last": "REV.22.14",
+  "lastText": "the right to the tree of life",
+  "kind": "shares",
+  "word": "tree of life"
+ }
+};
