@@ -4,3 +4,6 @@
 @media(min-width:640px) and (max-width:1023px){.study-experience .theology-cards-jesus .study-feature{grid-column:span 2}.study-experience .theology-cards-jesus .study-resource:not(.study-feature){grid-column:span 1}}
 @media(max-width:639px){.study-experience .theology-cards-jesus .study-resource,.study-experience .theology-cards-jesus .study-feature{grid-column:span 1}.study-parables-art{height:220px}}
 @media(prefers-reduced-motion:reduce){.study-parables-art svg{transition:none!important;transform:none!important}}
+/* Side by side, the cards of each Theology row share their rows (label, picture, words), so each picture area is as tall
+   as the row's tallest and the titles start on one line (owner, 2026-11-04, on the Jesus row; same on every area). */
+@media(min-width:1024px){.study-experience .theology-original-cards .study-resource{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:0}.study-experience .theology-original-cards .study-resource-link{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:0}.theology-original-cards .study-resource-link>:nth-child(2){align-self:center}.theology-cards-jesus .study-feature .study-card-copy{padding-top:.75rem}}
