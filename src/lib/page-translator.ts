@@ -79,6 +79,41 @@ async function readStrings(folder: string, path: string | null, key: string): Pr
   }
 }
 
+// The study pages' own text (the Academic studies' bodies and the like) is a second, larger file, read only on the pages that
+// show it: data/i18n/<folder>/ui-study.json, {English: translation}, written by apply.py from the "studytext" chunks.
+const STUDY_PATH = /^\/(study|teachers)(\/|$)/;
+const onStudyPage = () => typeof location !== "undefined" && STUDY_PATH.test(location.pathname);
+
+function loadStudyStrings(folder: string): Promise<void> {
+  const key = `${folder} study`;
+  const started = loaded.get(key);
+  if (started) return started;
+  const reading = (async () => {
+    try {
+      const strings = (await readJson(`/data/i18n/${folder}/ui-study.json`)) as Record<string, string>;
+      for (const [english, translated] of Object.entries(strings)) {
+        learn(folder, english, translated);
+        // Names of God and the like are set in capitals on the page ("KING OF GLORY").
+        if (english !== english.toUpperCase()) learn(folder, english.toUpperCase(), translated.toUpperCase());
+      }
+    } catch (error) {
+      // Kept as read: a missing file is reported once, not on every change to the page.
+      console.warn(`page translation: could not read the ${folder} study strings (${String(error)}); those pages keep their current language`);
+    }
+  })();
+  loaded.set(key, reading);
+  return reading;
+}
+
+/** Called as the page changes: arriving on a study page in a translated language reads its extra strings, then translates what is shown. */
+function wantStudyStrings(): void {
+  if (!target || !onStudyPage() || loaded.has(`${target} study`)) return;
+  const folder = target;
+  void loadStudyStrings(folder).then(() => {
+    if (target === folder) translateTree(document.body);
+  });
+}
+
 function lookup(key: string): string | null {
   const english = toEnglish.get(key) ?? key;
   const value = target ? fromEnglish.get(target)?.get(english) : english;
@@ -179,6 +214,7 @@ function translateTree(root: Node): void {
 function watch(): void {
   if (observer) return;
   observer = new MutationObserver((records) => {
+    wantStudyStrings();
     for (const record of records) {
       if (record.type === "characterData") translateText(record.target as Text);
       else if (record.type === "attributes") translateAttribute(record.target as Element, record.attributeName!);
@@ -215,7 +251,7 @@ export async function startPageTranslator(): Promise<void> {
   const folder = languageFolder();
   markDocument(siteLanguage(), folder);
   if (!folder) return;
-  await loadStrings(folder, null);
+  await Promise.all([loadStrings(folder, null), onStudyPage() ? loadStudyStrings(folder) : undefined]);
   target = folder;
   watch();
 }
@@ -239,7 +275,7 @@ export async function chooseSiteLanguage(code: LanguageCode): Promise<void> {
   if (fades) root.dataset.languageFade = "true"; // a language change is not a move to another page: no page slide (PageTransitions)
   await Promise.all([
     fadedOut,
-    ...folders.flatMap((name) => [loadStrings(name, null), ...[...loadedData].map((path) => loadStrings(name, path))]),
+    ...folders.flatMap((name) => [loadStrings(name, null), onStudyPage() ? loadStudyStrings(name) : undefined, ...[...loadedData].map((path) => loadStrings(name, path))]),
   ]);
   setSiteLanguage(code);
   markDocument(code, folder);

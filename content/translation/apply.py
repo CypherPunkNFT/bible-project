@@ -8,6 +8,9 @@ files bundled with the code (extract.RESOURCES, src/data/resources/) get copies 
 A string with no translation stays English. data/ is git-ignored, so rerun this after a data rebuild or new chunks.
 The debate transcripts (content/apologetics/transcripts/*.txt) get a translated copy of the whole text in
 data/i18n/<lang>/transcripts/<name>.json as {"text": ...}, which the debate viewer reads (src/lib/debate-transcripts.ts).
+The study pages' own text (kind "studytext": the Academic study dossiers, study data files and study page code, see
+SiteTranslation/studies/) goes to data/i18n/<lang>/ui-study.json as {English: translation}; the page translator reads it
+on /study and /teachers pages only (src/lib/page-translator.ts), because it is large.
 Other files under public/ are not translated yet. Usage: python apply.py [--repo DIR] [es pt ...]
 """
 import argparse
@@ -37,6 +40,20 @@ def page_strings(repo: Path, lang: str, translated: dict[str, str]) -> dict[str,
     strings = json.loads(seed_file.read_text("utf-8")) if seed_file.exists() else {}
     for entry in json.loads((repo / "chunks.json").read_text("utf-8")):
         if entry["kind"] != PAGE_KIND:
+            continue
+        english = json.loads((repo / "in" / f"{entry['chunk']}.json").read_text("utf-8"))["strings"]
+        strings.update({text: translated[key] for key, text in english.items() if key in translated})
+    return strings
+
+
+STUDY_KIND = "studytext"
+
+
+def study_strings(repo: Path, translated: dict[str, str]) -> dict[str, str]:
+    """{English: translation} for every study chunk translated so far."""
+    strings: dict[str, str] = {}
+    for entry in json.loads((repo / "chunks.json").read_text("utf-8")):
+        if entry["kind"] != STUDY_KIND:
             continue
         english = json.loads((repo / "in" / f"{entry['chunk']}.json").read_text("utf-8"))["strings"]
         strings.update({text: translated[key] for key, text in english.items() if key in translated})
@@ -160,8 +177,10 @@ def apply(repo: Path, lang: str) -> None:
     ui.update({text: found for text, found in apologetics_strings(by_kind).items() if text not in ui})
     target.mkdir(parents=True, exist_ok=True)
     (target / "ui.json").write_text(json.dumps(ui, ensure_ascii=False, separators=(",", ":")), "utf-8")
+    study = study_strings(repo, by_kind.get(STUDY_KIND, {}))
+    (target / "ui-study.json").write_text(json.dumps(study, ensure_ascii=False, separators=(",", ":")), "utf-8")
     transcripts = apply_transcripts(by_kind, target)
-    print(f"{lang}: {files} files, {swapped} strings translated, {kept} left in English; {len(ui)} page strings; {transcripts}")
+    print(f"{lang}: {files} files, {swapped} strings translated, {kept} left in English; {len(ui)} page strings, {len(study)} study strings; {transcripts}")
 
 
 def main() -> None:
