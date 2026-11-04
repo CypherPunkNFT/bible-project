@@ -85,7 +85,7 @@ function Centuries({ index }: { index: MsIndex }) {
     : <>The {formatNumber(dated)} records that carry a date, by century. The scrolls end with the first century; the Greek papyri begin in the second; most copies of everything are mediaeval. Point at a century to count it.</>;
   return <div className="sw-centuries">
     <div className="sw-cent-key">{FAMILIES.map((f) => <span key={f.name}><i style={{ background: f.colour }}/>{f.name}</span>)}</div>
-    <div className="sw-cent-bars" role="img" aria-label={`Dated manuscript records by century, ${rows.map((r) => `${centuryName(r.c)} ${r.total}`).join(', ')}`} onPointerLeave={() => setPointed(null)}>
+    <div className="sw-cent-bars" role="img" aria-label={`Dated manuscript records by century: ${rows.map((r) => `${centuryName(r.c)} ${r.total}`).join(' · ')}`} onPointerLeave={() => setPointed(null)}>
       {rows.map((r) => <div key={r.c} className={`sw-cent${pointed?.c === r.c ? ' sw-cent-on' : ''}`} onPointerEnter={() => setPointed(r)}>
         <span className="sw-cent-stack" style={{ height: `${(r.total / top) * 100}%` }}>{FAMILIES.map((f) => r.row[f.name] ? <i key={f.name} style={{ flexGrow: r.row[f.name], background: f.colour }}/> : null)}</span>
         <small>{r.c === 0 ? 'AD' : r.c < 0 ? `${-r.c} BC` : r.c + 1}</small>

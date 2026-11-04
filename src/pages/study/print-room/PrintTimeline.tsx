@@ -79,7 +79,7 @@ export function PrintTimeline({ onEdition }: { onEdition: (id: string) => void }
               <button key={item.id} type="button" className="pr-tl-item" data-active={shown?.id === item.id || undefined}
                 data-loose={item.loose || undefined} data-open={item.open || undefined} data-before={before || undefined}
                 style={{ left: percent(left), top: row * ROW_HEIGHT, width: percent(width) }}
-                aria-label={`${item.label}, ${item.date}. ${whereItGoes(item)}.`}
+                aria-label={`${item.label}, ${item.date} · ${whereItGoes(item)}.`}
                 onMouseEnter={() => setPointed(item)} onMouseLeave={() => setPointed(null)}
                 onFocus={() => setPointed(item)} onBlur={() => setPointed(null)} onClick={() => go(item)}>
                 <i className="pr-tl-mark" style={{ width: span ? percent(span / width) : undefined }} />

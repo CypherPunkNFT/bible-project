@@ -32,7 +32,7 @@ export function Registers({ num }: { num: string }) {
     <div className="cr-legend" aria-label="Diagram key"><span><i className="cr-mark canon"></i>Canonical</span><span><i className="cr-mark instruction"></i>Instruction / edifying reading</span><span><i className="cr-mark silence"></i>Not enumerated / not addressed</span></div>
     <div className="cr-leaves" ref={leaves}>{B.witnesses.map((p, i) => <article key={p.name} className="cr-leaf"><header><p className="cr-no"><span>Selected witness</span><span>{"ABC"[i]}</span></p><h3>{p.name}</h3><p className="cr-date">{p.date}</p></header>
       <div className="cr-entries">{p.states.map((s, j) => <button key={B.books[j]} type="button" className={`cr-entry${j === writing ? " match" : ""}`} data-i={i} data-j={j}
-        aria-expanded={witness === i && writing === j} aria-label={`${p.name}: ${B.books[j]}. ${s.label}. Inspect passage`} onClick={() => inspect(i, j)}>
+        aria-expanded={witness === i && writing === j} aria-label={`${p.name}: ${B.books[j]} · ${s.label} · Inspect passage`} onClick={() => inspect(i, j)}>
         <i className={`cr-mark ${kindOf(s.label)}`}></i><span><b>{B.books[j]}</b><small>{s.label}</small></span><span className="cr-down" aria-hidden="true">↓</span></button>)}</div>
       <footer>{p.passage}</footer></article>)}</div>
     <p className="cr-caption"><span>Schematic registers · not manuscript facsimiles or complete book lists.</span><span>Each mark represents one writing or named pair in a selected passage.</span></p>

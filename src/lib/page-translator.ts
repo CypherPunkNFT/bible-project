@@ -122,6 +122,8 @@ function lookup(key: string): string | null {
 
 // A known name or label followed only by numbers: "Isaiah 40:8 · RVR", "1 Peter 3:15", "Chapter 3", "Part 01".
 const NAME_AND_NUMBER = /^((?:[1-3] )?\D+?) (\d[\d:.,–-]*(?: ?[·|].*)?)$/;
+// What follows the numbers is translated too when it is known: "Genesis 1:5 · The last six words of the verse."
+const AFTER_NUMBERS = /^([^·|]*[·|] )(.+)$/;
 // Counts stand as "{n}" in the strings ("{n} versions", "{n} mi E of city hall"), so one entry serves every number.
 const NUMBER = /\d(?:[\d,.]*\d)?/g;
 // A line put together from pieces, each translated on its own: "Pregnancy · 3.3 mi E of city hall", "Continue: Psalms 105".
@@ -151,7 +153,7 @@ function translatedPiece(key: string): string | null {
   if (whole) return whole;
   const parts = NAME_AND_NUMBER.exec(key);
   const name = parts && lookup(parts[1]);
-  return name ? `${name} ${parts[2]}` : null;
+  return name ? `${name} ${parts[2].replace(AFTER_NUMBERS, (_all: string, numbers: string, rest: string) => numbers + (translatedPiece(rest) ?? rest))}` : null;
 }
 
 function translated(text: string): string | null {

@@ -158,7 +158,7 @@
     const max = Math.max(...subjects.flatMap((s) => BINS.map((bin) => cell(s.key, bin).length)));
     section.innerHTML = `${head("02", "Which stories, when", "What did mapmakers <em>choose to draw?</em>", `Every dated map by its subject and its half-century; the darker the square, the more maps. Choose a square to lay out its maps below. The busiest square holds ${max}.`)}
       <div class="om-heat-wrap"><table class="om-heat"><thead><tr><th></th>${BINS.map(([, , label]) => `<th scope="col"><span>${label}</span></th>`).join("")}</tr></thead>
-        <tbody>${subjects.map((s) => `<tr style="--tone:var(${s.tone})"><th scope="row">${esc(s.short)}</th>${BINS.map((bin, j) => { const n = cell(s.key, bin).length; return `<td><button type="button" data-key="${s.key}" data-j="${j}" style="--k:${n ? (0.12 + 0.88 * Math.sqrt(n / max)).toFixed(3) : 0}" aria-label="${esc(s.label)}, ${bin[2]}: ${n} maps"${n ? "" : " disabled"}>${n || ""}</button></td>`; }).join("")}</tr>`).join("")}</tbody></table></div>
+        <tbody>${subjects.map((s) => `<tr style="--tone:var(${s.tone})"><th scope="row">${esc(s.short)}</th>${BINS.map((bin, j) => { const n = cell(s.key, bin).length; return `<td><button type="button" data-key="${s.key}" data-j="${j}" style="--k:${n ? (0.12 + 0.88 * Math.sqrt(n / max)).toFixed(3) : 0}" aria-label="${esc(s.label)} · ${bin[2]}: ${n} maps"${n ? "" : " disabled"}>${n || ""}</button></td>`; }).join("")}</tr>`).join("")}</tbody></table></div>
       <div class="om-heat-pick" aria-live="polite"></div>`;
     const pick = section.querySelector(".om-heat-pick");
     function choose(key, j) {

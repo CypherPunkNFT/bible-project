@@ -28,7 +28,7 @@ export function CanonLanes({ events, letters }: { events: CanonEvent[]; letters:
   const keptMark = <KeepX onRelease={() => undefined} />;
   const canonResting = <span className="lg-muted">Point at a year or a mark to read what the witnesses of that year say; click to keep it.</span>;
   const yearTip = (year: number, mark: ReactNode) => <>{sorted.filter((e) => e.year === year).map((e, i) => <div key={i}>
-    <strong>{e.label}</strong>{i === 0 && mark} <span className="lg-muted">· about AD {e.year} · {e.who}</span><ClaimText claim={e.claim} />
+    <strong>{e.label}</strong>{i === 0 && mark} <span className="lg-muted">· {`about AD ${e.year} · ${e.who}`}</span><ClaimText claim={e.claim} />
   </div>)}</>;
   const lo = sorted[0].year, hi = sorted[sorted.length - 1].year;
   // Years follow time, but no two marks sit closer than MIN_GAP (110, 115 and 120 would collide); a long run of
@@ -51,7 +51,7 @@ export function CanonLanes({ events, letters }: { events: CanonEvent[]; letters:
         {[...at.keys()].map((year) => {
           const witnesses = sorted.filter((e) => e.year === year);
           return <g key={`y${year}`} style={{ cursor: "pointer" }} tabIndex={0} role="button" opacity={active !== null && active !== year ? 0.3 : 1}
-            aria-label={`About AD ${year}: ${witnesses.map((e) => e.label).join("; ")}`} {...keep.bind(year)}>
+            aria-label={`About AD ${year}: ${witnesses.map((e) => e.label).join(" · ")}`} {...keep.bind(year)}>
             <rect x={x(year) - MIN_GAP / 2} y={0} width={MIN_GAP} height={22} fill="transparent" />
             <text x={x(year)} y={14} textAnchor="middle" className={active === year ? "lg-svg-strong" : "lg-svg-text"}>{year}</text>
           </g>;
@@ -66,7 +66,7 @@ export function CanonLanes({ events, letters }: { events: CanonEvent[]; letters:
               if (!status) return null;
               return <circle key={i} cx={x(e.year)} cy={y} r={active === e.year ? 8 : 6} fill={STATUS[status].fill} stroke={status === "doubted" ? "var(--lg)" : "var(--page)"} strokeWidth={status === "doubted" ? 2 : 1.5}
                 className={[status === "accepted" && "lg-glow", keep.peek(e.year) && "lg-peek"].filter(Boolean).join(" ") || undefined} style={{ cursor: "pointer" }} tabIndex={0} role="button"
-                aria-label={`${e.label}, about AD ${e.year}: ${letter.name} ${STATUS[status].label.toLowerCase()}`}
+                aria-label={`${e.label} · about AD ${e.year}: ${letter.name} · ${STATUS[status].label}`}
                 {...keep.bind(e.year)} />;
             })}
           </g>;
