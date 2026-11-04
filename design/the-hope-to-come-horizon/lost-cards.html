@@ -41,15 +41,12 @@
   .lc-ref { font-size: .85rem; text-decoration: underline; text-underline-offset: .2em; }
   .lc-kind { align-self: flex-start; margin-top: auto; padding: .2rem .65rem; border-radius: 999px; background: rgb(255 251 236 / .85); font-size: .78rem; }
 
-  /* The prophets between, on a plain banner; Death tries it in gold. A row with no prophet keeps only the line. */
-  .lc-seam { position: relative; z-index: 1; padding: .7rem clamp(1.25rem, 2.5vw, 2rem); border-block: 2px solid #e2b04a; background: var(--surface); }
-  .lc-seam-empty { padding: 0; border-bottom: 0; }
-  .lc-mid { margin: 0; font: italic 400 .95rem/1.5 var(--serif); color: var(--ink); }
-  .lc-mid i { margin: 0 .6rem; font-style: normal; color: var(--accent); }
-  .lc-mid .lc-ref { margin-left: .2rem; font-style: normal; color: var(--accent); }
-  .lc-seam-gold { border-color: #e2b04a; background: linear-gradient(to bottom, #f0c968, #d9a640); }
-  .lc-seam-gold .lc-mid { font-size: 1.05rem; color: #1b1408; }
-  .lc-seam-gold .lc-mid .lc-ref, .lc-seam-gold .lc-mid i { color: #3d2806; }
+  /* The prophets between, on a gold banner (the owner's choice); a row with no prophet keeps a thin gold line. */
+  .lc-seam { position: relative; z-index: 1; padding: .7rem clamp(1.25rem, 2.5vw, 2rem); background: linear-gradient(to bottom, #f0c968, #d9a640); }
+  .lc-seam-empty { padding: 0; height: 4px; }
+  .lc-mid { margin: 0; font: italic 400 1.05rem/1.5 var(--serif); color: #1b1408; }
+  .lc-mid i { margin: 0 .6rem; font-style: normal; color: #3d2806; }
+  .lc-mid .lc-ref { margin-left: .2rem; font-style: normal; color: #3d2806; }
 
   @media (max-width: 1100px) { .lc-grid { grid-template-columns: minmax(0, 1fr); } }
   @media (max-width: 560px) {

@@ -144,8 +144,7 @@ window.LOST_ART = (() => {
       },
     },
     "Death": {
-      line: "The grave above the line, the meadow below it. This card tries the gold banner.",
-      gold: true,
+      line: "The grave above the line, the meadow below it.",
       lost: () => {
         const random = seeded(3);
         return svg("0 0 800 300", `${back("ha", [[0, "#0d1016"], [1, "#22262f"]])}${stars(random, 60, 800, 180)}${moon(680, 44, 24)}<path d="${wave(235, 40, 800, 5)}" fill="#171a21"/>${bareTree(705, 262, 46, 9, "#2c3039")}${headstone(455, 266, 30, 56)}${headstone(508, 268, 24, 42)}${headstone(560, 266, 34, 64)}${headstone(615, 270, 22, 36)}<path d="${wave(262, 14, 800, 7)}" fill="#0b0d11"/>`);
