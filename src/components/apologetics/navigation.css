@@ -63,6 +63,12 @@
 
 /* Apologetics F: one local bar beneath the unchanged site header. */
 .ap-live-shell > .sm-container{margin-top:24px}
+/* The bar floats as the page scrolls, keeping the 24px it has under the site header (61px) on landing. */
+.ap-live-shell{--ap-bar-top:calc(env(safe-area-inset-top,0px) + 85px);--ap-bar-bottom:calc(var(--ap-bar-top) + var(--ap-bar-height,56px))}
+.ap-live-shell > .sm-container{position:sticky;top:var(--ap-bar-top);z-index:30;box-shadow:0 -24px 0 24px var(--page)} /* the shadow fills the gap above, so the page scrolls out of sight */
+.ap-live-shell [id]{scroll-margin-top:calc(var(--ap-bar-bottom) + 16px)}
+.am-meaning{margin-top:12px;color:var(--muted)}
+.am-results>a+p{margin-top:24px}
 .sm-topbar{display:flex;align-items:stretch;min-width:0;background:var(--surface);border-radius:5px 5px 0 0}
 .sm-container[data-single-row=true] .sm-topbar{border-radius:5px}
 .sm-leading-brand{display:flex;align-items:center;justify-content:center;gap:9px;flex:none;min-width:130px;padding:0 16px;border-right:1px solid var(--line);color:var(--accent)}

@@ -5,7 +5,7 @@ import DebateRoom from "./DebateRoom";
 import IslamGuidePage from './IslamGuidePage';
 import '@/components/apologetics/navigation.css';
 import { ArrowRight, ArrowUpRight, BookOpen, Bookmark, Check, CheckCircle2, Compass, GitBranch, HeartHandshake, Library, MessageCircle, Route as RouteIcon, Search } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, Navigate, Route, Routes, useLocation, useParams, useSearchParams } from "react-router-dom";
 import { RefLink } from "@/components/study/StudyParts";
 import { APOLOGETICS_ANCHOR, CONVERSATION_STEPS } from "@/data/apologetics";
@@ -25,7 +25,15 @@ import "./apologetics-transitions.css";
 import { WorldviewIndex, WorldviewPage } from "./WorldviewsPage";
 
 export default function ApologeticsPage() {
-  const book = useApologeticsNotebook(), location = useLocation();
+  const book = useApologeticsNotebook(), location = useLocation(), shell = useRef<HTMLDivElement>(null);
+  // The bar floats under the site header; its height tells sticky panels and section links where to stop.
+  useEffect(() => {
+    const bar = shell.current?.firstElementChild;
+    if (!(bar instanceof HTMLElement)) return;
+    const observer = new ResizeObserver(() => shell.current?.style.setProperty("--ap-bar-height", bar.offsetHeight + "px"));
+    observer.observe(bar);
+    return () => observer.disconnect();
+  }, []);
   useEffect(() => {
     const [, , section, id] = location.pathname.split("/");
     const title = section === "texts" ? "Historic Reformed texts" : section === "study" ? studyById(id)?.title : section === "topics" ? topicById(id)?.title : section === "paths" ? PATHS.find((path) => path.id === id)?.title : section === "worldviews" ? WORLDVIEWS.find((worldview) => worldview.id === id)?.title : section === "debates" ? (id ? DEBATES.find((debate) => debate.id === id)?.title : "Debates") : undefined;
@@ -39,7 +47,7 @@ export default function ApologeticsPage() {
   }, [location.pathname,location.hash]);
   const legacy: Record<string, string> = { "#foundations": "/paths/begin", "#conversation": "/practice", "#across-beliefs": "/worldviews", "#debates": "/debates" };
   if (location.pathname.replace(/\/$/, "") === base && legacy[location.hash]) return <Navigate replace to={base + legacy[location.hash]} />;
-  return <div className="am-shell ap-live-shell">
+  return <div ref={shell} className="am-shell ap-live-shell">
     <ApologeticsNavigationHeader/><div className="am-layout"><div className="ap-page am-content">
     {book.storageError && <p className="ap-storage-error" role="status">Your browser could not save these changes. Keep this tab open and copy any notes you want to retain.</p>}
     <div className="ap-route-content"><Routes><Route path="worldviews/islam/guide/*" element={<IslamGuidePage/>}/>
@@ -56,11 +64,9 @@ const EXPLORE_CARD_LIST = [
 // The hub's order, three to a row (owner, 2026-11-03).
 const EXPLORE_CARDS = ["god", "jesus", "doubt", "bible", "worldviews", "debates", "reformed", "texts", "faith"].map((id) => EXPLORE_CARD_LIST.find((card) => card.id === id)!);
 function Hub({ book }: { book: ApNotebook }) {
-  const [query, setQuery] = useState(""); const next = PATHS[0].studies.find((id) => !book.notebook.read.includes(id)) ?? PATHS[0].studies[0];
+  const next = PATHS[0].studies.find((id) => !book.notebook.read.includes(id)) ?? PATHS[0].studies[0];
   return <>
     <header className="ap-universe-hero"><div><p className="ap-eyebrow"><span /> A connected library of Christian thought</p><h1>A reason for <br /><em>the hope.</em></h1><p>Bring your hardest questions.<br />Follow the evidence. Know the faith.<br />Carry it into a real conversation.</p><div className="ap-hero-verse"><p>&ldquo;<Verse id={60003015} unquoted />&rdquo;</p><RefLink span={APOLOGETICS_ANCHOR} label="1 Peter 3:15-16" /></div><div className="ap-hero-actions"><Link className="ap-button ap-button-solid" to={base + "/paths/begin"}>Find your starting point <ArrowRight size={16} /></Link><Link to={base + "/questions"}>Explore every question <ArrowUpRight size={14} /></Link></div><div className="ap-library-count"><span><strong>{STUDIES.length}</strong> studies</span><span><strong>{TOPICS.length}</strong> connected fields</span><span><strong>{PATHS.length}</strong> learning paths</span></div></div><Constellation /></header>
-    <form className="ap-search-door" action={base + "/questions"} onSubmit={(event) => { if (!query.trim()) event.preventDefault(); }}><Search size={23} /><label htmlFor="ap-home-search" className="sr-only">Find an apologetics question</label><input id="ap-home-search" type="search" name="q" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="What are you wrestling with? Try suffering, Islam, or the resurrection…" /><button type="submit" aria-label="Search apologetics"><ArrowRight size={21} /></button></form>
-    <MeaningPrompt query={query} className="ap-meaning-prompt" active={<span>Meaning search is on: questions in the library are ranked by what you mean.</span>} />
     <ApSourcePolicy compact /><section className="ap-section"><SectionHeading eyebrow="Connected fields. A shared foundation." title="There is more to explore." to={base + "/questions"} link="The question library" /><div className="ap-topic-grid">{EXPLORE_CARDS.map((card, i) => <Link key={card.to} to={card.to} className="ap-topic-card" style={color(card.color)}><div><span className="ap-card-index">0{i + 1} / {card.count}</span><ArrowUpRight size={17} /></div><TopicArt index={card.art} /><h3>{card.title}</h3><p>{card.description}</p><span className="ap-card-question">{card.question}</span></Link>)}</div></section>
     <section className="ap-section"><SectionHeading eyebrow="A route through the questions" title="Start where you are." to={base + "/paths"} link="All learning paths" /><div className="ap-path-grid">{PATHS.slice(0, 3).map((path, i) => <PathCard key={path.id} path={path} index={i} book={book} />)}</div></section>
     <section className="ap-spotlight" style={color("prophets")}><div className="ap-spotlight-art"><TopicArt index={4} /><span>Shared questions<br />Distinct convictions</span></div><div><p className="ap-eyebrow">Across beliefs / Featured collection</p><h2>Christianity<br /><em>& Islam.</em></h2><p>Who is Jesus? What does one God mean? What happened at the cross? Put the primary texts beside the questions, then examine the differences.</p><Link className="ap-button" to={base + "/worldviews/islam"}>Enter the collection <ArrowRight size={16} /></Link></div></section>
