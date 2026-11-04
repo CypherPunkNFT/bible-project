@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>The hope to come · six lost cards</title>
+<link rel="icon" href="../letters-shared/favicon.svg">
+<script>try{const t=localStorage.getItem("bp-theme");document.documentElement.dataset.theme=t==="dark"||t==="light"?t:(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){console.warn("theme: localStorage unavailable",e)}</script>
+<link rel="stylesheet" href="../authors-directions/shared/frame.css">
+<link rel="stylesheet" href="css/land.css">
+<style>
+  body { margin: 0; background: var(--page); color: var(--ink); }
+  .lc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 3rem); padding: clamp(1.5rem, 4vw, 4rem) var(--hz-gutter); }
+  .lc-cell > header { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .75rem; margin-bottom: 1rem; }
+  .lc-cell > header b { font: 600 .8rem var(--sans); letter-spacing: .14em; color: var(--accent); }
+  .lc-cell > header h2 { margin: 0; font: 500 clamp(1.2rem, 1.8vw, 1.6rem)/1.2 var(--serif); }
+  .lc-cell > header p { flex-basis: 100%; margin: 0; color: var(--muted); }
+
+  .lc { position: relative; display: grid; overflow: hidden; border-radius: 1.25rem; border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line)); background: var(--surface); }
+  .lc-art { position: absolute; inset: 0; }
+  .lc-art svg { display: block; width: 100%; height: 100%; }
+  .lc-half, .lc-diag-top, .lc-diag-bottom { position: relative; display: flex; flex-direction: column; gap: .5rem; padding: clamp(1.25rem, 2.5vw, 2rem); }
+  .lc-half { min-height: 15rem; }
+  .lc-half > :not(.lc-art), .lc-diag-top > *, .lc-diag-bottom > * { position: relative; max-width: min(26rem, 58%); }
+
+  /* Fixed colours: the art does not change with the theme, so the words on it do not either. */
+  .lc-dark { color: #efe9dc; }
+  .lc-dark .lc-tag, .lc-dark .lc-name { color: #ecc77d; }
+  .lc-dark .lc-ref { color: #f1d58a; }
+  .lc-light { color: #1d2a16; }
+  .lc-light .lc-tag { color: #6b4c10; }
+  .lc-light .lc-ref { color: #5b3d0a; }
+  .lc-half.lc-dark::before, .lc-half.lc-light::before { content: ""; position: absolute; inset: 0; }
+  .lc-half.lc-dark::before { background: linear-gradient(to right, rgb(8 10 14 / .6), transparent 70%); }
+  .lc-half.lc-light::before { background: linear-gradient(to right, rgb(255 251 236 / .72), transparent 70%); }
+
+  .lc-name { margin: 0 0 .25rem; font: 500 clamp(1.5rem, 2.4vw, 2.1rem)/1.1 var(--serif); }
+  .lc-words { display: flex; flex-direction: column; gap: .35rem; }
+  .lc-tag { font: 600 .7rem var(--sans); letter-spacing: .16em; text-transform: uppercase; }
+  .lc-phrase { margin: 0; font: 400 clamp(1.15rem, 1.7vw, 1.45rem)/1.3 var(--serif); }
+  .lc-ref { font-size: .85rem; text-decoration: underline; text-underline-offset: .2em; }
+  .lc-kind { align-self: flex-start; margin-top: auto; padding: .2rem .65rem; border-radius: 999px; background: rgb(255 251 236 / .85); font-size: .78rem; }
+  .lc-diag-bottom .lc-kind { align-self: flex-end; }
+
+  .lc-seam { position: relative; z-index: 1; padding: .7rem clamp(1.25rem, 2.5vw, 2rem); border-block: 2px solid #e2b04a; background: var(--surface); }
+  .lc-mid { margin: 0; font: italic 400 .95rem/1.5 var(--serif); color: var(--ink); }
+  .lc-mid i { margin: 0 .6rem; font-style: normal; color: var(--accent); }
+  .lc-mid .lc-ref { margin-left: .2rem; font-style: normal; color: var(--accent); }
+  .lc-mid-none { color: var(--muted); }
+
+  /* C: the two halves side by side, the prophets under both */
+  .lc-side { grid-template-columns: 1fr 1fr; }
+  .lc-side .lc-half { min-height: 28rem; }
+  .lc-side .lc-half > :not(.lc-art) { max-width: 100%; }
+  .lc-side .lc-half.lc-dark::before { background: linear-gradient(to bottom, rgb(8 10 14 / .6), transparent 55%); }
+  .lc-side .lc-half.lc-light::before { background: linear-gradient(to bottom, rgb(255 251 236 / .75), transparent 55%); }
+  .lc-side .lc-seam-side { grid-column: 1 / -1; grid-row: 2; }
+
+  /* B: one picture cut by a gold diagonal; the words sit in its two corners */
+  .lc-diag { min-height: 32rem; grid-template-rows: 1fr 1fr; }
+  .lc-diag-bottom { align-items: flex-end; justify-content: flex-end; text-align: right; }
+  .lc-diag-bottom::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 100% 100%, rgb(255 251 236 / .8), transparent 70%); }
+  .lc-diag-top::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 0 0, rgb(8 10 14 / .55), transparent 70%); }
+  .lc-diag .lc-words { align-items: inherit; }
+
+  @media (max-width: 1100px) { .lc-grid { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 560px) {
+    .lc-half > :not(.lc-art), .lc-diag-top > *, .lc-diag-bottom > * { max-width: 100%; }
+    .lc-half.lc-dark::before { background: rgb(8 10 14 / .5); }
+    .lc-half.lc-light::before { background: rgb(255 251 236 / .7); }
+    .lc-diag-bottom > .lc-words { padding: .6rem .8rem; border-radius: .75rem; background: rgb(255 251 236 / .88); }
+    .lc-side { grid-template-columns: 1fr; }
+    .lc-side .lc-seam-side { grid-row: 2; }
+    .lc-side .lc-half.lc-light { grid-row: 3; }
+    .lc-side .lc-half { min-height: 20rem; }
+  }
+</style>
+</head>
+<body>
+<main class="lc-grid" id="cards"></main>
+<script src="../the-hope-to-come-directions/data.js"></script>
+<script src="js/lost-cards.js"></script>
+</body>
+</html>
