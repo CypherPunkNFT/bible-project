@@ -135,18 +135,20 @@ export function ArcDiagram({ data, focus: litBook, onFocusChange, picker, prebui
   const book = prepared.books.find((b) => b.code === active);
 
   return (
-    <div>
+    <div className="arc-diagram">
+      <div className="arc-head">
       <div className="chart-controls">
         {picker ?? <label><span>Light up one book:</span><select value={focus} onChange={(event) => { setFocus(event.target.value); setHover(""); }}>
           <option value="">All books</option>
           {prepared.books.map((b) => <option key={b.code} value={b.code}>{b.name}</option>)}
         </select></label>}
         {focus && <button type="button" className="chart-control-reset" onClick={() => { setFocus(""); setHover(""); }}><RotateCcw size={13} aria-hidden="true" /> Reset view</button>}
-        <span className="chart-hint">{focus ? "Book pinned. Reset to explore the whole Bible." : "Hover to explore · Click or tap to pin a book"}</span>
+        <span className="chart-hint">{focus ? <span>Book pinned. Reset to explore the whole Bible.</span> : <><span>Hover to explore</span><span>Click or tap to pin a book</span></>}</span>
       </div>
       <div className="chart-live-detail" aria-live="polite">
         <strong>{book?.name ?? "The whole Bible"}</strong>
         <span>{formatNumber(book ? prepared.counts.get(book.code) ?? 0 : prepared.total)} cross-references between chapters</span>
+      </div>
       </div>
       <div ref={wrap} className="relative w-full">
         <canvas ref={canvas} style={{ width: width || "100%", height }} className="block cursor-crosshair" role="img"

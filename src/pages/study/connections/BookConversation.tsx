@@ -13,9 +13,10 @@ const GRID = 68; // 66 books plus two cells for the section strips along the top
 const same = (a: Pair | null, b: Pair | null) => a?.[0] === b?.[0] && a?.[1] === b?.[1];
 
 /** Book to book, led by the book lit in the arcs above: the grid shows its row and column, the list beside it its
- *  strongest partners in both directions. With no book lit, the list shows the strongest pairs in the whole Bible.
+ *  strongest partners in both directions. The coloured strips along the grid's top and left edge are the books
+ *  themselves: choosing one lights it here and in the arcs, as choosing it in the arcs does. With no book lit, the list shows the strongest pairs in the whole Bible.
  *  Choosing a pair (a square or a row) opens its specific verse-to-verse cross-references in place of the list. */
-export function BookConversation({ books, pairs, book }: { books: BookInfo[]; pairs: [string, string, number][]; book: string }) {
+export function BookConversation({ books, pairs, book, onBook }: { books: BookInfo[]; pairs: [string, string, number][]; book: string; onBook: (code: string) => void }) {
   const model = useMemo(() => {
     const index = new Map(books.map((b, i) => [b.code, i]));
     const cells = pairs.map(([a, b, n]) => [index.get(a) ?? -1, index.get(b) ?? -1, n] as const).filter(([a, b]) => a >= 0 && b >= 0);
@@ -32,12 +33,24 @@ export function BookConversation({ books, pairs, book }: { books: BookInfo[]; pa
   }, [books, lit, model]);
 
   const [hover, setHover] = useState<Pair | null>(null);
+  const [edgeHover, setEdgeHover] = useState(-1); // a book whose edge strip is under the pointer
   const [pinned, setPinned] = useState<Pair | null>(null);
   useEffect(() => { setPinned(null); setHover(null); }, [book]);
   // Fetch a book's cross-references while the reader looks (the lit book, or a pair under the pointer), so choosing a
   // pair opens at once. A failed prefetch is only logged: the list itself loads and reports its own error.
   const prefetch = (code: string) => { loadBookLinks(code).catch((error: unknown) => console.warn(`prefetch of ${code} cross-references failed`, error)); };
   useEffect(() => { if (book) prefetch(book); }, [book]);
+  // Choosing a book lights it; pressing anywhere outside the grid and its list unlights it. The arcs above and the book
+  // picker handle their own presses (they choose a book themselves), so they are left alone.
+  useEffect(() => {
+    if (!book) return;
+    const unlight = (event: PointerEvent) => {
+      if (event.target instanceof Element && event.target.closest(".cx-conversation, .cx-arcs, .cx-atlas, .cx-atlas-button")) return;
+      onBook("");
+    };
+    document.addEventListener("pointerdown", unlight);
+    return () => document.removeEventListener("pointerdown", unlight);
+  }, [book, onBook]);
   const active = pinned ?? hover;
   const pin = (pair: Pair) => { setPinned((current) => same(current, pair) ? null : pair); setHover(null); };
 
@@ -82,6 +95,16 @@ export function BookConversation({ books, pairs, book }: { books: BookInfo[]; pa
     const b = Math.floor(((x - rect.left) / rect.width) * GRID) - 2;
     return a >= 0 && b >= 0 && a < books.length && b < books.length ? [a, b] : null;
   };
+  // The strips along the left and top edge: the book at that row or column, or -1.
+  const edge = (x: number, y: number): number => {
+    const rect = canvas.current?.getBoundingClientRect();
+    if (!rect?.width) return -1;
+    const row = Math.floor(((y - rect.top) / rect.height) * GRID) - 2, col = Math.floor(((x - rect.left) / rect.width) * GRID) - 2;
+    const left = (x - rect.left) / rect.width * GRID < 2 && row >= 0 && row < books.length;
+    const top = (y - rect.top) / rect.height * GRID < 2 && col >= 0 && col < books.length;
+    return left ? row : top ? col : -1;
+  };
+  const chooseBook = (i: number) => onBook(books[i].code === book ? "" : books[i].code);
   const at = (i: number) => ((i + 2) / GRID) * 100 + "%";
   const litBook = lit >= 0 ? books[lit] : undefined;
   const partnerMax = Math.max(1, ...partners.map((p) => p.out + p.back));
@@ -91,9 +114,17 @@ export function BookConversation({ books, pairs, book }: { books: BookInfo[]; pa
     <div className="cx-matrix">
       <div ref={wrap} className="cx-matrix-surface">
         <canvas ref={canvas} role="img" aria-label="Grid of cross-references between every pair of books: rows are the book that refers, columns the book referred to. Choose a pair from the list beside it to read its numbers."
-          onPointerMove={(event) => { if (event.pointerType !== "touch" && !pinned) { const pair = pick(event.clientX, event.clientY); setHover((current) => same(current, pair) ? current : pair); } }}
-          onPointerLeave={() => setHover(null)} onClick={(event) => { const pair = pick(event.clientX, event.clientY); if (pair) pin(pair); }} />
+          title={edgeHover >= 0 ? books[edgeHover].name : undefined} className={edgeHover >= 0 ? "cx-edge" : undefined}
+          onPointerMove={(event) => {
+            if (event.pointerType === "touch") return;
+            const over = edge(event.clientX, event.clientY);
+            setEdgeHover((current) => current === over ? current : over);
+            if (!pinned) { const pair = pick(event.clientX, event.clientY); setHover((current) => same(current, pair) ? current : pair); }
+          }}
+          onPointerLeave={() => { setHover(null); setEdgeHover(-1); }}
+          onClick={(event) => { const pair = pick(event.clientX, event.clientY); if (pair) { pin(pair); return; } const i = edge(event.clientX, event.clientY); if (i >= 0) chooseBook(i); }} />
         {lit >= 0 && <><i className="cx-band" style={{ left: 0, right: 0, top: at(lit), height: 100 / GRID + "%" }} /><i className="cx-band" style={{ top: 0, bottom: 0, left: at(lit), width: 100 / GRID + "%" }} /></>}
+        {edgeHover >= 0 && edgeHover !== lit && <><i className="cx-band cx-band-hover" style={{ left: 0, right: 0, top: at(edgeHover), height: 100 / GRID + "%" }} /><i className="cx-band cx-band-hover" style={{ top: 0, bottom: 0, left: at(edgeHover), width: 100 / GRID + "%" }} /></>}
         {active && <i className="cx-cell" style={{ left: at(active[1]), top: at(active[0]), width: 100 / GRID + "%", height: 100 / GRID + "%" }} />}
       </div>
       <p className="cx-axis"><span>Rows refer</span><ArrowRight size={12} aria-hidden="true" /><span>columns are referred to</span></p>

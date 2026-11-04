@@ -8,6 +8,7 @@ import { useAsync, type AsyncState } from "@/lib/useAsync";
 import { formatNumber } from "@/lib/utils";
 import { BookAtlas, BookAtlasButton } from "./BookAtlas";
 import { BookConversation } from "./BookConversation";
+import { ConnectionsArt } from "./ConnectionsArt";
 import "@/pages/charts.css";
 import "./connections.css";
 
@@ -49,10 +50,15 @@ export default function ConnectionsPage() {
     <div className="chart-collection-breadcrumb"><StudyBackLink /><strong>Connections in Scripture</strong></div>
 
     <header className="cx-hero">
+      <div className="cx-hero-top">
+      <div>
       <p className="cx-words">Cross-references · Book to book · Passages in conversation</p>
-      <h1>Scripture in <em>conversation</em>.</h1>
-      <p className="cx-lead">Every arc joins two chapters that point to one another. Light up a book to see its part in the whole, then follow it into the books it speaks with most, and read the linked passages in context.</p>
-      <dl className="cx-figures">{figures.map(([value, label]) => <div key={label}><dt>{label}</dt><dd>{value ? formatNumber(value) : "—"}</dd></div>)}</dl>
+      <h1>Scripture <em>interprets</em> Scripture.</h1>
+      <p className="cx-lead">The Bible was written by many authors, in different places and centuries, yet its parts keep pointing to one another. A prophet echoes Moses, an apostle quotes a psalm, a Gospel reaches back to Isaiah. Each of these links is a cross-reference, and together they show one account of God and his work.</p>
+      <p className="cx-lead">This is why Christians have long held that Scripture is its own best interpreter. A passage is understood in the light of the whole Bible, and a truth is confirmed when writers who never met affirm it, each in his own way and in his own time. Every arc below joins two chapters that point to one another. Light up a book to see its part in the whole, follow it into the books it speaks with most, and read the linked passages in context.</p>
+      </div>
+      <ConnectionsArt />
+      </div>
     </header>
 
     <section className="cx-arcs" aria-labelledby="cx-arcs-title">
@@ -60,12 +66,14 @@ export default function ConnectionsPage() {
       <Result state={arcs}>{(data) => <ArcDiagram data={data} focus={book} onFocusChange={setBook} picker={atlasButton} prebuilt />}</Result>
     </section>
 
+    <dl className="cx-figures">{figures.map(([value, label]) => <div key={label}><dt>{label}</dt><dd>{value ? formatNumber(value) : "—"}</dd></div>)}</dl>
+
     <section className="cx-books" aria-labelledby="cx-books-title">
       <header className="cx-section-head">
         <p className="cx-words">Book to book</p>
         <h2 id="cx-books-title">{lit ? <>Who <em>{lit.name}</em> speaks with.</> : <>Which books <em>speak to each other</em>.</>}</h2>
       </header>
-      <Result state={pairs}>{(data) => <BookConversation books={books} pairs={data} book={book} />}</Result>
+      <Result state={pairs}>{(data) => <BookConversation books={books} pairs={data} book={book} onBook={setBook} />}</Result>
     </section>
 
     <footer className="cx-source"><span>Cross-references from the OpenBible.info dataset, between different chapters and books</span><a href={SOURCE} target="_blank" rel="noreferrer">OpenBible.info ↗</a></footer>

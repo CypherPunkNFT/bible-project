@@ -70,6 +70,7 @@ const PeoplePage = lazy(() => import("@/pages/study/PeoplePage"));
 const PersonPage = lazy(() => import("@/pages/PersonPage"));
 const PersonRedirect = lazy(() => import("@/pages/PersonPage").then((m) => ({ default: m.PersonRedirect })));
 const StructurePage = lazy(() => import("@/pages/study/structure/StructurePage"));
+const ConnectionsPage = lazy(() => import("@/pages/study/connections/ConnectionsPage"));
 const ProphetsPage = lazy(() => import("@/pages/study/ProphetsPage"));
 const NamesPage = lazy(() => import("@/pages/study/NamesPage"));
 // The owner's design review board: hidden, local preview only (it shows "not found" on the live site).
@@ -175,7 +176,7 @@ export default function App() {
               <Route path="/study/lachish-under-siege" element={<HistoricalStudyLanding study="lachish" />} />
               <Route path="/study/cyrus-restoration-and-return" element={<HistoricalStudyLanding study="cyrus" />} />
               <Route path="/study/academic" element={<StudyBranch branch="academic" />} />
-              <Route path="/study/connections" element={<ChartsPage />} />
+              <Route path="/study/connections" element={<ConnectionsPage />} />
               <Route path="/study/references" element={<StudyRedirect />} />
               <Route path="/study/structure" element={<StructurePage />} />
               <Route path="/study/gospels" element={<ChartsPage />} />

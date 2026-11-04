@@ -5,19 +5,48 @@
 
 /* The heading: page words, title, lead, and the figures as one bar beneath. */
 .cx-hero { padding: 1rem 0 0; }
+/* The words on the left, the drawing on the right; the figures run full width beneath. */
+.cx-hero-top { display: grid; grid-template-columns: minmax(0, 46rem) minmax(0, 1fr); align-items: center; gap: 2rem; }
+.cx-art { width: min(100%, 26rem); height: auto; justify-self: center; color: var(--ink); }
+/* The drawings' section colours: the chart's own, but History as the whole-Bible picture shows it, a deep brick red, not the legend's pale salmon. */
+.cx-art, .cxa-scene { --art-history: color-mix(in srgb, var(--history) 45%, #c4402e); --art-poetry: var(--poetry); --art-prophets: var(--prophets); --art-gospels: var(--gospels); --art-epistles: var(--epistles); --art-revelation: var(--revelation); }
+/* A 16 s loop in two halves: the threads that join one colour to itself, then those that join two colours. Each link
+   fades in and out as a whole; its thread draws itself. The delays are set in ConnectionsArt. */
+.cx-art-link { animation: cx-art-link 16s ease-in-out infinite both; }
+.cx-art-thread { stroke-dasharray: 1; animation: cx-art-draw 16s ease-in-out infinite both; }
+@keyframes cx-art-link {
+  0% { opacity: 0; }
+  8%, 28% { opacity: 1; }
+  34%, 100% { opacity: 0; }
+}
+@keyframes cx-art-draw {
+  0% { stroke-dashoffset: 1; }
+  12%, 100% { stroke-dashoffset: 0; }
+}
 .cx-hero h1 { margin-top: .6rem; font-family: var(--font-serif); font-size: clamp(2.3rem, 5vw, 3.9rem); font-weight: 400; line-height: 1.05; color: var(--ink); }
 .cx-hero h1 em, .cx-section-head h2 em { color: var(--accent); }
 .cx-lead { max-width: 46rem; margin-top: 1rem; font-size: .95rem; line-height: 1.7; color: var(--muted); }
-.cx-figures { display: flex; flex-wrap: wrap; margin-top: 2rem; border-top: 1px solid var(--line); }
-.cx-figures > div { display: flex; flex-direction: column-reverse; gap: .2rem; flex: 1 1 10rem; padding: 1rem 1.25rem 0 0; }
-.cx-figures > div + div { padding-left: 1.25rem; border-left: 1px solid var(--line); }
+.cx-lead + .cx-lead { margin-top: .75rem; }
+.cx-figures { display: flex; flex-wrap: wrap; margin-top: 2.5rem; border: 1px solid var(--line); border-radius: .75rem; overflow: hidden; }
+.cx-figures > div { display: flex; flex-direction: column-reverse; gap: .2rem; flex: 1 1 10rem; padding: 1.25rem 1.5rem; }
+.cx-figures > div + div { border-left: 1px solid var(--line); }
 .cx-figures dd { font-family: var(--font-serif); font-size: 1.7rem; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; }
 .cx-figures dt { font-size: .7rem; color: var(--muted); }
 
 /* The arcs, straight under the heading, with the matrix emblem where the book list used to be. */
 .cx-arcs { margin-top: 2.75rem; }
 .cx-arcs .chart-controls { padding: 0; border: 0; background: none; gap: 1rem 1.5rem; }
-.cx-arcs .chart-live-detail { margin-top: 1.25rem; }
+/* The picker, its hint and the lit book's name sit over the empty corner above the arcs, so the arcs rise to the top of the picker. */
+.cx-arcs .arc-diagram { position: relative; }
+.cx-arcs .arc-head { position: absolute; inset: 0 0 auto 0; z-index: 1; display: flex; flex-direction: column; gap: .9rem; pointer-events: none; }
+.cx-arcs .arc-head > * { pointer-events: auto; }
+.cx-arcs .chart-controls { align-self: flex-start; margin: 0; }
+.cx-arcs .chart-hint { display: flex; flex-direction: column; }
+.cx-arcs .chart-hint > span + span::before { content: none; }
+.cx-arcs .chart-live-detail { margin: 0; min-height: 0; pointer-events: none; }
+@media (max-width: 767px) {
+  .cx-arcs .arc-head { position: static; margin-bottom: 1rem; }
+}
 .cx-arcs .chart-live-detail strong { font-size: 1.5rem; }
 
 .cx-atlas-button { display: inline-flex; align-items: center; gap: .9rem; text-align: left; }
@@ -30,13 +59,15 @@
 .cx-atlas-button:hover .cx-atlas-text strong { color: var(--accent); }
 @keyframes cx-twinkle { from { opacity: .25; } to { opacity: 1; } }
 
-/* Book to book: the grid and the conversation list side by side, under one thin line. */
-.cx-books { margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+/* Book to book: the grid and the conversation list side by side, under the figures' box. */
+.cx-books { margin-top: 3rem; }
 .cx-section-head h2 { margin-top: .45rem; font-family: var(--font-serif); font-size: clamp(1.7rem, 3.4vw, 2.5rem); font-weight: 400; line-height: 1.15; color: var(--ink); }
 .cx-conversation { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); gap: 3rem; margin-top: 2rem; }
 .cx-matrix-surface { position: relative; }
 .cx-matrix-surface canvas { display: block; width: 100%; aspect-ratio: 1; cursor: crosshair; touch-action: pan-y; }
 .cx-band { position: absolute; pointer-events: none; background: color-mix(in srgb, var(--ink) 7%, transparent); }
+.cx-matrix-surface canvas.cx-edge { cursor: pointer; }
+.cx-band-hover { background: color-mix(in srgb, var(--ink) 11%, transparent); }
 .cx-cell { position: absolute; pointer-events: none; border: 2px solid var(--ink); }
 .cx-axis { display: flex; align-items: center; gap: .4rem; margin-top: .75rem; font-size: .68rem; color: var(--muted); }
 
@@ -127,9 +158,14 @@
 @media (max-width: 900px) {
   .cx-conversation { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 }
+@media (max-width: 767px) {
+  .cx-hero-top { display: block; }
+  .cx-art { display: block; width: min(100%, 17rem); margin: 1.5rem auto 0; }
+}
 @media (max-width: 640px) {
-  .cx-figures > div { flex-basis: 45%; padding-bottom: .9rem; }
-  .cx-figures > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .cx-figures > div { flex-basis: 45%; }
+  .cx-figures > div:nth-child(odd) { border-left: 0; }
+  .cx-figures > div:nth-child(n+3) { border-top: 1px solid var(--line); }
   .cx-atlas-head { grid-template-columns: minmax(0, 1fr) auto; }
   .cx-atlas-search { grid-column: 1 / -1; grid-row: 2; }
   .cx-atlas-search input { width: 100%; }
@@ -137,6 +173,7 @@
   .cx-verses-texts { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .cx-emblem i, .cx-atlas[open] { animation: none; }
+  .cx-emblem i, .cx-atlas[open], .cx-art-link, .cx-art-thread { animation: none; }
+  .cx-art-b { display: none; }
   .cx-emblem { transition: none; }
 }

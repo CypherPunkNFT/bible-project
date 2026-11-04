@@ -36,6 +36,8 @@ const MosesConnectedMockup = lazy(() => import("./connections/MosesConnectedMock
 const PersonConnectionsMockup = lazy(() => import("./connections/PersonConnectionsMockup"));
 const PrivacyMockup = lazy(() => import("./legal/PrivacyMockup"));
 const StudyConnectionsMockup = lazy(() => import("@/pages/study/connections/ConnectionsPage"));
+const ConnectionsArtMockup = lazy(() => import("./connections-art/ConnectionsArtMockup"));
+const ConnectionsBibleMockup = lazy(() => import("./connections-bible/ConnectionsBibleMockup"));
 const StudyVersionsMockup = lazy(() => import("@/pages/study/versions/EditionsPage"));
 const SupportMockup = lazy(() => import("./legal/SupportMockup"));
 const StructureMockup = lazy(() => import("@/pages/study/structure/StructurePage"));
@@ -101,6 +103,10 @@ export function mockupRoutes() {
     // Connections in Scripture as one page, without the two chart cards (owner, 2026-10-29). No MOCK-UP tag: a mock-up shows only
     // what the real page would (owner, 2026-10-28).
     <Route key="study-connections" path="/study/connections_mockup" element={<StudyConnectionsMockup />} />,
+    // Four settings for the Connections heading drawing (bookshelf, stacks, shelf and stacks, wall of books), a 2x2 grid (owner, 2026-11-03).
+    <Route key="study-connections-art" path="/study/connections_art_mockup" element={<ConnectionsArtMockup />} />,
+    // The same drawing with the Bible drawn after the Study hub's Bible card, on a lectern (owner, 2026-11-03).
+    <Route key="study-connections-bible" path="/study/connections_bible_mockup" element={<ConnectionsBibleMockup />} />,
     // Versions & languages as one page: timeline, then coverage, no cards and no "Choose an edition" (owner, 2026-10-29).
     <Route key="study-versions" path="/study/versions_mockup" element={<StudyVersionsMockup />} />,
     <Route key="privacy" path="/privacy_mockup" element={<><MockupTag /><PrivacyMockup /></>} />,
