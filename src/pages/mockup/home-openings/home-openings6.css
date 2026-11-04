@@ -109,9 +109,10 @@
 /* The covers a little thicker and wider than first set (owner, 2026-10-31). */
 .hm6-i .hm6-art { filter: drop-shadow(0 0 16px var(--page)) drop-shadow(0 0 10px var(--page)); }
 /* The squares' cover thins as they close on the wall, so it never reaches the wall's gold line. */
-/* Each card has its own ground, so the word wall shows in the gaps between them (owner, 2026-11-02); the glow is the column's. */
+/* Each card has its own ground (owner, 2026-11-02); the glow is the column's, and the column is filled with the page colour
+   too, so the cover runs behind the gaps between the cards as well as round them (owner, 2026-11-03: "around and behind"). */
 .hm6-stage.hm6-i .hm6-squares > a { background: var(--surface); }
-.hm6-stage.hm6-i .hm6-squares { box-shadow: 0 0 min(30px, var(--hm6-gap, 40px) * .75) min(20px, var(--hm6-gap, 40px) * .5) var(--page); }
+.hm6-stage.hm6-i .hm6-squares { background: var(--page); box-shadow: 0 0 min(30px, var(--hm6-gap, 40px) * .75) min(20px, var(--hm6-gap, 40px) * .5) var(--page); }
 /* The squares' edges, round them and between them, are the questions page's hairline (test-options.css, .th-shelves), with
    its motion on pointing, the same values: a faint wash of the square's colour, a coloured ring with a soft glow, its colour
    sweeping in along the top, and the arrow stepping on (owner, 2026-10-31). Each square has its own line, laid over its
