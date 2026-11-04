@@ -15,6 +15,7 @@
   html:lang(es) .hm6-stage.hm6-i h1 { --hm6-title-width: 10.2; }
   html:lang(pt) .hm6-stage.hm6-i h1 { --hm6-title-width: 9.95; }
   html:lang(hi) .hm6-stage.hm6-i h1 { --hm6-title-width: 8; }
+  html:lang(id) .hm6-stage.hm6-i h1 { --hm6-title-width: 9.65; }
   .hm6-stage.hm6-i :is(.home-hero-lead, .home-hero-foot) { max-width: calc(min(52svh, 52vw) - 32px); margin-inline: auto; text-wrap: balance; }
 }
 /* Those longer lines wrap on a short window, so they sit closer to leave the foot its room. */
