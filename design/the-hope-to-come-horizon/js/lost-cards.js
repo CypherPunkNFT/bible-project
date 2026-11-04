@@ -5,8 +5,16 @@
   const { bookends, passages } = HP;
   const kindLabel = (entry) => (entry.kind === "shares" ? `Both verses say: ${entry.word}` : "This study's matching, and nothing more");
   const words = (tag, text, id) => `<div class="lc-words"><span class="lc-tag">${tag}</span><p class="lc-phrase">${text}</p><a class="lc-ref" href="./?sheet=${id}">${passages[id].label}</a></div>`;
-  const seam = (entry) => (entry.middle.length
-    ? `<div class="lc-seam"><p class="lc-mid">${entry.middle.map((item) => `<span>${item.t}</span> <a class="lc-ref" href="./?sheet=${item.r}">${item.label}</a>`).join("<i aria-hidden=\"true\">·</i>")}</p></div>`
+  // The study leaves three rows with no prophet between; redeemed-verses.js gives them one (HP.lostMiddle), checked here.
+  const prophets = (entry) => {
+    const added = entry.middle.length ? [] : (HP.lostMiddle?.[entry.name] ?? []);
+    for (const item of added) {
+      if (!passages[item.r]?.verses.some((verse) => verse.t.includes(item.t))) console.error(`The hope to come: "${item.t}" is not in ${item.label}; check HP.lostMiddle in redeemed-verses.js`);
+    }
+    return entry.middle.length ? entry.middle : added;
+  };
+  const seam = (entry, middle = prophets(entry)) => (middle.length
+    ? `<div class="lc-seam"><p class="lc-mid">${middle.map((item) => `<span>${item.t}</span> <a class="lc-ref" href="./?sheet=${item.r}">${item.label}</a>`).join("<i aria-hidden=\"true\">·</i>")}</p></div>`
     : `<div class="lc-seam lc-seam-empty" aria-hidden="true"></div>`);
   const card = (entry, art) => `<article class="lc"><div class="lc-half lc-dark"><div class="lc-art">${art.lost()}</div><h3 class="lc-name">${entry.name}</h3>${words("Lost", entry.startText, entry.start)}</div>${seam(entry)}<div class="lc-half lc-light"><div class="lc-art">${art.found()}</div>${words("Revelation answers", entry.lastText, entry.last)}<small class="lc-kind">${kindLabel(entry)}</small></div></article>`;
   document.getElementById("cards").innerHTML = bookends.map((entry) => {

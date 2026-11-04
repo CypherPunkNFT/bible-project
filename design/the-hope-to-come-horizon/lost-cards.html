@@ -41,7 +41,7 @@
   .lc-ref { font-size: .85rem; text-decoration: underline; text-underline-offset: .2em; }
   .lc-kind { align-self: flex-start; margin-top: auto; padding: .2rem .65rem; border-radius: 999px; background: rgb(255 251 236 / .85); font-size: .78rem; }
 
-  /* The prophets between, on a gold belt (the owner's choice). A row with no prophet keeps the belt, empty, at the same height. */
+  /* The prophets between, on a gold belt (the owner's choice). Every row has one: the three the study leaves empty get theirs from redeemed-verses.js. */
   .lc-seam { position: relative; z-index: 1; padding: .7rem clamp(1.25rem, 2.5vw, 2rem); background: linear-gradient(to bottom, #f0c968, #d9a640); }
   .lc-seam-empty { min-height: calc(1.05rem * 1.5 + 1.4rem); }
   .lc-mid { margin: 0; font: italic 400 1.05rem/1.5 var(--serif); color: #1b1408; }
@@ -59,6 +59,7 @@
 <body>
 <main class="lc-grid" id="cards"></main>
 <script src="../the-hope-to-come-directions/data.js"></script>
+<script src="js/redeemed-verses.js"></script>
 <script src="js/lost-cards-art.js"></script>
 <script src="js/lost-cards.js"></script>
 </body>
