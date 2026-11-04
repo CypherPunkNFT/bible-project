@@ -13,14 +13,12 @@
   body { margin: 0; background: var(--page); color: var(--ink); }
   .lc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 3rem); padding: clamp(1.5rem, 4vw, 4rem) var(--hz-gutter); }
   .lc-cell { display: flex; flex-direction: column; }
-  .lc-cell-wide { grid-column: 1 / -1; }
   .lc-cell > header p { margin: 0 0 .75rem; color: var(--muted); }
 
   .lc { position: relative; flex: 1; display: grid; grid-template-rows: 1fr auto 1fr; overflow: hidden; border-radius: 1.25rem; border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line)); background: var(--surface); }
   .lc-art { position: absolute; inset: 0; }
   .lc-art svg { display: block; width: 100%; height: 100%; }
   .lc-half { position: relative; display: flex; flex-direction: column; gap: .5rem; min-height: 15rem; padding: clamp(1.25rem, 2.5vw, 2rem); }
-  .lc-cell-wide .lc-half { min-height: 18rem; }
   .lc-half > :not(.lc-art) { position: relative; max-width: min(26rem, 58%); }
 
   /* Fixed colours: the art does not change with the theme, so the words on it do not either. */
@@ -41,7 +39,7 @@
   .lc-ref { font-size: .85rem; text-decoration: underline; text-underline-offset: .2em; }
   .lc-kind { align-self: flex-start; margin-top: auto; padding: .2rem .65rem; border-radius: 999px; background: rgb(255 251 236 / .85); font-size: .78rem; }
 
-  /* The prophets between, on a gold belt (the owner's choice). Every row has one: the three the study leaves empty get theirs from redeemed-verses.js. */
+  /* The prophets between, on a gold belt (the owner's choice). Every row has one: the two the study leaves empty get theirs from redeemed-verses.js. */
   .lc-seam { position: relative; z-index: 1; padding: .7rem clamp(1.25rem, 2.5vw, 2rem); background: linear-gradient(to bottom, #f0c968, #d9a640); }
   .lc-seam-empty { min-height: calc(1.05rem * 1.5 + 1.4rem); }
   .lc-mid { margin: 0; font: italic 400 1.05rem/1.5 var(--serif); color: #1b1408; }

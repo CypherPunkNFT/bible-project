@@ -18,8 +18,12 @@ Every quotation below was checked word for word against the site's Berean text o
 5. **The presence**: "they hid themselves from the presence of the LORD God" (Genesis 3:8) → "My dwelling place will be with them" (Ezekiel 37:27) → "the dwelling place of God is with man" (Revelation 21:3)
 6. **The way in**: "He drove out the man" (Genesis 3:24) → "Your gates will always stand open" (Isaiah 60:11) → "Its gates will never be shut" (Revelation 21:25)
 
-**Not strong enough (to replace):** the deceiver, the sky, the river, the tree, the face. A suggested replacement for each is
-marked ★ below.
+**Built 2026-11-04 (new, after the six):** dry bones, dust to glory, scarlet to white, ashes to a crown (numbers 1 to 4 below).
+
+**Not strong enough (to replace):** the deceiver, the sky, the river, the tree. A suggested replacement for each is marked ★
+below.
+
+**Removed 2026-11-04:** the face. The owner did not like any of its four versions, so it is off the page.
 
 ## New cards to choose from
 
@@ -31,15 +35,13 @@ marked ★ below.
 6. **Thirst to the spring** ★ *(in place of the river)*: "the people thirsted for water there" (Exodus 17:3) → "waters will gush forth in the wilderness" (Isaiah 35:6) → "To the thirsty I will give freely from the spring of the water of life" (Revelation 21:6). *Picture:* cracked ground and an empty jar; then a spring bursting out of rock into green.
 7. **Unclean to healed** ★ *(in place of the tree)*: "‘Unclean, unclean!’" (Leviticus 13:45) → "by His stripes we are healed" (Isaiah 53:5) → "the leaves of the tree are for the healing of the nations" (Revelation 22:2). *Picture:* torn clothes and an outcast's road outside a camp; then the tree of life, its leaves falling like medicine.
 8. **Accused to set free** ★ *(in place of the deceiver)*: "Satan standing at his right hand to accuse him" (Zechariah 3:1) → "I will clothe you with splendid robes" (Zechariah 3:4) → "the accuser of our brothers has been thrown down" (Revelation 12:10). *Picture:* a man in filthy clothes with a shadow over his shoulder; then the shadow gone, clean robes.
-9. **The hidden face** ★ *(in place of the face)*: "your sins have hidden His face from you" (Isaiah 59:2) → "then we shall see face to face" (1 Corinthians 13:12) → "They will see His face" (Revelation 22:4). *Picture:* keep one of the four face versions already drawn (A to D), with stronger words.
-10. **Scattered to one people**: "the LORD scattered them over the face of all the earth" (Genesis 11:9) → "all nations will stream to it" (Isaiah 2:2) → "a multitude too large to count, from every nation and tribe and people and tongue" (Revelation 7:9). *Picture:* a broken tower and people walking away from each other; then one great crowd together.
-11. **Slavery to freedom**: "The Israelites groaned and cried out under their burden of slavery" (Exodus 2:23) → "to proclaim liberty to the captives" (Isaiah 61:1) → "the creation itself will be set free from its bondage to decay" (Romans 8:21). *Picture:* chains and brick kilns; then broken chains in an open field.
-12. **Ruins to the holy city**: "The wall of Jerusalem is broken down, and its gates are burned with fire" (Nehemiah 1:3) → "your gates of sparkling jewels" (Isaiah 54:12) → "the holy city, the new Jerusalem, coming down out of heaven from God" (Revelation 21:2). *Picture:* a burned wall smoking; then the city coming down in light.
-13. **Blood to peace**: "The voice of your brother’s blood cries out to Me from the ground" (Genesis 4:10) → "They will beat their swords into plowshares" (Isaiah 2:4) → "Behold, I make all things new" (Revelation 21:5). *Picture:* a sword in red earth; then a plough in a green field.
+9. **Scattered to one people**: "the LORD scattered them over the face of all the earth" (Genesis 11:9) → "all nations will stream to it" (Isaiah 2:2) → "a multitude too large to count, from every nation and tribe and people and tongue" (Revelation 7:9). *Picture:* a broken tower and people walking away from each other; then one great crowd together.
+10. **Slavery to freedom**: "The Israelites groaned and cried out under their burden of slavery" (Exodus 2:23) → "to proclaim liberty to the captives" (Isaiah 61:1) → "the creation itself will be set free from its bondage to decay" (Romans 8:21). *Picture:* chains and brick kilns; then broken chains in an open field.
+11. **Ruins to the holy city**: "The wall of Jerusalem is broken down, and its gates are burned with fire" (Nehemiah 1:3) → "your gates of sparkling jewels" (Isaiah 54:12) → "the holy city, the new Jerusalem, coming down out of heaven from God" (Revelation 21:2). *Picture:* a burned wall smoking; then the city coming down in light.
+12. **Blood to peace**: "The voice of your brother’s blood cries out to Me from the ground" (Genesis 4:10) → "They will beat their swords into plowshares" (Isaiah 2:4) → "Behold, I make all things new" (Revelation 21:5). *Picture:* a sword in red earth; then a plough in a green field.
 
-**Recommended to build first:** 1 (dry bones), 2 (dust to glory), 3 (scarlet to white) and 4 (ashes to a crown), because
-each is life out of death or glory out of shame you can see in one picture. Then the four ★ replacements, so every card
-on the page clears the bar.
+**Built first (2026-11-04):** 1 to 4, because each is life out of death or glory out of shame you can see in one picture.
+**Next:** the three ★ replacements (6, 7, 8), so every card on the page clears the bar. Dry bones, now built, was the sky's replacement.
 
 **Note:** several of these take their "lost" words from outside Genesis and Exodus (Ezekiel, Leviticus, Nehemiah,
 Zechariah, Isaiah) and their "restored" words from outside Revelation. That moves section 03 beyond the study's own
