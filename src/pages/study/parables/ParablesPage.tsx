@@ -1,8 +1,9 @@
 import { useEffect, type CSSProperties } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { ArrowDown, ArrowLeft, ArrowUpRight, BookOpen, Search } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, BookOpen, Search } from 'lucide-react';
 import { PARABLES, PARABLE_FORMS, PARABLE_ROOMS, passageLabel, passageUrl, type Parable } from '@/data/parables';
 import { ParableArt } from './ParableArt';
+import { StudyBackBar } from '@/components/study/StudyBackBar';
 import './parables.css';
 import './typography.css';
 import { LearningToListen } from './LearningToListen';
@@ -81,7 +82,7 @@ export default function ParablesPage() {
     });
   }
   return <div className="pb-page mx-auto max-w-7xl px-4 sm:px-6">
-    <nav className="pb-breadcrumb" aria-label="Study breadcrumb"><Link to="/study"><ArrowLeft size={14} aria-hidden="true"/> Study</Link><span>/</span><Link to="/study/gospels">Jesus & the Gospels</Link><span>/</span><span>Parables</span></nav>
+    <StudyBackBar label="The parables of Christ" fallback={{ path: "/study/gospels", label: "Jesus & the Gospels" }} />
     <header className="pb-hero"><div><p className="pb-kicker">The parables of Christ</p><h1>Ordinary things.<br/><em>Extraordinary kingdom.</em></h1><p>A seed. A coin. A road. A door.<br/>Jesus begins with a world his listeners know—and tells a story that asks them to see it again.</p><a href="#parables-explore" className="pb-start">Step inside the stories <ArrowDown size={16} aria-hidden="true"/></a></div><div className="pb-hero-scene"><ParableArt room="field" hero/><span>Listen · Notice · Turn · Respond</span></div></header>
     <p className="pb-invitation">{copy.invitation} <a href="#pb-method-title">How to read a parable</a></p>
     <div className="pb-statline"><span><b>{PARABLES.length}</b> parables & comparisons</span><span><b>{PARABLE_ROOMS.length}</b> themes to explore</span><span><b>3</b> Gospel voices</span><span>Every study opens the text <BookOpen size={16} aria-hidden="true"/></span></div>

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { AMAZING_GRACE, bookIndexOf, chapterOf, hymnHref, type HymnCollection, type HymnEntry } from "@/lib/hymns";
 import { firstLine, formatNumber, groupsById, plural, tone } from "./model";
 import { Pipes } from "./Pipes";
+import { StudyBackBar } from "@/components/study/StudyBackBar";
 
 // Hymns still sung today, chosen by first line; each is shown only if the collection really holds it.
 const KNOWN = ["Amazing grace", "When I survey the wondrous cross", "Our God, our help in ages past", "Joy to the world",
@@ -41,7 +42,7 @@ export function Landing({ collection }: { collection: HymnCollection }) {
   return <>
     <div className="hc-intro">
       <div>
-        <p className="hc-crumb"><Link to="/study">Study</Link><span>/</span><Link to="/study/theology?area=life">Living the Christian Life</Link><span>/</span>Hymns</p>
+        <StudyBackBar label="Hymns" fallback={{ path: "/study/theology?area=life", label: "Scripture & Theology" }} />
         <h1>Hymns<em>the faith, sung</em></h1>
         <p className="hc-lede">Two English hymn books, 1707 to 1779: Isaac Watts's psalms and hymns, and the <i>Olney Hymns</i> of John Newton and
           William Cowper. Every hymn whose words we hold opens on its own page, beside the Scripture it was written on.</p>

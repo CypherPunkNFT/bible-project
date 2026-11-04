@@ -4,6 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, BookOpen, Footprints, MessageCircle, Search, Sparkles, ChevronDown, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { cameFrom } from "@/lib/came-from";
+import { StudyBackLink } from "@/components/study/StudyBackLink";
 import { personPath } from "@/lib/people-pages-index";
 import index from "@/data/long-memory/index.json";
 import "./long-memory.css";
@@ -114,7 +115,7 @@ export default function LongMemoryPage() {
   const reader=(current&&<div className="lm-reader" aria-live="polite"><div className="lm-reader-meta"><span><BookOpen size={16}/> {ref(current)} <small><BibleAbbr /></small></span><div><button type="button" aria-label="Previous verse" disabled={position===0} onClick={()=>setSelected(filtered[position-1].id)}><ArrowLeft size={17}/></button><span>{position+1} / {number(filtered.length)}</span><button type="button" aria-label="Next verse" disabled={position===filtered.length-1} onClick={()=>setSelected(filtered[position+1].id)}><ArrowRight size={17}/></button></div></div><blockquote><Verse id={current.id} /></blockquote><Link to={`/read/kjv/${bookFor(current.b).code}/${current.c}?hl=${current.v}-${current.v}`}>Read the chapter <ArrowRight size={14}/></Link></div>);
   const chooseBook=(value:string)=>{setBook(value);setSelected(0);if(value==="all")requestAnimationFrame(()=>document.querySelector<HTMLButtonElement>(`button[aria-controls="lm-expanded-${book}"]`)?.focus({preventScroll:true}));};
   return <main className="long-memory-page" data-memory-ready={Boolean(data)}>
-    <div className="lm-breadcrumb"><Link to="/study/theology?area=people"><ArrowLeft size={14}/> People of Scripture</Link><span>A study across the books</span></div>
+    <div className="lm-breadcrumb"><StudyBackLink fallback={{ path: "/study/theology?area=people", label: "People of Scripture" }} /><span>A study across the books</span></div>
     <header className="lm-hero lm-person-hero">
       <div><p className="lm-eyebrow">Long Memory · {person.role}</p><h1 id="lm-person-title">{person.name}<em> across Scripture</em></h1><p className="lm-lead">{person.line}</p><Link className="lm-life-link" to={personPath(person.id)} state={cameFrom("Long Memory")}>Explore {person.name} <ArrowRight size={16}/></Link></div>
       <div className="lm-shifter" aria-label="Switch person"><span>Choose a life</span><div><button type="button" aria-label="Previous person" onClick={()=>shiftPerson(-1)}><ArrowLeft size={20}/></button><span>{index.people.indexOf(person)+1} <small>/ {index.people.length}</small></span><button type="button" aria-label="Next person" onClick={()=>shiftPerson(1)}><ArrowRight size={20}/></button></div><small>{number(person.count)} indexed verses · {person.books} books</small></div>

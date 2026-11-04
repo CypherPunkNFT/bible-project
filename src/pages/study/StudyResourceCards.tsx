@@ -22,7 +22,7 @@ export function Resource({ to, title, description, source, number, category, col
   const titleId = useId(), location = useLocation();
   return (
     <li className={`study-resource ${className}`} style={{ "--resource-color": `var(--${color})` } as CSSProperties}>
-      <Link to={to} className="study-resource-link" aria-labelledby={titleId} state={{ from: { path: location.pathname + location.search + location.hash, label: location.pathname.includes("theology") ? "Scripture & Theology" : "Study collection" } }}>
+      <Link to={to} className="study-resource-link" aria-labelledby={titleId} state={{ from: { path: location.pathname + location.search + location.hash, label: location.pathname.includes("academic") ? "Academic studies" : location.pathname.includes("theology") ? "Scripture & Theology" : "Study collection" } }}>
         <div className="study-card-top"><span>{category}</span><span className="study-card-number">{number} / 10</span></div>
         {children}
         <div className="study-card-copy">

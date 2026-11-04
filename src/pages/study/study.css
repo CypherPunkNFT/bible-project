@@ -219,9 +219,6 @@
 .study-topics-resource .study-card-copy > p { font-size: .76rem; line-height: 1.65; max-width: none; }
 @media (prefers-reduced-motion: reduce) { .study-topics-word, .study-topics-art .topics-god-rays, .study-topics-art .topics-god-rays path { animation: none; } }
 
-/* Back to Study as a small link at the end of the eyebrow line (StudyBackLink inline, People & genealogies). */
-.study-back-inline { display: inline-flex; align-items: center; gap: .35rem; font-size: .78rem; color: var(--muted); }
-.study-back-inline:hover { color: var(--ink); }
 /* Bare cards (no "Explore below" line): no room kept for that line, smaller drawings, so the page sits higher. */
 .study-contents[data-bare] { margin-bottom: 1.75rem; }
 .study-contents[data-bare] .study-content-card { padding-bottom: 1.1rem; }
@@ -271,3 +268,11 @@
 .study-hymns-read q { display: block; font: italic 400 18px/1.35 var(--font-serif); color: var(--ink); quotes: "C" "D"; }
 .study-hymns-read p { margin: 6px 0 0; color: var(--muted); font-size: 11px; }
 @media (prefers-reduced-motion: reduce) { .study-hymns-arm, .study-hymns-read, .study-hymns-disc line { transition: none; } }
+
+/* The top row of a study opened from a card (StudyBackBar): back button, then the study's name. Same look as charts.css .chart-collection-breadcrumb. */
+.study-back-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem; padding: 1.25rem 0; font-size: .8rem; color: var(--muted); }
+.study-back-bar strong { font-weight: 400; }
+
+/* A page's own link rules (.x-topline a, .lm-breadcrumb a) must not reshape the button. */
+a.study-back-button.study-back-button { gap: .55rem; padding: .65rem 1rem; color: var(--ink); font-size: .85rem; letter-spacing: 0; text-transform: none; }
+a.study-back-button.study-back-button:hover { color: var(--accent); }

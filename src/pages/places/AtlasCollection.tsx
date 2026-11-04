@@ -1,6 +1,7 @@
-import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Compass, Landmark, Map, Route as RouteIcon } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookOpen, Compass, Landmark, Map, Route as RouteIcon } from "lucide-react";
 import { useState, type CSSProperties, type ReactNode } from "react";
 import { Link, NavLink, Navigate, Route, Routes, useLocation, useSearchParams } from "react-router-dom";
+import { StudyBackLink } from "@/components/study/StudyBackLink";
 import { PlacesArtwork } from "./PlacesArtwork";
 import { CITY_COLLECTIONS } from "./city-collections";
 import { JourneyExperience } from "./JourneyExperience";
@@ -111,7 +112,7 @@ function CollectionHome() {
   // Keep saved links from the original SVG mockup opening their selected place.
   if (search.has("place") || search.has("find") || ["#places-map", "#top-places"].includes(hash)) return <Navigate to={`${BASE}/map${search.size ? `?${search}` : ""}${hash}`} replace />;
   return <div className="places-collection mx-auto max-w-7xl px-4 sm:px-6">
-    <div className="places-topline"><Link to="/study"><ArrowLeft size={15} aria-hidden />Back to Study</Link><span>Atlas</span></div>
+    <div className="places-topline"><StudyBackLink /><span>Atlas</span></div>
     <div className="places-page-slide">
     <header className="places-collection-intro">
       <div><p className="places-kicker">Scripture, place & Christian history</p><h1>Real places.<br /><em>An unfolding story.</em></h1><p>Find a place. Follow a life. Step into the world of the Bible.<br className="hidden sm:block" /> Then explore the communities and movements that followed.</p></div>
@@ -143,7 +144,7 @@ function CollectionHome() {
 function DestinationShell({ id, children }: { id: PlacesDestination; children: ReactNode }) {
   const item = ALL_DESTINATIONS.find((entry) => entry.id === id)!;
   return <div className="places-collection places-destination mx-auto max-w-7xl px-4 sm:px-6" style={tint(item.color)}>
-    <div className="places-topline"><Link to={BASE}><ArrowLeft size={15} aria-hidden />Back to Atlas</Link><Link to={`${BASE}/map`}>Open the map <ArrowUpRight size={13} aria-hidden /></Link></div>
+    <div className="places-topline"><StudyBackLink fallback={{ path: BASE, label: "Atlas" }} /><Link to={`${BASE}/map`}>Open the map <ArrowUpRight size={13} aria-hidden /></Link></div>
     <nav className="places-collection-nav" aria-label="Explore the collection">
       {ALL_DESTINATIONS.map((entry) => <NavLink key={entry.id} to={atlasDestination(entry.id)} data-places-morph style={morph(entry.id, entry.color)}><entry.icon className="places-tile-icon" strokeWidth={1.35} aria-hidden /><span>{entry.title}</span><ArrowUpRight size={14} aria-hidden /></NavLink>)}
     </nav>

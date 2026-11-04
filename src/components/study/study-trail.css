@@ -4,6 +4,8 @@
 .study-trail a:hover { color: var(--accent); }
 .study-trail a:last-of-type { color: var(--ink); }
 .study-trail > span[aria-hidden] { opacity: .5; }
+.study-trail a.study-back-button { gap: .55rem; margin-right: .45rem; font-size: .85rem; letter-spacing: 0; color: var(--ink); }
+.study-trail a.study-back-button:hover { color: var(--accent); }
 .study-trail :is(a, button):is(:focus, :focus-visible) { outline: none; }
 
 /* Every academic study uses the site's frame: the same width and side gutter as the header, so its edges line up with the header's. */

@@ -1,8 +1,9 @@
-import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, BookOpenText, Search } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookOpen, BookOpenText, Search } from "lucide-react";
 import { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { categoryStyle, FAMILY_EYEBROW, groupIcon, TOPIC_SECTIONS } from "@/lib/topic-style";
 import { RefLink } from "@/components/study/StudyParts";
+import { StudyBackLink } from "@/components/study/StudyBackLink";
 import { categoryUrl, matchTopics, placeOf, topicUrl, type TopicCategory, type TopicIndex } from "@/lib/topics";
 import { formatNumber } from "@/lib/utils";
 import { MeaningPrompt } from "@/components/search/MeaningPrompt";
@@ -67,7 +68,7 @@ export function TopicsHome({ index }: { index: TopicIndex }) {
 
   return (
     <div className="topics-collection mx-auto max-w-7xl px-4 sm:px-6">
-      <div className="topics-topline"><Link to="/study"><ArrowLeft size={15} aria-hidden />Back to Study</Link><span>Topics</span></div>
+      <div className="topics-topline"><StudyBackLink /><span>Topics</span></div>
       <div className="topics-page-slide">
         <header className="topics-intro">
           <div className="topics-intro-copy">

@@ -3,6 +3,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import type { Citation, Claim, Writer } from "@/data/letters/types";
 import { cameFrom } from "@/lib/came-from";
+import { StudyBackLink } from "@/components/study/StudyBackLink";
 import { slugOf } from "@/lib/people-slugs";
 import { CitationProvider, ClaimText } from "../LetterParts";
 import { SourcesList } from "../LetterBlocks";
@@ -143,7 +144,7 @@ export function LettersHome({ collections, ways, figures }: { collections: { car
   const rows = [{ id: "collections", title: "The four collections", lead: "Choose a group to read its letters one at a time.", cards: collections },
     { id: "across", title: "Across all twenty-one", lead: "Four ways to read the letters together.", cards: ways }];
   return <div className="lb">
-    <div className="lb-topline"><Link to="/study"><ArrowLeft size={15} aria-hidden />Back to Study</Link><span>LETTERS</span></div>
+    <div className="lb-topline"><StudyBackLink /><span>LETTERS</span></div>
     <header className="lb-intro">
       <div className="lb-intro-copy"><p className="lb-kicker">Study · New Testament letters</p><h1>Twenty-one letters.<br /><em>Read as they were sent.</em></h1>
         <p>Written to real churches and friends, dictated and signed, carried by hand and read aloud. Choose a collection to read its letters, or a way in to read across all twenty-one.</p></div>
