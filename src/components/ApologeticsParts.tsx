@@ -20,7 +20,9 @@ export function TopicArt({ index }: { index: number }) {
     {index === 3 && <><path d="M25 86q25-40 51 0t51 0 51 0M25 101q25-40 51 0t51 0 51 0" /><circle cx="110" cy="40" r="17" /><path d="M110 10V1m-26 14-7-7m59 7 7-7M76 40H64m80 0h12m-77 24-8 8m70-8 8 8" /></>}
     {index === 4 && <><circle cx="110" cy="65" r="46" /><ellipse cx="110" cy="65" rx="22" ry="46" /><path d="M64 65h92M70 43h80M70 87h80M20 65h34m112 0h34" /><circle cx="18" cy="65" r="4" fill="currentColor" /><circle cx="202" cy="65" r="4" fill="currentColor" /></>}
     {index === 5 && <><path d="M30 25h105v50H70L48 96V75H30ZM147 46h43v51h-18v17l-22-17h-48V85" /><path d="M48 43h69M48 57h49" /><circle cx="146" cy="72" r="3" fill="currentColor" /><circle cx="159" cy="72" r="3" fill="currentColor" /><circle cx="172" cy="72" r="3" fill="currentColor" /></>}
-    {index >= 6 && <><path d="M110 111V59M110 88 68 64M110 88l42-24M110 67 88 41M110 67l22-26M47 22q25-10 41 8v27q-23-15-41-7ZM173 22q-25-10-41 8v27q23-15 41-7ZM81 109q15-7 29 0 14-7 29 0v12q-15-7-29 0-14-7-29 0Z" /><circle cx="68" cy="64" r="5" /><circle cx="152" cy="64" r="5" /><path d="M110 9v34M100 21h20" /></>}
+    {index === 6 && <><path d="M110 111V59M110 88 68 64M110 88l42-24M110 67 88 41M110 67l22-26M47 22q25-10 41 8v27q-23-15-41-7ZM173 22q-25-10-41 8v27q23-15 41-7ZM81 109q15-7 29 0 14-7 29 0v12q-15-7-29 0-14-7-29 0Z" /><circle cx="68" cy="64" r="5" /><circle cx="152" cy="64" r="5" /><path d="M110 9v34M100 21h20" /></>}
+    {index === 7 && <><path d="M30 120h160M48 120V78h36v42M136 120V78h36v42M42 78h48l-6-12H48ZM130 78h48l-6-12h-36Z" /><circle cx="66" cy="44" r="10" /><circle cx="154" cy="44" r="10" /><path d="M50 66q0-12 16-12t16 12M138 66q0-12 16-12t16 12" /><path d="M92 34q18-14 36 0M98 22q12-9 24 0" /><circle cx="110" cy="44" r="2.5" fill="currentColor" /></>}
+    {index === 8 && <><path d="M28 118h164M40 118V40h18v78M58 118V28h22v90M80 118V46h16v72M104 118V34h20v84M124 118V52h14v66M146 118l20-82 17 4-20 82" /><path d="M40 52h18M40 106h18M58 42h22M58 104h22M104 48h20M104 104h20M124 64h14M150 104l17 4" /><path d="M69 58v28M114 62v24" strokeDasharray="2 4" /></>}
   </svg>;
 }
 export function Constellation() {
