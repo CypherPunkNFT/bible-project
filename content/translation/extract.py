@@ -125,8 +125,10 @@ TEMPLATE = re.compile(r"`([^`\\\n]*\$\{[^`\\\n]*)`")
 TEMPLATE_VALUE = re.compile(r"\$\{[^{}]*\}")
 IMPORT = re.compile(r"""\bfrom\s+["'](@/|\.{1,2}/)([^"']+)["']""")
 PAGE_ATTRIBUTE = re.compile(r'\b(?:aria-label|title|placeholder|alt|label)="([^"\n]{1,300})"')
-# One-word labels in data written into the code ({ label: "Study" }), which PAGE_LITERAL's two-word floor skips.
-PAGE_PROPERTY = re.compile(r'\b(?:label|title|heading|subtitle|name|text|caption|description|short|kicker|eyebrow)\s*:\s*"([^"\\\n]{2,300})"')
+# One-word labels in data written into the code ({ label: "Study" }, {label:'Practice'}), which PAGE_LITERAL's two-word
+# floor skips. Either quote: the Apologetics menu and several study pages use single quotes.
+PAGE_PROPERTY = re.compile(r'\b(?:label|title|heading|subtitle|name|text|caption|description|short|kicker|eyebrow)\s*:\s*'
+                           r'''(?:"([^"\\\n]{2,300})"|'([^'\\\n]{2,300})')''')
 # A single quote touching a word is an apostrophe ("the letter's", "Hebrews'"), not the edge of a string.
 # Every string is matched, however short, so that a "nt" cannot put the following quotes out of step; page_strings
 # then skips those outside PAGE_LITERAL_LENGTH.
@@ -238,7 +240,7 @@ def page_strings() -> list[str]:
             if translatable(text):
                 found.setdefault(text)
         for match in PAGE_PROPERTY.finditer(source):
-            text = " ".join(match.group(1).split())
+            text = " ".join((match.group(1) or match.group(2)).split())
             one_word = re.fullmatch(r"[A-Z][a-z'’]+", text)
             if one_word or (re.match(r"[A-Z]", text) and not CODE_LIKE.search(text) and not class_like(text)):
                 found.setdefault(text)
