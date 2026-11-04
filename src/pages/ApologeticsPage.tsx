@@ -5,7 +5,7 @@ import DebateRoom from "./DebateRoom";
 import IslamGuidePage from './IslamGuidePage';
 import '@/components/apologetics/navigation.css';
 import { ArrowRight, ArrowUpRight, BookOpen, Bookmark, Check, CheckCircle2, Compass, GitBranch, HeartHandshake, Library, MessageCircle, Route as RouteIcon, Search } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Navigate, Route, Routes, useLocation, useParams, useSearchParams } from "react-router-dom";
 import { RefLink } from "@/components/study/StudyParts";
 import { APOLOGETICS_ANCHOR, CONVERSATION_STEPS } from "@/data/apologetics";
@@ -25,15 +25,7 @@ import "./apologetics-transitions.css";
 import { WorldviewIndex, WorldviewPage } from "./WorldviewsPage";
 
 export default function ApologeticsPage() {
-  const book = useApologeticsNotebook(), location = useLocation(), shell = useRef<HTMLDivElement>(null);
-  // The bar floats under the site header; its height tells sticky panels and section links where to stop.
-  useEffect(() => {
-    const bar = shell.current?.firstElementChild;
-    if (!(bar instanceof HTMLElement)) return;
-    const observer = new ResizeObserver(() => shell.current?.style.setProperty("--ap-bar-height", bar.offsetHeight + "px"));
-    observer.observe(bar);
-    return () => observer.disconnect();
-  }, []);
+  const book = useApologeticsNotebook(), location = useLocation();
   useEffect(() => {
     const [, , section, id] = location.pathname.split("/");
     const title = section === "texts" ? "Historic Reformed texts" : section === "study" ? studyById(id)?.title : section === "topics" ? topicById(id)?.title : section === "paths" ? PATHS.find((path) => path.id === id)?.title : section === "worldviews" ? WORLDVIEWS.find((worldview) => worldview.id === id)?.title : section === "debates" ? (id ? DEBATES.find((debate) => debate.id === id)?.title : "Debates") : undefined;
@@ -47,7 +39,7 @@ export default function ApologeticsPage() {
   }, [location.pathname,location.hash]);
   const legacy: Record<string, string> = { "#foundations": "/paths/begin", "#conversation": "/practice", "#across-beliefs": "/worldviews", "#debates": "/debates" };
   if (location.pathname.replace(/\/$/, "") === base && legacy[location.hash]) return <Navigate replace to={base + legacy[location.hash]} />;
-  return <div ref={shell} className="am-shell ap-live-shell">
+  return <div className="am-shell ap-live-shell">
     <ApologeticsNavigationHeader/><div className="am-layout"><div className="ap-page am-content">
     {book.storageError && <p className="ap-storage-error" role="status">Your browser could not save these changes. Keep this tab open and copy any notes you want to retain.</p>}
     <div className="ap-route-content"><Routes><Route path="worldviews/islam/guide/*" element={<IslamGuidePage/>}/>

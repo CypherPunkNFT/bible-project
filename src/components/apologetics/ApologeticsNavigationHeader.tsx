@@ -11,7 +11,17 @@ const base='/apologetics';
 export function ApologeticsNavigationHeader() {
   const location=useLocation();
   const [query,setQuery]=useState('');
-  const dialog=useRef<HTMLDialogElement>(null), trigger=useRef<HTMLButtonElement>(null), input=useRef<HTMLInputElement>(null);
+  const dialog=useRef<HTMLDialogElement>(null), trigger=useRef<HTMLButtonElement>(null), input=useRef<HTMLInputElement>(null), floating=useRef<HTMLButtonElement>(null);
+  // When the bar scrolls up to its landing gap under the site header, a copy of its search button stays there.
+  useEffect(()=>{
+    let frame=0;
+    const place=()=>{frame=0;const button=trigger.current,copy=floating.current,bar=button?.closest('.sm-container'),header=document.querySelector('[data-site-header]');if(!button||!copy||!bar||!header)return;
+      const top=header.getBoundingClientRect().bottom+24,box=bar.getBoundingClientRect(),own=button.getBoundingClientRect();
+      copy.hidden=box.top>=top;copy.style.top=top+'px';copy.style.left=own.left+'px';copy.style.width=box.right-own.left+'px';copy.style.height=own.height+2+'px';};
+    const queue=()=>{if(!frame)frame=requestAnimationFrame(place);};
+    place();window.addEventListener('scroll',queue,{passive:true});window.addEventListener('resize',queue);
+    return()=>{cancelAnimationFrame(frame);window.removeEventListener('scroll',queue);window.removeEventListener('resize',queue);};
+  },[location.pathname]);
   function open(){setQuery('');dialog.current?.showModal();requestAnimationFrame(()=>input.current?.focus());}
   function close(){dialog.current?.close();}
   useEffect(()=>{close();},[location.pathname,location.search]);
@@ -27,7 +37,8 @@ export function ApologeticsNavigationHeader() {
     <WorldviewNavigation
       leading={<Link to={base} className="sm-leading-brand" aria-label="Apologetics home"><ShieldCheck size={18}/><strong>Apologetics</strong></Link>}
       trailing={<button ref={trigger} onClick={open} className="sm-trailing-search" type="button" aria-label="Search Apologetics"><Search size={16}/><span>Search Apologetics</span><kbd>Ctrl K</kbd></button>}/>
-    <dialog onKeyDown={e=>{if(e.key==="Escape"){e.preventDefault();e.stopPropagation();close();}}} className="am-dialog" ref={dialog} onClose={()=>trigger.current?.focus()} onClick={e=>{if(e.target===dialog.current)close();}} aria-labelledby="am-dialog-title">
+    <button ref={floating} hidden onClick={open} className="sm-trailing-search sm-floating-search" type="button" aria-label="Search Apologetics"><Search size={16}/><span>Search Apologetics</span><kbd>Ctrl K</kbd></button>
+    <dialog onKeyDown={e=>{if(e.key==="Escape"){e.preventDefault();e.stopPropagation();close();}}} className="am-dialog" ref={dialog} onClose={()=>(floating.current&&!floating.current.hidden?floating.current:trigger.current)?.focus({preventScroll:true})} onClick={e=>{if(e.target===dialog.current)close();}} aria-labelledby="am-dialog-title">
       <div className="am-dialog-inner"><header><div><span className="ap-eyebrow">The Apologetics library</span><h2 id="am-dialog-title">Follow a <em>question.</em></h2></div><button className="am-close" onClick={close} aria-label="Close library menu"><X size={21}/></button></header>
         <label className="am-search"><Search size={20}/><input ref={input} type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Find a worldview, study, text or learning path" aria-label="Search library navigation"/><kbd>Esc</kbd></label>
         <MeaningPrompt query={query} className="am-meaning" active={<span>Meaning search is on: ask a whole question and the closest studies come first.</span>}/>

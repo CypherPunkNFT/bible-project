@@ -164,7 +164,7 @@
 .ap-mark-read { margin-top: 1.5rem; color: var(--ap-tone); }
 .ap-mark-read[aria-pressed="true"] { background: color-mix(in srgb,var(--ap-tone) 10%,var(--surface)); border-color: var(--ap-tone); }
 .ap-study-sidebar { border-left: 1px solid var(--line); padding-left: 1.5rem; min-width: 0; }
-.ap-companion-inner { position: sticky; top: calc(var(--ap-bar-bottom, 4.5rem) + 1rem); }
+.ap-companion-inner { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 159px); }
 .ap-study-sidebar nav { display: flex; flex-direction: column; gap: .6rem; margin: 1rem 0 1.8rem; }
 .ap-study-sidebar nav a { font-size: .73rem; color: var(--muted); }
 .ap-study-sidebar nav a:hover { color: var(--ap-tone); }

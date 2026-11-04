@@ -63,10 +63,9 @@
 
 /* Apologetics F: one local bar beneath the unchanged site header. */
 .ap-live-shell > .sm-container{margin-top:24px}
-/* The bar floats as the page scrolls, keeping the 24px it has under the site header (61px) on landing. */
-.ap-live-shell{--ap-bar-top:calc(env(safe-area-inset-top,0px) + 85px);--ap-bar-bottom:calc(var(--ap-bar-top) + var(--ap-bar-height,56px))}
-.ap-live-shell > .sm-container{position:sticky;top:var(--ap-bar-top);z-index:30;box-shadow:0 -24px 0 24px var(--page)} /* the shadow fills the gap above, so the page scrolls out of sight */
-.ap-live-shell [id]{scroll-margin-top:calc(var(--ap-bar-bottom) + 16px)}
+/* Once the bar's search scrolls up to its landing spot (24px under the site header), this copy holds that spot. */
+.sm-trailing-search.sm-floating-search{position:fixed;z-index:30;border:1px solid var(--line);border-radius:6px;background:var(--surface);box-shadow:0 12px 32px #0003}
+.sm-floating-search[hidden]{display:none}
 .am-meaning{margin-top:12px;color:var(--muted)}
 .am-results>a+p{margin-top:24px}
 .sm-topbar{display:flex;align-items:stretch;min-width:0;background:var(--surface);border-radius:5px 5px 0 0}
