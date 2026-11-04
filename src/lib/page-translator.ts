@@ -7,7 +7,7 @@
 // text or label again, the observer swaps it again. Files read after the change come in the new language (data.ts).
 // Anything inside translate="no" is left alone.
 import { fadeWordsIn, fadeWordsOut, holdNewWords } from "./language-fade";
-import { languageDirection, languageFolder, loadedData, setSiteLanguage, siteLanguage, type LanguageCode } from "./language";
+import { languageDirection, languageFolder, languageReloads, loadedData, setSiteLanguage, siteLanguage, type LanguageCode } from "./language";
 
 const ATTRIBUTES = ["aria-label", "title", "placeholder", "alt"];
 const SKIP = new Set(["SCRIPT", "STYLE", "TEXTAREA", "CODE", "PRE"]);
@@ -21,6 +21,7 @@ let observer: MutationObserver | null = null;
 const originals = new WeakMap<Text | Attr, { source: string; written: string }>();
 
 const BIBLE_WAIT_MS = 800;
+const RELOAD_WAIT_MS = 1500;
 const wait = (ms: number) => new Promise((done) => setTimeout(done, ms));
 
 const normal = (text: string) => text.replace(/\s+/g, " ").trim();
@@ -66,6 +67,7 @@ async function readStrings(folder: string, path: string | null, key: string): Pr
       const strings = (await readJson(`/data/i18n/${folder}/ui.json`)) as Record<string, string>;
       for (const [english, translated] of Object.entries(strings)) {
         learn(folder, english, translated);
+        learnSlots(folder, english, translated);
         // Pages also type labels in capitals ("ISAIAH 40:8", "OLD TESTAMENT").
         if (english !== english.toUpperCase()) learn(folder, english.toUpperCase(), translated.toUpperCase());
       }
@@ -81,16 +83,21 @@ async function readStrings(folder: string, path: string | null, key: string): Pr
 
 // The study pages' own text (the Academic studies' bodies and the like) is a second, larger file, read only on the pages that
 // show it: data/i18n/<folder>/ui-study.json, {English: translation}, written by apply.py from the "studytext" chunks.
-const STUDY_PATH = /^\/(study|teachers)(\/|$)/;
-const onStudyPage = () => typeof location !== "undefined" && STUDY_PATH.test(location.pathname);
+// The ruler, prophet and apostle pages under /people have theirs in ui-people.json ("peopletext" chunks).
+const PAGE_FILES: [RegExp, string][] = [[/^\/(study2?|teachers)(\/|$)/, "ui-study"], [/^\/people\//, "ui-people"]];
+const pageFile = () => (typeof location === "undefined" ? undefined : PAGE_FILES.find(([path]) => path.test(location.pathname))?.[1]);
+const loadPageFile = (folder: string) => {
+  const file = pageFile();
+  return file ? loadStudyStrings(folder, file) : undefined;
+};
 
-function loadStudyStrings(folder: string): Promise<void> {
-  const key = `${folder} study`;
+function loadStudyStrings(folder: string, file: string): Promise<void> {
+  const key = `${folder} ${file}`;
   const started = loaded.get(key);
   if (started) return started;
   const reading = (async () => {
     try {
-      const strings = (await readJson(`/data/i18n/${folder}/ui-study.json`)) as Record<string, string>;
+      const strings = (await readJson(`/data/i18n/${folder}/${file}.json`)) as Record<string, string>;
       for (const [english, translated] of Object.entries(strings)) {
         learn(folder, english, translated);
         // Names of God and the like are set in capitals on the page ("KING OF GLORY").
@@ -98,7 +105,7 @@ function loadStudyStrings(folder: string): Promise<void> {
       }
     } catch (error) {
       // Kept as read: a missing file is reported once, not on every change to the page.
-      console.warn(`page translation: could not read the ${folder} study strings (${String(error)}); those pages keep their current language`);
+      console.warn(`page translation: could not read the ${folder} ${file} strings (${String(error)}); those pages keep their current language`);
     }
   })();
   loaded.set(key, reading);
@@ -107,9 +114,10 @@ function loadStudyStrings(folder: string): Promise<void> {
 
 /** Called as the page changes: arriving on a study page in a translated language reads its extra strings, then translates what is shown. */
 function wantStudyStrings(): void {
-  if (!target || !onStudyPage() || loaded.has(`${target} study`)) return;
+  const file = pageFile();
+  if (!target || !file || loaded.has(`${target} ${file}`)) return;
   const folder = target;
-  void loadStudyStrings(folder).then(() => {
+  void loadStudyStrings(folder, file).then(() => {
     if (target === folder) translateTree(document.body);
   });
 }
@@ -127,7 +135,9 @@ const AFTER_NUMBERS = /^([^·|]*[·|] )(.+)$/;
 // Counts stand as "{n}" in the strings ("{n} versions", "{n} mi E of city hall"), so one entry serves every number.
 const NUMBER = /\d(?:[\d,.]*\d)?/g;
 // A line put together from pieces, each translated on its own: "Pregnancy · 3.3 mi E of city hall", "Continue: Psalms 105".
-const PIECES = /(\s+·\s+|\s+\|\s+|:\s+)/;
+// A piece between " · " is tried whole before it is split at ": " ("Herod · Not given in Scripture: Luke places him …").
+const PIECES = /(\s+·\s+|\s+\|\s+)/;
+const SUBPIECES = /(:\s+)/;
 
 function withNumbers(key: string): string | null {
   const numbers = key.match(NUMBER);
@@ -148,28 +158,103 @@ function withCase(key: string): string | null {
   return (body.charAt(0) === label.charAt(0) ? value : value.charAt(0).toLowerCase() + value.slice(1)) + end;
 }
 
-function translatedPiece(key: string): string | null {
+function knownPiece(key: string): string | null {
   const whole = lookup(key) ?? withNumbers(key) ?? withCase(key);
   if (whole) return whole;
   const parts = NAME_AND_NUMBER.exec(key);
   const name = parts && lookup(parts[1]);
-  return name ? `${name} ${parts[2].replace(AFTER_NUMBERS, (_all: string, numbers: string, rest: string) => numbers + (translatedPiece(rest) ?? rest))}` : null;
+  return name ? `${name} ${parts[2].replace(AFTER_NUMBERS, (_all: string, numbers: string, rest: string) => numbers + (knownPiece(rest) ?? rest))}` : null;
+}
+
+// Lines the page code builds around a value. extract.py writes every ${…} as {n}, so "Open the profile of {n}" holds a
+// name as often as a number. Each line is filed under its longest fixed word, so a text is tried only against lines that
+// could be it, and a longer line (more fixed letters) wins over a shorter one; on a tie, the one with more fixed text ("Select {n}: {n}. {n}"
+// before "Select {n}", which would take "Obed: Judges. Son of Boaz and Ruth" for one name).
+interface Slotted { english: string; pattern: RegExp; letters: number; fixed: number }
+const longerLine = (a: Slotted, b: Slotted) => b.letters - a.letters || b.fixed - a.fixed;
+const slotted = new Map<string, Map<string, Slotted[]>>(); // folder -> fixed word -> lines
+const SLOT = "{n}";
+const MOST_SLOTS = 3;
+const LONGEST_SLOTTED_TEXT = 300; // the lines' lazy slots backtrack, so very long texts are not tried
+const WORD = /\p{L}{2,}/gu;
+// A value is a name, title, number or known label. A run of everyday English words ("many hard") is not one: filling
+// it in would leave a line half in English.
+const PLAIN_WORD = /(?:^|[\s(])\p{Ll}{4,}/u;
+const escaped = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+function learnSlots(folder: string, english: string, translated: string): void {
+  const parts = normal(english).split(SLOT);
+  const slots = parts.length - 1;
+  const words = parts.join(" ").match(WORD) ?? [];
+  if (slots < 1 || slots > MOST_SLOTS || words.join("").length < 4 || translated.split(SLOT).length - 1 !== slots) return;
+  const anchor = words.reduce((longest, word) => (word.length > longest.length ? word : longest)).toLowerCase();
+  if (!slotted.has(folder)) slotted.set(folder, new Map());
+  const byWord = slotted.get(folder)!;
+  const line = { english: normal(english), pattern: new RegExp(`^${parts.map(escaped).join("(.+?)")}$`, "u"), letters: words.join("").length, fixed: parts.join("").length };
+  byWord.set(anchor, [...(byWord.get(anchor) ?? []), line].sort(longerLine));
+}
+
+function withSlots(key: string): string | null {
+  const lines = target && slotted.get(target);
+  if (!lines || key.length > LONGEST_SLOTTED_TEXT) return null;
+  const words = new Set((key.match(WORD) ?? []).map((word) => word.toLowerCase()));
+  const candidates = [...words].flatMap((word) => lines.get(word) ?? []).sort(longerLine);
+  for (const line of candidates) {
+    const values = line.pattern.exec(key)?.slice(1);
+    const template = values && fromEnglish.get(target!)?.get(line.english);
+    if (!values || !template) continue;
+    const filled = values.map((value) => knownPiece(value.trim()) ?? (PLAIN_WORD.test(value) ? null : value));
+    if (filled.some((value) => value === null)) continue;
+    let index = 0;
+    return template.replace(/\{n\}/g, () => filled[index++] ?? "");
+  }
+  return null;
+}
+
+const translatedPiece = (key: string): string | null => knownPiece(key) ?? withSlots(key);
+
+function joinedPieces(key: string, separators: RegExp, piece: (part: string) => string | null): string | null {
+  const parts = key.split(separators);
+  if (parts.length < 3) return null;
+  let changed = false;
+  const joined = parts.map((part, index) => {
+    const value = index % 2 ? null : piece(part);
+    if (value) changed = true;
+    return value ?? part;
+  }).join("");
+  return changed ? joined : null;
+}
+
+const pieceOrSubpieces = (part: string): string | null => translatedPiece(part) ?? joinedPieces(part, SUBPIECES, translatedPiece);
+
+// A piece that opens or closes a line beside another element keeps its mark: "· Matthew 4:18", "❝ The vision of four
+// beasts" (an event's icon), "Long Memory ·".
+const EDGE_DOT = /^([^\p{L}\p{N}\s(“"‘'[]+\s+)(.+)$|^(.+?)(\s+·)$/u;
+// A label put together with commas, "Ahab, King of Israel, 22 years": taken only when every piece is known, so a sentence
+// with commas is never left half translated.
+const COMMAS = /(,\s+)/;
+
+function everyPiece(key: string): string | null {
+  const parts = key.split(COMMAS);
+  if (parts.length < 3) return null;
+  const pieces = parts.map((part, index) => (index % 2 ? part : pieceOrSubpieces(part)));
+  return pieces.every((piece) => piece !== null) ? pieces.join("") : null;
+}
+
+// The comma pieces come before the lines with slots: "{n} years" would take "Ahab, King of Israel, 22" for its number.
+function translatedLine(key: string): string | null {
+  return knownPiece(key) ?? everyPiece(key) ?? withSlots(key) ?? joinedPieces(key, PIECES, pieceOrSubpieces) ?? joinedPieces(key, SUBPIECES, translatedPiece);
 }
 
 function translated(text: string): string | null {
   const key = normal(text);
   if (!key) return null;
-  const whole = translatedPiece(key);
+  const whole = translatedLine(key);
   if (whole) return whole;
-  const parts = key.split(PIECES);
-  if (parts.length < 3) return null;
-  let changed = false;
-  const joined = parts.map((part, index) => {
-    const value = index % 2 ? null : translatedPiece(part);
-    if (value) changed = true;
-    return value ?? part;
-  }).join("");
-  return changed ? joined : null;
+  const edge = EDGE_DOT.exec(key);
+  if (!edge) return null;
+  const inner = translatedLine(edge[2] ?? edge[3]);
+  return inner && (edge[1] ?? "") + inner + (edge[4] ?? "");
 }
 
 // Arabic reads a verse range "6:24–25" as "25–6:24" unless the invisible marks around it hold it together, left to right.
@@ -206,12 +291,30 @@ function translateAttribute(element: Element, name: string): void {
 
 function translateTree(root: Node): void {
   if (root.nodeType === Node.TEXT_NODE) return translateText(root as Text);
-  if (root.nodeType !== Node.ELEMENT_NODE) return;
+  const sealed = root.nodeType === Node.DOCUMENT_FRAGMENT_NODE; // a shadow root: it has no attributes of its own
+  if (root.nodeType !== Node.ELEMENT_NODE && !sealed) return;
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT);
-  for (let node: Node | null = root; node; node = walker.nextNode()) {
+  for (let node: Node | null = sealed ? walker.nextNode() : root; node; node = walker.nextNode()) {
     if (node.nodeType === Node.TEXT_NODE) translateText(node as Text);
     else for (const name of ATTRIBUTES) if ((node as Element).hasAttribute(name)) translateAttribute(node as Element, name);
   }
+}
+
+const WATCHED = { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ATTRIBUTES };
+// Parts of the page drawn in their own sealed root (the Moses page), which neither the observer nor a walk of the page enters.
+const shadowRoots = new Set<ShadowRoot>();
+
+function connectedShadowRoots(): ShadowRoot[] {
+  for (const root of shadowRoots) if (!root.host.isConnected) shadowRoots.delete(root);
+  return [...shadowRoots];
+}
+
+/** A component that draws into its own shadow root hands it here, so its words change with the rest of the page. */
+export function watchShadowRoot(root: ShadowRoot): void {
+  shadowRoots.add(root);
+  if (!observer) return; // watch() takes it up once a language other than English is chosen
+  observer.observe(root, WATCHED);
+  translateTree(root);
 }
 
 function watch(): void {
@@ -227,7 +330,11 @@ function watch(): void {
       });
     }
   });
-  observer.observe(document.body, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ATTRIBUTES });
+  observer.observe(document.body, WATCHED);
+  for (const root of connectedShadowRoots()) {
+    observer.observe(root, WATCHED);
+    translateTree(root);
+  }
 }
 
 function markDocument(code: LanguageCode, folder: string | null): void {
@@ -254,7 +361,7 @@ export async function startPageTranslator(): Promise<void> {
   const folder = languageFolder();
   markDocument(siteLanguage(), folder);
   if (!folder) return;
-  await Promise.all([loadStrings(folder, null), onStudyPage() ? loadStudyStrings(folder) : undefined]);
+  await Promise.all([loadStrings(folder, null), loadPageFile(folder)]);
   target = folder;
   watch();
 }
@@ -278,15 +385,18 @@ export async function chooseSiteLanguage(code: LanguageCode): Promise<void> {
   if (fades) root.dataset.languageFade = "true"; // a language change is not a move to another page: no page slide (PageTransitions)
   await Promise.all([
     fadedOut,
-    ...folders.flatMap((name) => [loadStrings(name, null), onStudyPage() ? loadStudyStrings(name) : undefined, ...[...loadedData].map((path) => loadStrings(name, path))]),
+    ...folders.flatMap((name) => [loadStrings(name, null), loadPageFile(name), ...[...loadedData].map((path) => loadStrings(name, path))]),
   ]);
   setSiteLanguage(code);
   markDocument(code, folder);
   target = folder;
   watch();
   translateTree(document.body);
+  connectedShadowRoots().forEach(translateTree);
   if (!fades) return;
   await new Promise((painted) => requestAnimationFrame(() => setTimeout(painted)));
+  // Content the page reads again in the new language (useAsync) comes in with the rest of the words, if it is quick.
+  await Promise.race([languageReloads(), wait(RELOAD_WAIT_MS)]);
   await bibleInLanguage(code);
   void fadeWordsIn().finally(() => delete root.dataset.languageFade);
 }

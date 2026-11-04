@@ -45,7 +45,7 @@ export function RulersRibbon({ rulers, prophets, focus, onFocus }: { rulers: Rul
           const r = bar.ruler, width = bar.x1 - bar.x0, fits = width > r.name.length * 7 + 22;
           return <SlideLink key={r.id} role="listitem" to={rulerHref(r.id)} state={back} className="rg-bar" data-focus={focus?.id === r.id ? "" : undefined} data-undated={bar.undated ? "" : undefined}
             style={{ left: bar.x0, width, top: (laneTop.get(bar.lane) ?? 0) + LABEL_H + bar.track * TRACK_H, "--lg": glowFor(r.kind, r.realm) } as CSSProperties}
-            aria-label={`${r.name}, ${r.title}, ${r.reignText}${r.dates ? `, ${formatYears(r.dates.from, r.dates.to, r.dates.approx)}` : ""}, ${VERDICT[r.verdictTone].spoken}`}
+            aria-label={`${r.name} · ${r.title} · ${r.reignText}${r.dates ? ` · ${formatYears(r.dates.from, r.dates.to, r.dates.approx)}` : ""} · ${VERDICT[r.verdictTone].spoken}`}
             onMouseEnter={() => onFocus(r)} onFocus={() => onFocus(r)}>
             {fits && <span>{r.name}</span>}{r.verdictTone !== "none" && width > 14 && <i aria-hidden>{VERDICT[r.verdictTone].symbol}</i>}
           </SlideLink>;

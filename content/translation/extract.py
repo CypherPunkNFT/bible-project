@@ -29,6 +29,8 @@ WORD = re.compile(r"[^\W\d_]+")
 SOURCES = [
     ("person", "data/study/people/*.json", False, (), {
         ".d", ".e", ".t", ".b", ".short", ".article", ".note", ".story.short", ".story.paragraphs[].text"}, set(), set()),
+    # The people timeline's one line each is a person's brief or description, so its translations are already there.
+    ("person", "data/study/people.json", False, (), {"[].b"}, set(), set()),
     ("topic", "data/topics/t/*.json", True, (), {
         ".*.title", ".*.points[].text", ".*.points[].items[].text", ".*.nave[].text", ".*.nave[].items[].text",
         ".*.keyVerses[].point"}, set(), {".*.dictionary[]"}),

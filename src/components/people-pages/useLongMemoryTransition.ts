@@ -53,7 +53,7 @@ export function useLongMemoryTransition() {
     const run = ++generation.current;
     active.current?.skipTransition(); active.current = null; clear();
     target.current = to.pathname;
-    const state = person(here.pathname) ? undefined : {from:{path:here.pathname+here.search+here.hash,label:memory(here.pathname)?"Long Memory":"Study"}};
+    const state = person(here.pathname) ? undefined : {from:{path:here.pathname+here.search+here.hash,label:memory(here.pathname)?"Long Memory":here.pathname.includes("academic")?"Academic studies":here.pathname.includes("theology")?"Scripture & Theology":"Study"}};
     if (memory(to.pathname)) await Promise.allSettled([import("@/pages/study/LongMemoryPage")]);
     if (people(to.pathname)) await Promise.allSettled([import("@/pages/study/PeoplePage"), preload("people", loadPeople)]);
     if (person(to.pathname)) {

@@ -10,7 +10,8 @@
 // same address the test page's "Back to the questions" link writes.
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { loadQuestionBank, type QuestionBank } from "@/lib/data";
+import { type QuestionBank } from "@/lib/data";
+import { useQuestionBank } from "./questions/useQuestionBank";
 import { BookRing } from "./questions/BookRing";
 import { listFacets, ListRail, type ListChoice } from "./questions/ListRail";
 import { QuestionsHero, StatsBar } from "./questions/Hero";
@@ -28,11 +29,7 @@ import "./questions/questions-panels.css";
 const NONE: Filters = readFilters(new URLSearchParams());
 
 export default function QuestionsPage() {
-  const [bank, setBank] = useState<QuestionBank | null>(null);
-  const [failed, setFailed] = useState<string | null>(null);
-  useEffect(() => {
-    loadQuestionBank().then(setBank, (error: unknown) => setFailed(error instanceof Error ? error.message : String(error)));
-  }, []);
+  const { bank, failed } = useQuestionBank();
   return <div className="qp">
     {failed && <p className="qp-status" role="alert">The questions could not be loaded: {failed}</p>}
     {!bank && !failed && <p className="qp-status">Loading the questions…</p>}

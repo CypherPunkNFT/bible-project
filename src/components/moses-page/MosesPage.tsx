@@ -6,6 +6,7 @@ import { personPath } from "@/lib/people-pages-index";
 import { readyKey } from "@/components/people-pages/usePeoplePageSlide";
 import { studyRefLink, type Person } from "@/lib/study";
 import { fillVerses, useCurrentBible } from "@/lib/verses";
+import { watchShadowRoot } from "@/lib/page-translator";
 import { mountMoses } from "./runtime.js";
 import styles from "./moses.css?inline";
 import topicStyles from "./chapter-topics.css?inline";
@@ -31,6 +32,7 @@ export default function MosesPage({ person }: { person: Person }) {
     surface.className = "moses-surface dir-merged";
     surface.setAttribute("aria-label", "Moses: his life, leadership and word");
     shadow.replaceChildren(style, surface);
+    watchShadowRoot(shadow); // the page translator does not enter a shadow root unless it is handed one
     const theme = () => { element.dataset.theme = document.documentElement.dataset.theme ?? "light"; };
     theme();
     const observer = new MutationObserver(theme);
@@ -52,7 +54,7 @@ export default function MosesPage({ person }: { person: Person }) {
   }, [person, catalog, bible, navigate, state]);
   return <>
     {error && <p role="alert" className="mx-auto max-w-7xl p-6">Moses’ page could not load. <Link className="underline" to="/study/people">Return to People & genealogies</Link>.</p>}
-    {/* The translator cannot reach inside this page's own drawing surface, so it stays English and reads left to right in every language. */}
+    {/* The translator swaps the lines it knows inside this page's drawing surface (watchShadowRoot above), but the page's own text has no translation yet, so it is still marked English and reads left to right. */}
     <div ref={host} className="people-page-slide" lang="en" dir="ltr" />
   </>;
 }

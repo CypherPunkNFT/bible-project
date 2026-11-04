@@ -18,7 +18,7 @@ const STORAGE_KEY = "bp-language";
 
 // The data folders apply.py translates; every other file (Bible texts, the catalogue) has no translated copy. The live
 // site reads people from packs (scripts/release-translations.ts packs each language's too).
-const TRANSLATED_DATA = ["study/people/", "study/people-packs/", "topics/", "summaries/", "questions/bank.json", "museums/", "creeds/", "hymns/"];
+const TRANSLATED_DATA = ["study/people.json", "study/people/", "study/people-packs/", "topics/", "summaries/", "questions/bank.json", "museums/", "creeds/", "hymns/"];
 
 function storedLanguage(): LanguageCode {
   try {
@@ -53,6 +53,19 @@ export function onLanguageChange(listener: () => void): () => void {
 }
 
 export const useSiteLanguage = (): LanguageCode => useSyncExternalStore(onLanguageChange, siteLanguage);
+
+// Content a page reads again for a new language (useAsync, useCachedLoad). The words a page builds from its data
+// ("Almighty Ruler of the skies" from "...skies,") cannot be swapped on screen, so they come from the new copy instead.
+const reloads = new Set<Promise<unknown>>();
+
+export function reloadingForLanguage(reload: Promise<unknown>): void {
+  reloads.add(reload);
+  const done = () => reloads.delete(reload);
+  reload.then(done, done);
+}
+
+/** Resolves when the content being read again for the new language has arrived, or failed. */
+export const languageReloads = (): Promise<unknown> => Promise.allSettled([...reloads]);
 
 export function languageFolder(code: LanguageCode = current): string | null {
   return LANGUAGES.find((language) => language.code === code)?.folder ?? null;

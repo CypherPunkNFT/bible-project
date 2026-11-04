@@ -52,7 +52,7 @@ export function RulersColumn({ rulers, focus, onFocus }: { rulers: RulerSummary[
       const r = bar.ruler, [from, to] = columnOf(bar), width = to - from;
       return <SlideLink key={r.id} role="listitem" to={rulerHref(r.id)} state={back} className="rg-vbar" data-lane={bar.lane} data-world={keyOf(bar) === "world" ? "" : undefined} data-focus={focus?.id === r.id ? "" : undefined} data-undated={bar.undated ? "" : undefined}
         style={{ top: bar.y0, height: bar.y1 - bar.y0, left: `${from}%`, width: `calc(${width}% - 2px)`, "--lg": glowFor(r.kind, r.realm) } as CSSProperties}
-        aria-label={`${r.name}, ${r.title}, ${r.reignText}${r.dates ? `, ${formatYears(r.dates.from, r.dates.to, r.dates.approx)}` : ""}, ${VERDICT[r.verdictTone].spoken}`}
+        aria-label={`${r.name} · ${r.title} · ${r.reignText}${r.dates ? ` · ${formatYears(r.dates.from, r.dates.to, r.dates.approx)}` : ""} · ${VERDICT[r.verdictTone].spoken}`}
         onFocus={() => onFocus(r)} onMouseEnter={() => onFocus(r)}>
         <span>{r.name}</span>{r.verdictTone !== "none" && <i aria-hidden>{VERDICT[r.verdictTone].symbol}</i>}
       </SlideLink>;

@@ -6,7 +6,8 @@
 // tops for the parents' course, one to a row, in place of the page.
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { loadQuestionBank, type QuestionBank } from "@/lib/data";
+import { type QuestionBank } from "@/lib/data";
+import { useQuestionBank } from "@/pages/questions/useQuestionBank";
 import { buildLessons, byPart, nextLesson, type Lesson } from "./data";
 import { CourseHeadsPage } from "./CourseHeads";
 import { ParentGuide } from "./ParentGuide";
@@ -18,11 +19,7 @@ import "../test-options.css";
 import "./children.css";
 
 export function ChildrenTests({ mockup }: { mockup?: boolean }) {
-  const [bank, setBank] = useState<QuestionBank | null>(null);
-  const [failed, setFailed] = useState<string | null>(null);
-  useEffect(() => {
-    loadQuestionBank().then(setBank, (error: unknown) => setFailed(error instanceof Error ? error.message : String(error)));
-  }, []);
+  const { bank, failed } = useQuestionBank();
   if (failed) return <p className="ck-status" role="alert">The lessons could not be loaded: {failed}</p>;
   if (!bank) return <p className="ck-status">Loading the lessons…</p>;
   return <ChildrenBody bank={bank} mockup={mockup} />;

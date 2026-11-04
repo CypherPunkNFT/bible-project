@@ -1,7 +1,7 @@
 /// <reference types="vite/client" /> // for import.meta.glob below
 import { useEffect, useState } from "react";
 import { loadCatalog } from "@/lib/data";
-import { onLanguageChange, useSiteLanguage } from "@/lib/language";
+import { onLanguageChange, reloadingForLanguage, siteLanguage, useSiteLanguage, type LanguageCode } from "@/lib/language";
 import { fillVerses } from "@/lib/verses";
 import type { Apostle, ApostleGroup, Prophet, ProphetGroup, Ruler, RulerGroup } from "@/data/people-pages/types";
 import { apostleFor, prophetFor, rulerFor, type Aspect } from "@/lib/people-pages-index";
@@ -87,28 +87,38 @@ export function preparePeoplePage(id: string, aspect: Aspect): Promise<unknown> 
   return group ? loadPeopleGroup(group) : Promise.resolve();
 }
 
-const settled = new Map<string, unknown>();
+// Each value with the language it was read in: after a change of language it stays on screen until the new copy arrives.
+const settled = new Map<string, { language: LanguageCode; value: unknown }>();
 
 /**
  * Like useAsync, but a value loaded before is returned on the first render: a page wiping in shows its content at
  * once instead of a loading frame. `load` must return the same data for the same key.
  */
 export function useCachedLoad<T>(key: string, load: () => Promise<T>): { status: "loading" } | { status: "ready"; value: T } | { status: "error" } {
+  const language = useSiteLanguage();
   const [state, setState] = useState<{ key: string; status: "ready" | "error" | "loading" }>({ key, status: settled.has(key) ? "ready" : "loading" });
   useEffect(() => {
-    if (settled.has(key)) return;
+    const held = settled.get(key);
+    if (held?.language === language) return;
     let live = true;
-    load().then((value) => { settled.set(key, value); if (live) setState({ key, status: "ready" }); })
-      .catch((error: unknown) => { console.warn(`load failed for ${key}`, error); if (live) setState({ key, status: "error" }); });
+    const loading = load();
+    if (held) reloadingForLanguage(loading);
+    loading.then((value) => {
+      if (siteLanguage() === language) settled.set(key, { language, value });
+      if (live) setState({ key, status: "ready" });
+    }).catch((error: unknown) => { console.warn(`load failed for ${key}`, error); if (live && !held) setState({ key, status: "error" }); });
     return () => { live = false; };
-  // eslint-disable-next-line react-hooks/exhaustive-deps -- `key` identifies the request; `load` is recreated every render
-  }, [key]);
-  if (settled.has(key)) return { status: "ready", value: settled.get(key) as T };
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- `key` (and the language) identifies the request; `load` is recreated every render
+  }, [key, language]);
+  const held = settled.get(key);
+  if (held) return { status: "ready", value: held.value as T };
   return state.key === key && state.status === "error" ? { status: "error" } : { status: "loading" };
 }
 
 /** Load once and remember, so `useCachedLoad` with the same key renders at once. */
 export async function preload<T>(key: string, load: () => Promise<T>): Promise<void> {
-  if (settled.has(key)) return;
-  settled.set(key, await load());
+  const language = siteLanguage();
+  if (settled.get(key)?.language === language) return;
+  const value = await load();
+  if (siteLanguage() === language) settled.set(key, { language, value });
 }

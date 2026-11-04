@@ -177,7 +177,7 @@ function StripLane({ id, top, tracks, bars, current, carried, onTip }: { id: str
     {ordered.map((bar, i) => {
       const r = bar.ruler, fits = ((bar.x1 - bar.x0) / 100) * NOMINAL_W > r.name.length * 7.2 + 26;
       const coup = r.realm === "israel" && i > 0 && ordered[i - 1].ruler.house !== r.house;
-      const label = `${r.name}, ${r.title}, ${r.reignText}${r.dates ? `, ${formatYears(r.dates.from, r.dates.to, r.dates.approx)}` : ""}, ${VERDICT[r.verdictTone].spoken}`;
+      const label = `${r.name} · ${r.title} · ${r.reignText}${r.dates ? ` · ${formatYears(r.dates.from, r.dates.to, r.dates.approx)}` : ""} · ${VERDICT[r.verdictTone].spoken}`;
       return <SlideLink key={r.id} to={rulerHref(r.id)} state={carried} className="pp-sbar" aria-label={label} aria-current={r.id === current ? "page" : undefined}
         data-coup={coup ? "" : undefined} data-undated={bar.undated ? "" : undefined} style={{ left: `${bar.x0}%`, width: `${bar.x1 - bar.x0}%`, top: LABEL_H + bar.track * TRACK_H }}
         onMouseEnter={() => onTip({ bar })} onMouseLeave={() => onTip(null)} onFocus={() => onTip({ bar })} onBlur={() => onTip(null)}>

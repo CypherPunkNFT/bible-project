@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Check, ChevronLeft, Chev
 import recordings from '@/data/listen/recordings.json';
 import { BibleCardArt } from '@/components/bible/BibleCardArt';
 import { AudioBibleCover } from '@/components/bible/AudioBibleCover';
+import { useSiteLanguage } from '@/lib/language';
 import '@/components/bible/bible-card-art.css';
 import './audio-bible.css';
 import './listen.css';
@@ -25,6 +26,8 @@ export default function ListenPage(){
  const [playing,setPlaying]=useState(false);
  const [filter,setFilter]=useState('all');
  const player=useRef<HTMLElement>(null);
+ // The complete audio Bible is only in English (the ASV) until a recording exists in the reader's language.
+ const english=useSiteLanguage()==='en';
  const activeIndex=BOOKS.findIndex(book=>book.id===selected.id);
  const previous=BOOKS[activeIndex-1];
  const next=BOOKS[activeIndex+1];
@@ -34,9 +37,9 @@ export default function ListenPage(){
  function playBook(book:typeof selected){select(book,true);player.current?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});}
  return <div className="listen-page mx-auto max-w-7xl px-4 sm:px-6">
   <nav className="listen-breadcrumb" aria-label="Breadcrumb"><Link to="/bible"><ArrowLeft size={14}/>Bible</Link><span>/</span><span>Listen</span></nav>
-  <header className="listen-intro"><div><p className="listen-kicker">Scripture, heard</p><h1>Make room.<br/><em>Listen to the Word.</em></h1><p>Listen to the complete Bible, or explore selected recordings from Streetlights.</p><div className="listen-intro-meta"><span><Headphones size={14}/>The complete ASV</span><span><BookOpen size={14}/>66 books</span><span><Music2 size={14}/>Streetlights selections</span></div></div><div className="listen-heading-art"><BibleCardArt kind="listen" variant="hero"/></div></header>
+  <header className="listen-intro"><div><p className="listen-kicker">Scripture, heard</p><h1>Make room.<br/><em>Listen to the Word.</em></h1><p>Listen to the complete Bible, or explore selected recordings from Streetlights.</p><div className="listen-intro-meta">{english&&<span><Headphones size={14}/>The complete ASV</span>}<span><BookOpen size={14}/>66 books</span><span><Music2 size={14}/>Streetlights selections</span></div></div><div className="listen-heading-art"><BibleCardArt kind="listen" variant="hero"/></div></header>
 
-  <Link className="listen-asv-feature" to="/listen/asv" aria-labelledby="listen-asv-title"><AudioBibleCover compact/><div className="listen-asv-copy"><p className="listen-kicker">Featured / The complete audio Bible</p><h2 id="listen-asv-title">The whole Word.<br/><em>At your own pace.</em></h2><p>The American Standard Version, read by Ron Altman. A complete, freely available Bible to listen to here, from Genesis to Revelation.</p><div className="listen-asv-facts"><span>66 books</span><span>104 hours</span><span>Public domain</span></div><span className="listen-asv-cta"><Play size={14} fill="currentColor"/>Open the ASV playlist<ArrowRight size={16}/></span></div><span className="listen-asv-go" aria-hidden="true"><ArrowRight size={30} strokeWidth={1.6}/></span></Link>
+  {english&&<Link className="listen-asv-feature" to="/listen/asv" aria-labelledby="listen-asv-title"><AudioBibleCover compact/><div className="listen-asv-copy"><p className="listen-kicker">Featured / The complete audio Bible</p><h2 id="listen-asv-title">The whole Word.<br/><em>At your own pace.</em></h2><p>The American Standard Version, read by Ron Altman. A complete, freely available Bible to listen to here, from Genesis to Revelation.</p><div className="listen-asv-facts"><span>66 books</span><span>104 hours</span><span>Public domain</span></div><span className="listen-asv-cta"><Play size={14} fill="currentColor"/>Open the ASV playlist<ArrowRight size={16}/></span></div><span className="listen-asv-go" aria-hidden="true"><ArrowRight size={30} strokeWidth={1.6}/></span></Link>}
   <section className="listen-streetlights" aria-labelledby="listen-sources-title">
    <header className="listen-sources"><div><p className="listen-kicker">Listen with musical inspiration</p><h2 id="listen-sources-title">From Streetlights,<br/><em>with gratitude.</em></h2><p>These selections come from Streetlights’ audio Bible visualizers on YouTube. Each book opens its own recording.</p></div><div className="listen-selection-reasons"><article><h3><Mail size={22}/><span>Epistles & Revelation</span></h3><p>We love how Streetlights’ cadence and rhythm bring emphasis to the letters and give Revelation’s vivid imagery room to resonate.</p></article><article><h3><Music2 size={22}/><span>Psalms & Proverbs</span></h3><p>The musical setting feels at home with the poetry of Psalms and the memorable wisdom of Proverbs, inviting us to linger with the words.</p></article></div></header>
    <div className="listen-streetlights-card">
