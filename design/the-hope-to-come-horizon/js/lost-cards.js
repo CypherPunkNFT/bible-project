@@ -24,7 +24,13 @@
   }).join("");
   // Each drawing keeps its detail on the right, behind no words; on a phone the card is too narrow for the whole width, so keep that side.
   const narrow = matchMedia("(max-width: 560px)");
-  const fit = () => document.querySelectorAll(".lc-art svg").forEach((drawing) => drawing.setAttribute("preserveAspectRatio", narrow.matches ? "xMaxYMid slice" : "xMidYMid slice"));
+  // The full-width card's drawings are 1400 wide with the light at about 1000, so a phone centres on that instead.
+  const fit = () => document.querySelectorAll(".lc-art svg").forEach((drawing) => {
+    const wide = drawing.dataset.box ??= drawing.getAttribute("viewBox");
+    const isWide = wide.startsWith("0 0 1400");
+    drawing.setAttribute("viewBox", narrow.matches && isWide ? "640 0 760 300" : wide);
+    drawing.setAttribute("preserveAspectRatio", narrow.matches && !isWide ? "xMaxYMid slice" : "xMidYMid slice");
+  });
   fit();
   narrow.addEventListener("change", fit);
 })();
