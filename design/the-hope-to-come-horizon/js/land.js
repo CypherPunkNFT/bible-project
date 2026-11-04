@@ -22,8 +22,13 @@
     return h("div", { class: "hz-marquee", "aria-hidden": "true" }, h("div", { class: "hz-marquee-track" }, run(), run()));
   }
 
-  // ── The heading: sky, then the land down to the foot of the screen ──
-  const motto = plain(study.motto).split(" / ");
+  // ── The heading: sky, then the land down to the foot of the screen, with a card for each section standing on the land ──
+  const SECTIONS = [
+    ["01", "readings", "A bright and shining hope", "Six passages, read one at a time."],
+    ["02", "therefore", "The promise, then the therefore", `${numbers.rows} promises, each joined to a call in the same verse.`],
+    ["03", "lost", "What was lost, what will be redeemed", "From the Bible's first pages to its last, and the price paid."],
+    ["04", "maps", study.mapsTitle, "How Baptists have ordered the end, side by side."],
+  ];
   const hero = h("header", { class: "hz-hero", id: "top" },
     h("div", { class: "hz-hero-sky" },
       h("nav", { class: "hz-trail", "aria-label": "Study trail" }, h("a", { href: "/study" }, "Study"), h("span", { "aria-hidden": "true" }, "/"), h("a", { href: "/study/theology?area=doctrine" }, "God & Christian Faith"), h("span", { "aria-hidden": "true" }, "/"), h("span", { class: "hz-here", "aria-current": "page" }, study.title)),
@@ -37,7 +42,7 @@
     h("div", { class: "hz-hero-far" },
       art(HILLS, "hz-hills"),
       h("div", { class: "hz-hero-lay" },
-        h("p", { class: "hz-motto" }, motto[0], h("span", {}, motto[1])))),
+        h("nav", { class: "hz-sections", "aria-label": "Sections of this study" }, SECTIONS.map(([number, id, title, line]) => h("a", { href: `#${id}` }, h("b", {}, number), h("strong", {}, title), h("span", {}, line)))))),
     marquee());
 
   // ── The six stops along the horizon ──
@@ -114,6 +119,19 @@
     ["First and last pages", numbers.bookends, `${numbers.shares} share a word, ${numbers.echoes} are this study's matching`],
     ["The thousand years", numbers.thousandVerses, "verses, all in Revelation 20, the only place the Bible ties those years to a reign"],
   ];
+  // The six readings as cards beside the notes, so a reader can see at once what they are. Each goes up to its reading.
+  const goTo = (slug) => {
+    moveTo(slug);
+    document.querySelector(".hz-slider").scrollIntoView({ block: "start", behavior: reducedMotion.matches ? "auto" : "smooth" });
+  };
+  const sixCards = h("div", { class: "hz-six" },
+    h("h3", {}, "The six readings"),
+    h("p", {}, "Each reading is one passage of Scripture, read whole, with the same three questions asked of it."),
+    h("ol", {}, study.readings.map((reading) => h("li", {},
+      h("span", { class: "hz-six-n", "aria-hidden": "true" }, romanOf(reading)),
+      h("h4", {}, h("button", { type: "button", onclick: () => goTo(reading.slug) }, titleOf(reading))),
+      h("p", { class: "hz-six-where" }, reading.read.map((id) => passages[id].label).join(" · "), ` · ${reading.verseCount} verses`),
+      h("p", { class: "hz-six-hook" }, runs(reading.hook))))));
   page.append(hero, h("section", { class: "hz-readings", id: "readings" },
     h("header", { class: "hz-rise" },
       art(RISING_SUN, "hz-rise-rays"),
@@ -127,9 +145,11 @@
     h("div", { class: "hz-under" },
       h("dl", { class: "hz-figures" }, figures.map(([label, value, note]) => h("div", {}, h("dt", {}, label), h("dd", {}, String(value)), h("small", {}, note)))),
       h("div", { class: "hz-under-notes" },
+        h("div", { class: "hz-under-text" },
         h("p", {}, h("b", {}, "How to read this page: "), "gold-referenced lines set apart are Scripture, in the Berean. Plain text is written by this site from Scripture. Outside sources are named, with what was read. An application is called an application. The numbers mark the order of the readings, not levels of difficulty."),
         h("p", {}, runs(study.frame)),
-        h("p", {}, runs(study.selection))))));
+        h("p", {}, runs(study.selection))),
+        sixCards))));
 
   // ── A reading, in one column ──
   // Reading 02's four pairs, set either side of a line. Every word is checked against the study's own paragraph.

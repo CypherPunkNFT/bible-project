@@ -30,13 +30,17 @@ paragraphs side by side, all in small type. The closing section was the part tha
   does not jump. A reading opens below in one column. Then one question can be asked of all six as a plain list, and the
   band turns to the part of the land it asks about. The five figures and the two notes follow, large and in one column.
 - **02 The promise, then the therefore ([lines.js](js/lines.js)).** Its own drawing, not the land. Each row runs promise, joining word, call, on one thread, and all the joining words look alike. The ten that say therefore stand together and the other seven below them. The owner turned down a version with one shared "Therefore" hub because it collapsed the sentences into a switchboard, so each row keeps its own word. Each side shows its whole verse from the data, with the row's phrase bright and the joining word in gold where it falls. Where promise and call share a verse it is cut after whichever comes first, so nothing shows twice (Titus 2:12-13 shows verse 12 on the call side for the same reason). Under each word a note counts how far apart the two sides stand, from the verse numbers. The owner took away the study's two passages with no call and the note under the rows, so the study's data for them is not shown here. On a phone it becomes one rail.
-- **03 What was lost, what Revelation answers ([lines.js](js/lines.js)).** Two facing pages across a dusk that turns to
-  dawn. The first pages stand on the left, the last on the right, and the prophets between, under a solid or dotted line.
-  The rows keep the study's order, which ends at the face, set largest. The reader can weigh only the rows that share a word.
-- **04 One hope, several maps ([pinch.js](js/pinch.js)).** One chart with all four maps lined up on the return. The thick
-  bar, the thousand years, sits straight after the return on two maps and straight before it on the other two, which is the
-  whole disagreement. Who holds each map opens under it, one at a time. Then one founder's view, and where Baptists do not
-  differ as a large statement.
+- **03 What was lost, what will be redeemed ([lost.js](js/lost.js), verses added in [redeemed-verses.js](js/redeemed-verses.js)).**
+  Rebuilt at the owner's request in two parts. First, one card for each loss, read top to bottom from dusk to dawn: what
+  Genesis or Exodus says, the prophets under a solid or dotted line, and what Revelation answers. The cards keep the study's
+  order and end at the face, set largest and twice as wide; the reader can still weigh only the cards that share a word.
+  Second, what Scripture says God will redeem or set free, six cards in the Bible's own words, beside the price it names
+  (1 Peter 1:18–19). Every phrase quoted there is checked against its verse as the page loads.
+- **04 One hope, several maps ([pinch.js](js/pinch.js)).** One chart panel with all four maps, each named on the left and
+  lined up on the return, and one gold line running down through all four returns. Each step has a drawn mark in place of a
+  dot: taken up, the tribulation, the return in the clouds, a crown for the thousand years, the books for the judgment, the
+  city for the new heaven and earth, the empty tomb, the world. The thick bar still shows where the thousand years fall.
+  Under the chart, a card for each map says who holds it and why. Then one founder's view, and where Baptists do not differ.
 - **Close ([close.js](js/close.js)).** Unchanged by the rebuild: the habit in the sky, the motto on the ridge, the question
   on the ground. Sources are grouped by how each was reached.
 
@@ -59,9 +63,11 @@ Everything else is the data, or the first mock-up's own labels.
 - The owner moved the study's lead paragraph out of the heading and into section 01, to the right of its title, with the sun at the foot of the screen. It replaces the shorter paragraph written there earlier ("The King is coming back...").
 - The owner chose version A of the readings bar, then asked for it with no arrows and no band, floating, with light gold dots between the readings. That is now the page's own bar, and the big numeral sits on the left. The versions as they were compared stay here: `?readings-view=a` compares four other ways through the six readings, from [readings-views.js](js/readings-views.js) and [readings-views.css](css/readings-views.css): A breadcrumbs with the numeral on the left, B vertical, C a pager, D the numerals alone. They reuse the readings' existing names and add no wording.
 - Section 02: under each joining word, "same verse", "next verse", "two verses on", "the verse before" or "next chapter".
-- Section 03: "The first pages", "The last pages".
+- Landing: a card for each section on the land above the marquee, in place of the motto there (the motto stays in the close): the section titles and "Six passages, read one at a time.", "17 promises, each joined to a call in the same verse.", "From the Bible's first pages to its last, and the price paid.", "How Baptists have ordered the end, side by side." Left out below 900px wide.
+- Section 03: the heading "What was lost. What will be redeemed." and its paragraph; "What was lost, and how Revelation answers" with its paragraph; "Lost", "Revelation answers"; "What will be redeemed, and how the Bible answers" with its paragraph; "The price"; the six card names "Our bodies", "A people of His own", "From every nation", "Free of the curse", "The creation", "Heaven and earth". The quotations under them are the Berean's, copied by script.
+- Under the figures: "The six readings" and "Each reading is one passage of Scripture, read whole, with the same three questions asked of it."
 - The marquee's phrases are the verses' own words, capitalised; a check at load reports any that are not in the study's verses.
-- Section 04: "Before", "The return", "After", "Who holds this map, and why".
+- Section 04: "Before", "The return", "After", "Who holds this map, and why", "Each map shows order, not length".
 - Reading 02: "Raised", "Sown", "the four pairs, as Paul sets them".
 - Sources: "Scripture", "Read directly, in part", "Reached through a tool or a reprint".
 - Screen-reader labels on the rail, the question band and each map's list.

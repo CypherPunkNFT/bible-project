@@ -84,8 +84,15 @@
 .hz-hills .sc-near { fill: var(--hz-hill-near); }
 /* The lead runs from just under the hill's edge to just above the marquee; land.js sets its size and line spacing. */
 .hz-hero-lay { position: relative; z-index: 3; flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 1rem 4rem; padding: var(--hz-hero-crest) var(--hz-gutter) 0; }
-.hz-hero-lay .hz-motto { flex: none; align-self: flex-end; margin: 0 0 1.1rem; text-align: right; color: var(--ink); }
-.hz-hero-lay .hz-motto span { color: inherit; }
+/* A card for each section, standing on the land just above the marquee */
+.hz-sections { align-self: flex-end; width: 100%; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .9rem; margin-bottom: 1.25rem; }
+.hz-sections a { display: grid; align-content: start; gap: .3rem; padding: .95rem 1.1rem 1.05rem; border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent); border-radius: 8px; background: color-mix(in srgb, var(--page) 50%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); color: var(--ink); transition: border-color .2s, background .2s; }
+.hz-sections a:hover, .hz-sections a:focus-visible { border-color: var(--accent); background: color-mix(in srgb, var(--page) 72%, transparent); }
+.hz-sections a:focus { outline: none; }
+.hz-sections b { font: 400 .95rem/1 var(--serif); color: var(--accent); }
+.hz-sections strong { font: 500 clamp(1.02rem, 1.25vw, 1.2rem)/1.25 var(--serif); letter-spacing: -.01em; }
+.hz-sections span { font-size: .86rem; line-height: 1.45; color: var(--muted); }
+.hz-page section[id], .hz-slider { scroll-margin-top: 3.7rem; }
 /* The filled band that ends the first screen. It stops for anyone who asks for less motion. */
 .hz-marquee { position: relative; z-index: 3; overflow: hidden; background: var(--accent); color: var(--page); }
 .hz-marquee-track { display: flex; width: max-content; animation: hz-marquee 90s linear infinite; }
@@ -260,10 +267,36 @@
 .hz-figures dt { font-size: .7rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
 .hz-figures dd { margin: .5rem 0 .4rem; font: 400 clamp(3rem, 6vw, 5.2rem)/1 var(--serif); letter-spacing: -.04em; color: var(--accent); }
 .hz-figures small { display: block; font-size: .92rem; line-height: 1.5; color: var(--muted); }
-.hz-under-notes { display: grid; gap: 1.1rem; max-width: 72ch; margin-top: clamp(3rem, 5vw, 4.5rem); font-size: .98rem; line-height: 1.75; color: var(--muted); }
-.hz-under-notes p { margin: 0; }
+.hz-under-notes { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 3rem clamp(2.5rem, 5vw, 5rem); align-items: start; margin-top: clamp(3rem, 5vw, 4.5rem); }
+.hz-under-text { display: grid; gap: 1.1rem; max-width: 72ch; font-size: .98rem; line-height: 1.75; color: var(--muted); }
+.hz-under-text p { margin: 0; }
+/* The six readings beside the notes */
+.hz-six > h3 { font: 500 clamp(1.4rem, 2.2vw, 1.85rem)/1.2 var(--serif); letter-spacing: -.02em; }
+.hz-six > p { margin: .5rem 0 0; max-width: 56ch; font-size: .98rem; line-height: 1.6; color: var(--muted); }
+.hz-six ol { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; margin: 1.4rem 0 0; padding: 0; }
+.hz-six li { position: relative; display: grid; align-content: start; gap: .45rem; padding: 1.1rem 1.2rem 1.2rem; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); transition: border-color .2s; }
+.hz-six li:hover, .hz-six li:focus-within { border-color: var(--accent); }
+.hz-six-n { font: 400 1.05rem/1 var(--serif); color: var(--accent); }
+.hz-six h4 { margin: 0; }
+.hz-page .hz-six h4 button { padding: 0; text-align: left; color: var(--ink); font: 500 clamp(1.08rem, 1.35vw, 1.22rem)/1.25 var(--serif); letter-spacing: -.01em; cursor: pointer; }
+.hz-six h4 button:focus { outline: none; }
+.hz-six h4 button::after { content: ""; position: absolute; inset: 0; border-radius: 8px; }
+.hz-six h4 em { color: var(--accent); font-weight: 400; }
+.hz-six-where { margin: 0; font-size: .84rem; line-height: 1.45; color: var(--muted); }
+.hz-six-hook { margin: 0; font: italic 400 .98rem/1.45 var(--serif); color: var(--ink); }
+.hz-six-hook a { position: relative; z-index: 1; }
 .hz-under-notes b { color: var(--ink); font-weight: 600; }
 
+@media (max-width: 1100px) {
+  .hz-sections { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 899px) {
+  .hz-sections { display: none; }
+  .hz-under-notes { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .hz-six ol { grid-template-columns: minmax(0, 1fr); }
+}
 @media (max-width: 899px) {
   .hz-hero-sky { grid-template-columns: minmax(0, 1fr); row-gap: 2rem; }
   .hz-hero-art { max-width: 36rem; }
@@ -275,7 +308,7 @@
   .hz-rail-bar { position: static; }
   .hz-rail-bar::before { content: none; }
   .hz-hero-lay { flex-direction: column; justify-content: center; align-items: flex-start; }
-  .hz-hero-lay .hz-motto { align-self: flex-start; font-size: .62rem; letter-spacing: .14em; text-align: left; }
+  .hz-sections { display: none; }
   .hz-pairs-row { font-size: .92rem; grid-template-columns: 2.8rem repeat(4, minmax(0, 1fr)); gap: .35rem; }
   .hz-pairs-label { font-size: .56rem; letter-spacing: .08em; }
 }
