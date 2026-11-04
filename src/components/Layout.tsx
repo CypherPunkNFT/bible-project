@@ -57,7 +57,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <SectionStrip className="h-1" />
         <div className="site-header-row mx-auto flex max-w-7xl items-center gap-2 px-4 sm:px-6">
           <Link to="/" className="mr-auto flex shrink-0 items-center gap-2 whitespace-nowrap font-serif text-lg font-semibold tracking-tight sm:mr-2">
-            <img src="/favicon.svg" alt="" className="h-7 w-7" />
+            <img src="/favicon.svg" alt="" className="h-9 w-9" />
             <span>Bible Guide</span>
           </Link>
           <nav aria-label="Main" className="site-navigation no-scrollbar hidden min-w-0 flex-1 items-center gap-0.5 overflow-x-auto sm:flex">
