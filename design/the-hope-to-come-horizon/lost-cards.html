@@ -41,9 +41,9 @@
   .lc-ref { font-size: .85rem; text-decoration: underline; text-underline-offset: .2em; }
   .lc-kind { align-self: flex-start; margin-top: auto; padding: .2rem .65rem; border-radius: 999px; background: rgb(255 251 236 / .85); font-size: .78rem; }
 
-  /* The prophets between, on a gold banner (the owner's choice); a row with no prophet keeps a thin gold line. */
+  /* The prophets between, on a gold belt (the owner's choice). A row with no prophet keeps the belt, empty, at the same height. */
   .lc-seam { position: relative; z-index: 1; padding: .7rem clamp(1.25rem, 2.5vw, 2rem); background: linear-gradient(to bottom, #f0c968, #d9a640); }
-  .lc-seam-empty { padding: 0; height: 4px; }
+  .lc-seam-empty { min-height: calc(1.05rem * 1.5 + 1.4rem); }
   .lc-mid { margin: 0; font: italic 400 1.05rem/1.5 var(--serif); color: #1b1408; }
   .lc-mid i { margin: 0 .6rem; font-style: normal; color: #3d2806; }
   .lc-mid .lc-ref { margin-left: .2rem; font-style: normal; color: #3d2806; }
