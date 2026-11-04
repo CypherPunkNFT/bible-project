@@ -1,0 +1,1205 @@
+{
+  "schemaVersion": 1,
+  "order": 27,
+  "title": "Home and household in Old Testament Israel",
+  "slug": "home-and-household",
+  "category": "culture",
+  "categoryTitle": "Ancient cultures & daily life",
+  "updated": "2026-10-31",
+  "status": "implemented-local",
+  "premise": "The walls of Israelite houses survive and their evenings do not, so a reader must keep what was found apart from what is pictured.",
+  "question": "What was found on the floor, and what am I picturing?",
+  "outcomes": [
+    "Walk through a pillared house room by room, and say what kind of evidence stands behind each room.",
+    "Follow bread from the jar to the table and cloth from the fibre to the bed.",
+    "Tell a find from a reconstruction, and both from a passage.",
+    "Test a claim about Israelite home life, and say what the evidence can and cannot carry."
+  ],
+  "boundaries": {
+    "in": "The house and what went on inside it, from the Iron Age to the exile: rooms, food once at the house, clothing, who worked and slept where, who counted as a household.",
+    "out": [
+      "Homes in the first century AD: The world of Jesus & the apostles.",
+      "Ploughing, harvest and threshing: the planned study The farming year.",
+      "Water supply: the planned study Land, climate and water.",
+      "Feasts, courts and health, childbirth among them: their own planned studies.",
+      "Household gods and worship at home: the planned study Ugarit and the gods of Canaan.",
+      "How a family should be ordered: Scripture's teaching, not an archaeological question. See the Marriage & family topics."
+    ]
+  },
+  "scale": [
+    {
+      "id": "found",
+      "word": "Found",
+      "note": "An excavation report, or a scholar reporting one, says it was in the ground."
+    },
+    {
+      "id": "rebuilt",
+      "word": "Reconstructed",
+      "note": "A modern drawing or model puts it there. The source is named."
+    },
+    {
+      "id": "written",
+      "word": "Written",
+      "note": "A passage of Scripture mentions it. Most passages describe one house, not all houses."
+    }
+  ],
+  "rooms": [
+    {
+      "id": "door",
+      "name": "The door",
+      "kind": "found",
+      "line": "One way in.",
+      "evidence": "In the usual plan the inner rooms open straight off a central space, so a visitor comes in through the middle of the house. Scripture speaks of the doorframe and the doorposts of houses.",
+      "inference": "The door faced the working part of the house, and from there each room could be reached without crossing another.",
+      "limit": "The reports read here do not say how doors were hung. The passages mention doors in passing, or for a purpose of their own.",
+      "verses": [
+        "Deuteronomy 6:9",
+        "Exodus 12:22",
+        "Judges 11:31"
+      ],
+      "sources": [
+        "wikipedia",
+        "faust-nea"
+      ]
+    },
+    {
+      "id": "middle",
+      "name": "The middle space",
+      "kind": "found",
+      "line": "Sometimes open to the sky.",
+      "evidence": "One of the four parts was often an unroofed courtyard. Carol Meyers reports that almost half of hundreds of excavated ovens stood in courtyards or open spaces. Scripture names a courtyard at a house in Bahurim.",
+      "inference": "The middle of the house was its workroom: fire, grain and shared tasks gathered here, in at least many houses.",
+      "limit": "Sources call this space a courtyard and a main room. It varied, and whether a given one had a roof is often not known. One artist's drawing places a hearth, a grinder and a loom here: that is a reconstruction.",
+      "verses": [
+        "2 Samuel 17:18"
+      ],
+      "sources": [
+        "wikipedia",
+        "meyers",
+        "bas-sidebar",
+        "byers"
+      ]
+    },
+    {
+      "id": "side",
+      "name": "The side rooms",
+      "kind": "rebuilt",
+      "line": "Pillars, and perhaps animals.",
+      "evidence": "At Tel Halif a cobbled floor, called area G, is described as likely a stable. Scripture has a fattened calf at a woman's house, and a manger that stands empty without oxen.",
+      "inference": "Some side rooms held animals in some houses. The popular drawing, with beasts stalled between pillars at night and warmth rising to the family above, is a reasonable picture of those houses.",
+      "limit": "A cobbled floor shows a floor. Pillars are not the mark of this house type and have been confused with storehouses and stables. No test on the floors for animal waste was among the sources read.",
+      "verses": [
+        "1 Samuel 28:24",
+        "Proverbs 14:4",
+        "Amos 6:4"
+      ],
+      "sources": [
+        "drummond",
+        "bas-sidebar",
+        "wikipedia"
+      ]
+    },
+    {
+      "id": "back",
+      "name": "The back room",
+      "kind": "found",
+      "line": "The room across the end.",
+      "evidence": "A broad room across the rear is what defines the type. Tim Frank's study of Tel Halif reports storage jars beside an oven and a grinding installation, and in small clusters: “The location of storage jars and other items was not random.”",
+      "inference": "The back room suited storage, as many drawings show, but stored food was also kept where it was being used.",
+      "limit": "Frank warns that what was stored in which container is not well known. His tables of capacity, room by room, are in the part of his book not read here.",
+      "verses": [
+        "1 Kings 17:12"
+      ],
+      "sources": [
+        "bar",
+        "drummond",
+        "frank-book",
+        "bas-sidebar"
+      ]
+    },
+    {
+      "id": "upper",
+      "name": "The upper floor",
+      "kind": "rebuilt",
+      "line": "An argument more than a room.",
+      "evidence": "Few houses stand high enough to show one directly. Tim Frank's book models one Halif house in a “one-storey scenario”, as its list of tables shows, so scholars work with more than one possibility. Scripture names a small room upstairs at Shunem and an upper room at a widow's house.",
+      "inference": "Some houses had an upper floor. Where one existed it was probably where people lived, as the usual reconstruction says.",
+      "limit": "Upper floors fall into the rooms below, and how many houses had one cannot be counted from the sources read. The woman at Shunem proposes to build her small room for a guest, so it does not show who slept upstairs in an ordinary house.",
+      "verses": [
+        "2 Kings 4:10",
+        "1 Kings 17:19"
+      ],
+      "sources": [
+        "wikipedia",
+        "frank-book",
+        "bas-sidebar"
+      ]
+    },
+    {
+      "id": "roof",
+      "name": "The roof",
+      "kind": "written",
+      "line": "Known mostly from the passages.",
+      "evidence": "The law requires a railing around a new roof. Rahab lays out flax on hers. Samuel speaks with Saul on a roof, and calls to him there before dawn.",
+      "inference": "Roofs were flat and used. Work was done on them, and at least sometimes a guest slept there.",
+      "limit": "No roof survives. One reconstruction describes earth and chalk packed with a roller; that detail comes from the drawing's caption and is not shown from a find here.",
+      "verses": [
+        "Deuteronomy 22:8",
+        "Joshua 2:6",
+        "1 Samuel 9:25",
+        "1 Samuel 9:26"
+      ],
+      "sources": [
+        "bas-sidebar"
+      ]
+    }
+  ],
+  "places": [
+    {
+      "id": "middle",
+      "label": "Middle"
+    },
+    {
+      "id": "side",
+      "label": "Side rooms"
+    },
+    {
+      "id": "back",
+      "label": "Back"
+    },
+    {
+      "id": "upper",
+      "label": "Upper"
+    },
+    {
+      "id": "roof",
+      "label": "Roof"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "grind",
+      "name": "Grinding grain",
+      "halif": "H to K",
+      "marks": {
+        "middle": {
+          "kind": "rebuilt",
+          "source": "bas-sidebar",
+          "why": "One drawing puts the grinder beside the central hearth."
+        }
+      },
+      "note": "Meyers reports several grinding sets in one house, which she reads as women grinding together.",
+      "verses": [
+        "Jeremiah 25:10"
+      ]
+    },
+    {
+      "id": "bake",
+      "name": "Baking",
+      "halif": "H to K",
+      "marks": {
+        "middle": {
+          "kind": "found",
+          "source": "meyers",
+          "why": "Almost half of hundreds of ovens stood in courtyards or open spaces."
+        }
+      },
+      "note": "Where the rest of the ovens stood is not given in the source read.",
+      "verses": [
+        "Leviticus 26:26"
+      ]
+    },
+    {
+      "id": "cook",
+      "name": "Cooking stew",
+      "halif": "H to K",
+      "marks": {
+        "middle": {
+          "kind": "rebuilt",
+          "source": "byers",
+          "why": "A hearth or oven in the central room or courtyard, in a standard plan."
+        }
+      },
+      "note": "Israelite houses had no kitchen in the modern sense.",
+      "verses": [
+        "Genesis 25:29"
+      ]
+    },
+    {
+      "id": "weave",
+      "name": "Weaving",
+      "halif": "D, E",
+      "marks": {
+        "middle": {
+          "kind": "rebuilt",
+          "source": "bas-sidebar",
+          "why": "One drawing stands a loom beside the entrance to the back room."
+        }
+      },
+      "note": "Rows of fallen loom weights are how a loom's place is usually found; none is measured on this page.",
+      "verses": [
+        "Judges 16:13"
+      ]
+    },
+    {
+      "id": "store",
+      "name": "Storing food",
+      "halif": "beside the oven, and in clusters",
+      "marks": {
+        "middle": {
+          "kind": "found",
+          "source": "drummond",
+          "why": "Jars beside an oven and a grinding installation. Ovens are often in the middle, so this study places them here."
+        },
+        "back": {
+          "kind": "rebuilt",
+          "source": "bas-sidebar",
+          "why": "One drawing makes the back room the pantry."
+        }
+      },
+      "note": "Frank's fuller tables of storage by room are not in the part read.",
+      "verses": [
+        "1 Kings 17:14"
+      ]
+    },
+    {
+      "id": "stable",
+      "name": "Stabling animals",
+      "halif": "G",
+      "marks": {
+        "side": {
+          "kind": "rebuilt",
+          "source": "bas-sidebar",
+          "why": "One drawing stalls livestock between the pillars."
+        }
+      },
+      "note": "Area G's cobbled floor is called likely a stable, in a report of a digital model.",
+      "verses": [
+        "1 Samuel 28:24"
+      ]
+    },
+    {
+      "id": "eat",
+      "name": "Eating",
+      "halif": "not named",
+      "marks": {
+        "middle": {
+          "kind": "rebuilt",
+          "source": "byers",
+          "why": "A mat on the floor near the hearth, or in the open courtyard."
+        },
+        "upper": {
+          "kind": "rebuilt",
+          "source": "bas-sidebar",
+          "why": "One drawing has the family eating upstairs."
+        }
+      },
+      "disagree": "No find read here settles it, and the answer may differ from house to house.",
+      "note": "",
+      "verses": []
+    },
+    {
+      "id": "sleep",
+      "name": "Sleeping",
+      "halif": "B, C (“living space”)",
+      "marks": {
+        "upper": {
+          "kind": "rebuilt",
+          "source": "bas-sidebar",
+          "why": "One drawing shows a bedroll upstairs. Scripture also has a guest's bed in a small room upstairs at Shunem."
+        },
+        "roof": {
+          "kind": "written",
+          "source": "scripture",
+          "why": "Samuel calls to Saul on the roof before dawn, and this study infers Saul slept there."
+        }
+      },
+      "note": "A poor man's bedding could be the cloak he wore that day.",
+      "verses": [
+        "2 Kings 4:10",
+        "1 Samuel 9:26",
+        "Exodus 22:27"
+      ]
+    }
+  ],
+  "ladders": [
+    {
+      "id": "bread",
+      "name": "Bread",
+      "from": "From the jar",
+      "to": "to the table",
+      "steps": [
+        {
+          "id": "store",
+          "name": "Store",
+          "line": "Grain was kept in underground silos, indoor compartments, pottery jars, and perhaps sacks and chests.",
+          "source": "frank-odyssey",
+          "verse": "1 Kings 17:12"
+        },
+        {
+          "id": "grind",
+          "name": "Grind",
+          "line": "A handstone was pushed back and forth on a concave stone called a saddle quern. Carol Meyers estimates at least 2 to 3 hours a day for a family of six.",
+          "source": "meyers",
+          "verse": "Deuteronomy 24:6"
+        },
+        {
+          "id": "knead",
+          "name": "Knead",
+          "line": "Flour and water, with salt or oil if there was any. Leavened with a sourdough culture, or unleavened when time was short.",
+          "source": "frank-odyssey",
+          "verse": "1 Samuel 28:24"
+        },
+        {
+          "id": "bake",
+          "name": "Bake",
+          "line": "Usually a tannur: a small clay cylinder open at the top. Dough was slapped against its hot wall, and came off in minutes.",
+          "source": "frank-odyssey",
+          "verse": "Leviticus 26:26"
+        },
+        {
+          "id": "eat",
+          "name": "Eat",
+          "line": "Bread with stew made mostly of lentils and vegetables. The word for bread could also mean food, or a meal.",
+          "source": "shafer",
+          "verse": "Genesis 25:34"
+        }
+      ]
+    },
+    {
+      "id": "thread",
+      "name": "Thread",
+      "from": "From the fibre",
+      "to": "to the bed",
+      "steps": [
+        {
+          "id": "fibre",
+          "name": "Fibre",
+          "line": "Wool and flax were the two main fibres, and flax could be laid out on a roof.",
+          "source": "scripture",
+          "verse": "Proverbs 31:13"
+        },
+        {
+          "id": "spin",
+          "name": "Spin",
+          "line": "A spindle, weighted with a small whorl, twisted the fibre into thread.",
+          "source": "shamir",
+          "verse": "Proverbs 31:19"
+        },
+        {
+          "id": "weave",
+          "name": "Weave",
+          "line": "On an upright loom, clay weights kept the warp threads taut. The weights survive; the loom's wood rarely does.",
+          "source": "shamir",
+          "verse": "Judges 16:13"
+        },
+        {
+          "id": "wear",
+          "name": "Wear",
+          "line": "Scripture names robes and tunics, and wool and linen. One mother makes a little robe each year.",
+          "source": "scripture",
+          "verse": "1 Samuel 2:19"
+        },
+        {
+          "id": "night",
+          "name": "Sleep",
+          "line": "A cloak taken as a pledge had to be back by sunset, because it might be all a man had to sleep in.",
+          "source": "scripture",
+          "verse": "Exodus 22:27"
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "bread",
+      "label": "Bread",
+      "count": 297
+    },
+    {
+      "id": "oil",
+      "label": "Oil",
+      "count": 193
+    },
+    {
+      "id": "wine",
+      "label": "Wine",
+      "count": 140
+    },
+    {
+      "id": "honey",
+      "label": "Honey",
+      "count": 54
+    },
+    {
+      "id": "milk",
+      "label": "Milk",
+      "count": 44
+    }
+  ],
+  "objects": [
+    {
+      "id": "pot",
+      "name": "Cooking pot",
+      "picture": "pot",
+      "line": "Where the hot meal was made.",
+      "date": "ca. late 8th to 7th century BC",
+      "from": "Lachish",
+      "culture": "Israelite",
+      "evidence": "The Metropolitan Museum lists a ceramic pot, 10.6 by 13.2 cm, from Lachish, marked Israelite and dated by the museum.",
+      "inference": "Pots like this one held the stews that Scripture and later comparison suggest were the usual hot meal.",
+      "limit": "The museum's record gives the site, not the building. It does not say whether this pot came from a house or a tomb.",
+      "verses": [
+        "Genesis 25:29"
+      ]
+    },
+    {
+      "id": "lamp",
+      "name": "Oil lamp",
+      "picture": "lamp",
+      "line": "A pinched saucer and a wick.",
+      "date": "ca. late 8th to 7th century BC",
+      "from": "Lachish",
+      "culture": "Israelite",
+      "evidence": "A ceramic lamp, 14.1 cm long, from Lachish, marked Israelite and dated by the museum. Scripture joins the lamp to the millstones as the sounds and light of a living town.",
+      "inference": "After dark a house had this much light.",
+      "limit": "One lamp does not show how many a house owned. The record does not give the building.",
+      "verses": [
+        "Jeremiah 25:10"
+      ]
+    },
+    {
+      "id": "jug",
+      "name": "Oil jug",
+      "picture": "jug",
+      "line": "A small jug for a costly liquid.",
+      "date": "ca. late 8th to 7th century BC",
+      "from": "Lachish",
+      "culture": "Israelite",
+      "evidence": "The museum calls this 14 cm jug an oil jug. Scripture's widow keeps “a little oil in a jug”.",
+      "inference": "A small jug suits a small supply used a little at a time.",
+      "limit": "“Oil jug” is the museum's name for it. Without testing, the name does not prove what it held. The record does not give the building.",
+      "verses": [
+        "1 Kings 17:12"
+      ]
+    },
+    {
+      "id": "bowl",
+      "name": "Bowl",
+      "picture": "bowl",
+      "line": "The plain end of the meal.",
+      "date": "ca. late 8th to 7th century BC",
+      "from": "Lachish",
+      "culture": "Israelite",
+      "evidence": "A ceramic bowl, 7.8 cm high by the museum's measure, from Lachish, marked Israelite.",
+      "inference": "Shared or single, a bowl was a basic thing on the mat.",
+      "limit": "Whether one person or a family ate from a bowl this size is not shown by the bowl. The record does not give the building.",
+      "verses": []
+    },
+    {
+      "id": "weights",
+      "name": "Loom weights and weaving tools",
+      "picture": "weights",
+      "line": "All that is left of the loom.",
+      "date": "Iron Age I and II, as the museum's label gives it",
+      "from": "Shechem and Dothan",
+      "culture": "Not stated on the label",
+      "evidence": "A case at Harvard's museum of the ancient Near East shows a needle, beaters and weights of bone or fired clay, from Shechem and Dothan.",
+      "inference": "Weaving tools turn up at ordinary sites, so cloth was made close to home.",
+      "limit": "This is a museum's display, photographed by a visitor. It does not show how the tools lay in the ground, and the weaving's product has not survived with them.",
+      "verses": [
+        "Judges 16:13"
+      ]
+    },
+    {
+      "id": "grinders",
+      "name": "Women making flour",
+      "picture": "grinders",
+      "line": "Not Israel, and later: a picture of the posture.",
+      "date": "ca. 600 to 480 BC",
+      "from": "Cyprus",
+      "culture": "Cypriot",
+      "evidence": "A terracotta group, 6.2 cm high, in the Metropolitan Museum: women at grinding stones. It is Cypriot, and it is later than most of this study's houses.",
+      "inference": "It shows what no Israelite find shows: how the work looked, kneeling at a stone. Tim Frank's article uses the same piece.",
+      "limit": "It is not evidence of who ground grain in Israel. It is shown for the posture only.",
+      "verses": [
+        "Exodus 11:5"
+      ]
+    }
+  ],
+  "kin": {
+    "rings": [
+      {
+        "id": "tribe",
+        "word": "Tribe",
+        "name": "Judah",
+        "verse": "Joshua 7:16"
+      },
+      {
+        "id": "clan",
+        "word": "Clan",
+        "name": "The Zerahites",
+        "verse": "Joshua 7:17"
+      },
+      {
+        "id": "family",
+        "word": "Family",
+        "name": "Zabdi's",
+        "verse": "Joshua 7:17"
+      },
+      {
+        "id": "man",
+        "word": "Man",
+        "name": "Achan",
+        "verse": "Joshua 7:18"
+      }
+    ],
+    "gloss": "Scholars often call the third ring the “father's house”, a phrase Gideon uses: “my clan is the weakest in Manasseh, and I am the youngest in my father's house.” The Berean here says “family”.",
+    "clusters": "Lawrence Stager's 1985 article is widely cited for house clusters: a son marrying and building beside his father, up to three generations, some 10 to 30 people. Read second-hand, in a magazine summary; the article itself was not read. Small shared-wall town houses are often read as single families, and larger detached ones as extended or wealthy households.",
+    "unequal": "At Tirzah, one guide reports large, well-built houses on one side of a wall, and small crowded ones on the other. The site's dates are disputed: a 2012 paper re-dates the phase and describes a small settlement. Amos and Isaiah speak of the same distance in words, without naming this town."
+  },
+  "sizes": [
+    {
+      "id": "wikipedia",
+      "label": "10 to 12 m long, 8 to 10 m wide",
+      "length": 12,
+      "width": 10,
+      "note": "Iron I examples, in an encyclopedia entry; the larger figures are drawn",
+      "source": "wikipedia"
+    },
+    {
+      "id": "bas",
+      "label": "Roughly 50 by 30 feet (about 15 by 9 m)",
+      "length": 15.2,
+      "width": 9.1,
+      "note": "The caption to a popular drawing",
+      "source": "bas-sidebar"
+    }
+  ],
+  "claims": [
+    {
+      "id": "1",
+      "claim": "“A four-room house means Israelites lived here.”",
+      "head": "Characteristic is not proof.",
+      "evidence": "Hundreds are known, mainly in the hill country, and the name “Israelite house” is in use. Ziony Zevit, as reported in an encyclopedia entry, lists similar houses at Tell Keisan, Tell Abu Hawam, Tell Qasile and Tell esh-Shari'a. Notes to Bunimovitz and Faust's article cite more east of the Jordan.",
+      "inference": "The form is common at Israelite sites and rare enough elsewhere to be worth noticing. It points, and it does not prove.",
+      "limit": "A wall carries no name. Where the form came from remains uncertain. Bunimovitz and Faust argue a deeper link between the house and Israelite identity; only the opening of that article was read.",
+      "test": {
+        "question": "A dig finds one four-room house at a site with no inscriptions. What can it say?",
+        "options": [
+          {
+            "text": "Israelites lived here.",
+            "right": false,
+            "why": "The form appears at sites scholars do not call Israelite, so one house cannot establish who lived in it."
+          },
+          {
+            "text": "This is a kind of house common at Israelite sites.",
+            "right": true,
+            "why": "That is what the form can carry. Who lived in it needs other evidence."
+          },
+          {
+            "text": "Nothing at all: the plan is meaningless.",
+            "right": false,
+            "why": "The pattern is real and widely attested. It is suggestive, which is not the same as empty."
+          }
+        ]
+      },
+      "verses": [],
+      "sources": [
+        "faust-nea",
+        "wikipedia",
+        "bar"
+      ]
+    },
+    {
+      "id": "2",
+      "claim": "“The family lived upstairs, above the animals.”",
+      "head": "A good picture. Not a finding.",
+      "evidence": "A popular reconstruction draws it so, and encyclopedia entries repeat it. At Tel Halif a cobbled floor is called likely a stable. Tim Frank models one Halif house with a one-storey scenario. The passages name an upper room in particular houses.",
+      "inference": "In houses with a second floor and animals, it is a likely arrangement. It should not be stretched to every home in Israel across centuries.",
+      "limit": "Upper floors collapse. The sources read do not count how many houses had one, or how many stalled animals.",
+      "test": {
+        "question": "Someone says: “Every Israelite family slept upstairs.” What does the evidence allow?",
+        "options": [
+          {
+            "text": "Yes: Scripture and archaeology both say so.",
+            "right": false,
+            "why": "The passages describe particular upper rooms, and one house was modelled with a single storey."
+          },
+          {
+            "text": "Some families in some houses probably did.",
+            "right": true,
+            "why": "The reconstruction is reasonable where a second floor existed. It is not a rule for all."
+          },
+          {
+            "text": "No: there were no upper floors.",
+            "right": false,
+            "why": "Scripture names upper rooms, and scholars reconstruct them from excavated houses."
+          }
+        ]
+      },
+      "verses": [
+        "2 Kings 4:10"
+      ],
+      "sources": [
+        "bas-sidebar",
+        "wikipedia",
+        "drummond",
+        "frank-book"
+      ]
+    },
+    {
+      "id": "3",
+      "claim": "“The floor tells us who did the work.”",
+      "head": "A quern has no name on it.",
+      "evidence": "Carol Meyers states it plainly: artifacts show how things were made, not who made them. Who did the work is worked out from texts and from comparison with more recent village life. Scripture puts a servant girl at the hand mill and a woman at an oven, and it has Jacob cooking stew.",
+      "inference": "Scripture and later comparison point to women for much of the daily grinding, baking and weaving, and the tasks were not walled off absolutely.",
+      "limit": "The floors do not say how a household was led, and this study does not ask them to. Meyers draws conclusions about women's standing in the household; those are hers, argued from more than the floors. How a family should be ordered is taught by Scripture, not settled by a floor plan.",
+      "test": {
+        "question": "A house has several grinding stones. What can they say?",
+        "options": [
+          {
+            "text": "More than one person may have ground grain here.",
+            "right": true,
+            "why": "That is what several sets suggest. Meyers reads it as women grinding together, using other evidence for the “women”."
+          },
+          {
+            "text": "The women of this house ran its economy.",
+            "right": false,
+            "why": "Stones show work. They do not show who ran what."
+          },
+          {
+            "text": "A hired baker worked here.",
+            "right": false,
+            "why": "Nothing in the stones points to a hired trade."
+          }
+        ]
+      },
+      "verses": [
+        "Exodus 11:5",
+        "1 Samuel 28:24",
+        "Genesis 25:29"
+      ],
+      "sources": [
+        "meyers",
+        "frank-odyssey"
+      ]
+    }
+  ],
+  "confusedWords": [
+    {
+      "word": "A find and a reconstruction",
+      "note": "A cobbled floor is a find. A cow standing on it at night is a reconstruction, however likely."
+    },
+    {
+      "word": "A house and a household",
+      "note": "A house is a building. A household is its people, land, animals and goods, and may fill more than one building."
+    },
+    {
+      "word": "“Four-room” and four rooms",
+      "note": "The name is for the plan. Some have more, or fewer, and one part was often open to the sky."
+    },
+    {
+      "word": "A tannur and a tabun",
+      "note": "Reports often say tabun for what is closer to a tannur. Cynthia Shafer-Elliott explains the muddle."
+    },
+    {
+      "word": "How and who",
+      "note": "An object can show how a task was done. It rarely shows who did it."
+    }
+  ],
+  "reach": [
+    "This page is a selection: six rooms, eight tasks, six objects. It is not a survey of excavated houses.",
+    "No excavation report was read in full. Tel Halif's model is known here from an article reporting it, and its lettered areas could not be mapped onto rooms, so they appear in their own column.",
+    "Of the museum objects, the Lachish pieces are chosen from about 30 Iron Age records at the Met. None of their records gives a room.",
+    "It stops at the exile, and most of what it reads comes from Judah and the hill country of the 8th century BC or nearby. It should not be stretched to all of Israel at all times."
+  ],
+  "sources": [
+    {
+      "id": "frank-odyssey",
+      "title": "Tim Frank, “Bread in Ancient Israel”, Bible Odyssey",
+      "url": "https://www.bibleodyssey.org/articles/bread-in-ancient-israel/",
+      "kind": "Article, 2026",
+      "status": "read",
+      "answers": "How did grain become bread, and how often does the Bible name it?",
+      "read": "Read in full."
+    },
+    {
+      "id": "frank-book",
+      "title": "Tim Frank, Household Food Storage in Ancient Israel and Judah (Archaeopress, 2019)",
+      "url": "https://www.archaeopress.com/Archaeopress/DMS/AFDE45043456487CAD65AC3AC7605ABD/9781784919801-sample.pdf",
+      "kind": "Book",
+      "status": "part",
+      "answers": "How large a share of calories came from grain, and how were food stores arranged?",
+      "read": "The publisher's sample only: contents, and the opening chapters. The chapters on individual houses were not read."
+    },
+    {
+      "id": "drummond",
+      "title": "Jennifer Drummond, “Israelite Pottery and Household Life”, Biblical Archaeology Society",
+      "url": "https://www.biblicalarchaeology.org/daily/ancient-cultures/daily-life-and-practice/israelite-pottery-and-household-life/",
+      "kind": "Article, 2022",
+      "status": "second-hand",
+      "answers": "What did Tim Frank find in the abandoned houses of Tel Halif?",
+      "read": "Read in full. It reports Frank's work; his article itself is for subscribers and was not read. It gives 701 BC as the site's destruction."
+    },
+    {
+      "id": "meyers",
+      "title": "Carol Meyers, “The Importance of Bread”, The Biblical Mind",
+      "url": "https://thebiblicalmind.org/article/were-ancient-israelite-women-subservient/",
+      "kind": "Article, undated",
+      "status": "read",
+      "answers": "What was a household, how long did grinding take, and what can objects say of who worked?",
+      "read": "Read in full. Her conclusions about women's standing are hers, and are reported here, not adopted."
+    },
+    {
+      "id": "shafer",
+      "title": "Cynthia Shafer-Elliott, “Cooking in the Hebrew Bible”, ASOR",
+      "url": "https://www.asorblog.org/2013/07/02/cooking-in-the-hebrew-bible.html",
+      "kind": "Article, 2013",
+      "status": "read",
+      "answers": "What is a tannur and a tabun, and what went in the pot?",
+      "read": "Read in full."
+    },
+    {
+      "id": "byers",
+      "title": "Gary Byers, “Home Cooking: Old Testament Israelite Style”, Associates for Biblical Research",
+      "url": "https://biblearchaeology.org/research-articles/home-cooking-old-testament-israelite-style/",
+      "kind": "Article, 2013",
+      "status": "read",
+      "answers": "Where did food get cooked and eaten?",
+      "read": "Read in full. It rests on a standard plan and on the author's own digs elsewhere."
+    },
+    {
+      "id": "bas-sidebar",
+      "title": "“Iron Age Pillared House”, Biblical Archaeology Society Library",
+      "url": "https://library.biblicalarchaeology.org/sidebar/iron-age-pillared-house/",
+      "kind": "Drawing and caption, undated",
+      "status": "read",
+      "answers": "What does the popular reconstruction show, room by room?",
+      "read": "Read in full. It is a popular caption with no author given, and it is used here as the example of a reconstruction."
+    },
+    {
+      "id": "wikipedia",
+      "title": "Wikipedia, “Four-room house”",
+      "url": "https://en.wikipedia.org/wiki/Four-room_house",
+      "kind": "Encyclopedia",
+      "status": "read",
+      "answers": "What is the plan, how big, where is it found, and who has questioned the name?",
+      "read": "Read in full. It flags two of its own statements as disputed. It is how Zevit's list reached this study: Zevit was not read."
+    },
+    {
+      "id": "bar",
+      "title": "Shlomo Bunimovitz and Avraham Faust, “Ideology in Stone”, Biblical Archaeology Review, 2002",
+      "url": "https://library.biblicalarchaeology.org/article/ideology-in-stone/",
+      "kind": "Article",
+      "status": "part",
+      "answers": "What makes the form distinctive, and how far beyond Israel does it reach?",
+      "read": "The opening paragraphs and the endnotes only; the rest is for subscribers."
+    },
+    {
+      "id": "faust-nea",
+      "title": "Avraham Faust and Shlomo Bunimovitz, “The Four Room House: Embodying Iron Age Israelite Society”, Near Eastern Archaeology 66 (2003)",
+      "url": "https://www.journals.uchicago.edu/doi/10.2307/3210929",
+      "kind": "Article",
+      "status": "located",
+      "answers": "How many houses are known, and where do they cluster?",
+      "read": "A search summary of the abstract only. The article was not read."
+    },
+    {
+      "id": "stager",
+      "title": "Lawrence Stager, “The Archaeology of the Family in Ancient Israel”, BASOR 260 (1985)",
+      "url": "https://www.journals.uchicago.edu/doi/10.2307/1356863",
+      "kind": "Article",
+      "status": "located",
+      "answers": "Did households fill clusters of houses?",
+      "read": "Not read. Known here through a search summary of a 1999 magazine article that reports it."
+    },
+    {
+      "id": "wilson",
+      "title": "Jared Brian Wilson, “Domestic Use of Space in an Iron Age House from Tell Halif” (Mississippi State University, 2016)",
+      "url": "https://scholarsjunction.msstate.edu/td/1568/",
+      "kind": "Thesis",
+      "status": "located",
+      "answers": "What did one excavated house hold, room by room?",
+      "read": "The abstract only. The repository's automated check refused the file, so the thesis should be read before this page says more about Halif."
+    },
+    {
+      "id": "oksuz",
+      "title": "Latif Oksuz, James W. Hardin and others, “The K8 House” (Palestine Exploration Fund, 2019)",
+      "url": "https://digitalcommons.andrews.edu/pubs/1596/",
+      "kind": "Article",
+      "status": "located",
+      "answers": "The excavators' own report of one eighth-century house.",
+      "read": "The opening of the abstract only."
+    },
+    {
+      "id": "shamir",
+      "title": "Orit Shamir, “Textiles, Loom Weights and Spindle Whorls”, in Excavations at Kadesh Barnea (2007)",
+      "url": "https://www.academia.edu/2261598/Shamir_O_2007_Textiles_Loom_Weights_and_Spindle_Whorls_In_Excavations_at_Kadesh_Barnea_Tell_El_Qudeirat_1976_1982_2_Vols",
+      "kind": "Chapter",
+      "status": "located",
+      "answers": "How do spindles and loom weights work, and why does so little cloth survive?",
+      "read": "A search summary only. It records linen fragments at a desert fort as exceptional. It should be read before this page says more about cloth."
+    },
+    {
+      "id": "tirzah",
+      "title": "BiblePlaces, “Tirzah”",
+      "url": "https://www.bibleplaces.com/tirzah/",
+      "kind": "Guide",
+      "status": "read",
+      "answers": "What does the wall at Tirzah divide?",
+      "read": "Read in full. It gives no excavator or stratum for the houses."
+    },
+    {
+      "id": "finkelstein",
+      "title": "Israel Finkelstein, “Tell el-Far'ah (Tirzah) and the Early Days of the Northern Kingdom”, Revue Biblique (2012)",
+      "url": "https://israelfinkelstein.wordpress.com/wp-content/uploads/2013/07/tirzah-rb-2012.pdf",
+      "kind": "Article",
+      "status": "located",
+      "answers": "How firmly are Tirzah's phases dated?",
+      "read": "A search summary only."
+    },
+    {
+      "id": "scripture",
+      "title": "The Berean Standard Bible",
+      "url": "/read/bsb/GEN/1",
+      "kind": "Scripture",
+      "status": "read",
+      "answers": "Every verse this study quotes and opens.",
+      "read": "Each verse read in the site's own copy."
+    }
+  ],
+  "pictures": [
+    {
+      "id": "pot",
+      "src": "/images/studies/home-and-household/lachish-cooking-pot.jpg",
+      "alt": "A round ceramic cooking pot with two handles, from Lachish.",
+      "credit": "The Metropolitan Museum of Art, 34.126.43. Gift of Harris D. and H. Dunscombe Colt, 1934",
+      "licence": "CC0",
+      "licenceUrl": "https://www.metmuseum.org/about-the-met/policies-and-documents/open-access",
+      "href": "https://www.metmuseum.org/art/collection/search/323153",
+      "retrieved": "2026-10-31",
+      "width": 600,
+      "height": 451
+    },
+    {
+      "id": "lamp",
+      "src": "/images/studies/home-and-household/lachish-lamp.jpg",
+      "alt": "A shallow ceramic oil lamp with a pinched spout, from Lachish.",
+      "credit": "The Metropolitan Museum of Art, 34.126.61. Gift of Harris D. and H. Dunscombe Colt, 1934",
+      "licence": "CC0",
+      "licenceUrl": "https://www.metmuseum.org/about-the-met/policies-and-documents/open-access",
+      "href": "https://www.metmuseum.org/art/collection/search/323171",
+      "retrieved": "2026-10-31",
+      "width": 599,
+      "height": 313
+    },
+    {
+      "id": "jug",
+      "src": "/images/studies/home-and-household/lachish-oil-jug.jpg",
+      "alt": "A small ceramic jug with one handle, from Lachish.",
+      "credit": "The Metropolitan Museum of Art, 34.126.44. Gift of Harris D. and H. Dunscombe Colt, 1934",
+      "licence": "CC0",
+      "licenceUrl": "https://www.metmuseum.org/about-the-met/policies-and-documents/open-access",
+      "href": "https://www.metmuseum.org/art/collection/search/323154",
+      "retrieved": "2026-10-31",
+      "width": 470,
+      "height": 625
+    },
+    {
+      "id": "bowl",
+      "src": "/images/studies/home-and-household/lachish-bowl.jpg",
+      "alt": "A plain ceramic bowl, from Lachish.",
+      "credit": "The Metropolitan Museum of Art, 34.126.55. Gift of Harris D. and H. Dunscombe Colt, 1934",
+      "licence": "CC0",
+      "licenceUrl": "https://www.metmuseum.org/about-the-met/policies-and-documents/open-access",
+      "href": "https://www.metmuseum.org/art/collection/search/323165",
+      "retrieved": "2026-10-31",
+      "width": 600,
+      "height": 327
+    },
+    {
+      "id": "weights",
+      "src": "/images/studies/home-and-household/shechem-dothan-weaving-tools.jpg",
+      "alt": "A museum case showing a reconstructed loom with a needle, beaters and round weights of bone and clay.",
+      "credit": "Photo by Daderot, Harvard Semitic Museum, Wikimedia Commons",
+      "licence": "CC0",
+      "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "href": "https://commons.wikimedia.org/wiki/File:Needle,_sword_beater,_pin_beater,_and_loom_weights,_Shechem_and_Dothan,_Iron_Age_I_and_II,_bone_or_fired_clay_-_Harvard_Semitic_Museum_-_Cambridge,_MA_-_DSC06036.jpg",
+      "retrieved": "2026-10-31",
+      "width": 620,
+      "height": 655
+    },
+    {
+      "id": "grinders",
+      "src": "/images/studies/home-and-household/cypriot-women-making-flour.jpg",
+      "alt": "A small terracotta group of women bent over grinding stones.",
+      "credit": "The Metropolitan Museum of Art, 74.51.1643. The Cesnola Collection, purchased by subscription, 1874–76",
+      "licence": "CC0",
+      "licenceUrl": "https://www.metmuseum.org/about-the-met/policies-and-documents/open-access",
+      "href": "https://www.metmuseum.org/art/collection/search/241198",
+      "retrieved": "2026-10-31",
+      "width": 600,
+      "height": 477
+    },
+    {
+      "id": "rebuilt",
+      "src": "/images/studies/home-and-household/reconstructed-house-eretz-israel-museum.jpg",
+      "alt": "Inside a modern reconstruction of an Israelite house: an upright wooden loom, rough wooden posts, plastered walls and bowls on the floor.",
+      "credit": "Photo by Talmoryair, Eretz Israel Museum, Tel Aviv, Wikimedia Commons",
+      "licence": "Public domain",
+      "licenceUrl": "https://commons.wikimedia.org/wiki/Commons:Licensing",
+      "href": "https://commons.wikimedia.org/wiki/File:Reconstructed_israelite_house,_Monarchy_period2.jpg",
+      "retrieved": "2026-10-31",
+      "width": 900,
+      "height": 675
+    }
+  ],
+  "verses": [
+    {
+      "label": "Deuteronomy 6:9",
+      "code": "DEU",
+      "chapter": 6,
+      "verse": 9,
+      "phrase": "doorposts of your houses"
+    },
+    {
+      "label": "Exodus 12:22",
+      "code": "EXO",
+      "chapter": 12,
+      "verse": 22,
+      "phrase": "door of his house"
+    },
+    {
+      "label": "Judges 11:31",
+      "code": "JDG",
+      "chapter": 11,
+      "verse": 31,
+      "phrase": "door of my house"
+    },
+    {
+      "label": "2 Samuel 17:18",
+      "code": "2SA",
+      "chapter": 17,
+      "verse": 18,
+      "phrase": "well in his courtyard"
+    },
+    {
+      "label": "1 Samuel 28:24",
+      "code": "1SA",
+      "chapter": 28,
+      "verse": 24,
+      "phrase": "fattened calf at her house"
+    },
+    {
+      "label": "Proverbs 14:4",
+      "code": "PRO",
+      "chapter": 14,
+      "verse": 4,
+      "phrase": "manger is empty"
+    },
+    {
+      "label": "Amos 6:4",
+      "code": "AMO",
+      "chapter": 6,
+      "verse": 4,
+      "phrase": "calves from the stall"
+    },
+    {
+      "label": "1 Kings 17:12",
+      "code": "1KI",
+      "chapter": 17,
+      "verse": 12,
+      "phrase": "little oil in a jug"
+    },
+    {
+      "label": "1 Kings 17:14",
+      "code": "1KI",
+      "chapter": 17,
+      "verse": 14,
+      "phrase": "jar of flour"
+    },
+    {
+      "label": "2 Kings 4:10",
+      "code": "2KI",
+      "chapter": 4,
+      "verse": 10,
+      "phrase": "small room upstairs"
+    },
+    {
+      "label": "1 Kings 17:19",
+      "code": "1KI",
+      "chapter": 17,
+      "verse": 19,
+      "phrase": "upper room"
+    },
+    {
+      "label": "Deuteronomy 22:8",
+      "code": "DEU",
+      "chapter": 22,
+      "verse": 8,
+      "phrase": "railing around your roof"
+    },
+    {
+      "label": "Joshua 2:6",
+      "code": "JOS",
+      "chapter": 2,
+      "verse": 6,
+      "phrase": "stalks of flax"
+    },
+    {
+      "label": "1 Samuel 9:25",
+      "code": "1SA",
+      "chapter": 9,
+      "verse": 25,
+      "phrase": "roof of his house"
+    },
+    {
+      "label": "1 Samuel 9:26",
+      "code": "1SA",
+      "chapter": 9,
+      "verse": 26,
+      "phrase": "called to Saul on the roof"
+    },
+    {
+      "label": "Jeremiah 25:10",
+      "code": "JER",
+      "chapter": 25,
+      "verse": 10,
+      "phrase": "sound of the millstones"
+    },
+    {
+      "label": "Leviticus 26:26",
+      "code": "LEV",
+      "chapter": 26,
+      "verse": 26,
+      "phrase": "single oven"
+    },
+    {
+      "label": "Genesis 25:29",
+      "code": "GEN",
+      "chapter": 25,
+      "verse": 29,
+      "phrase": "cooking some stew"
+    },
+    {
+      "label": "Genesis 25:34",
+      "code": "GEN",
+      "chapter": 25,
+      "verse": 34,
+      "phrase": "lentil stew"
+    },
+    {
+      "label": "Judges 16:13",
+      "code": "JDG",
+      "chapter": 16,
+      "verse": 13,
+      "phrase": "web of a loom"
+    },
+    {
+      "label": "Exodus 22:27",
+      "code": "EXO",
+      "chapter": 22,
+      "verse": 27,
+      "phrase": "only covering"
+    },
+    {
+      "label": "Deuteronomy 24:6",
+      "code": "DEU",
+      "chapter": 24,
+      "verse": 6,
+      "phrase": "pair of millstones"
+    },
+    {
+      "label": "Proverbs 31:13",
+      "code": "PRO",
+      "chapter": 31,
+      "verse": 13,
+      "phrase": "wool and flax"
+    },
+    {
+      "label": "Proverbs 31:19",
+      "code": "PRO",
+      "chapter": 31,
+      "verse": 19,
+      "phrase": "grasps the spindle"
+    },
+    {
+      "label": "1 Samuel 2:19",
+      "code": "1SA",
+      "chapter": 2,
+      "verse": 19,
+      "phrase": "little robe"
+    },
+    {
+      "label": "Exodus 11:5",
+      "code": "EXO",
+      "chapter": 11,
+      "verse": 5,
+      "phrase": "behind the hand mill"
+    },
+    {
+      "label": "Joshua 7:14",
+      "code": "JOS",
+      "chapter": 7,
+      "verse": 14,
+      "phrase": "clan by clan"
+    },
+    {
+      "label": "Joshua 7:16",
+      "code": "JOS",
+      "chapter": 7,
+      "verse": 16,
+      "phrase": "tribe of Judah"
+    },
+    {
+      "label": "Joshua 7:17",
+      "code": "JOS",
+      "chapter": 7,
+      "verse": 17,
+      "phrase": "family of Zabdi"
+    },
+    {
+      "label": "Joshua 7:18",
+      "code": "JOS",
+      "chapter": 7,
+      "verse": 18,
+      "phrase": "Achan son of Carmi"
+    },
+    {
+      "label": "Judges 6:15",
+      "code": "JDG",
+      "chapter": 6,
+      "verse": 15,
+      "phrase": "my father"
+    },
+    {
+      "label": "Exodus 12:4",
+      "code": "EXO",
+      "chapter": 12,
+      "verse": 4,
+      "phrase": "household is too small"
+    },
+    {
+      "label": "Amos 3:15",
+      "code": "AMO",
+      "chapter": 3,
+      "verse": 15,
+      "phrase": "great houses"
+    },
+    {
+      "label": "Amos 5:11",
+      "code": "AMO",
+      "chapter": 5,
+      "verse": 11,
+      "phrase": "stone houses"
+    },
+    {
+      "label": "Isaiah 5:8",
+      "code": "ISA",
+      "chapter": 5,
+      "verse": 8,
+      "phrase": "house to house"
+    }
+  ]
+}

@@ -1,0 +1,279 @@
+{
+  "schemaVersion": 1,
+  "order": 26,
+  "title": "Strong's numbers: using them without being misled",
+  "slug": "strongs-numbers",
+  "category": "languages",
+  "categoryTitle": "Languages & translation",
+  "updated": "2026-10-31",
+  "status": "implemented-local",
+  "premise": "A Strong's number is an address in an alphabetical list, made so a reader could trace a King James word without knowing Greek or Hebrew. It is not a meaning.",
+  "question": "What can a Strong's number actually tell you, and what are you asking it to say?",
+  "outcomes": [
+    "Say what a Strong's number is, in James Strong's own terms, and what it is not.",
+    "Read a dictionary entry part by part, and tell its renderings from its meanings.",
+    "Use the word cards and the verse lookup already on this site, and know how far they reach.",
+    "Test a word claim you hear, and say which of three mistakes it makes, if any."
+  ],
+  "boundaries": {
+    "in": "The numbering, the dictionary entry, the King James tags on this site, the Letters study's word cards and lookup, three common mistakes.",
+    "out": [
+      "How context fixes a word's meaning: the planned study Words in their passages.",
+      "Grammar: the planned studies on how Hebrew and New Testament Greek work.",
+      "How often Greek words occur in the letters: Words across the letters.",
+      "Why translators choose as they do: the planned study Why translations differ.",
+      "A list of every verse for any Hebrew or Greek word across the whole Bible: not built here, because whether the site should show those is an open question for the owner in the original-languages plan."
+    ]
+  },
+  "confusedWords": [
+    {
+      "word": "A number and a meaning",
+      "note": "The number says where a word sits in the list. It says nothing about what the word means."
+    },
+    {
+      "word": "A meaning and a rendering",
+      "note": "A rendering is the English word one translation used in one place. Strong's list after the mark :— collects the King James's renderings."
+    },
+    {
+      "word": "A word's history and its sense in a verse",
+      "note": "Where a word came from, which Strong's entries trace, is not what it says in a given sentence."
+    },
+    {
+      "word": "A tag and a use",
+      "note": "A tag is a number attached to a piece of English in this site's King James text. Tags can fall on small neighbouring words, so a count of tags is not an exact count of uses."
+    },
+    {
+      "word": "A translation choice and a correction",
+      "note": "Two English versions choosing different words is a difference between translations, not a mistake in Scripture. This study does not rank them."
+    }
+  ],
+  "records": [
+    {
+      "id": "numbering",
+      "title": "How the numbers were made",
+      "evidence": "Strong's own Plan of the Book: all the original words “are treated in their alphabetical Greek order, and are numbered regularly from the first to the last, each being known throughout by its appropriate number. This renders reference easy without recourse to the Greek characters.”",
+      "inference": "The numbers were made for convenience of reference. Their order comes from spelling.",
+      "limit": "The sentence is from the Greek dictionary; the Hebrew dictionary's own plan was not read. That the Hebrew follows the same rule rests on this study's count of the Hebrew list.",
+      "sources": [
+        "strong1890",
+        "stepLexicons"
+      ]
+    },
+    {
+      "id": "renderings",
+      "title": "What the list after :— is",
+      "evidence": "Strong's Plan: “Finally (after the punctuation-mark :—) are given all the different renderings of the word in the Authorized English Version.”",
+      "inference": "That list records one translation's English choices. It is not a list of meanings, and not a menu to choose from in a verse.",
+      "limit": "It tells you about the King James's English. It says nothing about other translations.",
+      "sources": [
+        "strong1890"
+      ]
+    },
+    {
+      "id": "etymology",
+      "title": "What the word “from” is doing",
+      "evidence": "Strong's Plan: “Then ensues a tracing of the etymology, radical meaning, and applied significations of the word.” His entry for 25 hedges: “perh. from” another word.",
+      "inference": "An entry's history is offered as history, and sometimes as a guess. It does not decide what a word says in a verse.",
+      "limit": "A word's history can be real and can be interesting. This study says only that it cannot settle the sense alone.",
+      "sources": [
+        "strong1890"
+      ]
+    }
+  ],
+  "mistakes": [
+    {
+      "id": "1",
+      "claim": "“The number tells me what the word means.”",
+      "head": "An address. Not a definition.",
+      "evidence": "The list runs by spelling. Numbers 1 to 5 in the Greek dictionary are the letter alpha, Aaron, Abaddon, a word for weightless, and Abba. Strong's own entry for 25 sends the reader across more than 5,000 numbers: “Comp. 5368”.",
+      "inference": "A number finds an entry. Whatever it means is learned from the entry and from the verses, not from the number.",
+      "limit": "Neighbouring numbers are sometimes related words, like 25 and 26, because related words are often spelled alike. That closeness comes from the spelling, not from the numbering.",
+      "test": {
+        "question": "G25 and G26 sit side by side, both to do with love. G5368, also “to love”, is over 5,000 numbers away. What can the numbers tell you?",
+        "options": [
+          {
+            "text": "G25 and G26 are closer in meaning to each other than either is to G5368.",
+            "right": false,
+            "why": "The numbers cannot show that. Distance in the list measures spelling."
+          },
+          {
+            "text": "G25 and G26 begin with the same letters, and G5368 begins further down the alphabet.",
+            "right": true,
+            "why": "Yes. That is all the positions can say: agapaō and agapē, then phileō under phi."
+          },
+          {
+            "text": "G5368 is the lesser word, because it comes later.",
+            "right": false,
+            "why": "Position in an alphabetical list carries no rank."
+          }
+        ]
+      },
+      "sources": [
+        "strong1890",
+        "stepLexicons"
+      ]
+    },
+    {
+      "id": "2",
+      "claim": "“Every meaning on the list is in the verse.”",
+      "head": "A record of choices. Not a menu.",
+      "evidence": "Strong says what the list is: “all the different renderings of the word in the Authorized English Version.” The King James tags put H7307 under spirit in Genesis 1:2 and under wind in Exodus 10:13.",
+      "inference": "Each rendering was a choice for its own place. Pouring all of them into one verse reads the list instead of the verse.",
+      "limit": "A writer can play on more than one sense. John 3:8 has wind and Spirit in one verse, with one number under both. The tags show the two renderings; the reason for them is in the passage, and the number cannot supply it.",
+      "test": {
+        "question": "Exodus 10:13 says the LORD sent “an east wind”. The tag under wind is H7307, the same number as under Spirit in Genesis 1:2. What can you conclude?",
+        "options": [
+          {
+            "text": "The east wind was also the Spirit of God.",
+            "right": false,
+            "why": "That carries one verse's rendering into another. The shared number does not say so."
+          },
+          {
+            "text": "One Hebrew word stands behind both English words, and each verse's own setting shows what is in view.",
+            "right": true,
+            "why": "Yes. The number joins the two places. It does not explain either."
+          },
+          {
+            "text": "One of the two translations must be wrong.",
+            "right": false,
+            "why": "A word with a wide range can rightly be given different English in different places."
+          }
+        ]
+      },
+      "sources": [
+        "strong1890",
+        "kjvTags",
+        "bsb",
+        "barr"
+      ]
+    },
+    {
+      "id": "3",
+      "claim": "“Dunamis means dynamite.”",
+      "head": "The English came later. It does not reach back.",
+      "evidence": "Romans 1:16 has G1411 under power, in the King James and in the Berean's English. Alfred Nobel named dynamite in the 1860s from the Greek dynamis, about eighteen centuries after Paul wrote.",
+      "inference": "Dynamite comes from dunamis. That does not put dynamite into dunamis, and Paul could not have had it in mind.",
+      "limit": "This does not make God's power small. Romans 1:16 says what that power does: it is “for salvation to everyone who believes”.",
+      "test": {
+        "question": "A speaker says Romans 1:16 calls the gospel God's dynamite, because the word is dunamis. What does the evidence support?",
+        "options": [
+          {
+            "text": "Paul chose the word to suggest an explosion.",
+            "right": false,
+            "why": "Dynamite did not exist. Nothing in the verse suggests a blast."
+          },
+          {
+            "text": "The English word comes from the Greek, so the comparison cannot tell us what Paul meant.",
+            "right": true,
+            "why": "Yes. The borrowing runs forward in time. The verse itself says what the power is for."
+          },
+          {
+            "text": "The word is too weak to be translated power.",
+            "right": false,
+            "why": "Power is what both the King James and the Berean give here."
+          }
+        ]
+      },
+      "sources": [
+        "bsb",
+        "kjvTags",
+        "britannica",
+        "carson"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "strong1890",
+      "title": "James Strong, The Exhaustive Concordance of the Bible",
+      "kind": "Primary · public domain",
+      "url": "https://archive.org/details/exhaustiveconcor1890stro",
+      "read": "Read directly in the scan: the Greek dictionary's title page, the opening of its Plan of the Book, and its first page. The rest of the volume was not read. The library record dates it 1890.",
+      "answers": "What did Strong say the numbers and the lists are for?"
+    },
+    {
+      "id": "stepLexicons",
+      "title": "STEP Bible brief lexicons of Hebrew and Greek (TBESH, TBESG)",
+      "kind": "Dataset · CC BY 4.0",
+      "url": "https://www.STEPBible.org",
+      "read": "Read by script: first row of every number, for its word, transliteration and short gloss. The long Meaning column, which carries its own licence note, was not used. Data created by STEP Bible, Tyndale House Cambridge; this study reduces it to letter ranges and the words it features.",
+      "answers": "Does the whole list really run in alphabetical order, and which numbers are unused?"
+    },
+    {
+      "id": "kjvTags",
+      "title": "King James Version with Strong's tags, in this site's text",
+      "kind": "Dataset · public domain in the US",
+      "url": "/study/versions",
+      "read": "Read by script: every tag in the site's text, counted on 2026-10-31.",
+      "answers": "Which English words does the King James place over each number?"
+    },
+    {
+      "id": "bsb",
+      "title": "Berean Standard Bible",
+      "kind": "Scripture · public domain",
+      "url": "https://berean.bible/",
+      "read": "Every verse quoted on this page is from it, checked by script against the site's text.",
+      "answers": "The verses themselves."
+    },
+    {
+      "id": "britannica",
+      "title": "Encyclopaedia Britannica, “Alfred Nobel”",
+      "kind": "Reference",
+      "url": "https://www.britannica.com/biography/Alfred-Nobel",
+      "read": "A search summary of the entry was read; the full entry was not. Other accounts date the invention to 1866 and the patents to 1867, so this page says “the 1860s”.",
+      "answers": "When and from what was dynamite named?"
+    },
+    {
+      "id": "carson",
+      "title": "D. A. Carson, Exegetical Fallacies, 2nd edition (1996)",
+      "kind": "Book",
+      "url": "https://www.wls.edu/review-exegetical-fallacies/",
+      "read": "Located, not read. Known here only through reviews and short quotations, which report that it treats the dynamite reading of Romans 1:16 as the root fallacy compounded by anachronism. The link goes to one such review.",
+      "answers": "Where is the dynamite claim discussed at length?"
+    },
+    {
+      "id": "barr",
+      "title": "James Barr, The Semantics of Biblical Language (1961)",
+      "kind": "Book",
+      "url": "https://www.ntgreekstudies.net/blog/common-exegetical-fallacies",
+      "read": "Located, not read. The book is the usual reference for reading all of a word's meanings into one place, known as illegitimate totality transfer; the attribution comes from general knowledge and was not confirmed from the book. The link goes to a blog that defines the term.",
+      "answers": "Where does the name for the second mistake come from?"
+    },
+    {
+      "id": "wikipedia",
+      "title": "Wikipedia, “Strong's Concordance”",
+      "kind": "Reference",
+      "url": "https://en.wikipedia.org/wiki/Strong%27s_Concordance",
+      "read": "Read for the unused Greek numbers and their stated reason. The unused numbers were then confirmed against the STEP data.",
+      "answers": "Why do some Greek numbers have no word?"
+    }
+  ],
+  "pictures": [
+    {
+      "id": "plan",
+      "src": "/images/studies/strongs-numbers/plan-of-the-book.jpg",
+      "width": 1499,
+      "height": 420,
+      "alt": "A printed page headed Plan of the Book, in three columns, beginning: All the original words are treated in their alphabetical Greek order.",
+      "caption": "James Strong's Plan of the Book, opening the Greek dictionary. Scan by the Internet Archive from the Harold B. Lee Library, Brigham Young University. Published 1890 per the library record; public domain. Cropped and set in grey.",
+      "href": "https://archive.org/details/exhaustiveconcor1890stro/page/n1746"
+    },
+    {
+      "id": "dictionary",
+      "src": "/images/studies/strongs-numbers/greek-dictionary-opening.jpg",
+      "width": 1010,
+      "height": 790,
+      "alt": "The first page of Strong's Greek dictionary: entries numbered 1 to 10 in the left column, starting with alpha, Aaron and Abaddon, and 24 to 34 in the right, including 25 and 26.",
+      "caption": "The first page of Strong's Greek dictionary, entries 1 to 10 and 24 to 34. Same scan, library and terms. Cropped and set in grey.",
+      "href": "https://archive.org/details/exhaustiveconcor1890stro/page/n1748"
+    }
+  ],
+  "reach": [
+    "All 5,624 Greek numbers and 8,674 Hebrew numbers were read for the alphabet ranges, using each number's first row in STEP Bible's lexicons, not Strong's printed page. A few numbers fall out of order in that data; the page gives the count and does not hide them.",
+    "Only the first page of Strong's Greek dictionary and the opening of its Plan were read in print. The Hebrew dictionary was not read in print.",
+    "The six featured numbers are a selection, chosen to show a wide spread of renderings. They are not the most frequent words and not a census.",
+    "Tags come from this site's King James text. They are not the original tagging in Strong's printed concordance, and they can fall on small neighbouring words. Tag counts will differ from other tools' counts.",
+    "The Berean Standard Bible has no tags on this site. Where a Berean word is named beside a King James word, it was matched by reading that one verse, not by any word alignment.",
+    "The lookup covers the 21 letters and Greek numbers only, because that is what the site's existing tool reads."
+  ]
+}

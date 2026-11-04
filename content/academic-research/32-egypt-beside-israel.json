@@ -1,0 +1,549 @@
+{
+  "schemaVersion": 1,
+  "order": 32,
+  "title": "Egypt beside Israel",
+  "slug": "egypt-beside-israel",
+  "category": "culture",
+  "categoryTitle": "Ancient cultures & daily life",
+  "updated": "2026-10-31",
+  "status": "implemented-local",
+  "premise": "Three Egyptian finds run close to the Bible's own words: a wisdom book, a hymn to the sun, and letters from Canaan's rulers. Reading them closely shows how Israel's neighbours wrote and thought, and how little a likeness proves by itself.",
+  "question": "What do these two texts share, and what does the sharing actually show?",
+  "outcomes": [
+    "Count the matches between Amenemope and Proverbs for yourself, and say whose count you are using.",
+    "Set the hymn to the Aten beside Psalm 104, and name where they part.",
+    "Read a line of a letter from Canaan, and hear the courtesy behind it.",
+    "Tell a likeness from a line of descent, and name the four ways a likeness can arise."
+  ],
+  "boundaries": {
+    "in": "Three bodies of Egyptian writing read beside Scripture for how Israel's neighbours wrote and thought: the Instruction of Amenemope, the Great Hymn to the Aten, and the letters found at Amarna.",
+    "out": [
+      "Whether the exodus and the settlement happened, and when. Another planned study argues that; here no date for them is chosen.",
+      "The letters and contracts from Elephantine, and Egypt's dealings with Judah's kings: Israel among the empires has those.",
+      "The Merneptah stele and Jericho: From discovery to history has them.",
+      "Ugarit, and the flood tablets and law codes of Mesopotamia: each has its own planned study.",
+      "Egyptian religion as a whole. Only what these three bodies of writing say is here."
+    ]
+  },
+  "judges": [
+    {
+      "id": "usual",
+      "name": "Usually cited",
+      "count": "11 passages",
+      "who": "The list scholars have generally worked from, in Ruffle's phrase “the 11 usually cited”.",
+      "note": "Ruffle uses the phrase without printing the eleven together. This page's eleven are the passages his article takes one by one.",
+      "source": "ruffle"
+    },
+    {
+      "id": "ruffle",
+      "name": "Ruffle, 1977",
+      "count": "7 passages",
+      "who": "John Ruffle, an Egyptologist writing in the Tyndale Bulletin, keeps those that deal with a similar subject.",
+      "note": "He tallies them as 11 verses of Hebrew out of 24, and calls that not wholly conclusive. Seven is this study's count of the passages on his list, not his own figure.",
+      "source": "ruffle"
+    },
+    {
+      "id": "brunet",
+      "name": "Brunet, 1949",
+      "count": "5 passages",
+      "who": "A. Brunet, as Ruffle reports him. Brunet's article was not read for this study.",
+      "note": "His five are not all inside Ruffle's seven: he keeps Proverbs 22:24-25, which Ruffle drops.",
+      "source": "brunet"
+    }
+  ],
+  "countsUpward": "The count has also run the other way. Adolf Erman proposed seven parallels in 1924. Hugo Gressmann then linked thirty sections of Proverbs 22:17 to 24:22 to chapters of Amenemope. Both are reported through Ruffle, who calls the scramble a parlour game of “Spot the Parallel”. Neither is drawn here, because their full lists were not read.",
+  "papyrus": {
+    "columns": 27,
+    "chapters": [[3, 8], [4, 3], [5, 9], [5, 20], [6, 13], [7, 11], [9, 9], [10, 16], [11, 12], [13, 10], [14, 4], [15, 8], [15, 19], [16, 15], [17, 4], [17, 17], [18, 14], [19, 10], [20, 7], [20, 20], [21, 21], [22, 19], [23, 12], [23, 21], [24, 8], [24, 21], [25, 16], [26, 8], [26, 15], [27, 6]]
+  },
+  "parallels": [
+    {
+      "id": "ear", "prov": "Proverbs 22:17-18", "firstVerse": 0, "lastVerse": 1, "column": 3, "line": 9, "where": "Chapter 1 · column 3", "chapter": 1,
+      "judges": ["usual", "ruffle", "brunet"],
+      "griffith": "Give thine ears, hear (the words) that are said, give thy mind to interpret them; to put them in thy heart is good… they will be a mooring-post in thy tongue.",
+      "griffithRef": "3.9-11, 3.16",
+      "verses": ["Proverbs 22:17", "Proverbs 22:18"],
+      "evidence": "Both open by telling the pupil to give an ear, apply the mind, and hold the words inside so that they come readily to the mouth.",
+      "inference": "This is the strongest opening match, and every count here keeps it. It could still be a shared way of starting a lesson: Ruffle points out that other wisdom books also urge attention.",
+      "limit": "Scholars who matched the “mooring-post” closely went on to change the Hebrew to read “tent peg”. Ruffle shows that the Hebrew reads sensibly without the change."
+    },
+    {
+      "id": "thirty", "prov": "Proverbs 22:20", "firstVerse": 3, "lastVerse": 3, "column": 27, "line": 7, "where": "Chapter 30 · column 27", "chapter": 30,
+      "judges": ["usual", "ruffle", "brunet"],
+      "griffith": "See for thyself these thirty chapters, they please, they educate.",
+      "griffithRef": "27.7-8",
+      "verses": ["Proverbs 22:20"],
+      "evidence": "Amenemope has thirty numbered chapters. The Berean has “thirty sayings” in Proverbs 22:20. The site's King James has “excellent things” in the same place, with the Strong's number H7991 on that word: another way of reading the same Hebrew.",
+      "inference": "The match depends on how a single Hebrew word is read, so the translation a reader holds decides whether the match is visible at all.",
+      "limit": "Erman's reading of “thirty” came first, and the case then fed on it. Whether Proverbs 22:17 to 24:22 can be counted as exactly thirty sections is itself disputed."
+    },
+    {
+      "id": "report", "prov": "Proverbs 22:21", "firstVerse": 4, "lastVerse": 4, "column": 1, "line": 5, "where": "Prologue · column 1", "chapter": 0,
+      "judges": ["usual"],
+      "griffith": "knowledge how to answer a statement to its pronouncer, and return a report to one that has sent him.",
+      "griffithRef": "1.5-6",
+      "verses": ["Proverbs 22:21"],
+      "evidence": "Both name a pupil who must carry back a sound answer to whoever sent him.",
+      "inference": "It is a close thought, but it fits any school that trained messengers and officials.",
+      "limit": "It comes from Amenemope's prologue, far from the other matches. Ruffle does not keep it."
+    },
+    {
+      "id": "poor", "prov": "Proverbs 22:22", "firstVerse": 5, "lastVerse": 6, "column": 4, "line": 4, "where": "Chapter 2 · column 4", "chapter": 2,
+      "judges": ["usual", "ruffle", "brunet"],
+      "griffith": "Beware of robbing a poor wretch, of being valorous against the man of broken arm.",
+      "griffithRef": "4.4-5",
+      "verses": ["Proverbs 22:22", "Proverbs 22:23"],
+      "behind": { "egypt": "The chapter gives no divine reason at this point; it warns next against touching the old.", "israel": "“the LORD will take up their case”" },
+      "evidence": "Both forbid robbing the poor, then widen to crushing the weak.",
+      "inference": "A shared command, and every count keeps it. The motive differs: Proverbs goes straight on to the LORD as the poor man's advocate.",
+      "limit": "Care for the poor is common across ancient law and wisdom, so a shared command cannot by itself show a shared source."
+    },
+    {
+      "id": "angry", "prov": "Proverbs 22:24-25", "firstVerse": 7, "lastVerse": 8, "column": 11, "line": 13, "where": "Chapter 9 · column 11", "chapter": 9,
+      "judges": ["usual", "brunet"],
+      "griffith": "Do not associate to thyself the passionate man, nor approach him for conversation.",
+      "griffithRef": "11.13-14",
+      "verses": ["Proverbs 22:24", "Proverbs 22:25"],
+      "evidence": "Both warn against keeping company with the hot-tempered man.",
+      "inference": "This is where the judges disagree: Brunet keeps it and Ruffle drops it.",
+      "limit": "Ruffle's reason is that the match only works across a gap: the Egyptian line that pairs with “entangle yourself in a snare” lies further on, after a change of subject."
+    },
+    {
+      "id": "skilled", "prov": "Proverbs 22:29", "firstVerse": 12, "lastVerse": 12, "column": 27, "line": 16, "where": "Chapter 30 · column 27", "chapter": 30,
+      "judges": ["usual", "ruffle", "brunet"],
+      "griffith": "…to a scribe who is experienced in his office, he will find himself worthy to be a courtier.",
+      "griffithRef": "27.16-17",
+      "verses": ["Proverbs 22:29"],
+      "evidence": "Both end a skilled man's road at court.",
+      "inference": "It suits a school for officials, in either land.",
+      "limit": "Amenemope means a scribe. The Berean's “a man skilled in his work” is wider."
+    },
+    {
+      "id": "table", "prov": "Proverbs 23:1-3", "firstVerse": 13, "lastVerse": 15, "column": 23, "line": 13, "where": "Chapter 23 · column 23", "chapter": 23,
+      "judges": ["usual", "ruffle"],
+      "griffith": "Eat not bread in presence of a noble, nor apply thy mouth at the beginning… Look at the cup that is before thee, and let it do thy need.",
+      "griffithRef": "23.13-14, 23.17-18",
+      "verses": ["Proverbs 23:1", "Proverbs 23:2", "Proverbs 23:3"],
+      "evidence": "Both seat the pupil at a great man's table, and both tell him to watch what is set before him and hold back.",
+      "inference": "One of the closest in shape, and Ruffle keeps it.",
+      "limit": "A great man's table is a scene any court would know, so the likeness need not run through this one book."
+    },
+    {
+      "id": "wings", "prov": "Proverbs 23:4-5", "firstVerse": 16, "lastVerse": 17, "column": 9, "line": 14, "where": "Chapter 7 · columns 9-10", "chapter": 7,
+      "judges": ["usual", "ruffle"],
+      "griffith": "Labour not to seek increase, then thy needs shall be secure for thee… they have made themselves wings like geese, they have flown to heaven.",
+      "griffithRef": "chapter 7, in columns 9-10",
+      "verses": ["Proverbs 23:4", "Proverbs 23:5"],
+      "behind": { "egypt": "Griffith's translation of the same chapter names Shay and Renent, deities of fortune, and then: “Thou shalt pray to the Aten when he rises”.", "israel": "Proverbs takes the wings, and leaves out the gods. It names no one at all at this point." },
+      "evidence": "Wealth grows wings and flies off, in both. It is the most memorable match of all.",
+      "inference": "A single picture this vivid is harder to explain by a common subject alone, and it is why Ruffle keeps this one. What goes missing around the picture is as telling as the picture.",
+      "limit": "Geese become an eagle. Whichever way the image travelled, if it did, it was not simply copied."
+    },
+    {
+      "id": "bread", "prov": "Proverbs 23:6-8", "firstVerse": 18, "lastVerse": 20, "column": 14, "line": 5, "where": "Chapter 11 · column 14", "chapter": 11,
+      "judges": ["usual"],
+      "griffith": "Covet not the property of a dependent, nor hunger for his bread… The too great mouthful of bread, thou swallowest it and vomitest it, thou art emptied of thy good.",
+      "griffithRef": "14.5-6, 14.17-18",
+      "verses": ["Proverbs 23:6", "Proverbs 23:7", "Proverbs 23:8"],
+      "evidence": "Both speak of bread that should not be craved, and of vomiting it up.",
+      "inference": "An arresting detail in common, though the people differ: a stingy host in Proverbs, a poor dependent in Amenemope.",
+      "limit": "Ruffle drops it. The two halves of the Egyptian match stand several lines apart, with a change of subject in between."
+    },
+    {
+      "id": "fool", "prov": "Proverbs 23:9", "firstVerse": 21, "lastVerse": 21, "column": 22, "line": 11, "where": "Chapter 21 · column 22", "chapter": 21,
+      "judges": ["usual"],
+      "griffith": "Empty not thine inmost soul to everybody, nor spoil (thereby) thine influence.",
+      "griffithRef": "22.11-12",
+      "verses": ["Proverbs 23:9"],
+      "evidence": "Both counsel holding back your words from some hearers.",
+      "inference": "This is a loose match in subject. Proverbs is about a fool, Amenemope about anybody.",
+      "limit": "Only a count that is already looking for it would keep this."
+    },
+    {
+      "id": "boundary", "prov": "Proverbs 23:10-11", "firstVerse": 22, "lastVerse": 23, "column": 7, "line": 12, "where": "Chapter 6 · column 7", "chapter": 6,
+      "judges": ["usual", "ruffle"],
+      "griffith": "Remove not the landmark on the boundaries of the sown, nor shift the position of the measuring-cord; covet not a cubit of land, nor throw down the boundaries of the widow.",
+      "griffithRef": "7.12-15",
+      "verses": ["Proverbs 23:10", "Proverbs 23:11"],
+      "behind": { "egypt": "Griffith's next lines: the thief “is lassoed by the Power of the Moon”.", "israel": "“their Redeemer is strong; He will take up their case against you”" },
+      "evidence": "Both forbid moving a boundary marker, and both then turn to the vulnerable: the widow in Amenemope, the fatherless in Proverbs.",
+      "inference": "Close in subject and shape, and the plainest place to see who stands behind the saying in each.",
+      "limit": "Moving a boundary stone is forbidden elsewhere in Scripture as well, as in Deuteronomy 19:14, so Proverbs needed no Egyptian book to know the command."
+    }
+  ],
+  "seamFacts": [
+    { "head": "The threads cross.", "text": "Read Proverbs downward and the matching columns jump about the papyrus. Number the Egyptian passages in their own order and, as Ruffle sets it out, they come in Proverbs as 2, 10, 1, 3, 6, 4, 11, 9, 5, 7, 8, 4. Brunet put great weight on this. A translator working through a book would not go in that order." },
+    { "head": "They stop.", "text": "All eleven end by Proverbs 23:11, a third of the way through this collection. Gressmann pressed on to 24:22 with his thirty sections, but the later matches he claimed are the ones this list leaves out." },
+    { "head": "The missing parts.", "text": "Amenemope's river pictures and many of its chapters have nothing beside them in Proverbs. Ruffle counts about half of the first part of the Words of the Wise as dealing with the same subjects as Amenemope." }
+  ],
+  "themes": [
+    {
+      "id": "water", "num": 1, "name": "Water in the mountains", "strophe": 8, "psalmAt": 10, "verses": ["Psalm 104:10", "Psalm 104:13"],
+      "hymn": "Thou hast set a Nile in the sky; when it falleth for them, it maketh waves upon the mountains.",
+      "note": "The hymn needs a second Nile for foreigners, because the first belongs to Egypt. The psalm has one Giver and no favoured river."
+    },
+    {
+      "id": "plants", "num": 2, "name": "Grass, trees and birds", "strophe": 3, "psalmAt": 12, "verses": ["Psalm 104:12", "Psalm 104:14"],
+      "hymn": "The trees and the plants flourish, the birds flutter in their marshes, their wings uplifted in adoration to thee.",
+      "note": "In the hymn the birds lift their wings to the sun. In the psalm they sing near springs that He sends."
+    },
+    {
+      "id": "seasons", "num": 3, "name": "The seasons", "strophe": 9, "psalmAt": 19, "verses": ["Psalm 104:19"],
+      "hymn": "Thou makest the seasons in order to create all thy work.",
+      "note": "In the hymn the sun makes the seasons. In the psalm the moon marks them, and the sun is one more thing that was made."
+    },
+    {
+      "id": "night", "num": 4, "name": "Night and lions", "strophe": 1, "psalmAt": 20, "verses": ["Psalm 104:20", "Psalm 104:21"],
+      "hymn": "When thou settest in the western horizon of the sky, the earth is in darkness like the dead… Every lion cometh forth from his den.",
+      "note": "The closest pair of all, and the place most comparisons start. The likeness is real. So is the difference: the psalm's God brings the dark, and its lions look to Him for food."
+    },
+    {
+      "id": "work", "num": 5, "name": "Dawn and work", "strophe": 2, "psalmAt": 22, "verses": ["Psalm 104:22", "Psalm 104:23"],
+      "hymn": "Bright is the earth when thou risest in the horizon… (Then) in all the world they do their work.",
+      "note": "The same morning in both: the night's creatures gone, people going out to work. In the hymn they first lift their arms to the disc."
+    },
+    {
+      "id": "works", "num": 6, "name": "How many are your works", "strophe": 7, "psalmAt": 24, "verses": ["Psalm 104:24"],
+      "hymn": "How manifold are thy works! They are hidden from before (us), O sole God, whose powers no other possesseth.",
+      "note": "The words that readers remember, and very close in English. Both are translations, and Breasted's is from a century when King James's rhythm was in every translator's ear."
+    },
+    {
+      "id": "sea", "num": 7, "name": "Ships and the sea", "strophe": 4, "psalmAt": 25, "verses": ["Psalm 104:25", "Psalm 104:26"],
+      "hymn": "The barques sail up-stream and down-stream alike… Thy rays are in the midst of the great green sea.",
+      "note": "The hymn's boats are on the river, with its rays in the sea. The psalm's sea holds the ships, and Leviathan at play."
+    },
+    {
+      "id": "breath", "num": 8, "name": "They live, they die", "strophe": 10, "psalmAt": 29, "verses": ["Psalm 104:29", "Psalm 104:30"],
+      "hymn": "When thou hast risen they live, when thou settest they die.",
+      "note": "The same dependence, on a different hinge. Every evening the sun's creatures die a little. In the psalm the hinge is His face, His breath and His Spirit."
+    }
+  ],
+  "strophes": ["Splendour of the Aton", "Night", "Day and man", "Animals and plants", "The waters", "Creation of man", "Creation of animals", "The whole creation", "Watering the earth", "The seasons", "Revelation to the king"],
+  "partings": [
+    {
+      "id": "addressed", "head": "Who is being spoken to",
+      "hymn": "O living Aton, Beginning of life!",
+      "psalm": "“O LORD my God, You are very great” and, of the sun, “the sun knows when to set”.",
+      "verses": ["Psalm 104:1", "Psalm 104:19"],
+      "note": "The hymn sings to the disc. The psalm mentions the sun once, as a creature that keeps its hours."
+    },
+    {
+      "id": "night", "head": "What night is",
+      "hymn": "The earth is in darkness like the dead.",
+      "psalm": "“You bring darkness, and it becomes night”.",
+      "verses": ["Psalm 104:20"],
+      "note": "In the hymn, God has left and the world is unattended. In the psalm, night is one of the things God does."
+    },
+    {
+      "id": "knows", "head": "Who may know God",
+      "hymn": "There is no other that knoweth thee save thy son Ikhnaton.",
+      "psalm": "“I will sing to the LORD all my life”.",
+      "verses": ["Psalm 104:33"],
+      "note": "The hymn's knowledge runs through one man. The psalm is in the mouth of anyone who sings it."
+    },
+    {
+      "id": "ending", "head": "How it ends",
+      "hymn": "…the chief royal wife, his beloved, Mistress of the Two Lands, Nefer-nefru-Aton, Nofretete.",
+      "psalm": "“May sinners vanish from the earth and the wicked be no more. Bless the LORD, O my soul.”",
+      "verses": ["Psalm 104:35"],
+      "note": "The hymn closes on the royal couple's names. The psalm closes on a moral wish and on blessing the LORD. The hymn names no sinner at all."
+    }
+  ],
+  "psalmViews": [
+    { "who": "James Breasted, 1934", "held": "The Hebrews plainly knew the sun hymn." },
+    { "who": "John Day", "held": "The hymn is the psalm's main source, though he also limits the real likeness mostly to verses 20-30." },
+    { "who": "Peter Craigie, 1974", "held": "A likeness of subject and association of ideas, with no sign of a translation." },
+    { "who": "Adele Berlin, 2005", "held": "Most scholars now doubt a direct link and put the likeness down to shared subjects." }
+  ],
+  "letters": {
+    "lead": "About 350 letters on clay, nearly all in Akkadian, the shared written language of the age. Canaan's rulers wrote them to Pharaoh, in the middle of the 14th century BC, across no more than thirty years and perhaps closer to fifteen.",
+    "countNote": "The bigger the dot, the more letters survive from that place. That is a measure of what survived and what the edition can place, not of how much the place mattered.",
+    "cities": [
+      { "id": "byblos", "name": "Byblos", "provenience": "Byblos", "lon": 35.65, "lat": 34.12, "biblical": "Gebal", "verse": "Ezekiel 27:9", "note": "One ruler, Rib-Hadda, wrote more letters than anyone else in the archive, and his name is on most of what survives from here." },
+      { "id": "sidon", "name": "Sidon", "provenience": "Sidon", "lon": 35.37, "lat": 33.56, "biblical": "Sidon", "verse": "Genesis 10:19", "note": "A famous city with very few letters: a reminder that the dots show what was kept." },
+      { "id": "tyre", "name": "Tyre", "provenience": "Tyre", "lon": 35.2, "lat": 33.27, "biblical": "Tyre", "verse": "Isaiah 23:1", "note": "Abi-Milku praises Pharaoh as the sun at length. The Met holds one of his letters, and its picture is here.", "letter": "ea147" },
+      { "id": "akko", "name": "Akko", "provenience": "Akko", "lon": 35.08, "lat": 32.93, "biblical": "Acco", "verse": "Judges 1:31", "note": "A port on the coast with a few letters, and a name Scripture spells Acco." },
+      { "id": "hazor", "name": "Hazor", "provenience": "Hazor", "lon": 35.57, "lat": 33.02, "biblical": "Hazor", "verse": "1 Kings 9:15", "note": "Only two letters survive from this great northern city." },
+      { "id": "megiddo", "name": "Megiddo", "provenience": "Megiddo", "lon": 35.18, "lat": 32.58, "biblical": "Megiddo", "verse": "1 Kings 9:15", "note": "All of what survives here carries one ruler's name, Biridiya." },
+      { "id": "shechem", "name": "Shechem", "provenience": "Shechem", "lon": 35.28, "lat": 32.21, "biblical": "Shechem", "verse": "Genesis 12:6", "note": "Labʾayu writes to defend himself. Others write to accuse him. ʿAbdi-Heba of Jerusalem names his sons in EA 287." },
+      { "id": "gezer", "name": "Gezer", "provenience": "Gezer", "lon": 34.92, "lat": 31.86, "biblical": "Gezer", "verse": "1 Kings 9:15", "note": "More than one ruler writes from this town, and ʿAbdi-Heba says in EA 287 that Gezer, Ashkelon and Lachish supply his enemies with bread and oil." },
+      { "id": "jerusalem", "name": "Jerusalem", "provenience": "Jerusalem", "lon": 35.23, "lat": 31.78, "biblical": "Jerusalem", "verse": "2 Samuel 5:6", "note": "ʿAbdi-Heba's name is on these letters, and every letter that spells out the word Habiru comes from here.", "letter": "ea288" },
+      { "id": "gath", "name": "Gath (Gimtu)", "provenience": "Gath", "lon": 34.85, "lat": 31.7, "biblical": "Gath", "verse": "1 Samuel 17:4", "note": "The writers call their town Gimtu, and the edition places it at Gath. Whether that is the Philistine town of Goliath's day is a judgment, not a given." },
+      { "id": "ashkelon", "name": "Ashkelon", "provenience": "Ashkelon", "lon": 34.55, "lat": 31.66, "biblical": "Ashkelon", "verse": "Judges 14:19", "note": "Its rulers' names are on more letters than any other town in the south of this map." },
+      { "id": "lachish", "name": "Lachish", "provenience": "Lachish", "lon": 34.85, "lat": 31.56, "biblical": "Lachish", "verse": "Joshua 10:3", "note": "Named in Scripture among the towns of the south, and in EA 287 among those supplying ʿAbdi-Heba's enemies." }
+    ],
+    "passages": [
+      {
+        "id": "ea288", "ea": "EA 288", "pid": "P271089", "from": "ʿAbdi-Heba of Jerusalem", "title": "The name at sunrise and sunset",
+        "lines": ["o 001", "o 002", "o 003", "o 004", "o 005", "o 006", "o 007", "o 008"],
+        "expect": ["7ta-a-an", "am-qut-mi", "MU-šu", "mu-ṣi", "er-bi", "ha-an-pa"],
+        "plain": "To the king, my lord, my Sun: say this. Thus ʿAbdi-Heba, your servant. At the two feet of the king, my lord, seven times and seven times I fall. See: the king, my lord, has set his name at the rising of the sun and at its setting. It is an outrage, what they have done to me.",
+        "beside": [
+          { "verse": "Genesis 33:3", "note": "Seven times to the ground: Jacob before Esau. The bow was court manners, not a figure of speech." },
+          { "verse": "Psalm 113:3", "note": "The same reach, from sunrise to sunset. Here the name is the LORD's." },
+          { "verse": "Malachi 1:11", "note": "The same reach again. The claim the letter makes for Pharaoh, the prophet makes for the LORD among the nations." }
+        ],
+        "limit": "A shared way of saying “everywhere”, from a world in which everyone knew it. It does not show that one text is answering the other."
+      },
+      {
+        "id": "ea287", "ea": "EA 287", "pid": "P271090", "from": "ʿAbdi-Heba of Jerusalem", "title": "His name in Jerusalem for ever",
+        "lines": ["r 060", "r 061", "r 062", "r 063"],
+        "expect": ["ša-ka-an", "MU-šu", "u₂-ru-ša₁₀-lim", "da-ri-iš"],
+        "plain": "See: the king has set his name in Jerusalem for ever. He cannot abandon the lands of Jerusalem.",
+        "beside": [
+          { "verse": "1 Kings 9:3", "note": "Putting a name there forever, centuries later in the story: a king claiming a place, now said of the LORD at the temple." },
+          { "verse": "2 Kings 21:4", "note": "“In Jerusalem I will put My Name.” The same idiom, same city." }
+        ],
+        "limit": "The idiom of a name set in a place belonged to the region's speech. The letter shows the phrase was at home in Jerusalem long before the temple. It is not a source for what the phrase means in Kings."
+      },
+      {
+        "id": "ea147", "ea": "EA 147", "pid": "P270914", "from": "Abi-Milku of Tyre", "title": "The sun that gives breath",
+        "lines": ["o 004", "o 005", "o 006", "o 007", "o 008", "o 009", "o 010", "o 011", "o 012"],
+        "expect": ["ep-ru", "ši-ni", "i-ba-li-iṭ", "ṣa-pa-ni-šu", "ha-ap-ši"],
+        "plain": "I am dirt from under the sandals of the king, my lord. My lord is the sun that goes out over the lands, day after day, in the way of the Sun, his gracious father; who gives life by his sweet breath, and comes round again with his north wind; who keeps the whole land quiet by the strength of his arm.",
+        "beside": [
+          { "verse": "Genesis 18:27", "note": "“I am but dust and ashes”: the same self-lowering before a greater one. Abraham's Lord is no Pharaoh." },
+          { "verse": "Psalm 104:29", "note": "Breath in the hand of the one addressed. Abi-Milku says it of a king he wants help from; the psalm says it of the LORD." }
+        ],
+        "limit": "Flattery, written to a superior who might send soldiers. It shows how a Levantine scribe could speak of Egypt's king. It does not show what Abi-Milku believed. The hymn's language was in the air at the same court, and no more than that can be said."
+      }
+    ],
+    "cognates": [
+      { "id": "roof", "letter": "EA 287", "line": "o 037", "cuneiform": "ga-ag-gi", "gloss": "roof", "hebrew": "גג", "translit": "gag", "strongs": "H1406", "verse": "Deuteronomy 22:8", "english": "roof" },
+      { "id": "field", "letter": "EA 287", "line": "r 056", "cuneiform": "ša-de₄-e", "gloss": "field", "hebrew": "שדה", "translit": "sadeh", "strongs": "H7704", "verse": "Ruth 1:6", "english": "country" },
+      { "id": "north", "letter": "EA 147", "line": "o 010", "cuneiform": "ṣa-pa-ni-šu", "gloss": "north", "hebrew": "צפון", "translit": "tsaphon", "strongs": "H6828", "verse": "Job 26:7", "english": "north" }
+    ]
+  },
+  "explanations": [
+    {
+      "id": "egypt", "name": "Egypt first", "tag": "Israel's writers knew the Egyptian text",
+      "held": "Erman and Gressmann for Proverbs, reported by Ruffle. Breasted and Day for the psalm, reported by Buys.",
+      "forIt": "Amenemope's oldest copies and the Aten's age stand well before most dates proposed for these parts of Scripture. Egypt held Canaan for long stretches.",
+      "against": "The order of the threads, the stopping point, and all that is left out. It also needs a route for the hymn, whose god Egypt turned against soon after Akhenaten's death.",
+      "wouldShow": "A Hebrew line that only makes sense as a mistake in reading the Egyptian."
+    },
+    {
+      "id": "israel", "name": "Israel first", "tag": "An Egyptian writer knew a Semitic text",
+      "held": "Kevin, and later Drioton, reported by Ruffle, who says later manuscripts ruled out Drioton's late date.",
+      "forIt": "A few Semitic turns of phrase in the Egyptian. Erman himself noticed Semitic-seeming ideas in Amenemope.",
+      "against": "The Egyptian manuscripts now stand too early for the later forms of this theory, and little remains of the earlier ones.",
+      "wouldShow": "An Egyptian line that only makes sense as a mistake in reading the Hebrew."
+    },
+    {
+      "id": "common", "name": "A common source", "tag": "Both drew on a lost older book",
+      "held": "Oesterley in 1927, and Grumach in 1972, reported by Ruffle.",
+      "forIt": "It explains how the same sayings can stand in different orders with different gods behind them.",
+      "against": "No copy has ever turned up. In Ruffle's words, it “has no basis in fact” until one does.",
+      "wouldShow": "That lost book."
+    },
+    {
+      "id": "shared", "name": "A shared world", "tag": "Neighbours, trained alike, wrote alike",
+      "held": "Ruffle, who adds an Egyptian scribe at Solomon's court as an adequate explanation for the wisdom sayings. Craigie and Berlin for the psalm, reported by Buys. Kitchen on the form of wisdom books.",
+      "forIt": "The letters. Scribes from Tyre to Jerusalem were already sharing a written language, a courtesy and a picture of the sun.",
+      "against": "It is hard to disprove, and can be used to wave away any close match. The wings on the wealth are a hard case for it.",
+      "wouldShow": "More texts from other lands with the same turns of phrase, so that no single pair stands out."
+    }
+  ],
+  "timeline": {
+    "from": 1400,
+    "to": 400,
+    "rows": [
+      { "id": "letters", "name": "The Amarna letters", "start": 1360, "end": 1330, "note": "Middle of the 14th century BC, no more than 30 years.", "kind": "egypt" },
+      { "id": "hymn", "name": "Akhenaten's reign, with the hymn", "start": 1353, "end": 1334, "note": "Reckoned c.1353-1336 or c.1351-1334 BC. The hymn is on a wall in the tomb of his courtier Ay.", "kind": "egypt" },
+      { "id": "composed", "name": "Amenemope composed", "start": 1300, "end": 1000, "open": true, "note": "Before 1,000 BC, according to Ruffle. The left end is not a measurement.", "kind": "egypt" },
+      { "id": "papyrus", "name": "The London papyrus copied", "ranges": [[950, 650], [600, 500]], "start": 950, "end": 500, "note": "Two ranges are in print for this one copy: 950-650 BC in Ruffle and 600-500 BC elsewhere.", "kind": "egypt" },
+      { "id": "ostracon", "name": "The Met's limestone flake", "start": 525, "end": 404, "note": "525-404 BC on the museum's record.", "kind": "egypt" },
+      { "id": "solomon", "name": "Solomon, Proverbs 1:1", "start": 970, "end": 930, "note": "Usual rounded dates for his reign. Scripture's own heading, on the book.", "kind": "scripture" },
+      { "id": "hezekiah", "name": "Hezekiah's men, Proverbs 25:1", "start": 715, "end": 686, "note": "Usual rounded dates. Scripture's heading, on chapters 25 onward.", "kind": "scripture" }
+    ],
+    "undated": "Two texts have no bar, because neither carries a date. Proverbs 22:17 is headed only “the words of the wise”, and Psalm 104 has no heading at all. Craigie ties the psalm to Solomon's temple and others put it far later. Any chart that places them has already decided the question it claims to show."
+  },
+  "stance": {
+    "head": "What this site holds",
+    "scripture": "2 Timothy 3:16",
+    "confession": "“truth, without any mixture of error”",
+    "confessionSource": "Baptist Faith and Message 2000, on Scripture",
+    "body": "That is a claim about what the words are, not about whether a writer had read anything. Proverbs says of itself that it gathers: “the words of the wise”, “sayings of the wise”, proverbs “copied by the men of Hezekiah”. If one of those wise men was Egyptian, or had sat with one, Scripture would not be the less God's. Luke says Moses was “educated in all the wisdom of the Egyptians”, and Kings measures Solomon against it. Neither says that this wisdom is wrong simply because it comes from Egypt.",
+    "names": "The likeness that matters most stops at the name. Deuteronomy forbids bowing to the sun as firmly as the hymn bows to it, and Paul names the exchange of Creator for creature. Those are verdicts on the thing worshipped, and they are this site's reading, not a finding of the comparison.",
+    "verses": ["Proverbs 22:17", "Proverbs 24:23", "Proverbs 25:1", "Acts 7:22", "1 Kings 4:30", "Deuteronomy 4:19", "Romans 1:25"]
+  },
+  "claims": [
+    {
+      "id": "translation",
+      "claim": "“Proverbs simply translates an Egyptian book.”",
+      "head": "Whole-scale copying does not fit what is on the page.",
+      "evidence": "At the widest, eleven passages in 24 verses, ending at Proverbs 23:11. They cross in order. Amenemope's gods go missing, and the LORD comes in at Proverbs 22:19 and 22:23.",
+      "inference": "A translator does not work this way. Something freer happened, whether that was borrowing, retelling or shared schooling.",
+      "limit": "Those who hold to dependence mostly do not claim a translation. They claim adaptation, which the evidence does not rule out.",
+      "verses": ["Proverbs 22:19", "Proverbs 22:23", "Proverbs 23:11"],
+      "sources": ["ruffle", "griffith"],
+      "test": {
+        "question": "Proverbs 22:23 says “the LORD will take up their case”. Griffith's chapter 2 has no such line. What does that show?",
+        "options": [
+          { "text": "That Proverbs cannot be related to Amenemope.", "right": false, "why": "One absent line settles nothing about the relationship. A writer who knew the Egyptian could have added it." },
+          { "text": "That the saying in Proverbs is not a mere translation at this point.", "right": true, "why": "This is what the difference can bear. Whatever its history, the verse stands on a different footing from its Egyptian neighbour." },
+          { "text": "That Amenemope did not care about the poor.", "right": false, "why": "The line right there forbids robbing them. A missing motive is not missing care." }
+        ]
+      }
+    },
+    {
+      "id": "psalm",
+      "claim": "“Psalm 104 is Akhenaten's hymn in Hebrew.”",
+      "head": "Eight close themes, in a different order, to a different God.",
+      "evidence": "The two share night and lions, dawn and work, ships, and many works. Their order differs, as the two staves show, and the psalm has much the hymn lacks: Leviathan, wine and oil, sinners, and a singer of its own.",
+      "inference": "Not a translation. Whether the psalmist knew this hymn, or other Egyptian sun hymns, or simply the same morning, is where scholars divide, and Buys reports no consensus.",
+      "limit": "The hymn is known from one tomb wall. Comparison is of two English translations on this page, and a likeness in English may be partly the translator's.",
+      "verses": ["Psalm 104:19", "Psalm 104:20", "Psalm 104:24"],
+      "sources": ["breasted", "buys"],
+      "test": {
+        "question": "“How manifold are thy works!” and “How many are Your works, O LORD!” look nearly the same. What should you check first?",
+        "options": [
+          { "text": "Whether the translator of the hymn was writing with English Bibles in mind.", "right": true, "why": "Breasted worked in 1912, in that very idiom. A likeness in translation has to be tested behind the translation before it can bear weight." },
+          { "text": "Nothing: words this close prove a link.", "right": false, "why": "They are the same words only in English. They may still point to a link, but they cannot prove one as they stand." },
+          { "text": "Whether Akhenaten wrote the psalm.", "right": false, "why": "Nothing connects the king with the psalm. The question to ask is about the words in front of you." }
+        ]
+      }
+    },
+    {
+      "id": "moses",
+      "claim": "“Akhenaten invented monotheism, and Moses learned it from him.”",
+      "head": "The hymn does not say that, and Scripture says otherwise.",
+      "evidence": "The hymn does say “O sole God”. Egyptologists differ over whether Akhenaten's religion was truly monotheism or something narrower. Sigmund Freud popularised the Moses story in 1939, and Donald Redford answers that little evidence makes Akhenaten a forerunner of the Bible's monotheism.",
+      "inference": "The hymn's God is the sun, known through one king. In Scripture, God gives His own name to Moses and tells him that He is the God of the patriarchs: Moses is not said to have worked it out.",
+      "limit": "When Moses lived is argued in another planned study, and no date is chosen here. Nothing on this page needs one, as the test is what each text says of its God.",
+      "verses": ["Exodus 3:14", "Exodus 3:15", "Deuteronomy 6:4"],
+      "sources": ["wiki-akhenaten", "breasted"],
+      "test": {
+        "question": "The hymn says “There is no other that knoweth thee save thy son Ikhnaton”. What does that line let you say?",
+        "options": [
+          { "text": "That the hymn's God is known through the king, a claim Israel's confession does not make.", "right": true, "why": "This sits on the surface of both texts. Deuteronomy 6:4 is spoken to all Israel." },
+          { "text": "That Moses must have reacted against Akhenaten.", "right": false, "why": "A difference is not a reaction. Nothing connects the two here." },
+          { "text": "That Akhenaten did not believe in one God at all.", "right": false, "why": "One line about who knows God cannot decide that. Egyptologists are still arguing it." }
+        ]
+      }
+    },
+    {
+      "id": "habiru",
+      "claim": "“The Habiru of the letters are the Hebrews.”",
+      "head": "The word's spread in the letters points away from a single people.",
+      "evidence": "The edition's dictionary marks the word in 65 letters. It is spelled out in 5, all from Jerusalem. The other 60 use a sign group read as SA.GAZ or GAZ, and 32 of the 65 come from Byblos, far to the north.",
+      "inference": "Writers all along the coast use the term for bands who threaten them. That reads more like a name for a kind of person than for one nation, and that is how scholars generally take it.",
+      "limit": "The likeness of the word to “Hebrew” is argued both ways: Anson Rainey, Nadav Naʾaman and Moshe Greenberg differ, and they are reported here second-hand. Whether any Hebrews were ever called this is for the planned study of the exodus and settlement, not this page.",
+      "verses": [],
+      "sources": ["oracc", "wiki-habiru"],
+      "test": {
+        "question": "ʿAbdi-Heba of Jerusalem complains of the Habiru taking the king's land. From the letters alone, what can you say?",
+        "options": [
+          { "text": "That Joshua's army had arrived.", "right": false, "why": "The letters name no Israel and no Joshua. That is an identification brought to the letter, not read from it." },
+          { "text": "That these are not the Israelites, whatever anyone says.", "right": false, "why": "The letters do not rule that out by themselves either. Spelling and spread cannot decide it." },
+          { "text": "That a ruler in Jerusalem feared armed outsiders, under a label used up and down the coast.", "right": true, "why": "This is what the counts carry. Who those outsiders were is another question." }
+        ]
+      }
+    }
+  ],
+  "confusedWords": [
+    { "word": "Parallel and borrowing", "note": "A parallel is two things that look alike. A borrowing is one way of explaining that. This page reports the first and tests the second." },
+    { "word": "Aten, Aton and Re", "note": "Aten is the sun's disc, and Aton is Breasted's spelling of it. Re is the older sun god, whose name Akhenaten kept using. The hymn is in Breasted's spelling here, as is the king's name: Ikhnaton." },
+    { "word": "Amenemope and Amenophis", "note": "One writer, spelled differently. Griffith writes Amenophis in his title and Amenemopi in the text. He is not the pharaoh Amenhotep, who is also sometimes written Amenophis." },
+    { "word": "Habiru and Hebrew", "note": "Two words that look related in English. That is the start of the question, not the end of it." },
+    { "word": "Canaanite word and Canaanite", "note": "The letters are in Akkadian, with some Canaanite words tagged in them by the edition. That is a language. It says nothing of who the people were." }
+  ],
+  "reach": [
+    "Eleven passages of Proverbs, eight themes of a psalm, and three short passages of letters are read closely here. The other letters are only counted.",
+    "The counts of the letters come from one modern edition's own tags, in 305 letters with text, of 379 catalogue entries. Another editor would tag differently.",
+    "Every Egyptian line on this page is read in an English translation from 1912 or 1926. Neither Egyptian text is read here in Egyptian, and both translations can be improved upon.",
+    "All the comparisons here can show likeness. None of them can prove who read whom."
+  ],
+  "sources": [
+    { "id": "griffith", "title": "F. Ll. Griffith, “The Teaching of Amenophis the Son of Kanakht”, Journal of Egyptian Archaeology 12 (1926)", "url": "https://archive.org/details/in.ernet.dli.2015.70985", "kind": "Translation, 1926 · public domain", "status": "part", "answers": "What does the Egyptian say, and where in the papyrus?", "read": "Read from an old scan, for the lines quoted and the chapter table. Scanning errors in the lines quoted here have been corrected by reading them. Griffith's question marks and his footnotes are left out." },
+    { "id": "ruffle", "title": "John Ruffle, “The Teaching of Amenemope and its Connection with the Book of Proverbs”, Tyndale Bulletin 28 (1977)", "url": "https://www.tyndalebulletin.org/article/30616-the-teaching-of-amenemope-and-its-connection-with-the-book-of-proverbs", "kind": "Article, 1977", "status": "read", "answers": "How many matches stand up, and how sure can anyone be?", "read": "Read in full. Restated, with very short quotations. The route to several older scholars on this page." },
+    { "id": "kitchen", "title": "K. A. Kitchen, “Proverbs and Wisdom Books of the Ancient Near East”, Tyndale Bulletin 28 (1977)", "url": "https://www.tyndalebulletin.org/article/30617-proverbs-and-wisdom-books-of-the-ancient-near-east-the-factual-history-of-a-literary-form", "kind": "Article, 1977", "status": "part", "answers": "What is a wisdom book, as a form, across the region?", "read": "Read in part, for the form of these books across lands. Restated." },
+    { "id": "breasted", "title": "James Henry Breasted, Development of Religion and Thought in Ancient Egypt (1912)", "url": "https://archive.org/details/developmentofrel00breauoft", "kind": "Translation, 1912 · public domain", "status": "part", "answers": "What does the hymn say?", "read": "Read for the hymn itself, including his own headings for its strophes. Those headings are his, not the ancient text's. His spelling is kept in quotations." },
+    { "id": "buys", "title": "Daleen Buys, dissertation on Psalm 104 and the Great Hymn to the Aten, University of Pretoria (2019)", "url": "https://repository.up.ac.za/bitstreams/6cd3d52a-832b-4f3a-827e-1278d460305a/download", "kind": "Master's dissertation, 2019", "status": "part", "answers": "Who has said what about the psalm and the hymn?", "read": "Read in part, as the route to Breasted's 1934 book, Day, Craigie, Berlin and others. It is a student's survey, used because it lays out the views plainly." },
+    { "id": "oracc", "title": "Amarna letters, Akkadian in the Eastern Mediterranean World, on Oracc. Edition by Jacob Lauinger and Tyler Yoder", "url": "https://oracc.museum.upenn.edu/aemw/amarna/", "kind": "Edition · CC BY-SA 3.0", "status": "read", "answers": "What do the letters say, and how many of them say it?", "read": "This study's script read all 305 letters with text from the site's held copy, and counted the edition's own tags. Three short passages are shown word by word." },
+    { "id": "met-ea153", "title": "Letter from Abi-Milku of Tyre, EA 153, The Metropolitan Museum of Art, 24.2.12", "url": "https://www.metmuseum.org/art/collection/search/544696", "kind": "Museum record · CC0", "status": "part", "answers": "What does one of these letters look like?", "read": "The object record and its open image only." },
+    { "id": "met-ostracon", "title": "Hieratic ostracon with the beginning of the Wisdom of Amenemope, The Metropolitan Museum of Art, 26.3.165", "url": "https://www.metmuseum.org/art/collection/search/558553", "kind": "Museum record · CC0", "status": "part", "answers": "Was Amenemope still being copied centuries later?", "read": "The record as given on Wikimedia Commons, with its date of 525-404 BC, and its open image." },
+    { "id": "wiki-amarna", "title": "“Amarna letters”, Wikipedia", "url": "https://en.wikipedia.org/wiki/Amarna_letters", "kind": "Encyclopedia", "status": "read", "answers": "How many, from when, and in what language?", "read": "Read through a tool that returned a report on the page, not the page itself. Nothing is quoted from it word for word." },
+    { "id": "wiki-hymn", "title": "“Great Hymn to the Aten”, Wikipedia", "url": "https://en.wikipedia.org/wiki/Great_Hymn_to_the_Aten", "kind": "Encyclopedia", "status": "read", "answers": "Where is the hymn, and what is its date?", "read": "Read through the same tool, and restated." },
+    { "id": "wiki-akhenaten", "title": "“Akhenaten”, Wikipedia", "url": "https://en.wikipedia.org/wiki/Akhenaten", "kind": "Encyclopedia", "status": "read", "answers": "When did he reign, and what has been claimed for him?", "read": "Read through the same tool, for his dates and for its report of Freud, Redford and the argument about monotheism." },
+    { "id": "wiki-habiru", "title": "“Habiru”, Wikipedia", "url": "https://en.wikipedia.org/wiki/Habiru", "kind": "Encyclopedia", "status": "read", "answers": "What do scholars take the term to mean?", "read": "Read through the same tool. It is the route to Rainey, Naʾaman and Greenberg, and this page goes no further than that report." },
+    { "id": "brunet", "title": "A. Brunet, Sciences Ecclésiastiques 1 (1949), 19-40", "url": "https://www.tyndalebulletin.org/article/30616-the-teaching-of-amenemope-and-its-connection-with-the-book-of-proverbs", "kind": "Article, 1949 · reached through Ruffle", "status": "second-hand", "answers": "How low has the count been set?", "read": "Not read. His count is Ruffle's report of it, and the link is to Ruffle." },
+    { "id": "moran", "title": "William L. Moran, The Amarna Letters (1992)", "url": "https://www.google.com/search?tbm=bks&q=Moran+The+Amarna+Letters+1992", "kind": "Translation, 1992 · under copyright", "status": "located", "answers": "What is the standard English translation of the letters?", "read": "Located, not read. The plain renderings on this page are this study's own, from the Oracc edition." },
+    { "id": "lichtheim", "title": "Miriam Lichtheim, Ancient Egyptian Literature (1973-80)", "url": "https://www.google.com/search?tbm=bks&q=Lichtheim+Ancient+Egyptian+Literature", "kind": "Translation · under copyright", "status": "located", "answers": "What is the standard modern translation of Amenemope and the hymn?", "read": "Located, not read. A reader who wants to go further should start here rather than with the older versions quoted on this page." }
+  ],
+  "pictures": [
+    { "id": "ostracon", "src": "/images/studies/egypt-beside-israel/amenemope-ostracon.jpg", "alt": "A broken flake of pale limestone, with several rows of hieratic writing in red ink.", "credit": "Hieratic ostracon with the beginning of the Wisdom of Amenemope, 525-404 BC, The Metropolitan Museum of Art, 26.3.165, Rogers Fund, 1926", "licence": "CC0", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "href": "https://www.metmuseum.org/art/collection/search/558553", "retrieved": "2026-10-31", "width": 780, "height": 520 },
+    { "id": "hymn", "src": "/images/studies/egypt-beside-israel/hymn-davies-plate.jpg", "alt": "A printed plate of tall columns of hieroglyphs, traced from the wall of a tomb, with cracks and damaged areas marked.", "credit": "The Great Hymn on the wall of Ay's tomb, drawn by N. de G. Davies, The Rock Tombs of El Amarna VI (1908), via Wikimedia Commons", "licence": "Public domain", "licenceUrl": "https://commons.wikimedia.org/wiki/Commons:Licensing", "href": "https://commons.wikimedia.org/wiki/File:Aten_worship_-_Great_Hymn_to_Aten.jpg", "retrieved": "2026-10-31", "width": 480, "height": 855 },
+    { "id": "tablet", "src": "/images/studies/egypt-beside-israel/ea-153-tyre.jpg", "alt": "A small clay tablet, longer than it is wide, with rows of wedge-shaped signs filling its surface and one worn lower corner.", "credit": "Letter from Abi-Milku of Tyre to the king, EA 153, The Metropolitan Museum of Art, 24.2.12", "licence": "CC0", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "href": "https://www.metmuseum.org/art/collection/search/544696", "retrieved": "2026-10-31", "width": 468, "height": 624 }
+  ],
+  "verses": [
+    { "label": "Proverbs 22:17", "code": "PRO", "chapter": 22, "verse": 17, "phrase": "words of the wise" },
+    { "label": "Proverbs 22:18", "code": "PRO", "chapter": 22, "verse": 18, "phrase": "on your lips" },
+    { "label": "Proverbs 22:19", "code": "PRO", "chapter": 22, "verse": 19, "phrase": "trust may be in the LORD" },
+    { "label": "Proverbs 22:20", "code": "PRO", "chapter": 22, "verse": 20, "phrase": "thirty sayings" },
+    { "label": "Proverbs 22:21", "code": "PRO", "chapter": 22, "verse": 21, "phrase": "those who sent you" },
+    { "label": "Proverbs 22:22", "code": "PRO", "chapter": 22, "verse": 22, "phrase": "rob a poor man" },
+    { "label": "Proverbs 22:23", "code": "PRO", "chapter": 22, "verse": 23, "phrase": "the LORD will take up their case" },
+    { "label": "Proverbs 22:24", "code": "PRO", "chapter": 22, "verse": 24, "phrase": "angry man" },
+    { "label": "Proverbs 22:25", "code": "PRO", "chapter": 22, "verse": 25, "phrase": "entangle yourself in a snare" },
+    { "label": "Proverbs 22:29", "code": "PRO", "chapter": 22, "verse": 29, "phrase": "presence of kings" },
+    { "label": "Proverbs 23:1", "code": "PRO", "chapter": 23, "verse": 1, "phrase": "dine with a ruler" },
+    { "label": "Proverbs 23:2", "code": "PRO", "chapter": 23, "verse": 2, "phrase": "knife to your throat" },
+    { "label": "Proverbs 23:3", "code": "PRO", "chapter": 23, "verse": 3, "phrase": "delicacies" },
+    { "label": "Proverbs 23:4", "code": "PRO", "chapter": 23, "verse": 4, "phrase": "to get rich" },
+    { "label": "Proverbs 23:5", "code": "PRO", "chapter": 23, "verse": 5, "phrase": "makes wings for itself" },
+    { "label": "Proverbs 23:6", "code": "PRO", "chapter": 23, "verse": 6, "phrase": "bread of a stingy man" },
+    { "label": "Proverbs 23:7", "code": "PRO", "chapter": 23, "verse": 7, "phrase": "counting the cost" },
+    { "label": "Proverbs 23:8", "code": "PRO", "chapter": 23, "verse": 8, "phrase": "vomit" },
+    { "label": "Proverbs 23:9", "code": "PRO", "chapter": 23, "verse": 9, "phrase": "speak to a fool" },
+    { "label": "Proverbs 23:10", "code": "PRO", "chapter": 23, "verse": 10, "phrase": "ancient boundary stone" },
+    { "label": "Proverbs 23:11", "code": "PRO", "chapter": 23, "verse": 11, "phrase": "their Redeemer is strong" },
+    { "label": "Proverbs 24:23", "code": "PRO", "chapter": 24, "verse": 23, "phrase": "sayings of the wise" },
+    { "label": "Proverbs 25:1", "code": "PRO", "chapter": 25, "verse": 1, "phrase": "copied by the men of Hezekiah" },
+    { "label": "Proverbs 1:1", "code": "PRO", "chapter": 1, "verse": 1, "phrase": "proverbs of Solomon" },
+    { "label": "Psalm 104:1", "code": "PSA", "chapter": 104, "verse": 1, "phrase": "O LORD my God, You are very great" },
+    { "label": "Psalm 104:10", "code": "PSA", "chapter": 104, "verse": 10, "phrase": "springs in the valleys" },
+    { "label": "Psalm 104:12", "code": "PSA", "chapter": 104, "verse": 12, "phrase": "birds of the air" },
+    { "label": "Psalm 104:13", "code": "PSA", "chapter": 104, "verse": 13, "phrase": "waters the mountains" },
+    { "label": "Psalm 104:14", "code": "PSA", "chapter": 104, "verse": 14, "phrase": "grass grow" },
+    { "label": "Psalm 104:19", "code": "PSA", "chapter": 104, "verse": 19, "phrase": "the sun knows when to set" },
+    { "label": "Psalm 104:20", "code": "PSA", "chapter": 104, "verse": 20, "phrase": "You bring darkness" },
+    { "label": "Psalm 104:21", "code": "PSA", "chapter": 104, "verse": 21, "phrase": "seek their food from God" },
+    { "label": "Psalm 104:22", "code": "PSA", "chapter": 104, "verse": 22, "phrase": "The sun rises" },
+    { "label": "Psalm 104:23", "code": "PSA", "chapter": 104, "verse": 23, "phrase": "goes forth to his work" },
+    { "label": "Psalm 104:24", "code": "PSA", "chapter": 104, "verse": 24, "phrase": "How many are Your works" },
+    { "label": "Psalm 104:25", "code": "PSA", "chapter": 104, "verse": 25, "phrase": "vast and wide" },
+    { "label": "Psalm 104:26", "code": "PSA", "chapter": 104, "verse": 26, "phrase": "Leviathan" },
+    { "label": "Psalm 104:29", "code": "PSA", "chapter": 104, "verse": 29, "phrase": "take away their breath" },
+    { "label": "Psalm 104:30", "code": "PSA", "chapter": 104, "verse": 30, "phrase": "send Your Spirit" },
+    { "label": "Psalm 104:33", "code": "PSA", "chapter": 104, "verse": 33, "phrase": "I will sing to the LORD all my life" },
+    { "label": "Psalm 104:35", "code": "PSA", "chapter": 104, "verse": 35, "phrase": "May sinners vanish" },
+    { "label": "Genesis 33:3", "code": "GEN", "chapter": 33, "verse": 3, "phrase": "seven times" },
+    { "label": "Genesis 18:27", "code": "GEN", "chapter": 18, "verse": 27, "phrase": "dust and ashes" },
+    { "label": "Psalm 113:3", "code": "PSA", "chapter": 113, "verse": 3, "phrase": "name of the LORD" },
+    { "label": "Malachi 1:11", "code": "MAL", "chapter": 1, "verse": 11, "phrase": "from where the sun rises to where it sets" },
+    { "label": "1 Kings 9:3", "code": "1KI", "chapter": 9, "verse": 3, "phrase": "putting My Name there forever" },
+    { "label": "2 Kings 21:4", "code": "2KI", "chapter": 21, "verse": 4, "phrase": "In Jerusalem I will put My Name" },
+    { "label": "1 Kings 4:30", "code": "1KI", "chapter": 4, "verse": 30, "phrase": "all the wisdom of Egypt" },
+    { "label": "Acts 7:22", "code": "ACT", "chapter": 7, "verse": 22, "phrase": "educated in all the wisdom of the Egyptians" },
+    { "label": "Deuteronomy 4:19", "code": "DEU", "chapter": 4, "verse": 19, "phrase": "sun and moon and stars" },
+    { "label": "Romans 1:25", "code": "ROM", "chapter": 1, "verse": 25, "phrase": "rather than the Creator" },
+    { "label": "2 Timothy 3:16", "code": "2TI", "chapter": 3, "verse": 16, "phrase": "God-breathed" },
+    { "label": "Exodus 3:14", "code": "EXO", "chapter": 3, "verse": 14, "phrase": "I AM WHO I AM" },
+    { "label": "Exodus 3:15", "code": "EXO", "chapter": 3, "verse": 15, "phrase": "God of your fathers" },
+    { "label": "Deuteronomy 6:4", "code": "DEU", "chapter": 6, "verse": 4, "phrase": "the LORD is One" },
+    { "label": "Ezekiel 27:9", "code": "EZK", "chapter": 27, "verse": 9, "phrase": "Gebal" },
+    { "label": "Genesis 10:19", "code": "GEN", "chapter": 10, "verse": 19, "phrase": "Sidon" },
+    { "label": "Isaiah 23:1", "code": "ISA", "chapter": 23, "verse": 1, "phrase": "Tyre" },
+    { "label": "Judges 1:31", "code": "JDG", "chapter": 1, "verse": 31, "phrase": "Acco" },
+    { "label": "1 Kings 9:15", "code": "1KI", "chapter": 9, "verse": 15, "phrase": "Hazor, Megiddo, and Gezer" },
+    { "label": "Genesis 12:6", "code": "GEN", "chapter": 12, "verse": 6, "phrase": "Shechem" },
+    { "label": "2 Samuel 5:6", "code": "2SA", "chapter": 5, "verse": 6, "phrase": "Jerusalem" },
+    { "label": "1 Samuel 17:4", "code": "1SA", "chapter": 17, "verse": 4, "phrase": "Gath" },
+    { "label": "Judges 14:19", "code": "JDG", "chapter": 14, "verse": 19, "phrase": "Ashkelon" },
+    { "label": "Joshua 10:3", "code": "JOS", "chapter": 10, "verse": 3, "phrase": "Lachish" },
+    { "label": "Deuteronomy 22:8", "code": "DEU", "chapter": 22, "verse": 8, "phrase": "roof" },
+    { "label": "Ruth 1:6", "code": "RUT", "chapter": 1, "verse": 6, "phrase": "land of Moab" },
+    { "label": "Job 26:7", "code": "JOB", "chapter": 26, "verse": 7, "phrase": "stretches out the north" }
+  ]
+}

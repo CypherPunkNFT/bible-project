@@ -56,11 +56,21 @@ const HymnPage = lazy(() => import("@/pages/study/hymns/HymnPage"));
 const TheologyPage = lazy(() => import("@/pages/study/theology-articles/TheologyPage"));
 const TheologyArticlePage = lazy(() => import("@/pages/study/theology-articles/TheologyArticlePage"));
 const ManuscriptsPage = lazy(() => import("@/pages/study/manuscripts/ManuscriptsPage"));
+const StrongsPage = lazy(() => import("@/pages/study/strongs/StrongsPage"));
+const HomeHouseholdPage = lazy(() => import("@/pages/study/home/HomePage"));
+const HebrewPage = lazy(() => import("@/pages/study/hebrew/HebrewPage"));
+const GreekPage = lazy(() => import("@/pages/study/greek/GreekPage"));
+const EgyptPage = lazy(() => import("@/pages/study/egypt/EgyptPage"));
+const FarmingPage = lazy(() => import("@/pages/study/farming/FarmingPage"));
+const ChurchReadingPage = lazy(() => import("@/pages/study/church-reading/ChurchReadingPage"));
+const MedievalPage = lazy(() => import("@/pages/study/medieval/MedievalPage"));
 const StudyBranch = lazy(() => import("@/pages/study/hub/StudyBranch"));
 const StudyPage = lazy(() => import("@/pages/study/StudyPage"));
 const StudyCollection = lazy(() => import("@/pages/study/StudyCollection"));
 const ApologeticsPage = lazy(() => import("@/pages/ApologeticsPage"));
 const StudyRedirect = lazy(() => import("@/pages/study/StudyRedirect"));
+const StructurePage = lazy(() => import("@/pages/study/structure/StructurePage"));
+const ConnectionsPage = lazy(() => import("@/pages/study/connections/ConnectionsPage"));
 const MiraclesPage = lazy(() => import("@/pages/study/MiraclesPage"));
 const LettersPage = lazy(() => import("@/pages/study/LettersPage"));
 const CurvedGenealogyPage = lazy(() => import("@/pages/study/CurvedGenealogyPage"));
@@ -69,8 +79,6 @@ const LongMemoryPage = lazy(() => import("@/pages/study/LongMemoryPage"));
 const PeoplePage = lazy(() => import("@/pages/study/PeoplePage"));
 const PersonPage = lazy(() => import("@/pages/PersonPage"));
 const PersonRedirect = lazy(() => import("@/pages/PersonPage").then((m) => ({ default: m.PersonRedirect })));
-const StructurePage = lazy(() => import("@/pages/study/structure/StructurePage"));
-const ConnectionsPage = lazy(() => import("@/pages/study/connections/ConnectionsPage"));
 const ProphetsPage = lazy(() => import("@/pages/study/ProphetsPage"));
 const NamesPage = lazy(() => import("@/pages/study/NamesPage"));
 // The owner's design review board: hidden, local preview only (it shows "not found" on the live site).
@@ -167,6 +175,14 @@ export default function App() {
               <Route path="/study/world-of-jesus-apostles" element={<MergedWorldPage />} />
               <Route path="/study/cities-through-their-layers" element={<CitiesLayersPage />} />
               <Route path="/study/how-the-canon-took-shape" element={<CanonPage />} />
+              <Route path="/study/strongs-numbers" element={<StrongsPage />} />
+              <Route path="/study/home-and-household" element={<HomeHouseholdPage />} />
+              <Route path="/study/the-farming-year" element={<FarmingPage />} />
+              <Route path="/study/egypt-beside-israel" element={<EgyptPage />} />
+              <Route path="/study/how-the-church-has-read-the-bible" element={<ChurchReadingPage />} />
+              <Route path="/study/the-medieval-church" element={<MedievalPage />} />
+              <Route path="/study/how-hebrew-works" element={<HebrewPage />} />
+              <Route path="/study/how-new-testament-greek-works" element={<GreekPage />} />
               <Route path="/study/dead-sea-scrolls" element={<DeadSeaScrollsPage />} />
               <Route path="/study/discoveries-biblical-record" element={<DiscoveriesPage />} />
               <Route path="/study/from-discovery-to-history" element={<DiscoveriesPage />} />

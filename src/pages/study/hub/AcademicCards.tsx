@@ -6,13 +6,16 @@ import './academic-cards.css';
 type Area = (typeof STUDY_BRANCHES)['academic']['areas'][number];
 type Drawing = 'tablet'|'map'|'city'|'layers'|'rulers'|'manuscript'|'variants'|'press'|'canon'|'scroll'|'letter'|'language'|'timeline'|'scholars'|'church'|'museum'|'witnesses'|'oldmaps';
 const artFor = (href: string): Drawing => {
+  if(href==='/study/how-the-church-has-read-the-bible')return 'church';
+  if(href==='/study/the-medieval-church')return 'church';
+  if(href==='/study/egypt-beside-israel')return 'tablet';
   if(href.includes('museum-archaeology'))return 'museum';
   if(href.includes('/atlas/old-maps'))return 'oldmaps';
   if(href==='/study/manuscripts')return 'witnesses';
-  if(href.includes('discoveries')||href.includes('from-discovery'))return 'tablet';
+  if(href.includes('discoveries')||href.includes('from-discovery')||href.includes('farming-year'))return 'tablet';
   if(href.includes('empires'))return 'map';
   if(href.includes('layers'))return 'layers';
-  if(href.includes('world-of')||href.includes('/cities'))return 'city';
+  if(href.includes('world-of')||href.includes('/cities')||href.includes('home-and-household'))return 'city';
   if(href.includes('rulers'))return 'rulers';
   if(href.includes('surviving'))return 'manuscript';
   if(href.includes('passage-through'))return 'variants';
@@ -20,7 +23,7 @@ const artFor = (href: string): Drawing => {
   if(href.includes('canon'))return 'canon';
   if(href.includes('scrolls'))return 'scroll';
   if(href.includes('#timeline'))return 'timeline';
-  if(href.includes('versions')||href.includes('/words'))return 'language';
+  if(href.includes('versions')||href.includes('/words')||href.includes('strongs')||href.includes('hebrew')||href.includes('greek'))return 'language';
   if(href.includes('/teachers'))return 'scholars';
   if(href.includes('early-church')||href.includes('/read'))return 'church';
   if(href.includes('/atlas'))return 'map';
@@ -44,6 +47,14 @@ const standaloneStudies = new Set([
   '/study/from-manuscript-to-printed-bible',
   '/study/how-the-canon-took-shape',
   '/study/dead-sea-scrolls',
+  '/study/strongs-numbers',
+  '/study/home-and-household',
+  '/study/the-farming-year',
+  '/study/egypt-beside-israel',
+  '/study/how-the-church-has-read-the-bible',
+  '/study/the-medieval-church',
+  '/study/how-hebrew-works',
+  '/study/how-new-testament-greek-works',
 ]);
 
 // Symbolic line drawings, not facsimiles, territorial maps or measured archaeological sections.

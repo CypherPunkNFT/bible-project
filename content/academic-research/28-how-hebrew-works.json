@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "order": 28,
+  "title": "How Hebrew works",
+  "slug": "how-hebrew-works",
+  "category": "languages",
+  "categoryTitle": "Languages & translation",
+  "updated": "2026-10-31",
+  "status": "implemented-local",
+  "premise": "A reader who knows how the letters, points, roots and verb forms work can sound out a line of the Hebrew Bible, and can tell what a form shows from what is read into it.",
+  "question": "What does the form show, and what am I reading into it?",
+  "outcomes": [
+    "Sound out a pointed line of Hebrew, right to left, without translating it.",
+    "Tell a letter from a vowel letter from a vowel point.",
+    "Find the three root letters in a word, and say what a root can and cannot tell you.",
+    "Say who a verb form names and what kind of action its stem tends to mark, and why the form alone does not fix the time."
+  ],
+  "boundaries": {
+    "in": "The alphabet, vowel points, roots, and how a verb's form carries person, stem and form, each shown in a verse from Genesis or the Psalms wherever one has the form.",
+    "out": [
+      "Looking words up by number: Strong's numbers.",
+      "Who marked the vowels and accents, and when: The Masoretes and the Hebrew text, a planned study.",
+      "Manuscripts as objects: The surviving witnesses.",
+      "Greek: How New Testament Greek works, a planned study.",
+      "Aramaic: Aramaic in the Bible, a planned study.",
+      "The history of the divine name: The divine name in translation, a planned study.",
+      "How context fixes a word's meaning: Words in their passages, a planned title."
+    ]
+  },
+  "sound": {
+    "scheme": "The sounds here are one common classroom scheme, close to modern Hebrew. It is a way in, not a recording of ancient Israel: how the language sounded then is reconstructed, from the tradition of reading, kindred languages and old transcriptions.",
+    "noAudio": "The page has no audio. Capitals mark the stressed syllable."
+  },
+  "letters": [
+    { "id": "alef", "glyph": "א", "name": "Alef", "sound": "silent", "twins": [] },
+    { "id": "bet", "glyph": "ב", "name": "Bet", "sound": "b or v", "dot": "With a dot inside, בּ is b. Without one, ב is v.", "twins": ["kaf"] },
+    { "id": "gimel", "glyph": "ג", "name": "Gimel", "sound": "g", "twins": ["nun"] },
+    { "id": "dalet", "glyph": "ד", "name": "Dalet", "sound": "d", "twins": ["resh"] },
+    { "id": "he", "glyph": "ה", "name": "He", "sound": "h", "twins": ["chet", "tav"] },
+    { "id": "vav", "glyph": "ו", "name": "Vav", "sound": "v", "twins": ["zayin"], "note": "It also holds a vowel: וֹ is o and וּ is u." },
+    { "id": "zayin", "glyph": "ז", "name": "Zayin", "sound": "z", "twins": ["vav"] },
+    { "id": "chet", "glyph": "ח", "name": "Chet", "sound": "ch, as in Bach", "twins": ["he", "tav"] },
+    { "id": "tet", "glyph": "ט", "name": "Tet", "sound": "t", "twins": [] },
+    { "id": "yod", "glyph": "י", "name": "Yod", "sound": "y", "twins": [], "note": "It also holds a vowel, after an i or an e." },
+    { "id": "kaf", "glyph": "כ", "final": "ך", "name": "Kaf", "sound": "k or kh", "dot": "With a dot inside, כּ is k. Without one, כ is kh.", "twins": ["bet"] },
+    { "id": "lamed", "glyph": "ל", "name": "Lamed", "sound": "l", "twins": [] },
+    { "id": "mem", "glyph": "מ", "final": "ם", "name": "Mem", "sound": "m", "twins": ["samekh"], "note": "Its end shape ם is the look-alike of ס." },
+    { "id": "nun", "glyph": "נ", "final": "ן", "name": "Nun", "sound": "n", "twins": ["gimel"] },
+    { "id": "samekh", "glyph": "ס", "name": "Samekh", "sound": "s", "twins": ["mem"] },
+    { "id": "ayin", "glyph": "ע", "name": "Ayin", "sound": "silent", "twins": ["tsade"], "note": "Silent in this scheme. It was a real consonant, and old readers of Hebrew heard it." },
+    { "id": "pe", "glyph": "פ", "final": "ף", "name": "Pe", "sound": "p or f", "dot": "With a dot inside, פּ is p. Without one, פ is f.", "twins": [] },
+    { "id": "tsade", "glyph": "צ", "final": "ץ", "name": "Tsade", "sound": "ts", "twins": ["ayin"] },
+    { "id": "qof", "glyph": "ק", "name": "Qof", "sound": "k", "twins": [] },
+    { "id": "resh", "glyph": "ר", "name": "Resh", "sound": "r", "twins": ["dalet"] },
+    { "id": "shin", "glyph": "ש", "name": "Shin or Sin", "sound": "sh or s", "dot": "With its dot on the right, שׁ is sh. With its dot on the left, שׂ is s.", "twins": [] },
+    { "id": "tav", "glyph": "ת", "name": "Tav", "sound": "t", "twins": ["he", "chet"] }
+  ],
+  "lenses": [
+    { "id": "all", "label": "All twenty-two", "line": "In the order Psalm 119 counts them off, from the right." },
+    { "id": "twins", "label": "Look-alikes", "line": "These are the letters a new reader mistakes for one another. Each differs by a small stroke, and a letter's own record names its partner." },
+    { "id": "dots", "label": "A dot changes the sound", "line": "Bet, kaf and pe change sound with a dot inside. Shin changes with the side its dot sits on." },
+    { "id": "finals", "label": "Another shape at a word's end", "line": "Five letters take another shape as a word's last letter. The sound stays." }
+  ],
+  "vowels": [
+    { "id": "patach", "mark": "ַ", "name": "Patach", "sound": "a", "line": "A short line under the letter." },
+    { "id": "kamatz", "mark": "ָ", "name": "Kamatz", "sound": "a", "line": "Sounds as a, and in a few words as o: כָּל is said kol." },
+    { "id": "tsere", "mark": "ֵ", "name": "Tsere", "sound": "e", "line": "Two dots side by side." },
+    { "id": "segol", "mark": "ֶ", "name": "Segol", "sound": "e", "line": "Three dots." },
+    { "id": "hiriq", "mark": "ִ", "name": "Hiriq", "sound": "i", "line": "One dot under the letter." },
+    { "id": "holam", "mark": "ֹ", "name": "Holam", "sound": "o", "line": "One dot above, at the letter's top left." },
+    { "id": "kubutz", "mark": "ֻ", "name": "Kubutz", "sound": "u", "line": "Three slanting dots." },
+    { "id": "sheva", "mark": "ְ", "name": "Sheva", "sound": "e, or nothing", "line": "Two dots stacked. As a rule of thumb, a quick e when it opens a syllable and nothing when it closes one." },
+    { "id": "hatafPatach", "mark": "ֲ", "name": "Hataf patach", "sound": "a, quickly", "line": "Sheva and patach together, mostly under the throat letters." },
+    { "id": "hatafSegol", "mark": "ֱ", "name": "Hataf segol", "sound": "e, quickly", "line": "Sheva and segol together, as at the start of אֱלֹהִים." },
+    { "id": "hatafKamatz", "mark": "ֳ", "name": "Hataf kamatz", "sound": "o, quickly", "line": "Sheva and kamatz together, and much the rarest of the three." }
+  ],
+  "carriers": [
+    { "id": "lamed", "glyph": "ל", "sound": "l" },
+    { "id": "mem", "glyph": "מ", "sound": "m" },
+    { "id": "nun", "glyph": "נ", "sound": "n" },
+    { "id": "resh", "glyph": "ר", "sound": "r" }
+  ],
+  "vowelLetters": [
+    { "glyph": "וֹ", "sound": "o", "line": "A vav with a dot above it, in אוֹר, or, light." },
+    { "glyph": "וּ", "sound": "u", "line": "A vav with a dot inside. It looks like the doubling dot, but there is no vowel under this vav." },
+    { "glyph": "ִי", "sound": "i", "line": "A hiriq and then a yod: the yod holds the vowel and is not said." },
+    { "glyph": "ֵי", "sound": "e", "line": "A tsere and then a yod, in the same way." }
+  ],
+  "rules": [
+    { "id": "pair", "name": "Letter, then its point", "line": "Say the consonant, then the vowel marked under or over it. The next letter starts the next sound." },
+    { "id": "silent", "name": "Two quiet letters", "line": "Alef and ayin make no sound in this scheme. Say the vowel they carry." },
+    { "id": "holder", "name": "Letters that hold a vowel", "line": "A vav with a dot, or a yod after i or e, is a vowel and not a v or a y." },
+    { "id": "hard", "name": "The dot that hardens", "line": "With a dot inside, bet, kaf and pe are b, k and p. Without it they are v, kh and f." },
+    { "id": "double", "name": "The dot that doubles", "line": "In most other letters, a dot inside doubles the consonant. In this scheme you say it once." },
+    { "id": "sheva", "name": "Two stacked dots", "line": "As a rule of thumb, sheva is a quick e when it opens a syllable and nothing when it closes one." },
+    { "id": "final", "name": "End shapes", "line": "A letter's end shape sounds as the letter does. ם is m and ץ is ts." },
+    { "id": "shin", "name": "The dot on shin", "line": "On the right it is sh, and on the left it is s." },
+    { "id": "plain", "name": "Just the letter", "line": "A letter with no point of its own closes the syllable: say its consonant." }
+  ],
+  "lines": [
+    {
+      "id": "gen1-3", "label": "Genesis 1:3", "code": "GEN", "chapter": 1, "verse": 3, "phrase": "let there be light", "guided": true,
+      "words": [
+        { "sound": "va-YO-mer", "steps": [["va", "pair"], ["yo", "double"], ["", "silent"], ["me", "pair"], ["r", "plain"]] },
+        { "sound": "e-lo-HIM", "steps": [["e", "silent"], ["lo", "pair"], ["hi", "pair"], ["", "holder"], ["m", "final"]] },
+        { "sound": "ye-HI", "steps": [["ye", "sheva"], ["hi", "pair"], ["", "holder"]] },
+        { "sound": "OR", "steps": [["", "silent"], ["o", "holder"], ["r", "plain"]] },
+        { "sound": "vay-HI", "steps": [["va", "pair"], ["y", "sheva"], ["hi", "pair"], ["", "holder"]] },
+        { "sound": "OR", "steps": [["", "silent"], ["o", "holder"], ["r", "plain"]] }
+      ]
+    },
+    {
+      "id": "gen1-1", "label": "Genesis 1:1", "code": "GEN", "chapter": 1, "verse": 1, "phrase": "In the beginning God created", "guided": true,
+      "words": [
+        { "sound": "be-re-SHIT", "steps": [["be", "hard"], ["re", "pair"], ["", "silent"], ["shi", "shin"], ["", "holder"], ["t", "plain"]] },
+        { "sound": "ba-RA", "steps": [["ba", "hard"], ["ra", "pair"], ["", "silent"]] },
+        { "sound": "e-lo-HIM", "steps": [["e", "silent"], ["lo", "pair"], ["hi", "pair"], ["", "holder"], ["m", "final"]] },
+        { "sound": "ET", "steps": [["e", "silent"], ["t", "plain"]] },
+        { "sound": "ha-sha-MA-yim", "steps": [["ha", "pair"], ["sha", "double"], ["ma", "pair"], ["yi", "pair"], ["m", "final"]] },
+        { "sound": "ve-ET", "steps": [["ve", "sheva"], ["e", "silent"], ["t", "plain"]] },
+        { "sound": "ha-A-rets", "steps": [["ha", "pair"], ["a", "silent"], ["re", "pair"], ["ts", "final"]] }
+      ]
+    },
+    {
+      "id": "ps119-105", "label": "Psalm 119:105", "code": "PSA", "chapter": 119, "verse": 105, "phrase": "lamp to my feet", "guided": false,
+      "words": [
+        { "sound": "ner" },
+        { "sound": "le-rag-LI" },
+        { "sound": "de-va-RE-kha" },
+        { "sound": "ve-OR" },
+        { "sound": "lin-ti-va-TI" }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "id": "evening",
+      "line": "וַיְהִי־עֶרֶב וַיְהִי־בֹקֶר יוֹם אֶחָד",
+      "label": "Genesis 1:5", "code": "GEN", "chapter": 1, "verse": 5, "phrase": "the first day",
+      "note": "The last six words of the verse.",
+      "options": [
+        { "text": "vay-HI E-rev vay-HI VO-ker YOM e-CHAD", "right": true, "why": "Yes. The first word you already know, and the bet in בֹקֶר has no dot here, so it is v." },
+        { "text": "vay-HI E-rev vay-HI BO-ker YOM e-CHAD", "right": false, "why": "Close. Look inside the bet of בֹקֶר: it has no dot, so in this line it is v and not b." },
+        { "text": "vay-HI A-rav vay-HI VO-kar YOM a-CHAD", "right": false, "why": "The three dots of segol sound as e. Look under the ayin and the resh in עֶרֶב." }
+      ]
+    },
+    {
+      "id": "lamp",
+      "line": "נֵר־לְרַגְלִי דְבָרֶךָ וְאוֹר לִנְתִיבָתִי",
+      "label": "Psalm 119:105", "code": "PSA", "chapter": 119, "verse": 105, "phrase": "lamp to my feet",
+      "note": "The whole verse.",
+      "options": [
+        { "text": "ner le-rag-LI de-ba-RE-kha ve-OR lin-ti-ba-TI", "right": false, "why": "Look inside the two bets, in דְבָרֶךָ and in לִנְתִיבָתִי. Neither has a dot, so each is v." },
+        { "text": "ner le-rag-LI de-va-RE-kha ve-OR lin-ti-va-TI", "right": true, "why": "Yes, and you have sounded out a whole verse. The Berean tells you what it says." },
+        { "text": "ner la-rag-LI da-va-RE-kha va-OR lin-ti-va-TI", "right": false, "why": "Sheva opens those syllables with a quick e, not an a. Look under the lamed, the dalet and the vav." }
+      ]
+    }
+  ],
+  "featured": [
+    { "id": "davar", "group": "dbr", "strong": "H1697", "form": "דָּבָר", "code": "GEN", "chapter": 18, "verse": 14, "phrase": "Is anything too difficult", "root": [0, 1, 2], "sound": "da-VAR", "word": "a word, a thing" },
+    { "id": "dibber", "group": "dbr", "strong": "H1696", "form": "דִּבֶּר", "code": "GEN", "chapter": 12, "verse": 4, "phrase": "as the LORD had", "root": [0, 1, 2], "sound": "di-BER", "word": "he spoke" },
+    { "id": "dever", "group": "dbr", "strong": "H1698", "form": "מִדֶּבֶר", "code": "PSA", "chapter": 91, "verse": 3, "phrase": "deadly plague", "root": [1, 2, 3], "sound": "mi-DE-ver", "word": "from a plague" },
+
+    { "id": "melek", "group": "mlk", "strong": "H4428", "form": "מֶלֶךְ", "code": "GEN", "chapter": 14, "verse": 18, "phrase": "king of Salem", "root": [0, 1, 2], "sound": "ME-lekh", "word": "a king" },
+    { "id": "malak", "group": "mlk", "strong": "H4427", "form": "מָלַךְ", "code": "PSA", "chapter": 47, "verse": 8, "phrase": "reigns", "root": [0, 1, 2], "sound": "ma-LAKH", "word": "he reigns" },
+    { "id": "yimlok", "group": "mlk", "strong": "H4427", "form": "יִמְלֹךְ", "code": "PSA", "chapter": 146, "verse": 10, "phrase": "reigns forever", "root": [1, 2, 3], "sound": "yim-LOKH", "word": "he reigns" },
+    { "id": "mamlakot", "group": "mlk", "strong": "H4467", "form": "מַמְלָכוֹת", "code": "PSA", "chapter": 46, "verse": 6, "phrase": "kingdoms", "root": [1, 2, 3], "sound": "mam-la-KHOT", "word": "kingdoms" },
+    { "id": "malkut", "group": "mlk", "strong": "H4438", "form": "מַלְכוּת", "code": "PSA", "chapter": 145, "verse": 13, "phrase": "everlasting kingdom", "root": [0, 1, 2], "sound": "mal-KHUT", "word": "a kingdom" },
+
+    { "id": "yishpot", "group": "shpt", "strong": "H8199", "form": "יִשְׁפֹּט", "code": "GEN", "chapter": 16, "verse": 5, "phrase": "May the LORD judge", "root": [1, 2, 3], "sound": "yish-POT", "word": "may he judge" },
+    { "id": "shofet", "group": "shpt", "strong": "H8199", "form": "שֹׁפֵט", "code": "PSA", "chapter": 50, "verse": 6, "phrase": "Judge", "root": [0, 1, 2], "sound": "sho-FET", "word": "one who judges" },
+    { "id": "hashofet", "group": "shpt", "strong": "H8199", "form": "הֲשֹׁפֵט", "code": "GEN", "chapter": 18, "verse": 25, "phrase": "Judge of all the earth", "root": [1, 2, 3], "sound": "ha-sho-FET", "word": "will the Judge?" },
+    { "id": "mishpat", "group": "shpt", "strong": "H4941", "form": "מִשְׁפָּט", "code": "GEN", "chapter": 18, "verse": 25, "phrase": "do what is right", "root": [1, 2, 3], "sound": "mish-PAT", "word": "what is right, justice" },
+
+    { "id": "yeqaddesh", "group": "qdsh", "strong": "H6942", "form": "וַיְקַדֵּשׁ", "code": "GEN", "chapter": 2, "verse": 3, "phrase": "sanctified", "root": [2, 3, 4], "sound": "vay-ka-DESH", "word": "and he set apart as holy" },
+    { "id": "qadosh", "group": "qdsh", "strong": "H6918", "form": "קָדוֹשׁ", "code": "PSA", "chapter": 22, "verse": 3, "phrase": "holy", "root": [0, 1, 3], "sound": "ka-DOSH", "word": "holy" },
+    { "id": "qodesh", "group": "qdsh", "strong": "H6944", "form": "קֹדֶשׁ", "code": "PSA", "chapter": 29, "verse": 2, "phrase": "holiness", "root": [0, 1, 2], "sound": "KO-desh", "word": "holiness" },
+    { "id": "miqdasho", "group": "qdsh", "strong": "H4720", "form": "מִקְדָּשׁוֹ", "code": "PSA", "chapter": 78, "verse": 69, "phrase": "sanctuary", "root": [1, 2, 3], "sound": "mik-da-SHO", "word": "his sanctuary" },
+
+    { "id": "katuv", "group": "ktv", "strong": "H3789", "form": "כָּתוּב", "code": "PSA", "chapter": 40, "verse": 7, "phrase": "written", "root": [0, 1, 3], "sound": "ka-TUV", "word": "written" },
+    { "id": "yikkatevu", "group": "ktv", "strong": "H3789", "form": "יִכָּתֵבוּ", "code": "PSA", "chapter": 139, "verse": 16, "phrase": "written", "root": [1, 2, 3], "sound": "yi-ka-TE-vu", "word": "they were written" },
+    { "id": "tikkatev", "group": "ktv", "strong": "H3789", "form": "תִּכָּתֶב", "code": "PSA", "chapter": 102, "verse": 18, "phrase": "written", "root": [1, 2, 3], "sound": "ti-ka-TEV", "word": "let it be written" },
+    { "id": "bikhtov", "group": "ktv", "strong": "H3789", "form": "בִּכְתוֹב", "code": "PSA", "chapter": 87, "verse": 6, "phrase": "register", "root": [1, 2, 4], "sound": "bikh-TOV", "word": "when he records" },
+
+    { "id": "vayyar", "group": "stems", "strong": "H7200", "form": "וַיַּרְא", "code": "GEN", "chapter": 1, "verse": 4, "phrase": "saw", "sound": "va-YAR", "word": "and he saw", "stem": "Qal", "stemCode": "q", "tends": "The plain form of the verb" },
+    { "id": "vayyera", "group": "stems", "strong": "H7200", "form": "וַיֵּרָא", "code": "GEN", "chapter": 12, "verse": 7, "phrase": "appeared", "sound": "va-ye-RA", "word": "and he appeared", "stem": "Niphal", "stemCode": "N", "tends": "Often passive or turned back on the subject: to be seen, to appear" },
+    { "id": "arekka", "group": "stems", "strong": "H7200", "form": "אַרְאֶךָּ", "code": "GEN", "chapter": 12, "verse": 1, "phrase": "show you", "sound": "ar-E-ka", "word": "I will show you", "stem": "Hiphil", "stemCode": "h", "tends": "Often causes the action: to make see, to show" },
+    { "id": "titrau", "group": "stems", "strong": "H7200", "form": "תִּתְרָאוּ", "code": "GEN", "chapter": 42, "verse": 1, "phrase": "one another", "sound": "tit-RA-u", "word": "are you looking at one another?", "stem": "Hithpael", "stemCode": "t", "tends": "Often turned on the doers themselves: to look at one another" },
+
+    { "id": "halakh", "group": "time", "strong": "H1980", "form": "הָלַךְ", "code": "PSA", "chapter": 1, "verse": 1, "phrase": "does not walk", "sound": "ha-LAKH", "word": "does not walk", "formName": "Perfect", "note": "The form most often read as a past. Here the Berean reads a present, because the psalm describes a way of life." },
+    { "id": "vayomer", "group": "time", "strong": "H0559", "form": "וַיֹּאמֶר", "code": "GEN", "chapter": 1, "verse": 3, "phrase": "And God said", "sound": "va-YO-mer", "word": "and he said", "formName": "Narrative", "note": "It looks like a prefix form with \"and\" on the front. In a story, it carries the story on: then this, then this." },
+    { "id": "echsar", "group": "time", "strong": "H2637", "form": "אֶחְסָר", "code": "PSA", "chapter": 23, "verse": 1, "phrase": "I shall not want", "sound": "ech-SAR", "word": "I shall not want", "formName": "Imperfect", "note": "The form most often read as a future. The Berean reads \"shall\", which is a confidence as much as a date." },
+    { "id": "yimlokTime", "group": "time", "strong": "H4427", "form": "יִמְלֹךְ", "code": "PSA", "chapter": 146, "verse": 10, "phrase": "reigns forever", "sound": "yim-LOKH", "word": "reigns forever", "formName": "Imperfect", "note": "The same form again, and here the Berean reads a present." },
+
+    { "id": "lechem", "group": "lhm", "strong": "H3899", "form": "לֶחֶם", "code": "GEN", "chapter": 3, "verse": 19, "phrase": "bread", "root": [0, 1, 2], "sound": "LE-chem", "word": "bread, food" },
+    { "id": "lecham", "group": "lhm", "strong": "H3898", "form": "לְחַם", "code": "PSA", "chapter": 35, "verse": 1, "phrase": "fight", "root": [0, 1, 2], "sound": "le-CHAM", "word": "fight" },
+    { "id": "elcham", "group": "lhm", "strong": "H3898", "form": "אֶלְחַם", "code": "PSA", "chapter": 141, "verse": 4, "phrase": "feast", "root": [1, 2, 3], "sound": "el-CHAM", "word": "I will feast" }
+  ],
+  "roots": [
+    { "id": "mlk", "letters": "מלך", "gloss": "Words to do with ruling", "line": "A noun, two verb forms, and two nouns built with added letters." },
+    { "id": "shpt", "letters": "שפט", "gloss": "Words to do with judging", "line": "Two of the four stand in one question, Genesis 18:25." },
+    { "id": "qdsh", "letters": "קדש", "gloss": "Words to do with holiness", "line": "A verb, an adjective and two nouns. Watch the vav hold a vowel between the letters of קָדוֹשׁ." },
+    { "id": "ktv", "letters": "כתב", "gloss": "Words to do with writing", "line": "This word's forms here all come from the Psalms." }
+  ],
+  "views": [
+    { "who": "Gesenius, Kautzsch and Cowley, 1910", "view": "Treats the perfect as an action seen as finished, whether its time is past, present or even future. Calls the narrative form the usual form for telling a story.", "status": "Read: sections 106 and 111.", "source": "gkc" },
+    { "who": "Waltke and O'Connor, 1990", "view": "Reported as reading the two main forms by aspect, as complete and not complete, with time taken from context.", "status": "Not read. Reported second-hand, through other scholars' summaries.", "source": "waltke" },
+    { "who": "John A. Cook, 2012", "view": "Described by his publisher as turning the question from tense or aspect to the range of meaning of a form and what in the context decides it. Reported as treating aspect as prominent.", "status": "Publisher's description read; the book not read.", "source": "cook" },
+    { "who": "Jan Joosten", "view": "Reported as arguing against the majority that aspect is not the right account, and that the system is essentially one of tense.", "status": "Not read. Reported second-hand, through search summaries of his exchange with Cook.", "source": "joosten" }
+  ],
+  "records": {
+    "layers": {
+      "evidence": "The Leningrad Codex shows letters, vowel points and accents on the same page. An older Hebrew witness, the Nash Papyrus, shows letters and no points. Both are pictured here.",
+      "inference": "A reader can treat the points and accents as a marked layer around the letters, and can read a line with or without them. This page peels the layers in that order only to show how the line is built.",
+      "limit": "Who marked them and when is the subject of The Masoretes and the Hebrew text, a planned study. Peeling the layers by script shows the signs on the page. It says nothing about the history of the reading they record."
+    },
+    "letters": {
+      "evidence": "Hebrew has twenty-two letters and is read from right to left, and five letters take another shape at a word's end (Gesenius, sections 5 and 6). Psalm 119 opens each eight-verse stanza with the next letter, in order. This study's script checks that for all twenty-two in the Hebrew text.",
+      "inference": "The psalm's own order makes a good way to learn the letters, because every letter comes with a real word from Scripture.",
+      "limit": "The counts here are of letters in the tagged Leningrad text. They say which letters are common, and nothing about which words matter."
+    },
+    "points": {
+      "evidence": "דבר appears in Genesis and the Psalms under three separate dictionary numbers with three sets of points, and STEP Bible's tags keep them apart.",
+      "inference": "Points are not decoration. They tell the reader which word the letters are in this place.",
+      "limit": "Three words do not make a rule. Most words are told apart by their letters, and whether these three share an origin is not something the points can settle."
+    },
+    "roots": {
+      "evidence": "Most Hebrew words are built on three consonants, which grammars call the root or stem letters (Gesenius, section 30). STEP Bible's tags group the words on this page by their dictionary entries.",
+      "inference": "Finding the three letters helps a reader see a family of words, whatever letters have been added around them.",
+      "limit": "A root is an abstraction, which no one speaks. The same grammar calls naming a root's meaning very difficult and hazardous."
+    },
+    "verbs": {
+      "evidence": "STEP Bible's tags name every verb's stem, form, person, gender and number. Those labels come from a grammatical analysis of the Leningrad text. The counts on this page are of those labels.",
+      "inference": "A reader can see who a form names from its added letters. A stem shows what kind of action a verb tends to mean, and a form shows how an event is presented, but the context decides the time.",
+      "limit": "A stem is a tendency, as Gesenius says when he lists its many shades. How the forms should be explained is still argued, and this study does not choose among the views named here."
+    }
+  },
+  "claims": {
+    "vowels": {
+      "claim": "\"Hebrew has no vowels.\"",
+      "evidence": "A word like אוֹר spells its vowel with a vav, and the Nash Papyrus, which has no points, still uses letters that way. The Leningrad Codex then marks every vowel with a point.",
+      "inference": "The claim is half right. The alphabet has no separate letters for vowels, but it does use some consonants to hold them, and every word has its vowels when it is read.",
+      "limit": "The evidence here shows what is on these pages. How much vowel-spelling each age used is a longer history.",
+      "test": {
+        "question": "A friend says, \"Ancient Hebrew had no vowels, so nobody can really know what the words were.\" What can this page's evidence support?",
+        "options": [
+          { "text": "Letters already hold some vowels, and the points record how the text was read. The claim goes further than this evidence.", "right": true, "why": "The evidence shows vowel letters on an old page and points on a later one. The conclusion that nobody can know is not in it." },
+          { "text": "Points were invented by a later reader, so the words themselves are uncertain.", "right": false, "why": "This page shows where points are and are not on a page. It does not show that any reading was invented, and who marked them belongs to another study." },
+          { "text": "Hebrew has no vowels at all, and the points are only for beginners.", "right": false, "why": "Every Hebrew word is said with vowels, and the points are in a codex made for careful readers." }
+        ]
+      }
+    },
+    "root": {
+      "claim": "\"Find the root and you have the real meaning.\"",
+      "line": "Try that on three letters. לחם stands behind bread in Genesis 3:19, fight in Psalm 35:1, and feast in Psalm 141:4. The dictionaries list separate entries, and whether they share an origin is debated. In each place, the verse tells you which word you are reading."
+    },
+    "time": {
+      "claim": "\"The form tells you the time.\"",
+      "evidence": "The perfect הָלַךְ in Psalm 1:1 is read in the Berean as \"does not walk\". The imperfect יִמְלֹךְ in Psalm 146:10 is read as \"reigns forever\". STEP Bible's code notes give a perfect the time \"past/present\" and an imperfect \"future/present\".",
+      "inference": "The form narrows the time, and the verse settles it.",
+      "limit": "This does not make the forms meaningless, and it does not choose among the accounts of what they mean.",
+      "test": {
+        "question": "Psalm 1:1 has a perfect verb, and the Berean reads \"does not walk\". What can the form actually say?",
+        "options": [
+          { "text": "That it is a perfect, third person, masculine, singular. The time comes from the whole verse and how the psalm speaks.", "right": true, "why": "The form names who, and it presents the event in a certain way, while the psalm's description of a whole life does the rest." },
+          { "text": "That the blessed man once did not walk there, and the translator has changed the tense.", "right": false, "why": "That reads the perfect as a plain past. The verse's whole picture, and the grammars, do not require it." },
+          { "text": "Nothing at all: Hebrew verbs have no meaning apart from context.", "right": false, "why": "The form does carry person, gender, number and stem, and it matters how it presents an event." }
+        ]
+      }
+    }
+  },
+  "confusedWords": [
+    { "word": "A letter and a sound", "note": "Bet is one letter with two sounds, and tet and tav are two letters with one sound here." },
+    { "word": "A vowel letter and a vowel point", "note": "וֹ is a letter holding a vowel, and the dot on it is a point. On a page with no points, the vav still stands." },
+    { "word": "A root and a word", "note": "No one says a root. Only words are read in a verse." },
+    { "word": "A form and a time", "note": "Perfect and imperfect name forms. Past and future name times, and they do not always line up." },
+    { "word": "Sounding and translating", "note": "This page teaches the first. A reader who can sound a line still needs a translation, or years of study, to know what it says." },
+    { "word": "Transliteration and translation", "note": "ba-RA tells you how to say it. \"He created\" tells you what it means." },
+    { "word": "Hebrew and Aramaic", "note": "Parts of Daniel and Ezra, and a few words elsewhere, are Aramaic. They are written in the same letters and are set aside here." }
+  ],
+  "reach": [
+    "The tagged text is STEP Bible's Translators Amalgamated Hebrew Old Testament, based on the Leningrad Codex. Counted here: words STEP marks as from Leningrad or from the marginal readings Leningrad records, tagged as Hebrew. Set aside: words tagged Aramaic, and the small number of words STEP restores or supplies from other sources.",
+    "Verb counts are STEP Bible's tags, from the grammatical analysis it adopts. A different analysis would move some words from one label to another.",
+    "Featured verses are checked word by word against the site's own Leningrad text, letters and points. That shows the word is in the verse. It does not show a reading is right.",
+    "Glosses are STEP Bible's and keep Hebrew word order, so they read oddly on purpose. Each is a help to the sound and not a translation.",
+    "The study shows no list of every verse with a word. One verse and a count are enough to see a form."
+  ],
+  "voice": "Sounding out a line does not make an English Bible second-best. The Berean Standard Bible you read on this site is God's word in English, and it is the verse this page opens. Hebrew lets you hear the line, and it may help you follow a commentary or a sermon. It does not give you a truer Bible than the one you have.",
+  "divineName": "One word this page leaves unsounded: the four letters of God's name, יהוה. Readers have long handled it with reverent care, and the Berean prints it LORD. Its history is the subject of The divine name in translation, a planned study.",
+  "chain": {
+    "line": "Only the steps that bear on this page are shown.",
+    "steps": [
+      { "name": "Leningrad Codex", "note": "A complete Hebrew Bible, about AD 1008" },
+      { "name": "Printed and digital editions", "note": "Taken as the base of later critical editions, and of the digital Westminster text" },
+      { "name": "STEP Bible's tags, and the site's Leningrad edition", "note": "Every word on this page, read by script" }
+    ]
+  },
+  "credit": {
+    "line": "Word tags, sounds as STEP writes them, glosses and code notes: data created by STEP Bible, Tyndale House Cambridge, used under CC BY 4.0. This page counted them, and shows only featured words; it changed none of them. The classroom sounds and the plain-language glosses in bold are this study's own.",
+    "url": "https://www.STEPBible.org",
+    "licence": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sources": [
+    { "id": "stepTahot", "title": "STEP Bible, Translators Amalgamated Hebrew Old Testament (TAHOT)", "kind": "Dataset · CC BY 4.0", "url": "https://www.STEPBible.org/", "status": "read", "read": "Read by script, all four files: each word's form, sound, gloss, tag and grammar code. This study counts it and shows only featured words.", "answers": "What is each word, and what is its grammar?" },
+    { "id": "stepTehmc", "title": "STEP Bible, Translators Expansion of Hebrew Morphology Codes (TEHMC)", "kind": "Dataset · CC BY 4.0", "url": "https://www.STEPBible.org/", "status": "read", "read": "Read by script for the codes on this page. Its plain-English explanation is shown unchanged in the records.", "answers": "What does each grammar code say in plain English?" },
+    { "id": "gkc", "title": "Gesenius' Hebrew Grammar, edited by E. Kautzsch, translated by A. E. Cowley, 2nd English edition, 1910", "kind": "Reference · public domain", "url": "https://en.wikisource.org/wiki/Gesenius%27_Hebrew_Grammar", "status": "part", "read": "Sections 5, 6, 7, 30, 39, 106 and 111 read in the Wikisource transcription, through a tool that returned extracts and not the whole book. Grammar only is drawn from it; its other opinions are not this site's.", "answers": "What is the standard older account of letters, roots, stems and forms?" },
+    { "id": "waltke", "title": "Bruce K. Waltke and M. O'Connor, An Introduction to Biblical Hebrew Syntax (Eisenbrauns, 1990)", "kind": "Reference", "url": "https://www.eisenbrauns.org/", "status": "second-hand", "read": "Not read. Its position is reported from others' summaries.", "answers": "What is the aspect account of the verb?" },
+    { "id": "cook", "title": "John A. Cook, Time and the Biblical Hebrew Verb (Eisenbrauns, 2012)", "kind": "Reference", "url": "https://www.eisenbrauns.org/", "status": "located", "read": "Publisher's description only. The book was not read.", "answers": "What is a recent account of tense, aspect and modality?" },
+    { "id": "joosten", "title": "Jan Joosten, \"Do the Finite Verbal Forms in Biblical Hebrew Express Aspect?\", Journal of the Ancient Near Eastern Society", "kind": "Article", "url": "https://janes.scholasticahq.com/", "status": "second-hand", "read": "Not read. The address found for it returned \"not found\", so it is reported from search summaries only.", "answers": "What is the case against aspect?" },
+    { "id": "nash", "title": "Stanley A. Cook, \"A Pre-Massoretic Biblical Papyrus\", Proceedings of the Society of Biblical Archæology 25 (1903)", "kind": "Picture source · public domain", "url": "https://commons.wikimedia.org/wiki/File:2nd_century_Hebrew_decalogue.jpg", "status": "part", "read": "The published plate and its Commons record only.", "answers": "What does a Hebrew page without points look like?" },
+    { "id": "leningrad", "title": "Leningrad Codex, Firkovich B 19A, folio 1 verso (Genesis 1)", "kind": "Picture source · public domain", "url": "https://commons.wikimedia.org/wiki/File:Leningrad_Codex_Folio_001b.jpg", "status": "part", "read": "This folio's picture and Commons record only.", "answers": "What does a pointed page look like?" },
+    { "id": "site05", "title": "From manuscript to printed Bible, this site's own study", "kind": "This site", "url": "/study/from-manuscript-to-printed-bible", "status": "read", "read": "Its record of the Hebrew editions and what each takes as its base.", "answers": "Which printed Hebrew editions follow which source?" }
+  ],
+  "pictures": [
+    { "id": "leningrad", "src": "/images/studies/how-hebrew-works/leningrad-genesis-1.jpg", "alt": "The opening lines of Genesis 1 in the Leningrad Codex: dark square Hebrew letters with fine vowel points and accents above and below them.", "caption": "Leningrad Codex, the top of the first column of Genesis. It opens with the verse you can pick above. Letters, points and accents on one page.", "credit": "Firkovich B 19A, folio 1 verso. National Library of Russia", "licence": "Public domain, as the Commons file states", "href": "https://commons.wikimedia.org/wiki/File:Leningrad_Codex_Folio_001b.jpg", "retrieved": "2026-10-31", "width": 860, "height": 770 },
+    { "id": "nash", "src": "/images/studies/how-hebrew-works/nash-papyrus.jpg", "alt": "A dark torn papyrus with close lines of Hebrew letters and no vowel points.", "caption": "Nash Papyrus, as published in 1903. Letters, some of them holding a vowel, and no points. It holds the Ten Commandments and the Shema, not Genesis, so it is shown for what its page lacks.", "credit": "Plate in Proceedings of the Society of Biblical Archæology 25 (1903)", "licence": "Public domain, as the Commons file states", "href": "https://commons.wikimedia.org/wiki/File:2nd_century_Hebrew_decalogue.jpg", "retrieved": "2026-10-31", "width": 617, "height": 1000 }
+  ],
+  "forms": [
+    { "id": "w", "name": "Narrative", "plain": "\"And he did\": the form that carries a story on" },
+    { "id": "p", "name": "Perfect", "plain": "Added letters at the end: an event presented as a whole" },
+    { "id": "i", "name": "Imperfect", "plain": "Added letters in front: an event still open, or to come" },
+    { "id": "q", "name": "Sequential perfect", "plain": "\"And\" with a perfect, often for what follows" },
+    { "id": "r", "name": "Participle", "plain": "A verb used as a noun or describing word: one who does" }
+  ],
+  "grid": {
+    "strong": "H8104",
+    "letters": "שמר",
+    "name": "to keep",
+    "rows": [
+      { "id": "3ms", "label": "he", "codes": { "p": "3ms", "i": "3ms", "w": "3ms" } },
+      { "id": "3fs", "label": "she, it", "codes": { "p": "3fs", "i": "3fs", "w": "3fs" } },
+      { "id": "2ms", "label": "you (one man)", "codes": { "p": "2ms", "i": "2ms", "w": "2ms" } },
+      { "id": "1cs", "label": "I", "codes": { "p": "1cs", "i": "1cs", "w": "1cs" } },
+      { "id": "3p", "label": "they", "codes": { "p": "3cp", "i": "3mp", "w": "3mp" } },
+      { "id": "2mp", "label": "you (many)", "codes": { "p": "2mp", "i": "2mp", "w": "2mp" } },
+      { "id": "1cp", "label": "we", "codes": { "p": "1cp", "i": "1cp", "w": "1cp" } }
+    ],
+    "cols": [
+      { "id": "p", "label": "Perfect" },
+      { "id": "i", "label": "Imperfect" },
+      { "id": "w", "label": "Narrative" }
+    ]
+  }
+}

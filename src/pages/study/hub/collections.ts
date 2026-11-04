@@ -568,6 +568,27 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                 "group": "Explore language and interpretation",
                 "items": [
                     {
+                        "kind": "Study",
+                        "title": "Strong's numbers",
+                        "text": "Learn what the numbers are and how to use them, and test three mistakes they invite.",
+                        "href": "/study/strongs-numbers",
+                        "meta": "Number · Word · Verse"
+                    },
+                    {
+                        "kind": "Study",
+                        "title": "How Hebrew works",
+                        "text": "Learn the letters, points, roots and verb forms, and sound out a line of Genesis or the Psalms for yourself.",
+                        "href": "/study/how-hebrew-works",
+                        "meta": "Letter · Point · Root · Form"
+                    },
+                    {
+                        "kind": "Study",
+                        "title": "How New Testament Greek works",
+                        "text": "Learn the alphabet, see how endings say who did what whatever the word order, and test what a verb's form does and does not say about time.",
+                        "href": "/study/how-new-testament-greek-works",
+                        "meta": "Alphabet · Ending · Order · Verb"
+                    },
+                    {
                         "kind": "Guide",
                         "title": "Words across the letters",
                         "text": "Explore the Greek words the Letters guides bring into view.",
@@ -614,6 +635,29 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                 },
                 "group": "Enter the world around the text",
                 "items": [
+                    {
+                        "kind": "Study",
+                        "title": "Home and household in Old Testament Israel",
+                        "text": "Walk through an Israelite house, and tell what was found on its floor from what is only pictured.",
+                        "href": "/study/home-and-household",
+                        "meta": "Stone · Bread · Thread · Kin"
+                    },
+                    {
+                        "kind": "Study",
+                        "title": "The farming year",
+                        "text": "Read a year of work from a stone at Gezer, and hear what Ruth, the prophets and the parables assumed their hearers knew.",
+                        "href": "/study/the-farming-year",
+                        "meta": "Plough · Sickle · Floor · Vat",
+                        "tone": "epistles"
+                    },
+                    {
+                        "kind": "Study",
+                        "title": "Egypt beside Israel",
+                        "text": "Read a wisdom book, a hymn to the sun and letters from Canaan beside Scripture, and tell a likeness from a lineage.",
+                        "href": "/study/egypt-beside-israel",
+                        "meta": "Papyrus · Tomb wall · Clay tablet",
+                        "tone": "epistles"
+                    },
                     {
                         "kind": "Atlas",
                         "title": "Ancient cities",
@@ -663,6 +707,22 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
                 },
                 "group": "Follow their work",
                 "items": [
+                    {
+                        "kind": "Study",
+                        "title": "How the church has read the Bible",
+                        "text": "Read Galatians 4 as a glossed page, with twelve readers from about AD 200 to 2010 in its margins, and see what each one came asking.",
+                        "href": "/study/how-the-church-has-read-the-bible",
+                        "meta": "Letter · Figure · Sense · Margin",
+                        "tone": "gospels"
+                    },
+                    {
+                        "kind": "Study",
+                        "title": "The medieval church",
+                        "text": "Set what popes, councils and kings decreed from about AD 500 to 1350 beside what the record shows next, from the baptism of the north to a parish floor.",
+                        "href": "/study/the-medieval-church",
+                        "meta": "Mission · Throne · School · Parish",
+                        "tone": "gospels"
+                    },
                     {
                         "kind": "People",
                         "title": "Scholars",

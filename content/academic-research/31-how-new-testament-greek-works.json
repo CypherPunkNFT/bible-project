@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "order": 31,
+  "title": "How New Testament Greek works",
+  "slug": "how-new-testament-greek-works",
+  "category": "languages",
+  "categoryTitle": "Languages & translation",
+  "updated": "2026-10-31",
+  "status": "implemented-local",
+  "premise": "Greek carries who did what in its word endings, so its word order is free to do other work; and its verb forms say less about time than people often claim.",
+  "question": "Is that in the form, or in the verse?",
+  "outcomes": [
+    "Read the Greek alphabet and sound out a word from John or Romans.",
+    "Find the ending that says who acts and who receives, whatever the order of the words.",
+    "Say what a verb's form can show, and why the verse has to settle the time.",
+    "Test two claims you may hear, that a missing article means “a god” and that an aorist means “once for all”.",
+    "Say what kind of Greek the New Testament was written in, and how we know."
+  ],
+  "boundaries": {
+    "in": "The alphabet, case endings against word order, the article, what verb forms do and do not say about time, each shown in verses from John and Romans wherever they have the form, and where the New Testament's everyday Greek came from.",
+    "out": [
+      "Looking words up by number, and what a dictionary entry can tell you: Strong's numbers.",
+      "How often Greek words occur in the letters: Words across the letters.",
+      "Why translators choose as they do: Why translations differ, a planned study.",
+      "How context fixes a word's meaning: Words in their passages, a planned study.",
+      "Which wording of the Old Testament the apostles had before them: The Septuagint, a planned study.",
+      "Aramaic words in the Gospels: Aramaic in the Bible, a planned study.",
+      "How the word Lord was used to translate God's name: The divine name in translation, a planned study.",
+      "Variant readings and manuscripts as objects: A passage through the manuscripts and The surviving witnesses.",
+      "The form of an ancient letter: How the letters came to be.",
+      "Contracts and accounts as a window on daily life: Everyday papyri, a planned study. One return is shown here for its language only.",
+      "Hebrew: How Hebrew works."
+    ]
+  },
+  "sound": {
+    "scheme": "The sounds here are one common classroom scheme, the kind most English-speaking students are first taught. It keeps each letter distinct so that you can spell what you hear. It is a way in, not a recording of the first century: Greek speakers of that time had already begun to merge some vowels, and scholars reconstruct their speech in more than one way.",
+    "noAudio": "The page has no audio. Capitals mark the stressed syllable, which the accent mark shows on the word."
+  },
+  "letters": [
+    { "id": "alpha", "lower": "α", "upper": "Α", "name": "Alpha", "sound": "a, as in father", "group": "sight", "word": { "form": "ἀρχῇ", "code": "JHN", "chapter": 1, "verse": 1, "phrase": "In the beginning", "say": "ar-KHAY", "means": "beginning" } },
+    { "id": "beta", "lower": "β", "upper": "Β", "name": "Beta", "sound": "b", "group": "sight", "word": { "form": "βιβλίῳ", "code": "JHN", "chapter": 20, "verse": 30, "phrase": "this book", "say": "bib-LEE-ō", "means": "book" } },
+    { "id": "gamma", "lower": "γ", "upper": "Γ", "name": "Gamma", "sound": "g, as in go; ng before γ, κ or χ", "group": "false", "lookslike": "y", "word": { "form": "γέγραπται", "code": "JHN", "chapter": 20, "verse": 31, "phrase": "written", "say": "GEG-rap-tai", "means": "has been written" } },
+    { "id": "delta", "lower": "δ", "upper": "Δ", "name": "Delta", "sound": "d", "group": "sight", "word": { "form": "δόξαν", "code": "JHN", "chapter": 1, "verse": 14, "phrase": "glory", "say": "DOX-an", "means": "glory" } },
+    { "id": "epsilon", "lower": "ε", "upper": "Ε", "name": "Epsilon", "sound": "e, as in get", "group": "sight", "word": { "form": "ἐγώ", "code": "JHN", "chapter": 14, "verse": 6, "phrase": "I am the way", "say": "e-GŌ", "means": "I" } },
+    { "id": "zeta", "lower": "ζ", "upper": "Ζ", "name": "Zeta", "sound": "z, or dz", "group": "new", "word": { "form": "ζωὴ", "code": "JHN", "chapter": 1, "verse": 4, "phrase": "life", "say": "zō-AY", "means": "life" } },
+    { "id": "eta", "lower": "η", "upper": "Η", "name": "Eta", "sound": "ay, as in they", "group": "false", "lookslike": "n", "word": { "form": "ἡμέρᾳ", "code": "JHN", "chapter": 6, "verse": 40, "phrase": "last day", "say": "hay-MEH-rah", "means": "day" } },
+    { "id": "theta", "lower": "θ", "upper": "Θ", "name": "Theta", "sound": "th, as in thin", "group": "new", "word": { "form": "θεὸς", "code": "JHN", "chapter": 3, "verse": 16, "phrase": "God", "say": "the-OS", "means": "God" } },
+    { "id": "iota", "lower": "ι", "upper": "Ι", "name": "Iota", "sound": "i, as in machine", "group": "sight", "word": { "form": "Ἰησοῦς", "code": "JHN", "chapter": 20, "verse": 31, "phrase": "Jesus", "say": "ee-ay-SOOS", "means": "Jesus" } },
+    { "id": "kappa", "lower": "κ", "upper": "Κ", "name": "Kappa", "sound": "k", "group": "sight", "word": { "form": "κόσμον", "code": "JHN", "chapter": 3, "verse": 16, "phrase": "the world", "say": "KOS-mon", "means": "world" } },
+    { "id": "lambda", "lower": "λ", "upper": "Λ", "name": "Lambda", "sound": "l", "group": "new", "word": { "form": "λόγος", "code": "JHN", "chapter": 1, "verse": 14, "phrase": "the Word", "say": "LO-gos", "means": "word" } },
+    { "id": "mu", "lower": "μ", "upper": "Μ", "name": "Mu", "sound": "m", "group": "new", "word": { "form": "μαθηταί", "code": "JHN", "chapter": 13, "verse": 35, "phrase": "disciples", "say": "ma-thay-TAI", "means": "disciples" } },
+    { "id": "nu", "lower": "ν", "upper": "Ν", "name": "Nu", "sound": "n", "group": "false", "lookslike": "v", "word": { "form": "νόμος", "code": "JHN", "chapter": 1, "verse": 17, "phrase": "the law", "say": "NO-mos", "means": "law" } },
+    { "id": "xi", "lower": "ξ", "upper": "Ξ", "name": "Xi", "sound": "x, as in box", "group": "new", "word": { "form": "ξένος", "code": "ROM", "chapter": 16, "verse": 23, "phrase": "hosted", "say": "XEH-nos", "means": "host, stranger" } },
+    { "id": "omicron", "lower": "ο", "upper": "Ο", "name": "Omicron", "sound": "o, as in not", "group": "sight", "word": { "form": "ὀνόματι", "code": "JHN", "chapter": 20, "verse": 31, "phrase": "His name", "say": "o-NO-ma-ti", "means": "name" } },
+    { "id": "pi", "lower": "π", "upper": "Π", "name": "Pi", "sound": "p", "group": "new", "word": { "form": "πνεῦμα", "code": "JHN", "chapter": 4, "verse": 24, "phrase": "God is Spirit", "say": "PNEV-ma", "means": "spirit" } },
+    { "id": "rho", "lower": "ρ", "upper": "Ρ", "name": "Rho", "sound": "r, lightly rolled", "group": "false", "lookslike": "p", "word": { "form": "ῥήματα", "code": "JHN", "chapter": 6, "verse": 68, "phrase": "words of eternal life", "say": "HRAY-ma-ta", "means": "words" } },
+    { "id": "sigma", "lower": "σ", "final": "ς", "upper": "Σ", "name": "Sigma", "sound": "s", "group": "new", "word": { "form": "σώματος", "code": "JHN", "chapter": 2, "verse": 21, "phrase": "His body", "say": "SŌ-ma-tos", "means": "body" }, "note": "Written ς at the end of a word and σ everywhere else, with the same sound. σώματος has both." },
+    { "id": "tau", "lower": "τ", "upper": "Τ", "name": "Tau", "sound": "t", "group": "sight", "word": { "form": "τέκνα", "code": "JHN", "chapter": 1, "verse": 12, "phrase": "children of God", "say": "TEK-na", "means": "children" } },
+    { "id": "upsilon", "lower": "υ", "upper": "Υ", "name": "Upsilon", "sound": "u, as in French tu; oo in οὐ", "group": "sight", "word": { "form": "υἱὸν", "code": "JHN", "chapter": 3, "verse": 16, "phrase": "His one and only Son", "say": "hwee-ON", "means": "son" } },
+    { "id": "phi", "lower": "φ", "upper": "Φ", "name": "Phi", "sound": "ph, as in phone", "group": "new", "word": { "form": "φῶς", "code": "JHN", "chapter": 1, "verse": 4, "phrase": "the light of men", "say": "PHŌS", "means": "light" } },
+    { "id": "chi", "lower": "χ", "upper": "Χ", "name": "Chi", "sound": "ch, as in Bach", "group": "false", "lookslike": "x", "word": { "form": "χριστὸς", "code": "JHN", "chapter": 20, "verse": 31, "phrase": "the Christ", "say": "khris-TOS", "means": "anointed one, Christ" } },
+    { "id": "psi", "lower": "ψ", "upper": "Ψ", "name": "Psi", "sound": "ps, as in lips", "group": "new", "word": { "form": "ψυχὴν", "code": "JHN", "chapter": 10, "verse": 11, "phrase": "lays down His life", "say": "psoo-KHAYN", "means": "life, soul" } },
+    { "id": "omega", "lower": "ω", "upper": "Ω", "name": "Omega", "sound": "ō, as in note", "group": "false", "lookslike": "w", "word": { "form": "ὥρα", "code": "JHN", "chapter": 12, "verse": 23, "phrase": "The hour has come", "say": "HŌ-ra", "means": "hour" } }
+  ],
+  "letterGroups": [
+    { "id": "sight", "label": "You can read these at sight", "line": "They look and sound much like the English letter." },
+    { "id": "false", "label": "False friends", "line": "They look like one English letter and sound like another. Most first mistakes in Greek are here." },
+    { "id": "new", "label": "New shapes", "line": "Only these have to be learned as new. Many are familiar from mathematics." }
+  ],
+  "marks": [
+    { "id": "rough", "glyph": "ὁ", "name": "Rough breathing", "line": "A small hook opening to the right, over a first vowel: say an h first. ὁ is ho." },
+    { "id": "smooth", "glyph": "ἐ", "name": "Smooth breathing", "line": "The same hook turned the other way: no h. ἐν is en. Every word that begins with a vowel has one or the other." },
+    { "id": "accent", "glyph": "λό", "name": "Accent", "line": "Three shapes, one job for a beginner: stress this syllable." },
+    { "id": "iota", "glyph": "ῳ", "name": "Iota under a vowel", "line": "A tiny iota written below α, η or ω. It is not said, but it often marks an ending, as in λόγῳ." }
+  ],
+  "practice": [
+    { "form": "λόγος", "code": "JHN", "chapter": 1, "verse": 1, "say": "LO-gos" },
+    { "form": "ζωὴ", "code": "JHN", "chapter": 1, "verse": 4, "say": "zō-AY" },
+    { "form": "φῶς", "code": "JHN", "chapter": 1, "verse": 5, "say": "PHŌS" },
+    { "form": "χάριτος", "code": "JHN", "chapter": 1, "verse": 14, "say": "KHA-ri-tos" },
+    { "form": "ἀλήθεια", "code": "JHN", "chapter": 1, "verse": 17, "say": "a-LAY-thei-a" },
+    { "form": "ἀγάπην", "code": "ROM", "chapter": 5, "verse": 8, "say": "a-GA-payn" }
+  ],
+  "moved": {
+    "code": "JHN", "chapter": 3, "verse": 16, "phrase": "For God so loved the world",
+    "units": {
+      "v": { "greek": "ἠγάπησεν", "say": "ay-GA-pay-sen", "english": "loved" },
+      "s": { "greek": "ὁ θεὸς", "say": "ho the-OS", "english": "God", "role": "subject" },
+      "o": { "greek": "τὸν κόσμον", "say": "ton KOS-mon", "english": "the world", "role": "object" }
+    },
+    "swapped": {
+      "s": { "greek": "ὁ κόσμος", "say": "ho KOS-mos", "english": "the world", "role": "subject" },
+      "o": { "greek": "τὸν θεόν", "say": "ton the-ON", "english": "God", "role": "object" }
+    },
+    "orders": [
+      { "id": "vso", "note": "John's order" },
+      { "id": "svo", "note": "" },
+      { "id": "sov", "note": "" },
+      { "id": "vos", "note": "" },
+      { "id": "osv", "note": "" },
+      { "id": "ovs", "note": "" }
+    ],
+    "madeUp": "The swapped sentence is written by this site for the exercise. It is good Greek, and it is not a verse."
+  },
+  "cases": [
+    { "id": "N", "name": "Nominative", "plain": "who acts, or who is named", "mark": "solid", "line": "The doer in most sentences, and the thing a sentence is about." },
+    { "id": "A", "name": "Accusative", "plain": "who receives", "mark": "double", "line": "What the action lands on, or where it is heading." },
+    { "id": "G", "name": "Genitive", "plain": "of whom", "mark": "dotted", "line": "Most often “of”: whose it is, what kind, or where from." },
+    { "id": "D", "name": "Dative", "plain": "to, for, in or by", "mark": "wavy", "line": "Who it is for or to, and often the means or the place." }
+  ],
+  "nouns": [
+    { "id": "logos", "strong": "G3056", "stem": "λόγ", "name": "λόγος", "say": "LO-gos", "means": "word", "gender": "masculine", "line": "The pattern most grammars teach first. The stem holds still and the ending does the work." },
+    { "id": "agape", "strong": "G0026", "stem": "ἀγάπ", "name": "ἀγάπη", "say": "a-GA-pay", "means": "love", "gender": "feminine", "line": "A different set of endings for the same four jobs. The New Testament hardly uses it in the plural." },
+    { "id": "ergon", "strong": "G2041", "stem": "ἔργ", "name": "ἔργον", "say": "ER-gon", "means": "work, deed", "gender": "neuter", "line": "Here the ending cannot decide. ἔργον is who acts and who receives alike, and so is ἔργα. The sentence has to settle it." },
+    { "id": "pistis", "strong": "G4102", "stem": "πίστ", "name": "πίστις", "say": "PIS-tis", "means": "faith", "gender": "feminine", "line": "Here the middle of the word shifts too, so the part that holds still is only πίστ-. The endings are not one fixed list: you learn a few patterns, and the article often helps." }
+  ],
+  "lines": [
+    { "id": "rom5-8", "label": "Romans 5:8", "code": "ROM", "chapter": 5, "verse": 8, "phrase": "God proves His love for us", "note": "The verb comes first and “God” comes ninth. Nothing is lost, because ὁ θεός has the ending and the article of the one who acts." },
+    { "id": "jhn3-35", "label": "John 3:35", "code": "JHN", "chapter": 3, "verse": 35, "phrase": "The Father loves the Son", "note": "This time the order is the same as English. Greek allows it, and the endings still say the same thing." },
+    { "id": "jhn1-1", "label": "John 1:1", "code": "JHN", "chapter": 1, "verse": 1, "phrase": "the Word was God", "note": "In its last clause both θεὸς and λόγος are nominative, so here the ending alone cannot tell you which is which. The article does, and section 04 follows that." }
+  ],
+  "records": {
+    "order": {
+      "evidence": "John 3:16 puts the verb first and then the one who loves. Romans 5:8 leaves “God” until the ninth word. John 3:35 follows the English order. In each, the endings and the articles mark who acts and who receives.",
+      "inference": "In Greek the order of the words does not say who did what. The endings do that, and so the order is left free for other work.",
+      "limit": "Free is not meaningless. Grammarians agree that Greek writers use order for emphasis and flow, and they differ on how far that can be read in any one verse. This page does not weigh that argument. Nor do the endings decide everything: in neuter words, and where two nominatives stand together, something else in the sentence has to."
+    },
+    "letters": {
+      "evidence": "Twenty-four letters, counted in every word of STEP Bible's tagged text. The sounds are not STEP's: they are this study's stated classroom choice.",
+      "inference": "Well over half the shapes are not new to a reader of English, and the real traps are the six false friends.",
+      "limit": "How the sorting falls depends on the reader's eye, and on the typeface. No one knows exactly how first-century speakers sounded each letter, and the page does not claim to."
+    },
+    "article": {
+      "evidence": "Greek has no word for “a”. In John 1, θεός stands both with the article and without it. John 1:6 says “sent from God” and John 1:18 “No one has ever seen God”, both with no article, and no one takes those to mean “a god”. In John 1:1 the words run θεὸς ἦν ὁ λόγος, with the article on λόγος.",
+      "inference": "The missing article cannot by itself mean “a god”, the rendering best known from the New World Translation of the Jehovah's Witnesses, because John drops it where he plainly means the one God. The article on λόγος marks the Word as the subject of the clause.",
+      "limit": "That disposes of one argument. It does not settle what exact force θεός has in that clause, on which those who reject “a god” do not all agree. Nor does one point of grammar prove the doctrine: the whole of John carries it, with John 1:18 and John 20:28, and the confession rests on all of Scripture."
+    },
+    "time": {
+      "evidence": "A present-form verb narrates the past in John 1:29, and promises the future in John 14:3. An aorist-form verb stands with “now” in John 13:31. Burton's 1898 grammar already said that a tense's chief function is “not to denote time”.",
+      "inference": "A verb's form does not by itself fix the time of what it describes. In every example here, the time is shown by the words around it.",
+      "limit": "Whether the form carries any time at all in the indicative is argued among specialists, as the panel below shows. The time placed against each verse is this study's own reading of the verse, and it is not in STEP Bible's tags."
+    },
+    "common": {
+      "evidence": "An ordinary return of seven lambs, dated in the twelfth year of Nero, uses the same verb as Luke 2:1-5 for registering, and calls Nero “the lord” in the signatures as Grenfell and Hunt edit them. Finds of this kind led Deissmann to call the New Testament “a monument of late colloquial Greek”.",
+      "inference": "Much of the Greek of the New Testament was the Greek of its day, and readers of the time would not have needed a special dictionary for most of it.",
+      "limit": "One return shows one person's wording. Deissmann's “as a whole” is his own, and Robertson, who agrees with him, still names Semitic influence and more literary writing in parts of the New Testament. Where a word is shared, its use in the sentence still has to be read."
+    }
+  },
+  "claims": {
+    "order": {
+      "question": "Someone says: “Greek word order means nothing.” What do the three verses support?",
+      "options": [
+        { "text": "Order does not say who did what, but that does not show it means nothing.", "right": true, "why": "The verses show the first part. The second is a separate question: the evidence here does not rule out emphasis, and scholars treat it as real." },
+        { "text": "Word order means nothing, because the endings do everything.", "right": false, "why": "The endings do not do everything, as ἔργον and John 1:1 show, and nothing on this page shows order to be empty." },
+        { "text": "Greek has a fixed order, which translators rearrange.", "right": false, "why": "John 3:16, Romans 5:8 and John 3:35 stand in three different orders." }
+      ]
+    },
+    "article": {
+      "claim": "No article, so “a god”",
+      "question": "“John 1:1 has no article on θεός, so it means the Word was a god.” What does John 1 itself show?",
+      "options": [
+        { "text": "The missing article cannot carry that claim, because John 1:6, 1:12 and 1:13 also have θεοῦ with no article, and they mean God.", "right": true, "why": "The data on this page supports exactly that. Harner adds that a writer meaning “a god” would more probably have put the noun after the verb." },
+        { "text": "The missing article shows it means “a god”.", "right": false, "why": "Then John 1:6 would mean “sent from a god”. Nobody reads it so." },
+        { "text": "This one point of grammar proves the whole doctrine of the Son.", "right": false, "why": "That claims more than the grammar can. It answers one argument; the doctrine rests on all of Scripture's teaching." }
+      ]
+    },
+    "aorist": {
+      "claim": "The aorist means once for all",
+      "question": "A speaker says: “The verb is aorist, so this happened once for all.” What do John 2:20 and Romans 5:14 show?",
+      "options": [
+        { "text": "The form cannot prove that. These aorists cover forty-six years of building and the time from Adam to Moses.", "right": true, "why": "The form presents the event as a whole. It does not say that the event was short or single. If a thing happened once for all, as Christ's death did, other words have to say so, and they do: Romans 6:10." },
+        { "text": "It is proved. The aorist always means a single act.", "right": false, "why": "John 2:20 and Romans 5:14 are aorists of long spans. Stagg calls that inference a fallacy, in the article named below." },
+        { "text": "It shows that the event did not happen once.", "right": false, "why": "That is the same mistake reversed. The form does not settle it either way." }
+      ]
+    },
+    "spirit": {
+      "claim": "A language of the Holy Ghost",
+      "quote": "“We may appropriately speak of a language of the Holy Ghost.”",
+      "quoteBy": "Richard Rothe, Dogmatik (1863), as quoted by Hermann Cremer and reported by A. T. Robertson",
+      "question": "“New Testament Greek was a special sacred language.” What do the finds support?",
+      "options": [
+        { "text": "Not as a language. Its Greek is largely the common Greek of its day, carrying a message that was not common at all.", "right": true, "why": "The return shows ordinary people using its words. That says nothing against the Spirit's work: inspiration concerns what God gave, not which dialect it came in." },
+        { "text": "Yes. Its words are found nowhere else.", "right": false, "why": "Many words once listed as “biblical” have since turned up in papyri and inscriptions. Robertson reports this, from Deissmann's work." },
+        { "text": "The finds show the New Testament is just another ordinary document.", "right": false, "why": "They show its language was ordinary. They cannot show what it is. This site holds it as God's word." }
+      ]
+    }
+  },
+  "harner": {
+    "line": "Harner set out what John could have written with the words at hand. Only clause B is Scripture; the others are his possibilities, written out here in Greek, and the summaries are this site's.",
+    "clauses": [
+      { "id": "A", "greek": "ὁ λόγος ἦν ὁ θεός", "says": "The two would be interchangeable, with no θεός who is not also the Word. That would contradict “the Word was with God” just before." },
+      { "id": "B", "greek": "θεὸς ἦν ὁ λόγος", "says": "What John wrote. To Harner, it says that the Word has the nature of θεός.", "actual": true },
+      { "id": "C", "greek": "ὁ λόγος θεὸς ἦν", "says": "The same in meaning as B, in his judgment; the noun still comes before the verb." },
+      { "id": "D", "greek": "ὁ λόγος ἦν θεός", "says": "With the noun after the verb, it “would probably mean that the logos was ‘a god’”." },
+      { "id": "E", "greek": "ὁ λόγος ἦν θεῖος", "says": "With a different word, “divine”, a weaker form of D." }
+    ],
+    "views": [
+      { "who": "Colwell (1933)", "view": "Definite predicate nouns before the verb usually lack the article, so θεός here may well be definite.", "status": "Reported second-hand" },
+      { "who": "Harner (1973)", "view": "Its force here is primarily of quality. “There is no basis for regarding the predicate theos as definite”, and he rejects “a god”.", "status": "Part read, in a reproduction" }
+    ],
+    "voice": "The site's own word: the Word is God. The Baptist Faith and Message 2000 confesses Christ as “the eternal Son of God”, and the Berean's “the Word was God” is the verse this page opens. On how to describe the force of one Greek noun in that clause, these two grammarians differ, and the page does not choose."
+  },
+  "verb": {
+    "name": "ἀγαπάω, to love",
+    "forms": [
+      { "id": "aorist", "code": "JHN", "chapter": 3, "verse": 16, "form": "ἠγάπησεν", "phrase": "God so loved", "name": "Aorist", "parts": [["ἠ", "The first vowel lengthened: the augment, which only indicative forms take"], ["γάπη", "The stem, in its long form"], ["σ", "The mark of this form"], ["εν", "He, she or it"]] },
+      { "id": "present", "code": "JHN", "chapter": 3, "verse": 35, "form": "ἀγαπᾷ", "phrase": "loves", "name": "Present", "parts": [["ἀγαπ", "The stem"], ["ᾷ", "He, she or it, run together with the stem's own vowel"]] },
+      { "id": "future", "code": "JHN", "chapter": 14, "verse": 23, "form": "ἀγαπήσει", "phrase": "will love", "name": "Future", "parts": [["ἀγαπή", "The stem, in its long form"], ["σ", "The mark of this form"], ["ει", "He, she or it"]] }
+    ],
+    "viewpoint": {
+      "line": "All Greek scholars agree, Campbell writes, that the aorist presents an action as a whole, often in summary, and that the present and imperfect present it as unfolding. This is the idea called aspect. It is about how the writer views the action, and it does not tell you how the action really went.",
+      "code": "ROM", "chapter": 6, "verse": 13, "phrase": "Do not present",
+      "example": "Romans 6:13 uses both, side by side: παριστάνετε, a present form, and then παραστήσατε, an aorist form. The Berean gives “present” for both. The change of form is there to notice, and how much to make of it is a question of interpretation."
+    }
+  },
+  "moodNames": [
+    { "id": "I", "label": "Indicative", "plain": "says it is so" },
+    { "id": "S", "label": "Subjunctive", "plain": "may be, should be" },
+    { "id": "O", "label": "Optative", "plain": "a wish" },
+    { "id": "M", "label": "Imperative", "plain": "a command" },
+    { "id": "N", "label": "Infinitive", "plain": "“to do”" },
+    { "id": "P", "label": "Participle", "plain": "“doing”, “having done”" }
+  ],
+  "tenseNames": [
+    { "id": "P", "label": "Present" },
+    { "id": "I", "label": "Imperfect" },
+    { "id": "F", "label": "Future" },
+    { "id": "A", "label": "Aorist" },
+    { "id": "R", "label": "Perfect" },
+    { "id": "L", "label": "Pluperfect" }
+  ],
+  "rail": [
+    { "id": "jhn1-29", "code": "JHN", "chapter": 1, "verse": 29, "form": "βλέπει", "phrase": "John saw Jesus", "formName": "Present", "usual": "now", "here": "past", "note": "“The next day” places it in the past. The verb is present in form, and the Berean rightly gives “saw”." },
+    { "id": "jhn14-3", "code": "JHN", "chapter": 14, "verse": 3, "form": "ἔρχομαι", "phrase": "I will come back", "formName": "Present", "usual": "now", "here": "future", "note": "Jesus is speaking of a coming that has not happened. The present form, and the future is clear from the sentence." },
+    { "id": "jhn8-58", "code": "JHN", "chapter": 8, "verse": 58, "form": "εἰμί", "phrase": "before Abraham was born, I am", "formName": "Present", "usual": "now", "here": "reaches", "note": "“Before Abraham” does the stretching. It is the sentence that says this, not the tense, and John 8:59 shows how his hearers took it." },
+    { "id": "jhn13-31", "code": "JHN", "chapter": 13, "verse": 31, "form": "ἐδοξάσθη", "phrase": "Now the Son of Man is glorified", "formName": "Aorist", "usual": "past", "here": "now", "note": "“Now” stands in front of an aorist form. The Berean gives “is glorified”." },
+    { "id": "jhn15-6", "code": "JHN", "chapter": 15, "verse": 6, "form": "ἐβλήθη", "phrase": "thrown away", "formName": "Aorist", "usual": "past", "here": "any", "note": "“If anyone does not remain”: this is what happens whenever it happens, and not one past event." },
+    { "id": "rom8-30", "code": "ROM", "chapter": 8, "verse": 30, "form": "ἐδόξασεν", "phrase": "He also glorified", "formName": "Aorist", "usual": "past", "here": "future", "note": "The readers still wait for that glory (Romans 8:18, 8:23), yet the verse uses the same form as “called” and “justified”. It is commonly read as stating what God will surely do. That is a reading, and interpreters explain the form in more than one way." },
+    { "id": "jhn19-30", "code": "JHN", "chapter": 19, "verse": 30, "form": "τετέλεσται", "phrase": "It is finished", "formName": "Perfect", "usual": "past", "here": "stands", "note": "A finished act whose result stands, on the usual account of the perfect. Specialists argue over how best to describe this form." }
+  ],
+  "railPoints": [
+    { "id": "past", "label": "past" },
+    { "id": "now", "label": "now" },
+    { "id": "future", "label": "future" }
+  ],
+  "aoristVerses": [
+    { "id": "jhn2-20", "code": "JHN", "chapter": 2, "verse": 20, "form": "οἰκοδομήθη", "phrase": "took forty-six years to build", "note": "Forty-six years, and an aorist form." },
+    { "id": "rom5-14", "code": "ROM", "chapter": 5, "verse": 14, "form": "ἐβασίλευσεν", "phrase": "death reigned from Adam until Moses", "note": "From Adam to Moses, and an aorist form." },
+    { "id": "rom3-23", "code": "ROM", "chapter": 3, "verse": 23, "form": "ἥμαρτον", "phrase": "all have sinned", "note": "All people, across all time, and an aorist form." }
+  ],
+  "onceForAll": { "code": "ROM", "chapter": 6, "verse": 10, "phrase": "once for all" },
+  "aspectViews": [
+    { "who": "Fanning, Wallace", "view": "The system is partly about time: the augment marks the past, within a system where viewpoint stands out.", "side": "Yes, in part" },
+    { "who": "Porter, Decker", "view": "The forms carry viewpoint alone, in every mood. Time comes from the context. Porter takes the augment as marking the indicative, or the sequence of events in a story.", "side": "No" },
+    { "who": "Campbell", "view": "Time is not in the form itself. The augment marks remoteness, a wider idea that takes in time.", "side": "No, with a difference" }
+  ],
+  "aspectNote": "Aubrey, whose overview this panel follows, reports that most scholars of ancient Greek hold the augment and the secondary endings to mark past time, and that those named here as “No” are a minority. All agree on what the page has shown: read the verse.",
+  "papyrus": {
+    "id": "oxy246",
+    "marks": [
+      { "id": "was", "greek": "ἀπεγραψάμην", "line": 10, "top": 30.7, "gloss": "“I registered”", "note": "Line 10. An aorist of the verb." },
+      { "id": "now", "greek": "ἀπογράφομαι", "line": 18, "top": 54.7, "gloss": "“I now register”", "note": "Line 18. A present of the same verb." }
+    ],
+    "translation": "“I registered in the present 12th year of Nero Claudius Caesar Augustus Germanicus Imperator … twelve lambs which were born from sheep in my possession, and I now register for the second registration a further progeny of seven lambs born from the same sheep.”",
+    "translationBy": "Grenfell and Hunt's translation, The Oxyrhynchus Papyri II (1899), no. 246",
+    "facts": [
+      { "label": "What it is", "value": "A farmer's return to the local officials: Harmiusis of the village of Phthochis, declaring seven more lambs" },
+      { "label": "Date", "value": "AD 66, as the editors give it; Commons gives 24 July" },
+      { "label": "Found", "value": "Oxyrhynchus, Egypt, published by Grenfell and Hunt" },
+      { "label": "Kept", "value": "Cambridge University Library, as the Commons record states" },
+      { "label": "Writing", "value": "The body in a careful hand with no spaces between words, the officials' signatures in running script at the foot" }
+    ],
+    "luke": { "code": "LUK", "chapter": 2, "verse": 3, "phrase": "to register", "strong": "G0583", "form": "ἀπογράφεσθαι" },
+    "lord": {
+      "line": "The officials date their signatures by “Nero Caesar the lord” (Νέρωνος Καίσαρος τοῦ κυρίου, as the editors read those running hands). It is the same common word Paul uses in Romans 10:9.",
+      "code": "ROM", "chapter": 10, "verse": 9, "phrase": "Jesus is Lord", "strong": "G2962", "form": "κύριον",
+      "note": "The word was in everyday use, and that is all this return shows. What Paul means by it comes from his letter. How the word came to stand for God's name is left to the planned study of the divine name."
+    }
+  },
+  "confusedWords": [
+    { "word": "A form and a time", "note": "The present and aorist are names of forms. They are not statements of when something happened." },
+    { "word": "How it is viewed and how it went", "note": "An aorist presents an event as a whole. It does not say the event was short, single or finished for good." },
+    { "word": "Free order and empty order", "note": "Order does not say who did what. That does not mean it carries nothing." },
+    { "word": "Without the article and indefinite", "note": "Greek has no word for “a”, and a noun with no article can still be definite." },
+    { "word": "Common Greek and common message", "note": "Its language was ordinary. That is a finding about words, and it says nothing against their being God's." }
+  ],
+  "reach": [
+    "The tagged text is STEP Bible's Translators Amalgamated Greek New Testament. Counted here: the words STEP marks as standing in the Nestle-Aland 28th edition. One printed edition was used because counting needs one; choosing it ranks nothing.",
+    "Grammar labels are STEP Bible's. A different analysis would move some words from one label to another. The second aorist is counted with the aorist, and all voices together.",
+    "Featured words are checked word by word against STEP's tagged verse, and each Berean phrase against the Berean. That shows the word is in the verse. It does not show a reading is right.",
+    "Letter counts drop every accent and breathing, and count σ with ς.",
+    "Glosses are STEP Bible's and keep Greek word order, so they read oddly on purpose. They are a help to the eye, and not a translation."
+  ],
+  "quotes": {
+    "burton": { "text": "The chief function of a Greek tense is thus not to denote time, but progress. This latter function belongs to the tense-forms of all the moods, the former to those of the Indicative only.", "by": "Ernest De Witt Burton, Syntax of the Moods and Tenses in New Testament Greek (1898), §5, remark", "note": "That is the traditional way of putting it, and it is older than the argument in the panel below. A participle does carry time of a kind, relative to the main verb, which Burton's own later sections discuss." },
+    "stagg": { "text": "The aorist can properly be used to cover any kind of action: single or multiple, momentary or extended, broken or unbroken, completed or open-ended. The aorist simply refrains from describing.", "by": "Frank Stagg, “The Abused Aorist” (1972), p. 223" },
+    "deissmann": { "text": "a monument of late colloquial Greek", "by": "Adolf Deissmann, Light from the Ancient East (1922), p. 69, of the New Testament as a whole" },
+    "robertson": { "text": "The New Testament Greek as a rule is just normal koine", "by": "A. T. Robertson, “The Language of the New Testament” (1915)", "note": "Koine means common: the everyday Greek shared across the eastern Mediterranean after Alexander." }
+  },
+  "voice": "None of this makes an English Bible second-best. The Berean Standard Bible you read on this site is God's word in English, and it is the verse this page opens. It was God's word in Greek first, “truth, without any mixture of error”, as the Baptist Faith and Message 2000 says of Scripture. Greek lets you follow a commentary or a sermon, and notice when one claims too much. It does not give you a truer Bible than the one you have.",
+  "credit": {
+    "line": "Word tags, transliterations, glosses and code notes: data created by STEP Bible, Tyndale House Cambridge, used under CC BY 4.0. This page counted them, and shows only featured words; it changed none of them. The classroom sounds and the plain-language job names are this study's own.",
+    "url": "https://www.STEPBible.org",
+    "licence": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sources": [
+    { "id": "stepTagnt", "title": "STEP Bible, Translators Amalgamated Greek New Testament and Greek code notes", "kind": "Dataset", "url": "https://github.com/STEPBible/STEPBible-Data", "status": "read", "read": "The two text files and the code notes were read by this study's script and counted.", "answers": "Which Greek word stands in each verse, and how is it tagged?" },
+    { "id": "bsb", "title": "Berean Standard Bible", "kind": "Bible", "url": "/read/bsb/JHN/1", "status": "read", "read": "Every verse quoted, as held on this site.", "answers": "What does the verse say in English?" },
+    { "id": "stagg", "title": "Frank Stagg, “The Abused Aorist”, Journal of Biblical Literature 91 (1972), 222-231", "kind": "Article", "url": "https://biblicalstudies.org.uk/pdf/jbl/1972_stagg.pdf", "status": "read", "read": "Read in full. Quoted: “The aorist simply refrains from describing”, p. 223.", "answers": "Does an aorist mean once for all?" },
+    { "id": "burton", "title": "Ernest De Witt Burton, Syntax of the Moods and Tenses in New Testament Greek (3rd edition, 1898)", "kind": "Grammar", "url": "https://archive.org/details/syntaxofmoodsten00burt", "status": "part", "read": "The opening section on tense, §5 and its remark, read in the Internet Archive's text. Quoted: “The chief function of a Greek tense is thus not to denote time, but progress.”", "answers": "What did an older grammar say tenses are for?" },
+    { "id": "aubrey", "title": "Michael Aubrey, “A brief guide to aspect in Greek: Part II, The debates” (2021)", "kind": "Overview", "url": "https://koine-greek.com/2021/12/24/a-brief-guide-to-aspect-in-greek-part-ii/", "status": "read", "read": "Read. The source for how the panel places Porter, Decker and Campbell on the augment, and for the quotation from Campbell (2020).", "answers": "Where do specialists agree and differ?" },
+    { "id": "aspectBooks", "title": "Buist Fanning, Verbal Aspect in New Testament Greek (1990); Stanley Porter, Verbal Aspect in the Greek of the New Testament (1989); Rodney Decker, Temporal Deixis of the Greek Verb in the Gospel of Mark (2001); Constantine Campbell, Verbal Aspect, the Indicative Mood, and Narrative (2007)", "kind": "Books", "url": "https://koine-greek.com/2021/12/24/a-brief-guide-to-aspect-in-greek-part-ii/", "status": "second-hand", "read": "None read. Their positions are reported through Aubrey's overview, which the link opens, and a book review for Fanning. Read them before this page says more.", "answers": "Where is each position set out at length?" },
+    { "id": "wallace", "title": "Daniel B. Wallace, Greek Grammar Beyond the Basics (1996)", "kind": "Grammar", "url": "https://denverjournal.denverseminary.edu/the-denver-journal-article/linguistic-analysis-of-the-greek-new-testament-studies-in-tools-methods-and-practice/", "status": "second-hand", "read": "Not read. Its place beside Fanning is reported in a Denver Journal review, which the link opens.", "answers": "What does a standard intermediate grammar hold?" },
+    { "id": "harner", "title": "Philip B. Harner, “Qualitative Anarthrous Predicate Nouns: Mark 15:39 and John 1:1”, Journal of Biblical Literature 92 (1973), 75-87", "kind": "Article", "url": "https://www.bible.ca/trinity/trinity-Harner.htm", "status": "part", "read": "Part read: the passage on John 1:1 and its five clauses, as reproduced on a site with its own apologetic aim, which the link opens. The journal's own pages were not seen.", "answers": "What could John have written, and what would it have meant?" },
+    { "id": "colwell", "title": "E. C. Colwell, “A Definite Rule for the Use of the Article in the Greek New Testament”, Journal of Biblical Literature 52 (1933), 12-21", "kind": "Article", "url": "https://www.bible.ca/trinity/trinity-Harner.htm", "status": "second-hand", "read": "Not read. His rule is reported through writers on Harner, on the page the link opens. Note that the rule says what definite nouns do, and cannot be run backwards to prove a noun definite.", "answers": "What is “Colwell's rule”?" },
+    { "id": "deissmann", "title": "Adolf Deissmann, Light from the Ancient East (English edition of 1922)", "kind": "Book", "url": "https://archive.org/details/cu31924060305095", "status": "part", "read": "The chapter on the language of the New Testament, read in the Internet Archive's text. Quoted from p. 69.", "answers": "What kind of Greek is the New Testament?" },
+    { "id": "robertson", "title": "A. T. Robertson, “The Language of the New Testament”, International Standard Bible Encyclopedia (1915)", "kind": "Article", "url": "https://www.bible-researcher.com/language-nt.html", "status": "read", "read": "Read, as transcribed online. Source of the Rothe and Cremer quotation, and of the qualifications on Semitic influence and literary writing.", "answers": "What was the older view, and how far does the new one go?" },
+    { "id": "oxy", "title": "Bernard Grenfell and Arthur Hunt, The Oxyrhynchus Papyri, Part II (1899), no. 246", "kind": "Edition", "url": "https://archive.org/details/oxyrhynchuspappt02grenuoft", "status": "part", "read": "The entry for no. 246: its introduction, text and translation, read in the Internet Archive's text and against the plate. The Greek quoted from the signatures rests on the editors' reading.", "answers": "What does this return say?" },
+    { "id": "machen", "title": "J. Gresham Machen, New Testament Greek for Beginners (1923)", "kind": "Grammar", "url": "https://archive.org/details/newtestamentgree00mach", "status": "part", "read": "Consulted for how the augment works on verbs that begin with a vowel (§126). Otherwise not read.", "answers": "Where can a beginner start?" },
+    { "id": "levinsohn", "title": "Stephen Levinsohn, Discourse Features of New Testament Greek (2nd edition, 2000)", "kind": "Book", "url": "https://www.sil.org/resources/publications/entry/9013", "status": "located", "read": "Located, not read. Named as a place to start on word order; its findings are not used here.", "answers": "What does word order do, if not say who did what?" },
+    { "id": "allen", "title": "W. Sidney Allen, Vox Graeca (3rd edition, 1987)", "kind": "Book", "url": "https://www.cambridge.org/core/books/vox-graeca/", "status": "located", "read": "Located, not read. Named as the usual account of how Greek sounded, and mostly about the older classical language.", "answers": "How do scholars work out how Greek sounded?" }
+  ],
+  "pictures": [
+    {
+      "id": "oxy246",
+      "src": "/images/studies/how-new-testament-greek-works/oxy-246.jpg",
+      "alt": "A narrow strip of papyrus written in clear separated capitals with no spaces between the words, and at the foot several lines in a fast running hand.",
+      "caption": "P. Oxy. 246, a farmer's return of seven lambs, AD 66. A real document, shown for its language.",
+      "credit": "Plate VII of Grenfell and Hunt, The Oxyrhynchus Papyri II, via Wikimedia Commons",
+      "licence": "Public domain, as the Commons file states",
+      "href": "https://commons.wikimedia.org/wiki/File:P._Oxy._246.png",
+      "retrieved": "31 October 2026",
+      "width": 640,
+      "height": 1876
+    }
+  ],
+  "closing": {
+    "note": "Carry that into the next sermon that says “in the Greek”."
+  }
+}

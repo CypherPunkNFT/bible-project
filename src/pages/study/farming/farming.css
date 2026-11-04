@@ -1,0 +1,275 @@
+/* The farming year study (/study/the-farming-year). Its tone is its Study hub field's; gold is the site's accent for the turn. That tone
+   sits near the gold, so "chosen" is carried by ink, weight and underline, and the tone only by strokes and large text. */
+.fy-root { --tone: var(--epistles); --sans: var(--font-sans); --serif: var(--font-serif); background: var(--page); color: var(--ink); font: 14px/1.55 var(--sans); }
+body:has(.fy-root) { overflow-x: clip; }
+.fy-root * { box-sizing: border-box; }
+.fy-root :is(button, a, summary, [tabindex]):focus { outline: none; }
+.fy-root :is(button, a, summary):focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.fy-root button { font: inherit; color: inherit; cursor: pointer; }
+.fy-root :where(a) { color: inherit; }
+/* The resets weigh one class, so the single-class rules below can set their own margins. */
+.fy-root :where(h1, h2, h3, p, dl, dd, figure, blockquote) { margin: 0; }
+.fy-root :where(ul, ol) { margin: 0; padding: 0; list-style: none; }
+.fy-wrap { max-width: var(--site-content-width); margin: 0 auto; padding: 1.2rem var(--site-gutter) 3rem; }
+.fy-sec { scroll-margin-top: 84px; }
+.fy-wrap .fy-sec + .fy-sec { margin-top: 3.2rem; padding-top: 1.8rem; border-top: 1px solid var(--line); }
+.fy-failed { padding: 1rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }
+.fy-kicker { font-size: .65rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.fy-kicker b { font-weight: 600; color: var(--accent); }
+.fy-root .fy-kicker-gap { margin-top: 1.3rem; }
+.fy-para { max-width: 72ch; margin-top: .55rem; font-size: .9rem; line-height: 1.68; }
+.fy-caption { max-width: 72ch; margin-top: .7rem; font-size: .76rem; line-height: 1.6; color: var(--muted); }
+.fy-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.fy-he { font-family: var(--font-hebrew); unicode-bidi: isolate; font-size: 1.12em; }
+.fy-translit { color: var(--muted); font-style: italic; }
+.fy-mark { display: inline-block; flex: none; vertical-align: -4px; color: var(--ink); }
+
+/* Opening */
+.fy-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 24rem); gap: 2.5rem; align-items: center; }
+.fy-eyebrow { margin-top: 1rem; font-size: .68rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.fy-intro h1 { margin-block: .8rem .9rem; font: 500 clamp(2.4rem, 5.2vw, 4.1rem)/1.03 var(--serif); letter-spacing: -.025em; overflow-wrap: anywhere; }
+.fy-intro h1 em { display: block; margin-top: .25rem; color: var(--accent); font-weight: 400; font-size: .56em; line-height: 1.15; }
+.fy-lead { margin-bottom: .8rem; font: 400 1.3rem/1.4 var(--serif); }
+.fy-lede { max-width: 58ch; color: var(--muted); font-size: .96rem; line-height: 1.8; }
+.fy-lede + .fy-lede { margin-top: .7rem; }
+.fy-art { color: var(--tone); text-align: center; }
+.fy-art svg { display: block; width: 100%; max-width: 24rem; margin: 0 auto; }
+.fy-art figcaption { margin-top: -.4rem; font: italic 400 .98rem/1.35 var(--serif); color: var(--ink); }
+.fy-art figcaption span { display: block; }
+.fy-art small { display: block; margin-top: .3rem; font: 400 .66rem/1.4 var(--sans); color: var(--muted); }
+.fy-orbit { transform-origin: 200px 200px; animation: fy-turn 90s linear infinite; }
+.fy-spark { animation: fy-twinkle 5s ease-in-out infinite; }
+.fy-spark-b { animation-delay: 2.2s; }
+@keyframes fy-turn { to { transform: rotate(360deg); } }
+@keyframes fy-twinkle { 0%, 100% { opacity: .2; } 50% { opacity: .9; } }
+.fy-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 1.8rem; padding-block: .9rem; border-block: 1px solid var(--line); }
+.fy-figures > div { min-width: 0; padding: .2rem 1rem; border-left: 1px solid var(--line); }
+.fy-figures > div:first-child { padding-left: 0; border-left: 0; }
+.fy-figures dt { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.fy-figures dd { margin-top: .2rem; font: 500 1.6rem/1.1 var(--serif); font-variant-numeric: tabular-nums; }
+.fy-figures small { display: block; margin-top: .25rem; font-size: .72rem; line-height: 1.45; color: var(--muted); }
+.fy-outcomes { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem; margin-top: 1.3rem; }
+.fy-outcomes ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem 1.6rem; font-size: .84rem; }
+.fy-chapters { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.3rem; }
+.fy-chapters a { padding: .4rem .8rem; border: 1px solid var(--line); border-radius: 999px; font-size: .72rem; color: var(--muted); text-decoration: none; }
+.fy-chapters a b { margin-right: .35rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+.fy-chapters a:hover { border-color: var(--ink); color: var(--ink); }
+
+/* Section heads */
+.fy-head { max-width: 68ch; margin-bottom: 1.2rem; }
+.fy-head h2 { margin-block: .4rem .5rem; font: 500 clamp(1.7rem, 3.2vw, 2.5rem)/1.12 var(--serif); letter-spacing: -.02em; }
+.fy-head h2 em { color: var(--accent); font-weight: 400; }
+.fy-head > p:last-child { color: var(--muted); font-size: .95rem; line-height: 1.7; }
+
+/* The wheel */
+.fy-wheel { display: block; width: 100%; height: auto; }
+.fy-month { fill: var(--muted); font: 500 14px var(--sans); }
+.fy-tick { stroke: var(--line); stroke-width: 1.2; }
+.fy-arc path { fill: color-mix(in srgb, var(--tone) 6%, transparent); stroke: var(--tone); stroke-width: 1; transition: fill .2s; }
+.fy-arc text { fill: var(--muted); font: 400 19px var(--serif); pointer-events: none; }
+.fy-arc.can { cursor: pointer; }
+.fy-arc.can:hover path { fill: color-mix(in srgb, var(--ink) 10%, transparent); }
+.fy-arc.on path { fill: color-mix(in srgb, var(--tone) 34%, transparent); stroke: var(--ink); stroke-width: 2.4; }
+.fy-arc.on text { fill: var(--ink); font-weight: 600; }
+.fy-ring { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 4; }
+.fy-ring-tick { stroke: var(--muted); stroke-width: 1.3; }
+.fy-chords path { fill: none; stroke: var(--ink); stroke-width: 2; stroke-dasharray: 7 4; }
+.fy-chords circle { fill: var(--ink); stroke: none; }
+.fy-wheel-centre text { fill: var(--ink); font: 500 20px var(--serif); }
+.fy-wheel-centre .sub { fill: var(--muted); font: 400 14px var(--sans); }
+.fy-wheelkey { display: grid; gap: .25rem; margin-top: .5rem; font-size: .74rem; line-height: 1.45; color: var(--muted); }
+.fy-wheelkey svg { display: inline-block; margin-right: .35rem; vertical-align: 1px; stroke: var(--ink); fill: none; stroke-width: 1.5; }
+
+/* 01 The stone */
+.fy-stone { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 30rem) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+.fy-pic img { display: block; width: 100%; height: auto; border-radius: 4px; }
+.fy-pic figcaption { margin-top: .4rem; font-size: .68rem; line-height: 1.5; color: var(--muted); }
+.fy-pic figcaption a { color: var(--accent); }
+.fy-pic-missing { padding: 1rem; border: 1px dashed var(--line); font-size: .8rem; color: var(--muted); }
+.fy-matte img { padding: .5rem; background: #fff; max-height: 16rem; object-fit: contain; }
+.fy-lines { margin-top: .8rem; }
+.fy-lines li { display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; padding: .22rem .4rem; border-bottom: 1px solid var(--line); font-size: 1rem; }
+.fy-lines small { color: var(--muted); font-size: .68rem; font-variant-numeric: tabular-nums; }
+.fy-lines li.on { background: color-mix(in srgb, var(--ink) 8%, transparent); box-shadow: inset 2px 0 0 var(--ink); font-weight: 600; }
+.fy-seasons li + li { border-top: 1px solid var(--line); }
+.fy-seasons button { display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); align-items: center; gap: .4rem; width: 100%; min-height: 46px; padding: .3rem .2rem; border: 0; background: none; text-align: left; }
+.fy-seasons b { font: 400 1.2rem/1 var(--serif); color: var(--tone); }
+.fy-seasons span { font: 500 .96rem/1.2 var(--serif); }
+.fy-seasons small { display: block; font: 400 .7rem/1.3 var(--sans); color: var(--muted); }
+.fy-seasons button:hover span, .fy-seasons button[aria-pressed="true"] span { text-decoration: underline; text-underline-offset: 3px; }
+.fy-seasons button[aria-pressed="true"] span { font-weight: 700; }
+.fy-chosen { margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--tone); }
+.fy-chosen-parts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.2rem; align-items: start; }
+.fy-chosen h3 { margin-top: .25rem; font: 500 1.5rem/1.2 var(--serif); }
+.fy-sayit { margin-top: .3rem; font-size: 1.15rem; }
+.fy-sayit .fy-translit { margin-left: .5rem; font-size: .85rem; }
+.fy-doubt { max-width: 72ch; margin-top: .6rem; padding: .45rem .7rem; border-left: 3px double var(--ink); font-size: .86rem; line-height: 1.6; }
+.fy-doubt b { font-weight: 600; }
+.fy-aboutstone { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr) minmax(0, 12rem); gap: 2rem; margin-top: 2rem; padding-top: 1.1rem; border-top: 1px solid var(--line); align-items: start; }
+.fy-facts { margin-top: .4rem; font-size: .84rem; line-height: 1.55; }
+.fy-facts li { padding-block: .35rem; border-top: 1px solid var(--line); }
+.fy-facts b { font-weight: 600; }
+
+/* 02 The same clock */
+.fy-clock { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 22rem) minmax(0, 1fr); gap: 1.8rem; align-items: start; }
+.fy-passages li + li { border-top: 1px solid var(--line); }
+.fy-passages button { display: block; width: 100%; min-height: 44px; padding: .45rem .2rem; border: 0; background: none; text-align: left; }
+.fy-passages strong { display: block; font: 500 .95rem/1.25 var(--serif); }
+.fy-passages small { display: block; font-size: .72rem; color: var(--muted); }
+.fy-passages button:hover strong, .fy-passages button[aria-pressed="true"] strong { text-decoration: underline; text-underline-offset: 3px; }
+.fy-passages button[aria-pressed="true"] strong { font-weight: 700; }
+.fy-clockrecord h3 { font: 500 1.4rem/1.2 var(--serif); margin-bottom: .6rem; }
+.fy-clockrecord .fy-verse + .fy-verse { margin-top: .7rem; }
+.fy-clockrecord .fy-three { grid-template-columns: 1fr; gap: .8rem; }
+.fy-verse { padding: .1rem 0 .1rem .9rem; border-left: 2px solid var(--accent); font: 400 1.02rem/1.55 var(--serif); }
+.fy-verse cite { display: block; margin-top: .3rem; font: 400 .72rem var(--sans); color: var(--muted); }
+.fy-verse cite a { display: inline-block; padding-block: .15rem; color: var(--accent); }
+.fy-chosen .fy-verse { margin-top: .6rem; max-width: 72ch; }
+
+/* 03 The jobs on the twelve-month strip */
+.fy-kinds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem 1.6rem; margin-bottom: 1.2rem; font-size: .78rem; line-height: 1.45; color: var(--muted); }
+.fy-kinds li { display: flex; gap: .5rem; }
+.fy-kinds b { color: var(--ink); font-weight: 600; }
+.fy-jobrow { display: grid; grid-template-columns: minmax(0, 19rem) minmax(0, 1fr); gap: 1rem; align-items: center; width: 100%; padding: .4rem .2rem; border: 0; border-top: 1px solid var(--line); background: none; text-align: left; }
+.fy-jobrow-head { padding-block: 0 .25rem; border-top: 0; }
+button.fy-jobrow:hover { background: color-mix(in srgb, var(--ink) 5%, transparent); }
+button.fy-jobrow:hover strong, button.fy-jobrow[aria-pressed="true"] strong { text-decoration: underline; text-underline-offset: 3px; }
+button.fy-jobrow[aria-pressed="true"] { background: color-mix(in srgb, var(--ink) 9%, transparent); }
+.fy-jobname { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: .6rem; align-items: center; }
+.fy-jobart { color: var(--tone); }
+.fy-jobname strong { display: block; font: 500 1.02rem/1.2 var(--serif); }
+.fy-jobname small { display: block; font-size: .74rem; line-height: 1.3; color: var(--muted); }
+.fy-jobkinds { display: inline-flex; gap: .2rem; margin-top: .15rem; }
+.fy-strip { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); min-height: 1.4rem; align-items: center; background-image: linear-gradient(to right, var(--line) 1px, transparent 1px); background-size: calc(100% / 12) 100%; border-right: 1px solid var(--line); }
+.fy-strip-head { min-height: 0; background: none; border: 0; font-size: .66rem; color: var(--muted); }
+.fy-strip-head b { font-weight: 500; }
+.fy-strip-head i { display: none; font-style: normal; }
+.fy-bar { display: block; grid-row: 1; height: .8rem; margin-inline: 2px; border: 1px solid var(--ink); border-radius: 2px; background: color-mix(in srgb, var(--tone) 42%, transparent); }
+.fy-sameplace { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 1.6rem; align-items: center; margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.fy-sameplace h3 { margin-top: .3rem; font: 500 1.6rem/1.2 var(--serif); }
+
+/* 04 What the hearer knew */
+.fy-hearers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.8rem; align-items: start; }
+.fy-heargroup { padding-top: .7rem; border-top: 2px solid var(--tone); }
+.fy-heargroup h3 { font: 500 1.45rem/1.2 var(--serif); }
+.fy-hearhead { font: italic 400 1rem/1.35 var(--serif); color: var(--accent); }
+.fy-hearlead { margin-block: .35rem .5rem; font-size: .84rem; line-height: 1.55; color: var(--muted); }
+.fy-hearitem { border-top: 1px solid var(--line); }
+.fy-hearitem summary { display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; align-items: center; gap: .6rem; min-height: 50px; padding-block: .3rem; cursor: pointer; list-style: none; }
+.fy-hearitem summary::-webkit-details-marker { display: none; }
+.fy-hearitem summary::after { content: "+"; color: var(--muted); font-size: 1.1rem; }
+.fy-hearitem[open] summary::after { content: "−"; }
+.fy-hearitem summary strong { display: block; font: 500 .96rem/1.2 var(--serif); }
+.fy-hearitem summary small { display: block; font-size: .7rem; line-height: 1.3; color: var(--muted); }
+.fy-hearitem summary:hover strong { text-decoration: underline; text-underline-offset: 3px; }
+.fy-hearitem .fy-three { grid-template-columns: 1fr; gap: .7rem; margin-top: .2rem; padding-top: .6rem; }
+.fy-hearitem .fy-cite { margin-bottom: .7rem; }
+.fy-mini { display: block; width: 38px; height: 38px; }
+.fy-mini path { fill: color-mix(in srgb, var(--line) 45%, transparent); stroke: none; }
+.fy-mini path.on { fill: var(--ink); }
+.fy-parable { margin-top: .6rem; font-size: .84rem; }
+.fy-parable a, .fy-hearlink { color: var(--accent); }
+.fy-hearlink { display: inline-block; margin-top: .55rem; padding-block: .25rem; font-size: .8rem; }
+
+/* The three parts of a record */
+.fy-three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 1.1rem; padding-top: .9rem; border-top: 1px solid var(--line); }
+.fy-three dt { margin-bottom: .3rem; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.fy-three dd { font-size: .86rem; line-height: 1.65; }
+.fy-cite { display: flex; flex-wrap: wrap; gap: .2rem 1rem; margin-top: .7rem; font-size: .7rem; line-height: 1.5; }
+.fy-cite a { color: var(--muted); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 2px; overflow-wrap: anywhere; }
+.fy-cite small { color: var(--muted); }
+.fy-readverse { margin-top: .8rem; font-size: .8rem; color: var(--muted); }
+.fy-readverse a { display: inline-block; margin-left: .6rem; padding-block: .25rem; color: var(--accent); }
+
+/* 05 Claims */
+.fy-claim-row { padding-block: 1.4rem; border-top: 1px solid var(--line); }
+.fy-claim-row:first-child { border-top: 0; padding-top: .3rem; }
+.fy-claim { font: italic 400 1.4rem/1.3 var(--serif); }
+.fy-claim-row h3 { margin-top: .25rem; font: 500 1.02rem/1.3 var(--sans); color: var(--accent); }
+.fy-test { margin-top: 1.2rem; }
+.fy-test-q { max-width: 72ch; margin-top: .3rem; font-size: .92rem; }
+.fy-options { display: grid; gap: .35rem; max-width: 62rem; margin-top: .55rem; }
+.fy-options button { min-height: 44px; padding: .55rem .8rem; border: 1px solid var(--line); border-radius: 6px; background: none; text-align: left; font-size: .86rem; line-height: 1.4; }
+.fy-options button:hover { border-color: var(--ink); }
+.fy-options .right { border-color: var(--ink); border-left-width: 4px; }
+.fy-options .wrong { border-color: var(--revelation); border-style: dashed; }
+.fy-answer { max-width: 72ch; min-height: 1.6em; margin-top: .5rem; font-size: .88rem; }
+
+/* 06 Closing */
+.fy-close { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.2rem; }
+.fy-confused > div { padding-block: .5rem; border-top: 1px solid var(--line); }
+.fy-confused dt { font: 500 .96rem/1.3 var(--serif); }
+.fy-confused dd { margin-top: .1rem; font-size: .8rem; line-height: 1.55; color: var(--muted); }
+.fy-close .fy-kicker { margin-bottom: .55rem; }
+.fy-reach li { padding-block: .5rem; border-top: 1px solid var(--line); font-size: .82rem; line-height: 1.55; }
+.fy-trail-head { margin-top: 1.8rem; margin-bottom: .55rem; }
+.fy-nearby { display: flex; flex-wrap: wrap; gap: .4rem; }
+.fy-nearby a { display: inline-flex; align-items: center; min-height: 36px; padding: .3rem .8rem; border: 1px solid var(--line); border-radius: 999px; font-size: .78rem; text-decoration: none; }
+.fy-nearby a:hover { border-color: var(--ink); }
+.fy-sources { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.2rem; }
+.fy-sources li { padding-block: .6rem; border-top: 1px solid var(--line); font-size: .78rem; line-height: 1.55; color: var(--muted); }
+.fy-source-title { font: 500 .95rem/1.3 var(--serif); color: var(--ink); }
+.fy-source-title a { text-decoration: none; overflow-wrap: anywhere; }
+.fy-source-title a:hover { text-decoration: underline; }
+.fy-source-title small { display: block; font: 400 .66rem var(--sans); color: var(--muted); }
+.fy-source-q { font-style: italic; }
+.fy-credits { display: grid; gap: .2rem; font-size: .72rem; line-height: 1.55; color: var(--muted); }
+.fy-credits a { text-underline-offset: 2px; overflow-wrap: anywhere; }
+.fy-final { margin-top: 2.4rem; padding-block: 1.8rem; border-top: 1px solid var(--line); text-align: center; }
+.fy-final p { max-width: 42rem; margin: 0 auto; font: italic 400 clamp(1.4rem, 3vw, 2.1rem)/1.28 var(--serif); }
+.fy-final small { display: block; margin-top: .6rem; font-size: .82rem; color: var(--muted); }
+.fy-final nav { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.4rem; margin-top: 1rem; font-size: .84rem; }
+.fy-final a { color: var(--accent); text-decoration: none; }
+
+/* The record sheet: the same panel as every study's */
+.fy-root .ms-sheet { position: fixed; z-index: 60; top: 0; right: 0; bottom: 0; width: min(440px, 100vw); display: flex; flex-direction: column; background: var(--surface); border-left: 1px solid var(--line); box-shadow: -14px 0 40px rgb(0 0 0 / .18); transform: translateX(100%); visibility: hidden; transition: transform .38s cubic-bezier(.2, .8, .3, 1), visibility 0s; }
+.fy-root .ms-sheet.open { transform: none; visibility: visible; }
+.fy-root .ms-sheet:not(.open) { transition: transform .38s cubic-bezier(.4, 0, .6, 1), visibility 0s .38s; }
+.fy-root .ms-sheet-close { position: absolute; top: calc(.8rem + env(safe-area-inset-top, 0px)); right: .8rem; z-index: 1; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); }
+.fy-root .ms-sheet-close:hover { color: var(--ink); border-color: var(--ink); }
+.fy-root .ms-sheet-body { flex: 1; overflow-y: auto; padding: calc(1.4rem + env(safe-area-inset-top, 0px)) 1.4rem calc(1.6rem + env(safe-area-inset-bottom, 0px)); border-top: 2px solid var(--tone); }
+.fy-root .ms-sheet h2 { margin: .35rem 3.2rem .1rem 0; font: 500 1.5rem/1.2 var(--serif); letter-spacing: -.02em; }
+.fy-sheet-when { min-height: 1.4rem; margin-right: 3.2rem; }
+.fy-sheet-line { margin-bottom: .7rem; font: italic 400 .95rem/1.4 var(--serif); color: var(--muted); }
+.fy-sheet-kinds { display: flex; flex-wrap: wrap; gap: .3rem .9rem; margin-top: .6rem; font-size: .78rem; }
+.fy-kindword { display: inline-flex; align-items: center; gap: .3rem; }
+.fy-groundnote { margin-top: .5rem; font-size: .82rem; line-height: 1.5; color: var(--muted); }
+.fy-groundnote b { font-weight: 600; color: var(--ink); }
+.fy-root .ms-sheet .fy-three { grid-template-columns: 1fr; gap: .9rem; }
+.fy-root .ms-sheet .fy-verse { margin-top: .9rem; }
+.fy-root .ms-sheet .fy-pic { margin-bottom: .6rem; }
+
+@media (max-width: 1100px) {
+  .fy-stone { grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); }
+  .fy-seasons { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 .6rem; }
+  .fy-seasons li + li { border-top: 0; }
+  .fy-clock { grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); }
+  .fy-clockrecord { grid-column: 1 / -1; }
+  .fy-clockrecord .fy-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .fy-aboutstone { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fy-labelphoto { max-width: 14rem; }
+}
+@media (max-width: 960px) {
+  .fy-intro { grid-template-columns: 1fr; gap: 1.2rem; }
+  .fy-art svg { max-width: 17rem; }
+  .fy-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem 0; }
+  .fy-figures > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .fy-hearers, .fy-close, .fy-sources, .fy-sameplace, .fy-chosen-parts { grid-template-columns: 1fr; }
+  .fy-chosen-parts { gap: 0; }
+}
+@media (max-width: 640px) {
+  .fy-outcomes { grid-template-columns: 1fr; gap: .4rem; }
+  .fy-outcomes ul, .fy-three, .fy-kinds, .fy-clockrecord .fy-three, .fy-aboutstone { grid-template-columns: 1fr; }
+  .fy-stone, .fy-clock { grid-template-columns: 1fr; }
+  .fy-tablet { display: grid; grid-template-columns: minmax(0, 8rem) minmax(0, 1fr); gap: .2rem .9rem; }
+  .fy-tablet .fy-caption { grid-column: 1 / -1; }
+  .fy-lines { margin-top: 0; }
+  .fy-seasons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fy-jobrow { grid-template-columns: 1fr; gap: .3rem; }
+  .fy-jobrow-head > span:first-child { display: none; }
+  .fy-strip-head b { display: none; }
+  .fy-strip-head i { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fy-root *, .fy-root *::before, .fy-root *::after { animation: none !important; transition-duration: 1ms !important; }
+}

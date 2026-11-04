@@ -1,0 +1,1853 @@
+{
+  "schemaVersion": 1,
+  "order": 29,
+  "title": "The farming year",
+  "slug": "the-farming-year",
+  "category": "culture",
+  "categoryTitle": "Ancient cultures & daily life",
+  "updated": "2026-10-31",
+  "status": "implemented-local",
+  "premise": "A small stone from Gezer lists a year by its work, and the Bible's first hearers carried that same year in their heads, so a reader who learns it hears what the passages leave unsaid.",
+  "question": "What did the first hearer already know, and how do I know it?",
+  "outcomes": [
+    "Read the Gezer calendar's eight seasons in order, and say which of its words are in doubt.",
+    "Place a passage on the farming year, and say how sure that placing is.",
+    "Follow grain from the plough to the threshing floor, and vine and olive to the vat.",
+    "Tell a find, a passage and a twentieth-century photograph apart as evidence."
+  ],
+  "boundaries": {
+    "in": "The farmer's work through the year in Iron Age Israel, read from the Gezer calendar and Scripture, and what the passages assume a hearer knows of it.",
+    "out": [
+      "What a parable teaches: The parables of Christ. This page explains the farm work behind a story and interprets no parable.",
+      "Rainfall, terrain and water supply: the planned study Land, climate and water. Rain appears here only where a passage's timing needs it.",
+      "The feasts as celebrations: the planned study Israel's year of feasts. This page takes the harvest work and leaves the celebration.",
+      "Grinding, baking and storage once grain reaches the house: Home and household in Old Testament Israel.",
+      "Sheep, goats and herding: not covered here.",
+      "Fixed dates in history: the planned study Dating the biblical world."
+    ]
+  },
+  "seasons": [
+    {
+      "id": "ingather",
+      "months": 2,
+      "start": 0,
+      "hebrew": "ירחו אסף",
+      "translit": "yrḥw ʾsp",
+      "reading": "Two months of ingathering",
+      "short": "Ingathering",
+      "work": "Gathering in what the hot months have ripened. Translators add grapes and olives in brackets, or olives alone: the stone does not name a crop.",
+      "doubt": "The word means gathering in. Which crops is an inference.",
+      "sameWord": {
+        "verse": "Exodus 23:16",
+        "note": "The same Hebrew word names the Feast of Ingathering.",
+        "tags": [
+          "H614"
+        ],
+        "english": "ingathering"
+      },
+      "sources": [
+        "torah",
+        "bas-gezer"
+      ]
+    },
+    {
+      "id": "sow",
+      "months": 2,
+      "start": 2,
+      "hebrew": "ירחו זרע",
+      "translit": "yrḥw zrʿ",
+      "reading": "Two months of sowing",
+      "short": "Sowing",
+      "work": "Sowing the main grain. Look at the stone: the writer ran out of line, and the word for sowing breaks across lines one and two.",
+      "doubt": "Little on the word. The stone does not say which grain.",
+      "sameWord": {
+        "verse": "Genesis 8:22",
+        "note": "The word behind “seedtime” is the same word, seed.",
+        "tags": [
+          "H2233"
+        ],
+        "english": "seedtime"
+      },
+      "sources": [
+        "wikipedia",
+        "bas-gezer"
+      ]
+    },
+    {
+      "id": "late",
+      "months": 2,
+      "start": 4,
+      "hebrew": "ירחו לקש",
+      "translit": "yrḥw lqš",
+      "reading": "Two months of late sowing",
+      "short": "Late sowing",
+      "work": "A second round of planting, later in the year. Translators say late planting or late sowing, and do not say which crops.",
+      "doubt": "The crops are not named.",
+      "sameWord": {
+        "verse": "Amos 7:1",
+        "note": "The word appears in Amos's locust vision, where the Berean has “the late spring crop”.",
+        "tags": [
+          "H3954"
+        ],
+        "english": "growth"
+      },
+      "sources": [
+        "torah",
+        "bas-gezer"
+      ]
+    },
+    {
+      "id": "flax",
+      "months": 1,
+      "start": 6,
+      "hebrew": "ירח עצד פשת",
+      "translit": "yrḥ ʿṣd pšt",
+      "reading": "One month of hoeing, or cutting, flax",
+      "short": "Flax",
+      "work": "Flax comes up before the grain is ripe. The verb is the hard part: one rendering says hoeing up, others say cutting or pulling.",
+      "doubt": "The verb is disputed. An article by Aaron Koller on this word is listed in the reading trail, unread.",
+      "sameWord": {
+        "verse": "Exodus 9:31",
+        "note": "Flax in the hail plague is a form of the same word.",
+        "tags": [
+          "H6594"
+        ],
+        "english": "flax"
+      },
+      "sources": [
+        "bas-gezer",
+        "torah",
+        "shaked",
+        "koller"
+      ]
+    },
+    {
+      "id": "barley",
+      "months": 1,
+      "start": 7,
+      "hebrew": "ירח קצר שערם",
+      "translit": "yrḥ qṣr šʿrm",
+      "reading": "One month of barley harvest",
+      "short": "Barley",
+      "work": "The first grain to be cut. Of all the lines this one is the easiest to read, and Ruth's story begins in it.",
+      "doubt": "Little. The sources read agree on this line.",
+      "sameWord": {
+        "verse": "Ruth 1:22",
+        "note": "Ruth's “barley harvest” has both of the stone's words.",
+        "tags": [
+          "H8184",
+          "H7105"
+        ],
+        "english": "barley"
+      },
+      "sources": [
+        "torah",
+        "wikipedia"
+      ]
+    },
+    {
+      "id": "harvest",
+      "months": 1,
+      "start": 8,
+      "hebrew": "ירח קצר וכל",
+      "translit": "yrḥ qṣr wkl",
+      "reading": "One month of harvest and …",
+      "short": "Harvest and …",
+      "work": "The other grain, which translators take to be wheat: the stone says only harvest, followed by a short word no one can settle.",
+      "doubt": "The last word has been read as measuring, as feasting and as “everything else”. No reading can be chosen from the stone alone.",
+      "sameWord": {
+        "verse": "1 Samuel 12:17",
+        "note": "The word for harvest here is the one in “the wheat harvest”.",
+        "tags": [
+          "H7105"
+        ],
+        "english": "harvest"
+      },
+      "sources": [
+        "torah",
+        "bas-gezer",
+        "shaked"
+      ]
+    },
+    {
+      "id": "vines",
+      "months": 2,
+      "start": 9,
+      "hebrew": "ירחו זמר",
+      "translit": "yrḥw zmr",
+      "reading": "Two months of tending vines",
+      "short": "Vines",
+      "work": "Work among the vines. Renderings run from pruning to vine-tending, and one scholar's summary has grape harvesting.",
+      "doubt": "Which vine work is disputed, and it matters: pruning and picking are very different jobs, and they would fall at different points of the year.",
+      "sameWord": {
+        "verse": "Leviticus 25:4",
+        "note": "“Prune your vineyard” uses a verb from the same letters.",
+        "tags": [
+          "H2168"
+        ],
+        "english": "prune"
+      },
+      "sources": [
+        "torah",
+        "bas-gezer",
+        "waters"
+      ]
+    },
+    {
+      "id": "summer",
+      "months": 1,
+      "start": 11,
+      "hebrew": "ירח קץ",
+      "translit": "yrḥ qṣ",
+      "reading": "One month of summer fruit",
+      "short": "Summer fruit",
+      "work": "The year's last fruit, and the stone's last line. Which fruits is not given.",
+      "doubt": "Little, though the stone's spelling is shorter than the biblical word.",
+      "sameWord": {
+        "verse": "Amos 8:1",
+        "note": "Amos's basket of summer fruit is this word.",
+        "tags": [
+          "H7019"
+        ],
+        "english": "fruit"
+      },
+      "sources": [
+        "torah",
+        "wikipedia"
+      ]
+    }
+  ],
+  "placing": {
+    "note": "The stone names no months, so any modern month is an inference. This study counts forward from one scholar's placing of ingathering at about mid-September to mid-November, which also agrees with Oded Borowski's sowing and harvest months as Jaime Waters reports them. A guide's page sets the whole year about a month later: that is the dashed ring. The museum's own label gives a third answer that does not run in the stone's order: September to October, January to February, November to December, March, April, August, May to June, and July. These are three placings of one undated list.",
+    "laterMonths": 1,
+    "sources": [
+      "torah",
+      "waters",
+      "shaked"
+    ]
+  },
+  "stoneFacts": [
+    "Limestone, broken at the bottom, written in a slow and awkward hand.",
+    "R. A. S. Macalister found it at Gezer in 1908. Today it is in the Istanbul Archaeology Museums, inventory 2089 T.",
+    "Seven lines of text, and a partly kept name at the foot, usually read Abijah. The square Hebrew letters on this page stand in for an older script.",
+    "Two sizes are published: 11.1 by 7.2 cm in an encyclopedia entry, and about 10.8 by 8.9 cm from a magazine's inches. They are not reconciled here."
+  ],
+  "purposes": [
+    {
+      "name": "A writing exercise",
+      "held": "The awkward hand looks like a learner's to some."
+    },
+    {
+      "name": "A song",
+      "held": "A folk or children's song, reported by the encyclopedia entry and a guide's page."
+    },
+    {
+      "name": "A tax collector's aid",
+      "held": "Reported by the encyclopedia entry and a guide's page."
+    },
+    {
+      "name": "A farmers' almanac",
+      "held": "Named in the Biblical Archaeology Society's article."
+    },
+    {
+      "name": "A blessing tablet",
+      "held": "Also in that article: a reminder, kept in a local temple, to bless the crops in season."
+    }
+  ],
+  "clock": [
+    {
+      "id": "exodus",
+      "name": "Flax and barley, then wheat",
+      "verses": [
+        "Exodus 9:31",
+        "Exodus 9:32"
+      ],
+      "seasons": [
+        "flax",
+        "barley",
+        "harvest"
+      ],
+      "says": "The hail destroys flax and barley, and spares wheat and spelt, “because they are late crops”.",
+      "agrees": "The stone's order is flax, barley, then harvest. A passage about Egypt and a stone from Gezer give the same sequence.",
+      "limit": "Egypt's fields are not Gezer's. The agreement is in the order, not the dates."
+    },
+    {
+      "id": "ruth",
+      "name": "Barley through wheat",
+      "verses": [
+        "Ruth 1:22",
+        "Ruth 2:23"
+      ],
+      "seasons": [
+        "barley",
+        "harvest"
+      ],
+      "says": "Ruth arrives at the start of barley harvest and gleans until barley and wheat are finished.",
+      "agrees": "She works across two of the stone's lines, side by side, about two months if the stone's lengths hold in Bethlehem.",
+      "limit": "Ruth gives no count of days. Two months is this study's reading from the stone."
+    },
+    {
+      "id": "sickle",
+      "name": "Seven weeks from the sickle",
+      "verses": [
+        "Deuteronomy 16:9"
+      ],
+      "seasons": [
+        "barley",
+        "harvest"
+      ],
+      "says": "Israel counts seven weeks from the first sickle in the standing grain.",
+      "agrees": "Seven weeks falls inside the stone's two grain-harvest months, and the count is taken from the work and not from a date.",
+      "limit": "The count's purpose is the Feast of Weeks, which belongs to the study of the feasts."
+    },
+    {
+      "id": "blessing",
+      "name": "One job running into the next",
+      "verses": [
+        "Leviticus 26:5"
+      ],
+      "seasons": [
+        "harvest",
+        "vines",
+        "ingather",
+        "sow"
+      ],
+      "says": "In the promised blessing, threshing lasts until the grape harvest, and the grape harvest until sowing.",
+      "agrees": "The promise only makes sense in this order: grain, then grapes, then seed. The promise is that the gaps close up.",
+      "limit": "This is a promise, not a timetable. The grape harvest lights two arcs because the stone does not settle where grapes fall: the word for vine work may mean picking, and translators add grapes to ingathering."
+    },
+    {
+      "id": "thunder",
+      "name": "Thunder in wheat harvest",
+      "verses": [
+        "1 Samuel 12:17"
+      ],
+      "seasons": [
+        "harvest"
+      ],
+      "says": "Samuel calls for thunder and rain as a sign, and sets it by the work: “Is it not the wheat harvest today?”",
+      "agrees": "The sign is dated by what people were doing that day, and not by a month's name.",
+      "limit": "Why rain does not fall then belongs to the study of the land's climate."
+    },
+    {
+      "id": "jeremiah",
+      "name": "Harvest, then summer",
+      "verses": [
+        "Jeremiah 8:20"
+      ],
+      "seasons": [
+        "barley",
+        "harvest",
+        "summer"
+      ],
+      "says": "“The harvest has passed, the summer has ended, but we have not been saved.”",
+      "agrees": "The people's complaint runs the way the stone does: grain harvest, then the last fruit, with nothing left on the list.",
+      "limit": "It gives an order only. It has no months."
+    },
+    {
+      "id": "john",
+      "name": "Four months to harvest",
+      "verses": [
+        "John 4:35"
+      ],
+      "seasons": [
+        "sow",
+        "late",
+        "flax"
+      ],
+      "says": "“There are still four months until the harvest”, which Jesus quotes as something people say.",
+      "agrees": "Counting back from barley on the stone lands in the sowing lines, so the saying fits a farmer's sense of the wait.",
+      "limit": "This study does not use the verse to date the scene, and does not press it as an exact count."
+    },
+    {
+      "id": "amos",
+      "name": "The year folding up",
+      "verses": [
+        "Amos 9:13"
+      ],
+      "seasons": [
+        "sow",
+        "harvest",
+        "vines"
+      ],
+      "chords": [
+        [
+          "sow",
+          "harvest"
+        ],
+        [
+          "vines",
+          "sow"
+        ]
+      ],
+      "says": "“The plowman will overtake the reaper and the treader of grapes, the sower of seed.”",
+      "agrees": "On the wheel the plowman and the reaper sit about half a year apart. The promise brings them together, and a hearer needed the year in mind to feel it.",
+      "limit": "The drawn lines are this study's picture of the verse. The treader's line starts at vine work, one of two places the stone might put grapes."
+    }
+  ],
+  "jobs": [
+    {
+      "id": "plough",
+      "name": "Plough",
+      "seasons": [
+        "sow",
+        "late"
+      ],
+      "line": "Opening the ground for seed.",
+      "witness": [
+        "scripture",
+        "later"
+      ],
+      "evidence": "Scripture has plowshares and oxgoads sharpened for a fee, a law against yoking an ox with a donkey, and Elisha behind twelve teams of oxen. A proverb mocks the man who does not plough in season.",
+      "inference": "A plough was an everyday tool with a point that wore down, and ploughing had a right moment that could be missed.",
+      "limit": "No excavated Iron Age plough or plough point is among the sources read here, so this page shows none. The photograph is of twentieth-century Palestine, and it shows a donkey and a cow yoked together, a pairing close to what the law forbade Israel.",
+      "verses": [
+        "1 Samuel 13:20",
+        "1 Samuel 13:21",
+        "Deuteronomy 22:10",
+        "1 Kings 19:19",
+        "Proverbs 20:4"
+      ],
+      "sources": [
+        "borowski",
+        "matson"
+      ],
+      "picture": "plough"
+    },
+    {
+      "id": "sow",
+      "name": "Sow",
+      "seasons": [
+        "sow",
+        "late"
+      ],
+      "line": "Seed by hand, by the plot.",
+      "witness": [
+        "stone",
+        "scripture"
+      ],
+      "evidence": "The stone gives sowing two lines and four months. Isaiah's farmer scatters some seed and sets wheat in rows and barley in plots. A psalm has a man weeping as he carries his trail of seed.",
+      "inference": "Sowing was not a single throw. A farmer chose how to set each crop.",
+      "limit": "Whether sowing came before or after ploughing is argued: see the second claim tested on this page.",
+      "verses": [
+        "Isaiah 28:25",
+        "Psalm 126:6",
+        "Genesis 8:22"
+      ],
+      "sources": [
+        "torah",
+        "vaneck"
+      ]
+    },
+    {
+      "id": "flax",
+      "name": "Flax",
+      "seasons": [
+        "flax"
+      ],
+      "line": "The crop for cloth.",
+      "witness": [
+        "stone",
+        "scripture"
+      ],
+      "evidence": "The stone gives flax its own month. In the hail plague it is in bloom as the barley ripens. Rahab hides the spies under stalks of it on her roof.",
+      "inference": "Flax was grown as a crop and dried after cutting. It came in before the grain.",
+      "limit": "The stone's verb is disputed, between hoeing, cutting and pulling. Turning flax into cloth belongs to the study of the household.",
+      "verses": [
+        "Exodus 9:31",
+        "Joshua 2:6"
+      ],
+      "sources": [
+        "bas-gezer",
+        "shaked",
+        "koller"
+      ]
+    },
+    {
+      "id": "reap",
+      "name": "Reap",
+      "seasons": [
+        "barley",
+        "harvest"
+      ],
+      "line": "A sickle, a handful at a time.",
+      "witness": [
+        "stone",
+        "scripture",
+        "ground"
+      ],
+      "evidence": "The stone names barley and then harvest. A law lets a passer-by pluck grain by hand, and forbids putting a sickle to a neighbour's crop. The Metropolitan Museum holds an iron sickle 15.09 cm long from Tawilan, marked Edomite and Iron Age II.",
+      "inference": "Reaping was by sickle, with sheaves bound behind the reapers. The law turns on the difference between a hungry traveller's hand and a harvester's blade.",
+      "limit": "Tawilan is in Edom, outside Israel, and the museum's date is only “1st millennium BCE”. The flint blade set in bitumen is older and from Nippur in Mesopotamia: it shows how a blade was set, not what an Israelite used.",
+      "verses": [
+        "Deuteronomy 23:25",
+        "Deuteronomy 16:9",
+        "Ruth 2:7"
+      ],
+      "sources": [
+        "met-sickle",
+        "met-flint"
+      ],
+      "picture": "sickle",
+      "picture2": "flint",
+      "groundNote": "An iron sickle from Edom, 1st millennium BC, and an older flint blade from Mesopotamia."
+    },
+    {
+      "id": "glean",
+      "name": "Glean",
+      "seasons": [
+        "barley",
+        "harvest",
+        "ingather"
+      ],
+      "line": "What the law left in the field.",
+      "witness": [
+        "scripture"
+      ],
+      "evidence": "The law leaves the field's edges, the gleanings, a forgotten sheaf, fallen grapes and the olives left on the branch, for the poor, the foreigner, the fatherless and the widow. Ruth asks to glean, and beats out what she has gathered.",
+      "inference": "The grain, grape and olive crops all had a share kept back. A hearer knew the law behind Ruth's request. She still hopes for favour from someone, so the right did not make it safe or easy.",
+      "limit": "Gleaning leaves nothing to dig up. How widely the law was kept cannot be told from the sources read.",
+      "verses": [
+        "Leviticus 19:9",
+        "Leviticus 19:10",
+        "Deuteronomy 24:19",
+        "Deuteronomy 24:21",
+        "Ruth 2:2",
+        "Ruth 2:17"
+      ],
+      "sources": [
+        "scripture"
+      ]
+    },
+    {
+      "id": "thresh",
+      "name": "Thresh",
+      "seasons": [
+        "harvest",
+        "vines"
+      ],
+      "line": "Crushing the stalks to free the grain.",
+      "witness": [
+        "scripture",
+        "ground",
+        "later"
+      ],
+      "evidence": "Scripture has oxen treading, an ox not to be muzzled, a sledge with many teeth, sledges burned for a sacrifice, and caraway and cumin beaten with a stick instead. Jaime Waters gathers these, and sets beside them modern studies from Greece and Cyprus of sticks, flails, animals and toothed sledges.",
+      "inference": "The method matched the crop, and Isaiah credits God for teaching the farmer. Gideon threshing in a winepress is an odd place for the job, and the verse says why: to hide the wheat from the Midianites.",
+      "limit": "Waters notes that the Hebrew Bible's references to the tools are few and brief. The excavated floors she treats as sure are Hellenistic to Roman in date. See the third claim tested on this page.",
+      "verses": [
+        "Deuteronomy 25:4",
+        "Isaiah 41:15",
+        "2 Samuel 24:22",
+        "Isaiah 28:26",
+        "Isaiah 28:27",
+        "Isaiah 28:28",
+        "Judges 6:11"
+      ],
+      "sources": [
+        "waters",
+        "smith",
+        "matson"
+      ],
+      "picture": "thresh",
+      "groundNote": "The floors firmly identified are later than Israel's kingdoms: Hellenistic to Roman."
+    },
+    {
+      "id": "winnow",
+      "name": "Winnow",
+      "seasons": [
+        "harvest",
+        "vines"
+      ],
+      "line": "Throw it up, and let the wind sort it.",
+      "witness": [
+        "scripture",
+        "later"
+      ],
+      "evidence": "Boaz is winnowing barley at the threshing floor at night in Ruth. John the Baptist speaks of a winnowing fork. Waters describes the tossing, and a sieve after it. The large photograph on this page shows it done at Gezer in October 1934.",
+      "inference": "A floor needed wind and open ground, which is why floors could stand on high ground outside a village. Grain lay exposed there, and that may be why Boaz stayed with his.",
+      "limit": "Ruth does not say why Boaz slept there. The photograph is from 1934, with a motor car behind the work, and it is not evidence for Ruth's time. It was also taken in October, later than this page's wheel puts grain work, which is a reason not to set the wheel by it.",
+      "verses": [
+        "Ruth 3:2",
+        "Matthew 3:12"
+      ],
+      "sources": [
+        "waters",
+        "matson"
+      ],
+      "picture": "winnow"
+    },
+    {
+      "id": "prune",
+      "name": "Prune",
+      "seasons": [
+        "vines"
+      ],
+      "line": "Cutting back the vine.",
+      "witness": [
+        "stone",
+        "scripture"
+      ],
+      "evidence": "The stone gives two months to a word translated pruning or vine-tending. The law stops pruning in the seventh year. Isaiah has a pruning knife, a vineyard left unpruned, and swords turned into plowshares; Joel turns them back.",
+      "inference": "To turn a spear into a pruning hook, a hearer had to know that both were iron and that one of them fed people.",
+      "limit": "If the stone's vine word means picking and not pruning, this bar belongs to another job. No pruning knife is shown here, because none turned up among the open records read. The prophets do not describe the tool's shape.",
+      "verses": [
+        "Leviticus 25:4",
+        "Isaiah 18:5",
+        "Isaiah 5:6",
+        "Isaiah 2:4",
+        "Micah 4:3",
+        "Joel 3:10"
+      ],
+      "sources": [
+        "torah",
+        "bas-gezer"
+      ]
+    },
+    {
+      "id": "tread",
+      "name": "Tread",
+      "seasons": [
+        "vines",
+        "ingather"
+      ],
+      "line": "Grapes under foot, into the vat.",
+      "witness": [
+        "scripture",
+        "ground",
+        "later"
+      ],
+      "evidence": "Isaiah's vineyard owner digs out a winepress, and a judgment on Moab silences the shouts of those who tread. Nehemiah finds people treading on the Sabbath. A search summary of an Israel Antiquities Authority report gives a hewn treading floor at Khirbat Khudash of about 2.20 by 2.45 m.",
+      "inference": "A press cut in rock took work long before any grapes came. In Isaiah 5:2 the owner digs his at the start, and a hearer would see a man expecting a crop.",
+      "limit": "The authority's report refused this study's download, so that floor is known from a summary, and its date was not confirmed. The photograph is of a convent cellar in Jerusalem in the 1930s. The bar covers two seasons because the stone does not settle where grapes fall.",
+      "verses": [
+        "Isaiah 5:2",
+        "Isaiah 16:10",
+        "Nehemiah 13:15"
+      ],
+      "sources": [
+        "atiqot",
+        "matson"
+      ],
+      "picture": "tread",
+      "groundNote": "One hewn floor, known here from a search summary. Its date is not confirmed."
+    },
+    {
+      "id": "press",
+      "name": "Beat and press",
+      "seasons": [
+        "ingather"
+      ],
+      "line": "Olives, a beam, and hanging stones.",
+      "witness": [
+        "scripture",
+        "ground",
+        "later"
+      ],
+      "evidence": "The law says to beat the olives once and leave the rest. Isaiah pictures the few left at the top. An excavation report describes a beam anchored in a rock niche, weighted with hanging stones, pressing baskets of crushed olives over a vat, and says this press appeared in the Iron Age. David Eitam reports more than 100 presses at Ekron.",
+      "inference": "The olive's work came at the far end of the year from the grain's, so the two did not compete for the same hands. This is this study's own reading of the wheel.",
+      "limit": "The Horbat Binit presses in that report are themselves dated later, so the Iron Age statement is its general remark, citing Rafael Frankel, who was not read. Eitam's view of who ran Ekron's presses is his, and a later article challenges the consensus. Micah's verse mentions pressing and does not describe it.",
+      "verses": [
+        "Deuteronomy 24:20",
+        "Isaiah 17:6",
+        "Micah 6:15"
+      ],
+      "sources": [
+        "alexandre",
+        "eitam",
+        "peq-oil",
+        "frankel",
+        "matson"
+      ],
+      "picture": "press",
+      "groundNote": "Presses reported at Ekron, a Philistine city. The Horbat Binit presses are later."
+    }
+  ],
+  "hearers": [
+    {
+      "id": "ruth",
+      "name": "Ruth",
+      "head": "A story with a clock in it.",
+      "lead": "Ruth never explains the calendar. Three short notes place the whole book on the wheel.",
+      "link": {
+        "href": "/read/bsb/RUT/1",
+        "label": "Read Ruth in the Berean"
+      },
+      "items": [
+        {
+          "id": "ruth-arrive",
+          "verse": "Ruth 1:22",
+          "seasons": [
+            "barley"
+          ],
+          "knew": "Two widows have come home just when a field starts to yield food for the poor. The note is not scenery. The next chapter depends on it.",
+          "limit": "Ruth 1 does not explain the timing. That it matters is this study's reading of chapter 2.",
+          "sources": [
+            "scripture"
+          ]
+        },
+        {
+          "id": "ruth-glean",
+          "verse": "Ruth 2:23",
+          "seasons": [
+            "barley",
+            "harvest"
+          ],
+          "knew": "Barley and then wheat: weeks of daily work beside the same harvesters. The season sets how long the book's second chapter lasts.",
+          "limit": "Ruth gives no count of days, and the length is taken from the stone.",
+          "sources": [
+            "scripture"
+          ]
+        },
+        {
+          "id": "ruth-floor",
+          "verse": "Ruth 3:2",
+          "seasons": [
+            "barley"
+          ],
+          "knew": "Winnowing barley means a man at the floor, at night, with his grain. Naomi can name the place and the hour because the work sets them.",
+          "limit": "Why Boaz was there at night is not stated.",
+          "sources": [
+            "waters"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prophets",
+      "name": "The prophets",
+      "head": "Sermons cut from the farm.",
+      "lead": "The prophets use farm work the way a modern speaker uses a clock or a car. They do not stop to explain it.",
+      "link": {
+        "href": "/topics/ploughing",
+        "label": "Ploughing in the Topics"
+      },
+      "items": [
+        {
+          "id": "amos-basket",
+          "verse": "Amos 8:2",
+          "seasons": [
+            "summer"
+          ],
+          "knew": "The basket holds qayits, summer fruit, and the Lord's reply is qets, “the end”. Keil and Delitzsch call it a play on the sound. The stone's last line is this fruit, so the last thing in the year stands for the last thing of all.",
+          "limit": "The wordplay is a commentator's reading of two similar sounds. The Hebrew words are different.",
+          "sources": [
+            "keil"
+          ]
+        },
+        {
+          "id": "isaiah-farmer",
+          "verse": "Isaiah 28:27",
+          "seasons": [
+            "harvest"
+          ],
+          "knew": "Isaiah asks people who knew a sledge is not used on caraway to consider the God who taught the farmer. His argument only works on people who already knew that.",
+          "limit": "What the crowd actually knew is inferred from how the argument works.",
+          "sources": [
+            "scripture"
+          ]
+        },
+        {
+          "id": "jeremiah-past",
+          "verse": "Jeremiah 8:20",
+          "seasons": [
+            "harvest",
+            "summer"
+          ],
+          "knew": "When the last fruit is in, there is no later crop to wait for until the next year. That is why the line is so bleak.",
+          "limit": "The verse gives an order and a complaint. It is not a farming note.",
+          "sources": [
+            "scripture"
+          ]
+        },
+        {
+          "id": "hosea-heifer",
+          "verse": "Hosea 10:11",
+          "seasons": [
+            "sow",
+            "harvest"
+          ],
+          "knew": "An ox at the floor could eat as it worked, by the law in Deuteronomy 25:4. Ploughing under a yoke was harder. A farmer hears the change from one to the other.",
+          "limit": "Hosea does not cite the law. Linking the two is this study's reading.",
+          "sources": [
+            "scripture"
+          ]
+        },
+        {
+          "id": "micah-hooks",
+          "verse": "Micah 4:3",
+          "seasons": [
+            "vines"
+          ],
+          "knew": "Sharpening iron cost money, as 1 Samuel 13 records. Hearers knew exactly what it would mean to rework a weapon into a tool.",
+          "limit": "Prices for iron in Micah's day are not given.",
+          "sources": [
+            "scripture"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parables",
+      "name": "The parables",
+      "head": "The farm work only.",
+      "lead": "This page explains what a hearer pictured. What each parable teaches is in The parables of Christ, and each entry links there.",
+      "link": {
+        "href": "/study/gospels?guide=parables",
+        "label": "Open The parables of Christ"
+      },
+      "items": [
+        {
+          "id": "par-sower",
+          "verse": "Matthew 13:4",
+          "seasons": [
+            "sow"
+          ],
+          "parable": "sower",
+          "knew": "Seed thrown by hand lands where it lands, and a path through or beside a field was ordinary. The order of sowing and ploughing behind this scene is the second claim below.",
+          "limit": "The scene gives no field plan and no order of work.",
+          "sources": [
+            "vaneck"
+          ]
+        },
+        {
+          "id": "par-seed",
+          "verse": "Mark 4:29",
+          "seasons": [
+            "barley",
+            "harvest"
+          ],
+          "parable": "growing-seed",
+          "knew": "Stalk, head, ripe grain, and then the sickle. On the stone, months lie between the sowing entries and the barley entry, and harvest comes all at once.",
+          "limit": "The story names no months. The time between them is taken from the stone.",
+          "sources": [
+            "scripture"
+          ]
+        },
+        {
+          "id": "par-weeds",
+          "verse": "Matthew 13:30",
+          "seasons": [
+            "harvest"
+          ],
+          "parable": "weeds",
+          "knew": "Bundles, a barn and harvesters given instructions: the ordinary gear and people of a grain harvest.",
+          "limit": "Whether farmers usually sorted this way is not shown by the sources read.",
+          "sources": [
+            "scripture"
+          ]
+        },
+        {
+          "id": "par-tower",
+          "verse": "Mark 12:1",
+          "seasons": [
+            "ingather"
+          ],
+          "parable": "tenants",
+          "knew": "Wall, wine vat, tower: the three works of a vineyard being set up. Isaiah's owner in Isaiah 5:2 builds the tower and cuts the winepress too.",
+          "limit": "Nothing excavated is tied to this verse here.",
+          "sources": [
+            "scripture"
+          ]
+        },
+        {
+          "id": "par-workers",
+          "verse": "Matthew 20:2",
+          "seasons": [
+            "ingather"
+          ],
+          "parable": "workers",
+          "knew": "A vineyard could need more hands than a household had, so hiring by the day had a reason. The denarius is the agreed day's pay.",
+          "limit": "The placing on the wheel is this study's, and the verse does not say what the hired men did.",
+          "sources": [
+            "scripture"
+          ]
+        },
+        {
+          "id": "par-fig",
+          "verse": "Luke 13:8",
+          "seasons": [
+            "summer"
+          ],
+          "parable": "barren-fig",
+          "knew": "Digging round a tree and spreading manure was ordinary tree care. The stone's last line names the fruit, and has no line for this.",
+          "limit": "Fig care is not on the stone, and no source read here describes it.",
+          "sources": [
+            "scripture"
+          ]
+        }
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "1",
+      "claim": "“The Gezer calendar was Israel's official calendar.”",
+      "head": "A list of work. Not a state's calendar.",
+      "evidence": "It uses no month names, and its spans are round: two months, one month. Seth Sanders's point, reported in an encyclopedia entry, is that it lacks the month names a calendar would be expected to use. Scholars have proposed a writing exercise, a song, a tax aid, an almanac and a temple blessing. Whether its language is Hebrew or Phoenician is argued too.",
+      "inference": "It shows that someone at Gezer could set out the farming year in order and in writing. The order fits what Scripture's passages assume.",
+      "limit": "It has no secure excavated context, so its date of about the 10th century BC rests largely on the letters and the language. Its name is a modern one, and “Abijah” is a restored reading. It speaks for one region as far as anyone can tell.",
+      "test": {
+        "question": "A speaker says: “Israel's kings ran the year by the Gezer calendar.” What can the stone support?",
+        "options": [
+          {
+            "text": "That is correct: it is a royal calendar.",
+            "right": false,
+            "why": "Nothing on it names a king or an office, and a tax use is only one proposal among several."
+          },
+          {
+            "text": "Someone at Gezer listed the farming year in order.",
+            "right": true,
+            "why": "That is what the seven lines hold. Who it was for, and why, are all proposals."
+          },
+          {
+            "text": "Nothing, because the stone's date is uncertain.",
+            "right": false,
+            "why": "An uncertain date limits what can be said about when. It does not empty the list of its order, which Scripture's passages independently share."
+          }
+        ]
+      },
+      "verses": [
+        "Exodus 23:16"
+      ],
+      "sources": [
+        "wikipedia",
+        "bas-gezer",
+        "shaked"
+      ]
+    },
+    {
+      "id": "2",
+      "claim": "“In Palestine they sowed first and ploughed afterwards.”",
+      "head": "Stated confidently. Argued since 1964.",
+      "evidence": "Joachim Jeremias, following Gustaf Dalman, made this claim in The Parables of Jesus. K. D. White questioned it in 1964. Philip Payne argued in 1978 that either order could occur, depending on the season. Isaiah 28:24–25 has ploughing and levelling before the sowing.",
+      "inference": "The confident version says more than the evidence does. In Isaiah 28, a poem about a farmer, ploughing comes first, and the order may have varied.",
+      "limit": "This study knows the debate through Ernest van Eck's summary, and did not read White, Jeremias or Payne directly. Van Eck's own reading of the parable, as a statement about land and rent, is his, and it is not adopted here. Summaries disagree on whether Jeremias's 1966 article defended his view or changed it, so that remains unsettled here.",
+      "test": {
+        "question": "A study note says: “Farmers always ploughed after sowing.” What can you say?",
+        "options": [
+          {
+            "text": "True. Jeremias showed it.",
+            "right": false,
+            "why": "Jeremias argued it, White disputed it, and Payne found that both orders could occur."
+          },
+          {
+            "text": "False. Farmers always ploughed first.",
+            "right": false,
+            "why": "That swaps one “always” for another. Isaiah 28 shows one order in one passage."
+          },
+          {
+            "text": "“Always” goes too far: it may have depended on the season.",
+            "right": true,
+            "why": "This is Payne's position as reported, and it is as far as the evidence read here can carry you."
+          }
+        ]
+      },
+      "verses": [
+        "Isaiah 28:24",
+        "Isaiah 28:25",
+        "Matthew 13:4"
+      ],
+      "sources": [
+        "vaneck",
+        "jeremias",
+        "white",
+        "payne"
+      ]
+    },
+    {
+      "id": "3",
+      "claim": "“The threshing floors of the Bible have been dug up.”",
+      "head": "Hard, flat, and possibly a rubbish heap.",
+      "evidence": "Excavators have called hard surfaces threshing floors, at Gezer and elsewhere. At Iron Age Megiddo a test of one such layer found wood ash and livestock dung, and its authors called it a trash heap. Waters explains the difficulty: a working floor is swept and exposed to wind, so it may leave nothing. The floors she describes as firmly identified, near Caesarea and in Samaria, are Hellenistic to Roman.",
+      "inference": "Flat ground outside a village is what a threshing floor would be. It is also what many other things would be. For Israel's period the evidence is mostly words, not floors.",
+      "limit": "This study read Waters's introduction, and knows the Megiddo paper through her and through its abstract. A 2022 paper on Gezer's own “threshing floors” was located, not read, because the publisher refused the download. That paper should be read before this page says more.",
+      "test": {
+        "question": "A dig uncovers a hard, flat Iron Age surface at the edge of a town. What can be said?",
+        "options": [
+          {
+            "text": "It is a threshing floor, because it fits the description.",
+            "right": false,
+            "why": "That is the step Megiddo warns against. A flat surface fits many uses, and the Megiddo layer was a trash heap."
+          },
+          {
+            "text": "It may be one, and testing what lies in it is the next step.",
+            "right": true,
+            "why": "That is what the Megiddo test did. Even then a clean floor may leave little to find."
+          },
+          {
+            "text": "It cannot be one, because no ancient floor survives.",
+            "right": false,
+            "why": "Floors do survive: later ones are described in Samaria and near Caesarea."
+          }
+        ]
+      },
+      "verses": [
+        "Ruth 3:2"
+      ],
+      "sources": [
+        "waters",
+        "shahack",
+        "gezer-plants",
+        "smith"
+      ]
+    }
+  ],
+  "confusedWords": [
+    {
+      "word": "A find, a passage and a photograph",
+      "note": "A sickle from Tawilan is a find. Ruth 3:2 is a passage. A man with a fork at Gezer in 1934 is a photograph. Each says something different, and only the first two are ancient."
+    },
+    {
+      "word": "A calendar and a list of work",
+      "note": "A calendar divides time. This stone lists jobs in order and gives each a rough length. The name “calendar” is modern."
+    },
+    {
+      "word": "Threshing and winnowing",
+      "note": "Threshing crushes the stalks. Winnowing throws the result up so the wind can take the chaff. They share a floor and are not the same job."
+    },
+    {
+      "word": "Summer fruit and the end",
+      "note": "In Amos 8 the two Hebrew words sound alike and are different words. The stone's last line is the fruit."
+    },
+    {
+      "word": "Gleaning and stealing",
+      "note": "The law gave the gleaner a right to what was left behind. A hungry hand was allowed in a neighbour's field, and a sickle was not."
+    },
+    {
+      "word": "The order of the year and a date",
+      "note": "Scripture and the stone agree on the order. Neither gives a modern month, and the month labels on the wheel are this study's."
+    }
+  ],
+  "reach": [
+    "This page is a selection: ten jobs, eight passages for the order of the year, and fourteen passages for what a hearer knew. Each was chosen because the farm work carries weight in the passage. It is not a list of every farming verse.",
+    "It rests on one small stone and on Scripture. No excavation report on Iron Age fields was read in full. Oded Borowski's standard book, Agriculture in Iron Age Israel, was not read, and it is the first thing to read before this page says more.",
+    "The stone speaks for Gezer's region as far as anyone can tell. Borowski, as Waters reports him, says the seasons could vary from place to place. The hills, the coast and the Jordan valley need not have kept one clock.",
+    "The photographs are from twentieth-century Palestine and show people working in their own time and for their own reasons. They help a reader to picture the work. They are not presented as survivals of the Bible's world."
+  ],
+  "sources": [
+    {
+      "id": "bas-gezer",
+      "title": "Marek Dospěl, “The Gezer Calendar”, Biblical Archaeology Society",
+      "url": "https://www.biblicalarchaeology.org/daily/biblical-artifacts/inscriptions/the-gezer-calendar/",
+      "kind": "Article, 2026",
+      "status": "read",
+      "answers": "What is the stone, how is it translated, and what might it be for?",
+      "read": "Read through a tool that returned the page's content as a report, not the page itself. Nothing from it is quoted word for word on this page."
+    },
+    {
+      "id": "wikipedia",
+      "title": "Wikipedia, “Gezer calendar”",
+      "url": "https://en.wikipedia.org/wiki/Gezer_calendar",
+      "kind": "Encyclopedia",
+      "status": "read",
+      "answers": "The transcription, size, museum number, and who has argued what. Seth Sanders's point and the Hebrew-or-Phoenician debate reached this study through it.",
+      "read": "Read through the same kind of tool. The scholars it cites were not read."
+    },
+    {
+      "id": "torah",
+      "title": "Karel van der Toorn, “Rosh Hashanah with the Early Israelites”, TheTorah.com",
+      "url": "https://www.thetorah.com/article/rosh-hashanah-with-the-early-israelites",
+      "kind": "Article, 2020",
+      "status": "read",
+      "answers": "Where does ingathering fall, and how is the short word in the sixth season read? He gives about mid-September to mid-November.",
+      "read": "Read through the same kind of tool. His argument about the New Year is his, and is left to the study of the feasts."
+    },
+    {
+      "id": "shaked",
+      "title": "Zahi Shaked, “The Gezer Calendar”, Interactive Archaeological Map",
+      "url": "https://biblical-archaeology.org/en/publications/the-gezer-calendar-one-of-the-earliest-surviving-examples-of-written-hebrew-lets-read-it-together/",
+      "kind": "Guide's page",
+      "status": "read",
+      "answers": "A second placing of the year, about a month later, and a “cutting flax” and “measuring” reading.",
+      "read": "Read through the same kind of tool. It is a tour guide's page, and it is used only as an example of a differing placing."
+    },
+    {
+      "id": "waters",
+      "title": "Jaime L. Waters, Threshing Floors in Ancient Israel (Fortress Press, 2015)",
+      "url": "https://ms.augsburgfortress.org/downloads/9781451485233_Introduction.pdf",
+      "kind": "Book",
+      "status": "part",
+      "answers": "How were threshing and winnowing done, and why are floors so hard to find? She also reports Borowski's sowing and harvest months.",
+      "read": "The publisher's sample: the introduction, pages 1 to 10, read directly. The chapters on the biblical passages were not read. Her argument that floors were sacred spaces is hers, and this page does not depend on it."
+    },
+    {
+      "id": "vaneck",
+      "title": "Ernest van Eck, “The harvest and the kingdom”, HTS Teologiese Studies 70(1)",
+      "url": "https://hts.org.za/index.php/hts/article/view/2715/5204",
+      "kind": "Article, 2014",
+      "status": "read",
+      "answers": "Who said what about the order of sowing and ploughing?",
+      "read": "Read through a tool, for that debate only. His own reading of the parable is his and is not adopted."
+    },
+    {
+      "id": "smith",
+      "title": "Patrick Scott Smith, “Threshing Floors of the Bible”, World History Encyclopedia",
+      "url": "https://www.worldhistory.org/article/2050/threshing-floors-of-the-bible/",
+      "kind": "Article, 2022",
+      "status": "read",
+      "answers": "Where were floors placed, and what do excavated ones look like?",
+      "read": "Read through a tool. A general article that leans on Waters."
+    },
+    {
+      "id": "alexandre",
+      "title": "Yardenna Alexandre and Eric Gould, “Horbat Binit”, Hadashot Arkheologiyot 123",
+      "url": "https://hadashot.iaa.org.il/report_detail_eng.aspx?id=1887",
+      "kind": "Excavation report, 2011",
+      "status": "read",
+      "answers": "How did a beam-and-weights press work, and when did it appear?",
+      "read": "Read through a tool, for the press only. Their own presses are dated later than the Iron Age."
+    },
+    {
+      "id": "eitam",
+      "title": "David Eitam, “Olive Culture in Ancient Israel”, Gems in Israel",
+      "url": "https://www.gemsinisrael.com/the-gems/the-olive-culture-of-the-holy-land/olive-culture-in-ancient-israel/",
+      "kind": "Article, undated",
+      "status": "read",
+      "answers": "How large was the oil industry at Ekron and elsewhere?",
+      "read": "Read through a tool. His numbers and his view of who ran Ekron's presses are his."
+    },
+    {
+      "id": "keil",
+      "title": "Keil and Delitzsch on Amos 8:2, on Bible Hub",
+      "url": "https://biblehub.com/commentaries/amos/8-2.htm",
+      "kind": "Commentary, 19th century",
+      "status": "part",
+      "answers": "Is the summer fruit a play on the word for the end?",
+      "read": "The comment on this verse only, through a tool."
+    },
+    {
+      "id": "peq-oil",
+      "title": "“A Note on Olive Oil Production in Iron Age Philistia: Pressing the consensus”, Palestine Exploration Quarterly 153(2)",
+      "url": "https://www.tandfonline.com/doi/abs/10.1080/00310328.2020.1852795",
+      "kind": "Article, 2021",
+      "status": "located",
+      "answers": "Was Ekron really where oil production began?",
+      "read": "A search summary only. It is cited for the existence of the challenge."
+    },
+    {
+      "id": "atiqot",
+      "title": "Report on Khirbat Khudash, ʿAtiqot 118 (Israel Antiquities Authority)",
+      "url": "https://publications.iaa.org.il/cgi/viewcontent.cgi?article=2317&context=atiqot",
+      "kind": "Excavation report",
+      "status": "located",
+      "answers": "What do rock-cut winepresses and oil presses at one site look like?",
+      "read": "A search summary only. The authority's site refused the download, and that was not worked around."
+    },
+    {
+      "id": "shahack",
+      "title": "Ruth Shahack-Gross, Mor Gafri and Israel Finkelstein, “Identifying Threshing Floors in the Archaeological Record”, Journal of Field Archaeology 34 (2009)",
+      "url": "https://cris.tau.ac.il/en/publications/identifying-threshing-floors-in-the-archaeological-record-a-test-",
+      "kind": "Article",
+      "status": "second-hand",
+      "answers": "Was the layered feature at Megiddo a threshing floor?",
+      "read": "Known through Waters's account and a search summary of the abstract. The article itself was not read."
+    },
+    {
+      "id": "gezer-plants",
+      "title": "“Archaeobotanical Remains from Tel Gezer, Israel, and their Implications for the ‘Threshing Floors’ of Field VI”, Environmental Archaeology (2022)",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/14614103.2022.2058684",
+      "kind": "Article",
+      "status": "located",
+      "answers": "What did plant remains say about Gezer's own “threshing floors”?",
+      "read": "A search summary only. The publisher refused the download, and that was not worked around. Read this before saying more about Gezer."
+    },
+    {
+      "id": "borowski",
+      "title": "Oded Borowski, Agriculture in Iron Age Israel (Eisenbrauns, 1987; reprint 2009)",
+      "url": "https://www.eisenbrauns.org/books/titles/978-1-57506-174-0.html",
+      "kind": "Book",
+      "status": "located",
+      "answers": "The standard work on crops, cultivation and tools in this period.",
+      "read": "Not read. Known through pages 32 to 38 as Waters reports them. It is the first thing to read next."
+    },
+    {
+      "id": "koller",
+      "title": "Aaron Koller, on two Hebrew words for cutting, Journal of Near Eastern Studies 72/2 (2013)",
+      "url": "https://en.wikipedia.org/wiki/Gezer_calendar",
+      "kind": "Article",
+      "status": "located",
+      "answers": "What does the flax line's verb mean?",
+      "read": "Not read. Known only as a reference in the encyclopedia entry, which is the link given."
+    },
+    {
+      "id": "jeremias",
+      "title": "Joachim Jeremias, The Parables of Jesus (1972); “Palästinakundliches zum Gleichnis vom Säemann”, New Testament Studies 13 (1966)",
+      "url": "https://hts.org.za/index.php/hts/article/view/2715/5204",
+      "kind": "Book and article",
+      "status": "second-hand",
+      "answers": "The claim that sowing came first.",
+      "read": "Known through van Eck, which is the link given. Not read directly."
+    },
+    {
+      "id": "white",
+      "title": "K. D. White, “The parable of the sower”, Journal of Theological Studies 15 (1964)",
+      "url": "https://hts.org.za/index.php/hts/article/view/2715/5204",
+      "kind": "Article",
+      "status": "second-hand",
+      "answers": "The challenge to that claim.",
+      "read": "Known through van Eck, which is the link given. Not read directly."
+    },
+    {
+      "id": "payne",
+      "title": "Philip B. Payne, “The Order of Sowing and Ploughing in the Parable of the Sower”, New Testament Studies 25 (1978–79)",
+      "url": "https://hts.org.za/index.php/hts/article/view/2715/5204",
+      "kind": "Article",
+      "status": "second-hand",
+      "answers": "That either order could occur.",
+      "read": "Known through van Eck, which is the link given. Not read directly."
+    },
+    {
+      "id": "frankel",
+      "title": "Rafael Frankel, Wine and Oil Production in Antiquity in Israel and Other Mediterranean Countries (1999)",
+      "url": "https://hadashot.iaa.org.il/report_detail_eng.aspx?id=1887",
+      "kind": "Book",
+      "status": "second-hand",
+      "answers": "When and where did the beam press appear?",
+      "read": "Known through the Horbat Binit report, which is the link given. Not read directly."
+    },
+    {
+      "id": "met-sickle",
+      "title": "The Metropolitan Museum of Art, Sickle, 1977.234.23",
+      "url": "https://www.metmuseum.org/art/collection/search/326254",
+      "kind": "Museum record",
+      "status": "read",
+      "answers": "What does one iron sickle from the region look like?",
+      "read": "The museum's open record."
+    },
+    {
+      "id": "met-flint",
+      "title": "The Metropolitan Museum of Art, Sickle blade set in bitumen, 62.70.81",
+      "url": "https://www.metmuseum.org/art/collection/search/325486",
+      "kind": "Museum record",
+      "status": "read",
+      "answers": "How was a flint blade set?",
+      "read": "The museum's open record."
+    },
+    {
+      "id": "matson",
+      "title": "G. Eric and Edith Matson Photograph Collection, Library of Congress",
+      "url": "https://www.loc.gov/collections/g-eric-and-edith-matson-photographs/",
+      "kind": "Photographs, 1898–1946",
+      "status": "read",
+      "answers": "What did this work look like before machines, in the same land?",
+      "read": "The photographs and their catalogue titles only."
+    },
+    {
+      "id": "scripture",
+      "title": "The Berean Standard Bible",
+      "url": "/read/bsb/RUT/1",
+      "kind": "Scripture",
+      "status": "read",
+      "answers": "Every verse this study quotes and opens.",
+      "read": "Each verse read in the site's own copy. Word matches come from the site's tagged King James text."
+    }
+  ],
+  "pictures": [
+    {
+      "id": "stone",
+      "src": "/images/studies/the-farming-year/gezer-stone.jpg",
+      "alt": "A small pale limestone tablet with rows of scratched letters, broken at the bottom edge.",
+      "credit": "Photo by Oncenawhile, Istanbul Archaeology Museums, inventory 2089 T, Wikimedia Commons, cropped by this site",
+      "licence": "CC0",
+      "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "href": "https://commons.wikimedia.org/wiki/File:Gezer_calendar_in_Istanbul.jpg",
+      "retrieved": "2026-10-31",
+      "width": 415,
+      "height": 547
+    },
+    {
+      "id": "label",
+      "src": "/images/studies/the-farming-year/gezer-calendar.jpg",
+      "alt": "The tablet on a museum shelf, above a printed label in Turkish and English that lists seven lines with months.",
+      "credit": "Photo by Oncenawhile, Istanbul Archaeology Museums, Wikimedia Commons",
+      "licence": "CC0",
+      "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "href": "https://commons.wikimedia.org/wiki/File:Gezer_calendar_in_Istanbul.jpg",
+      "retrieved": "2026-10-31",
+      "width": 620,
+      "height": 1158
+    },
+    {
+      "id": "winnow",
+      "src": "/images/studies/the-farming-year/winnowing-gezer-1934.jpg",
+      "alt": "A man in a long robe throwing grain and chaff into the air with a wooden fork on open ground. A woman sits sifting beside him, and a motor car stands in the distance.",
+      "credit": "“Winnowing at Gezer, Oct. 1934”, G. Eric and Edith Matson Photograph Collection, Library of Congress, matpc.22241",
+      "licence": "Public domain",
+      "licenceUrl": "https://www.loc.gov/rr/print/res/071_mats.html",
+      "href": "https://commons.wikimedia.org/wiki/File:Winnowing_at_Gezer,_Oct._1934_LOC_matpc.22241.jpg",
+      "retrieved": "2026-10-31",
+      "width": 1100,
+      "height": 730
+    },
+    {
+      "id": "thresh",
+      "src": "/images/studies/the-farming-year/threshing-saffourieh-1940.jpg",
+      "alt": "Threshing floors spread below a village in Galilee, with a horse drawing a threshing board over grain.",
+      "credit": "“Saffourieh … threshing floors below the village, threshing board drawn by horse”, Matson Collection, Library of Congress, matpc.20758",
+      "licence": "Public domain",
+      "licenceUrl": "https://www.loc.gov/rr/print/res/071_mats.html",
+      "href": "https://commons.wikimedia.org/wiki/File:Galilee_trip._Saffourieh_(near_Nazareth)._Saforis_(Sepphoris)._General_view_of_the_Saffourie(h)_threshing_floors_below_the_village,_threshing_board_drawn_by_horse_LOC_matpc.20758.jpg",
+      "retrieved": "2026-10-31",
+      "width": 900,
+      "height": 641
+    },
+    {
+      "id": "plough",
+      "src": "/images/studies/the-farming-year/ploughing-matson.jpg",
+      "alt": "A farmer guiding a simple wooden plough drawn by a donkey and a cow yoked together.",
+      "credit": "Matson Collection, Library of Congress, matpc.04786, between 1898 and 1946",
+      "licence": "Public domain",
+      "licenceUrl": "https://www.loc.gov/rr/print/res/071_mats.html",
+      "href": "https://commons.wikimedia.org/wiki/File:Arab_plowing_w-donkey_and_cow_LOC_matpc.04786.jpg",
+      "retrieved": "2026-10-31",
+      "width": 900,
+      "height": 661
+    },
+    {
+      "id": "press",
+      "src": "/images/studies/the-farming-year/olive-press-matson.jpg",
+      "alt": "People working a long wooden beam weighted with a heavy stone over round baskets of olive pulp, in a walled stone yard.",
+      "credit": "“Olive crushing and pressing. Method of weighting the press”, Matson Collection, Library of Congress, matpc.15645",
+      "licence": "Public domain",
+      "licenceUrl": "https://www.loc.gov/rr/print/res/071_mats.html",
+      "href": "https://commons.wikimedia.org/wiki/File:Olive_crushing_and_pressing._Method_of_weighting_the_press._Great_pressure_realised_by_means_of_leverage_LOC_matpc.15645.jpg",
+      "retrieved": "2026-10-31",
+      "width": 900,
+      "height": 672
+    },
+    {
+      "id": "tread",
+      "src": "/images/studies/the-farming-year/treading-matson.jpg",
+      "alt": "Men treading grapes in a vat in a convent cellar in Jerusalem.",
+      "credit": "“‘Treading the wine press’ in Greek convent cellars, Jerusalem”, Matson Collection, Library of Congress, matpc.22417, between 1934 and 1939",
+      "licence": "Public domain",
+      "licenceUrl": "https://www.loc.gov/rr/print/res/071_mats.html",
+      "href": "https://commons.wikimedia.org/wiki/File:%27Treading_the_wine_press%27_in_Greek_convent_cellars,_Jerusalem_LOC_matpc.22417.jpg",
+      "retrieved": "2026-10-31",
+      "width": 900,
+      "height": 626
+    },
+    {
+      "id": "sickle",
+      "src": "/images/studies/the-farming-year/sickle-tawilan.jpg",
+      "alt": "A corroded curved iron sickle blade, photographed on a plain ground.",
+      "credit": "The Metropolitan Museum of Art, 1977.234.23. Purchase, H. Dunscombe Colt Gift, 1977",
+      "licence": "CC0",
+      "licenceUrl": "https://www.metmuseum.org/about-the-met/policies-and-documents/open-access",
+      "href": "https://www.metmuseum.org/art/collection/search/326254",
+      "retrieved": "2026-10-31",
+      "width": 391,
+      "height": 624
+    },
+    {
+      "id": "flint",
+      "src": "/images/studies/the-farming-year/sickle-flint-mesopotamia.jpg",
+      "alt": "A small flint sickle blade with dark bitumen still on one edge.",
+      "credit": "The Metropolitan Museum of Art, 62.70.81. Rogers Fund, 1962",
+      "licence": "CC0",
+      "licenceUrl": "https://www.metmuseum.org/about-the-met/policies-and-documents/open-access",
+      "href": "https://www.metmuseum.org/art/collection/search/325486",
+      "retrieved": "2026-10-31",
+      "width": 600,
+      "height": 450
+    }
+  ],
+  "verses": [
+    {
+      "label": "Exodus 23:16",
+      "code": "EXO",
+      "chapter": 23,
+      "verse": 16,
+      "phrase": "Feast of Ingathering"
+    },
+    {
+      "label": "Exodus 9:31",
+      "code": "EXO",
+      "chapter": 9,
+      "verse": 31,
+      "phrase": "flax was in bloom"
+    },
+    {
+      "label": "Exodus 9:32",
+      "code": "EXO",
+      "chapter": 9,
+      "verse": 32,
+      "phrase": "late crops"
+    },
+    {
+      "label": "Genesis 8:22",
+      "code": "GEN",
+      "chapter": 8,
+      "verse": 22,
+      "phrase": "seedtime and harvest"
+    },
+    {
+      "label": "Joshua 2:6",
+      "code": "JOS",
+      "chapter": 2,
+      "verse": 6,
+      "phrase": "stalks of flax"
+    },
+    {
+      "label": "Amos 7:1",
+      "code": "AMO",
+      "chapter": 7,
+      "verse": 1,
+      "phrase": "late spring crop"
+    },
+    {
+      "label": "Ruth 1:22",
+      "code": "RUT",
+      "chapter": 1,
+      "verse": 22,
+      "phrase": "beginning of the barley harvest"
+    },
+    {
+      "label": "Ruth 2:2",
+      "code": "RUT",
+      "chapter": 2,
+      "verse": 2,
+      "phrase": "glean heads of grain"
+    },
+    {
+      "label": "Ruth 2:7",
+      "code": "RUT",
+      "chapter": 2,
+      "verse": 7,
+      "phrase": "among the sheaves"
+    },
+    {
+      "label": "Ruth 2:17",
+      "code": "RUT",
+      "chapter": 2,
+      "verse": 17,
+      "phrase": "beat out what she had gleaned"
+    },
+    {
+      "label": "Ruth 2:23",
+      "code": "RUT",
+      "chapter": 2,
+      "verse": 23,
+      "phrase": "barley and wheat harvests were finished"
+    },
+    {
+      "label": "Ruth 3:2",
+      "code": "RUT",
+      "chapter": 3,
+      "verse": 2,
+      "phrase": "winnowing barley on the threshing floor"
+    },
+    {
+      "label": "Leviticus 25:4",
+      "code": "LEV",
+      "chapter": 25,
+      "verse": 4,
+      "phrase": "prune your vineyard"
+    },
+    {
+      "label": "Leviticus 26:5",
+      "code": "LEV",
+      "chapter": 26,
+      "verse": 5,
+      "phrase": "threshing will continue until the grape harvest"
+    },
+    {
+      "label": "Leviticus 19:9",
+      "code": "LEV",
+      "chapter": 19,
+      "verse": 9,
+      "phrase": "very edges of your field"
+    },
+    {
+      "label": "Leviticus 19:10",
+      "code": "LEV",
+      "chapter": 19,
+      "verse": 10,
+      "phrase": "fallen grapes"
+    },
+    {
+      "label": "Deuteronomy 16:9",
+      "code": "DEU",
+      "chapter": 16,
+      "verse": 9,
+      "phrase": "put the sickle to the standing grain"
+    },
+    {
+      "label": "Deuteronomy 22:10",
+      "code": "DEU",
+      "chapter": 22,
+      "verse": 10,
+      "phrase": "plow with an ox and a donkey"
+    },
+    {
+      "label": "Deuteronomy 23:25",
+      "code": "DEU",
+      "chapter": 23,
+      "verse": 25,
+      "phrase": "must not put a sickle"
+    },
+    {
+      "label": "Deuteronomy 24:19",
+      "code": "DEU",
+      "chapter": 24,
+      "verse": 19,
+      "phrase": "forget a sheaf"
+    },
+    {
+      "label": "Deuteronomy 24:20",
+      "code": "DEU",
+      "chapter": 24,
+      "verse": 20,
+      "phrase": "beat the olives"
+    },
+    {
+      "label": "Deuteronomy 24:21",
+      "code": "DEU",
+      "chapter": 24,
+      "verse": 21,
+      "phrase": "gather the grapes"
+    },
+    {
+      "label": "Deuteronomy 25:4",
+      "code": "DEU",
+      "chapter": 25,
+      "verse": 4,
+      "phrase": "treading out the grain"
+    },
+    {
+      "label": "Judges 6:11",
+      "code": "JDG",
+      "chapter": 6,
+      "verse": 11,
+      "phrase": "threshing wheat in a winepress"
+    },
+    {
+      "label": "1 Samuel 12:17",
+      "code": "1SA",
+      "chapter": 12,
+      "verse": 17,
+      "phrase": "Is it not the wheat harvest today"
+    },
+    {
+      "label": "1 Samuel 13:20",
+      "code": "1SA",
+      "chapter": 13,
+      "verse": 20,
+      "phrase": "sharpen their plowshares"
+    },
+    {
+      "label": "1 Samuel 13:21",
+      "code": "1SA",
+      "chapter": 13,
+      "verse": 21,
+      "phrase": "charge was a pim"
+    },
+    {
+      "label": "2 Samuel 24:22",
+      "code": "2SA",
+      "chapter": 24,
+      "verse": 22,
+      "phrase": "threshing sledges"
+    },
+    {
+      "label": "1 Kings 19:19",
+      "code": "1KI",
+      "chapter": 19,
+      "verse": 19,
+      "phrase": "twelve teams of oxen"
+    },
+    {
+      "label": "Psalm 126:6",
+      "code": "PSA",
+      "chapter": 126,
+      "verse": 6,
+      "phrase": "trail of seed"
+    },
+    {
+      "label": "Proverbs 20:4",
+      "code": "PRO",
+      "chapter": 20,
+      "verse": 4,
+      "phrase": "does not plow in season"
+    },
+    {
+      "label": "Isaiah 2:4",
+      "code": "ISA",
+      "chapter": 2,
+      "verse": 4,
+      "phrase": "swords into plowshares"
+    },
+    {
+      "label": "Isaiah 5:2",
+      "code": "ISA",
+      "chapter": 5,
+      "verse": 2,
+      "phrase": "dug out a winepress"
+    },
+    {
+      "label": "Isaiah 5:6",
+      "code": "ISA",
+      "chapter": 5,
+      "verse": 6,
+      "phrase": "neither pruned nor cultivated"
+    },
+    {
+      "label": "Isaiah 16:10",
+      "code": "ISA",
+      "chapter": 16,
+      "verse": 10,
+      "phrase": "tramples the grapes"
+    },
+    {
+      "label": "Isaiah 17:6",
+      "code": "ISA",
+      "chapter": 17,
+      "verse": 6,
+      "phrase": "olive tree that has been beaten"
+    },
+    {
+      "label": "Isaiah 18:5",
+      "code": "ISA",
+      "chapter": 18,
+      "verse": 5,
+      "phrase": "pruning knife"
+    },
+    {
+      "label": "Isaiah 28:24",
+      "code": "ISA",
+      "chapter": 28,
+      "verse": 24,
+      "phrase": "Does the plowman plow"
+    },
+    {
+      "label": "Isaiah 28:25",
+      "code": "ISA",
+      "chapter": 28,
+      "verse": 25,
+      "phrase": "sow caraway"
+    },
+    {
+      "label": "Isaiah 28:26",
+      "code": "ISA",
+      "chapter": 28,
+      "verse": 26,
+      "phrase": "God instructs"
+    },
+    {
+      "label": "Isaiah 28:27",
+      "code": "ISA",
+      "chapter": 28,
+      "verse": 27,
+      "phrase": "caraway is not threshed"
+    },
+    {
+      "label": "Isaiah 28:28",
+      "code": "ISA",
+      "chapter": 28,
+      "verse": 28,
+      "phrase": "not endlessly threshed"
+    },
+    {
+      "label": "Isaiah 41:15",
+      "code": "ISA",
+      "chapter": 41,
+      "verse": 15,
+      "phrase": "threshing sledge"
+    },
+    {
+      "label": "Jeremiah 8:20",
+      "code": "JER",
+      "chapter": 8,
+      "verse": 20,
+      "phrase": "harvest has passed"
+    },
+    {
+      "label": "Hosea 10:11",
+      "code": "HOS",
+      "chapter": 10,
+      "verse": 11,
+      "phrase": "loves to thresh"
+    },
+    {
+      "label": "Joel 3:10",
+      "code": "JOL",
+      "chapter": 3,
+      "verse": 10,
+      "phrase": "plowshares into swords"
+    },
+    {
+      "label": "Amos 8:1",
+      "code": "AMO",
+      "chapter": 8,
+      "verse": 1,
+      "phrase": "basket of summer fruit"
+    },
+    {
+      "label": "Amos 8:2",
+      "code": "AMO",
+      "chapter": 8,
+      "verse": 2,
+      "phrase": "The end has come"
+    },
+    {
+      "label": "Amos 9:13",
+      "code": "AMO",
+      "chapter": 9,
+      "verse": 13,
+      "phrase": "plowman will overtake the reaper"
+    },
+    {
+      "label": "Micah 4:3",
+      "code": "MIC",
+      "chapter": 4,
+      "verse": 3,
+      "phrase": "pruning hooks"
+    },
+    {
+      "label": "Micah 6:15",
+      "code": "MIC",
+      "chapter": 6,
+      "verse": 15,
+      "phrase": "press olives"
+    },
+    {
+      "label": "Nehemiah 13:15",
+      "code": "NEH",
+      "chapter": 13,
+      "verse": 15,
+      "phrase": "treading winepresses"
+    },
+    {
+      "label": "Matthew 3:12",
+      "code": "MAT",
+      "chapter": 3,
+      "verse": 12,
+      "phrase": "winnowing fork"
+    },
+    {
+      "label": "Matthew 13:4",
+      "code": "MAT",
+      "chapter": 13,
+      "verse": 4,
+      "phrase": "along the path"
+    },
+    {
+      "label": "Matthew 13:30",
+      "code": "MAT",
+      "chapter": 13,
+      "verse": 30,
+      "phrase": "grow together until the harvest"
+    },
+    {
+      "label": "Matthew 20:2",
+      "code": "MAT",
+      "chapter": 20,
+      "verse": 2,
+      "phrase": "denarius for the day"
+    },
+    {
+      "label": "Mark 4:29",
+      "code": "MRK",
+      "chapter": 4,
+      "verse": 29,
+      "phrase": "swings the sickle"
+    },
+    {
+      "label": "Mark 12:1",
+      "code": "MRK",
+      "chapter": 12,
+      "verse": 1,
+      "phrase": "dug a wine vat"
+    },
+    {
+      "label": "Luke 13:8",
+      "code": "LUK",
+      "chapter": 13,
+      "verse": 8,
+      "phrase": "dig around it"
+    },
+    {
+      "label": "John 4:35",
+      "code": "JHN",
+      "chapter": 4,
+      "verse": 35,
+      "phrase": "four months until the harvest"
+    }
+  ],
+  "evidenceKinds": [
+    {
+      "id": "stone",
+      "word": "On the stone",
+      "note": "The Gezer calendar names the work."
+    },
+    {
+      "id": "scripture",
+      "word": "In Scripture",
+      "note": "A passage mentions the work. It usually does so in passing."
+    },
+    {
+      "id": "ground",
+      "word": "In the ground",
+      "note": "An object or an installation from an ancient site. It is not always Israelite or Iron Age, and each job says what it is."
+    },
+    {
+      "id": "later",
+      "word": "Only later",
+      "note": "A twentieth-century photograph or a modern study of village farming. It helps a reader to picture the work and proves nothing about the Iron Age."
+    }
+  ],
+  "lines": [
+    {
+      "n": 1,
+      "hebrew": "ירחו אסף ירחו ז",
+      "seasons": [
+        "ingather",
+        "sow"
+      ]
+    },
+    {
+      "n": 2,
+      "hebrew": "רע ירחו לקש",
+      "seasons": [
+        "sow",
+        "late"
+      ]
+    },
+    {
+      "n": 3,
+      "hebrew": "ירח עצד פשת",
+      "seasons": [
+        "flax"
+      ]
+    },
+    {
+      "n": 4,
+      "hebrew": "ירח קצר שערם",
+      "seasons": [
+        "barley"
+      ]
+    },
+    {
+      "n": 5,
+      "hebrew": "ירח קצר וכל",
+      "seasons": [
+        "harvest"
+      ]
+    },
+    {
+      "n": 6,
+      "hebrew": "ירחו זמר",
+      "seasons": [
+        "vines"
+      ]
+    },
+    {
+      "n": 7,
+      "hebrew": "ירח קץ",
+      "seasons": [
+        "summer"
+      ]
+    }
+  ]
+}

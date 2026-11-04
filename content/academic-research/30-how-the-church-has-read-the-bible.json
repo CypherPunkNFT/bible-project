@@ -1,0 +1,364 @@
+{
+  "schemaVersion": 1,
+  "order": 30,
+  "title": "How the church has read the Bible",
+  "slug": "how-the-church-has-read-the-bible",
+  "category": "church",
+  "categoryTitle": "Christian thought & church history",
+  "updated": "2026-10-31",
+  "status": "implemented-local",
+  "premise": "Christians have read Scripture with different questions in hand, and one short passage, where Paul himself uses the word behind 'allegory', shows those questions side by side across eighteen centuries of readers.",
+  "question": "Who taught me to read it this way, and what did they want it to answer?",
+  "outcomes": [
+    "Tell what a passage says from what a reader asks of it.",
+    "Keep allegory, type, illustration and the four senses apart.",
+    "Say what Origen, the medieval four senses, the Reformers' plain sense and modern critical reading were each trying to answer.",
+    "Test a claim about what the church always read against what its readers actually wrote."
+  ],
+  "boundaries": {
+    "in": "The history of how Christians have interpreted Scripture, followed through one passage, Galatians 4:21-31, from about AD 200 to 2010.",
+    "out": [
+      "How to read a passage today: draft study Reading a passage in context. This page shows how others read.",
+      "Why New Testament writers reuse earlier texts: planned study Scripture reading Scripture. This page takes Paul's reading as given and follows later readers.",
+      "Great Christian books in general: planned study Works that shaped Christianity.",
+      "The medieval church as an institution: planned study The medieval church. Only its Bible reading is here.",
+      "The long history between Jews and Christians: planned study Jews and Christians across the centuries. Section 05 names where this passage was turned on Jews and leaves that history there.",
+      "What the covenants teach: draft study Covenants and promises. This page reports how readers took them and does not teach them."
+    ]
+  },
+  "readers": [
+    {
+      "id": "tertullian", "mark": "a", "name": "Tertullian", "when": "about 200 to 220", "from": 200, "to": 220, "place": "Carthage", "work": "Against Marcion, book 5, chapter 4", "lane": "figure", "side": "left",
+      "gloss": "The story “presaged something besides the literal history”, against those who cut the Old Testament off from Christ.",
+      "fasten": { "verse": "Galatians 4:24", "phrase": "the women represent" },
+      "quote": "they presaged something besides the literal history",
+      "looking": "Proof, against Marcion, that one God stands behind both covenants.",
+      "evidence": "Tertullian glosses Paul's word as things that “presaged something besides the literal history”. Sinai relates “to the synagogue of the Jews”; the free woman to Christ's “holy church”.",
+      "inference": "The passage is a weapon in a fight over whether the Old Testament belongs to Christians at all. That question sets the reading.",
+      "limit": "Read in an 1885 English translation. Marcion's own text is known only through opponents such as Tertullian.",
+      "answers": { "happened": "Yes, by implication: the things presaged more “besides the literal history”.", "word": "A foretelling carried by the story.", "children": "Slave: the synagogue under the law. Free: Christ's church.", "use": "To show that one God gave both covenants." },
+      "sources": ["tertullian"]
+    },
+    {
+      "id": "origen", "mark": "b", "name": "Origen", "when": "about 220 to 250", "from": 220, "to": 250, "place": "Alexandria, then Caesarea", "work": "On First Principles, book 4; Against Celsus 4.44", "lane": "under", "side": "left",
+      "gloss": "Those who miss the allegories do not understand the law: “hearing” here means comprehending.",
+      "fasten": { "verse": "Galatians 4:21", "phrase": "do you not understand what the law says" },
+      "quote": "allegories are contained under what is written",
+      "looking": "A warrant from the apostle for reading the whole law spiritually.",
+      "evidence": "Origen cites this passage for readers who do not see that “allegories are contained under what is written”. Elsewhere the same book says some narratives did not happen as told, and that passages true in their historical meaning “are much more numerous”.",
+      "inference": "Paul's words become one warrant, among other passages, for a whole method. This is the reading later writers such as Calvin push against.",
+      "limit": "Much of On First Principles survives through Rufinus's Latin, which softened it in places. The translation read prints both where Greek survives. Origen's commentary on Galatians is lost.",
+      "answers": { "happened": "Here it is not denied. Most Bible history did, Origen says, but some narratives did not.", "word": "A meaning placed under the letter, and Paul's warrant for seeking it.", "children": "Not the question put in what was read. Scripture wants the spiritual, not imitation of the acts.", "use": "To license spiritual reading of the whole law." },
+      "sources": ["origen-principles", "origen-celsus"], "profile": { "href": "/teachers/scholars/origen", "label": "Origen among the scholars" }
+    },
+    {
+      "id": "chrysostom", "mark": "c", "name": "John Chrysostom", "when": "late 300s", "from": 380, "to": 400, "place": "Antioch", "work": "Commentary on Galatians, chapter 4", "lane": "figure", "side": "left",
+      "gloss": "“Contrary to usage, he calls a type an allegory.” The history stands and announces more.",
+      "fasten": { "verse": "Galatians 4:24", "phrase": "serve as illustrations" },
+      "quote": "Contrary to usage, he calls a type an allegory",
+      "looking": "A way to keep Paul's word without giving up the history.",
+      "evidence": "Chrysostom says Paul calls a type an allegory “contrary to usage”, and that the history “not only declares that which appears on the face of it”, but announces more. The Jerusalem above he calls the Church.",
+      "inference": "Chrysostom treats Paul's word as unusual and keeps the history. Nothing read here shows him answering Origen, but Calvin will make the same move a thousand years later.",
+      "limit": "One work read, in chapter 4. The wider Antiochene school, including Theodore of Mopsuestia, is reported here through Lightfoot and not read.",
+      "answers": { "happened": "Yes: it declares what appears on its face, and more.", "word": "Really a type, loosely called allegory.", "children": "Those born of the old covenant are bondmen. The free woman's are the Church's.", "use": "To comfort the persecuted: the son who persecuted was the one sent away." },
+      "sources": ["chrysostom", "lightfoot"]
+    },
+    {
+      "id": "augustine", "mark": "d", "name": "Augustine", "when": "about 417, the usual date", "from": 417, "to": 417, "place": "Hippo", "work": "Letter 185, on the correction of the Donatists", "lane": "figure", "side": "left",
+      "gloss": "Sarah, who pressed Hagar hard, was the type of the true Church. So who suffers is not the test of who is right.",
+      "fasten": { "verse": "Galatians 4:29", "phrase": "persecuted" },
+      "quote": "let them ask the apostle of what Church Sarah was a type",
+      "looking": "An answer to a rival church that said the persecuted are the true church.",
+      "evidence": "Against the Donatists' claim that the true Church suffers and does not inflict, Augustine writes: “let them ask the apostle of what Church Sarah was a type”, citing Galatians 4:22-31, and argues that the handmaid wronged her mistress first.",
+      "inference": "A reading of the passage is being used to defend imperial force against other Christians. The harm comes from the question the reader carried to the text.",
+      "limit": "Augustine's commentary on Galatians was not read. His change of mind on coercion is reported from a modern paper. This letter is one use and not all of his reading. The year is the usual date for the letter, and the pages read do not state it.",
+      "answers": { "happened": "Yes: “if we investigate the story further” it shows who wronged whom.", "word": "A type: Sarah prefigures the Church.", "children": "The free: the true Church. The handmaid's side: those who resist it, here the Donatists.", "use": "To defend force against Christians outside the church's unity." },
+      "sources": ["augustine-185", "sudiacal"], "profile": { "href": "/teachers/scholars/augustine", "label": "Augustine among the scholars" }
+    },
+    {
+      "id": "cassian", "mark": "e", "name": "John Cassian", "when": "about 420 to 430", "from": 420, "to": 430, "place": "Southern Gaul", "work": "Conferences 14.8", "lane": "senses", "side": "left",
+      "gloss": "One Jerusalem, four ways: the city, the Church, the heavenly city, the soul.",
+      "fasten": { "verse": "Galatians 4:26", "phrase": "the Jerusalem above" },
+      "quote": "one and the same Jerusalem can be taken in four senses",
+      "looking": "A teaching frame for monks learning to read.",
+      "evidence": "Cassian takes his examples of history, allegory and anagogy from this very passage, then writes that “one and the same Jerusalem can be taken in four senses”.",
+      "inference": "Three of the four examples come from this passage. The famous scheme comes down with Galatians 4 inside it.",
+      "limit": "The scheme has older roots and many later forms. Cassian writes for monks, and this is one conference, not a theory of all Scripture.",
+      "answers": { "happened": "Yes: “what actually happened” prefigured a mystery.", "word": "One of three spiritual senses, set beside history.", "children": "Not the question put. Sinai is “compared to” present Jerusalem, as an example of allegory.", "use": "To train readers in the kinds of meaning." },
+      "sources": ["cassian"]
+    },
+    {
+      "id": "aquinas", "mark": "f", "name": "Thomas Aquinas", "when": "about 1260 to 1274", "from": 1260, "to": 1274, "place": "Paris and Italy", "work": "Lectures on Galatians, chapter 4; Summa Theologiae I, question 1, article 10", "lane": "senses", "side": "left",
+      "gloss": "First the fact, then its mystery. Words signify things, and those things signify further things. Argument rests on the literal alone.",
+      "fasten": { "verse": "Galatians 4:22", "phrase": "Abraham had two sons" },
+      "quote": "all the senses are founded on one — the literal",
+      "looking": "A clear account of how one text can carry several meanings without confusion.",
+      "evidence": "Commenting here, Aquinas sets out the four senses and says “Secondly, he expounds its mystery” only after “he proposes a fact”. The Summa adds that “all the senses are founded on one — the literal”, from which alone an argument can be drawn.",
+      "inference": "By the 1200s the four senses come with a brake: doctrine cannot rest on a spiritual sense alone. Aquinas speaks as a Roman Catholic theologian, and is reported here as such.",
+      "limit": "The lectures come to us as a student's notes, and their date is disputed. The English used is a modern translation. One theologian does not show what every preacher did.",
+      "answers": { "happened": "Yes: Paul first “proposes a fact”.", "word": "One thing said and another understood. God can make things signify.", "children": "Two peoples, Jews and Gentiles. Hagar signifies the old covenant.", "use": "To say what senses Scripture has. Only the literal can prove." },
+      "sources": ["aquinas-gal", "aquinas-st"], "profile": { "href": "/teachers/scholars/aquinas", "label": "Thomas Aquinas among the scholars" }
+    },
+    {
+      "id": "luther", "mark": "g", "name": "Martin Luther", "when": "lectured 1531, printed 1535", "from": 1531, "to": 1535, "place": "Wittenberg", "work": "Commentary on Galatians, chapter 4 (abridged English)", "lane": "figure", "side": "right",
+      "gloss": "“Paul is an expert at allegories. They are dangerous things.” Like pictures, they light up what is already proved.",
+      "fasten": { "verse": "Galatians 4:24", "phrase": "serve as illustrations" },
+      "quote": "Paul is an expert at allegories. They are dangerous things.",
+      "looking": "Whether righteousness comes by faith or by the law, with allegory kept in its place.",
+      "evidence": "In the abridged English, Luther calls allegories dangerous, and says they “are not very convincing, but like pictures they visualize a matter”. He then gives his own: Abraham represents God, and Sinai bears a servile people of the law.",
+      "inference": "Luther does not abolish allegory. He demotes it from proof to illustration, and goes on using it.",
+      "limit": "Read in Theodore Graebner's abridged translation, so its wording is not a full rendering of Luther's Latin. This wording is his translator's.",
+      "answers": { "happened": "Yes: both were “the true sons of Abraham”.", "word": "A picture that adorns an argument already won.", "children": "Sinai's: a servile people of the law. In his day, the law's admirers.", "use": "To illustrate faith against works, never to prove it." },
+      "sources": ["luther"]
+    },
+    {
+      "id": "calvin", "mark": "h", "name": "John Calvin", "when": "1548", "from": 1548, "to": 1548, "place": "Geneva", "work": "Commentary on Galatians, on 4:22 to 4:31", "lane": "figure", "side": "right",
+      "gloss": "The true meaning is “the natural and obvious meaning”. Yet Abraham's house was a true church, so its events are types.",
+      "fasten": { "verse": "Galatians 4:25", "phrase": "the present-day Jerusalem" },
+      "quote": "the true meaning of Scripture is the natural and obvious meaning",
+      "looking": "A way to accept Paul's word and shut the door Origen opened.",
+      "evidence": "Calvin says Origen and others seized this word for “torturing Scripture”, and insists “the true meaning of Scripture is the natural and obvious meaning”. He still allows a figurative reading that “does not involve a departure from the literal meaning”, and follows Chrysostom on the word.",
+      "inference": "The plain-sense reader keeps types. The dispute is over who controls the figure, not over whether Scripture has figures.",
+      "limit": "One commentary read, in William Pringle's nineteenth-century translation. Its charge against Origen is Calvin's and is not a fair summary of Origen by itself.",
+      "answers": { "happened": "Yes: Moses wrote history, and it was not written to be allegorized.", "word": "A figurative representation that keeps the literal meaning.", "children": "Sinai's: hypocrites, not the pious fathers. Jerusalem then and “Rome at the present day”.", "use": "A confirmation: as an argument alone “it would not be very powerful”." },
+      "sources": ["calvin"]
+    },
+    {
+      "id": "gill", "mark": "i", "name": "John Gill", "when": "1746 to 1748", "from": 1746, "to": 1748, "place": "London (a Baptist pastor)", "work": "Exposition of the New Testament, on Galatians 4", "lane": "figure", "side": "right",
+      "gloss": "“A real history, and matter of fact”, used as a type. The two covenants are two administrations of one covenant.",
+      "fasten": { "verse": "Galatians 4:24", "phrase": "two covenants" },
+      "quote": "an accommodation of a real history, and matter of fact",
+      "looking": "What the passage says about the gospel church, and how it compares with Jewish reading.",
+      "evidence": "Gill says allegory properly means a fictitious way of speaking, but here means “an accommodation of a real history, and matter of fact”, and “seems to intend a type or figure”. He sets Paul beside Philo and the Jewish term Midrash, and reads the Jerusalem above as the gospel church state.",
+      "inference": "A Baptist reader keeps the history and the figure together, and draws a line about who belongs in a gospel church from verse 30.",
+      "limit": "Read on this chapter only. One Baptist pastor does not stand for all Baptists: the confessions below speak more widely.",
+      "answers": { "happened": "Yes: “literally true”, and “a real history”.", "word": "Here, a type or figure.", "children": "Sinai's: those under the old administration. Verse 30: the “carnal and self-righteous”, and any unregenerate.", "use": "To show who belongs in a gospel church." },
+      "sources": ["gill"]
+    },
+    {
+      "id": "lightfoot", "mark": "j", "name": "J. B. Lightfoot", "when": "1865", "from": 1865, "to": 1865, "place": "Cambridge", "work": "Saint Paul's Epistle to the Galatians", "lane": "history", "side": "right",
+      "gloss": "The word has two senses, and Paul may be naming a known way of reading. “Corresponds to” may be a schoolroom term for parallel columns.",
+      "fasten": { "verse": "Galatians 4:25", "phrase": "corresponds to" },
+      "quote": "not denying the historical truth of the narrative, but superposing a secondary meaning",
+      "looking": "What Paul's words meant in Paul's own world, with the Greek and Philo open beside them.",
+      "evidence": "Lightfoot gives two senses of the Greek verb with ancient examples, says Paul writes “not denying the historical truth of the narrative, but superposing a secondary meaning”, sets out the passage in two columns from the Greek word in verse 25, and prints a separate note on Philo's allegory of Hagar and Sarah.",
+      "inference": "The modern question arrives: what would this word have meant then? The tools are grammar, parallel texts and the ancient world. A believing scholar uses them under the text.",
+      "limit": "Read on this passage and the Philo note, from a scan of the 1890 edition. Later scholars have revised parts. His suggestion about the columns is marked by him as a possibility.",
+      "answers": { "happened": "Yes: Paul is “not denying” it.", "word": "Either speaking in allegory or interpreting as allegory, much like “type” in 1 Corinthians 10.", "children": "Two columns, each from a parent: slave, flesh, old covenant, earthly Jerusalem; free, promise, new, heavenly.", "use": "To recover Paul's meaning in his own setting." },
+      "sources": ["lightfoot"], "profile": { "href": "/teachers/scholars/lightfoot", "label": "J. B. Lightfoot among the scholars" }
+    },
+    {
+      "id": "russell", "mark": "k", "name": "Letty Russell", "when": "2006", "from": 2006, "to": 2006, "place": "United States", "work": "“Twists and Turns in Paul's Allegory” (reported second-hand)", "lane": "effects", "side": "right",
+      "gloss": "Hagar, “already the castaway”: a feminist reader asks what this figure does to the people cast in it.",
+      "fasten": { "verse": "Galatians 4:30", "phrase": "Expel the slave woman" },
+      "quote": "Hagar, already the castaway, becomes the ancestor of his opponents",
+      "looking": "What happens to the people on the wrong side of a figure.",
+      "evidence": "Reported in a 2016 conference paper, Russell's chapter says Paul gives a familiar story a new truth, so that “Hagar, already the castaway, becomes the ancestor of his opponents who want Gentile Christians to follow the law”, and the paper follows the reading's later use against “the other”.",
+      "inference": "Reception itself becomes the subject: what readers have done with the passage. This study reports the criticism as Russell's. It does not adopt the judgement of Paul, whose words it holds as Scripture.",
+      "limit": "Second-hand: the chapter itself was not read. The feminist reading is one modern approach among several, and is given as one example of it.",
+      "answers": { "happened": "Not addressed in what was read.", "word": "A way to make readers re-imagine a familiar story.", "children": "Paul's opponents, and in later use whoever a reader wants outside.", "use": "To ask who is harmed by a reading." },
+      "sources": ["sudiacal"]
+    },
+    {
+      "id": "caneday", "mark": "l", "name": "A. B. Caneday", "when": "2010", "from": 2010, "to": 2010, "place": "Saint Paul, Minnesota", "work": "“Covenant Lineage Allegorically Prefigured”, Southern Baptist Journal of Theology 14.3", "lane": "history", "side": "right",
+      "gloss": "Not Paul's invention: “written allegorically”. Genesis presents real history with the figure already in the telling.",
+      "fasten": { "verse": "Galatians 4:22", "phrase": "For it is written" },
+      "quote": "while Genesis presents the personages and events as real history",
+      "looking": "What in the Old Testament itself entitles Paul to say this.",
+      "evidence": "Caneday says most modern scholars offer two options, and proposes a third: “while Genesis presents the personages and events as real history”, features in the text itself make them representative, so Paul does not originate the allegory.",
+      "inference": "The argument has come round: a modern evangelical answer to Antioch's old worry, using modern literary tools and keeping the history.",
+      "limit": "One article, read whole. It is an argument, not a consensus, and the author's own position is stated in it. Being printed in a Baptist journal does not make it a Baptist position.",
+      "answers": { "happened": "Yes: “real history”.", "word": "Written allegorically: the figure is in Genesis, and Paul reads it there.", "children": "Two covenant lineages, prefigured in Abraham's sons.", "use": "To show what warrants Paul's claim from Genesis." },
+      "sources": ["caneday"]
+    }
+  ],
+  "questions": [
+    { "id": "happened", "label": "Did it happen?", "reads": "Nearly all say yes. Origen is the only one here who says some Bible narratives did not happen, and only some." },
+    { "id": "word", "label": "What is Paul's word?", "reads": "This is the fault line. Allegory, type, picture, figure written into Genesis: each answer is a decision about how far a reader may go." },
+    { "id": "children", "label": "Whose children are these?", "reads": "Paul writes to “you who want to be under the law”. Read down the column, and the answer moves with each reader's own opponent." },
+    { "id": "use", "label": "What is it for?", "reads": "Each reader came with a job for the passage. Read down the column, and see how far each reading follows its job." }
+  ],
+  "lanes": [
+    { "id": "under", "name": "A meaning under the letter", "note": "Spiritual sense sought beneath the words, with Paul as warrant." },
+    { "id": "figure", "name": "A figure resting on history", "note": "The event stands, and it also points beyond itself." },
+    { "id": "senses", "name": "Several senses, one root", "note": "A scheme of senses, with the literal as ground." },
+    { "id": "history", "name": "The words in their setting", "note": "Grammar, parallel texts, literary design and the ancient world." },
+    { "id": "effects", "name": "What readings do", "note": "The reading's effects on people become the question." }
+  ],
+  "turns": [
+    { "id": "alexandria", "title": "Alexandria and Antioch", "when": "200s to 300s", "text": "Origen takes Paul's word as a warrant. Chrysostom, at Antioch, calls the word unusual and keeps the history. Insisting that a figure rest on the history did not begin at the Reformation." },
+    { "id": "four", "title": "The four senses", "when": "400s to 1400s", "text": "Cassian's Jerusalem becomes a teaching scheme. Aquinas gives it a limit: argument only from the literal. Nicholas of Lyra's commentary, called literal, sets out how Solomon's Temple was built." },
+    { "id": "one", "title": "One sense", "when": "1500s and 1600s", "text": "Tyndale in 1528: “the scripture hath but one sense, which is the literal sense”, and that sense can be a figure. Calvin and Luther keep types while refusing to prove doctrine by allegory. The Baptists' 1689 Confession holds the sense of Scripture to be “not manifold but one”." },
+    { "id": "critical", "title": "The critical question", "when": "1800s onward", "text": "Readers now ask first what the words meant then. Lightfoot does that under the text. Others have used the same tools to set the text aside, which is the part this site does not follow." },
+    { "id": "now", "title": "Readers and effects", "when": "Late 1900s onward", "text": "Attention moves to literary design and to what readings have done. Caneday finds the figure in Genesis. Russell asks about the cast-out. Neither ends the argument." }
+  ],
+  "baptist": {
+    "head": "Where this site stands",
+    "text": "The Baptist Faith and Message 2000 calls Scripture “truth, without any mixture of error”. The Second London Confession of 1689, older and still read among Baptists, says Scripture's interpreter is Scripture: the true sense “is not manifold but one”, and it “must be searched by other places that speak more clearly”. So this site reads for the meaning the words carry in their setting, and it receives the types the New Testament itself draws. Where Baptists differ over how far a type reaches, it shows the views and does not choose. It reports the other readers on this page and neither ranks nor adopts them.",
+    "confession": { "href": "/study/creeds/1689-london-baptist-confession-1677", "label": "The 1689 Confession, chapter 1" }
+  },
+  "senses": {
+    "note": "The two rows come from two writers. Each is read here as that writer's own example, not as this site's interpretation of the verse.",
+    "sets": [
+      { "id": "jerusalem", "name": "Jerusalem", "who": "Cassian, Conferences 14.8", "source": "cassian" },
+      { "id": "light", "name": "“Let there be light”", "who": "Aquinas, on Galatians 4", "source": "aquinas-gal" }
+    ],
+    "items": [
+      { "id": "history", "n": "01", "name": "History", "alt": "the letter", "asks": "What happened?", "jerusalem": "The city of the Jews.", "light": "Bodily light." },
+      { "id": "allegory", "n": "02", "name": "Allegory", "alt": "what to believe", "asks": "What does it show of Christ and the Church?", "jerusalem": "The Church of Christ.", "light": "Let Christ be born in the Church." },
+      { "id": "moral", "n": "03", "name": "Tropology", "alt": "what to do", "asks": "What does it ask of me?", "jerusalem": "The soul of man.", "light": "Let us be illumined in mind and inflamed in heart through Christ." },
+      { "id": "anagogy", "n": "04", "name": "Anagogy", "alt": "where we are heading", "asks": "What does it promise?", "jerusalem": "The heavenly city of God.", "light": "Let us be conducted to glory through Christ." }
+    ],
+    "rhyme": { "latin": "Littera gesta docet, / Quid credas allegoria, / Moralis quid agas, / Quo tendas anagogia.", "english": "The letter teaches what was done; allegory, what to believe; the moral sense, what to do; anagogy, where you are heading.", "note": "A medieval teaching rhyme. Text as given on Wikipedia, its source not traced further; the English is this study's.", "source": "wikipedia-senses" },
+    "tyndale": { "quote": "the scripture hath but one sense, which is the literal sense", "more": "Tyndale in 1528 also allows that Scripture uses “proverbs, similitudes, riddles, or allegories”, and that what they signify “is ever the literal sense”.", "source": "tyndale", "profile": { "href": "/teachers/scholars/tyndale", "label": "William Tyndale among the scholars" } },
+    "test": {
+      "question": "Psalm 147 says “Exalt the LORD, O Jerusalem”. A preacher applies it: “Let your own soul praise God.” Which sense would Cassian call that?",
+      "options": [
+        { "text": "History", "right": false, "why": "History would be the city of the Jews." },
+        { "text": "Allegory", "right": false, "why": "Allegory would take Jerusalem as the Church." },
+        { "text": "Tropology", "right": true, "why": "Cassian uses this psalm for that sense: the soul, under the name Jerusalem, is called to praise." },
+        { "text": "Anagogy", "right": false, "why": "Anagogy would look to the heavenly city." }
+      ]
+    }
+  },
+  "targets": [
+    { "id": "tertullian", "reader": "Tertullian", "target": "the synagogue", "text": "Sinai is related “to the synagogue of the Jews”, the free woman to the church.", "source": "tertullian" },
+    { "id": "fathers", "reader": "Cyprian and other fathers", "target": "the synagogue", "text": "A modern scholar reports “Hagar” and “Sarah” used as codes for synagogue and church.", "source": "sudiacal" },
+    { "id": "augustine", "reader": "Augustine", "target": "the Donatists", "text": "A rival church in North Africa. The reading helps justify imperial force against other Christians.", "source": "augustine-185" },
+    { "id": "luther", "reader": "Luther", "target": "the law's admirers", "text": "Those who look to the law for righteousness are told they are “children of the bondwoman”.", "source": "luther" },
+    { "id": "calvin", "reader": "Calvin", "target": "hypocrites, and Rome", "text": "Those who “adhere to the bare law”, and a Rome whose claims Calvin compares to Jerusalem's. The pious fathers are explicitly not included.", "source": "calvin" },
+    { "id": "gill", "reader": "Gill", "target": "the unregenerate in a church", "text": "From the “self-righteous Jews” to “any carnal persons”: no unregenerate person should belong in a gospel church.", "source": "gill" }
+  ],
+  "targetsNote": {
+    "evidence": "Paul's own words name a dispute: “you who want to be under the law” (verse 21), addressed to “brothers” (verse 31). R. Dean Anderson argues this was a quarrel inside the church, over whether the law must be added to Christ.",
+    "inference": "The readers kept the verse and changed the name. This study reads the list as a warning: a reader's opponent is not in the text just because the reader found him there.",
+    "limit": "This is a selection of six from an enormous record, chosen because each was read here or is reported with a source. The long history between Jews and Christians belongs to its own planned study.",
+    "stand": "Paul's words are Scripture, and they stand. Whom a later reader named is not Scripture. The Baptist Faith and Message says “God alone is Lord of the conscience”, and “A free church in a free state is the Christian ideal”, so no reading of this verse licenses the state's force in matters of faith.",
+    "sources": ["anderson", "foundation"]
+  },
+  "claims": [
+    {
+      "id": "origen", "claim": "“Origen thought the Bible's history never happened.”", "head": "Some of it, he says. Most of it, he defends.",
+      "evidence": "On First Principles does say Scripture sometimes wove in “some event that did not take place”. The same book says passages true in their historical meaning “are much more numerous”, naming Abraham's burial and Solomon's temple.",
+      "inference": "Origen held a real and troubling view that some narratives did not happen. The popular version turns “some” into “all”. This site's own position differs: Scripture is truth, without any mixture of error.",
+      "limit": "The surviving text has passed through a translator who softened it, and Origen's own lost works might say more.",
+      "sources": ["origen-principles", "foundation"],
+      "test": { "question": "What does the book read here support?", "options": [
+        { "text": "Origen denied that Abraham existed.", "right": false, "why": "He names Abraham's burial as plainly historical." },
+        { "text": "Origen said some narratives did not happen as told, and most did.", "right": true, "why": "Both statements are in the same book, and this one keeps both." },
+        { "text": "Origen read everything only literally.", "right": false, "why": "He argues the whole of Scripture has a spiritual sense, not all of it a bodily one." }
+      ] }
+    },
+    {
+      "id": "medieval", "claim": "“In the Middle Ages nobody cared what the text actually said.”", "head": "Four senses. One root.",
+      "evidence": "Aquinas: “all the senses are founded on one — the literal”. Later, Nicholas of Lyra's commentary, named literal, drew the Temple to explain the text. And a glossed page keeps the text at its centre, with the comment around it. Against this: Tyndale in 1528 complained the literal sense had become “nothing at all”.",
+      "inference": "The learned tradition had a literal root and a working literal commentary. What a parish heard may be a different matter, and Tyndale's complaint is evidence of it.",
+      "limit": "Two writers and two leaves do not describe a thousand years. Tyndale is also an opponent writing a polemic.",
+      "sources": ["aquinas-st", "met-lyra", "bnf-312", "tyndale"], "picture": "lyra",
+      "test": { "question": "What can a leaf of Lyra and a line of Aquinas actually show?", "options": [
+        { "text": "All medieval preaching stayed with the literal sense.", "right": false, "why": "They show what two learned writers did, not what preachers did." },
+        { "text": "At least some medieval scholars made the literal sense basic.", "right": true, "why": "That is exactly the reach of these two sources." },
+        { "text": "Tyndale's complaint had no basis.", "right": false, "why": "These sources do not test what Tyndale saw around him." }
+      ] }
+    },
+    {
+      "id": "reformers", "claim": "“The Reformers threw allegory out.”", "head": "They fought it. They kept figures.",
+      "evidence": "Calvin attacks “torturing Scripture”, then says of Abraham's house that its events “are so many types to us”. Luther warns of danger and offers his own allegory of this passage. Tyndale says allegories are part of how Scripture speaks.",
+      "inference": "What changes is the standing of the figure: it may illustrate, it may be a type the Scripture itself sets up, but it may not found a doctrine by itself. That is close to Aquinas's limit, with a sharper edge.",
+      "limit": "Three Reformers on one point. Their wider practice in preaching was not surveyed.",
+      "sources": ["calvin", "luther", "tyndale"],
+      "test": { "question": "Which sentence do these three support?", "options": [
+        { "text": "They rejected every figurative reading.", "right": false, "why": "All three accept figures, and two of them read this passage figuratively." },
+        { "text": "They kept figures and refused to rest proof on invented ones.", "right": true, "why": "That is what the three say, each in their own words." },
+        { "text": "They agreed with Origen's method.", "right": false, "why": "Calvin names Origen as the problem." }
+      ] }
+    },
+    {
+      "id": "licence", "claim": "“Paul allegorized, so I can read any passage that way.”", "head": "One word. Opposite conclusions.",
+      "evidence": "Origen took the word as a licence. Chrysostom and Calvin said it was used loosely. Lightfoot says it may name a known way of reading. Caneday says the figure is already written into Genesis. None of the others treats it as licence, and Calvin charges that some did misuse it so.",
+      "inference": "The word alone does not settle a method. Note what limits Paul's reading in the text itself: he quotes the Scripture again at verses 22, 27 and 30, and draws his figure from what is written.",
+      "limit": "This is a question of interpretation among those read. Baptists have not all drawn the line in one place. The study's own position is stated in the box above.",
+      "sources": ["origen-principles", "chrysostom", "calvin", "lightfoot", "caneday"],
+      "test": { "question": "What may a reader fairly conclude from Galatians 4:24, with these readers in view?", "options": [
+        { "text": "Every story in Scripture has a hidden meaning.", "right": false, "why": "The verse speaks of “these things”, not of every story." },
+        { "text": "This story carries more than its surface, and readers differ on the word and how far it goes.", "right": true, "why": "Every reader on this page who takes up the word allows that much in some form." },
+        { "text": "The story did not happen.", "right": false, "why": "Paul quotes it as what is written, and almost every reader here insists on the history." }
+      ] }
+    }
+  ],
+  "theWord": {
+    "note": "One Greek verb stands behind verse 24, and the site's tagged King James shows it once in the whole Bible. The King James prints “are an allegory”. The Berean prints “serve as illustrations”. A translation has to choose too."
+  },
+  "leaf": {
+    "facts": [
+      "Paris, Bibliothèque nationale de France, Latin 312, a leaf numbered 102. Letters of Paul with the Glossa Ordinaria, dated between 1101 and 1200 in the library's data, as carried on Wikimedia Commons.",
+      "Large script in the middle: Paul's text in Latin. Small script between its lines and in the columns: the gloss. Marks in the margin name some authorities, among them Augustine."
+    ],
+    "reading": "The first full line of the large script reads “quae sunt per allegoriam dicta”: “which things are said by allegory”. A note in the gloss appears to read “Agar: alienatio”, Hagar as estrangement. Both are this study's reading of the photograph, with its abbreviations expanded, not checked by a specialist.",
+    "shape": "This is the shape this study borrows. For centuries this was how many learned readers met the text: at the centre of a crowd."
+  },
+  "confusedWords": [
+    { "word": "Allegory and type", "note": "As Lightfoot puts the stricter distinction, an allegory can be a fictitious narrative, and a type rests on a true one. Readers disagree whether Paul keeps that line." },
+    { "word": "Literal and literalistic", "note": "Literal here means what the words mean as used, figures included. Tyndale: what a riddle signifies “is ever the literal sense”. It does not mean ignoring figures." },
+    { "word": "A meaning and an application", "note": "The Baptist confessions speak of one sense. A preacher may draw many lessons. Those are not the same claim." },
+    { "word": "Gloss and commentary", "note": "A gloss is a note set on the page beside the words. A commentary is a work that can be read by itself." },
+    { "word": "Sense and school", "note": "A sense is a kind of meaning. Alexandria and Antioch are shorthand for tendencies, not parties with membership lists." },
+    { "word": "Critical and hostile", "note": "A critical method asks what evidence shows. It is not by that alone a rejection of Scripture. Some who use it do reject Scripture, and some do not." }
+  ],
+  "reach": [
+    "This is a selection: twelve readers of one passage, chosen to reach each stage named in the list entry for this study. It is not a census of interpretation. Women before modern times, the Eastern churches after Chrysostom, and readers outside Europe and the United States are largely missing, and that is a real gap.",
+    "The modern critical lane is thin here: Lightfoot and Caneday were read, and the large critical commentaries, such as Betz's, were located and not read. So this page reports the critical question and its tools, not the whole of modern critical work.",
+    "Readers were read in English translation unless noted. Translators' wording is not the writer's wording. Each record says what was read.",
+    "Dates are the usual ones for these works, and some are ranges. On the chart a range is drawn as a bar.",
+    "The verses, the phrases fastened on them, the Greek word's count and the 1689 Confession's wording are checked by script against the site's text. The script proves that they exist as stated, not that a reading is right. Quotations from the twelve readers were checked once by a script against the texts as fetched, which are not on the site."
+  ],
+  "sources": [
+    { "id": "scripture", "title": "Berean Standard Bible", "url": "/read/bsb/GAL/4", "kind": "Scripture", "status": "read", "answers": "The passage itself, and every verse opened from this page.", "read": "All verses quoted, from the site's own copy." },
+    { "id": "foundation", "title": "Baptist Faith and Message 2000, as set out in the site's doctrinal foundation", "url": "https://bfm.sbc.net/bfm2000/", "kind": "Confession", "status": "part", "answers": "What the site's own voice holds on Scripture and on liberty of conscience.", "read": "Articles 1 and 17, as quoted in the site's foundation document." },
+    { "id": "confession-1689", "title": "The Second London Baptist Confession (1677/1689), chapter 1, section 9", "url": "/study/creeds/1689-london-baptist-confession-1677", "kind": "Confession", "status": "part", "answers": "How an older Baptist confession states the sense of Scripture.", "read": "Chapter 1, section 9, from the site's own text." },
+    { "id": "tertullian", "title": "Tertullian, Against Marcion, book 5, chapter 4, tr. Peter Holmes, in Ante-Nicene Fathers 3", "url": "https://www.ccel.org/ccel/schaff/anf03.html", "kind": "Early Christian", "status": "part", "answers": "How the passage served an argument for one God behind both covenants.", "read": "The passage on Galatians 4, in the copy held on this PC." },
+    { "id": "origen-principles", "title": "Origen, On First Principles, book 4, tr. Frederick Crombie, in Ante-Nicene Fathers 4", "url": "https://www.ccel.org/ccel/schaff/anf04.html", "kind": "Early Christian", "status": "part", "answers": "How Origen uses Galatians 4, and what he says of history.", "read": "Book 4, on Galatians 4 and on historical truth, in the copy held on this PC." },
+    { "id": "origen-celsus", "title": "Origen, Against Celsus 4.44, tr. Frederick Crombie, in Ante-Nicene Fathers 4", "url": "https://www.ccel.org/ccel/schaff/anf04.html", "kind": "Early Christian", "status": "part", "answers": "Origen quoting the passage against a critic.", "read": "That chapter." },
+    { "id": "chrysostom", "title": "John Chrysostom, Commentary on Galatians, chapter 4, tr. Gross Alexander, in Nicene and Post-Nicene Fathers 1.13", "url": "https://www.newadvent.org/fathers/23104.htm", "kind": "Early Christian", "status": "part", "answers": "A type, called an allegory.", "read": "Chapter 4, on verses 21 to 31." },
+    { "id": "augustine-185", "title": "Augustine, Letter 185, tr. J. R. King, in Nicene and Post-Nicene Fathers 1.4", "url": "https://www.newadvent.org/fathers/1102185.htm", "kind": "Early Christian", "status": "part", "answers": "How the passage was used against the Donatists.", "read": "The sections naming Sarah and Hagar." },
+    { "id": "cassian", "title": "John Cassian, Conferences 14.8, tr. C. S. Gibson, in Nicene and Post-Nicene Fathers 2.11", "url": "https://www.newadvent.org/fathers/350814.htm", "kind": "Early Christian", "status": "part", "answers": "The Jerusalem of four senses, and its source in Galatians 4.", "read": "Chapter 8." },
+    { "id": "aquinas-gal", "title": "Thomas Aquinas, Commentary on Galatians, chapter 4, lectures 7 and 8, tr. F. R. Larcher", "url": "https://isidore.co/aquinas/SSGalatians.htm", "kind": "Medieval", "status": "part", "answers": "The four senses set out at this passage.", "read": "Lectures 7 and part of 8, in the English of this online edition. Short quotations only." },
+    { "id": "aquinas-st", "title": "Thomas Aquinas, Summa Theologiae I, question 1, article 10, tr. Fathers of the English Dominican Province", "url": "https://www.newadvent.org/summa/1001.htm", "kind": "Medieval", "status": "part", "answers": "The literal sense as the ground of argument.", "read": "Article 10." },
+    { "id": "bnf-312", "title": "Epistolae Pauli cum glossa ordinaria, Paris, Bibliothèque nationale de France, Latin 312", "url": "https://gallica.bnf.fr/ark:/12148/btv1b8426047w", "kind": "Manuscript", "status": "part", "answers": "What a glossed page looks like, at this very passage.", "read": "The leaf at Galatians 4:24 and its neighbours, by photograph. The library's own page refused this study's automated request, so its data were read as carried on Wikimedia Commons. The link is to the library's record, not opened here." },
+    { "id": "met-lyra", "title": "Nicholas of Lyra, Postilla Litteralis, illustrated leaves, The Metropolitan Museum of Art", "url": "https://www.metmuseum.org/art/collection/search/479574", "kind": "Manuscript", "status": "part", "answers": "That a commentary called literal drew the buildings it explained.", "read": "The museum's record for accession 2011.20.4 and the photograph of that leaf. The commentary itself was not read." },
+    { "id": "tyndale", "title": "William Tyndale, The Obedience of a Christian Man (1528), “The Four Senses of the Scripture”, in Doctrinal Treatises, Parker Society, 1848", "url": "https://archive.org/details/doctrinaltreatis00tynduoft", "kind": "Reformation", "status": "part", "answers": "The one-sense argument, and the complaint against the four.", "read": "That section, from the scan's text." },
+    { "id": "luther", "title": "Martin Luther, Commentary on the Epistle to the Galatians, abridged, tr. Theodore Graebner, Project Gutenberg 1549", "url": "https://www.gutenberg.org/ebooks/1549", "kind": "Reformation", "status": "part", "answers": "Allegory as a picture, and the warning that goes with it.", "read": "Chapter 4, in this abridged translation only, not the full Latin." },
+    { "id": "calvin", "title": "John Calvin, Commentary on Galatians, tr. William Pringle", "url": "https://ccel.org/ccel/calvin/calcom41.html", "kind": "Reformation", "status": "part", "answers": "The natural and obvious meaning, against Origen.", "read": "On Galatians 4:21 to 31, in the copy held on this PC." },
+    { "id": "gill", "title": "John Gill, Exposition of the Entire Bible, on Galatians 4, on Bible Hub", "url": "https://biblehub.com/commentaries/gill/galatians/4.htm", "kind": "Baptist", "status": "part", "answers": "A Baptist pastor's reading of the type and of verse 30.", "read": "On verses 24 to 30." },
+    { "id": "lightfoot", "title": "J. B. Lightfoot, Saint Paul's Epistle to the Galatians, 1890 edition", "url": "https://archive.org/details/saintpaulsepist01lighgoog", "kind": "Critical", "status": "part", "answers": "The word's senses, the columns, and Philo beside Paul.", "read": "Notes on 4:24 and 4:25, and the note on Philo's allegory, from the scan's text, which is rough in places." },
+    { "id": "caneday", "title": "A. B. Caneday, “Covenant Lineage Allegorically Prefigured”, Southern Baptist Journal of Theology 14.3 (2010)", "url": "https://cf.sbts.edu/equip/uploads/2014/06/SBJT-V14-N.3_Caneday.pdf", "kind": "Modern", "status": "part", "answers": "A modern third option: the allegory is written into Genesis.", "read": "The argument and its notes on earlier readers." },
+    { "id": "anderson", "title": "R. Dean Anderson, “Paul's Use of ‘Allegory’ in Galatians 4:21-5:1: A Method of Interpretation?” (revised 2018)", "url": "https://www.christianstudylibrary.org/files/pub/articles/Dean%20Anderson_Paul%E2%80%99s%20Use%20of%20%E2%80%9CAllegory%E2%80%9D%20in%20Galatians%204.21%20to%20Galatians%205.1%20-%20A%20Method%20of%20Interpretation.pdf", "kind": "Modern", "status": "part", "answers": "That Calvin follows Antioch, and that the dispute lay within the church.", "read": "The sections on Calvin and on the dispute." },
+    { "id": "sudiacal", "title": "Sid Sudiacal, “When Allegories Attack: Hagar and Sarah in Galatians 4:21-31”, conference paper, Society of Biblical Literature 2016", "url": "https://thefemalebiblescholar.wordpress.com/wp-content/uploads/2016/11/sid-sudiacal-when-allegories-attack-sbl-2016.pdf", "kind": "Modern", "status": "part", "answers": "Second-hand reports of Letty Russell and Elizabeth Clark, and Augustine on the Donatists.", "read": "Those sections. An unpublished paper, used only for what it reports." },
+    { "id": "wikipedia-senses", "title": "Wikipedia, “Four senses of Scripture”", "url": "https://en.wikipedia.org/wiki/Four_senses_of_Scripture", "kind": "Reference", "status": "part", "answers": "The Latin rhyme's wording.", "read": "The passage with the rhyme." },
+    { "id": "located-russell", "title": "Letty M. Russell, “Twists and Turns in Paul's Allegory”, in Hagar, Sarah, and Their Children, ed. Trible and Russell (2006)", "url": "https://www.wjkbooks.com/", "kind": "Located", "status": "second-hand", "answers": "A feminist reading of the passage.", "read": "Not read. Reported through Sudiacal." },
+    { "id": "located-clark", "title": "Elizabeth A. Clark, “Interpretive Fate Amid the Church Fathers”, in the same volume (2006)", "url": "https://www.wjkbooks.com/", "kind": "Located", "status": "second-hand", "answers": "Hagar and Sarah in the church fathers.", "read": "Not read. Reported through Sudiacal. The first place to go for more on the fathers." },
+    { "id": "located-betz", "title": "Hans Dieter Betz, Galatians, Hermeneia commentary series (1979)", "url": "https://www.fortresspress.com/", "kind": "Located", "status": "located", "answers": "A major historical-critical commentary on the letter.", "read": "Located, not read. The modern critical lane has not been tested against it." },
+    { "id": "located-hays", "title": "Richard B. Hays, Echoes of Scripture in the Letters of Paul (1989)", "url": "https://yalebooks.yale.edu/", "kind": "Located", "status": "located", "answers": "How Paul reads the Old Testament, as a modern literary question.", "read": "Located, not read." },
+    { "id": "located-lubac", "title": "Henri de Lubac, Medieval Exegesis: The Four Senses of Scripture", "url": "https://www.eerdmans.com/", "kind": "Located", "status": "located", "answers": "The standard large study of the four senses.", "read": "Located, not read. This page's account of the four senses has not been tested against it." }
+  ],
+  "pictures": [
+    { "id": "leaf", "src": "/images/studies/how-the-church-has-read-the-bible/glossed-leaf-galatians-4.jpg", "alt": "A page of a twelfth-century manuscript of Paul's letters. Large Latin script runs down the middle in widely spaced lines, with tiny notes between the lines and a column of small notes beside it.", "credit": "Epistolae Pauli cum glossa ordinaria, leaf 102, Bibliothèque nationale de France, Latin 312, photograph via Wikimedia Commons (image 213 of 395)", "record": { "href": "https://gallica.bnf.fr/ark:/12148/btv1b8426047w", "label": "The library's record" }, "licence": "Public domain", "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/", "href": "https://commons.wikimedia.org/wiki/File:Epistolae_Pauli_cum_glossa_ordinaria._-_btv1b8426047w_(213_of_395).jpg", "retrieved": "31 October 2026", "width": 760, "height": 1198 },
+    { "id": "detail", "src": "/images/studies/how-the-church-has-read-the-bible/glossed-leaf-detail.jpg", "alt": "Close view of the same page, showing the words of Galatians 4:24 in large Latin script, with notes in very small script above, below and beside them.", "credit": "Detail of the same leaf, Bibliothèque nationale de France, Latin 312, via Wikimedia Commons", "licence": "Public domain", "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/", "href": "https://commons.wikimedia.org/wiki/File:Epistolae_Pauli_cum_glossa_ordinaria._-_btv1b8426047w_(213_of_395).jpg", "retrieved": "31 October 2026", "width": 1000, "height": 514 },
+    { "id": "lyra", "src": "/images/studies/how-the-church-has-read-the-bible/lyra-solomons-temple.jpg", "alt": "A manuscript leaf with a drawing of the elevation of Solomon's Temple, from Nicholas of Lyra's commentary.", "credit": "Elevation of Solomon's Temple, leaf from the Postilla Litteralis of Nicholas of Lyra, French, about 1360 to 1380, The Metropolitan Museum of Art, The Cloisters Collection, accession 2011.20.4", "licence": "CC0", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "href": "https://www.metmuseum.org/art/collection/search/479574", "retrieved": "31 October 2026", "width": 560, "height": 888 }
+  ],
+  "verses": [
+    { "label": "Galatians 4:21", "code": "GAL", "chapter": 4, "verse": 21, "phrase": "do you not understand what the law says" },
+    { "label": "Galatians 4:22", "code": "GAL", "chapter": 4, "verse": 22, "phrase": "Abraham had two sons" },
+    { "label": "Galatians 4:23", "code": "GAL", "chapter": 4, "verse": 23, "phrase": "born through the promise" },
+    { "label": "Galatians 4:24", "code": "GAL", "chapter": 4, "verse": 24, "phrase": "serve as illustrations" },
+    { "label": "Galatians 4:25", "code": "GAL", "chapter": 4, "verse": 25, "phrase": "corresponds to" },
+    { "label": "Galatians 4:26", "code": "GAL", "chapter": 4, "verse": 26, "phrase": "the Jerusalem above" },
+    { "label": "Galatians 4:27", "code": "GAL", "chapter": 4, "verse": 27, "phrase": "O barren woman" },
+    { "label": "Galatians 4:28", "code": "GAL", "chapter": 4, "verse": 28, "phrase": "children of promise" },
+    { "label": "Galatians 4:29", "code": "GAL", "chapter": 4, "verse": 29, "phrase": "persecuted" },
+    { "label": "Galatians 4:30", "code": "GAL", "chapter": 4, "verse": 30, "phrase": "Expel the slave woman" },
+    { "label": "Galatians 4:31", "code": "GAL", "chapter": 4, "verse": 31, "phrase": "children of the slave woman" },
+    { "label": "Psalm 147:12", "code": "PSA", "chapter": 147, "verse": 12, "phrase": "Jerusalem" },
+    { "label": "1 Corinthians 10:11", "code": "1CO", "chapter": 10, "verse": 11, "phrase": "examples" }
+  ]
+}

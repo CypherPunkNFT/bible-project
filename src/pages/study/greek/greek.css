@@ -1,0 +1,346 @@
+/* The How New Testament Greek works study (/study/how-new-testament-greek-works). Its tone is its Study hub field's; gold is the site's accent
+   for the turn. The page's own look is an open sheet with its section numbers and names in a left margin, and each job an ending does carries
+   its own underline with a word beside it, so nothing rests on colour. Greek takes no synthesised weight, so that its small marks stay whole. */
+.ng-root { --tone: var(--poetry); --sans: var(--font-sans); --serif: var(--font-serif); background: var(--page); color: var(--ink); font: 14px/1.55 var(--sans); }
+body:has(.ng-root) { overflow-x: clip; }
+.ng-root * { box-sizing: border-box; }
+.ng-root :is(button, a, input, [tabindex]):focus { outline: none; }
+.ng-root :is(button, a, [tabindex="0"]):focus-visible, .ng-root label:has(input:focus-visible) { outline: 2px solid var(--ink); outline-offset: 2px; }
+.ng-root :where(button) { font: inherit; color: inherit; cursor: pointer; background: none; border: 0; padding: 0; }
+.ng-root :where(a) { color: inherit; }
+.ng-root :where(h1, h2, h3, p, dl, dd, figure, blockquote, fieldset) { margin: 0; }
+.ng-root :where(fieldset) { padding: 0; border: 0; min-width: 0; }
+.ng-root :where(legend) { padding: 0; }
+.ng-root :where(ul, ol) { margin: 0; padding: 0; list-style: none; }
+.ng-root input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.ng-root [lang="grc"], .ng-gk { font-family: var(--serif); font-synthesis: none; font-style: normal; letter-spacing: 0; text-transform: none; }
+.ng-gk-big { font-size: 1.5rem; line-height: 1.3; }
+.ng-hide { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.ng-wrap { max-width: var(--site-content-width); margin: 0 auto; padding: 1.2rem var(--site-gutter) 3rem; }
+.ng-open { scroll-margin-top: 84px; }
+
+/* The left margin: each section's number and name */
+.ng-sec { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 2rem; margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--ink); scroll-margin-top: 84px; }
+.ng-margin { position: sticky; top: 84px; align-self: start; }
+.ng-margin b { display: block; font: 400 2.6rem/1 var(--serif); color: var(--accent); font-variant-numeric: lining-nums; }
+.ng-margin span { display: block; margin-top: .35rem; font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ng-body { min-width: 0; }
+.ng-failed { padding: 1rem; border: 1px dashed var(--line); color: var(--muted); }
+.ng-failed button { margin-left: .6rem; min-height: 44px; text-decoration: underline; }
+.ng-kicker { font-size: .65rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.ng-root .ng-kicker-gap { margin-top: 1.5rem; }
+.ng-para { max-width: 72ch; margin-top: .55rem; font-size: .9rem; line-height: 1.68; }
+.ng-note { max-width: 72ch; margin-top: .7rem; font-size: .82rem; line-height: 1.65; color: var(--muted); }
+.ng-note a, .ng-para a, .ng-caption a, .ng-lineline a { color: var(--accent); }
+.ng-caption { max-width: 72ch; margin-top: .7rem; font-size: .76rem; line-height: 1.6; color: var(--muted); }
+.ng-sub { margin-top: 2.2rem; font: 500 1.2rem/1.3 var(--serif); }
+.ng-lineline { max-width: 72ch; min-height: 3em; margin-top: .5rem; font-size: .86rem; line-height: 1.6; color: var(--muted); }
+
+/* The marks of a job: an underline style and, always beside it, a word. Never skipped around descenders, so the style can be read. */
+.ng-mark-N, .ng-mark-A, .ng-mark-G, .ng-mark-D, .ng-end-N b, .ng-end-A b, .ng-end-G b, .ng-end-D b { text-decoration-line: underline; text-decoration-thickness: 2px; text-decoration-skip-ink: none; text-underline-offset: .24em; }
+.ng-mark-N, .ng-end-N b { text-decoration-style: solid; }
+.ng-mark-A, .ng-end-A b { text-decoration-style: double; }
+.ng-mark-G, .ng-end-G b { text-decoration-style: dotted; }
+.ng-mark-D, .ng-end-D b { text-decoration-style: wavy; }
+
+/* Opening */
+.ng-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 24rem); gap: 2.5rem; align-items: center; }
+.ng-eyebrow { margin-top: 1rem; font-size: .68rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.ng-intro h1 { margin-block: .8rem .9rem; font: 500 clamp(2.2rem, 4.8vw, 3.8rem)/1.03 var(--serif); letter-spacing: -.025em; overflow-wrap: anywhere; }
+.ng-intro h1 em { display: block; margin-top: .25rem; color: var(--accent); font-weight: 400; font-size: .68em; }
+.ng-lead { margin-bottom: .8rem; font: 400 1.3rem/1.4 var(--serif); }
+.ng-lede { max-width: 58ch; color: var(--muted); font-size: .96rem; line-height: 1.8; }
+.ng-lede + .ng-lede { margin-top: .7rem; }
+.ng-art { color: var(--tone); text-align: center; }
+.ng-art svg { display: block; width: 100%; max-width: 24rem; margin: 0 auto; }
+.ng-art-stem { font-size: 62px; }
+.ng-art-end { font-size: 30px; }
+.ng-art figcaption { margin-top: -.4rem; font: italic 400 .98rem/1.35 var(--serif); color: var(--ink); }
+.ng-art figcaption span { display: block; }
+.ng-art small { display: block; margin-top: .3rem; font: 400 .66rem/1.4 var(--sans); color: var(--muted); }
+.ng-orbit { transform-origin: 200px 200px; animation: ng-turn 90s linear infinite; }
+.ng-thread { animation: ng-run 8s linear infinite; }
+.ng-spark { animation: ng-twinkle 5s ease-in-out infinite; }
+.ng-spark-b { animation-delay: 2.2s; }
+@keyframes ng-turn { to { transform: rotate(360deg); } }
+@keyframes ng-run { to { stroke-dashoffset: -65; } }
+@keyframes ng-twinkle { 0%, 100% { opacity: .2; } 50% { opacity: .9; } }
+.ng-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 1.8rem; padding-block: .9rem; border-block: 1px solid var(--line); }
+.ng-figures > div { min-width: 0; padding: .2rem 1rem; border-left: 1px solid var(--line); }
+.ng-figures > div:first-child { padding-left: 0; border-left: 0; }
+.ng-figures dt { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ng-figures dd { margin-top: .2rem; font: 500 1.6rem/1.1 var(--serif); font-variant-numeric: lining-nums tabular-nums; }
+.ng-figures small { display: block; margin-top: .25rem; font-size: .72rem; line-height: 1.45; color: var(--muted); }
+.ng-outcomes { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem; margin-top: 1.3rem; }
+.ng-outcomes ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem 1.6rem; font-size: .84rem; }
+.ng-chapters { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); margin-top: 1.3rem; border-top: 1px solid var(--ink); }
+.ng-chapters a { display: block; min-height: 44px; padding: .45rem .5rem .45rem 0; font-size: .74rem; line-height: 1.3; color: var(--muted); text-decoration: none; }
+.ng-chapters a b { display: block; font-weight: 500; color: var(--accent); font-variant-numeric: tabular-nums; }
+.ng-chapters a:hover { color: var(--ink); text-decoration: underline; }
+
+/* Section heads */
+.ng-head { max-width: 68ch; margin-bottom: 1.2rem; }
+.ng-head h2 { margin-bottom: .5rem; font: 500 clamp(1.7rem, 3.2vw, 2.5rem)/1.12 var(--serif); letter-spacing: -.02em; }
+.ng-head h2 em { color: var(--accent); font-weight: 400; }
+.ng-head > p:last-child { color: var(--muted); font-size: .95rem; line-height: 1.7; }
+
+/* Plain text choices: an underlined word, not a pill */
+.ng-picks { display: flex; flex-wrap: wrap; gap: 0 1.2rem; margin-top: .4rem; }
+.ng-picks button { min-height: 44px; padding-block: .4rem; font-size: .86rem; color: var(--muted); border-bottom: 2px solid transparent; }
+.ng-picks button:hover { color: var(--ink); }
+.ng-picks button[aria-pressed="true"] { color: var(--ink); font-weight: 600; border-bottom-color: var(--ink); }
+.ng-picks-small button { font-size: .78rem; }
+
+/* 01 Move the words */
+.ng-move { padding: 1rem 0; border-block: 1px solid var(--line); }
+.ng-units { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; }
+.ng-units button { display: block; min-height: 44px; padding: .3rem .5rem .5rem 0; text-align: left; }
+.ng-units button:hover .ng-unit-gk { color: var(--tone); }
+.ng-unit-gk { display: block; font-size: clamp(1.8rem, 4.2vw, 3rem); line-height: 1.4; }
+.ng-units small { display: block; margin-top: .1rem; font-size: .84rem; color: var(--muted); }
+.ng-units b { display: block; font-size: .64rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.ng-readings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem; margin-top: 1rem; padding-top: .8rem; border-top: 1px solid var(--line); }
+.ng-reading { margin-top: .2rem; font: 500 clamp(1.15rem, 2.4vw, 1.6rem)/1.3 var(--serif); }
+.ng-reading.ng-broken { color: var(--muted); font-style: italic; }
+.ng-reading.ng-opposite { text-decoration: line-through; text-decoration-thickness: 2px; }
+.ng-verdict { margin-top: .25rem; font-size: .84rem; color: var(--muted); min-height: 2.6em; }
+.ng-orders { display: flex; flex-wrap: wrap; gap: 0 .9rem; margin-top: .6rem; }
+.ng-orders button { min-height: 44px; font-size: .74rem; color: var(--muted); border-bottom: 2px solid transparent; }
+.ng-orders button:hover { color: var(--ink); }
+.ng-orders button[aria-pressed="true"] { color: var(--ink); font-weight: 600; border-bottom-color: var(--ink); }
+.ng-swap { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.2rem; align-items: center; margin-top: .6rem; padding-top: .6rem; border-top: 1px solid var(--line); }
+.ng-root .ng-swap button { min-height: 44px; padding: .4rem .9rem; border: 1px solid var(--ink); font-size: .84rem; font-weight: 600; }
+.ng-root .ng-swap button[aria-pressed="true"] { background: var(--ink); color: var(--page); }
+.ng-swap p { font-size: .84rem; line-height: 1.55; color: var(--muted); }
+.ng-verse { max-width: 72ch; margin-top: 1rem; padding: .1rem 0 .1rem .9rem; border-left: 2px solid var(--accent); font: 400 1.02rem/1.55 var(--serif); }
+.ng-verse cite { display: block; margin-top: .3rem; font: 400 .72rem var(--sans); color: var(--muted); }
+.ng-verse cite a { display: inline-block; padding-block: .15rem; color: var(--accent); }
+.ng-said { max-width: 72ch; margin-top: 1rem; padding-left: .9rem; border-left: 1px solid var(--line); font: italic 400 1rem/1.55 var(--serif); }
+.ng-said cite { display: block; margin-top: .25rem; font: 400 .72rem/1.5 var(--sans); color: var(--muted); }
+.ng-said small { display: block; margin-top: .25rem; font: 400 .8rem/1.55 var(--sans); color: var(--muted); }
+
+/* Three parts of a record, citations */
+.ng-three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 1.3rem; padding-top: .9rem; border-top: 1px solid var(--line); }
+.ng-three dt { margin-bottom: .3rem; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ng-three dd { font-size: .86rem; line-height: 1.65; }
+.ng-cite { display: flex; flex-wrap: wrap; gap: .2rem 1rem; margin-top: .7rem; font-size: .7rem; line-height: 1.5; }
+.ng-cite a { color: var(--muted); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 2px; }
+.ng-cite small { color: var(--muted); }
+
+/* The reader's test */
+.ng-test { margin-top: 1.4rem; }
+.ng-test legend { display: block; max-width: 72ch; margin-bottom: .45rem; }
+.ng-test-q { display: block; margin-top: .3rem; font-size: .92rem; }
+.ng-test label { display: flex; align-items: center; max-width: 62rem; min-height: 44px; padding: .5rem .8rem; border-top: 1px solid var(--line); font-size: .88rem; line-height: 1.4; cursor: pointer; }
+.ng-test label:hover { background: color-mix(in srgb, var(--tone) 8%, transparent); }
+.ng-test label.chosen { box-shadow: inset 4px 0 0 var(--ink); font-weight: 600; }
+.ng-answer { max-width: 72ch; min-height: 1.6em; margin-top: .5rem; font-size: .88rem; }
+.ng-answer b { font-weight: 700; }
+
+/* 02 The letters */
+.ng-group { margin-top: 1.2rem; }
+.ng-group-head { font-size: .84rem; color: var(--muted); }
+.ng-group-head b { color: var(--ink); font-weight: 600; }
+.ng-letters { display: grid; grid-template-columns: repeat(auto-fill, minmax(6.4rem, 1fr)); margin-top: .5rem; border-top: 1px solid var(--ink); }
+.ng-letters li { min-width: 0; border-bottom: 1px solid var(--line); }
+.ng-letters button { display: flex; flex-direction: column; width: 100%; height: 100%; min-height: 44px; padding: .35rem .35rem .6rem; text-align: left; }
+.ng-letters button:hover { background: color-mix(in srgb, var(--tone) 10%, transparent); }
+.ng-letters button[aria-pressed="true"] { background: color-mix(in srgb, var(--tone) 16%, transparent); box-shadow: inset 0 3px 0 var(--ink); }
+.ng-glyph { font-size: 2.1rem; line-height: 1.3; }
+.ng-glyph i { margin-left: .2em; font-style: normal; color: var(--accent); }
+.ng-glyph small { margin-left: .35em; font-size: .55em; color: var(--muted); }
+.ng-lname { font-size: .76rem; font-weight: 600; }
+.ng-lsound { font-size: .68rem; line-height: 1.3; color: var(--muted); }
+.ng-marks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2rem; margin-top: .4rem; }
+.ng-marks > div { padding-block: .45rem; border-top: 1px solid var(--line); }
+.ng-marks dt { display: flex; align-items: baseline; gap: .6rem; font-weight: 600; font-size: .86rem; }
+.ng-marks dd { margin-top: .1rem; font-size: .82rem; line-height: 1.55; color: var(--muted); }
+.ng-practice { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 1.6rem; margin-top: .4rem; }
+.ng-practice li { padding-block: .4rem; border-top: 1px solid var(--line); }
+.ng-practice button { display: block; width: 100%; min-height: 44px; text-align: left; }
+.ng-practice button:hover .ng-gk { color: var(--tone); }
+.ng-say { display: block; font-size: .84rem; color: var(--muted); }
+.ng-practice small { font-size: .7rem; color: var(--muted); }
+.ng-practice small a { display: inline-block; padding-block: .2rem; color: var(--accent); }
+
+/* 03 The endings */
+.ng-cases { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 1.2rem; margin-bottom: 1rem; }
+.ng-cases > div { padding-block: .4rem; border-top: 1px solid var(--line); }
+.ng-cases dt { font: 500 1rem/1.5 var(--serif); }
+.ng-cases dd { margin-top: .2rem; font-size: .76rem; line-height: 1.5; color: var(--muted); }
+.ng-cases small { display: block; font-size: .7rem; font-variant-numeric: tabular-nums; }
+.ng-fan { display: grid; grid-template-columns: auto clamp(2rem, 9vw, 7rem) minmax(0, 1fr); margin-top: .5rem; }
+.ng-fan-stem { align-self: center; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.2; text-align: right; }
+.ng-fan-stem small { display: block; max-width: 6.5em; margin-left: auto; font: 400 .66rem/1.3 var(--sans); color: var(--muted); }
+.ng-fan-col { position: relative; }
+.ng-fan-threads { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--tone); }
+.ng-fan-threads path { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-dasharray: 1.5 4; vector-effect: non-scaling-stroke; }
+.ng-fan-threads .ng-fan-none { opacity: .25; }
+.ng-fan-rows { display: grid; grid-template-rows: repeat(8, minmax(3.2rem, 1fr)); border-top: 1px solid var(--ink); }
+.ng-fan-rows > li { display: flex; min-width: 0; border-bottom: 1px solid var(--line); }
+.ng-fan-rows button { display: grid; grid-template-columns: 7.4rem minmax(0, 1fr) auto; gap: .8rem; align-items: center; width: 100%; min-height: 44px; padding-inline: .4rem; text-align: left; }
+.ng-fan-rows button:hover { background: color-mix(in srgb, var(--tone) 10%, transparent); }
+.ng-fan-form { font-size: 1.45rem; line-height: 1.3; }
+.ng-fan-form .ng-stemmed { color: var(--muted); }
+.ng-fan-form b { font-weight: 400; color: var(--ink); }
+.ng-fan-job { font-size: .78rem; line-height: 1.35; color: var(--muted); }
+.ng-fan-job b { font-weight: 600; color: var(--ink); }
+.ng-fan-rows small { font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ng-fan-rows > .ng-row-none { align-items: center; justify-content: space-between; gap: .8rem; padding-inline: .4rem; font-size: .76rem; font-style: italic; color: var(--muted); }
+.ng-row-none .ng-fan-job { font-style: normal; opacity: .7; }
+.ng-scroll { margin-top: .6rem; overflow-x: auto; border-block: 1px solid var(--line); }
+.ng-scroll-in { position: relative; width: max-content; padding-top: 28px; }
+.ng-arcs { position: absolute; top: 2px; left: 0; color: var(--tone); pointer-events: none; }
+.ng-arcs path { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-dasharray: 1.5 3.5; }
+.ng-words { position: relative; display: flex; gap: .2rem; }
+.ng-words li.dim { opacity: .42; }
+.ng-words button { display: block; min-width: 44px; min-height: 44px; padding: .15rem .55rem .55rem; text-align: center; }
+.ng-words button:hover { background: color-mix(in srgb, var(--tone) 10%, transparent); }
+.ng-word { display: block; font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.45; white-space: nowrap; }
+.ng-words small { display: block; margin-top: .25rem; font-size: .72rem; line-height: 1.25; color: var(--muted); white-space: nowrap; }
+
+/* 04 The small word */
+.ng-theos { display: grid; grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr)); gap: 0 1rem; margin-top: .5rem; border-top: 1px solid var(--ink); }
+.ng-theos li { display: grid; grid-template-columns: .8rem minmax(0, 1fr); column-gap: .4rem; align-items: baseline; padding-block: .4rem; border-bottom: 1px solid var(--line); }
+.ng-theos a { display: inline-block; padding-block: .15rem; font-size: .72rem; color: var(--accent); }
+.ng-theos .ng-gk, .ng-theos small { grid-column: 2; }
+.ng-theos small { font-size: .7rem; color: var(--muted); }
+.ng-theos-dot { width: .6rem; height: .6rem; border: 1.5px solid var(--ink); border-radius: 50%; }
+.ng-theos .with .ng-theos-dot { background: var(--ink); }
+.ng-clauses { margin-top: .6rem; border-top: 1px solid var(--ink); }
+.ng-clauses li { display: grid; grid-template-columns: 1.6rem minmax(0, 15rem) minmax(0, 1fr); gap: .8rem; align-items: baseline; padding-block: .45rem; border-bottom: 1px solid var(--line); }
+.ng-clauses li.actual { padding-left: .7rem; box-shadow: inset 4px 0 0 var(--ink); }
+.ng-clauses b { font-size: .8rem; font-weight: 600; color: var(--muted); }
+.ng-clauses .ng-gk-big { font-size: 1.2rem; }
+.ng-clauses p { font-size: .84rem; line-height: 1.5; }
+.ng-views { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2rem; margin-top: .8rem; }
+.ng-views li { padding-block: .5rem; border-top: 1px solid var(--line); font-size: .84rem; line-height: 1.55; }
+.ng-views b { display: block; font: 500 .96rem/1.3 var(--serif); }
+.ng-views em { display: block; font-size: .72rem; font-style: normal; font-weight: 600; color: var(--accent); }
+.ng-views small { display: block; margin-top: .15rem; font-size: .72rem; font-style: italic; color: var(--muted); }
+.ng-voice { max-width: 72ch; margin-top: 1rem; padding: .1rem 0 .1rem .9rem; border-left: 2px solid var(--accent); font: 400 1.05rem/1.6 var(--serif); }
+
+/* 05 The verb */
+.ng-parts { display: flex; flex-wrap: wrap; gap: 0 .2rem; margin-top: .6rem; border-top: 1px solid var(--ink); }
+.ng-parts li { flex: 1 1 8rem; min-width: 0; max-width: 16rem; padding: .3rem .6rem .5rem 0; border-right: 1px dotted var(--line); }
+.ng-parts .ng-gk-big { display: block; font-size: 2.2rem; }
+.ng-parts small { display: block; font-size: .74rem; line-height: 1.4; color: var(--muted); }
+.ng-tablewrap { margin-top: .6rem; overflow-x: auto; }
+.ng-table { width: 100%; min-width: 34rem; border-collapse: collapse; font-size: .82rem; font-variant-numeric: lining-nums tabular-nums; }
+.ng-table caption { padding-bottom: .4rem; text-align: left; font-size: .78rem; line-height: 1.5; color: var(--muted); }
+.ng-table th { padding: .3rem .4rem; font-weight: 600; text-align: right; vertical-align: bottom; }
+.ng-table thead th { border-bottom: 1px solid var(--ink); }
+.ng-table thead small { display: block; font-size: .66rem; font-weight: 400; line-height: 1.25; color: var(--muted); }
+.ng-table tbody th { text-align: left; }
+.ng-table td { padding: .3rem .4rem; border-bottom: 1px solid var(--line); text-align: right; }
+.ng-table .strong { background: color-mix(in srgb, var(--tone) 10%, transparent); font-weight: 600; }
+.ng-none { font-size: .7rem; font-weight: 400; color: var(--muted); }
+.ng-rail { margin-top: .6rem; border-top: 1px solid var(--ink); }
+.ng-rail > li { display: grid; grid-template-columns: 8.5rem 12rem minmax(0, 1fr); gap: 1.1rem; align-items: start; padding-block: .55rem; border-bottom: 1px solid var(--line); }
+.ng-rail button { display: block; width: 100%; min-height: 44px; text-align: left; }
+.ng-rail button:hover .ng-gk { color: var(--tone); }
+.ng-rail button small { display: block; font-size: .68rem; font-weight: 600; color: var(--accent); }
+.ng-rail-track { position: relative; }
+.ng-track { display: block; width: 100%; height: 26px; }
+.ng-track path { fill: none; stroke: currentColor; }
+.ng-track-line { color: var(--line); stroke-width: 1; }
+.ng-track-bar, .ng-track-here { color: var(--ink); stroke-width: 5; }
+.ng-track-usual { color: var(--muted); stroke-width: 1.5; }
+.ng-track-labels { display: flex; justify-content: space-between; font-size: .62rem; color: var(--muted); }
+.ng-rail-note { font-size: .84rem; line-height: 1.55; }
+.ng-rail-note a, .ng-spans a { color: var(--accent); }
+.ng-spans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 1.4rem; margin-top: .5rem; }
+.ng-spans li { padding-block: .4rem; border-top: 1px solid var(--line); font-size: .84rem; line-height: 1.5; }
+.ng-spans button { display: block; min-height: 44px; }
+.ng-spans button:hover .ng-gk { color: var(--tone); }
+
+/* 06 Everyday Greek */
+.ng-return { display: grid; grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); gap: 2rem; align-items: start; }
+.ng-plate { padding-left: 2.2rem; }
+.ng-plate-img { position: relative; }
+.ng-plate-img img { display: block; width: 100%; height: auto; background: #fff; }
+.ng-plate-mark { position: absolute; left: -.2rem; width: 2rem; border-top: 2px solid var(--ink); transform: translateX(-100%); }
+.ng-plate-mark b { display: block; font-size: .62rem; font-weight: 600; }
+.ng-plate figcaption { margin-top: .45rem; font-size: .8rem; line-height: 1.5; }
+.ng-plate small { display: block; margin-top: .15rem; font-size: .68rem; color: var(--muted); }
+.ng-plate small a { color: var(--accent); }
+.ng-pic-missing { padding: 1rem; border: 1px dashed var(--line); font-size: .8rem; color: var(--muted); }
+.ng-markword { margin-top: .8rem; }
+.ng-markword li { display: grid; grid-template-columns: 1.8rem minmax(0, 1fr) auto; gap: .5rem; align-items: baseline; padding-block: .3rem; border-top: 1px solid var(--line); font-size: .84rem; }
+.ng-markword b { font-size: .7rem; font-weight: 600; color: var(--muted); }
+.ng-shared { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-top: 1.4rem; }
+.ng-shared > div { padding-top: .5rem; border-top: 1px solid var(--ink); }
+
+/* Where it stops */
+.ng-close { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.2rem; margin-top: 1.6rem; }
+.ng-confused > div { padding-block: .5rem; border-top: 1px solid var(--line); }
+.ng-confused dt { font: 500 .96rem/1.3 var(--serif); }
+.ng-confused dd { margin-top: .1rem; font-size: .8rem; line-height: 1.55; color: var(--muted); }
+.ng-close .ng-kicker { margin-bottom: .55rem; }
+.ng-reach li { padding-block: .5rem; border-top: 1px solid var(--line); font-size: .82rem; line-height: 1.55; }
+.ng-trail-head { margin-top: 1.8rem; margin-bottom: .55rem; }
+.ng-sources { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.2rem; }
+.ng-sources li { padding-block: .6rem; border-top: 1px solid var(--line); font-size: .78rem; line-height: 1.55; color: var(--muted); }
+.ng-source-title { font: 500 .95rem/1.3 var(--serif); color: var(--ink); }
+.ng-source-title a { text-decoration: none; overflow-wrap: anywhere; }
+.ng-source-title a:hover { text-decoration: underline; }
+.ng-source-title small { display: block; font: 400 .66rem var(--sans); color: var(--muted); }
+.ng-source-q { font-style: italic; }
+.ng-credits { display: grid; gap: .3rem; font-size: .72rem; line-height: 1.55; color: var(--muted); }
+.ng-credits a { text-underline-offset: 2px; }
+.ng-final { margin-top: 2.4rem; padding-block: 1.8rem; border-top: 1px solid var(--line); text-align: center; }
+.ng-final p { font: italic 400 clamp(1.3rem, 2.6vw, 1.9rem)/1.3 var(--serif); }
+.ng-final small { display: block; margin-top: .4rem; font-size: .82rem; color: var(--muted); }
+.ng-final nav { display: flex; flex-wrap: wrap; justify-content: center; gap: .2rem 1.4rem; margin-top: 1rem; }
+.ng-final nav a { display: inline-flex; align-items: center; min-height: 44px; font-size: .86rem; color: var(--accent); }
+
+/* The record sheet */
+.ng-root .ms-sheet { position: fixed; z-index: 60; top: 0; right: 0; bottom: 0; width: min(440px, 100vw); display: flex; flex-direction: column; background: var(--surface); border-left: 1px solid var(--line); box-shadow: -14px 0 40px rgb(0 0 0 / .18); transform: translateX(100%); visibility: hidden; transition: transform .38s cubic-bezier(.2, .8, .3, 1), visibility 0s; }
+.ng-root .ms-sheet.open { transform: none; visibility: visible; }
+.ng-root .ms-sheet:not(.open) { transition: transform .38s cubic-bezier(.4, 0, .6, 1), visibility 0s .38s; }
+.ng-root .ms-sheet-close { position: absolute; top: calc(.8rem + env(safe-area-inset-top, 0px)); right: .8rem; z-index: 1; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); }
+.ng-root .ms-sheet-close:hover { color: var(--ink); border-color: var(--ink); }
+.ng-root .ms-sheet-body { flex: 1; overflow-y: auto; padding: calc(1.4rem + env(safe-area-inset-top, 0px)) 1.4rem calc(1.6rem + env(safe-area-inset-bottom, 0px)); border-top: 2px solid var(--tone); }
+.ng-root .ms-sheet h2 { margin: .35rem 3.2rem .1rem 0; font: 500 1.5rem/1.2 var(--serif); letter-spacing: -.02em; }
+.ng-sheet-glyph { font-size: 3.2rem; line-height: 1.4; }
+.ng-sheet-glyph span { color: var(--muted); }
+.ng-sheet-word { font-size: 2.2rem; line-height: 1.4; }
+.ng-sheet-line { margin-block: .6rem; font-size: .88rem; line-height: 1.55; color: var(--muted); }
+.ng-sheet-line b { color: var(--ink); }
+.ng-sheet-line a { color: var(--accent); }
+.ng-facts { margin-top: .8rem; }
+.ng-facts > div { padding-block: .45rem; border-top: 1px solid var(--line); }
+.ng-facts dt { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ng-facts dd { margin-top: .1rem; font-size: .86rem; line-height: 1.5; overflow-wrap: anywhere; }
+
+@media (max-width: 960px) {
+  .ng-intro { grid-template-columns: 1fr; gap: 1.2rem; }
+  .ng-art svg { max-width: 17rem; }
+  .ng-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem 0; }
+  .ng-figures > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .ng-chapters { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ng-close, .ng-sources { grid-template-columns: 1fr; }
+  .ng-sec { grid-template-columns: 1fr; gap: .8rem; }
+  .ng-margin { position: static; display: flex; align-items: baseline; gap: .7rem; }
+  .ng-margin b { font-size: 1.8rem; }
+  .ng-margin span { margin-top: 0; }
+  .ng-rail > li { grid-template-columns: 7rem minmax(0, 1fr); }
+  .ng-rail-note { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .ng-outcomes { grid-template-columns: 1fr; gap: .4rem; }
+  .ng-outcomes ul, .ng-three, .ng-marks, .ng-readings, .ng-views, .ng-spans, .ng-return, .ng-shared, .ng-swap { grid-template-columns: 1fr; }
+  .ng-readings { gap: .8rem; }
+  .ng-chapters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ng-practice { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ng-cases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ng-fan-rows button { grid-template-columns: minmax(0, 1fr) auto; gap: 0 .5rem; padding-block: .25rem; }
+  .ng-fan-form { grid-column: 1; font-size: 1.3rem; }
+  .ng-fan-job { grid-column: 1; }
+  .ng-fan-rows small { grid-row: 1 / 3; grid-column: 2; }
+  .ng-clauses li { grid-template-columns: 1.4rem minmax(0, 1fr); }
+  .ng-clauses p { grid-column: 2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ng-root *, .ng-root *::before, .ng-root *::after { animation: none !important; transition-duration: 1ms !important; }
+}
