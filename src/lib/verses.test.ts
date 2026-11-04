@@ -4,7 +4,7 @@ import type { Catalog } from "@/lib/types";
 
 describe("the Bible for a language", () => {
   it("gives each language its own Bible, all numbered as in English", () => {
-    expect(DEFAULT_BIBLE).toEqual({ en: "bsb", es: "rvr", "pt-BR": "bpm", "zh-Hans": "cuv", ar: "svd", hi: "irv" });
+    expect(DEFAULT_BIBLE).toEqual({ en: "bsb", es: "rvr", "pt-BR": "bpm", "zh-Hans": "cuv", ar: "svd", hi: "irv", id: "ind" });
     expect(currentBibleSlug("es")).toBe("rvr");
     expect(currentBibleSlug("zh-Hans")).toBe("cuv");
   });

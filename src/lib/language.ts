@@ -10,6 +10,7 @@ export const LANGUAGES = [
   { code: "zh-Hans", name: "中文", folder: "zh", dir: "ltr" },
   { code: "ar", name: "العربية", folder: "ar", dir: "rtl" },
   { code: "hi", name: "हिन्दी", folder: "hi", dir: "ltr" },
+  { code: "id", name: "Bahasa Indonesia", folder: "id", dir: "ltr" },
 ] as const;
 export type LanguageCode = (typeof LANGUAGES)[number]["code"];
 

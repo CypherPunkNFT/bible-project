@@ -8,7 +8,7 @@ const catalog = {
 
 describe("the Bible the reader opens", () => {
   it("is the Berean in English and each language's own elsewhere", () => {
-    expect(DEFAULT_BIBLE).toEqual({ en: "bsb", es: "rvr", "pt-BR": "bpm", "zh-Hans": "cuv", ar: "svd", hi: "irv" });
+    expect(DEFAULT_BIBLE).toEqual({ en: "bsb", es: "rvr", "pt-BR": "bpm", "zh-Hans": "cuv", ar: "svd", hi: "irv", id: "ind" });
     expect(languageBible(catalog, "en", "ROM", "1")).toBe("bsb");
     expect(languageBible(catalog, "es", "ROM", "1")).toBe("rvr");
   });

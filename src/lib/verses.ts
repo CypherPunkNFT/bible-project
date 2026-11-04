@@ -17,6 +17,7 @@ export const DEFAULT_BIBLE: Record<LanguageCode, string> = {
   "zh-Hans": "cuv",
   ar: "svd",
   hi: "irv",
+  id: "ind",
 };
 
 /** Which Bible the site quotes now. A reader's own choice, when there is one, plugs in here and nowhere else. */

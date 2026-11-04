@@ -42,6 +42,12 @@ export const BANNER_VERSES: Record<LanguageCode, Record<BannerVerseName, string>
     peter: "जो कोई तुम से तुम्हारी आशा के विषय में कुछ पूछे,\nतो उसे उत्तर देने के लिये\nसर्वदा तैयार रहो।",
     galatians: "तुम एक दूसरे के भार उठाओ,\nऔर इस प्रकार मसीह की व्यवस्था को पूरी करो।",
   },
+  id: {
+    isaiah: "Rumput layu dan bunga gugur, tetapi firman Allah kita tegak selama-lamanya.",
+    john: "Kamu mempelajari Kitab Suci… dan Kitab Suci itu juga memberi kesaksian tentang Aku.",
+    peter: "Siap sedialah untuk memberi jawaban\nkepada siapa pun yang menuntutmu\nmengenai pengharapan yang kamu miliki.",
+    galatians: "Saling menolonglah dalam menanggung beban\nsupaya kamu menaati hukum Kristus.",
+  },
 };
 
 /** The words around each emblem's ring, shown while it is hovered, by their English in emblem-designs.tsx. */
@@ -76,6 +82,12 @@ export const RING_VERSES: Record<Exclude<LanguageCode, "en">, Record<string, str
     "my rock, my fortress, and my deliverer": "मेरी चट्टान, और मेरा गढ़ और मेरा छुड़ानेवाला",
     "love your neighbor as yourself": "एक दूसरे से अपने समान प्रेम रखना",
   },
+  id: {
+    "the word of our God stands forever": "firman Allah kita tegak selama-lamanya",
+    "Open my eyes that I may see wondrous things": "Bukalah mataku, sehingga aku boleh melihat hal-hal ajaib dari taurat-Mu",
+    "my rock, my fortress, and my deliverer": "bukit batuku, benteng pertahananku, dan penyelamatku",
+    "love your neighbor as yourself": "kasihilah sesamamu seperti dirimu sendiri",
+  },
 };
 
 /** The blessing at the foot of the home page: each verse's lead-in and its gold ending, cut the same way. */
@@ -104,6 +116,10 @@ export const BLESSING_VERSES: Record<LanguageCode, Record<"numbers" | "joshua", 
     numbers: ["यहोवा तुझे आशीष दे और तेरी रक्षा करे:", "यहोवा तुझ पर अपने मुख का प्रकाश चमकाए, और तुझ पर अनुग्रह करे।"],
     joshua: ["हियाव बाँधकर दृढ़ हो जा; भय न खा, और तेरा मन कच्चा न हो;", "क्योंकि जहाँ-जहाँ तू जाएगा वहाँ-वहाँ तेरा परमेश्वर यहोवा तेरे संग रहेगा।"],
   },
+  id: {
+    numbers: ["TUHAN memberkatimu dan melindungimu.", "TUHAN menyinarimu dengan wajah-Nya dan memberimu kasih karunia."],
+    joshua: ["Jadilah kuat dan berani. Jangan takut atau gentar", "karena TUHAN, Allahmu, menyertaimu ke mana pun kamu pergi."],
+  },
 };
 
 /** What these Bibles are called in their own language, for readers of that language. */
@@ -111,6 +127,7 @@ export const BIBLE_OWN_NAMES: Record<string, string> = {
   cuv: "和合本",
   svd: "ترجمة فان دايك",
   irv: "इंडियन रिवाइज्ड वर्जन",
+  ind: "Alkitab Yang Terbuka",
 };
 
 export function BannerVerse({ name }: { name: BannerVerseName }) {

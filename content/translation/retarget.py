@@ -28,7 +28,7 @@ import extract as ex  # noqa: E402
 
 sys.stdout.reconfigure(encoding="utf-8")
 MAP_FILE = HERE / "source-fixes.json"
-LANGUAGES = ("es", "pt", "zh", "ar", "hi")
+LANGUAGES = ("es", "pt", "zh", "ar", "hi", "id")
 SEP = r"(\s*[:：,.]\s*)"
 # (English before the correction contains this, in any language: pattern, replacement). Numbers are the same in every
 # language, so only a book name needs one entry per language.
