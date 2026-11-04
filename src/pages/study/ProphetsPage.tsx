@@ -143,7 +143,7 @@ function ProphetCard({ prophet, kingId, dim }: { prophet: Prophet; kingId: (name
           )}
         </p>
         {/* A prophet who also ruled (Deborah, Samuel) links to that page too. */}
-        {rulerFor(prophet.id) && <p className="mt-2 text-sm"><Link to={rulerHref(prophet.id)} state={cameFrom("Prophets through time")} className="relative z-10 font-semibold underline decoration-line underline-offset-2 hover:text-accent">{prophet.sex === "Female" ? "Her" : "His"} time as {rulerFor(prophet.id)!.kind === "judge" ? "judge" : "ruler"} →</Link></p>}
+        {rulerFor(prophet.id) && <p className="mt-2 text-sm"><Link to={rulerHref(prophet.id)} state={cameFrom("Prophets through time")} className="relative z-10 font-semibold underline decoration-line underline-offset-2 hover:text-accent">{`${prophet.sex === "Female" ? "Her" : "His"} time as ${rulerFor(prophet.id)!.kind === "judge" ? "judge" : "ruler"} →`}</Link></p>}
         {book && (
           <p className="mt-2 text-sm">
             <Link to={`/read/kjv/${book.code}/1`} className="relative z-10 font-semibold underline decoration-line underline-offset-2 hover:text-accent">

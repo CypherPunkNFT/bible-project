@@ -10,7 +10,8 @@ The debate transcripts (content/apologetics/transcripts/*.txt) get a translated 
 data/i18n/<lang>/transcripts/<name>.json as {"text": ...}, which the debate viewer reads (src/lib/debate-transcripts.ts).
 The study pages' own text (kind "studytext": the Academic study dossiers, study data files and study page code, see
 SiteTranslation/studies/) goes to data/i18n/<lang>/ui-study.json as {English: translation}; the page translator reads it
-on /study and /teachers pages only (src/lib/page-translator.ts), because it is large.
+on /study and /teachers pages only (src/lib/page-translator.ts), because it is large. The ruler, prophet and apostle
+pages' own text (kind "peopletext", src/data/people-pages/) goes the same way to ui-people.json, read on /people pages only.
 Other files under public/ are not translated yet. Usage: python apply.py [--repo DIR] [es pt ...]
 """
 import argparse
@@ -47,13 +48,14 @@ def page_strings(repo: Path, lang: str, translated: dict[str, str]) -> dict[str,
 
 
 STUDY_KIND = "studytext"
+PEOPLE_KIND = "peopletext"
 
 
-def study_strings(repo: Path, translated: dict[str, str]) -> dict[str, str]:
-    """{English: translation} for every study chunk translated so far."""
+def study_strings(repo: Path, translated: dict[str, str], kind: str = STUDY_KIND) -> dict[str, str]:
+    """{English: translation} for every chunk of this kind (study or people text) translated so far."""
     strings: dict[str, str] = {}
     for entry in json.loads((repo / "chunks.json").read_text("utf-8")):
-        if entry["kind"] != STUDY_KIND:
+        if entry["kind"] != kind:
             continue
         english = json.loads((repo / "in" / f"{entry['chunk']}.json").read_text("utf-8"))["strings"]
         strings.update({text: translated[key] for key, text in english.items() if key in translated})
@@ -179,8 +181,10 @@ def apply(repo: Path, lang: str) -> None:
     (target / "ui.json").write_text(json.dumps(ui, ensure_ascii=False, separators=(",", ":")), "utf-8")
     study = study_strings(repo, by_kind.get(STUDY_KIND, {}))
     (target / "ui-study.json").write_text(json.dumps(study, ensure_ascii=False, separators=(",", ":")), "utf-8")
+    people = study_strings(repo, by_kind.get(PEOPLE_KIND, {}), PEOPLE_KIND)
+    (target / "ui-people.json").write_text(json.dumps(people, ensure_ascii=False, separators=(",", ":")), "utf-8")
     transcripts = apply_transcripts(by_kind, target)
-    print(f"{lang}: {files} files, {swapped} strings translated, {kept} left in English; {len(ui)} page strings, {len(study)} study strings; {transcripts}")
+    print(f"{lang}: {files} files, {swapped} strings translated, {kept} left in English; {len(ui)} page strings, {len(study)} study strings, {len(people)} people strings; {transcripts}")
 
 
 def main() -> None:

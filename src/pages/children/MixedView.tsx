@@ -86,7 +86,7 @@ export function MixedView({ lessons, groups, progress, bookNames, chosen, onChoo
       <div>
         <p className="ck-eyebrow">{chosen.id === next.id ? "Up next · " : ""}{chosen.part.title} · Lesson {chosen.n}</p>
         <h2 id="ck-mix-title">{chosen.title}</h2>
-        <p>{chosen.passage ? <>Read <b>{passageLabel(chosen.passage, bookNames)}</b> together, then </> : "Learn together, then "}answer {chosen.questions.length} questions.
+        <p>{chosen.passage ? <>Read <b>{passageLabel(chosen.passage, bookNames)}</b> {`together, then answer ${chosen.questions.length} questions.`}</> : `Learn together, then answer ${chosen.questions.length} questions.`}
           {progress[chosen.id] && ` Last time: ${progress[chosen.id].right} of ${progress[chosen.id].total} right.`}</p>
         <button type="button" className="ck-go" onClick={() => void showOnPath(chosen)}>{progress[chosen.id] ? "Start the quiz again" : "Start the quiz"}<ArrowDown size={18} aria-hidden /></button>
         <button type="button" className="ck-go ck-go-outline" onClick={() => onGuide(chosen)}>See all the questions</button>
