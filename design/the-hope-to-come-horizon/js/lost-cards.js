@@ -2,8 +2,8 @@
 // each twice the width of the cards on the page and stacked dark above, green below, read as a story: lost, promised, restored.
 // The drawings are in lost-cards-art.js; the words are the study's data, except where redeemed-verses.js gives a row other
 // Berean words (HP.lostEnds, HP.lostMiddle) or adds a card the study does not have (HP.lostAdded), each checked here against
-// its verse. The owner took the face card out (2026-11-04): none of its four versions worked. Added cards that replace a weak
-// study row (the river, the tree, the deceiver) stand in its place.
+// its verse. The owner took the face card out (2026-11-04): none of its four versions worked. The added cards come after the
+// study's rows, all together; the ones that replace a weak study row (the river, the tree, the deceiver) hide that row.
 (() => {
   const { bookends, passages } = HP;
   const DROPPED = ["The face"];
@@ -22,9 +22,9 @@
     [[row.start, row.startText], [row.last, row.lastText], ...row.middle.map((item) => [item.r, item.t])].forEach(([id, text]) => said(id, text, "HP.lostAdded"));
     return row;
   });
-  // An added card with "replaces" takes that study row's place; the rest follow the study's rows.
-  const replacing = new Map(addedRows.filter((row) => row.replaces).map((row) => [row.replaces, row]));
-  const rows = [...studyRows.map((entry) => replacing.get(entry.name) ?? entry), ...addedRows.filter((row) => !row.replaces)];
+  // A study row that an added card "replaces" is left out; every added card follows the study's rows, together, so the new ones read as one set.
+  const replaced = new Set(addedRows.map((row) => row.replaces).filter(Boolean));
+  const rows = [...studyRows.filter((entry) => !replaced.has(entry.name)), ...addedRows];
   const KIND = { shares: (entry) => `Both verses say: ${entry.word}`, page: () => "This page's matching, not the study's" };
   const kindLabel = (entry) => (KIND[entry.kind] ?? (() => "This study's matching, and nothing more"))(entry);
   const words = (tag, text, id) => `<div class="lc-words"><span class="lc-tag">${tag}</span><p class="lc-phrase">${text}</p><a class="lc-ref" href="./?sheet=${id}">${passages[id].label}</a></div>`;

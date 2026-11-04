@@ -19,7 +19,7 @@ Every quotation below was checked word for word against the site's Berean text o
 6. **The way in**: "He drove out the man" (Genesis 3:24) → "Your gates will always stand open" (Isaiah 60:11) → "Its gates will never be shut" (Revelation 21:25)
 
 **Built 2026-11-04:** numbers 1 to 8 below. Dry bones, dust to glory, scarlet to white, ashes to a crown and starving to a
-feast follow the study's rows; thirst to the spring, unclean to healed and accused to set free stand in the places of the river,
+feast follow the study's rows; thirst to the spring, unclean to healed and accused to set free replace the river,
 the tree and the deceiver, which are no longer shown on the page (their drawings are kept in the code).
 
 **Not strong enough:** the sky, still on the page. Dry bones was its replacement; it goes when the owner says.
