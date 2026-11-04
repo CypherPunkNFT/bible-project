@@ -198,7 +198,8 @@ function translateText(node: Text): void {
 
 function translateAttribute(element: Element, name: string): void {
   const attribute = element.getAttributeNode(name);
-  if (attribute && !leftAlone(element)) retranslate(attribute);
+  // A text box's contents are the reader's own words, but its placeholder and label are page text.
+  if (attribute && !leftAlone(element.tagName === "TEXTAREA" ? element.parentElement : element)) retranslate(attribute);
 }
 
 function translateTree(root: Node): void {

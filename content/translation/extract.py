@@ -69,7 +69,11 @@ SOURCES = [
         ".documents[].content.answer.text", ".documents[].content.reasoning[].text", ".documents[].content.reply.text",
         ".documents[].content.rows[].other.text", ".documents[].content.rows[].christian.text",
         ".documents[].content.limit.text", ".documents[].content.conclusion.text", ".records[].reading.summary",
-        ".records[].reading.startingPoint"}, set(), set()),
+        ".records[].reading.startingPoint", ".documents[].content.summary", ".documents[].content.description",
+        ".documents[].content.setting", ".documents[].content.hinge", ".documents[].content.claim.text",
+        ".documents[].content.transcriptCoverage", ".documents[].content.copy.debateIndexNote",
+        ".documents[].content.copy.footerText", ".documents[].content.copy.footerTitle", ".documents[].content.lens",
+        ".documents[].content.recording.label"}, set(), set()),
     ("sources", "public/content/sources/directory.json", False, ("records",), {
         ".collections[].label", ".collections[].definition", ".entries[].role", ".entries[].status", ".entries[].kind",
         ".entries[].links[].format", ".entries[].links[].name", ".entries[].citedOn[].page",
