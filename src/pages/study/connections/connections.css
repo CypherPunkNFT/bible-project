@@ -44,8 +44,11 @@
 .cx-arcs .chart-hint { display: flex; flex-direction: column; }
 .cx-arcs .chart-hint > span + span::before { content: none; }
 .cx-arcs .chart-live-detail { margin: 0; min-height: 0; pointer-events: none; }
+/* The count sits at the right end of the picker's row, level with it. */
+.cx-arcs .chart-live-detail > span { position: absolute; top: 0; right: 0; display: flex; align-items: center; height: 3.4rem; }
 @media (max-width: 767px) {
   .cx-arcs .arc-head { position: static; margin-bottom: 1rem; }
+  .cx-arcs .chart-live-detail > span { position: static; height: auto; }
 }
 .cx-arcs .chart-live-detail strong { font-size: 1.5rem; }
 
