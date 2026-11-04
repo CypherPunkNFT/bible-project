@@ -443,3 +443,253 @@ HP.lostAdded = [
   "lastText": "I will give you the crown of life"
  }
 ];
+
+// Four more (2026-11-04, the owner: "do more"). Three take the place of a study row the owner found weak ("replaces"):
+// the spring for the river, healing for the tree, the accuser thrown down for the deceiver. Same Berean text, same checks.
+Object.assign(HP.passages, {
+ "EXO.16.3": {
+  "label": "Exodus 16:3",
+  "code": "EXO",
+  "chapters": [
+   16
+  ],
+  "verses": [
+   {
+    "c": 16,
+    "v": 3,
+    "t": "“If only we had died by the LORD’s hand in the land of Egypt!” they said. “There we sat by pots of meat and ate our fill of bread, but you have brought us into this desert to starve this whole assembly to death!”"
+   }
+  ]
+ },
+ "ISA.25.6": {
+  "label": "Isaiah 25:6",
+  "code": "ISA",
+  "chapters": [
+   25
+  ],
+  "verses": [
+   {
+    "c": 25,
+    "v": 6,
+    "t": "On this mountain the LORD of Hosts will prepare a banquet for all the peoples, a feast of aged wine, of choice meat, of finely aged wine."
+   }
+  ]
+ },
+ "REV.19.9": {
+  "label": "Revelation 19:9",
+  "code": "REV",
+  "chapters": [
+   19
+  ],
+  "verses": [
+   {
+    "c": 19,
+    "v": 9,
+    "t": "Then the angel told me to write, “Blessed are those who are invited to the marriage supper of the Lamb.” And he said to me, “These are the true words of God.”"
+   }
+  ]
+ },
+ "EXO.17.3": {
+  "label": "Exodus 17:3",
+  "code": "EXO",
+  "chapters": [
+   17
+  ],
+  "verses": [
+   {
+    "c": 17,
+    "v": 3,
+    "t": "But the people thirsted for water there, and they grumbled against Moses: “Why have you brought us out of Egypt—to make us and our children and livestock die of thirst?”"
+   }
+  ]
+ },
+ "ISA.35.6": {
+  "label": "Isaiah 35:6",
+  "code": "ISA",
+  "chapters": [
+   35
+  ],
+  "verses": [
+   {
+    "c": 35,
+    "v": 6,
+    "t": "Then the lame will leap like a deer and the mute tongue will shout for joy. For waters will gush forth in the wilderness, and streams in the desert."
+   }
+  ]
+ },
+ "REV.21.6": {
+  "label": "Revelation 21:6",
+  "code": "REV",
+  "chapters": [
+   21
+  ],
+  "verses": [
+   {
+    "c": 21,
+    "v": 6,
+    "t": "And He told me, “It is done! I am the Alpha and the Omega, the Beginning and the End. To the thirsty I will give freely from the spring of the water of life."
+   }
+  ]
+ },
+ "LEV.13.45": {
+  "label": "Leviticus 13:45",
+  "code": "LEV",
+  "chapters": [
+   13
+  ],
+  "verses": [
+   {
+    "c": 13,
+    "v": 45,
+    "t": "A diseased person must wear torn clothes and let his hair hang loose, and he must cover his mouth and cry out, ‘Unclean, unclean!’"
+   }
+  ]
+ },
+ "ISA.53.5": {
+  "label": "Isaiah 53:5",
+  "code": "ISA",
+  "chapters": [
+   53
+  ],
+  "verses": [
+   {
+    "c": 53,
+    "v": 5,
+    "t": "But He was pierced for our transgressions, He was crushed for our iniquities; the punishment that brought us peace was upon Him, and by His stripes we are healed."
+   }
+  ]
+ },
+ "REV.22.2": {
+  "label": "Revelation 22:2",
+  "code": "REV",
+  "chapters": [
+   22
+  ],
+  "verses": [
+   {
+    "c": 22,
+    "v": 2,
+    "t": "down the middle of the main street of the city. On either side of the river stood a tree of life, bearing twelve kinds of fruit and yielding a fresh crop for each month. And the leaves of the tree are for the healing of the nations."
+   }
+  ]
+ },
+ "ZEC.3.1": {
+  "label": "Zechariah 3:1",
+  "code": "ZEC",
+  "chapters": [
+   3
+  ],
+  "verses": [
+   {
+    "c": 3,
+    "v": 1,
+    "t": "Then the angel showed me Joshua the high priest standing before the angel of the LORD, with Satan standing at his right hand to accuse him."
+   }
+  ]
+ },
+ "ZEC.3.4": {
+  "label": "Zechariah 3:4",
+  "code": "ZEC",
+  "chapters": [
+   3
+  ],
+  "verses": [
+   {
+    "c": 3,
+    "v": 4,
+    "t": "So the angel said to those standing before him, “Take off his filthy clothes!” Then he said to Joshua, “See, I have removed your iniquity, and I will clothe you with splendid robes.”"
+   }
+  ]
+ },
+ "REV.12.10": {
+  "label": "Revelation 12:10",
+  "code": "REV",
+  "chapters": [
+   12
+  ],
+  "verses": [
+   {
+    "c": 12,
+    "v": 10,
+    "t": "And I heard a loud voice in heaven saying: “Now have come the salvation and the power and the kingdom of our God, and the authority of His Christ. For the accuser of our brothers has been thrown down— he who accuses them day and night before our God."
+   }
+  ]
+ }
+});
+HP.lostAdded.push(...[
+ {
+  "id": "lc-5",
+  "name": "Starving to a feast",
+  "kind": "page",
+  "start": "EXO.16.3",
+  "startLabel": "Exodus 16:3",
+  "startText": "to starve this whole assembly to death",
+  "middle": [
+   {
+    "r": "ISA.25.6",
+    "label": "Isaiah 25:6",
+    "t": "a banquet for all the peoples"
+   }
+  ],
+  "last": "REV.19.9",
+  "lastLabel": "Revelation 19:9",
+  "lastText": "Blessed are those who are invited to the marriage supper of the Lamb"
+ },
+ {
+  "id": "lc-6",
+  "name": "Thirst to the spring",
+  "kind": "page",
+  "start": "EXO.17.3",
+  "startLabel": "Exodus 17:3",
+  "startText": "the people thirsted for water there",
+  "middle": [
+   {
+    "r": "ISA.35.6",
+    "label": "Isaiah 35:6",
+    "t": "waters will gush forth in the wilderness"
+   }
+  ],
+  "last": "REV.21.6",
+  "lastLabel": "Revelation 21:6",
+  "lastText": "To the thirsty I will give freely from the spring of the water of life",
+  "replaces": "The river"
+ },
+ {
+  "id": "lc-7",
+  "name": "Unclean to healed",
+  "kind": "page",
+  "start": "LEV.13.45",
+  "startLabel": "Leviticus 13:45",
+  "startText": "he must cover his mouth and cry out, ‘Unclean, unclean!’",
+  "middle": [
+   {
+    "r": "ISA.53.5",
+    "label": "Isaiah 53:5",
+    "t": "by His stripes we are healed"
+   }
+  ],
+  "last": "REV.22.2",
+  "lastLabel": "Revelation 22:2",
+  "lastText": "the leaves of the tree are for the healing of the nations",
+  "replaces": "The tree"
+ },
+ {
+  "id": "lc-8",
+  "name": "Accused to set free",
+  "kind": "page",
+  "start": "ZEC.3.1",
+  "startLabel": "Zechariah 3:1",
+  "startText": "Satan standing at his right hand to accuse him",
+  "middle": [
+   {
+    "r": "ZEC.3.4",
+    "label": "Zechariah 3:4",
+    "t": "I will clothe you with splendid robes"
+   }
+  ],
+  "last": "REV.12.10",
+  "lastLabel": "Revelation 12:10",
+  "lastText": "the accuser of our brothers has been thrown down",
+  "replaces": "The deceiver"
+ }
+]);

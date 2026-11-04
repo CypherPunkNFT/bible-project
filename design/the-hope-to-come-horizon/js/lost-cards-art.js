@@ -1,6 +1,7 @@
 // The drawings for lost-cards.html: one pair per row of section 03, what was lost (dark) above and Revelation's answer (green
 // and alive) below. Each scene keeps its busy part to the right, because the words sit on the left. Nothing here depicts God,
-// Christ or an angel: the sword of Genesis 3:24 stands alone. The last four cards are not in the study (HP.lostAdded).
+// Christ or an angel: the sword of Genesis 3:24 stands alone. The last eight cards are not in the study (HP.lostAdded); three
+// of them stand in for the river, the tree and the deceiver, whose drawings stay here until the owner settles the set.
 window.LOST_ART = (() => {
   const n = (value) => (+value).toFixed(1);
   const seeded = (seed) => () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
@@ -71,7 +72,9 @@ window.LOST_ART = (() => {
   const bone = (x, y, length, angle, colour) => `<g transform="translate(${n(x)} ${n(y)}) rotate(${n(angle)})" fill="${colour}"><rect x="${n(-length / 2)}" y="-2.4" width="${n(length)}" height="4.8" rx="2.4"/>${[-1, 1].map((end) => `<circle cx="${n(end * length / 2)}" cy="-2.4" r="3.2"/><circle cx="${n(end * length / 2)}" cy="2.4" r="3.2"/>`).join("")}</g>`;
   const skull = (x, y, s, colour, hollow) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-11 2C-13 -10 -6 -16 0 -16C6 -16 13 -10 11 2L8 4V9H-8V4Z" fill="${colour}"/><circle cx="-4.5" cy="-3" r="3" fill="${hollow}"/><circle cx="4.5" cy="-3" r="3" fill="${hollow}"/><path d="M-1 3L0 0L1 3Z" fill="${hollow}"/><path d="M-5 9V6M-2 9V6M1 9V6M4 9V6" stroke="${hollow}" stroke-width=".9"/></g>`;
   const TONES = ["#5a4134", "#3f3a4e", "#34465a", "#6b5236", "#4a3a3a", "#3c4a3c"], BLOOMS = ["#f3d27a", "#fff6e0", "#f2b8c6"];
-  const shining = (x, base, s, raised, edge) => `<g stroke="${edge}" stroke-width="1.2">${person(x, base, s, "#fffaf0", raised)}</g>`;
+  const shining = (x, base, s, raised, edge) => `${raised ? `<path d="M${n(x - 10 * s)} ${n(base - 26 * s)}L${n(x - 19 * s)} ${n(base - 54 * s)}M${n(x + 10 * s)} ${n(base - 26 * s)}L${n(x + 19 * s)} ${n(base - 54 * s)}" stroke="${edge}" stroke-width="${n(4.5 * s + 2.4)}" stroke-linecap="round"/>` : ""}<g stroke="${edge}" stroke-width="1.2">${person(x, base, s, "#fffaf0", raised)}</g>`;
+  const bowl = (x, base, s, fill, inside) => `<path d="M${n(x - 24 * s)} ${n(base - 14 * s)}Q${x} ${n(base + 8 * s)} ${n(x + 24 * s)} ${n(base - 14 * s)}Z" fill="${fill}"/><ellipse cx="${x}" cy="${n(base - 14 * s)}" rx="${n(24 * s)}" ry="${n(5 * s)}" fill="${inside}"/>`;
+  const jar = (x, base, s, angle, fill, edge) => `<g transform="translate(${x} ${base}) rotate(${angle}) scale(${s})"><path d="M-6 -56H6V-48C18 -44 22 -30 20 -14C18 -4 10 0 0 0C-10 0 -18 -4 -20 -14C-22 -30 -18 -44 -6 -48Z" fill="${fill}" stroke="${edge}" stroke-width="1.5"/><path d="M-6 -50C-14 -50 -16 -40 -12 -36M6 -50C14 -50 16 -40 12 -36" stroke="${edge}" stroke-width="2" fill="none"/></g>`;
   const RAINBOW = ["#e46a5a", "#f0a24a", "#f3d25a", "#7cc06a", "#5aa6d6", "#8a74c8"];
 
   // ── The rows, in the study's order ──
@@ -275,6 +278,62 @@ window.LOST_ART = (() => {
         const crown = `<path d="M572 232L564 168L596 196L614 152L630 190L646 152L664 196L696 168L688 232Z" fill="url(#asw)" stroke="#b8862a" stroke-width="2"/><rect x="568" y="222" width="124" height="18" rx="3" fill="url(#asw)" stroke="#b8862a" stroke-width="2"/>${pearls([[564, 168], [614, 152], [646, 152], [696, 168], [594, 231], [630, 231], [666, 231]])}`;
         const garland = repeat(26, (i) => `<circle cx="${n(546 + i * 6.6)}" cy="${n(244 + Math.sin(i * .9) * 3)}" r="3.4" fill="${BLOOMS[i % 3]}"/>`);
         return svg("0 0 800 300", `${glow("asg", [[0, "#ffffff"], [.4, "#fff4cc"], [1, "#f8ecc0", 0]])}${grad("asw", [[0, "#fff1b8"], [1, "#e0a93a"]])}${back("asb", [[0, "#fdf3d6"], [.6, "#f3f1d2"], [1, "#d6eab4"]])}<path d="${rays}" stroke="#f1d58a" stroke-width="2" opacity=".45"/><ellipse cx="630" cy="190" rx="260" ry="170" fill="url(#asg)"/><path d="${wave(210, 26, 800, 373)}" fill="#a9cf86"/><path d="M0 300V250C200 246 500 254 800 248V300Z" fill="#86c066"/><path d="M500 262C540 236 720 236 760 262Z" fill="#7db463"/>${crown}${garland}${meadow(random, 256, 300, 800, 150)}`);
+      },
+    },
+    "Starving to a feast": {
+      line: "Empty bowls in the desert at dusk; then a long table spread in a garden, and the guests seated at the marriage supper.",
+      lost: () => {
+        const random = seeded(401);
+        return svg("0 0 800 300", `${back("fea", [[0, "#120f14"], [.6, "#3a2620"], [1, "#6a3c24"]])}${stars(random, 24, 800, 90)}${moon(430, 50, 14, .5)}<path d="${wave(214, 30, 800, 403)}" fill="#2a1d17"/><path d="M0 300V246C200 240 500 250 800 242V300Z" fill="#3a2a20"/>${cracks(random, 22, 0, 800, 252, 296, "#21170f")}${bowl(560, 272, 1.4, "#9a6a44", "#2a1c12")}${bowl(650, 286, 1.1, "#8a5e3c", "#2a1c12")}<path d="M708 272C712 252 764 252 768 272Z" fill="#8a5e3c"/>${deadBush(random, 480, 252, 20)}${deadBush(random, 760, 244, 18)}`);
+      },
+      found: () => {
+        const random = seeded(411);
+        const guests = repeat(10, (i) => person(470 + i * 34, 238, .78, TONES[i % TONES.length], i % 4 === 1));
+        const feast = repeat(18, (i) => { const x = 458 + i * 19; return i % 3 === 0 ? `<ellipse cx="${x}" cy="231" rx="8" ry="4.5" fill="#d9a35a"/>` : i % 3 === 1 ? `<circle cx="${x - 2}" cy="230" r="2.6" fill="#7a3d6b"/><circle cx="${x + 2}" cy="230" r="2.6" fill="#8a4a7a"/><circle cx="${x}" cy="226" r="2.6" fill="#7a3d6b"/>` : `<path d="M${x - 4} 222H${x + 4}L${x + 2} 230H${x - 2}Z" fill="#e3b54a"/><path d="M${x} 230V234" stroke="#c9a65a" stroke-width="1.6"/>`; });
+        const hem = repeat(18, (i) => `<path d="M${440 + i * 20} 268q10 8 20 0" fill="#fffaf0" stroke="#d9cfb6" stroke-width="1"/>`);
+        return svg("0 0 800 300", `${back("feb", [[0, "#fdf3d6"], [.6, "#f3f1d2"], [1, "#d6eab4"]])}${sun(740, 56, 22)}<path d="${wave(180, 30, 800, 413)}" fill="#a9cf86"/>${crownTree(460, 196, 22, 415)}${crownTree(780, 192, 26, 417)}<path d="M0 300V230C200 226 500 232 800 226V300Z" fill="#86c066"/>${guests}<path d="M440 234H800V268H440Z" fill="#fffaf0" stroke="#d9cfb6" stroke-width="1.2"/>${hem}${feast}${meadow(random, 274, 300, 800, 120)}`);
+      },
+    },
+    "Thirst to the spring": {
+      line: "A great rock in a dry land, the water jar empty on its side; then water pouring out of the rock, and the desert green.",
+      lost: () => {
+        const random = seeded(421), rock = "M560 262C548 220 560 170 600 150C640 132 700 138 730 164C760 190 772 230 764 262Z";
+        return svg("0 0 800 300", `${back("tha", [[0, "#140f0d"], [.6, "#3d2618"], [1, "#6d3a1e"]])}${stars(random, 20, 800, 90)}<path d="${wave(222, 24, 800, 423)}" fill="#2c1e16"/><path d="M0 300V250C200 246 500 256 800 248V300Z" fill="#3e2c20"/><path d="${rock}" fill="#3a3029" stroke="#54463a" stroke-width="2"/><path d="M620 170L640 200L630 230M700 168L690 210" stroke="#241d18" stroke-width="2" fill="none"/>${cracks(random, 26, 0, 800, 256, 296, "#21170f")}${jar(520, 266, 1, -96, "#a8683e", "#5a3420")}${deadBush(random, 440, 250, 16)}`);
+      },
+      found: () => {
+        const random = seeded(431), rock = "M560 262C548 220 560 170 600 150C640 132 700 138 730 164C760 190 772 230 764 262Z";
+        const fall = "M650 196C662 210 666 236 660 262H700C694 236 688 210 676 196Z";
+        const stream = "M640 262C600 270 560 266 520 276S440 290 400 300H520C560 288 600 280 640 278C680 276 720 270 740 262Z";
+        const glints = repeat(18, () => `M${n(440 + random() * 280)} ${n(266 + random() * 30)}h${n(6 + random() * 10)}`);
+        return svg("0 0 800 300", `${back("thb", [[0, "#fdf3d6"], [.6, "#eef3d2"], [1, "#cfe6b1"]])}${sun(470, 60, 22)}<path d="${wave(222, 24, 800, 423)}" fill="#a9cf86"/><path d="M0 300V250C200 246 500 256 800 248V300Z" fill="#86c066"/><path d="${rock}" fill="#c9bba6" stroke="#a49478" stroke-width="2"/>${crownTree(780, 250, 22, 433)}${crownTree(540, 256, 18, 435)}<path d="${fall}" fill="#8fd0dc"/><path d="M664 204C670 226 672 246 668 262M684 204C688 226 690 246 688 262" stroke="#e9fbff" stroke-width="1.6" fill="none"/><path d="${stream}" fill="#6fbccb"/><path d="${glints}" stroke="#e9fbff" stroke-width="1.6" stroke-linecap="round"/>${meadow(random, 256, 300, 440, 60)}${meadow(random, 270, 300, 800, 50, 720)}`);
+      },
+    },
+    "Unclean to healed": {
+      line: "Outside the camp at night, one figure alone, mouth covered; then the tree of life, its leaves falling on the people gathered under it.",
+      lost: () => {
+        const random = seeded(441);
+        const tent = (x, base, wide) => `<path d="M${x} ${base}L${x + wide / 2} ${base - wide * .6}L${x + wide} ${base}Z" fill="#2a2620" stroke="#3a342c" stroke-width="1"/>`;
+        const fires = [[468, 236], [520, 240]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="14" fill="#e2783a" opacity=".2"/><circle cx="${x}" cy="${y}" r="3" fill="#f1a24a"/>`).join("");
+        return svg("0 0 800 300", `${back("una", [[0, "#0a0c11"], [1, "#1c1f26"]])}${stars(random, 50, 800, 150)}${moon(740, 46, 16, .55)}<path d="M0 300V240C200 236 500 246 800 238V300Z" fill="#14161b"/>${tent(430, 240, 34)}${tent(470, 238, 28)}${tent(500, 242, 36)}${tent(540, 240, 26)}${fires}<path d="M560 252C620 262 660 270 700 296" stroke="#22252c" stroke-width="10" fill="none"/>${person(720, 278, 1.6, "#5a554c")}<path d="M707 218a13 13 0 0 0 26 0Z" fill="#9a9286"/><path d="M700 278l5 -12l5 12M732 278l4 -10l5 10" stroke="#14161b" stroke-width="2.4"/>`);
+      },
+      found: () => {
+        const random = seeded(451), fruit = ["#e8b84a", "#d9603b", "#9b3d6b", "#e98a3a", "#c94a4a", "#6b8f3a"];
+        const falling = repeat(22, () => leafShape(480 + random() * 300, 120 + random() * 130, 8, random() * 360, random() < .5 ? "#5a9f4f" : "#8fbf6a"));
+        const gathered = [[500, 276, .95, true], [552, 266, .8, false], [700, 268, .85, true], [752, 278, 1, false], [600, 282, 1.05, true]].map(([x, base, s, raised], i) => person(x, base, s, TONES[i], raised)).join("");
+        return svg("0 0 800 300", `${glow("ung", [[0, "#fff6d6"], [.5, "#f6e3a0", .6], [1, "#f6e3a0", 0]])}${back("unb", [[0, "#fbefc9"], [.6, "#e8f0c8"], [1, "#b9db97"]])}<path d="${wave(200, 24, 800, 453)}" fill="#a9cf86"/><ellipse cx="640" cy="130" rx="190" ry="130" fill="url(#ung)"/>${crownTree(640, 250, 56, 455, { fruit })}<path d="M0 300V250C200 246 500 256 800 248V300Z" fill="#7db463"/>${meadow(random, 254, 300, 800, 110)}${falling}${gathered}`);
+      },
+    },
+    "Accused to set free": {
+      line: "A man in filthy clothes, a shadow at his right hand pointing at him; then the same man in clean robes, arms raised in the light, and the accuser falling from the sky.",
+      lost: () => {
+        const random = seeded(461);
+        const stains = repeat(10, () => `<circle cx="${n(580 + random() * 40)}" cy="${n(236 + random() * 54)}" r="${n(3 + random() * 5)}" fill="#2e251b" opacity=".8"/>`);
+        return svg("0 0 800 300", `${glow("acg", [[0, "#8e2a1e", .3], [1, "#8e2a1e", 0]])}${back("aca", [[0, "#08090c"], [1, "#1a1b20"]])}${stars(random, 30, 800, 120)}<ellipse cx="720" cy="160" rx="120" ry="150" fill="url(#acg)"/>${repeat(3, (i) => `<path d="M${666 - i * 8} 300C${656 - i * 8} 230 ${676 - i * 6} 140 ${706 - i * 4} 90C${722 - i * 4} ${64 - i * 6} ${750 + i * 4} ${60 - i * 6} ${764 + i * 4} 84C${786 + i * 6} 120 ${796 + i * 4} 220 800 300Z" fill="#000000" opacity="${[.85, .4, .2][i]}"/>`)}<path d="M690 138C672 148 654 162 640 176" stroke="#030405" stroke-width="12" stroke-linecap="round" fill="none"/><path d="M640 176l-14 6" stroke="#030405" stroke-width="5" stroke-linecap="round"/><path d="M0 300V288H800V300Z" fill="#101114"/>${person(600, 296, 2.3, "#5a4a38")}${stains}`);
+      },
+      found: () => {
+        const random = seeded(471);
+        const rays = repeat(28, (i) => { const a = Math.PI + (i / 27) * Math.PI; return `M${n(630 + Math.cos(a) * 110)} ${n(200 + Math.sin(a) * 110)}L${n(630 + Math.cos(a) * 700)} ${n(200 + Math.sin(a) * 700)}`; });
+        return svg("0 0 800 300", `${glow("acf", [[0, "#ffffff"], [.4, "#fff4cc"], [1, "#f8ecc0", 0]])}${back("acb", [[0, "#fdf3d6"], [.6, "#f6f4dc"], [1, "#d9ebba"]])}<path d="${rays}" stroke="#f1d58a" stroke-width="2" opacity=".45"/><ellipse cx="630" cy="200" rx="220" ry="160" fill="url(#acf)"/>${grad("act", [[0, "#3a3530", 0], [1, "#3a3530", .7]])}<path d="M700 4L702 3L773 110L767 113Z" fill="url(#act)"/><circle cx="770" cy="114" r="11" fill="#e2783a" opacity=".3"/><circle cx="770" cy="114" r="6" fill="#2a2620"/><path d="M762 122l-6 5M778 122l5 6" stroke="#8a6a4a" stroke-width="1.4" stroke-linecap="round"/><path d="${wave(236, 20, 800, 473)}" fill="#a9cf86"/><path d="M0 300V276C200 272 500 280 800 274V300Z" fill="#86c066"/>${meadow(random, 278, 300, 800, 120)}${shining(630, 282, 2, true, "#d9a640")}`);
       },
     },
   };

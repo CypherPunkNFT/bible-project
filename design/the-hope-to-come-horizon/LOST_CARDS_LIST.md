@@ -18,10 +18,11 @@ Every quotation below was checked word for word against the site's Berean text o
 5. **The presence**: "they hid themselves from the presence of the LORD God" (Genesis 3:8) → "My dwelling place will be with them" (Ezekiel 37:27) → "the dwelling place of God is with man" (Revelation 21:3)
 6. **The way in**: "He drove out the man" (Genesis 3:24) → "Your gates will always stand open" (Isaiah 60:11) → "Its gates will never be shut" (Revelation 21:25)
 
-**Built 2026-11-04 (new, after the six):** dry bones, dust to glory, scarlet to white, ashes to a crown (numbers 1 to 4 below).
+**Built 2026-11-04:** numbers 1 to 8 below. Dry bones, dust to glory, scarlet to white, ashes to a crown and starving to a
+feast follow the study's rows; thirst to the spring, unclean to healed and accused to set free stand in the places of the river,
+the tree and the deceiver, which are no longer shown on the page (their drawings are kept in the code).
 
-**Not strong enough (to replace):** the deceiver, the sky, the river, the tree. A suggested replacement for each is marked ★
-below.
+**Not strong enough:** the sky, still on the page. Dry bones was its replacement; it goes when the owner says.
 
 **Removed 2026-11-04:** the face. The owner did not like any of its four versions, so it is off the page.
 
@@ -40,8 +41,7 @@ below.
 11. **Ruins to the holy city**: "The wall of Jerusalem is broken down, and its gates are burned with fire" (Nehemiah 1:3) → "your gates of sparkling jewels" (Isaiah 54:12) → "the holy city, the new Jerusalem, coming down out of heaven from God" (Revelation 21:2). *Picture:* a burned wall smoking; then the city coming down in light.
 12. **Blood to peace**: "The voice of your brother’s blood cries out to Me from the ground" (Genesis 4:10) → "They will beat their swords into plowshares" (Isaiah 2:4) → "Behold, I make all things new" (Revelation 21:5). *Picture:* a sword in red earth; then a plough in a green field.
 
-**Built first (2026-11-04):** 1 to 4, because each is life out of death or glory out of shame you can see in one picture.
-**Next:** the three ★ replacements (6, 7, 8), so every card on the page clears the bar. Dry bones, now built, was the sky's replacement.
+**Next:** 9 to 12 (one people, freedom, the holy city, swords into plowshares).
 
 **Note:** several of these take their "lost" words from outside Genesis and Exodus (Ezekiel, Leviticus, Nehemiah,
 Zechariah, Isaiah) and their "restored" words from outside Revelation. That moves section 03 beyond the study's own
