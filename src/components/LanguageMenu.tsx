@@ -2,7 +2,7 @@
 // English (owner, 2026-11-02).
 import { Check, Languages, LoaderCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { LANGUAGES, useSiteLanguage, type LanguageCode } from "@/lib/language";
+import { MENU_LANGUAGES, useSiteLanguage, type LanguageCode } from "@/lib/language";
 import { chooseSiteLanguage, prepareSiteLanguage } from "@/lib/page-translator";
 import { cn } from "@/lib/utils";
 
@@ -50,7 +50,7 @@ export function LanguageMenu() {
       </button>
       {open && (
         <div role="menu" aria-label="Language" className="language-menu-panel absolute right-0 top-[calc(100%+8px)] z-50 min-w-[12rem] rounded-xl border border-line bg-page p-1.5 shadow-lg">
-          {LANGUAGES.map((language) => (
+          {MENU_LANGUAGES.map((language) => (
             <button
               key={language.code}
               type="button"

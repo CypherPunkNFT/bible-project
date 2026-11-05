@@ -2,17 +2,22 @@
 // language reads its content files from data/i18n/<folder>/ (content/translation/apply.py), and page-translator.ts
 // swaps the words already on screen, so a change of language never reloads the page. Published 2026-11-02.
 import { useSyncExternalStore } from "react";
+import { SITE_LANGUAGES, type SiteLanguage } from "./site-languages";
 
-export const LANGUAGES = [
-  { code: "en", name: "English", folder: null, dir: "ltr" },
-  { code: "es", name: "Español", folder: "es", dir: "ltr" },
-  { code: "pt-BR", name: "Português (Brasil)", folder: "pt", dir: "ltr" },
-  { code: "zh-Hans", name: "中文", folder: "zh", dir: "ltr" },
-  { code: "ar", name: "العربية", folder: "ar", dir: "rtl" },
-  { code: "hi", name: "हिन्दी", folder: "hi", dir: "ltr" },
-  { code: "id", name: "Bahasa Indonesia", folder: "id", dir: "ltr" },
-] as const;
+/** Every language the site knows (site-languages.ts), released or not: what codes and folders are looked up in. */
+export const LANGUAGES = SITE_LANGUAGES;
 export type LanguageCode = (typeof LANGUAGES)[number]["code"];
+
+// Unreleased languages are offered only on this computer's preview, the same rule as the mock-ups (mockup-routes.tsx).
+const LOCAL_HOSTS = new Set(["127.0.0.1", "localhost"]);
+
+/** The languages the menu offers on `hostname`: the released ones, and on the local preview the unreleased ones too. */
+export function menuLanguages<T extends SiteLanguage>(languages: readonly T[], hostname: string): T[] {
+  return languages.filter((language) => language.released || LOCAL_HOSTS.has(hostname));
+}
+
+export const MENU_LANGUAGES = menuLanguages(LANGUAGES, typeof window === "undefined" ? "" : window.location.hostname);
+const offered = (code: string | null): code is LanguageCode => MENU_LANGUAGES.some((language) => language.code === code);
 
 const STORAGE_KEY = "bp-language";
 
@@ -23,7 +28,11 @@ const TRANSLATED_DATA = ["study/people.json", "study/people/", "study/people-pac
 function storedLanguage(): LanguageCode {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    return LANGUAGES.find((language) => language.code === saved)?.code ?? "en";
+    if (offered(saved)) return saved;
+    // A language this host does not offer (one chosen on the preview, not released): forget it, so index.html stops
+    // hiding the page for it on the next visit.
+    if (saved !== null) localStorage.removeItem(STORAGE_KEY);
+    return "en";
   } catch {
     return "en";
   }
@@ -38,6 +47,7 @@ export const siteLanguage = (): LanguageCode => current;
 
 /** Every caller re-renders with the new language; the data loaders forget their cached files. */
 export function setSiteLanguage(code: LanguageCode): void {
+  if (!offered(code)) throw new Error(`setSiteLanguage: "${code}" is not offered on this site (released languages only, outside the local preview).`);
   current = code;
   try {
     localStorage.setItem(STORAGE_KEY, code);

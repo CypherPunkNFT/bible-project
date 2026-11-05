@@ -51,8 +51,9 @@
     "test:api": "node --experimental-strip-types scripts/tests/testimonies-api.ts",
     "lint": "eslint . --max-warnings 0",
     "pretest": "npm run content:build",
-    "test": "npm run test:content && vitest run",
-    "test:e2e": "playwright test"
+    "test": "npm run test:content && npm run test:release && vitest run",
+    "test:e2e": "playwright test",
+    "test:release": "node --experimental-strip-types --test scripts/release-translations.test.ts"
   },
   "dependencies": {
     "@fontsource-variable/archivo": "5.3.0",
