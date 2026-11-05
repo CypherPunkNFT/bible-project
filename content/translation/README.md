@@ -38,6 +38,19 @@ writes every left and right style rule as start and end, mirrors the whole layou
 right it is the same page. Drawings keep their own orientation (`svg { direction: ltr }` in `index.css`), and a page
 that stays English sets `dir="ltr"` on itself.
 
+## Finding English that never gets translated
+
+[unregistered.py](unregistered.py) lists English that extract.py never registers, so it stays English in every
+language (the Apologetics menu's "Practice" was one). It checks three things: text in the page code that looks shown on
+screen but that extract.py's rules skip, sorted by which rule passed it by; fields of the content files that hold
+prose but that no `SOURCES` path names, and content folders no rule reads at all; and registered page text that a
+language's `ui.json` has no translation for yet. It writes
+[reports/unregistered.md](../../../SiteTranslation/reports/unregistered.md), reads files only and costs nothing (about
+three minutes, mostly the content files; `--check code` alone takes seconds). Its net is wider than extract.py's on
+purpose, so some items are code or English on purpose: once checked, they go in `unregistered-reviewed.json` as
+`{"check": "code" | "code-files" | "fields" | "files" | "untranslated", "item": ..., "why": ...}` and drop out of
+later reports.
+
 ## The pilot (2026-10-31)
 
 [pilot/](pilot/) compared Haiku with the local model (HyperQwen) on 50 real items from every part of the site, in both
