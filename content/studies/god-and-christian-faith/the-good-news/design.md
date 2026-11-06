@@ -1,6 +1,6 @@
 # The good news design
 
-Study 54 · Design written with the mock-up · Owner review pending · 2026-11-06
+Study 54 · Design written with the mock-up · Built into the site at /study/the-good-news, not yet released · 2026-11-06
 
 Built: [the mock-up and its record](../../../../design/the-good-news-directions/README.md). Open at http://127.0.0.1:8931/mockups/the-good-news-directions/ on this PC. Wording: [content.md](content.md). Limits: [passage-notes.md](passage-notes.md). Standard: [STUDY-STANDARD.md](../../../../../Pages/Study/STUDY-STANDARD.md).
 

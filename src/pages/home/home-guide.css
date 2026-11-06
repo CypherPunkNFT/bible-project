@@ -19,7 +19,7 @@
 .home-guide-convictions cite { display: block; margin-top: 6px; font: 600 9.5px Archivo, sans-serif; font-style: normal; letter-spacing: .18em; text-transform: uppercase; color: var(--accent, #8a5a14); }
 .home-guide-ask { font: 400 clamp(32px, 3.4vw, 48px)/1.1 Literata, Georgia, serif; letter-spacing: -.02em; margin: 0 0 12px; padding-top: 100px; }
 .home-guide-ask-lead { color: var(--muted); font-size: 14.5px; margin: 0 0 36px; }
-.home-guide-paths { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.home-guide-paths { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--line); }
 .home-guide-path { all: unset; box-sizing: border-box; cursor: pointer; display: grid; grid-template-rows: auto 1fr auto; gap: 14px; padding: 30px clamp(18px, 2vw, 30px) 28px;
   border-bottom: 1px solid var(--line); background: linear-gradient(180deg, color-mix(in srgb, var(--home-color) 10%, transparent), transparent) no-repeat 0 0 / 100% 0%;
   transition: background-size .5s cubic-bezier(.2, .7, .2, 1); }

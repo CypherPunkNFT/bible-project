@@ -2039,7 +2039,7 @@ window.GN = {
  "built_from": {
   "content.md": "e17ca6d878bdafe5",
   "study_lists.py": "ff40a8e1ccfb2616",
-  "build-data.py": "0841c1f9a84e84ef",
+  "build-data.py": "31b6abff85952773",
   "scripture_text.py": "9f674d784a6c8c68"
  }
 };

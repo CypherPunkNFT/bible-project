@@ -1,16 +1,20 @@
 // Homepage (live; first tried on home_mockup2): the section under the row of studies. First what the project is (the About content of the contact
 // page, its four convictions shared from AboutSections.tsx), then "Where are you starting from?": each answer glides the page
 // down to that numbered part and opens it. Styles: home-guide.css.
-// Two layouts: "columns" (home_mockup2: story in columns, then the four answers in a row) and "side" (home_mockup: the story
+// Two layouts: "columns" (home_mockup2: story in columns, then the five answers in a row) and "side" (home_mockup: the story
 // stacked on the left, the answers as rows on the right, the four convictions along the bottom).
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { createContext, useContext, type CSSProperties, type ReactNode } from "react";
+import { Link } from "react-router-dom";
 import { CONVICTIONS, ConvictionList } from "../contact/AboutSections";
 import "../contact/contact.css";
 import { ConvictionsLongDrawing, GLORY_TEXT } from "./ConvictionsLongDrawing";
 import "./home-guide.css";
 
-const PATHS = [
+/** Each answer either glides the home page down to its numbered part, or (the fifth) opens a page of its own. */
+interface StartPath { part?: number; to?: string; number: string; tone: string; who: string; text: string; steps: string[] }
+
+const PATHS: StartPath[] = [
   { part: 0, number: "01", tone: "epistles", who: "I'm new to the faith",
     text: "Start with the story itself. Read it a book at a time, in the version you understand best, and let it speak for itself.",
     steps: ["Begin with the Gospel of John", "Listen to a chapter read aloud", "Pick up where you stopped, any time"] },
@@ -23,6 +27,9 @@ const PATHS = [
   { part: 3, number: "04", tone: "resource-life", who: "I need help, or company",
     text: "Fellowship, help for life's hard seasons, and learning materials, for when faith needs company more than answers.",
     steps: ["Find a church or a group near you", "Help for grief, fear and struggle", "Courses and reading plans"] },
+  { to: "/study/the-good-news", number: "05", tone: "acts", who: "I'm not a Christian, or I'm not sure",
+    text: "Read what Christians call the good news: who God is, what went wrong, what Jesus did, and how a person is made right with God.",
+    steps: ["Three stories Jesus told about the lost", "What it means to turn and trust", "Honest answers to six hard questions"] },
 ];
 
 function Story() {
@@ -69,12 +76,18 @@ function Convictions() {
 }
 
 function Paths({ onChoose, withSteps }: { onChoose: (part: number) => void; withSteps: boolean }) {
-  return <div className="home-guide-paths">{PATHS.map((path) => <button type="button" key={path.number} className="home-guide-path" style={{ "--home-color": `var(--${path.tone})` } as CSSProperties} onClick={() => onChoose(path.part)}>
-    <span className="home-guide-number" aria-hidden="true">{path.number}</span>
-    <span className="home-guide-words"><strong>{path.who}</strong><span className="home-guide-text">{path.text}</span>
-      {withSteps && <ul>{path.steps.map((step) => <li key={step}>{step}</li>)}</ul>}</span>
-    <span className="home-guide-where" aria-hidden="true"><ArrowDown size={18} strokeWidth={1.4} /></span>
-  </button>)}</div>;
+  return <div className="home-guide-paths">{PATHS.map((path) => {
+    const style = { "--home-color": `var(--${path.tone})` } as CSSProperties;
+    const inside = <>
+      <span className="home-guide-number" aria-hidden="true">{path.number}</span>
+      <span className="home-guide-words"><strong>{path.who}</strong><span className="home-guide-text">{path.text}</span>
+        {withSteps && <ul>{path.steps.map((step) => <li key={step}>{step}</li>)}</ul>}</span>
+      <span className="home-guide-where" aria-hidden="true">{path.to ? <ArrowRight size={18} strokeWidth={1.4} /> : <ArrowDown size={18} strokeWidth={1.4} />}</span>
+    </>;
+    return path.to
+      ? <Link key={path.number} to={path.to} className="home-guide-path" style={style}>{inside}</Link>
+      : <button type="button" key={path.number} className="home-guide-path" style={style} onClick={() => onChoose(path.part ?? 0)}>{inside}</button>;
+  })}</div>;
 }
 
 /** Lets a mock-up (home_mockup11) put another phone version of the convictions in place of the long drawing. */

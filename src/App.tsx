@@ -64,6 +64,7 @@ const EgyptPage = lazy(() => import("@/pages/study/egypt/EgyptPage"));
 const FarmingPage = lazy(() => import("@/pages/study/farming/FarmingPage"));
 const ChurchReadingPage = lazy(() => import("@/pages/study/church-reading/ChurchReadingPage"));
 const MedievalPage = lazy(() => import("@/pages/study/medieval/MedievalPage"));
+const GoodNewsPage = lazy(() => import("@/pages/study/good-news/GoodNewsPage"));
 const StudyBranch = lazy(() => import("@/pages/study/hub/StudyBranch"));
 const StudyPage = lazy(() => import("@/pages/study/StudyPage"));
 const StudyCollection = lazy(() => import("@/pages/study/StudyCollection"));
@@ -181,6 +182,7 @@ export default function App() {
               <Route path="/study/egypt-beside-israel" element={<EgyptPage />} />
               <Route path="/study/how-the-church-has-read-the-bible" element={<ChurchReadingPage />} />
               <Route path="/study/the-medieval-church" element={<MedievalPage />} />
+              <Route path="/study/the-good-news" element={<GoodNewsPage />} />
               <Route path="/study/how-hebrew-works" element={<HebrewPage />} />
               <Route path="/study/how-new-testament-greek-works" element={<GreekPage />} />
               <Route path="/study/dead-sea-scrolls" element={<DeadSeaScrollsPage />} />

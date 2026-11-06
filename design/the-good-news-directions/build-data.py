@@ -18,6 +18,8 @@ from study_lists import FACTS, LOST_THINGS, NEWS_ROWS, OUTSIDE_QUOTES, OWN_TERMS
 WEBSITE = HERE.parents[1]
 CONTENT = WEBSITE / "content/studies/god-and-christian-faith/the-good-news/content.md"
 OUT = HERE / "data.js"
+# The live page (/study/the-good-news) reads the same checked data as JSON.
+OUT_SITE = WEBSITE / "src/pages/study/good-news/good-news-data.json"
 INLINE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*|\*([^*]+)\*")
 CONTINUE = re.compile(r"(; |, | with | and )(?:(\d+):)?(\d+)(?:–(\d+))?(?![\d:])")
 FIELDS = ("Concepts", "Motto", "Lead", "Frame", "Selection", "Way", "Invite", "Question", "Again", "Passage")
@@ -248,24 +250,27 @@ def build() -> str:
     prints = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()[:16] for p in inputs}
     data = {"study": study, "passages": builder.passages, "news": rows, "lost": lost, "numbers": numbers,
             "sources": SOURCES, "outside": OUTSIDE_QUOTES, "built_from": prints}
-    return "// Built by build-data.py from the study's content.md. Do not edit by hand.\nwindow.GN = " + json.dumps(data, ensure_ascii=False, indent=1) + ";\n"
+    mockup = "// Built by build-data.py from the study's content.md. Do not edit by hand.\nwindow.GN = " + json.dumps(data, ensure_ascii=False, indent=1) + ";\n"
+    site = json.dumps({key: data[key] for key in ("study", "passages", "news", "lost", "numbers", "sources")}, ensure_ascii=False, separators=(",", ":")) + "\n"
+    return mockup, site
 
 
 def main() -> int:
     try:
-        output = build()
+        output, site = build()
     except (BuildError, OSError, KeyError) as error:
         print(f"build-data: FAILED: {error}", file=sys.stderr)
         return 1
     if "--check" in sys.argv:
-        current = OUT.read_text(encoding="utf-8") if OUT.exists() else ""
-        if current != output:
-            print("build-data: data.js is stale; run without --check", file=sys.stderr)
+        stale = [path.name for path, text in ((OUT, output), (OUT_SITE, site)) if not path.exists() or path.read_text(encoding="utf-8") != text]
+        if stale:
+            print(f"build-data: stale: {', '.join(stale)}; run without --check", file=sys.stderr)
             return 1
-        print("build-data: all checks pass; data.js is current")
+        print("build-data: all checks pass; data.js and the live page's data are current")
         return 0
     OUT.write_text(output, encoding="utf-8", newline="\n")
-    print(f"build-data: all checks pass; wrote {OUT.name} ({len(output):,} bytes)")
+    OUT_SITE.write_text(site, encoding="utf-8", newline="\n")
+    print(f"build-data: all checks pass; wrote {OUT.name} and {OUT_SITE.name} ({len(site):,} bytes)")
     return 0
 
 

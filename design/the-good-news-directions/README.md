@@ -5,7 +5,7 @@ Open: http://127.0.0.1:8931/mockups/the-good-news-directions/ · Up: [gallery](.
 
 A Scripture & Theology study for someone who is not a Christian, or is not sure. Its one new move: **read the gospel as news before advice.** A ledger of seven verses puts what God has done on the left and what it calls for on the right, then six parts run down one thread, like a road home, from who God is to what happens next.
 
-When the owner approves it, this page is where the home page's fifth start choice, "I'm not a Christian, or I'm not sure", will lead.
+**Built into the site on 2026-11-06** at `/study/the-good-news` ([GoodNewsPage.tsx](../../src/pages/study/good-news/GoodNewsPage.tsx)), after the owner's go-ahead. The home page's fifth start choice, "I'm not a Christian, or I'm not sure", leads there. build-data.py writes the live page's data too ([good-news-data.json](../../src/pages/study/good-news/good-news-data.json)), so one checked build feeds both. Not yet released to the live site.
 
 ## How it is built
 
