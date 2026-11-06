@@ -1,0 +1,993 @@
+{
+  "schemaVersion": 1,
+  "order": 23,
+  "title": "Traditions: shared roots and divisions",
+  "slug": "traditions-shared-roots-divisions",
+  "category": "church-history",
+  "categoryTitle": "The church through history",
+  "updated": "2026-11-06",
+  "status": "draft",
+  "draftNote": "First research draft, step 15 of the next twenty study drafts, written 2026-11-06 inside the scope widened on 2026-11-05 after the redundancy review. This study also takes in the planned study Creeds & councils (order 22, not written separately) and the three outlined parts Shared roots, Oriental Orthodox churches and Separation & encounter. No page, route or component. Confessions and creeds were read from the site's own creeds collection (data/creeds/doc). Some modern documents and summaries were read through a tool that returns a report on a web page, not the page itself; each such source says so, and they are to be rechecked word for word before a page is built.",
+  "premise": "Every Christian tradition reads the same Gospels and baptizes in the same triune name, yet communion between them broke at a handful of points: at the councils of Ephesus (431) and Chalcedon (451), between Rome and Constantinople around 1054, and in the Reformation and its confessions, from which the Baptists came. Each break can be read in the words of the people on each side, and so can what they kept in common.",
+  "question": "Where did they part, and what did each side keep?",
+  "outcomes": [
+    "Name the points where communion between the churches broke (431, 451, 1054, the 1500s, the 1600s), say what was at stake at each, and say which are single events and which are long processes given a date.",
+    "Say why creeds and confessions were written, in their own words: to answer a question that had divided the church, not to add to Scripture.",
+    "Let each tradition speak in its own words, from its own documents, and keep that apart from what its opponents said about it.",
+    "Read the comparison of what the traditions still share (the core of the canon, the Nicene Creed, baptism in the triune name) and where each one parts, without turning a shared word into a shared practice.",
+    "Follow the Baptist confessions from 1644 to the Baptist Faith and Message of 2000, and say what Baptists mean, and do not mean, by a confession."
+  ],
+  "boundaries": {
+    "in": "How the churches came to divide and what they still share, each tradition in its own words. Why creeds were written, and the councils as the points where churches divided: Ephesus (431) and the Church of the East; Chalcedon (451) and the Oriental Orthodox churches; the break between Rome and Constantinople around 1054, with the conversions of Bulgaria and Kyiv only as they set the map; reunion attempts at Lyon (1274) and Florence (1439); the Reformation and its confessions (Augsburg 1530, Westminster 1646–47) and Trent's answer; the Baptist confessions (1644, 1677/1689, New Hampshire 1833, the Baptist Faith and Message of 1925, 1963 and 2000); and the modern meetings (1965, 1973). What the traditions still share: the core of the canon, the Apostles' and Nicene Creeds, baptism in the name of the Father, Son and Holy Spirit.",
+    "out": [
+      "What the doctrine of the Trinity means, and the councils of Nicaea (325) and Constantinople (381): the Theology articles on the Trinity, part four, “Nicaea 325, Constantinople 381”. Linked, not re-explained. Chalcedon's definition is stated here in two sentences only, as far as the division needs it, and its full text is in the creeds collection.",
+      "The texts of the creeds and confessions: Catechisms & Creeds (/study/creeds), 66 documents in twelve traditions. This study quotes short lines and links each document.",
+      "Which books belong in the Bible, and how each tradition's list closed: How the canon took shape (04). One row of the comparison here says where the lists agree and links it.",
+      "The medieval church in the Latin West as an institution: The medieval church (33). It hands the East-West split to this study, which takes it from there.",
+      "How each tradition has read the Bible: How the church has read the Bible (30).",
+      "Reformations and revivals as movements, and the spread of the church across the world: planned studies Reform, renewal & revival (24) and Christianity across the world (25). The Reformation appears here only where it divided the church and wrote confessions.",
+      "Worship, sacraments, monasticism and sacred art in each tradition: the planned part Worship & spiritual life. This study names baptism only as a mark of what is shared and where it parts.",
+      "What baptism means, from Scripture: the site's theological studies. This study reports what each tradition's confession says, and the site's own view, and does not argue the doctrine."
+    ]
+  },
+  "links": [
+    {
+      "title": "The Trinity, part four: Nicaea 325, Constantinople 381",
+      "route": "/study/theology-articles/the-trinity#the-councils",
+      "why": "The councils that wrote the doctrine down, the four errors they ruled out, and the caution that the words “and the Son” are a later Western addition."
+    },
+    {
+      "title": "Catechisms & Creeds",
+      "route": "/study/creeds",
+      "why": "Every creed and confession quoted here, in full, with each Scripture quotation in the Berean Standard Bible."
+    },
+    {
+      "title": "The medieval church",
+      "route": "/study/the-medieval-church",
+      "why": "Popes and kings in the Latin West, 500 to 1350. It names this study as the home of the East-West split."
+    },
+    {
+      "title": "How the church has read the Bible",
+      "route": "/study/how-the-church-has-read-the-bible",
+      "why": "Origen, Chrysostom, the medieval senses and the Reformers' plain sense: how the traditions read, where this study shows where they parted."
+    },
+    {
+      "title": "How the canon took shape",
+      "route": "/study/how-the-canon-took-shape",
+      "why": "The lists behind the shared core of the canon, and the Reformation's and Trent's decisions on the Apocrypha."
+    },
+    {
+      "title": "The Second London Baptist Confession (1677/1689)",
+      "route": "/study/creeds/1689-london-baptist-confession-1677",
+      "why": "The fullest older Baptist confession, read here on Scripture, baptism and councils."
+    },
+    {
+      "title": "The New Hampshire Baptist Confession (1833)",
+      "route": "/study/creeds/new-hampshire-baptist-confession-1833",
+      "why": "The basis of the 1925 Baptist Faith and Message, and the source of its phrase “truth without any mixture of error”."
+    },
+    {
+      "title": "The Chalcedonian Definition (451)",
+      "route": "/study/creeds/chalcedonian-definition-451-schaff",
+      "why": "The definition the Oriental Orthodox churches did not receive, in Schaff's edition."
+    }
+  ],
+  "figures": [
+    {
+      "value": "5",
+      "label": "points of division",
+      "caption": "Ephesus 431, Chalcedon 451, Rome and Constantinople around 1054, the Reformation of the 1500s, and the Baptists' separation in the 1600s. Two are councils with a date; the others are long processes that history remembers by one year."
+    },
+    {
+      "value": "3",
+      "label": "councils shared with the Copts",
+      "caption": "In 1973 the Coptic pope and the pope of Rome named “the early three ecumenical councils” as the ground of their faith. The Eastern Orthodox count seven and the Roman Catholic Church twenty-one: counts as usually given, not checked here against each church's own list."
+    },
+    {
+      "value": "2",
+      "label": "words still not said in the East",
+      "caption": "“And the Son”: the clause the Latin West added to the creed of 381. Philaret's Orthodox catechism of 1839 says the doctrine of the Spirit's procession from the Father admits of no “change or supplement” (question 242)."
+    },
+    {
+      "value": "0 of 4",
+      "label": "confessions that name a creed",
+      "caption": "Westminster (1647), the Second London (1677/1689), New Hampshire (1833) and the Abstract of Principles (1858) were searched in the site's copies for the Nicene, Apostles' and Athanasian Creeds. None names them. All four teach the Trinity in their own words."
+    }
+  ],
+  "creeds": {
+    "lead": "A creed answers a question the church has already argued over. None of the documents read here claims to add to Scripture; each claims to say what Scripture says, against someone who said otherwise.",
+    "note": "The doctrine the councils of 325 and 381 settled is explained in the Trinity articles, and is not re-explained here. This section asks only why creeds were written, and what each tradition says a creed is worth.",
+    "steps": [
+      {
+        "id": "scripture",
+        "n": "01",
+        "title": "Confessions inside Scripture",
+        "when": "The apostles' own day",
+        "evidence": "Paul hands on a short summary he himself received: “what I received I passed on to you as of first importance: that Christ died for our sins according to the Scriptures, that He was buried, that He was raised on the third day according to the Scriptures” (1 Corinthians 15:3–4 · BSB). The confession a believer makes is short: “if you confess with your mouth, “Jesus is Lord,” and believe in your heart that God raised Him from the dead, you will be saved” (Romans 10:9 · BSB). The creeds collection opens with a family of these, Scripture's own confessions.",
+        "inference": "Summarising the faith in a few words is older than any council. The later creeds stand in that habit; they do not invent it.",
+        "limit": "These passages are Scripture. The later creeds are not, and none of the traditions read here says they are.",
+        "verses": ["1 Corinthians 15:3", "1 Corinthians 15:4", "Romans 10:9"],
+        "sources": ["scripture", "creeds-collection"]
+      },
+      {
+        "id": "rule",
+        "n": "02",
+        "title": "The rule of faith",
+        "when": "About 110 to 265",
+        "evidence": "Before there were councils, teachers set down the faith they had received in a few sentences: Ignatius, Irenaeus about 180, Tertullian about 200, Gregory about 265. The creeds collection holds four of these as its family “The early church's rule of faith”.",
+        "inference": "The same outline (one God the Creator, Jesus Christ his Son born, crucified, raised, coming again, the Holy Spirit) recurs in different words in different cities. That is evidence of a shared teaching, not of a single fixed text.",
+        "limit": "The wording differs from writer to writer. No one text was used everywhere, and the dates are the usual ones, not given by the writers.",
+        "verses": [],
+        "sources": ["creeds-collection"]
+      },
+      {
+        "id": "councils",
+        "n": "03",
+        "title": "A council answers a question",
+        "when": "325, 381, 451",
+        "evidence": "The council of Chalcedon, in its acts, first confirms the creed of Nicaea “in both forms”, and says that “this wise and saving Creed would be sufficient for the full acknowledgment and confirmation of the true religion”. It explains that a new definition is needed because of new teachings about Christ, and then forbids anyone to set forth any other creed (Schaff's notes to the Chalcedonian Definition, in the site's creeds collection).",
+        "inference": "The council's own account of itself is defensive: the old creed is enough, but it is being read two ways, so a further sentence is written to close off one reading. That is the pattern of every council in this study.",
+        "limit": "Schaff summarises and quotes the acts; the acts themselves were not read. What the councils of 325 and 381 decided is in the Trinity articles.",
+        "verses": [],
+        "sources": ["chalcedon", "trinity-article"]
+      },
+      {
+        "id": "orthodox",
+        "n": "04",
+        "title": "No new creed: the Orthodox reason",
+        "when": "431, restated 1839",
+        "evidence": "Philaret's Orthodox catechism answers that the doctrine of the Spirit's procession from the Father admits of no change or supplement, because the council of 381 “sufficiently set forth the same in the Creed”, and because “the third Œcumenical Council in its seventh canon forbade the composition of any new Creed” (Longer Catechism, question 242).",
+        "inference": "For the Orthodox, the creed of 381 is finished. Adding to it, even a true sentence, is itself the fault. That is why two words could divide East and West.",
+        "limit": "The canon of Ephesus is reported here through the catechism; its text was not read.",
+        "verses": [],
+        "sources": ["philaret"]
+      },
+      {
+        "id": "reformed",
+        "n": "05",
+        "title": "Councils as a help, not a rule",
+        "when": "1530 and 1647",
+        "evidence": "The Augsburg Confession opens by saying the churches teach “that the decree of the Nicene Synod concerning the unity of the divine essence and of the three persons is true” (article 1). The Westminster Confession holds that “all decrees of councils” are to be examined by “the Holy Spirit speaking in the Scripture” (chapter 1, section 10), and that councils since the apostles “may err, and many have erred”, so they are “to be used as a help” (chapter 31, section 4 in the 1647 numbering).",
+        "inference": "The Reformers kept the ancient creeds' doctrine and changed their standing: true because Scripture teaches it, not because a council said it.",
+        "limit": "Two confessions stand here for many. Lutheran and Reformed churches also differ from each other on other points, which this study does not walk.",
+        "verses": [],
+        "sources": ["augsburg", "westminster"]
+      },
+      {
+        "id": "baptist",
+        "n": "06",
+        "title": "Guides, not authorities",
+        "when": "1677/1689 to 2000",
+        "evidence": "The Second London Baptist Confession keeps Westminster's sentence and changes its last words: the supreme judge by which “all Decrees of Councels” are examined “can be no other but the Holy Scripture delivered by the Spirit” (chapter 1, section 10). The preamble of the Baptist Faith and Message, from 1925 to 2000, says that “the sole authority for faith and practice among Baptists is the Scriptures of the Old and New Testaments” and that confessions “are only guides in interpretation, having no authority over the conscience”.",
+        "inference": "Baptists write confessions freely and bind no conscience with them. A Baptist church can confess the faith of Nicaea without reciting its creed, and most Baptist confessions do exactly that.",
+        "limit": "The preamble wording was read through a report of the Southern Baptist Convention's comparison chart; it is to be checked word for word against bfm.sbc.net before a page quotes it. Some Baptists have used the creeds in worship (see the claims).",
+        "verses": [],
+        "sources": ["confession-1689", "bfm-chart", "foundation"]
+      }
+    ]
+  },
+  "forks": {
+    "lead": "Five times communion broke. At each, both sides wrote, and both sides' words survive.",
+    "note": "Each fork gives the question at stake, a line from each side in its own words where this study could read one, and then the three parts: what the evidence says, what this study infers, and where the evidence stops. Dates are the usual ones; where a division took centuries, the year is the one history remembers, not the day it happened.",
+    "items": [
+      {
+        "id": "ephesus",
+        "n": "01",
+        "year": "431",
+        "place": "Ephesus",
+        "title": "One title for Mary. One church goes east.",
+        "atStake": "Whether Mary may be called “Mother of God” (Theotokos), and so whether the one born of her is one person, God the Word made flesh.",
+        "sides": [
+          {
+            "who": "The council of Ephesus, and later Chalcedon",
+            "words": "born of the Virgin Mary, the Mother of God, according to the Manhood",
+            "source": "chalcedon",
+            "note": "Chalcedon's definition, repeating the title Ephesus defended."
+          },
+          {
+            "who": "The Church of the East, as modern scholars report it",
+            "words": "a lamentable misnomer",
+            "source": "wiki-east",
+            "note": "Sebastian Brock's phrase for the name “Nestorian” given to this church by its opponents, as quoted in the Wikipedia article. No document of the church itself was read."
+          }
+        ],
+        "evidence": "The council condemned Nestorius, bishop of Constantinople. The church in the Persian empire, outside Rome's borders, had declared its independence of the western bishops in 424 and did not receive Ephesus or the councils after it. Its missionaries reached China by 635, as the stone of Xi'an records.",
+        "inference": "This first division was partly a matter of borders: a church in another empire did not accept a council of the Roman one. The name its opponents gave it, after Nestorius, is not the name it uses.",
+        "limit": "Read only through the Wikipedia article on the Church of the East; none of its own writings and none of the acts of Ephesus were read. A Common Christological Declaration between the Catholic Church and the Assyrian Church of the East (1994) was located, not read.",
+        "today": "The Assyrian Church of the East and the Ancient Church of the East.",
+        "links": [],
+        "verses": ["John 1:14"],
+        "sources": ["wiki-east", "chalcedon"]
+      },
+      {
+        "id": "chalcedon",
+        "n": "02",
+        "year": "451",
+        "place": "Chalcedon",
+        "title": "In two natures. Of one nature.",
+        "atStake": "How to say that Christ is truly God and truly man: “in two natures” united in one person, as Chalcedon said, or “one incarnate nature of the Word”, the formula of Cyril of Alexandria that Alexandria kept.",
+        "sides": [
+          {
+            "who": "The council of Chalcedon",
+            "words": "to be acknowledged in two natures, inconfusedly, unchangeably, indivisibly, inseparably",
+            "source": "chalcedon",
+            "note": "The definition as translated in Schaff's edition, in the site's creeds collection."
+          },
+          {
+            "who": "The Coptic pope Shenouda III with the pope of Rome, 1973",
+            "words": "perfect God with respect to His divinity, perfect man with respect to His humanity",
+            "source": "decl-1973",
+            "note": "The same declaration says the two are united “without mingling, without commixtion, without confusion, without alteration, without division, without separation”."
+          }
+        ],
+        "evidence": "Chalcedon defined Christ as one person “in two natures”. The churches of Egypt, Syria and Armenia, and later Ethiopia, did not receive it, and they accept three councils: Nicaea, Constantinople and Ephesus. Called “monophysite” (one-nature) by their opponents, they reject the name and prefer “miaphysite”, one united nature. In 1973 the Coptic and Roman popes wrote that “since the year 451 A. D., theological differences, nourished and widened by non-theological factors, have sprung up”.",
+        "inference": "Both sides deny that Christ's godhead and manhood were mixed, and both deny that they were split. The 1973 declaration uses the very negatives of Chalcedon without its phrase “in two natures”. Much of the division was over which words guard the same mystery, and much of it, by both sides' own later account, was not theological at all.",
+        "limit": "The Oriental Orthodox churches' own documents were not read; their position is given from the 1973 declaration (read through a tool report) and the Wikipedia article. Not every Eastern Orthodox church accepts the later agreed statements with them. Chalcedon's own phrasing is itself a textual question: Schaff says he inserted “in two natures” into his Greek text, and his note on why is not in the site's copy.",
+        "today": "The Coptic, Syriac, Armenian, Ethiopian, Eritrean and Malankara Orthodox churches.",
+        "links": [
+          { "title": "The Chalcedonian Definition", "route": "/study/creeds/chalcedonian-definition-451-schaff" }
+        ],
+        "verses": ["John 1:14", "1 John 4:2"],
+        "sources": ["chalcedon", "decl-1973", "wiki-oriental"]
+      },
+      {
+        "id": "rome-constantinople",
+        "n": "03",
+        "year": "1054",
+        "place": "Rome and Constantinople",
+        "title": "Two sentences in one week. Centuries to finish.",
+        "atStake": "Who has authority over the whole church, the bishop of Rome or the bishops together; whether the creed may say the Spirit proceeds “from the Father and the Son”; and smaller matters of practice, such as unleavened bread at the Supper.",
+        "sides": [
+          {
+            "who": "Rome, at the council of Florence, 1439",
+            "words": "the holy Spirit is eternally from the Father and the Son",
+            "source": "florence",
+            "note": "The decree of union says the clause was “licitly and reasonably added to the creed”."
+          },
+          {
+            "who": "Philaret's Orthodox catechism, 1839",
+            "words": "we nowise say that he is from the Son, but only call him the Spirit of the Son",
+            "source": "philaret",
+            "note": "Quoting John of Damascus, in answer to question 242."
+          }
+        ],
+        "evidence": "On 16 July 1054 the papal legates led by Cardinal Humbert laid a sentence of excommunication against the patriarch Michael Cerularius on the altar of Hagia Sophia; the patriarch and his synod answered with a sentence against the legates. Pope Leo IX, who had sent them, had already died. In 1965 Pope Paul VI and Patriarch Athenagoras I declared that they “regret and remove both from memory and from the midst of the Church the sentences of excommunication”, and added that this “is not sufficient to end both old and more recent differences”.",
+        "inference": "The sentences of 1054 fell on persons, not on whole churches. The break became settled through later events, above all the crusaders' sack of Constantinople in 1204, and the failure of the reunions agreed at Lyon (1274) and Florence (1439). 1054 is the year remembered, not the day it happened.",
+        "limit": "Humbert's bull and the patriarch's reply were not read; the dates and the death of Leo IX are from reports (Britannica and Wikipedia, as returned by a search tool). Historians have proposed other dates for the real break, among them 1204. Bulgaria (baptized under Boris, usually dated 864) and Kyiv (under Vladimir, usually 988) had taken the faith from Constantinople before 1054, and so stood on the eastern side: usual dates, not checked here.",
+        "today": "The Eastern Orthodox churches and the Roman Catholic Church.",
+        "links": [
+          { "title": "The Trinity: the words “and the Son” are not from 381", "route": "/study/theology-articles/the-trinity#the-councils" },
+          { "title": "The medieval church", "route": "/study/the-medieval-church" }
+        ],
+        "verses": ["John 15:26"],
+        "sources": ["decl-1965", "florence", "philaret", "wiki-schism"]
+      },
+      {
+        "id": "reformation",
+        "n": "04",
+        "year": "1517 to 1563",
+        "place": "Wittenberg, Augsburg, Trent, Westminster",
+        "title": "One Scripture. Two judges.",
+        "atStake": "What decides a disputed doctrine: Scripture alone as the final judge, or Scripture with the church's unwritten traditions, received together. And with it, how a sinner is justified before God.",
+        "sides": [
+          {
+            "who": "The Augsburg Confession, 1530",
+            "words": "unto the true unity of the Church, it is sufficient to agree concerning the doctrine of the Gospel and the administration of the Sacraments",
+            "source": "augsburg",
+            "note": "Article 7. It adds that rites “instituted by men” need not be alike everywhere."
+          },
+          {
+            "who": "The council of Trent, 1546",
+            "words": "receives and venerates with an equal affection of piety and reverence, all the books both of the Old and of the New Testament",
+            "source": "trent",
+            "note": "Session 4. The sentence goes on: “as also the said traditions”, the “unwritten traditions” received from Christ and the apostles."
+          }
+        ],
+        "evidence": "The Lutheran princes presented the Augsburg Confession in 1530. Trent answered in its fourth session, in 1546. The Westminster Confession, completed in 1646 and adopted in Scotland in 1647, makes the supreme judge “the Holy Spirit speaking in the Scripture” (chapter 1, section 10).",
+        "inference": "Both sides confess the Nicene faith; Augsburg says so in its first article. What divided them was the question behind every other: who judges. Each side's answer is a single sentence, and each can be read in the collection.",
+        "limit": "The Reformation also divided Protestants among themselves, Lutheran from Reformed over the Lord's Supper, and both from the Anabaptists. Only the division over authority, and the Baptists' (fork 05), are walked here; reformations as movements belong to the planned study Reform, renewal & revival.",
+        "today": "Lutheran, Reformed and Presbyterian, and Anglican churches; and the Roman Catholic Church as Trent shaped it.",
+        "links": [
+          { "title": "The Augsburg Confession", "route": "/study/creeds/augsburg-confession-1530" },
+          { "title": "The Westminster Confession of Faith", "route": "/study/creeds/westminster-confession-of-faith-1647" },
+          { "title": "The Council of Trent", "route": "/study/creeds/council-of-trent-canons-and-decrees-1563" }
+        ],
+        "verses": [],
+        "sources": ["augsburg", "trent", "westminster"]
+      },
+      {
+        "id": "baptists",
+        "n": "05",
+        "year": "1609 to 1644",
+        "place": "Amsterdam and London",
+        "title": "Same doctrine of God. A different baptism.",
+        "atStake": "Who should be baptized (believers who profess faith, or also their infants) and how (immersion, or pouring and sprinkling), and so what a church is: a gathered congregation of baptized believers.",
+        "sides": [
+          {
+            "who": "The Westminster Confession, 1647",
+            "words": "the infants of one or both believing parents are to be baptized",
+            "source": "westminster",
+            "note": "Chapter 28, section 4. Section 3: “Dipping of the person into the water is not necessary”."
+          },
+          {
+            "who": "The First London Baptist Confession, 1644",
+            "words": "dipping or plunging the whole body under water",
+            "source": "london-1644",
+            "note": "Article 40. Article 39: baptism is to be “dispensed only upon persons professing faith”."
+          }
+        ],
+        "evidence": "The Augsburg Confession had already condemned “the Anabaptists who allow not the Baptism of children” (article 9). Seven London churches issued their confession in 1644 under the title “The Confession of Faith, of those Churches which are commonly (though falsly) called Anabaptists”. The Second London Confession of 1677/1689 follows Westminster's wording in many places, as their sentences on the supreme judge show side by side, and departs from it on baptism: “Immersion, or dipping of the person in water, is necessary” (chapter 29, section 4).",
+        "inference": "The first Baptist confessions show churches that held the Reformed doctrine of God, Christ and grace, and parted over baptism and the church. Their title refuses the name their opponents gave them.",
+        "limit": "Where Baptists themselves came from is argued among Baptists (see Baptist beginnings). The 1644 text was read through a tool report of a transcription on romans45.org, not from a facsimile; the 1644 and 1646 editions differ in wording.",
+        "today": "Baptist churches, among them the Southern Baptist Convention.",
+        "links": [
+          { "title": "The Second London Baptist Confession", "route": "/study/creeds/1689-london-baptist-confession-1677" }
+        ],
+        "verses": ["Matthew 28:19"],
+        "sources": ["westminster", "london-1644", "confession-1689", "augsburg"]
+      }
+    ]
+  },
+  "voices": {
+    "lead": "Each tradition, asked what the church is, in its own document. None is ranked; the site's own view is the Baptist one, and is labelled.",
+    "note": "One line each, from the site's creeds collection where it holds the tradition's own document. The Oriental Orthodox line is from a joint declaration, because the collection holds none of their documents.",
+    "items": [
+      {
+        "id": "oriental",
+        "tradition": "Oriental Orthodox",
+        "document": "Common declaration of Shenouda III and Paul VI, 1973",
+        "words": "the early three ecumenical councils",
+        "says": "The Coptic church names the councils it holds with Rome: Nicaea, Constantinople and Ephesus, not Chalcedon.",
+        "source": "decl-1973"
+      },
+      {
+        "id": "orthodox",
+        "tradition": "Eastern Orthodox",
+        "document": "Philaret, Longer Catechism, 1839, question 270",
+        "words": "she is not limited to any place, nor time, nor people, but contains true believers of all places, times, and peoples",
+        "says": "Why the church is called catholic, that is, universal. The next answer adds that the catholic church “can not sin, nor err”.",
+        "source": "philaret"
+      },
+      {
+        "id": "catholic",
+        "tradition": "Roman Catholic",
+        "document": "First Vatican Council, 1870",
+        "words": "the Roman Pontiff is the successor of blessed Peter, Prince of the Apostles, and is true vicar of Christ, and head of the whole Church",
+        "says": "The council renews, in its own words, “the definition of the œcumenical Council of Florence” on the primacy of Rome.",
+        "source": "vatican-1"
+      },
+      {
+        "id": "lutheran",
+        "tradition": "Lutheran",
+        "document": "The Augsburg Confession, 1530, article 7",
+        "words": "the Church is the congregation of saints, in which the Gospel is rightly taught and the Sacraments rightly administered",
+        "says": "Unity needs agreement on the gospel and the sacraments; rites made by men may differ.",
+        "source": "augsburg"
+      },
+      {
+        "id": "anglican",
+        "tradition": "Anglican",
+        "document": "The Thirty-Nine Articles, 1571, article 19",
+        "words": "The visible Church of Christe, is a congregation of faythfull men in the which the pure worde of God is preached, and the Sacramentes be duely ministred",
+        "says": "Close to Augsburg's marks of the church, in the English of 1571.",
+        "source": "thirty-nine"
+      },
+      {
+        "id": "reformed",
+        "tradition": "Reformed and Presbyterian",
+        "document": "The Westminster Confession, 1647, chapter 1, section 10",
+        "words": "The Supreme Judge, by which all controversies of religion are to be determined … can be no other but the Holy Spirit speaking in the Scripture",
+        "says": "Every council and every ancient writer is examined by Scripture.",
+        "source": "westminster"
+      },
+      {
+        "id": "baptist",
+        "tradition": "Baptist (the site's own)",
+        "document": "The New Hampshire Baptist Confession, 1833, article 13",
+        "words": "a visible Church of Christ is a congregation of baptized believers, associated by covenant in the faith and fellowship of the gospel",
+        "says": "The Baptist Faith and Message (article 6) keeps this line: a local church is a self-governing congregation of baptized believers. Article 1 of 1833 calls the Bible “the true centre of Christian union”.",
+        "source": "new-hampshire"
+      }
+    ]
+  },
+  "shared": {
+    "lead": "One table, read across: what every tradition still holds, and where each one parts.",
+    "question": "Do the traditions share the same canon, creed and baptism?",
+    "interpret": "The first rows are almost solid: the same core books, the same faith of Nicaea, the same triune name at baptism. The rows below them break: the same word, “baptism”, covers different people and different water.",
+    "note": "Each cell gives the tradition's own document where this study read one. “Not checked” means the study did not read a source for that cell, not that the tradition rejects it. The Church of the East is left out of the table because none of its own sources was read.",
+    "traditions": [
+      { "id": "oriental", "name": "Oriental Orthodox" },
+      { "id": "orthodox", "name": "Eastern Orthodox" },
+      { "id": "catholic", "name": "Roman Catholic" },
+      { "id": "lutheran", "name": "Lutheran" },
+      { "id": "reformed", "name": "Reformed" },
+      { "id": "anglican", "name": "Anglican" },
+      { "id": "baptist", "name": "Baptist" }
+    ],
+    "rows": [
+      {
+        "id": "nt",
+        "mark": "The 27 books of the New Testament",
+        "kind": "shared",
+        "cells": {
+          "oriental": { "value": "held", "note": "The Ethiopian church's wider canon is reported to add further books: not checked here." },
+          "orthodox": { "value": "held", "note": "" },
+          "catholic": { "value": "held", "note": "Trent, session 4, lists them." },
+          "lutheran": { "value": "held", "note": "" },
+          "reformed": { "value": "held", "note": "" },
+          "anglican": { "value": "held", "note": "" },
+          "baptist": { "value": "held", "note": "1689, chapter 1, section 2, lists them." }
+        },
+        "evidence": "The twenty-seven are in every list this study's neighbour, How the canon took shape, follows from the 300s onward, and in Trent's and the 1689 Confession's lists.",
+        "inference": "This is the firmest shared ground of all: the same Gospels, letters and Revelation.",
+        "limit": "Syriac-speaking churches long read a shorter New Testament, and the Ethiopian church a longer one. How each list closed is told in How the canon took shape, not here.",
+        "sources": ["trent", "confession-1689", "canon-study"]
+      },
+      {
+        "id": "ot",
+        "mark": "The 39 books of the Protestant Old Testament",
+        "kind": "shared",
+        "cells": {
+          "oriental": { "value": "held, with more", "note": "Not checked here." },
+          "orthodox": { "value": "held, with more", "note": "Not checked here." },
+          "catholic": { "value": "held, with more", "note": "Trent's list adds books such as Tobit and the two of Maccabees." },
+          "lutheran": { "value": "held", "note": "Not checked here." },
+          "reformed": { "value": "held", "note": "Westminster, chapter 1, section 2." },
+          "anglican": { "value": "held", "note": "Not checked here." },
+          "baptist": { "value": "held", "note": "1689, chapter 1, section 3, says the Apocrypha are “no part of the Canon”." }
+        },
+        "evidence": "Every tradition's Old Testament contains the thirty-nine. Trent adds the books Protestants call the Apocrypha; the Westminster and 1689 Confessions list the thirty-nine and exclude the rest.",
+        "inference": "The traditions share a core and differ at the edge. “The same Bible” is true of the core only.",
+        "limit": "The Eastern and Oriental lists were not read for this study. How the canon took shape gives the lists.",
+        "sources": ["trent", "westminster", "confession-1689", "canon-study"]
+      },
+      {
+        "id": "nicene",
+        "mark": "The faith of the Nicene Creed (381)",
+        "kind": "shared",
+        "cells": {
+          "oriental": { "value": "held", "note": "One of “the early three ecumenical councils”, 1973." },
+          "orthodox": { "value": "held", "note": "Philaret's catechism is built on it." },
+          "catholic": { "value": "held", "note": "With “and the Son”." },
+          "lutheran": { "value": "held", "note": "Augsburg, article 1." },
+          "reformed": { "value": "taught, not named", "note": "Westminster teaches the doctrine (chapter 2) and does not name the creed." },
+          "anglican": { "value": "held", "note": "Article 8 receives the three creeds." },
+          "baptist": { "value": "taught, not named", "note": "1689, chapter 2; the Baptist Faith and Message, article 2. The General Baptists' Orthodox Creed of 1678/9 received all three creeds (located, not read)." }
+        },
+        "evidence": "Every tradition in the table confesses one God, Father, Son and Holy Spirit, in the terms Nicaea and Constantinople set. Some recite the creed; Westminster and the Baptist confessions teach the same faith in their own sentences.",
+        "inference": "A tradition can hold the Nicene faith without saying the Nicene Creed. Counting who recites it measures worship, not belief.",
+        "limit": "Whether a given church recites it on Sunday was not counted; confessions say what is believed, not what is said aloud.",
+        "sources": ["decl-1973", "philaret", "augsburg", "westminster", "thirty-nine", "confession-1689", "foundation", "orthodox-creed"]
+      },
+      {
+        "id": "filioque",
+        "mark": "“And the Son” in the article on the Spirit",
+        "kind": "parts",
+        "cells": {
+          "oriental": { "value": "not said", "note": "Reported; not checked in their own text here." },
+          "orthodox": { "value": "not said", "note": "Philaret, questions 241–242." },
+          "catholic": { "value": "said", "note": "Florence, 1439: “licitly and reasonably added”." },
+          "lutheran": { "value": "said", "note": "The Western form; not checked in a Lutheran text here." },
+          "reformed": { "value": "said", "note": "Westminster, chapter 2, section 3: “proceeding from the Father and the Son”." },
+          "anglican": { "value": "said", "note": "Not checked in the Articles here." },
+          "baptist": { "value": "said", "note": "1689, chapter 2, section 3: “proceeding from the Father and the Son”." }
+        },
+        "evidence": "The Eastern churches confess the Spirit “who proceedeth from the Father”, as the creed of 381 reads; the Western churches, Protestant ones included, add “and the Son”.",
+        "inference": "On this clause Baptists stand with Rome and the Reformers, not with the East. The line that runs through the table here is East and West, not Catholic and Protestant.",
+        "limit": "The Trinity articles explain the clause's history and say it is a later Western addition. This study reports who says it, and does not argue it.",
+        "sources": ["philaret", "florence", "westminster", "confession-1689", "trinity-article"]
+      },
+      {
+        "id": "apostles",
+        "mark": "The Apostles' Creed",
+        "kind": "parts",
+        "cells": {
+          "oriental": { "value": "not checked", "note": "" },
+          "orthodox": { "value": "not used", "note": "It does not appear in Philaret's catechism, which explains the Nicene Creed." },
+          "catholic": { "value": "used", "note": "A Western creed." },
+          "lutheran": { "value": "used", "note": "Luther's Small Catechism explains it." },
+          "reformed": { "value": "used", "note": "The Heidelberg Catechism explains it; Westminster does not name it." },
+          "anglican": { "value": "used", "note": "Article 8." },
+          "baptist": { "value": "varies", "note": "Not named in the 1644, 1689, 1833 confessions or the Baptist Faith and Message; received in the Orthodox Creed of 1678/9." }
+        },
+        "evidence": "The creeds collection dates its received text to the 700s, and holds it under the ancient creeds. The Orthodox catechism read here never mentions it.",
+        "inference": "The Apostles' Creed is shared across the West, not across the whole church. Its content is not disputed in the East; its use is Western.",
+        "limit": "Its earlier form, the old Roman creed, and its history are not traced here. Whether Eastern churches object to anything in it was not checked.",
+        "sources": ["creeds-collection", "philaret", "thirty-nine", "orthodox-creed"]
+      },
+      {
+        "id": "chalcedon",
+        "mark": "Christ in two natures (Chalcedon, 451)",
+        "kind": "parts",
+        "cells": {
+          "oriental": { "value": "not received", "note": "“One incarnate nature of the Word”, in Cyril's formula." },
+          "orthodox": { "value": "received", "note": "Not checked in Philaret here." },
+          "catholic": { "value": "received", "note": "" },
+          "lutheran": { "value": "taught", "note": "Augsburg, article 3: “two natures, the divine and the human, inseparably joined”." },
+          "reformed": { "value": "taught", "note": "Westminster, chapter 8." },
+          "anglican": { "value": "taught", "note": "Article 2." },
+          "baptist": { "value": "taught", "note": "1689, chapter 8, section 2: “two whole, perfect, and distinct natures, were inseparably joined together in one Person”." }
+        },
+        "evidence": "Every Western confession read here, Baptist included, repeats Chalcedon's terms. The Oriental Orthodox do not, and say the same faith in Cyril's words.",
+        "inference": "On this row Baptists stand with Rome, Constantinople and the Reformers. The 1689 Confession's “without conversion, composition, or confusion” is Chalcedon's language in English.",
+        "limit": "The table can show who uses which words. Whether the words mean the same faith is what the churches themselves have argued since 451.",
+        "sources": ["chalcedon", "augsburg", "westminster", "confession-1689", "wiki-oriental"]
+      },
+      {
+        "id": "triune",
+        "mark": "Baptism in the name of the Father, Son and Holy Spirit",
+        "kind": "shared",
+        "cells": {
+          "oriental": { "value": "yes", "note": "Not checked in their own text here." },
+          "orthodox": { "value": "yes", "note": "Philaret, question 288." },
+          "catholic": { "value": "yes", "note": "" },
+          "lutheran": { "value": "yes", "note": "" },
+          "reformed": { "value": "yes", "note": "" },
+          "anglican": { "value": "yes", "note": "" },
+          "baptist": { "value": "yes", "note": "New Hampshire, article 14; the Baptist Faith and Message, article 7." }
+        },
+        "evidence": "Every tradition baptizes with the words of Matthew 28:19: “baptizing them in the name of the Father, and of the Son, and of the Holy Spirit” (Matthew 28:19 · BSB).",
+        "inference": "The name is shared. What follows shows that the act is not, which is why “one baptism” (Ephesians 4:5) is confessed by all and practised differently.",
+        "limit": "Whether one church accepts another's baptism is a separate question, answered differently by each; it was not surveyed here.",
+        "sources": ["scripture", "philaret", "new-hampshire", "bfm-chart"]
+      },
+      {
+        "id": "infants",
+        "mark": "Infants baptized",
+        "kind": "parts",
+        "cells": {
+          "oriental": { "value": "yes", "note": "Not checked here." },
+          "orthodox": { "value": "yes", "note": "Philaret, question 293." },
+          "catholic": { "value": "yes", "note": "Not checked in Trent here." },
+          "lutheran": { "value": "yes", "note": "Augsburg, article 9." },
+          "reformed": { "value": "yes", "note": "Westminster, chapter 28, section 4." },
+          "anglican": { "value": "yes", "note": "Article 27: “in any wyse to be retayned”." },
+          "baptist": { "value": "no", "note": "1644, article 39; 1689, chapter 29, section 2: professing believers are “the only proper subjects”." }
+        },
+        "evidence": "Every tradition in the table except the Baptists baptizes the infants of believers.",
+        "inference": "This is the row on which the Baptists stand alone in the table, and the reason they exist as a separate tradition.",
+        "limit": "Other believer-baptizing churches (Mennonites, Pentecostals and many independent churches) are not in the table.",
+        "sources": ["philaret", "augsburg", "westminster", "thirty-nine", "london-1644", "confession-1689"]
+      },
+      {
+        "id": "mode",
+        "mark": "Immersion required",
+        "kind": "parts",
+        "cells": {
+          "oriental": { "value": "not checked", "note": "" },
+          "orthodox": { "value": "threefold immersion", "note": "Philaret, question 288: “thrice plunged in water”." },
+          "catholic": { "value": "not required", "note": "Not checked in a Catholic text here." },
+          "lutheran": { "value": "not checked", "note": "" },
+          "reformed": { "value": "not required", "note": "Westminster, chapter 28, section 3: “Dipping … is not necessary”." },
+          "anglican": { "value": "not checked", "note": "" },
+          "baptist": { "value": "required", "note": "1689, chapter 29, section 4; the Baptist Faith and Message, article 7: “the immersion of a believer in water”." }
+        },
+        "evidence": "The Orthodox catechism describes baptism as the body “thrice plunged”; Westminster says dipping “is not necessary”; the Baptist confessions say immersion is.",
+        "inference": "On the manner of baptism, Baptists and Orthodox stand nearer each other than either stands to Westminster. On who is baptized they part again.",
+        "limit": "Several cells are not checked, and practice inside a tradition can vary from its confession.",
+        "sources": ["philaret", "westminster", "confession-1689", "bfm-chart"]
+      }
+    ]
+  },
+  "baptistLine": {
+    "lead": "Six confessions in four centuries. Each one written for a reason, none set over Scripture.",
+    "note": "The Baptist Faith and Message is not in the site's creeds collection: its text is © Southern Baptist Convention, so it is summarised here, quoted in short phrases, and linked.",
+    "items": [
+      {
+        "id": "london-1644",
+        "year": "1644",
+        "name": "The First London Confession",
+        "who": "Seven Particular Baptist churches in London (Calvinist in their doctrine of grace)",
+        "why": "To answer the charge that they were Anabaptists, and to show their agreement with the Reformed churches except on baptism and the church.",
+        "line": "dipping or plunging the whole body under water",
+        "lineRef": "Article 40",
+        "where": "Not in the creeds collection. Transcriptions: romans45.org (1644 text); Baptist Studies Online; the 1646 second edition at New Orleans Baptist Theological Seminary.",
+        "sources": ["london-1644"]
+      },
+      {
+        "id": "london-1689",
+        "year": "1677/1689",
+        "name": "The Second London Confession",
+        "who": "Particular Baptists in England; usually said to be published in 1677 and adopted by an assembly in London in 1689",
+        "why": "To show their agreement with the Westminster Confession, which it follows closely, while keeping believers' baptism by immersion and the gathered church.",
+        "line": "Immersion, or dipping of the person in water, is necessary to the due administration of this ordinance.",
+        "lineRef": "Chapter 29, section 4",
+        "where": "/study/creeds/1689-london-baptist-confession-1677",
+        "sources": ["confession-1689"]
+      },
+      {
+        "id": "new-hampshire",
+        "year": "1833",
+        "name": "The New Hampshire Confession",
+        "who": "Baptists in New Hampshire, in a short form later used widely in America",
+        "why": "A brief confession for local churches; the basis of the 1925 Baptist Faith and Message.",
+        "line": "truth without any mixture of error for its matter",
+        "lineRef": "Article 1, on the Scriptures",
+        "where": "/study/creeds/new-hampshire-baptist-confession-1833",
+        "sources": ["new-hampshire", "foundation"]
+      },
+      {
+        "id": "bfm-1925",
+        "year": "1925",
+        "name": "The Baptist Faith and Message",
+        "who": "The Southern Baptist Convention, founded in 1845",
+        "why": "The Convention's first confession, built on the New Hampshire Confession, with a preamble on what a confession is.",
+        "line": "Confessions are only guides in interpretation, having no authority over the conscience.",
+        "lineRef": "Preamble",
+        "where": "https://bfm.sbc.net/comparison-chart/",
+        "sources": ["bfm-chart"]
+      },
+      {
+        "id": "bfm-1963",
+        "year": "1963",
+        "name": "The Baptist Faith and Message, revised",
+        "who": "The Southern Baptist Convention",
+        "why": "A revision, keeping the 1925 preamble's points about confessions.",
+        "line": "Christian baptism is the immersion of a believer in water in the name of the Father, the Son, and the Holy Spirit.",
+        "lineRef": "Article 7, the same sentence in 1925, 1963 and 2000",
+        "where": "https://bfm.sbc.net/comparison-chart/",
+        "sources": ["bfm-chart"]
+      },
+      {
+        "id": "bfm-2000",
+        "year": "2000",
+        "name": "The Baptist Faith and Message 2000",
+        "who": "The Southern Baptist Convention, adopted 14 June 2000",
+        "why": "The present confession, and the one this site's own voice agrees with. It adds that Baptists “deny the right of any secular or religious authority to impose a confession of faith upon a church”.",
+        "line": "truth, without any mixture of error",
+        "lineRef": "Article 1, the phrase kept from 1833",
+        "where": "https://bfm.sbc.net/bfm2000/",
+        "sources": ["foundation", "bfm-chart"]
+      }
+    ],
+    "after": "The line runs straight on one point: from 1644 to 2000 every confession here asks for the baptism of believers by immersion, and every one puts Scripture above itself. The phrase the site quotes for Scripture, “truth, without any mixture of error”, came into the Baptist Faith and Message from the New Hampshire Confession of 1833.",
+    "limit": "The comparison chart was read through a tool report, not word by word. The General Baptists' confessions (among them the Orthodox Creed of 1678/9) and the Abstract of Principles (1858) are named but not walked. The Convention's founding in 1845 was itself a division, when Baptists in the South separated from the national mission body over slavery; that history belongs to a study of Baptists in America, not to this one."
+  },
+  "origins": {
+    "head": "Where the Baptists came from",
+    "question": "Did the Baptists begin in the 1600s, or are they older?",
+    "lead": "Baptists differ among themselves on their own beginnings. The site shows the views and does not choose.",
+    "items": [
+      {
+        "id": "separatist",
+        "name": "English Separatists",
+        "tag": "Out of the English Puritans who left the Church of England",
+        "held": "Most modern historians, as the Wikipedia article on Baptists summarises them.",
+        "forIt": "A dated record: John Smyth's congregation in exile baptized believers in Amsterdam in 1609; Thomas Helwys brought it back to Spitalfields, London, in 1612, the first General Baptist church; the Particular Baptists' churches appear in London in the 1630s and confess in 1644.",
+        "against": "It can underplay real contacts with Dutch Mennonites, whom Smyth himself sought to join.",
+        "wouldShow": "Evidence of Baptist churches in England before 1609 with no Separatist root."
+      },
+      {
+        "id": "anabaptist",
+        "name": "Kin of the Anabaptists",
+        "tag": "Shaped by the believer-baptizing movement of the 1520s",
+        "held": "A minority of historians, among them A. C. Underwood and William R. Estep, and earlier Philip Schaff, as the same article reports.",
+        "forIt": "Shared convictions: believers' baptism, the gathered church, liberty of conscience; and the Amsterdam contacts.",
+        "against": "The 1644 Confession calls the name Anabaptist false in its own title, and the Particular Baptists' doctrine follows the Reformed confessions.",
+        "wouldShow": "Direct borrowing of Anabaptist confessions in early Baptist ones."
+      },
+      {
+        "id": "succession",
+        "name": "A line since the apostles",
+        "tag": "Churches like the Baptists in every age, outside Rome",
+        "held": "Some Baptists, notably in J. M. Carroll's booklet The Trail of Blood (1931) and among Landmark Baptists.",
+        "forIt": "Dissenting groups across the centuries who rejected parts of Rome's teaching, and the conviction that Christ's church has never failed.",
+        "against": "The groups named held widely different beliefs, and no continuous chain of believer-baptizing churches is documented. Historians generally call the view apologetic rather than historical.",
+        "wouldShow": "A documented chain of congregations, with their own records, holding Baptist convictions."
+      }
+    ],
+    "limit": "The views and their holders are reported from the Wikipedia article on Baptists, read through a tool report. Underwood, Estep and Carroll were located, not read.",
+    "sources": ["wiki-baptists", "london-1644"]
+  },
+  "encounter": {
+    "lead": "The divided churches have met again and again. Some meetings mended words; none restored communion.",
+    "items": [
+      {
+        "id": "lyon",
+        "year": "1274",
+        "place": "Lyon",
+        "what": "A union agreed by the Byzantine emperor's envoys at a council in the West.",
+        "outcome": "Rejected in the East and abandoned within a few years.",
+        "sources": ["wiki-schism"],
+        "limit": "Named from a report only; no text of the council read."
+      },
+      {
+        "id": "florence",
+        "year": "1439",
+        "place": "Florence",
+        "what": "The decree of union, which begins “Let the heavens be glad” and says “the wall that divided the western and the eastern church has been removed”.",
+        "outcome": "Signed by the Greek delegation except Mark of Ephesus, and refused in Constantinople; Constantinople fell to the Ottomans in 1453.",
+        "sources": ["florence", "wiki-schism"],
+        "limit": "The decree was read through a tool report of the English on Papal Encyclicals Online. Mark of Ephesus's refusal and the later repudiation are usual accounts, not checked here."
+      },
+      {
+        "id": "rome-1965",
+        "year": "1965",
+        "place": "Rome and Istanbul",
+        "what": "Pope Paul VI and Patriarch Athenagoras I remove the sentences of 1054 “from memory and from the midst of the Church”.",
+        "outcome": "Not a reunion. The declaration itself says it “is not sufficient to end both old and more recent differences”.",
+        "sources": ["decl-1965"],
+        "limit": "Read through a tool report of the Vatican's English text."
+      },
+      {
+        "id": "rome-1973",
+        "year": "1973",
+        "place": "Rome",
+        "what": "Shenouda III and Paul VI confess one faith in Christ in Chalcedon's negatives, without its phrase “in two natures”, and set up a joint commission.",
+        "outcome": "Further agreements followed with other Oriental churches (the Syriac in 1984, the Armenian in 1996, as reported). Communion was not restored.",
+        "sources": ["decl-1973", "wiki-oriental"],
+        "limit": "Read through a tool report. The later agreements were not read."
+      }
+    ],
+    "baptist": "Baptists took no part in these meetings and are not bound by them. The Baptist Faith and Message allows cooperation with other Christians only where it does not compromise “loyalty to Christ and His Word” (article 14), as the site's foundation summarises it."
+  },
+  "explanations": [
+    {
+      "id": "truth",
+      "name": "Over the truth",
+      "tag": "They divided because the questions mattered",
+      "held": "Each tradition's own confessions: Chalcedon on Christ, Philaret on the creed, Augsburg and Trent on authority, the Baptist confessions on baptism.",
+      "forIt": "Every document read here gives a doctrinal reason, and the questions (who Christ is, who judges, who is baptized) are real ones that Scripture addresses.",
+      "against": "The same doctrines were sometimes held on both sides in different words, as the 1973 declaration on Christ shows.",
+      "wouldShow": "Divisions that ended once the words were agreed. The 1965 and 1973 meetings agreed words and did not end them."
+    },
+    {
+      "id": "authority",
+      "name": "Over who decides",
+      "tag": "Behind each doctrine, a question of authority",
+      "held": "Many historians of the East-West split and of the Reformation; and, in their own way, Vatican I and the Westminster Confession, which state the question outright.",
+      "forIt": "1054 turned on Rome's claim over the whole church; the Reformation on Scripture alone or Scripture with tradition; the Baptists on the authority of the gathered church under Scripture.",
+      "against": "Chalcedon's division was not about authority in this sense, and Ephesus was partly about borders.",
+      "wouldShow": "A division in which both sides accepted the same judge and still parted."
+    },
+    {
+      "id": "borders",
+      "name": "Empires, languages and borders",
+      "tag": "Things outside theology widened every gap",
+      "held": "The 1973 declaration speaks of differences “nourished and widened by non-theological factors”; most modern historians.",
+      "forIt": "The Church of the East lay in another empire; Greek and Latin drifted apart; the crusaders sacked Constantinople in 1204; Reformation churches followed the borders of princes.",
+      "against": "No church read here says it divided for political reasons. Each gives a doctrinal one.",
+      "wouldShow": "Churches under one ruler and one language that still divided over doctrine, as the Baptists and the Church of England did."
+    }
+  ],
+  "stance": {
+    "head": "What this site holds",
+    "scripture": "Ephesians 4:4–6",
+    "confession": "“Confessions are only guides in interpretation, having no authority over the conscience.”",
+    "confessionSource": "Baptist Faith and Message, preamble (1925, kept in 1963 and 2000)",
+    "body": "The site's own voice is Baptist, and agrees with the Baptist Faith and Message 2000. It holds the faith the ancient creeds confess, the triune God and Christ truly God and truly man, because Scripture teaches it, and it holds Scripture as the judge of every council and confession, its own included. With all the traditions on this page it confesses “one Lord, one faith, one baptism; one God and Father of all” (Ephesians 4:5–6 · BSB), and it prays as Jesus prayed, “that all of them may be one” (John 17:21 · BSB).",
+    "differs": "Where Baptists differ from the other traditions, the site says so plainly and kindly, and why, from Scripture. Baptism is for those who believe: “Those who embraced his message were baptized” (Acts 2:41 · BSB). It is a burial and a rising: “We were therefore buried with Him through baptism into death” (Romans 6:4 · BSB), which is why Baptists immerse. A local church is a self-governing congregation of baptized believers, and the Lord's Supper is a memorial. Infant baptism, sacramental views and the authority of tradition are reported on this page as other traditions' teaching, in their own words.",
+    "open": "Where Baptists differ among themselves, here on their own beginnings and on how far to use the ancient creeds in worship, the site shows the views and does not choose.",
+    "verses": ["Ephesians 4:4", "Ephesians 4:5", "Ephesians 4:6", "John 17:21", "Acts 2:41", "Romans 6:4"]
+  },
+  "claims": [
+    {
+      "id": "1054",
+      "claim": "“In 1054 the church split in two.”",
+      "head": "Two sentences in a week. A break over centuries.",
+      "evidence": "In July 1054 a papal legate excommunicated the patriarch of Constantinople and two others, and the patriarch's synod excommunicated the legates. The joint declaration of 1965 describes exactly that: sentences against persons. The pope who sent the legates had already died. Reunions were agreed at Lyon in 1274 and Florence in 1439.",
+      "inference": "Two churches that still negotiated union in 1439 had not finished parting in 1054. The year is a convenient marker for a long process, in which the sack of Constantinople in 1204 weighed at least as heavily.",
+      "limit": "The 1054 documents themselves were not read. Historians propose several dates for the real break.",
+      "verses": [],
+      "sources": ["decl-1965", "florence", "wiki-schism"],
+      "test": {
+        "question": "The 1965 declaration removes “the sentences of excommunication” from memory. What does it let you say?",
+        "options": [
+          { "text": "That Rome and Constantinople were reunited in 1965.", "right": false, "why": "The declaration says the gesture “is not sufficient to end both old and more recent differences”." },
+          { "text": "That the sentences of 1054 were against particular persons, and that both churches later regretted them.", "right": true, "why": "That is what the declaration describes and does." },
+          { "text": "That nothing of importance happened in 1054.", "right": false, "why": "The sentences were real, and became the remembered marker of the break." }
+        ]
+      }
+    },
+    {
+      "id": "monophysite",
+      "claim": "“The Oriental Orthodox believe Christ was only divine.”",
+      "head": "Called one-nature. Confess perfect God, perfect man.",
+      "evidence": "Their opponents called them “monophysite”; they reject the name. In 1973 the Coptic pope confessed Christ as “perfect God with respect to His divinity, perfect man with respect to His humanity”, the two united “without mingling … without separation”.",
+      "inference": "The popular claim confuses the Oriental churches with Eutyches, whom they also condemn. They hold Christ fully man; they decline Chalcedon's phrase “in two natures”.",
+      "limit": "Their own liturgical and doctrinal texts were not read; the 1973 text was read through a tool report.",
+      "verses": [],
+      "sources": ["decl-1973", "wiki-oriental"],
+      "test": {
+        "question": "What can the 1973 declaration show?",
+        "options": [
+          { "text": "That the Coptic church confesses Christ fully God and fully man.", "right": true, "why": "Its pope signed exactly that." },
+          { "text": "That the Coptic church now accepts the council of Chalcedon.", "right": false, "why": "The declaration names three councils, not four." },
+          { "text": "That the two churches are in full communion.", "right": false, "why": "It sets up a commission to study the remaining questions." }
+        ]
+      }
+    },
+    {
+      "id": "creeds",
+      "claim": "“Baptists reject the creeds.”",
+      "head": "Not recited. Not rejected.",
+      "evidence": "The Baptist confessions read here (1644, 1689, 1833, and the Baptist Faith and Message) do not name the Nicene or Apostles' Creed. They do teach its faith: the 1689 Confession on the Trinity (chapter 2) and on Christ's “two whole, perfect, and distinct natures” (chapter 8). The General Baptists' Orthodox Creed of 1678/9 says the three creeds “ought thoroughly to be received and believed”. Westminster, which is not Baptist, also names no creed.",
+      "inference": "Baptists, like the Westminster divines, set every creed under Scripture and confess its faith in their own words. Some Baptists recite the ancient creeds and some do not; that is a difference among Baptists, not a rejection of what the creeds say.",
+      "limit": "The Orthodox Creed's article was read through search reports, not from the text. Practice in Baptist churches today was not surveyed.",
+      "verses": [],
+      "sources": ["confession-1689", "orthodox-creed", "westminster", "bfm-chart"],
+      "test": {
+        "question": "The 1689 Confession does not name the Nicene Creed. What follows?",
+        "options": [
+          { "text": "Its authors denied the Trinity.", "right": false, "why": "Chapter 2 confesses one God in three subsistences, of one substance." },
+          { "text": "Its authors confessed the same faith in their own words, under Scripture.", "right": true, "why": "That is what its chapters 1, 2 and 8 show." },
+          { "text": "Baptists have never used the creeds.", "right": false, "why": "The Orthodox Creed of 1678/9 received all three." }
+        ]
+      }
+    },
+    {
+      "id": "bible",
+      "claim": "“All Christians have the same Bible.”",
+      "head": "The same core. Different edges.",
+      "evidence": "Every tradition in the table holds the twenty-seven books of the New Testament and the thirty-nine of the Protestant Old Testament. Trent adds further Old Testament books; the Westminster and 1689 Confessions say the Apocrypha are “no part of the Canon”.",
+      "inference": "True of the core, which is nearly all of what any church reads. Not true of the edges, and the edges matter in some doctrines.",
+      "limit": "The Eastern and Oriental lists were not read here; How the canon took shape has them.",
+      "verses": [],
+      "sources": ["trent", "westminster", "confession-1689", "canon-study"],
+      "test": {
+        "question": "Which statement does the evidence support?",
+        "options": [
+          { "text": "Every tradition has exactly the same list of books.", "right": false, "why": "Trent's list is longer than Westminster's." },
+          { "text": "Every tradition's Bible contains the same core books.", "right": true, "why": "The twenty-seven and the thirty-nine are in all of them." },
+          { "text": "The traditions share no books at all in common with certainty.", "right": false, "why": "The core is shared." }
+        ]
+      }
+    },
+    {
+      "id": "reformers",
+      "claim": "“The Reformers threw out the early church.”",
+      "head": "They kept Nicaea. They demoted councils.",
+      "evidence": "The Augsburg Confession's first article affirms “the decree of the Nicene Synod”. The Westminster Confession says councils “may err, and many have erred”, and are “to be used as a help”. The Thirty-Nine Articles receive the three creeds.",
+      "inference": "The Reformers kept the ancient creeds' doctrine and changed its ground: it stands because Scripture teaches it.",
+      "limit": "Radical reformers, who sat more loosely to the creeds, are not read here.",
+      "verses": [],
+      "sources": ["augsburg", "westminster", "thirty-nine"],
+      "test": {
+        "question": "Westminster says councils “may err”. What does that let you say?",
+        "options": [
+          { "text": "Westminster rejected the councils' doctrine of the Trinity.", "right": false, "why": "Its chapter 2 teaches it." },
+          { "text": "Westminster made Scripture the judge of every council.", "right": true, "why": "Chapter 1, section 10, says so." },
+          { "text": "Westminster ignored church history.", "right": false, "why": "It calls councils “a help”." }
+        ]
+      }
+    },
+    {
+      "id": "one-baptism",
+      "claim": "“One baptism means every church baptizes the same way.”",
+      "head": "One name. Different water.",
+      "evidence": "Every tradition baptizes in the name of the Father, Son and Holy Spirit. The Orthodox catechism describes the body “thrice plunged”; Westminster says dipping “is not necessary” and baptizes infants; the Baptist confessions require the immersion of a believer.",
+      "inference": "“One baptism” (Ephesians 4:5) is confessed by all, and the act differs in who is baptized and how. A shared word is not a shared practice.",
+      "limit": "Which churches accept which baptisms was not surveyed.",
+      "verses": ["Ephesians 4:5", "Matthew 28:19"],
+      "sources": ["philaret", "westminster", "confession-1689", "bfm-chart"],
+      "test": {
+        "question": "What does the comparison of baptism show?",
+        "options": [
+          { "text": "That the traditions agree on the name and differ on who and how.", "right": true, "why": "That is what the confessions read here say." },
+          { "text": "That the traditions do not really disagree about baptism.", "right": false, "why": "The Augsburg Confession condemns those who refuse to baptize infants, and the Baptist confessions refuse." },
+          { "text": "That only Baptists use the triune name.", "right": false, "why": "Every tradition in the table uses it." }
+        ]
+      }
+    }
+  ],
+  "confusedWords": [
+    { "word": "Creed, confession and catechism", "note": "A creed is short, made to be said aloud (the Nicene). A confession is a longer statement of a church's teaching (Augsburg, Westminster, 1689). A catechism teaches by question and answer (Philaret, the Baptist Catechism)." },
+    { "word": "Council and synod", "note": "Both are meetings of church leaders to decide a question. “Ecumenical” council means one a church counts as speaking for the whole church; churches count different numbers." },
+    { "word": "Catholic and Roman Catholic", "note": "Catholic, small letter, means universal, as in the creeds and the 1689 Confession's “Catholick or universal Church”. Roman Catholic names one church." },
+    { "word": "Orthodox and orthodox", "note": "With a capital, the Eastern Orthodox or Oriental Orthodox churches. In small letters, right belief, a word every tradition claims for itself." },
+    { "word": "Eastern Orthodox and Oriental Orthodox", "note": "Two different families. The Eastern Orthodox accept Chalcedon and seven councils; the Oriental Orthodox accept three councils and not Chalcedon. They are not in communion with each other." },
+    { "word": "Monophysite and miaphysite", "note": "Monophysite (one nature) is the name opponents gave the Oriental churches, and suggests Christ was not fully man. Miaphysite (one united nature) is the word they prefer." },
+    { "word": "Nestorian and Church of the East", "note": "Nestorian is the name opponents gave the Church of the East. Scholars now call it misleading; the church does not use it." },
+    { "word": "Schism and heresy", "note": "A schism is a break in communion; a heresy is a teaching judged false. 1054 is usually called a schism; each side also accused the other of error." },
+    { "word": "Excommunicating a person and dividing churches", "note": "The sentences of 1054 fell on named persons. Churches divide when communion between them stops, which took much longer." },
+    { "word": "Anabaptist and Baptist", "note": "Anabaptist (re-baptizer) was the name given to the believer-baptizing movement of the 1520s. The first London Baptist confession calls the name, as applied to its churches, false." },
+    { "word": "Reciting a creed and holding its faith", "note": "A church may hold the faith of Nicaea without saying the Nicene Creed in worship. The table counts belief, and says when it counts practice." }
+  ],
+  "timeline": {
+    "from": 300,
+    "to": 2000,
+    "note": "Years AD. Councils have dates; divisions are drawn as spans or open ends where they took longer than a day. The usual dates, rounded where the source rounds.",
+    "rows": [
+      { "id": "nicaea", "name": "Nicaea", "start": 325, "end": 325, "note": "In the Trinity articles, not re-explained here.", "kind": "council" },
+      { "id": "constantinople", "name": "Constantinople", "start": 381, "end": 381, "note": "The creed every tradition in the table holds. In the Trinity articles.", "kind": "council" },
+      { "id": "east-424", "name": "The church in Persia declares its independence", "start": 424, "end": 424, "note": "As reported in the Wikipedia article on the Church of the East.", "kind": "division" },
+      { "id": "ephesus", "name": "Ephesus", "start": 431, "end": 431, "note": "Nestorius condemned; the Church of the East does not receive the council.", "kind": "council" },
+      { "id": "chalcedon", "name": "Chalcedon", "start": 451, "end": 451, "note": "Christ “in two natures”; the Oriental churches do not receive it. Dated 22 October 451 in Schaff's heading.", "kind": "council" },
+      { "id": "slavs", "name": "Bulgaria and Kyiv baptized from Constantinople", "start": 864, "end": 988, "open": true, "note": "Usual dates for Boris of Bulgaria and Vladimir of Kyiv; not checked here.", "kind": "east" },
+      { "id": "1054", "name": "Sentences of excommunication, Constantinople", "start": 1054, "end": 1054, "note": "16 July 1054, and the patriarch's reply days later. Persons, not churches.", "kind": "division" },
+      { "id": "1204", "name": "Crusaders sack Constantinople", "start": 1204, "end": 1204, "note": "Often counted as the deeper break.", "kind": "division" },
+      { "id": "lyon", "name": "Union of Lyon", "start": 1274, "end": 1274, "note": "Rejected in the East.", "kind": "encounter" },
+      { "id": "florence", "name": "Union of Florence", "start": 1439, "end": 1439, "note": "Decree of 6 July 1439; refused in Constantinople.", "kind": "encounter" },
+      { "id": "luther", "name": "Luther's theses", "start": 1517, "end": 1517, "note": "The usual starting date of the Reformation.", "kind": "reformation" },
+      { "id": "augsburg", "name": "The Augsburg Confession", "start": 1530, "end": 1530, "note": "Presented by the Lutheran princes.", "kind": "reformation" },
+      { "id": "trent", "name": "The council of Trent", "start": 1545, "end": 1563, "note": "Its decree on Scripture and tradition, 8 April 1546.", "kind": "council" },
+      { "id": "smyth", "name": "Believers baptized in Amsterdam; London church", "start": 1609, "end": 1612, "note": "John Smyth's congregation, then Thomas Helwys in Spitalfields.", "kind": "baptist" },
+      { "id": "london-1644", "name": "The First London Confession", "start": 1644, "end": 1644, "note": "Seven London churches.", "kind": "baptist" },
+      { "id": "westminster", "name": "The Westminster Confession", "start": 1646, "end": 1647, "note": "Completed 1646; adopted in Scotland 1647.", "kind": "reformation" },
+      { "id": "london-1689", "name": "The Second London Confession", "start": 1677, "end": 1689, "note": "Usually said to be published 1677 and adopted 1689.", "kind": "baptist" },
+      { "id": "new-hampshire", "name": "The New Hampshire Confession", "start": 1833, "end": 1833, "note": "Basis of the 1925 Baptist Faith and Message.", "kind": "baptist" },
+      { "id": "philaret", "name": "Philaret's Orthodox catechism", "start": 1839, "end": 1839, "note": "The date the creeds collection gives.", "kind": "east" },
+      { "id": "sbc", "name": "The Southern Baptist Convention founded", "start": 1845, "end": 1845, "note": "May 1845, in a separation over slavery.", "kind": "baptist" },
+      { "id": "vatican-1", "name": "The First Vatican Council", "start": 1870, "end": 1870, "note": "Rome's primacy defined in its own words.", "kind": "council" },
+      { "id": "bfm-1925", "name": "Baptist Faith and Message", "start": 1925, "end": 1925, "note": "Revised 1963 and 2000.", "kind": "baptist" },
+      { "id": "bfm-1963", "name": "Baptist Faith and Message, revised", "start": 1963, "end": 1963, "note": "", "kind": "baptist" },
+      { "id": "decl-1965", "name": "Rome and Constantinople remove the sentences of 1054", "start": 1965, "end": 1965, "note": "7 December 1965.", "kind": "encounter" },
+      { "id": "decl-1973", "name": "Coptic and Roman popes' common declaration", "start": 1973, "end": 1973, "note": "10 May 1973.", "kind": "encounter" },
+      { "id": "bfm-2000", "name": "Baptist Faith and Message 2000", "start": 2000, "end": 2000, "note": "Adopted 14 June 2000.", "kind": "baptist" }
+    ]
+  },
+  "reach": [
+    "This is a selection. Five points of division are walked; others are named or left out: the Reformation's divisions among Protestants (Lutheran and Reformed over the Lord's Supper), the Anabaptist movement's own confessions, Methodism, Pentecostalism, the churches of Africa and Asia that grew in the last two centuries, and the Churches of the East after 1500.",
+    "The comparison table holds seven traditions and nine marks. It leaves out the Church of the East, because none of its own sources was read, and every Protestant tradition outside the Lutheran, Reformed, Anglican and Baptist ones. Each cell marked “not checked” is a gap in this study, not a statement about the tradition.",
+    "The confessions were read in the site's own creeds collection: Schaff's English for Chalcedon, Augsburg, Trent, the Thirty-Nine Articles and Vatican I; the collection's texts of Westminster, the Second London, New Hampshire and Philaret's catechism. Section numbers are those of the collection's texts; where an old numbering differs, the note says so.",
+    "Modern documents (the declarations of 1965 and 1973, the decree of Florence, the Baptist Faith and Message comparison chart) and the summaries from Wikipedia were read through a tool that returns a report on the page, not the page itself. Each quoted phrase from them must be checked word for word before a page is built.",
+    "No document of the Oriental Orthodox churches or the Church of the East was read in their own words. Their positions are given from a joint declaration and from secondary summaries, and the page should say so until their own texts are read."
+  ],
+  "readingTrail": [
+    { "work": "William L. Lumpkin, Baptist Confessions of Faith, second revised edition by Bill J. Leonard (Judson Press, 2011)", "answers": "The texts and settings of the Baptist confessions from the 1600s, including the 1644 Confession and the Orthodox Creed.", "read": "Located, not read." },
+    { "work": "H. Leon McBeth, The Baptist Heritage: Four Centuries of Baptist Witness (Broadman Press, 1987)", "answers": "Baptist beginnings and the views on them, from a Southern Baptist publisher.", "read": "Located, not read." },
+    { "work": "Philip Schaff, The Creeds of Christendom (1877; revised 1931), volumes 1–3", "answers": "The texts of the creeds and confessions, with Schaff's histories.", "read": "Read in part: the texts and notes held in the site's creeds collection." },
+    { "work": "Jaroslav Pelikan and Valerie Hotchkiss, eds., Creeds and Confessions of Faith in the Christian Tradition (Yale University Press, 2003)", "answers": "The fullest modern collection, including Oriental Orthodox and Church of the East texts the site lacks.", "read": "Located, not read." },
+    { "work": "J. N. D. Kelly, Early Christian Creeds, third edition (Longman, 1972)", "answers": "How the rule of faith became the creeds, and the history of the Apostles' Creed.", "read": "Located, not read." },
+    { "work": "Henry Chadwick, East and West: The Making of a Rift in the Church (Oxford University Press, 2003)", "answers": "The East-West division from the apostles to Florence, as a long process.", "read": "Located, not read." },
+    { "work": "Sebastian Brock, “The ‘Nestorian’ Church: A Lamentable Misnomer”, Bulletin of the John Rylands Library 78 (1996)", "answers": "Why the name Nestorian misdescribes the Church of the East.", "read": "Located through the Wikipedia article's report; not read." },
+    { "work": "William R. Estep, The Anabaptist Story, third edition (Eerdmans, 1996)", "answers": "The Anabaptist movement, and the case for kinship with the Baptists.", "read": "Located, not read." }
+  ],
+  "sources": [
+    { "id": "scripture", "title": "Berean Standard Bible", "url": "/read/bsb/EPH/4", "kind": "Scripture", "status": "read", "answers": "Every verse quoted.", "read": "Every verse quoted, from the site's own copy in Website/data/text/bsb, checked by script." },
+    { "id": "foundation", "title": "Baptist Faith and Message 2000, as set out in the site's doctrinal foundation", "url": "https://bfm.sbc.net/bfm2000/", "kind": "Confession", "status": "part", "answers": "What the site's own voice holds on Scripture, the church, baptism and cooperation.", "read": "Articles 1, 6, 7 and 14 and the preamble, as summarised and quoted in DOCTRINAL-FOUNDATION.md. The confession's current text is to be checked before a page quotes it." },
+    { "id": "bfm-chart", "title": "Baptist Faith and Message comparison chart (1925, 1963, 2000), Southern Baptist Convention", "url": "https://bfm.sbc.net/comparison-chart/", "kind": "Confession", "status": "reported", "answers": "The preamble on confessions, and article 7 on baptism, in all three versions.", "read": "Read through a tool report of the page on 2026-11-06, not word by word." },
+    { "id": "creeds-collection", "title": "Catechisms & Creeds, the site's collection of 66 documents", "url": "/study/creeds", "kind": "Collection", "status": "read", "answers": "Which documents the site holds, by family and date.", "read": "The collection index (data/creeds/index.json): families, titles and dates." },
+    { "id": "chalcedon", "title": "The Chalcedonian Definition (451), in Philip Schaff, The Creeds of Christendom, vol. 2, with Schaff's notes", "url": "/study/creeds/chalcedonian-definition-451-schaff", "kind": "Creed", "status": "read", "answers": "The definition's words, and Schaff's account of the council's acts.", "read": "The English text and the notes as held in the site's copy." },
+    { "id": "trinity-article", "title": "The Trinity, part four: “Nicaea 325, Constantinople 381”, the site's Theology articles", "url": "/study/theology-articles/the-trinity#the-councils", "kind": "Site article", "status": "read", "answers": "What this study links instead of re-explaining, and the caution on “and the Son”.", "read": "The opening and the caution on the Filioque, in trinity-history.ts. The articles do not treat Chalcedon." },
+    { "id": "philaret", "title": "The Longer Catechism of the Orthodox, Catholic, Eastern Church (Philaret, 1839)", "url": "/study/creeds/longer-catechism-of-the-orthodox-church-1839", "kind": "Catechism", "status": "part", "answers": "The Orthodox view of the creed, the church and baptism.", "read": "Questions 241–242, 270–271, 288 and 293, from the site's copy; searched for the Apostles' Creed (not found)." },
+    { "id": "augsburg", "title": "The Augsburg Confession (1530)", "url": "/study/creeds/augsburg-confession-1530", "kind": "Confession", "status": "part", "answers": "The Lutheran view of the Nicene faith, the church and baptism.", "read": "Articles 1, 3, 5, 7 and 9, from the site's copy." },
+    { "id": "trent", "title": "The Canons and Dogmatic Decrees of the Council of Trent, in Schaff", "url": "/study/creeds/council-of-trent-canons-and-decrees-1563", "kind": "Council", "status": "part", "answers": "Rome's answer on Scripture and tradition, and its list of books.", "read": "The decree on the canonical Scriptures, session 4 (8 April 1546), from the site's copy." },
+    { "id": "westminster", "title": "The Westminster Confession of Faith (1646/1647)", "url": "/study/creeds/westminster-confession-of-faith-1647", "kind": "Confession", "status": "part", "answers": "The Reformed view of Scripture, councils, the Trinity, Christ and baptism.", "read": "Chapters 1 (sections 2, 3, 10), 2 (section 3), 28 (sections 3, 4) and 31 (sections 1, 4), from the site's copy; searched for the names of the creeds (not found)." },
+    { "id": "thirty-nine", "title": "The Thirty-Nine Articles of Religion (1571), in Schaff", "url": "/study/creeds/thirty-nine-articles-1571", "kind": "Confession", "status": "part", "answers": "The Anglican view of the creeds, the church and infant baptism.", "read": "Articles 2, 8, 19 and 27, in the 1571 English, from the site's copy." },
+    { "id": "vatican-1", "title": "The Dogmatic Decrees of the Vatican Council (1870), in Schaff", "url": "/study/creeds/vatican-council-dogmatic-decrees-1870", "kind": "Council", "status": "part", "answers": "Rome's own words on its primacy.", "read": "The chapter on the power and nature of the primacy, from the site's copy." },
+    { "id": "confession-1689", "title": "The Second London Baptist Confession (1677/1689)", "url": "/study/creeds/1689-london-baptist-confession-1677", "kind": "Confession", "status": "part", "answers": "The older Baptist view of Scripture, the Trinity, Christ, the church, associations and baptism.", "read": "Chapters 1 (sections 2, 3, 10), 2 (section 3), 8 (section 2), 26 (sections 1, 15) and 29 (sections 2, 4), from the site's copy; searched for the names of the creeds (not found)." },
+    { "id": "new-hampshire", "title": "The New Hampshire Baptist Confession (1833)", "url": "/study/creeds/new-hampshire-baptist-confession-1833", "kind": "Confession", "status": "part", "answers": "Scripture as “the true centre of Christian union”, the church and baptism.", "read": "Articles 1, 13 and 14, from the site's copy." },
+    { "id": "london-1644", "title": "The First London Baptist Confession (1644), transcription on romans45.org", "url": "https://www.romans45.org/creeds/bc1644.htm", "kind": "Confession", "status": "reported", "answers": "The title, and articles 39 and 40 on baptism.", "read": "Read through a tool report of the transcription on 2026-11-06. Other transcriptions located: Baptist Studies Online; the 1646 edition at New Orleans Baptist Theological Seminary." },
+    { "id": "orthodox-creed", "title": "An Orthodox Creed (General Baptists, 1678/1679), article 38, “Of the Three Creeds”", "url": "https://en.wikipedia.org/wiki/Orthodox_Creed", "kind": "Confession", "status": "reported", "answers": "That some Baptists received the three ancient creeds.", "read": "The article's wording as returned by a web search; the text (Baptist Studies Online PDF) was located, not read." },
+    { "id": "decl-1965", "title": "Joint Catholic-Orthodox Declaration of Pope Paul VI and Patriarch Athenagoras I, 7 December 1965", "url": "https://www.vatican.va/content/paul-vi/en/speeches/1965/documents/hf_p-vi_spe_19651207_common-declaration.html", "kind": "Church document", "status": "reported", "answers": "What happened in 1054, in both churches' later words, and what the removal did not do.", "read": "Read through a tool report of the Vatican's English text on 2026-11-06." },
+    { "id": "decl-1973", "title": "Common Declaration of Pope Paul VI and Pope Shenouda III, 10 May 1973", "url": "https://www.vatican.va/content/paul-vi/en/speeches/1973/may/documents/hf_p-vi_spe_19730510_dichiarazione-comune.html", "kind": "Church document", "status": "reported", "answers": "The Coptic confession of Christ, the three councils, and the account of 451.", "read": "Read through a tool report of the Vatican's English text on 2026-11-06." },
+    { "id": "florence", "title": "Council of Florence, decree of union with the Greeks, 6 July 1439, English on Papal Encyclicals Online", "url": "https://www.papalencyclicals.net/councils/ecum17.htm", "kind": "Council", "status": "reported", "answers": "Rome's own words on the procession of the Spirit, the added clause and the bread.", "read": "Read through a tool report of the page on 2026-11-06; the translator was not identified on the part read." },
+    { "id": "wiki-oriental", "title": "Wikipedia: “Oriental Orthodox Churches”", "url": "https://en.wikipedia.org/wiki/Oriental_Orthodox_Churches", "kind": "Reference", "status": "reported", "answers": "The six churches, the three councils, the names monophysite and miaphysite, the later agreements.", "read": "The first part of the article, through a tool report." },
+    { "id": "wiki-east", "title": "Wikipedia: “Church of the East”", "url": "https://en.wikipedia.org/wiki/Church_of_the_East", "kind": "Reference", "status": "reported", "answers": "Ephesus, the year 424, the name Nestorian, the successor churches, the mission to China.", "read": "The first part of the article, through a tool report." },
+    { "id": "wiki-schism", "title": "Wikipedia: “East–West Schism”", "url": "https://en.wikipedia.org/wiki/East%E2%80%93West_Schism", "kind": "Reference", "status": "reported", "answers": "The events of 1054, the causes, 1204, the reunions and the other proposed dates.", "read": "The first part of the article, through a tool report; with Britannica's article on Leo IX as returned by a search." },
+    { "id": "wiki-baptists", "title": "Wikipedia: “Baptists”", "url": "https://en.wikipedia.org/wiki/Baptists", "kind": "Reference", "status": "reported", "answers": "Smyth and Helwys, General and Particular Baptists, the views on Baptist origins, the founding of the Southern Baptist Convention.", "read": "The first part of the article, through a tool report." },
+    { "id": "canon-study", "title": "How the canon took shape, the site's research record 04", "url": "/study/how-the-canon-took-shape", "kind": "Site study", "status": "located", "answers": "The lists of books behind the shared core.", "read": "Linked, not re-read for this draft." }
+  ],
+  "pictures": [
+    { "id": "surikov-chalcedon", "status": "candidate, not downloaded", "subject": "The Fourth Ecumenical Council of Chalcedon, painting by Vasily Surikov (1876), made for the Cathedral of Christ the Saviour, Moscow", "holder": "Wikimedia Commons (search “Surikov Chalcedon”)", "licence": "To be checked on the file page; the painting is old enough to be public domain, the photograph's status must be confirmed", "note": "For fork 02. A later Russian painting, not a picture of the council: label it so." },
+    { "id": "hagia-sophia", "status": "candidate, not downloaded", "subject": "The interior of Hagia Sophia, Istanbul, toward the apse where the altar stood", "holder": "Wikimedia Commons", "licence": "To be checked; many photographs are CC BY-SA", "note": "For fork 03. The building, not the event." },
+    { "id": "augsburg-presentation", "status": "candidate, not downloaded", "subject": "The presentation of the Augsburg Confession to Charles V, 1530, in a later print or painting", "holder": "Wikimedia Commons (search “Augsburger Bekenntnis Übergabe”)", "licence": "To be checked", "note": "For fork 04. Later depictions only; label the date of the image." },
+    { "id": "london-1644-title", "status": "candidate, not found yet", "subject": "The title page of the 1644 First London Confession, with “commonly (though falsly) called Anabaptists”", "holder": "Not found yet: look for a library's digitised copy or Early English Books Online's public records", "licence": "Unknown", "note": "For fork 05. The title is the point." },
+    { "id": "xian-stele", "status": "candidate, not downloaded", "subject": "The stone of Xi'an (781), Forest of Steles Museum, recording the Church of the East's arrival in China", "holder": "Wikimedia Commons", "licence": "To be checked", "note": "For fork 01. A real object of the church this study could not read in its own words." },
+    { "id": "etchmiadzin", "status": "candidate, not downloaded", "subject": "Etchmiadzin Cathedral, Armenia, seat of the Armenian Apostolic Church", "holder": "Wikimedia Commons", "licence": "To be checked", "note": "For fork 02, one of the outline's named places." }
+  ],
+  "verses": [
+    { "label": "Matthew 28:19", "code": "MAT", "chapter": 28, "verse": 19, "phrase": "baptizing them in the name of the Father, and of the Son, and of the Holy Spirit" },
+    { "label": "John 1:14", "code": "JHN", "chapter": 1, "verse": 14, "phrase": "The Word became flesh and made His dwelling among us." },
+    { "label": "John 15:26", "code": "JHN", "chapter": 15, "verse": 26, "phrase": "the Spirit of truth who proceeds from the Father" },
+    { "label": "John 17:21", "code": "JHN", "chapter": 17, "verse": 21, "phrase": "that all of them may be one" },
+    { "label": "Acts 2:41", "code": "ACT", "chapter": 2, "verse": 41, "phrase": "Those who embraced his message were baptized" },
+    { "label": "Romans 6:4", "code": "ROM", "chapter": 6, "verse": 4, "phrase": "We were therefore buried with Him through baptism into death" },
+    { "label": "Romans 10:9", "code": "ROM", "chapter": 10, "verse": 9, "phrase": "if you confess with your mouth" },
+    { "label": "1 Corinthians 15:3", "code": "1CO", "chapter": 15, "verse": 3, "phrase": "what I received I passed on to you as of first importance" },
+    { "label": "1 Corinthians 15:4", "code": "1CO", "chapter": 15, "verse": 4, "phrase": "that He was raised on the third day according to the Scriptures" },
+    { "label": "Ephesians 4:4", "code": "EPH", "chapter": 4, "verse": 4, "phrase": "There is one body and one Spirit" },
+    { "label": "Ephesians 4:5", "code": "EPH", "chapter": 4, "verse": 5, "phrase": "one Lord, one faith, one baptism;" },
+    { "label": "Ephesians 4:6", "code": "EPH", "chapter": 4, "verse": 6, "phrase": "one God and Father of all" },
+    { "label": "1 John 4:2", "code": "1JN", "chapter": 4, "verse": 2, "phrase": "Jesus Christ has come in the flesh" }
+  ],
+  "closing": {
+    "question": "Who wrote this line, against whom, and what did both sides still say together?",
+    "carry": "What survives, and what am I inferring?",
+    "back": {
+      "href": "/study/academic",
+      "label": "Back to Academic studies"
+    }
+  }
+}
