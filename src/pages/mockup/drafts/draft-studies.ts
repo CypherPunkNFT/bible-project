@@ -37,9 +37,10 @@ const AREA_FOR_CATEGORY: Record<string, string> = {
 const REWRITES_OF_LIVE_PAGES = new Set([37]);
 
 /** Drafts the 2026-11-05 redundancy review took off the shelf (Pages/Topics/REDUNDANCY_REVIEW.md): merged into another
- *  draft (7, 8, 10, 12, 17, 25, 34), cut as duplicates of built pages (13, 15, 20, 22, 27, 32, 36, 40), or folded into a
- *  built page (14, 18, 33) or an Academic study (35). Their files stay in content/studies. */
-const RETIRED_BY_REVIEW = new Set([7, 8, 10, 12, 13, 14, 15, 17, 18, 20, 22, 25, 27, 32, 33, 34, 35, 36, 40]);
+ *  draft (7, 8, 10, 12, 17, 25, 34), cut as duplicates of built pages (13, 20, 22, 27, 32, 36, 40), or folded into a
+ *  built page (14, 18, 33) or an Academic study (35). Their files stay in content/studies. Draft 15 (the kingdom) was
+ *  cut and then restored: the coverage map (Pages/Topics/COVERAGE_MAP.md) found the kingdom has no other home. */
+const RETIRED_BY_REVIEW = new Set([7, 8, 10, 12, 13, 14, 17, 18, 20, 22, 25, 27, 32, 33, 34, 35, 36, 40]);
 
 function toDraft(item: ProgressItem): DraftStudy {
   const areaId = AREA_FOR_CATEGORY[item.category];
