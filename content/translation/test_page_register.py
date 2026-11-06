@@ -143,6 +143,17 @@ def test_unregistered_check_code_honours_a_ruling_for_its_file_only(made_up: Pat
     assert f"{PAGE}:1" in report and f"{OTHER}:1" not in report
 
 
+def test_page_text_an_apologetics_chunk_holds_reaches_the_phrase_list(made_up: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    import apply
+    from test_data_files import folder
+    question = "Isn't the Trinity a contradiction?"
+    monkeypatch.setattr(apply, "_page_code_texts", [])
+    write(made_up, PAGE, f'export const q = {{ question: "{question}" }};\n')
+    out = folder(made_up, {"0001": ("apologetics", [question, "Only in a document."])})
+    translated = {extract.string_id("apologetics", text): f"es: {text}" for text in (question, "Only in a document.")}
+    assert apply.held_page_strings(out, translated) == {question: f"es: {question}"}
+
+
 def test_the_real_site_has_no_stale_registration_and_valid_rulings() -> None:
     assert page_register.stale(extract.SITE) == []
     english_baseline.scoped_rulings(HERE / "unregistered-reviewed.json")

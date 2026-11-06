@@ -157,6 +157,26 @@ def apologetics_strings(by_kind: dict[str, dict[str, str]]) -> dict[str, str]:
     return pairs
 
 
+_page_code_texts: list[set[str]] = []
+
+
+def held_page_strings(repo: Path, translated: dict[str, str]) -> dict[str, str]:
+    """{English: translation} for page-code text that an apologetics chunk holds and has translated. extract.py --pages
+    leaves such text out (a chunk already holds it), and apologetics_strings finds only what the documents hold today,
+    so a page literal the documents no longer hold would otherwise stay English (stage 5 job 13). `translated` is the
+    apologetics kind's {id: translation}."""
+    if not _page_code_texts:  # read once for all languages
+        import extract  # here: apply.py has its own page_strings
+        _page_code_texts.append(set(extract.page_strings()))
+    page_code = _page_code_texts[0]
+    pairs: dict[str, str] = {}
+    for entry in json.loads((repo / "chunks.json").read_text("utf-8")):
+        if entry["kind"] == "apologetics":
+            english = json.loads((repo / "in" / f"{entry['chunk']}.json").read_text("utf-8"))["strings"]
+            pairs.update({text: translated[key] for key, text in english.items() if key in translated and text in page_code})
+    return pairs
+
+
 def keep_english_notes(english: object, copy: object) -> None:
     """Puts a contact's English note beside its translation as "english": the Help for life page reads "press 1",
     "Office" and "text HOME" from it (src/pages/resources/life/format.ts), so its buttons stay right in every language."""
@@ -200,6 +220,8 @@ def apply(repo: Path, lang: str) -> None:
             files += 1
     ui = page_strings(repo, lang, by_kind.get(PAGE_KIND, {}))
     ui.update({text: found for text, found in apologetics_strings(by_kind).items() if text not in ui})
+    ui.update({text: found for text, found in held_page_strings(repo, by_kind.get("apologetics", {})).items()
+               if text not in ui})
     target.mkdir(parents=True, exist_ok=True)
     (target / "ui.json").write_text(json.dumps(ui, ensure_ascii=False, separators=(",", ":")), "utf-8")
     lists = phrase_lists(repo, by_kind)
