@@ -1,4 +1,5 @@
-import { dateFormat } from "@/lib/site-format";
+// Relative, not "@/lib": vite.config.ts loads this file (scripts/testimony-vite.ts) in Node, where "@" is not set up.
+import { dateFormat } from "./site-format";
 /** Optional labels chosen by the writer, never inferred from their story. */
 export const TESTIMONY_THEMES: readonly string[] = ["An invitation", "New beginnings", "Community", "Prayer", "Questions", "Grace", "Hope", "Belonging", "Trust"];
 export const MAX_TESTIMONY_CHARACTERS = 100_000;
