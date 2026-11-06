@@ -24,6 +24,8 @@ from pathlib import Path
 
 import extract
 import site_languages
+from page_rules import (CAPITALISED_WORD, CODE_AFTER, CODE_ATTRIBUTE, CODE_BEFORE, CODE_KEY, CODE_TEXT,  # noqa: F401
+                        ENGLISH_WORD, code_context, english, looks_like_words, string_literals)
 
 sys.stdout.reconfigure(encoding="utf-8")
 SITE = extract.SITE
@@ -33,29 +35,7 @@ LANGUAGE_FOLDERS = site_languages.folders()  # every translated language, from s
 
 # JSX text: between tags, or touching a {value} on either side.
 JSX_TEXT = re.compile(r"(?:\}|(?<![=\-])>)([^<>{}]{1,600})(?=[<{])")
-CAPITALISED_WORD = re.compile(r"[A-Z][a-z]+(?:['’][a-z]+)?")
-# Signs a literal is code, not words: markup, calls, units, colours, file names, addresses.
-CODE_TEXT = re.compile(r"[{};<>=\\|]|=>|\(\)|https?://|^[/#.@]|\b\d+(?:px|rem|em|ms|s|vh|vw|deg|%)|var\(|rgba?\(|hsla?\("
-                       r"|\.(?:tsx?|json|css|svg|png|jpe?g|webp|md|txt|pdf)\b|\$\{|^[\w-]+:[\w-]")
-# What sits just before a literal that is code: an attribute or key that holds a name, a comparison, or a call that
-# takes a key, a selector or a message for the console.
-CODE_ATTRIBUTE = re.compile(
-    r"\b(?:className|class|key|id|href|to|src|srcSet|type|role|lang|rel|target|name|htmlFor|viewBox|d|fill|stroke|style"
-    r"|as|variant|size|tone|color|icon|path|slug|route|value|defaultValue|mode|accept|autoComplete|inputMode|dir"
-    r"|data-[\w-]+|aria-(?!label)[\w-]+|transform|points|x|y|cx|cy|r|width|height|fontFamily|textAnchor)\s*=\s*\{?\s*$")
-CODE_KEY = re.compile(
-    r"(?:^|[{,\s])(?:id|key|slug|href|to|path|route|src|icon|color|tone|kind|type|variant|className|class|lang|code|value"
-    r"|ref|anchor|hash|query|param|field|format|style|mode|status|group|folder|file|url|font|fontFamily|background"
-    r"|border|ease|easing|transition|animation|align|justify|position|display|cursor|direction|book|abbr)\s*:\s*$")
-CODE_BEFORE = re.compile(
-    r"(?:===|!==|==|!=|\bcase|\btype\s+\w+\s*=|\binterface\b.*|\|\s*|&&\s*|\bin\s+)\s*$"
-    r"|\b(?:import|from|require|console\.\w+|Error|querySelector(?:All)?|getElementById|addEventListener"
-    r"|removeEventListener|fetch|getItem|setItem|removeItem|getAttribute|setAttribute|hasAttribute|removeAttribute"
-    r"|includes|startsWith|endsWith|indexOf|split|join|replace|replaceAll|match|test|get|has|set|delete|navigate"
-    r"|createElement|closest|matches|toLocale\w*|DateTimeFormat|NumberFormat|describe|it|expect|warn|log|error"
-    r"|postMessage|dispatchEvent|Event|CustomEvent|localStorage\.\w+|sessionStorage\.\w+|track|emit|on)\s*\(\s*$"
-    r"|\w\[\s*$")
-CODE_AFTER = re.compile(r"^\s*(?:===|!==|==|!=|\]|in\b|\?\s*\w+\s*:)")
+
 
 
 def reviewed() -> dict[str, set[str]]:
@@ -86,49 +66,9 @@ def registered_page_text() -> set[str]:
     return {with_numbers_blanked(text) for text in texts}
 
 
-def looks_like_words(text: str) -> bool:
-    """A capitalised word ("Practice"), or a run of words that is not code ("Show all 66 books")."""
-    if not text or CODE_TEXT.search(text) or extract.class_like(text):
-        return False
-    tokens = text.split()
-    if len(tokens) == 1:
-        return bool(CAPITALISED_WORD.fullmatch(text.rstrip(".:!?")))
-    words = [token for token in tokens if re.fullmatch(r"[(“\"‘']?[A-Za-z][a-z'’-]*[)”\"’'.,:;!?]*", token)]
-    if len(words) * 2 <= len(tokens):
-        return False
-    # Two lowercase words are usually a name in code ("sans serif"); a capital, punctuation or three words are not.
-    return bool(re.match(r"[A-Z“\"‘(]", text) or re.search(r"[.?!,]", text) or len(words) >= 3)
-
-
-def code_context(source: str, start: int, end: int) -> bool:
-    line_start = source.rfind("\n", 0, start) + 1
-    before = source[max(line_start, start - 80):start]
-    after = source[end:end + 20]
-    return bool(CODE_ATTRIBUTE.search(before) or CODE_KEY.search(before) or CODE_BEFORE.search(before)
-                or CODE_AFTER.match(after))
-
-
 def line_of(original: str, raw: str) -> int:
     found = original.find(raw)
     return original[:found].count("\n") + 1 if found >= 0 else 0
-
-
-def string_literals(source: str):
-    """(start, end, quote, body) for each string in comment-free code, read the way extract.without_comments reads them:
-    a backtick string may run over lines and hold ${...}, an apostrophe touching a word opens nothing, and a quote left
-    open at the end of its line was not a string."""
-    position, size = 0, len(source)
-    while position < size:
-        char = source[position]
-        if char in "\"`" or (char == "'" and not re.match(r"[\w'’]", source[position - 1:position] or " ")):
-            end = position + 1
-            while end < size and source[end] != char and (char == "`" or source[end] != "\n"):
-                end += 2 if source[end] == "\\" else 1
-            if end < size and source[end] == char:
-                yield position, end + 1, char, source[position + 1:end]
-                position = end + 1
-                continue
-        position += 1
 
 
 def literal_text(quote: str, body: str) -> str | None:
@@ -172,7 +112,7 @@ def code_candidates(path: Path) -> list[tuple[int, str, str]]:
         text = literal_text(quote, body)
         if text and looks_like_words(text.replace("{n}", "1")) and not code_context(source, start, end):
             found.append((line_of(original, source[start:end]), text, literal_reason(quote, text)))
-    if path.suffix == ".tsx":
+    if path.suffix in (".tsx", ".jsx"):
         for match in JSX_TEXT.finditer(source):
             text = " ".join(match.group(1).split())
             if (looks_like_words(text) and extract.balanced(text) and not extract.EDGE_CODE.search(text)
@@ -188,7 +128,7 @@ def skipped_file(relative: str, prefixes: set[str]) -> bool:
 def check_code(skip: dict[str, set[str]]) -> list[str]:
     known = registered_page_text()
     by_reason: dict[str, dict[str, list[str]]] = {reason: {} for reason in REASONS}
-    for path in extract.page_files():
+    for path in extract.page_files(include_generated=False):  # src/generated/: see english_build_check.Site
         relative = path.relative_to(SITE).as_posix()
         if skipped_file(relative, skip["code-files"]):
             continue
@@ -297,17 +237,6 @@ def check_fields(skip: dict[str, set[str]]) -> list[str]:
     return ([f"{len(fields)} fields hold prose that no SOURCES or RESOURCES path names:", ""] + fields
             + ["", f"{len(files)} content files hold prose and no rule reads them (some are read by other tools; check):", ""]
             + files)
-
-
-ENGLISH_WORD = re.compile(r"\b(?:the|and|of|to|a|an|in|is|are|for|on|with|by|or|it|this|that|your|you|every|all|from|at|as|not)\b",
-                          re.IGNORECASE)
-
-
-def english(text: str) -> bool:
-    """Page text written in English, not a verse the code quotes in another language ("Jehová te bendiga")."""
-    if re.search(r"[^\x00-\x7F\u2010-\u201F\u2026\u00A0\u00B7]", text):
-        return False
-    return len(text.split()) <= 2 or bool(ENGLISH_WORD.search(text))
 
 
 def check_untranslated(skip: dict[str, set[str]]) -> list[str]:

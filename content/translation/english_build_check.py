@@ -104,7 +104,7 @@ def candidates(original: str, suffix: str) -> list[tuple[int, str, str]]:
         text = unregistered.literal_text(quote, body)
         if text and unregistered.looks_like_words(text.replace("{n}", "1")) and not unregistered.code_context(source, start, end):
             found.append((line(start), text, unregistered.literal_reason(quote, text)))
-    if suffix == ".tsx":
+    if suffix in (".tsx", ".jsx"):
         for match in unregistered.JSX_TEXT.finditer(source):
             text = " ".join(match.group(1).split())
             if (unregistered.looks_like_words(text) and extract.balanced(text) and not extract.EDGE_CODE.search(text)
@@ -122,10 +122,14 @@ class Site:
         previous = extract.SITE, unregistered.SITE
         extract.SITE = unregistered.SITE = self.root
         try:
-            self.files = {path.relative_to(self.root).as_posix(): path for path in extract.page_files()}
+            # src/generated/ is left out of both sides: the content build rewrites it from content/ and git does not
+            # hold it, so a content rebuild must not move this check (its text is checked in the content files).
+            self.files = {path.relative_to(self.root).as_posix(): path
+                          for path in extract.page_files(include_generated=False)}
             if not self.files:
-                raise Refused(f"no page code found under {self.root / 'src'}: expected the site's .ts/.tsx files")
-            registered = extract.page_strings() + extract.resource_page_strings() + extract.debate_section_titles()
+                raise Refused(f"no page code found under {self.root / 'src'}: expected the site's .ts/.tsx/.js files")
+            registered = (extract.page_strings(list(self.files.values())) + extract.resource_page_strings()
+                          + extract.debate_section_titles())
         except ValueError as error:
             raise Refused(f"a page file is outside {self.root} (an import through a link?): {error}") from error
         finally:
@@ -173,9 +177,8 @@ class Site:
 
 def page_like(name: str) -> bool:
     """A path the page code could hold (extract.page_files' rule), for a file that no longer exists."""
-    parts = set(name.split("/"))
-    return name.startswith("src/") and name.endswith((".ts", ".tsx")) and not ({"generated", "dev", "test", "mockup"} & parts) \
-        and ".test." not in name
+    return (name.startswith("src/") and name.endswith(extract.PAGE_SUFFIXES) and not extract.page_file_skipped(name)
+            and not name.startswith(extract.GENERATED) and "mockup" not in name.split("/"))
 
 
 def old_versions(root: Path, since: str, names: list[str]) -> dict[str, str]:
@@ -218,7 +221,7 @@ def unsaved(root: Path) -> set[str]:
 def added_since(site: Site, root: Path, since: str) -> tuple[Counter, list]:
     """Per text, how many more times it occurs in the files changed after `since` than it did in them before."""
     changed = [name for name in git(root, "diff", "--name-only", "--no-renames", since, "HEAD").splitlines()
-               if name.startswith("src/") and name.endswith((".ts", ".tsx"))]
+               if name in site.files or page_like(name)]
     before, after, places = Counter(), Counter(), []
     for name in changed:
         old = subprocess.run(["git", "-C", str(root), "show", f"{since}:{name}"], capture_output=True, check=False)

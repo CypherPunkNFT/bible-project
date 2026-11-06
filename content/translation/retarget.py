@@ -12,6 +12,9 @@ the chunks and pick up whatever else changed in the site since, so this changes 
       same chunk; corrects reference numbers in the translations directly (REFERENCE_FIXES); removes page strings the
       fixed extractor no longer finds; and files each string whose wording changed in review/<lang>/source-fixes/ for
       the Opus check. Refuses until every language has every chunk, because sessions write to out/ by id.
+
+An edit to the English found while collecting (extract.py --pages, --resources, --documents) is carried over by
+retarget_collect.py, run by extract.py itself: same chunk, old string kept, flagged in review/<lang>/source-fixes/.
 """
 import argparse
 import hashlib

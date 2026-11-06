@@ -16,9 +16,29 @@ are translated. Scripture quotations are left out (each language's Bible fills t
 titles, authors, licences and catalogue metadata. `python extract.py --pages` adds the text written into the page code
 (headings, buttons, labels) as chunks of kind `page` after the last chunk (0820–0850 so far), and is safe to rerun.
 `python extract.py --documents` adds the debate transcripts (kind `transcript`, every spoken paragraph; paragraphs over
-300 words are cut at sentence ends) and the study pages' own text (kind `study`, the `content.md` of each study; Scripture
-blockquotes and the verse line under them are left out). Each chunk holds at most 100 strings and 4,000 words, so one
-translation call carries it. Chunks 0868–0912 are transcripts and 0913–0951 are study pages.
+300 words are cut at sentence ends). Each chunk holds at most 100 strings and 4,000 words, so one translation call
+carries it. Chunks 0868–0912 are transcripts and 0913–0951 are study drafts, which are no longer collected (stage 5,
+job 11): only the local-preview mock-ups read them.
+
+What counts as page text is [page_rules.py](page_rules.py)'s: the first rules (text between tags, labels, titles,
+sentences in quotes), and since stage 5 job 11 also one-word labels under `group:` and `kind:` or in a choice
+(`ok ? "Scripture says" : "Verdict"`, `role ?? "Ruler"`), strings after a `${}` template on the same line, paragraphs
+up to 4,000 characters, lowercase phrases a page shows ("in four collections"; not search aliases, lookup tables or
+the home banner's verses in other languages), text beside a `{value}` in JSX (", the only account"), and text a plain
+script writes as HTML in a template (`<p>Named as his ${rel} in the family list</p>` becomes "Named as his {n} in the
+family list"). The page code is every .ts, .tsx, .js, .mjs and .jsx file under `src/` outside mock-ups, `src/test/`,
+`src/dev/` and `.test.` files, including `src/generated/` and the live /study/questions/test page;
+`src/pages/places/old-maps-collection/data.js` is left out with its reason (`NOT_PAGE_CODE` in extract.py). Tests:
+`python -m pytest content/translation/test_collector.py -q`.
+
+When `--pages`, `--resources` or `--documents` collects English that was edited since the last collection, the old
+translation is carried over to the new English in the same chunk and filed for a re-check
+(review/<lang>/source-fixes/, by "collect"; the catalog marks it needs-re-check), instead of the text going back to
+English ([retarget_collect.py](retarget_collect.py)). It only pairs text the collector itself collected last time
+(SiteTranslation/collected.json, written by each collection) with a close new text, and never across a negation or
+an opposite. `--dry-run` with any of those modes prints what would be carried and appended and writes nothing; every
+writing mode holds the site-translation folder's shared lock. `--pages` leaves out text an apologetics chunk already
+holds and text ruled not to be screen text in `unregistered-reviewed.json`.
 
 ## Seeing it on the site
 
@@ -60,7 +80,9 @@ stops the build on any text beyond [english-baseline.json](english-baseline.json
 began (keyed by the English text, with how many times it occurs). Its message names the file, the line, why the
 collector skips the text and how to register it; text no reader sees, or English on purpose, takes a ruling in
 `unregistered-reviewed.json` with its `why` instead. The baseline may only shrink: after registering text, run
-`python content/translation/english_build_check.py --shrink`. About 6 seconds. Tests:
+`python content/translation/english_build_check.py --shrink`. About 9 seconds. The check reads the same files as the
+collector but not `src/generated/` (rewritten by every content build and not in git; its text is checked in the
+content files). Tests:
 `python -m pytest content/translation/test_english_build_check.py -q`. The quick release passes `--since <live commit>`
 and judges only what the picked commits add. Design and record: SiteTranslation/system/HANDOFF.md, stage 4.
 

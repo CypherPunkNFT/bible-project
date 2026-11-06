@@ -3,25 +3,34 @@ site-translation repository (../../../SiteTranslation) for the cloud translation
 
 Which fields are translated is decided by SOURCES below, one entry per kind of content file. Scripture quotations are
 left out on purpose (each language's own Bible fills them by reference), and so are book titles, authors, licences
-and catalogue metadata. The page code's own text (--pages) and the Resources files bundled with the code (--resources)
-are added later as new chunks after the last one.
+and catalogue metadata. The page code's own text (--pages; what counts as page text is page_rules.py's) and the
+Resources files bundled with the code (--resources) are added later as new chunks after the last one. Those modes and
+--documents first carry the translation of English edited since the last collection over to the new English, flagged
+for a re-check (retarget_collect.py); --dry-run prints what they would do and writes nothing.
 
 Each unique English string of a kind gets one id, sha1(kind + text)[:12], so a repeated label is translated once and
 the later import can match translations back by walking the same SOURCES. Usage: python extract.py [--out DIR]
 """
 import argparse
+import contextlib
 import hashlib
+import importlib.util
 import json
 import re
 import sys
 from pathlib import Path
+
+sys.dont_write_bytecode = True
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from page_rules import (CODE_LIKE, EDGE_CODE, JSX_EDGE, JSX_TEXT, PAGE_ATTRIBUTE, PAGE_LITERAL,  # noqa: E402,F401
+                        PAGE_LITERAL_LENGTH, PAGE_PROPERTY, TEMPLATE, TEMPLATE_VALUE, WORD, balanced, class_like,
+                        jsx_prose, strings_in, template_text, translatable, without_comments)
 
 sys.stdout.reconfigure(encoding="utf-8")
 SITE = Path(__file__).resolve().parents[2]
 DEFAULT_OUT = SITE.parents[0] / "SiteTranslation"
 CHUNK_WORDS = 4000
 CHUNK_STRINGS = 400
-WORD = re.compile(r"[^\W\d_]+")
 
 # kind, file glob, record-map file (its top-level keys are ids), parents whose child keys are ids,
 # paths of plain strings, paths of stanzas (list of lines, joined by "\n"),
@@ -109,65 +118,9 @@ RESOURCES = [
      set(), set()),
 ]
 
-# Text written into the page code: JSX text between tags, label-like attributes, and prose string literals. The site
-# swaps each on screen for its translation (src/components/PageTranslator.tsx), matching the text exactly as shown.
+# Text written into the page code; what counts as on-screen text is page_rules.py's.
 PAGE_KIND = "page"
-JSX_TEXT = re.compile(r"(?<![=\-])>([^<>{}]{1,600})<")
-# JSX text touching an expression on one side: "}start anywhere<", ">Open the map of {", "} answered<". In plain code
-# the same shape catches statements, so EDGE_CODE throws those out.
-JSX_EDGE = re.compile(r"(?:\}|(?<![=\-])>)([^<>{}]{1,600})(?=[<{])")
-# Also thrown out: the pieces of a template string around its ${...} (one text node on screen, never these pieces),
-# and SVG path data ("M0,0 L-4,13 Z").
-EDGE_CODE = re.compile(r"[;`]|\(\)|\$$|\$\{|^[MmLlHhVvCcSsQqTtAaZz\d\s.,-]*\d[MmLlHhVvCcSsQqTtAaZz\d\s.,-]*$|^(?:export|function|const|let|var|return|else|if|import|interface|type|case|default|"
-                       r"async|await|for|while|try|catch|finally|throw|new|typeof|extends|class|as|satisfies)\b")
-# A template string with values in it: each ${...} becomes "{n}", the form the site matches counts by ("{n} scholars").
-TEMPLATE = re.compile(r"`([^`\\\n]*\$\{[^`\\\n]*)`")
-TEMPLATE_VALUE = re.compile(r"\$\{[^{}]*\}")
 IMPORT = re.compile(r"""\bfrom\s+["'](@/|\.{1,2}/)([^"']+)["']""")
-PAGE_ATTRIBUTE = re.compile(r'\b(?:aria-label|title|placeholder|alt|label)="([^"\n]{1,300})"')
-# One-word labels in data written into the code ({ label: "Study" }, {label:'Practice'}), which PAGE_LITERAL's two-word
-# floor skips. Either quote: the Apologetics menu and several study pages use single quotes.
-PAGE_PROPERTY = re.compile(r'\b(?:label|title|heading|subtitle|name|text|caption|description|short|kicker|eyebrow)\s*:\s*'
-                           r'''(?:"([^"\\\n]{2,300})"|'([^'\\\n]{2,300})')''')
-# A single quote touching a word is an apostrophe ("the letter's", "Hebrews'"), not the edge of a string.
-# Every string is matched, however short, so that a "nt" cannot put the following quotes out of step; page_strings
-# then skips those outside PAGE_LITERAL_LENGTH.
-PAGE_LITERAL = re.compile(r'"([^"\\\n]*)"|' + r"(?<![\w'’])'([^'\\\n]*)'(?!\w)|" + r"`([^`$\\\n]*)`")
-PAGE_LITERAL_LENGTH = range(3, 401)
-CODE_LIKE = re.compile(r"[;=]|=>|&&|\|\||^\W|\",\w+:|\.(tsx?|css|json|svg|png|jpe?g|md)\b|^[\w./@-]+$|\b(?:px|rem|var\(|rgba?\(|hsl)\b"
-                       r"|\.\d+m?s\b|\bxM[a-z]+Y[A-Z]|\b(?:translate|scale|rotate)\(|\bMath\.|\bmain h1\b|#root\b")
-
-
-def class_like(text: str) -> bool:
-    tokens = text.split()
-    return sum(bool(re.search(r"[-:\[\]/]|^\d", token)) for token in tokens) >= max(1, len(tokens) // 2)
-
-
-def without_comments(source: str) -> str:
-    """The code with its comments blanked, reading strings as strings so a "//" in an address survives. An apostrophe in
-    JSX text does not open a string, and a quote left open at the end of its line was not a string."""
-    out, position, size = [], 0, len(source)
-    while position < size:
-        char = source[position]
-        pair = source[position:position + 2]
-        if pair == "/*":
-            end = source.find("*/", position + 2)
-            position = size if end < 0 else end + 2
-        elif pair == "//" and source[position - 1:position] != ":":
-            end = source.find("\n", position)
-            position = size if end < 0 else end
-        elif char in "\"`" or (char == "'" and not re.match(r"[\w'’]", source[position - 1:position] or " ")):
-            end = position + 1
-            while end < size and source[end] != char and (char == "`" or source[end] != "\n"):
-                end += 2 if source[end] == "\\" else 1
-            closed = end < size and source[end] == char
-            stop = end + 1 if closed else position + 1
-            out.append(source[position:stop])
-            position = stop
-        else:
-            out.append(char)
-            position += 1
-    return "".join(out)
 
 
 def imported_file(source: Path, prefix: str, name: str) -> Path | None:
@@ -178,13 +131,33 @@ def imported_file(source: Path, prefix: str, name: str) -> Path | None:
     return None
 
 
-def page_files() -> list[Path]:
-    """The page code: every source file outside mock-ups, tests and generated code, and the mock-up files a real page
-    imports (the homepage's opening lives in pages/mockup/home-openings/)."""
-    def skipped(path: Path) -> bool:
-        return bool({"generated", "dev", "test"} & set(path.parts)) or ".test." in path.name
+PAGE_SUFFIXES = (".ts", ".tsx", ".js", ".mjs", ".jsx")
+GENERATED = "src/generated/"  # written from content/ by the content build (npm run content:build), and not in git
+# Files under src/ that are data, not page code, each with why. Their text is a data question (stage 5, job 12).
+NOT_PAGE_CODE = {
+    "src/pages/places/old-maps-collection/data.js": "generated by build-data.py from Research/HistoricalMaps: the "
+    "catalogue of 2,317 old maps (titles as published, many French or Latin, makers, holding libraries), which stays as "
+    "published like all catalogue metadata; its few screen labels are data fields",
+}
 
-    files = [p.resolve() for p in sorted((SITE / "src").rglob("*.ts*")) if not skipped(p) and "mockup" not in p.parts]
+
+def page_file_skipped(relative: str) -> bool:
+    """A path under the site (posix, from SITE) that is not page code: tests, development tools, data files."""
+    parts = set(relative.split("/"))
+    return (relative.startswith(("src/test/", "src/dev/")) or ".test." in relative.rsplit("/", 1)[-1]
+            or "__tests__" in parts or relative in NOT_PAGE_CODE)
+
+
+def page_files(include_generated: bool = True) -> list[Path]:
+    """The page code: every .ts, .tsx, .js, .mjs and .jsx file under src/ outside mock-ups, tests, development tools and
+    NOT_PAGE_CODE, with the code the content build writes into src/generated/ (left out by the build check: it is not in
+    git), and the mock-up files a real page imports (the homepage's opening lives in pages/mockup/home-openings/)."""
+    def skipped(path: Path) -> bool:
+        relative = path.relative_to(SITE).as_posix()
+        return page_file_skipped(relative) or (not include_generated and relative.startswith(GENERATED))
+
+    files = [p.resolve() for p in sorted((SITE / "src").rglob("*")) if p.suffix in PAGE_SUFFIXES and p.is_file()
+             and not skipped(p) and "mockup" not in p.parts]
     seen, queue, borrowed = set(files), list(files), []
     while queue:
         path = queue.pop()
@@ -197,65 +170,12 @@ def page_files() -> list[Path]:
     return files + sorted(borrowed)
 
 
-def balanced(text: str) -> bool:
-    return text.count("(") == text.count(")") and text.count("[") == text.count("]")
-
-
-def jsx_prose(text: str) -> bool:
-    """JSX text between tags; a semicolon is allowed in a sentence of five words or more ("...be read; every...")."""
-    if not translatable(text):
-        return False
-    if not CODE_LIKE.search(text) or re.fullmatch(r"[A-Z][a-z'’-]+", text):  # a one-word label: <h2>Read</h2>, <th>Date</th>
-        return True
-    return (len(WORD.findall(text)) >= 5 and bool(re.match(r"[A-Z“‘\"(]", text))
-            and not CODE_LIKE.search(text.replace(";", ",")))
-
-
-def template_text(literal: str) -> str | None:
-    text = " ".join(TEMPLATE_VALUE.sub("{n}", literal).split())
-    rest = " ".join(text.replace("{n}", " ").split())
-    if "$" in rest or "{" in rest or not re.search(r"[A-Za-z]{3}", rest) or EDGE_CODE.search(text.replace("{n}", "0")):
-        return None
-    one_word = re.fullmatch(r"[A-Za-z]{3,}", rest) and " " in text  # "{n} scholars", not "{n}px"
-    return None if (CODE_LIKE.search(rest) and not one_word) or class_like(rest) else text
-
-
-def page_strings() -> list[str]:
+def page_strings(files: list[Path] | None = None) -> list[str]:
+    """The page code's on-screen text (page_rules.strings_in), each once: of page_files(), or of the files given."""
     found: dict[str, None] = {}
-    for path in page_files():
-        source = without_comments(path.read_text("utf-8"))
-        for match in JSX_TEXT.finditer(source):
-            text = " ".join(match.group(1).split())
-            if jsx_prose(text):
-                found.setdefault(text)
-        for match in TEMPLATE.finditer(source):
-            if text := template_text(match.group(1)):
-                found.setdefault(text)
-        for match in JSX_EDGE.finditer(source):
-            text = " ".join(match.group(1).split())
-            if translatable(text) and balanced(text) and not CODE_LIKE.search(text) and not EDGE_CODE.search(text):
-                found.setdefault(text)
-        for match in PAGE_ATTRIBUTE.finditer(source):
-            text = " ".join(match.group(1).split())
-            if translatable(text):
-                found.setdefault(text)
-        for match in PAGE_PROPERTY.finditer(source):
-            text = " ".join((match.group(1) or match.group(2)).split())
-            one_word = re.fullmatch(r"[A-Z][a-z'’]+", text)
-            if one_word or (re.match(r"[A-Z]", text) and not CODE_LIKE.search(text) and not class_like(text)):
-                found.setdefault(text)
-        for match in PAGE_LITERAL.finditer(source):
-            literal = next(group for group in match.groups() if group is not None)
-            text = " ".join(literal.split())
-            if (len(literal) in PAGE_LITERAL_LENGTH and len(WORD.findall(text)) >= 2 and re.search(r"[A-Z]|[.?!,]", text)
-                    and not CODE_LIKE.search(text) and not class_like(text)):
-                found.setdefault(text)
+    for path in page_files() if files is None else files:
+        found.update(dict.fromkeys(strings_in(without_comments(path.read_text("utf-8")), path.suffix)))
     return list(found)
-
-
-def translatable(text: str) -> bool:
-    text = text.strip()
-    return bool(WORD.search(text)) and not text.startswith(("http://", "https://"))
 
 
 def mixed_text(paragraph: list) -> str | None:
@@ -380,22 +300,17 @@ def resource_page_strings() -> list[str]:
     return list(dict.fromkeys(line["address"] for line in lines if line.get("address", "").startswith("No walk-in")))
 
 
-def not_scripture(text: str) -> bool:
-    """A study's blockquoted Scripture and the verse reference under it stay out, like every other Scripture quotation."""
-    return not text.startswith(">") and not VERSE_REFERENCE.fullmatch(text)
-
-
 # Long-form text added after the first extraction as new chunks (--documents), like the Resources above: the debate
-# transcripts' spoken paragraphs and the study pages' own text. Each chunk holds at most DOCUMENT_STRINGS strings and
-# CHUNK_WORDS words, so one translation call can carry it.
+# transcripts' spoken paragraphs. Each chunk holds at most DOCUMENT_STRINGS strings and CHUNK_WORDS words, so one
+# translation call can carry it. The study drafts (content/studies/*/*/content.md, kind "study") are no longer
+# collected (stage 5, job 11): only the draft mock-ups read them, which open on the local preview alone
+# (src/pages/mockup/mockup-routes.tsx, MOCKUPS_ENABLED); their 39 translated chunks stay as they are.
 DOCUMENTS = [
     ("transcript", "content/apologetics/transcripts/*.txt", lambda text: True),
-    ("study", "content/studies/*/*/content.md", not_scripture),
 ]
 DOCUMENT_STRINGS = 100
 LONG_PARAGRAPH_WORDS = 300
 SENTENCE_END = re.compile(r"(?<=[.!?])\s+")
-VERSE_REFERENCE = re.compile(r"\d?\s?[A-Za-z][A-Za-z ]*\s\d+:\d+[\d\s,–-]*(?:\s·\s[A-Z]{2,})?")
 
 
 def paragraphs(text: str) -> list[str]:
@@ -437,15 +352,43 @@ def debate_section_titles() -> list[str]:
     return list(dict.fromkeys(section["title"] for record in index.values() for section in record["sections"]))
 
 
-def append(out: Path, kind: str, texts: list[str], max_strings: int = CHUNK_STRINGS) -> None:
+def held_texts(out: Path, kind: str) -> set[str]:
+    """The English of every string of a kind already in a chunk."""
+    found = set()
+    for entry in json.loads((out / "chunks.json").read_text("utf-8")):
+        if entry["kind"] == kind:
+            found.update(json.loads((out / "in" / f"{entry['chunk']}.json").read_text("utf-8"))["strings"].values())
+    return found
+
+
+def ruled_not_text() -> set[str]:
+    """Texts ruled not to be screen text (unregistered-reviewed.json, check "code"): --pages leaves them out."""
+    from english_baseline import rulings
+    return rulings(Path(__file__).with_name("unregistered-reviewed.json"), SITE)[0]
+
+
+def append(out: Path, kind: str, texts: list[str], max_strings: int = CHUNK_STRINGS, retarget: bool = False,
+           dry_run: bool = False, skip: frozenset[str] = frozenset()) -> list[str]:
     """Adds the strings of a kind not yet in any chunk as new chunks after the last one, so earlier chunk numbers (and
-    their translations) never move. Safe to rerun after the sources change."""
+    their translations) never move. Safe to rerun after the sources change. With retarget (extract.py's own modes),
+    English edited since the last collection first keeps its translation, flagged for a re-check (retarget_collect.py),
+    and the texts collected are recorded for next time. Texts in skip are never appended. With dry_run nothing is
+    written. Returns the texts appended (or that would be)."""
+    carried = []
+    if retarget:
+        import retarget_collect
+        carried = retarget_collect.carry(out, kind, texts, set(skip), string_id, words, dry_run)
     index = json.loads((out / "chunks.json").read_text("utf-8"))
     known = set()
     for entry in index:
         if entry["kind"] == kind:
             known.update(json.loads((out / "in" / f"{entry['chunk']}.json").read_text("utf-8"))["strings"])
-    fresh = {key: text for text in texts if (key := string_id(kind, text)) not in known}
+    known.update(pair.new_id for pair in carried)
+    fresh = {key: text for text in texts if text not in skip and (key := string_id(kind, text)) not in known}
+    total_words = sum(words(t) for t in fresh.values())
+    if dry_run:
+        print(f"would carry {len(carried)} edited and append {len(fresh)} new {kind} strings, {total_words} words")
+        return list(fresh.values())
     number = int(index[-1]["chunk"])
     for kind, strings, total in chunks({kind: fresh}, max_strings):
         number += 1
@@ -454,7 +397,36 @@ def append(out: Path, kind: str, texts: list[str], max_strings: int = CHUNK_STRI
         (out / "in" / f"{name}.json").write_text(json.dumps(body, ensure_ascii=False, indent=1) + "\n", "utf-8", newline="\n")
         index.append({"chunk": name, "kind": kind, "strings": len(strings), "words": total})
     (out / "chunks.json").write_text(json.dumps(index, indent=1) + "\n", "utf-8", newline="\n")
-    print(f"{len(fresh)} new {kind} strings, {sum(words(t) for t in fresh.values())} words; chunks now end at {index[-1]['chunk']}")
+    if retarget:
+        retarget_collect.write_snapshot(out, kind, texts, string_id)
+    print(f"{len(fresh)} new {kind} strings, {total_words} words; chunks now end at {index[-1]['chunk']}")
+    return list(fresh.values())
+
+
+def shared_lock(out: Path, why: str):
+    """The site-translation folder's shared lock (studies/tools/shared_lock.py), so no other chat writes chunks.json
+    and in/ meanwhile; no lock where the folder has none (a test's folder)."""
+    tool = out / "studies" / "tools" / "shared_lock.py"
+    if not tool.exists():
+        return contextlib.nullcontext()
+    spec = importlib.util.spec_from_file_location("shared_lock", tool)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.held(why)
+
+
+def collect_more(args) -> None:
+    """--pages, --resources, --documents, --sections: each appends with retarget on. The page kind is always collected
+    whole (page code, the help lines, the debate section titles), so a text one flag leaves out is never taken as gone."""
+    if args.sections or args.pages:
+        texts = page_strings() + resource_page_strings() + debate_section_titles() if args.pages else debate_section_titles()
+        skip = frozenset(held_texts(args.out, "apologetics") | ruled_not_text()) if args.pages else frozenset()
+        append(args.out, PAGE_KIND, list(dict.fromkeys(texts)), retarget=args.pages, dry_run=args.dry_run, skip=skip)
+    if args.resources:
+        append(args.out, RESOURCE_KIND, resource_strings(), retarget=True, dry_run=args.dry_run)
+    if args.documents:
+        for kind, pattern, keep in DOCUMENTS:
+            append(args.out, kind, document_strings(pattern, keep), DOCUMENT_STRINGS, retarget=True, dry_run=args.dry_run)
 
 
 def main() -> None:
@@ -463,19 +435,21 @@ def main() -> None:
     parser.add_argument("--pages", action="store_true", help="append the page code's text as new chunks")
     parser.add_argument("--resources", action="store_true", help="append the Resources files' text as new chunks")
     parser.add_argument("--documents", action="store_true",
-                        help="append the debate transcripts and study pages as new chunks, at most DOCUMENT_STRINGS each")
+                        help="append the debate transcripts as new chunks, at most DOCUMENT_STRINGS each")
     parser.add_argument("--sections", action="store_true", help="append the debate viewer's section titles as page chunks")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="with --pages, --resources, --documents or --sections: print what would be carried and "
+                             "appended, write nothing")
     args = parser.parse_args()
-    if args.sections:
-        append(args.out, PAGE_KIND, debate_section_titles())
-    if args.pages:
-        append(args.out, PAGE_KIND, page_strings() + resource_page_strings())
-    if args.resources:
-        append(args.out, RESOURCE_KIND, resource_strings())
-    if args.documents:
-        for kind, pattern, keep in DOCUMENTS:
-            append(args.out, kind, document_strings(pattern, keep), DOCUMENT_STRINGS)
-    if args.sections or args.pages or args.resources or args.documents:
+    more = args.sections or args.pages or args.resources or args.documents
+    if args.dry_run and not more:
+        parser.error("--dry-run needs --pages, --resources, --documents or --sections")
+    if args.dry_run:
+        collect_more(args)
+        return
+    if more:
+        with shared_lock(args.out, "extract.py appending chunks"):
+            collect_more(args)
         return
     target = args.out / "in"
     if target.exists() and any(target.iterdir()):

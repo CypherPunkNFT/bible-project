@@ -331,9 +331,17 @@ function walkFile(name, sourceFile, request, helpers, findings) {
   visit(sourceFile, false);
 }
 
+/** The parser for a file by its extension: plain JavaScript (.js, .mjs) is not read as TypeScript. */
+function scriptKind(path) {
+  if (path.endsWith('.tsx')) return ts.ScriptKind.TSX;
+  if (path.endsWith('.jsx')) return ts.ScriptKind.JSX;
+  if (path.endsWith('.js') || path.endsWith('.mjs')) return ts.ScriptKind.JS;
+  return ts.ScriptKind.TS;
+}
+
 function run(request) {
   const parsed = Object.entries(request.files).map(([name, source]) => [name, ts.createSourceFile(pathOf(name), source,
-    ts.ScriptTarget.Latest, true, pathOf(name).endsWith('.tsx') ? ts.ScriptKind.TSX : ts.ScriptKind.TS)]);
+    ts.ScriptTarget.Latest, true, scriptKind(pathOf(name)))]);
   const helpers = new Set(parsed.filter(([name]) => !name.startsWith('before:')).flatMap(([, file]) => helperNames(file)));
   const result = { processed: [], errors: {}, findings: [], translatedData: {}, helpers: [...helpers].sort() };
   for (const [name, sourceFile] of parsed) {
