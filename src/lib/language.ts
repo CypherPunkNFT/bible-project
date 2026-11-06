@@ -6,7 +6,9 @@ import { SITE_LANGUAGES, type SiteLanguage } from "./site-languages";
 
 /** Every language the site knows (site-languages.ts), released or not: what codes and folders are looked up in. */
 export const LANGUAGES = SITE_LANGUAGES;
-export type LanguageCode = (typeof LANGUAGES)[number]["code"];
+// A plain string: the codes come from site-languages.json, which TypeScript cannot read as a fixed list. Every lookup
+// goes through LANGUAGES, and setSiteLanguage refuses a code the site does not offer.
+export type LanguageCode = SiteLanguage["code"];
 
 // Unreleased languages are offered only on this computer's preview, the same rule as the mock-ups (mockup-routes.tsx).
 const LOCAL_HOSTS = new Set(["127.0.0.1", "localhost"]);
