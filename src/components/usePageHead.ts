@@ -2,15 +2,18 @@ import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { isUnnamed, pageHead, type Translate } from "@/lib/page-head";
 import { languageFolder, useSiteLanguage, type LanguageCode } from "@/lib/language";
+import { addressesOn, pageLinks, type Alternate } from "@/lib/language-addresses";
 import { englishOf, phrase, setOwnTitle } from "@/lib/page-translator";
 
 // Names every page for search engines that run it (src/lib/page-head.ts has the rules): the tab title, the description
 // and the one official address, in the reader's language. A page that sets document.title itself keeps it (the page
 // translator swaps that one). Pages load their content late, and the page translator swaps their words just after
 // React draws them, so the head is read again as the page fills in, for a few seconds after each arrival or change of
-// language.
+// language. A main page also names its address in the reader's language and its versions in the others (hreflang), once
+// the language addresses are on (language-addresses.ts).
 
 const WATCH_MS = 6000;
+const ALTERNATES = 'link[rel="alternate"][hreflang]';
 
 function setMeta(selector: string, create: () => HTMLElement, attribute: string, value: string) {
   let element = document.head.querySelector<HTMLElement>(selector);
@@ -27,6 +30,15 @@ function shownOnPage() {
   const subheading = main?.querySelector("h2")?.innerText ?? "";
   const paragraph = [...(main?.querySelectorAll("p") ?? [])].map((p) => p.innerText.trim()).find((text) => text.length >= 60) ?? "";
   return { heading, subheading, paragraph };
+}
+
+/** The page's versions in other languages: the head's hreflang links become exactly `alternates`, in order. */
+function setAlternates(alternates: Alternate[]) {
+  const present = [...document.head.querySelectorAll<HTMLLinkElement>(ALTERNATES)];
+  const same = present.length === alternates.length && present.every((link, index) => link.hreflang === alternates[index].hreflang && link.getAttribute("href") === alternates[index].href);
+  if (same) return;
+  present.forEach((link) => link.remove());
+  for (const alternate of alternates) document.head.appendChild(Object.assign(document.createElement("link"), { rel: "alternate", hreflang: alternate.hreflang, href: alternate.href }));
 }
 
 /** The language's own wording for page-head.ts's fixed texts, from its phrase list; none in English. */
@@ -49,7 +61,9 @@ export function usePageHead() {
         named.current = head.title;
       }
       setMeta('meta[name="description"]', () => Object.assign(document.createElement("meta"), { name: "description" }), "content", head.description);
-      setMeta('link[rel="canonical"]', () => Object.assign(document.createElement("link"), { rel: "canonical" }), "href", head.canonical);
+      const links = pageLinks(pathname, language, addressesOn(location.hostname));
+      setMeta('link[rel="canonical"]', () => Object.assign(document.createElement("link"), { rel: "canonical" }), "href", links.canonical);
+      setAlternates(links.alternates);
     };
     apply();
     let timer: ReturnType<typeof setTimeout> | undefined;

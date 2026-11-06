@@ -73,33 +73,50 @@
       // loaded (src/main.tsx shows it), or for 4 s at most should the code not arrive. The build writes the languages in
       // from src/lib/site-languages.json (scripts/site-languages-vite.ts), so none is named here; an unreleased one counts
       // only on this computer's preview, as in language.ts. A script of its own, so nothing here can stop the theme.
-      try {
+      // A language address (/es/study: src/lib/language-addresses.ts) names the language before the stored choice does;
+      // its "address" is "live" once the owner has released the addresses, "preview" before that, false for none. In a
+      // block, so its names stay out of the page's global scope.
+      {
         const languages = /*site-languages*/{};
-        const code = localStorage.getItem("bp-language");
-        const language = code !== null && Object.prototype.hasOwnProperty.call(languages, code) ? languages[code] : null;
-        if (language && (language.released || location.hostname === "127.0.0.1" || location.hostname === "localhost")) {
-          document.documentElement.lang = code;
-          document.documentElement.dir = language.dir === "rtl" ? "rtl" : "ltr";
-          document.documentElement.dataset.languageLoading = "true";
-          setTimeout(() => delete document.documentElement.dataset.languageLoading, 4000);
-          // The language's words start loading now, not once the site's code has arrived (src/lib/phrase-lists.ts takes
-          // these over): its core phrase list, and a study or people page's own list (PAGE_FILES in page-translator.ts).
-          // The release writes its stamp of the lists here (scripts/phrase-lists.mjs), so browsers may keep them.
-          const stamp = /*phrase-stamp*/"";
-          window.__bgStamp = stamp;
-          const lists = ["phrases/core.json" + (stamp ? "?v=" + stamp : "")];
-          if (/^\/(study2?|teachers)(\/|$)/.test(location.pathname)) lists.push("ui-study.json");
-          else if (/^\/people\//.test(location.pathname)) lists.push("ui-people.json");
-          window.__bgEarly = {};
-          for (const list of lists) {
-            const address = "/data/i18n/" + language.folder + "/" + list;
-            window.__bgEarly[address] = fetch(address, { cache: stamp && list.startsWith("phrases/") ? "default" : "no-cache" })
-              .then((response) => (response.ok ? response.json() : response.status))
-              .catch(() => null);
-          }
+        const local = location.hostname === "127.0.0.1" || location.hostname === "localhost";
+        const prefix = /^\/([A-Za-z]{2,3})(?=\/|$)/.exec(location.pathname);
+        let code = null;
+        for (const key of prefix ? Object.keys(languages) : []) {
+          const entry = languages[key];
+          if (entry.folder === prefix[1].toLowerCase() && (entry.address === "live" || (entry.address === "preview" && local))) code = key;
         }
-      } catch (error) {
-        console.warn("language: localStorage unavailable", error);
+        const pathname = code === null ? location.pathname : location.pathname.slice(prefix[0].length) || "/";
+        try {
+          if (code === null) code = localStorage.getItem("bp-language");
+        } catch (error) {
+          console.warn("language: localStorage unavailable", error);
+        }
+        try {
+          const language = code !== null && Object.prototype.hasOwnProperty.call(languages, code) ? languages[code] : null;
+          if (language && (language.released || local)) {
+            document.documentElement.lang = code;
+            document.documentElement.dir = language.dir === "rtl" ? "rtl" : "ltr";
+            document.documentElement.dataset.languageLoading = "true";
+            setTimeout(() => delete document.documentElement.dataset.languageLoading, 4000);
+            // The language's words start loading now, not once the site's code has arrived (src/lib/phrase-lists.ts takes
+            // these over): its core phrase list, and a study or people page's own list (PAGE_FILES in page-translator.ts).
+            // The release writes its stamp of the lists here (scripts/phrase-lists.mjs), so browsers may keep them.
+            const stamp = /*phrase-stamp*/"";
+            window.__bgStamp = stamp;
+            const lists = ["phrases/core.json" + (stamp ? "?v=" + stamp : "")];
+            if (/^\/(study2?|teachers)(\/|$)/.test(pathname)) lists.push("ui-study.json");
+            else if (/^\/people\//.test(pathname)) lists.push("ui-people.json");
+            window.__bgEarly = {};
+            for (const list of lists) {
+              const address = "/data/i18n/" + language.folder + "/" + list;
+              window.__bgEarly[address] = fetch(address, { cache: stamp && list.startsWith("phrases/") ? "default" : "no-cache" })
+                .then((response) => (response.ok ? response.json() : response.status))
+                .catch(() => null);
+            }
+          }
+        } catch (error) {
+          console.warn("language: the language could not be set before the first paint", error);
+        }
       }
     </script>
     <style>html[data-language-loading] #root { visibility: hidden; }</style>

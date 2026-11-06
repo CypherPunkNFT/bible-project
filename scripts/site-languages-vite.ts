@@ -6,15 +6,23 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Plugin } from "vite";
+import { addressLanguages, LANGUAGE_ADDRESSES_RELEASED } from "../src/lib/language-addresses.ts";
 
 export const MARKER = "/*site-languages*/{}";
 const CODE = /^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/;
 const FOLDER = /^[a-z]{2,3}$/;
 
-export interface HeadLanguage { folder: string; dir: "ltr" | "rtl"; released: boolean }
+/** Where a language's address (/es/study, src/lib/language-addresses.ts) works: everywhere once the owner has released
+ * the addresses, on this computer's preview before that, nowhere for a language with none (a made-up one). */
+export type HeadAddress = "live" | "preview" | false;
+export interface HeadLanguage { folder: string; dir: "ltr" | "rtl"; released: boolean; address: HeadAddress }
 
-/** code -> {folder, dir, released} for every translated language (not the source one), refusing anything but plain values. */
-export function headLanguages(languages: unknown, file: string): Record<string, HeadLanguage> {
+const addressOf = (folder: string, released: boolean): HeadAddress =>
+  addressLanguages().some((language) => language.folder === folder) ? (released ? "live" : "preview") : false;
+
+/** code -> {folder, dir, released, address} for every translated language (not the source one), refusing anything but
+ * plain values. `addressesReleased`: the owner's switch for the language addresses. */
+export function headLanguages(languages: unknown, file: string, addressesReleased: boolean = LANGUAGE_ADDRESSES_RELEASED): Record<string, HeadLanguage> {
   if (!Array.isArray(languages)) throw new Error(`site languages: ${file} has no "languages" list; expected the one language file`);
   const found: Record<string, HeadLanguage> = {};
   for (const language of languages) {
@@ -24,7 +32,7 @@ export function headLanguages(languages: unknown, file: string): Record<string, 
     }
     if (folder === null) continue;
     if (typeof folder !== "string" || !FOLDER.test(folder)) throw new Error(`site languages: ${file} entry ${JSON.stringify(language)} has a folder that is not two or three small letters`);
-    found[code] = { folder, dir, released };
+    found[code] = { folder, dir, released, address: addressOf(folder, addressesReleased) };
   }
   return found;
 }

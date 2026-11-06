@@ -3,6 +3,7 @@
 // swaps the words already on screen, so a change of language never reloads the page. Published 2026-11-02.
 import { useSyncExternalStore } from "react";
 import { SITE_LANGUAGES, type SiteLanguage } from "./site-languages";
+import { addressesOn, fromAddress, LOCAL_HOSTS } from "./language-addresses";
 
 /** Every language the site knows (site-languages.ts), released or not: what codes and folders are looked up in. */
 export const LANGUAGES = SITE_LANGUAGES;
@@ -10,8 +11,8 @@ export const LANGUAGES = SITE_LANGUAGES;
 // goes through LANGUAGES, and setSiteLanguage refuses a code the site does not offer.
 export type LanguageCode = SiteLanguage["code"];
 
-// Unreleased languages are offered only on this computer's preview, the same rule as the mock-ups (mockup-routes.tsx).
-const LOCAL_HOSTS = new Set(["127.0.0.1", "localhost"]);
+// Unreleased languages are offered only on this computer's preview (LOCAL_HOSTS), the same rule as the mock-ups
+// (mockup-routes.tsx).
 
 /** The languages the menu offers on `hostname`: the released ones, and on the local preview the unreleased ones too. */
 export function menuLanguages<T extends SiteLanguage>(languages: readonly T[], hostname: string): T[] {
@@ -41,7 +42,33 @@ function storedLanguage(): LanguageCode {
   }
 }
 
-let current: LanguageCode = storedLanguage();
+interface AddressBar { hostname: string; pathname: string; search: string; hash: string }
+interface AddressHistory { state: unknown; replaceState(state: unknown, unused: string, url: string): void }
+
+/**
+ * The language a language address names (/es/study, language-addresses.ts), which wins over the stored choice: the
+ * prefix is dropped from the address bar before the router reads it ("/es/study?q=1#a" -> "/study?q=1#a") and the
+ * language is kept as the reader's choice. null where the address names none, or the addresses are off on this host.
+ */
+export function takeLanguageAddress(where: AddressBar, history: AddressHistory): LanguageCode | null {
+  if (!addressesOn(where.hostname)) return null;
+  const addressed = fromAddress(where.pathname);
+  if (!addressed || !offered(addressed.code)) return null;
+  try {
+    history.replaceState(history.state, "", addressed.path + where.search + where.hash);
+  } catch (error) {
+    console.warn(`language: could not drop the language prefix from ${where.pathname}`, error);
+  }
+  try {
+    localStorage.setItem(STORAGE_KEY, addressed.code);
+  } catch {
+    // private window: the language lasts this visit only
+  }
+  return addressed.code;
+}
+
+// Read when this module is first imported, before main.tsx renders the router.
+let current: LanguageCode = (typeof window !== "undefined" && takeLanguageAddress(window.location, window.history)) || storedLanguage();
 const listeners = new Set<() => void>();
 /** Content files read so far (paths under /data/), so a change of language can fetch their other versions. */
 export const loadedData = new Set<string>();

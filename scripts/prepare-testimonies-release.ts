@@ -1,7 +1,9 @@
 import { cp, mkdir, mkdtemp, readFile, readdir, stat, writeFile } from "node:fs/promises";
 import { spawnSync } from "node:child_process";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import { verifyBuiltContent } from "./content/compile.ts";
+import { addressLanguages, LANGUAGE_ADDRESSES_RELEASED } from "../src/lib/language-addresses.ts";
 import {preparePopulationHosting} from './prepare-population-hosting.mjs';
 import {pruneReleaseAssets} from './prune-release-assets.mjs';
 import { packPersonFiles } from "./pack-person-files.ts";
@@ -28,7 +30,10 @@ const directory = await mkdtemp(path.resolve(".release/testimonies-"));
 const site = path.join(directory, "site");
 // data_acquisition: the local desk's files (scripts/data-intake-vite.ts), never published.
 const localDesk = path.resolve(built, "data_acquisition");
-await cp(built, site, { recursive: true, filter: (source) => path.resolve(source) !== localDesk });
+// The preview's copies of the main pages at their language addresses (es.html, es/…: scripts/seo/language-copies.ts)
+// stay behind; the search-engine step below makes them for this release, and only once the owner has released them.
+const languageCopies = addressLanguages().flatMap((language) => [path.resolve(built, language.folder!), path.resolve(built, `${language.folder}.html`)]);
+await cp(built, site, { recursive: true, filter: (source) => ![localDesk, ...languageCopies].includes(path.resolve(source)) });
 stage("Build copied");
 await preparePopulationHosting(path.join(site,'content/scholar-population'),{omitOriginals:true});
 stage("Population hosting");
@@ -87,6 +92,8 @@ stage("Meaning search copied");
 // other file against the 20,000 limit. Runs under bun because the page inventory it reads does.
 const seo = spawnSync("bun", ["scripts/seo/build.ts", JSON.stringify(site)], { stdio: "inherit", shell: true });
 if (seo.status !== 0) throw new Error("The search-engine step failed (bun scripts/seo/build.ts).");
+const strayCopies = addressLanguages().flatMap((language) => [language.folder!, `${language.folder}.html`]).filter((name) => existsSync(path.join(site, name)));
+if (!LANGUAGE_ADDRESSES_RELEASED && strayCopies.length) throw new Error(`The language addresses are not released (src/lib/language-addresses.ts), but the release holds ${strayCopies.join(", ")}.`);
 stage("Search-engine pages built");
 const files = await readdir(site, { recursive: true, withFileTypes: true });
 if (files.some((entry) => entry.isSymbolicLink())) throw new Error("The release contains a link instead of files; copy with dereference.");

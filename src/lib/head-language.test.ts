@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { MARKER, headLanguages, withHeadLanguages } from "../../scripts/site-languages-vite";
+import { addressLanguages } from "./language-addresses";
 import { SITE_LANGUAGES } from "./site-languages";
 
 // The page's language before first paint (translation system, stage 5 job 15): index.html's language script, as the
@@ -29,10 +30,12 @@ afterEach(() => {
 
 describe("index.html's language script, as built", () => {
   it("is filled with every translated language from the one file, and only them", () => {
-    const filled = JSON.parse(/const languages = (\{.*?\});/.exec(languageScript)![1]) as Record<string, { folder: string; dir: string; released: boolean }>;
+    const filled = JSON.parse(/const languages = (\{.*?\});/.exec(languageScript)![1]) as Record<string, { folder: string; dir: string; released: boolean; address: string | false }>;
     const translated = SITE_LANGUAGES.filter((language) => language.folder !== null);
     expect(Object.keys(filled).sort()).toEqual(translated.map((language) => language.code).sort());
-    for (const language of translated) expect(filled[language.code], language.code).toEqual({ folder: language.folder, dir: language.dir, released: language.released });
+    // Language addresses (job 18): on the preview only until the owner releases them; none for a made-up language.
+    const addressed = addressLanguages().map((language) => language.code);
+    for (const language of translated) expect(filled[language.code], language.code).toEqual({ folder: language.folder, dir: language.dir, released: language.released, address: addressed.includes(language.code) ? "preview" : false });
   });
 
   it("sets lang and dir before the site's code runs: right to left for Arabic and the made-up ar-XB, left to right otherwise", () => {
@@ -114,6 +117,45 @@ describe("the build's language writer (scripts/site-languages-vite.ts)", () => {
     expect(headLanguages([{ ...entry, code: "en", folder: null }], FILE)).toEqual({});
   });
   it("writes nothing that can close the script", () => {
-    expect(withHeadLanguages(html, { "a</script>": { folder: "es", dir: "ltr", released: true } })).not.toContain("</script>\"");
+    expect(withHeadLanguages(html, { "a</script>": { folder: "es", dir: "ltr", released: true, address: false } })).not.toContain("</script>\"");
+  });
+  it("marks the address languages live once the owner's switch is on, and only them", () => {
+    const languages = JSON.parse(readFileSync(FILE, "utf8")).languages;
+    expect(headLanguages(languages, FILE, true).es.address).toBe("live");
+    expect(headLanguages(languages, FILE, true)["en-XA"].address).toBe(false);
+    expect(headLanguages(languages, FILE, false)["pt-BR"].address).toBe("preview");
+  });
+});
+
+// Language addresses (translation system, stage 5 job 18; language-addresses.ts): /es/study is Spanish before the first
+// paint, whatever the reader had stored, and the page's own lists are chosen by the address without its prefix.
+describe("index.html's language script at a language address", () => {
+  const fetched: string[] = [];
+  const stubFetch = () => vi.stubGlobal("fetch", (address: string) => (fetched.push(address), Promise.resolve(new Response("{}"))));
+
+  it("takes the language from the address, over the stored one, and reads the page's own list", () => {
+    stubFetch();
+    const root = arrive("ar", "127.0.0.1", "/es/study/atlas");
+    expect([root.lang, root.dir]).toEqual(["es", "ltr"]);
+    expect(fetched).toEqual(["/data/i18n/es/phrases/core.json", "/data/i18n/es/ui-study.json"]);
+    expect(arrive(null, "localhost", "/AR").dir).toBe("rtl");
+    expect(arrive(null, "127.0.0.1", "/zh/").lang).toBe("zh-Hans");
+    expect(arrive(null, "127.0.0.1", "/pt").lang).toBe("pt-BR");
+  });
+
+  it("names no language for a part of a word, a made-up language or a non-language, and on the live site", () => {
+    for (const pathname of ["/essay", "/esp/study", "/xa/study", "/xb", "/en/study", "/constructor/x", "/__proto__"]) {
+      expect(arrive(null, "127.0.0.1", pathname).getAttribute("lang"), pathname).toBeNull();
+    }
+    expect(arrive(null, "bibleguide.io", "/es/study").getAttribute("lang")).toBeNull();
+    expect(arrive("hi", "bibleguide.io", "/es/study").lang).toBe("hi");
+  });
+
+  it("still takes the address when the browser refuses storage", () => {
+    vi.stubGlobal("localStorage", { getItem: () => { throw new Error("denied"); }, setItem: () => undefined, removeItem: () => undefined });
+    const root = document.documentElement;
+    root.removeAttribute("lang");
+    new Function("location", languageScript)({ hostname: "127.0.0.1", pathname: "/hi/topics" });
+    expect(root.lang).toBe("hi");
   });
 });

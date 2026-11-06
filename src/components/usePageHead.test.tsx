@@ -37,6 +37,8 @@ function Site() {
 }
 
 const description = () => document.head.querySelector('meta[name="description"]')?.getAttribute("content");
+const canonical = () => document.head.querySelector('link[rel="canonical"]')?.getAttribute("href");
+const versions = () => [...document.head.querySelectorAll<HTMLLinkElement>('link[rel="alternate"][hreflang]')].map((link) => `${link.hreflang} ${link.getAttribute("href")}`);
 // usePageHead reads the head again 250 ms after the page changes (the translator's swaps included).
 const reread = () => act(() => new Promise((done) => setTimeout(done, 400)));
 
@@ -54,11 +56,21 @@ describe("usePageHead in a translated language", () => {
     await reread();
     expect(document.title).toBe("Atlas bíblico: mapas de cada lugar de la Biblia · Bible Guide");
     expect(description()).toBe(STRINGS[PARAGRAPH]);
+    // A main page names its Spanish address and every language's version (job 18; jsdom's host is the local preview).
+    expect(canonical()).toBe("https://bibleguide.io/es/study/atlas");
+    expect(versions()).toEqual([
+      "en https://bibleguide.io/study/atlas", "es https://bibleguide.io/es/study/atlas", "pt https://bibleguide.io/pt/study/atlas",
+      "zh-Hans https://bibleguide.io/zh/study/atlas", "ar https://bibleguide.io/ar/study/atlas", "hi https://bibleguide.io/hi/study/atlas",
+      "id https://bibleguide.io/id/study/atlas", "x-default https://bibleguide.io/study/atlas",
+    ]);
 
     // A click renders the next page at once; its heading is swapped just after the hook first reads it.
     fireEvent.click(view.getByText("A Moisés"));
     await reread();
     expect(document.title).toBe("Moisés · Personas · Bible Guide");
+    // A page with no language addresses: its one English address, and the main page's versions gone.
+    expect(canonical()).toBe("https://bibleguide.io/people/moses-exo-2-10");
+    expect(versions()).toEqual([]);
 
     await act(() => chooseSiteLanguage("en"));
     await reread();

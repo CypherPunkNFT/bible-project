@@ -16,7 +16,7 @@ test('sorts changed files into what a quick release can carry', () => {
   assert.equal(classifyChange('public/robots.txt'), 'public');
   assert.equal(classifyChange('design/catalog.json'), 'ignore');
   assert.equal(classifyChange('notes.md'), 'ignore');
-  for (const file of ['data/catalog.json', 'server/site-worker.mjs', 'functions/api/x.ts', 'migrations/1.sql', 'vite.config.ts', 'package.json', 'public/_routes.json', 'public/content/scholar-population/index.json', 'public/content/sources/directory.json', 'src/lib/page-head.ts']) assert.equal(classifyChange(file), 'refuse', file);
+  for (const file of ['data/catalog.json', 'server/site-worker.mjs', 'functions/api/x.ts', 'migrations/1.sql', 'vite.config.ts', 'package.json', 'public/_routes.json', 'public/content/scholar-population/index.json', 'public/content/sources/directory.json', 'src/lib/page-head.ts', 'src/lib/language-addresses.ts']) assert.equal(classifyChange(file), 'refuse', file);
 });
 
 test('checks every commit before any is applied', () => {

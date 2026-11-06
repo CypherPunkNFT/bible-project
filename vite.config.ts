@@ -149,6 +149,19 @@ const mockupsPlugin: Plugin = {
 const DIST = path.resolve(__dirname, "dist"), PUBLIC = path.resolve(__dirname, "public");
 const STAGE = path.resolve(__dirname, `.dist-next-${process.pid}`);
 let staging = false, written = false;
+// The main pages' copies at their language addresses (/es/study; scripts/seo/language-copies.ts), written into the build
+// before dist/ is updated, so the preview serves them with the code they were made from. Only for this folder's own
+// preview, not a release worktree (whose data/ is linked in). Loaded only here, so nothing in it can stop this file
+// loading, and a failure only warns. A release never takes them from dist/ (scripts/prepare-testimonies-release.ts).
+async function previewLanguageCopiesInto(stage: string): Promise<void> {
+  try {
+    if (fs.realpathSync(DATA_DIR) !== DATA_DIR) return;
+    const { previewLanguageCopies } = await import("./scripts/seo/language-copies.ts");
+    previewLanguageCopies(__dirname, stage);
+  } catch (error) {
+    console.warn(`language copies: not written (${error instanceof Error ? error.message : String(error)}); the language addresses still work through the app`);
+  }
+}
 const swapInBuild: Plugin = {
   name: "swap-in-build",
   apply: "build",
@@ -157,8 +170,9 @@ const swapInBuild: Plugin = {
     return staging ? { build: { outDir: STAGE, emptyOutDir: true, copyPublicDir: false } } : undefined;
   },
   writeBundle() { written = true; },
-  closeBundle() {
+  async closeBundle() {
     if (!staging) return;
+    if (written) await previewLanguageCopiesInto(STAGE);
     const acquired = written && acquireDistLock(__dirname);
     try {
       if (written) {
