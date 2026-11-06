@@ -1,4 +1,5 @@
 import { lazy, type ComponentType } from "react";
+import { wordsForLoadedCode } from "./phrase-lists";
 
 // Each page is its own file, named by its content (e.g. MiraclesPage-Bkgdk73n.js). After the site is rebuilt, a tab
 // opened earlier still asks for the old names, the server no longer has them, and the page used to go blank. A page
@@ -31,4 +32,11 @@ export function lazyPage<P extends object>(load: () => Promise<{ default: Compon
     window.location.reload();
     return new Promise<{ default: ComponentType<P> }>(() => {}); // the reload replaces the page; nothing renders meanwhile
   }));
+}
+
+/** React.lazy for a page file in a translated language: the page is drawn once the words its code shows are learned
+ * (its part of the phrase list, phrase-lists.ts), or after a moment at most, so it is not drawn in English first. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- the same bound as React.lazy's own, which App.tsx swaps for this
+export function lazyWithWords<T extends ComponentType<any>>(load: () => Promise<{ default: T }>) {
+  return lazy(() => load().then((module) => wordsForLoadedCode().then(() => module)));
 }

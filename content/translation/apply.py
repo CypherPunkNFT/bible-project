@@ -19,11 +19,15 @@ ui-people.json, "studydata" (the circles explorer, the people list's names) in u
 already translates keeps that translation. The source directory's words (kind "sources") go to
 data/i18n/<lang>/sources.json as {English: translation}: the directory itself is rebuilt with every build, so the
 site applies the words to whatever English it has (src/components/sources/useSourceDirectory.ts) rather than reading a
-copy that would go stale. Other files under public/ are not translated yet. Usage: python apply.py [--repo DIR] [es pt ...]
+copy that would go stale. Other files under public/ are not translated yet. Last, every language's ui.json is split
+into the small per-page lists the site reads first (data/i18n/<lang>/phrases/, scripts/phrase-lists.mjs).
+Usage: python apply.py [--repo DIR] [es pt ...]
 """
 import argparse
 import json
+import os
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -269,7 +273,10 @@ def apply(repo: Path, lang: str) -> None:
     ui.update({text: found for text, found in held_page_strings(repo, by_kind.get("apologetics", {})).items()
                if text not in ui})
     target.mkdir(parents=True, exist_ok=True)
-    (target / "ui.json").write_text(json.dumps(ui, ensure_ascii=False, separators=(",", ":")), "utf-8")
+    # Whole or not at all: the phrase-list split (split_phrase_lists) and the preview read it while this runs.
+    temporary = target / "ui.json.apply-tmp"
+    temporary.write_text(json.dumps(ui, ensure_ascii=False, separators=(",", ":")), "utf-8")
+    os.replace(temporary, target / "ui.json")
     lists = phrase_lists(repo, by_kind)
     for name, phrases in lists.items():
         (target / name).write_text(json.dumps(phrases, ensure_ascii=False, separators=(",", ":")), "utf-8")
@@ -290,6 +297,23 @@ def main() -> None:
             raise SystemExit(f"apply.py {lang}: {refused}; nothing written")
     for lang in args.languages or site_languages.folders():
         apply(args.repo, lang)
+    split_phrase_lists()
+
+
+def split_phrase_lists() -> None:
+    """Every language's ui.json split again by the built code (scripts/phrase-lists.mjs; all languages at once, since
+    their parts must match). A failure only warns: the site reads the whole ui.json when the parts do not fit its code."""
+    try:
+        done = subprocess.run(["node", "scripts/phrase-lists.mjs"], cwd=SITE, capture_output=True, text=True,
+                              encoding="utf-8", timeout=600)
+    except (OSError, subprocess.TimeoutExpired) as error:
+        print(f"Phrase lists not split ({error}); the site reads each whole ui.json until the next build")
+        return
+    if done.returncode != 0:
+        print(f"Phrase lists not split (exit {done.returncode}: {(done.stderr or done.stdout).strip()[-400:]}); "
+              "the site reads each whole ui.json until the next build")
+    else:
+        print(done.stdout.strip()[:300])
 
 
 def refusal(repo: Path, lang: str) -> str | None:

@@ -8,6 +8,7 @@ import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { STAMP_MARKER, preparePhraseLists } from './phrase-lists.mjs';
 import { pruneReleaseAssets } from './prune-release-assets.mjs';
 
 const WEBSITE = fileURLToPath(new URL('../', import.meta.url));
@@ -34,7 +35,8 @@ export function classifyChange(file) {
 const ASSET_TAG = /<(?:script|link)\b[^>]*?\/assets\/([^"'\s>]+)["'][^>]*>/g;
 const assetTags = (html) => [...html.matchAll(ASSET_TAG)].map((match) => match[1]);
 const stem = (name) => name.replace(/-[\w-]{8}(\.\w+)$/, '$1');
-const blankAssets = (html) => html.replace(ASSET_TAG, (tag, name) => tag.replace(name, 'ASSET'));
+// The phrase lists' stamp (scripts/phrase-lists.mjs) differs between the live pages and a fresh build too; it is remade below.
+const blankAssets = (html) => html.replace(ASSET_TAG, (tag, name) => tag.replace(name, 'ASSET')).replace(STAMP_MARKER, '/*phrase-stamp*/""');
 const entryName = (html) => /<script[^>]*\/assets\/([^"'\s>]+\.js)/.exec(html)?.[1];
 
 /** Old file name to new, from the two page shells. Throws unless the shells differ only in those names. */
@@ -258,6 +260,14 @@ async function main() {
   console.log('Code files:', await pruneReleaseAssets(site));
   const missing = missingAssets(site);
   if (missing.length) throw new Error(`Pages name files that are not in the package:\n${missing.slice(0, 20).join('\n')}`);
+  // New code means new file names, so each language's phrase list is split again for it. Lists made for other code are
+  // never used (the site reads the whole list instead), so a failure here costs only speed.
+  try {
+    const phrases = preparePhraseLists(site);
+    console.log(`Phrase lists: for ${phrases.build}, stamp ${phrases.stamp} in ${phrases.stampedPages} page(s)`);
+  } catch (error) {
+    console.warn(`Phrase lists not remade (${error.message}); the site reads each language's whole list until a full prepare.`);
+  }
   const entry = entryName(fs.readFileSync(path.join(site, 'index.html'), 'utf8'));
   stage('Package ready');
   await upload(pkg, entry, checks);

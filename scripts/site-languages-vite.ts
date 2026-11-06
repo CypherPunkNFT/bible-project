@@ -1,6 +1,7 @@
-// Writes each site language's code, reading direction and released mark into index.html's language script, from the
+// Writes each site language's code, folder, reading direction and released mark into index.html's language script, from the
 // one language file (src/lib/site-languages.json), so <html lang> and dir are right before the first paint
-// (translation system, stage 5 job 15; SiteTranslation/system/HANDOFF.md). index.html itself names no language: its
+// (translation system, stage 5 job 15; SiteTranslation/system/HANDOFF.md), and the language's phrase list starts loading
+// at once (job 17). index.html itself names no language: its
 // marker is an empty list until this fills it, and an empty list leaves the page as it was (English, left to right).
 import fs from "node:fs";
 import path from "node:path";
@@ -8,10 +9,11 @@ import type { Plugin } from "vite";
 
 export const MARKER = "/*site-languages*/{}";
 const CODE = /^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/;
+const FOLDER = /^[a-z]{2,3}$/;
 
-export interface HeadLanguage { dir: "ltr" | "rtl"; released: boolean }
+export interface HeadLanguage { folder: string; dir: "ltr" | "rtl"; released: boolean }
 
-/** code -> {dir, released} for every translated language (not the source one), refusing anything but plain values. */
+/** code -> {folder, dir, released} for every translated language (not the source one), refusing anything but plain values. */
 export function headLanguages(languages: unknown, file: string): Record<string, HeadLanguage> {
   if (!Array.isArray(languages)) throw new Error(`site languages: ${file} has no "languages" list; expected the one language file`);
   const found: Record<string, HeadLanguage> = {};
@@ -20,7 +22,9 @@ export function headLanguages(languages: unknown, file: string): Record<string, 
     if (typeof code !== "string" || !CODE.test(code) || (dir !== "ltr" && dir !== "rtl") || typeof released !== "boolean") {
       throw new Error(`site languages: ${file} entry ${JSON.stringify(language)} is not {code, dir: "ltr" or "rtl", released: true or false}`);
     }
-    if (folder !== null) found[code] = { dir, released };
+    if (folder === null) continue;
+    if (typeof folder !== "string" || !FOLDER.test(folder)) throw new Error(`site languages: ${file} entry ${JSON.stringify(language)} has a folder that is not two or three small letters`);
+    found[code] = { folder, dir, released };
   }
   return found;
 }

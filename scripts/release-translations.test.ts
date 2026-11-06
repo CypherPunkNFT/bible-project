@@ -8,7 +8,7 @@ import { test } from "node:test";
 import { readFileSync } from "node:fs";
 import { siteLanguageProblems } from "../src/lib/site-languages-check.ts";
 import { releasedFolders, SITE_LANGUAGES, type SiteLanguage } from "../src/lib/site-languages.ts";
-import { assertOnlyReleasedTranslations, unreleasedTranslationEntries } from "./release-translations.ts";
+import { assertOnlyReleasedTranslations, assertTranslationsComplete, unreleasedTranslationEntries } from "./release-translations.ts";
 
 // A made-up list: Spanish released, "xa" still being made.
 // The fields the menu and the release do not look at.
@@ -114,4 +114,23 @@ test("the made-up languages in the real language file can never enter a release"
     changed.languages[index].released = true;
     assert.ok(siteLanguageProblems(changed).some((problem) => /can never be released/.test(problem)), `released made-up language ${index} was not refused`);
   }
+});
+
+test("the small phrase lists (data/i18n/<folder>/phrases/) do not count: the release makes its own (job 17)", async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), "release-translations-"));
+  const data = path.join(root, "data");
+  const both = [{ ...LANGUAGES[1] }, { ...LANGUAGES[1], code: "pt-BR", folder: "pt" }];
+  await mkdir(path.join(data, "study", "people"), { recursive: true });
+  await writeFile(path.join(data, "study", "people", "ruth.json"), "{}");
+  for (const folder of ["es", "pt"]) {
+    await mkdir(path.join(data, "i18n", folder, "study", "people"), { recursive: true });
+    await writeFile(path.join(data, "i18n", folder, "ui.json"), "{}");
+    await writeFile(path.join(data, "i18n", folder, "study", "people", "ruth.json"), "{}");
+  }
+  await mkdir(path.join(data, "i18n", "es", "phrases"));
+  await writeFile(path.join(data, "i18n", "es", "phrases", "core.json"), "");
+  assert.deepEqual(await assertTranslationsComplete(data, both), { languages: 2, filesEach: 2 });
+  await writeFile(path.join(data, "i18n", "es", "sources.json"), "{}");
+  await assert.rejects(assertTranslationsComplete(data, both), /pt differs from es: 1 missing \(sources.json\)/);
+  await rm(root, { recursive: true, force: true });
 });

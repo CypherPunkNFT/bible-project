@@ -14,6 +14,7 @@ import { dataAnalysisPlugin } from "./scripts/data-analysis-vite";
 import { dataQuestionsPlugin } from "./scripts/data-questions-vite";
 import { dataGrantsPlugin } from "./scripts/data-grants-vite";
 import { siteLanguagesPlugin } from "./scripts/site-languages-vite";
+import { phraseListsPlugin, splitPhraseListsAfterBuild } from "./scripts/phrase-lists-vite";
 import { acquireDistLock, mirrorIntoDist, releaseDistLock } from "./scripts/dist-mirror.mjs";
 
 // The CypherPunk NFT site's toolchain. Local only: dev on 8930, the always-on preview
@@ -160,7 +161,10 @@ const swapInBuild: Plugin = {
     if (!staging) return;
     const acquired = written && acquireDistLock(__dirname);
     try {
-      if (written) console.log("dist updated:", mirrorIntoDist({ publicDir: PUBLIC, stage: STAGE, dist: DIST }));
+      if (written) {
+        console.log("dist updated:", mirrorIntoDist({ publicDir: PUBLIC, stage: STAGE, dist: DIST }));
+        splitPhraseListsAfterBuild(__dirname, STAGE); // each language's small phrase lists, for the code just put in dist/
+      }
     } finally {
       fs.rmSync(STAGE, { recursive: true, force: true, maxRetries: 5 }); // the code is in dist/ now, or the build failed and dist/ is untouched
       if (acquired) releaseDistLock(__dirname);
@@ -184,7 +188,7 @@ export default defineConfig({
   // question sources' downloads (content/questions/sources/, 1.5 GB) are never read by the site, so not watched either.
   server: { host: "127.0.0.1", port: 8930, strictPort: true, watch: { ignored: ["**/dist/**", "**/.dist-*/**", "**/.local/**", "**/.release/**", "**/.output/**", "**/.wrangler/**", "**/content/questions/sources/**"] } },
   preview: { host: "127.0.0.1", port: 8931, strictPort: true },
-  plugins: [studyContentPlugin(), react(), dataAnalysisPlugin(__dirname), dataPlugin, mockupsPlugin, dataIntakePlugin(__dirname), dataQuestionsPlugin(__dirname), dataGrantsPlugin(__dirname), atlasTilesPlugin(), designReviewPlugin(), testimonyApiPlugin(), localLibraryPlugin(__dirname), siteLanguagesPlugin(__dirname), dropUnusedOrtEngine, preloadPageFonts, swapInBuild],
+  plugins: [studyContentPlugin(), react(), dataAnalysisPlugin(__dirname), dataPlugin, mockupsPlugin, dataIntakePlugin(__dirname), dataQuestionsPlugin(__dirname), dataGrantsPlugin(__dirname), atlasTilesPlugin(), designReviewPlugin(), testimonyApiPlugin(), localLibraryPlugin(__dirname), siteLanguagesPlugin(__dirname), phraseListsPlugin(), dropUnusedOrtEngine, preloadPageFonts, swapInBuild],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
   },

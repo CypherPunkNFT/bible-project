@@ -51,14 +51,15 @@ async function filesUnder(root: string, prefix = ""): Promise<string[]> {
   return found;
 }
 
-/** Refuses the release unless every language has ui.json, the same files as the others, and every person. */
+/** Refuses the release unless every language has ui.json, the same files as the others, and every person. The small
+ * phrase lists (phrases/, scripts/phrase-lists.mjs) are left out: the release makes its own for its code. */
 export async function assertTranslationsComplete(data: string, languages: readonly SiteLanguage[] = SITE_LANGUAGES): Promise<{ languages: number; filesEach: number }> {
   const folders = await languageFolders(languages);
   const english = (await readdir(path.join(data, "study", "people"))).filter((name) => name.endsWith(".json")).length;
   let first: Set<string> | null = null;
   for (const folder of folders) {
     const root = path.join(data, "i18n", folder);
-    const files = new Set(await filesUnder(root).catch(() => [] as string[]));
+    const files = new Set((await filesUnder(root).catch(() => [] as string[])).filter((name) => !name.startsWith("phrases/")));
     if (!files.has("ui.json")) throw new Error(`Translations: ${root} has no ui.json; run content/translation/apply.py before releasing.`);
     const people = [...files].filter((name) => name.startsWith("study/people/")).length;
     if (people !== english) throw new Error(`Translations: ${folder} has ${people} people; English has ${english}. Rerun apply.py.`);

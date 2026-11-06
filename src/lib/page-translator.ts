@@ -8,38 +8,25 @@
 // Anything inside translate="no" is left alone. The tab title is swapped the same way (translateTitle).
 import { fadeWordsIn, fadeWordsOut, holdNewWords } from "./language-fade";
 import { languageDirection, languageFolder, languageReloads, loadedData, setSiteLanguage, siteLanguage, type LanguageCode } from "./language";
-import { SITE_LANGUAGES, scriptureLanguage } from "./site-languages";
-import { learnPluralForms, pluralPair, readPluralForms } from "./site-format";
+import { scriptureLanguage } from "./site-languages";
+import { fromEnglish, learn, longerLine, normal, ownForms, slotted, toEnglish, WORD } from "./phrase-memory";
+import { loadFirstWords, loadWholeList, onWordsArrived, readTranslationJson } from "./phrase-lists";
+
+export { phrase, phraseListVersion } from "./phrase-memory";
 
 const ATTRIBUTES = ["aria-label", "title", "placeholder", "alt"];
 const SKIP = new Set(["SCRIPT", "STYLE", "TEXTAREA", "CODE", "PRE"]);
 
-const toEnglish = new Map<string, string>(); // for text first seen already translated; several English strings can share one translation, so the first stands
-const fromEnglish = new Map<string, Map<string, string>>(); // folder -> English -> translation
-const loaded = new Map<string, Promise<void>>(); // "folder ui" and "folder path": read, or being read
-const phraseLists = new Map<string, number>(); // folder -> how many times its ui.json has been read (0: not yet)
+const loaded = new Map<string, Promise<void>>(); // "folder path" and "folder ui-study": read, or being read
 let target: string | null = null;
 let targetRightToLeft = false;
 let observer: MutationObserver | null = null;
-// A language's plural forms, written by plural() (site-format.ts) already in that language: never swapped while it is the
-// target, and traced back to their English on a change of language (folder -> forms, "{n}" for a count).
-const ownForms = new Map<string, Set<string>>();
 // What each text or label said before it was changed: it goes back to exactly that, however many languages came between.
 const originals = new WeakMap<Text | Attr, { source: string; written: string }>();
 
 const BIBLE_WAIT_MS = 800;
 const RELOAD_WAIT_MS = 1500;
 const wait = (ms: number) => new Promise((done) => setTimeout(done, ms));
-
-const normal = (text: string) => text.replace(/\s+/g, " ").trim();
-
-function learn(folder: string, english: string, translated: string): void {
-  const [en, tr] = [normal(english), normal(translated)];
-  if (!en || en === tr) return;
-  if (!toEnglish.has(tr)) toEnglish.set(tr, en);
-  if (!fromEnglish.has(folder)) fromEnglish.set(folder, new Map());
-  fromEnglish.get(folder)!.set(en, translated.trim());
-}
 
 /** The same string in the English and the translated copy of a file, at the same place. */
 function pair(folder: string, english: unknown, translated: unknown): void {
@@ -52,15 +39,10 @@ function pair(folder: string, english: unknown, translated: unknown): void {
   }
 }
 
-async function readJson(url: string): Promise<unknown> {
-  // A release replaces these files under the same address, and /data/ is stored for a long time: ask each time whether they changed.
-  const response = await fetch(url, { cache: "no-cache" });
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  return response.json();
-}
+const readJson = (url: string) => readTranslationJson(url);
 
-function loadStrings(folder: string, path: string | null): Promise<void> {
-  const key = `${folder} ${path ?? "ui"}`;
+function loadStrings(folder: string, path: string): Promise<void> {
+  const key = `${folder} ${path}`;
   const started = loaded.get(key);
   if (started) return started;
   const reading = readStrings(folder, path, key);
@@ -68,53 +50,14 @@ function loadStrings(folder: string, path: string | null): Promise<void> {
   return reading;
 }
 
-async function readStrings(folder: string, path: string | null, key: string): Promise<void> {
+/** A content file already read, in English and in the language, paired string by string. */
+async function readStrings(folder: string, path: string, key: string): Promise<void> {
   try {
-    if (path === null) {
-      const strings = (await readJson(`/data/i18n/${folder}/ui.json`)) as Record<string, unknown>;
-      for (const [english, translated] of Object.entries(strings)) {
-        if (pluralPair(english)) {
-          learnPlural(folder, english, translated);
-          continue;
-        }
-        // One bad entry costs only itself, never the language's whole phrase list.
-        if (typeof translated !== "string") {
-          console.warn(`page translation: the ${folder} phrase list's entry for "${english}" is not text; it is left out`);
-          continue;
-        }
-        learn(folder, english, translated);
-        learnSlots(folder, english, translated);
-        // Pages also type labels in capitals ("ISAIAH 40:8", "OLD TESTAMENT").
-        if (english !== english.toUpperCase()) learn(folder, english.toUpperCase(), translated.toUpperCase());
-      }
-      phraseLists.set(folder, (phraseLists.get(folder) ?? 0) + 1);
-    } else {
-      const [english, translated] = await Promise.all([readJson(`/data/${path}`), readJson(`/data/i18n/${folder}/${path}`)]);
-      pair(folder, english, translated);
-    }
+    const [english, translated] = await Promise.all([readJson(`/data/${path}`), readJson(`/data/i18n/${folder}/${path}`)]);
+    pair(folder, english, translated);
   } catch (error) {
     loaded.delete(key);
-    console.warn(`page translation: could not read the ${folder} strings for ${path ?? "the page text"} (${String(error)}); that text keeps its current language`);
-  }
-}
-
-/** A plural entry of ui.json (plural:["{n} book","{n} books"] -> its forms as JSON): handed to plural(), and each form
- * traced back to the English for the count it is used for, so a change of language can swap it. */
-function learnPlural(folder: string, key: string, value: unknown): void {
-  const categories = SITE_LANGUAGES.find((language) => language.folder === folder)?.plurals ?? ["other"];
-  const forms = readPluralForms(folder, key, value, categories);
-  const [one, many] = pluralPair(key)!;
-  if (!forms) return;
-  learnPluralForms(folder, key, forms);
-  if (!ownForms.has(folder)) ownForms.set(folder, new Set());
-  const counts: Partial<Record<string, number>> = { zero: 0, one: 1, two: 2 };
-  for (const [category, form] of Object.entries(forms)) {
-    const text = normal(form!);
-    ownForms.get(folder)!.add(text);
-    const english = category === "one" ? one : many;
-    // A form with no count in it ("كتابان", two books) stands for one number: its English is written with that number.
-    const traced = text.includes("{n}") || counts[category] === undefined ? english : english.split("{n}").join(String(counts[category]));
-    if (!toEnglish.has(text)) toEnglish.set(text, normal(traced));
+    console.warn(`page translation: could not read the ${folder} strings for ${path} (${String(error)}); that text keeps its current language`);
   }
 }
 
@@ -204,34 +147,10 @@ function knownPiece(key: string): string | null {
   return name ? `${name} ${parts[2].replace(AFTER_NUMBERS, (_all: string, numbers: string, rest: string) => numbers + (knownPiece(rest) ?? rest))}` : null;
 }
 
-// Lines the page code builds around a value. extract.py writes every ${…} as {n}, so "Open the profile of {n}" holds a
-// name as often as a number. Each line is filed under its longest fixed word, so a text is tried only against lines that
-// could be it, and a longer line (more fixed letters) wins over a shorter one; on a tie, the one with more fixed text ("Select {n}: {n}. {n}"
-// before "Select {n}", which would take "Obed: Judges. Son of Boaz and Ruth" for one name).
-interface Slotted { english: string; pattern: RegExp; letters: number; fixed: number }
-const longerLine = (a: Slotted, b: Slotted) => b.letters - a.letters || b.fixed - a.fixed;
-const slotted = new Map<string, Map<string, Slotted[]>>(); // folder -> fixed word -> lines
-const SLOT = "{n}";
-const MOST_SLOTS = 3;
 const LONGEST_SLOTTED_TEXT = 300; // the lines' lazy slots backtrack, so very long texts are not tried
-const WORD = /\p{L}{2,}/gu;
 // A value is a name, title, number or known label. A run of everyday English words ("many hard") is not one: filling
 // it in would leave a line half in English.
 const PLAIN_WORD = /(?:^|[\s(])\p{Ll}{4,}/u;
-const escaped = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-function learnSlots(folder: string, english: string, translated: string): void {
-  const parts = normal(english).split(SLOT);
-  const slots = parts.length - 1;
-  const words = parts.join(" ").match(WORD) ?? [];
-  if (slots < 1 || slots > MOST_SLOTS || words.join("").length < 4 || translated.split(SLOT).length - 1 !== slots) return;
-  const anchor = words.reduce((longest, word) => (word.length > longest.length ? word : longest)).toLowerCase();
-  if (!slotted.has(folder)) slotted.set(folder, new Map());
-  const byWord = slotted.get(folder)!;
-  const line = { english: normal(english), pattern: new RegExp(`^${parts.map(escaped).join("(.+?)")}$`, "u"), letters: words.join("").length, fixed: parts.join("").length };
-  byWord.set(anchor, [...(byWord.get(anchor) ?? []), line].sort(longerLine));
-}
-
 function withSlots(key: string): string | null {
   const lines = target && slotted.get(target);
   if (!lines || key.length > LONGEST_SLOTTED_TEXT) return null;
@@ -397,6 +316,18 @@ function watch(): void {
   }
 }
 
+/** Everything on screen again: the page, the tab title and the sealed parts. */
+function retranslateAll(): void {
+  translateTree(document.body);
+  translateTitle();
+  connectedShadowRoots().forEach(translateTree);
+}
+
+// More of the language's words arrived after the first paint (a page's part of the phrase list, or the whole list).
+onWordsArrived((folder) => {
+  if (target === folder && observer) retranslateAll();
+});
+
 function markDocument(code: LanguageCode, folder: string | null): void {
   const root = document.documentElement;
   root.lang = code;
@@ -423,24 +354,12 @@ async function bibleInLanguage(code: LanguageCode): Promise<void> {
   while (location.pathname.startsWith("/read/") && document.querySelector(other) && performance.now() - start < BIBLE_WAIT_MS);
 }
 
-/** The chosen language's own wording for an English text in its phrase list (ui.json), or null: none, or English.
- * For text drawn in a language's own words rather than swapped (the home page's verses, in its Bible's wording); pass
- * the language from useSiteLanguage(), so a change of language draws the new wording. */
-export function phrase(english: string, code: LanguageCode): string | null {
-  const folder = languageFolder(code);
-  return (folder && fromEnglish.get(folder)?.get(normal(english))) ?? null;
-}
-
-/** How many times the language's phrase list has been read: 0 while it is not read yet. Anything built from phrase()
- * (the site search's index in the language) is kept only for the number it was built at. */
-export const phraseListVersion = (code: LanguageCode): number => phraseLists.get(languageFolder(code) ?? "") ?? 0;
-
 /** At startup: resolves once the page strings are read, so the first paint is already in the chosen language. */
 export async function startPageTranslator(): Promise<void> {
   const folder = languageFolder();
   markDocument(siteLanguage(), folder);
   if (!folder) return;
-  await Promise.all([loadStrings(folder, null), loadPageFile(folder)]);
+  await Promise.all([loadFirstWords(folder), loadPageFile(folder)]);
   aimAt(folder, siteLanguage());
   watch();
   translateTitle();
@@ -449,7 +368,7 @@ export async function startPageTranslator(): Promise<void> {
 /** A pointer resting on a language in the menu: its page words are read ahead, so choosing it has less to wait for. */
 export function prepareSiteLanguage(code: LanguageCode): void {
   const folder = languageFolder(code);
-  if (folder) void loadStrings(folder, null);
+  if (folder) void loadWholeList(folder);
 }
 
 /** The header's language menu: reads the new words for what is on screen, then changes them all at once. */
@@ -465,15 +384,13 @@ export async function chooseSiteLanguage(code: LanguageCode): Promise<void> {
   if (fades) root.dataset.languageFade = "true"; // a language change is not a move to another page: no page slide (PageTransitions)
   await Promise.all([
     fadedOut,
-    ...folders.flatMap((name) => [loadStrings(name, null), loadPageFile(name), ...[...loadedData].map((path) => loadStrings(name, path))]),
+    ...folders.flatMap((name) => [loadWholeList(name), loadPageFile(name), ...[...loadedData].map((path) => loadStrings(name, path))]),
   ]);
   setSiteLanguage(code);
   markDocument(code, folder);
   aimAt(folder, code);
   watch();
-  translateTree(document.body);
-  translateTitle();
-  connectedShadowRoots().forEach(translateTree);
+  retranslateAll();
   if (!fades) return;
   await new Promise((painted) => requestAnimationFrame(() => setTimeout(painted)));
   // Content the page reads again in the new language (useAsync) comes in with the rest of the words, if it is quick.

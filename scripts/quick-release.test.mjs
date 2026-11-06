@@ -35,6 +35,13 @@ test('maps several changed names, and leaves unchanged ones out', () => {
   assert.ok(next.includes('<p>index-CVD8y9h9.js as words stays</p>'));
 });
 
+test('a page stamped with its phrase lists still matches a fresh build, which has no stamp yet (job 17)', () => {
+  const stamped = (entry, stamp) => `<script>const stamp = /*phrase-stamp*/"${stamp}";</script>${shell(entry)}`;
+  const renames = assetRenames(stamped('index-CVD8y9h9.js', '0123456789ab'), stamped('index-AAAAAAAA.js', ''));
+  assert.deepEqual([...renames], [['index-CVD8y9h9.js', 'index-AAAAAAAA.js']]);
+  assert.throws(() => assetRenames(stamped('index-CVD8y9h9.js', ''), shell('index-AAAAAAAA.js')), /full prepare/);
+});
+
 test('refuses a page shell that changed beyond its file names', () => {
   assert.throws(() => assetRenames(shell('index-CVD8y9h9.js'), `${shell('index-AAAAAAAA.js')}<meta name="new">`), /full prepare/);
   assert.throws(() => assetRenames(shell('index-CVD8y9h9.js'), shell('index-CVD8y9h9.js').replace('</head>', '<link rel="modulepreload" href="/assets/d3-COLcoCmf.js"></head>')), /full prepare/);

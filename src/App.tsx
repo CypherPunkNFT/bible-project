@@ -1,11 +1,13 @@
 import WorldStudyRedirect from "@/pages/study/world/WorldStudyRedirect";
-import { lazy, Suspense, type ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { MotionConfig } from "framer-motion";
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { PageTransitions } from "@/components/PageTransitions";
 import { CorrectionButton } from "@/components/corrections/CorrectionButton";
 import { Layout } from "@/components/Layout";
 import { PageErrorBoundary } from "@/components/PageErrorBoundary";
+// Each page file waits for its words in a translated language (src/lib/phrase-lists.ts) before it is drawn.
+import { lazyWithWords as lazy } from "@/lib/lazy-page";
 import { CatalogProvider } from "@/lib/catalog-context";
 import HomePage from "@/pages/HomePage";
 import { mockupRoutes } from "@/pages/mockup/mockup-routes";

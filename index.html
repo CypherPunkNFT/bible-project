@@ -82,6 +82,21 @@
           document.documentElement.dir = language.dir === "rtl" ? "rtl" : "ltr";
           document.documentElement.dataset.languageLoading = "true";
           setTimeout(() => delete document.documentElement.dataset.languageLoading, 4000);
+          // The language's words start loading now, not once the site's code has arrived (src/lib/phrase-lists.ts takes
+          // these over): its core phrase list, and a study or people page's own list (PAGE_FILES in page-translator.ts).
+          // The release writes its stamp of the lists here (scripts/phrase-lists.mjs), so browsers may keep them.
+          const stamp = /*phrase-stamp*/"";
+          window.__bgStamp = stamp;
+          const lists = ["phrases/core.json" + (stamp ? "?v=" + stamp : "")];
+          if (/^\/(study2?|teachers)(\/|$)/.test(location.pathname)) lists.push("ui-study.json");
+          else if (/^\/people\//.test(location.pathname)) lists.push("ui-people.json");
+          window.__bgEarly = {};
+          for (const list of lists) {
+            const address = "/data/i18n/" + language.folder + "/" + list;
+            window.__bgEarly[address] = fetch(address, { cache: stamp && list.startsWith("phrases/") ? "default" : "no-cache" })
+              .then((response) => (response.ok ? response.json() : response.status))
+              .catch(() => null);
+          }
         }
       } catch (error) {
         console.warn("language: localStorage unavailable", error);

@@ -6,6 +6,7 @@ import {preparePopulationHosting} from './prepare-population-hosting.mjs';
 import {pruneReleaseAssets} from './prune-release-assets.mjs';
 import { packPersonFiles } from "./pack-person-files.ts";
 import { packReaderData } from "./pack-reader-data.mjs";
+import { LIST_FOLDER, phraseFolders, preparePhraseLists } from "./phrase-lists.mjs";
 import { assertOnlyReleasedTranslations, assertTranslationsComplete, packTranslatedPeople, unreleasedTranslationEntries } from "./release-translations.ts";
 
 // Produces a fresh deployable directory. Never creates a cloud resource or deploys it.
@@ -42,14 +43,22 @@ console.log("Translations:", await assertTranslationsComplete(path.resolve("data
 const packedData = [path.resolve("data", "text"), path.resolve("data", "xref")];
 // Languages not marked released in src/lib/site-languages.ts, and anything else in data/i18n, stay on this computer.
 const unreleasedTranslations = await unreleasedTranslationEntries(path.resolve("data"));
+// The small phrase lists (scripts/phrase-lists.mjs) are made for the code they serve, so the release makes its own below.
+const phraseLists = phraseFolders(path.resolve("data", "i18n")).map((folder) => path.resolve("data", "i18n", folder, LIST_FOLDER));
 if (unreleasedTranslations.length) console.log("Translations left out (not released):", unreleasedTranslations.map((entry) => path.basename(entry)).join(", "));
-await cp("data", path.join(site, "data"), { recursive: true, dereference: true, filter: (source) => ![graphData, ...packedData, ...unreleasedTranslations].includes(path.resolve(source)) });
+await cp("data", path.join(site, "data"), { recursive: true, dereference: true, filter: (source) => ![graphData, ...packedData, ...unreleasedTranslations, ...phraseLists].includes(path.resolve(source)) });
 stage("Data copied");
 // One file per person would push the release past 20,000 files; the release copy gets packs instead.
 console.log("Person packs:", await packPersonFiles(site));
 console.log("Translated person packs:", await packTranslatedPeople(site));
 console.log("Translations in the release:", await assertOnlyReleasedTranslations(site));
 stage("Person packs");
+// Each language's phrase list split for this release's own code, and the pages stamped with a hash of the lists, so a
+// browser keeps them until they change. Before the search-engine copies, which are made from index.html.
+const phrases = preparePhraseLists(site);
+console.log(`Phrase lists: for ${phrases.build}, ${Object.keys(phrases.folders).join(", ")}; ${phrases.coreKeys} core phrases, ${phrases.groups} parts each; stamp ${phrases.stamp} in ${phrases.stampedPages} page(s)`);
+if (!phrases.stampedPages) throw new Error("Phrase lists: no page carries the /*phrase-stamp*/ marker; was index.html's language script changed?");
+stage("Phrase lists");
 // After the person packs, so the content stamp covers them. Only for a front end that reads the grouped layout.
 const bundles = (await readdir(path.join(site, "assets"))).filter((name) => name.endsWith(".js"));
 if (!(await Promise.all(bundles.map((name) => readFile(path.join(site, "assets", name), "utf8")))).some((code) => code.includes("xrefChunk"))) throw new Error("This build cannot read grouped chapter files (no xrefChunk in its scripts); rebuild before preparing a release.");
