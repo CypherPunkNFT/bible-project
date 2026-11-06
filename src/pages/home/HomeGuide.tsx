@@ -3,7 +3,7 @@
 // down to that numbered part and opens it. Styles: home-guide.css.
 // Two layouts: "columns" (home_mockup2: story in columns, then the five answers in a row) and "side" (home_mockup: the story
 // stacked on the left, the answers as rows on the right, the four convictions along the bottom).
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { createContext, useContext, type CSSProperties, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { CONVICTIONS, ConvictionList } from "../contact/AboutSections";
@@ -82,7 +82,7 @@ function Paths({ onChoose, withSteps }: { onChoose: (part: number) => void; with
       <span className="home-guide-number" aria-hidden="true">{path.number}</span>
       <span className="home-guide-words"><strong>{path.who}</strong><span className="home-guide-text">{path.text}</span>
         {withSteps && <ul>{path.steps.map((step) => <li key={step}>{step}</li>)}</ul>}</span>
-      <span className="home-guide-where" aria-hidden="true">{path.to ? <ArrowRight size={18} strokeWidth={1.4} /> : <ArrowDown size={18} strokeWidth={1.4} />}</span>
+      <span className="home-guide-where" aria-hidden="true"><ArrowDown size={18} strokeWidth={1.4} /></span>
     </>;
     return path.to
       ? <Link key={path.number} to={path.to} className="home-guide-path" style={style}>{inside}</Link>
