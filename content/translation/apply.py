@@ -12,7 +12,12 @@ The study pages' own text (kind "studytext": the Academic study dossiers, study 
 SiteTranslation/studies/) goes to data/i18n/<lang>/ui-study.json as {English: translation}; the page translator reads it
 on /study and /teachers pages only (src/lib/page-translator.ts), because it is large. The ruler, prophet and apostle
 pages' own text (kind "peopletext", src/data/people-pages/) goes the same way to ui-people.json, read on /people pages only.
-Other files under public/ are not translated yet. Usage: python apply.py [--repo DIR] [es pt ...]
+Text pages show from data bundled with their code (page_data.py) joins them: "peopledata" (the Moses page) in
+ui-people.json, "studydata" (the circles explorer, the people list's names) in ui-study.json; a text the older kind
+already translates keeps that translation. The source directory's words (kind "sources") go to
+data/i18n/<lang>/sources.json as {English: translation}: the directory itself is rebuilt with every build, so the
+site applies the words to whatever English it has (src/components/sources/useSourceDirectory.ts) rather than reading a
+copy that would go stale. Other files under public/ are not translated yet. Usage: python apply.py [--repo DIR] [es pt ...]
 """
 import argparse
 import json
@@ -22,6 +27,7 @@ from pathlib import Path
 
 from extract import DEFAULT_OUT, PAGE_KIND, RESOURCES, SITE, SOURCES, paragraphs, string_id, walk
 import site_languages
+from page_data import PEOPLE_DATA_KIND, STUDY_DATA_KIND
 
 sys.stdout.reconfigure(encoding="utf-8")
 SEED = Path(__file__).resolve().parent / "seed"
@@ -50,6 +56,11 @@ def page_strings(repo: Path, lang: str, translated: dict[str, str]) -> dict[str,
 
 STUDY_KIND = "studytext"
 PEOPLE_KIND = "peopletext"
+SOURCES_KIND = "sources"
+# The {English: translation} lists written beside ui.json, each with the kinds it holds; where two kinds hold the same
+# English, the first kind's translation is kept (the older kinds come first).
+PHRASE_LISTS = {"ui-study.json": (STUDY_KIND, STUDY_DATA_KIND), "ui-people.json": (PEOPLE_KIND, PEOPLE_DATA_KIND),
+                "sources.json": (SOURCES_KIND,)}
 
 
 def study_strings(repo: Path, translated: dict[str, str], kind: str = STUDY_KIND) -> dict[str, str]:
@@ -61,6 +72,17 @@ def study_strings(repo: Path, translated: dict[str, str], kind: str = STUDY_KIND
         english = json.loads((repo / "in" / f"{entry['chunk']}.json").read_text("utf-8"))["strings"]
         strings.update({text: translated[key] for key, text in english.items() if key in translated})
     return strings
+
+
+def phrase_lists(repo: Path, by_kind: dict[str, dict[str, str]]) -> dict[str, dict[str, str]]:
+    """file name -> its {English: translation} (PHRASE_LISTS)."""
+    lists = {}
+    for name, kinds in PHRASE_LISTS.items():
+        merged: dict[str, str] = {}
+        for kind in reversed(kinds):
+            merged.update(study_strings(repo, by_kind.get(kind, {}), kind))
+        lists[name] = merged
+    return lists
 
 
 TRANSCRIPT_KIND = "transcript"
@@ -180,12 +202,12 @@ def apply(repo: Path, lang: str) -> None:
     ui.update({text: found for text, found in apologetics_strings(by_kind).items() if text not in ui})
     target.mkdir(parents=True, exist_ok=True)
     (target / "ui.json").write_text(json.dumps(ui, ensure_ascii=False, separators=(",", ":")), "utf-8")
-    study = study_strings(repo, by_kind.get(STUDY_KIND, {}))
-    (target / "ui-study.json").write_text(json.dumps(study, ensure_ascii=False, separators=(",", ":")), "utf-8")
-    people = study_strings(repo, by_kind.get(PEOPLE_KIND, {}), PEOPLE_KIND)
-    (target / "ui-people.json").write_text(json.dumps(people, ensure_ascii=False, separators=(",", ":")), "utf-8")
+    lists = phrase_lists(repo, by_kind)
+    for name, phrases in lists.items():
+        (target / name).write_text(json.dumps(phrases, ensure_ascii=False, separators=(",", ":")), "utf-8")
+    counts = ", ".join(f"{name} {len(phrases)}" for name, phrases in lists.items())
     transcripts = apply_transcripts(by_kind, target)
-    print(f"{lang}: {files} files, {swapped} strings translated, {kept} left in English; {len(ui)} page strings, {len(study)} study strings, {len(people)} people strings; {transcripts}")
+    print(f"{lang}: {files} files, {swapped} strings translated, {kept} left in English; {len(ui)} page strings; {counts}; {transcripts}")
 
 
 def main() -> None:

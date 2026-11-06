@@ -1,4 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { loadSourceWords } from "@/lib/data";
+import { reloadingForLanguage, useSiteLanguage } from "@/lib/language";
+import { translateDirectory, translateEntries, type SourceWords } from "./source-words";
 import type { Directory, SourceEntry, SourceFacetSnapshot } from "./types";
 
 const BASE = "/content/sources/";
@@ -12,7 +15,8 @@ async function getJson<T>(url: string, signal: AbortSignal): Promise<T> {
 /**
  * The source directory: its summary at once, its 16,884 records (7.6 MB unpacked) only once `marker`, the element around
  * the sections that use them, comes near the screen, however the visitor gets there (scrolling, a link, the End key).
- * The unsplit dev-mode file carries both at once.
+ * The unsplit dev-mode file carries both at once. In a translated language its words come from that language's
+ * sources.json (source-words.ts), laid over the English as it is shown; the facets are checked against the English.
  */
 export function useSourceDirectory() {
   const [directory, setDirectory] = useState<Directory | null>(null);
@@ -57,6 +61,18 @@ export function useSourceDirectory() {
       .catch(error => { if (!controller.signal.aborted) { console.error(error); setFailed("records"); } });
     return () => controller.abort();
   }, [wanted, !!entries, directory, enrich]);
+  const language = useSiteLanguage();
+  const [words, setWords] = useState<SourceWords | null>(null);
+  useEffect(() => {
+    let current = true;
+    setWords(null);
+    const loading = loadSourceWords().then((found) => { if (current) setWords(found); })
+      .catch((error) => console.error("source directory: its words in this language could not load; showing English", error));
+    reloadingForLanguage(loading);
+    return () => { current = false; };
+  }, [language]);
+  const shownDirectory = useMemo(() => directory && translateDirectory(directory, words), [directory, words]);
+  const shownEntries = useMemo(() => translateEntries(entries, words), [entries, words]);
   const want = useCallback(() => setWanted(true), []);
-  return { directory, entries, failed, marker, want, facetState };
+  return { directory: shownDirectory, entries: shownEntries, failed, marker, want, facetState };
 }

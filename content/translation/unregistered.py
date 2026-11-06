@@ -3,8 +3,9 @@
 Three checks, each written to its own section of the report:
   code          text in the page code that looks shown on screen but that extract.py's rules skip (the Apologetics
                 menu's {label:'Practice'} was one: single quotes, one word)
-  fields        fields of the content files that hold prose but that no SOURCES or RESOURCES path names, and content
-                files with prose that no rule reads at all (the debate summaries and venues were missed this way)
+  fields        fields of the content files that hold prose but that no SOURCES, RESOURCES or PAGE_DATA (page_data.py)
+                path names, and content files with prose that no rule reads at all (the debate summaries and venues
+                were missed this way)
   untranslated  page text extract.py does register but that a language's ui.json has no translation for yet
 
 The net here is deliberately wider than extract.py's, so some of what it lists is code, not screen text. Anything
@@ -23,6 +24,7 @@ from collections import defaultdict
 from pathlib import Path
 
 import extract
+import page_data
 import site_languages
 from page_rules import (CAPITALISED_WORD, CODE_AFTER, CODE_ATTRIBUTE, CODE_BEFORE, CODE_KEY, CODE_TEXT,  # noqa: F401
                         ENGLISH_WORD, code_context, english, looks_like_words, string_literals)
@@ -32,6 +34,8 @@ SITE = extract.SITE
 REPORT = extract.DEFAULT_OUT / "reports" / "unregistered.md"
 REVIEWED = Path(__file__).with_name("unregistered-reviewed.json")
 LANGUAGE_FOLDERS = site_languages.folders()  # every translated language, from src/lib/site-languages.json
+# Every rule that reads a content file. Two can read the same file (data/study/people.json: SOURCES and PAGE_DATA).
+SPECS = extract.SOURCES + extract.RESOURCES + page_data.PAGE_DATA
 
 # JSX text: between tags, or touching a {value} on either side.
 JSX_TEXT = re.compile(r"(?:\}|(?<![=\-])>)([^<>{}]{1,600})(?=[<{])")
@@ -174,15 +178,20 @@ def prose(text: str) -> bool:
             and bool(re.search(r"[a-z]{3}", text)))
 
 
+def named_fields(glob: str) -> set[str]:
+    """Every path a rule names in this file (SOURCES, RESOURCES or PAGE_DATA; two can read the same file)."""
+    return {field for spec in SPECS if spec[1] == glob for field in spec[4]}
+
+
 def unread_fields(spec: tuple, skip: set[str]) -> list[str]:
     counts: dict[str, list] = defaultdict(lambda: [0, ""])
-    plain = spec[4]
+    plain = named_fields(spec[1])
     for path in sorted(SITE.glob(spec[1])):
         def visit(field: str, text: str) -> None:
             if field not in plain and prose(text):
                 counts[field][0] += 1
                 counts[field][1] = counts[field][1] or text
-        all_strings(json.loads(path.read_text("utf-8")), "", spec, visit)
+        all_strings(page_data.read_data(path), "", spec, visit)
     lines = []
     for field, (count, example) in sorted(counts.items(), key=lambda item: -item[1][0]):
         if f"{spec[1]} {field}" not in skip:
@@ -218,7 +227,7 @@ def prose_count(path: Path) -> int:
 
 def unread_files(skip: set[str]) -> list[str]:
     """Content files no SOURCES or RESOURCES rule reads, counted by folder: folder -> [files, texts of prose]."""
-    covered = {path.resolve() for spec in extract.SOURCES + extract.RESOURCES for path in SITE.glob(spec[1])}
+    covered = {path.resolve() for spec in SPECS for path in SITE.glob(spec[1])}
     by_folder: dict[str, list[int]] = defaultdict(lambda: [0, 0])
     for path in content_files():
         relative = path.relative_to(SITE).as_posix()
@@ -232,9 +241,10 @@ def unread_files(skip: set[str]) -> list[str]:
 
 
 def check_fields(skip: dict[str, set[str]]) -> list[str]:
-    fields = [line for spec in extract.SOURCES + extract.RESOURCES for line in unread_fields(spec, skip["fields"])]
+    first = {spec[1]: spec for spec in reversed(SPECS)}  # one report per file, whichever rules read it
+    fields = [line for spec in SPECS if first[spec[1]] is spec for line in unread_fields(spec, skip["fields"])]
     files = unread_files(skip["files"])
-    return ([f"{len(fields)} fields hold prose that no SOURCES or RESOURCES path names:", ""] + fields
+    return ([f"{len(fields)} fields hold prose that no SOURCES, RESOURCES or PAGE_DATA path names:", ""] + fields
             + ["", f"{len(files)} content files hold prose and no rule reads them (some are read by other tools; check):", ""]
             + files)
 

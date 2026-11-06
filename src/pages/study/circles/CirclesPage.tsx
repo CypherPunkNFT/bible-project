@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import template from './template.html?raw';
 import styles from './circles.css?inline';
 import { mountCircles } from './runtime.mjs';
+import { watchShadowRoot } from '@/lib/page-translator';
 
 /** The approved explorer owns its SVG/reader DOM; the shadow boundary isolates its styles. */
 export default function CirclesPage() {
@@ -14,6 +15,7 @@ export default function CirclesPage() {
     if (!element) return;
     const root = element.shadowRoot ?? element.attachShadow({ mode: 'open' });
     root.innerHTML = `<style>${styles}</style>${template}`;
+    watchShadowRoot(root); // the page translator does not enter a shadow root unless it is handed one
     const controller = new AbortController();
     const oldOverflow = document.body.style.overflow;
     const oldGutter = document.documentElement.style.scrollbarGutter;
@@ -39,5 +41,5 @@ export default function CirclesPage() {
       root.replaceChildren(); document.title = 'Bible Guide';
     };
   }, [leaderId]);
-  return <>{error && <p role="alert" className="mx-auto max-w-7xl p-6">{error}</p>}<div ref={host} data-circles-experience="approved" lang="en" dir="ltr" /></>;
+  return <>{error && <p role="alert" className="mx-auto max-w-7xl p-6">{error}</p>}<div ref={host} data-circles-experience="approved" dir="ltr" /></>;
 }

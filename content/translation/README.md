@@ -40,6 +40,15 @@ an opposite. `--dry-run` with any of those modes prints what would be carried an
 writing mode holds the site-translation folder's shared lock. `--pages` leaves out text an apologetics chunk already
 holds and text ruled not to be screen text in `unregistered-reviewed.json`.
 
+Two modes added in stage 5 job 12 ([collect_new.py](collect_new.py)) run before `--pages`. `--sources` appends the
+content files' text (`SOURCES`) that no chunk of its kind holds yet, such as a field newly named in `SOURCES`; it carries
+no edited English (that stays [retarget.py](retarget.py)'s, as before), and apologetics text a page chunk holds is left
+out. `--page-data` appends the text pages show from data bundled with their code ([page_data.py](page_data.py)): the
+Moses page's own text as kind `peopledata`, and the circles explorer, the old maps page's labels and the people list's
+names as kind `studydata`, leaving out text a page, study or people chunk already holds. Every field of a content file
+is either named by one of these rules or ruled out with its reason in `unregistered-reviewed.json` (`python
+unregistered.py --check fields` reports 0). Tests: `python -m pytest content/translation/test_data_files.py -q`.
+
 ## Seeing it on the site
 
 `python apply.py` writes the translated copies: every data file in `SOURCES` with its English swapped for the
@@ -49,9 +58,13 @@ hand that the chunks lack: the header and footer, the 66 Bible book names in eac
 chunk's translation wins over the seed. Picking a language in the header changes the words in place:
 [language.ts](../../src/lib/language.ts) sends content-file requests to the translated copy (falling back to English
 when there is none), and [page-translator.ts](../../src/lib/page-translator.ts) swaps the page code's text on screen.
-The reader moves to that language's Bible ([verses.ts](../../src/lib/verses.ts)). Files under `public/` (apologetics,
-the sources directory) and the pages drawn inside their own surface (Moses, Circles) are not translated yet. A release
-leaves `data/i18n/` out until the languages are published.
+The reader moves to that language's Bible ([verses.ts](../../src/lib/verses.ts)). The kinds `peopledata` and
+`studydata` join `ui-people.json` and `ui-study.json` (a text an older kind translates keeps that translation). The
+source directory is rebuilt with every build, so apply.py writes its words instead, `sources.json` ({English:
+translation}), which [source-words.ts](../../src/components/sources/source-words.ts) lays over whatever English the
+build made. The Moses page and the circles explorer hand their own surface to the page translator. Other files under
+`public/` (the apologetics documents, shown through `ui.json`) have no translated copy. A release leaves `data/i18n/`
+out until the languages are published.
 
 Arabic reads right to left. `<html dir="rtl">` plus [logical-css.js](../../scripts/logical-css.js), a build step that
 writes every left and right style rule as start and end, mirrors the whole layout with no page written twice; left to

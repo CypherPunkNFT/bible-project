@@ -1,0 +1,989 @@
+[
+ {
+  "check": "fields",
+  "item": "data/questions/bank.json .questions[].collection",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "data/questions/bank.json .questions[].options_by",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "data/questions/bank.json .questions[].reference",
+  "why": "read only by search (the question bank's filter text, or the apologetics search index), never shown as text; site search in each language is stage 5 job 16"
+ },
+ {
+  "check": "fields",
+  "item": "data/questions/bank.json .collections[].title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "data/questions/bank.json .collections[].credit",
+  "why": "a credit or attribution line, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "data/museums/*.json .objects[].recorded_as",
+  "why": "the holder's name exactly as each cataloguer recorded it; the museum page shows the spellings side by side on purpose (\"Written N different ways by its cataloguers\")"
+ },
+ {
+  "check": "fields",
+  "item": "data/museums/*.json .objects[].credit",
+  "why": "a credit or attribution line, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "data/museums/*.json .objects[].licence",
+  "why": "a licence or rights statement, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "data/museums/*.json .other_holders[].name",
+  "why": "names of people, organisations, institutions or places, kept as written (the code also matches on some of them: the archaeology page's emblem initials and list keys)"
+ },
+ {
+  "check": "fields",
+  "item": "data/museums/*.json .recorded_as[]",
+  "why": "the holder's name exactly as each cataloguer recorded it; the museum page shows the spellings side by side on purpose (\"Written N different ways by its cataloguers\")"
+ },
+ {
+  "check": "fields",
+  "item": "data/museums/*.json .objects[].photo.credit",
+  "why": "a credit or attribution line, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "data/museums/*.json .objects[].medium",
+  "why": "the material as the museum catalogued it; the museum page also reads it in English to tell what kind of object it is (objectKind in src/lib/museums.ts), so a translated copy would misfile objects"
+ },
+ {
+  "check": "fields",
+  "item": "data/museums/*.json .cards[].name",
+  "why": "names of people, organisations, institutions or places, kept as written (the code also matches on some of them: the archaeology page's emblem initials and list keys)"
+ },
+ {
+  "check": "fields",
+  "item": "data/museums/*.json .objects[].accession",
+  "why": "catalogue metadata (accession numbers, edition labels, file formats, provenance, acquisition and geocoding notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "data/creeds/doc/*.json .sections[].parallel.Latin",
+  "why": "text in its original language (Latin, German), shown beside the English as the original; not English"
+ },
+ {
+  "check": "fields",
+  "item": "data/creeds/doc/*.json .scripture.title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "data/creeds/doc/*.json .scripture.licence_note",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "data/creeds/doc/*.json .scripture.read_from",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "data/creeds/doc/*.json .sections[].parallel.German",
+  "why": "text in its original language (Latin, German), shown beside the English as the original; not English"
+ },
+ {
+  "check": "fields",
+  "item": "data/creeds/doc/*.json .sections[].proofs[].references[].reference",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "data/creeds/doc/*.json .source.licence",
+  "why": "a licence or rights statement, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "data/creeds/doc/*.json .sections[].unrestated[].reference",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "data/creeds/doc/*.json .sections[].restated[]",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "data/creeds/index.json .sources[].title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "data/creeds/index.json .scripture.title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "data/creeds/index.json .sources[].licence",
+  "why": "a licence or rights statement, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "data/creeds/index.json .sources[].publisher",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "data/creeds/index.json .sources[].attribution",
+  "why": "a credit or attribution line, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/pages/*.json .*.source.title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/pages/*.json .*.collection",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/pages/*.json .*.source.licence",
+  "why": "a licence or rights statement, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/pages/*.json .*.echoes[].ref",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/pages/*.json .*.heading.label",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/pages/*.json .*.heading.passage.ref",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/pages/*.json .*.mainPassage.label",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/pages/*.json .*.mainPassage.passage.ref",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/pages/*.json .*.placed[].book",
+  "why": "Bible book names: the seed holds all 66 in each language's own Bible form, and the page translator swaps them"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/pages/*.json .*.placed[].refs[].label",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/texts/*.json .*.source.title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/texts/*.json .*.source.licence",
+  "why": "a licence or rights statement, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/by-book/*.json .*.echo[].r",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/by-book/*.json .*.on[].r",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/songs/*.json .book1[].book",
+  "why": "Bible book names, each shown as a text of its own (\"No. 1 · Genesis · John Newton\"): every language's ui.json holds all 66 from the seed in that language's own Bible form, and the page translator swaps them on screen (a model translating \"Job\" alone could get it wrong)"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/songs/*.json .bookOfCollection",
+  "why": "never shown to a reader: no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/songs/*.json .source.title",
+  "why": "titles of published works, kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/songs/*.json .source.licence",
+  "why": "a licence or rights statement, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/collection.json .hymns[].r",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "data/hymns/collection.json .books[].name",
+  "why": "Bible book names: the seed holds all 66 in each language's own Bible form, and the page translator swaps them"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].evidence[].locator",
+  "why": "catalogue metadata (accession numbers, edition labels, file formats, provenance, acquisition and geocoding notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].evidence[].note",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].textRights.evidence[].locator",
+  "why": "catalogue metadata (accession numbers, edition labels, file formats, provenance, acquisition and geocoding notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].textRights.evidence[].note",
+  "why": "a licence or rights statement, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].rights.evidence[].locator",
+  "why": "catalogue metadata (accession numbers, edition labels, file formats, provenance, acquisition and geocoding notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].rights.evidence[].note",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.sections[].title",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].label",
+  "why": "catalogue metadata (accession numbers, edition labels, file formats, provenance, acquisition and geocoding notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].processing.note",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.author",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].rights.unresolved[]",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.prompts[]",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.objection",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.prompt.text",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .authors[].evidence[].locator",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .authors[].receptionBasis",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.rows[].question",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .authors[].rationale",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].dates[].label",
+  "why": "catalogue metadata (accession numbers, edition labels, file formats, provenance, acquisition and geocoding notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].dates[].evidence[].locator",
+  "why": "catalogue metadata (accession numbers, edition labels, file formats, provenance, acquisition and geocoding notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].dates[].evidence[].note",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .authors[].evidence[].note",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .authors[].unresolved[]",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.question",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.readingPlan.stages[].readings[].title",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.readingPlan.stages[].readings[].context.citations[].locator",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.readingPlan.stages[].readings[].purpose.text",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.readingPlan.stages[].readings[].purpose.citations[].locator",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.readingPlan.stages[].readings[].examine.citations[].locator",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.readingPlan.stages[].readings[].connection.citations[].locator",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.speakers",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.claim.citations[].locator",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.recording.note",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.options[]",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.islamStudyQuestions[]",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.rows[].other.citations[].locator",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.keywords[]",
+  "why": "read only by search (the question bank's filter text, or the apologetics search index), never shown as text; site search in each language is stage 5 job 16"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .authors[].name",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.conversationSteps[].line",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.conversationSteps[].detail",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.conversationSteps[].prompt",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.subtitle",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.readingPlan.stages[].aim",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.context",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.prompt",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.readingPlan.stages[].title",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.label",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.otherLabel",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.recording.credit",
+  "why": "a credit or attribution line, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .authors[].aliases[]",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .sources[].evidence[].locator",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].rights.conditions[]",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.policy.sections[].title",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .manifest.rightsSources[].locator",
+  "why": "a licence or rights statement, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .manifest.rightsSources[].note",
+  "why": "a licence or rights statement, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .manifest.reviews[].scope",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .sources[].name",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .sources[].evidence[].note",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.policy.eyebrow",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.policy.title",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.policy.introduction.text",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.copy.debateNote",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.copy.sourceRoomIntro",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.copy.sourceRoomNote",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.copy.practiceNote",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .documents[].content.explanation.citations[].locator",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .manifest.title",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .manifest.description",
+  "why": "collected as page text since stage 5 job 11: the pages show these documents from src/generated/, which the collector now reads, and every text of the field is among the collected page strings (translated in job 20)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .sources[].acquisitionNote",
+  "why": "never shown to a reader: provenance kept for the site's own records, and no page reads the field"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/apologetics/*.json .records[].textRights.scope",
+  "why": "a licence or rights statement, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/sources/directory.json .entries[].title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/sources/directory.json .entries[].author",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/sources/directory.json .entries[].basis",
+  "why": "a licence or rights statement, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/sources/directory.json .entries[].links[].edition",
+  "why": "catalogue metadata (accession numbers, edition labels, file formats, provenance, acquisition and geocoding notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/sources/directory.json .sourceProfiles[].name",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/sources/directory.json .corpus.sources[].name",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/sources/directory.json .sources[].name",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/sources/directory.json .sourceProfiles[].formats[]",
+  "why": "catalogue metadata (accession numbers, edition labels, file formats, provenance, acquisition and geocoding notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/sources/directory.json .sourceProfiles[].channel",
+  "why": "catalogue metadata (accession numbers, edition labels, file formats, provenance, acquisition and geocoding notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/sources/directory.json .sourceProfiles[].terms",
+  "why": "a licence or rights statement, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/life.json .cities[].entries[].geocode",
+  "why": "catalogue metadata (accession numbers, edition labels, file formats, provenance, acquisition and geocoding notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/life.json .cities[].entries[].address",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/life.json .cities[].entries[].name",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/life.json .cities[].lines[].name",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/life.json .groups[].entries[].name",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/life.json .cities[].name",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/fellowships.json .groups[].entries[].name",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/fellowship-cities.json .cities[].places[].geocode",
+  "why": "catalogue metadata (accession numbers, edition labels, file formats, provenance, acquisition and geocoding notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/fellowship-cities.json .cities[].places[].host",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/fellowship-cities.json .cities[].places[].address",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/fellowship-cities.json .cities[].nearby[].geocode",
+  "why": "catalogue metadata (accession numbers, edition labels, file formats, provenance, acquisition and geocoding notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/fellowship-cities.json .cities[].nearby[].address",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/fellowship-cities.json .cities[].nearby[].host",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/fellowship-cities.json .cities[].name",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/*-facts.json .facts[].by",
+  "why": "a credit or attribution line, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/*-facts.json .facts[].value",
+  "why": "names of people, organisations, institutions, places or street addresses, kept as written (the code also matches on some of them, and a street address must stay findable on a map)"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .citations[].author",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .citations[].title",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .questions[].views[].holders",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .books.*.name",
+  "why": "Bible book names building a verse range in the Moses page's code (\"Exodus 3:1 – Exodus 4:2\"); the page translator swaps a known book name followed by numbers, from the seed's names in each language"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .story[].text",
+  "why": "never shown: the Moses page's code does not read this field, or replaces it with the person's own record (data/study/people) before drawing (runtime.js loadMoses)"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .citations[].where",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .person.leaderTitle",
+  "why": "never shown: the Moses page's code does not read this field, or replaces it with the person's own record (data/study/people) before drawing (runtime.js loadMoses)"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .person.describe",
+  "why": "never shown: the Moses page's code does not read this field, or replaces it with the person's own record (data/study/people) before drawing (runtime.js loadMoses)"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .person.era",
+  "why": "never shown: the Moses page's code does not read this field, or replaces it with the person's own record (data/study/people) before drawing (runtime.js loadMoses)"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .person.short",
+  "why": "never shown: the Moses page's code does not read this field, or replaces it with the person's own record (data/study/people) before drawing (runtime.js loadMoses)"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .person.reign.text",
+  "why": "never shown: the Moses page's code does not read this field, or replaces it with the person's own record (data/study/people) before drawing (runtime.js loadMoses)"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .prophetsWith[].person.name",
+  "why": "never shown: the Moses page's code does not read this field, or replaces it with the person's own record (data/study/people) before drawing (runtime.js loadMoses)"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .prophetsWith[].person.note",
+  "why": "never shown: the Moses page's code does not read this field, or replaces it with the person's own record (data/study/people) before drawing (runtime.js loadMoses)"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .scenes[].tradition[].who",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .word.words[].person.name",
+  "why": "never shown: the Moses page's code does not read this field, or replaces it with the person's own record (data/study/people) before drawing (runtime.js loadMoses)"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .leader.record.death.text",
+  "why": "never shown: the Moses page's code does not read this field, or replaces it with the person's own record (data/study/people) before drawing (runtime.js loadMoses)"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .ending.tradition[].who",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .credit",
+  "why": "a credit or attribution line, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .map.route[].type",
+  "why": "never shown: the Moses page's code does not read this field, or replaces it with the person's own record (data/study/people) before drawing (runtime.js loadMoses)"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/moses.json .map.markers[].type",
+  "why": "never shown: the Moses page's code does not read this field, or replaces it with the person's own record (data/study/people) before drawing (runtime.js loadMoses)"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/merged.json .chapters[].timeline[].key",
+  "why": "a key the Moses page's code looks up by its English (a chapter's signs, message, words, world and timeline name the label, theme, addressee, power or event to show); the text shown is the matching field, which is collected, so the key itself is never shown"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/merged.json .chapters[].signs[]",
+  "why": "a key the Moses page's code looks up by its English (a chapter's signs, message, words, world and timeline name the label, theme, addressee, power or event to show); the text shown is the matching field, which is collected, so the key itself is never shown"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/merged.json .chapters[].message[]",
+  "why": "a key the Moses page's code looks up by its English (a chapter's signs, message, words, world and timeline name the label, theme, addressee, power or event to show); the text shown is the matching field, which is collected, so the key itself is never shown"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/merged.json .chapters[].words[]",
+  "why": "a key the Moses page's code looks up by its English (a chapter's signs, message, words, world and timeline name the label, theme, addressee, power or event to show); the text shown is the matching field, which is collected, so the key itself is never shown"
+ },
+ {
+  "check": "fields",
+  "item": "src/components/moses-page/data/merged.json .chapters[].world[]",
+  "why": "a key the Moses page's code looks up by its English (a chapter's signs, message, words, world and timeline name the label, theme, addressee, power or event to show); the text shown is the matching field, which is collected, so the key itself is never shown"
+ },
+ {
+  "check": "fields",
+  "item": "public/circles/catalogue.json .leaderWorks.*[].author",
+  "why": "names of people, organisations, institutions or places, kept as written (the code also matches on some of them: the archaeology page's emblem initials and list keys)"
+ },
+ {
+  "check": "fields",
+  "item": "public/circles/catalogue.json .leaderWorks.*[].title",
+  "why": "titles of published works, kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "public/circles/catalogue.json .works[].records[].title",
+  "why": "titles of published works, kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "public/circles/catalogue.json .works[].records[].author",
+  "why": "names of people, organisations, institutions or places, kept as written (the code also matches on some of them: the archaeology page's emblem initials and list keys)"
+ },
+ {
+  "check": "fields",
+  "item": "public/circles/catalogue.json .works[].records[].uses[].locator",
+  "why": "where a work is used on the site, as the source records write it beside the work's title; kept with the citation it belongs to, as the source directory keeps its citation locators"
+ },
+ {
+  "check": "fields",
+  "item": "public/circles/catalogue.json .works[].title",
+  "why": "titles of published works, kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "public/circles/catalogue.json .works[].author",
+  "why": "names of people, organisations, institutions or places, kept as written (the code also matches on some of them: the archaeology page's emblem initials and list keys)"
+ },
+ {
+  "check": "fields",
+  "item": "public/circles/catalogue.json .leaders[].aliases[]",
+  "why": "names of people, organisations, institutions or places, kept as written (the code also matches on some of them: the archaeology page's emblem initials and list keys)"
+ },
+ {
+  "check": "fields",
+  "item": "public/circles/catalogue.json .leaders[].name",
+  "why": "names of people, organisations, institutions or places, kept as written (the code also matches on some of them: the archaeology page's emblem initials and list keys)"
+ },
+ {
+  "check": "fields",
+  "item": "public/circles/catalogue.json .leaders[].short",
+  "why": "names of people, organisations, institutions or places, kept as written (the code also matches on some of them: the archaeology page's emblem initials and list keys)"
+ },
+ {
+  "check": "fields",
+  "item": "public/circles/catalogue.json .leaderWorks.*[].passages[]",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "public/circles/catalogue.json .works[].records[].year",
+  "why": "catalogue metadata (edition and publication years, edition notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "public/circles/catalogue.json .works[].year",
+  "why": "catalogue metadata (edition and publication years, edition notes), kept as recorded"
+ },
+ {
+  "check": "fields",
+  "item": "public/circles/catalogue.json .categories[].description",
+  "why": "never shown: the circles explorer (runtime.mjs, template.html) does not read the categories' descriptions"
+ },
+ {
+  "check": "data",
+  "file": "src/lib/data.ts",
+  "item": "read in English: topics/library/",
+  "why": "the topic pages' further-reading lists: book titles, authors and links, catalogue metadata kept as published, so the folder has no translated copy and is read in English on purpose (src/lib/language.ts lists only the topics files apply.py translates)"
+ },
+ {
+  "check": "data",
+  "file": "src/pages/ApologeticsPage.tsx",
+  "item": "read in English: topics/:id",
+  "why": "a route of the Apologetics pages (<Route path=\"topics/:id\">), not a data file: the net reads it as one because data/topics/ exists, and the old \"topics/\" entry in TRANSLATED_DATA used to cover it"
+ },
+ {
+  "check": "fields",
+  "item": "src/pages/places/old-maps-collection/data.js .dots[][]",
+  "why": "titles of the old maps as their libraries publish them (many Latin or French), kept as published like all catalogue metadata (the timeline's dots repeat each map's title and maker)"
+ },
+ {
+  "check": "fields",
+  "item": "src/pages/places/old-maps-collection/data.js .maps[].t",
+  "why": "titles of the old maps as their libraries publish them (many Latin or French), kept as published like all catalogue metadata (the timeline's dots repeat each map's title and maker)"
+ },
+ {
+  "check": "fields",
+  "item": "src/pages/places/old-maps-collection/data.js .maps[].tf",
+  "why": "titles of the old maps as their libraries publish them (many Latin or French), kept as published like all catalogue metadata (the timeline's dots repeat each map's title and maker)"
+ },
+ {
+  "check": "fields",
+  "item": "src/pages/places/old-maps-collection/data.js .maps[].credit",
+  "why": "a credit line, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "src/pages/places/old-maps-collection/data.js .maps[].lib",
+  "why": "names of mapmakers and holding libraries, kept as written"
+ },
+ {
+  "check": "fields",
+  "item": "src/pages/places/old-maps-collection/data.js .libraries[][]",
+  "why": "names of mapmakers and holding libraries, kept as written"
+ },
+ {
+  "check": "fields",
+  "item": "src/pages/places/old-maps-collection/data.js .maps[].m",
+  "why": "names of mapmakers and holding libraries, kept as written"
+ },
+ {
+  "check": "fields",
+  "item": "src/pages/places/old-maps-collection/data.js .makers[][]",
+  "why": "names of mapmakers and holding libraries, kept as written"
+ },
+ {
+  "check": "fields",
+  "item": "src/pages/places/old-maps-collection/data.js .maps[].d",
+  "why": "never shown: the old maps page's code does not read the maps' descriptions"
+ },
+ {
+  "check": "fields",
+  "item": "src/pages/places/old-maps-collection/data.js .licences[][]",
+  "why": "a licence name, kept as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "src/pages/places/old-maps-collection/data.js .lands[].outline.left[]",
+  "why": "place names the map's code looks up to set their labels on the left (viewer.js LEFT); the label shown is the place's own name, which is collected"
+ }
+]

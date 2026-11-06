@@ -45,7 +45,7 @@ SOURCES = [
         ".*.keyVerses[].point"}, set(), {".*.dictionary[]"}),
     ("topic", "data/topics/index.json", False, ("topics",), {
         ".categories[].title", ".categories[].description", ".categories[].subcategories[].title",
-        ".categories[].subcategories[].description", ".topics.*.title"}, set(), set()),
+        ".categories[].subcategories[].description", ".topics.*.title", ".readings[].title"}, set(), set()),
     ("topic", "data/topics/chapters/*.json", False, ("names",), {".names.*"}, set(), set()),
     ("summary", "data/summaries/*.json", False, (), {
         ".notice", ".chapters.*.title", ".chapters.*.summary", ".chapters.*.invitation", ".chapters.*.outline[][]"},
@@ -60,11 +60,13 @@ SOURCES = [
         ".name", ".place", ".lead", ".note", ".why_coming_soon", ".objects[].title", ".objects[].description",
         ".objects[].findspot", ".objects[].period", ".objects[].date", ".objects[].culture", ".objects[].basis_label",
         ".objects[].why", ".objects[].dimensions", ".objects[].catalogue[].scope", ".objects[].catalogue[].supported",
-        ".objects[].catalogue[].unsupported", ".objects[].catalogue[].category", ".objects[].catalogue[].name"},
+        ".objects[].catalogue[].unsupported", ".objects[].catalogue[].category", ".objects[].catalogue[].name",
+        ".objects[].catalogue[].passages", ".objects[].catalogue[].assessment", ".cards[].place", ".cards[].lead"},
      set(), set()),
     ("creed", "data/creeds/doc/*.json", False, (), {
         ".title", ".tradition", ".yearLabel", ".parts[].label", ".sections[].heading", ".sections[].question",
-        ".sections[].text"}, set(), set()),
+        ".sections[].text", ".sections[].proofs[].references[].note", ".location", ".originStory", ".note",
+        ".alternativeTitles[]"}, set(), set()),
     ("creed", "data/creeds/index.json", False, (), {
         ".families[].title", ".families[].lead", ".families[].span", ".families[].documents[].title",
         ".families[].documents[].yearLabel", ".families[].documents[].tradition"}, set(), set()),
@@ -73,6 +75,8 @@ SOURCES = [
      {".*.stanzas[]"}, set()),
     ("hymn", "data/hymns/texts/*.json", True, (), {".*.title", ".*.subject", ".*.book"}, {".*.stanzas[]"}, set()),
     ("hymn", "data/hymns/by-book/*.json", False, (), {".*.on[].t", ".*.echo[].t"}, set(), set()),
+    # The one song study (Amazing Grace, src/pages/study/hymns/HymnPage.tsx): its stanzas are the same lines as its text.
+    ("hymn", "data/hymns/songs/*.json", False, (), {".title", ".meterName", ".book1[].title"}, {".stanzas[]"}, set()),
     ("hymn", "data/hymns/collection.json", False, (), {".hymns[].t", ".hymns[].s", ".groups[].label", ".groups[].short"},
      set(), set()),
     ("apologetics", "public/content/apologetics/*.json", False, (), {
@@ -84,11 +88,19 @@ SOURCES = [
         ".documents[].content.setting", ".documents[].content.hinge", ".documents[].content.claim.text",
         ".documents[].content.transcriptCoverage", ".documents[].content.copy.debateIndexNote",
         ".documents[].content.copy.footerText", ".documents[].content.copy.footerTitle", ".documents[].content.lens",
-        ".documents[].content.recording.label"}, set(), set()),
+        ".documents[].content.recording.label", ".documents[].content.title", ".documents[].content.role",
+        ".documents[].content.passages[].note", ".documents[].content.explanation.text",
+        ".documents[].content.policy.sections[].text", ".documents[].content.conversationSteps[].title",
+        ".documents[].content.readingPlan.stages[].readings[].christian.text",
+        ".documents[].content.readingPlan.stages[].readings[].connection.text",
+        ".documents[].content.readingPlan.stages[].readings[].context.text",
+        ".documents[].content.readingPlan.stages[].readings[].examine.text", ".records[].reading.cautions[]",
+        *(f".documents[].content.{part}.citations[].locator" for part in (
+            "answer", "conclusion", "limit", "reasoning", "reasoning[]", "reply", "sections[]", "rows[].christian",
+            "policy.sections[]"))}, set(), set()),
     ("sources", "public/content/sources/directory.json", False, ("records",), {
         ".collections[].label", ".collections[].definition", ".entries[].role", ".entries[].status", ".entries[].kind",
-        ".entries[].links[].format", ".entries[].links[].name", ".entries[].citedOn[].page",
-        ".entries[].citedOn[].feature", ".records.*.caution"}, set(), set()),
+        ".entries[].links[].name", ".entries[].citedOn[].page", ".entries[].citedOn[].feature"}, set(), set()),
 ]
 MARKDOWN = ("apologetics", "public/content/apologetics/*.md")
 
@@ -106,9 +118,10 @@ RESOURCES = [
         ".cities[].lines[].cost"}, set(), set()),
     (RESOURCE_KIND, "src/data/resources/fellowships.json", False, (), {
         ".groups[].title", ".groups[].entries[].summary", ".groups[].entries[].cost",
-        ".groups[].entries[].jacksonville"}, set(), set()),
+        ".groups[].entries[].jacksonville", ".groups[].entries[].meets[]"}, set(), set()),
     (RESOURCE_KIND, "src/data/resources/fellowship-cities.json", False, (), {
-        ".cities[].places[].name", ".cities[].places[].when", ".cities[].nearby[].name", ".cities[].nearby[].when"},
+        ".cities[].places[].name", ".cities[].places[].when", ".cities[].nearby[].name", ".cities[].nearby[].when",
+        ".cities[].places[].meets[]", ".cities[].nearby[].meets[]"},
      set(), set()),
     (RESOURCE_KIND, "src/data/resources/*-facts.json", False, (), {".facts[].label", ".facts[].note", ".facts[].unit"},
      set(), set()),
@@ -137,7 +150,7 @@ GENERATED = "src/generated/"  # written from content/ by the content build (npm 
 NOT_PAGE_CODE = {
     "src/pages/places/old-maps-collection/data.js": "generated by build-data.py from Research/HistoricalMaps: the "
     "catalogue of 2,317 old maps (titles as published, many French or Latin, makers, holding libraries), which stays as "
-    "published like all catalogue metadata; its few screen labels are data fields",
+    "published like all catalogue metadata; its screen labels are collected from it by page_data.py (stage 5 job 12)",
 }
 
 
@@ -416,11 +429,17 @@ def shared_lock(out: Path, why: str):
 
 
 def collect_more(args) -> None:
-    """--pages, --resources, --documents, --sections: each appends with retarget on. The page kind is always collected
-    whole (page code, the help lines, the debate section titles), so a text one flag leaves out is never taken as gone."""
+    """--sources, --page-data, --pages, --resources, --documents, --sections. Sources go first, so --pages leaves out
+    the apologetics text they take (also in a dry run). The page, resource and document kinds append with retarget on;
+    the page kind is always collected whole (page code, the help lines, the debate section titles), so a text one flag
+    leaves out is never taken as gone."""
+    import collect_new  # the modes added in stage 5 job 12; imported here, as it imports this module
+    apologetics = collect_new.sources(args) if getattr(args, "sources", False) else set()
+    if getattr(args, "page_data", False):
+        collect_new.page_data_texts(args)
     if args.sections or args.pages:
         texts = page_strings() + resource_page_strings() + debate_section_titles() if args.pages else debate_section_titles()
-        skip = frozenset(held_texts(args.out, "apologetics") | ruled_not_text()) if args.pages else frozenset()
+        skip = frozenset(held_texts(args.out, "apologetics") | apologetics | ruled_not_text()) if args.pages else frozenset()
         append(args.out, PAGE_KIND, list(dict.fromkeys(texts)), retarget=args.pages, dry_run=args.dry_run, skip=skip)
     if args.resources:
         append(args.out, RESOURCE_KIND, resource_strings(), retarget=True, dry_run=args.dry_run)
@@ -432,18 +451,22 @@ def collect_more(args) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT, help="the site-translation repository folder")
+    parser.add_argument("--sources", action="store_true",
+                        help="append the content files' text (SOURCES) not yet in a chunk; run before --pages")
+    parser.add_argument("--page-data", action="store_true",
+                        help="append the text pages show from bundled data (page_data.py: Moses, circles, people names)")
     parser.add_argument("--pages", action="store_true", help="append the page code's text as new chunks")
     parser.add_argument("--resources", action="store_true", help="append the Resources files' text as new chunks")
     parser.add_argument("--documents", action="store_true",
                         help="append the debate transcripts as new chunks, at most DOCUMENT_STRINGS each")
     parser.add_argument("--sections", action="store_true", help="append the debate viewer's section titles as page chunks")
     parser.add_argument("--dry-run", action="store_true",
-                        help="with --pages, --resources, --documents or --sections: print what would be carried and "
+                        help="with a collecting mode (--sources, --pages, ...): print what would be carried and "
                              "appended, write nothing")
     args = parser.parse_args()
-    more = args.sections or args.pages or args.resources or args.documents
+    more = args.sources or args.page_data or args.sections or args.pages or args.resources or args.documents
     if args.dry_run and not more:
-        parser.error("--dry-run needs --pages, --resources, --documents or --sections")
+        parser.error("--dry-run needs --sources, --page-data, --pages, --resources, --documents or --sections")
     if args.dry_run:
         collect_more(args)
         return

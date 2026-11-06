@@ -5,7 +5,7 @@ import { isMuseumSlug, type Museum, type MuseumIndex } from "./museums";
 import type { ManuscriptCollection } from "./manuscripts";
 import type { HymnPageData, HymnPagesIndex, HymnsByChapter } from "./hymn-pages";
 import type { ChapterTopics, LibraryBook, Topic, TopicIndex } from "./topics";
-import { onLanguageChange, translatedDataPath } from "./language";
+import { languageFolder, onLanguageChange, translatedDataPath } from "./language";
 
 /** A data file that is missing or malformed. The reader turns this into "not in this version". */
 export class DataUnavailable extends Error {
@@ -272,3 +272,20 @@ export const loadTopicLibrary = (bundle: number) => load<Record<string, LibraryB
 /** One book's topics by chapter, with the titles a chapter shows (scripts/build-chapter-topics.py). */
 export const loadChapterTopics = (code: string) =>
   load<ChapterTopics>(`topics/chapters/${code}.json`, (v) => isObject(v) && isObject(v.chapters) && isObject(v.names));
+
+const isWordMap = (value: unknown): value is Record<string, string> =>
+  isObject(value) && Object.values(value).every((text) => typeof text === "string");
+
+/** The source directory's words in the reader's language ({English: translation}, content/translation/apply.py), or
+ * null in English or when that language has none yet (the page then shows the English, as with any missing copy). */
+export async function loadSourceWords(): Promise<Record<string, string> | null> {
+  const folder = languageFolder();
+  if (!folder) return null;
+  try {
+    return await load<Record<string, string>>(`i18n/${folder}/sources.json`, isWordMap);
+  } catch (error) {
+    if (!(error instanceof DataUnavailable)) throw error;
+    console.warn(`${error.message}; showing the source directory in English`);
+    return null;
+  }
+}

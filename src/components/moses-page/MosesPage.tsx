@@ -54,7 +54,7 @@ export default function MosesPage({ person }: { person: Person }) {
   }, [person, catalog, bible, navigate, state]);
   return <>
     {error && <p role="alert" className="mx-auto max-w-7xl p-6">Moses’ page could not load. <Link className="underline" to="/study/people">Return to People & genealogies</Link>.</p>}
-    {/* The translator swaps the lines it knows inside this page's drawing surface (watchShadowRoot above), but the page's own text has no translation yet, so it is still marked English and reads left to right. */}
-    <div ref={host} className="people-page-slide" lang="en" dir="ltr" />
+    {/* The translator swaps this page's text inside its drawing surface (watchShadowRoot above), so it is not marked English; its drawings still read left to right until the right-to-left layout work. */}
+    <div ref={host} className="people-page-slide" dir="ltr" />
   </>;
 }

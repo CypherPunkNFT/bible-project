@@ -24,8 +24,9 @@ const offered = (code: string | null): code is LanguageCode => MENU_LANGUAGES.so
 const STORAGE_KEY = "bp-language";
 
 // The data folders apply.py translates; every other file (Bible texts, the catalogue) has no translated copy. The live
-// site reads people from packs (scripts/release-translations.ts packs each language's too).
-const TRANSLATED_DATA = ["study/people.json", "study/people/", "study/people-packs/", "topics/", "summaries/", "questions/bank.json", "museums/", "creeds/", "hymns/"];
+// site reads people from packs (scripts/release-translations.ts packs each language's too). Of topics/, only what
+// apply.py writes: topics/library/ (book titles, authors and links) and topics/books/ (counts) are read in English.
+const TRANSLATED_DATA = ["study/people.json", "study/people/", "study/people-packs/", "topics/t/", "topics/index.json", "topics/chapters/", "summaries/", "questions/bank.json", "museums/", "creeds/", "hymns/"];
 
 function storedLanguage(): LanguageCode {
   try {

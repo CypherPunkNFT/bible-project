@@ -89,7 +89,7 @@ window.Viewer = (() => {
 
   function describe(m) {
     const subjects = m.s.map((k) => subjectByKey.get(k)?.label).filter(Boolean).join(" · ");
-    const confidence = m.yc && m.yc !== "exact" ? ` <small>(${esc(m.yc)})</small>` : "";
+    const confidence = m.yc && m.yc !== "exact" ? ` <small>(<span>${esc(m.yc)}</span>)</small>` : ""; // the word alone, so the page translator finds it
     const preview = m.full ? "" : `<p class="om-v-note">This is a ${m.tw}×${m.thh} preview. The library's full scan (${esc(m.res)}) opens at the source, below.</p>`;
     return `<dl class="om-v-facts">
         <div><dt>Mapmaker</dt><dd>${esc(m.m ?? "Not recorded")}</dd></div>
