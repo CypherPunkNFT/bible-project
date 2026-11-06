@@ -1,0 +1,438 @@
+{
+  "schemaVersion": 1,
+  "order": 37,
+  "title": "Cyrus, restoration and return",
+  "slug": "cyrus-restoration-and-return",
+  "category": "history",
+  "categoryTitle": "History & archaeology",
+  "updated": "2026-11-06",
+  "status": "draft",
+  "draftNote": "First research draft, step 1 of the next twenty study drafts, begun 2026-11-05. Its weight was moved on 2026-11-06, at the owner's correction, from the Cyrus Cylinder to the community that returned: the cylinder is treated in From discovery to history and Israel among the empires, and is given one short section here that links to them. No page, route or component. Several sources were read through a tool that returns a report on a web page and short quoted phrases, not the page itself; each such source says so, and its quotations are to be checked before a page is built.",
+  "premise": "Ezra, Nehemiah, Haggai and Zechariah tell how a small community came back from Babylon under Persian rule, rebuilt an altar, a temple and a wall, and gathered to hear the Law read. Beside their account stand the stamps, seals and coins of the province of Yehud, which show what kind of place they came back to.",
+  "question": "What did the return restore, and what did it leave unrestored?",
+  "outcomes": [
+    "Follow the return in its stages, from Cyrus's first year to Nehemiah's second visit, and say which dates the books give and which are modern conversions.",
+    "Name the people who led it, Sheshbazzar, Zerubbabel, Joshua, Haggai, Zechariah, Ezra and Nehemiah, and say what each is credited with.",
+    "Read a Yehud stamp impression or coin for what it can show about the province, and say where it stops.",
+    "Tell what the books say about those who stayed in Babylon and Persia, and why the return was never everyone's."
+  ],
+  "boundaries": {
+    "in": "The community that returned, as Ezra 1 to 10, Nehemiah, Haggai and Zechariah tell it: its leaders, its altar and second temple (finished 515 BC), the opposition it met, Ezra's law and Nehemiah's wall; the province of Yehud through its stamp impressions, seals and coins; what the books say of those who did not return; and, briefly, Cyrus and his decree.",
+    "out": [
+      "The Cyrus Cylinder in detail, and what it does and does not say about Judah: From discovery to history and Israel among the empires both treat it. Section 01 here is a short summary with links.",
+      "The Judean communities that stayed in Babylonia, as their own tablets show them (the Al-Yahudu tablets and the work of Tero Alstola): Israel among the empires has them, under “Lives beyond the return”. Section 07 here gives what Scripture says of those who stayed, and links there.",
+      "The Elephantine community in Egypt and its temple: Israel among the empires and Egypt beside Israel. It is named once here, with a link.",
+      "Persians, Greeks and Maccabees after Nehemiah: the planned study Between the Testaments.",
+      "Which decree Daniel 9:25 means by “the issuance of the decree to restore and rebuild Jerusalem” (Daniel 9:25 · BSB): the planned study Reading Daniel and Revelation.",
+      "Haggai and Zechariah as prophets in their own right: the draft studies Prophets in their times and The Twelve. Here they are read for what they say about the building and the people.",
+      "Esther's story: it is set among those who stayed, and is named in section 07 only for that."
+    ]
+  },
+  "links": [
+    { "title": "From discovery to history", "route": "/study/from-discovery-to-history", "why": "Its Cyrus example compares the cylinder with Ezra 1. Section 01 points there." },
+    { "title": "Israel among the empires", "route": "/study/israel-among-the-empires", "why": "Its sections on the return under Persia and on lives beyond the return; its Ramat Raḥel reassessment; the Elephantine letter." },
+    { "title": "Egypt beside Israel", "route": "/study/egypt-beside-israel", "why": "Elephantine in its Egyptian setting." },
+    { "title": "Exile and return (Topics card)", "route": "/topics/c/era-exile", "why": "Zerubbabel, Jeshua, Sheshbazzar, Ezra, Nehemiah and the families of Ezra 2." },
+    { "title": "Prophets in their times (draft 38)", "route": null, "why": "Haggai and Zechariah in their own setting." },
+    { "title": "Rulers and their choices (draft 39)", "route": null, "why": "Cyrus, Darius and Artaxerxes as rulers whose choices Scripture weighs." }
+  ],
+  "cylinder": {
+    "head": "The cylinder, briefly",
+    "evidence": "The Cyrus Cylinder (British Museum 90920), written in Babylon after Cyrus took the city in 539 BC, speaks for Marduk, Babylon's god, and tells of gods and people returned to towns from Ashur to Susa and beyond the Tigris. It names no Judah, no Jerusalem and no God of Israel.",
+    "inference": "It shows a king who won his new subjects' favour by restoring their sanctuaries. A decree for Jerusalem fits that habit; the cylinder is a parallel to Ezra, not a confirmation of it.",
+    "limit": "Both points are argued at length, with the object's record and its sources, in From discovery to history and in Israel among the empires, and are not repeated here. This study's own evidence for Cyrus's decree is in Ezra, which gives it in two forms (section 02).",
+    "links": ["/study/from-discovery-to-history", "/study/israel-among-the-empires"],
+    "sources": ["site-06", "site-07"]
+  },
+  "decree": {
+    "lead": "Ezra keeps Cyrus's decree twice, in two languages and for two kinds of reader, and a third time as the elders remembered it.",
+    "items": [
+      { "id": "proclamation", "name": "The proclamation", "ref": "Ezra 1:2-4, with 2 Chronicles 36:23", "language": "Hebrew", "form": "Cyrus is moved “to send a proclamation throughout his kingdom and to put it in writing” (Ezra 1:1 · BSB)." },
+      { "id": "report", "name": "The elders' report", "ref": "Ezra 5:13-15", "language": "Aramaic", "form": "Quoted inside the governor Tattenai's letter to Darius." },
+      { "id": "memorandum", "name": "The memorandum", "ref": "Ezra 6:2-5", "language": "Aramaic", "form": "A scroll found in “the fortress of Ecbatana, in the province of Media” (Ezra 6:2 · BSB), headed “Memorandum”." }
+    ],
+    "rows": [
+      { "id": "god", "label": "Which God", "proclamation": "“The LORD, the God of heaven, who has given me all the kingdoms of the earth” (Ezra 1:2 · BSB).", "report": "“this house of God” (Ezra 5:13 · BSB).", "memorandum": "“the house of God in Jerusalem” (Ezra 6:3 · BSB), and no more." },
+      { "id": "people", "label": "Who goes", "proclamation": "“Whoever among you belongs to His people” (Ezra 1:3 · BSB).", "report": "Sheshbazzar, sent with the vessels.", "memorandum": "Not said. The memorandum is about a building." },
+      { "id": "build", "label": "What is built", "proclamation": "“build the house of the LORD, the God of Israel” (Ezra 1:3 · BSB).", "report": "“let the house of God be rebuilt on its original site” (Ezra 5:15 · BSB).", "memorandum": "“sixty cubits high and sixty cubits wide, with three layers of cut stones and one of timbers” (Ezra 6:3-4 · BSB)." },
+      { "id": "pay", "label": "Who pays", "proclamation": "Neighbours give “silver, gold, goods, and livestock” (Ezra 1:4 · BSB).", "report": "Not said.", "memorandum": "“The costs are to be paid from the royal treasury” (Ezra 6:4 · BSB)." },
+      { "id": "objects", "label": "What is returned", "proclamation": "Not in the proclamation; Ezra 1:7-11 reports the vessels given to Sheshbazzar.", "report": "The gold and silver articles “which Nebuchadnezzar had taken” (Ezra 5:14 · BSB).", "memorandum": "The same articles, “returned to the temple in Jerusalem” (Ezra 6:5 · BSB)." }
+    ],
+    "evidence": "The forms agree on the core, a house of God at Jerusalem, and differ in what each is for. The proclamation calls people to go; the memorandum gives a treasurer sizes and costs.",
+    "inference": "A herald's proclamation and an archive note are different kinds of document, and Ezra presents them as such. One order can stand behind both.",
+    "limit": "Whether both are true records of Cyrus's chancery is argued; the views are in the explanations below. No Persian copy of either has been found.",
+    "sources": ["scripture", "bickerman-1946", "williamson-1985"]
+  },
+  "leaders": {
+    "lead": "Seven people carry the story. The books give each a different task, and never all at once.",
+    "people": [
+      { "id": "sheshbazzar", "name": "Sheshbazzar", "role": "“the prince of Judah” (Ezra 1:8 · BSB); appointed governor by Cyrus (Ezra 5:14)", "credited": "Brings the temple vessels from Babylon, and in the elders' report “laid the foundation of the house of God in Jerusalem” (Ezra 5:16 · BSB).", "limit": "He disappears after Ezra 1 and 5. How he relates to Zerubbabel, who is also said to lay the foundation, is not said: two men in two stages is the usual reading, and some have made them one man." },
+      { "id": "zerubbabel", "name": "Zerubbabel son of Shealtiel", "role": "Leader of the returned families; “governor of Judah” in Haggai (Haggai 1:14 · BSB)", "credited": "Builds the altar and the foundation with Jeshua (Ezra 3), refuses outside help (Ezra 4:3), and is told by Zechariah, “The hands of Zerubbabel have laid the foundation of this house, and his hands will complete it” (Zechariah 4:9 · BSB).", "limit": "Of David's line through Jehoiachin (1 Chronicles 3), yet never a king. Haggai's promise, “I will make you like My signet ring” (Haggai 2:23 · BSB), is read by some as a hope for the line of David, by others as a word to the man; he vanishes from the record before the temple's dedication." },
+      { "id": "joshua", "name": "Joshua (Jeshua) son of Jehozadak", "role": "High priest", "credited": "Builds the altar “as it is written in the Law of Moses” (Ezra 3:2 · BSB) and leads the building with Zerubbabel.", "limit": "Ezra spells his name Jeshua son of Jozadak, Haggai and Zechariah Joshua son of Jehozadak: one man, two spellings." },
+      { "id": "haggai", "name": "Haggai", "role": "Prophet", "credited": "Dated messages in “the second year of the reign of Darius” (Haggai 1:1 · BSB) that restart the building.", "limit": "His book is four messages over a few months. Nothing else about him is known." },
+      { "id": "zechariah", "name": "Zechariah son of Iddo", "role": "Prophet", "credited": "Named with Haggai in Ezra 5:1 and 6:14; asks, “For who has despised the day of small things?” (Zechariah 4:10 · BSB).", "limit": "Only his first eight chapters are dated, and only they speak of the building." },
+      { "id": "ezra", "name": "Ezra", "role": "Priest and “a scribe skilled in the Law of Moses” (Ezra 7:6 · BSB)", "credited": "Comes “in the seventh year of King Artaxerxes” (Ezra 7:7 · BSB) with the king's letter, and later reads the Law to the assembly (Nehemiah 8).", "limit": "Which Artaxerxes is meant, and so whether he came before Nehemiah or after, is argued (section 05)." },
+      { "id": "nehemiah", "name": "Nehemiah son of Hacaliah", "role": "Cupbearer at Susa, then governor", "credited": "Comes “in the twentieth year of King Artaxerxes” (Nehemiah 2:1 · BSB), rebuilds the wall, and returns to the king “in the thirty-second year of his reign” (Nehemiah 13:6 · BSB) before a second visit.", "limit": "His book is largely in his own first-person voice. No outside record names him." }
+    ],
+    "pattern": {
+      "head": "The same verb, three times",
+      "evidence": "“the LORD stirred the spirit of Cyrus” (Ezra 1:1 · BSB); the families go, “everyone whose spirit God had stirred” (Ezra 1:5 · BSB); and in Darius's second year, “the LORD stirred the spirit of Zerubbabel” (Haggai 1:14 · BSB).",
+      "inference": "Ezra and Haggai tell the return as the LORD moving a king, then a people, then a governor, each in turn. That is the books' own explanation, and it is theological before it is political.",
+      "limit": "This is a reading of the Berean's wording, checked by script. Whether the Hebrew verb is the same in all three is for the page to check against the site's tagged text before it says so."
+    },
+    "sources": ["scripture"]
+  },
+  "story": {
+    "lead": "Ezra 1 to Nehemiah 13 covers about a century, from Cyrus's first year to Nehemiah's second visit. The books move in stages, with long pauses.",
+    "steps": [
+      { "id": "decree", "n": "01", "title": "The decree", "verses": ["Ezra 1:1", "Ezra 1:2"], "when": "“the first year of Cyrus king of Persia” (Ezra 1:1 · BSB), usually reckoned 538 BC, his first full year as king of Babylon.", "evidence": "Ezra links the decree to “the word of the LORD spoken through Jeremiah” (Ezra 1:1 · BSB), the promise that “When Babylon’s seventy years are complete, I will attend to you” (Jeremiah 29:10 · BSB).", "inference": "Ezra's explanation does not deny a policy; it says who stood behind it.", "limit": "538 is a conversion of “the first year of Cyrus” (Ezra 1:1 · BSB), not a date written in the text." },
+      { "id": "vessels", "n": "02", "title": "The vessels", "verses": ["Ezra 1:8", "Ezra 1:11"], "when": "With the first return; no date given.", "evidence": "The six kinds of vessel listed in Ezra 1:9-10 add up to 2,499; verse 11 gives “5,400 gold and silver articles” (Ezra 1:11 · BSB).", "inference": "The total may include articles not itemised, or the numbers may have suffered in copying, as numbers in ancient texts easily do. Readers have offered both.", "limit": "The sum is this study's own arithmetic from the Berean text, checked by script. What lies behind the difference is not known." },
+      { "id": "list", "n": "03", "title": "The list of those who came", "verses": ["Ezra 2:1", "Ezra 2:64"], "when": "Not dated. Nehemiah 7 copies the list later as “the genealogical register of those who had first returned” (Nehemiah 7:5 · BSB).", "evidence": "“The whole assembly numbered 42,360” (Ezra 2:64 · BSB). The groups listed in Ezra 2:3-60 add up to 29,818; the same list in Nehemiah 7:8-62 adds up to 31,089, with the same total of 42,360.", "inference": "The total counts more people than the groups listed: perhaps people not entered by family, perhaps women, perhaps more than one journey. The list does not say it was a single journey.", "limit": "Both sums are this study's own arithmetic. Modern estimates for the whole province are lower than 42,360 (section 04); they come from surveys of settlements, not counts." },
+      { "id": "altar", "n": "04", "title": "The altar", "verses": ["Ezra 3:1", "Ezra 3:3"], "when": "“By the seventh month” (Ezra 3:1 · BSB); the year is not given.", "evidence": "The altar is set “on its foundation” (Ezra 3:3 · BSB), with sacrifices morning and evening, “even though they feared the people of the land” (Ezra 3:3 · BSB).", "inference": "Worship comes back before any building: the first thing restored is the sacrifice the Law commands.", "limit": "This altar has not been found. The temple mount cannot be excavated." },
+      { "id": "foundation", "n": "05", "title": "The foundation, with weeping", "verses": ["Ezra 3:8", "Ezra 3:12"], "when": "“the second month of the second year after they had arrived” (Ezra 3:8 · BSB).", "evidence": "Praise and shouting, while “many of the older priests, Levites, and family heads who had seen the first temple wept loudly” (Ezra 3:12 · BSB). Haggai later asks, “Who is left among you who saw this house in its former glory?” (Haggai 2:3 · BSB).", "inference": "The books tell the return honestly as less than what was lost, and Haggai answers with a promise: “The latter glory of this house will be greater than the former” (Haggai 2:9 · BSB).", "limit": "How the foundation in Ezra 3 relates to the restart under Darius (Haggai 1; Ezra 5:2) is read in different ways: one foundation laid twice, or a first start and a real beginning." },
+      { "id": "pause", "n": "06", "title": "The standstill", "verses": ["Ezra 4:4", "Ezra 4:24"], "when": "From Cyrus's reign “down to the reign of Darius” (Ezra 4:5 · BSB), about sixteen years.", "evidence": "Opposition stops the work “until the second year of the reign of Darius king of Persia” (Ezra 4:24 · BSB). Haggai gives the people's own reason: “The time has not yet come to rebuild the house of the LORD” (Haggai 1:2 · BSB).", "inference": "Two causes are given, pressure from outside and reluctance inside, and the books keep both.", "limit": "The standstill is the books' account; there is no outside record of the site in these years." },
+      { "id": "temple", "n": "07", "title": "The temple built, 520 to 515 BC", "verses": ["Haggai 1:1", "Ezra 6:15"], "when": "From “the second year of the reign of Darius, on the first day of the sixth month” (Haggai 1:1 · BSB), usually reckoned August 520 BC, to “the third day of the month of Adar, in the sixth year of the reign of King Darius” (Ezra 6:15 · BSB), usually reckoned March 515 BC; some reckon 516.", "evidence": "Tattenai's letter reports “large stones” and “timbers in the walls” (Ezra 5:8 · BSB). Darius has the archive searched, the memorandum is found at Ecbatana, and the work goes on. The builders finish “according to the command of the God of Israel and the decrees of Cyrus, Darius, and Artaxerxes, kings of Persia” (Ezra 6:14 · BSB), and keep the Passover.", "inference": "The second temple was built in about four and a half years, under a governor and a high priest, without a king: a restoration of worship, not of the kingdom.", "limit": "Nothing of this building has been excavated. Why Artaxerxes, a later king, is named with the builders is not said." },
+      { "id": "ezra", "n": "08", "title": "Ezra and the Law", "verses": ["Ezra 7:7", "Ezra 7:10"], "when": "“the seventh year of King Artaxerxes” (Ezra 7:7 · BSB): 458 BC if Artaxerxes I, as usually held.", "evidence": "Ezra comes with a second group (Ezra 8) and a royal letter that tells him to teach “the laws of your God” to those west of the Euphrates (Ezra 7:25 · BSB).", "inference": "Under Persia the community is ordered by its own Law, with the king's backing.", "limit": "The date depends on which Artaxerxes is meant (section 05)." },
+      { "id": "wall", "n": "09", "title": "Nehemiah's wall", "verses": ["Nehemiah 2:1", "Nehemiah 6:15"], "when": "“the twentieth year of King Artaxerxes” (Nehemiah 2:1 · BSB), 445 BC if Artaxerxes I.", "evidence": "Builders work with “one hand” and hold “a weapon with the other” (Nehemiah 4:17 · BSB), and “the wall was completed in fifty-two days, on the twenty-fifth of Elul” (Nehemiah 6:15 · BSB).", "inference": "A wall makes Jerusalem a city again, ninety years after the first return.", "limit": "What survives of it, and how large Jerusalem then was, is argued (claim 03)." },
+      { "id": "reading", "n": "10", "title": "The Law read aloud", "verses": ["Nehemiah 8:2", "Nehemiah 8:8"], "when": "“the first day of the seventh month” (Nehemiah 8:2 · BSB), in the year the wall was finished, as the book places it.", "evidence": "Ezra reads from daybreak to noon, and they read “explaining it and giving insight, so that the people could understand what was being read” (Nehemiah 8:8 · BSB). “Nehemiah the governor, Ezra the priest and scribe” (Nehemiah 8:9 · BSB) stand together.", "inference": "The book's own climax is not the wall but the Law understood by the people.", "limit": "Nehemiah 8:9 is the chief reason most readers keep Ezra and Nehemiah in Jerusalem at the same time; those who date Ezra later must explain it." }
+    ]
+  },
+  "opposition": {
+    "lead": "Ezra 4 and Nehemiah name the opponents. The books arrange them by subject, not always by date.",
+    "items": [
+      { "id": "people", "who": "“the enemies of Judah and Benjamin” (Ezra 4:1 · BSB)", "verses": ["Ezra 4:2", "Ezra 4:3"], "evidence": "They say they have worshipped Israel's God “since the time of King Esar-haddon of Assyria, who brought us here” (Ezra 4:2 · BSB), and are refused.", "inference": "The quarrel is over who belongs to the community that builds. The books' answer is the returned families.", "limit": "That these are the ancestors of the later Samaritans is a common reading; Ezra 4 does not use that name." },
+      { "id": "letters", "who": "Rehum and Shimshai, writing to Artaxerxes", "verses": ["Ezra 4:7", "Ezra 4:12"], "evidence": "Their letter says the Jews are “rebuilding that rebellious and wicked city, restoring its walls” (Ezra 4:12 · BSB). It is “written in Aramaic” (Ezra 4:7 · BSB), and Ezra quotes it in Aramaic.", "inference": "Ezra 4:6-23 belongs to the later reigns of Xerxes and Artaxerxes and concerns the walls, not the temple. It is set here because its subject is opposition.", "limit": "That the passage is grouped by subject is the common reading among commentators; the text names the later kings, but gives no heading saying so." },
+      { "id": "tattenai", "who": "Tattenai, governor of the region west of the Euphrates", "verses": ["Ezra 5:17", "Ezra 6:13"], "evidence": "He asks Darius to search the archive, and when the memorandum is found he and his associates “diligently carried out what King Darius had decreed” (Ezra 6:13 · BSB).", "inference": "Not every Persian official was an enemy. Tattenai checks the papers and obeys them.", "limit": "A governor of this name is often linked to a Babylonian document of Darius's reign; that document was not read for this draft." },
+      { "id": "neighbours", "who": "Sanballat, Tobiah and Geshem", "verses": ["Nehemiah 2:19"], "evidence": "“Sanballat the Horonite, Tobiah the Ammonite official, and Geshem the Arab” mock the builders: “Are you rebelling against the king?” (Nehemiah 2:19 · BSB).", "inference": "The opponents are neighbouring officials with their own standing under Persia, and the charge is disloyalty to the king.", "limit": "A Sanballat governor of Samaria is named in the Elephantine petition of 407 BC, which Israel among the empires holds; it was not read for this draft. Geshem is often linked to an inscribed silver bowl naming a king of Kedar; that object was not checked here." }
+    ],
+    "sources": ["scripture", "site-07"]
+  },
+  "yehud": {
+    "lead": "Ezra calls the land “the province of Judah” (Ezra 5:8 · BSB). In Aramaic that is Yehud, and the name was stamped on jars and struck on coins.",
+    "name": { "evidence": "The province ran from around Bethel in the north to near Hebron in the south, as Wikipedia's article describes it. Mizpah was its administrative centre for a time, and Ramat Raḥel, just south of Jerusalem, has yielded the most stamped jar handles.", "limit": "Its borders changed, and Israel among the empires draws none. Neither does this study." },
+    "finds": [
+      { "id": "stamps", "name": "Yehud stamp impressions", "what": "Jar handles stamped with the province's name, spelled yhwd or yhd, in Aramaic or Paleo-Hebrew letters.", "count": "582 in the corpus published by Oded Lipschits and David Vanderhooft in 2011, 307 of them from Ramat Raḥel; 647 by an updated count of 2020.", "evidence": "Jars were marked with the province's name across the Persian period and after. Most come from Ramat Raḥel and Jerusalem.", "inference": "Yehud had an administration that collected produce in marked jars, most likely for taxes or supplies, and an administrative centre at Ramat Raḥel.", "limit": "The counts are reported through search results showing the books' and articles' own words, not read in full. What exactly the jars carried, and to whom, is inferred, not written on them." },
+      { "id": "governors", "name": "Governors' names", "what": "Coins, jar stamps and seals naming Elnathan, Jehoezer, Ahzai and Urio, besides the governors the books and the Elephantine letter name.", "evidence": "The province had a line of governors, some known only from small objects.", "inference": "The books' governors, Sheshbazzar, Zerubbabel and Nehemiah, belong to a real office, filled by others between and after them.", "limit": "The order and dates of the governors known only from stamps and seals are argued. The list is reported through Wikipedia." },
+      { "id": "coins", "name": "Yehud coins", "what": "Small silver coins inscribed YHD or YHDH, some with an owl copied from Athenian coins, some with a lily; one series names Yehizqiyah the governor.", "count": "44 types, as classified by Haim Gitler, Catharine Lorber and Jean-Philippe Fontanille in 2023, reported through Wikipedia.", "evidence": "Minting began around 350 BC, well after Nehemiah, and continued into Ptolemaic rule. Nearly all were found in Judea.", "inference": "By the fourth century the province struck its own small change under its own name.", "limit": "These coins are a century after the return and cannot illustrate Zerubbabel's or Nehemiah's day. A famous silver coin in the British Museum showing a seated figure on a winged wheel, with a legend read YHW or YHD, is argued over, and some assign it to a mint in Samaria; it is not used here." }
+    ],
+    "ring": {
+      "head": "A seal in Haggai",
+      "evidence": "Haggai's last word is to Zerubbabel: “I will make you like My signet ring, for I have chosen you” (Haggai 2:23 · BSB).",
+      "inference": "In a province whose officials sealed jars and documents, a signet ring was the mark of delegated authority. Haggai uses the object the governor's world knew.",
+      "limit": "No seal of Zerubbabel has been found. The picture is from the text, not from an object."
+    },
+    "size": {
+      "evidence": "Modern estimates for the province's people in the early Persian period, as Wikipedia reports them, run from about 12,000 (Israel Finkelstein) to an upper figure of about 30,000 (Oded Lipschits). Estimates for Jerusalem itself run from a few hundred to a few thousand.",
+      "inference": "The community was small. The books say as much: “the day of small things” (Zechariah 4:10 · BSB), and “The remnant who survived the exile are there in the province, in great trouble and disgrace” (Nehemiah 1:3 · BSB).",
+      "limit": "Population figures come from surveys and from a chosen number of people per hectare, and specialists dispute both."
+    },
+    "sources": ["wiki-yehud", "wiki-yehud-coinage", "lipschits-vanderhooft-2011", "lipschits-2020", "site-07", "scripture"]
+  },
+  "law": {
+    "lead": "Ezra comes as a teacher of the Law, with a Persian king's letter. Two questions follow: when he came, and what the king's letter means.",
+    "order": {
+      "head": "Ezra first, or Nehemiah first?",
+      "evidence": "Ezra 7:7 dates Ezra to Artaxerxes's seventh year, Nehemiah 2:1 dates Nehemiah to his twentieth, and Nehemiah 8:9 has them together. Three Persian kings bore the name Artaxerxes.",
+      "views": [
+        { "who": "The order of the books, held by most readers", "held": "Both served Artaxerxes I: Ezra came in 458 BC, Nehemiah in 445, and they worked together, as Nehemiah 8 shows." },
+        { "who": "A minority of historians since Albin van Hoonacker in the 1890s (located, not read)", "held": "Ezra served Artaxerxes II and came in 398 BC, after Nehemiah; the joint scenes were placed together later." }
+      ],
+      "inference": "The books' own order is the simplest reading of their dates, and this study follows it in its timeline, marking the other view.",
+      "limit": "Neither king's year is written with a number that tells which Artaxerxes is meant; the argument rests on the books' details and on what is known of later Jerusalem."
+    },
+    "letter": {
+      "head": "What the king's letter means",
+      "evidence": "Artaxerxes's letter tells Ezra to appoint judges for “all who know the laws of your God” and adds, “If anyone does not keep the law of your God and the law of the king, let a strict judgment be executed against him” (Ezra 7:25-26 · BSB).",
+      "views": [
+        { "who": "The books themselves", "held": "The Law Ezra reads is “the Book of the Law of Moses, which the LORD had commanded for Israel” (Nehemiah 8:1 · BSB). The king backs a law that was already Israel's." },
+        { "who": "A theory among some historians, associated with Peter Frei (located, not read)", "held": "Persian kings gave local law the empire's authority, and the Torah took its final form under that pressure in Ezra's day." }
+      ],
+      "inference": "The letter shows a Persian king giving force to a subject people's law. Whether that law was then old or new is a different question, and Nehemiah 8 answers it in the books' own terms: old, and Moses'.",
+      "limit": "The site's own voice receives the Law as given through Moses, and reports Frei's theory as a reconstruction scholars hold, not as a correction of the text."
+    },
+    "sources": ["scripture", "van-hoonacker", "frei"]
+  },
+  "stayed": {
+    "lead": "The books never pretend that everyone came back. Read for those who stayed, they show a people living in two places.",
+    "notes": [
+      { "id": "gifts", "verses": ["Ezra 1:4", "Ezra 1:6"], "text": "Those who stay are asked to help those who go, with “silver, gold, goods, and livestock” (Ezra 1:4 · BSB)." },
+      { "id": "daniel", "verses": ["Daniel 1:21", "Daniel 10:1"], "text": "Daniel “remained there until the first year of King Cyrus” (Daniel 1:21 · BSB), and receives a message “In the third year of Cyrus king of Persia” (Daniel 10:1 · BSB), still in the east." },
+      { "id": "zechariah", "verses": ["Zechariah 2:7", "Zechariah 6:10"], "text": "Zechariah calls, “Escape, you who dwell with the Daughter of Babylon!” (Zechariah 2:7 · BSB), and takes an offering “from the exiles … who have arrived from Babylon” (Zechariah 6:10 · BSB)." },
+      { "id": "esther", "verses": ["Esther 2:5"], "text": "Mordecai lives “at the citadel of Susa” (Esther 2:5 · BSB), a generation after the decree. Esther's story is set entirely among those who stayed." },
+      { "id": "ezra", "verses": ["Ezra 8:1"], "text": "A second group comes with Ezra “from Babylon during the reign of King Artaxerxes” (Ezra 8:1 · BSB), eighty years after Cyrus." },
+      { "id": "nehemiah", "verses": ["Nehemiah 1:2", "Nehemiah 13:6"], "text": "Nehemiah serves in Susa, asks after “the remnant of the Jews who had survived the exile” (Nehemiah 1:2 · BSB), and goes back to the king between his visits." }
+    ],
+    "evidence": "From Ezra 1 to Nehemiah 13, the books keep people in Babylon and Susa in view: giving, praying, being called home, coming in later groups.",
+    "inference": "The return was a door opened, not a migration completed. Jewish life outside the land went on, and the books treat it as part of the same people.",
+    "limit": "What the communities in Babylonia were like in their own records, the Al-Yahudu tablets among them, is in Israel among the empires and is not repeated here.",
+    "sources": ["scripture", "site-07"]
+  },
+  "isaiah": {
+    "passage": "Isaiah 44:24-45:13",
+    "lead": "Before Ezra, Isaiah names Cyrus, and says what the LORD raised him up to do.",
+    "lines": [
+      { "verse": "Isaiah 44:28", "quote": "My shepherd will fulfill all that I desire", "version": "BSB", "note": "A king's title, with the task named: Jerusalem rebuilt, the temple's foundation laid." },
+      { "verse": "Isaiah 45:1", "quote": "Cyrus His anointed", "version": "BSB", "note": "A king set apart for a task, as Saul and David were called anointed. It does not make Cyrus the Messiah." },
+      { "verse": "Isaiah 45:4", "quote": "though you have not known Me", "version": "BSB", "note": "Said twice. The LORD uses a king who does not worship Him." },
+      { "verse": "Isaiah 45:13", "quote": "He will rebuild My city and set My exiles free, but not for payment or reward", "version": "BSB", "note": "The return as the LORD's purpose, not the king's policy." }
+    ],
+    "when": {
+      "scripture": "The book is headed as the vision of “Isaiah son of Amoz” (Isaiah 1:1 · BSB) in the reigns of Uzziah to Hezekiah, well over a century before Cyrus. The New Testament quotes the second half of the book under Isaiah's name, as at Matthew 3:3, quoting Isaiah 40:3.",
+      "views": [
+        { "who": "The traditional view, held by Jewish and Christian readers through most of history, by Josephus (claim 02), and by most conservative evangelical and Southern Baptist scholars; John Oswalt's commentary on chapters 40 to 66 is one full defence (located, not read).", "held": "Isaiah of Jerusalem wrote the whole book. Naming Cyrus beforehand is prediction, and the passage presents it so: the LORD “confirms the message of His servant” (Isaiah 44:26 · BSB)." },
+        { "who": "The critical reconstruction, the majority among academic biblical scholars since the late 1700s; Joseph Blenkinsopp's commentary on chapters 40 to 55 is one (located, not read).", "held": "Chapters 40 to 55 come from an unnamed prophet among the exiles in the 540s BC, as Cyrus rose." }
+      ],
+      "stance": "The Baptist Faith and Message holds that God's knowledge reaches the future, so a prophecy naming a king in advance raises no difficulty for the site's own voice, and it reads the book under the name Scripture gives it. The critical reconstruction is shown as a reconstruction scholars hold, not as a correction of the text. Nothing else in this study depends on it.",
+      "sources": ["scripture", "foundation", "oswalt-1998", "blenkinsopp-2002", "josephus"]
+    }
+  },
+  "explanations": [
+    {
+      "id": "practice", "name": "One practice, many decrees", "tag": "Ezra's decree is one local case of how Cyrus ruled",
+      "held": "The common middle reading among historians, as Wikipedia's reports and the site's earlier studies describe it.",
+      "forIt": "The cylinder's returning of gods and people to their towns, treated in From discovery to history, and Darius's funding of the temple in Ezra 6.",
+      "against": "A practice is not a decree. It explains why Cyrus might order a temple for Jerusalem, not what the order said.",
+      "wouldShow": "A Persian record naming Judah's temple."
+    },
+    {
+      "id": "authentic", "name": "Two true forms of one decree", "tag": "The Hebrew is the herald's proclamation, the Aramaic the archive note",
+      "held": "Elias Bickerman in 1946, and many commentators since, among them H. G. M. Williamson; both located, not read, for this draft.",
+      "forIt": "Ezra says the decree was proclaimed and written. The memorandum's sizes and costs read like an archive note, and the proclamation's address to “His people” (Ezra 1:3 · BSB) reads like an announcement to them.",
+      "against": "The proclamation's words about the LORD giving Cyrus “all the kingdoms of the earth” (Ezra 1:2 · BSB) sound, to some readers, like a Judean writer's, not a Persian king's.",
+      "wouldShow": "A Persian king's proclamation to another subject people in that people's own religious language. The cylinder, for Babylon, is the nearest example, which is why the earlier studies set it beside Ezra."
+    },
+    {
+      "id": "later", "name": "Later compositions", "tag": "The decrees in Ezra were written up later, from a memory of Persian favour",
+      "held": "Lester Grabbe, as Wikipedia reports him: the decree regarding Judah “cannot be considered authentic”, though he accepts a general Persian practice of allowing return and rebuilding.",
+      "forIt": "Differences in tone between the Hebrew and the Aramaic, and the theological wording of the Hebrew.",
+      "against": "It must explain why Ezra keeps two different forms, and why the Aramaic reads, to its defenders, like a Persian archive's own notes.",
+      "wouldShow": "Proof that the Aramaic documents do not fit the chancery language of Cyrus's and Darius's reigns."
+    }
+  ],
+  "timeline": {
+    "from": 545,
+    "to": 330,
+    "rows": [
+      { "id": "fall", "name": "Babylon falls to Cyrus", "start": 539, "end": 539, "note": "October 539 BC, as the Nabonidus Chronicle's dates are usually converted.", "kind": "persia" },
+      { "id": "decree", "name": "The first year of Cyrus (Ezra 1:1)", "start": 538, "end": 538, "note": "The usual conversion; some count from 539.", "kind": "scripture" },
+      { "id": "darius", "name": "Darius I reigns", "start": 522, "end": 486, "note": "Usual dates.", "kind": "persia" },
+      { "id": "temple", "name": "The temple built (Haggai 1:1 to Ezra 6:15)", "start": 520, "end": 515, "note": "August 520 to March 515 BC, as usually converted; some end it in 516.", "kind": "scripture" },
+      { "id": "artaxerxes", "name": "Artaxerxes I reigns", "start": 465, "end": 424, "note": "Usual dates.", "kind": "persia" },
+      { "id": "ezra", "name": "Ezra comes (Ezra 7:7)", "start": 458, "end": 458, "note": "If Artaxerxes I. A minority dates it to 398, under Artaxerxes II.", "kind": "scripture", "alt": 398 },
+      { "id": "nehemiah", "name": "Nehemiah's governorship (Nehemiah 2:1 to 13:6)", "start": 445, "end": 433, "note": "The twentieth to the thirty-second year of Artaxerxes I.", "kind": "scripture" },
+      { "id": "elephantine", "name": "The Elephantine petition", "start": 407, "end": 407, "note": "Held in Israel among the empires; named here only.", "kind": "persia" },
+      { "id": "coins", "name": "Yehud coins struck", "start": 350, "end": 330, "note": "From about 350 BC, continuing past the chart's edge into Ptolemaic rule.", "kind": "yehud", "open": true },
+      { "id": "stamps", "name": "Yehud jar stamps in use", "start": 539, "end": 330, "note": "Across the Persian period and after, by the corpus's own typology. Drawn faint: its ends are not measured.", "kind": "yehud", "open": true }
+    ],
+    "undated": "The altar, the first foundation and the list of Ezra 2 carry months, or a year counted from arrival, but no king's year, so they have no bar. Isaiah 44 and 45 sit under the book's own heading, in the eighth century BC, off this chart."
+  },
+  "stance": {
+    "head": "What this site holds",
+    "scripture": "Haggai 2:9",
+    "confession": "“truth, without any mixture of error”",
+    "confessionSource": "Baptist Faith and Message 2000, on Scripture",
+    "body": "The site reads Ezra, Nehemiah, Haggai and Zechariah as Scripture, and holds that they tell the truth. Seals, stamps and coins do not prove them, and the arguments over Jerusalem's size do not overturn them; both are evidence about the world the books describe, reported for what they show. The books themselves say the return was small and partial, that the old men wept, and that no son of David took the throne. They also say that “The latter glory of this house will be greater than the former” (Haggai 2:9 · BSB). The return restored a people's worship under a foreign king; what it left unrestored, the books leave as a promise.",
+    "verses": ["Ezra 3:12", "Haggai 2:9", "Haggai 2:23"]
+  },
+  "claims": [
+    {
+      "id": "mass",
+      "claim": "“In 538 BC the exiles all went home together.”",
+      "head": "One decree. Many journeys.",
+      "evidence": "The books run from Cyrus to Nehemiah, about a century, with new groups under Ezra (Ezra 8) and Nehemiah. Daniel, Mordecai, Nehemiah himself and Zechariah's donors are all in the east after the decree.",
+      "inference": "Scripture tells a return in stages, and leaves many Jews outside the land. The decree opened a door; it did not empty Babylon.",
+      "limit": "Ezra 2's list may itself gather more than one journey; the text does not say.",
+      "verses": ["Daniel 1:21", "Ezra 8:1", "Zechariah 6:10"],
+      "sources": ["scripture", "site-07"],
+      "test": {
+        "question": "Ezra 2:64 gives 42,360, and the families listed add up to 29,818. What may you conclude?",
+        "options": [
+          { "text": "That Ezra is wrong.", "right": false, "why": "Two numbers that do not match tell you to ask what each counts. The total may include people the list does not enter by family." },
+          { "text": "That the list and the total count different things, and the text does not say what the difference is.", "right": true, "why": "This is what the arithmetic can carry, and no more." },
+          { "text": "That everyone in Babylon came back.", "right": false, "why": "Neither number says that, and the books show people staying." }
+        ]
+      }
+    },
+    {
+      "id": "josephus",
+      "claim": "“Cyrus freed the Jews because he read Isaiah's prophecy about himself.”",
+      "head": "A late explanation. An early text.",
+      "evidence": "Josephus, writing in the first century AD, says “This was known to Cyrus by his reading the book which Isaiah left behind him of his Prophecies” (Antiquities 11.1.2, in Whiston's translation). Ezra says the LORD stirred Cyrus's spirit “to fulfill the word of the LORD spoken through Jeremiah” (Ezra 1:1 · BSB).",
+      "inference": "Josephus fills a gap Scripture leaves open. He may be right; he writes six centuries after Cyrus, and no earlier source gives it.",
+      "limit": "Josephus is read in an old public-domain translation, through a tool that returned the sentence quoted.",
+      "verses": ["Ezra 1:1", "Isaiah 44:28"],
+      "sources": ["josephus", "scripture"],
+      "test": {
+        "question": "What does Ezra 1:1 itself give as the reason for the decree?",
+        "options": [
+          { "text": "Cyrus read Isaiah.", "right": false, "why": "That is Josephus. Ezra does not mention Isaiah or Cyrus reading anything." },
+          { "text": "The LORD stirred Cyrus's spirit, to fulfil what Jeremiah had spoken.", "right": true, "why": "That is Ezra's wording. How Cyrus was moved it leaves unsaid." },
+          { "text": "Cyrus wanted Judah as a buffer against Egypt.", "right": false, "why": "Historians suggest motives like this, and one may be right, but Ezra does not give it." }
+        ]
+      }
+    },
+    {
+      "id": "wall",
+      "claim": "“Nehemiah's wall has been found.”",
+      "head": "A wall was found. Its date is argued.",
+      "evidence": "In November 2007 Eilat Mazar announced that a wall and tower on the eastern slope of the City of David dated to Nehemiah's time, from pottery and arrowheads found beneath the tower, as reports of her announcement give it. Israel Finkelstein answered the same day that the finds were not tied to a floor of the wall, so the wall could be later, and argued in print in 2008 that Persian Jerusalem was a small unwalled settlement on that ridge alone.",
+      "inference": "Both sides agree a wall stands there. They disagree over what dates it. The archaeology of Persian Jerusalem is thin, so the argument turns on a few deposits and on estimates of the town's size.",
+      "limit": "Mazar's claim is reported through news and a dig-blog's account; her own report was not read. Finkelstein's 2008 article was located, not read, and its summary here comes from search results. Nehemiah 3 is the books' own account and neither side's finds can replace it.",
+      "verses": ["Nehemiah 6:15"],
+      "sources": ["mazar-2007", "finkelstein-2008", "scripture"],
+      "test": {
+        "question": "Pottery of the fifth century BC lies beneath a tower. What does that date?",
+        "options": [
+          { "text": "The tower, to the fifth century exactly.", "right": false, "why": "Material beneath a structure gives the earliest it can be, unless it is sealed by the structure's own floor. That is the point in dispute." },
+          { "text": "Nothing at all.", "right": false, "why": "It still gives a lower limit: the tower is not older than the material under it." },
+          { "text": "The tower to no earlier than that pottery, and possibly later.", "right": true, "why": "This is what such a deposit can carry. Whether it is sealed decides how much more." }
+        ]
+      }
+    },
+    {
+      "id": "law",
+      "claim": "“Ezra invented the Law of Moses in Persian times.”",
+      "head": "A king's letter. An older Law.",
+      "evidence": "Artaxerxes's letter gives “the law of your God” the king's force (Ezra 7:26 · BSB). Nehemiah 8 says the book read was “the Book of the Law of Moses, which the LORD had commanded for Israel” (Nehemiah 8:1 · BSB). Some historians, following Peter Frei, argue that Persian authorisation shaped the Torah's final form.",
+      "inference": "The letter shows imperial backing for a subject people's law. It does not show who wrote that law, and the books present it as already Moses'.",
+      "limit": "Frei's theory is named, not read here. The site's own voice receives the Law as given through Moses, and reports the theory as a reconstruction.",
+      "verses": ["Ezra 7:26", "Nehemiah 8:1"],
+      "sources": ["scripture", "frei"],
+      "test": {
+        "question": "Ezra 7:25 tells Ezra to appoint judges for “all who know the laws of your God” (Ezra 7:25 · BSB). What does that phrase assume?",
+        "options": [
+          { "text": "That the laws were already known to many before Ezra arrived.", "right": true, "why": "The letter speaks of people who already know them, and of teaching those who do not." },
+          { "text": "That Ezra brought a new law nobody had heard of.", "right": false, "why": "The letter's wording points the other way." },
+          { "text": "That the king wrote the laws.", "right": false, "why": "The letter calls them the laws of Ezra's God, distinct from “the law of the king” (Ezra 7:26 · BSB) in the next verse." }
+        ]
+      }
+    }
+  ],
+  "confusedWords": [
+    { "word": "Jeshua and Joshua", "note": "One high priest. Ezra spells him Jeshua son of Jozadak; Haggai and Zechariah, Joshua son of Jehozadak." },
+    { "word": "Judah, Yehud and the Jews", "note": "Judah was the kingdom. Yehud is the Persian province, Ezra's “province of Judah” (Ezra 5:8 · BSB). The Jews, in Ezra and Nehemiah, are the people of Judah, at home and abroad." },
+    { "word": "Return and restoration", "note": "The return is people going back. What the books restore is worship, a temple, a wall and the Law under Persian rule, not David's kingdom." },
+    { "word": "Decree, proclamation and memorandum", "note": "Ezra uses all three. A decree is the king's order; a proclamation announces it; a memorandum is the archive's note of it." },
+    { "word": "Seal, signet ring, stamp impression and bulla", "note": "A seal or signet is the carved object. A stamp impression is its mark pressed into a jar handle. A bulla is a lump of clay sealing a document. The finds are almost all impressions, not the seals." },
+    { "word": "Which Artaxerxes", "note": "Three Persian kings had the name. Ezra and Nehemiah date by his years without saying which, and the dates in this study assume Artaxerxes I, as most readers do." },
+    { "word": "King of Persia, of Babylon and of Assyria", "note": "Ezra calls Cyrus “king of Persia” (Ezra 1:1 · BSB) and “king of Babylon” (Ezra 5:13 · BSB), and calls Darius “the king of Assyria” (Ezra 6:22 · BSB). The titles name lands a king ruled, not different kings." },
+    { "word": "Anointed and Messiah", "note": "In Isaiah 45:1 Cyrus is the LORD's anointed: a king set apart for a task. The same word becomes the title Messiah. Isaiah does not make Cyrus the Messiah." }
+  ],
+  "reach": [
+    "The books are read whole for the return: Ezra, Nehemiah, Haggai and Zechariah 1 to 8, with Isaiah 44:24 to 45:13. Objects are shown by kind (stamp impressions, governors' names, coins), not one by one; the corpus counts are the specialists', reported.",
+    "The Cyrus Cylinder, Elephantine and the Babylonian tablets are left to the site's earlier studies and linked, by the owner's decision of 2026-11-06.",
+    "Several scholars are named only through Wikipedia's reports or search results (Finkelstein, Lipschits, Grabbe, Gitler and colleagues, Mazar), and several works are located, not read (Bickerman, Williamson, Oswalt, Blenkinsopp, van Hoonacker, Frei). The reading trail says which.",
+    "The sums of Ezra 1:9-10, Ezra 2:3-60 and Nehemiah 7:8-62 are this study's own, counted by script from the site's Berean text. The script proves the arithmetic, not what lies behind the difference.",
+    "Every verse and phrase from Scripture in this file is checked by script against the site's Berean text. That proves the words are there, not that a reading of them is right."
+  ],
+  "sources": [
+    { "id": "scripture", "title": "Berean Standard Bible", "url": "/read/bsb/EZR/1", "kind": "Scripture", "status": "read", "answers": "What Ezra, Nehemiah, Haggai, Zechariah, Isaiah, Daniel and Esther say.", "read": "Every verse quoted, from the site's own copy in Website/data/text/bsb." },
+    { "id": "foundation", "title": "Baptist Faith and Message 2000, as set out in the site's doctrinal foundation", "url": "https://bfm.sbc.net/bfm2000/", "kind": "Confession", "status": "part", "answers": "What the site's own voice holds on Scripture and on God's knowledge of the future.", "read": "Articles 1 and 2, as summarised and quoted in the site's foundation document." },
+    { "id": "site-06", "title": "From discovery to history, research record 06, its Cyrus example", "url": "/study/from-discovery-to-history", "kind": "This site", "status": "read", "answers": "What the cylinder is, and how it compares with Ezra 1.", "read": "The object record and the three-row comparison, read in the site's own research file." },
+    { "id": "site-07", "title": "Israel among the empires, research record 07, its sections on the return and on lives beyond it", "url": "/study/israel-among-the-empires", "kind": "This site", "status": "read", "answers": "The Persian setting, the Babylonian communities, Ramat Raḥel and Elephantine.", "read": "Those sections, read in the site's own research file." },
+    { "id": "wiki-yehud", "title": "“Yehud Medinata”, Wikipedia", "url": "https://en.wikipedia.org/wiki/Yehud_Medinata", "kind": "Encyclopedia", "status": "part", "answers": "The province's extent, its governors on small objects, and its population.", "read": "Read on 2026-11-06 through a tool that returned a report on the page, not the page itself. The route to Finkelstein's and Lipschits's figures and the governors' names. Nothing is quoted from it." },
+    { "id": "wiki-yehud-coinage", "title": "“Yehud coinage”, Wikipedia", "url": "https://en.wikipedia.org/wiki/Yehud_coinage", "kind": "Encyclopedia", "status": "part", "answers": "When the province struck coins, and what they show.", "read": "Read through the same tool. The route to Gitler, Lorber and Fontanille's 44 types." },
+    { "id": "lipschits-vanderhooft-2011", "title": "Oded Lipschits and David S. Vanderhooft, The Yehud Stamp Impressions: A Corpus of Inscribed Impressions from the Persian and Hellenistic Periods in Judah (2011)", "url": "https://www.google.com/search?tbm=bks&q=Lipschits+Vanderhooft+The+Yehud+Stamp+Impressions", "kind": "Corpus · under copyright", "status": "second-hand", "answers": "How many Yehud stamp impressions are known, and where from?", "read": "Not read. Its count of 582, 307 from Ramat Raḥel, is taken from search results quoting it and from a later article's restatement." },
+    { "id": "lipschits-2020", "title": "Oded Lipschits and others, “Yehud Stamp Impressions from Ramat Raḥel: An Updated Tabulation”, Bulletin of the American Schools of Oriental Research 384 (2020), 191-209", "url": "https://www.google.com/search?q=%22Yehud+Stamp+Impressions+from+Ramat+Ra%E1%B8%A5el%22+BASOR+384", "kind": "Article, 2020", "status": "second-hand", "answers": "The updated count.", "read": "Not read. Its total of 647 is taken from search results quoting it." },
+    { "id": "mazar-2007", "title": "Eilat Mazar's announcement of a wall of Nehemiah in the City of David, November 2007, as reported on the BiblePlaces blog", "url": "https://www.bibleplaces.com/blog/2007/11/excavator-claims-nehemiah-wall-found-in/", "kind": "News report", "status": "second-hand", "answers": "What was claimed, and on what evidence?", "read": "Not opened; known through search results summarising the report and Finkelstein's reply. Her own publication was not located." },
+    { "id": "finkelstein-2008", "title": "Israel Finkelstein, “Jerusalem in the Persian (and Early Hellenistic) Period and the Wall of Nehemiah”, Journal for the Study of the Old Testament 32 (2008), 501-520", "url": "https://doi.org/10.1177/0309089208093928", "kind": "Article, 2008", "status": "located", "answers": "How large was Persian Jerusalem, and was it walled?", "read": "Located, not read. Its argument is known through search results and through Wikipedia's report of his later article in Revue Biblique (2010)." },
+    { "id": "josephus", "title": "Flavius Josephus, Antiquities of the Jews 11.1.2, tr. William Whiston, on LacusCurtius (penelope.uchicago.edu)", "url": "https://penelope.uchicago.edu/josephus/ant-11.html", "kind": "Ancient historian, translation 1737 · public domain", "status": "part", "answers": "Where does the story of Cyrus reading Isaiah come from?", "read": "The sentence quoted, returned by the same tool from book 11, chapter 1, section 2." },
+    { "id": "bickerman-1946", "title": "Elias J. Bickerman, “The Edict of Cyrus in Ezra 1”, Journal of Biblical Literature 65 (1946), 249-275", "url": "https://www.jstor.org/action/doBasicSearch?Query=%22The+Edict+of+Cyrus+in+Ezra+1%22", "kind": "Article, 1946", "status": "located", "answers": "Can the Hebrew and Aramaic forms of the decree both be genuine?", "read": "Not read. Named from this study's knowledge of the field; its volume and pages must be confirmed against the journal before a page cites them." },
+    { "id": "williamson-1985", "title": "H. G. M. Williamson, Ezra, Nehemiah, Word Biblical Commentary 16 (1985)", "url": "https://www.google.com/search?tbm=bks&q=Williamson+Ezra+Nehemiah+Word+Biblical+Commentary", "kind": "Commentary · under copyright", "status": "located", "answers": "A full commentary on the books' documents, order and dates.", "read": "Located, not read. The first place to go on Ezra and Nehemiah." },
+    { "id": "van-hoonacker", "title": "Albin van Hoonacker, his studies of the order of Ezra and Nehemiah (from 1890)", "url": "https://www.google.com/search?tbm=bks&q=van+Hoonacker+N%C3%A9h%C3%A9mie+et+Esdras", "kind": "Studies, in French", "status": "located", "answers": "Where does the late date for Ezra come from?", "read": "Not read, and not located by exact title in this job; named as the usual starting point of that view. The exact work must be identified before a page cites it." },
+    { "id": "frei", "title": "Peter Frei, his theory of Persian imperial authorisation of local law (from 1984)", "url": "https://www.google.com/search?tbm=bks&q=Peter+Frei+Reichsautorisation", "kind": "Studies, in German", "status": "located", "answers": "Did Persian authorisation shape the Torah's final form?", "read": "Not read, and not located by exact title in this job; named as the usual source of that view. The exact work must be identified before a page cites it." },
+    { "id": "oswalt-1998", "title": "John N. Oswalt, The Book of Isaiah, Chapters 40-66, New International Commentary on the Old Testament (1998)", "url": "https://www.eerdmans.com/", "kind": "Commentary · under copyright", "status": "located", "answers": "The case for one Isaiah, and for Cyrus named in prophecy.", "read": "Located, not read." },
+    { "id": "blenkinsopp-2002", "title": "Joseph Blenkinsopp, Isaiah 40-55, Anchor Bible 19A (2002)", "url": "https://www.google.com/search?tbm=bks&q=Blenkinsopp+Isaiah+40-55+Anchor+Bible", "kind": "Commentary · under copyright", "status": "located", "answers": "The critical case for an exilic prophet.", "read": "Located, not read." },
+    { "id": "wiki-return", "title": "“Return to Zion”, Wikipedia", "url": "https://en.wikipedia.org/wiki/Return_to_Zion", "kind": "Encyclopedia", "status": "part", "answers": "What historians think of the decrees and of the return's size.", "read": "Read through the same tool. The route to Grabbe's view. Its own figures conflict in one place; only named scholars' figures are used." }
+  ],
+  "pictures": [
+    { "id": "transcription", "status": "candidate, not downloaded", "file": "Barrel_cylinder_of_Cyrus_(transcription).jpg", "alt": "A printed page of cuneiform signs in numbered lines, a nineteenth-century scholar's copy of the cylinder's text.", "credit": "Copy of the Cyrus Cylinder's text by T. G. Pinches, via Wikimedia Commons", "licence": "Public domain", "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/", "href": "https://commons.wikimedia.org/wiki/File:Barrel_cylinder_of_Cyrus_(transcription).jpg", "note": "For section 01 only, small. The earlier studies already show the object; a scholar's copy is a different view of it. The file page dates it 1905; the publication should be confirmed." },
+    { "id": "cylinder", "status": "candidate, not downloaded", "file": "Cyrus_Cylinder_front.jpg", "alt": "A barrel-shaped clay cylinder lying on its side, covered in close lines of wedge-shaped writing, with a broken patch along one side.", "credit": "The Cyrus Cylinder, British Museum 90920, photograph by Prioryman, 2012, via Wikimedia Commons", "licence": "CC BY-SA 3.0 (or GFDL)", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "href": "https://commons.wikimedia.org/wiki/File:Cyrus_Cylinder_front.jpg", "note": "An alternative for section 01 if the owner prefers the object to the copy. Licence read through a tool on 2026-11-05; recheck before download." },
+    { "id": "stamp", "status": "to find", "alt": "A jar handle with a small round or oval stamp reading yhwd or yhd.", "credit": "Not chosen yet", "licence": "Not checked", "note": "Wanted for section 04. No openly licensed photograph was checked in this job. Places to look: Wikimedia Commons, the Tel Aviv University Ramat Raḥel project, and the Israel Antiquities Authority's open collections." },
+    { "id": "coin", "status": "to find", "alt": "A tiny silver coin with an owl on one side and the letters YHD.", "credit": "Not chosen yet", "licence": "Not checked", "note": "Wanted for section 04. Commons holds photographs of Yehud coins under various licences; none was opened in this job." },
+    { "id": "tomb", "status": "candidate, not downloaded", "file": "Tomb_of_Cyrus,_Pasargadae,_the_first_capital_of_the_Achaemenid_Empire,_Iran_(48835820946).jpg", "alt": "A plain stone tomb with a gabled roof on six stepped stone platforms, in open country.", "credit": "Tomb of Cyrus, Pasargadae, photograph by Carole Raddato, 2019, via Wikimedia Commons", "licence": "CC BY-SA 2.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/", "href": "https://commons.wikimedia.org/wiki/File:Tomb_of_Cyrus,_Pasargadae,_the_first_capital_of_the_Achaemenid_Empire,_Iran_(48835820946).jpg", "note": "Optional. Licence from a search result's report of the file page; recheck before download." }
+  ],
+  "verses": [
+    { "label": "Ezra 1:1", "code": "EZR", "chapter": 1, "verse": 1, "phrase": "the LORD stirred the spirit of Cyrus king of Persia" },
+    { "label": "Ezra 1:2", "code": "EZR", "chapter": 1, "verse": 2, "phrase": "who has given me all the kingdoms of the earth" },
+    { "label": "Ezra 1:3", "code": "EZR", "chapter": 1, "verse": 3, "phrase": "Whoever among you belongs to His people" },
+    { "label": "Ezra 1:4", "code": "EZR", "chapter": 1, "verse": 4, "phrase": "silver, gold, goods, and livestock" },
+    { "label": "Ezra 1:5", "code": "EZR", "chapter": 1, "verse": 5, "phrase": "everyone whose spirit God had stirred" },
+    { "label": "Ezra 1:6", "code": "EZR", "chapter": 1, "verse": 6, "phrase": "all their neighbors supported them" },
+    { "label": "Ezra 1:8", "code": "EZR", "chapter": 1, "verse": 8, "phrase": "Sheshbazzar the prince of Judah" },
+    { "label": "Ezra 1:9", "code": "EZR", "chapter": 1, "verse": 9, "phrase": "30 gold dishes" },
+    { "label": "Ezra 1:10", "code": "EZR", "chapter": 1, "verse": 10, "phrase": "410 matching silver bowls" },
+    { "label": "Ezra 1:11", "code": "EZR", "chapter": 1, "verse": 11, "phrase": "5,400 gold and silver articles" },
+    { "label": "Ezra 2:1", "code": "EZR", "chapter": 2, "verse": 1, "phrase": "came up from the captivity" },
+    { "label": "Ezra 2:64", "code": "EZR", "chapter": 2, "verse": 64, "phrase": "The whole assembly numbered 42,360" },
+    { "label": "Ezra 3:1", "code": "EZR", "chapter": 3, "verse": 1, "phrase": "By the seventh month" },
+    { "label": "Ezra 3:2", "code": "EZR", "chapter": 3, "verse": 2, "phrase": "as it is written in the Law of Moses" },
+    { "label": "Ezra 3:3", "code": "EZR", "chapter": 3, "verse": 3, "phrase": "even though they feared the people of the land" },
+    { "label": "Ezra 3:8", "code": "EZR", "chapter": 3, "verse": 8, "phrase": "the second month of the second year after they had arrived" },
+    { "label": "Ezra 3:12", "code": "EZR", "chapter": 3, "verse": 12, "phrase": "wept loudly" },
+    { "label": "Ezra 4:1", "code": "EZR", "chapter": 4, "verse": 1, "phrase": "the enemies of Judah and Benjamin" },
+    { "label": "Ezra 4:2", "code": "EZR", "chapter": 4, "verse": 2, "phrase": "since the time of King Esar-haddon of Assyria, who brought us here" },
+    { "label": "Ezra 4:3", "code": "EZR", "chapter": 4, "verse": 3, "phrase": "You have no part with us" },
+    { "label": "Ezra 4:4", "code": "EZR", "chapter": 4, "verse": 4, "phrase": "make them afraid to build" },
+    { "label": "Ezra 4:5", "code": "EZR", "chapter": 4, "verse": 5, "phrase": "down to the reign of Darius" },
+    { "label": "Ezra 4:7", "code": "EZR", "chapter": 4, "verse": 7, "phrase": "written in Aramaic" },
+    { "label": "Ezra 4:12", "code": "EZR", "chapter": 4, "verse": 12, "phrase": "rebuilding that rebellious and wicked city, restoring its walls" },
+    { "label": "Ezra 4:24", "code": "EZR", "chapter": 4, "verse": 24, "phrase": "until the second year of the reign of Darius king of Persia" },
+    { "label": "Ezra 5:8", "code": "EZR", "chapter": 5, "verse": 8, "phrase": "the province of Judah" },
+    { "label": "Ezra 5:13", "code": "EZR", "chapter": 5, "verse": 13, "phrase": "Cyrus king of Babylon" },
+    { "label": "Ezra 5:14", "code": "EZR", "chapter": 5, "verse": 14, "phrase": "which Nebuchadnezzar had taken" },
+    { "label": "Ezra 5:15", "code": "EZR", "chapter": 5, "verse": 15, "phrase": "let the house of God be rebuilt on its original site" },
+    { "label": "Ezra 5:16", "code": "EZR", "chapter": 5, "verse": 16, "phrase": "laid the foundation of the house of God in Jerusalem" },
+    { "label": "Ezra 5:17", "code": "EZR", "chapter": 5, "verse": 17, "phrase": "royal archives in Babylon" },
+    { "label": "Ezra 6:2", "code": "EZR", "chapter": 6, "verse": 2, "phrase": "the fortress of Ecbatana, in the province of Media" },
+    { "label": "Ezra 6:3", "code": "EZR", "chapter": 6, "verse": 3, "phrase": "sixty cubits high and sixty cubits wide" },
+    { "label": "Ezra 6:4", "code": "EZR", "chapter": 6, "verse": 4, "phrase": "The costs are to be paid from the royal treasury" },
+    { "label": "Ezra 6:5", "code": "EZR", "chapter": 6, "verse": 5, "phrase": "returned to the temple in Jerusalem" },
+    { "label": "Ezra 6:13", "code": "EZR", "chapter": 6, "verse": 13, "phrase": "diligently carried out what King Darius had decreed" },
+    { "label": "Ezra 6:14", "code": "EZR", "chapter": 6, "verse": 14, "phrase": "the decrees of Cyrus, Darius, and Artaxerxes, kings of Persia" },
+    { "label": "Ezra 6:15", "code": "EZR", "chapter": 6, "verse": 15, "phrase": "in the sixth year of the reign of King Darius" },
+    { "label": "Ezra 6:22", "code": "EZR", "chapter": 6, "verse": 22, "phrase": "the king of Assyria" },
+    { "label": "Ezra 7:6", "code": "EZR", "chapter": 7, "verse": 6, "phrase": "a scribe skilled in the Law of Moses" },
+    { "label": "Ezra 7:7", "code": "EZR", "chapter": 7, "verse": 7, "phrase": "in the seventh year of King Artaxerxes" },
+    { "label": "Ezra 7:10", "code": "EZR", "chapter": 7, "verse": 10, "phrase": "to study the Law of the LORD, to practice it, and to teach" },
+    { "label": "Ezra 7:25", "code": "EZR", "chapter": 7, "verse": 25, "phrase": "all who know the laws of your God" },
+    { "label": "Ezra 7:26", "code": "EZR", "chapter": 7, "verse": 26, "phrase": "the law of your God and the law of the king" },
+    { "label": "Ezra 8:1", "code": "EZR", "chapter": 8, "verse": 1, "phrase": "from Babylon during the reign of King Artaxerxes" },
+    { "label": "Nehemiah 1:2", "code": "NEH", "chapter": 1, "verse": 2, "phrase": "the remnant of the Jews who had survived the exile" },
+    { "label": "Nehemiah 1:3", "code": "NEH", "chapter": 1, "verse": 3, "phrase": "in great trouble and disgrace" },
+    { "label": "Nehemiah 2:1", "code": "NEH", "chapter": 2, "verse": 1, "phrase": "in the twentieth year of King Artaxerxes" },
+    { "label": "Nehemiah 2:19", "code": "NEH", "chapter": 2, "verse": 19, "phrase": "Sanballat the Horonite, Tobiah the Ammonite official, and Geshem the Arab" },
+    { "label": "Nehemiah 4:17", "code": "NEH", "chapter": 4, "verse": 17, "phrase": "held a weapon with the other" },
+    { "label": "Nehemiah 6:15", "code": "NEH", "chapter": 6, "verse": 15, "phrase": "the wall was completed in fifty-two days" },
+    { "label": "Nehemiah 7:5", "code": "NEH", "chapter": 7, "verse": 5, "phrase": "the genealogical register of those who had first returned" },
+    { "label": "Nehemiah 7:66", "code": "NEH", "chapter": 7, "verse": 66, "phrase": "The whole assembly numbered 42,360" },
+    { "label": "Nehemiah 8:1", "code": "NEH", "chapter": 8, "verse": 1, "phrase": "the Book of the Law of Moses" },
+    { "label": "Nehemiah 8:2", "code": "NEH", "chapter": 8, "verse": 2, "phrase": "the first day of the seventh month" },
+    { "label": "Nehemiah 8:8", "code": "NEH", "chapter": 8, "verse": 8, "phrase": "explaining it and giving insight" },
+    { "label": "Nehemiah 8:9", "code": "NEH", "chapter": 8, "verse": 9, "phrase": "Nehemiah the governor, Ezra the priest and scribe" },
+    { "label": "Nehemiah 13:6", "code": "NEH", "chapter": 13, "verse": 6, "phrase": "in the thirty-second year of his reign" },
+    { "label": "Haggai 1:1", "code": "HAG", "chapter": 1, "verse": 1, "phrase": "In the second year of the reign of Darius" },
+    { "label": "Haggai 1:2", "code": "HAG", "chapter": 1, "verse": 2, "phrase": "The time has not yet come to rebuild the house of the LORD" },
+    { "label": "Haggai 1:14", "code": "HAG", "chapter": 1, "verse": 14, "phrase": "the LORD stirred the spirit of Zerubbabel" },
+    { "label": "Haggai 2:3", "code": "HAG", "chapter": 2, "verse": 3, "phrase": "Who is left among you who saw this house in its former glory?" },
+    { "label": "Haggai 2:9", "code": "HAG", "chapter": 2, "verse": 9, "phrase": "The latter glory of this house will be greater than the former" },
+    { "label": "Haggai 2:23", "code": "HAG", "chapter": 2, "verse": 23, "phrase": "I will make you like My signet ring" },
+    { "label": "Zechariah 2:7", "code": "ZEC", "chapter": 2, "verse": 7, "phrase": "Escape, you who dwell with the Daughter of Babylon!" },
+    { "label": "Zechariah 4:9", "code": "ZEC", "chapter": 4, "verse": 9, "phrase": "The hands of Zerubbabel have laid the foundation of this house" },
+    { "label": "Zechariah 4:10", "code": "ZEC", "chapter": 4, "verse": 10, "phrase": "who has despised the day of small things?" },
+    { "label": "Zechariah 6:10", "code": "ZEC", "chapter": 6, "verse": 10, "phrase": "who have arrived from Babylon" },
+    { "label": "Esther 2:5", "code": "EST", "chapter": 2, "verse": 5, "phrase": "at the citadel of Susa" },
+    { "label": "Daniel 1:21", "code": "DAN", "chapter": 1, "verse": 21, "phrase": "remained there until the first year of King Cyrus" },
+    { "label": "Daniel 9:25", "code": "DAN", "chapter": 9, "verse": 25, "phrase": "the issuance of the decree to restore and rebuild Jerusalem" },
+    { "label": "Daniel 10:1", "code": "DAN", "chapter": 10, "verse": 1, "phrase": "In the third year of Cyrus king of Persia" },
+    { "label": "Jeremiah 29:10", "code": "JER", "chapter": 29, "verse": 10, "phrase": "When Babylon’s seventy years are complete" },
+    { "label": "2 Chronicles 36:23", "code": "2CH", "chapter": 36, "verse": 23, "phrase": "may the LORD his God be with him, and may he go up" },
+    { "label": "Isaiah 1:1", "code": "ISA", "chapter": 1, "verse": 1, "phrase": "Isaiah son of Amoz" },
+    { "label": "Isaiah 44:26", "code": "ISA", "chapter": 44, "verse": 26, "phrase": "confirms the message of His servant" },
+    { "label": "Isaiah 44:28", "code": "ISA", "chapter": 44, "verse": 28, "phrase": "My shepherd will fulfill all that I desire" },
+    { "label": "Isaiah 45:1", "code": "ISA", "chapter": 45, "verse": 1, "phrase": "Cyrus His anointed" },
+    { "label": "Isaiah 45:4", "code": "ISA", "chapter": 45, "verse": 4, "phrase": "though you have not known Me" },
+    { "label": "Isaiah 45:13", "code": "ISA", "chapter": 45, "verse": 13, "phrase": "He will rebuild My city and set My exiles free, but not for payment or reward" },
+    { "label": "Matthew 3:3", "code": "MAT", "chapter": 3, "verse": 3, "phrase": "spoken of through the prophet Isaiah" }
+  ]
+}
