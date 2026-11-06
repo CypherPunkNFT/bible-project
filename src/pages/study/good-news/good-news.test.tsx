@@ -1,5 +1,5 @@
 // The good news page draws, every verse link it can show has its text, a verse opens in the sheet and closes again, and
-// the home page's fifth start choice leads here.
+// the home page's first start choice leads here.
 import { afterEach, describe, expect, it } from "vitest";
 import { cleanup, fireEvent, render, within } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
@@ -58,10 +58,13 @@ describe("the good news page", () => {
 });
 
 describe("the home page's start box", () => {
-  it("has a fifth choice that leads to the good news", () => {
+  it("opens with the choice that leads to the good news, numbered 01", () => {
     const screen = render(<MemoryRouter><HomeGuide onChoose={() => undefined} layout="side" /></MemoryRouter>);
     const link = screen.getByRole("link", { name: /I'm not a Christian, or I'm not sure/ });
     expect(link.getAttribute("href")).toBe("/study/the-good-news");
+    const choices = [...screen.container.querySelectorAll(".home-guide-path")];
+    expect(choices[0]).toBe(link);
+    expect(choices.map((c) => c.querySelector(".home-guide-number")?.textContent)).toEqual(["01", "02", "03", "04", "05"]);
     expect(screen.getAllByRole("button").filter((b) => b.classList.contains("home-guide-path"))).toHaveLength(4);
   });
 });

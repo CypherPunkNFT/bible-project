@@ -11,25 +11,25 @@ import "../contact/contact.css";
 import { ConvictionsLongDrawing, GLORY_TEXT } from "./ConvictionsLongDrawing";
 import "./home-guide.css";
 
-/** Each answer either glides the home page down to its numbered part, or (the fifth) opens a page of its own. */
+/** Each answer either glides the home page down to its numbered part, or (the first) opens a page of its own. */
 interface StartPath { part?: number; to?: string; number: string; tone: string; who: string; text: string; steps: string[] }
 
 const PATHS: StartPath[] = [
-  { part: 0, number: "01", tone: "epistles", who: "I'm new to the faith",
-    text: "Start with the story itself. Read it a book at a time, in the version you understand best, and let it speak for itself.",
-    steps: ["Begin with the Gospel of John", "Listen to a chapter read aloud", "Pick up where you stopped, any time"] },
-  { part: 1, number: "02", tone: "gospels", who: "I believe, and want to go deeper",
-    text: "Take a passage further: its words in the original languages, the places it happened, and what the Church has said about it.",
-    steps: ["Follow a verse's cross-references", "See the places on the map", "Read the teachers on a passage"] },
-  { part: 2, number: "03", tone: "prophets", who: "I want to defend what I believe",
-    text: "The hard questions, the debates and the evidence, so you can give a reason for the hope that is in you, with gentleness.",
-    steps: ["Who is Jesus?", "Can I trust Scripture?", "Hear both sides of the great debates"] },
-  { part: 3, number: "04", tone: "resource-life", who: "I need help, or company",
-    text: "Fellowship, help for life's hard seasons, and learning materials, for when faith needs company more than answers.",
-    steps: ["Find a church or a group near you", "Help for grief, fear and struggle", "Courses and reading plans"] },
-  { to: "/study/the-good-news", number: "05", tone: "acts", who: "I'm not a Christian, or I'm not sure",
+  { to: "/study/the-good-news", number: "01", tone: "acts", who: "I'm not a Christian, or I'm not sure",
     text: "Read what Christians call the good news: who God is, what went wrong, what Jesus did, and how a person is made right with God.",
     steps: ["Three stories Jesus told about the lost", "What it means to turn and trust", "Honest answers to six hard questions"] },
+  { part: 0, number: "02", tone: "epistles", who: "I'm new to the faith",
+    text: "Start with the story itself. Read it a book at a time, in the version you understand best, and let it speak for itself.",
+    steps: ["Begin with the Gospel of John", "Listen to a chapter read aloud", "Pick up where you stopped, any time"] },
+  { part: 1, number: "03", tone: "gospels", who: "I believe, and want to go deeper",
+    text: "Take a passage further: its words in the original languages, the places it happened, and what the Church has said about it.",
+    steps: ["Follow a verse's cross-references", "See the places on the map", "Read the teachers on a passage"] },
+  { part: 2, number: "04", tone: "prophets", who: "I want to defend what I believe",
+    text: "The hard questions, the debates and the evidence, so you can give a reason for the hope that is in you, with gentleness.",
+    steps: ["Who is Jesus?", "Can I trust Scripture?", "Hear both sides of the great debates"] },
+  { part: 3, number: "05", tone: "resource-life", who: "I need help, or company",
+    text: "Fellowship, help for life's hard seasons, and learning materials, for when faith needs company more than answers.",
+    steps: ["Find a church or a group near you", "Help for grief, fear and struggle", "Courses and reading plans"] },
 ];
 
 function Story() {
