@@ -64,6 +64,18 @@ collector skips the text and how to register it; text no reader sees, or English
 `python -m pytest content/translation/test_english_build_check.py -q`. The quick release passes `--since <live commit>`
 and judges only what the picked commits add. Design and record: SiteTranslation/system/HANDOFF.md, stage 4.
 
+The same check runs five language nets ([build_nets.py](build_nets.py), which hands the source files to
+[language_nets.mjs](language_nets.mjs) and the TypeScript compiler), each with its own section in the baseline:
+**pieced**, sentences built from pieces around values (`{d} of {t} debates`, `"Page " + n`), which a translator cannot
+reorder; **plural**, hand-written plurals (`n === 1 ? "book" : "books"`, or a helper called with both forms); **format**,
+numbers and dates fixed to one language (`toLocaleString("en-US")`) or left to the browser's own language; **title**, tab
+titles and page descriptions not in the phrase lists (including the route titles in `page-head.ts`); and **data**, data
+folders the pages read that are missing from `TRANSLATED_DATA` in `language.ts`, or listed there with no translated
+copy. Findings are keyed by the shape of the code, with names written as `{n}`, so a rename or reformat is not new.
+Section growth needs a widening that names the section; `--add-sections REASON` adds a missing section once. A ruling
+for a net (`"check": "pieced" | "plural" | "format" | "title" | "data"`) needs the `file` it applies to. Together about
+8.5 seconds. Tests: `python -m pytest content/translation/test_build_nets.py -q` (needs node).
+
 ## The pilot (2026-10-31)
 
 [pilot/](pilot/) compared Haiku with the local model (HyperQwen) on 50 real items from every part of the site, in both

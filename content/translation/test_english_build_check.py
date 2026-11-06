@@ -52,14 +52,19 @@ def baseline(code: dict | None = None, reading: list | None = None, widenings: l
 
 @pytest.fixture
 def site(tmp_path: Path) -> Path:
-    """A made-up site: one page, the two data files the collector reads, a phrase list per language, an empty baseline
-    and no rulings, committed."""
+    """A made-up site: one page, the two data files the collector reads, a phrase list per language, the page-head
+    rules and TRANSLATED_DATA the language nets read (one listed folder, translated everywhere), an empty baseline and
+    no rulings, committed."""
     root = tmp_path / "site"
     write(root, PAGE, CLEAN)
     write(root, "src/data/resources/life.json", '{"cities": []}')
     write(root, "content/apologetics/transcripts/index.json", "{}")
+    write(root, "src/lib/page-head.ts", 'export const SITE_NAME = "Bible Guide";\n')
+    write(root, "src/lib/language.ts", 'const TRANSLATED_DATA = ["topics/"];\nexport const listed = TRANSLATED_DATA;\n')
+    write(root, "data/topics/chapters/1.json", "{}")
     for folder in site_languages.folders():
-        write(root, f"data/i18n/{folder}/ui.json", '{"Known heading": "x"}')
+        write(root, f"data/i18n/{folder}/ui.json", '{"Known heading": "x", "Bible Guide": "x"}')
+        write(root, f"data/i18n/{folder}/topics/chapters/1.json", "{}")
     write(root, english_build_check.RULINGS, "[]")
     write(root, BASELINE, baseline())
     git(root, "init", "-q")
@@ -186,7 +191,7 @@ def test_the_release_path_judges_only_what_the_picked_commits_add(site: Path) ->
 def test_growth_rule_counts_each_added_place() -> None:
     old = {"about": [], "widenings": [], "code": {"A": 1}, "reading": ["R"]}
     new = {"about": [], "widenings": [], "code": {"A": 2, "B": 1}, "reading": ["R", "S"]}
-    assert english_baseline.growth(old, new, "x")[0] == "x: 3 more than before, 0 recorded in widenings"
+    assert english_baseline.growth(old, new, "x")[0] == "x, code: 3 more than before, 0 recorded in widenings"
     assert english_baseline.growth(new, old, "x") == []
 
 

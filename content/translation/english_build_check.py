@@ -9,18 +9,25 @@ times the text occurs, so a second copy of a known label is caught and a moved f
 
 The baseline may only shrink. Every run refuses a working baseline that holds more than the committed one, and a
 committed one that holds more than the version before it, unless the growth is recorded in its "widenings" list with
-a reason and the exact number added (for a later stage that widens the net).
+a reason, the section and the exact number added (for a later stage that widens the net).
+
+Stage 4 job 9 added five language nets against the same baseline (build_nets.py): sentences built from pieces,
+hand-written plurals, number and date formats fixed to one language or left to the browser, tab titles and
+descriptions written in the code, and data the site reads untranslated.
 
   python content/translation/english_build_check.py                    check this Website folder
   python content/translation/english_build_check.py --root DIR --since COMMIT
                                      check a release tree: only text the commits after COMMIT added (the quick release)
   python content/translation/english_build_check.py --shrink           drop what is no longer found (never adds)
   python content/translation/english_build_check.py --first-baseline   write the baseline, once
+  python content/translation/english_build_check.py --add-sections "REASON"
+                                     write each language-net section no version of the baseline ever held, once
 
 Exit: 0 nothing new; 1 new English, or a baseline that grew; 2 refused (a file it reads is not as expected);
 3 the check itself failed. Reads files only; costs nothing.
 """
 import argparse
+import datetime
 import re
 import subprocess
 import sys
@@ -30,11 +37,12 @@ from pathlib import Path
 
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import build_nets  # noqa: E402
 import english_baseline  # noqa: E402
 import extract  # noqa: E402
 import site_languages  # noqa: E402
 import unregistered  # noqa: E402
-from english_baseline import NotARepository, Refused, git, read_json  # noqa: E402
+from english_baseline import NETS, NotARepository, Refused, git, read_json  # noqa: E402
 
 MAIN = extract.SITE  # the Website folder this file is in
 HERE = Path(__file__).resolve().parent.relative_to(MAIN).as_posix()  # content/translation
@@ -155,8 +163,47 @@ class Site:
                 if not self.registered(text)]
 
     def all_findings(self) -> list[tuple[str, int, str, str]]:
-        return [found for relative, path in self.files.items()
-                for found in self.findings(relative, path.read_text("utf-8"))]
+        return [found for relative, text in self.contents().items() for found in self.findings(relative, text)]
+
+    def contents(self) -> dict[str, str]:
+        if not hasattr(self, "_contents"):
+            self._contents = {relative: path.read_text("utf-8") for relative, path in self.files.items()}
+        return self._contents
+
+
+def page_like(name: str) -> bool:
+    """A path the page code could hold (extract.page_files' rule), for a file that no longer exists."""
+    parts = set(name.split("/"))
+    return name.startswith("src/") and name.endswith((".ts", ".tsx")) and not ({"generated", "dev", "test", "mockup"} & parts) \
+        and ".test." not in name
+
+
+def old_versions(root: Path, since: str, names: list[str]) -> dict[str, str]:
+    """Each file as the commit `since` held it; a file it did not hold is left out."""
+    found = {}
+    for name in names:
+        old = subprocess.run(["git", "-C", str(root), "show", f"{since}:{name}"], capture_output=True, check=False)
+        if old.returncode == 0:
+            found[name] = old.stdout.decode("utf-8")
+    return found
+
+
+def nets_added_since(site: Site, root: Path, since: str, rulings) -> tuple[dict[str, Counter], list]:
+    """The language nets on a release tree: per key, how much more the commits after `since` hold. The code nets count
+    in the changed files, after against before; the data net judges the whole tree both ways (one disk, so only a change
+    to the code moves it)."""
+    changed = [name for name in git(root, "diff", "--name-only", "--no-renames", since, "HEAD").splitlines()
+               if name in site.files or page_like(name)]
+    before = old_versions(root, since, changed)
+    now, earlier = build_nets.judge(root, site.contents(), set(), rulings, before, set(changed))
+    if not changed:
+        return {net: Counter() for net in NETS}, now
+    scope = set(changed)
+    after_counts = build_nets.counted([f for f in now if f.net == "data" or f.file in scope])
+    before_counts = build_nets.counted([f for f in earlier if f.net == "data" or f.file in scope])
+    added = {net: Counter({key: count - before_counts[net][key] for key, count in after_counts[net].items()
+                           if count > before_counts[net][key]}) for net in NETS}
+    return added, now
 
 
 def unsaved(root: Path) -> set[str]:
@@ -200,15 +247,37 @@ def report_new(new: Counter, places: list, allowed: dict[str, int], uncommitted:
           '    {"check": "code", "item": "<the text>", "why": "<why it stays English>"}\n')
 
 
+def nets_against_baseline(site: Site, root: Path, baseline: dict, uncommitted: set[str], rulings):
+    """The language nets on this folder: per key, how far today's count passes what the baseline allows."""
+    now, _ = build_nets.judge(root, site.contents(), uncommitted, rulings)
+    counts = build_nets.counted(now)
+    new = {net: Counter({key: count - baseline[net].get(key, 0) for key, count in counts[net].items()
+                         if count > baseline[net].get(key, 0)}) for net in NETS}
+    return new, now, counts
+
+
+def recently_changed(root: Path) -> set[str]:
+    """Files changed since the baseline was last committed: where a new finding most likely is."""
+    try:
+        commit = git(root, "log", "-n", "1", "--format=%H", "--", BASELINE).strip()
+        return set(git(root, "diff", "--name-only", commit, "--", "src").splitlines()) if commit else set()
+    except NotARepository:
+        return set()
+
+
 def check(root: Path, since: str | None) -> int:
     started = time.monotonic()
     rulings = root / RULINGS if (root / RULINGS).exists() else MAIN / RULINGS
     site = Site(root, site_languages.folders(), rulings)
+    net_rulings = build_nets.net_rulings(rulings, root)
     if since:
         new, places = added_since(site, root, since)
         allowed, uncommitted = {}, set()
+        nets_new, net_places = nets_added_since(site, root, since, net_rulings)
+        nets_allowed, recent = {net: {} for net in NETS}, set()
         print(f"English check (release tree {root}, commits after {since[:9]}): {sum(new.values())} unregistered "
-              f"text(s) added, {time.monotonic() - started:.1f} s")
+              f"text(s) added; language nets: {', '.join(f'{net} {sum(nets_new[net].values())}' for net in NETS)} "
+              f"added; {time.monotonic() - started:.1f} s")
     else:
         baseline_path = root / BASELINE
         baseline, growth = english_baseline.load_checked(baseline_path, root, BASELINE)
@@ -219,14 +288,19 @@ def check(root: Path, since: str | None) -> int:
         new = Counter({text: count - allowed.get(text, 0) for text, count in found.items() if count > allowed.get(text, 0)})
         stale = sum(1 for text, count in baseline["code"].items() if found[text] < count)
         uncommitted = unsaved(root)
+        nets_new, net_places, counts = nets_against_baseline(site, root, baseline, uncommitted, net_rulings)
+        nets_allowed, recent = baseline, recently_changed(root)
         print(f"English check: {len(found)} unregistered text(s) in {len(site.files)} page files, {len(new)} new; "
               f"baseline {len(baseline['code'])} + {len(baseline['reading'])} from the browser reading, {stale} of them "
-              f"fixed since (run with --shrink to drop them); {time.monotonic() - started:.1f} s")
+              f"fixed since (run with --shrink to drop them); language nets (found / new): "
+              f"{', '.join(f'{net} {sum(counts[net].values())}/{sum(nets_new[net].values())}' for net in NETS)}; "
+              f"{time.monotonic() - started:.1f} s")
         if growth:
             print("\n".join(["", "THE BASELINE GREW; it may only shrink:"] + [f"  {line}" for line in growth]))
     if new:
         report_new(new, places, allowed, uncommitted)
-    return 1 if new or (not since and growth) else 0
+    build_nets.report(nets_new, net_places, nets_allowed, uncommitted, recent)
+    return 1 if new or any(nets_new.values()) or (not since and growth) else 0
 
 
 def shrink(root: Path) -> int:
@@ -239,9 +313,43 @@ def shrink(root: Path) -> int:
     site = Site(root, site_languages.folders(), root / RULINGS)
     found = Counter(text for _, _, text, _ in site.all_findings())
     smaller = english_baseline.shrunk(baseline, found, site.registered)
+    now, _ = build_nets.judge(root, site.contents(), set(), build_nets.net_rulings(root / RULINGS, root))
+    smaller = english_baseline.shrunk_nets(smaller, build_nets.counted(now))
     english_baseline.write(path, smaller)
     print(f"baseline: {len(baseline['code'])} -> {len(smaller['code'])} texts, "
-          f"{len(baseline['reading'])} -> {len(smaller['reading'])} from the browser reading")
+          f"{len(baseline['reading'])} -> {len(smaller['reading'])} from the browser reading; "
+          + ", ".join(f"{net} {len(baseline[net])} -> {len(smaller[net])}" for net in NETS))
+    return 0
+
+
+def add_sections(root: Path, reason: str) -> int:
+    """Each language-net section no version of the baseline ever held, from today's findings, with a widening per
+    section that records the exact number added, so the growth guard accepts it once and never again."""
+    if not reason.strip():
+        raise Refused("--add-sections needs the reason it widens the baseline")
+    if pending := {name for name in unsaved(root) if not name.startswith("src/pages/mockup/")}:
+        raise Refused("page files have unsaved changes (perhaps another chat's), which would enter the baseline: "
+                      + ", ".join(sorted(pending)[:10]))
+    path = root / BASELINE
+    baseline, growth = english_baseline.load_checked(path, root, BASELINE)
+    if growth:
+        raise Refused("the baseline has grown without a widening; put that right first:\n" + "\n".join(growth))
+    held = set().union(*[english_baseline.committed(root, BASELINE, commit, commit)["present"] for commit in
+                         git(root, "log", "--format=%H", "--", BASELINE).split()])
+    missing = [net for net in NETS if net not in baseline["present"] | held]
+    if not missing:
+        raise Refused(f"every section ({', '.join(NETS)}) is or was in the baseline; a section is written once")
+    site = Site(root, site_languages.folders(), root / RULINGS)
+    now, _ = build_nets.judge(root, site.contents(), set(), build_nets.net_rulings(root / RULINGS, root))
+    counts = build_nets.counted(now)
+    today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+    for net in missing:
+        baseline[net] = dict(counts[net])
+        if counts[net]:
+            baseline["widenings"].append({"date": today, "reason": reason, "added": sum(counts[net].values()), "section": net})
+    baseline["present"] = baseline["present"] | set(missing)
+    english_baseline.write(path, baseline)
+    print("sections added: " + ", ".join(f"{net} ({len(counts[net])} keys, {sum(counts[net].values())} places)" for net in missing))
     return 0
 
 
@@ -265,10 +373,13 @@ def main() -> int:
     action = parser.add_mutually_exclusive_group()
     action.add_argument("--shrink", action="store_true", help="drop baseline texts no longer found; never adds")
     action.add_argument("--first-baseline", action="store_true", help="write the baseline if there is none")
+    action.add_argument("--add-sections", metavar="REASON", help="write the language-net sections the baseline never held")
     args = parser.parse_args()
     try:
         if args.shrink:
             return shrink(args.root)
+        if args.add_sections is not None:
+            return add_sections(args.root, args.add_sections)
         if args.first_baseline:
             return first_baseline(args.root)
         return check(args.root, args.since)

@@ -2,9 +2,12 @@
 the rulings file it honours. No site reading here, so each rule can be tested on its own.
 
 The file: {"about": [...], "widenings": [{"date", "reason", "added"}], "code": {text: times it occurs},
-"reading": [text, ...]}. "code" is what the check's own net found when the baseline was written; "reading" is English
-the browser reading of the made-up languages traced to page code (stage 3, job 6) that this net does not see, kept so
-a wider net later does not block on it.
+"reading": [text, ...], and one {key: count} per language net (NETS)}. "code" is what the check's own net found when
+the baseline was written; "reading" is English the browser reading of the made-up languages traced to page code (stage
+3, job 6) that this net does not see, kept so a wider net later does not block on it. The language nets (stage 4, job
+9; build_nets.py) are sentences built from pieces, hand-written plurals, fixed or browser-default formats, tab titles
+and descriptions, and data the site reads untranslated. A widening names its "section"; one without counts for "code"
+and "reading".
 """
 import json
 import subprocess
@@ -20,6 +23,10 @@ ABOUT = [
     ("It may only shrink: run `python content/translation/english_build_check.py --shrink` after registering text. "
      "Growth is refused unless a new entry in widenings records the reason and the exact number added."),
 ]
+
+
+NETS = ("pieced", "plural", "format", "title", "data")
+COUNTED = ("code",) + NETS
 
 
 class Refused(RuntimeError):
@@ -76,47 +83,56 @@ def rulings(path: Path, root: Path) -> tuple[set[str], set[str]]:
 
 
 def validated(data, where: str) -> dict:
+    """The baseline, checked; a language-net section an older commit lacks reads as empty, and "present" names the
+    sections the file itself holds."""
     def fail(what: str):
         raise Refused(f"{where}: expected {what}")
-    if not isinstance(data, dict) or set(data) != {"about", "widenings", "code", "reading"}:
-        fail(f"an object with about, widenings, code and reading; got {sorted(data) if isinstance(data, dict) else data!r}")
-    if not isinstance(data["code"], dict) or not all(isinstance(text, str) and type(count) is int and count >= 1
-                                                     for text, count in data["code"].items()):
-        fail("code to map each text to a count of 1 or more")
+    required = {"about", "widenings", "code", "reading"}
+    if not isinstance(data, dict) or not required <= set(data) <= required | set(NETS):
+        fail(f"an object with about, widenings, code and reading, and optionally {', '.join(NETS)}; "
+             f"got {sorted(data) if isinstance(data, dict) else data!r}")
+    for section in COUNTED:
+        if section in data and (not isinstance(data[section], dict) or not all(
+                isinstance(text, str) and type(count) is int and count >= 1 for text, count in data[section].items())):
+            fail(f"{section} to map each text to a count of 1 or more")
     if not isinstance(data["reading"], list) or not all(isinstance(text, str) for text in data["reading"]) \
             or len(set(data["reading"])) != len(data["reading"]):
         fail("reading to be a list of distinct texts")
     if not isinstance(data["widenings"], list) or not all(
             isinstance(item, dict) and isinstance(item.get("reason"), str) and item["reason"].strip()
             and type(item.get("added")) is int and item["added"] >= 1 and isinstance(item.get("date"), str)
-            for item in data["widenings"]):
-        fail('widenings to be a list of {"date", "reason", "added": a count of 1 or more}')
-    return data
+            and item.get("section", "code") in COUNTED for item in data["widenings"]):
+        fail('widenings to be a list of {"date", "reason", "added": a count of 1 or more, "section": optional, one of '
+             + ", ".join(COUNTED) + "}")
+    return {**{net: {} for net in NETS}, **data, "present": {net for net in NETS if net in data}}
 
 
-def added(old: dict, new: dict) -> list[str]:
-    """What new holds beyond old, one line per text."""
-    lines = [f'code "{text}": {old["code"].get(text, 0)} -> {count}' for text, count in new["code"].items()
-             if count > old["code"].get(text, 0)]
-    old_reading = set(old["reading"])
-    return lines + [f'reading "{text}": added' for text in new["reading"] if text not in old_reading]
+def added(old: dict, new: dict, section: str) -> tuple[int, list[str]]:
+    """How much more one section of new holds than old ("code" takes "reading" with it), and one line per text."""
+    before, after = old.get(section, {}), new.get(section, {})
+    grown = {text: count - before.get(text, 0) for text, count in after.items() if count > before.get(text, 0)}
+    lines = [f'{section} "{text}": {before.get(text, 0)} -> {after[text]}' for text in grown]
+    if section == "code":
+        old_reading = set(old["reading"])
+        reading = [text for text in new["reading"] if text not in old_reading]
+        return sum(grown.values()) + len(reading), lines + [f'reading "{text}": added' for text in reading]
+    return sum(grown.values()), lines
 
 
 def growth(old: dict, new: dict, label: str) -> list[str]:
-    """The growth from old to new that no new widening accounts for; empty if none."""
-    lines = added(old, new)
-    if not lines:
-        return []
-    count = sum(new["code"][text] - old["code"].get(text, 0) for text in new["code"]
-                if new["code"][text] > old["code"].get(text, 0)) + sum(text not in set(old["reading"]) for text in new["reading"])
-    recorded = sum(item["added"] for item in new["widenings"] if item not in old["widenings"])
-    if recorded == count:
-        return []
-    return [f"{label}: {count} more than before, {recorded} recorded in widenings"] + lines[:20] + \
-        ([f"... and {len(lines) - 20} more"] if len(lines) > 20 else [])
+    """The growth from old to new that no new widening for the same section accounts for; empty if none."""
+    found = []
+    for section in COUNTED:
+        count, lines = added(old, new, section)
+        recorded = sum(item["added"] for item in new["widenings"]
+                       if item not in old["widenings"] and item.get("section", "code") == section)
+        if recorded != count:
+            found += [f"{label}, {section}: {count} more than before, {recorded} recorded in widenings"] + lines[:20] + \
+                ([f"... and {len(lines) - 20} more"] if len(lines) > 20 else [])
+    return found
 
 
-EMPTY = {"about": [], "widenings": [], "code": {}, "reading": []}
+EMPTY = {"about": [], "widenings": [], "code": {}, "reading": [], **{net: {} for net in NETS}, "present": set()}
 
 
 def committed(root: Path, relative: str, commit: str, where: str) -> dict:
@@ -145,6 +161,8 @@ def load_checked(path: Path, root: Path, relative: str) -> tuple[dict, list[str]
         return working, []
     last = committed(root, relative, commits[0], f"{relative} at {commits[0][:9]}")
     found = growth(last, working, f"working copy against {commits[0][:9]}")
+    found += [f"working copy against {commits[0][:9]}: section {net} was dropped; it may only shrink, so empty it "
+              f"instead" for net in sorted(last["present"] - working["present"])]
     if len(commits) == 2:
         before = committed(root, relative, commits[1], f"{relative} at {commits[1][:9]}")
         found += growth(before, last, f"commit {commits[0][:9]} against {commits[1][:9]}")
@@ -159,8 +177,14 @@ def shrunk(baseline: dict, found: Counter, registered) -> dict:
     return {**baseline, "code": code, "reading": reading}
 
 
+def shrunk_nets(baseline: dict, found: dict[str, Counter]) -> dict:
+    """The language-net sections without what is gone, each key down to how often it is found now. Never adds."""
+    return {**baseline, **{net: {key: min(count, found[net][key]) for key, count in baseline[net].items() if found[net][key]}
+                           for net in NETS}}
+
+
 def fresh(found: Counter, reading: list[str]) -> dict:
-    return {"about": ABOUT, "widenings": [], "code": dict(found), "reading": reading}
+    return {"about": ABOUT, "widenings": [], "code": dict(found), "reading": reading, "present": set()}
 
 
 def job6_texts(by_cause: dict, causes: tuple[str, ...]) -> list[str]:
@@ -179,4 +203,5 @@ def write(path: Path, baseline: dict) -> None:
     """Sorted, one text per line, so a change reads as a short diff."""
     data = {"about": baseline["about"] or ABOUT, "widenings": baseline["widenings"],
             "code": dict(sorted(baseline["code"].items())), "reading": sorted(baseline["reading"])}
+    data.update({net: dict(sorted(baseline[net].items())) for net in NETS if net in baseline.get("present", set())})
     path.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", "utf-8", newline="\n")
