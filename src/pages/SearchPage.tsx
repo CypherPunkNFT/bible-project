@@ -3,7 +3,7 @@ import { Search } from "lucide-react";
 import { SearchLanding } from "@/components/search/SearchLanding";
 import { WordDistribution } from "@/components/search/WordDistribution";
 import { Marked, WordTabs } from "@/components/search/WordTabs";
-import { markExact, queryWords, verseCounts, versesWithWords } from "@/lib/search-words";
+import { markExact, queryWords, verseCounts, versesWithWords, wordsInLanguage } from "@/lib/search-words";
 import { MeaningBadge, PlacesSection, StudiesSection, TopicsSection, VersesSection } from "@/components/search/SearchSections";
 import { useMeaningResults } from "@/lib/meaning/useMeaningResults";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
@@ -15,6 +15,9 @@ import { highlightParts, makeMatcher, searchBooks, type Hit } from "@/lib/search
 import { sectionColor } from "@/lib/sections";
 import { formatNumber } from "@/lib/utils";
 import { plural } from "@/lib/site-format";
+import { searchBible, useSearchLanguage } from "@/lib/search-language";
+import { commonWords } from "@/lib/study-search-language";
+import { STUDIES } from "@/data/apologetics-studies";
 
 const PAGE = 100;
 type Plains = { code: string; plain: Record<string, string> }[];
@@ -26,7 +29,10 @@ type Plains = { code: string; plain: Record<string, string> }[];
 export default function SearchPage() {
   const catalog = useCatalog();
   const [params, setParams] = useSearchParams();
-  const slug = catalog.translations.some((t) => t.slug === params.get("in")) ? params.get("in")! : lastReadPath()?.split("/")[2] ?? "kjv";
+  // In another site language: studies and topics in its words, its own Bible for exact words, meaning search not run.
+  const language = useSearchLanguage();
+  const lastBible = lastReadPath()?.split("/")[2];
+  const slug = catalog.translations.some((t) => t.slug === params.get("in")) ? params.get("in")! : language ? searchBible(catalog.translations, language, lastBible) : lastBible ?? "kjv";
   const translation = catalog.translations.find((t) => t.slug === slug) ?? catalog.translations[0];
   const [draft, setDraft] = useState(params.get("q") ?? "");
   const [wholeWords, setWholeWords] = useState(params.get("whole") !== "0");
@@ -42,7 +48,7 @@ export default function SearchPage() {
   });
   const latestRun = useRef(0);
   const [submitted, setSubmitted] = useState(params.get("q") ?? "");
-  const meaning = useMeaningResults(submitted);
+  const meaning = useMeaningResults(language ? "" : submitted);
   const [shown, setShown] = useState(PAGE);
   // A book picked on the chart narrows the verse list to it.
   const [bookFilter, setBookFilter] = useState("");
@@ -95,7 +101,7 @@ export default function SearchPage() {
   const matcher = useMemo(() => makeMatcher(state.query, state.wholeWords), [state.query, state.wholeWords]);
   const resultTranslation = catalog.translations.find((t) => t.slug === state.slug) ?? translation;
   const resultBooks = catalog.books.filter((b) => resultTranslation.books[b.code]);
-  const { words, skipped } = useMemo(() => queryWords(submitted), [submitted]);
+  const { words, skipped } = useMemo(() => (language ? wordsInLanguage(submitted, language, commonWords(STUDIES, language)) : queryWords(submitted)), [submitted, language]);
   const focusWord = words.includes(focus) ? focus : "";
   const counts = useMemo(() => (state.status === "done" && words.length > 1 ? verseCounts(state.plains, words, state.wholeWords) : null), [state, words]);
   // Exact words: one picked word; else the phrase as typed; else, when no verse has the phrase, verses with the most of the words.
@@ -154,9 +160,9 @@ export default function SearchPage() {
       {submitted && words.length > 1 && <WordTabs words={words} skipped={skipped} counts={counts} focus={focusWord} onFocus={pickWord} />}
       {submitted && (
         <>
-          <TopicsSection words={sectionWords} />
-          <StudiesSection query={sectionQuery} meaning={meaning} words={words} />
-          {!focusWord && <VersesSection query={submitted} meaning={meaning} />}
+          <TopicsSection words={sectionWords} language={language} />
+          <StudiesSection query={sectionQuery} meaning={meaning} words={words} language={language} />
+          {!focusWord && <VersesSection query={submitted} meaning={meaning} language={language} />}
           <PlacesSection words={sectionWords} />
         </>
       )}

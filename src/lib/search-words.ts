@@ -1,5 +1,6 @@
 import { searchTerm } from "@/lib/apologetics-search";
 import { makeMatcher, type Hit } from "@/lib/search";
+import { foldWord, isHanWord, segmentsOf, type SearchLanguage } from "@/lib/search-language";
 
 /**
  * Breaking a search into its words: which ones are worth searching on, a colour for each, and how each one shows up
@@ -24,6 +25,35 @@ export function queryWords(query: string): QueryWords {
     words.push(word);
   }
   return { words, skipped };
+}
+
+/** queryWords in a language other than English: the language's own words (Chinese cut by the browser's word breaker),
+ * as typed, so the exact-words search reads them as written; those too common to search on (`common`, folded) skipped. */
+export function wordsInLanguage(query: string, language: SearchLanguage, common: Set<string>): QueryWords {
+  const words: string[] = [], skipped: string[] = [], seen = new Set<string>();
+  for (const segment of segmentsOf(query, language.code)) {
+    if (!segment.word) continue;
+    const word = segment.text.toLowerCase(), folded = foldWord(word);
+    if (!folded || common.has(folded) || (!isHanWord(folded) && [...folded].length < 2)) { if (!skipped.includes(word)) skipped.push(word); continue; }
+    if (seen.has(folded)) continue;
+    seen.add(folded);
+    words.push(word);
+  }
+  return { words, skipped };
+}
+
+/** Which of the words a word of text in a language matches: the same word, or one it starts (from four letters). */
+export function languageWordIndex(token: string, words: string[]): number {
+  const folded = foldWord(token);
+  return words.findIndex((word) => { const w = foldWord(word); return folded === w || (!isHanWord(w) && [...w].length >= 4 && folded.startsWith(w)); });
+}
+
+/** markByForm for text in a language: split by the language's word breaker, each word tagged with the search word it matches. */
+export function markInLanguage(text: string, words: string[], language: SearchLanguage): MarkedPart[] {
+  return segmentsOf(text, language.code).map((s) => {
+    const index = s.word ? languageWordIndex(s.text, words) : -1;
+    return { text: s.text, word: index < 0 ? null : index };
+  });
 }
 
 // The site's chart tones (src/index.css), so both themes work.

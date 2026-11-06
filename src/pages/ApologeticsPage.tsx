@@ -14,6 +14,7 @@ import { useApologeticsNotebook, type ApNotebook } from "@/lib/apologetics-noteb
 import { ApBack as Back, ApHeading as Heading, ApSectionHeading as SectionHeading, ApNote as Note, ApPassages, ApSearch, ApCitations, ApSourcePolicy, Constellation, PathCard, SourceLink, StudyCard, TopicArt } from "@/components/ApologeticsParts";
 import { AP_BASE as base, apColor as color, studyUrl } from "@/lib/apologetics-links";
 import { searchStudies, type StudyHit } from "@/lib/apologetics-search";
+import { useSearchLanguage } from "@/lib/search-language";
 import { MeaningPrompt } from "@/components/search/MeaningPrompt";
 import { preferMeaning } from "@/lib/meaning/store";
 import { useMeaningResults } from "@/lib/meaning/useMeaningResults";
@@ -70,16 +71,17 @@ function Hub({ book }: { book: ApNotebook }) {
 function QuestionLibrary({ book, topicId }: { book: ApNotebook; topicId?: string }) {
   const [params, setParams] = useSearchParams(), topic = topicId ? topicById(topicId) : undefined;
   const query = params.get("q") ?? "", filter = topic?.id ?? params.get("topic") ?? "all";
-  const search = searchStudies(STUDIES, query);
+  // In another site language the studies are searched in its words, and the English meaning model is not asked.
+  const language = useSearchLanguage(), search = searchStudies(STUDIES, query, language);
   // Meaning search (when switched on) ranks the studies for a real question; "?by=words" keeps the word search.
-  const meaning = useMeaningResults(query), question = preferMeaning(query), wordsOnly = params.get("by") === "words";
+  const meaning = useMeaningResults(language ? "" : query), question = !language && preferMeaning(query), wordsOnly = params.get("by") === "words";
   const byMeaning = question && !wordsOnly && meaning.status === "done" && !!meaning.results;
   const meaningHits: StudyHit[] = byMeaning ? meaning.results!.studies.slice(0, 8).flatMap((s) => { const study = studyById(s.id); return study ? [{ study, snippet: null }] : []; }) : [];
   const visible = (byMeaning ? meaningHits : search.hits).filter((hit) => filter === "all" || hit.study.topic === filter);
   const change = (key: string, value: string) => { const next = new URLSearchParams(params); if (value && value !== "all") next.set(key, value); else next.delete(key); setParams(next, { replace: true }); };
   return <><Heading eyebrow={topic ? "Explore a field" : "Questions / choose a field"} title={topic?.title ?? "Follow the question that brought you here."} lead={topic?.description ?? "Find a starting answer, follow the argument, test an objection and open the sources."} />{topic?.id === "reformed" && <ReformedDoor />}{!topic&&<section className="ap-question-fields"><p className="ap-eyebrow">Seven fields · one question library</p><div>{TOPICS.map((item,index)=><Link key={item.id} to={base+'/topics/'+item.id} style={color(item.color)}><span>0{index+1}</span><TopicArt index={index}/><strong>{item.title}</strong><small>{STUDIES.filter(study=>study.topic===item.id).length} connected studies</small><ArrowUpRight size={16}/></Link>)}</div><p>Choose a field, or search every study below. Reformed theology remains a field of questions, linked to its path and historic works.</p></section>}<div className="ap-filter-bar"><ApSearch value={query} onChange={(value) => change("q", value)} /><p role="status">{visible.length} {plural(visible.length, "study", "studies")}{byMeaning ? " · closest in meaning" : search.partial && visible.length > 0 && " · none has every word, so these have some"}</p></div>
     <MeaningPrompt query={query} className="ap-meaning-prompt" active={!query.trim() ? <span>Meaning search is on: ask a whole question and the studies are ranked by what you mean.</span> : !question ? <span>Meaning search is on: ask a whole question (three words or more) to rank by meaning.</span> : wordsOnly ? <button type="button" className="ap-text-button" onClick={() => change("by", "")}>Rank by meaning instead <ArrowRight size={13} /></button> : meaning.status === "loading" ? <span>Ranking the studies by meaning…</span> : <span>Ranked by meaning. <button type="button" className="ap-text-button" onClick={() => change("by", "words")}>Match the exact words instead</button></span>} />
-    {visible.length ? <div className="ap-study-grid">{visible.map((hit) => <StudyCard key={hit.study.id} study={hit.study} book={book} snippet={hit.snippet} />)}</div> : <div className="ap-empty"><Search size={26} /><h2>No studies match that search.</h2><p>Try a broader word or clear the filters.</p><button className="ap-button" onClick={() => setParams({})}>Clear search and filters</button></div>}
+    {visible.length ? <div className="ap-study-grid">{visible.map((hit) => <StudyCard key={hit.study.id} study={hit.study} book={book} snippet={hit.snippet} snippetLang={hit.snippetLang} />)}</div> : <div className="ap-empty"><Search size={26} /><h2>No studies match that search.</h2><p>Try a broader word or clear the filters.</p><button className="ap-button" onClick={() => setParams({})}>Clear search and filters</button></div>}
     {topic && <section className="ap-section"><SectionHeading eyebrow="Everything connects" title="Follow a neighbouring question." /><div className="ap-topic-links">{TOPICS.filter((item) => item.id !== topic.id).map((item) => <Link key={item.id} to={base + "/topics/" + item.id}>{item.title}<ArrowUpRight size={14} /></Link>)}</div></section>}
   </>;
 }

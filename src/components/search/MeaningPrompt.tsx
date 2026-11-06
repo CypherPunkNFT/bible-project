@@ -2,8 +2,16 @@ import { ArrowRight, Download, Sparkles } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { enableMeaning, useMeaning } from "@/lib/meaning/store";
+import { useSearchLanguage } from "@/lib/search-language";
 
 const MB = (bytes: number) => `${Math.round(bytes / 1e6)} MB`;
+
+/** Said wherever meaning search is offered when the site is in another language: its model reads English only (one
+ * English model, MEANING_SEARCH.md; a model for every language was weighed in translation stage 5 job 16 and not
+ * taken), and the words search works in the reader's language. Hand-translated in content/translation/seed/. */
+export function EnglishOnlyMeaning() {
+  return <span className="text-muted"><Sparkles size={14} className="mr-1.5 inline align-[-2px] text-accent" aria-hidden />Meaning search understands English only for now. Questions in other languages are searched by their own words.</span>;
+}
 
 /**
  * Meaning search, offered under every search box that looks for studies or information (not name look-ups):
@@ -12,6 +20,8 @@ const MB = (bytes: number) => `${Math.round(bytes / 1e6)} MB`;
  */
 export function MeaningPrompt({ query, active, className = "" }: { query: string; active?: ReactNode; className?: string }) {
   const meaning = useMeaning();
+  const language = useSearchLanguage();
+  if (language) return <p className={`text-[13px] ${className}`}><EnglishOnlyMeaning /></p>;
   if (meaning.phase === "checking" || meaning.phase === "unsupported" || meaning.phase === "error") return null;
   const askByMeaning = `/search?q=${encodeURIComponent(query.trim())}`;
   // The star sits inside the first words, so it stays on their line however the text wraps.

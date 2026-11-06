@@ -36,17 +36,19 @@ export function placeOf(index: TopicIndex, topicId: string): { category: TopicCa
   return null;
 }
 
-/** Topic ids whose title contains every word of the query (case-insensitive), best (title starts with it) first. */
-export function matchTopics(index: TopicIndex, query: string, limit = 12): string[] {
-  const words = query.toLowerCase().split(/\s+/).filter((word) => word.length > 2);
+/** Topic ids whose title contains every word of the query (case-insensitive), best (title starts with it) first.
+ * `fold`: how title and query are compared (the site search in another language also drops accents and Arabic marks);
+ * a Chinese word counts at any length, other words from three letters. */
+export function matchTopics(index: TopicIndex, query: string, limit = 12, fold = (text: string) => text.toLowerCase()): string[] {
+  const words = fold(query).split(/\s+/).filter((word) => word.length > 2 || /\p{Script=Han}/u.test(word));
   if (!words.length) return [];
-  const hits = Object.entries(index.topics).filter(([, t]) => words.every((word) => t.title.toLowerCase().includes(word)));
+  const hits = Object.entries(index.topics).filter(([, t]) => words.every((word) => fold(t.title).includes(word)));
   // Nave's "See ..." headings find the topic they point to ("Josias" finds Josiah).
   for (const [alias, target] of Object.entries(index.aliases ?? {})) {
     if (index.topics[target] && words.every((word) => alias.includes(word)) && !hits.some(([id]) => id === target)) hits.push([target, index.topics[target]]);
   }
-  const q = query.toLowerCase().trim();
-  return hits.sort(([, a], [, b]) => Number(b.title.toLowerCase().replace(/^the /, "").startsWith(q)) - Number(a.title.toLowerCase().replace(/^the /, "").startsWith(q)) || b.refs - a.refs).slice(0, limit).map(([id]) => id);
+  const q = fold(query).trim();
+  return hits.sort(([, a], [, b]) => Number(fold(b.title).replace(/^the /, "").startsWith(q)) - Number(fold(a.title).replace(/^the /, "").startsWith(q)) || b.refs - a.refs).slice(0, limit).map(([id]) => id);
 }
 
 /** "1 point · 1 passage", "3 points · 12 passages". */

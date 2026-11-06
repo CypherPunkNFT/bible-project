@@ -13,7 +13,9 @@ import { sectionColor } from "@/lib/sections";
 import type { Place } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
 import { formatNumber } from "@/lib/utils";
-import { markByForm, wordIndexOf } from "@/lib/search-words";
+import { languageWordIndex, markByForm, markInLanguage, wordIndexOf } from "@/lib/search-words";
+import { foldWord, type SearchLanguage } from "@/lib/search-language";
+import { EnglishOnlyMeaning } from "./MeaningPrompt";
 import { Marked } from "./WordTabs";
 import { plural } from "@/lib/site-format";
 
@@ -31,11 +33,21 @@ function SectionHead({ title, note, link }: { title: string; note?: string; link
   return <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2"><h2 className="font-serif text-2xl font-semibold">{title}{note && <span className="ml-2 align-middle text-xs font-normal text-muted">{note}</span>}</h2>{link && <Link to={link.to} className="inline-flex items-center gap-1 text-sm text-accent hover:underline">{link.label} <ArrowUpRight size={14} /></Link>}</div>;
 }
 
-/** Question-library studies: by meaning for real questions when switched on, otherwise by keyword. */
-export function StudiesSection({ query, meaning, words }: { query: string; meaning: ReturnType<typeof useMeaningResults>; words: string[] }) {
-  const byMeaning = meaning.status === "done" && meaning.results && preferMeaning(query);
-  const keyword = searchStudies(STUDIES, query).hits;
-  const snippets = new Map(keyword.map((hit) => [hit.study.id, hit.snippet]));
+/** A study's title or summary with the search words marked: in a language, its translation inside `lang` (so the page
+ * translator leaves the marked words alone), or the English as written when it has none yet. */
+function MarkedText({ english, words, language }: { english: string; words: string[]; language: SearchLanguage | null }) {
+  if (!language) return <Marked underline parts={markByForm(english, words)} />;
+  const shown = language.translate(english);
+  return shown ? <span lang={language.code}><Marked underline parts={markInLanguage(shown, words, language)} /></span> : <>{english}</>;
+}
+
+/** Question-library studies: by meaning for real questions when switched on (English only), otherwise by keyword, in
+ * the site's language. */
+export function StudiesSection({ query, meaning, words, language }: { query: string; meaning: ReturnType<typeof useMeaningResults>; words: string[]; language: SearchLanguage | null }) {
+  const byMeaning = !language && meaning.status === "done" && meaning.results && preferMeaning(query);
+  const keyword = searchStudies(STUDIES, query, language).hits;
+  const snippets = new Map(keyword.map((hit) => [hit.study.id, hit]));
+  const wordOf = (text: string) => Math.max(0, language ? languageWordIndex(text, words) : wordIndexOf(text, words));
   const ids = (byMeaning ? meaning.results!.studies.map((s) => s.id) : keyword.map((hit) => hit.study.id)).slice(0, 4);
   if (!ids.length && meaning.status !== "loading") return null;
   return (
@@ -43,13 +55,13 @@ export function StudiesSection({ query, meaning, words }: { query: string; meani
       <div id="search-studies"><SectionHead title="Studies" note={byMeaning ? "by meaning" : "by words"} link={{ to: `/apologetics/questions?q=${encodeURIComponent(query)}`, label: "All in the question library" }} /></div>
       {meaning.status === "loading" && preferMeaning(query) ? <p className="text-sm text-muted" role="status">Finding studies by meaning…</p> : (
         <ul className="grid gap-3 sm:grid-cols-2">
-          {ids.map((id) => { const study = studyById(id); if (!study) return null; const topic = topicById(study.topic); const snippet = byMeaning ? null : snippets.get(id); return (
+          {ids.map((id) => { const study = studyById(id); if (!study) return null; const topic = topicById(study.topic); const hit = byMeaning ? undefined : snippets.get(id), snippet = hit?.snippet; return (
             <li key={id}><Link to={studyUrl(id)} className="block h-full rounded-2xl border border-line bg-surface p-4 hover:border-accent">
               <span className="text-xs uppercase tracking-wide text-muted">{topic?.title}</span>
-              <span className="mt-1 block font-serif text-lg font-semibold"><Marked underline parts={markByForm(study.title, words)} /></span>
-              <span className="mt-1 block text-sm text-muted"><Marked underline parts={markByForm(study.summary, words)} /></span>
+              <span className="mt-1 block font-serif text-lg font-semibold"><MarkedText english={study.title} words={words} language={language} /></span>
+              <span className="mt-1 block text-sm text-muted"><MarkedText english={study.summary} words={words} language={language} /></span>
               {/* The sentence that matched, as in the question library, so the reason for the result is visible. */}
-              {snippet && <span className="mt-3 block border-l-2 border-line pl-3 text-sm italic text-muted">…<Marked underline parts={snippet.map((part) => ({ text: part.text, word: part.hit ? Math.max(0, wordIndexOf(part.text, words)) : null }))} /></span>}
+              {snippet && <span className="mt-3 block border-l-2 border-line pl-3 text-sm italic text-muted" lang={hit?.snippetLang}>…<Marked underline parts={snippet.map((part) => ({ text: part.text, word: part.hit ? wordOf(part.text) : null }))} /></span>}
             </Link></li>
           ); })}
         </ul>
@@ -58,10 +70,12 @@ export function StudiesSection({ query, meaning, words }: { query: string; meani
   );
 }
 
-/** World English Bible verses closest in meaning; an invitation when meaning search is off. */
-export function VersesSection({ query, meaning }: { query: string; meaning: ReturnType<typeof useMeaningResults> }) {
+/** World English Bible verses closest in meaning; an invitation when meaning search is off. In another site language,
+ * the plain word that meaning search reads English only. */
+export function VersesSection({ query, meaning, language }: { query: string; meaning: ReturnType<typeof useMeaningResults>; language: SearchLanguage | null }) {
   const catalog = useCatalog();
   const state = useMeaning();
+  if (language) return <section className="mt-10 rounded-2xl border border-dashed border-line p-5"><EnglishOnlyMeaning /></section>;
   if (meaning.status === "off") {
     if (state.phase === "unsupported" || state.phase === "checking" || state.phase === "error") return null;
     return (
@@ -115,19 +129,21 @@ export function PlacesSection({ words: searchWords }: { words: string[] }) {
   );
 }
 
-/** Topics whose name holds the search words, each word marked in its colour. */
-export function TopicsSection({ words }: { words: string[] }) {
+/** Topics whose name holds the search words, each word marked in its colour; in another language, the translated
+ * topic index's names, accents and Arabic marks aside. */
+export function TopicsSection({ words, language }: { words: string[]; language: SearchLanguage | null }) {
   const index = useAsync(loadTopicIndex, "topic-index");
   if (index.status !== "ready") return null;
+  const fold = language ? foldWord : undefined;
   // Topics named by all the words; failing that, the best few for each word.
-  let ids = matchTopics(index.value, words.join(" "));
-  if (!ids.length && words.length > 1) ids = [...new Set(words.flatMap((word) => matchTopics(index.value, word, 4)))].slice(0, 12);
+  let ids = matchTopics(index.value, words.join(" "), 12, fold);
+  if (!ids.length && words.length > 1) ids = [...new Set(words.flatMap((word) => matchTopics(index.value, word, 4, fold)))].slice(0, 12);
   if (!ids.length) return null;
   return (
     <section aria-labelledby="search-topics" className="mt-10">
       <div id="search-topics"><SectionHead title="Topics" note="with their verses" link={{ to: "/topics", label: "All topics" }} /></div>
       <ul className="flex flex-wrap gap-2">
-        {ids.map((id) => <li key={id}><Link to={topicUrl(id)} className="inline-flex items-baseline gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent"><span><Marked underline parts={markByForm(index.value.topics[id].title, words)} /></span><span className="text-xs text-muted">{formatNumber(index.value.topics[id].refs)} {plural(index.value.topics[id].refs, "passage", "passages")}</span></Link></li>)}
+        {ids.map((id) => <li key={id}><Link to={topicUrl(id)} className="inline-flex items-baseline gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent">{language ? <span lang={language.code}><Marked underline parts={markInLanguage(index.value.topics[id].title, words, language)} /></span> : <span><Marked underline parts={markByForm(index.value.topics[id].title, words)} /></span>}<span className="text-xs text-muted">{formatNumber(index.value.topics[id].refs)} {plural(index.value.topics[id].refs, "passage", "passages")}</span></Link></li>)}
       </ul>
     </section>
   );

@@ -9,6 +9,8 @@ import { loadTopicIndex } from "@/lib/data";
 import { useAsync } from "@/lib/useAsync";
 import { formatNumber } from "@/lib/utils";
 import { enableMeaning, useMeaning } from "@/lib/meaning/store";
+import { useSearchLanguage } from "@/lib/search-language";
+import { EnglishOnlyMeaning } from "./MeaningPrompt";
 
 /** What the Search page shows before a search: example questions, what can be searched, meaning search, topics to browse. */
 const EXAMPLES = [
@@ -24,6 +26,8 @@ const MB = (bytes: number) => `${Math.round(bytes / 1e6)} MB`;
 
 function MeaningCard() {
   const meaning = useMeaning();
+  const language = useSearchLanguage();
+  if (language) return <section className="mt-8 rounded-2xl border border-dashed border-line p-5 text-sm"><EnglishOnlyMeaning /></section>;
   if (meaning.phase === "checking" || meaning.phase === "unsupported" || meaning.phase === "error") return null;
   return (
     <section className="mt-8 rounded-2xl border border-accent/40 bg-accent/5 p-5 sm:p-6">
@@ -54,6 +58,10 @@ function MeaningCard() {
 
 export function SearchLanding({ onAsk }: { onAsk: (query: string) => void }) {
   const catalog = useCatalog();
+  const language = useSearchLanguage();
+  // In another language each example asks its translation (the button shows it, swapped by the page translator); one
+  // with no translation yet is left out rather than asking English of the language's Bible.
+  const examples = EXAMPLES.flatMap((example) => { const asked = language ? language.translate(example) : example; return asked ? [{ example, asked }] : []; });
   const kinds = [
     { icon: MessageCircleQuestion, title: "Studies", text: "25 guided answers to hard questions, from suffering to the Trinity.", to: `${AP_BASE}/questions` },
     { icon: Sparkles, title: "Verses by meaning", text: "31,098 verses of the World English Bible, matched by what they say.", to: "/search/meaning" },
@@ -65,7 +73,7 @@ export function SearchLanding({ onAsk }: { onAsk: (query: string) => void }) {
       <section aria-labelledby="try-asking">
         <h2 id="try-asking" className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Try asking</h2>
         <ul className="mt-3 flex flex-wrap gap-2">
-          {EXAMPLES.map((example) => <li key={example}><button type="button" onClick={() => onAsk(example)} className="rounded-full border border-line bg-surface px-3.5 py-2 text-sm hover:border-accent hover:text-accent">{example}</button></li>)}
+          {examples.map(({ example, asked }) => <li key={example}><button type="button" onClick={() => onAsk(asked)} className="rounded-full border border-line bg-surface px-3.5 py-2 text-sm hover:border-accent hover:text-accent">{example}</button></li>)}
         </ul>
       </section>
 

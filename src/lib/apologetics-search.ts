@@ -1,15 +1,19 @@
 import MiniSearch, { type SearchResult } from "minisearch";
 import { stemmer } from "stemmer";
 import type { ApStudy } from "@/data/apologetics-types";
+import type { SearchLanguage } from "./search-language";
+import { searchStudiesIn } from "./study-search-language";
 
 /**
  * Keyword search for the question library, run in the visitor's browser (the studies ship with the page).
  * Whole words (or the start of the word being typed), English word forms ("forgive" = "forgiveness"), small typos
  * on longer words, ranked best first with the title counting most. A later meaning (vector) search can sit beside it.
+ * In another site language the studies are searched in that language's words instead (study-search-language.ts).
  */
 
 export interface SnippetPart { text: string; hit: boolean }
-export interface StudyHit { study: ApStudy; snippet: SnippetPart[] | null }
+/** `snippetLang`: the language the snippet is written in, when it is not the page's English (search in a language). */
+export interface StudyHit { study: ApStudy; snippet: SnippetPart[] | null; snippetLang?: string }
 export interface StudySearch { hits: StudyHit[]; partial: boolean }
 
 const BOOST = { title: 4, keywords: 3, summary: 2, answer: 1.5, body: 1 };
@@ -59,7 +63,8 @@ function snippetFor(study: ApStudy, result: SearchResult): SnippetPart[] | null 
 }
 
 /** Studies matching every word (best first); if none has them all, studies matching any word, flagged as partial. */
-export function searchStudies(studies: readonly ApStudy[], query: string): StudySearch {
+export function searchStudies(studies: readonly ApStudy[], query: string, language: SearchLanguage | null = null): StudySearch {
+  if (language) return searchStudiesIn(studies, query, language);
   if (!query.split(/\s+/).some((word) => searchTerm(word))) return { hits: studies.map((study) => ({ study, snippet: null })), partial: false };
   const index = indexFor(studies);
   let results = index.search(query, { ...OPTIONS, combineWith: "AND" });

@@ -17,6 +17,7 @@ const SKIP = new Set(["SCRIPT", "STYLE", "TEXTAREA", "CODE", "PRE"]);
 const toEnglish = new Map<string, string>(); // for text first seen already translated; several English strings can share one translation, so the first stands
 const fromEnglish = new Map<string, Map<string, string>>(); // folder -> English -> translation
 const loaded = new Map<string, Promise<void>>(); // "folder ui" and "folder path": read, or being read
+const phraseLists = new Map<string, number>(); // folder -> how many times its ui.json has been read (0: not yet)
 let target: string | null = null;
 let targetRightToLeft = false;
 let observer: MutationObserver | null = null;
@@ -86,6 +87,7 @@ async function readStrings(folder: string, path: string | null, key: string): Pr
         // Pages also type labels in capitals ("ISAIAH 40:8", "OLD TESTAMENT").
         if (english !== english.toUpperCase()) learn(folder, english.toUpperCase(), translated.toUpperCase());
       }
+      phraseLists.set(folder, (phraseLists.get(folder) ?? 0) + 1);
     } else {
       const [english, translated] = await Promise.all([readJson(`/data/${path}`), readJson(`/data/i18n/${folder}/${path}`)]);
       pair(folder, english, translated);
@@ -428,6 +430,10 @@ export function phrase(english: string, code: LanguageCode): string | null {
   const folder = languageFolder(code);
   return (folder && fromEnglish.get(folder)?.get(normal(english))) ?? null;
 }
+
+/** How many times the language's phrase list has been read: 0 while it is not read yet. Anything built from phrase()
+ * (the site search's index in the language) is kept only for the number it was built at. */
+export const phraseListVersion = (code: LanguageCode): number => phraseLists.get(languageFolder(code) ?? "") ?? 0;
 
 /** At startup: resolves once the page strings are read, so the first paint is already in the chosen language. */
 export async function startPageTranslator(): Promise<void> {
