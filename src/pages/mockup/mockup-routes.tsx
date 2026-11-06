@@ -45,6 +45,8 @@ const PartsMockup = lazy(() => import("./structure-parts/PartsMockup"));
 const TheologyCardsMockup = lazy(() => import("./theology-cards/TheologyCardsMockup"));
 const TheologyDraftsMockup = lazy(() => import("./drafts/TheologyDraftsMockup"));
 const DraftReaderPage = lazy(() => import("./drafts/DraftReaderPage"));
+const AcademicDraftsMockup = lazy(() => import("./drafts/AcademicDraftsMockup"));
+const AcademicDraftReaderPage = lazy(() => import("./drafts/AcademicDraftReaderPage"));
 
 const LOCAL_HOSTS = new Set(["127.0.0.1", "localhost"]);
 export const MOCKUPS_ENABLED = typeof window !== "undefined" && LOCAL_HOSTS.has(window.location.hostname);
@@ -124,6 +126,9 @@ export function mockupRoutes() {
     // Scripture & Theology with the written drafts as cards, and each draft's text (owner, 2026-11-05).
     <Route key="theology-drafts" path="/study/theology_mockup" element={<TheologyDraftsMockup />} />,
     <Route key="draft-reader" path="/study/drafts_mockup/:slug" element={<DraftReaderPage />} />,
+    // The Academic page with its five researched drafts as cards, and each draft's research file (owner, 2026-11-06).
+    <Route key="academic-drafts" path="/study/academic_mockup" element={<AcademicDraftsMockup />} />,
+    <Route key="academic-draft-reader" path="/study/academic_drafts_mockup/:slug" element={<AcademicDraftReaderPage />} />,
     <Route key="gallery" path="/mockups" element={<HomeMockupsPage />} />,
   ];
 }
