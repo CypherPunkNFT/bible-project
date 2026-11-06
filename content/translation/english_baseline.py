@@ -70,7 +70,10 @@ def rulings(path: Path, root: Path) -> tuple[set[str], set[str]]:
         if not isinstance(entry, dict) or not all(isinstance(entry.get(key), str) and entry[key].strip()
                                                   for key in ("check", "item", "why")):
             raise Refused(f"{path} entry {index}: expected check, item and a non-empty why (the reason), got {entry!r}")
-        if entry["check"] == "code":
+        if entry["check"] == "code" and "file" not in entry:
+            if len(entry["item"].split()) < 3:
+                raise Refused(f"{path} entry {index}: a code ruling for a one- or two-word text applies everywhere, so "
+                              f"it must name its file (\"file\": \"src/...\"); got {entry!r}")
             texts.add(entry["item"])
         elif entry["check"] == "code-files":
             item = entry["item"]
@@ -80,6 +83,39 @@ def rulings(path: Path, root: Path) -> tuple[set[str], set[str]]:
                               f"(ending in /) under src/, not all of it; got {item!r}")
             files.add(item)
     return texts, files
+
+
+SCOPED = ("code", "later")
+
+
+def scoped_rulings(path: Path) -> dict[str, set[str]]:
+    """file -> the texts ruled for that file only: a "code" ruling that names its file, and "later" (on-screen English
+    handed to the job that owns it: {"check": "later", "file", "item", "job", "why"}). A file that is gone is no error
+    (the ruling then does nothing)."""
+    found: dict[str, set[str]] = {}
+    if not path.exists():
+        return found
+    for index, entry in enumerate(read_json(path)):
+        if entry.get("check") not in SCOPED or (entry["check"] == "code" and "file" not in entry):
+            continue
+        keys = ("file", "item", "why") + (("job",) if entry["check"] == "later" else ())
+        if not all(isinstance(entry.get(key), str) and entry[key].strip() for key in keys):
+            raise Refused(f"{path} entry {index}: expected {', '.join(keys)} (a later ruling names the job that owns "
+                          f"the text), got {entry!r}")
+        found.setdefault(entry["file"], set()).add(entry["item"])
+    return found
+
+
+def reading_rulings(path: Path) -> set[str]:
+    """Texts any ruling names (code, later or reading: {"check": "reading", "item", "why"} for a browser-reading text that
+    is in no page file as written, with what builds it). --shrink drops such a text from the baseline's reading."""
+    return {entry["item"] for entry in (read_json(path) if path.exists() else [])
+            if entry.get("check") in ("code", "later", "reading")}
+
+
+def later_jobs(path: Path) -> Counter:
+    """job -> how many texts the rulings hand to it ("later")."""
+    return Counter(entry["job"] for entry in (read_json(path) if path.exists() else []) if entry.get("check") == "later")
 
 
 def validated(data, where: str) -> dict:

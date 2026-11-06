@@ -147,6 +147,15 @@ function NowPanel({ d, now }: { d: Apostle; now: Now }) {
   return <><p className="kicker">The centre</p><h3>{d.name}</h3><p className="with-text">{d.story ?? d.tagline}</p><p className="plain-line">Choose a person, a place or a record on the circle.</p></>;
 }
 
+/** The section's lead: each sentence its own text, so the page translator gets it whole (and none holds more than three
+ * values or a value that is a clause; stage 5 job 13). Reads as one paragraph, as before. */
+export function WithSub({ d }: { d: Pick<Apostle, "key" | "short" | "rows"> }) {
+  return <><span>{d.key === "paul"
+    ? `Every record of ${d.short} in Scripture, in story order (Acts as told, with the Lord's words to him where Acts or his letter sets them).`
+    : `Every record of ${d.short} in Scripture, in story order (the Gospels in the order of Robertson's harmony, then Acts and the letters).`}</span>
+    {" "}<span>A person counts as "with him" only where a verse of that record names them both.</span>{" "}<span>{`${plural(d.rows.length, "person", "people")} in all.`}</span></>;
+}
+
 export function WithSection({ d }: { d: Apostle }) {
   const [view, setView] = useState<"lines" | "circle">("lines");
   const [row, setRow] = useState<string | null>(null);
@@ -160,7 +169,7 @@ export function WithSection({ d }: { d: Apostle }) {
   };
   return <section className="sec" data-sec="with" data-view={view}>
     <SecHead num="03" kicker="The people around him" title="Who was " em="with him?"
-      sub={`Every record of ${d.short} in Scripture, in story order${d.key === "paul" ? " (Acts as told, with the Lord's words to him where Acts or his letter sets them)" : " (the Gospels in the order of Robertson's harmony, then Acts and the letters)"}. A person counts as "with him" only where a verse of that record names them both. ${plural(d.rows.length, "person", "people")} in all.`} />
+      sub={<WithSub d={d} />} />
     <div className="with-tools"><div className="seg" role="group" aria-label="View">
       <button type="button" aria-pressed={view === "lines"} onClick={() => show("lines")}>Lines</button>
       <button type="button" aria-pressed={view === "circle"} onClick={() => show("circle")}>Everyone around him</button></div></div>

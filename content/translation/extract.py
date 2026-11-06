@@ -184,10 +184,13 @@ def page_files(include_generated: bool = True) -> list[Path]:
 
 
 def page_strings(files: list[Path] | None = None) -> list[str]:
-    """The page code's on-screen text (page_rules.strings_in), each once: of page_files(), or of the files given."""
+    """The page code's on-screen text (page_rules.strings_in), each once: of page_files(), or of the files given. Each
+    file also gives the texts registered for it by hand (page_register.py, page-register.json)."""
+    import page_register  # imported here: it is read only when page text is collected
     found: dict[str, None] = {}
     for path in page_files() if files is None else files:
         found.update(dict.fromkeys(strings_in(without_comments(path.read_text("utf-8")), path.suffix)))
+        found.update(dict.fromkeys(page_register.texts_for(SITE, path)))
     return list(found)
 
 

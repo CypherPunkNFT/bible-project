@@ -84,6 +84,18 @@ purpose, so some items are code or English on purpose: once checked, they go in 
 `{"check": "code" | "code-files" | "fields" | "files" | "untranslated", "item": ..., "why": ...}` and drop out of
 later reports.
 
+Screen text the page rules pass by is registered by hand in [page-register.json](page-register.json) (stage 5 job 13;
+[page_register.py](page_register.py)): `{"file": "src/...", "why": ..., "texts": [...]}`, one group per file and reason.
+The collector takes each text from its own file only, and only while that file still shows exactly that text (a string
+literal with each `${...}` as `{n}`, a JSX text, or a ` · ` piece of either); a text the file no longer shows does
+nothing (`page_register.stale()` lists it, and a test keeps the list empty). A text may hold at most three values, as
+the page translator learns no more. Rulings for page code name their file: a one- or two-word `"code"` ruling must
+carry `"file"` (a short word is code in one file and screen text in another), and `{"check": "later", "file", "item",
+"job", "why"}` hands on-screen English to the stage 5 job that owns it (month names and number words to the date and
+number helpers, a tab title to the page head, a sentence piece inside a larger template to the stage 5 review); the
+build check counts them per job. `{"check": "reading", "item", "why"}` rules out a text the stage 3 browser reading saw
+that is in no page file as written. Tests: `python -m pytest content/translation/test_page_register.py -q`.
+
 ## The build check: no new unregistered English (from 2026-11-06)
 
 [english_build_check.py](english_build_check.py) runs first in `npm run build` (prebuild) and in the quick release's
@@ -93,7 +105,8 @@ stops the build on any text beyond [english-baseline.json](english-baseline.json
 began (keyed by the English text, with how many times it occurs). Its message names the file, the line, why the
 collector skips the text and how to register it; text no reader sees, or English on purpose, takes a ruling in
 `unregistered-reviewed.json` with its `why` instead. The baseline may only shrink: after registering text, run
-`python content/translation/english_build_check.py --shrink`. About 9 seconds. The check reads the same files as the
+`python content/translation/english_build_check.py --shrink` (a browser-reading text leaves it once registered anywhere,
+`src/generated/` and the pages' bundled data included, or named by any ruling). About 9 seconds. The check reads the same files as the
 collector but not `src/generated/` (rewritten by every content build and not in git; its text is checked in the
 content files). Tests:
 `python -m pytest content/translation/test_english_build_check.py -q`. The quick release passes `--since <live commit>`

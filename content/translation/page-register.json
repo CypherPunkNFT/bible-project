@@ -1,0 +1,2149 @@
+{
+ "about": [
+  "Page text registered by hand (stage 5 job 13): on-screen text in a page file that extract.py's page rules pass by. page_register.py reads this file; extract.page_strings collects each text from its own file only, and only while the file still shows exactly that text.",
+  "Add a text here when the build check (english_build_check.py) names screen text the collector misses and rewriting the code to a collected form is not worth it. Rule text out instead in unregistered-reviewed.json, with the reason."
+ ],
+ "register": [
+  {
+   "file": "src/components/ApologeticsParts.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Basis"
+   ]
+  },
+  {
+   "file": "src/components/apologetics/CountryPanelHeader.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Hindu",
+    "Buddhist"
+   ]
+  },
+  {
+   "file": "src/components/apologetics/DebateCard.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "VS",
+    "versus"
+   ]
+  },
+  {
+   "file": "src/components/apologetics/MissionDefinitions.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "“No longer unreached” means 2% or more."
+   ]
+  },
+  {
+   "file": "src/components/apologetics/MuslimWorldExplorer.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Interactive globe. Scroll to zoom; arrow keys turn; plus and minus zoom; Space pauses or starts rotation; Home resets. Use the country selector to choose a country."
+   ]
+  },
+  {
+   "file": "src/components/apostle-page/Counter.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Acts 9"
+   ]
+  },
+  {
+   "file": "src/components/apostle-page/art/landing/matthias.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Matthias"
+   ]
+  },
+  {
+   "file": "src/components/bible/AudioDownloads.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "for the whole Bible. Free to keep and share."
+   ]
+  },
+  {
+   "file": "src/components/charts/SectionDonut.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "is"
+   ]
+  },
+  {
+   "file": "src/components/home/HomeApologeticsScenes.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "CHALLENGE",
+    "CLAIM",
+    "CLOSING",
+    "REBUTTAL"
+   ]
+  },
+  {
+   "file": "src/components/home/mockups/AcademicMockups.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "AD 1008",
+    "c. 125 BC",
+    "c. AD 350"
+   ]
+  },
+  {
+   "file": "src/components/home/mockups/LearningMockups.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "18+ · WORKBOOKS",
+    "18–25 · PLANS",
+    "MEMORY-VERSE CARDS",
+    "WORKBOOKS"
+   ]
+  },
+  {
+   "file": "src/components/home/mockups/LifeMockups.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "GRIEFSHARE"
+   ]
+  },
+  {
+   "file": "src/components/letters/FlowChart.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "quotations. Point at a book or a chapter to see the passages; click one to keep them open."
+   ]
+  },
+  {
+   "file": "src/components/letters/FlowChart.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}: {n} quotations from {n} Old Testament books"
+   ]
+  },
+  {
+   "file": "src/components/letters/LetterGroupPage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Acceptance",
+    "When"
+   ]
+  },
+  {
+   "file": "src/components/letters/LettersOverview.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Secretaries",
+    "Carriers",
+    "Acceptance",
+    "Time",
+    "Form",
+    "Hands"
+   ]
+  },
+  {
+   "file": "src/components/letters/browse/LettersBrowse.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Origins"
+   ]
+  },
+  {
+   "file": "src/components/letters/browse/art.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Greeting",
+    "Thanks",
+    "Body",
+    "Farewell"
+   ]
+  },
+  {
+   "file": "src/components/letters/browse/frame.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "across"
+   ]
+  },
+  {
+   "file": "src/components/letters/browse/pages-collections.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Hebrews.",
+    "Length",
+    "Melchizedek",
+    "Echoes"
+   ]
+  },
+  {
+   "file": "src/components/letters/browse/pages-ways.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Length",
+    "one letter naming another",
+    "Carried",
+    "Quotations",
+    "Witnesses"
+   ]
+  },
+  {
+   "file": "src/components/letters/browse/parts-across.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Secretaries",
+    "Carriers",
+    "Adam",
+    "Cain",
+    "Enoch",
+    "Sarah",
+    "Esau",
+    "Rahab"
+   ]
+  },
+  {
+   "file": "src/components/moses-page/runtime.js",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Refused",
+    "Alliances",
+    "{n} · each with its verse"
+   ]
+  },
+  {
+   "file": "src/components/moses-page/topic-slider.js",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}: scroll subsections sideways"
+   ]
+  },
+  {
+   "file": "src/components/people-pages/ProphetSections.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Wonder",
+    "Vision",
+    "Sign"
+   ]
+  },
+  {
+   "file": "src/components/people-pages/RulerVariants.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Oppressed",
+    "Delivered"
+   ]
+  },
+  {
+   "file": "src/components/people-pages/RulerVerdict.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Kings"
+   ]
+  },
+  {
+   "file": "src/components/people-pages/kinds.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "them"
+   ]
+  },
+  {
+   "file": "src/components/people-pages/kinds.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Egypt",
+    "Seer",
+    "Assyria",
+    "Babylon",
+    "Persia",
+    "Aram",
+    "Kings"
+   ]
+  },
+  {
+   "file": "src/components/reader/ReaderToolbar.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n} {n} — choose a book and chapter"
+   ]
+  },
+  {
+   "file": "src/components/reader/VersionMenu.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n} · does not include this book"
+   ]
+  },
+  {
+   "file": "src/components/search/WordDistribution.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    ". Point at a bar to name it; click one to see its verses."
+   ]
+  },
+  {
+   "file": "src/components/sources/LibraryOverview.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    ". Dated snapshots with different scopes; file and catalogue totals are not interchangeable."
+   ]
+  },
+  {
+   "file": "src/components/study/PersonProfile.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Man",
+    "Woman",
+    "Group"
+   ]
+  },
+  {
+   "file": "src/data/chart-insights.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Mercy",
+    "Love",
+    "Abiding",
+    "Forgiveness",
+    "Watchfulness"
+   ]
+  },
+  {
+   "file": "src/data/parables-additions.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Gathered",
+    "Recognised",
+    "Reckoned",
+    "Good",
+    "Lost",
+    "Discarded",
+    "Questioned",
+    "Present",
+    "Accused",
+    "Challenged",
+    "Darkness",
+    "Warning",
+    "Asked",
+    "Contrasted",
+    "Assured",
+    "Used",
+    "Returned",
+    "Enlarged"
+   ]
+  },
+  {
+   "file": "src/data/parables-expanded.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Refused",
+    "Delivered",
+    "Gathered",
+    "Recognised",
+    "Reckoned",
+    "Questioned",
+    "Accused",
+    "Challenged",
+    "Contrasted",
+    "Returned",
+    "Sown",
+    "Growing",
+    "Harvested",
+    "Sorted",
+    "Explained",
+    "Promised",
+    "Answered",
+    "Entrusted",
+    "Rejected",
+    "Filled",
+    "Examined",
+    "Accounted",
+    "Unable",
+    "Needed",
+    "Resisted",
+    "Given",
+    "Sought",
+    "Tended",
+    "Awaited",
+    "Excused",
+    "Widened",
+    "Overlooked",
+    "Reversed",
+    "Warned",
+    "Serving",
+    "Acknowledged",
+    "Appealed",
+    "Heard",
+    "Departed",
+    "Claimed",
+    "Displaced",
+    "Raised",
+    "Opened",
+    "Served",
+    "Appointed",
+    "Visited",
+    "Considered",
+    "Begun",
+    "Exposed",
+    "Approached",
+    "Applied",
+    "Observed",
+    "Assigned",
+    "Watched",
+    "Addressed",
+    "Lit",
+    "Placed",
+    "Seen",
+    "Compared",
+    "Worsened",
+    "Unmatched",
+    "Burst",
+    "Preserved",
+    "Unanswered",
+    "Guarded",
+    "Overcome",
+    "Taken",
+    "Endangered",
+    "Inspected",
+    "Corrected",
+    "Understood",
+    "Equipped",
+    "Imagined",
+    "Confined"
+   ]
+  },
+  {
+   "file": "src/data/parables.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Carried",
+    "Challenged",
+    "Growing",
+    "Reversed",
+    "Compared",
+    "Scattered",
+    "Fruitful",
+    "Small",
+    "Sheltering",
+    "Working",
+    "Throughout",
+    "Restrained",
+    "Separated",
+    "Celebrated",
+    "Rejoice",
+    "Welcomed",
+    "Found",
+    "Valued",
+    "Bought",
+    "Seeking",
+    "Recognising",
+    "Reordering",
+    "Plenty",
+    "Interrupted",
+    "Hired",
+    "Paid",
+    "Built",
+    "Struck",
+    "Revealed",
+    "Released",
+    "Withheld",
+    "Accountable",
+    "Closed"
+   ]
+  },
+  {
+   "file": "src/data/teachers/index.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "preacher"
+   ]
+  },
+  {
+   "file": "src/data/testimony-demo.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Community",
+    "Belonging",
+    "Trust"
+   ]
+  },
+  {
+   "file": "src/data/testimony-founder.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Jacksonville",
+    "Florida"
+   ]
+  },
+  {
+   "file": "src/generated/apologetics.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Aquinas is used for causation and dependence. Augustine contributes on grace; Athanasius supplies a historical New Testament list. Each use has a stated scope. None endorses every doctrine of its author or erases disagreements over justification, merit, canon or church authority.",
+    "Christian Scripture also confesses one God. Jesus commands baptism in the singular name of the Father, Son and Holy Spirit; the comparison concerns how this confession fits together, rather than whether Christians worship three gods.",
+    "Clarify",
+    "Invite",
+    "Read all four verses together. Distinguish the rejection of begetting from the Christian meaning of the eternal Son; ask what your neighbour thinks Christians mean.",
+    "These readings serve a Christian conversation about trusting Jesus: understand God’s identity, examine Jesus’ identity, consider forgiveness through his death and resurrection, then assess the claims of revelation. Read each Qur’anic passage on its own terms beside the Christian counterpart. Ask what your neighbour believes and why; the sequence guides discussion rather than guaranteeing conversion."
+   ]
+  },
+  {
+   "file": "src/generated/reading-library.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Beveridge’s historic translation only; the later John Murray introduction is excluded.",
+    "Catechesis",
+    "Hermeneutics",
+    "Historic author’s English text only; website descriptions, modern introductions and downloadable-file packaging are excluded.",
+    "Imputation",
+    "Text of the identified historic printed edition; no claim about newly added material.",
+    "Vocation",
+    "advanced",
+    "intermediate",
+    "introductory"
+   ]
+  },
+  {
+   "file": "src/lib/apologetics-navigation.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Secular"
+   ]
+  },
+  {
+   "file": "src/lib/book-short-names.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Deut",
+    "Eccles",
+    "Song",
+    "Lam",
+    "Phil",
+    "Col",
+    "Wisdom",
+    "Bel"
+   ]
+  },
+  {
+   "file": "src/lib/creeds.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Confession",
+    "Document",
+    "Decree"
+   ]
+  },
+  {
+   "file": "src/lib/genealogy-catalog.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Adam",
+    "Esau",
+    "Shem",
+    "Isaac",
+    "Ishmael",
+    "Levi",
+    "Benjamin",
+    "Aaron",
+    "Boaz",
+    "Hezekiah",
+    "Josiah",
+    "Zerubbabel"
+   ]
+  },
+  {
+   "file": "src/lib/genealogy.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Grandparents",
+    "Grandchildren"
+   ]
+  },
+  {
+   "file": "src/lib/languages.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Borana-Arsi-Guji Oromo",
+    "Guajajára",
+    "Māori",
+    "Poqomchi'",
+    "Tandroy-Mahafaly Malagasy"
+   ]
+  },
+  {
+   "file": "src/lib/languages.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Spanish",
+    "Chinese",
+    "French",
+    "German",
+    "Hindi",
+    "Portuguese",
+    "Russian",
+    "Japanese",
+    "Vietnamese",
+    "Persian",
+    "Italian",
+    "Acoli",
+    "Akan",
+    "Albanian",
+    "Aruamu",
+    "Assamese",
+    "Baatonum",
+    "Beami",
+    "Belarusian",
+    "Bengali",
+    "Bislama",
+    "Boko",
+    "Burmese",
+    "Cebuano",
+    "Chhattisgarhi",
+    "Chichewa",
+    "Chuj",
+    "Chuukese",
+    "Croatian",
+    "Czech",
+    "Dadibi",
+    "Dawro",
+    "Ditammari",
+    "Dutch",
+    "Esperanto",
+    "Ewe",
+    "Finnish",
+    "Gamo",
+    "Garifuna",
+    "Gedeo",
+    "Gofa",
+    "Gujarati",
+    "Hausa",
+    "Hawaiian",
+    "Hiligaynon",
+    "Huichol",
+    "Huli",
+    "Hungarian",
+    "Ibibio",
+    "Igbo",
+    "Ilocano",
+    "Indonesian",
+    "Kamano",
+    "Kannada",
+    "Kapingamarangi",
+    "Kikuyu",
+    "Kilivila",
+    "Kituba",
+    "Kosraean",
+    "Kriol",
+    "Kuanua",
+    "Lao",
+    "Latvian",
+    "Lingala",
+    "Luganda",
+    "Luo",
+    "Malagasy",
+    "Malayalam",
+    "Male",
+    "Mam",
+    "Marathi",
+    "Mari",
+    "Motu",
+    "Nepali",
+    "Norwegian",
+    "Nyankole",
+    "Odia",
+    "Pohnpeian",
+    "Polish",
+    "Punjabi",
+    "Romanian",
+    "Roviana",
+    "Rundi",
+    "Serbian",
+    "Shi",
+    "Shona",
+    "Somali",
+    "Sunwar",
+    "Susu",
+    "Swahili",
+    "Swedish",
+    "Tagalog",
+    "Tamil",
+    "Tarifit",
+    "Telugu",
+    "Thai",
+    "Tibetan",
+    "Toma",
+    "Tongan",
+    "Turkish",
+    "Ukrainian",
+    "Urdu",
+    "Uyghur",
+    "Wolof",
+    "Yalunka",
+    "Yapese",
+    "Yoruba"
+   ]
+  },
+  {
+   "file": "src/lib/museums.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "audited",
+    "no link",
+    "search hit",
+    "stated"
+   ]
+  },
+  {
+   "file": "src/lib/prophet-eras.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "930–586 BC"
+   ]
+  },
+  {
+   "file": "src/lib/testimonies.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Community",
+    "Belonging"
+   ]
+  },
+  {
+   "file": "src/lib/topic-style.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "1 Kings 12 to 2 Kings",
+    "1 Samuel to 1 Kings 11"
+   ]
+  },
+  {
+   "file": "src/lib/topic-style.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Commandments"
+   ]
+  },
+  {
+   "file": "src/pages/AnalysisPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Profile dates shown; conflicting source labels remain in the catalogue.",
+    "work record"
+   ]
+  },
+  {
+   "file": "src/pages/AudioBiblePage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n} · click to change"
+   ]
+  },
+  {
+   "file": "src/pages/ContactPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "(optional)"
+   ]
+  },
+  {
+   "file": "src/pages/HomePage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "/ Connected field",
+    "15 city maps",
+    "7 audiences",
+    "together."
+   ]
+  },
+  {
+   "file": "src/pages/IslamGuidePage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "01 / Understanding Islam"
+   ]
+  },
+  {
+   "file": "src/pages/ListenPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "alternatives."
+   ]
+  },
+  {
+   "file": "src/pages/MeaningSearchPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "(Apache 2.0), browser build by onnx-community. Engine:",
+    ", once. Wi-Fi recommended.",
+    "That may come later, and it would search with this same meaning index. This step finds; it doesn’t answer."
+   ]
+  },
+  {
+   "file": "src/pages/ReadingSourcePage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    ". No claim of textual identity with the OPC edition is made."
+   ]
+  },
+  {
+   "file": "src/pages/ReformedLibraryPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Public-domain historic text"
+   ]
+  },
+  {
+   "file": "src/pages/ReformedLibraryPage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Reformation",
+    "Presbyterian",
+    "Congregational",
+    "Puritan",
+    "Baptist",
+    "Anglican",
+    "· Partial holding / excerpt",
+    "· Extent not fully verified"
+   ]
+  },
+  {
+   "file": "src/pages/SearchPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "; change the version above",
+    "verses contain"
+   ]
+  },
+  {
+   "file": "src/pages/TestimoniesPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Their story joins yours; they can invite the next person."
+   ]
+  },
+  {
+   "file": "src/pages/TopicCategoryPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "; open one to see its topics."
+   ]
+  },
+  {
+   "file": "src/pages/TopicPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Read the whole article ("
+   ]
+  },
+  {
+   "file": "src/pages/WorldviewsPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "/ A conversation in context"
+   ]
+  },
+  {
+   "file": "src/pages/home/NearbyStage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}'s map opening in a circle from its centre",
+    "{n}'s map closing into the dot as it flies"
+   ]
+  },
+  {
+   "file": "src/pages/home/QuizParts.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Right."
+   ]
+  },
+  {
+   "file": "src/pages/legal/FlowMap.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "our mailbox"
+   ]
+  },
+  {
+   "file": "src/pages/legal/PrivacyView.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "· Eleven sections"
+   ]
+  },
+  {
+   "file": "src/pages/legal/SupportView.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    ". Thinking of suicide or in crisis? Call or text",
+    "· Six answers"
+   ]
+  },
+  {
+   "file": "src/pages/legal/privacy-content.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "25 October 2026"
+   ]
+  },
+  {
+   "file": "src/pages/library/River.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "pinch"
+   ]
+  },
+  {
+   "file": "src/pages/library/River.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "· {n} words of Jesus"
+   ]
+  },
+  {
+   "file": "src/pages/library/Timeline.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "2000 BC",
+    "500 BC",
+    "AD 1",
+    "AD 100"
+   ]
+  },
+  {
+   "file": "src/pages/library/part-content.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Four accounts of one life: the birth, teaching, miracles, death and resurrection of Jesus Christ. Matthew, Mark and Luke tell it side by side (the Synoptic Gospels); John tells it in his own way. Acts, Luke’s second volume, follows the apostles from Jerusalem to Rome.",
+    "Matthew, Mark, Luke and John; Luke also wrote Acts (Acts 1:1)"
+   ]
+  },
+  {
+   "file": "src/pages/library/part-content.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Writers",
+    "Forms",
+    "Sinai",
+    "Pentecost",
+    "Writer"
+   ]
+  },
+  {
+   "file": "src/pages/other-work/StoreRoom.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "carousel"
+   ]
+  },
+  {
+   "file": "src/pages/places/AtlasCollection.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "perspective"
+   ]
+  },
+  {
+   "file": "src/pages/places/AtlasCollection.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Egypt",
+    "Damascus",
+    "Haran",
+    "Bethlehem",
+    "Hebron",
+    "Capernaum"
+   ]
+  },
+  {
+   "file": "src/pages/places/JourneyExperience.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    ". None of these years is stated in the Bible."
+   ]
+  },
+  {
+   "file": "src/pages/places/TraditionExperience.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Thessalonica",
+    "Constantinople",
+    "Avignon",
+    "Centers",
+    "Councils",
+    "Milan"
+   ]
+  },
+  {
+   "file": "src/pages/places/city-collections.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Rameses",
+    "Babylon",
+    "Damascus",
+    "Haran",
+    "Bethlehem",
+    "Hebron",
+    "Capernaum",
+    "Ephesus",
+    "Smyrna",
+    "Pergamum",
+    "Thyatira",
+    "Sardis",
+    "Philadelphia",
+    "Laodicea",
+    "Shechem",
+    "Samaria",
+    "Bethel",
+    "Shiloh",
+    "Beersheba",
+    "Nazareth",
+    "Bethsaida",
+    "Cana",
+    "Bethany",
+    "Antioch",
+    "Philippi",
+    "Thessalonica",
+    "Athens",
+    "Lystra",
+    "Nineveh",
+    "Susa",
+    "Tyre",
+    "Sidon",
+    "Joppa",
+    "Caesarea",
+    "Troas",
+    "Puteoli",
+    "Kedesh",
+    "Bezer",
+    "Golan",
+    "Ur",
+    "Pithom",
+    "Succoth",
+    "Sodom",
+    "Gomorrah",
+    "Zoar",
+    "Chorazin"
+   ]
+  },
+  {
+   "file": "src/pages/places/history-collections.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Orthodox perspective",
+    "Reformed churches",
+    "Regional churches"
+   ]
+  },
+  {
+   "file": "src/pages/places/history-collections.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Egypt",
+    "Sinai",
+    "Smyrna",
+    "Antioch",
+    "Thessalonica",
+    "Caesarea",
+    "Lyon",
+    "Alexandria",
+    "Nicaea",
+    "Constantinople",
+    "Avignon",
+    "Oxford",
+    "Prague",
+    "Wittenberg",
+    "Worms",
+    "Zurich",
+    "Geneva",
+    "Schleitheim",
+    "London",
+    "Edinburgh",
+    "Trent",
+    "Asia",
+    "Mesopotamia",
+    "Polynesia",
+    "Melanesia",
+    "Etchmiadzin"
+   ]
+  },
+  {
+   "file": "src/pages/places/old-maps-collection/common.js",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Bethlehem",
+    "Hebron",
+    "Tyre",
+    "Sidon",
+    "Joppa",
+    "Gaza"
+   ]
+  },
+  {
+   "file": "src/pages/places/old-maps-collection/dir-a.js",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Maps",
+    "Dated",
+    "Mapmakers",
+    "Libraries",
+    "Every dated map we hold, as a dot on its subject's lane: {n} maps from {n} to {n}. A map of several subjects sits on each of their lanes. Choose a subject to keep only its lane."
+   ]
+  },
+  {
+   "file": "src/pages/places/old-maps-collection/dir-b.js",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Maps",
+    "Mapmakers",
+    "Libraries",
+    "Earliest",
+    "Show all {n} in this drawer"
+   ]
+  },
+  {
+   "file": "src/pages/places/old-maps-collection/dir-c.js",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Dated",
+    "Mapmakers",
+    "'Natolia, once Asia Minor': west, 'Occidens', is at the bottom, so the islands of the Aegean run along the foot of the sheet."
+   ]
+  },
+  {
+   "file": "src/pages/questions/Hero.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "AD"
+   ]
+  },
+  {
+   "file": "src/pages/questions/test/TestPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "yourself"
+   ]
+  },
+  {
+   "file": "src/pages/questions/test/TestPage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "· {n} to draw from"
+   ]
+  },
+  {
+   "file": "src/pages/questions/test/engine.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "True"
+   ]
+  },
+  {
+   "file": "src/pages/questions/test/parts.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Right."
+   ]
+  },
+  {
+   "file": "src/pages/questions/test/themes.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Adam",
+    "Cain",
+    "Sarah",
+    "Esau",
+    "Rahab",
+    "Shem",
+    "Isaac",
+    "Ishmael",
+    "Aaron",
+    "Hezekiah",
+    "Josiah",
+    "Abram",
+    "Sarai",
+    "Hagar",
+    "Rebekah",
+    "Jacob",
+    "Rachel",
+    "Caleb",
+    "Samson",
+    "Delilah",
+    "Gideon",
+    "Deborah",
+    "Jephthah",
+    "Ehud",
+    "Hannah",
+    "Eli",
+    "Goliath",
+    "Bathsheba",
+    "Jeroboam",
+    "Rehoboam",
+    "Ahab",
+    "Jezebel",
+    "Jehu",
+    "Joash",
+    "Jehoshaphat",
+    "Manasseh",
+    "Athaliah",
+    "Asa",
+    "Ahaziah",
+    "Elijah",
+    "Elisha",
+    "Shadrach",
+    "Meshach",
+    "Abednego",
+    "Nebuchadnezzar",
+    "Eve",
+    "Naomi",
+    "Abigail",
+    "Jael",
+    "Mary",
+    "Elizabeth",
+    "Martha",
+    "Lydia",
+    "Priscilla",
+    "Dorcas",
+    "Barnabas",
+    "Silas",
+    "Andrew",
+    "Thomas",
+    "Philip",
+    "Judas",
+    "Abel",
+    "Ham",
+    "Mordecai",
+    "Haman",
+    "Cyrus",
+    "Golgotha",
+    "Calvary"
+   ]
+  },
+  {
+   "file": "src/pages/quiz-data.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Adam",
+    "Enoch",
+    "Antioch",
+    "Elisha",
+    "Methuselah",
+    "Two",
+    "Five",
+    "Seven"
+   ]
+  },
+  {
+   "file": "src/pages/resources/learning/Panel.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    ", about {n} minutes each",
+    "For",
+    "Kind",
+    "Sessions"
+   ]
+  },
+  {
+   "file": "src/pages/resources/learning/parts.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "For",
+    "Kind",
+    "Sessions",
+    "Paper"
+   ]
+  },
+  {
+   "file": "src/pages/resources/life/CityMap.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "River",
+    "St."
+   ]
+  },
+  {
+   "file": "src/pages/study/CurvedGenealogyPage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Adam",
+    "Jacob"
+   ]
+  },
+  {
+   "file": "src/pages/study/HarmonyPage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}: the Gospel passages"
+   ]
+  },
+  {
+   "file": "src/pages/study/LongMemoryPage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "verses in selected passages"
+   ]
+  },
+  {
+   "file": "src/pages/study/StudyResourceCards.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Mercy",
+    "Covenant",
+    "Repentance",
+    "Angels"
+   ]
+  },
+  {
+   "file": "src/pages/study/canon/Landing.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "132 BC – 1647"
+   ]
+  },
+  {
+   "file": "src/pages/study/canon/Opening.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Hermas"
+   ]
+  },
+  {
+   "file": "src/pages/study/canon/Sheet.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Holds",
+    "Material"
+   ]
+  },
+  {
+   "file": "src/pages/study/church-reading/ReaderTest.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Supported."
+   ]
+  },
+  {
+   "file": "src/pages/study/circles/runtime.mjs",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Preached",
+    "Published"
+   ]
+  },
+  {
+   "file": "src/pages/study/creeds/CreedDocumentPage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "quotations in this document are"
+   ]
+  },
+  {
+   "file": "src/pages/study/creeds/CreedsPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Catechisms"
+   ]
+  },
+  {
+   "file": "src/pages/study/discoveries/DiscoveriesPage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Establishes",
+    "Suggests",
+    "Unresolved",
+    "“The Cyrus Cylinder is the decree to Jerusalem quoted in Ezra.”",
+    "“The Pilate inscription identifies an office held by a person named in Luke.”",
+    "“The name House of David supports a remembered dynastic founder.”",
+    "Established"
+   ]
+  },
+  {
+   "file": "src/pages/study/egypt/Claims.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Supported."
+   ]
+  },
+  {
+   "file": "src/pages/study/empires/EmpireMaps.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Babylon",
+    "Damascus",
+    "Samaria",
+    "Megiddo",
+    "Ekron",
+    "Qarqar",
+    "Carchemish"
+   ]
+  },
+  {
+   "file": "src/pages/study/empires/IsraelEmpiresPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Compare Ezra 1; Ezra 6; Isaiah 45:1–7 ↗"
+   ]
+  },
+  {
+   "file": "src/pages/study/empires/evidence.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Lachish captives",
+    "Sennacherib’s prism",
+    "neighbours"
+   ]
+  },
+  {
+   "file": "src/pages/study/farming/Claims.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Supported."
+   ]
+  },
+  {
+   "file": "src/pages/study/farming/Landing.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "“Harvest” in Scripture"
+   ]
+  },
+  {
+   "file": "src/pages/study/greek/Endings.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}, word by word. Scroll sideways."
+   ]
+  },
+  {
+   "file": "src/pages/study/greek/MoveWords.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}, {n}. Send to the front."
+   ]
+  },
+  {
+   "file": "src/pages/study/greek/parts.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Supported."
+   ]
+  },
+  {
+   "file": "src/pages/study/hebrew/Bench.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Right."
+   ]
+  },
+  {
+   "file": "src/pages/study/hebrew/parts.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Supported."
+   ]
+  },
+  {
+   "file": "src/pages/study/history/CitiesEvidenceLab.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}: selected context {n}. Schematic teaching illustration, not an excavated plan or measured section."
+   ]
+  },
+  {
+   "file": "src/pages/study/history/CitiesSectionArt.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Destruction",
+    "Residences",
+    "{n}: three selected contexts. Schematic illustration, not a measured excavation. Use the horizon buttons below for the same selection."
+   ]
+  },
+  {
+   "file": "src/pages/study/history/CitiesThroughLayersPage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Stratigraphy",
+    "Radiocarbon",
+    "Inscriptions"
+   ]
+  },
+  {
+   "file": "src/pages/study/history/cities-research.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Excavation",
+    "Barley",
+    "Wheat"
+   ]
+  },
+  {
+   "file": "src/pages/study/history/evidence.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Excavation overview",
+    "Oxford research archive"
+   ]
+  },
+  {
+   "file": "src/pages/study/history/evidence.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Capernaum",
+    "Ephesus",
+    "Caesarea",
+    "Magdala",
+    "Judea",
+    "Mediterranean",
+    "Achaia"
+   ]
+  },
+  {
+   "file": "src/pages/study/home/Claims.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Supported."
+   ]
+  },
+  {
+   "file": "src/pages/study/home/Landing.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Hundreds"
+   ]
+  },
+  {
+   "file": "src/pages/study/hub/Artwork.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Georgia"
+   ]
+  },
+  {
+   "file": "src/pages/study/hub/AtlasWindow.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Antioch",
+    "Salamis",
+    "Paphos",
+    "Perga"
+   ]
+  },
+  {
+   "file": "src/pages/study/hub/collections.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Directory",
+    "Journey"
+   ]
+  },
+  {
+   "file": "src/pages/study/hymns/page/HymnFullPage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "no verse printed above it"
+   ]
+  },
+  {
+   "file": "src/pages/study/manuscripts/Books.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Deut",
+    "Song",
+    "Lam",
+    "Phil",
+    "Col",
+    "Gen",
+    "Exod",
+    "Lev",
+    "Num",
+    "Josh",
+    "Judg",
+    "Neh",
+    "Esth",
+    "Ps",
+    "Prov",
+    "Eccl",
+    "Isa",
+    "Jer",
+    "Ezek",
+    "Hos",
+    "Obad",
+    "Mic",
+    "Nah",
+    "Hab",
+    "Zeph",
+    "Hag",
+    "Zech",
+    "Mal",
+    "Matt",
+    "Rom",
+    "Gal",
+    "Eph",
+    "Phlm",
+    "Heb",
+    "Jas",
+    ", {n} with a date"
+   ]
+  },
+  {
+   "file": "src/pages/study/manuscripts/Closeness.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Phil",
+    "Col",
+    "Gal",
+    "Eph",
+    "Thess",
+    "Cor",
+    "· about {n} years after the middle of the writing range"
+   ]
+  },
+  {
+   "file": "src/pages/study/manuscripts/Landing.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Dated",
+    "Libraries",
+    "Pictured"
+   ]
+  },
+  {
+   "file": "src/pages/study/manuscripts/Sheet.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Found",
+    "Kind",
+    "Material",
+    "the range as the catalogue's own text states it",
+    "a palaeographer's estimate from the handwriting",
+    "a date written in the document itself",
+    "(the source says “{n}”)",
+    "(it says “{n}”)",
+    "Writing",
+    ", chosen from {n} dated claims"
+   ]
+  },
+  {
+   "file": "src/pages/study/manuscripts/lanes-layout.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "no open records yet"
+   ]
+  },
+  {
+   "file": "src/pages/study/manuscripts/places-model.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Monastery",
+    "Museum",
+    "University"
+   ]
+  },
+  {
+   "file": "src/pages/study/medieval/Claims.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Supported."
+   ]
+  },
+  {
+   "file": "src/pages/study/medieval/Mirror.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "only set side by side by this study"
+   ]
+  },
+  {
+   "file": "src/pages/study/medieval/Sheet.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "only set side by side by this study"
+   ]
+  },
+  {
+   "file": "src/pages/study/museums/MuseumArchaeologyPage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "· {n} in the catalogue"
+   ]
+  },
+  {
+   "file": "src/pages/study/museums/MuseumPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "records held"
+   ]
+  },
+  {
+   "file": "src/pages/study/museums/MuseumPage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Culture",
+    "Findspot",
+    "Dimensions"
+   ]
+  },
+  {
+   "file": "src/pages/study/passages/Desk.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "no leaf survives here"
+   ]
+  },
+  {
+   "file": "src/pages/study/passages/evidence.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "[ημα] · θέλημα, “will”",
+    "א¹ · correction"
+   ]
+  },
+  {
+   "file": "src/pages/study/passages/evidence.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Corrected",
+    "Spelling",
+    "… the Father and our Lord …",
+    "… our Father and the Lord …",
+    "“Our” moves before “and Lord”, next to “Father”. WH (Westcott–Hort) and NA28 print this order, according to this digital apparatus."
+   ]
+  },
+  {
+   "file": "src/pages/study/print-room/Architecture.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}: select an edition or witness"
+   ]
+  },
+  {
+   "file": "src/pages/study/print-room/page-anatomy.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Mainz",
+    "Vulgate",
+    "Aramaic",
+    "Basel",
+    "Venice",
+    "Stuttgart"
+   ]
+  },
+  {
+   "file": "src/pages/study/scrolls/ScrollsVisualStudies.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "c. 30–50 CE"
+   ]
+  },
+  {
+   "file": "src/pages/study/strongs/Mistakes.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Supported."
+   ]
+  },
+  {
+   "file": "src/pages/study/strongs/Numbered.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    ", though Hebrew reads right to left",
+    ": numbers {n} to {n}, {n} in all. It begins with"
+   ]
+  },
+  {
+   "file": "src/pages/study/strongs/Renderings.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}: {n} of {n} tags. Read a sample verse.",
+    ", {n} of them other English words"
+   ]
+  },
+  {
+   "file": "src/pages/study/structure/chapter-studies.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "first named here"
+   ]
+  },
+  {
+   "file": "src/pages/study/theology-articles/articles/trinity-analogies.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Both start from God’s oneness, which they get right, and then try to find threeness by dividing the one thing up — into states, stages, functions or aspects. Division is the only tool they have. But a divided unity is not three persons; it is one thing described three ways. So the threeness always comes out thinner than the oneness, and what is lost is precisely what Scripture shows: three who speak to each other, send each other, glorify each other and love each other, eternally and at once.",
+    "Ice, water and steam becomes modalism at one specific moment: when someone says “so that is what God is like” and stops. Said with its limit attached — “this will show you one substance and will tell you nothing whatever about three persons; do not push it further” — even a poor picture can do a small honest job. The difference between an illustration and a false doctrine is, quite literally, the disclaimer.",
+    "Look at what the picture actually offers. Ice, liquid water and steam are not three things. They are three states of one thing. The hydrogen and oxygen are not aware of one another, do not address one another, and do not stand in any relation to one another; there is nothing there but one substance in one condition at a time. Put a given quantity of water in the freezer and it is ice; boil it and it is steam. It passes from state to state. It is never, as itself, all three.",
+    "Map that onto God and you get exactly Sabellius’s teaching: a single divine person who was Father under the old covenant, became Son for the span of a human life, and has been Spirit since Pentecost. Three successive appearances of one actor. On that account the Father never sends the Son, because there is nobody to send and nobody to be sent; the Son never prays to the Father, because there is nobody to pray to; and the words “this is My beloved Son” are God talking about himself in the third person.",
+    "The Latin word the creeds use, persona, originally meant an actor’s mask. That is precisely the meaning the church rejected when it adopted the word. Sabellius’s God wears three masks; the creeds’ God is three persons. The analogy of the man with three jobs is not a rough approximation of the doctrine — it is a tidy statement of the position the doctrine was written to rule out. Roles are temporary, partial and relative to an audience; the Son is not a role the Father takes on, and did not begin at Bethlehem.",
+    "The second picture looks more promising, because at least it is about a person. That is exactly why it fails harder. A man who is a surgeon, a husband and a father is one person throughout. He has one mind, one will, one memory, one centre from which he acts. “Surgeon” and “father” are not someone; they are descriptions of how this someone stands to other people."
+   ]
+  },
+  {
+   "file": "src/pages/study/theology-articles/articles/trinity-confession.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "And the catholic faith is this: that we worship one God in Trinity, and Trinity in Unity; neither confounding the Persons, nor dividing the Essence.",
+    "Letter 236, §6",
+    "Oration 31, §30",
+    "That is the sentence most often quoted in English as “neither confounding the Persons, nor dividing the Substance” — the wording of the Book of Common Prayer. Both render the same Latin, substantiam separantes; this site’s copy of the creed translates substantia as “Essence”, which is why the words above read that way. The creed then spells out what it has just forbidden, clause by clause: the Father is God, the Son is God, the Holy Spirit is God, “and yet they are not three Gods; but one God”, and “the whole three Persons are coeternal, and coequal”.",
+    "The distinction between ousia and hupostasis is the same as that between the general and the particular; as, for instance, between the animal and the particular man. Wherefore, in the case of the Godhead, we confess one essence or substance so as not to give a variant definition of existence, but we confess a particular hypostasis, in order that our conception of Father, Son and Holy Spirit may be without confusion and clear.",
+    "What Scripture says of the Spirit in relation to the Father (John 15:26), and only of the Spirit. The Athanasian Creed is deliberate that this is “neither made, nor created, nor begotten; but proceeding”.",
+    "With those words in place, the shortest full statement in the Christian tradition can be made in a line. The Athanasian Creed — Latin, and certainly not written by Athanasius, whatever its name says; scholars place its composition in the fifth or sixth century, and this site’s collection dates the received text at about 800 — fences the doctrine on both sides at once:",
+    "“In the name” is singular — one name, not three. And three are named inside it, each with its own article in the Greek, each distinguished from the others. Baptism, the act by which a person is handed over to God, is performed into a single name that has three persons in it. This is not a later theological construction laid over the text; it is the text the construction had to account for."
+   ]
+  },
+  {
+   "file": "src/pages/study/theology-articles/articles/trinity-confession.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "“With God” makes the Word someone other than the one he is with. “Was God” makes him no less than the one he is with. Either clause on its own would be easy. Together they are the doctrine. A few verses later John says it again, with the Son on the Father’s side and the Son himself God:",
+    "Begotten",
+    "Proceeding"
+   ]
+  },
+  {
+   "file": "src/pages/study/theology-articles/articles/trinity-history.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "A presbyter of Alexandria named Arius gave the second answer, carefully and in writing. His case was not stupid, which is why it took sixty years to settle. If the Son is begotten, he argued, then there was a point from which he is; if he is from the Father, then the Father is the source and the Son is not; and whatever is not the source is, in the end, among the things that came to be. So the Son is the first and greatest of all creatures, made before time, through whom everything else was made — but not God as the Father is God. The slogan the council later quoted back at his party was “there was a time when he was not”.",
+    "And we believe in the Holy Ghost, the Lord and Giver of Life; who proceeds from the Father and the Son; who with the Father and the Son together is worshipped and glorified; who spoke by the prophets.",
+    "But the tri-personality of God is not a numerical or essential trinity of three beings (like Abraham, Isaac, and Jacob), for this would be tritheism; nor is it, on the other hand, merely a threefold aspect and mode of manifestation, in the Sabellian or Swedenborgian sense; but it is a real, objective, and eternal, though ineffable, distinction in the one Divine being",
+    "Each person is a third of God; you need all three to make a deity. It loses both at once — no person is fully God, and the one God is an assembly. “Partialism” is a modern teaching label and not a word any council used, which is worth saying plainly. But the thing it names was refused at Nicaea in as many words: the Son is of the Father and yet “does not subsist as a part of the Father”, and not by “division or abscission”.",
+    "Look at what the clause does. It does not say the Spirit is homoousios — the council avoided repeating the word that had caused sixty years of trouble. It says something harder to argue with: the Spirit is worshipped and glorified together with the Father and the Son. Whatever may be worshipped is God; the church worships the Spirit; therefore. And it calls the Spirit “the Lord and Giver of Life”, which is not language that can be used of a creature.",
+    "Paired with it is the phrase that is still recited every Sunday: begotten, not made. Arius’s whole case rested on treating “begotten” as a soft word for “made”. The creed separates them permanently. Begetting is a relation inside God; making is what God does to things that are not God.",
+    "Read the creed of 325 again and notice how it ends. “[We believe] also in the Holy Spirit.” That is the whole of it. One clause, no description, nothing about what the Spirit is or how the Spirit stands to the Father and the Son. The council had been called about the Son, and about the Son it was exhaustive; on the Spirit it said the minimum.",
+    "So the same argument came round again, one person later. If the Son is God, is the Spirit? A party in the following generation said no — that the Spirit is a created power, a servant, the greatest of ministering beings. Their opponents called them Pneumatomachi, the Spirit-fighters; in the historical narratives of the period they appear under the name Macedonians, after Macedonius of Constantinople. Their leaders were invited to the next council and walked out of it.",
+    "The English copy quoted above reads “who proceeds from the Father and the Son”. The two added words are the Filioque — Latin for “and the Son” — and they are a later Western addition, not part of what the hundred and fifty bishops wrote. They spread through the Latin church over the following centuries and became one of the standing causes of the division between East and West in 1054. Schaff’s own edition on this site brackets them, “[and the Son]”, to mark them as an interpolation; the Latin text of 381 above has only ex Patre procedentem, from the Father. If you are reading the creed to find out what 381 said, read the clause without them.",
+    "The Niceno-Constantinopolitan Creed",
+    "The appeal of this is that it keeps the arithmetic simple. There is one God, the Father; the Son is an exalted creature; nothing needs to be said about three being one. The price is the entire worshipping practice of the church, which was already praying to Jesus, baptising into his name alongside the Father’s, and calling him Lord in the sense Israel reserved for God.",
+    "Three Gods of the same kind, like three men — the error Gregory of Nyssa was accused of and spent a whole treatise answering. It keeps the three and loses the one. No council legislated against it by that name, because nobody taught it on purpose; it is where the other repairs land when you push them. Schaff names it in a single sentence beside Sabellianism, below.",
+    "We believe in one God, the Father Almighty, Maker of all things visible and invisible:—and in one Lord Jesus Christ, the Son of God, the only-begotten of the Father, that is of the substance of the Father; God of God, Light of light, true God of true God; begotten not made, consubstantial with the Father; by whom all things were made both which are in heaven and on earth; who for the sake of us men, and on account of our salvation, descended, became incarnate, was made man, suffered and rose again on the third day; he ascended into the heavens, and will come to judge the living and the dead. [We believe] also in the Holy Spirit.",
+    "Which brings this article back where part three left it. The councils tell you what cannot be said. They do not give you a picture, and they never claimed to. Nicaea does not explain how the Son is of one being with the Father; it rules out the explanations that fail. Constantinople does not explain the procession of the Spirit; it says the Spirit is worshipped with the Father and the Son, and leaves it there.",
+    "with the insertion, however, of that single word “homoousios” (consubstantial), an expression which the emperor himself explained, as not indicating corporeal affections or properties; and consequently that the Son did not subsist from the Father either by division or abscission"
+   ]
+  },
+  {
+   "file": "src/pages/study/theology-articles/articles/trinity-history.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "“Not by division or abscission.” “Not as a part of the Father.” In the same session in which the church affirmed that the Son is of one being with the Father, it denied that he is a slice of the Father — which is exactly what the water analogy and the three-sided figures suggest, and exactly what the modern label “partialism” names. The council saw that danger in the word it was adopting, and fenced it in advance.",
+    "Arianism",
+    "Tritheism",
+    "Partialism",
+    "“Real, objective, and eternal, though ineffable.” Each of those four words is load-bearing. Real and objective, against modalism: the distinction is in God and not in our perception of God. Eternal, against Arianism: it did not begin. Ineffable, against every diagram in this article, including the good ones."
+   ]
+  },
+  {
+   "file": "src/pages/study/theology-articles/articles/trinity-theologians.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "But in the case of the Divine nature we do not similarly learn that the Father does anything by Himself in which the Son does not work conjointly, or again that the Son has any special operation apart from the Holy Spirit; but every operation which extends from God to the Creation, and is named according to our variable conceptions of it, has its origin from the Father, and proceeds through the Son, and is perfected in the Holy Spirit.",
+    "Count, if you must; but you must not by counting do damage to the faith. … For we do not count by way of addition, gradually making increase from unity to multitude, and saying one, two, and three,—nor yet first, second, and third. For “I,” God, “am the first, and I am the last.”",
+    "Directing my purpose by this rule of faith, so far as I have been able, so far as Thou hast made me to be able, I have sought Thee, and have desired to see with my understanding what I believed; and I have argued and labored much. … May I remember Thee, understand Thee, love Thee. Increase these things in me, until Thou renewest me wholly. … O Lord the one God, God the Trinity, whatever I have said in these books that is of Thine, may they acknowledge who are Thine; if anything of my own, may it be pardoned both by Thee and by those who are Thine. Amen.",
+    "Earlier in the work he had already said why no vocabulary was going to be adequate. The famous sentence is not a flourish; it is an admission of defeat about language, offered in defence of using the words anyway.",
+    "Gregory’s first move is unexpected: he does not defend the analogy, he attacks the ordinary speech on which it rests. Strictly, he says, “three men” is sloppy. Human nature is one; what there are three of is persons bearing it. We call them three men out of habit, not accuracy.",
+    "I picture to myself an eye, a fountain, a river, as others have done before, to see if the first might be analogous to the Father, the second to the Son, and the third to the Holy Ghost. … But I was afraid in the first place that I should present a flow in the Godhead, incapable of standing still; and secondly that by this figure a numerical unity would be introduced. For the eye and the spring and the river are numerically one, though in different forms.",
+    "In a word, there is nothing which presents a standing point to my mind in these illustrations from which to consider the Object which I am trying to represent to myself, unless one may indulgently accept one point of the image while rejecting the rest. Finally, then, it seems best to me to let the images and the shadows go, as being deceitful and very far short of the truth; and clinging myself to the more reverent conception, and resting upon few words, using the guidance of the Holy Ghost …",
+    "In his last book Augustine returns to his own analogies and takes them apart. The likeness of memory to the Father, he says, is “incomparably unequal, yet of some sort, whatever it be”; the likeness of understanding to the Son holds only “in its own great disparity”; the likeness of love to the Spirit is “some, however exceedingly unequal, likeness of the Holy Spirit”. And then he names the break that cannot be repaired by any refinement: the three in a human mind are not three persons but one, while in God they are three persons and one God. The image is an image of the Trinity; it is not a small Trinity.",
+    "In the second way, reasons avail to prove the Trinity; as, when assumed to be true, such reasons confirm it. We must not, however, think that the trinity of persons is adequately proved by such reasons.",
+    "Lewis builds his picture out of dimensions. In one dimension you can only have a line. In two, lines combine into a figure — a square is made of four lines without ceasing to be one square. In three, figures combine into a solid — a cube is made of six squares without ceasing to be one cube. At each level the simpler thing is not abandoned but taken up: you do not stop having lines when you start having squares. His suggestion is that the same relation holds between human personality and God’s: on our level, one being means one person, and that remains true of us; on God’s level, one being is three persons, in a way that includes rather than contradicts what personality means down here.",
+    "Oration 31, §31",
+    "Oration 31, §32",
+    "Oration 31, §33",
+    "Since, then, these three, memory, understanding, will, are not three lives, but one life; nor three minds, but one mind; it follows certainly that neither are they three substances, but one substance.",
+    "The attraction of this is that it finds threeness inside something that is obviously one. One act of love is not one thing; it necessarily has a structure of three. You cannot subtract the beloved and still have love, or subtract the love and still have a lover. Each requires the other two, and what you have is not three loves but one. For a doctrine that needs distinction without division, that is a real gain on anything the water or the three jobs can offer.",
+    "This is the most useful thing in Lewis’s chapter, and it is not an analogy at all. It is a description of what Christians think is actually happening when they pray — which is why it does not break the way the illustrations do. The doctrine is not being compared to something; it is being located in an ordinary evening.",
+    "Two processions, and only two, because a mind has only these two kinds of inner act: knowing and loving. The procession of the Word is called generation, and so the Word is the Son; the procession of love is not generation, and so has no comparable name — the tradition calls it spiration, and the one who proceeds is the Holy Spirit. This is why the creeds are careful that the Son is “begotten” and the Spirit “proceeding”, and refuse to use the one word for the other."
+   ]
+  },
+  {
+   "file": "src/pages/study/theology-articles/articles/trinity-theologians.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Augustine",
+    "“Indulgently accept one point of the image while rejecting the rest” is the whole discipline in a phrase. An analogy is allowed to make one point. It is not allowed to make a second one on its own authority."
+   ]
+  },
+  {
+   "file": "src/pages/study/versions/LanguageShelf.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n} ({n}). Read this edition."
+   ]
+  },
+  {
+   "file": "src/pages/study/witnesses/Evidence.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}: a page of the manuscript"
+   ]
+  },
+  {
+   "file": "src/pages/study/witnesses/SurvivingWitnessesPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Dublin · 56"
+   ]
+  },
+  {
+   "file": "src/pages/study/witnesses/witnesses.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "“Complete” needs an object: the whole New Testament survives, but large parts of the Old Testament do not. Neither description should be stretched to cover the other.",
+    "Codex",
+    "Lacuna",
+    "Transcription"
+   ]
+  },
+  {
+   "file": "src/pages/study/world/MergedDrawings.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}: {n}. Original schematic, not an excavation plan or a measured reconstruction."
+   ]
+  },
+  {
+   "file": "src/pages/study/world/MergedWorldPage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Evidence.",
+    "Reconstruction."
+   ]
+  },
+  {
+   "file": "src/pages/study/world/WorldDrawings.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Puteoli",
+    "Myra",
+    "Crete",
+    "Malta",
+    "Syracuse",
+    "Rhegium"
+   ]
+  },
+  {
+   "file": "src/pages/study/world/investigation-data.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "“The synagogue was destroyed in 80 CE.” That converts a coin’s date into an event date without establishing the deposition history.",
+    "“Every feature shown here existed at the same time.” A composite plan can quietly combine successive arrangements.",
+    "“The whole synagogue was founded in 43 CE.” Neither the building’s first use nor the floor’s exact year follows from this coin alone."
+   ]
+  },
+  {
+   "file": "src/pages/study/world/world-data.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Philippi",
+    "Achaia",
+    "Judaea"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/LibraryWorkPage.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Extracted text retains its source locators; transcription accuracy has not been fully reviewed.",
+    "Original file identity",
+    "Original source and provenance ↗"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/preachers/Cities.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "birthplace unknown",
+    "· returned later"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/preachers/Crossing.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Choose any two teachers. Their lives line up on one timeline, cut into the places they lived; the years both were alive are shaded, and any city they shared at the same time is outlined."
+   ]
+  },
+  {
+   "file": "src/pages/teachers/preachers/Handed.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Each curve is a documented link: a teacher and a student, two colleagues, or a writer who shaped a later one. Where their lives overlapped the curve sits in their shared years; where they did not, it runs from one death to the next birth. Point at or tap a curve to read the link."
+   ]
+  },
+  {
+   "file": "src/pages/teachers/preachers/SameYear.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "). Places are where each person was living that year.",
+    "were",
+    "were alive in each year (at most"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/preachers/bible/Panels.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}, {n} (opens a new tab)"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/preachers/catalogue/TeacherCatalogue.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Featured"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/preachers/directory/regions.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Asia",
+    "Dublin",
+    "Breslau",
+    "Elsewhere",
+    "Oceania"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/preachers/drawer/ProfileWorks.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "work and edition records"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/preachers/landing/content.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Fifty"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/preachers/lives/LivesSide.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Atlantic"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/preachers/through/captions.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}'s works here carry no dates, so there is no year playback.",
+    "{n}'s works here all come from one year, so there is no year playback.",
+    "{n}'s works here come from only {n} different years, too few to play through."
+   ]
+  },
+  {
+   "file": "src/pages/teachers/scholars/Directory.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Show more directory entries ("
+   ]
+  },
+  {
+   "file": "src/pages/teachers/scholars/Numbers.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Documented profiles use their main field; other entries use recorded work subjects, which may overlap.",
+    "Held; use unverified"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/scholars/built/Stage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n} · Inspect source connections"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/scholars/directory/groups.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Held in the library; use unverified"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/scholars/discoveries/model.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "Cited discussion of the manuscript; not a claim that this edition supplies the site text."
+   ]
+  },
+  {
+   "file": "src/pages/teachers/scholars/discoveries/model.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}'s lies beyond this map, at {n}"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/scholars/discoveries/projection.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Sinai"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/scholars/landing/IdeaLineage.tsx",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "{n}: works in chronological order"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/scholars/landing/idea-chains.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Chronicle",
+    "Continues",
+    "Revises",
+    "Challenges",
+    "Disputes",
+    "Replies",
+    "Translates",
+    "Answers",
+    "Reformulates"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/shared/AcquiredCatalogue.tsx",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    ". These are transcribed identity evidence, not a reviewed biography."
+   ]
+  },
+  {
+   "file": "src/pages/teachers/shared/acquired.ts",
+   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
+   "texts": [
+    "Spanish",
+    "French",
+    "German",
+    "Portuguese",
+    "Korean"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/shared/reading-more.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "1098 · Atonement",
+    "1642 · Christ",
+    "1746 · Preaching"
+   ]
+  },
+  {
+   "file": "src/pages/teachers/shared/reading-picks.ts",
+   "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
+   "texts": [
+    "1875 · Preaching"
+   ]
+  },
+  {
+   "file": "src/pages/study/good-news/parts.tsx",
+   "why": "the count over each lost-and-found picture, one whole line since stage 5 job 13 (too short for the page rules and the net)",
+   "texts": [
+    "1 of {n}"
+   ]
+  }
+ ]
+}

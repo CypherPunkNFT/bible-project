@@ -113,7 +113,7 @@ def test_a_moved_file_keeps_its_known_text(site: Path) -> None:
 
 def test_a_ruling_with_a_reason_is_honoured_and_one_without_is_refused(site: Path) -> None:
     write(site, PAGE, PLANTED)
-    write(site, english_build_check.RULINGS, json.dumps([{"check": "code", "item": LABEL, "why": "a code name"}]))
+    write(site, english_build_check.RULINGS, json.dumps([{"check": "code", "file": PAGE, "item": LABEL, "why": "a code name"}]))
     assert run(site).returncode == 0
     write(site, english_build_check.RULINGS, json.dumps([{"check": "code", "item": LABEL, "why": " "}]))
     result = run(site)

@@ -76,7 +76,7 @@ export function LostThings() {
   return <figure className="gn-lost" aria-label="One lost out of a hundred, one out of ten, one out of two">
     {D.lost.map((item) => <div key={item.id} className={`gn-lost-col gn-lost-${item.id}`}>
       <div className="gn-dots" aria-hidden="true">{Array.from({ length: item.count }, (_, i) => <i key={i} className={i === item.count - 1 ? "is-lost" : undefined} />)}</div>
-      <p className="gn-lost-count"><b>1 of {item.count}</b> {item.name.toLowerCase()} <Ref id={item.r} /></p>
+      <p className="gn-lost-count"><b>{`1 of ${item.count}`}</b> {item.name.toLowerCase()} <Ref id={item.r} /></p>
       <p className="gn-lost-who">{item.who}: <q>{item.search}</q> <Ref id={item.sr} /></p>
       <p className="gn-lost-end"><q>{item.end}</q> <Ref id={item.er} /></p>
     </div>)}

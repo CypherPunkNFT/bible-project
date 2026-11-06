@@ -137,6 +137,9 @@ class Site:
         registered += self.ui_keys(folders)
         self.known = {unregistered.with_numbers_blanked(text) for text in registered}
         self.ruled_texts, self.ruled_files = english_baseline.rulings(rulings, self.root)
+        self.ruled_scoped = english_baseline.scoped_rulings(rulings)
+        self.later = english_baseline.later_jobs(rulings)
+        self.reading_ruled = english_baseline.reading_rulings(rulings)
 
     def ui_keys(self, folders: list[str]) -> list[str]:
         keys, missing = [], []
@@ -163,8 +166,31 @@ class Site:
     def findings(self, relative: str, original: str) -> list[tuple[str, int, str, str]]:
         if unregistered.skipped_file(relative, self.ruled_files):
             return []
+        scoped = self.ruled_scoped.get(relative, set())
         return [(relative, line, text, reason) for line, text, reason in candidates(original, Path(relative).suffix)
-                if not self.registered(text)]
+                if text not in scoped and not self.registered(text)]
+
+    def reading_resolved(self) -> set[str]:
+        """What a browser-reading baseline text may be resolved by: registered by the page rules over every page file
+        (src/generated/ too, which the net leaves out), collected by page_data.py, or named by a ruling."""
+        if not hasattr(self, "_reading_resolved"):
+            import page_data  # here, not at the top: only --shrink needs it
+            previous = extract.SITE
+            extract.SITE = self.root
+            try:
+                texts = extract.page_strings(extract.page_files(include_generated=True))
+                try:
+                    texts += [text for found in page_data.data_strings(self.root, extract.walk).values() for text in found]
+                except SystemExit as error:  # a tree without the pages' bundled data (a made-up test site)
+                    print(f"note: page_data.py cannot read {self.root} ({error}); its texts are not counted as registered")
+            finally:
+                extract.SITE = previous
+            self._reading_resolved = {unregistered.with_numbers_blanked(text) for text in texts} | {
+                unregistered.with_numbers_blanked(text) for text in self.reading_ruled}
+        return self._reading_resolved
+
+    def reading_registered(self, text: str) -> bool:
+        return self.registered(text) or unregistered.with_numbers_blanked(text) in self.reading_resolved()
 
     def all_findings(self) -> list[tuple[str, int, str, str]]:
         return [found for relative, text in self.contents().items() for found in self.findings(relative, text)]
@@ -298,6 +324,9 @@ def check(root: Path, since: str | None) -> int:
               f"fixed since (run with --shrink to drop them); language nets (found / new): "
               f"{', '.join(f'{net} {sum(counts[net].values())}/{sum(nets_new[net].values())}' for net in NETS)}; "
               f"{time.monotonic() - started:.1f} s")
+        if site.later:
+            print("handed to later jobs (unregistered-reviewed.json, check \"later\"): "
+                  + ", ".join(f"job {job} {count}" for job, count in sorted(site.later.items())))
         if growth:
             print("\n".join(["", "THE BASELINE GREW; it may only shrink:"] + [f"  {line}" for line in growth]))
     if new:
@@ -320,7 +349,7 @@ def shrink(root: Path) -> int:
                       "that did, or tell the owner:\n" + "\n".join(growth))
     site = Site(root, site_languages.folders(), root / RULINGS)
     found = Counter(text for _, _, text, _ in site.all_findings())
-    smaller = english_baseline.shrunk(baseline, found, site.registered)
+    smaller = english_baseline.shrunk(baseline, found, site.reading_registered)
     now, _ = build_nets.judge(root, site.contents(), set(), build_nets.net_rulings(root / RULINGS, root))
     smaller = english_baseline.shrunk_nets(smaller, build_nets.counted(now))
     english_baseline.write(path, smaller)

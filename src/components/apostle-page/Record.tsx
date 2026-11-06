@@ -67,6 +67,18 @@ function Ring({ d, sel, onPick }: { d: Apostle; sel: number; onPick: (period: nu
 }
 
 /** 01 · The ring, with the chosen part's records beside it. */
+// The two sections' leads: each sentence its own text, so the page translator gets it whole (none holds more than three
+// values or a value that is a clause; stage 5 job 13). Each reads as one paragraph, as before.
+export function RingSub({ tagline, told }: { tagline: string; told: number }) {
+  return <><span>{tagline}</span>{" "}<span>{`Scripture gives no years for his life, so the ring is divided by how much is recorded: ${plural(told, "record")} of what he did or what was said to him, one bead each.`}</span>{" "}<span>The last part is tradition and is drawn dashed. Choose a part to read it.</span></>;
+}
+
+export function GridSub({ short, verses, chapters, alt }: { short: string; verses: number; chapters: number; alt?: string }) {
+  return <><span>{`One square for each chapter of the books that name ${short}: ${plural(verses, "verse")} in ${plural(chapters, "chapter")}.`}</span>{" "}<span>The darker the square, the more verses in it name him.</span>{alt
+    ? <>{" "}<span>{`Squares with a dashed edge name ${alt}, who is ${short} only if the two are one man (see the questions below).`}</span></>
+    : null}{" "}<span>Choose a chapter to read what happens there.</span></>;
+}
+
 export function RingSection({ d }: { d: Apostle }) {
   const sheet = useSheet();
   const [sel, setSel] = useState(() => d.periods.slice(0, 3).reduce((best, p, i) => (p.entries.length > d.periods[best].entries.length ? i : best), 0) + 1);
@@ -95,7 +107,7 @@ export function RingSection({ d }: { d: Apostle }) {
   }, [d, sel, short]);
   return <section className="sec" data-sec="ring">
     <SecHead num="01" kicker="His life in four parts" title="How much does Scripture " em="tell?"
-      sub={`${d.tagline} Scripture gives no years for his life, so the ring is divided by how much is recorded: ${plural(told, "record")} of what he did or what was said to him, one bead each. The last part is tradition and is drawn dashed. Choose a part to read it.`} />
+      sub={<RingSub tagline={d.tagline} told={told} />} />
     <div className="a-ring">
       <div className="a-ring-art" ref={art}><Ring d={d} sel={sel} onPick={(period, entry) => { setSel(period); if (entry) sheet.openEntry(entry); }} /></div>
       <div ref={list} className="a-ring-list slim-scroll" style={{ "--tone": PERIOD_TONE[sel], ...(fit ? { marginTop: fit.top, maxHeight: fit.max } : {}) } as CSSProperties}>
@@ -145,7 +157,7 @@ export function GridSection({ d }: { d: Apostle }) {
   };
   return <section className="sec" data-sec="grid">
     <SecHead num="02" kicker="Chapter by chapter" title="Where is he " em="named?"
-      sub={`One square for each chapter of the books that name ${d.short}: ${plural(verses, "verse")} in ${plural(chapters, "chapter")}. The darker the square, the more verses in it name him.${alt ? ` Squares with a dashed edge name ${alt.name}, who is ${d.short} only if the two are one man (see the questions below).` : ""} Choose a chapter to read what happens there.`} />
+      sub={<GridSub short={d.short} verses={verses} chapters={chapters} alt={alt?.name} />} />
     <div className={`heat-wrap${gospels.length + letters.length < 6 ? " below" : ""}`}>
       <div className="heat-scroll" onPointerLeave={() => Tip.hide()}><div className="heat">
         {gospels.length > 0 && <><p className="heat-group">The Gospels and Acts</p>{gospels.map(row)}</>}

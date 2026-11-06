@@ -985,5 +985,1335 @@
   "check": "fields",
   "item": "src/pages/places/old-maps-collection/data.js .lands[].outline.left[]",
   "why": "place names the map's code looks up to set their labels on the left (viewer.js LEFT); the label shown is the place's own name, which is collected"
+ },
+ {
+  "check": "later",
+  "file": "src/components/apostle-page/Counter.tsx",
+  "item": ", {n} of the Twelve",
+  "job": "21",
+  "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/components/charts/SectionDonut.tsx",
+  "item": "% of this selection). Open the passages below to move from the pattern to the texts behind it.",
+  "job": "21",
+  "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/components/charts/SectionDonut.tsx",
+  "item": "% of the words. Book counts alone can hide how much space a section occupies.",
+  "job": "21",
+  "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/components/charts/VersionsTimeline.tsx",
+  "item": ") · Read this version.",
+  "job": "21",
+  "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/components/home/banner-verses.tsx",
+  "item": "você amará o seu próximo como a si mesmo",
+  "job": "14",
+  "why": "a translation written into the page code (another language's text, not English); job 14 makes it an ordinary catalog string"
+ },
+ {
+  "check": "later",
+  "file": "src/components/home/banner-verses.tsx",
+  "item": "kasihilah sesamamu seperti dirimu sendiri",
+  "job": "14",
+  "why": "a translation written into the page code (another language's text, not English); job 14 makes it an ordinary catalog string"
+ },
+ {
+  "check": "later",
+  "file": "src/components/home/mockups/LifeMockups.tsx",
+  "item": "“…so he bringeth them unto their desired haven.”",
+  "job": "21",
+  "why": "a Scripture quotation written into page code in an English Bible's wording; Scripture is never machine-translated (stage 5 job 12's rule), so each language's Bible must supply it (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/components/letters/LetterGroupPage.tsx",
+  "item": "it leans on",
+  "job": "21",
+  "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "code",
+  "file": "src/components/moses-page/runtime.js",
+  "item": "Egypt",
+  "why": "a lookup key or code value the code compares or maps; never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/components/moses-page/runtime.js",
+  "item": "Midian",
+  "why": "a lookup key or code value the code compares or maps; never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/components/moses-page/runtime.js",
+  "item": "Horeb",
+  "why": "a lookup key or code value the code compares or maps; never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/components/moses-page/runtime.js",
+  "item": "Rameses",
+  "why": "a lookup key or code value the code compares or maps; never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/components/moses-page/runtime.js",
+  "item": "Marah",
+  "why": "a lookup key or code value the code compares or maps; never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/components/moses-page/runtime.js",
+  "item": "Rephidim",
+  "why": "a lookup key or code value the code compares or maps; never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/components/moses-page/runtime.js",
+  "item": "brother or sister",
+  "why": "a lookup key or code value the code compares or maps; never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/components/moses-page/runtime.js",
+  "item": "input, select, textarea, .lg-scroll",
+  "why": "a CSS selector or side name the code passes to the browser; never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/components/names/NamesOfGod.tsx",
+  "item": "song of solomon",
+  "why": "a lookup key or code value the code compares or maps; never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/components/names/NamesOfGod.tsx",
+  "item": "song of songs",
+  "why": "a lookup key or code value the code compares or maps; never shown on a page"
+ },
+ {
+  "check": "later",
+  "file": "src/components/people-pages/RulersRibbon.tsx",
+  "item": ", in the days of {n}",
+  "job": "21",
+  "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/components/study/ProphetsRiver.tsx",
+  "item": ", in the days of {n}",
+  "job": "21",
+  "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/components/people-pages/RulerVariants.tsx",
+  "item": "{n}, as Scripture names its {n} in {n}'s time, then {n}.",
+  "job": "14",
+  "why": "a sentence with four values, one a hand-written plural (\"rulers\" or \"ruler\"); the page translator learns lines of at most three, so job 14, moving the plural onto its helper, writes it as two sentences"
+ },
+ {
+  "check": "later",
+  "file": "src/components/study/ProphetsRiver.tsx",
+  "item": "· in the days of {n}",
+  "job": "21",
+  "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables-additions.ts",
+  "item": "last judgment least of these brethren",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables-additions.ts",
+  "item": "salt tasteless saltness flavor flavour",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables-additions.ts",
+  "item": "fasting wedding guests children bridechamber",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables-additions.ts",
+  "item": "eye lamp body single evil darkness",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables-additions.ts",
+  "item": "bread stone fish serpent egg scorpion good father",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables-additions.ts",
+  "item": "measuring measure pressed shaken running over",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables-expanded.ts",
+  "item": "great banquet invitation",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables-expanded.ts",
+  "item": "unjust dishonest steward",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables-expanded.ts",
+  "item": "unprofitable servants unworthy",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables-expanded.ts",
+  "item": "wise steward manager",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables-expanded.ts",
+  "item": "mote log plank hypocrisy",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables.ts",
+  "item": "prodigal son lost son",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables.ts",
+  "item": "good samaritan neighbor",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables.ts",
+  "item": "unmerciful servant forgiven debt",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables.ts",
+  "item": "ten virgins wise foolish",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/data/parables.ts",
+  "item": "pharisee tax collector publican",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/lib/language-fade.ts",
+  "item": "Top",
+  "why": "a CSS selector or side name the code passes to the browser; never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/lib/language-fade.ts",
+  "item": "Bottom",
+  "why": "a CSS selector or side name the code passes to the browser; never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/lib/mission-flat-map.ts",
+  "item": "Aborted",
+  "why": "a lookup key or code value the code compares or maps; never shown on a page"
+ },
+ {
+  "check": "later",
+  "file": "src/lib/page-head.ts",
+  "item": "{n}, on {n}: the whole Bible free, with studies, an atlas and topics.",
+  "job": "15",
+  "why": "a tab title or page description built in code; job 15 sends the page head through the same lookup as the body"
+ },
+ {
+  "check": "code",
+  "file": "src/lib/site-languages-check.ts",
+  "item": "{n}: a made-up test language (pseudo) can never be released",
+  "why": "a message for developers (console or build check), never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/lib/site-languages.ts",
+  "item": "Latn",
+  "why": "a lookup key or code value the code compares or maps; never shown on a page"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/EmblemMockupsPage.tsx",
+  "item": "“The grass withereth, the flower fadeth: but the word of our God shall stand for ever.”",
+  "job": "21",
+  "why": "a Scripture quotation written into page code in an English Bible's wording; Scripture is never machine-translated (stage 5 job 12's rule), so each language's Bible must supply it (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/EmblemMockupsPage.tsx",
+  "item": "“Search the scriptures… they are they which testify of me.”",
+  "job": "21",
+  "why": "a Scripture quotation written into page code in an English Bible's wording; Scripture is never machine-translated (stage 5 job 12's rule), so each language's Bible must supply it (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/EmblemMockupsPage.tsx",
+  "item": "“Be ready always to give an answer to every man that asketh you a reason of the hope that is in you.”",
+  "job": "21",
+  "why": "a Scripture quotation written into page code in an English Bible's wording; Scripture is never machine-translated (stage 5 job 12's rule), so each language's Bible must supply it (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/EmblemMockupsPage.tsx",
+  "item": "“Bear ye one another’s burdens, and so fulfil the law of Christ.”",
+  "job": "21",
+  "why": "a Scripture quotation written into page code in an English Bible's wording; Scripture is never machine-translated (stage 5 job 12's rule), so each language's Bible must supply it (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/legal/support-content.tsx",
+  "item": "free cost price subscription ads account pay",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/legal/support-content.tsx",
+  "item": "mistake error typo wrong report correction fix",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/legal/support-content.tsx",
+  "item": "offline internet app connection download listen audio phone",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/legal/support-content.tsx",
+  "item": "bookmarks notes saved device sync lost phone browser",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/legal/support-content.tsx",
+  "item": "testimony story remove withdraw delete link",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/legal/support-content.tsx",
+  "item": "privacy collect data information tracking",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/places/old-maps-collection/viewer.js",
+  "item": "· non-commercial use only",
+  "job": "21",
+  "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/resources/learning/TitlePage.tsx",
+  "item": "Two",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/preachers/landing/content.ts",
+  "item": "Two",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/scholars/discoveries/model.ts",
+  "item": "Two",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/resources/learning/TitlePage.tsx",
+  "item": "Five",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/scholars/discoveries/model.ts",
+  "item": "Five",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/resources/learning/TitlePage.tsx",
+  "item": "Seven",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/quiz-data.ts",
+  "item": "“Rejoice at all times.”",
+  "job": "21",
+  "why": "a Scripture quotation written into page code in an English Bible's wording; Scripture is never machine-translated (stage 5 job 12's rule), so each language's Bible must supply it (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/quiz-data.ts",
+  "item": "“Jesus wept.”",
+  "job": "21",
+  "why": "a Scripture quotation written into page code in an English Bible's wording; Scripture is never machine-translated (stage 5 job 12's rule), so each language's Bible must supply it (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/quiz-data.ts",
+  "item": "“Pray without ceasing.”",
+  "job": "21",
+  "why": "a Scripture quotation written into page code in an English Bible's wording; Scripture is never machine-translated (stage 5 job 12's rule), so each language's Bible must supply it (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/ReaderPage.tsx",
+  "item": "Lido",
+  "job": "14",
+  "why": "a translation written into the page code (another language's text, not English); job 14 makes it an ordinary catalog string"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/resources/learning/parts.tsx",
+  "item": "· about {n} minutes each",
+  "job": "21",
+  "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/resources/learning/TitlePage.tsx",
+  "item": "Three",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/preachers/landing/content.ts",
+  "item": "Three",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/scholars/discoveries/model.ts",
+  "item": "Three",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/resources/learning/TitlePage.tsx",
+  "item": "Four",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/scholars/discoveries/model.ts",
+  "item": "Four",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/resources/learning/TitlePage.tsx",
+  "item": "Six",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/scholars/discoveries/model.ts",
+  "item": "Six",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/resources/learning/TitlePage.tsx",
+  "item": "Eight",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/resources/learning/TitlePage.tsx",
+  "item": "Nine",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/resources/learning/TitlePage.tsx",
+  "item": "Ten",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/resources/learning/TitlePage.tsx",
+  "item": "Eleven",
+  "job": "14",
+  "why": "a number written as a word from a hand-written list; job 14's number helpers write it in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/resources/learning/TitlePage.tsx",
+  "item": "{n} · Learning materials · Bible Guide",
+  "job": "15",
+  "why": "a tab title or page description built in code; job 15 sends the page head through the same lookup as the body"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/study/farming/model.ts",
+  "item": "Sep",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/preachers/through/model.ts",
+  "item": "Sep",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/study/farming/model.ts",
+  "item": "Oct",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/preachers/through/model.ts",
+  "item": "Oct",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/study/farming/model.ts",
+  "item": "Nov",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/preachers/through/model.ts",
+  "item": "Nov",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/study/farming/model.ts",
+  "item": "Dec",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/study/farming/model.ts",
+  "item": "Jan",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/preachers/through/model.ts",
+  "item": "Jan",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/study/farming/model.ts",
+  "item": "Feb",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/preachers/through/model.ts",
+  "item": "Feb",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/study/farming/model.ts",
+  "item": "Mar",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/preachers/through/model.ts",
+  "item": "Mar",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/study/farming/model.ts",
+  "item": "Apr",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/preachers/through/model.ts",
+  "item": "Apr",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/study/farming/model.ts",
+  "item": "May",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/preachers/through/model.ts",
+  "item": "May",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/study/farming/model.ts",
+  "item": "Jun",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/preachers/through/model.ts",
+  "item": "Jun",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/study/farming/model.ts",
+  "item": "Jul",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/preachers/through/model.ts",
+  "item": "Jul",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/study/history/evidence.ts",
+  "item": "“A Hellenistic Deposit from Corinth: Evidence for Interim Period Activity (146–44 B.C.)”, Hesperia 63.1 (1994). Evidence against equating the sack with a century of total emptiness.",
+  "why": "the title of a published work or edition, kept as published (stage 5 job 12's rule for catalogue metadata)"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/study/manuscripts/Books.tsx",
+  "item": "Dan",
+  "job": "21",
+  "why": "a Bible-book abbreviation spelled like a name (Dan the tribe, Dan the book): one registered text gets one translation everywhere, so it needs a per-item note before it is registered (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/study/versions/LanguageShelf.tsx",
+  "item": "Latina",
+  "why": "a language named in its own language on purpose (the Bible-versions shelf shows each language as its speakers write it)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/study/versions/LanguageShelf.tsx",
+  "item": "Deutsch",
+  "why": "a language named in its own language on purpose (the Bible-versions shelf shows each language as its speakers write it)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/study/versions/LanguageShelf.tsx",
+  "item": "Italiano",
+  "why": "a language named in its own language on purpose (the Bible-versions shelf shows each language as its speakers write it)"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/study/world/MergedDrawings.tsx",
+  "item": "highlighted evidence setting",
+  "job": "21",
+  "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/preachers/through/captions.ts",
+  "item": "and {n} carry a date outside their working life",
+  "job": "21",
+  "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/preachers/through/model.ts",
+  "item": "Aug",
+  "job": "14",
+  "why": "a month name in a hand-written list; job 14's formatDate writes dates in the site's language"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/teachers/scholars/landing/idea-chains.ts",
+  "item": "Chronographiae",
+  "why": "a Latin, Greek or Hebrew original quoted on purpose; it stays in its own language"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/teachers/scholars/landing/search.ts",
+  "item": "translator languages greek hebrew latin",
+  "why": "words for site search to match (an aliases, words or search key); never shown on a page"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/scholars/population.ts",
+  "item": "· conflicting source labels retained",
+  "job": "21",
+  "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "later",
+  "file": "src/pages/teachers/TeacherList.tsx",
+  "item": "· {n} to read here",
+  "job": "21",
+  "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
+ },
+ {
+  "check": "code",
+  "file": "src/pages/mockup/home-openings/HomeOpenings6Chapters.tsx",
+  "item": "et veritas liberabit vos",
+  "why": "a Latin, Greek or Hebrew original quoted on purpose; it stays in its own language"
+ },
+ {
+  "check": "reading",
+  "item": "18 MB",
+  "why": "not in the code as written: the page builds it at run time from values (a number with a unit, a year with its era); the pieces are registered or belong to job 14's number and date helpers"
+ },
+ {
+  "check": "reading",
+  "item": "2004 · BHQ",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "2012 · NA28",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "381 AD",
+  "why": "not in the code as written: the page builds it at run time from values (a number with a unit, a year with its era); the pieces are registered or belong to job 14's number and date helpers"
+ },
+ {
+  "check": "reading",
+  "item": "4.2 MB",
+  "why": "not in the code as written: the page builds it at run time from values (a number with a unit, a year with its era); the pieces are registered or belong to job 14's number and date helpers"
+ },
+ {
+  "check": "reading",
+  "item": "9Marks",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "AP",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "AS",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "ASV",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "BHQ",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "BHS",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "BP",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "BPM",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "BSB",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "BSF",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "BTT",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "BW",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "CC BY-NC-SA 3.0",
+  "why": "the old maps catalogue (src/pages/places/old-maps-collection/data.js, extract.NOT_PAGE_CODE): catalogue metadata kept as published; its screen labels are collected by page_data.py"
+ },
+ {
+  "check": "reading",
+  "item": "CC0",
+  "why": "the old maps catalogue (src/pages/places/old-maps-collection/data.js, extract.NOT_PAGE_CODE): catalogue metadata kept as published; its screen labels are collected by page_data.py"
+ },
+ {
+  "check": "reading",
+  "item": "CREDO",
+  "why": "a Latin, Greek or Hebrew original quoted on purpose; it stays in its own language"
+ },
+ {
+  "check": "reading",
+  "item": "CUV",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "Carte des voyages de St. Paul. Par MM. Achille Meissas et Auguste Michelot. 1841. A la…",
+  "why": "the old maps catalogue (src/pages/places/old-maps-collection/data.js, extract.NOT_PAGE_CODE): catalogue metadata kept as published; its screen labels are collected by page_data.py"
+ },
+ {
+  "check": "reading",
+  "item": "Chapel Library",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "Christopher Hitchens",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "CypherPunk",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "DE",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "DP",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "DS",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "EWE",
+  "why": "the reading saw a registered name in capitals (CSS text-transform: the page shows \"Ewe\" in capitals); the name itself is registered, and the page translator matches either case"
+ },
+ {
+  "check": "reading",
+  "item": "GB",
+  "why": "a unit or size written as data (MB, GB); numbers and units follow the site's language once job 14's formatNumber is in"
+ },
+ {
+  "check": "reading",
+  "item": "GS",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "GrN-18539",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "GrN-18542",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "GrN-18543",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "GrN-18544",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "GrN-19063",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "GrN-19064",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "HS",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "Historic Christian confession",
+  "why": "apologetics content (public/content/apologetics/, built into src/generated/apologetics.ts), not page code: it goes through the apologetics chunks; a paragraph or label of a longer field, so it is in no page file as a text of its own"
+ },
+ {
+  "check": "reading",
+  "item": "IRV",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "IW",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "JA",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "JB",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "JFB",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "JG",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "JL",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "JR",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "Jesus is the eternal Son who became truly human: one person, fully God and fully man. John identifies the Word as God before speaking of the Word becoming flesh.",
+  "why": "apologetics content (public/content/apologetics/, built into src/generated/apologetics.ts), not page code: it goes through the apologetics chunks; a paragraph or label of a longer field, so it is in no page file as a text of its own"
+ },
+ {
+  "check": "reading",
+  "item": "Johanna Regev and colleagues",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "Judean Royalty and Professionals in Babylon",
+  "why": "the title of a published work or edition, kept as published (stage 5 job 12's rule for catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "KJV",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "KK",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "LAO",
+  "why": "the reading saw a registered name in capitals (CSS text-transform: the page shows \"Ewe\" in capitals); the name itself is registered, and the page translator matches either case"
+ },
+ {
+  "check": "reading",
+  "item": "LIBER",
+  "why": "a Latin, Greek or Hebrew original quoted on purpose; it stays in its own language"
+ },
+ {
+  "check": "reading",
+  "item": "LSG",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "LUT",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "LXX",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "Lawrence Krauss",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "MC",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "MP",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "Michael Shermer",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "NA28",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "NFT",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "NS",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "Natural Earth 1:50m (public domain)",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "Not yet; the “How to use” page covers groups",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "OPV",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "OT",
+  "why": "a value of a type or key in code (a union member, a query parameter, an id), never shown on its own"
+ },
+ {
+  "check": "reading",
+  "item": "Olney Hymns, 1779",
+  "why": "the title of a published work or edition, kept as published (stage 5 job 12's rule for catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "PA",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "PI",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "Philip Schaff, 1877",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "Pirî Reis",
+  "why": "the old maps catalogue (src/pages/places/old-maps-collection/data.js, extract.NOT_PAGE_CODE): catalogue metadata kept as published; its screen labels are collected by page_data.py"
+ },
+ {
+  "check": "reading",
+  "item": "Qur’an 4:171 calls Jesus Messiah and messenger, a word communicated to Mary and a spirit from God. The same passage rejects divine sonship and tells its hearers not to say three.",
+  "why": "apologetics content (public/content/apologetics/, built into src/generated/apologetics.ts), not page code: it goes through the apologetics chunks; a paragraph or label of a longer field, so it is in no page file as a text of its own"
+ },
+ {
+  "check": "reading",
+  "item": "RD",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "RIV",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "RV",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "RVR",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "Reina-Valera 1909 (Spanish)",
+  "why": "not in the code as written: the page builds it at run time from values (a number with a unit, a year with its era); the pieces are registered or belong to job 14's number and date helpers"
+ },
+ {
+  "check": "reading",
+  "item": "SBL",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "STEPBible.org",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "SVD",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "SW",
+  "why": "a short word the browser reading saw inside other text (search-result snippets, a sentence built from pieces) and traced by its spelling to an unrelated code value (a language code, a query parameter, a type value); not a text of its own in the code"
+ },
+ {
+  "check": "reading",
+  "item": "SYN",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "Session 1 opens",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "Sinaiticus project",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "THEOLOGIA",
+  "why": "a Latin, Greek or Hebrew original quoted on purpose; it stays in its own language"
+ },
+ {
+  "check": "reading",
+  "item": "Thomas Aquinas, 1265–1274",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "Transformers.js",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "US Census Bureau",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "VT",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "VUL",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "WC",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "WLC",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "WT",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "WYC",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "Workbook · Adults (18 and up) · 8 sessions · 42 pages",
+  "why": "only in a mock-up page, shown on the local preview only (src/pages/mockup/, MOCKUPS_ENABLED); never on the live site"
+ },
+ {
+  "check": "reading",
+  "item": "YouTube",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "act",
+  "why": "a value of a type or key in code (a union member, a query parameter, an id), never shown on its own"
+ },
+ {
+  "check": "reading",
+  "item": "as",
+  "why": "a short word the browser reading saw inside other text (search-result snippets, a sentence built from pieces) and traced by its spelling to an unrelated code value (a language code, a query parameter, a type value); not a text of its own in the code"
+ },
+ {
+  "check": "reading",
+  "item": "be",
+  "why": "a short word the browser reading saw inside other text (search-result snippets, a sentence built from pieces) and traced by its spelling to an unrelated code value (a language code, a query parameter, a type value); not a text of its own in the code"
+ },
+ {
+  "check": "reading",
+  "item": "ch",
+  "why": "a value of a type or key in code (a union member, a query parameter, an id), never shown on its own"
+ },
+ {
+  "check": "reading",
+  "item": "cris.huji.ac.il",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "field-e2f1ff4f92f6eb9c79bc",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "granite-embedding-small-english-r2",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "group",
+  "why": "not in the code as written: the page builds it at run time from values (a number with a unit, a year with its era); the pieces are registered or belong to job 14's number and date helpers"
+ },
+ {
+  "check": "reading",
+  "item": "kanōn",
+  "why": "a Latin, Greek or Hebrew original quoted on purpose; it stays in its own language"
+ },
+ {
+  "check": "reading",
+  "item": "la",
+  "why": "a value of a type or key in code (a union member, a query parameter, an id), never shown on its own"
+ },
+ {
+  "check": "reading",
+  "item": "mc",
+  "why": "a value of a type or key in code (a union member, a query parameter, an id), never shown on its own"
+ },
+ {
+  "check": "reading",
+  "item": "recorded author",
+  "why": "a value of a data file, not page code: public/content/scholar-population/index.json's roles (shown on /teachers/scholars); the reading traced it by its spelling to a sentence in SourceCatalogue.tsx. Data files are the field check's (unregistered.py, stage 5 job 12); listed in the handoff"
+ },
+ {
+  "check": "reading",
+  "item": "results",
+  "why": "a value of a type or key in code (a union member, a query parameter, an id), never shown on its own"
+ },
+ {
+  "check": "reading",
+  "item": "same",
+  "why": "a value of a type or key in code (a union member, a query parameter, an id), never shown on its own"
+ },
+ {
+  "check": "reading",
+  "item": "tr",
+  "why": "a short word the browser reading saw inside other text (search-result snippets, a sentence built from pieces) and traced by its spelling to an unrelated code value (a language code, a query parameter, a type value); not a text of its own in the code"
+ },
+ {
+  "check": "reading",
+  "item": "uni-muenster.de",
+  "why": "a modern proper name (a person, organisation, product, website or licence), kept as published (stage 5 job 12's rule for names and catalogue metadata)"
+ },
+ {
+  "check": "reading",
+  "item": "without",
+  "why": "a value of a type or key in code (a union member, a query parameter, an id), never shown on its own"
+ },
+ {
+  "check": "reading",
+  "item": "· c. 911–870 BC",
+  "why": "not in the code as written: the page builds it at run time from values (a number with a unit, a year with its era); the pieces are registered or belong to job 14's number and date helpers"
+ },
+ {
+  "check": "reading",
+  "item": "… RM BR …",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
+ },
+ {
+  "check": "reading",
+  "item": "… YHW BR …",
+  "why": "a Bible-edition siglum, initials or a catalogue code, kept as published (KJV, NA28, a scholar's initials, a lab sample id)"
  }
 ]

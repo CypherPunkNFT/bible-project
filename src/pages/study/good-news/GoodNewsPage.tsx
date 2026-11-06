@@ -114,7 +114,7 @@ function Close() {
     </div>
     <span className="gn-close-art" aria-hidden="true"><CloseArt /></span>
     <div className="gn-sources"><h3>Sources</h3><ul>{D.sources.map(([name, use]) => <li key={name}><b>{name}</b> {use}</li>)}</ul></div>
-    <Link className="gn-back" to={HUB.path}><ArrowLeft size={16} aria-hidden="true" />Back to {HUB.label}</Link>
+    <Link className="gn-back" to={HUB.path}><ArrowLeft size={16} aria-hidden="true" />{`Back to ${HUB.label}`}</Link>
   </section>;
 }
 
@@ -136,10 +136,8 @@ function VerseSheet({ id, onClose }: { id: string | null; onClose: () => void })
 }
 
 export default function GoodNewsPage() {
-  useEffect(() => {
-    document.title = "The good news · Bible Guide";
-    return () => { document.title = "Bible Guide"; };
-  }, []);
+  // The tab title comes from usePageHead, which names the page from its heading ("The good news · Bible Guide") and
+  // translates it with the page; a document.title set here would stay English (stage 5 job 13).
   const [params, setParams] = useSearchParams();
   const { hash } = useLocation();
   const asked = params.get("ref");

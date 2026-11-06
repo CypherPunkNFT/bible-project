@@ -49,8 +49,16 @@ def reviewed() -> dict[str, set[str]]:
     entries = json.loads(REVIEWED.read_text("utf-8"))
     found: dict[str, set[str]] = defaultdict(set)
     for entry in entries:
-        found[entry["check"]].add(entry["item"])
+        if entry["check"] in ("code", "later") and "file" in entry:  # for that file only (english_baseline.scoped_rulings)
+            found["scoped"].add(scoped_key(entry["file"], entry["item"]))
+        else:
+            found[entry["check"]].add(entry["item"])
     return found
+
+
+def scoped_key(file: str, text: str) -> str:
+    """How reviewed()["scoped"] holds a ruling that is for one file only."""
+    return f"{file}\t{text}"
 
 
 def ui_keys(folder: str) -> set[str]:
@@ -138,7 +146,8 @@ def check_code(skip: dict[str, set[str]]) -> list[str]:
             continue
         for line, text, reason in code_candidates(path):
             whole, pieces = with_numbers_blanked(text), text.split(" · ")
-            if whole in known or all(with_numbers_blanked(piece) in known for piece in pieces) or text in skip["code"]:
+            if whole in known or all(with_numbers_blanked(piece) in known for piece in pieces) or text in skip["code"] \
+                    or scoped_key(relative, text) in skip["scoped"]:
                 continue
             by_reason[reason].setdefault(text, []).append(f"{relative}:{line}")
     total = sum(len(texts) for texts in by_reason.values())
