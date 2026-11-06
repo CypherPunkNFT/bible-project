@@ -37,14 +37,16 @@ export default function DraftReaderPage() {
   }, [draft]);
   const doc = useMemo(() => (draft && text !== null ? parseDraft(text, draft.title, VALUES[draft.slug]) : null), [draft, text]);
   useEffect(() => { if (doc) document.title = `${doc.title} · Draft · Bible Guide`; }, [doc]);
+  const trial = draft ? TRIAL_LAYOUT.has(draft.slug) : false;
+  const active = useActivePart(doc && trial ? parts(doc).map(part => part.id) : []);
   if (!draft) return <div className="ds-page study-frame"><StudyBackLink fallback={{ path: "/study/theology_mockup", label: "Scripture & Theology" }} /><p className="ds-missing">There is no draft study called “{slug}”.</p></div>;
   if (!doc) return <div className="ds-page study-frame"><Heading draft={draft} /><p className="ds-missing">{failure ?? "Loading the draft…"}</p></div>;
-  return <div className={`ds-page study-frame${TRIAL_LAYOUT.has(draft.slug) ? " ds-trial" : ""}`}>
+  return <div className={`ds-page study-frame${trial ? " ds-trial" : ""}`}>
     <Heading draft={draft} doc={doc} />
     <div className="ds-layout">
-      <Contents doc={doc} className="ds-contents-side" />
+      <Contents doc={doc} active={active} className="ds-contents-side" />
       <article className="ds-article">
-        <details className="ds-contents-fold"><summary>In this study</summary><Contents doc={doc} /></details>
+        <details className="ds-contents-fold"><summary>In this study</summary><Contents doc={doc} active={active} /></details>
         {(doc.intro.length > 0 || doc.selection) && <section className="ds-intro" id="introduction" aria-label="Introduction">
           <DraftBlocks blocks={doc.intro} />
           {doc.selection && <aside className="ds-note ds-note-about"><span>What this study covers</span><p>{inline(doc.selection)}</p></aside>}
@@ -93,10 +95,39 @@ function parts(doc: DraftDoc) {
   return list;
 }
 
-function Contents({ doc, className = "" }: { doc: DraftDoc; className?: string }) {
+/** The id of the part being read: the last part whose top has passed the upper third of the window, or the last
+ *  part once the page is scrolled to the bottom. Empty list → no tracking. */
+function useActivePart(ids: string[]) {
+  const [active, setActive] = useState<string | null>(null);
+  const key = ids.join("|");
+  useEffect(() => {
+    if (!key) { setActive(null); return; }
+    const list = key.split("|");
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      const line = Math.max(160, window.innerHeight / 3);
+      let current: string | null = null;
+      for (const id of list) {
+        const element = document.getElementById(id);
+        if (element && element.getBoundingClientRect().top <= line) current = id;
+      }
+      setActive(atBottom ? list[list.length - 1] : current);
+    };
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); if (frame) cancelAnimationFrame(frame); };
+  }, [key]);
+  return active;
+}
+
+function Contents({ doc, active = null, className = "" }: { doc: DraftDoc; active?: string | null; className?: string }) {
   return <nav className={`ds-contents ${className}`} aria-label="In this study">
     <p className="ds-contents-title">In this study</p>
-    <ol>{parts(doc).map(part => <li key={part.id}><a href={`#${part.id}`}><span>{part.number ?? "·"}</span>{part.title}</a></li>)}</ol>
+    <ol>{parts(doc).map(part => <li key={part.id}><a href={`#${part.id}`} className={part.id === active ? "is-active" : undefined} aria-current={part.id === active ? "location" : undefined}><span>{part.number ?? "·"}</span>{part.title}</a></li>)}</ol>
   </nav>;
 }
 

@@ -99,6 +99,11 @@
 .ds-trial .ds-contents a { grid-template-columns: 2.3rem 1fr; padding: .45rem 0; font-size: 1.05rem; }
 .ds-trial .ds-contents a span { font-size: .95rem; }
 .ds-trial .ds-contents-fold summary { font-size: .95rem; }
+/* The part being read lights up: gold text and a gold bar at its left edge. */
+.ds-trial .ds-contents a { position: relative; padding-left: .9rem; }
+.ds-trial .ds-contents a::before { content: ""; position: absolute; left: 0; top: .5rem; bottom: .5rem; width: 2px; border-radius: 2px; background: transparent; transition: background .2s; }
+.ds-trial .ds-contents a.is-active { color: var(--accent); font-weight: 600; }
+.ds-trial .ds-contents a.is-active::before { background: var(--accent); }
 
 @media (max-width: 1023px) {
   .ds-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
