@@ -24,6 +24,9 @@ Numbers identify the same study during both passes. Keep them stable after accep
 | 08 | Freedom that serves | Study freedom in Christ alongside love and responsibility. |
 | 09 | Bearing witness | Explore how believers speak and live before those outside the church. |
 | 10 | Returning and restoring | Explore confession, repentance and the restoration of someone who has fallen. |
+| 43 | Sexuality, singleness and divorce | God's design for sexuality, singleness as a calling and gift, and divorce and remarriage, showing where Baptists differ. Added 2026-11-05 (folder `marriage-sexuality-and-singleness`). |
+| 45 | What Scripture promises the sick | What God does and does not promise a believer who is ill: Job, the psalms of sickness, Hezekiah, Paul's friends, "Was my faith too small?" (Mark 5:34), James 5, and healing at the cross, now or later. Added 2026-11-05 (folder `illness-and-healing`). |
+| 48 | The book of Psalms | The book itself: five books and their blessings, Psalms 1 and 2 as the gate, the headings and their writers, the kinds of psalm, Hebrew parallelism and the acrostics, the psalms the New Testament quotes most (2, 16, 22, 110, 118), and the cursing psalms. Not a prayer study. Added 2026-11-06 (folder `praying-the-psalms`). |
 
 ## Jesus Christ
 
@@ -41,6 +44,7 @@ Numbers identify the same study during both passes. Keep them stable after accep
 | 18 | The signs and works of Jesus | Study how the Gospel writers present Jesus’ works and the responses to them. |
 | 19 | The cross and resurrection | Follow the accounts of Jesus’ death and resurrection and their interpretation. |
 | 20 | Jesus in the letters | Explore how the epistles speak of Christ’s person, work and continuing significance. |
+| 41 | Christ in the Old Testament | Follow the lamb, temple, priest, king and servant to their fulfilment in Christ, with the limits of typology. Added 2026-11-05. |
 
 ## God and Christian Faith
 
@@ -58,6 +62,8 @@ Numbers identify the same study during both passes. Keep them stable after accep
 | 28 | The church and its calling | Study the identity and shared practices of the Christian community. |
 | 29 | Humanity sin and renewal | Explore what Scripture says about human dignity, wrongdoing and renewal. |
 | 30 | The hope to come | Study resurrection, judgment and the promised renewal of creation. |
+| 47 | Leviticus: holiness and sacrifice | Read Leviticus in its own order (offerings, priests, clean and unclean, the Day of Atonement, "Be holy" and love of neighbour, the feasts, the Jubilee) and how the New Testament reads each, showing without choosing how Christians apply the law's parts today. Added 2026-11-06 (folder `the-law-of-moses-and-the-christian`). |
+| 53 | Angels, demons and spiritual powers | What Scripture says about the unseen world, and where it stops: angels made by Christ and sent to serve, never worshipped; the angel of the LORD; Satan and the fallen angels under God's limit; demons and Jesus' authority; the powers disarmed at the cross; and the believer's stand. Views shown, none chosen, where the Baptist Faith and Message is silent. Added 2026-11-06 (folder `angels-demons-and-spiritual-powers`). |
 
 ## Explore the Bible
 
@@ -70,6 +76,8 @@ Numbers identify the same study during both passes. Keep them stable after accep
 | 33 | The shape of Scripture | Explore connections across books without losing their differences. |
 | 34 | Reading a passage in context | Develop practical questions for careful reading. |
 | 35 | Versions and translation | Explain what readers are comparing when they use different Bible editions. |
+| 49 | Reading Daniel and Revelation | How apocalyptic writing works, from Daniel and Revelation read together: visions that explain themselves, Old Testament pictures, numbers, beasts and thrones, four ways of reading Revelation shown without choosing, and the comfort the books were written to give. Christ's return stays with Study 30. Added 2026-11-06 (folder `reading-daniel-and-revelation`). |
+| 50 | Genesis 1–11: the questions readers bring | The hard questions in Genesis 1–11, one at a time, each read from the text: the days and the age of the earth, Adam and Eve as real people, Cain's wife, the long lives, the sons of God and the Nephilim, the flood and the ark, the curse on Canaan, the nations and Babel; the views Christians hold, with who holds them, none chosen where the Baptist Faith and Message does not choose. Added 2026-11-06 (folder `creation-to-babel`). |
 
 ## People of Scripture
 
@@ -82,6 +90,7 @@ Numbers identify the same study during both passes. Keep them stable after accep
 | 38 | Prophets in their times | Connect named prophets with their setting and message. |
 | 39 | Rulers and their choices | Study rulers through the accounts of their actions and judgments. |
 | 40 | The apostles and their witness | Follow the apostles through the Gospels, Acts and the letters. |
+| 46 | Women of the Bible | Read sixteen women's stories from the text, from Sarah and Hagar to Lydia, Priscilla and Phoebe, showing their faith, courage and service within the Baptist Faith and Message. Added 2026-11-05 (folder `women-of-the-bible`). |
 
 ## Overlap to manage
 

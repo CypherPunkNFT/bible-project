@@ -154,7 +154,10 @@
       "category": "interpretation",
       "categoryTitle": "Reading & interpreting Scripture",
       "title": "Why translations differ",
-      "status": "queued"
+      "status": "draft",
+      "file": "11-why-translations-differ.json",
+      "designProposal": "11-why-translations-differ/design.md",
+      "note": "Takes in the Scripture & Theology draft 35, Versions and translation, which will not get its own page (redundancy review of 2026-11-05)."
     },
     {
       "order": 12,
@@ -231,14 +234,18 @@
       "category": "church-history",
       "categoryTitle": "The church through history",
       "title": "Creeds & councils",
-      "status": "queued"
+      "status": "merged",
+      "mergedInto": 23,
+      "note": "Merged into Traditions: shared roots & divisions (order 23) after the redundancy review of 2026-11-05: why creeds were written and the councils as the points where the churches divided are covered there. Not to be written separately."
     },
     {
       "order": 23,
       "category": "church-history",
       "categoryTitle": "The church through history",
       "title": "Traditions: shared roots & divisions",
-      "status": "queued"
+      "status": "draft",
+      "file": "23-traditions-shared-roots-divisions.json",
+      "designProposal": "23-traditions-shared-roots-divisions/design.md"
     },
     {
       "order": 24,
@@ -317,6 +324,33 @@
       "title": "The medieval church",
       "status": "implemented-local",
       "file": "33-the-medieval-church.json"
+    },
+    {
+      "order": 37,
+      "category": "history",
+      "categoryTitle": "History & archaeology",
+      "title": "Cyrus, restoration and return",
+      "status": "draft",
+      "file": "37-cyrus-restoration-and-return.json",
+      "designProposal": "37-cyrus-restoration-and-return/design.md"
+    },
+    {
+      "order": 35,
+      "category": "history",
+      "categoryTitle": "History & archaeology",
+      "title": "Mesha and the world of Moab",
+      "status": "draft",
+      "file": "35-mesha-and-the-world-of-moab.json",
+      "designProposal": "35-mesha-and-the-world-of-moab/design.md"
+    },
+    {
+      "order": 34,
+      "category": "history",
+      "categoryTitle": "History & archaeology",
+      "title": "Between the Testaments",
+      "status": "draft",
+      "file": "34-between-the-testaments.json",
+      "designProposal": "34-between-the-testaments/design.md"
     }
   ],
   "activeDesign": {
