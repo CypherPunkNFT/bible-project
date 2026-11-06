@@ -14,6 +14,9 @@ import "./drafts.css";
 
 const TEXTS = import.meta.glob<string>("/content/studies/*/*/content.md", { query: "?raw", import: "default" });
 const VALUES = numbers as Record<string, Record<string, string>>;
+/** Drafts trying the next layout (larger contents list, text to the right margin) before it becomes the standard
+ *  for every draft; owner, 2026-11-05: "just for A New Creation" first. */
+const TRIAL_LAYOUT = new Set(["a-new-creation"]);
 const pad = (n: number | string) => String(n).padStart(2, "0");
 const areaTitle = (areaId: string) => STUDY_BRANCHES.theology.areas.find(area => area.id === areaId)?.title ?? "Scripture & Theology";
 
@@ -36,7 +39,7 @@ export default function DraftReaderPage() {
   useEffect(() => { if (doc) document.title = `${doc.title} · Draft · Bible Guide`; }, [doc]);
   if (!draft) return <div className="ds-page study-frame"><StudyBackLink fallback={{ path: "/study/theology_mockup", label: "Scripture & Theology" }} /><p className="ds-missing">There is no draft study called “{slug}”.</p></div>;
   if (!doc) return <div className="ds-page study-frame"><Heading draft={draft} /><p className="ds-missing">{failure ?? "Loading the draft…"}</p></div>;
-  return <div className="ds-page study-frame">
+  return <div className={`ds-page study-frame${TRIAL_LAYOUT.has(draft.slug) ? " ds-trial" : ""}`}>
     <Heading draft={draft} doc={doc} />
     <div className="ds-layout">
       <Contents doc={doc} className="ds-contents-side" />

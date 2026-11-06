@@ -92,6 +92,14 @@
 .ds-foot-nav small { display: block; font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .ds-foot-next { text-align: right; margin-left: auto; }
 
+/* Trial layout (A New Creation only for now): a larger contents list, and the text running to the right margin. */
+@media (min-width: 1024px) { .ds-trial .ds-layout { grid-template-columns: 19rem minmax(0, 1fr); gap: 4rem; } }
+.ds-trial .ds-contents-title { font-size: .8rem; margin-bottom: 1rem; }
+.ds-trial .ds-contents ol { gap: .3rem; }
+.ds-trial .ds-contents a { grid-template-columns: 2.3rem 1fr; padding: .45rem 0; font-size: 1.05rem; }
+.ds-trial .ds-contents a span { font-size: .95rem; }
+.ds-trial .ds-contents-fold summary { font-size: .95rem; }
+
 @media (max-width: 1023px) {
   .ds-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .ds-contents-side { display: none; }
