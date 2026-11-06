@@ -309,7 +309,12 @@ def shrink(root: Path) -> int:
         raise Refused("--shrink reads the working tree, and these page files have unsaved changes (perhaps another "
                       "chat's): " + ", ".join(sorted(pending)[:10]) + ". Shrink once they are committed.")
     path = root / BASELINE
-    baseline, _ = english_baseline.load_checked(path, root, BASELINE)
+    baseline, growth = english_baseline.load_checked(path, root, BASELINE)
+    if growth:  # shrinking now would commit over the growth, and the check compares only the last two commits
+        raise Refused("the baseline fails its history check, and a shrink now would hide that from every later check. "
+                      "Take the growth back out in a new commit (a widening added later does not count; it belongs in "
+                      "the commit that grew it), then shrink. If you did not make this change, leave it to the chat "
+                      "that did, or tell the owner:\n" + "\n".join(growth))
     site = Site(root, site_languages.folders(), root / RULINGS)
     found = Counter(text for _, _, text, _ in site.all_findings())
     smaller = english_baseline.shrunk(baseline, found, site.registered)

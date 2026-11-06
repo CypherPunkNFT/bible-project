@@ -175,6 +175,26 @@ def test_shrink_only_removes_and_waits_for_unsaved_page_files(site: Path) -> Non
     assert after["code"] == {LABEL: 1} and after["reading"] == ["Still English"]
 
 
+def test_shrink_refuses_while_the_baseline_has_grown_so_it_cannot_hide_the_growth(site: Path) -> None:
+    write(site, BASELINE, baseline({LABEL: 1}))
+    write(site, PAGE, PLANTED)
+    commit(site, "a label, with the baseline grown by hand")
+    grown = (site / BASELINE).read_text("utf-8")
+    result = run(site, "--shrink")
+    assert result.returncode == 2 and "history check" in result.stderr and LABEL in result.stderr
+    assert (site / BASELINE).read_text("utf-8") == grown
+    write(site, BASELINE, baseline())
+    write(site, PAGE, CLEAN)
+    commit(site, "growth taken back out")
+    write(site, BASELINE, baseline({"Uncommitted": 1}))
+    assert run(site, "--shrink").returncode == 2
+    widening = {"date": "2026-11-06", "reason": "a wider net", "added": 1}
+    write(site, BASELINE, baseline({LABEL: 1}, widenings=[widening]))
+    write(site, PAGE, PLANTED)
+    commit(site, "grown with its widening")
+    assert run(site, "--shrink").returncode == 0
+
+
 def test_the_release_path_judges_only_what_the_picked_commits_add(site: Path) -> None:
     write(site, PAGE, PLANTED)
     commit(site, "a label already live")
