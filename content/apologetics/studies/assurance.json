@@ -11,7 +11,7 @@
     "summary": "Distinguish Christ’s preserving promise, the reality of living faith and the believer’s changing sense of assurance.",
     "answer": {
       "id": "answer",
-      "text": "Yes. The ground of salvation is Christ’s work and promise, not the strength of our feelings. God preserves those truly united to Christ, yet their assurance can be weakened by sin, temptation or suffering. Scripture directs us to Christ, calls us to examine the fruit of faith and teaches us to seek the Spirit’s help through ordinary Christian life.",
+      "text": "Yes. The ground of salvation is Christ’s work and promise, not the strength of our feelings. God preserves those truly united to Christ (the site’s confession, the Baptist Faith and Message 2000, says true believers “will never fall away from the state of grace”, article V), yet their assurance can be weakened by sin, temptation or suffering. Scripture directs us to Christ, calls us to examine the fruit of faith and teaches us to seek the Spirit’s help through ordinary Christian life.",
       "citations": [
         {
           "kind": "scripture",
@@ -24,6 +24,11 @@
         {
           "kind": "source",
           "source": "wcf",
+          "locator": "17.1–3; 18.2–4"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
           "locator": "17.1–3; 18.2–4"
         }
       ]
@@ -55,6 +60,11 @@
             "kind": "source",
             "source": "wcf",
             "locator": "18.1"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "18.1"
           }
         ]
       },
@@ -74,6 +84,11 @@
             "kind": "source",
             "source": "wcf",
             "locator": "18.3–4"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "18.3–4"
           }
         ]
       }
@@ -89,6 +104,11 @@
         {
           "kind": "source",
           "source": "wcf",
+          "locator": "18.3"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
           "locator": "18.3"
         }
       ]
@@ -110,6 +130,11 @@
             "kind": "source",
             "source": "wcf",
             "locator": "17.1–2; 18.1–4"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "17.1–2; 18.1–4"
           }
         ],
         "title": "Perseverance, assurance and presumption"
@@ -130,6 +155,11 @@
             "kind": "source",
             "source": "wcf",
             "locator": "11.1; 13.2–3; 18.2"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "11.1; 13.2–3; 18.2"
           }
         ],
         "title": "Fruit without perfectionism"
@@ -138,7 +168,7 @@
     "objection": "Does perseverance mean the warning passages can be ignored?",
     "reply": {
       "id": "reply",
-      "text": "No. Scripture commands Christians to exhort one another and warns against an unbelieving heart. The warnings call us to persevere; they are not permission to assume that every professing believer is secure. The Reformed confession joins God’s preserving grace with real dangers, serious falls and the need for repentance.",
+      "text": "No. Scripture commands Christians to exhort one another and warns against an unbelieving heart. The warnings call us to persevere; they are not permission to assume that every professing believer is secure. The Reformed confessions, Westminster and the Baptist confession of 1689 alike, join God’s preserving grace with real dangers, serious falls and the need for repentance.",
       "citations": [
         {
           "kind": "scripture",
@@ -151,6 +181,11 @@
         {
           "kind": "source",
           "source": "wcf",
+          "locator": "17.3; 18.1"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
           "locator": "17.3; 18.1"
         }
       ]
@@ -170,6 +205,11 @@
         {
           "kind": "source",
           "source": "wcf",
+          "locator": "18.1–4"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
           "locator": "18.1–4"
         }
       ]
@@ -215,7 +255,9 @@
       "salvation",
       "eternal security",
       "presumption",
-      "repentance"
+      "repentance",
+      "Baptist",
+      "1689 Baptist Confession"
     ]
   },
   "reviews": [
@@ -227,6 +269,15 @@
       "date": "2026-10-05",
       "contentHash": "25d9d5359f81b63bc5177e1c586a48fa7828cf3396c83cbb2f758bf2e121a6f5",
       "basisHash": "aa6ef2ee72a927b9de9b88f4d2c752386d9716f0ef1e2bfe541bf64fc02dc331"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Added the Second London Baptist Confession (1677/1689) beside Westminster: each 1689 chapter/paragraph locator checked against the site's pinned CC0 text (lwalen/lbcf) for existence and parallel meaning; Baptist Faith and Message 2000 article V wording checked at bfm.sbc.net; the 2012 Traditional Statement quoted from its text in the Journal for Baptist Theology and Ministry 9:2 (Fall 2012).",
+      "note": "AI-assisted editorial review against the cited primary texts; not independent human theological approval. Implements StudyPlan section 7, item 1: Baptist parallels and, in the election answer, the non-Calvinist Southern Baptist reading with named holders.",
+      "date": "2026-11-06",
+      "contentHash": "16cae0e3fd09aad05269572adfeb33c203dbe035b0b7294d6820d93650027d68",
+      "basisHash": "fdc09c8835b340fc71aea2e5be54a5e748239a24c20aec197b85a437cd1a570d"
     }
   ]
 }

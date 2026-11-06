@@ -1,0 +1,27 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "lbcf",
+  "order": 56,
+  "publication": "published",
+  "content": {
+    "title": "Second London Baptist Confession of Faith (1677, reissued 1689)",
+    "author": "1689 Baptist Confession · Particular Baptist elders in London, 1677; their General Assembly, 1689",
+    "kind": "Confession",
+    "role": "Reformed confession",
+    "url": "https://www.the1689confession.com/",
+    "note": "The Baptist revision of the Westminster Confession, written by Particular (Calvinistic) Baptists in London in 1677 and adopted by their General Assembly in 1689. These guides cite it beside Westminster: the two agree on most doctrine and differ above all on the covenants, the church and baptism. Citations give chapter and paragraph; its numbering follows Westminster's closely but not exactly. The site's own doctrinal standard is the Baptist Faith and Message 2000, and Scripture judges every confession (1.10)."
+  },
+  "reviews": [
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Added the Second London Baptist Confession (1677/1689) beside Westminster: each 1689 chapter/paragraph locator checked against the site's pinned CC0 text (lwalen/lbcf) for existence and parallel meaning; Baptist Faith and Message 2000 article V wording checked at bfm.sbc.net; the 2012 Traditional Statement quoted from its text in the Journal for Baptist Theology and Ministry 9:2 (Fall 2012).",
+      "note": "AI-assisted editorial review against the cited primary texts; not independent human theological approval. Implements StudyPlan section 7, item 1: Baptist parallels and, in the election answer, the non-Calvinist Southern Baptist reading with named holders.",
+      "date": "2026-11-06",
+      "contentHash": "e761da5c62f261e72622a3855157c5b49bbc5404142984314548d3d17f2ccc73",
+      "basisHash": "0efe3718a95480d6a8c9af8b57b574d84bcbbad92b0bd84b02bddba780c54a09"
+    }
+  ]
+}

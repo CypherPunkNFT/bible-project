@@ -11,8 +11,8 @@ export function wayOf(kind: string): Way {
   return "other";
 }
 
-/** "1-800-273-8255" -> "+18002738255"-style digits for tel:; keeps a leading plus. */
-export const dialable = (value: string) => value.trim().replace(/(?!^\+)[^\d]/g, "");
+/** "1-800-273-8255" -> "+18002738255"-style digits for tel:; keeps a leading plus, and * and # (Chile's *4141). */
+export const dialable = (value: string) => value.trim().replace(/(?!^\+)[^\d*#]/g, "");
 
 /** sms: target for "988", "741741" or "HOME to 741741" (keyword in the body). */
 export function smsHref(value: string) {

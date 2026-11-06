@@ -11,7 +11,7 @@
     "summary": "Follow God’s promises to their fulfillment in Christ without flattening the differences between the covenants.",
     "answer": {
       "id": "answer",
-      "text": "Covenant theology reads the Bible through God’s binding dealings with humanity and the unity of his saving promise in Christ. Westminster describes a covenant of works with Adam and a covenant of grace after the fall. The Old and New Testaments reveal the same saving Mediator through different administrations; the new covenant brings the fulfillment accomplished by his blood.",
+      "text": "Covenant theology reads the Bible through God’s binding dealings with humanity and the unity of his saving promise in Christ. Westminster describes a covenant of works with Adam and a covenant of grace after the fall. The Old and New Testaments reveal the same saving Mediator through different administrations; the new covenant brings the fulfillment accomplished by his blood. The Baptist confession of 1689 agrees that everyone saved in any age is saved by the covenant of grace, but leaves out Westminster’s paragraphs on one covenant under two administrations: it says the covenant of grace was revealed by promise, step by step, and fully made known in the New Testament.",
       "citations": [
         {
           "kind": "scripture",
@@ -29,6 +29,11 @@
           "kind": "source",
           "source": "wcf",
           "locator": "7.1–6; 8.6"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "7.1–3; 8.6"
         }
       ]
     },
@@ -69,6 +74,11 @@
             "kind": "source",
             "source": "wcf",
             "locator": "7.5–6"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "7.3"
           }
         ]
       }
@@ -88,6 +98,11 @@
         {
           "kind": "source",
           "source": "wcf",
+          "locator": "8.6"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
           "locator": "8.6"
         }
       ]
@@ -109,13 +124,18 @@
             "kind": "source",
             "source": "wcf",
             "locator": "7.2–3"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "7.1; 19.1; 20.1"
           }
         ],
         "title": "Distinguish the biblical words and the theological summary"
       },
       {
         "id": "law",
-        "text": "The law exposes sin and guides the redeemed life. It does not give fallen sinners a separate route to justification by personal achievement. Westminster distinguishes moral, ceremonial and judicial law; those distinctions require attention to the passage and its fulfillment, not simply attaching the label Old Testament.",
+        "text": "The law exposes sin and guides the redeemed life. It does not give fallen sinners a separate route to justification by personal achievement. Westminster and the Baptist confession of 1689 distinguish moral, ceremonial and judicial law; those distinctions require attention to the passage and its fulfillment, not simply attaching the label Old Testament.",
         "citations": [
           {
             "kind": "scripture",
@@ -128,6 +148,11 @@
           {
             "kind": "source",
             "source": "wcf",
+            "locator": "19.2–6"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
             "locator": "19.2–6"
           }
         ],
@@ -151,17 +176,27 @@
           "kind": "source",
           "source": "wcf",
           "locator": "1.9–10"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "1.9–10"
         }
       ]
     },
     "limit": {
       "id": "limit",
-      "text": "This guide explains the Westminster account. It does not settle every disagreement about baptism or the membership and administration of the covenants. Use the library’s tradition and edition notes when comparing authors, and distinguish an agreed doctrine of grace from a disputed covenant inference.",
+      "text": "This guide sets out the Westminster account and notes where the Baptist confession of 1689 differs. The difference matters most for baptism: Westminster baptizes the infants of believers as members of the covenant (28.4), while the Baptist confession baptizes only those who profess repentance and faith (29.2), as does the site’s own confession, the Baptist Faith and Message 2000 (article VII). Use the library’s tradition and edition notes when comparing authors, and distinguish an agreed doctrine of grace from a disputed covenant inference.",
       "citations": [
         {
           "kind": "source",
           "source": "wcf",
           "locator": "7.5–6; 28.4; 1.10"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "7.3; 29.2; 1.10"
         }
       ]
     },
@@ -206,7 +241,10 @@
       "Adam",
       "Abraham",
       "law and gospel",
-      "biblical theology"
+      "biblical theology",
+      "Baptist",
+      "1689 Baptist Confession",
+      "believer's baptism"
     ]
   },
   "reviews": [
@@ -218,6 +256,15 @@
       "date": "2026-10-05",
       "contentHash": "440be081d13a9cf4b87d42c1050cc9a8481aa833e416d9ae61f5a32596909c00",
       "basisHash": "aa6ef2ee72a927b9de9b88f4d2c752386d9716f0ef1e2bfe541bf64fc02dc331"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Added the Second London Baptist Confession (1677/1689) beside Westminster: each 1689 chapter/paragraph locator checked against the site's pinned CC0 text (lwalen/lbcf) for existence and parallel meaning; Baptist Faith and Message 2000 article V wording checked at bfm.sbc.net; the 2012 Traditional Statement quoted from its text in the Journal for Baptist Theology and Ministry 9:2 (Fall 2012).",
+      "note": "AI-assisted editorial review against the cited primary texts; not independent human theological approval. Implements StudyPlan section 7, item 1: Baptist parallels and, in the election answer, the non-Calvinist Southern Baptist reading with named holders.",
+      "date": "2026-11-06",
+      "contentHash": "d20edaa4be218c7f91189d4eb8019b2c1d7f53325cfbd025442f1ba9df76da6b",
+      "basisHash": "fdc09c8835b340fc71aea2e5be54a5e748239a24c20aec197b85a437cd1a570d"
     }
   ]
 }

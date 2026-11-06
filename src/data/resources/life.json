@@ -255,6 +255,138 @@
       ]
     },
     {
+      "id": "other-countries",
+      "title": "Outside the United States — crisis lines",
+      "entries": [
+        {
+          "id": "mexico-linea-de-la-vida",
+          "name": "Mexico: Línea de la Vida",
+          "summary": "Mexico's national line for anyone with thoughts of suicide, an emotional crisis, anxiety, depression or an addiction, or worried about someone else. A mental-health professional answers. In an emergency, call 911.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "800 911 2000"
+            }
+          ],
+          "hours": "24/7/365",
+          "cost": "Free",
+          "source": "https://www.gob.mx/conasama/articulos/linea-de-la-vida-800-911-2000",
+          "checked": "2026-11-06"
+        },
+        {
+          "id": "spain-024",
+          "name": "Spain: 024, line for suicidal behaviour",
+          "summary": "Spain's line from the Ministry of Health for people with thoughts of suicide, and for their families and friends. Trained staff listen and point to further help. In an emergency, call 112.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "024"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.sanidad.gob.es/linea024/home.htm"
+            }
+          ],
+          "hours": "24/7/365",
+          "cost": "Free and confidential",
+          "source": "https://www.sanidad.gob.es/linea024/home.htm",
+          "checked": "2026-11-06"
+        },
+        {
+          "id": "brazil-cvv",
+          "name": "Brazil: CVV (Centro de Valorização da Vida)",
+          "summary": "Brazil's emotional-support and suicide-prevention line. Volunteers listen to anyone who wants to talk, by phone, chat or email.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "188"
+            },
+            {
+              "kind": "chat",
+              "value": "https://cvv.org.br/chat/"
+            },
+            {
+              "kind": "web",
+              "value": "https://cvv.org.br/"
+            }
+          ],
+          "hours": "24/7",
+          "cost": "Free",
+          "source": "https://cvv.org.br/",
+          "checked": "2026-11-06"
+        },
+        {
+          "id": "argentina-salud-mental",
+          "name": "Argentina: national mental-health urgency line",
+          "summary": "Argentina's national line for a mental-health urgency, including thoughts of suicide, self-harm, drug or alcohol problems and violence. Callers can also ring for a family member or friend.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "0800-999-0091"
+            }
+          ],
+          "hours": "24/7/365",
+          "cost": "Free and confidential",
+          "source": "https://www.argentina.gob.ar/noticias/la-linea-nacional-de-orientacion-y-apoyo-en-la-urgencia-de-salud-mental-funciona-las-24-0",
+          "checked": "2026-11-06"
+        },
+        {
+          "id": "chile-4141",
+          "name": "Chile: *4141, suicide-prevention line",
+          "summary": "Chile's Ministry of Health line for anyone with thoughts of suicide or in intense emotional pain. A psychologist answers and connects callers with the health network.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "*4141",
+              "note": "From a mobile phone, any carrier"
+            }
+          ],
+          "hours": "24/7",
+          "cost": "Free",
+          "source": "https://www.minsal.cl/linea-de-atencion-4141-no-estas-solo-no-estas-sola/",
+          "checked": "2026-11-06"
+        },
+        {
+          "id": "peru-linea-113",
+          "name": "Peru: Línea 113, mental health",
+          "summary": "Peru's Ministry of Health line. Option 5 is mental health: psychologists give emotional support and guidance.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "113",
+              "note": "Dial 113 then press 5"
+            }
+          ],
+          "hours": "24/7",
+          "cost": "Free",
+          "source": "https://www.gob.pe/555-recibir-informacion-y-orientacion-en-salud",
+          "checked": "2026-11-06"
+        },
+        {
+          "id": "find-a-helpline",
+          "name": "Find A Helpline (every other country)",
+          "summary": "A free directory of crisis lines in more than 175 countries, run by ThroughLine, which checks the lines with the services themselves. Choose your country to see its lines.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "web",
+              "value": "https://findahelpline.com/",
+              "note": "Find a line in your country"
+            }
+          ],
+          "cost": "Free",
+          "source": "https://findahelpline.com/",
+          "checked": "2026-11-06"
+        }
+      ]
+    },
+    {
       "id": "pregnancy",
       "title": "Pregnancy help",
       "entries": [
@@ -624,6 +756,22 @@
           "locator": "https://find.griefshare.org/find",
           "source": "https://www.griefshare.org/",
           "checked": "2026-10-08"
+        },
+        {
+          "id": "afsp-suicide-loss-groups",
+          "name": "Support groups after a suicide (AFSP)",
+          "summary": "For anyone who has lost someone to suicide: a directory of support groups for survivors of suicide loss, in person by ZIP code and online, kept by the American Foundation for Suicide Prevention. AFSP lists the groups but does not run them. If grief turns into a crisis, call or text 988.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "web",
+              "value": "https://afsp.org/find-a-support-group/",
+              "note": "Find a group"
+            }
+          ],
+          "locator": "https://afsp.org/find-a-support-group/",
+          "source": "https://afsp.org/find-a-support-group/",
+          "checked": "2026-11-06"
         }
       ]
     },
@@ -666,6 +814,48 @@
           "locator": "https://findtreatment.gov/",
           "source": "https://www.samhsa.gov/find-help/helplines/national-helpline",
           "checked": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "counselling",
+      "title": "Counselling",
+      "entries": [
+        {
+          "id": "focus-on-the-family-counseling",
+          "name": "Focus on the Family — counseling consultation",
+          "summary": "A free phone consultation with a licensed or pastoral counseling specialist, for individuals, couples and families, and referrals to licensed Christian counselors in your area.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-855-771-4357",
+              "note": "1-855-771-HELP"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.focusonthefamily.com/get-help/counseling-services-and-referrals/"
+            }
+          ],
+          "cost": "Free consultation (paid for by donors)",
+          "source": "https://www.focusonthefamily.com/get-help/counseling-services-and-referrals/",
+          "checked": "2026-11-06"
+        },
+        {
+          "id": "acbc-find-a-counselor",
+          "name": "ACBC — find a biblical counselor",
+          "summary": "A directory of counselors certified by the Association of Certified Biblical Counselors, who counsel from Scripture. Search the map and contact a counselor directly.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "web",
+              "value": "https://biblicalcounseling.com/find-a-counselor/",
+              "note": "Find a counselor"
+            }
+          ],
+          "locator": "https://biblicalcounseling.com/find-a-counselor/",
+          "source": "https://biblicalcounseling.com/find-a-counselor/",
+          "checked": "2026-11-06"
         }
       ]
     }

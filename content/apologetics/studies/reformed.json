@@ -29,6 +29,11 @@
           "kind": "source",
           "source": "wcf",
           "locator": "1.6; 2.3; 8; 11.1–2"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "1.6; 2.3; 8; 11.1–2"
         }
       ]
     },
@@ -45,6 +50,11 @@
             "kind": "source",
             "source": "wcf",
             "locator": "1.10; 31.3"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "1.10"
           }
         ]
       },
@@ -64,6 +74,11 @@
             "kind": "source",
             "source": "wcf",
             "locator": "6.2–4; 9.3"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "6.2–4; 9.3"
           }
         ]
       },
@@ -82,6 +97,11 @@
           {
             "kind": "source",
             "source": "wcf",
+            "locator": "11.1–2; 13.1"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
             "locator": "11.1–2; 13.1"
           }
         ]
@@ -110,6 +130,11 @@
             "kind": "source",
             "source": "wcf",
             "locator": "2–10; 21; 25–29; 32–33"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "2–10; 22; 26–30; 31–32"
           }
         ],
         "title": "More than a single controversy"
@@ -134,12 +159,17 @@
     "objection": "Does a Reformed confession make Calvin or a church council infallible?",
     "reply": {
       "id": "reply",
-      "text": "No. Westminster explicitly allows that councils may err and identifies Scripture as the final judge. We receive teachers as servants who help us understand the Word. Their arguments can be examined, corrected and rejected where they fail that test.",
+      "text": "No. Westminster explicitly allows that councils may err, and both it and the Baptist confession of 1689 name Scripture as the final judge. We receive teachers as servants who help us understand the Word. Their arguments can be examined, corrected and rejected where they fail that test.",
       "citations": [
         {
           "kind": "source",
           "source": "wcf",
           "locator": "1.10; 31.3"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "1.10"
         },
         {
           "kind": "scripture",
@@ -153,12 +183,17 @@
     },
     "limit": {
       "id": "limit",
-      "text": "This guide states the site’s Westminster-based approach. The wider reading library includes authors whose baptism, church order or covenant conclusions differ. Inclusion is an invitation to examine a work, not approval of every statement in an author’s corpus.",
+      "text": "This guide describes the Reformed tradition through its two best-known confessions: the Presbyterian Westminster Confession and the Baptist confession of 1689, which follows it closely but differs on the covenants, the church and baptism. The site’s own doctrinal standard is the Baptist Faith and Message 2000. The wider reading library includes authors whose baptism, church order or covenant conclusions differ. Inclusion is an invitation to examine a work, not approval of every statement in an author’s corpus.",
       "citations": [
         {
           "kind": "source",
           "source": "wcf",
           "locator": "1.10; 25.4–5"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "1.10; 26.3"
         }
       ]
     },
@@ -200,7 +235,9 @@
       "theology",
       "Westminster",
       "sovereign grace",
-      "Puritans"
+      "Puritans",
+      "Baptist",
+      "1689 Baptist Confession"
     ]
   },
   "reviews": [
@@ -212,6 +249,15 @@
       "date": "2026-10-05",
       "contentHash": "c26735bf149ceca83b3a93a13aced9c5ad7cee33649f321fa4a1695202d452aa",
       "basisHash": "89c5c1041a354ea36072b0ac16cf677bc5ada508433694e872b593ce93efcc01"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Added the Second London Baptist Confession (1677/1689) beside Westminster: each 1689 chapter/paragraph locator checked against the site's pinned CC0 text (lwalen/lbcf) for existence and parallel meaning; Baptist Faith and Message 2000 article V wording checked at bfm.sbc.net; the 2012 Traditional Statement quoted from its text in the Journal for Baptist Theology and Ministry 9:2 (Fall 2012).",
+      "note": "AI-assisted editorial review against the cited primary texts; not independent human theological approval. Implements StudyPlan section 7, item 1: Baptist parallels and, in the election answer, the non-Calvinist Southern Baptist reading with named holders.",
+      "date": "2026-11-06",
+      "contentHash": "86c43b84f9090df098dd085f691125c3c43a4e6da7f6dae2bc87f9753feb35c2",
+      "basisHash": "35e42652e0e898d161fa0ea7522b1f1a41f3ec4281bced3dc354f2462e4f6e38"
     }
   ]
 }

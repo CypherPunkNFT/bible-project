@@ -1,7 +1,7 @@
 // What the Help for life page derives from life.json: the colour and icon of each kind of help, how a contact becomes a
 // tel:/sms:/web link, the short subtitle and first sentence a closed row shows, and the call/text buttons it keeps ready.
 // Every word shown comes from the data; only these summaries are computed here.
-import { Baby, BookOpen, Church, Flower2, GraduationCap, HandHeart, HeartHandshake, House, LifeBuoy, Shield, Sprout, Users, Wheat, type LucideIcon } from "lucide-react";
+import { Baby, BookOpen, Church, Flower2, Globe, GraduationCap, HandHeart, HeartHandshake, House, LifeBuoy, MessagesSquare, Shield, Sprout, Users, Wheat, type LucideIcon } from "lucide-react";
 import type { City, Contact, Help, LifeData, LocalHelp } from "@/data/resources";
 import { dialable, wayOf as baseWay } from "../contact-links";
 
@@ -16,6 +16,8 @@ interface Kind { short: string; color: string; Icon: LucideIcon }
 /** One colour per kind of help, from the site's book colours; used for the kind's disc, its pins and its row marker. */
 const KINDS: Record<string, Kind> = {
   crisis: { short: "Crisis", color: "lf-green", Icon: LifeBuoy }, // green, life-affirming, not red (owner, 2026-10-08)
+  "other-countries": { short: "Other countries", color: "revelation", Icon: Globe },
+  counselling: { short: "Counselling", color: "history", Icon: MessagesSquare },
   pregnancy: { short: "Pregnancy", color: "acts", Icon: Baby },
   "after-abortion": { short: "After an abortion", color: "gospels", Icon: HeartHandshake },
   "children-families": { short: "Babies & families", color: "prophets", Icon: Users },

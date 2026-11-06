@@ -25,6 +25,11 @@
           "kind": "source",
           "source": "wcf",
           "locator": "3.1; 3.5–8; 10.1"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "3.1; 3.3; 3.5–7; 10.1"
         }
       ]
     },
@@ -45,6 +50,11 @@
             "kind": "source",
             "source": "wcf",
             "locator": "3.5"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "3.5"
           }
         ]
       },
@@ -64,6 +74,11 @@
             "kind": "source",
             "source": "wcf",
             "locator": "3.1"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "3.1"
           }
         ]
       },
@@ -82,6 +97,11 @@
           {
             "kind": "source",
             "source": "wcf",
+            "locator": "3.6"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
             "locator": "3.6"
           }
         ]
@@ -103,13 +123,18 @@
           "kind": "source",
           "source": "wcf",
           "locator": "10.1–2"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "10.1–2"
         }
       ]
     },
     "sections": [
       {
         "id": "freedom",
-        "text": "Westminster distinguishes willing action from the fallen will’s spiritual bondage. The sinner acts willingly but cannot produce saving faith by unaided strength. In effectual calling, the Spirit renews the will so that the person comes freely to Christ. Grace changes the heart rather than dragging an unwilling believer into fellowship.",
+        "text": "Westminster and the Baptist confession of 1689 distinguish willing action from the fallen will’s spiritual bondage. The sinner acts willingly but cannot produce saving faith by unaided strength. In effectual calling, the Spirit renews the will so that the person comes freely to Christ. Grace changes the heart rather than dragging an unwilling believer into fellowship.",
         "citations": [
           {
             "kind": "scripture",
@@ -122,6 +147,11 @@
           {
             "kind": "source",
             "source": "wcf",
+            "locator": "9.1–4; 10.1"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
             "locator": "9.1–4; 10.1"
           }
         ],
@@ -143,9 +173,38 @@
             "kind": "source",
             "source": "wcf",
             "locator": "3.8"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "3.7"
           }
         ],
         "title": "Begin with Christ’s invitation"
+      },
+      {
+        "id": "baptists",
+        "text": "Baptists who hold the Reformed reading confess it in the Second London Confession (1677, reissued 1689), chapters 3 and 10, and many Southern Baptists hold it today, among them the Founders Ministries movement and Albert Mohler, president of the Southern Baptist Theological Seminary. Many other Southern Baptists do not. The convention's own confession, the Baptist Faith and Message 2000, says that election “is the gracious purpose of God, according to which He regenerates, justifies, sanctifies, and glorifies sinners. It is consistent with the free agency of man, and comprehends all the means in connection with the end” (article V), and leaves the details open. In 2012 Eric Hankins, a Mississippi pastor, drafted “A Statement of the Traditional Southern Baptist Understanding of God’s Plan of Salvation”, signed by former convention presidents including Jerry Vines and Paige Patterson. It denies “that election means that, from eternity, God predestined certain people for salvation and others for condemnation”, holds that Christ’s sacrifice is for “the sins of every person”, and denies that grace “cannot be resisted”. A 2013 report to the convention’s Executive Committee, “Truth, Trust, and Testimony in a Time of Tension”, asked both sides to work together in evangelism. Both affirm that God saves by grace through faith in Christ, that the gospel is to be offered to everyone, and that true believers are kept to the end.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 1:4-6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Timothy 2:3-6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "2 Peter 3:9"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "3.5–7; 10.1–2"
+          }
+        ],
+        "title": "Where Baptists differ on election"
       }
     ],
     "objection": "Is it unjust to hold people responsible if they cannot renew their own hearts?",
@@ -164,6 +223,11 @@
         {
           "kind": "source",
           "source": "wcf",
+          "locator": "3.1; 9.3"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
           "locator": "3.1; 9.3"
         }
       ]
@@ -184,6 +248,11 @@
           "kind": "source",
           "source": "wcf",
           "locator": "3.1; 3.8"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "3.1; 3.7"
         }
       ]
     },
@@ -198,6 +267,11 @@
         {
           "kind": "source",
           "source": "wcf",
+          "locator": "9.1–4"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
           "locator": "9.1–4"
         }
       ]
@@ -229,7 +303,10 @@
       "responsibility",
       "Calvinism",
       "evangelism",
-      "regeneration"
+      "regeneration",
+      "Baptist",
+      "1689 Baptist Confession",
+      "Traditional Statement"
     ]
   },
   "reviews": [
@@ -241,6 +318,15 @@
       "date": "2026-10-05",
       "contentHash": "c79a5ffa351b32cfc6a77deea0488b6b1d4a981fe0118dad2244bc1b3e00ae75",
       "basisHash": "aa6ef2ee72a927b9de9b88f4d2c752386d9716f0ef1e2bfe541bf64fc02dc331"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Added the Second London Baptist Confession (1677/1689) beside Westminster: each 1689 chapter/paragraph locator checked against the site's pinned CC0 text (lwalen/lbcf) for existence and parallel meaning; Baptist Faith and Message 2000 article V wording checked at bfm.sbc.net; the 2012 Traditional Statement quoted from its text in the Journal for Baptist Theology and Ministry 9:2 (Fall 2012).",
+      "note": "AI-assisted editorial review against the cited primary texts; not independent human theological approval. Implements StudyPlan section 7, item 1: Baptist parallels and, in the election answer, the non-Calvinist Southern Baptist reading with named holders.",
+      "date": "2026-11-06",
+      "contentHash": "a8bfd3b63c94333891375a6bdca3428f71e0a0dd821435ca2fb643c6054aed0e",
+      "basisHash": "fdc09c8835b340fc71aea2e5be54a5e748239a24c20aec197b85a437cd1a570d"
     }
   ]
 }
