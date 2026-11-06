@@ -43,6 +43,8 @@ const SupportMockup = lazy(() => import("./legal/SupportMockup"));
 const StructureMockup = lazy(() => import("@/pages/study/structure/StructurePage"));
 const PartsMockup = lazy(() => import("./structure-parts/PartsMockup"));
 const TheologyCardsMockup = lazy(() => import("./theology-cards/TheologyCardsMockup"));
+const TheologyDraftsMockup = lazy(() => import("./drafts/TheologyDraftsMockup"));
+const DraftReaderPage = lazy(() => import("./drafts/DraftReaderPage"));
 
 const LOCAL_HOSTS = new Set(["127.0.0.1", "localhost"]);
 export const MOCKUPS_ENABLED = typeof window !== "undefined" && LOCAL_HOSTS.has(window.location.hostname);
@@ -119,6 +121,9 @@ export function mockupRoutes() {
     // Two Scripture & Theology cards four ways each, as the real card: The shape of the Bible's titles, Versions &
     // languages' drawings (owner, 2026-10-29).
     <Route key="theology-cards" path="/study/theology_cards_mockup" element={<TheologyCardsMockup />} />,
+    // Scripture & Theology with the written drafts as cards, and each draft's text (owner, 2026-11-05).
+    <Route key="theology-drafts" path="/study/theology_mockup" element={<TheologyDraftsMockup />} />,
+    <Route key="draft-reader" path="/study/drafts_mockup/:slug" element={<DraftReaderPage />} />,
     <Route key="gallery" path="/mockups" element={<HomeMockupsPage />} />,
   ];
 }

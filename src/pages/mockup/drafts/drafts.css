@@ -1,0 +1,23 @@
+/* Draft cards on the Study hub mock-up, and the draft reader. */
+.draft-shelf { margin-top: 2.5rem; }
+.draft-shelf-head { margin-bottom: 1.25rem; }
+.draft-shelf-head h3 { font-family: var(--font-serif); font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.2; margin: .35rem 0 .5rem; }
+.draft-shelf-head h3 em { color: var(--tone, var(--branch-tone)); font-style: italic; }
+.draft-shelf-head > p:last-child { color: var(--muted); max-width: 40rem; margin: 0; }
+/* A draft has no place in the numbered set of ten, so the "n / 10" counter is hidden. */
+.draft-cards .study-card-number { display: none; }
+
+.draft-reader { max-width: 46rem; margin: 0 auto; padding: 1.5rem 1rem 5rem; }
+.draft-reader-meta { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; margin: 1.5rem 0 .5rem; color: var(--muted); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+.draft-reader-meta a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.draft-reader-body { font-size: 1.05rem; line-height: 1.75; }
+.draft-reader-body h1 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.15; margin: 0 0 1rem; }
+.draft-reader-body h2 { font-family: var(--font-serif); font-size: 1.6rem; line-height: 1.25; margin: 2.75rem 0 .75rem; }
+.draft-reader-body h3 { font-size: 1.15rem; margin: 2rem 0 .5rem; }
+.draft-reader-body p { margin: 0 0 1rem; }
+.draft-reader-body blockquote { margin: 1.25rem 0; padding: .25rem 0 .25rem 1.25rem; border-left: 2px solid var(--branch-tone, currentColor); font-family: var(--font-serif); font-style: italic; }
+.draft-reader-body ul, .draft-reader-body ol { margin: 0 0 1rem 1.25rem; }
+.draft-reader-table { overflow-x: auto; margin: 1.25rem 0; }
+.draft-reader-body table { border-collapse: collapse; font-size: .92rem; }
+.draft-reader-body th, .draft-reader-body td { border-bottom: 1px solid color-mix(in srgb, currentColor 18%, transparent); padding: .4rem .75rem; text-align: left; vertical-align: top; }
+.draft-reader-missing { color: var(--muted); }
