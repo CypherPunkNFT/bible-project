@@ -1,0 +1,1976 @@
+{
+  "schemaVersion": 1,
+  "order": 34,
+  "title": "Between the Testaments",
+  "slug": "between-the-testaments",
+  "category": "history",
+  "categoryTitle": "History & archaeology",
+  "updated": "2026-11-06",
+  "status": "draft",
+  "draftNote": "First research draft, step 14 of the next twenty study drafts, written 2026-11-06 inside the scope set by the redundancy review of 2026-11-05. No page, route or component. Primary texts were read from the project's own held copies (the Berean Standard Bible; 1 and 2 Maccabees in the World English Bible; Josephus in Whiston's translation; Jerome and Calvin from the Christian Classics Ethereal Library). Some facts about objects were read through a tool that returns a report on a web page, not the page itself; each such source says so, and they are to be rechecked before a page is built.",
+  "premise": "Between Nehemiah's last prayer and the birth of Jesus, about four hundred years passed in which no book of the Protestant Old Testament was written, and the land changed hands six times: Persia, Alexander, the Ptolemies, the Seleucids, a Jewish priestly dynasty, and Rome with Herod. The coins of each ruler, the books of Maccabees, Josephus, and the visions of Daniel 8 and 11 let a reader see those years, and see where each witness stops.",
+  "question": "Who ruled the land when no prophet wrote, and how do we know?",
+  "outcomes": [
+    "Name the six powers that ruled Judea between Nehemiah and Jesus, in order, and say which piece of evidence shows each one.",
+    "Follow the crisis under Antiochus IV from the bought high priesthood to the rededication of the temple, and say which dates are the sources' own and which are modern conversions.",
+    "Use 1 and 2 Maccabees as historical sources, say what kind of book each is, and give the reasons from the sources themselves why Protestants do not count them as Scripture.",
+    "Set Daniel 8 and 11 beside the record of these years, keep what the text names apart from what readers identify, and state the views on its date fairly.",
+    "Say how far back the evidence takes the synagogue, the Pharisees, the Sadducees and the Essenes, and where it stops."
+  ],
+  "boundaries": {
+    "in": "The roughly four hundred years from Nehemiah's last recorded acts (after 433 BC) to the birth of Jesus under Herod: Persian rule after Nehemiah; Alexander and the Greek kingdoms of the Ptolemies and Seleucids; Antiochus IV and the desecration of the temple; the Maccabean revolt and Hanukkah; 1 and 2 Maccabees as historical sources, and why Protestants do not count them as Scripture; the Hasmonean kingdom; Pompey and Rome (63 BC); Herod the Great's rise; and the first evidence for the synagogue, the Pharisees, the Sadducees and the Essenes. Daniel 8 and 11 as the Bible's own window on these years, with the views on their date.",
+    "out": [
+      "The Greek translation of the Old Testament (the Septuagint): A passage through the manuscripts (02), From manuscript to printed Bible (05) and How New Testament Greek works (31) have it. One line here says when and where it began, and links them.",
+      "The Pharisees, Sadducees and synagogues in Jesus' own day: The world of Jesus & the apostles (09). This study stops at their beginnings.",
+      "The Dead Sea Scrolls, the community at Qumran, and what the scrolls say about the Hasmonean priests: The Dead Sea Scrolls (03). Named here and linked, not re-explained.",
+      "The full history of how the Apocrypha were listed, read and doubted across the churches: How the canon took shape (04). Section 04 here gives only the reasons that come from the books of Maccabees and their first readers.",
+      "Cyrus, the return, Ezra and Nehemiah: Cyrus, restoration and return (37). This study begins where Nehemiah ends.",
+      "Daniel 9 and its seventy weeks, and how apocalyptic writing works: the draft study Reading Daniel and Revelation (49). Daniel 9 is named once and not walked.",
+      "The Elephantine letters in their own setting: Israel among the empires (07) and Egypt beside Israel (32)."
+    ]
+  },
+  "links": [
+    {
+      "title": "Cyrus, restoration and return",
+      "route": "/study/cyrus-restoration-and-return",
+      "why": "The study that ends where this one begins: the return, the second temple, Ezra and Nehemiah's wall (draft research record 37)."
+    },
+    {
+      "title": "Israel among the empires",
+      "route": "/study/israel-among-the-empires",
+      "why": "The Persian empire, and the Elephantine letter naming Judah's governor and high priest in 407 BC."
+    },
+    {
+      "title": "The Dead Sea Scrolls",
+      "route": "/study/dead-sea-scrolls",
+      "why": "Qumran, its scrolls, and the community many link with the Essenes."
+    },
+    {
+      "title": "How the canon took shape",
+      "route": "/study/how-the-canon-took-shape",
+      "why": "Every early list that includes or leaves out 1 and 2 Maccabees, and the Reformation's and Trent's decisions."
+    },
+    {
+      "title": "A passage through the manuscripts",
+      "route": "/study/passage-through-manuscripts",
+      "why": "Greek Old Testament readings beside the Hebrew."
+    },
+    {
+      "title": "From manuscript to printed Bible",
+      "route": "/study/from-manuscript-to-printed-bible",
+      "why": "The printed Septuagint editions."
+    },
+    {
+      "title": "How New Testament Greek works",
+      "route": "/study/how-new-testament-greek-works",
+      "why": "Koine Greek, the common language Alexander's conquests spread."
+    },
+    {
+      "title": "The world of Jesus & the apostles",
+      "route": "/study/world-of-jesus-apostles",
+      "why": "Where this study stops: Galilee and Jerusalem in the first century, with Pharisees, Sadducees and synagogues in action."
+    },
+    {
+      "title": "Reading Daniel and Revelation (draft study 49)",
+      "route": "/study/theology",
+      "why": "How Daniel's kind of writing works, Daniel 7 and 9, and the site's reading of Daniel as the book presents itself. It hands Daniel 11 to this study."
+    },
+    {
+      "title": "Rulers of the nations (Topics card)",
+      "route": "/topics/c/people-nations",
+      "why": "Antiochus, the Ptolemies, Herod and the Roman rulers as people."
+    }
+  ],
+  "figures": [
+    {
+      "value": "6",
+      "label": "powers",
+      "caption": "Persia, Alexander, the Ptolemies, the Seleucids, the Hasmoneans, and Rome with Herod: six changes of master in one small land."
+    },
+    {
+      "value": "0",
+      "label": "Greek kings named",
+      "caption": "Daniel 11 tells of kings of the North and South without naming one. It names only Persia and Greece (11:2), as Daniel 8:20–21 does. Every Ptolemy and Antiochus on this page is a reader's identification."
+    },
+    {
+      "value": "3",
+      "label": "times the sources say no prophet stood",
+      "caption": "1 Maccabees 4:46, 9:27 and 14:41, in the World English Bible. The book's own writer says his age had no prophet."
+    },
+    {
+      "value": "37",
+      "label": "years Herod reigned",
+      "caption": "Counted by Josephus from Rome's naming him king; thirty-four from his taking Jerusalem (Antiquities 17.8.1). How those years fit the calendar is argued."
+    }
+  ],
+  "rulers": {
+    "lead": "Six powers held Judea between Nehemiah and Jesus. Each left coins, and each coin says who claimed the land, in whose name and in what language. The coins are the study's main instrument: one for each hand that held the purse.",
+    "note": "The years are the usual modern ones, rounded, and several are argued. Where a power's start is a battle, the land often changed hands more than once around it.",
+    "items": [
+      {
+        "id": "persia",
+        "n": "01",
+        "power": "Persia, after Nehemiah",
+        "from": 433,
+        "to": 332,
+        "coin": "A small silver coin of the province with the letters YHD (Yehud, Judah), some with an owl, some with a lily; struck in the 300s BC.",
+        "evidence": "Nehemiah 12:22 names the high priests Johanan and Jaddua under “Darius the Persian” (Nehemiah 12:22 · BSB), the latest names in the Old Testament's own record. A letter from the Jewish garrison at Elephantine in Egypt, dated 407 BC, writes to Bagohi, governor of Judah, and names Johanan as high priest in Jerusalem. Josephus tells that a Persian officer, Bagoses, punished the Jews “seven years” after Johanan killed his own brother in the temple (Antiquities 11.7.1).",
+        "inference": "The province went on as Nehemiah left it: a high priest in Jerusalem and a Persian governor over him, small enough to strike its own small change with its own name.",
+        "limit": "Which Darius Nehemiah 12:22 means (the second, 423–404 BC, or the third, 336–330 BC) is argued, and with it how far into the 300s the list runs. The Elephantine letter is treated in Israel among the empires and not repeated here. Josephus's Bagoses may or may not be the letter's Bagohi.",
+        "verses": [
+          "Nehemiah 12:22",
+          "Nehemiah 13:31"
+        ],
+        "sources": [
+          "scripture",
+          "josephus",
+          "site-07"
+        ]
+      },
+      {
+        "id": "alexander",
+        "n": "02",
+        "power": "Alexander of Macedon",
+        "from": 332,
+        "to": 323,
+        "coin": "A silver tetradrachm with Heracles in a lion skin and the words “of Alexander”, struck at mints across the conquered East.",
+        "evidence": "Alexander defeated Darius III and took the coast of Syria and Palestine on his way to Egypt in 332 BC; he died at Babylon in 323. 1 Maccabees opens with him: he “struck Darius king of the Persians and Medes” and “divided to them his kingdom while he was still alive” (1 Maccabees 1:1, 1:6, World English Bible).",
+        "inference": "One coin for an empire from Greece to the Indus. Greek became the common language of trade and rule, the Greek in which the New Testament would later be written.",
+        "limit": "What Alexander did in Jerusalem, if anything, rests on Josephus alone among the sources read here; claim 03 tests his story. That Alexander divided his kingdom before he died is 1 Maccabees' account; the Greek historians tell of a struggle among his generals after his death.",
+        "verses": [
+          "Daniel 8:21",
+          "Daniel 11:3",
+          "Daniel 11:4"
+        ],
+        "sources": [
+          "maccabees-web",
+          "josephus"
+        ]
+      },
+      {
+        "id": "ptolemies",
+        "n": "03",
+        "power": "The Ptolemies, from Egypt",
+        "from": 301,
+        "to": 200,
+        "coin": "A silver tetradrachm with the head of Ptolemy I and an eagle on a thunderbolt, reading “of King Ptolemy”, the type the dynasty kept striking.",
+        "evidence": "After Alexander, his general Ptolemy held Egypt, and his heirs held Judea for about a century. Greek inscriptions from Egypt in the reign of Ptolemy III (246–221 BC) record Jews dedicating a “prayer house” (proseuchē) on behalf of the king and queen. The Greek translation of the Law was begun in Egypt in this century, by the usual account; studies 02, 05 and 31 treat that translation, the Septuagint.",
+        "inference": "A century of Egyptian rule left Jews in two great centres, Jerusalem and Alexandria, and a Greek-speaking Jewish world with its own houses of prayer.",
+        "limit": "The year the Ptolemies took Judea for good (usually 301 BC, after the battle of Ipsus) is a modern reckoning; the land was fought over in the wars this page's Daniel section reads.",
+        "verses": [
+          "Daniel 11:5",
+          "Daniel 11:6"
+        ],
+        "sources": [
+          "schedia",
+          "site-02"
+        ]
+      },
+      {
+        "id": "seleucids",
+        "n": "04",
+        "power": "The Seleucids, from Syria",
+        "from": 200,
+        "to": 142,
+        "coin": "A silver tetradrachm of Antiochus IV, his head with a royal band, and on the back Zeus enthroned holding Victory, with the words “of King Antiochus, God Manifest”.",
+        "evidence": "Antiochus III won Judea at Panium in 200 BC. A stone from Maresha (the Heliodorus stele, 178 BC, now in the Israel Museum) carries a letter of Seleucus IV to his minister Heliodorus about the temples of the province. Antiochus IV's coins call him God Manifest (theos epiphanēs); Polybius reports that people called him Epimanes, “the Madman”, instead (Histories 26.1a, Loeb translation).",
+        "inference": "A king who put a god's title on his own coins was not likely to leave a temple that refused all gods but one to itself. The coin does not explain the persecution, but it shows the claim he was making.",
+        "limit": "Why Antiochus IV moved against Judaism is argued (section 03). The stele confirms that Heliodorus held office; it names a man called Olympiodorus, not Heliodorus, as overseer of the temples, and it does not tell the story of 2 Maccabees 3.",
+        "verses": [
+          "Daniel 11:16",
+          "Daniel 11:20",
+          "Daniel 11:21"
+        ],
+        "sources": [
+          "heliodorus-stele",
+          "polybius",
+          "coin-antiochus"
+        ]
+      },
+      {
+        "id": "hasmoneans",
+        "n": "05",
+        "power": "The Hasmoneans, priests who became kings",
+        "from": 142,
+        "to": 63,
+        "coin": "A small bronze coin of Alexander Jannaeus (103–76 BC): an anchor on one side, a star on the other, with his name in Greek or Hebrew; other issues read “Jonathan the High Priest and the Council of the Jews”.",
+        "evidence": "1 Maccabees dates Judah's freedom to the 170th year of the Greek kingdom: “the yoke of the Gentiles was taken away from Israel”, and contracts were dated “In the first year of Simon, the great high priest” (1 Maccabees 13:41–42, World English Bible). Josephus says Aristobulus I “was the first that put a diadem upon his head” (Jewish War 1.3.1).",
+        "inference": "For the first time since 586 BC, Jews dated their documents by their own ruler and struck their own coins with his name. The coins in Hebrew and Greek show the dynasty speaking both to its own people and to the Greek world.",
+        "limit": "Which Hasmonean struck the first coins (John Hyrcanus I or Alexander Jannaeus) is argued by numismatists. Freedom came by stages, by grants from rival Seleucid kings, and the sources do not agree on a single day it began.",
+        "verses": [],
+        "sources": [
+          "maccabees-web",
+          "josephus",
+          "coin-jannaeus"
+        ]
+      },
+      {
+        "id": "rome",
+        "n": "06",
+        "power": "Rome, and Herod as its king",
+        "from": 63,
+        "to": 4,
+        "coin": "A bronze coin of Herod with a tripod or a helmet and the Greek “of King Herod”, and no portrait: unlike Antiochus, he did not put his face on coins meant for Judea.",
+        "evidence": "Pompey took Jerusalem in 63 BC and entered the temple, and yet, says Josephus, he did “touch nothing of all this” of its treasure (Antiquities 14.4.4). The Roman Senate named Herod king in 40 BC (Josephus; Appian gives 39), and he took Jerusalem in 37 (some argue 36). Matthew places Jesus' birth “during the time of King Herod” (Matthew 2:1 · BSB).",
+        "inference": "Rome ruled through a client king. When Jesus later asked of a coin, “Whose image is this? And whose inscription?” (Mark 12:16 · BSB), it was a Roman coin, and the question of whose image a coin may bear was already old in that land.",
+        "limit": "Herod's coins carry no portrait by the usual reading of the finds; that he avoided images for Jewish reasons is the common inference, not a statement of his. The year he died is argued (section 06).",
+        "verses": [
+          "Matthew 2:1",
+          "Luke 1:5",
+          "Mark 12:16"
+        ],
+        "sources": [
+          "josephus",
+          "scripture",
+          "wiki-herod"
+        ]
+      }
+    ]
+  },
+  "crisis": {
+    "lead": "The crisis did not begin with a foreign king. It began with Jews who bought the high priesthood, and a king who sold it.",
+    "dating": "1 and 2 Maccabees date by the years of the Greek kingdom (the Seleucid era, counted from 312/311 BC). The conversions to years BC below are the usual modern ones; each is an estimate to within a year.",
+    "steps": [
+      {
+        "id": "heliodorus",
+        "n": "01",
+        "title": "A minister sent for the temple's money",
+        "when": "Under Seleucus IV (187–175 BC)",
+        "evidence": "2 Maccabees 3 tells that the king appointed “Heliodorus, who was his chancellor” to remove money held in the temple (2 Maccabees 3:7, World English Bible), and that he was stopped. A stone of 178 BC from Maresha, now in the Israel Museum, carries Seleucus IV's letter to Heliodorus about overseeing the temples of the province.",
+        "inference": "The king's need for money, and his reach into temple funds, is attested on stone a few years before the story.",
+        "limit": "The stone names one Olympiodorus as the overseer; it does not mention Jerusalem or tell the story of 2 Maccabees 3. Daniel 11:20 speaks of a king who “will send out a tax collector” (Daniel 11:20 · BSB), which many readers identify with Heliodorus; the verse names no one.",
+        "verses": [
+          "Daniel 11:20"
+        ],
+        "sources": [
+          "maccabees-web",
+          "heliodorus-stele"
+        ]
+      },
+      {
+        "id": "jason",
+        "n": "02",
+        "title": "The high priesthood bought",
+        "when": "175 BC (year 137, 1 Maccabees 1:10)",
+        "evidence": "When Antiochus IV came to the throne, Jason “supplanted his brother in the high priesthood”, paying the king and promising more for leave to build a gymnasium and to register the people of Jerusalem “as citizens of Antioch” (2 Maccabees 4:7–9, World English Bible). The writer calls it “an extreme of hellenization” (4:13).",
+        "inference": "The first push toward Greek ways came from within Jerusalem's leading families, by purchase. The writer of 2 Maccabees blames Jason first and the king second.",
+        "limit": "2 Maccabees is openly hostile to Jason; there is no account from his side.",
+        "verses": [],
+        "sources": [
+          "maccabees-web"
+        ]
+      },
+      {
+        "id": "menelaus",
+        "n": "03",
+        "title": "Outbid, and a high priest killed",
+        "when": "About 172 to 170 BC",
+        "evidence": "Menelaus “secured the high priesthood for himself, outbidding Jason by three hundred talents of silver” (2 Maccabees 4:24), and arranged the murder of the former high priest Onias (4:34).",
+        "inference": "The office was now the king's to sell to the highest bidder, outside the old high-priestly line.",
+        "limit": "Many readers take “a prince of the covenant” in Daniel 11:22 to be Onias; the verse does not name him.",
+        "verses": [
+          "Daniel 11:22"
+        ],
+        "sources": [
+          "maccabees-web"
+        ]
+      },
+      {
+        "id": "plunder",
+        "n": "04",
+        "title": "The temple plundered after Egypt",
+        "when": "169 BC (year 143)",
+        "evidence": "“Antiochus, after he had defeated Egypt, returned in the one hundred forty third year”, entered the sanctuary and took “the golden altar, the lampstand for the light, and all its utensils” (1 Maccabees 1:20–21, World English Bible).",
+        "inference": "Money and power first: the plunder came before any decree against the Law.",
+        "limit": "1 and 2 Maccabees differ on how many visits the king made to Jerusalem and when; historians reconstruct one or two.",
+        "verses": [
+          "Daniel 11:28"
+        ],
+        "sources": [
+          "maccabees-web"
+        ]
+      },
+      {
+        "id": "eleusis",
+        "n": "05",
+        "title": "A circle drawn round a king",
+        "when": "168 BC",
+        "evidence": "On his second march on Egypt, a Roman envoy, Gaius Popilius, handed Antiochus the Senate's order to withdraw, “drew a circle round Antiochus and told him he must remain inside this circle until he gave his decision” (Polybius, Histories 29.27, Loeb translation). He withdrew.",
+        "inference": "Rome now set the limits of the Greek kings. Daniel 11:30 says “Ships of Kittim will come against him, and he will lose heart. Then he will turn back and rage against the holy covenant” (Daniel 11:30 · BSB); most readers, early and modern, read the envoy's fleet here.",
+        "limit": "Kittim first meant Cyprus and then, more loosely, peoples from the west over the sea. The identification is the readers'; the verse names no Rome.",
+        "verses": [
+          "Daniel 11:29",
+          "Daniel 11:30"
+        ],
+        "sources": [
+          "polybius",
+          "scripture"
+        ]
+      },
+      {
+        "id": "desecration",
+        "n": "06",
+        "title": "The Law forbidden, the altar defiled",
+        "when": "December 167 BC (15 Chislev, year 145)",
+        "evidence": "The king wrote “that all should be one people, and that each should forsake his own laws” (1 Maccabees 1:41–42). Books of the Law were burned (1:56–57). “On the fifteenth day of Chislev, in the one hundred forty fifth year, they built an abomination of desolation upon the altar” (1:54). 2 Maccabees adds that the sanctuary was to be called by the name of “Olympian Zeus” (6:2).",
+        "inference": "For the first time, a ruler of the land did not only tax or plunder the temple but forbade the worship it existed for. 1 Maccabees uses Daniel's phrase for what was set up on the altar.",
+        "limit": "Why Antiochus did this is argued: the sources blame his pride; historians since Elias Bickerman have also pointed to the Jewish party that wanted reform (Bickerman's book located, not read here). What exactly “the abomination” was (an altar, a statue, a stone) is not described.",
+        "verses": [
+          "Daniel 11:31",
+          "Daniel 8:11",
+          "Daniel 12:11"
+        ],
+        "sources": [
+          "maccabees-web",
+          "bickerman"
+        ]
+      },
+      {
+        "id": "modein",
+        "n": "07",
+        "title": "A priest refuses at Modein",
+        "when": "167 BC",
+        "evidence": "When the king's officers came to Modin to make the people sacrifice, the priest Mattathias answered, “yet I and my sons and my kindred will walk in the covenant of our fathers” (1 Maccabees 2:15–20). His party resolved to fight even on the Sabbath (2:41). His son “Judas, who was called Maccabaeus, rose up in his place” (3:1).",
+        "inference": "The revolt began in a village, with a priestly family, as a refusal to sacrifice. The name Maccabee belongs to Judas; the family's name, Hasmonean, is known from Josephus and later Jewish writings, not from 1 Maccabees.",
+        "limit": "What “Maccabaeus” means (often explained as “hammer”) is not said in the book.",
+        "verses": [
+          "Daniel 11:32",
+          "Daniel 11:34"
+        ],
+        "sources": [
+          "maccabees-web"
+        ]
+      },
+      {
+        "id": "dedication",
+        "n": "08",
+        "title": "The altar dedicated again",
+        "when": "December 164 BC (25 Chislev, year 148)",
+        "evidence": "“On the twenty-fifth day of the ninth month, which is the month Chislev, in the one hundred forty eighth year” sacrifice was offered on a new altar, “At the time and day the Gentiles had profaned it”; they kept the dedication “eight days” and ordained that it be kept every year (1 Maccabees 4:52–59). 2 Maccabees links the eight days to the feast of tabernacles (10:6). Josephus says “we celebrate this festival, and call it Lights” (Antiquities 12.7.7).",
+        "inference": "This is Hanukkah, which means dedication. John's Gospel names it: “the Feast of Dedication took place in Jerusalem. It was winter” (John 10:22 · BSB), and Jesus was in the temple at it.",
+        "limit": "Daniel 8:14 speaks of “2,300 evenings and mornings; then the sanctuary will be properly restored” (Daniel 8:14 · BSB). How that number fits these years is counted in more than one way, and this study does not choose.",
+        "verses": [
+          "John 10:22",
+          "Daniel 8:14"
+        ],
+        "sources": [
+          "maccabees-web",
+          "josephus",
+          "scripture"
+        ]
+      },
+      {
+        "id": "death",
+        "n": "09",
+        "title": "The king dies far away",
+        "when": "164 BC (year 149, 1 Maccabees 6:16)",
+        "evidence": "Polybius says that after trying to rob a sanctuary in Elymais, Antiochus “died at Tabae in Persia, smitten with madness, as some people say” (Histories 31.9). 1 Maccabees puts his death after the rededication (6:16); 2 Maccabees tells it in chapter 9, before the rededication in chapter 10.",
+        "inference": "The two books of Maccabees order the same events differently. A reader of either needs the other, and Polybius, to place them.",
+        "limit": "The exact month is reconstructed from a Babylonian king list as reported by historians, not read here. How Daniel 11:40–45 relates to this death is the question of section 05.",
+        "verses": [
+          "Daniel 8:25",
+          "Daniel 11:45"
+        ],
+        "sources": [
+          "polybius",
+          "maccabees-web"
+        ]
+      },
+      {
+        "id": "independence",
+        "n": "10",
+        "title": "A high priest by the king's letter, then a free people",
+        "when": "152 to 140 BC",
+        "evidence": "A rival Seleucid king wrote to Jonathan, Judas's brother: “we have appointed you this day to be high priest of your nation” (1 Maccabees 10:20). In year 170 (142 BC) “the yoke of the Gentiles was taken away from Israel” under Simon (13:41), and the people named Simon “leader and high priest forever, until there should arise a faithful prophet” (14:41).",
+        "inference": "The family that fought the king's interference with the priesthood took the priesthood from a king's hand. The decree for Simon says, in the same breath, that it waits for a prophet.",
+        "limit": "The Hasmoneans were priests but not of the line of Zadok, as many historians read the evidence; how much that mattered to their opponents is taken up in The Dead Sea Scrolls (03), not here.",
+        "verses": [],
+        "sources": [
+          "maccabees-web",
+          "site-03"
+        ]
+      }
+    ]
+  },
+  "maccabeesBooks": {
+    "lead": "Two books, two kinds of history. Both are the best sources for these years. Neither claims to be prophecy.",
+    "books": [
+      {
+        "id": "first",
+        "name": "1 Maccabees",
+        "covers": "From Alexander (1:1) to the death of Simon and the start of John Hyrcanus's rule, about 175 to 134 BC in detail.",
+        "language": "Written in Hebrew, as Jerome says: “The first book of Maccabees I have found to be Hebrew” (Preface to the Books of Samuel and Kings, Nicene and Post-Nicene Fathers, second series, vol. 6). Only the Greek survives.",
+        "written": "Usually placed about 100 BC, after John Hyrcanus, because it closes by pointing to the record of his acts (16:23–24). An estimate, not a date the book gives.",
+        "kind": "A court-friendly history of one family, written in the style of Kings, with dates by the Greek kingdom's years and letters and decrees quoted in full.",
+        "use": "Its dates and sequence are the backbone of every modern account. Its sympathy is plain: God saves Israel through this family.",
+        "verses": []
+      },
+      {
+        "id": "second",
+        "name": "2 Maccabees",
+        "covers": "From Heliodorus under Seleucus IV to Judas's victory over Nicanor, about 178 to 161 BC.",
+        "language": "Written in Greek. Jerome: “the second is Greek, as can be proved from the very style.”",
+        "written": "It says it is an abridgment: “These things which have been declared by Jason of Cyrene in five books, we will attempt to abridge in one book” (2 Maccabees 2:23). Jason's five books are lost. Usually dated in the late second century BC, an estimate.",
+        "kind": "A history written to move the reader, with martyrs' speeches (chapters 6 and 7), visions, and two letters to the Jews of Egypt urging them to keep the feast.",
+        "use": "It gives the inside story of the high priesthood (chapter 4) that 1 Maccabees passes over. It orders events differently, and it ends by apologising for its own writing: “if its poorly done and mediocre, this is the best I could do” (15:38).",
+        "verses": []
+      }
+    ],
+    "canon": {
+      "head": "Why Protestants read them as history, not as Scripture",
+      "intro": "The whole history of the Apocrypha in the churches' lists belongs to How the canon took shape (04). Here are only the reasons that come from these books and the earliest readers named here.",
+      "reasons": [
+        {
+          "id": "no-prophet",
+          "title": "The book says its own age had no prophet",
+          "evidence": "Stones from the defiled altar were stored “until a prophet would come to give an answer concerning them” (1 Maccabees 4:46). The distress was greater than any “since the time prophets stopped appearing to them” (9:27). Simon was made leader “until there should arise a faithful prophet” (14:41).",
+          "inference": "The writer does not claim to speak as a prophet, and says plainly that none spoke in his day."
+        },
+        {
+          "id": "josephus",
+          "title": "The Jewish count closed before these years",
+          "evidence": "Josephus, writing in the 90s AD, says the history written “since Artaxerxes” has “not been esteemed of the like authority with the former by our forefathers, because there hath not been an exact succession of prophets since that time” (Against Apion 1.8).",
+          "inference": "The Scriptures of Josephus's people, as he counts them a generation after Jesus, did not include the histories of these years."
+        },
+        {
+          "id": "writer",
+          "title": "The writer of 2 Maccabees disclaims authority",
+          "evidence": "He calls his work an abridgment of another man's (2:23), and ends: “If I have written well and to the point in my story, this is what I myself desired; but if its poorly done and mediocre, this is the best I could do” (15:38).",
+          "inference": "A careful historian's modesty, not the voice of “Thus says the LORD”."
+        },
+        {
+          "id": "jerome",
+          "title": "Read by the church, not counted as canon",
+          "evidence": "Jerome, about AD 400: “As, then, the Church reads Judith, Tobit, and the books of Maccabees, but does not admit them among the canonical Scriptures, so let it read these two volumes for the edification of the people, not to give authority to doctrines of the Church” (Preface to the Books of Solomon).",
+          "inference": "The line Protestants draw, read with profit but not as a rule of faith, was drawn by a church father eleven centuries before the Reformation."
+        },
+        {
+          "id": "confession",
+          "title": "The Baptist confessions",
+          "evidence": "The Second London Baptist Confession (1677/1689), chapter 1, section 3: “The Books commonly called Apocrypha not being of Divine inspiration, are no part of the Canon (or rule) of the Scripture, and therefore are of no authority to the Church of God, nor to be any otherwise approved or made use of, then other humane writings.” The Baptist Faith and Message 2000 confesses the Holy Bible as God's inspired word and gives no list of books.",
+          "inference": "This is the site's own position: 1 and 2 Maccabees are valuable ancient histories, read as other human writings are read."
+        }
+      ],
+      "others": "The Roman Catholic Church counts 1 and 2 Maccabees as Scripture, decided at the Council of Trent in 1546, and calls them deuterocanonical. The Eastern Orthodox churches count them too, and add 3 Maccabees. These are their teaching, shown as theirs; How the canon took shape (04) has their lists.",
+      "disputed": "One reason the question mattered at the Reformation: 2 Maccabees 12:43–45 tells of an offering sent to Jerusalem for fallen soldiers, and says “it would be superfluous and idle to pray for the dead” if they were not to rise. Catholic teaching has cited it for prayer for the dead; Protestants, holding the book not to be Scripture, do not ground doctrine on it.",
+      "hebrews": "Hebrews 11:35 says “Others were tortured and refused their release, so that they might gain a better resurrection” (Hebrews 11:35 · BSB). Many readers hear the martyrs of 2 Maccabees 6 and 7 in it, one of whom says “the King of the world will raise us” (2 Maccabees 7:9). An allusion to people who died for the Law is not a quotation of a book as Scripture: Hebrews names the faithful, not a source.",
+      "verses": [
+        "Hebrews 11:35",
+        "Hebrews 11:36"
+      ]
+    }
+  },
+  "kingdom": {
+    "lead": "The family that refused a king's priesthood became priests and kings themselves. Josephus is the main source for its eighty years; his judgements are his own.",
+    "rulers": [
+      {
+        "id": "simon",
+        "name": "Simon",
+        "years": "142–134 BC",
+        "title": "High priest and leader",
+        "record": "Named “leader and high priest forever, until there should arise a faithful prophet” (1 Maccabees 14:41); killed at a feast by his son-in-law Ptolemy (1 Maccabees 16; Josephus, Jewish War 1.2.3)."
+      },
+      {
+        "id": "hyrcanus",
+        "name": "John Hyrcanus I",
+        "years": "134–104 BC",
+        "title": "High priest and ruler",
+        "record": "Conquered the Idumeans and let them stay “if they would circumcise their genitals, and make use of the laws of the Jews” (Antiquities 13.9.1); destroyed the temple on Mount Gerizim (same section); broke with the Pharisees and was persuaded to “leave the party of the Pharisees” (13.10.6)."
+      },
+      {
+        "id": "aristobulus",
+        "name": "Aristobulus I",
+        "years": "104–103 BC",
+        "title": "King",
+        "record": "“the first that put a diadem upon his head” (Jewish War 1.3.1), reigned about a year."
+      },
+      {
+        "id": "jannaeus",
+        "name": "Alexander Jannaeus",
+        "years": "103–76 BC",
+        "title": "King and high priest",
+        "record": "Fought most of his reign. After a civil war with his own people he “ordered about eight hundred of them to be crucified” in Jerusalem (Antiquities 13.14.2). His bronze coins, anchor and star, are the commonest of the dynasty."
+      },
+      {
+        "id": "alexandra",
+        "name": "Salome Alexandra",
+        "years": "76–67 BC",
+        "title": "Queen",
+        "record": "Jannaeus's widow. Josephus says she “put all things into their power”, meaning the Pharisees' (Antiquities 13.16.1), and that they “became themselves the real administrators of the public affairs” (Jewish War 1.5.2). Her son Hyrcanus II was high priest."
+      },
+      {
+        "id": "brothers",
+        "name": "Hyrcanus II and Aristobulus II",
+        "years": "67–63 BC",
+        "title": "Rival brothers",
+        "record": "Their war over the throne brought both to Pompey for judgement, and Pompey to Jerusalem (Antiquities 14.3–4)."
+      },
+      {
+        "id": "antigonus",
+        "name": "Antigonus",
+        "years": "40–37 BC",
+        "title": "The last Hasmonean king",
+        "record": "Set up by the Parthians, besieged by Herod and the Roman Sosius, and taken to Antioch and killed there at Antony's order (Antiquities 20.10)."
+      }
+    ],
+    "evidence": "1 Maccabees and Josephus agree on the founding: freedom came under Simon in 142 BC. The coins agree that the rulers were high priests and, from about 104, kings.",
+    "inference": "The kingdom fulfilled a hope of independence, and it did not restore David's line: its kings were priests of Mattathias's family. The anger that its later kings provoked among their own people, Pharisees among them, is part of why the parties of Jesus' day stood where they did.",
+    "limit": "Josephus wrote two centuries later, as a priest descended from this family, for Roman readers. That the eight hundred crucified were Pharisees is a common inference; Josephus does not name their party at that point. What the scrolls from Qumran say about these rulers is in The Dead Sea Scrolls (03).",
+    "sources": [
+      "josephus",
+      "maccabees-web",
+      "site-03"
+    ]
+  },
+  "rome": {
+    "lead": "Rome came in as a judge between two brothers and stayed as the master of the land.",
+    "steps": [
+      {
+        "id": "pompey",
+        "title": "Pompey in the temple",
+        "when": "63 BC",
+        "evidence": "Josephus: Pompey “went into it, and not a few of those that were with him also, and saw all that which it was unlawful for any other men to see but only for the high priests”; the golden table, the lampstand and two thousand talents were there, “yet did Pompey touch nothing of all this” (Antiquities 14.4.4). Tacitus, writing about AD 100: “The first Roman to subdue the Jews and set foot in their temple by right of conquest was Gnaeus Pompey”, and it became known “that the place was empty and the secret shrine contained nothing” (Histories 5.9, Loeb translation of 1931).",
+        "inference": "A Jewish and a Roman historian agree that Pompey entered and left the temple's treasure. To Jews the entry itself was the outrage; to Tacitus the surprise was that the shrine held no image.",
+        "limit": "Neither writer saw it. Josephus's editor Whiston adds in a note that Cicero says the same in his speech for Flaccus; that speech was not read here."
+      },
+      {
+        "id": "antipater",
+        "title": "An Idumean family rises",
+        "when": "63 to 40 BC",
+        "evidence": "Josephus tells how Antipater, an Idumean (from the people John Hyrcanus had made Jews), served Hyrcanus II and Rome, and how his son Herod was made governor of Galilee while young (Antiquities 14).",
+        "inference": "Herod's family were Jews by a conversion forced on their people two generations earlier, and owed their place to Rome. Both facts shaped how his subjects saw him.",
+        "limit": "How Herod's subjects saw his ancestry is told mostly by Josephus and by later writers; Herod's own account does not survive."
+      },
+      {
+        "id": "king",
+        "title": "Named king in Rome, king in Jerusalem three years later",
+        "when": "40 and 37 BC",
+        "evidence": "The Roman Senate named Herod king after the Parthians put Antigonus, the last Hasmonean, on the throne (Josephus places this in 40 BC; the Roman historian Appian in 39). Herod and the Roman general Sosius took Jerusalem in 37 (some argue 36). Josephus counts his reign as “thirty-four years” from Antigonus's death, but “since he had been declared king by the Romans, thirty-seven” (Antiquities 17.8.1).",
+        "inference": "Herod was king by a vote in Rome before he was king in the land.",
+        "limit": "The two counts of his years are Josephus's own. Turning them into a calendar depends on how Josephus counted a year, which is argued."
+      },
+      {
+        "id": "temple",
+        "title": "A temple rebuilt",
+        "when": "From about 20/19 BC",
+        "evidence": "“Herod, in the eighteenth year of his reign, and after the acts already mentioned, undertook a very great work, that is, to build of himself the temple of God” (Antiquities 15.11.1). In Jesus' day the Jews said: “This temple took forty-six years to build” (John 2:20 · BSB).",
+        "inference": "The temple of the Gospels is the second temple, rebuilt and enlarged by Herod while it stayed in use. The forty-six years of John 2:20, counted from Herod's eighteenth year, are one of the anchors for dating Jesus' ministry.",
+        "limit": "Which year counts as Herod's first, and so when the eighteenth fell, is part of the same argument as his death."
+      },
+      {
+        "id": "death",
+        "title": "Herod's death, and the birth of Jesus",
+        "when": "4 BC by the usual reckoning; 1 BC by another",
+        "evidence": "Josephus places a lunar eclipse shortly before Herod's death (Antiquities 17.6.4), and Passover soon after it. Matthew says Jesus was born “during the time of King Herod” (Matthew 2:1 · BSB), and Luke dates John the Baptist's conception “In the time of Herod king of Judea” (Luke 1:5 · BSB).",
+        "inference": "Jesus was born before Herod died. On the usual date, 4 BC, that puts the birth a few years before the year our calendar counts from. That starting year was worked out more than five centuries later, by the monk Dionysius Exiguus, and is generally thought to be a few years late.",
+        "views": [
+          {
+            "who": "Most modern historians, since Emil Schürer's history of 1896, as reported by Wikipedia's article on Herod",
+            "held": "Herod died in 4 BC: the reigns of his sons Archelaus and Philip are counted from then."
+          },
+          {
+            "who": "W. E. Filmer (Journal of Theological Studies, 1966), and Andrew Steinmann (Novum Testamentum 51, 2009) with Rodger Young, as reported (located, not read)",
+            "held": "Herod died in 1 BC: his sons dated their reigns from before his death, and a lunar eclipse in January 1 BC leaves more time before Passover than the one of March 4 BC."
+          }
+        ],
+        "limit": "This study does not choose between the two dates. Neither changes what Matthew and Luke say: Jesus was born while Herod was king."
+      }
+    ],
+    "verses": [
+      "Matthew 2:1",
+      "Luke 1:5",
+      "John 2:20"
+    ],
+    "sources": [
+      "josephus",
+      "tacitus",
+      "wiki-herod",
+      "steinmann",
+      "filmer"
+    ]
+  },
+  "groups": {
+    "lead": "The synagogue and the three parties all appear in these centuries, and none of them leaves a founding record. Each card says the earliest evidence this study found, and where it stops.",
+    "note": "The Pharisees and Sadducees of Jesus' own day are in The world of Jesus & the apostles (09); the Qumran community is in The Dead Sea Scrolls (03). This section stops at the beginnings.",
+    "items": [
+      {
+        "id": "synagogue",
+        "name": "The synagogue",
+        "earliest": "Two Greek inscriptions from Ptolemaic Egypt, from Schedia near Alexandria and from Crocodilopolis in the Fayum, record that “the Jews” dedicated a proseuchē, a prayer house, on behalf of King Ptolemy and Queen Berenice. They are usually placed in the reign of Ptolemy III (246–221 BC).",
+        "evidence": "In the land itself, the clearest early inscription is from Jerusalem: Theodotus built a synagogue for “reading of the Law” and “teaching of the commandments”, with rooms and water for travellers. It is dated by its letters to between the first century BC and AD 70, and is kept in the Rockefeller Museum (Israel Antiquities Authority S-842). James says at the council in Jerusalem that “Moses has been proclaimed in every city from ancient times and is read in the synagogues on every Sabbath” (Acts 15:21 · BSB).",
+        "inference": "By Jesus' day the synagogue was old, as James says, and its heart was reading the Law. Its roots are older than the earliest building found.",
+        "limit": "Where and when the synagogue began is not known. Many have placed it in the exile in Babylon, with no direct evidence; the earliest inscriptions are from Egypt; the earliest buildings found in the land are from the first century BC or later. The inscriptions' texts were read here only as reported (see sources).",
+        "verses": [
+          "Acts 15:21",
+          "Luke 4:16"
+        ],
+        "sources": [
+          "schedia",
+          "theodotus",
+          "scripture"
+        ]
+      },
+      {
+        "id": "pharisees",
+        "name": "The Pharisees",
+        "earliest": "Josephus first names them under Jonathan, in the 150s or 140s BC: “At this time there were three sects among the Jews ... the one was called the sect of the Pharisees, another the sect of the Sadducees, and the other the sect of the Essens” (Antiquities 13.5.9).",
+        "evidence": "John Hyrcanus left them (Antiquities 13.10.6); Salome Alexandra gave them power (13.16.1). Josephus explains that they “have delivered to the people a great many observances by succession from their fathers, which are not written in the laws of Moses” (13.10.6). Paul, a century later: “I am a Pharisee, the son of a Pharisee” (Acts 23:6 · BSB).",
+        "inference": "The Pharisees grew as a party of the Law's careful interpreters, with a body of tradition beside the written Law, and gained the people's favour against kings they opposed.",
+        "limit": "Josephus places them “at this time” in a general aside, not at a founding event. Their name is usually explained as “separated ones”; no source of the period says who gave it.",
+        "verses": [
+          "Acts 23:6"
+        ],
+        "sources": [
+          "josephus",
+          "scripture",
+          "site-09"
+        ]
+      },
+      {
+        "id": "sadducees",
+        "name": "The Sadducees",
+        "earliest": "Named in the same passage of Josephus (Antiquities 13.5.9), and as the party John Hyrcanus joined after leaving the Pharisees (13.10.6).",
+        "evidence": "Josephus says they “reject” the traditions not written in the Law of Moses (Antiquities 13.10.6). The New Testament: “the Sadducees say that there is neither a resurrection, nor angels, nor spirits” (Acts 23:8 · BSB).",
+        "inference": "A party close to the high priests and the ruling house, holding to the written Law alone.",
+        "limit": "No writing by a Sadducee survives; they are known only from their opponents. That the name comes from Zadok, Solomon's priest, is a common explanation, not a statement of the period.",
+        "verses": [
+          "Acts 23:8",
+          "Mark 12:18"
+        ],
+        "sources": [
+          "josephus",
+          "scripture"
+        ]
+      },
+      {
+        "id": "essenes",
+        "name": "The Essenes",
+        "earliest": "Named with the other two by Josephus under Jonathan (Antiquities 13.5.9), and described at length by him (Jewish War 2.8), by Philo of Alexandria, and by the Roman writer Pliny the Elder, who places a community of them by the Dead Sea.",
+        "evidence": "Josephus, Philo and Pliny describe a strict community holding goods in common.",
+        "inference": "A third way, apart from the temple's leaders and from the Pharisees, existed by the second century BC.",
+        "limit": "Whether the people of the Qumran scrolls were Essenes is argued; The Dead Sea Scrolls (03) has that question. The New Testament does not name the Essenes. Philo and Pliny were not read here; they are named from Josephus's editor and from general knowledge, and must be checked before a page cites them.",
+        "verses": [],
+        "sources": [
+          "josephus",
+          "site-03"
+        ]
+      }
+    ]
+  },
+  "daniel": {
+    "lead": "Daniel names two kingdoms in these years and no king. Readers since Jerome and before have set the rest beside the record.",
+    "setting": "Daniel is set in Babylon, from the third year of Jehoiakim to “the third year of Cyrus king of Persia” (Daniel 10:1 · BSB). Chapters 8 and 10 to 12 look forward from there to the Persian and Greek kings. Chapter 9 and its seventy weeks belong to the draft study Reading Daniel and Revelation (49), and are not walked here.",
+    "named": {
+      "head": "What the text names",
+      "lines": [
+        {
+          "verse": "Daniel 8:20",
+          "quote": "The two-horned ram that you saw represents the kings of Media and Persia.",
+          "note": "Named by the angel."
+        },
+        {
+          "verse": "Daniel 8:21",
+          "quote": "The shaggy goat represents the king of Greece, and the large horn between his eyes is the first king.",
+          "note": "Named. The first king is not named."
+        },
+        {
+          "verse": "Daniel 8:22",
+          "quote": "The four horns that replaced the broken one represent four kingdoms that will rise from that nation, but will not have the same power.",
+          "note": "Four kingdoms, not named."
+        },
+        {
+          "verse": "Daniel 11:2",
+          "quote": "Three more kings will arise in Persia, and then a fourth, who will be far richer than all the others. By the power of his wealth, he will stir up everyone against the kingdom of Greece.",
+          "note": "Persia and Greece named; the kings are counted, not named."
+        }
+      ],
+      "note": "That is the whole of what the text names. Everything in the next table is a reading of it."
+    },
+    "readings": {
+      "head": "What readers identify, set beside the record",
+      "intro": "The identifications below are the ones most readers make, early and modern, in the line of reading that runs from Porphyry and Jerome to the present, and the ones Calvin follows. They are this study's summary of a common reading, not the text. The verse is in the Berean; the event is from the sources named.",
+      "rows": [
+        {
+          "verse": "Daniel 11:3",
+          "text": "a mighty king will arise",
+          "reading": "Alexander (336–323 BC)",
+          "record": "Alexander, “who came out of the land of Chittim, and struck Darius” (1 Maccabees 1:1)."
+        },
+        {
+          "verse": "Daniel 11:4",
+          "text": "his kingdom will be broken up and parceled out toward the four winds of heaven. It will not go to his descendants",
+          "reading": "His empire divided among his generals",
+          "record": "Alexander's young son and half-brother were killed; his generals took kingdoms. 1 Maccabees 1:8: “Then his servants ruled, each one in his place.”"
+        },
+        {
+          "verse": "Daniel 11:5",
+          "text": "The king of the South will grow strong, but one of his commanders will grow even stronger",
+          "reading": "Ptolemy I of Egypt, and Seleucus I, once his officer, who came to rule more",
+          "record": "The usual reading of the Greek historians, reported by commentators."
+        },
+        {
+          "verse": "Daniel 11:6",
+          "text": "the daughter of the king of the South will go to the king of the North to seal the agreement",
+          "reading": "Berenice, daughter of Ptolemy II, married to Antiochus II (about 252 BC), and killed with her son",
+          "record": "Reported by commentators from the Greek historians; not read here."
+        },
+        {
+          "verse": "Daniel 11:16",
+          "text": "He will establish himself in the Beautiful Land",
+          "reading": "Antiochus III takes Judea from Egypt (Panium, 200 BC)",
+          "record": "Josephus, Antiquities 12.3.3, quotes Antiochus III's letter granting favours to Jerusalem after he won it."
+        },
+        {
+          "verse": "Daniel 11:17",
+          "text": "He will give him a daughter in marriage",
+          "reading": "Cleopatra I, daughter of Antiochus III, married to Ptolemy V (about 194/193 BC)",
+          "record": "Reported by commentators; not read here."
+        },
+        {
+          "verse": "Daniel 11:18",
+          "text": "a commander will put an end to his reproach",
+          "reading": "The Roman general Lucius Scipio defeats Antiochus III at Magnesia (190 BC)",
+          "record": "Reported by commentators; not read here."
+        },
+        {
+          "verse": "Daniel 11:20",
+          "text": "one will arise who will send out a tax collector",
+          "reading": "Seleucus IV and his minister Heliodorus",
+          "record": "2 Maccabees 3:7; the Heliodorus stele (178 BC)."
+        },
+        {
+          "verse": "Daniel 11:21",
+          "text": "a despicable person will arise; royal honors will not be given to him",
+          "reading": "Antiochus IV, who took the throne while his brother's son, the heir, was a hostage in Rome",
+          "record": "1 Maccabees 1:10; Calvin on this verse cites Polybius's “Epimanes”."
+        },
+        {
+          "verse": "Daniel 11:30",
+          "text": "Ships of Kittim will come against him, and he will lose heart",
+          "reading": "The Roman envoy Popilius turns him back from Egypt (168 BC)",
+          "record": "Polybius, Histories 29.27."
+        },
+        {
+          "verse": "Daniel 11:31",
+          "text": "They will abolish the daily sacrifice and set up the abomination of desolation",
+          "reading": "The desecration of December 167 BC",
+          "record": "1 Maccabees 1:54, which uses the same phrase."
+        },
+        {
+          "verse": "Daniel 11:34",
+          "text": "they will be granted a little help",
+          "reading": "Often read as the Maccabees' revolt",
+          "record": "1 Maccabees 2–4. Some readers think the phrase is cool toward the revolt; others read it as plain help."
+        }
+      ]
+    },
+    "end": {
+      "head": "Daniel 11:36–45: four readings",
+      "verse": "Daniel 11:36",
+      "quote": "Then the king will do as he pleases and will exalt and magnify himself above every god, and he will speak monstrous things against the God of gods.",
+      "problem": "From verse 36 the match with Antiochus IV's known life loosens. Verses 40 to 45 tell of a last war and of the king's end “between the sea and the beautiful holy mountain” (Daniel 11:45 · BSB); Polybius says Antiochus died at Tabae in Persia (Histories 31.9). Calvin: “This passage is very obscure, and has consequently been explained in very opposite ways by interpreters.”",
+      "views": [
+        {
+          "id": "antichrist",
+          "name": "A king still to come",
+          "held": "As Calvin reports, “the greater number” of Christian expositors in his day; Jerome before them, as his Commentary on Daniel (AD 407) is usually summarised (located, not read here); many evangelical and dispensational readers now.",
+          "reading": "The vision moves from Antiochus to a final enemy at “the time of the end” (11:40), whom many identify with the antichrist. Daniel 12:1 follows straight on with the resurrection."
+        },
+        {
+          "id": "type",
+          "name": "Antiochus as a picture of the last enemy",
+          "held": "A reading Calvin reports and calls of “great probability”, though he rejects it.",
+          "reading": "The verses speak of Antiochus and, through him, of a greater enemy he foreshadows."
+        },
+        {
+          "id": "rome",
+          "name": "Rome",
+          "held": "Calvin (Commentaries on Daniel, on 11:36), against both readings above: “Antiochus did not long survive the pollution of the Temple, and then the following events by no means suit the occurrences of this time.”",
+          "reading": "The king of verse 36 is the Roman power that followed."
+        },
+        {
+          "id": "antiochus",
+          "name": "Antiochus still, and the writer's own day",
+          "held": "Porphyry in the third century AD, and most modern critical scholars, as the editor of Jerome's works notes.",
+          "reading": "The same king to the end. On the late date, verses 40 to 45 are the writer's expectation of how Antiochus would fall, written before he died, and they did not come about as written."
+        }
+      ],
+      "stand": "This site reads Daniel 11 as true prophecy, and holds with Jesus that the abomination of desolation was still ahead in his day: “So when you see standing in the holy place ‘the abomination of desolation,’ described by the prophet Daniel” (Matthew 24:15 · BSB). Among the first three readings, which Bible-believing readers hold, it does not choose. Where Baptists differ over the order of end-time events, the draft study Reading Daniel and Revelation (49) shows their views.",
+      "verses": [
+        "Daniel 11:36",
+        "Daniel 11:40",
+        "Daniel 11:45",
+        "Daniel 12:1",
+        "Matthew 24:15"
+      ]
+    },
+    "dating": {
+      "head": "When was Daniel written?",
+      "question": "Daniel 11:2–35 runs so close to the record of 330 to 164 BC that its date is the hardest question in this study. The views below are each given with who holds them, and the site's own view is labelled.",
+      "views": [
+        {
+          "id": "early",
+          "name": "In the sixth century BC, as the book presents itself",
+          "held": "Jewish and Christian tradition; Josephus, who says the nation suffered under Antiochus Epiphanes “according to Daniel's vision, and what he wrote many years before they came to pass” (Antiquities 10.11.7); Jerome and Calvin; conservative scholars, among them E. J. Young, Joyce Baldwin and, in the Southern Baptist publisher's New American Commentary, Stephen R. Miller (their books located, not read here).",
+          "forIt": "The book places its visions in the reigns of Belshazzar, Darius and Cyrus (8:1, 9:1, 10:1). Jesus calls him “the prophet Daniel” (Matthew 24:15 · BSB). God “removes kings and establishes them” (Daniel 2:21 · BSB) and knows the future, so a prophecy this exact is what such a God could give. 1 Maccabees, written about 100 BC, already holds Daniel's heroes up as examples (2:59–60). A 2025 radiocarbon study dated one Qumran copy of Daniel 8 to 11 (4Q114) to between 230 and 160 BC, which some take to make a date after 164 BC very hard.",
+          "against": "Those who hold a later date answer that the detail grows sharper as it nears 167 BC and loosens after it, and that the radiocarbon range overlaps the 160s."
+        },
+        {
+          "id": "late",
+          "name": "In about 167 to 164 BC, under Antiochus IV",
+          "held": "Porphyry (third century AD), known through Jerome; most modern critical scholars (among them John J. Collins in the Hermeneia commentary, located, not read). Many of them hold that the stories of chapters 1 to 6 are older and the visions were written in the crisis.",
+          "forIt": "The visions know the plunder of the temple, the desecration and the resistance, but on this view not the rededication of 164 or how Antiochus actually died. Daniel stands among the Writings, not the Prophets, in the Hebrew Bible, as Jerome reports. The book's Greek words and the form of its Hebrew and Aramaic are argued to fit a later date.",
+          "against": "It rests on the premise that the writer could not know the future, a premise the book itself denies. Each linguistic argument has been answered (for example K. A. Kitchen on the Aramaic, 1965, located, not read). The radiocarbon date leaves very little time between writing and copying."
+        }
+      ],
+      "stand": "The site's own voice: Daniel is Scripture, “truth, without any mixture of error”, and God's knowledge, as the Baptist Faith and Message 2000 confesses, reaches all things, including the future free choices of his creatures. So this site reads Daniel as it presents itself, a prophet of the sixth century who was shown these kings before they came, as the draft study Reading Daniel and Revelation (49) also does. The late date is reported as others' reconstruction, not as a correction of the text.",
+      "limit": "The match between Daniel 11 and the record shows that the text and the events agree. It cannot by itself show when the text was written: that depends on whether one allows that God foretold it. The radiocarbon study was read only through reports of it, and its range is argued.",
+      "verses": [
+        "Daniel 8:1",
+        "Daniel 10:1",
+        "Daniel 2:21",
+        "Matthew 24:15"
+      ]
+    }
+  },
+  "explanations": [
+    {
+      "id": "prophecy",
+      "name": "Foretold",
+      "tag": "Daniel saw these kings before they came",
+      "held": "Jewish and Christian tradition, Jerome, Calvin, conservative scholars, and this site.",
+      "forIt": "The book's own setting; Jesus' words in Matthew 24:15; a God who “removes kings and establishes them”; the early copies at Qumran and the use of Daniel in 1 Maccabees.",
+      "against": "Critics say the sharpness of the detail up to 164 BC, and its looseness after, mark the writer's own day.",
+      "wouldShow": "For many critics, nothing could; the question turns on whether prophecy is possible."
+    },
+    {
+      "id": "after",
+      "name": "Written in the crisis",
+      "tag": "A writer of 167–164 BC told recent history as a vision",
+      "held": "Porphyry, and most modern critical scholars.",
+      "forIt": "The fit to the record up to the desecration, and the claimed miss in 11:40–45.",
+      "against": "It assumes the future cannot be foretold. The radiocarbon range of 4Q114 leaves almost no time for writing, spreading and copying. 11:36–45 has long been read as moving beyond Antiochus, not as a failed guess.",
+      "wouldShow": "A copy of Daniel securely dated before 167 BC would end it."
+    },
+    {
+      "id": "layers",
+      "name": "Older stories, later visions",
+      "tag": "Chapters 1 to 6 older, 7 to 12 from the crisis",
+      "held": "Many critical scholars who hold the late date for the visions.",
+      "forIt": "The court stories fit a Persian or early Greek setting; the visions focus on Antiochus.",
+      "against": "The book presents itself as one, with Daniel speaking in the first person in chapters 7 to 12; the two languages cross the line between the halves (Aramaic runs from 2:4 to 7:28).",
+      "wouldShow": "Separate early copies of the two halves."
+    }
+  ],
+  "stance": {
+    "head": "What this site holds",
+    "scripture": "Galatians 4:4",
+    "confession": "“truth, without any mixture of error”",
+    "confessionSource": "Baptist Faith and Message 2000, on Scripture",
+    "body": "No book of the Old Testament was written in these years, and the site does not add one: 1 and 2 Maccabees are read here as the best histories of their time, as other human writings are read, with the Baptist confessions. But the years were not empty of God. Daniel was shown them before they came, and Paul looks back over them: “when the time had fully come, God sent His Son, born of a woman, born under the law” (Galatians 4:4 · BSB). The coins, the stones and the histories are evidence about the world those words describe. They are reported for what they show, and they are not used to judge the text.",
+    "daniel": "On Daniel the site reads the book as it presents itself, and reports the late date as a reconstruction. On the last verses of Daniel 11, where Bible-believing readers differ, it shows the readings and does not choose.",
+    "verses": [
+      "Galatians 4:4",
+      "Daniel 2:21",
+      "Malachi 4:5"
+    ]
+  },
+  "claims": [
+    {
+      "id": "silence",
+      "claim": "“God was silent for four hundred years.”",
+      "head": "No new Scripture. Not an empty time.",
+      "evidence": "No book of the Protestant Old Testament was written after Malachi, whose last word looks ahead to “Elijah the prophet” (Malachi 4:5 · BSB). 1 Maccabees says three times that no prophet stood in its day (4:46, 9:27, 14:41), and Josephus says the same of the years after Artaxerxes (Against Apion 1.8). Daniel's visions cover these very years, and the Gospels open with a priest, Zechariah, serving “In the time of Herod king of Judea” (Luke 1:5 · BSB).",
+      "inference": "The sources support “no prophet wrote Scripture”. They do not support “God did nothing”: the Bible's own word for the end of these years is that the time had “fully come” (Galatians 4:4).",
+      "limit": "“Four hundred” is a round number. Malachi gives no date for himself; counted from Nehemiah's day to Jesus' birth it is a little over four hundred years.",
+      "verses": [
+        "Malachi 4:5",
+        "Luke 1:5",
+        "Galatians 4:4"
+      ],
+      "sources": [
+        "scripture",
+        "maccabees-web",
+        "josephus"
+      ],
+      "test": {
+        "question": "1 Maccabees 9:27 speaks of the time “since the time prophets stopped appearing”. What does that verse let you say?",
+        "options": [
+          {
+            "text": "That the writer of 1 Maccabees did not count his own age as an age of prophets.",
+            "right": true,
+            "why": "That is what the verse says about its own time, and why the book does not present itself as prophecy."
+          },
+          {
+            "text": "That God stopped caring for Israel.",
+            "right": false,
+            "why": "The same book thanks heaven for every victory. No prophet is not the same as no God."
+          },
+          {
+            "text": "That 1 Maccabees is unreliable history.",
+            "right": false,
+            "why": "A writer who says no prophet spoke in his day is making a claim about prophecy, not about the accuracy of his history."
+          }
+        ]
+      }
+    },
+    {
+      "id": "oil",
+      "claim": "“Hanukkah celebrates a jar of oil that burned for eight days.”",
+      "head": "Eight days, in the first sources. The oil comes later.",
+      "evidence": "1 Maccabees gives eight days of rejoicing for the altar dedicated again (4:56, 4:59). 2 Maccabees likens the eight days to the feast of tabernacles, kept when they could not keep it in the caves (10:6). Josephus calls the feast “Lights” (Antiquities 12.7.7). The story of one sealed jar of oil that lit the lampstand for eight days is in the Babylonian Talmud, Shabbat 21b, written down centuries later.",
+      "inference": "The earliest sources celebrate a rededication. The oil story is a later Jewish tradition. It is reported here as theirs, and it does not contradict the earlier books; it is simply not in them.",
+      "limit": "Why Josephus already called the feast Lights, he says himself he can only “suppose”. The Talmud passage was read here only in one modern English translation, through a tool.",
+      "verses": [
+        "John 10:22"
+      ],
+      "sources": [
+        "maccabees-web",
+        "josephus",
+        "talmud"
+      ],
+      "test": {
+        "question": "John 10:22 says Jesus was in Jerusalem at “the Feast of Dedication” in winter. What does that show?",
+        "options": [
+          {
+            "text": "That Jesus endorsed the story of the oil.",
+            "right": false,
+            "why": "John names the feast and its season, nothing more. The oil story is not in the New Testament."
+          },
+          {
+            "text": "That the feast begun in 164 BC was being kept in Jesus' day, and he was at the temple during it.",
+            "right": true,
+            "why": "That is what the verse carries, with John 10:23: Jesus walking in Solomon's Colonnade."
+          },
+          {
+            "text": "That the books of Maccabees are Scripture.",
+            "right": false,
+            "why": "Naming a feast is not quoting a book as Scripture. The Gospel names the feast and says nothing of the books that tell its beginning."
+          }
+        ]
+      }
+    },
+    {
+      "id": "alexander",
+      "claim": "“Alexander the Great bowed to the high priest and read his own name in Daniel.”",
+      "head": "One source tells it. The text names Greece, not Alexander.",
+      "evidence": "Josephus tells that Alexander came to Jerusalem, honoured the high priest Jaddua, and “when the Book of Daniel was showed him wherein Daniel declared that one of the Greeks should destroy the empire of the Persians, he supposed that himself was the person intended” (Antiquities 11.8.5). Daniel 8:21 names “the king of Greece” and “the first king”, without a name.",
+      "inference": "Josephus believed Daniel had foretold Alexander, and so did many readers after him. Whether the visit happened rests on Josephus here.",
+      "limit": "This study found no second ancient witness to the visit among the sources it read. Whether the Greek historians of Alexander mention it was not checked, and must be before a page says so. Whiston's note on the passage guesses which verses were shown; the text of Josephus does not say.",
+      "verses": [
+        "Daniel 8:21",
+        "Daniel 11:3"
+      ],
+      "sources": [
+        "josephus",
+        "scripture"
+      ],
+      "test": {
+        "question": "What can the Josephus passage support on its own?",
+        "options": [
+          {
+            "text": "That Alexander certainly visited Jerusalem.",
+            "right": false,
+            "why": "One later historian, writing four centuries after, cannot make it certain by himself."
+          },
+          {
+            "text": "That Jews of Josephus's day read Daniel as foretelling Alexander's conquest.",
+            "right": true,
+            "why": "That is what the story shows, whether or not the visit happened."
+          },
+          {
+            "text": "That Daniel names Alexander.",
+            "right": false,
+            "why": "Daniel names Greece and its “first king”. The name is the reader's."
+          }
+        ]
+      }
+    },
+    {
+      "id": "reformers",
+      "claim": "“The Reformers cut the books of Maccabees out of the Bible.”",
+      "head": "An old doubt. A new decision, on both sides.",
+      "evidence": "Josephus's Jewish count closed before these years (Against Apion 1.8). Jerome, about AD 400, wrote that the church “reads ... the books of Maccabees, but does not admit them among the canonical Scriptures”. In 1546 the Council of Trent declared them canonical for the Roman Catholic Church. Protestant Bibles long went on printing the Apocrypha in a section of their own, and the Baptist confession of 1677/1689 set them among “other humane writings”.",
+      "inference": "The Reformers did not invent the doubt; they decided an old question one way, and Trent decided it the other way, in the same century.",
+      "limit": "Churches before 1500 differed in what they read and listed: Augustine and North African councils listed the books. That history is set out in How the canon took shape (04), and not repeated here.",
+      "verses": [],
+      "sources": [
+        "josephus",
+        "jerome-prefaces",
+        "confession-1689",
+        "site-04"
+      ],
+      "test": {
+        "question": "Jerome says the church “reads” the books of Maccabees but does not admit them to the canon. What is he distinguishing?",
+        "options": [
+          {
+            "text": "Books read for edification from books that set doctrine.",
+            "right": true,
+            "why": "He says so in the next words: “for the edification of the people, not to give authority to doctrines of the Church”."
+          },
+          {
+            "text": "True books from false ones.",
+            "right": false,
+            "why": "Jerome does not call them false. He commends reading them."
+          },
+          {
+            "text": "Hebrew books from Greek ones.",
+            "right": false,
+            "why": "He says himself that 1 Maccabees was Hebrew, and he still does not count it."
+          }
+        ]
+      }
+    },
+    {
+      "id": "after",
+      "claim": "“Daniel 11 is too accurate to be prophecy, so it was written after the events.”",
+      "head": "The match is real. The date is decided elsewhere.",
+      "evidence": "Daniel 11:2–35, read with the identifications most readers make, matches the record of the Persian and Greek kings and of Antiochus IV closely. From 11:36 the match loosens. Readers since Porphyry have argued for a date of 167–164 BC; Jewish and Christian tradition, Josephus, Jerome and Calvin, and conservative scholars hold the book's own setting in the sixth century.",
+      "inference": "The closeness of the match is common ground. Whether it shows a late writer or a God who knows the future depends on what a reader believes can happen, not on the match itself. This site holds the second.",
+      "limit": "The radiocarbon date of 230–160 BC for one Qumran copy of Daniel 8–11 bears on the question and is argued; it was read here only through reports of the study.",
+      "verses": [
+        "Daniel 11:31",
+        "Daniel 2:21",
+        "Matthew 24:15"
+      ],
+      "sources": [
+        "scripture",
+        "jerome-prefaces",
+        "calvin-daniel",
+        "popovic"
+      ],
+      "test": {
+        "question": "Daniel 11:31 and 1 Maccabees 1:54 both speak of an “abomination of desolation” set up at the temple. What does the shared phrase show?",
+        "options": [
+          {
+            "text": "That Daniel copied 1 Maccabees.",
+            "right": false,
+            "why": "1 Maccabees is usually dated about 100 BC, later than either date proposed for Daniel. If anything, the borrowing runs the other way."
+          },
+          {
+            "text": "That the writer of 1 Maccabees saw the events of 167 BC in Daniel's words.",
+            "right": true,
+            "why": "He used Daniel's phrase for what was set on the altar. That is a reading of Daniel by a Jew of about 100 BC."
+          },
+          {
+            "text": "That Daniel's words were wholly used up in 167 BC.",
+            "right": false,
+            "why": "Jesus spoke of the abomination of desolation as still to come (Matthew 24:15)."
+          }
+        ]
+      }
+    }
+  ],
+  "confusedWords": [
+    {
+      "word": "Maccabee and Hasmonean",
+      "note": "Maccabaeus was Judas's own surname (1 Maccabees 3:1); the Maccabees are his brothers and followers. Hasmonean is the family's name, from an ancestor Josephus calls Asamoneus, and is used for the dynasty that ruled from Simon to Antigonus."
+    },
+    {
+      "word": "Apocrypha, deuterocanonical and pseudepigrapha",
+      "note": "Apocrypha is the Protestant name for books such as 1 and 2 Maccabees, read but not counted as Scripture. Deuterocanonical is the Catholic name for the same books, counted as Scripture. Pseudepigrapha are other Jewish writings of the period, such as 1 Enoch, which no Western church counts."
+    },
+    {
+      "word": "Allusion and quotation as Scripture",
+      "note": "Hebrews 11:35 may recall the martyrs of 2 Maccabees 7. Recalling people is not citing a book with “it is written”."
+    },
+    {
+      "word": "Hellenism and hellenization",
+      "note": "Hellenism is Greek culture. Hellenization is the move to adopt it, which 2 Maccabees 4:13 condemns in Jason. Speaking Greek did not make a Jew a hellenizer: the New Testament is in Greek."
+    },
+    {
+      "word": "Synagogue and proseuchē",
+      "note": "Both mean a Jewish place of gathering and prayer. Proseuchē, “prayer house”, is the word of the Egyptian inscriptions; synagogue, “gathering”, of the Theodotus inscription and the Gospels."
+    },
+    {
+      "word": "Year of the Greek kingdom and year BC",
+      "note": "1 and 2 Maccabees count years from the start of Seleucus's reign (312/311 BC). Their year 145 is 167 BC. The conversion is modern and can be a year out."
+    },
+    {
+      "word": "Antiochus III and Antiochus IV",
+      "note": "Father and son. Antiochus III, “the Great”, won Judea in 200 BC and granted it favours. Antiochus IV, “Epiphanes”, forbade its Law in 167 BC."
+    },
+    {
+      "word": "Hanukkah, Dedication and Lights",
+      "note": "One feast. Hanukkah is Hebrew for dedication; John calls it the Feast of Dedication; Josephus calls it Lights."
+    },
+    {
+      "word": "What Daniel names and what readers identify",
+      "note": "Daniel names Media and Persia and Greece. Every Ptolemy, Seleucus and Antiochus in a commentary on Daniel 11 is the commentator's identification."
+    },
+    {
+      "word": "The date of a copy and the date of the writing",
+      "note": "The radiocarbon range for a Qumran copy of Daniel is the date of that copy. The book was written before the copy, by how long is the question."
+    }
+  ],
+  "timeline": {
+    "from": 450,
+    "to": 0,
+    "rows": [
+      {
+        "id": "nehemiah",
+        "name": "Nehemiah's second visit (Nehemiah 13:6)",
+        "start": 433,
+        "end": 425,
+        "open": true,
+        "note": "After Artaxerxes's thirty-second year, 433 BC; how long after is not said.",
+        "kind": "scripture"
+      },
+      {
+        "id": "elephantine",
+        "name": "Letter to Bagohi, governor of Judah",
+        "start": 407,
+        "end": 407,
+        "note": "The Elephantine letter, dated in the seventeenth year of Darius II. Kept in Israel among the empires.",
+        "kind": "persia"
+      },
+      {
+        "id": "yehud",
+        "name": "Yehud silver coins",
+        "start": 380,
+        "end": 332,
+        "open": true,
+        "note": "The 300s BC, as usually dated; the start is not precise.",
+        "kind": "persia"
+      },
+      {
+        "id": "alexander",
+        "name": "Alexander takes the coast and Egypt",
+        "start": 332,
+        "end": 323,
+        "note": "332 BC to his death at Babylon in 323.",
+        "kind": "greek"
+      },
+      {
+        "id": "ptolemies",
+        "name": "Ptolemies rule Judea",
+        "start": 301,
+        "end": 200,
+        "note": "Usual dates, from the battle of Ipsus to Panium; the land was fought over in between.",
+        "kind": "greek"
+      },
+      {
+        "id": "proseuche",
+        "name": "Prayer-house inscriptions in Egypt",
+        "start": 246,
+        "end": 221,
+        "note": "The reign of Ptolemy III, as these inscriptions are usually dated.",
+        "kind": "jewish"
+      },
+      {
+        "id": "seleucids",
+        "name": "Seleucids rule Judea",
+        "start": 200,
+        "end": 142,
+        "note": "From Panium to the freedom dated under Simon.",
+        "kind": "greek"
+      },
+      {
+        "id": "stele",
+        "name": "The Heliodorus stele",
+        "start": 178,
+        "end": 178,
+        "note": "Dated on the stone in the Seleucid year 134.",
+        "kind": "greek"
+      },
+      {
+        "id": "antiochus",
+        "name": "Antiochus IV reigns",
+        "start": 175,
+        "end": 164,
+        "note": "Year 137 to year 149 of the Greek kingdom (1 Maccabees 1:10; 6:16).",
+        "kind": "greek"
+      },
+      {
+        "id": "desecration",
+        "name": "The altar defiled",
+        "start": 167,
+        "end": 167,
+        "note": "15 Chislev, year 145 (1 Maccabees 1:54), December 167 BC as usually converted.",
+        "kind": "jewish"
+      },
+      {
+        "id": "dedication",
+        "name": "The altar dedicated again: Hanukkah",
+        "start": 164,
+        "end": 164,
+        "note": "25 Chislev, year 148 (1 Maccabees 4:52), December 164 BC as usually converted.",
+        "kind": "jewish"
+      },
+      {
+        "id": "hasmoneans",
+        "name": "Hasmonean rule",
+        "start": 142,
+        "end": 63,
+        "note": "From Simon to Pompey; kings from about 104 BC.",
+        "kind": "jewish"
+      },
+      {
+        "id": "maccabees1",
+        "name": "1 Maccabees written",
+        "start": 110,
+        "end": 90,
+        "open": true,
+        "note": "About 100 BC, an estimate from its last verses.",
+        "kind": "jewish"
+      },
+      {
+        "id": "pompey",
+        "name": "Pompey takes Jerusalem",
+        "start": 63,
+        "end": 63,
+        "note": "Josephus, Antiquities 14.4.",
+        "kind": "rome"
+      },
+      {
+        "id": "herod",
+        "name": "Herod's reign",
+        "start": 37,
+        "end": 4,
+        "ranges": [
+          [
+            37,
+            4
+          ],
+          [
+            36,
+            1
+          ]
+        ],
+        "note": "37 to 4 BC by the usual reckoning; 36 to 1 BC by the reckoning of Steinmann and Young. Named king by Rome in 40.",
+        "kind": "rome"
+      },
+      {
+        "id": "temple",
+        "name": "Herod begins the temple",
+        "start": 20,
+        "end": 19,
+        "note": "His eighteenth year (Antiquities 15.11.1).",
+        "kind": "rome"
+      },
+      {
+        "id": "birth",
+        "name": "Jesus born, “during the time of King Herod”",
+        "start": 7,
+        "end": 1,
+        "open": true,
+        "note": "Before Herod's death (Matthew 2:1). No year is given in the Gospels; the bar spans both reckonings of Herod's death.",
+        "kind": "scripture"
+      }
+    ],
+    "undated": "Daniel has no bar. The site reads it as written in the sixth century BC, before this chart begins; the late view puts it in 167–164 BC. A bar inside the chart would decide the question the study shows open. 2 Maccabees and Jason of Cyrene's lost five books have no bar either: neither gives its date."
+  },
+  "reach": [
+    "This is a selection: about four hundred years are told through six powers, ten steps of one crisis, seven rulers of one dynasty and four groups. Most of the Ptolemies and Seleucids, the Jews of Babylon and Egypt in these years, and the Samaritans are named only in passing or not at all.",
+    "The primary texts read here are the Berean Standard Bible; 1 and 2 Maccabees in the World English Bible; Josephus in Whiston's translation; Jerome's prefaces and Calvin's commentary on Daniel from the Christian Classics Ethereal Library; and short passages of Polybius and Tacitus in the Loeb translations on LacusCurtius. Josephus's section numbers are Whiston's.",
+    "Objects (the Heliodorus stele, the coins, the prayer-house and Theodotus inscriptions, the radiocarbon study) were read through reports of their records, not from the records themselves. Each is marked, and each must be checked against its keeper's own record before a page is built.",
+    "The identifications in Daniel 11 are the common reading, summarised by this study from Jerome's and Calvin's line of interpretation, not a reading of Jerome's commentary itself, which was located, not read.",
+    "Dates BC are the usual modern ones and most are rounded. The sources' own dates (the years of the Greek kingdom, Herod's eighteenth year) are given beside them wherever this study used them."
+  ],
+  "sources": [
+    {
+      "id": "scripture",
+      "title": "Berean Standard Bible",
+      "url": "/read/bsb/DAN/11",
+      "kind": "Scripture",
+      "status": "read",
+      "answers": "What Daniel, Nehemiah, Malachi, the Gospels, Acts, Galatians and Hebrews say.",
+      "read": "Every verse quoted, from the site's own copy in Website/data/text/bsb."
+    },
+    {
+      "id": "foundation",
+      "title": "Baptist Faith and Message 2000, as set out in the site's doctrinal foundation",
+      "url": "https://bfm.sbc.net/bfm2000/",
+      "kind": "Confession",
+      "status": "part",
+      "answers": "What the site's own voice holds on Scripture and on God's knowledge of the future.",
+      "read": "Articles 1 and 2, as summarised and quoted in the site's foundation document. The confession's current text is to be checked before a page quotes it."
+    },
+    {
+      "id": "confession-1689",
+      "title": "The Second London Baptist Confession (1677/1689), chapter 1, section 3",
+      "url": "/study/creeds/1689-london-baptist-confession-1677",
+      "kind": "Confession",
+      "status": "part",
+      "answers": "How an older Baptist confession states the place of the Apocrypha.",
+      "read": "The section quoted, from the site's own creeds collection."
+    },
+    {
+      "id": "maccabees-web",
+      "title": "1 and 2 Maccabees, World English Bible (public domain)",
+      "url": "https://ebible.org/eng-web/",
+      "kind": "Ancient history, in a modern public-domain translation",
+      "status": "read",
+      "answers": "What happened from Alexander to Simon, as the two books tell it.",
+      "read": "The passages quoted, from the project's held copy (sources/ebible/eng-web). Not Scripture on this site; quoted as a named outside source, never in the Berean's place."
+    },
+    {
+      "id": "josephus",
+      "title": "Flavius Josephus, Antiquities of the Jews, The Jewish War and Against Apion, translated by William Whiston (1737)",
+      "url": "https://ccel.org/ccel/josephus/complete",
+      "kind": "Ancient history, public-domain translation",
+      "status": "part",
+      "answers": "The Hasmoneans, the three sects, Pompey and Herod; how Jews of the first century counted their Scriptures.",
+      "read": "The passages cited, in the Christian Classics Ethereal Library's text held by the project. Whiston's footnotes run into his text there and were kept apart from Josephus's words. Section numbers are Whiston's."
+    },
+    {
+      "id": "polybius",
+      "title": "Polybius, Histories 26.1a, 29.27 and 31.9, translated by W. R. Paton (Loeb Classical Library, 1922–27), on LacusCurtius",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Polybius/home.html",
+      "kind": "Ancient history, public-domain translation",
+      "status": "part",
+      "answers": "Antiochus IV's nickname, the circle drawn by the Roman envoy, and the king's death.",
+      "read": "The three passages, read through a tool that returns a report on a web page with short quotations. To be rechecked word for word."
+    },
+    {
+      "id": "tacitus",
+      "title": "Tacitus, Histories 5.9, Loeb Classical Library vol. III (1931), on LacusCurtius",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Tacitus/Histories/5A*.html",
+      "kind": "Ancient history, translation",
+      "status": "part",
+      "answers": "How a Roman historian remembered Pompey's entry into the temple.",
+      "read": "The one passage, read through the same tool. To be rechecked word for word."
+    },
+    {
+      "id": "jerome-prefaces",
+      "title": "Jerome, Prefaces to the Books of Samuel and Kings, to the Books of Solomon, and to Daniel, in Nicene and Post-Nicene Fathers, second series, vol. 6",
+      "url": "https://ccel.org/ccel/schaff/npnf206",
+      "kind": "Church father, translation",
+      "status": "part",
+      "answers": "How the church of about AD 400 read the books of Maccabees; Porphyry's late date of Daniel.",
+      "read": "The sentences quoted, and the editor's note on the Commentary on Daniel, from the project's held copy."
+    },
+    {
+      "id": "jerome-daniel",
+      "title": "Jerome, Commentary on Daniel (AD 407), translated by Gleason L. Archer (Grand Rapids: Baker, 1958)",
+      "url": "https://www.google.com/search?tbm=bks&q=Jerome%27s+Commentary+on+Daniel+Archer+1958",
+      "kind": "Commentary, translation",
+      "status": "located",
+      "answers": "How the early church read Daniel 11 against Porphyry.",
+      "read": "Located, not read. What this study says of Jerome's reading comes from the editor's note and from Calvin's report of the views."
+    },
+    {
+      "id": "calvin-daniel",
+      "title": "John Calvin, Commentaries on the Book of the Prophet Daniel, translated by Thomas Myers (Calvin Translation Society, 1852–53), vol. 2",
+      "url": "https://ccel.org/ccel/calvin/calcom25",
+      "kind": "Commentary, public-domain translation",
+      "status": "part",
+      "answers": "How a Reformer read Daniel 8 and 11, and how he reported the readings of 11:36 in his day.",
+      "read": "His comments on Daniel 8:23–25, 11:21 and the opening of 11:36, from the project's held copy."
+    },
+    {
+      "id": "heliodorus-stele",
+      "title": "The Heliodorus stele, Maresha, 178 BC; Israel Museum, Jerusalem, 2006-52/1 and 2009-1488/1-3; published by Hannah M. Cotton and Michael Wörrle, “Seleukos IV to Heliodoros: A New Dossier of Royal Correspondence from Israel”, Zeitschrift für Papyrologie und Epigraphik 159 (2007) 191–205",
+      "url": "https://en.wikipedia.org/wiki/Heliodorus_stele",
+      "kind": "Inscription",
+      "status": "second-hand",
+      "answers": "Was Heliodorus real, and what did the king ask of the province's temples?",
+      "read": "Wikipedia's article, read through a tool that returns a report. The article and the museum's record are to be read before a page cites the numbers. Dov Gera's articles on it (ZPE 169, 2009) were located, not read."
+    },
+    {
+      "id": "coin-antiochus",
+      "title": "Silver tetradrachm of Antiochus IV, reverse inscribed ΒΑΣΙΛΕΩΣ ΑΝΤΙΟΧΟΥ ΘΕΟΥ ΕΠΙΦΑΝΟΥΣ, photographed at the Staatliche Münzsammlung München (Wikimedia Commons, by ArchaiOptix)",
+      "url": "https://commons.wikimedia.org/wiki/File:Syria_-_king_Antiochos_IV_-_175-164_BC_-_silver_tetradrachm_-_head_of_Antiochos_IV_Epiphanes_-_Zeus_Nikephoros_-_M%C3%BCnchen_SMS_01.jpg",
+      "kind": "Object",
+      "status": "second-hand",
+      "answers": "What title did Antiochus IV put on his coins?",
+      "read": "The file description, as reported by a search tool. The file page and licence are to be opened before use."
+    },
+    {
+      "id": "coin-jannaeus",
+      "title": "Bronze coins of Alexander Jannaeus (anchor and star; and the type naming “Jonathan the High Priest and the Council of the Jews”), Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Alexander_Jannaeus_coin.JPG",
+      "kind": "Object",
+      "status": "second-hand",
+      "answers": "What did the Hasmonean kings put on their coins?",
+      "read": "File descriptions as reported by a search tool. The question of which Hasmonean struck the first coins is reported from general reference, not read in a numismatic study."
+    },
+    {
+      "id": "schedia",
+      "title": "Dedication of a proseuchē at Schedia, Egypt, Corpus Inscriptionum Judaicarum II 1440 (also Jewish Inscriptions of Graeco-Roman Egypt 22); and the matching dedication from Crocodilopolis",
+      "url": "https://www.posenlibrary.com/entry/proseuche-inscription-schedia-egypt",
+      "kind": "Inscription",
+      "status": "second-hand",
+      "answers": "How early is a Jewish prayer house attested?",
+      "read": "Reported by a search tool from the Posen Library and the Jewish Encyclopedia. The text quoted (“On behalf of king Ptolemy and queen Berenice ...”) is to be checked in the corpus before a page quotes it."
+    },
+    {
+      "id": "theodotus",
+      "title": "The Theodotus inscription, Jerusalem, Rockefeller Archaeological Museum, IAA S-842",
+      "url": "https://en.wikipedia.org/wiki/Theodotos_inscription",
+      "kind": "Inscription",
+      "status": "second-hand",
+      "answers": "What was a synagogue for, in Jerusalem before AD 70?",
+      "read": "Wikipedia's article, read through a tool that returns a report."
+    },
+    {
+      "id": "talmud",
+      "title": "Babylonian Talmud, Shabbat 21b, William Davidson Edition (Koren Noé Talmud, Steinsaltz), on Sefaria",
+      "url": "https://www.sefaria.org/Shabbat.21b",
+      "kind": "Later Jewish tradition",
+      "status": "part",
+      "answers": "Where does the story of the oil come from?",
+      "read": "The sentences on the oil, read through a tool from Sefaria's text service. The translation's licence is to be checked before quoting it on a page."
+    },
+    {
+      "id": "popovic",
+      "title": "Mladen Popović and others, “Dating ancient manuscripts using radiocarbon and AI-based writing style analysis”, PLOS ONE 20/6 (2025), e0323185",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0323185",
+      "kind": "Article, 2025 · open access",
+      "status": "second-hand",
+      "answers": "How old is the oldest copy of Daniel's later chapters?",
+      "read": "Reported through a search tool's summary and Wikipedia's article on Daniel; the article itself is open and is to be read before a page cites it. Responses on both sides (Bryant Wood for the Associates for Biblical Research, 2025; comments on Brent Nongbri's blog) were seen only in the same summary."
+    },
+    {
+      "id": "wiki-herod",
+      "title": "“Herod the Great”, Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Herod_the_Great",
+      "kind": "Encyclopedia",
+      "status": "read",
+      "answers": "When was Herod named king, when did he take Jerusalem, and when did he die?",
+      "read": "Read through a tool that returns a report, for the dates and the two views of his death. Nothing is quoted from it."
+    },
+    {
+      "id": "wiki-daniel",
+      "title": "“Book of Daniel”, Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Book_of_Daniel",
+      "kind": "Encyclopedia",
+      "status": "read",
+      "answers": "What does the critical view of Daniel's date say, and what copies were found at Qumran?",
+      "read": "Read through the same tool. It gives the critical view only, and is used for that view."
+    },
+    {
+      "id": "steinmann",
+      "title": "Andrew E. Steinmann, “When Did Herod the Great Reign?”, Novum Testamentum 51 (2009) 1–29",
+      "url": "https://www.google.com/search?tbm=bks&q=Steinmann+When+Did+Herod+the+Great+Reign",
+      "kind": "Article",
+      "status": "located",
+      "answers": "The case for 1 BC.",
+      "read": "Located, not read; reported through Wikipedia."
+    },
+    {
+      "id": "filmer",
+      "title": "W. E. Filmer, “The Chronology of the Reign of Herod the Great”, Journal of Theological Studies 17 (1966) 283–298",
+      "url": "https://www.google.com/search?tbm=bks&q=Filmer+Chronology+of+the+Reign+of+Herod+the+Great",
+      "kind": "Article",
+      "status": "located",
+      "answers": "The first modern case for 1 BC.",
+      "read": "Located, not read; reported through Wikipedia."
+    },
+    {
+      "id": "bickerman",
+      "title": "Elias Bickerman, The God of the Maccabees (Leiden: Brill, 1979; German original 1937)",
+      "url": "https://www.google.com/search?tbm=bks&q=Bickerman+The+God+of+the+Maccabees",
+      "kind": "Book",
+      "status": "located",
+      "answers": "Why did Antiochus IV forbid the Law?",
+      "read": "Located, not read. His thesis is named, not used."
+    },
+    {
+      "id": "young",
+      "title": "Edward J. Young, The Prophecy of Daniel: A Commentary (Grand Rapids: Eerdmans, 1949)",
+      "url": "https://www.google.com/search?tbm=bks&q=Young+The+Prophecy+of+Daniel+1949",
+      "kind": "Commentary",
+      "status": "located",
+      "answers": "The early date argued at length.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "baldwin",
+      "title": "Joyce G. Baldwin, Daniel: An Introduction and Commentary, Tyndale Old Testament Commentaries (1978)",
+      "url": "https://www.google.com/search?tbm=bks&q=Baldwin+Daniel+Tyndale+Old+Testament+Commentaries",
+      "kind": "Commentary",
+      "status": "located",
+      "answers": "A short evangelical case for the early date.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "miller",
+      "title": "Stephen R. Miller, Daniel, New American Commentary 18 (Nashville: Broadman & Holman, 1994)",
+      "url": "https://www.google.com/search?tbm=bks&q=Stephen+Miller+Daniel+New+American+Commentary",
+      "kind": "Commentary",
+      "status": "located",
+      "answers": "A Southern Baptist publisher's commentary on Daniel 8 and 11.",
+      "read": "Located, not read. The first commentary a page should read for the site's own voice on these chapters."
+    },
+    {
+      "id": "collins",
+      "title": "John J. Collins, Daniel, Hermeneia (Minneapolis: Fortress, 1993)",
+      "url": "https://www.google.com/search?tbm=bks&q=Collins+Daniel+Hermeneia+1993",
+      "kind": "Commentary",
+      "status": "located",
+      "answers": "The late date argued at length.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "kitchen-1965",
+      "title": "K. A. Kitchen, “The Aramaic of Daniel”, in D. J. Wiseman and others, Notes on Some Problems in the Book of Daniel (London: Tyndale Press, 1965)",
+      "url": "https://www.google.com/search?tbm=bks&q=Notes+on+Some+Problems+in+the+Book+of+Daniel+1965",
+      "kind": "Essay",
+      "status": "located",
+      "answers": "Does Daniel's Aramaic require a late date?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "levine",
+      "title": "Lee I. Levine, The Ancient Synagogue: The First Thousand Years (New Haven: Yale University Press, 2000)",
+      "url": "https://www.google.com/search?tbm=bks&q=Levine+The+Ancient+Synagogue+First+Thousand+Years",
+      "kind": "Book",
+      "status": "located",
+      "answers": "Where and when did the synagogue begin?",
+      "read": "Located, not read. The page's synagogue card should be checked against it."
+    },
+    {
+      "id": "schurer",
+      "title": "Emil Schürer, The History of the Jewish People in the Age of Jesus Christ, revised by Geza Vermes, Fergus Millar and others (Edinburgh: T&T Clark, 1973–87)",
+      "url": "https://www.google.com/search?tbm=bks&q=Schurer+History+of+the+Jewish+People+Age+of+Jesus+Christ+Vermes+Millar",
+      "kind": "Reference history",
+      "status": "located",
+      "answers": "The standard detailed history of these centuries, coins and chronology included.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "site-02",
+      "title": "A passage through the manuscripts (research record 02)",
+      "url": "/study/passage-through-manuscripts",
+      "kind": "This site",
+      "status": "read",
+      "answers": "The Greek Old Testament beside the Hebrew.",
+      "read": "Its boundaries, for what not to repeat."
+    },
+    {
+      "id": "site-03",
+      "title": "The Dead Sea Scrolls (research record 03)",
+      "url": "/study/dead-sea-scrolls",
+      "kind": "This site",
+      "status": "read",
+      "answers": "Qumran, and the Hasmoneans as the scrolls see them.",
+      "read": "Searched for its treatment of the Hasmonean period and of Daniel; it has no Daniel record."
+    },
+    {
+      "id": "site-04",
+      "title": "How the canon took shape (research record 04)",
+      "url": "/study/how-the-canon-took-shape",
+      "kind": "This site",
+      "status": "read",
+      "answers": "The lists that include or leave out 1 and 2 Maccabees.",
+      "read": "Searched for its records of Augustine and the Reformed confessions."
+    },
+    {
+      "id": "site-07",
+      "title": "Israel among the empires (research record 07)",
+      "url": "/study/israel-among-the-empires",
+      "kind": "This site",
+      "status": "read",
+      "answers": "The Persian empire and the Elephantine letter.",
+      "read": "Its scope, through the draft record 37's links."
+    },
+    {
+      "id": "site-09",
+      "title": "The world of Jesus & the apostles (research record 09)",
+      "url": "/study/world-of-jesus-apostles",
+      "kind": "This site",
+      "status": "read",
+      "answers": "Pharisees, Sadducees and synagogues in the first century.",
+      "read": "Searched for its records of the parties and the synagogue."
+    }
+  ],
+  "pictures": [
+    {
+      "id": "antiochus-coin",
+      "status": "candidate, not downloaded",
+      "file": "Syria_-_king_Antiochos_IV_-_175-164_BC_-_silver_tetradrachm_-_head_of_Antiochos_IV_Epiphanes_-_Zeus_Nikephoros_-_München_SMS_01.jpg",
+      "alt": "A silver coin, both sides: a king's head with a royal band; and Zeus enthroned holding a small winged Victory, with Greek letters down both sides.",
+      "credit": "Tetradrachm of Antiochus IV, Staatliche Münzsammlung München, photograph by ArchaiOptix, via Wikimedia Commons",
+      "licence": "To be checked on the file page",
+      "href": "https://commons.wikimedia.org/wiki/File:Syria_-_king_Antiochos_IV_-_175-164_BC_-_silver_tetradrachm_-_head_of_Antiochos_IV_Epiphanes_-_Zeus_Nikephoros_-_M%C3%BCnchen_SMS_01.jpg",
+      "note": "For section 01, the Seleucid coin. The legend “God Manifest” is the point."
+    },
+    {
+      "id": "jannaeus-coin",
+      "status": "candidate, not downloaded",
+      "file": "Alexander_Jannaeus_coin.JPG",
+      "alt": "A small worn bronze coin, both sides: an inscription in old Hebrew letters; and a pair of horns of plenty.",
+      "credit": "Prutah of Alexander Jannaeus, via Wikimedia Commons",
+      "licence": "To be checked on the file page",
+      "href": "https://commons.wikimedia.org/wiki/File:Alexander_Jannaeus_coin.JPG",
+      "note": "For section 01, the Hasmonean coin. Alternatives: the anchor-and-star type (File:Widowsmite.png, from a private collection) or the Bibliothèque nationale de France's prutah via Gallica on Commons, which may carry a clearer licence."
+    },
+    {
+      "id": "heliodorus",
+      "status": "candidate, not found yet",
+      "file": "",
+      "alt": "A tall broken limestone slab, pieced together, with many lines of Greek letters.",
+      "credit": "The Heliodorus stele, Israel Museum, Jerusalem",
+      "licence": "Not found yet",
+      "href": "https://en.wikipedia.org/wiki/Heliodorus_stele",
+      "note": "For the crisis section, step 01. Look on Wikimedia Commons and in the Israel Museum's open images; a photograph by a visitor would need a free licence."
+    },
+    {
+      "id": "theodotus",
+      "status": "candidate, not found yet",
+      "file": "",
+      "alt": "A limestone slab with ten lines of Greek letters.",
+      "credit": "The Theodotus inscription, Rockefeller Archaeological Museum, IAA S-842",
+      "licence": "Not found yet",
+      "href": "https://en.wikipedia.org/wiki/Theodotos_inscription",
+      "note": "For the synagogue card. Commons holds photographs; none was opened."
+    },
+    {
+      "id": "yehud-herod",
+      "status": "candidate, not found yet",
+      "file": "",
+      "alt": "",
+      "credit": "A Yehud silver coin, and a bronze coin of Herod",
+      "licence": "Not found yet",
+      "href": "",
+      "note": "To complete the six coins of section 01: look for openly licensed photographs (museum open-access collections first; then Commons, where the Classical Numismatic Group has released many under CC BY-SA)."
+    }
+  ],
+  "verses": [
+    {
+      "label": "Daniel 2:21",
+      "code": "DAN",
+      "chapter": 2,
+      "verse": 21,
+      "phrase": "removes kings and establishes them"
+    },
+    {
+      "label": "Daniel 8:1",
+      "code": "DAN",
+      "chapter": 8,
+      "verse": 1,
+      "phrase": "In the third year of the"
+    },
+    {
+      "label": "Daniel 8:11",
+      "code": "DAN",
+      "chapter": 8,
+      "verse": 11,
+      "phrase": "It magnified itself, even to the"
+    },
+    {
+      "label": "Daniel 8:14",
+      "code": "DAN",
+      "chapter": 8,
+      "verse": 14,
+      "phrase": "2,300 evenings and mornings; then the sanctuary will be properly restored"
+    },
+    {
+      "label": "Daniel 8:20",
+      "code": "DAN",
+      "chapter": 8,
+      "verse": 20,
+      "phrase": "The two-horned ram that you saw represents the kings of Media and Persia."
+    },
+    {
+      "label": "Daniel 8:21",
+      "code": "DAN",
+      "chapter": 8,
+      "verse": 21,
+      "phrase": "The shaggy goat represents the king of Greece, and the large horn between his eyes is the first king."
+    },
+    {
+      "label": "Daniel 8:22",
+      "code": "DAN",
+      "chapter": 8,
+      "verse": 22,
+      "phrase": "The four horns that replaced the broken one represent four kingdoms that will rise from that nation, but will not have the same power."
+    },
+    {
+      "label": "Daniel 8:25",
+      "code": "DAN",
+      "chapter": 8,
+      "verse": 25,
+      "phrase": "Through his craft and by his"
+    },
+    {
+      "label": "Daniel 10:1",
+      "code": "DAN",
+      "chapter": 10,
+      "verse": 1,
+      "phrase": "the third year of Cyrus king of Persia"
+    },
+    {
+      "label": "Daniel 11:2",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 2,
+      "phrase": "Three more kings will arise in Persia, and then a fourth, who will be far richer than all the others. By the power of his wealth, he will stir up everyone against the kingdom of Greece."
+    },
+    {
+      "label": "Daniel 11:3",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 3,
+      "phrase": "a mighty king will arise"
+    },
+    {
+      "label": "Daniel 11:4",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 4,
+      "phrase": "his kingdom will be broken up and parceled out toward the four winds of heaven. It will not go to his descendants"
+    },
+    {
+      "label": "Daniel 11:5",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 5,
+      "phrase": "The king of the South will grow strong, but one of his commanders will grow even stronger"
+    },
+    {
+      "label": "Daniel 11:6",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 6,
+      "phrase": "the daughter of the king of the South will go to the king of the North to seal the agreement"
+    },
+    {
+      "label": "Daniel 11:16",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 16,
+      "phrase": "He will establish himself in the Beautiful Land"
+    },
+    {
+      "label": "Daniel 11:17",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 17,
+      "phrase": "He will give him a daughter in marriage"
+    },
+    {
+      "label": "Daniel 11:18",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 18,
+      "phrase": "a commander will put an end to his reproach"
+    },
+    {
+      "label": "Daniel 11:20",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 20,
+      "phrase": "will send out a tax collector"
+    },
+    {
+      "label": "Daniel 11:21",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 21,
+      "phrase": "a despicable person will arise; royal honors will not be given to him"
+    },
+    {
+      "label": "Daniel 11:22",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 22,
+      "phrase": "Then a flood of forces will"
+    },
+    {
+      "label": "Daniel 11:28",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 28,
+      "phrase": "The king of the North will"
+    },
+    {
+      "label": "Daniel 11:29",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 29,
+      "phrase": "At the appointed time he will"
+    },
+    {
+      "label": "Daniel 11:30",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 30,
+      "phrase": "Ships of Kittim will come against him, and he will lose heart. Then he will turn back and rage against the holy covenant"
+    },
+    {
+      "label": "Daniel 11:31",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 31,
+      "phrase": "They will abolish the daily sacrifice and set up the abomination of desolation"
+    },
+    {
+      "label": "Daniel 11:32",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 32,
+      "phrase": "With flattery he will corrupt those"
+    },
+    {
+      "label": "Daniel 11:34",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 34,
+      "phrase": "they will be granted a little help"
+    },
+    {
+      "label": "Daniel 11:36",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 36,
+      "phrase": "Then the king will do as"
+    },
+    {
+      "label": "Daniel 11:40",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 40,
+      "phrase": "At the time of the end"
+    },
+    {
+      "label": "Daniel 11:45",
+      "code": "DAN",
+      "chapter": 11,
+      "verse": 45,
+      "phrase": "between the sea and the beautiful holy mountain"
+    },
+    {
+      "label": "Daniel 12:1",
+      "code": "DAN",
+      "chapter": 12,
+      "verse": 1,
+      "phrase": "“At that time Michael, the great"
+    },
+    {
+      "label": "Daniel 12:11",
+      "code": "DAN",
+      "chapter": 12,
+      "verse": 11,
+      "phrase": "And from the time the daily"
+    },
+    {
+      "label": "Nehemiah 12:22",
+      "code": "NEH",
+      "chapter": 12,
+      "verse": 22,
+      "phrase": "Darius the Persian"
+    },
+    {
+      "label": "Nehemiah 13:31",
+      "code": "NEH",
+      "chapter": 13,
+      "verse": 31,
+      "phrase": "I also arranged for contributions of"
+    },
+    {
+      "label": "Malachi 4:5",
+      "code": "MAL",
+      "chapter": 4,
+      "verse": 5,
+      "phrase": "Elijah the prophet"
+    },
+    {
+      "label": "Matthew 2:1",
+      "code": "MAT",
+      "chapter": 2,
+      "verse": 1,
+      "phrase": "during the time of King Herod"
+    },
+    {
+      "label": "Matthew 24:15",
+      "code": "MAT",
+      "chapter": 24,
+      "verse": 15,
+      "phrase": "So when you see standing in the holy place ‘the abomination of desolation,’ described by the prophet Daniel"
+    },
+    {
+      "label": "Mark 12:16",
+      "code": "MRK",
+      "chapter": 12,
+      "verse": 16,
+      "phrase": "Whose image is this? And whose inscription?"
+    },
+    {
+      "label": "Mark 12:18",
+      "code": "MRK",
+      "chapter": 12,
+      "verse": 18,
+      "phrase": "Then the Sadducees, who say there"
+    },
+    {
+      "label": "Luke 1:5",
+      "code": "LUK",
+      "chapter": 1,
+      "verse": 5,
+      "phrase": "In the time of Herod king of Judea"
+    },
+    {
+      "label": "Luke 4:16",
+      "code": "LUK",
+      "chapter": 4,
+      "verse": 16,
+      "phrase": "Then Jesus came to Nazareth, where"
+    },
+    {
+      "label": "John 2:20",
+      "code": "JHN",
+      "chapter": 2,
+      "verse": 20,
+      "phrase": "This temple took forty-six years to build"
+    },
+    {
+      "label": "John 10:22",
+      "code": "JHN",
+      "chapter": 10,
+      "verse": 22,
+      "phrase": "the Feast of Dedication took place in Jerusalem. It was winter"
+    },
+    {
+      "label": "Acts 15:21",
+      "code": "ACT",
+      "chapter": 15,
+      "verse": 21,
+      "phrase": "Moses has been proclaimed in every city from ancient times and is read in the synagogues on every Sabbath"
+    },
+    {
+      "label": "Acts 23:6",
+      "code": "ACT",
+      "chapter": 23,
+      "verse": 6,
+      "phrase": "I am a Pharisee, the son of a Pharisee"
+    },
+    {
+      "label": "Acts 23:8",
+      "code": "ACT",
+      "chapter": 23,
+      "verse": 8,
+      "phrase": "the Sadducees say that there is neither a resurrection, nor angels, nor spirits"
+    },
+    {
+      "label": "Galatians 4:4",
+      "code": "GAL",
+      "chapter": 4,
+      "verse": 4,
+      "phrase": "when the time had fully come, God sent His Son, born of a woman, born under the law"
+    },
+    {
+      "label": "Hebrews 11:35",
+      "code": "HEB",
+      "chapter": 11,
+      "verse": 35,
+      "phrase": "Others were tortured and refused their release, so that they might gain a better resurrection"
+    },
+    {
+      "label": "Hebrews 11:36",
+      "code": "HEB",
+      "chapter": 11,
+      "verse": 36,
+      "phrase": "Still others endured mocking and flogging"
+    }
+  ],
+  "closing": {
+    "question": "Whose coin is this, and whose inscription, and what does it actually say?",
+    "carry": "What survives, and what am I inferring?",
+    "back": {
+      "href": "/study/academic",
+      "label": "Back to Academic studies"
+    }
+  }
+}
