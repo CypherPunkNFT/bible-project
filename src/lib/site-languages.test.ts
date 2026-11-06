@@ -124,10 +124,12 @@ describe("the site reads its languages from the one file", () => {
   const read = (file: string) => readFileSync(file, "utf8");
   const quoted = (code: string) => new RegExp(`["'\`]${code.replace(/-/g, "\\-")}["'\`]`);
 
-  it("index.html names no language but the source one, and leaves the reading direction to the page translator", () => {
+  // Its language script takes each code and direction from the file at build (scripts/site-languages-vite.ts; tested in
+  // head-language.test.ts), so the file stays the only list.
+  it("index.html names no language but the source one, and takes the reading direction from the file", () => {
     const html = read("index.html");
     for (const language of SITE_LANGUAGES.filter((entry) => entry !== source)) expect(html, language.code).not.toMatch(quoted(language.code));
-    expect(html).not.toMatch(/\.dir\s*=/);
+    expect(html).toContain("/*site-languages*/{}");
   });
 
   // index.css stays the authority for fonts: a font belongs to a script, and its rules are shared with the Bible

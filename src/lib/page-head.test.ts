@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { HOME_TITLE, isUnnamed, pageHead, shorten } from "./page-head";
+import { HOME_TITLE, PERSON_ASPECTS, ROUTE_TITLES, SECTIONS, isUnnamed, pageHead, shorten } from "./page-head";
 
 describe("pageHead", () => {
   it("names the home page for the site's own name", () => {
@@ -33,5 +33,63 @@ describe("pageHead", () => {
   it("knows the titles nothing has set", () => {
     expect(isUnnamed("Bible Guide")).toBe(true);
     expect(isUnnamed("Moses · Bible Guide")).toBe(false);
+  });
+});
+
+// In a translated language (stage 5 job 15) every fixed text goes through the language's phrase list. A made-up
+// translation marks each text it is asked for, so English that skipped the lookup is left outside the marks.
+describe("pageHead in a translated language", () => {
+  const mark = (english: string) => `⟦${english}⟧`;
+  // Marks nest where a value fills a line ("⟦⟦Name⟧, on Bible Guide: …⟧"), and a long one is cut ("…" with no "⟧").
+  const english = (text: string) => {
+    let rest = text;
+    while (/⟦[^⟦⟧]*⟧/.test(rest)) rest = rest.replace(/⟦[^⟦⟧]*⟧/g, "");
+    return rest.replace(/⟦.*$/, "").match(/[A-Za-z]{2,}/g) ?? [];
+  };
+  const shown = { heading: "⟦heading⟧", subheading: "⟦Name⟧. ⟦line⟧", paragraph: "" };
+
+  it("looks up every fixed text: each main page, section, person page, the home page and the fallbacks", () => {
+    const paths = [
+      "/", "/nowhere", "/nowhere/below",
+      ...Object.keys(ROUTE_TITLES),
+      ...Object.keys(SECTIONS).map((section) => `/${section}/some-page`),
+      ...Object.keys(PERSON_ASPECTS).map((aspect) => `/people/someone/${aspect}`),
+    ];
+    for (const path of paths) {
+      for (const page of [shown, {}]) {
+        const head = pageHead(path, page, mark);
+        expect(english(head.title), `${path} title`).toEqual([]);
+        expect(english(head.description), `${path} description`).toEqual([]);
+      }
+    }
+    expect(pageHead("/study/atlas", shown, mark).title).toBe("⟦Bible Atlas: Maps of Every Bible Place⟧ · ⟦Bible Guide⟧");
+    expect(pageHead("/people/moses-exo-2-10", { heading: "Moisés" }, mark).title).toBe("Moisés · ⟦People⟧ · ⟦Bible Guide⟧");
+  });
+
+  it("gives a main page with no translation yet its own heading, already in the language, rather than English", () => {
+    const none = (text: string) => (text === "Bible Atlas: Maps of Every Bible Place" ? null : mark(text));
+    expect(pageHead("/study/atlas", { heading: "Lugares reales" }, none).title).toBe("Lugares reales · ⟦Bible Guide⟧");
+  });
+
+  it("puts a person's name into the whole line, or after the language's words while the line has no translation", () => {
+    const line = (text: string) => (text === "{n}: the Reign" ? "{n} 在位期间" : text === "the Reign" ? "在位" : null);
+    expect(pageHead("/people/david-rut-4-17/rule", { subheading: "大卫。在希伯伦七年。" }, line).title).toBe("大卫 在位期间 · Bible Guide");
+    const word = (text: string) => (text === "the Reign" ? "राज्य" : null);
+    expect(pageHead("/people/david-rut-4-17/rule", { subheading: "दाऊद। हेब्रोन में सात वर्ष।" }, word).title).toBe("दाऊद: राज्य · Bible Guide");
+  });
+
+  it("never uses a line whose translation lost the place for the value, and writes a name exactly as given", () => {
+    const lost = (text: string) => (text.includes("{n}") ? "sin lugar" : text === "{n}: the Reign" ? null : `es:${text}`);
+    expect(pageHead("/nowhere", { heading: "Un nombre" }, lost).description).toBe("es:" + pageHead("/", {}).description);
+    expect(pageHead("/people/david-rut-4-17/rule", { subheading: "David. Siete años." }, lost).title).toBe("David: es:the Reign · es:Bible Guide");
+    const line = (text: string) => (text.startsWith("{n}, on") ? "{n}, en Bible Guide." : null);
+    expect(pageHead("/nowhere", { heading: "Un nombre" }, line).description).toBe("Un nombre, en Bible Guide.");
+    expect(pageHead("/nowhere", { heading: "A $& name" }).description).toBe("A $& name, on Bible Guide: the whole Bible free, with studies, an atlas and topics.");
+  });
+
+  it("cuts a description without spaces at the limit", () => {
+    const text = shorten("经".repeat(200));
+    expect(text.length).toBe(155);
+    expect(text.endsWith("经…")).toBe(true);
   });
 });

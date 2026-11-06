@@ -5,7 +5,8 @@ english-baseline.json, on five more things a translation cannot fix by itself:
   pieced  a sentence built from pieces: text beside {values} in JSX, or "text " + value + " text"
   plural  a hand-written singular/plural choice (n === 1 ? "book" : "books"), or a call to a page's own plural helper
   format  a number or date format fixed to one language ("en-US") or left to the browser (no language given)
-  title   a tab title or description written in the code (the translator reads only the page body)
+  title   a tab title or description written in the code from a text the collector never registers (the page
+          translator swaps the head like the body, by the same phrase list, so only an unregistered word stays English)
   data    data the site reads that TRANSLATED_DATA (src/lib/language.ts) does not list, or that it lists with no
           translated copy in a released language
 The first four are read from each page file's syntax tree by language_nets.mjs (the site's own TypeScript); the data
@@ -18,6 +19,7 @@ import re
 import shutil
 import subprocess
 from collections import Counter
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -39,7 +41,8 @@ WHY = {
               "of 2\" in Hindi), and the collector never registers the whole line",
     "plural": "the translator cannot choose plural forms: Arabic has six, Chinese none",
     "format": "it writes numbers or dates, or sorts, in one fixed language, or in the browser's language, not the site's",
-    "title": "the translator reads only the page body, so a tab title or description written in the code stays English",
+    "title": "the page translator swaps a tab title or description by the phrase lists, and this one is written from "
+             "words the collector never registers, so they stay English in every language",
     "data": "the site shows this data in English in every language",
 }
 HOW = {
@@ -51,9 +54,10 @@ HOW = {
     "format": "use the helpers in src/lib/site-format.ts: formatNumber(n), formatDate(d), formatDateTime(d), "
               "formatList(items), compareText(a, b) for names a reader sees, compareCode(a, b) for ids and keys, "
               "countryName(code)",
-    "title": "set no title of your own: usePageHead names the page from its main heading, which is translated "
-             "(src/lib/page-head.ts); a new page needs no entry in page-head.ts. Stage 5 puts the page head through the "
-             "translation",
+    "title": "set no title of your own (usePageHead names the page from its main heading, which is translated), or "
+             "write it as one text or one template string, `${name} · Hymns · Bible Guide`, whose words the collector "
+             "registers; a word it skips (one word beside a value) goes in content/translation/page-register.json "
+             "with its file",
     "data": "translate it (apply.py writes data/i18n/<folder>/) and list its folder in TRANSLATED_DATA in "
             "src/lib/language.ts; or narrow a TRANSLATED_DATA entry that claims a folder with no copy",
 }
@@ -206,12 +210,30 @@ def net_rulings(path: Path, root: Path) -> tuple[set[tuple[str, str, str]], dict
     return keys, files
 
 
-def judged(root: Path, output: dict, names: set[str], before: bool, rulings) -> list[Finding]:
-    """One version of the tree: `names` are the files read (with or without the before: mark)."""
+WORDS = re.compile(r"[^\W\d_]{2,}")
+SITE_NAME = "Bible Guide"
+
+
+def title_registered(texts: list[str], registered: Callable[[str], bool]) -> bool:
+    """Whether the page translator can put a title into each language: every text it is written from is registered
+    whole, or piece by piece between " · " (a piece that is only a value, or the site's name, needs nothing)."""
+    def piece_known(piece: str) -> bool:
+        piece = piece.strip(" ·")
+        return piece == SITE_NAME or not WORDS.search(piece.replace("{n}", "")) or registered(piece)
+    return all(registered(text.strip(" ·")) or all(piece_known(piece) for piece in re.split(r"\s+·\s+|^\s*·\s+", text))
+               for text in texts)
+
+
+def judged(root: Path, output: dict, names: set[str], before: bool, rulings,
+           registered: Callable[[str], bool] | None = None) -> list[Finding]:
+    """One version of the tree: `names` are the files read (with or without the before: mark). With `registered` (the
+    build check's own test of a text), a title written only from registered texts is no finding."""
     keys, files = rulings
     found, paths = [], []
     for item in output["findings"]:
         if item["file"] not in names:
+            continue
+        if item["net"] == "title" and registered and title_registered(item.get("texts", []), registered):
             continue
         finding = Finding(item["net"], item["file"].removeprefix(BEFORE), item["line"], item["key"])
         (paths if finding.net == "datapath" else found).append(finding)
@@ -224,19 +246,21 @@ def judged(root: Path, output: dict, names: set[str], before: bool, rulings) -> 
 
 
 def judge(root: Path, after: dict[str, str], uncommitted: set[str], rulings, before: dict[str, str] | None = None,
-          changed: set[str] = frozenset()) -> tuple[list[Finding], list[Finding]]:
+          changed: set[str] = frozenset(), registered: Callable[[str], bool] | None = None
+          ) -> tuple[list[Finding], list[Finding]]:
     """The findings in the tree as it is, and, when files `changed`, in the tree as it was: `before` holds the older
-    version of each changed file that existed then. With nothing changed there is no second list."""
+    version of each changed file that existed then. With nothing changed there is no second list. `registered` tells
+    a registered text (english_build_check.Site.registered); without it every title written in code is a finding."""
     if PAGE_HEAD not in after:
         raise Refused(f"{PAGE_HEAD} is missing; the tab-title net reads it (it names every page)")
     before = before or {}
     output = run_node({**after, **{BEFORE + name: text for name, text in before.items()}})
     skipped = unreadable(output, uncommitted)
-    now = judged(root, output, set(after) - skipped, False, rulings)
+    now = judged(root, output, set(after) - skipped, False, rulings, registered)
     if not changed:
         return now, []
     earlier = {BEFORE + name for name in before} | (set(after) - set(changed))
-    return now, judged(root, output, earlier - skipped, True, rulings)
+    return now, judged(root, output, earlier - skipped, True, rulings, registered)
 
 
 def counted(findings: list[Finding]) -> dict[str, Counter]:

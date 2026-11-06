@@ -3,11 +3,12 @@
 //   stdin:  {"files": {name: source}, "pageHead": "src/lib/page-head.ts", "languageFile": "src/lib/language.ts",
 //            "formatModule": "src/lib/site-format.ts"}
 //           (a name may start with "before:" for a file's older version; the rest of the name is its path)
-//   stdout: {"processed": [names], "errors": {name: [message]}, "findings": [{net, file, line, key}],
+//   stdout: {"processed": [names], "errors": {name: [message]}, "findings": [{net, file, line, key, texts?}],
 //            "translatedData": {name: {line, prefixes} | {line, error}}, "plurals": [{file, line, one, many}]}
 // Nets: plural (hand-written singular/plural choices, and site-format.ts's plural() given words not written out), format
 // (number and date formats, and sorts, forced to a fixed language or left to the browser; site-format.ts's helpers read
-// the site's language), title (tab titles and descriptions the translator never reaches), pieced (sentences built
+// the site's language), title (tab titles and descriptions written in code, with the texts they are written from:
+// build_nets.py keeps one only when the collector registers some of its words nowhere), pieced (sentences built
 // from pieces), datapath (texts shaped like a data path, judged by build_nets.py). Keys are built from the tree, with
 // names and properties written {n}, so renaming a variable or reformatting a line does not make a finding new.
 import { createRequire } from 'node:module';
@@ -245,10 +246,34 @@ function writtenTitle(value, known) {
   return !(isText(node) && node.text === SITE_NAME);
 }
 
+/** A text as the collector registers it: a template's values written {n}. */
+const registeredForm = (node) => (isText(node) ? node.text : node.head.text + node.templateSpans.map((span) => '{n}' + span.literal.text).join(''));
+
+/** The texts a title or description is written from: a text or template whole, each branch of a choice, each text joined
+ * with + or .join(). A name or a call holds no text of its own here. */
+function titleTexts(node, known) {
+  const K = ts.SyntaxKind;
+  node = resolved(node, known);
+  if (!node) return [];
+  if (isText(node) || ts.isTemplateExpression(node)) return [registeredForm(node)];
+  if (ts.isConditionalExpression(node)) return [...titleTexts(node.whenTrue, known), ...titleTexts(node.whenFalse, known)];
+  if (ts.isBinaryExpression(node) && [K.PlusToken, K.BarBarToken, K.QuestionQuestionToken].includes(node.operatorToken.kind)) {
+    return [...titleTexts(node.left, known), ...titleTexts(node.right, known)];
+  }
+  if (ts.isArrayLiteralExpression(node)) return node.elements.flatMap((element) => titleTexts(element, known));
+  // [title, "Apologetics", "Bible Guide"].filter(Boolean).join(" · "): the joined texts (the separator is no word)
+  if (ts.isCallExpression(node) && ts.isPropertyAccessExpression(node.expression) && ['join', 'filter'].includes(node.expression.name.text)) {
+    return titleTexts(node.expression.expression, known);
+  }
+  return [];
+}
+
 function titleNet(node, add, known) {
   const K = ts.SyntaxKind;
   if (ts.isBinaryExpression(node) && [K.EqualsToken, K.PlusEqualsToken].includes(node.operatorToken.kind) && isDocumentTitle(node.left)) {
-    if (node.operatorToken.kind === K.PlusEqualsToken || writtenTitle(node.right, known)) add('title', node, shape(resolved(node.right, known)));
+    if (node.operatorToken.kind === K.PlusEqualsToken || writtenTitle(node.right, known)) {
+      add('title', node, shape(resolved(node.right, known)), undefined, titleTexts(node.right, known));
+    }
     return;
   }
   // A page's own description: setAttribute("content", "...") or setMeta(..., "content", "..."), or meta.content = "...".
@@ -260,10 +285,13 @@ function titleNet(node, add, known) {
     value = node.right;
   }
   const text = value && resolved(value, known);
-  if (text && (isText(text) || ts.isTemplateExpression(text)) && hasWord(shownText(text)) && !codeLike(shownText(text))) add('title', node, shape(text));
+  if (text && (isText(text) || ts.isTemplateExpression(text)) && hasWord(shownText(text)) && !codeLike(shownText(text))) {
+    add('title', node, shape(text), undefined, [registeredForm(text)]);
+  }
 }
 
-/** Every text in the file that names pages (page-head.ts): all of it reaches the tab title or description. */
+/** Every text in the file that names pages (page-head.ts): all of it reaches the tab title or description, through the
+ * language's phrase list, so each must be registered. */
 function pageHeadNet(node, add) {
   if (!isText(node) && !ts.isTemplateExpression(node)) return;
   const up = parentSkippingBrackets(node), text = shownText(node);
@@ -271,7 +299,7 @@ function pageHeadNet(node, add) {
   if (up && ((ts.isPropertyAssignment(up) && up.name === node) || ts.isCaseClause(up) || ts.isImportDeclaration(up)
     || ts.isExportDeclaration(up) || ts.isLiteralTypeNode(up))) return;
   if (up && ts.isBinaryExpression(up) && /^[!=]==?$/.test(up.operatorToken.getText())) return;
-  add('title', node, shape(node));
+  add('title', node, shape(node), undefined, [registeredForm(node)]);
 }
 
 const insideLog = (node) => {
@@ -358,8 +386,8 @@ const translateNo = (node) => ts.isJsxElement(node) && node.openingElement.attri
 function walkFile(name, sourceFile, request, helpers, findings, plurals) {
   const known = constants(sourceFile), pageHead = pathOf(name) === request.pageHead;
   const central = centralNames(sourceFile), formatModule = pathOf(name) === request.formatModule;
-  const add = (net, node, key, position = node.getStart(sourceFile)) =>
-    findings.push({ net, file: name, line: sourceFile.getLineAndCharacterOfPosition(position).line + 1, key });
+  const add = (net, node, key, position = node.getStart(sourceFile), texts = undefined) =>
+    findings.push({ net, file: name, line: sourceFile.getLineAndCharacterOfPosition(position).line + 1, key, ...(texts ? { texts } : {}) });
   const visit = (node, skipped) => {
     skipped = skipped || translateNo(node);
     if (ts.isCallExpression(node) && ts.isIdentifier(node.expression) && central.has(node.expression.text)) {

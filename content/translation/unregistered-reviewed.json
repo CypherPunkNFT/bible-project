@@ -1224,13 +1224,6 @@
   "why": "a lookup key or code value the code compares or maps; never shown on a page"
  },
  {
-  "check": "later",
-  "file": "src/lib/page-head.ts",
-  "item": "{n}, on {n}: the whole Bible free, with studies, an atlas and topics.",
-  "job": "15",
-  "why": "a tab title or page description built in code; job 15 sends the page head through the same lookup as the body"
- },
- {
   "check": "code",
   "file": "src/lib/site-languages-check.ts",
   "item": "{n}: a made-up test language (pseudo) can never be released",
@@ -1340,13 +1333,6 @@
   "item": "· about {n} minutes each",
   "job": "21",
   "why": "a piece of a sentence inside a larger template or a + join, so the page translator never sees it on its own: registering it would do nothing; the whole sentence must become one line of at most three values (listed for the stage 5 review, job 21)"
- },
- {
-  "check": "later",
-  "file": "src/pages/resources/learning/TitlePage.tsx",
-  "item": "{n} · Learning materials · Bible Guide",
-  "job": "15",
-  "why": "a tab title or page description built in code; job 15 sends the page head through the same lookup as the body"
  },
  {
   "check": "code",
@@ -2206,5 +2192,17 @@
   "file": "src/pages/teachers/preachers/through/captions.ts",
   "item": "{n} === 1 ? `${{n}}'s works here all come from one year, so there is no year playback.` : `${{n}}'s works here come from only ${{n}} different years, too few to play through.`",
   "why": "two whole sentences that each hold the teacher's name, so they cannot be plural() forms (its forms are texts written out); each is registered whole (page-register.json) and swapped by the page translator, which keeps their translations"
+ },
+ {
+  "check": "title",
+  "file": "src/pages/research/ResearchPreviewPage.tsx",
+  "item": "\"noindex, nofollow\"",
+  "why": "a robots instruction to search engines on a page kept out of search (meta name=\"robots\"), never shown to a reader"
+ },
+ {
+  "check": "title",
+  "file": "src/pages/review/DesignReviewPage.tsx",
+  "item": "\"noindex, nofollow\"",
+  "why": "a robots instruction to search engines on a page kept out of search (meta name=\"robots\"), never shown to a reader"
  }
 ]

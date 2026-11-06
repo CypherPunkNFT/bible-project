@@ -13,6 +13,7 @@ import { dataIntakePlugin } from "./scripts/data-intake-vite";
 import { dataAnalysisPlugin } from "./scripts/data-analysis-vite";
 import { dataQuestionsPlugin } from "./scripts/data-questions-vite";
 import { dataGrantsPlugin } from "./scripts/data-grants-vite";
+import { siteLanguagesPlugin } from "./scripts/site-languages-vite";
 import { acquireDistLock, mirrorIntoDist, releaseDistLock } from "./scripts/dist-mirror.mjs";
 
 // The CypherPunk NFT site's toolchain. Local only: dev on 8930, the always-on preview
@@ -183,7 +184,7 @@ export default defineConfig({
   // question sources' downloads (content/questions/sources/, 1.5 GB) are never read by the site, so not watched either.
   server: { host: "127.0.0.1", port: 8930, strictPort: true, watch: { ignored: ["**/dist/**", "**/.dist-*/**", "**/.local/**", "**/.release/**", "**/.output/**", "**/.wrangler/**", "**/content/questions/sources/**"] } },
   preview: { host: "127.0.0.1", port: 8931, strictPort: true },
-  plugins: [studyContentPlugin(), react(), dataAnalysisPlugin(__dirname), dataPlugin, mockupsPlugin, dataIntakePlugin(__dirname), dataQuestionsPlugin(__dirname), dataGrantsPlugin(__dirname), atlasTilesPlugin(), designReviewPlugin(), testimonyApiPlugin(), localLibraryPlugin(__dirname), dropUnusedOrtEngine, preloadPageFonts, swapInBuild],
+  plugins: [studyContentPlugin(), react(), dataAnalysisPlugin(__dirname), dataPlugin, mockupsPlugin, dataIntakePlugin(__dirname), dataQuestionsPlugin(__dirname), dataGrantsPlugin(__dirname), atlasTilesPlugin(), designReviewPlugin(), testimonyApiPlugin(), localLibraryPlugin(__dirname), siteLanguagesPlugin(__dirname), dropUnusedOrtEngine, preloadPageFonts, swapInBuild],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
   },

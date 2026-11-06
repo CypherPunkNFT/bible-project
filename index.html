@@ -66,12 +66,20 @@
         console.warn("theme: localStorage unavailable", error);
       }
       document.documentElement.dataset.theme = theme;
-      // Same for a translated language (src/lib/language.ts): the ready-made English page stays hidden until the language's
-      // words have loaded (src/main.tsx shows it), or for 4 s at most should the code not arrive. The page translator sets the
-      // reading direction from src/lib/site-languages.json before it shows the page, so no language is named here.
+    </script>
+    <script>
+      // Same for a translated language (src/lib/language.ts keeps the reader's choice): <html lang> and the reading
+      // direction are set before first paint, and the ready-made English page stays hidden until the language's words have
+      // loaded (src/main.tsx shows it), or for 4 s at most should the code not arrive. The build writes the languages in
+      // from src/lib/site-languages.json (scripts/site-languages-vite.ts), so none is named here; an unreleased one counts
+      // only on this computer's preview, as in language.ts. A script of its own, so nothing here can stop the theme.
       try {
-        const language = localStorage.getItem("bp-language");
-        if (language && language !== "en") {
+        const languages = /*site-languages*/{};
+        const code = localStorage.getItem("bp-language");
+        const language = code !== null && Object.prototype.hasOwnProperty.call(languages, code) ? languages[code] : null;
+        if (language && (language.released || location.hostname === "127.0.0.1" || location.hostname === "localhost")) {
+          document.documentElement.lang = code;
+          document.documentElement.dir = language.dir === "rtl" ? "rtl" : "ltr";
           document.documentElement.dataset.languageLoading = "true";
           setTimeout(() => delete document.documentElement.dataset.languageLoading, 4000);
         }

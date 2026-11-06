@@ -49,9 +49,14 @@ PLANTS = {
                       '{n}.toLocaleString("en-US")'),
     "format, browser": ("format", "src/pages/Browser.ts", "export const f = (d: Date) =>\n  d.toLocaleDateString();\n", 2,
                         "{n}.toLocaleDateString()"),
-    "title": ("title", "src/pages/Titled.ts", 'document.title = "New page · Bible Guide";\n', 1, '"New page · Bible Guide"'),
-    "title in page-head": ("title", "src/lib/page-head.ts", ('export const SITE_NAME = "Bible Guide";\nconst ROUTE_TITLES = '
-                           '{ "/new": "A New Page Title" };\n'), 2, '"A New Page Title"'),
+    # Stage 5 job 15: the page translator swaps the head, so a title is a finding only for a word the collector never
+    # registers (here one word beside a value), in a page or in page-head.ts.
+    "title": ("title", "src/pages/Titled.ts", 'declare const name: string;\ndocument.title = `${name} · Newsection · Bible Guide`;\n',
+              2, "`${{n}} · Newsection · Bible Guide`"),
+    "title in page-head": ("title", "src/lib/page-head.ts", ('export const SITE_NAME = "Bible Guide";\nconst SECTIONS = '
+                           '{ fresh: "Freshsection" };\n'), 2, '"Freshsection"'),
+    "title joined": ("title", "src/pages/Joined.ts", 'declare const t: string;\ndocument.title = t + " · Newsection";\n', 2,
+                     '{n} + " · Newsection"'),
     "data read in English": ("data", "src/pages/Reads.ts", 'declare const load: (p: string) => void;\nload("newdata/x.json");\n',
                              2, "read in English: newdata/x.json"),
 }
@@ -80,6 +85,9 @@ def test_a_listed_folder_without_a_translated_copy_fails_at_its_line(nets: Path)
     "export const P = (d: number, t: number) => <p>{`${d} of ${t} debates`}</p>;\n",
     "declare const siteLanguage: () => string;\nexport const f = (n: number) => n.toLocaleString(siteLanguage());\n",
     'document.title = "Bible Guide";\n',
+    'document.title = "New page · Bible Guide";\n',
+    'declare const name: string;\ndocument.title = `${name} · Known heading · Bible Guide`;\n',
+    'declare const t: string;\ndocument.title = [t, "Known heading", "Bible Guide"].filter(Boolean).join(" · ");\n',
     'export const n = (count: number) => <p className={count === 1 ? "one-col" : "many-cols"}>Text</p>;\n',
 ])
 def test_the_right_forms_pass(nets: Path, source: str) -> None:

@@ -5,7 +5,7 @@
 // string. Every text is traced back to its English and then out to the chosen language, so it works in any direction.
 // A text matches when it is one of the known strings, or one with other numbers, or known pieces joined by " · ". React keeps whatever it rendered; when it writes a
 // text or label again, the observer swaps it again. Files read after the change come in the new language (data.ts).
-// Anything inside translate="no" is left alone.
+// Anything inside translate="no" is left alone. The tab title is swapped the same way (translateTitle).
 import { fadeWordsIn, fadeWordsOut, holdNewWords } from "./language-fade";
 import { languageDirection, languageFolder, languageReloads, loadedData, setSiteLanguage, siteLanguage, type LanguageCode } from "./language";
 import { SITE_LANGUAGES, scriptureLanguage } from "./site-languages";
@@ -354,8 +354,29 @@ export function watchShadowRoot(root: ShadowRoot): void {
   translateTree(root);
 }
 
+// The tab title is page text too. A title a page writes itself ("The farming year · Bible Guide") is swapped like any
+// other text; the one usePageHead wrote is already in the reader's language and is left alone (setOwnTitle).
+let ownTitle: string | null = null;
+
+/** usePageHead's title, already in the reader's language: the translator does not swap it. */
+export function setOwnTitle(title: string): void {
+  ownTitle = title;
+  document.title = title;
+}
+
+/** The English a text was translated from, in any language read so far; the text itself when it is not known. */
+export const englishOf = (text: string): string => toEnglish.get(normal(text)) ?? text;
+
+function translateTitle(): void {
+  const element = document.head?.querySelector("title");
+  if (!element || element.textContent === ownTitle) return;
+  element.childNodes.forEach((node) => node.nodeType === Node.TEXT_NODE && retranslate(node as Text));
+}
+
 function watch(): void {
   if (observer) return;
+  // Only the <title> is read in the head (a <link title> names a style sheet, never words for the reader).
+  new MutationObserver(translateTitle).observe(document.head, { subtree: true, childList: true, characterData: true });
   observer = new MutationObserver((records) => {
     wantStudyStrings();
     for (const record of records) {
@@ -416,6 +437,7 @@ export async function startPageTranslator(): Promise<void> {
   await Promise.all([loadStrings(folder, null), loadPageFile(folder)]);
   aimAt(folder, siteLanguage());
   watch();
+  translateTitle();
 }
 
 /** A pointer resting on a language in the menu: its page words are read ahead, so choosing it has less to wait for. */
@@ -444,6 +466,7 @@ export async function chooseSiteLanguage(code: LanguageCode): Promise<void> {
   aimAt(folder, code);
   watch();
   translateTree(document.body);
+  translateTitle();
   connectedShadowRoots().forEach(translateTree);
   if (!fades) return;
   await new Promise((painted) => requestAnimationFrame(() => setTimeout(painted)));

@@ -13,7 +13,8 @@ a reason, the section and the exact number added (for a later stage that widens 
 
 Stage 4 job 9 added five language nets against the same baseline (build_nets.py): sentences built from pieces,
 hand-written plurals, number and date formats fixed to one language or left to the browser, tab titles and
-descriptions written in the code, and data the site reads untranslated.
+descriptions written in the code from words the collector never registers (stage 5 job 15: the page translator swaps
+the head like the body), and data the site reads untranslated.
 
   python content/translation/english_build_check.py                    check this Website folder
   python content/translation/english_build_check.py --root DIR --since COMMIT
@@ -160,7 +161,10 @@ class Site:
         if text in self.ruled_texts:
             return True
         blanked = unregistered.with_numbers_blanked(text)
+        # A piece that is only a value ("{n} · Hymns · Bible Guide") has no words to register; the page translator
+        # swaps the pieces around it (stage 5 job 15).
         return blanked in self.known or all(unregistered.with_numbers_blanked(piece) in self.known
+                                            or not build_nets.WORDS.search(piece.replace("{n}", ""))
                                             for piece in text.split(" · "))
 
     def findings(self, relative: str, original: str) -> list[tuple[str, int, str, str]]:
@@ -224,7 +228,7 @@ def nets_added_since(site: Site, root: Path, since: str, rulings) -> tuple[dict[
     changed = [name for name in git(root, "diff", "--name-only", "--no-renames", since, "HEAD").splitlines()
                if name in site.files or page_like(name)]
     before = old_versions(root, since, changed)
-    now, earlier = build_nets.judge(root, site.contents(), set(), rulings, before, set(changed))
+    now, earlier = build_nets.judge(root, site.contents(), set(), rulings, before, set(changed), site.registered)
     if not changed:
         return {net: Counter() for net in NETS}, now
     scope = set(changed)
@@ -278,7 +282,7 @@ def report_new(new: Counter, places: list, allowed: dict[str, int], uncommitted:
 
 def nets_against_baseline(site: Site, root: Path, baseline: dict, uncommitted: set[str], rulings):
     """The language nets on this folder: per key, how far today's count passes what the baseline allows."""
-    now, _ = build_nets.judge(root, site.contents(), uncommitted, rulings)
+    now, _ = build_nets.judge(root, site.contents(), uncommitted, rulings, registered=site.registered)
     counts = build_nets.counted(now)
     new = {net: Counter({key: count - baseline[net].get(key, 0) for key, count in counts[net].items()
                          if count > baseline[net].get(key, 0)}) for net in NETS}
@@ -350,7 +354,8 @@ def shrink(root: Path) -> int:
     site = Site(root, site_languages.folders(), root / RULINGS)
     found = Counter(text for _, _, text, _ in site.all_findings())
     smaller = english_baseline.shrunk(baseline, found, site.reading_registered)
-    now, _ = build_nets.judge(root, site.contents(), set(), build_nets.net_rulings(root / RULINGS, root))
+    now, _ = build_nets.judge(root, site.contents(), set(), build_nets.net_rulings(root / RULINGS, root),
+                              registered=site.registered)
     smaller = english_baseline.shrunk_nets(smaller, build_nets.counted(now))
     english_baseline.write(path, smaller)
     print(f"baseline: {len(baseline['code'])} -> {len(smaller['code'])} texts, "
@@ -377,7 +382,8 @@ def add_sections(root: Path, reason: str) -> int:
     if not missing:
         raise Refused(f"every section ({', '.join(NETS)}) is or was in the baseline; a section is written once")
     site = Site(root, site_languages.folders(), root / RULINGS)
-    now, _ = build_nets.judge(root, site.contents(), set(), build_nets.net_rulings(root / RULINGS, root))
+    now, _ = build_nets.judge(root, site.contents(), set(), build_nets.net_rulings(root / RULINGS, root),
+                              registered=site.registered)
     counts = build_nets.counted(now)
     today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
     for net in missing:

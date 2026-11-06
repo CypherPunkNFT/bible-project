@@ -2144,6 +2144,24 @@
    "texts": [
     "{n}, as Scripture names {n} in {n}'s time."
    ]
+  },
+  {
+   "file": "src/lib/page-head.ts",
+   "why": "tab-title and description lines the page head translates whole (stage 5 job 15); the page rules read a template with a value beside the words, and a hyphenated title, as code",
+   "texts": [
+    "{n}, on Bible Guide: the whole Bible free, with studies, an atlas and topics.",
+    "{n}: the Reign",
+    "{n}: the Prophet",
+    "{n}: the Mission",
+    "Bible Cross-References"
+   ]
+  },
+  {
+   "file": "src/pages/resources/learning/TitlePage.tsx",
+   "why": "a tab title the page translator swaps whole (stage 5 job 15); the page rules read a template with a value beside the words as code",
+   "texts": [
+    "{n} · Learning materials · Bible Guide"
+   ]
   }
  ]
 }
