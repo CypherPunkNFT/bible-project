@@ -88,9 +88,13 @@ Paths, related studies and comparisons use stable IDs rather than copying anothe
 
 1. Read `editorial/library.json`, the target guide and its cited sources. For AI review, export the relevant
    documents and request findings by document key and block ID, with the supporting source section.
-2. Separate Scripture, subordinate Reformed exposition, narrowly scoped Catholic or patristic material,
-   documentary accounts of other positions and editorial applications. Check that the cited source
-   actually supports the claim. Citation presence alone proves nothing about theological accuracy.
+2. Separate Scripture, the cited confessions (Westminster and the Baptist confession of 1689), Reformed
+   exposition, narrowly scoped Catholic or patristic material, documentary accounts of other positions and
+   editorial applications. Check that the cited source actually supports the claim. Citation presence alone
+   proves nothing about theological accuracy. The site's own doctrinal standard is the Baptist Faith and
+   Message 2000 ([DOCTRINAL-FOUNDATION.md](../../../DOCTRINAL-FOUNDATION.md)); the confessions are cited as
+   historic witnesses, and where Baptists differ from Westminster (baptism, the covenants, the church) or
+   among themselves (election), the guide says so.
 3. Apply corrections to the JSON documents. Do not edit generated Markdown, generated TypeScript, the
    runtime adapters in `src/data/apologetics-*`, or copied paragraphs in React components.
 4. Run `npm run content:audit`. It checks schema, citations, references and relationships, and reports
@@ -135,7 +139,7 @@ npm run content -- new source/new-source --title "Source title"
 These create drafts with empty authoring fields. Drafts are excluded from the website and public exports.
 Fill the text, references, source roles and scope notes, then review the result. Change `publication` to
 `published` only when ready and run the checks. A published document cannot link to a draft. A study needs
-Scripture support and a Reformed teaching source. To add another kind, copy a document of that kind,
+Scripture support and a Reformed teaching source (a confession or exposition; the tests require one). To add another kind, copy a document of that kind,
 replace its ID and content, set it to draft, and clear the copied review history.
 
 When withdrawing a document, remove or revise inbound links before changing its publication state.

@@ -98,7 +98,7 @@
       },
       {
         "id": "section-2",
-        "text": "We cannot boast that we supplied the decisive goodness God lacked. Augustine's chapter 17 is useful here: God's mercy gives faith, and good works follow. This limited agreement does not make all of Augustine's account of justification identical to the Reformed confession.",
+        "text": "We cannot boast that we supplied the decisive goodness God lacked. Augustine's chapter 17 is useful here: God's mercy gives faith, and good works follow. This limited agreement does not make all of Augustine's account of justification identical to what Baptist and Reformed confessions teach.",
         "citations": [
           {
             "kind": "scripture",
@@ -112,6 +112,11 @@
           {
             "kind": "source",
             "source": "wcf",
+            "locator": "11.1–2"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
             "locator": "11.1–2"
           }
         ],
@@ -193,6 +198,15 @@
       "date": "2026-10-05",
       "contentHash": "0a01cbe2d25e0eab810b2dd07752766bf31d6d807ec4003d8e55dd29bdb51cdf",
       "basisHash": "fc572ffe4e83e5976984caf20b9dfaaaa916ba7c7db24540d9159aba440f87a3"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Section 2: Augustine's account compared with 'what Baptist and Reformed confessions teach' instead of 'the Reformed confession'; 1689 11.1–2 cited beside Westminster 11.1–2. Re-read for any other claim about the doctrinal standard. 1689 chapter/paragraph locators checked against the site's pinned CC0 text (lwalen/lbcf); Baptist Faith and Message 2000 wording checked at bfm.sbc.net on 2026-11-06.",
+      "note": "Implements the owner's 2026-11-06 instruction that the apologetics section's standard is the Baptist Faith and Message 2000. AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-06",
+      "contentHash": "16536a23ea894fdd64bf53b522f5e7b2a6347f329955f4689e18a3c3f415910c",
+      "basisHash": "db835b569ccb7fa58fce80d1a867ab148e6f8a759f98cd41bdaee9af7fb04c18"
     }
   ]
 }

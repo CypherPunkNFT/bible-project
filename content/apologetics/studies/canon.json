@@ -89,11 +89,16 @@
       },
       {
         "id": "section-2",
-        "text": "This library follows the 66-book Protestant canon expressed in Westminster. Its account of the Old Testament differs from the Roman Catholic canon. We do not describe that difference as a mere interface choice or imply that citing a Catholic writer removes it.",
+        "text": "This library follows the 66-book Protestant canon, listed in Westminster and in the Baptist confession of 1689. Its account of the Old Testament differs from the Roman Catholic canon. We do not describe that difference as a mere interface choice or imply that citing a Catholic writer removes it.",
         "citations": [
           {
             "kind": "source",
             "source": "wcf",
+            "locator": "1.2–3"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
             "locator": "1.2–3"
           }
         ],
@@ -166,6 +171,15 @@
       "date": "2026-10-05",
       "contentHash": "4c4a9930607c9f49fdc8720ed02731663899037b86c5a348e16c3d5237819fe9",
       "basisHash": "9c90c0280ff974a54b872cab24e8a5588e81c032a3752fda09a68c9e3dd2634b"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Section 'Be clear about our canon': the 66-book canon is described as listed in Westminster and in the 1689 Baptist confession; 1689 1.2–3 cited beside Westminster 1.2–3. Re-read for any other claim about the doctrinal standard. 1689 chapter/paragraph locators checked against the site's pinned CC0 text (lwalen/lbcf); Baptist Faith and Message 2000 wording checked at bfm.sbc.net on 2026-11-06.",
+      "note": "Implements the owner's 2026-11-06 instruction that the apologetics section's standard is the Baptist Faith and Message 2000. AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-06",
+      "contentHash": "9dea81f915c25c447dfc2a8f4523e7c34be7cdd5682e810657824240d4c7323b",
+      "basisHash": "da6aec295064b9533f8d0be24b73d368f4eb8160aaaaae2fe1dbe7fac253a919"
     }
   ]
 }

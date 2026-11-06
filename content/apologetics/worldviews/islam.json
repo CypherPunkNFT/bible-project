@@ -415,11 +415,16 @@
         "question": "Has Scripture been preserved?",
         "christian": {
           "id": "christian-preservation",
-          "text": "The Westminster Confession teaches that God has preserved Scripture through his care and providence. Christians can examine the manuscript witnesses while confessing that preservation.\n\nDistinguish the doctrinal claim from the historical questions about particular copies, variants and translations; a short comparison cannot replace that examination.",
+          "text": "Westminster and the Baptist confession of 1689 both teach that God has preserved Scripture through his care and providence. Christians can examine the manuscript witnesses while confessing that preservation.\n\nDistinguish the doctrinal claim from the historical questions about particular copies, variants and translations; a short comparison cannot replace that examination.",
           "citations": [
             {
               "kind": "source",
               "source": "wcf",
+              "locator": "1.8"
+            },
+            {
+              "kind": "source",
+              "source": "lbcf",
               "locator": "1.8"
             }
           ]
@@ -1105,6 +1110,15 @@
       "date": "2026-10-09",
       "contentHash": "d7983d7c9e2eaa49857edccb93a6b2bb88bd2b0c4e748e90114f62c4395aec20",
       "basisHash": "610596e59a22827c9e275020030e1ff3a6e87acdd9f33fddf53fa1aa0b38aa10"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Preservation row: 'The Westminster Confession teaches' changed to 'Westminster and the Baptist confession of 1689 both teach'; 1689 1.8 cited beside Westminster 1.8. Re-read for any other claim about the doctrinal standard. 1689 chapter/paragraph locators checked against the site's pinned CC0 text (lwalen/lbcf); Baptist Faith and Message 2000 wording checked at bfm.sbc.net on 2026-11-06.",
+      "note": "Implements the owner's 2026-11-06 instruction that the apologetics section's standard is the Baptist Faith and Message 2000. AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-06",
+      "contentHash": "27672b6f001dea26240b5da4131cf3a5ca03220cf2d8ebceea4128ed410e7ee8",
+      "basisHash": "ceddfd40cf65dc0518e3998b0faa36e3b2f2480a135d91d06b4a6cbdec7d526f"
     }
   ]
 }

@@ -59,11 +59,11 @@
       }
     ],
     "policy": {
-      "eyebrow": "Scripture first · Reformed convictions",
+      "eyebrow": "Scripture first · Baptist convictions",
       "title": "Know what stands behind the answer.",
       "introduction": {
         "id": "policy-introduction",
-        "text": "We receive Scripture as our final authority. These guides use the Westminster Confession as a subordinate doctrinal standard, with exposition from Reformed theologians. Read the passage and the cited section together.",
+        "text": "We receive Scripture as our final authority. The site’s doctrinal standard is the Baptist Faith and Message 2000 of the Southern Baptist Convention. These guides also cite two historic Reformed confessions, the Presbyterian Westminster Confession and the Baptist confession of 1689, with exposition from Reformed theologians. Where Baptists hold more than one view, a guide says so. Read the passage and the cited section together.",
         "citations": [
           {
             "kind": "scripture",
@@ -73,6 +73,11 @@
             "kind": "source",
             "source": "wcf",
             "locator": "1.4–10"
+          },
+          {
+            "kind": "source",
+            "source": "lbcf",
+            "locator": "1.4–10"
           }
         ]
       },
@@ -80,11 +85,16 @@
         {
           "title": "Teaching and explanation",
           "id": "policy-1",
-          "text": "Reformed confessions and theologians explain the doctrines taught here. Our paragraphs are original study notes, not quotations or a claim that the named authors reviewed this site.",
+          "text": "Baptist and Reformed confessions and theologians explain the doctrines taught here; Scripture judges them all. Our paragraphs are original study notes, not quotations or a claim that the named authors reviewed this site.",
           "citations": [
             {
               "kind": "source",
               "source": "wcf",
+              "locator": "1.10"
+            },
+            {
+              "kind": "source",
+              "source": "lbcf",
               "locator": "1.10"
             }
           ]
@@ -114,7 +124,7 @@
         {
           "title": "Records of other positions",
           "id": "policy-3",
-          "text": "The Qur’an, a humanist declaration and debate transcripts document claims to examine. They are not doctrinal authorities here. Craig's participation in a debate does not make him a Reformed teacher for this library.",
+          "text": "The Qur’an, a humanist declaration and debate transcripts document claims to examine. They are not doctrinal authorities here. Craig's participation in a debate does not make him a teaching authority for this library.",
           "citations": [
             {
               "kind": "source",
@@ -136,13 +146,13 @@
       ]
     },
     "copy": {
-      "guideNote": "Original study notes · Reformed perspective. Citations identify the basis of each explanation; they do not imply review or endorsement by the cited authors.",
-      "debateNote": "The speakers are not doctrinal authorities for this library. Use the connected Reformed guides to evaluate the claims, and the speaker sections in the full transcript to follow the exchange. These are editorial reading prompts, not attributed quotations or a timestamped recording analysis.",
-      "debateIndexNote": "Transcripts and recordings preserve the speakers’ arguments. Sources include participant organizations and independent transcript publishers; each page names its host and notes known coverage limits. These records are not Reformed teaching authorities. The connected guides state our scriptural and confessional position.",
+      "guideNote": "Original study notes · Baptist perspective. Citations identify the basis of each explanation; they do not imply review or endorsement by the cited authors.",
+      "debateNote": "The speakers are not doctrinal authorities for this library. Use the connected guides to evaluate the claims, and the speaker sections in the full transcript to follow the exchange. These are editorial reading prompts, not attributed quotations or a timestamped recording analysis.",
+      "debateIndexNote": "Transcripts and recordings preserve the speakers’ arguments. Sources include participant organizations and independent transcript publishers; each page names its host and notes known coverage limits. These records are not teaching authorities for this library. The connected guides state our position from Scripture and the Baptist Faith and Message 2000.",
       "sourceRoomIntro": "Inspect the documents behind the discussion. A source may establish what someone believes without establishing that the belief is true.",
       "sourceRoomNote": "Bible passages open in this site’s reader. Other sources open at their publishers. Scope notes distinguish teaching sources from documentary evidence.",
       "footerTitle": "Conviction with an open Bible.",
-      "footerText": "Scripture first. Reformed convictions. Sources you can examine.",
+      "footerText": "Scripture first. Baptist convictions. Sources you can examine.",
       "practiceNote": "An editorial practice pattern drawn from the passages below."
     }
   },
@@ -164,6 +174,15 @@
       "date": "2026-10-11",
       "contentHash": "2393baf1e5e475a40be7856a1b8828919e6bfb7840ba6e722ff994f3c983f341",
       "basisHash": "4666cbd6e51d5498611c9d251a5c7ddce5fe5f02015703051006274a122e8663"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Doctrinal standard restated: the policy introduction, eyebrow, guide note, debate notes and footer now name the Baptist Faith and Message 2000 as the site's standard and 'Baptist convictions'; Westminster and the 1689 Baptist confession are cited as historic Reformed confessions (1689 1.4–10 and 1.10 added beside Westminster). Re-read for any other claim about the doctrinal standard. 1689 chapter/paragraph locators checked against the site's pinned CC0 text (lwalen/lbcf); Baptist Faith and Message 2000 wording checked at bfm.sbc.net on 2026-11-06.",
+      "note": "Implements the owner's 2026-11-06 instruction that the apologetics section's standard is the Baptist Faith and Message 2000. AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-06",
+      "contentHash": "1027d270b80a394b6935d33697531d3a20e63f38ef59b6b21502c6ec6e73e465",
+      "basisHash": "6648f9b047d86399e1e0153e1dba85280faef9d010afa7b798f5af9f14bfd957"
     }
   ]
 }

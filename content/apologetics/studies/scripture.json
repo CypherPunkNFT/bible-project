@@ -132,12 +132,22 @@
     "objection": "Isn't an appeal to Scripture just circular?",
     "reply": {
       "id": "reply",
-      "text": "Every ultimate authority raises a question about its own grounds. The Reformed answer is that God's Word carries divine authority and the Spirit bears witness to it. We can also discuss historical evidence, but human judgment does not create the authority it examines.",
+      "text": "Every ultimate authority raises a question about its own grounds. The answer of the Baptist and Reformed confessions is that God's Word carries divine authority and the Spirit bears witness to it. We can also discuss historical evidence, but human judgment does not create the authority it examines.",
       "citations": [
         {
           "kind": "source",
           "source": "calvin-scripture",
           "locator": "I.7.1–5"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "1.4–5"
+        },
+        {
+          "kind": "source",
+          "source": "lbcf",
+          "locator": "1.4–5"
         }
       ]
     },
@@ -201,6 +211,15 @@
       "date": "2026-10-05",
       "contentHash": "ddbbda104f2882cd8ebe4de6781409bb21a5a3435e72db6707408e2d487129af",
       "basisHash": "5cfb7911b114c3ec5f56c78a98c039438ee5706b226f4469c84ee5ae71731b98"
+    },
+    {
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Reply: 'The Reformed answer' changed to 'The answer of the Baptist and Reformed confessions'; Westminster 1.4–5 and 1689 1.4–5 cited for the Spirit's witness to Scripture's authority. Re-read for any other claim about the doctrinal standard. 1689 chapter/paragraph locators checked against the site's pinned CC0 text (lwalen/lbcf); Baptist Faith and Message 2000 wording checked at bfm.sbc.net on 2026-11-06.",
+      "note": "Implements the owner's 2026-11-06 instruction that the apologetics section's standard is the Baptist Faith and Message 2000. AI-assisted editorial review; not independent human theological approval.",
+      "date": "2026-11-06",
+      "contentHash": "3b23bd304c27be552092fd0e4cf6cdb4f4881f8ab92a573f410a7ea2cd0db461",
+      "basisHash": "6c791f8f468cc46965dbe25cdb265e6ea39b38a0f41404d7dd998698666d0591"
     }
   ]
 }
