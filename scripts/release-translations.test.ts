@@ -9,10 +9,12 @@ import type { SiteLanguage } from "../src/lib/site-languages.ts";
 import { assertOnlyReleasedTranslations, unreleasedTranslationEntries } from "./release-translations.ts";
 
 // A made-up list: Spanish released, "xa" still being made.
+// The fields the menu and the release do not look at.
+const FIELDS = { bible: null, englishName: "Test", script: "Latn", plurals: ["one", "other"], digits: "latn", font: null, pseudo: false } as const;
 const LANGUAGES: SiteLanguage[] = [
-  { code: "en", name: "English", folder: null, dir: "ltr", released: true },
-  { code: "es", name: "Español", folder: "es", dir: "ltr", released: true },
-  { code: "xa", name: "Test", folder: "xa", dir: "ltr", released: false },
+  { code: "en", name: "English", folder: null, dir: "ltr", released: true, ...FIELDS },
+  { code: "es", name: "Español", folder: "es", dir: "ltr", released: true, ...FIELDS },
+  { code: "xa", name: "Test", folder: "xa", dir: "ltr", released: false, ...FIELDS },
 ];
 
 async function dataDirectory(): Promise<string> {
