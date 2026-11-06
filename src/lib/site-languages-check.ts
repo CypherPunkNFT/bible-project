@@ -44,6 +44,7 @@ export function entryProblems(entry: unknown, index: number): string[] {
   expect(typeof item.released === "boolean", "released", "true or false (not a string)");
   expect(typeof item.pseudo === "boolean", "pseudo", "true or false (not a string)");
   if (item.pseudo === true && item.released === true) problems.push(`${label}: a made-up test language (pseudo) can never be released`);
+  if (item.folder === null && item.bible === null) problems.push(`${label}.bible: the source language (folder null) needs a Bible, since every language with none quotes it; got null`);
   return problems;
 }
 

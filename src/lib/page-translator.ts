@@ -8,6 +8,7 @@
 // Anything inside translate="no" is left alone.
 import { fadeWordsIn, fadeWordsOut, holdNewWords } from "./language-fade";
 import { languageDirection, languageFolder, languageReloads, loadedData, setSiteLanguage, siteLanguage, type LanguageCode } from "./language";
+import { scriptureLanguage } from "./site-languages";
 
 const ATTRIBUTES = ["aria-label", "title", "placeholder", "alt"];
 const SKIP = new Set(["SCRIPT", "STYLE", "TEXTAREA", "CODE", "PRE"]);
@@ -16,6 +17,7 @@ const toEnglish = new Map<string, string>(); // for text first seen already tran
 const fromEnglish = new Map<string, Map<string, string>>(); // folder -> English -> translation
 const loaded = new Map<string, Promise<void>>(); // "folder ui" and "folder path": read, or being read
 let target: string | null = null;
+let targetRightToLeft = false;
 let observer: MutationObserver | null = null;
 // What each text or label said before it was changed: it goes back to exactly that, however many languages came between.
 const originals = new WeakMap<Text | Attr, { source: string; written: string }>();
@@ -257,9 +259,10 @@ function translated(text: string): string | null {
   return inner && (edge[1] ?? "") + inner + (edge[4] ?? "");
 }
 
-// Arabic reads a verse range "6:24–25" as "25–6:24" unless the invisible marks around it hold it together, left to right.
+// A right-to-left language (Arabic) reads a verse range "6:24–25" as "25–6:24" unless the invisible marks around it hold
+// it together, left to right.
 const VERSE_RANGE = /\d+:\d+[–-]\d+(?::\d+)?/g;
-const heldTogether = (value: string) => (target === "ar" ? value.replace(VERSE_RANGE, "\u2066$&\u2069") : value);
+const heldTogether = (value: string) => (targetRightToLeft ? value.replace(VERSE_RANGE, "\u2066$&\u2069") : value);
 
 function retranslate(node: Text | Attr): void {
   const raw = node.nodeValue ?? "";
@@ -348,10 +351,17 @@ function markDocument(code: LanguageCode, folder: string | null): void {
   if (folder) document.head.append(Object.assign(document.createElement("meta"), { name: "google", content: "notranslate" }));
 }
 
+/** The language whose words are swapped in from now on: its folder, and whether it reads right to left. */
+function aimAt(folder: string | null, code: LanguageCode): void {
+  target = folder;
+  targetRightToLeft = languageDirection(code) === "rtl";
+}
+
 /** A reader on screen moves to the new language's Bible just after the change: the words come back once its verses have arrived. */
 async function bibleInLanguage(code: LanguageCode): Promise<void> {
   const start = performance.now();
-  const other = `.scripture:not(:lang(${code.split("-")[0]}))`;
+  // The language that Bible is in: the site language's own, or English for one that quotes the English Bible.
+  const other = `.scripture:not(:lang(${scriptureLanguage(code).split("-")[0]}))`;
   do await wait(32);
   while (location.pathname.startsWith("/read/") && document.querySelector(other) && performance.now() - start < BIBLE_WAIT_MS);
 }
@@ -362,7 +372,7 @@ export async function startPageTranslator(): Promise<void> {
   markDocument(siteLanguage(), folder);
   if (!folder) return;
   await Promise.all([loadStrings(folder, null), loadPageFile(folder)]);
-  target = folder;
+  aimAt(folder, siteLanguage());
   watch();
 }
 
@@ -389,7 +399,7 @@ export async function chooseSiteLanguage(code: LanguageCode): Promise<void> {
   ]);
   setSiteLanguage(code);
   markDocument(code, folder);
-  target = folder;
+  aimAt(folder, code);
   watch();
   translateTree(document.body);
   connectedShadowRoots().forEach(translateTree);

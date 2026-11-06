@@ -313,8 +313,10 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
   );
 }
 
-// "Read" here means "already read", which the page translator would turn into the verb on the Bible page's card.
-const CHAPTER_READ: Record<LanguageCode, string> = { en: "Read", es: "Leído", "pt-BR": "Lido", "zh-Hans": "已读", ar: "مقروء", hi: "पढ़ लिया", id: "Sudah dibaca" };
+// "Read" here means "already read", which the page translator would turn into the verb on the Bible page's card. A
+// language with none of its own (a made-up test language) shows the English; every released one has its own
+// (site-languages.test.ts).
+const CHAPTER_READ: Partial<Record<LanguageCode, string>> = { en: "Read", es: "Leído", "pt-BR": "Lido", "zh-Hans": "已读", ar: "مقروء", hi: "पढ़ लिया", id: "Sudah dibaca" };
 
 /** Tick this chapter on the reading chart (KJV chapter numbering only, so it can never mark the wrong one). */
 function MarkRead({ code, chapter }: { code: string; chapter: string }) {
@@ -329,7 +331,7 @@ function MarkRead({ code, chapter }: { code: string; chapter: string }) {
       className={cn("flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm transition", read ? "border-transparent bg-ink text-page" : "border-line hover:bg-surface-2")}
     >
       {read ? <CheckSquare className="h-4 w-4" aria-hidden /> : <Square className="h-4 w-4" aria-hidden />}
-      {read ? <span translate="no">{CHAPTER_READ[language]}</span> : "Mark read"}
+      {read ? <span translate="no">{CHAPTER_READ[language] ?? CHAPTER_READ.en}</span> : "Mark read"}
     </button>
   );
 }

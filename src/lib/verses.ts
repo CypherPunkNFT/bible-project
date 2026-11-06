@@ -4,25 +4,16 @@
 import { useMemo } from "react";
 import { loadPlain } from "./data";
 import { siteLanguage, useSiteLanguage, type LanguageCode } from "./language";
+import { siteLanguageBible } from "./site-languages";
 import { useCatalog } from "./catalog";
 import { bookByCode, bookByNum, formatRange, plainLookup, splitId } from "./refs";
 import type { Catalog, Translation } from "./types";
 import { useAsync, type AsyncState } from "./useAsync";
 
-/** The Bible each language quotes unless the reader has chosen another. */
-export const DEFAULT_BIBLE: Record<LanguageCode, string> = {
-  en: "bsb",
-  es: "rvr",
-  "pt-BR": "bpm",
-  "zh-Hans": "cuv",
-  ar: "svd",
-  hi: "irv",
-  id: "ind",
-};
-
-/** Which Bible the site quotes now. A reader's own choice, when there is one, plugs in here and nowhere else. */
+/** Which Bible the site quotes now: the language's own (its `bible` in site-languages.json), or English's for a language
+ * with none. A reader's own choice, when there is one, plugs in here and nowhere else. */
 export function currentBibleSlug(language: LanguageCode = siteLanguage()): string {
-  return DEFAULT_BIBLE[language];
+  return siteLanguageBible(language);
 }
 
 /** The language's own Bible, when it has this chapter: where the reader opens. */

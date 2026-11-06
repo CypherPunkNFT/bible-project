@@ -47,3 +47,22 @@ export const SITE_LANGUAGES: readonly SiteLanguage[] = checkedLanguages();
 /** The translated folders under data/i18n/ that go out with a release. */
 export const releasedFolders = (languages: readonly SiteLanguage[] = SITE_LANGUAGES): string[] =>
   languages.filter((language) => language.released && language.folder !== null).map((language) => language.folder!);
+
+// Used only by a browser whose file lost its English entry to a fault (the tests refuse such a file first), so the site
+// still quotes a Bible and reads left to right.
+const FALLBACK_SOURCE: SiteLanguage = Object.freeze({
+  code: "en", folder: null, bible: "bsb", name: "English", englishName: "English", dir: "ltr", script: "Latn",
+  plurals: Object.freeze(["one", "other"] as const), digits: "latn", font: null, released: true, pseudo: false,
+});
+
+/** The source language (English): the one with no translated folder, whose Bible a language with none quotes. */
+export const SOURCE_LANGUAGE: SiteLanguage = SITE_LANGUAGES.find((language) => language.folder === null) ?? FALLBACK_SOURCE;
+
+const languageOf = (code: string): SiteLanguage | undefined => SITE_LANGUAGES.find((language) => language.code === code);
+
+/** The Bible a language quotes: its own, or the source language's for one with none (a made-up test language) or a
+ * code the site does not have. */
+export const siteLanguageBible = (code: string): string => languageOf(code)?.bible ?? SOURCE_LANGUAGE.bible ?? FALLBACK_SOURCE.bible!;
+
+/** The site language that Bible is written in: the language itself, or the source language when it quotes that one. */
+export const scriptureLanguage = (code: string): string => (languageOf(code)?.bible ? code : SOURCE_LANGUAGE.code);

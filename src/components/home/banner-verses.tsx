@@ -1,11 +1,14 @@
 // The home page banners' verses are the site's own short wording, cut by hand for the banner, so they are not verse ids:
 // each language's is cut the same way from that language's Bible (banner-verses.test.ts checks every piece against it).
+// A language with no wording of its own (a made-up test language, which quotes the English Bible) shows the English.
 import { useCurrentBible } from "@/lib/verses";
 import { useSiteLanguage, type LanguageCode } from "@/lib/language";
+import { SOURCE_LANGUAGE } from "@/lib/site-languages";
+import type { Translation } from "@/lib/types";
 
 export type BannerVerseName = "isaiah" | "john" | "peter" | "galatians";
 
-export const BANNER_VERSES: Record<LanguageCode, Record<BannerVerseName, string>> = {
+export const BANNER_VERSES: Partial<Record<LanguageCode, Record<BannerVerseName, string>>> = {
   en: {
     isaiah: "The grass withers and the flowers fall, but the word of our God stands forever.",
     john: "You pore over the Scriptures… These are the very words that testify about Me.",
@@ -51,7 +54,7 @@ export const BANNER_VERSES: Record<LanguageCode, Record<BannerVerseName, string>
 };
 
 /** The words around each emblem's ring, shown while it is hovered, by their English in emblem-designs.tsx. */
-export const RING_VERSES: Record<Exclude<LanguageCode, "en">, Record<string, string>> = {
+export const RING_VERSES: Partial<Record<LanguageCode, Record<string, string>>> = {
   es: {
     "the word of our God stands forever": "la palabra del Dios nuestro permanece para siempre",
     "Open my eyes that I may see wondrous things": "Abre mis ojos, y miraré las maravillas",
@@ -91,7 +94,7 @@ export const RING_VERSES: Record<Exclude<LanguageCode, "en">, Record<string, str
 };
 
 /** The blessing at the foot of the home page: each verse's lead-in and its gold ending, cut the same way. */
-export const BLESSING_VERSES: Record<LanguageCode, Record<"numbers" | "joshua", [string, string]>> = {
+export const BLESSING_VERSES: Partial<Record<LanguageCode, Record<"numbers" | "joshua", [string, string]>>> = {
   en: {
     numbers: ["May the LORD bless you and keep you;", "may the LORD cause His face to shine upon you and be gracious to you."],
     joshua: ["Be strong and courageous. Do not be afraid; do not be discouraged,", "for the LORD your God is with you wherever you go."],
@@ -130,15 +133,31 @@ export const BIBLE_OWN_NAMES: Record<string, string> = {
   ind: "Alkitab Yang Terbuka",
 };
 
+/** A language's own wording from one of the tables above, or the source language's when it has none, with the language
+ * the words are in. */
+export function homeWording<T>(table: Partial<Record<LanguageCode, T>>, language: LanguageCode): { words: T; language: LanguageCode } {
+  const own = table[language];
+  if (own !== undefined) return { words: own, language };
+  const source = table[SOURCE_LANGUAGE.code];
+  if (source === undefined) throw new Error(`banner-verses: "${language}" has no wording of its own and the source language "${SOURCE_LANGUAGE.code}" has none to fall back on`);
+  return { words: source, language: SOURCE_LANGUAGE.code };
+}
+
+/** The language marks for home-page words: the current Bible's when they are its words, else the source language's. */
+export const wordingMarks = (ownWords: boolean, bible: Translation): { lang: string; dir: "ltr" | "rtl" } =>
+  ownWords ? { lang: bible.lang, dir: bible.dir } : { lang: SOURCE_LANGUAGE.code, dir: SOURCE_LANGUAGE.dir };
+
 export function BannerVerse({ name }: { name: BannerVerseName }) {
   const language = useSiteLanguage();
   const bible = useCurrentBible();
-  return <span lang={bible.lang} dir={bible.dir} translate="no">“{BANNER_VERSES[language][name]}”</span>;
+  const wording = homeWording(BANNER_VERSES, language);
+  return <span {...wordingMarks(wording.language === language, bible)} translate="no">“{wording.words[name]}”</span>;
 }
 
 export function RingVerseWords({ english }: { english: string }) {
   const language = useSiteLanguage();
   const bible = useCurrentBible();
-  const words = language === "en" ? english : RING_VERSES[language][english] ?? english;
-  return <span lang={bible.lang} dir={bible.dir} translate="no">“{words[0].toUpperCase() + words.slice(1)}”</span>;
+  const own = language === SOURCE_LANGUAGE.code ? english : RING_VERSES[language]?.[english];
+  const words = own ?? english;
+  return <span {...wordingMarks(own !== undefined, bible)} translate="no">“{words[0].toUpperCase() + words.slice(1)}”</span>;
 }

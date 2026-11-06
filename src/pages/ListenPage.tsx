@@ -5,6 +5,7 @@ import recordings from '@/data/listen/recordings.json';
 import { BibleCardArt } from '@/components/bible/BibleCardArt';
 import { AudioBibleCover } from '@/components/bible/AudioBibleCover';
 import { useSiteLanguage } from '@/lib/language';
+import { scriptureLanguage, SOURCE_LANGUAGE } from '@/lib/site-languages';
 import '@/components/bible/bible-card-art.css';
 import './audio-bible.css';
 import './listen.css';
@@ -26,8 +27,9 @@ export default function ListenPage(){
  const [playing,setPlaying]=useState(false);
  const [filter,setFilter]=useState('all');
  const player=useRef<HTMLElement>(null);
- // The complete audio Bible is only in English (the ASV) until a recording exists in the reader's language.
- const english=useSiteLanguage()==='en';
+ // The complete audio Bible is only in English (the ASV) until a recording exists in the reader's language: offered
+ // wherever the reader's Bible is the English one (English, and a made-up test language).
+ const english=scriptureLanguage(useSiteLanguage())===SOURCE_LANGUAGE.code;
  const activeIndex=BOOKS.findIndex(book=>book.id===selected.id);
  const previous=BOOKS[activeIndex-1];
  const next=BOOKS[activeIndex+1];

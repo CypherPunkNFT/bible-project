@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { currentBibleSlug, DEFAULT_BIBLE, fillVerses, firstWords } from "@/lib/verses";
+import { currentBibleSlug, fillVerses, firstWords } from "@/lib/verses";
+import { SITE_LANGUAGES, SOURCE_LANGUAGE } from "@/lib/site-languages";
 import type { Catalog } from "@/lib/types";
 
 describe("the Bible for a language", () => {
-  it("gives each language its own Bible, all numbered as in English", () => {
-    expect(DEFAULT_BIBLE).toEqual({ en: "bsb", es: "rvr", "pt-BR": "bpm", "zh-Hans": "cuv", ar: "svd", hi: "irv", id: "ind" });
-    expect(currentBibleSlug("es")).toBe("rvr");
-    expect(currentBibleSlug("zh-Hans")).toBe("cuv");
+  it("is the one site-languages.json gives it, or English's for a language with none or a code the site lacks", () => {
+    for (const language of SITE_LANGUAGES) expect(currentBibleSlug(language.code), language.code).toBe(language.bible ?? SOURCE_LANGUAGE.bible);
+    expect(currentBibleSlug("xx-made-up")).toBe(SOURCE_LANGUAGE.bible);
   });
 });
 

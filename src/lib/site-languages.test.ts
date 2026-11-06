@@ -1,11 +1,9 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { BANNER_VERSES, BLESSING_VERSES, RING_VERSES } from "@/components/home/banner-verses";
-import { DEFAULT_BIBLE } from "./verses";
 import { siteLanguageProblems } from "./site-languages-check";
-import { SITE_LANGUAGES } from "./site-languages";
+import { SITE_LANGUAGES, SOURCE_LANGUAGE } from "./site-languages";
 
-// The one language file (translation system, stage 3, job 1).
+// The one language file (translation system, stage 3, job 1; the site moved onto it in job 2).
 const FILE = "src/lib/site-languages.json";
 const raw = readFileSync(FILE, "utf8");
 const data = JSON.parse(raw) as { languages: Record<string, unknown>[] };
@@ -55,6 +53,22 @@ describe("the one language file", () => {
     }
   });
 
+  it("with a fault in the source language, the browser still quotes the English Bible and reads left to right", async () => {
+    vi.resetModules();
+    vi.doMock("./site-languages.json", () => ({ default: withChange(0, { bible: null }) }));
+    const report = vi.spyOn(console, "error").mockImplementation(() => {});
+    try {
+      const fresh = await import("./site-languages");
+      expect(fresh.SITE_LANGUAGES.map((language) => language.code)).toEqual(codes.slice(1));
+      expect([fresh.SOURCE_LANGUAGE.code, fresh.SOURCE_LANGUAGE.bible, fresh.SOURCE_LANGUAGE.dir]).toEqual(["en", "bsb", "ltr"]);
+      expect(fresh.siteLanguageBible("made-up")).toBe("bsb");
+    } finally {
+      report.mockRestore();
+      vi.doUnmock("./site-languages.json");
+      vi.resetModules();
+    }
+  });
+
   const faults: [string, unknown, RegExp][] = [
     ["a release flag written as a string", withChange(1, { released: "false" }), /released: expected true or false/],
     ["a folder that climbs out of data/i18n", withChange(1, { folder: "../es" }), /folder: expected/],
@@ -69,6 +83,7 @@ describe("the one language file", () => {
     ["plurals with no \"other\"", withChange(1, { plurals: ["one"] }), /plurals: expected/],
     ["a source language that is not English", withChange(0, { code: "fr" }), /must be "en"/],
     ["an unreleased source language", withChange(0, { released: false }), /must be "en" and released/],
+    ["a source language with no Bible", withChange(0, { bible: null }), /source language \(folder null\) needs a Bible/],
     ["no list at all", { about: [] }, /expected an object with a "languages" list/],
   ];
   for (const [what, broken, message] of faults) {
@@ -80,56 +95,56 @@ describe("the one language file", () => {
   }
 });
 
-// Until job 2 moves the site onto the one file, the old per-language lists still exist beside it. These keep the two the
-// same, and stand in for the compile-time check "every code has an entry" that a plain-string LanguageCode gave up.
-// Job 2 deletes this block when it removes those lists.
-describe("bridge until job 2: the private lists agree with the one file", () => {
-  const source = SITE_LANGUAGES.find((language) => language.folder === null)!;
-  const keysOf = (table: object) => sorted(Object.keys(table));
+// What job 2 moved onto the one file (translation system, stage 3). The private lists that stay are written exemptions
+// in SiteTranslation/system/HANDOFF.md; these keep each of them true to the file, by rule rather than by a list of codes.
+describe("the site reads its languages from the one file", () => {
+  const source = SOURCE_LANGUAGE;
   const read = (file: string) => readFileSync(file, "utf8");
-  const found = (text: string, pattern: RegExp, what: string): RegExpMatchArray => {
-    const match = text.match(pattern);
-    if (!match) throw new Error(`${what}: the pattern ${pattern} no longer matches; update this bridge test (or job 2 has removed the list)`);
-    return match;
-  };
+  const quoted = (code: string) => new RegExp(`["'\`]${code.replace(/-/g, "\\-")}["'\`]`);
 
-  it("each language's Bible is the one verses.ts quotes", () => {
-    expect(keysOf(DEFAULT_BIBLE)).toEqual(sorted(codes));
-    for (const language of SITE_LANGUAGES) expect(DEFAULT_BIBLE[language.code], language.code).toBe(language.bible ?? source.bible);
-  });
-
-  it("the home page's verse tables have an entry for every language", () => {
-    expect(keysOf(BANNER_VERSES)).toEqual(sorted(codes));
-    expect(keysOf(BLESSING_VERSES)).toEqual(sorted(codes));
-    expect(keysOf(RING_VERSES)).toEqual(sorted(codes.filter((code) => code !== source.code)));
-  });
-
-  it("the reader's \"Read\" mark has an entry for every language", () => {
-    const table = found(read("src/pages/ReaderPage.tsx"), /const CHAPTER_READ[^=]*=\s*\{([^}]*)\}/, "ReaderPage.tsx CHAPTER_READ")[1];
-    const keys = [...table.matchAll(/(?:^|,)\s*"?([\w-]+)"?\s*:/g)].map((match) => match[1]);
-    expect(sorted(keys)).toEqual(sorted(codes));
-  });
-
-  it("index.html turns the page right to left for exactly the right-to-left languages", () => {
+  it("index.html names no language but the source one, and leaves the reading direction to the page translator", () => {
     const html = read("index.html");
-    found(html, /document\.documentElement\.dir = "rtl"/, "index.html's right-to-left line");
-    const flipped = [...html.matchAll(/language === "([\w-]+)"\) document\.documentElement\.dir = "rtl"/g)].map((match) => match[1]);
-    expect(flipped.length, "index.html: no language === \"..\" before its right-to-left line").toBeGreaterThan(0);
-    expect(sorted(flipped)).toEqual(sorted(SITE_LANGUAGES.filter((language) => language.dir === "rtl").map((language) => language.code)));
+    for (const language of SITE_LANGUAGES.filter((entry) => entry !== source)) expect(html, language.code).not.toMatch(quoted(language.code));
+    expect(html).not.toMatch(/\.dir\s*=/);
   });
 
-  it("each language's font is the one index.css gives its text, and a language with none has no rule", () => {
+  // index.css stays the authority for fonts: a font belongs to a script, and its rules are shared with the Bible
+  // languages (Persian, Urdu, Marathi...). The file's `font` must be exactly the rule a site language's text gets, and
+  // that rule must stop at <html>, or every label on the site would take the verse typeface in that language.
+  it("each language's font is the one index.css gives its text below <html>, and a language with none has no font rule", () => {
     const css = read("src/index.css").replace(/\/\*[\s\S]*?\*\//g, "");
     const squeeze = (text: string) => text.replace(/\s+/g, " ").trim();
-    const rules = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].map(([, selectors, body]) => ({ selectors: selectors.split(",").map(squeeze), body }));
-    expect(rules.length, "index.css: no rules read").toBeGreaterThan(20);
+    const fontRules = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)]
+      .map(([, selector, body]) => ({ selector: squeeze(selector), font: body.match(/font-family:\s*([^;]+);/)?.[1] }))
+      .filter((rule): rule is { selector: string; font: string } => rule.font !== undefined);
+    expect(fontRules.length, "index.css: no font rules read").toBeGreaterThan(5);
     for (const language of SITE_LANGUAGES) {
-      const fonts = rules
-        .filter((rule) => rule.selectors.some((selector) => selector.startsWith(`[lang="${language.code}"]`)))
-        .map((rule) => rule.body.match(/font-family:\s*([^;]+);/)?.[1])
-        .filter((font): font is string => font !== undefined)
-        .map(squeeze);
-      expect(fonts, language.code).toEqual(language.font === null ? [] : [squeeze(language.font)]);
+      const name = language.code.replace(/-/g, "\\-");
+      const naming = fontRules.filter((rule) => new RegExp(`\\[lang="${name}"\\]|:lang\\(${name}\\)`).test(rule.selector));
+      expect(naming.map((rule) => squeeze(rule.font)), language.code).toEqual(language.font === null ? [] : [squeeze(language.font)]);
+      for (const rule of naming) {
+        expect(rule.selector, `${language.code}: a font rule must not match <html>`).not.toMatch(new RegExp(`:lang\\(${name}\\)`));
+        expect(rule.selector, `${language.code}: a font rule must not match <html>`).not.toMatch(new RegExp(`\\[lang="${name}"\\](?!:not\\(html\\))`));
+      }
     }
+  });
+
+  it("every language with its own Bible quotes one the catalogue has, written in that language", () => {
+    const catalog = JSON.parse(read("data/catalog.json")) as { translations: { slug: string; lang: string }[] };
+    const primary = (tag: string) => tag.split("-")[0];
+    for (const language of [source, ...SITE_LANGUAGES.filter((entry) => entry.bible !== null)]) {
+      const bible = catalog.translations.find((translation) => translation.slug === language.bible);
+      expect(bible, `${language.code}: Bible "${language.bible}" is not in data/catalog.json`).toBeDefined();
+      // page-translator.ts waits on a reader page for verses marked :lang(<first part of the code>).
+      expect(primary(bible!.lang), language.code).toBe(primary(language.code));
+    }
+  });
+
+  it("the reader's \"Read\" mark, written in code, is the source's and each released language's own, under site codes only", () => {
+    const table = read("src/pages/ReaderPage.tsx").match(/const CHAPTER_READ[^=]*=\s*\{([^}]*)\}/)?.[1];
+    expect(table, "ReaderPage.tsx: no `const CHAPTER_READ ... = { ... }` found").toBeDefined();
+    const keys = [...table!.matchAll(/(?:^|,)\s*"?([\w-]+)"?\s*:/g)].map((match) => match[1]);
+    for (const key of keys) expect(codes, `CHAPTER_READ.${key}`).toContain(key);
+    for (const language of SITE_LANGUAGES.filter((entry) => entry.released)) expect(keys, language.code).toContain(language.code);
   });
 });
