@@ -16,6 +16,9 @@ REAL = json.loads(site_languages.FILE.read_text(encoding="utf-8"))
 MADE_UP = {"code": "en-XA", "folder": "en-xa", "bible": None, "name": "[Ëñĝļîšħ]", "englishName": "Made-up left to right",
            "dir": "ltr", "script": "Latn", "plurals": ["one", "other"], "digits": "latn", "font": None, "released": False,
            "pseudo": True}
+# The real file's languages without one under the made-up code (job 4 added the real made-up languages, en-XA among them),
+# so each planted fault below is the only thing wrong with its copy.
+OTHERS = [entry for entry in REAL["languages"] if entry["code"] != MADE_UP["code"]]
 
 
 def written(tmp_path: Path, data) -> Path:
@@ -49,9 +52,9 @@ FAULTS = {
     "a font that closes its CSS rule": with_change(1, font="serif; }"),
     "plurals without other": with_change(1, plurals=["one"]),
     "an empty menu name": with_change(1, name=" "),
-    "a made-up language marked released": {**REAL, "languages": REAL["languages"] + [{**MADE_UP, "released": True}]},
-    "a code twice, ignoring case": {**REAL, "languages": REAL["languages"] + [{**MADE_UP, "code": "ES", "folder": "es2"}]},
-    "two source languages": {**REAL, "languages": REAL["languages"] + [{**MADE_UP, "folder": None, "bible": "bsb"}]},
+    "a made-up language marked released": {**REAL, "languages": OTHERS + [{**MADE_UP, "released": True}]},
+    "a code twice, ignoring case": {**REAL, "languages": OTHERS + [{**MADE_UP, "code": "ES", "folder": "es2"}]},
+    "two source languages": {**REAL, "languages": OTHERS + [{**MADE_UP, "folder": None, "bible": "bsb"}]},
     "an unknown top-level field": {**REAL, "extra": []},
 }
 
@@ -70,7 +73,7 @@ def test_half_written_json_is_named(tmp_path: Path) -> None:
 
 
 def test_a_made_up_language_is_left_out_unless_asked(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    path = written(tmp_path, {**REAL, "languages": REAL["languages"] + [MADE_UP]})
+    path = written(tmp_path, {**REAL, "languages": OTHERS + [MADE_UP]})
     monkeypatch.setattr(site_languages, "languages", lambda: site_languages.read(path))
     assert "en-xa" not in site_languages.folders()
     assert site_languages.folders(pseudo=True)[-1] == "en-xa"

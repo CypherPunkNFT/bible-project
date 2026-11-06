@@ -5,7 +5,9 @@ import { cp, mkdir, mkdtemp, readdir, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
-import type { SiteLanguage } from "../src/lib/site-languages.ts";
+import { readFileSync } from "node:fs";
+import { siteLanguageProblems } from "../src/lib/site-languages-check.ts";
+import { releasedFolders, SITE_LANGUAGES, type SiteLanguage } from "../src/lib/site-languages.ts";
 import { assertOnlyReleasedTranslations, unreleasedTranslationEntries } from "./release-translations.ts";
 
 // A made-up list: Spanish released, "xa" still being made.
@@ -69,5 +71,47 @@ test("a copy missing a released language is refused", async () => {
     await assert.rejects(assertOnlyReleasedTranslations(path.join(root, "site"), LANGUAGES), /missing 1 \(es\)/);
   } finally {
     await rm(root, { recursive: true, force: true });
+  }
+});
+
+// Stage 3, job 4: the real language file holds two made-up test languages (en-XA in data/i18n/xa, ar-XB in xb), generated
+// by SiteTranslation/system/pseudo_language.py. Neither may ever reach a release, whatever is on disk.
+test("the made-up languages in the real language file can never enter a release", async () => {
+  const madeUp = SITE_LANGUAGES.filter((language) => language.pseudo);
+  assert.deepEqual(madeUp.map((language) => [language.code, language.folder]), [["en-XA", "xa"], ["ar-XB", "xb"]]);
+  const released = releasedFolders(SITE_LANGUAGES);
+  for (const language of madeUp) {
+    assert.equal(language.released, false, `${language.code} is marked released`);
+    assert.ok(!released.includes(language.folder!), `${language.folder} is among the released folders`);
+  }
+  // A data folder holding every language's copy, made-up ones included: the release leaves both out, and refuses a copy
+  // that holds either.
+  const root = await mkdtemp(path.join(os.tmpdir(), "release-made-up-"));
+  try {
+    const data = path.join(root, "data");
+    for (const language of SITE_LANGUAGES.filter((entry) => entry.folder)) {
+      await mkdir(path.join(data, "i18n", language.folder!), { recursive: true });
+      await writeFile(path.join(data, "i18n", language.folder!, "ui.json"), "{}");
+    }
+    const left = (await unreleasedTranslationEntries(data)).map((entry) => path.basename(entry)).sort();
+    assert.deepEqual(left, ["xa", "xb"]);
+    const site = path.join(root, "site");
+    await cp(data, path.join(site, "data"), { recursive: true, filter: (source) => !left.map((name) => path.resolve(data, "i18n", name)).includes(path.resolve(source)) });
+    assert.deepEqual((await assertOnlyReleasedTranslations(site)).folders.sort(), [...released].sort());
+    for (const folder of left) {
+      await cp(path.join(data, "i18n", folder), path.join(site, "data", "i18n", folder), { recursive: true });
+      await assert.rejects(assertOnlyReleasedTranslations(site), new RegExp(`not released \\(${folder}\\)`));
+      await rm(path.join(site, "data", "i18n", folder), { recursive: true, force: true });
+    }
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+  // Marking either one released is refused by the file's own check, which every Node step that reads the file runs.
+  const file = JSON.parse(readFileSync(new URL("../src/lib/site-languages.json", import.meta.url), "utf8")) as { languages: { pseudo: boolean; released: boolean }[] };
+  assert.deepEqual(siteLanguageProblems(file), []);
+  for (const index of file.languages.flatMap((language, at) => (language.pseudo ? [at] : []))) {
+    const changed = structuredClone(file);
+    changed.languages[index].released = true;
+    assert.ok(siteLanguageProblems(changed).some((problem) => /can never be released/.test(problem)), `released made-up language ${index} was not refused`);
   }
 });
