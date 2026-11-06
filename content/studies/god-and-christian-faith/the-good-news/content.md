@@ -28,9 +28,9 @@ Creation shows that God is powerful. It does not show what He is like toward us.
 
 God is **just**. Abraham, pleading for a city, asks: "Will not the Judge of all the earth do what is right?" (Genesis 18:25). God does not shrug at wrong. A judge who ignored cruelty would not be good.
 
-God is also **loving**, and His love is not a feeling held at a distance. It acts: "God so loved the world that He gave His one and only Son" (John 3:16). The Son is Jesus. Christians believe in one God, who is eternally Father, Son and Holy Spirit. Read more in the site's articles on the Trinity [check: title and link of the Trinity articles].
+God is also **loving**, and His love is not a feeling held at a distance. It acts: "God so loved the world that He gave His one and only Son" (John 3:16). The Son is Jesus. Christians believe in one God, who is eternally Father, Son and Holy Spirit. Read more in the site's article [The Trinity](/study/theology-articles/the-trinity).
 
-Its limits: this part does not try to prove God's existence. If that is your question, the site's apologetics answers take it up [check: title and link of the apologetics answer on God's existence].
+Its limits: this part does not try to prove God's existence. If that is your question, the site's apologetics answer [Why is there something rather than nothing?](/apologetics/study/why-anything) takes it up.
 
 **Consider:** What can creation tell you about God, and what can it not tell you?
 
@@ -126,7 +126,7 @@ Acts 2:36 · BSB
 
 [care] Peter said "you crucified" as a Jew to a Jerusalem crowd, and he named the Romans as "the hands of the lawless" (Acts 2:23). Weeks later the first believers prayed that "Herod and Pontius Pilate conspired with the Gentiles and the people of Israel against Your holy servant Jesus" and that "they carried out what Your hand and will had decided beforehand would happen" (Acts 4:27–28). Isaiah says the LORD laid on Him "the iniquity of us all" (Isaiah 53:6). Scripture places the guilt for Christ's death on all of us. It never places it on the Jewish people as a people, and this site never does.
 
-Its limits: this part does not explain how Jesus' death takes away sin; read more in *What the cross accomplishes*. If you want the historical evidence, see the site's apologetics answers on Jesus [check: link], on the cross [check: link] and on the resurrection [check: link]. Read more on who Jesus is in *Who do you say that I am*.
+Its limits: this part does not explain how Jesus' death takes away sin; read more in *What the cross accomplishes*. If you want the historical evidence, see the site's apologetics answers [Was Jesus simply a great teacher?](/apologetics/study/jesus), [Why would forgiveness involve the cross?](/apologetics/study/cross) and [Does the resurrection really matter?](/apologetics/study/resurrection). Read more on who Jesus is in *Who do you say that I am*.
 
 **Consider:** What three things does Peter say God did through, to and for Jesus?
 
@@ -166,9 +166,9 @@ Read more in *Grace, faith and salvation*.
 
 The new believers in Acts 2 did not stay alone. They were baptized and "added to the believers" (Acts 2:41). Three things follow for anyone who trusts Christ.
 
-**A church.** A *church* is not a building. It is a gathering of people who trust Jesus, who meet to worship, learn and care for one another. Look for one that preaches the Bible and Jesus plainly. The site's church finder can help [check: link to the church finder]. Read more in *The church and its calling*.
+**A church.** A *church* is not a building. It is a gathering of people who trust Jesus, who meet to worship, learn and care for one another. Look for one that preaches the Bible and Jesus plainly. The [map of churches](/) on the home page can help. Read more in *The church and its calling*.
 
-**Baptism.** *Baptism* is going under water, in the name of the Father, Son and Holy Spirit, as a public sign that you belong to Christ. Baptists call it an *ordinance*, a practice Jesus ordered His followers to keep. With the Baptist Faith and Message, this site holds that baptism is "the immersion of a believer in water", and "an act of obedience symbolizing the believer's faith" (article VII, baptism and the Lord's Supper). Read more in the baptism study [check: title of the baptism and Lord's Supper study].
+**Baptism.** *Baptism* is going under water, in the name of the Father, Son and Holy Spirit, as a public sign that you belong to Christ. Baptists call it an *ordinance*, a practice Jesus ordered His followers to keep. With the Baptist Faith and Message, this site holds that baptism is "the immersion of a believer in water", and "an act of obedience symbolizing the believer's faith" (article VII, baptism and the Lord's Supper). *The church and its calling* reads each baptism in Acts.
 
 **The Bible.** Begin with one of the Gospels, the four accounts of Jesus' life. Mark is short, and John was written so that readers would believe (John 20:31). This suggestion is the site's, not a rule.
 
@@ -186,7 +186,7 @@ John writes "so that you may *know*". This kind of confidence, called *assurance
 
 ## Question: Is it too late for me?
 
-[care] If you are asking this because you feel you have gone too far, or you are thinking of ending your life, please speak to someone today. In the United States, call or text 988 [check before publishing]. In Spain, call 024 [check before publishing]. In Mexico, the Línea de la Vida is 800 911 2000 [check before publishing]. For other Spanish-speaking countries: [check before publishing: the crisis line for each country the site serves]. In Brazil, CVV answers on 188 [check before publishing]. Anywhere, you can call your local emergency number. Feelings this heavy do pass, and people do recover. Telling someone is the right thing to do.
+[care] If you are asking this because you feel you have gone too far, or you are thinking of ending your life, please speak to someone today. In the United States, call or text 988. In Spain, call 024. In Mexico, the Línea de la Vida is 800 911 2000. In Brazil, CVV answers on 188. For other countries, see [Help for life](/resources/life). Anywhere, you can call your local emergency number. Feelings this heavy do pass, and people do recover. Telling someone is the right thing to do.
 
 As long as you are alive to ask, it is not too late. The son in Luke 15 had wasted everything, and his father ran to him. One of the men crucified beside Jesus had nothing left to offer, and Jesus promised him Paradise that day (Luke 23:43). "Everyone who calls on the name of the Lord will be saved" (Romans 10:13). The word *everyone* has no exceptions.
 
@@ -194,7 +194,7 @@ As long as you are alive to ask, it is not too late. The son in Luke 15 had wast
 
 Turning to Christ does not mean despising the people who raised you. God's own commandments tell us to honour father and mother (Exodus 20:12). If your family is Jewish, remember that Peter was a Jew speaking to Jews, and that Jesus is presented to them as Israel's own promised Messiah (Acts 2:36). Paul writes, "there is no difference between Jew and Greek: The same Lord is Lord of all, and gives richly to all who call on Him" (Romans 10:12).
 
-Faith cannot be inherited or forced. The Baptist Faith and Message holds that God alone is Lord of the conscience (article XVII, religious liberty). Take your time, ask your questions, and speak to your family with respect. The site's apologetics answers treat other religions in their own words [check: link].
+Faith cannot be inherited or forced. The Baptist Faith and Message holds that God alone is Lord of the conscience (article XVII, religious liberty). Take your time, ask your questions, and speak to your family with respect. The site's [apologetics answers on other beliefs](/apologetics/worldviews) treat other religions in their own words.
 
 ## Question: Must I be baptized to be saved?
 
