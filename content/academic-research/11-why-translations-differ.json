@@ -1,0 +1,2246 @@
+{
+  "schemaVersion": 1,
+  "order": 11,
+  "title": "Why translations differ",
+  "slug": "why-translations-differ",
+  "category": "interpretation",
+  "categoryTitle": "Reading & interpreting Scripture",
+  "updated": "2026-11-06",
+  "status": "draft",
+  "draftNote": "First research draft, step 17 of the next twenty study drafts, written 2026-11-06 inside the scope set by the redundancy review of 2026-11-05. It takes in the Scripture & Theology draft 35, Versions and translation, whose plain-reader material is carried over as section 06; draft 35 will not get its own page and its files were not edited. No page, route or component. Every verse comparison was read from the site's own held texts in Website/data/text (the Berean Standard Bible and its notes, and the King James, American Standard, World English, Young's Literal, Basic English, Douay-Rheims, Tyndale, Geneva, JPS 1917, Brenton's Septuagint, the Majority Standard Bible, and the Hebrew, Greek and Latin texts), and every count was made by a script over those copies. A few facts about publishers and editions were read through a tool that returns a report on a web page, not the page itself; each such source says so, and they are to be rechecked before a page is built.",
+  "premise": "Two Bibles word the same verse differently for one of two reasons: their translators were translating different words, because the copies disagree, or they carried the same words across in different ways. Telling which is happening is a skill any reader can learn, and the notes in the reader's own Bible usually say.",
+  "question": "Is this difference in the text, or in the translating?",
+  "outcomes": [
+    "Given two renderings of one verse, tell whether they differ because of the text translated or the way it was translated.",
+    "Name the texts a translator stands on: the Masoretic Hebrew, the Dead Sea Scrolls, the Septuagint, and the Greek New Testament in its printed editions and families.",
+    "Say what formal, functional and paraphrase translation each try to keep, and what each must give up.",
+    "Read the notes in a Bible, and tell an alternative rendering from a literal one from a different reading of the text.",
+    "Choose a translation for continuous reading and for close study, and know why this site quotes the Berean Standard Bible."
+  ],
+  "boundaries": {
+    "in": "Why English Bibles word the same verse differently: the source texts behind them, the ways of translating, a set of real verses compared across named translations held on this site, the popular claims about translations, and how to choose and read one. The Berean Standard Bible is the site's text throughout.",
+    "out": [
+      "The manuscripts as objects, their dates and where they are kept: The surviving witnesses (01). Only enough is said here to name what a translator follows.",
+      "Weighing individual Greek readings manuscript by manuscript, and the ending of Mark: A passage through the manuscripts (02) and the research example Where does Mark end? This page shows what translations do with such readings, not how the readings are judged.",
+      "Qumran and its scrolls: The Dead Sea Scrolls (03). Only four readings that change an English verse are here.",
+      "Erasmus, the first printed Greek New Testament, and the story of 1 John 5:7 in print: From manuscript to printed Bible (05). It is named here and left there.",
+      "Hebrew letters, roots and verb forms: How Hebrew works (28). Greek endings, the article and verb aspect: How New Testament Greek works (31). Looking words up by number: Strong's numbers (26). This page assumes no Hebrew or Greek and links to those three wherever a difference turns on a form.",
+      "Which Greek wording of the Old Testament the apostles had: the planned study The Septuagint. One quotation, Psalm 40 in Hebrews 10, is here as an example.",
+      "The history of God's name in translation: the planned study The divine name in translation. Only the printing conventions (LORD, Jehovah, Yahweh) are here.",
+      "How context fixes a word's meaning: the planned study Words in their passages.",
+      "The 37 editions in the site's library and the books each contains: the Versions & languages page. This page compares wording, not contents."
+    ]
+  },
+  "links": [
+    {
+      "title": "Strong's numbers: using them without being misled",
+      "route": "/study/strongs-numbers",
+      "why": "Research file 26. What a number can and cannot tell a reader about a word behind a translation."
+    },
+    {
+      "title": "How Hebrew works",
+      "route": "/study/how-hebrew-works",
+      "why": "Research file 28. The letters and forms behind every Old Testament difference here, including the two Hebrew words in Psalm 22:16."
+    },
+    {
+      "title": "How New Testament Greek works",
+      "route": "/study/how-new-testament-greek-works",
+      "why": "Research file 31. Why Greek word order is free, and what a verb form does and does not say, which is the ground of many rendering choices."
+    },
+    {
+      "title": "The surviving witnesses",
+      "route": "/study/surviving-witnesses",
+      "why": "The manuscripts themselves, behind every edition named here."
+    },
+    {
+      "title": "A passage through the manuscripts",
+      "route": "/study/passage-through-manuscripts",
+      "why": "How readings are weighed in real Greek manuscripts, including the ending of Mark."
+    },
+    {
+      "title": "The Dead Sea Scrolls",
+      "route": "/study/dead-sea-scrolls",
+      "why": "The scrolls behind the four Dead Sea readings in section 02."
+    },
+    {
+      "title": "From manuscript to printed Bible",
+      "route": "/study/from-manuscript-to-printed-bible",
+      "why": "Erasmus's Greek of 1516, the printed editions that followed, and 1 John 5:7."
+    },
+    {
+      "title": "How the church has read the Bible",
+      "route": "/study/how-the-church-has-read-the-bible",
+      "why": "Its note on Galatians 4:24, where the King James prints \"are an allegory\" and the Berean \"serve as illustrations\": a translation has to choose too."
+    },
+    {
+      "title": "Versions & languages",
+      "route": "/study/versions",
+      "why": "The editions in the site's library placed in time, with the books each contains."
+    },
+    {
+      "title": "Has the Bible been changed beyond recognition?",
+      "route": "/apologetics/topics/bible",
+      "why": "Under the Bible topic in Apologetics. The site's apologetics answer on preservation, for the reader whose question is whether the differences shown here undermine the Bible."
+    }
+  ],
+  "figures": [
+    {
+      "value": "16",
+      "label": "verse numbers with no verse",
+      "caption": "King James New Testament verse numbers that have no verse in the site's Berean text. The Berean prints every one of them in a note on the verse before.",
+      "source": "count-script"
+    },
+    {
+      "value": "4,810",
+      "label": "notes in the Berean",
+      "caption": "Footnotes in 4,277 verses of the site's Berean text. Nearly half say \"Or\" or \"Literally\"; several hundred name a different ancient text.",
+      "source": "count-script"
+    },
+    {
+      "value": "1,654",
+      "label": "verses worded differently",
+      "caption": "New Testament verses where the Berean and its sister, the Majority Standard Bible, differ in wording. Same translators; a different Greek text, and some later revision.",
+      "source": "count-script"
+    },
+    {
+      "value": "3",
+      "label": "Greek editions held",
+      "caption": "The Textus Receptus (1894), Tischendorf's eighth edition (1872) and the Byzantine Majority Text (2018), read side by side in section 02.",
+      "source": "count-script"
+    }
+  ],
+  "twoDecisions": {
+    "head": "Which words? *How to carry them?*",
+    "reads": "Every difference between two Bibles goes back to one of two decisions. The first is which wording to translate, where the copies disagree. The second is how to carry that wording into English. Eight verses, four of each, are set out here so the pattern shows before any detail.",
+    "kinds": [
+      {
+        "id": "text",
+        "name": "The text",
+        "asks": "Were the translators translating the same words?",
+        "signs": "A note that names an ancient text: MT, DSS, LXX, SP, Syriac, Vulgate, BYZ, TR, or \"some manuscripts\"."
+      },
+      {
+        "id": "rendering",
+        "name": "The translating",
+        "asks": "Same words underneath. Did they carry them across differently?",
+        "signs": "A note that begins \"Or\" (another possible rendering) or \"Literally\" (the form underneath)."
+      }
+    ],
+    "cases": [
+      {
+        "id": "deut-32-8",
+        "kind": "text",
+        "ref": "Deuteronomy 32:8",
+        "head": "Sons of God. *Sons of Israel.*",
+        "renderings": [
+          {
+            "edition": "BSB",
+            "text": "according to the number of the sons of God"
+          },
+          {
+            "edition": "KJV",
+            "text": "according to the number of the children of Israel"
+          },
+          {
+            "edition": "JPS 1917",
+            "text": "according to the number of the children of Israel"
+          },
+          {
+            "edition": "Brenton (from the Greek)",
+            "text": "according to the number of the angels of God"
+          }
+        ],
+        "bsbNote": "DSS; LXX according to the number of the angels of God; MT according to the number of the sons of Israel",
+        "evidence": "The Westminster Leningrad Codex reads \"sons of Israel\". The site's Greek Septuagint reads \"angels of God\". The Berean's note names a Dead Sea Scroll for \"sons of God\" and follows it.",
+        "inference": "The King James and JPS translated the Hebrew of the medieval Masoretic copies. The Berean translated a wording older copies preserve. Neither is a looser translation: they translate different words.",
+        "limit": "The scroll itself was not read here; it is known on this page only through the Berean's note. What the verse means on either reading is a question for commentaries.",
+        "sources": [
+          "scripture",
+          "wlc",
+          "lxx",
+          "lxxe",
+          "kjv",
+          "jps"
+        ]
+      },
+      {
+        "id": "ps-22-16",
+        "kind": "text",
+        "ref": "Psalm 22:16",
+        "head": "Pierced. *Like a lion.*",
+        "renderings": [
+          {
+            "edition": "BSB",
+            "text": "they have pierced my hands and feet"
+          },
+          {
+            "edition": "KJV",
+            "text": "they pierced my hands and my feet"
+          },
+          {
+            "edition": "JPS 1917",
+            "text": "like a lion, they are at my hands and my feet"
+          },
+          {
+            "edition": "Brenton (from the Greek)",
+            "text": "they pierced my hands and my feet"
+          }
+        ],
+        "bsbNote": "DSS, LXX, Vulgate, and Syriac; most MT like a lion at my hands and feet",
+        "evidence": "The Leningrad Codex, at its verse 17, has the Hebrew word for \"like a lion\". The site's Greek Septuagint, at its Psalm 21:17, has \"they dug\". The Berean names the Dead Sea Scrolls, the Septuagint, the Vulgate and the Syriac for its reading, and says most Masoretic copies have the other.",
+        "inference": "Two Hebrew words that differ by one small stroke of a letter lie behind the two Englishes. The verse is also numbered three ways: 16 in English Bibles, 17 in Hebrew, 21:17 in the Greek. Two Bibles can disagree about where a verse is without disagreeing about what it says.",
+        "limit": "The Berean's \"most MT\" admits that some Masoretic copies differ; which ones was not checked here. How the two Hebrew words relate is argued by specialists and is not settled on this page.",
+        "sources": [
+          "scripture",
+          "wlc",
+          "lxx",
+          "lxxe",
+          "kjv",
+          "jps"
+        ]
+      },
+      {
+        "id": "luke-2-14",
+        "kind": "text",
+        "ref": "Luke 2:14",
+        "head": "Good will toward men. *Men on whom His favor rests.*",
+        "renderings": [
+          {
+            "edition": "BSB",
+            "text": "and on earth peace to men on whom His favor rests!"
+          },
+          {
+            "edition": "MSB",
+            "text": "and on earth peace, good will toward men!"
+          },
+          {
+            "edition": "KJV",
+            "text": "and on earth peace, good will toward men."
+          }
+        ],
+        "bsbNote": null,
+        "evidence": "The Textus Receptus and the Byzantine text end the verse with the Greek word for \"good will\". Tischendorf's edition ends it with the same word plus one final letter, which makes it \"of good will\". The Berean, which here has no note, follows the second; its sister, the Majority Standard Bible, from the same translators, follows the first.",
+        "inference": "One letter in the Greek moves the angels' words from good will offered to all people to peace for those God favours. The two Berean editions show it cleanly, because the same team translated both.",
+        "limit": "Which letter Luke wrote is a question for the manuscripts (study 02). The Berean gives no note here, so a reader of it alone would not know the question exists.",
+        "sources": [
+          "scripture",
+          "msb",
+          "tr",
+          "byz",
+          "tis",
+          "kjv"
+        ]
+      },
+      {
+        "id": "acts-8-37",
+        "kind": "text",
+        "ref": "Acts 8:37",
+        "head": "A verse in the margin. *Not out of the Bible.*",
+        "renderings": [
+          {
+            "edition": "BSB",
+            "text": "No verse 37 in the text; a note on verse 36: \"TR includes 37 And Philip said, 'If you believe with all your heart, you may be baptized.' The eunuch replied, 'I believe that Jesus Christ is the Son of God.'\""
+          },
+          {
+            "edition": "MSB",
+            "text": "No verse 37."
+          },
+          {
+            "edition": "KJV",
+            "text": "And Philip said, If thou believest with all thine heart, thou mayest. And he answered and said, I believe that Jesus Christ is the Son of God."
+          }
+        ],
+        "bsbNote": "TR includes 37 And Philip said, \"If you believe with all your heart, you may be baptized.\" The eunuch replied, \"I believe that Jesus Christ is the Son of God.\"",
+        "evidence": "The verse is in the Textus Receptus. It is not in the Byzantine Majority Text held here, nor in Tischendorf. The Berean prints it in a note. The Majority Standard Bible, which follows the Byzantine text, has no verse 37 at all.",
+        "inference": "This verse is missing from modern Bibles not because modern editors dropped it, but because most manuscripts of every kind lack it, the Byzantine majority included. It came into print through the Textus Receptus.",
+        "limit": "Which manuscripts carry the verse, and how it entered the printed text, were not studied here. The claim that it is absent from most manuscripts rests on the Byzantine edition held here and on the Majority Standard Bible's choice, not on a count of manuscripts.",
+        "sources": [
+          "scripture",
+          "msb",
+          "tr",
+          "byz",
+          "tis",
+          "kjv"
+        ]
+      },
+      {
+        "id": "1-sam-24-3",
+        "kind": "rendering",
+        "subkind": "idiom",
+        "ref": "1 Samuel 24:3",
+        "head": "Cover his feet. *Relieve himself.*",
+        "renderings": [
+          {
+            "edition": "BSB",
+            "text": "he went in to relieve himself"
+          },
+          {
+            "edition": "KJV",
+            "text": "Saul went in to cover his feet"
+          },
+          {
+            "edition": "YLT",
+            "text": "Saul goeth in to cover his feet"
+          },
+          {
+            "edition": "BBE",
+            "text": "Saul went in for a private purpose"
+          }
+        ],
+        "bsbNote": "Literally cover his feet, a euphemism for relieving oneself",
+        "evidence": "Every translation here translates the same Hebrew. The King James and Young's keep the words; the Berean and the World English Bible give the meaning; the Basic English hides it politely. The Berean's note gives the literal words and says they are a euphemism.",
+        "inference": "A word-for-word rendering can keep the words and lose the meaning. A reader of \"cover his feet\" who does not know the idiom does not know why Saul is in the cave.",
+        "limit": "That the phrase is a euphemism is the Berean's note and the common reading; this page did not test it in Hebrew sources.",
+        "sources": [
+          "scripture",
+          "kjv",
+          "ylt",
+          "bbe",
+          "web"
+        ]
+      },
+      {
+        "id": "rom-3-25",
+        "kind": "rendering",
+        "subkind": "word",
+        "ref": "Romans 3:25",
+        "head": "Propitiation. *Mercy seat. Atoning sacrifice.*",
+        "renderings": [
+          {
+            "edition": "BSB",
+            "text": "God presented Him as the atoning sacrifice"
+          },
+          {
+            "edition": "KJV",
+            "text": "Whom God hath set forth to be a propitiation"
+          },
+          {
+            "edition": "YLT",
+            "text": "whom God did set forth a mercy seat"
+          },
+          {
+            "edition": "BBE",
+            "text": "Whom God has put forward as the sign of his mercy"
+          }
+        ],
+        "bsbNote": "Or as a propitiation",
+        "evidence": "One Greek word, four Englishes. The Berean's note gives the King James word as a second possible rendering.",
+        "inference": "Here the translator is choosing how much of a doctrine one English word should carry. \"Propitiation\" names turning away wrath; \"mercy seat\" names the lid of the ark where the blood was sprinkled; \"atoning sacrifice\" is wider than either; \"sign of his mercy\" is the thinnest. The Greek word is the same in all four.",
+        "limit": "What the Greek word means here is argued in commentaries and not settled on this page. The Baptist Faith and Message 2000 speaks of Christ's \"substitutionary death\"; the site's own reading stays inside that, and this page reports the renderings without ranking them.",
+        "sources": [
+          "scripture",
+          "kjv",
+          "ylt",
+          "bbe",
+          "foundation"
+        ]
+      },
+      {
+        "id": "rom-6-2",
+        "kind": "rendering",
+        "subkind": "idiom",
+        "ref": "Romans 6:2",
+        "head": "God forbid. *Let it not be.*",
+        "renderings": [
+          {
+            "edition": "BSB",
+            "text": "Certainly not!"
+          },
+          {
+            "edition": "KJV",
+            "text": "God forbid."
+          },
+          {
+            "edition": "Tyndale 1534",
+            "text": "God forbyd."
+          },
+          {
+            "edition": "YLT",
+            "text": "let it not be!"
+          },
+          {
+            "edition": "BBE",
+            "text": "In no way."
+          }
+        ],
+        "bsbNote": null,
+        "evidence": "The Greek, in all three editions held here, is two words that mean \"may it not be\". It has no word for God. Tyndale and the King James give an English oath of the same force; Young's gives the words; the Berean gives the force in plain English.",
+        "inference": "The King James, often called word-for-word, here gives a functional rendering inherited from Tyndale. Young's Literal is the formal one. No translation is formal or functional everywhere.",
+        "limit": "That the two Greek words carry the force of a strong refusal is the common reading; this page reports the renderings and links the Greek study for the form.",
+        "sources": [
+          "scripture",
+          "tr",
+          "kjv",
+          "tnt",
+          "ylt",
+          "bbe"
+        ]
+      },
+      {
+        "id": "exod-3-15",
+        "kind": "rendering",
+        "subkind": "convention",
+        "ref": "Exodus 3:15",
+        "head": "The LORD. *Jehovah.*",
+        "renderings": [
+          {
+            "edition": "BSB",
+            "text": "The LORD, the God of your fathers"
+          },
+          {
+            "edition": "ASV",
+            "text": "Jehovah, the God of your fathers"
+          },
+          {
+            "edition": "YLT",
+            "text": "Jehovah, God of your fathers"
+          },
+          {
+            "edition": "Douay-Rheims",
+            "text": "The Lord God of your fathers"
+          }
+        ],
+        "bsbNote": null,
+        "evidence": "The Hebrew has God's own name here. The Berean, King James, JPS and World English print LORD in capitals; the World English Bible's note says the capitals stand for the Hebrew name, and its preface says its Classic edition prints Yahweh instead. The American Standard and Young's print Jehovah. The Douay-Rheims, translated from the Latin, prints Lord in ordinary letters.",
+        "inference": "This is a convention, not a disagreement about the text. A reader who knows that LORD in capitals stands for the name can read through any of them.",
+        "limit": "Where the conventions came from, and the arguments over the name's pronunciation, belong to the planned study The divine name in translation and to How Hebrew works.",
+        "sources": [
+          "scripture",
+          "kjv",
+          "asv",
+          "ylt",
+          "dra",
+          "web-preface"
+        ]
+      }
+    ]
+  },
+  "texts": {
+    "head": "Many copies. *One choice per verse.*",
+    "reads": "No translator works from the original pages; none survives. Each works from printed editions built out of copies, and where the copies disagree, from a choice. These are the texts behind every English Bible, with how often the Berean's own notes name each one.",
+    "oldTestament": [
+      {
+        "id": "mt",
+        "name": "The Masoretic Text",
+        "kind": "Hebrew",
+        "what": "The Hebrew text as copied, with vowels and accents added, by the Jewish scholars called Masoretes. Its oldest complete copy is the Leningrad Codex, which the site holds in the Westminster edition and catalogues as 1008. The Aleppo Codex is older, about 930, but has been incomplete since 1947.",
+        "kept": "Leningrad Codex: National Library of Russia, St Petersburg. Aleppo Codex: Israel Museum, Jerusalem. Neither was re-checked for this draft; study 01 holds the manuscripts.",
+        "notes": "Named as MT in 113 of the Berean's notes, and as \"Hebrew\" in many more.",
+        "evidence": "The Berean, the King James and the JPS 1917 all translate it as their base text. Where the Berean leaves it, its note says so and names what it follows.",
+        "inference": "When an English Old Testament departs from the Masoretic Text, it is a decision a reader can find, not a hidden habit.",
+        "limit": "\"Masoretic Text\" names a tradition of many copies, not one book; the Berean's \"most MT\" at Psalm 22:16 shows they are not all alike.",
+        "sources": [
+          "scripture",
+          "wlc",
+          "count-script"
+        ],
+        "link": "/study/how-hebrew-works"
+      },
+      {
+        "id": "dss",
+        "name": "The Dead Sea Scrolls",
+        "kind": "Hebrew (and some Greek and Aramaic)",
+        "what": "Scrolls and fragments found from 1947 near Qumran and elsewhere by the Dead Sea, including copies of every book of the Hebrew Bible except Esther, by the usual count, many about a thousand years older than the Leningrad Codex.",
+        "kept": "Mainly the Israel Museum and the Israel Antiquities Authority, Jerusalem: see study 03.",
+        "notes": "Named as DSS in 68 of the Berean's notes, 66 of them in the Old Testament.",
+        "evidence": "The Berean follows a scroll's wording at Deuteronomy 32:8, Psalm 22:16 and Isaiah 53:11, and gives a scroll's longer wording at 1 Samuel 10:27 in a note only.",
+        "inference": "The scrolls mostly confirm the Masoretic wording and, in a few places, change an English verse. Both halves of that sentence are true, and a reader is misled by either alone.",
+        "limit": "\"Except Esther\" is the usual count, reported from study 03's field and not re-checked here. No scroll was read for this draft; each reading is known here through the Berean's note.",
+        "sources": [
+          "scripture",
+          "count-script"
+        ],
+        "link": "/study/dead-sea-scrolls"
+      },
+      {
+        "id": "lxx",
+        "name": "The Septuagint",
+        "kind": "Greek translation",
+        "what": "The Greek translation of the Hebrew Scriptures, begun with the five books of Moses in Egypt in the third century BC by the usual account. The site holds a Greek text and Brenton's English of 1844.",
+        "kept": "Its oldest near-complete copies are in the great Greek Bibles of the 300s and 400s, which also carry the New Testament: Codex Vaticanus, Codex Sinaiticus, Codex Alexandrinus.",
+        "notes": "Named as LXX in 579 of the Berean's notes: 495 in the Old Testament, 84 in the New, where an apostle quotes it.",
+        "evidence": "At Psalm 40:6 the Hebrew has \"my ears You have opened\"; the Greek, at its Psalm 39:7, has \"a body hast thou prepared me\" (Brenton); and Hebrews 10:5 quotes the Greek: \"a body You prepared for Me\" · BSB.",
+        "inference": "The Septuagint is a translation, and also a witness to the Hebrew its translators had. When the New Testament quotes it, a reader will meet two wordings of one psalm, both in Scripture.",
+        "limit": "Why the Greek reads as it does at Psalm 40, and which Greek wording the apostles knew, belong to the planned study The Septuagint.",
+        "sources": [
+          "scripture",
+          "lxx",
+          "lxxe",
+          "count-script"
+        ],
+        "link": "/study/how-new-testament-greek-works"
+      },
+      {
+        "id": "early",
+        "name": "Other early witnesses",
+        "kind": "Hebrew, Syriac, Latin",
+        "what": "The Samaritan Pentateuch (the five books of Moses as the Samaritans kept them), the Syriac translation, and Jerome's Latin, the Vulgate, finished in the early 400s. The site holds the Clementine Vulgate of 1598.",
+        "kept": "Not examined here.",
+        "notes": "Named in the Berean's notes as SP 24 times, Syriac 142 times and Vulgate 100 times.",
+        "evidence": "At Genesis 4:8 the Hebrew of the Leningrad Codex says only that Cain \"spoke\" to Abel, and never says what. The Berean, following the Samaritan, Greek, Syriac and Latin, gives his words: \"Let us go out to the field.\" The King James and JPS follow the Hebrew: \"Cain talked with Abel his brother\" (King James).",
+        "inference": "A translator may fill a gap the Hebrew copies seem to have left, from older witnesses that agree. The Berean does, and says so.",
+        "limit": "None of these witnesses was read for this draft; each is known here through the Berean's notes.",
+        "sources": [
+          "scripture",
+          "wlc",
+          "kjv",
+          "jps",
+          "count-script"
+        ]
+      }
+    ],
+    "newTestament": [
+      {
+        "id": "families",
+        "name": "Families of copies",
+        "kind": "Greek manuscripts",
+        "what": "Scholars group the more than five thousand Greek manuscripts into families by shared readings. The Alexandrian family holds most of the earliest copies, from Egypt, among them Codex Vaticanus and Codex Sinaiticus of the 300s. The Byzantine family holds most copies by number, nearly all from the 800s onward. A Western family is named for readings in Codex Bezae and the old Latin.",
+        "kept": "Codex Vaticanus: Vatican Library. Codex Sinaiticus: mostly the British Library, London. Codex Bezae: Cambridge University Library. Not re-checked here; see study 01.",
+        "evidence": "The family names are scholars' groupings, not labels the manuscripts carry.",
+        "inference": "\"Older copies\" and \"most copies\" are two different tests, and they point to different families. That is the root of the argument in the box below.",
+        "limit": "Whether families are the right way to group the copies at all is itself debated; a newer method weighs readings by computer across all copies. The number of manuscripts is the round figure used across the site; the Manuscripts collection gives its own count and date.",
+        "sources": [
+          "located-aland"
+        ],
+        "link": "/study/surviving-witnesses"
+      },
+      {
+        "id": "tr",
+        "name": "The Textus Receptus",
+        "kind": "Printed Greek",
+        "what": "The \"received text\": the printed Greek of the Reformation, from Erasmus in 1516 through Stephanus in 1550 and Beza from 1565. The name comes from a Latin line in an edition printed by the Elzevirs in 1633: \"the text now received by all\". The site holds Scrivener's edition of 1894, which sets out the Greek the King James translators followed.",
+        "notes": "Named as TR in 232 of the Berean's notes.",
+        "evidence": "Behind Tyndale, the Geneva Bible and the King James New Testament.",
+        "inference": "The King James did not translate \"the majority of manuscripts\"; it translated the printed Greek of its day, which began with Erasmus working from the few manuscripts he had to hand.",
+        "limit": "Study 05 reports that a limited supply of manuscripts and rapid production constrained Erasmus's first edition; that account is not re-argued here. The Elzevir line and Scrivener's aim are read through a report on an encyclopedia page.",
+        "sources": [
+          "tr",
+          "wikipedia-tr"
+        ],
+        "link": "/study/from-manuscript-to-printed-bible"
+      },
+      {
+        "id": "critical",
+        "name": "The critical editions",
+        "kind": "Printed Greek",
+        "what": "Editions that weigh the readings of all the copies, giving extra weight to the earliest. Tischendorf's eighth edition (1869 to 1872, held here), Westcott and Hort (1881), and today the Nestle-Aland 28th edition (2012) and the United Bible Societies' edition, with the Society of Biblical Literature's edition (2010) beside them.",
+        "notes": "The Berean's notes name the editions it does not follow (TR, BYZ, and sometimes SBL); its own base is not named in what was read.",
+        "evidence": "Behind nearly every English New Testament since the Revised Version of 1881, by the usual account. At eight of the nine places in the table below, the Berean reads with Tischendorf. At John 1:18 it does not: Tischendorf has \"the only begotten Son\", and the Berean's \"the one and only Son, who is Himself God\" follows the reading its note gives as \"the only begotten God\".",
+        "inference": "\"The critical text\" is a family of editions that differ among themselves, not one book. The Berean's base is evidently a modern edition of this kind, though the page that would name it could not be read.",
+        "limit": "The publisher's page on its Greek and Hebrew sources refused this study's request, so the Berean's base is inferred from its notes. Nestle-Aland and the others are named, not read.",
+        "sources": [
+          "tis",
+          "scripture",
+          "located-na28",
+          "berean-home"
+        ]
+      },
+      {
+        "id": "byz",
+        "name": "The Majority Text",
+        "kind": "Printed Greek",
+        "what": "Editions that follow what most surviving copies read, which in practice is the Byzantine family. Hodges and Farstad (1982) and Robinson and Pierpont (2005, revised 2018); the site holds the 2018 text.",
+        "notes": "Named as BYZ in 210 of the Berean's notes.",
+        "evidence": "The Majority Standard Bible is, in its publisher's words, \"the Byzantine Majority Text version of the BSB\", its New Testament \"translated according to the Robinson-Pierpont Byzantine Majority Text\".",
+        "inference": "The Majority Text and the Textus Receptus are close but not the same. Acts 8:37, 1 John 5:7 and \"book of life\" at Revelation 22:19 are in the Textus Receptus and not in the Majority Text.",
+        "limit": "The publisher's words were read through a report on its web page.",
+        "sources": [
+          "byz",
+          "msb",
+          "majoritybible"
+        ]
+      }
+    ],
+    "split": {
+      "head": "Three Greek texts. *Three patterns.*",
+      "reads": "The three Greek editions held on the site, read verse by verse at nine places where English Bibles differ. Each row says what each Greek text has, and which English follows it.",
+      "patterns": [
+        {
+          "id": "tr-alone",
+          "name": "The Textus Receptus alone",
+          "note": "In the King James; not in the Majority Text, not in Tischendorf; in the Berean only as a note."
+        },
+        {
+          "id": "tr-byz",
+          "name": "Most copies against the earliest",
+          "note": "The Textus Receptus and the Majority Text agree; Tischendorf differs; the Berean reads with Tischendorf and notes the other."
+        },
+        {
+          "id": "critical-split",
+          "name": "Critical editions apart",
+          "note": "All three held texts agree, and the Berean follows a different modern edition."
+        }
+      ],
+      "rows": [
+        {
+          "ref": "Acts 8:37",
+          "pattern": "tr-alone",
+          "tr": "The verse is present.",
+          "byz": "Absent.",
+          "tis": "Absent.",
+          "bsb": "Note only: \"TR includes 37\".",
+          "msb": "No verse 37.",
+          "kjv": "Present."
+        },
+        {
+          "ref": "1 John 5:7-8",
+          "pattern": "tr-alone",
+          "tr": "Three that testify \"in heaven: the Father, the Word, and the Holy Spirit\", and three on earth.",
+          "byz": "Three that testify: the Spirit, the water, the blood.",
+          "tis": "As the Majority Text.",
+          "bsb": "Note only, naming TR and one other edition.",
+          "msb": "As the Berean's text.",
+          "kjv": "Present.",
+          "link": "/study/from-manuscript-to-printed-bible"
+        },
+        {
+          "ref": "Revelation 22:19",
+          "pattern": "tr-alone",
+          "tr": "\"Book of life\".",
+          "byz": "\"Tree of life\".",
+          "tis": "\"Tree of life\".",
+          "bsb": "\"his share in the tree of life\" · BSB",
+          "msb": "\"tree of life\"",
+          "kjv": "\"book of life\""
+        },
+        {
+          "ref": "1 Timothy 3:16",
+          "pattern": "tr-byz",
+          "tr": "\"God\" was revealed in the flesh.",
+          "byz": "\"God\".",
+          "tis": "\"Who\".",
+          "bsb": "\"He appeared in the flesh\", with the note \"Literally He who appeared; BYZ and TR God appeared\".",
+          "msb": "\"God appeared in the flesh\"",
+          "kjv": "\"God was manifest in the flesh\""
+        },
+        {
+          "ref": "Luke 2:14",
+          "pattern": "tr-byz",
+          "tr": "\"Good will\".",
+          "byz": "\"Good will\".",
+          "tis": "\"Of good will\", with one letter more.",
+          "bsb": "\"peace to men on whom His favor rests\" · BSB, no note.",
+          "msb": "\"good will toward men\"",
+          "kjv": "\"good will toward men\""
+        },
+        {
+          "ref": "Matthew 6:13",
+          "pattern": "tr-byz",
+          "tr": "Ends \"For Yours is the kingdom and the power and the glory\".",
+          "byz": "The same.",
+          "tis": "Ends at \"the evil one\".",
+          "bsb": "Ends at \"deliver us from the evil one\"; note: \"BYZ and TR include For Yours is the kingdom ...\".",
+          "msb": "Includes it.",
+          "kjv": "Includes it."
+        },
+        {
+          "ref": "Matthew 5:22",
+          "pattern": "tr-byz",
+          "tr": "Angry \"without cause\".",
+          "byz": "The same.",
+          "tis": "Angry, with no qualifier.",
+          "bsb": "\"anyone who is angry with his brother\"; note: \"BYZ and TR include without cause\".",
+          "msb": "\"without cause\"",
+          "kjv": "\"without a cause\""
+        },
+        {
+          "ref": "Mark 1:2",
+          "pattern": "tr-byz",
+          "tr": "\"In the prophets\".",
+          "byz": "\"In the prophets\".",
+          "tis": "\"In Isaiah the prophet\".",
+          "bsb": "\"As it is written in Isaiah the prophet\"; note: \"BYZ and TR in the prophets\".",
+          "msb": "\"in the prophets\"",
+          "kjv": "\"in the prophets\""
+        },
+        {
+          "ref": "John 1:18",
+          "pattern": "critical-split",
+          "tr": "\"The only begotten Son\".",
+          "byz": "The same.",
+          "tis": "The same.",
+          "bsb": "\"the one and only Son, who is Himself God\"; note: \"Or but the only begotten God, who; BYZ and TR but the only begotten Son, who\".",
+          "msb": "\"the one and only Son\"",
+          "kjv": "\"the only begotten Son\""
+        }
+      ],
+      "evidence": "Read from the site's copies of the three Greek editions and the three English Bibles on 2026-11-06.",
+      "inference": "Most of these differences fall into the second pattern: the earliest copies against the most copies. The verses that are only in the King James come from the printed Greek of the 1500s, not from the majority of manuscripts.",
+      "limit": "Nine verses chosen because English readers notice them; not a sample. Which reading is original is the work of study 02 and is not decided here. The Greek in each row is this study's plain-English summary of the edition.",
+      "sources": [
+        "tr",
+        "byz",
+        "tis",
+        "scripture",
+        "msb",
+        "kjv"
+      ]
+    },
+    "absentVerses": {
+      "head": "Sixteen numbers. *Every verse still printed.*",
+      "evidence": "Sixteen verse numbers of the King James New Testament have no verse in the site's Berean text: Matthew 17:21, 18:11 and 23:14; Mark 7:16, 9:44, 9:46, 11:26 and 15:28; Luke 17:36 and 23:17; John 5:4; Acts 8:37, 15:34, 24:7 and 28:29; Romans 16:24. For every one, the Berean prints the missing words in a note on the verse before. Its notes say three are in the Textus Receptus only (Acts 8:37 and 15:34, Luke 17:36), and thirteen are in both the Majority Text and the Textus Receptus. The Majority Standard Bible leaves four numbers empty: Acts 8:37, 15:34 and 24:7, and Luke 17:36.",
+      "inference": "Verse numbers were added to the Greek New Testament in print, in the 1500s, so a verse number is not a witness that the words were in the earliest copies. A Bible that sets the words in a note has not hidden them.",
+      "limit": "Counted by script from the site's copies. That verse numbers came in with Stephanus's edition of 1551 is the usual account and is not re-checked here. The Majority Standard Bible's empty number at Acts 24:7 may be a matter of where it divides the verses; not checked.",
+      "sources": [
+        "count-script",
+        "scripture",
+        "msb",
+        "kjv"
+      ]
+    },
+    "moreReadings": [
+      {
+        "ref": "Isaiah 53:11",
+        "bsb": "He will see the light of life and be satisfied",
+        "note": "DSS (see also LXX); MT does not include the light of life.",
+        "reads": "The Leningrad Codex has no word for light here; the King James reads \"He shall see of the travail of his soul\". One Hebrew word, from the scrolls and the Greek."
+      },
+      {
+        "ref": "1 Samuel 10:27",
+        "bsb": "But Saul remained silent about it.",
+        "note": "MT and LXX; One DSS manuscript includes Nahash, king of the Ammonites, had viciously oppressed the people of Gad and Reuben ...",
+        "reads": "A whole paragraph found in one scroll and nowhere else. The Berean keeps it in a note; some modern translations print it in the text, which was not checked here."
+      },
+      {
+        "ref": "Psalm 40:6 and Hebrews 10:5",
+        "bsb": "my ears You have opened ... a body You prepared for Me",
+        "note": "Hebrew; some LXX manuscripts but a body You prepared for me",
+        "reads": "The psalm translated from the Hebrew; the letter quoting the Greek. The Berean keeps each as written and links them in a note."
+      }
+    ]
+  },
+  "approaches": {
+    "head": "Keep the words. *Or keep the sense.*",
+    "reads": "With the text chosen, a translator still has to decide what to keep when two languages do not match. The names for the choices are below, then where the Bibles held on this site fall, judged by what they actually do in this study's verses.",
+    "ways": [
+      {
+        "id": "formal",
+        "name": "Formal",
+        "also": "word for word; formal equivalence",
+        "keeps": "The source's words, their order where English allows, its idioms and images, and one English word for one source word where it can.",
+        "costs": "Sense, where an idiom does not travel (\"cover his feet\"), and natural English.",
+        "example": "Young's Literal at Genesis 1:1: \"In the beginning of God's preparing the heavens and the earth\".",
+        "source": "wikipedia-equivalence"
+      },
+      {
+        "id": "functional",
+        "name": "Functional",
+        "also": "thought for thought; dynamic, later functional, equivalence",
+        "keeps": "The meaning and its force, in the reader's own idiom, so that a modern reader responds as the first readers did.",
+        "costs": "The surface: images, repeated words that tie passages together, and some ambiguity the original left open. The translator decides more.",
+        "example": "The Berean at 1 Samuel 24:3: \"he went in to relieve himself\" · BSB.",
+        "source": "wikipedia-equivalence"
+      },
+      {
+        "id": "paraphrase",
+        "name": "Paraphrase",
+        "also": "free rendering, often from an English Bible rather than the Hebrew and Greek",
+        "keeps": "What the paraphraser takes the passage to mean, in the plainest words.",
+        "costs": "The line between the text and its explanation. A reader cannot tell which words are which.",
+        "example": "None is held on the site. The Living Bible of 1971 called itself a paraphrase in its own title; it is named here and not read.",
+        "source": "located-living"
+      }
+    ],
+    "evidence": "Eugene Nida, writing on Bible translation, named the contrast between formal and dynamic equivalence; with Charles Taber, in The Theory and Practice of Translation (1969), he defined the second by the response of the reader. He later preferred the term functional equivalence.",
+    "inference": "These are tendencies, not boxes. The King James is formal in most verses and functional at Romans 6:2. The Berean is functional at 1 Samuel 24:3 and keeps the traditional \"shadow of death\" at Psalm 23:4. Placing a whole Bible on a line is a summary of thousands of separate choices.",
+    "limit": "Nida's work is reported from an encyclopedia page read through a tool, not from his books. Many translators now describe their method in other terms; this page uses the three names readers meet in prefaces.",
+    "sources": [
+      "wikipedia-equivalence",
+      "located-nida",
+      "located-living"
+    ],
+    "spectrum": {
+      "note": "Each Bible is placed by what it does in this study's verses, and by its own stated aim where that was read. A single verse can sit elsewhere.",
+      "items": [
+        {
+          "id": "ylt",
+          "name": "Young's Literal Translation",
+          "year": "held: 1898",
+          "place": "formal",
+          "aim": "Its preface was not read. Its renderings here are the most formal on the site: \"let it not be!\", \"cover his feet\", \"In the beginning of God's preparing\".",
+          "source": "ylt"
+        },
+        {
+          "id": "kjv",
+          "name": "King James Version",
+          "year": "1611 (held: the standard text of 1769)",
+          "place": "formal, with idiom",
+          "aim": "Its translators wrote that they meant \"to make a good one better\", and \"have not tied ourselves to an uniformity of phrasing, or to an identity of words\".",
+          "source": "kjv-preface"
+        },
+        {
+          "id": "asv",
+          "name": "American Standard Version",
+          "year": "1901",
+          "place": "formal",
+          "aim": "The American form of the revision of the King James made in England in 1881 and 1885, by the usual account. Its own preface was not read.",
+          "source": "asv"
+        },
+        {
+          "id": "web",
+          "name": "World English Bible",
+          "year": "held: 2020",
+          "place": "formal, in spoken English",
+          "aim": "Its preface calls it \"an update of the American Standard Version\", \"fairly literally translated\", \"in informal, spoken English\".",
+          "source": "web-preface"
+        },
+        {
+          "id": "bsb",
+          "name": "Berean Standard Bible",
+          "year": "public domain since 30 April 2023",
+          "place": "between, leaning functional",
+          "aim": "Its publisher calls it \"a completely new translation based on the best available manuscripts and sources\", one of four tiers beside an interlinear and a literal translation, because languages \"often do not translate in a one-to-one fashion\". Its 871 notes beginning \"Literally\" give the form wherever it departs from it.",
+          "source": "berean-home"
+        },
+        {
+          "id": "bbe",
+          "name": "Bible in Basic English",
+          "year": "New Testament 1941, Old Testament 1949",
+          "place": "simplified",
+          "aim": "Translated by S. H. Hooke in a vocabulary of 1,000 words: the 850 of Basic English, 100 for poetry and 50 Bible words. Not a paraphrase, but every choice is bent to the word list: \"the sign of his mercy\".",
+          "source": "wikipedia-bbe"
+        },
+        {
+          "id": "paraphrase",
+          "name": "A paraphrase",
+          "year": "none held",
+          "place": "paraphrase",
+          "aim": "The Living Bible (1971) is the best-known example, by its own title. Not held on the site and not read.",
+          "source": "located-living"
+        }
+      ]
+    },
+    "moreCases": [
+      {
+        "id": "ps-23-4",
+        "ref": "Psalm 23:4",
+        "head": "Shadow of death. *Deep darkness.*",
+        "renderings": [
+          {
+            "edition": "BSB",
+            "text": "through the valley of the shadow of death"
+          },
+          {
+            "edition": "YLT",
+            "text": "in a valley of death-shade"
+          },
+          {
+            "edition": "BBE",
+            "text": "through the valley of deep shade"
+          }
+        ],
+        "bsbNote": "Or the valley of deep darkness",
+        "reads": "One Hebrew word, read either as two joined words, \"shadow\" and \"death\", or as one word for deep darkness. The Berean keeps the famous phrase and gives the other in a note. How Hebrew forms its words: study 28."
+      },
+      {
+        "id": "gen-1-1",
+        "ref": "Genesis 1:1",
+        "head": "In the beginning God created. *In the beginning of God's preparing.*",
+        "renderings": [
+          {
+            "edition": "BSB",
+            "text": "In the beginning God created the heavens and the earth."
+          },
+          {
+            "edition": "YLT",
+            "text": "In the beginning of God's preparing the heavens and the earth —"
+          },
+          {
+            "edition": "BBE",
+            "text": "At the first God made the heaven and the earth."
+          }
+        ],
+        "bsbNote": null,
+        "reads": "The same Hebrew, read as a complete sentence or as the opening clause of a longer one. The Berean, King James and JPS 1917 read a complete sentence; Young's reads a clause. The difference is in the grammar of the first word, not in the copies."
+      }
+    ],
+    "englishMoves": {
+      "head": "The Hebrew stays. *The English moves.*",
+      "reads": "A third cause has nothing to do with the source: English words change. Three verses from the earlier plain-reader draft, now in the Berean beside the King James.",
+      "items": [
+        {
+          "ref": "1 Corinthians 13:4",
+          "kjv": "Charity suffereth long, and is kind",
+          "bsb": "Love is patient, love is kind.",
+          "reads": "Charity in 1611 meant love; today it suggests giving money. The chapter's own list of conduct shows which is meant."
+        },
+        {
+          "ref": "1 Thessalonians 4:15",
+          "kjv": "shall not prevent them which are asleep",
+          "bsb": "will by no means precede those who have fallen asleep.",
+          "reads": "Prevent once meant go before. Verses 16 and 17, the dead rising first, settle the sense."
+        },
+        {
+          "ref": "Philippians 1:27",
+          "kjv": "let your conversation be as it becometh the gospel of Christ",
+          "bsb": "conduct yourselves in a manner worthy of the gospel of Christ.",
+          "reads": "Conversation once meant a whole way of life, not only speech. The rest of the verse, standing firm and contending side by side, shows it."
+        }
+      ],
+      "inference": "An older translation is not wrong because its English has aged, and it is not right because it is familiar. The surrounding sentences decide what a word means.",
+      "sources": [
+        "scripture",
+        "kjv",
+        "draft-35"
+      ]
+    }
+  },
+  "interpret": {
+    "head": "Same word. *A decision about meaning.*",
+    "reads": "Some differences are neither a different text nor a different method. The words are the same and the method is the same, but the source word can mean more than one thing, and the translator must decide. Here the reader most needs to know who decided, and why.",
+    "case": {
+      "id": "isa-7-14",
+      "ref": "Isaiah 7:14",
+      "renderings": [
+        {
+          "edition": "BSB",
+          "text": "Behold, the virgin will be with child and will give birth to a son, and will call Him Immanuel."
+        },
+        {
+          "edition": "KJV",
+          "text": "Behold, a virgin shall conceive, and bear a son"
+        },
+        {
+          "edition": "JPS 1917",
+          "text": "behold, the young woman shall conceive, and bear a son"
+        },
+        {
+          "edition": "Brenton (from the Greek)",
+          "text": "behold, a virgin shall conceive in the womb"
+        }
+      ],
+      "bsbNote": "Or young woman",
+      "evidence": "The Hebrew word in the Leningrad Codex is the same for all four. The Septuagint renders it with the Greek word for virgin, and Matthew 1:23 quotes that wording of Mary: \"Behold, the virgin will be with child and will give birth to a son, and they will call Him Immanuel\" · BSB. The Jewish Publication Society's translation of 1917 reads \"the young woman\". The Berean reads \"the virgin\" and gives \"young woman\" as another possible rendering.",
+      "inference": "The difference is a judgement about what Isaiah's word means, made in the light of Matthew or apart from it. Christian translations that read \"virgin\" are reading Isaiah with the Gospel, which is how the New Testament itself reads him; the Jewish translation reads him without it, as its tradition does.",
+      "limit": "The range of the Hebrew word is argued by specialists, and this page does not settle it. That the Revised Standard Version of 1952 printed \"young woman\" and drew wide protest is the usual account; it is named here, not read.",
+      "stand": "The Baptist Faith and Message 2000 confesses that Christ \"was conceived of the Holy Spirit and born of the virgin Mary\". The site reads Isaiah 7:14 as Matthew reads it. Whether Isaiah's sign also had a first meaning in King Ahaz's own day is a question Christians who hold that confession answer in more than one way, and the planned theology draft Christ in the Old Testament is the place for it.",
+      "sources": [
+        "scripture",
+        "wlc",
+        "lxx",
+        "lxxe",
+        "kjv",
+        "jps",
+        "foundation",
+        "bfm-web"
+      ]
+    },
+    "capitals": {
+      "head": "A capital letter. *A decision in print.*",
+      "evidence": "The Berean prints a capital on a pronoun for God or Christ: \"call Him Immanuel\" (Isaiah 7:14), \"men on whom His favor rests\" (Luke 2:14). The King James does not. Hebrew and Greek have no capital letters at all.",
+      "inference": "Wherever the Berean prints a capital, its translators have decided whom the passage speaks of. That is usually plain, and sometimes it is the whole question, as in a psalm the New Testament reads of Christ.",
+      "limit": "How consistently the Berean applies its capitals was not counted for this draft.",
+      "sources": [
+        "scripture",
+        "kjv"
+      ]
+    }
+  },
+  "explanations": [
+    {
+      "id": "critical",
+      "name": "The earliest copies first",
+      "tag": "The critical text",
+      "held": "The editors of the critical editions, from Westcott and Hort (1881) to the Nestle-Aland and United Bible Societies committees. Bruce Metzger's Textual Commentary sets out the committee's reasons verse by verse. Behind most modern English New Testaments, the Berean's included.",
+      "forIt": "The oldest surviving copies, and the reasons a scribe would add to a text more often than cut it. At Acts 8:37 and 1 John 5:7 the longer readings are missing from most copies of every kind.",
+      "against": "The earliest copies come mostly from one region, Egypt, and are few. Choosing reading by reading can produce a text no single manuscript ever had.",
+      "wouldShow": "Early copies from outside Egypt carrying the Byzantine readings, in number."
+    },
+    {
+      "id": "majority",
+      "name": "Most copies first",
+      "tag": "The Byzantine or Majority Text",
+      "held": "Zane Hodges and Arthur Farstad (1982); Maurice Robinson and William Pierpont, whose edition (2005, revised 2018) the site holds and the Majority Standard Bible translates.",
+      "forIt": "The text the Greek-speaking church copied and read for a thousand years; agreement across very many copies.",
+      "against": "Most of those copies are late, and many copies of one line of descent count as many votes for what may be one ancestor's reading.",
+      "wouldShow": "Byzantine readings in many of the earliest papyri."
+    },
+    {
+      "id": "received",
+      "name": "The text the churches received",
+      "tag": "The Textus Receptus",
+      "held": "Those who hold that God's providence is seen in the Greek text the Reformation churches printed and confessed; the Trinitarian Bible Society publishes Scrivener's form of it. Behind the King James.",
+      "forIt": "Continuity with the Bible of the Reformers and of the older Protestant confessions, including the Baptist confession of 1689, which speaks of Scripture \"kept pure in all Ages\".",
+      "against": "Some of its readings stand in few or no Greek copies: in the site's three editions, Acts 8:37, the heavenly witnesses of 1 John 5:7 and \"book of life\" at Revelation 22:19 are in it alone.",
+      "wouldShow": "Greek manuscripts carrying those readings, in number and age."
+    },
+    {
+      "id": "kjv-only",
+      "name": "One English Bible",
+      "tag": "King James only",
+      "held": "Some churches, many of them independent Baptists, that use the King James Version alone. James R. White's The King James Only Controversy describes the view, and argues against it.",
+      "forIt": "Four centuries of use; one shared text for memory, preaching and worship.",
+      "against": "The King James translators themselves wrote that \"variety of Translations is profitable for the finding out of the sense of the Scriptures\", and printed other renderings in their margins. The text held here is the standardised edition of 1769, not the printing of 1611.",
+      "wouldShow": "This is a claim about an English translation, and evidence about Greek copies cannot settle it either way."
+    }
+  ],
+  "explanationsNote": {
+    "evidence": "Baptists hold each of these four views. The Baptist Faith and Message 2000 does not choose between them.",
+    "inference": "The site does not choose either. It quotes the Berean, whose New Testament follows the earliest copies, for practical reasons given in section 06; the Berean's own notes give the Majority and Received readings, and the site also holds the Majority Standard Bible, the King James and all three Greek editions.",
+    "limit": "Who holds each view is named from editions and books located, not read, except where a held text is cited. The 1689 Confession's words are as the site holds them. That many King James only churches are independent Baptist is this study's summary, not a survey.",
+    "sources": [
+      "located-metzger",
+      "located-robinson",
+      "located-hodges",
+      "located-tbs",
+      "located-white",
+      "confession-1689",
+      "kjv-preface",
+      "tr",
+      "byz",
+      "tis"
+    ]
+  },
+  "stance": {
+    "head": "Where this site stands",
+    "scripture": "2 Timothy 3:16",
+    "scriptureText": "All Scripture is God-breathed and is useful for instruction, for conviction, for correction, and for training in righteousness",
+    "confession": "truth, without any mixture of error",
+    "confessionSource": "Baptist Faith and Message 2000, article 1, The Scriptures",
+    "body": "The confession says the Holy Bible \"was written by men divinely inspired\" and is God's revelation of himself. That is a claim about what God gave. A translation is a human work that carries it into another language, and translations can be weighed and compared without the Scripture they carry being any the less God's word. Where the copies differ, the differences touch a small part of the wording, and the Berean prints the other readings where a reader can see them.",
+    "doctrine": "No article of the confession rests on a disputed reading alone. The Trinity does not need 1 John 5:7: \"baptizing them in the name of the Father, and of the Son, and of the Holy Spirit\" (Matthew 28:19 · BSB). The deity of Christ does not need \"God\" at 1 Timothy 3:16: \"the Word was God\" (John 1:1 · BSB). That is this site's judgement, offered so a reader can test it.",
+    "verses": [
+      "2 Timothy 3:16",
+      "Matthew 28:19",
+      "John 1:1"
+    ],
+    "sources": [
+      "foundation",
+      "bfm-web",
+      "scripture"
+    ]
+  },
+  "claims": [
+    {
+      "id": "removed",
+      "claim": "“Modern Bibles have taken verses out of the Bible.”",
+      "head": "Sixteen numbers in the notes. *None hidden.*",
+      "evidence": "Sixteen King James New Testament verse numbers have no verse in the Berean's text, and the Berean prints all sixteen in its notes, saying which Greek text has them. Its notes put thirteen in both the Majority Text and the Textus Receptus, and three in the Textus Receptus alone.",
+      "inference": "The words were not taken out of the reader's sight; they were moved to a note, because the translators judged them not to be in the earliest copies. Whether that judgement is right is the real question, and it is a question about manuscripts, not about motive.",
+      "limit": "The site's Berean is one modern translation. Other modern Bibles may set these words differently; not checked.",
+      "verses": [
+        "Acts 8:36",
+        "Matthew 17:20"
+      ],
+      "sources": [
+        "count-script",
+        "scripture"
+      ],
+      "test": {
+        "question": "The Berean has no verse 37 in Acts 8. What does its note on verse 36 let you say?",
+        "options": [
+          {
+            "text": "The words were deleted from the Bible.",
+            "right": false,
+            "why": "The note prints them in full."
+          },
+          {
+            "text": "The words are in the Textus Receptus, and the translators did not count them as part of the text.",
+            "right": true,
+            "why": "That is what the note says: \"TR includes 37\"."
+          },
+          {
+            "text": "No Greek text has the words.",
+            "right": false,
+            "why": "The Textus Receptus held on the site has them."
+          }
+        ]
+      }
+    },
+    {
+      "id": "majority-kjv",
+      "claim": "“The King James follows the majority of manuscripts.”",
+      "head": "It follows the printed Greek. *Of 1516 to 1633.*",
+      "evidence": "At Acts 8:37, 1 John 5:7 and Revelation 22:19 (\"book of life\") the King James reads with the Textus Receptus, and the Byzantine Majority Text held here reads otherwise. The Majority Standard Bible, translated from the Majority Text, has none of the three.",
+      "inference": "The King James and the Majority Text agree far more often than either agrees with the critical editions. But they are not the same text, and the King James's few readings in the Textus Receptus alone are the ones most often defended.",
+      "limit": "Three verses from three editions. How often the Textus Receptus and Majority Text differ overall was not counted here.",
+      "verses": [
+        "Acts 8:37",
+        "1 John 5:7",
+        "Revelation 22:19"
+      ],
+      "sources": [
+        "tr",
+        "byz",
+        "msb",
+        "kjv"
+      ],
+      "test": {
+        "question": "The Majority Text held here reads \"tree of life\" at Revelation 22:19; the King James has \"book of life\". What does that show?",
+        "options": [
+          {
+            "text": "That the King James translators changed the verse.",
+            "right": false,
+            "why": "They translated the printed Greek in front of them, which reads \"book\"."
+          },
+          {
+            "text": "That at this verse the King James's Greek differs from most copies.",
+            "right": true,
+            "why": "That is what the two editions show, and no more."
+          },
+          {
+            "text": "That modern Bibles follow the Textus Receptus here.",
+            "right": false,
+            "why": "The Berean and the Majority Standard Bible both read \"tree of life\"."
+          }
+        ]
+      }
+    },
+    {
+      "id": "word-for-word",
+      "claim": "“The King James is word for word.”",
+      "head": "Mostly formal. *Not everywhere.*",
+      "evidence": "At Romans 6:2 the Greek has no word for God; the King James, following Tyndale, prints \"God forbid\". Young's Literal prints \"let it not be!\". Its own translators wrote that they had not tied themselves \"to an identity of words\".",
+      "inference": "The King James is a formal translation with functional renderings where English idiom asked for them, as its translators said. Young's is more formal still.",
+      "limit": "One verse and one preface. A count of such renderings across the King James was not attempted.",
+      "verses": [
+        "Romans 6:2"
+      ],
+      "sources": [
+        "tr",
+        "byz",
+        "tis",
+        "kjv",
+        "tnt",
+        "ylt",
+        "kjv-preface"
+      ],
+      "test": {
+        "question": "The Greek at Romans 6:2 is two words meaning \"may it not be\". Which statement does that support?",
+        "options": [
+          {
+            "text": "The King James added God to the text.",
+            "right": false,
+            "why": "It rendered an idiom with an English idiom of the same force; it did not claim the word was in the Greek."
+          },
+          {
+            "text": "\"God forbid\" is a rendering of the force, not of the words.",
+            "right": true,
+            "why": "That is exactly the difference between a functional and a formal rendering."
+          },
+          {
+            "text": "Young's is a less faithful translation here.",
+            "right": false,
+            "why": "Young's is closer to the words; whether it is clearer is another question."
+          }
+        ]
+      }
+    },
+    {
+      "id": "literal-best",
+      "claim": "“The most literal translation is the most accurate.”",
+      "head": "True to the words. *Not always to the sense.*",
+      "evidence": "At 1 Samuel 24:3 the King James and Young's say Saul went in \"to cover his feet\". The Berean says \"to relieve himself\" and gives the literal words in a note.",
+      "inference": "Accuracy has two objects, the words and the meaning, and in an idiom they part. A careful reader uses a formal and a functional rendering together, which is what the Berean's notes let a reader do in one book.",
+      "limit": "This page does not rank translations; it shows what each keeps.",
+      "verses": [
+        "1 Samuel 24:3"
+      ],
+      "sources": [
+        "scripture",
+        "kjv",
+        "ylt"
+      ],
+      "test": {
+        "question": "A reader meets \"cover his feet\" and pictures Saul resting. What went wrong?",
+        "options": [
+          {
+            "text": "The translation was inaccurate.",
+            "right": false,
+            "why": "It is accurate to the Hebrew words."
+          },
+          {
+            "text": "The words were kept and the idiom was not explained.",
+            "right": true,
+            "why": "The Berean's note, \"a euphemism for relieving oneself\", supplies what the words alone do not."
+          },
+          {
+            "text": "The Hebrew copies disagree here.",
+            "right": false,
+            "why": "No translation here gives any sign of a different text."
+          }
+        ]
+      }
+    },
+    {
+      "id": "scrolls",
+      "claim": "“The Dead Sea Scrolls proved the Old Testament was changed”, or “proved it never changed”.",
+      "head": "Mostly confirmed. *Sometimes corrected.*",
+      "evidence": "The Berean names the scrolls in 66 Old Testament notes across more than 23,000 verses. It follows them at Isaiah 53:11 (\"the light of life\", one Hebrew word), Deuteronomy 32:8 and Psalm 22:16; at 1 Samuel 10:27 it leaves one scroll's longer paragraph in a note.",
+      "inference": "Both slogans fail. A translator who follows the scrolls in a few dozen places is treating the medieval Hebrew as very well kept, and also as correctable.",
+      "limit": "Counted from one translation's notes. The scrolls themselves, and how scholars weigh them, are study 03's.",
+      "verses": [
+        "Isaiah 53:11",
+        "Deuteronomy 32:8",
+        "1 Samuel 10:27"
+      ],
+      "sources": [
+        "count-script",
+        "scripture"
+      ],
+      "test": {
+        "question": "What do 66 notes in 23,145 verses let you say?",
+        "options": [
+          {
+            "text": "The scrolls rewrote the Old Testament.",
+            "right": false,
+            "why": "Nearly every verse stands as the Masoretic copies have it."
+          },
+          {
+            "text": "The scrolls changed nothing.",
+            "right": false,
+            "why": "The Berean follows them at several verses, Isaiah 53:11 among them."
+          },
+          {
+            "text": "The scrolls changed the wording of an English Bible in a small number of places.",
+            "right": true,
+            "why": "That is what this translation's notes show."
+          }
+        ]
+      }
+    },
+    {
+      "id": "all-same",
+      "claim": "“All translations say the same thing, so it does not matter which one you read.”",
+      "head": "Agreement is wide. *Choices are real.*",
+      "evidence": "In this study's verses, the Bibles held agree on what happens and what is taught almost everywhere. They differ at Isaiah 7:14 over virgin and young woman, at Romans 3:25 over how much one word should say, and at Luke 2:14 over one Greek letter.",
+      "inference": "For reading through a book, most careful translations will serve. For close study of one verse, the differences matter, and a reader should know which kind each is.",
+      "limit": "The verses on this page were chosen to show differences, so they overstate how often translations differ.",
+      "verses": [
+        "Isaiah 7:14",
+        "Romans 3:25",
+        "Luke 2:14"
+      ],
+      "sources": [
+        "scripture",
+        "kjv",
+        "jps",
+        "ylt",
+        "bbe",
+        "msb"
+      ],
+      "test": {
+        "question": "Two Bibles differ at Isaiah 7:14. What should a careful reader do first?",
+        "options": [
+          {
+            "text": "Pick the rendering they prefer.",
+            "right": false,
+            "why": "That decides the question before asking it."
+          },
+          {
+            "text": "Ask whether the difference is in the text or in the translating, and read the note.",
+            "right": true,
+            "why": "Here the note says \"Or young woman\": the same Hebrew, a different judgement about it."
+          },
+          {
+            "text": "Assume one of the Bibles is unreliable everywhere.",
+            "right": false,
+            "why": "One verse does not judge a whole translation."
+          }
+        ]
+      }
+    }
+  ],
+  "confusedWords": [
+    {
+      "word": "Text and translation",
+      "note": "The text is the Hebrew, Aramaic or Greek being translated; the translation is the English. A difference in one is not a difference in the other."
+    },
+    {
+      "word": "Manuscript and edition",
+      "note": "A manuscript is one hand-written copy. An edition is a printed text built from many copies. The Textus Receptus, Tischendorf and the Majority Text are editions."
+    },
+    {
+      "word": "Majority Text and Textus Receptus",
+      "note": "Close, and often confused. The Majority Text follows most copies; the Textus Receptus is the printed Greek of 1516 to 1633. They part at Acts 8:37 and 1 John 5:7."
+    },
+    {
+      "word": "Variant and error",
+      "note": "A variant is a place where copies differ. Calling one reading an error is a judgement made after weighing them."
+    },
+    {
+      "word": "Literal and accurate",
+      "note": "Literal describes closeness to the words. Accurate needs an object: accurate to the words, or to the meaning."
+    },
+    {
+      "word": "Translation and version",
+      "note": "A translation is made from the source languages. A version is often a revision of an earlier English Bible: the World English Bible of the American Standard, the American Standard of the King James."
+    },
+    {
+      "word": "\"Or\" and \"Literally\"",
+      "note": "In the Berean's notes, \"Or\" gives another possible rendering of the same words; \"Literally\" gives the form beneath the English. Neither means the copies differ."
+    },
+    {
+      "word": "Verse number and verse",
+      "note": "Numbers were added in print long after the books were written. A missing number is not a missing doctrine, and the same verse can carry three numbers in three Bibles."
+    }
+  ],
+  "yourBible": {
+    "head": "Your own Bible. *Read it as a translation.*",
+    "voiceNote": "This part borrows the plainer voice of the Scripture & Theology studies. It carries over the reader's guide from draft 35, Versions and translation, which will not have its own page, with its examples now quoted from the Berean.",
+    "why": {
+      "text": "Baptists have long confessed that the Bible belongs in the reader's own language. The Second London Baptist Confession, chapter 1, says that because the original tongues \"are not known to all the people of God\", the Scriptures \"are to be translated into the vulgar language of every Nation, unto which they come, that the Word of God dwelling plentifully in all, they may worship him in an acceptable manner\". In Nehemiah, when Ezra read the Law, the Levites read it \"explaining it and giving insight, so that the people could understand what was being read\" (Nehemiah 8:8 · BSB); the Berean's note allows \"translating it\".",
+      "verses": [
+        "Nehemiah 8:8"
+      ],
+      "sources": [
+        "confession-1689",
+        "scripture"
+      ]
+    },
+    "steps": [
+      {
+        "n": "01",
+        "name": "Know which Bible is in your hands",
+        "text": "Write down its full name and edition, not only its initials. A year in a catalogue is not always the year of the words: the site lists its King James under 1611, and the text it holds is the standardised edition of 1769. Check its contents too: editions differ in which books they include and how they number verses.",
+        "source": "draft-35"
+      },
+      {
+        "n": "02",
+        "name": "Read what the translators say they meant to do",
+        "text": "Most Bibles open with a preface. The King James translators wrote that \"variety of Translations is profitable for the finding out of the sense of the Scriptures\". The World English Bible's says it is \"fairly literally translated\" into \"informal, spoken English\". A label such as \"formal\" is a starting point, not an account of every verse.",
+        "source": "kjv-preface"
+      },
+      {
+        "n": "03",
+        "name": "Read the notes, and know their kinds",
+        "text": "In the Berean, a note that begins \"Or\" gives another possible rendering of the same words (1,336 notes). \"Literally\" gives the form beneath the English (871 notes, with those beginning \"Hebrew\" or \"Greek\"). A note that names MT, DSS, LXX, SP, Syriac, Vulgate, BYZ or TR reports that the ancient texts differ. Other notes explain a name or point to another passage. A plain copy of a verse on a screen or a card often drops its notes: return to the full edition when the question matters.",
+        "source": "count-script"
+      },
+      {
+        "n": "04",
+        "name": "Describe the difference before you explain it",
+        "text": "Write down exactly what differs: one word, the order, a whole verse. Then ask which kind it is: the text, the translating, a convention, or English that has changed. If you cannot yet tell, write the question down rather than guessing a cause.",
+        "source": "draft-35"
+      },
+      {
+        "n": "05",
+        "name": "Compare whole thoughts, and count the agreements",
+        "text": "At Philippians 1:27 the King James's \"conversation\" and the Berean's \"conduct yourselves\" differ, but both go on to standing firm and contending for the gospel. A comparison that lists only differences hides how much is shared.",
+        "source": "draft-35"
+      },
+      {
+        "n": "06",
+        "name": "Remember that Bibles have parents",
+        "text": "Agreement between translations is not a vote of independent witnesses. The World English Bible is an update of the American Standard Version, which revised the King James; the Majority Standard Bible shares its translators with the Berean.",
+        "source": "web-preface"
+      },
+      {
+        "n": "07",
+        "name": "Do not build a Bible of favourite renderings",
+        "text": "Choosing the wording you like best from each translation, verse by verse, makes a text no one translated. Use other renderings to understand, then read on in one.",
+        "source": "draft-35"
+      },
+      {
+        "n": "08",
+        "name": "Choose for the purpose",
+        "text": "For reading whole books, choose a translation you can follow through a long argument or story. For close study, keep a more formal one beside it, and its notes. For a church or a family, one shared Bible makes memory and teaching easier. No translation is best for every purpose.",
+        "source": "draft-35"
+      },
+      {
+        "n": "09",
+        "name": "Then read the passage again",
+        "text": "Every comparison should end where it began, with the passage read through in one Bible, and a short account in your own words of what it says and what it asks.",
+        "source": "draft-35"
+      }
+    ],
+    "whyBerean": {
+      "head": "Why this site quotes the Berean",
+      "evidence": "The owner decided on 2026-10-29 that every verse the site shows in its own voice is quoted from the Berean Standard Bible. Its publisher dedicated it, with the Majority Standard Bible, to the public domain \"as of April 30, 2023\". It is a modern English translation that sits between the formal and the functional, and its notes give the literal form and the readings of other ancient texts, including the Textus Receptus and the Majority Text.",
+      "inference": "Four reasons follow from that. Being in the public domain, it can be shown in full, verse by verse and note by note, with no permission and no limit on quotation. Its English is current. Its notes let a reader see for themselves most of what this study describes. And its sister edition lets the site show the Majority Text's readings beside it.",
+      "limit": "It is one translation, and it makes choices this page shows: it follows a Dead Sea Scroll against the Hebrew at Deuteronomy 32:8, gives the sense rather than the words at 1 Samuel 24:3, and follows the earliest copies in the New Testament. The site does not claim it is the best Bible for every reader, and other translations appear on the site as named outside sources. Its name recalls the Bereans, who \"examined the Scriptures every day to see if these teachings were true\" (Acts 17:11 · BSB); the publisher's own reason for the name was not read.",
+      "verses": [
+        "Acts 17:11"
+      ],
+      "sources": [
+        "foundation",
+        "berean-terms",
+        "berean-home",
+        "count-script",
+        "scripture"
+      ]
+    }
+  },
+  "timeline": {
+    "from": -300,
+    "to": 2030,
+    "yearsNote": "Negative years are BC. Every date is the usual one for that text or edition, and some are ranges; none was re-checked against the objects for this draft.",
+    "rows": [
+      {
+        "id": "lxx",
+        "name": "The Law translated into Greek",
+        "start": -300,
+        "end": -200,
+        "open": true,
+        "kind": "source",
+        "note": "Third century BC, by the usual account. The rest of the Septuagint followed over a long period."
+      },
+      {
+        "id": "dss",
+        "name": "The Dead Sea Scrolls copied",
+        "start": -250,
+        "end": 68,
+        "kind": "source",
+        "note": "A wide range for many copies, as reported in study 03."
+      },
+      {
+        "id": "codices",
+        "name": "Vaticanus and Sinaiticus",
+        "start": 300,
+        "end": 400,
+        "kind": "source",
+        "note": "The 300s, dated by their handwriting: an estimate."
+      },
+      {
+        "id": "vulgate",
+        "name": "Jerome's Latin",
+        "start": 382,
+        "end": 405,
+        "kind": "source",
+        "note": "Begun about 382, finished in the early 400s."
+      },
+      {
+        "id": "aleppo",
+        "name": "Aleppo Codex",
+        "start": 930,
+        "end": 930,
+        "kind": "source",
+        "note": "About 930."
+      },
+      {
+        "id": "leningrad",
+        "name": "Leningrad Codex",
+        "start": 1008,
+        "end": 1008,
+        "kind": "source",
+        "note": "The year the site's catalogue gives."
+      },
+      {
+        "id": "erasmus",
+        "name": "Erasmus's printed Greek",
+        "start": 1516,
+        "end": 1535,
+        "kind": "edition",
+        "note": "First edition 1516, revised repeatedly (study 05)."
+      },
+      {
+        "id": "tyndale",
+        "name": "Tyndale's New Testament",
+        "start": 1526,
+        "end": 1534,
+        "kind": "translation",
+        "note": "1526, revised 1534; the site holds 1534."
+      },
+      {
+        "id": "stephanus",
+        "name": "Stephanus and Beza",
+        "start": 1550,
+        "end": 1598,
+        "kind": "edition",
+        "note": "Stephanus 1550; Beza's editions from 1565."
+      },
+      {
+        "id": "geneva",
+        "name": "Geneva Bible",
+        "start": 1560,
+        "end": 1599,
+        "kind": "translation",
+        "note": "First complete edition 1560, by the usual account; the site holds 1599."
+      },
+      {
+        "id": "kjv",
+        "name": "King James Version",
+        "start": 1611,
+        "end": 1769,
+        "kind": "translation",
+        "note": "1611; the text held is the standard edition of 1769."
+      },
+      {
+        "id": "elzevir",
+        "name": "\"Textus Receptus\" named",
+        "start": 1633,
+        "end": 1633,
+        "kind": "edition",
+        "note": "The Elzevir edition's preface."
+      },
+      {
+        "id": "tischendorf",
+        "name": "Tischendorf's eighth edition",
+        "start": 1869,
+        "end": 1872,
+        "kind": "edition",
+        "note": "Held on the site."
+      },
+      {
+        "id": "wh",
+        "name": "Westcott and Hort; the Revised Version",
+        "start": 1881,
+        "end": 1885,
+        "kind": "edition",
+        "note": "Greek and English New Testament 1881; Old Testament 1885."
+      },
+      {
+        "id": "scrivener",
+        "name": "Scrivener's Textus Receptus",
+        "start": 1894,
+        "end": 1894,
+        "kind": "edition",
+        "note": "Held on the site."
+      },
+      {
+        "id": "asv",
+        "name": "American Standard Version",
+        "start": 1901,
+        "end": 1901,
+        "kind": "translation",
+        "note": "Held on the site."
+      },
+      {
+        "id": "jps",
+        "name": "JPS Tanakh",
+        "start": 1917,
+        "end": 1917,
+        "kind": "translation",
+        "note": "Held on the site."
+      },
+      {
+        "id": "bbe",
+        "name": "Bible in Basic English",
+        "start": 1941,
+        "end": 1949,
+        "kind": "translation",
+        "note": "New Testament 1941, Old Testament 1949."
+      },
+      {
+        "id": "living",
+        "name": "The Living Bible, a paraphrase",
+        "start": 1971,
+        "end": 1971,
+        "kind": "translation",
+        "note": "Named, not held or read."
+      },
+      {
+        "id": "majority",
+        "name": "Majority Text editions",
+        "start": 1982,
+        "end": 2018,
+        "kind": "edition",
+        "note": "Hodges and Farstad 1982; Robinson and Pierpont 2005, revised 2018, held on the site."
+      },
+      {
+        "id": "na28",
+        "name": "Nestle-Aland 28th edition",
+        "start": 2012,
+        "end": 2012,
+        "kind": "edition",
+        "note": "Named, not read. The Society of Biblical Literature's edition, 2010, beside it."
+      },
+      {
+        "id": "bsb",
+        "name": "Berean and Majority Standard Bibles in the public domain",
+        "start": 2023,
+        "end": 2023,
+        "kind": "translation",
+        "note": "30 April 2023, in the publisher's words."
+      }
+    ],
+    "undated": "The original writings have no bar: none survives, and their dates are the subject of other studies. Most modern English translations are left off; this line shows the texts behind them and the Bibles the site holds."
+  },
+  "reach": [
+    "This is a selection: twenty-odd verses, chosen because English readers notice them or because they show one cause of difference cleanly. It is not a survey of how often translations differ, and by choosing differences it makes them look more common than they are.",
+    "Every English, Hebrew, Greek and Latin text compared is a copy held on the site, read on 2026-11-06. Other translations, including most modern ones still in copyright, were not compared, and nothing on this page says how they render these verses.",
+    "The counts of notes and verses were made by a script over the site's own copies of the Berean, the Majority Standard Bible and the King James. They count what those files contain. The Majority Standard Bible held here also differs from the Berean in 1,113 Old Testament verses, which its publisher says it shares; so part of the 1,654 New Testament differences is later revision, not a different Greek text. Which part was not measured.",
+    "No manuscript and no scroll was read for this draft. Each ancient reading is known here from the Hebrew, Greek and Latin editions held on the site and from the Berean's notes.",
+    "The publishers' statements about the Berean and Majority Standard Bibles, the World English Bible's preface, the King James translators' preface and four encyclopedia pages were read through a tool that returns a report on a web page, not the page itself. Their quoted words are to be rechecked against the pages before a page is built. The Berean's own page on its Greek and Hebrew sources refused the request, so its New Testament base is inferred from its notes.",
+    "The views on the Greek text are named from editions and books located, not read. Their holders' own arguments have not been tested against them."
+  ],
+  "readingTrail": [
+    {
+      "title": "Gordon D. Fee and Mark L. Strauss, How to Choose a Translation for All Its Worth (Zondervan, 2007)",
+      "answers": "How translators decide, written for general readers.",
+      "read": "Located, not read."
+    },
+    {
+      "title": "Leland Ryken, The Word of God in English (Crossway, 2002)",
+      "answers": "The case for an \"essentially literal\" translation, by a scholar of English literature.",
+      "read": "Located, not read."
+    },
+    {
+      "title": "Bruce M. Metzger, A Textual Commentary on the Greek New Testament, 2nd edition (1994)",
+      "answers": "Why the critical editions read as they do, verse by verse.",
+      "read": "Located, not read."
+    },
+    {
+      "title": "Kurt Aland and Barbara Aland, The Text of the New Testament, 2nd edition (1989)",
+      "answers": "The manuscripts, their families, and how the Nestle-Aland text is made.",
+      "read": "Located, not read."
+    },
+    {
+      "title": "Maurice A. Robinson and William G. Pierpont, The New Testament in the Original Greek: Byzantine Textform (2005)",
+      "answers": "The case for the Byzantine text, in its editors' introduction.",
+      "read": "The 2018 text is held on the site; the introduction was not read."
+    },
+    {
+      "title": "Emanuel Tov, Textual Criticism of the Hebrew Bible, 3rd edition (2012)",
+      "answers": "The Masoretic Text, the scrolls and the Septuagint as witnesses to the Hebrew.",
+      "read": "Located, not read."
+    },
+    {
+      "title": "Karen H. Jobes and Moisés Silva, Invitation to the Septuagint, 2nd edition (2015)",
+      "answers": "What the Septuagint is and how to use it, for students.",
+      "read": "Located, not read."
+    },
+    {
+      "title": "James R. White, The King James Only Controversy, 2nd edition (2009)",
+      "answers": "The King James only view described, and answered, by a critic of it.",
+      "read": "Located, not read."
+    }
+  ],
+  "closing": {
+    "question": "Is this difference in the text, or in the translating?",
+    "carry": "What survives, and what am I inferring?",
+    "back": {
+      "href": "/study/academic",
+      "label": "Back to Academic studies"
+    }
+  },
+  "sources": [
+    {
+      "id": "scripture",
+      "title": "Berean Standard Bible, with its footnotes",
+      "url": "/read/bsb/ISA/7",
+      "kind": "Scripture",
+      "status": "read",
+      "answers": "Every verse quoted in the site's voice, and every Berean note quoted.",
+      "read": "Every verse and note quoted, from the site's own copy in Website/data/text/bsb, on 2026-11-06."
+    },
+    {
+      "id": "foundation",
+      "title": "Baptist Faith and Message 2000, as set out in the site's doctrinal foundation (DOCTRINAL-FOUNDATION.md)",
+      "url": "https://bfm.sbc.net/bfm2000/",
+      "kind": "Confession",
+      "status": "part",
+      "answers": "What the site's own voice holds on Scripture, and the owner's decision to quote the Berean everywhere.",
+      "read": "The two decisions and article 1, in the site's foundation document."
+    },
+    {
+      "id": "bfm-web",
+      "title": "Baptist Faith and Message 2000, on the Southern Baptist Convention's site",
+      "url": "https://bfm.sbc.net/bfm2000/",
+      "kind": "Confession",
+      "status": "part",
+      "answers": "The wording of article 1 and of article 2B on the virgin birth and Christ's substitutionary death.",
+      "read": "Those sentences, read through a tool that returns a report on the page."
+    },
+    {
+      "id": "confession-1689",
+      "title": "The Second London Baptist Confession (1677/1689), chapter 1, section 8",
+      "url": "/study/creeds/1689-london-baptist-confession-1677",
+      "kind": "Confession",
+      "status": "part",
+      "answers": "Scripture \"kept pure in all Ages\", and to be translated \"into the vulgar language of every Nation\".",
+      "read": "Chapter 1, section 8, from the site's own text."
+    },
+    {
+      "id": "count-script",
+      "title": "This study's counting script over the site's held texts",
+      "url": "",
+      "kind": "Data",
+      "status": "read",
+      "answers": "Every count on the page: verses, notes by kind, the sixteen absent verse numbers, and the Berean and Majority Standard Bible differences.",
+      "read": "Run on 2026-11-06 over Website/data/text/bsb, msb and kjv. Kept in the job's workspace, not in the site; a build should repeat it."
+    },
+    {
+      "id": "kjv",
+      "title": "King James Version, standard text of 1769 (site copy, from eBible.org)",
+      "url": "/read/kjv/ROM/6",
+      "kind": "Translation",
+      "status": "read",
+      "answers": "The King James wording in every comparison.",
+      "read": "The verses compared."
+    },
+    {
+      "id": "asv",
+      "title": "American Standard Version, 1901 (site copy)",
+      "url": "/read/asv/EXO/3",
+      "kind": "Translation",
+      "status": "read",
+      "answers": "\"Jehovah\" at Exodus 3:15, and the English draft 35 compared.",
+      "read": "The verses compared."
+    },
+    {
+      "id": "web",
+      "title": "World English Bible (site copy, catalogued 2020)",
+      "url": "/read/web/EXO/3",
+      "kind": "Translation",
+      "status": "read",
+      "answers": "A modern revision of the American Standard Version, and its note on the divine name.",
+      "read": "The verses compared."
+    },
+    {
+      "id": "ylt",
+      "title": "Young's Literal Translation, 1898 (site copy)",
+      "url": "/read/ylt/GEN/1",
+      "kind": "Translation",
+      "status": "read",
+      "answers": "The most formal renderings on the site.",
+      "read": "The verses compared. Its preface was not read."
+    },
+    {
+      "id": "bbe",
+      "title": "Bible in Basic English, 1949 (site copy)",
+      "url": "/read/bbe/ROM/3",
+      "kind": "Translation",
+      "status": "read",
+      "answers": "A translation in a controlled vocabulary.",
+      "read": "The verses compared."
+    },
+    {
+      "id": "dra",
+      "title": "Douay-Rheims, American edition of 1899, translated from the Latin Vulgate (site copy)",
+      "url": "/read/dra/EXO/3",
+      "kind": "Translation",
+      "status": "read",
+      "answers": "A Roman Catholic translation from the Latin, labelled as such.",
+      "read": "The verses compared."
+    },
+    {
+      "id": "tnt",
+      "title": "Tyndale New Testament, 1534 (site copy)",
+      "url": "/read/tnt/ROM/6",
+      "kind": "Translation",
+      "status": "read",
+      "answers": "\"God forbyd\" at Romans 6:2, behind the King James.",
+      "read": "Romans 6:2 and 1 Corinthians 13:4."
+    },
+    {
+      "id": "jps",
+      "title": "JPS Tanakh, 1917, Jewish Publication Society (site copy)",
+      "url": "/read/jps/ISA/7",
+      "kind": "Translation",
+      "status": "read",
+      "answers": "A Jewish translation of the Hebrew Bible, labelled as such.",
+      "read": "The verses compared."
+    },
+    {
+      "id": "lxxe",
+      "title": "Brenton, English translation of the Septuagint (site copy, catalogued 1844)",
+      "url": "/read/lxxe/PSA/39",
+      "kind": "Translation",
+      "status": "read",
+      "answers": "What the Greek Old Testament says in English, with its own verse numbers.",
+      "read": "The verses compared."
+    },
+    {
+      "id": "msb",
+      "title": "Majority Standard Bible (site copy, catalogued 2023)",
+      "url": "/read/msb/LUK/2",
+      "kind": "Translation",
+      "status": "read",
+      "answers": "The Berean's translators' rendering of the Byzantine Majority Text.",
+      "read": "The verses compared, and the whole New Testament by script against the Berean."
+    },
+    {
+      "id": "wlc",
+      "title": "Westminster Leningrad Codex, Hebrew (site copy)",
+      "url": "/read/wlc/DEU/32",
+      "kind": "Hebrew text",
+      "status": "read",
+      "answers": "The Masoretic wording at each Old Testament verse compared.",
+      "read": "Deuteronomy 32:8, Psalm 22:17, Isaiah 7:14 and 53:11, Genesis 4:8."
+    },
+    {
+      "id": "lxx",
+      "title": "Septuagint, Greek text (site copy, catalogued 1844)",
+      "url": "/read/lxx/PSA/39",
+      "kind": "Greek text",
+      "status": "read",
+      "answers": "The Greek wording at Deuteronomy 32:8, Psalm 21:17 and 39:7, and Isaiah 7:14.",
+      "read": "Those verses. Which edition the site's file reproduces was not traced beyond its catalogue entry."
+    },
+    {
+      "id": "tr",
+      "title": "Textus Receptus, Scrivener's edition of 1894 (site copy)",
+      "url": "/read/tr/ACT/8",
+      "kind": "Greek text",
+      "status": "read",
+      "answers": "The printed Greek behind the King James.",
+      "read": "The New Testament verses compared."
+    },
+    {
+      "id": "byz",
+      "title": "Byzantine Majority Text, Robinson and Pierpont, 2018 (site copy)",
+      "url": "/read/byz/ACT/8",
+      "kind": "Greek text",
+      "status": "read",
+      "answers": "What most Greek copies read.",
+      "read": "The New Testament verses compared."
+    },
+    {
+      "id": "tis",
+      "title": "Tischendorf, Novum Testamentum Graece, eighth edition, 1869 to 1872 (site copy)",
+      "url": "/read/tis/ACT/8",
+      "kind": "Greek text",
+      "status": "read",
+      "answers": "An early critical edition, giving weight to the earliest copies.",
+      "read": "The New Testament verses compared."
+    },
+    {
+      "id": "web-preface",
+      "title": "World English Bible, preface, eBible.org",
+      "url": "https://ebible.org/engwebp/FRT01.htm",
+      "kind": "Preface",
+      "status": "part",
+      "answers": "What the World English Bible is a revision of, its approach, its note abbreviations, and its handling of the divine name.",
+      "read": "Read through a tool that returns a report on the page; quoted words to be rechecked."
+    },
+    {
+      "id": "kjv-preface",
+      "title": "\"The Translators to the Reader\", preface to the King James Version (1611), modernised spelling, on bible-researcher.com",
+      "url": "https://www.bible-researcher.com/kjvpref.html",
+      "kind": "Preface",
+      "status": "part",
+      "answers": "What the King James translators said they were doing.",
+      "read": "Four sentences, read through a tool that returns a report on the page. The site's copy modernises the spelling; to be rechecked against a facsimile."
+    },
+    {
+      "id": "berean-home",
+      "title": "Berean Bible publisher: berean.bible home page, and \"Translation Tiers\" on bereanbibles.com",
+      "url": "https://berean.bible/",
+      "kind": "Publisher",
+      "status": "part",
+      "answers": "How the publisher describes the Berean Standard Bible and its tiers.",
+      "read": "Read through a tool that returns a report on each page. The publisher's pages on its Greek and Hebrew sources, and its questions page, refused the request and were not read."
+    },
+    {
+      "id": "berean-terms",
+      "title": "Berean Bible publisher, terms page",
+      "url": "https://berean.bible/terms.htm",
+      "kind": "Publisher",
+      "status": "part",
+      "answers": "The public-domain dedication and its date.",
+      "read": "Read through a tool that returns a report on the page."
+    },
+    {
+      "id": "majoritybible",
+      "title": "Majority Standard Bible, publisher's home page",
+      "url": "https://majoritybible.com/",
+      "kind": "Publisher",
+      "status": "part",
+      "answers": "What the Majority Standard Bible is and what Greek text it translates.",
+      "read": "Read through a tool that returns a report on the page."
+    },
+    {
+      "id": "wikipedia-tr",
+      "title": "Wikipedia, \"Textus Receptus\"",
+      "url": "https://en.wikipedia.org/wiki/Textus_Receptus",
+      "kind": "Reference",
+      "status": "part",
+      "answers": "The Elzevir preface that gave the name, Stephanus and Beza, and Scrivener's edition.",
+      "read": "The first part of the article, through a tool report."
+    },
+    {
+      "id": "wikipedia-equivalence",
+      "title": "Wikipedia, \"Dynamic and formal equivalence\"",
+      "url": "https://en.wikipedia.org/wiki/Dynamic_and_formal_equivalence",
+      "kind": "Reference",
+      "status": "part",
+      "answers": "Nida's terms and their definitions.",
+      "read": "Through a tool report."
+    },
+    {
+      "id": "wikipedia-bbe",
+      "title": "Wikipedia, \"Bible in Basic English\"",
+      "url": "https://en.wikipedia.org/wiki/Bible_in_Basic_English",
+      "kind": "Reference",
+      "status": "part",
+      "answers": "Its translator, vocabulary and dates.",
+      "read": "Through a tool report."
+    },
+    {
+      "id": "draft-35",
+      "title": "Versions and translation, Scripture & Theology draft 35 (2026-10-13), content.md and working.md",
+      "url": "../studies/explore-the-bible/versions-and-translation/content.md",
+      "kind": "Site draft",
+      "status": "read",
+      "answers": "The plain-reader guide taken into section 06, and the three English examples in section 03.",
+      "read": "Read whole. Its King James quotations are replaced here by the Berean, with the King James named beside it."
+    },
+    {
+      "id": "located-aland",
+      "title": "Kurt Aland and Barbara Aland, The Text of the New Testament, 2nd edition (1989)",
+      "url": "https://www.eerdmans.com/",
+      "kind": "Located",
+      "status": "located",
+      "answers": "Manuscript families and the critical text.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "located-na28",
+      "title": "Nestle-Aland, Novum Testamentum Graece, 28th edition (Deutsche Bibelgesellschaft, 2012)",
+      "url": "https://www.academic-bible.com/",
+      "kind": "Located",
+      "status": "located",
+      "answers": "The standard critical edition today.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "located-metzger",
+      "title": "Bruce M. Metzger, A Textual Commentary on the Greek New Testament, 2nd edition (1994)",
+      "url": "https://www.academic-bible.com/",
+      "kind": "Located",
+      "status": "located",
+      "answers": "The editors' reasons, verse by verse.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "located-robinson",
+      "title": "Maurice A. Robinson and William G. Pierpont, The New Testament in the Original Greek: Byzantine Textform (2005)",
+      "url": "",
+      "kind": "Located",
+      "status": "located",
+      "answers": "The case for the Byzantine text.",
+      "read": "The 2018 text is held; the introduction was not read."
+    },
+    {
+      "id": "located-hodges",
+      "title": "Zane C. Hodges and Arthur L. Farstad, The Greek New Testament According to the Majority Text (1982)",
+      "url": "",
+      "kind": "Located",
+      "status": "located",
+      "answers": "The first modern Majority Text edition.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "located-tbs",
+      "title": "Trinitarian Bible Society, The New Testament: The Greek Text Underlying the English Authorised Version of 1611 (Scrivener's text)",
+      "url": "https://www.tbsbibles.org/",
+      "kind": "Located",
+      "status": "located",
+      "answers": "The Textus Receptus as printed today by those who hold it.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "located-white",
+      "title": "James R. White, The King James Only Controversy, 2nd edition (Bethany House, 2009)",
+      "url": "",
+      "kind": "Located",
+      "status": "located",
+      "answers": "The King James only view and a reply.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "located-nida",
+      "title": "Eugene A. Nida and Charles R. Taber, The Theory and Practice of Translation (Brill, 1969)",
+      "url": "",
+      "kind": "Located",
+      "status": "located",
+      "answers": "Dynamic equivalence defined.",
+      "read": "Located, not read; reported through Wikipedia."
+    },
+    {
+      "id": "located-living",
+      "title": "Kenneth N. Taylor, The Living Bible, Paraphrased (Tyndale House, 1971)",
+      "url": "",
+      "kind": "Located",
+      "status": "located",
+      "answers": "A paraphrase that names itself one.",
+      "read": "Located, not read, not held."
+    }
+  ],
+  "pictures": [
+    {
+      "id": "leningrad",
+      "status": "candidate, not downloaded",
+      "subject": "A page of the Leningrad Codex, the oldest complete Hebrew Bible",
+      "holder": "National Library of Russia, St Petersburg",
+      "where": "Wikimedia Commons, category Leningrad Codex",
+      "href": "https://commons.wikimedia.org/wiki/Category:Leningrad_Codex",
+      "licence": "To be checked on each file page. Many photographs of the codex derive from a 1990 photographic project, whose rights must be checked before use.",
+      "note": "For section 02, the Masoretic Text."
+    },
+    {
+      "id": "isaiah-scroll",
+      "status": "candidate, not downloaded",
+      "subject": "The Great Isaiah Scroll, open at Isaiah 53",
+      "holder": "The Israel Museum, Jerusalem",
+      "where": "Study 03 may already hold an approved image; reuse it before adding another.",
+      "href": "/study/dead-sea-scrolls",
+      "licence": "As approved for study 03, or to be checked.",
+      "note": "For the Isaiah 53:11 reading."
+    },
+    {
+      "id": "sinaiticus",
+      "status": "candidate, not downloaded",
+      "subject": "A page of Codex Sinaiticus",
+      "holder": "The British Library, London (most of the codex)",
+      "where": "Wikimedia Commons, category Codex Sinaiticus, or the Codex Sinaiticus Project's site",
+      "href": "https://commons.wikimedia.org/wiki/Category:Codex_Sinaiticus",
+      "licence": "To be checked on each file page and on the project's terms.",
+      "note": "For the families of copies in section 02."
+    },
+    {
+      "id": "erasmus",
+      "status": "candidate, reuse",
+      "subject": "Erasmus's Greek New Testament of 1516",
+      "holder": "Basel University Library, as used by study 05",
+      "where": "Study 05's approved image",
+      "href": "/study/from-manuscript-to-printed-bible",
+      "licence": "As approved for study 05.",
+      "note": "For the Textus Receptus."
+    },
+    {
+      "id": "kjv-1611",
+      "status": "candidate, not downloaded",
+      "subject": "The title page of the King James Bible, 1611",
+      "holder": "To be identified from the file page",
+      "where": "Wikimedia Commons, searched for the 1611 title page",
+      "href": "https://commons.wikimedia.org/w/index.php?search=King+James+Bible+1611+title+page",
+      "licence": "The engraving is out of copyright; the photograph's licence is to be checked.",
+      "note": "For the King James and its preface, \"The Translators to the Reader\"."
+    },
+    {
+      "id": "scrivener-tischendorf",
+      "status": "candidate, not downloaded",
+      "subject": "Title pages of Scrivener's 1894 Greek and Tischendorf's eighth edition",
+      "holder": "Scans on the Internet Archive",
+      "where": "archive.org, searched by title",
+      "href": "https://archive.org/search?query=Tischendorf+Novum+Testamentum+Graece+editio+octava",
+      "licence": "The books are out of copyright; each scan's terms to be checked.",
+      "note": "Two of the three Greek editions the site holds, for the three-column table."
+    }
+  ],
+  "verses": [
+    {
+      "label": "Deuteronomy 32:8",
+      "code": "DEU",
+      "chapter": 32,
+      "verse": 8,
+      "phrase": "according to the number of the sons of God"
+    },
+    {
+      "label": "Psalm 22:16",
+      "code": "PSA",
+      "chapter": 22,
+      "verse": 16,
+      "phrase": "they have pierced my hands and feet"
+    },
+    {
+      "label": "Luke 2:14",
+      "code": "LUK",
+      "chapter": 2,
+      "verse": 14,
+      "phrase": "peace to men on whom His favor rests"
+    },
+    {
+      "label": "Acts 8:36",
+      "code": "ACT",
+      "chapter": 8,
+      "verse": 36,
+      "phrase": "What is there to prevent me from being baptized?"
+    },
+    {
+      "label": "1 Samuel 24:3",
+      "code": "1SA",
+      "chapter": 24,
+      "verse": 3,
+      "phrase": "he went in to relieve himself"
+    },
+    {
+      "label": "Romans 3:25",
+      "code": "ROM",
+      "chapter": 3,
+      "verse": 25,
+      "phrase": "God presented Him as the atoning sacrifice"
+    },
+    {
+      "label": "Romans 6:2",
+      "code": "ROM",
+      "chapter": 6,
+      "verse": 2,
+      "phrase": "Certainly not!"
+    },
+    {
+      "label": "Exodus 3:15",
+      "code": "EXO",
+      "chapter": 3,
+      "verse": 15,
+      "phrase": "The LORD, the God of your fathers"
+    },
+    {
+      "label": "Isaiah 53:11",
+      "code": "ISA",
+      "chapter": 53,
+      "verse": 11,
+      "phrase": "He will see the light of life"
+    },
+    {
+      "label": "Genesis 4:8",
+      "code": "GEN",
+      "chapter": 4,
+      "verse": 8,
+      "phrase": "Let us go out to the field."
+    },
+    {
+      "label": "1 Samuel 10:27",
+      "code": "1SA",
+      "chapter": 10,
+      "verse": 27,
+      "phrase": "but Saul remained silent about it"
+    },
+    {
+      "label": "Psalm 40:6",
+      "code": "PSA",
+      "chapter": 40,
+      "verse": 6,
+      "phrase": "but my ears You have opened"
+    },
+    {
+      "label": "Hebrews 10:5",
+      "code": "HEB",
+      "chapter": 10,
+      "verse": 5,
+      "phrase": "a body You prepared for Me"
+    },
+    {
+      "label": "Revelation 22:19",
+      "code": "REV",
+      "chapter": 22,
+      "verse": 19,
+      "phrase": "his share in the tree of life"
+    },
+    {
+      "label": "1 John 5:7",
+      "code": "1JN",
+      "chapter": 5,
+      "verse": 7,
+      "phrase": "For there are three that testify:"
+    },
+    {
+      "label": "1 Timothy 3:16",
+      "code": "1TI",
+      "chapter": 3,
+      "verse": 16,
+      "phrase": "He appeared"
+    },
+    {
+      "label": "Matthew 6:13",
+      "code": "MAT",
+      "chapter": 6,
+      "verse": 13,
+      "phrase": "deliver us from the evil one"
+    },
+    {
+      "label": "Matthew 5:22",
+      "code": "MAT",
+      "chapter": 5,
+      "verse": 22,
+      "phrase": "anyone who is angry with his brother"
+    },
+    {
+      "label": "Mark 1:2",
+      "code": "MRK",
+      "chapter": 1,
+      "verse": 2,
+      "phrase": "As it is written in Isaiah the prophet"
+    },
+    {
+      "label": "John 1:18",
+      "code": "JHN",
+      "chapter": 1,
+      "verse": 18,
+      "phrase": "the one and only Son, who is Himself God"
+    },
+    {
+      "label": "Matthew 17:20",
+      "code": "MAT",
+      "chapter": 17,
+      "verse": 20,
+      "phrase": "Nothing will be impossible for you."
+    },
+    {
+      "label": "Psalm 23:4",
+      "code": "PSA",
+      "chapter": 23,
+      "verse": 4,
+      "phrase": "the valley of the shadow of death"
+    },
+    {
+      "label": "Genesis 1:1",
+      "code": "GEN",
+      "chapter": 1,
+      "verse": 1,
+      "phrase": "In the beginning God created the heavens and the earth."
+    },
+    {
+      "label": "1 Corinthians 13:4",
+      "code": "1CO",
+      "chapter": 13,
+      "verse": 4,
+      "phrase": "Love is patient, love is kind."
+    },
+    {
+      "label": "1 Thessalonians 4:15",
+      "code": "1TH",
+      "chapter": 4,
+      "verse": 15,
+      "phrase": "will by no means precede those who have fallen asleep"
+    },
+    {
+      "label": "Philippians 1:27",
+      "code": "PHP",
+      "chapter": 1,
+      "verse": 27,
+      "phrase": "conduct yourselves in a manner worthy of the gospel of Christ"
+    },
+    {
+      "label": "Isaiah 7:14",
+      "code": "ISA",
+      "chapter": 7,
+      "verse": 14,
+      "phrase": "Behold, the virgin will be with child"
+    },
+    {
+      "label": "Matthew 1:23",
+      "code": "MAT",
+      "chapter": 1,
+      "verse": 23,
+      "phrase": "Behold, the virgin will be with child and will give birth to a son, and they will call Him Immanuel"
+    },
+    {
+      "label": "2 Timothy 3:16",
+      "code": "2TI",
+      "chapter": 3,
+      "verse": 16,
+      "phrase": "All Scripture is God-breathed"
+    },
+    {
+      "label": "Matthew 28:19",
+      "code": "MAT",
+      "chapter": 28,
+      "verse": 19,
+      "phrase": "baptizing them in the name of the Father, and of the Son, and of the Holy Spirit"
+    },
+    {
+      "label": "John 1:1",
+      "code": "JHN",
+      "chapter": 1,
+      "verse": 1,
+      "phrase": "the Word was God"
+    },
+    {
+      "label": "Nehemiah 8:8",
+      "code": "NEH",
+      "chapter": 8,
+      "verse": 8,
+      "phrase": "explaining it and giving insight, so that the people could understand what was being read"
+    },
+    {
+      "label": "Acts 17:11",
+      "code": "ACT",
+      "chapter": 17,
+      "verse": 11,
+      "phrase": "examined the Scriptures every day to see if these teachings were true"
+    }
+  ]
+}
