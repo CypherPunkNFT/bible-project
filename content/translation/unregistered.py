@@ -5,7 +5,10 @@ Three checks, each written to its own section of the report:
                 menu's {label:'Practice'} was one: single quotes, one word)
   fields        fields of the content files that hold prose but that no SOURCES, RESOURCES or PAGE_DATA (page_data.py)
                 path names, and content files with prose that no rule reads at all (the debate summaries and venues
-                were missed this way)
+                were missed this way). Content files are those under data/, public/content/ and src/data/, and the
+                files of content/ the page code imports. A file or folder no rule should read is ruled out in
+                unregistered-reviewed.json ("files"); a folder ruling records how many files it held, and the report
+                names a ruled-out folder that has grown since
   untranslated  page text extract.py does register but that a language's ui.json has no translation for yet
 
 The net here is deliberately wider than extract.py's, so some of what it lists is code, not screen text. Anything
@@ -43,7 +46,7 @@ JSX_TEXT = re.compile(r"(?:\}|(?<![=\-])>)([^<>{}]{1,600})(?=[<{])")
 
 
 def reviewed() -> dict[str, set[str]]:
-    """check -> the texts (code), field paths (fields) or files already checked and found fine."""
+    """check -> the texts (code), field paths (fields) or files and folders (files) already checked and found fine."""
     if not REVIEWED.exists():
         return defaultdict(set)
     entries = json.loads(REVIEWED.read_text("utf-8"))
@@ -213,6 +216,22 @@ def unread_fields(spec: tuple, skip: set[str]) -> list[str]:
 CONTENT_ROOTS = ["data", "public/content", "src/data"]
 NOT_CONTENT = {"text", "plain", "i18n", "xref", "xref-links", "graph", "generated", "node_modules"}
 MAX_FILE_BYTES = 5_000_000
+# The page code also bundles some files of content/, the authoring folder, by importing them (stage 5 job 19 found the
+# teachers' discovery evidence that way): those are content files too, and only those.
+BUNDLED_ROOT = "content"
+CONTENT_IMPORT = re.compile(r"""(?:from\s*|import\.meta\.glob(?:<[^>]*>)?\(\s*)["']([^"']*content/[^"']+\.json)["']""")
+
+
+def bundled_content_files() -> set[Path]:
+    """The JSON files under content/ that the page code imports, directly or by an import.meta.glob pattern."""
+    found: set[Path] = set()
+    for code in sorted((SITE / "src").rglob("*.ts*")):
+        for target in CONTENT_IMPORT.findall(code.read_text("utf-8", errors="replace")):
+            base = SITE if target.startswith("/") else code.parent
+            pattern = (base / target.lstrip("/")).resolve()
+            if (SITE / BUNDLED_ROOT).resolve() in pattern.parents:
+                found.update(path.resolve() for path in pattern.parent.glob(pattern.name))
+    return found
 
 
 def content_files():
@@ -222,6 +241,7 @@ def content_files():
             for name in sorted(files):
                 if name.endswith(".json"):
                     yield Path(folder) / name
+    yield from sorted(bundled_content_files())
 
 
 def prose_count(path: Path) -> int:
@@ -249,13 +269,57 @@ def unread_files(skip: set[str]) -> list[str]:
             for folder, (files, texts) in sorted(by_folder.items(), key=lambda item: -item[1][1])]
 
 
+def files_rulings() -> list[dict]:
+    """The "files" rulings: each a content file, or a folder ending "/" with the count of files it held when ruled."""
+    if not REVIEWED.exists():
+        return []
+    return [entry for entry in json.loads(REVIEWED.read_text("utf-8")) if entry["check"] == "files"]
+
+
+def json_files_under(folder: str) -> int:
+    return sum(1 for _ in (SITE / folder).rglob("*.json"))
+
+
+def files_ruling_problem(entry: dict) -> str | None:
+    """Why a "files" ruling cannot stand, or None. A ruling is matched as a path prefix, so one naming a whole content
+    root, a missing path or a folder without its closing "/" would skip far more than was read."""
+    item = entry["item"]
+    roots = [*CONTENT_ROOTS, BUNDLED_ROOT]
+    if not any(item.startswith(f"{root}/") for root in roots) or item.rstrip("/") in roots:
+        return f"{item}: names no file or folder inside {', '.join(roots)}"
+    if ".." in Path(item).parts or not entry.get("why"):
+        return f"{item}: a ruling needs a plain path and a reason (\"why\")"
+    if item.endswith("/"):
+        if not (SITE / item).is_dir() or not isinstance(entry.get("files"), int):
+            return f"{item}: a folder ruling needs the folder to exist and \"files\", how many it held when ruled"
+    elif not (SITE / item).is_file():
+        return f"{item}: no such file (a folder ruling ends with \"/\")"
+    return None
+
+
+def grown_folders(entries: list[dict]) -> list[str]:
+    """Folders ruled out that now hold more files than when they were ruled: the new files were never looked at."""
+    lines = []
+    for entry in entries:
+        if entry["item"].endswith("/") and (now := json_files_under(entry["item"])) > entry["files"]:
+            lines.append(f"- {entry['item']} — ruled out with {entry['files']} files, now {now}; check the new ones")
+    return lines
+
+
 def check_fields(skip: dict[str, set[str]]) -> list[str]:
+    entries = files_rulings()
+    if problems := [problem for entry in entries if (problem := files_ruling_problem(entry))]:
+        raise SystemExit(f"{REVIEWED.name} has \"files\" rulings that cannot stand:\n" + "\n".join(problems))
     first = {spec[1]: spec for spec in reversed(SPECS)}  # one report per file, whichever rules read it
     fields = [line for spec in SPECS if first[spec[1]] is spec for line in unread_fields(spec, skip["fields"])]
     files = unread_files(skip["files"])
-    return ([f"{len(fields)} fields hold prose that no SOURCES, RESOURCES or PAGE_DATA path names:", ""] + fields
-            + ["", f"{len(files)} content files hold prose and no rule reads them (some are read by other tools; check):", ""]
-            + files)
+    grown = grown_folders(entries)
+    return ([f"{len(fields)} fields hold prose that no SOURCES, RESOURCES or PAGE_DATA path names; "
+             f"{len(files)} folders hold content files no rule reads; {len(grown)} ruled-out folders have grown:", ""]
+            + fields
+            + ["", f"{len(files)} folders hold content files with prose that no rule reads (one line per folder; some are read "
+                  "by other tools; check):", ""]
+            + files + ["", f"{len(grown)} folders ruled out have more files than when they were ruled:", ""] + grown)
 
 
 def check_untranslated(skip: dict[str, set[str]]) -> list[str]:

@@ -7,6 +7,7 @@
 @import "@fontsource/noto-serif-hebrew/400.css";
 @import "./components/apologetics/worldview-colors.css";
 @import "./phone.css";
+@import "./joined-scripts.css";
 
 /* The reader's footnote mark (†) is the only character on most pages outside Archivo's plain Latin file, so every chapter
    fetched the 32 KB accented-Latin file for it. This 1 KB cut of that same file holds just the dagger, with the same weight
@@ -186,6 +187,12 @@ html[dir="rtl"] svg {
   direction: ltr;
 }
 html[dir="rtl"] body {
+  overflow-x: clip;
+}
+/* The body's clip is handed to the window, where it becomes "hidden": the art is cut off but the page still measures
+   wider than the screen (four pages in the right-to-left reading). Clipped here, inside the page, it is not handed on;
+   a clip makes no scroll box, so sticky headers keep working. */
+html[dir="rtl"] #root {
   overflow-x: clip;
 }
 /* A sliding strip runs off its own left edge, so it stays laid out from the left or a gap opens behind it; what is on it still reads right to left. */

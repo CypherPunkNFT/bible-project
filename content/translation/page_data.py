@@ -7,27 +7,34 @@ rather than ui.json, which every page waits for before its first paint:
   studydata   the circles explorer (its template.html and the labels of public/circles/catalogue.json, inside its shadow
               root), the old maps page's labels (src/pages/places/old-maps-collection/data.js, at /study/atlas/old-maps)
               and the people list's names (data/study/people.json); apply.py merges it into ui-study.json, which
-              /study and /teachers pages load
+              /study and /teachers pages load. Stage 5 job 19 added the teachers' pages, the letters, Names of God,
+              manuscripts and other study data (page_data_specs.py)
+  sitedata    (job 19, page_data_specs.py) text from data shown by pages that load no other phrase list: Resources,
+              the Bible reader, Apologetics, the source directory, the atlas; apply.py merges it into ui.json
 
 The bundled files themselves are never rewritten: their code looks things up by the English (the Moses map's sides, the
 merged chapters' keys). Only the screen is swapped. Scripture quotations are left out, as everywhere: a record quoting a
 verse holds no text of its own. Citations (authors, works, pages) stay as published.
 
-`extract.py --page-data` appends the new texts; texts any page, study or people chunk already holds are left out, so
-nothing is translated twice (most of the Moses text is already in ui-people.json).
+`extract.py --page-data` appends the new texts; texts the phrase lists a kind's pages load already hold are left out
+(HELD), so nothing is translated twice (most of the Moses text is already in ui-people.json).
 """
 import html
 import json
 import re
 from pathlib import Path
 
+from page_data_specs import (PEOPLE_DATA, PEOPLE_DATA_KIND, SITE_DATA, SITE_DATA_KIND, STUDY_DATA, STUDY_DATA_KIND,
+                             teacher_genres)
 from page_rules import jsx_prose, strings_in, translatable
 
-PEOPLE_DATA_KIND = "peopledata"
-STUDY_DATA_KIND = "studydata"
-KINDS = (PEOPLE_DATA_KIND, STUDY_DATA_KIND)
-# The chunk kinds whose texts reach the same phrase lists: a text one of them holds is not collected again.
-HELD_KINDS = ("page", "studytext", "peopletext", PEOPLE_DATA_KIND, STUDY_DATA_KIND)
+KINDS = (PEOPLE_DATA_KIND, STUDY_DATA_KIND, SITE_DATA_KIND)
+# Kind -> the chunk kinds whose texts reach the phrase lists its pages load (ui.json on every page, then ui-people.json
+# or ui-study.json): a text one of them holds is not collected again. A text only a study chunk holds is still collected
+# for sitedata, as the pages that show it never load ui-study.json.
+HELD = {PEOPLE_DATA_KIND: ("page", "peopletext", PEOPLE_DATA_KIND),
+        STUDY_DATA_KIND: ("page", "studytext", STUDY_DATA_KIND),
+        SITE_DATA_KIND: ("page", SITE_DATA_KIND)}
 
 MOSES = "src/components/moses-page/data/"
 OLD_MAPS = "src/pages/places/old-maps-collection/data.js"
@@ -68,6 +75,7 @@ PAGE_DATA = [
         ".lands[].outline.places[].n", ".lands[].outline.waters[].n", ".maps[].yc"}, set(), set()),
     # The people list's names ("Also called" too): already in the study phrase lists, so this adds only new people.
     (STUDY_DATA_KIND, "data/study/people.json", False, (), {"[].n", "[].o[]"}, set(), set()),
+    *STUDY_DATA, *PEOPLE_DATA, *SITE_DATA,
 ]
 # Page HTML a page fills a shadow root with: its text between tags and its label attributes, entities decoded.
 PAGE_HTML = ["src/pages/study/circles/template.html"]
@@ -105,12 +113,15 @@ def data_strings(site: Path, walk) -> dict[str, list[str]]:
     for spec in PAGE_DATA:
         files = sorted(site.glob(spec[1]))
         if not files:
-            raise SystemExit(f"page_data.py: no files match {spec[1]}; the page's data moved, update PAGE_DATA")
+            hint = ("data/ is built, not kept in git: build the site's data first" if spec[1].startswith("data/")
+                    else "the page's data moved, update PAGE_DATA (page_data.py or page_data_specs.py)")
+            raise SystemExit(f"page_data.py: no files match {spec[1]}; {hint}")
         texts = found[spec[0]]
         for path in files:
             walk(read_data(path), "", spec, lambda text: texts.setdefault(text))
     for relative in PAGE_HTML:
         found[STUDY_DATA_KIND].update(dict.fromkeys(html_strings((site / relative).read_text("utf-8"))))
+    found[STUDY_DATA_KIND].update(dict.fromkeys(teacher_genres(site)))
     moses = found[PEOPLE_DATA_KIND]
     for text in list(moses):
         if " · " in text:

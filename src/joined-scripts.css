@@ -1,0 +1,11 @@
+/* Joined scripts come apart under letter spacing: Arabic letters stop joining, and Devanagari and the other Indian
+   scripts lose their headline and conjuncts. Text in one of these scripts keeps its letters together, however a style
+   spaces its line (component rules, tracking-* utilities and inline styles alike, hence !important). The made-up
+   right-to-left language (ar-XB) counts as Arabic. The languages are those of the Arabic and Indian font rules in
+   index.css (site-languages.test.ts keeps the three lists in step). index.css imports this file, and the pages drawn
+   inside a shadow root (the Moses page, the circles explorer) add it to their own styles, which index.css cannot reach.
+   A ::before or ::after rule that sets its own letter-spacing is not reached. */
+:is(:lang(ar), :lang(fa), :lang(ckb), :lang(ur), :lang(ug), :lang(hi), :lang(mr), :lang(ne), :lang(hne), :lang(suz),
+    :lang(kfx), :lang(as), :lang(bn), :lang(gu), :lang(pa), :lang(or), :lang(ta), :lang(te), :lang(kn), :lang(ml)) {
+  letter-spacing: normal !important;
+}

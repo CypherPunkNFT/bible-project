@@ -2204,5 +2204,557 @@
   "file": "src/pages/review/DesignReviewPage.tsx",
   "item": "\"noindex, nofollow\"",
   "why": "a robots instruction to search engines on a page kept out of search (meta name=\"robots\"), never shown to a reader"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/teachers.json .teachers[].cited[].title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/teachers.json .teachers[].published[].title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/teachers.json .teachers[].apologetics[].title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/teachers.json .teachers[].cited[].year",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/teachers.json .teachers[].name",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/teachers.json .notListed[].name",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/scholars.json .scholars[].works[][]",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/scholars.json .scholars[].name",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/scholars.json .scholars[].short",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/scholars.json .scholars[].place[]",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/scholars.json .finds[].name",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/scholars.json .finds[].where[]",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/people.json .people[].passages[].t",
+  "why": "titles of the sermons and works each preacher published, kept as published like all catalogue metadata (many in old spelling)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/people.json .people[].sermons[].t",
+  "why": "titles of the sermons and works each preacher published, kept as published like all catalogue metadata (many in old spelling)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/people.json .people[].notable[].t",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/people.json .people[].known[].t",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/people.json .people[].passages[].r",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/people.json .people[].sermons[].r",
+  "why": "Bible references: the page translator swaps the book name (the seed holds all 66 in each language's own Bible form) and keeps the numbers (page-translator.ts: a known name followed only by numbers)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/people.json .people[].name",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/people.json .people[].short",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/people.json .people[].places[][]",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/teachers/people.json .books[].name",
+  "why": "Bible book names: the seed holds all 66 in each language's own Bible form, and the page translator swaps them"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/letters/*-letters.json .citations[].title",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/letters/*-letters.json .citations[].author",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/letters/*-letters.json .citations[].where",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/letters/hebrews.json .citations[].title",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/letters/hebrews.json .citations[].author",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/letters/hebrews.json .citations[].where",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/letters/overview.json .citations[].title",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/letters/overview.json .citations[].author",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/letters/overview.json .citations[].where",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/letters/*-letters.json .citations[].year",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/letters/browse.json .translations[].name",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "data/manuscripts/collection.json .records[].hr",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "data/manuscripts/collection.json .records[].n",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "data/manuscripts/collection.json .records[].wp",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "data/manuscripts/collection.json .holders[].name",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "data/manuscripts/collection.json .holders[].city",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "data/manuscripts/collection.json .excluded[].n",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "data/manuscripts/collection.json .records[].c",
+  "why": "what the open catalogue says a manuscript holds, quoted as it wrote it (the sheet prints it as The catalogue says: “…”, some with the catalogue's own broken characters); a translation would misquote it"
+ },
+ {
+  "check": "fields",
+  "item": "data/manuscripts/collection.json .records[].sh",
+  "why": "shelfmarks, the library's own call numbers (\"MS. Auct. T. inf. 1. 1\"), kept as the library writes them"
+ },
+ {
+  "check": "fields",
+  "item": "data/manuscripts/collection.json .images.*.by",
+  "why": "a credit or attribution line, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "data/manuscripts/collection.json .images.*.via",
+  "why": "a credit or attribution line, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "data/manuscripts/collection.json .images.*.file",
+  "why": "image file names on Wikimedia Commons, used to fetch the picture, never shown as text"
+ },
+ {
+  "check": "fields",
+  "item": "data/manuscripts/collection.json .books[].name",
+  "why": "Bible book names: the seed holds all 66 in each language's own Bible form, and the page translator swaps them"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/long-memory/*.json .books[].name",
+  "why": "Bible book names: the seed holds all 66 in each language's own Bible form, and the page translator swaps them"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/open-workbooks.json [].title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/open-workbooks.json [].series",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/open-workbooks.json [].author",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/open-workbooks.json [].publisher",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/open-workbooks.json [].rights.licence",
+  "why": "a licence name, kept as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/open-workbooks.json [].rights.creditLine",
+  "why": "a credit or attribution line, kept in English as the rightsholder wrote it (the brief: credits and licences may stay English)"
+ },
+ {
+  "check": "fields",
+  "item": "src/data/resources/open-workbooks.json [].files[].label",
+  "why": "the publisher's own file labels (\"en obs v9\": language, work code, version), kept as published so a reader can match the download"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/reading-sources.json [].author",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/reading-sources.json [].title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/reading-sources.json [].held.title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "public/content/sources/facets.json .records.*.authors[].name",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "data/places.json [].name",
+  "why": "names of places, kept as written, as the atlas has always shown them (stage 5 job 12's data net lists places.json as read in English); what kind of place each is, \"[].type\", is collected"
+ },
+ {
+  "check": "files",
+  "item": "public/content/teacher-library/records/",
+  "why": "the library's catalogue records: titles of published works, authors', editors' and contributors' names, sources, licences, credits and intake provenance, kept as published and recorded like all catalogue metadata",
+  "files": 256
+ },
+ {
+  "check": "files",
+  "item": "public/content/teacher-library/contributors/",
+  "why": "the library's catalogue records: titles of published works, authors', editors' and contributors' names, sources, licences, credits and intake provenance, kept as published and recorded like all catalogue metadata (each contributor's list of works)",
+  "files": 256
+ },
+ {
+  "check": "files",
+  "item": "public/content/teacher-library/collections/",
+  "why": "the library's catalogue records: titles of published works, authors', editors' and contributors' names, sources, licences, credits and intake provenance, kept as published and recorded like all catalogue metadata (each shelf's lists of works, and collections/index.json's source credits)",
+  "files": 652
+ },
+ {
+  "check": "files",
+  "item": "public/content/teacher-library/catalogue.json",
+  "why": "the library's contributor list: people's and institutions' names as catalogued, with codes (roles, ids); the role words the pages print are page text"
+ },
+ {
+  "check": "files",
+  "item": "public/content/teacher-library/pages/",
+  "why": "the text of the held works themselves (old English, Greek and Latin books, page by page), shown as published; translating the books is not the site's translation",
+  "files": 1626
+ },
+ {
+  "check": "files",
+  "item": "public/content/teacher-profiles/",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata (each teacher's list of works; the genre words are collected from them by page_data_specs.teacher_genres)",
+  "files": 52
+ },
+ {
+  "check": "files",
+  "item": "public/content/scholar-population/",
+  "why": "the scholars' catalogue (contributors/, unattributed/, hosting.json, reconciliation.json, and index.json and the bundles, over the size limit): titles of works, names, sources, licences, and the review evidence drawer's provenance records (identity join and date basis notes, mostly codes and file paths), kept as recorded like all catalogue metadata",
+  "files": 1203
+ },
+ {
+  "check": "files",
+  "item": "src/data/people-pages/",
+  "why": "read by another tool: SiteTranslation/studies/tools/theology_strings.py collects these files' reader text and Bible names into ui-people.json (the prophets' and apostles' sections)",
+  "files": 22
+ },
+ {
+  "check": "files",
+  "item": "src/data/apostle-pages/",
+  "why": "read by another tool: SiteTranslation/studies/tools/theology_strings.py collects the apostles' own pages into ui-people.json",
+  "files": 16
+ },
+ {
+  "check": "files",
+  "item": "public/content/study/genealogy.json",
+  "why": "read only by the /mock genealogy pages (CircularGenealogyPage, CurvedGenealogyPage, GenealogyExplorer), not by any page a reader reaches; its briefs repeat data/study/people.json's, which SOURCES reads"
+ },
+ {
+  "check": "files",
+  "item": "public/content/study/genealogy-manual-reference.json",
+  "why": "a hand-made reference copy for checking the genealogy, read by no page"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/atl-map.json",
+  "why": "map drawing data: map sources and their licences, the map's source line and US place and water names, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/bhm-map.json",
+  "why": "map drawing data: map sources and their licences, the map's source line and US place and water names, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/bna-map.json",
+  "why": "map drawing data: map sources and their licences, the map's source line and US place and water names, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/chs-map.json",
+  "why": "map drawing data: map sources and their licences, the map's source line and US place and water names, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/clt-map.json",
+  "why": "map drawing data: map sources and their licences, the map's source line and US place and water names, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/dal-map.json",
+  "why": "map drawing data: map sources and their licences, the map's source line and US place and water names, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/hou-map.json",
+  "why": "map drawing data: map sources and their licences, the map's source line and US place and water names, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/jax-map.json",
+  "why": "map drawing data: map sources and their licences, the map's source line and US place and water names, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/mem-map.json",
+  "why": "map drawing data: map sources and their licences, the map's source line and US place and water names, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/mia-map.json",
+  "why": "map drawing data: map sources and their licences, the map's source line and US place and water names, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/okc-map.json",
+  "why": "map drawing data: map sources and their licences, the map's source line and US place and water names, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/orl-map.json",
+  "why": "map drawing data: map sources and their licences, the map's source line and US place and water names, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/sdf-map.json",
+  "why": "map drawing data: map sources and their licences, the map's source line and US place and water names, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/tpa-map.json",
+  "why": "map drawing data: map sources and their licences, the map's source line and US place and water names, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "src/data/resources/us-states.json",
+  "why": "map outline data; its only words are the source and licence, kept as published"
+ },
+ {
+  "check": "files",
+  "item": "data/catalog.json",
+  "why": "the Bible translations' names (titles of published Bible editions), their copyright lines (credits, kept as the rightsholder wrote them) and the book names, which the page translator swaps from the seed"
+ },
+ {
+  "check": "files",
+  "item": "data/stats.json",
+  "why": "Bible book names: the seed holds all 66 in each language's own Bible form, and the page translator swaps them"
+ },
+ {
+  "check": "files",
+  "item": "data/places-by-book/",
+  "why": "names of places, kept as written, as the atlas has always shown them (stage 5 job 12's data net lists places.json as read in English); what kind of place each is, \"[].type\", is collected",
+  "files": 66
+ },
+ {
+  "check": "files",
+  "item": "data/topics/library/",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata (each topic's library shelf)",
+  "files": 54
+ },
+ {
+  "check": "files",
+  "item": "data/study/home.json",
+  "why": "read by loadHome in src/lib/study.ts, which no page calls; nothing shows this file"
+ },
+ {
+  "check": "files",
+  "item": "data/study/index.json",
+  "why": "the study data's build report, never shown, and the miracles page's correction note, which MiraclesPage.tsx builds in code as one pieced sentence (where, printed, corrected, why) the phrase lists cannot swap; that is code to change, not a field to collect"
+ },
+ {
+  "check": "files",
+  "item": "src/data/listen/",
+  "why": "never shown: the recordings' source titles, translation name, licence and selection note are kept for the site's records (ListenPage.tsx and AudioBiblePage.tsx write their own words); track titles are Bible book names and chapter ranges, which the page translator swaps",
+  "files": 68
+ },
+ {
+  "check": "fields",
+  "item": "content/teachers/discovery-evidence.json .cases.*.sources[].label",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "content/teachers/discovery-evidence.json .cases.*.site.sourceTitle",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "content/teachers/discovery-evidence.json .cases.*.site.match",
+  "why": "never shown: the English words the evidence check looks for on the cited page (discoveries/model.ts shows only the label and note)"
+ },
+ {
+  "check": "fields",
+  "item": "content/teachers/feature-usage.json .features[].sources[].title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "content/teachers/feature-usage.json .features[].sources[].author",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "content/teachers/feature-usage.json .features[].sources[].year",
+  "why": "a citation (author, work, edition, page or section), kept as published like every citation on the site"
+ },
+ {
+  "check": "fields",
+  "item": "content/teachers/feature-usage.json .features[].sources[].uses[].locator",
+  "why": "where a work is used on the site, as the source records write it beside the work's title; kept with the citation it belongs to, as the source directory keeps its citation locators"
+ },
+ {
+  "check": "fields",
+  "item": "content/teachers/feature-usage.json .scope",
+  "why": "never shown: site-evidence.ts reads only the file's features"
+ },
+ {
+  "check": "fields",
+  "item": "content/teachers/writings/index.json [].name",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "content/teachers/writings/*-*.json .name",
+  "why": "names of people, institutions, places and finds from after the Bible's time, kept as written: the teachers' and scholars' pages list each person under the name they published as, and a place or library under its own name"
+ },
+ {
+  "check": "fields",
+  "item": "content/teachers/writings/*-*.json .writings[].title",
+  "why": "titles of published works (books, hymnals, question collections, Bible editions), kept as published like all catalogue metadata"
+ },
+ {
+  "check": "fields",
+  "item": "content/missions/muslim-world.json .countries[].examples[].name",
+  "why": "names of people groups, kept as the mission source records them (its people group names are its own identifiers)"
+ },
+ {
+  "check": "fields",
+  "item": "content/missions/muslim-world.json .countries[].examples[].language",
+  "why": "names of languages as the mission source records them (\"Western Niger Fulfulde\"), kept with the people group they identify"
+ },
+ {
+  "check": "files",
+  "item": "content/academic-research/",
+  "why": "read by another tool: SiteTranslation/studies/tools (scope.py, build.py) collect the study dossiers' prose into ui-study.json, which the /study pages that import them load",
+  "files": 63
+ },
+ {
+  "check": "files",
+  "item": "content/research/phase-2.json",
+  "why": "imported only by a test (src/pages/research/model.test.ts); no page shows it"
+ },
+ {
+  "check": "files",
+  "item": "content/studies/progress.json",
+  "why": "imported only by the mockup draft pages (src/pages/mockup/drafts/) and their test; no page a reader reaches shows it"
+ },
+ {
+  "check": "files",
+  "item": "content/teachers/source-profile-aliases.json",
+  "why": "the forms each source writes a teacher's name in (\"Jerome (trans. E. C. Richardson, ...)\"), used by site-evidence.ts to match sources to profiles: citations, kept as published"
  }
 ]

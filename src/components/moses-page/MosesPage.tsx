@@ -11,6 +11,7 @@ import { mountMoses } from "./runtime.js";
 import styles from "./moses.css?inline";
 import topicStyles from "./chapter-topics.css?inline";
 import wordStyles from "./word-open.css?inline";
+import joinedScripts from "@/joined-scripts.css?inline";
 
 /** The approved cinematic design, within the site's real routing and header.
  * A shadow root isolates its typography/illustrations from generic study styles.
@@ -27,7 +28,7 @@ export default function MosesPage({ person }: { person: Person }) {
     if (!element) return;
     const shadow = element.shadowRoot ?? element.attachShadow({ mode: "open" });
     const style = document.createElement("style");
-    style.textContent = styles + topicStyles + wordStyles;
+    style.textContent = styles + topicStyles + wordStyles + joinedScripts; // index.css does not reach a shadow root
     const surface = document.createElement("article");
     surface.className = "moses-surface dir-merged";
     surface.setAttribute("aria-label", "Moses: his life, leadership and word");

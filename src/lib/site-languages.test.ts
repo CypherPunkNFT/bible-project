@@ -153,6 +153,34 @@ describe("the site reads its languages from the one file", () => {
     }
   });
 
+  // Letter spacing pulled joined Arabic letters apart on every page of the right-to-left reading (stage 5 job 19).
+  it("text in a joined script keeps its letters together, in the page and in the shadow roots, for every such language", () => {
+    const joined = read("src/joined-scripts.css").replace(/\/\*[\s\S]*?\*\//g, "");
+    expect(joined, "joined-scripts.css: the reset must win over component rules and inline styles").toMatch(/letter-spacing:\s*normal\s*!important/);
+    const reset = new Set([...joined.matchAll(/:lang\(([\w-]+)\)/g)].map(([, code]) => code));
+    const primary = (tag: string) => tag.split("-")[0];
+    for (const language of SITE_LANGUAGES.filter((entry) => ["Arab", "Deva"].includes(entry.script) || entry.dir === "rtl")) {
+      expect(reset.has(primary(language.code)), `${language.code} (${language.script}) is missing from joined-scripts.css`).toBe(true);
+    }
+    // The Arabic and Devanagari font rules name the Bible languages in those scripts; each must be in the reset too.
+    const css = read("src/index.css").replace(/\/\*[\s\S]*?\*\//g, "");
+    const fontRule = (face: string) => [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].find(([, , body]) => body.includes(face))?.[1] ?? "";
+    for (const face of ['"Noto Naskh Arabic"', '"Noto Serif Devanagari"']) {
+      const named = [...fontRule(face).matchAll(/\[lang="([\w-]+)"\]/g)].map(([, code]) => code);
+      expect(named.length, `index.css: no font rule with ${face}`).toBeGreaterThan(0);
+      for (const code of named) expect(reset.has(primary(code)), `${code} (${face}) is missing from joined-scripts.css`).toBe(true);
+    }
+    expect(css).toMatch(/@import\s+"\.\/joined-scripts\.css"/);
+    expect(read("src/components/moses-page/MosesPage.tsx")).toMatch(/style\.textContent = [^;]*\bjoinedScripts\b/);
+    expect(read("src/pages/study/circles/CirclesPage.tsx")).toMatch(/<style>\$\{styles\}\$\{joinedScripts\}<\/style>/);
+  });
+
+  // The body's clip is handed to the window and the right-to-left page still measured wider than the screen.
+  it("a right-to-left page clips its bleeding art inside the page, not at the body", () => {
+    const css = read("src/index.css").replace(/\/\*[\s\S]*?\*\//g, "");
+    expect(css).toMatch(/html\[dir="rtl"\] #root\s*\{\s*overflow-x:\s*clip;\s*\}/);
+  });
+
   it("every language with its own Bible quotes one the catalogue has, written in that language", () => {
     const catalog = JSON.parse(read("data/catalog.json")) as { translations: { slug: string; lang: string }[] };
     const primary = (tag: string) => tag.split("-")[0];

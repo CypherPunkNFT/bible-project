@@ -137,3 +137,88 @@ def test_the_rulings_file_is_well_formed_and_names_fields_the_rules_read() -> No
     assert len(fields) == len(set(fields))
     assert all(entry["why"].strip() for entry in entries)
     assert all(item.split(" ", 1)[0] in globs for item in fields)
+
+
+def test_the_teachers_labels_and_the_other_page_data_of_job_19_are_collected() -> None:
+    found = page_data.data_strings(extract.SITE, extract.walk)
+    study, site = set(found["studydata"]), set(found["sitedata"])
+    assert {"Reformed", "Treatises and chapters", "The 1500s"} <= study  # teachers.json labels, one or two words
+    assert {"systematic-theology", "systematic theology"} <= study  # a genre as the work page and the profile print it
+    assert {"Christ the High Priest", "Set the Hebrew beside its Greek versions"} <= study  # letters home, scholars
+    assert {"river", "body of water"} <= site  # what kind of place, under its name on the atlas
+    # Names after the Bible's time, titles of works and quotations of the catalogue stay out.
+    assert not {"W. F. Albright", "Evidences of the Christian Religion", "Codex Athous Dionysiou"} & (study | site)
+
+
+def test_every_field_a_job_19_rule_names_reads_some_text() -> None:
+    """A path written the wrong way (".labels.*.*" when the second level is not a wild key) reads nothing and says
+    nothing; the letters files share one field list, so they are judged together."""
+    import page_data_specs
+    named: dict[str, set[str]] = {}
+    seen: dict[str, set[str]] = {}
+    for spec in page_data_specs.STUDY_DATA + page_data_specs.PEOPLE_DATA + page_data_specs.SITE_DATA:
+        group = "letters" if spec[1].startswith("src/data/letters/") else spec[1]
+        named.setdefault(group, set()).update(spec[4])
+        for path in sorted(extract.SITE.glob(spec[1])):
+            unregistered.all_strings(page_data.read_data(path), "", spec,
+                                     lambda field, _text, group=group: seen.setdefault(group, set()).add(field))
+    assert {group: fields - seen.get(group, set()) for group, fields in named.items() if fields - seen.get(group, set())} == {}
+
+
+def test_the_new_page_data_kinds_skip_only_what_their_pages_load_and_site_data_joins_ui_json_last(
+        tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    out = folder(tmp_path, {"0001": ("page", ["Read the text"]), "0002": ("studytext", ["A river of the plain"]),
+                            "0003": ("sitedata", ["Read the text", "body of water"])})
+    monkeypatch.setattr(page_data, "data_strings", lambda site, walk: {
+        "sitedata": ["Read the text", "A river of the plain", "river"], "studydata": ["A river of the plain", "Reformed"]})
+    collect_new.page_data_texts(argparse.Namespace(out=out, dry_run=False))
+    # A study chunk's text is collected again for ui.json: the atlas and Resources pages never load ui-study.json.
+    assert extract.held_texts(out, "sitedata") == {"Read the text", "body of water", "A river of the plain", "river"}
+    assert extract.held_texts(out, "studydata") == {"Reformed"}
+    translated = {"sitedata": {extract.string_id("sitedata", text): f"site: {text}"
+                               for text in ("Read the text", "body of water")}}
+    ui = {"Read the text": "page: Read the text"}
+    apply.add_site_data(ui, out, translated)
+    assert ui == {"Read the text": "page: Read the text", "body of water": "site: body of water"}
+
+
+@pytest.mark.parametrize("entry, problem", [
+    ({"item": "public/content/", "why": "x", "files": 1}, "names no file or folder"),
+    ({"item": "src/pages/App.tsx", "why": "x"}, "names no file or folder"),
+    ({"item": "data/places.json", "why": ""}, "a reason"),
+    ({"item": "data/no-such-file.json", "why": "x"}, "no such file"),
+    ({"item": "data/places-by-book", "why": "x"}, "no such file"),  # a folder without its "/" would match data/places-by-bookX
+    ({"item": "data/places-by-book/", "why": "x"}, "how many it held"),
+    ({"item": "data/../data/places.json", "why": "x"}, "a plain path"),
+])
+def test_a_files_ruling_must_name_one_real_file_or_counted_folder(entry: dict, problem: str) -> None:
+    assert problem in unregistered.files_ruling_problem({"check": "files", **entry})
+
+
+def test_a_counted_folder_ruling_stands_and_reports_files_added_since() -> None:
+    count = unregistered.json_files_under("data/places-by-book/")
+    ruling = {"check": "files", "item": "data/places-by-book/", "why": "names of places", "files": count}
+    assert unregistered.files_ruling_problem(ruling) is None
+    assert unregistered.files_ruling_problem({"check": "files", "item": "data/places.json", "why": "x"}) is None
+    assert unregistered.grown_folders([ruling]) == []
+    assert "now" in unregistered.grown_folders([{**ruling, "files": count - 1}])[0]
+
+
+def test_every_files_ruling_in_the_rulings_file_stands() -> None:
+    entries = unregistered.files_rulings()
+    assert entries and [problem for entry in entries if (problem := unregistered.files_ruling_problem(entry))] == []
+
+
+def test_content_files_the_page_code_imports_are_content_files_too(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    write(tmp_path, "content/teachers/evidence.json", "{}")
+    write(tmp_path, "content/research/a-1.json", "{}")
+    write(tmp_path, "content/research/a-2.json", "{}")
+    write(tmp_path, "content/notes/never-imported.json", "{}")
+    write(tmp_path, "src/pages/x/Page.tsx", 'import evidence from "../../../content/teachers/evidence.json";\n'
+                                            'const all = import.meta.glob<Research>("/content/research/a-*.json");\n'
+                                            'import other from "@/data/content/elsewhere.json";\n')
+    monkeypatch.setattr(unregistered, "SITE", tmp_path)
+    found = {path.relative_to(tmp_path.resolve()).as_posix() for path in unregistered.bundled_content_files()}
+    assert found == {"content/teachers/evidence.json", "content/research/a-1.json", "content/research/a-2.json"}
+    listed = {path.resolve().relative_to(tmp_path.resolve()).as_posix() for path in unregistered.content_files()}
+    assert found <= listed and "content/notes/never-imported.json" not in listed

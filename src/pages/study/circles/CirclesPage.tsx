@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import template from './template.html?raw';
 import styles from './circles.css?inline';
+import joinedScripts from '@/joined-scripts.css?inline';
 import { mountCircles } from './runtime.mjs';
 import { watchShadowRoot } from '@/lib/page-translator';
 
@@ -14,7 +15,7 @@ export default function CirclesPage() {
     const element = host.current;
     if (!element) return;
     const root = element.shadowRoot ?? element.attachShadow({ mode: 'open' });
-    root.innerHTML = `<style>${styles}</style>${template}`;
+    root.innerHTML = `<style>${styles}${joinedScripts}</style>${template}`; // index.css does not reach a shadow root
     watchShadowRoot(root); // the page translator does not enter a shadow root unless it is handed one
     const controller = new AbortController();
     const oldOverflow = document.body.style.overflow;

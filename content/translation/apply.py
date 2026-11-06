@@ -15,8 +15,10 @@ SiteTranslation/studies/) goes to data/i18n/<lang>/ui-study.json as {English: tr
 on /study and /teachers pages only (src/lib/page-translator.ts), because it is large. The ruler, prophet and apostle
 pages' own text (kind "peopletext", src/data/people-pages/) goes the same way to ui-people.json, read on /people pages only.
 Text pages show from data bundled with their code (page_data.py) joins them: "peopledata" (the Moses page) in
-ui-people.json, "studydata" (the circles explorer, the people list's names) in ui-study.json; a text the older kind
-already translates keeps that translation. The source directory's words (kind "sources") go to
+ui-people.json, "studydata" (the circles explorer, the people list's names, and since stage 5 job 19 the teachers'
+pages, letters, Names of God and manuscripts) in ui-study.json; a text the older kind already translates keeps that
+translation. "sitedata" (job 19: data pages that load only ui.json show, such as Resources and the atlas) joins ui.json
+last (add_site_data). The source directory's words (kind "sources") go to
 data/i18n/<lang>/sources.json as {English: translation}: the directory itself is rebuilt with every build, so the
 site applies the words to whatever English it has (src/components/sources/useSourceDirectory.ts) rather than reading a
 copy that would go stale. Other files under public/ are not translated yet. Last, every language's ui.json is split
@@ -33,7 +35,7 @@ from pathlib import Path
 
 from extract import DEFAULT_OUT, PAGE_KIND, PLURAL_KIND, RESOURCES, SITE, SOURCES, paragraphs, string_id, walk
 import site_languages
-from page_data import PEOPLE_DATA_KIND, STUDY_DATA_KIND
+from page_data import PEOPLE_DATA_KIND, SITE_DATA_KIND, STUDY_DATA_KIND
 
 sys.stdout.reconfigure(encoding="utf-8")
 SEED = Path(__file__).resolve().parent / "seed"
@@ -122,6 +124,13 @@ def study_strings(repo: Path, translated: dict[str, str], kind: str = STUDY_KIND
         english = json.loads((repo / "in" / f"{entry['chunk']}.json").read_text("utf-8"))["strings"]
         strings.update({text: translated[key] for key, text in english.items() if key in translated})
     return strings
+
+
+def add_site_data(ui: dict[str, str], repo: Path, by_kind: dict[str, dict[str, str]]) -> None:
+    """Adds to ui.json the text from data that pages loading no other phrase list show (page_data_specs.py SITE_DATA),
+    last: a translation ui.json already has for the same English wins."""
+    for text, found in study_strings(repo, by_kind.get(SITE_DATA_KIND, {}), SITE_DATA_KIND).items():
+        ui.setdefault(text, found)
 
 
 def phrase_lists(repo: Path, by_kind: dict[str, dict[str, str]]) -> dict[str, dict[str, str]]:
@@ -272,6 +281,7 @@ def apply(repo: Path, lang: str) -> None:
     ui.update({text: found for text, found in apologetics_strings(by_kind).items() if text not in ui})
     ui.update({text: found for text, found in held_page_strings(repo, by_kind.get("apologetics", {})).items()
                if text not in ui})
+    add_site_data(ui, repo, by_kind)
     target.mkdir(parents=True, exist_ok=True)
     # Whole or not at all: the phrase-list split (split_phrase_lists) and the preview read it while this runs.
     temporary = target / "ui.json.apply-tmp"
