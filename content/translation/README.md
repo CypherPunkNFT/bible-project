@@ -51,6 +51,19 @@ purpose, so some items are code or English on purpose: once checked, they go in 
 `{"check": "code" | "code-files" | "fields" | "files" | "untranslated", "item": ..., "why": ...}` and drop out of
 later reports.
 
+## The build check: no new unregistered English (from 2026-11-06)
+
+[english_build_check.py](english_build_check.py) runs first in `npm run build` (prebuild) and in the quick release's
+code build ([quick-release-build.mjs](../../scripts/quick-release-build.mjs)), with
+[check-site-languages.ts](../../scripts/check-site-languages.ts) for the language file. It uses the "code" net above and
+stops the build on any text beyond [english-baseline.json](english-baseline.json), the findings already there when it
+began (keyed by the English text, with how many times it occurs). Its message names the file, the line, why the
+collector skips the text and how to register it; text no reader sees, or English on purpose, takes a ruling in
+`unregistered-reviewed.json` with its `why` instead. The baseline may only shrink: after registering text, run
+`python content/translation/english_build_check.py --shrink`. About 6 seconds. Tests:
+`python -m pytest content/translation/test_english_build_check.py -q`. The quick release passes `--since <live commit>`
+and judges only what the picked commits add. Design and record: SiteTranslation/system/HANDOFF.md, stage 4.
+
 ## The pilot (2026-10-31)
 
 [pilot/](pilot/) compared Haiku with the local model (HyperQwen) on 50 real items from every part of the site, in both

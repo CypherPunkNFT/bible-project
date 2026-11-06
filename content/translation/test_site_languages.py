@@ -52,6 +52,8 @@ FAULTS = {
     "a font that closes its CSS rule": with_change(1, font="serif; }"),
     "plurals without other": with_change(1, plurals=["one"]),
     "an empty menu name": with_change(1, name=" "),
+    "plurals holding a list, not a category": with_change(1, plurals=[["one"], "other"]),
+    "a menu name of only a byte-order mark, which the site's trim() removes": with_change(1, name="\ufeff"),
     "a made-up language marked released": {**REAL, "languages": OTHERS + [{**MADE_UP, "released": True}]},
     "a code twice, ignoring case": {**REAL, "languages": OTHERS + [{**MADE_UP, "code": "ES", "folder": "es2"}]},
     "two source languages": {**REAL, "languages": OTHERS + [{**MADE_UP, "folder": None, "bible": "bsb"}]},
@@ -80,3 +82,8 @@ def test_a_made_up_language_is_left_out_unless_asked(tmp_path: Path, monkeypatch
     assert site_languages.by_folder("en-xa").pseudo
     with pytest.raises(ValueError, match="not a language folder"):
         site_languages.by_folder("klingon")
+
+
+def test_a_name_the_site_keeps_is_kept_here_too(tmp_path: Path) -> None:
+    """JavaScript's trim() keeps the next-line control character, so a name of it is not blank to the site."""
+    site_languages.read(written(tmp_path, with_change(1, name=chr(0x85))))

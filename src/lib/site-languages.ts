@@ -31,14 +31,27 @@ export interface SiteLanguage {
   pseudo: boolean;
 }
 
-// A fault in the file stops every Node step that reads it (the release, the tests). In the browser it must never blank
-// the site, so it is reported and only the entries that pass are kept; the tests (site-languages.test.ts) refuse it first.
+// Used when the file's English entry fails its check or is missing (the tests and the build check refuse such a file
+// first), so the menu always offers English, and the site still quotes a Bible and reads left to right.
+const FALLBACK_SOURCE: SiteLanguage = Object.freeze({
+  code: "en", folder: null, bible: "bsb", name: "English", englishName: "English", dir: "ltr", script: "Latn",
+  plurals: Object.freeze(["one", "other"] as const), digits: "latn", font: null, released: true, pseudo: false,
+});
+
+// A fault in the file stops every Node step that reads it (the release, the tests, the build check
+// scripts/check-site-languages.ts). In the browser it must never blank the site or strand a reader in another language,
+// so it is reported, only the entries that pass are kept, and exactly one English entry leads if the file's own failed.
 function checkedLanguages(): readonly SiteLanguage[] {
   const problems = siteLanguageProblems(data);
   if (problems.length && typeof window === "undefined") throw new Error(`site-languages.json is not sound:\n  ${problems.join("\n  ")}`);
   if (problems.length) console.error("site-languages.json is not sound; using only the entries that pass:", problems);
-  const passing = problems.length ? data.languages.filter((entry, index) => !entryProblems(entry, index).length) : data.languages;
-  return Object.freeze((passing as unknown as SiteLanguage[]).map((language) => Object.freeze({ ...language, plurals: Object.freeze([...language.plurals]) })));
+  const listed = (data as { languages?: unknown }).languages;
+  const entries: unknown[] = Array.isArray(listed) ? listed : [];
+  const passing = (problems.length ? entries.filter((entry, index) => !entryProblems(entry, index).length) : entries) as SiteLanguage[];
+  const source = passing.find((language) => language.folder === null && language.code === FALLBACK_SOURCE.code);
+  const kept = passing.filter((language) => language.folder !== null || language === source);
+  if (!source) kept.unshift(FALLBACK_SOURCE);
+  return Object.freeze(kept.map((language) => Object.freeze({ ...language, plurals: Object.freeze([...language.plurals]) })));
 }
 
 /** Every site language in menu order, released or not. */
@@ -47,13 +60,6 @@ export const SITE_LANGUAGES: readonly SiteLanguage[] = checkedLanguages();
 /** The translated folders under data/i18n/ that go out with a release. */
 export const releasedFolders = (languages: readonly SiteLanguage[] = SITE_LANGUAGES): string[] =>
   languages.filter((language) => language.released && language.folder !== null).map((language) => language.folder!);
-
-// Used only by a browser whose file lost its English entry to a fault (the tests refuse such a file first), so the site
-// still quotes a Bible and reads left to right.
-const FALLBACK_SOURCE: SiteLanguage = Object.freeze({
-  code: "en", folder: null, bible: "bsb", name: "English", englishName: "English", dir: "ltr", script: "Latn",
-  plurals: Object.freeze(["one", "other"] as const), digits: "latn", font: null, released: true, pseudo: false,
-});
 
 /** The source language (English): the one with no translated folder, whose Bible a language with none quotes. */
 export const SOURCE_LANGUAGE: SiteLanguage = SITE_LANGUAGES.find((language) => language.folder === null) ?? FALLBACK_SOURCE;

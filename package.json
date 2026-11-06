@@ -6,7 +6,7 @@
   "packageManager": "bun@1.4.0",
   "scripts": {
     "dev": "vite",
-    "prebuild": "npm run people-pages && py -3.12 scripts/check-verse-wording.py && npm run scholars:sources && node scripts/build-profile-work-shelves.mjs && node scripts/refresh-local-reading-catalog.mjs && node scripts/prepare-population-hosting.mjs",
+    "prebuild": "py -3.12 content/translation/english_build_check.py && node --experimental-strip-types scripts/check-site-languages.ts && npm run people-pages && py -3.12 scripts/check-verse-wording.py && npm run scholars:sources && node scripts/build-profile-work-shelves.mjs && node scripts/refresh-local-reading-catalog.mjs && node scripts/prepare-population-hosting.mjs",
     "scholars:sources": "node scripts/collect-scholar-site-sources.mjs && python scripts/build-scholar-usage.py",
     "scholars:sources:check": "node scripts/collect-scholar-site-sources.mjs --check && python scripts/build-scholar-usage.py --check",
     "build": "vite build",

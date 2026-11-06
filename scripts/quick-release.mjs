@@ -148,9 +148,9 @@ function pickCommits(commits) {
   return undo;
 }
 
-function buildCode() {
+function buildCode(liveCommit) {
   const outDir = path.join(WORKTREE, `.quick-build-${process.pid}`);
-  const result = spawnSync(process.execPath, [path.join(WEBSITE, 'scripts/quick-release-build.mjs'), outDir], { cwd: WORKTREE, stdio: 'inherit' });
+  const result = spawnSync(process.execPath, [path.join(WEBSITE, 'scripts/quick-release-build.mjs'), outDir, '--since', liveCommit], { cwd: WORKTREE, stdio: 'inherit' });
   if (result.status !== 0) throw new Error(`The code build failed (exit ${result.status}) in ${WORKTREE}`);
   const extras = fs.readdirSync(outDir).filter((name) => !['index.html', 'assets'].includes(name));
   if (extras.length) throw new Error(`The build made files outside assets/: ${extras.join(', ')}. Use a full prepare.`);
@@ -232,10 +232,11 @@ async function main() {
 
   const { refused, publicFiles } = planChanges((commit) => run('git', ['show', '--no-renames', '--name-status', '--format=', commit]), commits);
   if (refused.length) throw new Error(`These changes need a full prepare:\n${refused.join('\n')}`);
+  const liveCommit = run('git', ['rev-parse', 'HEAD']); // the build's English check looks only at what the picks add
   const undo = pickCommits(commits);
   let built;
   try {
-    built = buildCode();
+    built = buildCode(liveCommit);
     stage('Code built');
     const renames = assetRenames(fs.readFileSync(path.join(site, 'index.html'), 'utf8'), fs.readFileSync(path.join(built, 'index.html'), 'utf8'));
     console.log(`Changes: ${renames.size} file(s) the pages name, ${publicFiles.length} public file(s).`, Object.fromEntries(renames));

@@ -59,9 +59,31 @@ describe("the one language file", () => {
     const report = vi.spyOn(console, "error").mockImplementation(() => {});
     try {
       const fresh = await import("./site-languages");
-      expect(fresh.SITE_LANGUAGES.map((language) => language.code)).toEqual(codes.slice(1));
+      // English stays first in the menu, so a reader in another language can always switch back.
+      expect(fresh.SITE_LANGUAGES.map((language) => language.code)).toEqual(codes);
       expect([fresh.SOURCE_LANGUAGE.code, fresh.SOURCE_LANGUAGE.bible, fresh.SOURCE_LANGUAGE.dir]).toEqual(["en", "bsb", "ltr"]);
       expect(fresh.siteLanguageBible("made-up")).toBe("bsb");
+    } finally {
+      report.mockRestore();
+      vi.doUnmock("./site-languages.json");
+      vi.resetModules();
+    }
+  });
+
+  const brokenFiles: [string, unknown, string[]][] = [
+    ["no languages list: English alone, not a blank site", { about: [] }, ["en"]],
+    ["a second entry with no folder: one English, the other dropped", withChange(1, { folder: null }), codes.filter((_, at) => at !== 1)],
+    ["English's folder broken: English still offered once", withChange(0, { folder: "../x" }), codes],
+  ];
+  it.each(brokenFiles)("in the browser, with %s", async (_name, file, expected) => {
+    vi.resetModules();
+    vi.doMock("./site-languages.json", () => ({ default: file }));
+    const report = vi.spyOn(console, "error").mockImplementation(() => {});
+    try {
+      const fresh = await import("./site-languages");
+      expect(fresh.SITE_LANGUAGES.map((language) => language.code)).toEqual(expected);
+      expect(fresh.SITE_LANGUAGES.filter((language) => language.folder === null)).toHaveLength(1);
+      expect(report).toHaveBeenCalledOnce();
     } finally {
       report.mockRestore();
       vi.doUnmock("./site-languages.json");

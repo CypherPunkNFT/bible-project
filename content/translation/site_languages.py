@@ -52,8 +52,13 @@ def _matches(pattern: re.Pattern, value) -> bool:
     return isinstance(value, str) and pattern.fullmatch(value) is not None
 
 
+# The characters JavaScript's String.trim() removes, so a name blank to the site's checker is blank here too (Python's
+# own strip() also removes \x1c-\x1f and \x85, which trim() keeps, and keeps \ufeff, which trim() removes).
+JS_SPACE = "\t\n\v\f\r \u00a0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u2028\u2029\u202f\u205f\u3000\ufeff"
+
+
 def _text(value) -> bool:
-    return isinstance(value, str) and value.strip() != ""
+    return isinstance(value, str) and value.strip(JS_SPACE) != ""
 
 
 def entry_problems(entry, index: int) -> list[str]:
@@ -75,7 +80,8 @@ def entry_problems(entry, index: int) -> list[str]:
     expect(_text(entry.get("englishName")), "englishName", "the name in English")
     expect(entry.get("dir") in ("ltr", "rtl"), "dir", "'ltr' or 'rtl'")
     expect(_matches(SCRIPT, entry.get("script")), "script", "an ISO 15924 code such as 'Latn'")
-    expect(isinstance(plurals, list) and "other" in plurals and len(set(plurals)) == len(plurals)
+    expect(isinstance(plurals, list) and all(isinstance(category, str) for category in plurals)
+           and "other" in plurals and len(set(plurals)) == len(plurals)
            and all(category in PLURAL_CATEGORIES for category in plurals), "plurals",
            f"distinct categories from {'/'.join(PLURAL_CATEGORIES)}, including 'other'")
     expect(_matches(DIGITS, entry.get("digits")), "digits", "a numbering system such as 'latn'")
