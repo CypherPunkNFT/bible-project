@@ -1,6 +1,6 @@
-"""Lists the text still in English on the Spanish and Brazilian Portuguese (or, with --langs, Indonesian) pages of the local preview.
+"""Lists the text still in English on the translated pages of the local preview (Latin-script languages unless --langs says).
 
-Visits every real page reachable from the home page, in Spanish, Portuguese and English (the English copy is the
+Visits every real page reachable from the home page, in each checked language and in English (the English copy is the
 reference: any text that reads the same there is untranslated). It also flags half-translated text: a sentence in
 which the translator swapped one word ("of" to "de") and left the rest in English, or the reverse.
 
@@ -23,10 +23,15 @@ from urllib.parse import urlsplit
 
 from playwright.sync_api import Browser, sync_playwright
 
+sys.path.append(str(Path(__file__).resolve().parents[1] / "content" / "translation"))
+import site_languages  # noqa: E402  (the one list of languages: src/lib/site-languages.json)
+
 BASE = "http://127.0.0.1:8931"
-LANGUAGES = {"es": "es", "pt": "pt-BR", "id": "id", "en": "en"}  # report name -> value of localStorage "bp-language"
-REFERENCE = "en"
-CHECKED = ["es", "pt"]  # the languages checked against the English (--langs)
+# report name (the folder, or the source's code) -> value of localStorage "bp-language"; made-up languages may be named
+REFERENCE = site_languages.source().code
+LANGUAGES = {REFERENCE: REFERENCE, **{language.folder: language.code for language in site_languages.translated(pseudo=True)}}
+# Checked by default: the real languages in Latin letters, which the half-translation word lists below are written for.
+CHECKED = [language.folder for language in site_languages.translated() if language.script == "Latn"]
 FILE_LINK = re.compile(r"\.(pdf|epub|txt|zip|png|jpe?g|webp|gif|svg|mp3|mp4|json|xml|docx?|xlsx?|csv)$", re.I)
 EXCLUDED = re.compile(r"^/(mock|mockups|review|banner-emblems|study/questions/test|data_intake|data_analysis|content)(/|$)|_mockup")
 
@@ -77,7 +82,7 @@ EXTRACT = """() => {
 
 def load_page(page, path, language):
     """Opens one page in one language and returns its text units and its links."""
-    page.add_init_script(f"localStorage.setItem('bp-language', '{language}')")
+    page.add_init_script(f"localStorage.setItem('bp-language', {json.dumps(language)})")
     page.goto(BASE + path, wait_until="load", timeout=45000)
     try:
         page.wait_for_load_state("networkidle", timeout=4000)
@@ -205,7 +210,7 @@ def main():
     parser.add_argument("--per-section", type=int, default=25, help="pages sampled per section of the site")
     parser.add_argument("--workers", type=int, default=4, help="browsers open at once")
     parser.add_argument("--report", default="check-translated-pages.json", help="where the full JSON report goes")
-    parser.add_argument("--langs", default="es,pt", help=f"languages to check, from {', '.join(n for n in LANGUAGES if n != REFERENCE)}")
+    parser.add_argument("--langs", default=",".join(CHECKED), help=f"languages to check, from {', '.join(n for n in LANGUAGES if n != REFERENCE)}")
     args = parser.parse_args()
     CHECKED[:] = args.langs.split(",")
     if not CHECKED or any(n not in LANGUAGES or n == REFERENCE for n in CHECKED):

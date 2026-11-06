@@ -23,12 +23,13 @@ from collections import defaultdict
 from pathlib import Path
 
 import extract
+import site_languages
 
 sys.stdout.reconfigure(encoding="utf-8")
 SITE = extract.SITE
 REPORT = extract.DEFAULT_OUT / "reports" / "unregistered.md"
 REVIEWED = Path(__file__).with_name("unregistered-reviewed.json")
-LANGUAGE_FOLDERS = ["es", "pt", "zh", "ar", "hi", "id"]
+LANGUAGE_FOLDERS = site_languages.folders()  # every translated language, from src/lib/site-languages.json
 
 # JSX text: between tags, or touching a {value} on either side.
 JSX_TEXT = re.compile(r"(?:\}|(?<![=\-])>)([^<>{}]{1,600})(?=[<{])")
