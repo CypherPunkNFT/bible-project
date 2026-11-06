@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { groupOf, VERSION_GROUPS } from "@/lib/languages";
 import { sectionColor } from "@/lib/sections";
+import { plural } from "@/lib/site-format";
 
 /** Which books each edition includes. A page that filters by version group itself passes `group`, and the chart's own
  *  group menu goes. `bookStrip` swaps the "Inspect a book" menu for a row of grey squares over the columns: hovering
@@ -36,7 +37,7 @@ export function CoverageMatrix({ group: shared, bookStrip = false, plain = false
       return <tr key={t.slug}><th scope="row"><Link to={"/read/" + t.slug + "/" + first + "/" + t.books[first][0]} state={CHOSEN_BIBLE} title={t.name}>{t.abbr}</Link></th>
         {books.map((b) => {
           const has = !!t.books[b.code];
-          return <td key={b.code} onMouseEnter={() => setHover(t.abbr + " — " + b.name + ": " + (has ? t.books[b.code].length + (t.books[b.code].length === 1 ? " chapter" : " chapters") : "not included"))}
+          return <td key={b.code} onMouseEnter={() => setHover(t.abbr + " — " + b.name + ": " + (has ? t.books[b.code].length + (plural(t.books[b.code].length, " chapter", " chapters")) : "not included"))}
             style={{ background: has ? sectionColor(b.section) : "transparent", opacity: selected && selected !== b.code ? .22 : 1, boxShadow: has ? undefined : "inset 0 0 0 1px var(--line)", outline: selected === b.code ? "1px solid var(--ink)" : undefined }}>
             <span className="sr-only">{b.name + (has ? " included" : " not included")}</span>
           </td>;

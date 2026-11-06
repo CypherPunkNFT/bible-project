@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getPopulationShelf, readingLink, type PopulationRecord, type PopulationWork } from '../population';
 import type { LibraryPerson } from './library';
 import { languageCodes } from '../../shared/acquired';
+import { formatNumber } from "@/lib/site-format";
 
 export function PopulationRecordRow({ record: r }: { record: PopulationRecord }) {
   const link=readingLink(r);
@@ -48,9 +49,9 @@ export function PopulationWorks({person:p}:{person:LibraryPerson}) {
   return <div className="pop-works">
     <label>Find an associated work, edition or record<input type="search" value={query} onChange={e=>{setQuery(e.target.value);setLimit(20);}} /></label>
     {!works&&!error&&<p role="status">Loading complete work associations…</p>}{error&&<p role="alert">{error}</p>}
-    {works&&<p>{found.length.toLocaleString()} work / record groups · {works.filter(w=>w.canonical).length.toLocaleString()} canonical work IDs. Records without a work ID remain separate. Expand a title for editions, reading links and credit evidence.</p>}
+    {works&&<p>{formatNumber(found.length)} work / record groups · {formatNumber(works.filter(w=>w.canonical).length)} canonical work IDs. Records without a work ID remain separate. Expand a title for editions, reading links and credit evidence.</p>}
     <div className="pop-work-list slim-scroll">{found.slice(0,limit).map(w=><WorkGroup key={w.id} work={w}/>)}</div>
-    {limit<found.length&&<button type="button" onClick={()=>setLimit(n=>n+40)}>Show more works ({limit} of {found.length.toLocaleString()})</button>}
+    {limit<found.length&&<button type="button" onClick={()=>setLimit(n=>n+40)}>Show more works ({limit} of {formatNumber(found.length)})</button>}
     {works&&!works.length&&<p>No held or canonical work is linked to this entry. A profile’s selected bibliography does not imply a held copy.</p>}
     {p.scholar&&<details><summary>Selected profile bibliography ({p.scholar.works.length})</summary><ul>{p.scholar.works.map(([title,year],i)=><li key={i}>{title} · {year} · selected bibliography; holdings above establish reading availability</li>)}</ul></details>}
   </div>;

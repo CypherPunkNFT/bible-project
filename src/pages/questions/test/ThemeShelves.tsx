@@ -10,10 +10,11 @@
 import { ArrowDown, ArrowRight, Check, X } from "lucide-react";
 import { useState, type CSSProperties, type ReactNode } from "react";
 import type { TestRecord } from "./record";
-import { chosenIn, homeOf, iconOf, plural, shelfMeta, shownShelves, toneOf, type Counted } from "./shelf-model";
+import { chosenIn, homeOf, iconOf, shelfMeta, shownShelves, toneOf, type Counted } from "./shelf-model";
 // Its styles sit with the test page's (th- rules); imported here so the questions page, which shows it too, has them.
 import "../../test-options.css";
 import "./theme-box.css";
+import { formatNumber, plural } from "@/lib/site-format";
 
 interface Props { counts: Map<string, number>; selected: string; onChoose: (id: string) => void; record: TestRecord }
 
@@ -32,7 +33,7 @@ export function ThemeShelves({ counts, selected, onChoose, record }: Props) {
     {openShelf && <div className="th-rows" key={openShelf.shelf.id} style={toneOf(openShelf.shelf.tone)}>
       <ul className="th-shelves is-small th-groups" style={{ "--cols": openShelf.groups.length } as CSSProperties}>{openShelf.groups.map(({ group, themes }) => {
         const on = group.id === open.group;
-        return <Cell key={group.id} id={group.id} title={group.title} line={group.line} on={on} open="Open the group" meta={plural(themes.length, "test")}
+        return <Cell key={group.id} id={group.id} title={group.title} line={group.line} on={on} open="Open the group" meta={plural(themes.length, "{n} test", "{n} tests")}
           chosen={chosenIn([{ themes }], selected)} onClick={() => setOpen({ ...open, group: on ? "" : group.id })} />;
       })}</ul>
       {openGroup && <TestRow key={openGroup.group.id} icon={openGroup.group.id} themes={openGroup.themes} selected={selected} onChoose={onChoose} record={record} />}
@@ -71,7 +72,7 @@ function TestRow({ icon, themes, selected, onChoose, record }: TestRowProps) {
     <ul className="th-shelves is-small th-tests" style={{ "--cols": themes.length } as CSSProperties}>{themes.map(({ theme, n }, i) => {
     const on = theme.id === selected, mark = record[theme.id];
     return <Cell key={theme.id} id={icon} n={i} title={theme.title} line={theme.line} on={on} press open={on ? "Chosen" : "Choose the test"}
-      meta={<>{n.toLocaleString()} questions · <span className={mark ? "th-best" : undefined}>{mark ? `Best ${mark.best} of ${mark.of}` : "Not taken yet"}</span></>}
+      meta={<>{formatNumber(n)} questions · <span className={mark ? "th-best" : undefined}>{mark ? `Best ${mark.best} of ${mark.of}` : "Not taken yet"}</span></>}
       onClick={() => onChoose(on ? "" : theme.id)} />;
   })}</ul></div>;
 }

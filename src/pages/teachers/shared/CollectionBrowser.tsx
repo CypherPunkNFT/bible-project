@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, 
 import { Link, useSearchParams } from "react-router-dom";
 import { useRowWindow } from "@/lib/useRowWindow";
 import { ACQUIRED_BASE, getAcquired, languageLabel, sourceLabel, workUrl, type AcquiredWork } from "./acquired";
+import { formatNumber } from "@/lib/site-format";
 
 // The library's front page list (/teachers/works, "Browse by collection"). One long list drawn a window of rows at a
 // time (owner, 2026-10-29): the rows on screen plus 50 above and 50 below, released further out and drawn again on the
@@ -104,9 +105,9 @@ export function CollectionBrowser() {
   const firstLoad = !!listKey && !rows.length && fetching === listKey;
 
   return <section className="acq-collections"><h2>Browse by collection</h2><p>Explore texts, inscriptions and datasets, including records without a named author.</p>
-    <div className="acq-controls"><label>Collection<select value={selected?.id ?? ""} onChange={e => change("collection", e.target.value)}><option value="">Choose a collection</option>{collections.map(c => <option key={c.id} value={c.id}>{sourceLabel(c.source)} · {c.records.toLocaleString()} records</option>)}</select></label><label>Reading availability<select value={view} onChange={e => change("view", e.target.value)}><option value="readable">Read on this site</option><option value="all">All catalogue records</option></select></label></div>
+    <div className="acq-controls"><label>Collection<select value={selected?.id ?? ""} onChange={e => change("collection", e.target.value)}><option value="">Choose a collection</option>{collections.map(c => <option key={c.id} value={c.id}>{sourceLabel(c.source)} · {formatNumber(c.records)} records</option>)}</select></label><label>Reading availability<select value={view} onChange={e => change("view", e.target.value)}><option value="readable">Read on this site</option><option value="all">All catalogue records</option></select></label></div>
     {error && <p role="alert">{error}</p>}{firstLoad && <p role="status">Loading collection…</p>}
-    {selected && <p className="acq-caption">{count.toLocaleString()} {view === "readable" ? "readable texts" : "catalogue records"}. {selected.anonymous.toLocaleString()} records in this collection have no named author. Editions and formats can overlap.</p>}
+    {selected && <p className="acq-caption">{formatNumber(count)} {view === "readable" ? "readable texts" : "catalogue records"}. {formatNumber(selected.anonymous)} records in this collection have no named author. Editions and formats can overlap.</p>}
     {selected && !count && <p>No texts in this collection are cleared for public reading yet. Select all catalogue records to inspect the holdings.</p>}
     <div className="acq-works"><ul ref={setContainer} className="acq-collection-rows" role="list" style={{ paddingTop: before, paddingBottom: after }} onFocus={onFocus} onBlur={onBlur}>
       {drawn.map(i => row(i, i === pinned))}

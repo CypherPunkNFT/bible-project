@@ -10,6 +10,7 @@ import { usePreachers } from "./context";
 import { cssVars, prefersReducedMotion, toneOf } from "./drawer/helpers";
 import { PRESETS, START_YEAR, aliveIn, ageNote, firstBirth, groupsIn, histogramOf } from "./sameyear/years";
 import "./sameyear.css";
+import { plural } from "@/lib/site-format";
 
 interface YearState { year: number; animate: boolean }
 interface PlaceCardProps { place: string; people: Person[]; year: number; index: number; animate: boolean; onOpen: (id: string, origin: Element) => void }
@@ -68,7 +69,7 @@ export function SameYear() {
           <output className="yr-big" aria-live="polite">{year}</output>
           <button type="button" onClick={() => jump(year + 10)} aria-label="Ten years later"><ArrowRight size={16} strokeWidth={1.5} aria-hidden /></button>
         </div>
-        <p className="yr-sum"><b>{alive}</b> of the {people.length} {now ? "are" : "were"} alive, in <b>{groups.length}</b> {groups.length === 1 ? "place" : "places"}. {notYet} not yet born · {gone} {now ? "have" : "had"} died.</p>
+        <p className="yr-sum"><b>{alive}</b> of the {people.length} {now ? "are" : "were"} alive, in <b>{groups.length}</b> {plural(groups.length, "place", "places")}. {notYet} not yet born · {gone} {now ? "have" : "had"} died.</p>
         <div className="yr-hist">
           <svg viewBox={`0 0 ${histogram.width} 60`} preserveAspectRatio="none" aria-hidden="true"><path d={histogram.path} /></svg>
           <span className="yr-marker" style={{ left: `${((year - first) / (THIS_YEAR - first)) * 100}%` }} />

@@ -3,7 +3,9 @@
 For each language, every data file named in extract.SOURCES is walked exactly as extract.py walked it, each English
 string swapped for its translation, and the copy written to data/i18n/<lang>/<same path under data/>. The page
 code's own text goes to data/i18n/<lang>/ui.json as {English: translation}, which the site swaps on screen
-(src/lib/page-translator.ts); seed/<lang>.json fills page strings the chunks have not translated yet. The Resources
+(src/lib/page-translator.ts); seed/<lang>.json fills page strings the chunks have not translated yet, and
+seed/bible/<lang>.json, the home page's verses cut from that language's Bible (src/components/home/banner-verses.tsx),
+is written over both, since a quotation is the Bible's wording and never a translator's. The Resources
 files bundled with the code (extract.RESOURCES, src/data/resources/) get copies in data/i18n/<lang>/resources/.
 A string with no translation stays English. data/ is git-ignored, so rerun this after a data rebuild or new chunks.
 The debate transcripts (content/apologetics/transcripts/*.txt) get a translated copy of the whole text in
@@ -25,7 +27,7 @@ import re
 import sys
 from pathlib import Path
 
-from extract import DEFAULT_OUT, PAGE_KIND, RESOURCES, SITE, SOURCES, paragraphs, string_id, walk
+from extract import DEFAULT_OUT, PAGE_KIND, PLURAL_KIND, RESOURCES, SITE, SOURCES, paragraphs, string_id, walk
 import site_languages
 from page_data import PEOPLE_DATA_KIND, STUDY_DATA_KIND
 
@@ -43,7 +45,10 @@ def translations(repo: Path, lang: str) -> dict[str, dict[str, str]]:
     return by_kind
 
 
-def page_strings(repo: Path, lang: str, translated: dict[str, str]) -> dict[str, str]:
+def page_strings(repo: Path, lang: str, translated: dict[str, str], translated_plurals: dict[str, str] | None = None
+                 ) -> dict[str, str]:
+    """ui.json's {English: translation}: the seed, then the page chunks, the plural messages' forms, and last the
+    home page's verses in the language's Bible."""
     seed_file = SEED / f"{lang}.json"
     strings = json.loads(seed_file.read_text("utf-8")) if seed_file.exists() else {}
     for entry in json.loads((repo / "chunks.json").read_text("utf-8")):
@@ -51,7 +56,48 @@ def page_strings(repo: Path, lang: str, translated: dict[str, str]) -> dict[str,
             continue
         english = json.loads((repo / "in" / f"{entry['chunk']}.json").read_text("utf-8"))["strings"]
         strings.update({text: translated[key] for key, text in english.items() if key in translated})
+    strings.update(plural_forms(repo, lang, translated_plurals or {}))
+    strings.update(bible_wording(lang))
     return strings
+
+
+def plural_forms(repo: Path, lang: str, translated: dict[str, str]) -> dict[str, str]:
+    """The plural messages (extract.py --plurals) translated so far, {plural:[one, many]: forms as JSON}. A translation
+    that is not a JSON object of texts for this language's plural categories, with "other", is left out with a message,
+    so the site shows the English (src/lib/site-format.ts checks the same)."""
+    forms: dict[str, str] = {}
+    for entry in json.loads((repo / "chunks.json").read_text("utf-8")):
+        if entry["kind"] != PLURAL_KIND:
+            continue
+        categories = set(site_languages.by_folder(lang).plurals)
+        english = json.loads((repo / "in" / f"{entry['chunk']}.json").read_text("utf-8"))["strings"]
+        for key, message in english.items():
+            if key not in translated:
+                continue
+            try:
+                value = json.loads(translated[key])
+            except (TypeError, ValueError):
+                value = None
+            if (not isinstance(value, dict) or "other" not in value or not set(value) <= categories
+                    or not all(isinstance(form, str) and form.strip() for form in value.values())):
+                print(f"apply.py {lang}: the plural forms for {message} (chunk {entry['chunk']}) are not a JSON object of "
+                      f"texts for {', '.join(sorted(categories))} with \"other\"; got {translated[key][:200]!r}; left out")
+                continue
+            forms[message] = json.dumps(value, ensure_ascii=False, separators=(",", ":"))
+    return forms
+
+
+def bible_wording(lang: str) -> dict[str, str]:
+    """The home page's verses in this language's Bible, {English: wording} (seed/bible/<lang>.json), checked."""
+    path = SEED / "bible" / f"{lang}.json"
+    if not path.exists():
+        return {}
+    wording = json.loads(path.read_text("utf-8"))
+    if not isinstance(wording, dict) or not all(isinstance(key, str) and isinstance(value, str) and value.strip()
+                                                for key, value in wording.items()):
+        raise ValueError(f"{path}: expected an object of English verse -> that language's Bible wording (non-empty text), "
+                         f"got {str(wording)[:200]}")
+    return wording
 
 
 STUDY_KIND = "studytext"
@@ -218,7 +264,7 @@ def apply(repo: Path, lang: str) -> None:
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_text(json.dumps(copy, ensure_ascii=False, separators=(",", ":")), "utf-8")
             files += 1
-    ui = page_strings(repo, lang, by_kind.get(PAGE_KIND, {}))
+    ui = page_strings(repo, lang, by_kind.get(PAGE_KIND, {}), by_kind.get(PLURAL_KIND, {}))
     ui.update({text: found for text, found in apologetics_strings(by_kind).items() if text not in ui})
     ui.update({text: found for text, found in held_page_strings(repo, by_kind.get("apologetics", {})).items()
                if text not in ui})

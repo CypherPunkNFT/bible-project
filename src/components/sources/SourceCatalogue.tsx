@@ -5,12 +5,13 @@ import { AcquisitionLinks } from './CorpusDashboard';
 import { matchesCatalogue, missingIdentity, facetValues, selectedValues, toggleFacet, eraLabels, traditionLabel, type FacetKey, type CatalogueFilters, type ReviewFilter } from './dashboard-model';
 import type { Directory, SourceEntry } from './types';
 import './source-catalogue.css';
+import { formatNumber } from "@/lib/site-format";
 
 const tones = ['#69c7bb', '#d69c79', '#a99bd6', '#d48faf', '#96b784', '#d7b569', '#83aed5', '#cf9191'];
 const holdingsOptions = [['all', 'All records'], ['held', 'Acquired files'], ['catalog', 'Catalogue & citations']];
 const reviewOptions: [ReviewFilter, string][] = [['all', 'Any review state'], ['identity', 'Missing title / author'], ['source', 'Missing source link'], ['unassigned', 'Collection unassigned']];
 export const SOURCE_PAGE_SIZE = 24;
-const number = (value: number) => value.toLocaleString();
+const number = (value: number) => formatNumber(value);
 
 interface Props {
   directory: Directory; entries: SourceEntry[] | null; matches: SourceEntry[]; failed: boolean;

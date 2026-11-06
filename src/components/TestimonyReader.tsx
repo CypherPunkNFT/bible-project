@@ -1,6 +1,7 @@
 import { ArrowLeft, RotateCcw, Type, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { formatTestimonyDate, testimonyWordCount, type TestimonyNode } from "@/lib/testimonies";
+import { formatNumber } from "@/lib/site-format";
 
 export function TestimonyReader({ person, story, error, onRetry, onClose }: {
   person: TestimonyNode; story: TestimonyNode | null; error: string; onRetry: () => void; onClose: () => void;
@@ -35,7 +36,7 @@ export function TestimonyReader({ person, story, error, onRetry, onClose }: {
         <header className="testimony-reader-heading">
           <p className="testimony-kicker">{person.theme || "A life in their own words"}</p>
           <h2 id="testimony-reader-title">{person.title}</h2>
-          <p className="testimony-reader-byline">By {person.name}{person.publishedAt && <> · Shared <time dateTime={person.publishedAt}>{formatTestimonyDate(person.publishedAt)}</time></>}{story && <> · {words.toLocaleString()} words · {Math.max(1, Math.ceil(words / 200))} min read</>}</p>
+          <p className="testimony-reader-byline">By {person.name}{person.publishedAt && <> · Shared <time dateTime={person.publishedAt}>{formatTestimonyDate(person.publishedAt)}</time></>}{story && <> · {formatNumber(words)} words · {Math.max(1, Math.ceil(words / 200))} min read</>}</p>
           {person.happenedWhen && <p className="testimony-small">When it happened: {person.happenedWhen}</p>}
           <p className="testimony-reader-blurb">{person.blurb}</p>
         </header>

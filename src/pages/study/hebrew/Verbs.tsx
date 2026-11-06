@@ -4,6 +4,7 @@ import { VerseAt } from "@/components/Verse";
 import { D, H, thousands, verseByLabel } from "./model";
 import { Cite, He, Head, Mixed, Test, ThreeParts, VerseLink } from "./parts";
 import { VerbChart } from "./VerbChart";
+import { plural } from "@/lib/site-format";
 
 function Grid({ onOpen }: { onOpen: (key: string) => void }) {
   const { rows, cols } = D.grid;
@@ -16,7 +17,7 @@ function Grid({ onOpen }: { onOpen: (key: string) => void }) {
         {cols.map((col) => {
           const key = `${row.id}-${col.id}`, cell = H.grid[key];
           return <td key={col.id}>{cell
-            ? <button type="button" data-open={`cell:${key}`} onClick={() => onOpen(`cell:${key}`)} aria-label={`${row.label} · ${col.label}: ${cell.step} · ${cell.count === 1 ? "once" : `${cell.count} times`}`}><span lang="he" dir="rtl">{cell.he}</span><small>{cell.count === 1 ? "once" : `${cell.count} times`}</small></button>
+            ? <button type="button" data-open={`cell:${key}`} onClick={() => onOpen(`cell:${key}`)} aria-label={`${row.label} · ${col.label}: ${cell.step} · ${plural(cell.count, "once", "{n} times")}`}><span lang="he" dir="rtl">{cell.he}</span><small>{plural(cell.count, "once", "{n} times")}</small></button>
             : <span className="hw-empty">not in the text</span>}</td>;
         })}
       </tr>)}</tbody>

@@ -2,11 +2,12 @@
 // closes on Escape.
 import { useEffect } from "react";
 import { SlidePanel } from "@/pages/study/manuscripts/Sheet";
-import { monthBars, MONTHS, seasonNames, type Job } from "./model";
+import { monthBars, months, seasonNames, type Job } from "./model";
 import { Cite, KindWord, Picture, Quote, ThreeParts } from "./parts";
 
 function when(job: Job): string {
-  return monthBars(job.seasons).map((bar) => `mid-${MONTHS[bar.start]} to mid-${MONTHS[(bar.start + bar.months) % 12]}`).join(", and ");
+  const names = months();
+  return monthBars(job.seasons).map((bar) => `mid-${names[bar.start]} to mid-${names[(bar.start + bar.months) % 12]}`).join(", and ");
 }
 
 function JobRecord({ job }: { job: Job }) {

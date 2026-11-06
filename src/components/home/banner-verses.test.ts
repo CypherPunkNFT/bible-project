@@ -1,8 +1,8 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { currentBibleSlug } from "@/lib/verses";
 import type { LanguageCode } from "@/lib/language";
-import { SITE_LANGUAGES, SOURCE_LANGUAGE } from "@/lib/site-languages";
+import { SITE_LANGUAGES, SOURCE_LANGUAGE, type SiteLanguage } from "@/lib/site-languages";
 import { BANNER_VERSES, BLESSING_VERSES, RING_VERSES, type BannerVerseName } from "./banner-verses";
 
 const SOURCE: Record<BannerVerseName, [string, string]> = { isaiah: ["ISA", "40:8"], john: ["JHN", "5:39"], peter: ["1PE", "3:15"], galatians: ["GAL", "6:2"] };
@@ -18,44 +18,41 @@ const verse = (language: LanguageCode, [code, key]: [string, string]) =>
   bare((JSON.parse(readFileSync(`data/plain/${currentBibleSlug(language)}/${code}.json`, "utf8")) as Record<string, string>)[key]);
 const pieces = (text: string) => text.split(/\n|…+/).map(bare).filter(Boolean);
 
-describe("the home page banners' own wording", () => {
-  for (const language of Object.keys(BANNER_VERSES) as LanguageCode[]) {
-    it(`in ${language}, each banner is cut from that language's Bible`, () => {
+/** Each language's cut of its own Bible for the home page's verses, {English: wording}: apply.py writes them into its
+ * phrase list over anything a translator wrote, and banner-verses.tsx shows them (verseWords). */
+const seed = (language: SiteLanguage): Record<string, string> =>
+  JSON.parse(readFileSync(`content/translation/seed/bible/${language.folder}.json`, "utf8")) as Record<string, string>;
+const withBibles = SITE_LANGUAGES.filter((language) => language.bible !== null && language !== SOURCE_LANGUAGE);
+
+describe("the home page's verses in each language's own Bible", () => {
+  for (const language of withBibles) {
+    const own = (english: string) => {
+      const words = seed(language)[english];
+      expect(words, `${language.code}: no wording for "${english}"`).toBeTypeOf("string");
+      return words;
+    };
+    it(`in ${language.code}, each banner is cut from that language's Bible`, () => {
       for (const name of Object.keys(SOURCE) as BannerVerseName[]) {
-        const whole = verse(language, SOURCE[name]);
-        for (const piece of pieces(BANNER_VERSES[language]![name])) expect(whole, `${name}: ${piece}`).toContain(piece);
+        const whole = verse(language.code, SOURCE[name]);
+        for (const piece of pieces(own(BANNER_VERSES[name]))) expect(whole, `${name}: ${piece}`).toContain(piece);
       }
     });
-  }
-  for (const language of Object.keys(BLESSING_VERSES) as LanguageCode[]) {
-    it(`in ${language}, the blessing at the foot of the page is that language's Bible`, () => {
-      const { numbers, joshua } = BLESSING_VERSES[language]!;
-      expect(verse(language, ["NUM", "6:24"])).toContain(bare(numbers[0]));
-      expect(verse(language, ["NUM", "6:25"])).toContain(bare(numbers[1]));
-      expect(verse(language, ["JOS", "1:9"])).toContain(bare(joshua.join(" ")));
+    it(`in ${language.code}, the blessing at the foot of the page is that language's Bible`, () => {
+      const [numbers, joshua] = [BLESSING_VERSES.numbers.map(own), BLESSING_VERSES.joshua.map(own)];
+      expect(verse(language.code, ["NUM", "6:24"])).toContain(bare(numbers[0]));
+      expect(verse(language.code, ["NUM", "6:25"])).toContain(bare(numbers[1]));
+      expect(verse(language.code, ["JOS", "1:9"])).toContain(bare(joshua.join(" ")));
+    });
+    it(`in ${language.code}, each ring is cut from that language's Bible`, () => {
+      for (const [english, source] of Object.entries(RING)) expect(verse(language.code, source), english).toContain(bare(own(english)));
     });
   }
-  for (const language of Object.keys(RING_VERSES) as LanguageCode[]) {
-    it(`in ${language}, each ring is cut from that language's Bible`, () => {
-      for (const [english, source] of Object.entries(RING)) expect(verse(language, source), english).toContain(bare(RING_VERSES[language]![english]));
-    });
-  }
-});
 
-// A language with no wording of its own shows the English (homeWording), which is right only beside the English Bible.
-// So each language with a Bible of its own has its own wording, and a made-up one (no Bible) needs none.
-describe("which languages have their own home-page verses", () => {
-  const codes = SITE_LANGUAGES.map((language) => language.code);
-  it("are site languages only", () => {
-    for (const table of [BANNER_VERSES, BLESSING_VERSES]) for (const code of Object.keys(table)) expect(codes, code).toContain(code);
-    for (const code of Object.keys(RING_VERSES)) expect(codes.filter((entry) => entry !== SOURCE_LANGUAGE.code), code).toContain(code);
-  });
-
-  it("include every language with a Bible of its own", () => {
-    for (const language of SITE_LANGUAGES.filter((entry) => entry.bible !== null)) {
-      expect(BANNER_VERSES[language.code], `${language.code}: banner`).toBeDefined();
-      expect(BLESSING_VERSES[language.code], `${language.code}: blessing`).toBeDefined();
-      if (language !== SOURCE_LANGUAGE) expect(RING_VERSES[language.code], `${language.code}: rings`).toBeDefined();
-    }
+  it("are for site languages with a Bible of their own, and for the English of the home page's verses only", () => {
+    expect(Object.keys(RING)).toEqual([...RING_VERSES]);
+    const english = new Set([...Object.values(BANNER_VERSES), ...Object.values(BLESSING_VERSES).flat(), ...RING_VERSES]);
+    const files = readdirSync("content/translation/seed/bible").map((name) => name.replace(/\.json$/, "")).sort();
+    expect(files).toEqual(withBibles.map((language) => language.folder).sort());
+    for (const language of withBibles) expect(Object.keys(seed(language)).filter((key) => !english.has(key)), language.code).toEqual([]);
   });
 });

@@ -14,6 +14,7 @@ import type { CardDef, PageDef, PartDef } from "./frame";
 import { ClaimChooser, FactsList, Hands, LetterBars, LetterLinks, OrderSlope, OtPeople, PlacesNamed, RepeatedQuotes, ThemeDetail, TopicList, TopicsTop } from "./parts-across";
 import { allFlow, allLettersTimeline, destinationLayers, groupWordColumns, travelLayers } from "./builders";
 import { GospelsGrid, KeyVerses, KindBars, LetterWordsChooser, LinkGrid, OnlyHere, RibbonChooser, Translations } from "./parts-charts";
+import { formatNumber } from "@/lib/site-format";
 
 const card = (art: string, tone: string, icon: CardDef["icon"], eyebrow: string, title: string, text: string, foot: string, cta: string): CardDef => ({ art, tone, icon, eyebrow, title, text, foot, cta });
 const part = (id: string, c: CardDef, lead: string, body: PartDef["body"]): PartDef => ({ id, card: c, lead, body });
@@ -33,7 +34,7 @@ export function wayPages(data: LettersData, label: (span: Span) => string): Reco
     "christ-in-the-letters": { ...common, slug: "christ-in-the-letters", title: "Christ in the letters", right: "CHRIST IN THE LETTERS", tone: "gospels", kicker: "Across all twenty-one · Christ",
       h1: "Christ in the letters.", em: "Who he is, and what he did.", emblem: "cross", caption: "WHO HE IS · WHAT HE DID · LIFE IN HIM",
       intro: "Every letter speaks of Jesus Christ: the titles they give him, what they remember of his life, his death, rising and return, and what it means to live \"in Christ\".",
-      bar: <FiguresBar items={[["Topics", "from Torrey", topicCount], ["Passages", "in the letters", topicRefs.toLocaleString("en-US")], ["Better than…", "Hebrews", "10 steps"], ["The Lord's coming", "a shared thread", `${coming?.letters.length ?? 0} letters`]]} />,
+      bar: <FiguresBar items={[["Topics", "from Torrey", topicCount], ["Passages", "in the letters", formatNumber(topicRefs)], ["Better than…", "Hebrews", "10 steps"], ["The Lord's coming", "a shared thread", `${coming?.letters.length ?? 0} letters`]]} />,
       sections: [
         { id: "who", art: "christ", tone: "gospels", title: "Who he is", lead: "The names the letters give him, who they say he is, and how Hebrews sets him above all.", parts: [
           part("titles", card("christ", "gospels", "cross", "His names", "His titles in the letters", "Lord, Son, High Priest, Mediator, Head: each title with the letters that use it.", "From Torrey's topics", "See the titles"), "Each title, with the passages in the letters that give it.", <TopicList data={data} subcategory="titles-and-offices" />),
@@ -109,7 +110,7 @@ export function wayPages(data: LettersData, label: (span: Span) => string): Reco
     "look-closer": { ...common, slug: "look-closer", title: "Look closer", right: "LOOK CLOSER", tone: "prophets", kicker: "Across all twenty-one · Side by side",
       h1: "Look closer.", em: "Side by side, part by part.", emblem: "compare", caption: "SIDE BY SIDE · SHAPE · HOW THEY WERE READ",
       intro: "Set any two letters side by side, see the shape and length of each one, and follow how the church has read and received them.",
-      bar: <FiguresBar items={[["Side by side", "paired passages", `${parallels.length} pairings`], ["Cross-references", "between the letters", links.toLocaleString("en-US")], ["Open questions", "every view shown", questions.length], ["Witnesses", "from Clement on", O.canon.length]]} />,
+      bar: <FiguresBar items={[["Side by side", "paired passages", `${parallels.length} pairings`], ["Cross-references", "between the letters", formatNumber(links)], ["Open questions", "every view shown", questions.length], ["Witnesses", "from Clement on", O.canon.length]]} />,
       sections: [
         { id: "side", art: "compare", tone: "prophets", title: "Side by side", lead: "Any two letters, the nine pairings the studies hold, and how the letters link to each other and to the Gospels.", parts: [
           part("compare", card("compare", "prophets", "compare", "Side by side", "Compare any two letters", "Pick two. Each ribbon joins a passage in one to a passage in the other.", "OpenBible.info cross-references", "Choose two"), "Choose any two of the twenty-one. Each ribbon joins a passage in one to a passage in the other, where readers link them most strongly; click one to read both.", <CompareLetters initial={["GAL", "JAS"]} curated={parallels} />),
@@ -121,7 +122,7 @@ export function wayPages(data: LettersData, label: (span: Span) => string): Reco
           part("shapes", card("shape", "epistles", "bars", "Length", "All twenty-one, side by side", "Each letter as long as it is, cut into its section headings.", "Section headings", "See the shapes"), "Each letter, cut into its section headings.", <LetterShape letters={data.letters} selected="" onSelect={() => undefined} outline={false} />),
           part("kinds", card("shape", "history", "bars", "Its parts", "What each part does", "Teaching, practice, warning, encouragement: each letter's parts, coloured by what they do.", "Teaching · Practice · More", "See the parts"), "Each letter's parts, coloured by what they do.", <KindBars data={data} />),
           part("greek", card("words", "gospels", "star", "In Greek", "Their length in Greek words", "Romans runs to 7,179 Greek words; 3 John to 219.", "Byzantine Greek text", "See the counts"), "Greek words in each letter (Hebrews counted in the Byzantine text the same way).",
-            <LetterBars data={data} value={greek} format={(n) => n.toLocaleString("en-US")} hint="Greek words in each letter. Click a letter." detail={(c) => `${greek(c).toLocaleString("en-US")} Greek words in ${data.letter(c).verses} verses`} />),
+            <LetterBars data={data} value={greek} format={(n) => formatNumber(n)} hint="Greek words in each letter. Click a letter." detail={(c) => `${formatNumber(greek(c))} Greek words in ${data.letter(c).verses} verses`} />),
           part("key-verses", card("glance", "prophets", "book", "Key verses", "Key verses, letter by letter", "The verses each letter turns on, with why each matters.", `${data.letters.reduce((n, l) => n + l.keyVerses.length, 0)} key verses`, "Choose a letter"), "The key verses of any one letter.", <KeyVerses data={data} />),
         ] },
         { id: "read", art: "questions", tone: "revelation", title: "How they were read", lead: "The questions readers have asked, how the letters were gathered and received, and one verse in every translation.", parts: [

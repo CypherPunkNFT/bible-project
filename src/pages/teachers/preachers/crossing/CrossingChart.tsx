@@ -2,8 +2,8 @@
 // place is not recorded), the shared years shaded, any shared city outlined; and the plain sentence above it.
 import type { PersonLink, Person } from "@/data/teachers/pages-types";
 import { familyOf, lifeEnd, lifeLabel } from "../../shared/people";
-import { plural } from "../lives/common";
 import { overlap, sharedPlaces, stays, type SharedPlace } from "./model";
+import { plural } from "@/lib/site-format";
 
 const span = (s: SharedPlace) => (s.until > s.start ? `from ${s.start} until ${s.until}` : `in ${s.start}`);
 const ageAt = (p: Person, year: number) => (year === p.born ? `${p.short} was born there` : `${p.short} was ${p.circa ? "about " : ""}${year - p.born}`);
@@ -15,12 +15,12 @@ export function CrossingSentence({ p, q, link }: { p: Person; q: Person; link: P
   if (e < s) {
     const [first, second] = lifeEnd(p) < q.born ? [p, q] : [q, p];
     const gap = second.born - lifeEnd(first);
-    return <>{first.short} died in {lifeEnd(first)}, {gap === 0 ? "the same year" : `${plural(gap, "year")} before`} {second.short} was born. Their lives never overlapped.{note}</>;
+    return <>{first.short} died in {lifeEnd(first)}, {gap === 0 ? "the same year" : `${plural(gap, "{n} year", "{n} years")} before`} {second.short} was born. Their lives never overlapped.{note}</>;
   }
   const years = e - s, A = <b>{p.short}</b>, B = <b>{q.short}</b>;
   const opening = !p.died && !q.died ? <>{A} and {B} have both been alive since {s}.</>
     : years === 0 ? <>{A} and {B} were both alive only in {s}.</>
-    : <>{A} and {B} were both alive for {plural(years, "year")}, from {s} to {e}.</>;
+    : <>{A} and {B} were both alive for {plural(years, "{n} year", "{n} years")}, from {s} to {e}.</>;
   const shared = sharedPlaces(p, q);
   const cities = shared.slice(0, 3).map((x, i, all) => (i && all[i - 1].name === x.name ? `again ${span(x)}` : `${x.name} ${span(x)}`)).join(", and ");
   const rest = shared.length

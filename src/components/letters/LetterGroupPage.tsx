@@ -17,6 +17,7 @@ import { ParallelRibbon } from "./ParallelRibbon";
 import { PeopleCards } from "./PeopleCards";
 import { TimelineStrip } from "./TimelineStrip";
 import "./letters.css";
+import { formatNumber, plural } from "@/lib/site-format";
 
 // One JSON file per group, generated from the research dossiers (src/data/letters/README in types.ts).
 const FILES = import.meta.glob<{ default: LetterGroup }>("/src/data/letters/*.json");
@@ -60,10 +61,10 @@ export function LetterGroupPage({ groupId }: { groupId: LetterGroup["id"] }) {
       <Section kicker="Side by side" title="Compare any two letters" lead="Choose any two of the 21 letters. Each ribbon joins a verse in one to a verse in the other, wherever readers have linked them.">
         <CompareLetters initial={COMPARE_START[group.id]} curated={group.parallels} />
       </Section>
-      <Section kicker="Shape" title={group.letters.length > 1 ? "How each letter is built" : "How the letter is built"} lead="Every bar is as long as its letter, cut at the section headings. The chosen letter's outline sits beneath.">
+      <Section kicker="Shape" title={plural(group.letters.length, "How the letter is built", "How each letter is built")} lead="Every bar is as long as its letter, cut at the section headings. The chosen letter's outline sits beneath.">
         <LetterShape letters={group.letters} selected={letter.code} onSelect={setCode} />
       </Section>
-      <Section kicker="Words" title={`The words ${group.letters.length > 1 ? "these letters lean on" : "it leans on"}`} lead="Greek key words, counted in the text behind the KJV. The strip under a bar shows which chapters the word lives in.">
+      <Section kicker="Words" title={`The words ${plural(group.letters.length, "it leans on", "these letters lean on")}`} lead="Greek key words, counted in the text behind the KJV. The strip under a bar shows which chapters the word lives in.">
         {group.letters.length > 1 && <WordConstellation letters={group.letters} />}
         <p className="lg-subhead" style={{ marginTop: group.letters.length > 1 ? "1.5rem" : 0 }}>{letter.name}</p>
         <WordBars words={letter.words} />
@@ -73,7 +74,7 @@ export function LetterGroupPage({ groupId }: { groupId: LetterGroup["id"] }) {
       {group.questions.length > 0 && <Section kicker="Open questions" title="Where readers have differed" lead="Each answer is shown with the people who held it. This page does not choose between them.">
         <OpenQuestions questions={group.questions} />
       </Section>}
-      {group.canon.length > 0 && <Section kicker="Acceptance" title={group.letters.length > 1 ? "Acceptance of these letters over time" : "Acceptance of the letter over time"} lead="How the early church quoted, doubted and finally accepted each letter, witness by witness."><CanonLanes events={group.canon} letters={group.letters} /></Section>}
+      {group.canon.length > 0 && <Section kicker="Acceptance" title={plural(group.letters.length, "Acceptance of the letter over time", "Acceptance of these letters over time")} lead="How the early church quoted, doubted and finally accepted each letter, witness by witness."><CanonLanes events={group.canon} letters={group.letters} /></Section>}
       <Section kicker="Sources" title="Where this page comes from" lead="Public-domain works and the biblical text itself. Numbers in the text point here.">
         <SourcesList citations={group.citations} />
       </Section>
@@ -91,9 +92,9 @@ function Hero({ group, selected, onSelect }: { group: LetterGroup; selected: str
     <h2 id="lg-hero-title">{group.title}</h2>
     <p className="lg-tagline">{group.tagline}</p>
     <div className="lg-stats">
-      <div className="lg-stat"><b>{group.letters.length}</b><span>{group.letters.length === 1 ? "letter" : "letters"}</span></div>
-      <div className="lg-stat"><b>{verses.toLocaleString("en-US")}</b><span>verses</span></div>
-      {greek > 0 && <div className="lg-stat"><b>{greek.toLocaleString("en-US")}</b><span>Greek words</span></div>}
+      <div className="lg-stat"><b>{group.letters.length}</b><span>{plural(group.letters.length, "letter", "letters")}</span></div>
+      <div className="lg-stat"><b>{formatNumber(verses)}</b><span>verses</span></div>
+      {greek > 0 && <div className="lg-stat"><b>{formatNumber(greek)}</b><span>Greek words</span></div>}
       {Number.isFinite(from) && Number.isFinite(to) && <div className="lg-stat"><b>{from}–{to}</b><span>AD · the widest range proposed</span></div>}
     </div>
     {group.groupings?.length ? <div style={{ marginTop: "1.25rem", display: "grid", gap: ".6rem" }}>{group.groupings.map((g) => <div key={g.label}>

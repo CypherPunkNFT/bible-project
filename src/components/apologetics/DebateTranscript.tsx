@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Download, Search } from 'lucide-react';
 import { transcripts, transcriptTurns } from '@/lib/debate-transcripts';
 import './debate-transcript.css';
+import { formatNumber } from "@/lib/site-format";
 
 const bodies = import.meta.glob<string>('/content/apologetics/transcripts/*.txt', { query: '?raw', import: 'default' });
 const files = import.meta.glob<string>('/content/apologetics/transcripts/*.txt', { query: '?url', import: 'default', eager: true });
@@ -32,7 +33,7 @@ export function DebateTranscript({ id }: { id: string }) {
   }, [jump]);
   if (!record) return null;
   return <section id="transcript" className="dt-transcript" aria-labelledby="dt-title">
-    <header><div><p className="ap-eyebrow">Read the exchange</p><h2 id="dt-title">The transcript.</h2><p>{record.words.toLocaleString()} words · {record.turns} speaker turns</p></div>
+    <header><div><p className="ap-eyebrow">Read the exchange</p><h2 id="dt-title">The transcript.</h2><p>{formatNumber(record.words)} words · {record.turns} speaker turns</p></div>
       <a className="ap-button" href={files[file]} download={record.file}><Download size={15} /> Download text</a></header>
     <div className="dt-controls">
       <label><span>Jump to a section</span><select disabled={!text} aria-label="Jump to transcript section" value="" onChange={e => { setQuery(''); setJump(Number(e.target.value)); }}><option value="" disabled>Choose a section</option>{record.sections.map(section => <option key={section.turn} value={section.turn}>{section.title}</option>)}</select></label>

@@ -2,6 +2,7 @@
 // its dots into columns as tall as the chart, and that lane's own fitted time axis.
 import type { MsRecord } from "@/lib/manuscripts";
 import { formatNumber, isDated, kindOf, mid, type Kind } from "./model";
+import { plural } from "@/lib/site-format";
 
 export const LANES: [string, string][] = [["hebrew", "Hebrew Bible"], ["dss", "Dead Sea Scrolls"], ["samaritan", "Samaritan"], ["lxx", "Greek Old Testament"], ["papyrus", "NT papyri"],
   ["majuscule", "NT majuscules"], ["minuscule", "NT minuscules"], ["lectionary", "NT lectionaries"], ["latin", "Latin"],
@@ -38,7 +39,7 @@ export function lanesData(records: MsRecord[]): Lane[] {
 /** What the small number under a lane's name says, in words rather than a bare fraction. */
 export function countText(lane: Lane): string {
   if (!lane.all.length) return "no open records yet";
-  if (lane.dated.length === lane.all.length) return lane.all.length === 1 ? "1 copy, dated" : `${formatNumber(lane.all.length)} copies, all dated`;
+  if (lane.dated.length === lane.all.length) return plural(lane.all.length, "{n} copy, dated", "{n} copies, all dated");
   return `${formatNumber(lane.dated.length)} dated of ${formatNumber(lane.all.length)}`;
 }
 

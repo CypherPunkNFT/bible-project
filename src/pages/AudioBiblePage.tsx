@@ -8,6 +8,7 @@ import { AllDownloads, PlayerActions } from '@/components/bible/AudioDownloads';
 import { ReadAlongPanel } from '@/components/bible/ReadAlongPanel';
 import { AUDIO_ICONS } from '@/components/bible/audio-category-icons';
 import './audio-bible.css';
+import { plural } from "@/lib/site-format";
 
 const BOOKS = groupAudioBooks(recording.tracks);
 const SAVE_KEY = 'bp-asv-audio-position';
@@ -246,7 +247,7 @@ export default function AudioBiblePage() {
           <PlayerActions book={book} reading={reading} onRead={() => { setReading(true); if (audio.current?.paused) playAudio(); }}/>
         </div>
       </section>
-      <section className="asv-playlist" aria-labelledby="asv-playlist-title"><div className="asv-playlist-content"><header className="asv-playlist-heading"><div><p className="asv-eyebrow">Your listening queue</p><h2 id="asv-playlist-title">From Genesis to Revelation</h2></div><span>{visible.length} {visible.length === 1 ? 'book' : 'books'}</span></header>
+      <section className="asv-playlist" aria-labelledby="asv-playlist-title"><div className="asv-playlist-content"><header className="asv-playlist-heading"><div><p className="asv-eyebrow">Your listening queue</p><h2 id="asv-playlist-title">From Genesis to Revelation</h2></div><span>{visible.length} {plural(visible.length, "book", "books")}</span></header>
         <div className="asv-categories" role="group" aria-label="Bible category"><button type="button" aria-pressed={category === 'all'} onClick={() => setCategory('all')}>All books</button>{AUDIO_CATEGORIES.map(item => <button type="button" key={item.id} style={{'--category-tone':`var(--${item.id})`} as CSSProperties} aria-pressed={category === item.id} onClick={() => setCategory(item.id)}><i/>{item.label}</button>)}</div>
         <div ref={trackList} className="asv-track-list" role="list" aria-label="Bible books">{visible.map(item => {
           const Icon = AUDIO_ICONS[item.category];

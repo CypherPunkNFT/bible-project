@@ -14,6 +14,7 @@ import { personHref } from "./links";
 import { placeLayers } from "./map-layers";
 import { SlideLink } from "./SlideLink";
 import { useCarried } from "./use-carried";
+import { plural } from "@/lib/site-format";
 
 /**
  * The sections of a prophet's page (/people/:id/word) that are theirs alone: the call, the kings they stood before,
@@ -27,9 +28,6 @@ export function PersonLink({ person }: { person: PersonRef }) {
   return <SlideLink to={personHref(person.personId)} state={carried} className="underline decoration-[var(--lg-line)] underline-offset-2 hover:text-[var(--lg)]">{person.name}</SlideLink>;
 }
 
-const WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
-const countWord = (n: number) => WORDS[n] ?? String(n);
-
 /** How the word first came: one chip per account, the account quoted; then how it kept coming. */
 export function CallSection({ prophet, them, he }: { prophet: Prophet; them: string; he: string }) {
   const [chosen, setChosen] = useState(0);
@@ -40,7 +38,7 @@ export function CallSection({ prophet, them, he }: { prophet: Prophet; them: str
   // A prophet Scripture says was not sent has no call; the page tells how they spoke, in the text's words.
   const notSent = prophet.kind === "false";
   const place = account?.placeId && places.status === "ready" ? places.value.find((p) => p.id === account.placeId) : undefined;
-  return <Section id="pp-call" kicker="The call" title={call.length > 1 ? `Called, as ${countWord(call.length)} accounts tell it` : call.length ? "How the word first came" : notSent ? `How ${he} spoke` : "How the word came"}
+  return <Section id="pp-call" kicker="The call" title={call.length > 1 ? plural(call.length, "Called, as {n} account tells it", "Called, as {n} accounts tell it", "word") : call.length ? "How the word first came" : notSent ? `How ${he} spoke` : "How the word came"}
     lead={place ? `At ${place.name}.` : call.length ? undefined : notSent ? `Scripture records no call for ${them}; it tells how ${he} spoke.` : `Scripture gives no call scene for ${them}; it tells how the word came.`}>
     {call.length > 1 && <div className="lg-chips" style={{ marginTop: 0, marginBottom: "1rem" }} role="group" aria-label="Accounts">
       {call.map((c, i) => <button key={c.label + i} type="button" className="lg-chip" aria-pressed={i === chosen} onClick={() => setChosen(i)}>{c.label}</button>)}
@@ -66,7 +64,7 @@ export function KingsSection({ prophet, title }: { prophet: Prophet; title: stri
   for (const k of prophet.kings) { const key = k.person.personId ?? k.person.name; byRuler.set(key, [...(byRuler.get(key) ?? []), k]); }
   const groups = [...byRuler.values()];
   const kings = prophet.kings.every((k) => k.person.personId && rulerFor(k.person.personId)?.kind === "king");
-  return <Section id="pp-kings" kicker={title} title={groups.length === 1 ? `Before ${groups[0][0].person.name}` : `Before ${countWord(groups.length)} ${kings ? "kings" : "rulers"}`}
+  return <Section id="pp-kings" kicker={title} title={groups.length === 1 ? `Before ${groups[0][0].person.name}` : kings ? plural(groups.length, "Before {n} king", "Before {n} kings", "word") : plural(groups.length, "Before {n} ruler", "Before {n} rulers", "word")}
     lead="Each ruler in whose days the word came, with what passed between them. A ruler with a page of their own opens it.">
     <div className="pp-cards">{groups.map((meetings) => {
       const first = meetings[0];

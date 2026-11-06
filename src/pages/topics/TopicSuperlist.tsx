@@ -6,11 +6,12 @@ import { categoryUrl, topicUrl, type TopicIndex, type TopicSubcategory } from "@
 import { formatNumber } from "@/lib/utils";
 import { tint } from "./topics-shared";
 import "./topic-superlist.css";
+import { compareText, plural } from "@/lib/site-format";
 
 /** One group: its line, its count, and (opened) every topic in it, A to Z. */
 function Group({ group, index, open, onToggle }: { group: TopicSubcategory; index: TopicIndex; open: boolean; onToggle: () => void }) {
   const Icon = groupIcon(group.id);
-  const topics = [...group.topics].sort((a, b) => (index.topics[a]?.title ?? a).replace(/^The /, "").localeCompare((index.topics[b]?.title ?? b).replace(/^The /, "")));
+  const topics = [...group.topics].sort((a, b) => compareText((index.topics[a]?.title ?? a).replace(/^The /, ""), (index.topics[b]?.title ?? b).replace(/^The /, "")));
   return (
     <li className="superlist-group">
       <button type="button" aria-expanded={open} onClick={onToggle}>
@@ -54,7 +55,7 @@ export function TopicSuperlist({ index }: { index: TopicIndex }) {
               const total = family.subcategories.reduce((n, group) => n + group.topics.length, 0);
               return (
                 <article key={family.id} className="superlist-family" style={tint(family.id)}>
-                  <h3><Icon size={20} strokeWidth={1.5} aria-hidden /><Link to={categoryUrl(family.id)}>{family.title}</Link><small>{formatNumber(total)} topics · {family.subcategories.length} {family.subcategories.length === 1 ? "group" : "groups"}</small></h3>
+                  <h3><Icon size={20} strokeWidth={1.5} aria-hidden /><Link to={categoryUrl(family.id)}>{family.title}</Link><small>{formatNumber(total)} topics · {family.subcategories.length} {plural(family.subcategories.length, "group", "groups")}</small></h3>
                   <p>{family.description}</p>
                   <ul>{family.subcategories.map((group) => <Group key={group.id} group={group} index={index} open={opened.has(group.id)} onToggle={() => toggle(group.id)} />)}</ul>
                 </article>

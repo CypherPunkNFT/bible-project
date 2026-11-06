@@ -4,7 +4,7 @@ import { readyKey } from "@/components/people-pages/usePeoplePageSlide";
 import { AccountsSection } from "./Accounts";
 import { Cinema } from "./Cinema";
 import { Counter } from "./Counter";
-import { headerHeight, PERIOD_TONE, plural, preloadOthers, useApostleData } from "./data";
+import { headerHeight, PERIOD_TONE, preloadOthers, useApostleData } from "./data";
 import { Landing } from "./Landing";
 import { takePlace } from "./place";
 import { PlacesSection } from "./Places";
@@ -18,6 +18,7 @@ import { WithSection } from "./With";
 import "./apostle-page.css";
 import "./apostle-sections.css";
 import "./apostle-art.css";
+import { plural } from "@/lib/site-format";
 
 /**
  * The apostle pages (/people/:id/mission) of the Twelve, Matthias and Paul, as the owner approved them
@@ -32,7 +33,7 @@ export function ApostleMissionPage({ id }: { id: string }) {
 }
 
 function Sources({ d }: { d: Apostle }) {
-  return <details className="sources"><summary>Sources · {plural(d.citations.length, "work")} cited on this page</summary>
+  return <details className="sources"><summary>Sources · {plural(d.citations.length, "{n} work", "{n} works")} cited on this page</summary>
     <ul>{d.citations.map((c) => <li key={c.id}><a href={c.url ?? "#"} target="_blank" rel="noreferrer">{c.author}</a>, <i>{c.title}</i>{c.year ? ` (${c.year})` : ""}{c.where ? `, ${c.where}` : ""}</li>)}</ul>
     <p className="plain-line">Scripture is quoted from the <BibleName /> as held on this site. Places from OpenBible.info (CC BY); the land outline is the Atlas's own (Natural Earth).</p></details>;
 }

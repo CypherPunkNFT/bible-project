@@ -8,11 +8,12 @@ import { familyWords } from "@/pages/topics/topics-shared";
 import { FAMILY_STUDY, groupIcon, sectionOf } from "@/lib/topic-style";
 import { pointsAndPassages, topicCount, topicUrl, type TopicCategory, type TopicIndex, type TopicSubcategory, type TopicSummary } from "@/lib/topics";
 import { formatNumber } from "@/lib/utils";
+import { compareText, plural } from "@/lib/site-format";
 
 /** The small line under a topic. A contents page ("Family": no points or passages of its own, only the topics split out of
  * it; `parts` in the index, scripts/build-topics.py) says so rather than "Dictionary article". */
 const topicLine = (topic: TopicSummary & { parts?: number }) =>
-  !topic.points && !topic.refs && topic.parts ? `Contents: ${topic.parts} ${topic.parts === 1 ? "topic" : "topics"}` : pointsAndPassages(topic.points, topic.refs);
+  !topic.points && !topic.refs && topic.parts ? `Contents: ${topic.parts} ${plural(topic.parts, "topic", "topics")}` : pointsAndPassages(topic.points, topic.refs);
 
 const passagesOf = (sub: TopicSubcategory, index: TopicIndex) => sub.topics.reduce((n, id) => n + (index.topics[id]?.refs ?? 0), 0);
 
@@ -27,7 +28,7 @@ function GroupDetail({ family, group, index, onChoose }: { family: TopicCategory
   const [filter, setFilter] = useState("");
   const [letter, setLetter] = useState("");
   const ordered = useMemo(() => large
-    ? [...group.topics].sort((a, b) => sortKey(index.topics[a]?.title ?? a).localeCompare(sortKey(index.topics[b]?.title ?? b)))
+    ? [...group.topics].sort((a, b) => compareText(sortKey(index.topics[a]?.title ?? a), sortKey(index.topics[b]?.title ?? b)))
     : [...group.topics].sort((a, b) => (index.topics[b]?.refs ?? 0) - (index.topics[a]?.refs ?? 0)), [group, index, large]);
   const letters = useMemo(() => [...new Set(ordered.map((id) => sortKey(index.topics[id]?.title ?? id).charAt(0).toUpperCase()))], [ordered, index]);
   const words = filter.toLowerCase().split(/\s+/).filter(Boolean);
@@ -99,7 +100,7 @@ export function TopicFamilyPage({ index }: { index: TopicIndex }) {
         <div>
           <p className="topics-kicker">{sectionOf(family.id)?.title ?? "Topics"} · {topicCount(family)} topics</p>
           <h1>{family.title}</h1>
-          <p>{family.description} {family.subcategories.length} {family.subcategories.length === 1 ? "group" : "groups"}; open one to see its topics.</p>
+          <p>{family.description} {family.subcategories.length} {plural(family.subcategories.length, "group", "groups")}; open one to see its topics.</p>
         </div>
         <TopicsArtwork kind={family.id} words={familyWords(family, index)} />
       </header>

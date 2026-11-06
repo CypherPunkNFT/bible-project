@@ -7,6 +7,7 @@ import type { CatalogueFilters } from '../context';
 import { weight } from '../marks/facts';
 import type { PopulationEntry } from '../population';
 import featured from '../../../../../content/teachers/field-featured.json';
+import { compareCode, compareText } from "@/lib/site-format";
 
 export interface LibraryPerson extends FieldEntry { scholar?: Scholar; facts?: ContributorFact; search: string; sourceLifeDates: string[]; population?: PopulationEntry }
 export interface LibraryOptions { collection: string; role: string; scope: string; unclassified: boolean; unknownEra: boolean; identity?: string; dateStatus?: string }
@@ -61,10 +62,10 @@ const featuredIds = new Set(Object.values(featured).flat().map(([id]) => id));
 export function orderLibrary(people: LibraryPerson[], sort: LibrarySort): LibraryPerson[] {
   const rank = (p: LibraryPerson) => p.scholar ? 0 : featuredIds.has(p.id) ? 1 : 2;
   return [...people].sort((a, b) => {
-    if (sort === 'az') return a.name.localeCompare(b.name) || a.id.localeCompare(b.id);
-    if (sort === 'featured') return rank(a) - rank(b) || (a.scholar && b.scholar ? a.scholar.born - b.scholar.born : 0) || b.records - a.records || a.name.localeCompare(b.name);
-    if (sort === 'year') return (a.facts?.dates.born ?? a.scholar?.born ?? Infinity) - (b.facts?.dates.born ?? b.scholar?.born ?? Infinity) || a.name.localeCompare(b.name);
-    if (sort === 'named') return (b.scholar ? weight(b.scholar) : 0) - (a.scholar ? weight(a.scholar) : 0) || a.name.localeCompare(b.name);
-    return b.records - a.records || a.name.localeCompare(b.name);
+    if (sort === 'az') return compareText(a.name, b.name) || compareCode(a.id, b.id);
+    if (sort === 'featured') return rank(a) - rank(b) || (a.scholar && b.scholar ? a.scholar.born - b.scholar.born : 0) || b.records - a.records || compareText(a.name, b.name);
+    if (sort === 'year') return (a.facts?.dates.born ?? a.scholar?.born ?? Infinity) - (b.facts?.dates.born ?? b.scholar?.born ?? Infinity) || compareText(a.name, b.name);
+    if (sort === 'named') return (b.scholar ? weight(b.scholar) : 0) - (a.scholar ? weight(a.scholar) : 0) || compareText(a.name, b.name);
+    return b.records - a.records || compareText(a.name, b.name);
   });
 }

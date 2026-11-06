@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import { LighthouseArt } from "./LighthouseArt";
 import { PICKED } from "./NearbyArt";
 import "./nearby-intro.css";
+import { formatNumber } from "@/lib/site-format";
 
 export interface Figures { cities: number; places: number; churches: number; help: number }
 
@@ -39,7 +40,7 @@ function FiguresLayout({ figures, number }: { figures: Figures; number?: string 
   return <header className="ni ni-figures">
     <div className="ni-figures-top"><div><Heading number={number} /><p className="ni-about">{ABOUT}</p>
       <Link className="ni-cta" to="/resources/life"><LifeBuoy size={17} strokeWidth={1.6} aria-hidden />Help for life<ArrowRight size={15} aria-hidden /></Link></div>
-      <dl className="ni-bar">{rows.map(([n, label]) => <div key={label}><dt>{label}</dt><dd>{n.toLocaleString("en-US")}</dd></div>)}</dl></div>
+      <dl className="ni-bar">{rows.map(([n, label]) => <div key={label}><dt>{label}</dt><dd>{formatNumber(n)}</dd></div>)}</dl></div>
   </header>;
 }
 

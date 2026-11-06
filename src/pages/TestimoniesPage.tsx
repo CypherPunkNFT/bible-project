@@ -12,6 +12,7 @@ import { TestimonyReader } from "@/components/TestimonyReader";
 import { saveTestimonyValue, savedTestimonyValue, testimonyAccessToken, testimonyApi } from "@/lib/testimony-api";
 import type { InvitationStatus, InvitationWelcome, TestimonyAccount, TestimonyBranch, TestimonyInvite, TestimonyPin, TestimonyReport } from "@/lib/testimony-contract";
 import "./testimonies-design.css";
+import { formatNumber } from "@/lib/site-format";
 
 const emptyBranch: TestimonyBranch = { nodes: [], ancestors: [], rootId: null, hasMore: false, total: 0 };
 const message = (error: unknown) => error instanceof Error ? error.message : "Please try again.";
@@ -253,14 +254,14 @@ function TestimonyForm({ welcome, existing, draftKey, preview = false, onBack, o
     <label>When it happened (optional)<input value={value.happenedWhen} onChange={(e) => change("happenedWhen", e.target.value)} maxLength={80} placeholder="e.g. Spring 2022, 2019–2024, or an ongoing journey" aria-describedby="testimony-date-help" /></label>
     <p id="testimony-date-help" className="testimony-field-help">A date, year or season is enough. The separate “Shared on” date is recorded automatically.</p>
     <div className="testimony-blurb-field"><label htmlFor="testimony-blurb">A short blurb</label><textarea id="testimony-blurb" className="testimony-blurb-input" value={value.blurb} onChange={(e) => change("blurb", e.target.value)} minLength={20} maxLength={MAX_TESTIMONY_BLURB} rows={4} placeholder="A few sentences about your journey and what Christ has done in your life." aria-describedby="testimony-blurb-help" required /></div>
-    <p id="testimony-blurb-help" className="testimony-field-help">This is what people read first beside the tree. {value.blurb.length.toLocaleString()} / 600 characters.</p>
+    <p id="testimony-blurb-help" className="testimony-field-help">This is what people read first beside the tree. {formatNumber(value.blurb.length)} / 600 characters.</p>
     <div className="testimony-full-writing">
       <button type="button" className="testimony-secondary" aria-expanded={writingFull} aria-controls="testimony-full-editor" onClick={() => setWritingFull((open) => !open)}>{writingFull ? "Collapse full testimony" : value.body ? "Continue your full testimony" : "Add your full testimony"}<Plus size={16} /></button>
       <p className="testimony-small">Optional. Take the space you need — 5,000 words and more are welcome. You can add this later, too.</p>
       <div id="testimony-full-editor" hidden={!writingFull}>
         <label htmlFor="testimony-body">Your full testimony (optional)</label>
         <textarea id="testimony-body" value={value.body} onChange={(e) => change("body", e.target.value)} maxLength={MAX_TESTIMONY_CHARACTERS} rows={16} placeholder="Start wherever your story begins. There is room for the difficult chapters, the turning points, and what you are still learning…" aria-describedby="testimony-body-help" />
-        <p id="testimony-body-help" className="testimony-small">{testimonyWordCount(value.body).toLocaleString()} words · {value.body.length.toLocaleString()} / 100,000 characters. Paragraphs and line breaks are preserved.</p>
+        <p id="testimony-body-help" className="testimony-small">{formatNumber(testimonyWordCount(value.body))} words · {formatNumber(value.body.length)} / 100,000 characters. Paragraphs and line breaks are preserved.</p>
       </div>
     </div>
     <p className="testimony-small">Publishing makes your story, its details and your public name visible to visitors.{!existing && " A dot on the world map shows roughly where you shared it from (your city, not your address)."}</p>

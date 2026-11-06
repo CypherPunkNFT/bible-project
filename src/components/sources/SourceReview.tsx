@@ -3,7 +3,8 @@ import { ArrowRight, ArrowUpRight, BookOpen, Copy, FileQuestion, FileText, Finge
 import { missingIdentity, needsReview, type ReviewFilter } from './dashboard-model';
 import { snapshotDate } from './LibraryOverview';
 import type { Directory, SourceEntry } from './types';
-const n=(value:number|undefined)=>value===undefined?'—':value.toLocaleString();
+import { formatNumber } from "@/lib/site-format";
+const n=(value:number|undefined)=>value===undefined?'—':formatNumber(value);
 const assessments=[
  {title:'Text integrity',icon:ScanText,detail:'Compare the extraction with the original; inspect missing pages, broken text and OCR.'},
  {title:'Work & edition',icon:Fingerprint,detail:'Identify the author, translator, editor, edition and acquisition evidence.'},

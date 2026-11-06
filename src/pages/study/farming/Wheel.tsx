@@ -1,6 +1,6 @@
 // The year wheel: the stone's eight seasons drawn as twelve months. The list of buttons beside it is the keyboard and screen reader
 // control; the arcs only repeat it for a pointer, so they stay out of the tab order and the wheel reads as one described image.
-import { arcPath, D, MONTHS, seasonById, seasonMiddle, wheelPoint } from "./model";
+import { arcPath, D, months, seasonById, seasonMiddle, wheelPoint } from "./model";
 
 const OUTER = 164, INNER = 106, RING = 96;
 
@@ -17,7 +17,7 @@ export function Wheel({ lit, chosen, chords, centre, label, onPick }: {
   lit: string[]; chosen?: string; chords?: [string, string][]; centre?: [string, string]; label: string; onPick?: (id: string) => void;
 }) {
   return <svg className="fy-wheel" viewBox="0 0 400 400" role="img" aria-label={label}>
-    {MONTHS.map((month, i) => {
+    {months().map((month, i) => {
       const [x, y] = wheelPoint(i, 183), [ax, ay] = wheelPoint(i, OUTER + 2), [bx, by] = wheelPoint(i, OUTER + 9);
       return <g key={month}><path className="fy-tick" d={`M${ax.toFixed(2)} ${ay.toFixed(2)}L${bx.toFixed(2)} ${by.toFixed(2)}`} /><text className="fy-month" x={x} y={y} textAnchor="middle" dominantBaseline="middle">{month}</text></g>;
     })}

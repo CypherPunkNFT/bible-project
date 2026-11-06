@@ -4,6 +4,7 @@ import type { Claim, Span } from "@/data/letters/types";
 import { useKeep } from "../letter-hooks";
 import { ClaimText, KeepX, Refs } from "../LetterParts";
 import { GROUP_TONE, toneOfLetter, type GroupKey, type LettersData } from "./data";
+import { compareText } from "@/lib/site-format";
 
 const chip = (tone: string) => ({ "--chip": `var(--${tone})` }) as CSSProperties;
 
@@ -111,7 +112,7 @@ export function LetterBars({ data, value, detail, format = (n) => String(n), hin
 export function PlacesNamed({ data }: { data: LettersData }) {
   const by = new Map<string, { code: string; note?: string; implied?: boolean; refs: Span[] }[]>();
   data.letters.forEach((l) => l.places.forEach((p) => { const k = p.name.replace(/ \(.*\)$/, ""); by.set(k, [...(by.get(k) ?? []), { ...p, code: l.code }]); }));
-  const list = [...by].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
+  const list = [...by].sort((a, b) => b[1].length - a[1].length || compareText(a[0], b[0]));
   return <Choose items={list} title={([n]) => n} count={([, xs]) => xs.length} detail={([n, xs]) => <><h4>{n}</h4>
     <ul className="lb-points">{xs.map((x, i) => <li key={i}><b>{data.letter(x.code).name}</b>{x.implied ? " (implied)" : ""}{x.note ? ` · ${x.note}` : ""} <Refs refs={x.refs} limit={3} /></li>)}</ul></>} />;
 }

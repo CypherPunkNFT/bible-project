@@ -15,6 +15,7 @@ import { useAsync } from "@/lib/useAsync";
 import { formatNumber } from "@/lib/utils";
 import { markByForm, wordIndexOf } from "@/lib/search-words";
 import { Marked } from "./WordTabs";
+import { plural } from "@/lib/site-format";
 
 const MB = (bytes: number) => `${Math.round(bytes / 1e6)} MB`;
 
@@ -126,7 +127,7 @@ export function TopicsSection({ words }: { words: string[] }) {
     <section aria-labelledby="search-topics" className="mt-10">
       <div id="search-topics"><SectionHead title="Topics" note="with their verses" link={{ to: "/topics", label: "All topics" }} /></div>
       <ul className="flex flex-wrap gap-2">
-        {ids.map((id) => <li key={id}><Link to={topicUrl(id)} className="inline-flex items-baseline gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent"><span><Marked underline parts={markByForm(index.value.topics[id].title, words)} /></span><span className="text-xs text-muted">{formatNumber(index.value.topics[id].refs)} {index.value.topics[id].refs === 1 ? "passage" : "passages"}</span></Link></li>)}
+        {ids.map((id) => <li key={id}><Link to={topicUrl(id)} className="inline-flex items-baseline gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent"><span><Marked underline parts={markByForm(index.value.topics[id].title, words)} /></span><span className="text-xs text-muted">{formatNumber(index.value.topics[id].refs)} {plural(index.value.topics[id].refs, "passage", "passages")}</span></Link></li>)}
       </ul>
     </section>
   );

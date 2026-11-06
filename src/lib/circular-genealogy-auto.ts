@@ -1,6 +1,7 @@
 import type { FamilyEdge } from "./genealogy";
 import { ringOverlap } from "./circular-genealogy-edit";
 import { joinedParentPaths, shouldUseMaternalStem, familyBandAnchor } from "./circular-genealogy-paths";
+import { compareCode } from "@/lib/site-format";
 
 export interface AutoCircleNode { id: string; generation: number; baseRadius: number; baseAngle: number; sex?: string }
 export interface AutoCircleResult {
@@ -32,7 +33,7 @@ export function arrangeCircularFamilies(input: AutoCircleNode[], edges: FamilyEd
   const placementParent=new Map<string,string>();
   for(const parents of candidates.values()) for(const id of new Set(parents)) fanout.set(id,(fanout.get(id) ?? 0)+1);
   for(const n of input.filter(n=>n.id!==root)) {
-    const parent=[...new Set(candidates.get(n.id) ?? [])].sort((a,b)=>(fanout.get(b) ?? 0)-(fanout.get(a) ?? 0) || a.localeCompare(b))[0] ?? root;
+    const parent=[...new Set(candidates.get(n.id) ?? [])].sort((a,b)=>(fanout.get(b) ?? 0)-(fanout.get(a) ?? 0) || compareCode(a, b))[0] ?? root;
     children.get(parent)?.push(n.id);
     placementParent.set(n.id,parent);
   }
@@ -57,7 +58,7 @@ export function arrangeCircularFamilies(input: AutoCircleNode[], edges: FamilyEd
   const ordered=new Map<string,string[]>();
   for(const [id,ids] of children) {
     const leaves=ids.filter(c=>!children.get(c)?.length).sort();
-    const growing=ids.filter(c=>children.get(c)?.length).sort((a,b)=>mass.get(b)!-mass.get(a)! || a.localeCompare(b));
+    const growing=ids.filter(c=>children.get(c)?.length).sort((a,b)=>mass.get(b)!-mass.get(a)! || compareCode(a, b));
     const left:string[]=[],right:string[]=[];
     growing.forEach((child,i)=>(i%2 ? right : left).push(child));
     ordered.set(id,[...left,...leaves,...right.reverse()]);
@@ -149,7 +150,7 @@ export function arrangeCircularFamilies(input: AutoCircleNode[], edges: FamilyEd
     if(descendants.length!==1) continue;
     if((recordedParents.get(descendants[0]) ?? []).length>1) continue;
     const parentIds=(recordedParents.get(pivot.id) ?? []).filter(id=>nodes.get(id)!.generation<pivot.generation)
-      .sort((a,b)=>Number(nodes.get(b)!.sex==="M")-Number(nodes.get(a)!.sex==="M") || a.localeCompare(b));
+      .sort((a,b)=>Number(nodes.get(b)!.sex==="M")-Number(nodes.get(a)!.sex==="M") || compareCode(a, b));
     if(!parentIds.length) continue;
     const a=position(parentIds[0]),b=position(pivot.id),dx=b.x-a.x,dy=b.y-a.y,length=Math.hypot(dx,dy);
     if(length<1e-6) continue;

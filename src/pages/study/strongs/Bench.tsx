@@ -5,6 +5,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { lemmaById, parseNumber, readerHref } from "./model";
 import { Head, Lemma } from "./parts";
 import { useLetterLookup, type Found } from "./useLetterLookup";
+import { formatNumber, plural } from "@/lib/site-format";
 
 const PARTS = [
   { key: "number", text: "26.", label: "The number", says: "Its place in the list. It finds the entry and says nothing else." },
@@ -38,7 +39,7 @@ function Results({ number, verses }: { number: string; verses: Found[] }) {
   if (!verses.length) return <p className="sn-readout">No King James tag for {number} in the 21 letters. It may still appear elsewhere in the New Testament; this tool reads only the letters.</p>;
   const shown = all ? verses : verses.slice(0, 24);
   return <>
-    <p className="sn-readout"><b>{verses.length.toLocaleString("en-US")}</b> {verses.length === 1 ? "verse" : "verses"} in the 21 letters have a King James tag for {number}. Each link opens in the Berean, which has no tags, so read for the sense.</p>
+    <p className="sn-readout"><b>{formatNumber(verses.length)}</b> {plural(verses.length, "verse", "verses")} in the 21 letters have a King James tag for {number}. Each link opens in the Berean, which has no tags, so read for the sense.</p>
     <ul className="sn-found">{shown.map((v) => <li key={`${v.code}${v.chapter}:${v.verse}`}><Link to={readerHref(v.code, v.chapter, v.verse)}>{v.book} {v.chapter}:{v.verse}</Link></li>)}</ul>
     {verses.length > shown.length && <button type="button" className="sn-more" onClick={() => setAll(true)}>Show all {verses.length} →</button>}
   </>;

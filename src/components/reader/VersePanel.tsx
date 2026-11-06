@@ -12,6 +12,7 @@ import { useAsync } from "@/lib/useAsync";
 import { useVerseText } from "@/lib/useVerseText";
 import { formatNumber } from "@/lib/utils";
 import { ReferencePanel } from "./ReferencePanel";
+import { plural } from "@/lib/site-format";
 
 interface Props {
   translation: Translation;
@@ -140,7 +141,7 @@ function CrossRef({ start, end, votes, translation }: { start: number; end: numb
           <SectionDot id={sectionOfNum(catalog, num)} />
           {formatRange(catalog, start, end)}
           <span className="ms-auto text-[11px] font-normal text-muted" title="OpenBible.info votes">
-            {votes} {votes === 1 ? "vote" : "votes"}
+            {votes} {plural(votes, "vote", "votes")}
           </span>
         </span>
         <span className="mt-1 line-clamp-3 block font-serif text-[0.92rem] leading-snug text-ink/85" lang={slug === translation.slug ? translation.lang : "en"} dir={slug === translation.slug ? translation.dir : "ltr"}>

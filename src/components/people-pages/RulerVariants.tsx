@@ -6,6 +6,7 @@ import { ClaimList, EvidenceClaim } from "./Evidence";
 import { PersonName } from "./RulerContext";
 import { SlideLink } from "./SlideLink";
 import { useCarried } from "./use-carried";
+import { plural } from "@/lib/site-format";
 
 /** The parts of a ruler page only some kinds of ruler have (PRESENTATION.md §3.10). */
 
@@ -59,7 +60,7 @@ export function ChainOfAuthority({ ruler }: { ruler: Ruler }) {
   if (ruler.kind !== "governor" && ruler.kind !== "roman") return null;
   const above = ruler.worldStage[0];
   if (!above?.rulers.length) return null;
-  return <Section id="pp-chain" kicker="Authority" title="Under whose authority" lead={`${above.power}, as Scripture names its ${above.rulers.length > 1 ? "rulers" : "ruler"} in ${ruler.name}'s time, then ${ruler.name}.`}>
+  return <Section id="pp-chain" kicker="Authority" title="Under whose authority" lead={<><span>{`${above.power}, as Scripture names ${plural(above.rulers.length, "its ruler", "its rulers")} in ${ruler.name}'s time.`}</span> <span>{`Then ${ruler.name}.`}</span></>}>
     <div className="pp-chain">
       <span><small className="pp-chain-power">{above.power}</small>{above.rulers.map((person, i) => <Fragment key={person.name}>{i > 0 && " · "}<PersonName person={person} /></Fragment>)}</span>
       <i aria-hidden>→</i>

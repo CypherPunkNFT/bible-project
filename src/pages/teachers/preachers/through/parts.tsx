@@ -4,8 +4,8 @@ import { memo, type CSSProperties, type MouseEvent } from "react";
 import { Library } from "lucide-react";
 import type { Person } from "@/data/teachers/pages-types";
 import { familyOf, formatNumber, lifeLabel } from "../../shared/people";
-import { plural } from "../bible/words";
 import { exactYear, initials, listName, type ThroughModel, type Timeline, type Track } from "./model";
+import { plural } from "@/lib/site-format";
 
 const tone = (token: string) => ({ "--tone": `var(${token})` }) as CSSProperties;
 type Open = (id: string, origin: Element) => void;
@@ -40,12 +40,12 @@ function Quiet({ people, onOpen }: { people: Person[]; onOpen: Open }) {
 export function Who({ model, track, onOpen }: { model: ThroughModel; track: Track; onOpen: Open }) {
   const p = track.person;
   if (!p) return <div className="thr-who"><p className="kicker">Every teacher, summed</p><h3>Everyone</h3>
-    <p>{plural(track.works, "work")} on a recorded Bible text by {model.teachers.length} of {model.teachers.length + model.quiet.length} profiled teachers, across {plural(track.bookCount, "book")}.</p></div>;
+    <p>{plural(track.works, "{n} work", "{n} works")} on a recorded Bible text by {model.teachers.length} of {model.teachers.length + model.quiet.length} profiled teachers, across {plural(track.bookCount, "{n} book", "{n} books")}.</p></div>;
   const family = familyOf(p);
   return <div className="thr-who">
     <p className="kicker" style={tone(family.tone)}>{family.label} · {lifeLabel(p)}</p>
     <h3><button type="button" className="thr-name" style={tone(family.tone)} onClick={(e) => onOpen(p.id, e.currentTarget)}>{p.name}</button></h3>
-    <p>{plural(track.works, "work")} on a Bible text, across {plural(track.bookCount, "book")}.</p></div>;
+    <p>{plural(track.works, "{n} work", "{n} works")} on a Bible text, across {plural(track.bookCount, "{n} book", "{n} books")}.</p></div>;
 }
 
 function PlayIcon({ playing }: { playing: boolean }) {

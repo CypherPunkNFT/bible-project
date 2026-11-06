@@ -5,7 +5,8 @@ import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { StableTip } from "@/components/StableTip";
 import type { Audience, Division } from "@/data/resources/learning-catalogue";
 import { AudienceArt } from "./Art";
-import { doorUrl, makerOf, plural, toneOf } from "./model";
+import { doorUrl, makerOf, toneOf } from "./model";
+import { plural } from "@/lib/site-format";
 
 /** An arch for an age, a lintel doorway for a setting. viewBox 100 x 160, stretched to the door. */
 function DoorFrame({ setting }: { setting?: boolean }) {
@@ -36,7 +37,7 @@ function Door({ audience: a, count, chosen, onChoose, onPoint }: { audience: Aud
 
 function doorHint(division: Division, a: Audience) {
   const items = division.forAudience(a.id), kinds = [...new Set(items.map((t) => division.kind[t.kind].plural.toLowerCase()))];
-  return <><b>{a.name}{a.setting ? "" : `, ${a.age}`}.</b> {a.line} <span className="muted">{plural(items.length, "title")}: {kinds.slice(0, 4).join(", ")}{kinds.length > 4 ? " and more" : ""}.</span></>;
+  return <><b>{a.name}{a.setting ? "" : `, ${a.age}`}.</b> {a.line} <span className="muted">{plural(items.length, "{n} title", "{n} titles")}: {kinds.slice(0, 4).join(", ")}{kinds.length > 4 ? " and more" : ""}.</span></>;
 }
 function restLine(division: Division, age: string | null) {
   return age ? <><b>{division.audience[age].name}</b> is open below. <span className="muted">Choose another door to slide to its stack, or this one again to close it.</span></>

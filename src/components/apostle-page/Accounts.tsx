@@ -1,9 +1,10 @@
 import { BibleAbbr } from "@/components/Verse";
 import { bibleName, useCurrentBible } from "@/lib/verses";
 import { Fragment, useState, type CSSProperties, type ReactNode } from "react";
-import { BOOK_TONE, bookName, chapterOf, markRuns, plural } from "./data";
+import { BOOK_TONE, bookName, chapterOf, markRuns } from "./data";
 import type { Apostle } from "./types";
 import { Marked, RefLink, SecHead } from "./ui";
+import { plural } from "@/lib/site-format";
 
 /**
  * 04 · One moment, several accounts: one moment of his story in each book's own KJV words, each account in its own
@@ -42,7 +43,7 @@ export function AccountsSection({ d }: { d: Apostle }) {
   const a = d.accounts[cur], sets = a.cols.map((c) => new Set(c.verses.flatMap((v) => words(v.text))));
   return <section className="sec" data-sec="accounts">
     <SecHead num="04" kicker="Side by side" title="One moment, " em="several accounts"
-      sub={`${plural(d.accounts.length, "moment")} of his story told by more than one book, each in its own words in the ${bibleName(bible)}. His names are marked; switch on "only here" to underline the words that just one account has.`} />
+      sub={`${plural(d.accounts.length, "{n} moment", "{n} moments")} of his story told by more than one book, each in its own words in the ${bibleName(bible)}. His names are marked; switch on "only here" to underline the words that just one account has.`} />
     <div className="acc-tools"><div className="seg acc-pick" role="group" aria-label="Moment">{d.accounts.map((x, i) =>
       <button key={x.id} type="button" aria-pressed={i === cur} onClick={() => setCur(i)}>{x.title}<small>{x.cols.length}</small></button>)}</div>
       <label className="acc-only"><input type="checkbox" checked={only} onChange={(e) => setOnly(e.target.checked)} /> Only here</label></div>
@@ -52,7 +53,7 @@ export function AccountsSection({ d }: { d: Apostle }) {
         <header>{c.label.includes("·") && <p className="kicker">{c.label.split("·").slice(1).join("·").trim()}</p>}<h3>{name}</h3>
           <p className="acc-ref">{c.spans.map((s, k) => <Fragment key={k}>{k > 0 && " · "}<RefLink r={s} /></Fragment>)}</p></header>
         <div className="acc-text">{c.verses.map((v) => <p key={v.id} className={c.mark === v.id ? "his" : undefined}><sup>{chapterOf(v.id).ch}:{chapterOf(v.id).v}</sup> <VerseText text={v.text} names={d.names} unique={unique} /></p>)}</div>
-        <footer>{plural(c.verses.length, "verse")}{c.verses.length >= 12 ? ", the first 12 shown" : ""}</footer></article>;
+        <footer>{plural(c.verses.length, "{n} verse", "{n} verses")}{c.verses.length >= 12 ? ", the first 12 shown" : ""}</footer></article>;
     })}</div>
   </section>;
 }

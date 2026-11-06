@@ -1,10 +1,11 @@
 import {layoutLandingArc} from '../../preachers/landing/arc';
 import {THIS_YEAR} from '../../shared/people';
+import { compareCode } from "@/lib/site-format";
 export const FOCUS_PERIODS=[{start:0,end:1399},{start:1400,end:1599},{start:1600,end:1799},{start:1800,end:THIS_YEAR}];
 export interface FocusPerson {id:string;name:string;born:number}
 export const focusName=(name:string)=>name.replace(/\s*\[\s*(?:c\.?\s*)?\d{1,4}\s*[-–—]\s*\d{0,4}\s*\]\s*$/i,'');
 export function focusLayout(input:FocusPerson[],viewportWidth:number){
- const people=[...input].sort((a,b)=>a.born-b.born||a.name.localeCompare(b.name)||a.id.localeCompare(b.id));
+ const people=[...input].sort((a,b)=>a.born-b.born||compareCode(a.name, b.name)||compareCode(a.id, b.id));
  const groups=FOCUS_PERIODS.map(({start,end})=>people.filter(p=>p.born>=start&&p.born<=end));
  const seed=groups.flatMap(group=>group.length<=8?group:Array.from({length:8},(_,i)=>group[Math.round(i*(group.length-1)/7)]));
  const width=Math.max(880,viewportWidth),height=418;

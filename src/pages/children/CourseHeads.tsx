@@ -11,6 +11,7 @@ import { toneStyle, type Lesson, type PartLessons } from "./data";
 import { CourseHead, GlanceHead, ParentGuide, type CourseHeadProps } from "./ParentGuide";
 import type { Progress } from "./progress";
 import "./course-heads.css";
+import { formatNumber } from "@/lib/site-format";
 
 const LEAD = "Look over a lesson before you sit down together: the passage to read first, every question, the right answer and the other choices your child will see.";
 
@@ -30,7 +31,7 @@ function Centred({ lessons, groups, total, expanded, onExpand, titleId, courseId
     <p className="ck-lead">{LEAD}</p>
     <dl className="ch-figures">
       <div><dt>Lessons</dt><dd>{lessons.length}</dd></div>
-      <div><dt>Questions</dt><dd>{total.toLocaleString()}</dd></div>
+      <div><dt>Questions</dt><dd>{formatNumber(total)}</dd></div>
       <div><dt>Parts of the Bible</dt><dd>{groups.length}</dd></div>
     </dl>
     <OpenButton expanded={expanded} onExpand={onExpand} courseId={courseId} />
@@ -45,7 +46,7 @@ function Preview({ lessons, total, expanded, onExpand, onPick, titleId, courseId
       <p className="ck-eyebrow">For parents and teachers</p>
       <h2 id={titleId}>The whole course, <em>answers included</em></h2>
       <p className="ck-lead">{LEAD}</p>
-      <p className="ch-total"><b>{lessons.length}</b> lessons<span aria-hidden>·</span><b>{total.toLocaleString()}</b> questions</p>
+      <p className="ch-total"><b>{lessons.length}</b> lessons<span aria-hidden>·</span><b>{formatNumber(total)}</b> questions</p>
       <OpenButton expanded={expanded} onExpand={onExpand} courseId={courseId} solid />
     </div>
     <button type="button" className="ch-sheet" style={toneStyle(first.part.tone)} onClick={() => onPick(first)} aria-label={`Open the course at lesson ${first.n}, ${first.title}`}>

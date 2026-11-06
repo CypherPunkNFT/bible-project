@@ -20,11 +20,12 @@ import { useLocation } from "react-router-dom";
 import { loadResource, useResource, type City, type CityMap as CityMapData, type UsStates } from "@/data/resources/index";
 import { CityInfo, UsaMap } from "@/pages/resources/life/CitySection";
 import { CityMap } from "@/pages/resources/life/CityMap";
-import { CITY_FILES, hasCityFiles, kindsIn, plural, type CityWords } from "@/pages/resources/life/format";
+import { CITY_FILES, hasCityFiles, kindsIn, type CityWords } from "@/pages/resources/life/format";
 import { NearbyTicker } from "./NearbyTicker";
 import { zoomClock } from "./nearby-clock";
 import { forgetAll, hasFiles, readAll, readCity } from "./nearby-files";
 import { anchorOf, between, boxOf, circleAt, dotOf, easeInOut, easeOut, fade, fitBeside, frames, guessScale, poseOf, scrollToCentre, setView, union, viewFor, windowOf, type Box, type Pose, type View } from "./nearby-zoom";
+import { plural } from "@/lib/site-format";
 
 export type Place = City & { id: keyof typeof CITY_FILES };
 type Phase = "usa" | "opening" | "city" | "closing";
@@ -338,7 +339,7 @@ export function NearbyStage({ cities, words, checked }: { cities: Place[]; words
       {cityMap && <div className="hn-layer hn-city" data-under={phase === "closing" || undefined} data-hidden={phase === "usa" || phase === "opening" || undefined} {...away(phase !== "city")}>
         <div className="hn-bar">
           <button type="button" onClick={() => run(close)}><ArrowLeft size={15} aria-hidden />All cities</button>
-          {drawnCity && <p><strong>{drawnPlace}</strong>{drawnRegion && <>, {drawnRegion}</>}<span>{plural(drawnCity.entries.length, "place")}{drawnCity.lines?.length ? ` · ${plural(drawnCity.lines.length, "phone line")}` : ""}</span></p>}
+          {drawnCity && <p><strong>{drawnPlace}</strong>{drawnRegion && <>, {drawnRegion}</>}<span>{plural(drawnCity.entries.length, "{n} place", "{n} places")}{drawnCity.lines?.length ? ` · ${plural(drawnCity.lines.length, "{n} phone line", "{n} phone lines")}` : ""}</span></p>}
         </div>
         {cityMap}
       </div>}

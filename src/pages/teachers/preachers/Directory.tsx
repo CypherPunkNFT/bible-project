@@ -10,17 +10,18 @@ import { usePreachers } from "./context";
 import { cssVars, toneOf } from "./drawer/helpers";
 import { filterIntoColumns, regionGroups, type ShownGroup } from "./directory/regions";
 import "./directory.css";
+import { plural } from "@/lib/site-format";
 
 function WorksCount({ person }: { person: Person }) {
   const n = person.works;
   if (!n) return <span className="dir-wk"><span className="dir-none">{person.heldTexts ? `${formatNumber(person.heldTexts)} held texts` : "no works yet"}</span></span>;
-  return <span className="dir-wk" title={`${formatNumber(n)} of their works in the library`}><b>{formatNumber(n)}</b> {n === 1 ? "work" : "works"}</span>;
+  return <span className="dir-wk" title={`${formatNumber(n)} of their works in the library`}><b>{formatNumber(n)}</b> {plural(n, "work", "works")}</span>;
 }
 
 function Group({ group, onOpen }: { group: ShownGroup; onOpen: (id: string, origin: Element) => void }) {
   const count = group.rows.length;
   return <section className="dir-group" style={{ order: group.order }}>
-    <h3>{group.region}<span>{count} {count === 1 ? "teacher" : "teachers"}</span></h3>
+    <h3>{group.region}<span>{count} {plural(count, "teacher", "teachers")}</span></h3>
     <ul>{group.rows.map(({ person, town }) => <li key={person.id}>
       <button type="button" onClick={(event) => onOpen(person.id, event.currentTarget)}>
         <i className="dir-dot" style={cssVars({ "--tone": toneOf(person) })} />

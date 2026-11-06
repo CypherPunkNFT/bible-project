@@ -6,6 +6,7 @@ import {
   type CheckFile, type CheckResult, type DecisionFile, type Inventory, type ShotManifest, type Status, type Template,
 } from "./review-data";
 import "./review.css";
+import { formatDateTime, plural } from "@/lib/site-format";
 
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
 
@@ -33,7 +34,7 @@ function useNoIndex() {
   }, []);
 }
 
-const when = (iso: string | null | undefined) => (iso ? new Date(iso).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" }) : "not yet");
+const when = (iso: string | null | undefined) => (iso ? formatDateTime(new Date(iso), { dateStyle: "medium", timeStyle: "short" }) : "not yet");
 
 /** The design review board (/review): every page type on the site, its variants, screenshots, machine checks and the
  *  owner's decisions. Local preview only — on the live site there is no data, so the address shows "not found". */
@@ -112,12 +113,12 @@ export default function DesignReviewPage() {
         if (!templates.length) return null;
         return (
           <section key={area.id} id={`area-${area.id}`} className="review-area" aria-labelledby={`area-title-${area.id}`}>
-            <h2 id={`area-title-${area.id}`}>{area.title}<small>{templates.length} page {templates.length === 1 ? "type" : "types"}</small></h2>
+            <h2 id={`area-title-${area.id}`}>{area.title}<small>{templates.length} page {plural(templates.length, "type", "types")}</small></h2>
             {templates.map((t) => (
               <article key={t.id} id={`t-${t.id}`} className="review-template">
                 <header>
                   <h3>{t.name}</h3>
-                  <p className="review-template-count">{formatNumber(t.instances)} {t.instances === 1 ? "page" : "pages"} · {t.variants.length} {t.variants.length === 1 ? "design" : "designs"}</p>
+                  <p className="review-template-count">{formatNumber(t.instances)} {plural(t.instances, "page", "pages")} · {t.variants.length} {plural(t.variants.length, "design", "designs")}</p>
                   <p className="review-template-what">{t.what}</p>
                   <p className="review-template-address">Address: <code>{t.address}</code></p>
                 </header>

@@ -8,6 +8,7 @@ import { useAsync } from "@/lib/useAsync";
 import type { CityChoice } from "./city-collections";
 import { CITY_DETAILS } from "./city-details";
 import { resolveCityPlace } from "./city-places";
+import { plural } from "@/lib/site-format";
 
 /** The open city: its church and setting where written, and every verse that names it, by book. */
 export function CityDetailPanel({ city, onBack }: { city: CityChoice; onBack: () => void }) {
@@ -26,10 +27,10 @@ export function CityDetailPanel({ city, onBack }: { city: CityChoice; onBack: ()
         {detail ? <>
           <section><h4>{detail.churchTitle}</h4><p>{detail.church}</p><Link to={detail.passage.path}><BookOpen size={14} aria-hidden />Read {detail.passage.label}<ArrowUpRight size={13} aria-hidden /></Link></section>
           <section><h4>The city</h4><p>{detail.city}</p></section>
-        </> : <section><h4>The city</h4><p>{city.subtitle}. {place ? `${city.title} is named in ${place.verses.length} ${place.verses.length === 1 ? "verse" : "verses"}; each reference opens the passage.` : ""}</p></section>}
+        </> : <section><h4>The city</h4><p>{city.subtitle}. {place ? `${city.title} is named in ${place.verses.length} ${plural(place.verses.length, "verse", "verses")}; each reference opens the passage.` : ""}</p></section>}
       </div>
       <section className="city-detail-verses" aria-label={`Where ${city.title} is named`}>
-        <h4>Where it is named{place ? ` · ${place.verses.length} ${place.verses.length === 1 ? "verse" : "verses"}` : ""}</h4>
+        <h4>Where it is named{place ? ` · ${place.verses.length} ${plural(place.verses.length, "verse", "verses")}` : ""}</h4>
         {raw.status === "loading" && <p className="city-detail-muted" role="status">Loading…</p>}
         {raw.status === "ready" && !place && <p className="city-detail-muted">This city is not in the atlas data yet.</p>}
         {place && <OutsideScroll label={`Passages naming ${city.title}`} className="city-detail-scroll"><ul>{[...byBook.entries()].map(([num, ids]) => {

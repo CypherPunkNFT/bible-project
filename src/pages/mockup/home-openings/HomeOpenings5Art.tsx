@@ -5,6 +5,7 @@ import { useId, useMemo, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { MARQUEE } from "./HomeOpenings";
+import { plural } from "@/lib/site-format";
 
 const fixed = (value: number) => value.toFixed(1);
 const tone = (section: string) => ({ "--tone": `var(--${section})` } as CSSProperties);
@@ -60,7 +61,7 @@ export function RoseWindow() {
       <g className="hm5-ring-turn" aria-hidden="true"><text className="hm5-ring-text"><textPath href={`#${id}-ring`} textLength={fixed(Math.PI * 2 * RING - 8)} lengthAdjust="spacing">{RING_WORDS}</textPath></text></g>
     </svg>
     <figcaption className={chosen ? "is-picked" : undefined} aria-live="polite">{chosen
-      ? <><strong style={tone(chosen.section)}>{chosen.name}</strong><span>{chosen.chapters} {chosen.chapters === 1 ? "chapter" : "chapters"}</span><Link to={`/read/bsb/${chosen.code}/1`}>Read {chosen.name} 1</Link></>
+      ? <><strong style={tone(chosen.section)}>{chosen.name}</strong><span>{chosen.chapters} {plural(chosen.chapters, "chapter", "chapters")}</span><Link to={`/read/bsb/${chosen.code}/1`}>Read {chosen.name} 1</Link></>
       : "Thirty-nine books in the outer ring, twenty-seven within, the cross at the heart. Choose a pane to see its book."}</figcaption>
   </figure>;
 }

@@ -6,6 +6,7 @@ import {
   postDecision, STATUS_WORDS, variantStatus, viewHashes, VIEWS,
   type CheckResult, type Decision, type ShotManifest, type Template, type Variant, type ViewKey,
 } from "./review-data";
+import { compareCode, formatDateTime, plural } from "@/lib/site-format";
 
 type Width = "all" | "desktop" | "phone";
 type Theme = "all" | "light" | "dark";
@@ -17,7 +18,7 @@ const scopeWords = (d: Pick<Decision, "viewport" | "theme">) =>
   d.viewport === "all" && d.theme === "all" ? "all views" : [d.viewport === "all" ? "" : d.viewport, d.theme === "all" ? "" : d.theme].filter(Boolean).join(", ");
 /** The sample's reason without its rule name, which the label already says ("longest name: …" → "…"). */
 const shortWhy = (why: string) => why.replace(/^[^:"]{1,60}:\s*/, "");
-const when = (iso: string) => new Date(iso).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
+const when = (iso: string) => formatDateTime(new Date(iso), { dateStyle: "medium", timeStyle: "short" });
 
 /** The machine checks for one design, in words: "Checked on 112 of 112 pages: no problems" or the problems found. */
 function CheckLine({ result, names }: { result?: CheckResult; names: { id: string; name: string }[] }) {
@@ -29,7 +30,7 @@ function CheckLine({ result, names }: { result?: CheckResult; names: { id: strin
   if (!failing.length) return <p className="review-checks" data-state="pass"><Check size={14} aria-hidden />Checked on {coverage} pages{result.coverage ? ` (${result.coverage})` : ""}: {names.map((n) => n.name.toLowerCase()).join(", ")}: no problems.</p>;
   return (
     <div className="review-checks" data-state="fail">
-      <p><X size={14} aria-hidden />Checked on {coverage} pages{result.coverage ? ` (${result.coverage})` : ""}. Problems: {failing.map((n) => `${n.name.toLowerCase()} on ${formatNumber(result.failed[n.id])} ${result.failed[n.id] === 1 ? "page" : "pages"}`).join("; ")}.</p>
+      <p><X size={14} aria-hidden />Checked on {coverage} pages{result.coverage ? ` (${result.coverage})` : ""}. Problems: {failing.map((n) => `${n.name.toLowerCase()} on ${formatNumber(result.failed[n.id])} ${plural(result.failed[n.id], "page", "pages")}`).join("; ")}.</p>
       <button type="button" onClick={() => setOpen(!open)} aria-expanded={open}>{open ? "Hide the list" : `Show which pages (${result.failures.length}${result.failures.length >= 50 ? "+" : ""})`}</button>
       {open && <ul>{result.failures.map((f, i) => <li key={i}><a href={f.url} target="_blank" rel="noreferrer">{f.url}</a> <span>{f.width < 600 ? "phone" : "desktop"} · {names.find((n) => n.id === f.check)?.name ?? f.check}: {f.detail}</span></li>)}</ul>}
     </div>
@@ -61,7 +62,7 @@ export function VariantReview({ template, variant, shots, result, checkNames, de
   const [message, setMessage] = useState("");
   const [removing, setRemoving] = useState<string | null>(null);
   const [opened, setOpened] = useState<Opened | null>(null);
-  const history = decisions.filter((d) => d.template === template.id && d.variant === variant.id).sort((a, b) => b.at.localeCompare(a.at));
+  const history = decisions.filter((d) => d.template === template.id && d.variant === variant.id).sort((a, b) => compareCode(b.at, a.at));
   const why = Object.values(views).find((v) => v.why)?.why;
 
   const record = async (decision: "accepted" | "needs-changes") => {
@@ -92,7 +93,7 @@ export function VariantReview({ template, variant, shots, result, checkNames, de
       <header>
         <h4>{variant.name}</h4>
         <span className="review-status" data-status={status}>{STATUS_WORDS[status]}</span>
-        <span className="review-variant-count">{formatNumber(variant.instances)} {variant.instances === 1 ? "page" : "pages"}</span>
+        <span className="review-variant-count">{formatNumber(variant.instances)} {plural(variant.instances, "page", "pages")}</span>
         <p>{variant.what}{why ? <em> Needs another look: {why}.</em> : null}</p>
         <ul className="review-view-states" aria-label="Each view">
           {VIEWS.map((v) => <li key={v.key} data-status={views[v.key].status}>{v.label}: {STATUS_WORDS[views[v.key].status]}</li>)}

@@ -3,6 +3,7 @@
 import { D, findPassage, seasonNames } from "./model";
 import { Head, Quote, ThreeParts } from "./parts";
 import { Wheel } from "./Wheel";
+import { plural } from "@/lib/site-format";
 
 export function Clock({ passageId, onPassage }: { passageId: string | null; onPassage: (id: string) => void }) {
   const passage = findPassage(passageId);
@@ -15,7 +16,7 @@ export function Clock({ passageId, onPassage }: { passageId: string | null; onPa
         <button type="button" aria-pressed={p.id === passage.id} onClick={() => onPassage(p.id)}><strong>{p.name}</strong><small>{p.verses.join(", ")}</small></button>
       </li>)}</ol>
       <div className="fy-clockwheel">
-        <Wheel lit={passage.seasons} chords={passage.chords} centre={[passage.verses[0], passage.verses.length > 1 ? `and ${passage.verses.length - 1} more` : "on the wheel"]}
+        <Wheel lit={passage.seasons} chords={passage.chords} centre={[passage.verses[0], passage.verses.length > 1 ? plural(passage.verses.length - 1, "and {n} more", "and {n} more") : "on the wheel"]}
           label={`The year wheel for ${passage.name}. Lit: ${seasonNames(passage.seasons)}.${drawn}`} />
       </div>
       <div className="fy-clockrecord" aria-live="polite">

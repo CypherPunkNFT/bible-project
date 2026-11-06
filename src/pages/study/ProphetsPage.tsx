@@ -14,6 +14,7 @@ import { tone, type Tone } from "@/lib/sections";
 import { loadPeople, loadProphets, type Prophet } from "@/lib/study";
 import { useAsync } from "@/lib/useAsync";
 import { cn } from "@/lib/utils";
+import { plural } from "@/lib/site-format";
 
 const KINDS: { id: Prophet["kind"] | "all"; label: string }[] = [
   { id: "all", label: "All" },
@@ -166,7 +167,7 @@ function EraBar({ id, era, count }: { id: string; era: string; count: number }) 
         <span className="block font-serif text-xl font-semibold leading-tight">{info.label}</span>
         <span className="block truncate text-xs font-normal opacity-85">{info.dates}{info.told && ` · told in ${info.told}`}</span>
       </span>
-      <span className="ml-auto shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold" style={{ background: "color-mix(in srgb, currentColor 16%, transparent)" }}>{count} {count === 1 ? "prophet" : "prophets"}</span>
+      <span className="ml-auto shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold" style={{ background: "color-mix(in srgb, currentColor 16%, transparent)" }}>{count} {plural(count, "prophet", "prophets")}</span>
     </h2>
   );
 }

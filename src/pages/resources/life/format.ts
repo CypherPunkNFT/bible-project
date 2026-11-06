@@ -4,9 +4,9 @@
 import { Baby, BookOpen, Church, Flower2, Globe, GraduationCap, HandHeart, HeartHandshake, House, LifeBuoy, MessagesSquare, Shield, Sprout, Users, Wheat, type LucideIcon } from "lucide-react";
 import type { City, Contact, Help, LifeData, LocalHelp } from "@/data/resources";
 import { dialable, wayOf as baseWay } from "../contact-links";
+import { formatList, plural } from "@/lib/site-format";
 
-export const plural = (n: number, one: string, many = `${one}s`) => `${n.toLocaleString("en-US")} ${n === 1 ? one : many}`;
-export const listOf = (words: string[]) => (words.length < 2 ? words.join("") : `${words.slice(0, -1).join(", ")} and ${words[words.length - 1]}`);
+export const listOf = (words: string[]) => formatList(words);
 /** listOf as separate pieces for the page, so the page translator can swap the "and" and each word on its own. */
 export const listParts = (words: string[]) => words.flatMap((word, i) => (i === 0 ? [word] : [i === words.length - 1 ? " and " : ", ", word]));
 /** The same with commas only: "In person, Online". */
@@ -108,7 +108,7 @@ export function quickActions(entry: Help, max = 2): Quick[] {
 export function groupStats(g: LifeData["groups"][number]) {
   const n = g.entries.length, always = g.entries.filter(answersAlways).length;
   const ways = new Set(g.entries.flatMap((e) => e.contact.map((c) => wayOf(c.kind))));
-  const clock = always === n ? (n === 1 ? "Answers around the clock" : "All around the clock") : always ? `${always} around the clock` : "Set hours";
+  const clock = always === n ? (plural(n, "Answers around the clock", "All around the clock")) : always ? `${always} around the clock` : "Set hours";
   const words = (["call", "text", "chat"] as Way[]).filter((w) => ways.has(w)).map((w) => WAY_WORD[w]).join(" · ");
   return { n, line: `${clock} · ${words || "Website"}` };
 }
@@ -137,9 +137,9 @@ export interface CityWords {
 }
 export const LIFE_WORDS: CityWords = {
   kick: "02 · Local help",
-  lead: (places, lines) => `${plural(places, "place")} you can walk into and ${plural(lines, "phone line")}, each checked on the organisation’s own page.`,
+  lead: (places, lines) => `${plural(places, "{n} place", "{n} places")} you can walk into and ${plural(lines, "{n} phone line", "{n} phone lines")}, each checked on the organisation’s own page.`,
   title: "Help in",
-  count: (places, lines) => `${plural(places, "place")} you can walk into${lines > 0 ? ` · ${plural(lines, "phone line")} below` : ""}`,
+  count: (places, lines) => `${plural(places, "{n} place", "{n} places")} you can walk into${lines > 0 ? ` · ${plural(lines, "{n} phone line", "{n} phone lines")} below` : ""}`,
   tag: (e) => kindOf(e.category).short,
 };
 

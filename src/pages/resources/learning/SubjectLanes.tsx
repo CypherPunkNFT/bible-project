@@ -6,8 +6,9 @@ import { Link } from "react-router-dom";
 import { StableTip } from "@/components/StableTip";
 import type { Division, Title } from "@/data/resources/learning-catalogue";
 import { AudienceArt, TrackGlyph } from "./Art";
-import { type Back, facts, makerOf, plural, titleUrl, toneOf } from "./model";
+import { type Back, facts, makerOf, titleUrl, toneOf } from "./model";
 import { SecHead, Status } from "./parts";
+import { plural } from "@/lib/site-format";
 
 
 /** A cell's points in lines of at most fit: as few lines as fit, shared out evenly, the longer lines first (13 is 5, 4, 4). */
@@ -46,7 +47,7 @@ export function SubjectLanes({ division, num, back }: { division: Division; num:
     return () => removeEventListener("resize", measure);
   }, []);
 
-  const base = <>{plural(division.titles.length, "title")} across {division.tracks.length} subjects. <span className="muted">A title made for more than one door appears under each of them.</span></>;
+  const base = <>{plural(division.titles.length, "{n} title", "{n} titles")} across {division.tracks.length} subjects. <span className="muted">A title made for more than one door appears under each of them.</span></>;
   const seriesLine = (id: string) => { const s = division.seriesById[id]; return <><b>{s.name}</b> · {s.type}. {s.line}</>; };
   const options = [base, ...division.series.map((s) => seriesLine(s.id)), ...division.titles.map((t) => <TitleHint key={t.id} division={division} t={t} />)];
   const show = pointed ? <TitleHint division={division} t={division.title[pointed]} /> : series ? seriesLine(series) : base;

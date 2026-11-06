@@ -8,6 +8,7 @@ import { ARTICLES, SOURCES, articleHref, sectionFigures, type Article } from "./
 import { Figures, SourceList } from "./parts";
 import { TheologyArt } from "./TheologyArt";
 import "./theology.css";
+import { plural } from "@/lib/site-format";
 
 function ArticleCard({ article }: { article: Article }) {
   return <li className="th-card">
@@ -53,7 +54,7 @@ export default function TheologyPage() {
     </header>
 
     <Figures items={[
-      [figures.articles, figures.articles === 1 ? "Article" : "Articles"],
+      [figures.articles, plural(figures.articles, "Article", "Articles")],
       [figures.parts, "Parts, each read on its own"],
       [figures.scripture, "Passages quoted in full"],
       [figures.sources, "Sources, each with its edition"],

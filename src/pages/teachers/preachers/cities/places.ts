@@ -2,6 +2,7 @@
 // and the projections fitted to the pre-projected map views (copied from the mock-up's "Their world" geo maths).
 import type { PeopleData, Person, Point } from "@/data/teachers/pages-types";
 import { lifeEnd, THIS_YEAR } from "../../shared/people";
+import { plural } from "@/lib/site-format";
 
 export type CityView = "europe" | "america";
 export type Projector = (lon: number, lat: number) => Point;
@@ -85,5 +86,5 @@ export function sharedCities(data: PeopleData): City[] {
 }
 
 export const yearsLabel = (c: City) => `${c.first}–${c.last >= THIS_YEAR ? "today" : c.last}`;
-export const countLabel = (n: number) => `${n} ${n === 1 ? "teacher" : "teachers"}`;
+export const countLabel = (n: number) => `${n} ${plural(n, "teacher", "teachers")}`;
 export const viewCaption = (view: CityView) => (view === "europe" ? "Britain and western Europe" : "Eastern United States");

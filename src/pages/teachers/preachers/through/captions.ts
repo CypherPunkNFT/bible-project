@@ -3,11 +3,11 @@
 import type { Book } from "@/data/teachers/pages-types";
 import { formatNumber } from "../../shared/people";
 import { SPURGEON } from "../bible/model";
-import { plural } from "../bible/words";
 import type { ThroughModel, Timeline, Track } from "./model";
+import { plural } from "@/lib/site-format";
 
 export function ringCaption(model: ThroughModel, track: Track, timeline: Timeline | null, books: Book[]) {
-  let caption = `Spoke length grows with the square root of the count, so small books stay visible. The longest spoke is ${books[track.top].name}, with ${plural(track.max, "work")}.`;
+  let caption = `Spoke length grows with the square root of the count, so small books stay visible. The longest spoke is ${books[track.top].name}, with ${plural(track.max, "{n} work", "{n} works")}.`;
   if (!track.person) caption += ` Spurgeon's ${formatNumber(model.byId.get(SPURGEON)?.works ?? 0)} sermons are most of these, so this ring is mostly his.`;
   if (track.person && timeline) {
     const undated = track.person.passages.filter((w) => !w.d).length, outside = track.person.passages.length - track.dated.length - undated;

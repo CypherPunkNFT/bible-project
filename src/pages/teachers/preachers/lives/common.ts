@@ -2,10 +2,9 @@
 // 05 Did their lives cross? and 06 Who passed it to whom.
 import { useLayoutEffect, useState, type RefObject } from "react";
 import type { Person } from "@/data/teachers/pages-types";
-import { familyOf, formatNumber } from "../../shared/people";
+import { familyOf } from "../../shared/people";
 
 /** "1 year", "12 years", "1,204 places". */
-export const plural = (n: number, one: string, many = `${one}s`) => `${formatNumber(n)} ${n === 1 ? one : many}`;
 
 /** A person's family colour as a CSS value, e.g. "var(--history)". */
 export const toneVar = (person: Person) => `var(${familyOf(person).tone})`;

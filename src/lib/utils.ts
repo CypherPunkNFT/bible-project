@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]): string {
   return twMerge(clsx(inputs));
 }
 
-export const formatNumber = (value: number): string => value.toLocaleString("en-US");
+export { formatNumber } from "@/lib/site-format";
 
 /** Is keyboard focus in a text field or picker (so page-level arrow keys must stay out of the way)? */
 export function isTyping(target: EventTarget | null): boolean {

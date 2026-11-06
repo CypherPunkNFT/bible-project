@@ -35,6 +35,7 @@ import { HomeSources } from "./home/HomeSources";
 import { GoldMarquee } from "./mockup/home-openings/HomeOpenings";
 import { BrickCity } from "./mockup/home-openings/HomeOpenings6Chapters";
 import "@/components/home/home-phone.css";
+import { formatNumber } from "@/lib/site-format";
 
 /** The five doorways are the site's five parts; Topics lives inside Study, and Resources joins. */
 const HOME_PATHS = [
@@ -194,9 +195,9 @@ export default function HomePage({ phoneLayout = "e" }: { phoneLayout?: string }
         </FeatureBlock>
         <FeatureBlock tone="poetry" level="h3" kicker="Chapter by chapter" title={<>Every chapter, <em>a doorway.</em></>}
           art={<ChaptersScene />} artTo="/library" artLabel="Explore chapters"
-          facts={[`${CHAPTER_COUNT.toLocaleString("en-US")} chapters`, "31,102 verses", "Progress, book by book"]}
+          facts={[`${formatNumber(CHAPTER_COUNT)} chapters`, "31,102 verses", "Progress, book by book"]}
           cta={{ to: "/library", label: "Explore chapters", note: "The whole Bible at a glance", icon: <LayoutGrid size={22} strokeWidth={1.4} aria-hidden />, bookmark: true }}>
-          <p>See the whole Bible at once: {CHAPTER_COUNT.toLocaleString("en-US")} chapters laid end to end, from the fifty chapters of Genesis to the single page of Jude. Choose a version, find a book, and open any chapter straight from the map of the whole.</p>
+          <p>See the whole Bible at once: {formatNumber(CHAPTER_COUNT)} chapters laid end to end, from the fifty chapters of Genesis to the single page of Jude. Choose a version, find a book, and open any chapter straight from the map of the whole.</p>
           <p>As you read, the library marks the chapters you have finished, book by book, so you can see how much of the story you have walked through and where you might go next.</p>
         </FeatureBlock>
       </section>

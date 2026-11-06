@@ -1,3 +1,4 @@
+import { formatNumber } from "../../../lib/site-format.ts";
 const NS='http://www.w3.org/2000/svg';
 const tones=['--accent','--level2','--level3','--muted'];
 const clamp=n=>Math.max(0,Math.min(1,n));
@@ -15,7 +16,7 @@ export class DenseWorkMap {
    paths[node.level].push(`M${(node.x-20).toFixed(2)} ${node.y.toFixed(2)}a20 20 0 1 0 40 0a20 20 0 1 0 -40 0Z`);
   }
   const coreStart=495-(centre.length-1)*13;
-  this.markup=`<svg viewBox="${viewBox}" data-render-mode="dots" data-dot-count="${nodes.length}" role="group" aria-label="${escape(label)}: ${nodes.length.toLocaleString()} works">${rings.map(({radius,label})=>`<circle class="orbit" cx="500" cy="500" r="${radius}"/>`).join('')}<circle cx="500" cy="500" r="84" fill="var(--bg)" stroke="var(--line)"/><circle cx="500" cy="500" r="74" fill="none" stroke="var(--accent)" stroke-opacity=".4"/><text class="core-title" text-anchor="middle">${centre.map((line,i)=>`<tspan x="500" y="${coreStart+i*26}">${escape(line)}</tspan>`).join('')}</text><text class="core-sub" x="500" y="${coreStart+centre.length*26+4}" text-anchor="middle">${escape(subtitle)}</text>${paths.map((path,i)=>path.length?`<path class="dense-dot-batch" fill="var(${tones[i]})" data-dot-count="${path.length}" d="${path.join('')}"/>`:'').join('')}</svg>`;
+  this.markup=`<svg viewBox="${viewBox}" data-render-mode="dots" data-dot-count="${nodes.length}" role="group" aria-label="${escape(label)}: ${formatNumber(nodes.length)} works">${rings.map(({radius,label})=>`<circle class="orbit" cx="500" cy="500" r="${radius}"/>`).join('')}<circle cx="500" cy="500" r="84" fill="var(--bg)" stroke="var(--line)"/><circle cx="500" cy="500" r="74" fill="none" stroke="var(--accent)" stroke-opacity=".4"/><text class="core-title" text-anchor="middle">${centre.map((line,i)=>`<tspan x="500" y="${coreStart+i*26}">${escape(line)}</tspan>`).join('')}</text><text class="core-sub" x="500" y="${coreStart+centre.length*26+4}" text-anchor="middle">${escape(subtitle)}</text>${paths.map((path,i)=>path.length?`<path class="dense-dot-batch" fill="var(${tones[i]})" data-dot-count="${path.length}" d="${path.join('')}"/>`:'').join('')}</svg>`;
  }
  hit(x,y,tolerance=20){
   let nearest=null,best=tolerance;

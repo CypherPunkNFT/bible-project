@@ -5,6 +5,7 @@
 // of that space's centre, with the read-out centred in the space to its right.
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { PSALM_HYMN_COUNTS, PSALTER_STOPS, type PsalterStop } from "./hymns-card-data";
+import { plural } from "@/lib/site-format";
 
 const CX = 110, CY = 103, INNER = 58, REACH = 40, TICK_CAP = 26, ARM = INNER + TICK_CAP + 6, EDGE = ARM + 4;
 const CLEAR = 14, GROW = 1.2, SHIFT_LEFT = 24, SHIFT_DOWN = 24, READ_COLUMN_REM = 13;
@@ -98,7 +99,7 @@ export function HymnsCardArt() {
     </svg>
     <div ref={read} className={`study-hymns-read${shown ? "" : " swap"}`}>
       <small>Psalm</small>
-      <div className="num"><b>{stop.psalm}</b><span>{count} {count === 1 ? "hymn" : "hymns"} sung on it</span></div>
+      <div className="num"><b>{stop.psalm}</b><span>{count} {plural(count, "hymn", "hymns")} sung on it</span></div>
       <q>{stop.line}</q>
       <p>{stop.author} · {stop.year}</p>
     </div>

@@ -15,6 +15,7 @@ import {
 } from "@/lib/museums";
 import { MuseumEmblem } from "./MuseumEmblems";
 import "./museums.css";
+import { formatNumber, plural } from "@/lib/site-format";
 
 /** How many objects open with. The rest arrive a page at a time rather than as one long scroll. */
 const PAGE = 12;
@@ -276,11 +277,11 @@ export default function MuseumPage() {
         <>
           <dl className="mu-stats mu-museum-stats">
             <div>
-              <dt>{held.totals.records.toLocaleString()}</dt>
-              <dd>{held.totals.records === 1 ? "record held" : "records held"}</dd>
+              <dt>{formatNumber(held.totals.records)}</dt>
+              <dd>{plural(held.totals.records, "record held", "records held")}</dd>
             </div>
             <div>
-              <dt>{held.totals.listed.toLocaleString()}</dt>
+              <dt>{formatNumber(held.totals.listed)}</dt>
               <dd>listed on this page</dd>
             </div>
             <div>
@@ -297,8 +298,8 @@ export default function MuseumPage() {
 
           {held.totals.listed < held.totals.records ? (
             <p className="mu-caption mu-cut">
-              {held.totals.records.toLocaleString()} records are held for this collection and{" "}
-              {held.totals.listed.toLocaleString()} are listed here — the ones its own records tie to something
+              {formatNumber(held.totals.records)} records are held for this collection and{" "}
+              {formatNumber(held.totals.listed)} are listed here — the ones its own records tie to something
               biblical, audited first. The rest are in the research corpus, not on this page.
             </p>
           ) : null}
@@ -347,7 +348,7 @@ export default function MuseumPage() {
                       }}
                     >
                       {entry.label}
-                      <span>{entry.count.toLocaleString()}</span>
+                      <span>{formatNumber(entry.count)}</span>
                     </button>
                   ))}
                 </div>

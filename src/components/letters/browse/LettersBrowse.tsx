@@ -7,6 +7,7 @@ import { collectionPages } from "./pages-collections";
 import { wayPages } from "./pages-ways";
 import "../letters.css";
 import "./browse.css";
+import { formatNumber } from "@/lib/site-format";
 
 /** Old addresses (#paul-letters …, from the long page's group cards) open the matching collection. */
 const OLD_HASH: Record<string, string> = { "#paul-letters": "paul", "#hebrews": "hebrews", "#general-letters": "james-peter-and-jude", "#john-letters": "the-letters-of-john" };
@@ -58,5 +59,5 @@ function Browse({ data }: { data: LettersData }) {
   const way = (slugOf: string, art: string, eyebrow: string, text: string) => { const p = bySlug.get(slugOf)!;
     return { card: { art, tone: p.tone, icon: p.emblem, eyebrow, title: p.title, text, foot: p.sections.map((s) => s.title).join(" · "), cta: `Open ${p.title}` }, to: `${BASE}/${slugOf}` }; };
   return <LettersHome collections={COLLECTION_CARDS.map(([s, card]) => ({ card, to: `${BASE}/${s}` }))} ways={WAY_CARDS.map((w) => way(...w))}
-    figures={[["Letters", "21"], ["Verses", data.letters.reduce((n, l) => n + l.verses, 0).toLocaleString("en-US")], ["Collections", "4"], ["Written", "AD 40–180"]]} />;
+    figures={[["Letters", "21"], ["Verses", formatNumber(data.letters.reduce((n, l) => n + l.verses, 0))], ["Collections", "4"], ["Written", "AD 40–180"]]} />;
 }

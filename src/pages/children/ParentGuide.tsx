@@ -15,6 +15,7 @@ import { nextLesson, passageLabel, readerUrl, toneStyle, type Lesson, type PartL
 import type { Progress } from "./progress";
 import "./parent-guide.css";
 import "./course-heads.css";
+import { formatNumber } from "@/lib/site-format";
 
 /** What a version of the section's top is given (the page's own below; the mock-up's four, CourseHeads.tsx). */
 export interface CourseHeadProps {
@@ -52,7 +53,7 @@ export function CourseHead({ lessons, groups, total, expanded, onExpand, onPick,
       <p className="ck-lead">Look over a lesson before you sit down together: the passage to read first, every question,
         the right answer and the other choices your child will see.</p>
       {/* The course's figures under the words, above the button; each part's own under its name, in two columns (owner, 2026-10-25). */}
-      <p className="ch-total"><b>{lessons.length}</b> lessons<span aria-hidden>·</span><b>{total.toLocaleString()}</b> questions</p>
+      <p className="ch-total"><b>{lessons.length}</b> lessons<span aria-hidden>·</span><b>{formatNumber(total)}</b> questions</p>
       <button type="button" className="ch-open ch-open-solid" aria-expanded={expanded} aria-controls={courseId} onClick={() => (expanded || !current ? onExpand(!expanded) : onPick(current))}>
         {expanded ? "Close the course" : here ? openLabel(here.title) : "Open the whole course"}<ChevronDown size={18} strokeWidth={1.8} aria-hidden /></button>
     </div>
@@ -77,7 +78,7 @@ export function GlanceHead({ lessons, groups, total, expanded, onExpand, onPick,
           the right answer and the other choices your child will see.</p>
       </div>
       <div className="pg-head-side">
-        <p className="pg-count"><b>{lessons.length}</b> lessons<span aria-hidden>·</span><b>{total.toLocaleString()}</b> questions</p>
+        <p className="pg-count"><b>{lessons.length}</b> lessons<span aria-hidden>·</span><b>{formatNumber(total)}</b> questions</p>
         <button type="button" className="pg-open" aria-expanded={expanded} aria-controls={courseId} onClick={() => onExpand(!expanded)}>
           {expanded ? "Close the course" : "Open the whole course"}<ChevronDown size={18} strokeWidth={1.8} aria-hidden /></button>
       </div>

@@ -7,6 +7,7 @@ import type { ScholarsData } from "@/data/teachers/pages-types";
 import { dateLabel } from "../population";
 import { faithOf, toneOf } from "../built/labels";
 import { USE_LABEL, type Group, type Mode } from "./groups";
+import { formatNumber } from "@/lib/site-format";
 
 const Row = memo(function Row({ data, s }: { data: ScholarsData; s: LibraryPerson }) {
   const st = usedEntry(s) ? "in-use" : (s.population ? s.population.counts.publicRecords+s.population.counts.localCopies+s.population.counts.intakeRecords>0 : s.records>0) ? "held" : undefined;
@@ -24,7 +25,7 @@ export function Groups({ data, groups, mode, limit }: { data: ScholarsData; grou
   let remaining = limit;
   const visible = groups.map(g => { const people = g.people.slice(0,remaining); remaining -= people.length; return {...g, total:g.people.length, people}; }).filter(g=>g.people.length);
   return <>{visible.map((g) => mode === "era"
-    ? <div key={`era-${g.key}`} className="dir-group dir-group-era"><h3 className="dir-gh">{g.label}<span>{g.total.toLocaleString()}</span></h3>
+    ? <div key={`era-${g.key}`} className="dir-group dir-group-era"><h3 className="dir-gh">{g.label}<span>{formatNumber(g.total)}</span></h3>
       <ul>{g.people.map((s) => <Row key={s.id} data={data} s={s} />)}</ul></div>
     : <div key={`az-${g.key}`} className="dir-group dir-group-az"><span className="dir-gh dir-letter">{g.label}</span>
       <ul>{g.people.map((s) => <Row key={s.id} data={data} s={s} />)}</ul></div>)}</>;

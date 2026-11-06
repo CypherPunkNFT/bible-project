@@ -8,6 +8,7 @@ import { dateLabel, eligibleBirth } from '../population';
 import { hasCatalogueField } from '../catalogue/library';
 import type { LibraryPerson } from '../catalogue/library';
 import './scholar-timeline.css';
+import { compareCode, formatNumber } from "@/lib/site-format";
 
 export interface ScholarTimelineProps {
   data: ScholarsData; matches: ReadonlySet<string>; searching: boolean;
@@ -20,7 +21,7 @@ export function ScholarTimeline({data,matches,searching,onOpen,controlsHost}:Sch
   const frame=useRef<HTMLDivElement>(null);
   const [width,setWidth]=useState(0),[hot,setHot]=useState<string|null>(null);
   const [page,setPage]=useState(0),[century,setCentury]=useState(''),[field,setField]=useState('');
-  const dated=useMemo(()=>(library??[]).filter(p=>eligibleBirth(p)!==null).sort((a,b)=>eligibleBirth(a)!-eligibleBirth(b)!||a.id.localeCompare(b.id)),[library]);
+  const dated=useMemo(()=>(library??[]).filter(p=>eligibleBirth(p)!==null).sort((a,b)=>eligibleBirth(a)!-eligibleBirth(b)!||compareCode(a.id, b.id)),[library]);
   const filtered=useMemo(()=>dated.filter(p=>(!century||Math.floor(eligibleBirth(p)!/100)*100===Number(century))&&(!field||hasCatalogueField(p,field as Field))&&(!searching||matches.has(p.id)||Boolean(p.scholar&&matches.has(p.scholar.id)))),[dated,century,field,searching,matches]);
   const last=Math.max(0,Math.ceil(filtered.length/BATCH)-1),current=Math.min(page,last);
   const batch=useMemo(()=>filtered.slice(current*BATCH,(current+1)*BATCH),[filtered,current]);
@@ -52,7 +53,7 @@ export function ScholarTimeline({data,matches,searching,onOpen,controlsHost}:Sch
   }
   const compact=width>0&&width<560;
   const explanation=<div className="st-topline"><ul className="st-legend" aria-label="Contributor subjects">{Object.entries(data.fields).map(([key,label])=><li key={key}><i style={{background:toneVar(key as Field)}}/>{label}</li>)}<li><i className="st-unassigned"/>Unassigned</li></ul></div>;
-  const controls=<div className="st-controls"><label>Birth century<select aria-label="Birth century" value={century} onChange={e=>{setCentury(e.target.value);setPage(0);}}><option value="">All birth centuries</option>{centuries.map(c=><option key={c} value={c}>{c}–{c+99}</option>)}</select></label><label>Subject<select aria-label="Timeline subject" value={field} onChange={e=>{setField(e.target.value);setPage(0);}}><option value="">All subjects</option>{Object.entries(data.fields).map(([id,label])=><option key={id} value={id}>{label}</option>)}</select></label><span aria-live="polite">{filtered.length?`${current*BATCH+1}–${Math.min((current+1)*BATCH,filtered.length)}`:'0'} of {filtered.length.toLocaleString()} eligible{searching?' search matches':''}</span><button type="button" disabled={!current} onClick={()=>{setPage(current-1);frame.current?.scrollTo({top:0});}}>Previous</button><label>Batch<select aria-label="Timeline batch" value={current} onChange={e=>{setPage(Number(e.target.value));frame.current?.scrollTo({top:0});}}>{Array.from({length:last+1},(_,i)=><option key={i} value={i}>{i+1} of {last+1}</option>)}</select></label><button type="button" disabled={current>=last} onClick={()=>{setPage(current+1);frame.current?.scrollTo({top:0});}}>Next {BATCH}</button></div>;
+  const controls=<div className="st-controls"><label>Birth century<select aria-label="Birth century" value={century} onChange={e=>{setCentury(e.target.value);setPage(0);}}><option value="">All birth centuries</option>{centuries.map(c=><option key={c} value={c}>{c}–{c+99}</option>)}</select></label><label>Subject<select aria-label="Timeline subject" value={field} onChange={e=>{setField(e.target.value);setPage(0);}}><option value="">All subjects</option>{Object.entries(data.fields).map(([id,label])=><option key={id} value={id}>{label}</option>)}</select></label><span aria-live="polite">{filtered.length?`${current*BATCH+1}–${Math.min((current+1)*BATCH,filtered.length)}`:'0'} of {formatNumber(filtered.length)} eligible{searching?' search matches':''}</span><button type="button" disabled={!current} onClick={()=>{setPage(current-1);frame.current?.scrollTo({top:0});}}>Previous</button><label>Batch<select aria-label="Timeline batch" value={current} onChange={e=>{setPage(Number(e.target.value));frame.current?.scrollTo({top:0});}}>{Array.from({length:last+1},(_,i)=><option key={i} value={i}>{i+1} of {last+1}</option>)}</select></label><button type="button" disabled={current>=last} onClick={()=>{setPage(current+1);frame.current?.scrollTo({top:0});}}>Next {BATCH}</button></div>;
   return <div className="scholar-time" data-compact={compact} aria-label="Contributors through time">
     {controlsHost?createPortal(controls,controlsHost):controls}
     {explanation}

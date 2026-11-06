@@ -3,6 +3,7 @@
 // unknown value falls back to the default, and nothing here throws while the page loads.
 import dossier from "../../../../content/academic-research/33-the-medieval-church.json";
 import generated from "./medieval-data.json";
+import { compareCode } from "@/lib/site-format";
 
 export type Verse = { code: string; chapter: number; verse: number; text: string };
 export type Field = { id: string; name: string; shape: "circle" | "diamond" | "square" | "triangle"; note: string };
@@ -136,7 +137,7 @@ export function axisPlace(year: number, orientation: Orientation): number {
 /** Puts each range on the first lane out from the axis where it touches nothing, so that marks in one year stack and none is moved along the axis. */
 function placeMarks(sides: { id: string; side: Side }[], orientation: Orientation): Map<string, Mark> {
   const lanes: number[] = [], marks = new Map<string, Mark>(), gap = MIRROR.radius + 2;
-  for (const { id, side } of [...sides].sort((a, b) => a.side.from - b.side.from || a.id.localeCompare(b.id))) {
+  for (const { id, side } of [...sides].sort((a, b) => a.side.from - b.side.from || compareCode(a.id, b.id))) {
     const start = axisPlace(side.from, orientation), end = axisPlace(side.to, orientation), middle = (start + end) / 2;
     const reach = Math.min(start, middle - gap);
     let lane = lanes.findIndex((last) => last <= reach);

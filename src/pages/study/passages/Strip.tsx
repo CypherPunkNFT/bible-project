@@ -3,8 +3,9 @@
 // ticked witness opens its record (through the page's [data-open] handler).
 import { useMemo, useState, type CSSProperties } from "react";
 import { useMs } from "../manuscripts/context";
-import { formatNumber, mid, ordinal, plural } from "../manuscripts/model";
+import { formatNumber, mid, ordinal } from "../manuscripts/model";
 import { narrowlyDated, recordsFor } from "./model";
+import { plural } from "@/lib/site-format";
 
 const century = (year: number) => Math.max(0, Math.floor((year - 1) / 100));
 
@@ -27,7 +28,7 @@ export function Strip({ book, keys }: { book: number; keys: readonly (readonly [
       </button>;
     })}</div>
     <p className="st-say">{pointed
-      ? <><b>{ordinal(pointed.c + 1)} century</b> · {plural(pointed.n, "dated copy", "dated copies")}</>
+      ? <><b>{ordinal(pointed.c + 1)} century</b> · {plural(pointed.n, "{n} dated copy", "{n} dated copies")}</>
       : `${formatNumber(dated.length)} dated open records hold ${name}. Point at a century.`}</p>
   </div>;
 }

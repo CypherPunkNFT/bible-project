@@ -14,6 +14,7 @@ import { BookTicks, Found, MainPassage, PageSources } from "./sections";
 import { StanzaPager, stanzaPages, type StanzaPage } from "./StanzaPager";
 import "../song/song.css";
 import "./page.css";
+import { formatNumber, plural } from "@/lib/site-format";
 
 /** The constellation draws only up to this many stanzas on its inner ring. */
 const RING_STANZAS = 12;
@@ -89,9 +90,9 @@ export function HymnFullPage({ page }: { page: HymnPageData }) {
       <dl className="hy-facts">
         <div><dt>Written by</dt><dd>{page.author}<small>{page.authorDates}</small></dd></div>
         <div><dt>Printed</dt><dd>{page.year}<small>{page.collection} · no. {page.number.replace(/^\d+:/, "")}</small></dd></div>
-        <div><dt>Metre</dt><dd>{page.meterName || page.meter || "Not recorded"}<small>{page.meterName && page.meter ? `${page.meter} · ` : ""}{page.stanzas.length} stanza{page.stanzas.length === 1 ? "" : "s"}</small></dd></div>
+        <div><dt>Metre</dt><dd>{page.meterName || page.meter || "Not recorded"}<small>{page.meterName && page.meter ? `${page.meter} · ` : ""}{plural(page.stanzas.length, "{n} stanza", "{n} stanzas")}</small></dd></div>
         {page.hymnals
-          ? <div><dt>In hymnals</dt><dd>{page.hymnals.toLocaleString("en-GB")}<small>listed at Hymnary.org</small></dd></div>
+          ? <div><dt>In hymnals</dt><dd>{formatNumber(page.hymnals)}<small>listed at Hymnary.org</small></dd></div>
           : <div><dt>Written on</dt><dd>{page.heading?.label ?? "A subject"}<small>{page.heading ? "the verse printed above it" : "no verse printed above it"}</small></dd></div>}
       </dl>
     </section>
@@ -100,19 +101,19 @@ export function HymnFullPage({ page }: { page: HymnPageData }) {
       {page.echoes.length > 0 ? <>
         <div className="hy-head"><span className="hy-num">{num()}</span><div>
           <h2>The hymn, <em>and the Scripture in it</em></h2>
-          <p>{page.stanzas.length > 1 ? `All ${page.stanzas.length} stanzas` : "The hymn"} as {who} printed {page.stanzas.length > 1 ? "them" : "it"}, with the verses their lines
+          <p>{page.stanzas.length > 1 ? plural(page.stanzas.length, "All {n} stanza", "All {n} stanzas") : "The hymn"} as {who} printed {plural(page.stanzas.length, "it", "them")}, with the verses their lines
             echo beside them. Point at a line to join it to its verse; click to read the passage.</p>
           <p className="hf-key"><span><b>Shared words</b>the verse shares the line's wording</span><span><b>Echo</b>proposed by an AI model, confirmed by a separate
             check</span><span>Not the author's own notes</span></p>
         </div></div>
-        <StanzaPager pages={pages} summary={`${page.echoes.length} echo${page.echoes.length === 1 ? "" : "es"}`}>{(p) =>
+        <StanzaPager pages={pages} summary={`${plural(page.echoes.length, "{n} echo", "{n} echoes")}`}>{(p) =>
           <Echoes song={slice(page, p)} stanzaOffset={p.first} open={setPanel} closedAt={closedAt} showKey={pages.length === 1} />}</StanzaPager>
         {showRing && <div className="d-among" id="constellation">
           <p className="d-among-k">Among the Scriptures</p>
           <p className="d-among-line">The stanzas at the centre; around them, every book its heading and its echoes come from, Old Testament on the left and New on the
             right. Choose a stanza or a book.</p>
           <Constellation song={ring} open={setPanel} title={page.firstLine.split(/\s+/).slice(0, 3).join(" ").replace(/[,;:!]$/, "")}
-            ringLabel="its heading or an echo comes from here" ringNoun="verse" ringVerb="it draws on" />
+            ringLabel="its heading or an echo comes from here" ringCount={(n) => plural(n, "{n} verse it draws on", "{n} verses it draws on")} />
         </div>}
       </> : <>
         <Head num={num()} title={<>The <em>hymn</em></>}>The words as {who} printed them, {lines} lines.</Head>

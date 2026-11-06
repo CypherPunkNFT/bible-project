@@ -10,6 +10,7 @@ import type { Stats } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
 import { formatNumber } from "@/lib/utils";
 import type { SectionFilter } from "./SectionGuide";
+import { plural } from "@/lib/site-format";
 
 /** `plain` leaves out the note under the chart on how the chosen measure is counted. */
 interface Props { stats: Stats; section: SectionFilter; onSection: (section: SectionFilter) => void; plain?: boolean }
@@ -52,7 +53,7 @@ function SectionChart({ stats, section, onSection, plain, measure, entries }: Pr
     : entries ? subject.name + " has " + subject.value + " section entries (" + share(subject.value) + "% of this selection). Open the passages below to move from the pattern to the texts behind it."
     : measure === "words" ? subject.name + " is " + (subject.bookCount / 66 * 100).toFixed(1) + "% of the books but " + share(subject.value) + "% of the words. Book counts alone can hide how much space a section occupies."
     : measure === "books" ? subject.name + " brings together " + subject.bookCount + " books, " + formatNumber(subject.chapterCount) + " chapters and " + formatNumber(subject.words) + " words. Change the measure to discover how differently those books are sized."
-    : measure === "chapters" ? subject.name + " has " + formatNumber(subject.value) + " chapters across " + subject.bookCount + " books — about " + Math.round(subject.words / subject.chapterCount).toLocaleString("en-US") + " words per chapter. Open the atlas to see the variation."
+    : measure === "chapters" ? subject.name + " has " + formatNumber(subject.value) + " chapters across " + subject.bookCount + " books — about " + formatNumber(Math.round(subject.words / subject.chapterCount)) + " words per chapter. Open the atlas to see the variation."
     : measure === "verses" ? subject.name + " averages " + (subject.value / subject.chapterCount).toFixed(1) + " verses per chapter. Verses vary greatly in length; compare words before using verse counts to estimate reading time."
     : (subject.value / subject.words * 100).toFixed(1) + "% of the words in " + subject.name + " are marked as Jesus speaking in this edition. Explore Words of Jesus to compare the teaching and its narrative setting.";
   return <>
@@ -67,7 +68,7 @@ function SectionChart({ stats, section, onSection, plain, measure, entries }: Pr
         <text textAnchor="middle" y={14} className="fill-muted" fontSize={8}>{entries ? "section entries" : label.toLowerCase()}</text>
       </svg>
       <ul className="section-breakdown">{rows.map((r) => <li key={r.id}><button type="button" aria-pressed={section === r.id} onClick={() => onSection(section === r.id ? "" : r.id)}>
-        <span className="h-3 w-3 rounded-full" style={{ background: sectionColor(r.id) }} /><span><strong>{r.name}</strong><small>{formatNumber(r.value)} {entries ? r.value === 1 ? "entry" : "entries" : label.toLowerCase()}</small><span className="section-mini-bar"><i style={{ width: share(r.value) + "%", background: sectionColor(r.id) }} /></span></span><span className="section-share" style={{ color: sectionColor(r.id) }}>{share(r.value)}%</span>
+        <span className="h-3 w-3 rounded-full" style={{ background: sectionColor(r.id) }} /><span><strong>{r.name}</strong><small>{formatNumber(r.value)} {entries ? plural(r.value, "entry", "entries") : label.toLowerCase()}</small><span className="section-mini-bar"><i style={{ width: share(r.value) + "%", background: sectionColor(r.id) }} /></span></span><span className="section-share" style={{ color: sectionColor(r.id) }}>{share(r.value)}%</span>
       </button></li>)}</ul>
     </div>
     {!plain && <p className="chart-measure-note">{entries ? <>{STUDY_MEASURES.find((m) => m.id === measure)?.note} Each entry counts once in every section cited; percentages compare those section placements. Open the source passages below.</> : measure === "red" ? "Words marked as Jesus speaking in this KJV edition. Editorial red-letter boundaries may differ between editions." : "Counts from the KJV text, excluding the Apocrypha. Chapter and verse divisions are reading aids, not measures of importance."}</p>}

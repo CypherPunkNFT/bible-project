@@ -25,6 +25,7 @@ import { ThemeShelves } from "./questions/test/ThemeShelves";
 import { inTheme, THEMES, themeById } from "./questions/test/themes";
 import "./questions-page.css";
 import "./questions/questions-panels.css";
+import { formatNumber } from "@/lib/site-format";
 
 const NONE: Filters = readFilters(new URLSearchParams());
 
@@ -82,7 +83,7 @@ function ListBody({ bank }: { bank: QuestionBank }) {
     </section>
     <section className="qp-section qp-explore" id="qp-explore" aria-labelledby="qp-explore-title">
       <SectionHead n="03" id="qp-explore-title" title={<>Every <em>question</em></>}
-        lead={chosen.length ? "Every question in one list, by book or theme, or search for a word." : `All ${bank.questions.length.toLocaleString()} in one list, by book or theme, or search for a word.`}
+        lead={chosen.length ? "Every question in one list, by book or theme, or search for a word." : `All ${formatNumber(bank.questions.length)} in one list, by book or theme, or search for a word.`}
         aside={<div className="qp-find"><SearchField search={filters.search} update={update} /><EyeToggle testMode={testMode} setTestMode={setTestMode} /></div>} />
       <div className="qp-explore-grid">
         <ListRail bank={bank} facets={all} filters={filters} choice={choice} members={members} update={update} choose={choose} />

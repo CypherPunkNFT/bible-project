@@ -1,3 +1,4 @@
+import { dateFormat } from "@/lib/site-format";
 /** Optional labels chosen by the writer, never inferred from their story. */
 export const TESTIMONY_THEMES: readonly string[] = ["An invitation", "New beginnings", "Community", "Prayer", "Questions", "Grace", "Hope", "Belonging", "Trust"];
 export const MAX_TESTIMONY_CHARACTERS = 100_000;
@@ -43,7 +44,7 @@ export function validateTestimony(input: TestimonySubmission): string | null {
 
 export function formatTestimonyDate(iso: string): string {
   if (!iso) return "Not shared";
-  return new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" }).format(new Date(iso));
+  return dateFormat({ month: "short", day: "numeric", year: "numeric" }).format(new Date(iso));
 }
 
 /** A parent's path, not a claim about conversion, spiritual authority or biological ancestry. */

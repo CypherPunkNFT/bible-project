@@ -6,6 +6,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { CollectionArt, collectionTones } from "@/components/sources/CollectionArt";
 import "./home-sources.css";
+import { formatNumber } from "@/lib/site-format";
 
 const FIGURES = [
   { value: 160, label: "Bible editions, free to read and download" },
@@ -47,7 +48,7 @@ function CountUp({ value, decimals = 0 }: { value: number; decimals?: number }) 
     if (element.current) observer.observe(element.current);
     return () => { observer.disconnect(); cancelAnimationFrame(frame); };
   }, [value]);
-  return <span ref={element}>{shown.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}</span>;
+  return <span ref={element}>{formatNumber(shown, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}</span>;
 }
 
 export function HomeSources({ number, foot = true }: { number?: string; foot?: boolean }) {

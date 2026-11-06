@@ -1,11 +1,13 @@
 // The build check's language nets (translation system, stage 4 job 9; SiteTranslation/system/HANDOFF.md), read from
 // each page file's syntax tree with the site's own TypeScript. Run by build_nets.py, never by hand:
-//   stdin:  {"files": {name: source}, "pageHead": "src/lib/page-head.ts", "languageFile": "src/lib/language.ts"}
+//   stdin:  {"files": {name: source}, "pageHead": "src/lib/page-head.ts", "languageFile": "src/lib/language.ts",
+//            "formatModule": "src/lib/site-format.ts"}
 //           (a name may start with "before:" for a file's older version; the rest of the name is its path)
 //   stdout: {"processed": [names], "errors": {name: [message]}, "findings": [{net, file, line, key}],
-//            "translatedData": {name: {line, prefixes} | {line, error}}}
-// Nets: plural (hand-written singular/plural choices), format (number and date formats forced to a fixed language or
-// left to the browser), title (tab titles and descriptions the translator never reaches), pieced (sentences built
+//            "translatedData": {name: {line, prefixes} | {line, error}}, "plurals": [{file, line, one, many}]}
+// Nets: plural (hand-written singular/plural choices, and site-format.ts's plural() given words not written out), format
+// (number and date formats, and sorts, forced to a fixed language or left to the browser; site-format.ts's helpers read
+// the site's language), title (tab titles and descriptions the translator never reaches), pieced (sentences built
 // from pieces), datapath (texts shaped like a data path, judged by build_nets.py). Keys are built from the tree, with
 // names and properties written {n}, so renaming a variable or reformatting a line does not make a finding new.
 import { createRequire } from 'node:module';
@@ -14,7 +16,8 @@ const ts = createRequire(import.meta.url)('typescript');
 const SITE_NAME = 'Bible Guide';
 const GLOBALS = new Set(['Intl', 'document', 'window', 'navigator', 'Math', 'Number', 'Date', 'Object', 'Array', 'JSON', 'String', 'console']);
 const FORMAT_METHODS = new Set(['toLocaleString', 'toLocaleDateString', 'toLocaleTimeString']);
-const INTL_FORMATS = new Set(['NumberFormat', 'DateTimeFormat', 'DisplayNames', 'PluralRules', 'RelativeTimeFormat', 'ListFormat']);
+const INTL_FORMATS = new Set(['NumberFormat', 'DateTimeFormat', 'DisplayNames', 'PluralRules', 'RelativeTimeFormat', 'ListFormat', 'Collator']);
+const FORMAT_MODULE = /(?:^|\/)site-format(?:\.ts)?$/; // an import of the site's own helpers (src/lib/site-format.ts)
 const DATA_PATH = /^(?:\/data\/)?[\w.-]+(?:\/|\.json)/;
 const MIME = /^(?:text|application|image|audio|video|font|multipart)\/[\w.+-]+(?:\s*;.*)?$/i;
 const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
@@ -109,8 +112,22 @@ function countTest(node) {
 const helperForm = (node) => ts.isConditionalExpression(node) && countTest(node.condition)
   && ts.isIdentifier(bare(node.whenTrue)) && ts.isIdentifier(bare(node.whenFalse));
 
-function pluralChoice(node) {
+/** Whether a branch writes its count through site-format.ts's plural(): the test then only chooses between two
+ * messages ("Told in {n} books" or "Passage"), and plural() gives the count its grammar. */
+function holdsPlural(node, central) {
+  let found = false;
+  const visit = (child) => {
+    if (found) return;
+    if (ts.isCallExpression(child) && ts.isIdentifier(child.expression) && child.expression.text === 'plural' && central.has('plural')) found = true;
+    else ts.forEachChild(child, visit);
+  };
+  visit(node);
+  return found;
+}
+
+function pluralChoice(node, central) {
   if (ts.isConditionalExpression(node)) {
+    if (holdsPlural(node.whenTrue, central) || holdsPlural(node.whenFalse, central)) return false;
     const counted = countTest(node.condition);
     const endings = ending(node.whenTrue) && ending(node.whenFalse) && bare(node.whenTrue).text !== bare(node.whenFalse).text;
     return endings || (counted && (wordy(node.whenTrue) || wordy(node.whenFalse))) || helperForm(node);
@@ -140,10 +157,31 @@ function parentSkippingBrackets(node) {
   return up;
 }
 
-function pluralNet(node, add, helpers) {
-  if (pluralChoice(node)) {
+/** The names a file imports from site-format.ts: its plural() is the right way, never a hand-written helper. */
+function centralNames(sourceFile) {
+  const names = new Set();
+  for (const statement of sourceFile.statements) {
+    if (!ts.isImportDeclaration(statement) || !isText(statement.moduleSpecifier) || !FORMAT_MODULE.test(statement.moduleSpecifier.text)) continue;
+    const bound = statement.importClause?.namedBindings;
+    if (bound && ts.isNamedImports(bound)) bound.elements.forEach((element) => names.add(element.name.text));
+  }
+  return names;
+}
+
+/** site-format.ts's plural(n, one, many[, "word"]): its two forms are one message the collector registers, so both
+ * must be written out as texts ("{n} book", "{n} books"), and the count's style too when given. Anything else is a
+ * finding. */
+function centralPlural(node, add, plurals, sourceFile, name) {
+  const [, one, many, as] = node.arguments.map(bare);
+  if ((node.arguments.length === 3 || (node.arguments.length === 4 && isText(as))) && isText(one) && isText(many)) {
+    plurals.push({ file: name, line: sourceFile.getLineAndCharacterOfPosition(node.getStart(sourceFile)).line + 1, one: one.text, many: many.text });
+  } else add('plural', node, shape(node));
+}
+
+function pluralNet(node, add, helpers, central) {
+  if (pluralChoice(node, central)) {
     const up = parentSkippingBrackets(node);
-    if (!(up && ts.isConditionalExpression(up) && up.condition !== node && pluralChoice(up))) add('plural', node, shape(node));
+    if (!(up && ts.isConditionalExpression(up) && up.condition !== node && pluralChoice(up, central))) add('plural', node, shape(node));
   } else if (ts.isCallExpression(node) && ts.isIdentifier(node.expression) && helpers.has(node.expression.text)
     && node.arguments.some((argument) => isText(bare(argument)) && hasWord(bare(argument).text))) {
     add('plural', node, shape(node));
@@ -182,6 +220,10 @@ function formatNet(node, add, known) {
   if (!ts.isPropertyAccessExpression(callee)) return;
   const method = FORMAT_METHODS.has(callee.name.text);
   const intl = ts.isIdentifier(callee.expression) && callee.expression.text === 'Intl' && INTL_FORMATS.has(callee.name.text);
+  if (callee.name.text === 'localeCompare') { // a sort in the browser's language, or a fixed one: compareText()
+    if (localeKind(node.arguments?.[1], known)) add('format', node, shape(node));
+    return;
+  }
   if (!method && !intl) return;
   const up = parentSkippingBrackets(node);
   if (intl && up && ts.isPropertyAccessExpression(up) && up.name.text === 'resolvedOptions') return; // a time-zone lookup
@@ -313,14 +355,19 @@ const translateNo = (node) => ts.isJsxElement(node) && node.openingElement.attri
   ts.isJsxAttribute(attribute) && attribute.name.getText() === 'translate' && attribute.initializer
   && isText(attribute.initializer) && attribute.initializer.text === 'no');
 
-function walkFile(name, sourceFile, request, helpers, findings) {
+function walkFile(name, sourceFile, request, helpers, findings, plurals) {
   const known = constants(sourceFile), pageHead = pathOf(name) === request.pageHead;
+  const central = centralNames(sourceFile), formatModule = pathOf(name) === request.formatModule;
   const add = (net, node, key, position = node.getStart(sourceFile)) =>
     findings.push({ net, file: name, line: sourceFile.getLineAndCharacterOfPosition(position).line + 1, key });
   const visit = (node, skipped) => {
     skipped = skipped || translateNo(node);
-    pluralNet(node, add, helpers);
-    formatNet(node, add, known);
+    if (ts.isCallExpression(node) && ts.isIdentifier(node.expression) && central.has(node.expression.text)) {
+      if (node.expression.text === 'plural') centralPlural(node, add, plurals, sourceFile, name);
+    } else if (!formatModule) {
+      pluralNet(node, add, helpers, central);
+      formatNet(node, add, known);
+    }
     titleNet(node, add, known);
     if (pageHead) pageHeadNet(node, add);
     if (!skipped && (ts.isJsxElement(node) || ts.isJsxFragment(node))) jsxRuns(node, add);
@@ -343,12 +390,12 @@ function run(request) {
   const parsed = Object.entries(request.files).map(([name, source]) => [name, ts.createSourceFile(pathOf(name), source,
     ts.ScriptTarget.Latest, true, scriptKind(pathOf(name)))]);
   const helpers = new Set(parsed.filter(([name]) => !name.startsWith('before:')).flatMap(([, file]) => helperNames(file)));
-  const result = { processed: [], errors: {}, findings: [], translatedData: {}, helpers: [...helpers].sort() };
+  const result = { processed: [], errors: {}, findings: [], translatedData: {}, helpers: [...helpers].sort(), plurals: [] };
   for (const [name, sourceFile] of parsed) {
     const diagnostics = sourceFile.parseDiagnostics ?? [];
     if (diagnostics.length) result.errors[name] = diagnostics.slice(0, 3).map((item) =>
       `line ${sourceFile.getLineAndCharacterOfPosition(item.start).line + 1}: ${ts.flattenDiagnosticMessageText(item.messageText, ' ')}`);
-    walkFile(name, sourceFile, request, helpers, result.findings);
+    walkFile(name, sourceFile, request, helpers, result.findings, name.startsWith('before:') ? [] : result.plurals);
     const list = pathOf(name) === request.languageFile ? translatedData(sourceFile) : null;
     if (list) result.translatedData[name] = list;
     result.processed.push(name);

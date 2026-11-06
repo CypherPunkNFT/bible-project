@@ -19,6 +19,7 @@ import { readyKey } from "./usePeoplePageSlide";
 import "@/components/letters/letters.css";
 import "./people-pages.css";
 import "./prophet-page.css";
+import { plural } from "@/lib/site-format";
 
 type Sex = "M" | "F" | "G" | "";
 
@@ -53,7 +54,7 @@ export function ProphetPage({ id, sex }: { id: string; sex: Sex }) {
     { id: "pp-words", title: prophet.words.length ? "The word to …" : "Places", node: <WordsSection prophet={prophet} their={their} /> },
     { id: "pp-signs", title: "Signs", node: <SignsSection prophet={prophet} /> },
     { id: "pp-fulfilment", title: notSent ? "The answer" : "What came of it", node: <FulfilmentSection prophet={prophet} kicker={notSent ? "The answer given" : "What came of the word"} title={notSent ? "The answer, and what came of it" : "As Scripture reports it"} /> },
-    { id: "pp-book", title: prophet.books.length > 1 ? "The books" : "The book", node: <BookSection prophet={prophet} singer={singer} /> },
+    { id: "pp-book", title: plural(prophet.books.length, "The book", "The books"), node: <BookSection prophet={prophet} singer={singer} /> },
     { id: "pp-companions", title: "Companions", node: <Companions prophet={prophet} them={them} /> },
     { id: "pp-ending", title: "How it ends", node: <StoryEnding apostle={prophet} their={their} /> },
     { id: "pp-questions", title: "Questions", node: <QuestionsSection questions={prophet.questions} /> },
@@ -116,7 +117,7 @@ function ProphetHero({ prophet, sex }: { prophet: Prophet; sex: Sex }) {
       <div className="pp-stat"><dt>Era</dt><dd>{era.label}<small>{era.dates}</small></dd></div>
       <div className="pp-stat" data-wide=""><dt>In the days of</dt><dd data-many={rulers.length > 3 ? "" : undefined}>{rulers.length ? rulers.map((k, i) => <span key={k.person.name + i}>{i > 0 && " · "}{k.person.personId && rulerFor(k.person.personId)
         ? <SlideLink to={rulerHref(k.person.personId)} state={carried}>{shortName(k.person.name)}</SlideLink> : <PersonLink person={{ ...k.person, name: shortName(k.person.name) }} />}</span>) : <small className="pp-fact">No ruler named beside {pronouns(sex).them}</small>}</dd></div>
-      <div className="pp-stat"><dt>{prophet.books.length > 1 ? "Books" : "Book"}</dt><dd>{prophet.books.length ? <BookLinks codes={prophet.books.map((b) => b.code)} /> : <small className="pp-fact">None bears the name</small>}</dd></div>
+      <div className="pp-stat"><dt>{plural(prophet.books.length, "Book", "Books")}</dt><dd>{prophet.books.length ? <BookLinks codes={prophet.books.map((b) => b.code)} /> : <small className="pp-fact">None bears the name</small>}</dd></div>
       <div className="pp-stat"><dt>{notSent ? `How ${sex === "F" ? "she" : sex === "G" ? "they" : "he"} spoke` : "How the word came"}</dt><dd><small className="pp-fact">{how ?? "Scripture does not say"}</small></dd></div>
     </dl>
     {line.length > 1 && <nav className="pp-strip-nav" aria-label={`Other prophets of ${era.label}, in story order`}>

@@ -4,7 +4,7 @@
 // under it (owner, same day; own Bible 2026-11-02); it is the last thing before the footer. The three wise men walk along the scroll's top
 // (HomeOpenings6Caravan.tsx).
 import { Link } from "react-router-dom";
-import { BIBLE_OWN_NAMES, BLESSING_VERSES, homeWording, wordingMarks } from "@/components/home/banner-verses";
+import { BIBLE_OWN_NAMES, BLESSING_VERSES, verseWords } from "@/components/home/banner-verses";
 import { useSiteLanguage } from "@/lib/language";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { bibleName, useCurrentBible } from "@/lib/verses";
@@ -19,15 +19,17 @@ export function ScrollBlessing() {
   const phone = useMediaQuery("(max-width: 860px)");
   const language = useSiteLanguage();
   const bible = useCurrentBible();
-  const blessing = homeWording(BLESSING_VERSES, language);
-  const quote = ([lead, ending]: [string, string]) => <blockquote {...wordingMarks(blessing.language === language, bible)} translate="no">“{lead}{FULL_WIDTH_END.test(lead) ? "" : " "}<em>{ending}</em>”</blockquote>;
+  const quote = (verse: [string, string]) => {
+    const { words: [lead, ending], ...marks } = verseWords(verse, language, bible);
+    return <blockquote {...marks} translate="no">“{lead}{FULL_WIDTH_END.test(lead) ? "" : " "}<em>{ending}</em>”</blockquote>;
+  };
   const version = <span lang={bible.lang} translate="no">{BIBLE_OWN_NAMES[bible.slug] ?? bibleName(bible)}</span>;
   return <div className="home-opening hm6-last">
     <section className="hm4-b hm6-blessing" aria-label="A blessing"><ScrollArt fit="edge" below={phone ? 64 : 0} /><ScrollCaravan />
       <div className="home-wrap"><div className="home-hero-copy">
-        {quote(blessing.words.numbers)}
+        {quote(BLESSING_VERSES.numbers)}
         <p className="hm6-blessing-cite"><Link to={`/read/${bible.slug}/NUM/6?hl=24`}>Numbers 6:24–25</Link> · {version}</p>
-        {quote(blessing.words.joshua)}
+        {quote(BLESSING_VERSES.joshua)}
         <p className="hm6-blessing-cite"><Link to={`/read/${bible.slug}/JOS/1?hl=9`}>Joshua 1:9</Link> · {version}</p>
       </div></div>
     </section>

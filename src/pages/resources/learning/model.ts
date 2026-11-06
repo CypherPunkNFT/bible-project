@@ -1,11 +1,11 @@
 // Plain helpers the Learning division's components share: addresses, colours, counts and layouts (no components here).
 import type { CSSProperties } from "react";
 import type { Audience, Division, OpenWork, Title } from "@/data/resources/learning-catalogue";
+import { plural } from "@/lib/site-format";
 
 /** Where a link came from, carried in router state so the next page can name the way back (src/lib/came-from.ts). */
 export interface Back { path: string; label: string }
 
-export const plural = (n: number, one: string, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
 
 /** The CSS colours of a reader's door, from the site's section palette (light and dark come with the tokens). */
 export const toneOf = (a: Audience) => ({ "--tone": `var(--${a.tone})`, "--tone-solid": `var(--${a.tone}-tab)`, "--tone-ink": `var(--${a.tone}-tab-ink)` }) as CSSProperties;
@@ -42,8 +42,8 @@ export function groupsFor(division: Division, audience: string) {
 export function facts(division: Division, t: Title) {
   const a = division.audience[t.audience];
   const bits = [division.kind[t.kind].name, a.setting ? a.name : `${a.name} (${a.age})`];
-  if (t.record) bits.push(plural(t.record.sessions, "session"), plural(t.record.pages, "page"));
-  else if (t.sessions) bits.push(`${plural(t.sessions, "session")} planned`);
+  if (t.record) bits.push(plural(t.record.sessions, "{n} session", "{n} sessions"), plural(t.record.pages, "{n} page", "{n} pages"));
+  else if (t.sessions) bits.push(`${plural(t.sessions, "{n} session", "{n} sessions")} planned`);
   return bits.join(" · ");
 }
 

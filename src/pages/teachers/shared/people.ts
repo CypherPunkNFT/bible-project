@@ -38,4 +38,4 @@ export function placeIn(person: Person, year: number) {
 
 /** Share of a person's catalogued works that are sermons (0–1); people with no works return null. */
 export const sermonShare = (person: Person) => (person.works ? (person.genres.sermon ?? 0) / person.works : null);
-export const formatNumber = (n: number) => n.toLocaleString("en-GB");
+export { formatNumber } from "@/lib/site-format";

@@ -14,6 +14,7 @@ import { TestArea } from "./host";
 import { QuestionPanel } from "./QuestionPanel";
 import { useRecord } from "./record";
 import { themeById } from "./themes";
+import { formatNumber } from "@/lib/site-format";
 
 export function BackLink({ to }: { to: string }) {
   return <Link className="tp-back" to={to}><ArrowLeft size={15} strokeWidth={1.6} aria-hidden />Back to the questions</Link>;
@@ -33,7 +34,7 @@ export function TestPage(props: OptionProps) {
           {[props.filters.book && bookNames[props.filters.book],
             props.settings.level && `${props.settings.level.label}: ${props.settings.level.rating} questions only`,
             props.settings.children && "Questions that suit children"].filter(Boolean).join(" · ")}
-          {` · ${facets.rows.length.toLocaleString()} to draw from`}</p>}
+          {` · ${formatNumber(facets.rows.length)} to draw from`}</p>}
       </header>
     </div>
     <div className="tp-dusk oc-band">

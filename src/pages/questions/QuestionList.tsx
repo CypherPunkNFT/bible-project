@@ -7,6 +7,7 @@ import PillScroll from "@/components/apologetics/PillScroll";
 import { rightChoice, type BankQuestion, type QuestionBank } from "@/lib/data";
 import { DIFFICULTIES, kindTone, LETTERS, searchTerms, type Filters } from "./model";
 import { Highlight, ReadLink } from "./shared";
+import { formatNumber, plural } from "@/lib/site-format";
 
 const STEP = 40;
 // Longer answers (whole catechism paragraphs) fold to a few lines until asked for.
@@ -24,7 +25,7 @@ export function SearchField({ search, update }: { search: string; update: (patch
  *  Clear all in grey (owner, 2026-10-24, replacing the choices in words after the count). */
 export function ResultsBar({ count, chips, remove, clear }: { count: number; chips: Chosen[]; remove: (key: Chosen["key"]) => void; clear: () => void }) {
   return <div className="qp-results-head">
-    <p><strong>{count.toLocaleString()}</strong> {count === 1 ? "question" : "questions"}</p>
+    <p><strong>{formatNumber(count)}</strong> {plural(count, "question", "questions")}</p>
     {chips.length > 0 && <div className="qp-chips" aria-label="Chosen filters">
       {chips.map((chip) => <button key={chip.key} type="button" className="qp-chip" aria-label={`Remove ${chip.label}`} onClick={() => remove(chip.key)}>
         {chip.label}<X size={12} strokeWidth={2.2} aria-hidden /></button>)}
@@ -76,7 +77,7 @@ export function QuestionList({ bank, rows, filters, clear, testMode, bookNames, 
         <QuestionRow key={index} n={i + 1} q={bank.questions[index]} terms={terms} testMode={testMode} bookNames={bookNames}
           meta={[bank.kinds[bank.questions[index].kind], bank.questions[index].collection, bank.questions[index].tradition, topicTitle[bank.questions[index].topic ?? ""]]} />)}</ol>
         : <p className="qp-empty">No questions match all of these. <button type="button" onClick={clear}>Clear the filters</button></p>}
-      {shown < rows.length && <div ref={sentinel} className="qp-more">Loading more of {rows.length.toLocaleString()}…</div>}
+      {shown < rows.length && <div ref={sentinel} className="qp-more">Loading more of {formatNumber(rows.length)}…</div>}
     </PillScroll>
   </div>;
 }

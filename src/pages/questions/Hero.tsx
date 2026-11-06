@@ -8,6 +8,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import type { QuestionBank } from "@/lib/data";
 import { QuestionsArt } from "./QuestionsArt";
+import { formatNumber } from "@/lib/site-format";
 
 /** Where the questions come from, as three words with a small drawing each; the figures are in the bar below
  *  (owner, 2026-10-22: no numbers here, three words on a theme beside a drawing). */
@@ -61,10 +62,10 @@ export function StatsBar({ bank }: { bank: QuestionBank }) {
   const distinct = (pick: (q: (typeof questions)[number]) => string[] | undefined) => new Set(questions.flatMap((q) => pick(q) ?? [])).size;
   const traditions = [...new Set(collections.map((c) => c.tradition).filter(Boolean))];
   const cells: [ReactNode, string, string][] = [
-    [questions.length.toLocaleString(), "Questions", `in ${collections.length} collections`],
+    [formatNumber(questions.length), "Questions", `in ${collections.length} collections`],
     [<><small className="qp-statbar-era">AD</small>{oldest.year}</>, "The oldest source", oldest.title.replace(/\s*\(\d{4}\)$/, "")],
-    [questions.filter((q) => q.link).length.toLocaleString(), "Tied to a verse", "each opens the passage it asks about"],
-    [distinct((q) => q.people).toLocaleString(), "People asked about", `and ${distinct((q) => q.places).toLocaleString()} places`],
+    [formatNumber(questions.filter((q) => q.link).length), "Tied to a verse", "each opens the passage it asks about"],
+    [formatNumber(distinct((q) => q.people)), "People asked about", `and ${formatNumber(distinct((q) => q.places))} places`],
     [String(distinct((q) => q.books)), "Books of the Bible", "every one has questions"],
     [String(traditions.length), "Church traditions", traditions.join(", ")],
   ];

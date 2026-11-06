@@ -7,6 +7,7 @@ import { BibleAbbr } from "@/components/Verse";
 import { useKeep, useSpanLabel, useVerseIndex, useWordVerses } from "../letter-hooks";
 import { ClaimText, KeepX, Refs } from "../LetterParts";
 import { kindTone } from "./builders";
+import { formatNumber } from "@/lib/site-format";
 
 const FACTS = [["author", "Who wrote it"], ["recipients", "To whom"], ["writtenFrom", "From where"], ["date", "When"], ["occasion", "Why"]] as const;
 type Tab = (typeof FACTS)[number][0] | "people" | "places";
@@ -27,7 +28,7 @@ export function Glance({ letter }: { letter: Letter }) {
   return <>
     <dl className="lb-figures">
       <div><dt>Verses</dt><dd>{letter.verses}</dd></div>
-      <div><dt>{letter.greekWords ? "Greek words" : "Parts"}</dt><dd>{letter.greekWords ? letter.greekWords.toLocaleString("en-US") : letter.outline.length}</dd></div>
+      <div><dt>{letter.greekWords ? "Greek words" : "Parts"}</dt><dd>{letter.greekWords ? formatNumber(letter.greekWords) : letter.outline.length}</dd></div>
       <div><dt>Key verses</dt><dd>{letter.keyVerses.length}</dd></div><div><dt>Themes</dt><dd>{letter.themes.length}</dd></div>
     </dl>
     <div className="lb-glance">

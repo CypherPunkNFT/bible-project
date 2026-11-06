@@ -7,6 +7,7 @@ import { SlidePanel } from "@/pages/study/manuscripts/Sheet";
 import { useCatalog } from "@/lib/catalog";
 import { readerHref, type Row, type Word } from "./model";
 import { Lemma, ThreeParts } from "./parts";
+import { formatNumber } from "@/lib/site-format";
 
 function bereanLine(row: Row): string {
   const { kjv, bsbWord } = row.sample;
@@ -33,7 +34,7 @@ export function StrongsSheet({ opened, onClose }: { opened: { word: Word; row: R
         <h2><Lemma lang={word.lang}>{word.lemma}</Lemma> as “{row.label}”</h2>
         <blockquote className="sn-verse"><p><VerseAt verse={s} /></p><cite>{book} {s.chapter}:{s.verse}, <BibleName /></cite></blockquote>
         <ThreeParts
-          evidence={<>{bereanLine(row)} This group holds {row.count.toLocaleString("en-US")} of the {word.total.toLocaleString("en-US")} King James tags for {word.id}. Word and short sense from STEP Bible: <i>{word.translit}</i>, “{word.gloss}”.</>}
+          evidence={<>{bereanLine(row)} This group holds {formatNumber(row.count)} of the {formatNumber(word.total)} King James tags for {word.id}. Word and short sense from STEP Bible: <i>{word.translit}</i>, “{word.gloss}”.</>}
           inference="This is one more English choice for one number. What the word is doing here is shown by the verse and the verses around it."
           limit="One sample was picked by hand from this group, so it does not show the group's range. Tags can fall on neighbouring words. Two English versions chose their words; this study does not rank them." />
         <Link className="sn-sheet-go" to={readerHref(s.code, s.chapter, s.verse)}>Read {book} {s.chapter} in the Berean →</Link>

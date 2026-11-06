@@ -6,7 +6,7 @@ import { ArrowRight, ArrowUpRight, BookOpen, X } from "lucide-react";
 import type { Person } from "@/data/teachers/pages-types";
 import { familyOf, formatNumber, lifeLabel } from "../../shared/people";
 import { GENRE_WORD, SECTION_LABEL, SHOWN_TITLES, chapterName, readHref, relevant, valueOf, type BibleModel, type Cell, type TitledWork } from "./model";
-import { plural } from "./words";
+import { plural } from "@/lib/site-format";
 
 const tone = (token: string) => ({ "--tone": `var(${token})` }) as CSSProperties;
 type Open = (id: string, origin: Element) => void;
@@ -26,7 +26,7 @@ export function Summary({ model, view, narrow, onOpen, onPin }: { model: BibleMo
   return <div className="bib-inner" style={tone(meta.tone)}>
     <p className="kicker">{view === "all" ? "Every teacher in the library" : view === "others" ? "Every teacher except Spurgeon" : meta.person ? familyOf(meta.person).label : meta.label}</p>
     <h3>{meta.person ? <PersonButton person={meta.person} onOpen={onOpen} /> : meta.label}{meta.person && <small>{lifeLabel(meta.person)}</small>}</h3>
-    <p className="bib-big"><b>{formatNumber(lit.length)}</b> chapters · <b>{formatNumber(works)}</b> {works === 1 ? "work" : "works"}</p>
+    <p className="bib-big"><b>{formatNumber(lit.length)}</b> chapters · <b>{formatNumber(works)}</b> {plural(works, "work", "works")}</p>
     {note && <p className="bib-note">{note}</p>}
     <p className="bib-mini">Most taken chapters</p>
     <ol className="bib-top">{top.map((c) => <li key={c.i}><button type="button" onClick={() => onPin(c.i)}><span>{chapterName(model.books, c)}</span><b>{valueOf(c, view)}</b></button></li>)}</ol>
@@ -63,7 +63,7 @@ export function ChapterPanel({ model, cell, view, closable, expanded, onOpen, on
       {closable && <button type="button" className="bib-icon-btn" onClick={onClose} aria-label="Close"><X size={16} strokeWidth={1.5} aria-hidden /></button>}</div>
     <h3>{name}<small>{cell.verses} verses</small></h3>
     <p className="bib-note">{cell.total
-      ? `${plural(cell.total, "work")} in the library ${cell.total === 1 ? "takes" : "take"} this chapter as their main text, by ${plural(cell.voices, "teacher")}.`
+      ? `${plural(cell.total, "{n} work", "{n} works")} in the library ${plural(cell.total, "takes", "take")} this chapter as their main text, by ${plural(cell.voices, "{n} teacher", "{n} teachers")}.`
       : "No work in the library takes this chapter as its main text yet."}</p>
     {entries.length > 0 && <ul className="bib-bars">{entries.map(([id, count]) => {
       const person = model.people.get(id);
@@ -76,7 +76,7 @@ export function ChapterPanel({ model, cell, view, closable, expanded, onOpen, on
     {shown.length > 0 && <><p className="bib-mini">Read their works</p>
       <ul className="bib-titles">{shown.map((entry, i) => <WorkLink key={`${entry.person.id}-${entry.work.v}-${i}`} entry={entry} model={model} />)}</ul></>}
     {list.length > shown.length && <button type="button" className="bib-more" onClick={onExpand}>Show all {formatNumber(list.length)} titles</button>}
-    {elsewhere > 0 && <p className="bib-more-note">{plural(elsewhere, "more work")} {elsewhere === 1 ? "takes" : "take"} this chapter alongside an earlier main text, so {elsewhere === 1 ? "it is" : "they are"} listed under that chapter.</p>}
+    {elsewhere > 0 && <p className="bib-more-note">{plural(elsewhere, "{n} more work", "{n} more works")} {plural(elsewhere, "takes", "take")} this chapter alongside an earlier main text, so {plural(elsewhere, "it is", "they are")} listed under that chapter.</p>}
     <Link className="bib-read" to={readHref(model.books, cell)}><BookOpen size={15} strokeWidth={1.5} aria-hidden />Read {name}<ArrowRight size={15} strokeWidth={1.5} aria-hidden /></Link>
   </div>;
 }

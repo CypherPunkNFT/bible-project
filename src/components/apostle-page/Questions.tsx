@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { plural, REDUCED } from "./data";
+import { REDUCED } from "./data";
 import type { Apostle, Question } from "./types";
 import { ClaimFoot, SecHead } from "./ui";
+import { plural } from "@/lib/site-format";
 
 /**
  * 06 · What readers still ask: every open question the reviewed sources hold for him, as floating words joined by thin
@@ -90,14 +91,14 @@ export function QuestionsSection({ d }: { d: Apostle }) {
   const lineRef = (i: number) => (el: SVGElement | null) => { lines.current[i] = el; };
   return <section className="sec" data-sec="questions">
     <SecHead num="06" kicker="Open questions" title="What readers still " em="ask"
-      sub={`${plural(nViews, "question")} the reviewed sources leave open for ${d.short}, with the answers given and who gives them, and ${plural(nSilent, "thing")} Scripture does not say, in italic. Choose one.`} />
+      sub={`${plural(nViews, "{n} question", "{n} questions")} the reviewed sources leave open for ${d.short}, with the answers given and who gives them, and ${plural(nSilent, "{n} thing", "{n} things")} Scripture does not say, in italic. Choose one.`} />
     <div className="words" role="group" aria-label="Open questions" ref={field}>
       <svg className="words-lines" aria-hidden="true">
         {groups.map((g, k) => <line key={g.id} ref={lineRef(k + 1)} className="wl wl-g" />)}
         {items.map((x, i) => <path key={x.id} ref={lineRef(1 + groups.length + i)} className={`wl wl-${x.kind}${i === sel ? " on" : ""}`} />)}
       </svg>
       <span ref={ref(n++)} className="word w-centre">What readers still ask</span>
-      {groups.map((g) => <span key={g.id} ref={ref(n++)} className={`word w-group${g.n ? "" : " empty"}`}>{g.title}<small>{g.n ? plural(g.n, "item") : "nothing open in the reviewed data"}</small></span>)}
+      {groups.map((g) => <span key={g.id} ref={ref(n++)} className={`word w-group${g.n ? "" : " empty"}`}>{g.title}<small>{g.n ? plural(g.n, "{n} item", "{n} items") : "nothing open in the reviewed data"}</small></span>)}
       {items.map((x, i) => <button key={x.id} ref={ref(n++)} type="button" className={`word w-q k-${x.kind}${i === sel ? " on" : ""}`} aria-pressed={i === sel} onClick={() => setSel(i)}>{x.q}</button>)}
     </div>
     <div className="views" aria-live="polite">{q && <Answer d={d} q={q} />}</div>

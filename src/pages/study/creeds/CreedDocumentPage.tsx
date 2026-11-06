@@ -18,6 +18,7 @@ import { BibleName, Verse } from "@/components/Verse";
 import { studyRefLink } from "@/lib/study";
 import { useAsync } from "@/lib/useAsync";
 import "./creeds.css";
+import { formatNumber, plural } from "@/lib/site-format";
 
 /** A reference, its words where the reader's Bible has them, and a way into the reader. */
 function Reference({ reference, open }: { reference: CreedReference; open: boolean }) {
@@ -100,7 +101,7 @@ function Section({
           {section.unrestated?.length ? (
             <details className="creed-unrestated">
               <summary>
-                {section.unrestated.length === 1 ? "One quotation here is" : `${section.unrestated.length} quotations here are`}{" "}
+                {plural(section.unrestated.length, "One quotation here is", "{n} quotations here are")}{" "}
                 left in this document's own older wording
                 {section.unrestated.some((flagged) => flagged.reference)
                   ? `: ${section.unrestated.map((flagged) => flagged.reference || "reference not given").join("; ")}`
@@ -287,18 +288,18 @@ export default function CreedDocumentPage() {
             </div>
             <div>
               <dt>{found.documentType === "catechism" ? "Questions" : "Sections"}</dt>
-              <dd>{found.counts.sections.toLocaleString("en-US")}</dd>
+              <dd>{formatNumber(found.counts.sections)}</dd>
             </div>
             {found.counts.references > 0 && (
               <div>
                 <dt>Proof-texts</dt>
-                <dd>{found.counts.references.toLocaleString("en-US")}</dd>
+                <dd>{formatNumber(found.counts.references)}</dd>
               </div>
             )}
             {found.counts.quotations > 0 && (
               <div>
                 <dt>Quoted in the Berean text</dt>
-                <dd>{found.counts.quotations.toLocaleString("en-US")}</dd>
+                <dd>{formatNumber(found.counts.quotations)}</dd>
               </div>
             )}
           </dl>
@@ -338,16 +339,16 @@ export default function CreedDocumentPage() {
             </label>
             {found.counts.quotations > 0 ? (
               <p>
-                {found.counts.quotations.toLocaleString("en-US")}{" "}
-                {found.counts.quotations === 1 ? "quotation in this document is" : "quotations in this document are"} given
+                {formatNumber(found.counts.quotations)}{" "}
+                {plural(found.counts.quotations, "quotation in this document is", "quotations in this document are")} given
                 in the Berean Standard Bible.
                 {found.counts.unrestated > 0
-                  ? ` ${found.counts.unrestated.toLocaleString("en-US")} more are left in the document's own older wording, each marked where it stands.`
+                  ? ` ${formatNumber(found.counts.unrestated)} more are left in the document's own older wording, each marked where it stands.`
                   : ""}
               </p>
             ) : found.counts.unrestated > 0 ? (
               <p>
-                This document's quotations are left in its own older wording — {found.counts.unrestated.toLocaleString("en-US")}{" "}
+                This document's quotations are left in its own older wording — {formatNumber(found.counts.unrestated)}{" "}
                 of them, each marked where it stands. Its proof-text references are shown in the <BibleName />.
               </p>
             ) : (
@@ -420,7 +421,7 @@ export default function CreedDocumentPage() {
             The document's own wording is unchanged apart from the quoted verses described above. Its proof-text
             references were resolved against this site's own copy of the <BibleName />; the{" "}
             {found.counts.referenceOnly > 0
-              ? `${found.counts.referenceOnly} reference${found.counts.referenceOnly === 1 ? "" : "s"} the Berean text does not carry are shown as references with no verse words`
+              ? `${plural(found.counts.referenceOnly, "{n} reference", "{n} references")} the Berean text does not carry are shown as references with no verse words`
               : "references it does not carry would be shown as references with no verse words"}
             .
           </p>

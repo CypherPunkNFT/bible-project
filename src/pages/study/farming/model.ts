@@ -3,6 +3,7 @@
 // back to the default.
 import dossier from "../../../../content/academic-research/29-the-farming-year.json";
 import generated from "./farming-data.json";
+import { formatDate } from "@/lib/site-format";
 
 export type Verse = { code: string; chapter: number; verse: number };
 export type Kind = "stone" | "scripture" | "ground" | "later";
@@ -30,7 +31,8 @@ export const FY = generated as { verses: Record<string, Verse>; threshingFloorTa
 export const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
 export const DEFAULT_SEASON = "barley";
 export const DEFAULT_PASSAGE = "exodus";
-export const MONTHS = ["Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"];
+/** The twelve months from September, as this study's year runs: short names in the site's language ("Sep", "sept"). */
+export const months = () => [8, 9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7].map((month) => formatDate(Date.UTC(2001, month, 15), { month: "short", timeZone: "UTC" }));
 
 export const sourceById = new Map(D.sources.map((s) => [s.id, s]));
 export const pictureById = new Map(D.pictures.map((p) => [p.id, p]));
@@ -88,7 +90,7 @@ export function seasonMiddle(season: Season): number {
 
 /** The modern months a season falls in, on this study's placing. */
 export function monthSpan(season: Season): string {
-  const first = MONTHS[season.start], last = MONTHS[(season.start + season.months) % 12];
+  const names = months(), first = names[season.start], last = names[(season.start + season.months) % 12];
   return `mid-${first} to mid-${last}`;
 }
 

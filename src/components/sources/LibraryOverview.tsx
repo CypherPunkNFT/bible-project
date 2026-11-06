@@ -5,8 +5,9 @@ import type { Directory, SourceEntry } from './types';
 import { missingIdentity, type ReviewFilter } from './dashboard-model';
 import { CollectionArt, collectionTones } from './CollectionArt';
 import './source-overview.css';
-const n = (value: number) => value.toLocaleString();
-export const snapshotDate = (value: string) => new Date(value).toLocaleDateString(undefined, {year:'numeric',month:'short',day:'numeric'});
+import { formatDate, formatNumber } from "@/lib/site-format";
+const n = (value: number) => formatNumber(value);
+export const snapshotDate = (value: string) => formatDate(new Date(value), {year:'numeric',month:'short',day:'numeric'});
 type Props = { directory: Directory; entries: SourceEntry[] | null; openCatalogue: (category?: string, review?: ReviewFilter) => void };
 const tone=(color:string)=>({'--overview-tone':color} as CSSProperties);
 export function CollectionGrid({ directory, entries, openCatalogue }: Props) {

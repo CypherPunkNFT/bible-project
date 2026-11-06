@@ -1,9 +1,10 @@
 import type { ReactNode } from 'react';
 import snapshot from '../../../content/missions/muslim-world.json';
 import type { CountryPanelDesign } from '@/lib/country-panel-designs';
+import { numberFormat } from "@/lib/site-format";
 
 type Country = typeof snapshot.countries[number];
-const compact = (value: number) => new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(value);
+const compact = (value: number) => numberFormat({ notation: 'compact', maximumFractionDigits: 1 }).format(value);
 export default function CountryPanelHeader({ country, design, finder, adopted = false }: { country: Country; design: CountryPanelDesign; finder: ReactNode; adopted?: boolean }) {
   const flag = <img className="mw-country-flag" src={`/assets/muslim-world/flags/${country.code}.svg`} alt={country.code === 'MYT' ? 'French flag for Mayotte' : `${country.name} flag`} width={80} height={60} />;
   const religions = Object.entries(country.religions2020).filter(([name, share]) => name !== 'Muslims' && share >= .1).sort((a, b) => b[1] - a[1]).map(([name, share]) => `${name === 'Christians' ? 'Christian' : name === 'Hindus' ? 'Hindu' : name === 'Buddhists' ? 'Buddhist' : name} ${share.toFixed(1)}%`).join(' · ') || 'Each other religious category is below 0.1%.';

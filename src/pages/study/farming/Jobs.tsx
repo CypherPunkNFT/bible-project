@@ -1,11 +1,11 @@
 // Section 03: ten jobs laid across the twelve months, each marked with the kinds of evidence behind it, each opening its record. Below
 // them, the photograph taken at Gezer itself: the same hill, and not the same evidence.
-import { D, MONTHS, monthBars, seasonNames } from "./model";
+import { D, months, monthBars, seasonNames } from "./model";
 import { JobArt } from "./JobArt";
 import { Head, KindMark, Picture } from "./parts";
 
 function MonthHeader() {
-  return <div className="fy-strip fy-strip-head" aria-hidden="true">{MONTHS.map((m) => <span key={m}><b>{m}</b><i>{m[0]}</i></span>)}</div>;
+  return <div className="fy-strip fy-strip-head" aria-hidden="true">{months().map((m) => <span key={m}><b>{m}</b><i>{m[0]}</i></span>)}</div>;
 }
 
 export function Jobs({ picked, onOpen }: { picked: string | null; onOpen: (key: string) => void }) {

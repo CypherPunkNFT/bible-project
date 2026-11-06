@@ -6,9 +6,10 @@ import { useEffect, useLayoutEffect, useMemo, useRef, type CSSProperties } from 
 import { useResource, type City, type CityFact, type CityFacts, type UsStates } from "@/data/resources";
 import { dialable } from "../contact-links";
 import { CityMap } from "./CityMap";
-import { CITY_FILES, hostOf, kindOf, kindsIn, LIFE_WORDS, listParts, plural, tone, wayOf, type CityWords } from "./format";
+import { CITY_FILES, hostOf, kindOf, kindsIn, LIFE_WORDS, listParts, tone, wayOf, type CityWords } from "./format";
 import { attachZoom, placeMarks, type Zoom } from "./zoom";
 import { ZoomButtons } from "./ZoomButtons";
+import { formatNumber, plural } from "@/lib/site-format";
 
 export function CitySection({ city, cities, onPick, leaving, checked, words = LIFE_WORDS }: { city: City & { id: keyof typeof CITY_FILES }; cities: City[]; onPick: (id: string) => void; leaving?: boolean; checked: string; words?: CityWords }) {
   const files = CITY_FILES[city.id];
@@ -96,7 +97,7 @@ function Local211({ city }: { city: City }) {
 
 export function CityInfo({ city, facts, kinds, checked, leaving, words }: { city: City; facts: CityFacts | null; kinds: [string, number][]; checked: string; leaving?: boolean; words: CityWords }) {
   const f = Object.fromEntries((facts?.facts ?? []).map((x) => [x.id, x]));
-  const n = (v: string | number) => v.toLocaleString("en-US");
+  const n = (v: string | number) => (typeof v === "number" ? formatNumber(v) : v);
   const [place, region] = [city.name.split(",")[0], city.name.split(",").slice(1).join(",").trim()];
   const lines = city.lines?.length ?? 0;
   return <div className="lf-city-info" data-leaving={leaving || undefined}>
@@ -112,7 +113,7 @@ export function CityInfo({ city, facts, kinds, checked, leaving, words }: { city
       <div className="lf-by-kind"><dt>Checked here</dt><dd>
         <div className="lf-kind-bar" aria-hidden="true">{kinds.map(([k, c]) => <span key={k} style={{ flex: c, background: tone(k) }} />)}</div>
         <ul className="lf-kind-key">{kinds.map(([k, c]) => <li key={k} style={{ "--c": tone(k) } as CSSProperties}><i />{kindOf(k).short} <b>{c}</b></li>)}{lines > 0 && <li className="lf-lines"><i />Phone lines <b>{lines}</b></li>}</ul>
-        <span className="lf-src lf-plain">{plural(city.entries.length, "place")} from this site’s list · checked {checked}</span>
+        <span className="lf-src lf-plain">{plural(city.entries.length, "{n} place", "{n} places")} from this site’s list · checked {checked}</span>
       </dd></div>
     </dl>
   </div>;

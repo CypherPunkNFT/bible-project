@@ -12,6 +12,7 @@ import { hasCityFiles, listParts } from "./life/format";
 import { RESOURCE_SECTIONS, sectionBySlug } from "./sections";
 import "./life/life.css";
 import "./fellowships/fellowships.css";
+import { formatNumber } from "@/lib/site-format";
 
 export default function FellowshipsPage({ data }: { data: FellowshipsData }) {
   const info = sectionBySlug("fellowships");
@@ -35,7 +36,7 @@ export default function FellowshipsPage({ data }: { data: FellowshipsData }) {
         <h1>{info.title} <em>around the Word, together</em></h1>
         {/* In pieces (the cities one by one), so the page translator can swap each part. */}
         <p className="lf-lead">National fellowships that gather believers to pray and to study the word together, across the country and online. Each says who it is for, how it meets and what it costs, and has its own group finder{cities.length > 0 && <>. In {listParts(cities.map((c) => c.name.split(",")[0]))}, a map shows the groups and churches those finders list, street by street</>}.</p>
-        <dl className="lf-stats">{stats.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{typeof value === "number" ? value.toLocaleString("en-US") : value}</dd></div>)}</dl>
+        <dl className="lf-stats">{stats.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{typeof value === "number" ? formatNumber(value) : value}</dd></div>)}</dl>
       </div>
       <TableArt />
     </header>

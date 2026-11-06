@@ -8,6 +8,7 @@ import { ARTICLES, SECTION_BASE, articleHref, findArticle } from "./model";
 import { Part, SourceList } from "./parts";
 import { TheologyArt } from "./TheologyArt";
 import "./theology.css";
+import { plural } from "@/lib/site-format";
 
 /** An address that names no article we hold. Said in the page rather than as a 404, so the reader
  *  keeps the section they were trying to reach. */
@@ -17,7 +18,7 @@ function NotInSection({ id }: { id: string | undefined }) {
       <StudyBackLink />
       <p className="eyebrow">Theology</p>
       <h1>There is no article at this address.</h1>
-      <p>{id ? <>Nothing in this section is called “{id}”.</> : <>No article was named.</>} The section holds {ARTICLES.length === 1 ? "one article" : `${ARTICLES.length} articles`} at the moment:</p>
+      <p>{id ? <>Nothing in this section is called “{id}”.</> : <>No article was named.</>} The section holds {plural(ARTICLES.length, "one article", "{n} articles")} at the moment:</p>
       <ul>{ARTICLES.map((article) => <li key={article.id}><Link to={articleHref(article.id)}>{article.title}</Link> — {article.kicker}</li>)}</ul>
       <p><Link to={SECTION_BASE}>Back to Theology</Link></p>
     </div>

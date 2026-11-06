@@ -6,6 +6,7 @@ import { years } from "../marks/facts";
 import { Mark } from "../marks/Mark";
 import { toneStyle } from "../marks/shapes";
 import type { Match } from "./search";
+import { plural } from "@/lib/site-format";
 
 interface FinderProps { query: string; onQuery: (q: string) => void; found: Match[]; onOpen: (id: string, origin: Element | null) => void }
 const optionId = (i: number) => `sc-lnd-opt-${i}`;
@@ -51,7 +52,7 @@ export function Finder({ query, onQuery, found, onOpen }: FinderProps) {
           <Mark scholar={m.s} size={34} className="lnd-mark" />
           <span className="lnd-opt-t"><b>{m.s.name}</b><small>{years(m.s)} · {"work" in m.why ? <><i>{m.why.work}</i>, {m.why.year}</> : m.why.text}</small></span>
           <span className="lnd-opt-go"><ArrowRight size={14} aria-hidden="true" /></span></button>)}
-        <p className="lnd-res-n">{found.length} {found.length === 1 ? "match" : "matches"}</p>
+        <p className="lnd-res-n">{found.length} {plural(found.length, "match", "matches")}</p>
       </> : <p className="lnd-none">Nothing matches “{q}”. Try a name like Jerome, a book like the Vulgate, or a field like archaeology.</p>}
     </div>
   </div>;

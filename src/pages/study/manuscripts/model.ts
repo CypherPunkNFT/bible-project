@@ -2,6 +2,7 @@
 // of witness with their colours, look-ups into the collection, and the words for dates, books and holders.
 import type { CSSProperties } from "react";
 import type { ManuscriptCollection, MsHolder, MsRecord } from "@/lib/manuscripts";
+import { formatList, plural, textCollator } from "@/lib/site-format";
 
 export interface Kind { key: string; label: string; tone: string; glyph: GlyphName; group: string; line: string }
 export type GlyphName = "fragment" | "codex" | "hand" | "lectern" | "scroll" | "tongue";
@@ -39,8 +40,7 @@ export function kindOf(key: string): Kind {
 export const tone = (token: string) => ({ "--tone": `var(${token})` }) as CSSProperties;
 
 /** "1,228": the site's number format. */
-export const formatNumber = (n: number) => n.toLocaleString("en-GB");
-export const plural = (n: number, word: string, many = `${word}s`) => `${formatNumber(n)} ${n === 1 ? word : many}`;
+export { formatNumber } from "@/lib/site-format";
 export const ordinal = (n: number) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
 
 /** A dated record's midpoint; only call on a record that has "e" and "l". */
@@ -52,7 +52,7 @@ export const yearText = (y: number) => (y < 0 ? `${-y + 1} BC` : y < 400 ? `AD $
 export const sigla = (r: MsRecord) => (r.g && r.g !== r.n && !r.n.endsWith(` ${r.g}`) && !r.n.endsWith(` ${r.g.replace(/^P/, "")}`) ? r.g : "");
 /** Names in natural order ("P2" before "P10"). One shared collator: passing options to localeCompare rebuilt it on every
  *  comparison, which made sorting the collection a visible pause. Same order either way. */
-export const byName = new Intl.Collator("en", { numeric: true }).compare;
+export const byName = textCollator({ numeric: true }).compare;
 /** Oldest first; undated records last, by name. */
 export const byDate = (a: MsRecord, b: MsRecord) =>
   (isDated(a) ? 0 : 1) - (isDated(b) ? 0 : 1) || (isDated(a) && isDated(b) ? mid(a) - mid(b) : 0) || byName(a.n, b.n);
@@ -81,7 +81,7 @@ export function booksText(index: MsIndex, r: MsRecord): string {
   }
   const rest = [...set].sort((a, b) => a - b).map((b) => books[b].name);
   const all = [...named, ...rest];
-  return all.length > 6 ? `${all.slice(0, 5).join(", ")} and ${all.length - 5} more` : all.length > 1 ? `${all.slice(0, -1).join(", ")} and ${all.at(-1)}` : all[0];
+  return formatList(all.length > 6 ? [...all.slice(0, 5), plural(all.length - 5, "{n} more", "{n} more")] : all);
 }
 
 /** Where a record is kept now: its placed holders, else the catalogue's own words. */

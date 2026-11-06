@@ -18,8 +18,8 @@ import { SeriesBlock } from "./SeriesBlocks";
 import { doorUrl, makerOf, splitTitle, titleUrl, toneOf } from "./model";
 import { Cover, Downloads, OpenFacts, Record, SecHead } from "./parts";
 import "./learning.css";
+import { plural } from "@/lib/site-format";
 
-const WORDS = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
 
 export default function LearningTitlePage({ data }: { data: LearningData }) {
   const { titleId = "" } = useParams();
@@ -71,7 +71,7 @@ export default function LearningTitlePage({ data }: { data: LearningData }) {
     </> : null}
 
     {t.series.length > 0 && <section className="lm-sec" aria-labelledby="lm-in-series">
-      <SecHead num={next()} id="lm-in-series" title={<>In <em>{t.series.length > 1 ? `${WORDS[t.series.length].toLowerCase()} series` : "a series"}</em></>} />
+      <SecHead num={next()} id="lm-in-series" title={<>In <em>{plural(t.series.length, "a series", "{n} series", "word")}</em></>} />
       <div className="lm-series">{t.series.map((s) => <SeriesBlock key={s.id} division={division} id={s.id} here={t.id} back={back} />)}</div>
     </section>}
 
@@ -106,7 +106,7 @@ function Sessions({ sessions, outline, num, rest, images, onPage }: SessionsProp
   const s = open ? sessions.find((x) => x.n === open) : undefined;
   const part = (x: WorkbookSession) => outline.parts.find((p) => p.part === x.part);
   return <section className="lm-sec" aria-labelledby="lm-sessions">
-    <SecHead num={num} id="lm-sessions" title={<>{WORDS[sessions.length] ?? sessions.length} sessions, <em>{rest}</em></>}
+    <SecHead num={num} id="lm-sessions" title={<>{plural(sessions.length, "{n} session", "{n} sessions", "first-word")}, <em>{rest}</em></>}
       lead="Each session opens with its own line drawing. Choose one to read its summary, a key verse and its questions." />
     <div className="lm-sess-grid">{sessions.map((x) => <button key={x.n} type="button" className="lm-sess" aria-pressed={x.n === open} onClick={() => setOpen(x.n === open ? null : x.n)}>
       <SessionArt shapes={outline.art[x.art] ?? []} />

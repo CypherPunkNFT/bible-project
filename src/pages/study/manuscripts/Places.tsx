@@ -6,11 +6,12 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState, type CSSProper
 import { OutsideScroll } from "@/components/OutsideScroll";
 import type { MsMap } from "@/lib/manuscripts";
 import { mountMapZoom, type MapZoom } from "./map-zoom";
-import { formatNumber, kindOf, plural, sigla } from "./model";
+import { formatNumber, kindOf, sigla } from "./model";
 import { useMs } from "./context";
 import { SectionHead } from "./parts";
 import { CONTINENTS, cityTable, continentOf, holderKind, shortCity, SIDE, TONE, type City, type HolderKindKey } from "./places-model";
 import { SlidePanel } from "./Sheet";
+import { plural } from "@/lib/site-format";
 
 const HOLDER_ICONS: Record<HolderKindKey, ReactNode> = {
   monastery: <><path d="M10 9h4" /><path d="M12 7v5" /><path d="M14 22v-4a2 2 0 0 0-4 0v4" /><path d="M18 22V5.618a1 1 0 0 0-.553-.894l-4.553-2.277a2 2 0 0 0-1.788 0L6.553 4.724A1 1 0 0 0 6 5.618V22" /><path d="m18 7 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9.382a1 1 0 0 1 .553-.894L6 7" /></>,
@@ -30,7 +31,7 @@ const MapSvg = memo(function MapSvg({ map, cities, on }: { map: MsMap; cities: C
     <g className="pl-dots">{cities.map((c) => {
       const [x, y] = proj(c.lat, c.lon);
       return <g key={c.city} className={`pl-city${c.city === on ? " on" : ""}`} style={toneOf(c.country)} data-city={c.city} data-x={x.toFixed(1)} data-y={y.toFixed(1)} data-r={(4 + Math.sqrt(c.n) * 1.5).toFixed(1)}
-        data-side={SIDE[c.city] ?? "e"} tabIndex={0} role="button" aria-label={`${c.city}: ${plural(c.n, "record")}`}><circle cx={x.toFixed(1)} cy={y.toFixed(1)} /><text>{shortCity(c.city)}</text></g>;
+        data-side={SIDE[c.city] ?? "e"} tabIndex={0} role="button" aria-label={`${c.city}: ${plural(c.n, "{n} record", "{n} records")}`}><circle cx={x.toFixed(1)} cy={y.toFixed(1)} /><text>{shortCity(c.city)}</text></g>;
     })}</g>
   </svg>;
 });
@@ -140,7 +141,7 @@ export function Places({ num }: { num: string }) {
     <div className="pl-holderwrap">
       <div className="pl-continents">{groups.map((g) => <button key={g.key} type="button" data-continent={g.key} style={{ "--tone": `var(${TONE[g.key]})` } as CSSProperties} onClick={() => jump(g.key)}><i />{g.key} <em>{g.list.length}</em></button>)}</div>
       <div ref={cards}><OutsideScroll className={`pl-cardarea${atEnd ? " at-end" : ""}`} label="The libraries and collections that hold them">
-        {groups.map((g) => <div key={g.key} className="pl-group" data-group={g.key}><p className="pl-group-head">{g.title}<span>{plural(g.list.length, "place")} · {plural(g.list.reduce((s, h) => s + h.n, 0), "record")}</span></p>
+        {groups.map((g) => <div key={g.key} className="pl-group" data-group={g.key}><p className="pl-group-head">{g.title}<span>{plural(g.list.length, "{n} place", "{n} places")} · {plural(g.list.reduce((s, h) => s + h.n, 0), "{n} record", "{n} records")}</span></p>
           <div className="pl-cards" role="list">{g.list.map(card)}</div></div>)}
       </OutsideScroll></div>
     </div>
@@ -149,7 +150,7 @@ export function Places({ num }: { num: string }) {
         <p className="kicker">{city.country} · {continentOf(city.country)}</p><h2>{city.city}</h2>
         <p className="pl-holders">{city.holders.map((h) => <button key={h.id} type="button" aria-pressed={h.id === holderId} onClick={() => setHolderId(h.id === holderId ? null : h.id)}>{h.name} <em>{formatNumber(h.n)}</em></button>)}</p>
         <p className="pl-kinds">{[...kinds].sort((a, b) => b[1] - a[1]).map(([k, n]) => <span key={k} style={{ "--tone": `var(${kindOf(k).tone})` } as CSSProperties}><i />{kindOf(k).label} {formatNumber(n)}</span>)}</p>
-        <p className="pl-sub">Oldest first · {plural(list.length, "record")}</p>
+        <p className="pl-sub">Oldest first · {plural(list.length, "{n} record", "{n} records")}</p>
         <ol className="pl-list">{list.map((r) => <li key={r.i}><button type="button" data-open={r.i} onClick={(e) => openRecord(r.i, e.currentTarget)}><span>{r.d ?? "undated"}</span><b>{r.n}</b>{sigla(r) && <small>{sigla(r)}</small>}</button></li>)}</ol>
       </>}
     </SlidePanel>

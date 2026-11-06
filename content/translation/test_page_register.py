@@ -154,6 +154,44 @@ def test_page_text_an_apologetics_chunk_holds_reaches_the_phrase_list(made_up: P
     assert apply.held_page_strings(out, translated) == {question: f"es: {question}"}
 
 
+def test_a_home_page_verse_takes_its_language_s_bible_over_the_seed_and_the_translators(tmp_path: Path,
+                                                                                         monkeypatch: pytest.MonkeyPatch) -> None:
+    import apply
+    from test_data_files import folder
+    verse = "The grass withers and the flowers fall"
+    seed = tmp_path / "seed"
+    write(seed, "es.json", json.dumps({verse: "a seed's wording", "Marked read": "Leído"}))
+    write(seed, "bible/es.json", json.dumps({verse: "Sécase la hierba"}))
+    monkeypatch.setattr(apply, "SEED", seed)
+    out = folder(tmp_path, {"0001": (extract.PAGE_KIND, [verse])})
+    translated = {extract.string_id(extract.PAGE_KIND, verse): "a translator's wording"}
+    assert apply.page_strings(out, "es", translated) == {verse: "Sécase la hierba", "Marked read": "Leído"}
+    assert apply.page_strings(out, "pt", translated) == {verse: "a translator's wording"}  # no Bible wording: as before
+    write(seed, "bible/es.json", json.dumps({verse: " "}))
+    with pytest.raises(ValueError, match="Bible wording"):
+        apply.page_strings(out, "es", translated)
+
+
+def test_a_plural_pair_is_one_message_and_only_sound_forms_reach_the_phrase_list(tmp_path: Path,
+                                                                                    monkeypatch: pytest.MonkeyPatch) -> None:
+    import apply
+    from test_data_files import folder
+    # The key site-format.ts's pluralKey writes with JSON.stringify: no spaces, letters as they are.
+    message = extract.plural_key("{n} كتاب", "{n} books")
+    assert message == 'plural:["{n} كتاب","{n} books"]'
+    other = extract.plural_key("{n} page", "{n} pages")
+    monkeypatch.setattr(apply, "SEED", tmp_path / "no seed")
+    out = folder(tmp_path, {"0001": (extract.PLURAL_KIND, [message, other])})
+    six = {"zero": "لا كتب", "one": "كتاب واحد", "two": "كتابان", "few": "{n} كتب", "many": "{n} كتابًا", "other": "{n} كتاب"}
+    translated = {extract.string_id(extract.PLURAL_KIND, message): json.dumps(six, ensure_ascii=False),
+                  extract.string_id(extract.PLURAL_KIND, other): json.dumps({"one": "{n} صفحة"})}  # no "other"
+    assert apply.page_strings(out, "ar", {}, translated) == {message: json.dumps(six, ensure_ascii=False, separators=(",", ":"))}
+    # Chinese has one form only: Arabic's six are refused there.
+    assert apply.page_strings(out, "zh", {}, translated) == {}
+    zh = {extract.string_id(extract.PLURAL_KIND, message): json.dumps({"other": "{n} 本书"}, ensure_ascii=False)}
+    assert apply.page_strings(out, "zh", {}, zh) == {message: '{"other":"{n} 本书"}'}
+
+
 def test_the_real_site_has_no_stale_registration_and_valid_rulings() -> None:
     assert page_register.stale(extract.SITE) == []
     english_baseline.scoped_rulings(HERE / "unregistered-reviewed.json")

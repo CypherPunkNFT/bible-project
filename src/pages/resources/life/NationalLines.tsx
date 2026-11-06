@@ -3,8 +3,9 @@
 // in place (one at a time) for everything else.
 import { useState, type CSSProperties } from "react";
 import type { LifeData } from "@/data/resources";
-import { groupStats, kindOf, plural, tone } from "./format";
+import { groupStats, kindOf, tone } from "./format";
 import { LifeRow } from "./Row";
+import { plural } from "@/lib/site-format";
 
 export function NationalLines({ groups }: { groups: LifeData["groups"] }) {
   const [chosen, setChosen] = useState(groups[0]?.id ?? "");
@@ -20,7 +21,7 @@ export function NationalLines({ groups }: { groups: LifeData["groups"] }) {
         </button>;
       })}</div>
       <div className="lf-list">{groups.map((g) => <div key={g.id} className="lf-pane" data-g={g.id} hidden={g.id !== chosen} style={{ "--c": tone(g.id) } as CSSProperties}>
-        <p className="lf-pane-title"><span>{g.title}</span><small>{plural(g.entries.length, "line")}</small></p>
+        <p className="lf-pane-title"><span>{g.title}</span><small>{plural(g.entries.length, "{n} line", "{n} lines")}</small></p>
         <ol aria-label={g.title}>{g.entries.map((e) => <LifeRow key={e.id} entry={e} kind={g.id} layout="wide" quick={g.id === "crisis" ? 2 : 1}
           open={open === e.id} onToggle={() => setOpen(open === e.id ? null : e.id)} />)}</ol>
       </div>)}</div>

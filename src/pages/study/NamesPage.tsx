@@ -6,6 +6,7 @@ import { loadNames, type NamesOfGod } from "@/lib/study";
 import { useAsync } from "@/lib/useAsync";
 import { cn } from "@/lib/utils";
 import { useStudyView } from "@/components/study/study-view";
+import { compareText } from "@/lib/site-format";
 
 type Name = NamesOfGod["groups"][number]["names"][number];
 // The same gold, blue and green as the three words above (tokens in components/names/names-of-god.css).
@@ -51,7 +52,7 @@ function NamesList() {
   const total = names.status === "ready" ? names.value.groups.reduce((sum, g) => sum + g.names.length, 0) : 0;
   const count = groups.reduce((sum, g) => sum + g.names.length, 0);
   const alphabetical = useMemo(
-    () => groups.flatMap((g) => g.names.map((n) => ({ ...n, group: g.key, label: g.label }))).sort((a, b) => a.name.localeCompare(b.name)),
+    () => groups.flatMap((g) => g.names.map((n) => ({ ...n, group: g.key, label: g.label }))).sort((a, b) => compareText(a.name, b.name)),
     [groups],
   );
 

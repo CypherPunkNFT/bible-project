@@ -5,9 +5,10 @@
 import { ChevronDown, MapPin, Search } from "lucide-react";
 import { memo, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import type { Fellowship, FellowshipsData } from "@/data/resources";
-import { commaParts, firstSentence, hostOf, kindOf, plural, restOf, tone } from "../life/format";
+import { commaParts, firstSentence, hostOf, kindOf, restOf, tone } from "../life/format";
 import { ContactLink } from "../life/Row";
 import { AUDIENCES, sentence, shortCost } from "./format";
+import { plural } from "@/lib/site-format";
 
 const STROKE = 1.6;
 
@@ -35,13 +36,13 @@ export function FellowshipDirectory({ data, mapped, mapCities }: { data: Fellows
           <span className="lf-kind-disc"><Icon size={18} strokeWidth={STROKE} aria-hidden="true" /></span><span className="lf-t">{g.title}</span>
           <span className="lf-n">{shown.length}</span>
           {/* The count apart from its words: "{n} group finder" is already a finder's name ("BSF group finder") to the page translator. */}
-          <span className="lf-w">{finders} {finders === 1 ? "group finder" : "group finders"}{onMap > 0 && <>{" · "}{`${onMap} on the map`}</>}</span>
+          <span className="lf-w">{finders} {plural(finders, "group finder", "group finders")}{onMap > 0 && <>{" · "}{`${onMap} on the map`}</>}</span>
         </button>;
       })}</div>
       <div className="lf-list">{data.groups.map((g) => {
         const shown = g.entries.filter(fits);
         return <div key={g.id} className="lf-pane" data-g={g.id} hidden={g.id !== chosen} style={{ "--c": tone(g.id) } as CSSProperties}>
-          <p className="lf-pane-title"><span>{g.title}</span><small>{plural(shown.length, "fellowship")}{who ? ` open to ${who === "all" ? "anyone" : who}` : ""}</small></p>
+          <p className="lf-pane-title"><span>{g.title}</span><small>{plural(shown.length, "{n} fellowship", "{n} fellowships")}{who ? ` open to ${who === "all" ? "anyone" : who}` : ""}</small></p>
           {shown.length ? <ol aria-label={g.title}>{shown.map((f) => <FellowshipRow key={f.id} fellowship={f} kind={g.id} mapped={mapped.get(f.id) ?? 0} mapCities={mapCities}
             open={open === f.id} onToggle={() => setOpen(open === f.id ? null : f.id)} />)}</ol>
             : <p className="fw-none">None of these is for {who}. <button type="button" onClick={() => setWho("")}>Show everyone</button></p>}
@@ -68,7 +69,7 @@ const FellowshipRow = memo(function FellowshipRow({ fellowship: f, kind, mapped,
     </button>
     <div className="lf-quick-row">
       {f.locator && <a className="lf-quick" data-way="call" href={f.locator} target="_blank" rel="noreferrer"><Search size={16} strokeWidth={STROKE} aria-hidden="true" /><span>Find a group</span></a>}
-      {mapped > 0 && <a className="lf-quick" href="#fw-where" title={`Pinned on the city maps below (${plural(mapCities, "city", "cities")} searched)`}><MapPin size={16} strokeWidth={STROKE} aria-hidden="true" /><span>{mapped} on the map</span></a>}
+      {mapped > 0 && <a className="lf-quick" href="#fw-where" title={`Pinned on the city maps below (${plural(mapCities, "{n} city", "{n} cities")} searched)`}><MapPin size={16} strokeWidth={STROKE} aria-hidden="true" /><span>{mapped} on the map</span></a>}
     </div>
     <button type="button" className="lf-chev-btn" tabIndex={-1} aria-hidden="true" onClick={onToggle}>{chev}</button>
     <div className="lf-body" ref={body}><div>

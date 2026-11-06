@@ -1,5 +1,6 @@
 import type { ZoomTransform } from "d3-zoom";
 import type { MapPlace } from "./projection";
+import { compareCode } from "@/lib/site-format";
 
 export interface PlaceGroup {
   id: string;
@@ -14,7 +15,7 @@ export function groupPlaces(places: MapPlace[], view: ZoomTransform, width: numb
   const spacing = 36;
   const cells = new Map<string, PlaceGroup[]>();
   const groups: PlaceGroup[] = [];
-  const ordered = [...places].sort((a, b) => Number(b.id === selectedId) - Number(a.id === selectedId) || b.verses.length - a.verses.length || a.id.localeCompare(b.id));
+  const ordered = [...places].sort((a, b) => Number(b.id === selectedId) - Number(a.id === selectedId) || b.verses.length - a.verses.length || compareCode(a.id, b.id));
   for (const place of ordered) {
     const sx = view.applyX(place.x), sy = view.applyY(place.y);
     if (sx < 12 || sy < 12 || sx > width - 12 || sy > height - 12) continue;

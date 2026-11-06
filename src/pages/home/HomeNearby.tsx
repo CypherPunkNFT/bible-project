@@ -10,13 +10,14 @@ import { ArrowRight, Church, LifeBuoy, type LucideIcon } from "lucide-react";
 import { useMemo, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { useResource, type City, type FellowshipCities, type FellowshipsData, type LifeData } from "@/data/resources/index";
-import { hasCityFiles, kindOf, plural } from "@/pages/resources/life/format";
+import { hasCityFiles, kindOf } from "@/pages/resources/life/format";
 import { shortName, toCity } from "@/pages/resources/fellowships/format";
 import { NearbyStage, type Place } from "./NearbyStage";
 import { NearbyIntro } from "./nearby/NearbyIntro";
 import "@/pages/resources/life/life.css";
 import "@/pages/resources/fellowships/fellowships.css";
 import "./home-nearby.css";
+import { plural } from "@/lib/site-format";
 
 /** Every city with a map, its help places and its churches and groups together; the local phone lines come from life.json. */
 function mergeCities(life: LifeData, fellowships: FellowshipsData, gatherings: FellowshipCities) {
@@ -48,9 +49,9 @@ export function HomeNearby({ resourcesTab = false, number, trial = false }: { re
   const merged = useMemo(() => (typeof life === "object" && typeof fellowships === "object" && typeof gatherings === "object" ? mergeCities(life, fellowships, gatherings) : null), [life, fellowships, gatherings]);
   const words = useMemo(() => ({
     kick: `${merged?.cities.length ?? 0} cities on the map`,
-    lead: (places: number, lines: number) => `${plural(places, "place")}${lines ? ` and ${plural(lines, "phone line")}` : ""}: churches and Bible studies, and help for hard times, each checked on its own page.`,
+    lead: (places: number, lines: number) => `${plural(places, "{n} place", "{n} places")}${lines ? ` and ${plural(lines, "{n} phone line", "{n} phone lines")}` : ""}: churches and Bible studies, and help for hard times, each checked on its own page.`,
     title: "Near you in",
-    count: (places: number, lines: number) => `${plural(places, "place")} on the map${lines > 0 ? ` · ${plural(lines, "phone line")} below` : ""}`,
+    count: (places: number, lines: number) => `${plural(places, "{n} place", "{n} places")} on the map${lines > 0 ? ` · ${plural(lines, "{n} phone line", "{n} phone lines")} below` : ""}`,
     tag: (e: City["entries"][number]) => merged?.fellowshipOf.get(e.id) || kindOf(e.category).short,
   }), [merged]);
   const checked = typeof gatherings === "object" ? gatherings.checked : typeof life === "object" ? life.checked : "";

@@ -8,11 +8,12 @@ import CountryFinder from './CountryFinder';
 import MissionDefinitions from './MissionDefinitions';
 import CountryPanelHeader from './CountryPanelHeader';
 import './country-panel-prototype.css';
+import { numberFormat } from "@/lib/site-format";
 
 type Country = typeof snapshot.countries[number];
 const keys = Object.keys(groupLabels) as GroupStatus[];
 const icons = { unengaged: Compass, engagedUnreached: Sprout, noLongerUnreached: CircleCheck };
-const compact = (value: number) => new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(value);
+const compact = (value: number) => numberFormat({ notation: 'compact', maximumFractionDigits: 1 }).format(value);
 
 export default function CountryPanelPrototype({ country, design, panel, choose, setPanel, adopted = false, filter, setFilter, openGroups }: {
   country: Country; design: CountryPanelDesign; panel: 'gospel' | 'groups'; choose(code: string): void;

@@ -6,8 +6,9 @@ import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import type { Division, Title } from "@/data/resources/learning-catalogue";
-import { type Back, plural, samplePages, titleUrl, toneOf } from "./model";
+import { type Back, samplePages, titleUrl, toneOf } from "./model";
 import { Cover, Downloads, OpenFacts, SourceLink, Status } from "./parts";
+import { plural } from "@/lib/site-format";
 
 /** The panel for a workbook by someone else: its cover, who made it, its terms and the credit to print, and its files. */
 function OpenPanel({ title: t, division, back }: { title: Title; division: Division; back: Back }) {
@@ -28,7 +29,7 @@ export function Panel({ title: t, division, back, onPage }: { title: Title; divi
   const a = division.audience[t.audience], k = division.kind[t.kind], track = division.track[t.track], r = t.record;
   const series = t.series.length ? t.series.map((s) => <span key={s.id} className="lm-record-line">{division.seriesById[s.id].name} <span className="muted">· {s.step} of {division.inSeries(s.id).length}</span></span>)
     : <span className="muted">None</span>;
-  const sessions = t.sessions ? <>{plural(t.sessions, "session")}{t.minutes ? `, about ${t.minutes} minutes each` : ""}{r ? ` · ${r.pages} pages` : " (planned)"}</> : <span className="muted">Set when it is written</span>;
+  const sessions = t.sessions ? <>{plural(t.sessions, "{n} session", "{n} sessions")}{t.minutes ? `, about ${t.minutes} minutes each` : ""}{r ? ` · ${r.pages} pages` : " (planned)"}</> : <span className="muted">Set when it is written</span>;
   const guide = t.guide ? "Yes" : r ? <>Not yet <span className="muted">· the “How to use” page covers groups</span></> : "No";
   const rows: [string, ReactNode][] = [
     ["For", <>{a.name}{a.setting ? "" : ` · ${a.age}`} <span className="muted">· {a.how.toLowerCase()}</span></>], ["Kind", k.name], ["Subject", track.name], ["Series", series], ["Sessions", sessions], ["Leader guide", guide],

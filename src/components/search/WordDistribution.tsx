@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import type { Hit } from "@/lib/search";
 import { SECTIONS, sectionColor } from "@/lib/sections";
 import type { BookInfo } from "@/lib/types";
-import { cn, formatNumber } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import "./word-distribution.css";
+import { plural } from "@/lib/site-format";
 
-const plural = (n: number, one: string, many: string) => `${formatNumber(n)} ${n === 1 ? one : many}`;
 
 /**
  * Where the matches fall: one bar per book, Genesis to Revelation, coloured by section. Bars grow in; pointing at one
@@ -48,9 +48,9 @@ export function WordDistribution({ books, hits, selected, onSelect, slug }: {
     <figure className="word-dist mt-4 rounded-2xl border border-line bg-surface p-4">
       <p className="flex min-h-6 flex-wrap items-baseline justify-between gap-2 text-sm" aria-live="polite">
         {focusBook ? (
-          <span><span className="mr-2 inline-block h-2.5 w-2.5 rounded-full" style={{ background: sectionColor(focusBook.section) }} aria-hidden /><strong className="font-serif text-base">{focusBook.name}</strong> <span className="text-muted">· {plural(counts.get(focusBook.code) ?? 0, "verse", "verses")}</span></span>
+          <span><span className="mr-2 inline-block h-2.5 w-2.5 rounded-full" style={{ background: sectionColor(focusBook.section) }} aria-hidden /><strong className="font-serif text-base">{focusBook.name}</strong> <span className="text-muted">· {plural(counts.get(focusBook.code) ?? 0, "{n} verse", "{n} verses")}</span></span>
         ) : (
-          <span className="text-muted">In {plural(booksWithHits, "book", "books")}. Point at a bar to name it; click one to see its verses.</span>
+          <span className="text-muted">In {plural(booksWithHits, "{n} book", "{n} books")}. Point at a bar to name it; click one to see its verses.</span>
         )}
         {selected && <button type="button" onClick={() => onSelect("")} className="inline-flex items-center gap-1 text-xs text-muted hover:text-ink"><X size={13} aria-hidden />Show every book</button>}
       </p>
@@ -67,7 +67,7 @@ export function WordDistribution({ books, hits, selected, onSelect, slug }: {
               type="button"
               className={cn("word-dist-col is-hit", isSelected && "is-selected", selected && !isSelected && "is-dimmed")}
               aria-pressed={isSelected}
-              aria-label={`${b.name}: ${plural(n, "verse", "verses")}`}
+              aria-label={`${b.name}: ${plural(n, "{n} verse", "{n} verses")}`}
               onMouseEnter={() => setPointed(b.code)}
               onFocus={() => setPointed(b.code)}
               onBlur={() => setPointed("")}
@@ -83,7 +83,7 @@ export function WordDistribution({ books, hits, selected, onSelect, slug }: {
       </div>
       {chosen && chapters.length > 0 && (
         <div className="word-dist-chapters mt-4 border-t border-line pt-3">
-          <p className="text-xs text-muted">{chosen.name}: {plural(counts.get(chosen.code) ?? 0, "verse", "verses")} in {plural(chapters.length, "chapter", "chapters")}. Open one in the reader:</p>
+          <p className="text-xs text-muted">{chosen.name}: {plural(counts.get(chosen.code) ?? 0, "{n} verse", "{n} verses")} in {plural(chapters.length, "{n} chapter", "{n} chapters")}. Open one in the reader:</p>
           <ul className="mt-2 flex flex-wrap gap-1.5">
             {chapters.map(([chapter, { count, verse }], i) => (
               <li key={chapter} style={{ animationDelay: `${i * 25}ms` }}>

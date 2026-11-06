@@ -2,6 +2,7 @@ import { useEffect, useRef, type RefObject } from "react";
 import type { Bar, Library, Metric } from "./model";
 import { PART_BY_ID } from "./model";
 import type { PartId } from "./part-content";
+import { formatNumber } from "@/lib/site-format";
 
 // The zoomable river: every chapter as one bar. The wheel or a pinch zooms around the pointer, dragging pans, the overview strip
 // below moves the window, and clicking a part or book label flies to it. Drawn straight into the SVG (1,189 bars),
@@ -128,7 +129,7 @@ export function useRiver(library: Library | null, elements: RiverElements, callb
         const cls = i === state.selected ? "lib-bar selected" : i === state.hover ? "lib-bar hover" : "lib-bar";
         parts.push(node("rect", { class: cls, "data-i": i, x: left, y: base - height, width: barWidth, height, fill: color(bar.section) }));
         if (unit >= 18) parts.push(node("text", { class: "lib-chapter-number", x: middle, y: base + 16, "text-anchor": "middle" }, String(bar.chapter)));
-        if (unit >= 30 && value) parts.push(node("text", { class: "lib-bar-value", x: middle, y: base - height - 5, "text-anchor": "middle" }, value.toLocaleString("en-US")));
+        if (unit >= 30 && value) parts.push(node("text", { class: "lib-bar-value", x: middle, y: base - height - 5, "text-anchor": "middle" }, formatNumber(value)));
       }
       if (state.selected >= first && state.selected <= last) {
         const cx = x(state.selected) + unit / 2;

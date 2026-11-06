@@ -9,6 +9,7 @@ import { personPath } from "@/lib/people-pages-index";
 import index from "@/data/long-memory/index.json";
 import "./long-memory.css";
 import { LongMemoryChartTransition } from "./LongMemoryChartTransition";
+import { formatNumber, plural } from "@/lib/site-format";
 
 type Mode = "mentions" | "words" | "moments" | "memory";
 type Point = {id:number;b:number;c:number;v:number;n:number;text:string};
@@ -23,7 +24,7 @@ const MODES = [
   {id:"memory",label:"Remembered later",icon:Sparkles,description:"Selected passages that look back, bear witness, or reflect on this person elsewhere in Scripture."},
 ] as const;
 const COLORS:Record<string,string> = {history:"#b67e61",poetry:"#64a799",prophets:"#83a9d8",gospels:"#b29ac9",epistles:"#d7b854",revelation:"#c88391"};
-const number = (n:number) => n.toLocaleString("en-US");
+const number = (n:number) => formatNumber(n);
 const bookFor = (b:number) => index.books.find(book=>book.num===b)!;
 const ref = (p:Point) => `${bookFor(p.b).name} ${p.c}:${p.v}`;
 
@@ -125,7 +126,7 @@ export default function LongMemoryPage() {
         <div className="lm-menu">
       <nav className="lm-people" aria-label="Choose a life">{index.people.map(p=><button type="button" key={p.key} onClick={()=>update("person",p.key)} aria-pressed={person.key===p.key}><span>{p.name}</span></button>)}</nav>
     </div>
-        <div className="lm-field-heading"><div aria-live="polite"><strong>{data?number(points.length):"—"}</strong><span>{mode==="mentions"?"indexed verses":"verses in selected passages"}<small>{books.length} {books.length===1?"book":"books"} · one light, one verse</small></span></div><nav className="lm-lenses" aria-label="Study lens">{MODES.map(m=><button type="button" key={m.id} aria-pressed={mode===m.id} onClick={()=>update("lens",m.id)}><m.icon size={17}/><span>{m.label}</span></button>)}</nav><p className="lm-book-hint">Click a book’s name to unfold it <ChevronDown size={14}/></p></div>
+        <div className="lm-field-heading"><div aria-live="polite"><strong>{data?number(points.length):"—"}</strong><span>{mode==="mentions"?"indexed verses":"verses in selected passages"}<small>{books.length} {plural(books.length, "book", "books")} · one light, one verse</small></span></div><nav className="lm-lenses" aria-label="Study lens">{MODES.map(m=><button type="button" key={m.id} aria-pressed={mode===m.id} onClick={()=>update("lens",m.id)}><m.icon size={17}/><span>{m.label}</span></button>)}</nav><p className="lm-book-hint">Click a book’s name to unfold it <ChevronDown size={14}/></p></div>
       <LongMemoryChartTransition view={`${person.key}:${mode}:${passage}`} ready={Boolean(data)||error}>
       {passages.length>0&&<div className="lm-passages" aria-label="Selected passages"><button type="button" aria-pressed={passage===-1} onClick={()=>{setPassage(-1);setBook("all");}}>All selected passages</button>{passages.map((p,i)=><button type="button" key={p.title} aria-pressed={passage===i} onClick={()=>{setPassage(i);setBook("all");setSelected(0);}}>{p.title}</button>)}</div>}
         {error?<p className="lm-loading" role="alert">These passages could not be loaded. <button onClick={()=>window.location.reload()}>Try again</button></p>:!data?<p className="lm-loading" role="status">Gathering the points of light…</p>:<MemoryField points={points} selected={current?.id??0} onSelect={id=>{setSelected(id);if(book!=="all")setBook(String(Math.floor(id/1000000)));}} openBook={book} onBook={chooseBook} reader={reader}/>}

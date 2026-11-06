@@ -12,6 +12,7 @@ import { studyRefLink } from "@/lib/study";
 import type { Catalog } from "@/lib/types";
 import { EvidenceClaim } from "./Evidence";
 import { ReadLink } from "./ProphetSections";
+import { plural } from "@/lib/site-format";
 
 type Book = Prophet["books"][number];
 
@@ -24,8 +25,8 @@ export function BookSection({ prophet, singer }: { prophet: Prophet; singer?: bo
   const catalog = useCatalog();
   if (!prophet.books.length) return null;
   const psalms = prophet.books.every((b) => b.code === "PSA");
-  return <Section id="pp-book" kicker={prophet.books.length > 1 ? "The books" : psalms && singer ? "The psalms" : "The book"}
-    title={psalms && singer ? "The psalms that bear the name" : prophet.books.length > 1 ? `${prophet.books.length} books bear the name` : `The book of ${prophet.books[0].title}`}
+  return <Section id="pp-book" kicker={psalms && singer && prophet.books.length <= 1 ? "The psalms" : plural(prophet.books.length, "The book", "The books")}
+    title={psalms && singer ? "The psalms that bear the name" : prophet.books.length > 1 ? plural(prophet.books.length, "{n} book bears the name", "{n} books bear the name") : `The book of ${prophet.books[0].title}`}
     lead="Its parts in order, as long as they are. Ticks above the bar mark the verses the New Testament quotes.">
     {prophet.books.map((book, i) => <div key={book.code + i} className={i > 0 ? "pp-divider-top" : undefined}>
       <div className="pp-book-head">
@@ -59,7 +60,7 @@ function quotationFlow(catalog: Catalog, book: Book): Flow {
   }
   const books = new Set([...links.values()].map((l) => l.target));
   return { id: `${book.code}-nt`, title: `Where the New Testament quotes ${book.title}`, links: [...links.values()],
-    claim: { text: `Each band joins a chapter of ${book.title} to the New Testament ${books.size === 1 ? "book" : "books"} quoting it (${books.size === 1 ? "one book" : `${books.size} books`}).` } };
+    claim: { text: `Each band joins a chapter of ${book.title} to the New Testament ${plural(books.size, "book", "books")} quoting it (${plural(books.size, "one book", "{n} books")}).` } };
 }
 
 /** The outline as one bar of parts, each as long as its verses; pointing at a part names it, choosing opens it. */

@@ -14,6 +14,7 @@ import { ClaimList, EvidenceClaim, QuoteText } from "./Evidence";
 import { harmonySectionOf } from "./harmony";
 import { harmonyHref, journeyHref, lettersHref } from "./links";
 import { placeLayers } from "./map-layers";
+import { plural } from "@/lib/site-format";
 
 /** The calling: one wide scene with the passage quoted in full; chips switch between the accounts. */
 export function CallingScene({ apostle }: { apostle: Apostle }) {
@@ -24,7 +25,7 @@ export function CallingScene({ apostle }: { apostle: Apostle }) {
   const call = apostle.calling[Math.min(chosen, apostle.calling.length - 1)];
   const place = call.placeId && places.status === "ready" ? places.value.find((p) => p.id === call.placeId) : undefined;
   const section = harmony.status === "ready" ? harmonySectionOf(harmony.value, call.quote.span) : undefined;
-  return <Section id="pp-calling" kicker="The calling" title={apostle.calling.length > 1 ? `Called, as ${apostle.calling.length} accounts tell it` : "The calling"} lead={place ? `At ${place.name}.` : undefined}>
+  return <Section id="pp-calling" kicker="The calling" title={apostle.calling.length > 1 ? plural(apostle.calling.length, "Called, as {n} account tells it", "Called, as {n} accounts tell it") : "The calling"} lead={place ? `At ${place.name}.` : undefined}>
     {apostle.calling.length > 1 && <div className="lg-chips" style={{ marginTop: 0, marginBottom: "1rem" }} role="group" aria-label="Accounts">
       {apostle.calling.map((c, i) => <button key={c.label} type="button" className="lg-chip" aria-pressed={i === chosen} onClick={() => setChosen(i)}>{c.label}</button>)}
     </div>}

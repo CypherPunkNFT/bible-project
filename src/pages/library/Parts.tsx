@@ -6,6 +6,7 @@ import { PartChart, type ChartMode } from "./PartChart";
 import { PartIcon } from "./PartIcon";
 import { PARTS, type PartId } from "./part-content";
 import { Timeline } from "./Timeline";
+import { plural } from "@/lib/site-format";
 
 interface Props {
   library: Library;
@@ -52,7 +53,7 @@ export function Parts({ library, part, onPart, selected, progress, onChapter, on
         <button type="button" className="lib-inline-link" onClick={() => onChapter(index)}>
           {bar.name} {bar.chapter}
         </button>{" "}
-        · {bar.verses} {bar.verses === 1 ? "verse" : "verses"}
+        · {bar.verses} {plural(bar.verses, "verse", "verses")}
       </>
     );
   };
@@ -94,7 +95,7 @@ export function Parts({ library, part, onPart, selected, progress, onChapter, on
               <span className="lib-chip-name">{p.name}</span>
               <span className="lib-chip-range">{p.range}</span>
               <span className="lib-chip-count">
-                {f.books.length} {f.books.length === 1 ? "book" : "books"} · {f.bars.length} chapters{done > 0 && <b> · {done} read</b>}
+                {f.books.length} {plural(f.books.length, "book", "books")} · {f.bars.length} chapters{done > 0 && <b> · {done} read</b>}
               </span>
               <span className="lib-chip-share" style={{ "--share": `${f.share.toFixed(1)}%` } as CSSProperties} />
             </button>

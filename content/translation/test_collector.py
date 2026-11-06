@@ -46,6 +46,20 @@ def test_a_gap_of_the_first_rules_is_collected(source: str, suffix: str, wanted:
     assert wanted <= set(found(source, suffix))
 
 
+def test_the_forms_handed_to_plural_are_collected_whole_and_nothing_between_them() -> None:
+    """site-format.ts's plural(n, one, many[, "word"]) (stage 5 job 14): its forms are shown however they look; the gap
+    between two of them, read as text beside a {value} because of "{n}", is not text."""
+    source = ('const a = plural(r.dn ?? 0, ", chosen from {n} dated claim", ", chosen from {n} dated claims");\n'
+              'const b = plural(n, "Article", "Articles"); const c = plural(n, "it", "them");\n'
+              'const d = f(x.filter((y) => y === "abc def").length, plural(n, "{n} verse it draws on", "{n} verses", "word"));\n'
+              'const e = explural(n, "{n} nope", "{n} nopes");')
+    texts = found(source)
+    assert {", chosen from {n} dated claim", ", chosen from {n} dated claims", "Article", "Articles",
+            "{n} verse it draws on", "{n} verses"} <= set(texts)
+    assert not {"it", "them", "word", "abc def", "{n} nope"} & set(texts)
+    assert not [text for text in texts if '", "' in text]
+
+
 def test_a_paragraph_over_400_characters_is_collected() -> None:
     paragraph = "In the beginning the word was spoken, and it was heard by many. " * 8
     assert paragraph.strip() in found(f'export const text = "{paragraph.strip()}";')
@@ -68,6 +82,11 @@ def test_nested_templates_are_one_string_each() -> None:
     source = 'const a = `outer ${cond ? `inner ${x}` : "Plain words here"} end`; const b = "After the template";'
     bodies = [body for _, _, _, body in page_rules.string_literals(source)]
     assert "Plain words here" in bodies and "After the template" in bodies
+
+
+def test_a_sentence_holding_plural_forms_is_still_collected() -> None:
+    source = 'const a = `One square for each chapter: ${plural(v, "{n} verse", "{n} verses")} in ${plural(c, \'{n} chapter\', \'{n} chapters\')}.`;'
+    assert "One square for each chapter: {n} in {n}." in found(source, ".tsx")
 
 
 @pytest.fixture

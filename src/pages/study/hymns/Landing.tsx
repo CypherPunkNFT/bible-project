@@ -5,9 +5,10 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { AMAZING_GRACE, bookIndexOf, chapterOf, hymnHref, type HymnCollection, type HymnEntry } from "@/lib/hymns";
-import { firstLine, formatNumber, groupsById, plural, tone } from "./model";
+import { firstLine, formatNumber, groupsById, tone } from "./model";
 import { Pipes } from "./Pipes";
 import { StudyBackBar } from "@/components/study/StudyBackBar";
+import { plural } from "@/lib/site-format";
 
 // Hymns still sung today, chosen by first line; each is shown only if the collection really holds it.
 const KNOWN = ["Amazing grace", "When I survey the wondrous cross", "Our God, our help in ages past", "Joy to the world",
@@ -48,7 +49,7 @@ export function Landing({ collection }: { collection: HymnCollection }) {
           William Cowper. Every hymn whose words we hold opens on its own page, beside the Scripture it was written on.</p>
         <ul className="hc-writers" aria-label="The writers">
           {WRITERS.map((w) => <li key={w.name} style={tone(w.tone)}><span className="hc-w-name">{w.name}</span><span className="hc-w-dates">{w.dates}</span>
-            <b>{plural(byWriter.get(w.name) ?? 0, "hymn")}</b><small>{w.books}</small></li>)}
+            <b>{plural(byWriter.get(w.name) ?? 0, "{n} hymn", "{n} hymns")}</b><small>{w.books}</small></li>)}
         </ul>
         <Link className="hc-begin" to={hymnHref(AMAZING_GRACE)}>Begin with <i>Amazing Grace</i> and every verse its lines echo<span aria-hidden="true">→</span></Link>
       </div>

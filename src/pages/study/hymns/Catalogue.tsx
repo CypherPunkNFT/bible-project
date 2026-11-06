@@ -11,6 +11,7 @@ import { bookIndexOf, hymnHref, metreName, type HymnCollection, type HymnEntry, 
 import { SectionHead } from "./parts";
 import { SECTION_LABEL } from "@/pages/teachers/preachers/bible/model";
 import { firstLine, formatNumber, groupsById, tone } from "./model";
+import { compareText } from "@/lib/site-format";
 
 const PAGE = 240;
 const normalise = (text: string) => text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLocaleLowerCase();
@@ -49,9 +50,9 @@ export function Cards({ collection }: { collection: HymnCollection }) {
   const matches = (r: Row, ignore?: FacetKey) => words.every((w) => r.search.includes(w))
     && (["g", "section", "metre"] as FacetKey[]).every((key) => key === ignore || !filters[key].length || filters[key].includes(valueOf(r, key)));
   const order = collection.groups.map((g) => g.id as string);
-  const visible = rows.filter((r) => matches(r)).sort((a, b) => sort === "az" ? a.h.t.localeCompare(b.h.t)
-    : sort === "book" ? order.indexOf(a.g.id) - order.indexOf(b.g.id) || a.h.t.localeCompare(b.h.t)
-    : (a.h.v || 1e10) - (b.h.v || 1e10) || a.h.t.localeCompare(b.h.t));
+  const visible = rows.filter((r) => matches(r)).sort((a, b) => sort === "az" ? compareText(a.h.t, b.h.t)
+    : sort === "book" ? order.indexOf(a.g.id) - order.indexOf(b.g.id) || compareText(a.h.t, b.h.t)
+    : (a.h.v || 1e10) - (b.h.v || 1e10) || compareText(a.h.t, b.h.t));
   const toggle = (key: FacetKey, value: string) => setFilters((f) => ({ ...f, [key]: f[key].includes(value) ? f[key].filter((v) => v !== value) : [...f[key], value] }));
   const busy = query.trim() !== "" || Object.values(filters).some((v) => v.length);
   const facet = (key: FacetKey, title: string, options: [string, string, string][]) => <div className="pc-facet"><h3>{title}</h3><div className="pc-options">{options.map(([value, label, toneToken]) =>

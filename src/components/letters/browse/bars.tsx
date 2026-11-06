@@ -4,6 +4,7 @@ import type { Letter } from "@/data/letters/types";
 import { ClaimText } from "../LetterParts";
 import { dates } from "./builders";
 import { GROUP_TONE, type GroupKey, type LettersData } from "./data";
+import { formatNumber } from "@/lib/site-format";
 
 const chipTone = (tone: string) => ({ "--chip": `var(--${tone})` }) as CSSProperties;
 
@@ -24,7 +25,7 @@ export function GroupsBar({ data, group, chosen, choose }: { data: LettersData; 
     return <div key={grouping.label}>
       <dt>{grouping.label}<button type="button" className="lb-info" aria-pressed={open === grouping.label} aria-label={`What are the ${grouping.label.toLowerCase()}?`}
         onClick={() => setOpen(open === grouping.label ? null : grouping.label)}>i</button></dt>
-      <small>{ls.length} letters · {ls.reduce((s, l) => s + l.verses, 0).toLocaleString("en-US")} verses</small>
+      <small>{ls.length} letters · {formatNumber(ls.reduce((s, l) => s + l.verses, 0))} verses</small>
       <dd>AD {from}–{to}</dd>
       <div className="lb-chips">{ls.map((l) => <Pick key={l.code} letter={l} chosen={chosen} choose={choose} tone={tone} />)}</div>
       {open === grouping.label && <div className="lb-note"><ClaimText claim={grouping.claim} as="div" /></div>}

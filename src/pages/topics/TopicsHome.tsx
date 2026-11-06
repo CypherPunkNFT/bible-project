@@ -10,6 +10,7 @@ import { MeaningPrompt } from "@/components/search/MeaningPrompt";
 import { TopicsArtwork } from "./TopicsArtwork";
 import { useEqualCardHeights } from "./useEqualCardHeights";
 import { familyWords, morph, orderedFamilies, tint } from "./topics-shared";
+import { plural } from "@/lib/site-format";
 
 const POPULAR = ["love-of-god", "prayer", "faith", "grace", "afflictions", "christ-the-shepherd", "heaven", "holy-spirit-the-is-god"];
 
@@ -21,7 +22,7 @@ function FamilyCard({ family, number, index }: { family: TopicCategory; number: 
       <div className="topics-card-top"><Icon size={18} strokeWidth={1.5} aria-hidden /><span>{FAMILY_EYEBROW[family.id] ?? "Topics"}</span><ArrowUpRight size={19} aria-hidden /></div>
       <TopicsArtwork kind={family.id} words={familyWords(family, index, 4)} />
       <div className="topics-card-copy"><span className="topics-card-number">{String(number).padStart(2, "0")}</span><h3 id={`topics-card-${family.id}`}>{family.title}</h3><p>{family.description}</p></div>
-      <div className="topics-card-foot"><span>{family.subcategories.slice(0, 3).map((sub) => sub.title).join(" · ")}{family.subcategories.length > 3 ? " · More" : ""}</span><strong>{topics} topics in {family.subcategories.length} {family.subcategories.length === 1 ? "group" : "groups"}<ArrowRight size={15} aria-hidden /></strong></div>
+      <div className="topics-card-foot"><span>{family.subcategories.slice(0, 3).map((sub) => sub.title).join(" · ")}{family.subcategories.length > 3 ? " · More" : ""}</span><strong>{topics} topics in {family.subcategories.length} {plural(family.subcategories.length, "group", "groups")}<ArrowRight size={15} aria-hidden /></strong></div>
     </Link>
   );
 }

@@ -7,8 +7,9 @@ import { Link } from "react-router-dom";
 import type { Audience, Division, Title } from "@/data/resources/learning-catalogue";
 import { AUDIENCE_ART } from "./art-data";
 import { AudienceShapes } from "./Art";
-import { type Back, plural, ringLayout, titleUrl, toneOf } from "./model";
+import { type Back, ringLayout, titleUrl, toneOf } from "./model";
 import { SourceLink, Status } from "./parts";
+import { plural } from "@/lib/site-format";
 
 const W = 1000, H = 660, CX = 500, CY = 330, R1 = 140, R2 = 262;
 const polar = (r: number, deg: number): [number, number] => { const a = ((deg - 90) * Math.PI) / 180; return [CX + r * Math.cos(a), CY + r * Math.sin(a)]; };
@@ -48,7 +49,7 @@ export function BuiltFromRing({ division, audience, items, back }: { division: D
   });
 
   const list = <>
-    <h3>{plural(items.length, "title")} behind this door</h3>
+    <h3>{plural(items.length, "{n} title", "{n} titles")} behind this door</h3>
     <p>Choose a title (or a page on the outer ring) to draw its links. Every line ends at a page the site has already reviewed.</p>
     <ul>{items.map((t) => <li key={t.id}><a href={titleUrl(t.id)} onClick={(e) => { e.preventDefault(); setPick({ item: t.id }); }}>{t.title}</a> <span className="muted">· {division.kind[t.kind].name}</span> <Status title={t} /></li>)}</ul>
   </>;

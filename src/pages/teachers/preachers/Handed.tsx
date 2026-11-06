@@ -9,9 +9,10 @@ import { HandedChart } from "./handed/HandedChart";
 import { HandedNote } from "./handed/HandedNote";
 import { chainsFor, gapOf, lanes, linksFrom, linksOf } from "./handed/model";
 import { drawRelay } from "./handed/relay";
-import { onFirstView, plural, prefersReducedMotion, useWidth } from "./lives/common";
+import { onFirstView, prefersReducedMotion, useWidth } from "./lives/common";
 import { FloatingTip, type TipHandle } from "./lives/FloatingTip";
 import "./Handed.css";
+import { plural } from "@/lib/site-format";
 
 export function Handed() {
   const { data, openProfile } = usePreachers();
@@ -83,7 +84,7 @@ export function Handed() {
       </div>
     </div>
     <FloatingTip ref={tip} className="hand-tip">
-      {hotLink && <><b>{hotLink.a.short} → {hotLink.b.short}</b>{hotLink.note}{hotGap > 0 && <><br /><small>{plural(hotGap, "year")} between one life and the next</small></>}</>}
+      {hotLink && <><b>{hotLink.a.short} → {hotLink.b.short}</b>{hotLink.note}{hotGap > 0 && <><br /><small>{plural(hotGap, "{n} year", "{n} years")} between one life and the next</small></>}</>}
     </FloatingTip>
   </>;
 }

@@ -5,6 +5,7 @@ import { useAsync } from "@/lib/useAsync";
 
 import { ATLAS_BASE as BASE } from "./routes";
 import { PlacesArtwork } from "./PlacesArtwork";
+import { compareText } from "@/lib/site-format";
 export function FindCityCard() {
   return <Link to={`${BASE}/cities/find`} className="places-compact-card places-find-city" aria-label="Find Your City">
     <Search size={34} strokeWidth={1.35} aria-hidden /><span><strong>Find Your City</strong><small>Search the places behind the stories</small></span><ArrowUpRight size={15} aria-hidden />
@@ -16,7 +17,7 @@ export function CityDirectory() {
   const [search, setSearch] = useSearchParams();
   const query = search.get("q") ?? "";
   const page = Math.max(0, Number.parseInt(search.get("page") ?? "0", 10) || 0);
-  const cities = data.status === "ready" ? data.value.filter((place) => place.type === "settlement" && place.name.toLowerCase().includes(query.trim().toLowerCase())).sort((a, b) => a.name.localeCompare(b.name)) : [];
+  const cities = data.status === "ready" ? data.value.filter((place) => place.type === "settlement" && place.name.toLowerCase().includes(query.trim().toLowerCase())).sort((a, b) => compareText(a.name, b.name)) : [];
   const last = Math.max(0, Math.ceil(cities.length / 24) - 1);
   const current = Math.min(page, last);
   const changePage = (value: number) => { const next = new URLSearchParams(search); next.set("page", String(value)); setSearch(next); };

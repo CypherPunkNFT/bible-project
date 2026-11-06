@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from "react";
-import { refText, REDUCED, plural, whenShort } from "./data";
+import { refText, REDUCED, whenShort } from "./data";
 import { Tip } from "./tip";
 import type { Apostle, Place } from "./types";
 import { Icon, LayerChip, SecHead } from "./ui";
+import { formatNumber, plural } from "@/lib/site-format";
 
 /**
  * 05 · Where was he? His places as a two-column list of compact cards, beside an SVG map drawn like the Atlas (the site's
@@ -27,7 +28,7 @@ function tradFor(d: Apostle, p: Place) {
 
 function Card({ d, p, i, on, onPick }: { d: Apostle; p: Place; i: number; on: boolean; onPick: () => void }) {
   const ents = p.entries.map((k) => d.byKey[k]).filter(Boolean), what = p.note ?? ents[0]?.title ?? "", tr = p.tradition ? tradFor(d, p) : [];
-  const from = p.from ? <><svg width="10" height="10" viewBox="0 0 12 12" style={{ transform: `rotate(${DIR_DEG[p.from.dir]}deg)` }} aria-hidden="true"><path d="M6 1v10M6 1 3 4M6 1l3 3" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" /></svg>{p.from.km.toLocaleString("en-GB")} km {p.from.dir}</>
+  const from = p.from ? <><svg width="10" height="10" viewBox="0 0 12 12" style={{ transform: `rotate(${DIR_DEG[p.from.dir]}deg)` }} aria-hidden="true"><path d="M6 1v10M6 1 3 4M6 1l3 3" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" /></svg>{formatNumber(p.from.km)} km {p.from.dir}</>
     : p.placeId === JERUSALEM ? "The city itself" : p.xy ? null : "No coordinates";
   return <button type="button" className={`pcard${p.tradition ? " trad" : ""}${p.xy ? "" : " nopin"}${on ? " on" : ""}`} data-place={i} onClick={onPick}>
     <span className="pcard-icon"><Icon name={p.kind} size={22} /></span>
@@ -149,7 +150,7 @@ export function PlacesSection({ d }: { d: Apostle }) {
   const named = new Set(labelled.map((l) => l[2]));
 
   return <section className="sec" data-sec="places">
-    <SecHead num="05" kicker="Near and far" title="Where was " em="he?" sub={`${plural(d.places.length, "place")} named in his story, with what happened there and how far each lies from Jerusalem. Tradition's places are dashed, with who placed him there and when. Choose a card or a pin.`} />
+    <SecHead num="05" kicker="Near and far" title="Where was " em="he?" sub={`${plural(d.places.length, "{n} place", "{n} places")} named in his story, with what happened there and how far each lies from Jerusalem. Tradition's places are dashed, with who placed him there and when. Choose a card or a pin.`} />
     <div className="pl-grid">
       <div className="pl-cards" ref={cards} aria-label={`${d.short}'s places`}>{d.places.map((p, i) => <Card key={i} d={d} p={p} i={i} on={i === sel} onPick={() => select(i, "card")} />)}</div>
       <div className="pl-map-col"><figure className="pl-map">

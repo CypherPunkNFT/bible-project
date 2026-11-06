@@ -4,8 +4,9 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { bandOf, D, findBand, lemmaById, parseAlphabet, SN, type Alphabet, type Band } from "./model";
 import { Cite, Head, Lemma, Scan, ThreeParts } from "./parts";
+import { formatNumber } from "@/lib/site-format";
 
-const fmt = (n: number) => n.toLocaleString("en-US");
+const fmt = (n: number) => formatNumber(n);
 const TOP: Record<Alphabet, number> = { greek: SN.counts.greekTop, hebrew: SN.counts.hebrewTop };
 const PINS: Record<Alphabet, string[]> = { greek: ["G25", "G26", "G1411", "G2424", "G3056", "G5368"], hebrew: ["H430", "H1697", "H5315", "H7307"] };
 const WIDTH = 1000;

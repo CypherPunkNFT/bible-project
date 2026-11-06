@@ -12,6 +12,7 @@ import { NationalLines } from "./life/NationalLines";
 import { DoorArt } from "./life/DoorArt";
 import { RESOURCE_SECTIONS, sectionBySlug } from "./sections";
 import "./life/life.css";
+import { formatNumber } from "@/lib/site-format";
 
 /** The two lines the crisis strip carries; the Crisis list leaves them out, as they already lead the page (owner, 2026-10-08). */
 const IN_STRIP = { danger: "emergency-911", crisis: "988-lifeline" };
@@ -68,7 +69,7 @@ export default function LifePage({ data }: { data: LifeData }) {
         <h1>{titleWords.join(" ")} <em>{lastWords}</em></h1>
         {/* In pieces (the cities and kinds one by one), so the page translator can swap each part. */}
         <p className="lf-lead">Free national lines for the hardest moments{cities.length > 0 && <>, and places in {listParts(cities.map((c) => c.name))} that help with {listParts(helpsWith)}</>}. Every number can be tapped to call or text.</p>
-        <dl className="lf-stats">{stats.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{typeof value === "number" ? value.toLocaleString("en-US") : value}</dd></div>)}</dl>
+        <dl className="lf-stats">{stats.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{typeof value === "number" ? formatNumber(value) : value}</dd></div>)}</dl>
       </div>
       <DoorArt />
     </header>

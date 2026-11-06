@@ -3,6 +3,7 @@ import type { Citation, KeyWord, Ladder, Letter, OpenQuestion } from "@/data/let
 import { ClaimText, Refs } from "./LetterParts";
 import { useWordVerses } from "./letter-hooks";
 import { StableTip } from "@/components/StableTip";
+import { plural } from "@/lib/site-format";
 
 const starResting = <span className="lg-muted">Choose a star to see every verse where that word stands behind the text.</span>;
 
@@ -86,7 +87,7 @@ function WordVerses({ word, label, count, codes, onClose }: { word: KeyWord; lab
   return <div className="lg-word-panel" aria-live="polite">
     <div className="lg-word-panel-head">
       <div><b className="lg-word-greek">{word.greek}</b> <span className="lg-muted">{word.translit} · {word.strongs}</span>
-        <p>“{word.gloss}” in <strong>{label}</strong> · used {count} times{verses ? ` in ${verses.length} ${verses.length === 1 ? "verse" : "verses"}` : ""}{word.note ? ` · ${word.note}` : ""}</p></div>
+        <p>“{word.gloss}” in <strong>{label}</strong> · used {count} times{verses ? ` in ${verses.length} ${plural(verses.length, "verse", "verses")}` : ""}{word.note ? ` · ${word.note}` : ""}</p></div>
       <button type="button" className="lg-dialog-close" onClick={onClose} aria-label="Close">×</button>
     </div>
     {verses === undefined ? <p className="lg-muted">Finding the verses…</p>

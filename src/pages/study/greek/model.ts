@@ -3,6 +3,7 @@
 // the address asks for is looked up in a Map, so an unknown value falls back to the default.
 import dossier from "../../../../content/academic-research/31-how-new-testament-greek-works.json";
 import generated from "./greek-data.json";
+import { formatNumber } from "@/lib/site-format";
 
 export type Verse = { code: string; chapter: number; verse: number; text: string };
 export type TestOption = { text: string; right: boolean; why: string };
@@ -132,7 +133,7 @@ export function percent(part: number, whole: number): number {
   return whole ? Math.round((part / whole) * 100) : 0;
 }
 
-export const thousands = (n: number) => n.toLocaleString("en-US");
+export const thousands = (n: number) => formatNumber(n);
 
 /** What was read of a source, in the words the citation shows. */
 export function readingTag(status: string): string {

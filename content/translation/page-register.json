@@ -2010,13 +2010,6 @@
    ]
   },
   {
-   "file": "src/pages/teachers/preachers/landing/content.ts",
-   "why": "on-screen text the build check's net found and the page rules pass by (a one-word label, a lowercase phrase or a template); each read with its code line and kept as screen text",
-   "texts": [
-    "Fifty"
-   ]
-  },
-  {
    "file": "src/pages/teachers/preachers/lives/LivesSide.tsx",
    "why": "on-screen text the browser reading of the made-up languages saw in English (stage 3 job 6), found in this file exactly as the page shows it",
    "texts": [
@@ -2143,6 +2136,13 @@
    "why": "the count over each lost-and-found picture, one whole line since stage 5 job 13 (too short for the page rules and the net)",
    "texts": [
     "1 of {n}"
+   ]
+  },
+  {
+   "file": "src/components/people-pages/RulerVariants.tsx",
+   "why": "a sentence of three values, one a plural() message (\"its ruler\" or \"its rulers\"), that opens with a value, which the page rules' template rule turns down (stage 5 job 14 split the four-value sentence it was in two)",
+   "texts": [
+    "{n}, as Scripture names {n} in {n}'s time."
    ]
   }
  ]

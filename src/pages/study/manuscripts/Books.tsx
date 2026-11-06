@@ -5,7 +5,8 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react"
 import { OutsideScroll } from "@/components/OutsideScroll";
 import type { MsRecord } from "@/lib/manuscripts";
 import { useMs } from "./context";
-import { byDate, formatNumber, holderText, isDated, kindOf, plural, sigla } from "./model";
+import { byDate, formatNumber, holderText, isDated, kindOf, sigla } from "./model";
+import { plural } from "@/lib/site-format";
 
 const ABBR = ["Gen", "Exod", "Lev", "Num", "Deut", "Josh", "Judg", "Ruth", "1 Sam", "2 Sam", "1 Kgs", "2 Kgs", "1 Chr", "2 Chr", "Ezra", "Neh", "Esth", "Job", "Ps", "Prov", "Eccl", "Song", "Isa", "Jer", "Lam", "Ezek", "Dan", "Hos", "Joel", "Amos", "Obad", "Jonah", "Mic", "Nah", "Hab", "Zeph", "Hag", "Zech", "Mal",
   "Matt", "Mark", "Luke", "John", "Acts", "Rom", "1 Cor", "2 Cor", "Gal", "Eph", "Phil", "Col", "1 Thess", "2 Thess", "1 Tim", "2 Tim", "Titus", "Phlm", "Heb", "Jas", "1 Pet", "2 Pet", "1 John", "2 John", "3 John", "Jude", "Rev"];
@@ -54,8 +55,8 @@ export function Books() {
   const tile = (b: number) => {
     const n = tiles.n[b], k = n ? Math.sqrt(n / (b < 39 ? tiles.maxOT : tiles.maxNT)) : 0;
     return <button key={b} type="button" className={`bk-tile${n ? "" : " bk-zero"}`} aria-pressed={b === book} style={style({ "--tone": `var(--${books[b].sec})`, "--k": k.toFixed(3) })}
-      title={`${books[b].name}: ${plural(n, "record")}`} onClick={() => { setBook(b); setChapter(0); }}>
-      <b>{ABBR[b]}</b><small>{n ? formatNumber(n) : "–"}{tiles.pictured[b] > 0 && <span className="bk-pic" title={`${plural(tiles.pictured[b], "copy", "copies")} with a picture`}>★ {tiles.pictured[b]}</span>}</small></button>;
+      title={`${books[b].name}: ${plural(n, "{n} record", "{n} records")}`} onClick={() => { setBook(b); setChapter(0); }}>
+      <b>{ABBR[b]}</b><small>{n ? formatNumber(n) : "–"}{tiles.pictured[b] > 0 && <span className="bk-pic" title={`${plural(tiles.pictured[b], "{n} copy", "{n} copies")} with a picture`}>★ {tiles.pictured[b]}</span>}</small></button>;
   };
   const { info, all, withCh, perCh, maxCh, chPictured, shown, dated } = panel;
   const cols = Math.min(info.ch, info.ch > 60 ? 15 : 10);
@@ -68,13 +69,13 @@ export function Books() {
         <p className="bk-t">New Testament</p><div className="bk-grid">{Array.from({ length: 27 }, (_, i) => tile(i + 39))}</div>
         <p className="bk-key"><span className="bk-key-star"><span className="bk-star">★</span> copies with a picture</span><span>fewer</span><i /><i /><i /><i /><span>more</span><span className="bk-key-0"><b />none in the open data</span></p></div>
       <aside ref={side} className="bk-panel" style={style({ "--tone": `var(--${info.sec})` })}>
-        <div className="bk-head"><p className="kicker">{SEC[info.sec]}</p><h3>{info.name}</h3><p>{plural(all.length, "record")} hold it{all.length ? `, ${formatNumber(dated)} with a date` : ""}.</p></div>
+        <div className="bk-head"><p className="kicker">{SEC[info.sec]}</p><h3>{info.name}</h3><p>{plural(all.length, "{n} record", "{n} records")} hold it{all.length ? `, ${formatNumber(dated)} with a date` : ""}.</p></div>
         <div className="bk-chapters">{withCh.length ? <>
           <div className="bk-ch" style={style({ "--cols": String(cols) })}>{Array.from({ length: info.ch }, (_, i) => i + 1).map((c) =>
             <button key={c} type="button" aria-pressed={c === chapter} style={style({ "--k": perCh[c] ? Math.sqrt(perCh[c] / maxCh).toFixed(3) : "0" })}
-              title={`Chapter ${c}: ${plural(perCh[c], "record")} name it${chPictured.has(c) ? ", one with a picture" : ""}`} onClick={() => setChapter(chapter === c ? 0 : c)}>{c}{chPictured.has(c) && <Star />}</button>)}</div>
-          <p className="bk-ch-note">{chapter ? <>Chapter {chapter}: {plural(shown.length, "record")} name it. <button type="button" onClick={() => setChapter(0)}>Show every copy</button></>
-            : `${plural(withCh.length, "record")} name the chapters they hold, mostly fragments; the rest name only the book. Choose a chapter.`}</p>
+              title={`Chapter ${c}: ${plural(perCh[c], "{n} record", "{n} records")} name it${chPictured.has(c) ? ", one with a picture" : ""}`} onClick={() => setChapter(chapter === c ? 0 : c)}>{c}{chPictured.has(c) && <Star />}</button>)}</div>
+          <p className="bk-ch-note">{chapter ? <>Chapter {chapter}: {plural(shown.length, "{n} record", "{n} records")} name it. <button type="button" onClick={() => setChapter(0)}>Show every copy</button></>
+            : `${plural(withCh.length, "{n} record", "{n} records")} name the chapters they hold, mostly fragments; the rest name only the book. Choose a chapter.`}</p>
         </> : <p className="bk-ch-note">{all.length ? "These records name the book, not its chapters." : ""}</p>}</div>
         <OutsideScroll className="bk-scroll" label={`Copies of ${info.name}`} resetKey={`${filter}-${book}-${chapter}`}>
           <ol className="bk-list">{shown.length ? shown.map((r) => <li key={r.i}><button type="button" data-open={r.i} style={style({ "--tone": `var(${kindOf(r.k).tone})` })} onClick={(e) => openRecord(r.i, e.currentTarget)}>

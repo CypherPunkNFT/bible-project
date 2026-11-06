@@ -6,8 +6,9 @@ import { ArrowUpRight } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { loadResource, type FellowshipCities, type FellowshipCity, type FellowshipsData } from "@/data/resources";
 import { CitySection } from "../life/CitySection";
-import { CITY_FILES, hasCityFiles, hostOf, listOf, plural, tone } from "../life/format";
+import { CITY_FILES, hasCityFiles, hostOf, listOf, tone } from "../life/format";
 import { gatheringWords, shortName, toCity } from "./format";
+import { plural } from "@/lib/site-format";
 
 export function Gatherings({ data, cities }: { data: FellowshipsData; cities: FellowshipCities }) {
   const lookup = useMemo(() => {
@@ -68,7 +69,7 @@ function Beyond({ city, lookup }: { city: FellowshipCity; lookup: Lookup }) {
   if (!rows.length) return null;
   return <section className="fw-beyond lf-fade" aria-labelledby="fw-nearby">
     <div className="fw-beyond-head">
-      <h3 id="fw-nearby">Just outside the county<small>{plural(rows.length, "place")}</small></h3>
+      <h3 id="fw-nearby">Just outside the county<small>{plural(rows.length, "{n} place", "{n} places")}</small></h3>
       {/* A way to search on one's own (owner, 2026-10-22): the Southern Baptist Convention's own church finder. */}
       <a className="fw-sbc" href="https://churches.sbc.net/" target="_blank" rel="noreferrer">Find a Southern Baptist church<ArrowUpRight size={14} aria-hidden="true" /></a>
     </div>

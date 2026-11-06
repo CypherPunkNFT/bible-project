@@ -1,6 +1,7 @@
 import { mountWordTopics } from './word-topics.js';
 import { mountChapterTopics } from './chapter-topics.js';
 import { egyptContext } from './egypt-context.js';
+import { plural } from "../../lib/site-format.ts";
 // Adapted from the approved Moses merged design. Each mount owns its state,
 // observers and animations; no globals or mockup scripts are installed on the site.
 export function mountMoses(root, options) {
@@ -1450,7 +1451,7 @@ glyph = (name, size = 40, stroke = 1.4) => `<svg class="ico glyph" width="${size
     return `<span class="mg-kick">${esc(ringName)}${n.role.toLowerCase() === ringName.toLowerCase() ? "" : ` · ${esc(n.role)}`}</span><h3>${esc(n.label)}</h3>
       ${n.claims.map((c) => claim(c)).join("")}${n.quote ? quoteSpan(n.quote) : ""}
       ${verses.map((v) => `<blockquote class="mx-v is-sm"><p>${esc(v.text ?? vtextCache(v.ref))}</p><footer>${refLink(v.ref)} · ${options.bibleAbbr}${v.basis ? ` · <span class="lg-muted">${esc(v.basis)}</span>` : ""}</footer></blockquote>`).join("")}
-      ${n.ring === "speak" ? `<p class="lg-muted">${n.count} verse${n.count === 1 ? "" : "s"} in all; the long memory lists every one.</p>` : ""}
+      ${n.ring === "speak" ? `<p class="lg-muted">${plural(n.count, "{n} verse", "{n} verses")} in all; the long memory lists every one.</p>` : ""}
       ${n.linked.length ? `<p class="mx-rel"><small>Their words name</small>${n.linked.map((m) => `<button type="button" data-pnode="${esc(m.id)}" style="--tone:${m.tone}">${esc(m.label)}</button>`).join("")}</p>` : ""}`;
   };
   let vtextCache = () => "";

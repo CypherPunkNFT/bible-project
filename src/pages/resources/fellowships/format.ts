@@ -2,7 +2,8 @@
 // words for who it is for and how it meets, its cost in a few words, and each researched gathering in the shape the
 // Help for life city map draws (so both pages share one map). Every word shown still comes from the data.
 import type { City, Fellowship, FellowshipCity, Gathering, LocalHelp } from "@/data/resources";
-import { kindOf, plural, type CityWords } from "../life/format";
+import { kindOf, type CityWords } from "../life/format";
+import { plural } from "@/lib/site-format";
 
 /** "Bible Study Fellowship (BSF)" -> "BSF"; "9Marks Church Search" -> "9Marks"; "… ChurchSearch" (the SBC's) likewise; otherwise the name as written. */
 export function shortName(name: string) {
@@ -50,9 +51,9 @@ export function toCity(c: FellowshipCity, fellowship: (id: string) => { f?: Fell
 export function gatheringWords(fellowshipOf: (placeId: string) => string): CityWords {
   return {
     kick: "02 · Where they meet",
-    lead: (places) => `${plural(places, "place")} where these fellowships meet, each listed by the fellowship’s own finder and found on the map by its street address.`,
+    lead: (places) => `${plural(places, "{n} place", "{n} places")} where these fellowships meet, each listed by the fellowship’s own finder and found on the map by its street address.`,
     title: "Gather in",
-    count: (places) => `${plural(places, "place")} on the map · tap a pin or a row`,
+    count: (places) => `${plural(places, "{n} place", "{n} places")} on the map · tap a pin or a row`,
     tag: (e) => fellowshipOf(e.id) || kindOf(e.category).short,
   };
 }

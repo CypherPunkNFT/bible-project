@@ -2,6 +2,7 @@ import type { OpenQuestion as LetterQuestion } from "@/data/letters/types";
 import type { EventKind, OpenQuestion, ProphetEra as ProphetEraId, ProphetKind, Realm, Ruler, RulerKind } from "@/data/people-pages/types";
 import { prophetEra, type ProphetEra } from "@/lib/prophet-eras";
 import type { RulerSummary, SpecialPage } from "@/lib/people-pages-index";
+import { plural } from "@/lib/site-format";
 
 /**
  * How each kind of ruler is shown (Research/People/PRESENTATION.md §3.10): its glow colour (the Letters pages' --lg),
@@ -124,15 +125,11 @@ export const EVENT_MARK: Record<EventKind, { symbol: string; label: string }> = 
   prophecy: { symbol: "❝", label: "Prophecy" }, other: { symbol: "•", label: "Event" },
 };
 
-export function ordinal(n: number): string {
-  const tens = n % 100, ones = n % 10;
-  const suffix = tens >= 11 && tens <= 13 ? "th" : ones === 1 ? "st" : ones === 2 ? "nd" : ones === 3 ? "rd" : "th";
-  return `${n}${suffix}`;
-}
+export { ordinal } from "@/lib/site-format";
 
 /** "41 years", "6 months", "7 days", "2 years 6 months": a reign's length as the text gives it. */
 export function reignLength(r: { years?: number; months?: number; days?: number }): string {
-  const parts = [r.years && `${r.years} ${r.years === 1 ? "year" : "years"}`, r.months && `${r.months} ${r.months === 1 ? "month" : "months"}`, r.days && `${r.days} ${r.days === 1 ? "day" : "days"}`];
+  const parts = [r.years && `${r.years} ${plural(r.years, "year", "years")}`, r.months && `${r.months} ${plural(r.months, "month", "months")}`, r.days && `${r.days} ${plural(r.days, "day", "days")}`];
   return parts.filter(Boolean).join(" ");
 }
 

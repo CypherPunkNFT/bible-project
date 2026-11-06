@@ -6,9 +6,10 @@ import { useLayoutEffect, useRef, useState } from "react";
 import type { Audience, Division } from "@/data/resources/learning-catalogue";
 import { BuiltFromRing } from "./BuiltFromRing";
 import { Glyph } from "./Art";
-import { doorBack, groupsFor, plural, toneOf } from "./model";
+import { doorBack, groupsFor, toneOf } from "./model";
 import { SecHead } from "./parts";
 import { Stack } from "./Stack";
+import { plural } from "@/lib/site-format";
 
 const SLIDE_MS = 680, OPEN_MS = 760, EASE = "cubic-bezier(.65, 0, .25, 1)";
 const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -26,7 +27,7 @@ function AgeView({ division, audience: a, kind, onKind, settled }: ViewProps) {
   return <>
     <section className="lm-sec lm-view-sec" aria-labelledby={`lm-stack-${a.id}`}>
       <SecHead num="01" id={`lm-stack-${a.id}`} title={<>{a.name}: <em>the stack behind the door</em></>}
-        lead={`${a.line} ${plural(items.length, "title")} in ${plural(groupsFor(division, a.id).length, "subject")}, every one ready to download. Point at a book to see who made it and the credit to give with it.`} />
+        lead={`${a.line} ${plural(items.length, "{n} title", "{n} titles")} in ${plural(groupsFor(division, a.id).length, "{n} subject", "{n} subjects")}, every one ready to download. Point at a book to see who made it and the credit to give with it.`} />
       <div className="lm-kinds" role="group" aria-label="Light one kind">
         {kinds.map(([k, n]) => <button key={k.id} type="button" className="lm-kind" aria-pressed={kind === k.id} onClick={() => onKind(kind === k.id ? null : k.id)}>
           <Glyph name={k.glyph} size={20} strokeWidth={1.25} /><span><b>{k.plural}</b><small>{n} here</small></span>
@@ -36,7 +37,7 @@ function AgeView({ division, audience: a, kind, onKind, settled }: ViewProps) {
     </section>
     {built.length > 0 && <section className="lm-sec" aria-labelledby={`lm-ring-${a.id}`}>
       <SecHead num="02" id={`lm-ring-${a.id}`} title={<>What our own <em>are built from</em></>}
-        lead={`The ${plural(built.length, "title")} behind the ${a.name.toLowerCase()} door written from this site on the inner ring; the ${plural(sources, "page")} of the site they are written from on the outer ring.`} />
+        lead={`The ${plural(built.length, "{n} title", "{n} titles")} behind the ${a.name.toLowerCase()} door written from this site on the inner ring; the ${plural(sources, "{n} page", "{n} pages")} of the site they are written from on the outer ring.`} />
       <BuiltFromRing division={division} audience={a} items={built} back={back} />
     </section>}
   </>;

@@ -14,6 +14,7 @@ import { BibleName, Verse } from "@/components/Verse";
 import { TopicsArtwork } from "@/pages/topics/TopicsArtwork";
 import { TopicsShell } from "@/pages/topics/TopicsShell";
 import { familyWords } from "@/pages/topics/topics-shared";
+import { formatList, plural } from "@/lib/site-format";
 
 const OPEN_FIRST = 4;
 const ARTICLE_SHOWN = 2;
@@ -34,7 +35,7 @@ function Point({ point, open, onToggle, titles }: { point: TopicPoint; open: boo
     <li className="border-b border-line last:border-b-0">
       <button type="button" aria-expanded={open} onClick={onToggle} className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left hover:bg-surface-2">
         <span className="font-semibold">{point.text || (count ? "Passages" : "See also")}</span>
-        <span className="flex shrink-0 items-center gap-2 text-xs text-muted">{count > 0 && `${count} ${count === 1 ? "passage" : "passages"}`}<ChevronDown size={16} className={open ? "rotate-180 transition" : "transition"} style={{ color: "var(--topics-color)" }} /></span>
+        <span className="flex shrink-0 items-center gap-2 text-xs text-muted">{count > 0 && `${count} ${plural(count, "passage", "passages")}`}<ChevronDown size={16} className={open ? "rotate-180 transition" : "transition"} style={{ color: "var(--topics-color)" }} /></span>
       </button>
       {open && (
         <div className="px-4 pb-4">
@@ -114,7 +115,7 @@ function FromTheLibrary({ id, bundle }: { id: string; bundle: number }) {
 
 function sourcesLine(t: Topic): string {
   const books = [t.points.length ? "R. A. Torrey’s New Topical Textbook (1897)" : "", t.nave?.length ? "Nave’s Topical Bible (1896)" : "", t.dictionary ? "Easton’s Bible Dictionary (1897)" : ""].filter(Boolean);
-  return books.length > 1 ? `${books.slice(0, -1).join(", ")} and ${books.at(-1)}` : books[0] ?? "";
+  return formatList(books);
 }
 
 /** One topic, inside the Topics collection frame: the dictionary article, key verses quoted in full, Torrey's and Nave's

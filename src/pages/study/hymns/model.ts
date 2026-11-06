@@ -19,6 +19,5 @@ export function passageHref(books: HymnBook[], hymn: HymnEntry) {
 export const firstLine = (hymn: HymnEntry) => hymn.t.replace(/[,;:]$/, "");
 
 /** "1,228" — the site's number format. */
-export const formatNumber = (n: number) => n.toLocaleString("en-GB");
-export const plural = (n: number, word: string, many = `${word}s`) => `${formatNumber(n)} ${n === 1 ? word : many}`;
+export { formatNumber } from "@/lib/site-format";
 export const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;

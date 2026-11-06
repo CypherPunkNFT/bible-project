@@ -194,6 +194,26 @@ def page_strings(files: list[Path] | None = None) -> list[str]:
     return list(found)
 
 
+PLURAL_KIND = "plural"
+
+
+def plural_key(one: str, many: str) -> str:
+    """The one message a plural(n, one, many) pair is, as the phrase list keys it: plural:["{n} book","{n} books"]
+    (pluralKey in src/lib/site-format.ts writes the same, with JSON.stringify)."""
+    return "plural:" + json.dumps([one, many], ensure_ascii=False, separators=(",", ":"))
+
+
+def plural_messages() -> list[str]:
+    """Each plural pair the page code hands site-format.ts's plural(), once, as its message (plural_key), in file order.
+    The language nets find them (a call whose forms are not written out is a build-check finding, never collected).
+    A translation is a JSON object of the language's forms by plural category ("one", "few", "other"...): apply.py
+    checks it and writes it into ui.json, where plural() picks the form with Intl.PluralRules."""
+    import build_nets  # imported here: it runs Node, needed only for this mode
+    files = {path.relative_to(SITE).as_posix(): path.read_text("utf-8") for path in page_files()}
+    found = build_nets.run_node(files).get("plurals", [])
+    return list(dict.fromkeys(plural_key(pair["one"], pair["many"]) for pair in found))
+
+
 def mixed_text(paragraph: list) -> str | None:
     """A paragraph of text pieces with references between them; references become {{1}}, {{2}}, ..."""
     parts, number = [], 0
@@ -446,6 +466,8 @@ def collect_more(args) -> None:
         append(args.out, PAGE_KIND, list(dict.fromkeys(texts)), retarget=args.pages, dry_run=args.dry_run, skip=skip)
     if args.resources:
         append(args.out, RESOURCE_KIND, resource_strings(), retarget=True, dry_run=args.dry_run)
+    if getattr(args, "plurals", False):
+        append(args.out, PLURAL_KIND, plural_messages(), dry_run=args.dry_run)
     if args.documents:
         for kind, pattern, keep in DOCUMENTS:
             append(args.out, kind, document_strings(pattern, keep), DOCUMENT_STRINGS, retarget=True, dry_run=args.dry_run)
@@ -463,11 +485,13 @@ def main() -> None:
     parser.add_argument("--documents", action="store_true",
                         help="append the debate transcripts as new chunks, at most DOCUMENT_STRINGS each")
     parser.add_argument("--sections", action="store_true", help="append the debate viewer's section titles as page chunks")
+    parser.add_argument("--plurals", action="store_true",
+                        help="append the page code's plural(n, one, many) pairs, one message each, as plural chunks")
     parser.add_argument("--dry-run", action="store_true",
                         help="with a collecting mode (--sources, --pages, ...): print what would be carried and "
                              "appended, write nothing")
     args = parser.parse_args()
-    more = args.sources or args.page_data or args.sections or args.pages or args.resources or args.documents
+    more = args.sources or args.page_data or args.sections or args.pages or args.resources or args.documents or args.plurals
     if args.dry_run and not more:
         parser.error("--dry-run needs --sources, --page-data, --pages, --resources, --documents or --sections")
     if args.dry_run:

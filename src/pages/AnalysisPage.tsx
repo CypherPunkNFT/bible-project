@@ -4,6 +4,7 @@ import { getAcquired } from './teachers/shared/acquired';
 import { preloadScholarLibrary } from './teachers/scholars/catalogue/useLibrary';
 import { POPULATION_BASE, type PopulationEntry, type PopulationSnapshot } from './teachers/scholars/population';
 import './analysis.css';
+import { formatNumber, plural, textCollator } from "@/lib/site-format";
 
 /** The page reads only names, aliases, dates and work counts: the build's analysis.json (scripts/split-scholar-index.mjs),
  *  1.9 MB instead of the 13 MB list. Dev mode has only the full list. */
@@ -26,14 +27,14 @@ function years(person: PopulationEntry): string {
 }
 
 /** The same order as localeCompare, from one collator instead of one per comparison. */
-const byText = new Intl.Collator().compare;
+const byText = textCollator().compare;
 
 /** One frame's worth of cards. Memoised, so adding the next batch does not re-render every card already shown. */
 const CardBatch = memo(function CardBatch({ people }: { people: PopulationEntry[] }) {
   return <>{people.map(p => <li className="analysis-card" key={p.id} data-contributor-id={p.id}>
     <h2 title={p.name}>{p.name}</h2>
     <div className="analysis-card-meta"><span title={p.facts.dates.sourceConflict ? 'Profile dates shown; conflicting source labels remain in the catalogue.' : undefined}>{years(p)}</span>
-      <span><b>{p.counts.workGroups.toLocaleString()}</b> {p.counts.workGroups === 1 ? 'work record' : 'work records'}</span></div>
+      <span><b>{formatNumber(p.counts.workGroups)}</b> {plural(p.counts.workGroups, "work record", "work records")}</span></div>
   </li>)}</>;
 });
 
@@ -73,14 +74,14 @@ export default function AnalysisPage() {
     <header className="analysis-heading">
       <div><Link className="analysis-back" to="/teachers/scholars#catalogue">Scholars / Catalogue</Link>
         <h1>Every contributor, <em>one place.</em></h1></div>
-      <p className="analysis-total">{snapshot ? snapshot.entries.length.toLocaleString() : '…'} <span>contributors</span></p>
+      <p className="analysis-total">{snapshot ? formatNumber(snapshot.entries.length) : '…'} <span>contributors</span></p>
     </header>
     <div className="analysis-toolbar">
       <input type="search" aria-label="Find a contributor" placeholder="Find a name…" value={query} onChange={e => setQuery(e.target.value)} />
       <label>Sort <select aria-label="Sort contributors" value={sort} onChange={e => setSort(e.target.value)}>
         <option value="name">Name A–Z</option><option value="year">Birth year</option><option value="works">Work records</option>
       </select></label>
-      <p aria-live="polite">{snapshot ? `${entries.length.toLocaleString()} of ${snapshot.entries.length.toLocaleString()}` : 'Loading catalogue…'}</p>
+      <p aria-live="polite">{snapshot ? `${formatNumber(entries.length)} of ${formatNumber(snapshot.entries.length)}` : 'Loading catalogue…'}</p>
     </div>
     <p className="analysis-count-note">Work records may include editions and chapters. Counts are provisional. * Conflicting source dates.</p>
     {error && <p role="alert">The catalogue could not load. <button type="button" onClick={() => window.location.reload()}>Try again</button></p>}

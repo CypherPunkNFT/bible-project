@@ -1,8 +1,9 @@
 // The study's opening: the shared trail, the gold concept line, the title with its turn, the drawing and motto, the true counts.
 import { StudyTrail } from "@/components/study/StudyTrail";
 import { D, SN } from "./model";
+import { formatNumber } from "@/lib/site-format";
 
-const fmt = (n: number) => n.toLocaleString("en-US");
+const fmt = (n: number) => formatNumber(n);
 const { counts } = SN;
 const inUse = counts.greekTop - counts.greekUnused;
 

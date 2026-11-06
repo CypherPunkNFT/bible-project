@@ -16,6 +16,7 @@ import { BookRow, Found, Head, PlacedSquares } from "./song/Sections";
 import { PassagePanel, ROMAN, Sources, type PanelContent } from "./song/parts";
 import { HymnFullPage } from "./page/HymnFullPage";
 import "./song/song.css";
+import { formatNumber, plural } from "@/lib/site-format";
 
 function Crumb() {
   return <p className="hy-crumb"><Link to="/study">Study</Link><span>/</span><Link to="/study/theology?area=life">Living the Christian Life</Link><span>/</span><Link to="/study/hymns">Hymns</Link></p>;
@@ -42,7 +43,7 @@ function SongStudy({ song }: { song: HymnSong }) {
         <div><dt>Written by</dt><dd>{song.author}<small>{song.authorDates}</small></dd></div>
         <div><dt>Printed</dt><dd>{song.year}<small>{song.collection} · Book I, no. {song.number}</small></dd></div>
         <div><dt>Metre</dt><dd>{song.meterName}<small>{song.meter} · {song.stanzas.length} stanzas</small></dd></div>
-        <div><dt>In hymnals</dt><dd>{song.hymnals.toLocaleString("en-GB")}<small>listed at Hymnary.org</small></dd></div>
+        <div><dt>In hymnals</dt><dd>{formatNumber(song.hymnals)}<small>listed at Hymnary.org</small></dd></div>
       </dl>
     </section>
     <section className="hy-sec" id="hymn">
@@ -83,7 +84,7 @@ function PlainHymn({ collection, hymn }: { collection: HymnCollection; hymn: Hym
         <div><dt>Written by</dt><dd>{hymn.a}<small>{group?.who === hymn.a ? group.label : ""}</small></dd></div>
         <div><dt>Printed</dt><dd>{hymn.y}<small>{words.book || group?.short}</small></dd></div>
         <div><dt>Metre</dt><dd>{words.meter || (hymn.m ? hymn.m.replace(/,/g, ".") : "Not recorded")}<small>{words.stanzas.length} stanzas</small></dd></div>
-        <div><dt>Written on</dt><dd>{hymn.r || "A subject"}<small>{words.refs.length > 1 ? `and ${words.refs.length - 1} more passages` : hymn.v ? "its main passage" : words.subject}</small></dd></div>
+        <div><dt>Written on</dt><dd>{hymn.r || "A subject"}<small>{words.refs.length > 1 ? plural(words.refs.length - 1, "and {n} more passage", "and {n} more passages") : hymn.v ? "its main passage" : words.subject}</small></dd></div>
       </dl>
     </section>
     <section className="hy-sec">

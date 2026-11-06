@@ -3,6 +3,7 @@
 import type { Era, Faith, Field, Scholar, ScholarsData } from "@/data/teachers/pages-types";
 import type { CatalogueFilters } from "../context";
 import { isUsed, surname, weight } from "../marks/facts";
+import { compareText } from "@/lib/site-format";
 
 export type FacetKey = "field" | "era" | "faith";
 export type FacetValue = Field | Era | Faith;
@@ -36,7 +37,7 @@ export function passes(s: Scholar, filters: CatalogueFilters, haystack: Map<stri
 export function sortScholars(list: Scholar[], sort: SortKey): Scholar[] {
   const by: Record<SortKey, (a: Scholar, b: Scholar) => number> = {
     year: (a, b) => a.born - b.born,
-    az: (a, b) => surname(a).localeCompare(surname(b)),
+    az: (a, b) => compareText(surname(a), surname(b)),
     named: (a, b) => weight(b) - weight(a) || a.born - b.born,
   };
   return [...list].sort(by[sort]);

@@ -3,9 +3,9 @@
 import { memo, useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import type { Book } from "@/data/teachers/pages-types";
 import { formatNumber } from "../../shared/people";
-import { plural } from "../bible/words";
 import { countAt, type Timeline, type Track } from "./model";
 import { BOOKS, R0, SpokeAnimator, labelAt, niceStep, radiusOf, wedge } from "./geometry";
+import { plural } from "@/lib/site-format";
 
 const MOVES: Record<string, number> = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
 interface RingProps { books: Book[]; track: Track; timeline: Timeline | null; year: number; selected: number; onSelect: (b: number) => void }
@@ -55,7 +55,7 @@ export const Ring = memo(function Ring({ books, track, timeline, year, selected,
       <path key={book.code} ref={(el) => { paths.current[b] = el; }} fill={`var(--${book.section})`} d={wedge(b, R0)}
         className={[track.totals[b] ? "" : "thr-zero", b === selected ? "thr-on" : ""].join(" ").trim() || undefined}
         onPointerEnter={() => setHover(b)} onClick={() => onSelect(b)}>
-        <title>{`${book.name}: ${plural(track.totals[b], "work")}`}</title></path>)}</g>
+        <title>{`${book.name}: ${plural(track.totals[b], "{n} work", "{n} works")}`}</title></path>)}</g>
     <g className="thr-labels" key={`l-${track.id}`}>{labelled.map((b) => {
       const at = labelAt(b);
       return <text key={b} className="thr-label" transform={at.transform} textAnchor={at.anchor} dominantBaseline="middle">{books[b].name}</text>;

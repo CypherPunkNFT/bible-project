@@ -6,8 +6,8 @@ import { ArrowUpRight, BookOpen } from "lucide-react";
 import type { Book } from "@/data/teachers/pages-types";
 import { familyOf } from "../../shared/people";
 import { SECTION_LABEL } from "../bible/model";
-import { plural } from "../bible/words";
 import { bookOf, chapterOf, exactYear, formatDate, type Entry, type Timeline, type Track } from "./model";
+import { compareCode, plural } from "@/lib/site-format";
 
 export type Order = "text" | "date";
 const bookName = (book: Book) => (book.name === "Psalms" ? "Psalm" : book.name);
@@ -41,7 +41,7 @@ export const BookPanel = memo(function BookPanel({ books, track, byId, timeline,
   const book = books[selected];
   const limited = timeline !== null && year < timeline.all;
   const entries = track.byBook[selected].filter(({ work }) => !limited || (track.inLife(work) && (exactYear(work) ?? Infinity) <= year));
-  const sorted = order === "date" ? [...entries].sort((a, b) => (a.work.d ?? "9").localeCompare(b.work.d ?? "9") || a.work.v - b.work.v) : entries;
+  const sorted = order === "date" ? [...entries].sort((a, b) => compareCode(a.work.d ?? "9", b.work.d ?? "9") || a.work.v - b.work.v) : entries;
   const who = track.person ? track.person.short : "every teacher";
   useEffect(() => { if (listRef.current) listRef.current.scrollTop = 0; }, [track, selected, year, order]);
 
@@ -56,7 +56,7 @@ export const BookPanel = memo(function BookPanel({ books, track, byId, timeline,
 
   return <aside className="thr-book" style={tone(`--${book.section}`)}>
     <div className="thr-book-head"><p className="kicker">{SECTION_LABEL[book.section]}</p><h3>{book.name}</h3>
-      <p className="thr-book-sub">{plural(entries.length, "work")}{limited ? ` by ${year}` : ""} · {who}</p>
+      <p className="thr-book-sub">{plural(entries.length, "{n} work", "{n} works")}{limited ? ` by ${year}` : ""} · {who}</p>
       <div className="thr-seg" role="group" aria-label="Order" hidden={!entries.some(({ work }) => work.d)}>
         <button type="button" aria-pressed={order === "text"} onClick={() => onOrder("text")}>By chapter</button>
         <button type="button" aria-pressed={order === "date"} onClick={() => onOrder("date")}>By date</button></div></div>

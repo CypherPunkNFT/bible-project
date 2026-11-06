@@ -11,6 +11,7 @@ import { FieldWorks } from "../FieldWorks";
 import { Card } from "./Card";
 import { LibraryCard } from "./LibraryCard";
 import type { LibraryPerson } from "./library";
+import { formatNumber } from "@/lib/site-format";
 
 const ROW_ESTIMATE = 240;
 const noop = () => {};
@@ -72,7 +73,7 @@ export function VirtualCards({ people, data, shelf, onShelf, onOpen, scroller, p
     const full = p.id === shelf, style = pin ? place(row, column, full) : undefined;
     if (full) return <article className="cat-shelf" key={p.id} data-id={p.id} data-row={row} data-pinned={pin ? "" : undefined} style={style}>
       <div className="cat-shelf-heading"><h3>{p.name}</h3><button type="button" onClick={() => onShelf(null)}>Close works</button></div>
-      <p>{p.roles.join(' · ')} · {p.records.toLocaleString()} associated records. Source records, editions and reading copies may overlap.</p>
+      <p>{p.roles.join(' · ')} · {formatNumber(p.records)} associated records. Source records, editions and reading copies may overlap.</p>
       <p>{p.traditions.length ? `Recorded tradition: ${p.traditions.join(', ')}.` : 'Faith and tradition not recorded.'}</p>
       {p.sourceLifeDates.length > 0 && <p>Source date labels: {p.sourceLifeDates.join('; ')}.</p>}
       <FieldWorks key={p.id} entry={p} />

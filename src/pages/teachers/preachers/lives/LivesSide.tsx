@@ -3,8 +3,9 @@
 import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent, type RefObject } from "react";
 import type { PeopleData, Person, Point } from "@/data/teachers/pages-types";
 import { familyOf } from "../../shared/people";
-import { plural, prefersReducedMotion } from "./common";
+import { prefersReducedMotion } from "./common";
 import { aliveIn, chooseView, placePins, type MapName, type ViewChoice } from "./model";
+import { plural } from "@/lib/site-format";
 
 interface Props {
   people: Person[];
@@ -59,7 +60,7 @@ export function LivesSide({ people, views, year, hover, onHover, onOpen }: Props
   return <div className="life-side">
     <div className="life-now">
       <div><p className="kicker">The year</p><b className="life-year">{year}</b></div>
-      <p className="life-meta"><b>{plural(list.length, "teacher")} alive</b>{plural(cities, "place")}</p>
+      <p className="life-meta"><b>{plural(list.length, "{n} teacher", "{n} teachers")} alive</b>{plural(cities, "{n} place", "{n} places")}</p>
     </div>
     <div ref={inset} className={`life-inset${instant ? " instant" : ""}`}>
       <svg className={fading ? "fading" : undefined} role="img" aria-label="Where they were living that year" viewBox={`0 0 ${view.width} ${view.height}`}>

@@ -8,6 +8,7 @@ import { compareArrangement, type StudyNode } from "@/lib/circular-layout-study"
 import { staggeredBranches, siblingBands, ringArc } from "@/lib/circular-genealogy-paths";
 import { useAsync } from "@/lib/useAsync";
 import "./circular-genealogy.css";
+import { plural } from "@/lib/site-format";
 
 const starts = [["Abraham", "abraham-gen-11-26"], ["Jacob", "israel-gen-25-26"], ["Adam", "adam-gen-2-19"], ["David", "david-rut-4-17"], ["Jesus", "jesus-isa-7-14"]];
 const curveCenter = 36000;
@@ -297,7 +298,7 @@ function Graph({ people }: { people: FamilyPerson[] }) {
     current.invalid = !!ringOverlap(candidateNodes, current.candidate, 1, current.ids);
     setPreviewTracks(current.candidateTracks);
     setPreview(current.candidate);
-    setNotice(current.invalid ? "Overlapping: keep dragging to a clear spot, or release to snap back." : `Moving ${current.ids.size} locked ${current.ids.size === 1 ? "person" : "people"} together.`);
+    setNotice(current.invalid ? "Overlapping: keep dragging to a clear spot, or release to snap back." : `Moving ${current.ids.size} locked ${plural(current.ids.size, "person", "people")} together.`);
   };
   const endDrag = (event: ReactPointerEvent<SVGElement>, cancel = false) => {
     const current = drag.current;

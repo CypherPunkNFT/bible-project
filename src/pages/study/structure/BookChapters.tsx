@@ -10,6 +10,7 @@ import { ChapterPanel, type SummaryState } from "@/pages/library/ChapterPanel";
 import { minutesToRead, type Bar, type BookSpan, type Library } from "@/pages/library/model";
 import "@/pages/library/library.css";
 import { ChapterCompanions } from "./ChapterCompanions";
+import { plural } from "@/lib/site-format";
 
 type Metric = "words" | "verses" | "chapters";
 const METRICS: Metric[] = ["words", "verses", "chapters"];
@@ -131,7 +132,7 @@ function OpenBook({ library, bar, summaries, onSelect, onClose }: { library: Lib
   return (
     <div className="shape-book" style={{ "--tone": `var(--${book.section})` } as CSSProperties}>
       <div className="shape-book-head">
-        <div><h3>{book.name}</h3><p>{book.count} {book.count === 1 ? "chapter" : "chapters"} · {formatNumber(book.words)} words · about {minutesToRead(book.words)} min to read</p></div>
+        <div><h3>{book.name}</h3><p>{book.count} {plural(book.count, "chapter", "chapters")} · {formatNumber(book.words)} words · about {minutesToRead(book.words)} min to read</p></div>
         <button type="button" onClick={onClose} aria-label={`Close ${book.name}`}><X size={16} aria-hidden="true" /></button>
       </div>
       <p className="shape-book-detail" aria-live="polite"><strong>{shown.name} {shown.chapter}</strong>{titleOf(shown) && <em>{titleOf(shown)}</em>}<span>{shown.verses} verses · {formatNumber(shown.words)} words</span></p>

@@ -162,11 +162,10 @@ describe("the site reads its languages from the one file", () => {
     }
   });
 
-  it("the reader's \"Read\" mark, written in code, is the source's and each released language's own, under site codes only", () => {
-    const table = read("src/pages/ReaderPage.tsx").match(/const CHAPTER_READ[^=]*=\s*\{([^}]*)\}/)?.[1];
-    expect(table, "ReaderPage.tsx: no `const CHAPTER_READ ... = { ... }` found").toBeDefined();
-    const keys = [...table!.matchAll(/(?:^|,)\s*"?([\w-]+)"?\s*:/g)].map((match) => match[1]);
-    for (const key of keys) expect(codes, `CHAPTER_READ.${key}`).toContain(key);
-    for (const language of SITE_LANGUAGES.filter((entry) => entry.released)) expect(keys, language.code).toContain(language.code);
+  it("the reader's \"Marked read\" mark has each released language's own wording, seeded until the translators' arrives", () => {
+    for (const language of SITE_LANGUAGES.filter((entry) => entry.released && entry.folder !== null)) {
+      const seed = JSON.parse(read(`content/translation/seed/${language.folder}.json`)) as Record<string, string>;
+      expect(seed["Marked read"], language.code).toBeTypeOf("string");
+    }
   });
 });

@@ -7,6 +7,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { BankBook } from "@/lib/data";
 import { BOOKS, R0, SpokeAnimator, angle, niceStep, point, radiusOf, wedge } from "@/pages/teachers/preachers/through/geometry";
 import { SectionHead } from "./shared";
+import { formatNumber } from "@/lib/site-format";
 
 const ROWS = [
   { testament: "Old Testament", label: "Law", from: "GEN", to: "DEU" },
@@ -104,14 +105,14 @@ function QuestionRing({ books, totals, lit, chosen, onHover, onChoose }: RingPro
         2026-10-23: "the circle can be larger", then "a little smaller… not .25 but .125"). */}
     <svg ref={svgRef} className="qx-ring" viewBox="-293 -333 586 635" role="img" aria-label="Questions by book of the Bible: one spoke per book, as long as its questions">
       <g>{guides.map(({ v, r }) => <g key={v}><circle r={r.toFixed(1)} className="qx-ring-guide" />
-        <text className="qx-ring-guide-label" textAnchor="middle" y={(r + 13).toFixed(1)}>{v.toLocaleString()}</text></g>)}</g>
+        <text className="qx-ring-guide-label" textAnchor="middle" y={(r + 13).toFixed(1)}>{formatNumber(v)}</text></g>)}</g>
       <g onPointerLeave={() => onHover(-1)}>{books.map((book, b) =>
         <path key={book.code} ref={(el) => { paths.current[b] = el; }} fill={`var(--${book.section})`} d={wedge(b, R0)}
           className={[totals[b] ? "" : "is-zero", b === lit ? "is-lit" : "", b === chosen ? "is-on" : ""].join(" ").trim() || undefined}
           onPointerEnter={() => onHover(b)} onClick={() => onChoose(b)}><title>{`${book.name}: ${totals[b]} questions`}</title></path>)}</g>
       <g>{labelled.map((b) => { const at = labelAt(b, radiusOf(Math.sqrt(totals[b] / max))); return <text key={b} className="qx-ring-label" transform={at.transform} textAnchor={at.anchor} dominantBaseline="middle">{books[b].name}</text>; })}</g>
       <circle r={R0 - 6} className="qx-ring-hole" />
-      <text className="qx-ring-big" y="0" textAnchor="middle">{totals[centre].toLocaleString()}</text>
+      <text className="qx-ring-big" y="0" textAnchor="middle">{formatNumber(totals[centre])}</text>
       <text className="qx-ring-small" y="26" textAnchor="middle">{books[centre].name}</text>
     </svg>
   </figure>;

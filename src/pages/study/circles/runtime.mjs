@@ -1,6 +1,7 @@
 import {layoutWorks,previewMarkup} from './graph-layout.mjs';
 import {parseMap,createMapBloom,animateMapBloom,animateMapCamera} from './map-bloom.mjs';
 import {DenseWorkMap} from './dense-map.mjs';
+import { compareText, formatNumber, plural } from "../../../lib/site-format.ts";
 export async function mountCircles(root,options={}){
 const cleanups=[],app=root.querySelector('.circles-app');let disposed=false;
 const on=(target,event,callback,opts)=>{target.addEventListener(event,callback,opts);cleanups.push(()=>target.removeEventListener(event,callback,opts));};
@@ -29,7 +30,7 @@ const entry=w=>study().works.find(x=>x.id===w.id);
 const collectionCache=new Map();
 function collection(){
  const id=leaderId||studyId;if(collectionCache.has(id))return collectionCache.get(id);
- const items=leaderId?[...works.filter(w=>w.leader===leaderId),...(data.leaderWorks?.[leaderId]||[])].sort((a,b)=>(year(a)??9999)-(year(b)??9999)||(a.fullDate||a.year).localeCompare(b.fullDate||b.year)||a.title.localeCompare(b.title)):study().works.map(r=>workById.get(r.id));
+ const items=leaderId?[...works.filter(w=>w.leader===leaderId),...(data.leaderWorks?.[leaderId]||[])].sort((a,b)=>(year(a)??9999)-(year(b)??9999)||compareText(a.fullDate||a.year, b.fullDate||b.year)||compareText(a.title, b.title)):study().works.map(r=>workById.get(r.id));
  collectionCache.set(id,items);return items;
 }
 function matches(w,q){return(w.title+' '+w.author+' '+(w.number||'')+' '+(w.passages||[]).join(' ')).toLowerCase().includes(q.toLowerCase());}
@@ -76,15 +77,15 @@ function inspect(){const el=$('#inspect'),w=workById.get(selected),p=leader();$(
  const refs=w.records.flatMap(r=>r.uses.map(u=>({...u,url:r.url}))),seen=new Set();const evidence=refs.filter(u=>{const k=u.address+'|'+u.locator;if(seen.has(k))return false;seen.add(k);return true;}).slice(0,12);
  el.innerHTML=`<div class="panel-label">${leaderId?'THE WORK':`<span>${['LEVEL I','LEVEL II','LEVEL III'][priorityLevel(rank-1)]}</span> · PRIORITY ${String(rank).padStart(2,'0')}`}</div><h3>${esc(w.title)}</h3><div class="work-year">${esc(w.fullDate||w.year||'Date not recorded')}${w.dateEvent?' · '+(w.dateEvent==='delivery'?'Preached':'Published'):''}${!leaderId?' · '+esc(meta?.kind||'Related reading'):''}</div>${authorCard(person)}<p>${esc(w.author)}${w.number?` · No. ${esc(w.number)}`:''}${w.passages?.length?`<br>${esc(w.passages.join('; '))}`:''}</p>${w.dateNote?`<p>${esc(w.dateNote)}</p>`:''}<button class="primary-link" data-read="${w.id}">Read this work <span>↗</span></button>${evidence.length?`<details><summary>Where this work appears · ${evidence.length}</summary><div class="evidence slim-scroll">${evidence.map(u=>`<a href="${safe(u.address)}">${esc(u.page)} <span>↗</span></a><p>${esc(u.locator)}</p>`).join('')}</div></details>`:''}`;
 }
-function connections(){const ids=new Set(selected?[selected]:collection().map(w=>w.id)),related=studies.filter(s=>leaderId||s.id!==studyId).map(s=>({...s,shared:s.works.filter(w=>ids.has(w.id)).length})).filter(s=>s.shared).sort((a,b)=>b.shared-a.shared).slice(0,5);$('#connections').innerHTML=`<p class="eyebrow">FOLLOW THE CONNECTION</p><h3>Connected studies</h3>${related.map(s=>`<button class="connection" data-study="${s.id}"><span><strong>${esc(s.label)}</strong><small>${esc(categories.find(c=>c.id===s.category).label)} · ${s.shared} shared work${s.shared===1?'':'s'}</small></span><span>↗</span></button>`).join('')||'<p>No other study in this collection shares these works yet.</p>'}`;}
+function connections(){const ids=new Set(selected?[selected]:collection().map(w=>w.id)),related=studies.filter(s=>leaderId||s.id!==studyId).map(s=>({...s,shared:s.works.filter(w=>ids.has(w.id)).length})).filter(s=>s.shared).sort((a,b)=>b.shared-a.shared).slice(0,5);$('#connections').innerHTML=`<p class="eyebrow">FOLLOW THE CONNECTION</p><h3>Connected studies</h3>${related.map(s=>`<button class="connection" data-study="${s.id}"><span><strong>${esc(s.label)}</strong><small>${esc(categories.find(c=>c.id===s.category).label)} · ${s.shared} shared ${plural(s.shared, "work", "works")}</small></span><span>↗</span></button>`).join('')||'<p>No other study in this collection shares these works yet.</p>'}`;}
 let shelfItems=[],shelfKey='',shelfAll=[];
 function shelf(_list,all){
  const query=$('#shelf-search').value.trim(),key=(leaderId||studyId)+'|'+query.toLowerCase();
- $('#shelf-title').textContent=`All ${all.length.toLocaleString()} collected works.`;
+ $('#shelf-title').textContent=`All ${formatNumber(all.length)} collected works.`;
  if(key===shelfKey)return;
  shelfKey=key;shelfAll=all;shelfItems=all.filter(w=>matches(w,query));limit=0;
  $('#results').replaceChildren();$('#shelf-scroll').scrollTop=0;
- $('#result-count').textContent=query?`${shelfItems.length.toLocaleString()} matching works`:'';
+ $('#result-count').textContent=query?`${formatNumber(shelfItems.length)} matching works`:'';
  appendShelf();
 }
 function appendShelf(){

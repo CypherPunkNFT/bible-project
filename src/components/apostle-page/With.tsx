@@ -1,11 +1,12 @@
 import { BibleAbbr } from "@/components/Verse";
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { PERIOD_TONE, personHref, plural, refText, ROMAN } from "./data";
+import { PERIOD_TONE, personHref, refText, ROMAN } from "./data";
 import { useSheet } from "./sheet";
 import { Tip } from "./tip";
 import type { Apostle, Entry, Place } from "./types";
 import { ClaimFoot, Marked, RefLink, SecHead } from "./ui";
+import { formatNumber, plural } from "@/lib/site-format";
 
 /**
  * 03 · Who was with him? Two views in one section, so the page does not grow: "Lines" (his records in story order, each
@@ -133,7 +134,7 @@ function NowPanel({ d, now }: { d: Apostle; now: Now }) {
   }
   if (now.kind === "person") {
     const r = d.rowByKey[now.key], shared = d.scripture.filter((e) => e.with[now.key]), comp = d.companions.find((c) => c.person.personId === r.id);
-    return <><p className="kicker">Named beside him · {plural(shared.length, "record")}</p><h3>{r.name}</h3>
+    return <><p className="kicker">Named beside him · {plural(shared.length, "{n} record", "{n} records")}</p><h3>{r.name}</h3>
       {comp && <><p className="with-text">{comp.claim.text}</p><ClaimFoot d={d} c={comp.claim} /></>}
       <ol className="with-list">{shared.map((e) => <li key={e.key}><button type="button" onClick={() => sheet.openEntry(e)}><span>{e.title}</span><small>{refText([e.with[now.key][0], e.with[now.key][0]])}</small></button></li>)}</ol>
       <Link className="ref" to={personHref(r.id)}>Open {r.name}'s page</Link></>;
@@ -141,7 +142,7 @@ function NowPanel({ d, now }: { d: Apostle; now: Now }) {
   if (now.kind === "place") {
     const p = now.p;
     return <><p className="kicker">{p.tradition ? "Known from tradition" : "A place in his story"}</p><h3>{p.name}</h3>
-      {p.from && <p className="plain-line">{p.from.km.toLocaleString("en-GB")} km {p.from.dir} of Jerusalem</p>}
+      {p.from && <p className="plain-line">{formatNumber(p.from.km)} km {p.from.dir} of Jerusalem</p>}
       {p.note && <p className="with-text">{p.note}</p>}<ClaimFoot d={d} c={{ layer: p.tradition ? "tradition" : "scripture", refs: p.refs }} /></>;
   }
   return <><p className="kicker">The centre</p><h3>{d.name}</h3><p className="with-text">{d.story ?? d.tagline}</p><p className="plain-line">Choose a person, a place or a record on the circle.</p></>;
@@ -153,7 +154,7 @@ export function WithSub({ d }: { d: Pick<Apostle, "key" | "short" | "rows"> }) {
   return <><span>{d.key === "paul"
     ? `Every record of ${d.short} in Scripture, in story order (Acts as told, with the Lord's words to him where Acts or his letter sets them).`
     : `Every record of ${d.short} in Scripture, in story order (the Gospels in the order of Robertson's harmony, then Acts and the letters).`}</span>
-    {" "}<span>A person counts as "with him" only where a verse of that record names them both.</span>{" "}<span>{`${plural(d.rows.length, "person", "people")} in all.`}</span></>;
+    {" "}<span>A person counts as "with him" only where a verse of that record names them both.</span>{" "}<span>{`${plural(d.rows.length, "{n} person", "{n} people")} in all.`}</span></>;
 }
 
 export function WithSection({ d }: { d: Apostle }) {

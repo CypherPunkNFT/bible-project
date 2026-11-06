@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import { atlasDestination } from "./routes";
 import SUMMARY from "./old-maps-summary.json";
 import "./old-maps.css";
+import { formatNumber } from "@/lib/site-format";
 
 // The Atlas's ninth destination: historical maps of the biblical world (Research/HistoricalMaps). The owner approved the
 // card and the Study card on 2026-10-19 (design/old-maps-directions/?d=atlas, parts 1 and 4); the collection page itself
 // is old-maps-collection/ (the merged design, ?d=d).
 
-const fmt = (n: number) => n.toLocaleString("en-GB");
+const fmt = (n: number) => formatNumber(n);
 
 /** A sheet with a compass rose; drawn to sit with the lucide icons the other eight destinations use. */
 export function OldMapIcon({ size = 24, strokeWidth = 1.5, className }: { size?: number | string; strokeWidth?: number | string; className?: string; "aria-hidden"?: boolean }) {

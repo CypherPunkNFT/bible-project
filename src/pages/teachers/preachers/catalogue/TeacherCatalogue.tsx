@@ -7,6 +7,7 @@ import { usePreachers } from '../context';
 import { cssVars, initials, toneOf } from '../drawer/helpers';
 import { continentFor, regionGroups } from '../directory/regions';
 import './teacher-catalogue.css';
+import { compareText } from "@/lib/site-format";
 
 type Facet = 'region' | 'family' | 'era';
 type Filters = Record<Facet, string[]>;
@@ -38,8 +39,8 @@ export function TeacherCatalogue() {
   const viewport = useRef<HTMLDivElement>(null);
   const words = normalise(query).trim().split(/\s+/).filter(Boolean);
   const matches = (row: Row, ignore?: Facet) => words.every(word => row.search.includes(word)) && (['region','family','era'] as Facet[]).every(key => key===ignore || !filters[key].length || filters[key].includes(row[key]));
-  const visible = rows.filter(row => matches(row)).sort((a,b) => sort==='az' ? a.person.name.localeCompare(b.person.name) : sort==='works' ? b.person.works-a.person.works || a.person.name.localeCompare(b.person.name) : a.person.born-b.person.born || a.person.name.localeCompare(b.person.name));
-  const regions = [...new Set(rows.map(row=>row.region))].sort((a,b)=>a.localeCompare(b));
+  const visible = rows.filter(row => matches(row)).sort((a,b) => sort==='az' ? compareText(a.person.name, b.person.name) : sort==='works' ? b.person.works-a.person.works || compareText(a.person.name, b.person.name) : a.person.born-b.person.born || compareText(a.person.name, b.person.name));
+  const regions = [...new Set(rows.map(row=>row.region))].sort((a,b)=>compareText(a, b));
   const eras = [...new Set(rows.map(row=>row.era))].sort();
   const active = Boolean(query.trim() || Object.values(filters).some(values=>values.length));
   const start = Math.floor(Math.min(...data.people.map(p=>p.born))/100)*100;

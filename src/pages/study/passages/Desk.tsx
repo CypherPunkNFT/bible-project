@@ -7,6 +7,7 @@ import { caseById, readingsFor, type CaseId, type Reading } from "./evidence";
 import { isLost, kindClass } from "./model";
 import { Cite, RecButton } from "./parts";
 import { Rich } from "./Rich";
+import { plural } from "@/lib/site-format";
 
 interface Group { key: string; text: string; lost: boolean; ms: number; ed: number }
 const keyOf = (r: Reading) => (isLost(r) ? `lost:${r.id}` : r.difference);
@@ -21,7 +22,7 @@ function groups(rows: Reading[]): Group[] {
   return [...map.values()];
 }
 const support = (g: Group) => (g.lost ? "no leaf survives here"
-  : [g.ms ? `${g.ms} manuscript${g.ms > 1 ? "s" : ""}` : "", g.ed ? `${g.ed} edition${g.ed > 1 ? "s" : ""}` : ""].filter(Boolean).join(" · "));
+  : [g.ms ? `${plural(g.ms, "{n} manuscript", "{n} manuscripts")}` : "", g.ed ? `${plural(g.ed, "{n} edition", "{n} editions")}` : ""].filter(Boolean).join(" · "));
 
 /** The right edge of the last line of text inside a node, and the rightmost edge of any of its lines. */
 function textEdges(node: Element) {

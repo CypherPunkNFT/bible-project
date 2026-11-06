@@ -12,6 +12,7 @@ import { closenessLead } from '../manuscripts/leads';
 import { byDate, formatNumber, isDated, kindOf, mid, ordinal, type MsIndex } from '../manuscripts/model';
 import '../manuscripts/manuscripts.css';
 import './evidence.css';
+import { plural } from "@/lib/site-format";
 
 export const recordHref = (id: string) => `/study/manuscripts?record=${encodeURIComponent(id)}`;
 
@@ -81,7 +82,7 @@ function Centuries({ index }: { index: MsIndex }) {
   const top = Math.max(...rows.map((r) => r.total));
   const [pointed, setPointed] = useState<(typeof rows)[number] | null>(null);
   const dated = rows.reduce((a, r) => a + r.total, 0);
-  const say = pointed ? <><b>{centuryName(pointed.c)}</b>: {formatNumber(pointed.total)} dated {pointed.total === 1 ? 'copy' : 'copies'}{pointed.total ? ` · ${FAMILIES.filter((f) => pointed.row[f.name]).map((f) => `${f.name} ${formatNumber(pointed.row[f.name])}`).join(' · ')}` : ''}</>
+  const say = pointed ? <><b>{centuryName(pointed.c)}</b>: {formatNumber(pointed.total)} dated {plural(pointed.total, "copy", "copies")}{pointed.total ? ` · ${FAMILIES.filter((f) => pointed.row[f.name]).map((f) => `${f.name} ${formatNumber(pointed.row[f.name])}`).join(' · ')}` : ''}</>
     : <>The {formatNumber(dated)} records that carry a date, by century. The scrolls end with the first century; the Greek papyri begin in the second; most copies of everything are mediaeval. Point at a century to count it.</>;
   return <div className="sw-centuries">
     <div className="sw-cent-key">{FAMILIES.map((f) => <span key={f.name}><i style={{ background: f.colour }}/>{f.name}</span>)}</div>

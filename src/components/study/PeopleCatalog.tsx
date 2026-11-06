@@ -7,6 +7,7 @@ import { assignRoles, PERSON_ROLES, roleColor, type PersonRole } from "@/lib/peo
 import type { PersonRow } from "@/lib/study";
 import { formatNumber } from "@/lib/utils";
 import "./people-catalog.css";
+import { compareText, plural } from "@/lib/site-format";
 
 /** Short period names, so the twelve buttons fit two rows beside the legend; the full name shows on hover. */
 const SHORT: Record<string, string> = { exodus: "Exodus", "divided-kingdom": "Two kingdoms", "": "Undated" };
@@ -47,7 +48,7 @@ export function PeopleCatalog({ people: everyone, backLabel }: { people: PersonR
   const matches = useMemo(() => {
     const words = query.trim().toLowerCase();
     const list = words ? people.filter((p) => p.n.toLowerCase().includes(words) || p.o.some((o) => o.toLowerCase().includes(words)) || p.b.toLowerCase().includes(words)) : people;
-    return [...list].sort((a, b) => periodOrder(a.p) - periodOrder(b.p) || b.c - a.c || a.n.localeCompare(b.n));
+    return [...list].sort((a, b) => periodOrder(a.p) - periodOrder(b.p) || b.c - a.c || compareText(a.n, b.n));
   }, [people, query]);
   const roleCounts = useMemo(() => {
     const map = new Map<PersonRole, number>();
@@ -113,7 +114,7 @@ export function PeopleCatalog({ people: everyone, backLabel }: { people: PersonR
       <div className="people-catalog-roles" role="group" aria-label="Show one kind of person" data-choosing={role ? "" : undefined}>
         {PERSON_ROLES.map((entry) => {
           const count = roleCounts.get(entry.id) ?? 0;
-          return <button key={entry.id} type="button" title={`${entry.note} · ${formatNumber(count)} ${count === 1 ? "person" : "people"}`} aria-pressed={role === entry.id} disabled={!count && role !== entry.id}
+          return <button key={entry.id} type="button" title={`${entry.note} · ${formatNumber(count)} ${plural(count, "person", "people")}`} aria-pressed={role === entry.id} disabled={!count && role !== entry.id}
             onClick={() => setRole(role === entry.id ? null : entry.id)} style={{ "--role": roleColor(entry.id) } as CSSProperties}>
             <span className="people-role-dot" aria-hidden />{entry.label}</button>;
         })}
@@ -122,10 +123,10 @@ export function PeopleCatalog({ people: everyone, backLabel }: { people: PersonR
     <OutsideScroll label="People, scrollable" className="people-catalog-scroll" frameClassName="people-catalog-frame" viewportClassName="people-catalog-viewport" resetKey={`${period}:${query}:${role}`}>
       {groups.map((group) => <section key={group.id || "none"} className="people-catalog-group" aria-label={group.label}>
         <h3><span className="people-catalog-number">{String(PEOPLE_PERIODS.findIndex((entry) => entry.id === group.id) + 1).padStart(2, "0")}</span>
-          <span className="people-catalog-title">{group.label}<small>{group.note}</small></span><span className="people-catalog-count">{formatNumber(group.people.length)} {group.people.length === 1 ? "person" : "people"}</span></h3>
+          <span className="people-catalog-title">{group.label}<small>{group.note}</small></span><span className="people-catalog-count">{formatNumber(group.people.length)} {plural(group.people.length, "person", "people")}</span></h3>
         <ul>{group.people.map((person) => <li key={person.id}><Link to={`/people/${person.id}`} state={backTo(person.id)} data-person={person.id} className={person.id === last ? "people-card is-last" : "people-card"}>
           <strong>{person.n}</strong><span className="people-card-brief">{person.b}</span>
-          <span className="people-card-foot"><span className="people-card-role" style={{ "--role": roleColor(roles.get(person.id)!) } as CSSProperties}><span className="people-role-dot" aria-hidden />{PERSON_ROLES.find((entry) => entry.id === roles.get(person.id))?.label}</span><span>{formatNumber(person.c)} {person.c === 1 ? "verse" : "verses"}</span></span>
+          <span className="people-card-foot"><span className="people-card-role" style={{ "--role": roleColor(roles.get(person.id)!) } as CSSProperties}><span className="people-role-dot" aria-hidden />{PERSON_ROLES.find((entry) => entry.id === roles.get(person.id))?.label}</span><span>{formatNumber(person.c)} {plural(person.c, "verse", "verses")}</span></span>
         </Link></li>)}</ul>
       </section>)}
       {!groups.length && <p className="people-catalog-empty">No one matches.</p>}

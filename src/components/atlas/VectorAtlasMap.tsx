@@ -10,6 +10,7 @@ import { useMediaQuery } from "@/lib/useMediaQuery";
 import { projectPlace, type MapPlace } from "./projection";
 import { groupPlaces, labelGroups, type PlaceGroup } from "./vector-layout";
 import "./vector-atlas.css";
+import { compareText, plural } from "@/lib/site-format";
 
 // Allow close inspection of dense city groups; marker sizes remain constant on screen.
 const MAX_ZOOM = 8192;
@@ -133,14 +134,14 @@ export function VectorAtlasMap({ places, selected, onSelect, overlay, coveredFra
               const chosen = group.members.some((p) => p.id === selected?.id);
               const count = group.members.length;
               return <g key={group.id} className="vector-map-marker" role="button" tabIndex={0} data-place={group.place.id} data-count={count}
-                aria-label={count > 1 ? `${count} places near ${group.place.name}` : `${group.place.name}, ${group.place.verses.length} verses`}
+                aria-label={count > 1 ? `${plural(count, "{n} place", "{n} places")} near ${group.place.name}` : `${group.place.name}, ${plural(group.place.verses.length, "{n} verse", "{n} verses")}`}
                 onClick={() => pick(group)} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(group); } }}
                 style={{ "--marker-color": chosen ? "var(--accent)" : sectionColor(group.place.section) } as CSSProperties}>
                 <circle cx={group.place.x} cy={group.place.y} className="vector-marker-hit" />
                 {chosen && <circle cx={group.place.x} cy={group.place.y} className="vector-marker-selected" />}
                 <circle cx={group.place.x} cy={group.place.y} className={count > 1 ? "vector-marker-cluster" : "vector-marker-dot"} data-uncertain={group.place.confidence < .5 && count === 1} />
                 {count > 1 && <text x={group.place.x} y={group.place.y} className="vector-marker-count" dominantBaseline="central" textAnchor="middle">{count}</text>}
-                <title>{count > 1 ? `Open all ${count} places in this area` : group.place.name}</title>
+                <title>{count > 1 ? plural(count, "Open the {n} place in this area", "Open all {n} places in this area") : group.place.name}</title>
               </g>;
             })}
             <g className="vector-map-labels" opacity={moving ? 0 : 1} aria-hidden="true">
@@ -161,7 +162,7 @@ export function VectorAtlasMap({ places, selected, onSelect, overlay, coveredFra
           <header><div><p>{opened.members.length} places in this area</p><h3>Choose a place.</h3></div><button type="button" aria-label="Close place group" onClick={() => setOpened(null)}><X size={18} /></button></header>
           <input className="vector-group-search" aria-label="Find within this group" placeholder="Find within this group…" value={groupQuery} onChange={(event) => setGroupQuery(event.target.value)} />
           <OutsideScroll label="Grouped places" className="vector-cluster-list" frameClassName="rounded-lg" resetKey={groupQuery}>
-            <ul>{[...opened.members].filter((place) => place.name.toLowerCase().includes(groupQuery.trim().toLowerCase())).sort((a, b) => a.name.localeCompare(b.name)).map((place) => <li key={place.id}><button type="button" onClick={() => { setOpened(null); onSelect(place); }}><span className="vector-list-dot" style={{ background: sectionColor(place.section) }} /><span>{place.name}<small>{place.type}</small></span><span>{place.verses.length}<small>verses</small></span></button></li>)}</ul>
+            <ul>{[...opened.members].filter((place) => place.name.toLowerCase().includes(groupQuery.trim().toLowerCase())).sort((a, b) => compareText(a.name, b.name)).map((place) => <li key={place.id}><button type="button" onClick={() => { setOpened(null); onSelect(place); }}><span className="vector-list-dot" style={{ background: sectionColor(place.section) }} /><span>{place.name}<small>{place.type}</small></span><span>{place.verses.length}<small>verses</small></span></button></li>)}</ul>
             {!opened.members.some((place) => place.name.toLowerCase().includes(groupQuery.trim().toLowerCase())) && <p className="p-2 text-xs text-muted">No matching place in this group.</p>}
           </OutsideScroll>
           {view.k < MAX_ZOOM && <button type="button" className="vector-cluster-zoom" onClick={() => { fly(opened.place.x, opened.place.y, view.k * 2.5); setActiveRegion(""); setOpened(null); }}>Zoom closer <ArrowUpRight size={15} /></button>}

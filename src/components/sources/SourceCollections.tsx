@@ -5,6 +5,7 @@ import type { ReviewFilter } from './dashboard-model';
 import { RecordDetails } from './SourceCatalogue';
 import { CollectionArt, collectionTones } from './CollectionArt';
 import { collectionPreviews } from './collection-previews';
+import { formatNumber } from "@/lib/site-format";
 export function SourceCollections({directory,entries,failed,openCatalogue}:{directory:Directory;entries:SourceEntry[]|null;failed?:boolean;openCatalogue:(category?:string,review?:ReviewFilter)=>void}) {
  const [query,setQuery]=useState(''),[group,setGroup]=useState('all');
  const [expanded,setExpanded]=useState<string[]>([]),[selected,setSelected]=useState<SourceEntry|null>(null);
@@ -24,7 +25,7 @@ export function SourceCollections({directory,entries,failed,openCatalogue}:{dire
  return <article key={c.id} className="source-collection-shelf" style={{'--board-tone':collectionTones[c.id]??'#9badaf'} as CSSProperties}>
  <div className="source-collection-row"><div className="source-collection-art"><CollectionArt id={c.id}/></div>
  <div className="source-collection-copy"><span className="source-board-kicker">{organization(c.id)?'Library organization':String(index+1).padStart(2,'0')+' / Subject collection'}</span><h3>{c.label}</h3><p>{c.definition}</p></div>
- <div className="source-collection-size"><strong>{count?.toLocaleString()??'—'}</strong><span>records</span><small>{authors?.toLocaleString()??'—'} author groups</small></div>
+ <div className="source-collection-size"><strong>{(count === undefined ? undefined : formatNumber(count))??'—'}</strong><span>records</span><small>{(authors === undefined ? undefined : formatNumber(authors))??'—'} author groups</small></div>
  <div className="source-collection-actions"><button type="button" className="source-collection-browse" onClick={()=>openCatalogue(c.id)} aria-label={'Browse collection: '+c.label}>Browse collection <ArrowRight size={14}/></button><button type="button" aria-expanded={open} aria-controls={'preview-'+c.id} aria-label={(open?'Hide':'Preview')+' works: '+c.label} onClick={()=>setExpanded(open?expanded.filter(id=>id!==c.id):[...expanded,c.id])}>{open?'Close preview':'Preview works'}<ChevronDown size={14}/></button></div></div>
  <div id={'preview-'+c.id} hidden={!open} className="source-collection-preview"><p className="source-board-kicker">Selected records in this collection</p>{!entries?<p role="status">{failed?'Source records could not load. Reload to try again.':'Loading source records…'}</p>:examples.length?<div className="source-collection-examples">{examples.map(e=><button key={e.id} type="button" onClick={()=>setSelected(e)} aria-label={'Open source details: '+e.title+' — '+e.author}><span className="source-example-kind">{e.kind}</span><strong>{e.title}</strong><span>{e.author}</span><small>Source & edition <ArrowRight size={12}/></small></button>)}</div>:<p>No preview records are available in this snapshot. Browse the collection to see its records.</p>}</div>
  </article>;

@@ -4,11 +4,12 @@ import { groupLabels, type GroupStatus } from '@/lib/mission-groups';
 import type { CountryPanelDesign } from '@/lib/country-panel-designs';
 import PillScroll from './PillScroll';
 import './country-people-groups.css';
+import { compareText, numberFormat } from "@/lib/site-format";
 
 interface PeopleGroup { id: string; name: string; language: string | null; religion: string; population: number; status: GroupStatus }
 interface CountryGroups { country: string; snapshotDate: string; sourceSha256: string; groups: PeopleGroup[] }
 const cache = new Map<string, CountryGroups>();
-const format = (value: number) => new Intl.NumberFormat('en').format(value);
+const format = (value: number) => numberFormat().format(value);
 const keys = Object.keys(groupLabels) as GroupStatus[];
 const icons = { unengaged: Compass, engagedUnreached: Sprout, noLongerUnreached: CircleCheck };
 const groupLink = (group: PeopleGroup) => <strong>{group.name}</strong>;
@@ -44,7 +45,7 @@ export default function CountryPeopleGroups({ code, name, count, snapshotDate, s
   if (!data) return <p className="mw-groups-message" role="status">Opening the people groups…</p>;
   const current = groups.find(group => group.id === focused) ?? groups[0];
   const facts = (group: PeopleGroup) => <dl className="mw-pg-facts"><div><dt>Population</dt><dd>{format(group.population)} <small>people</small></dd></div><div><dt>Language</dt><dd>{language(group)}</dd></div><div><dt>Religion</dt><dd>{religion(group)}</dd></div></dl>;
-  const languages = [...new Set(groups.map(language))].sort((a, b) => a.localeCompare(b));
+  const languages = [...new Set(groups.map(language))].sort((a, b) => compareText(a, b));
   return <div className={`mw-people-groups mw-pg-layout-${layout}`}>
     <div className="mw-group-filters"><label><Search size={15} aria-hidden="true" /><input type="search" aria-label="Search people groups" placeholder="Name, language or religion…" value={search} onChange={event => setSearch(event.target.value)} /></label></div>
     <div className="mw-pg-filters" role="group" aria-label="Filter people groups by engagement">

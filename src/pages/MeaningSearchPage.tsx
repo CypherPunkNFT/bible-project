@@ -6,6 +6,7 @@ import { STUDIES } from "@/data/apologetics-studies";
 import { searchStudies } from "@/lib/apologetics-search";
 import { studyUrl } from "@/lib/apologetics-links";
 import { disableMeaning, enableMeaning, useMeaning } from "@/lib/meaning/store";
+import { formatNumber } from "@/lib/site-format";
 
 /** "Search by what you mean": explains meaning search and lets a visitor turn it on for this device (MEANING_SEARCH.md §2c). */
 const MB = (bytes: number) => `${Math.round(bytes / 1e6)} MB`;
@@ -114,7 +115,7 @@ export default function MeaningSearchPage() {
       </Block>
 
       <Block title="What it covers.">
-        <p><strong className="text-ink">Now:</strong> the {counts?.studies ?? 25} studies in the question library and all {counts ? counts.bibleVerses.toLocaleString() : "31,098"} verses of the World English Bible. <strong className="text-ink">Next:</strong> study pages, people and places, and more languages.</p>
+        <p><strong className="text-ink">Now:</strong> the {counts?.studies ?? 25} studies in the question library and all {counts ? formatNumber(counts.bibleVerses) : "31,098"} verses of the World English Bible. <strong className="text-ink">Next:</strong> study pages, people and places, and more languages.</p>
       </Block>
 
       <Block title="What it doesn’t do.">

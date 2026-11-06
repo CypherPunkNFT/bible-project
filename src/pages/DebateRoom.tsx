@@ -7,6 +7,7 @@ import { AP_BASE } from '@/lib/apologetics-links';
 import { DebateCard } from '@/components/apologetics/DebateCard';
 import { DebateLandingArt } from '@/components/apologetics/DebateLandingArt';
 import './debate-room.css';
+import { plural } from "@/lib/site-format";
 
 const root = AP_BASE + '/debates';
 const speakersOf = (speakers: string) => speakers.split(' · ');
@@ -57,7 +58,7 @@ export default function DebateRoom() {
   // Counted lines are one string each, so a language can put the number where its grammar wants it.
   const exploreLabel = (name: string) => {
     const count = DEBATES.filter(debate => speakersOf(debate.speakers).includes(name)).length;
-    return count === 1 ? `Explore ${count} exchange` : `Explore ${count} exchanges`;
+    return plural(count, "Explore {n} exchange", "Explore {n} exchanges");
   };
   const topic = params.get('topic') ?? '', speaker = params.get('speaker') ?? '', query = params.get('q') ?? '';
   const selectedTopic = topics.find(item => item.id === topic);

@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import type { CSSProperties } from "react";
 import { MIN_THEME, SHELVES, type Theme } from "./themes";
+import { plural } from "@/lib/site-format";
 
 export type Counted = { theme: Theme; n: number };
 
@@ -18,7 +19,6 @@ const ICONS: Record<string, LucideIcon> = {
 };
 export const iconOf = (id: string) => ICONS[id] ?? Library;
 export const toneOf = (tone: string) => ({ "--tone": `var(--${tone})` }) as CSSProperties;
-export const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`;
 
 /** The shelves with only the groups and tests that have enough questions to show. */
 export function shownShelves(counts: Map<string, number>) {
@@ -41,4 +41,4 @@ export const chosenIn = (groups: { themes: Counted[] }[], selected: string) =>
 
 /** A shelf's line of counts: "6 groups · 22 tests". */
 export const shelfMeta = (groups: { themes: Counted[] }[]) =>
-  `${plural(groups.length, "group")} · ${plural(groups.reduce((sum, { themes }) => sum + themes.length, 0), "test")}`;
+  `${plural(groups.length, "{n} group", "{n} groups")} · ${plural(groups.reduce((sum, { themes }) => sum + themes.length, 0), "{n} test", "{n} tests")}`;

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { StationArt, type StationArtKind } from "./StationArt";
 import { ApprovedResourceArt } from "./ApprovedResourceArt";
 import "./stations.css";
+import { formatNumber } from "@/lib/site-format";
 
 export interface DoorProps { index: number; art: StationArtKind; title: string; text: string; to?: string; note: string; action: string; color: string }
 
@@ -26,5 +27,5 @@ export function StationDoor({ index, art, title, text, to, note, action, color }
 }
 
 export function StationStats({ items }: { items: [string, string | number][] }) {
-  return <dl className="st-stats">{items.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{typeof value === "number" ? value.toLocaleString("en-US") : value}</dd></div>)}</dl>;
+  return <dl className="st-stats">{items.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{typeof value === "number" ? formatNumber(value) : value}</dd></div>)}</dl>;
 }

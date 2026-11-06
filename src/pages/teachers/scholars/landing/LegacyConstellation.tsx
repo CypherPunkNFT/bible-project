@@ -9,6 +9,7 @@ import featured from "./featured-contributors.json";
 import { buildTimeline, timelineX } from "./timeline";
 import { buildSky, type SkyPerson } from "./layout";
 import "./explorer.css";
+import { formatNumber } from "@/lib/site-format";
 interface SkyProps { data: ScholarsData; matches: ReadonlySet<string>; searching: boolean; onOpen: (id: string, origin: Element | null) => void }
 interface View { x:number; y:number; w:number; h:number }
 const FIELDS:Field[] = ["history","texts","places","reference","theology"];
@@ -111,6 +112,6 @@ export function LegacyConstellation(props: SkyProps) {
       </svg>
       {hover&&<div className="cg-tip" role="status"><b>{hover.name}</b><span>{hover.work??props.data.scholars.find(p=>p.id===hover.id)?.works[0]?.[0]??props.data.fields[hover.field]}</span></div>}
     </div>
-    <div className="cg-footer"><span>{timeline?"Birth years · Before 1500 compressed · Drag to move, scroll or pinch to zoom":"Drag to move · Scroll or pinch to zoom"}</span><span>{selected?`${sky.nodes.filter(n=>n.s.field===selected).length} selected contributors`:`${sky.nodes.length} editorial sample entries of ${library?.length.toLocaleString()??"…"}`}</span></div>
+    <div className="cg-footer"><span>{timeline?"Birth years · Before 1500 compressed · Drag to move, scroll or pinch to zoom":"Drag to move · Scroll or pinch to zoom"}</span><span>{selected?`${sky.nodes.filter(n=>n.s.field===selected).length} selected contributors`:`${sky.nodes.length} editorial sample entries of ${(library ? formatNumber(library.length) : undefined)??"…"}`}</span></div>
   </div>;
 }

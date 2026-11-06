@@ -8,7 +8,8 @@ import { OutsideScroll } from "@/components/OutsideScroll";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { bookIndexOf, chapterOf, hymnHref, type HymnCollection, type HymnEntry } from "@/lib/hymns";
 import { SectionHead } from "./parts";
-import { groupsById, plural, tone } from "./model";
+import { groupsById, tone } from "./model";
+import { plural } from "@/lib/site-format";
 
 export function Psalms({ collection }: { collection: HymnCollection }) {
   const { hymns, books } = collection;
@@ -37,7 +38,7 @@ export function Psalms({ collection }: { collection: HymnCollection }) {
 
   const detail = <div className="bib-inner" style={tone("--poetry")}><p className="kicker">Poetry &amp; Wisdom</p>
     <h3>Psalm {shown + 1}<small>{books[psa].chapters[shown]} verses</small></h3>
-    <p className="bib-note">{list.length ? `${plural(list.length, "hymn")} here sing this psalm.` : "No hymn here sings this psalm yet."}</p>
+    <p className="bib-note">{list.length ? `${plural(list.length, "{n} hymn", "{n} hymns")} here sing this psalm.` : "No hymn here sings this psalm yet."}</p>
     {list.length > 0 && <><p className="bib-mini">Open a hymn</p><ul className="bib-titles">{list.map((h) =>
       <li key={h.id}><Link className="bib-work" to={hymnHref(h.id)}><span>{h.t}</span><ArrowRight size={13} strokeWidth={1.5} aria-hidden /></Link>
         <small>{h.r} · {groups.get(h.g)?.short} · {h.y}{h.m ? ` · metre ${h.m.replace(/,/g, ".")}` : ""}</small></li>)}</ul></>}
@@ -49,8 +50,8 @@ export function Psalms({ collection }: { collection: HymnCollection }) {
     <div className="bib-grid">
       <div className="bib-card" ref={cardRef}><div className="ps-grid">{byPsalm.map((l, i) =>
         <button key={i} type="button" className={`ps-tile${i === shown ? " on" : ""}`} aria-pressed={i === shown} onClick={() => setShown(i)}
-          style={{ "--k": l.length ? (0.35 + 0.65 * l.length / max).toFixed(2) : 0 } as CSSProperties} aria-label={`Psalm ${i + 1}, ${plural(l.length, "hymn")}`}>
-          <span className="n">{i + 1}</span>{l.length > 0 && <small>{l.length} {l.length === 1 ? "hymn" : "hymns"}</small>}</button>)}</div></div>
+          style={{ "--k": l.length ? (0.35 + 0.65 * l.length / max).toFixed(2) : 0 } as CSSProperties} aria-label={`Psalm ${i + 1}, ${plural(l.length, "{n} hymn", "{n} hymns")}`}>
+          <span className="n">{i + 1}</span>{l.length > 0 && <small>{l.length} {plural(l.length, "hymn", "hymns")}</small>}</button>)}</div></div>
       <OutsideScroll label={`Hymns on Psalm ${shown + 1}`} className="bib-detail" style={{ height: panelHeight }} resetKey={String(shown)}><div aria-live="polite">{detail}</div></OutsideScroll>
     </div>
   </div>;

@@ -6,6 +6,7 @@
 import { useId } from "react";
 import type { CSSProperties, ReactNode } from "react";
 import { OpenBook, SoundWave } from "./HomeFeatureArt";
+import { formatNumber } from "@/lib/site-format";
 
 /** Chapters per book in canonical order, grouped by kind; the tone names a site colour. */
 const CANON = [
@@ -156,7 +157,7 @@ export function ChaptersScene() {
       <g className="hf-marker-move"><path d={`M0 ${GRID_Y - 5}V${GRID_BOTTOM + 3}`} /><path className="hf-marker-ribbon" d={`M-4 ${GRID_BOTTOM + 3}h8v11l-4-3-4 3Z`} /></g>
     </g>
     <text className="hf-caption" x={GRID_X} y={GRID_BOTTOM + 32}>GENESIS 1</text>
-    <text className="hf-caption" x="300" y={GRID_BOTTOM + 32} textAnchor="middle">{CHAPTER_COUNT.toLocaleString("en-US")} CHAPTERS</text>
+    <text className="hf-caption" x="300" y={GRID_BOTTOM + 32} textAnchor="middle">{formatNumber(CHAPTER_COUNT)} CHAPTERS</text>
     <text className="hf-caption" x={GRID_X + GRID_WIDTH} y={GRID_BOTTOM + 32} textAnchor="end">REVELATION 22</text>
     <g className="hf-layer-stats">
       <Panel x={GRID_X} y={176} title="CHAPTERS BY SECTION"><SectionBars /></Panel>

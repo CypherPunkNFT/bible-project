@@ -12,6 +12,7 @@ import type { BankBook, QuestionBank } from "@/lib/data";
 import { RailGroup, Switch } from "./FilterRail";
 import { DIFFICULTIES, facetsOf, type Filters } from "./model";
 import { MIN_THEME, SHELVES } from "./test/themes";
+import { formatNumber } from "@/lib/site-format";
 
 export const BOOK_SECTIONS = [
   { label: "Law", from: "GEN", to: "DEU" },
@@ -71,7 +72,7 @@ export function ListRail({ bank, facets, filters, choice, members, update, choos
       // A section of one book (Revelation) is chosen straight from its row, not opened (owner, 2026-10-23).
       if (books.length === 1) return <div key={s.label} className={`qx-drawer is-single${hasChoice ? " has-choice" : ""}`} style={{ "--tone": `var(--${books[0].section})` } as CSSProperties}>
         <button type="button" className="qx-drawer-head" aria-pressed={hasChoice} aria-label={hasChoice ? `${s.label}, chosen: remove` : undefined} onClick={() => choose({ book: hasChoice ? "" : books[0].code })}>
-          <span className="qx-drawer-dot" aria-hidden /><span>{s.label}</span><small>{n.toLocaleString()}</small>
+          <span className="qx-drawer-dot" aria-hidden /><span>{s.label}</span><small>{formatNumber(n)}</small>
           <span className="qx-drawer-chev" aria-hidden>{hasChoice && <X size={15} strokeWidth={1.9} />}</span>
         </button>
       </div>;
@@ -105,7 +106,7 @@ interface DrawerProps { id: string; title: string; tone: string; count: number; 
 function Drawer({ id, title, tone, count, open, chosen, toggle, children }: DrawerProps) {
   return <div className={`qx-drawer${open ? " is-open" : ""}${chosen ? " has-choice" : ""}`} style={{ "--tone": tone } as CSSProperties}>
     <button type="button" className="qx-drawer-head" aria-expanded={open} onClick={() => toggle(id)}>
-      <span className="qx-drawer-dot" aria-hidden /><span>{title}</span><small>{count.toLocaleString()}</small>
+      <span className="qx-drawer-dot" aria-hidden /><span>{title}</span><small>{formatNumber(count)}</small>
       <ChevronDown className="qx-drawer-chev" size={15} strokeWidth={1.7} aria-hidden />
     </button>
     {open && <div className="qx-drawer-body">{children}</div>}
@@ -116,7 +117,7 @@ function ChoiceList({ items, selected, onChoose }: { items: { id: string; title:
   return <ul className="qp-topics qx-choices">{items.filter((t) => t.n || t.id === selected).map((t) => {
     const on = t.id === selected;
     return <li key={t.id}><button type="button" aria-pressed={on} aria-label={on ? `${t.title}, chosen: remove` : undefined} onClick={() => onChoose(on ? "" : t.id)}>
-      <span>{t.title}</span><small>{t.n.toLocaleString()}</small>
+      <span>{t.title}</span><small>{formatNumber(t.n)}</small>
       {on && <span className="qp-topic-x" aria-hidden><X size={11} strokeWidth={2.6} /></span>}
     </button></li>;
   })}</ul>;

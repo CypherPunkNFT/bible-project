@@ -12,8 +12,9 @@ import { Icon, StudyLink } from "@/pages/study/hub/shared";
 import SUMMARY from "@/data/question-summary.json";
 import { BibleBoardArt } from "./QuizDoorArt";
 import "./quiz-door.css";
+import { formatNumber } from "@/lib/site-format";
 
-const n = (value: number) => value.toLocaleString("en-US");
+const n = (value: number) => formatNumber(value);
 const S = SUMMARY;
 
 /** Who the questions are for: children, and everyone else. One line each: an icon, the title running into its words,

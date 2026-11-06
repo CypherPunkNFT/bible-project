@@ -7,6 +7,7 @@ import { useAsync } from "@/lib/useAsync";
 import { GROUP_LABELS, GROUP_LEADS, type MuseumCard, type MuseumGroup } from "@/lib/museums";
 import { MuseumEmblem } from "./MuseumEmblems";
 import "./museums.css";
+import { formatNumber, plural } from "@/lib/site-format";
 
 const GROUPS: MuseumGroup[] = ["collections", "holders", "coming-soon"];
 
@@ -40,7 +41,7 @@ function Card({ card }: { card: MuseumCard }) {
             <span className="mu-soon">Coming soon</span>
           ) : (
             <span className="mu-card-counts">
-              {card.records.toLocaleString()} {card.records === 1 ? "record" : "records"}
+              {formatNumber(card.records)} {plural(card.records, "record", "records")}
               {card.photographs > 0 ? ` · ${card.photographs} photographed` : ""}
               {card.catalogue_rows > 0 ? ` · ${card.catalogue_rows} in the catalogue` : ""}
             </span>
@@ -125,9 +126,9 @@ export default function MuseumArchaeologyPage() {
         <Stats
           figures={[
             [String(counts.cards), "museums & collections"],
-            [counts.catalogue_rows_matched.toLocaleString(), `of ${counts.catalogue_rows} catalogue rows matched`],
+            [formatNumber(counts.catalogue_rows_matched), `of ${counts.catalogue_rows} catalogue rows matched`],
             [String(counts.photographs), "openly licensed photographs"],
-            [counts.institutions_recorded.toLocaleString(), "institutions named as holders"],
+            [formatNumber(counts.institutions_recorded), "institutions named as holders"],
           ]}
         />
       </header>
@@ -239,7 +240,7 @@ export default function MuseumArchaeologyPage() {
                 <li key={holder.name}>
                   <span>{holder.name}</span>
                   <small>
-                    {holder.records.toLocaleString()} {holder.records === 1 ? "record" : "records"}
+                    {formatNumber(holder.records)} {plural(holder.records, "record", "records")}
                   </small>
                 </li>
               ))}

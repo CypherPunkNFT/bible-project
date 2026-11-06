@@ -11,7 +11,8 @@ import { SectionHead } from "./parts";
 import { SECTION_LABEL } from "@/pages/teachers/preachers/bible/model";
 import { centreInStrip } from "@/pages/teachers/preachers/bible/words";
 import { BOOKS, R0, R1, SpokeAnimator, angle, labelAt, niceStep, point, radiusOf, wedge } from "@/pages/teachers/preachers/through/geometry";
-import { chapterLabel, formatNumber, groupsById, passageHref, plural, tone } from "./model";
+import { chapterLabel, formatNumber, groupsById, passageHref, tone } from "./model";
+import { plural } from "@/lib/site-format";
 
 // The scale stops at 50 hymns (owner, 2026-10-17: one book "drowns out everything else"). A book with more reaches the
 // edge and gets a dashed tip; its real count still shows in the centre and in the list.
@@ -75,7 +76,7 @@ function Ring({ collection, shelf, selected, onSelect }: { collection: HymnColle
       <path key={book.code} ref={(el) => { paths.current[b] = el; }} fill={`var(--${book.section})`} d={wedge(b, R0)}
         className={[shelf.totals[b] ? "" : "thr-zero", b === selected ? "thr-on" : ""].join(" ").trim() || undefined}
         onPointerEnter={() => setHover(b)} onClick={() => onSelect(b)}>
-        <title>{`${book.name}: ${plural(shelf.totals[b], "hymn")}`}</title></path>)}</g>
+        <title>{`${book.name}: ${plural(shelf.totals[b], "{n} hymn", "{n} hymns")}`}</title></path>)}</g>
     <g className="thr-labels" key={`l-${shelf.id}`}>{labelled.map((b) => {
       if (!over.includes(b)) { const at = labelAt(b); return <text key={b} className="thr-label" transform={at.transform} textAnchor={at.anchor} dominantBaseline="middle">{books[b].name}</text>; }
       // A book past the cap: its label stands further out, beyond the dashed tip.
@@ -164,14 +165,14 @@ export function Through({ collection }: { collection: HymnCollection }) {
       <div className="thr-ringcard" ref={ringCard} style={tone(shelf.group ? shelf.group.tone : "--accent")}>
         <div className="thr-who">{shelf.group
           ? <><p className="kicker" style={tone(shelf.group.tone)}>{shelf.group.year} · {shelf.group.who}</p><h3>{shelf.group.label}</h3>
-            <p>{plural(shelf.works, "hymn")} on a chapter, across {plural(shelf.bookCount, "book")} of the Bible; {plural(shelf.all - shelf.works, "more hymn")} on a subject.</p></>
+            <p>{plural(shelf.works, "{n} hymn", "{n} hymns")} on a chapter, across {plural(shelf.bookCount, "{n} book", "{n} books")} of the Bible; {plural(shelf.all - shelf.works, "{n} more hymn", "{n} more hymns")} on a subject.</p></>
           : <><p className="kicker">Every hymn, together</p><h3>Every hymn</h3>
-            <p>{plural(shelf.works, "hymn")} on a chapter in {model.shelves.length} hymn books and hands, across {plural(shelf.bookCount, "book")} of the Bible.</p></>}</div>
+            <p>{plural(shelf.works, "{n} hymn", "{n} hymns")} on a chapter in {model.shelves.length} hymn books and hands, across {plural(shelf.bookCount, "{n} book", "{n} books")} of the Bible.</p></>}</div>
         <Ring collection={collection} shelf={shelf} selected={selected} onSelect={(b) => setSelected((b + BOOKS) % BOOKS)} />
       </div>
       <aside className="thr-book" style={{ ...tone(`--${book.section}`), height: panelHeight }}>
         <div className="thr-book-head"><p className="kicker">{SECTION_LABEL[book.section]}</p><h3>{book.name}</h3>
-          <p className="thr-book-sub">{plural(entries.length, "hymn")} · {shelf.group ? shelf.group.short : "every hymn book"}</p></div>
+          <p className="thr-book-sub">{plural(entries.length, "{n} hymn", "{n} hymns")} · {shelf.group ? shelf.group.short : "every hymn book"}</p></div>
         <OutsideScroll label={`Hymns on ${book.name}`} className="thr-scroll" resetKey={`${chosen}-${selected}`}>
           <ol className="thr-list">{items.length ? items : <li className="thr-empty">No hymn on {book.name} in {shelf.group ? shelf.group.short : "any of these books"}.</li>}</ol>
         </OutsideScroll>

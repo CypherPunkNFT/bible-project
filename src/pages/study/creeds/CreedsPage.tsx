@@ -8,6 +8,7 @@ import { useAsync } from "@/lib/useAsync";
 import { CreedFamilyArt } from "./CreedsArt";
 import "./creeds.css";
 import "./creeds-collection.css";
+import { formatNumber, plural } from "@/lib/site-format";
 
 type Entry = { card: CreedCard; family: CreedFamily };
 const tone = (family: CreedFamily) => ({ "--seal-tone": `var(--${family.tone})` }) as CSSProperties;
@@ -82,7 +83,7 @@ function Timeline({ entries, onExplore }: { entries: Entry[]; onExplore: (id: st
       <div className="cc-time-detail" style={tone(active.family)}>
         <div className="cc-detail-top"><CreedFamilyArt kind={active.family.art}/><span>{yearWithEra(active.card.yearLabel)}</span></div>
         <span className="cc-small-label">{documentTypeLabel(active.card.documentType)}</span><h3 className={active.card.title.length > 55 ? "cc-long-title" : undefined}>{active.card.title}</h3><p>{active.family.title}</p>
-        <div className="cc-detail-figures">{active.card.sections.toLocaleString()} sections <span>·</span> {active.card.references.toLocaleString()} proof-texts</div>
+        <div className="cc-detail-figures">{formatNumber(active.card.sections)} sections <span>·</span> {formatNumber(active.card.references)} proof-texts</div>
         <Link className="cc-text-link" to={`/study/creeds/${active.card.id}`}>Read the document <ArrowUpRight size={16}/></Link>
         <button className="cc-explore" onClick={()=>{onExplore(active.family.id);document.getElementById("creed-catalogue")?.scrollIntoView({behavior:"instant"});}}>Explore this tradition <ArrowDown size={13}/></button>
       </div>
@@ -94,7 +95,7 @@ function DocumentCard({ entry, featured=false, number }: { entry: Entry; feature
   const {card,family}=entry;
   return <li className={`cc-document ${featured?"cc-featured-document":""}`} style={tone(family)}><Link to={`/study/creeds/${card.id}`}>
     <div className="cc-book-art"><span className="cc-small-label">{featured?`A place to begin / 0${number}`:documentTypeLabel(card.documentType)}</span><CreedFamilyArt kind={family.art}/><span className="cc-book-date">{yearWithEra(card.yearLabel)}</span><span className="cc-book-rule"/></div>
-    <div className="cc-book-copy"><span className="cc-small-label">{featured?documentTypeLabel(card.documentType):family.title}</span><h3>{card.title}</h3><p>{card.sections.toLocaleString()} {card.documentType==="catechism"?"questions & sections":card.sections===1?"section":"sections"}{card.references>0?` · ${card.references.toLocaleString()} proof-texts`:""}</p><span className="cc-text-link">Open and read <ArrowUpRight size={16}/></span></div>
+    <div className="cc-book-copy"><span className="cc-small-label">{featured?documentTypeLabel(card.documentType):family.title}</span><h3>{card.title}</h3><p>{formatNumber(card.sections)} {card.documentType==="catechism"?"questions & sections":plural(card.sections, "section", "sections")}{card.references>0?` · ${formatNumber(card.references)} proof-texts`:""}</p><span className="cc-text-link">Open and read <ArrowUpRight size={16}/></span></div>
   </Link></li>;
 }
 
@@ -112,7 +113,7 @@ export default function CreedsPage() {
   const featured=["apostles-creed-710","nicene-creed-381","heidelberg-catechism-1563"].map(id=>entries.find(e=>e.card.id===id)).filter((e):e is Entry=>!!e);
   return <div className="creeds-page creed-collection"><div className="cc-container">
     <header className="cc-hero"><div className="cc-hero-copy"><StudyBackLink/><p className="eyebrow">Catechisms &amp; Creeds</p><h1>The faith,<br/><em>said out loud.</em></h1><p className="cc-lead">Words to confess together. Questions to grow into. Explore the creeds, confessions, and catechisms that have given Christian belief a voice across the centuries.</p><nav className="cc-jumps" aria-label="On this page"><a href="#creed-timeline">Through time <ArrowDown size={12}/></a><a href="#creed-first-reads">Begin reading <ArrowDown size={12}/></a><a href="#creed-catalogue">The collection <ArrowDown size={12}/></a></nav></div><ManuscriptArt/></header>
-    <dl className="cc-stats">{[[counts.documents,"Historic documents"],[counts.families,"Traditions & families"],[counts.catechisms,"Catechisms"],[counts.references.toLocaleString(),"Scripture proof-texts"]].map(([n,label])=><div key={label}><dd>{n}</dd><dt>{label}</dt></div>)}</dl>
+    <dl className="cc-stats">{[[counts.documents,"Historic documents"],[counts.families,"Traditions & families"],[counts.catechisms,"Catechisms"],[formatNumber(counts.references),"Scripture proof-texts"]].map(([n,label])=><div key={label}><dd>{n}</dd><dt>{label}</dt></div>)}</dl>
     <Timeline entries={entries} onExplore={pick}/>
     <section className="cc-section" id="creed-first-reads" aria-labelledby="cc-begin-title"><div className="cc-heading cc-heading-row"><div><span className="eyebrow">02 / A few open doors</span><h2 id="cc-begin-title">Start with <em>the familiar.</em></h2></div><p>A short confession, a shared statement of faith, or a catechism to take one question at a time.</p></div><ul className="cc-featured">{featured.map((entry,i)=><DocumentCard key={entry.card.id} entry={entry} featured number={i+1}/>)}</ul></section>
     <section className="cc-section" id="creed-catalogue" aria-labelledby="cc-catalogue-title"><div className="cc-heading"><span className="eyebrow">03 / The complete collection</span><h2 id="cc-catalogue-title">Many traditions.<em> Room to read.</em></h2><p>Browse a family, find a familiar title, or discover a document you have yet to open.</p></div>
@@ -124,6 +125,6 @@ export default function CreedsPage() {
         <div className="cc-scroll"><ul className="cc-document-grid" aria-label={family?`${family.title} documents`:"All documents"}>{found.map(entry=><DocumentCard key={entry.card.id} entry={entry}/>)}</ul></div>
       </div>
     </section>
-    <footer className="cc-sources"><div><span className="eyebrow">Preserved &amp; passed on</span><h2>Old words.<br/><em>Open to everyone.</em></h2><p>The historic texts are credited to their source editions. Find individual attributions and reading notes on each document’s page.</p></div><div><h3>Where these texts come from</h3><ul>{sources.map(s=><li key={s.slug}><a href={s.url} target="_blank" rel="noopener noreferrer">{s.title}<ArrowUpRight size={14}/></a><span>{s.publisher?`${s.publisher} · `:""}{s.licence}</span></li>)}<li><a href={scripture.home??"https://berean.bible/"} target="_blank" rel="noopener noreferrer">{scripture.title}<ArrowUpRight size={14}/></a><span>{scripture.licence}</span></li></ul><details><summary>A note on Scripture quotations</summary><p>Scripture is shown in the {scripture.title}, given to the public domain in 2023. Matched quotations use the Berean wording in {counts.quotations.toLocaleString()} places. Where a match could not be made with confidence, the document retains its older wording and the reader explains why. The collection contains {counts.sections.toLocaleString()} questions and sections. Sources, licences, and checksums are recorded in the project’s source register.</p></details></div></footer>
+    <footer className="cc-sources"><div><span className="eyebrow">Preserved &amp; passed on</span><h2>Old words.<br/><em>Open to everyone.</em></h2><p>The historic texts are credited to their source editions. Find individual attributions and reading notes on each document’s page.</p></div><div><h3>Where these texts come from</h3><ul>{sources.map(s=><li key={s.slug}><a href={s.url} target="_blank" rel="noopener noreferrer">{s.title}<ArrowUpRight size={14}/></a><span>{s.publisher?`${s.publisher} · `:""}{s.licence}</span></li>)}<li><a href={scripture.home??"https://berean.bible/"} target="_blank" rel="noopener noreferrer">{scripture.title}<ArrowUpRight size={14}/></a><span>{scripture.licence}</span></li></ul><details><summary>A note on Scripture quotations</summary><p>Scripture is shown in the {scripture.title}, given to the public domain in 2023. Matched quotations use the Berean wording in {formatNumber(counts.quotations)} places. Where a match could not be made with confidence, the document retains its older wording and the reader explains why. The collection contains {formatNumber(counts.sections)} questions and sections. Sources, licences, and checksums are recorded in the project’s source register.</p></details></div></footer>
   </div></div>;
 }

@@ -4,6 +4,7 @@ import { ChevronDown, X } from "lucide-react";
 import { useState, type CSSProperties, type ReactNode } from "react";
 import type { BankTopic, QuestionBank } from "@/lib/data";
 import type { Facets, Filters } from "./model";
+import { formatNumber } from "@/lib/site-format";
 
 type Update = (patch: Partial<Filters>) => void;
 
@@ -16,14 +17,14 @@ export function FilterRail({ bank, facets, filters, update }: { bank: QuestionBa
       <div className="qp-segments" role="group" aria-label="Testament">
         {([["", "Both"], ["OT", "Old"], ["NT", "New"]] as const).map(([id, label]) =>
           <button key={label} type="button" aria-pressed={filters.testament === id} onClick={() => update({ testament: id })}>
-            {label}<small>{(id ? t.get(id) ?? 0 : [...t.values()].reduce((a, b) => a + b, 0)).toLocaleString()}</small>
+            {label}<small>{formatNumber(id ? t.get(id) ?? 0 : [...t.values()].reduce((a, b) => a + b, 0))}</small>
           </button>)}
       </div>
     </RailGroup>
     <RailGroup title="Collection">
       <select className="qp-select" value={filters.collection} onChange={(e) => update({ collection: e.target.value })} aria-label="Collection">
         <option value="">Every collection</option>
-        {collections.map((c) => <option key={c.title} value={c.title}>{c.title} ({(facets.counts.collection.get(c.title) ?? 0).toLocaleString()})</option>)}
+        {collections.map((c) => <option key={c.title} value={c.title}>{c.title} ({formatNumber(facets.counts.collection.get(c.title) ?? 0)})</option>)}
       </select>
     </RailGroup>
     <RailGroup title="Show">
@@ -43,7 +44,7 @@ function TopicList({ topics, counts, selected, onChoose }: { topics: BankTopic[]
       <ul className="qp-topics">{shown.map((t) => {
         const n = counts.get(t.id) ?? 0, on = selected === t.id;
         return <li key={t.id}><button type="button" aria-pressed={on} aria-label={on ? `${t.title}, chosen: remove` : undefined} onClick={() => onChoose(on ? "" : t.id)} style={{ "--share": `${(n / max) * 100}%` } as CSSProperties}>
-          <span>{t.title}</span><small>{n.toLocaleString()}</small>
+          <span>{t.title}</span><small>{formatNumber(n)}</small>
           {/* The chosen row's cancel mark (owner, 2026-10-23): a black circle with an X; the row itself is the button. */}
           {on && <span className="qp-topic-x" aria-hidden><X size={11} strokeWidth={2.6} /></span>}
         </button></li>;

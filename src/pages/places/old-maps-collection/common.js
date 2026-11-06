@@ -1,3 +1,4 @@
+import { formatNumber } from "../../../lib/site-format.ts";
 // Shared pieces for the Old maps mock-ups: look-ups over the generated data (data.js), the Atlas page frame (Back to
 // Atlas, Open the map, the row of tiles), section headings, the figures bar, the subject "crystals", map thumbnails
 // and their credits. The slide-in map viewer lives in viewer.js.
@@ -10,7 +11,7 @@ window.OM = (() => {
   const subjectIndex = new Map(subjects.map((s, i) => [s.key, i]));
   const maps = D.maps;
   const mapById = new Map(maps.map((m) => [m.id, m]));
-  const fmt = (n) => Number(n).toLocaleString("en-GB");
+  const fmt = (n) => formatNumber(Number(n));
   const centuryOf = (year) => Math.floor(year / 100) + 1; // as the build counts them: 1500–1599 is "16"
   const ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX"];
   const ORDINAL = { 7: "seventh", 12: "twelfth", 13: "thirteenth", 14: "fourteenth", 15: "fifteenth", 16: "sixteenth", 17: "seventeenth", 18: "eighteenth", 19: "nineteenth", 20: "twentieth" };

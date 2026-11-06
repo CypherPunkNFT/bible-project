@@ -3,6 +3,7 @@ import { useMemo, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { GROUP_COLOR, groupOf, languageName, VERSION_GROUPS } from "@/lib/languages";
 import type { BookInfo, Translation } from "@/lib/types";
+import { plural } from "@/lib/site-format";
 
 /** Each language's own name for itself, shown above its English name. */
 const NATIVE: Record<string, string> = {
@@ -56,7 +57,7 @@ const chipRows = (versions: Translation[]) => {
 /** The line under a language's own name: its English name when that differs, and the count only when above one. */
 const subtext = (code: string, count: number) => {
   const english = NATIVE[code] !== languageName(code) ? languageName(code) : "";
-  const editions = count > 1 ? `${count} editions` : "";
+  const editions = count > 1 ? plural(count, "{n} edition", "{n} editions") : "";
   return [english, editions].filter(Boolean).join(" · ");
 };
 

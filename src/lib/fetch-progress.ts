@@ -1,3 +1,4 @@
+import { formatNumber } from "@/lib/site-format";
 // Reading a download's body while counting the bytes, for the download panel's percentage.
 
 /** Read `response`'s body to the end, calling `onBytes` with the bytes received so far. With `expected`, the bytes go
@@ -18,7 +19,7 @@ export async function readWithProgress(response: Response, onBytes: (received: n
     if (fixed) {
       if (received + value.byteLength > fixed.byteLength) {
         await reader.cancel();
-        throw new Error(`The download is longer than the expected ${fixed.byteLength.toLocaleString()} bytes.`);
+        throw new Error(`The download is longer than the expected ${formatNumber(fixed.byteLength)} bytes.`);
       }
       fixed.set(value, received);
     } else chunks.push(value);

@@ -10,6 +10,7 @@ import { useAsync } from "@/lib/useAsync";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { chapterWho, isEmpty, loadWhoRuled, reignWords, reignYears, verseRuns, type ChapterWho, type Reason, type Span, type Statement, type WhoItem } from "@/lib/who-ruled";
 import "./who-ruled.css";
+import { plural } from "@/lib/site-format";
 
 const CARD_ID = "who-ruled-when";
 const STRIP_RULERS = 4;
@@ -62,7 +63,7 @@ function reasonSummary(item: WhoItem, catalog: ReturnType<typeof useCatalog>): s
     .map((r) => {
       if (r.kind === "dated") return `Dated by ${formatRange(catalog, r.span[0], r.span[1])}`;
       if (r.kind === "title") return "Named in the psalm's title";
-      if (r.kind === "named") return `Named in ${r.verses.length === 1 ? "verse" : "verses"} ${verseRuns(r.verses).map(([x, y]) => (x === y ? x : `${x}–${y}`)).join(", ")}`;
+      if (r.kind === "named") return `Named in ${plural(r.verses.length, "verse", "verses")} ${verseRuns(r.verses).map(([x, y]) => (x === y ? x : `${x}–${y}`)).join(", ")}`;
       if (r.kind === "during") return `Within Scripture's account of ${reignWords(item.ruler)}`;
       if (r.kind === "heading") return `In the book's heading (${formatRange(catalog, r.span[0], r.span[1])})`;
       return "The prophet the book is named for";
@@ -261,7 +262,7 @@ function Person({ item, ref_, verseHref, prophet = false }: { item: WhoItem; ref
             <ScrollText aria-hidden />
             <span>
               <Link className="wr-ref" to={item.href}>
-                {prophetsOfReign === 1 ? "The prophet" : `${prophetsOfReign} prophets`} of {reignWords(item.ruler)}
+                {plural(prophetsOfReign, "The prophet", "{n} prophets")} of {reignWords(item.ruler)}
               </Link>{" "}
               on {item.ruler!.sex === "F" ? "her" : "his"} page
             </span>
@@ -294,7 +295,7 @@ function ReasonLine({ reason, item, ref_, verseHref }: { reason: Reason; item: W
         <>
           <TextQuote aria-hidden />
           <span>
-            Named in {reason.verses.length === 1 ? "verse" : "verses"}{" "}
+            Named in {plural(reason.verses.length, "verse", "verses")}{" "}
             {runs.slice(0, SHOWN_RUNS).map(([a, b], i) => (
               <span key={a}>
                 {i > 0 && ", "}

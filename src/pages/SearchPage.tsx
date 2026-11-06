@@ -14,6 +14,7 @@ import { lastReadPath } from "@/lib/last-read";
 import { highlightParts, makeMatcher, searchBooks, type Hit } from "@/lib/search";
 import { sectionColor } from "@/lib/sections";
 import { formatNumber } from "@/lib/utils";
+import { plural } from "@/lib/site-format";
 
 const PAGE = 100;
 type Plains = { code: string; plain: Record<string, string> }[];
@@ -170,9 +171,9 @@ export default function SearchPage() {
         <section aria-live="polite" className="mt-3">
           <p className="text-lg">
             {exact.mode === "words" ? (
-              <>No verse has the exact words “{state.query}”. <strong>{formatNumber(exact.hits.length)}</strong> {exact.hits.length === 1 ? "verse holds" : "verses hold"} {exact.most === words.length ? `all ${words.length} of your words` : `${exact.most} of your ${words.length} words`}, in the {resultTranslation.name}.</>
+              <>No verse has the exact words “{state.query}”. <strong>{formatNumber(exact.hits.length)}</strong> {plural(exact.hits.length, "verse holds", "verses hold")} {exact.most === words.length ? `all ${words.length} of your words` : `${exact.most} of your ${words.length} words`}, in the {resultTranslation.name}.</>
             ) : (
-              <><strong>{formatNumber(exact.hits.length)}</strong> {exact.hits.length === 1 ? "verse contains" : "verses contain"} “{exact.mode === "word" ? focusWord : state.query}” in the {resultTranslation.name}.</>
+              <><strong>{formatNumber(exact.hits.length)}</strong> {plural(exact.hits.length, "verse contains", "verses contain")} “{exact.mode === "word" ? focusWord : state.query}” in the {resultTranslation.name}.</>
             )}
           </p>
           {exact.hits.length > 0 && <WordDistribution books={resultBooks} hits={exact.hits} selected={bookFilter} onSelect={(code) => { setBookFilter(code); setShown(PAGE); }} slug={resultTranslation.slug} />}

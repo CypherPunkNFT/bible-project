@@ -5,6 +5,7 @@ import evidenceData from "../../../../../content/teachers/discovery-evidence.jso
 // this site (or that it does not yet).
 import type { CSSProperties } from "react";
 import type { Field, Find, Scholar, ScholarsData } from "@/data/teachers/pages-types";
+import { countWord } from "@/lib/site-format";
 
 export type View = "holyland" | "med";
 export const VIEWS: View[] = ["holyland", "med"];
@@ -14,10 +15,8 @@ const FIELD_TONE: Record<Field, string> = { history: "--gospels", texts: "--prop
 export const AREA_ROUTE: Record<string, string> = {
   "Letters study": "/study/letters", Apologetics: "/apologetics", Topics: "/topics", "People pages": "/study/people", Rulers: "/study/rulers",
 };
-const WORDS = ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven"];
-
 export const toneOf = (scholar: Scholar) => `var(${FIELD_TONE[scholar.field]})`;
-export const word = (n: number) => WORDS[n] ?? String(n);
+export const word = (n: number) => countWord(n, true);
 /** Custom properties for a style prop (React's CSSProperties has no index for "--name"). */
 export const cssVars = (vars: Record<string, string>) => vars as CSSProperties;
 /** The site area a scholar's site note names, if any. */

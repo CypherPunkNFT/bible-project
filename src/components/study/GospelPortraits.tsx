@@ -9,6 +9,7 @@ import type { Stats } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
 import { PassageText, RefLink } from "./StudyParts";
 import "./gospel-portraits.css";
+import { formatNumber } from "@/lib/site-format";
 
 const palette = (color: string) => ({ "--portrait-color": color }) as CSSProperties;
 
@@ -67,7 +68,7 @@ export function GospelPortraits({ stats }: { stats: Stats }) {
                 return <g key={span.join("-")}><rect x={p.start * 1000} y="8" width={Math.max(2, (p.end - p.start) * 1000)} height="25" rx="2" className="portrait-highlight" /><path d={`M${(p.start + p.end) * 500} 1v36`} className="portrait-marker" /></g>;
               })}
             </svg>
-            <div className="portrait-ticks"><span>1:1</span><span>{book.verses.toLocaleString("en-US")} verses</span><span>{chapters}:{book.chapters[chapters - 1][0]}</span></div>
+            <div className="portrait-ticks"><span>1:1</span><span>{formatNumber(book.verses)} verses</span><span>{chapters}:{book.chapters[chapters - 1][0]}</span></div>
           </div>
         </div>;
       })}

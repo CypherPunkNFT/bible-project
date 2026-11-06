@@ -14,7 +14,8 @@ import { SectionHead } from "./parts";
 import { ChapterCanvas } from "@/pages/teachers/preachers/bible/chapter-canvas";
 import { SECTION_LABEL, type Cell } from "@/pages/teachers/preachers/bible/model";
 import { centreInStrip } from "@/pages/teachers/preachers/bible/words";
-import { chapterLabel, formatNumber, groupsById, plural, tone } from "./model";
+import { chapterLabel, formatNumber, groupsById, tone } from "./model";
+import { plural } from "@/lib/site-format";
 
 const SHOWN_TITLES = 8;
 const MOVES: Record<string, number> = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
@@ -61,7 +62,7 @@ function Summary({ model, view, narrow, onPin }: { model: Model; view: string; n
   return <div className="bib-inner" style={tone(meta.tone)}>
     <p className="kicker">{meta.group ? "One hymn book" : "Every hymn with its words held"}</p>
     <h3>{meta.group ? meta.group.label : "Every hymn"}</h3>
-    <p className="bib-big"><b>{formatNumber(lit.length)}</b> chapters · <b>{formatNumber(sung)}</b> {sung === 1 ? "hymn" : "hymns"}</p>
+    <p className="bib-big"><b>{formatNumber(lit.length)}</b> chapters · <b>{formatNumber(sung)}</b> {plural(sung, "hymn", "hymns")}</p>
     <p className="bib-note">{meta.group
       ? `${meta.group.label}, ${meta.group.year}. ${meta.group.who}.`
       : `Watts set nearly every psalm, so the Psalms hold ${formatNumber(psalms)} of these ${formatNumber(model.onChapters)} hymns and are the brightest block. Choose a book to see its own map.`}</p>
@@ -84,7 +85,7 @@ function ChapterPanel({ model, cell, view, groups, expanded, onClose, onExpand }
       <button type="button" className="bib-icon-btn" onClick={onClose} aria-label="Close"><X size={16} strokeWidth={1.5} aria-hidden /></button></div>
     <h3>{name}<small>{cell.verses} verses</small></h3>
     <p className="bib-note">{cell.total
-      ? `${plural(cell.total, "hymn")} ${cell.total === 1 ? "takes" : "take"} this chapter as ${cell.total === 1 ? "its" : "their"} text.`
+      ? `${plural(cell.total, "{n} hymn", "{n} hymns")} ${plural(cell.total, "takes", "take")} this chapter as ${plural(cell.total, "its", "their")} text.`
       : "No hymn whose words we hold takes this chapter as its text."}</p>
     {entries.length > 0 && <ul className="bib-bars">{entries.map(([id, count]) => {
       const g = groups.get(id);

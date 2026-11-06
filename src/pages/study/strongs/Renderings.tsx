@@ -4,8 +4,9 @@ import { VerseAt } from "@/components/Verse";
 import { Link } from "react-router-dom";
 import { D, readerHref, SN, type Word } from "./model";
 import { Cite, Head, Lemma, ThreeParts } from "./parts";
+import { formatNumber } from "@/lib/site-format";
 
-const fmt = (n: number) => n.toLocaleString("en-US");
+const fmt = (n: number) => formatNumber(n);
 const LINES: Record<string, string> = {
   H7307: "Moving air, or a person's inner life, or God's Spirit.",
   H1697: "Spoken words, and the events and affairs words are about.",

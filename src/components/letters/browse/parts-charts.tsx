@@ -9,6 +9,7 @@ import { PeopleCards } from "../PeopleCards";
 import { toneOfLetter, type LettersData } from "./data";
 import { kindTone } from "./builders";
 import { LetterWords } from "./parts-letter";
+import { plural } from "@/lib/site-format";
 
 const chip = (tone: string) => ({ "--chip": `var(--${tone})` }) as CSSProperties;
 
@@ -39,7 +40,7 @@ export function OnlyHere({ data }: { data: LettersData }) {
   const [code, setCode] = useState("HEB"), list = data.browse.onlyHere[code] ?? [];
   return <><LetterRow data={data} code={code} choose={setCode} /><div className="lb-panel">
     <p className="lb-panel-label">{list.length} Greek words used in {data.letter(code).name} and nowhere else in the New Testament</p>
-    <div className="lb-only">{list.slice(0, 60).map((w) => <div key={w.strongs}><b lang="grc">{w.greek}</b><small>{w.strongs}{w.count > 1 ? ` · ${w.count} times` : ""}</small> <Refs refs={w.refs} limit={2} /></div>)}</div>
+    <div className="lb-only">{list.slice(0, 60).map((w) => <div key={w.strongs}><b lang="grc">{w.greek}</b><small>{w.strongs}{w.count > 1 ? plural(w.count, " · {n} time", " · {n} times") : ""}</small> <Refs refs={w.refs} limit={2} /></div>)}</div>
     {list.length > 60 && <p className="lb-tip">The first 60 of {list.length}, most used first.</p>}
     <p className="lb-caption">Counted in the Byzantine Greek text by Strong's number: a word counts as "only here" when no other New Testament book uses that number.</p></div></>;
 }

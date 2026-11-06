@@ -8,6 +8,7 @@ import { useCatalog } from "@/lib/catalog";
 import { formatRange, splitId } from "@/lib/refs";
 import { useVerses } from "@/lib/verses";
 import { studyRefLink, type Span } from "@/lib/study";
+import { formatNumber } from "@/lib/site-format";
 
 /** `compact` (People & genealogies): a tighter header. */
 export function StudyHeader({ eyebrow, title, lead, children, titleId, contents, compact = false }: { eyebrow: string; title: string; lead: ReactNode; children?: ReactNode; titleId?: string; contents?: ReactNode; compact?: boolean }) {
@@ -38,7 +39,7 @@ export function StudySearch({ value, onChange, label, count, total }: { value: s
         />
       </label>
       <p className="text-sm text-muted" aria-live="polite">
-        {count === total ? `${total.toLocaleString("en-US")} in all` : `${count.toLocaleString("en-US")} of ${total.toLocaleString("en-US")}`}
+        {count === total ? `${formatNumber(total)} in all` : `${formatNumber(count)} of ${formatNumber(total)}`}
       </p>
     </div>
   );

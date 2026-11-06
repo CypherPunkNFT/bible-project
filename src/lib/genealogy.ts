@@ -1,3 +1,4 @@
+import { compareCode } from "@/lib/site-format";
 export interface FamilyPerson {
   id: string; n: string; o: string[]; b: string; c: number; s: string; e: string; f: number;
   pa: string[]; ch: string[]; sp: string[]; si: string[];
@@ -85,7 +86,7 @@ export function familyBranch(people: FamilyPerson[], edges: FamilyEdge[], root: 
   const truncated = [...lineage].some(id => (direction!=="descendants" && (parents.get(id) ?? []).some(parent=>byId.has(parent) && !lineage.has(parent))) || (direction!=="ancestors" && (children.get(id) ?? []).some(child=>byId.has(child) && !lineage.has(child))));
   const generations = [...new Set(levels.values())].sort((a, b) => a - b);
   const rows = generations.map(level => [...levels].filter(([, l]) => l === level)
-    .map(([id]) => byId.get(id)!).sort((a, b) => Number(b.id === root) - Number(a.id === root) || a.n.localeCompare(b.n)));
+    .map(([id]) => byId.get(id)!).sort((a, b) => Number(b.id === root) - Number(a.id === root) || compareCode(a.n, b.n)));
   // Order each layer by its relatives in the adjacent layer, rather than by name.
   // Alternating sweeps untangle independent lines without changing any relationship.
   for (let pass = 0; pass < 8; pass++) {

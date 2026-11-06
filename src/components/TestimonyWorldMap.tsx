@@ -5,14 +5,14 @@ import { ArrowRight, Globe, Maximize, Minus, Plus, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { formatTestimonyDate } from "@/lib/testimonies";
 import type { TestimonyPin } from "@/lib/testimony-contract";
+import { countryName, plural } from "@/lib/site-format";
 
 interface WorldMap { width: number; height: number; scale: number; translate: [number, number]; sphere: string; land: string; borders: string }
 interface Place { key: string; x: number; y: number; label: string; people: TestimonyPin[] }
 interface Props { pins: TestimonyPin[] | null; error: string; selectedId: string; onOpen: (id: string) => void }
 
-const countryNames = (() => { try { return new Intl.DisplayNames(["en"], { type: "region" }); } catch { return null; } })();
 function placeLabel(pin: TestimonyPin) {
-  const country = pin.country ? countryNames?.of(pin.country) ?? pin.country : "";
+  const country = pin.country ? countryName(pin.country) : "";
   return [pin.city, pin.region !== pin.city ? pin.region : "", country].filter(Boolean).join(", ") || "Unknown place";
 }
 
@@ -97,8 +97,8 @@ export function TestimonyWorldMap({ pins, error, selectedId, onOpen }: Props) {
       <div ref={dots} className="testimony-world-dots">{places.map((place) => {
         const selected = place.people.some((person) => person.id === selectedId);
         return <button key={place.key} type="button" data-x={place.x} data-y={place.y} className="testimony-world-dot" aria-pressed={selected || place.key === openKey}
-          aria-label={place.people.length === 1 ? `${place.people[0].name}, shared from ${place.label}` : `${place.people.length} testimonies shared from ${place.label}`}
-          title={place.people.length === 1 ? `${place.people[0].name} · ${place.label}` : `${place.people.length} stories · ${place.label}`} onClick={() => choose(place)}>
+          aria-label={place.people.length === 1 ? `${place.people[0].name}, shared from ${place.label}` : `${plural(place.people.length, "{n} testimony", "{n} testimonies")} shared from ${place.label}`}
+          title={place.people.length === 1 ? `${place.people[0].name} · ${place.label}` : `${plural(place.people.length, "{n} story", "{n} stories")} · ${place.label}`} onClick={() => choose(place)}>
           <span>{place.people.length > 1 ? place.people.length : ""}</span>
         </button>;
       })}</div>

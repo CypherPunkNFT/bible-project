@@ -22,8 +22,9 @@ JSX_EDGE = re.compile(r"(?:\}|(?<![=\-])>)([^<>{}]{1,600})(?=[<{])")
 EDGE_CODE = re.compile(r"[;`]|\(\)|\$$|\$\{|^[MmLlHhVvCcSsQqTtAaZz\d\s.,-]*\d[MmLlHhVvCcSsQqTtAaZz\d\s.,-]*$|^(?:export|function|const|let|var|return|else|if|import|interface|type|case|default|"
                        r"async|await|for|while|try|catch|finally|throw|new|typeof|extends|class|as|satisfies)\b")
 # A template string with values in it: each ${...} becomes "{n}", the form the site matches counts by ("{n} scholars").
+# A value may hold quoted text with braces of its own: ${plural(n, "{n} verse", "{n} verses")} (stage 5 job 14).
 TEMPLATE = re.compile(r"`([^`\\\n]*\$\{[^`\\\n]*)`")
-TEMPLATE_VALUE = re.compile(r"\$\{[^{}]*\}")
+TEMPLATE_VALUE = re.compile(r"""\$\{(?:[^{}"']|"[^"\n]*"|'[^'\n]*')*\}""")
 PAGE_ATTRIBUTE = re.compile(r'\b(?:aria-label|title|placeholder|alt|label)="([^"\n]{1,300})"')
 # One-word labels in data written into the code ({ label: "Study" }, {label:'Practice'}), which PAGE_LITERAL's two-word
 # floor skips. Either quote: the Apologetics menu and several study pages use single quotes.
@@ -132,12 +133,17 @@ def first_rules(source: str, suffix: str) -> list[str]:
     return list(found)
 
 
+# A quote, a comma and a quote: the gap between two strings of a call (plural(n, "{n} book", "{n} books") read by the
+# rule for text beside a {value}, the "{n}" taken for one), never a text.
+BETWEEN_ARGUMENTS = re.compile(r"""["'`]\s*,\s*["'`]""")
+
+
 def strings_in(source: str, suffix: str) -> list[str]:
     """Every text of one page file's comment-free code that the collector registers, each once, in the order found:
     the first rules, then the gaps stage 5 closed (gap_strings). Never a piece of raw template code or a CSS selector."""
     texts = dict.fromkeys(first_rules(source, suffix))
     texts.update(dict.fromkeys(gap_strings(source, suffix)))
-    return [text for text in texts if "${" not in text and not SELECTOR.fullmatch(text)]
+    return [text for text in texts if "${" not in text and not SELECTOR.fullmatch(text) and not BETWEEN_ARGUMENTS.search(text)]
 
 
 # --- The net's reading of code (from unregistered.py) ----------------------------------------------------------------
@@ -320,6 +326,29 @@ def branch_of_choice(code: str, start: int) -> bool:
     return False
 
 
+PLURAL_CALL = re.compile(r"\bplural\s*$")
+
+
+def plural_form(code: str, start: int) -> bool:
+    """A form handed to site-format.ts's plural(n, one, many): its second or third argument, shown on screen however it
+    looks (" · {n} times", "{n} old maps name it"). `code` is masked()."""
+    position, depth, commas = start - 1, 0, 0
+    while position >= 0 and start - position < 600:
+        char = code[position]
+        if char in CLOSING:
+            depth += 1
+        elif char in OPENING:
+            if depth == 0:
+                return char == "(" and commas in (1, 2) and bool(PLURAL_CALL.search(code[max(0, position - 20):position]))
+            depth -= 1
+        elif depth == 0 and char == ",":
+            commas += 1
+        elif depth == 0 and char == ";":
+            return False
+        position -= 1
+    return False
+
+
 def shown_lowercase(text: str, body: str, source: str, start: int, end: int) -> bool:
     """A phrase with no capital that a page shows ("in four collections", "(not stated)"): words, not code, not a key
     or a value no reader sees, and English (the home banner's verses in other languages stay out)."""
@@ -335,7 +364,8 @@ def shown_lowercase(text: str, body: str, source: str, start: int, end: int) -> 
 
 def literal_gaps(source: str) -> list[str]:
     """Strings the first rules miss: after a `${}` template on the same line (their quote pairing was lost there),
-    paragraphs over 400 characters, one-word labels under group/kind or in a choice ("Verdict"), lowercase phrases."""
+    paragraphs over 400 characters, one-word labels under group/kind or in a choice ("Verdict"), lowercase phrases, and
+    the forms handed to plural()."""
     found = []
     literals = string_literals(source)
     code = masked(source, literals)
@@ -353,6 +383,8 @@ def literal_gaps(source: str) -> list[str]:
             found.append(text)
         elif shown_lowercase(text, body, source, start, end):
             found.append(text)
+        elif ("{n}" in text or len(WORD.findall(text)) >= 2 or ONE_WORD.fullmatch(text)) and plural_form(code, start):
+            found.append(text)  # a single lowercase word ("it", "once") is left to the swap's other rules
     return found
 
 

@@ -1,10 +1,11 @@
 import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
 import { Link } from "react-router-dom";
-import { BOOK_TONE, bookCode, chapterOf, PERIOD_TONE, plural, refText, whenShort } from "./data";
+import { BOOK_TONE, bookCode, chapterOf, PERIOD_TONE, refText, whenShort } from "./data";
 import { useSheet } from "./sheet";
 import { Tip } from "./tip";
 import type { Apostle, Entry } from "./types";
 import { Icon, Marked, RefLink, SecHead } from "./ui";
+import { plural } from "@/lib/site-format";
 
 /** 01 · How much does Scripture tell? (the record ring) and 02 · Where is he named? (the chapter grid). */
 
@@ -45,7 +46,7 @@ function Ring({ d, sel, onPick }: { d: Apostle; sel: number; onPick: (period: nu
       const mid = (g.a0 + g.a1) / 2, [lx, ly] = pt(cx, cy, r + w * 1.8 + 8, mid), [tx0, ty0] = pt(cx, cy, r - w * 1.4, g.a0 - 0.025), [tx1, ty1] = pt(cx, cy, r + w * 1.4, g.a0 - 0.025);
       return <g key={g.i}>
         <path className={`ring-arc${trad ? " trad" : ""}${on ? " on" : ""}`} style={tone} strokeWidth={on ? w * 1.35 : w} d={arcD(cx, cy, r, g.a0, g.a1)} />
-        <path className="ring-hit" strokeWidth={w * 3} d={arcD(cx, cy, r, g.a0, g.a1)} onClick={() => onPick(g.i + 1)}><title>{`${g.p.n} · ${g.p.title}: ${plural(g.n, "record")}`}</title></path>
+        <path className="ring-hit" strokeWidth={w * 3} d={arcD(cx, cy, r, g.a0, g.a1)} onClick={() => onPick(g.i + 1)}><title>{`${g.p.n} · ${g.p.title}: ${plural(g.n, "{n} record", "{n} records")}`}</title></path>
         {g.p.entries.map((key, k) => {
           const t = g.n === 1 ? 0.5 : (k + 0.5) / g.n, [x, y] = pt(cx, cy, r, g.a0 + (g.a1 - g.a0) * t), en = d.byKey[key];
           return <circle key={key} className={`bead${trad ? " trad" : ""}`} cx={x.toFixed(1)} cy={y.toFixed(1)} r={Math.max(2.4, w * 0.26).toFixed(1)} style={tone}
@@ -61,7 +62,7 @@ function Ring({ d, sel, onPick }: { d: Apostle; sel: number; onPick: (period: nu
       </g>;
     })}
     <text className="ring-num" x={cx} y={cy + size * 0.02} textAnchor="middle" style={{ fontSize: 76 * k }}>{s.n}</text>
-    <text className="ring-cap" x={cx} y={cy + size * 0.085} textAnchor="middle" style={{ fontSize: 9.5 * k }}>{s.i === 3 ? (s.n === 1 ? "SOURCE OUTSIDE SCRIPTURE" : "SOURCES OUTSIDE SCRIPTURE") : s.n === 1 ? "RECORD IN SCRIPTURE" : "RECORDS IN SCRIPTURE"}</text>
+    <text className="ring-cap" x={cx} y={cy + size * 0.085} textAnchor="middle" style={{ fontSize: 9.5 * k }}>{s.i === 3 ? (plural(s.n, "SOURCE OUTSIDE SCRIPTURE", "SOURCES OUTSIDE SCRIPTURE")) : plural(s.n, "RECORD IN SCRIPTURE", "RECORDS IN SCRIPTURE")}</text>
     <text className="ring-sub" x={cx} y={cy - size * 0.145} textAnchor="middle" style={{ fontSize: 15 * k }}>{`${s.p.n} · ${s.p.title}`}</text>
   </svg>;
 }
@@ -70,11 +71,11 @@ function Ring({ d, sel, onPick }: { d: Apostle; sel: number; onPick: (period: nu
 // The two sections' leads: each sentence its own text, so the page translator gets it whole (none holds more than three
 // values or a value that is a clause; stage 5 job 13). Each reads as one paragraph, as before.
 export function RingSub({ tagline, told }: { tagline: string; told: number }) {
-  return <><span>{tagline}</span>{" "}<span>{`Scripture gives no years for his life, so the ring is divided by how much is recorded: ${plural(told, "record")} of what he did or what was said to him, one bead each.`}</span>{" "}<span>The last part is tradition and is drawn dashed. Choose a part to read it.</span></>;
+  return <><span>{tagline}</span>{" "}<span>{`Scripture gives no years for his life, so the ring is divided by how much is recorded: ${plural(told, "{n} record", "{n} records")} of what he did or what was said to him, one bead each.`}</span>{" "}<span>The last part is tradition and is drawn dashed. Choose a part to read it.</span></>;
 }
 
 export function GridSub({ short, verses, chapters, alt }: { short: string; verses: number; chapters: number; alt?: string }) {
-  return <><span>{`One square for each chapter of the books that name ${short}: ${plural(verses, "verse")} in ${plural(chapters, "chapter")}.`}</span>{" "}<span>The darker the square, the more verses in it name him.</span>{alt
+  return <><span>{`One square for each chapter of the books that name ${short}: ${plural(verses, "{n} verse", "{n} verses")} in ${plural(chapters, "{n} chapter", "{n} chapters")}.`}</span>{" "}<span>The darker the square, the more verses in it name him.</span>{alt
     ? <>{" "}<span>{`Squares with a dashed edge name ${alt}, who is ${short} only if the two are one man (see the questions below).`}</span></>
     : null}{" "}<span>Choose a chapter to read what happens there.</span></>;
 }
@@ -114,7 +115,7 @@ export function RingSection({ d }: { d: Apostle }) {
         <p className="kicker">{p.n} · {p.sub}</p><h3>{p.title}</h3>
         {ents.length ? <ol className={`a-recs${sel === 4 ? " trad" : ""}${ents.length > 9 ? " two" : ""}`}>{ents.map((e) => <li key={e.key}>
           <button type="button" onClick={() => sheet.openEntry(e)}><span className="t">{e.title}</span><small>{e.type === "trad" ? whenShort(e.when) : e.refs[0] ? refText(e.refs[0]) : ""}</small></button>
-        </li>)}</ol> : <p className="plain-line">{sel === 1 ? "Scripture gives no home, trade or family for him." : "Scripture records nothing here."}</p>}
+        </li>)}</ol> : <p className="plain-line">{plural(sel, "Scripture gives no home, trade or family for him.", "Scripture records nothing here.")}</p>}
       </div>
     </div>
   </section>;
@@ -143,7 +144,7 @@ export function GridSection({ d }: { d: Apostle }) {
   });
   const tip = (e: ReactPointerEvent, code: string, ch: number) => {
     const b = meta(code), ents = entriesIn(d, b.num, ch);
-    Tip.show({ title: `${b.name} ${ch}`, lines: [`${plural(heat[code]?.counts[ch] ?? 0, "verse")} name him${altHeat[code]?.counts[ch] ? ` · ${altHeat[code].counts[ch]} name ${alt.name}` : ""}`, ents.slice(0, 3).map((x) => x.title).join(" · ")] }, e.clientX, e.clientY);
+    Tip.show({ title: `${b.name} ${ch}`, lines: [`${plural(heat[code]?.counts[ch] ?? 0, "{n} verse", "{n} verses")} name him${altHeat[code]?.counts[ch] ? ` · ${altHeat[code].counts[ch]} name ${alt.name}` : ""}`, ents.slice(0, 3).map((x) => x.title).join(" · ")] }, e.clientX, e.clientY);
   };
   const row = (code: string) => {
     const b = meta(code), mine = heat[code]?.counts ?? {}, other = altHeat[code]?.counts ?? {}, osum = sumOf(other);
@@ -179,7 +180,7 @@ function ChapterNow({ d, code, ch, open }: { d: Apostle; code: string; ch: numbe
   return <>
     <div className="heat-now-v">
       <p className="kicker">{b.name} {ch}</p>
-      <h3>{plural(d.heat[code]?.counts[ch] ?? 0, "verse")} name him{altHeat[code]?.counts[ch] ? `; ${plural(altHeat[code].counts[ch], "verse")} name ${alt.name}` : ""}</h3>
+      <h3>{plural(d.heat[code]?.counts[ch] ?? 0, "{n} verse", "{n} verses")} name him{altHeat[code]?.counts[ch] ? `; ${plural(altHeat[code].counts[ch], "{n} verse", "{n} verses")} name ${alt.name}` : ""}</h3>
       {v ? <blockquote><p><Marked text={d.verses[v] ?? ""} names={d.names} /></p><footer><RefLink r={[v, v]} /> · {mineV ? "the first verse here that names him" : `names ${alt.name}`}</footer></blockquote>
         : <p className="plain-line">No verse in this chapter names him.</p>}
     </div>

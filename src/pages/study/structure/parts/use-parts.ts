@@ -39,7 +39,7 @@ export function useParts(stats: Stats, measure: Measure, section: SectionFilter)
     : entries ? `${subject.name} has ${subject.value} section entries (${subject.share}% of this selection). Open the passages below to move from the pattern to the texts behind it.`
     : measure === "words" ? `${subject.name} is ${(subject.bookCount / 66 * 100).toFixed(1)}% of the books but ${subject.share}% of the words. Book counts alone can hide how much space a section occupies.`
     : measure === "books" ? `${subject.name} brings together ${subject.bookCount} books, ${formatNumber(subject.chapterCount)} chapters and ${formatNumber(subject.words)} words. Change the measure to discover how differently those books are sized.`
-    : measure === "chapters" ? `${subject.name} has ${formatNumber(subject.value)} chapters across ${subject.bookCount} books, about ${Math.round(subject.words / subject.chapterCount).toLocaleString("en-US")} words per chapter.`
+    : measure === "chapters" ? `${subject.name} has ${formatNumber(subject.value)} chapters across ${subject.bookCount} books, about ${formatNumber(Math.round(subject.words / subject.chapterCount))} words per chapter.`
     : measure === "verses" ? `${subject.name} averages ${(subject.value / subject.chapterCount).toFixed(1)} verses per chapter. Verses vary greatly in length; compare words before using verse counts to estimate reading time.`
     : `${(subject.value / subject.words * 100).toFixed(1)}% of the words in ${subject.name} are marked as Jesus speaking in this edition.`;
   const note = entries ? STUDY_MEASURES.find((m) => m.id === measure)?.note : undefined;

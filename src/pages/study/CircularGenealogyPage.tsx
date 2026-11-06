@@ -14,6 +14,7 @@ import "./circular-genealogy.css";
 
 import { JESUS, gospelPeople, fullFamilyDepth, type GospelAccount } from "@/lib/genealogy-catalog";
 import { FamilyStartingPoints } from "@/components/study/FamilyStartingPoints";
+import { plural } from "@/lib/site-format";
 const colors = ["#e3b65c", "#8ec8ad", "#81adc9", "#b29bcf", "#ce909f", "#cca678", "#9ebba1", "#a7a5d1", "#cfaf88"];
 const load = async (): Promise<FamilyPerson[]> => {
   const response = await fetch("/content/study/genealogy.json");
@@ -415,7 +416,7 @@ function Graph({ people:records, familyBands, sizeScale, editing, initialView, i
     current.invalid = !!ringOverlap(candidateNodes, current.candidate, 1, current.ids);
     setPreviewTracks(current.candidateTracks);
     setPreview(current.candidate);
-    setNotice(current.invalid ? "Overlapping: keep dragging to a clear spot, or release to snap back." : `Moving ${current.ids.size} locked ${current.ids.size === 1 ? "person" : "people"} together.`);
+    setNotice(current.invalid ? "Overlapping: keep dragging to a clear spot, or release to snap back." : `Moving ${current.ids.size} locked ${plural(current.ids.size, "person", "people")} together.`);
   };
   const endDrag = (event: ReactPointerEvent<SVGElement>, cancel = false) => {
     const hub=junctionDrag.current;

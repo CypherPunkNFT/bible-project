@@ -3,8 +3,7 @@
 // and the teachers with no Bible texts recorded, for the fold-out.
 import type { Book, PassageWork, PeopleData, Person } from "@/data/teachers/pages-types";
 import { lifeEnd } from "../../shared/people";
-
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+import { formatDate as writeDate } from "@/lib/site-format";
 
 export interface Entry { work: PassageWork; person: Person }
 export interface Track {
@@ -34,7 +33,10 @@ export function formatDate(raw: string | null) {
   const m = /^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$/.exec(raw ?? "");
   if (!m) return raw ?? "";
   const [, y, mo, d] = m;
-  return d ? `${Number(d)} ${MONTHS[Number(mo) - 1]} ${y}` : mo ? `${MONTHS[Number(mo) - 1]} ${y}` : y;
+  if (!mo) return y;
+  const day = new Date(0);
+  day.setUTCFullYear(Number(y), Number(mo) - 1, d ? Number(d) : 1); // Date.UTC would read the years 0-99 as 1900-1999
+  return writeDate(day, { day: d ? "numeric" : undefined, month: "short", year: "numeric", timeZone: "UTC" });
 }
 /** In the list, a middle name is dropped so names fit ("Charles Haddon Spurgeon" → "Charles Spurgeon"); initials stay. */
 export const listName = (name: string) => { const parts = name.split(/\s+/); return parts.length > 2 && !parts[0].endsWith(".") ? `${parts[0]} ${parts[parts.length - 1]}` : name; };

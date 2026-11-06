@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { OldMapIcon } from "@/pages/places/old-maps";
 import { atlasDestination } from "@/pages/places/routes";
 import BY_PLACE from "./old-maps-by-place.json";
+import { formatNumber, plural } from "@/lib/site-format";
 
 // The folded bar at the foot of a place's panel: "Old maps of <place>" and a count, opening upward into up to four old
 // maps of it, earliest first. "Not vital, just fun" (owner, 2026-10-19), so it stays folded until asked for. A place no
@@ -13,7 +14,7 @@ import BY_PLACE from "./old-maps-by-place.json";
 interface OldMap { year: number; title: string; maker: string | null; credit: string; url: string; image: string }
 interface PlaceMaps { count: number; earliest: number | null; maps: OldMap[] }
 
-const fmt = (n: number) => n.toLocaleString("en-GB");
+const fmt = (n: number) => formatNumber(n);
 
 export function OldMapsFold({ placeId, placeName }: { placeId: string; placeName: string }) {
   const [open, setOpen] = useState(false);
@@ -48,7 +49,7 @@ export function OldMapsFold({ placeId, placeName }: { placeId: string; placeName
             ))}
           </ul>
           <Link to={atlasDestination("old-maps")} tabIndex={tab} className="inline-flex items-center gap-1.5 pb-3 pt-2 text-xs text-[color:var(--fold-tone)] hover:underline">
-            {entry.count === 1 ? "1 old map names it" : `${fmt(entry.count)} old maps name it${entry.earliest ? `, from ${entry.earliest}` : ""}`} · Old maps <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+            {entry.count !== 1 && entry.earliest ? `${plural(entry.count, "{n} old map names it", "{n} old maps name it")}, from ${entry.earliest}` : plural(entry.count, "{n} old map names it", "{n} old maps name it")} · Old maps <ArrowRight className="h-3.5 w-3.5" aria-hidden />
           </Link>
         </div>
       </div>

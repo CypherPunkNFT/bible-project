@@ -104,7 +104,6 @@ export const LAYER: Record<string, string> = { scripture: "Scripture", text: "Fr
 export const ROMAN = ["", "I", "II", "III", "IV"];
 export const PERIOD_TONE = ["", "var(--history)", "var(--gospels)", "var(--acts)", "var(--muted)"];
 export const BOOK_TONE = (num: number) => (num === 40 ? "var(--history)" : num === 41 ? "var(--poetry)" : num === 42 ? "var(--prophets)" : num === 43 ? "var(--gospels)" : num === 44 ? "var(--acts)" : num >= 45 && num < 66 ? "var(--epistles)" : "var(--revelation)");
-export const plural = (n: number, one: string, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
 export const REDUCED = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /** "about AD 95–96" → "c. 95"; "4th century" → "4th c.". */

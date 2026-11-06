@@ -8,10 +8,11 @@ import dossier from '../../../../content/academic-research/05-from-manuscript-to
 import { OpeningArt } from './OpeningArt';
 import './opening.css';
 import { CHAPTERS, ITEMS } from './print-timeline';
+import { formatDate } from "@/lib/site-format";
 
 const printed = ITEMS.filter(i => i.from >= 1450);
 const latest = Math.max(...printed.map(i => i.from));
-const checked = new Date(`${dossier.checked}T12:00:00`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const checked = formatDate(new Date(`${dossier.checked}T12:00:00`), { day: 'numeric', month: 'long', year: 'numeric' });
 
 const FIGURES = [
   ['First printed Bible', 'c. 1455', 'the Gutenberg Bible, Mainz'],

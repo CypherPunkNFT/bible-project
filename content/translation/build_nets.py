@@ -27,6 +27,7 @@ from english_baseline import NETS, Refused, read_json
 NODE_SCRIPT = Path(__file__).resolve().with_name("language_nets.mjs")
 PAGE_HEAD = "src/lib/page-head.ts"
 LANGUAGE_FILE = "src/lib/language.ts"
+FORMAT_MODULE = "src/lib/site-format.ts"  # the site's own number, date, sort and plural helpers: the nets leave it alone
 STUDY_LOADER = "src/lib/study.ts"  # its loaders put "study/" in front of the paths they are given
 AT_RELEASE = {"study/people-packs/"}  # listed in TRANSLATED_DATA but made only by the release (release-translations.ts)
 TIMEOUT_SECONDS = 120
@@ -37,16 +38,19 @@ WHY = {
     "pieced": "the translator gets each piece alone and cannot reorder them for the language (\"2 of 9\" read \"9 out "
               "of 2\" in Hindi), and the collector never registers the whole line",
     "plural": "the translator cannot choose plural forms: Arabic has six, Chinese none",
-    "format": "it writes numbers or dates in one fixed language, or in the browser's language, not the site's",
+    "format": "it writes numbers or dates, or sorts, in one fixed language, or in the browser's language, not the site's",
     "title": "the translator reads only the page body, so a tab title or description written in the code stays English",
     "data": "the site shows this data in English in every language",
 }
 HOW = {
     "pieced": "write the whole sentence as one template string with its values inside, e.g. {`${done} of ${total} "
               "debates`}; then `python content/translation/extract.py --pages` collects it",
-    "plural": "word it so no singular/plural choice is needed (\"Books: {n}\"), until stage 5's plural() helper exists",
-    "format": "pass the site's language: `n.toLocaleString(siteLanguage())`, `new Intl.NumberFormat(siteLanguage())` "
-              "(siteLanguage from src/lib/language.ts)",
+    "plural": "use plural(n, \"{n} book\", \"{n} books\") from src/lib/site-format.ts, with both forms written out as "
+              "texts (each language's forms are translated for it); a choice between two different sentences can be "
+              "plural(n, \"The book\", \"{n} books\")",
+    "format": "use the helpers in src/lib/site-format.ts: formatNumber(n), formatDate(d), formatDateTime(d), "
+              "formatList(items), compareText(a, b) for names a reader sees, compareCode(a, b) for ids and keys, "
+              "countryName(code)",
     "title": "set no title of your own: usePageHead names the page from its main heading, which is translated "
              "(src/lib/page-head.ts); a new page needs no entry in page-head.ts. Stage 5 puts the page head through the "
              "translation",
@@ -68,7 +72,7 @@ def run_node(files: dict[str, str]) -> dict:
     node = shutil.which("node")
     if not node:
         raise RuntimeError("node was not found on PATH; the language nets need it (the build itself runs on Node)")
-    request = json.dumps({"files": files, "pageHead": PAGE_HEAD, "languageFile": LANGUAGE_FILE}, ensure_ascii=False)
+    request = json.dumps({"files": files, "pageHead": PAGE_HEAD, "languageFile": LANGUAGE_FILE, "formatModule": FORMAT_MODULE}, ensure_ascii=False)
     try:
         result = subprocess.run([node, str(NODE_SCRIPT)], input=request.encode("utf-8"), capture_output=True,
                                 timeout=TIMEOUT_SECONDS, check=False)

@@ -8,7 +8,8 @@ import { ArrowRight, Check } from "lucide-react";
 import { LayoutGroup, motion, MotionConfig, type Transition } from "framer-motion";
 import { useState, type CSSProperties, type ReactNode } from "react";
 import type { TestRecord } from "../../../questions/test/record";
-import { chosenIn, homeOf, iconOf, plural, shelfMeta, shownShelves, toneOf } from "../../../questions/test/shelf-model";
+import { chosenIn, homeOf, iconOf, shelfMeta, shownShelves, toneOf } from "../../../questions/test/shelf-model";
+import { plural } from "@/lib/site-format";
 
 export type MenuVersion = "a" | "b" | "c";
 interface Props { version: MenuVersion; counts: Map<string, number>; selected: string; onChoose: (id: string) => void; record: TestRecord }
@@ -39,7 +40,7 @@ export function ThemeMenu({ version, counts, selected, onChoose, record }: Props
           {openShelf.groups.map(({ group, themes }, j) => {
             const on = j === g;
             return <MenuCell key={group.id} layoutId={`g-${group.id}`} order={groupAt(j)} icon={group.id} n={j} title={group.title} line={group.line} on={on}
-              open="Open the group" meta={plural(themes.length, "test")} chosen={chosenIn([{ themes }], selected)}
+              open="Open the group" meta={plural(themes.length, "{n} test", "{n} tests")} chosen={chosenIn([{ themes }], selected)}
               onClick={() => setOpen({ ...open, group: on ? "" : group.id })} />;
           })}
         </motion.ul>

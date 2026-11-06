@@ -49,11 +49,12 @@ describe("a made-up language added to the one file", () => {
     for (const code of MADE_UP) {
       expect(verses.currentBibleSlug(code), code).toBe(source.bible);
       expect(languages.scriptureLanguage(code), code).toBe(source.code);
-      expect(banner.homeWording(banner.BANNER_VERSES, code), code).toEqual({ words: banner.BANNER_VERSES[source.code], language: source.code });
-      expect(banner.homeWording(banner.BLESSING_VERSES, code), code).toEqual({ words: banner.BLESSING_VERSES[source.code], language: source.code });
+      // Whatever its phrase list holds (a made-up language's list is every English string, made up), it shows the
+      // English Bible's words, marked as English, since that is the Bible it quotes.
+      const bible = { lang: "ar", dir: "rtl" } as Parameters<typeof banner.verseWords>[2];
+      expect(banner.verseWords(banner.BLESSING_VERSES.numbers, code, bible), code)
+        .toEqual({ words: banner.BLESSING_VERSES.numbers, lang: source.code, dir: source.dir });
     }
-    const bible = { lang: "ar", dir: "rtl" } as Parameters<typeof banner.wordingMarks>[1];
-    expect(banner.wordingMarks(false, bible)).toEqual({ lang: source.code, dir: source.dir });
   });
 
   it("is in the menu on this computer's preview only, and never in a release", async () => {

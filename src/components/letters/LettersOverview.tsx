@@ -13,6 +13,7 @@ import { PeopleCards } from "./PeopleCards";
 import { ThemeCards } from "./ThemeCards";
 import { TimelineStrip } from "./TimelineStrip";
 import "./letters.css";
+import { formatNumber } from "@/lib/site-format";
 
 const FILES = import.meta.glob<{ default: LetterGroup | Overview }>("/src/data/letters/*.json");
 const GROUP_IDS: LetterGroup["id"][] = ["paul-letters", "hebrews", "general-letters", "john-letters"];
@@ -87,7 +88,7 @@ export function LettersOverview() {
         {overview && <p className="lg-tagline">{overview.tagline}</p>}
         <div className="lg-stats">
           <div className="lg-stat"><b>{letters.length}</b><span>letters</span></div>
-          <div className="lg-stat"><b>{verses.toLocaleString("en-US")}</b><span>verses</span></div>
+          <div className="lg-stat"><b>{formatNumber(verses)}</b><span>verses</span></div>
           <div className="lg-stat"><b>{groups.length}</b><span>groups</span></div>
           <div className="lg-stat"><b>{Math.min(...letters.map((l) => l.date.from ?? Infinity))}–{Math.max(...letters.map((l) => l.date.to ?? -Infinity))}</b><span>AD · widest range proposed</span></div>
         </div>

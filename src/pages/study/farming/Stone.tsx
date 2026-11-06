@@ -3,6 +3,7 @@
 import { D, findSeason, monthSpan, type Season } from "./model";
 import { Cite, Head, He, Picture, Quote } from "./parts";
 import { Wheel, WheelKey } from "./Wheel";
+import { plural } from "@/lib/site-format";
 
 function Chosen({ season }: { season: Season }) {
   return <div className="fy-chosen" aria-live="polite">
@@ -38,12 +39,12 @@ export function Stone({ seasonId, onSeason }: { seasonId: string | null; onSeaso
         <p className="fy-caption">Square letters stand in for the stone's older script. The word for sowing breaks across lines 1 and 2.</p>
       </div>
       <div className="fy-yearwheel">
-        <Wheel lit={[season.id]} chosen={season.id} centre={[season.short, `${season.months} ${season.months === 1 ? "month" : "months"}`]} onPick={onSeason}
+        <Wheel lit={[season.id]} chosen={season.id} centre={[season.short, `${season.months} ${plural(season.months, "month", "months")}`]} onPick={onSeason}
           label={`The year as a wheel of eight seasons, starting with ingathering at the top. Now lit: ${season.reading}, ${monthSpan(season)} on this study's placing.`} />
         <WheelKey />
       </div>
       <ol className="fy-seasons">{D.seasons.map((s, i) => <li key={s.id}>
-        <button type="button" aria-pressed={s.id === season.id} onClick={() => onSeason(s.id)}><b>{i + 1}</b><span>{s.short}<small>{s.months} {s.months === 1 ? "month" : "months"}</small></span></button>
+        <button type="button" aria-pressed={s.id === season.id} onClick={() => onSeason(s.id)}><b>{i + 1}</b><span>{s.short}<small>{s.months} {plural(s.months, "month", "months")}</small></span></button>
       </li>)}</ol>
     </div>
     <Chosen season={season} />

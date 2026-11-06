@@ -8,7 +8,8 @@
 // Anything inside translate="no" is left alone.
 import { fadeWordsIn, fadeWordsOut, holdNewWords } from "./language-fade";
 import { languageDirection, languageFolder, languageReloads, loadedData, setSiteLanguage, siteLanguage, type LanguageCode } from "./language";
-import { scriptureLanguage } from "./site-languages";
+import { SITE_LANGUAGES, scriptureLanguage } from "./site-languages";
+import { learnPluralForms, pluralPair, readPluralForms } from "./site-format";
 
 const ATTRIBUTES = ["aria-label", "title", "placeholder", "alt"];
 const SKIP = new Set(["SCRIPT", "STYLE", "TEXTAREA", "CODE", "PRE"]);
@@ -19,6 +20,9 @@ const loaded = new Map<string, Promise<void>>(); // "folder ui" and "folder path
 let target: string | null = null;
 let targetRightToLeft = false;
 let observer: MutationObserver | null = null;
+// A language's plural forms, written by plural() (site-format.ts) already in that language: never swapped while it is the
+// target, and traced back to their English on a change of language (folder -> forms, "{n}" for a count).
+const ownForms = new Map<string, Set<string>>();
 // What each text or label said before it was changed: it goes back to exactly that, however many languages came between.
 const originals = new WeakMap<Text | Attr, { source: string; written: string }>();
 
@@ -66,8 +70,17 @@ function loadStrings(folder: string, path: string | null): Promise<void> {
 async function readStrings(folder: string, path: string | null, key: string): Promise<void> {
   try {
     if (path === null) {
-      const strings = (await readJson(`/data/i18n/${folder}/ui.json`)) as Record<string, string>;
+      const strings = (await readJson(`/data/i18n/${folder}/ui.json`)) as Record<string, unknown>;
       for (const [english, translated] of Object.entries(strings)) {
+        if (pluralPair(english)) {
+          learnPlural(folder, english, translated);
+          continue;
+        }
+        // One bad entry costs only itself, never the language's whole phrase list.
+        if (typeof translated !== "string") {
+          console.warn(`page translation: the ${folder} phrase list's entry for "${english}" is not text; it is left out`);
+          continue;
+        }
         learn(folder, english, translated);
         learnSlots(folder, english, translated);
         // Pages also type labels in capitals ("ISAIAH 40:8", "OLD TESTAMENT").
@@ -80,6 +93,26 @@ async function readStrings(folder: string, path: string | null, key: string): Pr
   } catch (error) {
     loaded.delete(key);
     console.warn(`page translation: could not read the ${folder} strings for ${path ?? "the page text"} (${String(error)}); that text keeps its current language`);
+  }
+}
+
+/** A plural entry of ui.json (plural:["{n} book","{n} books"] -> its forms as JSON): handed to plural(), and each form
+ * traced back to the English for the count it is used for, so a change of language can swap it. */
+function learnPlural(folder: string, key: string, value: unknown): void {
+  const categories = SITE_LANGUAGES.find((language) => language.folder === folder)?.plurals ?? ["other"];
+  const forms = readPluralForms(folder, key, value, categories);
+  const [one, many] = pluralPair(key)!;
+  if (!forms) return;
+  learnPluralForms(folder, key, forms);
+  if (!ownForms.has(folder)) ownForms.set(folder, new Set());
+  const counts: Partial<Record<string, number>> = { zero: 0, one: 1, two: 2 };
+  for (const [category, form] of Object.entries(forms)) {
+    const text = normal(form!);
+    ownForms.get(folder)!.add(text);
+    const english = category === "one" ? one : many;
+    // A form with no count in it ("كتابان", two books) stands for one number: its English is written with that number.
+    const traced = text.includes("{n}") || counts[category] === undefined ? english : english.split("{n}").join(String(counts[category]));
+    if (!toEnglish.has(text)) toEnglish.set(text, normal(traced));
   }
 }
 
@@ -125,6 +158,7 @@ function wantStudyStrings(): void {
 }
 
 function lookup(key: string): string | null {
+  if (target && ownForms.get(target)?.has(key)) return null; // a plural form plural() wrote in this language already
   const english = toEnglish.get(key) ?? key;
   const value = target ? fromEnglish.get(target)?.get(english) : english;
   return value && value !== key ? value : null;
@@ -364,6 +398,14 @@ async function bibleInLanguage(code: LanguageCode): Promise<void> {
   const other = `.scripture:not(:lang(${scriptureLanguage(code).split("-")[0]}))`;
   do await wait(32);
   while (location.pathname.startsWith("/read/") && document.querySelector(other) && performance.now() - start < BIBLE_WAIT_MS);
+}
+
+/** The chosen language's own wording for an English text in its phrase list (ui.json), or null: none, or English.
+ * For text drawn in a language's own words rather than swapped (the home page's verses, in its Bible's wording); pass
+ * the language from useSiteLanguage(), so a change of language draws the new wording. */
+export function phrase(english: string, code: LanguageCode): string | null {
+  const folder = languageFolder(code);
+  return (folder && fromEnglish.get(folder)?.get(normal(english))) ?? null;
 }
 
 /** At startup: resolves once the page strings are read, so the first paint is already in the chosen language. */

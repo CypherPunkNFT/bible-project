@@ -14,6 +14,7 @@ import { WALL_ROWS, WordWall } from "./HomeOpenings5";
 import { useBooks } from "./HomeOpenings5Art";
 import { GATES, SECTION_NAMES, stone, tone } from "./HomeOpenings6City";
 import { SquareColumn, useSquareRoom } from "./HomeOpenings6Squares";
+import { formatNumber } from "@/lib/site-format";
 
 /** Nine courses, each 10 units deep with 2 between, from just inside the outer wall. */
 const COURSES = Array.from({ length: 9 }, (_, course) => ({ outer: 84 + course * 12, inner: 94 + course * 12 }));
@@ -148,7 +149,7 @@ export function CityOfChapters({ wings = false, squares = false, wall = false, .
   const copy = chosen ? { ...props, resume: `/read/bsb/${chosen.code}/${chosen.chapter}`, resumeLabel: `Continue: ${chosen.name} ${chosen.chapter}` } : props;
   const note = <p className="hm6-note" aria-live="polite">{chosen
     ? <><strong style={tone(chosen.section)}>{chosen.name} {chosen.chapter}</strong> · {SECTION_NAMES[chosen.section] ?? chosen.section}</>
-    : <>{stones.length.toLocaleString("en")} chapters in the wall</>}</p>;
+    : <>{formatNumber(stones.length)} chapters in the wall</>}</p>;
   return <section ref={stage} className={`hm6-stage hm6-f${wings ? " hm6-g" : ""}${wall ? " hm6-i" : ""}`} aria-labelledby="home-title">
     {wall && <><WordWall rows={WALL_ROWS_I} pools={{ chinese: CHINESE, latin: LATIN, arabic: ARABIC }} /><ScriptRow /></>}
     {wings && <><WingColumn side="left" /><WingColumn side="right" /></>}

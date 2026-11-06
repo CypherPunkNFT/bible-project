@@ -9,11 +9,17 @@ import { StationArt } from "@/components/stations/StationArt";
 import { SECTIONS, TEACHERS, citedWorks, citingPages, genreCount, readableWorks, inSection, type SectionInfo } from "@/data/teachers";
 import type { Section, Teacher } from "@/data/teachers/types";
 import "./teachers.css";
+import { compareText, formatNumber, plural } from "@/lib/site-format";
 
 const PAGE = 24;
 const { labels } = TEACHERS;
 const sermons = (t: Teacher) => t.holdings?.genres.find(([g]) => g === "sermon")?.[1] ?? 0;
-const plural = (n: number, one: string, many = `${one}s`) => `${n.toLocaleString("en-US")} ${n === 1 ? one : many}`;
+// The count under the filters, one message per section so each language can give it its own plural forms.
+const COUNTED: Record<Section, (n: number) => string> = {
+  preacher: (n) => plural(n, "{n} preacher", "{n} preachers"),
+  author: (n) => plural(n, "{n} author", "{n} authors"),
+  scholar: (n) => plural(n, "{n} scholar", "{n} scholars"),
+};
 const sectionTitle = (s: Section) => SECTIONS.find((x) => x.section === s)!;
 
 function stats(section: Section, people: Teacher[]): [string, number][] {
@@ -24,11 +30,11 @@ function stats(section: Section, people: Teacher[]): [string, number][] {
 
 function summary(section: Section, t: Teacher) {
   const read = t.published.length ? ` · ${t.published.length} to read here` : "";
-  if (section === "preacher") return `${plural(sermons(t), "sermon")}${read}`;
-  if (t.origin === "cited") return plural(t.cited.length, "work cited", "works cited");
+  if (section === "preacher") return `${plural(sermons(t), "{n} sermon", "{n} sermons")}${read}`;
+  if (t.origin === "cited") return plural(t.cited.length, "{n} work cited", "{n} works cited");
   const held = (t.holdings?.total ?? 0) - (section === "author" ? sermons(t) : 0);
-  if (held) return `${plural(held, "work")} held${read}`;
-  return `${plural(t.apologetics.length, "piece")} in Apologetics${read}`;
+  if (held) return `${plural(held, "{n} work", "{n} works")} held${read}`;
+  return `${plural(t.apologetics.length, "{n} piece", "{n} pieces")} in Apologetics${read}`;
 }
 
 export default function TeacherList({ info }: { info: SectionInfo }) {
@@ -43,7 +49,7 @@ export default function TeacherList({ info }: { info: SectionInfo }) {
   useEffect(() => { document.title = `${info.title} · Teachers · Bible Guide`; return () => { document.title = "Bible Guide"; }; }, [info.title]);
   const change = (key: string, value: string) => { const next = new URLSearchParams(params); if (value && value !== "all") next.set(key, value); else next.delete(key); setParams(next, { replace: true }); };
   const toggle = (id: string) => setOpen((ids) => (ids.includes(id) ? ids.filter((x) => x !== id) : [...ids, id]));
-  const traditions = [...new Set(people.flatMap((t) => t.traditions))].sort((a, b) => labels.traditions[a].localeCompare(labels.traditions[b]));
+  const traditions = [...new Set(people.flatMap((t) => t.traditions))].sort((a, b) => compareText(labels.traditions[a], labels.traditions[b]));
   const eras = [...new Set(people.map((t) => t.era).filter(Boolean) as string[])].sort();
   const firstCited = visible.findIndex((t) => t.origin === "cited");
   return <div className="tl-page mx-auto max-w-7xl px-4 sm:px-6" style={{ "--door": `var(--${info.color})` } as CSSProperties}>
@@ -61,7 +67,7 @@ export default function TeacherList({ info }: { info: SectionInfo }) {
       {traditions.length > 0 && <Chips label="Tradition" value={tradition} onChange={(v) => change("tradition", v)} options={[["all", "Every tradition"], ...traditions.map((id) => [id, labels.traditions[id]] as [string, string])]} />}
       <Chips label="Era" value={era} onChange={(v) => change("era", v)} options={[["all", "Every era"], ...eras.map((id) => [id, labels.eras[id]] as [string, string])]} />
     </div>
-    <p className="tl-status" role="status">{plural(visible.length, info.one, info.title.toLowerCase())}{visible.length > count ? ` · showing ${count}` : ""}</p>
+    <p className="tl-status" role="status">{COUNTED[info.section](visible.length)}{visible.length > count ? ` · showing ${count}` : ""}</p>
     {visible.length === 0 ? <p className="tl-empty">No one matches these filters. <button type="button" onClick={() => setParams({}, { replace: true })}>Clear the filters</button></p> :
       <ol className="tl-list">{visible.slice(0, count).map((t, i) => <TeacherRow key={t.id} teacher={t} section={info.section} open={open.includes(t.id)} onToggle={() => toggle(t.id)} divider={i === firstCited && i > 0 && info.section === "scholar"} />)}</ol>}
     {visible.length > count && <button type="button" className="tl-more" onClick={() => setShown({ key: filterKey, count: count + PAGE })}>Show {Math.min(PAGE, visible.length - count)} more <span>of {visible.length - count}</span></button>}
@@ -104,8 +110,8 @@ function TeacherPanel({ id, teacher: t, section }: { id: string; teacher: Teache
         {t.shelf && <Link className="tl-link" to={t.shelf}>Their shelf in the reading library <ArrowUpRight size={13} aria-hidden="true" /></Link>}
       </Block>}
       {t.holdings && <Block title="In the library’s catalogue">
-        <ul className="tl-genres">{t.holdings.genres.map(([g, n]) => <li key={g}><span>{labels.genres[g] ?? g}</span><b>{n.toLocaleString("en-US")}</b></li>)}</ul>
-        {t.holdings.sermonBooks > 0 && <p className="tl-note">Sermons with a main text in {plural(t.holdings.sermonBooks, "book")} of the Bible.</p>}
+        <ul className="tl-genres">{t.holdings.genres.map(([g, n]) => <li key={g}><span>{labels.genres[g] ?? g}</span><b>{formatNumber(n)}</b></li>)}</ul>
+        {t.holdings.sermonBooks > 0 && <p className="tl-note">Sermons with a main text in {plural(t.holdings.sermonBooks, "{n} book", "{n} books")} of the Bible.</p>}
         <p className="tl-note">Catalogued in the library; not published on the site.</p>
       </Block>}
       {t.apologetics.length > 0 && <Block title="On the Apologetics pages">
