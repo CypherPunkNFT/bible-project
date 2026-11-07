@@ -24,5 +24,5 @@ export function StudyBackLink({ fallback }: { fallback?: CameFrom } = {}) {
 /** The closing link at the foot of a study: the same way back as the button at its top, so the two always agree. */
 export function StudyReturnLink({ className, fallback }: { className?: string; fallback?: CameFrom }) {
   const from = useWayBack(fallback);
-  return <Link to={from.path} className={className}>Return to {from.label} ↑</Link>;
+  return <Link to={from.path} className={className}>{`Return to ${from.label} ↑`}</Link>;
 }
