@@ -1,8 +1,7 @@
 import { useMemo, useState, type CSSProperties } from "react";
-import { Link } from "react-router-dom";
 import { Loading } from "@/components/charts/ChartCard";
 import type { SectionFilter } from "@/components/charts/SectionGuide";
-import { StudyBackLink } from "@/components/study/StudyBackLink";
+import { StudyBackLink, StudyReturnLink } from "@/components/study/StudyBackLink";
 import { loadStats } from "@/lib/data";
 import { useAsync } from "@/lib/useAsync";
 import { buildLibrary } from "@/pages/library/model";
@@ -48,6 +47,6 @@ export default function StructurePage() {
         </div>
       </section>
     </section>
-    <Link to="/study" className="chart-back-map">Return to the Study collection ↑</Link>
+    <StudyReturnLink className="chart-back-map" />
   </div>;
 }

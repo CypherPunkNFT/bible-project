@@ -18,7 +18,7 @@ import { useAsync, type AsyncState } from "@/lib/useAsync";
 import "./charts.css";
 import { StudyContents } from "@/components/study/StudyContents";
 import { useStudyView } from "@/components/study/study-view";
-import { StudyBackLink } from "@/components/study/StudyBackLink";
+import { StudyBackLink, StudyReturnLink } from "@/components/study/StudyBackLink";
 import HarmonyPage, { HarmonySource } from "@/pages/study/HarmonyPage";
 import { GospelPortraits } from "@/components/study/GospelPortraits";
 import ParablesPage from "@/pages/study/parables/ParablesPage";
@@ -105,6 +105,6 @@ export default function ChartsPage() {
       <ChartPanel id="timeline" title="Versions through time" lead="Find an edition by its recorded year. The dates belong to these editions, rather than the ancient composition of the biblical books." source={<span>Edition years from the version catalogue.</span>}><VersionsTimeline /></ChartPanel>
       <ChartPanel id="coverage" title="Version coverage" lead="See the Old Testament, New Testament and Apocrypha included in each edition. Inspect a book or filter the version groups." source={<span>Coverage from each version's actual book list.</span>}><CoverageMatrix /></ChartPanel>
     </section>}
-    {<Link to="/study" className="chart-back-map">Return to the Study collection ↑</Link>}
+    <StudyReturnLink className="chart-back-map" />
   </div>;
 }
