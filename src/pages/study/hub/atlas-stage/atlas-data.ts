@@ -1,4 +1,4 @@
-// Mock-up data for the study page's Atlas window, tripled (owner, 2026-11-06: "condense this map and add more items ...
+// The study page's Atlas window data (built in the mock-ups, live since 2026-11-06), tripled (owner, 2026-11-06: "condense this map and add more items ...
 // triple the content of the map points and categories"). Three categories become nine, five overview points become
 // fifteen, and every point carries a line and its passages. Ids and coordinates are the site's own places.json entries,
 // so each point opens its real place in the Atlas. Not used by any live page.
@@ -84,7 +84,7 @@ const PLACES: Record<string, Base> = {
 /** One place in a category; `note` replaces the place's own line when the category tells a different part of its story. */
 function at(name: string, note?: string): AtlasPlace {
   const base = PLACES[name];
-  if (!base) throw new Error(`Atlas mock-up: no place named "${name}" in PLACES`);
+  if (!base) throw new Error(`Atlas window: no place named "${name}" in PLACES`);
   const [id, lon, lat, own] = base;
   return { key: name, id, name, lon, lat, note: note ?? own, uncertain: UNCERTAIN.has(name) };
 }

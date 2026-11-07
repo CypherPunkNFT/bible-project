@@ -1,37 +1,5 @@
-/* The Atlas window mock-ups (owner, 2026-11-06): four condensed layouts, about 440px tall on desktop against today's 670.
-   The map's land, grid, dots and labels keep the live Atlas's own rules (.map-land, .map-point …) from hub.css. */
-.study-experience .am-window{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)}
-.study-experience .am-scene{position:relative;min-width:0;background:color-mix(in srgb,var(--poetry) 3%,var(--page))}
-.study-experience .am-map{position:relative;height:100%;min-height:300px}
-.study-experience .am-map>svg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.study-experience .am-map .map-point text{font-size:13px}
-.study-experience .am-map .am-quiet text{opacity:0;transition:opacity .2s}
-.study-experience .am-map .am-quiet:is(:hover,:focus,[aria-pressed=true]) text{opacity:1}
-.study-experience .am-map .map-point{outline:none}
-.study-experience .am-route{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:am-draw 1.6s ease-in-out forwards;filter:drop-shadow(0 0 2px var(--accent));pointer-events:none}
-@keyframes am-draw{to{stroke-dashoffset:0}}
-.study-experience .am-ref{color:inherit;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--muted) 45%,transparent);text-underline-offset:3px;transition:color .2s}
-.study-experience .am-ref:hover{color:var(--accent);text-decoration-color:currentColor}
-.study-experience .am-group-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
-.study-experience .am-cat{display:flex;align-items:center;gap:10px;width:100%;padding:7px 0;color:var(--muted);font:450 15px/1.3 var(--serif);text-align:left;transition:color .2s}
-.study-experience .am-cat>svg{flex-shrink:0;opacity:.8}
-.study-experience .am-cat>span{flex:1}
-.study-experience .am-cat small{font:10px var(--sans);color:var(--muted);opacity:.8}
-.study-experience .am-cat:hover{color:var(--ink)}
-.study-experience .am-cat[aria-pressed=true]{color:var(--accent)}
-.study-experience .am-note h3{font:450 22px/1.25 var(--serif);letter-spacing:-.02em;margin-bottom:6px}
-.study-experience .am-note h4{font:450 18px/1.3 var(--serif);margin-bottom:4px}
-.study-experience .am-note p{font:12px/1.7 var(--sans);color:var(--muted)}
-.study-experience .am-note-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px}
-.study-experience .am-note-links a,.study-experience .am-stop-note a{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--accent)}
-.study-experience .am-intro{font:12px/1.7 var(--sans);color:var(--muted)}
-.study-experience .am-uncertain{font:italic 10.5px/1.6 var(--sans);color:var(--muted);opacity:.85;margin-top:4px}
-.study-experience .am-map .am-unsure .halo{stroke-dasharray:2 2.5}
-.study-experience .am-caveat{font:italic 10.5px/1.6 var(--sans);color:var(--muted);opacity:.85;margin-top:8px}
-.study-experience .am-enter{display:flex;align-items:center;justify-content:center;gap:12px;min-height:46px;padding:12px 16px;border-radius:3px;background:var(--accent);color:var(--page);font-size:12px;font-weight:600;transition:background .2s}
-.study-experience .am-enter:hover{background:var(--ink)}
-.study-experience .am-enter-small{min-height:38px;padding:9px 14px;font-size:11px}
-
+/* The Atlas window mock-ups (owner, 2026-11-06): the parts only versions 1, 2 and 4 and the colour comparison use.
+   The shared rules and version 3 (the one that went live) are in study/hub/atlas-stage/atlas-stage.css. */
 /* 1 Grouped index */
 /* The list beside the map is a narrow 290px column, so the map takes the width (owner, 2026-11-06: "right side panel is too wide"). */
 .study-experience .am-v1 .am-window{display:grid;grid-template-columns:minmax(0,1fr) 290px;height:470px}
@@ -63,16 +31,6 @@
 .study-experience .am-v2 .am-note{padding-top:10px;border-top:1px solid var(--line)}
 .study-experience .am-v2 .am-enter{margin-top:auto}
 
-/* 3 Map stage */
-.study-experience .am-v3 .am-scene{height:470px}
-.study-experience .am-v3 .am-over-left,.study-experience .am-v3 .am-over-right{position:absolute;padding:14px 16px;border-radius:4px;background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(6px);border:1px solid var(--line)}
-.study-experience .am-v3 .am-over-left{left:16px;top:16px;bottom:16px;width:220px;overflow:auto}
-.study-experience .am-v3 .am-groups{display:flex;flex-direction:column;gap:8px}
-.study-experience .am-v3 .am-cat{font-size:14px;padding:4px 0}
-.study-experience .am-v3 .am-over-right{right:16px;top:16px;width:300px;max-height:calc(100% - 92px);overflow:auto}
-.study-experience .am-v3 .am-over-right .am-intro{padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--line)}
-.study-experience .am-v3 .am-over-top{position:absolute;right:16px;bottom:16px}
-
 /* 4 Three columns */
 .study-experience .am-v4 .am-window{display:grid;grid-template-columns:230px minmax(0,1fr) 280px;height:450px}
 .study-experience .am-v4 .am-enter{gap:9px;padding-inline:10px;white-space:nowrap}
@@ -91,32 +49,16 @@
 .study-experience .am-stop-note{padding:0 0 10px 27px}
 .study-experience .am-stop-note p{font:11.5px/1.65 var(--sans);color:var(--muted);margin-bottom:6px}
 
-/* Phones and narrow tablets: every version stacks as map, then the nine as a sideways rail, then the chosen place. */
 @media(max-width:860px){
-  .study-experience .am-section .am-window{display:flex;flex-direction:column;height:auto}
-  .study-experience .am-section .am-scene{height:auto}
-  .study-experience .am-section .am-map{height:320px}
-  .study-experience .am-section :is(.am-side,.am-left){border:0;border-top:1px solid var(--line);padding:16px 18px}
   .study-experience .am-section .am-groups,.study-experience .am-v2 .am-rail{display:flex;flex-direction:row;gap:14px;overflow-x:auto;padding-bottom:6px}
   .study-experience .am-section .am-group,.study-experience .am-v2 .am-rail-group{flex-shrink:0;border:0;padding:0}
-  .study-experience .am-section .am-group .am-cat{width:auto}
   .study-experience .am-v1 .am-strip .am-note{display:block}
   .study-experience .am-v1 .am-strip .am-note-links{flex-direction:row;margin-top:8px}
-  .study-experience .am-v3 :is(.am-over-left,.am-over-right,.am-over-top){position:static;width:auto;max-width:none;border:0;border-top:1px solid var(--line);border-radius:0;background:var(--surface);backdrop-filter:none;padding:16px 18px}
   .study-experience .am-v2 .am-body{display:flex;flex-direction:column;height:auto}
   .study-experience .am-v4 .am-left{order:-1}
   .study-experience .am-v4 .am-side{max-height:360px}
 }
 
-/* Outline colour trials (owner, 2026-11-06): the window outlined like the two doors (a 35% mix of its colour into the line,
-   the same faint corner tint, 4px corners, full colour on hover), one colour per copy on /study/atlas_colors_mockup. */
-.study-experience .am-toned .am-window{border-color:color-mix(in srgb,var(--tone) 35%,var(--line));border-radius:4px;background:linear-gradient(150deg,color-mix(in srgb,var(--tone) 7%,var(--surface)),var(--surface) 74%);transition:border-color .25s}
-.study-experience .am-toned .am-window:hover{border-color:var(--tone)}
-/* The Enter button takes the window's colour, as each door's button takes its own (owner, 2026-11-06). */
-.study-experience .am-toned .am-enter{background:var(--tone)}
-.study-experience .am-toned .am-enter:hover{background:var(--ink)}
-.study-experience .am-toned .am-scene{background:color-mix(in srgb,var(--tone) 3%,var(--page))}
 .study-experience .am-tone-label{display:flex;align-items:baseline;gap:12px;margin:34px 0 -10px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
 .study-experience .am-tone-label strong{font-weight:650;color:var(--tone)}
 .study-experience .am-tone-label i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--tone)}
-

@@ -7,7 +7,7 @@ import "./hub.css";
 // "release it to the actual study page"); it replaces the closing "Begin with a question". Its files stay in
 // pages/mockup/, as the homepage's sections do.
 import { QuizDoor } from "@/pages/home/QuizDoor";
-const AtlasWindow = lazy(() => import("./AtlasWindow"));
+const AtlasStage = lazy(() => import("./atlas-stage/AtlasStage"));
 /** `Atlas`: a mock-up page can show the study page with a different Atlas window (/study/atlas_mockup/1-4). */
 export default function StudyHub({ Atlas }: { Atlas?: ComponentType }) {
     return <div className="study-experience study-hub-page">
@@ -83,7 +83,7 @@ export default function StudyHub({ Atlas }: { Atlas?: ComponentType }) {
       </StudyLink>
     </section>
     {/* The Atlas sits under the two doors as part of "Choose your way in" (owner, 2026-11-06), so the questions become 02. */}
-    {Atlas ? <Atlas /> : <Suspense fallback={<p className="atlas-loading">Loading the Atlas…</p>}><AtlasWindow inDoors /></Suspense>}
+    {Atlas ? <Atlas /> : <Suspense fallback={<p className="atlas-loading">Loading the Atlas…</p>}><AtlasStage /></Suspense>}
 
     <PeopleCards /><QuizDoor number="02" />
     </div></div>;

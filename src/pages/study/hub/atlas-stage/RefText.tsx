@@ -1,4 +1,4 @@
-// Turns the Bible references inside an Atlas mock-up line ("2 Samuel 5:6–7; Luke 24:1–7") into links that open the
+// Turns the Bible references inside an Atlas window line ("2 Samuel 5:6–7; Luke 24:1–7") into links that open the
 // Berean Standard Bible at that chapter, with the verses shaded (owner, 2026-11-06). A bare "13:1–3" after a
 // reference continues the same book.
 import { Fragment, type ReactNode } from "react";

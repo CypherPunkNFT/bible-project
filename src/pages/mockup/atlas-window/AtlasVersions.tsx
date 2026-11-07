@@ -3,25 +3,14 @@
 // 2 Category rail: the nine across the top, the map, the category's places listed beside it.
 // 3 Map stage: the map full width, the nine and the chosen place laid over it.
 // 4 Three columns: the nine, the map, the category's numbered places.
-import { useEffect, useRef, useState } from "react";
-import { ArrowRight, ArrowUpRight, Map as MapIcon } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { StudyLink } from "@/pages/study/hub/shared";
-import { CATEGORIES, GROUPS, placeHref, type AtlasCategory, type AtlasPlace } from "./atlas-mock-data";
-import { MockMap, type Inset } from "./MockMap";
-import { RefText } from "./RefText";
+import { CATEGORIES, GROUPS, placeHref } from "@/pages/study/hub/atlas-stage/atlas-data";
+import { AtlasMap as MockMap, type Inset } from "@/pages/study/hub/atlas-stage/AtlasMap";
+import { RefText } from "@/pages/study/hub/atlas-stage/RefText";
+import { Caveat, CategoryButton, EnterAtlas, GroupedCategories, PlaceNote, useAtlasChoice } from "@/pages/study/hub/atlas-stage/parts";
 import "./atlas-mock.css";
-
-const firstPlace = (c: AtlasCategory) => (c.places.find(p => p.key === "Jerusalem") ?? c.places[0]).key;
-
-function useAtlasChoice() {
-  const [categoryId, setCategoryId] = useState("map");
-  const category = CATEGORIES.find(c => c.id === categoryId)!;
-  const [chosenKey, setChosenKey] = useState(firstPlace(category));
-  const chosen: AtlasPlace = category.places.find(p => p.key === chosenKey) ?? category.places[0];
-  const pick = (id: string) => { const next = CATEGORIES.find(c => c.id === id)!; setCategoryId(id); setChosenKey(firstPlace(next)); };
-  return { category, chosen, pick, choose: setChosenKey };
-}
-type Choice = ReturnType<typeof useAtlasChoice>;
 
 /** `tone`: the colour the window is outlined in, as the two doors are in gold and orange (/study/atlas_colors_mockup).
  *  `copy`: one of several copies on a comparison page, so it gives up the page's "world" anchor. */
@@ -29,34 +18,6 @@ export interface Tone { tone?: string; copy?: boolean }
 function Section({ version, tone, copy, children }: { version: number; children: React.ReactNode } & Tone) {
   return <section className={`hub-section atlas-section in-doors am-section am-v${version}${tone ? " am-toned" : ""}`} id={copy ? undefined : "world"} aria-label="The Atlas" style={tone ? { ["--tone" as string]: tone } : undefined}>{children}</section>;
 }
-
-function CategoryButton({ c, active, pick, count = false }: { c: AtlasCategory; active: boolean; pick: (id: string) => void; count?: boolean }) {
-  const Icon = c.icon;
-  return <button type="button" className="am-cat" aria-pressed={active} onClick={() => pick(c.id)}>
-    <Icon size={16} strokeWidth={1.5} aria-hidden /><span>{c.title}</span>{count && <small>{c.places.length}</small>}
-  </button>;
-}
-
-function GroupedCategories({ choice, count = false }: { choice: Choice; count?: boolean }) {
-  return <div className="am-groups">{GROUPS.map(g => <div className="am-group" key={g} role="group" aria-label={g}>
-    <p className="am-group-label">{g}</p>
-    {CATEGORIES.filter(c => c.group === g).map(c => <CategoryButton key={c.id} c={c} active={choice.category.id === c.id} pick={choice.pick} count={count} />)}
-  </div>)}</div>;
-}
-
-function PlaceNote({ choice, heading = "h3" }: { choice: Choice; heading?: "h3" | "h4" }) {
-  const H = heading, { chosen, category } = choice;
-  return <div className="am-note" aria-live="polite">
-    <H>{chosen.name}</H><p><RefText text={chosen.note} /></p>{chosen.uncertain && <p className="am-uncertain">Location uncertain: scholars propose more than one site.</p>}
-    <div className="am-note-links"><StudyLink to={placeHref(chosen)}>Open in the Atlas<ArrowUpRight size={14} aria-hidden /></StudyLink><StudyLink to={category.href}>{category.title}<ArrowUpRight size={14} aria-hidden /></StudyLink></div>
-  </div>;
-}
-
-function EnterAtlas({ small = false }: { small?: boolean }) {
-  return <StudyLink className={small ? "am-enter am-enter-small" : "am-enter"} to="/study/atlas"><MapIcon size={16} strokeWidth={1.5} aria-hidden /><span>Enter the full Atlas</span><ArrowRight size={16} aria-hidden /></StudyLink>;
-}
-
-const Caveat = ({ c }: { c: AtlasCategory }) => c.caveat ? <p className="am-caveat">{c.caveat}</p> : null;
 
 export function AtlasV1({ tone, copy }: Tone = {}) {
   const choice = useAtlasChoice(), { category } = choice;

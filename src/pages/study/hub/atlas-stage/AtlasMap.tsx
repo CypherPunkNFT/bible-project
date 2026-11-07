@@ -1,8 +1,8 @@
-// The Atlas window mock-up's map: the site's own coastline (atlas-map.json), a camera that glides to fit each category's
+// The study page's Atlas window map: the site's own coastline (atlas-map.json), a camera that glides to fit each category's
 // places, journey routes drawn after the glide, and labels placed so they do not overlap (a hidden label shows on hover).
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import world from "@/data/atlas-map.json";
-import type { AtlasCategory } from "./atlas-mock-data";
+import type { AtlasCategory } from "./atlas-data";
 
 interface Camera { scale: number; tx: number; ty: number }
 type Side = "right" | "left" | "above" | "below";
@@ -52,7 +52,7 @@ function placeLabels(points: { key: string; name: string; x: number; y: number }
 }
 
 const NO_INSET: Inset = {};
-export function MockMap({ category, chosen, choose, inset = NO_INSET }: { category: AtlasCategory; chosen: string; choose: (key: string) => void; inset?: Inset }) {
+export function AtlasMap({ category, chosen, choose, inset = NO_INSET }: { category: AtlasCategory; chosen: string; choose: (key: string) => void; inset?: Inset }) {
   const host = useRef<HTMLDivElement>(null), current = useRef<Camera | null>(null);
   const [size, setSize] = useState({ width: 1000, height: 440 });
   const height = Math.round(1000 * size.height / size.width), k = 1000 / size.width;
