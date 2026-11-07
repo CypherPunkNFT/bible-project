@@ -22,7 +22,7 @@ export default function StudyHub({ Atlas, titled = false }: { Atlas?: ComponentT
       </div>
     <HubSearch /></header>
     {titled
-      ? <div className="section-heading study-ways-heading"><div><p className="eyebrow">01 / Two ways in</p><h2>The faith, <em>and its foundations.</em></h2></div><p>Two ways into the same Scripture: what it teaches, and the history that surrounds it.</p></div>
+      ? <div className="section-heading study-ways-heading"><div><p className="eyebrow">01 / Two ways in</p><h2>The faith, <em>and its foundations.</em></h2></div><p>Learn what Scripture teaches, and trace the history behind it.</p></div>
       : <div className="section-rule"><span>Choose your way in</span></div>}
     <section className="study-doors" aria-label="Study collections">
       <StudyLink className="study-door scripture-door" to="/study/theology/" aria-labelledby="scripture-title">

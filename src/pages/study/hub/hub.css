@@ -334,3 +334,8 @@
 @media(max-width:600px){.study-experience .atlas-section.in-doors{padding-top:19px}}
 /* The doors' own numbered title on /study/sections_mockup (owner, 2026-11-06), keeping the old divider's line above it. */
 .study-experience .study-ways-heading{border-top:1px solid var(--line);padding-top:40px}
+/* /study: each section's side line stays on one line (owner, 2026-11-07). Beside its title above 1050px; under it from
+   1050px down, where there is no room beside it; free to wrap on phones. */
+.study-hub-page .section-heading>p{max-width:none;white-space:nowrap}
+@media(max-width:1050px){.study-hub-page .section-heading{display:block}.study-hub-page .section-heading>p{margin-top:16px}}
+@media(max-width:600px){.study-hub-page .section-heading>p{white-space:normal}}
