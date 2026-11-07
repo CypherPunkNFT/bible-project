@@ -659,7 +659,8 @@ render();showSource(BOOT.source);if(BOOT.preview){$('preview-note').hidden=false
 
 
 def page(preview=False, token=""):
-    return HTML.replace("__BOOT__", json.dumps(boot(preview, token), ensure_ascii=False).replace("<", "\\u003c"))
+    import chapter_scenes_view  # the Scenes switch (initiatives/chapter-scenes); imported here to avoid a cycle
+    return chapter_scenes_view.install(HTML).replace("__BOOT__", json.dumps(boot(preview, token), ensure_ascii=False).replace("<", "\\u003c"))
 
 
 def handler(studio, token, port):
@@ -690,6 +691,9 @@ def handler(studio, token, port):
                     return self.reply(page(token=token), html=True)
                 if path.path == "/api/state":
                     return self.reply(studio.state())
+                if path.path == "/api/scenes":
+                    import chapter_scenes_view
+                    return self.reply(chapter_scenes_view.answer(path.query))
                 if path.path == "/api/models":
                     return self.reply({"models": models()})
                 if path.path == "/api/chapter":
