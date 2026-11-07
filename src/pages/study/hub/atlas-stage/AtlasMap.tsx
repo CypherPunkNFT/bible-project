@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import world from "@/data/atlas-map.json";
 import type { AtlasCategory } from "./atlas-data";
 import { RouteTrail } from "./RouteTrail";
+import { StopSequence } from "./StopSequence";
 
 interface Camera { scale: number; tx: number; ty: number }
 type Side = "right" | "left" | "above" | "below";
@@ -61,7 +62,7 @@ export function AtlasMap({ category, chosen, choose, inset = NO_INSET }: { categ
   const [camera, setCamera] = useState<Camera>(() => fitCamera(category, height, k, inset));
   const [settled, setSettled] = useState(true);
   /** The stop each journey's comet has reached, by route; those stops light up as if the mouse were on them. */
-  const [passing, setPassing] = useState<Record<number, string | null>>({});
+  const [passing, setPassing] = useState<Record<string, string | null>>({});
   useEffect(() => {
     const observer = new ResizeObserver(([entry]) => {
       const width = Math.round(entry.contentRect.width), tall = Math.round(entry.contentRect.height);
@@ -104,6 +105,8 @@ export function AtlasMap({ category, chosen, choose, inset = NO_INSET }: { categ
       {camera.scale < 3.2 && REGIONS.map(([name, lon, lat]) => { const [x, y] = toScreen(project([lon, lat]), camera); return <text key={name} className="map-region" x={x} y={y} textAnchor="middle" style={{ fontSize: 10 * k, letterSpacing: 3 * k }}>{name}</text>; })}
       {settled && category.routes?.map((route, i) => <RouteTrail key={`${category.id}-${i}`} k={k} stops={route.map(key => ({ key, x: byKey[key].x, y: byKey[key].y }))}
         onPassing={key => setPassing(old => old[i] === key ? old : { ...old, [i]: key })} />)}
+      {settled && category.order && <StopSequence key={category.id} k={k} stops={category.order.map(key => ({ key, x: byKey[key].x, y: byKey[key].y }))}
+        onPassing={key => setPassing(old => old.order === key ? old : { ...old, order: key })} />}
       {points.map(p => {
         const side = labels[p.key]?.side ?? null, [dx, dy, anchor] = offset(side ?? "right", k);
         return <g key={p.key} className={`map-point${side ? "" : " am-quiet"}${p.uncertain ? " am-unsure" : ""}${Object.values(passing).includes(p.key) ? " am-passing" : ""}`} transform={`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`} role="button" tabIndex={0} aria-label={`Select ${p.name}`} aria-pressed={chosen === p.key}

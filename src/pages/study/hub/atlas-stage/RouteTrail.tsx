@@ -12,7 +12,8 @@ const PIECES = 8, PIECE_PX = 8;
 /** Travel speed in screen pixels per second. */
 const SPEED_PX = 130;
 /** The telling's other beats, in milliseconds: the start ripple, the hold on the last stop, the fade, the rest. */
-const START_MS = 900, HOLD_MS = 900, FADE_MS = 500, REST_MS = 700;
+const START_MS = 900;
+export const HOLD_MS = 900, FADE_MS = 500, REST_MS = 700;
 
 export function RouteTrail({ stops, k, onPassing }: { stops: Stop[]; k: number; onPassing: (key: string | null) => void }) {
   const d = `M${stops.map(s => `${s.x.toFixed(1)} ${s.y.toFixed(1)}`).join("L")}`;

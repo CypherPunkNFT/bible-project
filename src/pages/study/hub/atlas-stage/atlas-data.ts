@@ -9,6 +9,8 @@ export interface AtlasPlace { key: string; id: string; name: string; lon: number
 export interface AtlasCategory {
   id: string; group: "Places" | "Journeys" | "Stories"; title: string; small: string; intro: string; icon: LucideIcon;
   href: string; places: AtlasPlace[]; routes?: string[][]; caveat?: string;
+  /** Places in an order that is not a journey (the seven churches): lit one by one, with no road drawn. */
+  order?: string[];
 }
 
 type Base = [id: string, lon: number, lat: number, note: string];
@@ -118,7 +120,7 @@ export const CATEGORIES: AtlasCategory[] = [
   { id: "churches", group: "Stories", title: "The seven churches", small: "Letters to Asia", icon: Church, href: "/study/atlas/map",
     intro: "From Patmos, the risen Christ's words to seven churches of Asia, in the order Revelation gives them. Revelation 2–3.",
     places: [at("Patmos"), at("Ephesus", "Hard-working and enduring, yet it had left its first love. Revelation 2:1–7."), at("Smyrna"), at("Pergamum"), at("Thyatira"), at("Sardis"), at("Philadelphia"), at("Laodicea")],
-    routes: [["Ephesus", "Smyrna", "Pergamum", "Thyatira", "Sardis", "Philadelphia", "Laodicea"]] },
+    order: ["Ephesus", "Smyrna", "Pergamum", "Thyatira", "Sardis", "Philadelphia", "Laodicea"] },
   { id: "exile", group: "Stories", title: "Exile & return", small: "Assyria, Babylon, Persia", icon: Castle, href: "/study/atlas/map",
     intro: "Israel carried to Assyria, Judah to Babylon, and the decree that let the exiles rebuild.",
     places: [at("Samaria", "Fell to Assyria; Israel was carried away and settled in Halah, in Gozan by the Habor River, and in the cities of the Medes. 2 Kings 17:5–6."), at("Gozan"), at("Nineveh", "Capital of Assyria, whose judgment Nahum announced. Nahum 1:1; 3:7."), at("Jerusalem", "Burned by Nebuchadnezzar's army; the people taken to Babylon. 2 Kings 25:8–11."), at("Riblah"), at("Babylon", "By the rivers of Babylon the exiles wept for Zion. Psalm 137:1; Daniel 1:1–6."), at("Susa"), at("Ecbatana")],
