@@ -694,6 +694,9 @@ def handler(studio, token, port):
                 if path.path == "/api/scenes":
                     import chapter_scenes_view
                     return self.reply(chapter_scenes_view.answer(path.query))
+                if path.path.startswith("/pictures/"):
+                    import chapter_scenes_view
+                    return chapter_scenes_view.send_picture(self, path.path)
                 if path.path == "/api/models":
                     return self.reply({"models": models()})
                 if path.path == "/api/chapter":

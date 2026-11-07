@@ -58,3 +58,53 @@ def test_view_installs_once_into_the_studio_page():
 def test_scenes_route_rejects_unknown_chapter():
     with pytest.raises(ValueError, match="Unknown chapter"):
         chapter_scenes_view.answer("key=XYZ:1")
+
+
+def make_store(tmp_path, prompt=GOOD["prompt"]):
+    store = chapter_scenes.Store(tmp_path / "scenes.sqlite3")
+    store.put("PSA:117", "haiku", {"scenes": [dict(GOOD, prompt=prompt)]})
+    return store
+
+
+def add_picture(store, prompt=GOOD["prompt"], scene=0):
+    path = store.pictures_dir / chapter_scenes.picture_name("PSA:117", "haiku", scene)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(b"webp")
+    store.save_picture("PSA:117", "haiku", scene, chapter_scenes.picture_hash(prompt), 1, 6.3, "2026-11-07T00:00:00+00:00")
+
+
+def test_picture_counts_only_for_the_current_prompt_and_an_existing_file(tmp_path):
+    store = make_store(tmp_path)
+    assert [p[:3] for p in store.pending_pictures()] == [("PSA:117", "haiku", 0)]
+    add_picture(store)
+    add_picture(store, scene=4)  # an orphan row (index past the scenes) is ignored
+    assert store.pending_pictures() == []
+    assert store.picture_urls("PSA:117") == {"haiku": {0: "/pictures/haiku/PSA-117-0.webp?v="
+                                                       + chapter_scenes.picture_hash(GOOD["prompt"])[:8]}}
+    store.put("PSA:117", "haiku", {"scenes": [dict(GOOD, prompt=GOOD["prompt"] + " again")]})  # scene rewritten
+    assert len(store.pending_pictures()) == 1 and store.picture_urls("PSA:117") == {}
+    store.put("PSA:117", "haiku", {"scenes": [GOOD]})
+    (store.pictures_dir / "haiku" / "PSA-117-0.webp").unlink()  # file gone, row still there
+    assert len(store.pending_pictures()) == 1 and store.picture_urls("PSA:117") == {}
+
+
+@pytest.mark.parametrize("raw", [
+    "/pictures/haiku/../scenes.sqlite3", "/pictures/haiku/%2e%2e/PSA-117-0.webp", "/pictures/haiku/PSA-117-0.WEBP",
+    "/pictures/other/PSA-117-0.webp", "/pictures/haiku/4AB-117-0.webp", "/pictures/haiku/PSA-117-0.webp\n",
+    "/pictures/haiku/PSA-١١٧-0.webp", "/pictures/haiku/PSA-117-12.webp", "/pictures/haiku/PSA-117-1.webp",
+])
+def test_picture_route_serves_only_made_pictures(tmp_path, raw):
+    add_picture(make_store(tmp_path))
+    assert chapter_scenes_view.picture_file(raw, tmp_path / "pictures") is None
+
+
+def test_picture_route_finds_a_made_picture(tmp_path):
+    add_picture(make_store(tmp_path))
+    found = chapter_scenes_view.picture_file("/pictures/haiku/PSA-117-0.webp", tmp_path / "pictures")
+    assert found == (tmp_path / "pictures" / "haiku" / "PSA-117-0.webp").resolve()
+
+
+def test_picture_maker_imports_without_torch_and_seeds_repeatably():
+    import chapter_pictures
+    assert chapter_pictures.seed_for("PSA:117", "haiku", 0) == chapter_pictures.seed_for("PSA:117", "haiku", 0)
+    assert chapter_pictures.seed_for("PSA:117", "haiku", 0) != chapter_pictures.seed_for("PSA:117", "qwen", 0)

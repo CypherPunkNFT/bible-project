@@ -1,12 +1,15 @@
 """The Scenes pipeline in the Chapter Summary Studio. A primary panel on the far left lists the pipelines (Summaries,
 Scenes); beside it, a secondary panel holds the chosen pipeline's workspace and settings. Each pipeline has its own heading, counts and preview card, and both share the book and chapter
 explorer and the Scripture panel. Scenes is read-only: each writer's key scenes for the chapter (picture frame, moment,
-composition, what is from the text, the image prompt), from chapter_scenes.py's store.
+composition, what is from the text, the image prompt), from chapter_scenes.py's store, with the scene's picture
+(made by chapter_pictures.py) in the frame once it exists. GET /pictures/<writer>/<file>.webp serves those files.
 Docs: initiatives/chapter-scenes/README.md.
 """
 from __future__ import annotations
 
+import re
 import urllib.parse
+from pathlib import Path
 
 import chapter_scenes
 
@@ -24,6 +27,7 @@ aside .nav span{color:var(--ink)}
 main{width:100%;max-width:1760px;margin:0}
 @media(max-width:1000px){.app{grid-template-columns:168px 220px minmax(0,1fr)}}
 @media(max-width:650px){.primary,.app>aside{position:static;height:auto}.primary{flex-direction:row;flex-wrap:wrap;align-items:center;padding:10px 16px}.primary .eyebrow{margin:0 6px 0 0}.primary button{padding:8px 12px}}
+.scene-frame.has-picture{padding:0;border-style:solid;overflow:hidden}.scene-frame.has-picture>b,.scene-frame.has-picture>span{display:none}.scene-frame img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in}
 .tile.has-scenes{position:relative;border-bottom:3px solid var(--gold)}
 .tile.selected:not(.draft):not(.approved):not(.has-scenes){border-bottom-color:#b4493c}
 #scenes-panel{padding:22px 24px}
@@ -61,7 +65,7 @@ SCENES_SIDE = (
     '</div><div id="scenes-side" hidden><div class="eyebrow">Your workspace</div><div class="nav">◩ <span>Scenes</span></div>'
     '<div class="eyebrow">Scene settings</div>'
     '<div class="side-title">One moment, one frame.</div>'
-    '<p class="help">The key scenes of each chapter, each composed as a picture before any image is made.</p>'
+    '<p class="help">The key scenes of each chapter, each composed as a picture, then drawn on this PC.</p>'
     '<div class="side-foot"><b>Scenes · pilot</b><p class="help">Up to 3 per chapter, fewer when short<br>'
     'The moment and why it matters<br>Viewpoint, layers, light, mood<br>From the text, added, kept out<br>'
     'A ready image prompt · wide 16:9</p></div>'
@@ -70,8 +74,8 @@ SCENES_SIDE = (
 
 SCENES_TOP = (
     '<div id="scenes-top" hidden><div class="top"><div><div class="eyebrow">Scripture → Moment → Picture</div>'
-    '<h1>Key scenes for every chapter.</h1><p class="intro">Choose the moments worth a picture and compose each one '
-    'before any image is made.</p></div><span class="badge">WIDE FRAMES · 16:9</span></div>'
+    '<h1>Key scenes for every chapter.</h1><p class="intro">Choose the moments worth a picture, compose each one, '
+    'then draw it.</p></div><span class="badge">WIDE FRAMES · 16:9</span></div>'
     '<div class="stats"><div class="stat"><strong>1,189</strong><span>Chapters</span></div>'
     '<div class="stat"><strong id="scenes-finished">0</strong><span>Finished</span></div>'
     '<div class="stat"><strong id="scenes-unfinished">1,189</strong><span>Unfinished</span></div></div></div>')
@@ -96,7 +100,8 @@ function showVerses(a,b){let first=null;document.querySelectorAll('#scripture p'
 function chip(a,b){const c=el('button','verse-link',a===b?'v. '+a:'vv. '+a+'–'+b);c.title='Show these verses in the chapter';c.onclick=()=>showVerses(a,b);return c}
 function list(items,cls,fill){const ul=el('ul',cls);items.forEach(x=>{const li=el('li');fill(li,x);ul.append(li)});return ul}
 function sceneCard(s,i,writer){const card=el('article','scene');
- const frame=el('div','scene-frame');frame.append(el('b',null,s.shot+' shot · 16:9'),el('span',null,'Picture not made yet · focal point: '+s.focal_point));card.append(frame);
+ const frame=el('div','scene-frame');if(s.picture){const img=new Image();img.loading='lazy';img.alt=s.title;img.src=s.picture;img.title='Open full size';img.onclick=()=>window.open(s.picture,'_blank','noopener');img.onerror=()=>{frame.classList.remove('has-picture');img.remove()};frame.classList.add('has-picture');frame.append(img)}
+ frame.append(el('b',null,s.shot+' shot · 16:9'),el('span',null,'Picture not made yet · focal point: '+s.focal_point));card.append(frame);
  const eye=el('div','scene-eyebrow',i===0?'Main scene':'Scene '+(i+1));if(writer)eye.append(el('span','by',WRITERS[writer]||writer));card.append(eye);
  card.append(el('h3',null,s.title));const meta=el('div');meta.append(chip(s.verse_start,s.verse_end),el('span','kind',s.kind));card.append(meta);
  card.append(el('p','moment',s.moment),el('p','why',s.why));
@@ -124,7 +129,7 @@ function applyMode(){const scenes=mode==='scenes';
  for(const n of [document.querySelector('main > .top'),document.querySelector('main > .stats'),$('summary-card'),document.querySelector('.toolbar'),$('edit-panel'),document.querySelector('.statusbox'),document.querySelector('.legend:not(#scenes-legend)')])n.hidden=scenes;
  $('scenes-card').hidden=!scenes;$('scenes-legend').hidden=!scenes;$('source-title').textContent=scenes?'The chapter behind the scenes':'The chapter behind the summary';
  document.title=(scenes?'Scenes':'Chapter Summary Studio')+' · Bible Project';if(scenes)loadScenes()}
-function setMode(m){mode=m;try{localStorage.setItem('studio-pipeline',m)}catch(e){}history.replaceState(null,'','#'+m);applyMode();renderTiles()}
+function setMode(m){mode=m;if(m==='scenes')cache={};try{localStorage.setItem('studio-pipeline',m)}catch(e){}history.replaceState(null,'','#'+m);applyMode();renderTiles()}
 const baseRender=render,baseTiles=renderTiles;
 render=function(){baseRender();if(mode==='scenes')loadScenes()};
 renderTiles=function(){baseTiles();if(mode!=='scenes')return;document.querySelectorAll('#chapters .tile').forEach(t=>{t.classList.remove('draft','approved');t.classList.toggle('has-scenes',!!sceneKeys[code+':'+t.textContent.trim()])})};
@@ -156,4 +161,41 @@ def answer(query: str) -> dict:
         return {"keys": store.keys()}
     if key not in set(chapter_scenes.all_keys()):
         raise ValueError(f"Unknown chapter {key!r}; expected a key such as GEN:1")
-    return {"key": key, "writers": store.chapter(key)}
+    writers, urls = store.chapter(key), store.picture_urls(key)
+    for writer, payload in writers.items():
+        for index, scene in enumerate(payload["scenes"]):
+            if index in urls.get(writer, {}):
+                scene["picture"] = urls[writer][index]
+    return {"key": key, "writers": writers}
+
+
+# Only names chapter_scenes.picture_name makes; [0-9] not \d (which also accepts other scripts' digits).
+PICTURE_PATH = re.compile(r"/pictures/(haiku|qwen)/[1-3A-Z]{3}-[0-9]{1,3}-[0-9]\.webp")
+
+
+def picture_file(raw_path: str, root: Path | None = None) -> Path | None:
+    """The picture file a raw (undecoded) request path names, or None when the name is not one we make, points
+    outside the pictures folder, or the file does not exist."""
+    if not PICTURE_PATH.fullmatch(raw_path):
+        return None
+    root = (root or chapter_scenes.Store().pictures_dir).resolve()
+    path = (root / raw_path.removeprefix("/pictures/")).resolve()
+    return path if path.is_relative_to(root) and path.is_file() else None
+
+
+def send_picture(handler, raw_path: str) -> None:
+    """GET /pictures/...: the WebP file, cacheable (the page's URL carries a version that changes on a remake)."""
+    path = picture_file(raw_path)
+    if path is None:
+        return handler.reply({"error": f"No picture at {raw_path!r}"}, 404)
+    data = path.read_bytes()
+    try:
+        handler.send_response(200)
+        handler.send_header("Content-Type", "image/webp")
+        handler.send_header("Content-Length", str(len(data)))
+        handler.send_header("Cache-Control", "max-age=86400")
+        handler.send_header("X-Content-Type-Options", "nosniff")
+        handler.end_headers()
+        handler.wfile.write(data)
+    except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
+        pass  # the browser dropped a lazy-loaded picture it no longer needs

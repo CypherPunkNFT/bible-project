@@ -5,11 +5,13 @@ python scripts/chapter_scenes.py items --out DIR [--pilot]          one .txt per
 python scripts/chapter_scenes.py local [--pilot] [--jobs 16]        local Qwen (HyperQwen :18020) writes, stored as "qwen"
 python scripts/chapter_scenes.py import --writer haiku --runs DIR   checks and stores BatchRunner results
 python scripts/chapter_scenes.py status
+Pictures for the scenes: scripts/chapter_pictures.py (run with the image venv).
 A chapter already stored for a writer is skipped; --redo writes it again.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sqlite3
@@ -32,6 +34,9 @@ TEXT_FIELDS = ["title", "moment", "why", "viewpoint", "focal_point", "foreground
                "mood", "prompt"]
 ENUMS = {"kind": {"event", "imagery", "vision", "setting"}, "shot": {"wide", "medium", "close"}}
 FIELDS = TEXT_FIELDS + list(ENUMS) + ["verse_start", "verse_end", "people", "from_text", "added", "avoid"]
+# How every picture is made; part of each picture's hash, so a change here remakes them all.
+PICTURE_WIDTH, PICTURE_HEIGHT, PICTURE_STEPS = 1344, 768, 16
+RECIPE = f"FLUX.3 Image Klein bf16 (unsloth mirror) | {PICTURE_WIDTH}x{PICTURE_HEIGHT} | {PICTURE_STEPS} steps"
 
 
 def all_keys() -> list[str]:
@@ -133,6 +138,11 @@ class Store:
                        "PRIMARY KEY (key, writer))")
             db.execute("CREATE TABLE IF NOT EXISTS failures (key TEXT, writer TEXT, error TEXT NOT NULL, "
                        "PRIMARY KEY (key, writer))")
+            db.execute("CREATE TABLE IF NOT EXISTS pictures (key TEXT, writer TEXT, scene INTEGER, file TEXT NOT NULL, "
+                       "prompt_sha256 TEXT NOT NULL, seed INTEGER NOT NULL, recipe TEXT NOT NULL, seconds REAL, "
+                       "made_at TEXT NOT NULL, PRIMARY KEY (key, writer, scene))")
+            db.execute("PRAGMA journal_mode=WAL")  # the picture maker writes while the Studio reads
+        self.pictures_dir = path.parent / "pictures"
 
     def connect(self):
         return sqlite3.connect(self.path, timeout=30)
@@ -161,10 +171,52 @@ class Store:
                 result.setdefault(key, []).append(writer)
             return result
 
+    def save_picture(self, key: str, writer: str, scene: int, sha: str, seed: int, seconds: float, made_at: str):
+        with self.lock, closing(self.connect()) as db, db:
+            db.execute("INSERT OR REPLACE INTO pictures VALUES (?,?,?,?,?,?,?,?,?)",
+                       (key, writer, scene, picture_name(key, writer, scene), sha, seed, RECIPE, seconds, made_at))
+
+    def _picture_states(self, key: str | None = None):
+        """Every stored scene as (key, writer, index, prompt, current hash, picture is up to date). A picture is up to
+        date only when its row's hash matches the scene's current prompt and recipe and its file exists."""
+        where, args = ("WHERE key=?", (key,)) if key else ("", ())
+        with closing(self.connect()) as db:
+            made = {(k, w, i): sha for k, w, i, sha in
+                    db.execute(f"SELECT key, writer, scene, prompt_sha256 FROM pictures {where}", args)}
+            rows = db.execute(f"SELECT key, writer, payload FROM scenes {where} ORDER BY key, writer", args).fetchall()
+        for k, w, payload in rows:
+            for i, scene in enumerate(json.loads(payload)["scenes"]):
+                sha = picture_hash(scene["prompt"])
+                fresh = made.get((k, w, i)) == sha and (self.pictures_dir / picture_name(k, w, i)).is_file()
+                yield k, w, i, scene["prompt"], sha, fresh
+
+    def pending_pictures(self) -> list[tuple[str, str, int, str, str]]:
+        """Scenes whose picture is missing or out of date: (key, writer, index, prompt, hash)."""
+        return [s[:5] for s in self._picture_states() if not s[5]]
+
+    def picture_urls(self, key: str) -> dict:
+        """{writer: {scene index: URL}} for the chapter's up-to-date pictures; ?v= changes when a picture is remade."""
+        urls: dict = {}
+        for _, w, i, _, sha, fresh in self._picture_states(key):
+            if fresh:
+                urls.setdefault(w, {})[i] = f"/pictures/{picture_name(key, w, i)}?v={sha[:8]}"
+        return urls
+
     def counts(self) -> dict:
         with closing(self.connect()) as db:
             return {"stored": dict(db.execute("SELECT writer, count(*) FROM scenes GROUP BY writer").fetchall()),
                     "failed": dict(db.execute("SELECT writer, count(*) FROM failures GROUP BY writer").fetchall())}
+
+
+def picture_hash(prompt: str) -> str:
+    """Identifies a picture's input: the scene's prompt plus the recipe. A rewritten prompt no longer matches."""
+    return hashlib.sha256(f"{RECIPE}\n{prompt}".encode("utf-8")).hexdigest()
+
+
+def picture_name(key: str, writer: str, scene: int) -> str:
+    """Where a scene's picture lives under the pictures folder, e.g. haiku/1SA-17-0.webp (scene is 0-based)."""
+    code, chapter = key.split(":")
+    return f"{writer}/{code}-{chapter}-{scene}.webp"
 
 
 def parse(text: str):
