@@ -2861,209 +2861,6 @@
  {
   "check": "waiting",
   "job": "20",
-  "finding": "chunks",
-  "item": "chunks 1809-1834: what stage 5 added",
-  "chunks": {
-   "1809": "741f2a425b6ab4f0fcd401a8c9188aa7c45d111b8e3c4844db2b77c9b8318ad1",
-   "1810": "76f1409203b7a3b8ed849a6feeec46388386055231a45d492d33584d851149ff",
-   "1811": "1fb81126578b1033dcbce9ccc3fcd1693c29e8e94994258606d26a2b1181a37a",
-   "1812": "ea429c169687fea2d607b8aefe375c73fd32a14d738ab9715b05596f3227a8f4",
-   "1813": "8855d4ba2fbb506c73417fa38e9ac66ac1e2448751be03bf44be49609cfc3730",
-   "1814": "3ff41fce6bcb14b7c61edb702acb4a70deda936bab2f8a3c2057b53617a23906",
-   "1815": "f701f3811006d76200f51db2419c016df2b9c548dde3c33e8d4ecf121ad4f214",
-   "1816": "e84c6b12618ac4703eb6f96e48649373bc91d2c14ddb35319e7bdfcfafa37c57",
-   "1817": "4691a3694a2dcb18c96f96bcd2c7b8fad470b7f6be9086d7986064ef0b022202",
-   "1818": "b8da4826e62ac98b1cfdb8cc9f3811ae7837eaec538c2f5819c9f9d76c5e9eb3",
-   "1819": "fb2be0d70aa64f1be62f6ee1ad0b082c50a9cece53637f6405af35aeb15cf82d",
-   "1820": "819f3c5e3e121a878124be62905d8dc00bf77d90d818a5d437b231862c1d4793",
-   "1821": "db63205491582e5aa11013f99e8100f52420eed56e93441ce2239f419e1beb13",
-   "1822": "1b4ae1c4e45399282066e18eefd632bbe4fb07b79affad03da11631ce46be747",
-   "1823": "2defc79eb31b663edd19da5f8424964b80191ec8f6915e32b38407e68399144b",
-   "1824": "107a6be840549ffc1a8f66c289e552401b398914e3d25539e4ec9518a837bb24",
-   "1825": "b262bb0770181d1de33f31bb72d1516436169e816956c5408eb2f7260fb46b9c",
-   "1826": "8c3417b89a273fca7e9ce369a93d7f6ad784e6d671334e157b7c00e02b26eceb",
-   "1827": "ae6cb85af49f58b63b7afc855c0d7a99bafb4157bf543a7dcbfcfb3211200ff8",
-   "1828": "95b8567c2cd9c2eae2c781b6624066b062002c96aa52b3d2d2461bb76b3a3374",
-   "1829": "ea5ee9057c882b4d189ef54fba3ba93978183faebc6326084a9510f102d217e1",
-   "1830": "4aecc2c3d00eb74882b656a770696e8a30016587a35e718597f0bf441a9286b9",
-   "1831": "5701ddc0b3ae9c13da88d8d2efee90a4db98f6dfb59b2a7a402feccb3af82f4d",
-   "1832": "f271970f89c67ba44734f6f9017d0cf141dd18f1c2bee169c819ad25086d782c",
-   "1833": "3ccd92b94ae2da49317520d8ec8e19fc3c48406f96a68302a925a2afb26c589c",
-   "1834": "47a6a7f438d3772aff79a96e6581fe9ceca64ebdc84891a444bf6b4bd7afc4bb"
-  },
-  "why": "collected by stage 5 job 20 (7,972 strings, 59,383 words; SiteTranslation 4a441d6a) and piloted; translating them costs plan allowance and waits for the owner's yes on card D50, so until then these strings show in English in every translated language"
- },
- {
-  "check": "waiting",
-  "job": "20",
-  "finding": "translation-missing-file",
-  "item": "chunk 1806 in Indonesian",
-  "keys": {
-   "1806": [
-    "id"
-   ]
-  },
-  "why": "Indonesian was added after chunk 1806 (57 one-word page labels such as the Apologetics menu's \"Practice\", translated in the five other languages on 2026-11-04) and never got it: out/id/1806.json does not exist. About a cent to translate; add it to job 20's run after the owner's yes"
- },
- {
-  "check": "waiting",
-  "job": "20",
-  "finding": "untranslated",
-  "item": "chunk 1806's labels in Indonesian",
-  "keys": {
-   "Aleppo": [
-    "id"
-   ],
-   "Alexandrinus": [
-    "id"
-   ],
-   "Annotations": [
-    "id"
-   ],
-   "Archaeology": [
-    "id"
-   ],
-   "Benches": [
-    "id"
-   ],
-   "Beza": [
-    "id"
-   ],
-   "Bezae": [
-    "id"
-   ],
-   "Canon": [
-    "id"
-   ],
-   "Charcoal": [
-    "id"
-   ],
-   "Complutensian": [
-    "id"
-   ],
-   "Composition": [
-    "id"
-   ],
-   "Corinth": [
-    "id"
-   ],
-   "Courtyard": [
-    "id"
-   ],
-   "Coverdale": [
-    "id"
-   ],
-   "Discoveries": [
-    "id"
-   ],
-   "Eggestein": [
-    "id"
-   ],
-   "Erasmus": [
-    "id"
-   ],
-   "Greek New Testament manuscripts in the official register": [
-    "id"
-   ],
-   "Gutenberg": [
-    "id"
-   ],
-   "Hanhart": [
-    "id"
-   ],
-   "Historical": [
-    "id"
-   ],
-   "Holiness": [
-    "id"
-   ],
-   "Hull": [
-    "id"
-   ],
-   "Islam": [
-    "id"
-   ],
-   "Jericho": [
-    "id"
-   ],
-   "Lakeshore": [
-    "id"
-   ],
-   "Luther": [
-    "id"
-   ],
-   "Masorah": [
-    "id"
-   ],
-   "Massachusett": [
-    "id"
-   ],
-   "Mill": [
-    "id"
-   ],
-   "Nestle": [
-    "id"
-   ],
-   "Overview": [
-    "id"
-   ],
-   "Poetical": [
-    "id"
-   ],
-   "Practice": [
-    "id"
-   ],
-   "Prophetical": [
-    "id"
-   ],
-   "Proslogion": [
-    "id"
-   ],
-   "Rahlfs": [
-    "id"
-   ],
-   "Rampart": [
-    "id"
-   ],
-   "Reference": [
-    "id"
-   ],
-   "References": [
-    "id"
-   ],
-   "Rheims": [
-    "id"
-   ],
-   "Rostra": [
-    "id"
-   ],
-   "Sinaiticus": [
-    "id"
-   ],
-   "Stephanus": [
-    "id"
-   ],
-   "Targum": [
-    "id"
-   ],
-   "Tower": [
-    "id"
-   ],
-   "Translate": [
-    "id"
-   ],
-   "Tyndale": [
-    "id"
-   ],
-   "Walton": [
-    "id"
-   ]
-  },
-  "why": "Indonesian was added after chunk 1806 (57 one-word page labels such as the Apologetics menu's \"Practice\", translated in the five other languages on 2026-11-04) and never got it: out/id/1806.json does not exist. About a cent to translate; add it to job 20's run after the owner's yes"
- },
- {
-  "check": "waiting",
-  "job": "20",
   "finding": "untranslated",
   "item": "the home page's quiz door heading",
   "keys": {
@@ -5691,218 +5488,44 @@
   "finding": "translation-english",
   "item": "chunks with most sentences still in English",
   "keys": {
-   "0984": [
-    "ar",
-    "hi"
-   ],
    "0996": [
-    "pt",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "1018": [
-    "es",
-    "hi"
-   ],
-   "1030": [
-    "hi"
-   ],
-   "1031": [
-    "es",
-    "zh",
-    "hi"
-   ],
-   "1061": [
-    "hi"
-   ],
-   "1072": [
-    "es",
-    "pt",
-    "hi"
+    "pt"
    ],
    "1078": [
-    "es",
-    "pt",
-    "ar",
-    "hi"
+    "ar"
    ],
    "1083": [
     "es",
     "pt",
-    "ar",
     "hi",
     "id"
    ],
-   "1091": [
-    "es",
-    "pt",
-    "ar",
-    "hi"
-   ],
-   "1092": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "1093": [
-    "pt",
-    "hi"
-   ],
-   "1094": [
-    "hi"
-   ],
-   "1114": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "1124": [
-    "es",
-    "pt",
-    "ar",
-    "hi"
-   ],
-   "1137": [
-    "hi"
-   ],
-   "1146": [
-    "es"
-   ],
-   "1147": [
-    "es",
-    "ar",
-    "hi"
-   ],
-   "1152": [
-    "es"
-   ],
-   "1162": [
-    "es",
-    "pt"
-   ],
-   "1165": [
-    "ar",
-    "hi"
-   ],
    "1166": [
-    "es",
-    "pt",
-    "hi",
     "id"
    ],
    "1167": [
     "es"
    ],
-   "1289": [
-    "es",
-    "pt",
-    "hi"
-   ],
-   "1307": [
-    "es",
-    "pt",
-    "ar",
-    "hi",
-    "id"
-   ],
    "1333": [
     "es",
     "pt",
-    "ar",
     "id"
-   ],
-   "1368": [
-    "pt",
-    "hi"
-   ],
-   "1452": [
-    "ar",
-    "hi"
-   ],
-   "1608": [
-    "id"
-   ],
-   "1645": [
-    "hi"
-   ],
-   "1683": [
-    "es",
-    "zh"
    ],
    "1689": [
     "pt",
-    "ar",
     "id"
    ],
    "1690": [
-    "es",
-    "pt",
-    "hi"
-   ],
-   "1691": [
-    "es",
-    "hi"
-   ],
-   "1692": [
-    "es",
-    "pt"
-   ],
-   "1695": [
-    "hi"
-   ],
-   "1697": [
-    "es",
     "pt"
    ],
    "1713": [
-    "es",
-    "pt",
-    "ar",
-    "hi"
+    "pt"
    ],
    "1714": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "1717": [
-    "es",
-    "pt",
-    "hi",
-    "id"
-   ],
-   "1718": [
-    "es",
     "hi"
    ],
    "1719": [
-    "es",
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "1720": [
-    "es",
-    "pt",
-    "id"
-   ],
-   "1721": [
-    "es",
-    "pt",
-    "hi"
-   ],
-   "1722": [
-    "es",
-    "pt",
-    "hi"
+    "ar"
    ]
   },
   "why": "Job 27 (stage 5's sign-off) fixes or rules each one. check.py finds more than a quarter of these chunks' sentences unchanged from the English. They were translated before stage 6: some hold titles kept as published, some were never translated. Re-translating costs plan allowance, so it waits for a quote and the owner's yes"
@@ -5910,519 +5533,13 @@
  {
   "check": "waiting",
   "job": "27",
-  "finding": "translation-mixed",
-  "item": "check.py: a word mixing two scripts (a name half in Latin letters inside Chinese, Arabic or Hindi)",
-  "keys": {
-   "0005f8e1ff58": [
-    "zh"
-   ],
-   "0008bf852a5e": [
-    "ar"
-   ],
-   "04ba5cc35391": [
-    "hi"
-   ],
-   "04f109fc4e80": [
-    "zh"
-   ],
-   "04fc3e357c02": [
-    "zh"
-   ],
-   "057e0ee77d8a": [
-    "ar"
-   ],
-   "05d2fa3bb47f": [
-    "ar"
-   ],
-   "05daeb75b730": [
-    "zh"
-   ],
-   "0acb97fa51f8": [
-    "zh"
-   ],
-   "0af6813f07e1": [
-    "ar"
-   ],
-   "0e9fe41e9e21": [
-    "ar"
-   ],
-   "14e0614bcc2f": [
-    "ar"
-   ],
-   "14e24c7da6ee": [
-    "ar"
-   ],
-   "16a3be7b3e21": [
-    "zh"
-   ],
-   "177830f33a21": [
-    "zh"
-   ],
-   "187c95c0798d": [
-    "zh"
-   ],
-   "19d8bf07e15c": [
-    "zh"
-   ],
-   "1aa2aa3a5d69": [
-    "zh"
-   ],
-   "1c0e2fba177b": [
-    "zh",
-    "hi"
-   ],
-   "1c93c830ec3c": [
-    "zh"
-   ],
-   "1d5842fc022e": [
-    "ar"
-   ],
-   "20eb87974c1b": [
-    "ar"
-   ],
-   "25e143d241a3": [
-    "ar"
-   ],
-   "2981ccf41713": [
-    "hi"
-   ],
-   "2e36612881de": [
-    "zh"
-   ],
-   "2f0091a956e7": [
-    "zh"
-   ],
-   "31f9120c0e8a": [
-    "ar"
-   ],
-   "322956d394d3": [
-    "zh"
-   ],
-   "35b047c3eca0": [
-    "hi"
-   ],
-   "39e0cc55d62f": [
-    "hi"
-   ],
-   "3ad9b1c9d8b0": [
-    "ar"
-   ],
-   "3cf50e8beb6a": [
-    "ar"
-   ],
-   "3cfefdb3308f": [
-    "zh"
-   ],
-   "3e549992c7fe": [
-    "zh"
-   ],
-   "3faeb4acbb0d": [
-    "ar"
-   ],
-   "40f00954c7c4": [
-    "zh"
-   ],
-   "42a813d183e1": [
-    "hi"
-   ],
-   "43ece1b0832b": [
-    "zh"
-   ],
-   "45767f50cf2d": [
-    "hi"
-   ],
-   "45cd48bad51a": [
-    "zh"
-   ],
-   "466785f2c1fd": [
-    "zh"
-   ],
-   "469020c2a492": [
-    "ar"
-   ],
-   "469841d584f5": [
-    "zh"
-   ],
-   "46aca66bd48c": [
-    "ar"
-   ],
-   "4a2512537210": [
-    "zh"
-   ],
-   "4a326581f196": [
-    "ar"
-   ],
-   "4a4e5460c1a2": [
-    "hi"
-   ],
-   "4b77e5ec7611": [
-    "ar"
-   ],
-   "4c975de1b0ce": [
-    "ar"
-   ],
-   "4c9c7e764e6a": [
-    "ar"
-   ],
-   "4d67193d3c20": [
-    "zh"
-   ],
-   "510b539463e9": [
-    "zh"
-   ],
-   "514a6c8382b4": [
-    "hi"
-   ],
-   "5421e79cf8bb": [
-    "hi"
-   ],
-   "557bbce6f516": [
-    "hi"
-   ],
-   "5697decfb00a": [
-    "zh"
-   ],
-   "5bdf192d335f": [
-    "ar"
-   ],
-   "5c12e548136f": [
-    "ar"
-   ],
-   "5d231881b822": [
-    "zh"
-   ],
-   "5d3783f702bd": [
-    "ar"
-   ],
-   "5f3291571000": [
-    "zh"
-   ],
-   "5f542704888c": [
-    "ar"
-   ],
-   "601945bd3542": [
-    "zh"
-   ],
-   "6b3e8af813af": [
-    "ar"
-   ],
-   "6b88262fdb6c": [
-    "zh"
-   ],
-   "6b9d7ae46594": [
-    "ar"
-   ],
-   "6ba7d8510d00": [
-    "hi"
-   ],
-   "6bafbe76e4b1": [
-    "ar"
-   ],
-   "6d19d1fbe7c7": [
-    "zh"
-   ],
-   "70a7c3b79879": [
-    "ar"
-   ],
-   "715f91fb8f1f": [
-    "zh"
-   ],
-   "71d11fb2c27a": [
-    "zh"
-   ],
-   "71fd80658b4e": [
-    "ar"
-   ],
-   "74cf2cc319fb": [
-    "zh"
-   ],
-   "7609492c7b1c": [
-    "ar"
-   ],
-   "7683502f6e50": [
-    "ar"
-   ],
-   "7947e352587a": [
-    "zh"
-   ],
-   "7dc66e2284df": [
-    "hi"
-   ],
-   "7ef1769b2aad": [
-    "zh"
-   ],
-   "821b5fbe6159": [
-    "ar"
-   ],
-   "82a3df59db77": [
-    "zh"
-   ],
-   "83050278824e": [
-    "hi"
-   ],
-   "8341a143913e": [
-    "zh"
-   ],
-   "847ec01d3a68": [
-    "zh",
-    "hi"
-   ],
-   "879eec18cac5": [
-    "zh"
-   ],
-   "88a75735f20c": [
-    "ar"
-   ],
-   "88b1bba72994": [
-    "zh"
-   ],
-   "89636952a36d": [
-    "hi"
-   ],
-   "89b6d38b2e00": [
-    "ar"
-   ],
-   "89b7ed232d07": [
-    "zh"
-   ],
-   "8a69cc086c13": [
-    "ar"
-   ],
-   "8a96ad6680f4": [
-    "ar"
-   ],
-   "8ae01186c445": [
-    "zh"
-   ],
-   "8ba290d0aff3": [
-    "zh"
-   ],
-   "8c0a954f7465": [
-    "ar"
-   ],
-   "8c6b54ce2a3d": [
-    "ar"
-   ],
-   "8cb7df241cb2": [
-    "ar"
-   ],
-   "8e9dd15af7c7": [
-    "zh"
-   ],
-   "8f4aeb463316": [
-    "zh"
-   ],
-   "94191012a2dc": [
-    "ar"
-   ],
-   "9495d4a52f87": [
-    "hi"
-   ],
-   "98bcd0baec41": [
-    "ar"
-   ],
-   "99f4b45a9f1e": [
-    "ar"
-   ],
-   "9a7cb7df182c": [
-    "ar"
-   ],
-   "9c7bf2d88fde": [
-    "zh"
-   ],
-   "9d84d20acf00": [
-    "ar"
-   ],
-   "9f0dd19bd4c7": [
-    "zh"
-   ],
-   "a1a8275c9c89": [
-    "ar"
-   ],
-   "a1d2a42ccf32": [
-    "hi"
-   ],
-   "a212a836ac37": [
-    "ar"
-   ],
-   "a3cc24aa344f": [
-    "ar"
-   ],
-   "a3fe68e37927": [
-    "ar"
-   ],
-   "a63e291362b2": [
-    "ar"
-   ],
-   "a9069726014e": [
-    "zh"
-   ],
-   "ab88c83175d7": [
-    "zh"
-   ],
-   "abf6c6cbe832": [
-    "zh"
-   ],
-   "ad2b28e84078": [
-    "ar"
-   ],
-   "af53244a316d": [
-    "ar"
-   ],
-   "afa192b64e08": [
-    "hi"
-   ],
-   "b143b323bacd": [
-    "hi"
-   ],
-   "b3b9f69fb098": [
-    "ar"
-   ],
-   "b413d251c5f9": [
-    "hi"
-   ],
-   "b5cfd6b4f433": [
-    "zh"
-   ],
-   "b7e485b7d470": [
-    "zh"
-   ],
-   "b8674133eb72": [
-    "zh"
-   ],
-   "ba2dfe016da4": [
-    "zh"
-   ],
-   "bb002d3a6b1c": [
-    "zh"
-   ],
-   "bbd59cfc5e08": [
-    "zh"
-   ],
-   "bdc6ab40f534": [
-    "ar"
-   ],
-   "c48e2aa7dfd8": [
-    "ar"
-   ],
-   "c52b6cd9dd7d": [
-    "zh"
-   ],
-   "c5f1ecf68964": [
-    "ar"
-   ],
-   "c9cda402daa5": [
-    "hi"
-   ],
-   "cb37cb47fd70": [
-    "ar"
-   ],
-   "cc070c989ece": [
-    "ar"
-   ],
-   "cd181d2cb7df": [
-    "zh"
-   ],
-   "ce5ec55f6bc0": [
-    "ar"
-   ],
-   "d1233bcf7201": [
-    "ar"
-   ],
-   "d23819458df1": [
-    "ar"
-   ],
-   "d3cbcc3b6cff": [
-    "zh"
-   ],
-   "d3e8994b625a": [
-    "zh"
-   ],
-   "d70b0e10143a": [
-    "zh"
-   ],
-   "d7fcf72a3066": [
-    "zh"
-   ],
-   "d89a2f03b7b1": [
-    "ar"
-   ],
-   "db2000a7d635": [
-    "ar"
-   ],
-   "dc20f6341bc4": [
-    "zh"
-   ],
-   "dc2bb0f8ee9b": [
-    "ar"
-   ],
-   "dfd9d145b1d6": [
-    "zh"
-   ],
-   "e170f1ff6d54": [
-    "ar"
-   ],
-   "e25cef14e580": [
-    "ar"
-   ],
-   "e35ec6e41844": [
-    "hi"
-   ],
-   "e92965f7cc06": [
-    "ar"
-   ],
-   "ea07207004a0": [
-    "ar"
-   ],
-   "edc5f87aa304": [
-    "zh"
-   ],
-   "f17d0cc9ba54": [
-    "zh"
-   ],
-   "f3ae2836b009": [
-    "ar"
-   ],
-   "f6644520e6bf": [
-    "zh"
-   ],
-   "f73073d69091": [
-    "ar"
-   ],
-   "f76399458bf3": [
-    "hi"
-   ],
-   "f851d29cf450": [
-    "ar"
-   ],
-   "fb3c03aa4b83": [
-    "zh"
-   ],
-   "fc4907756c69": [
-    "ar"
-   ]
-  },
-  "why": "Job 27 (stage 5's sign-off) fixes or rules each one. check.py finds a word mixing two scripts (a name half in Latin letters inside Chinese, Arabic or Hindi) in translations made before stage 6. A correction round on only these strings costs plan allowance, so it waits for a quote and the owner's yes; a finding that is wrong gets a translation ruling instead"
- },
- {
-  "check": "waiting",
-  "job": "27",
   "finding": "translation-lines",
   "item": "check.py: a different number of line breaks from the English",
   "keys": {
-   "04e82fdf1faf": [
-    "id"
-   ],
-   "437ae436d50f": [
-    "id"
-   ],
    "4efcf04dcb7f": [
     "id"
    ],
    "563fff0bff53": [
-    "id"
-   ],
-   "a686769b016e": [
     "id"
    ],
    "ae455bc86092": [
@@ -6431,26 +5548,11 @@
    "b42ee4b76c72": [
     "id"
    ],
-   "c9582a5afd3a": [
-    "id"
-   ],
    "cf9b8167f746": [
     "id"
    ]
   },
   "why": "Job 27 (stage 5's sign-off) fixes or rules each one. check.py finds a different number of line breaks from the English in translations made before stage 6. A correction round on only these strings costs plan allowance, so it waits for a quote and the owner's yes; a finding that is wrong gets a translation ruling instead"
- },
- {
-  "check": "waiting",
-  "job": "27",
-  "finding": "translation-numbers",
-  "item": "check.py: a number missing from the translation",
-  "keys": {
-   "b88e9a25052d": [
-    "id"
-   ]
-  },
-  "why": "Job 27 (stage 5's sign-off) fixes or rules each one. check.py finds a number missing from the translation in translations made before stage 6. A correction round on only these strings costs plan allowance, so it waits for a quote and the owner's yes; a finding that is wrong gets a translation ruling instead"
  },
  {
   "check": "waiting",
@@ -9238,14 +8340,6 @@
     "xa",
     "xb"
    ],
-   "19 people in all.": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
    "19. Sulzbacher Village (women and families)": [
     "es",
     "pt",
@@ -9844,14 +8938,6 @@
     "xa",
     "xb"
    ],
-   "6 stanzas": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
    "6,655 medium questions": [
     "es",
     "pt",
@@ -10193,14 +9279,6 @@
     "xb"
    ],
    "ACH": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "ADULTS": [
     "es",
     "pt",
     "zh",
@@ -10621,9 +9699,6 @@
    "BEL": [
     "es",
     "pt",
-    "zh",
-    "ar",
-    "hi",
     "id"
    ],
    "BEN": [
@@ -10632,14 +9707,6 @@
     "id"
    ],
    "BEO": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "BETHLEHEM": [
     "es",
     "pt",
     "zh",
@@ -10933,22 +10000,6 @@
     "id"
    ],
    "CAC": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "CAESAREA": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "CAPERNAUM": [
     "es",
     "pt",
     "zh",
@@ -11400,11 +10451,6 @@
     "id",
     "xa",
     "xb"
-   ],
-   "Call · Jacksonville": [
-    "zh",
-    "ar",
-    "hi"
    ],
    "Call · Mary Huston": [
     "zh",
@@ -12126,11 +11172,7 @@
     "id"
    ],
    "EWE": [
-    "es",
     "pt",
-    "zh",
-    "ar",
-    "hi",
     "id"
    ],
    "Email · Family support": [
@@ -12215,14 +11257,6 @@
     "hi",
     "xa",
     "xb"
-   ],
-   "Every record of Paul in Scripture, in story order (Acts as told, with the Lord's words to him where Acts or his letter sets them).": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
    ],
    "FH": [
     "es",
@@ -12560,14 +11594,6 @@
     "hi",
     "id"
    ],
-   "GREECE": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
    "GS": [
     "es",
     "pt",
@@ -12878,9 +11904,6 @@
     "xa",
     "xb"
    ],
-   "Help in Jacksonville, Florida": [
-    "hi"
-   ],
    "Houston, Texas": [
     "zh",
     "ar",
@@ -12970,14 +11993,6 @@
    "ISLAM": [
     "id"
    ],
-   "ITALY": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
    "IV · After Scripture: 6 records": [
     "zh",
     "ar",
@@ -13020,9 +12035,6 @@
     "hi",
     "xa",
     "xb"
-   ],
-   "JERICHO": [
-    "id"
    ],
    "JFB": [
     "es",
@@ -13103,14 +12115,6 @@
     "id",
     "xa",
     "xb"
-   ],
-   "John 3 — choose a book and chapter": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
    ],
    "John Calvin, tr. John Owen": [
     "es",
@@ -13252,10 +12256,6 @@
    ],
    "LAO": [
     "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
     "id"
    ],
    "LAV": [
@@ -13304,9 +12304,6 @@
    "LUO": [
     "es",
     "pt",
-    "zh",
-    "ar",
-    "hi",
     "id"
    ],
    "LUT": [
@@ -13364,14 +12361,6 @@
     "xa",
     "xb"
    ],
-   "Luke, 1 verse it draws on": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
    "Luther's Small Catechism Explained (Sverdrup, 1900)": [
     "es",
     "pt",
@@ -13391,18 +12380,11 @@
    ],
    "MAL": [
     "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
     "id"
    ],
    "MAM": [
     "es",
     "pt",
-    "zh",
-    "ar",
-    "hi",
     "id"
    ],
    "MAR": [
@@ -13738,14 +12720,6 @@
     "xa",
     "xb"
    ],
-   "NAZARETH": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
    "NCH": [
     "es",
     "pt",
@@ -13922,9 +12896,6 @@
     "xa",
     "xb"
    ],
-   "Near you in Jacksonville, Florida": [
-    "hi"
-   ],
    "Nebraska": [
     "zh",
     "ar",
@@ -13952,11 +12923,6 @@
    "New Mexico": [
     "es",
     "pt",
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "Next chapter: John 4": [
     "zh",
     "ar",
     "hi"
@@ -14002,550 +12968,10 @@
     "xb"
    ],
    "No. 1": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
     "id"
-   ],
-   "No. 100: Now may He who from the dead": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 101: May the grace of CHRIST our Savior": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 102: The peace which God alone reveals": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 103: To thee our wants are known": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 104: The Father we adore": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 105: Father of angels and of men": [
-    "zh",
-    "ar",
-    "hi"
    ],
    "No. 107": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
     "id"
-   ],
-   "No. 107: Ye saints on earth ascribe with heav’ns high host": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 10: Breathe from the gentle South, O LORD": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 11: Cheer up, my soul, there is a mercy–seat": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 12: Approach, my soul, the mercy–seat": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 13: To those who know the LORD I speak": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 14: Does the gospel–word proclaim": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 15: God moves in a mysterious way": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 16: ’Tis my happiness below": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 17: O How I love thy holy word": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 18: The billows swell the winds are high": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 19: God of my life, to thee I call": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 1: No words can declare": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 20: My soul is sad and much dismayed;": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 21: ’Tis past—the dreadful stormy night": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 22: Unless the LORD had been my stay": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 23: When darkness long has veiled my mind": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 24: The Savior hides his face!": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 25: When my prayers are a burden and task": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 26: Dear Lord accept a sinful heart": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 27: Kindle, Savior, in my heart": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 28: Lord, who hast suffered all for me": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 29: O Lord, my best desire fulfill": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 2: Stop, poor sinner! stop and think": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 30: When my Savior, my Shepherd is near": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 31: Return to bless my waiting eyes": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 32: Though sore beset with guilt and fear": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 33: Forest beasts, that live by prey": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 34: When the poor pris’ner through a grate": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 35: Uncertain how the way to find": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 36: I asked the LORD that I might grow": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 37: Begone unbelief": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 38: If to Jesus for relief": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 39: Unbelief the soul dismays": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 3: Shall men pretend to pleasure": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 40: Be still my heart! these anxious cares": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 41: One glance of thine, eternal LORD": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 42: From Egypt lately freed": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 43: Sight, hearing, feeling, taste and smell": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 44: How blest thy creature is, O God": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 45: Far from the world, O Lord, I flee": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 46: Why should I fear the darkest hour": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 47: To tell the Savior all my wants": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 48: Sometimes a light surprises": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 49: Lord my soul with pleasure springs": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 4: Sinner, art thou still secure?": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 50: Honor and happiness unite": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 51: I was a groveling creature once": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 52: Yes! since God himself has said it": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 53: O, speak that gracious word again": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 54: Saved by blood I live to tell": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 55: While I lived without the Lord": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 56: When the wounded spirit hears": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 57: When Hagar found the bottle spent": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 58: As when the weary travell’r gains": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 59: Let worldly minds the world pursue": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 5: Sinner, hear the Savior’s call": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 60: Happy the birth where grace presides": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 61: I thirst, but not as once I did": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 62: No strength of nature can suffice": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 63: Sin enslaved me many years": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 64: Holy LORD GOD! I love thy truth": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 65: Quiet, LORD, my froward heart": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 66: Fix my heart and eyes on thine!": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 67: Ten thousand talents once I owed": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 68: The new–born child of gospel–grace": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 69: O God, whose favorable eye": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 6: Ah, what can I do": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 70: Zeal is that pure and heav’nly flame": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 71: The LORD receives his highest praise": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 72: Too many, LORD, abuse thy grace": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 73: What thousands never knew the road!": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 74: To keep the lamp alive": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 75: Grace, triumphant in the throne": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 76: Sin, when viewed by scripture light": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 77: Destruction’s dangerous road": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 78: The wishes that the sluggard frames": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 79: How soon the Savior’s gracious call": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 7: O LORD, how vile am I": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 80: Of all the gifts thine hand bestows": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 81: Almighty King! whose wondrous hand": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 82: Let us love, and sing, and wonder": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 83: Winter has a joy for me": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 84: Rejoice, believer, in the LORD": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 85: Salvation! what a glorious plan": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 86: Now may the LORD reveal his face": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 87: Prepare a thankful song": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 88: Lord, what is man! extremes how wide": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 89: Confirm the hope thy word allows": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 8: My former hopes are dead": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 90: Now, LORD, inspire the preacher’s heart": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 91: Thy promise, LORD, and thy command": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 92: Hungry, and faint, and poor": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 93: Remember us, we pray thee, LORD": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 94: Not to Sinai’s dreadful blaze": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 95: Often thy public means of grace": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 96: With Israel’s God who can compare?": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 97: JESUS is mine! I’m now prepared": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 98: We seek a rest beyond the skies": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 99: The saints EMMANUEL’S portion are": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "No. 9: My soul is beset": [
-    "zh",
-    "ar",
-    "hi"
    ],
    "NonlinearFruit (GitHub) ·": [
     "es",
@@ -14681,14 +13107,6 @@
     "xa",
     "xb"
    ],
-   "One square for each chapter of the books that name Paul: 182 verses in 44 chapters.": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
    "Open Bislama Bible (Bislama)": [
     "es",
     "pt",
@@ -14774,9 +13192,6 @@
     "ar",
     "hi"
    ],
-   "Open the map of Jacksonville, Florida": [
-    "hi"
-   ],
    "Open the map of Louisville, Kentucky": [
     "zh",
     "ar",
@@ -14829,10 +13244,7 @@
     "hi"
    ],
    "Orlando, Florida": [
-    "pt",
-    "zh",
-    "ar",
-    "hi"
+    "pt"
    ],
    "Our starting point · 1 Peter 3:15–16 (1 Peter 3:15–16)": [
     "zh",
@@ -14880,14 +13292,6 @@
     "xb"
    ],
    "PON": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "PS": [
     "es",
     "pt",
     "zh",
@@ -14981,9 +13385,6 @@
     "xa",
     "xb"
    ],
-   "Phone lines in Jacksonville, Florida": [
-    "hi"
-   ],
    "Precept · Southern Baptist · 25.1 mi NE of city hall": [
     "zh",
     "ar",
@@ -15054,16 +13455,9 @@
     "xa",
     "xb"
    ],
-   "Previous chapter: John 2": [
-    "zh",
-    "ar",
-    "hi"
-   ],
    "Project Gutenberg ·": [
     "es",
     "pt",
-    "zh",
-    "ar",
     "hi",
     "id"
    ],
@@ -15076,14 +13470,6 @@
     "id",
     "xa",
     "xb"
-   ],
-   "Psalms, 1 verse it draws on": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
    ],
    "QUB": [
     "es",
@@ -15564,24 +13950,6 @@
     "xa",
     "xb"
    ],
-   "Scripture gives no years for his life, so the ring is divided by how much is recorded: 21 records of what he did or what was said to him, one bead each.": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
-   "Select Alexandria": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "Select Antioch": [
-    "zh",
-    "ar",
-    "hi"
-   ],
    "Septuagint (Greek)": [
     "es",
     "pt",
@@ -15684,11 +14052,6 @@
     "hi"
    ],
    "Show Oklahoma City, Oklahoma": [
-    "zh",
-    "ar",
-    "hi"
-   ],
-   "Show Orlando, Florida": [
     "zh",
     "ar",
     "hi"
@@ -16496,14 +14859,6 @@
     "hi",
     "id"
    ],
-   "TEENS": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
-   ],
    "TEL": [
     "es",
     "pt",
@@ -16535,8 +14890,7 @@
     "xb"
    ],
    "THE": [
-    "zh",
-    "id"
+    "zh"
    ],
    "TIS": [
     "es",
@@ -16770,7 +15124,6 @@
    "The Israel Antiquities Authority emblem": [
     "es",
     "pt",
-    "zh",
     "hi",
     "id"
    ],
@@ -17821,14 +16174,6 @@
    "debates": [
     "es",
     "pt"
-   ],
-   "group": [
-    "es",
-    "pt",
-    "zh",
-    "ar",
-    "hi",
-    "id"
    ],
    "he?": [
     "es",
@@ -18890,9 +17235,6 @@
     "pt",
     "id"
    ],
-   "Gentiles": [
-    "es"
-   ],
    "George Mezger, Lessons in the Small Catechism of Dr. Martin Luther (Concordia, 1923). Answers drawn from its lesson text by Claude Haiku.": [
     "es",
     "pt",
@@ -19214,9 +17556,6 @@
     "hi",
     "id"
    ],
-   "Jacksonville, Florida": [
-    "hi"
-   ],
    "Japanese Freedom Bible (Japanese)": [
     "es",
     "pt",
@@ -19318,10 +17657,7 @@
    ],
    "Local 211": [
     "es",
-    "pt",
-    "zh",
-    "hi",
-    "id"
+    "pt"
    ],
    "London Bible (Esperanto)": [
     "ar",
@@ -19622,9 +17958,6 @@
     "hi",
     "id"
    ],
-   "Practice": [
-    "id"
-   ],
    "Project Gutenberg eBooks #273 (The Smalcald Articles) and #1722 (Martin Luther's Large Catechism), both in the Bente and Dau translation": [
     "es",
     "pt",
@@ -19878,7 +18211,6 @@
     "id"
    ],
    "The Art Institute's catalogue is open and names a findspot for almost every object. Its image server refuses a non-browser client, so the picture addresses and licences are recorded and no file was copied.": [
-    "ar",
     "id"
    ],
    "The Assembly's Shorter Catechism Explained": [
@@ -19913,7 +18245,6 @@
    "The Israel Antiquities Authority": [
     "es",
     "pt",
-    "zh",
     "hi",
     "id"
    ],
@@ -19950,7 +18281,6 @@
     "xb"
    ],
    "The Met publishes its whole collection catalogue as open data, and marks which objects are free of copyright. It is the largest single source here by a wide margin.": [
-    "ar",
     "hi",
     "id"
    ],
@@ -20014,9 +18344,6 @@
    "The Prescription Against Heretics": [
     "ar",
     "hi"
-   ],
-   "The Profession of the Tridentine Faith (Creed of Pope Pius IV)": [
-    "ar"
    ],
    "The Profession of the Tridentine Faith (Creed of Pope Pius IV), 1564 AD": [
     "zh",
