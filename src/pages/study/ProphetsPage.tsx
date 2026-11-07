@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { ProphetsRiver } from "@/components/study/ProphetsRiver";
 import { cameFrom } from "@/lib/came-from";
 import { kingFinder } from "@/lib/prophet-links";
+import { usePersonRoles } from "@/lib/use-person-roles";
 import { prophetHref, rulerFor, rulerHref } from "@/lib/people-pages-index";
 import { SlideLink } from "@/components/people-pages/SlideLink";
 import { readyKey } from "@/components/people-pages/usePeoplePageSlide";
@@ -11,10 +12,12 @@ import { RefLink, StudyCredits, StudyHeader } from "@/components/study/StudyPart
 import { useCatalog } from "@/lib/catalog";
 import { bookByCode } from "@/lib/refs";
 import { tone, type Tone } from "@/lib/sections";
-import { loadPeople, loadProphets, type Prophet } from "@/lib/study";
+import { loadPeople, loadProphets, type PersonRow, type Prophet } from "@/lib/study";
 import { useAsync } from "@/lib/useAsync";
 import { cn } from "@/lib/utils";
 import { plural } from "@/lib/site-format";
+
+const NO_PEOPLE: PersonRow[] = [];
 
 const KINDS: { id: Prophet["kind"] | "all"; label: string }[] = [
   { id: "all", label: "All" },
@@ -32,7 +35,9 @@ export function ProphetsContent({ embedded = false }: { embedded?: boolean }) {
   const prophets = useAsync(loadProphets, "prophets");
   // Every prophet, and the king beside them, opens their own page (owner, 2026-10-07).
   const people = useAsync(loadPeople, "people");
-  const kingId = useMemo(() => (people.status === "ready" ? kingFinder(people.value) : () => undefined), [people]);
+  // Roles from the English descriptions (use-person-roles.ts), so kings are found on a translated page too.
+  const roles = usePersonRoles(people.status === "ready" ? people.value : NO_PEOPLE);
+  const kingId = useMemo(() => (people.status === "ready" ? kingFinder(people.value, roles) : () => undefined), [people, roles]);
   const [kind, setKind] = useState<Prophet["kind"] | "all">("all");
   // ?king=<id> (from a ruler's page): that king's prophets lit, the rest dimmed.
   const [params] = useSearchParams();

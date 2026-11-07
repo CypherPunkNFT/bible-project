@@ -3,7 +3,8 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react"
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { OutsideScroll } from "@/components/OutsideScroll";
 import { PEOPLE_PERIODS, periodOrder } from "@/lib/people-periods";
-import { assignRoles, PERSON_ROLES, roleColor, type PersonRole } from "@/lib/people-roles";
+import { PERSON_ROLES, roleColor, type PersonRole } from "@/lib/people-roles";
+import { usePersonRoles } from "@/lib/use-person-roles";
 import type { PersonRow } from "@/lib/study";
 import { formatNumber } from "@/lib/utils";
 import "./people-catalog.css";
@@ -29,7 +30,7 @@ export function PeopleCatalog({ people: everyone, backLabel }: { people: PersonR
   const period = params.has("period") ? (params.get("period") === "none" ? "" : params.get("period")) : null;
   const last = params.get("person");
   // What each person was (king, prophet, priest…), read from their description; "?role=" shows one kind.
-  const roles = useMemo(() => assignRoles(people), [people]);
+  const roles = usePersonRoles(people);
   const role = PERSON_ROLES.some((entry) => entry.id === params.get("role")) ? params.get("role") as PersonRole : null;
   const setRole = (value: PersonRole | null) => update({ role: value, person: null });
   const update = (changes: Record<string, string | null>) => {

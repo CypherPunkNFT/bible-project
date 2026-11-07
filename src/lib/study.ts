@@ -158,6 +158,16 @@ export const loadHarmony = () => loadStudy<Harmony>("harmony.json");
 export const loadMiracles = () => loadStudy<Miracles>("miracles.json");
 export const loadLetters = () => loadStudy<Letter[]>("letters.json");
 export const loadPeople = () => loadStudy<PersonRow[]>("people.json");
+let englishPeople: Promise<PersonRow[]> | null = null;
+/** The people list in English whatever the page's language: the role rules (people-roles.ts) read English descriptions. */
+export function loadEnglishPeople(): Promise<PersonRow[]> {
+  if (!translatedDataPath("study/people.json")) return loadPeople();
+  if (!englishPeople) {
+    englishPeople = loadStudyIndex().then((index) => getFile<PersonRow[]>("study/people.json", index.stamp));
+    englishPeople.catch(() => (englishPeople = null));
+  }
+  return englishPeople;
+}
 /** One person's record: from its pack on the live site, from its own file in local preview. */
 export async function loadPersonDetail(id: string): Promise<PersonDetail> {
   const packs = (await loadStudyIndex()).personPacks;
