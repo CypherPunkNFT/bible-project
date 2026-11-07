@@ -42,8 +42,8 @@ export default function StudyHub() {
           </svg>
         </div>
         <div className="door-copy"><p className="door-question">What does Scripture teach?</p><h2 id="scripture-title">Scripture <span>&amp; Theology</span></h2><p>Read the passages. Follow their connections. Explore what the Bible teaches about God, his people and the life of faith.</p></div>
-        <ul className="door-subjects"><li>Passages &amp; books</li><li>Doctrine &amp; themes</li><li>Prayer &amp; Christian life</li></ul>
-        <div className="door-action"><span className="hub-go-icon"><Icon name="book"/></span><span>Explore Scripture &amp; Theology</span><span className="door-arrow"><Icon name="arrow"/></span></div>
+        <div className="door-foot"><ul className="door-subjects"><li>Passages &amp; books</li><li>Doctrine &amp; themes</li><li>Prayer &amp; Christian life</li></ul>
+        <div className="door-action"><span className="hub-go-icon"><Icon name="book"/></span><span>Explore Scripture &amp; Theology</span><span className="door-arrow"><Icon name="arrow"/></span></div></div>
       </StudyLink>
 
       <StudyLink className="study-door academic" to="/study/academic/" aria-labelledby="academic-title">
@@ -77,11 +77,13 @@ export default function StudyHub() {
           </svg>
         </div>
         <div className="door-copy"><p className="door-question">What can the sources tell us?</p><h2 id="academic-title">Academic <span>Studies</span></h2><p>Examine the historical world, the surviving texts and the work of scholars. See the evidence, its interpretation and its limits.</p></div>
-        <ul className="door-subjects"><li>History &amp; archaeology</li><li>Manuscripts &amp; languages</li><li>Theologians &amp; their works</li></ul>
-        <div className="door-action"><span className="hub-go-icon"><Icon name="graduation"/></span><span>Explore Academic Studies</span><span className="door-arrow"><Icon name="arrow"/></span></div>
+        <div className="door-foot"><ul className="door-subjects"><li>History &amp; archaeology</li><li>Manuscripts &amp; languages</li><li>Theologians &amp; their works</li></ul>
+        <div className="door-action"><span className="hub-go-icon"><Icon name="graduation"/></span><span>Explore Academic Studies</span><span className="door-arrow"><Icon name="arrow"/></span></div></div>
       </StudyLink>
     </section>
+    {/* The Atlas sits under the two doors as part of "Choose your way in" (owner, 2026-11-06), so the questions become 02. */}
+    <Suspense fallback={<p className="atlas-loading">Loading the Atlas…</p>}><AtlasWindow inDoors /></Suspense>
 
-    <PeopleCards /><Suspense fallback={<p className="atlas-loading">Loading the Atlas…</p>}><AtlasWindow /></Suspense><QuizDoor />
+    <PeopleCards /><QuizDoor number="02" />
     </div></div>;
 }

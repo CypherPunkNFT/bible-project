@@ -55,9 +55,9 @@ const FIGURES: [string, string][] = [
 ];
 
 /** The section, with the open Bible and board drawing by default (owner, 2026-10-24); /quiz_door_mockup shows it once per drawing, each with its own id. */
-export function QuizDoor({ Art = BibleBoardArt, id = "questions" }: { Art?: ComponentType; id?: string }) {
+export function QuizDoor({ Art = BibleBoardArt, id = "questions", number = "03" }: { Art?: ComponentType; id?: string; number?: "02" | "03" }) {
   return <section className="hub-section quiz-section" id={id} aria-labelledby={`${id}-title`}>
-    <div className="section-heading"><div><p className="eyebrow">03 / Test what you know</p><h2 id={`${id}-title`}>How well do you <em>know the Bible?</em></h2></div><p>Ask a question, find its answer, then remember the passage behind it.</p></div>
+    <div className="section-heading"><div><p className="eyebrow">{number === "02" ? "02 / Test what you know" : "03 / Test what you know"}</p><h2 id={`${id}-title`}>How well do you <em>know the Bible?</em></h2></div><p>Ask a question, find its answer, then remember the passage behind it.</p></div>
     <article className="people-feature quiz-feature">
       <div className="feature-kicker"><span>Questions &amp; answers</span><span>Ask → Answer → Remember</span></div>
       <div className="quiz-feature-body">
