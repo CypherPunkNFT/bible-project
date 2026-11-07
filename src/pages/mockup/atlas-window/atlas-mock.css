@@ -107,3 +107,13 @@
   .study-experience .am-v4 .am-left{order:-1}
   .study-experience .am-v4 .am-side{max-height:360px}
 }
+
+/* Outline colour trials (owner, 2026-11-06): the window outlined like the two doors (a 35% mix of its colour into the line,
+   the same faint corner tint, 4px corners, full colour on hover), one colour per copy on /study/atlas_colors_mockup. */
+.study-experience .am-toned .am-window{border-color:color-mix(in srgb,var(--tone) 35%,var(--line));border-radius:4px;background:linear-gradient(150deg,color-mix(in srgb,var(--tone) 7%,var(--surface)),var(--surface) 74%);transition:border-color .25s}
+.study-experience .am-toned .am-window:hover{border-color:var(--tone)}
+.study-experience .am-toned .am-scene{background:color-mix(in srgb,var(--tone) 3%,var(--page))}
+.study-experience .am-tone-label{display:flex;align-items:baseline;gap:12px;margin:34px 0 -10px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.study-experience .am-tone-label strong{font-weight:650;color:var(--tone)}
+.study-experience .am-tone-label i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--tone)}
+
