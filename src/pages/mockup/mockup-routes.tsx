@@ -20,6 +20,7 @@ const HomeMockupsPage = lazy(() => import("@/pages/HomeMockupsPage"));
 const StudyHubMockup = lazy(() => import("./StudyHubMockup"));
 const AtlasWindowMockupPage = lazy(() => import("./atlas-window/AtlasWindowMockupPage"));
 const AtlasColorsMockupPage = lazy(() => import("./atlas-window/AtlasColorsMockupPage"));
+const AtlasColorsComparePage = lazy(() => import("./atlas-window/AtlasColorsMockupPage").then(m => ({ default: m.AtlasColorsComparePage })));
 const QuizMockupPage = lazy(() => import("./QuizMockupPage"));
 const WildernessMockupPage = lazy(() => import("./WildernessMockupPage"));
 const QuizMoreMockupPage = lazy(() => import("./QuizMoreMockupPage"));
@@ -134,8 +135,9 @@ export function mockupRoutes() {
     // The study page with the Atlas window condensed four ways, nine categories and tripled places; one address per
     // version, nothing added to the page (owner, 2026-11-06).
     <Route key="study-atlas-window" path="/study/atlas_mockup/:version" element={<AtlasWindowMockupPage />} />,
-    // Six copies of the Atlas window under the doors, each outlined in a different colour (owner, 2026-11-06).
+    // The Atlas window in its chosen colour, as the page would ship; and the colour comparison it was chosen from (owner, 2026-11-06).
     <Route key="study-atlas-colors" path="/study/atlas_colors_mockup/:version" element={<AtlasColorsMockupPage />} />,
+    <Route key="study-atlas-colors-compare" path="/study/atlas_colors_compare/:version" element={<AtlasColorsComparePage />} />,
     <Route key="gallery" path="/mockups" element={<HomeMockupsPage />} />,
   ];
 }

@@ -23,10 +23,11 @@ function useAtlasChoice() {
 }
 type Choice = ReturnType<typeof useAtlasChoice>;
 
-/** `tone`: the colour the window is outlined in, as the two doors are in gold and orange (/study/atlas_colors_mockup). */
-export interface Tone { tone?: string }
-function Section({ version, tone, children }: { version: number; children: React.ReactNode } & Tone) {
-  return <section className={`hub-section atlas-section in-doors am-section am-v${version}${tone ? " am-toned" : ""}`} id={tone ? undefined : "world"} aria-label="The Atlas" style={tone ? { ["--tone" as string]: tone } : undefined}>{children}</section>;
+/** `tone`: the colour the window is outlined in, as the two doors are in gold and orange (/study/atlas_colors_mockup).
+ *  `copy`: one of several copies on a comparison page, so it gives up the page's "world" anchor. */
+export interface Tone { tone?: string; copy?: boolean }
+function Section({ version, tone, copy, children }: { version: number; children: React.ReactNode } & Tone) {
+  return <section className={`hub-section atlas-section in-doors am-section am-v${version}${tone ? " am-toned" : ""}`} id={copy ? undefined : "world"} aria-label="The Atlas" style={tone ? { ["--tone" as string]: tone } : undefined}>{children}</section>;
 }
 
 function CategoryButton({ c, active, pick, count = false }: { c: AtlasCategory; active: boolean; pick: (id: string) => void; count?: boolean }) {
@@ -57,9 +58,9 @@ function EnterAtlas({ small = false }: { small?: boolean }) {
 
 const Caveat = ({ c }: { c: AtlasCategory }) => c.caveat ? <p className="am-caveat">{c.caveat}</p> : null;
 
-export function AtlasV1({ tone }: Tone = {}) {
+export function AtlasV1({ tone, copy }: Tone = {}) {
   const choice = useAtlasChoice(), { category } = choice;
-  return <Section version={1} tone={tone}><div className="am-window">
+  return <Section version={1} tone={tone} copy={copy}><div className="am-window">
     <div className="am-scene"><MockMap category={category} chosen={choice.chosen.key} choose={choice.choose} /><div className="am-strip"><PlaceNote choice={choice} /><Caveat c={category} /></div></div>
     <div className="am-side"><GroupedCategories choice={choice} count /><EnterAtlas /></div>
   </div></Section>;
@@ -81,9 +82,9 @@ export function AtlasV2() {
 }
 
 const V3_INSET: Inset = { left: 252, right: 332 };
-export function AtlasV3({ tone }: Tone = {}) {
+export function AtlasV3({ tone, copy }: Tone = {}) {
   const choice = useAtlasChoice(), { category } = choice;
-  return <Section version={3} tone={tone}><div className="am-window">
+  return <Section version={3} tone={tone} copy={copy}><div className="am-window">
     <div className="am-scene"><MockMap category={category} chosen={choice.chosen.key} choose={choice.choose} inset={V3_INSET} />
       <div className="am-over-left"><GroupedCategories choice={choice} /></div>
       <div className="am-over-right"><p className="am-intro"><RefText text={category.intro} /></p><PlaceNote choice={choice} /><Caveat c={category} /></div>
