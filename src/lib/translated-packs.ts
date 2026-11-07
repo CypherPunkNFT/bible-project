@@ -20,13 +20,23 @@ const manifests = new Map<string, Promise<PackManifest | null>>();
 const packs = new Map<string, Promise<Record<string, unknown>>>();
 onLanguageChange(() => packs.clear());
 
-/** The JSON at `url`, or null when the address holds nothing (404, or the site's page served in its place). */
+/** The JSON at `url`, or null when the address holds nothing (404, or the site's page served in its place). A failed
+ * download or a body cut short is a PackUnavailable too, so the caller shows the English instead of failing the page. */
 async function readJsonOrNothing(url: string, cache: RequestCache, what: string): Promise<unknown> {
-  const response = await fetch(url, { cache });
+  let response: Response;
+  try {
+    response = await fetch(url, { cache });
+  } catch (error) {
+    throw new PackUnavailable(what, `${url}: ${String(error)}`);
+  }
   if (response.status === 404) return null;
   if (!response.ok) throw new PackUnavailable(what, `HTTP ${response.status} for ${url}`);
   if (!(response.headers.get("content-type") ?? "").includes("json")) return null;
-  return response.json();
+  try {
+    return await response.json();
+  } catch (error) {
+    throw new PackUnavailable(what, `${url}: ${String(error)}`);
+  }
 }
 
 /** The language's manifest, or null when it ships no packs. Only a definite "nothing there" is kept for the session. */
@@ -39,8 +49,11 @@ function manifestFor(folder: string, fresh = false): Promise<PackManifest | null
       if (!manifest) console.warn(`translated packs: data/i18n/${folder}/${PACK_MANIFEST} is not a manifest this code reads; reading files one by one`);
       return manifest;
     });
-    pending.catch(() => manifests.delete(folder));
-    manifests.set(folder, pending);
+    const reading = pending;
+    reading.catch(() => {
+      if (manifests.get(folder) === reading) manifests.delete(folder); // never a newer read made meanwhile
+    });
+    manifests.set(folder, reading);
   }
   return pending;
 }
@@ -53,8 +66,11 @@ function packFor(url: string, what: string): Promise<Record<string, unknown>> {
       if (typeof value !== "object" || Array.isArray(value)) throw new PackUnavailable(what, `${url} is not a pack`);
       return value as Record<string, unknown>;
     });
-    pending.catch(() => packs.delete(url));
-    packs.set(url, pending);
+    const reading = pending;
+    reading.catch(() => {
+      if (packs.get(url) === reading) packs.delete(url);
+    });
+    packs.set(url, reading);
   }
   return pending;
 }

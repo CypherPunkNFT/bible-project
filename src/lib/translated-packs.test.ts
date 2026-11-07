@@ -66,6 +66,35 @@ describe("readPacked", () => {
     const { readPacked, PackUnavailable } = await import("./translated-packs");
     await expect(readPacked("i18n/es/topics/t/grace.json")).rejects.toBeInstanceOf(PackUnavailable);
   });
+
+  it("makes a pack cut short or a failed download a PackUnavailable (the caller shows the English), and keeps neither", async () => {
+    const packUrl = `/data/i18n/es/packs/${VERSION}/0.json`;
+    const good = serve({ "/data/i18n/es/packs.json": manifest(), [packUrl]: { "topics/t/grace.json": { title: "Gracia" } } });
+    let packCalls = 0;
+    vi.stubGlobal("fetch", vi.fn(async (url: string) => {
+      if (String(url).split("?")[0] !== packUrl) return good(url);
+      packCalls += 1;
+      if (packCalls === 1) return new Response('{"topics', { status: 200, headers: { "content-type": "application/json" } });
+      if (packCalls === 2) throw new TypeError("Failed to fetch");
+      return good(url);
+    }));
+    const { readPacked, PackUnavailable } = await import("./translated-packs");
+    await expect(readPacked("i18n/es/topics/t/grace.json")).rejects.toBeInstanceOf(PackUnavailable); // cut short (the manifest is read again: same version)
+    await expect(readPacked("i18n/es/topics/t/grace.json")).rejects.toBeInstanceOf(PackUnavailable); // the download fails
+    expect(await readPacked("i18n/es/topics/t/grace.json")).toEqual({ value: { title: "Gracia" } });
+  });
+
+  it("makes a failed manifest download a PackUnavailable, and reads the manifest again next time", async () => {
+    const good = serve({ "/data/i18n/es/packs.json": manifest(), [`/data/i18n/es/packs/${VERSION}/0.json`]: { "topics/t/grace.json": { title: "Gracia" } } });
+    let calls = 0;
+    vi.stubGlobal("fetch", vi.fn(async (url: string) => {
+      if (++calls === 1) throw new TypeError("Failed to fetch");
+      return good(url);
+    }));
+    const { readPacked, PackUnavailable } = await import("./translated-packs");
+    await expect(readPacked("i18n/es/topics/t/grace.json")).rejects.toBeInstanceOf(PackUnavailable);
+    expect(await readPacked("i18n/es/topics/t/grace.json")).toEqual({ value: { title: "Gracia" } });
+  });
 });
 
 describe("loadQuestionBank", () => {
