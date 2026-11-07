@@ -1,0 +1,1536 @@
+{
+  "schemaVersion": 1,
+  "order": 43,
+  "slug": "new-testament-history",
+  "title": "New Testament history: from Herod to the fall of Jerusalem",
+  "category": "history",
+  "categoryTitle": "History",
+  "updated": "2026-11-06",
+  "status": "draft",
+  "premise": "The Gospels and Acts date their events by naming rulers: a king in Jerusalem, an emperor in Rome, a governor in Syria, a proconsul in Corinth. Those rulers also appear in coins, inscriptions and the Jewish and Roman historians, so the New Testament can be set against a frame built from outside it. This study builds that frame from Pompey's entry into Jerusalem in 63 BC to the fall of Masada, and keeps three things apart throughout: what a record says, what a historian reckons from it, and where the record stops.",
+  "question": "When the New Testament names a ruler, what does that name fix, and how sure is the ruler's own date?",
+  "yearRule": "Years are written as numbers, negative for BC, with no year zero: -4 is 4 BC and 30 is AD 30. Between 63 BC and AD 73 there are 135 years.",
+  "outcomes": [
+    "Say which Herod is meant in Matthew 2, Mark 6, Acts 12 and Acts 25, and what each one ruled.",
+    "Name the four writers outside the Bible who mention Jesus or his followers within about eighty years of his death, and say what each one does and does not show.",
+    "Set out the main views on the years of Jesus' birth and death, name who holds each, and say why this study does not choose.",
+    "Name the fixed points of Paul's life (the Gallio inscription, Felix and Festus), and tell a fixed point from a reckoning built on it.",
+    "Tell the story of the Jewish revolt from AD 66 to the fall of Masada, and say what Josephus saw for himself and what he heard from others."
+  ],
+  "boundaries": {
+    "in": "Roman and Herodian rule over Judea and Galilee from Pompey (63 BC) to Masada (AD 73 or 74); the rulers the New Testament names; the writers outside the Bible who mention Jesus and the first Christians; the chronology of Jesus and of Paul; the trial of Jesus as history; the revolt and the fall of Jerusalem.",
+    "out": [
+      "The Hasmonean kings and everything before 63 BC: Between the Testaments (34).",
+      "The Jewish groups, the synagogue, daily life, and the meaning of the rulers' titles: The world of the New Testament (09). This study uses the titles and links there for what they mean.",
+      "Who the Idumeans were and how they became Jews: The peoples around Israel (35). This study cites that account in a sentence.",
+      "The Pilate inscription and other finds read closely as objects: Archaeology and the Bible (06). This study cites them.",
+      "When and by whom each Gospel and letter was written, and the quest for the historical Jesus as a movement in scholarship: How the New Testament books were written.",
+      "Herod's temple as a building and the end of its worship: The temple and Israel's worship.",
+      "The church from Nero's persecution onward, the deaths of Peter and Paul as told by later writers, and the martyrs: The early church (21).",
+      "What Christ's death accomplishes and why he died: the theology studies The cross and The resurrection of Jesus. This study tells the events and links there for their meaning."
+    ]
+  },
+  "stance": {
+    "head": "What this site holds",
+    "confession": "“truth, without any mixture of error”",
+    "confessionSource": "Baptist Faith and Message 2000, article I (the Scriptures)",
+    "body": "The site holds the Gospels and Acts true in what they report. A date worked out by a historian is a reconstruction, and where a reconstruction and the text seem to pull apart, this study says what each one rests on and does not treat the reconstruction as a correction of the text. Where scholars who hold Scripture without error reach different dates, as they do for Jesus' birth and death, this study shows each view with its holders and does not choose. Nothing in those arguments changes what the text says: Jesus was born while Herod was king, and he died under Pontius Pilate.",
+    "guilt": "This study tells the trial of Jesus as history, and so it names the people the Gospels name: particular priests, a council, a Roman governor, a tetrarch, soldiers and a crowd. The guilt for Christ's death is never laid on the Jewish people, then or now. The New Testament itself gathers Herod, Pilate, the Gentiles and the people of Israel into one sentence of prayer (Acts 4:27–28), and teaches that Christ died for the sins of all who would believe. Why he died is the subject of the theology study The cross.",
+    "verses": [
+      "Matthew 2:1",
+      "Luke 1:5",
+      "Acts 4:27",
+      "Acts 4:28",
+      "1 Corinthians 15:3"
+    ]
+  },
+  "herods": {
+    "lead": "Six rulers of Herod's family appear in the New Testament, and the text calls most of them simply Herod. The table tells them apart.",
+    "rows": [
+      {
+        "id": "great",
+        "name": "Herod the Great",
+        "title": "King",
+        "ruled": "Named king 40 BC; ruled in Jerusalem from 37 BC until his death (4 BC by the usual reckoning, 1 BC by another)",
+        "territory": "All of Judea, Samaria, Galilee, Idumea and lands east of the Jordan",
+        "nt": [
+          "Matthew 2:1",
+          "Matthew 2:16",
+          "Luke 1:5"
+        ],
+        "note": "The king of the wise men and of the children of Bethlehem. Josephus is the main outside source for his reign."
+      },
+      {
+        "id": "archelaus",
+        "name": "Archelaus",
+        "title": "Ethnarch",
+        "ruled": "From Herod's death to AD 6, when Augustus removed him",
+        "territory": "Judea, Samaria and Idumea",
+        "nt": [
+          "Matthew 2:22"
+        ],
+        "note": "Joseph hears that Archelaus reigns in Judea and settles in Galilee. Matthew says he reigned; his Roman title was ethnarch, not king."
+      },
+      {
+        "id": "antipas",
+        "name": "Herod Antipas",
+        "title": "Tetrarch",
+        "ruled": "From Herod's death to AD 39, when Caligula exiled him",
+        "territory": "Galilee and Perea",
+        "nt": [
+          "Mark 6:14",
+          "Luke 3:1",
+          "Luke 13:31",
+          "Luke 23:7"
+        ],
+        "note": "The Herod of John the Baptist's death, of Jesus' word about a fox, and of Jesus' hearing in Luke 23. Mark calls him king, as people did; Luke and Matthew give the formal title tetrarch."
+      },
+      {
+        "id": "philip",
+        "name": "Philip",
+        "title": "Tetrarch",
+        "ruled": "From Herod's death to about AD 33 or 34",
+        "territory": "Iturea, Trachonitis and the lands north-east of Galilee",
+        "nt": [
+          "Luke 3:1"
+        ],
+        "note": "Builder of Caesarea Philippi. Not the Philip named as Herodias's first husband in Mark 6:17, whose identity with other men of that name is argued."
+      },
+      {
+        "id": "agrippa1",
+        "name": "Herod Agrippa I",
+        "title": "King",
+        "ruled": "King from AD 37 over Philip's lands, then Antipas's, then from 41 over Judea too; died 44",
+        "territory": "By 41, nearly all his grandfather's kingdom",
+        "nt": [
+          "Acts 12:1",
+          "Acts 12:21",
+          "Acts 12:23"
+        ],
+        "note": "The Herod who executed James the brother of John and imprisoned Peter, and who died at Caesarea. Grandson of Herod the Great."
+      },
+      {
+        "id": "agrippa2",
+        "name": "Herod Agrippa II",
+        "title": "King",
+        "ruled": "From about AD 50 over territories north and east; died about 92 or 100 [check: date of death, argued from coins and Photius]",
+        "territory": "Never Judea itself, though Rome gave him oversight of the temple and the right to appoint high priests",
+        "nt": [
+          "Acts 25:13",
+          "Acts 26:28"
+        ],
+        "note": "Hears Paul's defence at Caesarea with his sister Bernice. He tried to stop the revolt of 66 and sided with Rome."
+      }
+    ],
+    "titles": "King, ethnarch and tetrarch are ranks Rome granted, in that order of standing. What each meant, and why Mark can say king where Luke says tetrarch, is explained in The world of the New Testament (09)."
+  },
+  "eras": [
+    {
+      "id": "rome",
+      "title": "Rome arrives, and an Idumean family rises",
+      "when": "63 to 4 BC",
+      "lead": "Rome came in as a judge between two brothers and stayed as the master of the land. This part is carried over from Between the Testaments, where that study stops.",
+      "steps": [
+        {
+          "id": "pompey",
+          "title": "Pompey in the temple",
+          "when": "63 BC",
+          "evidence": "Josephus: Pompey “went into it, and not a few of those that were with him also, and saw all that which it was unlawful for any other men to see but only for the high priests”; the golden table, the lampstand and two thousand talents were there, “yet did Pompey touch nothing of all this” (Antiquities 14.4.4). Tacitus, writing about AD 100: “The first Roman to subdue the Jews and set foot in their temple by right of conquest was Gnaeus Pompey”, and it became known “that the place was empty and the secret shrine contained nothing” (Histories 5.9, Loeb translation of 1931).",
+          "inference": "A Jewish and a Roman historian agree that Pompey entered the sanctuary and left its treasure. To Jews the entry itself was the outrage, since only the high priest went in, once a year. To Tacitus the surprise was that the shrine held no image.",
+          "limit": "Neither writer saw it. Josephus's editor Whiston adds in a note that Cicero says the same in his speech for Flaccus; that speech was not read here.",
+          "sources": [
+            "josephus",
+            "tacitus"
+          ]
+        },
+        {
+          "id": "antipater",
+          "title": "An Idumean family rises",
+          "when": "63 to 40 BC",
+          "evidence": "Josephus tells how Antipater, an Idumean, served the high priest Hyrcanus II and Rome, and how his son Herod was made governor of Galilee while young (Antiquities 14). The Idumeans were the people south of Judea whom the Hasmonean ruler John Hyrcanus had made Jews about two generations earlier; their story is told in The peoples around Israel (35).",
+          "inference": "Herod's family were Jews by a conversion forced on their people, and owed their place to Rome. Both facts shaped how his subjects saw him.",
+          "limit": "How Herod's subjects saw his ancestry is told mostly by Josephus and later writers. Herod's own account, and the history written by his court scholar Nicolaus of Damascus, survive only in what Josephus took from them.",
+          "sources": [
+            "josephus"
+          ]
+        },
+        {
+          "id": "king",
+          "title": "Named king in Rome, king in Jerusalem three years later",
+          "when": "40 and 37 BC",
+          "evidence": "The Roman Senate named Herod king after the Parthians put Antigonus, the last Hasmonean, on the throne (Josephus places this in 40 BC; the Roman historian Appian in 39). Herod and the Roman general Sosius took Jerusalem in 37 (some argue 36). Josephus counts his reign as “thirty-four years” from Antigonus's death, but “since he had been declared king by the Romans, thirty-seven” (Antiquities 17.8.1).",
+          "inference": "Herod was king by a vote in Rome before he was king in the land.",
+          "limit": "The two counts of his years are Josephus's own. Turning them into a calendar depends on how Josephus counted a year, which is argued.",
+          "sources": [
+            "josephus"
+          ]
+        },
+        {
+          "id": "builder",
+          "title": "A builder and a killer",
+          "when": "37 to 4 BC",
+          "evidence": "Josephus describes Herod's building: the harbour city of Caesarea, the fortresses of Masada and Herodium, and the temple (Antiquities 15–16). Ehud Netzer announced in 2007 that he had found Herod's tomb on the slope of Herodium. Josephus also records that Herod had his wife Mariamne killed, and three of his sons: Alexander and Aristobulus about 7 BC, and Antipater days before his own death. The Latin writer Macrobius, about four centuries later, reports Augustus's joke that it was better to be Herod's pig than his son (Saturnalia 2.4.11).",
+          "inference": "The Herod of Matthew 2, who orders the children of Bethlehem killed, fits the man Josephus describes: a king who killed even his own heirs when he feared for his throne.",
+          "limit": "No source outside Matthew mentions the killing at Bethlehem. Bethlehem was a small village, and the number of children would have been small beside the killings Josephus does record; this is why some think he passed over it, and why others treat Matthew's account as unsupported. Silence in one historian is not evidence that an event did not happen, and it is not evidence that it did. Netzer's identification of the tomb is accepted by many and questioned by some [check: who has published doubts about the Herodium tomb].",
+          "verses": [
+            "Matthew 2:16"
+          ],
+          "sources": [
+            "josephus",
+            "macrobius",
+            "netzer"
+          ]
+        },
+        {
+          "id": "temple",
+          "title": "A temple rebuilt",
+          "when": "From about 20/19 BC",
+          "evidence": "“Herod, in the eighteenth year of his reign, and after the acts already mentioned, undertook a very great work, that is, to build of himself the temple of God” (Antiquities 15.11.1). In Jesus' day the Jews said: “This temple took forty-six years to build” (John 2:20 · BSB).",
+          "inference": "The temple of the Gospels is the second temple, rebuilt and enlarged by Herod while it stayed in use. The forty-six years of John 2:20, counted from Herod's eighteenth year, are one of the anchors for dating Jesus' ministry. The building itself is described in The temple and Israel's worship.",
+          "limit": "Which year counts as Herod's first, and so when the eighteenth fell, is part of the same argument as his death. Whether the forty-six years count the work done so far or the time since the building was finished is also argued.",
+          "verses": [
+            "John 2:20"
+          ],
+          "sources": [
+            "josephus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "province",
+      "title": "Herod's sons, and Judea under a Roman governor",
+      "when": "4 BC to AD 41",
+      "lead": "Augustus split the kingdom three ways. Ten years later he took the largest share back and put it under a Roman officer.",
+      "steps": [
+        {
+          "id": "split",
+          "title": "The kingdom divided",
+          "when": "4 BC by the usual reckoning",
+          "evidence": "Josephus reports that Augustus confirmed Herod's will in part: Archelaus as ethnarch of Judea, Samaria and Idumea, with the promise of the title king if he deserved it; Antipas as tetrarch of Galilee and Perea; Philip as tetrarch of the north-east (Antiquities 17.11.4). Matthew says Joseph, hearing that Archelaus reigned in Judea, was afraid to go there and settled in Galilee (Matthew 2:22–23).",
+          "inference": "Matthew's detail fits the record exactly: Archelaus held Judea and not Galilee, and Josephus describes his rule as harsh from its first Passover.",
+          "limit": "Josephus is the only full narrative. Coins of the three sons confirm their names and titles [check: that 06 or 09 holds coin images of Archelaus, Antipas and Philip].",
+          "verses": [
+            "Matthew 2:22",
+            "Matthew 2:23"
+          ],
+          "sources": [
+            "josephus"
+          ]
+        },
+        {
+          "id": "ad6",
+          "title": "Judea becomes a province, and a census is taken",
+          "when": "AD 6",
+          "evidence": "Josephus says Augustus banished Archelaus to Vienne in Gaul in his tenth year, and that Quirinius (Whiston spells him “Cyrenius, a Roman senator”) came to Syria to assess property, with Coponius sent as the first governor of Judea (Antiquities 17.13.2–5; 18.1.1). A rising led by Judas the Galilean opposed the census (Antiquities 18.1.1). Gamaliel mentions Judas and the days of the census in Acts 5:37.",
+          "inference": "From AD 6 Judea, Samaria and Idumea were ruled by a Roman officer of equestrian rank, living at Caesarea and answering to the governor of Syria. Galilee stayed under Antipas, so Jesus grew up under a Jewish ruler and died under a Roman one.",
+          "limit": "How Luke 2:1–2 relates to this census is a separate question, set out under the chronology of Jesus below.",
+          "verses": [
+            "Acts 5:37"
+          ],
+          "sources": [
+            "josephus"
+          ]
+        },
+        {
+          "id": "prefects",
+          "title": "The prefects, and Pontius Pilate",
+          "when": "AD 6 to 41",
+          "evidence": "Josephus names the governors in turn. Pilate governed about ten years, from about AD 26 to 36, when the governor of Syria, Vitellius, sent him to Rome to answer for a killing of Samaritans (Antiquities 18.4.2). A stone found in 1961 in the theatre at Caesarea names Pontius Pilate as prefect of Judea, beside a building for the emperor Tiberius; it is read closely in Archaeology and the Bible (06). Josephus tells of Pilate bringing standards with the emperor's image into Jerusalem, and of riots over an aqueduct he built with temple money (War 2.9.2–4). Philo of Alexandria, who lived at the time, describes him as stubborn and harsh (Embassy to Gaius 38).",
+          "inference": "The stone settles his title as the first governors held it: prefect. Philo, Josephus and the Gospels together show a governor who had clashed with the people before and did not want another riot.",
+          "limit": "Philo had reasons of his own to paint Roman officials darkly, since he was pleading before Caligula; his description is an advocate's. The exact years of Pilate's term are reckoned from Josephus's ten years and the date of Tiberius's death, and could be a year either way. How many prefects served between Coponius and 41 is not certain, because two names after Pilate may belong to one man [check: Marcellus and Marullus].",
+          "sources": [
+            "josephus",
+            "philo",
+            "pilate-stone"
+          ]
+        },
+        {
+          "id": "caiaphas",
+          "title": "The high priests",
+          "when": "AD 6 to 36",
+          "evidence": "Josephus says Quirinius appointed Annas (he writes Ananus) as high priest, that five of his sons later held the office, and that Valerius Gratus appointed Joseph called Caiaphas, whom Vitellius removed about AD 36 (Antiquities 18.2.1–2; 18.4.3; 20.9.1). Luke names Annas and Caiaphas together (Luke 3:2), and John calls Caiaphas Annas's son-in-law (John 18:13).",
+          "inference": "Caiaphas held office about eighteen years, all of Pilate's term and longer: a high priest who worked with Rome. Annas kept the standing of the family's head after he left office, which is why both are named.",
+          "limit": "An ossuary found in Jerusalem in 1990 bears a name read as Joseph son of Caiaphas; whether it is this Caiaphas is argued, and it belongs to Archaeology and the Bible (06) [check: whether 06 holds it].",
+          "verses": [
+            "Luke 3:2",
+            "John 18:13"
+          ],
+          "sources": [
+            "josephus"
+          ]
+        },
+        {
+          "id": "antipasend",
+          "title": "Antipas, John the Baptist and an exile",
+          "when": "About AD 28 to 39",
+          "evidence": "Josephus reports that Antipas killed John the Baptist at the fortress of Machaerus, fearing his influence, and that many Jews took Antipas's defeat by the Nabatean king Aretas IV as God's judgement for it (Antiquities 18.5.2). The quarrel began when Antipas divorced Aretas's daughter to marry Herodias. Caligula exiled Antipas in AD 39 (Antiquities 18.7.2). Mark gives the marriage to Herodias as the reason John rebuked Antipas (Mark 6:17–18).",
+          "inference": "Josephus and Mark tell the same death from different sides: Josephus the political fear, Mark the rebuke over the marriage. They do not contradict each other.",
+          "limit": "Josephus names Herodias's first husband differently from Mark, and whether the two refer to one man is argued.",
+          "verses": [
+            "Mark 6:17",
+            "Mark 6:18"
+          ],
+          "sources": [
+            "josephus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agrippa",
+      "title": "A king again: Agrippa I",
+      "when": "AD 37 to 44",
+      "lead": "For three years Judea had a Jewish king again. Then it went back to Roman governors.",
+      "steps": [
+        {
+          "id": "rise",
+          "title": "From prisoner to king",
+          "when": "AD 37 to 41",
+          "evidence": "Josephus tells how Agrippa, raised in Rome and a friend of Caligula, was imprisoned by Tiberius, freed by Caligula in 37 and given Philip's tetrarchy with the title king, then Antipas's lands in 39 or 40, and by Claudius in 41 Judea and Samaria as well (Antiquities 18.6; 19.5.1).",
+          "inference": "Between 41 and 44 Judea had no Roman governor. That is why Acts 12 has a king, not a governor, acting in Jerusalem.",
+          "limit": "Josephus admired Agrippa and his account is warm. The dates rest on the reigns of Caligula and Claudius, which are well fixed.",
+          "sources": [
+            "josephus"
+          ]
+        },
+        {
+          "id": "death44",
+          "title": "Death at Caesarea",
+          "when": "AD 44",
+          "evidence": "Acts 12 tells that Herod killed James the brother of John, imprisoned Peter, and later, at Caesarea, made a speech in royal robes, was hailed as a god, and was struck down (Acts 12:1–3, 21–23). Josephus tells the same death at Caesarea: at a festival for the emperor, in a robe of silver shining in the sun, flatterers called him a god, he did not rebuke them, and he was seized with pain and died five days later, in the seventh year of his reign (Antiquities 19.8.2).",
+          "inference": "Two writers who do not depend on each other tell the same scene in the same city with the same fault: accepting a god's honour. This is one of the firmest dates in the New Testament, AD 44, and it fixes the order of events around it in Acts.",
+          "limit": "Josephus adds an owl seen as an omen; Acts adds an angel of the Lord. Each gives the event the meaning its writer saw in it. The precise month is argued.",
+          "verses": [
+            "Acts 12:1",
+            "Acts 12:2",
+            "Acts 12:21",
+            "Acts 12:23"
+          ],
+          "sources": [
+            "josephus"
+          ]
+        },
+        {
+          "id": "procurators",
+          "title": "Governors again",
+          "when": "AD 44 to 66",
+          "evidence": "After Agrippa's death Claudius put the whole of Judea under Roman governors, now usually called procurators (Antiquities 19.9.2). Josephus names them in turn: Cuspius Fadus, Tiberius Alexander, Cumanus, Felix, Festus, Albinus and Florus, and describes rising unrest under each.",
+          "inference": "Paul's trials in Acts 24–26 fall in this second period, before Felix and Festus.",
+          "limit": "Josephus wrote after the revolt and had reason to blame bad governors for it; his account of their failings is one-sided as well as first-hand.",
+          "sources": [
+            "josephus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revolt",
+      "title": "Nero, the revolt and the fall of Jerusalem",
+      "when": "AD 64 to 73 or 74",
+      "lead": "The war Josephus fought in, then wrote about, ended the temple and the city of the Gospels.",
+      "steps": [
+        {
+          "id": "nero",
+          "title": "Nero and the fire of Rome",
+          "when": "AD 64",
+          "evidence": "Tacitus reports that after the great fire of July 64 Nero blamed the Christians and had many put to death (Annals 15.44). Suetonius lists the punishment of Christians among Nero's acts (Nero 16.2). Nero died in June 68.",
+          "inference": "The first Roman persecution of Christians fell in Rome, not Judea. The church's story from here is told in The early church (21), with the later accounts of Peter's and Paul's deaths.",
+          "limit": "Tacitus and Suetonius name no apostle. That Peter and Paul died under Nero rests on Christian writers, from 1 Clement onward.",
+          "sources": [
+            "tacitus",
+            "suetonius"
+          ]
+        },
+        {
+          "id": "war66",
+          "title": "The war begins",
+          "when": "AD 66",
+          "evidence": "Josephus tells how the governor Florus took money from the temple treasury, riots followed, the daily sacrifice for the emperor was stopped, and the Syrian governor Cestius Gallus marched on Jerusalem and then withdrew with heavy losses (War 2.14–19). Josephus himself was made a commander in Galilee, surrendered to Vespasian at Jotapata in 67, and spent the rest of the war on the Roman side.",
+          "inference": "Josephus is a witness of the war, and an interested one: a Jewish general who changed sides and wrote under the patronage of the emperors he had fought.",
+          "limit": "His numbers, especially of the dead, are thought by most historians to be inflated.",
+          "sources": [
+            "josephus"
+          ]
+        },
+        {
+          "id": "idumeans",
+          "title": "The Idumeans in Jerusalem",
+          "when": "AD 68",
+          "evidence": "Josephus tells that the Zealots, besieged in the temple by other Jewish factions, called in the Idumeans, who entered the city at night and killed the former high priest Ananus and many others (War 4.4–5).",
+          "inference": "The last appearance of the Idumeans as a people in the record. Their earlier history is told in The peoples around Israel (35).",
+          "limit": "Josephus hated the Zealots, and his account of these weeks is written against them.",
+          "sources": [
+            "josephus"
+          ]
+        },
+        {
+          "id": "fall70",
+          "title": "The fall of Jerusalem",
+          "when": "AD 70",
+          "evidence": "Vespasian left for Rome to become emperor in 69, and his son Titus besieged Jerusalem in the spring of 70. Josephus describes the famine, the burning of the temple in late summer, and the destruction of the city (War 5–6). He gives the date of the burning as the tenth of the month Loos, the same day as the burning of the first temple by the Babylonians (War 6.4.5). The Arch of Titus in Rome shows the lampstand and other temple objects carried in his triumph, and Roman coins struck after the war read JUDAEA CAPTA, Judea captured.",
+          "inference": "In Jewish practice the ninth of Av (Tisha B'Av) is the fast day that mourns the destruction of both temples; the Mishnah names that day for both (Taanit 4:6). For Christians, Jesus had said that when Jerusalem was surrounded by armies its desolation was near, and had told those in Judea to flee (Luke 21:20–21). Eusebius reports that the church of Jerusalem left for Pella before the war (Church History 3.5.3). This site holds that Jesus' warning was fulfilled in AD 70.",
+          "limit": "Josephus says Titus wanted the temple spared; the later Christian writer Sulpicius Severus, possibly drawing on a lost part of Tacitus, says Titus wanted it destroyed. Which is true is argued. Eusebius wrote in the fourth century, and how far his report of the flight to Pella goes back is argued too. That some scholars date the Gospels after 70 because of this prophecy is taken up under the claims below.",
+          "verses": [
+            "Luke 21:20",
+            "Luke 21:21"
+          ],
+          "sources": [
+            "josephus",
+            "eusebius",
+            "mishnah"
+          ]
+        },
+        {
+          "id": "masada",
+          "title": "Masada",
+          "when": "AD 73 or 74",
+          "evidence": "Josephus tells how a band of the Sicarii under Eleazar son of Yair held Herod's fortress of Masada after the city fell, how the Roman governor Flavius Silva built a siege ramp against it, and how, when the wall was breached, the defenders chose death rather than capture; he says two women and five children survived to tell it (War 7.8–9). Yigael Yadin excavated the site from 1963 to 1965 and found the Roman camps, the ramp and the remains of the defenders' last occupation.",
+          "inference": "The ramp and camps confirm the siege as Josephus describes it. The ending, as he tells it, cannot be checked from the ground.",
+          "limit": "Josephus was not there, and the long speeches he gives Eleazar are his own composition, as ancient historians commonly wrote speeches. Shaye Cohen argued in 1982 that the ending is shaped by literary convention and that the archaeology does not settle it. The year is 73 or 74, depending on how an inscription naming Silva is read. This study tells the ending as Josephus's account and does not describe it further.",
+          "sources": [
+            "josephus",
+            "yadin",
+            "cohen-masada"
+          ]
+        }
+      ]
+    }
+  ],
+  "witnesses": {
+    "lead": "Four writers outside the New Testament mention Jesus or his followers before about AD 120. None of them was a Christian. Each says something different, and each has limits.",
+    "records": [
+      {
+        "id": "josephus-james",
+        "writer": "Josephus",
+        "work": "Antiquities 20.9.1",
+        "written": "About AD 93 or 94",
+        "says": "In AD 62, between the governors Festus and Albinus, the high priest Ananus brought before the council “the brother of Jesus, who was called Christ, whose name was James”, with others, and had them stoned.",
+        "evidence": "A passing mention by a Jewish historian, in a story about a high priest's overreach, not about Christians.",
+        "inference": "Most scholars accept it as Josephus's own words, because a Christian adding to the text would hardly mention Jesus so briefly and only to identify someone else. It shows that a Jewish writer of the first century took Jesus' existence, and his being called Christ, as known.",
+        "limit": "It says nothing about what Jesus did or how he died."
+      },
+      {
+        "id": "josephus-testimonium",
+        "writer": "Josephus",
+        "work": "Antiquities 18.3.3",
+        "written": "About AD 93 or 94",
+        "says": "A paragraph in the account of Pilate's governorship. In Whiston's translation it opens: “Now there was about this time Jesus, a wise man, if it be lawful to call him a man”, and goes on to say that Pilate condemned him to the cross at the suggestion of leading men, and that his followers did not abandon him.",
+        "evidence": "All Greek manuscripts have it, and Eusebius quotes it in the fourth century. As it stands it says things a Jew who did not believe would hardly say, such as that Jesus was the Christ.",
+        "inference": "Three views. A few hold it wholly Josephus's; a few hold it wholly added by Christians; most scholars hold that Josephus wrote a shorter, neutral paragraph which Christian copyists added to. John P. Meier is one who has set out a reconstructed core. An Arabic version quoted by the tenth-century bishop Agapius, published by Shlomo Pines in 1971, reads more cautiously and is used in support of the middle view.",
+        "limit": "No manuscript earlier than the eleventh century survives [check: date of the oldest Greek manuscript of Antiquities 18], so any reconstruction is a judgement about style and sense, not a reading from an older copy. This study does not choose between the reconstructions."
+      },
+      {
+        "id": "tacitus",
+        "writer": "Tacitus",
+        "work": "Annals 15.44",
+        "written": "About AD 116",
+        "says": "Explaining whom Nero blamed for the fire: “Christus, from whom the name had its origin, suffered the extreme penalty during the reign of Tiberius at the hands of one of our procurators, Pontius Pilatus” (Church and Brodribb's translation, 1876).",
+        "evidence": "A hostile Roman senator, who calls the faith a “most mischievous superstition”, gives the place, the reign and the governor.",
+        "inference": "His date and governor agree with the Gospels. A writer this hostile is unlikely to have taken his facts from Christians without checking, though where he did get them is not known.",
+        "limit": "He calls Pilate procurator, the title of governors in his own day; the Caesarea stone shows Pilate's title was prefect. This is a writer's anachronism, not evidence against the event. His source is not named."
+      },
+      {
+        "id": "pliny",
+        "writer": "Pliny the Younger",
+        "work": "Letters 10.96",
+        "written": "About AD 110 to 112",
+        "says": "As governor of Bithynia, Pliny asks the emperor Trajan how to try Christians, and reports what they told him: they “were in the habit of meeting on a certain fixed day before it was light, when they sang in alternate verses a hymn to Christ, as to a god” (Melmoth's translation, revised by Bosanquet).",
+        "evidence": "An official letter, with Trajan's reply (10.97), about Christians in what is now northern Turkey.",
+        "inference": "Within about eighty years of the crucifixion, Christians far from Judea were worshipping Christ as divine, and Roman officials were trying them for the name.",
+        "limit": "Pliny says nothing about Jesus' life. He reports what Christians said under questioning."
+      },
+      {
+        "id": "suetonius",
+        "writer": "Suetonius",
+        "work": "Claudius 25.4; Nero 16.2",
+        "written": "About AD 120",
+        "says": "Of Claudius: “Since the Jews constantly made disturbances at the instigation of Chrestus, he expelled them from Rome.” Of Nero: “Punishment was inflicted on the Christians, a class of men given to a new and mischievous superstition” (Rolfe's translation, 1914).",
+        "evidence": "Two short notices in lives of the emperors. Acts 18:2 says Aquila and Priscilla had come from Italy because Claudius had ordered all Jews to leave Rome.",
+        "inference": "Many scholars take Chrestus as a misunderstanding of Christus, and the disturbance as an argument in Rome's synagogues over Jesus. The fifth-century writer Orosius dates the expulsion to Claudius's ninth year, AD 49, which fits Paul's arrival in Corinth.",
+        "limit": "Chrestus was also an ordinary name, and Suetonius may mean a man of that name in Rome. Orosius wrote three centuries later and names a source that has not been found in Josephus. The date is a reckoning, and some date the expulsion to AD 41."
+      }
+    ],
+    "together": "Taken together, these writers agree with the Gospels on the frame: a man called Jesus, known as Christ, executed under Pilate in the reign of Tiberius, followed afterwards by people who worshipped him. They add almost nothing to the Gospels' content, and none of them was in a position to see the events. That Jesus lived is not seriously disputed among historians of the period, whatever they believe about him."
+  },
+  "chronology": {
+    "lead": "The New Testament does not give the years of Jesus' birth and death as numbers. It gives rulers and spans, and historians turn them into years. Scholars who hold Scripture without error reach different years, so this study shows each view with its holders and does not choose.",
+    "birth": {
+      "anchors": [
+        "Jesus was born “during the time of King Herod” (Matthew 2:1 · BSB), and John the Baptist was conceived “In the time of Herod king of Judea” (Luke 1:5 · BSB). The birth fell before Herod died.",
+        "Herod ordered the killing of boys two years old and under, by the time he had learned from the wise men (Matthew 2:16). The birth fell some time before that order, perhaps up to two years.",
+        "Jesus was about thirty when he began his ministry (Luke 3:23), in or after the fifteenth year of Tiberius (Luke 3:1).",
+        "Luke ties the birth to a decree of Augustus and a registration while Quirinius was governing Syria (Luke 2:1–2)."
+      ],
+      "views": [
+        {
+          "id": "early",
+          "label": "About 6 to 4 BC",
+          "held": "Most historians, following the usual date for Herod's death in 4 BC. Among evangelicals, Harold Hoehner in Chronological Aspects of the Life of Christ (1977) placed the birth in late 5 or early 4 BC [check: Hoehner's exact range].",
+          "rests": "Herod's death in 4 BC, after the lunar eclipse of March of that year, with the reigns of his sons counted from 4 BC."
+        },
+        {
+          "id": "late",
+          "label": "About 3 to 2 BC",
+          "held": "Jack Finegan in the Handbook of Biblical Chronology (revised 1998), and Andrew Steinmann; several early church writers also gave a date near 3 or 2 BC [check: which of Irenaeus, Tertullian, Clement of Alexandria and Eusebius, and their exact wording].",
+          "rests": "Herod's death in 1 BC, after the eclipse of January 1 BC, with the sons dating their reigns back to a time before Herod died. W. E. Filmer argued for the later death in 1966."
+        }
+      ],
+      "reckoning": "The year AD 1 was worked out in the sixth century by the monk Dionysius Exiguus. On either view above it falls a few years after the birth. That is a matter of a later calendar, not of the text."
+    },
+    "census": {
+      "question": "Luke says the registration of Luke 2:1–2 took place while Quirinius was governing Syria. Josephus places Quirinius's census of Judea in AD 6, about ten years after Herod's death on any reckoning. How do the two fit?",
+      "evidence": "Josephus describes a census of Judea under Quirinius in AD 6, when Judea first became a province. Luke himself knows that census: Acts 5:37 mentions it. No source outside Luke records an empire-wide decree from Augustus, though Augustus is known to have taken censuses of Roman citizens and provinces at intervals.",
+      "views": [
+        {
+          "id": "earlier-office",
+          "label": "Quirinius held an earlier post in Syria",
+          "held": "William Ramsay, from a fragmentary inscription found near Tivoli which names a man who governed Syria twice, though the name is lost [check: the inscription and Ramsay's work]. Some evangelical commentators still list it.",
+          "against": "The inscription's name is missing, and the list of Syrian governors for the years before 4 BC, as reconstructed from Josephus, leaves little room."
+        },
+        {
+          "id": "before",
+          "label": "Luke means a registration before the one under Quirinius",
+          "held": "Some evangelical scholars read the Greek word usually translated first as before, so that the verse says this registration came before the one Quirinius made. Hoehner and Darrell Bock (Luke, 1994) discuss this reading [check: whether each favours it or only lists it].",
+          "against": "Most grammarians think the Greek is more natural as first, and Luke would then be dating one event by a later one, which is unusual."
+        },
+        {
+          "id": "client",
+          "label": "A registration in Herod's kingdom under Roman pressure",
+          "held": "Some evangelical scholars connect it with an oath of loyalty to Augustus that Josephus says the Pharisees refused late in Herod's reign (Antiquities 17.2.4) [check: holders of this reading].",
+          "against": "Josephus calls it an oath, not a census, and does not tie it to Quirinius."
+        },
+        {
+          "id": "error",
+          "label": "Luke confused it with the census of AD 6",
+          "held": "Emil Schürer argued this at length, and many critical scholars since; Raymond Brown in The Birth of the Messiah (1977) judged Luke mistaken [check: Brown's wording].",
+          "against": "Luke shows elsewhere that he knows the AD 6 census and its date (Acts 5:37), and places Jesus' birth under Herod (Luke 1:5). This is described here as others' view; the site does not hold that the text is in error."
+        }
+      ],
+      "limit": "No source outside Luke yet settles this. The site holds Luke true in what he reports; the question is how the record fits it, and this study does not choose among the readings that hold it true. A new inscription or papyrus could change the picture, as such finds have before."
+    },
+    "death": {
+      "anchors": [
+        "Pilate governed Judea from about AD 26 to 36, and Caiaphas was high priest from about 18 to 36: the crucifixion falls in that window.",
+        "John the Baptist began preaching in the fifteenth year of Tiberius (Luke 3:1), which is AD 28 or 29 if counted from Tiberius's sole rule in AD 14, or two years earlier if counted from a shared rule some think began in 12.",
+        "The forty-six years of John 2:20, counted from Herod's eighteenth year, point to about AD 27 or 28 for the first Passover of the ministry.",
+        "John's Gospel names at least three Passovers in the ministry (John 2:13; 6:4; 11:55).",
+        "All four Gospels place the crucifixion on the day before a Sabbath, at Passover. The years in Pilate's term in which the relevant day of Nisan fell on a Friday are reckoned from the moon; AD 30 and AD 33 are the two most often proposed."
+      ],
+      "views": [
+        {
+          "id": "ad30",
+          "label": "Friday 7 April, AD 30",
+          "held": "Many historians, among them John P. Meier in A Marginal Jew, volume 1 (1991); among evangelicals, Rainer Riesner in Paul's Early Period (1998) [check: Riesner's date].",
+          "rests": "The fifteenth year of Tiberius counted from a shared rule, or a ministry shorter than three years; a date that leaves more time for Paul's early years before the Jerusalem council."
+        },
+        {
+          "id": "ad33",
+          "label": "Friday 3 April, AD 33",
+          "held": "Harold Hoehner (1977); Colin Humphreys and W. G. Waddington in Nature (1983), who also connected a lunar eclipse that evening with Acts 2:20; Andreas Köstenberger and Justin Taylor in The Final Days of Jesus (2014).",
+          "rests": "The fifteenth year of Tiberius counted from his sole rule (28/29) and a ministry of at least three Passovers."
+        }
+      ],
+      "limit": "The astronomy can say which years had a full moon near a Friday at Passover. It cannot say how the calendar was fixed in that year, since the new month was set by watching for the new moon, and a cloudy evening could move it a day. Whether John and the other Gospels count the Passover meal on the same evening is a further question, linked to How the New Testament books were written. This study does not choose between AD 30 and 33."
+    }
+  },
+  "trial": {
+    "lead": "The Gospels tell of a hearing before the high priest and council at night, a meeting of the council in the morning, a trial before Pilate, a hearing before Antipas in Luke, and execution by crucifixion. Historians ask whether this fits what is known of Jewish and Roman law in AD 30 to 33.",
+    "steps": [
+      {
+        "id": "council",
+        "title": "Before the high priest and the council",
+        "evidence": "Mark and Matthew place a hearing at the high priest's house at night and a meeting in the morning (Mark 14:53–65; 15:1). John places a questioning before Annas (John 18:13, 19–24). The rules for capital trials in the Mishnah, tractate Sanhedrin, forbid night trials and verdicts on the day of the hearing.",
+        "inference": "Some have argued that the Gospel accounts break those rules and so cannot be history. Others answer that the Mishnah was written down about AD 200, after the temple and its council were gone, and may record later rabbinic ideals rather than the practice of a high priest's council under Rome; and that Mark's morning meeting may itself be the formal step.",
+        "limit": "No record of the council's procedure from the first century survives outside the Gospels and Josephus. Both sides argue from silence in part."
+      },
+      {
+        "id": "pilate",
+        "title": "Before Pilate",
+        "evidence": "All four Gospels have Pilate question Jesus about being king of the Jews, and the charge written over the cross is kingship (Mark 15:2, 26). John reports the leaders saying they could not lawfully put anyone to death (John 18:31). Crucifixion was a Roman penalty, used for rebels, slaves and the lowest classes.",
+        "inference": "A. N. Sherwin-White, a Roman historian, argued in Roman Society and Roman Law in the New Testament (1963) that the trial before Pilate fits Roman provincial procedure of the period: the governor's own hearing, the charge brought by local accusers, a sentence at his discretion. The charge of claiming kingship was the kind Rome punished on the cross. Whether the council could carry out executions under the prefects is argued; the stoning of Stephen and of James in 62 are cited both ways.",
+        "limit": "Sherwin-White's book was not read for this study; its argument is reported [check: Sherwin-White's conclusion in his own words, and chapter]. Pilate offering a prisoner's release at the feast (Mark 15:6) is not recorded outside the Gospels; that is a silence, not a contradiction."
+      },
+      {
+        "id": "antipas-hearing",
+        "title": "Before Antipas",
+        "evidence": "Only Luke tells that Pilate, learning Jesus was a Galilean, sent him to Antipas, who was in Jerusalem for the feast (Luke 23:6–12).",
+        "inference": "It fits the division of rule: Galilee was Antipas's, Judea was Pilate's. Sherwin-White discussed whether a governor would send a case to the ruler of the accused's home region [check].",
+        "limit": "No outside source mentions it."
+      }
+    ],
+    "guilt": "The Gospels name particular people: Annas and Caiaphas, members of a council, Pilate, Antipas, soldiers and a crowd at one feast. They do not lay guilt on a whole people, and this site never does. Jesus and his first followers were Jews, and so were most of the crowds who heard him gladly. The Roman Catholic Church's declaration Nostra Aetate (1965) puts it in its own words: “what happened in His passion cannot be charged against all the Jews, without distinction, then alive, nor against the Jews of today.” The New Testament teaches that Christ laid down his life of his own will (John 10:18), and that he died for the sins of all who believe; that teaching is the subject of the theology study The cross."
+  },
+  "paul": {
+    "lead": "Paul's letters give spans (three years, fourteen years) and Acts gives rulers. Only a few rulers can be dated from outside the Bible, and on those few points the whole chronology of Paul hangs.",
+    "fixed": [
+      {
+        "id": "aretas",
+        "title": "Aretas in Damascus",
+        "when": "Before about AD 40",
+        "evidence": "Paul says the governor under King Aretas guarded Damascus to arrest him, and he escaped in a basket (2 Corinthians 11:32–33). Aretas IV, the Nabatean king, died about AD 40.",
+        "inference": "Paul's escape from Damascus, soon after his conversion, falls before about 40.",
+        "limit": "How a Nabatean king's officer came to hold Damascus, a Roman city, is not explained by any outside record."
+      },
+      {
+        "id": "agrippa-fixed",
+        "title": "Agrippa's death",
+        "when": "AD 44",
+        "evidence": "Acts 12 places Agrippa I's death between Paul and Barnabas taking a gift to Jerusalem and their return (Acts 11:30; 12:25).",
+        "inference": "The famine visit falls around 44 to 46; Josephus mentions a famine under Claudius in those years (Antiquities 20.2.5).",
+        "limit": "Acts 12 may tell its story out of strict order, so the visit's year is a reckoning."
+      },
+      {
+        "id": "gallio",
+        "title": "Gallio in Corinth",
+        "when": "AD 51 or 52",
+        "evidence": "Acts says the Jews of Corinth brought Paul before Gallio when he was proconsul of Achaia (Acts 18:12). Fragments of an inscription at Delphi preserve a letter of Claudius naming Gallio as proconsul, dated by Claudius's twenty-sixth acclamation as imperator, which other inscriptions place in AD 52. Proconsuls normally served one year from early summer.",
+        "inference": "Gallio's year in Corinth was 51 to 52, or less likely 52 to 53. Paul had been in Corinth about eighteen months (Acts 18:11), so he arrived about 50. This is the firmest fixed point in Paul's life, and the dates of his journeys are reckoned forwards and backwards from it.",
+        "limit": "The inscription is broken and its restored text depends on the editors. Which year of Gallio's office Paul's hearing fell in is not stated. The fragments were found at Delphi and published in the early twentieth century [check: first publication, Émile Bourguet, 1905, and the fragments' present keeping]."
+      },
+      {
+        "id": "felix",
+        "title": "Felix",
+        "when": "About AD 52 to 59 or 60",
+        "evidence": "Paul is held at Caesarea under Felix, whose wife Drusilla was a Jewess, and kept two years until Festus succeeded him (Acts 24:24, 27). Josephus confirms that Felix married Drusilla, Agrippa I's daughter, and Tacitus describes him harshly (Antiquities 20.7.1–2; Histories 5.9; Annals 12.54).",
+        "inference": "Paul's arrest in Jerusalem falls two years before Festus arrived.",
+        "limit": "The start of Felix's governorship is fairly fixed; its end is not."
+      },
+      {
+        "id": "festus",
+        "title": "Festus",
+        "when": "About AD 59 or 60, by most reckonings",
+        "evidence": "Festus takes up Paul's case, hears him with Agrippa II and Bernice, and sends him to Rome (Acts 25–26). Josephus says Festus died in office, and that the high priest Ananus took advantage of the gap before Albinus arrived to kill James the brother of Jesus in 62 (Antiquities 20.9.1).",
+        "inference": "Festus governed until 62. His arrival is usually placed in 59 or 60, which places Paul's arrest about 57 and his voyage to Rome about 59 to 60, with two years in Rome after (Acts 28:30).",
+        "limit": "Some argue from coins of Festus's province, and from Eusebius's Chronicle, for an earlier arrival about 55 or 56 [check: holders, and the coin argument]. The difference moves the whole later chronology of Paul by up to four years."
+      }
+    ],
+    "reconstruction": "On the usual reckoning: Paul's conversion about 33 to 35; his escape from Damascus and first visit to Jerusalem about three years later; the council of Acts 15 about 48 or 49; Corinth about 50 to 52; Ephesus about 52 to 55; arrest in Jerusalem about 57; Rome about 60 to 62. Robert Jewett (A Chronology of Paul's Life, 1979) and Rainer Riesner (Paul's Early Period, 1998) built two of the fullest reckonings; they differ by a few years at several points. Every year in this paragraph is a reckoning built on the fixed points above, and a page that draws it must draw ranges.",
+    "verses": [
+      "2 Corinthians 11:32",
+      "Acts 18:2",
+      "Acts 18:11",
+      "Acts 18:12",
+      "Acts 24:27",
+      "Acts 25:1",
+      "Acts 28:30"
+    ]
+  },
+  "claims": [
+    {
+      "id": "never-existed",
+      "claim": "“There is no evidence outside the Bible that Jesus existed.”",
+      "head": "Four non-Christian writers within a century say otherwise.",
+      "evidence": "Josephus's mention of James, the brother of Jesus called Christ, is accepted as genuine by most scholars. Tacitus names Christus, executed by Pilate under Tiberius. Pliny and Suetonius show his followers worshipping him and being punished for it.",
+      "inference": "The claim fails. Historians of the period, believing or not, almost all hold that Jesus lived and was crucified under Pilate.",
+      "limit": "These writers confirm the frame, not the content. They do not show, and could not show, what Christians believe about who he is.",
+      "test": {
+        "question": "Tacitus says Christus suffered the extreme penalty under Tiberius at the hands of Pontius Pilate. What can you say from this alone?",
+        "options": [
+          {
+            "text": "That a hostile Roman historian treated Jesus' execution under Pilate as a fact.",
+            "right": true,
+            "why": "That is exactly what the line carries, from a writer with no reason to favour Christians."
+          },
+          {
+            "text": "That Jesus rose from the dead.",
+            "right": false,
+            "why": "Tacitus says nothing of it. The resurrection is witnessed in the New Testament and taught in the theology study The resurrection of Jesus."
+          },
+          {
+            "text": "That Tacitus copied the Gospels.",
+            "right": false,
+            "why": "He never names his source, and nothing in his wording follows a Gospel."
+          }
+        ]
+      }
+    },
+    {
+      "id": "census-error",
+      "claim": "“Luke's census is a proven mistake.”",
+      "head": "A difficulty, unsettled. Not a proof.",
+      "evidence": "Josephus dates Quirinius's census of Judea to AD 6. Luke places a registration under Quirinius at Jesus' birth, under Herod. Luke also knows the census of AD 6 (Acts 5:37).",
+      "inference": "There is a real question of fit. Evangelical scholars give several readings that hold Luke true; critical scholars judge him confused. No outside record yet decides it.",
+      "limit": "An argument from one historian's silence about an earlier registration cannot prove it never happened.",
+      "test": {
+        "question": "Josephus does not mention a registration under Herod tied to Quirinius. What does that silence show?",
+        "options": [
+          {
+            "text": "That Luke invented it.",
+            "right": false,
+            "why": "Josephus omits much, including events other sources confirm. Silence cannot carry that weight."
+          },
+          {
+            "text": "That the question is open on the outside evidence we have.",
+            "right": true,
+            "why": "This is what the record can bear: a gap, and several readings of how Luke fits it."
+          },
+          {
+            "text": "That Josephus is unreliable.",
+            "right": false,
+            "why": "He is the main source for the period. Leaving something out is not the same as being wrong."
+          }
+        ]
+      }
+    },
+    {
+      "id": "after-70",
+      "claim": "“The Gospels must be later than AD 70, because Jesus could not have predicted the fall of Jerusalem.”",
+      "head": "A reasoning about prophecy, not a finding of the record.",
+      "evidence": "Luke records Jesus' warning about Jerusalem surrounded by armies (Luke 21:20). Some scholars date Luke after 70 partly for this reason. Others note that Acts ends with Paul alive in Rome about 62, and that no Gospel describes the city's burning in detail.",
+      "inference": "Whether a Gospel was written after 70 is argued on several grounds, set out in How the New Testament books were written. The view that a true prediction is impossible, and so must have been written after the event, is others' view; this site holds that Jesus foretold the city's fall and that it came in AD 70.",
+      "limit": "The fall of Jerusalem itself is well attested. What it implies about when the Gospels were written is a separate question, and depends on more than this one passage.",
+      "test": {
+        "question": "If Jesus' warning in Luke 21:20 matches what happened in AD 70, what follows from the record alone?",
+        "options": [
+          {
+            "text": "That Luke must have written after 70.",
+            "right": false,
+            "why": "That follows only if prediction is assumed impossible. The record does not supply that assumption."
+          },
+          {
+            "text": "That the warning and the event match, and the date of writing is a separate question.",
+            "right": true,
+            "why": "This keeps what the evidence shows apart from what a reader brings to it."
+          },
+          {
+            "text": "That Luke wrote before 62.",
+            "right": false,
+            "why": "The match by itself does not fix an early date either. Other evidence is needed for that."
+          }
+        ]
+      }
+    },
+    {
+      "id": "jews-guilty",
+      "claim": "“The Jews killed Jesus.”",
+      "head": "The Gospels name a few people. Never a people.",
+      "evidence": "The Gospels name particular priests, a council, a Roman governor who passed the sentence, Roman soldiers who carried it out, and a crowd at one feast. Jesus, his family, his disciples and the first church were Jews. Acts 4:27–28 gathers Herod, Pilate, Gentiles and the people of Israel in one prayer.",
+      "inference": "The phrase lays on a whole people, and on their descendants, what the texts lay on a few named people in one year. This site rejects it. That claim did terrible harm through Christian history, a history named in the theology studies that take up Israel and the church.",
+      "limit": "History can say who acted at the trial. Why Christ died, and for whom, is taught in the theology study The cross.",
+      "test": {
+        "question": "Mark 15 says Pilate handed Jesus over to be crucified. What does the record let you say about responsibility?",
+        "options": [
+          {
+            "text": "That a Roman governor, with some of Jerusalem's leaders, acted to put Jesus to death.",
+            "right": true,
+            "why": "That is what the Gospels and Tacitus together report."
+          },
+          {
+            "text": "That the Jewish people as a whole are to blame.",
+            "right": false,
+            "why": "No Gospel says so, and this site rejects it."
+          },
+          {
+            "text": "That the Romans alone were involved.",
+            "right": false,
+            "why": "The Gospels also name the high priests and a council. History is told as the sources tell it."
+          }
+        ]
+      }
+    }
+  ],
+  "confusedWords": [
+    {
+      "word": "Prefect, procurator and proconsul",
+      "note": "Judea's governors before AD 41 were prefects, as the Pilate stone shows; after 44 they were usually called procurators. Tacitus calls Pilate procurator, the title of his own day. A proconsul, like Gallio, governed a province for the Senate, such as Achaia. The meanings are explained in The world of the New Testament (09)."
+    },
+    {
+      "word": "Herod",
+      "note": "A family name used for at least five rulers. Check the date and the territory before deciding which one a verse means."
+    },
+    {
+      "word": "King, ethnarch and tetrarch",
+      "note": "Ranks granted by Rome. The Gospels sometimes use king loosely, as people did; that is ordinary speech, not an error of title."
+    },
+    {
+      "word": "Census, registration and oath",
+      "note": "A Roman census assessed property for tax. A registration may list people for other reasons. An oath of loyalty is not a census. The argument over Luke 2:1–2 turns partly on which is meant."
+    },
+    {
+      "word": "Fixed point and reckoning",
+      "note": "A fixed point is a year an outside record gives, like Gallio's office. A reckoning is a year worked out from it with a span, like Paul's arrival in Corinth. A page should draw a reckoning as a range."
+    },
+    {
+      "word": "Sanhedrin and council",
+      "note": "The Gospels' council in Jerusalem, presided over by the high priest. Its makeup and powers in the first century are known only in part; the Mishnah's tractate of that name was written about AD 200."
+    },
+    {
+      "word": "Zealots and Sicarii",
+      "note": "Josephus's names for different armed groups of the revolt. Masada was held by the Sicarii. Simon the Zealot, one of the twelve, bore a word that may mean zealous rather than membership of the later party."
+    }
+  ],
+  "timeline": {
+    "from": -63,
+    "to": 74,
+    "lanes": [
+      "Rome",
+      "Rulers of Herod's family",
+      "Governors of Judea",
+      "The New Testament"
+    ],
+    "rows": [
+      {
+        "id": "pompey",
+        "lane": "Rome",
+        "name": "Pompey takes Jerusalem",
+        "start": -63,
+        "end": -63
+      },
+      {
+        "id": "augustus",
+        "lane": "Rome",
+        "name": "Augustus",
+        "start": -27,
+        "end": 14,
+        "note": "Sole ruler from 31 BC; given the name Augustus in 27 BC."
+      },
+      {
+        "id": "tiberius",
+        "lane": "Rome",
+        "name": "Tiberius",
+        "start": 14,
+        "end": 37
+      },
+      {
+        "id": "caligula",
+        "lane": "Rome",
+        "name": "Caligula",
+        "start": 37,
+        "end": 41
+      },
+      {
+        "id": "claudius",
+        "lane": "Rome",
+        "name": "Claudius",
+        "start": 41,
+        "end": 54
+      },
+      {
+        "id": "nero",
+        "lane": "Rome",
+        "name": "Nero",
+        "start": 54,
+        "end": 68
+      },
+      {
+        "id": "vespasian",
+        "lane": "Rome",
+        "name": "Vespasian",
+        "start": 69,
+        "end": 79,
+        "note": "Bar runs off the chart's end."
+      },
+      {
+        "id": "herod",
+        "lane": "Rulers of Herod's family",
+        "name": "Herod the Great",
+        "start": -37,
+        "end": -4,
+        "endAlt": -1,
+        "note": "Death 4 BC or 1 BC; both drawn."
+      },
+      {
+        "id": "archelaus",
+        "lane": "Rulers of Herod's family",
+        "name": "Archelaus",
+        "start": -4,
+        "end": 6
+      },
+      {
+        "id": "antipas",
+        "lane": "Rulers of Herod's family",
+        "name": "Antipas",
+        "start": -4,
+        "end": 39
+      },
+      {
+        "id": "philip",
+        "lane": "Rulers of Herod's family",
+        "name": "Philip",
+        "start": -4,
+        "end": 34,
+        "note": "Death about 33 or 34."
+      },
+      {
+        "id": "agrippa1",
+        "lane": "Rulers of Herod's family",
+        "name": "Agrippa I",
+        "start": 37,
+        "end": 44
+      },
+      {
+        "id": "agrippa2",
+        "lane": "Rulers of Herod's family",
+        "name": "Agrippa II",
+        "start": 50,
+        "end": 74,
+        "note": "Reign continues past the chart; start about 50."
+      },
+      {
+        "id": "prefects",
+        "lane": "Governors of Judea",
+        "name": "Prefects",
+        "start": 6,
+        "end": 41
+      },
+      {
+        "id": "pilate",
+        "lane": "Governors of Judea",
+        "name": "Pilate",
+        "start": 26,
+        "end": 36,
+        "note": "About 26 to 36."
+      },
+      {
+        "id": "procurators",
+        "lane": "Governors of Judea",
+        "name": "Procurators",
+        "start": 44,
+        "end": 66
+      },
+      {
+        "id": "birth",
+        "lane": "The New Testament",
+        "name": "Jesus born",
+        "ranges": [
+          [
+            -6,
+            -4
+          ],
+          [
+            -3,
+            -2
+          ]
+        ],
+        "note": "Two views, both drawn as ranges."
+      },
+      {
+        "id": "cross",
+        "lane": "The New Testament",
+        "name": "Crucifixion",
+        "points": [
+          30,
+          33
+        ],
+        "note": "Two proposed years, both drawn, neither chosen."
+      },
+      {
+        "id": "paul",
+        "lane": "The New Testament",
+        "name": "Paul's ministry",
+        "start": 33,
+        "end": 62,
+        "open": true,
+        "note": "Reckoned; ends drawn open."
+      },
+      {
+        "id": "gallio",
+        "lane": "The New Testament",
+        "name": "Gallio in Corinth",
+        "start": 51,
+        "end": 52
+      },
+      {
+        "id": "fall",
+        "lane": "The New Testament",
+        "name": "Jerusalem falls",
+        "start": 70,
+        "end": 70
+      },
+      {
+        "id": "masada",
+        "lane": "The New Testament",
+        "name": "Masada",
+        "ranges": [
+          [
+            73,
+            74
+          ]
+        ]
+      }
+    ]
+  },
+  "reach": [
+    "This is a selection, not a census. It follows the rulers the New Testament names and the events that fix its dates. It leaves out much of Josephus's narrative, the Parthian wars, and most of Roman politics.",
+    "Nearly everything here between 63 BC and AD 73 passes through one historian, Josephus. Where he is the only source, the page says so.",
+    "Every outside quotation on this page is from a public-domain English translation: Whiston for Josephus (1737), Church and Brodribb for Tacitus's Annals, the 1931 Loeb for his Histories, Melmoth and Bosanquet for Pliny, Rolfe (1914) for Suetonius. None is read here in Greek or Latin.",
+    "Every year on this page, except those set by an outside record, is a reckoning. Where scholars who hold Scripture true differ, both years are drawn."
+  ],
+  "editorial": [
+    "Every quotation from Josephus, Tacitus, Pliny, Suetonius, Nostra Aetate and the Mishnah must be checked word for word against the held or fetched public-domain text before publishing; this draft's quotations other than those carried over from 34 were not checked against a held copy.",
+    "The Bible verses in the verses list carry phrases only where the Berean text was supplied (Matthew 2:1, Luke 1:5, John 2:20). The build must add each phrase from the held Berean, or the page must show no phrase.",
+    "categoryTitle: confirm the Study hub's name for the history category.",
+    "[check: who has published doubts about the Herodium tomb]",
+    "[check: that 06 or 09 holds coin images of Archelaus, Antipas and Philip]",
+    "[check: Marcellus and Marullus, one governor or two]",
+    "[check: whether 06 holds the Caiaphas ossuary]",
+    "[check: Agrippa II's date of death]",
+    "[check: date of the oldest Greek manuscript of Antiquities 18]",
+    "[check: Hoehner's exact range for the birth]",
+    "[check: which early church writers dated the birth near 3 or 2 BC, and their wording]",
+    "[check: the Tivoli inscription and Ramsay's work]",
+    "[check: whether Hoehner and Bock favour or only list the reading before Quirinius]",
+    "[check: holders of the oath-of-loyalty reading of the census]",
+    "[check: Raymond Brown's wording on the census]",
+    "[check: Riesner's date for the crucifixion]",
+    "[check: Sherwin-White's conclusion in his own words, and chapter; his discussion of the hearing before Antipas]",
+    "[check: first publication of the Gallio inscription (Bourguet, 1905) and the fragments' keeping]",
+    "[check: holders of an early date for Festus's arrival, and the coin argument]",
+    "Count of governors of Judea from Coponius to Florus for the figures bar depends on the Marcellus and Marullus question; the design record uses it only if confirmed.",
+    "Masada's ending is described without detail, under the site's safe-messaging rule; the editor should confirm that the wording meets it."
+  ],
+  "sources": [
+    {
+      "id": "josephus",
+      "title": "Flavius Josephus, Antiquities of the Jews and The Jewish War, translated by William Whiston (1737)",
+      "kind": "Ancient history, translation · public domain",
+      "status": "part",
+      "answers": "What happened in Judea from Pompey to Masada?",
+      "read": "The passages carried over from Between the Testaments were read in that study's research. The other passages cited here were located by book and section and must be checked against the held text."
+    },
+    {
+      "id": "tacitus",
+      "title": "Tacitus, Histories 5.9 (Loeb, 1931) and Annals 15.44 (Church and Brodribb, 1876)",
+      "kind": "Ancient history, translation · public domain",
+      "status": "part",
+      "answers": "What did a Roman senator know of the Jews and of Christus?",
+      "read": "Histories 5.9 read in 34's research. Annals 15.44 located; quotation to be checked."
+    },
+    {
+      "id": "pliny",
+      "title": "Pliny the Younger, Letters 10.96–97, translated by William Melmoth, revised by F. C. T. Bosanquet",
+      "kind": "Letter, translation · public domain",
+      "status": "located",
+      "answers": "What did a Roman governor learn of Christian worship?",
+      "read": "Located; quotation to be checked."
+    },
+    {
+      "id": "suetonius",
+      "title": "Suetonius, The Lives of the Caesars, Claudius 25.4 and Nero 16.2, translated by J. C. Rolfe (Loeb, 1914)",
+      "kind": "Ancient biography, translation · public domain",
+      "status": "located",
+      "answers": "What do the lives of the emperors say of Chrestus and the Christians?",
+      "read": "Located; quotations to be checked."
+    },
+    {
+      "id": "philo",
+      "title": "Philo of Alexandria, On the Embassy to Gaius 38",
+      "kind": "Ancient treatise",
+      "status": "located",
+      "answers": "How did a contemporary describe Pilate?",
+      "read": "Located, not read. Restated, not quoted."
+    },
+    {
+      "id": "macrobius",
+      "title": "Macrobius, Saturnalia 2.4.11",
+      "kind": "Late Roman miscellany",
+      "status": "located",
+      "answers": "What joke about Herod was told in Rome?",
+      "read": "Located, not read. Restated."
+    },
+    {
+      "id": "eusebius",
+      "title": "Eusebius, Church History 3.5.3",
+      "kind": "Church history, fourth century",
+      "status": "located",
+      "answers": "Did the church of Jerusalem leave before the siege?",
+      "read": "Located, not read. Restated."
+    },
+    {
+      "id": "mishnah",
+      "title": "Mishnah, Taanit 4:6; Sanhedrin",
+      "kind": "Rabbinic law, about AD 200",
+      "status": "located",
+      "answers": "What day mourns the temples, and what rules did the rabbis give for capital trials?",
+      "read": "Located, not read. Restated."
+    },
+    {
+      "id": "nostra-aetate",
+      "title": "Second Vatican Council, Nostra Aetate (1965), section 4",
+      "kind": "Roman Catholic declaration",
+      "status": "located",
+      "answers": "How has one church stated that the Jewish people are not guilty of Christ's death?",
+      "read": "Located; quotation to be checked against the Vatican's published English text."
+    },
+    {
+      "id": "pilate-stone",
+      "title": "The Pilate inscription, Caesarea, 1961",
+      "kind": "Inscription · cited from Archaeology and the Bible (06)",
+      "status": "second-hand",
+      "answers": "What was Pilate's title?",
+      "read": "Cited from 06's research; not read again here."
+    },
+    {
+      "id": "wiki-herod",
+      "title": "“Herod the Great”, Wikipedia",
+      "kind": "Encyclopedia",
+      "status": "read",
+      "answers": "Who dates Herod's death to 4 BC, and since when?",
+      "read": "Read in 34's research, as the route to Schürer's dating."
+    },
+    {
+      "id": "filmer",
+      "title": "W. E. Filmer, “The Chronology of the Reign of Herod the Great”, Journal of Theological Studies (1966)",
+      "kind": "Article",
+      "status": "second-hand",
+      "answers": "Did Herod die in 1 BC?",
+      "read": "Located, not read; reported through 34's research."
+    },
+    {
+      "id": "steinmann",
+      "title": "Andrew E. Steinmann, “When Did Herod the Great Reign?”, Novum Testamentum 51 (2009)",
+      "kind": "Article",
+      "status": "second-hand",
+      "answers": "Did Herod die in 1 BC?",
+      "read": "Located, not read; reported through 34's research."
+    },
+    {
+      "id": "hoehner",
+      "title": "Harold W. Hoehner, Chronological Aspects of the Life of Christ (1977)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "When was Jesus born, and when did he die, on an evangelical reckoning?",
+      "read": "Located, not read. His conclusions are reported and marked for checking."
+    },
+    {
+      "id": "finegan",
+      "title": "Jack Finegan, Handbook of Biblical Chronology, revised edition (1998)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "What does the later date for Herod's death imply?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "meier",
+      "title": "John P. Meier, A Marginal Jew, volume 1 (1991)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "What is the core of Josephus's paragraph on Jesus, and when did Jesus die?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "humphreys",
+      "title": "Colin J. Humphreys and W. G. Waddington, “Dating the Crucifixion”, Nature 306 (1983)",
+      "kind": "Article",
+      "status": "located",
+      "answers": "What can astronomy say about the year of the crucifixion?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "kostenberger",
+      "title": "Andreas J. Köstenberger and Justin Taylor, The Final Days of Jesus (2014)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "What evangelical case is made for AD 33?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "bock",
+      "title": "Darrell L. Bock, Luke, Baker Exegetical Commentary on the New Testament (1994)",
+      "kind": "Commentary",
+      "status": "located",
+      "answers": "What readings of Luke 2:1–2 hold Luke true?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "brown",
+      "title": "Raymond E. Brown, The Birth of the Messiah (1977)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "What is the case that Luke confused the censuses?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "sherwin-white",
+      "title": "A. N. Sherwin-White, Roman Society and Roman Law in the New Testament (1963)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "Do the trials in the Gospels and Acts fit Roman law?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "jewett",
+      "title": "Robert Jewett, A Chronology of Paul's Life (1979)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "How is Paul's life dated?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "riesner",
+      "title": "Rainer Riesner, Paul's Early Period (English translation, 1998)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "How is Paul's early life dated?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "netzer",
+      "title": "Ehud Netzer, announcement of Herod's tomb at Herodium (2007)",
+      "kind": "Excavation report",
+      "status": "located",
+      "answers": "Where was Herod buried?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "yadin",
+      "title": "Yigael Yadin, Masada: Herod's Fortress and the Zealots' Last Stand (1966)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "What did the excavation of Masada find?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "cohen-masada",
+      "title": "Shaye J. D. Cohen, “Masada: Literary Tradition, Archaeological Remains, and the Credibility of Josephus”, Journal of Jewish Studies 33 (1982)",
+      "kind": "Article",
+      "status": "located",
+      "answers": "Can Josephus's account of Masada's end be trusted?",
+      "read": "Located, not read."
+    }
+  ],
+  "pictures": [
+    {
+      "id": "pilate-stone",
+      "subject": "The Pilate inscription, Israel Museum",
+      "use": "Cited, with a link to 06's picture and credit.",
+      "licence": "[check: reuse 06's licensed image]"
+    },
+    {
+      "id": "arch-titus",
+      "subject": "The spoils panel of the Arch of Titus, Rome",
+      "use": "The temple lampstand carried in triumph.",
+      "licence": "[check: a public-domain or CC photograph and its credit]"
+    },
+    {
+      "id": "judaea-capta",
+      "subject": "A JUDAEA CAPTA coin of Vespasian",
+      "use": "Rome's own announcement of the war's end.",
+      "licence": "[check: an open museum record, such as a CC0 coin]"
+    },
+    {
+      "id": "masada",
+      "subject": "Masada with the Roman siege ramp",
+      "use": "The siege as the ground shows it.",
+      "licence": "[check: a CC photograph and its credit]"
+    }
+  ],
+  "verses": [
+    {
+      "label": "Matthew 2:1",
+      "code": "MAT",
+      "chapter": 2,
+      "verse": 1,
+      "phrase": "during the time of King Herod"
+    },
+    {
+      "label": "Matthew 2:16",
+      "code": "MAT",
+      "chapter": 2,
+      "verse": 16
+    },
+    {
+      "label": "Matthew 2:22",
+      "code": "MAT",
+      "chapter": 2,
+      "verse": 22
+    },
+    {
+      "label": "Matthew 2:23",
+      "code": "MAT",
+      "chapter": 2,
+      "verse": 23
+    },
+    {
+      "label": "Mark 6:14",
+      "code": "MRK",
+      "chapter": 6,
+      "verse": 14
+    },
+    {
+      "label": "Mark 6:17",
+      "code": "MRK",
+      "chapter": 6,
+      "verse": 17
+    },
+    {
+      "label": "Mark 6:18",
+      "code": "MRK",
+      "chapter": 6,
+      "verse": 18
+    },
+    {
+      "label": "Mark 14:53",
+      "code": "MRK",
+      "chapter": 14,
+      "verse": 53
+    },
+    {
+      "label": "Mark 15:1",
+      "code": "MRK",
+      "chapter": 15,
+      "verse": 1
+    },
+    {
+      "label": "Mark 15:2",
+      "code": "MRK",
+      "chapter": 15,
+      "verse": 2
+    },
+    {
+      "label": "Mark 15:6",
+      "code": "MRK",
+      "chapter": 15,
+      "verse": 6
+    },
+    {
+      "label": "Mark 15:26",
+      "code": "MRK",
+      "chapter": 15,
+      "verse": 26
+    },
+    {
+      "label": "Luke 1:5",
+      "code": "LUK",
+      "chapter": 1,
+      "verse": 5,
+      "phrase": "In the time of Herod king of Judea"
+    },
+    {
+      "label": "Luke 2:1",
+      "code": "LUK",
+      "chapter": 2,
+      "verse": 1
+    },
+    {
+      "label": "Luke 2:2",
+      "code": "LUK",
+      "chapter": 2,
+      "verse": 2
+    },
+    {
+      "label": "Luke 3:1",
+      "code": "LUK",
+      "chapter": 3,
+      "verse": 1
+    },
+    {
+      "label": "Luke 3:2",
+      "code": "LUK",
+      "chapter": 3,
+      "verse": 2
+    },
+    {
+      "label": "Luke 3:23",
+      "code": "LUK",
+      "chapter": 3,
+      "verse": 23
+    },
+    {
+      "label": "Luke 13:31",
+      "code": "LUK",
+      "chapter": 13,
+      "verse": 31
+    },
+    {
+      "label": "Luke 21:20",
+      "code": "LUK",
+      "chapter": 21,
+      "verse": 20
+    },
+    {
+      "label": "Luke 21:21",
+      "code": "LUK",
+      "chapter": 21,
+      "verse": 21
+    },
+    {
+      "label": "Luke 23:6",
+      "code": "LUK",
+      "chapter": 23,
+      "verse": 6
+    },
+    {
+      "label": "Luke 23:7",
+      "code": "LUK",
+      "chapter": 23,
+      "verse": 7
+    },
+    {
+      "label": "John 2:13",
+      "code": "JHN",
+      "chapter": 2,
+      "verse": 13
+    },
+    {
+      "label": "John 2:20",
+      "code": "JHN",
+      "chapter": 2,
+      "verse": 20,
+      "phrase": "This temple took forty-six years to build"
+    },
+    {
+      "label": "John 6:4",
+      "code": "JHN",
+      "chapter": 6,
+      "verse": 4
+    },
+    {
+      "label": "John 10:18",
+      "code": "JHN",
+      "chapter": 10,
+      "verse": 18
+    },
+    {
+      "label": "John 11:55",
+      "code": "JHN",
+      "chapter": 11,
+      "verse": 55
+    },
+    {
+      "label": "John 18:13",
+      "code": "JHN",
+      "chapter": 18,
+      "verse": 13
+    },
+    {
+      "label": "John 18:31",
+      "code": "JHN",
+      "chapter": 18,
+      "verse": 31
+    },
+    {
+      "label": "Acts 2:20",
+      "code": "ACT",
+      "chapter": 2,
+      "verse": 20
+    },
+    {
+      "label": "Acts 4:27",
+      "code": "ACT",
+      "chapter": 4,
+      "verse": 27
+    },
+    {
+      "label": "Acts 4:28",
+      "code": "ACT",
+      "chapter": 4,
+      "verse": 28
+    },
+    {
+      "label": "Acts 5:37",
+      "code": "ACT",
+      "chapter": 5,
+      "verse": 37
+    },
+    {
+      "label": "Acts 11:30",
+      "code": "ACT",
+      "chapter": 11,
+      "verse": 30
+    },
+    {
+      "label": "Acts 12:1",
+      "code": "ACT",
+      "chapter": 12,
+      "verse": 1
+    },
+    {
+      "label": "Acts 12:2",
+      "code": "ACT",
+      "chapter": 12,
+      "verse": 2
+    },
+    {
+      "label": "Acts 12:21",
+      "code": "ACT",
+      "chapter": 12,
+      "verse": 21
+    },
+    {
+      "label": "Acts 12:23",
+      "code": "ACT",
+      "chapter": 12,
+      "verse": 23
+    },
+    {
+      "label": "Acts 12:25",
+      "code": "ACT",
+      "chapter": 12,
+      "verse": 25
+    },
+    {
+      "label": "Acts 18:2",
+      "code": "ACT",
+      "chapter": 18,
+      "verse": 2
+    },
+    {
+      "label": "Acts 18:11",
+      "code": "ACT",
+      "chapter": 18,
+      "verse": 11
+    },
+    {
+      "label": "Acts 18:12",
+      "code": "ACT",
+      "chapter": 18,
+      "verse": 12
+    },
+    {
+      "label": "Acts 24:24",
+      "code": "ACT",
+      "chapter": 24,
+      "verse": 24
+    },
+    {
+      "label": "Acts 24:27",
+      "code": "ACT",
+      "chapter": 24,
+      "verse": 27
+    },
+    {
+      "label": "Acts 25:1",
+      "code": "ACT",
+      "chapter": 25,
+      "verse": 1
+    },
+    {
+      "label": "Acts 25:13",
+      "code": "ACT",
+      "chapter": 25,
+      "verse": 13
+    },
+    {
+      "label": "Acts 26:28",
+      "code": "ACT",
+      "chapter": 26,
+      "verse": 28
+    },
+    {
+      "label": "Acts 28:30",
+      "code": "ACT",
+      "chapter": 28,
+      "verse": 30
+    },
+    {
+      "label": "1 Corinthians 15:3",
+      "code": "1CO",
+      "chapter": 15,
+      "verse": 3
+    },
+    {
+      "label": "2 Corinthians 11:32",
+      "code": "2CO",
+      "chapter": 11,
+      "verse": 32
+    },
+    {
+      "label": "2 Corinthians 11:33",
+      "code": "2CO",
+      "chapter": 11,
+      "verse": 33
+    }
+  ]
+}

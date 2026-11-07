@@ -1,0 +1,1456 @@
+{
+  "schemaVersion": 1,
+  "order": 21,
+  "slug": "the-early-church",
+  "title": "The early church",
+  "category": "church",
+  "categoryTitle": "The church through history",
+  "updated": "2026-11-06",
+  "status": "draft",
+  "premise": "Between Nero's punishment of Christians in Rome in AD 64 and the council of Chalcedon in 451, the church went from a suspect group in a few cities to the faith of the empire. In those years it also wrote down the words it still uses about God and Christ. The writings that survive let a reader watch this happen. They also show how much of the usual story is reconstruction.",
+  "question": "What do the surviving writings and decisions actually say, and what has the retelling added to them?",
+  "outcomes": [
+    "Tell a writing of the early church from Scripture, and say what each kind of writing can show: a letter, a church manual, the record of a martyr, a defence written for outsiders, a teacher's book, an emperor's letter, the life of a monk, a council's decision.",
+    "Date a writer or an event only as closely as the evidence allows, and say where the date is argued and who argues it.",
+    "Tell the four councils as events: who called each one, what question it answered, the words it decided, and who did not receive it.",
+    "Test four things often said about these centuries against the sources that are cited for them.",
+    "Say in your own words how Baptist confessions describe the standing of these councils and creeds."
+  ],
+  "boundaries": {
+    "in": "The church's history from Nero (64) and the deaths of the apostles to Chalcedon (451): the first writers after the apostles, the martyrs, the defenders of the faith, three great teachers, Constantine, the rise of monks, the four councils told as events, and Augustine's argument with Pelagius.",
+    "out": [
+      "Nero, the fall of Jerusalem and the Roman writers who mention Jesus: New Testament history: from Herod to the fall of Jerusalem has them. Here Tacitus is cited only for what happened to Christians in 64.",
+      "Which books belong in the Bible, and how the list was recognised: How the canon took shape (04) has it. Here it gets a sentence.",
+      "Whether the doctrines the councils defined are true. That is taught from Scripture in the theology studies The Trinity and The person of Christ. This study tells the events, quotes the decisions and links those studies. It does not argue the doctrine.",
+      "Origen's way of reading Scripture as allegory: How the church has read the Bible (30) has it.",
+      "Everything after 451, including the split of 1054 and Benedict's rule: The medieval church (33).",
+      "How Baptists came to be, and their claims about the early church: Baptist history (23)."
+    ]
+  },
+  "figures": [
+    {
+      "value": "387",
+      "label": "Years",
+      "caption": "from the deaths of Christians in Rome in 64 to the council of Chalcedon in 451"
+    },
+    {
+      "value": "4",
+      "label": "Councils",
+      "caption": "the ones told here; churches since have counted the later ones differently"
+    },
+    {
+      "value": "7",
+      "label": "Letters of Ignatius",
+      "caption": "the set most scholars accept as his, out of the longer collections that carry his name"
+    },
+    {
+      "value": "3",
+      "label": "Councils received",
+      "caption": "the number the Coptic, Syriac, Armenian and Ethiopian churches accept, since they did not receive Chalcedon"
+    }
+  ],
+  "confusedWords": [
+    {
+      "word": "Apostles and Apostolic Fathers",
+      "note": "The apostles wrote, or stand behind, the New Testament. The Apostolic Fathers is a modern name, first used in the 1600s [check: the first collection to use the name, usually given as Cotelier, 1672], for the earliest Christian writings outside it: Clement, the Didache, Ignatius, Polycarp and a few others. The name does not mean they had the apostles' authority, and none of them claims to."
+    },
+    {
+      "word": "Creed and council",
+      "note": "A council is a meeting of bishops. A creed is a short statement of belief. Some councils wrote creeds and some only defined a phrase. Many creeds, such as the Apostles' Creed, came from no council at all."
+    },
+    {
+      "word": "Ecumenical",
+      "note": "From the Greek for “the whole inhabited world”. An ecumenical council is one a church later counts as speaking for the whole church. That is a judgement made afterwards, and churches make it differently: the Church of the East receives two of the four councils here, and the Oriental Orthodox churches receive three."
+    },
+    {
+      "word": "catholic and Roman Catholic",
+      "note": "In these centuries “catholic” means universal, the church everywhere as against a local party. Ignatius is the first known writer to use it of the church. It does not yet name the church in communion with the bishop of Rome as against other churches."
+    },
+    {
+      "word": "Bishop and elder",
+      "note": "In the New Testament the two words name the same office (Acts 20:17, 28). By Ignatius' letters, in some cities, one bishop stands above a group of elders and deacons. When and how that change happened is argued; the letters show it, they do not explain it."
+    },
+    {
+      "word": "Edict of Milan",
+      "note": "The usual name for the agreement of Constantine and Licinius in 313. The surviving text is a letter issued by Licinius to a governor in the east, not a decree published at Milan. The name is a convenience."
+    },
+    {
+      "word": "Monophysite and miaphysite",
+      "note": "“One nature” in two forms. Monophysite is the name opponents gave the churches that refused Chalcedon. They reject it and use miaphysite, “one united nature”. Nestorian, likewise, is a name the Church of the East does not use of itself."
+    },
+    {
+      "word": "Pelagian and semi-Pelagian",
+      "note": "Pelagian names the teaching Augustine opposed, that a person can obey God without an inner gift of grace beforehand. Semi-Pelagian is a later name, from the 1500s, for a middle position argued in Gaul after Augustine's death. Neither word is what the people concerned called themselves."
+    }
+  ],
+  "periods": [
+    {
+      "id": "after-apostles",
+      "name": "After the apostles",
+      "start": 64,
+      "end": 150,
+      "note": "The Apostolic Fathers. Every date in this band is an estimate."
+    },
+    {
+      "id": "defenders",
+      "name": "Defenders and teachers",
+      "start": 150,
+      "end": 250,
+      "note": "Justin, Irenaeus, Tertullian, Origen. Local persecution, not yet empire-wide."
+    },
+    {
+      "id": "great-persecutions",
+      "name": "The empire against the church",
+      "start": 250,
+      "end": 312,
+      "note": "Decius (250), Valerian (257 to 260), the Great Persecution from 303."
+    },
+    {
+      "id": "peace",
+      "name": "Peace, and the councils",
+      "start": 313,
+      "end": 451,
+      "note": "Constantine, the desert monks, Nicaea to Chalcedon, Augustine."
+    }
+  ],
+  "parts": [
+    {
+      "id": "after-apostles",
+      "n": "01",
+      "title": "The apostles die. Their letters stay.",
+      "lead": "The first generation after the apostles wrote little, and what survives was written for its own churches, not for us. Four writings stand at the start: a letter from Rome, a church manual, a prisoner's letters and a martyr's record.",
+      "records": [
+        {
+          "id": "nero",
+          "name": "Nero and the fire",
+          "when": "64",
+          "where": "Rome",
+          "kind": "A Roman historian, writing about fifty years later",
+          "hook": "The first outsider to describe Christians was describing their deaths.",
+          "quote": {
+            "words": "an immense multitude was convicted, not so much of the crime of firing the city, as of hatred against mankind",
+            "source": "tacitus",
+            "ref": "Annals 15.44 [check: wording against the Church and Brodribb translation]"
+          },
+          "evidence": "Tacitus, writing about 116, says that after the great fire Nero put the blame on the Christians and had them killed in cruel spectacles. Christian writers later place the deaths of Peter and Paul in Rome under Nero. Clement of Rome, about thirty years after, speaks of both apostles' deaths in his letter (1 Clement 5 and 6).",
+          "inference": "By 64 Christians in Rome were numerous enough, and distinct enough from the Jewish community, for an emperor to single them out. The persecution was local to Rome, not a law across the empire.",
+          "limit": "Tacitus wrote two generations later, and no Christian writing gives the year or the manner of Peter's and Paul's deaths in a source from that year. The traditions are early, but they are traditions. Tacitus as a witness to Jesus belongs to New Testament history, and is linked, not walked.",
+          "links": [
+            {
+              "title": "New Testament history: from Herod to the fall of Jerusalem",
+              "route": "[check: route]"
+            }
+          ],
+          "verses": [
+            "1 Peter 4:16"
+          ],
+          "sources": [
+            "tacitus",
+            "clement"
+          ]
+        },
+        {
+          "id": "clement",
+          "name": "Clement's letter to Corinth",
+          "when": "About 96, by the usual date",
+          "where": "From Rome to Corinth",
+          "kind": "A letter from one church to another",
+          "hook": "Forty years after Paul, Corinth is quarrelling again.",
+          "evidence": "The letter comes from “the church of God which sojourns at Rome” [check: Lightfoot's wording of the greeting] to the church at Corinth, where younger members had removed the elders from office. It urges them to restore the elders and to keep peace. The writer's name is not in the letter; Dionysius of Corinth, about 170, and later writers name him Clement (Eusebius, Church History 4.23). It quotes the Old Testament at length and knows Paul's first letter to the Corinthians.",
+          "inference": "A church could write to another with moral weight but no command. The letter treats the elders as an office the congregation should not overturn without cause. It uses “bishops” and “elders” for the same men, as the New Testament does.",
+          "limit": "The usual date of about 96 rests on a reading of “sudden and repeated calamities” (chapter 1) as persecution under Domitian. Some scholars put the letter earlier, before 70, and others somewhat later [check: holders of the early date]. The letter does not say Clement was a single bishop of Rome; the lists of Rome's bishops come from Irenaeus and later.",
+          "links": [],
+          "verses": [],
+          "sources": [
+            "clement",
+            "eusebius",
+            "holmes"
+          ]
+        },
+        {
+          "id": "didache",
+          "name": "The Didache, “The Teaching”",
+          "when": "Late first or early second century; argued",
+          "where": "Not given; Syria is often suggested",
+          "kind": "A short church manual",
+          "hook": "Lost for a thousand years, found in one manuscript in 1873.",
+          "quote": {
+            "words": "in living water",
+            "source": "didache",
+            "ref": "Didache 7.1"
+          },
+          "evidence": "Philotheos Bryennios found the text in 1873 in a manuscript in Constantinople dated 1056, and published it in 1883. It has sixteen short chapters: the Two Ways of life and death, then baptism, fasting, prayer (the Lord's Prayer, said three times a day), the thanksgiving meal, travelling apostles and prophets, and a closing warning about the last days. Baptism follows teaching, in the name of the Father, the Son and the Holy Spirit, in running (“living”) water; if there is none, other water; and if neither is enough for immersion, water poured three times on the head.",
+          "inference": "A church in this period could hold the baptismal name of Matthew 28:19 and a preference for flowing water, and still allow pouring when water was scarce. It describes baptism of people who have been taught, and it tells them to choose bishops and deacons who are worthy (chapter 15).",
+          "limit": "No author, place or date is given. Dates proposed run from about 50 to well into the second century, and the work may have grown in stages. One manuscript holds the whole text, with fragments and later reworkings beside it. It describes what one community did; how widely that was done cannot be read from it.",
+          "links": [
+            {
+              "title": "Baptism",
+              "route": "[check: route of the theology study Baptism]"
+            }
+          ],
+          "verses": [
+            "Matthew 28:19"
+          ],
+          "sources": [
+            "didache",
+            "holmes"
+          ]
+        },
+        {
+          "id": "ignatius",
+          "name": "Ignatius, a prisoner on the road",
+          "when": "Usually dated about 110; some scholars later",
+          "where": "From Smyrna and Troas, on the way from Antioch to Rome",
+          "kind": "Seven letters written under guard",
+          "hook": "He begs one church not to save him.",
+          "quote": {
+            "words": "I am God's wheat, and I am ground by the teeth of wild beasts that I may be found pure bread",
+            "source": "ignatius",
+            "ref": "To the Romans 4 [check: wording against Lightfoot's translation]"
+          },
+          "evidence": "Ignatius, bishop of Antioch, was taken to Rome under guard to die. On the way he wrote to six churches (Ephesus, Magnesia, Tralles, Rome, Philadelphia, Smyrna) and to Polycarp. He warns against those who say Christ only seemed to suffer, urges unity around the bishop with the elders and deacons, and asks the Roman Christians not to intervene. In To the Smyrnaeans 8 he writes “where Jesus may be, there is the universal Church” [check: Lightfoot's rendering], the first known use of “catholic” for the church.",
+          "inference": "By his day, in the churches he writes to, one bishop led with a council of elders and deacons. His insistence on this suggests it was not yet everywhere taken for granted. His warning against those who denied Christ's real flesh shows the question Chalcedon later answered being asked very early.",
+          "limit": "The letters survive in three forms: a short Syriac abridgement, the seven-letter “middle” form, and a longer form with six extra letters. The seven were defended as genuine by Theodor Zahn and J. B. Lightfoot in the nineteenth century, and most scholars accept them. The usual date comes from Eusebius placing him under Trajan; Timothy Barnes has argued for the 140s [check: Barnes's article and date]. His letter to Rome names no bishop there.",
+          "links": [
+            {
+              "title": "The person of Christ",
+              "route": "[check: route of the theology study The person of Christ]"
+            }
+          ],
+          "verses": [
+            "Acts 11:26",
+            "1 John 4:2"
+          ],
+          "sources": [
+            "ignatius",
+            "lightfoot",
+            "holmes",
+            "eusebius"
+          ]
+        },
+        {
+          "id": "polycarp",
+          "name": "Polycarp of Smyrna",
+          "when": "Died 155/156 or later; argued",
+          "where": "Smyrna",
+          "kind": "A letter of his own, and an account of his death",
+          "hook": "Asked to curse Christ, an old man counts his years.",
+          "quote": {
+            "words": "Eighty-six years I have served Him, and He has done me no wrong. How then can I blaspheme my King who saved me?",
+            "source": "martyrdom-polycarp",
+            "ref": "Martyrdom of Polycarp 9 [check: wording against Lightfoot's translation]"
+          },
+          "evidence": "Polycarp received a letter from Ignatius and wrote one himself, to the church at Philippi, full of the language of the New Testament letters. The church of Smyrna wrote an account of his arrest and burning, sent to the church at Philomelium. Irenaeus says that as a boy he heard Polycarp speak of John and others who had seen the Lord (letter to Florinus, in Eusebius, Church History 5.20).",
+          "inference": "Polycarp links the apostles' generation with the late second century through a chain of two people: John to Polycarp, Polycarp to Irenaeus. The account of his death is the oldest surviving story written about a single Christian martyr, and it sets the pattern for later ones.",
+          "limit": "The year of his death is argued: 155 or 156 from details in the account, 167 from Eusebius' Chronicle [check: Chronicle's year]. The account may have been added to in its later copies; the scene of a dove leaving his body, for example, is in some manuscripts and is often taken as an addition.",
+          "links": [],
+          "verses": [
+            "Revelation 2:10"
+          ],
+          "sources": [
+            "martyrdom-polycarp",
+            "eusebius",
+            "holmes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "martyrs",
+      "n": "02",
+      "title": "Not a crime. A name.",
+      "lead": "For two centuries being a Christian could cost a life, but persecution came in waves, from local crowds and governors, until three emperors tried to end the church outright. The records are trial notes, letters and accounts written by the survivors.",
+      "records": [
+        {
+          "id": "pliny",
+          "name": "A governor asks the emperor what to do",
+          "when": "About 112",
+          "where": "Bithynia, in northern Asia Minor",
+          "kind": "An official's letter and the emperor's reply",
+          "hook": "A Roman governor admits he does not know what the crime is.",
+          "evidence": "Pliny the Younger wrote to Trajan (Letters 10.96) that he executed Christians who would not deny the name, though he found nothing in their meetings worse than a hymn to Christ before dawn, an oath not to do wrong and an ordinary meal. Trajan replied (10.97) that Christians were not to be hunted out, nor anonymous accusations accepted, but those accused and proven, who would not offer worship to the gods, were to be punished.",
+          "inference": "For most of the second century, the name itself was the offence, and what happened to Christians depended on accusers and governors. That fits the scattered, local martyrdoms the Christian sources describe.",
+          "limit": "This is one province and one governor. Pliny as a witness to the worship of Christ is walked in New Testament history and is cited here only for the legal procedure.",
+          "links": [
+            {
+              "title": "New Testament history: from Herod to the fall of Jerusalem",
+              "route": "[check: route]"
+            }
+          ],
+          "verses": [],
+          "sources": [
+            "pliny"
+          ]
+        },
+        {
+          "id": "perpetua",
+          "name": "Perpetua and Felicity",
+          "when": "203",
+          "where": "Carthage, North Africa",
+          "kind": "A martyr's own prison diary, with an editor's frame",
+          "hook": "A young mother keeps a diary in prison, and someone else finishes it.",
+          "evidence": "The Passion of Perpetua and Felicity tells of a group of new believers, still being taught for baptism, arrested in Carthage. Perpetua, a well-born woman of about twenty-two with a baby, wrote the middle of it herself: her father's pleading, her visions, the prison. Felicity, a slave, gave birth in prison days before the games. An editor added the opening and the account of their deaths in the arena.",
+          "inference": "This is one of the very few writings of the period by a woman, and it shows the church holding together people of very different rank. The prisoners were baptized in prison while awaiting death.",
+          "limit": "Who the editor was is not known; Tertullian has been proposed but not shown. Some scholars connect the visions with the movement around Montanus; that is argued [check: holders].",
+          "links": [],
+          "verses": [],
+          "sources": [
+            "perpetua"
+          ]
+        },
+        {
+          "id": "decius",
+          "name": "The empire's first general demand",
+          "when": "250; then Valerian, 257 to 260",
+          "where": "The whole empire",
+          "kind": "Certificates on papyrus, and letters of bishops",
+          "hook": "Every citizen needed a paper saying they had sacrificed.",
+          "evidence": "The emperor Decius ordered all inhabitants to sacrifice to the gods and receive a signed certificate. Several dozen such certificates (libelli) survive on papyrus from Egypt [check: number usually given, about forty-six]. Many Christians sacrificed or bought certificates; others died, among them Fabian, bishop of Rome. Valerian later aimed at clergy and property; Cyprian, bishop of Carthage, was beheaded in 258.",
+          "inference": "For the first time the pressure came from the centre, and it raised a new question for the churches: should those who gave way, the lapsed, be taken back, and on what terms? Cyprian's letters show the churches arguing it out.",
+          "limit": "The certificates prove the order was carried out in Egypt. They do not say any of their holders was a Christian, and most were probably not.",
+          "links": [],
+          "verses": [],
+          "sources": [
+            "cyprian",
+            "frend"
+          ]
+        },
+        {
+          "id": "diocletian",
+          "name": "The Great Persecution",
+          "when": "303 to 311, longer in the east",
+          "where": "Mostly the eastern empire and North Africa",
+          "kind": "Eyewitness accounts by Eusebius and Lactantius",
+          "hook": "Burn the churches. Burn the books.",
+          "evidence": "Edicts from 303 under Diocletian ordered churches destroyed, Scriptures handed over and burned, and clergy arrested, then all Christians made to sacrifice. Eusebius saw martyrdoms in Palestine and wrote of them (The Martyrs of Palestine). Galerius ended the persecution by an edict in 311, shortly before his death.",
+          "inference": "The demand to hand over Scriptures left a lasting wound. In North Africa, a dispute over clergy who had handed over books split the church into two for a century; the party that refused to accept them became known as the Donatists.",
+          "limit": "Numbers of the dead are not recoverable. Eusebius and Lactantius both wrote as Christians after the victory, and Lactantius wrote to show that persecuting emperors came to bad ends.",
+          "links": [],
+          "verses": [],
+          "sources": [
+            "eusebius",
+            "lactantius",
+            "frend"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "defenders",
+      "n": "03",
+      "title": "Written for outsiders. Kept by insiders.",
+      "lead": "From the middle of the second century educated Christians began to write defences, apologies, addressed to emperors and the public. They are the earliest descriptions of Christian worship written for people outside it.",
+      "records": [
+        {
+          "id": "justin",
+          "name": "Justin, a philosopher who became a Christian",
+          "when": "First Apology about 150 to 155; died about 165",
+          "where": "Rome",
+          "kind": "A defence addressed to the emperor Antoninus Pius",
+          "hook": "A teacher in a philosopher's cloak explains what happens on Sunday.",
+          "quote": {
+            "words": "on the day called Sunday, all who live in cities or in the country gather together to one place, and the memoirs of the apostles or the writings of the prophets are read, as long as time permits",
+            "source": "justin",
+            "ref": "First Apology 67 [check: wording against the Ante-Nicene Fathers translation]"
+          },
+          "evidence": "Justin argues that Christians are punished for a name, not for crimes, and sets out what they believe and do. He describes baptism of those “persuaded and believe” what is taught (chapter 61), the thanksgiving meal of bread and wine mixed with water (65 to 66) and the Sunday meeting: reading, a sermon by the president, prayer, the meal, and a collection for widows, orphans, the sick and prisoners (67). He was beheaded in Rome with others; an account of his trial survives.",
+          "inference": "Within about a century of the apostles, Christians in Rome met on the first day, read the Gospels alongside the prophets, and gave to the poor as part of worship. Justin's meeting is recognisable to many churches today.",
+          "limit": "Justin describes Rome, and writes for outsiders, so he simplifies. What he means when he says the bread and wine are not common food is read differently by different traditions, and his words are theirs to read; this page does not decide it.",
+          "links": [
+            {
+              "title": "Worship and the Lord's Day",
+              "route": "[check: route]"
+            },
+            {
+              "title": "The Lord's Supper",
+              "route": "[check: route]"
+            }
+          ],
+          "verses": [],
+          "sources": [
+            "justin",
+            "wilken"
+          ]
+        },
+        {
+          "id": "diognetus",
+          "name": "The letter to Diognetus",
+          "when": "Second or third century; not known",
+          "where": "Not given",
+          "kind": "An anonymous apology in letter form",
+          "hook": "Every foreign country a homeland, every homeland a foreign country.",
+          "evidence": "An unknown writer answers an enquirer about the Christians' God and why this new people appeared so late. Chapters 5 and 6 describe Christians as living in their own cities, keeping local customs, but living as sojourners: they marry and have children but do not expose them, obey the laws and outdo them in their lives [check: wording of a quoted line before any quotation is used].",
+          "inference": "Christians in this period saw themselves as a distinct people without a land of their own, scattered in ordinary life.",
+          "limit": "The only manuscript, at Strasbourg, was destroyed by fire in 1870; the text survives through transcriptions made before then. Author, date and the person addressed are unknown, and the last two chapters may come from another work.",
+          "links": [],
+          "verses": [],
+          "sources": [
+            "holmes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teachers",
+      "n": "04",
+      "title": "Three teachers. Three cities.",
+      "lead": "Irenaeus in Gaul, Tertullian in North Africa and Origen in Alexandria wrote the first large books of Christian teaching. Each answered a different threat, and each left words the later councils used.",
+      "records": [
+        {
+          "id": "irenaeus",
+          "name": "Irenaeus of Lyon",
+          "when": "Against Heresies about 180",
+          "where": "Lyon, in Gaul; from Asia Minor",
+          "kind": "A long refutation of other teachers",
+          "hook": "The heresies had secret knowledge. He pointed to what was public.",
+          "evidence": "Irenaeus, bishop of Lyon after the persecution there in 177, wrote five books against teachers he calls gnostics, who taught a lower creator separate from the true God and a secret knowledge for the few. His answer was the rule of faith handed down openly in the churches, the four Gospels, and the bishops who taught in succession from the apostles. He gives a list of the bishops of Rome (Against Heresies 3.3).",
+          "inference": "The challenge of rival teachers pressed the churches to say plainly what they had always taught and which writings carried the apostles' witness. His argument that the Gospels are four, no more and no fewer (3.11.8), is a witness to how the canon took shape.",
+          "limit": "Against Heresies survives whole only in an early Latin translation, with Greek fragments and parts in Armenian. His account of the gnostics was the main source for them until the Nag Hammadi books were found in 1945, which show more variety than he reports. How the four Gospels were received is walked in How the canon took shape.",
+          "links": [
+            {
+              "title": "How the canon took shape",
+              "route": "/study/how-the-canon-took-shape"
+            }
+          ],
+          "verses": [],
+          "sources": [
+            "irenaeus",
+            "kelly-doctrines"
+          ]
+        },
+        {
+          "id": "tertullian",
+          "name": "Tertullian of Carthage",
+          "when": "Writing about 196 to about 220",
+          "where": "Carthage",
+          "kind": "Treatises in Latin",
+          "hook": "The first great Christian writer in Latin, and the sharpest.",
+          "quote": {
+            "words": "What indeed has Athens to do with Jerusalem?",
+            "source": "tertullian",
+            "ref": "Prescription against Heretics 7 [check: wording]"
+          },
+          "evidence": "Tertullian wrote defences of the faith, attacks on teachers he judged false, and moral treatises. In Against Praxeas he is the first surviving writer to use the Latin trinitas of God, and the words “one substance” and “three persons”. In On Baptism 18 he counsels delay of baptism, including for little children, until they can know Christ.",
+          "inference": "The Latin vocabulary the western church used about God was largely in place by about 210, a century before Nicaea. His advice on delay shows both that children were being baptized in his day and that a leading teacher thought it unwise.",
+          "limit": "Jerome says Tertullian later joined the movement around Montanus, which claimed new prophecy. Some scholars now question whether he ever left the church in Carthage [check: holders, for example David Rankin]. Little is known of his life beyond his books.",
+          "links": [
+            {
+              "title": "The Trinity",
+              "route": "/study/theology-articles/the-trinity"
+            }
+          ],
+          "verses": [],
+          "sources": [
+            "tertullian",
+            "kelly-doctrines"
+          ]
+        },
+        {
+          "id": "origen",
+          "name": "Origen of Alexandria",
+          "when": "About 185 to about 254",
+          "where": "Alexandria, then Caesarea in Palestine",
+          "kind": "Commentaries, sermons, a textual work, a book of doctrine",
+          "hook": "The most learned man in the church. Condemned three centuries after he died.",
+          "evidence": "Origen taught in Alexandria and later Caesarea. His Hexapla set the Hebrew text of the Old Testament beside a Greek transliteration and four Greek translations in six columns. He wrote On First Principles, the first attempt at a whole account of Christian teaching, and Against Celsus, answering a pagan critic. Under Decius he was imprisoned and tortured, and died soon after.",
+          "inference": "Christian scholarship on the Bible's text and languages begins in earnest with him. His speculations, among them the souls' existence before birth, were argued over for centuries.",
+          "limit": "Much of his work survives only in Latin translations by Rufinus, who admits he smoothed what seemed unsound, so his exact views are hard to recover. Teachings attributed to him were condemned in the 500s, after this study's end. His allegorical reading is walked in How the church has read the Bible.",
+          "links": [
+            {
+              "title": "How the church has read the Bible",
+              "route": "/study/how-the-church-has-read-the-bible"
+            }
+          ],
+          "verses": [],
+          "sources": [
+            "eusebius",
+            "chadwick"
+          ]
+        },
+        {
+          "id": "baptism-practice",
+          "name": "Baptism in the first centuries",
+          "when": "About 100 to 253",
+          "where": "Several churches",
+          "kind": "What the earliest writers describe",
+          "hook": "The earliest manuals baptize the taught. By 200, someone is arguing about children.",
+          "evidence": "The Didache baptizes after teaching, preferably in running water. Justin (First Apology 61) brings to the water those who are persuaded and believe. Tertullian (On Baptism 18) advises delay, little children included. Origen, in Rufinus' Latin, says the church received from the apostles the practice of baptizing infants (Commentary on Romans 5.9). A council at Carthage under Cyprian, about 253, rules that infants need not wait to the eighth day (Cyprian, Letter 64).",
+          "inference": "The earliest descriptions are of people baptized after being taught and believing. By the early third century infant baptism was practised in North Africa and claimed as apostolic by some, and opposed or questioned by others. Different churches read this evidence differently.",
+          "limit": "None of these writings is Scripture, and none shows what every church did. Origen's claim survives only in a translation that Rufinus admits he edited. Baptists rest believer's baptism on the New Testament, which is taught in the theology study Baptism; Everett Ferguson's survey, Baptism in the Early Church, gathers all this evidence and was located, not read.",
+          "links": [
+            {
+              "title": "Baptism",
+              "route": "[check: route]"
+            },
+            {
+              "title": "Baptist history",
+              "route": "[check: route]"
+            }
+          ],
+          "verses": [
+            "Matthew 28:19"
+          ],
+          "sources": [
+            "didache",
+            "justin",
+            "tertullian",
+            "cyprian",
+            "ferguson"
+          ]
+        },
+        {
+          "id": "canon-note",
+          "name": "The books of the New Testament",
+          "when": "To 367 and after",
+          "where": "Across the churches",
+          "kind": "A sentence and a link",
+          "hook": "Already written. Recognised over time.",
+          "evidence": "The earliest lists, the books read in worship and the arguments over a few writings are walked in How the canon took shape. The first surviving list of exactly the twenty-seven books of the New Testament is in Athanasius' Easter letter of 367.",
+          "inference": "This study does not re-tell it.",
+          "limit": "See that study for every claim about it.",
+          "links": [
+            {
+              "title": "How the canon took shape",
+              "route": "/study/how-the-canon-took-shape"
+            }
+          ],
+          "verses": [],
+          "sources": [
+            "study-04"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "constantine",
+      "n": "05",
+      "title": "The persecutor's heir. The church's patron.",
+      "lead": "Within two years, a church that had been burning its books became the emperor's favourite. What changed in 312 and 313 is often overstated.",
+      "records": [
+        {
+          "id": "milvian",
+          "name": "The battle of the Milvian Bridge",
+          "when": "28 October 312",
+          "where": "Outside Rome",
+          "kind": "Two Christian accounts that do not agree",
+          "hook": "A sign before a battle. Two writers, two stories.",
+          "quote": {
+            "words": "Conquer by this",
+            "source": "eusebius-life",
+            "ref": "Life of Constantine 1.28 [check: wording in the Nicene and Post-Nicene Fathers translation]"
+          },
+          "evidence": "Constantine defeated his rival Maxentius and took Rome. Lactantius, writing within a few years, says Constantine was told in a dream to mark the heavenly sign of God on his soldiers' shields (On the Deaths of the Persecutors 44). Eusebius, writing after Constantine's death in 337, says the emperor told him on oath of a cross of light in the sky by day with the words “Conquer by this”, and then a dream (Life of Constantine 1.28 to 29).",
+          "inference": "Constantine credited the God of the Christians with his victory, and acted on it. The details grew in the telling: the earlier account has a dream, the later one a sign seen by the whole army.",
+          "limit": "What Constantine himself believed, and when, cannot be read from these accounts. He kept the title of chief priest of the old religion, and was baptized only near his death in 337, by Eusebius of Nicomedia. Delaying baptism was common then.",
+          "links": [],
+          "verses": [],
+          "sources": [
+            "lactantius",
+            "eusebius-life",
+            "barnes-constantine"
+          ]
+        },
+        {
+          "id": "milan",
+          "name": "The agreement of Milan",
+          "when": "313",
+          "where": "Milan, published at Nicomedia",
+          "kind": "An imperial letter, in two copies",
+          "hook": "Freedom of worship, for Christians and for everyone else.",
+          "evidence": "Constantine and Licinius agreed at Milan to give Christians and all others freedom to follow the religion each chose, and to return confiscated church property. The text survives as a letter of Licinius to a governor, in Latin in Lactantius (On the Deaths of the Persecutors 48) and in Greek in Eusebius (Church History 10.5).",
+          "inference": "313 granted toleration, not establishment. Christianity became a permitted religion with the emperor's favour; the old religions were not banned.",
+          "limit": "Whether there was an “edict” in the formal sense is argued, as the confused words above note. Galerius' edict of 311 had already ended persecution in law.",
+          "links": [
+            {
+              "title": "The Christian and the state",
+              "route": "[check: route]"
+            }
+          ],
+          "verses": [],
+          "sources": [
+            "lactantius",
+            "eusebius"
+          ]
+        },
+        {
+          "id": "theodosius",
+          "name": "Theodosius and the faith of the empire",
+          "when": "380 and after",
+          "where": "Thessalonica and Constantinople",
+          "kind": "Imperial laws, kept in the Theodosian Code",
+          "hook": "Not Constantine. Theodosius, two generations later.",
+          "evidence": "In 380 the emperors Theodosius, Gratian and Valentinian II ordered all peoples under their rule to hold the faith of the bishop of Rome and the bishop of Alexandria, that is, the Nicene faith in the Father, Son and Holy Spirit (Theodosian Code 16.1.2). Laws of the 390s banned sacrifice and closed temples.",
+          "inference": "It was Theodosius, not Constantine, who made a particular form of Christianity the required religion of the empire, and who used the law against other worship.",
+          "limit": "Laws were enforced unevenly, and old worship went on in many places for generations.",
+          "links": [],
+          "verses": [],
+          "sources": [
+            "theodosian-code",
+            "chadwick"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "desert",
+      "n": "06",
+      "title": "The persecution ends. The desert fills.",
+      "lead": "As the arena closed, some Christians went out to the desert to give up everything another way. Monasticism (from the Greek monachos, one who lives alone) began in Egypt and Syria in these years.",
+      "records": [
+        {
+          "id": "antony",
+          "name": "Antony of Egypt",
+          "when": "About 251 to 356",
+          "where": "The desert east of the Nile",
+          "kind": "A life written by Athanasius",
+          "hook": "He heard one Gospel verse in church and walked out to obey it.",
+          "evidence": "Athanasius, bishop of Alexandria, wrote the Life of Antony soon after Antony's death. It tells of a young Christian who heard the words to the rich man read in church (Matthew 19:21), gave away his land and lived alone in the desert for decades, struggling with temptation, and was sought out by others.",
+          "inference": "The book spread the ideal of the hermit across the empire. Augustine tells in his Confessions (8.6) of men converted by reading it.",
+          "limit": "Athanasius wrote with his own concerns, among them Antony's loyalty to Nicaea. Antony was not the first hermit, as the Life itself admits.",
+          "links": [],
+          "verses": [],
+          "sources": [
+            "athanasius-antony",
+            "augustine-confessions"
+          ]
+        },
+        {
+          "id": "pachomius",
+          "name": "Pachomius, Basil and the life in common",
+          "when": "From about 320",
+          "where": "Upper Egypt; Cappadocia",
+          "kind": "Rules for communities",
+          "hook": "Not alone. Together, under a rule.",
+          "evidence": "Pachomius gathered monks into walled communities under a rule of prayer, work and obedience in Upper Egypt. Basil of Caesarea later wrote rules for communities in Asia Minor, set near towns and caring for the poor and sick. His sister Macrina led a community of her own, as their brother Gregory of Nyssa records. John Cassian carried Egyptian teaching to southern Gaul in the 420s.",
+          "inference": "By 451 monks were a force in the church: Chalcedon placed them under the oversight of local bishops (canon 4). The shape of western monastic life under Benedict belongs to the medieval study.",
+          "limit": "The Pachomian sources were written down by his followers, in several versions, after his death.",
+          "links": [
+            {
+              "title": "The medieval church",
+              "route": "/study/the-medieval-church"
+            }
+          ],
+          "verses": [],
+          "sources": [
+            "chadwick",
+            "percival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "councils",
+      "n": "07",
+      "title": "Four questions. Four councils.",
+      "lead": "Each council was called by an emperor to answer one disputed question, each wrote its answer in a few words, and each left some churches outside. Here they are told as events. Why the churches have held those words to be true is taught from Scripture in The Trinity and The person of Christ.",
+      "records": [
+        {
+          "id": "nicaea",
+          "name": "Nicaea",
+          "when": "325",
+          "where": "Nicaea, in Bithynia",
+          "kind": "A creed, with anathemas, and twenty canons",
+          "question": "Is the Son of God a creature, made by the Father before all ages, or is he God as the Father is?",
+          "hook": "An Alexandrian elder said there was a time when the Son was not.",
+          "quote": {
+            "words": "begotten, not made, being of one substance with the Father",
+            "source": "percival",
+            "ref": "Creed of Nicaea [check: wording in Schaff's translation]"
+          },
+          "evidence": "Arius, an elder in Alexandria, taught that the Son had a beginning. His bishop, Alexander, condemned him, and the dispute spread. Constantine called the bishops to Nicaea. The creed they signed says the Son is “of one substance” (homoousios) with the Father, and condemns those who say “there was a time when he was not” [check: wording of the anathema]. The council also set a common way to fix the date of Easter, and passed canons on church order. Arius and two bishops were exiled.",
+          "inference": "The word homoousios was chosen because Scripture's own words could be agreed to by both sides while meaning different things. The council treated a non-biblical word as a guard on biblical teaching.",
+          "limit": "The number of bishops is not known: Eusebius says more than 250, Athanasius about 300, and the figure 318 appears later. The acts of the council do not survive; its creed and canons come through later writers. The dispute did not end there: for half a century emperors favoured one side or the other, and Athanasius, Alexander's successor, was exiled five times.",
+          "links": [
+            {
+              "title": "The Trinity",
+              "route": "/study/theology-articles/the-trinity"
+            }
+          ],
+          "verses": [
+            "John 1:1"
+          ],
+          "sources": [
+            "percival",
+            "eusebius",
+            "kelly-creeds"
+          ]
+        },
+        {
+          "id": "constantinople",
+          "name": "Constantinople",
+          "when": "381",
+          "where": "Constantinople",
+          "kind": "A creed, received later, and canons",
+          "question": "Is the Holy Spirit God, and how should the faith of Nicaea now be confessed?",
+          "hook": "Nicaea had said one line about the Spirit. Now the line grows.",
+          "quote": {
+            "words": "the Lord and Giver of life, who proceedeth from the Father, who with the Father and the Son together is worshipped and glorified",
+            "source": "percival",
+            "ref": "Creed of Constantinople [check: wording in Schaff's translation]"
+          },
+          "evidence": "Theodosius called about 150 bishops of the east [check: the usual figure]. They confirmed the faith of Nicaea and condemned those who denied the Spirit's godhead. The creed now said in churches as the Nicene Creed is the one connected with this council, with a fuller article on the Holy Spirit. Its third canon gave the bishop of Constantinople a rank next after the bishop of Rome. The thinking behind it owed much to Basil of Caesarea, Gregory of Nazianzus and Gregory of Nyssa.",
+          "inference": "By 381 the argument begun at Nicaea had reached the Spirit, and the eastern church settled both questions together. The creed's wording is drawn largely from the language of Scripture.",
+          "limit": "The creed's text is first found in the acts of Chalcedon in 451, where it is read as the creed of the 150 fathers. How it relates to the council of 381 is argued; J. N. D. Kelly discusses the views. The western words “and the Son” are not in it; they were added later and belong to The medieval church.",
+          "links": [
+            {
+              "title": "The Trinity",
+              "route": "/study/theology-articles/the-trinity"
+            },
+            {
+              "title": "The medieval church",
+              "route": "/study/the-medieval-church"
+            }
+          ],
+          "verses": [],
+          "sources": [
+            "percival",
+            "kelly-creeds"
+          ]
+        },
+        {
+          "id": "ephesus",
+          "name": "Ephesus",
+          "when": "431",
+          "where": "Ephesus",
+          "kind": "A condemnation, with letters approved; later, an agreement",
+          "question": "May Mary be called “Mother of God”, and so is the one born of her one person, God the Word made flesh?",
+          "hook": "One title for Mary. One church goes east.",
+          "quote": {
+            "words": "born of the Virgin Mary, the Mother of God, according to the Manhood",
+            "source": "chalcedon",
+            "ref": "Chalcedon's definition, repeating the title Ephesus defended"
+          },
+          "evidence": "Nestorius, bishop of Constantinople, objected to the title Theotokos, “bearer of God”, preferring “bearer of Christ”. Cyril, bishop of Alexandria, opposed him. Theodosius II called a council. Cyril opened it before John of Antioch and the eastern bishops arrived, and it condemned Nestorius; John's group then met separately and condemned Cyril. Two years later, in 433, Cyril and John agreed a statement of reunion. The church in the Persian empire, outside Rome's borders, had declared its independence of the western bishops in 424 and did not receive Ephesus or the councils after it. Its missionaries reached China by 635, as the stone of Xi'an records.",
+          "inference": "The quarrel was over how to speak of one Christ, not over whether he is God. The first lasting division was partly a matter of borders: a church in another empire did not receive a council of the Roman one. The name its opponents gave it, after Nestorius, is not the name it uses; the scholar Sebastian Brock has called it “a lamentable misnomer”, as reported in the Wikipedia article on the Church of the East.",
+          "limit": "Read only through the Wikipedia article on the Church of the East; none of its own writings and none of the acts of Ephesus were read. What Nestorius himself held is argued: a work of his own, the Bazaar of Heracleides, was found in Syriac in the 1890s [check: date of its discovery]. A Common Christological Declaration between the Catholic Church and the Assyrian Church of the East (1994) was located, not read. This council also condemned Caelestius, a follower of Pelagius (see part 08).",
+          "today": "The Assyrian Church of the East and the Ancient Church of the East.",
+          "links": [
+            {
+              "title": "The person of Christ",
+              "route": "[check: route]"
+            }
+          ],
+          "verses": [
+            "John 1:14"
+          ],
+          "sources": [
+            "wiki-east",
+            "chalcedon",
+            "percival"
+          ]
+        },
+        {
+          "id": "chalcedon",
+          "name": "Chalcedon",
+          "when": "451",
+          "where": "Chalcedon, across the water from Constantinople",
+          "kind": "A definition of faith, and canons",
+          "question": "Is Christ, after the incarnation, “in two natures” united in one person, or of one incarnate nature?",
+          "hook": "In two natures. Of one nature.",
+          "quote": {
+            "words": "to be acknowledged in two natures, inconfusedly, unchangeably, indivisibly, inseparably",
+            "source": "chalcedon",
+            "ref": "The Definition, as translated in Schaff's edition, in the site's creeds collection"
+          },
+          "evidence": "Eutyches, a monk in Constantinople, taught that after the union Christ had only one nature. A council at Ephesus in 449, led by Dioscorus of Alexandria, cleared him and refused to read the letter of Leo, bishop of Rome, known as Leo's Tome; Leo called it a robbers' council. The emperor Marcian called a new council at Chalcedon. It received Leo's Tome and Cyril's letters, deposed Dioscorus, and defined Christ as one person “in two natures”. Its 28th canon confirmed Constantinople's rank next to Rome, which Leo refused to accept. The churches of Egypt and much of Syria, and later Armenia and Ethiopia, did not receive the definition; they accept three councils. In 1973 the Coptic pope Shenouda III and the pope of Rome confessed Christ together as “perfect God with respect to His divinity, perfect man with respect to His humanity”, and wrote that “since the year 451 A. D., theological differences, nourished and widened by non-theological factors, have sprung up”.",
+          "inference": "Both sides denied that Christ's godhead and manhood were mixed, and both denied that they were split. The 1973 declaration uses the negatives of Chalcedon without its phrase “in two natures”. Much of the division was over which words guard the same confession, and much of it, by both sides' later account, was not about theology at all.",
+          "limit": "The Oriental Orthodox churches' own documents were not read; their position is given from the 1973 declaration (read through a tool report) and the Wikipedia article. The number of bishops present is usually given as about 520, and later as 630 [check: both figures]. Schaff says he inserted “in two natures” into his Greek text, and his note on why is not in the site's copy.",
+          "today": "The Coptic, Syriac, Armenian, Ethiopian, Eritrean and Malankara Orthodox churches did not receive it; the Eastern Orthodox, Roman Catholic and most Protestant churches confess its definition.",
+          "links": [
+            {
+              "title": "The Chalcedonian Definition",
+              "route": "/study/creeds/chalcedonian-definition-451-schaff"
+            },
+            {
+              "title": "The person of Christ",
+              "route": "[check: route]"
+            },
+            {
+              "title": "The medieval church",
+              "route": "/study/the-medieval-church"
+            }
+          ],
+          "verses": [
+            "John 1:14",
+            "1 John 4:2"
+          ],
+          "sources": [
+            "chalcedon",
+            "decl-1973",
+            "wiki-oriental",
+            "percival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "augustine",
+      "n": "08",
+      "title": "Command what you will. Give what you command.",
+      "lead": "While the east argued about Christ, the west argued about grace (God's undeserved favour and help). The argument between Augustine and Pelagius shaped western teaching for a thousand years, and the Reformation reopened it.",
+      "records": [
+        {
+          "id": "augustine-life",
+          "name": "Augustine of Hippo",
+          "when": "354 to 430",
+          "where": "Thagaste, Carthage, Rome, Milan, Hippo",
+          "kind": "His own account, and more than a hundred books",
+          "hook": "A teacher of speech, converted in a garden in Milan.",
+          "evidence": "Augustine tells his own story in the Confessions, written about 397 to 400: his mother Monica, his years in the Manichean sect, his career as a teacher of rhetoric, the preaching of Ambrose in Milan, and the day in a garden when he heard a child's voice say “take up and read” and read Romans 13:13 to 14 (Confessions 8.12). He was baptized by Ambrose in 387, became bishop of Hippo about 395, and wrote against the Manicheans, the Donatists and the Pelagians. After the sack of Rome in 410 he wrote The City of God. He died in 430 as the Vandals besieged Hippo.",
+          "inference": "No writer of these centuries left so much in his own words, and no one shaped western teaching more.",
+          "limit": "The Confessions is a prayer written years after the events, shaped to its purpose. Peter Brown's biography is the standard modern account, and was located, not read.",
+          "links": [],
+          "verses": [],
+          "sources": [
+            "augustine-confessions",
+            "brown"
+          ]
+        },
+        {
+          "id": "pelagius",
+          "name": "Augustine and Pelagius",
+          "when": "About 411 to 431",
+          "where": "Rome, Carthage, Palestine",
+          "kind": "Treatises, letters and council decisions",
+          "hook": "A monk heard one line of a prayer and objected.",
+          "quote": {
+            "words": "Give what You command, and command what You will",
+            "source": "augustine-confessions",
+            "ref": "Confessions 10.29 [check: wording in Pusey's translation]"
+          },
+          "evidence": "Pelagius, a monk from Britain teaching in Rome, objected to this line of the Confessions, as Augustine himself reports (On the Gift of Perseverance 20.53). Pelagius and his follower Caelestius taught that God commands nothing a person cannot do; that Adam's sin harmed his descendants by example, not by inheritance; and that grace is God's gifts of nature, law and teaching. Augustine answered that since Adam every person is born under sin and cannot turn to God without a gift of grace that frees the will. Pelagius was cleared at a synod in Palestine in 415, condemned by councils in Africa, finally at Carthage in 418, and the emperor and the bishop of Rome acted against him. Ephesus condemned Caelestius in 431.",
+          "inference": "The western church rejected the Pelagian position. How far it adopted all of Augustine's teaching, especially on God's choosing (predestination), stayed open, and was argued again in Gaul after his death and at the Reformation.",
+          "limit": "Most of what is known of Pelagius comes from his opponents; some of his own writings survive, among them a commentary on Paul's letters, some under other names. Where Christians today differ on election is shown in the theology study Election.",
+          "links": [
+            {
+              "title": "Sin and the fall",
+              "route": "[check: route]"
+            },
+            {
+              "title": "Saved by grace",
+              "route": "[check: route]"
+            },
+            {
+              "title": "Election (God's choosing)",
+              "route": "[check: route]"
+            },
+            {
+              "title": "The Reformation and the awakenings",
+              "route": "[check: route]"
+            }
+          ],
+          "verses": [
+            "Ephesians 2:8"
+          ],
+          "sources": [
+            "augustine-confessions",
+            "brown",
+            "kelly-doctrines"
+          ]
+        }
+      ]
+    }
+  ],
+  "creedPath": {
+    "lead": "A creed answers a question the church has already argued over. None of the documents read here claims to add to Scripture; each claims to say what Scripture says, against someone who said otherwise.",
+    "steps": [
+      {
+        "id": "scripture",
+        "n": "01",
+        "title": "Confessions inside Scripture",
+        "when": "The apostles' own day",
+        "evidence": "Paul hands on a short summary he himself received: “what I received I passed on to you as of first importance: that Christ died for our sins according to the Scriptures, that He was buried, that He was raised on the third day according to the Scriptures” (1 Corinthians 15:3–4 · BSB). A believer's confession is short: “if you confess with your mouth, “Jesus is Lord,” and believe in your heart that God raised Him from the dead, you will be saved” (Romans 10:9 · BSB).",
+        "inference": "Summing up the faith in a few words is older than any council. The later creeds stand in that habit.",
+        "limit": "These passages are Scripture. The later creeds are not, and none of the traditions read here says they are.",
+        "verses": [
+          "1 Corinthians 15:3",
+          "1 Corinthians 15:4",
+          "Romans 10:9"
+        ],
+        "sources": [
+          "creeds-collection"
+        ]
+      },
+      {
+        "id": "rule",
+        "n": "02",
+        "title": "The rule of faith",
+        "when": "About 110 to 265",
+        "evidence": "Before there were councils, teachers set down the faith they had received in a few sentences: Ignatius, Irenaeus about 180, Tertullian about 200, Gregory about 265. The creeds collection holds four of these as its family “The early church's rule of faith”.",
+        "inference": "The same outline (one God the Creator; Jesus Christ his Son, born, crucified, raised, coming again; the Holy Spirit) recurs in different words in different cities. That is evidence of a shared teaching, not of one fixed text.",
+        "limit": "The wording differs from writer to writer, and the dates are the usual ones.",
+        "verses": [],
+        "sources": [
+          "creeds-collection"
+        ]
+      },
+      {
+        "id": "councils",
+        "n": "03",
+        "title": "A council answers a question",
+        "when": "325, 381, 431, 451",
+        "evidence": "Chalcedon, in its acts, first confirms the creed of Nicaea “in both forms”, says that “this wise and saving Creed would be sufficient for the full acknowledgment and confirmation of the true religion”, explains that new teachings about Christ require a further definition, and forbids anyone to set forth another creed (Schaff's notes to the Chalcedonian Definition, in the creeds collection).",
+        "inference": "The council's own account of itself is defensive: the old creed is enough, but it is being read two ways, so a further sentence closes off one reading. That is the pattern of all four councils here.",
+        "limit": "Schaff summarises and quotes the acts; the acts themselves were not read.",
+        "verses": [],
+        "sources": [
+          "chalcedon"
+        ]
+      },
+      {
+        "id": "standing",
+        "n": "04",
+        "title": "What later churches say the councils are worth",
+        "when": "1530 to 2000",
+        "evidence": "Philaret's Orthodox catechism (1839) holds that the creed of 381 admits no addition, since “the third Œcumenical Council in its seventh canon forbade the composition of any new Creed” (question 242). The Westminster Confession holds that councils since the apostles “may err, and many have erred”, and are “to be used as a help” (chapter 31). The Second London Baptist Confession says the supreme judge of “all Decrees of Councels” can be “no other but the Holy Scripture delivered by the Spirit” (chapter 1, section 10). The preamble of the Baptist Faith and Message says confessions “are only guides in interpretation, having no authority over the conscience”.",
+        "inference": "For the Orthodox the creed is finished. Reformed and Baptist confessions keep the councils' teaching on God and Christ and change its standing: true because Scripture teaches it, not because a council said it.",
+        "limit": "Three traditions stand here for many. The Reformation's own argument about authority belongs to The Reformation and the awakenings.",
+        "verses": [],
+        "sources": [
+          "philaret",
+          "westminster",
+          "confession-1689",
+          "bfm"
+        ]
+      }
+    ]
+  },
+  "stance": {
+    "head": "What this site holds",
+    "confession": "“The sole authority for faith and practice among Baptists is the Scriptures of the Old and New Testaments.”",
+    "confessionSource": "Baptist Faith and Message 2000, preamble [check: word for word against bfm.sbc.net]",
+    "body": "This study reports these centuries without ranking their churches. The site itself reads the early writers as witnesses: often wise, sometimes mistaken, never Scripture. Its confession teaches the doctrine of God as Father, Son and Holy Spirit (article II), the doctrine Nicaea and Constantinople defended, and it does so from Scripture; the theology studies The Trinity and The person of Christ show the passages. On the state, the confession says “A free church in a free state is the Christian ideal” (article XVII). The laws of Theodosius that forced one faith on the empire are reported here as history, not as a model.",
+    "verses": []
+  },
+  "claims": [
+    {
+      "id": "nicaea-canon",
+      "claim": "“The council of Nicaea chose the books of the Bible.”",
+      "head": "Nothing in what survives of Nicaea mentions the canon.",
+      "evidence": "The creed and the twenty canons of Nicaea that survive deal with the Son's godhead, Easter and church order. None lists books of Scripture. The story is not in any source from the council.",
+      "inference": "The claim attaches a famous meeting to a slower process, which How the canon took shape walks.",
+      "limit": "The acts of Nicaea are lost, but no early writer reports a decision about books there.",
+      "sources": [
+        "percival",
+        "study-04"
+      ],
+      "test": {
+        "question": "A friend says Constantine had the Gospels picked at Nicaea. What should you ask first?",
+        "options": [
+          {
+            "text": "Which source from the council says so?",
+            "right": true,
+            "why": "The surviving creed and canons say nothing about books. A claim about an event needs a witness to it."
+          },
+          {
+            "text": "Whether Constantine was a real Christian.",
+            "right": false,
+            "why": "That is a different question, and answering it would not show whether the council discussed books."
+          },
+          {
+            "text": "How many bishops voted.",
+            "right": false,
+            "why": "The number is uncertain, and there is no record of any vote on books to count."
+          }
+        ]
+      }
+    },
+    {
+      "id": "state-religion",
+      "claim": "“Constantine made Christianity the state religion.”",
+      "head": "Toleration in 313. Establishment in 380.",
+      "evidence": "The agreement of 313 gave freedom to Christians and to all others. Constantine favoured the church with money, buildings and legal privileges, but kept the old religion's high priesthood. The law of 380 under Theodosius required the Nicene faith.",
+      "inference": "Constantine made Christianity favoured; Theodosius made it required.",
+      "limit": "Favour and requirement shade into each other, and Constantine's later laws against sacrifice are argued over by historians.",
+      "sources": [
+        "lactantius",
+        "theodosian-code",
+        "barnes-constantine"
+      ],
+      "test": {
+        "question": "What does the agreement of 313 actually grant?",
+        "options": [
+          {
+            "text": "Freedom of worship to Christians and to others.",
+            "right": true,
+            "why": "That is what both surviving copies say."
+          },
+          {
+            "text": "A ban on the old gods.",
+            "right": false,
+            "why": "Bans came later, in the 390s."
+          },
+          {
+            "text": "Nothing; it was never issued.",
+            "right": false,
+            "why": "The letter survives in two versions. Its name, not its existence, is the problem."
+          }
+        ]
+      }
+    },
+    {
+      "id": "blood-seed",
+      "claim": "“The blood of the martyrs is the seed of the church.”",
+      "head": "A real saying, in shorter words.",
+      "evidence": "Tertullian ends his Apology (chapter 50) by telling the governors that the more they mow Christians down the more they grow, and that “the blood of Christians is seed” [check: wording of the translation].",
+      "inference": "The popular form is a later rounding of a real line. Tertullian makes a claim about what he saw, not a law of history: in some places persecution did end a church.",
+      "limit": "Whether persecution helped the church grow cannot be measured from the sources; numbers of Christians in these centuries are estimates.",
+      "sources": [
+        "tertullian"
+      ],
+      "test": {
+        "question": "What can Tertullian's sentence show?",
+        "options": [
+          {
+            "text": "What one Christian in Carthage believed about the martyrs, about 197.",
+            "right": true,
+            "why": "That is the most the sentence carries."
+          },
+          {
+            "text": "That persecution always grows the church.",
+            "right": false,
+            "why": "He says it of his own day; it is not a measured fact."
+          },
+          {
+            "text": "Nothing, since he never said it.",
+            "right": false,
+            "why": "He said something very close, in other words."
+          }
+        ]
+      }
+    },
+    {
+      "id": "nestorian",
+      "claim": "“The churches that left were heretics who denied Christ's godhead.”",
+      "head": "Both sides confessed him God.",
+      "evidence": "The Church of the East and the churches that refused Chalcedon confessed Christ as God; the dispute was over how to speak of his one person and two natures. In 1973 the Coptic and Roman popes confessed him together as “perfect God” and “perfect man”.",
+      "inference": "The names their opponents gave them hide what they actually confessed.",
+      "limit": "Their own documents were not read for this study; the evidence is reported through the 1973 declaration and encyclopedia articles.",
+      "sources": [
+        "decl-1973",
+        "wiki-east",
+        "wiki-oriental"
+      ],
+      "test": {
+        "question": "The Coptic church calls itself miaphysite. What does the 1973 declaration let you say?",
+        "options": [
+          {
+            "text": "That its pope confessed Christ perfect God and perfect man with the pope of Rome.",
+            "right": true,
+            "why": "That is in the declaration's own words."
+          },
+          {
+            "text": "That the two churches are now one.",
+            "right": false,
+            "why": "The declaration speaks of differences that remain."
+          },
+          {
+            "text": "That the Copts deny Christ's humanity.",
+            "right": false,
+            "why": "The same declaration says the opposite."
+          }
+        ]
+      }
+    }
+  ],
+  "reach": [
+    "This is a selection, not a census. About two dozen writers and events are read here, chosen because the study's scope names them or because the councils turn on them. Many others are left out, among them Hermas, Melito of Sardis, Hippolytus, Ambrose, Jerome's Bible translation, John Chrysostom, and the churches of Armenia, Ethiopia and Persia beyond a sentence.",
+    "Every early date in this study is an estimate unless the source gives a day. Ranges are drawn as ranges.",
+    "The writers quoted here survive in copies made centuries later, and some only in translation. The writings were selected by the churches that kept them, so the losing sides of many arguments are known mainly through their opponents.",
+    "The quotations from early writers are given from older public-domain English translations, to be checked word for word before publishing. Modern translations are better and are named in the reading trail."
+  ],
+  "readingTrail": [
+    {
+      "source": "chadwick",
+      "answers": "The whole period in one readable volume."
+    },
+    {
+      "source": "kelly-creeds",
+      "answers": "Where the creeds of Nicaea and Constantinople came from."
+    },
+    {
+      "source": "kelly-doctrines",
+      "answers": "How each teaching developed, writer by writer."
+    },
+    {
+      "source": "holmes",
+      "answers": "The Apostolic Fathers in Greek and English."
+    },
+    {
+      "source": "brown",
+      "answers": "Augustine's life and the Pelagian controversy."
+    },
+    {
+      "source": "wilken",
+      "answers": "How outsiders saw the first Christians."
+    }
+  ],
+  "sources": [
+    {
+      "id": "tacitus",
+      "title": "Tacitus, Annals 15.44, translated by A. J. Church and W. J. Brodribb (1876)",
+      "kind": "Roman history · public domain",
+      "status": "check",
+      "read": "Quoted from memory of the named translation; to be checked word for word against a held text before publishing."
+    },
+    {
+      "id": "clement",
+      "title": "1 Clement, in J. B. Lightfoot and J. R. Harmer, The Apostolic Fathers (1891)",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "Summarised; the greeting's wording to be checked."
+    },
+    {
+      "id": "didache",
+      "title": "The Didache, in Lightfoot and Harmer, The Apostolic Fathers (1891)",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "Summarised; the phrase “in living water” to be checked against the held text."
+    },
+    {
+      "id": "ignatius",
+      "title": "Ignatius, Letters, in Lightfoot and Harmer, The Apostolic Fathers (1891)",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "Quoted from memory; to be checked word for word."
+    },
+    {
+      "id": "lightfoot",
+      "title": "J. B. Lightfoot, The Apostolic Fathers, Part II: S. Ignatius, S. Polycarp (1885)",
+      "kind": "Edition and study · public domain",
+      "status": "located",
+      "read": "Located, not read. Named for its defence of the seven letters."
+    },
+    {
+      "id": "martyrdom-polycarp",
+      "title": "The Martyrdom of Polycarp, in Lightfoot and Harmer, The Apostolic Fathers (1891)",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "Quoted from memory; to be checked word for word."
+    },
+    {
+      "id": "holmes",
+      "title": "Michael W. Holmes, The Apostolic Fathers: Greek Texts and English Translations, 3rd edition (2007)",
+      "kind": "Edition · under copyright",
+      "status": "located",
+      "read": "Located, not read. The standard modern edition, named for the dates and manuscripts, which are to be checked against it."
+    },
+    {
+      "id": "eusebius",
+      "title": "Eusebius, Church History, translated by A. C. McGiffert, Nicene and Post-Nicene Fathers, second series, vol. 1 (1890)",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "Cited by book and chapter; references to be checked."
+    },
+    {
+      "id": "eusebius-life",
+      "title": "Eusebius, Life of Constantine, translated by E. C. Richardson, Nicene and Post-Nicene Fathers, second series, vol. 1 (1890)",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "Quoted from memory; to be checked."
+    },
+    {
+      "id": "lactantius",
+      "title": "Lactantius, On the Deaths of the Persecutors, Ante-Nicene Fathers, vol. 7",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "Cited by chapter; not quoted."
+    },
+    {
+      "id": "pliny",
+      "title": "Pliny the Younger, Letters 10.96 and 10.97",
+      "kind": "Roman letters · public-domain translations exist",
+      "status": "check",
+      "read": "Summarised, not quoted."
+    },
+    {
+      "id": "perpetua",
+      "title": "The Passion of Perpetua and Felicity, Ante-Nicene Fathers, vol. 3",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "Summarised, not quoted."
+    },
+    {
+      "id": "cyprian",
+      "title": "Cyprian, Letters, Ante-Nicene Fathers, vol. 5 (the letter to Fidus is numbered 58 there and 64 in modern editions) [check: numbering]",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "Summarised."
+    },
+    {
+      "id": "justin",
+      "title": "Justin Martyr, First Apology, Ante-Nicene Fathers, vol. 1",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "Quoted from memory; to be checked word for word."
+    },
+    {
+      "id": "irenaeus",
+      "title": "Irenaeus, Against Heresies, Ante-Nicene Fathers, vol. 1",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "Cited by book and chapter; not quoted."
+    },
+    {
+      "id": "tertullian",
+      "title": "Tertullian, Apology, Prescription against Heretics, Against Praxeas and On Baptism, Ante-Nicene Fathers, vol. 3",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "Quoted from memory; to be checked word for word."
+    },
+    {
+      "id": "athanasius-antony",
+      "title": "Athanasius, Life of Antony, Nicene and Post-Nicene Fathers, second series, vol. 4",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "Summarised."
+    },
+    {
+      "id": "augustine-confessions",
+      "title": "Augustine, Confessions, translated by E. B. Pusey (1838)",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "Quoted from memory; to be checked word for word."
+    },
+    {
+      "id": "theodosian-code",
+      "title": "The Theodosian Code 16.1.2, translated by Clyde Pharr (1952)",
+      "kind": "Translation · under copyright",
+      "status": "located",
+      "read": "Located, not read. Summarised, not quoted."
+    },
+    {
+      "id": "percival",
+      "title": "H. R. Percival, The Seven Ecumenical Councils, Nicene and Post-Nicene Fathers, second series, vol. 14 (1900)",
+      "kind": "Translation · public domain",
+      "status": "check",
+      "read": "The councils' creeds, anathemas and canons are cited from it; every quotation to be checked word for word before publishing."
+    },
+    {
+      "id": "chalcedon",
+      "title": "The Chalcedonian Definition, in Philip Schaff, The Creeds of Christendom, in the site's creeds collection",
+      "kind": "Translation · public domain",
+      "status": "read",
+      "read": "Read from the site's held text, with Schaff's notes, for the 23 research file."
+    },
+    {
+      "id": "decl-1973",
+      "title": "Common Declaration of Pope Paul VI and Pope Shenouda III (1973)",
+      "kind": "Church document",
+      "status": "part",
+      "read": "Read through a tool report for the 23 research file."
+    },
+    {
+      "id": "wiki-east",
+      "title": "“Church of the East”, Wikipedia",
+      "kind": "Encyclopedia",
+      "status": "part",
+      "read": "Read through a tool report for the 23 research file; the route to Brock's phrase."
+    },
+    {
+      "id": "wiki-oriental",
+      "title": "“Oriental Orthodox Churches”, Wikipedia",
+      "kind": "Encyclopedia",
+      "status": "part",
+      "read": "Read through a tool report for the 23 research file."
+    },
+    {
+      "id": "philaret",
+      "title": "Philaret, The Longer Catechism of the Orthodox Church (1839), in the site's creeds collection",
+      "kind": "Church document",
+      "status": "read",
+      "read": "Read for the 23 research file."
+    },
+    {
+      "id": "westminster",
+      "title": "The Westminster Confession of Faith (1647), in the site's creeds collection",
+      "kind": "Confession",
+      "status": "read",
+      "read": "Read for the 23 research file."
+    },
+    {
+      "id": "confession-1689",
+      "title": "The Second London Baptist Confession (1677/1689), in the site's creeds collection",
+      "kind": "Confession",
+      "status": "read",
+      "read": "Read for the 23 research file."
+    },
+    {
+      "id": "bfm",
+      "title": "The Baptist Faith and Message 2000, and its preamble, Southern Baptist Convention",
+      "url": "https://bfm.sbc.net/bfm2000/",
+      "kind": "Confession · © Southern Baptist Convention",
+      "status": "part",
+      "read": "Short phrases only, from the site's doctrinal foundation; to be checked word for word at bfm.sbc.net."
+    },
+    {
+      "id": "creeds-collection",
+      "title": "Bible Guide, Catechisms and Creeds collection",
+      "url": "/study/creeds",
+      "kind": "This site",
+      "status": "read",
+      "read": "The family of the rule of faith and Scripture's own confessions."
+    },
+    {
+      "id": "study-04",
+      "title": "Bible Guide, How the canon took shape (04)",
+      "url": "/study/how-the-canon-took-shape",
+      "kind": "This site",
+      "status": "read",
+      "read": "Cited for every claim about the canon."
+    },
+    {
+      "id": "chadwick",
+      "title": "Henry Chadwick, The Early Church (1967)",
+      "kind": "History · under copyright",
+      "status": "located",
+      "read": "Located, not read."
+    },
+    {
+      "id": "kelly-creeds",
+      "title": "J. N. D. Kelly, Early Christian Creeds (1950; 3rd edition 1972)",
+      "kind": "History · under copyright",
+      "status": "located",
+      "read": "Located, not read. Named for the question of the creed of 381."
+    },
+    {
+      "id": "kelly-doctrines",
+      "title": "J. N. D. Kelly, Early Christian Doctrines (1958)",
+      "kind": "History · under copyright",
+      "status": "located",
+      "read": "Located, not read."
+    },
+    {
+      "id": "frend",
+      "title": "W. H. C. Frend, Martyrdom and Persecution in the Early Church (1965)",
+      "kind": "History · under copyright",
+      "status": "located",
+      "read": "Located, not read."
+    },
+    {
+      "id": "wilken",
+      "title": "Robert Louis Wilken, The Christians as the Romans Saw Them (1984)",
+      "kind": "History · under copyright",
+      "status": "located",
+      "read": "Located, not read."
+    },
+    {
+      "id": "barnes-constantine",
+      "title": "Timothy D. Barnes, Constantine and Eusebius (1981)",
+      "kind": "History · under copyright",
+      "status": "located",
+      "read": "Located, not read."
+    },
+    {
+      "id": "brown",
+      "title": "Peter Brown, Augustine of Hippo: A Biography (1967)",
+      "kind": "Biography · under copyright",
+      "status": "located",
+      "read": "Located, not read."
+    },
+    {
+      "id": "ferguson",
+      "title": "Everett Ferguson, Baptism in the Early Church (2009)",
+      "kind": "History · under copyright",
+      "status": "located",
+      "read": "Located, not read."
+    }
+  ],
+  "verses": [
+    {
+      "label": "1 Peter 4:16",
+      "code": "1PE",
+      "chapter": 4,
+      "verse": 16,
+      "phrase": "as a Christian"
+    },
+    {
+      "label": "Acts 11:26",
+      "code": "ACT",
+      "chapter": 11,
+      "verse": 26,
+      "phrase": "first called Christians"
+    },
+    {
+      "label": "Matthew 28:19",
+      "code": "MAT",
+      "chapter": 28,
+      "verse": 19,
+      "phrase": "in the name of the Father"
+    },
+    {
+      "label": "Revelation 2:10",
+      "code": "REV",
+      "chapter": 2,
+      "verse": 10,
+      "phrase": "crown of life"
+    },
+    {
+      "label": "John 1:1",
+      "code": "JHN",
+      "chapter": 1,
+      "verse": 1,
+      "phrase": "the Word was God"
+    },
+    {
+      "label": "John 1:14",
+      "code": "JHN",
+      "chapter": 1,
+      "verse": 14,
+      "phrase": "The Word became flesh"
+    },
+    {
+      "label": "1 John 4:2",
+      "code": "1JN",
+      "chapter": 4,
+      "verse": 2,
+      "phrase": "has come in the flesh"
+    },
+    {
+      "label": "1 Corinthians 15:3",
+      "code": "1CO",
+      "chapter": 15,
+      "verse": 3,
+      "phrase": "as of first importance"
+    },
+    {
+      "label": "1 Corinthians 15:4",
+      "code": "1CO",
+      "chapter": 15,
+      "verse": 4,
+      "phrase": "raised on the third day"
+    },
+    {
+      "label": "Romans 10:9",
+      "code": "ROM",
+      "chapter": 10,
+      "verse": 9,
+      "phrase": "Jesus is Lord"
+    },
+    {
+      "label": "Ephesians 2:8",
+      "code": "EPH",
+      "chapter": 2,
+      "verse": 8,
+      "phrase": "by grace you have been saved"
+    }
+  ],
+  "openQuestions": [
+    "Every quotation from an early writer or council (Tacitus, Ignatius, Polycarp, Justin, Tertullian, Eusebius, Augustine, the creeds of 325 and 381) is from memory of the named public-domain translation and must be checked word for word before publishing.",
+    "The first use of the name Apostolic Fathers (usually Cotelier, 1672).",
+    "Lightfoot's wording of 1 Clement's greeting and of Ignatius, To the Smyrnaeans 8.",
+    "Holders of a date for 1 Clement before 70.",
+    "Timothy Barnes's article dating Ignatius to the 140s, and its year.",
+    "Eusebius' Chronicle year for Polycarp's death.",
+    "Holders of the view connecting Perpetua's visions with Montanism.",
+    "The usual count of surviving Decian certificates (about forty-six).",
+    "Holders of the view that Tertullian never left the church (for example David Rankin).",
+    "The wording of the anathema of 325 and the article on the Spirit of 381 in Schaff/Percival.",
+    "The usual count of bishops at Constantinople (150) and at Chalcedon (about 520, later 630).",
+    "The date the Bazaar of Heracleides was found.",
+    "The numbering of Cyprian's letter to Fidus in the Ante-Nicene Fathers.",
+    "The Baptist Faith and Message preamble wording, at bfm.sbc.net.",
+    "Every BSB phrase in the verse list, by script.",
+    "Routes for: New Testament history, Baptism, The Lord's Supper, Worship and the Lord's Day, The Christian and the state, The person of Christ, Sin and the fall, Saved by grace, Election, The Reformation and the awakenings, Baptist history."
+  ]
+}

@@ -1,0 +1,1444 @@
+{
+  "schemaVersion": 1,
+  "order": 13,
+  "slug": "hebrew-poetry-and-biblical-narrative",
+  "title": "Hebrew poetry and biblical narrative",
+  "category": "languages",
+  "categoryTitle": "The biblical languages",
+  "updated": "2026-11-06",
+  "status": "draft",
+  "premise": "The Bible's writers used patterns a reader can see on the page: lines that pair, passages that fold back on themselves, poems that run the alphabet, words that come back, and stories that show more than they say. This study names those patterns, shows who first described each one, and tests how much each can bear.",
+  "question": "Is this pattern in the text for a reader to see, and what does finding it actually allow me to say?",
+  "outcomes": [
+    "Read two paired lines of Hebrew poetry and say what the second line adds to the first, not only what it repeats.",
+    "Test a proposed chiasm (a passage that runs A B C, then C B A) before trusting what its centre is said to mean.",
+    "Name the eleven complete or near-complete alphabet poems, and say what an acrostic can and cannot tell you about why it was written.",
+    "Follow a key word through a story, and tell a deliberate echo from a word that simply recurs.",
+    "Name the storyteller's tools (the scene, the first words a character speaks, the repeated scene, the thing left unsaid) and tell a gap a writer leaves on purpose from a contradiction.",
+    "Recognise three patterns the New Testament's Greek writers used, and say where scholars disagree about them."
+  ],
+  "boundaries": {
+    "in": "The patterns of form in Hebrew poetry (parallelism, the question of metre, chiasm, the frame called inclusio, refrains, acrostics), repetition and key words, the tools of biblical storytelling, and a short part on patterns in the New Testament's Greek writers. Each is read from examples a reader can open in the Berean Standard Bible, with the scholars who described it and the limits of what it shows.",
+    "out": [
+      "What each kind of writing (law, history, prophecy, wisdom, gospel, letter, apocalypse) asks of a reader. The theology study The kinds of writing in the Bible owns that; this page links it.",
+      "How Hebrew words and verbs work, including the chain of verb forms that carries a story forward. How Hebrew works (28) owns that, and How New Testament Greek works (31) owns the Greek.",
+      "Who wrote each book and when, and whether repeated scenes or a chiasm in Genesis argue for one author or for several sources. How the Old Testament books were written owns that debate; this page cites it in a sentence.",
+      "Manuscript layouts as evidence for the text. The text of the Bible (02) owns that; this page uses two layouts only as evidence that early scribes saw poetry as poetry.",
+      "Egyptian and Mesopotamian writing beside the Bible. The Bible and the ancient Near East (32) owns that.",
+      "What a passage teaches. This page shows how a passage is built and links the theology studies for what it means."
+    ]
+  },
+  "stance": {
+    "head": "What this site holds",
+    "confession": "“truth, without any mixture of error”",
+    "confessionSource": "Baptist Faith and Message 2000, article I (the Scriptures)",
+    "body": "Noticing how a passage is made is a way of reading what God gave, not a way of getting behind it. Craft and truth are separate questions. A story can be told with great skill and still tell what happened; a psalm can be built letter by letter and still be a true prayer. So this page reports what scholars have seen in the form of the text, and it never uses a pattern to correct the text, to rearrange it, or to decide that a narrative did not happen. Where a scholar does draw that kind of conclusion, the page says it is theirs. What Scripture says of itself is taught in the theology study Scripture, which this page links and does not argue.",
+    "verses": [
+      "2 Timothy 3:16",
+      "Luke 1:3"
+    ]
+  },
+  "parallelism": {
+    "headline": "Said once. *Said again, sharper.*",
+    "lead": "Most lines of Hebrew poetry come in pairs, sometimes in threes. The second line takes up the first in other words: it may restate it, contrast it, narrow it, heighten it or carry it a step further. Hebrew poetry does not rhyme and, as far as anyone can show, does not keep a strict metre. The pairing of lines is the feature every reader can see, even in translation, and that is why this study starts here.",
+    "readers": [
+      {
+        "id": "kimhi",
+        "who": "David Kimhi (Radak), Jewish commentator, about 1160 to 1235",
+        "held": "Jewish commentators long before Lowth noticed that a verse often repeats its matter in different words, and explained the doubling as a feature of style rather than as two separate statements.",
+        "source": "kugel",
+        "note": "Reported through Kugel's history. [check: that Kugel cites Kimhi for this, and the wording Kimhi uses]"
+      },
+      {
+        "id": "lowth",
+        "who": "Robert Lowth, 1753 and 1778",
+        "held": "Lowth, an Oxford professor and later Bishop of London, gave the feature its modern name, parallelism of members, in his Latin lectures on the sacred poetry of the Hebrews (1753). He sorted the pairs into three kinds: synonymous (the second line says the same thing again), antithetic (it says the opposite) and synthetic (it builds on the first in some other way).",
+        "source": "lowth",
+        "note": "[check: whether the three kinds are set out in lecture 19 of the 1753 lectures, in the preliminary dissertation to his Isaiah (1778), or in both]"
+      },
+      {
+        "id": "kugel",
+        "who": "James Kugel, 1981",
+        "held": "Kugel argued that Lowth's three kinds mislead. The second line is rarely mere repetition; its usual force is to add, sharpen or go further, which he summed up as “A, and what's more, B”. He also held that there is no sharp border between Hebrew poetry and heightened prose.",
+        "source": "kugel",
+        "note": "[check: the exact wording of Kugel's formula and its page]"
+      },
+      {
+        "id": "alter",
+        "who": "Robert Alter, 1985",
+        "held": "Alter agreed that the second line usually moves: it intensifies, makes the general specific, or carries a small story forward from line to line. Unlike Kugel, he kept a working distinction between verse and prose.",
+        "source": "alter-poetry"
+      },
+      {
+        "id": "berlin",
+        "who": "Adele Berlin, 1985",
+        "held": "Berlin showed that lines pair at several levels at once: in grammar (a statement answered by a question, a past tense by a future), in word pairs (heaven and earth, father and mother), and in sound. Parallelism, on her account, is a way language is shaped, and it appears in prose too.",
+        "source": "berlin-parallelism"
+      }
+    ],
+    "kinds": [
+      {
+        "id": "restate",
+        "name": "Restating",
+        "lowth": "synonymous",
+        "examples": [
+          "Psalm 19:1",
+          "Psalm 19:2"
+        ],
+        "look": "Psalm 19 opens with the heavens and then the skies: two subjects, two verbs, one claim. Read on into verse 2 and the day-and-night pair widens it to every hour.",
+        "evidence": "The second line uses different words in the same grammatical frame as the first.",
+        "inference": "Even here the second line moves a little: from the heavens' declaring to the skies' proclaiming, then out into time. This is Kugel's point at its plainest.",
+        "limit": "Whether two lines are “the same” depends partly on the translation. A reader without Hebrew is judging the translator's choices as well as the poet's."
+      },
+      {
+        "id": "contrast",
+        "name": "Contrasting",
+        "lowth": "antithetic",
+        "examples": [
+          "Proverbs 10:1",
+          "Proverbs 10:2",
+          "Proverbs 10:3"
+        ],
+        "look": "Proverbs 10 opens a long run of two-line sayings in which the second line turns: a wise son and a foolish son, treasure gained wickedly and righteousness, the righteous fed and the wicked turned away.",
+        "evidence": "Chapters 10 to 15 of Proverbs are built mostly of such contrasting pairs.",
+        "inference": "The form teaches by setting two roads side by side; the reader is meant to see both and choose.",
+        "limit": "A single saying states a pattern, not a promise for every case. That is a point about the kind of writing, and it belongs to The kinds of writing in the Bible."
+      },
+      {
+        "id": "heighten",
+        "name": "Heightening",
+        "lowth": "synthetic (Lowth's catch-all)",
+        "examples": [
+          "Isaiah 1:3"
+        ],
+        "look": "Isaiah 1:3 sets the ox and the donkey, who know their master, beside Israel, who does not. The animals come first; the second half lands the blow.",
+        "evidence": "The second line is not a restatement or a simple opposite. It turns the first line's picture against the hearers.",
+        "inference": "This is the kind Kugel and Alter found most often: the first line sets up, the second line goes further.",
+        "limit": "Naming the move does not settle every pair. Scholars sort the same lines differently, and the kinds are labels for reading, not rules the poets followed."
+      },
+      {
+        "id": "staircase",
+        "name": "The staircase",
+        "lowth": "not one of Lowth's three",
+        "examples": [
+          "Psalm 29:1",
+          "Psalm 29:2",
+          "Judges 5:27"
+        ],
+        "look": "Psalm 29 repeats its opening call and adds a new object each time. Judges 5:27 tells Sisera's fall by repeating its verbs, each time with a little more, until the last word.",
+        "evidence": "A phrase is repeated and extended across several lines, one step at a time.",
+        "inference": "The repetition slows the moment down. In Judges 5 it makes one blow last as long as a whole battle.",
+        "limit": "The same stepped pattern appears in the poetry of Ugarit, north of Israel; that comparison belongs to The Bible and the ancient Near East (32), and a shared form says nothing about borrowing by itself."
+      }
+    ],
+    "metre": {
+      "head": "Metre: an open question",
+      "lead": "Greek and Latin poetry counts long and short syllables. Scholars have looked for something like it in Hebrew for more than two centuries, and they still disagree. This page shows the views and does not choose.",
+      "views": [
+        {
+          "who": "Karl Budde, 1882",
+          "held": "Many laments, Lamentations above all, use a line of three stresses answered by two, a limping beat now called qinah, the Hebrew word for a lament.",
+          "source": "budde"
+        },
+        {
+          "who": "Eduard Sievers, from 1901",
+          "held": "Hebrew verse can be scanned by counting stressed syllables, and much of it falls into regular patterns.",
+          "source": "sievers"
+        },
+        {
+          "who": "Michael O'Connor, 1980",
+          "held": "What governs a line is not syllables or stresses but limits on its grammar: how many words and clauses a line may hold.",
+          "source": "oconnor"
+        },
+        {
+          "who": "James Kugel, 1981",
+          "held": "No metre has been shown. The regularity readers sense is a looser balance of line lengths.",
+          "source": "kugel"
+        }
+      ],
+      "limit": "Every count is made on the vowels the Masoretes added to the text in the early Middle Ages, which may not record how the lines were said when they were written. That is the main reason the question stays open."
+    },
+    "border": {
+      "head": "Where poetry ends and prose begins",
+      "evidence": [
+        "The Masoretic accents treat three books, Psalms, Proverbs and Job, with a separate set of accent marks of their own.",
+        "Old Hebrew manuscripts write two songs in a special layout: the Song of the Sea (Exodus 15) in a pattern the Talmud likens to bricks laid over half-bricks, and the Song of Moses (Deuteronomy 32) in two columns. The Leningrad Codex and the Aleppo Codex both show these. [check: the Talmud reference, Megillah 16b, and which layout each codex uses for each song]",
+        "Modern translations, the Berean among them, set poetry as indented lines. [check: the Berean's printed and on-site layout of poetry]"
+      ],
+      "inference": "Scribes and translators saw a difference between verse and prose and marked it. But their line breaks are a judgment about the text, not part of it, and translations sometimes disagree about whether a prophet's oracle should be set as verse.",
+      "views": [
+        {
+          "who": "Kugel",
+          "held": "A continuum: prose can be heightened by parallelism, and there is no border to find."
+        },
+        {
+          "who": "Alter and Berlin",
+          "held": "The difference is real, even where a passage sits near the line, and readers should notice when a writer changes from one to the other."
+        }
+      ],
+      "limit": "This study's own judgment is narrow: where a narrative breaks into a song (Exodus 15 after Exodus 14, Judges 5 after Judges 4), the change of form is deliberate and worth noticing. It does not decide the wider question."
+    }
+  },
+  "patterns": {
+    "headline": "There and back. *Watch the turn.*",
+    "lead": "Beyond the paired line, writers built larger shapes: a passage that folds back on itself, a poem framed by the same words at both ends, a line that returns as a refrain. These are real features of the text. They are also the place where readers most easily see patterns that are not there.",
+    "items": [
+      {
+        "id": "chiasm-small",
+        "name": "Chiasm in a verse",
+        "examples": [
+          "Genesis 9:6",
+          "Isaiah 6:10"
+        ],
+        "look": "In Hebrew, Genesis 9:6 runs in six words: sheds, blood, of man; by man, his blood, will be shed. Isaiah 6:10 runs heart, ears, eyes, then eyes, ears, heart.",
+        "evidence": "In both, the order of terms reverses around a middle point. The word chiasm comes from the Greek letter chi (Χ), whose strokes cross.",
+        "inference": "At this scale the pattern is easy to see and hard to dispute. In Genesis 9:6 the crossing makes the penalty mirror the crime.",
+        "limit": "Translations cannot always keep the Hebrew word order, so a chiasm visible in Hebrew may vanish in English. Isaiah 6:10 survives translation; Genesis 9:6 only partly does."
+      },
+      {
+        "id": "chiasm-large",
+        "name": "Chiasm across a passage",
+        "examples": [
+          "Genesis 6:9",
+          "Genesis 9:19"
+        ],
+        "look": "Gordon Wenham read the flood story (Genesis 6:9 to 9:19) as one long mirror, with its numbers of days rising to a centre, the moment God remembered Noah (Genesis 8:1), and falling away again.",
+        "evidence": "The flood story does give its day-counts in a pattern of seven, forty and a hundred and fifty, which then come back in reverse order. [check: Wenham's exact list of matching elements, VT 28 (1978)]",
+        "inference": "If the mirror is real, the story was shaped as a whole and its turning point is God's remembering. Wenham offered it partly as an argument that the story is a single composition.",
+        "limit": "J. A. Emerton replied that the matches depend on which elements one chooses to pair. [check: Emerton's two-part article in Vetus Testamentum 37 (1987) and 38 (1988)] Whether the story is one composition or two sources woven together is a question about how Genesis was written, and How the Old Testament books were written owns it."
+      },
+      {
+        "id": "inclusio",
+        "name": "The frame (inclusio)",
+        "examples": [
+          "Psalm 8:1",
+          "Psalm 8:9",
+          "Psalm 103:1",
+          "Psalm 103:22"
+        ],
+        "look": "Psalm 8 begins and ends with the same line about the majesty of the LORD's name. Psalm 103 opens and closes with the singer calling on his own soul to bless the LORD.",
+        "evidence": "The same words stand at the start and at the end, with different material between.",
+        "inference": "A frame marks where a unit begins and ends, and the middle is read inside it: everything Psalm 8 says about man sits inside praise of God's name.",
+        "limit": "A frame shows a boundary. It does not by itself show that the middle has a mirrored structure."
+      },
+      {
+        "id": "refrain",
+        "name": "The refrain",
+        "examples": [
+          "Psalm 42:5",
+          "Psalm 42:11",
+          "Psalm 43:5",
+          "Psalm 107:8",
+          "Psalm 107:15",
+          "Psalm 107:21",
+          "Psalm 107:31"
+        ],
+        "look": "The same question to the singer's own downcast soul comes three times across Psalms 42 and 43. Psalm 107 tells four stories of rescue, and each ends with the same call to give thanks.",
+        "evidence": "Psalm 43 has no heading of its own, and the refrain runs through both psalms. Many Hebrew manuscripts join the two as one psalm. [check: the manuscript evidence for joining Psalms 42 and 43]",
+        "inference": "The refrain is one reason many readers take Psalms 42 and 43 as a single poem, divided at some point in copying.",
+        "limit": "The division into separate psalms is old and is followed by the Berean. Reading them together is a way of reading, not a change to the text."
+      }
+    ],
+    "tests": {
+      "head": "Before you trust a chiasm",
+      "lead": "Scholars who use chiasm have also written warnings about it. Craig Blomberg (1989) and Ian Thomson (1995) each proposed tests a claimed chiasm should pass. [check: Blomberg's article title, journal and list of criteria] The tests below are this study's restatement of the common ground, not a quotation of either.",
+      "items": [
+        "Would the pattern be visible to a reader who was not looking for it, or does it appear only after headings are chosen to make it?",
+        "Do the paired parts share actual words or unusual ideas, or only broad themes that could be matched in many ways?",
+        "Does the pattern use all of the passage, or does it leave out awkward verses?",
+        "Is the centre really central to the passage's argument, or is it simply whatever happens to fall in the middle?",
+        "Do the outer parts begin and end where the passage itself begins and ends?"
+      ]
+    }
+  },
+  "acrostics": {
+    "headline": "Twenty-two letters. *One poem.*",
+    "lead": "An acrostic poem begins each line or stanza with the next letter of the Hebrew alphabet, which has twenty-two letters. The pattern is lost in every translation, but it is not hidden: anyone who reads the Hebrew sees it at once, and Psalm 119 is printed in many English Bibles with the Hebrew letter at the head of each stanza. [check: whether the Berean prints the letter names in Psalm 119]",
+    "poems": [
+      {
+        "ref": "Psalms 9–10",
+        "shape": "Broken acrostic across two psalms",
+        "note": "The letters run, with gaps, from the start of Psalm 9 to the end of Psalm 10. Psalm 10 has no heading, and the Greek Septuagint counts the two as a single psalm."
+      },
+      {
+        "ref": "Psalm 25",
+        "shape": "A verse a letter, with irregularities",
+        "note": "A letter is missing and a closing verse is added outside the alphabet. [check: which letter is missing]"
+      },
+      {
+        "ref": "Psalm 34",
+        "shape": "A verse a letter, with irregularities",
+        "note": "Like Psalm 25, it lacks a letter and closes with an extra line. [check: which letter is missing]"
+      },
+      {
+        "ref": "Psalm 37",
+        "shape": "A letter for every pair of verses, roughly",
+        "note": "The stanzas are mostly two verses long, so the alphabet stretches across forty verses."
+      },
+      {
+        "ref": "Psalm 111",
+        "shape": "A letter for every half-line",
+        "note": "Twenty-two short lines in ten verses."
+      },
+      {
+        "ref": "Psalm 112",
+        "shape": "A letter for every half-line",
+        "note": "Built exactly like Psalm 111, its partner: one praises the LORD, the other the person who fears him."
+      },
+      {
+        "ref": "Psalm 119",
+        "shape": "Eight verses for each letter",
+        "note": "Twenty-two stanzas of eight lines, every line in a stanza beginning with its letter: 176 verses, the longest chapter in the Bible."
+      },
+      {
+        "ref": "Psalm 145",
+        "shape": "A verse a letter, one missing in the standard Hebrew text",
+        "note": "The standard Hebrew text has no line for the letter nun. A Dead Sea Scrolls psalms scroll (11QPsa) and the Septuagint have one, and several modern translations print it. [check: how the Berean prints and footnotes Psalm 145:13]"
+      },
+      {
+        "ref": "Proverbs 31:10–31",
+        "shape": "A verse a letter",
+        "note": "The poem of the capable wife: twenty-two verses, the alphabet in order."
+      },
+      {
+        "ref": "Lamentations 1, 2 and 4",
+        "shape": "A stanza a letter",
+        "note": "Twenty-two stanzas each. Chapter 1 follows the usual order of two letters, ayin then pe; chapters 2, 3 and 4 reverse them."
+      },
+      {
+        "ref": "Lamentations 3",
+        "shape": "Three verses for each letter",
+        "note": "Sixty-six verses, each three-verse group beginning with the same letter."
+      }
+    ],
+    "edge": {
+      "ref": "Nahum 1:2–8",
+      "note": "Some scholars see a partial acrostic covering about half the alphabet; others doubt it. It is not counted in the eleven above."
+    },
+    "lamentations5": "Lamentations 5 has twenty-two verses, the number of the alphabet, but its lines do not follow the letters. The poem keeps the length and drops the order.",
+    "evidence": "The eleven poems above follow the alphabet completely or nearly so; their irregularities are recorded in the standard Hebrew text and compared with the Dead Sea Scrolls and the Septuagint.",
+    "inference": "The form was chosen with care, and a poet who wrote it knew that hearers who knew the alphabet would follow it. Many readers take it to express completeness: grief told from beginning to end, or the law praised from first letter to last. That is a reading of the form, and a reasonable one.",
+    "limit": "No poem says why it is an acrostic. Memory, teaching, completeness and the beauty of a hard form are all proposed reasons; the text does not choose among them, and neither does this page. That Lamentations 5 drops the order is a fact; that it drops it because grief has broken the order is a reading."
+  },
+  "keyWords": {
+    "headline": "One word, *coming back.*",
+    "lead": "Hebrew writers often let a word or a root return across a passage, so that its meaning grows each time. Martin Buber, who with Franz Rosenzweig made a German translation of the Hebrew Bible that kept these echoes, called such a word a Leitwort, a leading word. The device is easy to lose in translation, because a translator may render one Hebrew word with several English ones.",
+    "items": [
+      {
+        "id": "recognize",
+        "name": "Please recognise",
+        "examples": [
+          "Genesis 37:32",
+          "Genesis 37:33",
+          "Genesis 38:25",
+          "Genesis 38:26"
+        ],
+        "look": "Joseph's brothers bring their father the bloodied robe and ask him to examine it. A chapter later Tamar sends Judah his own seal, cord and staff with the same request.",
+        "evidence": "The Hebrew uses the same two words in both places, a verb meaning to examine or recognise with a word of request. Robert Alter drew attention to the pairing.",
+        "inference": "Judah, who deceived his father with a piece of clothing, is himself confronted with things he must own. The story of Judah and Tamar, which seems to interrupt the Joseph story, is tied into it by the repeated words.",
+        "limit": "The link is plain in Hebrew and depends on the translator in English. Whether the Berean keeps the same English both times is a fact to check, not an assumption. [check: the Berean's wording at Genesis 37:32 and 38:25]"
+      },
+      {
+        "id": "good",
+        "name": "It was good",
+        "examples": [
+          "Genesis 1:4",
+          "Genesis 1:10",
+          "Genesis 1:12",
+          "Genesis 1:18",
+          "Genesis 1:21",
+          "Genesis 1:25",
+          "Genesis 1:31"
+        ],
+        "look": "God sees that what he has made is good, seven times through the first chapter, and the seventh time the verdict is heightened.",
+        "evidence": "The seven verdicts are on the page in any translation. The last of them, at Genesis 1:31, covers everything made and adds a word of degree.",
+        "inference": "The repetition gives the chapter its rhythm and makes the last verdict land with more weight.",
+        "limit": "Seven occurs often in Genesis 1, and readers have built large structures on its counts. The verdicts are countable; claims that every word-count in the chapter is a multiple of seven need their own check and are not made here."
+      },
+      {
+        "id": "refrains-judges",
+        "name": "The narrator's refrains in Judges",
+        "examples": [
+          "Judges 2:11",
+          "Judges 3:7",
+          "Judges 3:12",
+          "Judges 4:1",
+          "Judges 6:1",
+          "Judges 10:6",
+          "Judges 13:1",
+          "Judges 17:6",
+          "Judges 21:25"
+        ],
+        "look": "The book repeats a line that Israel did evil in the sight of the LORD, opening cycle after cycle. Near its end a second refrain takes over: there was no king in Israel.",
+        "evidence": "The first refrain stands at the head of each major cycle; the second comes four times in the last chapters (Judges 17:6, 18:1, 19:1, 21:25).",
+        "inference": "The narrator rarely comments, so when he repeats himself the reader is being told how to read the whole book.",
+        "limit": "Refrains show a writer's or editor's shaping. They do not tell us when that shaping was done; that is for How the Old Testament books were written."
+      }
+    ],
+    "caution": "A word that recurs is not always a leading word. Common words recur because they are common. A key word earns the name when it comes back at turning points, when it joins scenes the reader might not otherwise join, or when its meaning shifts between uses."
+  },
+  "storyteller": {
+    "headline": "Shown, not told. *And what is left out.*",
+    "lead": "Biblical narrative is spare. The narrator seldom describes a face, seldom says what a character felt, and seldom passes judgment. Readers since Erich Auerbach (1946) have taken that spareness as a craft, not a lack. These are the tools scholars have named, with an example of each a reader can open.",
+    "tools": [
+      {
+        "id": "scene",
+        "name": "The scene and the summary",
+        "examples": [
+          "Genesis 5:3",
+          "Genesis 5:32",
+          "Genesis 22:1",
+          "Genesis 22:19"
+        ],
+        "look": "Genesis 5 passes through centuries in a few verses each. Genesis 22 slows to a single journey of three days, told step by step: the wood, the fire, the knife, the question on the road.",
+        "evidence": "The amount of text given to an event varies hugely. Most stories move by scenes with two characters speaking, with others in the background, as Shimon Bar-Efrat describes.",
+        "inference": "Where the telling slows, the reader is being asked to look. The pace is part of the meaning.",
+        "limit": "Pace shows emphasis, not importance in history. A summarised century is not therefore a less true one."
+      },
+      {
+        "id": "background",
+        "name": "Fraught with background",
+        "examples": [
+          "Genesis 22:1",
+          "Genesis 22:2",
+          "Genesis 22:3"
+        ],
+        "look": "Abraham is told to go, and he rises early and goes. The narrator says nothing of what he thought.",
+        "evidence": "Erich Auerbach, in the first chapter of Mimesis (1946), set Homer's unhurried account of Odysseus' scar beside Genesis 22. Homer, he said, leaves nothing in shadow; the Genesis narrator leaves almost everything unsaid, so that the story is, in the English translation of his book, “fraught with background”. [check: the phrase in Willard Trask's translation, 1953, and its page]",
+        "inference": "The silence draws the reader into the question the story asks, rather than answering it in advance.",
+        "limit": "Auerbach was a literary critic comparing styles; he made no claim about whether the event happened, and this page draws none from his comparison."
+      },
+      {
+        "id": "firstwords",
+        "name": "A character's first words",
+        "examples": [
+          "Genesis 25:29",
+          "Genesis 25:30",
+          "Genesis 25:34"
+        ],
+        "look": "Esau's first recorded speech is a hungry demand for the red stew, in words so blunt that Alter renders them as a request to gulp it down.",
+        "evidence": "Alter observed that the first words a character speaks often define them, because the narrator otherwise gives so little description.",
+        "inference": "The narrator then sums up in a single line at Genesis 25:34. The speech has already shown what the summary says.",
+        "limit": "The first-words pattern is a tendency Alter noticed, not a rule; some characters' first words are ordinary."
+      },
+      {
+        "id": "repetition",
+        "name": "Repetition with a difference",
+        "examples": [
+          "Genesis 41:1",
+          "Genesis 41:7",
+          "Genesis 41:17",
+          "Genesis 41:24"
+        ],
+        "look": "The narrator tells Pharaoh's dreams, and then Pharaoh tells them to Joseph. The second telling is not word for word: it adds Pharaoh's own reaction to the thin cows.",
+        "evidence": "Biblical stories often repeat a speech or event, and the repetitions differ. Alter and Meir Sternberg both treat these differences as a main way the narrative characterises speakers.",
+        "inference": "When a speech is retold, compare the two: what a character adds, leaves out or softens shows how they see things.",
+        "limit": "Critical scholars have often read repeated material as evidence of two sources joined together. This page reads the differences as craft, which is how Alter and Sternberg read them; the source question belongs to How the Old Testament books were written."
+      },
+      {
+        "id": "typescene",
+        "name": "The type-scene",
+        "examples": [
+          "Genesis 24:10",
+          "Genesis 24:27",
+          "Genesis 29:1",
+          "Genesis 29:14",
+          "Exodus 2:15",
+          "Exodus 2:21",
+          "1 Samuel 9:11"
+        ],
+        "look": "A man travels to a foreign land and comes to a well. A young woman comes to draw water; water is drawn; she runs home; the man is welcomed; a marriage follows. So it goes for Abraham's servant and Rebekah, for Jacob and Rachel, and for Moses and Zipporah.",
+        "evidence": "Alter called such recurring patterns type-scenes, borrowing a term from the study of Homer. He argued that the art lies in how each telling varies the pattern. When Saul meets young women at a well in 1 Samuel 9 and the expected scene does not follow, Alter reads the break as telling.",
+        "inference": "A reader who knows the pattern notices what is different: Rebekah's energy, Jacob moving the stone alone, Moses driving off the shepherds.",
+        "limit": "A repeated pattern is not a sign that one story was invented from another. Real meetings at wells were common in a land where wells were where people met; the writers' art is in the telling."
+      },
+      {
+        "id": "gaps",
+        "name": "What is left unsaid",
+        "examples": [
+          "2 Samuel 11:1",
+          "2 Samuel 11:8",
+          "2 Samuel 11:11",
+          "2 Samuel 11:27"
+        ],
+        "look": "David sends Uriah home to his wife, and Uriah sleeps at the palace door. Did Uriah know what had happened? The narrator never says.",
+        "evidence": "Meir Sternberg, in The Poetics of Biblical Narrative (1985), used 2 Samuel 11 to show how the narrator leaves gaps, questions the reader must hold open, and how the reading changes depending on how they are filled.",
+        "inference": "The one place the narrator does pass judgment comes at the very end, at 2 Samuel 11:27, and it lands harder because he has said so little until then.",
+        "limit": "A gap is something the narrator chose not to say. It is not a contradiction and it is not an error. Sternberg's distinction between gaps that matter and blanks that do not is worth keeping: not every unmentioned detail is a puzzle."
+      },
+      {
+        "id": "narrator",
+        "name": "The narrator who knows",
+        "examples": [
+          "1 Samuel 18:20",
+          "1 Samuel 16:7"
+        ],
+        "look": "Now and then the narrator tells what is inside someone. 1 Samuel 18:20 says Michal loved David; Alter notes that she is the only woman in the Hebrew Bible of whom this is said directly.",
+        "evidence": "Because inner states are rarely given, the few that are stand out. [check: Alter's claim about Michal and where he makes it]",
+        "inference": "The narrator knows hearts, as God in 1 Samuel 16:7 is said to look on the heart, and shares that knowledge sparingly.",
+        "limit": "The narrator's knowledge is a feature of how the story is told. What Scripture teaches about its own source belongs to the theology study Scripture."
+      }
+    ],
+    "fiction": {
+      "head": "Art and history: two different questions",
+      "views": [
+        {
+          "who": "Robert Alter, 1981",
+          "held": "Alter called biblical narrative a kind of prose fiction, or history made into fiction, meaning that it uses the techniques of fiction whatever its relation to events.",
+          "source": "alter-narrative"
+        },
+        {
+          "who": "Meir Sternberg, 1985",
+          "held": "Sternberg argued against calling it fiction: the biblical narrator writes as a historian, claims to tell what happened, and demands to be believed.",
+          "source": "sternberg"
+        }
+      ],
+      "note": "This page reports both because they bear on how readers use these tools. The site's own voice holds the narratives true (Baptist Faith and Message 2000, article I). Literary craft is evidence of how a story is told; it cannot decide whether it happened, in either direction."
+    }
+  },
+  "greek": {
+    "headline": "The pattern crosses *into Greek.*",
+    "lead": "The New Testament was written in Greek by writers who knew the Hebrew Scriptures, mostly through the Greek translation called the Septuagint. Some of their patterns come from that Hebrew inheritance; others come from Greek schooling. This part is short on purpose: three patterns, each with what scholars hold and where they disagree.",
+    "items": [
+      {
+        "id": "sandwich",
+        "name": "Mark's sandwiches",
+        "examples": [
+          "Mark 5:21",
+          "Mark 5:43",
+          "Mark 11:12",
+          "Mark 11:25"
+        ],
+        "look": "Mark begins one story, interrupts it with another, and then finishes the first. Jairus asks Jesus to heal his daughter; a woman who has bled for twelve years touches him; then the girl is raised. Jesus curses a fig tree; he drives the traders from the temple; then the fig tree is found withered.",
+        "evidence": "James R. Edwards listed nine such passages in Mark and argued that the outer and inner stories explain each other. [check: Edwards's count, Novum Testamentum 31 (1989)]",
+        "inference": "The two stories are meant to be read together. The fig tree with leaves and no fruit stands on either side of a temple full of activity.",
+        "limit": "How many passages count, and whether each one is a deliberate frame, varies from scholar to scholar."
+      },
+      {
+        "id": "hebrewlines",
+        "name": "Hebrew lines in Greek",
+        "examples": [
+          "Luke 1:46",
+          "Luke 1:55",
+          "Luke 1:1",
+          "Luke 1:4"
+        ],
+        "look": "Luke opens with one long, carefully balanced Greek sentence (Luke 1:1–4), in the manner of educated Greek writers. Within the same chapter, Mary's song (Luke 1:46–55) moves in paired lines like a psalm.",
+        "evidence": "Loveday Alexander compared Luke's preface with the prefaces of Greek technical and scientific writers. The songs of Luke 1 and 2 use the parallel lines of Hebrew poetry and echo the Old Testament closely, especially Hannah's prayer (1 Samuel 2:1–10).",
+        "inference": "One writer could use two registers: Greek prose to address his reader, Hebrew-style poetry where his story's people praise God in the words of Israel's Scriptures.",
+        "limit": "Whether the songs were composed by Luke, passed to him, or recorded from those who sang them is not something their form can decide."
+      },
+      {
+        "id": "paul",
+        "name": "Paul's patterns",
+        "examples": [
+          "Philippians 2:6",
+          "Philippians 2:11",
+          "Romans 3:1",
+          "Romans 3:8"
+        ],
+        "look": "Philippians 2:6–11 moves in balanced lines down to the cross and up to every knee bowing. In Romans Paul often raises an objection in an imagined questioner's voice and answers it.",
+        "evidence": "Ralph Martin argued in Carmen Christi (1967) that Philippians 2:6–11 is a hymn the churches sang before Paul quoted it. Gordon Fee replied (1992) that it is Paul's own exalted prose. Stanley Stowers (1981) compared Paul's question-and-answer style in Romans with the diatribe, a teaching style of Greek philosophers. Nils Lund (1942) found many chiasms in Paul.",
+        "inference": "Paul wrote as a man shaped by both Israel's Scriptures and Greek schooling, and his letters show both.",
+        "limit": "Whether Philippians 2 is a hymn is open, and this page does not choose: Martin and Fee both read it as true teaching about Christ, and differ only on where its form came from. Lund's lists are often thought to go beyond what the tests above allow."
+      }
+    ],
+    "more": "Other patterns are often named and are left to further reading: a proposed chiasm in John's prologue (John 1:1–18), with R. Alan Culpepper's case for a centre at verse 12 [check: Culpepper's article, New Testament Studies 27, 1980]; the frames Albert Vanhoye traced through Hebrews (1963); the threefold predictions of the passion in Mark (8:31, 9:31, 10:33–34); and the sevens of Revelation."
+  },
+  "claims": [
+    {
+      "id": "same",
+      "claim": "“Parallelism just means saying the same thing twice.”",
+      "head": "The second line usually moves.",
+      "evidence": "Isaiah 1:3 sets the animals' knowledge against Israel's ignorance. Psalm 19:1–2 widens from the heavens to every day and night. Kugel and Alter both argue that pure repetition is rare.",
+      "inference": "Reading the second line as an echo misses what it adds. Ask what is sharper, narrower or further in line two.",
+      "limit": "Some pairs are very close in meaning. The claim is too strong, not entirely wrong.",
+      "verses": [
+        "Isaiah 1:3",
+        "Psalm 19:1",
+        "Psalm 19:2"
+      ],
+      "sources": [
+        "kugel",
+        "alter-poetry",
+        "lowth"
+      ],
+      "test": {
+        "question": "Two lines say nearly the same thing in different words. What is the best first question to ask?",
+        "options": [
+          {
+            "text": "Which of the two lines is the original, and which was added later?",
+            "right": false,
+            "why": "Paired lines are the ordinary form of the poetry. Nothing in the pairing suggests that one line was added."
+          },
+          {
+            "text": "What does the second line add, narrow or heighten?",
+            "right": true,
+            "why": "This is what the form invites. Sometimes the answer is very little; often it is a great deal."
+          },
+          {
+            "text": "Nothing: the two lines make one point, and the second can be skipped.",
+            "right": false,
+            "why": "That is Lowth's synonymous kind taken further than Lowth took it. Most readers since Kugel would not skip the second line."
+          }
+        ]
+      }
+    },
+    {
+      "id": "centre",
+      "claim": "“Find the centre of a chiasm and you have found the main point.”",
+      "head": "Only if the chiasm is really there.",
+      "evidence": "Small chiasms like Genesis 9:6 and Isaiah 6:10 are plain in the words. Large ones, like the flood as a mirror, depend on which elements are paired, and scholars disagree.",
+      "inference": "A centre carries weight only when the pattern passes tests like those above, and the centre is also central to the passage's own argument.",
+      "limit": "A writer may put the main point at the beginning, the end or the centre. A chiasm is one way of giving weight, not the only one.",
+      "verses": [
+        "Genesis 9:6",
+        "Isaiah 6:10",
+        "Genesis 8:1"
+      ],
+      "sources": [
+        "wenham",
+        "emerton",
+        "blomberg",
+        "thomson"
+      ],
+      "test": {
+        "question": "A commentary lays out a long passage as A B C D C' B' A', with headings it has written itself, and says D is the passage's message. What should you check first?",
+        "options": [
+          {
+            "text": "Whether the matching parts share actual words, not only themes the commentator has named.",
+            "right": true,
+            "why": "Headings chosen afterwards can make almost any passage look mirrored. Shared words are harder to arrange."
+          },
+          {
+            "text": "Nothing: if a pattern fits, it must be there.",
+            "right": false,
+            "why": "Many patterns can be fitted to a long passage. Fit alone does not show design."
+          },
+          {
+            "text": "Whether the passage has an odd number of verses.",
+            "right": false,
+            "why": "Verse numbers were added many centuries later and say nothing about the writer's structure."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fiction",
+      "claim": "“A story told this skilfully must be fiction.”",
+      "head": "Craft and history are separate questions.",
+      "evidence": "Biblical narrative uses type-scenes, repeated speeches and deliberate gaps. Alter called it prose fiction; Sternberg argued that its narrator writes as a historian and claims to tell what happened.",
+      "inference": "The evidence of craft shows how a story is told. It does not show whether it happened. Historians in every age have written with art.",
+      "limit": "This page does not argue the history of any particular story. The site's own view, that the narratives are true, is stated in its stance and taught in the theology study Scripture.",
+      "verses": [
+        "Luke 1:3",
+        "Genesis 24:10"
+      ],
+      "sources": [
+        "alter-narrative",
+        "sternberg"
+      ],
+      "test": {
+        "question": "Three betrothal scenes at a well follow the same pattern. What does that pattern let you say?",
+        "options": [
+          {
+            "text": "That the writer shaped the telling so readers would notice what is different each time.",
+            "right": true,
+            "why": "This is what Alter argues, and it is what the evidence on the page supports."
+          },
+          {
+            "text": "That the meetings were invented from one model story.",
+            "right": false,
+            "why": "A shared pattern in the telling is not evidence of invention. Wells were where strangers met."
+          },
+          {
+            "text": "That the three stories are about the same couple.",
+            "right": false,
+            "why": "They name different people in different generations and places."
+          }
+        ]
+      }
+    },
+    {
+      "id": "memory",
+      "claim": "“Acrostics were only memory aids.”",
+      "head": "Possible, but the poems do not say.",
+      "evidence": "Eleven poems follow the alphabet. None says why. Lamentations 5 keeps the alphabet's number of verses and drops its order.",
+      "inference": "Memory, completeness, teaching and the craft of a hard form are all reasonable reasons, and more than one may be true of the same poem.",
+      "limit": "Any single explanation goes beyond the evidence. This page does not choose.",
+      "verses": [
+        "Psalm 119:1",
+        "Lamentations 3:1",
+        "Proverbs 31:10"
+      ],
+      "sources": [
+        "watson",
+        "berlin-parallelism"
+      ],
+      "test": {
+        "question": "Lamentations 5 has twenty-two verses but does not follow the alphabet. What can you say from that alone?",
+        "options": [
+          {
+            "text": "That the poet forgot the alphabet.",
+            "right": false,
+            "why": "Four acrostics come just before it. The change is far likelier to be deliberate."
+          },
+          {
+            "text": "That the number of lines is kept and the alphabetic order is not.",
+            "right": true,
+            "why": "That is the fact. Why the poet did it, many readers suggest grief beyond order, is an interpretation, and a reasonable one."
+          },
+          {
+            "text": "That chapter 5 was written by someone else.",
+            "right": false,
+            "why": "A change of form does not identify a change of author."
+          }
+        ]
+      }
+    },
+    {
+      "id": "codes",
+      "claim": "“The real patterns are hidden: letters at equal spacing spell out secret messages.”",
+      "head": "Visible patterns are not hidden codes.",
+      "evidence": "An acrostic, a chiasm or a refrain can be seen by anyone who reads the text. The “Bible code” claim, that letters picked out at equal intervals spell names and events, was published by Doron Witztum, Eliyahu Rips and Yoav Rosenberg in Statistical Science (1994). Brendan McKay, Dror Bar-Natan, Maya Bar-Hillel and Gil Kalai answered in the same journal (1999) that similar results could be produced from other long texts and depended on choices made in the method.",
+      "inference": "Every pattern on this page is in the text for its first hearers to see. A hidden code is a different kind of claim, and the published evidence for it did not stand up to testing.",
+      "limit": "This page reports the statistical exchange. What the site holds about Scripture's meaning, that it is found in what the words say, is taught in the theology studies Scripture and Reading the Bible.",
+      "verses": [],
+      "sources": [
+        "witztum",
+        "mckay"
+      ],
+      "test": {
+        "question": "What separates an acrostic from a code found by skipping letters?",
+        "options": [
+          {
+            "text": "An acrostic is part of how the poem reads; a skip code is not visible in the reading at all.",
+            "right": true,
+            "why": "Anyone who hears Psalm 119 in Hebrew hears the letters. No hearer could hear a skip code."
+          },
+          {
+            "text": "Nothing: both are patterns of letters.",
+            "right": false,
+            "why": "Both use letters, but one is on the surface and the other must be searched for by a method that also finds patterns in other books."
+          },
+          {
+            "text": "Acrostics are only in English translations.",
+            "right": false,
+            "why": "They are in the Hebrew, and are lost in translation."
+          }
+        ]
+      }
+    }
+  ],
+  "confusedWords": [
+    {
+      "word": "Parallelism and repetition",
+      "note": "Parallelism is the pairing of lines. Repetition is one thing a pair can do, and not the most common."
+    },
+    {
+      "word": "Chiasm, inclusio and ring",
+      "note": "A chiasm reverses its order around a centre. An inclusio only repeats words at the start and end. A ring composition is a looser term for a passage that returns to where it began. A frame does not prove a mirror."
+    },
+    {
+      "word": "Acrostic and alphabetic",
+      "note": "In Hebrew Bible study the two are used for the same thing: lines that follow the alphabet. They do not here mean a word spelled out by first letters, as an English acrostic often does."
+    },
+    {
+      "word": "Metre and rhythm",
+      "note": "Metre is a regular count. Rhythm is the felt movement of a line. Hebrew poetry has rhythm; whether it has metre is open."
+    },
+    {
+      "word": "Key word and theme",
+      "note": "A key word is a word or root that actually recurs. A theme is an idea, which can recur in many different words. The first can be counted; the second is a reading."
+    },
+    {
+      "word": "Type-scene and duplicate",
+      "note": "A type-scene is a pattern different events are told in. A duplicate, in source criticism, is one event told twice. Seeing one does not prove the other."
+    },
+    {
+      "word": "Gap and contradiction",
+      "note": "A gap is something not said. A contradiction is two things said that cannot both be true. Most of what readers call contradictions in stories are gaps."
+    },
+    {
+      "word": "Narrator and author",
+      "note": "The narrator is the voice telling the story on the page. The author is the person who wrote it. This page speaks only of the narrator; authorship belongs to How the Old Testament books were written."
+    },
+    {
+      "word": "A hymn in form and a hymn in origin",
+      "note": "Philippians 2:6–11 may be hymn-like in form whether or not it was sung before Paul wrote it. The form is on the page; the origin is a reconstruction."
+    }
+  ],
+  "timeline": {
+    "head": "Who noticed what",
+    "note": "Dates are for the book or lectures named, not for when the pattern was first seen. Jewish readers noticed doubled lines and alphabet poems long before any name on this line, and the acrostics were plainly seen by their writers.",
+    "rows": [
+      {
+        "year": "about 1200",
+        "who": "David Kimhi",
+        "what": "Doubled lines explained as style [check]"
+      },
+      {
+        "year": "1753",
+        "who": "Robert Lowth",
+        "what": "Parallelism named; three kinds"
+      },
+      {
+        "year": "1882",
+        "who": "Karl Budde",
+        "what": "The limping lament line (qinah)"
+      },
+      {
+        "year": "1901",
+        "who": "Eduard Sievers",
+        "what": "Stress-counting metre"
+      },
+      {
+        "year": "from 1925",
+        "who": "Martin Buber and Franz Rosenzweig",
+        "what": "The leading word (Leitwort) in translation [check: date of the first volume]"
+      },
+      {
+        "year": "1942",
+        "who": "Nils Lund",
+        "what": "Chiasm in the New Testament"
+      },
+      {
+        "year": "1946",
+        "who": "Erich Auerbach",
+        "what": "Genesis 22 beside Homer"
+      },
+      {
+        "year": "1963",
+        "who": "Albert Vanhoye",
+        "what": "The structure of Hebrews"
+      },
+      {
+        "year": "1978",
+        "who": "Gordon Wenham",
+        "what": "The flood as a mirror"
+      },
+      {
+        "year": "1980",
+        "who": "Michael O'Connor",
+        "what": "Line structure as grammar"
+      },
+      {
+        "year": "1981",
+        "who": "James Kugel; Robert Alter",
+        "what": "A, and what's more, B; The Art of Biblical Narrative"
+      },
+      {
+        "year": "1985",
+        "who": "Adele Berlin; Meir Sternberg; Robert Alter",
+        "what": "Levels of parallelism; gaps; The Art of Biblical Poetry"
+      },
+      {
+        "year": "1989",
+        "who": "James R. Edwards",
+        "what": "Mark's sandwiches"
+      }
+    ]
+  },
+  "reach": [
+    "This is a selection, not a census. Seven devices of poetry, three kinds of key word, seven storytelling tools and three Greek patterns are read here, each from a few examples. Many more examples exist, and other surveys divide the devices differently.",
+    "Nothing on this page was counted by script from Hebrew or Greek text. The site holds no tagged Hebrew poetry data for this study yet. The counts given (the twenty-two letters, the 176 verses of Psalm 119, the sixty-six of Lamentations 3, the seven verdicts of Genesis 1) are to be checked by the build against the Berean before publishing.",
+    "Several examples depend on Hebrew word order or word choice that a translation may not keep. Where that is so, the page says so beside the example.",
+    "Every outside source on this page is located, not read, in this draft. Each summary must be checked against the book or article before the page is published, and the status of each source updated.",
+    "Nothing here can show who wrote a passage or when. Form is evidence of craft, not of date or authorship."
+  ],
+  "pictures": {
+    "note": "Candidates only. None is downloaded until the owner approves it and its licence is confirmed.",
+    "candidates": [
+      {
+        "id": "aleppo-deut32",
+        "what": "The Aleppo Codex, the page with the Song of Moses (Deuteronomy 32) in two columns",
+        "where": "Israel Museum, Jerusalem; images on Wikimedia Commons",
+        "licence": "[check: licence of the photograph, not only of the manuscript]"
+      },
+      {
+        "id": "leningrad-ex15",
+        "what": "The Leningrad Codex, the Song of the Sea (Exodus 15) in its brick-like layout",
+        "where": "National Library of Russia, St Petersburg; facsimile photographs published",
+        "licence": "[check: whether any open-licence photograph exists]"
+      },
+      {
+        "id": "11qpsa",
+        "what": "The great Psalms scroll from Qumran cave 11, the column with Psalm 145 and its nun line",
+        "where": "Israel Antiquities Authority, Leon Levy Dead Sea Scrolls Digital Library",
+        "licence": "[check: the digital library's terms; they may not allow republishing]"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "lowth",
+      "title": "Robert Lowth, De sacra poesi Hebraeorum praelectiones (1753); English: Lectures on the Sacred Poetry of the Hebrews, translated by G. Gregory (1787)",
+      "kind": "Lectures, 1753 · public domain",
+      "status": "located",
+      "answers": "Who named parallelism, and what kinds did he see?",
+      "read": "Not read for this draft. Summary from standard histories; check the three kinds against the lectures and his Isaiah (1778)."
+    },
+    {
+      "id": "kugel",
+      "title": "James L. Kugel, The Idea of Biblical Poetry: Parallelism and Its History (Yale University Press, 1981)",
+      "kind": "Book, 1981 · under copyright",
+      "status": "located",
+      "answers": "Is the second line repetition, and is there a border between verse and prose?",
+      "read": "Not read for this draft. Check the formula's wording and the Jewish commentators he reports."
+    },
+    {
+      "id": "alter-poetry",
+      "title": "Robert Alter, The Art of Biblical Poetry (Basic Books, 1985)",
+      "kind": "Book, 1985 · under copyright",
+      "status": "located",
+      "answers": "What does the second line do?",
+      "read": "Not read for this draft."
+    },
+    {
+      "id": "alter-narrative",
+      "title": "Robert Alter, The Art of Biblical Narrative (Basic Books, 1981)",
+      "kind": "Book, 1981 · under copyright",
+      "status": "located",
+      "answers": "What are the storyteller's tools: type-scene, first words, repetition, the leading word?",
+      "read": "Not read for this draft. Check the Genesis 37/38 pairing, Esau's first words, Michal and the well scenes against the book."
+    },
+    {
+      "id": "berlin-parallelism",
+      "title": "Adele Berlin, The Dynamics of Biblical Parallelism (Indiana University Press, 1985)",
+      "kind": "Book, 1985 · under copyright",
+      "status": "located",
+      "answers": "At what levels do lines pair?",
+      "read": "Not read for this draft."
+    },
+    {
+      "id": "berlin-narrative",
+      "title": "Adele Berlin, Poetics and Interpretation of Biblical Narrative (Almond Press, 1983)",
+      "kind": "Book, 1983 · under copyright",
+      "status": "located",
+      "answers": "How are characters and points of view built in the stories?",
+      "read": "Not read for this draft. Reading trail only."
+    },
+    {
+      "id": "sternberg",
+      "title": "Meir Sternberg, The Poetics of Biblical Narrative: Ideological Literature and the Drama of Reading (Indiana University Press, 1985)",
+      "kind": "Book, 1985 · under copyright",
+      "status": "located",
+      "answers": "What is a gap, and does the narrator write as a historian?",
+      "read": "Not read for this draft. Check the 2 Samuel 11 chapter and his argument against calling the narrative fiction."
+    },
+    {
+      "id": "barefrat",
+      "title": "Shimon Bar-Efrat, Narrative Art in the Bible (Almond Press, 1989; Hebrew original earlier)",
+      "kind": "Book · under copyright",
+      "status": "located",
+      "answers": "How are scenes, time and characters handled?",
+      "read": "Not read for this draft. [check: date of the Hebrew original]"
+    },
+    {
+      "id": "auerbach",
+      "title": "Erich Auerbach, Mimesis (1946), chapter 1, “Odysseus' Scar”; English translation by Willard R. Trask (Princeton University Press, 1953)",
+      "kind": "Book · under copyright",
+      "status": "located",
+      "answers": "What does the spareness of Genesis 22 do?",
+      "read": "Not read for this draft. Check the quoted phrase and its page in Trask."
+    },
+    {
+      "id": "watson",
+      "title": "Wilfred G. E. Watson, Classical Hebrew Poetry: A Guide to Its Techniques (JSOT Press, 1984)",
+      "kind": "Handbook, 1984 · under copyright",
+      "status": "located",
+      "answers": "What devices does Hebrew poetry use, with examples?",
+      "read": "Not read for this draft. The best single reference for the acrostic and staircase lists."
+    },
+    {
+      "id": "oconnor",
+      "title": "Michael O'Connor, Hebrew Verse Structure (Eisenbrauns, 1980)",
+      "kind": "Book, 1980 · under copyright",
+      "status": "located",
+      "answers": "Is the line governed by grammar rather than metre?",
+      "read": "Not read for this draft."
+    },
+    {
+      "id": "budde",
+      "title": "Karl Budde, “Das hebräische Klagelied”, Zeitschrift für die alttestamentliche Wissenschaft 2 (1882)",
+      "kind": "Article, 1882 · public domain",
+      "status": "located",
+      "answers": "Is there a lament metre?",
+      "read": "Not read for this draft. [check: volume and pages]"
+    },
+    {
+      "id": "sievers",
+      "title": "Eduard Sievers, Metrische Studien (from 1901)",
+      "kind": "Book · public domain",
+      "status": "located",
+      "answers": "Can Hebrew verse be scanned by stresses?",
+      "read": "Not read for this draft."
+    },
+    {
+      "id": "wenham",
+      "title": "Gordon J. Wenham, “The Coherence of the Flood Narrative”, Vetus Testamentum 28 (1978)",
+      "kind": "Article, 1978",
+      "status": "located",
+      "answers": "Is the flood story built as a mirror?",
+      "read": "Not read for this draft."
+    },
+    {
+      "id": "emerton",
+      "title": "J. A. Emerton, “An Examination of Some Attempts to Defend the Unity of the Flood Narrative in Genesis”, Vetus Testamentum 37 (1987) and 38 (1988)",
+      "kind": "Article in two parts",
+      "status": "located",
+      "answers": "Does the flood mirror stand up?",
+      "read": "Not read for this draft. [check: title, volumes and pages]"
+    },
+    {
+      "id": "blomberg",
+      "title": "Craig L. Blomberg, on the structure of 2 Corinthians 1–7 and criteria for chiasm, Criswell Theological Review 4 (1989)",
+      "kind": "Article, 1989",
+      "status": "located",
+      "answers": "How do you test a claimed chiasm?",
+      "read": "Not read for this draft. [check: exact title and the criteria listed]"
+    },
+    {
+      "id": "thomson",
+      "title": "Ian H. Thomson, Chiasmus in the Pauline Letters (Sheffield Academic Press, 1995)",
+      "kind": "Book, 1995 · under copyright",
+      "status": "located",
+      "answers": "How far can chiasm in Paul be shown?",
+      "read": "Not read for this draft."
+    },
+    {
+      "id": "lund",
+      "title": "Nils W. Lund, Chiasmus in the New Testament (University of North Carolina Press, 1942)",
+      "kind": "Book, 1942",
+      "status": "located",
+      "answers": "How widely was chiasm claimed in the New Testament?",
+      "read": "Not read for this draft."
+    },
+    {
+      "id": "edwards",
+      "title": "James R. Edwards, “Markan Sandwiches: The Significance of Interpolations in Markan Narratives”, Novum Testamentum 31 (1989)",
+      "kind": "Article, 1989",
+      "status": "located",
+      "answers": "How does Mark frame one story with another?",
+      "read": "Not read for this draft."
+    },
+    {
+      "id": "alexander",
+      "title": "Loveday Alexander, The Preface to Luke's Gospel (Cambridge University Press, 1993)",
+      "kind": "Book, 1993 · under copyright",
+      "status": "located",
+      "answers": "What kind of Greek preface is Luke 1:1–4?",
+      "read": "Not read for this draft."
+    },
+    {
+      "id": "martin",
+      "title": "Ralph P. Martin, Carmen Christi: Philippians 2:5–11 (Cambridge University Press, 1967)",
+      "kind": "Book, 1967 · under copyright",
+      "status": "located",
+      "answers": "Was Philippians 2:6–11 a hymn before Paul?",
+      "read": "Not read for this draft."
+    },
+    {
+      "id": "fee",
+      "title": "Gordon D. Fee, “Philippians 2:5–11: Hymn or Exalted Pauline Prose?”, Bulletin for Biblical Research 2 (1992)",
+      "kind": "Article, 1992",
+      "status": "located",
+      "answers": "Is it Paul's own prose?",
+      "read": "Not read for this draft."
+    },
+    {
+      "id": "stowers",
+      "title": "Stanley K. Stowers, The Diatribe and Paul's Letter to the Romans (Scholars Press, 1981)",
+      "kind": "Book, 1981 · under copyright",
+      "status": "located",
+      "answers": "Where does Paul's question-and-answer style come from?",
+      "read": "Not read for this draft."
+    },
+    {
+      "id": "vanhoye",
+      "title": "Albert Vanhoye, La structure littéraire de l'Épître aux Hébreux (1963)",
+      "kind": "Book, 1963 · under copyright",
+      "status": "located",
+      "answers": "How is Hebrews framed?",
+      "read": "Not read for this draft. Further reading only."
+    },
+    {
+      "id": "culpepper",
+      "title": "R. Alan Culpepper, “The Pivot of John's Prologue”, New Testament Studies 27 (1980)",
+      "kind": "Article",
+      "status": "located",
+      "answers": "Is John 1:1–18 a chiasm?",
+      "read": "Not read for this draft. [check: volume and year]"
+    },
+    {
+      "id": "witztum",
+      "title": "Doron Witztum, Eliyahu Rips and Yoav Rosenberg, “Equidistant Letter Sequences in the Book of Genesis”, Statistical Science 9 (1994)",
+      "kind": "Article, 1994",
+      "status": "located",
+      "answers": "What did the Bible-code claim say?",
+      "read": "Not read for this draft."
+    },
+    {
+      "id": "mckay",
+      "title": "Brendan McKay, Dror Bar-Natan, Maya Bar-Hillel and Gil Kalai, “Solving the Bible Code Puzzle”, Statistical Science 14 (1999)",
+      "kind": "Article, 1999",
+      "status": "located",
+      "answers": "Did the claim stand up?",
+      "read": "Not read for this draft."
+    }
+  ],
+  "readingTrail": [
+    {
+      "source": "alter-narrative",
+      "why": "Start here for stories: clear, short and full of examples."
+    },
+    {
+      "source": "alter-poetry",
+      "why": "Start here for poetry, with Alter's answer to what the second line does."
+    },
+    {
+      "source": "kugel",
+      "why": "For the history of how parallelism has been described, and the strongest case that it is not repetition."
+    },
+    {
+      "source": "watson",
+      "why": "A handbook to look devices up in."
+    },
+    {
+      "source": "sternberg",
+      "why": "Long and demanding; the fullest account of gaps and of the narrator as historian."
+    }
+  ],
+  "verses": {
+    "note": "References only. This draft quotes no verse text, because no Berean passage text was supplied to it. The build is to take each verse's wording from the site's held Berean, confirm the verse exists, and confirm what the 'use' field says can be seen in it.",
+    "list": [
+      {
+        "label": "Psalm 19:1",
+        "code": "PSA",
+        "chapter": 19,
+        "verse": 1,
+        "use": "Restating pair"
+      },
+      {
+        "label": "Psalm 19:2",
+        "code": "PSA",
+        "chapter": 19,
+        "verse": 2,
+        "use": "Day and night widen the claim"
+      },
+      {
+        "label": "Proverbs 10:1",
+        "code": "PRO",
+        "chapter": 10,
+        "verse": 1,
+        "use": "Contrasting pair"
+      },
+      {
+        "label": "Isaiah 1:3",
+        "code": "ISA",
+        "chapter": 1,
+        "verse": 3,
+        "use": "Heightening pair"
+      },
+      {
+        "label": "Psalm 29:1",
+        "code": "PSA",
+        "chapter": 29,
+        "verse": 1,
+        "use": "Staircase"
+      },
+      {
+        "label": "Judges 5:27",
+        "code": "JDG",
+        "chapter": 5,
+        "verse": 27,
+        "use": "Staircase"
+      },
+      {
+        "label": "Genesis 9:6",
+        "code": "GEN",
+        "chapter": 9,
+        "verse": 6,
+        "use": "Chiasm in a verse"
+      },
+      {
+        "label": "Isaiah 6:10",
+        "code": "ISA",
+        "chapter": 6,
+        "verse": 10,
+        "use": "Heart, ears, eyes; eyes, ears, heart"
+      },
+      {
+        "label": "Genesis 8:1",
+        "code": "GEN",
+        "chapter": 8,
+        "verse": 1,
+        "use": "Proposed centre of the flood"
+      },
+      {
+        "label": "Psalm 8:1",
+        "code": "PSA",
+        "chapter": 8,
+        "verse": 1,
+        "use": "Frame, opening"
+      },
+      {
+        "label": "Psalm 8:9",
+        "code": "PSA",
+        "chapter": 8,
+        "verse": 9,
+        "use": "Frame, closing"
+      },
+      {
+        "label": "Psalm 103:1",
+        "code": "PSA",
+        "chapter": 103,
+        "verse": 1,
+        "use": "Frame, opening"
+      },
+      {
+        "label": "Psalm 103:22",
+        "code": "PSA",
+        "chapter": 103,
+        "verse": 22,
+        "use": "Frame, closing"
+      },
+      {
+        "label": "Psalm 42:5",
+        "code": "PSA",
+        "chapter": 42,
+        "verse": 5,
+        "use": "Refrain"
+      },
+      {
+        "label": "Psalm 42:11",
+        "code": "PSA",
+        "chapter": 42,
+        "verse": 11,
+        "use": "Refrain"
+      },
+      {
+        "label": "Psalm 43:5",
+        "code": "PSA",
+        "chapter": 43,
+        "verse": 5,
+        "use": "Refrain"
+      },
+      {
+        "label": "Psalm 107:8",
+        "code": "PSA",
+        "chapter": 107,
+        "verse": 8,
+        "use": "Refrain"
+      },
+      {
+        "label": "Psalm 119:1",
+        "code": "PSA",
+        "chapter": 119,
+        "verse": 1,
+        "use": "Acrostic, first stanza"
+      },
+      {
+        "label": "Psalm 145:13",
+        "code": "PSA",
+        "chapter": 145,
+        "verse": 13,
+        "use": "The nun line question"
+      },
+      {
+        "label": "Proverbs 31:10",
+        "code": "PRO",
+        "chapter": 31,
+        "verse": 10,
+        "use": "Acrostic begins"
+      },
+      {
+        "label": "Lamentations 3:1",
+        "code": "LAM",
+        "chapter": 3,
+        "verse": 1,
+        "use": "Three verses a letter"
+      },
+      {
+        "label": "Lamentations 5:1",
+        "code": "LAM",
+        "chapter": 5,
+        "verse": 1,
+        "use": "Twenty-two verses, no alphabet"
+      },
+      {
+        "label": "Genesis 1:31",
+        "code": "GEN",
+        "chapter": 1,
+        "verse": 31,
+        "use": "Seventh verdict, heightened"
+      },
+      {
+        "label": "Genesis 37:32",
+        "code": "GEN",
+        "chapter": 37,
+        "verse": 32,
+        "use": "Please recognise, first"
+      },
+      {
+        "label": "Genesis 38:25",
+        "code": "GEN",
+        "chapter": 38,
+        "verse": 25,
+        "use": "Please recognise, second"
+      },
+      {
+        "label": "Judges 21:25",
+        "code": "JDG",
+        "chapter": 21,
+        "verse": 25,
+        "use": "Closing refrain"
+      },
+      {
+        "label": "Genesis 22:3",
+        "code": "GEN",
+        "chapter": 22,
+        "verse": 3,
+        "use": "Action without inner thought"
+      },
+      {
+        "label": "Genesis 25:30",
+        "code": "GEN",
+        "chapter": 25,
+        "verse": 30,
+        "use": "Esau's first words"
+      },
+      {
+        "label": "Genesis 41:19",
+        "code": "GEN",
+        "chapter": 41,
+        "verse": 19,
+        "use": "Pharaoh's added comment"
+      },
+      {
+        "label": "Genesis 29:10",
+        "code": "GEN",
+        "chapter": 29,
+        "verse": 10,
+        "use": "Jacob moves the stone"
+      },
+      {
+        "label": "Exodus 2:17",
+        "code": "EXO",
+        "chapter": 2,
+        "verse": 17,
+        "use": "Moses drives off the shepherds"
+      },
+      {
+        "label": "1 Samuel 9:11",
+        "code": "1SA",
+        "chapter": 9,
+        "verse": 11,
+        "use": "The well scene that does not happen"
+      },
+      {
+        "label": "2 Samuel 11:11",
+        "code": "2SA",
+        "chapter": 11,
+        "verse": 11,
+        "use": "Uriah's refusal; the gap"
+      },
+      {
+        "label": "2 Samuel 11:27",
+        "code": "2SA",
+        "chapter": 11,
+        "verse": 27,
+        "use": "The narrator's verdict"
+      },
+      {
+        "label": "1 Samuel 18:20",
+        "code": "1SA",
+        "chapter": 18,
+        "verse": 20,
+        "use": "An inner state told"
+      },
+      {
+        "label": "Mark 5:25",
+        "code": "MRK",
+        "chapter": 5,
+        "verse": 25,
+        "use": "The inner story of a sandwich"
+      },
+      {
+        "label": "Mark 11:20",
+        "code": "MRK",
+        "chapter": 11,
+        "verse": 20,
+        "use": "The fig tree found withered"
+      },
+      {
+        "label": "Luke 1:3",
+        "code": "LUK",
+        "chapter": 1,
+        "verse": 3,
+        "use": "An orderly account"
+      },
+      {
+        "label": "Luke 1:46",
+        "code": "LUK",
+        "chapter": 1,
+        "verse": 46,
+        "use": "Mary's song begins"
+      },
+      {
+        "label": "Philippians 2:6",
+        "code": "PHP",
+        "chapter": 2,
+        "verse": 6,
+        "use": "Hymn or prose"
+      },
+      {
+        "label": "Romans 3:1",
+        "code": "ROM",
+        "chapter": 3,
+        "verse": 1,
+        "use": "Question and answer"
+      },
+      {
+        "label": "2 Timothy 3:16",
+        "code": "2TI",
+        "chapter": 3,
+        "verse": 16,
+        "use": "Stance"
+      }
+    ]
+  },
+  "links": {
+    "theology": [
+      "The kinds of writing in the Bible",
+      "Scripture (the word of God)",
+      "Reading the Bible",
+      "The book of Psalms",
+      "The wisdom books"
+    ],
+    "academic": [
+      "How Hebrew works",
+      "How New Testament Greek works",
+      "How the Old Testament books were written",
+      "How the New Testament books were written",
+      "The text of the Bible",
+      "The Bible and the ancient Near East",
+      "Why translations differ"
+    ]
+  },
+  "openQuestions": [
+    "No Berean passage text was supplied, so this draft quotes no verse. The build must confirm every reference and each 'use' description against the held Berean before the page is built, and any quotation added later must be copied from that text.",
+    "Every outside source is marked located, not read. Each summary must be checked against the source before publishing, and its status changed to read or part.",
+    "Lowth: whether the three kinds are in lecture 19 (1753), the Isaiah dissertation (1778), or both.",
+    "Kugel: exact wording and page of “A, and what's more, B”; whether he cites David Kimhi for doubled lines.",
+    "Auerbach: the phrase “fraught with background” and its page in Trask's translation.",
+    "Alter: the Genesis 37/38 pairing, Esau's rendering, and the claim about Michal in 1 Samuel 18:20.",
+    "The Talmud's description of the Song of the Sea layout (Megillah 16b), and which layout the Leningrad and Aleppo codices use for Exodus 15 and Deuteronomy 32.",
+    "The Berean: whether poetry is set in lines on the site; whether Psalm 119 prints the letter names; how Psalm 145:13 prints and footnotes the nun line; whether Genesis 37:32 and 38:25 use the same English verb.",
+    "Psalms 25 and 34: which letter each lacks. Lamentations: the stanza lengths of chapters 1, 2 and 4.",
+    "Manuscript evidence for joining Psalms 42 and 43.",
+    "Wenham's list of matching elements in the flood mirror; Emerton's title, volumes and pages.",
+    "Blomberg's article title and criteria; Edwards's count of Markan sandwiches; Culpepper's volume and year; Budde's volume and pages; the date of the first Buber–Rosenzweig volume; the date of Bar-Efrat's Hebrew original.",
+    "Picture licences for all three candidates."
+  ]
+}

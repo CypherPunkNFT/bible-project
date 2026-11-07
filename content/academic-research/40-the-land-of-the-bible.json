@@ -1,0 +1,1460 @@
+{
+  "schemaVersion": 1,
+  "order": 40,
+  "slug": "the-land-of-the-bible",
+  "title": "The land of the Bible",
+  "category": "culture",
+  "categoryTitle": "Ancient cultures & daily life",
+  "updated": "2026-11-06",
+  "status": "draft",
+  "draftNote": "Written as a research draft. None of the outside sources below has yet been read for this file. Each is marked 'located' and must be read before the page is built. Every figure for height, distance and rainfall carries a [check] mark until it is confirmed against a named source. No verse of Scripture is quoted word for word here, because no Berean text was supplied with the job. Verses are given by reference, and their Berean phrases are left for the data build to fill from the site's held text.",
+  "premise": "The Bible's stories happen on a small strip of land, about as wide as a long day's walk, laid out in bands that run north and south: a coast, low hills, a high ridge, a deep rift, and a plateau beyond it. Knowing those bands explains words the Bible uses without stopping to explain them. It explains why travellers 'go up' to Jerusalem, why the Philistine wars are fought in the low hills, and why the rain matters so much.",
+  "question": "What did this ground let people do, and what did it stop them doing? And how sure can we be of where a thing happened?",
+  "outcomes": [
+    "Name the five bands of the land from the sea to the plateau, and say which one a passage is standing in.",
+    "Explain from heights and distances why the Bible says people went up to Jerusalem and down to Jericho.",
+    "Say what the early and latter rains are, and why Deuteronomy sets the rain of Canaan against the river of Egypt.",
+    "Trace the two long roads, and say why armies and traders kept returning to the same few valleys.",
+    "Tell a place the ground fixes from a place a scholar proposes, and say whose proposal it is."
+  ],
+  "boundaries": {
+    "in": "The physical land of the Bible from the Mediterranean coast to the plateau east of the Jordan, and from the slopes of Mount Hermon to the Negev. Its regions, its long roads and passes, its climate and rain, its water, and the ways the ground shaped battles, trade and worship, as the text and the ground show them.",
+    "out": [
+      "The farming year, its crops, its tools and the Gezer calendar: The farming year (29) has them. This page says only when the rain falls.",
+      "The house, the courtyard, the cistern as part of a home: Home and household in Old Testament Israel (27) has them.",
+      "Moab, Ammon and Edom as peoples, and the roads east of the Jordan in detail: The peoples around Israel (35). Its roads section is cited here, not moved.",
+      "Where Ai stood, and the dates of the conquest: Israel from the exodus to Solomon (38). Both placements of Ai are named here and left with it.",
+      "Where Sodom stood, and the patriarchs' journeys as history: The patriarchs in their world (39). Both placements of Sodom are named here and left with it.",
+      "The Siloam inscription read closely, and the dating of Hezekiah's tunnel: cited in a sentence from the study that holds it [check: whether Archaeology and the Bible (06) or Cities through their layers (08) holds the Siloam inscription].",
+      "Khirbet Qeiyafa above the Valley of Elah: Israel from the exodus to Solomon (38).",
+      "Old maps of the Holy Land as objects: the Old maps collection.",
+      "What the land means in God's covenant promises: the theology study The covenants (God's binding promises). This page reports what the text says of the land and does not teach the doctrine."
+    ]
+  },
+  "transect": {
+    "lead": "One line across the land, drawn west to east at the latitude of Jerusalem, from the shore near Jaffa to the edge of the Moabite plateau near Mount Nebo. Every height and distance below is rounded and marked for checking. The point is the shape: a climb of about 750 metres from the sea, then a fall of over a kilometre in less than forty kilometres, then a climb again.",
+    "points": [
+      {
+        "id": "sea",
+        "name": "The Mediterranean shore near Jaffa",
+        "km": 0,
+        "elevation": 0,
+        "band": "coast",
+        "note": "A straight, sandy coast with few natural harbours. Joppa is the one the Bible names for Judah's side of it.",
+        "verses": [
+          "Jonah 1:3",
+          "2 Chronicles 2:16"
+        ]
+      },
+      {
+        "id": "plain",
+        "name": "The coastal plain",
+        "km": 15,
+        "elevation": 50,
+        "band": "coast",
+        "note": "Flat, well watered in winter, and the line of the long coastal road. Philistine country in the south of it; the Sharon further north.",
+        "elevationCheck": "[check: plain heights, Aharoni or Beitzel]"
+      },
+      {
+        "id": "shephelah",
+        "name": "The Shephelah, the low hills",
+        "km": 30,
+        "elevation": 350,
+        "band": "shephelah",
+        "note": "Rolling chalk hills cut by broad valleys running east and west. The ground between the Philistines and Judah.",
+        "elevationCheck": "[check: typical Shephelah heights]"
+      },
+      {
+        "id": "ridge",
+        "name": "Jerusalem, on the ridge",
+        "km": 55,
+        "elevation": 770,
+        "band": "hills",
+        "note": "The central ridge of the hill country, about 750 to 800 metres high at Jerusalem. The ridge road runs north and south along it.",
+        "elevationCheck": "[check: Jerusalem's height, about 750 to 800 m]",
+        "distanceCheck": "[check: straight-line distance from the coast to Jerusalem, about 55 to 60 km]"
+      },
+      {
+        "id": "wilderness",
+        "name": "The wilderness of Judah",
+        "km": 65,
+        "elevation": 300,
+        "band": "hills",
+        "note": "The eastern slope, in the ridge's rain shadow. Bare hills and deep gorges, good for hiding and grazing, poor for fields.",
+        "elevationCheck": "[check: a mid-slope height]"
+      },
+      {
+        "id": "jericho",
+        "name": "Jericho",
+        "km": 80,
+        "elevation": -250,
+        "band": "rift",
+        "note": "An oasis fed by a strong spring, about 250 metres below sea level. From Jerusalem it is a fall of about a kilometre in about 25 kilometres.",
+        "elevationCheck": "[check: Jericho's height]",
+        "verses": [
+          "Luke 10:30"
+        ]
+      },
+      {
+        "id": "deadsea",
+        "name": "The Jordan and the Dead Sea",
+        "km": 90,
+        "elevation": -430,
+        "band": "rift",
+        "note": "The lowest ground on the land surface of the earth. The Dead Sea's surface has been falling for decades, so any one figure dates quickly.",
+        "elevationCheck": "[check: current Dead Sea surface level, about −430 m and falling, with its date]"
+      },
+      {
+        "id": "plateau",
+        "name": "The Moabite plateau near Mount Nebo",
+        "km": 105,
+        "elevation": 800,
+        "band": "east",
+        "note": "A sharp climb out of the rift onto high tableland: grazing and grain country, with the King's Highway running north and south across it.",
+        "elevationCheck": "[check: Nebo's height, about 700 to 800 m]",
+        "verses": [
+          "Deuteronomy 34:1"
+        ]
+      }
+    ],
+    "otherLines": "The same five bands hold to the north and south, but they change. In Galilee the rift holds a freshwater lake, the hills are wetter and the coast is cut by Mount Carmel. In the south the hills sink into the Negev and the rift runs on as the Arabah to the Gulf of Aqaba. The page draws two more slices, through Galilee and through Beersheba, so that the reader sees the bands narrow and dry.",
+    "limit": "A transect is a simplification. It shows one line, smooths every hill and valley between the points, and stretches the height many times over so that it can be seen. The page states the stretch beside the drawing."
+  },
+  "regions": [
+    {
+      "id": "coast",
+      "name": "The coastal plain",
+      "band": "coast",
+      "where": "From the Plain of Acco in the north, past Mount Carmel, through the Sharon, down to the Philistine plain and on toward Gaza.",
+      "evidence": "The plain is low and mostly flat, widening toward the south. Its northern part, the Sharon, was marshy and wooded in places before modern drainage [check: Sharon's ancient vegetation, Aharoni or Baly]. Scripture places the five Philistine cities in its southern part, and names Joppa as the port where Hiram's timber came ashore for Jerusalem and where Jonah took ship.",
+      "inference": "Flat ground suits chariots and a long road, and both are on this plain. That made it the land's open corridor, and the people who held it, the Philistines in the south, held the way between Egypt and the north.",
+      "limit": "The coastline has moved since biblical times: rivers have silted, and dunes have shifted. Ancient harbours cannot simply be read off a modern map.",
+      "verses": [
+        "Joshua 13:3",
+        "2 Chronicles 2:16",
+        "Jonah 1:3"
+      ],
+      "sources": [
+        "aharoni",
+        "baly",
+        "smith"
+      ]
+    },
+    {
+      "id": "shephelah",
+      "name": "The Shephelah",
+      "band": "shephelah",
+      "where": "A belt of low hills between the coastal plain and the hill country of Judah, about 15 kilometres wide [check: width], cut by valleys that run up from the plain toward the ridge: from north to south, the valleys of Aijalon, Sorek, Elah and those leading up toward Lachish and Hebron [check: the valley list and order in Rainey and Notley].",
+      "evidence": "The Hebrew word means roughly 'lowland', and translations render it 'lowland', 'foothills' or keep the Hebrew name. The towns Scripture sets here include Lachish, Azekah, Socoh, Beth-shemesh, Timnah and Zorah. Samson's story moves through the Sorek valley; David meets Goliath in the Elah valley, between Socoh and Azekah; Joshua's pursuit runs down the Beth-horon road and past Aijalon.",
+      "inference": "Each valley is a road up into Judah's hills. Whoever held the Shephelah held the doors to Judah. That is why so many of the Philistine wars, and later Sennacherib's siege of Lachish, are fought here rather than in the hills or on the plain.",
+      "limit": "Which modern ruin is which biblical town is settled for some (Lachish at Tel Lachish is widely accepted) and argued for others. Each identification carries its own evidence and should not be assumed.",
+      "verses": [
+        "1 Samuel 17:1",
+        "1 Samuel 17:2",
+        "1 Samuel 17:3",
+        "Judges 16:4",
+        "Joshua 10:10",
+        "Joshua 10:12",
+        "2 Kings 18:14"
+      ],
+      "sources": [
+        "rainey-notley",
+        "aharoni",
+        "dorsey"
+      ]
+    },
+    {
+      "id": "hills",
+      "name": "The hill country",
+      "band": "hills",
+      "where": "The central highland, from the hills of Ephraim and Samaria in the north, through Benjamin, to the hills of Judah running south past Hebron.",
+      "evidence": "A limestone ridge, highest near Hebron at over 900 metres [check: Hebron's height] and broken by the Jezreel valley in the north. Its western slope catches the winter rain; its eastern slope falls into dry wilderness. Most of the towns at the heart of Israel's story stand here: Shechem, Shiloh, Bethel, Gibeah, Jerusalem, Bethlehem and Hebron. Survey archaeology has found many small new villages in these hills at the start of the Iron Age, about 1200 BC [check: survey results as summarised by a named source].",
+      "inference": "Rough hills are hard ground for chariots and easy ground to defend. A people with little iron and no chariots could hold them. The Aramean officers in Kings drew the same conclusion from their defeats, calling Israel's God a god of the hills. The text records their claim and then shows it to be wrong.",
+      "limit": "Who lived in the new highland villages, and how they relate to Israel's settlement, belongs to Israel from the exodus to Solomon (38). This page reports only that the hills were settled and why they suited it.",
+      "verses": [
+        "Joshua 17:16",
+        "Joshua 17:18",
+        "1 Kings 20:23",
+        "1 Kings 20:28",
+        "Psalm 125:2"
+      ],
+      "sources": [
+        "aharoni",
+        "baly",
+        "beitzel"
+      ]
+    },
+    {
+      "id": "rift",
+      "name": "The Jordan rift",
+      "band": "rift",
+      "where": "The deep trough from the springs below Mount Hermon, through the Hula basin and the Sea of Galilee, down the Jordan valley to the Dead Sea, and on as the Arabah to the Gulf of Aqaba.",
+      "evidence": "The rift is part of a long fault line where two plates of the earth's crust slide past each other [check: geologists' term, the Dead Sea Transform]. The Sea of Galilee lies about 210 metres below sea level, and the Dead Sea's surface lies at about 430 metres below sea level [check both]. The Jordan winds between them. Jericho sits beside a strong spring near the river's lower end. Earthquakes are recorded in the region, and Amos dates his words from one.",
+      "inference": "The rift is both a border and a crossing. The Jordan is easy to name as a line on a map and hard to cross in flood season, as Joshua's crossing in the season of harvest presupposes. Its fords became places to hold or to seize, as in the stories of Ehud and of Jephthah.",
+      "limit": "The modern river carries far less water than it did before twentieth-century dams and pumping, so its present look is a poor guide to its ancient one.",
+      "verses": [
+        "Joshua 3:15",
+        "Judges 3:28",
+        "Judges 12:5",
+        "Amos 1:1"
+      ],
+      "sources": [
+        "baly",
+        "smith",
+        "orni-efrat"
+      ]
+    },
+    {
+      "id": "east",
+      "name": "The land east of the Jordan",
+      "band": "east",
+      "where": "A high plateau above the rift's eastern wall: Bashan in the north, Gilead in the middle, then the lands of Ammon, Moab and Edom running south.",
+      "evidence": "Scripture remembers Bashan for its cattle and oaks, Gilead for its balm and its forests, and Moab for its sheep; Mesha king of Moab paid his tribute in lambs and wool. Reuben, Gad and half of Manasseh asked for this side of the river because it was good for their herds. The King's Highway ran along this plateau.",
+      "inference": "A plateau of grass and grain, open to the desert on its east, is cattle and sheep country. The tribes' request in Numbers fits the ground.",
+      "limit": "The peoples of this land, and its roads in detail, belong to The peoples around Israel (35). This page gives only its place in the land's bands.",
+      "verses": [
+        "Numbers 32:1",
+        "Amos 4:1",
+        "Jeremiah 8:22",
+        "2 Kings 3:4"
+      ],
+      "sources": [
+        "aharoni",
+        "rainey-notley"
+      ],
+      "link": "The peoples around Israel (35)"
+    },
+    {
+      "id": "negev",
+      "name": "The Negev",
+      "band": "south",
+      "where": "The dry south below the hills of Judah, around Beersheba and on toward Kadesh-barnea.",
+      "evidence": "The Hebrew word can mean 'dry land' and, because this land lay to Judah's south, it also became a word for 'south'. Translations vary between the two. Rainfall drops quickly south of Hebron, to about 200 millimetres a year near Beersheba [check: Beersheba's average]. Scripture fills the Negev with wells: Abraham's and Isaac's quarrels over wells at Beersheba and Gerar, and the spies who went up through it toward Hebron.",
+      "inference": "In a land this dry, a well is a claim to the land around it. The disputes over wells in Genesis are disputes over who may live there.",
+      "limit": "Some passages could mean 'the south' generally or the Negev as a region, and translations choose. A reader cannot always tell which from English alone.",
+      "verses": [
+        "Genesis 20:1",
+        "Genesis 21:25",
+        "Genesis 21:31",
+        "Genesis 26:18",
+        "Numbers 13:17",
+        "Numbers 13:22"
+      ],
+      "sources": [
+        "aharoni",
+        "beitzel"
+      ]
+    },
+    {
+      "id": "galilee",
+      "name": "Galilee",
+      "band": "north",
+      "where": "The hills north of the Jezreel valley, divided into a higher, wetter Upper Galilee and a lower, more open Lower Galilee, falling east to the Sea of Galilee.",
+      "evidence": "Galilee is the wettest part of the land west of the Jordan, with Upper Galilee receiving perhaps 800 millimetres a year or more [check: Upper Galilee averages]. Isaiah names it 'of the nations' beside the way of the sea, and Matthew cites that passage when Jesus moves to Capernaum. Nazareth stands in the hills above the Jezreel valley; the lakeside towns of the Gospels lived by fishing and by the roads that passed them.",
+      "inference": "A fertile region crossed by roads, with Gentile towns around it, fits both Isaiah's name for it and the mixed crowds of the Gospels.",
+      "limit": "Josephus praises Galilee's fertility in his Jewish War [check: book and section], but he was its commander and had reasons to praise it. His figures for its villages are not taken at face value here.",
+      "verses": [
+        "Isaiah 9:1",
+        "Matthew 4:13",
+        "Matthew 4:15",
+        "Luke 5:1"
+      ],
+      "sources": [
+        "smith",
+        "josephus"
+      ]
+    },
+    {
+      "id": "jezreel",
+      "name": "The Jezreel valley",
+      "band": "north",
+      "where": "A broad triangle of flat ground cutting south-east from the bay of Acco to the Jordan, between Mount Carmel and the hills of Galilee, with Megiddo guarding its south-western pass.",
+      "evidence": "The one easy way across the hill country from the coast to the rift. Scripture sets Deborah and Barak's battle by the Kishon, Gideon's camp by the spring of Harod, Saul's last battle on Mount Gilboa above it, and Josiah's death at Megiddo.",
+      "inference": "Where the only flat route through the hills crosses the coastal road, armies meet. Megiddo's name, through the Greek of Revelation, became a byword for the great battle.",
+      "limit": "The link between Megiddo and Revelation's 'Armageddon' is widely held but not certain, and what Revelation means by it belongs to the theology shelf's Daniel and Revelation, not to this page.",
+      "verses": [
+        "Judges 5:21",
+        "Judges 7:1",
+        "1 Samuel 31:1",
+        "2 Kings 23:29",
+        "Revelation 16:16"
+      ],
+      "sources": [
+        "aharoni",
+        "rainey-notley"
+      ]
+    }
+  ],
+  "roads": {
+    "lead": "Two long roads ran the length of the region, and a few short ones climbed across it. The long roads were not Israel's: they linked Egypt with Syria and Mesopotamia, and Israel sat beside them. The peoples around Israel (35) gives the roads east of the Jordan in full. This page names them and shows where they meet the five bands.",
+    "items": [
+      {
+        "id": "coastal",
+        "name": "The coastal road",
+        "evidence": "A route from Egypt along the coast, through Gaza and the Philistine plain, inland around the marshes of the Sharon, through the pass at Megiddo into the Jezreel valley, and on north toward Damascus and beyond [check: route as reconstructed by Dorsey and by Rainey and Notley]. Exodus says God did not lead Israel out of Egypt by the road through the Philistines' land, though it was nearer, because they might turn back at the sight of war.",
+        "inference": "The quickest road was also the most guarded. Egypt held forts along its first stretch in the Late Bronze Age [check: the forts of northern Sinai, a named source], which fits the war that Exodus says was avoided.",
+        "limit": "The road is often called the Via Maris, 'the way of the sea'. The Latin name comes from the Latin translation of Isaiah's phrase, long after the Old Testament period [check: Rainey's argument that the name is a misnomer for the coastal highway]. Whether Isaiah meant this road or one by the Sea of Galilee is argued.",
+        "verses": [
+          "Exodus 13:17",
+          "Isaiah 9:1"
+        ],
+        "sources": [
+          "dorsey",
+          "rainey-notley"
+        ]
+      },
+      {
+        "id": "kings",
+        "name": "The King's Highway",
+        "evidence": "A road along the plateau east of the rift, from the Gulf of Aqaba through Edom and Moab to Damascus. Numbers names it twice: Moses asks Edom, and then Sihon, for leave to pass along it, promising not to turn aside into field or vineyard or to drink from a well.",
+        "inference": "A road that runs through a people's land is something to bargain over. Both refusals in Numbers turn on that fact.",
+        "limit": "The road is cited from The peoples around Israel (35), which gives its course and its later Roman form. How far the name in Numbers marks one fixed road, rather than a royal route in general, is a judgement.",
+        "verses": [
+          "Numbers 20:17",
+          "Numbers 21:22"
+        ],
+        "sources": [
+          "dorsey"
+        ],
+        "link": "The peoples around Israel (35)"
+      },
+      {
+        "id": "ridge",
+        "name": "The ridge road",
+        "evidence": "A road along the watershed of the hill country, through Hebron, Bethlehem, Jerusalem, Bethel and Shechem. Judges speaks of the road that goes up from Bethel to Shechem, and many of the patriarchs' journeys and the kings' movements can be traced along this line.",
+        "inference": "On a ridge the road keeps to high ground and needs few bridges. The towns at the heart of Israel's story are strung along it.",
+        "limit": "This road is not named as a single highway in Scripture. Its course is a reconstruction from towns and terrain.",
+        "verses": [
+          "Judges 21:19"
+        ],
+        "sources": [
+          "dorsey"
+        ]
+      },
+      {
+        "id": "ascents",
+        "name": "The roads that climb across",
+        "evidence": "Short roads up the valleys of the Shephelah to the ridge, and roads down the eastern slope to the rift. The Beth-horon ascent climbs from the Aijalon valley toward Gibeon; another road falls from Jerusalem to Jericho. Jesus' story of the man going down from Jerusalem to Jericho is set on the second.",
+        "inference": "These roads are steep and narrow, which made them easy to hold and dangerous to travel. The Beth-horon road appears again and again in war, and the Jericho road in a story about robbers.",
+        "limit": "Exact ancient lines of these roads are reconstructions. Modern roads follow some of them and not others.",
+        "verses": [
+          "Joshua 10:10",
+          "1 Samuel 13:18",
+          "Luke 10:30"
+        ],
+        "sources": [
+          "dorsey",
+          "smith"
+        ]
+      }
+    ]
+  },
+  "climate": {
+    "lead": "The land has two seasons: a wet winter and a dry summer. The rain comes off the Mediterranean from the west and falls most on the western slopes and in the north. It falls least in the south and east.",
+    "rains": [
+      {
+        "id": "early",
+        "name": "The early rain",
+        "months": "October to November",
+        "evidence": "The first rains of autumn, which soften the ground hardened by summer so it can be ploughed and sown. Deuteronomy promises rain in its season, the early rain and the late. Jeremiah, Joel, Hosea and James name the same pair.",
+        "inference": "Waiting for the early rain was waiting for permission to plough. A late start meant a short growing season.",
+        "limit": "The farming tasks that follow belong to The farming year (29)."
+      },
+      {
+        "id": "winter",
+        "name": "The winter rains",
+        "months": "December to February",
+        "evidence": "The heaviest rains fall in mid-winter, and they fill the cisterns. Snow falls on the high ridge in some years, and Scripture mentions it.",
+        "inference": "The early and latter rains are not the only rains. They are the start and end of the season, the two most uncertain, and so the two most often asked for.",
+        "limit": "Monthly figures differ from place to place and year to year. The page shows one town's pattern, with its source and dates."
+      },
+      {
+        "id": "latter",
+        "name": "The latter rain",
+        "months": "March to April",
+        "evidence": "The last showers of spring, which swell the grain before harvest. Amos describes rain withheld three months before harvest, falling on one town and not another.",
+        "inference": "A crop that had come up well could still fail if the latter rain did not come. That is the risk Amos describes.",
+        "limit": "The months are rounded. The rainy season's edges move from year to year."
+      }
+    ],
+    "gradient": {
+      "evidence": "Average yearly rainfall falls from north to south and from west to east. Rough figures: Upper Galilee about 800 millimetres or more; Jerusalem about 550; Beersheba about 200; Jericho about 150; the Dead Sea shore under 100 [check: each figure against the Israel Meteorological Service or a named atlas, with the years averaged]. About 200 millimetres a year is often given as the rough limit for growing grain without watering it [check: the threshold and its source].",
+      "inference": "Where the 200-millimetre line falls, the land of fields gives way to the land of flocks. A few dry years push that line north, and the Negev and the wilderness grow.",
+      "limit": "Averages hide the swings, and the swings are what Scripture records. A year at half the average is a famine, whatever the long-run figure."
+    },
+    "winds": {
+      "evidence": "Rain comes on west winds from the sea. When the drought in Elijah's day ends, his servant sees a small cloud rising from the sea. Jesus tells the crowds that they know a cloud in the west means a shower, and a south wind means heat. Hot dry east winds off the desert wither growth, as Hosea and Ezekiel describe.",
+      "inference": "People who lived by the rain read the sky, and the Bible's pictures of wind and cloud come from the weather of this coast.",
+      "limit": "The ancient climate was broadly like today's, but scholars debate wetter and drier phases within it [check: a named source on Iron Age climate]. This page does not tie any story to a proposed phase."
+    },
+    "dew": {
+      "evidence": "In the rainless summer, dew wets the hills in the night, especially near the coast. Isaac's blessing asks for the dew of heaven; Hosea uses dew as a picture of the LORD's care; Gideon tests God with a fleece and dew.",
+      "inference": "In a summer without rain, dew is what keeps the late crops alive, which is why it can stand for blessing.",
+      "limit": "How much dew counts for farming is measured in modern studies, not in the text. Figures are not given here."
+    },
+    "drought": {
+      "evidence": "Scripture records famines that send Abraham and Isaac toward Egypt, Jacob's sons to buy grain there, and Elimelech's family to Moab. Elijah announces a drought of years. Deuteronomy warns that the sky can turn to bronze and the ground to iron. Haggai names the drought of his day.",
+      "inference": "Egypt was the place to go in a famine, because Egypt's harvest did not depend on its own rain.",
+      "limit": "None of these droughts can be fixed to a dated climate record with confidence."
+    },
+    "verses": [
+      "Deuteronomy 11:14",
+      "Jeremiah 5:24",
+      "Joel 2:23",
+      "Hosea 6:3",
+      "James 5:7",
+      "Amos 4:7",
+      "1 Kings 17:1",
+      "1 Kings 18:44",
+      "Luke 12:54",
+      "Luke 12:55",
+      "Hosea 13:15",
+      "Genesis 27:28",
+      "Hosea 14:5",
+      "Judges 6:37",
+      "Genesis 12:10",
+      "Genesis 26:1",
+      "Genesis 42:1",
+      "Ruth 1:1",
+      "Deuteronomy 28:23",
+      "Haggai 1:11"
+    ],
+    "sources": [
+      "baly",
+      "orni-efrat",
+      "ims"
+    ]
+  },
+  "egyptAndCanaan": {
+    "head": "The rain of Canaan, the river of Egypt",
+    "verses": [
+      "Deuteronomy 11:10",
+      "Deuteronomy 11:11",
+      "Deuteronomy 11:12"
+    ],
+    "evidence": "Deuteronomy tells Israel that the land they are entering is not like Egypt, where seed was sown and watered by foot like a vegetable garden. It is a land of hills and valleys that drinks rain from the sky, a land the LORD cares for, his eyes on it all the year round.",
+    "background": "Egypt's crops grew on the Nile's yearly flood and on water lifted from the river and its canals. Egypt hardly needed rain. Canaan had no such river: its fields lived on what fell from the sky [check: a named source on Egyptian irrigation, such as a standard Egyptology handbook].",
+    "inference": "The contrast is about dependence. In Egypt the farmer moved the water. In Canaan he waited for it. The same chapter goes straight on to make the rain depend on Israel's faithfulness, so that the weather becomes a matter of covenant, of God's binding promises.",
+    "limit": "Watering 'by foot' is read by some as treading a water-wheel and by others as opening and closing small channels with the foot [check: views as given in commentaries on Deuteronomy]. The text does not say which. What the land means in God's promises is linked to the theology study The covenants (God's binding promises), not taught here."
+  },
+  "water": {
+    "lead": "A town could stand only where it could drink. In this land that meant a spring, a well, or a cistern cut into rock to hold winter rain.",
+    "items": [
+      {
+        "id": "springs",
+        "name": "Springs",
+        "evidence": "Jerusalem's own spring, the Gihon, rises in the Kidron valley below the oldest part of the city. Solomon was anointed there. Jericho's spring makes an oasis in the rift; En-gedi's spring makes another by the Dead Sea, where David hid from Saul. The springs at Dan and below Mount Hermon feed the Jordan, near the later Caesarea Philippi of the Gospels.",
+        "inference": "The oldest towns cluster at strong springs. Jerusalem's first site, on a narrow spur, makes sense only because of the spring at its foot.",
+        "limit": "Springs change flow over centuries. Their present strength is a rough guide to their ancient strength, not a measure of it.",
+        "verses": [
+          "1 Kings 1:33",
+          "1 Samuel 24:1",
+          "Matthew 16:13"
+        ]
+      },
+      {
+        "id": "wells",
+        "name": "Wells",
+        "evidence": "In the Negev and the lowlands, water had to be dug for. Genesis names wells dug, stopped up and dug again at Beersheba and Gerar. At Sychar, John tells of Jacob's well, and a woman who says it is deep.",
+        "inference": "Names given to wells in Genesis record the quarrels that went with them, as in the Bible's own explanations of the names.",
+        "limit": "Which modern well, if any, is an ancient one is rarely provable. Jacob's well near Nablus rests on long tradition [check: earliest witness to the site].",
+        "verses": [
+          "Genesis 21:30",
+          "Genesis 26:20",
+          "Genesis 26:22",
+          "John 4:6",
+          "John 4:11"
+        ]
+      },
+      {
+        "id": "cisterns",
+        "name": "Cisterns",
+        "evidence": "A cistern is a pit cut into rock to catch winter rain from roofs and slopes. Archaeologists find them throughout the hill country, many lined with lime plaster to stop leaks [check: a named source on Iron Age plastered cisterns]. Joseph is thrown into an empty pit; Jeremiah is let down into a cistern with mud in it; Jeremiah also pictures the people digging broken cisterns that hold no water, in place of the spring of living water.",
+        "inference": "Cisterns let villages live away from springs, and they helped open the hill country to settlement. A cracked cistern is a picture every listener in the hills would understand.",
+        "limit": "The cistern as part of a house belongs to Home and household in Old Testament Israel (27). When plaster lining became common is argued [check: views and holders].",
+        "verses": [
+          "Genesis 37:24",
+          "Jeremiah 38:6",
+          "Jeremiah 2:13"
+        ],
+        "link": "Home and household in Old Testament Israel (27)"
+      },
+      {
+        "id": "tunnel",
+        "name": "Hezekiah's tunnel",
+        "evidence": "Kings and Chronicles say Hezekiah made a pool and a channel and brought water into the city, stopping the upper outlet of the Gihon and leading it down to the west side of the City of David. A winding tunnel cut through the rock from the Gihon to the Pool of Siloam was explored by Edward Robinson in 1838. An inscription found in it in 1880 tells how two teams of cutters met from opposite ends.",
+        "inference": "A city on a ridge, with its one spring outside its walls, is open to siege. The tunnel brought the spring inside, which fits the Chronicler's account of preparations against Assyria.",
+        "limit": "Cited here, not read closely. The inscription, its length in cubits, and the debate over the tunnel's date, including a radiometric study that supported a date around 700 BC, belong to the study that holds them [check: which study, and the details of Frumkin, Shimron and Rosenbaum, Nature, 2003, and of Rogerson and Davies, 1996, before naming them on the page].",
+        "verses": [
+          "2 Kings 20:20",
+          "2 Chronicles 32:30",
+          "Isaiah 22:11",
+          "John 9:7"
+        ],
+        "sources": [
+          "robinson"
+        ]
+      }
+    ]
+  },
+  "battles": {
+    "lead": "Battles in Scripture keep returning to the same places, because the ground leaves few ways in. Each record below gives what the text says, what the ground adds, and where the ground stops explaining.",
+    "items": [
+      {
+        "id": "elah",
+        "name": "The Valley of Elah",
+        "evidence": "First Samuel sets the Philistines on a hill between Socoh and Azekah, Saul's army on a hill opposite, and the valley between them. David goes down to face Goliath, who is from Gath.",
+        "inference": "The Elah valley is one of the Shephelah's roads from Philistine country into the hills of Judah, toward Bethlehem [check: route in Dorsey]. Two armies facing each other across it are each guarding a door: the Philistines trying to climb, Israel trying to stop them.",
+        "limit": "The valley is generally identified with the Wadi es-Sant [check], and Socoh and Azekah with nearby ruins. Khirbet Qeiyafa, above the valley, belongs to Israel from the exodus to Solomon (38).",
+        "verses": [
+          "1 Samuel 17:1",
+          "1 Samuel 17:2",
+          "1 Samuel 17:3",
+          "1 Samuel 17:4"
+        ],
+        "link": "Israel from the exodus to Solomon (38)"
+      },
+      {
+        "id": "bethhoron",
+        "name": "The Beth-horon ascent and Aijalon",
+        "evidence": "Joshua's pursuit of the five kings runs down the ascent of Beth-horon and past Azekah, and the sun stands still over Gibeon and the moon over the valley of Aijalon. Philistine raiders take the Beth-horon road in Saul's day.",
+        "inference": "The ascent is the main road from the Aijalon valley onto the ridge north of Jerusalem. An army driven down it is running back toward the plain.",
+        "limit": "The ground explains the route, not the miracle. The page does not try to explain the sun and moon by weather.",
+        "verses": [
+          "Joshua 10:10",
+          "Joshua 10:11",
+          "Joshua 10:12",
+          "1 Samuel 13:18"
+        ]
+      },
+      {
+        "id": "kishon",
+        "name": "The Kishon and the chariots",
+        "evidence": "Judges says Judah could not drive out the people of the plains because they had iron chariots. Sisera brings nine hundred chariots into the Jezreel valley. Deborah's song says the earth trembled, the heavens poured, and the Kishon swept the enemy away.",
+        "inference": "Chariots need dry, level ground. A winter storm that turns the valley floor to mud and floods the Kishon takes away their advantage. The song's picture fits that ground.",
+        "limit": "The prose and the song do not give the season, and this reading of the weather is an inference many commentators draw, not something the text states [check: commentators who hold it].",
+        "verses": [
+          "Judges 1:19",
+          "Judges 4:3",
+          "Judges 5:4",
+          "Judges 5:21"
+        ]
+      },
+      {
+        "id": "gilboa",
+        "name": "Mount Gilboa",
+        "evidence": "The Philistines gather at Shunem and then at Aphek, and Israel camps by the spring in Jezreel. Saul dies on Mount Gilboa.",
+        "inference": "The Philistines came north along the coastal road and turned east into the Jezreel valley, onto flat ground for their chariots and cutting the hill country off from Galilee.",
+        "limit": "The marching order between the camps is a reconstruction from the place names, which the text gives without a map.",
+        "verses": [
+          "1 Samuel 28:4",
+          "1 Samuel 29:1",
+          "1 Samuel 31:1"
+        ]
+      },
+      {
+        "id": "lachish",
+        "name": "Lachish",
+        "evidence": "Sennacherib of Assyria takes the fortified towns of Judah, and Hezekiah sends word to him at Lachish. Assyrian palace reliefs show a siege of Lachish, and a siege ramp survives at the site.",
+        "inference": "Lachish guarded one of the main roads from the plain into Judah's hills. Taking it opened the way to Jerusalem.",
+        "limit": "The reliefs and the ramp are cited from Archaeology and the Bible (06), which reads them. This page says only why the town mattered.",
+        "verses": [
+          "2 Kings 18:13",
+          "2 Kings 18:14"
+        ],
+        "link": "Archaeology and the Bible (06)"
+      },
+      {
+        "id": "megiddo",
+        "name": "Megiddo",
+        "evidence": "Josiah goes out to meet Pharaoh Neco, who is marching north, and is killed at Megiddo.",
+        "inference": "Megiddo guards the pass where the coastal road enters the Jezreel valley. An Egyptian army going north had to pass it, and a king who wanted to stop him had to stand there.",
+        "limit": "Why Josiah went out is not explained in Kings. The ground explains where, not why.",
+        "verses": [
+          "2 Kings 23:29",
+          "2 Chronicles 35:22"
+        ]
+      }
+    ]
+  },
+  "trade": {
+    "lead": "The land sat between Egypt and Mesopotamia, with the sea on one side and the desert on the other. Goods passed through it more than they came from it.",
+    "items": [
+      {
+        "id": "caravans",
+        "name": "Caravans through the land",
+        "evidence": "Joseph's brothers sell him to traders coming from Gilead with spices, balm and myrrh, going down to Egypt. The queen of Sheba comes with camels carrying spices, gold and precious stones.",
+        "inference": "The Gilead traders are on a road down from the plateau, across the rift and toward the coast, carrying the products of the east to Egypt. The land was a bridge between them.",
+        "limit": "The routes of these caravans are reconstructions. When camels came into common use, and claims about it, are cited from The patriarchs in their world (39).",
+        "verses": [
+          "Genesis 37:25",
+          "1 Kings 10:2"
+        ],
+        "link": "The patriarchs in their world (39)"
+      },
+      {
+        "id": "sea",
+        "name": "The sea and its neighbours",
+        "evidence": "Hiram of Tyre floats cedar and cypress by sea for Solomon's building. Solomon builds ships at Ezion-geber on the Red Sea, with Hiram's sailors. Ezekiel lists Judah and Israel among Tyre's trading partners, selling wheat, honey, oil and balm.",
+        "inference": "Israel's coast had few good harbours, and the sea trade of the region was mostly the Phoenicians'. Israel sold its farm produce and bought what it lacked.",
+        "limit": "The Phoenicians as a people are cited from The peoples around Israel (35). Where Ezion-geber stood is argued [check: proposed sites and holders].",
+        "verses": [
+          "1 Kings 5:9",
+          "1 Kings 9:26",
+          "1 Kings 9:27",
+          "Ezekiel 27:17"
+        ],
+        "link": "The peoples around Israel (35)"
+      },
+      {
+        "id": "produce",
+        "name": "What the land offered",
+        "evidence": "Deuteronomy describes a land of streams and springs, of wheat and barley, vines, figs and pomegranates, olive oil and honey, with iron in its stones and copper in its hills.",
+        "inference": "The list is farm produce and ore, and it matches what the hills and valleys can bear. Copper is mined in the Arabah [check: Timna and Faynan, with a named source], within reach of the land's south.",
+        "limit": "How each crop was grown belongs to The farming year (29).",
+        "verses": [
+          "Deuteronomy 8:7",
+          "Deuteronomy 8:8",
+          "Deuteronomy 8:9"
+        ],
+        "link": "The farming year (29)"
+      }
+    ]
+  },
+  "faith": {
+    "lead": "The land also shaped how Scripture speaks of God and of worship. Each item keeps what the text says apart from what this study infers. Where a matter is Jewish practice, it is described first in Jewish terms.",
+    "items": [
+      {
+        "id": "goingup",
+        "name": "Going up to Jerusalem",
+        "evidence": "Scripture says people go up to Jerusalem and go down from it, whatever direction they come from. Joseph goes up from Galilee, which lies to the north, to Bethlehem in Judea. Jesus and his disciples go up to Jerusalem from Jericho; the man in the parable goes down from Jerusalem to Jericho. Psalms 120 to 134 are each headed a Song of Ascents.",
+        "background": "In Jewish practice, the Torah calls every man to appear before the LORD three times a year, at the feasts of Pesach (Passover), Shavuot (Weeks) and Sukkot (Booths), at the place God chooses. Going to Jerusalem for these feasts is called in Hebrew going up, and the word for a pilgrimage, aliyah la-regel, keeps it [check: the term as used in Jewish sources]. In modern Hebrew, moving to the land of Israel is still called aliyah, 'going up'.",
+        "inference": "The words are first about height. Jerusalem stands on the ridge, about a kilometre above Jericho, and every road to it climbs. The heading 'Song of Ascents' is widely taken to point to pilgrims singing on the way up, though other explanations are given.",
+        "limit": "Whether 'ascents' means the pilgrims' climb, the steps of the temple, or something else is argued, and the heading itself does not say [check: the main views and who holds them, from a named commentary on the Psalms].",
+        "verses": [
+          "Luke 2:4",
+          "Luke 2:42",
+          "Mark 10:32",
+          "Luke 10:30",
+          "Deuteronomy 16:16",
+          "Psalm 122:1",
+          "Psalm 125:2"
+        ]
+      },
+      {
+        "id": "rain-and-gods",
+        "name": "Rain and the storm god",
+        "evidence": "In Kings, Ahab's Israel worships Baal, and Elijah announces that there will be no rain except at his word. The contest on Mount Carmel ends with rain after years of drought. Texts from Ugarit on the Syrian coast show Baal as a storm god who brings rain [check: the Baal texts as reported in The Bible and the ancient Near East (32)].",
+        "inference": "In a land that lived on rain, a god of the storm was a god of food. The story's drought strikes at Baal's own claim, and the rain comes from the LORD.",
+        "limit": "The Ugaritic texts are cited from The Bible and the ancient Near East (32), which reads them. What Israel's neighbours believed is reported, not adopted.",
+        "verses": [
+          "1 Kings 16:31",
+          "1 Kings 17:1",
+          "1 Kings 18:24",
+          "1 Kings 18:45"
+        ],
+        "link": "The Bible and the ancient Near East (32)"
+      },
+      {
+        "id": "prayer-for-rain",
+        "name": "Praying for rain in Jewish practice",
+        "evidence": "The Mishnah, the Jewish teaching set down around AD 200, opens its tractate Taanit with the question of when to begin mentioning God's power of rain in prayer, and when to begin asking for it. It answers that the mention begins at the end of Sukkot and the request some days later, after pilgrims have had time to get home. The tractate goes on to fasts called when the rain fails [check: Mishnah Taanit 1:1–3 and its days, in a named translation].",
+        "inference": "Jewish prayer kept the rhythm of the land's seasons: it asks for rain only when the land needs it, and waits for travellers to reach home before doing so.",
+        "limit": "This is how Jewish teachers ordered prayer after the Bible's time. It is described in its own terms, and it is not offered as a reading of any biblical verse.",
+        "verses": [],
+        "sources": [
+          "mishnah-taanit"
+        ]
+      },
+      {
+        "id": "wilderness",
+        "name": "The wilderness",
+        "evidence": "The wilderness of Judah lies close to the towns of the hill country. David hides there from Saul. John the Baptist preaches there, and Jesus is led into the wilderness after his baptism.",
+        "inference": "The Hebrew word for wilderness often means grazing land too dry to farm, not sand dunes. It was near, real and dangerous, a place where people were driven out or went to meet God.",
+        "limit": "Where exactly the temptation took place is not said in the Gospels. Traditional sites are later.",
+        "verses": [
+          "1 Samuel 23:14",
+          "Matthew 3:1",
+          "Matthew 4:1"
+        ]
+      },
+      {
+        "id": "hills-claim",
+        "name": "A god of the hills?",
+        "evidence": "After a defeat in the hills, the officers of the king of Aram tell him that Israel's gods are gods of the hills, and advise fighting on the plain. A man of God tells Ahab that because of this claim the LORD will give the Aramean army into his hand, and Israel wins on the plain.",
+        "inference": "The officers read the land the way their world read gods: each one tied to its own ground. The story uses the land to answer them.",
+        "limit": "What the story teaches about God belongs to the theology shelf. This page notes only that the claim came from the shape of the ground.",
+        "verses": [
+          "1 Kings 20:23",
+          "1 Kings 20:28"
+        ]
+      }
+    ]
+  },
+  "disputedSites": {
+    "lead": "Some places are fixed by the ground: the Jordan, the Dead Sea, the ridge. Others are a scholar's proposal, and two of the best known are argued among scholars who hold Scripture to be true. This page names both placements and leaves each with the study that owns it.",
+    "items": [
+      {
+        "id": "ai",
+        "name": "Ai",
+        "verses": [
+          "Joshua 7:2",
+          "Joshua 8:1"
+        ],
+        "evidence": "Joshua places Ai near Beth-aven, east of Bethel, on the ridge north of Jerusalem.",
+        "placements": [
+          {
+            "site": "et-Tell",
+            "held": "The traditional identification, widely held since the nineteenth and early twentieth centuries [check: who first proposed it]."
+          },
+          {
+            "site": "Khirbet el-Maqatir",
+            "held": "Argued by Bryant Wood, from excavations there."
+          }
+        ],
+        "limit": "The question turns on what each site shows for the time of the conquest, and that turns on the date of the conquest. Both belong to Israel from the exodus to Solomon (38). This page does not choose.",
+        "link": "Israel from the exodus to Solomon (38)"
+      },
+      {
+        "id": "sodom",
+        "name": "Sodom",
+        "verses": [
+          "Genesis 13:10",
+          "Genesis 13:12",
+          "Genesis 14:3"
+        ],
+        "evidence": "Genesis describes the plain of the Jordan, well watered, where Lot chose to live, and names the Valley of Siddim, which it identifies with the Salt Sea.",
+        "placements": [
+          {
+            "site": "A site at the south-east end of the Dead Sea, such as Bab edh-Dhra",
+            "held": "Argued by Bryant Wood among others [check: Wood's publication and year]."
+          },
+          {
+            "site": "Tall el-Hammam, north-east of the Dead Sea",
+            "held": "Argued by Steven Collins, who excavated there [check: Collins and Scott, Discovering the City of Sodom, 2013]."
+          }
+        ],
+        "limit": "The northern view leans on 'the plain of the Jordan'; the southern on the Valley of Siddim and the Salt Sea. Both belong to The patriarchs in their world (39). This page does not choose.",
+        "link": "The patriarchs in their world (39)"
+      }
+    ],
+    "rule": "A place on this page is drawn as a point only where the identification is widely agreed. A proposed site is drawn as a ring, with its holder's name beside it. Where there are two proposals, both rings are drawn."
+  },
+  "claims": [
+    {
+      "id": "desert",
+      "claim": "“Israel was a desert.”",
+      "head": "Some of it. Not most of it.",
+      "evidence": "Rainfall ranges from the wet hills of Galilee to the dry Negev and the rift. Deuteronomy describes streams, springs and grain. The same Bible also knows the wilderness and the Negev.",
+      "inference": "It was a land of edges: fields within a day's walk of grazing land, and grazing land within a day of true desert. Both the fruitfulness and the wilderness in Scripture are true to it.",
+      "limit": "Ancient vegetation has to be reconstructed from pollen, wood and texts. Much of today's landscape, its forests and its bare hills, is the work of later centuries.",
+      "verses": [
+        "Deuteronomy 8:7",
+        "Deuteronomy 8:8"
+      ],
+      "sources": [
+        "baly",
+        "smith"
+      ],
+      "test": {
+        "question": "Luke says Joseph went up from Galilee, in the north, to Bethlehem in Judea, in the south. Why 'up'?",
+        "options": [
+          {
+            "text": "Because 'up' meant north on ancient maps.",
+            "right": false,
+            "why": "He was travelling south. The word cannot mean north here."
+          },
+          {
+            "text": "Because the hills of Judah stand higher than the land he left, and the road climbs.",
+            "right": true,
+            "why": "This is what the heights support. Bethlehem stands on the ridge near Jerusalem, above the valleys he came through."
+          },
+          {
+            "text": "Because Luke is speaking only of honour, not of ground.",
+            "right": false,
+            "why": "The word may carry honour as well, but the heights alone already account for it. The ground should be tried first."
+          }
+        ]
+      }
+    },
+    {
+      "id": "two-rains",
+      "claim": "“The early and latter rains are two showers a year.”",
+      "head": "Two edges of one season.",
+      "evidence": "The rainy season runs from about October to April. Its heaviest rains fall in mid-winter. The early and latter rains are its first and last.",
+      "inference": "They are named because they are the most uncertain and matter most for sowing and harvest, not because they are the only rain.",
+      "limit": "The months are rounded averages. The text gives no calendar for them.",
+      "verses": [
+        "Deuteronomy 11:14",
+        "Joel 2:23",
+        "James 5:7"
+      ],
+      "sources": [
+        "baly",
+        "ims"
+      ],
+      "test": {
+        "question": "Amos says the rain was held back three months before harvest. What did that put at risk?",
+        "options": [
+          {
+            "text": "The ploughing.",
+            "right": false,
+            "why": "Ploughing waits on the early rain in autumn. This is spring."
+          },
+          {
+            "text": "The grain already growing, which still needed the latter rain to fill out.",
+            "right": true,
+            "why": "This is what the timing supports. A crop that started well could still fail."
+          },
+          {
+            "text": "Nothing: the winter rains were enough.",
+            "right": false,
+            "why": "Amos describes the failure as a judgement. The season's end mattered."
+          }
+        ]
+      }
+    },
+    {
+      "id": "via-maris",
+      "claim": "“The Bible calls the coastal road the Via Maris.”",
+      "head": "The name is Latin, and later.",
+      "evidence": "Isaiah speaks of 'the way of the sea' beside the land beyond the Jordan and Galilee of the nations. The Latin name Via Maris comes from that phrase in the Latin Bible.",
+      "inference": "Modern writers borrowed Isaiah's phrase as a name for the great coastal highway. Isaiah's own road may be that highway, or a road by the Sea of Galilee.",
+      "limit": "Who argues which reading, and how strongly, has to be read in Rainey and Notley and in Dorsey before the page names them [check].",
+      "verses": [
+        "Isaiah 9:1",
+        "Matthew 4:15"
+      ],
+      "sources": [
+        "rainey-notley",
+        "dorsey"
+      ],
+      "test": {
+        "question": "A guidebook says Isaiah names the Via Maris. What can you say?",
+        "options": [
+          {
+            "text": "That Isaiah used a Latin name.",
+            "right": false,
+            "why": "Isaiah wrote in Hebrew. The Latin name is a translation of his words."
+          },
+          {
+            "text": "That Isaiah names a 'way of the sea', and later writers gave that phrase to a road whose identity is argued.",
+            "right": true,
+            "why": "This keeps the text apart from the later label."
+          },
+          {
+            "text": "That the coastal road did not exist in Isaiah's day.",
+            "right": false,
+            "why": "The route is far older. Only the Latin name is later."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fixed-sites",
+      "claim": "“Every place in the Bible has been found.”",
+      "head": "The ground is fixed. Many sites are proposals.",
+      "evidence": "The Jordan, the Dead Sea, Hebron, Jerusalem and many towns are firmly identified. Others, including Ai and Sodom, have more than one proposal held by scholars who hold Scripture to be true.",
+      "inference": "A map that draws every biblical place as a point has already chosen. The honest map draws a proposal as a proposal.",
+      "limit": "Two proposals do not mean the text is wrong, only that the evidence in the ground is read in more than one way. Each disputed site is weighed in its owning study.",
+      "verses": [
+        "Joshua 8:1",
+        "Genesis 13:10"
+      ],
+      "sources": [],
+      "test": {
+        "question": "An atlas puts Sodom as a dot at one site with no comment. What should you ask first?",
+        "options": [
+          {
+            "text": "Whose identification is this, and what other site is proposed?",
+            "right": true,
+            "why": "Identifications have holders. Naming them is the first test."
+          },
+          {
+            "text": "Nothing: an atlas would not print it unless it were proven.",
+            "right": false,
+            "why": "Atlases have to draw something, and many draw a proposal as a dot."
+          },
+          {
+            "text": "Whether Sodom existed at all.",
+            "right": false,
+            "why": "That is a different question. The atlas question is where."
+          }
+        ]
+      }
+    }
+  ],
+  "confusedWords": [
+    {
+      "word": "Hill country and mountains",
+      "note": "Translations use both for the same Hebrew word. The land's 'mountains' west of the Jordan are a ridge of hills, mostly under a thousand metres. Only Hermon, in the far north, is a true mountain."
+    },
+    {
+      "word": "Shephelah and foothills",
+      "note": "One region, named three ways in English: the Shephelah, the lowland, the foothills. It is not the coastal plain, and it is not the hill country."
+    },
+    {
+      "word": "Negev and the south",
+      "note": "The Negev is a region. Because it lay south of Judah, the same word also means 'south', and translations choose between them."
+    },
+    {
+      "word": "Arabah and Arabia",
+      "note": "The Arabah is the rift south of the Dead Sea, and sometimes the Jordan valley itself. It is not Arabia."
+    },
+    {
+      "word": "Wilderness and desert",
+      "note": "The Hebrew word often means dry grazing land, not sand. Some wildernesses in Scripture have sheep in them."
+    },
+    {
+      "word": "The Jordan valley and the Jordan rift",
+      "note": "The rift is the whole trough from Hermon to the Gulf of Aqaba. The Jordan valley is the part the river runs through, between the two seas."
+    },
+    {
+      "word": "Canaan, Israel, Judea and Palestine",
+      "note": "Names used in different ages and by different peoples. Canaan is the Bible's name for the land before Israel; Israel and Judah are the kingdoms; Judea is the later name for Judah's land, used in the New Testament. Palestine is a name used by Greek writers and later by the Romans for a province [check: Herodotus and Syria Palaestina, with sources]. This page uses each where its source uses it."
+    },
+    {
+      "word": "Way and road",
+      "note": "A 'way' in Scripture can be a road, a direction, or a manner of life. A road name built from a biblical phrase is the modern writer's, not the text's."
+    }
+  ],
+  "reach": [
+    "This is a selection, not a census. Eight regions, four roads, six battle places, three water sources and a few pictures of faith are read here. Many more places and stories touch the land.",
+    "Every height, distance and rainfall figure is rounded, and each must be confirmed against a named source before the page is built. Averages hide the swings that the text records.",
+    "The ancient landscape differed from today's: coasts have moved, forests have come and gone, the Jordan has been dammed and the Dead Sea has fallen. This page uses today's ground as a guide, not as a photograph of the past.",
+    "Where this page explains a story by the ground, the explanation is an inference from geography. The text did not need the ground explained to its first hearers, and it does not say every reason.",
+    "Disputed sites are named with both placements and left with the studies that weigh them."
+  ],
+  "links": [
+    {
+      "title": "The Old maps collection",
+      "why": "How earlier mapmakers drew this land."
+    },
+    {
+      "title": "Home and household in Old Testament Israel (27)",
+      "why": "The cistern and the house."
+    },
+    {
+      "title": "The farming year (29)",
+      "why": "What was done in each season the rain allowed."
+    },
+    {
+      "title": "The peoples around Israel (35)",
+      "why": "The land east of the Jordan and its roads in full, and the Philistines and Phoenicians as peoples."
+    },
+    {
+      "title": "Israel from the exodus to Solomon (38)",
+      "why": "Ai, the highland villages and Khirbet Qeiyafa."
+    },
+    {
+      "title": "The patriarchs in their world (39)",
+      "why": "Sodom, and the patriarchs' journeys."
+    },
+    {
+      "title": "Archaeology and the Bible (06)",
+      "why": "Lachish's reliefs and ramp, and the inscriptions cited here."
+    },
+    {
+      "title": "The Bible and the ancient Near East (32)",
+      "why": "Baal and the storm in the texts of Ugarit."
+    },
+    {
+      "title": "The covenants (God's binding promises)",
+      "why": "What the land means in God's promises, on the theology shelf."
+    }
+  ],
+  "stance": {
+    "head": "What this site holds",
+    "confession": "“truth, without any mixture of error”",
+    "confessionSource": "Baptist Faith and Message 2000, article I (the Scriptures)",
+    "body": "The Bible names real places in a real land, and this site reads its places as places. Geography can show why a battle was fought where Scripture says it was, but it is not a test the text has to pass. Where a site is uncertain, the uncertainty is in our knowledge of the ground, not in the text. Where scholars who hold Scripture to be true place a town in two different spots, this page shows both and does not choose."
+  },
+  "sources": [
+    {
+      "id": "smith",
+      "title": "George Adam Smith, The Historical Geography of the Holy Land (1894)",
+      "url": "[check: archive.org record]",
+      "kind": "Book, 1894 · public domain",
+      "status": "located",
+      "answers": "How did the land's shape steer its history?",
+      "read": "Located, not read for this draft. A classic, written by a Scottish scholar who walked the land. To be read for the regions and roads before publishing."
+    },
+    {
+      "id": "aharoni",
+      "title": "Yohanan Aharoni, The Land of the Bible: A Historical Geography, translated by Anson F. Rainey (1967; revised 1979)",
+      "url": "[check: publisher record]",
+      "kind": "Book · under copyright",
+      "status": "located",
+      "answers": "What are the regions and routes, and how are sites identified?",
+      "read": "Located, not read for this draft."
+    },
+    {
+      "id": "rainey-notley",
+      "title": "Anson F. Rainey and R. Steven Notley, The Sacred Bridge: Carta's Atlas of the Biblical World (2006)",
+      "url": "[check: publisher record]",
+      "kind": "Atlas · under copyright",
+      "status": "located",
+      "answers": "How do the roads and sites fit together, period by period?",
+      "read": "Located, not read for this draft."
+    },
+    {
+      "id": "baly",
+      "title": "Denis Baly, The Geography of the Bible (1957; revised 1974)",
+      "url": "[check: publisher record]",
+      "kind": "Book · under copyright",
+      "status": "located",
+      "answers": "What are the land's climate and regions?",
+      "read": "Located, not read for this draft."
+    },
+    {
+      "id": "dorsey",
+      "title": "David A. Dorsey, The Roads and Highways of Ancient Israel (1991)",
+      "url": "[check: publisher record]",
+      "kind": "Book · under copyright",
+      "status": "located",
+      "answers": "Where did the roads run, and how do we know?",
+      "read": "Located, not read for this draft."
+    },
+    {
+      "id": "beitzel",
+      "title": "Barry J. Beitzel, The Moody Atlas of the Bible (2009)",
+      "url": "[check: publisher record]",
+      "kind": "Atlas · under copyright",
+      "status": "located",
+      "answers": "An evangelical atlas's account of the land and its regions.",
+      "read": "Located, not read for this draft."
+    },
+    {
+      "id": "orni-efrat",
+      "title": "Efraim Orni and Elisha Efrat, Geography of Israel",
+      "url": "[check: edition and year]",
+      "kind": "Book · under copyright",
+      "status": "located",
+      "answers": "What do modern geographers say of the land's structure and climate?",
+      "read": "Located, not read for this draft."
+    },
+    {
+      "id": "robinson",
+      "title": "Edward Robinson and Eli Smith, Biblical Researches in Palestine (1841)",
+      "url": "[check: archive.org record]",
+      "kind": "Book, 1841 · public domain",
+      "status": "located",
+      "answers": "What did the first modern survey find, including the tunnel?",
+      "read": "Located, not read for this draft."
+    },
+    {
+      "id": "ims",
+      "title": "Israel Meteorological Service, long-term rainfall averages",
+      "url": "[check: data page and terms of use]",
+      "kind": "Data · terms to check",
+      "status": "located",
+      "answers": "How much rain falls where, averaged over which years?",
+      "read": "Located, not read. Its terms must be checked before any figure is used."
+    },
+    {
+      "id": "mishnah-taanit",
+      "title": "The Mishnah, tractate Taanit, chapter 1",
+      "url": "[check: a translation whose licence allows quotation]",
+      "kind": "Jewish teaching, about AD 200",
+      "status": "located",
+      "answers": "How did Jewish prayer follow the rainy season?",
+      "read": "Located, not read for this draft. To be read in a named translation before the page describes it."
+    },
+    {
+      "id": "josephus",
+      "title": "Josephus, The Jewish War, on Galilee [check: book and section]",
+      "url": "[check: public-domain translation]",
+      "kind": "History, first century AD",
+      "status": "located",
+      "answers": "How did a first-century writer describe Galilee?",
+      "read": "Located, not read for this draft."
+    },
+    {
+      "id": "collins",
+      "title": "Steven Collins and Latayne C. Scott, Discovering the City of Sodom (2013) [check]",
+      "url": "[check]",
+      "kind": "Book · under copyright",
+      "status": "second-hand",
+      "answers": "The case for Tall el-Hammam.",
+      "read": "Not read. Named only as the holder of one placement, which The patriarchs in their world (39) weighs."
+    }
+  ],
+  "pictureCandidates": [
+    {
+      "id": "elah",
+      "want": "A photograph of the Valley of Elah from the hills on one side",
+      "status": "to find and approve; licence to check"
+    },
+    {
+      "id": "rift",
+      "want": "A photograph looking down from the Judean wilderness to the Dead Sea",
+      "status": "to find and approve; licence to check"
+    },
+    {
+      "id": "cistern",
+      "want": "A plastered cistern in the hill country",
+      "status": "to find and approve; licence to check"
+    },
+    {
+      "id": "oldmap",
+      "want": "One plate from the site's Old maps collection showing the land's bands",
+      "status": "held by the site; to choose"
+    }
+  ],
+  "verses": [
+    {
+      "label": "Deuteronomy 11:10",
+      "code": "DEU",
+      "chapter": 11,
+      "verse": 10,
+      "phrase": null
+    },
+    {
+      "label": "Deuteronomy 11:11",
+      "code": "DEU",
+      "chapter": 11,
+      "verse": 11,
+      "phrase": null
+    },
+    {
+      "label": "Deuteronomy 11:12",
+      "code": "DEU",
+      "chapter": 11,
+      "verse": 12,
+      "phrase": null
+    },
+    {
+      "label": "Deuteronomy 11:14",
+      "code": "DEU",
+      "chapter": 11,
+      "verse": 14,
+      "phrase": null
+    },
+    {
+      "label": "Deuteronomy 8:7",
+      "code": "DEU",
+      "chapter": 8,
+      "verse": 7,
+      "phrase": null
+    },
+    {
+      "label": "Deuteronomy 8:8",
+      "code": "DEU",
+      "chapter": 8,
+      "verse": 8,
+      "phrase": null
+    },
+    {
+      "label": "Deuteronomy 8:9",
+      "code": "DEU",
+      "chapter": 8,
+      "verse": 9,
+      "phrase": null
+    },
+    {
+      "label": "Deuteronomy 16:16",
+      "code": "DEU",
+      "chapter": 16,
+      "verse": 16,
+      "phrase": null
+    },
+    {
+      "label": "Deuteronomy 28:23",
+      "code": "DEU",
+      "chapter": 28,
+      "verse": 23,
+      "phrase": null
+    },
+    {
+      "label": "Deuteronomy 34:1",
+      "code": "DEU",
+      "chapter": 34,
+      "verse": 1,
+      "phrase": null
+    },
+    {
+      "label": "Exodus 13:17",
+      "code": "EXO",
+      "chapter": 13,
+      "verse": 17,
+      "phrase": null
+    },
+    {
+      "label": "Numbers 20:17",
+      "code": "NUM",
+      "chapter": 20,
+      "verse": 17,
+      "phrase": null
+    },
+    {
+      "label": "Numbers 21:22",
+      "code": "NUM",
+      "chapter": 21,
+      "verse": 22,
+      "phrase": null
+    },
+    {
+      "label": "Numbers 32:1",
+      "code": "NUM",
+      "chapter": 32,
+      "verse": 1,
+      "phrase": null
+    },
+    {
+      "label": "Numbers 13:17",
+      "code": "NUM",
+      "chapter": 13,
+      "verse": 17,
+      "phrase": null
+    },
+    {
+      "label": "Joshua 3:15",
+      "code": "JOS",
+      "chapter": 3,
+      "verse": 15,
+      "phrase": null
+    },
+    {
+      "label": "Joshua 10:10",
+      "code": "JOS",
+      "chapter": 10,
+      "verse": 10,
+      "phrase": null
+    },
+    {
+      "label": "Joshua 10:12",
+      "code": "JOS",
+      "chapter": 10,
+      "verse": 12,
+      "phrase": null
+    },
+    {
+      "label": "Joshua 17:16",
+      "code": "JOS",
+      "chapter": 17,
+      "verse": 16,
+      "phrase": null
+    },
+    {
+      "label": "Judges 1:19",
+      "code": "JDG",
+      "chapter": 1,
+      "verse": 19,
+      "phrase": null
+    },
+    {
+      "label": "Judges 4:3",
+      "code": "JDG",
+      "chapter": 4,
+      "verse": 3,
+      "phrase": null
+    },
+    {
+      "label": "Judges 5:21",
+      "code": "JDG",
+      "chapter": 5,
+      "verse": 21,
+      "phrase": null
+    },
+    {
+      "label": "Judges 16:4",
+      "code": "JDG",
+      "chapter": 16,
+      "verse": 4,
+      "phrase": null
+    },
+    {
+      "label": "1 Samuel 17:1",
+      "code": "1SA",
+      "chapter": 17,
+      "verse": 1,
+      "phrase": null
+    },
+    {
+      "label": "1 Samuel 17:3",
+      "code": "1SA",
+      "chapter": 17,
+      "verse": 3,
+      "phrase": null
+    },
+    {
+      "label": "1 Samuel 31:1",
+      "code": "1SA",
+      "chapter": 31,
+      "verse": 1,
+      "phrase": null
+    },
+    {
+      "label": "1 Kings 17:1",
+      "code": "1KI",
+      "chapter": 17,
+      "verse": 1,
+      "phrase": null
+    },
+    {
+      "label": "1 Kings 18:44",
+      "code": "1KI",
+      "chapter": 18,
+      "verse": 44,
+      "phrase": null
+    },
+    {
+      "label": "1 Kings 20:23",
+      "code": "1KI",
+      "chapter": 20,
+      "verse": 23,
+      "phrase": null
+    },
+    {
+      "label": "1 Kings 20:28",
+      "code": "1KI",
+      "chapter": 20,
+      "verse": 28,
+      "phrase": null
+    },
+    {
+      "label": "2 Kings 18:14",
+      "code": "2KI",
+      "chapter": 18,
+      "verse": 14,
+      "phrase": null
+    },
+    {
+      "label": "2 Kings 20:20",
+      "code": "2KI",
+      "chapter": 20,
+      "verse": 20,
+      "phrase": null
+    },
+    {
+      "label": "2 Kings 23:29",
+      "code": "2KI",
+      "chapter": 23,
+      "verse": 29,
+      "phrase": null
+    },
+    {
+      "label": "2 Chronicles 32:30",
+      "code": "2CH",
+      "chapter": 32,
+      "verse": 30,
+      "phrase": null
+    },
+    {
+      "label": "Psalm 122:1",
+      "code": "PSA",
+      "chapter": 122,
+      "verse": 1,
+      "phrase": null
+    },
+    {
+      "label": "Psalm 125:2",
+      "code": "PSA",
+      "chapter": 125,
+      "verse": 2,
+      "phrase": null
+    },
+    {
+      "label": "Isaiah 9:1",
+      "code": "ISA",
+      "chapter": 9,
+      "verse": 1,
+      "phrase": null
+    },
+    {
+      "label": "Jeremiah 2:13",
+      "code": "JER",
+      "chapter": 2,
+      "verse": 13,
+      "phrase": null
+    },
+    {
+      "label": "Jeremiah 5:24",
+      "code": "JER",
+      "chapter": 5,
+      "verse": 24,
+      "phrase": null
+    },
+    {
+      "label": "Joel 2:23",
+      "code": "JOL",
+      "chapter": 2,
+      "verse": 23,
+      "phrase": null
+    },
+    {
+      "label": "Amos 4:7",
+      "code": "AMO",
+      "chapter": 4,
+      "verse": 7,
+      "phrase": null
+    },
+    {
+      "label": "Genesis 37:25",
+      "code": "GEN",
+      "chapter": 37,
+      "verse": 25,
+      "phrase": null
+    },
+    {
+      "label": "Genesis 13:10",
+      "code": "GEN",
+      "chapter": 13,
+      "verse": 10,
+      "phrase": null
+    },
+    {
+      "label": "Matthew 4:15",
+      "code": "MAT",
+      "chapter": 4,
+      "verse": 15,
+      "phrase": null
+    },
+    {
+      "label": "Luke 2:4",
+      "code": "LUK",
+      "chapter": 2,
+      "verse": 4,
+      "phrase": null
+    },
+    {
+      "label": "Luke 10:30",
+      "code": "LUK",
+      "chapter": 10,
+      "verse": 30,
+      "phrase": null
+    },
+    {
+      "label": "Luke 12:54",
+      "code": "LUK",
+      "chapter": 12,
+      "verse": 54,
+      "phrase": null
+    },
+    {
+      "label": "James 5:7",
+      "code": "JAS",
+      "chapter": 5,
+      "verse": 7,
+      "phrase": null
+    }
+  ],
+  "versesNote": "Phrases are left null on purpose. No Berean text was supplied to this job, so the data build fills each phrase from the site's held Berean and fails if a verse is missing. Verses named in the sections above but not listed here are to be added by the build from the sections' own verse lists.",
+  "openQuestions": [
+    "Every [check] on heights, distances and rainfall: confirm against Aharoni, Baly, Beitzel or the Israel Meteorological Service, with the years averaged.",
+    "Which study holds the Siloam inscription, and the details of the tunnel-dating studies (Frumkin, Shimron and Rosenbaum, 2003; Rogerson and Davies, 1996) before naming them.",
+    "Bryant Wood's publication on a southern Sodom, and Collins and Scott (2013), checked against The patriarchs in their world (39).",
+    "Who first identified Ai with et-Tell, checked against Israel from the exodus to Solomon (38).",
+    "Mishnah Taanit 1:1–3, its days and a quotable translation.",
+    "Josephus on Galilee: book and section, and a public-domain translation.",
+    "The Via Maris argument: who holds that Isaiah's 'way of the sea' is the coastal highway, and who does not.",
+    "The meaning of 'Song of Ascents': the main views and their holders.",
+    "Watering 'by foot' in Deuteronomy 11:10: the views and their holders.",
+    "The Elah valley's modern identification and the route to Bethlehem.",
+    "Egypt's Late Bronze Age forts in northern Sinai, with a named source.",
+    "Copper in the Arabah (Timna and Faynan), with a named source.",
+    "The names Palestine and Syria Palaestina: sources and dates.",
+    "The Jewish term for pilgrimage, aliyah la-regel, as used in Jewish sources.",
+    "Every source must be read and its 'read' note rewritten before the page is built."
+  ]
+}

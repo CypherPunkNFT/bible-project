@@ -1,0 +1,1448 @@
+{
+  "schemaVersion": 1,
+  "order": 42,
+  "slug": "how-the-new-testament-books-were-written",
+  "title": "How the New Testament books were written",
+  "category": "bible-formation",
+  "categoryTitle": "The Bible: formation & transmission",
+  "updated": "2026-11-06",
+  "status": "draft",
+  "premise": "Twenty-seven books, written in the space of a lifetime by people who had seen Jesus or knew those who had. Some name their writer and some do not. Who wrote each one, and when, rests on two kinds of evidence: what the book says of itself, and what the earliest readers said about it. Modern scholarship has built reconstructions on top of both, and this study keeps those reconstructions apart from the evidence.",
+  "question": "Who says so, how early, and what could they have known?",
+  "outcomes": [
+    "Set three Gospel tellings of one event side by side, and say what the shared wording shows and what it does not.",
+    "Name four answers to the question of which Gospel came first, with who holds each, without treating any of them as settled.",
+    "Tell what a book says about its own writer from what a later witness says about it, and say how early that witness is.",
+    "Describe the quest for the historical Jesus from Strauss to the Jesus Seminar in its holders' terms, and give the evangelical answer from the evidence.",
+    "Say why some scholars think certain letters were written in Paul's or Peter's name by others, and what answers them.",
+    "Find any New Testament book in the reference table and read its writer, its witness and its date range in one line."
+  ],
+  "boundaries": {
+    "in": "How the twenty-seven books came to be written: the shared material of Matthew, Mark and Luke, and the views on which came first; the Gospels' writers and dates from the early witnesses; John; the quest for the historical Jesus from David Friedrich Strauss (1835) to the Jesus Seminar, and the evangelical answer; Acts; Paul's letters, and the letters some scholars say were written in another's name; Hebrews; the writer of Revelation; a one-line reference table for every book.",
+    "out": [
+      "Which books the churches came to list as Scripture, and when: How the canon took shape has it. This page only cites the lists where they name a writer.",
+      "The copies that survive and how old they are: The manuscripts of the Bible. P52 and the papyri are cited here, not read.",
+      "Differences between copies, including the endings of Mark and John 7:53–8:11: The text of the Bible has them, with Where does Mark end?",
+      "The years of Jesus' birth and death, the Gallio inscription and the fixed points of Paul's life: New Testament history: from Herod to the fall of Jerusalem.",
+      "Jewish groups, synagogues and the Greek-speaking world the books were written into: The world of the New Testament.",
+      "Clement of Rome, Ignatius, Polycarp and the second-century church as a story: The early church. Here those writers appear only as witnesses to who wrote what.",
+      "How the letters were written, carried and read aloud, letter by letter: the Letters guide How the letters came to be. This page gives authorship and date and links there.",
+      "What Scripture's inspiration and truth mean, argued from Scripture: the theology study Scripture (the word of God). This page states the site's position and links it; it does not argue it.",
+      "What each kind of writing asks of a reader: the theology study The kinds of writing in the Bible."
+    ]
+  },
+  "confusedWords": [
+    {
+      "word": "Anonymous and pseudonymous",
+      "note": "An anonymous book names no writer: the four Gospels, Acts, Hebrews and 1 John. A pseudonymous book would be one that names a writer who did not write it. The first is a plain fact about the text. The second is a claim some scholars make, and the site does not hold it."
+    },
+    {
+      "word": "Synoptic",
+      "note": "From a Greek word for seeing together. Matthew, Mark and Luke are called the Synoptic Gospels because they can be set in columns and read side by side. It describes how alike they are, not who wrote them."
+    },
+    {
+      "word": "Q and a source",
+      "note": "Q, from the German Quelle (“source”), is a name scholars give to a reconstructed collection of sayings that some think Matthew and Luke both used. No copy of Q has ever been found. A source in this sense is a theory about how a writer worked, not an object anyone has seen."
+    },
+    {
+      "word": "Tradition and witness",
+      "note": "On this page a witness is a named early writer whose words survive, such as Papias or Irenaeus. Tradition is what churches went on saying afterwards. A witness can be dated; a tradition often cannot."
+    },
+    {
+      "word": "Date of writing and date of copy",
+      "note": "A book written in the 60s may survive only in a copy from two centuries later. The date of the oldest copy sets the latest the book can be. It does not set when it was written."
+    },
+    {
+      "word": "The historical Jesus and the Jesus of history",
+      "note": "In the quest's own vocabulary, “the historical Jesus” means the figure a historian can reconstruct by its methods. Some scholars then set that reconstruction against “the Christ of faith” the Gospels proclaim. The phrase names a method's result, not a second Jesus."
+    },
+    {
+      "word": "Secretary and author",
+      "note": "Paul names a scribe once (Romans 16:22) and co-senders often. A letter can be written down by one person and sent by another as his own. Who held the pen and whose letter it is are two questions."
+    },
+    {
+      "word": "Disputed and rejected",
+      "note": "Eusebius, in the fourth century, lists some letters as “spoken against” by some churches. That means they were questioned in some places, not that the churches threw them out. They were in use where he wrote."
+    }
+  ],
+  "synoptic": {
+    "head": "Three tellings. One wording.",
+    "lead": "Matthew, Mark and Luke tell many of the same events in the same order, and often in the same Greek words. John mostly tells other things. That likeness is the evidence. How it came about is the Synoptic question, and scholars who hold Scripture to be true answer it in more than one way.",
+    "layers": [
+      {
+        "id": "triple",
+        "name": "In all three",
+        "note": "Material Matthew, Mark and Luke share. Almost all of Mark falls here. Matthew carries most of Mark's content and Luke a large share of it; the exact figures depend on whether one counts verses, words or episodes, and are given by the build from a stated counting rule. [check: choose and state one published count, e.g. from Carson and Moo, before quoting a percentage]"
+      },
+      {
+        "id": "double",
+        "name": "In Matthew and Luke only",
+        "note": "Some two hundred verses, mostly sayings, shared by Matthew and Luke but not found in Mark. [check: verse count and its source] John the Baptist's warning to the crowds (Matthew 3:7–10; Luke 3:7–9) is the usual example, nearly word for word in Greek."
+      },
+      {
+        "id": "matthew",
+        "name": "In Matthew only",
+        "note": "Material such as the visit of the Magi and several parables found only in Matthew."
+      },
+      {
+        "id": "luke",
+        "name": "In Luke only",
+        "note": "Material such as the parables of the good Samaritan and the lost son, found only in Luke."
+      },
+      {
+        "id": "mark",
+        "name": "In Mark only",
+        "note": "Very little: a few short episodes, such as the healing in stages at Bethsaida (Mark 8:22–26)."
+      }
+    ],
+    "cases": [
+      {
+        "id": "paralytic",
+        "title": "The same aside in three places",
+        "passages": [
+          "Mark 2:1–12",
+          "Matthew 9:1–8",
+          "Luke 5:17–26"
+        ],
+        "evidence": "All three tell of a paralysed man brought to Jesus, the forgiveness of his sins, and the scribes' objection. All three break off Jesus' own sentence at the same point with a narrator's aside, that he then spoke to the paralysed man, and then resume it (Mark 2:10; Matthew 9:6; Luke 5:24).",
+        "inference": "Three people telling the same event from memory might share facts and even sayings. It is harder for them to share an interruption that is the narrator's, not Jesus'. This is why most scholars, conservative and critical, think the three Gospels are related on paper, not only in memory.",
+        "limit": "The aside shows a link. It does not show its direction. Each of the four views below can explain it. Those who hold the Gospels to be independent answer that a shared oral telling could fix even an aside."
+      },
+      {
+        "id": "baptist",
+        "title": "A sermon nearly word for word",
+        "passages": [
+          "Matthew 3:7–10",
+          "Luke 3:7–9"
+        ],
+        "evidence": "John the Baptist's warning stands in Matthew and Luke in almost identical Greek over several sentences. Mark does not have it. The hearers differ: Pharisees and Sadducees in Matthew, the crowds in Luke.",
+        "inference": "This is the strongest single case for shared written material between Matthew and Luke apart from Mark. Either one used the other, or both used something now lost.",
+        "limit": "Which of those it was is the dispute between the two-source view and the views without Q. Sermons can also be preached more than once to different hearers, a point made by those who stress oral tradition."
+      },
+      {
+        "id": "inscription",
+        "title": "Four witnesses, one notice",
+        "passages": [
+          "Matthew 27:37",
+          "Mark 15:26",
+          "Luke 23:38",
+          "John 19:19"
+        ],
+        "evidence": "Each Gospel gives the charge fastened over the cross, and no two give it in exactly the same words. John adds that it was written in three languages (John 19:20).",
+        "inference": "Read as witnesses, the four agree on the substance: Jesus was executed as king of the Jews. Each gives the notice in a fuller or shorter form. A notice written in three languages could itself be reported in more than one form.",
+        "limit": "Which wording stood on the board, in which language, cannot be recovered. What the evidence shows is agreement in substance with independence in wording, which is what witnesses who have not simply copied one another usually look like."
+      }
+    ],
+    "views": [
+      {
+        "id": "two-source",
+        "name": "Mark first, with Q",
+        "tag": "Matthew and Luke each used Mark and a lost sayings source",
+        "history": "Argued from the order of episodes by Karl Lachmann (1835) and developed by Christian Hermann Weisse (1838) and Heinrich Julius Holtzmann (1863). B. H. Streeter, The Four Gospels (1924), added a separate source for each Gospel's own material.",
+        "held": "The majority view in critical scholarship. Many evangelicals hold it too: Grant Osborne and Matthew Williams argued for it in Three Views on the Origins of the Synoptic Gospels (2002). [check: contributor names and roles in that volume]",
+        "forIt": "Mark is the shortest and its Greek the roughest; it is easier to see Matthew and Luke smoothing Mark than Mark roughening them. Where Matthew and Luke follow the same order, it is nearly always Mark's order.",
+        "against": "Q has never been found. In places Matthew and Luke agree against Mark in small details inside episodes Mark tells, which this view must explain.",
+        "wouldShow": "A copy of Q."
+      },
+      {
+        "id": "farrer",
+        "name": "Mark first, without Q",
+        "tag": "Matthew used Mark; Luke used both",
+        "history": "Austin Farrer, “On Dispensing with Q” (1955); developed by Michael Goulder and by Mark Goodacre, The Case Against Q (2002).",
+        "held": "A growing minority, chiefly in Britain. Not tied to any one theological position.",
+        "forIt": "It keeps the arguments for Mark's priority while needing no lost document. It explains the small agreements of Matthew and Luke against Mark: Luke knew Matthew.",
+        "against": "Defenders of Q ask why Luke, if he had Matthew, so often placed Matthew's sayings differently and left out Matthew's additions to Mark.",
+        "wouldShow": "A clear case where Luke depends on something only Matthew wrote."
+      },
+      {
+        "id": "matthew-first",
+        "name": "Matthew first",
+        "tag": "The order the early witnesses give",
+        "history": "Augustine, The Harmony of the Gospels (about AD 400), takes the order Matthew, Mark, Luke, John, and calls Mark a follower and abridger of Matthew. [check: book and chapter, 1.2.4] Johann Jakob Griesbach (1789) proposed Matthew, then Luke, then Mark drawing on both; William Farmer revived this in The Synoptic Problem (1964) as the two-Gospel view. John Wenham, Redating Matthew, Mark and Luke (1991), argued for the Augustinian order from an evangelical position.",
+        "held": "A minority. Held by evangelicals such as Wenham, and by Farmer and those who followed him, among others. John Niemelä argued the two-Gospel view in the 2002 Three Views volume. [check]",
+        "forIt": "Every early witness who gives an order puts Matthew first. Irenaeus and Clement of Alexandria place Matthew early.",
+        "against": "Most scholars find it harder to explain why Mark would leave out so much of Matthew and Luke, including the Lord's Prayer and the birth stories, while adding vivid detail.",
+        "wouldShow": "Clear marks in Mark of a writer abbreviating a longer text."
+      },
+      {
+        "id": "independence",
+        "name": "No copying at all",
+        "tag": "Three writers drawing on eyewitness memory and shared teaching",
+        "history": "Argued by Eta Linnemann, Is There a Synoptic Problem? (English 1992), after she left the historical-critical method she had been trained in, and by Robert L. Thomas and F. David Farnell, eds., The Jesus Crisis (1998).",
+        "held": "A minority among evangelicals, and almost no one outside them.",
+        "forIt": "The apostles taught the same events for years before anything was written (Luke 1:2 speaks of those who were eyewitnesses and servants of the word). A fixed spoken form could produce shared wording.",
+        "against": "Most scholars, evangelicals included, think the shared narrator's asides and long runs of identical Greek are too close for memory alone.",
+        "wouldShow": "Comparable verbal agreement in other ancient texts known to be independent and passed on by mouth."
+      }
+    ],
+    "stance": "Scholars who hold Scripture to be true hold every one of these four views, and the Baptist Faith and Message does not address the question. This page does not choose. Whichever is right, Luke says plainly that he used earlier accounts and eyewitness reports and investigated them carefully (Luke 1:1–4). Using sources is something a Gospel says it did.",
+    "verses": [
+      "Luke 1:1",
+      "Luke 1:2",
+      "Luke 1:3",
+      "Luke 1:4"
+    ]
+  },
+  "witnesses": {
+    "head": "No names on the books. Names in the witnesses.",
+    "lead": "None of the four Gospels names its writer in its text. The titles “according to Matthew” and so on are found in the manuscripts, and the oldest copies that survive with titles agree on them. [check: wording of the claim, e.g. Martin Hengel, Studies in the Gospel of Mark (1985), on the uniformity of the titles] What we know about their writers comes from writers of the next generations, whose words survive mostly in quotation by others.",
+    "records": [
+      {
+        "id": "papias",
+        "who": "Papias, bishop of Hierapolis",
+        "when": "Wrote early in the second century; dates proposed run from about 95 to about 130. [check: range]",
+        "where": "Quoted by Eusebius, Church History 3.39. Papias' own five books are lost.",
+        "evidence": "Papias says he learned from the elder John that Mark had been Peter's interpreter and wrote down accurately, though not in order, what Peter remembered of the Lord's words and deeds. He also says Matthew put the sayings in order in the Hebrew language, and each person translated them as he was able. (Restated, not quoted.)",
+        "inference": "This is the earliest surviving statement about who wrote any Gospel. It ties Mark to an eyewitness, and Papias' source reaches back into the lifetime of the apostles' hearers.",
+        "limit": "We have Papias only through Eusebius, who thought little of his judgement. What Papias meant by Matthew's “Hebrew” is disputed: an Aramaic writing now lost, a Hebrew style of arrangement, or a mistake. Our Matthew is in Greek and does not read like a translation."
+      },
+      {
+        "id": "justin",
+        "who": "Justin Martyr",
+        "when": "About 150–160.",
+        "where": "First Apology 66–67; Dialogue with Trypho 103–106. [check: chapters]",
+        "evidence": "Justin calls the Gospels “memoirs of the apostles” and says they were read in Christian worship on Sundays beside the prophets. He says they were written by apostles and by those who followed them.",
+        "inference": "By the middle of the second century, written Gospels tied to apostles and their companions were read aloud in Rome as Scripture was.",
+        "limit": "Justin does not name the writers one by one."
+      },
+      {
+        "id": "irenaeus",
+        "who": "Irenaeus, bishop of Lyon",
+        "when": "About 180.",
+        "where": "Against Heresies 3.1.1; also 3.11.8 on there being four Gospels.",
+        "evidence": "Irenaeus names all four: Matthew, among the Hebrews in their own language, while Peter and Paul preached in Rome; Mark, Peter's disciple and interpreter, after their departure; Luke, Paul's companion; then John, the disciple who leaned on the Lord's chest, at Ephesus. (Restated.) As a young man he had heard Polycarp, who he says had known John.",
+        "inference": "The four names are fixed by about 180, in a writer who had a living link to the apostolic generation.",
+        "limit": "“After their departure” may mean after Peter and Paul died, or after they left a place; this matters for the date of Mark. His order may reflect the order the churches used rather than a dating."
+      },
+      {
+        "id": "muratorian",
+        "who": "The Muratorian fragment",
+        "when": "Disputed: most date it late in the second century; some argue for the fourth. [check: holders, e.g. Albert Sundberg, Geoffrey Hahneman] How the canon took shape weighs the date.",
+        "where": "A Latin list in an eighth-century manuscript at Milan.",
+        "evidence": "Its opening lines are lost. It calls Luke the third Gospel, written by Luke the physician, Paul's companion, who had not seen the Lord himself; it names John as the fourth, and Luke as the writer of Acts.",
+        "inference": "A further witness, independent of Irenaeus in its wording, to Luke as writer of both Luke and Acts.",
+        "limit": "The text is badly copied and its date unsettled, so it cannot carry weight alone."
+      },
+      {
+        "id": "clement",
+        "who": "Clement of Alexandria",
+        "when": "About 200.",
+        "where": "His lost Outlines, quoted by Eusebius, Church History 6.14.",
+        "evidence": "Clement reports the elders' tradition that the Gospels with genealogies were written first; that Mark wrote at Rome at the request of Peter's hearers; and that John, last, wrote a “spiritual” Gospel. (Restated.)",
+        "inference": "A second line of witness, from Egypt, which agrees on the writers but gives a different order.",
+        "limit": "Clement's order (Matthew and Luke before Mark) is one reason the Griesbach view appealed to early church practice. It is a report of elders, not a dated record."
+      }
+    ],
+    "pattern": "The witnesses are not unanimous on order or on Matthew's language. They are unanimous on the four names, and no rival name for any Gospel appears in the early record. The names they give are also not the names a forger would choose: Mark and Luke were not apostles, and Matthew was a tax collector."
+  },
+  "gospels": [
+    {
+      "id": "mark",
+      "name": "Mark",
+      "who": "John Mark of Jerusalem (Acts 12:12), companion of Paul and Barnabas (Acts 13:5, 13; 15:37–39), later with Peter, who calls him his son (1 Peter 5:13). So Papias and Irenaeus.",
+      "dateViews": "Many evangelicals: the 50s or 60s, from Rome. Most critical scholars: about 65–75, around the fall of Jerusalem.",
+      "note": "The date turns partly on Mark 13, Jesus' words about the temple's destruction. Critics who hold that prediction is impossible date the writing after the event. Others answer that the chapter describes no detail of the siege that a writer after AD 70 would know, and that Jesus' prophecy is the plainest reading."
+    },
+    {
+      "id": "matthew",
+      "name": "Matthew",
+      "who": "Matthew the tax collector, one of the twelve (Matthew 9:9; 10:3). So Papias and Irenaeus. Only this Gospel calls Levi by the name Matthew in the call scene.",
+      "dateViews": "Many evangelicals: the 50s or 60s. Most critical scholars: about 80–90.",
+      "note": "If Mark came first, Matthew is later than Mark. Critics ask why an apostle would use the work of one who was not; those who answer point to Papias: Mark wrote Peter's teaching, and an apostle might well use Peter's account."
+    },
+    {
+      "id": "luke",
+      "name": "Luke",
+      "who": "Luke the physician, Paul's companion (Colossians 4:14; Philemon 24; 2 Timothy 4:11). So Irenaeus and the Muratorian fragment. The same writer wrote Acts (Luke 1:1–4; Acts 1:1).",
+      "dateViews": "Many evangelicals: early 60s, before Acts. Most critical scholars: about 80–90.",
+      "note": "Luke tells his reader his method: others had already written; he had followed things closely from the start; he writes so that Theophilus may know the certainty of what he was taught (Luke 1:1–4)."
+    }
+  ],
+  "john": {
+    "head": "The disciple who testifies.",
+    "evidence": "John's Gospel names no writer, but it closes by saying that the disciple Jesus loved is the one who testifies to these things and wrote them, and that “we” know his testimony is true (John 21:20–24). Irenaeus calls the writer John, the Lord's disciple, who leaned on his chest and published the Gospel at Ephesus. A papyrus fragment of John 18, P52, is dated by its handwriting to the second century.",
+    "views": [
+      {
+        "who": "John the son of Zebedee, one of the twelve",
+        "held": "The church's general view from Irenaeus on; among evangelicals, D. A. Carson, The Gospel according to John (1991), and Andreas Köstenberger. [check: Köstenberger's work cited]"
+      },
+      {
+        "who": "John the elder, a disciple of Jesus but not one of the twelve",
+        "held": "Richard Bauckham, Jesus and the Eyewitnesses (2006), reading Papias as naming a second John. Bauckham holds the Gospel to be eyewitness testimony all the same."
+      },
+      {
+        "who": "A circle of disciples writing up the beloved disciple's witness",
+        "held": "Many critical scholars, among them Raymond Brown, who held the beloved disciple to be a real eyewitness behind the community's writing. [check: Brown's final position]"
+      }
+    ],
+    "date": "Most date John in the 80s or 90s, the last of the four, as Irenaeus and Clement imply. John A. T. Robinson, The Priority of John (1985), argued it could be early. P52 makes a date far into the second century, once proposed in the nineteenth century, very hard to hold.",
+    "inference": "Evangelical and many critical scholars agree that the Gospel claims eyewitness testimony behind it. They differ over which disciple and over how much shaping lies between witness and page.",
+    "limit": "The handwriting date of P52 is an estimate with a range; how wide is argued by palaeographers, and The manuscripts of the Bible gives the range. [check: cite Brent Nongbri's 2005 article only if read] The words “we know” at John 21:24 show at least one other voice at the close; who they are is not stated."
+  },
+  "quest": {
+    "head": "Two pictures of Jesus. One set of sources.",
+    "lead": "From the late eighteenth century, some scholars tried to recover a Jesus from behind the Gospels by the methods used on any ancient text, and often set that figure against the Christ the Gospels proclaim. This section tells that history in its holders' terms, then gives the evangelical answer. The site does not hold that the two can be set against each other.",
+    "stages": [
+      {
+        "id": "reimarus",
+        "name": "The beginning",
+        "years": "1774–1778",
+        "who": "Hermann Samuel Reimarus (died 1768), whose unpublished fragments Gotthold Lessing published after his death.",
+        "held": "Reimarus argued that Jesus was a failed political messiah and that the disciples invented the resurrection. (Restated.)",
+        "note": "Albert Schweitzer later began his history of the quest here."
+      },
+      {
+        "id": "strauss",
+        "name": "Myth",
+        "years": "1835–1836",
+        "who": "David Friedrich Strauss, The Life of Jesus Critically Examined (German, 1835–36; English by George Eliot, 1846).",
+        "held": "Strauss read the miracles and much else in the Gospels as myth: the early church's faith clothed in stories drawn from the Old Testament, not reports of events. (Restated.)",
+        "note": "The book cost Strauss his post at Tübingen. Its premise, that miracle cannot be history, carried through most of what followed."
+      },
+      {
+        "id": "liberal",
+        "name": "The liberal lives",
+        "years": "Nineteenth century",
+        "who": "Writers such as Ernest Renan, Life of Jesus (1863).",
+        "held": "Many wrote lives of Jesus that kept a moral teacher and set aside the supernatural.",
+        "note": "Schweitzer, The Quest of the Historical Jesus (German, 1906), argued that each writer had found a Jesus much like himself, and offered instead a Jesus who expected the world to end. The image often quoted is George Tyrrell's, of a liberal looking down a deep well and seeing his own face. [check: Tyrrell, Christianity at the Cross-Roads (1909)]"
+      },
+      {
+        "id": "no-quest",
+        "name": "The turn away",
+        "years": "1892–1950s",
+        "who": "Martin Kähler, The So-called Historical Jesus and the Historic, Biblical Christ (1892); Rudolf Bultmann, The History of the Synoptic Tradition (1921) and Jesus (1926).",
+        "held": "Kähler argued that the Christ who matters to faith is the Christ the whole Bible preaches, not a historian's reconstruction. Bultmann held that very little could be known of Jesus' life and that faith did not need it; he classified the Gospel material by the forms it took in the early churches' preaching (form criticism).",
+        "note": "Kähler and Bultmann drew opposite lessons from the same doubt. Kähler is sometimes read as a friend of the Gospels' witness; Bultmann treated much of it as the community's creation."
+      },
+      {
+        "id": "new-quest",
+        "name": "The new quest",
+        "years": "From 1953",
+        "who": "Ernst Käsemann's lecture “The Problem of the Historical Jesus” (1953); James M. Robinson, A New Quest of the Historical Jesus (1959).",
+        "held": "Bultmann's own students argued that faith could not be cut off from history, and set out criteria for judging which sayings came from Jesus. The best known, “dissimilarity”, counted a saying as Jesus' only if it was unlike both Judaism and the early church.",
+        "note": "Critics of that criterion, many of them not evangelicals, point out that it would cut Jesus off from the Judaism he belonged to and from the church that remembered him."
+      },
+      {
+        "id": "third-quest",
+        "name": "The third quest",
+        "years": "From the 1980s",
+        "who": "E. P. Sanders, Jesus and Judaism (1985); N. T. Wright, Jesus and the Victory of God (1996). The name is Wright's, in Stephen Neill and N. T. Wright, The Interpretation of the New Testament, 1861–1986 (1988).",
+        "held": "Scholars of very different convictions set Jesus firmly in first-century Judaism and treated the Gospels' broad outline as historically sound.",
+        "note": "Sanders wrote as a historian who did not argue for the Gospels' truth; Wright, an Anglican bishop, argued for the resurrection as history."
+      },
+      {
+        "id": "seminar",
+        "name": "The Jesus Seminar",
+        "years": "1985 onward",
+        "who": "Founded by Robert Funk; its results published as The Five Gospels (1993), edited by Funk and Roy Hoover, and The Acts of Jesus (1998).",
+        "held": "Fellows voted with coloured beads on each saying and deed. They printed the Gospel of Thomas beside the four, and concluded that most of the words the Gospels give Jesus were not spoken by him. [check: the figure they gave, commonly cited as 82 per cent, in The Five Gospels' introduction]",
+        "note": "Their method began from premises such as the exclusion of the supernatural and an early date for Thomas. Scholars outside evangelicalism also criticised it, among them Luke Timothy Johnson, a Roman Catholic, in The Real Jesus (1996)."
+      }
+    ],
+    "answer": {
+      "head": "The evangelical answer",
+      "points": [
+        "The premise decides the result. A method that rules out miracle before it reads cannot find one; the Gospels' miracles are then removed by the starting point, not by evidence. Schweitzer's verdict on the liberal lives was that this happened again and again.",
+        "The Gospels claim to rest on eyewitnesses (Luke 1:2; John 19:35; John 21:24), and Paul cites a list of named witnesses to the risen Jesus, most of them alive when he wrote (1 Corinthians 15:3–8). Richard Bauckham, Jesus and the Eyewitnesses (2006), argues from the names in the Gospels and from Papias that eyewitnesses stood behind the tradition throughout.",
+        "The time is short. Paul's letters, written within about twenty to thirty years of the cross by any reckoning, already worship Jesus and pass on fixed teaching about his death and resurrection.",
+        "The Gospels fit their world. Craig Blomberg, The Historical Reliability of the Gospels (1987; second edition 2007), tests them against what is known of Galilee and Judea and against the ancient practice of memorised teaching.",
+        "On the Jesus Seminar directly: Michael Wilkins and J. P. Moreland, eds., Jesus Under Fire (1995), answer its method and results chapter by chapter."
+      ],
+      "stance": "The site holds that the Jesus of the Gospels is the Jesus who lived, died and rose. That is a claim about Scripture's truth, taught in the theology studies Scripture (the word of God), Who Jesus is and The resurrection of Jesus, and not argued here. This page reports the quest as history and gives the evidence the evangelical answer uses."
+    }
+  },
+  "acts": {
+    "head": "Volume two, and a narrator who joins in.",
+    "evidence": "Acts begins by recalling “the first account” to Theophilus (Acts 1:1), so its writer wrote Luke. In four stretches the narrative moves from “they” to “we” (Acts 16:10–17; 20:5–15; 21:1–18; 27:1–28:16). The book ends with Paul two years under guard in Rome, preaching, with no word of his trial's outcome or his death (Acts 28:30–31).",
+    "views": [
+      {
+        "who": "Luke, Paul's companion, who was present in the “we” sections",
+        "held": "Irenaeus and the Muratorian fragment; most evangelicals; Adolf von Harnack, a liberal German scholar, argued for Luke's authorship. [check: Harnack, Luke the Physician (English 1907)]"
+      },
+      {
+        "who": "A later writer using a travel diary or a literary device",
+        "held": "Many critical scholars, who note differences between Acts' Paul and the Paul of the letters."
+      }
+    ],
+    "date": "Some date Acts in the early 60s, because it stops where it does: Harnack came to argue this (The Date of the Acts and of the Synoptic Gospels, English 1911), as did John A. T. Robinson, Redating the New Testament (1976), and many evangelicals. Most critical scholars date it about 80–90, explaining the ending as the writer's purpose: the gospel has reached Rome.",
+    "inference": "The “we” sections are most simply read as a writer who was there. The early date explains the ending without needing a purpose the book does not state; the later date is possible if the ending was planned.",
+    "limit": "Acts nowhere names its writer. The differences between Acts and the letters are real and are weighed in the Letters guide; an author who travelled with Paul for parts of his life need not have known or reported everything in his letters. The fixed dates of Paul's life (Gallio, Felix, Festus) are in New Testament history: from Herod to the fall of Jerusalem."
+  },
+  "paul": {
+    "head": "His name on the letter. Another hand on the pen.",
+    "lead": "Thirteen letters name Paul as their sender. Six name a co-sender as well. Paul says he signs with his own hand (1 Corinthians 16:21; Galatians 6:11; Colossians 4:18; 2 Thessalonians 3:17); one letter names its scribe, Tertius (Romans 16:22). Most of the letters were written down by someone else and closed by Paul.",
+    "groups": [
+      {
+        "id": "undisputed",
+        "name": "Accepted by almost all scholars",
+        "letters": [
+          "Romans",
+          "1 Corinthians",
+          "2 Corinthians",
+          "Galatians",
+          "Philippians",
+          "1 Thessalonians",
+          "Philemon"
+        ],
+        "note": "Even the most sceptical modern schools accept these seven as Paul's. F. C. Baur of Tübingen in the 1840s accepted only four: Romans, 1 and 2 Corinthians and Galatians. [check: Baur's Paul (German 1845)]"
+      },
+      {
+        "id": "doubted",
+        "name": "Doubted by many critical scholars",
+        "letters": [
+          "Ephesians",
+          "Colossians",
+          "2 Thessalonians"
+        ],
+        "note": "Critical scholarship is divided over these; a substantial number accept Colossians and 2 Thessalonians as Paul's."
+      },
+      {
+        "id": "pastorals",
+        "name": "Doubted by most critical scholars",
+        "letters": [
+          "1 Timothy",
+          "2 Timothy",
+          "Titus"
+        ],
+        "note": "The three letters to pastors. Friedrich Schleiermacher doubted 1 Timothy in 1807; Baur rejected all three in 1835. [check: titles and years]"
+      }
+    ],
+    "criticalCase": {
+      "head": "Why some say others wrote them",
+      "points": [
+        "Vocabulary and style differ from the seven: the Pastoral Letters especially use many words not found elsewhere in Paul, and Ephesians has long sentences unlike Romans.",
+        "Teaching seems to develop: in Ephesians and Colossians, Christ as head of a universal church; in the Pastorals, settled offices of overseer and deacon.",
+        "The Pastorals' journeys do not fit the record of Acts.",
+        "Writing in the name of a revered teacher, it is argued, was common and accepted. Bart Ehrman, Forged (2011), argues instead that such writing was deceptive and recognised as such in antiquity, and that some New Testament letters are examples. Raymond Brown reports that most critical scholars held the Pastorals to be written after Paul. [check: Brown's figure and page in An Introduction to the New Testament (1997)]"
+      ]
+    },
+    "answer": {
+      "head": "The evangelical answer",
+      "points": [
+        "Each letter claims Paul as its sender, some with personal detail that would be pointless in a later writer's hands: Paul asking for his cloak and scrolls (2 Timothy 4:13), or warning against letters falsely claiming to be from him (2 Thessalonians 2:2).",
+        "Secretaries and co-senders explain changes of style. A letter written down with Silvanus, Timothy or Luke would not read like one dictated word for word to Tertius. A short book also gives too few words to test a style safely.",
+        "Subject explains vocabulary. Letters to pastors about leaders and false teachers need words that letters to young churches did not.",
+        "Acts ends before Paul's trial. Eusebius reports that Paul was released and later imprisoned again (Church History 2.22); if so, the Pastorals belong to years Acts does not cover. [check: chapter]",
+        "The early church did not accept letters it believed forged. Tertullian reports that the elder who wrote the Acts of Paul was removed from office, though he said he wrote out of love for Paul (On Baptism 17). Serapion of Antioch withdrew his permission to read the Gospel of Peter when he found it false (Eusebius, Church History 6.12). The Muratorian fragment rejects letters to the Laodiceans and Alexandrians forged in Paul's name.",
+        "Among evangelical studies: Terry Wilder, Pseudonymity, the New Testament, and Deception (2004); Donald Guthrie, New Testament Introduction (revised 1990); D. A. Carson and Douglas Moo, An Introduction to the New Testament (2nd edition 2005), which includes a chapter on pseudonymity."
+      ],
+      "stance": "The site holds that letters which name Paul or Peter as their writer are theirs, because the text says so and Scripture is “truth, without any mixture of error” (Baptist Faith and Message 2000, article I). Writing in another's name is described here as others' view. How Paul used secretaries and co-senders, letter by letter, is in the Letters guide How the letters came to be."
+    }
+  },
+  "petrine": {
+    "head": "Peter's two letters",
+    "evidence": "1 Peter names Peter as writer (1 Peter 1:1) and says it was written “through Silvanus” (1 Peter 5:12). 2 Peter names Simon Peter (2 Peter 1:1), claims to have been at the transfiguration (2 Peter 1:16–18), calls itself the second letter (2 Peter 3:1), and speaks of Paul's letters as Scripture (2 Peter 3:15–16).",
+    "views": "Critics doubt 1 Peter for its fine Greek, unexpected in a Galilean fisherman, and 2 Peter more widely: Eusebius already lists 2 Peter among the books some questioned (Church History 3.25), and its style differs from 1 Peter. Evangelicals answer that Silvanus may account for 1 Peter's Greek, that a different secretary or none may account for 2 Peter's, and that the transfiguration claim leaves only truth or deliberate deceit as options. Michael Green, 2 Peter and Jude (Tyndale, 1968, rev. 1987), defends Peter's authorship. [check: edition]",
+    "limit": "Eusebius's report shows doubt in some churches, not rejection; 2 Peter was in use where he wrote. The likeness between 2 Peter 2 and Jude raises its own question of who used whom, not settled here."
+  },
+  "hebrews": {
+    "head": "A letter with no name. Four candidates.",
+    "evidence": "Hebrews names no writer. Its writer says the message was confirmed to “us” by those who heard the Lord (Hebrews 2:3), mentions Timothy's release (Hebrews 13:23), and sends greetings from those from Italy (Hebrews 13:24). Its Greek is among the most polished in the New Testament.",
+    "views": [
+      {
+        "who": "Paul",
+        "held": "The churches of the East from early on; Clement of Alexandria, reporting that Paul wrote in Hebrew and Luke translated it (Eusebius, Church History 6.14); the West from about the fourth century until the Reformation. Among modern evangelicals, David Alan Black has argued for Paul. [check: Black's article or book]"
+      },
+      {
+        "who": "Barnabas",
+        "held": "Tertullian, On Modesty 20."
+      },
+      {
+        "who": "Apollos",
+        "held": "Proposed by Martin Luther [check: where Luther proposes Apollos]; favoured by some moderns, for Apollos's learning and eloquence (Acts 18:24)."
+      },
+      {
+        "who": "Unknown",
+        "held": "Origen, as Eusebius reports: who wrote it, God truly knows (Church History 6.25). [check: wording in the translation used]"
+      }
+    ],
+    "forPaul": "Early Eastern use; the mention of Timothy; themes close to Paul's.",
+    "againstPaul": "Paul insists he received his gospel by revelation, not from men (Galatians 1:12), which sits uneasily with Hebrews 2:3; the style differs from his letters; Hebrews lacks the greeting every letter of Paul has.",
+    "date": "Most date it before AD 70, because it speaks of the sacrifices as still offered and never mentions the temple's fall. 1 Clement, usually dated about 96, appears to use it. [check: date of 1 Clement]",
+    "stance": "Scholars who hold Scripture true disagree over whether Paul wrote Hebrews, and the book itself does not say. This page does not choose. Its place in Scripture never depended on the answer."
+  },
+  "revelation": {
+    "head": "John names himself. Which John?",
+    "evidence": "Revelation's writer calls himself John four times, a servant and brother of its readers, on Patmos (Revelation 1:1, 4, 9; 22:8). He does not call himself an apostle.",
+    "views": [
+      {
+        "who": "John the apostle",
+        "held": "Justin Martyr, Dialogue with Trypho 81; Irenaeus; most of the early church; many evangelicals."
+      },
+      {
+        "who": "Another John",
+        "held": "Dionysius of Alexandria (about 250), from the difference between its Greek and the Gospel's (Eusebius, Church History 7.25). Eusebius wondered whether it was the elder John of Papias (Church History 3.39)."
+      }
+    ],
+    "date": "Irenaeus says the vision was seen near the end of Domitian's reign (Against Heresies 5.30.3), about 95; most scholars agree. Some date it about 68, under Nero or just after, among them John A. T. Robinson (1976) and, among evangelicals, Kenneth Gentry, Before Jerusalem Fell (1989). Scholars who hold Scripture true are found on both sides, and this page does not choose.",
+    "limit": "Dionysius's point about style is real and still argued; a change of secretary, or the visionary form, are answers given. How to read the book's visions belongs to the theology study Daniel and Revelation."
+  },
+  "dates": {
+    "head": "Ranges, not points",
+    "note": "No New Testament book carries a date. Every year in the table below is a reconstruction from the book's contents, the early witnesses and a few fixed points of history. Where views differ, the table gives the range most often argued by evangelical scholars first and the common critical range second, and says so. The fixed points themselves are in New Testament history: from Herod to the fall of Jerusalem."
+  },
+  "referenceTable": [
+    {
+      "book": "Matthew",
+      "claims": "No name",
+      "witness": "Matthew the apostle (Papias, Irenaeus)",
+      "date": "50s–60s / 80–90",
+      "home": "The Gospel of Matthew is read in theology's Gospel studies"
+    },
+    {
+      "book": "Mark",
+      "claims": "No name",
+      "witness": "John Mark, Peter's interpreter (Papias, Irenaeus)",
+      "date": "50s–60s / 65–75"
+    },
+    {
+      "book": "Luke",
+      "claims": "No name; addressed to Theophilus",
+      "witness": "Luke the physician, Paul's companion (Irenaeus, Muratorian)",
+      "date": "about 60 / 80–90"
+    },
+    {
+      "book": "John",
+      "claims": "The disciple Jesus loved (21:24)",
+      "witness": "John, the Lord's disciple, at Ephesus (Irenaeus)",
+      "date": "80s–90s; some earlier"
+    },
+    {
+      "book": "Acts",
+      "claims": "No name; the first account's writer (1:1)",
+      "witness": "Luke (Irenaeus, Muratorian)",
+      "date": "early 60s / 80–90"
+    },
+    {
+      "book": "Romans",
+      "claims": "Paul (1:1), written by Tertius (16:22)",
+      "witness": "Undisputed",
+      "date": "about 57, from Corinth"
+    },
+    {
+      "book": "1 Corinthians",
+      "claims": "Paul and Sosthenes (1:1)",
+      "witness": "Undisputed; 1 Clement cites it",
+      "date": "about 54–55, from Ephesus"
+    },
+    {
+      "book": "2 Corinthians",
+      "claims": "Paul and Timothy (1:1)",
+      "witness": "Undisputed; whether it joins more than one letter is argued",
+      "date": "about 55–56"
+    },
+    {
+      "book": "Galatians",
+      "claims": "Paul (1:1), his own hand (6:11)",
+      "witness": "Undisputed",
+      "date": "about 48 or mid-50s, by which Galatia is meant"
+    },
+    {
+      "book": "Ephesians",
+      "claims": "Paul (1:1)",
+      "witness": "Doubted by many critics",
+      "date": "about 60–62, in prison"
+    },
+    {
+      "book": "Philippians",
+      "claims": "Paul and Timothy (1:1)",
+      "witness": "Undisputed",
+      "date": "about 62 if from Rome; earlier if from Ephesus"
+    },
+    {
+      "book": "Colossians",
+      "claims": "Paul and Timothy (1:1)",
+      "witness": "Doubted by some critics",
+      "date": "about 60–62"
+    },
+    {
+      "book": "1 Thessalonians",
+      "claims": "Paul, Silvanus, Timothy (1:1)",
+      "witness": "Undisputed",
+      "date": "about 50–51, from Corinth"
+    },
+    {
+      "book": "2 Thessalonians",
+      "claims": "Paul, Silvanus, Timothy (1:1); his signature (3:17)",
+      "witness": "Doubted by some critics",
+      "date": "about 51"
+    },
+    {
+      "book": "1 Timothy",
+      "claims": "Paul (1:1)",
+      "witness": "Doubted by most critics",
+      "date": "about 62–64, after Acts' end"
+    },
+    {
+      "book": "2 Timothy",
+      "claims": "Paul (1:1), near death (4:6)",
+      "witness": "Doubted by most critics",
+      "date": "about 64–67, from Rome"
+    },
+    {
+      "book": "Titus",
+      "claims": "Paul (1:1)",
+      "witness": "Doubted by most critics",
+      "date": "about 63"
+    },
+    {
+      "book": "Philemon",
+      "claims": "Paul and Timothy (1)",
+      "witness": "Undisputed",
+      "date": "with Colossians"
+    },
+    {
+      "book": "Hebrews",
+      "claims": "No name",
+      "witness": "Paul, Barnabas, Apollos or unknown (not chosen)",
+      "date": "before 70, most hold"
+    },
+    {
+      "book": "James",
+      "claims": "James (1:1)",
+      "witness": "James the Lord's brother, traditionally; questioned by some (Eusebius)",
+      "date": "40s–60s / later"
+    },
+    {
+      "book": "1 Peter",
+      "claims": "Peter (1:1), through Silvanus (5:12)",
+      "witness": "Widely used early; doubted by many critics",
+      "date": "early 60s, from “Babylon”, often read as Rome (5:13)"
+    },
+    {
+      "book": "2 Peter",
+      "claims": "Simon Peter (1:1); a second letter (3:1)",
+      "witness": "Questioned by some (Eusebius); doubted by most critics",
+      "date": "mid-60s / early second century"
+    },
+    {
+      "book": "1 John",
+      "claims": "No name; an eyewitness “we” (1:1–3)",
+      "witness": "John (Irenaeus)",
+      "date": "80s–90s"
+    },
+    {
+      "book": "2 John",
+      "claims": "The elder (1)",
+      "witness": "John; questioned by some (Eusebius)",
+      "date": "80s–90s"
+    },
+    {
+      "book": "3 John",
+      "claims": "The elder (1)",
+      "witness": "John; questioned by some (Eusebius)",
+      "date": "80s–90s"
+    },
+    {
+      "book": "Jude",
+      "claims": "Jude, brother of James (1)",
+      "witness": "Questioned by some (Eusebius); Muratorian lists it",
+      "date": "50s–80s"
+    },
+    {
+      "book": "Revelation",
+      "claims": "John (1:1, 4, 9; 22:8)",
+      "witness": "John the apostle (Justin, Irenaeus); another John (Dionysius)",
+      "date": "about 95, or about 68 (not chosen)"
+    }
+  ],
+  "claims": [
+    {
+      "id": "generations",
+      "claim": "“The Gospels were written generations after Jesus by people who never met him.”",
+      "head": "Even the late dates are within living memory.",
+      "evidence": "The common critical dates run from about 70 to about 95. Paul's undisputed letters, written in the 50s, already pass on fixed teaching about Jesus' death and resurrection and name living witnesses (1 Corinthians 15:3–8). Papias, early in the second century, ties Mark to Peter.",
+      "inference": "On any of the dates scholars argue, people who had known Jesus were alive when the Gospels were written. “Generations” does not fit even the latest.",
+      "limit": "The evidence can show the time was short and the witnesses early. It cannot by itself show that every report is accurate; that is where the evangelical answer adds Luke's own account of his method, and where the site's confession speaks.",
+      "verses": [
+        "1 Corinthians 15:3",
+        "1 Corinthians 15:6",
+        "Luke 1:2"
+      ],
+      "sources": [
+        "eusebius",
+        "bauckham",
+        "carson-moo"
+      ],
+      "test": {
+        "question": "Papias says Mark wrote down Peter's memories “not in order”. What can that line support?",
+        "options": [
+          {
+            "text": "That Mark's Gospel is unreliable.",
+            "right": false,
+            "why": "Papias says in the same breath that Mark wrote accurately. Order and accuracy are two different things."
+          },
+          {
+            "text": "That an early writer already linked Mark's material to an apostle and discussed how it was arranged.",
+            "right": true,
+            "why": "This is what the line itself carries: a named link, and a remark about arrangement, early in the second century."
+          },
+          {
+            "text": "That Mark wrote before Matthew.",
+            "right": false,
+            "why": "Papias says nothing here about which Gospel came first."
+          }
+        ]
+      }
+    },
+    {
+      "id": "q",
+      "claim": "“Q is a lost Gospel we know existed.”",
+      "head": "A reconstruction, held by many. Never found.",
+      "evidence": "Matthew and Luke share about two hundred verses Mark lacks. No manuscript of a document containing them exists, and no ancient writer mentions one.",
+      "inference": "Q is one explanation of the shared material, and the most widely held. The Farrer view explains the same verses without it.",
+      "limit": "Reconstructed editions of Q exist, and they are useful scholarly tools. They are not copies of a found text.",
+      "verses": [
+        "Matthew 3:7",
+        "Luke 3:7"
+      ],
+      "sources": [
+        "streeter",
+        "goodacre"
+      ],
+      "test": {
+        "question": "Two scholars agree that Matthew 3:7–10 and Luke 3:7–9 share written wording. What have they agreed on?",
+        "options": [
+          {
+            "text": "That Q existed.",
+            "right": false,
+            "why": "Luke could have taken the wording from Matthew, or Matthew from Luke. Agreement on a link is not agreement on its route."
+          },
+          {
+            "text": "That the two passages are related on paper.",
+            "right": true,
+            "why": "That is all the shared wording shows. How they are related is the next question."
+          },
+          {
+            "text": "That Mark was written first.",
+            "right": false,
+            "why": "Mark does not have this passage, so it cannot settle Mark's place."
+          }
+        ]
+      }
+    },
+    {
+      "id": "contradict",
+      "claim": "“The Gospels contradict each other, so they cannot be trusted.”",
+      "head": "Three witnesses with shared material, read as witnesses.",
+      "evidence": "The Gospels differ in order, wording and detail, as in the four forms of the charge over the cross. Augustine wrote a whole book on such differences about AD 400, so they were never hidden.",
+      "inference": "Witnesses who agreed in every word would be suspected of copying without thought. Agreement in substance with differences in wording and selection is what independent but related tellings usually look like.",
+      "limit": "Some differences are hard and have more than one proposed answer. Showing that differences are expected does not explain each one; that work is done passage by passage.",
+      "verses": [
+        "Matthew 27:37",
+        "Mark 15:26",
+        "Luke 23:38",
+        "John 19:19"
+      ],
+      "sources": [
+        "augustine",
+        "blomberg"
+      ],
+      "test": {
+        "question": "Matthew, Mark and Luke give the board over the cross in different words. What follows?",
+        "options": [
+          {
+            "text": "At least two of them invented it.",
+            "right": false,
+            "why": "Different wording of the same notice is not invention. John adds that it was in three languages."
+          },
+          {
+            "text": "All four agree it charged Jesus as king of the Jews, in fuller or shorter forms.",
+            "right": true,
+            "why": "This is what the four passages carry together."
+          },
+          {
+            "text": "No such notice existed.",
+            "right": false,
+            "why": "Four independent mentions point the other way."
+          }
+        ]
+      }
+    },
+    {
+      "id": "forgeries",
+      "claim": "“Scholars have proved that half of Paul's letters are forgeries.”",
+      "head": "Doubted is not proved.",
+      "evidence": "Six of the thirteen letters are doubted by many or most critical scholars, on grounds of style, teaching and setting. Seven are accepted almost universally. Each letter names Paul, and the early church rejected letters it believed forged in his name.",
+      "inference": "The doubt is a judgement from style and setting, weighed differently by different scholars; it is not a finding from a manuscript or a record.",
+      "limit": "This page reports the judgement and the answers to it. It does not settle style statistics, which the evidence of short letters can hardly bear either way.",
+      "verses": [
+        "2 Thessalonians 2:2",
+        "2 Thessalonians 3:17",
+        "2 Timothy 4:13"
+      ],
+      "sources": [
+        "ehrman",
+        "wilder",
+        "tertullian"
+      ],
+      "test": {
+        "question": "The Pastoral Letters use many words Paul does not use elsewhere. What does that let you say?",
+        "options": [
+          {
+            "text": "Paul did not write them.",
+            "right": false,
+            "why": "Subject, secretary and a letter's length all change vocabulary. The count raises the question; it does not answer it."
+          },
+          {
+            "text": "Their vocabulary differs from the other ten, and that has to be explained.",
+            "right": true,
+            "why": "That is the observation. Explanations differ."
+          },
+          {
+            "text": "Nothing at all.",
+            "right": false,
+            "why": "The difference is real, and both sides take it seriously."
+          }
+        ]
+      }
+    },
+    {
+      "id": "seminar",
+      "claim": "“The Jesus Seminar showed what Jesus really said.”",
+      "head": "A vote, on stated premises.",
+      "evidence": "The Seminar's fellows voted on each saying and printed the results in colour. Their stated starting points included setting aside the supernatural and treating the Gospel of Thomas as an early witness.",
+      "inference": "The results follow from the premises. A different starting point, such as Bauckham's eyewitnesses or the third quest's Jewish setting, gives very different results with the same texts.",
+      "limit": "A vote records what a group of scholars judged. It is not a new piece of evidence about Jesus.",
+      "verses": [],
+      "sources": [
+        "funk",
+        "jesus-under-fire",
+        "johnson"
+      ],
+      "test": {
+        "question": "A saying is voted black (not Jesus') because it contains a prediction. What decided the vote?",
+        "options": [
+          {
+            "text": "A manuscript lacking the saying.",
+            "right": false,
+            "why": "No manuscript is involved. The vote is about the saying's content."
+          },
+          {
+            "text": "A premise that prediction cannot be genuine.",
+            "right": true,
+            "why": "That is a starting point, not a finding. A reader may ask whether it is a fair one."
+          },
+          {
+            "text": "Eyewitness testimony against it.",
+            "right": false,
+            "why": "No witness is cited against it."
+          }
+        ]
+      }
+    }
+  ],
+  "stance": {
+    "head": "What this site holds",
+    "confession": "“truth, without any mixture of error”",
+    "confessionSource": "Baptist Faith and Message 2000, article I (the Scriptures)",
+    "body": "Where a book names its writer, the site takes the claim: Paul's thirteen letters, Peter's two, James, Jude and Revelation's John. Where a book names no writer, who wrote it is a historical question, and the site follows the early witnesses as the best evidence for the Gospels and Acts while saying plainly that they are witnesses, not Scripture. Where scholars who hold Scripture true differ — which Gospel came first, who wrote Hebrews, when Revelation was written, which John is the beloved disciple — this page shows the views and does not choose. Views that deny what a book says of itself, or set a historian's Jesus against the Christ the Gospels proclaim, are described as others' views with the evangelical answer. Why Scripture is held true is taught in the theology study Scripture (the word of God), not here.",
+    "verses": [
+      "2 Timothy 3:16",
+      "2 Peter 1:21",
+      "Luke 1:3"
+    ]
+  },
+  "reach": [
+    "This is a selection, not a census. It reads three Synoptic cases closely; it does not chart every parallel. A full synopsis is the next step for a reader who wants one.",
+    "The early witnesses survive mostly in Eusebius's fourth-century quotations. Where a witness is restated here, it is restated from a translation, and the translation is named in the sources.",
+    "Shared wording between the Gospels is a matter of Greek. English translations can hide or create likeness, and this page's English comparisons say so.",
+    "Every date on this page is a reconstruction. None is printed in a book of the New Testament."
+  ],
+  "links": [
+    {
+      "title": "How the letters came to be",
+      "kind": "Letters guide",
+      "why": "How each letter was written, carried and read, with its co-senders and secretaries."
+    },
+    {
+      "title": "How the canon took shape",
+      "kind": "Academic",
+      "why": "Which books the churches listed, and the date of the Muratorian fragment."
+    },
+    {
+      "title": "The manuscripts of the Bible",
+      "kind": "Academic",
+      "why": "P52 and the oldest copies of each book."
+    },
+    {
+      "title": "The text of the Bible",
+      "kind": "Academic",
+      "why": "The endings of Mark and John 7:53–8:11."
+    },
+    {
+      "title": "New Testament history: from Herod to the fall of Jerusalem",
+      "kind": "Academic",
+      "why": "The fixed points behind the dates: Gallio, Felix, Festus, Nero, AD 70."
+    },
+    {
+      "title": "The world of the New Testament",
+      "kind": "Academic",
+      "why": "The world the books were written into."
+    },
+    {
+      "title": "The early church",
+      "kind": "Academic",
+      "why": "Papias, Justin and Irenaeus as people in a story."
+    },
+    {
+      "title": "How the Old Testament books were written",
+      "kind": "Academic",
+      "why": "The same questions asked of the Old Testament."
+    },
+    {
+      "title": "How New Testament Greek works",
+      "kind": "Academic",
+      "why": "Why style arguments rest on Greek."
+    },
+    {
+      "title": "Scripture (the word of God)",
+      "kind": "Theology",
+      "why": "Why Scripture is held true."
+    },
+    {
+      "title": "Who Jesus is",
+      "kind": "Theology",
+      "why": "The Christ the Gospels proclaim."
+    },
+    {
+      "title": "The Gospel of John",
+      "kind": "Theology",
+      "why": "John read as a book."
+    },
+    {
+      "title": "Acts",
+      "kind": "Theology",
+      "why": "Acts read as a book."
+    },
+    {
+      "title": "Daniel and Revelation",
+      "kind": "Theology",
+      "why": "How to read Revelation's visions."
+    }
+  ],
+  "sources": [
+    {
+      "id": "eusebius",
+      "title": "Eusebius, Church History, trans. A. C. McGiffert, Nicene and Post-Nicene Fathers, second series, vol. 1 (1890)",
+      "kind": "Ancient history · public-domain translation",
+      "status": "located",
+      "answers": "What did Papias, Clement, Origen and Dionysius say?",
+      "read": "Located, not read for this draft. Every restatement of a passage from it must be checked against the translation before publishing."
+    },
+    {
+      "id": "irenaeus",
+      "title": "Irenaeus, Against Heresies, Ante-Nicene Fathers vol. 1 (1885)",
+      "kind": "Ancient · public-domain translation",
+      "status": "located",
+      "answers": "Who wrote the four Gospels, by about 180?",
+      "read": "Located, not read for this draft."
+    },
+    {
+      "id": "justin",
+      "title": "Justin Martyr, First Apology and Dialogue with Trypho, Ante-Nicene Fathers vol. 1 (1885)",
+      "kind": "Ancient · public-domain translation",
+      "status": "located",
+      "answers": "How were the Gospels described and used by about 150?",
+      "read": "Located, not read for this draft."
+    },
+    {
+      "id": "tertullian",
+      "title": "Tertullian, On Baptism and On Modesty, Ante-Nicene Fathers vols. 3–4",
+      "kind": "Ancient · public-domain translation",
+      "status": "located",
+      "answers": "How did the church treat a forged writing? Who wrote Hebrews?",
+      "read": "Located, not read for this draft."
+    },
+    {
+      "id": "augustine",
+      "title": "Augustine, The Harmony of the Gospels, Nicene and Post-Nicene Fathers, first series, vol. 6 (1888)",
+      "kind": "Ancient · public-domain translation",
+      "status": "located",
+      "answers": "What order did Augustine give, and how did he treat differences?",
+      "read": "Located, not read for this draft."
+    },
+    {
+      "id": "streeter",
+      "title": "B. H. Streeter, The Four Gospels: A Study of Origins (1924)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "What is the classic case for Mark and Q?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "farrer",
+      "title": "Austin Farrer, “On Dispensing with Q”, in D. E. Nineham, ed., Studies in the Gospels (1955)",
+      "kind": "Essay",
+      "status": "located",
+      "answers": "Can Mark's priority stand without Q?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "goodacre",
+      "title": "Mark Goodacre, The Case Against Q (2002)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "The modern case for Mark without Q.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "farmer",
+      "title": "William R. Farmer, The Synoptic Problem (1964)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "The case for the two-Gospel view.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "wenham",
+      "title": "John Wenham, Redating Matthew, Mark and Luke (1991)",
+      "kind": "Book · evangelical",
+      "status": "located",
+      "answers": "An evangelical case for the early order and early dates.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "linnemann",
+      "title": "Eta Linnemann, Is There a Synoptic Problem? (English 1992)",
+      "kind": "Book · evangelical",
+      "status": "located",
+      "answers": "The case for independence.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "three-views",
+      "title": "Robert L. Thomas, ed., Three Views on the Origins of the Synoptic Gospels (2002)",
+      "kind": "Book · evangelical",
+      "status": "located",
+      "answers": "Evangelicals disagreeing on the Synoptic question.",
+      "read": "Located, not read. Contributors to be checked."
+    },
+    {
+      "id": "strauss",
+      "title": "David Friedrich Strauss, The Life of Jesus Critically Examined (1835–36; English 1846)",
+      "kind": "Book · public domain",
+      "status": "located",
+      "answers": "What did the myth theory claim?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "schweitzer",
+      "title": "Albert Schweitzer, The Quest of the Historical Jesus (German 1906; English 1910)",
+      "kind": "Book · public-domain English",
+      "status": "located",
+      "answers": "How did the nineteenth-century quest end?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "kahler",
+      "title": "Martin Kähler, The So-called Historical Jesus and the Historic, Biblical Christ (1892; English 1964)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "The case for the preached Christ against the reconstructed one.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "funk",
+      "title": "Robert W. Funk, Roy W. Hoover and the Jesus Seminar, The Five Gospels (1993)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "What did the Seminar conclude, and on what premises?",
+      "read": "Located, not read. Its figures must be checked before quoting."
+    },
+    {
+      "id": "jesus-under-fire",
+      "title": "Michael J. Wilkins and J. P. Moreland, eds., Jesus Under Fire (1995)",
+      "kind": "Book · evangelical",
+      "status": "located",
+      "answers": "The evangelical answer to the Seminar.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "johnson",
+      "title": "Luke Timothy Johnson, The Real Jesus (1996)",
+      "kind": "Book · Roman Catholic",
+      "status": "located",
+      "answers": "A critique of the Seminar from outside evangelicalism.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "wright",
+      "title": "N. T. Wright, Jesus and the Victory of God (1996)",
+      "kind": "Book · Anglican",
+      "status": "located",
+      "answers": "The third quest's Jesus.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "bauckham",
+      "title": "Richard Bauckham, Jesus and the Eyewitnesses (2006; 2nd ed. 2017)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "Did eyewitnesses stand behind the Gospels?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "blomberg",
+      "title": "Craig L. Blomberg, The Historical Reliability of the Gospels (1987; 2nd ed. 2007)",
+      "kind": "Book · evangelical",
+      "status": "located",
+      "answers": "Can the Gospels be tested as history?",
+      "read": "Located, not read."
+    },
+    {
+      "id": "carson-moo",
+      "title": "D. A. Carson and Douglas J. Moo, An Introduction to the New Testament (2nd ed. 2005)",
+      "kind": "Book · evangelical",
+      "status": "located",
+      "answers": "Author, date and setting for each book; pseudonymity.",
+      "read": "Located, not read. The likely source for the table's dates; every line to be checked against it."
+    },
+    {
+      "id": "guthrie",
+      "title": "Donald Guthrie, New Testament Introduction (rev. ed. 1990)",
+      "kind": "Book · evangelical",
+      "status": "located",
+      "answers": "The fullest older evangelical introduction.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "kostenberger",
+      "title": "Andreas J. Köstenberger, L. Scott Kellum and Charles L. Quarles, The Cradle, the Cross, and the Crown (2009; 2nd ed. 2016)",
+      "kind": "Book · evangelical, by Southern Baptist scholars",
+      "status": "located",
+      "answers": "A Baptist introduction to each book.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "robinson",
+      "title": "John A. T. Robinson, Redating the New Testament (1976)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "The case, from outside evangelicalism, that every book was written before 70.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "brown",
+      "title": "Raymond E. Brown, An Introduction to the New Testament (1997)",
+      "kind": "Book · Roman Catholic, critical",
+      "status": "located",
+      "answers": "Where critical scholarship stood at the end of the century.",
+      "read": "Located, not read."
+    },
+    {
+      "id": "ehrman",
+      "title": "Bart D. Ehrman, Forged (2011)",
+      "kind": "Book",
+      "status": "located",
+      "answers": "The case that some New Testament letters were written in others' names.",
+      "read": "Located, not read. Restated only; no wording quoted."
+    },
+    {
+      "id": "wilder",
+      "title": "Terry L. Wilder, Pseudonymity, the New Testament, and Deception (2004)",
+      "kind": "Book · evangelical",
+      "status": "located",
+      "answers": "Did the early church accept writing in another's name?",
+      "read": "Located, not read."
+    }
+  ],
+  "verses": [
+    {
+      "label": "Luke 1:1",
+      "code": "LUK",
+      "chapter": 1,
+      "verse": 1
+    },
+    {
+      "label": "Luke 1:2",
+      "code": "LUK",
+      "chapter": 1,
+      "verse": 2
+    },
+    {
+      "label": "Luke 1:3",
+      "code": "LUK",
+      "chapter": 1,
+      "verse": 3
+    },
+    {
+      "label": "Luke 1:4",
+      "code": "LUK",
+      "chapter": 1,
+      "verse": 4
+    },
+    {
+      "label": "Mark 2:10",
+      "code": "MRK",
+      "chapter": 2,
+      "verse": 10
+    },
+    {
+      "label": "Matthew 9:6",
+      "code": "MAT",
+      "chapter": 9,
+      "verse": 6
+    },
+    {
+      "label": "Luke 5:24",
+      "code": "LUK",
+      "chapter": 5,
+      "verse": 24
+    },
+    {
+      "label": "Matthew 3:7",
+      "code": "MAT",
+      "chapter": 3,
+      "verse": 7
+    },
+    {
+      "label": "Luke 3:7",
+      "code": "LUK",
+      "chapter": 3,
+      "verse": 7
+    },
+    {
+      "label": "Mark 8:22",
+      "code": "MRK",
+      "chapter": 8,
+      "verse": 22
+    },
+    {
+      "label": "Matthew 27:37",
+      "code": "MAT",
+      "chapter": 27,
+      "verse": 37
+    },
+    {
+      "label": "Mark 15:26",
+      "code": "MRK",
+      "chapter": 15,
+      "verse": 26
+    },
+    {
+      "label": "Luke 23:38",
+      "code": "LUK",
+      "chapter": 23,
+      "verse": 38
+    },
+    {
+      "label": "John 19:19",
+      "code": "JHN",
+      "chapter": 19,
+      "verse": 19
+    },
+    {
+      "label": "John 19:20",
+      "code": "JHN",
+      "chapter": 19,
+      "verse": 20
+    },
+    {
+      "label": "John 19:35",
+      "code": "JHN",
+      "chapter": 19,
+      "verse": 35
+    },
+    {
+      "label": "John 21:24",
+      "code": "JHN",
+      "chapter": 21,
+      "verse": 24
+    },
+    {
+      "label": "Matthew 9:9",
+      "code": "MAT",
+      "chapter": 9,
+      "verse": 9
+    },
+    {
+      "label": "Acts 1:1",
+      "code": "ACT",
+      "chapter": 1,
+      "verse": 1
+    },
+    {
+      "label": "Acts 12:12",
+      "code": "ACT",
+      "chapter": 12,
+      "verse": 12
+    },
+    {
+      "label": "Acts 16:10",
+      "code": "ACT",
+      "chapter": 16,
+      "verse": 10
+    },
+    {
+      "label": "Acts 18:24",
+      "code": "ACT",
+      "chapter": 18,
+      "verse": 24
+    },
+    {
+      "label": "Acts 28:30",
+      "code": "ACT",
+      "chapter": 28,
+      "verse": 30
+    },
+    {
+      "label": "Romans 16:22",
+      "code": "ROM",
+      "chapter": 16,
+      "verse": 22
+    },
+    {
+      "label": "1 Corinthians 15:3",
+      "code": "1CO",
+      "chapter": 15,
+      "verse": 3
+    },
+    {
+      "label": "1 Corinthians 15:6",
+      "code": "1CO",
+      "chapter": 15,
+      "verse": 6
+    },
+    {
+      "label": "1 Corinthians 16:21",
+      "code": "1CO",
+      "chapter": 16,
+      "verse": 21
+    },
+    {
+      "label": "Galatians 1:12",
+      "code": "GAL",
+      "chapter": 1,
+      "verse": 12
+    },
+    {
+      "label": "Galatians 6:11",
+      "code": "GAL",
+      "chapter": 6,
+      "verse": 11
+    },
+    {
+      "label": "Colossians 4:14",
+      "code": "COL",
+      "chapter": 4,
+      "verse": 14
+    },
+    {
+      "label": "Colossians 4:18",
+      "code": "COL",
+      "chapter": 4,
+      "verse": 18
+    },
+    {
+      "label": "2 Thessalonians 2:2",
+      "code": "2TH",
+      "chapter": 2,
+      "verse": 2
+    },
+    {
+      "label": "2 Thessalonians 3:17",
+      "code": "2TH",
+      "chapter": 3,
+      "verse": 17
+    },
+    {
+      "label": "2 Timothy 3:16",
+      "code": "2TI",
+      "chapter": 3,
+      "verse": 16
+    },
+    {
+      "label": "2 Timothy 4:13",
+      "code": "2TI",
+      "chapter": 4,
+      "verse": 13
+    },
+    {
+      "label": "Hebrews 2:3",
+      "code": "HEB",
+      "chapter": 2,
+      "verse": 3
+    },
+    {
+      "label": "Hebrews 13:23",
+      "code": "HEB",
+      "chapter": 13,
+      "verse": 23
+    },
+    {
+      "label": "1 Peter 5:12",
+      "code": "1PE",
+      "chapter": 5,
+      "verse": 12
+    },
+    {
+      "label": "1 Peter 5:13",
+      "code": "1PE",
+      "chapter": 5,
+      "verse": 13
+    },
+    {
+      "label": "2 Peter 1:16",
+      "code": "2PE",
+      "chapter": 1,
+      "verse": 16
+    },
+    {
+      "label": "2 Peter 1:21",
+      "code": "2PE",
+      "chapter": 1,
+      "verse": 21
+    },
+    {
+      "label": "2 Peter 3:1",
+      "code": "2PE",
+      "chapter": 3,
+      "verse": 1
+    },
+    {
+      "label": "2 Peter 3:15",
+      "code": "2PE",
+      "chapter": 3,
+      "verse": 15
+    },
+    {
+      "label": "Revelation 1:9",
+      "code": "REV",
+      "chapter": 1,
+      "verse": 9
+    },
+    {
+      "label": "Revelation 22:8",
+      "code": "REV",
+      "chapter": 22,
+      "verse": 8
+    }
+  ],
+  "versesNote": "No Berean Standard Bible text was supplied with this job, so no verse is quoted in this file and no phrase is given. The build must take each verse's text and a short phrase from the site's held Berean, and the page may quote only what the build supplies.",
+  "openQuestions": [
+    "No Bible text was supplied: every verse is referred to, not quoted. The build adds phrases from the held Berean.",
+    "No outside source was read for this draft; every source is marked located. Each restatement must be checked against the work before publishing, and short quotations added only from the text read.",
+    "Synoptic counts: choose one published count (verses or words) for Mark in Matthew and Luke, and for the double tradition, and state its counting rule.",
+    "Augustine, Harmony of the Gospels: confirm book and chapter (1.2.4) for Mark as follower and abridger.",
+    "Three Views on the Origins of the Synoptic Gospels (2002): confirm contributors and which view each argues.",
+    "Papias: confirm the range of dates proposed for his writing.",
+    "Gospel titles: confirm the claim about their uniformity in the oldest manuscripts and its source (e.g. Hengel).",
+    "Justin: confirm chapters of First Apology and Dialogue for the “memoirs of the apostles”.",
+    "Muratorian fragment: confirm holders of the fourth-century date (Sundberg, Hahneman).",
+    "John: confirm Köstenberger's work and Raymond Brown's final view of the beloved disciple; P52's date range from a source read (Nongbri 2005 only if read).",
+    "Tyrrell's well image: confirm source and year.",
+    "Jesus Seminar: confirm the percentage given in The Five Gospels before printing any figure.",
+    "Harnack: confirm Luke the Physician (English 1907) and The Date of the Acts and of the Synoptic Gospels (English 1911).",
+    "Baur: confirm Paul (1845) and his 1835 work on the Pastorals; Schleiermacher's 1807 work on 1 Timothy.",
+    "Raymond Brown's estimate of critical opinion on the Pastorals: figure and page.",
+    "Eusebius on Paul's release and second imprisonment: confirm chapter (2.22).",
+    "Michael Green on 2 Peter: confirm edition.",
+    "David Alan Black on Hebrews: confirm the article or book.",
+    "Luther on Apollos as writer of Hebrews: confirm where.",
+    "Origen on Hebrews (Eusebius 6.25): confirm wording in the translation used.",
+    "1 Clement's date (about 96) and its use of Hebrews.",
+    "Every date range in the reference table: check against Carson and Moo and Köstenberger, Kellum and Quarles."
+  ]
+}
