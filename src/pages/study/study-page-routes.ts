@@ -2,6 +2,7 @@
 // `export const Page = lazy(() => import("./…Page"))`) is routed here, so a page can be built in its own folder without
 // editing App.tsx. Only the small route.ts files load up front; each page still loads when it is opened.
 import type { ComponentType, LazyExoticComponent } from "react";
+import { compareCode } from "@/lib/site-format";
 
 interface RouteModule {
   path?: unknown;
@@ -13,4 +14,4 @@ const modules = import.meta.glob<RouteModule>("./*/route.ts", { eager: true });
 export const STUDY_PAGE_ROUTES: { path: string; Page: LazyExoticComponent<ComponentType> }[] = Object.values(modules)
   .filter((module): module is { path: string; Page: LazyExoticComponent<ComponentType> } =>
     typeof module.path === "string" && /^\/study\/[a-z0-9-]+$/.test(module.path) && Boolean(module.Page))
-  .sort((a, b) => a.path.localeCompare(b.path));
+  .sort((a, b) => compareCode(a.path, b.path));

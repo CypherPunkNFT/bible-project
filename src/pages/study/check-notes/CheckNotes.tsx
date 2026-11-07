@@ -47,7 +47,7 @@ function NoteBody({ note }: { note: CheckNote }) {
     {!changed && note.before && <><h3>The words checked</h3><p>{note.before}</p></>}
     <h3>{note.status === "open" ? "What is still needed" : "What was found"}</h3>
     <p>{note.note}</p>
-    {note.fieldEdits?.map(edit => <p key={edit.path} className="chk-edit">Changed {edit.path.replace(/^\./, "")}: {String(edit.from)} → {String(edit.to)}</p>)}
+    {note.fieldEdits?.map(edit => <p key={edit.path} className="chk-edit">{`Changed ${edit.path.replace(/^\./, "")}: ${String(edit.from)} → ${String(edit.to)}`}</p>)}
   </div>;
 }
 
