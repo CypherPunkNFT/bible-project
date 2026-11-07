@@ -5,7 +5,15 @@ composed, ending in a ready-to-paste prompt for an image generator. The owner re
 [Chapter Summary Studio](../chapter-summaries/README.md) under a **Scenes** switch, beside the chapter's Scripture.
 Nothing is published; no pictures are made yet.
 
-**State (2026-11-07):** design approved by the owner; pilot on 12 chapters being built.
+**State (2026-11-07):** pilot done, waiting for the owner to compare. Both writers wrote all 12 pilot chapters and every
+answer passed the script checks (Qwen needed a second try once, on Ezekiel 1). Haiku cost $0.05 in total, about
+$0.003 a chapter, so a full Haiku run projects to about $4 at list price; Qwen took about 100 seconds a chapter at 12
+at once. To look: start the Studio (`python scripts/chapter_summary_studio.py --data-dir
+.local/chapter-summary-studio/claude`, http://127.0.0.1:8947), pick a pilot chapter (gold dot), press **Scenes**.
+
+**Haiku runs without `--schema`:** BatchRunner's job canary sends the task with "OK" as the item, and Haiku answers that
+in prose, so a schema run fails the canary. The task asks for JSON only and `chapter_scenes.py import` checks every
+answer, rejecting any call that ran past `--max-output` (`num_turns` > 1).
 
 ## The owner's decisions (2026-11-07)
 
