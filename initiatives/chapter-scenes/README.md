@@ -9,7 +9,7 @@ Nothing is published; no pictures are made yet.
 answer passed the script checks (Qwen needed a second try once, on Ezekiel 1). Haiku cost $0.05 in total, about
 $0.003 a chapter, so a full Haiku run projects to about $4 at list price; Qwen took about 100 seconds a chapter at 12
 at once. To look: start the Studio (`python scripts/chapter_summary_studio.py --data-dir
-.local/chapter-summary-studio/claude`, http://127.0.0.1:8947), pick a pilot chapter (gold dot), press **Scenes**.
+.local/chapter-summary-studio/claude`, http://127.0.0.1:8947), choose **Scenes** under **Pipelines** in the side panel, then a pilot chapter (its square is underlined in gold).
 
 **Haiku runs without `--schema`:** BatchRunner's job canary sends the task with "OK" as the item, and Haiku answers that
 in prose, so a schema run fails the canary. The task asks for JSON only and `chapter_scenes.py import` checks every
@@ -56,7 +56,7 @@ Defined in [scene-schema.json](scene-schema.json); the instructions every writer
 | Haiku writer: BatchRunner over the same inputs, with the same instructions and schema | BatchRunner, then `chapter_scenes.py import` |
 | Script checks: valid JSON, scene count within the limit, verse ranges inside the chapter, every field filled | `chapter_scenes.py` (both writers) |
 | Storage: `.local/chapter-scene-studio/scenes.sqlite3`, one row per chapter and writer; the summaries database is never written | `chapter_scenes.py` |
-| Display: the Studio's Scenes switch shows each writer's scenes for the chapter; a verse chip highlights its verses | [chapter_scenes_view.py](../../scripts/chapter_scenes_view.py), wired into [chapter_summary_studio.py](../../scripts/chapter_summary_studio.py) |
+| Display: the Studio's side panel lists the pipelines (Summaries, Scenes); Scenes has its own settings, heading, counts and preview card, showing each writer's scenes for the chapter; a verse chip highlights its verses | [chapter_scenes_view.py](../../scripts/chapter_scenes_view.py), wired into [chapter_summary_studio.py](../../scripts/chapter_summary_studio.py) |
 
 **Pilot chapters (12):** Genesis 22, Exodus 14, Leviticus 16, 1 Chronicles 1, 1 Samuel 17, Psalm 23, Psalm 117,
 Ezekiel 1, Mark 4, John 11, Romans 8, Revelation 21. Stories, law, a list of names, two poems (one of 2 verses),

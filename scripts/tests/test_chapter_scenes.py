@@ -49,7 +49,7 @@ def test_bad_answers_are_rejected(answer, message):
 
 def test_view_installs_once_into_the_studio_page():
     html = chapter_scenes_view.install(chapter_summary_studio.HTML)
-    for part in ('id="scenes-panel"', 'id="view-scenes"', ".scene-frame", "renderScenes"):
+    for part in ('id="scenes-panel"', 'data-pipeline="scenes"', 'id="summaries-side"', 'id="scenes-top"', "renderScenes"):
         assert html.count(part) >= 1
     with pytest.raises(ValueError, match="Studio page changed"):
         chapter_scenes_view.install(html)

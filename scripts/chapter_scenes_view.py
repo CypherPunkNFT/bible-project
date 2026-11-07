@@ -1,6 +1,8 @@
-"""The Scenes view of the Chapter Summary Studio: a Summary | Scenes switch on the preview card, each writer's key scenes
-for the chapter (picture frame, moment, composition, what is from the text, the image prompt), and a mark on chapters
-that have scenes. Read-only; the scenes come from chapter_scenes.py's store. Docs: initiatives/chapter-scenes/README.md.
+"""The Scenes pipeline in the Chapter Summary Studio. The side panel's primary tab lists the pipelines (Summaries,
+Scenes); each pipeline has its own settings, heading, counts and preview card, and both share the book and chapter
+explorer and the Scripture panel. Scenes is read-only: each writer's key scenes for the chapter (picture frame, moment,
+composition, what is from the text, the image prompt), from chapter_scenes.py's store.
+Docs: initiatives/chapter-scenes/README.md.
 """
 from __future__ import annotations
 
@@ -9,12 +11,13 @@ import urllib.parse
 import chapter_scenes
 
 CSS = r"""
-.view-switch{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
-.view-switch button{border:0;background:transparent;color:var(--muted);padding:7px 14px;font-size:12px;font-weight:600}
-.view-switch button.on{background:var(--green);color:#fff}
-.tile.has-scenes{position:relative}.tile.has-scenes::after{content:"";position:absolute;top:3px;right:3px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+[hidden]{display:none!important}
+.pipelines{display:flex;flex-direction:column;gap:6px;margin:16px 0 30px}
+.pipelines .nav{margin:0;border:0;width:100%;text-align:left;font:inherit;background:transparent;color:var(--ink);align-items:center}
+.pipelines .nav:hover{background:#e3e6dc}.pipelines .nav.on{background:var(--green);color:#fff}
+.tile.has-scenes{position:relative;border-bottom:3px solid var(--gold)}
 #scenes-panel{padding:22px 24px}
-.writer-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 20px}
+.writer-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 20px}
 .writer-tabs button{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:20px;padding:6px 13px;font-size:11px}
 .writer-tabs button.on{border-color:var(--green);background:var(--soft);color:var(--green);font-weight:700}
 .scene{border-top:1px solid var(--line);padding:22px 0 8px}.scene:first-of-type{border-top:0;padding-top:4px}
@@ -39,14 +42,45 @@ CSS = r"""
 @media(max-width:650px){#scenes-panel{padding:18px 16px}.comp{grid-template-columns:1fr}.comp dt{margin-top:6px}}
 """
 
-PANEL = '<div id="scenes-panel" hidden></div>'
+NAV_OLD = '<div class="eyebrow">Your workspace</div><div class="nav">▦ <span>Chapter summaries</span></div>'
+NAV_NEW = ('<div class="eyebrow">Pipelines</div><nav class="pipelines" aria-label="Pipelines">'
+           '<button class="nav on" data-pipeline="summaries" aria-current="page">▦ <span>Summaries</span></button>'
+           '<button class="nav" data-pipeline="scenes">◩ <span>Scenes</span></button></nav><div id="summaries-side">')
 
-SWITCH = ('<div class="view-switch" role="group" aria-label="What to show"><button id="view-summary" class="on" '
-          'aria-pressed="true">Summary</button><button id="view-scenes" aria-pressed="false">Scenes</button></div>')
+SCENES_SIDE = (
+    '</div><div id="scenes-side" hidden><div class="eyebrow">Scene settings</div>'
+    '<div class="side-title">One moment, one frame.</div>'
+    '<p class="help">The key scenes of each chapter, each composed as a picture before any image is made.</p>'
+    '<div class="side-foot"><b>Scenes · pilot</b><p class="help">Up to 3 per chapter, fewer when short<br>'
+    'The moment and why it matters<br>Viewpoint, layers, light, mood<br>From the text, added, kept out<br>'
+    'A ready image prompt · wide 16:9</p></div>'
+    '<div class="side-foot"><b>Writers</b><p class="help">Claude Haiku and the local Qwen model wrote the same 12 '
+    'pilot chapters. Compare them, then pick one for all 1,189.</p></div></div></aside>')
+
+SCENES_TOP = (
+    '<div id="scenes-top" hidden><div class="top"><div><div class="eyebrow">Scripture → Moment → Picture</div>'
+    '<h1>Key scenes for every chapter.</h1><p class="intro">Choose the moments worth a picture and compose each one '
+    'before any image is made.</p></div><span class="badge">WIDE FRAMES · 16:9</span></div>'
+    '<div class="stats"><div class="stat"><strong>1,189</strong><span>Chapters to illustrate</span></div>'
+    '<div class="stat"><strong id="scenes-chapters">0</strong><span>Chapters with scenes</span></div>'
+    '<div class="stat"><strong id="scenes-haiku">0</strong><span>Written by Claude Haiku</span></div>'
+    '<div class="stat"><strong id="scenes-qwen">0</strong><span>Written by local Qwen</span></div></div></div>')
+
+LEGEND_END = '<span class="saving">Select a chapter to preview below</span></div>'
+SCENES_LEGEND = ('<div class="legend" id="scenes-legend" hidden><span><i></i>No scenes yet</span>'
+                 '<span><i class="gold"></i>Has scenes</span><span class="saving">Select a chapter to see its scenes</span></div>')
+
+WORKSPACE_OLD = '<div class="workspace"><section class="card">'
+WORKSPACE_NEW = (
+    '<div class="workspace"><section class="card" id="scenes-card" hidden><div class="card-head">'
+    '<strong>Key scenes · composed for pictures</strong><span class="tiny" id="scenes-status">—</span></div>'
+    '<div id="scenes-panel"></div><div class="card-foot"><span>Click a verse range to check its source</span>'
+    '<span id="scenes-foot">—</span></div></section><section class="card" id="summary-card">')
 
 JS = r"""
-(()=>{const WRITERS={haiku:'Claude Haiku',qwen:'Local Qwen'};let mode='summary',sceneKeys={},cache={},pick='both';
-try{mode=localStorage.getItem('studio-view')||'summary';pick=localStorage.getItem('studio-writer')||'both'}catch(e){}
+(()=>{const WRITERS={haiku:'Claude Haiku',qwen:'Local Qwen'};let mode='summaries',sceneKeys={},cache={},pick='both';
+try{mode=localStorage.getItem('studio-pipeline')||'summaries';pick=localStorage.getItem('studio-writer')||'both'}catch(e){}
+if(location.hash==='#scenes'||location.hash==='#summaries')mode=location.hash.slice(1);
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n};
 function showVerses(a,b){let first=null;document.querySelectorAll('#scripture p').forEach(p=>{const nums=p.dataset.verse.split(/[-–]/).map(Number);const hit=nums[0]<=b&&nums.at(-1)>=a;p.classList.toggle('evidence',hit);if(hit&&!first)first=p});first?.scrollIntoView({block:'nearest'})}
 function chip(a,b){const c=el('button','verse-link',a===b?'v. '+a:'vv. '+a+'–'+b);c.title='Show these verses in the chapter';c.onclick=()=>showVerses(a,b);return c}
@@ -63,36 +97,45 @@ function sceneCard(s,i,writer){const card=el('article','scene');
  if(s.avoid.length){card.append(el('h4',null,'Keep out of the picture'),list(s.avoid,'',(li,x)=>li.textContent=x))}
  const head=el('div','prompt-head');const copy=el('button',null,'Copy prompt');copy.onclick=async()=>{try{await navigator.clipboard.writeText(s.prompt);copy.textContent='Copied'}catch(e){copy.textContent='Select and copy'}setTimeout(()=>copy.textContent='Copy prompt',1600)};
  head.append(el('h4',null,'Image prompt · '+s.prompt.trim().split(/\s+/).length+' words'),copy);card.append(head,el('div','prompt-box',s.prompt));return card}
-function renderScenes(){const panel=$('scenes-panel');panel.replaceChildren();const data=cache[key()];
+function renderScenes(){const panel=$('scenes-panel');panel.replaceChildren();const data=cache[key()];$('scenes-status').textContent='—';$('scenes-foot').textContent='—';
  if(!data){panel.append(el('p','scenes-empty','Loading scenes…'));return}
- const writers=Object.keys(data).sort();if(!writers.length){panel.append(el('p','scenes-empty','No scenes yet for this chapter. The pilot covers Genesis 22, Exodus 14, Leviticus 16, 1 Chronicles 1, 1 Samuel 17, Psalms 23 and 117, Ezekiel 1, Mark 4, John 11, Romans 8 and Revelation 21; chapters with scenes carry a gold dot.'));return}
+ const writers=Object.keys(data).sort();if(!writers.length){$('scenes-status').textContent='No scenes yet';panel.append(el('p','scenes-empty','No scenes yet for this chapter. The pilot covers Genesis 22, Exodus 14, Leviticus 16, 1 Chronicles 1, 1 Samuel 17, Psalms 23 and 117, Ezekiel 1, Mark 4, John 11, Romans 8 and Revelation 21; their chapter squares are marked in gold.'));return}
+ $('scenes-status').textContent=writers.map(w=>WRITERS[w]||w).join(' · ');
  const tabs=el('div','writer-tabs');const choices=writers.length>1?['both',...writers]:writers;if(!choices.includes(pick))pick=choices[0];
  choices.forEach(w=>{const b=el('button',w===pick?'on':'',w==='both'?'Both, scene by scene':WRITERS[w]+' · '+data[w].scenes.length);b.onclick=()=>{pick=w;try{localStorage.setItem('studio-writer',w)}catch(e){}renderScenes()};tabs.append(b)});panel.append(tabs);
  const shown=pick==='both'?writers:[pick];shown.forEach(w=>{if(data[w].notes?.length)panel.append(el('div','scene-notes',WRITERS[w]+': '+data[w].notes.join('; ')))});
- const most=Math.max(...shown.map(w=>data[w].scenes.length));for(let i=0;i<most;i++)for(const w of shown){const s=data[w].scenes[i];if(s)panel.append(sceneCard(s,i,shown.length>1||pick==='both'?w:null))}}
+ const most=Math.max(...shown.map(w=>data[w].scenes.length));for(let i=0;i<most;i++)for(const w of shown){const s=data[w].scenes[i];if(s)panel.append(sceneCard(s,i,shown.length>1?w:null))}
+ $('scenes-foot').textContent=shown.map(w=>data[w].scenes.length+' from '+(WRITERS[w]||w)).join(' · ')}
 async function loadScenes(){const k=key();if(!cache[k]){try{cache[k]=(await api('/api/scenes?key='+encodeURIComponent(k))).writers}catch(e){cache[k]={}}}if(k===key()&&mode==='scenes')renderScenes()}
-function applyMode(){const scenes=mode==='scenes';document.querySelector('.preview-content').hidden=scenes;$('scenes-panel').hidden=!scenes;
- $('view-summary').classList.toggle('on',!scenes);$('view-scenes').classList.toggle('on',scenes);$('view-summary').setAttribute('aria-pressed',String(!scenes));$('view-scenes').setAttribute('aria-pressed',String(scenes));
- $('edit-panel').hidden=scenes;document.querySelector('.toolbar').hidden=scenes;if(scenes)loadScenes()}
-function setMode(m){mode=m;try{localStorage.setItem('studio-view',m)}catch(e){}applyMode();renderTiles()}
+function counts(){const v=Object.values(sceneKeys);$('scenes-chapters').textContent=v.length;$('scenes-haiku').textContent=v.filter(w=>w.includes('haiku')).length;$('scenes-qwen').textContent=v.filter(w=>w.includes('qwen')).length}
+function applyMode(){const scenes=mode==='scenes';
+ document.querySelectorAll('.pipelines .nav').forEach(b=>{const on=b.dataset.pipeline===mode;b.classList.toggle('on',on);if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
+ $('summaries-side').hidden=scenes;$('scenes-side').hidden=!scenes;$('scenes-top').hidden=!scenes;
+ for(const n of [document.querySelector('main > .top'),document.querySelector('main > .stats'),$('summary-card'),document.querySelector('.toolbar'),$('edit-panel'),document.querySelector('.statusbox'),document.querySelector('.legend:not(#scenes-legend)')])n.hidden=scenes;
+ $('scenes-card').hidden=!scenes;$('scenes-legend').hidden=!scenes;$('source-title').textContent=scenes?'The chapter behind the scenes':'The chapter behind the summary';
+ document.title=(scenes?'Scenes':'Chapter Summary Studio')+' · Bible Project';if(scenes)loadScenes()}
+function setMode(m){mode=m;try{localStorage.setItem('studio-pipeline',m)}catch(e){}history.replaceState(null,'','#'+m);applyMode();renderTiles()}
 const baseRender=render,baseTiles=renderTiles;
 render=function(){baseRender();if(mode==='scenes')loadScenes()};
-renderTiles=function(){baseTiles();document.querySelectorAll('#chapters .tile').forEach(t=>t.classList.toggle('has-scenes',mode==='scenes'&&!!sceneKeys[code+':'+t.textContent.trim()]))};
-$('view-summary').onclick=()=>setMode('summary');$('view-scenes').onclick=()=>setMode('scenes');
-api('/api/scenes').then(d=>{sceneKeys=d.keys;renderTiles()}).catch(()=>{});applyMode()})();
+renderTiles=function(){baseTiles();if(mode!=='scenes')return;document.querySelectorAll('#chapters .tile').forEach(t=>{t.classList.remove('draft','approved');t.classList.toggle('has-scenes',!!sceneKeys[code+':'+t.textContent.trim()])})};
+document.querySelectorAll('.pipelines .nav').forEach(b=>b.onclick=()=>setMode(b.dataset.pipeline));
+api('/api/scenes').then(d=>{sceneKeys=d.keys;counts();renderTiles()}).catch(()=>{});applyMode();renderTiles()})();
 """
 
-SUMMARY_HEAD = "<strong>Reader preview · structured summary</strong>"
-FOOT = '<div class="card-foot"><span>Click a verse range to check its source</span>'
+REPLACEMENTS = [("</style>", CSS + "</style>"), (NAV_OLD, NAV_NEW), ("</aside>", SCENES_SIDE),
+                ('<section class="atlas book-explorer"', SCENES_TOP + '<section class="atlas book-explorer"'),
+                (LEGEND_END, LEGEND_END + SCENES_LEGEND), (WORKSPACE_OLD, WORKSPACE_NEW), ("</script>", JS + "</script>")]
 
 
 def install(html: str) -> str:
-    """Adds the view to the studio page. Each anchor must appear exactly once, or the page would be built wrong."""
-    for anchor in ("</style>", SUMMARY_HEAD, FOOT, "</script>"):
+    """Adds the Scenes pipeline to the studio page. Each anchor must appear exactly once, or the page would be built
+    wrong; a second install fails the same way."""
+    for anchor, _ in REPLACEMENTS:
         if html.count(anchor) != 1:
-            raise ValueError(f"Studio page changed: expected {anchor!r} once, found {html.count(anchor)} times")
-    return (html.replace("</style>", CSS + "</style>").replace(SUMMARY_HEAD, SWITCH)
-            .replace(FOOT, PANEL + FOOT).replace("</script>", JS + "</script>"))
+            raise ValueError(f"Studio page changed: expected {anchor[:60]!r} once, found {html.count(anchor)} times")
+    for anchor, replacement in REPLACEMENTS:
+        html = html.replace(anchor, replacement)
+    return html
 
 
 def answer(query: str) -> dict:
