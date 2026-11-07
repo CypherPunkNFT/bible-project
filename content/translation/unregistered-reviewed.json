@@ -2746,7 +2746,7 @@
   "check": "files",
   "item": "content/academic-research/",
   "why": "read by another tool: SiteTranslation/studies/tools (scope.py, build.py) collect the study dossiers' prose into ui-study.json, which the /study pages that import them load",
-  "files": 63
+  "files": 66
  },
  {
   "check": "files",
@@ -20432,5 +20432,10 @@
    ]
   },
   "why": "Job 27 (stage 5's sign-off) fixes or rules each one. The first quick check (2026-11-06) read this English on the sample pages in these languages although the catalog holds it: a translation that kept the English, a phrase list the page does not load, or a mixed text with a name in Latin letters. Each needs a translation, a fix to what the page loads, or a kept-english ruling if it is English on purpose"
+ },
+ {
+  "check": "in-progress",
+  "item": "check.py findings in chunk files not yet committed (another chat's unsaved work)",
+  "why": "the translation chats keep a chunk or its translations saved but uncommitted for minutes to hours while they work on it; without this, one chat's half-done work would fail every other chat's quick check. Such findings are still listed (as in progress) and are counted as unexplained under --sign-off, and any other ruling that explains them is used first. Remove this entry to count them always"
  }
 ]
