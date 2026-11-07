@@ -2,6 +2,7 @@ import { fillVerses } from "@/lib/verses";
 import { loadCatalog } from "@/lib/data";
 import { DataUnavailable } from "./data";
 import { onLanguageChange, translatedDataPath } from "./language";
+import { PackUnavailable, readPacked } from "./translated-packs";
 import { lastReadPath } from "./last-read";
 import { personPack, personPackPath } from "./person-pack";
 import { bookByNum, splitId } from "./refs";
@@ -111,9 +112,13 @@ async function getJson<T>(path: string, stamp: string): Promise<T> {
   const translated = translatedDataPath(`study/${path}`);
   if (translated) {
     try {
-      return await getFile<T>(translated, stamp);
+      // A release packs the translated files (src/lib/language-packs.ts); elsewhere the file is read on its own.
+      const packed = await readPacked(translated);
+      if (!packed) return await getFile<T>(translated, stamp);
+      if (typeof packed.value !== "object" || packed.value === null) throw new DataUnavailable(translated, "not an object in its pack");
+      return packed.value as T;
     } catch (error) {
-      if (!(error instanceof DataUnavailable)) throw error;
+      if (!(error instanceof DataUnavailable || error instanceof PackUnavailable)) throw error;
       console.warn(`${error.message}; showing the English`);
     }
   }

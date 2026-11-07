@@ -7,10 +7,12 @@ import { addressLanguages, LANGUAGE_ADDRESSES_RELEASED } from "../src/lib/langua
 import {preparePopulationHosting} from './prepare-population-hosting.mjs';
 import {pruneReleaseAssets} from './prune-release-assets.mjs';
 import { packPersonFiles } from "./pack-person-files.ts";
+import { assertTranslatedFilesUnderLimit, packLanguageFiles, splitQuestionBanks } from "./pack-language-files.ts";
 import { packReaderData } from "./pack-reader-data.mjs";
 import { LIST_FOLDER, phraseFolders, preparePhraseLists } from "./phrase-lists.mjs";
 import { assertOnlyReleasedTranslations, assertTranslationsComplete, packTranslatedPeople, unreleasedTranslationEntries } from "./release-translations.ts";
 import { assertFullCheckPassed } from "./full-check-gate.mjs";
+import { assertPreReleaseCheckPassed } from "./prerelease-gate.mjs";
 import { releasedFolders } from "../src/lib/site-languages.ts";
 
 // Produces a fresh deployable directory. Never creates a cloud resource or deploys it.
@@ -23,7 +25,10 @@ if (databaseId && (!/^[a-f\d]{8}(-[a-f\d]{4}){3}-[a-f\d]{12}$/i.test(databaseId)
 // BUILT_SITE: a finished build when dist/ could not be swapped (the preview server holds it open).
 const built = process.env.BUILT_SITE ?? "dist";
 await stat(path.join(built, "index.html")); await stat("data/catalog.json"); await stat("data/topics/chapters/GEN.json"); // chapters: scripts/build-chapter-topics.py
-// The translation full check must have read exactly this build and data and judge it clean, before anything is written.
+// The translation pre-release check (scripts/prerelease-gate.mjs): no English left unregistered, the English build check
+// and the quick check pass. Then the full check must have read exactly this build and data and judge it clean.
+assertPreReleaseCheckPassed();
+stage("Translation pre-release check passed");
 const fullCheck = assertFullCheckPassed(built, { data: path.resolve("data"), languages: releasedFolders() });
 stage("Translation full check passed");
 const apologeticsContentHash = verifyBuiltContent();
@@ -63,6 +68,12 @@ console.log("Person packs:", await packPersonFiles(site));
 console.log("Translated person packs:", await packTranslatedPeople(site));
 console.log("Translations in the release:", await assertOnlyReleasedTranslations(site));
 stage("Person packs");
+// The question bank in parts and each language's content files in packs (about 100 files a language, not 850), and no
+// translated file over 25 MiB (translation system job 29). After the people packs, before the phrase lists and content stamp.
+console.log("Question bank parts:", await splitQuestionBanks(site, releasedFolders()));
+console.log("Language packs:", await packLanguageFiles(site, releasedFolders()));
+console.log("Largest translated file:", await assertTranslatedFilesUnderLimit(site, releasedFolders()));
+stage("Language packs");
 // Each language's phrase list split for this release's own code, and the pages stamped with a hash of the lists, so a
 // browser keeps them until they change. Before the search-engine copies, which are made from index.html.
 const phrases = preparePhraseLists(site);

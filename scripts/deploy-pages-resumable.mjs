@@ -5,13 +5,17 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { assertFrontEndReadsPersonPacks, sitePacksPeople } from './person-packs-guard.mjs';
+import { assertFrontEndReadsLanguagePacks, sitePacksLanguages } from './language-packs-guard.mjs';
 import { assertFullCheckPassed, assertPagesUploadArguments } from './full-check-gate.mjs';
+import { assertPreReleaseCheckPassed } from './prerelease-gate.mjs';
 // A site with packed person records must carry a front end that reads them, however its package was assembled.
 // Only 'pages deploy <site directory>' and a release's own options, so the folder checked is the folder uploaded.
 assertPagesUploadArguments(process.argv.slice(2));
 const directory = process.argv[4];
 if (sitePacksPeople(directory)) assertFrontEndReadsPersonPacks(directory);
+if (sitePacksLanguages(directory)) assertFrontEndReadsLanguagePacks(directory);
 // The translation full check must pass on what is uploaded (scripts/full-check-gate.mjs). 'pages deploy' has no dry run.
+assertPreReleaseCheckPassed(); // the translation pre-release check (scripts/prerelease-gate.mjs)
 assertFullCheckPassed(directory, { package: true });
 const original = new URL('../node_modules/wrangler/wrangler-dist/cli.js', import.meta.url);
 const copy = new URL('cli-resumable.cjs', original);

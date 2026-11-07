@@ -6,6 +6,8 @@ import type { ManuscriptCollection } from "./manuscripts";
 import type { HymnPageData, HymnPagesIndex, HymnsByChapter } from "./hymn-pages";
 import type { ChapterTopics, LibraryBook, Topic, TopicIndex } from "./topics";
 import { languageFolder, onLanguageChange, translatedDataPath } from "./language";
+import { bankPartPath, parseQuestionParts } from "./language-packs";
+import { PackUnavailable, readPacked } from "./translated-packs";
 
 /** A data file that is missing or malformed. The reader turns this into "not in this version". */
 export class DataUnavailable extends Error {
@@ -46,9 +48,13 @@ async function fetchJson(path: string, check: (value: unknown) => boolean, reval
   const translated = translatedDataPath(path);
   if (translated) {
     try {
-      return await fetchFile(translated, check, revalidate);
+      // A release packs the translated files (src/lib/language-packs.ts); elsewhere the file is read on its own.
+      const packed = await readPacked(translated);
+      if (!packed) return await fetchFile(translated, check, revalidate);
+      if (!check(packed.value)) throw new DataUnavailable(translated, "unexpected shape in its pack");
+      return packed.value;
     } catch (error) {
-      if (!(error instanceof DataUnavailable)) throw error;
+      if (!(error instanceof DataUnavailable || error instanceof PackUnavailable)) throw error;
       console.warn(`${error.message}; showing the English`);
     }
   }
@@ -205,9 +211,27 @@ export const rightChoice = (q: BankQuestion) => q.answer_choice ?? q.answer;
 export interface BankCollection { title: string; kind: string; tradition: string | null; credit: string | null; source_url: string | null; count: number }
 export interface BankTopic { id: string; title: string; group: "story" | "teaching" }
 export interface BankBook { code: string; name: string; short: string; section: string; testament: "OT" | "NT" }
-export interface QuestionBank { kinds: Record<string, string>; topics: BankTopic[]; books: BankBook[]; collections: BankCollection[]; questions: BankQuestion[] }
-export const loadQuestionBank = () =>
-  load<QuestionBank>("questions/bank.json", (v) => isObject(v) && Array.isArray(v.questions) && Array.isArray(v.collections) && Array.isArray(v.topics) && Array.isArray(v.books), true);
+/** `questionParts`: the release keeps the questions in parts (scripts/pack-language-files.ts), so no copy passes 25 MiB. */
+export interface QuestionBank { kinds: Record<string, string>; topics: BankTopic[]; books: BankBook[]; collections: BankCollection[]; questions: BankQuestion[]; questionParts?: unknown }
+let wholeBank: Promise<QuestionBank> | null = null;
+onLanguageChange(() => (wholeBank = null));
+
+async function readQuestionBank(): Promise<QuestionBank> {
+  const head = await load<QuestionBank>("questions/bank.json", (v) => isObject(v) && Array.isArray(v.questions) && Array.isArray(v.collections) && Array.isArray(v.topics) && Array.isArray(v.books), true);
+  const parts = parseQuestionParts(head.questionParts);
+  if (!parts) return head;
+  // Each part is read translated, falling back to the English part with the same questions (the cuts are the same).
+  const questions = await Promise.all(Array.from({ length: parts.count }, (_, k) => load<BankQuestion[]>(bankPartPath(parts, k), Array.isArray)));
+  return { ...head, questions: questions.flat() };
+}
+
+export function loadQuestionBank(): Promise<QuestionBank> {
+  if (!wholeBank) {
+    wholeBank = readQuestionBank();
+    wholeBank.catch(() => (wholeBank = null));
+  }
+  return wholeBank;
+}
 
 // Hymns (scripts/build-hymn-collection.py): the collection, the full study of a hymn that has one, and the words of every hymn
 // filed by hymn book.

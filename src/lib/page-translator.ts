@@ -11,6 +11,7 @@ import { languageDirection, languageFolder, languageReloads, loadedData, setSite
 import { scriptureLanguage } from "./site-languages";
 import { fromEnglish, learn, longerLine, normal, ownForms, slotted, toEnglish, WORD } from "./phrase-memory";
 import { loadFirstWords, loadWholeList, onWordsArrived, readTranslationJson } from "./phrase-lists";
+import { readPacked } from "./translated-packs";
 
 export { phrase, phraseListVersion } from "./phrase-memory";
 
@@ -40,6 +41,9 @@ function pair(folder: string, english: unknown, translated: unknown): void {
 }
 
 const readJson = (url: string) => readTranslationJson(url);
+/** The language's copy of a content file: from its pack on a release that packs them, else the file itself. */
+const readTranslatedFile = async (folder: string, path: string) =>
+  (await readPacked(`i18n/${folder}/${path}`))?.value ?? readJson(`/data/i18n/${folder}/${path}`);
 
 function loadStrings(folder: string, path: string): Promise<void> {
   const key = `${folder} ${path}`;
@@ -53,7 +57,7 @@ function loadStrings(folder: string, path: string): Promise<void> {
 /** A content file already read, in English and in the language, paired string by string. */
 async function readStrings(folder: string, path: string, key: string): Promise<void> {
   try {
-    const [english, translated] = await Promise.all([readJson(`/data/${path}`), readJson(`/data/i18n/${folder}/${path}`)]);
+    const [english, translated] = await Promise.all([readJson(`/data/${path}`), readTranslatedFile(folder, path)]);
     pair(folder, english, translated);
   } catch (error) {
     loaded.delete(key);

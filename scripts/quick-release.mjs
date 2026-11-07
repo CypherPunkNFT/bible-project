@@ -22,7 +22,8 @@ const IGNORED = [/\.md$/i, /^design\//, /^tests?\//, /^e2e\//, /^docs\//, /^\.gi
 const PUBLIC_REFUSED = [/^public\/_routes\.json$/, /^public\/_redirects$/, /^public\/content\/scholar-population\//, /^public\/content\/sources\//, /^public\/data_acquisition\//];
 // Feed the 1,681 ready-made pages, which this tool does not regenerate; language-addresses.ts also holds the owner's
 // switch for the language addresses, whose copies only a full prepare makes.
-const CODE_REFUSED = [/^src\/lib\/page-head\.ts$/, /^src\/lib\/language-addresses\.ts$/];
+// The language-pack readers (translation job 29): new pack code against an older package's packing needs a full release.
+const CODE_REFUSED = [/^src\/lib\/page-head\.ts$/, /^src\/lib\/language-addresses\.ts$/, /^src\/lib\/language-packs\.ts$/, /^src\/lib\/translated-packs\.ts$/];
 
 /** What a changed file means for a quick release: 'ignore', 'build', 'public' or 'refuse'. */
 export function classifyChange(file) {

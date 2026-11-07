@@ -4,6 +4,7 @@
 // In another language the translated copy (content/translation/apply.py, data/i18n/<folder>/resources/) is read instead.
 import { useEffect, useState } from "react";
 import { languageFolder, useSiteLanguage } from "@/lib/language";
+import { readPacked } from "@/lib/translated-packs";
 
 export interface Workbook {
   id: string; title: string; kind: string; sessions: number; pages: number; summary: string;
@@ -97,6 +98,8 @@ const cacheKey = (name: ResourceFile) => `${translatedFolder(name) ?? "en"} ${na
 /** The translated copy, or null (and the English is shown) when it cannot be read. */
 async function readTranslated(folder: string, name: ResourceFile): Promise<unknown> {
   try {
+    const packed = await readPacked(`i18n/${folder}/resources/${name}.json`);
+    if (packed) return packed.value;
     const response = await fetch(`/data/i18n/${folder}/resources/${name}.json`, { cache: "no-cache" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return await response.json();

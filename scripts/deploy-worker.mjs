@@ -6,14 +6,19 @@ import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { archiveOlderPackages } from './archive-older-packages.mjs';
 import { assertFullCheckPassed, assertWorkerUploadArguments, onlyDryRun } from './full-check-gate.mjs';
+import { assertPreReleaseCheckPassed } from './prerelease-gate.mjs';
 import { assertFrontEndReadsPersonPacks, sitePacksPeople } from './person-packs-guard.mjs';
+import { assertFrontEndReadsLanguagePacks, sitePacksLanguages } from './language-packs-guard.mjs';
 import { prefillAssetHashes } from './prefill-asset-hashes.mjs';
 
 if (!existsSync('wrangler.jsonc') || !existsSync('site/index.html')) throw new Error(`Run this from a prepared release directory (wrangler.jsonc and site/index.html); got ${process.cwd()}`);
 if (sitePacksPeople('site')) assertFrontEndReadsPersonPacks('site');
+if (sitePacksLanguages('site')) assertFrontEndReadsLanguagePacks('site');
 // Only no arguments or --dry-run, so wrangler uploads the folder the gate below checks (scripts/full-check-gate.mjs).
 assertWorkerUploadArguments(process.argv.slice(2));
 // The translation full check must pass on the folder wrangler uploads (scripts/full-check-gate.mjs); a dry run uploads nothing.
+// And the translation pre-release check (scripts/prerelease-gate.mjs), just before anything goes live.
+if (!onlyDryRun(process.argv.slice(2))) assertPreReleaseCheckPassed();
 if (!onlyDryRun(process.argv.slice(2))) assertFullCheckPassed(JSON.parse(readFileSync('wrangler.jsonc', 'utf8')).assets?.directory ?? 'site', { package: true });
 const wrangler = fileURLToPath(new URL('../node_modules/wrangler/bin/wrangler.js', import.meta.url));
 // Only a head start: if it fails, wrangler reads the files itself, as it always could.

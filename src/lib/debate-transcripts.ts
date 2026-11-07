@@ -1,4 +1,5 @@
 import catalogue from '../../content/apologetics/transcripts/index.json';
+import { readPacked } from './translated-packs';
 
 export interface TranscriptRecord {
   file: string; received: string; provenance: string; sha256: string;
@@ -34,9 +35,15 @@ export function transcriptTurns(text: string, record?: TranscriptRecord) {
  * ones; the viewer then stays in English rather than show a broken exchange. */
 export async function fetchTranslatedTranscript(folder: string, record: TranscriptRecord): Promise<string | null> {
   try {
-    const response = await fetch(`/data/i18n/${folder}/transcripts/${record.file.replace(/\.txt$/, '.json')}`, { cache: 'no-cache' });
-    if (!response.ok || !(response.headers.get('content-type') ?? '').includes('json')) return null;
-    const text = ((await response.json()) as { text?: unknown }).text;
+    const name = `i18n/${folder}/transcripts/${record.file.replace(/\.txt$/, '.json')}`;
+    const packed = await readPacked(name);
+    let value: unknown = packed?.value;
+    if (!packed) {
+      const response = await fetch(`/data/${name}`, { cache: 'no-cache' });
+      if (!response.ok || !(response.headers.get('content-type') ?? '').includes('json')) return null;
+      value = await response.json();
+    }
+    const text = (value as { text?: unknown } | null)?.text;
     if (typeof text !== 'string') return null;
     return transcriptTurns(text, record).length === record.turns ? text : null;
   } catch (error) {

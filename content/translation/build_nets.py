@@ -31,7 +31,8 @@ PAGE_HEAD = "src/lib/page-head.ts"
 LANGUAGE_FILE = "src/lib/language.ts"
 FORMAT_MODULE = "src/lib/site-format.ts"  # the site's own number, date, sort and plural helpers: the nets leave it alone
 STUDY_LOADER = "src/lib/study.ts"  # its loaders put "study/" in front of the paths they are given
-AT_RELEASE = {"study/people-packs/"}  # listed in TRANSLATED_DATA but made only by the release (release-translations.ts)
+# listed in TRANSLATED_DATA but made only by the release (release-translations.ts, pack-language-files.ts)
+AT_RELEASE = {"study/people-packs/", "questions/bank-parts/"}
 TIMEOUT_SECONDS = 120
 FOLDER_NAME = re.compile(r"^[a-z0-9-]+$")
 BEFORE = "before:"
