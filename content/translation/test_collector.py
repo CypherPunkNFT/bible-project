@@ -31,8 +31,9 @@ def found(source: str, suffix: str = ".ts") -> list[str]:
     ('<dt>{ruler.verdictTone === "none" ? "Scripture says" : "Verdict"}</dt>', ".tsx", {"Verdict"}),
     ('const t = n > 1\n  ? `Told in ${n} books`\n  : "Passage";', ".ts", {"Passage"}),
     ('const r = role ?? "Ruler"; const s = x || "Record";', ".ts", {"Ruler", "Record"}),
-    ("aria-controls={`sw-answer-${i}`} onClick={f}>{answer === i ? 'Close the explanation' : 'Examine the evidence'}",
-     ".tsx", {"Examine the evidence"}),
+    # a second backtick string later on the line, as on the Surviving Witnesses page: the old quote pairing lost it
+    ("aria-controls={`sw-answer-${i}`} onClick={f}>{answer === i ? 'Close the explanation' : 'Examine the evidence'}"
+     "<a className={`sw-link`}>", ".tsx", {"Examine the evidence"}),
     ('bar: [["Letters", "in four collections", n]]', ".ts", {"in four collections"}),
     ("const label = n ? '(not stated)' : x;", ".ts", {"(not stated)"}),
     ('<p>{name}, the only account</p><span>By {author}</span><i>{pct}% of the book</i>', ".tsx",
@@ -129,15 +130,16 @@ NEW = "Open the chapter and read each verse slowly"
 OTHER = "A completely different sentence about maps"
 
 
-def folder(tmp_path: Path, collected: list[str] | None = None) -> Path:
-    """A made-up site-translation folder: one page chunk with OLD and OTHER, Spanish translations, and the snapshot."""
+def folder(tmp_path: Path, collected: list[str] | None = None, kind: str = "page") -> Path:
+    """A made-up site-translation folder: one chunk of `kind` with OLD and OTHER, Spanish translations, and the
+    snapshot."""
     out = tmp_path / "SiteTranslation"
-    strings = {extract.string_id("page", OLD): OLD, extract.string_id("page", OTHER): OTHER}
-    write(out, "in/0001.json", json.dumps({"kind": "page", "strings": strings}))
-    write(out, "chunks.json", json.dumps([{"chunk": "0001", "kind": "page", "strings": 2, "words": 15}]))
+    strings = {extract.string_id(kind, OLD): OLD, extract.string_id(kind, OTHER): OTHER}
+    write(out, "in/0001.json", json.dumps({"kind": kind, "strings": strings}))
+    write(out, "chunks.json", json.dumps([{"chunk": "0001", "kind": kind, "strings": 2, "words": 15}]))
     write(out, "out/es/0001.json", json.dumps({key: f"es: {text}" for key, text in strings.items()}))
     if collected is not None:
-        write(out, retarget_collect.SNAPSHOT, json.dumps({"page": collected}))
+        write(out, retarget_collect.SNAPSHOT, json.dumps({kind: collected}))
     return out
 
 
@@ -233,6 +235,23 @@ def test_pages_leave_out_text_an_apologetics_chunk_holds(tmp_path: Path, monkeyp
     appended = json.loads((out / "in/0003.json").read_text("utf-8"))["strings"]
     assert list(appended.values()) == ["A line only the pages show"]
 
+
+
+@pytest.mark.parametrize("mode, kind", [("pages", "page"), ("resources", "resource")])
+def test_collecting_pages_or_resources_carries_an_edit(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, mode: str,
+                                                        kind: str) -> None:
+    """The collecting modes themselves turn the carrying on (stage 5 review): an edit keeps its translation."""
+    out = folder(tmp_path, [OLD, OTHER], kind)
+    texts = [NEW, OTHER]
+    monkeypatch.setattr(extract, "page_strings", lambda: texts if mode == "pages" else [])
+    monkeypatch.setattr(extract, "resource_strings", lambda: texts if mode == "resources" else [])
+    monkeypatch.setattr(extract, "resource_page_strings", lambda: [])
+    monkeypatch.setattr(extract, "debate_section_titles", lambda: [])
+    monkeypatch.setattr(extract, "ruled_not_text", lambda: set())
+    extract.collect_more(argparse.Namespace(out=out, pages=mode == "pages", sections=False,
+                                            resources=mode == "resources", documents=False, dry_run=False))
+    translated = json.loads((out / "out/es/0001.json").read_text("utf-8"))
+    assert translated[extract.string_id(kind, NEW)] == f"es: {OLD}"
 
 def test_a_dry_run_needs_something_to_collect(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(sys, "argv", ["extract.py", "--dry-run"])

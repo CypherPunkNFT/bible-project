@@ -7,6 +7,8 @@ import { usePageHead } from "./usePageHead";
 // The tab title and description in the reader's language (translation system, stage 5 job 15): usePageHead names the
 // page from page-head.ts's texts looked up in the language, and from the heading the page translator has swapped.
 const PARAGRAPH = "Find a place. Follow a life. Step into the world of the Bible, then the communities that followed.";
+// Under 60 characters in English, over 60 in Spanish: the description must not take it in one language only.
+const KICKER = "Cross-references · Book to book · Passages in conversation";
 const STRINGS: Record<string, string> = {
   "Bible Atlas: Maps of Every Bible Place": "Atlas bíblico: mapas de cada lugar de la Biblia",
   "Real places": "Lugares reales",
@@ -14,6 +16,7 @@ const STRINGS: Record<string, string> = {
   Moses: "Moisés",
   People: "Personas",
   "To Moses": "A Moisés",
+  [KICKER]: "Referencias cruzadas · De libro en libro · Pasajes en conversación",
 };
 
 function Page({ heading }: { heading: string }) {
@@ -32,6 +35,7 @@ function Site() {
     <Routes>
       <Route path="/study/atlas" element={<Page heading="Real places" />} />
       <Route path="/people/:id" element={<Page heading="Moses" />} />
+      <Route path="/study/connections" element={<main id="main"><h1>Moses</h1><p>{KICKER}</p><p>{PARAGRAPH}</p></main>} />
     </Routes>
   );
 }
@@ -75,6 +79,18 @@ describe("usePageHead in a translated language", () => {
     await act(() => chooseSiteLanguage("en"));
     await reread();
     expect(document.title).toBe("Moses · People · Bible Guide");
+    expect(description()).toBe(PARAGRAPH);
+    view.unmount();
+  });
+
+  it("takes the description from the same paragraph in every language (stage 5 review)", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => ({ ok: true, json: async () => STRINGS })));
+    await chooseSiteLanguage("es");
+    const view = render(<MemoryRouter initialEntries={["/study/connections"]}><Site /></MemoryRouter>);
+    await reread();
+    expect(description()).toBe(STRINGS[PARAGRAPH]);
+    await act(() => chooseSiteLanguage("en"));
+    await reread();
     expect(description()).toBe(PARAGRAPH);
     view.unmount();
   });

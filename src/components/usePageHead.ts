@@ -28,7 +28,9 @@ function shownOnPage() {
   const main = document.getElementById("main");
   const heading = main?.querySelector("h1")?.innerText ?? "";
   const subheading = main?.querySelector("h2")?.innerText ?? "";
-  const paragraph = [...(main?.querySelectorAll("p") ?? [])].map((p) => p.innerText.trim()).find((text) => text.length >= 60) ?? "";
+  // Measured on the English, so every language takes its description from the same paragraph. englishOf knows whole
+  // phrases only: a paragraph swapped in pieces is measured as shown.
+  const paragraph = [...(main?.querySelectorAll("p") ?? [])].map((p) => p.innerText.trim()).find((text) => englishOf(text).length >= 60) ?? "";
   return { heading, subheading, paragraph };
 }
 

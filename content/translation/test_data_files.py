@@ -222,3 +222,20 @@ def test_content_files_the_page_code_imports_are_content_files_too(tmp_path: Pat
     assert found == {"content/teachers/evidence.json", "content/research/a-1.json", "content/research/a-2.json"}
     listed = {path.resolve().relative_to(tmp_path.resolve()).as_posix() for path in unregistered.content_files()}
     assert found <= listed and "content/notes/never-imported.json" not in listed
+
+
+def test_a_partial_check_never_overwrites_the_shared_report(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """`--check fields`, the run the jobs quote, once rewrote the committed report with one section (stage 5 review)."""
+    report = tmp_path / "unregistered.md"
+    monkeypatch.setattr(unregistered, "REPORT", report)
+    monkeypatch.setattr(unregistered, "reviewed", lambda: {})
+    monkeypatch.setattr(unregistered, "CHECKS", {name: (lambda skip, name=name: [f"{name}: 0"]) for name in unregistered.CHECKS})
+    monkeypatch.setattr(sys, "argv", ["unregistered.py", "--check", "fields"])
+    unregistered.main()
+    assert not report.exists()
+    monkeypatch.setattr(sys, "argv", ["unregistered.py", "--check", "fields", "--out", str(tmp_path / "part.md")])
+    unregistered.main()
+    assert "fields: 0" in (tmp_path / "part.md").read_text("utf-8") and not report.exists()
+    monkeypatch.setattr(sys, "argv", ["unregistered.py"])
+    unregistered.main()
+    assert all(f"{name}: 0" in report.read_text("utf-8") for name in unregistered.CHECKS)

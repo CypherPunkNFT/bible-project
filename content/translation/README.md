@@ -77,8 +77,8 @@ that stays English sets `dir="ltr"` on itself.
 language (the Apologetics menu's "Practice" was one). It checks three things: text in the page code that looks shown on
 screen but that extract.py's rules skip, sorted by which rule passed it by; fields of the content files that hold
 prose but that no `SOURCES` path names, and content folders no rule reads at all; and registered page text that a
-language's `ui.json` has no translation for yet. It writes
-[reports/unregistered.md](../../../SiteTranslation/reports/unregistered.md), reads files only and costs nothing (about
+language's `ui.json` has no translation for yet. A run of all three writes
+[reports/unregistered.md](../../../SiteTranslation/reports/unregistered.md) (a `--check` run writes only to `--out`), reads files only and costs nothing (about
 three minutes, mostly the content files; `--check code` alone takes seconds). Its net is wider than extract.py's on
 purpose, so some items are code or English on purpose: once checked, they go in `unregistered-reviewed.json` as
 `{"check": "code" | "code-files" | "fields" | "files" | "untranslated", "item": ..., "why": ...}` and drop out of

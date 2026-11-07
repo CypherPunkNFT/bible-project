@@ -115,7 +115,7 @@ export function RingSection({ d }: { d: Apostle }) {
         <p className="kicker">{p.n} · {p.sub}</p><h3>{p.title}</h3>
         {ents.length ? <ol className={`a-recs${sel === 4 ? " trad" : ""}${ents.length > 9 ? " two" : ""}`}>{ents.map((e) => <li key={e.key}>
           <button type="button" onClick={() => sheet.openEntry(e)}><span className="t">{e.title}</span><small>{e.type === "trad" ? whenShort(e.when) : e.refs[0] ? refText(e.refs[0]) : ""}</small></button>
-        </li>)}</ol> : <p className="plain-line">{plural(sel, "Scripture gives no home, trade or family for him.", "Scripture records nothing here.")}</p>}
+        </li>)}</ol> : <p className="plain-line">{sel === 1 ? "Scripture gives no home, trade or family for him." : "Scripture records nothing here."}</p>}
       </div>
     </div>
   </section>;

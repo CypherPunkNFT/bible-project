@@ -16,7 +16,8 @@ checked and found not to be screen text, or English on purpose, goes in unregist
 is left out of later reports.
 
 Usage: python unregistered.py [--check code|fields|untranslated] [--out FILE]
-Reads files only; costs nothing. Default report: ../SiteTranslation/reports/unregistered.md
+Reads files only; costs nothing. Default report: ../SiteTranslation/reports/unregistered.md, written only when every
+check runs (a run of some checks prints its summary and writes a report only to --out).
 """
 import argparse
 import json
@@ -344,19 +345,25 @@ TITLES = {"code": "Page code: on-screen text not registered", "fields": "Content
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--check", choices=list(CHECKS), action="append", help="run only this check (repeatable)")
-    parser.add_argument("--out", type=Path, default=REPORT, help="where to write the report")
+    parser.add_argument("--out", type=Path, help="where to write the report (default: the shared report, and only when "
+                                                  "every check runs, so a partial run never overwrites it)")
     args = parser.parse_args()
+    names = list(dict.fromkeys(args.check or CHECKS))
+    out = args.out or (REPORT if set(names) == set(CHECKS) else None)
     skip = reviewed()
     report = ["# English the translation never registers", "",
               "Written by Website/content/translation/unregistered.py. Each item below would stay English in every "
               "language. Items checked and found fine belong in unregistered-reviewed.json.", ""]
-    for name in args.check or list(CHECKS):
+    for name in names:
         section = CHECKS[name](skip)
         report += [f"## {TITLES[name]}", ""] + section + [""]
         print(f"{name}: {section[0]}")
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text("\n".join(report), "utf-8", newline="\n")
-    print(f"report: {args.out}")
+    if out is None:
+        print(f"report not written: only some checks ran, and {REPORT} holds all of them (give --out FILE to write one)")
+        return
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text("\n".join(report), "utf-8", newline="\n")
+    print(f"report: {out}")
 
 
 if __name__ == "__main__":

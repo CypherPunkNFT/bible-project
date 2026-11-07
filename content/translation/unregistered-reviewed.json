@@ -2003,6 +2003,12 @@
  },
  {
   "check": "plural",
+  "file": "src/components/apostle-page/Record.tsx",
+  "item": "{n} === 1 ? \"Scripture gives no home, trade or family for him.\" : \"Scripture records nothing here.\"",
+  "why": "which of the four parts of his life is chosen (part 1 is his home, trade and family), not a count: two whole sentences, each its own line in every language's phrase list; as plural() it would pick the wrong one in languages whose plural rules differ (stage 5 review)"
+ },
+ {
+  "check": "plural",
   "file": "src/components/home/mockups/OverviewMockupsMore.tsx",
   "item": "{n} === 1 ? \"middle\" : {n} ? \"start\" : \"end\"",
   "why": "a figure's position (0, 1, 2) choosing an SVG text-anchor value, never shown"
