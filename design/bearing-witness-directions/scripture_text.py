@@ -1,4 +1,4 @@
-"""Reading the Berean and the held sources for the Bearing witness mock-up. Every check in build-data.py rests on these."""
+"""Reading the Berean and the held sources for The good news mock-up. Every check in build-data.py rests on these."""
 import html
 import json
 import re
@@ -56,7 +56,10 @@ def held_paragraphs(path: Path, opens: str | None, closes: str | None) -> list:
     """The paragraphs of one held source, limited to the part read, so a quotation cannot pass on text from another book."""
     try:
         raw = path.read_text(encoding="utf-8", errors="replace")
-    except OSError as error:
+        if path.suffix == ".json":
+            sections = json.loads(raw)["sections"]
+            return [fold(re.sub(r"\s+", " ", piece)) for section in sections for piece in (section.get("text") or "").split("\n\n")]
+    except (OSError, ValueError, KeyError) as error:
         raise BuildError(f"could not read held source {path}: {error}") from error
     raw = re.sub(r"<note.*?</note>", "", raw, flags=re.S)
     pieces = [fold(re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", piece)))) for piece in re.split(r"</?(?:p|div\d?|h\d)\b[^>]*>", raw)]

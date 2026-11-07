@@ -1,4 +1,4 @@
-"""The lists behind the Who do you say I am mock-up: the answers and who said them, the forms, the pairs, and who changed their answer. build-data.py checks every phrase here against its verse."""
+"""The lists behind the Who do you say that I am mock-up: the answers and who said them, the words that join them, the forms of the readings, and the closed lists the text is checked against. build-data.py checks every phrase here against its verse."""
 
 GROUPS = [
     {"id": "crowds", "name": "The crowds"},
@@ -72,27 +72,26 @@ ANSWERS = [
 
 # A word's lines are found by searching the words themselves, and must equal the list typed here, so that a change to either one fails the build.
 WORD_LENSES = [
-    {"id": "son", "label": "Son of God", "text": "WordSon", "pattern": r"\bSon of (?:God|the (?:living God|Blessed One|Most High))\b|\bMy (?:beloved )?Son\b",
+    {"id": "son", "label": "Son of God", "pattern": r"\bSon of (?:God|the (?:living God|Blessed One|Most High))\b|\bMy (?:beloved )?Son\b",
      "expect": {"tempter", "spiritsson", "highpriest", "martha", "centurion", "peter", "markone", "gabriel", "river", "mountain"}, "never": ["Son of Man", "Son of David", "son of Joseph"]},
-    {"id": "christ", "label": "Christ", "text": "WordChrist", "pattern": r"\bChrist\b|\bMessiah\b", "expect": {"highpriest", "taunt", "woman", "martha", "andrew", "peter", "markone", "angels"}, "never": ["Christian"]},
-    {"id": "king", "label": "King", "text": "WordKing", "pattern": r"\bKing\b|\bKING\b", "expect": {"pilate", "salute", "notice", "taunt", "nathanael"}, "never": ["kingdom", "king of Assyria"]},
-    {"id": "lord", "label": "Lord", "text": "WordLord", "pattern": r"\bLord\b", "expect": {"blindlord", "thomas", "angels"}, "never": ["LORD", "lord"]},
-    {"id": "prophet", "label": "Prophet", "text": "WordProphet", "pattern": r"\b[Pp]rophets?\b", "expect": {"prophets", "greatprophet", "blindprophet"}, "never": ["prophecy"]},
-    {"id": "holy", "label": "Holy One", "text": "WordHoly", "pattern": r"\bHoly One of God\b", "expect": {"spiritholy", "peterholy"}, "never": ["Holy Spirit"]},
-    {"id": "teacher", "label": "Teacher", "text": "WordTeacher", "pattern": r"\b[Tt]eacher\b", "expect": {"nicodemus", "goodteacher"}, "never": ["teaching", "Rabbi"]},
-    {"id": "david", "label": "Son of David", "text": "WordDavid", "pattern": r"\bSon of David\b", "expect": {"hosanna", "bartimaeus"}, "never": ["son of Joseph"]},
+    {"id": "christ", "label": "Christ", "pattern": r"\bChrist\b|\bMessiah\b", "expect": {"highpriest", "taunt", "woman", "martha", "andrew", "peter", "markone", "angels"}, "never": ["Christian"]},
+    {"id": "king", "label": "King", "pattern": r"\bKing\b|\bKING\b", "expect": {"pilate", "salute", "notice", "taunt", "nathanael"}, "never": ["kingdom", "king of Assyria"]},
+    {"id": "lord", "label": "Lord", "pattern": r"\bLord\b", "expect": {"blindlord", "thomas", "angels"}, "never": ["LORD", "lord"]},
+    {"id": "prophet", "label": "Prophet", "pattern": r"\b[Pp]rophets?\b", "expect": {"prophets", "greatprophet", "blindprophet"}, "never": ["prophecy"]},
+    {"id": "holy", "label": "Holy One", "pattern": r"\bHoly One of God\b", "expect": {"spiritholy", "peterholy"}, "never": ["Holy Spirit"]},
+    {"id": "teacher", "label": "Teacher", "pattern": r"\b[Tt]eacher\b", "expect": {"nicodemus", "goodteacher"}, "never": ["teaching", "Rabbi"]},
+    {"id": "david", "label": "Son of David", "pattern": r"\bSon of David\b", "expect": {"hosanna", "bartimaeus"}, "never": ["son of Joseph"]},
 ]
+# The wall's readout is labelled with two of the four questions in the text's Habit, which must be in the Habit. The third field is what came next in the
+# passage, often someone else's words, so it is not labelled with the Habit's "What do they do next?".
+READOUT_LABELS = {"who": "Who is speaking?", "words": "What exactly do they say?", "next": "What came next"}
 
-WAY_IN = {"asks": ("Matthew 16:13", "Who do people say the Son of Man is?"), "reports": [("Matthew 16:14", "John the Baptist"), ("Matthew 16:14", "Elijah"), ("Matthew 16:14", "Jeremiah"), ("Matthew 16:14", "one of the prophets")],
-          "turns": ("Matthew 16:15", "But what about you?"), "then": ("Matthew 16:15", "Who do you say I am?")}
-
-PAIRS = [
-    {"word": "The Holy One of God", "left": {"answer": "spiritholy", "around": ("Mark 1:24", "Have You come to destroy us?")}, "right": {"answer": "peterholy", "around": ("John 6:68", "Lord, to whom would we go?")}},
-    {"word": "The King", "left": {"answer": "salute", "around": ("Mark 15:19", "They kept striking His head with a staff")}, "right": {"answer": "nathanael", "around": ("John 1:50", "You will see greater things than these.")}},
-    {"word": "The Son of God", "left": {"answer": "tempter", "around": ("Matthew 4:11", "Then the devil left Him")}, "right": {"answer": "centurion", "around": ("Mark 15:39", "saw how He had breathed His last")}},
-]
-
-READING_ORDER = ["road", "turn", "council", "voice", "thomas", "written"]
+# The readings, by number and title as the text has them. A changed title or order fails the build, so a form cannot land on the wrong reading.
+READINGS = [("01", "The question on the road", "road"), ("02", "Blessed, and then rebuked", "turn"), ("03", "Before the council", "council"), ("04", "The voice from heaven", "voice"),
+            ("05", "The Word became flesh: how God became a man", "word"), ("06", "Thomas sets his terms", "thomas")]
+READING_FORMS = {"road": ["road"], "turn": ["turn"], "council": ["council"], "voice": ["voice"], "word": ["word"], "thomas": ["thomas", "written"]}
+# Where the text points to another part by number, the part it names must be the reading meant.
+PART_MENTIONS = {"Part 03 shows where Jesus takes it further": "council", "(part 04)": "voice", "Part 06 shows one of them doing so": "thomas"}
 SECOND_QUESTION = "Who do you say I am?"
 SECOND_QUESTION_AT = ["Matthew 16:15", "Mark 8:29", "Luke 9:20"]
 
@@ -113,74 +112,133 @@ FORMS = {
     "voice": {"kind": "aligned", "name": "The two sentences, laid one above the other", "first": ("Matthew 3:17", "This is My beloved Son, in whom I am well pleased!"), "second": ("Matthew 17:5", "This is My beloved Son, in whom I am well pleased. Listen to Him!"),
               "shared": "This is My beloved Son, in whom I am well pleased", "added": "Listen to Him!", "firstPlace": "At the river", "secondPlace": "On the mountain",
               "others": [("Mark 1:11", "You are My beloved Son; in You I am well pleased."), ("Luke 3:22", "You are My beloved Son; in You I am well pleased."), ("Mark 9:7", "This is My beloved Son. Listen to Him!"), ("Luke 9:35", "This is My Son, whom I have chosen. Listen to Him!")]},
+    # Who says it, and to whom: one row per speaker, each in their own verse. No columns sort the words into two sides. The church rows are marked as not Scripture.
+    "word": {"kind": "ledger", "name": "Who says it, and to whom", "rows": [
+        {"who": "John, opening his Gospel", "said": [("John 1:1", "the Word was God"), ("John 1:14", "The Word became flesh")], "gold": "became"},
+        {"who": "The angel, to Joseph", "said": [("Matthew 1:20", "the One conceived in her is from the Holy Spirit")], "gold": None},
+        {"who": "The angel, to Mary", "said": [("Luke 1:35", "the Holy One to be born will be called the Son of God")], "gold": None},
+        {"who": "Isaiah, to King Ahaz, and Matthew after him", "said": [("Isaiah 7:14", "the virgin will be with child"), ("Matthew 1:23", "God with us")], "gold": None},
+        {"who": "Paul, to the church at Philippi", "said": [("Philippians 2:6", "existing in the form of God"), ("Philippians 2:7", "taking the form of a servant")], "gold": "taking"},
+        {"who": "The letter to the Hebrews", "said": [("Hebrews 2:17", "He had to be made like His brothers in every way")], "gold": None},
+        {"who": "Paul, to the Colossians", "said": [("Colossians 1:15", "the image of the invisible God"), ("Colossians 1:20", "making peace through the blood of His cross")], "gold": None}],
+        "churchTitle": "Later, the church. Not Scripture", "church": [("The Council of Chalcedon, 451", "truly God and truly man"), ("The Baptist Faith and Message", "fully God, fully man")],
+        "closing": "They do not explain *how* God and man are one person."},
     "thomas": {"kind": "mirror", "name": "His terms, and the answer", "leftTitle": "Thomas, to his friends", "rightTitle": "Jesus, eight days later", "rows": [
         (("John 20:25", "I see the nail marks in His hands"), ("John 20:27", "look at My hands")), (("John 20:25", "put my finger where the nails have been"), ("John 20:27", "Put your finger here")),
         (("John 20:25", "put my hand into His side"), ("John 20:27", "Reach out your hand and put it into My side.")), (("John 20:25", "I will never believe."), ("John 20:27", "Stop doubting and believe."))],
         "result": ("John 20:28", "My Lord and my God!"), "note": "He says this. The record does not say he touched anything."},
-    "written": {"kind": "line", "name": "John's answers in order, to the last stop", "stops": [
+    "written": {"kind": "line", "name": "John's answers in order, from his first page to his last", "stops": [
         ("The writer", "John 1:1", "the Word was God"), ("John the Baptist", "John 1:29", "the Lamb of God"), ("Andrew", "John 1:41", "We have found the Messiah"), ("Nathanael", "John 1:49", "You are the King of Israel!"), ("A town in Samaria", "John 4:42", "the Savior of the world"),
         ("Simon Peter", "John 6:69", "the Holy One of God"), ("A man who had been blind", "John 9:38", "Lord, I believe"), ("Martha", "John 11:27", "You are the Christ, the Son of God"), ("Thomas", "John 20:28", "My Lord and my God!"), ("The writer, to you", "John 20:31", "so that you may believe")],
         "last": "You"},
 }
 
-CHANGED = [
-    {"who": "His brothers", "before": ("John 7:5", "even His own brothers did not believe in Him"), "between": ("1 Corinthians 15:7", "Then He appeared to James"), "after": [("Acts 1:14", "with His brothers"), ("James 1:1", "a servant of God and of the Lord Jesus Christ")]},
-    {"who": "Simon Peter", "before": ("Mark 14:71", "I do not know this man of whom you speak!"), "between": ("Luke 24:34", "has appeared to Simon"), "after": [("Acts 2:36", "both Lord and Christ"), ("1 Peter 2:4", "the living stone")]},
-    {"who": "Saul, later called Paul", "before": ("Acts 26:9", "oppose the name of Jesus of Nazareth"), "between": ("Acts 9:5", "Who are You, Lord?"), "after": [("Acts 9:20", "He is the Son of God.")]},
-    {"who": "A man who had been blind", "before": ("John 9:17", "He is a prophet"), "between": ("John 9:37", "He is the One speaking with you."), "after": [("John 9:38", "Lord, I believe")]},
-    {"who": "A town in Samaria", "before": ("John 4:29", "Could this be the Christ?"), "between": ("John 4:42", "we have heard for ourselves"), "after": [("John 4:42", "the Savior of the world")]},
-    {"who": "Two on a road", "before": ("Luke 24:21", "But we were hoping He was the One who would redeem Israel."), "between": ("Luke 24:32", "as He spoke with us on the road"), "after": [("Luke 24:34", "The Lord has indeed risen")]},
-]
-OLDER = [
-    {"by": "Jesus uses these words to the high priest. Mark does not name Daniel, so the link is this study's.", "then": ("Daniel 7:13", "coming with the clouds of heaven"), "now": ("Mark 14:62", "coming with the clouds of heaven")},
-    {"by": "Jesus quotes it, in the temple courts.", "then": ("Psalm 110:1", "Sit at My right hand"), "now": ("Mark 12:36", "Sit at My right hand")},
-    {"by": "Paul quotes it, of the resurrection.", "then": ("Psalm 2:7", "You are My Son"), "now": ("Acts 13:33", "You are My Son")},
-    {"by": "Peter quotes it, of Jesus.", "then": ("Deuteronomy 18:15", "You must listen to him."), "now": ("Acts 3:22", "You must listen to Him in everything He tells you.")},
-    {"by": "Matthew quotes it, of Jesus.", "then": ("Isaiah 42:1", "in whom My soul delights"), "now": ("Matthew 12:18", "in whom My soul delights")},
-]
-
-SOURCE_ANCHORS = {
-    "We cannot take refuge from it in the general opinion.": "MATT. xvi. 13-28",
-    "True, the speaker did not know all which lay in His words. Do we?": "MATT. xvi. 13-28",
-    "Unquestionably, the apostle is the rock on which the Church is built.": "MATT. xvi. 13-28",
-    "wherever that faith is, there are these gifts": "MATT. xvi. 13-28",
-    "The object of the Christian's faith is not a proposition; it is not a dogma nor a truth, but a Person.": "My Lord and my God",
-    "In that sense the Jews plainly understood Him": "Before Abraham was, I am",
-    "not on the man Simon Bar-jona; but on him as the heavenly-taught confessor of a faith": "and upon this rock",
-    "This is the obvious meaning of the passage": "MATTHEW - Chapter 16 - Verse 18",
-    "The reason of this seems to be that his time had not fully come": "MATTHEW - Chapter 16 - Verse 20",
-    "There is no evidence that this was a mere expression, as some have supposed, of surprise or astonishment.": "JOHN - Chapter 20 - Verse 28",
-    "though a servant, he was still the Lord": "How could Thomas cry out",
-    "the primacy of jurisdiction over the universal Church of God was immediately and directly promised and given to blessed Peter the Apostle by Christ the Lord.": "We therefore teach and declare",
+# Commentary quotations: the heading the quote must sit under in the held file (None for a short creed), and the chapter and verse of the note it is in (None for
+# sermons and books). "named" is the chapter, and verse if any, that content.md itself says the quote is on. A held place that differs from it fails the build
+# unless KNOWN_ISSUES records the difference.
+SOURCE_PLACES = {
+    "We cannot take refuge from it in the general opinion.": {"anchor": "MATT. xvi. 13-28", "place": None, "named": None},
+    "The reason of this seems to be that his time had not fully come": {"anchor": "MATTHEW - Chapter 16 - Verse 20", "place": (16, 20), "named": None},
+    "The object of the Christian's faith is not a proposition; it is not a dogma nor a truth, but a Person.": {"anchor": "My Lord and my God", "place": None, "named": None},
+    "In that sense the Jews plainly understood Him": {"anchor": "Before Abraham was, I am", "place": (8, 58), "named": ("in John 10", 10), "issue": "jfb-verse"},
+    "There is no evidence that this was a mere expression, as some have supposed, of surprise or astonishment.": {"anchor": "JOHN - Chapter 20 - Verse 28", "place": (20, 28), "named": None},
+    "though a servant, he was still the Lord": {"anchor": "How could Thomas cry out", "place": None, "named": None},
+    "the primacy of jurisdiction over the universal Church of God was immediately and directly promised and given to blessed Peter the Apostle by Christ the Lord.": {"anchor": "We therefore teach and declare", "place": None, "named": None},
+    "Unquestionably, the apostle is the rock on which the Church is built.": {"anchor": "MATT. xvi. 13-28", "place": None, "named": None},
+    "not on the man Simon Bar-jona; but on him as the heavenly-taught confessor of a faith": {"anchor": "and upon this rock", "place": (16, 18), "named": None},
+    "begotten, not made, being of one substance with the Father": {"anchor": None, "place": None, "named": None},
 }
+# Short documents held whole on this PC and quoted in plain prose. A quote must be in one paragraph, and its sentence must name the document.
+OUTSIDE_QUOTES = {"truly God and truly man": ("chalcedon", "Chalcedon"), "in two natures, inconfusedly, unchangeably, indivisibly, inseparably": ("chalcedon", "Chalcedon")}
+# The Baptist Faith and Message is not held on this PC. Each phrase must be cited to its own article, by number and, where the text names it, by name.
 QUOTED_CONFESSION = {
-    "every person of every race possesses full dignity and is worthy of respect and Christian love": "3",
-    "truth, without any mixture of error": "1",
-    "fully God, fully man": "2",
-    "There is no salvation apart from personal faith in Jesus Christ as Lord": "4",
-    "an autonomous local congregation of baptized believers": "6",
-    "God alone is Lord of the conscience": "17",
+    "possesses full dignity and is worthy of respect and Christian love": ("3", "man"),
+    "truth, without any mixture of error": ("1", "the Scriptures"),
+    "fully God, fully man": ("2", None),
+    "was conceived of the Holy Spirit and born of the virgin Mary": ("2", "God the Son"),
+    "There is no salvation apart from personal faith in Jesus Christ as Lord": ("4", "salvation"),
+    "an autonomous local congregation of baptized believers": ("6", "the church"),
+    "God alone is Lord of the conscience": ("17", "religious liberty"),
 }
-# Words named as words, and not quoted as a passage. Each must be in the verse given here.
-MENTIONS = {"Son of God": "Mark 3:11"}
-# What the page says is not in a book. The same pattern must find something in the control verse, or the search is proved blind.
-ABSENT_BOOKS = [{"books": ["MAT", "MRK", "LUK", "JHN"], "pattern": r"\bI am God\b", "control": "Isaiah 46:9", "says": "the exact sentence is not in the four Gospels"}]
+# The study's own words and glosses, in quotation marks but not quoted from a verse. A gloss is never accepted as Scripture: it is only allowed as itself.
+GLOSSES = {"God", "a human being", "good news", "anointed one", "accuser", "adversary", "in flesh", "the LORD saves", "virgin birth"}
+# Words named as words, each in the verse given here.
+MENTIONS = {"The Christ": "Luke 9:20", "Word": "John 1:1", "Listen to Him!": "Matthew 17:5"}
+# A quotation whose sentence has no reference and no block quotation above it in its part: the one verse it is from.
+IMPLIED = {"At the right hand": "Mark 14:62", "the Word was God": "John 1:1", "We have seen the Lord!": "John 20:25", "Stop doubting and believe": "John 20:27"}
+ABSENT_BOOKS = [{"books": ["MAT", "MRK", "LUK", "JHN"], "pattern": r"\bI am God\b", "control": "Isaiah 46:9", "says": "The exact sentence \"I am God\" is not in the four Gospels"}]
 ABSENT_MENTIONS = {"I am God"}
-ABSENT_RANGES = [{"label": "John 20:28–31", "pattern": r"\btouch|\bput\b|\bfinger", "control": "John 20:27", "says": "the record does not say Thomas touched anything"}]
+ABSENT_RANGES = [{"label": "John 20:28–31", "pattern": r"\btouch|\bput\b|\bfinger", "control": "John 20:27", "says": "The record does not say Thomas touched anything"}]
+# What the text says only one Gospel has, or one leaves out. The pattern must be found where the text says it is, and nowhere it says it is not.
+ONLY_CLAIMS = [
+    {"says": "Only Matthew adds Jeremiah", "pattern": r"\bJeremiah\b", "in": ["Matthew 16:14"], "not_in": ["Mark 8:28", "Luke 9:19"]},
+    {"says": "Only Luke has the word \"daily\"", "pattern": r"\bdaily\b", "in": ["Luke 9:23"], "not_in": ["Matthew 16:24", "Mark 8:34"]},
+    {"says": "Luke does not record the rebuke", "pattern": r"\bSatan\b", "in": ["Matthew 16:23", "Mark 8:33"], "not_in": ["Luke 9:18–27"]},
+    {"says": "Luke gives no place", "pattern": r"\bCaesarea\b", "in": ["Matthew 16:13", "Mark 8:27"], "not_in": ["Luke 9:18–21"]},
+]
+# Every number written as a word in content.md, and how it is checked: "computed" against a count this build makes, "verse" against the words of a verse,
+# "known" as a fault on KNOWN_ISSUES, or "plain" with the reason it needs no count. A number word not on this list fails the build.
+COUNTS = {
+    "ask four things": ("computed", "habitQuestions"), "Six scenes": ("known", "six-scenes"), "Three titles": ("computed", "titles"), "Three Gospels tell": ("computed", "roadColumns"),
+    "same in all three Gospels": ("computed", "secondQuestion"), "three accounts": ("computed", "roadColumns"), "Six verses later": ("computed", "turnGap"),
+    "six days later": ("verse", "Matthew 17:1", "After six days"), "two older passages": ("plain", "Psalm 110:1 and Daniel 7, both named in the next sentences"),
+    "three terrified men": ("verse", "Matthew 17:1", "Peter, James, and John"), "three shelters": ("verse", "Matthew 17:4", "three shelters"), "all three together": ("plain", "Father, Son and Spirit, named in the same paragraph"),
+    "Two church words": ("computed", "churchWords"), "two threatening kings": ("plain", "the kings of Aram and Israel, named in the same paragraph"), "two centuries": ("plain", "a date, not a count"),
+    "two Christian readings": ("plain", "the Some and Others of the same paragraph"), "two who were at odds": ("plain", "a definition, not a count"), "in two natures": ("plain", "inside the Chalcedon quotation"),
+    "four words": ("computed", "bfmWords"), "Eight days later the doors": ("verse", "John 20:26", "Eight days later"), "Eight days later Jesus": ("verse", "John 20:26", "Eight days later"), "four Gospels": ("plain", "Matthew, Mark, Luke and John"),
+}
+# Faults in the text that this build has found and may not hide. Each must still be true, so that once the text is fixed the entry has to be removed.
+KNOWN_ISSUES = {
+    "six-scenes": "The Selection says six scenes and a seventh reading at the centre, and lists \"the Gospel writers' own\" answer. The text now has six parts in all, five scenes and the reading on the incarnation, and the Gospel writers' own answer was the old part 06, now folded into Thomas.",
+    "jfb-verse": "The text gives the Jamieson, Fausset and Brown quotation as on the stones in John 10. The held commentary has it in its note on John 8:58.",
+}
+# Every [check: ...] note in content.md, with what this build did about it. "verified": the quotation in the same line passed its held-source check here.
+# "mismatch": the check found a fault, on KNOWN_ISSUES. "open": nothing here can check it. Notes never show on the page; the README lists them all.
+CHECK_NOTES = {
+    "confirm wording and locate in Maclaren's *Expositions of Holy Scripture*, on Matthew 16": "verified",
+    "confirm wording in Barnes' *Notes on the New Testament*, on Matthew 16:20": "verified",
+    "date commonly given, about 735–734 BC": "open",
+    "which commentators hold which identification; Rashi is often cited for Isaiah's wife": "open",
+    "wording against bfm.sbc.net": "open",
+    "wording against the standard English translation of the Definition of Chalcedon, e.g. Schaff, *Creeds of Christendom*": "verified",
+    "confirm wording and locate in Maclaren's *Expositions*, on John 20": "verified",
+    "wording against the English translation used in the site's creeds collection": "verified",
+    "confirm wording and verse": "mismatch",
+    "confirm wording, on John 20:28": "verified",
+    "confirm wording and locate, probably in Boyce's *Abstract of Systematic Theology*": "verified",
+    "wording against the English text of *Pastor Aeternus*, chapter 1": "verified",
+    "confirm wording, on Matthew 16:18": "verified",
+    "confirm wording": "verified",
+}
 
-INTERNAL = {"Was Jesus simply a great teacher?": "/apologetics/study/jesus", "Surviving witnesses": "/study/surviving-witnesses"}
+# Italic titles of other studies. The gate is only that a title is on this list and its link stays on this site; whether its mock-up exists is reported by
+# --links and never failed on, because other jobs change those folders.
+STUDY_LINKS = {
+    "Encounters with Jesus": "../encounters-with-jesus-directions/", "The signs and works of Jesus": "../the-signs-and-works-of-jesus-directions/",
+    "Following Jesus and the Sermon on the Mount": "../following-jesus-directions/", "Reading Daniel and Revelation": "../reading-daniel-and-revelation-directions/",
+    "The hope to come": "../the-hope-to-come-horizon/", "Women of the Bible": "../women-of-the-bible-directions/",
+    "The cross, the empty tomb and the throne: what Jesus' death and rising did": "../what-the-cross-accomplishes-directions/",
+    "The church and its calling": "../the-church-and-its-calling-directions/", "The surviving witnesses": "/study/surviving-witnesses",
+    "What the Bible says about itself": "../scripture-and-its-witness-directions/", "The good news: how a person is made right with God": "/study/the-good-news",
+}
+# Site links written into content.md as [text](/path).
+SITE_LINKS = {"/study/names", "/study/theology-articles/the-trinity", "/apologetics/study/miracles", "/apologetics/study/jesus"}
 RELATED = [("/apologetics/study/jesus", "Was Jesus simply a great teacher?"), ("/study/gospels", "Jesus & the Gospels"), ("../encounters-with-jesus-directions/", "Encounters with Jesus"), ("../the-signs-and-works-of-jesus-directions/", "The signs and works of Jesus")]
 SOURCES = [
     {"id": "bfm", "short": "The Baptist Faith and Message", "name": "The Baptist Faith and Message 2000, as amended 2023, Articles 1, 2, 3, 4, 6 and 17", "href": "https://bfm.sbc.net/bfm2000/",
-     "note": "Read: these articles. Six short phrases, quoted with a link and not hosted. Compared on 2026-10-30 against what a web tool returned from the page, because the page refused a direct download. Compare by eye before release."},
+     "note": "Read: these articles. Seven short phrases, quoted with a link and not hosted. Not held on this PC: the build checks only that each is cited to its own article. Compare by eye before release."},
     {"id": "maclaren", "short": "Alexander Maclaren", "name": "Alexander Maclaren, Expositions of Holy Scripture (Matthew, John)", "href": "https://www.ccel.org/ccel/maclaren",
      "note": "Baptist. Public domain. Read: his exposition of Matthew 16:13-28 and his sermon on Thomas in John 20 only."},
     {"id": "boyce", "short": "James P. Boyce", "name": "James P. Boyce, Abstract of Systematic Theology (1887)", "href": "https://www.ccel.org/ccel/boyce/theology.html",
      "note": "First president of Southern Baptist Theological Seminary. Public domain. Read: the one passage on the person of Christ quoted here, and not the whole book."},
     {"id": "barnes", "short": "Albert Barnes", "name": "Albert Barnes, Notes on the New Testament", "href": "https://www.ccel.org/ccel/barnes/ntnotes.html",
-     "note": "Presbyterian. Public domain. Read: the notes on Matthew 16:18, Matthew 16:20 and John 20:28 only."},
+     "note": "Presbyterian. Public domain. Read: the notes on Matthew 16:20 and John 20:28 only."},
     {"id": "jfb", "short": "Jamieson, Fausset and Brown", "name": "Jamieson, Fausset and Brown, Commentary Critical and Explanatory", "href": "https://www.ccel.org/ccel/jamieson/jfb.html",
      "note": "Not Baptist. Public domain. Read: the notes on Matthew 16:18 and John 8:58 only."},
     {"id": "vatican", "short": "The First Vatican Council", "name": "The First Vatican Council, dogmatic decrees (1870)", "href": "/study/creeds/vatican-council-dogmatic-decrees-1870",
      "note": "Catholic teaching, shown as theirs. Public domain by age, from the site's creeds collection. Read: the chapters on the primacy of Peter only."},
+    {"id": "nicene", "short": "The Nicene Creed", "name": "The Nicene Creed (381)", "href": "/study/creeds/nicene-creed-381",
+     "note": "Confessed by Catholic, Orthodox and Protestant churches. From the site's creeds collection. Read: the article on the Son."},
+    {"id": "chalcedon", "short": "The Definition of Chalcedon", "name": "The Definition of Chalcedon (451), in Philip Schaff's translation", "href": "/study/creeds/chalcedonian-definition-451-schaff",
+     "note": "From the site's creeds collection. Read: the one paragraph of the definition."},
 ]

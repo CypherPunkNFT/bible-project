@@ -1,110 +1,37 @@
 # Life together design
 
-Study 02 · First design draft · Owner review pending · 2026-10-13
+Study 02 · Design written with the mock-up, as step 14 of the page-design run · Owner review pending · 2026-11-07
+
+Built: [the mock-up and its record](../../../../design/life-together-directions/README.md). Open at http://127.0.0.1:8931/mockups/life-together-directions/ on this PC. Wording: [content.md](content.md). Limits: [passage-notes.md](passage-notes.md). Standard: [STUDY-STANDARD.md](../../../../../Pages/Study/STUDY-STANDARD.md). Run brief: [DESIGN_RUN.md](../../../../../Pages/Topics/StudyPlan/DESIGN_RUN.md).
+
+This replaces the first design draft of 2026-10-13, which was written for the earlier text (King James wording, six readings on different passages, a card grid and a "warning, comfort, support" table). That text has been rewritten, so the old design no longer fitted it.
 
 ## Direction
 
-Present life together as reciprocal care: receiving and giving help, encouragement, correction and service. The distinctive visual is **different needs receiving different responses, with patience toward everyone**. It develops the existing table in the third reading rather than adding a personality quiz or a system for classifying people.
+Teach one habit: before you ask what you must do for the other person, look under the command for what God has already done for you, in the same paragraph. The page draws this as ground and roots. Every "one another" command stands above a ground line; beneath it runs a root down to the gift it stands on. One direction was built, because the text already existed.
 
-Retain all six readings in [the content draft](content.md), in their existing order. Use the direct card disclosure behaviour proposed for [A new creation](../a-new-creation/design.md), with a different central illustration and comparison. This is a presentation specification for review. It neither changes the reader-facing draft nor implements a website page.
+The shape is in the text itself. Jesus says "Love one another" and "As I have loved you" in one verse (John 13:34). Hebrews puts "He who promised is faithful" one verse before "spur one another on" (Hebrews 10:23–24). Philippians puts four "ifs" before its command (Philippians 2:1–3). The page measures how far each gift stands from its command, and draws that distance as the depth of the root.
 
-## Compact opening
+## The page
 
-Align the title, card group, reading panel and conclusion with the shared page-content edges. Keep the site header visible during entry and exit transitions. The opening contains the category **Living the Christian Life**, a prominent **Life together**, and the existing subtitle **Receiving one another. Caring for one another. Growing together in Christ.** Keep the study number subordinate, using the same font family as its adjacent label.
+- **Opening.** The standard heading: the study trail (Study / Living the Christian Life / Life together); the six concepts in gold capitals (One another · Burdens · Confession · Restoring · Gathering · Unity); the title *Life together* with *together* in gold italic; "belonging to a church" under it; the lead; John 13:34–35. Beside it, in a faint circle and dotted orbit, a basin, a jug and a folded towel, the things of John 13:1–17, with the motto "Loved first. / Then one another." No person is drawn.
+- **Counts.** A row of figures computed by the build, each with what it means: the passages walked, the "one another" commands drawn with their gifts, how many of those gifts stand within two verses of their command, and the verses printed in full.
+- **00 Look under the command.** The frame paragraphs, then the ground. Eight commands from this study's passages stand above one line. Below it, each root reaches down to the gift its own paragraph gives, at one of three depths: in the same verse, one verse away, or two verses away. Only the six pairs the study itself names get a root. Galatians 6:2 (part 02) and Matthew 18:15 (part 04) are drawn with "Ground not named here", so the page does not supply a ground the text does not give. Pointing at a command, or reaching it by Tab, writes the pair and both references in a line under the drawing; choosing it opens the verses. One sentence reads the drawing: in all six named pairs the gift stands within two verses, three of them in the same verse, so the habit is to look close. On a phone the ground becomes a list: each command, a short root, its gift.
+- **The six parts, one at a time.** A row of six, numbered 01 to 06 with their titles, chooses which part is open below it; the open one has a single gold rule under it. The choice is kept in the address (?part=03), so a part can be shared, and the browser's back button steps back through the parts read. Each part opens with its number, its title, its hook in gold italic and its main readings; then its own roots in large type, command above, gift below; then the reading. Notes sit in the margin beside the paragraph they belong to, each with a small label: With care, Left open, How this site reads it, Other Christians. On a narrow screen they fall into the reading in their place. Consider and Reflect close each part side by side, then a button to the next part.
+- **Part 04 adds one figure: four steps, one aim.** Matthew 18:15–17 as four steps in a row (privately; one or two others; the church; outside the fellowship, still to be won back), each in the verse's own words, and above all four the one aim the passage names: "you have won your brother over". The help note that opens part 04 stays first, full width, above everything else in the part. The opening's note pointing to it carries a link straight to part 04.
+- **Close.** The way of reading, the close, the invitation, the question for the reader, "Read the passage again before you answer", and John 13:34–35 printed in full; the basin again, with water poured; the sources; a link back to Living the Christian Life.
+- **Every reference** opens its verses in a sheet, in the Berean, and puts ?ref= in the address; Escape closes it and returns focus to the link.
 
-On a wide screen, place the title and the two existing introductory paragraphs on the left. On the right, give the complete Romans 15:7 quotation its own quiet surface, with its gold reference and KJV label. Offer the surrounding passage, Romans 15:1–7. Use the actual KJV wording already checked in the draft.
+## Which page it could be confused with, and why it is not
 
-The art beside this quotation is a small gathering around an open table. Use simple filled silhouettes, a substantial curved table edge and restrained blue highlights. No figure is a central leader or a visibly superior member. One open space suggests welcome. The image is an editorial symbol, not a reconstruction of a historical gathering or a diagram of church offices.
+*A new creation*, in the same category, also teaches reading a gift before a command ("already so, then to do"). Its look is a horizontal pair: what is already so on the left, "Therefore", what to do on the right, read across. This page reads down: the command above the ground, the gift beneath it as its root, and the depth is a measured distance in the text. *The church and its calling* draws the church as concentric rings of dots; this page has no rings. *Faith in daily life* marks reasons inside sentences with a switch; this page has no switch and no marks inside verses.
 
-Hover can softly brighten the table's shared centre. Keep the figures stationary and avoid pulsing, orbiting or rearranging them. The art does not need selectable people or a legend. Its purpose is to support the idea of shared life while leaving the reading choices as the only major controls.
+## Colour
 
-Avoid a full-height opening, oversized empty margins or a second introductory banner. At smaller widths, the quotation follows the introduction; reduce the decorative art before squeezing either text block.
+The Epistles' gold, because six of the eight passages walked are in the letters. The gifts are set in gold italic and the commands in ink, so the two are told apart by type as well as by colour. Text in the light theme uses a darker gold (#86610d, 5.0 to 1 on the page) so it can be read; the brighter Epistles gold is kept for lines, dots and roots. Care notes keep the site's accent.
 
-## Six reading cards
+## Doctrine and care
 
-Use three columns and two rows on a wide screen, two columns at intermediate widths, and one column on phones. All readings begin closed. Each card has a filled icon, number, existing title, short question and visible down arrow. Keep each row's cards evenly sized without truncating titles. Do not add another navigation row underneath.
+The site's voice follows the Baptist Faith and Message 2000: the local church as an "autonomous local congregation of baptized believers" governed "through democratic processes" (article VI), baptism as "prerequisite to the privileges of church membership" (article VII), and no salvation apart from personal faith in Christ (article IV). Where Baptists differ, the page shows both and does not choose: whether tongues and prophecy continue (1 Corinthians 13:8–10), and how to read "the whole world" (1 John 2:2). The Roman Catholic sacrament of Penance and Luther's private confession are described as their own teaching. The identity of the man in 2 Corinthians 2 is left open.
 
-| Reading | Card question | Icon direction |
-| --- | --- | --- |
-| 01 Love and welcome | What does receiving one another ask of us? | An open doorway with two simple figures |
-| 02 Bear burdens | How can help remain humble? | Two hands supporting the same weight |
-| 03 Encourage and build up | What response does this person need? | A speech form beside a supporting hand |
-| 04 Correct and restore | What is correction seeking for the person? | Two figures facing one another with an open space between |
-| 05 Gifts and service | Who benefits from what we have received? | Different solid pieces forming one continuous ring |
-| 06 Unity through disagreement | How can we seek another person's good? | Two distinct paths meeting at one shared point |
-
-Use blue for the shared interaction accent and warm gold for Scripture references. This is a proposed study treatment within the existing dark palette, not a change to global theme colours. Labels, shapes and expanded state carry meaning independently of colour. Filled forms should remain recognizable at card size; fine lines may supply detail but not the whole icon.
-
-Display serif for headings, ordinary sans serif for explanations and questions, and the site's Bible-quotation treatment for quoted verses. Avoid italicizing whole explanatory passages or making reflection prompts look like Scripture.
-
-## Direct expansion and reading order
-
-The card group controls a single reading panel immediately beneath the complete group. Card positions remain fixed within the document when readings change. Selecting a closed card opens its reading; selecting the active card closes it. No card click navigates or automatically scrolls the page.
-
-Closed controls have a visible small downward arrow. Hover and keyboard focus strengthen the arrow and add a restrained glow. The selected card has an X, a coloured edge and an explicit expanded state. Include a close control at the panel's top right and an upward-arrow circle at the bottom for readers who have reached its end.
-
-Expand to the reading's natural height and fade the text in. When changing readings, fade the outgoing text, resize and reveal the replacement. Do not keep the height of the longest reading or create an inner vertical scroll area. Start prototype tuning around 280–360 milliseconds for expansion and 120–160 milliseconds for fading. Rapid changes must resolve to the latest choice, not queue a sequence of animations.
-
-Closing near the card group leaves the viewport alone. Closing from the bottom brings the originating card back into view only as much as necessary; the reader must not be left among the footer or unrelated material. Keyboard focus returns to the selected card when a panel close control is used. Reduced-motion mode changes state without animated scrolling or fading.
-
-At the end of each reading, an optional **Next reading** action names the following reading. The sixth offers **A community that cares**, leading to the existing conclusion. Wheel and swipe gestures scroll naturally; they do not switch readings. Readers may proceed in sequence or choose a particular responsibility directly.
-
-## Two rows inside each reading
-
-The first row presents the two existing subdivisions side by side when space permits. Each subdivision retains its paragraph order, citations and any quotation belonging to it. The second row contains the existing **Consider** and **Reflect** prompts. These are meaningful content rows, not fixed-height boxes. A shorter reading should remain shorter.
-
-Stack the subdivisions and then the prompts on narrow screens. Keep body measures around 55–70 characters and allow sufficient line height. A wider content container supports columns and art; it need not produce excessively long prose lines.
-
-Main passage references sit beneath the reading title. There are no subtabs for the two subdivisions, no extra fraction such as 02/06, and no separate button needed to reveal the only reading inside a card. The full exposition is available as soon as its card opens.
-
-## The distinctive comparison in Encourage and build up
-
-Replace the plain table's visual presentation with three equal panels within reading 03. Preserve its wording and surrounding explanation. Show all three together on wide screens and stack them on phones.
-
-| Situation in the passage | Response | Visual emphasis |
-| --- | --- | --- |
-| Unruly conduct | Warning | A speech mark with a firm horizontal rule |
-| Faintheartedness | Comfort | An open speech shape |
-| Weakness | Support | A supporting hand |
-
-Below the three, a full-width band reads **Patience toward everyone**, with the shared reference **1 Thessalonians 5:14**. This turns the fourth row of the existing table into a relationship that can be seen immediately: patience belongs across the responses, not to a fourth kind of person. Label the comparison as passage summaries, not quotations.
-
-Keep the preceding explanation of the hope in verses 9–11 and the KJV wording note in view. The comparison must not turn into advice detached from that paragraph. Its panel labels describe the passage's situations; they are not diagnoses or permanent identities.
-
-Only the Scripture reference is interactive. Selecting a situation does not classify a person, issue a recommended disciplinary action or award a correct answer. The reflective question follows the whole comparison and asks the reader to listen before deciding what is needed. There is no private-case entry form and no collection of personal information.
-
-On smaller screens, each response panel includes its own short **With patience** reminder if the spanning band would otherwise be separated by a long scroll. Keep the single shared citation and summary label clear. This is responsive repetition of a relationship, not new theological content.
-
-## Keep the other responsibilities distinct
-
-**Love and welcome:** Keep Romans 12's rejection of evil beside its account of sincere love. The invitation to receive people must not visually bury that qualification. The opening quotation returns within the explanation as the reason for welcome, without duplicating a second large hero treatment.
-
-**Bear burdens:** Present mutual help and personal responsibility at equal typographic weight. Avoid a scales illustration that suggests measuring exactly how much responsibility belongs to each party; the draft does not supply that formula. Preserve humility and self-examination in the first subdivision.
-
-**Correct and restore:** Give each passage a small source heading within the existing explanation: Galatians 6, 2 Thessalonians 3, and 2 Corinthians 2. These are headings, not tabs. Keep their different circumstances visible. Do not connect them with numbered arrows that would imply one universal disciplinary procedure. The note about unwillingness rather than inability to work stays beside its explanation; the reflection about anyone harmed, trust and responsibility stays readable.
-
-**Gifts and service:** Use the assembled-ring icon as a quiet illustration alongside the body passage. Keep differing members visible without assigning named gifts to personality types or ranking them by size. The reading explains belonging, shared benefit and care; it does not need a gift-finding quiz. Preserve the draft's distinction between a claimed gift and competence for a responsibility.
-
-**Unity through disagreement:** Keep the food-and-days setting close to Romans 14. Present the content's question about the kind of disagreement as an ordinary reflection, not a selector promising an automatic answer. Ephesians' shared confession remains alongside the conduct it calls for. No design should imply that harmful conduct, doctrine and a matter of conscience are interchangeable.
-
-## Scripture and conclusion
-
-A Scripture reference opens its paragraph with book, chapter, range and KJV clearly shown, using the site's existing Scripture interaction where suitable. Preserve the reading and scroll position while that passage is open. An explicit **Open in reader** action can navigate to the Bible reader; returning restores the study's previous state. Merely expanding a reading never changes routes.
-
-After the reading area, the existing **A community that cares** conclusion stays visible whether all cards are closed or one is open. Keep both paragraphs and their invitation to consider one relationship and one responsibility. This provides a useful ending without a checklist or spiritual progress meter.
-
-Offer a small previous link to **A new creation** and a clear onward link to **Faith under pressure**. Contextual references to **Freedom that serves** and **Returning and restoring** belong within relevant readings or their endnotes, not in a competing six-card recommendation block. Follow the established page transition treatment while retaining the site header.
-
-## Accessibility and verification plan
-
-Use disclosure buttons with expanded state and a named controlled panel. Keep focus on the card when opening it; offer a visible **Read this section** link to move to the panel heading. Use an accessible name on both close controls, a visible focus ring and touch targets of at least 44 pixels. Content and control meaning must remain available without hover, animation or colour distinction.
-
-Start with the preceding study's proposed layout thresholds: three cards per row around 1100 pixels of content width, two below that, and one below about 640 pixels. Adjust to actual text measures during prototyping. At 200 percent zoom, allow everything to reflow. No clipped questions, fixed-height reading bodies or horizontal page overflow.
-
-The future prototype should cover: all cards closed; reading 03 and its patience band; reading 04's separate source headings; switching to a shorter reading; close from the bottom; return from Scripture; keyboard use; and reduced motion. Inspect at 390, 768, 1366 and 1440 pixels wide and at 200 percent zoom. Check actual contrast and font rendering. These are proposed acceptance checks, not completed browser tests.
-
-## Decisions and handoff
-
-The design retains the original six readings and reflects their distinctions rather than adding fictional cases. The optional worked case and expanded discussion of receiving help remain editorial possibilities, not silently added content. New proposals are the card questions, icon directions, interaction labels and visual presentation of the existing care table.
-
-This design is draft-ready for review. The [content](content.md) and [passage notes](passage-notes.md) remain the source for wording and interpretive boundaries. No routes, styles, components, data builds or published pages change in this step. The design queue has since advanced; consult [progress](../../progress.json) and [the workflow](../../WORKFLOW.md).
+Care comes first where harm is possible. Part 04 opens with help lines before any teaching on correction, and says plainly that Matthew 18 does not send anyone who has been abused to confront the abuser alone. The notes on 1 Corinthians 13:7, on forgiving and trusting, and on Philippians 2:3 each say that the passage is never a reason to let harm go on. The crisis numbers the site already holds are checked against its list by the build; the others are listed in the README as not yet checked. See [passage-notes.md](passage-notes.md) for the rest.

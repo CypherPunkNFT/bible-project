@@ -1,7 +1,7 @@
 // A new creation: shared pieces. All text goes in as text nodes; the only markup strings are the fixed drawings in art.js
 // and the site's icons. Values read from the address are looked up in Maps built from data.js, so an unknown value is ignored.
 window.NCK = (() => {
-  const EXPECTED_SCHEMA = 1;
+  const EXPECTED_SCHEMA = 2;
   function stop(message, detail) {
     const notice = document.createElement("p");
     notice.setAttribute("role", "alert");
@@ -19,14 +19,13 @@ window.NCK = (() => {
     return null;
   }
   addEventListener("error", (event) => stop("Part of this page failed to draw. Reload it; if this stays, the rest of the page may be incomplete.", event.message));
-  const { study, passages, sources } = window.NC;
-  const readings = new Map(study.readings.map((r) => [r.slug, r]));
+  const { study, passages, sourceLabels } = window.NC;
+  const readings = new Map(study.parts.map((r) => [r.slug, r]));
   const questions = new Map(study.questions.map((q) => [q.id, q]));
   const passageIds = new Map(Object.entries(passages));
-  const sourceIds = new Map(sources.map((s) => [s.id, s]));
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
   const NO_READING = "none"; // every reading closed; the address keeps it
-  const DEFAULTS = { reading: study.readings[0].slug };
+  const DEFAULTS = { reading: study.parts[0].slug };
   const SHEET_KEYS = ["question", "sheet"]; // the one list of what the sheet can hold
 
   function h(tag, props = {}, ...children) {
@@ -47,8 +46,20 @@ window.NCK = (() => {
     return holder;
   }
   const refLink = (id, text) => h("a", { class: "nc-ref", href: `?sheet=${id}`, "data-sheet": id }, text);
-  const runs = (list) => list.map((run) => (typeof run === "string" ? run : refLink(run.r, run.t)));
-  const plain = (list) => list.map((run) => (typeof run === "string" ? run : run.t)).join("");
+  // A run is a string, a verse {r}, a study {s}, a term {i}, bold {b}, a site link {a} or a note still to check {c}.
+  const run = (item, next) => {
+    if (typeof item === "string") return next?.c !== undefined ? item.replace(/\s+$/, "") : item;
+    if (item.r) return refLink(item.r, item.t);
+    if (item.s) return h("a", { class: "nc-link", href: item.s, title: "A study mock-up on this PC" }, h("em", {}, item.t));
+    if (item.i) return h("em", {}, item.i);
+    if (item.b) return h("strong", {}, item.b);
+    if (item.a) return h("a", { class: "nc-link", href: item.a }, item.t);
+    if (item.c !== undefined) return h("span", { class: "nc-check" }, h("span", { class: "nc-check-tag" }, item.c === "before publishing" ? "to check before publishing" : "to check"), item.c === "before publishing" ? null : ` ${item.c}`);
+    console.error("A new creation: unknown run in data.js", item);
+    return "";
+  };
+  const runs = (list) => (list ?? []).map((item, index) => run(item, list[index + 1]));
+  const plain = (list) => list.map((item) => (typeof item === "string" ? item : item.t ?? item.i ?? item.b ?? "")).join("");
 
   function readAddress() {
     const params = new URLSearchParams(location.search);
@@ -85,14 +96,15 @@ window.NCK = (() => {
     h("span", { class: "t-num", "aria-hidden": "true" }, number),
     h("div", {}, h("h2", {}, title, " ", h("em", {}, turn)), lead.length ? h("p", {}, ...lead) : null));
 
-  const FLAG_LABELS = { care: "Care", open: "Left open", read: "This study reads" };
-  const flagLabel = (block) => FLAG_LABELS[block.k] ?? sourceIds.get(block.src)?.short ?? block.src;
+  const FLAG_LABELS = { care: "Care", open: "Left open", read: "This study reads", other: "Other Christians" };
+  const flagLabel = (block) => FLAG_LABELS[block.k] ?? sourceLabels[block.src] ?? block.src;
   const blockView = (block) => {
     if (block.k === "p") return h("p", {}, runs(block.runs));
-    if (block.k === "quote") return h("figure", { class: "nc-quote" }, h("blockquote", {}, block.t), h("figcaption", {}, refLink(block.r, block.label), " · Berean Standard Bible"));
+    if (block.k === "quote") return h("figure", { class: "nc-quote" }, h("blockquote", {}, block.t),
+      h("figcaption", {}, refLink(block.r, block.label), " · Berean Standard Bible", block.goesOn ? h("span", { class: "nc-goes-on" }, `The verse goes on: ${block.goesOn}`) : null));
     return h("div", { class: `nc-flag nc-flag-${block.k}` }, h("p", { class: "nc-flag-label" }, flagLabel(block)), h("p", {}, runs(block.runs)));
   };
-  const partView = (part) => h("section", { class: "nc-part" }, h("h4", {}, part.title), part.blocks.map(blockView));
+  const partView = (section) => h("section", { class: "nc-part" }, h("h4", {}, section.title), section.blocks.map(blockView));
   const passageText = (id) => {
     const p = passages[id];
     let chapter = null;

@@ -1,0 +1,205 @@
+/* Women of the Bible mock-up. Frame from the Authors mock-ups, hero from the Manuscripts mock-up, as in the model.
+   The study's colour is History orange: ten of its sixteen stories are told in Genesis to Esther. Its own shape: the
+   stories facing each other as the text pairs them, and one chart of how later Scripture remembers them.
+   Words and fine rules, not boxes. No focus ring on a click: a keyboard user gets a colour and an underline instead. */
+.wb-page { --tone: var(--history); }
+.wb-page button, .wb-sheet button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:where(.wb-page, .wb-sheet) :is(a, button, summary):focus { outline: none; }
+:where(.wb-page, .wb-sheet) a { color: inherit; }
+.wb-ref { color: var(--tone) !important; font-weight: 500; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--tone) 35%, transparent) !important; }
+.wb-ref:hover, .wb-ref:focus-visible { border-bottom-color: var(--tone) !important; background: color-mix(in srgb, var(--tone) 12%, transparent) !important; }
+.wb-link { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--tone) 45%, transparent); text-underline-offset: 3px; }
+.wb-link:hover, .wb-link:focus-visible { text-decoration-color: var(--tone); color: var(--tone) !important; }
+.wb-label { font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.wb-page q { quotes: "“" "”"; font-family: var(--serif); }
+
+/* Drawings */
+.wb-hero-art, .wb-mini, .wb-sub-mini, .wb-close-art, .wb-mark { color: var(--muted); }
+:is(.wb-hero-art, .wb-close-art, .wb-mini, .wb-sub-mini, .wb-mark) svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.wb-hero-art .ms-art-note { bottom: -2%; }
+.wb-hero-art .ms-art-note .wb-ref { font: 500 .7rem var(--sans); letter-spacing: 0; }
+.wb-orbit { stroke-dasharray: 2 6; opacity: .35; }
+.wb-tone { stroke: var(--tone); }
+.wb-faint { opacity: .45; }
+.wb-wash { fill: color-mix(in srgb, var(--tone) 10%, transparent); stroke: none; }
+.wb-pool { fill: color-mix(in srgb, var(--tone) 22%, transparent); stroke: none; animation: wb-breathe 9s ease-in-out infinite; }
+.wb-shard { opacity: .6; }
+.wb-scent { stroke: var(--tone); opacity: .4; stroke-width: 1; }
+.wb-rise { animation: wb-rise 10s ease-in-out infinite; }
+.wb-pour { stroke-dasharray: 6 5; animation: wb-pour 6s linear infinite; }
+.wb-spark { stroke: var(--tone); animation: wb-twinkle 8s ease-in-out infinite; }
+.wb-ripple, .wb-flame, .wb-cord { animation: wb-breathe 7s ease-in-out infinite; }
+@keyframes wb-rise { 0%, 100% { transform: translateY(0); opacity: .55; } 50% { transform: translateY(-8px); opacity: 1; } }
+@keyframes wb-pour { to { stroke-dashoffset: -44; } }
+@keyframes wb-breathe { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
+@keyframes wb-twinkle { 0%, 100% { opacity: .25; } 50% { opacity: .75; } }
+@media (prefers-reduced-motion: reduce) { .wb-rise, .wb-pour, .wb-spark, .wb-pool, .wb-ripple, .wb-flame, .wb-cord { animation: none; } }
+.wb-mark { display: inline-block; width: 1.05em; vertical-align: -.17em; color: var(--tone); }
+
+/* ── Hero ── */
+.wb-intro { align-items: center; padding-block: 1.6rem 1rem; }
+.wb-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
+.wb-trail a { text-decoration: none; border-bottom: 1px solid transparent; }
+.wb-trail a:hover, .wb-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.wb-here { color: var(--ink); }
+.wb-concepts { margin-top: 1rem; font-size: .68rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.wb-intro h1 { margin-block: .55rem .6rem; }
+.wb-lede { max-width: 60ch; }
+.wb-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1rem 0 0; border-block: 1px solid var(--line); }
+.wb-figures > div { padding: .8rem 1rem; border-left: 1px solid var(--line); min-width: 0; }
+.wb-figures > div:first-child { border-left: 0; padding-left: 0; }
+.wb-figures dt { font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.wb-figures dd { margin: .2rem 0 0; font: 500 1.7rem/1.15 var(--serif); }
+.wb-figures small { display: block; margin-top: .1rem; font-size: .74rem; line-height: 1.4; color: var(--muted); }
+.wb-toc { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 1rem 0 0; font-size: .8rem; color: var(--muted); }
+.wb-toc a { text-decoration: none; border-bottom: 1px solid transparent; padding-block: .3rem; }
+.wb-toc a:hover, .wb-toc a:focus-visible { color: var(--ink); border-bottom-color: var(--tone); }
+.wb-toc b { margin-right: .4rem; font-weight: 600; color: var(--tone); }
+
+/* ── 00 Three questions ── */
+.wb-frame { max-width: 70ch; font: 400 1.04rem/1.6 var(--serif); }
+.wb-frame p + p { margin-top: .7rem; }
+.wb-asks { list-style: none; margin: 1.2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.wb-asks li { display: flex; gap: .6rem; padding: .9rem 1rem .9rem 0; font-size: .92rem; line-height: 1.5; }
+.wb-asks li + li { padding-left: 1rem; border-left: 1px solid var(--line); }
+.wb-asks .wb-mark { flex: none; width: 1.5rem; margin-top: .1rem; }
+.wb-asks b { font: 500 1.02rem/1.35 var(--serif); }
+
+.wb-chart { margin: 2rem 0 0; }
+.wb-chart figcaption { max-width: 78ch; font-size: .84rem; line-height: 1.5; color: var(--muted); }
+.wb-chart-q { font: 500 1.25rem/1.3 var(--serif); color: var(--ink); margin-right: .3rem; }
+.wb-chart-row { display: grid; grid-template-columns: repeat(16, minmax(0, 1fr)); margin-top: 1.4rem; }
+.wb-who { display: flex; flex-direction: column; align-items: center; gap: .1rem; padding: .3rem .1rem; text-align: center; border-bottom: 2px solid transparent !important; }
+.wb-who-name { font: 500 .9rem/1.15 var(--serif); }
+.wb-who-book { font-size: .62rem; letter-spacing: .06em; color: var(--muted); }
+.wb-who.is-quiet .wb-who-name { color: var(--muted); }
+.wb-who:hover .wb-who-name, .wb-who:focus-visible .wb-who-name { color: var(--tone); }
+.wb-who[aria-pressed="true"] { border-bottom-color: var(--tone) !important; }
+.wb-chart-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.wb-tick { stroke-width: 3; stroke-linecap: round; }
+.wb-curve { fill: none; stroke-width: 2; opacity: .8; transition: opacity .2s; }
+.wb-curve.k-echo, .wb-curve.k-aside { stroke-dasharray: 7 7; }
+.wb-curve.is-dim { opacity: .12; }
+.wb-book { font: 500 15px var(--sans); fill: var(--muted); }
+:is(.wb-tick, .wb-curve).s-history { stroke: var(--history); } :is(.wb-tick, .wb-curve).s-poetry { stroke: var(--poetry); }
+:is(.wb-tick, .wb-curve).s-prophets { stroke: var(--prophets); } :is(.wb-tick, .wb-curve).s-gospels { stroke: var(--gospels); }
+:is(.wb-tick, .wb-curve).s-acts { stroke: var(--acts); } :is(.wb-tick, .wb-curve).s-epistles { stroke: var(--epistles); }
+:is(.wb-tick, .wb-curve).s-revelation { stroke: var(--revelation); }
+.wb-end { stroke: none; } .wb-end.s-gospels { fill: var(--gospels); } .wb-end.s-epistles { fill: var(--epistles); } .wb-end.s-prophets { fill: var(--prophets); }
+.wb-readout { min-height: 3.2rem; margin-top: .4rem; padding-top: .7rem; border-top: 1px solid var(--line); font-size: .9rem; line-height: 1.55; }
+.wb-readout b { font: 500 1.05rem var(--serif); margin-right: .3rem; }
+.wb-memory-list { display: none; list-style: none; padding: 0; margin: 1rem 0 0; border-top: 1px solid var(--line); }
+.wb-memory-list li { padding: .5rem 0; border-bottom: 1px solid var(--line); font-size: .88rem; }
+.wb-memory-list b { font: 500 1rem var(--serif); margin-right: .3rem; }
+
+/* ── 01–08 Parts ── */
+.wb-part-top { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 1rem 2.5rem; align-items: end; margin-bottom: 1.2rem; }
+.wb-hook { font: italic 400 1.22rem/1.45 var(--serif); }
+.wb-readings { font-size: .82rem; line-height: 1.6; color: var(--muted); }
+.wb-faces { display: grid; grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr)); border-block: 1px solid var(--ink); margin-bottom: 1.6rem; }
+.wb-faces.n-1 { --cols: 1; } .wb-faces.n-3 { --cols: 3; } .wb-faces.n-4 { --cols: 4; }
+.wb-face { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: .1rem 1rem; align-content: start; padding: 1rem 1.2rem 1rem 0; }
+.wb-face + .wb-face { padding-left: 1.2rem; border-left: 1px solid var(--line); }
+.wb-face.is-extra { border-left-style: dashed; }
+.wb-face.is-extra .wb-face-name { color: var(--muted); }
+.wb-mini { grid-row: span 3; width: 4.2rem; }
+.wb-face-name { font: 500 1.3rem/1.2 var(--serif); }
+.wb-face-line { font-size: .9rem; line-height: 1.45; }
+.wb-face-memory { font-size: .78rem; line-height: 1.45; color: var(--muted); }
+.wb-faces.n-1 .wb-face { grid-template-columns: 4.2rem minmax(0, 40rem); }
+
+.wb-body { max-width: 72ch; }
+.wb-body > p, .wb-step p, .wb-view p, .wb-open p { font: 400 1.04rem/1.65 var(--serif); }
+.wb-body > * + * { margin-top: .85rem; }
+.wb-sub { display: flex; align-items: center; gap: .7rem; margin-top: 1.8rem !important; font: 500 1.3rem/1.25 var(--serif); }
+.wb-sub-mini { flex: none; width: 2.6rem; }
+.wb-stop { display: flex; align-items: center; gap: .8rem; margin-top: 1.8rem !important; font-size: .64rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.wb-stop::before, .wb-stop::after { content: ""; height: 0; border-top: 1px dashed color-mix(in srgb, var(--tone) 60%, transparent); }
+.wb-stop::before { width: 1.5rem; } .wb-stop::after { flex: 1; }
+.wb-quote { margin: 1.1rem 0; padding-left: 1rem; border-left: 2px solid var(--tone); }
+.wb-quote blockquote { margin: 0; font: 400 1.16rem/1.5 var(--serif); }
+.wb-quote figcaption { margin-top: .35rem; font-size: .76rem; color: var(--muted); }
+.wb-views { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0; border-block: 1px solid var(--line); max-width: none; }
+.wb-view { padding: .8rem 1.2rem .9rem 0; }
+.wb-view + .wb-view { padding-left: 1.2rem; border-left: 1px solid var(--line); }
+.wb-view-label { font: 600 .66rem var(--sans) !important; letter-spacing: .14em; text-transform: uppercase; color: var(--tone); margin-bottom: .3rem; }
+.wb-open { padding: .2rem 0 .2rem 1rem; border-left: 3px double color-mix(in srgb, var(--tone) 55%, transparent); }
+.wb-step { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 1.2rem; padding-top: .8rem; border-top: 1px solid var(--line); }
+.wb-step-label { font: 500 1.02rem/1.35 var(--serif) !important; color: var(--tone); }
+.wb-respond { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 1.8rem; border-top: 1px solid var(--ink); max-width: 72ch; }
+.wb-respond p { padding: .8rem 1.2rem 0 0; font: 400 1rem/1.55 var(--serif); }
+.wb-respond p + p { padding-left: 1.2rem; border-left: 1px solid var(--line); }
+.wb-respond .wb-label, .wb-your .wb-label { display: block; margin-bottom: .2rem; }
+
+/* ── The question ── */
+.wb-question .t-head h2 em { display: block; }
+.wb-argue { max-width: 64rem; }
+.wb-argue .wb-step { grid-template-columns: 12rem minmax(0, 46rem); }
+.wb-argue > .wb-quote, .wb-argue > .wb-views, .wb-argue > p { margin-left: 13.2rem; max-width: 46rem; }
+
+/* ── Close ── */
+.wb-close-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+.wb-close-grid > div > p { font: 400 1.06rem/1.65 var(--serif); }
+.wb-litany { margin: 1.4rem 0; }
+.wb-litany figcaption { font-size: .82rem; color: var(--muted); margin-bottom: .4rem; }
+.wb-litany ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.wb-litany li { display: grid; grid-template-columns: 11.5rem minmax(0, 1fr) auto; gap: 1rem; padding: .55rem 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.wb-verb { font: italic 500 1.08rem var(--serif); color: var(--accent); }
+.wb-obj { font: 400 1rem/1.45 var(--serif); }
+.wb-who-links { display: flex; gap: .6rem; font-size: .76rem; color: var(--muted); }
+.wb-your { margin-top: 1.2rem; }
+.wb-again { margin-top: .8rem; font-style: italic; }
+.wb-passage { margin: 0; padding-left: 1.2rem; border-left: 1px solid var(--line); }
+.wb-passage-text { margin-top: .5rem; font: 400 1.02rem/1.65 var(--serif); }
+.wb-passage-text sup, .wb-sheet-text sup { margin-right: .15rem; font: 600 .6rem var(--sans); color: var(--tone); }
+.wb-close-art { display: block; max-width: 18rem; margin: 1.4rem auto 0; }
+.wb-sources { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .8rem; line-height: 1.55; color: var(--muted); }
+.wb-sources h3 { font: 500 1rem var(--serif); color: var(--ink); margin-bottom: .4rem; }
+.wb-sources ul { list-style: none; padding: 0; margin: 0; }
+.wb-sources b { color: var(--ink); font-weight: 600; }
+.wb-back { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1.2rem; font-size: .85rem; text-decoration: none; border-bottom: 1px solid transparent; }
+.wb-back:hover, .wb-back:focus-visible { color: var(--tone); border-bottom-color: var(--tone); }
+
+/* ── Verse sheet, from the right ── */
+.wb-sheet { margin: 0 0 0 auto; width: min(30rem, 100vw); height: 100vh; max-height: 100vh; padding: 1.2rem 1.4rem 1.4rem; border: 0; border-left: 1px solid var(--line); border-top: 3px solid var(--history); border-radius: 0; background: var(--surface, var(--page)); color: var(--ink); }
+.wb-sheet::backdrop { background: rgb(0 0 0 / .3); }
+.wb-sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.wb-sheet-head h2 { font: 500 1.35rem/1.2 var(--serif); }
+.wb-sheet-x { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line) !important; }
+.wb-sheet-x:hover, .wb-sheet-x:focus-visible { border-color: var(--history) !important; color: var(--history); }
+.wb-sheet-text { margin-top: .7rem; font: 400 1.08rem/1.65 var(--serif); }
+.wb-sheet-src { margin-top: .7rem; font-size: .72rem; color: var(--muted); }
+
+@media (max-width: 1000px) {
+  .wb-chart-row, .wb-chart-svg, .wb-readout { display: none; }
+  .wb-memory-list { display: block; }
+  .wb-faces.n-3, .wb-faces.n-4 { --cols: 2; }
+  .wb-faces.n-3 .wb-face:nth-child(3), .wb-faces.n-4 .wb-face:nth-child(3) { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .wb-faces.n-4 .wb-face:nth-child(4) { border-top: 1px solid var(--line); }
+  .wb-close-grid { grid-template-columns: 1fr; }
+  .wb-argue > .wb-quote, .wb-argue > .wb-views, .wb-argue > p { margin-left: 0; }
+  .wb-argue .wb-step { grid-template-columns: 10rem minmax(0, 1fr); }
+  .wb-passage { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); padding-top: 1rem; }
+}
+@media (max-width: 720px) {
+  .wb-figures { grid-template-columns: 1fr 1fr; }
+  .wb-figures > div:nth-child(3) { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+  .wb-figures > div:nth-child(4) { border-top: 1px solid var(--line); }
+  .wb-asks, .wb-part-top, .wb-respond { grid-template-columns: 1fr; }
+  .wb-asks li + li, .wb-respond p + p { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .wb-faces, .wb-faces.n-3, .wb-faces.n-4 { --cols: 1; }
+  .wb-face, .wb-face + .wb-face, .wb-faces .wb-face:nth-child(n) { padding: .9rem 0; border-left: 0; border-top: 1px solid var(--line); }
+  .wb-face:first-child { border-top: 0; }
+  .wb-face.is-extra { border-top-style: dashed; }
+  .wb-step, .wb-argue .wb-step { grid-template-columns: 1fr; gap: .2rem; }
+  .wb-argue > .wb-quote, .wb-argue > .wb-views, .wb-argue > p { margin-left: 0; }
+  .wb-view + .wb-view { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .wb-litany li { grid-template-columns: 1fr; gap: .1rem; }
+}
+@media (max-width: 400px) {
+  .wb-figures { grid-template-columns: 1fr; }
+  .wb-figures > div, .wb-figures > div:nth-child(n) { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+  .wb-figures > div:first-child { border-top: 0; }
+  .wb-mini { width: 3.2rem; }
+  .wb-face { grid-template-columns: 3.2rem minmax(0, 1fr); }
+}

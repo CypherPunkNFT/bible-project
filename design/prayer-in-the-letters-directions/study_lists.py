@@ -1,20 +1,103 @@
-"""The lists behind the Prayer in the letters mock-up. build-data.py checks every phrase here against its verse, as whole words."""
+"""The lists behind the Prayer across Scripture mock-up. build-data.py checks every phrase here against its verse, as whole
+words, and fails on an entry the study no longer uses."""
 
-# Baptist Faith and Message 2000. Compared 2026-10-30 at https://bfm.sbc.net/bfm2000/ through a web tool that returns extracts.
-# Those not in the site's doctrinal foundation file are listed by the build on each run.
-QUOTED_CONFESSION = {
-    "is offered freely to all who accept Jesus Christ as Lord and Saviour",
-    "Growth in grace should continue throughout the regenerate person's life",
-    "There is no salvation apart from personal faith in Jesus Christ as Lord",
-    "consistent with the free agency of man",
-    "the One Mediator",
-    "render loyal obedience",
-    "A free church in a free state is the Christian ideal",
+# Baptist Faith and Message 2000: each phrase the study quotes, and the article it must be found in, in the held copy below.
+BFM_HELD = "Website/content/questions/sources/raw/baptist-know-the-truth-catechism/catechism-bfm-2000.txt"
+BFM_QUOTES = {
+    "cheerfully, regularly, systematically, proportionately, and liberally": "XIII",
+    "Growth in grace should continue throughout the regenerate person's life": "IV",
+    "There is no salvation apart from personal faith in Jesus Christ as Lord": "IV",
+    "consistent with the free agency of man": "V",
+    "the One Mediator": "II",
+    "render loyal obedience": "XVII",
+    "A free church in a free state is the Christian ideal": "XVII",
 }
 
-READING_ORDER = ["wisdom", "strength", "love", "walk", "thanks", "others"]
+# Phrases that differ from the held article. The page keeps the study's words and marks the held wording; the build proves
+# the study's words are NOT in the article and the held wording IS, so an entry can neither hide a match nor invent a reading.
+BFM_MISQUOTES = {
+    "offered freely to all who accept Jesus Christ as Lord and Savior": ("IV", "offered freely to all who accept Jesus Christ as Lord and Saviour"),
+}
+
+# Scripture quoted in words the Berean does not have. Same rule: the study's words are NOT in the verse, the Berean's ARE.
+SCRIPTURE_MISQUOTES = {
+    "thorn in the flesh": ("2 Corinthians 12:7", "thorn in my flesh"),
+}
+
+# Words the study names in order to say a passage does NOT contain them. The build proves each is absent from that passage.
+ABSENT_WORDS = {
+    ("06", "I"): "Matthew 6:9–13",
+    ("06", "my"): "Matthew 6:9–13",
+}
+
+# Quoted words that are not Scripture and not a source: the study's own glosses and names, keyed by where they stand.
+# Reached only after Scripture has failed. At most five words each; every entry must be used.
+OWN_TERMS = {
+    ("01", "standing prayer"): "the meaning of the name Amidah",
+    ("01", "Our Father, our King"): "the meaning of the name Avinu Malkeinu",
+    ("01", "hypocrite"): "the word the study explains; the verse has the plural",
+    ("02", "so it is"): "a meaning of Amen",
+    ("02", "let it be"): "a meaning of Amen",
+}
+
+# Parts of the text the build knows to be wrong, word for word. The page shows them as written; the build fails if one
+# changes, so a corrected text cannot keep a stale entry. Each needs the owner's word.
+KNOWN_TEXT_ISSUES = {
+    "ten passages from the letters: six where a writer reports what he prays for his readers, and four where he tells them to pray or asks for their prayers":
+        "The study reads nine letter passages: six reported prayers and three instructions (1 Timothy 2:1–6, Ephesians 6:18–20, Colossians 4:2–4).",
+    "ten passages where His apostles prayed and asked for prayer": "Nine, as above.",
+}
+
+# Studies the text names in italics, and the folder of each one's mock-up. The build fails if a listed folder is missing.
+STUDY_LINKS = {
+    "The Holy Spirit": "the-holy-spirit",
+    "Chosen and kept: can I be sure?": "chosen-and-kept",
+    "Fear, anxiety and despair": "fear-anxiety-and-despair",
+    "What Scripture promises the sick": "illness-and-healing",
+    "Witness and the nations: telling others about Jesus": "bearing-witness",
+    "Faith under pressure": "faith-under-pressure",
+    "Angels, demons and spiritual powers": "angels-demons-and-spiritual-powers",
+    "The hope to come": "the-hope-to-come",
+    "The Christian and the state": "the-christian-and-the-state",
+    "A new creation: what changes when you believe": "a-new-creation",
+    "Grief and dying": "grief-and-dying",
+    "The good news: how a person is made right with God": "the-good-news",
+}
+NAMED_STUDIES = {"The wisdom books"}  # named in the text; its page was not built when this was written, so it shows as a name
+ITALIC_TERMS = {"so that what?", "Experiencing God", "Decision Making and the Will of God", "Just Do Something"}
+
 KIND_LABELS = {"thanks": "Thanks", "asks": "Asks", "so": "So that", "ends": "Arrives at"}
 ROLES = {"reported": "A reported prayer", "instruction": "An instruction to pray", "both": "An instruction, and a request for prayer"}
+
+# Section 01, the spine. The prayer Jesus taught, one line at a time, each line's words found once in its verse. `part` is the
+# part of the study that reads the line; `letters` are the letters' passages this study sets beside it (its pairing, not an
+# apostle's), each inside a passage the study cites. `band` groups the lines as the text does.
+SPINE = [
+    {"id": "teach", "ref": "Luke 11:1", "words": "Lord, teach us to pray", "part": "01", "band": "ask", "letters": []},
+    {"id": "father", "ref": "Matthew 6:9", "words": "Our Father in heaven", "part": "06", "band": "address", "letters": ["1 Timothy 2:1–6", "Ephesians 6:18–20"]},
+    {"id": "name", "ref": "Matthew 6:9", "words": "hallowed be Your name", "part": "02", "band": "god", "letters": ["Ephesians 1:15–23", "Ephesians 3:14–21", "2 Thessalonians 1:12"]},
+    {"id": "kingdom", "ref": "Matthew 6:10", "words": "Your kingdom come", "part": "02", "band": "god", "letters": ["Colossians 1:13"]},
+    {"id": "will", "ref": "Matthew 6:10", "words": "Your will be done, on earth as it is in heaven", "part": "02", "band": "god", "letters": ["Colossians 1:9"]},
+    {"id": "bread", "ref": "Matthew 6:11", "words": "Give us this day our daily bread", "part": "03", "band": "us", "letters": ["1 Thessalonians 3:9–13", "Colossians 4:2–4"]},
+    {"id": "forgive", "ref": "Matthew 6:12", "words": "And forgive us our debts, as we also have forgiven our debtors", "part": "04", "band": "us", "letters": ["Philippians 1:3–11"]},
+    {"id": "deliver", "ref": "Matthew 6:13", "words": "And lead us not into temptation, but deliver us from the evil one", "part": "05", "band": "us", "letters": ["Colossians 1:3–14", "2 Thessalonians 1:3–12"]},
+]
+BANDS = {"ask": "Luke 11:1 · the request", "address": "Matthew 6:9–13 · the prayer", "god": "About God", "us": "About us"}
+
+# Sources. `href` may only be a page on this site; the rest are named, with what was read.
+SOURCES = [
+    {"id": "bsb", "short": "Berean", "name": "Berean Standard Bible", "href": None, "note": "Every verse quoted and opened, from the site's own copy. Public domain; courtesy credit berean.bible."},
+    {"id": "bfm", "short": "Baptist Faith and Message", "name": "The Baptist Faith and Message 2000, Articles II, IV, V, XIII and XVII", "href": None, "note": "Short phrases. Each is checked by script inside its article of the copy held in the site's question sources."},
+    {"id": "lbc", "short": "Second London Confession", "name": "Second London Baptist Confession (1677), chapter 22 paragraph 2", "href": "/study/creeds/1689-london-baptist-confession-1677", "note": "One short quotation. Read: chapter 22, in the site's creeds collection."},
+    {"id": "boyce", "short": "Boyce", "name": "James P. Boyce, Abstract of Systematic Theology, on effectual calling", "href": None, "note": "One short quotation. Read: the passage on the sincerity of the outward call only. Public domain."},
+    {"id": "calvin-eph", "short": "Calvin", "name": "John Calvin, Commentary on Galatians and Ephesians, on Ephesians 1:17 and 3:20", "href": None, "note": "Short quotations. Read: those comments only. Public domain. Reformed, not Baptist."},
+    {"id": "calvin-tim", "short": "Calvin", "name": "John Calvin, Commentary on Timothy, Titus and Philemon, on 1 Timothy 2:2–4", "href": None, "note": "Short quotations. Read: those comments only. Public domain. Reformed, not Baptist."},
+    {"id": "calvin-cor", "short": "Calvin", "name": "John Calvin, Commentary on Corinthians, volume 2, on 2 Corinthians 12:8", "href": None, "note": "One short quotation. Read: that comment only. Public domain. Reformed, not Baptist."},
+    {"id": "barnes", "short": "Barnes", "name": "Albert Barnes, Notes on the New Testament, on Ephesians 1:17", "href": None, "note": "Told in the site's words, not quoted. Read: that note only. Public domain. Presbyterian."},
+    {"id": "wesley", "short": "Wesley", "name": "John Wesley, Explanatory Notes upon the New Testament, on 1 Timothy 2:4", "href": None, "note": "One short quotation. Read: that note only. Public domain. Methodist, not Baptist."},
+    {"id": "trent", "short": "Council of Trent", "name": "Council of Trent, on the invocation, veneration and relics of saints", "href": "/study/creeds/council-of-trent-canons-and-decrees-1563", "note": "Short quotations, shown as Roman Catholic teaching. Read: that decree's opening, in the site's creeds collection."},
+    {"id": "named", "short": "Named, not quoted", "name": "The Amidah, the Kaddish and Avinu Malkeinu; the Didache; Henry Blackaby and Claude King, Experiencing God; Garry Friesen, Decision Making and the Will of God; Kevin DeYoung, Just Do Something", "href": None, "note": "Described in the site's words, not quoted, and not read for this page. The study marks the dates and details still to check."},
+]
 
 # Each passage whole, with the phrases that break it into lines. A phrase is (kind, reference of one verse, its words). `who` and `sure` are this site's words.
 LEAVES = {
@@ -54,70 +137,31 @@ LEAVES = {
     "Ephesians 6:18–20": {"role": "both", "who": "All the saints, and then Paul himself (Ephesians 6:18–19).",
         "sure": "Nothing is named here beyond the Spirit in whom they pray (Ephesians 6:18).",
         "marks": [("asks", "Ephesians 6:18", "Pray in the Spirit at all times"), ("asks", "Ephesians 6:19", "words may be given me"), ("so", "Ephesians 6:19", "so that I will boldly make known the mystery of the gospel")]},
-    "Colossians 4:2–6": {"role": "both", "who": "Paul and those with him (Colossians 4:3).",
+    "Colossians 4:2–4": {"role": "both", "who": "Paul and those with him (Colossians 4:3).",
         "sure": "It is God who may open the door (Colossians 4:3).",
         "marks": [("asks", "Colossians 4:2", "Devote yourselves to prayer"), ("thanks", "Colossians 4:2", "being watchful and thankful"), ("asks", "Colossians 4:3", "God may open to us a door for the word"),
                   ("so", "Colossians 4:3", "so that we may proclaim the mystery of Christ"), ("asks", "Colossians 4:4", "I may declare it clearly")]},
-    "Romans 15:5–6": {"role": "reported", "who": "The believers at Rome (Romans 15:5).", "sure": "The God who gives endurance and encouragement (Romans 15:5).",
-        "marks": [("asks", "Romans 15:5", "grant you harmony with one another in Christ Jesus"), ("so", "Romans 15:6", "so that with one mind and one voice you may glorify"), ("ends", "Romans 15:6", "the God and Father of our Lord Jesus Christ")]},
-    "Romans 15:13": {"role": "reported", "who": "The same readers (Romans 15:13).", "sure": "The God of hope, and the power of the Holy Spirit (Romans 15:13).",
-        "marks": [("asks", "Romans 15:13", "fill you with all joy and peace as you believe in Him"), ("so", "Romans 15:13", "so that you may overflow with hope"), ("ends", "Romans 15:13", "by the power of the Holy Spirit")]},
-    "Hebrews 13:20–21": {"role": "reported", "who": "The readers of this letter (Hebrews 13:21).", "sure": "The God of peace, who brought back from the dead our Lord Jesus (Hebrews 13:20).",
-        "marks": [("asks", "Hebrews 13:21", "equip you with every good thing"), ("so", "Hebrews 13:21", "to do His will"), ("asks", "Hebrews 13:21", "accomplish in us what is pleasing in His sight"), ("ends", "Hebrews 13:21", "to whom be glory forever and ever")]},
 }
 
-READ_FIRST_OPEN = {"others": True, "thanks": True}  # second passages start open in these readings; closed elsewhere
-TRY = ["Romans 15:5–6", "Romans 15:13", "Hebrews 13:20–21"]
-
-# Section 01. Six columns, read upward. Each station must lie inside a phrase of the same kind on that leaf, in verse order.
+# Section 02. Six columns, read upward. `part` is the part of the study that reads the passage. Each station must lie inside a phrase of the same kind on that leaf, in verse order.
 CLIMBS = [
-    {"id": "eph1", "name": "Ephesians 1", "leaf": "Ephesians 1:15–23", "reading": "wisdom", "stations": [
+    {"id": "eph1", "name": "Ephesians 1", "leaf": "Ephesians 1:15–23", "part": "02", "stations": [
         ("thanks", "Ephesians 1:15", "your faith in the Lord Jesus"), ("asks", "Ephesians 1:17", "a spirit of wisdom and revelation"), ("asks", "Ephesians 1:18", "the eyes of your heart may be enlightened"),
         ("so", "Ephesians 1:18", "so that you may know the hope of His calling"), ("ends", "Ephesians 1:23", "the fullness of Him who fills all in all")]},
-    {"id": "eph3", "name": "Ephesians 3", "leaf": "Ephesians 3:14–21", "reading": "strength", "stations": [
+    {"id": "eph3", "name": "Ephesians 3", "leaf": "Ephesians 3:14–21", "part": "02", "stations": [
         ("asks", "Ephesians 3:16", "strengthen you with power through His Spirit"), ("so", "Ephesians 3:17", "so that Christ may dwell in your hearts"), ("so", "Ephesians 3:19", "to know this love that surpasses knowledge"),
         ("ends", "Ephesians 3:21", "to Him be the glory")]},
-    {"id": "php", "name": "Philippians 1", "leaf": "Philippians 1:3–11", "reading": "love", "stations": [
+    {"id": "php", "name": "Philippians 1", "leaf": "Philippians 1:3–11", "part": "04", "stations": [
         ("thanks", "Philippians 1:5", "your partnership in the gospel"), ("asks", "Philippians 1:9", "your love may abound more and more"), ("so", "Philippians 1:10", "so that you may be able to test and prove what is best"),
         ("so", "Philippians 1:10", "pure and blameless for the day of Christ"), ("ends", "Philippians 1:11", "to the glory and praise of God")]},
-    {"id": "1th", "name": "1 Thessalonians 3", "leaf": "1 Thessalonians 3:9–13", "reading": "love", "stations": [
+    {"id": "1th", "name": "1 Thessalonians 3", "leaf": "1 Thessalonians 3:9–13", "part": "03", "stations": [
         ("thanks", "1 Thessalonians 3:9", "thank God for you"), ("asks", "1 Thessalonians 3:11", "direct our way to you"), ("asks", "1 Thessalonians 3:12", "increase and overflow with love"),
         ("so", "1 Thessalonians 3:13", "so that He may establish your hearts"), ("ends", "1 Thessalonians 3:13", "at the coming of our Lord Jesus")]},
-    {"id": "col", "name": "Colossians 1", "leaf": "Colossians 1:3–14", "reading": "walk", "stations": [
+    {"id": "col", "name": "Colossians 1", "leaf": "Colossians 1:3–14", "part": "05", "stations": [
         ("thanks", "Colossians 1:4", "your faith in Christ Jesus"), ("asks", "Colossians 1:9", "to fill you with the knowledge of His will"), ("so", "Colossians 1:10", "so that you may walk in a manner worthy of the Lord"),
         ("so", "Colossians 1:11", "so that you may have full endurance and patience"), ("ends", "Colossians 1:12", "giving thanks to the Father")]},
-    {"id": "2th", "name": "2 Thessalonians 1", "leaf": "2 Thessalonians 1:3–12", "reading": "walk", "stations": [
+    {"id": "2th", "name": "2 Thessalonians 1", "leaf": "2 Thessalonians 1:3–12", "part": "05", "stations": [
         ("thanks", "2 Thessalonians 1:3", "your faith is growing more and more"), ("asks", "2 Thessalonians 1:11", "count you worthy of His calling"), ("asks", "2 Thessalonians 1:11", "fulfill your every good desire and work of faith"),
         ("so", "2 Thessalonians 1:12", "so that the name of our Lord Jesus will be glorified in you"), ("ends", "2 Thessalonians 1:12", "the grace of our God")]},
 ]
 
-# Section 03. The three requests about circumstances in these nine passages, and where each goes. `aim` is what the request is for.
-AIMED = [
-    {"id": "road", "name": "A road", "ask": ("1 Thessalonians 3:11", "direct our way to you"), "aim": ("1 Thessalonians 3:10", "supply what is lacking from your faith"), "span": "1 Thessalonians 3:10–11"},
-    {"id": "door", "name": "A door", "ask": ("Colossians 4:3", "God may open to us a door"), "aim": ("Colossians 4:3", "so that we may proclaim the mystery of Christ"), "span": "Colossians 4:3"},
-    {"id": "quiet", "name": "A quiet life", "ask": ("1 Timothy 2:2", "tranquil and quiet lives"), "aim": ("1 Timothy 2:2", "in all godliness and dignity"), "span": "1 Timothy 2:1–2"},
-]
-
-# Section 04. An older line beside a line in these passages. `how` says how close the two are, and on whose word.
-OLDER = [
-    {"old": ("Psalm 110:1", "Sit at My right hand"), "new": ("Ephesians 1:20", "seated Him at His right hand"), "shared": "right hand", "how": "Shares words"},
-    {"old": ("Psalm 8:6", "You have placed everything under his feet"), "new": ("Ephesians 1:22", "God put everything under His feet"), "shared": "everything under his feet", "how": "Shares words"},
-    {"old": ("Jeremiah 29:7", "Pray to the LORD on its behalf"), "new": ("1 Timothy 2:2", "kings and all those in authority"), "shared": None, "how": "Calvin sets them side by side"},
-    {"old": ("Zechariah 14:5", "all the holy ones with Him"), "new": ("1 Thessalonians 3:13", "with all His saints"), "shared": None, "how": "Jamieson, Fausset and Brown list it here"},
-    {"old": ("1 Samuel 12:23", "ceasing to pray for you"), "new": ("Colossians 1:9", "we have not stopped praying for you"), "shared": None, "how": "This study's pairing"},
-    {"old": ("Daniel 6:10", "got down on his knees"), "new": ("Ephesians 3:14", "I bow my knees"), "shared": None, "how": "This study's pairing"},
-]
-
-SOURCES = [
-    {"id": "bsb", "short": "Berean", "name": "Berean Standard Bible", "href": "https://berean.bible/", "note": "Every verse quoted and opened. Public domain."},
-    {"id": "bfm", "short": "Baptist Faith and Message", "name": "The Baptist Faith and Message 2000, Articles 2, 4, 5 and 17", "href": "https://bfm.sbc.net/bfm2000/", "note": "Short phrases, with a link. Compared on 2026-10-30 through a web tool that returns extracts. Those not in this site's doctrinal foundation file are not checked by script."},
-    {"id": "lbc", "short": "Second London Confession", "name": "Second London Baptist Confession (1677), chapter 22 paragraph 2", "href": "/study/creeds/1689-london-baptist-confession-1677", "note": "One short quotation. Read: chapter 22, in the site's creeds collection."},
-    {"id": "boyce", "short": "Boyce", "name": "James P. Boyce, Abstract of Systematic Theology, on effectual calling", "href": "https://www.ccel.org/ccel/boyce/theology.html", "note": "One short quotation. Read: the passage on the sincerity of the outward call only. Public domain."},
-    {"id": "traditional", "short": "2012 statement", "name": "A Statement of the Traditional Southern Baptist Understanding of God's Plan of Salvation (2012)", "href": None, "note": "Told in this site's words, not quoted. Not read for this page: the wording follows what the Bearing witness mock-up recorded from a reprint seen through a web tool. A second attempt to reach it failed. Its authors hold the rights. Its full text and its critics were not read."},
-    {"id": "calvin-eph", "short": "Calvin", "name": "John Calvin, Commentary on Galatians and Ephesians, on Ephesians 1:17 and 3:20", "href": "https://www.ccel.org/ccel/calvin/calcom41.html", "note": "Short quotations. Read: those comments only. Public domain. Reformed, not Baptist."},
-    {"id": "calvin-tim", "short": "Calvin", "name": "John Calvin, Commentary on Timothy, Titus and Philemon, on 1 Timothy 2:2–5", "href": "https://www.ccel.org/ccel/calvin/calcom43.html", "note": "Short quotations. Read: those comments only. Public domain. Reformed, not Baptist."},
-    {"id": "calvin-cor", "short": "Calvin", "name": "John Calvin, Commentary on Corinthians, volume 2, on 2 Corinthians 12:8", "href": "https://www.ccel.org/ccel/calvin/calcom40.html", "note": "Short quotations. Read: that comment only. Public domain. Reformed, not Baptist."},
-    {"id": "barnes", "short": "Barnes, and Jamieson, Fausset and Brown", "name": "Albert Barnes, Notes on the New Testament, and Jamieson, Fausset and Brown, Commentary Critical and Explanatory, on Ephesians 1:17", "href": "https://www.ccel.org/ccel/jamieson/jfb.html", "note": "Short quotations. Read: those notes only, and the Jamieson note on 1 Thessalonians 3:13. Public domain. Neither is Baptist. The link is to Jamieson, Fausset and Brown; Barnes is held in the site's library."},
-    {"id": "wesley", "short": "Wesley", "name": "John Wesley, Explanatory Notes upon the New Testament, on 1 Timothy 2:4", "href": "https://www.ccel.org/ccel/wesley/notes.html", "note": "One short quotation. Read: that note only. Public domain. Methodist, not Baptist."},
-    {"id": "trent", "short": "Council of Trent", "name": "Council of Trent, on the invocation, veneration and relics of saints", "href": "/study/creeds/council-of-trent-canons-and-decrees-1563", "note": "Short quotations, shown as Catholic teaching. Read: that decree's opening, in the site's creeds collection."},
-]

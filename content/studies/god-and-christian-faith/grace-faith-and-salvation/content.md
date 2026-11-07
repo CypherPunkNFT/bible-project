@@ -100,7 +100,7 @@ He brings nothing, and he asks God to act. The word Luke uses for "have mercy" i
 
 What the parable does not teach: it does not say the tax collector's beating his breast earned his pardon. It does not condemn fasting or giving, which are good things. And it gives no reason to despise Pharisees. A reader who prays "God, I thank You that I am not like this Pharisee" has turned straight back into the man the story warns about.
 
-[care] Some readers feel too guilty to pray the tax collector's prayer, because they are sure they have gone too far. Look at who went home justified: the man who called himself "a sinner" and had nothing to add. If your guilt has become so heavy that you have thought about ending your life, please tell someone today. These feelings can pass, and people do come through them. In the United States, call or text 988 (Spanish is available) [check before publishing]. In Spain, call 024 [check before publishing]. In Mexico, call the Línea de la Vida, 800 911 2000 [check before publishing]. In Argentina, call 135 [check before publishing]. In other Spanish-speaking countries, [check: the national crisis line for each country the site serves] [check before publishing]. In Brazil, call CVV on 188 [check before publishing]. A pastor can also sit with you in this.
+[care] Some readers feel too guilty to pray the tax collector's prayer, because they are sure they have gone too far. Look at who went home justified: the man who called himself "a sinner" and had nothing to add. If your guilt has become so heavy that you have thought about ending your life, please tell someone today. These feelings can pass, and people do come through them. In the United States, call or text 988 (Spanish is available) [check before publishing]. In Spain, call 024 [check before publishing]. In Mexico, call the Línea de la Vida, 800 911 2000 [check before publishing]. In Argentina, call 135 [check before publishing]. In other Spanish-speaking countries, see [Help for life](/resources/life) [check before publishing]. In Brazil, call CVV on 188 [check before publishing]. A pastor can also sit with you in this.
 
 **Consider:** Count the times the Pharisee says "I". What does the tax collector ask God to do? Whom does Luke say the story was told to?
 
@@ -314,7 +314,7 @@ Romans 6:1–2 · BSB
 
 Read more in *A new creation*.
 
-The grace that forgives is the same grace that raises a dead person to a new life (Ephesians 2:5). Someone who wants the forgiveness and refuses the new life has not understood what was offered. This site's apologetics answer on grace takes up the wider objection that free grace makes morality pointless [check: title and address of the site's apologetics answer on grace].
+The grace that forgives is the same grace that raises a dead person to a new life (Ephesians 2:5). Someone who wants the forgiveness and refuses the new life has not understood what was offered. This site's apologetics answer [If salvation is a gift, why do good works matter?](/apologetics/study/grace) takes up the wider objection that free grace makes morality pointless.
 
 ### "Can I lose it?"
 

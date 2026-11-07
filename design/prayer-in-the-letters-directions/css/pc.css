@@ -1,10 +1,12 @@
-/* Prayer in the letters mock-up. Frame from the Authors mock-ups, sheet from the Manuscripts mock-up. Six threads read upward, then each passage on a leaf, its lines stepping in.
+/* Prayer across Scripture mock-up. Frame from the Authors mock-ups, sheet from the Manuscripts mock-up. The prayer Jesus taught as the way into six parts,
+   then six threads read upward; each letter passage on a leaf, its lines stepping in.
    One colour, the letters' gold: every kind of line differs by its word and its shape. */
 :root { --pc: var(--epistles); --leaf: color-mix(in srgb, var(--pc) 7%, var(--page)); }
 .pc-page button, .pc-sheet button.pc-back { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
 :where(.pc-page, .pc-sheet) :is(a, button, summary, [tabindex]):focus { outline: none; }
 :where(.pc-page, .pc-sheet) a { color: inherit; }
-:where(.pc-page, .pc-sheet) :is(a, button, summary, [tabindex="0"]):focus-visible { color: var(--accent); outline: 2px solid var(--accent); outline-offset: 2px; }
+/* No ring around a focused control (the owner's rule): keyboard focus shows as the accent colour and an underline. */
+:where(.pc-page, .pc-sheet) :is(a, button, summary, [tabindex="0"]):focus-visible { color: var(--accent); outline: none; text-decoration: underline; text-underline-offset: 3px; }
 .pc-ref { color: var(--accent) !important; font-weight: 500; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent) !important; white-space: nowrap; }
 .pc-ref:hover, .pc-ref:focus-visible { border-bottom-color: var(--accent) !important; background: color-mix(in srgb, var(--accent) 12%, transparent) !important; }
 .pc-small { font-size: .68rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
@@ -80,16 +82,8 @@
 .pc-readline { margin-top: .8rem; padding: .6rem 0 .6rem 1rem; min-height: 6.4rem; max-width: 78ch; border-left: 2px solid var(--pc); font: 400 1.04rem/1.5 var(--serif); }
 .pc-readline b { font: 600 .84rem var(--sans); color: var(--accent); }
 
-/* ── 02 The rail and the leaf ── */
-.pc-desk { display: grid; grid-template-columns: 14.5rem minmax(0, 1fr); gap: 2.2rem; margin-top: 1.4rem; align-items: start; }
-.pc-rail { position: sticky; top: 5rem; display: flex; flex-direction: column; border-top: 1.5px solid var(--ink); }
-.pc-page .pc-rail-item { display: block; width: 100%; min-height: 44px; padding: .7rem .4rem .7rem .7rem; border-bottom: 1px solid var(--line); border-left: 3px solid transparent; }
-.pc-rail-n { display: block; font-size: .64rem; font-weight: 600; letter-spacing: .12em; color: var(--muted); }
-.pc-rail-title { display: block; font: 500 1.08rem/1.25 var(--serif); }
-.pc-rail-ask { display: block; margin-top: .15rem; font-size: .82rem; line-height: 1.35; color: var(--muted); }
-.pc-rail-item:hover .pc-rail-title { text-decoration: underline; text-underline-offset: 3px; }
-.pc-page .pc-rail-item[aria-pressed="true"] { border-left-color: var(--pc); }
-.pc-rail-item[aria-pressed="true"] .pc-rail-title { color: var(--accent); font-style: italic; }
+/* ── 01 The prayer beside its parts, and the leaf ── */
+.pc-desk { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 2.2rem; margin-top: 1.4rem; align-items: start; }
 .pc-panels { min-width: 0; }
 .pc-reading[hidden] { display: none; }
 .pc-reading > h3 { font: 500 clamp(1.5rem, 3vw, 2rem)/1.15 var(--serif); }
@@ -110,9 +104,6 @@
 .pc-k-so .pc-line-kind { color: var(--accent); }
 .pc-k-ends .pc-line-kind { color: var(--accent); }
 .pc-k-ends .pc-line-text { font-style: italic; font-weight: 500; color: var(--accent); }
-.pc-pick-thanks .pc-line:not(.pc-k-thanks) { color: var(--muted); }
-.pc-pick-thanks .pc-line:not(.pc-k-thanks) .pc-line-text { color: inherit; font-weight: 400; font-style: normal; }
-.pc-pick-thanks .pc-k-thanks { padding-left: .7rem; border-left: 2px solid var(--pc); }
 .pc-margin { margin: 0; padding-left: 1rem; border-left: 1px solid color-mix(in srgb, var(--pc) 34%, var(--line)); font-size: .86rem; line-height: 1.45; }
 .pc-margin > div + div { margin-top: .8rem; }
 .pc-margin dt { font-size: .62rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
@@ -134,41 +125,41 @@
 .pc-flag p:not(.pc-flag-label) { margin-top: .3rem; }
 .pc-after { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem; margin-top: 1.4rem; padding-top: .7rem; border-top: 1.5px solid var(--ink); }
 
-/* ── 03 Three requests ── */
-.pc-aims { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.8rem; margin: 1.2rem 0 0; padding: 0; }
-.pc-aim { min-width: 0; padding-top: .6rem; border-top: 1.5px solid var(--ink); }
-.pc-aim h3 { font: italic 500 1.5rem/1.2 var(--serif); color: var(--accent); }
-.pc-aim-ask, .pc-aim-to { margin-top: .6rem; font: 400 1.08rem/1.38 var(--serif); }
-.pc-aim-to { margin-left: 1rem; padding-left: .7rem; border-left: 2px solid var(--pc); }
-.pc-aim .pc-small { display: block; font-family: var(--sans); }
-.pc-aim-ref { margin-top: .6rem; font-size: .84rem; }
-
-/* ── 04 Older words ── */
-.pc-olds { list-style: none; margin: 1.1rem 0 0; padding: 0; border-top: 1.5px solid var(--ink); }
-.pc-old { display: grid; grid-template-columns: minmax(0, 1fr) 11rem minmax(0, 1fr); gap: 1rem; align-items: baseline; padding-block: .75rem; border-bottom: 1px solid var(--line); }
-.pc-old p { margin: 0; }
-.pc-old-then { font: 400 1.04rem/1.4 var(--serif); color: var(--muted); }
-.pc-old-now { font: 500 1.04rem/1.4 var(--serif); }
-.pc-old .pc-ref { font: 500 .8rem var(--sans); white-space: normal; }
-.pc-old-how { font-size: .76rem; line-height: 1.35; text-align: center; color: var(--accent); font-weight: 600; }
-
-/* ── 05 Try ── */
-.pc-tries { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.8rem; margin: 1.2rem 0 0; padding: 0; }
-.pc-try { min-width: 0; padding-top: .6rem; border-top: 1.5px solid var(--ink); }
-.pc-try h3 { font: 500 1.1rem var(--serif); }
-.pc-try h3 .pc-ref { font: inherit; }
-.pc-try .pc-passage-text { margin-top: .4rem; font-size: 1.04rem; }
-.pc-try details { margin-top: .4rem; }
-.pc-try summary { display: flex; align-items: center; min-height: 44px; font-size: .9rem; font-weight: 600; color: var(--accent); cursor: pointer; }
-.pc-try .pc-line { font-size: 1rem; }
-.pc-try .pc-l2 { margin-left: 1.2rem; } .pc-try .pc-l3 { margin-left: 1.6rem; }
-
-/* ── 06 Questions ── */
+/* ── 03 Questions ── */
 .pc-q-list { list-style: none; margin: 1rem 0 0; padding: 0; border-top: 1.5px solid var(--ink); }
 .pc-q-list li { border-bottom: 1px solid var(--line); }
 .pc-page .pc-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; min-height: 44px; padding-block: .85rem; font: 400 clamp(1.1rem, 2vw, 1.34rem)/1.32 var(--serif); }
 .pc-q::after { content: "→"; color: var(--accent); }
 .pc-q:hover { color: var(--accent); }
+
+/* ── The prayer, line by line: ruled lines of text, not columns, so it never reads as the six threads of section 02 ── */
+.pc-spine { position: sticky; top: 5rem; border-top: 1.5px solid var(--ink); }
+.pc-sp-group + .pc-sp-group { margin-top: .9rem; }
+.pc-sp-band { padding-top: .55rem; }
+.pc-sp-list { list-style: none; margin: .2rem 0 0; padding: 0; }
+.pc-sp { border-bottom: 1px solid var(--line); }
+.pc-page .pc-sp-line { display: flex; justify-content: space-between; align-items: baseline; gap: .7rem; width: 100%; min-height: 44px; padding: .55rem .3rem .4rem .7rem; border-left: 2px solid transparent; }
+.pc-sp-words { font: 400 1.08rem/1.32 var(--serif); overflow-wrap: anywhere; }
+.pc-sp-part { flex: none; font-size: .66rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.pc-sp-line:hover .pc-sp-words { text-decoration: underline; text-underline-offset: 3px; }
+.pc-page .pc-sp-line[aria-pressed="true"] { border-left-color: var(--pc); }
+.pc-sp-line[aria-pressed="true"] .pc-sp-words { color: var(--accent); font-style: italic; }
+.pc-sp-line[aria-pressed="true"] .pc-sp-part { color: var(--accent); }
+.pc-sp-group-address .pc-sp-words { font-weight: 500; }
+.pc-sp-letters { margin: 0 0 .5rem .7rem; font-size: .8rem; line-height: 1.5; color: var(--muted); }
+.pc-sp-letters .pc-ref { white-space: normal; }
+.pc-sp-note { margin-top: .6rem; font-size: .8rem; line-height: 1.45; color: var(--muted); }
+.pc-pairing { margin-top: .4rem; }
+.pc-part-n { display: block; margin-bottom: .2rem; font: 600 .68rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-style: normal; }
+.pc-readings-line { margin-top: .6rem; font-size: .92rem; line-height: 1.7; }
+.pc-leaf-lead { margin-top: 1.1rem; }
+.pc-frame { margin-top: 1rem; max-width: 80ch; font: 400 1.06rem/1.6 var(--serif); }
+
+/* ── Marks inside the prose ── */
+.pc-check { display: inline-block; margin-inline: .2rem; padding: 0 .35rem; font: 600 .7rem/1.6 var(--sans); letter-spacing: .02em; color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); border-radius: 3px; white-space: normal; }
+.pc-src { margin-right: .3rem; font: 600 .68rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.pc-study { color: var(--accent) !important; font-style: italic; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.pc-study-name { font-style: italic; }
 
 /* ── Close ── */
 .pc-close-text { max-width: 72ch; }
@@ -176,8 +167,6 @@
 .pc-close-text .pc-question { font: 500 clamp(1.4rem, 3vw, 1.9rem)/1.3 var(--serif); color: var(--accent); }
 .pc-links { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; margin-top: 1.2rem; font-size: .92rem; }
 .pc-links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); }
-.pc-land { display: block; margin-top: 1.4rem; color: var(--muted); }
-.pc-land svg { display: block; width: 100%; height: 110px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; }
 .pc-sources { margin-top: 1.4rem; font-size: .9rem; }
 .pc-sources summary { display: flex; align-items: center; min-height: 44px; font-weight: 600; cursor: pointer; }
 .pc-sources ul { list-style: none; margin: .4rem 0 0; padding: 0; }
@@ -195,7 +184,8 @@
 .pc-sheet-links { margin-top: .9rem; font-size: .9rem; }
 .pc-sheet-links a { display: flex; align-items: center; min-height: 44px; color: var(--accent); }
 .pc-sheet button.pc-back { display: flex; align-items: center; min-height: 44px; margin-right: 2.6rem; font-size: .88rem; font-weight: 600; color: var(--accent); }
-.pc-sheet .pc-flag p { font-size: .98rem; line-height: 1.62; }
+.pc-sheet .pc-flag p, .pc-sheet .pc-prose { font-size: .98rem; line-height: 1.62; }
+.pc-sheet .pc-prose { margin-top: .7rem; }
 
 /* Six columns stop fitting well before a phone: they scroll sideways, with the next one showing. */
 @media (max-width: 1100px) {
@@ -203,25 +193,18 @@
   .pc-col { scroll-snap-align: start; }
   .pc-swipe { display: block; }
   .pc-desk { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
-  .pc-rail { position: static; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 1rem; }
-  .pc-page .pc-rail-item { padding-left: .5rem; }
+  .pc-spine { position: static; }
   .pc-leaf-body { grid-template-columns: minmax(0, 1fr) 11rem; }
 }
 @media (max-width: 860px) {
   .pc-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pc-figures > div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
   .pc-figures > div:nth-child(-n+2) { border-top: 0; }
-  .pc-aims, .pc-tries { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
-  .pc-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pc-leaf-body { grid-template-columns: minmax(0, 1fr); }
   .pc-margin { padding-left: 0; padding-top: .7rem; border-left: 0; border-top: 1px solid color-mix(in srgb, var(--pc) 34%, var(--line)); }
-  .pc-old { grid-template-columns: minmax(0, 1fr); gap: .25rem; }
-  .pc-old-how { text-align: left; }
 }
 @media (max-width: 620px) {
   .pc-after { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
-  .pc-rail { grid-template-columns: minmax(0, 1fr); }
-  .pc-rail-ask { display: none; }
   .pc-leaf { padding: .9rem .9rem 1rem; }
   .pc-l1 { margin-left: .4rem; } .pc-l2 { margin-left: .8rem; } .pc-l3 { margin-left: 1.2rem; } .pc-l4 { margin-left: 1.6rem; }
 }

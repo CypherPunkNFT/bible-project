@@ -1,0 +1,212 @@
+/* Christ in the Old Testament mock-up. Frame from the Authors mock-ups, hero from the Manuscripts mock-up. The study's
+   colour is the Prophets' blue: the page asks how the Old Testament speaks ahead of Christ, and Jesus names the Prophets
+   in Luke 24:27 and 24:44. Its own shape: a map of the lines the New Testament draws, the three questions placed on one
+   line, and in every part a stem beside the reading that runs from the first meaning to where the picture stops.
+   Words and fine rules, not boxes. No focus ring on a click: a keyboard user gets a colour and an underline or a
+   heavier stroke from :focus-visible instead. */
+.cot-page { --tone: var(--prophets); }
+.cot-page button, .cot-sheet button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:where(.cot-page, .cot-sheet) :is(a, button, summary, [tabindex]):focus { outline: none; }
+:where(.cot-page, .cot-sheet) a { color: inherit; }
+.cot-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.cot-ref { color: var(--tone) !important; font-weight: 500; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--tone) 35%, transparent) !important; }
+.cot-ref:hover, .cot-ref:focus-visible { border-bottom-color: var(--tone) !important; background: color-mix(in srgb, var(--tone) 12%, transparent) !important; }
+.cot-link { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--tone) 45%, transparent); text-underline-offset: 3px; }
+.cot-link:hover, .cot-link:focus-visible { text-decoration-color: var(--tone); color: var(--tone) !important; }
+.cot-study { color: var(--muted); }
+.cot-label { font: 600 .62rem/1.3 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.cot-unchecked { font: 600 .6rem var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
+.cot-unchecked > span[aria-hidden] { padding: .05rem .3rem; border-bottom: 1px dotted var(--accent); }
+
+/* ── Hero ── */
+.cot-intro { align-items: center; padding-block: 1.6rem 1rem; }
+.cot-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
+.cot-trail a { text-decoration: none; border-bottom: 1px solid transparent; }
+.cot-trail a:hover, .cot-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.cot-here { color: var(--ink); }
+.cot-concepts { margin-top: 1rem; font-size: .68rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.cot-intro h1 { margin-block: .55rem .6rem; }
+.cot-opening { margin: 1.1rem 0 0; padding-left: 1rem; border-left: 2px solid var(--tone); max-width: 58ch; }
+.cot-opening blockquote { margin: 0; font: 400 1.14rem/1.5 var(--serif); }
+.cot-opening figcaption { margin-top: .35rem; font-size: .76rem; color: var(--muted); }
+.cot-hero-art { color: var(--muted); }
+.cot-hero-art svg, .cot-close-art svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.cot-hero-art .ms-art-note { bottom: -11%; }
+.cot-disc { fill: color-mix(in srgb, var(--tone) 4%, transparent); stroke: color-mix(in srgb, var(--tone) 22%, transparent); }
+.cot-orbit { stroke-dasharray: 2 6; opacity: .35; }
+.cot-tone { stroke: var(--tone); }
+.cot-faint { opacity: .45; }
+.cot-wash { fill: color-mix(in srgb, var(--tone) 6%, transparent); stroke: none; }
+.cot-road { fill: color-mix(in srgb, var(--ink) 4%, transparent); stroke: none; }
+.cot-sun { fill: color-mix(in srgb, var(--accent) 14%, transparent); stroke: color-mix(in srgb, var(--accent) 45%, transparent); }
+.cot-window { fill: color-mix(in srgb, var(--accent) 55%, transparent); stroke: none; animation: cot-lamp 7s ease-in-out infinite; }
+.cot-glow { fill: color-mix(in srgb, var(--accent) 10%, transparent); stroke: none; animation: cot-lamp 7s ease-in-out infinite; }
+.cot-flame { fill: color-mix(in srgb, var(--accent) 50%, transparent); stroke: var(--accent); transform-origin: 376px 88px; animation: cot-flame 3.5s ease-in-out infinite; }
+.cot-spark { animation: cot-twinkle 8s ease-in-out infinite; }
+.cot-smoke { animation: cot-twinkle 6s ease-in-out infinite; }
+@keyframes cot-lamp { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+@keyframes cot-flame { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.88); } }
+@keyframes cot-twinkle { 0%, 100% { opacity: .25; } 50% { opacity: .7; } }
+
+.cot-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1rem 0 0; border-block: 1px solid var(--line); }
+.cot-figures > div { padding: .8rem 1rem; border-left: 1px solid var(--line); min-width: 0; }
+.cot-figures > div:first-child { border-left: 0; padding-left: 0; }
+.cot-figures dt { font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.cot-figures dd { margin: .2rem 0 0; font: 500 1.7rem/1.15 var(--serif); }
+.cot-figures small { display: block; margin-top: .1rem; font-size: .74rem; line-height: 1.4; color: var(--muted); }
+.cot-toc { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 1rem 0 0; font-size: .8rem; color: var(--muted); }
+.cot-toc a { text-decoration: none; border-bottom: 1px solid transparent; padding-block: .3rem; }
+.cot-toc a:hover, .cot-toc a:focus-visible { color: var(--ink); border-bottom-color: var(--tone); }
+.cot-toc b { margin-right: .4rem; font-weight: 600; color: var(--tone); }
+
+/* ── 00 The lines it draws ── */
+.cot-frame p, .cot-note { max-width: 72ch; font: 400 1.06rem/1.65 var(--serif); }
+.cot-frame p + p { margin-top: .8rem; }
+.cot-note { margin-top: 1rem; font-size: .92rem; color: var(--muted); }
+.cot-anatomy { margin: 1.6rem 0 0; padding-top: 1rem; border-top: 1px solid var(--ink); }
+.cot-anatomy figcaption, .cot-map figcaption { max-width: 80ch; font-size: .84rem; line-height: 1.55; color: var(--muted); }
+.cot-anatomy-art, .cot-map-art { display: block; width: 100%; height: auto; overflow: visible; margin-top: .6rem; }
+.cot-axis { font: 600 9px var(--sans); letter-spacing: .16em; fill: var(--muted); }
+.cot-band-rule { stroke: var(--line); fill: none; }
+.cot-arc { fill: none; stroke: color-mix(in srgb, var(--tone) 55%, transparent); stroke-width: 1.4; stroke-linecap: round; transition: stroke .15s, stroke-width .15s; }
+.cot-arc.is-on { stroke: var(--tone); stroke-width: 1.8; }
+.cot-stop { stroke: var(--ink); stroke-width: 2.4; stroke-linecap: round; }
+.cot-node { fill: var(--page); stroke: var(--ink); stroke-width: 1.4; }
+.cot-node.is-nt { fill: var(--tone); stroke: var(--tone); }
+.cot-callout circle { fill: var(--page); stroke: var(--accent); stroke-width: 1.2; }
+.cot-callout text { font: 600 11px var(--sans); fill: var(--accent); }
+.cot-q3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem; margin: .4rem 0 0; padding: 0; list-style: none; }
+.cot-q3 li { display: grid; grid-template-columns: auto auto 1fr; gap: .2rem .5rem; align-items: center; min-width: 0; }
+.cot-q3-n { font: 600 .8rem var(--sans); color: var(--accent); }
+.cot-q3 h3 { font: 500 1.08rem/1.3 var(--serif); }
+.cot-q3 p { grid-column: 1 / -1; font: .86rem/1.55 var(--sans); color: var(--ink); }
+.cot-mark svg { display: block; width: 22px; height: 14px; fill: none; stroke: var(--tone); stroke-width: 1.6; stroke-linecap: round; }
+.cot-map { margin: 2rem 0 0; padding-top: 1rem; border-top: 1px solid var(--ink); }
+.cot-map-q { display: block; margin-bottom: .2rem; font: 500 1.2rem/1.3 var(--serif); color: var(--ink); }
+.cot-chips { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; margin-top: .9rem; }
+.cot-chip { min-height: 40px; padding: .2rem 0 !important; font-size: .82rem !important; color: var(--muted) !important; border-bottom: 2px solid transparent !important; }
+.cot-chip:hover, .cot-chip:focus-visible { color: var(--ink) !important; }
+.cot-chip[aria-pressed="true"] { color: var(--ink) !important; border-bottom-color: var(--tone) !important; }
+.cot-count { margin-top: .2rem; font-size: .72rem; color: var(--muted); }
+.cot-band path { stroke: var(--accent); stroke-width: 1.2; }
+.cot-band text { font: 600 9.5px var(--sans); letter-spacing: .16em; fill: var(--accent); }
+.cot-node-g text { font: 500 10.5px var(--sans); fill: var(--muted); }
+.cot-node-g { transition: opacity .2s; }
+.cot-node-g.is-dim { opacity: .28; }
+.cot-line { cursor: pointer; }
+.cot-line.is-either .cot-arc { stroke-dasharray: 4 5; }
+.cot-hit { fill: none; stroke: transparent; stroke-width: 12; }
+.cot-line:hover .cot-arc, .cot-line:focus-visible .cot-arc { stroke: var(--tone); stroke-width: 3; }
+.cot-line.cot-ref { border: 0 !important; background: none !important; }
+.cot-readout { min-height: 3.2rem; margin-top: .4rem; padding-top: .6rem; border-top: 1px solid var(--line); font: 400 .98rem/1.5 var(--serif); }
+.cot-readout small { font: .76rem var(--sans); color: var(--muted); }
+.cot-readout-fig { font: 600 .62rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.cot-readout-arrow { color: var(--muted); }
+.cot-map-list { display: none; }
+.cot-narrow-only { display: none; }
+.cot-map-list h3 { margin-top: 1rem; font: 600 .66rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.cot-map-list ul { margin: .3rem 0 0; padding: 0; list-style: none; }
+.cot-map-list li { padding-block: .45rem; border-bottom: 1px solid var(--line); font: .95rem/1.5 var(--serif); overflow-wrap: anywhere; }
+.cot-map-list li.is-either { border-bottom-style: dashed; }
+.cot-map-list small { font: .74rem var(--sans); color: var(--muted); }
+
+/* ── 01–06 The figures ── */
+.cot-part { padding-block: 2.6rem; border-top: 1px solid var(--line); scroll-margin-top: 84px; }
+.cot-part-head { display: grid; grid-template-columns: auto auto minmax(0, 1fr); gap: 1.2rem; align-items: start; padding-bottom: 1.2rem; }
+.cot-n { font: 400 4.2rem/0.85 var(--serif); color: color-mix(in srgb, var(--tone) 70%, transparent); letter-spacing: -.03em; }
+.cot-mini-wrap { display: block; color: var(--muted); }
+.cot-mini { display: block; width: 96px; height: 64px; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.cot-shadow { stroke: color-mix(in srgb, var(--ink) 30%, transparent); stroke-width: 4; }
+.cot-part-head h2 { font: 500 1.7rem/1.2 var(--serif); letter-spacing: -.01em; }
+.cot-part-head h2 em { font-style: italic; color: var(--accent); }
+.cot-hook { margin-top: .35rem; max-width: 70ch; font: italic 400 1.08rem/1.5 var(--serif); color: var(--muted); }
+.cot-readings { margin-top: .4rem; font-size: .8rem; line-height: 1.6; }
+.cot-part-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 19rem); gap: 3rem; align-items: start; }
+.cot-body { max-width: 68ch; font: 400 1.06rem/1.7 var(--serif); }
+.cot-body > * + * { margin-top: .9rem; }
+.cot-body em { font-style: italic; }
+.cot-h3 { display: flex; align-items: center; gap: .5rem; margin-top: 1.7rem !important; font: 600 .72rem/1.3 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.cot-h3.is-readers { color: var(--accent); }
+.cot-h3.is-readers .cot-mark svg { stroke: var(--accent); }
+.cot-quote { margin-inline: 0; padding: .2rem 0 .2rem 1.1rem; border-left: 2px solid var(--tone); }
+.cot-quote blockquote { margin: 0; font: 400 1.18rem/1.55 var(--serif); }
+.cot-quote figcaption { margin-top: .35rem; font: .76rem var(--sans); color: var(--muted); }
+.cot-ask { margin-top: 1.6rem !important; padding: .6rem 0 0 1rem; border-left: 1px solid var(--tone); }
+.cot-ask > div + div { margin-top: .7rem; }
+.cot-ask dt { font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.cot-ask dd { margin: .2rem 0 0; font: italic 400 1rem/1.5 var(--serif); }
+
+/* The stem: from the first meaning, down the line, to where the picture stops */
+.cot-stem { position: sticky; top: 92px; font-family: var(--sans); }
+.cot-stem ol { position: relative; margin: .6rem 0 0; padding: 0 0 0 1.4rem; list-style: none; }
+.cot-stem ol::before { content: ""; position: absolute; left: .4rem; top: .5rem; bottom: 1.2rem; border-left: 1.5px solid color-mix(in srgb, var(--tone) 55%, transparent); }
+.cot-stem li { position: relative; padding-bottom: 1rem; font-size: .84rem; line-height: 1.45; overflow-wrap: anywhere; }
+.cot-stem li::before { content: ""; position: absolute; left: -1.28rem; top: .28rem; width: .6rem; height: .6rem; border-radius: 50%; background: var(--tone); }
+.cot-stem-tag { display: block; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.cot-stem q { font: 400 .98rem/1.4 var(--serif); color: var(--ink); }
+.cot-stem .cot-ref { white-space: nowrap; }
+.cot-stem small { display: block; margin-top: .15rem; font-size: .74rem; color: var(--muted); }
+.cot-stem-first::before { background: var(--page) !important; border: 1.5px solid var(--ink); }
+.cot-stem-either::before { background: var(--page) !important; border: 1.5px dashed var(--tone); }
+.cot-stem-stop::before { left: -1.55rem !important; top: .55rem !important; width: 1.15rem !important; height: 2.5px !important; border-radius: 1px !important; background: var(--ink) !important; }
+.cot-stem-stop .cot-stem-tag { color: var(--ink); }
+.cot-stem-on::before { border-radius: 0 !important; background: none !important; border-right: 2px solid var(--tone); border-bottom: 2px solid var(--tone); transform: rotate(45deg); width: .45rem !important; height: .45rem !important; }
+.cot-stem-after { margin-top: .4rem !important; padding-top: .6rem !important; border-top: 1px solid var(--line); }
+.cot-stem-after::before { border-left-style: dotted !important; }
+.cot-stem-beyond::before { background: var(--page) !important; border: 1.5px dotted var(--muted); }
+.cot-stem-beyond q, .cot-stem-beyond .cot-stem-tag { color: var(--muted); }
+
+/* ── Close ── */
+.cot-close-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.6rem; align-items: start; }
+.cot-way { font: 400 1.1rem/1.65 var(--serif); }
+.cot-question { margin-top: 1.4rem; font: italic 500 1.3rem/1.45 var(--serif); color: var(--tone); }
+.cot-again { margin-top: .6rem; font-size: .9rem; color: var(--muted); }
+.cot-passage { margin: 0; padding-top: .7rem; border-top: 1px solid var(--line); }
+.cot-passage figcaption { font-size: .78rem; color: var(--muted); }
+.cot-passage-text { margin-top: .6rem; max-height: 30rem; overflow-y: auto; padding-right: .6rem; font: 400 .98rem/1.7 var(--serif); }
+.cot-passage-text:focus-visible { box-shadow: inset 2px 0 0 var(--tone); }
+.cot-passage-text sup, .cot-sheet-text sup { margin-right: .15rem; font: 600 .6rem var(--sans); color: var(--tone); }
+.cot-close-art { display: block; max-width: 640px; margin: 2rem auto 0; color: var(--muted); }
+.cot-sources { margin-top: 1.6rem; padding-top: .8rem; border-top: 1px solid var(--line); font-size: .8rem; line-height: 1.6; color: var(--muted); }
+.cot-sources h3 { font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.cot-sources ul { margin: .4rem 0 0; padding: 0; list-style: none; }
+.cot-sources b { color: var(--ink); font-weight: 600; }
+.cot-back { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; margin-top: 1rem; font-size: .85rem; font-weight: 600; color: var(--tone) !important; text-decoration: none; }
+.cot-back:hover, .cot-back:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Verse sheet ── */
+.cot-sheet { width: min(36rem, calc(100vw - 2rem)); max-height: 80vh; padding: 1.2rem 1.4rem 1.4rem; border: 1px solid var(--line); border-top: 3px solid var(--prophets); border-radius: 0; background: var(--surface, var(--page)); color: var(--ink); }
+.cot-sheet::backdrop { background: rgb(0 0 0 / .35); }
+.cot-sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.cot-sheet-head h2 { font: 500 1.35rem/1.2 var(--serif); overflow-wrap: anywhere; }
+.cot-sheet-x { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line) !important; }
+.cot-sheet-x:hover, .cot-sheet-x:focus-visible { border-color: var(--prophets) !important; color: var(--prophets); }
+.cot-sheet-text { margin-top: .7rem; font: 400 1.08rem/1.65 var(--serif); }
+.cot-sheet-src { margin-top: .7rem; font-size: .72rem; color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cot-window, .cot-glow, .cot-flame, .cot-spark, .cot-smoke { animation: none; }
+  .cot-arc, .cot-node-g { transition: none; }
+}
+
+/* ── Narrow screens ── */
+@media (max-width: 960px) {
+  .cot-part-grid { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
+  .cot-stem { position: static; max-width: 34rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .cot-close-grid { grid-template-columns: minmax(0, 1fr); }
+  .cot-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cot-figures > div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .cot-figures > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 720px) {
+  .cot-map-art, .cot-readout, .cot-anatomy-art { display: none; }
+  .cot-map-list { display: block; }
+  .cot-wide-only { display: none; }
+  .cot-narrow-only { display: inline; }
+  .cot-q3 { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .cot-part-head { grid-template-columns: auto minmax(0, 1fr); }
+  .cot-mini-wrap { display: none; }
+  .cot-n { font-size: 3rem; }
+  .cot-part-head h2 { font-size: 1.4rem; }
+}

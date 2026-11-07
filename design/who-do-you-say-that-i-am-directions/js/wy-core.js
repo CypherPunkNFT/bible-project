@@ -1,7 +1,7 @@
 // Who do you say I am: shared pieces. All text goes in as text nodes; the only markup strings are the fixed drawings in art.js
 // and the site's icons. Values read from the address are looked up in Maps built from data.js, so an unknown value is ignored.
 window.WYK = (() => {
-  const EXPECTED_SCHEMA = 1;
+  const EXPECTED_SCHEMA = 2;
   let warned = false;
   function stop(message, detail) {
     console.error(`Who do you say I am: ${detail}`);
@@ -51,17 +51,23 @@ window.WYK = (() => {
     return holder;
   }
   const refLink = (id, text) => h("a", { class: "wy-ref", href: `?sheet=${id}`, "data-sheet": id }, text);
+  // Every kind of run has its own key, and an unknown one stops the page rather than becoming a broken link.
   const runs = (list) => list.map((run) => {
     if (typeof run === "string") return run;
-    return run.href ? h("a", { class: "wy-ref", href: run.href }, run.t) : refLink(run.r, run.t);
+    if ("r" in run && passageIds.has(run.r)) return refLink(run.r, run.t);
+    if ("a" in run) return h("a", { class: "wy-ref", href: run.a }, run.t);
+    if ("s" in run) return h("a", { class: "wy-ref wy-study-link", href: run.s }, h("em", {}, run.t));
+    if ("i" in run) return h("em", {}, run.i);
+    if ("b" in run) return h("strong", {}, run.b);
+    throw new Error(`unknown run in the study data: ${JSON.stringify(run)}`);
   });
-  const plain = (list) => list.map((run) => (typeof run === "string" ? run : run.t)).join("");
+  const plain = (list) => list.map((run) => (typeof run === "string" ? run : run.t ?? run.i ?? run.b ?? "")).join("");
   const phrase = (item) => [h("span", { class: "wy-words" }, `“${item.t}”`), " ", h("span", { class: "wy-at" }, refLink(item.r, item.label))];
 
   function readAddress() {
     const params = new URLSearchParams(location.search);
     const sheet = (params.get("sheet") ?? "").replaceAll("–", "-");
-    const word = params.get("word"), answer = params.get("answer"), reading = params.get("reading"), question = params.get("question");
+    const word = params.get("word"), answer = params.get("answer"), reading = params.get("reading") === "written" ? "thomas" : params.get("reading"), question = params.get("question");
     return {
       word: lensIds.has(word) ? word : DEFAULTS.word, answer: answerIds.has(answer) ? answer : DEFAULTS.answer, reading: readings.has(reading) ? reading : DEFAULTS.reading,
       question: questions.has(question) ? question : null, sheet: passageIds.has(sheet) ? sheet : null,
@@ -94,10 +100,16 @@ window.WYK = (() => {
     h("span", { class: "t-num", "aria-hidden": "true" }, number),
     h("div", {}, h("h2", {}, title, " ", h("em", {}, turn)), lead.length ? h("p", {}, ...lead) : null));
 
-  const FLAG_LABELS = { care: "Care", read: "This study reads" };
-  const flagLabel = (block) => FLAG_LABELS[block.k] ?? sourceIds.get(block.src)?.short ?? block.src;
+  const FLAG_LABELS = { care: "Care", read: "This study reads", open: "Readers differ" };
+  const flagLabel = (block) => {
+    const label = FLAG_LABELS[block.k] ?? sourceIds.get(block.src)?.short;
+    if (!label) throw new Error(`no label for a ${block.k} block from ${block.src}`);
+    return label;
+  };
   const blockView = (block) => {
     if (block.k === "p") return h("p", {}, runs(block.runs));
+    if (block.k === "quote") return h("figure", { class: "wy-quote" }, h("blockquote", {}, block.t), h("figcaption", {}, refLink(block.r, block.label), " · BSB"));
+    if (block.k === "list") return h("ul", { class: "wy-list" }, block.items.map((item) => h("li", {}, runs(item))));
     return h("div", { class: `wy-flag wy-flag-${block.k}` }, h("p", { class: "wy-flag-label" }, flagLabel(block)), h("p", {}, runs(block.runs)));
   };
   const partView = (part) => h("section", { class: "wy-part" }, h("h4", {}, part.title), part.blocks.map(blockView));

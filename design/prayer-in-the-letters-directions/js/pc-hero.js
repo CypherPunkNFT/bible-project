@@ -7,8 +7,8 @@
   const pauseButton = h("button", { type: "button", class: "pc-pause", "aria-pressed": "false" }, "Pause the moving thread");
   const stage = h("div", { class: "pc-stage" }, art(PCArt.hero));
   const figures = [
-    ["Passages kept whole", numbers.passages, `${numbers.reported} reported prayers and ${numbers.instructions} where a writer tells or asks others to pray.`],
-    ["Verses", numbers.verses, "All of those passages, each verse counted once."],
+    ["Requests in the prayer", numbers.requests, `${numbers.aboutGod} about God, then ${numbers.requests - numbers.aboutGod} about us, in Matthew 6:9–13.`],
+    ["Letter passages kept whole", numbers.passages, `${numbers.reported} reported prayers and ${numbers.instructions} where a writer tells or asks others to pray: ${numbers.verses} verses.`],
     ["Say so that", `${numbers.reported} of ${numbers.reported}`, "Reported prayers that use these words in the Berean. No Greek was compared."],
     ["Lines named", numbers.named, "Phrases labelled thanks, asks, so that or arrives at. The words are checked; the labels are this study’s judgment."],
   ];
@@ -17,17 +17,18 @@
       h("div", {},
         h("nav", { class: "pc-trail", "aria-label": "Study trail" }, h("a", { href: "/study" }, "Study"), h("span", { "aria-hidden": "true" }, "/"), h("a", { href: "/study/theology?area=life" }, "Living the Christian Life"), h("span", { "aria-hidden": "true" }, "/"), h("span", { class: "pc-here" }, study.title)),
         h("p", { class: "pc-concepts" }, plain(study.concepts)),
-        h("h1", {}, "Prayer ", h("em", {}, "in the letters")),
+        h("h1", {}, "Prayer ", h("em", {}, "across Scripture")),
         h("p", { class: "hc-lede" }, runs(study.lead)),
         h("figure", { class: "pc-opening" },
           h("blockquote", {}, study.opening.t),
-          h("figcaption", {}, refLink(study.opening.r, study.opening.label), " · Berean Standard Bible · Read it in its paragraph: ", refLink("COL.4.2-6", "Colossians 4:2–6")))),
+          h("figcaption", {}, refLink(study.opening.r, study.opening.label), " · Berean Standard Bible · Read it in its paragraph: ", refLink("LUK.11.1-13", "Luke 11:1–13")))),
       h("figure", { class: "pc-hero-art" }, stage,
         h("figcaption", {},
           h("span", { class: "pc-motto" }, motto[0], h("br"), h("span", {}, motto[1])),
-          h("span", { class: "pc-art-note" }, "Illustrative forms: a leaf of a letter, its marks not real writing. The thread going on past the page is this study’s picture, not a verse."),
+          h("span", { class: "pc-art-note" }, "Illustrative forms: a leaf of a letter, its marks not real writing, its lines stepping in. The thread going on past the page is this study’s picture of a prayer aimed beyond its request, not a verse."),
           pauseButton))),
     h("dl", { class: "pc-figures" }, figures.map(([label, value, note]) => h("div", {}, h("dt", {}, label), h("dd", {}, String(value)), h("small", {}, note)))),
+    h("p", { class: "pc-frame" }, runs(study.frame)),
     h("p", { class: "pc-selection" }, runs(study.selection))));
 
   let paused = false, visible = true;

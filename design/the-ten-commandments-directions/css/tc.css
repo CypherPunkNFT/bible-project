@@ -1,0 +1,247 @@
+/* The Ten Commandments mock-up. Frame (header, footer, palette, fonts) from the Authors mock-ups; everything else is this
+   page's own. Its colour is History orange, the colour of the law books, because the page reads Exodus and Deuteronomy;
+   where Jesus reads the ten the marks take the Gospels' violet, and Romans the Epistles' gold. Its own shapes: two
+   stones under one sentence, a table counted three ways, lines given twice, a week from the first day to the seventh.
+   Words and fine rules, not boxes. No focus ring: a keyboard user gets colour and an underline from :focus-visible. */
+.tc-page { --tone: var(--history); --tone-ink: color-mix(in srgb, var(--history) 80%, var(--ink)); }
+:root[data-theme="dark"] .tc-page, :root[data-theme="dark"] .tc-sheet { --tone-ink: var(--history); }
+.tc-page button, .tc-sheet button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:where(.tc-page, .tc-sheet) :is(a, button, summary):focus, :where(.tc-page, .tc-sheet) :focus-visible { outline: none; }
+.tc-page em { font-style: italic; }
+.tc-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.tc-ref { color: var(--tone-ink); font-weight: 500; border-bottom: 1px solid color-mix(in srgb, var(--tone) 35%, transparent); }
+.tc-ref:hover, .tc-ref:focus-visible { border-bottom-color: var(--tone); background: color-mix(in srgb, var(--tone) 12%, transparent); }
+.tc-link { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--tone) 45%, transparent); text-underline-offset: 3px; }
+.tc-link:hover, .tc-link:focus-visible { color: var(--tone-ink); text-decoration-color: var(--tone); }
+.tc-study { color: var(--muted); }
+.tc-label { font: 600 .62rem/1.4 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone-ink); }
+.tc-q { font: 500 1rem/1.4 var(--serif); color: var(--ink); }
+
+/* Editor's marks: a small letter in a ring after the words; its note opens in place. */
+.tc-mark { display: inline-grid; place-items: center; width: 1.05rem; height: 1.05rem; margin-left: .2rem; vertical-align: .35em; border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent) !important; font: 600 .6rem/1 var(--sans) !important; color: var(--accent) !important; }
+.tc-mark.is-issue { background: color-mix(in srgb, var(--accent) 16%, transparent) !important; }
+.tc-mark:hover, .tc-mark:focus-visible, .tc-mark[aria-expanded="true"] { background: var(--accent) !important; color: var(--page) !important; }
+.tc-mark-text[hidden] { display: none; }
+.tc-mark-text { display: block; margin: .3rem 0 .4rem; padding-left: .7rem; border-left: 1px dotted var(--accent); font: .8rem/1.5 var(--sans); color: var(--muted); }
+
+/* ── Hero: the standard heading ── */
+.tc-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: 1.5rem 3rem; align-items: center; padding-block: 2.2rem 1.2rem; }
+.tc-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
+.tc-trail a { border-bottom: 1px solid transparent; }
+.tc-trail a:hover, .tc-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.tc-here { color: var(--ink); }
+.tc-concepts { margin-top: 1rem; font: 600 .68rem/1.4 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.tc-intro h1 { margin-block: .6rem .2rem; font: 500 clamp(2.6rem, 5.6vw, 4.4rem)/1.02 var(--serif); letter-spacing: -.04em; color: var(--ink); }
+.tc-intro h1 em { color: var(--accent); font-weight: 400; }
+.tc-subtitle { margin-bottom: .8rem; font: italic 400 1.2rem/1.4 var(--serif); color: var(--muted); }
+.tc-lede { max-width: 60ch; color: var(--muted); font-size: .96rem; line-height: 1.8; }
+.tc-opening { margin: 1.1rem 0 0; padding-left: 1rem; border-left: 2px solid var(--tone); max-width: 58ch; }
+.tc-opening blockquote { margin: 0; font: 400 1.16rem/1.5 var(--serif); }
+.tc-opening figcaption { margin-top: .35rem; font-size: .76rem; color: var(--muted); }
+.tc-hero-art { position: relative; margin: 0; color: var(--muted); }
+.tc-hero-art svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.tc-motto { margin-top: -.6rem; text-align: center; font: italic 400 1rem/1.45 var(--serif); color: var(--ink); }
+.tc-motto span { color: var(--muted); }
+.tc-orbit { stroke-dasharray: 2 6; opacity: .4; }
+.tc-ring { opacity: .12; }
+.tc-tone { stroke: var(--tone); }
+.tc-faint { opacity: .45; }
+.tc-wash { fill: color-mix(in srgb, var(--tone) 10%, transparent); stroke: none; }
+.tc-cloud { animation: tc-drift 18s ease-in-out infinite; }
+.tc-road { stroke: var(--tone); stroke-dasharray: 2 7; animation: tc-walk 6s linear infinite; }
+.tc-wave { opacity: .6; animation: tc-swell 7s ease-in-out infinite; }
+.tc-spark { animation: tc-twinkle 8s ease-in-out infinite; }
+.tc-mini .tc-tone { stroke-width: 1.6; }
+@keyframes tc-drift { 0%, 100% { transform: translateX(-6px); } 50% { transform: translateX(8px); } }
+@keyframes tc-walk { to { stroke-dashoffset: -54; } }
+@keyframes tc-swell { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(2px); } }
+@keyframes tc-twinkle { 0%, 100% { opacity: .2; } 50% { opacity: .7; } }
+
+.tc-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1rem 0 0; border-block: 1px solid var(--line); }
+.tc-figures > div { padding: .8rem 1rem; border-left: 1px solid var(--line); min-width: 0; }
+.tc-figures > div:first-child { border-left: 0; padding-left: 0; }
+.tc-figures dt { font: 600 .6rem/1.4 var(--sans); letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.tc-figures dd { margin: .2rem 0 0; font: 500 1.7rem/1.15 var(--serif); }
+.tc-figures small { display: block; margin-top: .1rem; font-size: .74rem; line-height: 1.4; color: var(--muted); }
+.tc-toc { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; margin-top: 1rem; font-size: .8rem; color: var(--muted); }
+.tc-toc a { padding-block: .3rem; border-bottom: 1px solid transparent; }
+.tc-toc a:hover, .tc-toc a:focus-visible { color: var(--ink); border-bottom-color: var(--tone); }
+.tc-toc b { margin-right: .4rem; font-weight: 600; color: var(--tone-ink); }
+.tc-frame { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 2.4rem; margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.tc-frame > p:first-child { font: 400 1.06rem/1.7 var(--serif); }
+.tc-selection { font-size: .86rem; line-height: 1.7; color: var(--muted); }
+
+/* ── Parts: a head across the page (number, stones miniature, title), then one reading column ── */
+.tc-part { padding-block: 2.6rem 1rem; scroll-margin-top: 84px; }
+.tc-part-head { display: grid; grid-template-columns: auto auto minmax(0, 1fr); align-items: center; gap: 1.2rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--ink); }
+.tc-n { font: 400 3.4rem/1 var(--serif); color: var(--tone); letter-spacing: -.04em; }
+.tc-mini { display: block; width: 84px; height: 56px; fill: none; stroke: var(--muted); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.tc-part-head h2 { font: 500 clamp(1.4rem, 2.6vw, 1.9rem)/1.2 var(--serif); letter-spacing: -.015em; }
+.tc-readings { margin-top: .35rem; font-size: .8rem; line-height: 1.6; color: var(--muted); }
+.tc-readings .tc-label { color: var(--muted); }
+.tc-body { max-width: 46rem; margin-top: 1.4rem; font: 400 1.06rem/1.72 var(--serif); }
+.tc-body > * + * { margin-top: .95rem; }
+.tc-h3 { margin-top: 2rem !important; font: 600 .74rem/1.3 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone-ink); scroll-margin-top: 90px; }
+.tc-h3-n { display: inline-block; min-width: 2.2rem; margin-right: .5rem; padding-right: .5rem; border-right: 1px solid var(--line); font: 500 1rem/1 var(--serif); letter-spacing: 0; }
+.tc-quote { margin-inline: 0; padding: .2rem 0 .2rem 1.1rem; border-left: 2px solid var(--tone); }
+.tc-quote blockquote { margin: 0; font: 400 1.18rem/1.55 var(--serif); }
+.tc-quote figcaption { margin-top: .35rem; font: .76rem var(--sans); color: var(--muted); }
+.tc-note { padding: .2rem 0 .2rem 1.1rem; border-left: 1px solid var(--line); }
+.tc-note p { margin-top: .2rem; font-size: .96rem; }
+.tc-care { border-left: 2px solid var(--accent); }
+.tc-care .tc-label { color: var(--accent); }
+.tc-other { border-left-style: dashed; }
+.tc-other .tc-label, .tc-open .tc-label { color: var(--muted); }
+.tc-open { border-left-style: dotted; color: var(--muted); }
+.tc-ask { display: grid; gap: .6rem; margin-top: 2rem !important; padding-top: .9rem; border-top: 3px double var(--line); }
+.tc-ask p { font: italic 400 1rem/1.55 var(--serif); }
+.tc-ask .tc-label { font-style: normal; margin-right: .4rem; }
+
+/* Given twice: Exodus over Deuteronomy, differing words marked by underline and wash, never colour alone */
+.tc-twice { margin: .6rem 0 0 !important; padding: .1rem 0 .1rem .9rem; border-left: 1px dotted var(--tone); font: .9rem/1.6 var(--sans); color: var(--muted); }
+.tc-twice figcaption { margin-bottom: .3rem; font-size: .78rem; }
+.tc-twice p { margin-top: .25rem; color: var(--ink); }
+.tc-twice-src { display: block; font-size: .74rem; }
+.tc-twice.is-same { font-size: .8rem; color: var(--muted); }
+.tc-diff { background: color-mix(in srgb, var(--tone) 16%, transparent); color: inherit; text-decoration: underline; text-decoration-color: var(--tone); text-underline-offset: 3px; }
+
+.tc-fig-note { margin-top: .5rem; font: .78rem/1.55 var(--sans); color: var(--muted); }
+.tc-ways { display: flex; flex-wrap: wrap; gap: .2rem 1.2rem; margin-bottom: .7rem; }
+.tc-way { min-height: 44px; padding: 0 .1rem !important; border-bottom: 2px solid transparent !important; font: 500 .86rem var(--sans) !important; color: var(--muted) !important; }
+.tc-way:hover, .tc-way:focus-visible { color: var(--ink) !important; }
+.tc-way[aria-pressed="true"] { color: var(--ink) !important; border-bottom-color: var(--tone) !important; }
+
+/* 01: the counting table, with a brace column that joins or splits lines */
+.tc-count { margin: 1.4rem 0 .4rem !important; max-width: 60rem; font-family: var(--sans); }
+.tc-count table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+.tc-count caption { text-align: left; padding-bottom: .5rem; font-size: .8rem; color: var(--muted); }
+.tc-count th { padding: .45rem .5rem; text-align: left; font: 600 .62rem/1.3 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--ink); }
+.tc-count td { padding: .42rem .5rem; border-bottom: 1px solid var(--line); color: var(--muted); }
+.tc-count td[data-col="0"] { color: var(--ink); }
+.tc-count[data-way="2"] :is(th, td)[data-col="2"], .tc-count[data-way="3"] :is(th, td)[data-col="3"], .tc-count[data-way="4"] :is(th, td)[data-col="4"] { color: var(--ink); font-weight: 600; background: color-mix(in srgb, var(--tone) 7%, transparent); }
+.tc-brace { position: relative; width: 4.2rem; text-align: center; font: 500 1.05rem/1 var(--serif) !important; color: var(--tone-ink) !important; border-bottom-color: transparent !important; }
+.tc-brace::before { content: ""; position: absolute; left: .4rem; top: .5rem; bottom: .5rem; border-left: 2px solid var(--tone); }
+.tc-brace.up::before { top: 0; } .tc-brace.down::before { bottom: 0; }
+.tc-brace.split { font-size: .86rem !important; }
+.tc-brace.split::before { border-left-style: dashed; }
+.tc-brace.pre { font: italic .72rem var(--serif) !important; color: var(--muted) !important; }
+.tc-brace.pre::before { border-left-style: dotted; opacity: .5; }
+
+/* 02: the two stones, drawn with a thin stroke and an arched top */
+.tc-stones-fig { margin: 1.6rem 0 .6rem !important; max-width: 40rem; }
+.tc-lintel { padding-bottom: .7rem; margin-bottom: .9rem; border-bottom: 1px solid var(--tone); font: italic 400 1rem/1.5 var(--serif); text-align: center; }
+.tc-lintel .tc-label { display: block; font-style: normal; color: var(--muted); }
+.tc-stones { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; }
+.tc-stone { padding: 2.2rem 1.3rem 1.2rem; border: 1.3px solid var(--tone); border-radius: 50% 50% 4px 4px / 3.4rem 3.4rem 4px 4px; background: color-mix(in srgb, var(--tone) 5%, transparent); }
+.tc-stone-h { text-align: center; font: 600 .62rem/1.3 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone-ink); }
+.tc-stone ol { margin: .7rem 0 0; padding: 0; list-style: none; }
+.tc-stone li + li { border-top: 1px solid color-mix(in srgb, var(--tone) 22%, transparent); }
+.tc-stone-word { display: flex; align-items: baseline; gap: .7rem; min-height: 40px; padding-block: .45rem; font: 400 1rem/1.3 var(--serif); }
+.tc-stone-word b { min-width: 1.4rem; font: 500 1.1rem/1 var(--serif); color: var(--tone-ink); }
+.tc-stone-word:hover, .tc-stone-word:focus-visible { color: var(--tone-ink); text-decoration: underline; text-underline-offset: 3px; }
+.tc-stones-fig figcaption { margin-top: .7rem; font: .78rem/1.55 var(--sans); color: var(--muted); }
+
+/* 04: the ten as a row; a passage lights the words it takes up */
+.tc-takes { --mark: var(--gospels); margin: 1.4rem 0 .6rem !important; font-family: var(--sans); }
+.tc-takes[data-colour="epistles"] { --mark: var(--epistles); }
+.tc-takes figcaption { margin-bottom: .4rem; font-size: .82rem; color: var(--muted); }
+.tc-row { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--ink); }
+.tc-cell { padding: .55rem .3rem .6rem; border-bottom: 3px solid transparent; color: var(--muted); font-size: .72rem; line-height: 1.3; }
+.tc-cell.s2:nth-child(5) { border-left: 1px solid var(--ink); padding-left: .5rem; }
+.tc-cell b { display: block; font: 500 1.3rem/1.1 var(--serif); }
+.tc-cell.is-lit { color: var(--ink); border-bottom-color: var(--mark); background: color-mix(in srgb, var(--mark) 10%, transparent); }
+.tc-cell.is-lit b { color: var(--mark); }
+.tc-takes-said { margin-top: .7rem; font-size: .86rem; }
+.tc-takes-line { font: italic 400 1rem/1.5 var(--serif); }
+.tc-takes-said ul { margin: .3rem 0 0; padding: 0; list-style: none; color: var(--muted); }
+.tc-takes-said q { color: var(--ink); }
+
+/* 05: the week, first day to seventh; verses above the line, practices below */
+.tc-week { margin: 1.4rem 0 .6rem !important; font-family: var(--sans); max-width: 60rem; }
+.tc-week figcaption { margin-bottom: .6rem; font-size: .82rem; color: var(--muted); }
+.tc-week-line { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 1.2rem; align-items: stretch; }
+.tc-day { position: relative; padding-top: 1rem; border-top: 2px solid var(--tone); }
+.tc-day-1 { border-top-color: var(--gospels); }
+.tc-day-name { font: 500 1.2rem/1.2 var(--serif); }
+.tc-day-name small { display: block; margin-top: .15rem; font: .74rem var(--sans); color: var(--muted); }
+.tc-pins, .tc-keeps { margin: .6rem 0 0; padding: 0; list-style: none; font-size: .82rem; }
+.tc-pins li, .tc-keeps li { display: grid; gap: .05rem; padding-block: .35rem; }
+.tc-pins span, .tc-keeps span { color: var(--muted); line-height: 1.4; }
+.tc-keeps { padding-top: .5rem; border-top: 1px dashed var(--line); }
+.tc-keeps b { font-weight: 600; }
+.tc-midweek { display: flex; gap: .7rem; padding-top: .3rem; border-top: 1px dotted var(--line); color: var(--muted); font: .74rem var(--serif); }
+
+/* ── Close ── */
+.tc-close { margin-top: 2.6rem; padding-top: 2rem; border-top: 1px solid var(--ink); scroll-margin-top: 84px; }
+.tc-close-head h2 { font: 500 clamp(1.7rem, 3.4vw, 2.5rem)/1.15 var(--serif); letter-spacing: -.02em; }
+.tc-close-head em { color: var(--accent); font-weight: 400; }
+.tc-close-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 2.6rem; margin-top: 1.2rem; align-items: start; font: 400 1.06rem/1.7 var(--serif); }
+.tc-close-grid > div > * + * { margin-top: 1rem; }
+.tc-invite { padding-left: 1rem; border-left: 2px solid var(--tone); }
+.tc-invite .tc-label { display: block; }
+.tc-question { font: italic 500 1.32rem/1.4 var(--serif); color: var(--tone-ink); }
+.tc-again { font: .85rem var(--sans); color: var(--muted); }
+.tc-passage { margin: 0; font: 400 .92rem/1.65 var(--serif); }
+.tc-passage figcaption { font: .78rem var(--sans); color: var(--muted); }
+.tc-passage-pre { margin-top: .6rem; padding-bottom: .6rem; border-bottom: 1px solid var(--tone); text-align: center; font-style: italic; }
+.tc-passage-stones { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: .8rem; }
+.tc-passage-stones p { padding: 1.4rem .9rem .9rem; border: 1px solid color-mix(in srgb, var(--tone) 60%, transparent); border-radius: 50% 50% 3px 3px / 2.2rem 2.2rem 3px 3px; font-size: .86rem; }
+.tc-passage sup, .tc-sheet-text sup { margin-right: .15rem; font: 600 .6rem var(--sans); color: var(--tone-ink); }
+.tc-sources { margin-top: 2rem; padding-top: .8rem; border-top: 1px solid var(--line); font-size: .8rem; line-height: 1.6; color: var(--muted); }
+.tc-sources h3 { font: 600 .62rem/1.4 var(--sans); letter-spacing: .16em; text-transform: uppercase; }
+.tc-sources ul { margin: .4rem 0 0; padding: 0; list-style: none; }
+.tc-sources b { color: var(--ink); font-weight: 600; }
+.tc-back { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; margin-top: 1rem; font-size: .85rem; font-weight: 600; color: var(--tone-ink); }
+.tc-back:hover, .tc-back:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Verse sheet ── */
+.tc-sheet { --tone: var(--history); --tone-ink: color-mix(in srgb, var(--history) 80%, var(--ink)); width: min(36rem, calc(100vw - 2rem)); max-height: 80vh; padding: 1.2rem 1.4rem 1.4rem;
+  border: 1px solid var(--line); border-top: 3px solid var(--history); border-radius: 0; background: var(--surface); color: var(--ink); }
+.tc-sheet::backdrop { background: rgb(0 0 0 / .35); }
+.tc-sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.tc-sheet-head h2 { font: 500 1.35rem/1.2 var(--serif); }
+.tc-sheet-x { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line) !important; }
+.tc-sheet-x:hover, .tc-sheet-x:focus-visible { border-color: var(--history) !important; color: var(--history); }
+.tc-sheet-text { margin-top: .7rem; font: 400 1.06rem/1.65 var(--serif); }
+.tc-sheet-src { margin-top: .7rem; font-size: .72rem; color: var(--muted); }
+
+/* Wide screens: the page reads like an annotated text. "Given twice" and the notes of other traditions sit in the
+   margin beside the words they belong to; the figures use the full width. */
+.tc-part::after { content: ""; display: block; clear: both; }
+@media (min-width: 1200px) {
+  .tc-body { max-width: 44rem; }
+  .tc-body > :is(.tc-twice, .tc-other, .tc-open) { float: right; clear: right; width: 21rem; margin: .3rem -24.5rem 1rem 0 !important; }
+  .tc-body > .tc-wide { margin-right: -24.5rem !important; max-width: none; }
+  .tc-body > :is(h3, .tc-ask) { clear: left; }
+}
+
+@media (prefers-reduced-motion: reduce) { .tc-cloud, .tc-road, .tc-wave, .tc-spark { animation: none; } }
+
+/* ── Narrow screens: leave out what does not fit rather than shrink it ── */
+@media (max-width: 900px) {
+  .tc-intro, .tc-frame, .tc-close-grid { grid-template-columns: minmax(0, 1fr); }
+  .tc-hero-art { max-width: 24rem; }
+  .tc-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tc-figures > div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .tc-figures > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .tc-midweek { display: none; }
+  .tc-week-line { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .tc-hero-art { display: none; }
+  .tc-part-head { grid-template-columns: auto minmax(0, 1fr); }
+  .tc-mini-wrap { display: none; }
+  .tc-n { font-size: 2.4rem; }
+  /* the table keeps only the chosen way of counting */
+  .tc-count th[data-col="1"], .tc-count td[data-col="1"] { display: none; }
+  .tc-count:not([data-way="2"]) :is(th, td)[data-col="2"], .tc-count:not([data-way="3"]) :is(th, td)[data-col="3"], .tc-count:not([data-way="4"]) :is(th, td)[data-col="4"] { display: none; }
+  .tc-stones { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .tc-row { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .tc-cell.s2:nth-child(5) { border-left: 0; padding-left: .3rem; }
+  .tc-cell span { display: none; }
+  .tc-week-line, .tc-passage-stones { grid-template-columns: minmax(0, 1fr); }
+  .tc-twice-src { display: block; min-width: 0; }
+}
+@media (max-width: 400px) { .tc-intro h1 { font-size: 2.3rem; } }

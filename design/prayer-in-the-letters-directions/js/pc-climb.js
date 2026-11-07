@@ -1,4 +1,4 @@
-// Section 01. Six prayers as six threads, read upward. Pointing shows the verse on the line beneath; choosing opens it in the sheet.
+// Section 02. Six prayers from the letters as six threads, read upward. Pointing shows the verse on the line beneath; choosing opens it in the sheet.
 (() => {
   if (!window.PCK) return;
   const { h, page, sectionHead, runs } = PCK;
@@ -18,9 +18,9 @@
     h("ol", { class: "pc-thread-list" },
       climb.stations[0].k === "thanks" ? null : h("li", { class: "pc-st pc-st-none" }, h("span", { class: "pc-st-kind" }, kinds.thanks), h("span", { class: "pc-st-words" }, "None in these verses")),
       climb.stations.map(stationView)),
-    h("a", { class: "pc-col-go", href: `?reading=${climb.reading}#readings`, "data-reading": climb.reading }, "Read it whole →"));
+    h("a", { class: "pc-col-go", href: `?part=${climb.part}#part-${climb.part}`, "data-part": climb.part }, `Read it whole in part ${climb.part} →`));
   page.append(h("section", { class: "t-sec pc-climb", id: "climb" },
-    sectionHead("01", "Six prayers.", "None stops at the request.", runs(study.climbLead)),
+    sectionHead("02", "Six prayers in the letters.", "None stops at the request.", runs(study.climbLead)),
     h("ol", { class: "pc-cols", tabindex: "0", "aria-label": "Six prayers, side by side. On a narrow screen, scroll sideways." }, climbs.map(column)),
     h("p", { class: "pc-swipe" }, "Scroll sideways for all six →"),
     line,

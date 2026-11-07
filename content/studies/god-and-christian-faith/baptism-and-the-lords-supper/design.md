@@ -1,0 +1,29 @@
+# Baptism and the Lord's Supper design
+
+Study 59 · Design written with the mock-up · Mock-up only, not on the live site · 2026-11-07
+
+Built: [the mock-up and its record](../../../../design/baptism-and-the-lords-supper-directions/README.md). Open at http://127.0.0.1:8931/mockups/baptism-and-the-lords-supper-directions/ on this PC. Wording: [content.md](content.md). Limits: [passage-notes.md](passage-notes.md). Standard: [STUDY-STANDARD.md](../../../../../Pages/Study/STUDY-STANDARD.md). Run brief: [DESIGN_RUN.md](../../../../../Pages/Topics/StudyPlan/DESIGN_RUN.md).
+
+## Direction
+
+Teach one habit: before you read a passage about baptism or the Supper, ask what the sign points to, and ask what came before it. The shape is the one the study's own motto gives, "Water once. Bread again and again." A believer's life is drawn as one line: it goes under the water once and comes up, then passes the table again and again until it runs out of the page toward "until He comes". Every part is then read with the same two questions. One direction was built, because the text already existed.
+
+## The page
+
+- **Opening.** The standard heading: the study trail, the four concepts in gold capitals (Water · Bread · Cup · What comes first), the title *Baptism and* in ink with *the Lord's Supper* in gold italic, the subtitle, the lead and Matthew 28:19. Beside it, in a faint circle and dotted orbit, a drawing of water with one set of rings spreading from where something went under, and on the right a broken loaf and a cup on a table's edge, with a line of small marks running on past them. The motto beneath: "Water once. Bread again and again. / Signs that point past themselves." No person is drawn. A bar of four true counts, each with what it means.
+- **Seven words.** The study's glossary as a short list of terms joined by fine rules, so the words used later (ordinance, sacrament, covenant) are met once, plainly, before the parts.
+- **00 Two signs, two questions.** The frame paragraph, then the page's own figure: one line across the page, the life of a believer. It dips under a band of water once (buried and raised), then passes a long row of small loaf-and-cup marks that fade toward the right edge, "until He comes". Over the water and over the table stand the two questions, each answered in Scripture's own words: what it points to, and what came before it. Point at an answer to read it; choose it to open the verses. On a phone the line is left out and the two signs stand one above the other, each with its two answers.
+- **01–07, one part at a time.** A chooser in three groups: 01 on its own (both signs), then "The water" (02, 03, 04) and "The table" (05, 06, 07), each group marked by a small wave or loaf. Each part has its numeral, a small drawing from its own verses, the main readings, the title and the hook. The text runs in one reading column; notes sit in a narrow gutter to its left with their label, so the reader can always see whose voice a paragraph is in: "How this site reads it" (a filled mark), "Other Christians" (a hollow mark, with the tradition named in the paragraph), "Left open" (a dashed mark), "With care" (gold) and "Its limits". Consider and Reflect close each part.
+  - **Part 03** carries the study's panel as a river drawn across the page: ten crossings in Acts' order. Above the bank, what the passage names first, in its own words, with a one-word kind (heard, believed, the Lord appeared, the Spirit fell, heart opened); below, the baptism. A household baptism is marked under the water, with Lydia's marked open because Acts says nothing about her household's faith or age. Under it, the study's reading and its care note. On a phone the river is left out and the ten crossings become a numbered list.
+  - **Parts 05 and 06** each add a strip that looks two ways from the meal: back to the death and forward to the kingdom (Mark 14:24–25), and back to "the Lord's death" and forward to "until He comes" (1 Corinthians 11:26).
+  - **Part 07** adds the order of Acts 2:41–42 drawn as four words on one rule: embraced the message, baptized, added, the breaking of bread.
+- **Close.** The way of reading, the invitation, the question, "Read the passage again before you answer", and 1 Corinthians 11:23–26 printed in full beside them, with a smaller drawing of the water and the table. Then the sources and a back link.
+- **Every reference** opens its verses, in the Berean, in a sheet that slides in from the right. Escape closes it and returns to the link.
+
+## Colour
+
+The Gospels and Acts violet. Both commands come from Jesus in the Gospels (Matthew 28, Mark 14), and the panel at the centre of the page reads Acts. The site's gold marks the care notes. Water and table are told apart by shape and words (a wave, a loaf), never by colour alone.
+
+## Doctrine and care
+
+The site's voice follows article VII of the Baptist Faith and Message 2000: two ordinances, believer's baptism by immersion as obedience and testimony, not as what saves, and the Supper as a symbolic act that memorializes and anticipates, with baptism coming before it. Roman Catholic, Orthodox, Lutheran and Reformed teaching is shown in each tradition's own words and labelled as theirs; the Baptist answer follows from Scripture. Where Baptists differ among themselves (closed and close communion; remembrance alone or the Lord's nearness to those who come in faith), both are shown and the page does not choose. The Passover is described first in Jewish terms; the Christian reading of it is labelled as one, and no guilt for Jesus' death is laid on the Jewish people. The jailer's story carries the study's crisis lines in the main column, never in the gutter. 1 Corinthians 11:30 carries the study's note that illness is not to be read as punishment. See [passage-notes.md](passage-notes.md) for the rest.

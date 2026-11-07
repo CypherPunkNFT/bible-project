@@ -1,34 +1,35 @@
-// The heading, the drawing with its slow motes of light, the figures and the statement of what this page chose.
+// The heading, the drawing with its slow light along the chain, the figures, what this page chose and the two words.
 (() => {
   if (!window.BWK) return;
-  const { h, art, runs, plain, refLink, page, reducedMotion } = BWK;
-  const { study, numbers } = window.BW;
-  const motto = plain(study.motto).split(" / ");
+  const { h, art, runs, refLink, quoteView, page, reducedMotion } = BWK;
+  const { study, numbers, passages, chainRange, rings } = window.BW;
+  const [title, turn] = study.title.split(": ");
   const pauseButton = h("button", { type: "button", class: "bw-pause", "aria-pressed": "false" }, "Pause the moving light");
   const stage = h("div", { class: "bw-stage" }, art(BWArt.hero));
+  const chainLabel = passages[chainRange].label;
   const figures = [
-    ["Readings", numbers.readings, `From ${numbers.letters} letters, following the order of Colossians 4.`],
-    ["Verses walked", numbers.verses, "The passages the readings set you to read, each verse counted once."],
-    ["Phrases sorted", numbers.speaker + numbers.other + numbers.god, `Across ${numbers.rows} passages. The words are checked; the sorting is this study’s judgment.`],
-    ["Open doors listed", numbers.doors, "Not one door. One is only asked for, and two name no opener."],
+    ["Passages walked", numbers.parts, "Each chosen because it answers a different question about telling others."],
+    ["Verses read", numbers.versesWalked, "The main readings of the passages, each verse counted once."],
+    ["Links in the chain", numbers.links, `${chainLabel}: from being sent to calling on the Lord.`],
+    ["Questions readers ask", numbers.questions, "Answered after the passages, with the views that differ."],
   ];
   page.append(h("section", { class: "t-sec-landing bw-hero", id: "top" },
     h("div", { class: "hc-intro bw-intro" },
       h("div", {},
-        h("nav", { class: "bw-trail", "aria-label": "Study trail" }, h("a", { href: "/study" }, "Study"), h("span", { "aria-hidden": "true" }, "/"), h("a", { href: "/study/theology?area=life" }, "Living the Christian Life"), h("span", { "aria-hidden": "true" }, "/"), h("span", { class: "bw-here" }, study.title)),
-        h("p", { class: "bw-concepts" }, plain(study.concepts)),
-        h("h1", {}, "Bearing", h("em", {}, "witness")),
-        h("p", { class: "hc-lede" }, runs(study.lead)),
-        h("figure", { class: "bw-opening" },
-          h("blockquote", {}, study.opening.t),
-          h("figcaption", {}, refLink(study.opening.r, study.opening.label), " · Berean Standard Bible"))),
+        h("nav", { class: "bw-trail", "aria-label": "Study trail" }, h("a", { href: "/study" }, "Study"), h("span", { "aria-hidden": "true" }, "/"), h("a", { href: "/study/theology?area=life" }, "Living the Christian Life"), h("span", { "aria-hidden": "true" }, "/"), h("span", { class: "bw-here" }, title)),
+        h("p", { class: "bw-concepts" }, study.concepts.join(" · ")),
+        h("h1", {}, `${title}:`, h("em", {}, turn)),
+        h("p", { class: "hc-lede" }, runs(study.lead.runs)),
+        h("div", { class: "bw-opening" }, quoteView(study.verse))),
       h("figure", { class: "bw-hero-art" }, stage,
         h("figcaption", {},
-          h("span", { class: "bw-motto" }, motto[0], h("br"), h("span", {}, motto[1])),
-          h("span", { class: "bw-art-note" }, "Illustrative forms: a door standing ajar (", refLink("COL.4.3", "Colossians 4:3"), ") and a chain hanging beside it (", refLink("EPH.6.20", "Ephesians 6:20"), "). No person is drawn."),
+          h("span", { class: "bw-motto" }, study.motto[0], h("br"), h("span", {}, study.motto[1])),
+          h("span", { class: "bw-art-note" }, "Illustrative forms: a city on a hill with three rings around it (", refLink(rings.r, passages[rings.r].label), "), a chain of five links reaching across them (", refLink(chainRange, chainLabel), "), and a shoot at the far edge (", refLink(study.verse.r, study.verse.label), "). No person is drawn."),
           pauseButton))),
     h("dl", { class: "bw-figures" }, figures.map(([label, value, note]) => h("div", {}, h("dt", {}, label), h("dd", {}, String(value)), h("small", {}, note)))),
-    h("p", { class: "bw-selection" }, runs(study.selection))));
+    h("div", { class: "bw-chosen" },
+      h("p", { class: "bw-selection" }, runs(study.selection.runs)),
+      h("p", { class: "bw-words" }, runs(study.words.runs)))));
 
   let paused = false, visible = true;
   const update = () => {

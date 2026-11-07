@@ -1,14 +1,14 @@
-// Prayer in the letters: shared pieces. All text goes in as text nodes; the only markup strings are the fixed drawings in art.js
+// Prayer across Scripture: shared pieces. All text goes in as text nodes; the only markup strings are the fixed drawings in art.js
 // and the site's icons. Values read from the address are looked up in Maps built from data.js, so an unknown value is ignored.
 window.PCK = (() => {
-  const EXPECTED_SCHEMA = 1;
+  const EXPECTED_SCHEMA = 2;
   function stop(message, detail) {
     const notice = document.createElement("p");
     notice.setAttribute("role", "alert");
     notice.style.cssText = "padding:2rem;font:1rem Georgia,serif";
     notice.textContent = message;
     document.body.prepend(notice);
-    console.error(`Prayer in the letters: ${detail}`);
+    console.error(`Prayer across Scripture: ${detail}`);
   }
   if (!window.PC || window.PC.schema !== EXPECTED_SCHEMA) {
     stop("This mock-up has no usable study data. Run build-data.py in this folder, then reload.", `window.PC is missing or has schema ${window.PC?.schema}, expected ${EXPECTED_SCHEMA}`);
@@ -20,19 +20,21 @@ window.PCK = (() => {
   }
   addEventListener("error", (event) => stop("Part of this page failed to draw. Reload it; if this stays, the rest of the page may be incomplete.", event.message));
   const { study, passages, sources } = window.PC;
-  const readings = new Map(study.readings.map((r) => [r.slug, r]));
+  const parts = new Map(study.parts.map((p) => [p.n, p]));
   const questions = new Map(study.questions.map((q) => [q.id, q]));
   const passageIds = new Map(Object.entries(passages));
   const sourceIds = new Map(sources.map((s) => [s.id, s]));
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
-  const DEFAULTS = { reading: study.readings[0].slug };
+  const DEFAULTS = { part: study.parts[0].n };
   const SHEET_KEYS = ["question", "sheet"]; // the one list of what the sheet can hold
 
+  const SAFE_HREF = /^(\?(sheet|part)=[A-Za-z0-9.-]+(#[a-z0-9-]+)?|\/(mockups|study|read\/bsb)(\/[A-Za-z0-9/?=&.-]*)?)$/; // links stay on this site
   function h(tag, props = {}, ...children) {
     const element = document.createElement(tag);
     for (const [key, value] of Object.entries(props)) {
       if (value === undefined || value === null || value === false) continue;
       if (key === "class") element.className = value;
+      else if (key === "href" && !SAFE_HREF.test(value)) console.error(`Prayer across Scripture: refused a link to ${value}`);
       else if (key.startsWith("on")) element.addEventListener(key.slice(2), value);
       else element.setAttribute(key, value === true ? "" : value);
     }
@@ -46,19 +48,31 @@ window.PCK = (() => {
     return holder;
   }
   const refLink = (id, text) => h("a", { class: "pc-ref", href: `?sheet=${id}`, "data-sheet": id }, text);
-  const runs = (list) => list.map((run) => (typeof run === "string" ? run : refLink(run.r, run.t)));
-  const plain = (list) => list.map((run) => (typeof run === "string" ? run : run.t)).join("");
+  // One run of the study's prose: text, a verse, a study page, a study named with no page yet, a term, a note still to check, or a source label.
+  const runView = (run) => {
+    if (typeof run === "string") return run;
+    if (run.r) return refLink(run.r, run.t);
+    if (run.s) return h("a", { class: "pc-study", href: run.s }, run.t);
+    if (run.n) return h("cite", { class: "pc-study-name", title: "No page for this study yet" }, run.n);
+    if (run.i) return h("em", {}, run.i);
+    if (run.b) return h("strong", {}, run.b);
+    if (run.c) return h("span", { class: "pc-check" }, `to check: ${run.c}`);
+    if (run.src) return h("span", { class: "pc-src" }, sourceIds.get(run.src)?.short ?? run.src);
+    return "";
+  };
+  const runs = (list) => list.map(runView);
+  const plain = (list) => list.map((run) => (typeof run === "string" ? run : run.t ?? run.i ?? run.n ?? run.b ?? "")).join("");
 
   function readAddress() {
     const params = new URLSearchParams(location.search);
     const sheet = (params.get("sheet") ?? "").replaceAll("–", "-");
     const question = params.get("question");
-    const reading = params.get("reading");
-    return { reading: readings.has(reading) ? reading : DEFAULTS.reading, question: questions.has(question) ? question : null, sheet: passageIds.has(sheet) ? sheet : null };
+    const part = params.get("part");
+    return { part: parts.has(part) ? part : DEFAULTS.part, question: questions.has(question) ? question : null, sheet: passageIds.has(sheet) ? sheet : null };
   }
   function addressFor(view) {
     const params = new URLSearchParams();
-    if (view.reading !== DEFAULTS.reading) params.set("reading", view.reading);
+    if (view.part !== DEFAULTS.part) params.set("part", view.part);
     for (const name of SHEET_KEYS) if (view[name]) params.set(name, view[name]);
     const query = params.toString();
     return `${location.pathname}${query ? `?${query}` : ""}`;
@@ -69,7 +83,7 @@ window.PCK = (() => {
   const nav = [["/bible", "Bible", "book"], ["/study", "Study", "graduation"], ["/apologetics", "Apologetics", "shield"], ["/teachers", "Teachers", "feather"], ["/resources", "Resources", "library"]];
   Frame.header = () => {
     const original = header();
-    if (!original.includes("Bible Project")) console.error("Prayer in the letters: the site name was not found in the shared header");
+    if (!original.includes("Bible Project")) console.error("Prayer across Scripture: the site name was not found in the shared header");
     return original
       .replace(/<nav class="nav"[\s\S]*?<span class="sep"/, `<nav class="nav" aria-label="Main">${nav.map(([to, label, i]) => `<a href="${to}" class="${label === "Study" ? "active" : ""}">${icon(i, 16)}<span>${label}</span></a>`).join("")}<span class="sep"`)
       .replaceAll("Bible Project", "Bible Guide").replaceAll("../../letters-shared/", "../letters-shared/");
@@ -86,11 +100,11 @@ window.PCK = (() => {
   const FLAG_LABELS = { care: "Care", open: "Left open", read: "This study reads" };
   const flagLabel = (block) => FLAG_LABELS[block.k] ?? sourceIds.get(block.src)?.short ?? block.src;
   const blockView = (block) => {
-    if (block.k === "p") return h("p", {}, runs(block.runs));
+    if (block.k === "p") return h("p", { class: "pc-prose" }, runs(block.runs));
     if (block.k === "quote") return h("figure", { class: "pc-quote" }, h("blockquote", {}, block.t), h("figcaption", {}, refLink(block.r, block.label), " · Berean Standard Bible"));
     return h("div", { class: `pc-flag pc-flag-${block.k}` }, h("p", { class: "pc-flag-label" }, flagLabel(block)), h("p", {}, runs(block.runs)));
   };
-  const partView = (part) => h("section", { class: "pc-part" }, h("h4", {}, part.title), part.blocks.map(blockView));
+  const partView = (sub) => h("section", { class: "pc-part" }, h("h4", {}, sub.title), sub.blocks.map(blockView));
   const passageText = (id) => {
     const p = passages[id];
     let chapter = null;
@@ -121,7 +135,8 @@ window.PCK = (() => {
     return mark;
   }
 
-  const kit = { h, art, refLink, runs, plain, page, sectionHead, blockView, partView, passageText, roving, readings, questions, reducedMotion, state: readAddress(), syncers: [] };
+  const kit = { h, art, refLink, runs, plain, page, sectionHead, blockView, partView, passageText, roving, parts, questions, reducedMotion, state: readAddress(), syncers: [] };
+  history.replaceState(history.state, "", addressFor(kit.state)); // an old or unknown value in the address is dropped, not kept
   kit.setView = (changes) => {
     kit.state = { ...kit.state, ...changes };
     history.replaceState(history.state, "", addressFor(kit.state)); // a change of view is not a Back-button step; only the sheet is
@@ -141,7 +156,7 @@ window.PCK = (() => {
   function drawPassage(id, fromQuestion) {
     const p = passages[id];
     sheetBody.replaceChildren(...[
-      fromQuestion ? h("button", { type: "button", class: "pc-back", onclick: () => backToQuestion() }, `← ${questions.get(fromQuestion).title}`) : null,
+      fromQuestion ? h("button", { type: "button", class: "pc-back", onclick: () => backToQuestion() }, `← ${plain(questions.get(fromQuestion).title)}`) : null,
       h("p", { class: "pc-small" }, "Scripture · Berean Standard Bible"),
       h("h3", { tabindex: "-1" }, p.label), passageText(id),
       h("p", { class: "pc-sheet-links" }, p.chapters.map((c) => h("a", { href: `/read/bsb/${p.code}/${c}` }, `Open ${p.label.replace(/ \d+:.*/, "")} ${c} in the reader →`))),
@@ -190,7 +205,7 @@ window.PCK = (() => {
   }
   kit.openQuestion = (id, opener) => {
     if (questions.has(id)) openInSheet({ question: id, sheet: null }, opener);
-    else console.error(`Prayer in the letters: unknown question ${id}`);
+    else console.error(`Prayer across Scripture: unknown question ${id}`);
   };
   kit.startSheet = () => {
     document.addEventListener("click", (event) => {
@@ -198,7 +213,7 @@ window.PCK = (() => {
       if (trigger) {
         event.preventDefault();
         if (passageIds.has(trigger.dataset.sheet)) openInSheet({ sheet: trigger.dataset.sheet }, trigger);
-        else console.error(`Prayer in the letters: unknown passage ${trigger.dataset.sheet}`);
+        else console.error(`Prayer across Scripture: unknown passage ${trigger.dataset.sheet}`);
         return;
       }
       // composedPath: the back button is gone from the sheet by now, and must still count as a click inside it

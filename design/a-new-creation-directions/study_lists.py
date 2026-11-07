@@ -1,69 +1,34 @@
-"""The lists behind the A new creation mock-up. build-data.py checks every phrase here against its verse, as whole words."""
+"""The lists behind the A new creation mock-up. build-data.py checks every phrase here against its verse, as whole words,
+and fails if an entry is never used."""
 
-QUOTED_CONFESSION = {
-    "a work of God's grace whereby believers become new creatures in Christ Jesus",
-    "believers",
-    "become new creatures",
-    "Growth in grace should continue throughout the regenerate person's life",
-    "All true believers endure to the end",
-    "will never fall away from the state of grace",
-    "Believers may fall into sin through neglect and temptation",
-    "grieve the Spirit",
-    "an act of obedience",
-    "the believer's death to sin, the burial of the old life, and the resurrection to walk in newness of life",
-    "There is no salvation apart from personal faith in Jesus Christ as Lord",
-}
+# The address of each part (?reading=…), in the text's order. The first two keep the earlier mock-up's addresses.
+PART_SLUGS = ["in-christ", "dead-to-sin", "off-and-on", "truth-and-love", "growing-up", "pressing-on"]
 
-READING_ORDER = ["in-christ", "old-and-new", "words", "forgiveness", "desires", "love"]
-
-# A fold: what the letter says is already so, the letter's own joining word (None if it has none), and what it then tells you to do.
-# (verse, words). `who` says whose act or state the first half is, because it is not always God's.
-READING_FOLDS = [
-    {"id": "in-christ", "done": ("2 Corinthians 5:18", "who reconciled us to Himself"), "join": ("2 Corinthians 5:20", "Therefore"), "now": ("2 Corinthians 5:20", "Be reconciled to God"), "who": "God's act", "span": "2 Corinthians 5:18–20"},
-    {"id": "old-and-new", "done": ("Colossians 3:10", "have put on the new self"), "join": ("Colossians 3:12", "Therefore"), "now": ("Colossians 3:14", "put on love"), "who": "Already done by the readers", "span": "Colossians 3:9–14"},
-    {"id": "words", "done": ("Ephesians 4:25", "we are all members of one another"), "join": ("Ephesians 4:25", "for"), "now": ("Ephesians 4:25", "speak truthfully to his neighbor"), "who": "True of them", "span": "Ephesians 4:25"},
-    {"id": "forgiveness", "done": ("Ephesians 4:32", "in Christ God forgave you"), "join": ("Ephesians 4:32", "just as"), "now": ("Ephesians 4:32", "forgiving each other"), "who": "God's act", "span": "Ephesians 4:32"},
-    {"id": "desires", "done": ("Galatians 5:25", "we live by the Spirit"), "join": ("Galatians 5:25", "Since"), "now": ("Galatians 5:25", "let us walk in step with the Spirit"), "who": "True of them", "span": "Galatians 5:25"},
-    {"id": "love", "done": ("Ephesians 5:2", "Christ loved us and gave Himself up for us"), "join": ("Ephesians 5:2", "just as"), "now": ("Ephesians 5:2", "walk in love"), "who": "Christ's act", "span": "Ephesians 5:2"},
+# One line across the fold for each part: what the letter says is already so, the letter's own joining word (None if it
+# has none) and what it then says to do or to live. (verse, words). `who` says whose act or state the first half is,
+# because it is not always God's. Which place each part turns on is this study's reading, not the text's.
+PART_FOLDS = [
+    {"done": ("2 Corinthians 5:15", "He died for all"), "join": ("2 Corinthians 5:15", "that"), "now": ("2 Corinthians 5:15", "those who live should no longer live for themselves"), "who": "Christ’s act", "span": "2 Corinthians 5:14–15"},
+    {"done": ("Romans 6:10", "He died to sin once for all"), "join": ("Romans 6:11", "So"), "now": ("Romans 6:11", "count yourselves dead to sin"), "who": "Christ’s act, and theirs with Him", "span": "Romans 6:10–11"},
+    {"done": ("Colossians 3:9", "you have taken off the old self"), "join": ("Colossians 3:9", "since"), "now": ("Colossians 3:9", "Do not lie to one another"), "who": "Already done by the readers", "span": "Colossians 3:9–10"},
+    {"done": ("Ephesians 4:32", "in Christ God forgave you"), "join": ("Ephesians 4:32", "just as"), "now": ("Ephesians 4:32", "forgiving each other"), "who": "God’s act", "span": "Ephesians 4:32"},
+    {"done": ("2 Peter 1:3", "His divine power has given us everything we need"), "join": ("2 Peter 1:5", "For this very reason"), "now": ("2 Peter 1:5", "make every effort"), "who": "God’s gift", "span": "2 Peter 1:3–5"},
+    {"done": ("Philippians 3:12", "Christ Jesus took hold of me"), "join": None, "now": ("Philippians 3:12", "I press on"), "who": "Christ’s act", "span": "Philippians 3:12"},
 ]
 
-MORE_FOLDS = [
-    {"id": "died", "done": ("Romans 6:2", "we who died to sin"), "join": ("Romans 6:11", "So"), "now": ("Romans 6:11", "count yourselves dead to sin"), "who": "True of them, with Christ", "span": "Romans 6:2–11"},
-    {"id": "put-to-death", "done": ("Colossians 3:3", "you died"), "join": ("Colossians 3:5", "therefore"), "now": ("Colossians 3:5", "Put to death"), "who": "True of them", "span": "Colossians 3:3–5"},
-    {"id": "raised", "done": ("Colossians 3:1", "you have been raised with Christ"), "join": ("Colossians 3:1", "since"), "now": ("Colossians 3:1", "strive for the things above"), "who": "Done to them", "span": "Colossians 3:1"},
-    {"id": "received", "done": ("Colossians 2:6", "you have received Christ Jesus as Lord"), "join": ("Colossians 2:6", "just as"), "now": ("Colossians 2:6", "continue to walk in Him"), "who": "Already done by the readers", "span": "Colossians 2:6"},
-    {"id": "light", "done": ("Ephesians 5:8", "now you are light in the Lord"), "join": None, "now": ("Ephesians 5:8", "Walk as children of light"), "who": "True of them", "span": "Ephesians 5:8"},
-    {"id": "free", "done": ("Galatians 5:1", "Christ has set us free"), "join": ("Galatians 5:1", "then"), "now": ("Galatians 5:1", "Stand firm"), "who": "Christ's act", "span": "Galatians 5:1"},
-    {"id": "leaven", "done": ("1 Corinthians 5:7", "you really are"), "join": ("1 Corinthians 5:7", "as"), "now": ("1 Corinthians 5:7", "Get rid of the old leaven"), "who": "True of them", "span": "1 Corinthians 5:7"},
-    {"id": "works", "done": ("Philippians 2:13", "it is God who works in you"), "join": ("Philippians 2:13", "For"), "now": ("Philippians 2:12", "continue to work out your salvation"), "who": "God's act", "span": "Philippians 2:12–13"},
+# The six places the text's FoldReads names, in its order. The build reads FoldReads and fails unless each joining verse
+# it names is the joining verse here, in the same order.
+TEXT_FOLDS = [
+    {"done": ("Colossians 3:1", "you have been raised with Christ"), "join": ("Colossians 3:1", "since"), "now": ("Colossians 3:1", "strive for the things above"), "who": "Done to them", "span": "Colossians 3:1"},
+    {"done": ("Romans 6:10", "The death He died, He died to sin once for all"), "join": ("Romans 6:11", "So"), "now": ("Romans 6:11", "count yourselves dead to sin"), "who": "Christ’s act", "span": "Romans 6:10–11"},
+    {"done": ("Romans 12:1", "God’s mercy"), "join": ("Romans 12:1", "on account of"), "now": ("Romans 12:1", "offer your bodies as living sacrifices"), "who": "God’s act", "span": "Romans 12:1"},
+    {"done": ("Ephesians 4:24", "put on the new self, created to be like God"), "join": ("Ephesians 4:25", "Therefore"), "now": ("Ephesians 4:25", "speak truthfully to his neighbor"), "who": "What they were taught they are", "span": "Ephesians 4:24–25"},
+    {"done": ("Colossians 3:12", "the elect of God, holy and beloved"), "join": ("Colossians 3:12", "as"), "now": ("Colossians 3:12", "clothe yourselves"), "who": "God’s choosing", "span": "Colossians 3:12"},
+    {"done": ("2 Peter 1:3", "His divine power has given us everything"), "join": ("2 Peter 1:5", "For this very reason"), "now": ("2 Peter 1:5", "make every effort"), "who": "God’s gift", "span": "2 Peter 1:3–5"},
 ]
 
-# Five letters as lines. `turn` is this study's reading of where the letter turns; James has none.
-LETTERS = [
-    {"name": "Romans", "code": "ROM", "turn": ("Romans 12:1", "Therefore I urge you"), "marks": [("Romans 6:11", "count yourselves dead to sin"), ("Romans 11:20", "Do not be arrogant")], "note": None},
-    {"name": "Galatians", "code": "GAL", "turn": ("Galatians 5:1", "Stand firm, then"), "marks": [("Galatians 4:12", "become like me")], "note": "The mark could also go a little later, at the call to serve in Galatians 5:13."},
-    {"name": "Ephesians", "code": "EPH", "turn": ("Ephesians 4:1", "I urge you to walk in a manner worthy"), "marks": [("Ephesians 2:11", "Therefore remember")], "note": None},
-    {"name": "Colossians", "code": "COL", "turn": ("Colossians 3:1", "Therefore, since you have been raised with Christ"), "marks": [("Colossians 2:6", "continue to walk in Him"), ("Colossians 2:8", "See to it"), ("Colossians 2:16", "let no one judge you")], "note": None},
-    {"name": "James", "code": "JAS", "turn": None, "marks": [("James 1:2", "Consider it pure joy"), ("James 1:18", "He chose to give us birth"), ("James 1:19", "Everyone should be quick to listen")], "note": "No turn is marked. Its first command is in its second verse."},
-]
-
-# Reading 01. Verses that say Behold about something new from God. The build counts every verse in the Berean with both words and compares it with BEHOLD_NEW_COUNT.
-BEHOLDS = [
-    {"ref": "Isaiah 43:19", "words": "Behold, I am about to do something new", "tense": "About to"},
-    {"ref": "Isaiah 65:17", "words": "I will create new heavens and a new earth", "tense": "Will"},
-    {"ref": "2 Corinthians 5:17", "words": "Behold, the new has come!", "tense": "Has come"},
-    {"ref": "Revelation 21:5", "words": "Behold, I make all things new", "tense": "I make"},
-]
-BEHOLD_NEW_COUNT = 10
-
-# Reading 02. Colossians 3's own lists, in its order.
-RAILS = {
-    "off": [("Colossians 3:5", ["sexual immorality", "impurity", "lust", "evil desires", "greed"]), ("Colossians 3:8", ["anger", "rage", "malice", "slander", "filthy language"]), ("Colossians 3:9", ["Do not lie"])],
-    "on": [("Colossians 3:12", ["hearts of compassion", "kindness", "humility", "gentleness", "patience"]), ("Colossians 3:13", ["Bear with one another", "forgive"])],
-    "over": ("Colossians 3:14", "over all these virtues put on love"),
-}
-
-# Reading 03. The four lines in Ephesians 4 that have all three parts: stop, instead, and the reason.
+# The part that carries Ephesians' four lines, and the lines: what to stop, what to do instead, and why.
+LINES_PART = "04"
 FOUR_LINES = [
     {"ref": "Ephesians 4:25", "stop": "put off falsehood", "instead": "speak truthfully to his neighbor", "because": "we are all members of one another"},
     {"ref": "Ephesians 4:28", "stop": "must steal no longer", "instead": "doing good with his own hands", "because": "that he may have something to share with the one in need"},
@@ -71,27 +36,79 @@ FOUR_LINES = [
     {"ref": "Ephesians 4:31–32", "stop": "Get rid of all bitterness, rage and anger", "instead": "Be kind and tenderhearted to one another", "because": "just as in Christ God forgave you"},
 ]
 
-# Section 04. A command, and what its own context says is already so.
-LOOK_BACK = [
-    {"id": "bought", "command": ("1 Corinthians 6:18", "Flee from sexual immorality"), "done": ("1 Corinthians 6:20", "you were bought at a price"), "span": "1 Corinthians 6:18–20",
-     "said": "Two verses on, in the same argument. And the next word is Paul's own: Therefore glorify God with your body."},
-    {"id": "loved", "command": ("1 John 4:11", "we also ought to love one another"), "done": ("1 John 4:11", "God so loved us"), "span": "1 John 4:10–11",
-     "said": "The same verse. The if here is not a doubt, because verse 10 has just said it happened."},
-    {"id": "saved", "command": ("Titus 3:2", "to malign no one"), "done": ("Titus 3:5", "He saved us"), "span": "Titus 3:1–5",
-     "said": "Three verses on. In between, Titus is reminded that we too were once as those he is to be gentle with."},
-]
+# The close says five things God has already done, each with what it means to live. The verse each one rests on, in order.
+CLOSE_PAIR_REFS = ["Romans 6:8–11", "Colossians 3:1–2", "Ephesians 4:32", "2 Peter 1:3–5", "Philippians 3:12"]
+
+# Block quotations that stop at the end of a sentence inside their last verse. The page shows how the verse goes on.
+PARTIAL_BLOCKS = {"Romans 12:18–19"}
+
+# A quotation whose sentence goes on to cite a verse that is not its own. It is checked instead against the verses its
+# paragraph may quote. (words, the reference wrongly beside it): why. Every entry must be used.
+QUOTE_EXCEPTIONS = {
+    ("a foothold", "Ephesians 4:31"): "Ephesians 4:27, the question's own verse; the later reference belongs to the next clause",
+}
+
+# Studies the text names in italics, each a folder under design/. The build fails if a folder has no index.html.
+STUDY_LINKS = {
+    "The cross, the empty tomb and the throne: what Jesus' death and rising did": "what-the-cross-accomplishes-directions",
+    "Saved by grace: how God forgives and changes us": "grace-faith-and-salvation-directions",
+    "The Ten Commandments": "the-ten-commandments-directions",
+    "Every life in God's image": "every-life-in-gods-image-directions",
+    "Fear, anxiety and despair": "fear-anxiety-and-despair-directions",
+    "The Holy Spirit": "the-holy-spirit-directions",
+    "Faith in daily life": "faith-in-daily-life-directions",
+    "Life together: belonging to a church": "life-together-directions",
+    "Learning to discern": "learning-to-discern-directions",
+    "Chosen and kept: can I be sure?": "chosen-and-kept-directions",
+    "The good news: how a person is made right with God": "the-good-news-directions",
+    "The hope to come": "the-hope-to-come-directions",
+    "Baptism and the Lord's Supper: the two things Jesus told His church to do": "baptism-and-the-lords-supper-directions",
+}
+# Every other italic in the text: a book title.
+ITALIC_TERMS = {"Explanatory Notes upon the New Testament"}
+
+# Quoted words that are not Scripture: (source shown on the page, held source key, the part searched). A Baptist Faith and
+# Message phrase is searched only in the article the sentence names; a confession only in its own paragraph.
+BFM4, BFM5, BFM7 = ("Baptist Faith and Message 2000, article IV", "bfm", "IV"), ("Baptist Faith and Message 2000, article V", "bfm", "V"), ("Baptist Faith and Message 2000, article VII", "bfm", "VII")
+OUTSIDE_QUOTES = {
+    "a work of God's grace whereby believers become new creatures in Christ Jesus": BFM4,
+    "become new creatures in Christ Jesus": BFM4,
+    "is enabled to progress toward moral and spiritual maturity through the presence and power of the Holy Spirit dwelling in him": BFM4,
+    "Growth in grace should continue throughout the regenerate person's life": BFM4,
+    "There is no salvation apart from personal faith in Jesus Christ as Lord": BFM4,
+    "All true believers endure to the end": BFM5,
+    "will never fall away from the state of grace": BFM5,
+    "Believers may fall into sin through neglect and temptation, whereby they grieve the Spirit": BFM5,
+    "an act of obedience symbolizing the believer's faith in a crucified, buried, and risen Saviour, the believer's death to sin, the burial of the old life, and the resurrection to walk in newness of life in Christ Jesus": BFM7,
+    "yet imperfect in this life": ("Second London Baptist Confession, chapter 13", "lbc", "13.2"),
+    "a sign of his fellowship with him, in his death and resurrection": ("Second London Baptist Confession, chapter 29", "lbc", "29.1"),
+    "worketh forgiveness of sins, delivers from death and the devil, and gives everlasting salvation to all who believe": ("Luther's Small Catechism, on baptism", "luther", "47"),
+}
+# Held sources, relative to the BibleProject folder. "bfm" is a text file whose articles start "X. Title"; the creeds are
+# the site's JSON, one section per paragraph.
+HELD = {
+    "bfm": {"path": "Website/content/questions/sources/raw/baptist-know-the-truth-catechism/catechism-bfm-2000.txt", "kind": "bfm"},
+    "lbc": {"path": "Website/data/creeds/doc/1689-london-baptist-confession-1677.b1.json", "kind": "creed"},
+    "luther": {"path": "Website/data/creeds/doc/luthers-small-catechism-1529.b1.json", "kind": "creed"},
+}
+
+# Quoted words that are not in any verse their paragraph may quote: the text's own terms or another wording, keyed by
+# part number, question id, "top" or "close". Every entry must be used.
+OWN_TERMS = {
+    ("top", "since"): "a joining word the study names, in lower case",
+    ("top", "for this very reason"): "a joining word the study names, in lower case",
+    ("01", "try to be new"): "what the hook says Paul does not say",
+    ("new", "there is a new creation"): "the wording of some other translations, not the Berean",
+}
+
+# What each [source:…] note is labelled on the page.
+SOURCE_LABELS = {"calvin-rom12": "Calvin", "calvin-eph": "Calvin", "lbc": "Second London Confession", "luther": "Luther’s Small Catechism"}
 
 SOURCES = [
-    {"id": "bsb", "short": "Berean", "name": "Berean Standard Bible", "href": "https://berean.bible/", "note": "Every verse quoted and opened. Public domain."},
-    {"id": "bfm", "short": "Baptist Faith and Message", "name": "The Baptist Faith and Message 2000, Articles 4, 5 and 7", "href": "https://bfm.sbc.net/bfm2000/", "note": "Short phrases, with a link. Compared on 2026-10-30 through a web tool that returns extracts. Those not in this site's doctrinal foundation file are not checked by script."},
-    {"id": "lbc", "short": "Second London Confession", "name": "Second London Baptist Confession (1677), chapter 13 paragraph 2 and chapter 29 paragraph 1", "href": "/study/creeds/1689-london-baptist-confession-1677", "note": "Short quotations. Read: those paragraphs, in the site's creeds collection."},
-    {"id": "boyce", "short": "Boyce", "name": "James P. Boyce, Abstract of Systematic Theology, the passage on progressive sanctification", "href": "https://www.ccel.org/ccel/boyce/theology.html", "note": "Short quotations. Read: that passage only. Public domain."},
-    {"id": "calvin-2co", "short": "Calvin", "name": "John Calvin, Commentary on Corinthians, volume 2, on 2 Corinthians 5:17", "href": "https://www.ccel.org/ccel/calvin/calcom40.html", "note": "Short quotations. Read: that comment and the next. Public domain. Reformed, not Baptist."},
-    {"id": "calvin-rom", "short": "Calvin", "name": "John Calvin, Commentary on Romans, on Romans 7:14–15 and 12:1", "href": "https://www.ccel.org/ccel/calvin/calcom38.html", "note": "Short quotations. Read: those comments only. Public domain."},
-    {"id": "calvin-gal", "short": "Calvin", "name": "John Calvin, Commentary on Galatians and Ephesians, on Galatians 5:21", "href": "https://www.ccel.org/ccel/calvin/calcom41.html", "note": "One short quotation. Read: that comment only. Public domain."},
-    {"id": "calvin-eph", "short": "Calvin", "name": "John Calvin, the same volume, on Ephesians 4:26", "href": "https://www.ccel.org/ccel/calvin/calcom41.html", "note": "Short quotations. Read: that comment only. Public domain."},
-    {"id": "jfb", "short": "Jamieson, Fausset and Brown", "name": "Jamieson, Fausset and Brown, Commentary Critical and Explanatory, on 2 Corinthians 5:17 and Ephesians 4:26", "href": "https://www.ccel.org/ccel/jamieson/jfb.html", "note": "Short quotations. Read: those notes only. Public domain."},
-    {"id": "wesley", "short": "Wesley", "name": "John Wesley, Explanatory Notes upon the New Testament, on Romans 7:14", "href": "https://www.ccel.org/ccel/wesley/notes.html", "note": "One short quotation. Read: that note only. Public domain. Methodist, not Baptist."},
-    {"id": "methodist", "short": "Methodist Articles", "name": "Methodist Articles of Religion (1784), article 12", "href": "/study/creeds/methodist-articles-of-religion-1784", "note": "One short quotation, shown as their teaching. Read: that article, in the site's creeds collection."},
-    {"id": "luther", "short": "Luther's Small Catechism", "name": "Luther's Small Catechism (1529), on baptism", "href": "/study/creeds/luthers-small-catechism-1529", "note": "One short quotation, shown as their teaching. Read: that part, in the site's creeds collection."},
+    {"name": "Berean Standard Bible", "href": "https://berean.bible/", "note": "Every verse quoted and opened, and every quoted phrase, checked by script against the site’s copy. Public domain."},
+    {"name": "The Baptist Faith and Message 2000, articles IV, V and VII", "href": "https://bfm.sbc.net/bfm2000/", "note": "Quoted in phrases. Each is found by script in the article the sentence names, in the copy held on this PC. The site’s doctrinal standard."},
+    {"name": "Second London Baptist Confession (1677), chapter 13 paragraph 2 and chapter 29 paragraph 1", "href": "/study/creeds/1689-london-baptist-confession-1677", "note": "Two short quotations, each found by script in its own paragraph of the site’s copy. Punctuation is not compared: the held copy has a comma after “death” that the study leaves out."},
+    {"name": "Luther’s Small Catechism (1529), on baptism", "href": "/study/creeds/luthers-small-catechism-1529", "note": "One short quotation, shown as Lutheran teaching, found by script in its own answer in the site’s copy."},
+    {"name": "John Calvin, Commentary on Romans and Commentary on Ephesians", "href": "https://www.ccel.org/ccel/calvin/calcom38.html", "note": "Described, not quoted, on Romans 7, Romans 12:1 and Ephesians 4:26. Not checked by script; each place is marked to check."},
+    {"name": "John Wesley, Explanatory Notes upon the New Testament", "href": "https://www.ccel.org/ccel/wesley/notes.html", "note": "Described, not quoted, on Romans 7. Not checked by script; marked to check."},
 ]

@@ -1,0 +1,182 @@
+/* Fear, anxiety and despair: the parts, their figures, the questions, the close, the verse sheet and narrow screens.
+   Loaded after fad.css, which holds the tokens, the help band, the heading and section 00. */
+
+/* ── The parts: a head, the cry and the answer joined, then one reading column on a thin thread ── */
+.fad-part-head { display: grid; grid-template-columns: auto minmax(0, 1fr) 7rem; gap: 1.4rem; align-items: center; }
+.fad-n { font: 400 4rem/1 var(--serif); letter-spacing: -.03em; color: var(--tone); }
+.fad-part-titles h2 { font: 500 clamp(1.6rem, 3vw, 2.2rem)/1.15 var(--serif); }
+.fad-part-titles h2 em { font-weight: 400; color: var(--accent); }
+.fad-readings { margin-top: .5rem; font-size: .84rem; }
+.fad-readings .fad-label { display: inline; margin-right: .4rem; }
+.fad-mini-wrap { color: var(--muted); }
+.fad-pair { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 1rem; align-items: center; margin-top: 1.3rem; padding-block: .9rem; border-block: 1px dotted var(--line); }
+.fad-hook { font: italic 400 1.1rem/1.45 var(--serif); color: var(--muted); }
+.fad-line { font: 400 1.1rem/1.45 var(--serif); }
+.fad-keep { position: relative; padding: 0 2.2rem; font: 600 .56rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone); white-space: nowrap; }
+.fad-keep::before, .fad-keep::after { content: ""; position: absolute; top: 50%; width: 1.7rem; border-top: 1px solid var(--tone); }
+.fad-keep::before { left: 0; border-top-style: dotted; }
+.fad-keep::after { right: 0; }
+.fad-body { position: relative; max-width: 46rem; margin: 1.4rem 0 0 5.2rem; padding-left: 1.4rem; border-left: 1px solid color-mix(in srgb, var(--tone) 30%, transparent); }
+.fad-body > p, .fad-answer > p { margin-top: .9rem; font-size: 1rem; line-height: 1.75; }
+.fad-setting { margin-top: 0 !important; font-size: .94rem; color: var(--muted); }
+.fad-setting .fad-label { margin-bottom: .2rem; }
+.fad-sub { position: relative; margin-top: 1.8rem; font: 500 1.25rem/1.3 var(--serif); }
+.fad-sub::before { content: ""; position: absolute; left: calc(-1.4rem - 5px); top: .45em; width: 9px; height: 9px; border-radius: 50%; background: var(--page); border: 1.5px solid var(--tone); }
+.fad-quote { margin: 1rem 0; padding-left: 1rem; border-left: 2px solid var(--tone); }
+.fad-quote blockquote { margin: 0; font: 400 1.08rem/1.6 var(--serif); }
+.fad-quote figcaption { margin-top: .3rem; font-size: .74rem; color: var(--muted); }
+.fad-note { margin-top: 1.1rem; padding: .2rem 0 .2rem .9rem; border-left: 2px solid var(--tone); }
+.fad-note p { margin-top: .25rem; font-size: .92rem; line-height: 1.7; }
+.fad-note.is-care { border-left-color: var(--accent); }
+.fad-note.is-care .fad-label { color: var(--accent); }
+.fad-note.is-limit { border-left-style: dashed; border-left-color: var(--muted); }
+.fad-note.is-limit .fad-label, .fad-note.is-source .fad-label { color: var(--muted); }
+.fad-note.is-source { border-left-color: var(--line); }
+.fad-askback { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem; max-width: 52rem; margin: 1.6rem 0 0 5.2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.fad-askback dt { font: 600 .62rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.fad-askback dd { margin: .3rem 0 0; font: 400 1rem/1.6 var(--serif); }
+
+/* ── Figures inside the parts: they reach out of the reading column ── */
+.fad-fig { margin: 1.6rem 0 1.4rem; width: min(64rem, calc(100vw - 12rem)); padding: 1rem 0; border-block: 1px solid var(--line); }
+.fad-match-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin-top: .9rem; font: 400 .98rem/1.6 var(--serif); }
+.fad-match-row > p .fad-label { margin-bottom: .2rem; }
+.fad-mark, .fad-trust { background: none; color: inherit; border-bottom: 2px solid color-mix(in srgb, var(--tone) 45%, transparent); }
+.fad-mark.is-lit { background: color-mix(in srgb, var(--accent) 18%, transparent); border-bottom-color: var(--accent); }
+.fad-match-pairs { display: flex; flex-direction: column; justify-content: center; gap: .6rem; }
+.fad-match-pairs li { display: grid; grid-template-columns: minmax(0, 1fr) 2rem minmax(0, 1fr); align-items: center; gap: .4rem; padding: .35rem .5rem; border-left: 2px solid transparent; font-size: .86rem; cursor: default; }
+.fad-match-pairs li:hover, .fad-match-pairs li:focus-visible { border-left-color: var(--accent); background: color-mix(in srgb, var(--accent) 7%, transparent); }
+.fad-match-pairs li span:first-child { color: var(--muted); font-style: italic; text-align: right; }
+.fad-match-pairs li i { border-top: 1px solid var(--accent); }
+.fad-care-road { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.4rem 1rem; margin-top: 1.2rem !important; }
+.fad-care-road li { position: relative; display: flex; flex-direction: column; gap: .2rem; padding-top: 1rem; border-top: 1px dashed color-mix(in srgb, var(--tone) 60%, transparent); font-size: .86rem; line-height: 1.45; }
+.fad-care-road li::before { content: ""; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--page); border: 1.5px solid var(--tone); }
+.fad-care-road li.is-body::before { background: var(--tone); }
+.fad-care-road b { font: 500 .7rem var(--sans); color: var(--muted); }
+.fad-care-name { font: 500 1.02rem var(--serif); }
+.fad-care-road q { font-family: var(--serif); font-style: italic; color: var(--muted); }
+.fad-swing-row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); margin-top: 1rem !important; border-bottom: 1px solid var(--line); }
+.fad-swing-row li { display: flex; flex-direction: column; justify-content: flex-end; gap: .3rem; min-height: 5.6rem; padding: 0 .3rem .4rem; border-left: 1px solid var(--line); font-size: .7rem; color: var(--muted); }
+.fad-swing-row li span { font: 500 .9rem var(--serif); }
+.fad-swing-row li.is-q { color: var(--ink); cursor: default; border-left: 2px solid var(--tone); }
+.fad-swing-row li.is-q:hover, .fad-swing-row li.is-q:focus-visible { background: color-mix(in srgb, var(--tone) 8%, transparent); }
+.fad-swing-row li.is-praise { border-left-color: var(--accent); }
+.fad-swing-row li.is-curse { border-left: 2px dashed var(--muted); }
+.fad-swing-row small { font-size: .66rem; line-height: 1.3; }
+.fad-swing-read { min-height: 2.6rem; margin-top: .7rem; font: 400 .98rem/1.6 var(--serif); }
+.fad-swing-read b { margin-right: .4rem; font: 600 .6rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--tone); }
+.fad-mini-text { margin-top: .9rem; columns: 2 22rem; column-gap: 2rem; font: 400 .74rem/1.55 var(--serif); color: var(--muted); }
+.fad-mini-text sup { font-size: .6rem; }
+.fad-mini-text .is-refrain { color: var(--ink); font-size: .86rem; font-weight: 500; }
+.fad-mini-text .is-refrain sup { color: var(--tone); }
+.fad-mini-text .fad-trust { color: var(--ink); border-bottom-color: var(--accent); }
+.fad-mini-text .is-last { color: var(--ink); font-style: italic; }
+.fad-though-row { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 2rem; margin-top: .9rem; }
+.fad-though-lead { font: 500 1.1rem var(--serif); }
+.fad-though-row ul { margin: .4rem 0 .4rem 1rem !important; }
+.fad-though-row li { padding: .2rem 0; font: italic 400 .98rem var(--serif); color: var(--muted); }
+.fad-though-row li::before { content: "though "; font-style: normal; font-size: .72rem; letter-spacing: .06em; color: var(--muted); }
+.fad-though-refrain { display: flex; flex-direction: column; justify-content: center; gap: .3rem; padding-left: 1.2rem; border-left: 2px solid var(--accent); font: 500 1.15rem/1.4 var(--serif); }
+.fad-though-refrain > span { font: 400 .8rem var(--sans); }
+.fad-afraid { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: 1rem; padding-top: .8rem; border-top: 1px dotted var(--line); font: 400 1.1rem var(--serif); }
+.fad-afraid .is-fear { font-style: italic; color: var(--muted); }
+.fad-afraid i { width: 2.4rem; border-top: 1px solid var(--accent); }
+.fad-reason-list { margin-top: .9rem !important; }
+.fad-reason-list li { display: grid; grid-template-columns: 11rem minmax(0, 1fr) auto; gap: 1rem; align-items: baseline; padding: .55rem 0; border-bottom: 1px solid var(--line); }
+.fad-command { font: italic 400 1rem var(--serif); color: var(--muted); }
+.fad-reason { font: 500 1.12rem var(--serif); }
+.fad-when { margin-top: .9rem; font: 400 1rem/1.6 var(--serif); }
+
+/* ── Questions readers bring: one stem, each question a branch ── */
+.fad-qs { position: relative; max-width: 52rem; margin: 1.4rem 0 0 5.2rem; padding-left: 1.4rem; border-left: 1px solid color-mix(in srgb, var(--tone) 40%, transparent); }
+.fad-qs details { position: relative; padding: .7rem 0; }
+.fad-qs summary { position: relative; list-style: none; cursor: pointer; font: 500 1.2rem/1.35 var(--serif); }
+.fad-qs summary::-webkit-details-marker { display: none; }
+.fad-qs summary::before { content: ""; position: absolute; left: -1.4rem; top: .7em; width: 1rem; border-top: 1px solid var(--tone); }
+.fad-qs summary:hover, .fad-qs summary:focus-visible, .fad-qs details[open] summary { color: var(--tone); }
+.fad-answer { padding-bottom: .4rem; }
+
+/* ── Close ── */
+.fad-close-art { float: right; width: min(26rem, 40%); margin: 0 0 1rem 2rem; color: var(--muted); }
+.fad-sources { clear: both; }
+.fad-way { max-width: 72ch; margin-top: 1.2rem; font: 400 1.06rem/1.75 var(--serif); }
+.fad-recap { display: flex; flex-wrap: wrap; gap: .5rem 1.6rem; margin-top: 1rem !important; font-size: .8rem; }
+.fad-recap li { display: flex; gap: .4rem; align-items: baseline; padding-top: .3rem; border-top: 1px solid var(--accent); }
+.fad-recap li.is-open { border-top: 1px dashed var(--muted); }
+.fad-recap b { font: 600 .62rem var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.fad-close-text, .fad-invite, .fad-again { max-width: 72ch; margin-top: 1rem; line-height: 1.75; }
+.fad-close > .fad-quote, .fad-close > .fad-note, .fad-close > p { max-width: 72ch; }
+.fad-question { margin-top: 1.4rem; font: 500 1.3rem/1.45 var(--serif); }
+.fad-question .fad-label { margin-bottom: .3rem; }
+.fad-again { font-style: italic; color: var(--tone); }
+.fad-passage { max-width: 72ch; margin: 1.2rem 0 0; padding-left: 1rem; border-left: 2px solid var(--tone); }
+.fad-passage blockquote { margin: 0; font: 400 .98rem/1.7 var(--serif); }
+.fad-passage sup { font-size: .62rem; color: var(--tone); }
+.fad-passage figcaption { margin-top: .4rem; font-size: .76rem; color: var(--muted); }
+.fad-sources { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .82rem; line-height: 1.6; color: var(--muted); }
+.fad-sources h3 { font: 600 .62rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--ink); }
+.fad-sources li { margin-top: .3rem; }
+.fad-sources b { color: var(--ink); font-weight: 600; }
+.fad-sources details { margin-top: .6rem; }
+.fad-sources summary { cursor: pointer; color: var(--ink); }
+.fad-sources summary:focus-visible { color: var(--tone); }
+.fad-from { font-size: .74rem; }
+.fad-back { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1.6rem; font-size: .86rem; text-decoration: none; color: var(--tone) !important; border-bottom: 1px solid transparent; }
+.fad-back:hover, .fad-back:focus-visible { border-bottom-color: var(--tone); }
+.fad-back svg { width: 16px; height: 16px; }
+
+/* ── The verse sheet, from the right ── */
+.fad-sheet { position: fixed; inset: 0 0 0 auto; margin: 0; width: min(30rem, 100vw); max-width: 100vw; height: 100dvh; max-height: 100dvh; padding: 1.4rem 1.6rem; border: 0; border-left: 1px solid var(--line); background: var(--page); color: var(--ink); overflow-y: auto; }
+.fad-sheet[open] { animation: fad-slide .28s ease-out; }
+.fad-sheet::backdrop { background: color-mix(in srgb, #000 30%, transparent); }
+@keyframes fad-slide { from { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) { .fad-sheet[open] { animation: none; } }
+.fad-sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-bottom: .8rem; border-bottom: 1px solid var(--line); }
+.fad-sheet-head h2 { font: 500 1.4rem var(--serif); }
+.fad-sheet-x { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; color: var(--muted); }
+.fad-sheet-x:hover, .fad-sheet-x:focus-visible { color: var(--ink); background: color-mix(in srgb, var(--poetry) 10%, transparent); }
+.fad-sheet-x svg { width: 18px; height: 18px; }
+.fad-sheet-text { margin-top: 1rem; font: 400 1.05rem/1.75 var(--serif); }
+.fad-sheet-text sup { margin-right: .15rem; font-size: .62rem; color: var(--poetry); }
+.fad-sheet-src { margin-top: 1rem; font-size: .74rem; color: var(--muted); }
+
+/* ── Narrower screens: leave out what does not fit rather than squeezing it ── */
+@media (max-width: 1100px) {
+  .fad-fig { width: auto; }
+  .fad-body, .fad-askback, .fad-qs { margin-left: 0; }
+  .fad-care-road { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .fad-intro { grid-template-columns: 1fr; }
+  .fad-hero-art { max-width: 22rem; margin-inline: auto; }
+  .fad-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fad-figures > div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .fad-lines { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fad-help-more, .fad-reading, .fad-match-row, .fad-though-row, .fad-askback { grid-template-columns: 1fr; }
+  .fad-row { grid-template-columns: 7rem minmax(0, 1fr); grid-template-areas: "who cry" "who track" "who gap" "who next"; gap: .3rem 1rem; }
+  .fad-pair { grid-template-columns: 1fr; gap: .4rem; }
+  .fad-keep { justify-self: start; padding: 0 0 0 2.2rem; }
+  .fad-keep::after { display: none; }
+  .fad-part-head { grid-template-columns: auto minmax(0, 1fr); }
+  .fad-mini-wrap { display: none; }
+  .fad-swing-row { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .fad-swing-row li:not(.is-q) { display: none; }
+  .fad-reason-list li { grid-template-columns: 1fr auto; }
+  .fad-command { grid-column: 1 / -1; }
+}
+@media (max-width: 520px) {
+  .fad-lines { grid-template-columns: 1fr; }
+  .fad-care-road { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem .8rem; }
+  .fad-care-road q { display: none; }
+  .fad-swing-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .fad-row { grid-template-columns: 1fr; grid-template-areas: "who" "cry" "track" "gap" "next"; padding: 1rem 0 1rem .6rem; }
+  .fad-who { padding-left: 0; }
+  .fad-track { --step: .55rem; }
+  .fad-n { font-size: 3rem; }
+  .fad-body { padding-left: 1rem; }
+  .fad-sub::before { left: calc(-1rem - 5px); }
+  .fad-qs { padding-left: 1rem; }
+  .fad-qs summary::before { left: -1rem; width: .7rem; }
+  .fad-mini-text { columns: 1; }
+  .fad-close-art { display: none; }
+  .fad-motto { position: static; margin-top: .4rem; }
+}

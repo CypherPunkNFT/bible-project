@@ -1,0 +1,315 @@
+/* Chosen and kept mock-up. Frame from the Authors mock-ups, hero from the Manuscripts mock-up. The page's own tone is
+   the site's gold; each part takes the colour of the part of the Bible its passage is in (five from the letters, three
+   from the Gospels). Its own shape: every passage is read first for what it was written to do (praise, comfort, warn,
+   answer), shown by a mark and words at the head of each part; the close joins the study's fears to their promises.
+   Words and fine rules, not boxes. No focus ring on a click: a keyboard user gets a colour and an underline instead. */
+.ck-page { --tone: var(--accent); --sec: var(--accent); }
+.ck-part.is-epistles { --sec: var(--epistles); } .ck-part.is-gospels { --sec: var(--gospels); }
+.ck-page button, .ck-sheet button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:where(.ck-page, .ck-sheet) :is(a, button, summary, [tabindex], g):focus { outline: none; }
+:where(.ck-page, .ck-sheet) a { color: inherit; }
+
+.ck-ref { color: var(--sec) !important; font-weight: 500; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--sec) 35%, transparent) !important; }
+.ck-ref:hover, .ck-ref:focus-visible { border-bottom-color: var(--sec) !important; background: color-mix(in srgb, var(--sec) 12%, transparent) !important; }
+.ck-link { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--tone) 45%, transparent); text-underline-offset: 3px; }
+.ck-link:hover, .ck-link:focus-visible { text-decoration-color: var(--tone); color: var(--tone) !important; }
+.ck-study { color: var(--muted); }
+.ck-label { font: 600 .62rem/1.4 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.ck-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.ck-chk { display: inline-block; width: .7rem; height: .7rem; margin: 0 .1rem 0 .25rem; vertical-align: .05em; background: var(--accent); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); cursor: help; }
+.ck-chk:focus-visible { background: var(--ink); }
+
+/* ── Hero ── */
+.ck-intro { align-items: center; padding-block: 1.6rem 1rem; }
+.ck-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
+.ck-trail a { text-decoration: none; border-bottom: 1px solid transparent; }
+.ck-trail a:hover, .ck-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.ck-here { color: var(--ink); }
+.ck-concepts { margin-top: 1rem; font-size: .68rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.ck-intro h1 { margin-block: .55rem .6rem; }
+.ck-opening { margin: 1.1rem 0 0; max-width: 58ch; }
+.ck-opening blockquote { margin: 0; font: 400 1.14rem/1.5 var(--serif); }
+.ck-opening figcaption { margin-top: .35rem; font-size: .76rem; color: var(--muted); }
+.ck-opening .ck-ref { --sec: var(--epistles); }
+.ck-hero-art svg, .ck-close-art svg, .ck-fields-art svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.ck-hero-art .ms-art-note { bottom: -2%; }
+.ck-ring { stroke: currentColor; opacity: .18; fill: color-mix(in srgb, var(--tone) 3%, transparent); }
+.ck-orbit { stroke-dasharray: 2 6; opacity: .35; }
+.ck-faint { opacity: .45; }
+.ck-wall { opacity: .8; }
+.ck-wall ellipse { fill: color-mix(in srgb, var(--tone) 4%, transparent); }
+.ck-joint { stroke-width: 1; }
+.ck-wool { fill: color-mix(in srgb, var(--page) 70%, var(--tone) 6%); }
+.ck-listen { transform-box: fill-box; transform-origin: 70% 60%; animation: ck-listen 9s ease-in-out infinite; }
+.ck-paw { fill: color-mix(in srgb, var(--muted) 70%, transparent); stroke: none; animation: ck-track 12s linear infinite; opacity: .3; }
+.ck-paw-1 { animation-delay: 1s; } .ck-paw-2 { animation-delay: 2s; } .ck-paw-3 { animation-delay: 3s; } .ck-paw-4 { animation-delay: 4s; } .ck-paw-5 { animation-delay: 5s; }
+.ck-spark { fill: var(--accent); stroke: none; opacity: .5; animation: ck-twinkle 8s ease-in-out infinite; }
+.ck-sun { stroke: var(--accent); }
+@keyframes ck-listen { 0%, 100% { transform: rotate(0deg); } 45%, 60% { transform: rotate(-4deg); } }
+@keyframes ck-track { 0%, 100% { opacity: .3; } 15%, 55% { opacity: .95; } }
+@keyframes ck-twinkle { 0%, 100% { opacity: .25; } 50% { opacity: .75; } }
+
+.ck-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1rem 0 0; border-block: 1px solid var(--line); }
+.ck-figures > div { padding: .8rem 1rem; border-left: 1px solid var(--line); min-width: 0; }
+.ck-figures > div:first-child { border-left: 0; padding-left: 0; }
+.ck-figures dt { font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.ck-figures dd { margin: .2rem 0 0; font: 500 1.7rem/1.15 var(--serif); }
+.ck-figures small { display: block; margin-top: .1rem; font-size: .74rem; line-height: 1.4; color: var(--muted); }
+.ck-toc { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 1rem 0 0; font-size: .8rem; color: var(--muted); }
+.ck-toc a { text-decoration: none; border-bottom: 1px solid transparent; padding-block: .3rem; }
+.ck-toc a:hover, .ck-toc a:focus-visible { color: var(--ink); border-bottom-color: var(--tone); }
+.ck-toc b { margin-right: .4rem; font-weight: 600; color: var(--tone); }
+
+/* ── Shared reading ── */
+.ck-frame, .ck-body { max-width: 72ch; font: 400 1.06rem/1.7 var(--serif); }
+.ck-frame > * + *, .ck-body > * + * { margin-top: .9rem; }
+.ck-body em, .ck-frame em { font-style: italic; }
+.ck-h3 { margin-top: 1.8rem !important; font: 600 .72rem/1.3 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--sec); }
+.ck-hook { font: italic 400 1.2rem/1.5 var(--serif); color: var(--muted); }
+.ck-quote { margin-inline: 0; padding: .9rem 0 .2rem 1.1rem; border-left: 2px solid var(--sec); }
+.ck-quote blockquote { margin: 0; font: 400 1.2rem/1.55 var(--serif); }
+.ck-quote figcaption { margin-top: .35rem; font: .76rem var(--sans); color: var(--muted); }
+.ck-p { position: relative; }
+.ck-mark { position: absolute; left: -1.5rem; top: .55rem; width: .62rem; height: .62rem; border-radius: 50%; border: 1.5px solid var(--sec); }
+.ck-p.is-site .ck-mark { background: var(--sec); }
+.ck-p.is-limit .ck-mark { background: linear-gradient(135deg, transparent 44%, var(--sec) 44% 56%, transparent 56%); }
+.ck-p.is-setting .ck-mark { border-radius: 0; width: .8rem; height: 0; border-width: 1.5px 0 0; top: .85rem; }
+.ck-p.is-both { padding-top: .8rem; border-top: 1px solid var(--line); }
+.ck-ul, .ck-ol { margin: .4rem 0 0; padding: 0; list-style: none; }
+.ck-ul li { padding: .35rem 0 .35rem 1.1rem; border-left: 1px solid var(--line); }
+.ck-ol { counter-reset: view; }
+.ck-ol li { position: relative; padding: .5rem 0 .5rem 2.2rem; border-top: 1px solid var(--line); counter-increment: view; }
+.ck-ol li::before { content: counter(view); position: absolute; left: 0; top: .45rem; font: 400 1.5rem/1 var(--serif); color: var(--sec); }
+.ck-ol li.is-other::before { color: var(--muted); }
+.ck-other { display: flex; align-items: center; gap: .5rem; margin-bottom: .2rem; }
+.ck-other .ck-mark { position: static; border-color: var(--muted); }
+.ck-care { padding-left: 1.1rem; border-left: 2px solid var(--accent); }
+.ck-care .ck-label { color: var(--accent); }
+.ck-care p + p { margin-top: .2rem; }
+.ck-views { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; max-width: none; }
+.ck-views > .ck-p { margin: 0; padding-top: .7rem; border-top: 2px solid var(--sec); font-size: 1rem; }
+.ck-body > .ck-views { width: min(1100px, calc(100vw - 4rem)); }
+
+/* ── Figures: shared ── */
+.ck-body > figure { margin: 1.6rem 0 1.2rem; padding-top: .9rem; border-top: 1px solid var(--line); font-family: var(--sans); }
+.ck-fig-q { font: 500 1.25rem/1.3 var(--serif); }
+.ck-fig-read { margin-top: .25rem; font-size: .88rem; line-height: 1.55; color: var(--muted); }
+.ck-readout { min-height: 2.6rem; margin-top: .8rem; padding-top: .5rem; border-top: 1px solid var(--line); font: 400 .98rem/1.55 var(--serif); }
+.ck-readout b { font: 600 .7rem var(--sans); letter-spacing: .1em; color: var(--sec); }
+.ck-readout mark { background: none; color: var(--sec); font-weight: 600; }
+figure figcaption { margin-top: .6rem; font-size: .78rem; line-height: 1.55; color: var(--muted); }
+.ck-glyph { display: block; width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.ck-glyph .ck-fill { fill: currentColor; stroke: none; }
+
+/* ── 00 The reading key: four purposes round one question ── */
+.ck-written .ck-frame { max-width: none; }
+.ck-written .ck-frame > p { max-width: 72ch; }
+.ck-key { margin: 1.4rem 0 1.4rem; }
+.ck-key-grid { display: grid; grid-template-columns: 1fr 1fr; margin-top: 1.2rem; }
+.ck-key-q:nth-child(odd) { border-right: 1px solid var(--line); }
+.ck-key-q:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+.ck-key-q { padding: 1.1rem 2.6rem 1.3rem 0; }
+.ck-key-q:nth-child(even) { padding: 1.1rem 0 1.3rem 2.6rem; }
+.ck-key-name { display: flex; align-items: center; gap: .6rem; font: 500 1.45rem/1.1 var(--serif); }
+.ck-glyph-wrap { color: var(--accent); }
+.ck-key-says { margin-top: .4rem; font: 400 1rem/1.5 var(--serif); }
+.ck-key-mis { margin-top: .25rem; font: italic 400 .95rem/1.5 var(--serif); color: var(--muted); }
+.ck-key-list { margin: .6rem 0 0; padding: 0; list-style: none; font-size: .86rem; }
+.ck-key-list a { display: inline-flex; gap: .5rem; padding-block: .25rem; text-decoration: none; border-bottom: 1px solid transparent; }
+.ck-key-list a:hover, .ck-key-list a:focus-visible { border-bottom-color: var(--accent); color: var(--ink); }
+.ck-key-list b { color: var(--accent); font-weight: 600; }
+
+/* ── 01–07 Each part opens with what it was written to do ── */
+.ck-part { scroll-margin-top: 84px; }
+.ck-part-head { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr); gap: 1.2rem; align-items: start; }
+.ck-part-mark { display: grid; justify-items: center; gap: .3rem; padding-top: .3rem; color: var(--sec); }
+.ck-part-mark .ck-glyph-wrap { display: grid; place-items: center; width: 4rem; height: 4rem; border: 1px solid color-mix(in srgb, var(--sec) 45%, transparent); border-radius: 50%; color: var(--sec); }
+.ck-part-mark .ck-glyph { width: 34px; height: 34px; }
+.ck-part-mark > span:last-child { font: 600 .7rem var(--sans); letter-spacing: .14em; color: var(--muted); }
+.ck-kicker { font: 600 .66rem/1.3 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.ck-part-head h2 { margin-top: .4rem; font: 500 clamp(1.6rem, 2.8vw, 2.1rem)/1.15 var(--serif); letter-spacing: -.02em; }
+.ck-part-head h2 em { color: var(--accent); font-weight: 400; }
+.ck-readings { margin-top: .5rem; font-size: .82rem; line-height: 1.6; }
+.ck-part .ck-body { margin: 1.2rem 0 0 5.8rem; }
+.ck-written-for { margin-top: 1.6rem !important; padding: .6rem 0 0; border-top: 2px solid var(--sec); font: italic 400 1.04rem/1.5 var(--serif); }
+.ck-written-for .ck-label { font-style: normal; color: var(--sec); }
+.ck-ask { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 1rem !important; padding-top: .9rem; border-top: 1px solid var(--line); }
+.ck-ask dt { font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--sec); }
+.ck-ask dd { margin: .25rem 0 0; font: italic 400 1rem/1.5 var(--serif); }
+
+/* 01 one sentence */
+.ck-sent-grid { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); align-items: end; margin-top: 1rem; row-gap: .3rem; }
+.ck-v { display: grid; justify-items: center; gap: .25rem; grid-row: 1; padding-block: .2rem; }
+.ck-v-him { display: flex; gap: 3px; min-height: 8px; }
+.ck-v-him i { width: 7px; height: 7px; border-radius: 50%; background: var(--sec); }
+.ck-v-tick { width: 2px; height: 2.2rem; background: color-mix(in srgb, var(--ink) 35%, transparent); }
+.ck-v.is-refrain .ck-v-tick { width: 6px; background: var(--accent); }
+.ck-v-n { font: 600 .72rem var(--sans); color: var(--muted); }
+.ck-v:hover .ck-v-tick, .ck-v:focus-visible .ck-v-tick { background: var(--sec); }
+.ck-v:focus-visible .ck-v-n { color: var(--ink); text-decoration: underline; }
+.ck-band { grid-row: 2; align-self: start; margin-top: .4rem; padding: .35rem .4rem 0; border-top: 1px solid var(--sec); font: 500 .95rem var(--serif); text-align: center; min-width: 0; hyphens: auto; overflow-wrap: anywhere; }
+.ck-band + .ck-band { border-left: 1px solid var(--line); }
+.ck-band-i, .ck-band-key { display: none; }
+.ck-refrain-list { display: grid; gap: .3rem; margin: .8rem 0 0; padding: 0; list-style: none; font: italic 400 .98rem/1.45 var(--serif); }
+.ck-refrain-list .ck-ref { font-style: normal; margin-right: .4rem; }
+
+/* 02 the chain, and the ring nothing crosses */
+.ck-links { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 1rem 0 0; padding: 0; list-style: none; }
+.ck-links li { position: relative; display: grid; gap: .2rem; justify-items: center; text-align: center; font-size: .82rem; }
+.ck-link-ring { width: 100%; height: 2.6rem; border: 2px solid var(--sec); border-radius: 999px; }
+.ck-links li + li .ck-link-ring { margin-left: -14%; width: 114%; }
+.ck-link-n { position: absolute; top: .75rem; font: 600 .7rem var(--sans); color: var(--sec); }
+.ck-links b { margin-top: .3rem; font: 500 1.1rem var(--serif); }
+.ck-ring-fig { position: relative; width: 100%; aspect-ratio: 16 / 10; margin: 1.2rem auto .2rem; }
+.ck-ring-fig::before { content: ""; position: absolute; inset: 22% 24%; border: 2px solid var(--sec); border-radius: 50%; }
+.ck-love { position: absolute; inset: 28% 30%; display: grid; place-items: center; text-align: center; font: italic 400 1rem/1.4 var(--serif); }
+.ck-danger { position: absolute; transform: translate(-50%, -50%); }
+.ck-danger span { display: block; white-space: nowrap; font: 400 .9rem var(--serif); color: var(--ink); border-bottom: 1px solid transparent; }
+.ck-danger:hover span, .ck-danger:focus-visible span { color: var(--sec); border-bottom-color: var(--sec); }
+
+/* 03 asked and answered */
+.ck-objections ol { margin: 1rem 0 0; padding: 0; list-style: none; }
+.ck-objections li { display: grid; grid-template-columns: 2rem minmax(0, 1fr) 3rem minmax(0, 1fr); gap: .8rem; align-items: center; padding-block: .7rem; border-top: 1px solid var(--line); }
+.ck-ob-n { font: 400 1.5rem/1 var(--serif); color: var(--sec); }
+.ck-asked, .ck-answer { display: grid; gap: .15rem; font: 400 1.02rem/1.45 var(--serif); }
+.ck-asked span:last-child { font-style: italic; }
+.ck-ob-rule { height: 1px; background: var(--sec); position: relative; }
+.ck-ob-rule::after { content: ""; position: absolute; right: 0; top: -3px; border: 3.5px solid transparent; border-left: 6px solid var(--sec); border-right: 0; }
+
+/* 04 two halves; a hand inside a hand */
+.ck-halves-row { display: grid; grid-template-columns: 1fr 1fr; margin-top: .8rem; }
+.ck-halves-row p { display: grid; gap: .2rem; padding: .3rem 1.4rem .3rem 0; font: 400 1.08rem/1.45 var(--serif); }
+.ck-halves-row p + p { padding: .3rem 0 .3rem 1.4rem; border-left: 1px solid var(--sec); }
+.ck-hands-row { display: grid; grid-template-columns: minmax(0, 18rem) minmax(0, 1fr); gap: 2rem; align-items: center; margin-top: .8rem; }
+.ck-hands-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.ck-hand circle { fill: color-mix(in srgb, var(--sec) 5%, transparent); stroke: var(--sec); stroke-width: 2; cursor: pointer; transition: fill .2s; }
+.ck-hand.is-inner circle { fill: color-mix(in srgb, var(--sec) 9%, transparent); }
+.ck-hand:hover circle, .ck-hand:focus-visible circle { fill: color-mix(in srgb, var(--sec) 20%, transparent); stroke-width: 3; }
+.ck-flock circle { fill: var(--page); stroke: var(--ink); stroke-width: 1.3; pointer-events: none; }
+.ck-hands-words { margin: 0; padding: 0; list-style: none; }
+.ck-hands-words li { display: grid; gap: .15rem; padding-block: .6rem; border-top: 1px solid var(--line); font: 400 1.05rem/1.45 var(--serif); }
+
+/* 05 two fields */
+.ck-rain-w, .ck-turn { display: grid; gap: .15rem; margin-top: .8rem; font: 400 1.05rem/1.45 var(--serif); }
+.ck-fields-art { display: block; margin-top: .4rem; color: var(--muted); }
+.ck-rain { stroke: var(--prophets); opacity: .45; stroke-dasharray: 6 4; animation: ck-rain 3s linear infinite; }
+.ck-grain .ck-head { stroke: var(--sec); }
+@keyframes ck-rain { to { stroke-dashoffset: -20; } }
+.ck-fields-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.ck-field-name { font: 500 1.1rem var(--serif); }
+.ck-fields-row p { font: 400 1rem/1.5 var(--serif); }
+.ck-field-end { color: var(--muted); font-style: italic; }
+.ck-turn { margin-top: 1.2rem; padding-top: .7rem; border-top: 2px solid var(--sec); font-size: 1.3rem; }
+
+/* 06 the ground and what stands on it */
+.ck-tiers { display: grid; margin-top: 1rem; }
+.ck-tier { padding: .7rem 0 .8rem; border-bottom: 1px solid var(--line); }
+.ck-tier.is-ground { border-bottom: 4px double var(--sec); }
+.ck-tier-head { font: 600 .7rem var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--sec); }
+.ck-tier ul { display: flex; flex-wrap: wrap; gap: .3rem 1.6rem; margin: .4rem 0 0; padding: 0; list-style: none; font: 400 1.02rem/1.45 var(--serif); }
+.ck-tier.is-ground ul { font-size: 1.3rem; }
+.ck-tier small { font: .72rem var(--sans); color: var(--muted); }
+
+/* 07 the first sentence first */
+.ck-first ol { margin: 1rem 0 0; padding: 0; list-style: none; }
+.ck-first li { display: grid; gap: .2rem; padding-block: .6rem; border-top: 1px solid var(--line); font-family: var(--serif); }
+.ck-first li.is-0 { font-size: 1.55rem; line-height: 1.3; border-top: 2px solid var(--sec); }
+.ck-first li.is-1 { font-size: 1.1rem; }
+.ck-first li.is-2 { font-size: .98rem; color: var(--muted); }
+.ck-restored { display: flex; flex-wrap: wrap; gap: .3rem 1.6rem; margin-top: .3rem; font-size: .95rem; }
+
+/* ── Close ── */
+.ck-close-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.6rem; align-items: start; }
+.ck-close-grid > div:first-child { font: 400 1.06rem/1.65 var(--serif); }
+.ck-close-grid > div:first-child > * + * { margin-top: 1rem; }
+.ck-passage { margin: 0; padding-top: .7rem; border-top: 2px solid var(--gospels); --sec: var(--gospels); }
+.ck-passage figcaption { margin: 0; font-size: .78rem; color: var(--muted); }
+.ck-passage-text { margin-top: .6rem; font: 400 1.1rem/1.7 var(--serif); }
+.ck-passage-text sup, .ck-sheet-text sup { margin-right: .15rem; font: 600 .6rem var(--sans); color: var(--accent); }
+.ck-fears { margin: 2.2rem 0 0; padding-top: .9rem; border-top: 1px solid var(--line); }
+.ck-fears-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 5rem; margin-top: 1rem; }
+.ck-fear-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.ck-fear-lines path { fill: none; stroke: color-mix(in srgb, var(--ink) 25%, transparent); stroke-width: 1; }
+.ck-fear-lines path.is-lit { stroke: var(--accent); stroke-width: 2; }
+.ck-fears-l, .ck-fears-r { position: relative; display: grid; align-content: space-around; gap: .9rem; margin: 0; padding: 0; list-style: none; }
+.ck-fear a { display: inline-flex; gap: .7rem; text-decoration: none; font: italic 400 1.08rem/1.4 var(--serif); }
+.ck-fear b { font: 600 .72rem/2 var(--sans); font-style: normal; color: var(--accent); }
+.ck-fear.is-lit a span, .ck-fear a:hover span, .ck-fear a:focus-visible span { color: var(--accent); }
+.ck-fear-to { display: none; }
+.ck-promise { display: grid; gap: .1rem; padding-left: .8rem; border-left: 2px solid var(--line); font: 400 1.04rem/1.45 var(--serif); }
+.ck-promise .ck-ref { --sec: var(--ink); justify-self: start; font-weight: 400; }
+.ck-promise small { font: .72rem var(--sans); color: var(--muted); }
+.ck-promise.is-lit { border-left-color: var(--accent); }
+.ck-question { margin-top: 2rem; font: 500 1.35rem/1.4 var(--serif); max-width: 60ch; }
+.ck-again { margin-top: .5rem; font: italic 400 1.05rem var(--serif); color: var(--accent); }
+.ck-close-art { display: block; max-width: 640px; margin: 2rem auto 0; color: var(--muted); }
+.ck-sources { margin-top: 1.6rem; padding-top: .8rem; border-top: 1px solid var(--line); font-size: .8rem; line-height: 1.6; color: var(--muted); }
+.ck-sources h3 { font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.ck-sources ul { margin: .4rem 0 .5rem; padding: 0; list-style: none; }
+.ck-sources b { color: var(--ink); font-weight: 600; }
+.ck-back { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; margin-top: 1rem; font-size: .85rem; font-weight: 600; color: var(--tone) !important; text-decoration: none; }
+.ck-back:hover, .ck-back:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Verse sheet ── */
+.ck-sheet { width: min(36rem, calc(100vw - 2rem)); max-height: 80vh; padding: 1.2rem 1.4rem 1.4rem; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 0; background: var(--surface, var(--page)); color: var(--ink); }
+.ck-sheet::backdrop { background: rgb(0 0 0 / .35); }
+.ck-sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.ck-sheet-head h2 { font: 500 1.35rem/1.2 var(--serif); }
+.ck-sheet-x { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line) !important; }
+.ck-sheet-x:hover, .ck-sheet-x:focus-visible { border-color: var(--accent) !important; color: var(--accent); }
+.ck-sheet-text { margin-top: .7rem; font: 400 1.08rem/1.65 var(--serif); }
+.ck-sheet-src { margin-top: .7rem; font-size: .72rem; color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ck-listen, .ck-spark, .ck-rain { animation: none; }
+  .ck-paw { animation: none; opacity: .7; }
+  .ck-hand circle { transition: none; }
+}
+
+/* ── Narrow screens: leave out what does not fit ── */
+@media (max-width: 900px) {
+  .ck-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ck-figures > div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .ck-figures > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .ck-part .ck-body { margin-left: 0; }
+  .ck-mark { left: -1.1rem; }
+  .ck-body > .ck-views { width: auto; }
+  .ck-close-grid { grid-template-columns: minmax(0, 1fr); }
+  .ck-hands-row { grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); }
+}
+@media (max-width: 720px) {
+  .ck-key-grid { grid-template-columns: minmax(0, 1fr); }
+  .ck-key-q, .ck-key-q:nth-child(even) { padding: .9rem 0; border: 0 !important; border-top: 1px solid var(--line) !important; }
+  .ck-key + .ck-readout, .ck-key .ck-readout { display: none; }
+  .ck-part-head { grid-template-columns: 3rem minmax(0, 1fr); gap: .8rem; }
+  .ck-part-mark .ck-glyph-wrap { width: 2.8rem; height: 2.8rem; }
+  .ck-part-mark .ck-glyph { width: 24px; height: 24px; }
+  .ck-mark { display: none; }
+  .ck-views, .ck-ask, .ck-halves-row, .ck-fields-row, .ck-hands-row { grid-template-columns: minmax(0, 1fr); }
+  .ck-halves-row p + p { padding: .6rem 0 0; border-left: 0; border-top: 1px solid var(--sec); }
+  .ck-band { position: relative; font: 600 .72rem var(--sans); color: var(--sec); }
+  .ck-band-i { display: inline; }
+  .ck-band-name { position: absolute; left: 0; top: 0; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .ck-band-key { display: grid; gap: .15rem; margin: .5rem 0 0; padding-left: 1.3rem; font: 500 .9rem/1.4 var(--serif); }
+  .ck-band-key li::marker { font: 600 .72rem var(--sans); color: var(--sec); }
+  .ck-band-key span { font: 400 .78rem var(--sans); color: var(--muted); white-space: nowrap; }
+  .ck-links { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .ck-links li { grid-template-columns: 2rem 7rem minmax(0, 1fr); justify-items: start; text-align: left; align-items: center; }
+  .ck-link-ring, .ck-links li + li .ck-link-ring { display: none; }
+  .ck-link-n { position: static; }
+  .ck-links b { margin: 0; }
+  .ck-ring-fig { aspect-ratio: auto; width: 100%; display: flex; flex-wrap: wrap; gap: .3rem .9rem; }
+  .ck-ring-fig::before { display: none; }
+  .ck-love { position: static; order: -1; width: 100%; display: block; text-align: left; padding: .5rem 0; border-block: 2px solid var(--sec); }
+  .ck-danger { position: static; transform: none; }
+  .ck-dangers .ck-readout { display: none; }
+  .ck-objections li { grid-template-columns: 1.6rem minmax(0, 1fr); }
+  .ck-ob-rule { display: none; }
+  .ck-answer { grid-column: 2; }
+  .ck-hands-svg, .ck-hands .ck-readout { display: none; }
+  .ck-fields-art { display: none; }
+  .ck-fears-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .ck-fear-lines, .ck-fears-r { display: none; }
+  .ck-fear { padding-block: .5rem; border-top: 1px solid var(--line); }
+  .ck-fear-to { display: block; margin: .2rem 0 0 2.1rem; font-size: .9rem; }
+}

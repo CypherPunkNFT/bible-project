@@ -14,7 +14,7 @@ Many people come to the Holy Spirit looking for an experience to have, a feeling
 
 So this study asks one question of every passage: **where is the Spirit pointing?** In these readings He points to Jesus, to new life in a person who was dead toward God, and outward to other people. If someone's account of the Spirit points mainly at itself, that is worth noticing.
 
-First, the name. The Bible teaches that there is one God, and that this one God is Father, Son and Holy Spirit. Christians call this the Trinity. The Holy Spirit is not a force, a mood or a part of God. He is God, present and at work. The confession this site writes under, the Baptist Faith and Message 2000 (the Southern Baptist Convention's statement of faith), says so in article II (God): the Spirit is "the Spirit of God, fully divine". [check: wording of article II C at bfm.sbc.net] The site's Trinity articles teach this fully. [check: exact titles and links of the Trinity articles to name here]
+First, the name. The Bible teaches that there is one God, and that this one God is Father, Son and Holy Spirit. Christians call this the Trinity. The Holy Spirit is not a force, a mood or a part of God. He is God, present and at work. The confession this site writes under, the Baptist Faith and Message 2000 (the Southern Baptist Convention's statement of faith), says so in article II (God): the Spirit is "the Spirit of God, fully divine". [check: wording of article II C at bfm.sbc.net] The site's article [The Trinity](/study/theology-articles/the-trinity) teaches this fully.
 
 This is a selection, not a census. These eight passages were chosen because each gives a full paragraph to one part of the Spirit's work: the promise (John 14 and 16), the day He came (Acts 2), new birth (Ezekiel 36), His home in the believer (Romans 8), the life He grows (Galatians 5) and the gifts He gives (1 Corinthians 12 and Romans 12). Much is left out. The Spirit at creation (Genesis 1:2), the Spirit coming on Israel's judges and kings, the rest of Acts, the Spirit as a seal in Ephesians, and John's tests of what is true are not walked here. Other studies read some of them, and they are linked where they matter. This study reads Scripture. It is not medical or professional guidance.
 
@@ -296,7 +296,7 @@ Five questions, each answered from the passages, with other views shown in their
 
 The passages speak of Him as a person. He teaches and reminds (John 14:26), hears and speaks (John 16:13), testifies (Romans 8:16), and gives gifts "as He determines" (1 Corinthians 12:11). A force does not decide. The Berean writes *He* throughout, following the way Jesus speaks of Him. And He is named beside the Father and the Son as their equal (John 14:23, 26; 1 Corinthians 12:4–6).
 
-[other] Jehovah's Witnesses teach that the holy spirit is not a person but God's "active force". [check: wording and source in a Watch Tower publication] That teaching is theirs. This site holds with article II that the Spirit is fully God. The site's Trinity articles answer this question at length. [check: link]
+[other] Jehovah's Witnesses teach that the holy spirit is not a person but God's "active force". [check: wording and source in a Watch Tower publication] That teaching is theirs. This site holds with article II that the Spirit is fully God. The site's article [The Trinity](/study/theology-articles/the-trinity) answers this question at length.
 
 ### Is being baptized in the Spirit a second experience after becoming a Christian?
 

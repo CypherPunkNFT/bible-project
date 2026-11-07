@@ -43,7 +43,7 @@ describe("every draft reads as a study page", () => {
 
   it("keeps the motto, questions and close of the rewritten drafts", () => {
     const rewritten = drafts.filter(d => d.doc.concepts.length > 0);
-    expect(rewritten).toHaveLength(17);
+    expect(rewritten).toHaveLength(37);
     for (const { doc } of rewritten) {
       expect(doc.motto, doc.title).toBeTruthy();
       expect(doc.sections.some(section => section.kind === "question" || section.kind === "close"), doc.title).toBe(true);

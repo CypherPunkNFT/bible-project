@@ -1,19 +1,19 @@
-// Section 01. The first question, then the wall of answers, the blank they are tried in, the words that join them, and three pairs of the same words.
+// Section 01. The study's one habit, then the wall of answers, the blank they are tried in, and the words that join them.
+// The readout is labelled with two of the habit's own questions, who is speaking and what exactly they say, then with what came next in the passage.
 (() => {
   if (!window.WYK) return;
-  const { h, runs, phrase, refLink, page, sectionHead, roving, answerIds, lensIds, reducedMotion } = WYK;
-  const { study, groups, answers, lenses, pairs, wayIn, words } = window.WY;
+  const { h, runs, page, sectionHead, roving, answerIds, lensIds, reducedMotion } = WYK;
+  const { study, groups, answers, lenses, readout: LABELS, numbers } = window.WY;
   const QUESTION_PROMPT = "Point at a line, or tab to it, to try it here.";
   const NO_NEXT = "For what follows, read the passage.";
 
-  const wayStrip = h("section", { class: "wy-way-in", "aria-label": "The first question" },
-    h("p", { class: "wy-way-lead" }, runs(study.wayInLead)),
-    h("ol", {},
-      h("li", {}, h("span", { class: "wy-small" }, "Jesus asks"), " ", phrase(wayIn.asks)),
-      h("li", {}, h("span", { class: "wy-small" }, "They report"), " ", wayIn.reports.map((item, index) => [index ? " · " : "", h("span", { class: "wy-words" }, item.t)]), " ", h("span", { class: "wy-at" }, refLink(wayIn.reports[0].r, wayIn.reports[0].label))),
-      h("li", { class: "wy-way-turn" }, h("span", { class: "wy-small" }, "Then He turns"), " ", phrase(wayIn.turns), " ", h("span", { class: "wy-words" }, `“${wayIn.then.t}”`))));
+  const habit = h("section", { class: "wy-habit", "aria-label": "The habit this study teaches" }, h("p", {}, runs(study.habit)));
+  const legend = h("p", { class: "wy-legend" },
+    h("span", {}, "Each line is its speaker's words, not this page's."), " ",
+    h("span", { class: "wy-how-said" }, "Upright: stated."), " ", h("span", { class: "wy-how-asked" }, "Italic: asked."), " ", h("span", { class: "wy-how-mocked" }, "Small capitals: a dare, mockery or a charge."));
 
   // ── The blank ──
+  const label = (text) => h("span", { class: "wy-small wy-read-label" }, text);
   const readWords = h("p", { class: "wy-read-words" });
   const readWho = h("p", { class: "wy-read-who" });
   const readNext = h("p", { class: "wy-read-next" });
@@ -34,9 +34,9 @@
       return;
     }
     readWords.className = `wy-read-words wy-how-${shown.how}`;
-    readWords.textContent = shown.t;
-    readWho.replaceChildren(`${shown.who} · ${shown.howLabel} · ${shown.label}`);
-    readNext.replaceChildren(...(shown.next ? [h("span", { class: "wy-small" }, "Next"), " ", `“${shown.next.t}”`, " ", h("span", { class: "wy-at" }, shown.next.label)] : [NO_NEXT]));
+    readWords.replaceChildren(label(LABELS.words), shown.t);
+    readWho.replaceChildren(label(LABELS.who), `${shown.who} · ${shown.howLabel} · ${shown.label}`);
+    readNext.replaceChildren(label(LABELS.next), ...(shown.next ? [`“${shown.next.t}”`, " ", h("span", { class: "wy-at" }, shown.next.label)] : [NO_NEXT]));
   }
   const preview = (id) => { previewing = id; drawReadout(); };
   readButton.addEventListener("click", () => {
@@ -103,34 +103,20 @@
     wall.classList.toggle("has-word", Boolean(lens));
     for (const button of wordButtons) button.setAttribute("aria-pressed", String(button.dataset.word === WYK.state.word));
     for (const [id, button] of lines) button.classList.toggle("lit", Boolean(lens?.ids.includes(id)));
-    wordText.replaceChildren(...(lens ? runs(lens.text) : ["Choose a word to see who else used it. Nothing is hidden: the other lines only fade."]));
+    wordText.replaceChildren(lens
+      ? `${lens.label}: ${lens.ids.length} ${lens.ids.length === 1 ? "line" : "lines"}, from ${lens.groups} of the ${numbers.groups} groups. ${lens.stated === lens.ids.length ? "Each states it." : `${lens.stated} of them ${lens.stated === 1 ? "states" : "state"} it; the others ask, dare, mock, charge or report.`}`
+      : "Choose a word to see who else used it. Nothing is hidden: the other lines only fade.");
     drawJoin();
   }
   new ResizeObserver(drawJoin).observe(wall);
   document.fonts?.ready.then(drawJoin);
 
-  // ── The pairs ──
-  const side = (item) => {
-    const answer = answerIds.get(item.answer);
-    return h("div", { class: "wy-pair-side" },
-      h("p", { class: "wy-small" }, answer.who),
-      h("p", { class: `wy-pair-said wy-how-${answer.how}` }, answer.t), h("p", { class: "wy-at" }, refLink(answer.r, answer.label), ` · ${answer.howLabel}`),
-      h("p", { class: "wy-pair-around" }, phrase(item.around)));
-  };
-  const pairsView = h("section", { class: "wy-pairs" },
-    h("h3", {}, "The same words, in two mouths"),
-    h("p", { class: "wy-lead-small" }, runs(study.pairsLead)),
-    pairs.map((pair) => h("article", { class: "wy-pair" }, h("h4", {}, pair.word), side(pair.left), side(pair.right))),
-    h("p", { class: "wy-reads" }, runs(study.pairsReads)));
-
   page.append(h("section", { class: "t-sec wy-answers", id: "wall" },
-    sectionHead("01", "The answers,", "and a blank", runs(study.wallLead)),
-    wayStrip,
+    sectionHead("01", "The answers,", "and a blank", `${numbers.answers} things people said about Him, in their own words, under the kind of speaker. Point at a line to try it in the blank. Choose it to keep it, and read who said it and what came next.`),
+    habit,
     h("div", { class: "wy-words-row" }, h("div", { class: "wy-word-list", role: "group", "aria-label": "Show the lines that use a word" }, wordButtons), wordText),
     h("div", { class: "wy-wall-hold" }, wall, readout),
-    h("p", { class: "wy-reads" }, runs(study.wallReads)),
-    h("div", { class: "wy-flag wy-flag-care wy-wall-care" }, h("p", { class: "wy-flag-label" }, "Care"), h("p", {}, runs(study.wallCare))),
-    pairsView));
+    legend));
 
   WYK.syncers.push(syncLines, syncWord);
   syncLines();

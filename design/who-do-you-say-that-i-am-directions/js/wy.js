@@ -23,7 +23,7 @@
     h("details", { class: "wy-sources" },
       h("summary", {}, `Sources · ${sources.length} · what was read, and how far`),
       h("ul", {}, sources.map((source) => h("li", {}, sourceName(source), " ", h("span", {}, source.note)))),
-      h("p", { class: "wy-note" }, "Every Scripture reference and every quotation from the held commentaries was checked by script: that proves the words are there, and not that a speaker is sorted rightly or that a reading is right. The Baptist Faith and Message phrases were compared by hand through a web tool, and the original Greek was not consulted."))));
+      h("p", { class: "wy-note" }, "Every Scripture reference, and every quotation from the held commentaries and creeds, was checked by script: that proves the words are there, and not that a speaker is sorted rightly or that a reading is right. The Baptist Faith and Message is not held on this computer; its phrases are checked only for their article. The original Hebrew and Greek were not consulted."))));
   WYK.startSheet();
   window.WY_READY = true;
 })();

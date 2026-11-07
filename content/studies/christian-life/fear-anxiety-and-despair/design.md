@@ -1,0 +1,34 @@
+# Fear, anxiety and despair design
+
+Study 56 · Design written with the mock-up · Mock-up for the owner's review, not on the live site · 2026-11-07
+
+Built: [the mock-up and its record](../../../../design/fear-anxiety-and-despair-directions/README.md). Open at http://127.0.0.1:8931/mockups/fear-anxiety-and-despair-directions/ on this PC. Wording: [content.md](content.md). Limits: [passage-notes.md](passage-notes.md). Standard: [STUDY-STANDARD.md](../../../../../Pages/Study/STUDY-STANDARD.md). Run brief: [DESIGN_RUN.md](../../../../../Pages/Topics/StudyPlan/DESIGN_RUN.md).
+
+## Direction
+
+Teach one habit: when a passage records someone's darkest words, keep reading to what God does next. The shape is the text's own: in almost every passage the study reads, the cry is followed, often within a verse or two, by the next thing God does. The page measures that distance and draws it. One direction was built, because the text already existed.
+
+## The page
+
+- **Help first.** Before the heading's lead, as the study asks: a plain band with a gold rule, the first sentence in bold, the nine crisis lines with their numbers in large figures, and the two paragraphs on safety and on these feelings passing. Every line is visible; nothing is folded away. Lines still to be confirmed carry a small dagger, and missing numbers keep a visible "to confirm" tag, so a gap is never hidden.
+- **Opening.** The standard heading: study trail (Study / Living the Christian Life / Fear, anxiety and despair); the concepts in gold capitals (Fear · Worry · Despair · Lament · Help); *Fear, anxiety* in ink with *and despair* in gold italic; the lead; Psalm 56:3. Beside it, in a faint circle and dotted orbit, the motto drawn from 1 Kings 19:5–7: night in the wilderness, a broom tree, a cloak where someone slept, and by its head a cake of bread on hot coals and a jar of water, with a path leaving toward a far mountain. The coals smoke, the branches sway and the stars turn, slowly, on a loop. No one is drawn. The motto is "Bread by his head. / A voice that asks." Four counts with what each means: passages walked, verses printed, darkest words read on, and the seventy elders sent to Moses (Numbers 11:16).
+- **00 Keep reading to what God does next.** The study's words paragraph (fear, anxiety, despair, lament), then the signature: eight rows, each with someone's darkest words on the left, a line of verse marks in the middle, and the next thing the text records on the right. The marks are counted from the Berean by script: two verses for Moses, one for Elijah and Paul, five and a new chapter for Jeremiah, 870 verses and 35 chapters for Job, none at all for David (fear and trust in one sentence), and for Heman a dashed line that reaches the end of the psalm with no turn. Choosing a row prints both verses whole and goes in the address (`?row=job`). Then the selection note.
+- **01–06.** Each part opens with a large number, the title with its turn in gold italic, the main readings and a small drawing. Under the head, the part's hook and its line sit on one rule, joined by a short "keep reading" line, so every part repeats the habit before it begins. The reading runs in one column on a thin thread, each sub-heading a small ring on the thread; notes are "With care" (gold), "How this study reads it", "From outside Scripture" and "Its limits" (dashed). Consider and Reflect sit side by side at the end. Each part's figure reaches out of the column and answers the part's own Consider question:
+  - 01 *How does God's answer match what Moses said?* Numbers 11:14 and 11:17 side by side, three phrases paired ("by myself" and "by yourself"); pointing at a pair lights it in both verses.
+  - 02 *In what order does God care for Elijah?* Ten steps in the verses' order, from sleep to "I have reserved seven thousand in Israel"; the three cares for the body are filled.
+  - 03 *What happens between Jeremiah 20:13 and 20:14?* Twelve verses as twelve columns; praise in 13 and the curse in 14 stand side by side. Verse 17 is drawn but never quoted.
+  - 04 *How many times does the refrain come?* Psalms 42–43 set in small type, the refrain in full ink, found three times by script. Then Psalm 88 the same way, with no refrain, its words of trust underlined in gold and its last line in italic.
+  - 05 *What makes it possible to say "we will not fear"?* Psalm 46's four upheavals against its refrain, and Psalm 56:3 split at its comma: "When I am afraid" and "I put my trust in You".
+  - 06 *What reason follows each "do not fear"?* All five commands in the two readings, found by script, each with its reason; then "When you pass through the waters, I will be with you."
+- **Questions readers bring.** Four questions as branches on one stem, opening in place. "Does God want me to live?" is open from the start.
+- **Close.** The way of reading, a recap of the eight rows, Paul's "we despaired even of life… but in God, who raises the dead" (2 Corinthians 1:8–9), the invitation, the help again with a link back to the top, the question for the reader, "Read the passage again before you answer.", and 1 Kings 19:1–18 printed whole. Beside the heading, the road arriving at first light at the mouth of a cave on Horeb. Then the sources, the wording points for the owner, the points still to confirm, and the way back to Living the Christian Life.
+- **The ground** moves from a faint dusk at the top of the page to a faint first light at the close.
+- **Every reference**, including whole chapters ("Psalm 88", "Job 3", "Psalms 42–43"), opens its verses in a sheet from the right, in the Berean, and goes in the address (`?ref=`).
+
+## Colour
+
+The Poetry and Wisdom teal, because most of the study's readings are lament, in Job and the Psalms. The site's gold marks care, the heading's turn, and "what comes next".
+
+## Doctrine and care
+
+The site's voice follows the Baptist Faith and Message 2000: the sanctity of every human life (article XV, quoted once and checked against the site's doctrinal foundation), and no condemnation for those who trust Christ (Romans 8:1, cited). Where Baptists differ, on how Isaiah's promises to Israel reach the church, the page shows the study's own statement that Baptists differ and does not choose. Safe messaging governs the design: help comes before any teaching and returns at the close; the signature never sets words of wanting to die in large type, so it shows each speaker's complaint rather than the wish, and Jonah 4:3 is read in part 03 but has no row; Job 3:13–19, 3:21–22 and Jeremiah 20:17 are never quoted, and the build refuses a mark on Jeremiah 20:17. The page says plainly, in the study's words, that anxiety and depression can be medical conditions and that seeing a doctor is not a failure of faith. No face or figure of God or of Christ is drawn. See [passage-notes.md](passage-notes.md) for the rest.

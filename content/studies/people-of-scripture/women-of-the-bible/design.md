@@ -1,0 +1,29 @@
+# Women of the Bible design
+
+Study 46 · People of Scripture · Design written with the mock-up · 2026-11-07 · Not built into the site
+
+Built: [the mock-up and its record](../../../../design/women-of-the-bible-directions/README.md). Open at http://127.0.0.1:8931/mockups/women-of-the-bible-directions/ on this PC. Wording: [content.md](content.md). Limits and sources: [passage-notes.md](passage-notes.md). Standard: [STUDY-STANDARD.md](../../../../../Pages/Study/STUDY-STANDARD.md). Brief: [DESIGN_RUN.md](../../../../../Pages/Topics/StudyPlan/DESIGN_RUN.md).
+
+## Direction
+
+Teach one habit: read her story first, then read how later Scripture remembers her. The study opens with the one person Jesus said would be remembered ("what she has done will also be told in memory of her", Mark 14:9), and its third question for every life is "How does later Scripture remember her?" That is the shape the page draws. It is Scripture remembering itself (stage 2, kind 2 of the study standard), applied to sixteen stories at once, not to one person. One direction was built, because the text already existed.
+
+## The page
+
+- **Opening.** The standard heading: the study trail (Study / People of Scripture / Women of the Bible); the three questions in gold capitals (What she did · What God did · How Scripture remembers her); the title *Women of* in ink with *the Bible* in gold italic; the lead, which is the study's own opening at the dinner in Bethany. Beside it, in a faint circle and dotted orbit, a broken alabaster jar with the nard running out and its scent rising slowly. Motto: "What she has done / will also be told.", the words of Mark 14:9, checked in that verse. No figure of Christ, no faces.
+- **Four counts**, each with what it means: 16 stories (17 women, because Martha and Mary share one); how many are named again by a later book, and how many more are echoed or set aside; the verses printed in full; the passages the page opens.
+- **00 Three questions for every life.** The selection paragraph (with its links to the Topics card and the People page), the confession paragraph, and the three questions, each with its own small mark that labels the same strand all the way down. Then the one graphic of the page, **Told in memory of her**: the sixteen stories in the Bible's order across the top, the 66 books as a band of ticks in their section colours along the bottom, and a fine curve from each story down to every later book that looks back on her. A solid curve names her; a dashed curve is an echo (Hannah's song in Mary's) or a use the study sets aside (Paul on Hagar in Galatians 4). Point at a story to read its memories on the line below; choose a reference to open the verse. On a phone the curves are left out and the same memories are listed.
+- **01–08.** Each part opens with its number, its title with the turn after the colon in gold italic, the hook and the main readings. Under it the women of that part face each other across fine rules, as the text sets them (one household, one generation, one office, one house in Bethany, one mission in Acts): her small drawing, her name, one line of her story in the verse's own words, and where later Scripture remembers her, or that the study reads no later memory. Then the reading itself in one column. Each woman's sub-head carries her drawing in the margin. "Where the passage stops" is set off by a dashed rule, so the reader sees where the text ends and comment begins. Views sit side by side across a rule ("How Christians have honoured her", "Where Baptists differ"); a reading held two ways is marked as such. Consider and Reflect close each part on one fine rule.
+  - Martha and Mary are one story with two names, drawn as one column.
+  - Junia (part 08) has one verse, not a story, so she stands in the row with a dashed rule and the words "One verse, not counted".
+- **The question.** "Do these women show that women may be pastors?" set large, with its readings; then the site's view, the two readings of 1 Corinthians 11 and 14 side by side, the other traditions' view and the home, each with its label in the margin.
+- **Close.** The closing paragraph, then the same paragraph read as a list: God is the subject of every clause ("kept His word to a laughing Sarah", "saw a runaway slave" …), each clause on a fine rule with the women it names. Then the reader's question, "Read the passage again before you answer.", and Mark 14:3–9 printed in full as the passage the study began with, the empty jar, the sources, and a link back to People of Scripture.
+- **Every reference** opens its verses in a sheet from the right, in the Berean, and puts the reference in the address.
+
+## Colour
+
+History orange. Ten of the sixteen stories are told in the Old Testament's history books, Genesis to Esther, and the memory band uses the six section colours for what they already mean across the site. The site's gold carries the turn of each title and the concepts.
+
+## Doctrine and care
+
+The site's voice follows the Baptist Faith and Message 2000: men and women equal in worth as bearers of God's image (Article III); the office of pastor limited to men as qualified by Scripture (Article VI); the husband's servant leadership in the home (Article XVIII). The page shows what each woman did as the text gives it, without shrinking it and without using it to argue for women pastors. Other traditions' views are labelled as theirs. Where Baptists differ (may women be deacons?) both views stand side by side with their named holders and the page does not choose. Catholic and Orthodox teaching on Mary is kept apart, each in its own words, and labelled. The study's open "[check: …]" notes are fact checks, not link notes, so content.md was not changed; the page does not show the notes and the record lists them for the owner. See [passage-notes.md](passage-notes.md) for the rest.

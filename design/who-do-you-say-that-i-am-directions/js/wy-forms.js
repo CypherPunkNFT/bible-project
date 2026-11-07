@@ -1,7 +1,8 @@
-// One form for each reading, drawn only from its own passage: three accounts side by side, the turn in steps, the council's record, the voice aligned, Thomas' mirror, and John's line.
+// The forms of the readings, drawn only from their own passages: three accounts side by side, the turn in steps, the council's record, the voice aligned,
+// who says what of the Word made flesh, Thomas' mirror, and John's line.
 (() => {
   if (!window.WYK) return;
-  const { h, phrase, refLink } = WYK;
+  const { h, phrase, refLink, runs } = WYK;
   const forms = window.WY.forms;
   const said = (item) => h("span", { class: "wy-words" }, `“${item.t}”`);
   const at = (item) => h("span", { class: "wy-at" }, refLink(item.r, item.label));
@@ -46,9 +47,26 @@
       form.stops.map((stop) => stepItem(stop)),
       h("li", { class: "wy-line-you" }, h("span", { class: "wy-small" }, form.last), h("span", { class: "wy-line-blank", "aria-label": "Left blank", role: "img" })));
   }
-  const DRAW = { three, steps, record, aligned, mirror, line };
+  // One row for each speaker, each in their own verse. One word can be lit in gold. Nothing sorts the words into two sides; the church's later words sit
+  // under a rule, marked as not Scripture, and the ledger ends on the text's own sentence about what these passages do not explain.
+  function ledger(form) {
+    const lit = (item, gold) => {
+      if (!gold) return h("span", { class: "wy-words" }, `“${item.t}”`);
+      const [before, after] = item.t.split(new RegExp(`\\b${gold}\\b`));
+      return after === undefined ? h("span", { class: "wy-words" }, `“${item.t}”`) : h("span", { class: "wy-words" }, `“${before}`, h("span", { class: "wy-gold" }, gold), `${after}”`);
+    };
+    return h("div", { class: "wy-f wy-f-ledger" },
+      h("ol", { class: "wy-ledger" }, form.rows.map((row) => h("li", {},
+        h("span", { class: "wy-small" }, row.who),
+        h("span", { class: "wy-ledger-said" }, row.said.map((item, index) => [index ? h("span", { class: "wy-ledger-then", "aria-label": "then" }, " → ") : "", lit(item, row.gold), " ", at(item)]))))),
+      h("section", { class: "wy-ledger-church" }, h("h5", {}, form.churchTitle),
+        h("ul", {}, form.church.map((item) => h("li", {}, h("span", { class: "wy-small" }, item.who), " ", h("span", { class: "wy-words" }, `“${item.t}”`))))),
+      h("p", { class: "wy-ledger-close" }, runs(form.closing)));
+  }
+  const DRAW = { three, steps, record, aligned, ledger, mirror, line };
   WYK.formFor = (slug) => {
     const form = forms[slug];
+    if (!form || !DRAW[form.kind]) throw new Error(`no form to draw for ${slug}`);
     return h("figure", { class: "wy-form" }, h("figcaption", { class: "wy-small" }, form.name), DRAW[form.kind](form));
   };
 })();

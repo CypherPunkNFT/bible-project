@@ -14,7 +14,7 @@ Habit: This study teaches one reading habit. **Keep the words attached to the pe
 
 Stance: Where this study stands. This is a Christian site. Its guide is the Baptist Faith and Message 2000, the statement of faith of the Southern Baptist Convention. The site holds that the Gospels are true, and that Jesus is who Thomas said He was in John 20:28. It says so here so that you can read with your eyes open. Nothing below asks you to start there. It asks you to read what was said, who said it and what they did next, and then to answer for yourself.
 
-Selection: This is a selection, not a census. Six scenes were chosen because each gives a different kind of answer: a friend's, a council's, a voice from heaven, the Gospel writers' own, and a doubter's. A seventh reading sits at the centre: how the Son of God came to be a man at all. The Gospels hold many more answers than these. The meetings Jesus had with single people are read in *Encounters with Jesus*, and His miracles are read in *The signs and works of Jesus*. This study does not list every name and title Jesus is given. The site's page on the names of Jesus does that [check: exact title and link of the built Names page]. This study reads the titles that its own passages give, in the sentences where they are said.
+Selection: This is a selection, not a census. Six scenes were chosen because each gives a different kind of answer: a friend's, a council's, a voice from heaven, the Gospel writers' own, and a doubter's. A seventh reading sits at the centre: how the Son of God came to be a man at all. The Gospels hold many more answers than these. The meetings Jesus had with single people are read in *Encounters with Jesus*, and His miracles are read in *The signs and works of Jesus*. This study does not list every name and title Jesus is given. The site's page on [the names of Jesus](/study/names) does that. This study reads the titles that its own passages give, in the sentences where they are said.
 
 Words: Three titles come up in almost every part, so here they are first.
 - **Christ** is the Greek word for the Hebrew *Messiah*. Both mean "anointed one". Israel's kings were anointed with oil when they were made king, and the prophets promised a coming king from David's family. "The Christ" is not Jesus' surname. It is a claim about what He is.
@@ -187,7 +187,7 @@ They fall facedown in terror. "Then Jesus came over and touched them. 'Get up,' 
 
 ### What this study reads
 
-[read] At the river, the Father speaks, the Son stands in the water, and the Spirit comes down on Him. Christians confess one God who is eternally Father, Son and Holy Spirit. This is called the *Trinity*. This scene does not explain the Trinity, but it shows all three together. Read more in the site's articles on the Trinity [check: title and link of the built Trinity articles].
+[read] At the river, the Father speaks, the Son stands in the water, and the Spirit comes down on Him. Christians confess one God who is eternally Father, Son and Holy Spirit. This is called the *Trinity*. This scene does not explain the Trinity, but it shows all three together. Read more in the site's articles on [the Trinity](/study/theology-articles/the-trinity).
 
 [read] A reader of Matthew has known the answer since chapter 3. The people in the story have not. That gap lets you watch them come slowly to what you were told at the start, and it lets you ask where you stand.
 
@@ -267,7 +267,7 @@ The Christian reading follows Matthew. Some two centuries before Jesus, Jewish t
 
 The site's own voice is plain here. The Baptist Faith and Message says that Christ "was conceived of the Holy Spirit and born of the virgin Mary" (Article 2, God the Son) [check: wording against bfm.sbc.net]. Christians of every great tradition confess the same. The Apostles' Creed says it in its second article.
 
-[read] Is a virgin conception simply impossible? It is a miracle, and Matthew and Luke tell it as one. They do not tell it as a symbol. If "all things were made" through the Word (John 1:3), then the Maker taking flesh by His own Spirit is not beyond Him. The question underneath is whether miracles can happen at all. Read more in the site's answer on miracles [check: exact title and link of the apologetics answer on miracles].
+[read] Is a virgin conception simply impossible? It is a miracle, and Matthew and Luke tell it as one. They do not tell it as a symbol. If "all things were made" through the Word (John 1:3), then the Maker taking flesh by His own Spirit is not beyond Him. The question underneath is whether miracles can happen at all. Read more in the site's answer on [miracles](/apologetics/study/miracles).
 
 ### He emptied Himself
 
@@ -367,7 +367,7 @@ Text: John 5:21–23
 
 [read] He was a great teacher, and people said so. What the Gospels do not give you is a teacher who kept to teaching. In John 5 He says the Son "gives life to whom He wishes", that the Father "has assigned all judgment to the Son", and that all should "honor the Son just as they honor the Father" (John 5:21–23). In Mark 2:5–7 He tells a paralysed man his sins are forgiven. Some scribes, the experts in the law, ask the fair question of who can forgive sins but God. Before the council He says the council will see Him at the right hand of Power (Mark 14:62).
 
-[read] So the Gospels leave a reader with a harder choice. You may decide the accounts are wrong about what He said. You may decide He was wrong. What is hard to keep, once you have read them, is a wise teacher who claimed nothing unusual. The site's own answer is at *Was Jesus simply a great teacher?* [check: exact title and link of this apologetics answer].
+[read] So the Gospels leave a reader with a harder choice. You may decide the accounts are wrong about what He said. You may decide He was wrong. What is hard to keep, once you have read them, is a wise teacher who claimed nothing unusual. The site's own answer is at [Was Jesus simply a great teacher?](/apologetics/study/jesus).
 
 ## Question claim: Did Jesus ever say He was God?
 

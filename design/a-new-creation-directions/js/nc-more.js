@@ -1,4 +1,5 @@
-// Section 02. Eight more places across the same fold. Pointing or focus shows the verses on a line beneath; choosing opens them on the sheet.
+// Section 02. The six places the text itself names, across the same fold, with the letter's own joining word on the crease.
+// Pointing or focus shows the verses on a line beneath; choosing opens them on the sheet.
 (() => {
   if (!window.NCK) return;
   const { h, runs, page, sectionHead, roving, foldCross } = NCK;
@@ -12,9 +13,10 @@
   }, h("span", { class: "nc-cross" }, foldCross(fold)), h("span", { class: "nc-fold-ref" }, fold.join ? fold.span : `${fold.span} · no joining word`)));
   prompt();
   roving(buttons);
-  page.append(h("section", { class: "t-sec nc-more", id: "more" },
-    sectionHead("02", "Eight more.", "The same fold.", runs(study.moreLead)),
+  page.append(h("section", { class: "t-sec nc-more", id: "places" },
+    sectionHead("02", "The letter’s own word.", "Six places."),
+    h("p", { class: "nc-heads", "aria-hidden": "true" }, h("span", {}, "Already so"), h("span", {}), h("span", {}, "Now")),
     h("ol", { class: "nc-folds nc-folds-small" }, buttons.map((button) => h("li", {}, button))),
     reading,
-    h("p", { class: "nc-reads" }, runs(study.moreReads))));
+    h("p", { class: "nc-reads" }, runs(study.foldReads))));
 })();

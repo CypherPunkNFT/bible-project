@@ -1,0 +1,28 @@
+# Every life in God's image design
+
+Study 62 · Design written with the mock-up · Mock-up for the owner's review, not on the live site · 2026-11-07
+
+Built: [the mock-up and its record](../../../../design/every-life-in-gods-image-directions/README.md). Open at http://127.0.0.1:8931/mockups/every-life-in-gods-image-directions/ on this PC. Wording: [content.md](content.md). Limits: [passage-notes.md](passage-notes.md). Standard: [STUDY-STANDARD.md](../../../../../Pages/Study/STUDY-STANDARD.md). Run brief: [DESIGN_RUN.md](../../../../../Pages/Topics/StudyPlan/DESIGN_RUN.md).
+
+## Direction
+
+Teach one habit: when a passage tells you how to treat a person, look around the scene for the one who cannot speak for themselves, then ask what the passage asks you to do for them. The shape is already in the text. Each of the five walked passages is a scene with people placed in it: a child made "in secret" (Psalm 139:15), a long table in Jerusalem with a man brought from Lo-debar (2 Samuel 9), a meeting with a seat of honour, a place to stand and a place on the floor (James 2:2–3), a court at the town gate (Exodus 23:6–9), and a king told to open his mouth for "those with no voice" (Proverbs 31:8). The close names one person from each scene. So every scene is drawn as a room seen from above, and every room asks the same question. One direction was built, because the text already existed.
+
+## The page
+
+- **Opening.** The standard heading: study trail, the four places in gold capitals (The womb · The table · The gate · The bedside), the title *Every life* with *in God's image* in gold italic, the subtitle, the lead and Psalm 139:13. Beside it, in a faint circle and dotted orbit, a set table with its cloth edged in knitted stitches that draw themselves slowly, a candle burning, plates laid and one empty chair drawn back, under the motto "Knit in secret. / Seated at the table." No one is drawn. Four computed figures follow, then the care note with its crisis lines and the after-abortion help, open from the start.
+- **00 The ones easy to overlook.** The frame paragraph beside the note on what this selection walks.
+- **01 In His own image.** No room: the ground under every room. Genesis 1:27 and 9:6 side by side, "in His own image" marked in each, with the four words the verse does not use (the strong, the clever, the useful, the healthy) struck through.
+- **02–06 The rooms.** Each part opens on its floor plan. People are plain rings and things are small squares, each labelled in a few words; choosing one prints the verse words that put them there. One button, "Who here cannot speak?", fills the one ring in that room and gives the study's own reason. The LORD is named in words in Psalm 139 and never drawn. Room 06, the bedside, says above the plan that it is the study's application of a command first spoken to a king. Part 02 adds a switch that marks the twelve times the grown man says I, me or my of himself before birth, inside the printed psalm. Part 03 adds 2 Samuel 9 as one long table, a place for each of its thirteen verses: a plate where he is at the king's table, "always" where it stands beside it, "lame" where his feet are named, which is verse 3 and verse 13. On phones each plan becomes the list of who is in the room, because the plan's labels would be too small to read.
+- **Inside each part.** The text in one reading column. Notes that read the text, limit it or leave it open stand in the margin beside it, like an editor's notes. Care notes stay in the line of reading with a gold rule. Consider and Reflect close each part.
+- **Questions readers bring.** Three questions that open in place, each starting from its verse. The first, on abortion and forgiveness, is open from the start.
+- **Close: Who is in the room?** The five people the close names, one from each room, joined by a dotted line, with the four answers the study gives ("a seat, a meal, a word spoken in the right room, a refusal to be bought"). Then the way of reading, the invitation, the question for the reader, and 2 Samuel 9 printed in full beside them. Last come the sources and a back link.
+- **Every reference** opens its verses in a sheet, in the Berean.
+
+## Colour
+
+Poetry teal. The study's motto and opening verse are Psalm 139, and its walk ends in Proverbs 31. The site's gold marks the care notes and the notes still to be checked. The rooms keep to the page's ink and teal, so that the one filled ring is the only strong mark in each room.
+
+## Doctrine and care
+
+The site's voice follows the Baptist Faith and Message 2000: every person of every race has full dignity (article III), and Christians are to speak for the unborn and for the sanctity of human life from conception to natural death, oppose racism, and provide for the helpless and the sick (article XV). Every phrase quoted from the confession is checked by script against the copy held on this PC, in its own article. Forgiveness is by grace through faith in Christ (article IV), and the page keeps the question on abortion and forgiveness open from the start. Allowing a natural death is kept distinct from ending a life, as the study has it. The Catholic teaching on that distinction is shown under its own label, as theirs. How the law of Moses applies to Christians is left to the study that shows the Baptist views. The page draws no face or figure of God, of Christ or of the Father. The care notes, crisis lines and "to check" marks are shown as the study has them, and the study's text was not changed. See [passage-notes.md](passage-notes.md) for the rest, and the mock-up's README for what needs the editor's word.

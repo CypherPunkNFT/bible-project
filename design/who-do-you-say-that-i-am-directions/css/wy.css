@@ -1,10 +1,11 @@
-/* Who do you say I am mock-up. Frame from the Authors mock-ups, sheet from the Manuscripts mock-up. Type on fine rules, no cards and no pills: one wall of the speakers' own words, a blank to try them in, six ruled entries each with a form of its own.
+/* Who do you say that I am mock-up. Frame from the Authors mock-ups, sheet from the Manuscripts mock-up. Type on fine rules, no cards and no pills: one wall of the speakers' own words, a blank to try them in, six ruled entries each with a form of its own.
    One page colour: the Gospels' fixed violet. How a line was said is carried by the type itself, and colour never does it alone. */
 :root { --wy: var(--gospels); --tint: color-mix(in srgb, var(--wy) 7%, var(--page)); --rule: color-mix(in srgb, var(--ink) 16%, transparent); }
 .wy-page button, .wy-sheet button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
 :where(.wy-page, .wy-sheet) :is(a, button, summary, [tabindex]):focus { outline: none; }
 :where(.wy-page, .wy-sheet) a { color: inherit; }
-:where(.wy-page, .wy-sheet) :is(a, button, summary, [tabindex="0"]):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* No focus ring: a focused control shows the same tint it shows under the pointer, inside its own shape. */
+:where(.wy-page, .wy-sheet) :is(a, button, summary, [tabindex="0"]):focus-visible { outline: none; background-color: color-mix(in srgb, var(--accent) 12%, transparent); }
 .wy-page { --tone: var(--wy); }
 .wy-ref { color: var(--accent) !important; font-weight: 500; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent) !important; white-space: nowrap; }
 .wy-ref:hover, .wy-ref:focus-visible { border-bottom-color: var(--accent) !important; background: color-mix(in srgb, var(--accent) 12%, transparent) !important; }
@@ -63,11 +64,6 @@
 .wy-stance { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.2rem; margin-top: 1.1rem; font-size: .9rem; line-height: 1.65; color: var(--muted); }
 
 /* ── The first question ── */
-.wy-way-in { margin-bottom: 1.6rem; padding-block: .8rem; border-block: 1px solid var(--rule); }
-.wy-way-lead { margin-bottom: .5rem; font: italic 400 1.04rem/1.5 var(--serif); }
-.wy-way-in ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin: 0; padding: 0; list-style: none; line-height: 1.5; }
-.wy-way-in li .wy-small { display: block; margin-bottom: .15rem; }
-.wy-way-turn .wy-words { color: var(--accent); }
 
 /* ── The words ── */
 .wy-words-row { margin-bottom: .9rem; }
@@ -115,14 +111,6 @@
 .wy-flag-read .wy-flag-label { color: var(--wy); }
 
 /* ── The pairs ── */
-.wy-pairs { margin-top: 2.4rem; }
-.wy-pairs > h3, .wy-older > h3 { margin: 0 0 .3rem; font: 500 1.4rem/1.2 var(--serif); }
-.wy-pair { display: grid; grid-template-columns: 11rem repeat(2, minmax(0, 1fr)); gap: 1rem 1.8rem; padding-block: .9rem; border-top: 1px solid var(--rule); }
-.wy-pair:first-of-type { margin-top: .8rem; }
-.wy-pair h4 { margin: .1rem 0 0; font: italic 400 1.04rem/1.3 var(--serif); color: var(--accent); }
-.wy-pair-said { margin-top: .1rem; font: 400 1.28rem/1.25 var(--serif); }
-.wy-pair-around { margin-top: .35rem; font-size: .92rem; line-height: 1.5; color: var(--muted); }
-.wy-pair-around .wy-words { color: var(--ink); }
 
 /* ── Six ruled entries ── */
 .wy-entries { border-bottom: 1px solid var(--rule); }
@@ -182,15 +170,6 @@
 .wy-line-blank { display: block; max-width: 22rem; height: 1.8rem; border-bottom: 2px solid var(--wy); }
 
 /* ── The answer that changed ── */
-.wy-changed-row { display: grid; grid-template-columns: 11rem repeat(3, minmax(0, 1fr)); gap: .6rem 1.6rem; padding-block: .85rem; border-top: 1px solid var(--rule); }
-.wy-changed-row h3 { margin: .1rem 0 0; font: italic 400 1.08rem/1.3 var(--serif); color: var(--accent); }
-.wy-changed-cell { line-height: 1.5; font-size: .95rem; }
-.wy-changed-cell .wy-small { display: block; margin-bottom: .1rem; }
-.wy-changed-cell p + p { margin-top: .35rem; }
-.wy-older { margin-top: 2.2rem; }
-.wy-older ul { margin: .7rem 0 0; padding: 0; list-style: none; }
-.wy-older li { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(0, 1.2fr); gap: .3rem 1.6rem; padding-block: .6rem; border-top: 1px solid var(--rule); font-size: .95rem; line-height: 1.5; }
-.wy-older-by { font-size: .86rem; color: var(--muted); }
 
 /* ── Questions ── */
 .wy-q-list { margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--rule); }
@@ -239,10 +218,6 @@
 @media (max-width: 1000px) {
   .wy-group ul { grid-template-columns: minmax(0, 1fr); }
   .wy-group { grid-template-columns: 9rem minmax(0, 1fr); }
-  .wy-changed-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .wy-changed-row h3 { grid-column: 1 / -1; }
-  .wy-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .wy-pair h4 { grid-column: 1 / -1; }
 }
 @media (max-width: 860px) {
   .wy-intro, .wy-parts, .wy-after, .wy-stance, .wy-f-record { grid-template-columns: minmax(0, 1fr); }
@@ -251,11 +226,9 @@
   .wy-figures > div { border-left: 0; padding-left: 0; }
   .wy-figures > div:nth-child(even) { padding-left: 1rem; border-left: 1px solid var(--rule); }
   .wy-figures > div:nth-child(n+3) { border-top: 1px solid var(--rule); }
-  .wy-way-in ol { grid-template-columns: minmax(0, 1fr); gap: .6rem; }
   .wy-entry-open { grid-template-columns: 2.4rem minmax(0, 1fr) 1.2rem; }
   .wy-entry-ask { grid-column: 2; grid-row: 2; }
   .wy-entry-go { grid-column: 3; grid-row: 1; }
-  .wy-older li { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 620px) {
   /* On a phone the blank is docked at the foot of the screen while the wall is in view. */
@@ -268,7 +241,7 @@
   .wy-group { grid-template-columns: minmax(0, 1fr); gap: .1rem; padding-block: .6rem .3rem; }
   .wy-group h3 { margin: 0; }
   .wy-line { min-height: 44px; }
-  .wy-pair, .wy-changed-row, .wy-f-three { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  .wy-f-three { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
   .wy-three-col { grid-row: auto; grid-template-rows: none; margin-bottom: .7rem; }
   .wy-f .wy-mirror-head { display: none; }
   .wy-mirror-row { grid-template-columns: minmax(0, 1fr); gap: .2rem; }
@@ -279,4 +252,49 @@
 @media (prefers-reduced-motion: reduce) {
   .wy-ring-move { animation: none; }
   .wy-line { transition: none; }
+}
+
+/* ── The reshaped text: heading subtitle, the habit, the three titles, quotations inside readings, the ledger of part 05 ── */
+.wy-intro h1 .wy-sub { display: block; margin-top: .55rem; font: 400 clamp(1.15rem, 2.2vw, 1.5rem)/1.3 var(--serif); letter-spacing: 0; color: var(--ink); }
+.wy-titles { margin-top: 1.4rem; padding-top: .8rem; border-top: 1px solid var(--rule); }
+.wy-titles ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem; margin: .6rem 0 0; padding: 0; list-style: none; font-size: .9rem; line-height: 1.6; }
+.wy-titles strong { display: block; font: 500 1.1rem/1.3 var(--serif); color: var(--wy); }
+.wy-habit { margin-bottom: 1.4rem; padding: .8rem 0 .9rem; border-block: 1px solid var(--rule); max-width: 78ch; font: 400 1.04rem/1.6 var(--serif); }
+.wy-habit strong { font-weight: 600; color: var(--wy); }
+.wy-legend { margin-top: 1.1rem; display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; font-size: .86rem; color: var(--muted); }
+.wy-read-label { display: block; margin-bottom: .05rem; font-style: normal; font-variant-caps: normal; }
+.is-empty .wy-read-label { display: none; }
+.wy-quote { margin: .4rem 0; padding-left: .85rem; border-left: 1px solid var(--wy); }
+.wy-quote blockquote { margin: 0; font: 400 1.04rem/1.55 var(--serif); }
+.wy-quote figcaption { margin-top: .2rem; font-size: .78rem; color: var(--muted); }
+.wy-list { margin: .2rem 0; padding-left: 1.1rem; line-height: 1.6; }
+.wy-study-link em { font-style: italic; }
+.wy-intro-text { margin-top: 1.4rem; max-width: 78ch; }
+.wy-intro-text > * + * { margin-top: .7rem; }
+.wy-entry.is-centre { border-top: 2px solid var(--wy); }
+.wy-entry.is-centre .wy-entry-n { color: var(--accent); }
+.wy-folds { margin-top: 1.2rem; border-bottom: 1px solid var(--rule); }
+.wy-fold { border-top: 1px solid var(--rule); }
+.wy-fold > h4 { margin: 0; font: inherit; }
+.wy-fold-open { display: flex; justify-content: space-between; width: 100%; min-height: 48px; padding: .7rem 0 !important; font: 500 1.1rem/1.3 var(--serif) !important; color: var(--wy) !important; }
+.wy-fold-open::after { content: "+"; color: var(--accent); }
+.wy-fold-open[aria-expanded="true"]::after { content: "−"; }
+.wy-fold-body { max-width: 78ch; padding-bottom: 1.2rem; }
+.wy-fold-body > * + * { margin-top: .75rem; }
+.wy-fold-body > p { font-size: .96rem; line-height: 1.68; }
+.wy-f-ledger .wy-ledger { margin: 0; padding: 0; list-style: none; }
+.wy-ledger li { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: .2rem 1.4rem; padding-block: .55rem; border-top: 1px solid var(--rule); align-items: baseline; }
+.wy-ledger-said { line-height: 1.5; }
+.wy-ledger-then { color: var(--muted); }
+.wy-gold { color: var(--accent); font-style: italic; }
+.wy-ledger-church { margin-top: .9rem; padding-top: .6rem; border-top: 3px double var(--rule); }
+.wy-ledger-church h5 { margin: 0 0 .3rem; font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.wy-ledger-church ul { margin: 0; padding: 0; list-style: none; line-height: 1.6; }
+.wy-ledger-close { margin-top: .8rem; font: italic 400 1.04rem/1.5 var(--serif); }
+@media (max-width: 860px) {
+  .wy-titles ul { grid-template-columns: minmax(0, 1fr); gap: .7rem; }
+  .wy-ledger li { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 620px) {
+  .wy-ledger-then, .wy-ledger-said .wy-at { display: none; }
 }

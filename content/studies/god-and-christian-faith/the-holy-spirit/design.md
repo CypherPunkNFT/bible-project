@@ -1,0 +1,35 @@
+# The Holy Spirit design
+
+Study 23 · Design written with the mock-up · Mock-up for the owner's review, not on the live site · 2026-11-07
+
+Built: [the mock-up and its record](../../../../design/the-holy-spirit-directions/README.md). Open at http://127.0.0.1:8931/mockups/the-holy-spirit-directions/ on this PC. Wording: [content.md](content.md). Limits: [passage-notes.md](passage-notes.md). Standard: [STUDY-STANDARD.md](../../../../../Pages/Study/STUDY-STANDARD.md). Run brief: [DESIGN_RUN.md](../../../../../Pages/Topics/StudyPlan/DESIGN_RUN.md).
+
+## Direction
+
+Teach one habit: when a passage speaks of the Spirit, ask where He is pointing. The shape comes from the text itself. Jesus says the Spirit "will glorify Me by taking from what is Mine and disclosing it to you" (John 16:14), and the study names three places He points in its readings: to Jesus, to new life in a person, and outward to other people. Its close then names, reading by reading, where He pointed. So the page draws a floodlight whose lamp is never shown, only what its light falls on, as in the picture the study borrows from J. I. Packer: a floodlight is not meant to be looked at. One direction was built, because the text already existed.
+
+## The page
+
+- **Opening.** The standard heading: the study trail (Study / God & Christian Faith / The Holy Spirit); the four concepts in gold capitals (Promised · Poured out · Living within · Given for others); the title *The Holy* with *Spirit* as the gold italic turn; the lead; John 16:14 printed in full. Beside it, in a faint circle and dotted orbit, a hillside: grass and a small tree bent by wind, and a beam of light from beyond the circle falling on an empty cross on the hill. The source of the light is outside the drawing on purpose. The motto beneath: "Wind you cannot see. / A light that falls on Jesus." No face or figure of God, of Christ or of anyone.
+- **Four counts**, each computed on the build, each with what it means: the eight readings the study walks (it says "these eight passages", and the build fails if the count differs); the three places He points; the things these passages say He does that only a person does; the verses printed in full.
+- **00 Where is He pointing?** The study's opening paragraphs, then the floodlight: three places along the foot (Jesus · New life · Other people) and six beams falling from above the frame, one per reading, each coloured by the part of the Bible its verse is in. Pointing at or tabbing to a beam shows the close's own sentence for it and the verse words that show the direction, on a line beneath; choosing it opens the verse. Two beams land on each place. Below 720 pixels wide the drawing is left out and the same six are listed under their places.
+- **01–06 The readings.** Each part opens with its concept in gold capitals and a small arrow for its direction (Promised: coming toward; Poured out: down; Living within: in; Given for others: out), the number, the title (with its turn in gold italic where the text has one), the hook in italic, and the main readings. Under that, a row of what the passage says the Spirit does, each phrase opening its verse. Then the reading in one column, with the quotations printed in full and the marked notes. Each part has one figure of its own, from its own verses:
+  - 01: the Son asks, the Father gives, the Spirit comes, Father and Son make their home (John 14:16–23), as four phrases on one line.
+  - 02: the fifteen peoples and places of Acts 2:9–11, in Luke's order, joined by a fine rule, under the line "declaring the wonders of God in our own tongues".
+  - 03: which comes first in Ezekiel 36:27, the gift or the walking.
+  - 04: the two names in Romans 8:9, the Spirit of God and the Spirit of Christ.
+  - 05: two harvests. The fifteen acts of the flesh, with the eight the study quotes from the middle of the list marked as about how people treat one another; then the fruit of the Spirit as one ring of nine, with the four the study names for a quarrelling church marked.
+  - 06: the gifts in 1 Corinthians 12 and in Romans 12 side by side, in each letter's order, with the one gift on both lists joined across; and Spirit, Lord and God named together (1 Corinthians 12:4–6).
+  Each part ends with **where He points** in it (the beam from section 00, again), then Consider and Reflect.
+- **07 Questions readers bring.** The five questions as words on one fine line; choosing one shows its answer beside the line, and the choice goes in the address. The first, "a person, or a power?", gathers every verb from the six parts that only a person does. On a phone the line is left out and all five answers are shown in order.
+- **Marked notes.** Four kinds, each with its own small mark and words: *This site's reading* (a filled circle), *Another tradition, in its own words* (a hollow circle), *Left open: Baptists differ* (a half circle) and *With care* (a gold bar). Notes the study still has to check carry a small gold "to be checked" mark with the note in its title, so an unread source is never shown as read.
+- **Close.** "Following the light": the close paragraphs, the reader's question, "Read the passage again before you answer.", and John 16:7–15 printed in full beside them. Then the hillside again at evening, the sources, and a back link to God & Christian Faith.
+- **Every reference** opens its verses in a sheet, in the Berean, and goes in the address.
+
+## Colour
+
+The Gospels' colour for the page, because the habit is Jesus' own words in John 14 and 16, and the light falls on Him. The beams take the colour of the part of the Bible their verse is in (the Gospels, Acts, the Prophets, the Letters), so colour means the same here as everywhere on the site; the words on each beam carry the same meaning for anyone who cannot tell the colours apart. The site's gold marks the concepts, the turns, the care notes and the notes still to be checked.
+
+## Doctrine and care
+
+The site's voice follows the Baptist Faith and Message 2000: the Spirit is "the Spirit of God, fully divine" and baptizes every believer into the body of Christ "at the moment of regeneration" (article II); believers are kept (article V); baptism pictures the new birth and does not cause it (article VII). Every phrase of the confession the study quotes is found by script in the copy held on this PC. Classical Pentecostal teaching on a second blessing, the Jehovah's Witnesses' teaching on the Spirit, and the Roman Catholic and Lutheran view of baptism in John 3:5 are each shown as theirs, under their own mark, and Classical Pentecostal teaching is kept apart from the prosperity teachers, as the study insists. Whether the miraculous gifts continue is left open, with both Baptist views shown, because the confession does not settle it; how Ezekiel's promise to Israel relates to the church is left open for the same reason. The fear of the unforgivable sin is answered with the crisis lines first. Nothing on the page draws the Spirit as a figure, a dove or a face: He is shown only by what He moves and what His light falls on. See [passage-notes.md](passage-notes.md) for the rest.

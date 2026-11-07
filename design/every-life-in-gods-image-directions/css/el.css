@@ -1,0 +1,263 @@
+/* Every life in God's image mock-up. Frame from the Authors mock-ups, hero from the Manuscripts mock-up. The study's
+   colour is Poetry teal: it opens and closes its walk in the Psalms and Proverbs, and its motto is Psalm 139. Its own
+   shape: each passage is a room drawn as a floor plan, with the people in it as plain rings and one question asked of
+   every room, "Who here cannot speak?". The notes that read or limit the text stand in the margin beside it, as an
+   editor's marginalia; care notes stay in the line of reading. No focus ring on a click: a keyboard user gets a colour
+   and an underline or border from :focus-visible instead. */
+.el-page { --tone: var(--poetry); --tone-ink: color-mix(in srgb, var(--poetry) 70%, var(--ink)); --care: var(--accent); }
+.el-page button, .el-sheet button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:where(.el-page, .el-sheet) :is(a, button, summary, [tabindex]):focus { outline: none; }
+:where(.el-page, .el-sheet) a { color: inherit; }
+.el-page q { quotes: "“" "”" "‘" "’"; }
+
+.el-ref { color: var(--tone-ink) !important; font-weight: 500; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--tone) 40%, transparent) !important; }
+.el-ref:hover, .el-ref:focus-visible { border-bottom-color: var(--tone) !important; background: color-mix(in srgb, var(--tone) 12%, transparent) !important; }
+.el-link { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--tone) 45%, transparent); text-underline-offset: 3px; }
+.el-link:hover, .el-link:focus-visible { text-decoration-color: var(--tone); color: var(--tone-ink) !important; }
+.el-label { font: 600 .62rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone-ink); }
+.el-check { font: .72rem/1.4 var(--sans); color: var(--muted); }
+.el-check-tag { display: inline-block; margin-inline: .25rem .1rem; padding: 0 .35rem; border: 1px solid color-mix(in srgb, var(--care) 55%, transparent); border-radius: 999px; font-size: .6rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--care); vertical-align: .1em; }
+
+/* ── Hero: the standard heading ── */
+.el-intro { align-items: center; padding-block: 1.6rem 1rem; }
+.el-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
+.el-trail a { text-decoration: none; border-bottom: 1px solid transparent; }
+.el-trail a:hover, .el-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.el-here { color: var(--ink); }
+.el-concepts { margin-top: 1rem; font-size: .68rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.el-intro h1 { margin-block: .55rem .2rem; }
+.el-intro h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+.el-subtitle { margin-bottom: .7rem; font: italic 400 1.08rem/1.4 var(--serif); color: var(--muted); }
+.el-opening { margin: 1.1rem 0 0; padding-left: 1rem; border-left: 2px solid var(--tone); max-width: 58ch; }
+.el-opening blockquote { margin: 0; font: 400 1.14rem/1.5 var(--serif); }
+.el-opening figcaption { margin-top: .35rem; font-size: .76rem; color: var(--muted); }
+.el-hero-art svg, .el-plan svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.el-hero-art { color: var(--muted); }
+.el-hero-art .ms-art-note { bottom: -2%; }
+.el-disc { fill: color-mix(in srgb, var(--tone) 6%, transparent); stroke: none; }
+.el-orbit { stroke-dasharray: 2 6; opacity: .35; }
+.el-tone { stroke: var(--tone); }
+.el-faint { opacity: .45; }
+.el-cloth { fill: color-mix(in srgb, var(--tone) 7%, transparent); stroke: none; }
+.el-stitch { stroke: var(--tone); stroke-width: 1; stroke-dasharray: 260; animation: el-knit 14s linear infinite; }
+.el-thread { stroke: var(--tone); stroke-width: 1; stroke-dasharray: 6 5; opacity: .6; animation: el-run 30s linear infinite; }
+.el-flame { fill: color-mix(in srgb, var(--accent) 35%, transparent); stroke: var(--accent); transform-box: fill-box; transform-origin: 50% 100%; animation: el-flicker 3.2s ease-in-out infinite; }
+.el-glow { stroke: var(--accent); animation: el-breathe 6s ease-in-out infinite; }
+@keyframes el-knit { 0% { stroke-dashoffset: 260; } 60%, 100% { stroke-dashoffset: 0; } }
+@keyframes el-run { to { stroke-dashoffset: -220; } }
+@keyframes el-flicker { 0%, 100% { transform: scale(1, 1) rotate(0); } 30% { transform: scale(.92, 1.08) rotate(-3deg); } 60% { transform: scale(1.05, .95) rotate(2deg); } }
+@keyframes el-breathe { 0%, 100% { opacity: .15; } 50% { opacity: .4; } }
+
+.el-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1rem 0 0; border-block: 1px solid var(--line); }
+.el-figures > div { padding: .8rem 1rem; border-left: 1px solid var(--line); min-width: 0; }
+.el-figures > div:first-child { border-left: 0; padding-left: 0; }
+.el-figures dt { font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.el-figures dd { margin: .2rem 0 0; font: 500 1.7rem/1.15 var(--serif); }
+.el-figures small { display: block; margin-top: .1rem; font-size: .74rem; line-height: 1.4; color: var(--muted); }
+.el-crisis { margin-top: 1.1rem; padding: .8rem 0 .8rem 1.1rem; border-left: 2px solid var(--care); max-width: 92ch; }
+.el-crisis p { margin-top: .3rem; font: 400 .98rem/1.6 var(--serif); }
+.el-crisis .el-label, .el-care .el-label { color: var(--care); }
+.el-lines { display: flex; flex-wrap: wrap; gap: .2rem 1.6rem; margin: .5rem 0 0; padding: 0; list-style: none; font: 400 .92rem/1.5 var(--serif); }
+.el-toc { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 1rem 0 0; font-size: .8rem; color: var(--muted); }
+.el-toc a { text-decoration: none; border-bottom: 1px solid transparent; padding-block: .3rem; }
+.el-toc a:hover, .el-toc a:focus-visible { color: var(--ink); border-bottom-color: var(--tone); }
+.el-toc b { margin-right: .4rem; font-weight: 600; color: var(--tone-ink); }
+.el-head h2 em { font-style: italic; font-weight: 400; color: var(--accent); }
+
+/* ── 00 ── */
+.el-two { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 2.4rem; align-items: start; }
+.el-frame { font: 400 1.18rem/1.65 var(--serif); }
+.el-note { padding-top: .5rem; border-top: 1px solid var(--line); font: 400 .95rem/1.6 var(--serif); color: var(--muted); }
+
+/* ── Parts ── */
+.el-part-head { max-width: 72ch; }
+.el-part-tag { display: flex; align-items: baseline; gap: .7rem; font: 600 .66rem var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--tone-ink); }
+.el-part-tag b { font: 400 1.5rem/1 var(--serif); letter-spacing: 0; color: var(--tone); }
+.el-part-head h2 { margin-top: .35rem; font: 500 clamp(1.6rem, 3vw, 2.2rem)/1.15 var(--serif); letter-spacing: -.02em; }
+.el-part-head h2 em { font-style: italic; font-weight: 400; color: var(--accent); }
+.el-hook { margin-top: .45rem; font: italic 400 1.12rem/1.5 var(--serif); color: var(--muted); }
+.el-readings { margin-top: .6rem; font-size: .84rem; line-height: 1.7; }
+.el-readings-note { color: var(--muted); }
+
+/* The room: a floor plan, its people, and one question */
+.el-room { margin: 1.4rem 0 0; max-width: 52rem; }
+.el-room-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--line); }
+.el-room-place { font: 600 .62rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.el-room-name { font: 500 1.2rem var(--serif); }
+.el-find { margin-left: auto; min-height: 40px; padding: 0 1rem !important; border: 1px solid color-mix(in srgb, var(--tone) 55%, transparent) !important; border-radius: 999px !important; font-size: .82rem !important; font-weight: 600 !important; color: var(--tone-ink) !important; }
+.el-find:hover, .el-find:focus-visible { border-color: var(--tone) !important; background: color-mix(in srgb, var(--tone) 8%, transparent) !important; }
+.el-find[aria-pressed="true"] { background: var(--tone) !important; border-color: var(--tone) !important; color: var(--page) !important; }
+.el-find.is-quiet { margin-left: .4rem; min-height: 34px; }
+.el-applied { margin-top: .5rem; font: italic 400 .9rem/1.5 var(--serif); color: var(--muted); }
+.el-plan { display: block; margin-top: .6rem; color: var(--muted); }
+.el-wall { stroke: var(--ink); stroke-width: 1.6; opacity: .55; }
+.el-wall-in { stroke: var(--ink); stroke-width: .8; opacity: .3; }
+.el-gap { fill: var(--page); stroke: none; }
+.el-door { stroke: var(--ink); stroke-width: .9; opacity: .45; stroke-dasharray: 3 3; }
+.el-window { stroke: var(--tone); stroke-width: 1.4; }
+.el-wash { fill: color-mix(in srgb, var(--tone) 6%, transparent); stroke: none; }
+.el-weave { stroke: var(--tone); stroke-width: 1; stroke-dasharray: 5 4; opacity: .55; animation: el-run 60s linear infinite; }
+.el-weave.is-2 { animation-direction: reverse; opacity: .45; }
+.el-weave.is-3 { animation-duration: 45s; opacity: .4; }
+.el-weave.is-4 { animation-direction: reverse; animation-duration: 40s; opacity: .35; }
+.el-ground { stroke: var(--ink); opacity: .25; }
+.el-path { stroke: var(--tone); stroke-width: 1.2; stroke-dasharray: 2 5; animation: el-run 24s linear infinite reverse; }
+.el-plan-note { font: italic 400 13px var(--serif); fill: var(--muted); stroke: none; }
+.el-mark { cursor: pointer; }
+.el-ring { fill: var(--page); stroke: var(--ink); stroke-width: 1.3; transition: fill .2s, stroke .2s, opacity .2s; }
+.el-hit { fill: transparent; stroke: none; }
+.el-mark-label { font: 500 13px var(--sans); fill: var(--ink); stroke: var(--page); stroke-width: 4px; paint-order: stroke; stroke-linejoin: round; transition: opacity .2s; }
+.el-mark.is-words .el-mark-label { font: italic 400 15px var(--serif); fill: var(--muted); }
+.el-mark:hover .el-ring, .el-mark:focus-visible .el-ring, .el-mark.is-on .el-ring { stroke: var(--tone); stroke-width: 2.4; }
+.el-mark:focus-visible .el-mark-label, .el-mark.is-on .el-mark-label { fill: var(--tone-ink); text-decoration: underline; }
+.el-room.is-found .el-mark:not(.is-silent) { opacity: .35; }
+.el-room.is-found .el-mark.is-silent .el-ring { fill: var(--tone); stroke: var(--tone); }
+.el-room-list { display: none; }
+.el-room-reading { min-height: 3.2em; margin-top: .5rem; padding-top: .6rem; border-top: 1px solid var(--line); font: 400 1rem/1.55 var(--serif); }
+.el-room-reading b { font-weight: 600; }
+.el-hint, .el-own { color: var(--muted); font-style: italic; }
+
+/* Psalm 139: every I, me and my */
+.el-speaker { max-width: 68ch; margin-top: 1rem; font: 400 1rem/1.6 var(--serif); }
+.el-me { background: none; color: inherit; transition: background .2s; }
+.show-me .el-me { background: color-mix(in srgb, var(--tone) 22%, transparent); border-bottom: 1px solid var(--tone); }
+
+/* 01 Said twice */
+.el-twice { margin: 1.4rem 0 0; max-width: 60rem; }
+.el-twice-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 0; padding: 0; list-style: none; border-block: 1px solid var(--line); }
+.el-twice-rows li { padding: 1rem 1.4rem 1rem 0; }
+.el-twice-rows li + li { padding-left: 1.4rem; border-left: 1px solid var(--line); }
+.el-twice-when { display: flex; gap: .6rem; align-items: baseline; font: 600 .62rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.el-twice-when b { font: 400 1.2rem var(--serif); color: var(--tone); letter-spacing: 0; }
+.el-twice-text { margin-top: .5rem; font: 400 1.12rem/1.55 var(--serif); }
+.el-lit { background: none; color: var(--tone-ink); border-bottom: 2px solid var(--tone); }
+.el-twice-ref { display: block; margin-top: .4rem; font-size: .78rem; }
+.el-twice figcaption { margin-top: .7rem; font: italic 400 1rem/1.55 var(--serif); }
+.el-unnamed { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--muted) 70%, transparent); color: var(--muted); }
+
+/* 03 The chapter at one table */
+.el-strip { margin: 1.6rem 0 0; max-width: 60rem; }
+.el-strip figcaption { max-width: 80ch; font: 400 .95rem/1.55 var(--serif); }
+.el-places { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); margin-top: .8rem; border-block: 2px solid color-mix(in srgb, var(--ink) 35%, transparent); background: color-mix(in srgb, var(--tone) 5%, transparent); }
+.el-place { display: grid; justify-items: center; align-content: start; gap: .3rem; min-height: 6.2rem; padding: .5rem 0 !important; border-left: 1px solid var(--line) !important; }
+.el-place:first-child { border-left: 0 !important; }
+.el-place-n { font: 600 .7rem var(--sans); color: var(--muted); }
+.el-place-plate { width: 1.5rem; height: 1.5rem; border-radius: 50%; border: 1px dashed color-mix(in srgb, var(--muted) 60%, transparent); }
+.el-place.has-table .el-place-plate { border: 2px solid var(--tone); background: color-mix(in srgb, var(--tone) 18%, transparent); }
+.el-place-always { font: italic 400 .72rem var(--serif); color: var(--tone-ink); }
+.el-place-lame { font: 600 .56rem var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); border-top: 1px solid var(--ink); padding-top: .1rem; }
+.el-place:hover, .el-place:focus-visible { background: color-mix(in srgb, var(--tone) 10%, transparent) !important; }
+.el-place[aria-pressed="true"] { background: color-mix(in srgb, var(--tone) 16%, transparent) !important; }
+.el-place[aria-pressed="true"] .el-place-n { color: var(--ink); }
+.el-strip-reading { min-height: 3.2em; margin-top: .5rem; font: 400 1rem/1.55 var(--serif); }
+.el-editor { margin-top: .4rem; font: .78rem/1.5 var(--sans); color: var(--muted); }
+
+/* Body: reading in one column, notes in the margin beside it */
+.el-body { display: grid; grid-template-columns: minmax(0, 68ch) minmax(0, 20rem); column-gap: 3rem; row-gap: .9rem; margin-top: 1.6rem; font: 400 1.06rem/1.7 var(--serif); align-items: start; }
+.el-body > * { grid-column: 1; margin: 0; }
+.el-body > .el-side { grid-column: 2; }
+.el-body em { font-style: italic; }
+.el-quote { padding: .2rem 0 .2rem 1.1rem; border-left: 2px solid var(--tone); }
+.el-quote blockquote { margin: 0; font: 400 1.2rem/1.55 var(--serif); }
+.el-quote figcaption { margin-top: .35rem; font: .76rem var(--sans); color: var(--muted); }
+.el-partial { font-style: italic; }
+.el-care { padding: .7rem 0 .7rem 1.1rem; border-left: 2px solid var(--care); }
+.el-care p, .el-side p { margin-top: .25rem; }
+.el-side { padding-top: .5rem; border-top: 1px solid color-mix(in srgb, var(--tone) 45%, transparent); font-size: .9rem; line-height: 1.6; color: color-mix(in srgb, var(--ink) 82%, var(--muted)); }
+.el-side.is-open { border-top-style: dashed; }
+.el-side.is-limit { border-top-color: var(--ink); }
+.el-side.is-limit .el-label { color: var(--ink); }
+.el-side.is-source .el-label { color: var(--muted); }
+.el-ask { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; max-width: calc(68ch + 2rem); margin: 1.6rem 0 0; padding-top: .9rem; border-top: 1px solid var(--line); }
+.el-ask dt { font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tone-ink); }
+.el-ask dd { margin: .25rem 0 0; font: italic 400 1rem/1.5 var(--serif); }
+
+/* ── Questions ── */
+.el-q-list { max-width: calc(68ch + 23rem); }
+.el-q { border-top: 1px solid var(--line); }
+.el-q:last-child { border-bottom: 1px solid var(--line); }
+.el-q summary { display: flex; gap: 1rem; align-items: baseline; padding: 1rem 0; cursor: pointer; list-style: none; }
+.el-q summary::-webkit-details-marker { display: none; }
+.el-q-n { font: 600 .72rem var(--sans); color: var(--tone-ink); }
+.el-q-t { font: 500 1.3rem/1.3 var(--serif); border-bottom: 1px solid transparent; }
+.el-q summary:hover .el-q-t, .el-q summary:focus-visible .el-q-t { border-bottom-color: var(--tone); }
+.el-q[open] .el-q-t { color: var(--tone-ink); }
+.el-q-text { font-size: .84rem; }
+.el-body.is-answer { margin: .6rem 0 1.4rem; }
+
+/* ── Close ── */
+.el-five { margin: 0 0 1.8rem; }
+.el-five ol { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.el-five li { position: relative; }
+.el-five li + li::before { content: ""; position: absolute; left: -50%; right: 50%; top: 1.45rem; border-top: 1px dashed color-mix(in srgb, var(--tone) 50%, transparent); }
+.el-five a { position: relative; display: grid; justify-items: center; gap: .3rem; padding: .9rem .4rem; text-align: center; text-decoration: none; }
+.el-five-ring { width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--tone); }
+.el-five-place { font: 600 .6rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.el-five-who { font: 400 1rem/1.35 var(--serif); border-bottom: 1px solid transparent; }
+.el-five a:hover .el-five-who, .el-five a:focus-visible .el-five-who { border-bottom-color: var(--tone); color: var(--tone-ink); }
+.el-five figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .8rem; margin-top: .6rem; font: italic 400 1.05rem var(--serif); }
+.el-dash { width: 1.6rem; border-top: 1px solid var(--line); }
+.el-close-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.6rem; align-items: start; }
+.el-close-grid > div > * + * { margin-top: .9rem; }
+.el-way { font: 400 1.12rem/1.65 var(--serif); }
+.el-closing { font: 400 1.05rem/1.65 var(--serif); }
+.el-question { padding-left: 1rem; border-left: 2px solid var(--accent); font: italic 400 1.15rem/1.5 var(--serif); }
+.el-again { font-size: .85rem; color: var(--muted); }
+.el-passage { margin: 0; padding-top: .7rem; border-top: 1px solid var(--line); }
+.el-passage figcaption { font-size: .78rem; color: var(--muted); }
+.el-passage-text { margin-top: .6rem; font: 400 .98rem/1.7 var(--serif); }
+.el-passage-text sup, .el-sheet-text sup { margin-right: .15rem; font: 600 .6rem var(--sans); color: var(--tone-ink); }
+.el-sources { margin-top: 1.6rem; padding-top: .8rem; border-top: 1px solid var(--line); font-size: .8rem; line-height: 1.6; color: var(--muted); }
+.el-sources h3 { font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.el-sources ul { margin: .4rem 0 0; padding: 0; list-style: none; }
+.el-sources b { color: var(--ink); font-weight: 600; }
+.el-back { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; margin-top: 1rem; font-size: .85rem; font-weight: 600; color: var(--tone-ink) !important; text-decoration: none; }
+.el-back:hover, .el-back:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Verse sheet ── */
+.el-sheet { width: min(36rem, calc(100vw - 2rem)); max-height: 80vh; padding: 1.2rem 1.4rem 1.4rem; border: 1px solid var(--line); border-top: 3px solid var(--poetry); border-radius: 0; background: var(--surface, var(--page)); color: var(--ink); }
+.el-sheet::backdrop { background: rgb(0 0 0 / .35); }
+.el-sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.el-sheet-head h2 { font: 500 1.35rem/1.2 var(--serif); }
+.el-sheet-x { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line) !important; }
+.el-sheet-x:hover, .el-sheet-x:focus-visible { border-color: var(--poetry) !important; color: var(--poetry); }
+.el-sheet-text { margin-top: .7rem; font: 400 1.08rem/1.65 var(--serif); }
+.el-sheet-src { margin-top: .7rem; font-size: .72rem; color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .el-stitch, .el-thread, .el-flame, .el-glow, .el-weave, .el-path { animation: none !important; }
+  .el-stitch { stroke-dasharray: none; }
+  .el-ring, .el-mark-label, .el-me { transition: none; }
+}
+@media (max-width: 1100px) {
+  .el-body { grid-template-columns: minmax(0, 68ch); }
+  .el-body > .el-side { grid-column: 1; margin-left: 1.1rem; }
+}
+@media (max-width: 860px) {
+  .el-two, .el-close-grid { grid-template-columns: minmax(0, 1fr); }
+  .el-five ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .el-five li + li::before { display: none; }
+}
+/* On phones the floor plans would shrink their labels past reading: the room becomes the list of who is in it. */
+@media (max-width: 640px) {
+  .el-plan { display: none; }
+  .el-room-list { display: flex; flex-wrap: wrap; gap: .4rem; margin: .7rem 0 0; padding: 0; list-style: none; }
+  .el-room-list button { min-height: 40px; padding: 0 .8rem !important; border: 1px solid var(--line) !important; border-radius: 999px !important; font-size: .85rem !important; }
+  .el-room-list li.is-on button { border-color: var(--tone) !important; color: var(--tone-ink); }
+  .el-room.is-found .el-room-list li:not(.is-silent) { opacity: .45; }
+  .el-room.is-found .el-room-list li.is-silent button { background: var(--tone) !important; border-color: var(--tone) !important; color: var(--page) !important; }
+  .el-find { margin-left: 0; }
+  .el-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .el-figures > div { padding-left: 1rem; border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
+  .el-figures > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .el-figures > div:nth-child(-n+2) { border-top: 0; }
+  .el-twice-rows { grid-template-columns: minmax(0, 1fr); }
+  .el-twice-rows li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .el-places { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  .el-place:nth-child(8) { border-left: 0 !important; }
+  .el-place:nth-child(n+8) { border-top: 1px solid var(--line); }
+  .el-ask { grid-template-columns: minmax(0, 1fr); }
+  .el-five ol { grid-template-columns: minmax(0, 1fr); }
+  .el-five a { grid-template-columns: auto auto minmax(0, 1fr); justify-items: start; align-items: center; gap: .7rem; text-align: left; padding: .6rem 0; }
+  .el-lines { display: grid; }
+}

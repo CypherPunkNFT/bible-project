@@ -1,0 +1,301 @@
+/* The Christian and the state mock-up. Frame from the Authors mock-ups, hero from the Manuscripts mock-up. The study's
+   colour is Gospels & Acts violet: the page turns on Mark 12:17 and returns to Acts 4. Its own shape: two columns, the
+   ruler's always drawn inside God's, words joined by fine rules, never boxed. No focus ring on a click: a keyboard user
+   gets a colour and an underline or border from :focus-visible instead. */
+.cs-page { --tone: var(--gospels); --tone-ink: color-mix(in srgb, var(--gospels) 70%, var(--ink)); --care: var(--accent); }
+.cs-page button, .cs-sheet button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:where(.cs-page, .cs-sheet) :is(a, button, summary, [tabindex], g):focus { outline: none; }
+:where(.cs-page, .cs-sheet) a { color: inherit; }
+.cs-page q { quotes: "“" "”" "‘" "’"; }
+.cs-page svg { overflow: visible; }
+
+.cs-ref { color: var(--tone-ink) !important; font-weight: 500; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--tone) 40%, transparent) !important; }
+.cs-ref:hover, .cs-ref:focus-visible { border-bottom-color: var(--tone) !important; background: color-mix(in srgb, var(--tone) 12%, transparent) !important; }
+.cs-link { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--tone) 45%, transparent); text-underline-offset: 3px; }
+.cs-link:hover, .cs-link:focus-visible { text-decoration-color: var(--tone); color: var(--tone-ink) !important; }
+.cs-label { display: inline-block; font: 600 .62rem/1.4 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone-ink); }
+.cs-label.is-care { color: var(--care); }
+.cs-check { font: .72rem/1.4 var(--sans); color: var(--muted); }
+.cs-check-tag { display: inline-block; margin-inline: .25rem .1rem; padding: 0 .35rem; border: 1px solid color-mix(in srgb, var(--care) 55%, transparent); border-radius: 999px; font-size: .6rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--care); vertical-align: .1em; }
+.cs-added { font: .72rem var(--sans); color: var(--muted); }
+.cs-words { font-family: var(--serif); }
+.cs-ask-q { font: 600 .66rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.cs-reads { margin-top: .9rem; max-width: 78ch; font: italic 400 1.06rem/1.55 var(--serif); color: var(--ink); }
+
+/* ── Hero ── */
+.cs-intro { align-items: center; padding-block: 1.6rem 1rem; }
+.cs-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
+.cs-trail a { text-decoration: none; border-bottom: 1px solid transparent; }
+.cs-trail a:hover, .cs-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.cs-here { color: var(--ink); }
+.cs-concepts { margin-top: 1rem; font-size: .68rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.cs-intro h1 { margin-block: .55rem .6rem; }
+.cs-opening { margin: 1.1rem 0 0; padding-left: 1rem; border-left: 2px solid var(--tone); max-width: 58ch; }
+.cs-opening blockquote { margin: 0; font: 400 1.14rem/1.5 var(--serif); }
+.cs-opening figcaption { margin-top: .35rem; font-size: .76rem; color: var(--muted); }
+.cs-hero-art svg, .cs-close-art svg, .cs-seat svg, .cs-step-art svg, .cs-state-art svg { display: block; width: 100%; height: auto; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.cs-disc { fill: color-mix(in srgb, var(--tone) 6%, transparent); stroke: none; }
+.cs-orbit { stroke-dasharray: 2 6; opacity: .35; }
+.cs-coin { fill: color-mix(in srgb, var(--accent) 9%, var(--page)); stroke: none; }
+.cs-shadow { fill: color-mix(in srgb, var(--ink) 8%, transparent); stroke: none; }
+.cs-bead { fill: currentColor; stroke: none; opacity: .5; }
+.cs-tone { stroke: var(--tone); }
+.cs-faint { opacity: .45; }
+.cs-dash { stroke-dasharray: 3 3; stroke: var(--tone); }
+.cs-leaf { fill: color-mix(in srgb, var(--tone) 12%, transparent); stroke: var(--tone); }
+.cs-glint { stroke: var(--accent); stroke-width: 2; opacity: 0; animation: cs-glint 9s ease-in-out infinite; }
+.cs-spark { animation: cs-twinkle 8s ease-in-out infinite; }
+.cs-sprout { stroke: var(--tone); transform-box: fill-box; transform-origin: 50% 100%; animation: cs-sway 7s ease-in-out infinite; }
+@keyframes cs-glint { 0%, 55%, 100% { opacity: 0; } 70% { opacity: .8; } }
+@keyframes cs-twinkle { 0%, 100% { opacity: .25; } 50% { opacity: .7; } }
+@keyframes cs-sway { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(5deg); } }
+
+.cs-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1rem 0 0; border-block: 1px solid var(--line); }
+.cs-figures > div { padding: .8rem 1rem; border-left: 1px solid var(--line); min-width: 0; }
+.cs-figures > div:first-child { border-left: 0; padding-left: 0; }
+.cs-figures dt { font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.cs-figures dd { margin: .2rem 0 0; font: 500 1.7rem/1.15 var(--serif); }
+.cs-figures small { display: block; margin-top: .1rem; font-size: .74rem; line-height: 1.4; color: var(--muted); }
+.cs-toc { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 1rem 0 0; font-size: .8rem; color: var(--muted); }
+.cs-toc a { text-decoration: none; border-bottom: 1px solid transparent; padding-block: .3rem; }
+.cs-toc a:hover, .cs-toc a:focus-visible { color: var(--ink); border-bottom-color: var(--tone); }
+.cs-toc b { margin-right: .4rem; font-weight: 600; color: var(--tone-ink); }
+.cs-head h2 em { font-style: italic; font-weight: 400; color: var(--accent); }
+
+/* ── 00 Whose is it? ── */
+.cs-frame { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 2.4rem; max-width: 100%; }
+.cs-frame p { font: 400 1.02rem/1.7 var(--serif); }
+.cs-frame .cs-note { font: 400 .86rem/1.65 var(--sans); color: var(--muted); }
+.cs-whose { margin: 1.6rem 0 0; }
+.cs-whose-svg { display: block; width: 100%; max-width: 64rem; height: auto; margin: .4rem auto 0; }
+.cs-w-god { fill: color-mix(in srgb, var(--tone) 5%, transparent); stroke: var(--tone); stroke-width: 1.2; }
+.cs-w-coin { fill: color-mix(in srgb, var(--accent) 9%, var(--page)); stroke: var(--muted); stroke-width: 1.2; }
+.cs-w-rim { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 1 4; stroke-linecap: round; }
+.cs-w-tag { font: 600 11px var(--sans); letter-spacing: .16em; text-transform: uppercase; fill: var(--muted); }
+.cs-w-head { font: 600 11px var(--sans); letter-spacing: .16em; text-transform: uppercase; fill: var(--tone-ink); }
+.cs-w-item { cursor: pointer; }
+.cs-w-line { fill: none; stroke: var(--muted); stroke-width: 1; opacity: .6; transition: opacity .2s, stroke-width .2s; }
+.cs-w-line.is-dashed { stroke: var(--accent); stroke-dasharray: 5 5; opacity: .9; stroke-width: 1.4; }
+.cs-w-hit { fill: none; stroke: transparent; stroke-width: 16; }
+.cs-w-end { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; }
+.cs-w-dot { fill: var(--page); stroke: var(--muted); stroke-width: 1.4; }
+.is-god > .cs-w-dot { stroke: var(--tone); }
+.is-cross > .cs-w-dot { fill: var(--accent); stroke: none; }
+.cs-w-label { font: 400 19px var(--serif); fill: var(--ink); }
+.cs-whose-svg.is-pointing .cs-w-item:not(.is-on) { opacity: .45; }
+.cs-w-item.is-on .cs-w-line, .cs-w-item:focus-visible .cs-w-line { opacity: 1; stroke-width: 2; stroke: var(--tone); }
+.cs-w-item.is-on .cs-w-label, .cs-w-item:focus-visible .cs-w-label { fill: var(--tone-ink); text-decoration: underline; }
+.cs-whose-reading { min-height: 3.4em; margin-top: .6rem; padding-top: .6rem; border-top: 1px solid var(--line); font: 400 1rem/1.55 var(--serif); color: var(--muted); }
+.cs-whose-reading b { color: var(--ink); font-weight: 600; }
+.cs-w-col { font: 600 .62rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--tone-ink); }
+.cs-w-col.is-cross { color: var(--care); }
+.cs-whose figcaption { margin-top: .7rem; max-width: 80ch; font: italic 400 1.08rem/1.55 var(--serif); color: var(--ink); }
+.cs-whose-lists { display: none; }
+.cs-whose-lists h3 { margin-top: 1rem; font: 600 .62rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone-ink); }
+.cs-whose-lists ul { margin: .3rem 0 0; padding: 0; list-style: none; }
+.cs-whose-lists li { padding: .4rem 0; border-bottom: 1px solid var(--line); font: 400 .95rem/1.5 var(--serif); }
+
+/* ── Parts: one anatomy ── */
+.cs-part-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 19rem); gap: 1rem 3rem; align-items: start; }
+.cs-part-n { display: block; font: 500 1rem/1 var(--sans); letter-spacing: .08em; color: var(--tone-ink); }
+.cs-part-head h2 { margin-top: .5rem; font: 500 clamp(1.6rem, 3vw, 2.3rem)/1.15 var(--serif); letter-spacing: -.02em; }
+.cs-hook { margin-top: .5rem; max-width: 60ch; font: italic 400 1.15rem/1.5 var(--serif); color: var(--muted); }
+.cs-readings { margin-top: .6rem; font-size: .84rem; }
+.cs-state { display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); gap: .8rem; align-items: start; padding-left: 1rem; border-left: 1px solid var(--line); }
+.cs-state-art { color: var(--muted); }
+.cs-state p { display: flex; flex-direction: column; gap: .15rem; }
+.cs-state b { font: 500 1.25rem/1.2 var(--serif); }
+.cs-state span:last-child { font-size: .82rem; line-height: 1.5; color: var(--muted); }
+.cs-fig { margin: 1.6rem 0 0; padding: 1.2rem 0 0; border-top: 1px solid var(--line); }
+.cs-body { max-width: 70ch; margin-top: 1.6rem; }
+.cs-body > p { margin-top: .9rem; font: 400 1.04rem/1.75 var(--serif); }
+.cs-h3 { margin-top: 1.8rem; font: 500 1.3rem/1.3 var(--serif); }
+.cs-quote { margin: 1.1rem 0; padding-left: 1.1rem; border-left: 2px solid var(--tone); }
+.cs-quote blockquote { margin: 0; font: 400 1.14rem/1.6 var(--serif); }
+.cs-quote figcaption { margin-top: .3rem; font-size: .76rem; color: var(--muted); }
+.cs-note-block { margin: 1.2rem 0; padding: .1rem 0 .1rem 1.1rem; border-left: 1px solid var(--line); }
+.cs-note-block p { margin-top: .25rem; font: 400 .98rem/1.65 var(--serif); }
+.cs-note-block.is-care { border-left: 2px solid var(--care); }
+.cs-note-block.is-limits { border-left: 1px dashed var(--muted); }
+.cs-note-block.is-limits .cs-label, .cs-note-block.is-other .cs-label, .cs-note-block.is-source .cs-label { color: var(--muted); }
+.cs-ask { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin: 1.6rem 0 0; padding-top: .9rem; border-top: 1px solid var(--line); max-width: 70rem; }
+.cs-ask dt { font: 600 .62rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone-ink); }
+.cs-ask dd { margin: .3rem 0 0; font: 400 1.02rem/1.6 var(--serif); }
+
+/* 01 The six takes run in to one seat */
+.cs-take-grid { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(4rem, .8fr) minmax(0, 13rem); align-items: stretch; margin-top: .8rem; }
+.cs-take-rows { display: grid; grid-auto-rows: 1fr; margin: 0; padding: 0; list-style: none; counter-reset: take; }
+.cs-take-rows li { display: flex; flex-direction: column; justify-content: center; padding: .35rem 0; border-bottom: 1px solid var(--line); counter-increment: take; }
+.cs-take-rows li b { font: 600 .66rem var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--tone-ink); }
+.cs-take-rows li b::before { content: counter(take) "  "; color: var(--muted); }
+.cs-take-rows li span { font: 400 .98rem/1.45 var(--serif); }
+.cs-take-lines { width: 100%; height: 100%; }
+.cs-take-lines path { fill: none; stroke: var(--tone); stroke-width: 1.2; opacity: .55; }
+.cs-take-end { display: flex; flex-direction: column; justify-content: center; gap: .6rem; padding-left: .6rem; }
+.cs-seat { display: block; width: 5rem; color: var(--muted); }
+.cs-take-end p { font: 400 1rem/1.5 var(--serif); }
+.cs-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-top: 1.1rem; }
+.cs-pair p { font: 400 1.04rem/1.5 var(--serif); }
+.cs-pair .cs-label { display: block; margin-bottom: .2rem; }
+
+/* 02 The scroll and Solomon's record */
+.cs-scroll { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: .9rem 1.4rem 0; padding: 1rem 0; border-block: 1px solid var(--tone); }
+.cs-scroll::before, .cs-scroll::after { content: ""; position: absolute; top: -.6rem; bottom: -.6rem; width: .9rem; border: 1px solid var(--tone); border-radius: 999px; background: var(--page); }
+.cs-scroll::before { left: -1.4rem; } .cs-scroll::after { right: -1.4rem; }
+.cs-limit { padding: 0 1.2rem; border-left: 1px solid var(--line); }
+.cs-limit:first-child { border-left: 0; }
+.cs-limit p { margin-top: .3rem; font: 400 1.04rem/1.5 var(--serif); }
+.cs-record { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 1.2rem 1.4rem 0; }
+.cs-record > div { padding: 0 1.2rem; border-left: 1px solid var(--line); }
+.cs-record > div:first-child { border-left: 0; }
+.cs-big { font: 400 .9rem/1.3 var(--sans); color: var(--muted); }
+.cs-big b { font: 500 2.2rem/1.1 var(--serif); color: var(--ink); }
+.cs-record p + p { margin-top: .3rem; font: 400 .95rem/1.5 var(--serif); }
+
+/* 03 What is owed */
+.cs-owed ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: .8rem 0 0; padding: 0; list-style: none; }
+.cs-owed li { display: flex; flex-direction: column; gap: .25rem; padding: .9rem 1.2rem 1rem; border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
+.cs-owed li:nth-child(3n + 1) { border-left: 0; padding-left: 0; }
+.cs-owed li:nth-child(-n + 3) { border-top: 0; }
+.cs-verb { font: 500 1.8rem/1.1 var(--serif); text-transform: capitalize; color: var(--tone-ink); }
+.cs-to { font-size: .82rem; color: var(--muted); }
+.cs-owed li > span:last-child { font: 400 .98rem/1.5 var(--serif); }
+
+/* 04 Command against answer */
+.cs-clash ol { margin: .8rem 0 0; padding: 0; list-style: none; }
+.cs-clash li { display: grid; grid-template-columns: minmax(0, 1fr) 4rem minmax(0, 1fr); align-items: start; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.cs-clash li p { margin-top: .3rem; font: 400 1.06rem/1.5 var(--serif); }
+.cs-clash li .cs-manner { font-size: .92rem; color: var(--muted); }
+.cs-meet { position: relative; align-self: stretch; }
+.cs-meet::before, .cs-meet::after { content: ""; position: absolute; top: 1.1rem; width: 1.6rem; border-top: 1px solid var(--muted); }
+.cs-meet::before { left: .3rem; transform: rotate(18deg); transform-origin: left; }
+.cs-meet::after { right: .3rem; border-color: var(--tone); transform: rotate(-18deg); transform-origin: right; }
+.cs-ans { padding-left: 1rem; border-left: 2px solid var(--tone); }
+
+/* 05 The line of dates: placed by year, labels above and below; shape and name carry the tradition */
+.cs-line { position: relative; height: 22rem; margin: 1rem 1rem 0; padding: 0; list-style: none; }
+.cs-line::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 1px solid var(--muted); }
+.cs-line li { position: absolute; left: var(--at); bottom: calc(50% + .9rem); display: flex; flex-direction: column; gap: .1rem; width: 15rem; transform: translateX(-.45rem); }
+.cs-line li.is-low { bottom: auto; top: calc(50% + .9rem); }
+.cs-line li.is-right { transform: translateX(calc(-100% + .45rem)); text-align: right; align-items: flex-end; }
+.cs-shape { position: absolute; left: 0; width: .9rem; height: .9rem; bottom: -1.35rem; background: var(--page); border: 1.5px solid var(--tone); }
+.cs-line li.is-low .cs-shape { bottom: auto; top: -1.35rem; }
+.cs-line li.is-right .cs-shape { left: auto; right: 0; }
+.is-baptist .cs-shape { border-radius: 50%; background: var(--tone); }
+.is-reformed .cs-shape { border-color: var(--muted); }
+.is-catholic .cs-shape { border-color: var(--muted); transform: rotate(45deg) scale(.85); }
+.cs-line b { font: 500 1.5rem/1 var(--serif); }
+.cs-who { font: 500 .98rem/1.3 var(--serif); }
+.cs-kind { font: 600 .58rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.cs-what { font: 400 .84rem/1.4 var(--serif); color: var(--ink); }
+.cs-line .cs-check { font-size: .66rem; }
+
+/* 06 Isaiah's order, then the two answers */
+.cs-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; margin: .9rem 0 0; padding: 0; list-style: none; position: relative; }
+.cs-steps::before { content: ""; position: absolute; left: 2.4rem; right: 2.4rem; top: 1.6rem; border-top: 1px dotted var(--muted); }
+.cs-steps li { position: relative; display: flex; flex-direction: column; gap: .3rem; }
+.cs-step-art { display: block; width: 4.6rem; padding-right: .4rem; color: var(--muted); background: var(--page); }
+.cs-steps b { font: 500 1.15rem/1.25 var(--serif); }
+.cs-steps li > span:last-child { font: 400 .95rem/1.5 var(--serif); }
+.cs-views { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr) minmax(0, 1fr); gap: 0; margin-top: 1.6rem; border-top: 1px solid var(--line); }
+.cs-views > div { padding: 1rem 1.4rem 0; }
+.cs-views > div:first-child { padding-left: 0; }
+.cs-views > div:last-child { padding-right: 0; }
+.cs-views h3 { font: 500 1.25rem/1.3 var(--serif); }
+.cs-views ul { margin: .5rem 0 0; padding: 0; list-style: none; }
+.cs-views li::first-letter { text-transform: uppercase; }
+.cs-views li { padding: .35rem 0; font: 400 .96rem/1.5 var(--serif); border-bottom: 1px solid var(--line); }
+.cs-tests { margin-top: .6rem; font-size: .84rem; line-height: 1.6; color: var(--muted); }
+.cs-both { border-inline: 1px solid var(--line); }
+.cs-both h3 { color: var(--tone-ink); }
+.cs-both li { font-style: italic; }
+
+/* ── Questions: three side by side, divided by rules, not boxed ── */
+.cs-q-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cs-q { padding: 0 1.4rem; border-left: 1px solid var(--line); scroll-margin-top: 84px; }
+.cs-q:first-child { padding-left: 0; border-left: 0; }
+.cs-q:last-child { padding-right: 0; }
+.cs-q h3 { font: 500 1.3rem/1.3 var(--serif); }
+.cs-q p { margin-top: .6rem; font: 400 .98rem/1.65 var(--serif); }
+
+/* ── Close ── */
+.cs-close-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.6rem; align-items: start; }
+.cs-way p { font: 400 1.1rem/1.6 var(--serif); }
+.cs-way ol { margin: .6rem 0 0; padding: 0; list-style: none; counter-reset: way; }
+.cs-way li { position: relative; padding: .55rem 0 .55rem 2.2rem; border-bottom: 1px solid var(--line); font: 400 1.04rem/1.55 var(--serif); counter-increment: way; }
+.cs-way li::before { content: counter(way); position: absolute; left: 0; top: .55rem; font: 500 1.1rem/1.4 var(--serif); color: var(--tone-ink); }
+.cs-closing { margin-top: 1.2rem; font: 400 1.08rem/1.65 var(--serif); }
+.cs-invite { margin-top: 1rem; padding-left: 1rem; border-left: 2px solid var(--tone); font: 400 1.12rem/1.6 var(--serif); }
+.cs-question { margin-top: 1.2rem; font: italic 500 1.32rem/1.4 var(--serif); color: var(--tone-ink); }
+.cs-again { margin-top: .5rem; font-size: .85rem; color: var(--muted); }
+.cs-passage { margin: 0; padding-top: .7rem; border-top: 1px solid var(--line); }
+.cs-passage figcaption { font-size: .78rem; color: var(--muted); }
+.cs-passage-text { margin-top: .6rem; font: 400 .98rem/1.7 var(--serif); }
+.cs-passage-text sup, .cs-sheet-text sup { margin-right: .15rem; font: 600 .6rem var(--sans); color: var(--tone-ink); }
+.cs-close-art { display: block; max-width: 640px; margin: 2rem auto 0; color: var(--muted); }
+.cs-sources { margin-top: 1.6rem; padding-top: .8rem; border-top: 1px solid var(--line); font-size: .8rem; line-height: 1.6; color: var(--muted); }
+.cs-sources h3 { font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.cs-sources ul { margin: .4rem 0 .4rem; padding: 0; list-style: none; }
+.cs-sources b { color: var(--ink); font-weight: 600; }
+.cs-back { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; margin-top: 1rem; font-size: .85rem; font-weight: 600; color: var(--tone-ink) !important; text-decoration: none; }
+.cs-back:hover, .cs-back:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Verse sheet: slides in from the right ── */
+.cs-sheet { position: fixed; inset: 0 0 0 auto; width: min(32rem, 100vw); height: 100dvh; max-width: 100vw; max-height: 100dvh; margin: 0; padding: 1.2rem 1.4rem 1.4rem; overflow-y: auto; border: 0; border-left: 3px solid var(--gospels); border-radius: 0; background: var(--surface, var(--page)); color: var(--ink); animation: cs-slide .25s ease-out; }
+.cs-sheet::backdrop { background: rgb(0 0 0 / .35); }
+@keyframes cs-slide { from { transform: translateX(100%); } to { transform: none; } }
+.cs-sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.cs-sheet-head h2 { font: 500 1.35rem/1.2 var(--serif); }
+.cs-sheet-x { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line) !important; }
+.cs-sheet-x:hover, .cs-sheet-x:focus-visible { border-color: var(--gospels) !important; color: var(--gospels); }
+.cs-sheet-text { margin-top: .7rem; font: 400 1.06rem/1.7 var(--serif); }
+.cs-sheet-src { margin-top: .7rem; font-size: .72rem; color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-glint, .cs-spark, .cs-sprout, .cs-sheet { animation: none; }
+  .cs-w-line { transition: none; }
+}
+
+/* ── Narrow screens: leave out what does not fit ── */
+@media (max-width: 900px) {
+  .cs-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cs-figures > div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .cs-figures > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .cs-part-head, .cs-frame { grid-template-columns: minmax(0, 1fr); }
+  .cs-state { padding-left: 0; border-left: 0; }
+  .cs-close-grid, .cs-q-row { grid-template-columns: minmax(0, 1fr); }
+  .cs-q { padding: 1rem 0 0; border-left: 0; border-top: 1px solid var(--line); margin-top: 1rem; }
+  .cs-q:first-child { border-top: 0; margin-top: 0; }
+  .cs-owed ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cs-owed li:nth-child(n) { border-left: 1px solid var(--line); border-top: 1px solid var(--line); padding-left: 1.2rem; }
+  .cs-owed li:nth-child(2n + 1) { border-left: 0; padding-left: 0; }
+  .cs-owed li:nth-child(-n + 2) { border-top: 0; }
+  .cs-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cs-steps::before { display: none; }
+  /* The line of dates becomes a list: no positions to squeeze */
+  .cs-line { height: auto; margin-inline: 0; }
+  .cs-line::before { left: .45rem; right: auto; top: 0; bottom: 0; border-top: 0; border-left: 1px solid var(--muted); }
+  .cs-line li, .cs-line li.is-low, .cs-line li.is-right { position: relative; left: auto; top: auto; bottom: auto; width: auto; transform: none; text-align: left; align-items: flex-start; padding: 0 0 1.1rem 1.8rem; }
+  .cs-shape, .cs-line li.is-low .cs-shape, .cs-line li.is-right .cs-shape { left: 0; right: auto; top: .4rem; bottom: auto; }
+}
+@media (max-width: 700px) {
+  .cs-whose-wide { display: none; }
+  .cs-whose-lists { display: block; }
+  .cs-take-lines, .cs-seat { display: none; }
+  .cs-take-grid { grid-template-columns: minmax(0, 1fr); }
+  .cs-take-end { padding: .8rem 0 0; }
+  .cs-pair, .cs-ask, .cs-scroll, .cs-record, .cs-views { grid-template-columns: minmax(0, 1fr); }
+  .cs-scroll, .cs-record { margin-inline: 0; }
+  .cs-scroll::before, .cs-scroll::after { display: none; }
+  .cs-limit, .cs-record > div { padding: .6rem 0; border-left: 0; border-top: 1px solid var(--line); }
+  .cs-limit:first-child, .cs-record > div:first-child { border-top: 0; }
+  .cs-clash li { grid-template-columns: minmax(0, 1fr); gap: .6rem; }
+  .cs-meet { display: none; }
+  .cs-views > div, .cs-views > div:first-child, .cs-views > div:last-child { padding: 1rem 0 0; }
+  .cs-both { border-inline: 0; border-block: 1px solid var(--line); padding-bottom: 1rem !important; }
+}
+@media (max-width: 460px) {
+  .cs-owed ul, .cs-steps { grid-template-columns: minmax(0, 1fr); }
+  .cs-owed li:nth-child(n) { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+  .cs-owed li:first-child { border-top: 0; }
+}

@@ -1,334 +1,387 @@
 #!/usr/bin/env python3
-"""Build data.js for the A new creation mock-up from the study's content.md, study_lists.py and the Berean text.
+"""Build data.js for the A new creation mock-up from the study's content.md, study_lists.py, the site's Berean text and the
+outside sources held on this PC.
 
-Run: python design/a-new-creation-directions/build-data.py   (exit 1 and no data.js change if any check fails)
-Check: add --check to run the same checks and fail if data.js is not what its inputs build now. Writes nothing.
+Run from anywhere: python -B design/a-new-creation-directions/build-data.py
+  --check     run every check and fail if data.js is not what this build would write (writes nothing)
+  --selftest  feed the checks wrong inputs in memory and confirm each one is refused (writes nothing)
+Exit 1 with a message, and data.js unchanged, if any check fails.
 
-Checks: every content.md line is consumed by a closed list of keys; block quotes equal the whole Berean text of their reference;
-every reference resolves with no gap; each quoted phrase is in the reference that follows it in its paragraph (or the one before it, if
-none follows), one paragraph of its named held source, or the named confession list; every phrase in the lists is in its stated verse as
-whole words. All this proves the words are there. It does not prove that a reading is right or that a pairing is right.
+Checks: every content.md line is placed by a closed list of rules; block quotations are the whole Berean text of their
+reference; every reference resolves with no gap; each quoted phrase is in the verse cited beside it, or (with none beside
+it) in a verse its paragraph, part or the passage above may quote, or in the one part of the held source it is credited
+to; italics are known studies (whose folders exist) or known terms; links stay on the site; every phrase in the lists is
+in its stated verse as whole words. This proves the words are there. It does not prove a reading or a pairing is right.
 """
 import hashlib
 import json
 import os
 import re
 import sys
-import tempfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-WEBSITE = HERE.parents[1]
-LIBRARY = WEBSITE.parent / "sources/library"
-CONTENT = WEBSITE / "content/studies/christian-life/a-new-creation/content.md"
-FOUNDATION = WEBSITE.parent / "DOCTRINAL-FOUNDATION.md"
-CCEL = LIBRARY / "source-ccel"
-BULK = LIBRARY / "bulk/ccel"
-CREEDS = WEBSITE / "data/creeds/doc"
-# A quotation must fall inside one paragraph of the named file. These are whole files, not only the comment read; the notes say what was read.
-HELD = {
-    "calvin-2co": CCEL / "asset-ready-text-edition-l06-calvin-40/calcom40.xml",
-    "calvin-rom": CCEL / "asset-ready-text-edition-l06-calvin-38/calcom38.xml",
-    "calvin-gal": CCEL / "asset-ready-text-edition-l06-calvin-41/calcom41.xml",
-    "calvin-eph": CCEL / "asset-ready-text-edition-l06-calvin-41/calcom41.xml",
-    "jfb": BULK / "jamieson_jfb.xml",
-    "wesley": BULK / "wesley_notes.xml",
-    "boyce": BULK / "boyce_theology.xml",
-    "lbc": CREEDS / "1689-london-baptist-confession-1677.b1.json",
-    "methodist": CREEDS / "methodist-articles-of-religion-1784.b1.json",
-    "luther": CREEDS / "luthers-small-catechism-1529.b1.json",
-}
-MIN_SOURCE_QUOTE_WORDS = 3
-EXPECTED_JS = {"theme.js", "art.js", "nc-core.js", "nc-hero.js", "nc-figures.js", "nc-fold.js", "nc-more.js", "nc-turn.js", "nc-back.js", "nc-questions.js", "nc.js"}
-READING_LETTERS = {"2CO", "EPH", "COL", "JAS", "GAL", "ROM"}
-EXPECTED_QUESTIONS = 6
 sys.path.insert(0, str(HERE))
 sys.dont_write_bytecode = True
-from scripture_text import (BSB, CANON, REF_RE, BuildError, fold, has_words, held_paragraphs, in_verse, load_bible, plain_text,  # noqa: E402
-                            ref_id, typographic, verses_of)
-from study_lists import (BEHOLD_NEW_COUNT, BEHOLDS, FOUR_LINES, LETTERS, LOOK_BACK, MORE_FOLDS, QUOTED_CONFESSION, RAILS, READING_FOLDS,  # noqa: E402
-                         READING_ORDER, SOURCES)
+import study_lists as L  # noqa: E402
+from folds import build_lines, close_pairs, part_folds, text_folds  # noqa: E402
+from held import check_outside, held_paths, load_held  # noqa: E402
+from scripture_text import BOOKS, BSB, CANON, REF_RE, BuildError, fold, has_words, load_bible, plain_text, ref_id, typographic, verses_of  # noqa: E402
 
-
-def has_phrase(phrase: str, text: str) -> bool:
-    """A quotation may change the case of its first letter to start or continue a sentence. Nothing else may differ."""
-    return has_words(phrase, text) or has_words(phrase[0].swapcase() + phrase[1:], text)
+WEBSITE = HERE.parents[1]
+CONTENT = WEBSITE / "content/studies/christian-life/a-new-creation/content.md"
+OUT = HERE / "data.js"
+SCHEMA = 2
+INLINE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*|\*([^*]+)\*")
+CONTINUE = re.compile(r"(, | and )(?:(\d+):)?(\d+)(?:–(\d+))?(?![\d:])")
+BARE = re.compile(r"(?<![\w:–])(\d+):(\d+)(?:–(\d+))?")
+BOOK_NAME = re.compile(r"\b(" + "|".join(sorted(map(re.escape, BOOKS), key=len, reverse=True)) + r")\b")
+CHECK_NOTE = re.compile(r"\[check(?: before publishing)?(?:: ([^\]]*))?\]")
+SITE_LINK = re.compile(r"^/(?![/\\])")
+TAGS = ("read", "open", "care", "other")
+TOP_FIELDS = {"Concepts": "concepts", "Motto": "motto", "Lead": "lead", "Frame": "frame", "Selection": "selection",
+              "FoldLead": "foldLead", "FoldReads": "foldReads", "LinesLead": "linesLead"}
+CLOSE_FIELDS = {"Close": "close", "Way": "way", "Invite": "invite", "Question": "question", "Again": "again", "Passage": "passage"}
+KNOWN_KEYS = {*TOP_FIELDS, *CLOSE_FIELDS, "Hook", "Text"}
+EXPECTED_JS = {"theme.js", "art.js", "nc-core.js", "nc-hero.js", "nc-figures.js", "nc-fold.js", "nc-more.js", "nc-questions.js", "nc.js"}
+EXPECTED_QUESTIONS = 6
 
 
 class Builder:
-    def __init__(self, bible: dict, foundation: str):
-        self.bible = bible
-        self.passages = {}
-        self.foundation = foundation
-        self.held = {key: held_paragraphs(path, None, None) for key, path in HELD.items()}
-        self.unchecked_confession = set()
+    def __init__(self, bible: dict, held: dict) -> None:
+        self.bible, self.held = bible, held
+        self.passages: dict = {}
+        self.used = {"own": set(), "outside": set(), "links": set(), "italics": set(), "partial": set(), "exceptions": set()}
+        self.checks: list = []
 
     def passage(self, label: str) -> str:
-        identity = ref_id(label)
+        label = label.replace("-", "–").strip()
+        identity = ref_id(label) if REF_RE.fullmatch(label) else None
+        if identity is None:
+            raise BuildError(f"not a whole Scripture reference: {label!r}")
         if identity not in self.passages:
             code, verses = verses_of(self.bible, label)
             self.passages[identity] = {"label": label, "code": code, "chapters": sorted({c for c, _, _ in verses}),
                                        "verses": [{"c": c, "v": v, "t": t} for c, v, t in verses]}
         return identity
 
-    def runs(self, text: str, source: str | None = None) -> list:
-        """Split prose into plain strings and {r, t} reference links; checks every double-quoted phrase against the citation it belongs to."""
-        if "“" in text or "”" in text:
-            raise BuildError(f"curly double quote in prose would slip past the quotation checks: {text[:90]}")
-        references = list(REF_RE.finditer(text))
-        for match in references:
-            self.passage(match.group(0))
-        if re.search(r"\b\d+:\d+", REF_RE.sub("", text)):
-            raise BuildError(f"a chapter and verse was not recognised as a reference: {text[:90]}")
-        if text.count('"') % 2:
-            raise BuildError(f"unbalanced quotation marks in prose: {text[:90]}")
-        for quoted in re.finditer(r'"([^"]+)"', text):
-            following = next((m for m in references if m.start() >= quoted.end()), None)
-            preceding = next((m for m in reversed(references) if m.end() <= quoted.start()), None)
-            bound = following or preceding
-            self.check_quoted(quoted.group(1), bound.group(0) if bound else None, source, text)
-        text = typographic(text)
-        out, last = [], 0
+    def text_of(self, identity: str) -> str:
+        return fold(" ".join(v["t"] for v in self.passages[identity]["verses"])).replace('"', "").replace("'", "")
+
+    def refs_in(self, text: str) -> list:
+        """Every reference with its span: full ones, short continuations ("4:25, 28, 29") and bare "4:25" after a book name."""
+        found = []
+        def follow(book: str, chapter: str, end: int) -> None:
+            while (more := CONTINUE.match(text, end)):
+                chapter = more.group(2) or chapter
+                tail = f"–{more.group(4)}" if more.group(4) else ""
+                found.append((more.start() + len(more.group(1)), more.end(), f"{book} {chapter}:{more.group(3)}{tail}"))
+                end = more.end()
         for match in REF_RE.finditer(text):
-            if match.start() > last:
-                out.append(text[last:match.start()])
-            out.append({"r": self.passage(match.group(0)), "t": match.group(0)})
+            found.append((match.start(), match.end(), match.group(0)))
+            follow(match.group(1), match.group(2), match.end())
+        for match in BARE.finditer(text):
+            if any(s <= match.start() < e for s, e, _ in found):
+                continue
+            books = [b.group(1) for b in BOOK_NAME.finditer(text, 0, match.start())]
+            if not books:
+                raise BuildError(f"a chapter and verse with no book named before it: {text[:90]!r}")
+            tail = f"–{match.group(3)}" if match.group(3) else ""
+            found.append((match.start(), match.end(), f"{books[-1]} {match.group(1)}:{match.group(2)}{tail}"))
+            follow(books[-1], match.group(1), match.end())
+        return sorted(found)
+
+    def runs(self, text: str, cited: list) -> list:
+        """Inline markup to runs: strings, {r,t} a verse, {s,t} a named study, {i} an italic term, {b} bold, {c} a note to check."""
+        out, last = [], 0
+        for match in CHECK_NOTE.finditer(text):
+            out += self.markup_runs(text[last:match.start()], cited)
+            out.append({"c": (match.group(1) or "").strip() or "before publishing"})
+            self.checks.append(out[-1]["c"])
             last = match.end()
-        if last < len(text):
-            out.append(text[last:])
-        return out
+        return out + self.markup_runs(text[last:], cited)
 
-    def check_quoted(self, phrase: str, reference: str | None, source: str | None, context: str) -> None:
-        folded = fold(phrase)
-        if reference and has_phrase(folded, plain_text(self.bible, reference)):
-            return
-        if phrase in QUOTED_CONFESSION:
-            if not has_words(folded, self.foundation):
-                self.unchecked_confession.add(phrase)
-            return
-        if source:
-            if len(folded.split()) < MIN_SOURCE_QUOTE_WORDS:
-                raise BuildError(f"quote from {source} is under {MIN_SOURCE_QUOTE_WORDS} words: {phrase!r}")
-            if not any(has_words(folded, paragraph) for paragraph in self.held[source]):
-                raise BuildError(f"quote not found in one paragraph of {source}: {phrase!r}")
-            return
-        raise BuildError(f"quoted phrase is not in {reference!r} and has no other source: {phrase!r}, in: {context[:90]}")
-
-
-def tagged_block(builder: Builder, line: str) -> dict:
-    tag = re.match(r"\[([a-z]+)(?::([a-z0-9-]+))?\] (.+)", line)
-    if not tag:
-        raise BuildError(f"bad paragraph tag: {line[:50]}")
-    kind, source, text = tag.groups()
-    if kind in ("care", "open", "read"):
-        if source:
-            raise BuildError(f"{kind} takes no source: {line[:60]}")
-    elif kind != "source" or source not in builder.held:
-        raise BuildError(f"unknown tag or held source: {line[:60]}")
-    return {"k": kind, "src": source, "runs": builder.runs(text, source)}
-
-
-def block_quote(builder: Builder, lines: list, index: int, quote: str) -> tuple:
-    ref_at = next((j for j in range(index, len(lines)) if lines[j].strip()), None)
-    if ref_at is None:
-        raise BuildError(f"block quote at the end of the file has no reference: {quote[:50]}")
-    label, _, version = lines[ref_at].strip().partition(" · ")
-    if version != "BSB":
-        raise BuildError(f"block quote not followed by '<reference> · BSB': {quote[:50]}")
-    if fold(quote).replace('"', "") != plain_text(builder.bible, label):
-        raise BuildError(f"block quote is not the whole Berean text of {label}: {quote[:60]}")
-    return {"k": "quote", "t": typographic(quote), "r": builder.passage(label), "label": label}, ref_at + 1
-
-
-KEYS = {
-    "top": {"Concepts": "concepts", "Motto": "motto", "Lead": "lead", "Selection": "selection", "FoldLead": "foldLead", "BeholdLead": "beholdLead", "BeholdReads": "beholdReads",
-            "RailsReads": "railsReads", "LinesLead": "linesLead", "MoreLead": "moreLead", "MoreReads": "moreReads", "TurnLead": "turnLead", "TurnReads": "turnReads", "BackLead": "backLead", "QuestionsLead": "questionsLead"},
-    "reading": {"Ask": "ask", "Hook": "hook"},
-    "after": {"Consider": "consider", "Reflect": "reflect"},
-    "close": {"Close": "close", "Way": "way", "Invite": "invite", "Question": "question", "Again": "again"},
-}
-TOP_SOURCED = {"TurnCalvin": ("turnCalvin", "calvin-rom")}
-STRAY_KEY = re.compile(r"[A-Z][\w']*(?: [\w']+){0,2}: ")
-
-
-def heading(study: dict, line: str) -> tuple:
-    """Open the section a level-two heading names. Returns (zone, the dict that receives its keys)."""
-    numbered = re.fullmatch(r"## (\d\d) (.+)", line)
-    question = re.fullmatch(r"## Question ([a-z]+): (.+)", line)
-    closing = re.fullmatch(r"## Close: (.+)", line)
-    if numbered:
-        holder = {"n": numbered.group(1), "title": typographic(numbered.group(2)), "parts": []}
-        study["readings"].append(holder)
-        return "reading", holder
-    if question:
-        holder = {"id": question.group(1), "title": typographic(question.group(2).replace('"', "")), "blocks": []}
-        study["questions"].append(holder)
-        return "question", holder
-    if closing:
-        study["closing"] = typographic(closing.group(1))
-        return "close", study
-    raise BuildError(f"heading not recognised: {line}")
-
-
-def keyed(builder: Builder, zone: str, holder: dict, part: dict | None, line: str) -> None:
-    key, sep, value = line.partition(": ")
-    if zone == "reading" and sep and part is None and key == "Slug":
-        holder["slug"] = value
-    elif zone == "reading" and sep and part is None and key == "Read":
-        holder["read"] = [builder.passage(item.strip()) for item in value.split(";")]
-    elif zone == "question" and sep and key == "Text":
-        holder["text"] = builder.passage(value)
-    elif zone == "close" and sep and key == "Passage":
-        holder["passage"] = builder.passage(value)
-    elif zone == "top" and sep and key in TOP_SOURCED:
-        name, source = TOP_SOURCED[key]
-        holder[name] = builder.runs(value, source)
-    elif zone == "reading" and sep and key in KEYS["after"]:
-        holder[KEYS["after"][key]] = builder.runs(value)
-    elif zone != "question" and sep and part is None and key in KEYS[zone]:
-        holder[KEYS[zone][key]] = builder.runs(value)
-    elif part is not None and not STRAY_KEY.match(line):
-        part["blocks"].append({"k": "p", "runs": builder.runs(line)})
-    else:
-        raise BuildError(f"line belongs to nothing, or uses a key this section does not allow: {line[:70]}")
-
-
-def parse(builder: Builder, lines: list) -> dict:
-    """content.md into the study. Every non-blank line must be consumed by a rule here, or the build fails."""
-    study = {"readings": [], "questions": []}
-    zone, holder, part, index = "top", study, None, 0
-    while index < len(lines):
-        line = lines[index].strip()
-        index += 1
-        if not line:
-            continue
-        if line.startswith("# "):
-            study["title"] = typographic(line[2:])
-        elif line.startswith("## "):
-            zone, holder = heading(study, line)
-            part = None
-        elif line.startswith("### "):
-            if zone != "reading":
-                raise BuildError(f"part outside a reading: {line}")
-            part = {"title": typographic(line[4:]), "blocks": []}
-            holder["parts"].append(part)
-        elif line.startswith("> "):
-            block, index = block_quote(builder, lines, index, line[2:])
-            if zone == "top":
-                study["opening"] = block
-            elif part is not None:
-                part["blocks"].append(block)
+    def markup_runs(self, text: str, cited: list) -> list:
+        out, last = [], 0
+        for match in INLINE.finditer(text):
+            out += self.plain_runs(text[last:match.start()], cited)
+            link_text, url, bold, italic = match.groups()
+            if url:
+                if not SITE_LINK.match(url):
+                    raise BuildError(f"only links on this site are allowed in the study text, found {url!r}")
+                out.append({"a": url, "t": typographic(link_text)})
+            elif bold:
+                out.append({"b": typographic(bold)})
             else:
-                raise BuildError(f"block quote outside a part: {line[:60]}")
-        elif line.startswith("["):
-            target = holder["blocks"] if zone == "question" else (part["blocks"] if part is not None else None)
-            if target is None:
-                raise BuildError(f"tagged paragraph outside a part or question: {line[:60]}")
-            target.append(tagged_block(builder, line))
+                plain = italic.replace("’", "'")
+                if plain in L.STUDY_LINKS:
+                    self.used["links"].add(plain)
+                    out.append({"s": f"../{L.STUDY_LINKS[plain]}/", "t": typographic(italic)})
+                elif plain in L.ITALIC_TERMS:
+                    self.used["italics"].add(plain)
+                    out.append({"i": typographic(italic)})
+                else:
+                    raise BuildError(f"italic {italic!r} is neither a study on STUDY_LINKS nor a term on ITALIC_TERMS")
+            last = match.end()
+        return out + self.plain_runs(text[last:], cited)
+
+    def plain_runs(self, text: str, cited: list) -> list:
+        out, last = [], 0
+        for start, end, label in self.refs_in(text):
+            if start > last:
+                out.append(typographic(text[last:start]))
+            identity = self.passage(label)
+            cited.append(identity)
+            out.append({"r": identity, "t": text[start:end]})
+            last = end
+        if last < len(text):
+            out.append(typographic(text[last:]))
+        return [run for run in out if run != ""]
+
+    def check_quotes(self, raw: str, allowed: list, where: str, section: str) -> None:
+        """Each quoted phrase: a credited outside source in its one part; else Scripture in the verses cited beside it (all of
+        them), or, with none beside it, in a verse this paragraph may quote; else one of the study's own terms."""
+        raw = CHECK_NOTE.sub("", raw).replace("*", "")
+        if raw.count('"') % 2:
+            raise BuildError(f"{where}: unbalanced quotation marks: {raw[:80]!r}")
+        for match in re.finditer(r'"([^"]+)"(?:\s*\(([^)]*)\))?', raw):
+            phrase, after = match.groups()
+            plain = phrase.replace("’", "'")
+            if plain in L.OUTSIDE_QUOTES:
+                self.check_outside_quote(raw, plain, where)
+                continue
+            if not after:  # a reference later in the same sentence, before any other quotation, is still this quote's own
+                rest = re.split(r'"|(?<=[.!?])\s', raw[match.end():], maxsplit=1)[0]
+                later = re.search(r"\(([^)]*)\)", rest)
+                after = later.group(1) if later else ""
+            own = [label for _, _, label in self.refs_in(after)] if after and re.search(r"\d:\d", after) else []
+            problem = self.scripture_problem(phrase, own, allowed)
+            if problem is None:
+                continue
+            if (section, plain) in L.OWN_TERMS:
+                self.used["own"].add((section, plain))
+                continue
+            raise BuildError(f"{where}: {problem}")
+
+    def scripture_problem(self, phrase: str, own: list, allowed: list) -> str | None:
+        pieces = [p.strip(" ,.!?;:") for p in re.split(r"…|\.\.\.", phrase) if p.strip(" ,.!?;:")]
+        for piece in pieces:
+            folded = fold(piece).replace('"', "").replace("'", "")
+            variants = {folded, folded[:1].lower() + folded[1:], folded[:1].upper() + folded[1:]}
+            found = lambda identity: any(has_words(v, self.text_of(identity)) for v in variants)  # noqa: E731
+            bound = [label for label in own if (piece, label) not in L.QUOTE_EXCEPTIONS]
+            self.used["exceptions"] |= {(piece, label) for label in own} & set(L.QUOTE_EXCEPTIONS)
+            if bound:
+                for label in bound:
+                    if not found(self.passage(label)):
+                        return f"quoted words {piece!r} are not in {label}, which is cited for them"
+            elif not any(found(identity) for identity in allowed):
+                names = ", ".join(self.passages[i]["label"] for i in dict.fromkeys(allowed)) or "none"
+                return f"quoted words {piece!r} are not in any verse this paragraph may quote ({names})"
+        return None
+
+    def check_outside_quote(self, raw: str, phrase: str, where: str) -> None:
+        name, key, part = L.OUTSIDE_QUOTES[phrase]
+        if key == "bfm":
+            named = re.findall(r"article ([IVX]+)\b", raw)
+            if part not in named:
+                raise BuildError(f"{where}: {phrase!r} is credited to article {part}, but its paragraph names {named or 'no article'}")
+        check_outside(self.held, phrase, (name, key, part))
+        self.used["outside"].add(phrase)
+
+    def block(self, quote_lines: list, ref_line: str, where: str) -> dict:
+        label, _, version = ref_line.strip().partition(" · ")
+        if version != "BSB":
+            raise BuildError(f"{where}: block quotation must be followed by '<reference> · BSB', found {ref_line!r}")
+        text = " ".join(line.removeprefix(">").strip() for line in quote_lines)
+        quoted, bible = fold(text).replace('"', ""), plain_text(self.bible, label)
+        rest = bible[len(quoted):]
+        if label in L.PARTIAL_BLOCKS and bible.startswith(quoted) and quoted[-1] in ".!?" and rest.startswith(" "):
+            self.used["partial"].add(label)  # the quotation stops at the end of a sentence; the page says how the verse goes on
+            last = self.passages[self.passage(label)]["verses"][-1]["t"]
+            start = max(i for i in range(len(last)) if fold(last[i:]).replace('"', "").strip() == rest.strip())
+            return {"k": "quote", "t": text, "r": self.passage(label), "label": label, "goesOn": last[start:].strip()}
+        if quoted != bible:
+            raise BuildError(f"{where}: block quotation is not word for word the Berean at {label}:\n  page: {text}\n  bible: {plain_text(self.bible, label)}")
+        return {"k": "quote", "t": text, "r": self.passage(label), "label": label}
+
+
+class Parser:
+    """content.md into the study. Every non-blank line must be placed by a rule here, or the build fails."""
+
+    def __init__(self, builder: Builder) -> None:
+        self.b = builder
+        self.study: dict = {"parts": [], "questions": []}
+        self.zone, self.part, self.section, self.question = "top", None, None, None
+        self.deferred: list = []
+
+    def scope(self) -> str:
+        return {"part": self.part and self.part["n"], "question": self.question and self.question["id"]}.get(self.zone, self.zone)
+
+    def pool(self) -> list:
+        if self.zone == "part":
+            quotes = [b["r"] for s in self.part["sections"] for b in s["blocks"] if b["k"] == "quote"]
+            return self.part.get("readings", []) + quotes[-1:]
+        if self.zone == "question":
+            return [self.question["text"]] if "text" in self.question else []
+        return []
+
+    def para(self, raw: str, where: str) -> list:
+        cited: list = []
+        runs = self.b.runs(raw, cited)
+        if self.zone in ("top", "close"):  # checked once the opening verse and every block quotation are known
+            self.deferred.append((raw, cited, where, self.zone))
         else:
-            keyed(builder, zone, holder, part, line)
-    return study
+            self.b.check_quotes(raw, cited + self.pool(), where, self.scope())
+        return runs
+
+    def target(self, where: str) -> list:
+        if self.zone == "question":
+            return self.question["blocks"]
+        if self.zone == "part" and self.section is not None:
+            return self.section["blocks"]
+        raise BuildError(f"{where}: a paragraph outside any part section or question")
+
+    def heading(self, line: str, where: str) -> None:
+        if m := re.fullmatch(r"## (\d\d) (.+)", line):
+            index = len(self.study["parts"])
+            if index >= len(L.PART_SLUGS):
+                raise BuildError(f"{where}: more parts than PART_SLUGS names")
+            self.part = {"n": m.group(1), "slug": L.PART_SLUGS[index], "title": typographic(m.group(2)), "sections": []}
+            self.study["parts"].append(self.part)
+            self.zone, self.section = "part", None
+        elif m := re.fullmatch(r"## Question ([a-z]+): (.+)", line):
+            self.question = {"id": m.group(1), "title": typographic(m.group(2)), "rawTitle": m.group(2), "blocks": []}
+            self.study["questions"].append(self.question)
+            self.zone = "question"
+        elif m := re.fullmatch(r"## Close: (.+)", line):
+            self.study["close"] = {"title": typographic(m.group(1))}
+            self.zone = "close"
+        else:
+            raise BuildError(f"{where}: heading not recognised: {line}")
+
+    def keyed(self, line: str, where: str) -> bool:
+        if m := re.fullmatch(r"\*\*(Main readings|Consider|Reflect):\*\* (.+)", line):
+            if self.zone != "part":
+                raise BuildError(f"{where}: {m.group(1)} outside a part")
+            if m.group(1) == "Main readings":
+                self.part["readings"] = [self.b.passage(r) for r in m.group(2).split("; ")]
+            else:
+                self.part[m.group(1).lower()] = self.para(m.group(2), where)
+            return True
+        m = re.fullmatch(r"([A-Z][A-Za-z]+): (.+)", line)
+        if not m:
+            return False
+        key, value = m.groups()
+        if self.zone == "top" and key in TOP_FIELDS:
+            name = TOP_FIELDS[key]
+            self.study[name] = [typographic(x) for x in value.split(" · " if key == "Concepts" else " / ")] if key in ("Concepts", "Motto") else self.para(value, where)
+            if key == "FoldReads":
+                self.study["foldReadsRaw"] = value
+        elif self.zone == "part" and key == "Hook" and self.section is None:
+            self.part["hook"] = self.para(value, where)
+        elif self.zone == "question" and key == "Text":
+            self.question["text"] = self.b.passage(value)
+        elif self.zone == "close" and key in CLOSE_FIELDS:
+            close = self.study["close"]
+            if key == "Passage":
+                close["passage"] = self.b.passage(value)
+            elif key == "Close":
+                close["raw"] = value
+                close["close"] = self.para(value, where)
+            else:
+                close[CLOSE_FIELDS[key]] = self.para(value, where)
+        else:
+            return False
+        return True
+
+    def parse(self, text: str) -> dict:
+        lines = text.replace("\r\n", "\n").split("\n")
+        used, i = 0, 0
+        while i < len(lines):
+            line = lines[i].strip()
+            i += 1
+            if not line:
+                continue
+            used += 1
+            where = f"content.md line {i}"
+            if line.startswith("# "):
+                self.study["title"] = typographic(line[2:])
+            elif line.startswith("## "):
+                self.heading(line, where)
+            elif line.startswith("### "):
+                if self.zone != "part":
+                    raise BuildError(f"{where}: a section heading outside a part: {line}")
+                self.section = {"title": typographic(line[4:]), "blocks": []}
+                self.part["sections"].append(self.section)
+            elif line.startswith("> "):
+                quote = [line]
+                while i < len(lines) and lines[i].startswith(">"):
+                    quote.append(lines[i]); i += 1; used += 1
+                while i < len(lines) and not lines[i].strip():
+                    i += 1
+                if i >= len(lines):
+                    raise BuildError(f"{where}: block quotation at the end of the file has no reference")
+                block = self.b.block(quote, lines[i], where)
+                i += 1; used += 1
+                if self.zone == "top" and "opening" not in self.study:
+                    self.study["opening"] = block
+                else:
+                    self.target(where).append(block)
+            elif m := re.fullmatch(r"\[source:([a-z0-9-]+)\] (.+)", line):
+                if m.group(1) not in L.SOURCE_LABELS:
+                    raise BuildError(f"{where}: unknown source marker [source:{m.group(1)}]")
+                self.target(where).append({"k": "source", "src": m.group(1), "runs": self.para(m.group(2), where)})
+            elif m := re.fullmatch(r"\[([a-z]+)\] (.+)", line):
+                if m.group(1) not in TAGS:
+                    raise BuildError(f"{where}: unknown paragraph tag [{m.group(1)}]")
+                self.target(where).append({"k": m.group(1), "runs": self.para(m.group(2), where)})
+            elif self.keyed(line, where):
+                pass
+            elif re.match(r"[A-Z][A-Za-z]+: ", line) and (self.zone != "part" or line.split(":")[0] in KNOWN_KEYS):
+                raise BuildError(f"{where}: a key this section does not allow: {line[:60]!r}")
+            else:
+                self.target(where).append({"k": "p", "runs": self.para(line, where)})
+        if used != sum(1 for line in lines if line.strip()):
+            raise BuildError("some lines of content.md were not placed on the page")
+        return self.study
 
 
-def position(bible: dict, label: str, words: str) -> tuple:
-    """Where a phrase stands, so the page can say when a command comes first."""
-    _, verses = verses_of(bible, label)
-    chapter, verse, text = verses[0]
-    return chapter, verse, fold(text).replace('"', "").find(fold(words).replace('"', ""))
-
-
-def build_fold(builder: Builder, entry: dict) -> dict:
-    for part in ("done", "now"):
-        in_verse(builder.bible, *entry[part])
-    if entry["join"]:
-        in_verse(builder.bible, *entry["join"])
-    span_code = verses_of(builder.bible, entry["span"])
-    for part in ("done", "now"):
-        code, verses = verses_of(builder.bible, entry[part][0])
-        if code != span_code[0] or verses[0][:2] not in {v[:2] for v in span_code[1]}:
-            raise BuildError(f"{entry[part][0]} is outside the span {entry['span']} of fold {entry['id']}")
-    return {"id": entry["id"], "who": entry["who"], "r": builder.passage(entry["span"]), "span": entry["span"],
-            "done": typographic(entry["done"][1]), "doneR": builder.passage(entry["done"][0]), "doneLabel": entry["done"][0],
-            "now": typographic(entry["now"][1]), "nowR": builder.passage(entry["now"][0]), "nowLabel": entry["now"][0],
-            "join": entry["join"][1] if entry["join"] else None,
-            "commandFirst": position(builder.bible, *entry["now"]) < position(builder.bible, *entry["done"])}
-
-
-def verses_before(bible: dict, code: str, label: str) -> tuple:
-    _, verses = verses_of(bible, label)
-    keys = sorted(tuple(map(int, key.split(":"))) for key in bible[code])
-    return keys.index(verses[0][:2]), len(keys)
-
-
-def build_letter(builder: Builder, letter: dict) -> dict:
-    total = len(builder.bible[letter["code"]])
-    def mark(label: str, words: str) -> dict:
-        in_verse(builder.bible, label, words)
-        before, _ = verses_before(builder.bible, letter["code"], label)
-        return {"r": builder.passage(label), "label": label, "words": typographic(words), "before": before}
-    turn = mark(*letter["turn"]) if letter["turn"] else None
-    marks = [mark(*entry) for entry in letter["marks"]]
-    if turn and any(m["before"] >= turn["before"] for m in marks):
-        raise BuildError(f"{letter['name']}: a command said to be before the turn is not before it")
-    return {"name": letter["name"], "total": total, "turn": turn, "marks": marks, "note": letter["note"]}
-
-
-def count_behold_new(bible: dict) -> int:
-    both = 0
-    for book in bible.values():
-        for text in book.values():
-            if re.search(r"\b[Bb]ehold\b", text) and re.search(r"\bnew\b", text):
-                both += 1
-    return both
-
-
-def build_beholds(builder: Builder) -> list:
-    found = count_behold_new(builder.bible)
-    if found != BEHOLD_NEW_COUNT:
-        raise BuildError(f"the page says {BEHOLD_NEW_COUNT} verses in the Berean have both Behold and new; found {found}")
-    out = []
-    for item in BEHOLDS:
-        in_verse(builder.bible, item["ref"], item["words"])
-        if not re.search(r"\b[Bb]ehold\b", plain_text(builder.bible, item["ref"])):
-            raise BuildError(f"{item['ref']} does not say Behold")
-        out.append({"r": builder.passage(item["ref"]), "label": item["ref"], "words": item["words"], "tense": item["tense"]})
-    return out
-
-
-def build_rails(builder: Builder) -> dict:
-    def groups(name: str) -> list:
-        out = []
-        for label, words in RAILS[name]:
-            for word in words:
-                in_verse(builder.bible, label, word)
-            out.append({"r": builder.passage(label), "label": label, "words": words})
-        return out
-    label, words = RAILS["over"]
-    in_verse(builder.bible, label, words)
-    return {"off": groups("off"), "on": groups("on"), "over": {"r": builder.passage(label), "label": label, "words": words}}
-
-
-def build_lines(builder: Builder) -> list:
-    out = []
-    for line in FOUR_LINES:
-        for part in ("stop", "instead", "because"):
-            in_verse(builder.bible, line["ref"], line[part])
-        out.append({**line, "r": builder.passage(line["ref"]), "label": line["ref"]})
-    return out
-
-
-def build_back(builder: Builder) -> list:
-    out = []
-    for item in LOOK_BACK:
-        in_verse(builder.bible, *item["command"])
-        in_verse(builder.bible, *item["done"])
-        out.append({"id": item["id"], "r": builder.passage(item["span"]), "span": item["span"], "command": item["command"][1], "commandLabel": item["command"][0], "commandR": builder.passage(item["command"][0]),
-                    "done": item["done"][1], "doneLabel": item["done"][0], "doneR": builder.passage(item["done"][0]), "said": typographic(item["said"])})
-    return out
+def finish(builder: Builder, parser: Parser) -> None:
+    """Checks that need the whole text: the close's quotations, question titles, what must be there, unused list entries."""
+    study = parser.study
+    for key in ("title", "opening", *TOP_FIELDS.values(), "close"):
+        if key not in study:
+            raise BuildError(f"content.md has no {key}")
+    for key in (*CLOSE_FIELDS.values(), "raw"):
+        if key not in study["close"]:
+            raise BuildError(f"the close has no {key}")
+    every_quote = [b["r"] for p in study["parts"] for s in p["sections"] for b in s["blocks"] if b["k"] == "quote"]
+    for raw, cited, where, zone in parser.deferred:
+        wider = every_quote + [study["close"]["passage"]] if zone == "close" else []
+        builder.check_quotes(raw, cited + wider + [study["opening"]["r"]], where, zone)
+    if len(study["parts"]) != len(L.PART_SLUGS):
+        raise BuildError(f"PART_SLUGS names {len(L.PART_SLUGS)} parts; the text has {len(study['parts'])}")
+    for part in study["parts"]:
+        for key in ("readings", "hook", "consider", "reflect"):
+            if key not in part:
+                raise BuildError(f"part {part['n']} has no {key}")
+    if len(study["questions"]) != EXPECTED_QUESTIONS:
+        raise BuildError(f"the page says {EXPECTED_QUESTIONS} questions; the text has {len(study['questions'])}")
+    for question in study["questions"]:
+        if "text" not in question or not question["blocks"] or question["blocks"][0]["k"] != "read":
+            raise BuildError(f"question {question['id']} must name its Text and open with this study's reading")
+        builder.check_quotes(question.pop("rawTitle"), [question["text"]], f"question {question['id']} title", question["id"])
+    unused = [("OWN_TERMS", set(L.OWN_TERMS) - builder.used["own"]), ("OUTSIDE_QUOTES", set(L.OUTSIDE_QUOTES) - builder.used["outside"]),
+              ("STUDY_LINKS", set(L.STUDY_LINKS) - builder.used["links"]), ("ITALIC_TERMS", set(L.ITALIC_TERMS) - builder.used["italics"]),
+              ("PARTIAL_BLOCKS", set(L.PARTIAL_BLOCKS) - builder.used["partial"]), ("QUOTE_EXCEPTIONS", set(L.QUOTE_EXCEPTIONS) - builder.used["exceptions"])]
+    for name, left in unused:
+        if left:
+            raise BuildError(f"{name} has entries the text does not use: {sorted(left)}")
 
 
 def check_code() -> None:
-    """The only markup strings allowed are the fixed drawings. Missing page files, inline scripts or handlers fail the build."""
+    """Expected page files only; the one markup string allowed is the fixed drawings in nc-core.js; no inline script or handler."""
     found = {path.name for path in (HERE / "js").glob("*.js")}
     if found != EXPECTED_JS:
         raise BuildError(f"page files differ from the expected list: missing {sorted(EXPECTED_JS - found)}, extra {sorted(found - EXPECTED_JS)}")
@@ -337,107 +390,87 @@ def check_code() -> None:
         for word in ("insertAdjacentHTML", "outerHTML", "document.write", "eval(", "new Function", "javascript:"):
             if word in text:
                 raise BuildError(f"{path.name} uses {word}")
-        allowed = 1 if path.name == "nc-core.js" else 0
-        if text.count("innerHTML") > allowed:
+        if text.count("innerHTML") > (1 if path.name == "nc-core.js" else 0):
             raise BuildError(f"{path.name} uses innerHTML {text.count('innerHTML')} times; only art() in nc-core.js may, once")
     page = (HERE / "index.html").read_text(encoding="utf-8")
     if re.search(r"<script(?![^>]*\bsrc=)", page) or re.search(r"\son[a-z]+=", page):
         raise BuildError("index.html has an inline script or handler")
+    for source in L.SOURCES:
+        if not (source["href"].startswith("https://") or source["href"].startswith("/study/")):
+            raise BuildError(f"source link must be https or a site page: {source['name']}: {source['href']}")
+    for name, folder in L.STUDY_LINKS.items():
+        if not re.fullmatch(r"[a-z0-9-]+-directions", folder) or not (HERE.parent / folder / "index.html").is_file():
+            raise BuildError(f"study link {name!r} points at design/{folder}/, which has no index.html")
 
 
-def check_sources() -> None:
-    for source in SOURCES:
-        href = source["href"]
-        if href is not None and not (href.startswith("https://") or href.startswith("/study/")):
-            raise BuildError(f"source link must be https or a site page: {source['id']}: {href}")
-
-
-def check_complete(study: dict) -> None:
-    required = {"slug", "ask", "hook", "read", "consider", "reflect"}
-    for reading in study["readings"]:
-        missing = required - set(reading)
-        if missing:
-            raise BuildError(f"reading {reading['n']} lacks {sorted(missing)}")
-    if [r["slug"] for r in study["readings"]] != READING_ORDER or [f["id"] for f in READING_FOLDS] != READING_ORDER:
-        raise BuildError("the readings and their folds must follow READING_ORDER")
-    for question in study["questions"]:
-        if "text" not in question or not question["blocks"] or question["blocks"][0]["k"] != "read":
-            raise BuildError(f"question {question['id']} must name its text and open with this study's reading")
-    if len(study["questions"]) != EXPECTED_QUESTIONS:
-        raise BuildError(f"the page says {EXPECTED_QUESTIONS} questions; found {len(study['questions'])}")
-    for key in ("title", "opening", *KEYS["top"].values(), "turnCalvin", *KEYS["close"].values(), "passage", "closing"):
-        if key not in study:
-            raise BuildError(f"content.md lacks {key}")
-
-
-def figures(builder: Builder, study: dict, folds: list, more: list, letters: list) -> dict:
-    walked, used = set(), set()
-    for reading in study["readings"]:
-        for identity in reading["read"]:
+def figures(builder: Builder, study: dict, folds: list, more: list) -> dict:
+    walked, books = set(), set()
+    for part in study["parts"]:
+        for identity in part["readings"]:
             passage = builder.passages[identity]
             walked |= {(passage["code"], v["c"], v["v"]) for v in passage["verses"]}
-            used.add(passage["code"])
-    if used != READING_LETTERS:
-        raise BuildError(f"the page says its readings come from six letters; they use {sorted(used)}")
-    joined = sum(1 for f in more if f["join"])
-    if len(folds) + len(more) != 14 or len(more) != 8 or joined != 7 or len(letters) != 5 or len(BEHOLDS) != 4:
-        raise BuildError("the lead and selection say 14 places (6 and 8), 7 of the 8 with a joining word, 5 letters and 4 Beholds; the lists now differ")
-    shares = [round(100 * l["turn"]["before"] / l["total"]) for l in letters if l["turn"]]
-    return {"readings": len(study["readings"]), "letters": len(used), "verses": len(walked), "folds": len(folds) + len(more), "low": min(shares), "high": max(shares), "questions": len(study["questions"])}
+            books.add(passage["code"])
+    spans, named = {f["span"] for f in folds}, {f["span"] for f in more}
+    return {"parts": len(study["parts"]), "verses": len(walked), "books": len(books), "places": len(spans | named),
+            "shared": len(spans & named), "questions": len(study["questions"])}
 
 
 def fingerprints() -> dict:
-    """Only this study's own inputs. A shared frame file edited by another job must not make this page read as stale."""
-    paths = {CONTENT, HERE / "build-data.py", HERE / "study_lists.py", HERE / "scripture_text.py", *HELD.values(), *(BSB / f"{code}.json" for code in CANON)}
-    return {path.relative_to(WEBSITE.parent).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(paths)}
+    """Only this study's own inputs, so another job editing a shared frame file cannot make this page read as stale."""
+    paths = {CONTENT, *HERE.glob("*.py"), *held_paths(L.HELD), *(BSB / f"{code}.json" for code in CANON)}
+    return {path.relative_to(WEBSITE.parent).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()[:16] for path in sorted(paths)}
 
 
-def build_payload() -> tuple:
-    builder = Builder(load_bible(), fold(FOUNDATION.read_text(encoding="utf-8-sig")))
-    study = parse(builder, CONTENT.read_text(encoding="utf-8-sig").replace("\r\n", "\n").split("\n"))
-    check_complete(study)
+def build(text: str | None = None, bible: dict | None = None, held: dict | None = None) -> tuple:
+    builder = Builder(bible or load_bible(), held or load_held(L.HELD))
+    parser = Parser(builder)
+    study = parser.parse(text if text is not None else CONTENT.read_text(encoding="utf-8-sig"))
+    finish(builder, parser)
     check_code()
-    check_sources()
-    folds = [build_fold(builder, entry) for entry in READING_FOLDS]
-    more = [build_fold(builder, entry) for entry in MORE_FOLDS]
-    letters = [build_letter(builder, letter) for letter in LETTERS]
-    numbers = figures(builder, study, folds, more, letters)
-    data = {"schema": 1, "study": study, "folds": folds, "more": more, "letters": letters, "beholds": build_beholds(builder), "rails": build_rails(builder), "lines": build_lines(builder), "back": build_back(builder),
-            "passages": builder.passages, "sources": [{**s, "name": typographic(s["name"]), "note": typographic(s["note"])} for s in SOURCES], "numbers": numbers, "builtFrom": fingerprints()}
-    payload = "window.NC = " + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n"
-    return payload, numbers, len(builder.passages), sorted(builder.unchecked_confession)
+    folds, more = part_folds(builder, study), text_folds(builder, study)
+    lines = build_lines(builder, study)
+    close_pairs(builder, study["close"])
+    study.pop("foldReadsRaw")
+    numbers = figures(builder, study, folds, more)
+    data = {"schema": SCHEMA, "study": study, "folds": folds, "more": more, "lines": lines, "linesPart": L.LINES_PART,
+            "passages": builder.passages, "sources": L.SOURCES, "sourceLabels": L.SOURCE_LABELS, "numbers": numbers,
+            "builtFrom": fingerprints() if text is None else {}}
+    payload = "// Built by build-data.py from the study's content.md. Do not edit by hand.\nwindow.NC = " + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n"
+    return payload, numbers, builder
 
 
-def write_atomically(target: Path, payload: str) -> None:
-    handle, name = tempfile.mkstemp(prefix="data.js.", suffix=".tmp", dir=target.parent)
-    temporary = Path(name)
-    try:
-        with os.fdopen(handle, "w", encoding="utf-8", newline="\n") as stream:
-            stream.write(payload)
-        os.replace(temporary, target)
-    finally:
-        temporary.unlink(missing_ok=True)
+def report(numbers: dict, builder: Builder) -> None:
+    """What the owner should know each run: notes marked to check, and a claim in the text the readings do not bear out."""
+    notes = sorted(set(builder.checks))
+    print(f"build-data: {len(builder.checks)} notes in the text are marked to check ({len(notes)} different): " + " | ".join(notes))
+    if numbers["books"] != 6:
+        print(f"build-data: owner: the Selection says the passages come from six letters; the main readings come from {numbers['books']} books")
 
 
 def main() -> int:
+    if sys.argv[1:] == ["--selftest"]:
+        from build_selftest import run_selftest
+        return run_selftest(sys.modules[__name__])
     check_only = sys.argv[1:] == ["--check"]
     if sys.argv[1:] and not check_only:
-        print(f"build-data: FAILED: expected no arguments or --check, received {sys.argv[1:]}", file=sys.stderr)
+        print(f"build-data: FAILED: expected no arguments, --check or --selftest; received {sys.argv[1:]}", file=sys.stderr)
         return 2
     try:
-        payload, numbers, passage_count, unchecked = build_payload()
-        target = HERE / "data.js"
+        payload, numbers, builder = build()
         if check_only:
-            current = target.read_text(encoding="utf-8") if target.exists() else None
-            if current != payload:
-                print(f"build-data: STALE: {target} does not match what its inputs build. Run build-data.py.", file=sys.stderr)
+            if not OUT.exists() or OUT.read_text(encoding="utf-8") != payload:
+                print(f"build-data: STALE: {OUT.name} is not what its inputs build now. Run build-data.py.", file=sys.stderr)
                 return 1
         else:
-            write_atomically(target, payload)
-    except (BuildError, OSError, ValueError) as error:
+            temporary = OUT.with_suffix(".js.tmp")
+            temporary.write_text(payload, encoding="utf-8", newline="\n")
+            os.replace(temporary, OUT)
+    except (BuildError, OSError, KeyError, ValueError) as error:
         print(f"build-data: FAILED: {error}", file=sys.stderr)
         return 1
-    print(f"build-data: {'current' if check_only else 'ok'}. {numbers}; {passage_count} passages; confession phrases not in a file the build reads: {unchecked}")
+    report(numbers, builder)
+    done = "all checks pass; data.js is current" if check_only else f"all checks pass; wrote {OUT.name} ({len(payload):,} bytes)"
+    print(f"build-data: {done}. {numbers}; {len(builder.passages)} passages")
     return 0
 
 

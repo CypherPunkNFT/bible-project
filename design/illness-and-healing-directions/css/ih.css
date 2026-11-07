@@ -1,0 +1,268 @@
+/* What Scripture promises the sick. Frame from the Authors mock-ups, hero frame from the Manuscripts mock-up. The
+   study's colour is the Prophets' blue: the drawing and motto come from Isaiah 38, and the last part turns on Isaiah 53.
+   Its own shape: a register of the sick on fine lines, one horizon beneath them, the words offered to the sick tested
+   by three questions, then seven parts whose figures break out of a single reading column. Words and fine rules, not
+   boxes. No focus ring on a click: a keyboard user gets a colour and an underline or border from :focus-visible. */
+.ih-page { --tone: var(--prophets); }
+.ih-page button, .ih-sheet button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:where(.ih-page, .ih-sheet) :is(a, button, summary):focus { outline: none; }
+:where(.ih-page, .ih-sheet) a { color: inherit; }
+.ih-page q { quotes: "“" "”" "‘" "’"; }
+
+.ih-ref { color: var(--tone) !important; font-weight: 500; white-space: nowrap; border-bottom: 1px solid color-mix(in srgb, var(--tone) 35%, transparent); }
+.ih-ref:hover, .ih-ref:focus-visible { border-bottom-color: var(--tone); background: color-mix(in srgb, var(--tone) 12%, transparent); }
+.ih-link { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--tone) 45%, transparent); text-underline-offset: 3px; }
+.ih-link:hover, .ih-link:focus-visible { text-decoration-color: var(--tone); color: var(--tone) !important; }
+.ih-confirm { margin-left: .1rem; font: 600 .7em var(--sans); color: var(--muted) !important; vertical-align: super; }
+.ih-confirm:hover, .ih-confirm:focus-visible { color: var(--tone) !important; text-decoration: underline; }
+.ih-label { font: 600 .62rem/1.3 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.ih-label.is-small { display: block; margin-bottom: .2rem; font-size: .56rem; color: var(--muted); }
+.ih-note { margin-top: .9rem; max-width: 92ch; font-size: .78rem; line-height: 1.6; color: var(--muted); }
+.ih-who { display: block; font: 500 1.08rem/1.3 var(--serif); color: var(--ink); }
+.ih-phrase q { font: 400 1rem/1.45 var(--serif); color: var(--ink); }
+.ih-phrase .ih-ref { font-size: .74rem; }
+.ih-none { font: italic .88rem var(--serif); color: var(--muted); }
+
+/* ── Opening ── */
+.ih-intro { align-items: center; padding-block: 1.6rem 1rem; }
+.ih-trail { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .78rem; color: var(--muted); }
+.ih-trail a { border-bottom: 1px solid transparent; }
+.ih-trail a:hover, .ih-trail a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.ih-here { color: var(--ink); }
+.ih-concepts { margin-top: 1rem; font-size: .68rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.ih-intro h1 { margin-block: .55rem .9rem; }
+.ih-lede { max-width: 60ch; }
+.ih-hero-art { color: var(--muted); }
+.ih-hero-art svg, .ih-close-art svg, .ih-mini, .ih-q-glyph svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.ih-disc { fill: color-mix(in srgb, var(--ink) 4%, transparent); stroke: none; }
+.ih-orbit { stroke-dasharray: 2 6; opacity: .35; }
+.ih-tone { stroke: var(--tone); }
+.ih-faint { opacity: .45; }
+.ih-oil { fill: color-mix(in srgb, var(--accent) 22%, transparent); stroke: none; }
+.ih-glow { fill: color-mix(in srgb, var(--accent) 35%, transparent); stroke: none; }
+.ih-halo { fill: color-mix(in srgb, var(--accent) 9%, transparent); stroke: none; animation: ih-halo 7s ease-in-out infinite; }
+.ih-flame { transform-box: fill-box; transform-origin: 50% 100%; animation: ih-flicker 5s ease-in-out infinite; }
+.ih-dawn { stroke: var(--accent); opacity: .5; animation: ih-dawn 14s ease-in-out infinite; }
+.ih-dawn-up { fill: color-mix(in srgb, var(--accent) 18%, transparent); stroke: var(--accent); }
+.ih-smoke { animation: ih-dawn 10s ease-in-out infinite; }
+.ih-spark { stroke: var(--tone); animation: ih-twinkle 8s ease-in-out infinite; }
+@keyframes ih-flicker { 0%, 100% { transform: scale(1, 1); } 30% { transform: scale(.94, 1.06); } 60% { transform: scale(1.04, .95); } }
+@keyframes ih-halo { 0%, 100% { opacity: .7; } 50% { opacity: 1; } }
+@keyframes ih-dawn { 0%, 100% { opacity: .25; } 50% { opacity: .7; } }
+@keyframes ih-twinkle { 0%, 100% { opacity: .25; } 50% { opacity: .75; } }
+@media (prefers-reduced-motion: reduce) { .ih-flame, .ih-halo, .ih-dawn, .ih-smoke, .ih-spark { animation: none; } }
+.ih-motto { position: static; margin: .2rem 0 0 6%; font: 500 1.02rem/1.35 var(--serif); color: var(--ink); }
+.ih-motto i { display: block; width: 2.6rem; height: 1px; margin-bottom: .6rem; background: var(--muted); }
+.ih-motto span { color: var(--muted); }
+.ih-motto .ih-ref { font: 500 .7rem var(--sans); }
+.ih-hero-art small { position: static; display: block; margin: .5rem 0 0 6%; font-size: .6rem; color: var(--muted); }
+
+.ih-figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1.6rem 0 0; border-block: 1px solid var(--line); }
+.ih-figures > div { padding: .8rem 1rem; border-left: 1px solid var(--line); min-width: 0; }
+.ih-figures > div:first-child { border-left: 0; padding-left: 0; }
+.ih-figures dt { font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.ih-figures dd { margin: .2rem 0 0; font: 500 1.7rem/1.15 var(--serif); }
+.ih-figures small { display: block; margin-top: .1rem; font-size: .74rem; line-height: 1.4; color: var(--muted); }
+.ih-toc { display: flex; flex-wrap: wrap; gap: .3rem 1.3rem; margin: 1rem 0 0; font-size: .8rem; color: var(--muted); }
+.ih-toc a { border-bottom: 1px solid transparent; padding-block: .3rem; }
+.ih-toc a:hover, .ih-toc a:focus-visible { color: var(--ink); border-bottom-color: var(--tone); }
+.ih-toc b { margin-right: .4rem; font-weight: 600; color: var(--tone); }
+
+/* ── The three questions: three lines on one rule ── */
+.ih-asks { margin-top: 2.4rem; }
+.ih-frame { max-width: 72ch; font: 400 1.08rem/1.65 var(--serif); }
+.ih-carry { margin-top: 1rem; font: 600 .7rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ih-questions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2rem; margin: .7rem 0 0; padding: 1rem 0 0; list-style: none; border-top: 1px solid var(--ink); }
+.ih-questions li { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: .2rem .7rem; align-items: start; }
+.ih-q-glyph { display: block; width: 2rem; color: var(--muted); }
+.ih-q-glyph.is-small { display: inline-block; width: 1.2rem; vertical-align: -.35rem; margin-right: .35rem; }
+.ih-q-n { display: none; }
+.ih-questions h3 { font: 500 1.2rem/1.3 var(--serif); }
+.ih-questions p { margin-top: .35rem; font-size: .86rem; line-height: 1.6; color: var(--muted); }
+.ih-care, .ih-open { margin-top: 1.4rem; padding: .7rem 0 .7rem 1.1rem; border-left: 2px solid var(--accent); max-width: 72ch; }
+.ih-care .ih-label { color: var(--accent); }
+.ih-open { border-left: 2px dashed var(--tone); }
+.ih-care p, .ih-open p { margin-top: .25rem; font: 400 .98rem/1.65 var(--serif); }
+
+/* ── 00 The register: one fine line per person ── */
+.ih-reg { margin-top: 3rem !important; }
+.ih-filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1rem; }
+.ih-filter { min-height: 44px; padding: .55rem 1.1rem !important; border: 1px solid var(--line) !important; border-radius: 999px; font-size: .84rem !important; color: var(--muted) !important; }
+.ih-filter:hover, .ih-filter:focus-visible { color: var(--ink) !important; border-color: var(--tone) !important; }
+.ih-filter[aria-pressed="true"] { color: var(--ink) !important; border-color: var(--ink) !important; }
+.ih-register { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--ink); }
+.ih-row { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.15fr); gap: .3rem 1.6rem; padding-block: .95rem; border-bottom: 1px solid var(--line); transition: opacity .25s; }
+.ih-row.is-dim { opacity: .28; }
+.ih-row-part { font-size: .72rem; color: var(--tone) !important; border-bottom: 1px solid transparent; }
+.ih-row-part:hover, .ih-row-part:focus-visible { border-bottom-color: var(--tone); }
+.ih-row-cell { position: relative; min-width: 0; }
+.ih-row-cell + .ih-row-cell::before { content: ""; position: absolute; left: -1.25rem; top: .9rem; width: .9rem; border-top: 1px solid var(--line); }
+.ih-end-label { display: flex; align-items: center; gap: .45rem; margin-bottom: .2rem; font: 600 .7rem var(--sans); letter-spacing: .04em; color: var(--ink); }
+.ih-mark { display: block; width: 1.15rem; height: 1.15rem; fill: none; stroke: var(--tone); stroke-width: 1.6; stroke-linecap: round; }
+.ih-mark .ih-fill { fill: var(--tone); }
+.ih-mark .ih-fill-ink { fill: var(--muted); stroke: none; }
+.ih-later { display: block; margin-top: .3rem; font-size: .78rem; color: var(--muted); }
+.ih-notyet { position: relative; margin-top: 1.4rem; padding-top: 1.1rem; }
+.ih-notyet-line { position: absolute; left: 0; right: 0; top: 0; height: 2px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 70%, transparent) 20%, color-mix(in srgb, var(--accent) 70%, transparent) 80%, transparent); }
+.ih-notyet p { max-width: 80ch; line-height: 1.8; }
+.ih-notyet .ih-label { color: var(--accent); margin-right: .5rem; }
+.ih-notyet .ih-phrase { margin-right: .8rem; }
+
+/* ── Test the words: each saying above its three answers on one rule ── */
+.ih-off-head { display: grid; grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 1fr)) 4rem; gap: 1.4rem; padding-bottom: .5rem; font: 600 .62rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ih-off-head > span:first-child { grid-column: 1; }
+.ih-off-head > span:not(:first-child) { display: flex; align-items: center; }
+.ih-off { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--ink); }
+.ih-off-row { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 3fr) 4rem; gap: 1.4rem; align-items: start; padding-block: .9rem; border-bottom: 1px solid var(--line); }
+.ih-off-says q { font: 400 1.1rem/1.45 var(--serif); }
+.ih-off-says .ih-ref { font-size: .74rem; }
+.ih-off-src { display: block; margin-top: .2rem; font-size: .74rem; color: var(--muted); }
+.ih-off-answers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin: 0; }
+.ih-off-answers dt { display: none; }
+.ih-off-answers dd { margin: 0; font-size: .86rem; line-height: 1.5; }
+.ih-off-answers .ih-ref { font-size: .74rem; }
+.ih-off-part { justify-self: end; font-size: .72rem; color: var(--tone) !important; border-bottom: 1px solid transparent; }
+.ih-off-part:hover, .ih-off-part:focus-visible { border-bottom-color: var(--tone); }
+
+/* ── 01–07 The parts: a full-width head, one reading column, figures breaking out ── */
+.ih-parts, .ih-close { margin-top: 3.2rem; padding-top: 1.8rem; border-top: 1px solid var(--line); }
+.ih-part { scroll-margin-top: 84px; }
+.ih-part-head { display: grid; grid-template-columns: 5.2rem minmax(0, 1fr) 7rem; gap: 1.6rem; align-items: start; }
+.ih-part-n { font: 300 4.4rem/0.9 var(--serif); letter-spacing: -.04em; color: color-mix(in srgb, var(--tone) 60%, transparent); }
+.ih-part-title h2 { font: 500 clamp(1.5rem, 2.6vw, 2rem)/1.2 var(--serif); letter-spacing: -.02em; }
+.ih-part-title h2 em { color: var(--tone); font-weight: 400; }
+.ih-colon { color: var(--muted); }
+.ih-hook { margin-top: .5rem; max-width: 64ch; font: italic 400 1.12rem/1.5 var(--serif); color: var(--muted); }
+.ih-readings { margin-top: .6rem; font-size: .8rem; line-height: 1.7; color: var(--muted); }
+.ih-readings .ih-label { margin-right: .4rem; color: var(--muted); }
+.ih-mini-wrap { display: block; width: 7rem; color: var(--muted); }
+.ih-mini { width: 100%; stroke-width: 1.2; }
+.ih-body { margin: 1.4rem 0 0 6.8rem; max-width: 70ch; font: 400 1.06rem/1.72 var(--serif); }
+.ih-body > * + * { margin-top: .9rem; }
+.ih-body em { font-style: italic; }
+.ih-h3 { margin-top: 1.7rem !important; font: 600 .72rem/1.3 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.ih-quote { margin-inline: 0; padding: .2rem 0 .2rem 1.1rem; border-left: 2px solid var(--tone); }
+.ih-quote blockquote { margin: 0; font: 400 1.2rem/1.55 var(--serif); }
+.ih-quote figcaption { margin-top: .35rem; font: .76rem var(--sans); color: var(--muted); }
+.ih-ask { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 1.6rem !important; padding-top: .9rem; border-top: 1px solid var(--line); }
+.ih-ask dt { font: 600 .62rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.ih-ask dd { margin: .25rem 0 0; font: italic 400 1rem/1.5 var(--serif); }
+.ih-views { margin-top: 1.4rem !important; }
+.ih-views-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; margin-top: .5rem; padding-top: .7rem; border-top: 1px dashed color-mix(in srgb, var(--tone) 50%, transparent); }
+.ih-view h4 { margin: 0; font: 500 1.08rem/1.3 var(--serif); }
+.ih-view p { margin-top: .35rem; font: .9rem/1.65 var(--sans); }
+
+/* The figures: wider than the reading column, never boxed */
+.ih-fig { margin: 1.6rem 0 1.4rem -6.8rem !important; width: calc(100% + 6.8rem); max-width: none; padding-block: 1rem; border-block: 1px solid var(--line); font-family: var(--sans); }
+@media (min-width: 1200px) { .ih-fig { width: min(calc(100vw - 6rem), 74rem); } }
+.ih-fig-q { margin-bottom: .9rem; font-size: .84rem; line-height: 1.5; color: var(--muted); }
+.ih-fig-q .ih-label { margin-right: .4rem; }
+.ih-fig-line { margin-top: .9rem; font: italic 400 1rem/1.5 var(--serif); color: var(--ink); }
+.ih-arrow { display: block; margin: .25rem 0; color: var(--tone); font-size: .9rem; }
+.ih-psalm { display: grid; grid-template-columns: 7rem minmax(0, 1.2fr) minmax(0, 1fr); gap: 1.2rem; align-items: center; padding-block: .45rem; }
+.ih-psalm-name { font: 500 1rem var(--serif); }
+.ih-psalm-name small { display: block; font: .7rem var(--sans); color: var(--muted); }
+.ih-ticks { display: flex; gap: 2px; align-items: flex-end; height: 1.4rem; }
+.ih-ticks i { flex: 1; max-width: .7rem; height: .9rem; border-radius: 1px; background: color-mix(in srgb, var(--ink) 20%, transparent); }
+.ih-ticks i.is-marked { height: 1.4rem; background: var(--tone); }
+.ih-ticks i.is-last { background: var(--ink); }
+.ih-psalm.is-dark .ih-ticks i.is-last { background: #000; box-shadow: 0 0 0 1px var(--muted); }
+.ih-psalm-end b { display: block; font: 600 .7rem var(--sans); letter-spacing: .04em; }
+.ih-steps ol { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.2rem; margin: 0; padding: 0; list-style: none; }
+.ih-steps li { padding-top: .6rem; border-top: 2px solid var(--line); }
+.ih-steps li.in-span { border-top-color: var(--tone); }
+.ih-step-n { display: block; margin-bottom: .3rem; font: 600 .62rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ih-span-note { display: flex; align-items: center; gap: .5rem; margin-top: .8rem; font-size: .78rem; color: var(--muted); }
+.ih-span-note span { width: 2.4rem; border-top: 2px solid var(--tone); }
+.ih-pair-row { display: grid; grid-template-columns: minmax(0, 1fr) 4rem minmax(0, 1fr); align-items: center; }
+.ih-pair-rule { height: 1px; background: var(--tone); }
+.ih-pair-side q { font-size: 1.25rem; }
+.ih-pair-side:last-child { text-align: right; }
+.ih-pair-beneath { margin-top: 1rem; text-align: center; }
+.ih-faith-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+.ih-faith-cell { padding-top: .6rem; border-top: 1px solid var(--line); }
+.ih-faith-cell .ih-phrase { display: block; }
+.ih-faith-cell .is-followed q { color: var(--tone); }
+.ih-actors ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; margin: 0; padding: 0; list-style: none; counter-reset: actor; }
+.ih-actors li { padding-top: .6rem; border-top: 2px solid var(--tone); }
+.ih-actors li:last-child { border-top-color: var(--accent); }
+.ih-song-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4rem; }
+.ih-song-col { padding-left: 1rem; border-left: 1px solid var(--tone); }
+.ih-song-to q { color: var(--tone); }
+.ih-song-applied { margin-top: .6rem; font-size: .84rem; color: var(--muted); }
+.ih-song-applied b { display: block; color: var(--ink); font-weight: 600; }
+
+/* ── Close ── */
+.ih-close-text { max-width: 72ch; font: 400 1.08rem/1.7 var(--serif); }
+.ih-ledger { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4rem; margin-top: 1.6rem; }
+.ih-ledger h3 { padding-bottom: .4rem; font: 600 .66rem var(--sans); letter-spacing: .16em; text-transform: uppercase; border-bottom: 1px solid var(--ink); }
+.ih-not h3 { color: var(--muted); }
+.ih-does h3 { color: var(--tone); }
+.ih-ledger ul { margin: 0; padding: 0; list-style: none; }
+.ih-ledger li { padding: .6rem 0; border-bottom: 1px solid var(--line); font: 400 1.05rem/1.45 var(--serif); }
+.ih-not li { color: var(--muted); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--muted) 60%, transparent); }
+.ih-does li .ih-ref { font: 500 .74rem var(--sans); margin-left: .3rem; }
+.ih-question { margin-top: 1.8rem; max-width: 60ch; font: italic 500 1.35rem/1.45 var(--serif); color: var(--tone); }
+.ih-question strong { font-weight: 500; }
+.ih-again { margin-top: .5rem; font-size: .85rem; color: var(--muted); }
+.ih-promised { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem 2rem; margin-top: 1.4rem; }
+.ih-promised figure { margin: 0; padding-top: .6rem; border-top: 1px solid var(--line); }
+.ih-promised blockquote { margin: 0; font: 400 .98rem/1.6 var(--serif); }
+.ih-promised figcaption { margin-top: .3rem; font-size: .74rem; color: var(--muted); }
+.ih-close-art { display: block; max-width: 640px; margin: 2rem auto 0; color: var(--muted); }
+.ih-sources { margin-top: 1.6rem; padding-top: .8rem; border-top: 1px solid var(--line); font-size: .8rem; line-height: 1.6; color: var(--muted); scroll-margin-top: 84px; }
+.ih-sources h3 { font: 600 .62rem var(--sans); letter-spacing: .16em; text-transform: uppercase; }
+.ih-sources ul { margin: .4rem 0 .6rem; padding: 0; list-style: none; }
+.ih-sources b { color: var(--ink); font-weight: 600; }
+.ih-back { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; margin-top: 1rem; font-size: .85rem; font-weight: 600; color: var(--tone) !important; }
+.ih-back:hover, .ih-back:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Verse sheet: from the right ── */
+.ih-sheet { position: fixed; inset: 0 0 0 auto; width: min(32rem, 100vw); max-width: 100vw; height: 100dvh; max-height: none; margin: 0; padding: 1.2rem 1.4rem 1.6rem; border: 0; border-left: 3px solid var(--prophets); background: var(--surface, var(--page)); color: var(--ink); overflow-y: auto; animation: ih-slide .28s ease-out; }
+.ih-sheet::backdrop { background: rgb(0 0 0 / .35); }
+@keyframes ih-slide { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .ih-sheet { animation: none; } }
+.ih-sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.ih-sheet-head h2 { font: 500 1.35rem/1.2 var(--serif); }
+.ih-sheet-x { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line) !important; }
+.ih-sheet-x:hover, .ih-sheet-x:focus-visible { border-color: var(--prophets) !important; color: var(--prophets); }
+.ih-sheet-text { margin-top: .8rem; font: 400 1.06rem/1.65 var(--serif); }
+.ih-sheet-text p + p { margin-top: .4rem; }
+.ih-sheet-text sup { margin-right: .15rem; font: 600 .6rem var(--sans); color: var(--prophets); }
+.ih-sheet-src { margin-top: .8rem; font-size: .72rem; color: var(--muted); }
+
+/* ── Narrower screens: leave out what does not fit rather than squeeze it ── */
+@media (max-width: 1000px) {
+  .ih-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .ih-row-who { grid-column: 1 / -1; display: flex; gap: .8rem; align-items: baseline; }
+  .ih-row-cell:nth-child(2)::before { display: none; }
+  .ih-off-head { display: none; }
+  .ih-off-row { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .ih-off-answers dt { display: block; font: 600 .56rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .ih-off-part { justify-self: start; }
+  .ih-faith-grid, .ih-actors ol { grid-template-columns: 1fr 1fr; }
+  .ih-steps ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ih-promised { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .ih-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ih-figures > div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .ih-figures > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .ih-questions { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .ih-part-head { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
+  .ih-part-n { font-size: 2.6rem; }
+  .ih-mini-wrap { display: none; }
+  .ih-body { margin-left: 0; }
+  .ih-fig { margin-left: 0 !important; width: 100%; }
+}
+@media (max-width: 640px) {
+  .ih-hero-art { display: none; }
+  .ih-row { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .ih-row-cell + .ih-row-cell::before { display: none; }
+  .ih-off-answers { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
+  .ih-psalm { grid-template-columns: minmax(0, 1fr); gap: .3rem; }
+  .ih-steps ol, .ih-faith-grid, .ih-actors ol, .ih-song-grid, .ih-ask, .ih-views-grid, .ih-ledger, .ih-promised { grid-template-columns: minmax(0, 1fr); }
+  .ih-pair-row { grid-template-columns: minmax(0, 1fr); gap: .8rem; }
+  .ih-pair-rule { display: none; }
+  .ih-pair-side:last-child, .ih-pair-beneath { text-align: left; }
+}

@@ -3,7 +3,7 @@
   if (!window.WYK) return;
   const { h, runs, plain, refLink, page, reducedMotion } = WYK;
   const { study, numbers, words, groups, answers } = window.WY;
-  const motto = plain(study.motto).split(" / ");
+  const motto = study.motto;
   const CENTRE = 210, RADIUS = 172;
   const GROUP_SPACE = 1, GAP_SPACE = 5; // measured in ticks
   const TICKS = { said: [14, 14], reported: [14, 14], asked: [14, 2], dared: [2, 14], mocked: [2, 14], charged: [2, 14] }; // how far in and how far out from the ring
@@ -58,8 +58,8 @@
     h("div", { class: "wy-intro" },
       h("div", {},
         h("nav", { class: "wy-trail", "aria-label": "Study trail" }, h("a", { href: "/study" }, "Study"), h("span", { "aria-hidden": "true" }, "/"), h("a", { href: "/study/theology?area=jesus" }, "Jesus Christ"), h("span", { "aria-hidden": "true" }, "/"), h("span", { class: "wy-here" }, study.title)),
-        h("p", { class: "wy-concepts" }, plain(study.concepts)),
-        h("h1", {}, "Who do you say ", h("em", {}, "I am?")),
+        h("p", { class: "wy-concepts" }, study.concepts.join(" · ")),
+        h("h1", {}, study.title.replace(/I am\?$/, ""), h("em", {}, "I am?"), h("span", { class: "wy-sub" }, study.subtitle)),
         h("p", { class: "wy-lede" }, runs(study.lead)),
         h("figure", { class: "wy-opening" },
           h("blockquote", {}, study.opening.t),
@@ -70,7 +70,9 @@
           h("span", { class: "wy-art-note" }, "Each tick is one line on the wall below: long if stated, shorter if asked, heavy if thrown. Which group each sits in is this study's sorting. The gap is left on purpose."),
           pauseButton))),
     h("dl", { class: "wy-figures" }, figures.map(([label, value, note]) => h("div", {}, h("dt", {}, label), h("dd", {}, String(value)), h("small", {}, note)))),
-    h("div", { class: "wy-stance" }, h("p", {}, runs(study.stance)), h("p", {}, runs(study.selection)))));
+    h("div", { class: "wy-stance" }, h("p", {}, runs(study.stance)), h("p", {}, runs(study.selection))),
+    h("section", { class: "wy-titles", "aria-label": "Three titles" }, h("p", { class: "wy-lead-small" }, runs(study.words)),
+      h("ul", {}, study.titles.map((item) => h("li", {}, runs(item)))))));
 
   let paused = false, visible = true;
   const update = () => {
