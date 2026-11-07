@@ -72,10 +72,7 @@
 .study-experience .am-toned .am-enter:hover{background:var(--ink)}
 .study-experience .am-toned .am-scene{background:color-mix(in srgb,var(--tone) 3%,var(--page))}
 
-/* The live window's colour: indigo, beside Scripture's gold and Academic's orange (owner, 2026-11-06). A deeper indigo
-   in the light theme, as the site's own section colours deepen there. */
-.study-experience .atlas-stage{--tone:#4048b5}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .study-experience .atlas-stage{--tone:#9399f2}}
-:root[data-theme="dark"] .study-experience .atlas-stage{--tone:#9399f2}
+/* The live window's colour: the site's standard gold, outline and Enter button (owner, 2026-11-06; was indigo). */
+.study-experience .atlas-stage{--tone:var(--accent)}
 /* Version 1's button: 245px wide on desktop; on phones it runs the full width, as version 1's does. */
 @media(min-width:861px){.study-experience .atlas-stage .am-over-top .am-enter{width:245px}}
