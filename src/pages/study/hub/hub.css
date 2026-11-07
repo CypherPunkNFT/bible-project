@@ -332,3 +332,5 @@
 }
 .study-experience .atlas-section.in-doors{padding-top:24px}
 @media(max-width:600px){.study-experience .atlas-section.in-doors{padding-top:19px}}
+/* The doors' own numbered title on /study/sections_mockup (owner, 2026-11-06), keeping the old divider's line above it. */
+.study-experience .study-ways-heading{border-top:1px solid var(--line);padding-top:40px}

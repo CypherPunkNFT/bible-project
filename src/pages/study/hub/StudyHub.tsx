@@ -8,8 +8,10 @@ import "./hub.css";
 // pages/mockup/, as the homepage's sections do.
 import { QuizDoor } from "@/pages/home/QuizDoor";
 const AtlasStage = lazy(() => import("./atlas-stage/AtlasStage"));
-/** `Atlas`: a mock-up page can show the study page with a different Atlas window (/study/atlas_mockup/1-4). */
-export default function StudyHub({ Atlas }: { Atlas?: ComponentType }) {
+/** `Atlas`: a mock-up page can show the study page with a different Atlas window (/study/atlas_mockup/1-4).
+ *  `titled`: the mock-up /study/sections_mockup (owner, 2026-11-06): each section under its own numbered title (the
+ *  two doors, the Atlas, the questions) and no people cards. */
+export default function StudyHub({ Atlas, titled = false }: { Atlas?: ComponentType; titled?: boolean }) {
     return <div className="study-experience study-hub-page">
   <div className="hub">
     <header className="hub-intro">
@@ -19,7 +21,9 @@ export default function StudyHub({ Atlas }: { Atlas?: ComponentType }) {
         <p className="intro-lead">Begin with Scripture and its teaching, or explore the history,<br className="wide-break"/> texts and people that illuminate it.</p>
       </div>
     <HubSearch /></header>
-    <div className="section-rule"><span>Choose your way in</span></div>
+    {titled
+      ? <div className="section-heading study-ways-heading"><div><p className="eyebrow">01 / Two ways in</p><h2>The passage, <em>and the world behind it.</em></h2></div><p>Two ways into the same Scripture: what it teaches, and the history that surrounds it.</p></div>
+      : <div className="section-rule"><span>Choose your way in</span></div>}
     <section className="study-doors" aria-label="Study collections">
       <StudyLink className="study-door scripture-door" to="/study/theology/" aria-labelledby="scripture-title">
         <div className="door-top"><span>01 / Begin with the passage</span><Icon name="book"/></div>
@@ -83,8 +87,8 @@ export default function StudyHub({ Atlas }: { Atlas?: ComponentType }) {
       </StudyLink>
     </section>
     {/* The Atlas sits under the two doors as part of "Choose your way in" (owner, 2026-11-06), so the questions become 02. */}
-    {Atlas ? <Atlas /> : <Suspense fallback={<p className="atlas-loading">Loading the Atlas…</p>}><AtlasStage /></Suspense>}
+    {Atlas ? <Atlas /> : <Suspense fallback={<p className="atlas-loading">Loading the Atlas…</p>}><AtlasStage titled={titled} /></Suspense>}
 
-    <PeopleCards /><QuizDoor number="02" />
+    {titled ? <QuizDoor number="03" /> : <><PeopleCards /><QuizDoor number="02" /></>}
     </div></div>;
 }

@@ -8,9 +8,12 @@ import { RefText } from "./RefText";
 /** Room the map keeps clear for the panels laid over its left and right, so places are not hidden under them. */
 const PANEL_INSET: Inset = { left: 252, right: 332 };
 
-export default function AtlasStage() {
+/** `titled`: the Atlas as its own section under a numbered title (mock-up /study/sections_mockup), not tucked under the doors. */
+export default function AtlasStage({ titled = false }: { titled?: boolean }) {
   const choice = useAtlasChoice(), { category } = choice;
-  return <section className="hub-section atlas-section in-doors am-section am-v3 am-toned atlas-stage" id="world" aria-label="The Atlas"><div className="am-window">
+  return <section className={`hub-section atlas-section${titled ? "" : " in-doors"} am-section am-v3 am-toned atlas-stage`} id="world" {...(titled ? { "aria-labelledby": "world-title" } : { "aria-label": "The Atlas" })}>
+    {titled && <div className="section-heading"><div><p className="eyebrow">02 / Time &amp; place</p><h2 id="world-title">Step into <em>their world.</em></h2></div><p>Put a place to the passage, and follow the journeys across the map.</p></div>}
+    <div className="am-window">
     <div className="am-scene"><AtlasMap category={category} chosen={choice.chosen.key} choose={choice.choose} inset={PANEL_INSET} />
       <div className="am-over-left"><GroupedCategories choice={choice} /></div>
       <div className="am-over-right"><p className="am-intro"><RefText text={category.intro} /></p><PlaceNote choice={choice} /><Caveat c={category} /></div>
