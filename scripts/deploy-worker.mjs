@@ -5,12 +5,14 @@ import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { archiveOlderPackages } from './archive-older-packages.mjs';
-import { assertFullCheckPassed, onlyDryRun } from './full-check-gate.mjs';
+import { assertFullCheckPassed, assertWorkerUploadArguments, onlyDryRun } from './full-check-gate.mjs';
 import { assertFrontEndReadsPersonPacks, sitePacksPeople } from './person-packs-guard.mjs';
 import { prefillAssetHashes } from './prefill-asset-hashes.mjs';
 
 if (!existsSync('wrangler.jsonc') || !existsSync('site/index.html')) throw new Error(`Run this from a prepared release directory (wrangler.jsonc and site/index.html); got ${process.cwd()}`);
 if (sitePacksPeople('site')) assertFrontEndReadsPersonPacks('site');
+// Only no arguments or --dry-run, so wrangler uploads the folder the gate below checks (scripts/full-check-gate.mjs).
+assertWorkerUploadArguments(process.argv.slice(2));
 // The translation full check must pass on the folder wrangler uploads (scripts/full-check-gate.mjs); a dry run uploads nothing.
 if (!onlyDryRun(process.argv.slice(2))) assertFullCheckPassed(JSON.parse(readFileSync('wrangler.jsonc', 'utf8')).assets?.directory ?? 'site', { package: true });
 const wrangler = fileURLToPath(new URL('../node_modules/wrangler/bin/wrangler.js', import.meta.url));
@@ -25,5 +27,5 @@ const fastAssets = fileURLToPath(new URL('./wrangler-fast-assets.cjs', import.me
 const result = spawnSync(process.execPath, [wrangler, 'deploy', ...process.argv.slice(2)], { stdio: 'inherit', env: { ...process.env, NODE_OPTIONS: `--require "${fastAssets}"` } });
 if (result.error) throw result.error;
 process.exitCode = result.status ?? 1;
-if (result.status === 0 && !process.argv.includes('--dry-run')) archiveOlderPackages(process.cwd(), fileURLToPath(new URL('../../../../../ARCHIVE/release-copies/', import.meta.url)));
+if (result.status === 0 && !onlyDryRun(process.argv.slice(2))) archiveOlderPackages(process.cwd(), fileURLToPath(new URL('../../../../../ARCHIVE/release-copies/', import.meta.url)));
 // Deployment must never replace dist/: it serves the current working preview on port 8931.

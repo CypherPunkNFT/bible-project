@@ -44,7 +44,41 @@ export function assertFullCheckPassed(site, { data, languages = [], package: isP
   return JSON.parse(line.slice(STAMP.length));
 }
 
-/** Whether wrangler will only pretend: exactly --dry-run, and nothing that turns it back off. */
+/** Whether wrangler will only pretend: the one argument is exactly --dry-run. Anything else ("--dry-run false",
+ *  "--dryRun=false", "--no-dryRun") is not trusted as a dry run, so the gate runs. */
 export function onlyDryRun(argv) {
-  return argv.includes('--dry-run') && !argv.some((arg) => /^--(no-dry-run|dry-run=(false|0|no))$/i.test(arg));
+  return argv.length === 1 && argv[0] === '--dry-run';
+}
+
+/** deploy-worker.mjs uploads the assets folder wrangler.jsonc names, the folder the gate checks. Any argument but
+ *  --dry-run (--assets, -c, --cwd, a positional folder...), another config file wrangler would read first, or an
+ *  environment chosen by CLOUDFLARE_ENV could make wrangler upload something else, so each is refused. */
+export function assertWorkerUploadArguments(argv, { env = process.env, cwd = process.cwd() } = {}) {
+  if (argv.length > 1 || (argv.length === 1 && argv[0] !== '--dry-run')) {
+    throw new Error(`Release refused: deploy-worker.mjs takes no arguments, or only --dry-run, so wrangler uploads the folder the full check judged; got ${JSON.stringify(argv)}.`);
+  }
+  if (env.CLOUDFLARE_ENV) throw new Error(`Release refused: CLOUDFLARE_ENV is set (${env.CLOUDFLARE_ENV}), which can make wrangler upload another environment's assets folder; unset it.`);
+  const others = ['wrangler.json', 'wrangler.toml', path.join('.wrangler', 'deploy', 'config.json')].filter((file) => existsSync(path.join(cwd, file)));
+  if (others.length) throw new Error(`Release refused: ${others.join(', ')} in ${cwd} could be read instead of wrangler.jsonc, whose assets folder the full check judged; expected wrangler.jsonc alone.`);
+}
+
+const PAGES_VALUE_FLAGS = new Set(['--project-name', '--branch', '--commit-hash', '--commit-message']);
+const PAGES_SWITCHES = new Set(['--commit-dirty', '--skip-caching', '--upload-source-maps', '--no-bundle']);
+
+/** deploy-pages-resumable.mjs runs only as "pages deploy <site directory>" plus the options a release uses, so the
+ *  folder the gate checks is the folder uploaded (no "pages publish", --directory, --cwd, -c or extra folder). */
+export function assertPagesUploadArguments(argv) {
+  const [command, subcommand, directory, ...rest] = argv;
+  const refuse = (why) => { throw new Error(`Release refused: ${why}; expected 'pages deploy <site directory> [--project-name X] [--branch X] [--commit-hash X] [--commit-message X] [--commit-dirty] [--skip-caching] [--upload-source-maps] [--no-bundle]', got ${JSON.stringify(argv)}.`); };
+  if (command !== 'pages' || subcommand !== 'deploy') refuse("this uploader only runs as 'pages deploy'");
+  if (!directory || directory.startsWith('-')) refuse("put the site directory right after 'pages deploy' so the release checks can find it");
+  for (let index = 0; index < rest.length; index += 1) {
+    const [flag, inline] = rest[index].split(/=(.*)/s);
+    if (PAGES_VALUE_FLAGS.has(flag)) {
+      if (inline === undefined && (index + 1 >= rest.length || rest[index + 1].startsWith('-'))) refuse(`${flag} needs a value`);
+      if (inline === undefined) index += 1;
+    } else if (!(PAGES_SWITCHES.has(flag) && inline === undefined)) {
+      refuse(`${rest[index]} is not an option this uploader accepts`);
+    }
+  }
 }

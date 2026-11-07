@@ -5,15 +5,14 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { assertFrontEndReadsPersonPacks, sitePacksPeople } from './person-packs-guard.mjs';
-import { assertFullCheckPassed, onlyDryRun } from './full-check-gate.mjs';
+import { assertFullCheckPassed, assertPagesUploadArguments } from './full-check-gate.mjs';
 // A site with packed person records must carry a front end that reads them, however its package was assembled.
-const [command, subcommand, directory] = process.argv.slice(2);
-if (command === 'pages' && subcommand === 'deploy') {
-  if (!directory || directory.startsWith('-')) throw new Error("Put the site directory right after 'pages deploy' so the release checks can find it.");
-  if (sitePacksPeople(directory)) assertFrontEndReadsPersonPacks(directory);
-  // The translation full check must pass on what is uploaded (scripts/full-check-gate.mjs); a dry run uploads nothing.
-  if (!onlyDryRun(process.argv.slice(2))) assertFullCheckPassed(directory, { package: true });
-}
+// Only 'pages deploy <site directory>' and a release's own options, so the folder checked is the folder uploaded.
+assertPagesUploadArguments(process.argv.slice(2));
+const directory = process.argv[4];
+if (sitePacksPeople(directory)) assertFrontEndReadsPersonPacks(directory);
+// The translation full check must pass on what is uploaded (scripts/full-check-gate.mjs). 'pages deploy' has no dry run.
+assertFullCheckPassed(directory, { package: true });
 const original = new URL('../node_modules/wrangler/wrangler-dist/cli.js', import.meta.url);
 const copy = new URL('cli-resumable.cjs', original);
 let source = readFileSync(original, 'utf8');
