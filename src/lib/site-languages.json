@@ -23,6 +23,7 @@
     { "code": "hi", "folder": "hi", "bible": "irv", "name": "हिन्दी", "englishName": "Hindi", "dir": "ltr", "script": "Deva", "plurals": ["one", "other"], "digits": "latn", "font": "\"Noto Serif Devanagari\", \"Nirmala UI\", \"Kohinoor Devanagari\", \"Mangal\", serif", "released": true, "pseudo": false },
     { "code": "id", "folder": "id", "bible": "ind", "name": "Bahasa Indonesia", "englishName": "Indonesian", "dir": "ltr", "script": "Latn", "plurals": ["other"], "digits": "latn", "font": null, "released": true, "pseudo": false },
     { "code": "en-XA", "folder": "xa", "bible": null, "name": "Þšéûðö, ļéƒţ ţö ŕîĝĥţ", "englishName": "Pseudo-language, left to right", "dir": "ltr", "script": "Latn", "plurals": ["one", "other"], "digits": "latn", "font": null, "released": false, "pseudo": true },
-    { "code": "ar-XB", "folder": "xb", "bible": null, "name": "ٹغجقثض, عذخدف فض سجحف", "englishName": "Pseudo-language, right to left", "dir": "rtl", "script": "Arab", "plurals": ["zero", "one", "two", "few", "many", "other"], "digits": "latn", "font": null, "released": false, "pseudo": true }
+    { "code": "ar-XB", "folder": "xb", "bible": null, "name": "ٹغجقثض, عذخدف فض سجحف", "englishName": "Pseudo-language, right to left", "dir": "rtl", "script": "Arab", "plurals": ["zero", "one", "two", "few", "many", "other"], "digits": "latn", "font": null, "released": false, "pseudo": true },
+    { "code": "en-XC", "folder": "xc", "bible": null, "name": "Þšéûðö, çöļð ţéšţ", "englishName": "Pseudo-language, cold test", "dir": "ltr", "script": "Latn", "plurals": ["one", "other"], "digits": "latn", "font": null, "released": false, "pseudo": true }
   ]
 }
