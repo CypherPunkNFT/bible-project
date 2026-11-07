@@ -13,6 +13,11 @@
 .study-experience .am-route{fill:none;stroke:var(--accent);stroke-linecap:round;opacity:.45;pointer-events:none}
 .study-experience .am-trail{fill:none;stroke:var(--accent);stroke-linecap:round;pointer-events:none}
 .study-experience .am-trail-head{filter:drop-shadow(0 0 3px var(--accent))}
+.study-experience .am-start-ripple{fill:none;stroke:var(--accent);pointer-events:none}
+/* A stop the journey has reached looks as it does under the mouse: brighter ring, and its name shown if it was hidden. */
+.study-experience .am-map .map-point .halo{transition:fill-opacity .3s,stroke-opacity .3s}
+.study-experience .am-map .map-point.am-passing .halo{fill-opacity:.23;stroke-opacity:1}
+.study-experience .am-map .am-quiet.am-passing text{opacity:1}
 .study-experience .am-ref{color:inherit;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--muted) 45%,transparent);text-underline-offset:3px;transition:color .2s}
 .study-experience .am-ref:hover{color:var(--accent);text-decoration-color:currentColor}
 .study-experience .am-group-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}

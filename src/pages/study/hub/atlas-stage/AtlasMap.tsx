@@ -1,5 +1,5 @@
 // The study page's Atlas window map: the site's own coastline (atlas-map.json), a camera that glides to fit each category's
-// places, journeys travelling their routes after the glide (RouteTrail), and labels placed so they do not overlap (a hidden label shows on hover).
+// places, journeys told stop by stop after the glide (RouteTrail, which lights each stop it reaches), and labels placed so they do not overlap (a hidden label shows on hover).
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import world from "@/data/atlas-map.json";
 import type { AtlasCategory } from "./atlas-data";
@@ -60,6 +60,8 @@ export function AtlasMap({ category, chosen, choose, inset = NO_INSET }: { categ
   if (size.width < 861) inset = NO_INSET;
   const [camera, setCamera] = useState<Camera>(() => fitCamera(category, height, k, inset));
   const [settled, setSettled] = useState(true);
+  /** The stop each journey's comet has reached, by route; those stops light up as if the mouse were on them. */
+  const [passing, setPassing] = useState<Record<number, string | null>>({});
   useEffect(() => {
     const observer = new ResizeObserver(([entry]) => {
       const width = Math.round(entry.contentRect.width), tall = Math.round(entry.contentRect.height);
@@ -100,10 +102,11 @@ export function AtlasMap({ category, chosen, choose, inset = NO_INSET }: { categ
       <path className="map-grid" d={grid} />
       <g transform={`translate(${camera.tx} ${camera.ty}) scale(${camera.scale})`}><path className="map-land" d={world.land} fillRule="evenodd" vectorEffect="non-scaling-stroke" /></g>
       {camera.scale < 3.2 && REGIONS.map(([name, lon, lat]) => { const [x, y] = toScreen(project([lon, lat]), camera); return <text key={name} className="map-region" x={x} y={y} textAnchor="middle" style={{ fontSize: 10 * k, letterSpacing: 3 * k }}>{name}</text>; })}
-      {settled && category.routes?.map((route, i) => <RouteTrail key={`${category.id}-${i}`} k={k} d={`M${route.map(key => `${byKey[key].x.toFixed(1)} ${byKey[key].y.toFixed(1)}`).join("L")}`} />)}
+      {settled && category.routes?.map((route, i) => <RouteTrail key={`${category.id}-${i}`} k={k} stops={route.map(key => ({ key, x: byKey[key].x, y: byKey[key].y }))}
+        onPassing={key => setPassing(old => old[i] === key ? old : { ...old, [i]: key })} />)}
       {points.map(p => {
         const side = labels[p.key]?.side ?? null, [dx, dy, anchor] = offset(side ?? "right", k);
-        return <g key={p.key} className={`map-point${side ? "" : " am-quiet"}${p.uncertain ? " am-unsure" : ""}`} transform={`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`} role="button" tabIndex={0} aria-label={`Select ${p.name}`} aria-pressed={chosen === p.key}
+        return <g key={p.key} className={`map-point${side ? "" : " am-quiet"}${p.uncertain ? " am-unsure" : ""}${Object.values(passing).includes(p.key) ? " am-passing" : ""}`} transform={`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`} role="button" tabIndex={0} aria-label={`Select ${p.name}`} aria-pressed={chosen === p.key}
           onClick={() => choose(p.key)} onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); choose(p.key); } }}>
           <circle className="halo" r={(chosen === p.key ? 15 : 11) * k} /><circle className="dot" r={(chosen === p.key ? 4.5 : 3.5) * k} />
           <text x={dx} y={dy} textAnchor={anchor} style={{ fontSize: 13 * k, strokeWidth: 3 * k }}>{p.name}</text>
