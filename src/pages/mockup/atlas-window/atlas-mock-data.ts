@@ -1,0 +1,126 @@
+// Mock-up data for the study page's Atlas window, tripled (owner, 2026-11-06: "condense this map and add more items ...
+// triple the content of the map points and categories"). Three categories become nine, five overview points become
+// fifteen, and every point carries a line and its passages. Ids and coordinates are the site's own places.json entries,
+// so each point opens its real place in the Atlas. Not used by any live page.
+import type { LucideIcon } from "lucide-react";
+import { Castle, Church, Crown, Footprints, Landmark, Map, Mountain, Ship, Tent } from "lucide-react";
+
+export interface AtlasPlace { key: string; id: string; name: string; lon: number; lat: number; note: string }
+export interface AtlasCategory {
+  id: string; group: "Places" | "Journeys" | "Stories"; title: string; small: string; intro: string; icon: LucideIcon;
+  href: string; places: AtlasPlace[]; routes?: string[][]; caveat?: string;
+}
+
+type Base = [id: string, lon: number, lat: number, note: string];
+const PLACES: Record<string, Base> = {
+  Rome: ["afc8e7a", 12.49, 41.89, "Capital of the empire. Paul wrote to its church, then reached it under guard. Romans 1:7; Acts 28:14–16."],
+  Corinth: ["a6f437a", 22.88, 37.91, "A port city where Paul stayed eighteen months; two of his letters answer its church. Acts 18:1–11."],
+  Athens: ["a1fe6e7", 23.73, 37.97, "Paul reasoned in the marketplace and spoke before the Areopagus. Acts 17:16–34."],
+  Ephesus: ["a5feb15", 27.34, 37.94, "Paul taught here for more than two years, and all Asia heard the word. Acts 19:8–10."],
+  Antioch: ["ae41ab4", 36.17, 36.23, "The disciples were first called Christians here, and the church sent out Paul and Barnabas. Acts 11:26; 13:1–3."],
+  Alexandria: ["aee7248", 29.9, 31.18, "Egypt's great harbour city, home of Apollos. Acts 18:24."],
+  Jerusalem: ["a15257a", 35.23, 31.78, "The city of David and of the temple, where Jesus was crucified and rose. 2 Samuel 5:6–7; Luke 24:1–7."],
+  Babylon: ["a217d18", 44.42, 32.54, "Capital of the empire that carried Judah into exile. 2 Kings 25:8–11; Daniel 1:1–2."],
+  Nineveh: ["a70fd5d", 43.15, 36.36, "Assyria's great city, called to repent through Jonah. Jonah 3:1–10."],
+  Damascus: ["a69c1d4", 36.31, 33.51, "On the road to this city the risen Jesus stopped Saul. Acts 9:1–19."],
+  Tyre: ["a160272", 35.2, 33.27, "The Phoenician sea power whose king sent cedar for the temple. 1 Kings 5:1–12."],
+  Memphis: ["a8ec269", 31.25, 29.85, "An ancient capital of Egypt, named by the prophets. Jeremiah 46:14; Hosea 9:6."],
+  Ur: ["a6cf75c", 46.1, 30.96, "Ur of the Chaldeans, where Abram's family set out. Genesis 11:31."],
+  Susa: ["a033b84", 48.26, 32.19, "A Persian royal city: the setting of Esther and of Nehemiah's service. Esther 1:2; Nehemiah 1:1."],
+  Tarsus: ["a666ea0", 34.89, 36.91, "Paul's home city in Cilicia. Acts 21:39; 22:3."],
+  Dan: ["a513646", 35.65, 33.25, "The northern edge of the land, \"from Dan to Beersheba\". Judges 20:1."],
+  Hazor: ["a6f33c5", 35.57, 33.02, "The chief Canaanite city of the north, taken by Joshua. Joshua 11:10–11."],
+  Capernaum: ["af2161c", 35.58, 32.88, "Jesus' home by the Sea of Galilee. Matthew 4:13; Mark 2:1."],
+  Nazareth: ["af5884f", 35.3, 32.7, "Where Jesus grew up, and where his own town rejected him. Luke 2:51; 4:16–30."],
+  Megiddo: ["a8554e3", 35.18, 32.59, "A fortress over the Jezreel Valley, built up by Solomon. 1 Kings 9:15."],
+  Samaria: ["a041bb3", 35.2, 32.28, "Capital of the northern kingdom, built by Omri. 1 Kings 16:24."],
+  Shechem: ["adf74d4", 35.28, 32.21, "Where the LORD promised the land to Abram, and Joshua renewed the covenant. Genesis 12:6–7; Joshua 24:1–25."],
+  Shiloh: ["aa4680a", 35.29, 32.06, "The tabernacle's home in the days of the judges and of Samuel. Joshua 18:1; 1 Samuel 1:3."],
+  Bethel: ["a64f355", 35.24, 31.92, "Where Jacob saw the stairway reaching to heaven. Genesis 28:10–19."],
+  Jericho: ["a231f80", 35.44, 31.87, "The first city taken across the Jordan. Joshua 6:1–20."],
+  Bethlehem: ["a112427", 35.21, 31.7, "Town of Ruth and David, and the birthplace of Jesus. Ruth 1:19; Micah 5:2; Luke 2:4–7."],
+  Hebron: ["a85151a", 35.1, 31.53, "Abraham's home by the oaks of Mamre, and David's first capital. Genesis 13:18; 2 Samuel 2:1–4."],
+  Beersheba: ["ad2f6c2", 34.84, 31.24, "The well town of Abraham and Isaac in the south. Genesis 21:31–33."],
+  Gaza: ["aa8edd2", 34.46, 31.5, "A Philistine city, where Samson died. Judges 16:21–30."],
+  Seleucia: ["a6d306d", 35.92, 36.12, "Antioch's port, where Paul and Barnabas set sail for Cyprus. Acts 13:4."],
+  Salamis: ["afa863b", 33.9, 35.18, "They proclaimed the word of God in the synagogues. Acts 13:5."],
+  Paphos: ["a314765", 32.4, 34.76, "The proconsul Sergius Paulus believed. Acts 13:6–12."],
+  Perga: ["aff04b8", 30.85, 36.96, "John Mark left them here and went back to Jerusalem. Acts 13:13."],
+  "Antioch in Pisidia": ["a6c704a", 31.19, 38.31, "Paul's sermon in the synagogue, then the turn to the Gentiles. Acts 13:14–48."],
+  Iconium: ["ae425aa", 32.49, 37.87, "A great number believed, until opposition drove them on. Acts 14:1–6."],
+  Lystra: ["af0719d", 32.34, 37.6, "A lame man healed; Paul stoned and left for dead. Acts 14:8–20."],
+  Derbe: ["aa401a9", 33.36, 37.35, "Many disciples made before the road home. Acts 14:20–21."],
+  Haran: ["a6d9af3", 39.03, 36.86, "Terah's family settled here; Abram left at the LORD's call. Genesis 11:31–12:4."],
+  Egypt: ["af301ca", 31.31, 30.13, "Abram went down to Egypt in a famine. Genesis 12:10."],
+  Rameses: ["a079b21", 31.83, 30.8, "Israel set out from Rameses. Exodus 12:37; Numbers 33:3."],
+  Succoth: ["aa28709", 32.1, 30.55, "The first camp on the way out of Egypt. Exodus 12:37."],
+  Marah: ["ad3970d", 32.94, 29.35, "Bitter water made sweet. Exodus 15:23–25."],
+  Elim: ["a2410c1", 32.92, 29.25, "Twelve springs and seventy palm trees. Exodus 15:27."],
+  Rephidim: ["a05ebb7", 33.88, 28.62, "Water from the rock, and victory over Amalek. Exodus 17:1–13."],
+  "Mount Sinai": ["abfba2a", 33.97, 28.54, "The LORD gave the law and made his covenant with Israel. Exodus 19–20."],
+  "Kadesh-barnea": ["ac2cef0", 34.42, 30.65, "The spies returned here, and Israel refused to enter the land. Numbers 13:26; 14:1–35."],
+  "Mount Nebo": ["aefaa2d", 35.75, 31.77, "Moses saw the land of promise, and died. Deuteronomy 34:1–5."],
+  Cana: ["a031bda", 35.3, 32.82, "The first sign: water turned into wine. John 2:1–11."],
+  Bethsaida: ["a91b732", 35.63, 32.91, "Sight given to a blind man. Mark 8:22–26."],
+  "Caesarea Philippi": ["ab7bf48", 35.69, 33.25, "Peter's confession: \"You are the Christ.\" Matthew 16:13–16."],
+  Nain: ["aee679c", 35.35, 32.63, "A widow's only son raised. Luke 7:11–15."],
+  Sychar: ["a27b472", 35.29, 32.22, "The woman at the well. John 4:5–42."],
+  Bethany: ["a4f35bc", 35.26, 31.77, "Lazarus raised from the tomb. John 11:1–44."],
+  Emmaus: ["ae7274b", 35.16, 31.79, "The risen Lord made known in the breaking of the bread. Luke 24:13–35."],
+  Patmos: ["a8f60f3", 26.54, 37.33, "John received the Revelation on this island. Revelation 1:9."],
+  Smyrna: ["a2e65fb", 27.14, 38.42, "Faithful in suffering: \"Be faithful even unto death.\" Revelation 2:8–11."],
+  Pergamum: ["a75d2c1", 27.18, 39.13, "Held fast to Christ's name in the city of Satan's throne. Revelation 2:12–17."],
+  Thyatira: ["a94b661", 27.84, 38.92, "Growing in love and service, yet tolerating Jezebel. Revelation 2:18–29."],
+  Sardis: ["aab4a5f", 28.04, 38.49, "A reputation for being alive, yet dead. Revelation 3:1–6."],
+  Philadelphia: ["a1c7cc1", 28.52, 38.35, "An open door that no one can shut. Revelation 3:7–13."],
+  Laodicea: ["a83fb1e", 29.11, 37.84, "Neither cold nor hot. Revelation 3:14–22."],
+  Riblah: ["ab2bde8", 36.57, 34.46, "Zedekiah brought before Nebuchadnezzar and judged. 2 Kings 25:6–7."],
+  Ecbatana: ["a212ef7", 48.52, 34.81, "Cyrus's decree to rebuild the temple found in the archives. Ezra 6:1–3."],
+};
+
+/** One place in a category; `note` replaces the place's own line when the category tells a different part of its story. */
+function at(name: string, note?: string): AtlasPlace {
+  const base = PLACES[name];
+  if (!base) throw new Error(`Atlas mock-up: no place named "${name}" in PLACES`);
+  const [id, lon, lat, own] = base;
+  return { key: name, id, name, lon, lat, note: note ?? own };
+}
+
+export const CATEGORIES: AtlasCategory[] = [
+  { id: "map", group: "Places", title: "Explore the map", small: "A place for every passage", icon: Map, href: "/study/atlas/map",
+    intro: "Fifteen places from Rome to Susa. Choose one to see why it matters, then open it in the Atlas.",
+    places: ["Rome", "Corinth", "Athens", "Ephesus", "Tarsus", "Antioch", "Damascus", "Tyre", "Jerusalem", "Alexandria", "Memphis", "Nineveh", "Babylon", "Ur", "Susa"].map(n => at(n)) },
+  { id: "cities", group: "Places", title: "Ancient cities", small: "The world behind the words", icon: Landmark, href: "/study/atlas/cities",
+    intro: "Nine cities that shaped the biblical story, from imperial capitals to the ports of Paul's letters.",
+    places: ["Jerusalem", "Rome", "Corinth", "Athens", "Ephesus", "Antioch", "Alexandria", "Babylon", "Nineveh"].map(n => at(n)) },
+  { id: "land", group: "Places", title: "The Holy Land", small: "From Dan to Beersheba", icon: Mountain, href: "/study/atlas/map",
+    intro: "The land of the promise, north to south: its fortresses, its altars and its towns.",
+    places: ["Dan", "Hazor", "Capernaum", "Nazareth", "Megiddo", "Samaria", "Shechem", "Shiloh", "Bethel", "Jericho", "Jerusalem", "Bethlehem", "Hebron", "Gaza", "Beersheba"].map(n => at(n)) },
+  { id: "paul", group: "Journeys", title: "Follow Paul", small: "The road, the churches, the letters", icon: Ship, href: "/study/atlas/journeys?focus=paul&lens=story",
+    intro: "The first journey outward, from Antioch through Cyprus into Asia Minor. Acts 13–14.",
+    places: ["Antioch", "Seleucia", "Salamis", "Paphos", "Perga", "Antioch in Pisidia", "Iconium", "Lystra", "Derbe"].map(n => at(n)),
+    routes: [["Antioch", "Seleucia", "Salamis", "Paphos", "Perga", "Antioch in Pisidia", "Iconium", "Lystra", "Derbe"]] },
+  { id: "abraham", group: "Journeys", title: "Abraham's journey", small: "Called to go", icon: Tent, href: "/study/atlas/journeys?focus=abraham&lens=story",
+    intro: "From Ur of the Chaldeans to the land of promise. Genesis 11–21.",
+    places: [at("Ur"), at("Haran"), at("Shechem"), at("Bethel", "Abram built an altar between Bethel and Ai. Genesis 12:8."), at("Egypt"), at("Hebron", "Abram settled by the oaks of Mamre at Hebron. Genesis 13:18."), at("Beersheba")],
+    routes: [["Ur", "Haran", "Shechem", "Bethel", "Egypt", "Hebron", "Beersheba"]] },
+  { id: "exodus", group: "Journeys", title: "The Exodus", small: "Egypt & the wilderness", icon: Footprints, href: "/study/atlas/journeys?focus=moses&lens=story",
+    intro: "Out of Egypt, through the wilderness, to the edge of the land.",
+    caveat: "Many stations on this route are traditional locations; scholars place several of them differently.",
+    places: ["Rameses", "Succoth", "Marah", "Elim", "Rephidim", "Mount Sinai", "Kadesh-barnea", "Mount Nebo", "Jericho"].map(n => at(n)).map(p => p.key === "Jericho" ? { ...p, note: "Israel crossed the Jordan and took Jericho. Joshua 3–6." } : p),
+    routes: [["Rameses", "Succoth", "Marah", "Elim", "Rephidim", "Mount Sinai", "Kadesh-barnea", "Mount Nebo", "Jericho"]] },
+  { id: "jesus", group: "Stories", title: "The life of Jesus", small: "Galilee to Jerusalem", icon: Crown, href: "/study/atlas/gospels",
+    intro: "Twelve places in the Gospels, from his birth in Bethlehem to the road to Emmaus.",
+    places: [at("Bethlehem", "Born in the town of David. Luke 2:4–7."), at("Nazareth"), at("Cana"), at("Capernaum"), at("Bethsaida"), at("Caesarea Philippi"), at("Nain"), at("Sychar"), at("Jericho", "Zacchaeus received him, and blind Bartimaeus saw. Luke 19:1–10; Mark 10:46–52."), at("Bethany"), at("Jerusalem", "Crucified, buried and risen on the third day. Luke 23–24."), at("Emmaus")] },
+  { id: "churches", group: "Stories", title: "The seven churches", small: "Letters to Asia", icon: Church, href: "/study/atlas/map",
+    intro: "From Patmos, the risen Christ's words to seven churches, in the order a messenger would carry them. Revelation 2–3.",
+    places: [at("Patmos"), at("Ephesus", "Hard-working and enduring, yet it had left its first love. Revelation 2:1–7."), at("Smyrna"), at("Pergamum"), at("Thyatira"), at("Sardis"), at("Philadelphia"), at("Laodicea")],
+    routes: [["Ephesus", "Smyrna", "Pergamum", "Thyatira", "Sardis", "Philadelphia", "Laodicea"]] },
+  { id: "exile", group: "Stories", title: "Exile & return", small: "Assyria, Babylon, Persia", icon: Castle, href: "/study/atlas/map",
+    intro: "Israel carried to Assyria, Judah to Babylon, and the decree that sent the exiles home.",
+    places: [at("Samaria", "Fell to Assyria; Israel was carried away. 2 Kings 17:5–6."), at("Nineveh", "Capital of Assyria, whose judgment Nahum announced. Nahum 1:1; 3:7."), at("Jerusalem", "Burned by Nebuchadnezzar's army; the people taken to Babylon. 2 Kings 25:8–11."), at("Riblah"), at("Babylon", "By the rivers of Babylon the exiles wept for Zion. Psalm 137:1; Daniel 1:1–6."), at("Susa"), at("Ecbatana")],
+    routes: [["Samaria", "Nineveh"], ["Jerusalem", "Riblah", "Babylon"]] },
+];
+
+export const GROUPS = ["Places", "Journeys", "Stories"] as const;
+export const placeHref = (p: AtlasPlace) => `/study/atlas/map?place=${p.id}`;

@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, type ComponentType } from "react";
 import { Icon, StudyLink } from "./shared";
 import { HubSearch } from "./HubSearch";
 import { PeopleCards } from "./PeopleCards";
@@ -8,7 +8,8 @@ import "./hub.css";
 // pages/mockup/, as the homepage's sections do.
 import { QuizDoor } from "@/pages/home/QuizDoor";
 const AtlasWindow = lazy(() => import("./AtlasWindow"));
-export default function StudyHub() {
+/** `Atlas`: a mock-up page can show the study page with a different Atlas window (/study/atlas_mockup/1-4). */
+export default function StudyHub({ Atlas }: { Atlas?: ComponentType }) {
     return <div className="study-experience study-hub-page">
   <div className="hub">
     <header className="hub-intro">
@@ -82,7 +83,7 @@ export default function StudyHub() {
       </StudyLink>
     </section>
     {/* The Atlas sits under the two doors as part of "Choose your way in" (owner, 2026-11-06), so the questions become 02. */}
-    <Suspense fallback={<p className="atlas-loading">Loading the Atlas…</p>}><AtlasWindow inDoors /></Suspense>
+    {Atlas ? <Atlas /> : <Suspense fallback={<p className="atlas-loading">Loading the Atlas…</p>}><AtlasWindow inDoors /></Suspense>}
 
     <PeopleCards /><QuizDoor number="02" />
     </div></div>;

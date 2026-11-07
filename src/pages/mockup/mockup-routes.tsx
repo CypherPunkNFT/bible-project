@@ -18,6 +18,7 @@ const HomePageMockup11 = lazy(() => import("./HomePageMockup11"));
 const DoorwaysMockupPage = lazy(() => import("./doorways/DoorwaysMockupPage"));
 const HomeMockupsPage = lazy(() => import("@/pages/HomeMockupsPage"));
 const StudyHubMockup = lazy(() => import("./StudyHubMockup"));
+const AtlasWindowMockupPage = lazy(() => import("./atlas-window/AtlasWindowMockupPage"));
 const QuizMockupPage = lazy(() => import("./QuizMockupPage"));
 const WildernessMockupPage = lazy(() => import("./WildernessMockupPage"));
 const QuizMoreMockupPage = lazy(() => import("./QuizMoreMockupPage"));
@@ -129,6 +130,9 @@ export function mockupRoutes() {
     // The Academic page with its five researched drafts as cards, and each draft's research file (owner, 2026-11-06).
     <Route key="academic-drafts" path="/study/academic_mockup" element={<AcademicDraftsMockup />} />,
     <Route key="academic-draft-reader" path="/study/academic_drafts_mockup/:slug" element={<AcademicDraftReaderPage />} />,
+    // The study page with the Atlas window condensed four ways, nine categories and tripled places; one address per
+    // version, nothing added to the page (owner, 2026-11-06).
+    <Route key="study-atlas-window" path="/study/atlas_mockup/:version" element={<AtlasWindowMockupPage />} />,
     <Route key="gallery" path="/mockups" element={<HomeMockupsPage />} />,
   ];
 }
