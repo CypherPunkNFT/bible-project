@@ -1,13 +1,13 @@
 // The Atlas window's own colour, beside Scripture's gold and Academic's orange (owner, 2026-11-06).
 // /study/atlas_colors_mockup/1 and /3: the study page exactly as it would ship, one Atlas window in the colour chosen
-//   for that version: version 1 indigo, version 3 the homepage Atlas drawing's colour (the site's Poetry colour).
+//   for that version: version 1 indigo, version 3 the site's purple (the Gospels colour; it was the homepage Atlas teal until the owner chose purple).
 // /study/atlas_colors_compare/1 and /3: the comparison the choice was made from, seven labelled copies per version
 //   (twelve colours across the two, each page ending in the standard gold).
 import { useParams } from "react-router-dom";
 import StudyHub from "@/pages/study/hub/StudyHub";
 import { AtlasV1, AtlasV3 } from "./AtlasVersions";
 
-const CHOSEN = { v1: "#9399f2", v3: "var(--poetry)" };
+const CHOSEN = { v1: "#9399f2", v3: "var(--gospels)" };
 
 type ToneRow = [name: string, source: string, value: string];
 const TONES_V3: ToneRow[] = [
